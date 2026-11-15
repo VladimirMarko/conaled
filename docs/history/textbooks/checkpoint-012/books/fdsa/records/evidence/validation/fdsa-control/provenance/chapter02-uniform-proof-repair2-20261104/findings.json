@@ -1,0 +1,21 @@
+[
+  {
+    "id": "U-ELAB-025",
+    "prior_record_retained": "U-ELAB-001 through U-ELAB-024 in repair1; none erased",
+    "actual_location": "Applications/Resources/UniformQuickSortMean.lean:298:6",
+    "actual_error": "integral_add rewrite cannot match pointwise child sum while function-sum arguments retain unresolved child metavariables.",
+    "affected_claim": "conditional_mean",
+    "source_correction": "Explicit pointwise f and constant g plus exact leftChild/rightChild arguments for existing conditioned Integrable proofs.",
+    "contract_change": false,
+    "status": "Source repaired and assessed; actual corrected compilation pending."
+  },
+  {
+    "id": "U-ELAB-026",
+    "actual_location": "Applications/Resources/UniformQuickSortMean.lean:578:31",
+    "actual_error": "Unused tactic linter: all-goals sequencing operator should be replaced with ordinary sequencing or removed.",
+    "affected_claim": "meanBy_eq_closedForm",
+    "source_correction": "Keep field_simp and ring in ordinary sequential proof steps.",
+    "contract_change": false,
+    "status": "Source repaired and assessed; actual corrected compilation pending."
+  }
+]

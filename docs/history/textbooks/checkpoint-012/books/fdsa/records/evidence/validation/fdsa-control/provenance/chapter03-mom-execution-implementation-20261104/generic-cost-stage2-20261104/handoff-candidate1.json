@@ -1,0 +1,92 @@
+{
+  "recorded_utc": "2026-11-04T21:53:50.951027+00:00",
+  "candidate": "ef7def9a5a18d2cfc68111bf65d2e036be55c26e",
+  "tree": "8bb7d813f43836af16264ed35a2535ca33d93c67",
+  "parent": "42885f0d87f795252ee50dd01dc9220cfeb20a35",
+  "branch": "work/fdsa-ch03-mom-execution",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+  "status": "clean",
+  "targets": [
+    "Applications.Resources.SelectionGenericBounds",
+    "Examples.SelectionGenericBounds"
+  ],
+  "counts": {
+    "public_declarations": 28,
+    "public_definitions": 2,
+    "public_theorems": 26,
+    "private_declarations": 3,
+    "private_definitions": 0,
+    "private_theorems": 3,
+    "total_declarations": 31,
+    "anonymous_examples": 0
+  },
+  "files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionGenericBounds.lean",
+      "bytes": 14539,
+      "sha256": "6fa26052f629f881318f2c24f39342e0f9f4ae7fadb9f6c6cdfa08ce930dfacf",
+      "relative_path": "Applications/Resources/SelectionGenericBounds.lean",
+      "source_lines": 260,
+      "public_count": 15,
+      "private_count": 0
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionGenericBounds.lean",
+      "bytes": 11433,
+      "sha256": "d6aecf9b57ca6c4e7d939c5e21d57516949713b6a20924071d2a8da66d01b546",
+      "relative_path": "Examples/SelectionGenericBounds.lean",
+      "source_lines": 209,
+      "public_count": 13,
+      "private_count": 3
+    }
+  ],
+  "actual_commit": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage2-20261104/actual-commit-candidate1.json",
+    "bytes": 2282,
+    "sha256": "8f9b6854b74423d9994566deac982aa500ca7c5a7a72d06f35922667aabbf9df"
+  },
+  "inventory": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage2-20261104/source-inventory-statement-and-case-assessment-candidate1.json",
+    "bytes": 143759,
+    "sha256": "b2ce91ce8f4b60b782257652391e77ea57d22d6df285731550a1d8a96f53bb32"
+  },
+  "new_public_explicit_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage2-20261104/SelectionGenericBoundsStatements28-candidate1.lean",
+    "bytes": 2331,
+    "sha256": "f9eb6931a23f6aa50f1a9f7738845af0865e6043a02fde8b966beccb8b5910ea",
+    "public_count": 28,
+    "execution_status": "UNEXECUTED prepared input only"
+  },
+  "combined_selected_public_explicit_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage2-20261104/NestedSelectionCombinedStatements169-candidate1.lean",
+    "bytes": 10188,
+    "sha256": "26628bc52b24c20dec71a3a7924fb935b0acaef6466a8dae80f8ae04911b320c",
+    "public_count": 169,
+    "execution_status": "UNEXECUTED prepared input only",
+    "scope": "Previous selected 141 public worker/book/scalar/envelope names plus all 28 new public generic G names; not a whole-project count."
+  },
+  "exact_source_patch": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage2-20261104/candidate1-source.patch",
+    "bytes": 26899,
+    "sha256": "6b920a250f79628f54f117fcdfd7dcaf68473662eafabf512a5fee22b55bff3c"
+  },
+  "full_source_readbacks": [
+    "9f226a core lines1–145",
+    "3e1031 core lines146–260",
+    "b1161f examples lines1–209"
+  ],
+  "precommit_check": "d4a341 exit 0",
+  "intended_claims": [
+    "The actual median list has exact generic pivotChild size; an observed actual pivot bounds both strict sides through the duplicate-aware count theorem.",
+    "Base = U_d(max(actualCutoff, scalarCutoff)); the scalar G reuses coefficient d*d+4*d+12 and constant7 from the actual local tariff.",
+    "An input size at most either cutoff is handled by the proved actual U bound, without assuming an ordering of the cutoffs or finite payload values.",
+    "Above both cutoffs, strong size induction over the existing actual execution and scalar monotonicity give actual cost ≤ G, retaining one pivot call and at most one selected-side call.",
+    "Invalid n+2 and empty cost2 remain included. One uniform pair of affine constants works for all sizes, and one uniform multiplicative constant works for positive sizes, before payload type/list/rank choices.",
+    "Actual size-indexed families have ordinary linear Big O for fixed d ≥ 5 and any positive algorithm cutoff."
+  ],
+  "case_scope": "All 13 prepared cases are retained: empty Fin0, repeated d5/d6, checked book n21 cost269 within scalar prefix, d5/n72 budget 2*U5(71)+4111, d6/n98 budget 2*U6(97)+7063, cutoff100 versus scalar71 at n80, boundary-invalid72 cost74, d3/4 equality with retained value correctness, all odd/even sufficient groups, repeated Int family and descending family. Three private helpers are fully inventoried.",
+  "preservation": "All 33 existing source paths and all 125 prior own provenance records are unchanged, including the exact focused-passed generic envelope, book F bounds, worker and scalar definitions. No cutoff module, canonical control, ticket, other worktree or unrelated branch changed.",
+  "kernel_scope": "28 new public declarations comprise 2 scalar wrapper definitions and 26 theorems; 3 private source theorems are included. Candidate-bound #check @ inputs enumerate every selected public name. Private compiler-generated names are not guessed, and actual-type/kernel audit scope is not narrowed.",
+  "validation": "UNCOMPILED candidate. No author Lean/Lake commands. Root is the sole compiler. No actual-type, whole check/audit, independent review or acceptance credit.",
+  "write_hold": "All assigned source, own provenance and ref writes stop after the companion hold record and final read-only verification, until parent supplies the actual terminal and releases a next action."
+}

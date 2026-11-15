@@ -1,0 +1,640 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "unit": "FDSA-XT01",
+  "stage": "Independent Standards source preparation in the existing loop; not final approval",
+  "recorded_utc": "2026-11-04T13:32:01.983294+00:00",
+  "base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "tree": "1e7b8d55d44b4302b70cec5b38411b5529247556",
+  "parents": [
+    "a14977b9e316cc484ffad8a470d26b15615956c0"
+  ],
+  "merge_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "commit_subject": "feat(trees): add shared cached-fold observations (#174)",
+  "source_reads": [
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "bytes": 3877,
+      "lines": 80,
+      "sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6",
+      "git_blob": "d97a2c738960b893b733687c4f3d713f5edb0dc6",
+      "complete_read_ranges": [
+        [
+          1,
+          80
+        ]
+      ],
+      "read_status": "complete independent source reading; no truncated content counted"
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "bytes": 5668,
+      "lines": 135,
+      "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "git_blob": "c301ca85e555a8c5bb3c9db10459446121bc6613",
+      "complete_read_ranges": [
+        [
+          1,
+          135
+        ]
+      ],
+      "read_status": "complete independent source reading; no truncated content counted"
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "bytes": 4119,
+      "lines": 107,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "git_blob": "f90fbe8c85b9c88f760236d48129bd2b4c4d7e71",
+      "complete_read_ranges": [
+        [
+          1,
+          107
+        ]
+      ],
+      "read_status": "complete independent source reading; no truncated content counted"
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "bytes": 16307,
+      "lines": 363,
+      "sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "git_blob": "d142e853381de3b7d294d3c023c32d53e2756d5c",
+      "complete_read_ranges": [
+        [
+          1,
+          185
+        ],
+        [
+          186,
+          363
+        ]
+      ],
+      "read_status": "complete independent source reading; no truncated content counted"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 8318,
+      "lines": 253,
+      "sha256": "f6c0e7e43ffdd4f50d7b9a2402d3135d3cd104285c4e539c426ef6cd544b196b",
+      "git_blob": "dbc847cd816f0d6a2101d3873b0d9b389695247b",
+      "complete_read_ranges": [
+        [
+          1,
+          253
+        ]
+      ],
+      "read_status": "complete independent source reading; no truncated content counted"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 18101,
+      "lines": 287,
+      "sha256": "b7e4fd17a6b2b76974a39caa55de6d5231c813b13c8e873a024167f36126d9f1",
+      "git_blob": "91b4dc61828170699a85d1e1fa771e8dbaff6ea4",
+      "complete_read_ranges": [
+        [
+          1,
+          150
+        ],
+        [
+          151,
+          287
+        ]
+      ],
+      "read_status": "complete independent source reading; no truncated content counted"
+    },
+    {
+      "path": "docs/research/fdsa-tree-cache.md",
+      "bytes": 11655,
+      "lines": 183,
+      "sha256": "4d8bfd13aece8fe9c3eeb563ee3908bd443d523c75fcdaa0658fa7b0639d4bed",
+      "git_blob": "5f5b8833fc422addb9eabaa8a97b0b482662924f",
+      "complete_read_ranges": [
+        [
+          1,
+          183
+        ]
+      ],
+      "read_status": "complete independent source reading; no truncated content counted"
+    }
+  ],
+  "source_totals": {
+    "paths": 7,
+    "complete_current_lines": 1408,
+    "complete_current_bytes": 68045,
+    "new_formal_paths": 4,
+    "new_formal_lines": 685,
+    "new_formal_bytes": 29971,
+    "insertions": 894,
+    "deletions": 0
+  },
+  "control_reads": [
+    {
+      "path": "tickets/FDSA-XT01.md",
+      "bytes": 3027,
+      "lines": 56,
+      "sha256": "ebca27d38a3368271b76acdf0d4e8a843596ac338410de58551d49082dcc22c3",
+      "complete_read_ranges": [
+        [
+          1,
+          56
+        ]
+      ],
+      "read_status": "complete independent reading; preflights treated as support, not final review evidence"
+    },
+    {
+      "path": "reviews/binary-tree-cache-requirements.md",
+      "bytes": 14576,
+      "lines": 259,
+      "sha256": "81260794bec3767bb9eaa2d2fcaa8337da015220df60bf4dda147590c8ed23ce",
+      "complete_read_ranges": [
+        [
+          1,
+          135
+        ],
+        [
+          136,
+          259
+        ]
+      ],
+      "read_status": "complete independent reading; preflights treated as support, not final review evidence"
+    },
+    {
+      "path": "reviews/binary-tree-cache-start.md",
+      "bytes": 2034,
+      "lines": 37,
+      "sha256": "5b9c42701df4577ba8db1fd867fd55e14d908df75b1befcf7de7419c3a59ecbc",
+      "complete_read_ranges": [
+        [
+          1,
+          37
+        ]
+      ],
+      "read_status": "complete independent reading; preflights treated as support, not final review evidence"
+    },
+    {
+      "path": "reviews/binary-tree-cache-start.json",
+      "bytes": 392,
+      "lines": 9,
+      "sha256": "1782fab514df5533469afc8769843d7f5cb9813243a33fda8a8da7c2c08dfb69",
+      "complete_read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "read_status": "complete independent reading; preflights treated as support, not final review evidence"
+    },
+    {
+      "path": "reviews/binary-tree-cache-candidate.md",
+      "bytes": 5880,
+      "lines": 102,
+      "sha256": "0f94e8377da3e218a35f97f47d76356aea61ddeb3db959b310e8be12e5d9a18b",
+      "complete_read_ranges": [
+        [
+          1,
+          102
+        ]
+      ],
+      "read_status": "complete independent reading; preflights treated as support, not final review evidence"
+    },
+    {
+      "path": "reviews/binary-tree-cache-source-identities.json",
+      "bytes": 1627,
+      "lines": 50,
+      "sha256": "838c387994e5061aaaf150e6a8c78174b6dd391a715e2d651df1949cdb7c80aa",
+      "complete_read_ranges": [
+        [
+          1,
+          50
+        ]
+      ],
+      "read_status": "complete independent reading; preflights treated as support, not final review evidence"
+    },
+    {
+      "path": "reviews/binary-tree-cache-source-preflight.md",
+      "bytes": 7607,
+      "lines": 125,
+      "sha256": "b0b0c8c5be7f42264f904480c57cd2204b056a6f2fa477b907bdabebc32baa67",
+      "complete_read_ranges": [
+        [
+          1,
+          125
+        ]
+      ],
+      "read_status": "complete independent reading; preflights treated as support, not final review evidence"
+    },
+    {
+      "path": "research/binary-tree-shared-api-preflight.md",
+      "bytes": 31067,
+      "lines": 290,
+      "sha256": "f20e19c370dec48eccd3a52aa65223012853d75240bfa411b36bad5e5f03bafb",
+      "complete_read_ranges": [
+        [
+          1,
+          145
+        ],
+        [
+          146,
+          290
+        ]
+      ],
+      "read_status": "complete independent reading; preflights treated as support, not final review evidence"
+    },
+    {
+      "path": "research/binary-tree-shared-source-preflight.md",
+      "bytes": 24534,
+      "lines": 398,
+      "sha256": "1ba6a33ae3af2018a843de6ca6b8b5f6daaedca78f4cb5eabb4ae0433451db07",
+      "complete_read_ranges": [
+        [
+          1,
+          200
+        ],
+        [
+          201,
+          398
+        ]
+      ],
+      "read_status": "complete independent reading; preflights treated as support, not final review evidence"
+    },
+    {
+      "path": "research/binary-tree-shared-case-preflight.md",
+      "bytes": 5002,
+      "lines": 106,
+      "sha256": "15964bb73f6ffcfb8ff2ff1792aacb7b2c155d1c73a08fcc37f450f41cc000bd",
+      "complete_read_ranges": [
+        [
+          1,
+          106
+        ]
+      ],
+      "read_status": "complete independent reading; preflights treated as support, not final review evidence"
+    }
+  ],
+  "instructions": [
+    {
+      "path": ".agents/skills/code-review/SKILL.md",
+      "bytes": 7466,
+      "lines": 133,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": ".agents/skills/code-review/heuristics.md",
+      "bytes": 2232,
+      "lines": 32,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": ".agents/skills/domain-modeling/SKILL.md",
+      "bytes": 3346,
+      "lines": 74,
+      "sha256": "7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "bytes": 6991,
+      "lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/worked-example.md",
+      "bytes": 2356,
+      "lines": 55,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": ".agents/skills/implement/SKILL.md",
+      "bytes": 4997,
+      "lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": ".agents/skills/setup-matt-pocock-skills/domain.md",
+      "bytes": 2042,
+      "lines": 51,
+      "sha256": "593a7042218689f1d24df89df14eaf0a20e19e0d0a7d479a01947ac78f0784b9",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "bytes": 4824,
+      "lines": 106,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "README.md",
+      "bytes": 26239,
+      "lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "lines": 50,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "bytes": 7331,
+      "lines": 127,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "docs/language-direction.md",
+      "bytes": 19185,
+      "lines": 306,
+      "sha256": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "bytes": 3876,
+      "lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "bytes": 7113,
+      "lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "docs/agents/domain.md",
+      "bytes": 926,
+      "lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "docs/adr/README.md",
+      "bytes": 1547,
+      "lines": 17,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    }
+  ],
+  "local_dependency_reads": [
+    {
+      "path": "Applications/Resources/Measured.lean",
+      "bytes": 2906,
+      "lines": 71,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "read_ranges": [
+        [
+          1,
+          71
+        ]
+      ],
+      "whole_file_read_in_this_pass": true
+    },
+    {
+      "path": "Applications/Resources/CallCount.lean",
+      "bytes": 2447,
+      "lines": 58,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+      "read_ranges": [
+        [
+          1,
+          58
+        ]
+      ],
+      "whole_file_read_in_this_pass": true
+    },
+    {
+      "path": "Applications/Resources/ListReversal.lean",
+      "bytes": 4827,
+      "lines": 116,
+      "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+      "read_ranges": [
+        [
+          1,
+          116
+        ]
+      ],
+      "whole_file_read_in_this_pass": true
+    },
+    {
+      "path": "Applications/Resources/TreeFlattening/Core.lean",
+      "bytes": 4225,
+      "lines": 116,
+      "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+      "read_ranges": [
+        [
+          1,
+          116
+        ]
+      ],
+      "whole_file_read_in_this_pass": true
+    },
+    {
+      "path": "Applications/Sequences/OrderedSummary.lean",
+      "bytes": 8765,
+      "lines": 190,
+      "sha256": "d484e6c34f4ebace4ba121f931eba53a86f34a3c4b69e06d9d0b24ae8c8c7261",
+      "read_ranges": [
+        [
+          1,
+          190
+        ]
+      ],
+      "whole_file_read_in_this_pass": true
+    },
+    {
+      "path": "Applications/Resources/SymmetricCosts.lean",
+      "bytes": 10508,
+      "lines": 281,
+      "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+      "read_ranges": [
+        [
+          1,
+          80
+        ]
+      ],
+      "whole_file_read_in_this_pass": false
+    }
+  ],
+  "local_dependency_identity_only_boundary": "The full 22-source equality comparison is identity accounting, not a claim to have freshly read every dependency. The six explicit read ranges above are the fresh local-context readings. Potential old/T semantic readings remain in the held XP01 record.",
+  "complete_diffs_read": [
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "mathlib_api_reads": [
+    {
+      "path": "Mathlib/Data/Tree/Basic.lean",
+      "bytes": 6679,
+      "lines": 188,
+      "sha256": "43f201537013e2824d18f6b66f6d329f15bc52289c1ae734fa8acd4bd2a9945d",
+      "pinned_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "local_bytes_equal_pinned_git_blob": true,
+      "read_ranges": [
+        [
+          1,
+          188
+        ]
+      ],
+      "whole_file_read_in_this_pass": true
+    },
+    {
+      "path": "Mathlib/Algebra/FreeMonoid/Basic.lean",
+      "bytes": 19259,
+      "lines": 499,
+      "sha256": "82573d5b6f5968524f3c9c84ed91fd6a3f5eb222434789e6a2de7145c870e2a9",
+      "pinned_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "local_bytes_equal_pinned_git_blob": true,
+      "read_ranges": [
+        [
+          27,
+          37
+        ],
+        [
+          60,
+          150
+        ],
+        [
+          287,
+          336
+        ]
+      ],
+      "whole_file_read_in_this_pass": false
+    }
+  ],
+  "primary_source_boundary": "Pinned book/Isabelle identities and source correspondences are retained from the fully read frozen requirements and complete three source/API/case preflights. No fresh primary PDF fetch or rehash is claimed. Actual Lean source and the specified exact pinned Mathlib APIs were independently assessed.",
+  "recording_boundary": "No file writes during checkpoint0107 capture. Root explicitly released new XT01 review/provenance writes after 0107 upload/exposure. Only this new own preparation directory and new own report are written; all prior reports and source remain untouched. No compiler/process/cache/output/ref/global-control action.",
+  "bookkeeping_note": "One exploratory read attempted nonexistent Applications/Resources/Basic.lean, produced a caught Git missing-path error and no content. The actual dependency Applications/Resources/Measured.lean was then located and read completely. This was not a compiler attempt or a source defect.",
+  "protected_records_before": [
+    {
+      "path": "reviews/shared-foundations-standards-continuation-20261104.md",
+      "bytes": 8391,
+      "lines": 129,
+      "sha256": "6e09c7114bbaa2a4d5a7eb538eaf6c2fc29f0bc64d5427afc0a52ceecd68e559"
+    },
+    {
+      "path": "reviews/chapter02-standards-source-preparation-20261104.md",
+      "bytes": 104381,
+      "lines": 421,
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    {
+      "path": "reviews/potential-standards-development-20261104.md",
+      "bytes": 40275,
+      "lines": 204,
+      "sha256": "a8c87f38de333a77ab03c82f7da1d3d1b3f122369dd9abb36c8d85acebf495f8"
+    },
+    {
+      "path": "reviews/affine-recurrence-standards-preparation-20261104.md",
+      "bytes": 15543,
+      "lines": 96,
+      "sha256": "bff3e140f1178b6f77ac2d12a42e544dbf2d7522bc27bcf793d1e7ef55b24e92"
+    },
+    {
+      "path": "reviews/accumulated-work-standards-preparation-20261104.md",
+      "bytes": 19038,
+      "lines": 129,
+      "sha256": "e7ea58583cd0c9eabd73e86e0137c874ea3f85b243e6b6d522387175c33ae1b3"
+    },
+    {
+      "path": "reviews/permutation-expectation-standards-preparation-20261104.md",
+      "bytes": 21944,
+      "lines": 107,
+      "sha256": "4e76fd0c52f06dbee8367db24af2c5da3ad4a1785849a5b0e0609d33f2a9881a"
+    },
+    {
+      "path": "reviews/permutation-joint-standards-preparation-20261104.md",
+      "bytes": 21469,
+      "lines": 91,
+      "sha256": "91aa0305006960edde631eec405f2d8e66461bd016ee21900a9831731ddc0c6d"
+    },
+    {
+      "path": "reviews/permutation-placement-standards-preparation-20261104.md",
+      "bytes": 23981,
+      "lines": 94,
+      "sha256": "120b53767cb488f53c50bfb6f70ed39d825b8e6d1236087da68b8884ae0782a2"
+    },
+    {
+      "path": "provenance/shared-four-statements314-standards-preparation-20261104/projection-and-closure.json",
+      "bytes": 33096,
+      "lines": 856,
+      "sha256": "47e8b8d4b559f599ea154bcb85afe4ba3d2db0114b6266cb832f68e21ef5a759"
+    }
+  ],
+  "final_readback": {
+    "report": {
+      "path": "reviews/binary-tree-cache-standards-preparation-20261104.md",
+      "bytes": 22912,
+      "lines": 89,
+      "sha256": "a24df99f02fd70300f25b982b53293d2f0d8485f053b8891829fe81c37043c97",
+      "complete_read_ranges": [
+        [
+          1,
+          55
+        ],
+        [
+          56,
+          89
+        ]
+      ]
+    },
+    "all_seven_immutable_source_identities_reverified": true,
+    "all_115_stored_source_header_prefixes_reconciled_against_immutable_source": true,
+    "all_115_public_names_unique": true,
+    "all_four_equation_delimiters_verified_before_first_equation": true,
+    "all_nine_prior_protected_records_unchanged": true,
+    "related_receipts": [
+      {
+        "path": "provenance/binary-tree-cache-standards-preparation-20261104/source-preparation.json",
+        "bytes": 105667,
+        "lines": 2316,
+        "sha256": "a7ac84609e2cdfca8187357e4e6d379d097c70bf0a2744a4f2aa72f70c43a5de"
+      },
+      {
+        "path": "provenance/binary-tree-cache-standards-preparation-20261104/dependency-closure.json",
+        "bytes": 47280,
+        "lines": 1256,
+        "sha256": "b89fa256d6d9cab66f7d2476f86ad465f0d48c2fd4e3e0d50f537ed45e01f831"
+      }
+    ],
+    "actual_type_credit": 0,
+    "compiler_credit": 0,
+    "audit_credit": 0,
+    "overall": "Blocked",
+    "own_write_state": "HOLD after this coherent boundary; awaiting root continuation"
+  }
+}

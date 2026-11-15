@@ -1,0 +1,501 @@
+{
+  "format": 1,
+  "recorded_utc": "2026-11-05T04:03:15.365027+00:00",
+  "agent": "/root/checkpoint0137_acceptance_inspection",
+  "role": "Independent operational inspection of newly closed inputs and coordinator gate schemas; not a Standards or Spec mathematical axis.",
+  "unit": "FDSA-XT02",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "accepted_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "outcome": "Passed for the bounded operational reconciliation described here; actual final review dispositions, root gate, immediate verification, fast-forward and acceptance remain separate required actions.",
+  "unresolved_operational_findings": [],
+  "mathematical_review_claimed": false,
+  "acceptance_authorized_by_this_record": false,
+  "actual_closed_full": {
+    "owned_session": 25113,
+    "terminal_chunk": "911909",
+    "closure_chunk": "0d933c",
+    "actual_exit": 0,
+    "terminal_session_is_historical_never_poll": true,
+    "native_command": [
+      "./check.sh",
+      "--candidate",
+      "HEAD"
+    ],
+    "lean_threads": "1",
+    "candidate_and_final_head": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+    "final_status": "",
+    "full_log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/full.log",
+      "bytes": 326815,
+      "sha256": "47b4f52f06b9610b6d0c54c7f02daf0feb6cf56783fca555927e164ed9fd358b"
+    },
+    "native_log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/native-records/output.log",
+      "bytes": 326586,
+      "sha256": "24a3e9d664836b1c39cbe7725ef623a030615cd67efaecadfe338e2111d8b078"
+    },
+    "all_11_root_audit_bindings_rehashed": true,
+    "complete_log_equals_prefix_plus_native_plus_suffix": true,
+    "no_timeout_or_recorder_error": true
+  },
+  "audit_record_reconciliation": {
+    "checked_modules": 1116,
+    "audit_rows": 1114,
+    "logical_declarations": 50422,
+    "theorem_declarations": 29543,
+    "unsafe_runtime_declarations": 0,
+    "compiled_project_modules": 1115,
+    "pre_integrity_artifacts": 3345,
+    "post_integrity_artifacts": 3345,
+    "pre_invalidated_modules": 0,
+    "post_inconsistent_modules": 0,
+    "axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "source_policy_passed": true,
+    "expectations_match_actual_audit": true,
+    "verification": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/verification.json",
+      "bytes": 867,
+      "sha256": "379dcc3142a4ea4b207f7e1c952ef4ca08c1b80c39168816d168cac5f6023503"
+    },
+    "all1114_saved_log_rows_computationally_parsed_unique": true,
+    "all1111_prior_rows_unchanged": true,
+    "exactly_three_added_rows": {
+      "Applications.Trees.Shape": {
+        "logical_declarations": 56,
+        "theorem_declarations": 49,
+        "unsafe_runtime_declarations": 0
+      },
+      "Applications.Trees.ShapeLog": {
+        "logical_declarations": 7,
+        "theorem_declarations": 7,
+        "unsafe_runtime_declarations": 0
+      },
+      "Examples.TreeShape": {
+        "logical_declarations": 71,
+        "theorem_declarations": 57,
+        "unsafe_runtime_declarations": 0
+      }
+    },
+    "whole_project_counts_not_new_book_result_counts": true,
+    "no_kernel_audit_program_rerun": true
+  },
+  "input_observations": {
+    "before": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/inputs-before.json",
+      "bytes": 34483,
+      "sha256": "1ee3406ca37aeaa9b62485d8719d1085fc7803f41c01229526619f48e2c2a963"
+    },
+    "after_types": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/inputs-after.json",
+      "bytes": 34785,
+      "sha256": "e099ff7584144fe5d9c3294dea7d19139009622808de2ab65b4a437dbc0353ee"
+    },
+    "after_full": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/final-inputs-after-full.json",
+      "bytes": 34785,
+      "sha256": "c44a0f8632b982d3080329c074fe17b1642eb7fcc5b8e193fcae0a3c034a063f"
+    },
+    "actual_post_full_observation_terminal": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/final-inputs-after-full-actual-result.json",
+      "bytes": 449,
+      "sha256": "68a3936e5001bd149a34fd81f5eb180f8f5bffea44b76e4ff23c0a912597cdd4"
+    },
+    "post_full_actual_chunk": "b2da80",
+    "actual_exit": 0,
+    "all_three_complete_stored_identity_objects_exactly_equal": true,
+    "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+    "clean": true,
+    "public_names": 90,
+    "local_sources": 29,
+    "local_compiler_objects_and_traces": 87,
+    "configuration": 10,
+    "dependencies": 9,
+    "runtime": 12,
+    "exact_program": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean",
+      "bytes": 4199,
+      "sha256": "fab2460caafba1f3f28a09006c4e220b9c735857e02294091486cdf4e8461c33"
+    },
+    "saved_compiler_and_all9_pins_equal_accepted_XT01": true,
+    "type_run_verification_exactly_equals_inherited_accepted_XT01_verification": true,
+    "inherited_type_verification_has_no_XT02_full_credit": true,
+    "live_runtime_or_object_rehash_performed_by_this_inspector": false
+  },
+  "coordinator_schema_inspection": {
+    "root_gate": {
+      "helper": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/reconcile_root_gate_once.py",
+        "bytes": 15637,
+        "sha256": "b151c4b2b8bdc0418415f933d6fb34f7e47de2ac7ec8b297a1e587ffa9697c76"
+      },
+      "unchanged_from_complete_read_ee7154": true,
+      "actual_expectations_guard_now_has_matching_input": true,
+      "requires_both_original_final_assessments_and_holds": true,
+      "requires_exact_scope_completion_types_validation_passes_and_zero_findings": true,
+      "requires_coordinator_and_reviewer_complete_report_readback_receipts": true,
+      "checks_book_still_at_904_before_gate": true,
+      "checks_current_candidate_sources_objects_configuration_dependencies_runtime_and_project_lock": true,
+      "produces_preacceptance_gate_only_unit_accepted_false": true
+    },
+    "fast_forward": {
+      "helper": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/fast_forward_once.py",
+        "bytes": 7269,
+        "sha256": "d84afcb02590a4c89f26af8b231e773a23af0af4410d9468edeab54112b1c6b8"
+      },
+      "complete_current_read_receipt": "555c17",
+      "requires_passed_both_axes_and_held_gate_bindings": true,
+      "requires_actual_immediate_result_owned_native_closure_and_matching_verification": true,
+      "requires_exact_79_reference_nine_worktree_snapshot": true,
+      "only_mutating_git_action": "git -C conaled merge --ff-only e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "after_action_requires_only_book_reference_advance_and_all_other_heads_statuses_preserved": true
+    },
+    "acceptance_recorder": {
+      "helper": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/save_acceptance_once.py",
+        "bytes": 16065,
+        "sha256": "0656f226aea22861733b4acece2f3b3d789ae30b93f61fd436af85b39224c969"
+      },
+      "unchanged_from_complete_read_1da045": true,
+      "requires_actual_completed_fast_forward_and_tool_exit0": true,
+      "requires_accepted_book_head_and_tree_already_at_candidate": true,
+      "requires_actual_immediate_terminal_exit0_closure_and_matching_verification": true,
+      "preserves_original_base_donor_five_requirements_six_paths_three_modules_90_public_names_and_private_definition": true,
+      "observation_and_index_both_bind_root_source_type_reconciliation": true,
+      "chapter04_and_whole_book_completion_remain_false": true,
+      "checkpoint_durability_remains_pending_until_actual_completion": true
+    },
+    "boundary": "These are source-level operational checks of coordinator helpers and actual closed inputs. No helper was executed. Actual final reviewer files were not assessed while their authors were working."
+  },
+  "observed_preacceptance_state": {
+    "receipt": "24a468",
+    "book_head": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+    "root_gate_record_existed": false,
+    "fast_forward_result_existed": false,
+    "acceptance_record_existed": false,
+    "boundary": "Historical read-only observation, not a claim about changes the coordinator may make later."
+  },
+  "structural_design_hold_reconciliation": {
+    "hold": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-design-readback-and-hold.json",
+      "bytes": 10357,
+      "sha256": "d6649d1f55e31100126a9f081898ba986a40e268b18df1b9932f336a348a28ee"
+    },
+    "new_design_artifacts": [
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-case-notes.md",
+        "bytes": 8228,
+        "sha256": "f7db77a301608f1a70c55a60bb7decf1f8250275caecd1128ce0b5861fa272dd"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-completeness-frozen-contract.md",
+        "bytes": 10636,
+        "sha256": "cd954bc25877b7121f20dc0a89cde84f7d7fc4dade4b42bc20757e714acf3202"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-contract-readback-clarifications.md",
+        "bytes": 3008,
+        "sha256": "797121952bd437bc2df69e207e54a7bf6a7c4f2b4b27e5d993725ab260c586a4"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-design-input-identities.json",
+        "bytes": 10962,
+        "sha256": "8838a9b399dc3197d15284ddc96c2949eb43f6d6c699dd596837676464e0ef24"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-design-read-receipts.json",
+        "bytes": 9040,
+        "sha256": "002fc479c325fe9f4a5882b66a872146b8d253d4fbe13944b6b41c7b364d0083"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-existing-api-bindings.json",
+        "bytes": 15234,
+        "sha256": "92bc11f022184a9da93090a69adebaf710b5ca0431fe93bdac5333142130077e"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-future-almost-complete.md",
+        "bytes": 3757,
+        "sha256": "3618faf4d97ecc455ec73e9a8a314099b2cd177d4ae6ef9fb4445f36fd3b5b14"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-maximal-complete-subtree-frozen-contract.md",
+        "bytes": 12118,
+        "sha256": "533bccd063e03d7a1729a5a56376fb15d237803e14fff92c65471d68687b2c55"
+      }
+    ],
+    "eight_artifacts_plus_one_final_hold_equals_nine_files": true,
+    "all_eight_artifact_hashes_match": true,
+    "all15_preexisting_provenance_hashes_match": true,
+    "old_source_hold_preserved": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/author-readback-and-hold.json",
+      "bytes": 9186,
+      "sha256": "0e1795f1e1e40c259bcda8dbfbbfead760644fdc34bfd4c3ef8a5bbde3fae54e"
+    },
+    "four_source_file_hashes_match": true,
+    "checkout": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+      "branch": "work/fdsa-ch04-structural",
+      "head": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1",
+      "tree": "e2d4cb95882c3775dc01846c4010da3b92c78d34",
+      "status_porcelain": ""
+    },
+    "read_only_git_head_tree_status_match": true,
+    "whole_chapter_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+    "all76_obligations_retained": true,
+    "formal_implementation_compilation_or_acceptance_credit": false,
+    "complete_design_contents_semantically_reviewed_by_this_inspector": false
+  },
+  "final_writer_hold_schema_advice": [
+    "Retain the existing 0138 hold structure for checkpoint name, all_writers_held, compiler_live, qualified_project_lock_available, accepted/qualified head and tree, actual acceptance/coverage/root-gate bindings, independent review holds, author holds, closed progress and release condition.",
+    "Fill the e61 accepted head/tree and acceptance bindings only after both actual final axes, root gate, immediate verification and the exact local fast-forward. Successful full validation alone does not set acceptance.",
+    "Use the actual final Standards/Spec hold bindings and the root/reviewer completion readback receipts; do not resolve future dispositions from this operational note.",
+    "Preserve the structural original author-readback-and-hold.json. Add a separate chapter04_design_holds row binding phase3-design-readback-and-hold.json and its eight new_artifacts_complete_readback files, with compiled:false and accepted:false. This captures nine new files without rewriting the prior source hold or treating frozen design as implemented mathematics.",
+    "Include the actual author final-record readback/hold completion receipt supplied to root; the design hold itself correctly describes its own post-creation readback as a subsequent receipt, not an already-recorded event.",
+    "Use the current exercise phase2-source-freeze.json at d024197 with all eight source files; preserve the earlier 106601ff hold as historical. Keep structural af03b76 and balancing a8f57db sources uncompiled/unaccepted.",
+    "Bind the actual final progress file only after the immediate closure. Expected 113 plus six equals 119 is a conditional inventory requirement; retain both failed focuses and both earlier exceptional histories.",
+    "Use the actual 79-reference/nine-worktree held snapshot and final resource measurement. Keep all writers held through capture/create/verify/upload/exposure/durability; release only after the actual durability record.",
+    "Keep the 0139 proposals disabled until root independently finishes exact-code and actual-evidence inspection, then resolve only the current acceptance configuration from actual records while preserving its initial pending copy."
+  ],
+  "checkpoint0139_proposals": {
+    "still_held": true,
+    "configuration_resolved": false,
+    "configuration": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/acceptance-configuration.json",
+      "bytes": 990,
+      "sha256": "6e7814ed32faadddd2efe1242191f28a5866956857ff9c8ae66b4ec1f9d00109"
+    },
+    "no_proposal_files_changed_in_this_task": true,
+    "no_independent_approval_of_own_authored_proposals_claimed": true
+  },
+  "read_receipts": [
+    {
+      "tool_chunk": "6e4da2",
+      "actual_exit": 0,
+      "scope": "Complete root-audit-reconciliation, saved verification and actual final-evidence-expectations JSON"
+    },
+    {
+      "tool_chunk": "a4bae0",
+      "actual_exit": 0,
+      "scope": "Complete outer/native/owned/actual/closure records and outer prefix/suffix; all 11 root-audit bindings rehashed and full log byte decomposition checked"
+    },
+    {
+      "tool_chunk": "870a0f",
+      "actual_exit": 0,
+      "scope": "Complete phase3-design-readback-and-hold.json"
+    },
+    {
+      "tool_chunk": "8102cf",
+      "actual_exit": 0,
+      "scope": "All three stored input JSON identity objects parsed and compared exactly; complete metadata, program names and runtime entries printed; saved compiler/pins and inherited prior verification comparison"
+    },
+    {
+      "tool_chunk": "e112a1",
+      "actual_exit": 0,
+      "scope": "Closed native log first18 and final15 lines plus all scope-name matches; no whole-log human read claim"
+    },
+    {
+      "tool_chunk": "555c17",
+      "actual_exit": 0,
+      "scope": "Complete current fast-forward helper, plus unchanged current root-gate and acceptance-recorder identities"
+    },
+    {
+      "tool_chunk": "24a468",
+      "actual_exit": 0,
+      "scope": "Independent saved-log row counts/sums and prior-row comparison; actual expectation binding comparison; all eight design files, 15 older records and four source files rehashed; read-only structural head/tree/status and book/acceptance-record existence observations"
+    },
+    {
+      "tool_chunk": "16ceef",
+      "actual_exit": 0,
+      "scope": "Complete actual post-full-observation tool result and prior 0138 write-hold schema; both saved native integrity-guard lines"
+    },
+    {
+      "tool_chunk": "ee7154",
+      "actual_exit": 0,
+      "scope": "Retained complete read of unchanged prepared root-gate helper, 252 lines"
+    },
+    {
+      "tool_chunk": "1da045",
+      "actual_exit": 0,
+      "scope": "Retained complete read of unchanged prepared acceptance recorder, 187 lines"
+    }
+  ],
+  "bindings": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/root-audit-reconciliation.json",
+      "bytes": 6725,
+      "sha256": "85dd530168d74c6f631a723154f613804a9777b2ceb3b394eee71becc982cd52"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/final-evidence-expectations.json",
+      "bytes": 965,
+      "sha256": "d9b1badac43cf7f6961b98545593d8d519e4730e5467754d3d392ce4a5188c15"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/verification.json",
+      "bytes": 867,
+      "sha256": "379dcc3142a4ea4b207f7e1c952ef4ca08c1b80c39168816d168cac5f6023503"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/result.json",
+      "bytes": 1256,
+      "sha256": "4bec18d19e16579555633111050e54bd4e443add13efa8d348fac2cbbcfcdb61"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "f36bce46608672c9b43b8cd206b6faf914ff2fa1211fa7e4b740e4d97401cedd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "sha256": "36dfc8ae9b902c8dc8e0232cac699ab94dc95c6b9ac78d62809e417562ced583"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2377,
+      "sha256": "e8f6a27379b5d3fbaead75a7081970976ac042ff2a4884f2e5bc072f527e148b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/actual-closure-result.json",
+      "bytes": 2567,
+      "sha256": "e4e81fca8f4fad25c5edb766236fd51bc1d7cfea6573b57af82f4f4f2b09e6b3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/native-records/start.json",
+      "bytes": 421,
+      "sha256": "9046d202eae67d88712a9199312367c8b14d3e912a3faa2e22e072566ee0fe77"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/native-records/result.json",
+      "bytes": 574,
+      "sha256": "d40ba095e94d66f8505db69a99fd8e9e321713d0e43e53cf1804d7485ebdec3b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/full.log",
+      "bytes": 326815,
+      "sha256": "47b4f52f06b9610b6d0c54c7f02daf0feb6cf56783fca555927e164ed9fd358b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/native-records/output.log",
+      "bytes": 326586,
+      "sha256": "24a3e9d664836b1c39cbe7725ef623a030615cd67efaecadfe338e2111d8b078"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/outer-prefix.log",
+      "bytes": 70,
+      "sha256": "85b1c84dcee195655562afb91455f0d9c98388a8be8845b8eb9306ffa317cfab"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/outer-suffix.log",
+      "bytes": 159,
+      "sha256": "e22fe7c8d23ba3bc77adbdf767d6c9fa286936973d62f5fd70afb4470fd20fc2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/inputs-before.json",
+      "bytes": 34483,
+      "sha256": "1ee3406ca37aeaa9b62485d8719d1085fc7803f41c01229526619f48e2c2a963"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/inputs-after.json",
+      "bytes": 34785,
+      "sha256": "e099ff7584144fe5d9c3294dea7d19139009622808de2ab65b4a437dbc0353ee"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/final-inputs-after-full.json",
+      "bytes": 34785,
+      "sha256": "c44a0f8632b982d3080329c074fe17b1642eb7fcc5b8e193fcae0a3c034a063f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/final-inputs-after-full-actual-result.json",
+      "bytes": 449,
+      "sha256": "68a3936e5001bd149a34fd81f5eb180f8f5bffea44b76e4ff23c0a912597cdd4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean",
+      "bytes": 4199,
+      "sha256": "fab2460caafba1f3f28a09006c4e220b9c735857e02294091486cdf4e8461c33"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/reconcile_root_gate_once.py",
+      "bytes": 15637,
+      "sha256": "b151c4b2b8bdc0418415f933d6fb34f7e47de2ac7ec8b297a1e587ffa9697c76"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/fast_forward_once.py",
+      "bytes": 7269,
+      "sha256": "d84afcb02590a4c89f26af8b231e773a23af0af4410d9468edeab54112b1c6b8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/save_acceptance_once.py",
+      "bytes": 16065,
+      "sha256": "0656f226aea22861733b4acece2f3b3d789ae30b93f61fd436af85b39224c969"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-design-readback-and-hold.json",
+      "bytes": 10357,
+      "sha256": "d6649d1f55e31100126a9f081898ba986a40e268b18df1b9932f336a348a28ee"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/author-readback-and-hold.json",
+      "bytes": 9186,
+      "sha256": "0e1795f1e1e40c259bcda8dbfbbfead760644fdc34bfd4c3ef8a5bbde3fae54e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/acceptance-configuration.json",
+      "bytes": 990,
+      "sha256": "6e7814ed32faadddd2efe1242191f28a5866956857ff9c8ae66b4ec1f9d00109"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/initial-pending-acceptance-configuration.json",
+      "bytes": 990,
+      "sha256": "6e7814ed32faadddd2efe1242191f28a5866956857ff9c8ae66b4ec1f9d00109"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/preparation.json",
+      "bytes": 11877,
+      "sha256": "74e194486106c04516cfa2c366861f2e0b5817084d0b6e6d5523d89e0e084f5a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/verify-checkpoint.py",
+      "bytes": 59014,
+      "sha256": "4691f3fe1c0fca3bee33dec316df085e44b76fe19fef24cc4216867b0c137312"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/capture.py",
+      "bytes": 9349,
+      "sha256": "886a58f7fe5866b7aaed071a86e7ac3d4dd1bd815722257c78264a7aa06d49f6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/run-stage.py",
+      "bytes": 3201,
+      "sha256": "143b21d296ae814c52f53e8f0a67f00cc321ec0aef514e3c6fbe5353386527bf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0138-preparation/write-hold.json",
+      "bytes": 7790,
+      "sha256": "7d719d3bb39fe8e4d2054febe20c424056ca6b99d7b5a89c74d978c7e50748f6"
+    }
+  ],
+  "read_scope_limitations": [
+    "No complete human read of the 2779-line native log; all saved audit rows were computationally reconciled and the stated bounded lines were read.",
+    "No new source mathematical assessment, actual final axis assessment or declaration acceptance.",
+    "No live project object/runtime hashing or qualified current-verification read by this inspector; root gate retains its mandatory current-state checks."
+  ],
+  "prohibited_actions_performed": {
+    "compiler_setup_hydration_or_audit_program": false,
+    "project_or_checkpoint_helper_execution": false,
+    "session_polling": false,
+    "source_or_ref_mutation": false,
+    "profile_dependency_or_output_mutation": false,
+    "proposal_or_root_record_edits": false,
+    "uploads": false
+  },
+  "only_new_write_this_task": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/operational-final-input-inspection.json",
+  "own_final_readback": "This newly written record will be read completely and its bindings checked in the next read-only tool call; the actual receipt will be reported to root without rewriting this record.",
+  "hold": "All inspector writes held after the complete readback; the authored 0139 proposals remain held and disabled. Await root instructions for any further task."
+}

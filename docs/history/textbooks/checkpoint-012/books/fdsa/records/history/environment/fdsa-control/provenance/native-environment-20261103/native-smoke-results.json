@@ -1,0 +1,227 @@
+{
+  "started_utc": "2026-11-03T16:34:46.288825+00:00",
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "adapter_sha256": "23fc2cac34d82e882a164850ada16304f1dce66fb60675479814dc6e0e4881b2",
+  "shim_source_sha256": "80c1d0e92d7c5c258f32ce3709736bf969c6a24148287f99b238324d7bfbcfb6",
+  "shim_sha256": "65910335cb5a2a4359e9ebf7dae4de1da7a48cdbf9dee5eabe82c3e4b02d88a9",
+  "proof_source_sha256": "dd436c6017165807deb86eef190e6e44b2151c01369cce4bd4ec76fa9e69781a",
+  "commands": [
+    {
+      "name": "description",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/native_toolchain.py",
+        "--describe"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.04702049200022884,
+      "stdout": "{\n  \"mode\": \"native execution with own-executable-path compatibility\",\n  \"workspace\": \"/workspace/scratch/6bb268f9336f\",\n  \"official_distribution\": \"/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux\",\n  \"compatibility_library\": \"/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/native/libapp_path_compat.so\",\n  \"environment_overrides\": {\n    \"PATH\": \"/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/bin:/root/.codex/tmp/arg0-linux/codex-arg0D0T4n9:/opt/codex/codex-path:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback\",\n    \"LEAN_SYSROOT\": \"/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux\",\n    \"LD_PRELOAD\": \"/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/native/libapp_path_compat.so\",\n    \"LD_LIBRARY_PATH\": \"/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/lib:/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/lib/lean\",\n    \"TMPDIR\": \"/workspace/scratch/6bb268f9336f/runtime-tmp\",\n    \"MATHLIB_CACHE_DIR\": \"/workspace/scratch/6bb268f9336f/dependency-cache/mathlib\",\n    \"XDG_CACHE_HOME\": \"/workspace/scratch/6bb268f9336f/dependency-cache/xdg\",\n    \"XDG_CONFIG_HOME\": \"/workspace/scratch/6bb268f9336f/runtime-config\",\n    \"XDG_STATE_HOME\": \"/workspace/scratch/6bb268f9336f/runtime-state\",\n    \"LEAN_NUM_THREADS\": \"1\"\n  },\n  \"cleared_inherited_selectors\": [\n    \"LEAN\",\n    \"LEAN_PATH\",\n    \"LEAN_SYSROOT\",\n    \"LEAN_AR\",\n    \"LEAN_CC\",\n    \"LEAN_GITHASH\",\n    \"LAKE_HOME\",\n    \"LAKE_OVERRIDE_LEAN\"\n  ],\n  \"verified_files\": {\n    \"/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/bin/lean\": \"bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38\",\n    \"/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/bin/lake\": \"8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1\",\n    \"/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/native/app_path_compat.c\": \"80c1d0e92d7c5c258f32ce3709736bf969c6a24148287f99b238324d7bfbcfb6\",\n    \"/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/native/libapp_path_compat.so\": \"65910335cb5a2a4359e9ebf7dae4de1da7a48cdbf9dee5eabe82c3e4b02d88a9\"\n  },\n  \"thread_note\": \"LEAN_NUM_THREADS controls compiled-tool task-manager defaults; Lean CLI has its own -j option.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "bare-version",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/native_toolchain.py",
+        "--",
+        "lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.4670681280003919,
+      "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": ""
+    },
+    {
+      "name": "bare-githash",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/native_toolchain.py",
+        "--",
+        "lean",
+        "--githash"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.18441990099927352,
+      "stdout": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc\n",
+      "stderr": ""
+    },
+    {
+      "name": "bare-prefix",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/native_toolchain.py",
+        "--",
+        "lean",
+        "--print-prefix"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.17378007200022694,
+      "stdout": "/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux\n",
+      "stderr": ""
+    },
+    {
+      "name": "lake-version",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/native_toolchain.py",
+        "--",
+        "lake",
+        "--version"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.21125661800033413,
+      "stdout": "Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)\n",
+      "stderr": ""
+    },
+    {
+      "name": "lake-child-version",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/native_toolchain.py",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 9.039358080000966,
+      "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": ""
+    },
+    {
+      "name": "lake-child-path",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/native_toolchain.py",
+        "--",
+        "lake",
+        "env",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-c",
+        "import json,os,shutil; print(json.dumps({'lean':shutil.which('lean'),'lake':shutil.which('lake'),'LD_PRELOAD':os.environ.get('LD_PRELOAD'),'LEAN_SYSROOT':os.environ.get('LEAN_SYSROOT')}))"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.411798451999857,
+      "stdout": "{\"lean\": \"/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/bin/lean\", \"lake\": \"/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/bin/lake\", \"LD_PRELOAD\": \"/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/native/libapp_path_compat.so\", \"LEAN_SYSROOT\": \"/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux\"}\n",
+      "stderr": ""
+    },
+    {
+      "name": "bare-proof",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/native_toolchain.py",
+        "--",
+        "lean",
+        "--root",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/qemu-environment-20261103/smoke",
+        "-o",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/native-environment-20261103/native-smoke/Bare.olean",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/qemu-environment-20261103/smoke/QemuKernelSmoke.lean"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.5351901529993484,
+      "stdout": "'FdsaEnvironmentSmoke.zero_add' does not depend on any axioms\n'FdsaEnvironmentSmoke.successor_addition' does not depend on any axioms\n",
+      "stderr": ""
+    },
+    {
+      "name": "lake-child-proof",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/native_toolchain.py",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "--root",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/qemu-environment-20261103/smoke",
+        "-o",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/native-environment-20261103/native-smoke/Lake.olean",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/qemu-environment-20261103/smoke/QemuKernelSmoke.lean"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.8799409990006097,
+      "stdout": "'FdsaEnvironmentSmoke.zero_add' does not depend on any axioms\n'FdsaEnvironmentSmoke.successor_addition' does not depend on any axioms\n",
+      "stderr": ""
+    },
+    {
+      "name": "cache-help",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/native_toolchain.py",
+        "--",
+        "lake",
+        "env",
+        "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/mathlib/.lake/build/bin/cache",
+        "--help"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.5851506069993775,
+      "stdout": "Mathlib4 caching CLI\nUsage: cache [OPTIONS] [COMMAND]\n\nCommands:\n  get  [ARGS]    Download linked files missing on the local cache and decompress\n  get! [ARGS]    Download all linked files and decompress\n  get- [ARGS]    Download linked files missing to the local cache, but do not decompress\n  pack           Compress non-compressed build files into the local cache\n  pack!          Compress build files into the local cache (no skipping)\n  unpack         Decompress linked already downloaded files\n  unpack!        Decompress linked already downloaded files (no skipping)\n  clean          Delete non-linked files\n  clean!         Delete everything on the local cache\n  lookup [ARGS]  Show information about cache files for the given Lean files\n  query [REF]    Without REF: find the most recent cached Mathlib commit.\n                 With REF (e.g. HEAD, a SHA): boolean probe; exit 0 if cached, 1 if not.\n\n  # Staging\n  stage        Move files not already 'pack'ed to an output directory\n  stage!       Move all linked cache files to an output directory\n  unstage      Copy *.ltar files from the staging directory to the local cache\n  unstage!     Copy *.ltar files from the staging directory to the local cache (overwrite existing files)\n\nThe upload commands (put, put!, put-staged) and their options and variables\nare internal to mathlib CI. To operate an external cache, 'stage' the\nartifacts, upload the staging directory under your endpoint's `f/` path with\nany storage client, and serve it to readers via MATHLIB_CACHE_GET_URL.\n\nOptions:\n  --repo=OWNER/REPO  Override the repository to fetch cache for\n  --staging-dir=<output-directory> Required for 'stage', 'stage!', 'unstage'\n                     and 'unstage!': staging directory.\n  --cache-from=LIST  Comma-separated, trust-ordered list of containers to read from\n                     (e.g. `--cache-from=master,forks`). Overrides the per-repo default.\n                     Known containers: master, forks.\n  --scope=REF        The per-commit namespace (any git ref `git rev-parse`\n                     accepts: HEAD, branch, tag, SHA). For reads: the fork\n                     SHA-scoped namespace to read instead of the default, the\n                     Mathlib checkout's HEAD. Refs resolve in that checkout.\n                     Use the SHA reported by `cache query`.\n                     Reading another commit's scope means trusting the\n                     artifacts produced at that commit; `cache get` prints a\n                     security notice when the scope differs from HEAD.\n  --unsafe           (get only) Instead of pinning one --scope, automatically walk\n                     Mathlib's history and try the most recent cached fork\n                     commits as scopes, in order, until the cache is satisfied.\n                     Trusts the artifacts of every commit it tries. Mutually\n                     exclusive with --scope; always prints a security notice.\n  --unsafe-window=N  Number of cached fork commits --unsafe will try (default\n                     1). Implies --unsafe.\n\n* Linked files refer to local cache files with corresponding Lean sources\n* Commands that end with '!' do not skip files: use them manually when a\n  hot-fix must force a re-download, a re-pack, or an overwrite\n\n# The arguments for 'get', 'get!', 'get-' and 'lookup'\n\n'get', 'get!', 'get-' and 'lookup' can process a list of module names or file names.\n\n'get [ARGS]' will only get the cache for the specified Lean files and all files imported by one.\n\nValid arguments are:\n\n* Module names like 'Mathlib.Init'\n* Module globs like 'Mathlib.Data.+' (find all Lean files inside `Mathlib/Data/`)\n* Module globs like 'Mathlib.Data.*' (both of the above)\n* File names like 'Mathlib/Init.lean'\n* Folder names like 'Mathlib/Data/' (find all Lean files inside `Mathlib/Data/`)\n* With bash's automatic glob expansion one can also write things like\n  'Mathlib/**/Order/*.lean'. However, one would need to write `Mathlib.Data.\\*`\n  to prevent glob expansion.\n\n# Environment variables\n\n* MATHLIB_CACHE_DIR       Local cache directory (default: ~/.cache/mathlib)\n* MATHLIB_CACHE_DEBUG_USE_LEGACY\n                          Set to 1 or true to read from the Azure storage\n                          account instead of https://cache.mathlib.org.\n                          For troubleshooting only.\n* MATHLIB_CACHE_GET_URL   Download from this single URL as a flat namespace.\n                          Allows third parties to use their own cache endpoint.\n                          An empty value means unset.\n\n",
+      "stderr": ""
+    }
+  ],
+  "scope": "Native runtime/real proof/cache-startup smoke; no full project validation.",
+  "proof_artifacts": {
+    "Bare.olean": {
+      "size_bytes": 6824,
+      "sha256": "fbf279c5128799661a3f3087d27f139d4da4944e9061ae0c522fce3af38bb980"
+    },
+    "Lake.olean": {
+      "size_bytes": 6824,
+      "sha256": "fbf279c5128799661a3f3087d27f139d4da4944e9061ae0c522fce3af38bb980"
+    }
+  },
+  "dependencies": [
+    {
+      "name": "mathlib",
+      "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "status": ""
+    },
+    {
+      "name": "plausible",
+      "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "status": ""
+    },
+    {
+      "name": "LeanSearchClient",
+      "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "status": ""
+    },
+    {
+      "name": "importGraph",
+      "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "status": ""
+    },
+    {
+      "name": "proofwidgets",
+      "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "status": ""
+    },
+    {
+      "name": "aesop",
+      "head": "4a174c490d8707121c4a9290800489f105d85e07",
+      "status": ""
+    },
+    {
+      "name": "Qq",
+      "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "status": ""
+    },
+    {
+      "name": "batteries",
+      "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "status": ""
+    },
+    {
+      "name": "Cli",
+      "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "status": ""
+    }
+  ],
+  "outcome": "passed",
+  "completed_utc": "2026-11-03T16:35:04.748997+00:00",
+  "final_head": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "final_status": ""
+}

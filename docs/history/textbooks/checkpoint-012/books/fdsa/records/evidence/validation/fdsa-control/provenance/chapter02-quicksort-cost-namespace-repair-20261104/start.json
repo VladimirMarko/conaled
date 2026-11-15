@@ -1,0 +1,13 @@
+{
+  "recorded_utc": "2026-11-04T05:06:25.920710+00:00",
+  "author_worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+  "parent_candidate": "e4c152e62271725abe6e71ac52e4756316208b24",
+  "status_before": "",
+  "file": "Applications/Resources/QuickSort.lean",
+  "sha256_before": "d4d3efecce795e70bc8c4a41ef4f63591d9e438a7cd0de8c46e6c9340d318d78",
+  "line_count_before": 475,
+  "finding": "Exactly one namespace opening and two consecutive identical end Resources.QuickSort terminators at EOF. Confirmed in the immutable parent and live clean worktree.",
+  "repair_authorization": "Root explicitly requested only removal of the extra namespace terminator, with a scoped successor commit.",
+  "compiler_attempted": false,
+  "classification": "Pre-compiler source syntax repair; no failed compiler attempt is claimed."
+}

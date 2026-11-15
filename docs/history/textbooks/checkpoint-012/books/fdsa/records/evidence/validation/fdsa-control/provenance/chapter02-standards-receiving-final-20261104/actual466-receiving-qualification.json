@@ -1,0 +1,543 @@
+{
+  "schema": "fdsa.standards.actual466-receiving-qualification.v1",
+  "recorded_utc": "2026-11-04T18:07:36.624935+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "status": "All466 exact receiving input/producer block/same-reviewer semantic conditions qualify; overall final outcome awaits current1297 complete qualification and final report.",
+  "source_scope": "Original R-based81 paths/112 obligations/ten scopes; all1763public/70private/19anonymous obligations unchanged.",
+  "actual_receiver_interval": {
+    "pre_utc": "2026-11-04T17:28:37.163992+00:00",
+    "post_utc": "2026-11-04T18:03:13.216957+00:00",
+    "identity_exactly_equal": true,
+    "source_count": 97,
+    "supported_artifact_count": 291,
+    "configuration_count": 10,
+    "clean_dependency_count": 9,
+    "runtime_count": 12,
+    "qualified_native_stock_full_build_lineage": "Retained own full-gate-assessment and exact current closed full Q records; fingerprints alone are not authenticity evidence."
+  },
+  "all_recent_printed_roots_independently_recomputed": 62,
+  "matching_root_count": 23,
+  "matching_roots": [
+    {
+      "producer": "F145",
+      "root": "Applications/Resources/ListCalls.lean",
+      "sources": 9,
+      "supported_objects": 27,
+      "direct_external_imports": 7,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "F145",
+      "root": "Examples/FunctionalNotation.lean",
+      "sources": 4,
+      "supported_objects": 12,
+      "direct_external_imports": 23,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "F145",
+      "root": "Examples/ListCalls.lean",
+      "sources": 19,
+      "supported_objects": 57,
+      "direct_external_imports": 9,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "F145",
+      "root": "Examples/ListLibrary.lean",
+      "sources": 1,
+      "supported_objects": 3,
+      "direct_external_imports": 4,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "I314",
+      "root": "Applications/Probability/PermutationMinimum.lean",
+      "sources": 1,
+      "supported_objects": 3,
+      "direct_external_imports": 4,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "I314",
+      "root": "Applications/Resources/DifferenceListCosts.lean",
+      "sources": 6,
+      "supported_objects": 18,
+      "direct_external_imports": 5,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "I314",
+      "root": "Applications/Resources/InsertionSort.lean",
+      "sources": 7,
+      "supported_objects": 21,
+      "direct_external_imports": 5,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "I314",
+      "root": "Applications/Resources/ListMerge.lean",
+      "sources": 7,
+      "supported_objects": 21,
+      "direct_external_imports": 4,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "I314",
+      "root": "Applications/Resources/Partition.lean",
+      "sources": 5,
+      "supported_objects": 15,
+      "direct_external_imports": 5,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "I314",
+      "root": "Applications/Selection/ThreeWay.lean",
+      "sources": 6,
+      "supported_objects": 18,
+      "direct_external_imports": 3,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "I314",
+      "root": "Applications/Sequences/Partition.lean",
+      "sources": 1,
+      "supported_objects": 3,
+      "direct_external_imports": 2,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "I314",
+      "root": "Applications/Sorting/Merge.lean",
+      "sources": 2,
+      "supported_objects": 6,
+      "direct_external_imports": 1,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "I314",
+      "root": "Examples/DifferenceListCosts.lean",
+      "sources": 7,
+      "supported_objects": 21,
+      "direct_external_imports": 6,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "I314",
+      "root": "Examples/InsertionCosts.lean",
+      "sources": 9,
+      "supported_objects": 27,
+      "direct_external_imports": 5,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "I314",
+      "root": "Examples/PermutationMinimum.lean",
+      "sources": 3,
+      "supported_objects": 9,
+      "direct_external_imports": 6,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "I314",
+      "root": "Examples/PermutationMinimumBoundary.lean",
+      "sources": 2,
+      "supported_objects": 6,
+      "direct_external_imports": 5,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "I314",
+      "root": "Examples/ThreeWayPartition.lean",
+      "sources": 11,
+      "supported_objects": 33,
+      "direct_external_imports": 6,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "J53",
+      "root": "Applications/Probability/PermutationOrder.lean",
+      "sources": 1,
+      "supported_objects": 3,
+      "direct_external_imports": 11,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "J53",
+      "root": "Examples/PermutationOrder.lean",
+      "sources": 6,
+      "supported_objects": 18,
+      "direct_external_imports": 14,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "J53",
+      "root": "Examples/PermutationOrderBoundary.lean",
+      "sources": 5,
+      "supported_objects": 15,
+      "direct_external_imports": 14,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "Tail61",
+      "root": "Applications/Probability/PermutationTail.lean",
+      "sources": 2,
+      "supported_objects": 6,
+      "direct_external_imports": 16,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "Tail61",
+      "root": "Examples/PermutationTail.lean",
+      "sources": 9,
+      "supported_objects": 27,
+      "direct_external_imports": 19,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    },
+    {
+      "producer": "Tail61",
+      "root": "Examples/PermutationTailBoundary.lean",
+      "sources": 8,
+      "supported_objects": 24,
+      "direct_external_imports": 19,
+      "old_current_source_and_object_maps_exact": true,
+      "global_project_configuration_dependency_runtime_exact": true
+    }
+  ],
+  "qualified_name_count": 466,
+  "producer_counts": {
+    "I314": 242,
+    "J53": 53,
+    "Tail61": 61,
+    "F145": 110
+  },
+  "exact_name_position_mapping": {
+    "path": "provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/mapping.json",
+    "field": "conditional466",
+    "exact_rows_recomputed": true
+  },
+  "semantic_linkage": [
+    {
+      "producer": "F145",
+      "qualified_names": 110,
+      "original_program": {
+        "path": "provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+        "bytes": 7518,
+        "lf_lines": 156,
+        "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4"
+      },
+      "complete_original_output": {
+        "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/native-records/output.log",
+        "bytes": 107530,
+        "lf_lines": 1491,
+        "sha256": "bbf02ed2d02358a10d1ed670e28bc00e43beef3af20409d4dc926ad36ab193c2"
+      },
+      "same_reviewer_complete_semantic_reading": {
+        "path": "provenance/shared-foundations-standards-terminal-assessment-20261104/actual145-read-progress.json",
+        "bytes": 20912,
+        "lf_lines": 378,
+        "sha256": "ef690b8f502c1ac4b70cd956cf682d2faa080b4b36151afc7cd05cd8a3a77a0b"
+      },
+      "selected_original_ranges_names_and_raw_hashes_reconciled": true,
+      "same_reviewer_read_chunk_identity_previously_reproduced_and_unchanged": true,
+      "all_original_semantic_and_printer_omission_assessments_retained": true
+    },
+    {
+      "producer": "I314",
+      "qualified_names": 242,
+      "original_program": {
+        "path": "provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+        "bytes": 16826,
+        "lf_lines": 340,
+        "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754"
+      },
+      "complete_original_output": {
+        "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/output.log",
+        "bytes": 256987,
+        "lf_lines": 3438,
+        "sha256": "3bdb9dc0a92ec781a28b46de1a3eb843bda4efcd17c2292f091c19e52df7c50c"
+      },
+      "same_reviewer_complete_semantic_reading": {
+        "path": "provenance/shared-four-standards-terminal-assessment-20261104/actual314-read-ledger.json",
+        "bytes": 14033,
+        "lf_lines": 294,
+        "sha256": "5e61784905b0f5a6134b64808b84970bb4e5024b05ba2cf5aa836b16fd56fa01"
+      },
+      "selected_original_ranges_names_and_raw_hashes_reconciled": true,
+      "same_reviewer_read_chunk_identity_previously_reproduced_and_unchanged": true,
+      "all_original_semantic_and_printer_omission_assessments_retained": true
+    },
+    {
+      "producer": "J53",
+      "qualified_names": 53,
+      "original_program": {
+        "path": "provenance/chapter02-xu02-statement-source-20261104/Statements.lean",
+        "bytes": 3522,
+        "lf_lines": 61,
+        "sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3"
+      },
+      "complete_original_output": {
+        "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/native-records/output.log",
+        "bytes": 91080,
+        "lf_lines": 1075,
+        "sha256": "48466b063b338defe63e54b3eed7594095cd3036dd773443ef9649b2bc211b65"
+      },
+      "same_reviewer_complete_semantic_reading": {
+        "path": "provenance/shared-order-standards-terminal-assessment-20261104/actual53-read-ledger.json",
+        "bytes": 5617,
+        "lf_lines": 89,
+        "sha256": "801098585a98ff633f744e86513d037ed45fc1390f88bedcf80041a019d9fa08"
+      },
+      "selected_original_ranges_names_and_raw_hashes_reconciled": true,
+      "same_reviewer_read_chunk_identity_previously_reproduced_and_unchanged": true,
+      "all_original_semantic_and_printer_omission_assessments_retained": true
+    },
+    {
+      "producer": "Tail61",
+      "qualified_names": 61,
+      "original_program": {
+        "path": "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+        "bytes": 4105,
+        "lf_lines": 75,
+        "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa"
+      },
+      "complete_original_output": {
+        "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/native-records/output.log",
+        "bytes": 84784,
+        "lf_lines": 1073,
+        "sha256": "57747c4b4764ac5aea6885671ff66b5ff202da2c919a0e9bb38f5921738916cf"
+      },
+      "same_reviewer_complete_semantic_reading": {
+        "path": "provenance/shared-tail-standards-terminal-assessment-20261104/read-progress.json",
+        "bytes": 16362,
+        "lf_lines": 381,
+        "sha256": "d563391d972d86efe1631f30e236956fba74f39d2d24e8e3bd3fe17baaecbc39"
+      },
+      "selected_original_ranges_names_and_raw_hashes_reconciled": true,
+      "same_reviewer_read_chunk_identity_previously_reproduced_and_unchanged": true,
+      "all_original_semantic_and_printer_omission_assessments_retained": true
+    }
+  ],
+  "all_complete_supported_keysets_compared": true,
+  "no_path_trace_or_profile_normalization": true,
+  "F35_insertion_excluded_from_F_and_covered_by_I": true,
+  "I72_Growth_affected_MergeCosts_excluded_from_transfer": true,
+  "source_static_closure_basis": "Prior independently reconstructed immutable Q/source scope and exact held inventory; candidate and97 observed source identities unchanged. No optional full source reread.",
+  "accepted_base27_are_in_I_subset_not_extra_names": true,
+  "bound_inputs": [
+    {
+      "path": "provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 90134,
+      "sha256": "6e915cd019a10381fb096fece62bdbd9964f189a446024825a71daabc808a2a3"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 90456,
+      "sha256": "7dfa8f4fa803ad8a3d9c8c0b0c54ebbb7f3925b78a25a6d3d4ac02ba0ff29723"
+    },
+    {
+      "path": "provenance/shared-chapter02-statement-evidence-readiness-20261104/inventory.json",
+      "bytes": 496079,
+      "sha256": "80311e829c93fa2653616d9b5e85f237a17a6347cda79b69d1388d2cb8bb6b47"
+    },
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/schedule.json",
+      "bytes": 409593,
+      "sha256": "6216efb85427a6401e1263f34294141c82f2fe88c74dc2dd18eb464207d06c62"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/stable-comparison.json",
+      "bytes": 2419315,
+      "sha256": "e4201e756490c1282d2a5dacbd4c3268f8c1b85961800cfec0dfdb66da27eec1"
+    },
+    {
+      "path": "provenance/chapter02-standards-receiving-final-20261104/preliminary-receiving-assessment.json",
+      "bytes": 35472,
+      "sha256": "54e4cedd5177ec390782ca4774933e1a16bbb7559b7821504cf85c69aece0881"
+    },
+    {
+      "path": "provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/mapping.json",
+      "bytes": 432092,
+      "sha256": "eb127025be51d2f6ae9f85f0f3c01dcc0c748c86ca51ecf3967c685bf6b971d2"
+    },
+    {
+      "path": "provenance/foundation145-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 38785,
+      "sha256": "482b005a6b020bc8fbc087ed746202caa89426382200d2aa37b4259ac0116d37"
+    },
+    {
+      "path": "provenance/foundation145-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 39092,
+      "sha256": "3065efbace8dc8cff34d764d33fd29e81f09b5549407d72be5cdaa217d482d16"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/result.json",
+      "bytes": 1415,
+      "sha256": "f563b12f4b572f99531027ab920784a94b8b9118a6e17cb1e65669217b1a216b"
+    },
+    {
+      "path": "provenance/shared-four314-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 45835,
+      "sha256": "c3dc93d12e645171b3df24d417cc36838f666233c09034bb751672f47081f3f9"
+    },
+    {
+      "path": "provenance/shared-four314-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 46143,
+      "sha256": "fb1b01c56f251f9ddc28ae17b301d312b09714e687b5b0803fbe8be32ff95307"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/result.json",
+      "bytes": 1412,
+      "sha256": "4e96d347b0303913359798dc0d58981c59f8d07d70eb946f263a6c68fda83f44"
+    },
+    {
+      "path": "provenance/shared-order53-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 15480,
+      "sha256": "eae1066844315be119551281752fcde15ba1f2cb2bf240d3f4186a9ca16ef8ec"
+    },
+    {
+      "path": "provenance/shared-order53-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 15788,
+      "sha256": "40817d0282d0ef62c6dac960429f5f6b8521cc86739f2eb4a195d869b17de15a"
+    },
+    {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/result.json",
+      "bytes": 1399,
+      "sha256": "db079a70c552f4871fc32b4235b96b385e28cef14263966f0208113d4dbf4cde"
+    },
+    {
+      "path": "provenance/shared-tail61-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 18465,
+      "sha256": "1829a1a48106a01e46d9994baaf4a01c0f13d29bc973239c6a0ee1a8ab25206e"
+    },
+    {
+      "path": "provenance/shared-tail61-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 18772,
+      "sha256": "6a8c7067a0f78eae29982f34f38342253cf56bae1432050ee7e054b87996e986"
+    },
+    {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/result.json",
+      "bytes": 1414,
+      "sha256": "166535394036f2c652e6d324c17401eadfc1d0dac2ae0b48bc40b9e97e20dbc8"
+    },
+    {
+      "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 125408,
+      "sha256": "e4187960a469d194aeceed488d7e9bb45a450ae059bef46ba9645c5f9d6868ac"
+    },
+    {
+      "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 125726,
+      "sha256": "c8a015007775ff98a220c90c328dc10f505cca8ac9ac9c7c3b887e2c0089ab4a"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/result.json",
+      "bytes": 1337,
+      "sha256": "408a2fc698c80f7f4527beb0045f21132c3dc544ad0d9054204e2619aff595ab"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+      "bytes": 7518,
+      "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/native-records/output.log",
+      "bytes": 107530,
+      "sha256": "bbf02ed2d02358a10d1ed670e28bc00e43beef3af20409d4dc926ad36ab193c2"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/output-blocks.json",
+      "bytes": 46564,
+      "sha256": "77705d6d4150af6d722114fd8836a2c67efdecd43d26e0019eb8fe5fa2f599d4"
+    },
+    {
+      "path": "provenance/shared-foundations-standards-terminal-assessment-20261104/actual145-read-progress.json",
+      "bytes": 20912,
+      "sha256": "ef690b8f502c1ac4b70cd956cf682d2faa080b4b36151afc7cd05cd8a3a77a0b"
+    },
+    {
+      "path": "provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+      "bytes": 16826,
+      "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/output.log",
+      "bytes": 256987,
+      "sha256": "3bdb9dc0a92ec781a28b46de1a3eb843bda4efcd17c2292f091c19e52df7c50c"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/output-blocks.json",
+      "bytes": 112874,
+      "sha256": "2fe194e3f70287d3be4815f418f7ee898e46980145afc2761c469701b1073f12"
+    },
+    {
+      "path": "provenance/shared-four-standards-terminal-assessment-20261104/actual314-read-ledger.json",
+      "bytes": 14033,
+      "sha256": "5e61784905b0f5a6134b64808b84970bb4e5024b05ba2cf5aa836b16fd56fa01"
+    },
+    {
+      "path": "provenance/chapter02-xu02-statement-source-20261104/Statements.lean",
+      "bytes": 3522,
+      "sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3"
+    },
+    {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/native-records/output.log",
+      "bytes": 91080,
+      "sha256": "48466b063b338defe63e54b3eed7594095cd3036dd773443ef9649b2bc211b65"
+    },
+    {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/output-blocks.json",
+      "bytes": 22024,
+      "sha256": "5ac94d0bd7a5ae4b51b0aa35cf24bbd7b89cfa9be122d7cc1c8514d319d76269"
+    },
+    {
+      "path": "provenance/shared-order-standards-terminal-assessment-20261104/actual53-read-ledger.json",
+      "bytes": 5617,
+      "sha256": "801098585a98ff633f744e86513d037ed45fc1390f88bedcf80041a019d9fa08"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+      "bytes": 4105,
+      "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa"
+    },
+    {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/native-records/output.log",
+      "bytes": 84784,
+      "sha256": "57747c4b4764ac5aea6885671ff66b5ff202da2c919a0e9bb38f5921738916cf"
+    },
+    {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/output-blocks.json",
+      "bytes": 24176,
+      "sha256": "9e83cbfb18c911c3602c2e9fde71b727456bab93ad6bd76375f472142cadb748"
+    },
+    {
+      "path": "provenance/shared-tail-standards-terminal-assessment-20261104/read-progress.json",
+      "bytes": 16362,
+      "sha256": "d563391d972d86efe1631f30e236956fba74f39d2d24e8e3bd3fe17baaecbc39"
+    }
+  ],
+  "old_held_files_modified": false,
+  "compiler_or_runtime_capture_performed": false
+}

@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-04T05:40:53.489859+00:00",
+  "base": "b3bdc12b304499bf6675a58bc1eb0992e19e3e75",
+  "candidate": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+  "ref": "refs/heads/work/fdsa-partition-proof-fixes",
+  "method": "Temporary index and commit-tree; no active worktree/index source changed.",
+  "source": "Applications/Resources/Partition.lean",
+  "before_sha256": "3317bd84f5b8eacb0ede5d9fcde4adc98361fb2afadf7e41afff1d4a5e14e6d2",
+  "after_sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14",
+  "change": "Add rfl for the residual pure first-projection goal in partitionRun_value; all definitions/statements/other source unchanged.",
+  "finding": "XQ-ELAB-002",
+  "matching_validation": "pending",
+  "diagnostic_source": "chapter02-list-builder-partition-focused-20261104-attempt1, actual closed exit1"
+}

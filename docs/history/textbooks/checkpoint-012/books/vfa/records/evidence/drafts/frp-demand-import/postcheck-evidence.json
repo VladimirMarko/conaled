@@ -1,0 +1,144 @@
+{
+  "recorded_at_utc": "2026-11-02T06:20:37.030382+00:00",
+  "candidate": "777bab9b2510deab54603c3df267e5c134a3e1e0",
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 129.98513352699956,
+  "passed_staging_check": true,
+  "ilean_header": {
+    "module": "Applications.FRP.Demand",
+    "directImports": [
+      [
+        "Applications.FRP.Trace",
+        false,
+        false,
+        false
+      ],
+      [
+        "Mathlib.Order.SuccPred.Nat",
+        false,
+        false,
+        false
+      ]
+    ]
+  },
+  "expected_direct_imports": [
+    "Applications.FRP.Trace",
+    "Mathlib.Order.SuccPred.Nat"
+  ],
+  "direct_imports_match": true,
+  "c_imported_initializer_declarations": [
+    "initialize_Init",
+    "initialize_Init",
+    "initialize_compilingWithSquares_Applications_FRP_Trace",
+    "initialize_mathlib_Mathlib_Order_SuccPred_Nat"
+  ],
+  "diagnostics": [],
+  "non_json_diagnostics": [],
+  "diagnostic_identity": {
+    "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-demand-import/diagnostics.jsonl",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "all_non_added_import_bytes_identical": true,
+  "actual_mappings_preserved": true,
+  "non_map_fields_preserved": true,
+  "no_imports_override": true,
+  "protected_inputs_after": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/Applications/FRP/Demand.lean",
+      "bytes": 10411,
+      "sha256": "516ebcd62d8f03157d96ac176829d23ac6687f8b21b8ff6337050f0e489b92ff"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/Applications/FRP/Demand.lean",
+      "bytes": 10411,
+      "sha256": "516ebcd62d8f03157d96ac176829d23ac6687f8b21b8ff6337050f0e489b92ff"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/ir/Applications/FRP/Demand.setup.json",
+      "bytes": 691644,
+      "sha256": "1b9f62b23b5487f4abab3be43f990008a08df248a6ef60741ce3c4e720c3f875"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-imports/Spec.setup.json",
+      "bytes": 7051229,
+      "sha256": "6b4af7891d8b68f01d431a82dd1a707b7e0d446479daf8935cc8f08f68ca787b"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/FRP/Trace.olean",
+      "bytes": 510704,
+      "sha256": "99505433141d9eea28cebee6c413d9753c5117105bc467b6ad25f3123fa77b50"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/FRP/Spec.olean",
+      "bytes": 625680,
+      "sha256": "2f1ffeeea9fbc32009d76976bcbba5153dab74edbee1f603bd6403f1b4a167e9"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/FRP/Frontier.olean",
+      "bytes": 397800,
+      "sha256": "0e9f3bb4a7a178962389e8d10f5111a7ddabeba06497dbe980a6700ea3592ffa"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/SuccPred/Nat.olean",
+      "bytes": 39488,
+      "sha256": "513ec6f6282185645f1ad9a7f3b1f38e4f6177160e0b2efddedf14a9b860996d"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/SuccPred/Nat.olean.server",
+      "bytes": 5384,
+      "sha256": "667d73170043203f6840016cf5ce847208a7399944041ef210c684bddc9386f1"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/SuccPred/Nat.olean.private",
+      "bytes": 37528,
+      "sha256": "88dcf9fbd5a830bd49c55690e57fefbe4d2051615334b8bd38463579965bd71b"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/SuccPred/Nat.ir.sig",
+      "bytes": 176,
+      "sha256": "cff7acc122a4652135a5c5e87d415b531f0243c875d5f6ba76318088f1a75698"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/SuccPred/Nat.ir",
+      "bytes": 4824,
+      "sha256": "92759a7bfbdd8977b1a690cd69947e7afe5c2eb7efdc4966408b4b0a6d3ff61c"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/Applications/FRP/Trace.lean",
+      "bytes": 11135,
+      "sha256": "c6e18a86c240230363338df0c98a299ac35c7f958228884c0eede15512c8e1a8"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/Applications/FRP/Spec.lean",
+      "bytes": 12154,
+      "sha256": "b5df6de8a4ed0188009b4d35c8508512418a8e980a85300691d3585894d22230"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/Applications/FRP/Frontier.lean",
+      "bytes": 7784,
+      "sha256": "582da35f674d141ab3d1e8bda8909982362490b018103a96a2053cef5be91cae"
+    }
+  ],
+  "changed_protected_inputs": [],
+  "generated_artifacts": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-demand-import/out/Demand.c",
+      "bytes": 87947,
+      "sha256": "ace7393ba08c35ac66ce89cbb59e374783cc47f4fac11cbf5c9ebb2fe93aef97"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-demand-import/out/Demand.ilean",
+      "bytes": 31904,
+      "sha256": "1881ffbcfd4ea4028396571a580a640b5b4b8de16b09e6ff23634b152bda561c"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-demand-import/out/Demand.olean",
+      "bytes": 822784,
+      "sha256": "7d575732266d7f2f57ea74273d75e4358973db3ddafc493631e6a5e507ad1f06"
+    }
+  ],
+  "generated_artifact_removal": "All listed artifacts removed after metadata extraction and hashing.",
+  "generated_output_directory_absent": true
+}

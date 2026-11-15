@@ -1,0 +1,87 @@
+{
+  "recorded_utc": "2026-11-04T14:19:58.570513+00:00",
+  "finding": "SH4-HIST-001",
+  "unit": "XD01",
+  "source_diff_read": "complete 3-path merge-result diff before resolution",
+  "conflicts": [
+    "SquareApplications.lean",
+    "docs/research/fdsa-difference-list-costs.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "resolution_reason": "H contains incoming XD01 public import and mathematical map section in the complete accepted F/four-unit union; keep its existing section location and all accepted F sections. H note is the exact reviewed status-only successor, preserving the DList historical sentence and complete mathematics. Defining blobs already equal H.",
+  "resolution": [
+    {
+      "path": "SquareApplications.lean",
+      "selected_source": "97505ca8a1e714601e6d68137f0659b36a569988",
+      "selected_git_blob": "a36fa607584d77618858b5f1707b1df913a22cca",
+      "sha256": "6197b3a27ee1fd07305a506314caeaa3b3534ab166eaea00e5e169ba4c82956d"
+    },
+    {
+      "path": "docs/research/fdsa-difference-list-costs.md",
+      "selected_source": "97505ca8a1e714601e6d68137f0659b36a569988",
+      "selected_git_blob": "52b789bb484ca9aceedb584f521c8bab974c0f5f",
+      "sha256": "bd450660076b5addbd6b64d7a591f71fc60b68e6bfbf5f9cc36fa09fac4eb735"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "selected_source": "97505ca8a1e714601e6d68137f0659b36a569988",
+      "selected_git_blob": "e753d5325fcd4f576b091d795ffced6d625c2aaf",
+      "sha256": "f479b3b05b2fdfd99683e15cfc1e0d0b9542c58f56a3013872be6df8469cebfe"
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "git",
+        "restore",
+        "--source=97505ca8a1e714601e6d68137f0659b36a569988",
+        "--staged",
+        "--worktree",
+        "--",
+        "SquareApplications.lean",
+        "docs/research/fdsa-difference-list-costs.md",
+        "docs/research/fdsa-reconstruction-map.md"
+      ],
+      "actual_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "actual_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "-c",
+        "user.name=ChatGPT",
+        "-c",
+        "user.email=chatgpt@openai.com",
+        "commit",
+        "-m",
+        "fix(fdsa): retain difference-list integration history (#174)",
+        "-m",
+        "SH4-HIST-001: integrate corrected XD01 tip52722e3 through an actual normal merge. Resolve root/map conflicts by retaining the reviewed complete H union, which already includes the required public import and full XD01 mathematical section. Retain the exact dated-note successor and all accepted foundation content. Source tree remains identical to97505ca; no validation credit."
+      ],
+      "actual_exit": 0,
+      "stdout": "[work/fdsa-shared-four-integration eb269d9] fix(fdsa): retain difference-list integration history (#174)\n",
+      "stderr": ""
+    }
+  ],
+  "result_commit": "eb269d9ec3850b21760f5aa83a5a1001a5f219d3",
+  "parents": [
+    "15dbd8ac1d653a9ef8000656a91152ca1cda9c58",
+    "52722e3ee481167e99b8f6c0b2417df7fb7615d8"
+  ],
+  "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+  "exact_H_tree": true,
+  "status": "",
+  "compiler_or_cache_action": false
+}

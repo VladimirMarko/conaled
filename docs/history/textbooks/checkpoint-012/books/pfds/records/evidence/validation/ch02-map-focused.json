@@ -1,0 +1,18 @@
+{
+  "candidate": "3dd96173695d1b01162fd509e99c1e9bd11da5e8",
+  "branch": "pfds/ch02-map",
+  "checkout": "chapter02-map",
+  "status": "focused compilation passed; integrated acceptance pending",
+  "target": "Examples.OrderedMap",
+  "exit_code": 0,
+  "jobs": 592,
+  "source_blobs": {
+    "Applications/Search/OrderedMap/Interface.lean": "d2ade40d5b8873e9e34a295ea7093937217aad34",
+    "Applications/Search/OrderedMap/Basic.lean": "27389f7803c0cc3e69f1c22a6e423a65db21d0a7",
+    "Examples/OrderedMap.lean": "a3b00901e5b67aac6fb4d42ff6112d9ded211e35",
+    "Applications/Search/OrderedTree/Basic.lean": "ed9cd83de8e396381d888a5585127309b670e557"
+  },
+  "source_scope": "Interface/Basic/examples; OrderedTree.Basic reused unchanged from original3894128",
+  "validation": "Pinned Nix shell, LEAN_NUM_THREADS=1, serialized focused build",
+  "gate_limits": "Not an isolated full candidate check, exhaustive audit, final verification or independent review."
+}

@@ -1,0 +1,25 @@
+{
+  "candidate": "de575a81266ac98194c7c5c83e91628098aac92e",
+  "command": [
+    "/root/.nix-profile/bin/nix",
+    "develop",
+    "--command",
+    "./check.sh",
+    "--candidate",
+    "HEAD"
+  ],
+  "working_directory": "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+  "log": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-de575a8.log",
+  "explicit_environment": {
+    "PATH_prefix": "/root/.nix-profile/bin:",
+    "NIX_CONFIG": "build-users-group =\nexperimental-features = nix-command flakes",
+    "LEAN_NUM_THREADS": "1"
+  },
+  "started_utc": "2026-11-02T07:07:57.238803+00:00",
+  "status": "failed_or_interrupted",
+  "returncode": -2,
+  "note": "Runner records the exact subprocess return code independently of the interactive session. The required check.sh command itself is unchanged.",
+  "pid": 205629,
+  "process_group": 205629,
+  "finished_utc": "2026-11-02T08:20:46.364995+00:00"
+}

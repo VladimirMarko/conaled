@@ -1,0 +1,55 @@
+{
+  "utc": "2026-11-04T14:39:54.466604+00:00",
+  "original_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_candidate": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "full_scope_paths": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-shape.md"
+  ],
+  "both_full_reports_completely_read_by_root": {
+    "Standards": [
+      "reviews/tree-shape-standards-preparation-20261104.md",
+      14250,
+      "b1abec0f25005e867384b0bed2257677747a6204a8ff7cf39cb14b155d17b003",
+      "b85e6e"
+    ],
+    "Spec": [
+      "reviews/tree-shape-spec-preparation-20261104.md",
+      17550,
+      "cf5e7daa6041c8adb5bcd304bea7dc8b91b18b3c45776234ef65d0c8f6491d08",
+      "e2b975"
+    ]
+  },
+  "both_source_assessments_complete": true,
+  "new_concrete_findings": 0,
+  "overall": "Blocked; original prerequisite/integration/compiler/type/full/audit/final/immediate gates pending",
+  "carried_XT02_SP01": "independently source-confirmed docstring-only sufficiency correction; formal/final confirmation remains pending",
+  "public_names": 90,
+  "public_theorems": 79,
+  "public_definitions": 11,
+  "private_definitions": 1,
+  "anonymous_examples": 0,
+  "instances": 0,
+  "all91headers_match_immutable_source": true,
+  "Standards_header_convention": "exact raw prefix before := or first leading equation",
+  "Spec_header_convention": "trim authored header-end whitespace and add one terminal LF; all91 agree with raw prefixes under stated convention",
+  "all6source_identities_verified": true,
+  "source_closure": {
+    "local": 29,
+    "external": 14,
+    "edges": 54
+  },
+  "program": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-public-statements90-prepared-20261104/Statements.lean",
+    "bytes": 4230,
+    "sha256": "28622fb1c6417798d4d4c476e9e3d307792c62e881f0158446ca2938434b83ca",
+    "names_in_exact_public_order": true,
+    "execution_candidate": null,
+    "actual_type_credit": 0
+  },
+  "no_new_mathematical_review_by_coordinator": true
+}

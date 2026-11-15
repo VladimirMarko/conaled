@@ -1,0 +1,572 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-04T11:26:08.537490+00:00",
+  "review_axis": "Spec",
+  "parent": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+  "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+  "overall": "Blocked",
+  "same_original_six_path_scope": true,
+  "full_scope_paths": [
+    "Applications/Resources/FIFOContracts.lean",
+    "Applications/Resources/Potential.lean",
+    "Examples/MappedPotentialAccounting.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-potential-accounting.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "current_scope_identities": [
+    {
+      "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+      "path": "Applications/Resources/FIFOContracts.lean",
+      "git_blob": "01839707e852b3faff6ef1a49ad88a76fb5e5c18",
+      "bytes": 8308,
+      "lines": 168,
+      "sha256": "f0215c25e27380b170297c9cc010375da4ef263380088f4ae8fdbb7272373343"
+    },
+    {
+      "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+      "path": "Applications/Resources/Potential.lean",
+      "git_blob": "dcf7ae78d76c1440c2d89711e6939a00ff24cc90",
+      "bytes": 11606,
+      "lines": 239,
+      "sha256": "c921f5a18f9c508c338d49eed9d3bd2a2193f968cfc3e9efb4208f8917efa33c"
+    },
+    {
+      "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+      "path": "Examples/MappedPotentialAccounting.lean",
+      "git_blob": "1fb26b51e9f298bd1ba1d1a5fa2a425142f8d8d7",
+      "bytes": 6932,
+      "lines": 166,
+      "sha256": "2c83479daec51deb21ec95e26af816bc0dfaa682fdb5ee76ee28cdf1e681386a"
+    },
+    {
+      "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+      "path": "SquareApplications.lean",
+      "git_blob": "77116918bf2466ff362c7c2357470cd413a43ec3",
+      "bytes": 9413,
+      "lines": 286,
+      "sha256": "f435dd0a16590472f21a9b25d7ae48e21bccf6a74ff4c54539b091529ed574b9"
+    },
+    {
+      "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+      "path": "docs/research/fdsa-potential-accounting.md",
+      "git_blob": "b9e70b3a5c15606de595f319ff5d11cdd9ff941e",
+      "bytes": 9877,
+      "lines": 163,
+      "sha256": "19c6dc50bc71b518c879cdd8a3f238a3fc5726e5d2486469e18a94a3f310d272"
+    },
+    {
+      "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "db598df8a4fe01d368cd0c791040dee22b5d7311",
+      "bytes": 44533,
+      "lines": 677,
+      "sha256": "c617f951a84072835c80945c8093a2096272d97f9e21981d865a263a19eb186b"
+    }
+  ],
+  "sole_successor_delta": "Examples/MappedPotentialAccounting.lean",
+  "all_other_parent_paths_exact": true,
+  "full_successor_source_read_lines": [
+    1,
+    166
+  ],
+  "full_diff_read_lines": [
+    1,
+    61
+  ],
+  "complete_author_readback_receipt_diagnostic_and_identity_records_read": true,
+  "author_receipt": {
+    "path": "provenance/xp01-elaboration-correction2-20261104/receipt.json",
+    "bytes": 8054,
+    "lines": 221,
+    "sha256": "c3ea497355124c0f0c5c77dbc3bdb440548f3e513c2e191795addd1baa8c2bc4"
+  },
+  "all_13_package_hashes_verified": [
+    {
+      "path": "after-identity.json",
+      "sha256": "2f6f6b522e3ba4cf579304d2b0d46c3db56b398683ad0351c3196f278dcbd088",
+      "verified": true
+    },
+    {
+      "path": "author-readback.md",
+      "sha256": "2a3011ec6e64847074d36b4e7681bd9c677da5dfd773bb8b65d5bd80b72ee4c0",
+      "verified": true
+    },
+    {
+      "path": "before-identity.json",
+      "sha256": "673f2e2e26a085946bb878c63c231656b97fad4649bc7ee03b1ed4770b36b0ef",
+      "verified": true
+    },
+    {
+      "path": "diagnostic-map.json",
+      "sha256": "98d95764e020c786d1f0fc654dccd28a08ae590f91f783b47294e612ac893aa7",
+      "verified": true
+    },
+    {
+      "path": "evidence/diagnostic-headers.txt",
+      "sha256": "58c76f88a62f4ec37264894765626ae3d8001678604b7c38b65226ebb58eea75",
+      "verified": true
+    },
+    {
+      "path": "evidence/input-full.log",
+      "sha256": "8fbbdc6d017240e7984585a02ae04afa3d8ed3ca5a46f3767144c5d7558c84a4",
+      "verified": true
+    },
+    {
+      "path": "evidence/input-native-result.json",
+      "sha256": "6163ccb231e4e4aeef38154147353d270fef8bb7a22ae693aac4842b1f3c538b",
+      "verified": true
+    },
+    {
+      "path": "evidence/input-result.json",
+      "sha256": "2b6e38b8592a0f6e069d010cfd983cb52f57b88d301f9a1200fdcf41f7123486",
+      "verified": true
+    },
+    {
+      "path": "evidence/input-secured-terminal.json",
+      "sha256": "abefcf885453ac893d947b996e017e1631cb68c0ef1619ece39a980a0bdca47c",
+      "verified": true
+    },
+    {
+      "path": "source-after/MappedPotentialAccounting.lean",
+      "sha256": "2c83479daec51deb21ec95e26af816bc0dfaa682fdb5ee76ee28cdf1e681386a",
+      "verified": true
+    },
+    {
+      "path": "source-before/MappedPotentialAccounting.lean",
+      "sha256": "aa57790203c7dbc800586464c46366fcd7e6da6965fdbc3c260285e9c8d693c3",
+      "verified": true
+    },
+    {
+      "path": "source.diff",
+      "sha256": "b975c78b1307c27b7ca20c1cccaad5b2ab65dc80831fc3da17f77458e849a1cd",
+      "verified": true
+    },
+    {
+      "path": "static-readback.json",
+      "sha256": "2580315612e1a05fc5778d5d4b79f4afdfea256437d00771c39d840995e35404",
+      "verified": true
+    }
+  ],
+  "source_copies_and_full_index_diff_exact": true,
+  "declaration_integrity": [
+    {
+      "kind": "theorem",
+      "header": "theorem real_boundary (n : Nat) (bs : Bits) :\n    (totalCost n bs : ℝ) + (ones (advance n bs) : ℝ) =\n      (ones bs : ℝ) + 2 * (n : ℝ)",
+      "before_line": 21,
+      "after_line": 21,
+      "header_sha256": "9d12ffc0f9fbfb3563c9db0585a13ec50a30031c5e3b8f343735b36a87f2cf19",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "example",
+      "header": "example : value (advance 4 []) = 4",
+      "before_line": 43,
+      "after_line": 43,
+      "header_sha256": "17a2f1604d1ea4e9a7ee075c0924b6566908eac86946e347dd3143575eaf43ec",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "example",
+      "header": "example : (totalCost 4 [] : ℝ) = 7",
+      "before_line": 45,
+      "after_line": 45,
+      "header_sha256": "2e4e23f719c19a62ceaecd6f1b6abe9a313188561f7c484f15f9b4ccfbe968b5",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "example",
+      "header": "example (n : Nat) : (totalCost n [] : ℝ) + (ones (advance n []) : ℝ) = 2 * n",
+      "before_line": 55,
+      "after_line": 55,
+      "header_sha256": "460a4509836859767bacc6c83ace9e887c0edb4d0a46d47342162181c8a46795",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "def",
+      "header": "private def clearStep (_ : Unit) (_ : Nat) : Measured Nat Nat",
+      "before_line": 62,
+      "after_line": 62,
+      "header_sha256": "31c9de619ffcbd8323ead7f590d6272cde84771d217d972146521080a043fc14",
+      "header_unchanged": true,
+      "definition_body_unchanged": true,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "def",
+      "header": "private def potential (s : Nat) : Int",
+      "before_line": 63,
+      "after_line": 63,
+      "header_sha256": "c6480df68be8f446a7d5ce9bf5dd91710cf0d3732c591887f7f494eaf3ee8166",
+      "header_unchanged": true,
+      "definition_body_unchanged": true,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "def",
+      "header": "private def charge (_ : Unit) (s : Nat) : Int",
+      "before_line": 64,
+      "after_line": 64,
+      "header_sha256": "117087e7d9b864fa1968b968d96dd02a5a6e8dfd89e686608b657df6297daf1b",
+      "header_unchanged": true,
+      "definition_body_unchanged": true,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "example",
+      "header": "example (s : Nat) : 0 ≤ potential s",
+      "before_line": 66,
+      "after_line": 66,
+      "header_sha256": "614191a035472a8d26f4933b93dbafe15afa2b93e11507cfe4f4bafd2228447e",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "theorem",
+      "header": "private theorem boundary (is : List Unit) (s : Nat) :\n    budget clearStep charge is s =\n      ((run clearStep is s).2 : Int) + potential (run clearStep is s).1 - potential s",
+      "before_line": 72,
+      "after_line": 72,
+      "header_sha256": "36e8adaa26d4abea41bd6e44ea8e079b79bbf983b6bbb55b8302fb649f750cda",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": true
+    },
+    {
+      "kind": "example",
+      "header": "example : charge () 1 = -1",
+      "before_line": 78,
+      "after_line": 79,
+      "header_sha256": "13c0dc267d0e0906c1401af9bc390f677b4357dc5c86d5fde1e514ce39384693",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "example",
+      "header": "example : (run clearStep [(), ()] 1).2 = 2",
+      "before_line": 79,
+      "after_line": 80,
+      "header_sha256": "2c72468b3cd61a8bded7f027a9c1734a6d807e1291a183ff79bf58032570f07a",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "example",
+      "header": "example : budget clearStep charge [(), ()] 1 = 0",
+      "before_line": 81,
+      "after_line": 82,
+      "header_sha256": "c61c57d6c012eeb649e262c3b1de6e9b82db09e0d4c332f04aa891014b6787a3",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": true
+    },
+    {
+      "kind": "example",
+      "header": "example : ¬ ((run clearStep [(), ()] 1).2 : Int) ≤\n    budget clearStep charge [(), ()] 1",
+      "before_line": 85,
+      "after_line": 86,
+      "header_sha256": "91fdbd7ec4bd3107d98f90eaf5dd257c4ebd831c4827ff19cd6db532e970d9c6",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": true
+    },
+    {
+      "kind": "example",
+      "header": "example : budget clearStep charge [(), ()] 1 ≠ charge () 1 + charge () 1",
+      "before_line": 90,
+      "after_line": 91,
+      "header_sha256": "363053b1d1343b37b8b6f15f1cf8c414d6c1ca9f3707d9501fa980c86280d21f",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": true
+    },
+    {
+      "kind": "def",
+      "header": "private def step (_ : Unit) (s : Nat) : Measured Nat Nat",
+      "before_line": 98,
+      "after_line": 99,
+      "header_sha256": "4b1f435021b76c2cbc0b37bdadd03a783bf48085bd888499ee40223b5fcb9315",
+      "header_unchanged": true,
+      "definition_body_unchanged": true,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "def",
+      "header": "private def Valid (s : Nat) : Prop",
+      "before_line": 101,
+      "after_line": 102,
+      "header_sha256": "6392cb68ca8d6e4a321633625aad0238f9077d8100b95c5343c2c1cc2581ae73",
+      "header_unchanged": true,
+      "definition_body_unchanged": true,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "def",
+      "header": "private noncomputable def potential (s : Nat) : ℝ",
+      "before_line": 102,
+      "after_line": 103,
+      "header_sha256": "e78d948d404a89c135f6888e150355ccab218cc6d9c0931e426e3e3d48e604f9",
+      "header_unchanged": true,
+      "definition_body_unchanged": true,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "def",
+      "header": "private noncomputable def charge (_ : Unit) (s : Nat) : ℝ",
+      "before_line": 103,
+      "after_line": 104,
+      "header_sha256": "c615ebb323c0dbf503049c0aa5641c23e9fac629dffb4525661c47699f2a0dcf",
+      "header_unchanged": true,
+      "definition_body_unchanged": true,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "theorem",
+      "header": "private theorem closed (i : Unit) (s : Nat) (hs : Valid s) : Valid (step i s).1",
+      "before_line": 105,
+      "after_line": 106,
+      "header_sha256": "7ae6ffbe05f32052a91f80fc6a4d02f6f85194caa479265748e28d9567a9b08f",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "theorem",
+      "header": "private theorem localLaw (i : Unit) (s : Nat) (hs : Valid s) :\n    (Nat.castAddMonoidHom ℝ) (step i s).2 + potential (step i s).1 =\n      potential s + charge i s",
+      "before_line": 109,
+      "after_line": 110,
+      "header_sha256": "f9fbee28ee3f89430feb369ab9879e7ca6436830879badb08e4a1456964737f5",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "theorem",
+      "header": "private theorem nonneg (s : Nat) (_ : Valid s) : 0 ≤ potential s",
+      "before_line": 115,
+      "after_line": 116,
+      "header_sha256": "4e51e4697807e3d4e030d593c602bf33f0bd7dfdd212e72b9d7b45b7433b23e3",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "theorem",
+      "header": "private theorem boundary (is : List Unit) (s : Nat) (hs : Valid s) :\n    ((run step is s).2 : ℝ) + potential (run step is s).1 =\n      potential s + budget step charge is s",
+      "before_line": 119,
+      "after_line": 120,
+      "header_sha256": "6a44164bbf484b38cd93268b3366e34a6c27f9e81ae25098503ea0b840ecc393",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "theorem",
+      "header": "private theorem work_bound (is : List Unit) (s : Nat) (hs : Valid s) :\n    ((run step is s).2 : ℝ) ≤ potential s + budget step charge is s",
+      "before_line": 125,
+      "after_line": 126,
+      "header_sha256": "dffdbfec89cd30b657fe6799a0570fae822c9dbfb04ca66a342940c9f8ea5f07",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "example",
+      "header": "example : Valid 0",
+      "before_line": 130,
+      "after_line": 131,
+      "header_sha256": "34f94a49df600f15dc9b7c8f7d614e633fac42fabce7c021fcc27b388719b5d1",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": true
+    },
+    {
+      "kind": "example",
+      "header": "example : budget step charge [()] 0 = (3 / 2 : ℝ)",
+      "before_line": 132,
+      "after_line": 133,
+      "header_sha256": "6c60e09b52a009129a8a4a72fcaa51bbb3ad8297a7fdc1d4337899c951f2e61a",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": true
+    },
+    {
+      "kind": "example",
+      "header": "example : budget step charge [(), ()] 0 = (2 : ℝ)",
+      "before_line": 137,
+      "after_line": 138,
+      "header_sha256": "a5d143180a137bf69ca559d52e455d1b930663b331f8d3826e462b4822988a36",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": true
+    },
+    {
+      "kind": "example",
+      "header": "example (is : List Unit) : ((run step is 0).2 : ℝ) ≤ budget step charge is 0",
+      "before_line": 142,
+      "after_line": 143,
+      "header_sha256": "5877482955589044007d1908a9ce011bb6c3b2f64b2427c341777ca80454bb13",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": true
+    },
+    {
+      "kind": "example",
+      "header": "example : ¬ ((step () 2).2 : ℝ) + potential (step () 2).1 ≤\n    potential 2 + charge () 2",
+      "before_line": 145,
+      "after_line": 146,
+      "header_sha256": "c447400ee37f21dd676c69cb1b4e3c9f9a9e53305904941d999e462f5026d55f",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "def",
+      "header": "private def recordStep (i : Nat) (s : Unit) : Measured Unit (Additive (FreeMonoid Nat))",
+      "before_line": 152,
+      "after_line": 153,
+      "header_sha256": "4676c8367d922c64b479134333490414c1175196828394b49ca1cc27b70bb8cc",
+      "header_unchanged": true,
+      "definition_body_unchanged": true,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "example",
+      "header": "example (is : List Nat) :\n    (run recordStep is ()).2 =\n      budget recordStep (fun i _ => Additive.ofMul (FreeMonoid.of i)) is ()",
+      "before_line": 155,
+      "after_line": 156,
+      "header_sha256": "691266d1b9bd57820a512238ae6dc345bc3624656f6416785d67260e0a8a4281",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": false
+    },
+    {
+      "kind": "example",
+      "header": "example : budget recordStep (fun i _ => Additive.ofMul (FreeMonoid.of i)) [1, 2] () =\n    Additive.ofMul (FreeMonoid.ofList [1, 2])",
+      "before_line": 162,
+      "after_line": 163,
+      "header_sha256": "fd5633f4618a04592b5978ebfc6af6fd2a91da8bd8245301d9af3120d6c180e8",
+      "header_unchanged": true,
+      "definition_body_unchanged": null,
+      "proof_body_changed": false
+    }
+  ],
+  "definition_count": 8,
+  "named_theorem_count": 7,
+  "anonymous_example_count": 16,
+  "changed_proof_bodies": 8,
+  "imports_unchanged": true,
+  "options_unchanged": true,
+  "instance_surface_unchanged": true,
+  "independent_semantics": [
+    "The proof-local lambda is definitionally the unchanged Int-valued charge function. It still invokes budget_amortized on the actual trajectory and retains both boundary terms.",
+    "Five fully qualified Resources.bind/Resources.pure reductions select the already-read actual executor, preserving the boundary-based derivations and concrete values.",
+    "Four norm_num [Valid] premises unfold exactly the same 0≤1 natural inequality. No instance, invariant/domain, local law or invalid-state counterexample changes.",
+    "The arbitrary counter real boundary, all concrete counter results and both noncommutative examples are byte-preserved.",
+    "Private/public/anonymous source categories remain1/14/16; no added or removed declarations, assumptions, options/imports or values."
+  ],
+  "finding_disposition": {
+    "XP01-DOC-001": "Resolved at E and retained by exact map identity.",
+    "XP01-ELAB-001": "Resolved at E by actual core build, retained by exact Potential identity.",
+    "XP01-ELAB-002": "Source correction assessed without a new Spec finding; still Open pending actual successful matching compilation."
+  },
+  "attempt3": {
+    "classification": "Root command-assembly failure in native argument parsing before any Lean/Lake execution. No source or compiler result.",
+    "actual_exit": 2,
+    "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+    "source_clean_unchanged": true,
+    "native_record_created": false,
+    "all_available_request_start_result_secured_and_full_log_read": true,
+    "files": [
+      {
+        "path": "provenance/xp01-focused-development-20261104-attempt3/request.json",
+        "bytes": 811,
+        "lines": 23,
+        "sha256": "5e48ee8e6b64c55bdcee324bf3d30f3462baec1f6b1793ca95537881eec5bc26"
+      },
+      {
+        "path": "provenance/xp01-focused-development-20261104-attempt3/start.json",
+        "bytes": 1013,
+        "lines": 28,
+        "sha256": "b2d02ed5121448a30662090024151872d0744a18852af94b4761bb43371e04cc"
+      },
+      {
+        "path": "provenance/xp01-focused-development-20261104-attempt3/result.json",
+        "bytes": 1235,
+        "lines": 33,
+        "sha256": "e17fba1e501f59d564b4323ac90809a3d47fdb6a22f2a8a227395fffc42b8634"
+      },
+      {
+        "path": "provenance/xp01-focused-development-20261104-attempt3/secured-terminal.json",
+        "bytes": 686,
+        "lines": 13,
+        "sha256": "eb9396216b3b77852aa31adb657db0591d5c1a5c2572241a01ddc7ce16ebd549"
+      },
+      {
+        "path": "provenance/xp01-focused-development-20261104-attempt3/full.log",
+        "bytes": 327,
+        "lines": 4,
+        "sha256": "f036d60c526f7886bc2b50149feba30de545d64aeaf86d65bf544c5b2947931b"
+      }
+    ],
+    "omitted_run_and_project_and_wrong_state_recorded": true,
+    "source_validation_credit": false
+  },
+  "prepared20": {
+    "program": {
+      "path": "provenance/xp01-public-statements20-prepared-20261104/Statements.lean",
+      "bytes": 1002,
+      "lines": 28,
+      "sha256": "ea75026303b461b1bb676e060aaac51e37797cbb2afd3d6356c08ba28c7eb01f"
+    },
+    "program_and_order_unchanged": true,
+    "public_surface_unchanged": true,
+    "three_root_source_identities": [
+      {
+        "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+        "path": "Applications/Resources/Potential.lean",
+        "git_blob": "dcf7ae78d76c1440c2d89711e6939a00ff24cc90",
+        "bytes": 11606,
+        "lines": 239,
+        "sha256": "c921f5a18f9c508c338d49eed9d3bd2a2193f968cfc3e9efb4208f8917efa33c"
+      },
+      {
+        "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+        "path": "Applications/Resources/FIFOContracts.lean",
+        "git_blob": "01839707e852b3faff6ef1a49ad88a76fb5e5c18",
+        "bytes": 8308,
+        "lines": 168,
+        "sha256": "f0215c25e27380b170297c9cc010375da4ef263380088f4ae8fdbb7272373343"
+      },
+      {
+        "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+        "path": "Examples/MappedPotentialAccounting.lean",
+        "git_blob": "1fb26b51e9f298bd1ba1d1a5fa2a425142f8d8d7",
+        "bytes": 6932,
+        "lines": 166,
+        "sha256": "2c83479daec51deb21ec95e26af816bc0dfaa682fdb5ee76ee28cdf1e681386a"
+      }
+    ],
+    "actual_types_read": 0,
+    "actual_type_credit": 0
+  },
+  "remaining_gates": "Actual successful matching focused run, complete20 actual types with qualified input lineage and both independent reads; accepted prerequisites, complete candidate check/audit, final independent axes and immediate verification.",
+  "previous_report_preserved": {
+    "path": "provenance/xp01-spec-development-20261104/report-before-correction2.md",
+    "bytes": 20429,
+    "lines": 111,
+    "sha256": "4e72c913df57271525cf2fbc8ecc6b8978f9e2c50ec30e0a748b5301b5ceb9aa"
+  },
+  "existing_C2_F_unchanged": true,
+  "reviewer_runtime_or_source_actions": false
+}

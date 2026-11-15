@@ -1,0 +1,119 @@
+{
+  "kind": "Two-row authored-header metadata correction; not a mathematical or compiler finding",
+  "reviewer": "/root/chapter02_spec",
+  "recorded_utc": "2026-11-04T12:49:42.247921+00:00",
+  "candidate": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+  "fixed_base": "a0597381f02eddd074ee96cabaa974f2062285f8",
+  "source_path": "Examples/PermutationExpectationBoundary.lean",
+  "source_bytes": 14682,
+  "source_sha256": "e5547ba32b5f786c221a5f2259282452c17e05b86eacc9808d5d490a5f62b333",
+  "source_git_blob": "76f8a118a872ffe94dd2c7aaffdec4d4c3673520",
+  "original_records_preserved": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/permutation-expectation-spec-preparation-20261104.md",
+      "bytes": 23193,
+      "newline_lines": 130,
+      "sha256": "0c8ed987cea562d8cd783926c3e6fedf3bf82f0e74f673e275bb67b1ebc64d15"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-expectation-spec-preparation-20261104/source-assessment.json",
+      "bytes": 78939,
+      "newline_lines": 2229,
+      "sha256": "6d3a28e1f9bf153eafde6cd274bc065a2716730aa310b663ffa76a7c723991c0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-expectation-spec-preparation-20261104/current-boundary.json",
+      "bytes": 4392,
+      "newline_lines": 118,
+      "sha256": "6c2cd8d74698d227420361111f2ad74bfde536f06848d5d82f9e7a005eaea3c6"
+    }
+  ],
+  "coordinator_guard": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-expectation-coordinator-preflight1-20261104.json",
+    "bytes": 1558,
+    "newline_lines": 49,
+    "sha256": "21f5b7c58593d0510f7cd92b20cfb75b832c8c8b5988e28de3cd5388ab2986ca"
+  },
+  "cause": "The first source-header extractor stopped only at :=. For these record-constructor theorem proofs it crossed the where delimiter and included the following aemeasurable proof-field prefix before that field assignment. The statement itself ends immediately before where on the third source line.",
+  "corrections": [
+    {
+      "old_row": {
+        "path": "Examples/PermutationExpectationBoundary.lean",
+        "line": 318,
+        "kind": "theorem",
+        "visibility": "public",
+        "modifier": null,
+        "authored_name": "Examples.PermutationExpectationBoundary.singleton_order_original_hasLaw",
+        "header_sha256": "08fe53caa45c3f4847930aa9ff4027a01450fbbcd007577d334697359a66b941",
+        "header_lines": 4
+      },
+      "old_extracted_text": "theorem singleton_order_original_hasLaw :\n    HasLaw singletonOrder\n      (uniformOn (orders positions singleton : Set (List (Fin 3)))) original where\n  aemeasurable",
+      "corrected_row": {
+        "path": "Examples/PermutationExpectationBoundary.lean",
+        "line": 318,
+        "kind": "theorem",
+        "visibility": "public",
+        "modifier": null,
+        "authored_name": "Examples.PermutationExpectationBoundary.singleton_order_original_hasLaw",
+        "header_sha256": "2fe894e840715598b9c6de8ff41be4101c94912fc11810ceaedb1241f50942df",
+        "header_lines": 3
+      },
+      "corrected_header_text": "theorem singleton_order_original_hasLaw :\n    HasLaw singletonOrder\n      (uniformOn (orders positions singleton : Set (List (Fin 3)))) original",
+      "source_header_lines": [
+        318,
+        320
+      ],
+      "statement_terminator": "where",
+      "corrected_hash_matches_independently_supplied_Standards_hash": true
+    },
+    {
+      "old_row": {
+        "path": "Examples/PermutationExpectationBoundary.lean",
+        "line": 325,
+        "kind": "theorem",
+        "visibility": "public",
+        "modifier": null,
+        "authored_name": "Examples.PermutationExpectationBoundary.singleton_order_conditional_hasLaw",
+        "header_sha256": "df334667a9bc249f77258988766a4f8580aa0d0a2abadbfb3b91d90991e4b276",
+        "header_lines": 4
+      },
+      "old_extracted_text": "theorem singleton_order_conditional_hasLaw :\n    HasLaw singletonOrder\n      (uniformOn (orders positions singleton : Set (List (Fin 3)))) afterZero where\n  aemeasurable",
+      "corrected_row": {
+        "path": "Examples/PermutationExpectationBoundary.lean",
+        "line": 325,
+        "kind": "theorem",
+        "visibility": "public",
+        "modifier": null,
+        "authored_name": "Examples.PermutationExpectationBoundary.singleton_order_conditional_hasLaw",
+        "header_sha256": "dfcee8955dc51f5580176e71d77911d5a76d93d9027a222beaf1096a06b1e062",
+        "header_lines": 3
+      },
+      "corrected_header_text": "theorem singleton_order_conditional_hasLaw :\n    HasLaw singletonOrder\n      (uniformOn (orders positions singleton : Set (List (Fin 3)))) afterZero",
+      "source_header_lines": [
+        325,
+        327
+      ],
+      "statement_terminator": "where",
+      "corrected_hash_matches_independently_supplied_Standards_hash": true
+    }
+  ],
+  "effective_application": "Overlay only corrected_row.header_sha256 and corrected_row.header_lines on the two matching path/line/authored-name rows of the original source-assessment.json. Preserve the original report, receipt and boundary bytes; no other row or field changes.",
+  "unchanged": {
+    "all_authored_entries": 103,
+    "public_names": 81,
+    "public_theorems": 53,
+    "public_definitions": 26,
+    "named_local_instances": 2,
+    "private_named_theorems": 12,
+    "anonymous_local_instances": 10,
+    "names_kinds_lines_visibilities": true,
+    "full_six_path_source_read_and_assessment": true,
+    "frozen_requirements_and_all_cases": true,
+    "actual_type_credit": 0,
+    "compiler_or_full_validation_credit": 0,
+    "new_mathematical_spec_findings": 0,
+    "overall": "Blocked"
+  },
+  "readback_boundary": "Immutable source lines309–332, both old rows and root diagnostic guard were read fully; both corrected complete three-line headers are provided here. This correction is metadata only and does not repeat or revoke complete source assessment.",
+  "actions": "Only this new correction file; no source/compiler/process/cache/ref/pin/output/report/ticket/global-control mutation."
+}

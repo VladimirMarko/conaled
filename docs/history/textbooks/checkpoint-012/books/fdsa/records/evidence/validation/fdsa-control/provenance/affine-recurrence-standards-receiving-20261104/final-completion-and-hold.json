@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-04T19:17:21.255409+00:00",
+  "axis": "Standards",
+  "final_outcome": "Passed",
+  "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "tree": "b62fe504a38948e61c6377a4e7661b639c28c08c",
+  "original_source_base": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+  "original_source_candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+  "receiving_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "scope_paths": [
+    "Applications/Resources/AffineRecurrence.lean",
+    "Examples/AffineRecurrence.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-affine-recurrence.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "frozen_requirements_sha256": "5873700a349c359d15873829f1399a20225fa80eaa980e7ad9f1e4c8f774dd02",
+  "authored_surface": {
+    "public": 21,
+    "theorems": 19,
+    "definitions": 2,
+    "private": 0,
+    "anonymous_examples": 0,
+    "instances": 0,
+    "all21_actual_names_exact_retained_source_order": true,
+    "generated_auxiliaries": "Covered by complete retained source and current exhaustive audit; not misreported as separate21 outputs."
+  },
+  "new_or_unresolved_findings": [],
+  "resolved_findings": [
+    "XP01-DOC-001",
+    "XR01-ELAB-001"
+  ],
+  "final_report": {
+    "path": "reviews/affine-recurrence-standards-final-20261104.md",
+    "bytes": 11293,
+    "LF_lines": 67,
+    "sha256": "0b7b1db49597156e20af931876f0c22dab27bd22d426ff90222fcb09dbf18d26"
+  },
+  "final_evidence": {
+    "path": "provenance/affine-recurrence-standards-receiving-20261104/final-evidence-assessment.json",
+    "bytes": 30300,
+    "LF_lines": 689,
+    "sha256": "2075be4756cd0e6be26f77ae6b41127a6b73dd9e0234389d145919054f691bc4"
+  },
+  "complete_full_log_ledger": {
+    "path": "provenance/affine-recurrence-standards-receiving-20261104/full-attempt2-read-ledger.json",
+    "bytes": 6362,
+    "LF_lines": 100,
+    "sha256": "9b7d8a95906a1c3236d712d07a16c6907c5cffcb2a2962e7efc97d0965cf1d21"
+  },
+  "saved_readback": {
+    "final_report": {
+      "tool": "768474",
+      "all_LF_lines": "1-67",
+      "all_bytes": 11293
+    },
+    "full_log_ledger": {
+      "tool": "768474",
+      "all_LF_lines": "1-100",
+      "all_bytes": 6362
+    },
+    "final_evidence_complete_ranges": [
+      {
+        "first_LF_line": 1,
+        "last_LF_line": 350,
+        "bytes": 15494,
+        "sha256": "cf102aa99cd067a2ca438970474b7e3ceb00325731ae4565987144fb4e265f76",
+        "tool": "ea091c"
+      },
+      {
+        "first_LF_line": 351,
+        "last_LF_line": 689,
+        "bytes": 14806,
+        "sha256": "2fd63fa2d52f134cb44313011f7cbf3a92cfce909acf65f3d0703a685c960e37",
+        "tool": "28252c"
+      }
+    ],
+    "all_saved_report_and_evidence_bytes_read": true
+  },
+  "input_bindings_rehashed": 43,
+  "all_bound_inputs_unchanged": true,
+  "all11_full_log_ranges_rehashed": true,
+  "actual21_complete_type_boundary": {
+    "tool": "7b3976",
+    "native_LF_lines": "1-294",
+    "native_bytes": 17154,
+    "names": 21,
+    "all_blocks_and_bytes_accounted": true
+  },
+  "qualified_full_gate": {
+    "actual_owned_outer_native_exits": [
+      0,
+      0,
+      0
+    ],
+    "matching_verification_sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9",
+    "checked_modules": 1031,
+    "audit_rows": 1029,
+    "kernel_safe": 47828,
+    "theorems": 27242,
+    "unsafe": 0,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "qualified_actual_input_interval": "Exact clean candidate and complete matching pre/post program, two local sources, six compiler/hash/trace keys, ten configs, nine clean dependencies with exact paths, twelve runtime components, after the actual successful full gate. No fingerprint-only authenticity claim.",
+  "history_preserved": "Earlier full original source and receiving reports, focused failure/correction, first full exit137 boundary and reviewer singular-key bookkeeping error remain recorded without invented credit. All other held records remain untouched.",
+  "readback_completion": "This receipt is to be read back in full immediately after its save, then all own writes are held. Report/evidence/ledger are already completely read back and rehashed.",
+  "handoff_boundary": "Final Standards PASS only for exact c1ce under the original XR01 scope. Independent Spec, immediate qualified verify-candidate, accepted fast-forward and checkpoint remain root actions. No compiler/source/ref/cache/global-control mutation by this reviewer."
+}

@@ -1,0 +1,191 @@
+diff --git a/Applications/Resources/UniformQuickSortMean.lean b/Applications/Resources/UniformQuickSortMean.lean
+index 67ee8b0..7b5c18a 100644
+--- a/Applications/Resources/UniformQuickSortMean.lean
++++ b/Applications/Resources/UniformQuickSortMean.lean
+@@ -198,11 +198,13 @@ theorem integrable_observedCost_cond (positions : List I) (hnd : positions.Nodup
+       (ne_of_gt (firstEvent_positive_finite positions hnd hcomplete S a ha).1)
+   exact Integrable.of_finite
+ 
++omit [MeasurableSingletonClass (Equiv.Perm I)] in
+ @[simp] theorem meanBy_empty (positions : List I) (hcomplete : ∀ b, b ∈ positions)
+     (lt : I → I → Bool) : meanBy positions lt ∅ = 1 := by
+   let := Fintype.ofList positions hcomplete
+   simp [meanBy, observedCost, restrictedOrder]
+ 
++omit [MeasurableSingletonClass (Equiv.Perm I)] in
+ theorem meanBy_singleton (positions : List I) (hnd : positions.Nodup)
+     (hcomplete : ∀ b, b ∈ positions) (lt : I → I → Bool) (a : I) :
+     meanBy positions lt {a} = 5 := by
+@@ -216,6 +218,7 @@ theorem meanBy_singleton (positions : List I) (hnd : positions.Nodup)
+     simp [mem_restrictedOrder_of_complete positions hcomplete]
+   simp [meanBy, observedCost, horder]
+ 
++omit [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)] in
+ /-- All-false behavior on selected keys is an actual quadratic execution
+ family. Distinct occurrences by themselves do not imply distinct sort keys. -/
+ theorem observedCost_of_all_false (positions : List I) (hnd : positions.Nodup)
+@@ -229,8 +232,10 @@ theorem observedCost_of_all_false (positions : List I) (hnd : positions.Nodup)
+       b ((mem_restrictedOrder positions S π b).mp hb).2
+   have hc := (QuickSort.costs_of_all_right lt (restrictedOrder positions S π) hs).1
+   rw [restrictedOrder_length positions hnd hcomplete S π] at hc
++  unfold observedCost
+   exact_mod_cast hc
+ 
++omit [MeasurableSingletonClass (Equiv.Perm I)] in
+ theorem meanBy_of_all_false (positions : List I) (hnd : positions.Nodup)
+     (hcomplete : ∀ b, b ∈ positions) (lt : I → I → Bool) (S : Finset I)
+     (hfalse : ∀ a ∈ S, ∀ b ∈ S, lt b a = false) :
+@@ -286,7 +291,8 @@ theorem conditional_mean (positions : List I) (hnd : positions.Nodup)
+       (ne_of_gt (firstEvent_positive_finite positions hnd hcomplete S a ha).1)
+   have hE : MeasurableSet (firstEvent (restrictedOrder positions S) a) :=
+     (Set.toFinite _).measurableSet
+-  have heq := ae_cond_of_forall_mem hE
++  have heq := ae_cond_of_forall_mem
++    (μ := uniformOn (Set.univ : Set (Equiv.Perm I))) hE
+     (fun π hπ => observedCost_on_first positions hnd hcomplete lt S a π hπ)
+   rw [integral_congr_ae heq]
+   rw [integral_add
+@@ -302,14 +308,17 @@ theorem conditional_mean (positions : List I) (hnd : positions.Nodup)
+     (rightChild_subset_erase lt S a)]
+   simp
+ 
++omit [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)] in
+ theorem firstEvents_disjoint (positions : List I) (S : Finset I) :
+     Set.Pairwise (S : Set I)
+-      (Disjoint on (fun a => firstEvent (restrictedOrder positions S) a)) := by
++      (fun a b => Disjoint (firstEvent (restrictedOrder positions S) a)
++        (firstEvent (restrictedOrder positions S) b)) := by
+   intro a _ b _ hab
+   apply Set.disjoint_left.mpr
+   intro π hπa hπb
+   exact hab (Option.some.inj (hπa.symm.trans hπb))
+ 
++omit [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)] in
+ theorem firstEvents_cover (positions : List I) (hnd : positions.Nodup)
+     (hcomplete : ∀ b, b ∈ positions) (S : Finset I) (hS : S.Nonempty) :
+     (⋃ a ∈ S, firstEvent (restrictedOrder positions S) a) = Set.univ := by
+@@ -366,6 +375,7 @@ section Keys
+ 
+ variable [LinearOrder κ]
+ 
++omit [LinearOrder κ] in
+ theorem injOn_leftChild (key : I → κ) (lt : I → I → Bool) (S : Finset I)
+     (hinj : Set.InjOn key (S : Set I)) (a : I) :
+     Set.InjOn key (leftChild lt S a : Set I) := by
+@@ -373,6 +383,7 @@ theorem injOn_leftChild (key : I → κ) (lt : I → I → Bool) (S : Finset I)
+   exact hinj ((mem_leftChild lt S a b).mp hb).2.1
+     ((mem_leftChild lt S a c).mp hc).2.1 h
+ 
++omit [LinearOrder κ] in
+ theorem injOn_rightChild (key : I → κ) (lt : I → I → Bool) (S : Finset I)
+     (hinj : Set.InjOn key (S : Set I)) (a : I) :
+     Set.InjOn key (rightChild lt S a : Set I) := by
+@@ -380,6 +391,7 @@ theorem injOn_rightChild (key : I → κ) (lt : I → I → Bool) (S : Finset I)
+   exact hinj ((mem_rightChild lt S a b).mp hb).2.1
+     ((mem_rightChild lt S a c).mp hc).2.1 h
+ 
++omit [LinearOrder κ] in
+ /-- Key distinctness is local to the selected support, including each child. -/
+ theorem restrictedOrder_keys_nodup (positions : List I) (hnd : positions.Nodup)
+     (key : I → κ) (S : Finset I) (hinj : Set.InjOn key (S : Set I))
+@@ -428,6 +440,7 @@ noncomputable def rankEquiv (key : I → κ) (S : Finset I)
+   ((S.image key).orderIsoOfFin (Finset.card_image_of_injOn hinj)).toEquiv.trans
+     (keyEquiv key S hinj).symm
+ 
++omit [DecidableEq I] in
+ theorem rankEquiv_key (key : I → κ) (S : Finset I)
+     (hinj : Set.InjOn key (S : Set I)) (k : Fin S.card) :
+     key (rankEquiv key S hinj k) =
+@@ -462,7 +475,7 @@ theorem leftChild_key_image (key : I → κ) (S : Finset I)
+   · intro hz
+     obtain ⟨j, hj, rfl⟩ := Finset.mem_map.mp hz
+     have hlt : key (rankEquiv key S hinj j) < key (rankEquiv key S hinj k) := by
+-      rw [rankEquiv_key, rankEquiv_key]
++      rw [rankEquiv_key key S hinj j, rankEquiv_key key S hinj k]
+       exact emb.strictMono (Finset.mem_Iio.mp hj)
+     have hne : (rankEquiv key S hinj j).val ≠ (rankEquiv key S hinj k).val := by
+       intro h
+@@ -507,8 +520,9 @@ theorem sum_child_cards (key : I → κ) (S : Finset I)
+       intro k
+       rw [leftChild_card_rank, rightChild_card_rank]
+     _ = 2 * (∑ k ∈ Finset.range S.card, f k) := by
+-      rw [Finset.sum_add_distrib, Fin.sum_univ_eq_sum_range,
+-        Fin.sum_univ_eq_sum_range, Finset.sum_range_reflect]
++      rw [Finset.sum_add_distrib, Fin.sum_univ_eq_sum_range f S.card,
++        Fin.sum_univ_eq_sum_range (fun j => f (S.card - 1 - j)) S.card,
++        Finset.sum_range_reflect f S.card]
+       ring
+ 
+ variable [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
+@@ -527,10 +541,8 @@ theorem meanBy_eq_closedForm (positions : List I) (hnd : positions.Nodup)
+     | h n ih =>
+         intro T hcard hinjT
+         by_cases hn : n = 0
+-        · subst n
+-          have hT : T = ∅ := Finset.card_eq_zero.mp hcard
+-          subst T
+-          rw [meanBy_empty positions hcomplete, QuickSortMean.closedForm_zero]
++        · have hT : T = ∅ := Finset.card_eq_zero.mp (hcard.trans hn)
++          rw [hT, meanBy_empty positions hcomplete, hn, QuickSortMean.closedForm_zero]
+         · have hpos : 0 < n := Nat.pos_of_ne_zero hn
+           have hT : T.Nonempty := Finset.card_pos.mp (by omega)
+           have hnR : (n : ℝ) ≠ 0 := by exact_mod_cast hn
+@@ -599,6 +611,7 @@ theorem occurrenceInput_perm (xs : List α) (π : Equiv.Perm (Fin xs.length)) :
+     (List.ofFn_eq_map (f := xs.get)).symm.trans (List.ofFn_get xs)
+   have h := (restrictedOrder_perm (List.finRange xs.length) (List.nodup_finRange _)
+     (fun i => by simp) Finset.univ π).map xs.get
++  change ((restrictedOrder (List.finRange xs.length) Finset.univ π).map xs.get).Perm xs
+   simpa only [Finset.mem_univ, decide_true, List.filter_true, hmap] using h
+ 
+ theorem occurrenceInput_length (xs : List α) (π : Equiv.Perm (Fin xs.length)) :
+@@ -632,7 +645,9 @@ theorem inputMeanBy_eq_meanBy (lt : α → α → Bool) (xs : List α) :
+       (fun i j => lt (xs.get i) (xs.get j)) Finset.univ := by
+   unfold inputMeanBy meanBy observedCost
+   apply integral_congr_ae
+-  exact Filter.Eventually.of_forall (fun π => by rw [occurrenceInput_cost])
++  exact Filter.Eventually.of_forall (fun π => by
++    dsimp only
++    rw [occurrenceInput_cost lt xs π])
+ 
+ @[simp] theorem inputMeanBy_nil (lt : α → α → Bool) : inputMeanBy lt [] = 1 := by
+   simp [inputMeanBy, occurrenceInput, restrictedOrder]
+@@ -648,6 +663,7 @@ variable [LinearOrder κ]
+ noncomputable def inputMean (key : α → κ) (xs : List α) : ℝ :=
+   inputMeanBy (fun a b => decide (key a < key b)) xs
+ 
++omit [LinearOrder κ] in
+ /-- Distinct input keys give an injective key map on occurrence labels, with
+ independent payload and key universes and no payload equality instance. -/
+ theorem occurrence_key_injective (key : α → κ) (xs : List α)
+@@ -656,6 +672,7 @@ theorem occurrence_key_injective (key : α → κ) (xs : List α)
+   rw [List.ofFn_comp', List.ofFn_get]
+   exact hkeys
+ 
++omit [LinearOrder κ] in
+ theorem occurrenceInput_keys_nodup (key : α → κ) (xs : List α)
+     (hkeys : (xs.map key).Nodup) (π : Equiv.Perm (Fin xs.length)) :
+     ((occurrenceInput xs π).map key).Nodup :=
+@@ -667,7 +684,7 @@ theorem inputMean_eq_closedForm (key : α → κ) (xs : List α)
+   unfold inputMean
+   rw [inputMeanBy_eq_meanBy]
+   have hinj : Set.InjOn (fun i : Fin xs.length => key (xs.get i))
+-      (Finset.univ : Set (Fin xs.length)) :=
++      ((Finset.univ : Finset (Fin xs.length)) : Set (Fin xs.length)) :=
+     (occurrence_key_injective key xs hkeys).injOn
+   simpa only [Finset.card_univ, Fintype.card_fin] using
+     meanBy_eq_closedForm (List.finRange xs.length) (List.nodup_finRange _)
+@@ -743,12 +760,14 @@ theorem inputLiteralMean_bounds (key : α → κ) (xs : List α) :
+   constructor
+   · apply integral_mono hT hF
+     intro π
++    dsimp only
+     exact_mod_cast QuickSort.exerciseCost_le_literalCost
+       (fun a b => decide (key a < key b)) (occurrenceInput xs π)
+   · unfold inputLiteralMean inputMean inputMeanBy
+     rw [← integral_const_mul]
+     apply integral_mono hF (hT.const_mul 2)
+     intro π
++    dsimp only
+     exact_mod_cast QuickSort.literalCost_le_twice
+       (fun a b => decide (key a < key b)) (occurrenceInput xs π)
+ 

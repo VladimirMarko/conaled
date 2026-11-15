@@ -1,0 +1,23 @@
+{
+  "phase": "green_positive",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "-B",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1035-mmap-random-prototype/test_mmap_random.py",
+    "--fixture",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1035-mmap-random-prototype/green-positive-fixture"
+  ],
+  "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1035-mmap-random-prototype",
+  "selected_environment": {
+    "LD_PRELOAD": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1035-mmap-random-prototype/libconaled_mmap_random.so",
+    "CONALED_MMAP_RANDOM": "1",
+    "CONALED_MMAP_RANDOM_EXE": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "CONALED_MMAP_RANDOM_REPORT": "1"
+  },
+  "timeout_seconds": 15,
+  "returncode": 0,
+  "wall_seconds": 0.047568003999913344,
+  "stdout": "{\n  \"passed\": true,\n  \"fixture\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1035-mmap-random-prototype/green-positive-fixture/mapping.bin\",\n  \"mmap_calls\": [\n    {\n      \"name\": \"reserve\",\n      \"address\": null,\n      \"length\": 4096,\n      \"prot\": 3,\n      \"flags\": 2,\n      \"offset\": 0,\n      \"result\": 140542862340096,\n      \"errno\": 123\n    },\n    {\n      \"name\": \"preferred\",\n      \"address\": 140542862340096,\n      \"length\": 4096,\n      \"prot\": 3,\n      \"flags\": 1048578,\n      \"offset\": 0,\n      \"result\": 140542862340096,\n      \"errno\": 123\n    },\n    {\n      \"name\": \"collision\",\n      \"address\": 140542862340096,\n      \"length\": 4096,\n      \"prot\": 3,\n      \"flags\": 1048578,\n      \"offset\": 0,\n      \"result\": 18446744073709551615,\n      \"errno\": 17\n    }\n  ],\n  \"before\": {\n    \"version\": 1,\n    \"calls\": 1,\n    \"forwarded\": 1,\n    \"mmap_failures\": 0,\n    \"preferred_successes\": 0,\n    \"disabled\": 0,\n    \"identity_mismatches\": 0,\n    \"advice_attempts\": 0,\n    \"advised_bytes\": 0,\n    \"advice_successes\": 0,\n    \"advice_failures\": 0,\n    \"last_advice_errno\": 0\n  },\n  \"after_preferred\": {\n    \"version\": 1,\n    \"calls\": 2,\n    \"forwarded\": 2,\n    \"mmap_failures\": 0,\n    \"preferred_successes\": 1,\n    \"disabled\": 0,\n    \"identity_mismatches\": 0,\n    \"advice_attempts\": 1,\n    \"advised_bytes\": 4096,\n    \"advice_successes\": 1,\n    \"advice_failures\": 0,\n    \"last_advice_errno\": 0\n  },\n  \"after_collision\": {\n    \"version\": 1,\n    \"calls\": 3,\n    \"forwarded\": 3,\n    \"mmap_failures\": 1,\n    \"preferred_successes\": 1,\n    \"disabled\": 0,\n    \"identity_mismatches\": 0,\n    \"advice_attempts\": 1,\n    \"advised_bytes\": 4096,\n    \"advice_successes\": 1,\n    \"advice_failures\": 0,\n    \"last_advice_errno\": 0\n  },\n  \"snapshot_scope\": \"public diagnostics, not independent syscall tracing\",\n  \"cleanup\": [\n    {\n      \"address\": 140542862340096,\n      \"returncode\": 0,\n      \"errno\": 0\n    }\n  ]\n}\n",
+  "stderr": "conaled-mmap-random-v1 calls=3 forwarded=3 mmap_failed=1 preferred=1 disabled=0 identity_mismatch=0 selected=1 bytes=4096 success=1 failure=0 last_errno=0\n",
+  "test_source_sha256": "4190c2515128c58692ef3897bd74f118cd4cfa30deefdd0706a106414f6004c1"
+}

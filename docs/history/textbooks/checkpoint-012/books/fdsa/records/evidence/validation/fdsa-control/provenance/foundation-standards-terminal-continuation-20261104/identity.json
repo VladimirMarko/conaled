@@ -1,0 +1,568 @@
+{
+  "recorded_utc": "2026-11-04T07:55:41.792474+00:00",
+  "reviewer": "/root/chapter02_natural_runs",
+  "review_axis": "Standards only",
+  "scope": "Exact unchanged shared foundations; retained complete independent source assessment; recovered terminal preparation only",
+  "chapter02_authorship_disclosed": true,
+  "foundation_authorship": false,
+  "base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "original_prefix": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "head": {
+    "exit_code": 0,
+    "stdout": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761\n",
+    "stderr": ""
+  },
+  "branch": {
+    "exit_code": 0,
+    "stdout": "work/fdsa-foundation-integration\n",
+    "stderr": ""
+  },
+  "status": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "merge_base": {
+    "exit_code": 0,
+    "stdout": "07e480f6ec9958d4975bb90151005b84f2907614\n",
+    "stderr": ""
+  },
+  "base_ancestor": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "original_prefix_ancestor": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "diff_command": [
+    "git",
+    "diff",
+    "07e480f6ec9958d4975bb90151005b84f2907614...f17cc6b1a2bf44215b16202ed0fcee2b5c130761"
+  ],
+  "diff_stat": {
+    "exit_code": 0,
+    "stdout": " Applications/Resources/InsertionSort.lean | 178 +++++++++++++++++\n Applications/Resources/ListCalls.lean     | 190 ++++++++++++++++++\n Examples/FunctionalNotation.lean          | 202 +++++++++++++++++++\n Examples/InsertionCosts.lean              | 101 ++++++++++\n Examples/ListCalls.lean                   | 124 ++++++++++++\n Examples/ListLibrary.lean                 | 170 ++++++++++++++++\n SquareApplications.lean                   |   4 +\n docs/research/fdsa-notation-map.md        | 317 ++++++++++++++++++++++++++++++\n docs/research/fdsa-reconstruction-map.md  | 235 +++++++++++++++++++++-\n 9 files changed, 1515 insertions(+), 6 deletions(-)\n",
+    "stderr": ""
+  },
+  "commit_inventory": {
+    "exit_code": 0,
+    "stdout": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761 fix(resources): qualify natural doubling in split costs (#174)\n9875bfd08b37ef841d96de067ff05e2da107ccbf fix(resources): elaborate FDSA list and notation witnesses (#174)\n0c93725def6b6a4ce4f9d87e76f2430ba148ccc8 feat(resources): reconcile FDSA sorting foundations (#174)\nc80eec92f5458eccfd1c34c8314d666c2a1e3847 test(examples): add empty-index notation boundary (#174)\n50dc7df3649d9f4f33bc6b3464c2c9fb6399aa46 fix(examples): make notation dependencies explicit (#174)\nc994c22b754db5300d28670dff6b6f83ad56df02 feat(examples): draft FDSA notation bridges (#174)\ndf116c2f6d834eeb952157505b5c93a9ab5497e8 feat(resources): draft shared list-call proofs (#174)\n333f900d04be3153518e68cc8c10920f40a08e05 feat(examples): check shared FDSA list interfaces (#174)\n697bcf242ce65d74815b5639bddb1c6e754dd10f feat(resources): add shared insertion-sort call bounds (#174)\n",
+    "stderr": ""
+  },
+  "source_identity": [
+    {
+      "path": "conaled-ch01-review/Applications/Resources/InsertionSort.lean",
+      "bytes": 7257,
+      "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+      "blob": "d51ea6e9845378d3f7667adee189f8a210b477ed"
+    },
+    {
+      "path": "conaled-ch01-review/Applications/Resources/ListCalls.lean",
+      "bytes": 7939,
+      "sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+      "blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4"
+    },
+    {
+      "path": "conaled-ch01-review/Examples/FunctionalNotation.lean",
+      "bytes": 8277,
+      "sha256": "fe4b585a6753110dee67c1942ce68d16d9bf00feb5946f32791682c634c42eef",
+      "blob": "3e5db8677c94bd330779522f92bc39508540a17a"
+    },
+    {
+      "path": "conaled-ch01-review/Examples/InsertionCosts.lean",
+      "bytes": 3862,
+      "sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37",
+      "blob": "1c3de9b0a0a5f27f108de09f28f6ac55f4cddb36"
+    },
+    {
+      "path": "conaled-ch01-review/Examples/ListCalls.lean",
+      "bytes": 4333,
+      "sha256": "24d0809f51d04b0a9cadb5a349141e7327a5f7721f63c1021113527917487d5d",
+      "blob": "b4c4683ee2bd16ff6f844ce757470515847a63dc"
+    },
+    {
+      "path": "conaled-ch01-review/Examples/ListLibrary.lean",
+      "bytes": 6761,
+      "sha256": "036cf4c12ddf5d25ce433d9f7dbedfcbb96dfc3c7f602d10605388d2791e47ad",
+      "blob": "99ba369997885e176bbda192ee0feb5c7bf4d034"
+    },
+    {
+      "path": "conaled-ch01-review/SquareApplications.lean",
+      "bytes": 8412,
+      "sha256": "7f00379973161019217585a5ed32d0374247300544ae448b2a4b86aa11c6bf64",
+      "blob": "1f7e4544b1eb77614a1c6fb2311e0d3290a3b1a5"
+    },
+    {
+      "path": "conaled-ch01-review/docs/research/fdsa-notation-map.md",
+      "bytes": 24280,
+      "sha256": "cff778380868755fa7e7018797bf3d5e8c7b0cc55b5e3cd37bc64b3f32658d5b",
+      "blob": "ba187a2744932874581e0b0b8c3741add60b9cee"
+    },
+    {
+      "path": "conaled-ch01-review/docs/research/fdsa-reconstruction-map.md",
+      "bytes": 31701,
+      "sha256": "c3059fc931180a6c0e6ec07ea7b92953aac451677a3939b0daaeb433e042bbe9",
+      "blob": "327f797c0cfbef722d85bfe9143c32f4415c2680"
+    }
+  ],
+  "config_identity": [
+    {
+      "path": "conaled-ch01-review/lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "path": "conaled-ch01-review/lakefile.toml",
+      "bytes": 444,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+    },
+    {
+      "path": "conaled-ch01-review/lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    {
+      "path": "conaled-ch01-review/check.sh",
+      "bytes": 74,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd"
+    },
+    {
+      "path": "conaled-ch01-review/scripts/check.py",
+      "bytes": 16119,
+      "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+    },
+    {
+      "path": "conaled-ch01-review/README.md",
+      "bytes": 26239,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216"
+    },
+    {
+      "path": "conaled-ch01-review/AGENTS.md",
+      "bytes": 3118,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    },
+    {
+      "path": "conaled-ch01-review/.agents/skills/code-review/SKILL.md",
+      "bytes": 7466,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42"
+    },
+    {
+      "path": "conaled-ch01-review/docs/agents/review-loop.md",
+      "bytes": 7113,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c"
+    }
+  ],
+  "evidence_identity": [
+    {
+      "path": "fdsa-control/reviews/shared-foundations-round1.md",
+      "bytes": 13909,
+      "sha256": "21b930204907024a78e3c0adcca8ee0eb6a064e03c2587872b9379d8585b138d"
+    },
+    {
+      "path": "fdsa-control/reviews/shared-foundations-standards.md",
+      "bytes": 24375,
+      "sha256": "3f56c01fe4a53f50a2051108a95fa41584d7037a41af3afbd2346f9b25f5c497"
+    },
+    {
+      "path": "fdsa-control/reviews/shared-foundations-spec.md",
+      "bytes": 32927,
+      "sha256": "06880532472d17d6f9d254165b61d41a437d0a79857323deac231025fd38f599"
+    },
+    {
+      "path": "fdsa-control/reviews/shared-foundations-standards-recovery-preflight-20261104.md",
+      "bytes": 13002,
+      "sha256": "61b6a175e5b75e141e6c705551c378e8b6db34de835910554c7a28c618fd0d3f"
+    },
+    {
+      "path": "fdsa-control/reviews/insertion-requirements.md",
+      "bytes": 3257,
+      "sha256": "fbd77fa19c83df3e6d7d10d6e7bd6cddf2d5aa888b512d5af2a7322f222f1a68"
+    },
+    {
+      "path": "fdsa-control/reviews/list-library-requirements.md",
+      "bytes": 3123,
+      "sha256": "83cffa5aff717943d449f4380189a9e9a761252730f5a14f4e392f1e62d154d4"
+    },
+    {
+      "path": "fdsa-control/reviews/list-calls-requirements.md",
+      "bytes": 4040,
+      "sha256": "0a2f7a2869c10276da2cc9a852e20936c6aba2d094d5232b96e94fbf47ecf78d"
+    },
+    {
+      "path": "fdsa-control/reviews/notation-requirements.md",
+      "bytes": 3406,
+      "sha256": "21a4ad13752d4316817e97f655af9a768726aa682124a39a2aeac248460b5a48"
+    },
+    {
+      "path": "fdsa-control/ENVIRONMENT.md",
+      "bytes": 6789,
+      "sha256": "c0e7eafa942e2bdcca436eeae06ed49616ad9021e9ab4ebb633635e30963e85e"
+    },
+    {
+      "path": "fdsa-control/provenance/unified-native-recovery-20261104-qualified/qualification.json",
+      "bytes": 3279,
+      "sha256": "37a60985201cda9ac852adbc972483c32e59ee6ee82119b866dbaa4625301629"
+    },
+    {
+      "path": "fdsa-control/provenance/unified-native-recovery-20261104-qualified/profile-config.json",
+      "bytes": 3703,
+      "sha256": "7ba088fe04b1d9087f1a2c61b2c9cb1a902f7dde0601134cac966960776856d3"
+    },
+    {
+      "path": "fdsa-control/provenance/unified-native-recovery-20261104-qualified/smoke-result.json",
+      "bytes": 9280,
+      "sha256": "2ffe684a0d37f8ecc70978623a74a4305ffe4957cc8e6703f072b3ab9e416829"
+    },
+    {
+      "path": "fdsa-control/provenance/recovery-20261104-restored/runtime-content-comparison.json",
+      "bytes": 3460,
+      "sha256": "9242b4dcbe578dd52c52846cd2ce3432be46fee8702c08bede7fe6956fbc5555"
+    },
+    {
+      "path": "fdsa-control/provenance/recovery-20261104-restored/cache-download-adjustment.json",
+      "bytes": 1012,
+      "sha256": "654884e89baad73c861098cf4a3c5d5a14f218cbb57df061d44d437cc9c06ceb"
+    },
+    {
+      "path": "fdsa-control/provenance/recovery-20261104-restored/cache-download-adjustment-attempt3.json",
+      "bytes": 618,
+      "sha256": "b140ea09b34c7e856472f4bc93e50a313b828e2c08d676e66a761a4acaebbd7f"
+    },
+    {
+      "path": "fdsa-control/provenance/chapter01-acceptance-20261103/acceptance.json",
+      "bytes": 2562,
+      "sha256": "ca68a978d5bfc4ca8164c2f88c160eebfc0a339e80f9270c16b916caf25e9d4b"
+    },
+    {
+      "path": "fdsa-control/provenance/chapter01-unified-fresh-attempt4/verification.json",
+      "bytes": 861,
+      "sha256": "8d9257a238ab4c2e0743a41851a080f403aa09b41f4bf34690496c1f9a7b0264"
+    },
+    {
+      "path": "fdsa-control/provenance/chapter02-foundation-focused-attempt3/result.json",
+      "bytes": 1334,
+      "sha256": "6ef3c6f3f926c53a32810f053280d1d8bac60296886f16e07aaed117e4ac9f54"
+    },
+    {
+      "path": "fdsa-control/provenance/chapter02-foundation-focused-attempt3/full.log",
+      "bytes": 7782,
+      "sha256": "c7ad375385228d3bd1fc17d6b781de382147639eac4ecd2ec7b9618b4ac3de60"
+    },
+    {
+      "path": "fdsa-control/provenance/chapter02-foundation-full-attempt2-recovered-20261104/request.json",
+      "bytes": 737,
+      "sha256": "819a2014af5b15af3eb6079dd118d7e643ef5967a14646b7dda59a7ea5f1653f"
+    },
+    {
+      "path": "fdsa-control/provenance/chapter02-foundation-full-attempt2-recovered-20261104/start.json",
+      "bytes": 940,
+      "sha256": "d07131fa32edfba3e35c5794c5e074481c7aa48ddcb154ab9d62f7dd3515d89c"
+    },
+    {
+      "path": "fdsa-control/provenance/chapter02-foundation-full-attempt2-recovered-20261104/launch.json",
+      "bytes": 174,
+      "sha256": "a7895eb183e9e8101c54384b2c3f7ad8c44150aa0ad1602f31d2b0638c4b2cb6"
+    }
+  ],
+  "actual_runtime_files": [
+    {
+      "path": "conaled-native-state/toolchains/lean-4.35.0-linux/bin/lake",
+      "bytes": 13416,
+      "sha256": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "expected_sha256": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/toolchains/lean-4.35.0-linux/bin/lean",
+      "bytes": 9024,
+      "sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "expected_sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/toolchains/lean-4.35.0-linux/bin/leanc",
+      "bytes": 36168,
+      "sha256": "1e0b075573c5ea98e6b196e35d3b159b93e3226714e28cd8febb30a240ec735c",
+      "expected_sha256": "1e0b075573c5ea98e6b196e35d3b159b93e3226714e28cd8febb30a240ec735c",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/toolchains/lean-4.35.0-linux/bin/leanir",
+      "bytes": 215864,
+      "sha256": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e",
+      "expected_sha256": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/profile/bin/lake",
+      "bytes": 122,
+      "sha256": "85df404efd17484b633376fe8d3705f416e059642133d8232ed555a8d3174e21",
+      "expected_sha256": "85df404efd17484b633376fe8d3705f416e059642133d8232ed555a8d3174e21",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/profile/bin/lean",
+      "bytes": 122,
+      "sha256": "e290032a73b271084c56dfde6315062e1523492dc36b1bbde9cc5dea23d1c716",
+      "expected_sha256": "e290032a73b271084c56dfde6315062e1523492dc36b1bbde9cc5dea23d1c716",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/profile/bin/leanc",
+      "bytes": 123,
+      "sha256": "0e5517cfaaa530d1e484e45314a8e4be9bf44ccbccb09f8610fa190f6e5443e6",
+      "expected_sha256": "0e5517cfaaa530d1e484e45314a8e4be9bf44ccbccb09f8610fa190f6e5443e6",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/profile/bin/leanir",
+      "bytes": 124,
+      "sha256": "3a64f332683efbab0057235ec2b3c22d3ead19cb060e0830b76f1add4cf7c661",
+      "expected_sha256": "3a64f332683efbab0057235ec2b3c22d3ead19cb060e0830b76f1add4cf7c661",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/profile/runtime.py",
+      "bytes": 6368,
+      "sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695",
+      "expected_sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/profile/app_path.c",
+      "bytes": 3848,
+      "sha256": "fefc39d8645e4a938d6cc27574257d1a1e8e8f0790b75cc15bcf074272066fe0",
+      "expected_sha256": "fefc39d8645e4a938d6cc27574257d1a1e8e8f0790b75cc15bcf074272066fe0",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/profile/app_path.so",
+      "bytes": 16056,
+      "sha256": "124bc3f19426ab6558b3ca134d0afb70435eaff82a659e6e62a05e8e373e337d",
+      "expected_sha256": "124bc3f19426ab6558b3ca134d0afb70435eaff82a659e6e62a05e8e373e337d",
+      "matches": true
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "bytes": 236616,
+      "sha256": "6222a16be7f2d458d6870efe6e715fc0c8d45766fb79cf7dcc3125538d703e28",
+      "expected_sha256": "6222a16be7f2d458d6870efe6e715fc0c8d45766fb79cf7dcc3125538d703e28",
+      "matches": true
+    }
+  ],
+  "actual_dependency_sources": [
+    {
+      "name": "mathlib",
+      "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "head_exit": 0,
+      "status": "",
+      "status_exit": 0,
+      "manifest_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "qualification_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "matches": true,
+      "private_real_directory": true
+    },
+    {
+      "name": "plausible",
+      "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "head_exit": 0,
+      "status": "",
+      "status_exit": 0,
+      "manifest_revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "qualification_revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "matches": true,
+      "private_real_directory": true
+    },
+    {
+      "name": "LeanSearchClient",
+      "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "head_exit": 0,
+      "status": "",
+      "status_exit": 0,
+      "manifest_revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "qualification_revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "matches": true,
+      "private_real_directory": true
+    },
+    {
+      "name": "importGraph",
+      "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "head_exit": 0,
+      "status": "",
+      "status_exit": 0,
+      "manifest_revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "qualification_revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "matches": true,
+      "private_real_directory": true
+    },
+    {
+      "name": "proofwidgets",
+      "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "head_exit": 0,
+      "status": "",
+      "status_exit": 0,
+      "manifest_revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "qualification_revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "matches": true,
+      "private_real_directory": true
+    },
+    {
+      "name": "aesop",
+      "head": "4a174c490d8707121c4a9290800489f105d85e07",
+      "head_exit": 0,
+      "status": "",
+      "status_exit": 0,
+      "manifest_revision": "4a174c490d8707121c4a9290800489f105d85e07",
+      "qualification_revision": "4a174c490d8707121c4a9290800489f105d85e07",
+      "matches": true,
+      "private_real_directory": true
+    },
+    {
+      "name": "Qq",
+      "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "head_exit": 0,
+      "status": "",
+      "status_exit": 0,
+      "manifest_revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "qualification_revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "matches": true,
+      "private_real_directory": true
+    },
+    {
+      "name": "batteries",
+      "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "head_exit": 0,
+      "status": "",
+      "status_exit": 0,
+      "manifest_revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "qualification_revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "matches": true,
+      "private_real_directory": true
+    },
+    {
+      "name": "Cli",
+      "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "head_exit": 0,
+      "status": "",
+      "status_exit": 0,
+      "manifest_revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "qualification_revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "matches": true,
+      "private_real_directory": true
+    }
+  ],
+  "setup_attempts": [
+    {
+      "directory": "provenance/unified-native-recovery-20261104-attempt1",
+      "result_file": {
+        "path": "fdsa-control/provenance/unified-native-recovery-20261104-attempt1/result.json",
+        "bytes": 1083,
+        "sha256": "922bb6fff6033c615ae1eb7497ccaeaaec3a736e81f68916630bc7e7eb6222b8"
+      },
+      "exit_code": 1,
+      "state": "failed",
+      "started_utc": "2026-11-04T03:40:43.835768+00:00",
+      "completed_utc": "2026-11-04T03:43:44.108418+00:00",
+      "final_head": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "final_status": "",
+      "full_log": {
+        "path": "fdsa-control/provenance/unified-native-recovery-20261104-attempt1/full.log",
+        "bytes": 1385360,
+        "sha256": "b7118999b8fcc1bf17f2e431bb6d93c6d52ec5241d89eeffefc1dac8ac817784"
+      },
+      "log_matches_terminal_and_qualification": true
+    },
+    {
+      "directory": "provenance/unified-native-recovery-20261104-attempt2-low-parallel",
+      "result_file": {
+        "path": "fdsa-control/provenance/unified-native-recovery-20261104-attempt2-low-parallel/result.json",
+        "bytes": 1215,
+        "sha256": "fb11f30de6bd102b38f66625341eb869915e72160c9eee46b0f1a65003486304"
+      },
+      "exit_code": 1,
+      "state": "failed",
+      "started_utc": "2026-11-04T03:45:00.738540+00:00",
+      "completed_utc": "2026-11-04T03:50:48.275451+00:00",
+      "final_head": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "final_status": "",
+      "full_log": {
+        "path": "fdsa-control/provenance/unified-native-recovery-20261104-attempt2-low-parallel/full.log",
+        "bytes": 240777,
+        "sha256": "32af2a36554a406dfdf4001248f60a76829c236f438b9f2492eaacb15b5c56ab"
+      },
+      "log_matches_terminal_and_qualification": true
+    },
+    {
+      "directory": "provenance/unified-native-recovery-20261104-attempt3-serial",
+      "result_file": {
+        "path": "fdsa-control/provenance/unified-native-recovery-20261104-attempt3-serial/result.json",
+        "bytes": 1214,
+        "sha256": "0ae3b92669f5d6e76ba91ee4dd8fc3cc0e1a14ad22f9327078cdd477d65190d9"
+      },
+      "exit_code": 1,
+      "state": "failed",
+      "started_utc": "2026-11-04T03:51:37.331817+00:00",
+      "completed_utc": "2026-11-04T03:52:44.429232+00:00",
+      "final_head": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "final_status": "",
+      "full_log": {
+        "path": "fdsa-control/provenance/unified-native-recovery-20261104-attempt3-serial/full.log",
+        "bytes": 17381,
+        "sha256": "9f74b5f24d9156336f4aeb7638a2585c8b953d4b9c1fef9ecb6ec55da1416db2"
+      },
+      "log_matches_terminal_and_qualification": true
+    },
+    {
+      "directory": "provenance/unified-native-recovery-20261104-attempt4-serial",
+      "result_file": {
+        "path": "fdsa-control/provenance/unified-native-recovery-20261104-attempt4-serial/result.json",
+        "bytes": 1214,
+        "sha256": "86a99a7346413678147bf89b717509d0072d6398b1535054f4bf53ed4d08856c"
+      },
+      "exit_code": 0,
+      "state": "passed",
+      "started_utc": "2026-11-04T03:52:56.845733+00:00",
+      "completed_utc": "2026-11-04T03:53:20.340644+00:00",
+      "final_head": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "final_status": "",
+      "full_log": {
+        "path": "fdsa-control/provenance/unified-native-recovery-20261104-attempt4-serial/full.log",
+        "bytes": 6173,
+        "sha256": "00d21c992d76227360f40022f705938a91b89639a7285d3e7d8762a5da9dcc77"
+      },
+      "log_matches_terminal_and_qualification": true
+    }
+  ],
+  "native_start": {
+    "path": "conaled-native-state/logs/20261104T035946Z-project-run-1b29fbd9/start.json",
+    "bytes": 421,
+    "sha256": "62eed8cc343d279fcd2be9ddb1ca587a2d899fa1217aa63f255db3b32296af43"
+  },
+  "observed_terminal_evidence": {
+    "outer_result_present": false,
+    "native_result_present": false,
+    "new_project_verification_present": false,
+    "terminal_inferred": false,
+    "live_log_not_a_terminal_artifact": true,
+    "process_polled_or_controlled": false
+  },
+  "standards_outcome": "Blocked pending actual complete full candidate terminal evidence",
+  "retained_source_findings": 0,
+  "new_preparation_findings": 0,
+  "historical_findings_retained": [
+    "FDN-ELAB-001",
+    "FDN-ELAB-002"
+  ],
+  "report": {
+    "path": "fdsa-control/provenance/foundation-standards-terminal-continuation-20261104/preparation.md",
+    "bytes": 19073,
+    "sha256": "6ab918ebcc7157fcbbae2d58475c9a05a6f8ddccadd3c94ed2139898f9710b62"
+  },
+  "source_changes": false,
+  "build_or_compiler_invocations": false,
+  "write_scope": "fdsa-control/provenance/foundation-standards-terminal-continuation-20261104"
+}

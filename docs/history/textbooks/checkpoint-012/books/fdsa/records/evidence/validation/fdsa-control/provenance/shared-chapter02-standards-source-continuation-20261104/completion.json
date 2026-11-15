@@ -1,0 +1,72 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "recorded_utc": "2026-11-04T17:05:28.814503+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "tree": "fe0bd9f17a5e1a09797be55fd79491e8c363cbd0",
+  "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "status": "Complete independent original-scope receiving SOURCE assessment and saved-file readback; zero new concrete Standards findings; overall Blocked pending receiving full/type/final gates.",
+  "report": {
+    "path": "reviews/chapter02-standards-receiving-source-continuation-20261104.md",
+    "bytes": 15610,
+    "lines": 69,
+    "sha256": "5477a580ece8c2129152a6996e29328ceef88a3f26dfc94fd8cbf12351723b5d"
+  },
+  "assessment": {
+    "path": "provenance/shared-chapter02-standards-source-continuation-20261104/source-assessment.json",
+    "bytes": 14841,
+    "lines": 343,
+    "sha256": "30156b4058e2de3617b59cba13f9d784bc478f3597cb29865340ed8d795722d0"
+  },
+  "saved_read_ranges": [
+    {
+      "path": "reviews/chapter02-standards-receiving-source-continuation-20261104.md",
+      "first_line": 1,
+      "last_line": 69,
+      "bytes": 15610,
+      "sha256": "5477a580ece8c2129152a6996e29328ceef88a3f26dfc94fd8cbf12351723b5d",
+      "actual_read_tool_chunk": "46a5dc",
+      "actual_exit": 0,
+      "nontruncated_complete_read": true
+    },
+    {
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/source-assessment.json",
+      "first_line": 1,
+      "last_line": 175,
+      "bytes": 8357,
+      "sha256": "ba9c894ab3c924176a624ec3ab0024637fa752dfdaa4677c219548e638fbd9a3",
+      "actual_read_tool_chunk": "dcc339",
+      "actual_exit": 0,
+      "nontruncated_complete_read": true
+    },
+    {
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/source-assessment.json",
+      "first_line": 176,
+      "last_line": 343,
+      "bytes": 6484,
+      "sha256": "09dab592ed29ed7dbdfbb4a8e67f79892de665770d8d1fc0f8af5ad06df0fc83",
+      "actual_read_tool_chunk": "fea35f",
+      "actual_exit": 0,
+      "nontruncated_complete_read": true
+    }
+  ],
+  "all_assessment_input_identities_verified": true,
+  "assessment_input_count": 23,
+  "report_identity_also_verified": true,
+  "source_scope_retained": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "explicit_public_names": 1763,
+    "private_named": 70,
+    "anonymous_instances": 19
+  },
+  "precise_preservation_counts": {
+    "existing_L_paths": 1610,
+    "unchanged_L_paths": 1607,
+    "outside_original_scope_unchanged_L_paths": 1576
+  },
+  "receiving_compiler_type_audit_acceptance_credit": 0,
+  "prior_held_reports_and_source_unchanged": true,
+  "write_hold": "All own writes HELD after creation and complete readback of this completion receipt; awaiting root checkpoint0120 release and actual validation assignment.",
+  "no_optional_checks_added": true
+}

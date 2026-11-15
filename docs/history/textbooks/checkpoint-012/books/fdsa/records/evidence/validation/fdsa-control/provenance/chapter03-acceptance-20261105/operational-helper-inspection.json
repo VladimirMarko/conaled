@@ -1,0 +1,32 @@
+{
+  "role": "Independent operational acceptance-helper inspection; not a third mathematical review axis",
+  "agent": "/root/checkpoint0137_inspection",
+  "outcome": "Prepared helper inspection passed",
+  "concrete_findings": 0,
+  "helper": {
+    "bytes": 6685,
+    "sha256": "eaf8db891818b781fdaffa12cb04fc35d093ee0fc3d1d206aab76d7ff5174a6a"
+  },
+  "exact_scope_substitutions": 8,
+  "all_prior_guards_preserved": true,
+  "receipts": {
+    "complete_helper_read": "ac1d4a; complete helper printed before metadata filename read failed1",
+    "correct_preparation_and_scope_diff": [
+      "0355c2",
+      "055ed5"
+    ],
+    "exact_scope_ast_diff": "dfbe06 actual0",
+    "current_and_full_bindings": "b329ff actual0",
+    "type_closure": "a594c8 actual0"
+  },
+  "candidate": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "tree": "ecb69c3918715cbe0682028cd8697dfcf3e463f9",
+  "accepted_at_inspection": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "refs": 74,
+  "worktrees": 9,
+  "original_Q_paths": 84,
+  "source_modules": 80,
+  "verification_sha256": "152ccbf0ee1d37fbe8eef300d88ad16284858464e5c4dc82f1f3884db3641088",
+  "helper_executed_by_inspector": false,
+  "root_gate_and_immediate_still_required_at_inspection": true
+}

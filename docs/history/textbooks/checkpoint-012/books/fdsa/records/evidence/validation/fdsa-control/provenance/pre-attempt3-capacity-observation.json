@@ -1,0 +1,18 @@
+{
+  "observed_utc": "2026-11-02T21:58:36.660027+00:00",
+  "available_bytes": 530501632,
+  "filesystem_total_bytes": 67586535424,
+  "filesystem_used_bytes": 63603286016,
+  "review_build_inventory_before_and_after": {
+    "regular_files": 4176,
+    "regular_file_bytes": 790620479,
+    "files_newer_than_prior_inventory_latest": []
+  },
+  "scope": "Visible task workspace allocation and the exact review build metadata only; no unrelated global files inspected.",
+  "read_only_triage_candidates": {
+    "fdsa-recovery-0001": 235520000,
+    "conaled-ordinary-merge": 91815936
+  },
+  "limits": "Free-space change cause is not established. Unchanged metadata does not certify cache health. No compiler or cache change was made. Other old paths with tiny directory-only allocations are not selected; protected0001 and unrelated main zip remain untouched.",
+  "next_step": "Retained environment agent is checking ownership/uniqueness and exact refs of the two named task copies before any possible removal. Attempt3 remains unlaunched."
+}

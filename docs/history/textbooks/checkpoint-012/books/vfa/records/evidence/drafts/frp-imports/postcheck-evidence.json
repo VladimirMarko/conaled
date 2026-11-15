@@ -1,0 +1,87 @@
+{
+  "ilean_header": {
+    "directImports": [
+      [
+        "Mathlib.Basic.Real.Basic",
+        false,
+        false,
+        false
+      ],
+      [
+        "Mathlib.Data.Finset.Dedup",
+        false,
+        false,
+        false
+      ],
+      [
+        "Mathlib.Data.Finset.Sort",
+        false,
+        false,
+        false
+      ],
+      [
+        "Mathlib.Data.Set.Finite.Lattice",
+        false,
+        false,
+        false
+      ],
+      [
+        "Mathlib.Tactic.Ext",
+        false,
+        false,
+        false
+      ],
+      [
+        "SquareKit.FunctionCategory",
+        false,
+        false,
+        false
+      ],
+      [
+        "SquareKit.CartesianMap",
+        false,
+        false,
+        false
+      ]
+    ],
+    "module": "Applications.FRP.Spec"
+  },
+  "c_imported_initializer_declarations": [
+    "initialize_Init",
+    "initialize_Init",
+    "initialize_mathlib_Mathlib_Basic_Real_Basic",
+    "initialize_mathlib_Mathlib_Data_Finset_Dedup",
+    "initialize_mathlib_Mathlib_Data_Finset_Sort",
+    "initialize_mathlib_Mathlib_Data_Set_Finite_Lattice",
+    "initialize_mathlib_Mathlib_Tactic_Ext",
+    "initialize_compilingWithSquares_SquareKit_FunctionCategory",
+    "initialize_compilingWithSquares_SquareKit_CartesianMap"
+  ],
+  "c_mathlib_umbrella_initializer_present": false,
+  "output_hashes": {
+    "Spec.ilean": {
+      "size": 32622,
+      "sha256": "865b2f273114e4e6ecc354acb540b2f05f13d7d9da12837d8303dfb8a43b5927"
+    },
+    "Spec.c": {
+      "size": 34367,
+      "sha256": "69d0821624948a1d907dbb8fc7003974ec4be6e9940c00d2ca44794ef1c383ed"
+    },
+    "Spec.olean": {
+      "size": 625680,
+      "sha256": "2f1ffeeea9fbc32009d76976bcbba5153dab74edbee1f603bd6403f1b4a167e9"
+    }
+  },
+  "verification_hashes": {
+    "work-state/staging/frp-imports/Applications/FRP/Spec.lean": "b5df6de8a4ed0188009b4d35c8508512418a8e980a85300691d3585894d22230",
+    "work-state/staging/frp-imports/Spec.original.lean": "c0b5d8155c574329fac0b4aced18c69322b33f8e4e6bbb5278365a7fc57211f8",
+    "work-state/staging/frp-imports/imports.patch": "3bcb10c798f98bc935c8c93c35efe14aa35efb2f6b1f69a838116c4bdef18e73",
+    "work-state/staging/frp-imports/Spec.setup.json": "6b4af7891d8b68f01d431a82dd1a707b7e0d446479daf8935cc8f08f68ca787b",
+    "work-state/staging/frp-imports/run-initial.py": "18d023fe11e56a5fcab1d1a1bd8f33a2b6125829130a21348094256b3657a6e2",
+    "work-state/staging/frp-imports/initial-result.json": "bd20d297f02708fb54b57990bdf5d86264756acd2cff8b1f4f1184bca8b0fa54",
+    "work-state/staging/frp-imports/initial-diagnostics.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "conaled/Applications/FRP/Spec.lean": "c0b5d8155c574329fac0b4aced18c69322b33f8e4e6bbb5278365a7fc57211f8",
+    "vfa-validation/Applications/FRP/Spec.lean": "c0b5d8155c574329fac0b4aced18c69322b33f8e4e6bbb5278365a7fc57211f8",
+    "vfa-validation/.lake/build/ir/Applications/FRP/Spec.setup.json": "6b4af7891d8b68f01d431a82dd1a707b7e0d446479daf8935cc8f08f68ca787b"
+  }
+}

@@ -1,0 +1,279 @@
+{
+  "recorded_utc": "2026-11-03T02:17:19.103183+00:00",
+  "ticket": "FDSA-XL01",
+  "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "branch": "work/fdsa-logarithm-bounds",
+  "precommit_head": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "precommit_status": " M SquareApplications.lean\n M docs/research/fdsa-reconstruction-map.md\n?? Applications/Arithmetic/LogarithmBounds.lean\n?? Examples/LogarithmBounds.lean\n?? docs/research/fdsa-logarithm-bounds.md\n",
+  "requirements": {
+    "exists": true,
+    "bytes": 12432,
+    "lines": 213,
+    "sha256": "d77627f36996722dd938ed6ff5d15d396ff045bf969e43115a7402a95dd2780d"
+  },
+  "files": {
+    "Applications/Arithmetic/LogarithmBounds.lean": {
+      "exists": true,
+      "bytes": 1754,
+      "lines": 42,
+      "sha256": "4927e62882d450685f72e84fb3f859ea29f44f4b61214819c9d41f89ae8a197c"
+    },
+    "Examples/LogarithmBounds.lean": {
+      "exists": true,
+      "bytes": 14263,
+      "lines": 305,
+      "sha256": "31ba0b19341cfef73b8284a156a036d485d1767b01f95e8ade63aa9d2547660f"
+    },
+    "docs/research/fdsa-logarithm-bounds.md": {
+      "exists": true,
+      "bytes": 33130,
+      "lines": 479,
+      "sha256": "0d391be79586cdee90f001d0dfea69d6de267d777471debb78f45ea3d75b5ee5"
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "exists": true,
+      "bytes": 19962,
+      "lines": 309,
+      "sha256": "1652e482f1ae0d725984aa09becde19c3e999698c6ffe6cc58a32b9d44967b19"
+    },
+    "SquareApplications.lean": {
+      "exists": true,
+      "bytes": 8324,
+      "lines": 253,
+      "sha256": "9956ea75baa053386fe4d5de6a29e415398facc668092bc499731f732ef13e1f"
+    }
+  },
+  "actual_changed_paths": [
+    "Applications/Arithmetic/LogarithmBounds.lean",
+    "Examples/LogarithmBounds.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-logarithm-bounds.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "unchanged_baseline_paths": {
+    "AGENTS.md": {
+      "exists": true,
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    },
+    "README.md": {
+      "exists": true,
+      "bytes": 26239,
+      "lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216"
+    },
+    ".agents/skills/implement/SKILL.md": {
+      "exists": true,
+      "bytes": 4997,
+      "lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df"
+    },
+    ".agents/skills/example-driven-development/SKILL.md": {
+      "exists": true,
+      "bytes": 6991,
+      "lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a"
+    },
+    "docs/agents/architectural-quality.md": {
+      "exists": true,
+      "bytes": 3876,
+      "lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6"
+    },
+    "docs/agents/domain.md": {
+      "exists": true,
+      "bytes": 926,
+      "lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d"
+    },
+    "docs/agents/review-loop.md": {
+      "exists": true,
+      "bytes": 7113,
+      "lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c"
+    },
+    "GLOSSARY.md": {
+      "exists": true,
+      "bytes": 4824,
+      "lines": 106,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6"
+    },
+    "docs/adr/0001-modules-and-proof-dependencies.md": {
+      "exists": true,
+      "bytes": 2561,
+      "lines": 50,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2"
+    },
+    "docs/adr/0010-composition-and-proof-audit.md": {
+      "exists": true,
+      "bytes": 7331,
+      "lines": 127,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8"
+    },
+    "flake.nix": {
+      "exists": true,
+      "bytes": 637,
+      "lines": 28,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+    },
+    "flake.lock": {
+      "exists": true,
+      "bytes": 564,
+      "lines": 27,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+    },
+    "lean-toolchain": {
+      "exists": true,
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    "lakefile.lean": {
+      "exists": false
+    },
+    "lakefile.toml": {
+      "exists": true,
+      "bytes": 444,
+      "lines": 13,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+    },
+    "lake-manifest.json": {
+      "exists": true,
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    "check.sh": {
+      "exists": true,
+      "bytes": 74,
+      "lines": 4,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd"
+    },
+    "scripts/check.py": {
+      "exists": true,
+      "bytes": 16119,
+      "lines": 348,
+      "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+    },
+    "ProofAudit.lean": {
+      "exists": true,
+      "bytes": 7925,
+      "lines": 154,
+      "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd"
+    },
+    "docs/SOURCES.md": {
+      "exists": true,
+      "bytes": 7841,
+      "lines": 126,
+      "sha256": "ea7e9c276f7ea729ca1a17b4efa76bb724ccf3ba26df95a2535f7560f4d41766"
+    },
+    "Applications/Resources/CallComparison.lean": {
+      "exists": true,
+      "bytes": 5498,
+      "lines": 123,
+      "sha256": "8d6d9324aa9dc71ceeaeaa04073f0f2a4f721a309995f0b623650bb19f01b520"
+    },
+    "Applications/Resources/SharedDemand.lean": {
+      "exists": true,
+      "bytes": 12012,
+      "lines": 251,
+      "sha256": "c9740655b7afb51b28b044f1a72006d7a393b74a3e60e2f26464dc7eca7ee996"
+    },
+    "Examples/CallModels.lean": {
+      "exists": true,
+      "bytes": 4188,
+      "lines": 105,
+      "sha256": "c1d13360a1229f21bf749d7e7db463eaf9d094089d6c2aa7c92171540e5616ac"
+    },
+    "Examples/SharedDemand.lean": {
+      "exists": true,
+      "bytes": 7844,
+      "lines": 188,
+      "sha256": "5b0e374c3d57a9a681d49b9ae0b1bff41a6f60490efadc79cd2d3432b7737fc9"
+    }
+  },
+  "preserved_prefixes": {
+    "SquareApplications.lean": {
+      "preserved_bytes": 8292,
+      "preserved_sha256": "b36e3743af5043667735caab1327fda8fc1b6eebc2d7842cdd926b329b2efd68",
+      "appended_bytes": 32,
+      "appended_lines": 1
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "preserved_bytes": 15963,
+      "preserved_sha256": "3283880ec3b0d55286be1b080c3b58e606577e9a522f21477b8499306c627668",
+      "appended_bytes": 3999,
+      "appended_lines": 47
+    }
+  },
+  "control_inputs_unchanged": {
+    "reviews/logarithm-bounds-requirements.md": {
+      "exists": true,
+      "bytes": 12432,
+      "lines": 213,
+      "sha256": "d77627f36996722dd938ed6ff5d15d396ff045bf969e43115a7402a95dd2780d"
+    },
+    "reviews/logarithm-bounds-preflight-assessment.md": {
+      "exists": true,
+      "bytes": 7367,
+      "lines": 122,
+      "sha256": "711d4d2cebbfecf9ecf04b4631506d638273b372d31c8a763a6a5ef399828957"
+    },
+    "research/logarithm-bounds-source-preflight.md": {
+      "exists": true,
+      "bytes": 30310,
+      "lines": 427,
+      "sha256": "f7891e3ccbe07e56499f36c52d2024246758ff6a127cdf9b576f7445e5e4ae73"
+    },
+    "research/logarithm-bounds-api-preflight.md": {
+      "exists": true,
+      "bytes": 32941,
+      "lines": 322,
+      "sha256": "d013d148aea4b7949f7e8c66a7fed3ef32456565073453d1d3cabdf8fa357a5c"
+    },
+    "research/logarithm-bounds-case-preflight.md": {
+      "exists": true,
+      "bytes": 32523,
+      "lines": 536,
+      "sha256": "c46b9bba5a4d1d38b1ec03fa2ce55ca41b254be47950c693c577d9d6de9aa270"
+    }
+  },
+  "complete_notice": {
+    "exists": true,
+    "bytes": 1842,
+    "lines": 36,
+    "sha256": "9ac784670a1624c9b0f83f61c2c68163985cfd50f5c2fbe9699623311a5ce4bd"
+  },
+  "complete_notice_occurrences": 1,
+  "main": {
+    "head": "1aabd512284fe86254278ac631eda061d311050b",
+    "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.n7UlkJ"
+  },
+  "c1": {
+    "head": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "status": ""
+  },
+  "project_build_exists": false,
+  "package_source_link": "../../conaled/.lake/packages",
+  "all_source_authors_stopped": true,
+  "root_readback": "Complete initial42-line core,303-line examples and429-line note, every exact final example/note delta, all47 map addition lines and32-byte public import read. Final five-path identities match stopped author reports.",
+  "limits": "Ordinary selected source/control identities only. No Lean/compiler/checker/project hash helper, active output access, cache/performance action or final review. All compilation, elaboration, warning checks, full gates and both independent axes remain pending. No chapter, appendix or shared unit accepted.",
+  "candidate": "a601ad713368daf8e18d5a5537a83d47138491fa",
+  "candidate_parent": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "postcommit_status": "",
+  "commit_exit_code": 0,
+  "commit_stdout": "[work/fdsa-logarithm-bounds a601ad7] feat(arithmetic): add shared logarithm bounds (#174)\n 5 files changed, 874 insertions(+)\n create mode 100644 Applications/Arithmetic/LogarithmBounds.lean\n create mode 100644 Examples/LogarithmBounds.lean\n create mode 100644 docs/research/fdsa-logarithm-bounds.md\n",
+  "commit_stderr": "",
+  "precommit_record": {
+    "bytes": 8950,
+    "lines": 262,
+    "sha256": "ec99feff35ad91270c77529c042a5fd414b103bfc2612286eb26a52e7c1230d6"
+  },
+  "source_assessment": {
+    "bytes": 6926,
+    "lines": 112,
+    "sha256": "ab2101aa4a709243a17cb92c4766d60b17c7df8a454dfbcd540a93a557176e1d"
+  },
+  "acceptance": "Uncompiled source draft only; no chapter, appendix or shared unit accepted."
+}

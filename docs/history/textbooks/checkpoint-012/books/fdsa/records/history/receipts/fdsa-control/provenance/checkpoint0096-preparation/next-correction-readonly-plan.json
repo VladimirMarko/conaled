@@ -1,0 +1,14 @@
+{
+  "recorded_utc": "2026-11-04T09:40:03.589071+00:00",
+  "author": "shared_acceptance_sequence",
+  "state": "READ-ONLY plan; no source edit or draft at capture",
+  "isolated_head": "070e3608c439aec23404d23e90de47c6cf835216",
+  "source": "Examples/PermutationTail.lean",
+  "source_lines": 197,
+  "source_bytes": 8786,
+  "source_sha256": "30e07aaede25b10d2484c2a4674bffa66d77094a545fd49f72bc000bd132ddb7",
+  "planned_scope": "Exactly six proof bodies; retain all headers/definitions/imports/options/instances and original support/measure cases.",
+  "five_support_repairs": "Unfold orders, rewrite the exact List.toFinset_eq_of_perm equality using List.permutations_perm_permutations' on the unchanged filtered positions, then ordinary decide. Preserve selected.erase0, remaining, singleton3 and remaining.erase2.",
+  "environment_changed_repair": "Apply congrArg of inverse to the original hmass equality, simplify one_div/inv_one/inv_inv to obtain1=3, then ordinary norm_num contradicts it. ENNReal DivInvOneMonoid/InvolutiveInv, no field assumption.",
+  "after_upload_authorization": "Only main example file in idle isolated tree plus new correction5 provenance and local Conventional Commit(#174); no compiler or central/F mutation."
+}

@@ -1,0 +1,71 @@
+{
+  "recorded_utc": "2026-11-05T02:43:50.381578+00:00",
+  "status": "UNCOMPILED",
+  "author": "/root/chapter04_balancing",
+  "base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "files": {
+    "Applications/Trees/Balance.lean": {
+      "bytes": 8833,
+      "sha256": "1fddadc95a165a8e5c03b15ccdae1a56f94deed5689d345d32b92ed053a1729e",
+      "public_source_names": [
+        "bal",
+        "bal_zero",
+        "bal_succ",
+        "bal_spec",
+        "bal_exists",
+        "bal_succeeds_iff",
+        "bal_eq_none_iff",
+        "bal_inorder",
+        "bal_suffix",
+        "bal_suffix_length",
+        "balList",
+        "balanceList",
+        "balTree",
+        "balanceTree",
+        "balList_of_some",
+        "balList_of_none",
+        "inorder_balList",
+        "inorder_balanceList",
+        "inorder_balTree",
+        "inorder_balanceTree",
+        "numNodes_balList",
+        "numNodes_balanceList",
+        "numNodes_balTree",
+        "numNodes_balanceTree",
+        "bal_prefix"
+      ]
+    },
+    "Examples/TreeBalance.lean": {
+      "bytes": 3432,
+      "sha256": "c9e11e2f91713193c3ca75b82dfa0e062c5c0354118a32580b5c08942aada4af",
+      "public_source_names": [
+        "prefix_consumer",
+        "zero_preserves_suffix",
+        "undersized_fails",
+        "empty_labels_domain",
+        "threeTree",
+        "three_consumption",
+        "three_order",
+        "three_size",
+        "three_suffix",
+        "repeatedTree",
+        "repeated_consumption",
+        "repeated_shape",
+        "repeated_order",
+        "repeated_size",
+        "figureTree",
+        "figureInput",
+        "figure_consumption",
+        "figure_shape",
+        "figure_order",
+        "figure_size",
+        "figure_leaves",
+        "figure_height",
+        "tree_consumer"
+      ]
+    }
+  },
+  "compiler_invocations": 0,
+  "full_check_invocations": 0,
+  "independent_review": false
+}

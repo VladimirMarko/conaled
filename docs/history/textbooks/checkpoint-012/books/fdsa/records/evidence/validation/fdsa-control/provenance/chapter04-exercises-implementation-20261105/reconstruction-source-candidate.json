@@ -1,0 +1,77 @@
+{
+  "status": "UNCOMPILED source candidate; no acceptance",
+  "recorded_at_utc": "2026-11-05T03:29:16.406170+00:00",
+  "candidate": "d02419738a9e16963727b25acf2e18f374dd16de",
+  "parent": "b6affb296a8782284b2ebcaff2d7bd894337c578",
+  "tree": "6d2033e33b5282ce965c96b71776ab1aafea8828",
+  "branch": "work/fdsa-ch04-exercises",
+  "status_porcelain": "",
+  "files": [
+    {
+      "path": "Applications/Trees/Reconstruction.lean",
+      "bytes": 4278,
+      "sha256": "19750df3d7e88204bfdbbb6322d14403faa7dae64794a3fdb833d0dd54da4943",
+      "public_names": [
+        "Trees.reconstruct?",
+        "Trees.reconstruct?_nil_nil",
+        "Trees.reconstruct?_nil_cons",
+        "Trees.reconstruct?_cons",
+        "Trees.reconstruct?_cons_of_not_mem",
+        "Trees.reconstruct",
+        "Trees.reconstruct_nil_nil",
+        "Trees.reconstruct_of_none",
+        "Trees.reconstruct?_traversals",
+        "Trees.reconstruct_traversals"
+      ]
+    },
+    {
+      "path": "Examples/TreeReconstruction.lean",
+      "bytes": 4034,
+      "sha256": "c5ca06a87724097c9dbe03e0f87e0105182738316b473b55b3ac336b216c2de1",
+      "public_names": [
+        "TreeReconstructionExamples.sample",
+        "TreeReconstructionExamples.sample_preorder",
+        "TreeReconstructionExamples.sample_inorder",
+        "TreeReconstructionExamples.sample_preorder_nodup",
+        "TreeReconstructionExamples.sample_reconstruct?",
+        "TreeReconstructionExamples.sample_reconstruct",
+        "TreeReconstructionExamples.singleton_reconstruct",
+        "TreeReconstructionExamples.empty_labels",
+        "TreeReconstructionExamples.empty_mismatch",
+        "TreeReconstructionExamples.empty_mismatch_fallback",
+        "TreeReconstructionExamples.missing_root",
+        "TreeReconstructionExamples.surplus_preorder",
+        "TreeReconstructionExamples.surplus_inorder",
+        "TreeReconstructionExamples.same_labels_do_not_suffice",
+        "TreeReconstructionExamples.same_labels_not_joint_traversals",
+        "TreeReconstructionExamples.leftRepeated",
+        "TreeReconstructionExamples.rightRepeated",
+        "TreeReconstructionExamples.repeated_traversals",
+        "TreeReconstructionExamples.repeated_trees_distinct",
+        "TreeReconstructionExamples.repeated_preorder_not_nodup",
+        "TreeReconstructionExamples.repeated_parser_choice",
+        "TreeReconstructionExamples.repeated_left_not_recovered"
+      ]
+    }
+  ],
+  "frozen_contract_sha256": "bc69ce47b758ca3ea0dc52c60a4fb65305044b1000449c7a8a7f12dd91762163",
+  "example_addendum_sha256": "fa8d364e5e4375d4f05304bab014a4d310fee1543ad4c700692086b69ce98610",
+  "public_headers_sha256": "957783ce1e9e4d6831f3b61652270c74b0f8310323f70e03203b4e2b94d81ff9",
+  "actual_source_checks": [
+    "complete core/source readback c5b828 actual exit0",
+    "complete final examples readback a8d163 actual exit0",
+    "git diff --cached --check a8d163 actual exit0",
+    "forbidden token scan a8d163 actual exit0",
+    "six prior source hashes unchanged c5b828",
+    "only authorized Reconstruction pair staged and committed"
+  ],
+  "not_run": [
+    "Lean",
+    "Lake",
+    "check.sh",
+    "proof audit",
+    "elaborated type extraction"
+  ],
+  "root_qualification_required": true,
+  "scope": "C04-027/028, total Option core/nil fallback, exact distinct-preorder reconstruction theorem, repeated-label ambiguity and actual parser choice; no runtime or general parse-soundness claim."
+}

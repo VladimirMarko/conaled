@@ -1,0 +1,49 @@
+{
+  "recorded_utc": "2026-11-04T12:48:24.172770+00:00",
+  "actual_tool_chunk": "3c3453",
+  "actual_exit": 1,
+  "stage": "Cross-axis authored declaration tuple equality",
+  "source_or_control_payload_written_before_failure": false,
+  "candidate_compilation_failed": false,
+  "mismatches": [
+    {
+      "index": 102,
+      "standards": [
+        "Examples/PermutationExpectationBoundary.lean",
+        318,
+        "theorem",
+        "Examples.PermutationExpectationBoundary.singleton_order_original_hasLaw",
+        "2fe894e840715598b9c6de8ff41be4101c94912fc11810ceaedb1241f50942df",
+        "public"
+      ],
+      "spec": [
+        "Examples/PermutationExpectationBoundary.lean",
+        318,
+        "theorem",
+        "Examples.PermutationExpectationBoundary.singleton_order_original_hasLaw",
+        "08fe53caa45c3f4847930aa9ff4027a01450fbbcd007577d334697359a66b941",
+        "public"
+      ]
+    },
+    {
+      "index": 103,
+      "standards": [
+        "Examples/PermutationExpectationBoundary.lean",
+        325,
+        "theorem",
+        "Examples.PermutationExpectationBoundary.singleton_order_conditional_hasLaw",
+        "dfcee8955dc51f5580176e71d77911d5a76d93d9027a222beaf1096a06b1e062",
+        "public"
+      ],
+      "spec": [
+        "Examples/PermutationExpectationBoundary.lean",
+        325,
+        "theorem",
+        "Examples.PermutationExpectationBoundary.singleton_order_conditional_hasLaw",
+        "df334667a9bc249f77258988766a4f8580aa0d0a2abadbfb3b91d90991e4b276",
+        "public"
+      ]
+    }
+  ],
+  "diagnostic_only": true
+}

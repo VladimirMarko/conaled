@@ -1,0 +1,37 @@
+{
+  "snapshot_repository": "/workspace/scratch/6bb268f9336f/environment-review-0068",
+  "review_base": "900614e27f7d3dfffd9a29139884a8f1a4fce8d3",
+  "candidate": "5fe6d4f7cdac2761c7c3622d26479282cfb7fa1b",
+  "scope": [
+    "ENVIRONMENT.md",
+    "REQUEST.md",
+    "checkpoint.py",
+    "tooling/pinned_toolchain.py",
+    "tooling/record_command.py"
+  ],
+  "files": {
+    "ENVIRONMENT.md": "b420a676acd44d47ae78f10d5923bcc9397affeecae811993a3bd7f1a64d461f",
+    "REQUEST.md": "a78feacb9f29e1f9c35923ac6025b3b86a98d1bd2c13f7e3d57455d6514e17e2",
+    "checkpoint.py": "bd05c48f9aa40a72563e3c27f74f766dce90aaccb26edb8aaef8f49c5069a326",
+    "tooling/pinned_toolchain.py": "8bc54deea672a0ff7928d1de8f839ee97963349c4d97cae13e4ac2257b06ec3f",
+    "tooling/record_command.py": "f84384210851b0fd1999a323aa693eab8d464fa82f344446bd04b9e61d78c686"
+  },
+  "project_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "unchanged_project_candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "source_scope": "Environment and recovery tooling only; no formal source or proof policy change.",
+  "previous_candidate": "b8ce485c872ee4c1b227b318b5b5854a13d11b83",
+  "validation": [
+    "provenance/qemu-environment-20261103/launcher-smoke.json",
+    "provenance/qemu-environment-20261103/post-smoke-source-verification.json",
+    "provenance/qemu-environment-20261103/qemu-acquisition.json",
+    "provenance/qemu-cache-build-20261103-r1/ (live run, terminal evidence pending)",
+    "provenance/environment0068-recorder-progress-failure/assessment.json"
+  ],
+  "status_bookkeeping_scope": [
+    "CURRENT.md",
+    "STATUS.md",
+    "tickets/FDSA-ENV.md",
+    "tickets/FDSA-001.md",
+    "tickets/INDEX.md"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "observed_utc": "2026-11-03T00:48:39.285040+00:00",
+  "scope": "Read-only clarification of root process-observation code; no validation, cache, restart or runner modification.",
+  "original_observation": "provenance/chapter01-attempt3-progress-before0059.json",
+  "first_reconciliation": "provenance/chapter01-attempt3-host-before0059.json",
+  "finding": "The auxiliary /proc/PID/task/PID/children files are unavailable even where the same process stat and cmdline reads succeed with the original identity. Root grouped those reads under one FileNotFoundError handler, so an unavailable children file was wrongly rendered as present:false for the whole PID. This is an observation-reader error, not proof of process termination or a Nix-specific visibility diagnosis.",
+  "first_direct_discriminating_observation_utc": "2026-11-03T00:48:11.317395+00:00",
+  "processes": [
+    {
+      "pid": 600750,
+      "stat_read_succeeded": true,
+      "state": "S",
+      "ppid": 1,
+      "start_ticks": "9123853",
+      "argv_prefix": [
+        "python3",
+        "/workspace/scratch/845aa1048b05/fdsa-control/provenance/run-chapter01-repair-attempt3.py"
+      ],
+      "children_read_error": {
+        "type": "FileNotFoundError",
+        "errno": 2,
+        "path": "/proc/600750/task/600750/children"
+      }
+    },
+    {
+      "pid": 600779,
+      "stat_read_succeeded": true,
+      "state": "S",
+      "ppid": 600750,
+      "start_ticks": "9123889",
+      "argv_prefix": [
+        "python3",
+        "scripts/check.py",
+        "--candidate",
+        "HEAD"
+      ],
+      "children_read_error": {
+        "type": "FileNotFoundError",
+        "errno": 2,
+        "path": "/proc/600779/task/600779/children"
+      }
+    },
+    {
+      "pid": 600956,
+      "stat_read_succeeded": true,
+      "state": "S",
+      "ppid": 600779,
+      "start_ticks": "9124698",
+      "argv_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake",
+        "--no-cache",
+        "--rehash",
+        "build"
+      ],
+      "children_read_error": {
+        "type": "FileNotFoundError",
+        "errno": 2,
+        "path": "/proc/600956/task/600956/children"
+      }
+    },
+    {
+      "pid": 684574,
+      "stat_read_succeeded": true,
+      "state": "S",
+      "ppid": 600956,
+      "start_ticks": "10042248",
+      "argv_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/Applications/FRP/LifecycleProgress.lean",
+        "-o",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/LifecycleProgress.olean"
+      ],
+      "children_read_error": {
+        "type": "FileNotFoundError",
+        "errno": 2,
+        "path": "/proc/684574/task/684574/children"
+      }
+    }
+  ],
+  "future_observation_rule": "Read stat/cmdline directly with separate error handling. Find task-local processes by observed review cwd if necessary; do not depend on the unavailable children file or infer whole-process absence from an auxiliary read error.",
+  "last_recorded_progress": "LifecycleSafety completed successfully; the next observed Lean module is Applications.FRP.LifecycleProgress, PID684574/start10042248. The full gate still has no recorded terminal outcome.",
+  "earlier_attempts": "This observation-reader issue does not replace the separately preserved evidence or unknown outcomes of attempts1 and2."
+}

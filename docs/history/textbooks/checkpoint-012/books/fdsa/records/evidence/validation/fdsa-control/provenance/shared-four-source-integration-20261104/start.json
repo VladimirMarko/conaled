@@ -1,0 +1,406 @@
+{
+  "recorded_utc": "2026-11-04T14:13:09.974818+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "authorization": "Parent source-only assembly after accepted F and verified/uploaded/exposed checkpoint0109; exact18paths, no compiler/cache/output/config/control edits.",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+  "head": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "tree": "1c657c8923e258758aa1118a618c34732eaa9e45",
+  "branch_before": "work/fdsa-foundation-integration",
+  "new_branch": "work/fdsa-shared-four-integration",
+  "status_porcelain": "",
+  "index_diff": "",
+  "all_refs_before": [
+    "refs/heads/master 7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+    "refs/heads/work/fdsa-accumulated-work 7c6bc92c276d39e84351324c442869b8ffa6758c",
+    "refs/heads/work/fdsa-adt-refinement 20a5b5537a704be016d09e4eb31db0dad8a12d61",
+    "refs/heads/work/fdsa-affine-recurrence d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+    "refs/heads/work/fdsa-basics-cost-models 07e480f6ec9958d4975bb90151005b84f2907614",
+    "refs/heads/work/fdsa-book f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "refs/heads/work/fdsa-braun-shape 156ba8170852f8e7f0b8c09315e35b837ce77ff9",
+    "refs/heads/work/fdsa-builder-costs 52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+    "refs/heads/work/fdsa-ch02-alternating 43242f43cba0f2c90c17356d44d71e5765d8ba93",
+    "refs/heads/work/fdsa-ch02-bottom-up a6f950d7d5dc4aef521445250f9bfbd59166291d",
+    "refs/heads/work/fdsa-ch02-development 4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "refs/heads/work/fdsa-ch02-insertion-observations 95cfce304b9b63057286acc7d5b20b53d95d8eaa",
+    "refs/heads/work/fdsa-ch02-natural-runs 47f66dccc414d41bddf0dc6576a2338227ee221e",
+    "refs/heads/work/fdsa-ch02-quicksort 5a3af21cb4ff56896f1a7d249736c4804c229873",
+    "refs/heads/work/fdsa-ch02-random-pivot 15a113b075c2ceb4d44c27a06fa9a69e019b57fc",
+    "refs/heads/work/fdsa-ch02-three-way e0df28b7bbfa722b25623606a5a1905620fac91e",
+    "refs/heads/work/fdsa-ch02-top-down 66cd1cca539cb667a7bae17d91d51c0ffeb718dc",
+    "refs/heads/work/fdsa-ch02-top-down-costs 7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+    "refs/heads/work/fdsa-ch02-uniform-input 3b839319776238fe2a46f22db761058b44d68adc",
+    "refs/heads/work/fdsa-ch02-values b1677172ef85e40865fe8f292660c1bcfd6e5a0c",
+    "refs/heads/work/fdsa-foundation-integration f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "refs/heads/work/fdsa-insertion-costs 697bcf242ce65d74815b5639bddb1c6e754dd10f",
+    "refs/heads/work/fdsa-list-foundations c28ba71863d2a35ee1c3a089caa90464e4cca692",
+    "refs/heads/work/fdsa-logarithm-bounds a601ad713368daf8e18d5a5537a83d47138491fa",
+    "refs/heads/work/fdsa-ordered-search 863aedb924e922ac40747c0ef299701a7785488e",
+    "refs/heads/work/fdsa-ordinary-merge 72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+    "refs/heads/work/fdsa-partition-proof-fixes 0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+    "refs/heads/work/fdsa-permutation-expectation 11923e9ffd17246b6f22c5594002a1ba0434e43c",
+    "refs/heads/work/fdsa-permutation-joint a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+    "refs/heads/work/fdsa-permutation-minimum ff3dd88082c6283df40bcd86a4363841a0360b12",
+    "refs/heads/work/fdsa-permutation-minimum-validation f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+    "refs/heads/work/fdsa-permutation-order 4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+    "refs/heads/work/fdsa-permutation-order-validation bdac9703aab4b383fa775568d36bf685af329389",
+    "refs/heads/work/fdsa-permutation-placement 49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+    "refs/heads/work/fdsa-permutation-tail a0597381f02eddd074ee96cabaa974f2062285f8",
+    "refs/heads/work/fdsa-permutation-tail-validation 02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+    "refs/heads/work/fdsa-potential-development 12cb14fc98b8617b3b625620da8e60936daba340",
+    "refs/heads/work/fdsa-priority-observations c088beeb89aa18df45a56f6f1d6b6ff4ad374905",
+    "refs/heads/work/fdsa-three-way-partition de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+    "refs/heads/work/fdsa-tree-accumulator b035f1151ab4f0c7d7380818576cfe97dae434c4",
+    "refs/heads/work/fdsa-tree-cache 64c6b777d828ecfe83234fc2aed94600a1f24297",
+    "refs/heads/work/fdsa-tree-fold b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+    "refs/heads/work/fdsa-tree-leftmost 7b8ab2bee299c937256bf9ce7e82977333d07134",
+    "refs/heads/work/fdsa-tree-order 66eae34815a177c6b4bf5120e05202ebb8876c91",
+    "refs/heads/work/fdsa-tree-rotations 28ba79d8d425400cb87d2daf3ecf1cc5a63a7aa2",
+    "refs/heads/work/fdsa-tree-shape 974a97321a8ec174b56104c7e6efaaca881b6639",
+    "refs/heads/work/fdsa-tree-traversal-work 317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+    "refs/remotes/origin/HEAD 7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+    "refs/remotes/origin/integrate/frp 5be3ce96dbeb60365002414409c9421450e39cf0",
+    "refs/remotes/origin/integration/spec-15 47b556e83229ce11b27b5b7b4444c089a1e96ac3",
+    "refs/remotes/origin/master 7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+    "refs/remotes/origin/reconstruction/adwh-154 c12296f63c656737d07325e9d8e8e16d6976d099",
+    "refs/remotes/origin/reconstruction/adwh-155 3efc9d926333c19f697a21afe7dd08af53e3a8cd",
+    "refs/remotes/origin/reconstruction/adwh-180 e0d76c86040f38728289977c355b848cd6c7d8e3",
+    "refs/remotes/origin/reconstruction/adwh-181 f68c79000bdb1ce223c403d38f8dd06e20cfbf29",
+    "refs/remotes/origin/reconstruction/adwh-182 9c0a2649f9601c6294850f2b057698650360da9a",
+    "refs/remotes/origin/reconstruction/adwh-183 16db707769c322fa17f2c48e24208f81292008da",
+    "refs/remotes/origin/reconstruction/adwh-184 48b7655155950c4452bebf1268de1866d0f6129f",
+    "refs/remotes/origin/reconstruction/adwh-186 30bbde79d154d1e8d942561c023a5e44d12ca420",
+    "refs/remotes/origin/reconstruction/adwh-187 6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e",
+    "refs/remotes/origin/reconstruction/adwh-190 855ce1f29ae0b7c7a7aec8321ead07be39c6ff32",
+    "refs/remotes/origin/reconstruction/adwh-array-cost-integration 34c85983f601247fb62aea631c4212b7cb994b5b",
+    "refs/remotes/origin/research/27-frp-runtime f4d3e2f36d5547f2236a601c837280bd0c23a774"
+  ],
+  "existing_verification_record": {
+    "bytes": 867,
+    "lines": 19,
+    "sha256": "9634e5a5318b7ac15cc67871655469838a061340ce719939ddfc5dcc16bc2164",
+    "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "successor_evidence": false
+  },
+  "available_bytes": 0,
+  "raw_free_bytes": 1488072704,
+  "accepted_checkpoint0109": {
+    "bytes": 22290443,
+    "sha256": "949b1525e093857799316ea33e22f82cec9056abbd2ef393a1fa8657b04a1e08",
+    "library_file_id": "libfile_84959da777948191832d2e322bf6fb16"
+  },
+  "full_original_scope_record": {
+    "path": "provenance/shared-independent-units-scope-20261104/declared-scope.json",
+    "bytes": 17160,
+    "lines": 401,
+    "sha256": "773ce242c586cf7ba381f18218648461ef7b487391d0bb8c4ab5123722ca8fd1"
+  },
+  "accepted_foundation_record": {
+    "path": "provenance/foundation-acceptance-20261104/acceptance.json",
+    "bytes": 5234,
+    "lines": 146,
+    "sha256": "83c80450ccacba22c263f805670b2ee06dffc757447bb437f86875918c4e7fa0"
+  },
+  "copied_source_inputs": [
+    {
+      "unit": "XM01",
+      "path": "Applications/Resources/ListMerge.lean",
+      "mode": "exact corrected defining blob",
+      "source_commit": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "source_git_blob": "b658809bc2ba424807e326c3ee7cb64712865a46",
+      "bytes": 8629,
+      "lines": 201,
+      "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975"
+    },
+    {
+      "unit": "XM01",
+      "path": "Applications/Sorting/Merge.lean",
+      "mode": "exact corrected defining blob",
+      "source_commit": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "source_git_blob": "6595f901a9358398bee07333872125990ef8360c",
+      "bytes": 7840,
+      "lines": 172,
+      "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7"
+    },
+    {
+      "unit": "XM01",
+      "path": "Examples/MergeCosts.lean",
+      "mode": "exact corrected defining blob",
+      "source_commit": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "source_git_blob": "b5f652cf5258c99f5a615b12987c664ed8be3d76",
+      "bytes": 23410,
+      "lines": 476,
+      "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466"
+    },
+    {
+      "unit": "XM01",
+      "path": "docs/research/fdsa-list-merge.md",
+      "mode": "exact held status proposal",
+      "source_commit": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "original_git_blob": "dd81e91e3b4d2fa810a87b2505ace12299b70437",
+      "original": {
+        "bytes": 14955,
+        "lines": 250,
+        "sha256": "25f1982d56183111c112d3e38f4473000668685d126677935dcecc3d1a5cf5b3"
+      },
+      "proposal_path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-list-merge.md",
+      "patch_path": "provenance/chapter02-shared-notes-status-preparation-20261104/patches/fdsa-list-merge.md.patch",
+      "bytes": 15491,
+      "lines": 258,
+      "sha256": "9661cc22e3600c0963c37b0f145f7396a1b7677ae2e8f2d240ecd1cf13b88729"
+    },
+    {
+      "unit": "XD01",
+      "path": "Applications/Resources/DifferenceListCosts.lean",
+      "mode": "exact corrected defining blob",
+      "source_commit": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+      "source_git_blob": "b87222f7c0eb0aafc60031864ca815c2e65fc457",
+      "bytes": 10061,
+      "lines": 222,
+      "sha256": "f99420b831dff2d0f5fcc3dac1001937942b87c78b710b79f94fa941ab972b01"
+    },
+    {
+      "unit": "XD01",
+      "path": "Examples/DifferenceListCosts.lean",
+      "mode": "exact corrected defining blob",
+      "source_commit": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+      "source_git_blob": "33fd3bec15f8c9b7c3078b45d90c24d7df0c1df2",
+      "bytes": 9299,
+      "lines": 234,
+      "sha256": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1"
+    },
+    {
+      "unit": "XD01",
+      "path": "docs/research/fdsa-difference-list-costs.md",
+      "mode": "exact held status proposal",
+      "source_commit": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+      "original_git_blob": "c383bd71d80daefe587e9fbdcd80e7e11267c2ca",
+      "original": {
+        "bytes": 10679,
+        "lines": 213,
+        "sha256": "fd01432541c9b27ad83def6192e4a3b75d6b77ae7490ec11a2bf665324f1246e"
+      },
+      "proposal_path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-difference-list-costs.md",
+      "patch_path": "provenance/chapter02-shared-notes-status-preparation-20261104/patches/fdsa-difference-list-costs.md.patch",
+      "bytes": 10923,
+      "lines": 219,
+      "sha256": "bd450660076b5addbd6b64d7a591f71fc60b68e6bfbf5f9cc36fa09fac4eb735"
+    },
+    {
+      "unit": "XQ01",
+      "path": "Applications/Resources/Partition.lean",
+      "mode": "exact corrected defining blob",
+      "source_commit": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+      "source_git_blob": "e9d3682a4d3a499aaffd41f73c7fc39965fa0d30",
+      "bytes": 2678,
+      "lines": 61,
+      "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14"
+    },
+    {
+      "unit": "XQ01",
+      "path": "Applications/Selection/ThreeWay.lean",
+      "mode": "exact corrected defining blob",
+      "source_commit": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+      "source_git_blob": "8627ad6d219f55a404dd96c4f4553594eaa71264",
+      "bytes": 9718,
+      "lines": 211,
+      "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa"
+    },
+    {
+      "unit": "XQ01",
+      "path": "Applications/Sequences/Partition.lean",
+      "mode": "exact corrected defining blob",
+      "source_commit": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+      "source_git_blob": "ff03bd349a39b3b77c49793175d4b474199e7c43",
+      "bytes": 3786,
+      "lines": 87,
+      "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069"
+    },
+    {
+      "unit": "XQ01",
+      "path": "Examples/ThreeWayPartition.lean",
+      "mode": "exact corrected defining blob",
+      "source_commit": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+      "source_git_blob": "a1f29b6310bc8623df2725b0d40f3949513199c5",
+      "bytes": 8109,
+      "lines": 172,
+      "sha256": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526"
+    },
+    {
+      "unit": "XQ01",
+      "path": "docs/research/fdsa-three-way-partition.md",
+      "mode": "exact held status proposal",
+      "source_commit": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+      "original_git_blob": "254bc877d2d896c7e9761498518ae72c4b7b858a",
+      "original": {
+        "bytes": 13444,
+        "lines": 250,
+        "sha256": "5e58b195a53e32369dd31a7d6452c73f595419757faeaae0173c0fd659c0858b"
+      },
+      "proposal_path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-three-way-partition.md",
+      "patch_path": "provenance/chapter02-shared-notes-status-preparation-20261104/patches/fdsa-three-way-partition.md.patch",
+      "bytes": 13959,
+      "lines": 259,
+      "sha256": "f79bfd4f9691f56019696c8ea0ac0b63045f7bb1ac5f5d790adf8a425345f136"
+    },
+    {
+      "unit": "XU01",
+      "path": "Applications/Probability/PermutationMinimum.lean",
+      "mode": "exact corrected defining blob",
+      "source_commit": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "source_git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+      "bytes": 8241,
+      "lines": 197,
+      "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64"
+    },
+    {
+      "unit": "XU01",
+      "path": "Examples/PermutationMinimum.lean",
+      "mode": "exact corrected defining blob",
+      "source_commit": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "source_git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+      "bytes": 4994,
+      "lines": 127,
+      "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1"
+    },
+    {
+      "unit": "XU01",
+      "path": "Examples/PermutationMinimumBoundary.lean",
+      "mode": "exact corrected defining blob",
+      "source_commit": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "source_git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+      "bytes": 4211,
+      "lines": 113,
+      "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b"
+    },
+    {
+      "unit": "XU01",
+      "path": "docs/research/fdsa-permutation-minimum.md",
+      "mode": "exact held status proposal",
+      "source_commit": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "original_git_blob": "47f66cf564187d8326cdd880f0c8a36e51aa9101",
+      "original": {
+        "bytes": 7608,
+        "lines": 138,
+        "sha256": "9b0ac9218e6a82f40e61faf97447af33adcccfafb60498a4f33acbfce91f5a31"
+      },
+      "proposal_path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-permutation-minimum.md",
+      "patch_path": "provenance/chapter02-shared-notes-status-preparation-20261104/patches/fdsa-permutation-minimum.md.patch",
+      "bytes": 7970,
+      "lines": 146,
+      "sha256": "2054bf4d6cd371b8570fca003f0fe704793377d261cb8e5f10306022e5b2dcc8"
+    }
+  ],
+  "units": [
+    {
+      "unit": "XM01",
+      "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "original_candidate": "5f409e71bb068e3b8cc133226046ce8bbe29d982",
+      "corrected_minimal_tip": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "requirements": {
+        "path": "reviews/ordinary-merge-requirements.md",
+        "bytes": 19999,
+        "lines": 346,
+        "sha256": "b54e2b332cc31c04ac12fb5b19cc96fa494a80e1455fcfc173f59b6fe340d3d9",
+        "read": "complete"
+      },
+      "unit_history": [
+        "5f409e71bb068e3b8cc133226046ce8bbe29d982 07e480f6ec9958d4975bb90151005b84f2907614 feat(resources): observe ordinary list merge work (#174)",
+        "57a7d338dedb53a5526bbbc05f7be5fd83443d03 5f409e71bb068e3b8cc133226046ce8bbe29d982 fix(resources): normalize measured merge proof rewrites (#174)",
+        "72a0951aee406f7db67998d2a3bf8810f4e1bccc 57a7d338dedb53a5526bbbc05f7be5fd83443d03 fix(examples): elaborate measured merge clients (#174)"
+      ]
+    },
+    {
+      "unit": "XD01",
+      "original_review_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+      "original_candidate": "ffeaf8aed84184f49a13acb5c84e1fd608c9b7e8",
+      "corrected_minimal_tip": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+      "requirements": {
+        "path": "reviews/difference-list-cost-requirements.md",
+        "bytes": 6965,
+        "lines": 129,
+        "sha256": "cb215a33cce3dd258cca37b9d703522d19caf2da76767c01e573d268b3e92c4e",
+        "read": "complete"
+      },
+      "unit_history": [
+        "ffeaf8aed84184f49a13acb5c84e1fd608c9b7e8 a14977b9e316cc484ffad8a470d26b15615956c0 feat(resources): separate builder creation and application costs (#174)",
+        "62809ced86c561c7a6cce8b71e727177a3f17fb8 ffeaf8aed84184f49a13acb5c84e1fd608c9b7e8 docs(resources): correct natural-merge source provenance (#174)",
+        "66e480cf6db359ebf97d761b804ebe5d6d946eca 62809ced86c561c7a6cce8b71e727177a3f17fb8 fix(resources): elaborate difference-list cost contracts (#174)",
+        "52722e3ee481167e99b8f6c0b2417df7fb7615d8 66e480cf6db359ebf97d761b804ebe5d6d946eca fix(resources): apply explicit difference-list representation witnesses"
+      ]
+    },
+    {
+      "unit": "XQ01",
+      "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "original_candidate": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+      "corrected_minimal_tip": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+      "requirements": {
+        "path": "reviews/three-way-partition-requirements.md",
+        "bytes": 12208,
+        "lines": 209,
+        "sha256": "b1f55911c44a11def3498484787fcb04972398ec040bf1bd65c75796c116d541",
+        "read": "complete"
+      },
+      "unit_history": [
+        "de5410286bbefd841dff50bef55c2e52d2ebbd2a 07e480f6ec9958d4975bb90151005b84f2907614 feat(sequences): share three-way partition and source costs (#174)",
+        "b3bdc12b304499bf6675a58bc1eb0992e19e3e75 de5410286bbefd841dff50bef55c2e52d2ebbd2a fix(sequences): remove redundant partition proof arguments (#174)",
+        "0612e80a0c297a38fa1add6e837dc7781e1bbd9c b3bdc12b304499bf6675a58bc1eb0992e19e3e75 fix(resources): reduce the partition value projection (#174)"
+      ]
+    },
+    {
+      "unit": "XU01",
+      "original_review_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+      "original_candidate": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+      "corrected_minimal_tip": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "requirements": {
+        "path": "reviews/permutation-minimum-requirements.md",
+        "bytes": 8884,
+        "lines": 154,
+        "sha256": "59e2ff6ff66dd39b6151a42b501bcc22e86eb593a9b854b532f97bc45fdd7686",
+        "read": "complete"
+      },
+      "unit_history": [
+        "ff3dd88082c6283df40bcd86a4363841a0360b12 a14977b9e316cc484ffad8a470d26b15615956c0 feat(probability): prove uniform subset minima (#174)",
+        "22678283ba48b20bc97dfde800fe7360b6408ab7 ff3dd88082c6283df40bcd86a4363841a0360b12 fix(fdsa): use proof-local finite instances for permutation minima",
+        "f833f311caf2630ccbbb2e9465d4765dff7122f0 22678283ba48b20bc97dfde800fe7360b6408ab7 fix(fdsa): normalize the outsider probability boundary explicitly",
+        "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0 f833f311caf2630ccbbb2e9465d4765dff7122f0 fix(fdsa): check minimum-law probability examples on pinned APIs"
+      ]
+    }
+  ],
+  "allowed_paths": [
+    "Applications/Probability/PermutationMinimum.lean",
+    "Applications/Resources/DifferenceListCosts.lean",
+    "Applications/Resources/ListMerge.lean",
+    "Applications/Resources/Partition.lean",
+    "Applications/Selection/ThreeWay.lean",
+    "Applications/Sequences/Partition.lean",
+    "Applications/Sorting/Merge.lean",
+    "Examples/DifferenceListCosts.lean",
+    "Examples/MergeCosts.lean",
+    "Examples/PermutationMinimum.lean",
+    "Examples/PermutationMinimumBoundary.lean",
+    "Examples/ThreeWayPartition.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-difference-list-costs.md",
+    "docs/research/fdsa-list-merge.md",
+    "docs/research/fdsa-permutation-minimum.md",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-three-way-partition.md"
+  ],
+  "excluded_scopes": [
+    "XU02",
+    "XU03",
+    "XP01",
+    "later unrelated shared drafts",
+    "remaining Chapter2 development changes"
+  ],
+  "operations_not_run": [
+    "Lean",
+    "Lake",
+    "check.sh",
+    "cache hydration",
+    "artifact/output mutation",
+    "new worktree",
+    "cache copy"
+  ],
+  "method": "Exact defining blobs and exact four held note proposals on new child of F; original unit histories remain reachable unchanged. No old branch/tree merge."
+}

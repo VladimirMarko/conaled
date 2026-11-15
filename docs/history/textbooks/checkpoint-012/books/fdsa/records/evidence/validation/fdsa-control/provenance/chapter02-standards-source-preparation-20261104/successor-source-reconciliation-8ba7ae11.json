@@ -1,0 +1,151 @@
+{
+  "recorded_utc": "2026-11-04T09:53:22.362224+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "previous_candidate": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+  "candidate": "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+  "integration_receipt": {
+    "path": "provenance/chapter02-focused9-correction-integration-20261104/result.json",
+    "bytes": 1128,
+    "lines": 23,
+    "sha256": "6f62ea1a56e6248c4cb501f05a6dd21c0f6cd2dd7e844216d7027e556c6a1545"
+  },
+  "scope_receipt": {
+    "path": "provenance/chapter02-review-scope-20261104/successor-8ba7ae11.json",
+    "bytes": 19536,
+    "lines": 498,
+    "sha256": "fae9cb473eeef909a5f320105a3db04d9ae7f1781f9eda74f22584c531c274d6"
+  },
+  "full_scope_path_count": 81,
+  "all112_obligations_and_ten_shared_scopes_retained": true,
+  "only_changed_path": "Examples/PermutationTail.lean",
+  "exact_reviewed_source_receipt": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/tail-main-repair5-assessment.json",
+    "bytes": 19227,
+    "lines": 500,
+    "sha256": "1c006f41928dee82f996609b64d0d5ec37cc0c8734a71c46c5f7ee43679a1c3f"
+  },
+  "other80_source_blobs_unchanged": true,
+  "historical_closure_extension": {
+    "original_receipt": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/historical-type-dependency-audit-preparation-6b95185.json",
+      "bytes": 207685,
+      "lines": 4016,
+      "sha256": "293e9dfca4b47047e90d727b346ffa4d7139254b4980494f26d645e28ab36687"
+    },
+    "unique_target_paths": 67,
+    "all67_target_blobs_equal_at_Y": true,
+    "per_run": [
+      {
+        "run": "chapter02-measured-sorting-types-20261104",
+        "selected_names": 174,
+        "changed_Main_absent_from_defining_and_program_closures": true
+      },
+      {
+        "run": "chapter02-xu01-types-20261104",
+        "selected_names": 37,
+        "changed_Main_absent_from_defining_and_program_closures": true
+      },
+      {
+        "run": "chapter02-bottom-up-costs-types-20261104",
+        "selected_names": 105,
+        "changed_Main_absent_from_defining_and_program_closures": true
+      },
+      {
+        "run": "chapter02-natural-sorting-types-20261104",
+        "selected_names": 105,
+        "changed_Main_absent_from_defining_and_program_closures": true
+      },
+      {
+        "run": "chapter02-three-way-partition-types-20261104",
+        "selected_names": 84,
+        "changed_Main_absent_from_defining_and_program_closures": true
+      },
+      {
+        "run": "chapter02-xd01-random-types-20261104",
+        "selected_names": 134,
+        "changed_Main_absent_from_defining_and_program_closures": true
+      },
+      {
+        "run": "chapter02-bottom-up-alternating-types-20261104",
+        "selected_names": 126,
+        "changed_Main_absent_from_defining_and_program_closures": true
+      },
+      {
+        "run": "chapter02-top-down-costs-types-20261104",
+        "selected_names": 32,
+        "changed_Main_absent_from_defining_and_program_closures": true
+      },
+      {
+        "run": "chapter02-uniqueness-types-20261104",
+        "selected_names": 9,
+        "changed_Main_absent_from_defining_and_program_closures": true
+      },
+      {
+        "run": "chapter02-natural-runs-statements-20261104",
+        "selected_names": 104,
+        "changed_Main_absent_from_defining_and_program_closures": true
+      },
+      {
+        "run": "chapter02-quicksort-statements-20261104",
+        "selected_names": 14,
+        "changed_Main_absent_from_defining_and_program_closures": true
+      },
+      {
+        "run": "ordinary-merge-type-inspection-20261104",
+        "selected_names": 17,
+        "changed_Main_absent_from_defining_and_program_closures": true
+      }
+    ],
+    "all41_defining_root_closures_and12_program_closures_unchanged_from_previous_current_target": true,
+    "old_historical_to_target_comparison_stays40_of41_defining_and11_of12_program_closures_matching": true,
+    "changed_Growth_seven_and_missing_QuickSort_terminal_fourteen_stay_pending": true
+  },
+  "potential110_extension": {
+    "original_receipt": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/foundation110-potential-type-reuse-0a7ef078.json",
+      "bytes": 122392,
+      "lines": 3445,
+      "sha256": "23ec745628fc15a330a492bc70f4a22d9fb452faaf9ba482006cebf7d3546bc0"
+    },
+    "all_six_foundation_target_closures_and10_configs_unchanged_at_Y": true,
+    "eligible_names": 110,
+    "excluded_insertion_names": 35,
+    "actual_reuse_credited": 0,
+    "all_original_terminal_conditions_still_required": true
+  },
+  "prepared814": {
+    "program": {
+      "path": "provenance/chapter02-complete-public-statements814-8ba7ae11-prepared-20261104/Statements.lean",
+      "bytes": 46242,
+      "lines": 859,
+      "sha256": "ec9fb2b9a141630d0d4acb527bc28cf5fb6b5c2032f3f9951ce1d53cd1578577"
+    },
+    "inventory": {
+      "path": "provenance/chapter02-complete-public-statements814-8ba7ae11-prepared-20261104/inventory.json",
+      "bytes": 58108,
+      "lines": 1134,
+      "sha256": "0dd83a1b59b09d6af609d400bc75650afb67a1b3f29245835142313f3edb0b71"
+    },
+    "program_bytes_names_order_unchanged": true,
+    "all36_sources_match_Y": true,
+    "only_source_identity_changed": [
+      "Examples/PermutationTail.lean"
+    ],
+    "executed": false
+  },
+  "current_type_accounting": {
+    "qualified_historical": 920,
+    "expanded_qualified": 648,
+    "ordinary_qualified": 272,
+    "historical_outputs_read": 941,
+    "historical_expanded": 648,
+    "historical_ordinary": 293,
+    "pending_current": 814,
+    "accepted_base": 28,
+    "foundation_pending": 145,
+    "potential110_credited": 0
+  },
+  "validation_boundary": "Coordinator reports focused10 at Y and foundation full check still live. This reviewer polled neither, read no terminal result for them and inferred no success. Source-stage assessment only; full candidate gates remain Blocked.",
+  "reviewer_compiler_process_source_ref_index_pin_cache_actions": false
+}

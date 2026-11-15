@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "observed_at": "2026-11-14T03:48:22.468934+00:00",
+  "candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+  "started_at": "2026-11-14T03:29:12.689406+00:00",
+  "status": "nonterminal at this observation; required full validation remains open",
+  "terminal_observed": false,
+  "exit_code": null,
+  "initially_missing_project_traces": 2652,
+  "observed_completed_new_jobs": [
+    "\u2714 [9568/9571] Built Applications.FRP.MigrationIO (185s)",
+    "\u2714 [9569/9573] Built Applications.FRP.MigrationResources (442s)",
+    "\u2714 [9570/9575] Built Applications.FRP.MigrationSafety (141s)"
+  ],
+  "observed_errors": [],
+  "source_preflight": [
+    "Source/coverage/version checks: 33.64s"
+  ],
+  "log": "evidence/full-validation-r3.log",
+  "log_prefix_bytes": 732337,
+  "log_prefix_sha256": "7018fd530bedf585c0833dfd321df58be02d48355e019fb86c218d23006cf687",
+  "log_semantics": "One canonical log per run. A later complete log may extend this prefix; preserve this observation and verify its first log_prefix_bytes against the recorded hash instead of retaining duplicate whole-log prefixes.",
+  "interpretation": "A large cold build and slow completed existing modules are observed. No terminal success, proof failure, timeout, memory/disk exhaustion or host incapacity is established by this prefix.",
+  "resume_rule": "This records a historical observation, not a promise that a process remains live. After restoration inspect actual state; never infer success from a partial log or transient process handle. Root DURABILITY requires the latest archive after a wipe."
+}

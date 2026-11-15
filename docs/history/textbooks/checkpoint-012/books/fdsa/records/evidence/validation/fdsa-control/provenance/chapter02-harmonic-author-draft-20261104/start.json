@@ -1,0 +1,50 @@
+{
+  "created_utc": "2026-11-04T07:10:58.413544+00:00",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-three-way",
+  "branch": "work/fdsa-ch02-three-way",
+  "start_head": "3b727e83fcf9f00ad7d0c95d07305b036ebecbca",
+  "start_status": "",
+  "owned_new_source_files": [
+    "Applications/Resources/QuickSortMean.lean",
+    "Examples/QuickSortMean.lean"
+  ],
+  "plan_sha256": "277ca36ffdc0a0681f84ad7d9c7360e5a78498bf0da6f019584cb78fa58d50ac",
+  "authorization": "Root explicitly released the bounded numerical slice after reading the plan and after the complete nine-declaration uniqueness author readback.",
+  "frozen_contract": {
+    "sequence_domain": "Nat -> Real",
+    "base": "A 0 = 1",
+    "positive_recurrence": "A n = (2/(n:Real))*sum(k in range n,A k)+4*(n:Real)-1 for 0<n",
+    "closed_expression": "8*((n:Real)+1)*(harmonic n:Real)-12*(n:Real)+1",
+    "difference": "n*A n=(n+1)*A(n-1)+8*n-5 for 0<n; successor form for n=0 included",
+    "log_bound": "0 <= closedForm n <= 16*n*(1+log n) for 1<=n",
+    "binary_bound": "0 <= closedForm n <= 32*n*logb 2 n for 2<=n",
+    "big_o": "standard Asymptotics.IsBigO atTop on Nat, Real output; natural and binary logarithms"
+  },
+  "frozen_cases": [
+    {
+      "n": 0,
+      "expected": "1"
+    },
+    {
+      "n": 1,
+      "expected": "5"
+    },
+    {
+      "n": 2,
+      "expected": "13"
+    },
+    {
+      "n": 3,
+      "expected": "71/3"
+    },
+    "arbitrary sequence application at size 3",
+    "zero and singleton reject scalar n*logb bounds for every real constant",
+    "threshold 2 binary bound",
+    "generic sequence standard binary-log Big-O"
+  ],
+  "actual_execution_recurrences": "not assumed or proved in this numerical slice; separate clients remain pending",
+  "builds_authorized": false,
+  "cache_changes_authorized": false,
+  "child_agents_authorized": false,
+  "existing_source_and_pins_must_remain_unchanged": true
+}

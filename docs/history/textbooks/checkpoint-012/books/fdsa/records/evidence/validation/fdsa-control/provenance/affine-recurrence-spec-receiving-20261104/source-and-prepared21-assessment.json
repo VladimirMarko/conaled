@@ -1,0 +1,146 @@
+{
+  "schema": "fdsa-XR01-Spec-receiving-semantic-preparation-v1",
+  "recorded_utc": "2026-11-04T18:52:27.329490+00:00",
+  "review_axis": "Spec",
+  "reviewer": "/root/chapter02_spec",
+  "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "original_base": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+  "original_candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+  "integration_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "same_original_five_path_scope": [
+    "Applications/Resources/AffineRecurrence.lean",
+    "Examples/AffineRecurrence.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-affine-recurrence.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "overall": "Blocked pending complete actual candidate validation and actual21 type evidence; no final approval",
+  "source_and_prepared_input_assessment": "Complete, zero new concrete Spec findings",
+  "source_reconciliation": {
+    "path": "provenance/affine-recurrence-spec-receiving-20261104/source-reconciliation.json",
+    "bytes": 34372,
+    "lines": 801,
+    "sha256": "395911a63def72ffb62a7c77509f2939c2a711217ca417c78b12464f1ceaa333"
+  },
+  "scope_and_read_basis": {
+    "original_report": {
+      "path": "reviews/affine-recurrence-spec-preparation-20261104.md",
+      "bytes": 19622,
+      "lines": 100,
+      "sha256": "8ee3cac08c1cb0d4b4d8b29821b5de9b54e549530d081155130065c3bb8e8b32"
+    },
+    "original_receipt": {
+      "path": "provenance/affine-recurrence-spec-preparation-20261104/source-assessment.json",
+      "bytes": 42793,
+      "lines": 1118,
+      "sha256": "6d6a9b3c0c56e965e91e19720b0d5dafb4c80fcdbe9a4e97610c4e42f19127a2"
+    },
+    "original_complete_five_path_source_and_primary_book_reviews_retained": true,
+    "all15_applicable_instruction_files_exact_original": true,
+    "original_requirements_and_original_report_complete_reread": "58cd88",
+    "all142_corrected_example_lines_and_full_actual_root_map_note_deltas_read": "e4f47b",
+    "core_exact_original_full_semantic_read_retained": true,
+    "accepted_Q_root_map_complete_assessments_retained_by_exact_unchanged_prefix": true,
+    "no_new_read_claim_for_unchanged_original_source": true,
+    "no_new_original_Selection_theory_read_or_rebuild_claim": true,
+    "no_regenerated_book_renders": true
+  },
+  "mathematical_disposition": {
+    "generic_contract": "The retained core assumes CommRing, LinearOrder, IsStrictOrderedRing and Archimedean, a total scalar function and natural child maps, rho<1, an eventual affine child-size sum bound and an eventual upper recurrence. It produces nonnegative A,B before all natural n. No field, nonnegative function/toll, monotonicity or final upper bound is assumed.",
+    "finite_prefix_and_decrease": "The exact original Archimedean construction, finite nonempty range supremum and strong induction are retained. Child decrease is derived from the strict sum contraction above the enlarged prefix; all original inputs including zero and the enlarged finite prefix use the same A,B.",
+    "quarter_connection": "The actual natural recurrence terminates at its own definition cutoff: one for n<=1 and otherwise2*Q(n/4)+n+1. Original branch equations, independently calculated values1,1,5,7,19,31 at0,1,2,4,8,16 and rational application withrho=1/2,K=0,C=1,D=1 remain unchanged.",
+    "signed_nonfield_connection": "The integer client signed(n)=-n-1 has negative base and toll1-n, with actual recurrence and generic application. It still demonstrates both the nonfield carrier and signed data.",
+    "absolute_value_header": "The only formal-source edit removes one ASCII space after the opening absolute-value bar. Pinned Mathlib noWs requires adjacency. The intended Int conjunction -2^2<=0 and abs(-2^2)=4, its norm_num proof and all other source bytes remain. This is a header-syntax change, not proof-body-only; no old elaborated-type equivalence is claimed.",
+    "norm_and_parameter_boundaries": "The negative-square result remains one-sided; no norm Big-O result is inferred. The family result chooses coefficients separately for each p, while both natural and integer n=0 witnesses rule out a pair uniform in all p.",
+    "later_chapter_boundaries": "Exact source ceilings and negative offsets, prescribed thresholds/sharper constants including negative intercepts, selector-to-cost correspondence, grouping and the genuine noncontracting halving counterexample remain Chapter3 obligations. No chapter acceptance is inferred from XR."
+  },
+  "integration_and_documents": {
+    "method": "Exact isolated original XR source is incorporated by an ordinary cherry-pick successor of acceptedQ, followed by the one-byte syntax correction. No old XP prefix is an asserted ancestor or imported dependency.",
+    "root": "All Q imports/order preserved plus exactly Examples.AffineRecurrence; no Examples.MappedPotentialAccounting import.",
+    "map": "All Q text preserved except the original XR section with dated historical validation wording and the exact cfa413e Chapter1 qualifier.",
+    "note": "Only three validation-status passages are dated; mathematical text/source correspondence and limitations remain unchanged.",
+    "inherited_XP01_DOC_001": "Resolved at the receiving candidate by the exact Chapter1 qualifier; original finding and original immutable source are preserved.",
+    "saved_refs": "All67 durable accepted-Q refs match both saved receiving snapshots; actual separate C3 source-branch movements are explicitly retained. No mutable live ref snapshot is claimed."
+  },
+  "focused_disposition": {
+    "attempt1": "Actual closed outer/native1 at4df; core Built5.9s, Examples failed108:27 expected no space before.",
+    "attempt2": "Actual closed outer/native0 atc1ce; exact core replayed and Examples Built2.1s. Both requested targets passed.",
+    "warnings": "Exactly six identical module-import advisories across both complete logs; no new warning text or suppression.",
+    "XR01_ELAB_001": "Resolved for the observed parser defect by the exact correction and actual focused successor pass.",
+    "inherited_verification": "The copied fb794d verification identifies acceptedQ; it is not a receiving XR full check.",
+    "complete_closed_log_read_tool": "3ed916",
+    "independent_copy_and_terminal_reconciliation_tool": "ddb6f1"
+  },
+  "prepared21_disposition": {
+    "program": {
+      "path": "provenance/chapter03-affine-receiving-correction1-20261104/Statements21.lean",
+      "bytes": 1651,
+      "lines": 34,
+      "sha256": "1e048fe6242d26aca2a1afad7451d048072536ce4f2f5abea2cec9da839519a7"
+    },
+    "all21_original_public_names_in_exact_order": true,
+    "public_counts": {
+      "theorems": 19,
+      "definitions": 2,
+      "private": 0,
+      "anonymous_examples": 0,
+      "instances": 0
+    },
+    "header_surface": "All21 names/kinds/lines are preserved; only position18 has a changed header. No generated-kernel count is inferred.",
+    "imports": [
+      "Applications.Resources.AffineRecurrence",
+      "Examples.AffineRecurrence"
+    ],
+    "local_closure_files": 2,
+    "local_import_edges": 1,
+    "direct_external_roots": 6,
+    "configuration_blobs_exact_Q": 10,
+    "options": {
+      "pp.universes": true,
+      "pp.explicit": true,
+      "pp.fullNames": true,
+      "pp.deepTerms": true,
+      "pp.proofs": true,
+      "pp.maxSteps": 1000000
+    },
+    "printer_semantics": "deepTerms/proofs disable those particular omission causes; maxSteps is a finite visited-expression limit. The actual complete output must still be inspected for omissions/diagnostics.",
+    "actual_type_credit": 0,
+    "execution_conditions": "Root must use qualified stock profile, exact immutable source/program and exclusive before/after supported object/config/pin/runtime inputs after full check closure; both axes must read all21 actual full types. No compiler/input capture by reviewer."
+  },
+  "API_read_boundaries": {
+    "tool": "c858d5",
+    "Mathlib_abs": "Immutable56a005855ea17e0b0958f73ec801ae140b0a1679; Abs.lean29-48, SHA574421adeb1391adcc9008c7e4a7981b2b444416f5d63ecf3ec48a4454851463.",
+    "Lean_Options": "Official4.35 source SHA d0a49b7a18cc5d9efa691c86be8bd64cccef4ec982cfbebb6c412813819f3f50;15-18,179-207,243,290-291.",
+    "Lean_Basic": "Official4.35 source SHA92e19f6a1359fbad4685f5b33457e25b07a344786e4aaa1c7d9360adbffc316a;343-354,370-421,427-458.",
+    "runtime_capture": false
+  },
+  "record_integrity_boundaries": {
+    "complete_handoffs": "cd8ba5",
+    "complete_actions": "53ec0a",
+    "complete_author_receipts_and_candidate_nonarray_context": "47aa20",
+    "inventory_source_program_options_and_payload_reproduction": "bc33c4",
+    "final_recorded_reconciliation": "ddb6f1",
+    "truncated_exploration": "No complete-read credit from the combined output containing e5f71f, which was truncated; later bounded output47aa20 covers all needed narrative sections, and whole row/ref inventories are independently reconstructed.",
+    "temporary_failed_assertion": "First saved-ref comparison454429 exited1 before any file write because the accepted-Q snapshot uses SHA/ref order and author snapshots use ref/SHA order. Exact documented formats were parsed after diagnosticb91057; all67 actual pairs then matched. This bookkeeping failure changes no mathematical evidence."
+  },
+  "findings": {
+    "new": [],
+    "unresolved_source_or_input_findings": [],
+    "resolved_with_history": [
+      "XR01-ELAB-001",
+      "XP01-DOC-001"
+    ]
+  },
+  "remaining_gates": [
+    "Complete closed full normal candidate check and exhaustive permitted-axiom audit at exactc1ce",
+    "Qualified actual21 statement run and complete full-type assessment",
+    "Both final independent full-scope outcomes",
+    "Immediate qualified candidate verification before root local fast-forward and acceptance checkpoint"
+  ],
+  "actions": {
+    "compiler_or_process_poll": false,
+    "source_ref_cache_or_live_output_mutation": false,
+    "global_control_or_earlier_review_mutation": false,
+    "own_new_records_only": true
+  }
+}

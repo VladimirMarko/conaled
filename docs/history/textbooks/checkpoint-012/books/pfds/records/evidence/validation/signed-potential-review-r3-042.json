@@ -1,0 +1,749 @@
+{
+  "base": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+  "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+  "checkout": "signed-potential",
+  "commits": [
+    "679786087f589caadbe7cc97a1537b6679ec8522 feat(resources): generalize signed potential accounting (#10023)",
+    "9c47a052ef96b528a85660d4c632704ca03144fe fix(resources): apply ordered addition on the required side (#10023)",
+    "d24c443ba22019613b1ce646d6eed7279c791ad6 fix(resources): mark fractional real examples noncomputable (#10023)",
+    "956c4b06abe8d54f78a6166690c12453115f8304 fix(resources): disambiguate example proofs and rewrite natural budget (#10023)",
+    "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5 fix(resources): fix natural budget type before real coercion (#10023)"
+  ],
+  "coordinator": "/root/direct_toolchain_validation_plan",
+  "exclusions": [],
+  "failures": [],
+  "files": {
+    "Applications/Resources/Potential.lean": {
+      "candidate_sha256": "690b48d41dc0b4b21a62e29d1a67c8b0494b3a0ca9de378e07cca82f415f961e",
+      "isolated_sha256": "690b48d41dc0b4b21a62e29d1a67c8b0494b3a0ca9de378e07cca82f415f961e",
+      "match_isolated": true,
+      "prior_d24_sha256": "690b48d41dc0b4b21a62e29d1a67c8b0494b3a0ca9de378e07cca82f415f961e",
+      "unchanged_from_d24": true
+    },
+    "Applications/Resources/SignedPotential.lean": {
+      "candidate_sha256": "c839b1e32b3182c5789d05934ea253139d91c338917c1207616fe0043b0ce222",
+      "isolated_sha256": "c839b1e32b3182c5789d05934ea253139d91c338917c1207616fe0043b0ce222",
+      "match_isolated": true,
+      "prior_d24_sha256": "c839b1e32b3182c5789d05934ea253139d91c338917c1207616fe0043b0ce222",
+      "unchanged_from_d24": true
+    },
+    "Examples/PotentialTransport.lean": {
+      "candidate_sha256": "d56fcf0f72cd4aac8615427391fc9e1a807485753ffd185a22e77df9f2db0056",
+      "isolated_sha256": "d56fcf0f72cd4aac8615427391fc9e1a807485753ffd185a22e77df9f2db0056",
+      "match_isolated": true,
+      "prior_d24_sha256": "5fa86b8dec422ca73c6a8c4853a6a2719b2f3892c0bac57b6a58becb18dd3c7c",
+      "unchanged_from_d24": false
+    },
+    "Examples/SignedPotential.lean": {
+      "candidate_sha256": "6d72c5e1ee5f64ce258f6496389434a9bdd0944fe576773cb41bd828ba9ba9b3",
+      "isolated_sha256": "6d72c5e1ee5f64ce258f6496389434a9bdd0944fe576773cb41bd828ba9ba9b3",
+      "match_isolated": true,
+      "prior_d24_sha256": "745400e50b758413a9087c64a9a9fe99a268236afb46618be02ecd5d82c034fc",
+      "unchanged_from_d24": false
+    },
+    "SquareApplications.lean": {
+      "candidate_sha256": "d5f96d925f272187870e3831a33d2f2ee544ddabb149978fbe9ef65dbd8bb581",
+      "isolated_sha256": "d5f96d925f272187870e3831a33d2f2ee544ddabb149978fbe9ef65dbd8bb581",
+      "match_isolated": true,
+      "prior_d24_sha256": "d5f96d925f272187870e3831a33d2f2ee544ddabb149978fbe9ef65dbd8bb581",
+      "unchanged_from_d24": true
+    },
+    "docs/research/pfds-signed-potential.md": {
+      "candidate_sha256": "e7ebb2dd51fec8706a0bba38da9e9a6c0a2eb3aa3a688c5b80a66e6f7cb8dfe5",
+      "isolated_sha256": "e7ebb2dd51fec8706a0bba38da9e9a6c0a2eb3aa3a688c5b80a66e6f7cb8dfe5",
+      "match_isolated": true,
+      "prior_d24_sha256": "e7ebb2dd51fec8706a0bba38da9e9a6c0a2eb3aa3a688c5b80a66e6f7cb8dfe5",
+      "unchanged_from_d24": true
+    }
+  },
+  "focused_evidence": {
+    "signed-3cf-native-r2": {
+      "acceptance": false,
+      "actual_log_sha256": "6afb42222951a284d8e740844eeed7cffab46201ac5a280e0b5a5b047f085952",
+      "all_focused_source_inputs_match_candidate": true,
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-native-toolchain.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds",
+        "--",
+        "lake",
+        "build",
+        "Applications.Resources.Potential",
+        "Applications.Resources.SignedPotential",
+        "Applications.Resources.BinaryCounter",
+        "Applications.Resources.SymmetricCosts",
+        "Applications.Resources.RandomAccess.End",
+        "Applications.Resources.FIFOContracts",
+        "Examples.PotentialAccounting",
+        "Examples.FIFOContracts",
+        "Examples.RandomAccessEndCosts",
+        "Examples.SignedPotential",
+        "Examples.PotentialTransport"
+      ],
+      "bytes": 40170,
+      "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "checkout": "signed-potential",
+      "clean_after": true,
+      "command": [
+        "lake",
+        "build",
+        "Applications.Resources.Potential",
+        "Applications.Resources.SignedPotential",
+        "Applications.Resources.BinaryCounter",
+        "Applications.Resources.SymmetricCosts",
+        "Applications.Resources.RandomAccess.End",
+        "Applications.Resources.FIFOContracts",
+        "Examples.PotentialAccounting",
+        "Examples.FIFOContracts",
+        "Examples.RandomAccessEndCosts",
+        "Examples.SignedPotential",
+        "Examples.PotentialTransport"
+      ],
+      "command_exit_code": 0,
+      "ended_at": "2026-11-03T17:14:27.232243+00:00",
+      "exit_code": 0,
+      "focused_source_input_count": 44,
+      "focused_source_inputs": {
+        "Applications/Bracketing/Basic.lean": {
+          "committed": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+          "isolated": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+          "match": true,
+          "recorded": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9"
+        },
+        "Applications/Optimization/SelectionSpec.lean": {
+          "committed": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+          "isolated": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+          "match": true,
+          "recorded": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b"
+        },
+        "Applications/Resources/BinaryCounter.lean": {
+          "committed": "d990e0e8d9b09fff3f774180fa2396558f2d1abcf7e6231be648f5bd66f6f9c0",
+          "isolated": "d990e0e8d9b09fff3f774180fa2396558f2d1abcf7e6231be648f5bd66f6f9c0",
+          "match": true,
+          "recorded": "d990e0e8d9b09fff3f774180fa2396558f2d1abcf7e6231be648f5bd66f6f9c0"
+        },
+        "Applications/Resources/BinaryCounter/Decrement.lean": {
+          "committed": "dc9d3d7d9a1fb5bd1650d33af54504b12568178f13feac9840267ecbddcc0cab",
+          "isolated": "dc9d3d7d9a1fb5bd1650d33af54504b12568178f13feac9840267ecbddcc0cab",
+          "match": true,
+          "recorded": "dc9d3d7d9a1fb5bd1650d33af54504b12568178f13feac9840267ecbddcc0cab"
+        },
+        "Applications/Resources/FIFOContracts.lean": {
+          "committed": "dff2940bacabe6b759b4ff1f6ebe361282fb0777192bafbb05911f9c13b6ecbb",
+          "isolated": "dff2940bacabe6b759b4ff1f6ebe361282fb0777192bafbb05911f9c13b6ecbb",
+          "match": true,
+          "recorded": "dff2940bacabe6b759b4ff1f6ebe361282fb0777192bafbb05911f9c13b6ecbb"
+        },
+        "Applications/Resources/Measured.lean": {
+          "committed": "b5f76c8dfdb3cc9dd28a356bebd12787b3a7add61abba1022d474604a6979667",
+          "isolated": "b5f76c8dfdb3cc9dd28a356bebd12787b3a7add61abba1022d474604a6979667",
+          "match": true,
+          "recorded": "b5f76c8dfdb3cc9dd28a356bebd12787b3a7add61abba1022d474604a6979667"
+        },
+        "Applications/Resources/Potential.lean": {
+          "committed": "690b48d41dc0b4b21a62e29d1a67c8b0494b3a0ca9de378e07cca82f415f961e",
+          "isolated": "690b48d41dc0b4b21a62e29d1a67c8b0494b3a0ca9de378e07cca82f415f961e",
+          "match": true,
+          "recorded": "690b48d41dc0b4b21a62e29d1a67c8b0494b3a0ca9de378e07cca82f415f961e"
+        },
+        "Applications/Resources/RandomAccess/Bulk.lean": {
+          "committed": "f894c9364e48c3e4845842e57328ba89fbf47b9d3cf3adfcd9200b0c2b544254",
+          "isolated": "f894c9364e48c3e4845842e57328ba89fbf47b9d3cf3adfcd9200b0c2b544254",
+          "match": true,
+          "recorded": "f894c9364e48c3e4845842e57328ba89fbf47b9d3cf3adfcd9200b0c2b544254"
+        },
+        "Applications/Resources/RandomAccess/CacheCosts.lean": {
+          "committed": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+          "isolated": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+          "match": true,
+          "recorded": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d"
+        },
+        "Applications/Resources/RandomAccess/Cycles.lean": {
+          "committed": "3f60553002fefc29cc992a9932f531635648d316d2d8cedeacc807dce24c3b31",
+          "isolated": "3f60553002fefc29cc992a9932f531635648d316d2d8cedeacc807dce24c3b31",
+          "match": true,
+          "recorded": "3f60553002fefc29cc992a9932f531635648d316d2d8cedeacc807dce24c3b31"
+        },
+        "Applications/Resources/RandomAccess/Drain.lean": {
+          "committed": "2e715a1709a10cb027ec28b66b0a312cd8bc6c3d2845622c29cfaef881529003",
+          "isolated": "2e715a1709a10cb027ec28b66b0a312cd8bc6c3d2845622c29cfaef881529003",
+          "match": true,
+          "recorded": "2e715a1709a10cb027ec28b66b0a312cd8bc6c3d2845622c29cfaef881529003"
+        },
+        "Applications/Resources/RandomAccess/End.lean": {
+          "committed": "ded4129df132c7fd87a40899cea6f483db02f3f95332bd9ec7c8c57dd868f099",
+          "isolated": "ded4129df132c7fd87a40899cea6f483db02f3f95332bd9ec7c8c57dd868f099",
+          "match": true,
+          "recorded": "ded4129df132c7fd87a40899cea6f483db02f3f95332bd9ec7c8c57dd868f099"
+        },
+        "Applications/Resources/RandomAccess/EndCases.lean": {
+          "committed": "7b33c4effd2eb8d2eedc997b9769960e075015e1a7bbaedec05c2dd19d69b8a1",
+          "isolated": "7b33c4effd2eb8d2eedc997b9769960e075015e1a7bbaedec05c2dd19d69b8a1",
+          "match": true,
+          "recorded": "7b33c4effd2eb8d2eedc997b9769960e075015e1a7bbaedec05c2dd19d69b8a1"
+        },
+        "Applications/Resources/RandomAccess/EndObservation.lean": {
+          "committed": "c670636b445bfc00b9b4053759f2f86876bb341310b52e1e86371779504f03bb",
+          "isolated": "c670636b445bfc00b9b4053759f2f86876bb341310b52e1e86371779504f03bb",
+          "match": true,
+          "recorded": "c670636b445bfc00b9b4053759f2f86876bb341310b52e1e86371779504f03bb"
+        },
+        "Applications/Resources/RandomAccess/Families.lean": {
+          "committed": "3ff9ffb4dafd9e37fb563db019e622a27fbb58ff12a296120c78574ec1daf578",
+          "isolated": "3ff9ffb4dafd9e37fb563db019e622a27fbb58ff12a296120c78574ec1daf578",
+          "match": true,
+          "recorded": "3ff9ffb4dafd9e37fb563db019e622a27fbb58ff12a296120c78574ec1daf578"
+        },
+        "Applications/Resources/RandomAccess/Lookup.lean": {
+          "committed": "fee5e437b510db3af153b5c43b940c160c0f5f3163c2b21108550f4aadc689dc",
+          "isolated": "fee5e437b510db3af153b5c43b940c160c0f5f3163c2b21108550f4aadc689dc",
+          "match": true,
+          "recorded": "fee5e437b510db3af153b5c43b940c160c0f5f3163c2b21108550f4aadc689dc"
+        },
+        "Applications/Resources/RandomAccess/Observation.lean": {
+          "committed": "f4e64afdae5d1df4505d0a6a668b049941496d27450d40bf40c9fd20f24c6aaa",
+          "isolated": "f4e64afdae5d1df4505d0a6a668b049941496d27450d40bf40c9fd20f24c6aaa",
+          "match": true,
+          "recorded": "f4e64afdae5d1df4505d0a6a668b049941496d27450d40bf40c9fd20f24c6aaa"
+        },
+        "Applications/Resources/SignedPotential.lean": {
+          "committed": "c839b1e32b3182c5789d05934ea253139d91c338917c1207616fe0043b0ce222",
+          "isolated": "c839b1e32b3182c5789d05934ea253139d91c338917c1207616fe0043b0ce222",
+          "match": true,
+          "recorded": "c839b1e32b3182c5789d05934ea253139d91c338917c1207616fe0043b0ce222"
+        },
+        "Applications/Resources/SymmetricCosts.lean": {
+          "committed": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+          "isolated": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+          "match": true,
+          "recorded": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5"
+        },
+        "Applications/Resources/SymmetricWorkload.lean": {
+          "committed": "c3d5d35f5144d0a9cb7a723c059329ce267cb88cec07fc8f128ca1dd4f8b96a0",
+          "isolated": "c3d5d35f5144d0a9cb7a723c059329ce267cb88cec07fc8f128ca1dd4f8b96a0",
+          "match": true,
+          "recorded": "c3d5d35f5144d0a9cb7a723c059329ce267cb88cec07fc8f128ca1dd4f8b96a0"
+        },
+        "Applications/Resources/Workload.lean": {
+          "committed": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+          "isolated": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+          "match": true,
+          "recorded": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5"
+        },
+        "Applications/Sequences/AbstractFIFO.lean": {
+          "committed": "e9d468a3d60c15f6474e71082c19b561819cb3c084e201c0eb8b935d57af0bb2",
+          "isolated": "e9d468a3d60c15f6474e71082c19b561819cb3c084e201c0eb8b935d57af0bb2",
+          "match": true,
+          "recorded": "e9d468a3d60c15f6474e71082c19b561819cb3c084e201c0eb8b935d57af0bb2"
+        },
+        "Applications/Sequences/RandomAccess/Access.lean": {
+          "committed": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+          "isolated": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+          "match": true,
+          "recorded": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b"
+        },
+        "Applications/Sequences/RandomAccess/Basic.lean": {
+          "committed": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+          "isolated": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+          "match": true,
+          "recorded": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb"
+        },
+        "Applications/Sequences/RandomAccess/Borrow.lean": {
+          "committed": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+          "isolated": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+          "match": true,
+          "recorded": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516"
+        },
+        "Applications/Sequences/RandomAccess/Representation.lean": {
+          "committed": "89d2b1a17b5fafa0f5153283fab8d3c6cf9c68a9816312be09fec8a64b7a1924",
+          "isolated": "89d2b1a17b5fafa0f5153283fab8d3c6cf9c68a9816312be09fec8a64b7a1924",
+          "match": true,
+          "recorded": "89d2b1a17b5fafa0f5153283fab8d3c6cf9c68a9816312be09fec8a64b7a1924"
+        },
+        "Applications/Sequences/RandomAccess/TreeBuild.lean": {
+          "committed": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+          "isolated": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+          "match": true,
+          "recorded": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6"
+        },
+        "Applications/Sequences/Symmetric/Core.lean": {
+          "committed": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+          "isolated": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+          "match": true,
+          "recorded": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3"
+        },
+        "Applications/Sequences/Symmetric/Finite.lean": {
+          "committed": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490",
+          "isolated": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490",
+          "match": true,
+          "recorded": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490"
+        },
+        "Applications/Sequences/Symmetric/Observation.lean": {
+          "committed": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557",
+          "isolated": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557",
+          "match": true,
+          "recorded": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557"
+        },
+        "Applications/Sequences/Symmetric/Prefixes.lean": {
+          "committed": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308",
+          "isolated": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308",
+          "match": true,
+          "recorded": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308"
+        },
+        "Examples/FIFOContracts.lean": {
+          "committed": "de9e455109ecb5cca0f5e30b7dc993f81149ab7a6145750cc2b62bcb9f83831b",
+          "isolated": "de9e455109ecb5cca0f5e30b7dc993f81149ab7a6145750cc2b62bcb9f83831b",
+          "match": true,
+          "recorded": "de9e455109ecb5cca0f5e30b7dc993f81149ab7a6145750cc2b62bcb9f83831b"
+        },
+        "Examples/PotentialAccounting.lean": {
+          "committed": "ee3fbee1b7e8be75226ac912e3cbb2b82c322d843b3231bdb6ac94908c7b1871",
+          "isolated": "ee3fbee1b7e8be75226ac912e3cbb2b82c322d843b3231bdb6ac94908c7b1871",
+          "match": true,
+          "recorded": "ee3fbee1b7e8be75226ac912e3cbb2b82c322d843b3231bdb6ac94908c7b1871"
+        },
+        "Examples/PotentialTransport.lean": {
+          "committed": "d56fcf0f72cd4aac8615427391fc9e1a807485753ffd185a22e77df9f2db0056",
+          "isolated": "d56fcf0f72cd4aac8615427391fc9e1a807485753ffd185a22e77df9f2db0056",
+          "match": true,
+          "recorded": "d56fcf0f72cd4aac8615427391fc9e1a807485753ffd185a22e77df9f2db0056"
+        },
+        "Examples/RandomAccessEndCosts.lean": {
+          "committed": "ea68d8773ae7fea32d43e9b0eb01d3ca9111a0d41eac28079adafa5a719fa600",
+          "isolated": "ea68d8773ae7fea32d43e9b0eb01d3ca9111a0d41eac28079adafa5a719fa600",
+          "match": true,
+          "recorded": "ea68d8773ae7fea32d43e9b0eb01d3ca9111a0d41eac28079adafa5a719fa600"
+        },
+        "Examples/SignedPotential.lean": {
+          "committed": "6d72c5e1ee5f64ce258f6496389434a9bdd0944fe576773cb41bd828ba9ba9b3",
+          "isolated": "6d72c5e1ee5f64ce258f6496389434a9bdd0944fe576773cb41bd828ba9ba9b3",
+          "match": true,
+          "recorded": "6d72c5e1ee5f64ce258f6496389434a9bdd0944fe576773cb41bd828ba9ba9b3"
+        },
+        "SquareKit/ListFusion.lean": {
+          "committed": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+          "isolated": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+          "match": true,
+          "recorded": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164"
+        },
+        "SquareKit/Relations.lean": {
+          "committed": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03",
+          "isolated": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03",
+          "match": true,
+          "recorded": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03"
+        },
+        "Squares.lean": {
+          "committed": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+          "isolated": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+          "match": true,
+          "recorded": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7"
+        },
+        "flake.lock": {
+          "committed": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+          "isolated": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+          "match": true,
+          "recorded": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+        },
+        "flake.nix": {
+          "committed": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+          "isolated": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+          "match": true,
+          "recorded": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+        },
+        "lake-manifest.json": {
+          "committed": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+          "isolated": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+          "match": true,
+          "recorded": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+        },
+        "lakefile.toml": {
+          "committed": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+          "isolated": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+          "match": true,
+          "recorded": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+        },
+        "lean-toolchain": {
+          "committed": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+          "isolated": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+          "match": true,
+          "recorded": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+        }
+      },
+      "head_after": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "input_map_keys": [
+        "controller_inputs",
+        "dependencies",
+        "direct_environment",
+        "manifest_sha256",
+        "project",
+        "source_inputs"
+      ],
+      "inputs_unchanged": true,
+      "log": "session/validation/signed-3cf-native-r2.log",
+      "log_digest_match": true,
+      "log_sha256": "6afb42222951a284d8e740844eeed7cffab46201ac5a280e0b5a5b047f085952",
+      "path": "session/validation/signed-3cf-native-r2.json",
+      "queued_start_final_equal": true,
+      "requested_focus_candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "reviewer_must_independently_inspect_complete_inputs": true,
+      "run_id": "signed-3cf-native-r2",
+      "scope_qualification": "Focused source map covers its 44 recorded Lean/configuration inputs, not the whole public-entrypoint closure or research note. Whole candidate commit identity is separately recorded; full build/audit remains required.",
+      "sha256": "72a00fc096d8711659e9671d60f54208c6d4c06128237c493d66d25bc1214e45",
+      "started_at": "2026-11-03T17:03:40.625809+00:00",
+      "status": "finished",
+      "targets": [
+        "Applications.Resources.Potential",
+        "Applications.Resources.SignedPotential",
+        "Applications.Resources.BinaryCounter",
+        "Applications.Resources.SymmetricCosts",
+        "Applications.Resources.RandomAccess.End",
+        "Applications.Resources.FIFOContracts",
+        "Examples.PotentialAccounting",
+        "Examples.FIFOContracts",
+        "Examples.RandomAccessEndCosts",
+        "Examples.SignedPotential",
+        "Examples.PotentialTransport"
+      ],
+      "task_scope_files_in_focused_source_inputs": [
+        "Applications/Resources/Potential.lean",
+        "Applications/Resources/SignedPotential.lean",
+        "Examples/PotentialTransport.lean",
+        "Examples/SignedPotential.lean"
+      ],
+      "task_scope_files_outside_focused_source_inputs": [
+        "SquareApplications.lean",
+        "docs/research/pfds-signed-potential.md"
+      ],
+      "terminal_result_observed": true
+    },
+    "signed-956-native-r1": {
+      "acceptance": false,
+      "actual_log_sha256": "b8c9d4ecfc1aae47d4132e31f0031950a58a7e5f1dff5dc5200d212df59231ad",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-native-toolchain.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds",
+        "--",
+        "lake",
+        "build",
+        "Applications.Resources.Potential",
+        "Applications.Resources.SignedPotential",
+        "Applications.Resources.BinaryCounter",
+        "Applications.Resources.SymmetricCosts",
+        "Applications.Resources.RandomAccess.End",
+        "Applications.Resources.FIFOContracts",
+        "Examples.PotentialAccounting",
+        "Examples.FIFOContracts",
+        "Examples.RandomAccessEndCosts",
+        "Examples.SignedPotential",
+        "Examples.PotentialTransport"
+      ],
+      "bytes": 40095,
+      "candidate": "956c4b06abe8d54f78a6166690c12453115f8304",
+      "checkout": "signed-potential",
+      "clean_after": true,
+      "command": [
+        "lake",
+        "build",
+        "Applications.Resources.Potential",
+        "Applications.Resources.SignedPotential",
+        "Applications.Resources.BinaryCounter",
+        "Applications.Resources.SymmetricCosts",
+        "Applications.Resources.RandomAccess.End",
+        "Applications.Resources.FIFOContracts",
+        "Examples.PotentialAccounting",
+        "Examples.FIFOContracts",
+        "Examples.RandomAccessEndCosts",
+        "Examples.SignedPotential",
+        "Examples.PotentialTransport"
+      ],
+      "command_exit_code": 1,
+      "ended_at": "2026-11-03T16:57:58.284673+00:00",
+      "exit_code": 1,
+      "head_after": "956c4b06abe8d54f78a6166690c12453115f8304",
+      "inputs_unchanged": true,
+      "log": "session/validation/signed-956-native-r1.log",
+      "log_digest_match": true,
+      "log_sha256": "b8c9d4ecfc1aae47d4132e31f0031950a58a7e5f1dff5dc5200d212df59231ad",
+      "path": "session/validation/signed-956-native-r1.json",
+      "run_id": "signed-956-native-r1",
+      "sha256": "38a8bc2652981b68d773bf31ac6da494890ffe8dbb75fcc45e511325bb8b5fc2",
+      "started_at": "2026-11-03T16:48:24.294383+00:00",
+      "status": "finished",
+      "targets": [
+        "Applications.Resources.Potential",
+        "Applications.Resources.SignedPotential",
+        "Applications.Resources.BinaryCounter",
+        "Applications.Resources.SymmetricCosts",
+        "Applications.Resources.RandomAccess.End",
+        "Applications.Resources.FIFOContracts",
+        "Examples.PotentialAccounting",
+        "Examples.FIFOContracts",
+        "Examples.RandomAccessEndCosts",
+        "Examples.SignedPotential",
+        "Examples.PotentialTransport"
+      ],
+      "terminal_result_observed": true
+    },
+    "signed-d24-direct-r1": {
+      "acceptance": false,
+      "actual_log_sha256": "f5f22a7c680a2893f2d690a45c28b581eb37c83f0421d465b5fe3203a6bf2367",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-direct-toolchain.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds",
+        "--",
+        "lake",
+        "build",
+        "Applications.Resources.Potential",
+        "Applications.Resources.SignedPotential",
+        "Applications.Resources.BinaryCounter",
+        "Applications.Resources.SymmetricCosts",
+        "Applications.Resources.RandomAccess.End",
+        "Applications.Resources.FIFOContracts",
+        "Examples.PotentialAccounting",
+        "Examples.FIFOContracts",
+        "Examples.RandomAccessEndCosts",
+        "Examples.SignedPotential",
+        "Examples.PotentialTransport"
+      ],
+      "bytes": 37810,
+      "candidate": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+      "checkout": "signed-potential",
+      "clean_after": true,
+      "command": [
+        "lake",
+        "build",
+        "Applications.Resources.Potential",
+        "Applications.Resources.SignedPotential",
+        "Applications.Resources.BinaryCounter",
+        "Applications.Resources.SymmetricCosts",
+        "Applications.Resources.RandomAccess.End",
+        "Applications.Resources.FIFOContracts",
+        "Examples.PotentialAccounting",
+        "Examples.FIFOContracts",
+        "Examples.RandomAccessEndCosts",
+        "Examples.SignedPotential",
+        "Examples.PotentialTransport"
+      ],
+      "command_exit_code": 1,
+      "ended_at": "2026-11-03T16:00:25.552628+00:00",
+      "exit_code": 1,
+      "head_after": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+      "inputs_unchanged": true,
+      "log": "session/validation/signed-d24-direct-r1.log",
+      "log_digest_match": true,
+      "log_sha256": "f5f22a7c680a2893f2d690a45c28b581eb37c83f0421d465b5fe3203a6bf2367",
+      "path": "session/validation/signed-d24-direct-r1.json",
+      "run_id": "signed-d24-direct-r1",
+      "sha256": "1793a0aa7342cdd198925a0ce1d81edc00c81ac978b4eff61ae362ce7aa4904e",
+      "started_at": "2026-11-03T15:17:44.779172+00:00",
+      "status": "finished",
+      "targets": [
+        "Applications.Resources.Potential",
+        "Applications.Resources.SignedPotential",
+        "Applications.Resources.BinaryCounter",
+        "Applications.Resources.SymmetricCosts",
+        "Applications.Resources.RandomAccess.End",
+        "Applications.Resources.FIFOContracts",
+        "Examples.PotentialAccounting",
+        "Examples.FIFOContracts",
+        "Examples.RandomAccessEndCosts",
+        "Examples.SignedPotential",
+        "Examples.PotentialTransport"
+      ],
+      "terminal_result_observed": true
+    }
+  },
+  "formal_acceptance": false,
+  "full_diff_command": [
+    "git",
+    "diff",
+    "5e048f781aa04be9ce993f1e7455bdc82df22bff...3cf3de4fbc24c1a144353ae64b13b72f5ead54a5"
+  ],
+  "full_diff_shortstat": "6 files changed, 529 insertions(+), 23 deletions(-)",
+  "guidance": {
+    ".agents/skills/code-review/SKILL.md": {
+      "candidate": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "isolated": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "match": true,
+      "prior_d24": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42"
+    },
+    ".agents/skills/code-review/heuristics.md": {
+      "candidate": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "isolated": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "match": true,
+      "prior_d24": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060"
+    },
+    ".agents/skills/example-driven-development/SKILL.md": {
+      "candidate": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "isolated": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "match": true,
+      "prior_d24": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a"
+    },
+    "AGENTS.md": {
+      "candidate": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "isolated": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "match": true,
+      "prior_d24": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    },
+    "GLOSSARY.md": {
+      "candidate": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "isolated": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "match": true,
+      "prior_d24": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6"
+    },
+    "README.md": {
+      "candidate": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "isolated": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "match": true,
+      "prior_d24": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216"
+    },
+    "docs/adr/0001-modules-and-proof-dependencies.md": {
+      "candidate": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "isolated": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "match": true,
+      "prior_d24": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2"
+    },
+    "docs/adr/0002-relations-and-synchronization.md": {
+      "candidate": "8b391c27398a51c6681c136c9b40d8e511dc88950608b14b81cacb000d3a843e",
+      "isolated": "8b391c27398a51c6681c136c9b40d8e511dc88950608b14b81cacb000d3a843e",
+      "match": true,
+      "prior_d24": "8b391c27398a51c6681c136c9b40d8e511dc88950608b14b81cacb000d3a843e"
+    },
+    "docs/adr/0010-composition-and-proof-audit.md": {
+      "candidate": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "isolated": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "match": true,
+      "prior_d24": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8"
+    },
+    "docs/adr/README.md": {
+      "candidate": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "isolated": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "match": true,
+      "prior_d24": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506"
+    },
+    "docs/agents/architectural-quality.md": {
+      "candidate": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "isolated": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "match": true,
+      "prior_d24": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6"
+    },
+    "docs/agents/domain.md": {
+      "candidate": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "isolated": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "match": true,
+      "prior_d24": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d"
+    },
+    "docs/agents/review-loop.md": {
+      "candidate": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "isolated": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "match": true,
+      "prior_d24": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c"
+    },
+    "docs/language-direction.md": {
+      "candidate": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+      "isolated": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+      "match": true,
+      "prior_d24": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db"
+    }
+  },
+  "head": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+  "implementation_statement_review": {
+    "bytes": 4366,
+    "path": "session/research/signed-potential-proof-corrections-042.md",
+    "sha256": "3f83fe3d10caba8da50b9a1c2cb888aecb209c5b3acf141dc23c7237b049dd99"
+  },
+  "merge_base": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+  "own_full_build_audit_complete": false,
+  "own_verification_record_present": false,
+  "porcelain": "",
+  "previous_reviewed_candidate": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+  "prior_reports": {
+    "signed-potential-coordinator-r1.md": {
+      "bytes": 5791,
+      "match_retained_receipt": true,
+      "path": "session/reviews/signed-potential-coordinator-r1.md",
+      "sha256": "34f95a71ef5f0f3c68b273605ab8a805ab59ad11d93a6d07a4998be777b6655b"
+    },
+    "signed-potential-coordinator-r2.md": {
+      "bytes": 5614,
+      "match_retained_receipt": true,
+      "path": "session/reviews/signed-potential-coordinator-r2.md",
+      "sha256": "009aa206bbf655582e0f4e1632e25ced8c8ac7b2be62c624ca5bc80f2ae0e94f"
+    },
+    "signed-potential-spec-r1.md": {
+      "bytes": 16165,
+      "match_retained_receipt": true,
+      "path": "session/reviews/signed-potential-spec-r1.md",
+      "sha256": "63de2736975bbf679e6b4c70fc33b3e5acb45e6466780fc580daefa25329efbd"
+    },
+    "signed-potential-spec-r2.md": {
+      "bytes": 11263,
+      "match_retained_receipt": true,
+      "path": "session/reviews/signed-potential-spec-r2.md",
+      "sha256": "ba71260458cbb3d6fbe358112f47e696018852c7ee3fe947f440fbf3f702b463"
+    },
+    "signed-potential-standards-r1.md": {
+      "bytes": 12925,
+      "match_retained_receipt": true,
+      "path": "session/reviews/signed-potential-standards-r1.md",
+      "sha256": "a629a56cd96e248d070c655881a5fd2fc95b5f263e4abf7c5dfa299bf577dd61"
+    },
+    "signed-potential-standards-r2.md": {
+      "bytes": 8261,
+      "match_retained_receipt": true,
+      "path": "session/reviews/signed-potential-standards-r2.md",
+      "sha256": "b37e8559278160c113914806eb9b6426daf4130521e7afb98438c5860cee9deb"
+    }
+  },
+  "recorded_at": "2026-11-03T17:27:16.722272+00:00",
+  "requirements": {
+    "REQUEST-direct-toolchain-041.md": {
+      "bytes": 1375,
+      "path": "session/requirements/REQUEST-direct-toolchain-041.md",
+      "sha256": "16845edec15c311e0cfd5ed5d4f5c4feb61e7ad96545653d5b872309d26464bc"
+    },
+    "REQUEST-environment-handoff-042.md": {
+      "bytes": 1286,
+      "path": "session/requirements/REQUEST-environment-handoff-042.md",
+      "sha256": "200789123c60ae137967f881207194412eecea72ba2fc80247978075bd6a4602"
+    },
+    "REQUEST-native-toolchain-042.md": {
+      "bytes": 912,
+      "path": "session/requirements/REQUEST-native-toolchain-042.md",
+      "sha256": "d76dc8dcf771a227779628de91e75c4b63a2898b95e7b30035de83537dae5195"
+    },
+    "REQUEST-union-v2.md": {
+      "bytes": 3578,
+      "path": "session/requirements/REQUEST-union-v2.md",
+      "sha256": "3336bed1154438b3683aeb5a1c63fee44e87aff190f5ff69e34705a780b9d22c"
+    },
+    "REQUEST.md": {
+      "bytes": 4182,
+      "path": "session/requirements/REQUEST.md",
+      "sha256": "b847f23fcce44837f5b1ead01aae43ac5ed626ffd32aab84055dd664e339e499"
+    },
+    "signed-potential.md": {
+      "bytes": 9109,
+      "path": "session/requirements/signed-potential.md",
+      "sha256": "bb28d4f56eb48c80d2a9905b6e349d3e4b6fdb4e4ad2a01976408432a434ac81"
+    }
+  },
+  "review_round": 3,
+  "schema": 1,
+  "scope": "Full fixed-base STATIC continuation; mandatory validation findings remain unresolved",
+  "source_findings_retained": [
+    "SIGNED-POT-STD-CODE-001",
+    "SIGNED-POT-SPEC-001"
+  ],
+  "task": 10023,
+  "tree": "d3dcf94916de5ccaf3df357e06192e69c4e0cf33",
+  "validation_findings_unresolved": [
+    "SIGNED-POT-STD-VAL-001",
+    "SIGNED-POT-SPEC-VAL-001"
+  ]
+}

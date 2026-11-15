@@ -1,0 +1,23 @@
+{
+  "started_at": "2026-11-03T00:21:59.068322+00:00",
+  "scope": "Remove only superseded inactive private build outputs; preserve every source checkout, Git/ref, dependency output and validation record. Current901,99,a3,361,3dd outputs untouched.",
+  "precheck": "validation/obsolete-build-cleanup-precheck.json",
+  "status": "completed",
+  "removed": [
+    {
+      "checkout": "validation-imports",
+      "candidate": "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+      "path": "/workspace/scratch/ca9a61d0bf30/validation-imports/.lake/build",
+      "source_after": "clean and same commit"
+    },
+    {
+      "checkout": "import-correction",
+      "candidate": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+      "path": "/workspace/scratch/ca9a61d0bf30/import-correction/.lake/build",
+      "source_after": "clean and same commit"
+    }
+  ],
+  "ended_at": "2026-11-03T00:21:59.498578+00:00",
+  "free_bytes_after": 4372811776,
+  "available_bytes_after": 920064000
+}

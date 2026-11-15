@@ -1,0 +1,25 @@
+{
+  "base": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+  "candidate": "901f734161920a76f3b399a575805b9a1d31e971",
+  "worktree": "/workspace/scratch/ca9a61d0bf30/import-correction-r3",
+  "changed_paths": [
+    "Examples/IndefiniteService.lean"
+  ],
+  "worktree_status": "",
+  "source": "Examples/IndefiniteService.lean",
+  "old_source_sha256": "1008cf9f317f4caebfea22d557ffd59949b5251e5d7f1f095c672d971896d1b8",
+  "new_source_sha256": "0daaf049128e56210c605cc5b2d5cf8b155aad1727eac6bad189615fc75fa7fd",
+  "working_source_equals_committed": true,
+  "non_import_bytes_identical": true,
+  "non_import_sha256": "1a5ce27ad026bb55452a3106e8783ce94ff7f95a06a5a2bbe4971dd9ff52a652",
+  "provider_module": "Mathlib.Data.Nat.Size",
+  "provider_file": "/workspace/scratch/ca9a61d0bf30/conaled/.lake/packages/mathlib/Mathlib/Data/Nat/Size.lean",
+  "provider_sha256": "ab4306e1e29d9b254dd41af7e206591130414598403577921c7877e9919c249b",
+  "provider_line": 94,
+  "provider_statement": "theorem size_pow {n : \u2115} : size (2 ^ n) = n + 1 := by",
+  "provider_proof": "  simpa [shiftLeft_eq, Nat.add_comm] using size_shiftLeft (m := 1) (by decide) n",
+  "manifest_mathlib_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "actual_mathlib_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "scope": "read-only independent provider/import-only preservation verification; no source edits or full-gate result",
+  "mathlib_status": ""
+}

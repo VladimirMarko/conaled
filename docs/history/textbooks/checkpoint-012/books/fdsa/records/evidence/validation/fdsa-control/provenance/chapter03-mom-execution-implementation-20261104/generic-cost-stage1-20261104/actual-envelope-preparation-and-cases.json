@@ -1,0 +1,1035 @@
+{
+  "recorded_utc": "2026-11-04T21:32:42.114679+00:00",
+  "stage": "Bounded actual genericfinite-envelope comparison, followed by mandatoryGlinearcontinuation",
+  "baseline": "296780b789766c74ec332846ccaefdc9fb8dafcb",
+  "tree": "793768717d1a1356a58c7a7bc4a9e1181255437c",
+  "status": "clean",
+  "source_copy_record": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/scalar-incorporation-completion.json",
+    "bytes": 2294,
+    "sha256": "4a1c3bb049040c43c8dd8200aa3154ebe2f8166bb0bb88fd757644fa62e5ae84"
+  },
+  "intended_new_files": [
+    "Applications/Resources/SelectionGenericEnvelope.lean",
+    "Examples/SelectionGenericEnvelope.lean"
+  ],
+  "intended_claims": [
+    "Generic actualmedian observation matchesmedianOfMedians.",
+    "For everyd\u22652 and parentlength>1 actualmedian-list size ispositive andstrictlysmaller.",
+    "Exact measuredlocaloperations\u2264(d*d+4*d+12)*n+7; reuseexistinglength_chop_le.",
+    "ActualvalidrankT\u2264U_d(n) fromactualstrictchildren, including0 secondchildcost in theequalbranch.",
+    "Actualinvalidn+2\u2264U givesallrankT\u2264U.",
+    "ForfixedN, allpayloadtypes/lists/ranks oflength\u2264N sharethefiniteboundU_d(N), with noinput-supremum assumption."
+  ],
+  "independent_cases": [
+    {
+      "name": "empty",
+      "group": 2,
+      "actual_cutoff": 1,
+      "rank": 0,
+      "input": [],
+      "expected_value": null,
+      "independent_source_call_prediction": 2,
+      "expected_envelope_budget": 4,
+      "formal_target": "Actualvalue and/or actualcost\u2264U; only previously checked169 count will be reused as an exact runtime assertion."
+    },
+    {
+      "name": "two_repeated",
+      "group": 2,
+      "actual_cutoff": 1,
+      "rank": 2,
+      "input": [
+        3,
+        1,
+        2,
+        2
+      ],
+      "expected_value": 2,
+      "independent_source_call_prediction": 169,
+      "expected_envelope_budget": 793,
+      "formal_target": "Actualvalue and/or actualcost\u2264U; only previously checked169 count will be reused as an exact runtime assertion.",
+      "phase_check": {
+        "medians": [
+          1,
+          2
+        ],
+        "preparation_calls": 37,
+        "pivot": 1,
+        "pivot_calls": 36,
+        "local_including_both_lengths": 51,
+        "coefficient": 24,
+        "local_budget": 103
+      }
+    },
+    {
+      "name": "three_repeated",
+      "group": 3,
+      "actual_cutoff": 1,
+      "rank": 2,
+      "input": [
+        3,
+        1,
+        2,
+        2
+      ],
+      "expected_value": 2,
+      "independent_source_call_prediction": 92,
+      "expected_envelope_budget": 1027,
+      "formal_target": "Actualvalue and/or actualcost\u2264U; only previously checked169 count will be reused as an exact runtime assertion.",
+      "phase_check": {
+        "medians": [
+          2,
+          2
+        ],
+        "preparation_calls": 39,
+        "pivot": 2,
+        "pivot_calls": 37,
+        "local_including_both_lengths": 55,
+        "coefficient": 33,
+        "local_budget": 139
+      }
+    },
+    {
+      "name": "four_repeated",
+      "group": 4,
+      "actual_cutoff": 1,
+      "rank": 2,
+      "input": [
+        3,
+        1,
+        2,
+        2
+      ],
+      "expected_value": 2,
+      "independent_source_call_prediction": 56,
+      "expected_envelope_budget": 1313,
+      "formal_target": "Actualvalue and/or actualcost\u2264U; only previously checked169 count will be reused as an exact runtime assertion.",
+      "phase_check": {
+        "medians": [
+          2
+        ],
+        "preparation_calls": 33,
+        "pivot": 2,
+        "pivot_calls": 7,
+        "local_including_both_lengths": 49,
+        "coefficient": 44,
+        "local_budget": 183
+      }
+    },
+    {
+      "name": "five_repeated",
+      "group": 5,
+      "actual_cutoff": 1,
+      "rank": 2,
+      "input": [
+        3,
+        1,
+        2,
+        2
+      ],
+      "expected_value": 2,
+      "independent_source_call_prediction": 56,
+      "expected_envelope_budget": 1651,
+      "formal_target": "Actualvalue and/or actualcost\u2264U; only previously checked169 count will be reused as an exact runtime assertion.",
+      "phase_check": {
+        "medians": [
+          2
+        ],
+        "preparation_calls": 33,
+        "pivot": 2,
+        "pivot_calls": 7,
+        "local_including_both_lengths": 49,
+        "coefficient": 57,
+        "local_budget": 235
+      }
+    },
+    {
+      "name": "six_repeated",
+      "group": 6,
+      "actual_cutoff": 1,
+      "rank": 2,
+      "input": [
+        3,
+        1,
+        2,
+        2
+      ],
+      "expected_value": 2,
+      "independent_source_call_prediction": 56,
+      "expected_envelope_budget": 2041,
+      "formal_target": "Actualvalue and/or actualcost\u2264U; only previously checked169 count will be reused as an exact runtime assertion.",
+      "phase_check": {
+        "medians": [
+          2
+        ],
+        "preparation_calls": 33,
+        "pivot": 2,
+        "pivot_calls": 7,
+        "local_including_both_lengths": 49,
+        "coefficient": 72,
+        "local_budget": 295
+      }
+    },
+    {
+      "name": "three_invalid",
+      "group": 3,
+      "actual_cutoff": 1,
+      "rank": 4,
+      "input": [
+        3,
+        1,
+        2,
+        2
+      ],
+      "expected_value": null,
+      "independent_source_call_prediction": 6,
+      "expected_envelope_budget": 1027,
+      "formal_target": "Actualvalue and/or actualcost\u2264U; only previously checked169 count will be reused as an exact runtime assertion.",
+      "phase_check": {
+        "medians": [
+          2,
+          2
+        ],
+        "preparation_calls": 39,
+        "pivot": 2,
+        "pivot_calls": 37,
+        "local_including_both_lengths": 55,
+        "coefficient": 33,
+        "local_budget": 139
+      }
+    },
+    {
+      "name": "larger_actual_cutoff",
+      "group": 2,
+      "actual_cutoff": 10,
+      "rank": 2,
+      "input": [
+        3,
+        1,
+        2,
+        2
+      ],
+      "expected_value": 2,
+      "independent_source_call_prediction": 21,
+      "expected_envelope_budget": 793,
+      "formal_target": "Actualvalue and/or actualcost\u2264U; only previously checked169 count will be reused as an exact runtime assertion.",
+      "phase_check": {
+        "medians": [
+          1,
+          2
+        ],
+        "preparation_calls": 37,
+        "pivot": 1,
+        "pivot_calls": 10,
+        "local_including_both_lengths": 51,
+        "coefficient": 24,
+        "local_budget": 103
+      }
+    },
+    {
+      "name": "three_left",
+      "group": 3,
+      "actual_cutoff": 1,
+      "rank": 0,
+      "input": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "expected_value": 0,
+      "independent_source_call_prediction": 220,
+      "expected_envelope_budget": 9552,
+      "formal_target": "Actualvalue and/or actualcost\u2264U; only previously checked169 count will be reused as an exact runtime assertion.",
+      "phase_check": {
+        "medians": [
+          1,
+          4,
+          6
+        ],
+        "preparation_calls": 60,
+        "pivot": 4,
+        "pivot_calls": 45,
+        "local_including_both_lengths": 84,
+        "coefficient": 33,
+        "local_budget": 238
+      }
+    },
+    {
+      "name": "three_right",
+      "group": 3,
+      "actual_cutoff": 1,
+      "rank": 6,
+      "input": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "expected_value": 6,
+      "independent_source_call_prediction": 172,
+      "expected_envelope_budget": 9552,
+      "formal_target": "Actualvalue and/or actualcost\u2264U; only previously checked169 count will be reused as an exact runtime assertion.",
+      "phase_check": {
+        "medians": [
+          1,
+          4,
+          6
+        ],
+        "preparation_calls": 60,
+        "pivot": 4,
+        "pivot_calls": 45,
+        "local_including_both_lengths": 84,
+        "coefficient": 33,
+        "local_budget": 238
+      }
+    }
+  ],
+  "phase_model": "Independent generalizedbook call model in this preparation script, before newLeanbridge source; comparisons/cons/projections free, eachrecursiveentry charged, bothchoptake/drop andactualmedianmap charged, equallength omittedonleft. No compiler or acceptance claim.",
+  "evidence_reads": [
+    "32156f genericmedian count andexactceilAPI",
+    "49b0e6 exactgenericworker cost andbase equations",
+    "daee92 existinglength_chop_le",
+    "19dd06 fullC03-058 requirement"
+  ],
+  "frozen83_scope_preserved": true,
+  "mandatory_later_stage": "Actual\u2264G withbaseU(maxactualCutoff,scalarCutoff), fixedgroupd\u22655 uniformaffine/linear bounds, odd/even sufficientthresholds. RootownsC055/d1 cutoffmodule.",
+  "protected_31_source_paths": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Selection/CountRank.lean",
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionCountRank.lean",
+      "bytes": 4423,
+      "sha256": "cc73980788882d39abe44672d89e6a3ce37dfe3b5f5788375255248e8b4a66d2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Sequences/Chunks.lean",
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/ListChunks.lean",
+      "bytes": 2683,
+      "sha256": "161e240f9c07db5b13f9abf5bf09782064adce4862e60fbe35f0eba483c76c78"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Selection/MedianOfMedians.lean",
+      "bytes": 13797,
+      "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/MedianOfMedians.lean",
+      "bytes": 9092,
+      "sha256": "0bbbbdab0f2f41f42fd615231d04d29ebeb8f7ffd5cc83e2a6b832cbfcc25f0c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionAuxiliary.lean",
+      "bytes": 6215,
+      "sha256": "eeba4ac85dd4e07b8b42f38499748cae69cb6dcaaa01fdc8400a3cf5b947a925"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionAuxiliary.lean",
+      "bytes": 7302,
+      "sha256": "d5e495d5a9f6824d9b61fd41ce570059ab5aad3e93f4449f3b712e7d41a4b41e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/Chunks.lean",
+      "bytes": 4591,
+      "sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionMedians.lean",
+      "bytes": 9755,
+      "sha256": "e64e998edc9353e5fd52544177fadd32f6398e3260b27ca54195cd8917e5d098"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/ChunkCalls.lean",
+      "bytes": 2730,
+      "sha256": "ca79f35fe846399bcb180d9b8fbd63fa453108c59c4503adb8a5731182fdc5e3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionMedians.lean",
+      "bytes": 5142,
+      "sha256": "4563c04666fdfb6073c8213328a2f868022cf2ed17538cd1671aaea68811c9d8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/AffineRecurrence.lean",
+      "bytes": 5839,
+      "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/RoundedRecurrence.lean",
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/RoundedRecurrenceBounds.lean",
+      "bytes": 6951,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionRecurrence.lean",
+      "bytes": 6560,
+      "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/AffineRecurrence.lean",
+      "bytes": 5164,
+      "sha256": "6734b0a54ffdcf81de3c3ec2520618011aa8bab357690c6cca6117174ec4abcf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/RoundedRecurrence.lean",
+      "bytes": 3782,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/RoundedRecurrenceBounds.lean",
+      "bytes": 7295,
+      "sha256": "18275f597cf579edf0db6785d0910e76dcc9cff084566ced73cd0da8828c0135"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionRecurrence.lean",
+      "bytes": 2272,
+      "sha256": "6599e51e8d6ea0197d74d2ca43076a355a9c131ce453f4a25c6c3bf086d99971"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/SquareApplications.lean",
+      "bytes": 9405,
+      "sha256": "75563d66c31e9cc1456cedf639812e6025486f69cf8ab50f3961d038a6219d18"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/docs/research/fdsa-affine-recurrence.md",
+      "bytes": 10290,
+      "sha256": "8996a9212bd8cf05ec26519cf51ca9ce69f560170512df647fa3fdb9869032f6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/docs/research/fdsa-reconstruction-map.md",
+      "bytes": 46693,
+      "sha256": "fdf63be72114a8002cd4c3786007c8ff0e722c0465f819b00dd93ba2ffe3185e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/Selection.lean",
+      "bytes": 22435,
+      "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionCosts.lean",
+      "bytes": 13604,
+      "sha256": "d1f2c2e2e5ea3180d7fb1f736b0b3c1a98b3280e0a2902c2bfc712f409044a4e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionBounds.lean",
+      "bytes": 10073,
+      "sha256": "0f9181b569d24b2615c08be5c6a305a75e67679f14338e877fced10113d61edc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionBounds.lean",
+      "bytes": 5546,
+      "sha256": "d18c19c5e69e3f77029d498e66716bf7fc45ff303294ee1a78d3ca1eb435ce11"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/GroupSelectionRecurrence.lean",
+      "bytes": 11646,
+      "sha256": "0dc225b3009a612bea521813fda96789629fc486201cd9998bd6a72d6fdb9eed"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/GroupSelectionRecurrence.lean",
+      "bytes": 5638,
+      "sha256": "bfcb81cf7de89516487aedf12fc223df534fa9ca2a4a964edb872023c45beba3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionEnvelope.lean",
+      "bytes": 3159,
+      "sha256": "e4d1ca2054a7509a082340448b77f95a56380c8abab41da46b3b817fb8dab754"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionEnvelope.lean",
+      "bytes": 1856,
+      "sha256": "02fedd2ffe6def3a5f6794fa90c01cdd90d982276b089aa488247b116c4eb3dd"
+    }
+  ],
+  "prior_own_records": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/AuxiliaryStatements40-candidate1-preparation.json",
+      "bytes": 6096,
+      "sha256": "5c6366e3afa741fc955bb27addb7775657eb216ba3cd7b0da9fbdc9567f34931"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/AuxiliaryStatements40-candidate1.lean",
+      "bytes": 2783,
+      "sha256": "e3910f89e19232f125eca8c166556f2852ba9d171fe6317d066c9a5ab0a371ae"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/allocation-result.json",
+      "bytes": 349,
+      "sha256": "a3fc90e796dec995ff50bafa87362673ffc88b66e2a831797f0156828fa825f6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-candidate1-author-hold.json",
+      "bytes": 3651,
+      "sha256": "ca6bc455c522289c880afbca02933d3198cd72b3c283d089a7b7500e2db10150"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-candidate1-handoff.md",
+      "bytes": 7506,
+      "sha256": "746e0955345ff9bcad5d313e4078cff55d7a0e411954683bb9fb92c4650c79ef"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-candidate1.json",
+      "bytes": 5670,
+      "sha256": "b209da15c8be35977c90d35b36a613ed943366922f530fc830418300093e5431"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-commit-result.json",
+      "bytes": 352,
+      "sha256": "e52bf42db6a46387367aec86c238fccba16ce963432b7dca27240978af44052a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/author-hold.json",
+      "bytes": 2583,
+      "sha256": "7a9b0eec80da4e444440890ef3b9210d3c3fe27a144929f51881807b76cd92df"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/candidate.json",
+      "bytes": 1929,
+      "sha256": "6caad294442648b06b82b993eda0d5f076f57c1fceb2d90291cf5dbf78eeecf3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/commit-result.json",
+      "bytes": 612,
+      "sha256": "a5c69567a51deceb48c86a6536fe44ac600588cc8d26d604df6b401e21cb230f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/correction.diff",
+      "bytes": 4517,
+      "sha256": "0de9f322729d6e1f1fd7fe9e3ee80e0819b6127947ea92daec5ea02b58f8aee7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/handoff.md",
+      "bytes": 3924,
+      "sha256": "e154233fae8eaae8b0498fb882ed86c115fa16498535e371eb6b109a86408da8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/preparation.json",
+      "bytes": 7581,
+      "sha256": "985f5863a2d0f2643eb7a83736224c47a4519d77a218ea2272285eb76fcfe93e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/source-assessment.json",
+      "bytes": 1509,
+      "sha256": "211613fb630a84e4ce2fb72733c83c655568386fac028386ec29f0de720c7dff"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-preparation.json",
+      "bytes": 3554,
+      "sha256": "2b19d1eb746b0710128900764f0ea721ecaa65331ad28a1d9452281932a9933e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/candidate.json",
+      "bytes": 1428,
+      "sha256": "c9c1712835e8c71fe0650b0ef1ba2f6a8ec4ab6ec8a069acbdce8a10b394aace"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/commit-result.json",
+      "bytes": 170,
+      "sha256": "e249166fcf6917604a82587e7e389477512a00f90fb6701292d194d87f36fc92"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/correction.diff",
+      "bytes": 2930,
+      "sha256": "bf1c07899181ba672e1cf13c723739e3d3b03d4de3ae8366df4e63afd469a944"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/diff-check.json",
+      "bytes": 39,
+      "sha256": "4555466a11b51d337471bdac80f509baf403e0d276b2f256372bd1d99f3252b4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/starting-state.json",
+      "bytes": 4750,
+      "sha256": "9e2024dd36bee9bca7451ac0d1b490e5b6532cad9d45a6cd8255b1c3b8bad37d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-source-inventory-precommit.json",
+      "bytes": 16654,
+      "sha256": "d636bf579286ce0aa6617b96e1ee1e70bdc7f9dfbb7ff322a8cf455afb518a3c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-whitespace-check.json",
+      "bytes": 312,
+      "sha256": "93b7bceb843b8e2dd70e6365c410c87341fff195f6833631594bded4a3a44c26"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-correction1-20261104/NestedSelectionCombinedStatements61-candidate2.lean",
+      "bytes": 3648,
+      "sha256": "10f014ed91dd5282c72874e9b76c79f16051d8e99dab8a5028068e39ca374093"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-correction1-20261104/SelectionBoundsStatements22-candidate2.lean",
+      "bytes": 1725,
+      "sha256": "ab753bc4cbc75f1695d0ef90b52eb6ddf8b8f2ae63a5a7926dee2f79cf43df16"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-correction1-20261104/actual-commit-candidate2.json",
+      "bytes": 1703,
+      "sha256": "ffc190a6365613623f5770258e81ba46c1d23a8ce74479ac67f793009c699451"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-correction1-20261104/author-hold-candidate2.json",
+      "bytes": 701,
+      "sha256": "8485d083955265c519ed4b6544336ed3c433a3bc6db3b041b688d66f6203614e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-correction1-20261104/correction-source.patch",
+      "bytes": 1365,
+      "sha256": "c1af95b6f4f77155604eb5b8d7c2be562b5695d4811f162deba6f86d43c09fd5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-correction1-20261104/handoff-candidate2.json",
+      "bytes": 3754,
+      "sha256": "707dc0c03d5ae47eca399ff2b6e5cc1f4a21546b201c1407bf6c4d59a01c0dca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-correction1-20261104/precommit-preservation.json",
+      "bytes": 42327,
+      "sha256": "b33d4e445baf7b0f1c708a73402c7aee16ccc376dc20c8c44b7c1d5f9ef0cfd0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-correction1-20261104/preparation.json",
+      "bytes": 36768,
+      "sha256": "03fd7411c7095f4043119be2604aa5cfd5d98cf4b907a8e72cc1dfd18b8578fb"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-correction1-20261104/source-inventory-and-preservation-candidate2.json",
+      "bytes": 50234,
+      "sha256": "1d4f59e1cf0ef2a82c117e33ec9e0d3b296aafe63067d5024ef5b0ce6f0ea96d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/NestedSelectionCombinedStatements61-candidate1.lean",
+      "bytes": 3648,
+      "sha256": "9cde0df66d798c4556af4a864c624dfa6b597ff6a6fc6c17d2e61b72f4d2fc2b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/SelectionBoundsStatements22-candidate1.lean",
+      "bytes": 1725,
+      "sha256": "fc1f0f292b5c2615bb41e24ed2f73401d8d7781d2e78bb9a9d94211042856e5b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/actual-commit-candidate1.json",
+      "bytes": 1727,
+      "sha256": "678a3a61dc1ba2f34a28562d854db1fb6737c1901535f0078fbc201629a0a5f9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/author-hold-candidate1.json",
+      "bytes": 734,
+      "sha256": "9c3007fd0fb8cc82bdb72c674cbbc9bb62cf08ed60c0066a53acb046e98977cb"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/candidate1-source.patch",
+      "bytes": 16340,
+      "sha256": "e996140fe77c157f74f8b9333392a1e2bacdee9effe5fbe45b76bc91f43a62ae"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/checkpoint0129-hold.json",
+      "bytes": 2854,
+      "sha256": "31940f5cc73bcb377f84f326b9e397561e6278ea925ca723730d35f6df76c45e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/handoff-candidate1.json",
+      "bytes": 4565,
+      "sha256": "cd5fe56b191ddbe76a75fbb7ebe3493a695a7d08bd7d4f7898f1e4f4b473c146"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/preparation-and-independent-cases.json",
+      "bytes": 48855,
+      "sha256": "f058133829f079025b851e7ec0675200fd10af89bb7ab1eea30d736c0e18c6f9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/source-inventory-and-case-assessment-candidate1.json",
+      "bytes": 53235,
+      "sha256": "faf0db078b8e8987aab72f422e8217feebeb9d9e675e033e7b03c95012c58af1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/source-statement-and-case-assessment-before-candidate1.json",
+      "bytes": 79615,
+      "sha256": "8bc4601d52ae4ad428a657b752c9bb3d0d29d6ee5f420dde96670346dc6534ee"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/author-hold.json",
+      "bytes": 2718,
+      "sha256": "6099aa4ebda0fc248fc8ae538bec2f9ca3ecaa5d7cc64c7ac8e07ec299cfbcd7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/candidate.json",
+      "bytes": 4201,
+      "sha256": "ab6b53b38195e495d98f2142558d6c9684e8cfe43da3a430a150e683f404ae5d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/commit-result.json",
+      "bytes": 464,
+      "sha256": "5de62520f7f4f61bae73a031ca76668d5770253027700c367b03c1ce4e600203"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/correction.diff",
+      "bytes": 1917,
+      "sha256": "1805efb2bce45a334eaaf1e8c868c399c47dd988d949c1ffc13adb2b65db29c9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/handoff.md",
+      "bytes": 3843,
+      "sha256": "1135f95abbc2b9ca8465b29563846e7ee852b8e31700596cf08f1d901ad70096"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/precommit-validation.json",
+      "bytes": 1305,
+      "sha256": "853d30e746b20f99641c2b8e42f9595b910b09f035210efa5999a64f0c98a2ff"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/preparation.json",
+      "bytes": 18487,
+      "sha256": "71170010414453108e09cc3a96179d676722ab58cea8673a265b0dfbf4f96d19"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/source-inventory-and-assessment.json",
+      "bytes": 16844,
+      "sha256": "b2d0d7ec73d84a3795828113bee4c09e4fc7ed433a601dd6adfc3c34c63d2544"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction2-20261104/candidate.json",
+      "bytes": 1721,
+      "sha256": "ded5be3938bd89ac395087e2b6b3988f1a95746a38a5a5c4113b6da26332ab53"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction2-20261104/correction.diff",
+      "bytes": 573,
+      "sha256": "21625501ef35d97e6e35ca65e96615cad082b35f341b0ccde73737fb4c423cad"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction2-20261104/git-commands.json",
+      "bytes": 639,
+      "sha256": "eb6bec91fe42d6f27e6e607814af3550c33d033da2952e076f0f6de5bc2727fa"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction2-20261104/starting-state.json",
+      "bytes": 14110,
+      "sha256": "59b0abe758b41f42db7b6265dc4872e1fe78a8b1111fa2ef324dee9675d886fc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction3-20261104/candidate.json",
+      "bytes": 2786,
+      "sha256": "2ea03cdff27f176390ddf6fa1a8c340d480cccd54e020fccf43e60b6c364704e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction3-20261104/correction.diff",
+      "bytes": 561,
+      "sha256": "f24a1c9d1e66f8e5200eb8cd6c5a429f0727614eb7584a03f1b2a9c3a8a33ebd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction3-20261104/first-preparation-assertion-failure.json",
+      "bytes": 878,
+      "sha256": "11fbbd610fbf18fd5282d8803365086e6c7fac462882097d248f8bfc66e20359"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction3-20261104/git-commands.json",
+      "bytes": 648,
+      "sha256": "e27174eff5eb080b21d99d736d04e804d7c13cc2b3a82ff7a7f38af62e10dfbc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction3-20261104/starting-state.json",
+      "bytes": 15410,
+      "sha256": "0be044f9601cc2287caa96967e36f6f67e804709a8e51bf343e2b80eb70018c6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/ChopMapStatements68-candidate1.lean",
+      "bytes": 4076,
+      "sha256": "3e1de6e46c407771794f4b315b2c8836e35d5c9cc141d4ca167a554d5a2fd4ac"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/author-hold.json",
+      "bytes": 3911,
+      "sha256": "dd832a07d5ac0552fc8c576fc0ff31cd95e85b50d6b8b62e31a5b5d412245615"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/candidate.json",
+      "bytes": 4066,
+      "sha256": "340e7e43d800196b08c2dc237e566755af89d78582e59ad1ff2c8606e66bf828"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/checkpoint0125-author-hold.json",
+      "bytes": 1711,
+      "sha256": "2f2665f56f57243c4735931710f0ac0579275a743119d066c473bb07ddcac44f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/commit-result.json",
+      "bytes": 695,
+      "sha256": "fcfc199a2981de638ab11f47b1f27b07cb750742e75d03d22e1a6d35e264ed1a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/handoff.md",
+      "bytes": 6265,
+      "sha256": "fcb8cfac53b667a3c3ca40b0c0e24d7a3fe626066cb7e89ec1b95717f4651daa"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/precommit-validation.json",
+      "bytes": 2044,
+      "sha256": "20309cc992a9a61d1f115eb3f10221d515e95941030663388f2ed732a7ac3675"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/preparation-reconciliation.json",
+      "bytes": 671,
+      "sha256": "235d7f03bbc0f4b0be7556cdd8be7b0d5d511dc87c3cfb56ee890e01e94d276b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/preparation.json",
+      "bytes": 15783,
+      "sha256": "7c7e0597df7b12d7275ed2188e2370623d17ad70fc99ed1b42d19b4bfe5ac460"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/source-inventory-and-statement-review.json",
+      "bytes": 45503,
+      "sha256": "473e4e14d3e46d85282db9e60fb5b387aa0f5cae739afadca3eaff51ce14d20c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/scalar-incorporation-completion.json",
+      "bytes": 2294,
+      "sha256": "4a1c3bb049040c43c8dd8200aa3154ebe2f8166bb0bb88fd757644fa62e5ae84"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/scalar-incorporation-preparation.json",
+      "bytes": 51736,
+      "sha256": "857c1fe09ba5202b5e8591e813a1910dc5c58aaec3b6190503cbb56eebdbe34b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/NestedSelectorStatements39-candidate2.lean",
+      "bytes": 2530,
+      "sha256": "f526c60244a2b5af539fbc99a1b55c50b25a4a40c40993ed870cde2d1e2bb809"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/author-hold.json",
+      "bytes": 674,
+      "sha256": "0ceb1084f9b1edc304419177dff5d289c2ab59f8f68dd8754922f2714f175da3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/commit.json",
+      "bytes": 916,
+      "sha256": "25ffe755d81f93c7c0d29ed6960cd127bcd3964f595347c9bc98f00d8e93d343"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/correction-source.patch",
+      "bytes": 2504,
+      "sha256": "e26e5c493e5af1ace3e8ef4c08cda667536ce767e2f6ad6947895e1ba150d738"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/handoff.json",
+      "bytes": 3564,
+      "sha256": "4384d1d2a06ad171babb2cbd376ed1693e7f97bffd3ba56ebbf77fad9b51f2a5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/precommit-preservation.json",
+      "bytes": 3212,
+      "sha256": "16c3a422c68e16f1d996fad43cdc95b3e3918c6c4156a375cce345a72ad2d92e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/preparation.json",
+      "bytes": 24316,
+      "sha256": "c11caa2d46504d29aa2c61f8b6164ea3feadaf324f32a6a2330475e67b2e2dad"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/source-inventory-and-preservation-candidate2.json",
+      "bytes": 133357,
+      "sha256": "09fd0ad1defada6963b9bf72cb8af2c5d242d30396880b90c1a783c0bc451e80"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction2-20261104/NestedSelectorStatements39-candidate3.lean",
+      "bytes": 2555,
+      "sha256": "fe2c93868ee3ac3710668d08287f49278cd8b50257d414c8b8fa1d66a4a55da9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction2-20261104/author-hold.json",
+      "bytes": 687,
+      "sha256": "1c2c64976f8c970384e42c9eafd2258ddde3de568f4f434e9428ac4a7522342a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction2-20261104/commit.json",
+      "bytes": 915,
+      "sha256": "5068b0c28c5e6259fe910a9a936428960d3d39cda11d2d49dc3e347021a22b58"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction2-20261104/correction-source.patch",
+      "bytes": 6410,
+      "sha256": "4b01537bdabd19107e62079d01eed0591209df40dcf967725c155ec08d177876"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction2-20261104/handoff.json",
+      "bytes": 3451,
+      "sha256": "8f82355ca9fd5c8723baa2bd35b4d443cfac15e45ac223f63637bc3f7a852c52"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction2-20261104/precommit-preservation.json",
+      "bytes": 3447,
+      "sha256": "04aef0bea2fdca09d6fe42142b8bb80feb2536b37eb741936a9481b5aef06768"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction2-20261104/preparation.json",
+      "bytes": 27742,
+      "sha256": "bec1f89e6bb68f9e854e88423859525753bac9fda2ae201d2661e13619ce44cc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction2-20261104/source-inventory-and-preservation-candidate3.json",
+      "bytes": 142328,
+      "sha256": "e377aa094e5a8ec6539c9963d6d1eff15b144f021dd9d474af7798356503d871"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction3-20261104/NestedSelectorStatements39-candidate4.lean",
+      "bytes": 2457,
+      "sha256": "866a2e91f57e05133eb673d48871a191bbd33e3a957604079c3ae5e4ec22f4cd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction3-20261104/actual-commit.json",
+      "bytes": 1592,
+      "sha256": "e4c33cefdd1f84d2b07f8ade5d532daa70085eda2c9b756618c07c73abc0ed72"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction3-20261104/author-hold.json",
+      "bytes": 687,
+      "sha256": "66e9e414a67ed8848314b36e963493f10eb0ed7ad4400a16c6ab7cf29fd9bcd0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction3-20261104/correction-source.patch",
+      "bytes": 1730,
+      "sha256": "c0c34b2b89c79b089f0685a02dbb2f37d9a31da3d0e51822eef9a0f14bcfa010"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction3-20261104/handoff.json",
+      "bytes": 3487,
+      "sha256": "d7594debadcc4e0c65ca292609e1c24d47ff0698b9edce33825fbfa5ea1b673f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction3-20261104/precommit-preservation.json",
+      "bytes": 71099,
+      "sha256": "5d747ca408413b2b2d7dea9952f6b651cfbb092dcd12270a7caf99d85f90810a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction3-20261104/preparation.json",
+      "bytes": 32820,
+      "sha256": "4c110ebbbbd3b0776aacb9c10393207618224ea4cba9ea277920a122bf41fe67"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction3-20261104/source-inventory-and-preservation-candidate4.json",
+      "bytes": 158673,
+      "sha256": "91c3a8b865fe275af666ff24490b33438aea5386d765d2187a92df113639277a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/NestedSelectorStatements39-candidate1.lean",
+      "bytes": 2461,
+      "sha256": "8d1fabab9fa3a5d349b0d6573563ee2f5c2bba8e2c9f5ae1f335830b4c259396"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/candidate1-author-hold.json",
+      "bytes": 746,
+      "sha256": "5ed2bf9f8ef23c79469ac351e12fa7905e87eaa7305fdf90660cf8e530c73298"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/candidate1-commit.json",
+      "bytes": 1090,
+      "sha256": "1a8da6a12bc419c248d2d6268d541ef9edf93dd21969894839223eb8d3337990"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/candidate1-handoff.json",
+      "bytes": 6092,
+      "sha256": "07024de74b6d630cddfae56f3b3a3fb98ce2e42e271866f7a0e1397318cd1121"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/candidate1-precommit.json",
+      "bytes": 2287,
+      "sha256": "61a0b8e4dfc02b15a96781dd9c9544cd4a02a21d5eae2201d48f5a73c2f8c38e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/candidate1-source.patch",
+      "bytes": 34832,
+      "sha256": "7d3df4fdf8f7154872564d3a5615a3300d90f7c073f5be4dddf5f4f57bf65544"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/checkpoint0126-author-hold.json",
+      "bytes": 2675,
+      "sha256": "0fe517ae80b4fce4194cbb92091f1ccc6d2320a3e53330600e30d9d140a354c2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/checkpoint0127-author-hold.json",
+      "bytes": 1827,
+      "sha256": "9549050f68d319ee4cfaa7be64e06d892ffc642240d6b06ad2ffa8eaf425dda4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/inventory-preparation-parse-failure-reconciliation.json",
+      "bytes": 1316,
+      "sha256": "32bf2466d29ef975ed9bce4921a21c21a341e5b18af3ae9e7aa247b9c0c36baf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/recurrence-incorporation-command.json",
+      "bytes": 1986,
+      "sha256": "01a1819d96f85ac4f55ebee849a1e9bcd86b419c7ac0e792c2031558d083384c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/recurrence-incorporation-result.json",
+      "bytes": 1658,
+      "sha256": "fc67ccd9ebcf7ce60447df1b680bf7997b46c93a6027e0872802bfadcdaebd74"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/recurrence-incorporation-start.json",
+      "bytes": 24091,
+      "sha256": "253a41403f6538d6c6e3bbfccc9f301231c02e55292f158264477bd2cc114456"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/source-inventory-statement-and-case-review-candidate1.json",
+      "bytes": 135083,
+      "sha256": "df621b9ac48082c0ced368c07a1e4bebaae4902bfc4c9e3db92d0e1b4091e511"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/source-readback-case-connection-adjustment.json",
+      "bytes": 3383,
+      "sha256": "008c16492c471c4b54fe0df1e6f2ee28e4f67dc36a2a17e3f19ea1235419df53"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/worker-preparation-and-cases.json",
+      "bytes": 36419,
+      "sha256": "628cb4b74a83bd89ba7cb488a259afcdc5e25ab1d7ac643ecf000779e2092e47"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/worker-preparation-output-loss-reconciliation.json",
+      "bytes": 963,
+      "sha256": "d2107c610572f530b93e515482bde9389cfa2356719f2a38de3759325591f855"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/pivot-correction-incorporation-20261104/command-result.json",
+      "bytes": 807,
+      "sha256": "37e801ebf7fb5485ff3744f712467c13d8a914c9dec5fe5e10ee7b465aba217f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/pivot-correction-incorporation-20261104/result.json",
+      "bytes": 1273,
+      "sha256": "d7f4608471bbca053ab5f40f79a1b29b04bcd8a44665fff6cc52736e400d0997"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/pivot-correction-incorporation-20261104/start.json",
+      "bytes": 9262,
+      "sha256": "d7c38ac6c9577e5a10515d11e6ef8fb4e967a67705641ac85ba6896196904319"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/starting-state.json",
+      "bytes": 6935,
+      "sha256": "ffa3143d09aaf84868c847f7e0f1d6457171c48ae34728c8cb2513a64729eb67"
+    }
+  ],
+  "prior_record_count": 114,
+  "author_compiler_commands": 0,
+  "validation": "Newbridge source notyetwritten orcompiled."
+}

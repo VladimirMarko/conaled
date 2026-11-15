@@ -1,0 +1,26 @@
+{
+  "completed_utc": "2026-11-04T08:32:27.221554+00:00",
+  "parent": "b95e43e3dbb504a556fe6c143b4d68748dbc29dc",
+  "candidate": "9409826e199ac29c6a1e3c05dd58f6f536d08704",
+  "changed_paths": [
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-sorting.md"
+  ],
+  "clean": true,
+  "hashes": {
+    "SquareApplications.lean": "31fb256fe70c28b42b85b0221c37ffe60ab60248ebf7babecc410326c1f96d15",
+    "docs/research/fdsa-reconstruction-map.md": "dd4ce52d2cec15815dd18788e027808b072af75f4759b6fd9d6520682e6a27c2",
+    "docs/research/fdsa-sorting.md": "1b78516f87111726260cee4851209c87a0d9885551eeed7565eb2612a30c5f7a"
+  },
+  "public_source_modules": 1028,
+  "checker_source_modules": 1029,
+  "unreached_historical_paths": 56,
+  "all_existing_imports_preserved": true,
+  "ProofAudit_unchanged": true,
+  "finding_dispositions": {
+    "C02-DOC-001": "Corrected before application;23 additions only to SquareApplications; existing audit dependency exposes them. Originaldraft preserved.",
+    "C02-DOC-002": "Public note now records actualfailedfocused6 and correction lineage, appliedimports and everyincludedsharedgate; originalhistory preserved."
+  },
+  "validation_status": "Source/publicexposure integration only; correctedLean candidates not newly validated. Full independent final scope, allactualtypes, completecheck/audit/immediateverification remain. Uniform correction pending."
+}

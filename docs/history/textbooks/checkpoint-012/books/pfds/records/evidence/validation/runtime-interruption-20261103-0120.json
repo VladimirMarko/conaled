@@ -1,0 +1,19 @@
+{
+  "observed_utc": "2026-11-03T01:14:47.037007+00:00",
+  "candidate": "901f734161920a76f3b399a575805b9a1d31e971",
+  "checkout": "import-correction-r3",
+  "prior_owner_pid": 621229,
+  "prior_exec_session": 54309,
+  "old_wrapper_record": "validation/import-footprint-901f734-full-r1.json",
+  "old_wrapper_status": "running",
+  "exec_observation": "write_stdin failed: transport disconnected pong_timeout; failed to resume exec-server session; unknown session id",
+  "owned_process_observation": "Bounded read-only escalated /proc scan found no process with task-root cwd or argv; the scanner itself was excluded.",
+  "terminal_result_observed": false,
+  "verification_record_observed": false,
+  "log_sha256": "354f2953efe0292cdef3a53d490005569f4c15931b37611301bc7a41b5c8d5a1",
+  "log_bytes": 166959,
+  "last_completed_module": "Applications.Prim.Exchange (31s)",
+  "cause": "unknown; no cause inferred",
+  "acceptance": false,
+  "next_action": "Preserve interruption evidence and completed ordinary outputs; rerun unchanged stock complete candidate check on same frozen exact901. Do not resume the obsolete324/226 runners."
+}

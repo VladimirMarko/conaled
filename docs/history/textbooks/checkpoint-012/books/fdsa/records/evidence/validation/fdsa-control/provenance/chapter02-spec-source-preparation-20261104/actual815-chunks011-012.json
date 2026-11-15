@@ -1,0 +1,104 @@
+{
+  "recorded_utc": "2026-11-04T10:43:21.181245+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete81-path review scope, all112 obligations and ten shared scopes.",
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "chunks": [
+    {
+      "chunk": 11,
+      "type_numbers": [
+        180,
+        197
+      ],
+      "native_lines": [
+        2610,
+        2909
+      ],
+      "bytes": 20846,
+      "sha256": "25c267f8ffe52d8f88ef0d106aad9ac3b5e5936e4d9760f0e0b85e416e88478c",
+      "names": [
+        "Examples.NaturalRunOperations.source_builder_with_suffix",
+        "Examples.NaturalRunOperations.source_builder_two_applications",
+        "Examples.NaturalRunOperations.charged_identity_changes_worker_work",
+        "Examples.NaturalRunOperations.padded_worker",
+        "Examples.NaturalRunOperations.no_worker_bound_from_empty_prefix",
+        "Examples.NaturalRunOperations.shared_closure_counts_retained",
+        "Examples.NaturalRunOperations.generic_scanner_contracts",
+        "Examples.NaturalRunOperations.arbitrary_payload_correct",
+        "Examples.NaturalRunOperations.constant_key_domain",
+        "Examples.NaturalRunOperations.repeated_payload_exact",
+        "Examples.NaturalRunOperations.ascending_range_exact",
+        "Examples.NaturalRunOperations.comparison_counter_is_separate",
+        "Resources.QuickSort.run_map",
+        "Resources.QuickSort.counts_map",
+        "Resources.QuickSort.exerciseCost_map",
+        "Resources.QuickSort.appendCost_map",
+        "Resources.QuickSort.literalCost_map",
+        "Examples.QuickSortTransport.arbitrary_occurrence_lookup"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The builder suffix example retains duplicate prefix values and arbitrary suffix[9,8], with creation and application each5. Two applications charge creation plus both uses, total3+6*middle.length.",
+        "Composing with charged empty identity preserves worker value but increases work by2. Padded representations of the empty prefix yield worker cost2*n+4 and exceed any proposed bound depending only on empty represented value. Shared doubled closure example retains creation5, application31 and materialization36.",
+        "Generic scanner contracts and arbitrary-payload Nat-key correctness introduce no payload class. Constant comparator remains in the one-run domain; repeated payload and growing ascending range have exact6*n-4 execution for n>=2.",
+        "The printed comparison-counter boundary explicitly distinguishes comparison work2 from operational execution14 on[1,2,3], preventing accidental identification of the two tariffs.",
+        "QuickSort transport maps the returned list and preserves the entire pair of costs under the pulled-back comparator, for arbitrary possibly noninjective f. Exercise, append and literal corollaries retain that same comparator. The occurrence-lookup example uses bounded Fin indices without payload equality/default assumptions."
+      ]
+    },
+    {
+      "chunk": 12,
+      "type_numbers": [
+        198,
+        212
+      ],
+      "native_lines": [
+        2910,
+        3205
+      ],
+      "bytes": 20757,
+      "sha256": "be2eed6dc65b0c6aaa6f6a59c800f2a847400f7767230628896beb6b611e99d8",
+      "names": [
+        "Examples.QuickSortTransport.arbitrary_occurrence_costs",
+        "Examples.QuickSortTransport.noninjective_constant_run",
+        "Examples.QuickSortTransport.duplicate_fixture",
+        "Examples.QuickSortTransport.empty_uninhabited",
+        "Examples.QuickSortTransport.comparator_cost_boundary",
+        "Applications.Probability.PermutationTail.firstEvent",
+        "Applications.Probability.PermutationTail.firstEvent_inter_tail",
+        "Applications.Probability.PermutationTail.cons_mem_orders",
+        "Applications.Probability.PermutationTail.tail_restrictedOrder_eq",
+        "Applications.Probability.PermutationTail.filter_tail_restrictedOrder_eq",
+        "Applications.Probability.PermutationTail.firstEvent_restrictedOrder_of_not_mem",
+        "Applications.Probability.PermutationTail.cond_firstEvent_restrictedOrder_of_not_mem",
+        "Applications.Probability.PermutationTail.uniformOn_firstEvent",
+        "Applications.Probability.PermutationTail.cond_uniformOn_firstEvent",
+        "Applications.Probability.PermutationTail.cond_tail_eq"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "Occurrence transport preserves all three separate costs for arbitrary label lists, including repeated labels. The explicit noninjective Bool-to-zero example retains the pulled-back always-false comparator; duplicate fixture returns three zeros with cost pair(25,9), and Empty transport has cost pair(1,0).",
+        "The comparator boundary preserves literal costs19 versus20 for always-false versus always-true comparators on the same two inputs. The transport theorem is not misread as comparator-independent literal work.",
+        "firstEvent is generic in observations and label types; its intersection with a tail event is exactly the corresponding cons-list event. cons_mem_orders needs Nodup positions and membership of the head in both positions and S, with no unnecessary global completeness premise.",
+        "The pathwise tail identity uses the same permutation and erases the observed head. Its filtered version explicitly requires T subset of S.erase a. An impossible head outside S yields an empty event, and conditioning any measure on that event yields the zero measure.",
+        "Uniform first-head mass is1/card(S) under complete Nodup positions and a in S. Conditioning the uniform permutation measure equals uniformOn the actual head event; exact conditional tail masses are reciprocal factorial on orders(positions,S.erase a), otherwise0. The source measure and event are retained rather than replaced by an independent sample."
+      ]
+    }
+  ],
+  "prior_progress_sha256": "14c386cd2050fe40128b5d41cb0113777c2009d0cd9130dd1d271e7586db9e28",
+  "overall_outcome": "Blocked",
+  "new_type_credit": 0,
+  "possible110_credit": 0
+}

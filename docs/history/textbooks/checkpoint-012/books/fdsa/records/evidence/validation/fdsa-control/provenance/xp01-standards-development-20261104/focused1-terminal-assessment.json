@@ -1,0 +1,93 @@
+{
+  "recorded_utc": "2026-11-04T11:20:35.270921+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+  "outcome": "CLOSED exit1; aggregate failure retained",
+  "independently_fully_read": [
+    "full.log",
+    "start.json",
+    "result.json",
+    "secured-terminal.json",
+    "native/start.json",
+    "native/result.json"
+  ],
+  "native_full_text_read_as_exact_contiguous_outer_bytes": true,
+  "files": [
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt1/start.json",
+      "bytes": 1124,
+      "lines": 31,
+      "sha256": "ac5863d68c4a4202cb8ad2225a4d4bf1268e7b52a8b3a940d4b94c07fcbe309b"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt1/result.json",
+      "bytes": 1346,
+      "lines": 36,
+      "sha256": "b887a613be2ef9bbf6d92295cc57824cafd91262db3d8e2f7a8942d6391ad8fb"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt1/secured-terminal.json",
+      "bytes": 1802,
+      "lines": 47,
+      "sha256": "2612a8b72bc48bc4ae08b4ee23a9903efd082b4a0758831952f2c4ae9e57562d"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt1/full.log",
+      "bytes": 8001,
+      "lines": 56,
+      "sha256": "c6c10d379ced0abb312ea08e533135705d2edb1864d6d08076875cbc517337c2"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt1/native/start.json",
+      "bytes": 604,
+      "lines": 18,
+      "sha256": "4e0169f7681f121ea89502f3a6d8c0967a175966cbcdd9acf8f30e7bdb0d2b33"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt1/native/result.json",
+      "bytes": 758,
+      "lines": 23,
+      "sha256": "3f46508adf4eac8b7c585114d93a202798c78244d528aaea980c005f4edac807"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt1/native/output.log",
+      "bytes": 7628,
+      "lines": 53,
+      "sha256": "42af6d271264121b4a3f41276b6a3341365de9d170c68154200693e5a0fd8419"
+    }
+  ],
+  "native_original_copies_byte_equal": {
+    "start.json": true,
+    "result.json": true,
+    "output.log": true
+  },
+  "native_outer_byte_offset": 216,
+  "outer_and_native_command_match": true,
+  "actual_exit": 1,
+  "outer_started": "2026-11-04T11:11:09.130899+00:00",
+  "outer_completed": "2026-11-04T11:11:47.331351+00:00",
+  "native_started": "2026-11-04T11:11:09.186466+00:00",
+  "native_completed": "2026-11-04T11:11:47.285632+00:00",
+  "clean_immutable_pre_post": true,
+  "one_thread": true,
+  "error_headers": [
+    "error: Applications/Resources/Potential.lean:71:10: Type mismatch",
+    "error: Applications/Resources/Potential.lean:148:4: Type mismatch: After simplification, term"
+  ],
+  "warnings": "Module-system import advisories retained; no option, linter, profile or source suppression is inferred.",
+  "no_timeout_or_recorder_error": true,
+  "type_inspection_credit": 0,
+  "full_candidate_check_audit_or_acceptance_credit": false,
+  "reviewer_executed_compiler_or_polled_process": false,
+  "finding": "XP01-ELAB-001: two actual covariance-direction elaboration errors at old Potential71:10 and148:4; no mathematical counterexample inferred.",
+  "actual_requested_target_builds": [
+    "Examples.SymmetricLists (6.7s)"
+  ],
+  "dependent_Ran_entries_not_pass": [
+    "Applications.Resources.BinaryCounter",
+    "Examples.MappedPotentialAccounting",
+    "Examples.PotentialAccounting",
+    "Applications.Resources.SharedDemand"
+  ],
+  "scope_limit": "Failure prevents aggregate XP01 focused success; all six requested targets and full review remain."
+}

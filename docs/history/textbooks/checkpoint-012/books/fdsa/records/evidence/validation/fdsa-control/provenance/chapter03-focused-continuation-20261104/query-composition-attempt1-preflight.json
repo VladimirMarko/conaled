@@ -1,0 +1,144 @@
+{
+  "recorded_utc": "2026-11-04T22:08:06.518602+00:00",
+  "candidate": "2d20573cc5d3373a4746a5ebf16314369e7d7e3e",
+  "expectedHead": "27281919b9edd31a53336cbb5583ebc17632247e",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "acceptedHead": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "name": "chapter03-query-composition-focused-attempt1-20261104",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Selection.CoordinateSelection",
+    "Examples.CoordinateSelection"
+  ],
+  "expectedPaths": [
+    "Applications/Resources/Chunks.lean",
+    "Applications/Resources/RoundedRecurrence.lean",
+    "Applications/Resources/RoundedRecurrenceBounds.lean",
+    "Applications/Resources/Selection.lean",
+    "Applications/Resources/SelectionAuxiliary.lean",
+    "Applications/Resources/SelectionBounds.lean",
+    "Applications/Resources/SelectionMedians.lean",
+    "Applications/Resources/SelectionRecurrence.lean",
+    "Applications/Selection/CoordinateQueries.lean",
+    "Applications/Selection/CoordinateReadAll.lean",
+    "Applications/Selection/CoordinateSelection.lean",
+    "Applications/Selection/CoordinateSensitivity.lean",
+    "Applications/Selection/CountRank.lean",
+    "Applications/Selection/MedianOfMedians.lean",
+    "Applications/Sequences/Chunks.lean",
+    "Examples/CoordinateQueries.lean",
+    "Examples/CoordinateReadAll.lean",
+    "Examples/CoordinateSelection.lean",
+    "Examples/CoordinateSensitivity.lean"
+  ],
+  "recordDirectory": "chapter03-focused-continuation-20261104",
+  "recordName": "query-composition-attempt1-preflight.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was 2728191 fix(resources): normalize measured median base cases (#174)\nHEAD is now at 2d20573 feat(selection): connect measured selection to coordinate queries (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Resources/Chunks.lean",
+      "bytes": 4591,
+      "sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc"
+    },
+    {
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758"
+    },
+    {
+      "path": "Applications/Resources/RoundedRecurrenceBounds.lean",
+      "bytes": 6951,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135"
+    },
+    {
+      "path": "Applications/Resources/Selection.lean",
+      "bytes": 22435,
+      "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065"
+    },
+    {
+      "path": "Applications/Resources/SelectionAuxiliary.lean",
+      "bytes": 6215,
+      "sha256": "eeba4ac85dd4e07b8b42f38499748cae69cb6dcaaa01fdc8400a3cf5b947a925"
+    },
+    {
+      "path": "Applications/Resources/SelectionBounds.lean",
+      "bytes": 10073,
+      "sha256": "0f9181b569d24b2615c08be5c6a305a75e67679f14338e877fced10113d61edc"
+    },
+    {
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "bytes": 9755,
+      "sha256": "e64e998edc9353e5fd52544177fadd32f6398e3260b27ca54195cd8917e5d098"
+    },
+    {
+      "path": "Applications/Resources/SelectionRecurrence.lean",
+      "bytes": 6560,
+      "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e"
+    },
+    {
+      "path": "Applications/Selection/CoordinateQueries.lean",
+      "bytes": 11106,
+      "sha256": "ca1c0d339500e77aa14ca47420b9f7a11f213bbcd8ac113c3281c7f9690e6409"
+    },
+    {
+      "path": "Applications/Selection/CoordinateReadAll.lean",
+      "bytes": 7611,
+      "sha256": "ab2fd8949fe4a73e909cac90f99329fcd3b508e1b221e4411449a535f48f41ff"
+    },
+    {
+      "path": "Applications/Selection/CoordinateSelection.lean",
+      "bytes": 18607,
+      "sha256": "d68a5a82941db31f406e8499364d7af531041adcd16076a68f6b8b0caf6d739a"
+    },
+    {
+      "path": "Applications/Selection/CoordinateSensitivity.lean",
+      "bytes": 6717,
+      "sha256": "224724056815f73aff552ead23b7dd83af4078ad61009169e1b474f4b94476e6"
+    },
+    {
+      "path": "Applications/Selection/CountRank.lean",
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d"
+    },
+    {
+      "path": "Applications/Selection/MedianOfMedians.lean",
+      "bytes": 13797,
+      "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba"
+    },
+    {
+      "path": "Applications/Sequences/Chunks.lean",
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493"
+    },
+    {
+      "path": "Examples/CoordinateQueries.lean",
+      "bytes": 8079,
+      "sha256": "d90bd28ec4496105d9c5da80171a4c96a5ace119c0e178ded48f4f84ca8ad16d"
+    },
+    {
+      "path": "Examples/CoordinateReadAll.lean",
+      "bytes": 5626,
+      "sha256": "8290a02bee2fb078439842c26a6cb46ec231aeb092b30659c8a3b674cc54b603"
+    },
+    {
+      "path": "Examples/CoordinateSelection.lean",
+      "bytes": 10531,
+      "sha256": "0009cb95dfd8e561fabdb0390b58669172a1a29320f8678e4e1f1ea935a2e8b5"
+    },
+    {
+      "path": "Examples/CoordinateSensitivity.lean",
+      "bytes": 3726,
+      "sha256": "ed3d3d7cd41c97169893fdb5cf95e336a560f6f042ee70cea0a24ad7a6691828"
+    }
+  ],
+  "candidate_tree": "aa3f2cb9995d6f25de5b60204a76b5a34b03e2af",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 587612160
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

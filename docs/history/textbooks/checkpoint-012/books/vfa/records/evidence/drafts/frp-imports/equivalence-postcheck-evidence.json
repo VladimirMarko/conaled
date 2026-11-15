@@ -1,0 +1,134 @@
+{
+  "ilean_module": "Applications.FRP.Equivalence",
+  "ilean_directImports": [
+    [
+      "Lean.Elab.Tactic.NormCast",
+      false,
+      false,
+      false
+    ],
+    [
+      "Lean.Elab.Tactic.Omega",
+      false,
+      false,
+      false
+    ],
+    [
+      "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+      false,
+      false,
+      false
+    ],
+    [
+      "Mathlib.Data.Finset.Card",
+      false,
+      false,
+      false
+    ],
+    [
+      "Mathlib.Data.Finset.Max",
+      false,
+      false,
+      false
+    ],
+    [
+      "Mathlib.Data.Nat.Find",
+      false,
+      false,
+      false
+    ],
+    [
+      "Mathlib.Data.Set.Finite.Basic",
+      false,
+      false,
+      false
+    ],
+    [
+      "Mathlib.Order.Hom.Basic",
+      false,
+      false,
+      false
+    ],
+    [
+      "Mathlib.Order.Interval.Finset.Nat",
+      false,
+      false,
+      false
+    ],
+    [
+      "Mathlib.Order.Prod.Lex.Basic",
+      false,
+      false,
+      false
+    ],
+    [
+      "Mathlib.Tactic.Ext",
+      false,
+      false,
+      false
+    ],
+    [
+      "Mathlib.Tactic.Linarith",
+      false,
+      false,
+      false
+    ],
+    [
+      "Mathlib.Tactic.Positivity",
+      false,
+      false,
+      false
+    ]
+  ],
+  "c_imported_initializer_declarations": [
+    "initialize_Init",
+    "initialize_Init",
+    "initialize_Lean_Elab_Tactic_NormCast",
+    "initialize_Lean_Elab_Tactic_Omega",
+    "initialize_mathlib_Mathlib_Algebra_Order_Archimedean_Real_Basic",
+    "initialize_mathlib_Mathlib_Data_Finset_Card",
+    "initialize_mathlib_Mathlib_Data_Finset_Max",
+    "initialize_mathlib_Mathlib_Data_Nat_Find",
+    "initialize_mathlib_Mathlib_Data_Set_Finite_Basic",
+    "initialize_mathlib_Mathlib_Order_Hom_Basic",
+    "initialize_mathlib_Mathlib_Order_Interval_Finset_Nat",
+    "initialize_mathlib_Mathlib_Order_Prod_Lex_Basic",
+    "initialize_mathlib_Mathlib_Tactic_Ext",
+    "initialize_mathlib_Mathlib_Tactic_Linarith",
+    "initialize_mathlib_Mathlib_Tactic_Positivity"
+  ],
+  "c_mathlib_umbrella_initializer_present": false,
+  "information_messages": [
+    "'FRP.eventEquiv' depends on axioms: [propext, choice, Quot.sound]",
+    "'FRP.totalEventEquiv' depends on axioms: [propext, choice, Quot.sound]",
+    "'FRP.Realization.switcher_eq' depends on axioms: [propext, choice, Quot.sound]",
+    "'FRP.Examples.zeno_not_finiteHistory' depends on axioms: [propext, choice, Quot.sound]"
+  ],
+  "output_hashes": {
+    "Equivalence.c": {
+      "size": 57456,
+      "sha256": "ada0a37f3c331edcb240cee3a950574337ca18793f2d16b54e53e1e1ae1af74f"
+    },
+    "Equivalence.ilean": {
+      "size": 99948,
+      "sha256": "600513af2c2586eed874a3fe7a183043d5fda042d91756d2377566a7d90a1afa"
+    },
+    "Equivalence.olean": {
+      "size": 1369288,
+      "sha256": "3350f1bf5b32e77ce58a0be612545c2a869a47f8fa01043e94b608f068193142"
+    }
+  },
+  "verification_hashes": {
+    "work-state/staging/frp-imports/Applications/FRP/Equivalence.lean": "0bf867cbfd819fd33dc1a762f17989131a720035ed1b50f65475857b45fb20d9",
+    "work-state/staging/frp-imports/Equivalence.original.lean": "9ea7d5ef3fc907753df528adce7ad773a217179533f68b3190f475f1fa567a02",
+    "work-state/staging/frp-imports/equivalence-imports.patch": "d00eb4e124b78c6d17d97f8034338a557bd05bd0ec04553e71c22836c3b5e365",
+    "work-state/staging/frp-imports/Equivalence.setup.json": "f6d8d6d9ef85b743d06d5f5136201668ecec1b6bbd265a312b4b89ec91c7df00",
+    "work-state/staging/frp-imports/equivalence-setup-name.patch": "328f343e5f81187481b69ed96948e2091c2255551b6748f03b0706f999bf5427",
+    "work-state/staging/frp-imports/equivalence-identity.json": "6955151588dbb7c768a9f6c1b6bfcbe4cc2cf91690f45b601114cf8c3d9fd97e",
+    "work-state/staging/frp-imports/run-equivalence.py": "c9a7f013bcac7dc74d81590027fc0a649c381d11df885546467a323048cef93f",
+    "work-state/staging/frp-imports/equivalence-result.json": "5daca2270230223a68044ca6591804218a2ea1fad8e5ab490c5a1886e23c0339",
+    "work-state/staging/frp-imports/equivalence-diagnostics.jsonl": "61fcf9686edc611ef73e085bb3449c5ae1500d703b1d85c42ac63ebefe921eed",
+    "conaled/Applications/FRP/Equivalence.lean": "9ea7d5ef3fc907753df528adce7ad773a217179533f68b3190f475f1fa567a02",
+    "vfa-validation/Applications/FRP/Equivalence.lean": "9ea7d5ef3fc907753df528adce7ad773a217179533f68b3190f475f1fa567a02"
+  }
+}

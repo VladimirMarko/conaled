@@ -1,0 +1,10 @@
+{
+  "recorded_utc": "2026-11-04T05:54:36.072997+00:00",
+  "candidate": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+  "source": "Examples/IndefiniteService.lean",
+  "extracted_source_body": "example : \u00ac \u2203 bound : Nat, \u2200 n : Nat, n.size \u2264 bound := by\n  rintro \u27e8bound,h\u27e9\n  have large := h (2^bound)\n  rw [Nat.size_pow] at large\n  omega\n",
+  "fixture_sha256": "73e6db6c50f92300a21a7d5b5d37ab3b213e06bf84839da9c2482f123dc39829",
+  "scope": "Exact unchanged failing proposition/proof with the newly required Mathlib import; no project module imports or full-file claim",
+  "executed": true,
+  "actual_terminal_exit_code": 0
+}

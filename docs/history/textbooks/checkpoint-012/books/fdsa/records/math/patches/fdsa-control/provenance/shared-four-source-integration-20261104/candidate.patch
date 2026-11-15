@@ -1,0 +1,3165 @@
+diff --git a/Applications/Probability/PermutationMinimum.lean b/Applications/Probability/PermutationMinimum.lean
+new file mode 100644
+index 0000000000000000000000000000000000000000..084f3297508ae9311cf9d6fafe8d2976c3ab703d
+--- /dev/null
++++ b/Applications/Probability/PermutationMinimum.lean
+@@ -0,0 +1,197 @@
++import Mathlib.Data.Finset.Max
++import Mathlib.Data.Fintype.Perm
++import Mathlib.Data.Set.Card
++import Mathlib.Probability.UniformOn
++
++/-!
++# Fixed-subset minima under a uniform permutation
++
++An ordinary permutation assigns each key index a distinct priority label.
++Every observed subset uses that same permutation. For an injective priority
++function into a linear order, each member of a fixed nonempty finite subset
++has the same probability of being its minimum.
++
++The event records membership as well as comparison. Its elementary laws do
++not require finite indices, injective priorities or a probability space.
++The probability law uses the existing uniform measure on permutations and
++keeps its measurable structure explicit. No measurable structure or order
++is required on the index type, and the priority target may be infinite.
++
++Right composition by a key transposition exchanges two members' minimum
++events. Their equal masses sum to one because distinct assigned priorities
++give a unique minimum in every sample. This law concerns fixed subsets;
++conditional histories and the full induced relative order are separate
++claims. In particular, overlapping subsets still share their random input.
++-/
++
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Applications.Probability.PermutationMinimum
++
++open MeasureTheory ProbabilityTheory
++open scoped ENNReal BigOperators
++
++universe u v w
++
++variable {I : Type u} {P : Type v}
++
++/-- The candidate is a member of the subset and has no larger assigned
++priority than any of its members. The permutation maps keys to labels. -/
++def minimumEvent [LE P] (priority : I → P) (S : Finset I) (a : I) :
++    Set (Equiv.Perm I) :=
++  {π | a ∈ S ∧ ∀ b ∈ S, priority (π a) ≤ priority (π b)}
++
++@[simp] theorem mem_minimumEvent [LE P] (priority : I → P) (S : Finset I)
++    (a : I) (π : Equiv.Perm I) :
++    π ∈ minimumEvent priority S a ↔
++      a ∈ S ∧ ∀ b ∈ S, priority (π a) ≤ priority (π b) :=
++  Iff.rfl
++
++/-- An empty subset has no minimum member. -/
++@[simp] theorem minimumEvent_empty [LE P] (priority : I → P) (a : I) :
++    minimumEvent priority ∅ a = ∅ := by
++  simp [minimumEvent]
++
++/-- Comparisons alone do not turn an outsider into a minimum member. -/
++theorem minimumEvent_of_not_mem [LE P] (priority : I → P) (S : Finset I)
++    (a : I) (ha : a ∉ S) : minimumEvent priority S a = ∅ := by
++  simp [minimumEvent, ha]
++
++/-- The sole member of a singleton is a minimum in every sample. -/
++@[simp] theorem minimumEvent_singleton [Preorder P] (priority : I → P) (a : I) :
++    minimumEvent priority {a} a = Set.univ := by
++  simp [minimumEvent]
++
++/-- Two minimum observations of the same member and the same permutation
++combine into the minimum observation on the union. -/
++theorem minimumEvent_inter [LE P] [DecidableEq I] (priority : I → P)
++    (S T : Finset I) (a : I) (haS : a ∈ S) (haT : a ∈ T) :
++    minimumEvent priority S a ∩ minimumEvent priority T a =
++      minimumEvent priority (S ∪ T) a := by
++  apply Set.ext
++  intro π
++  constructor
++  · rintro ⟨hS, hT⟩
++    refine ⟨Finset.mem_union.mpr (Or.inl haS), ?_⟩
++    intro b hb
++    rcases Finset.mem_union.mp hb with hb | hb
++    · exact hS.2 b hb
++    · exact hT.2 b hb
++  · intro h
++    constructor
++    · exact ⟨haS, fun b hb => h.2 b (Finset.mem_union.mpr (Or.inl hb))⟩
++    · exact ⟨haT, fun b hb => h.2 b (Finset.mem_union.mpr (Or.inr hb))⟩
++
++private theorem swap_mem_iff [DecidableEq I] (S : Finset I) (a b : I)
++    (ha : a ∈ S) (hb : b ∈ S) (x : I) :
++    Equiv.swap a b x ∈ S ↔ x ∈ S := by
++  by_cases hxa : x = a
++  · subst x
++    simp [ha, hb]
++  by_cases hxb : x = b
++  · subst x
++    simp [ha, hb]
++  simp only [Equiv.swap_apply_of_ne_of_ne hxa hxb]
++
++private theorem minimumEvent_swap_preimage [LE P] [DecidableEq I]
++    (priority : I → P) (S : Finset I) (a b : I) (ha : a ∈ S) (hb : b ∈ S) :
++    (fun π : Equiv.Perm I => π * Equiv.swap a b) ⁻¹'
++        minimumEvent priority S b =
++      minimumEvent priority S a := by
++  apply Set.ext
++  intro π
++  change
++    (b ∈ S ∧ ∀ x ∈ S,
++      priority ((π * Equiv.swap a b) b) ≤ priority ((π * Equiv.swap a b) x)) ↔
++    (a ∈ S ∧ ∀ x ∈ S, priority (π a) ≤ priority (π x))
++  constructor
++  · intro h
++    refine ⟨ha, ?_⟩
++    intro x hx
++    have hx' := (swap_mem_iff S a b ha hb x).2 hx
++    have hcompare := h.2 (Equiv.swap a b x) hx'
++    simpa only [Equiv.Perm.mul_apply, Equiv.swap_apply_right,
++      Equiv.swap_apply_self] using hcompare
++  · intro h
++    refine ⟨hb, ?_⟩
++    intro x hx
++    have hx' := (swap_mem_iff S a b ha hb x).2 hx
++    have hcompare := h.2 (Equiv.swap a b x) hx'
++    simpa only [Equiv.Perm.mul_apply, Equiv.swap_apply_right] using hcompare
++
++private theorem uniformOn_univ_preimage {Ω : Type w} [Finite Ω]
++    [MeasurableSpace Ω] [MeasurableSingletonClass Ω] (e : Ω ≃ Ω) (E : Set Ω) :
++    uniformOn Set.univ (e ⁻¹' E) = uniformOn Set.univ E := by
++  classical
++  let := Fintype.ofFinite Ω
++  rw [uniformOn_univ, uniformOn_univ,
++    Measure.count_apply (e ⁻¹' E).toFinite.measurableSet,
++    Measure.count_apply E.toFinite.measurableSet,
++    Set.encard_preimage_of_bijective e.bijective E]
++
++private theorem uniformOn_minimumEvent_eq [Finite I] [LE P]
++    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
++    (priority : I → P) (S : Finset I) (a b : I) (ha : a ∈ S) (hb : b ∈ S) :
++    uniformOn Set.univ (minimumEvent priority S a) =
++      uniformOn Set.univ (minimumEvent priority S b) := by
++  classical
++  let := Fintype.ofFinite I
++  have h := uniformOn_univ_preimage
++    (Equiv.mulRight (Equiv.swap a b)) (minimumEvent priority S b)
++  simpa only [Equiv.coe_mulRight,
++    minimumEvent_swap_preimage priority S a b ha hb] using h
++
++private theorem minimumEvent_iUnion [LinearOrder P] (priority : I → P)
++    (S : Finset I) (hS : S.Nonempty) :
++    (⋃ a ∈ S, minimumEvent priority S a) = Set.univ := by
++  apply Set.eq_univ_of_forall
++  intro π
++  obtain ⟨a, ha, hmin⟩ :=
++    Finset.exists_min_image S (fun b => priority (π b)) hS
++  exact Set.mem_iUnion.mpr
++    ⟨a, Set.mem_iUnion.mpr ⟨ha, ⟨ha, hmin⟩⟩⟩
++
++private theorem minimumEvent_pairwiseDisjoint [PartialOrder P]
++    (priority : I → P) (hinj : Function.Injective priority) (S : Finset I) :
++    Set.PairwiseDisjoint (↑S) (minimumEvent priority S) := by
++  intro a ha b hb hab
++  apply Set.disjoint_left.mpr
++  intro π hπa hπb
++  exact hab (π.injective (hinj
++    (le_antisymm (hπa.2 b hb) (hπb.2 a ha))))
++
++/-- Under one uniform global permutation, every member of a fixed subset
++has reciprocal-cardinality probability of being its minimum. Membership
++supplies nonemptiness; injectivity of the priority function excludes ties. -/
++theorem uniformOn_minimumEvent [Finite I] [LinearOrder P]
++    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
++    (priority : I → P) (hinj : Function.Injective priority)
++    (S : Finset I) (a : I) (ha : a ∈ S) :
++    uniformOn (Set.univ : Set (Equiv.Perm I)) (minimumEvent priority S a) =
++      (S.card : ℝ≥0∞)⁻¹ := by
++  classical
++  let := Fintype.ofFinite I
++  have hpartition :=
++    measure_biUnion_finset (μ := uniformOn (Set.univ : Set (Equiv.Perm I)))
++      (minimumEvent_pairwiseDisjoint priority hinj S)
++      (fun b _ => (minimumEvent priority S b).toFinite.measurableSet)
++  rw [minimumEvent_iUnion priority S ⟨a, ha⟩, measure_univ] at hpartition
++  have hsum :
++      (∑ b ∈ S, uniformOn Set.univ (minimumEvent priority S b)) =
++        (S.card : ℝ≥0∞) * uniformOn Set.univ (minimumEvent priority S a) := by
++    calc
++      _ = ∑ _b ∈ S, uniformOn Set.univ (minimumEvent priority S a) := by
++        apply Finset.sum_congr rfl
++        intro b hb
++        exact uniformOn_minimumEvent_eq priority S b a hb ha
++      _ = _ := by rw [Finset.sum_const, nsmul_eq_mul]
++  apply ENNReal.eq_inv_of_mul_eq_one_left
++  calc
++    uniformOn Set.univ (minimumEvent priority S a) * (S.card : ℝ≥0∞) =
++        (S.card : ℝ≥0∞) * uniformOn Set.univ (minimumEvent priority S a) :=
++      mul_comm _ _
++    _ = ∑ b ∈ S, uniformOn Set.univ (minimumEvent priority S b) := hsum.symm
++    _ = 1 := hpartition.symm
++
++end Applications.Probability.PermutationMinimum
+diff --git a/Applications/Resources/DifferenceListCosts.lean b/Applications/Resources/DifferenceListCosts.lean
+new file mode 100644
+index 0000000000000000000000000000000000000000..b87222f7c0eb0aafc60031864ca815c2e65fc457
+--- /dev/null
++++ b/Applications/Resources/DifferenceListCosts.lean
+@@ -0,0 +1,222 @@
++import Applications.Resources.CallCount
++import Applications.Resources.Workload
++import Batteries.Data.DList.Lemmas
++
++/-! Separate closure-creation and application observations for difference lists.
++
++Creation captures already supplied callback values at a fixed unit tariff;
++it does not invoke them or charge their earlier construction again. Application
++charges one entry for identity, singleton and composition, using the existing
++measured bind. The observation counts unfolded invocation occurrences, which
++can exceed the number of creation events when callbacks are shared.
++
++This is an explicit model, not a compiler-allocation or machine-time theorem.
++The push operation uses composition with a singleton; its Batteries.DList.push
++bridge preserves values, not the costs of Batteries' fused implementation.
++Source scanner/control work is outside this observation. Provenance: FDSA
++chapter 2, pp. 21–22; `docs/research/fdsa-reconstruction-map.md`.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.DifferenceListCosts
++universe u
++variable {α : Type u}
++
++abbrev Builder (α : Type u) := List α → Measured (List α) Nat
++
++/-- The represented prefix is independent of the supplied suffix. -/
++def Rep (f : Builder α) (pref : List α) : Prop :=
++  ∀ suffix, (f suffix).1 = pref ++ suffix
++
++/-- An application-cost contract covers every suffix, not only materialization at []. -/
++def AppCost (f : Builder α) (k : Nat) : Prop :=
++  ∀ suffix, (f suffix).2 = k
++
++/-- Charged identity is a value identity, with one application entry. -/
++def empty : Builder α := fun suffix => CallCount.tick (pure suffix)
++
++def singleton (a : α) : Builder α := fun suffix => CallCount.tick (pure (a :: suffix))
++
++/-- Apply g first and then f; the represented prefixes occur in f-then-g order. -/
++def compose (f g : Builder α) : Builder α :=
++  fun suffix => CallCount.tick (bind (g suffix) f)
++
++@[simp] theorem empty_apply (suffix : List α) : empty suffix = (suffix, 1) := rfl
++
++@[simp] theorem singleton_apply (a : α) (suffix : List α) :
++    singleton a suffix = (a :: suffix, 1) := rfl
++
++theorem empty_rep : Rep (empty : Builder α) [] := by
++  intro suffix
++  rfl
++
++theorem empty_appCost : AppCost (empty : Builder α) 1 := by
++  intro suffix
++  rfl
++
++theorem singleton_rep (a : α) : Rep (singleton a) [a] := by
++  intro suffix
++  rfl
++
++theorem singleton_appCost (a : α) : AppCost (singleton a) 1 := by
++  intro suffix
++  rfl
++
++theorem compose_value (f g : Builder α) (suffix : List α) :
++    (compose f g suffix).1 = (f (g suffix).1).1 := by
++  simp only [compose, CallCount.tick_value, bind_value]
++
++/-- The second callback receives the actual value returned by the first. -/
++theorem compose_cost (f g : Builder α) (suffix : List α) :
++    (compose f g suffix).2 = (g suffix).2 + (f (g suffix).1).2 + 1 := rfl
++
++theorem compose_rep (f g : Builder α) (prefixF prefixG : List α)
++    (repF : Rep f prefixF) (repG : Rep g prefixG) :
++    Rep (compose f g) (prefixF ++ prefixG) := by
++  intro suffix
++  rw [compose_value, repF ((g suffix).1), repG suffix, List.append_assoc]
++
++theorem compose_appCost (f g : Builder α) (k l : Nat)
++    (costF : AppCost f k) (costG : AppCost g l) :
++    AppCost (compose f g) (k + l + 1) := by
++  intro suffix
++  rw [compose_cost, costG, costF]
++  omega
++
++/-- Create the empty callback without applying it. -/
++def createEmpty : Measured (Builder α) Nat := CallCount.tick (pure empty)
++
++/-- Capture one payload reference without traversing a suffix. -/
++def createSingleton (a : α) : Measured (Builder α) Nat :=
++  CallCount.tick (pure (singleton a))
++
++/-- Capture two existing callback references without invoking either callback. -/
++def createCompose (f g : Builder α) : Measured (Builder α) Nat :=
++  CallCount.tick (pure (compose f g))
++
++@[simp] theorem createEmpty_eq :
++    (createEmpty : Measured (Builder α) Nat) = (empty, 1) := rfl
++
++@[simp] theorem createSingleton_eq (a : α) : createSingleton a = (singleton a, 1) := rfl
++
++@[simp] theorem createCompose_eq (f g : Builder α) :
++    createCompose f g = (compose f g, 1) := rfl
++
++/-- One singleton creation followed by one composition creation. -/
++def pushRun (a : α) (f : Builder α) : Measured (Builder α) Nat :=
++  bind (createSingleton a) (fun g => createCompose f g)
++
++theorem pushRun_eq (a : α) (f : Builder α) :
++    pushRun a f = (compose f (singleton a), 2) := rfl
++
++theorem pushRun_rep (a : α) (f : Builder α) (pref : List α) (rep : Rep f pref) :
++    Rep (pushRun a f).1 (pref ++ [a]) := by
++  simpa only [pushRun_eq] using compose_rep f (singleton a) pref [a] rep (singleton_rep a)
++
++theorem pushRun_appCost (a : α) (f : Builder α) (k : Nat) (cost : AppCost f k) :
++    AppCost (pushRun a f).1 (k + 2) := by
++  simpa only [pushRun_eq] using compose_appCost f (singleton a) k 1 cost (singleton_appCost a)
++
++/-- Execute creation steps from an already supplied seed. Its earlier creation
++and the executor's list traversal are outside this observation. -/
++def buildFrom (items : List α) (f : Builder α) : Measured (Builder α) Nat :=
++  run pushRun items f
++
++@[simp] theorem buildFrom_nil (f : Builder α) : buildFrom [] f = (f, 0) := rfl
++
++theorem buildFrom_cons (a : α) (items : List α) (f : Builder α) :
++    buildFrom (a :: items) f =
++      ((buildFrom items (compose f (singleton a))).1,
++        2 + (buildFrom items (compose f (singleton a))).2) := by
++  simp only [buildFrom, run_cons, pushRun_eq]
++
++theorem buildFrom_cost (items : List α) (f : Builder α) :
++    (buildFrom items f).2 = 2 * items.length := by
++  induction items generalizing f with
++  | nil => rfl
++  | cons a items ih =>
++      simp only [buildFrom_cons, ih, List.length_cons, Nat.mul_add, Nat.mul_one]
++      omega
++
++theorem buildFrom_rep (items : List α) (f : Builder α) (pref : List α)
++    (rep : Rep f pref) : Rep (buildFrom items f).1 (pref ++ items) := by
++  induction items generalizing f pref with
++  | nil => simpa only [buildFrom_nil, List.append_nil] using rep
++  | cons a items ih =>
++      have next := compose_rep f (singleton a) pref [a] rep (singleton_rep a)
++      have rest := ih (compose f (singleton a)) (pref ++ [a]) next
++      simpa only [buildFrom_cons, List.append_assoc, List.cons_append, List.nil_append] using rest
++
++theorem buildFrom_appCost (items : List α) (f : Builder α) (k : Nat)
++    (cost : AppCost f k) : AppCost (buildFrom items f).1 (k + 2 * items.length) := by
++  induction items generalizing f k with
++  | nil => simpa only [buildFrom_nil, List.length_nil, Nat.mul_zero, Nat.add_zero] using cost
++  | cons a items ih =>
++      have next := compose_appCost f (singleton a) k 1 cost (singleton_appCost a)
++      have rest := ih (compose f (singleton a)) (k + 1 + 1) next
++      have hcount : k + 1 + 1 + 2 * items.length = k + 2 * (items.length + 1) := by omega
++      rw [hcount] at rest
++      simpa only [buildFrom_cons, List.length_cons] using rest
++
++/-- Include the initial identity's creation, then execute the same push sequence. -/
++def build (items : List α) : Measured (Builder α) Nat :=
++  bind createEmpty (buildFrom items)
++
++theorem build_cost (items : List α) : (build items).2 = 2 * items.length + 1 := by
++  change 1 + (buildFrom items (empty : Builder α)).2 = 2 * items.length + 1
++  rw [buildFrom_cost, Nat.add_comm]
++
++theorem build_rep (items : List α) : Rep (build items).1 items := by
++  simpa only [build, createEmpty_eq, bind, List.nil_append] using
++    buildFrom_rep items (empty : Builder α) [] empty_rep
++
++theorem build_appCost (items : List α) : AppCost (build items).1 (2 * items.length + 1) := by
++  simpa only [build, createEmpty_eq, bind, Nat.add_comm] using
++    buildFrom_appCost items (empty : Builder α) 1 empty_appCost
++
++/-- Erase only the observation, using the existing difference-list representation. -/
++def toDList (f : Builder α) (pref : List α) (rep : Rep f pref) : Batteries.DList α where
++  apply := fun suffix => (f suffix).1
++  invariant := by
++    intro suffix
++    rw [rep suffix, rep [], List.append_nil]
++
++@[simp] theorem toDList_apply (f : Builder α) (pref : List α) (rep : Rep f pref)
++    (suffix : List α) : (toDList f pref rep).apply suffix = (f suffix).1 := rfl
++
++@[simp] theorem toList_toDList (f : Builder α) (pref : List α) (rep : Rep f pref) :
++    (toDList f pref rep).toList = pref := by
++  change (f []).1 = pref
++  simpa only [List.append_nil] using rep []
++
++/-- The DList value forgets the closure's construction and application history. -/
++theorem toDList_eq_ofList (f : Builder α) (pref : List α) (rep : Rep f pref) :
++    toDList f pref rep = Batteries.DList.ofList pref := by
++  simpa only [toList_toDList] using
++    (Batteries.DList.ofList_toList (toDList f pref rep)).symm
++
++theorem toDList_compose (f g : Builder α) (prefixF prefixG : List α)
++    (repF : Rep f prefixF) (repG : Rep g prefixG) :
++    toDList (compose f g) (prefixF ++ prefixG) (compose_rep f g prefixF prefixG repF repG) =
++      toDList f prefixF repF ++ toDList g prefixG repG := by
++  calc
++    toDList (compose f g) (prefixF ++ prefixG) (compose_rep f g prefixF prefixG repF repG) =
++        Batteries.DList.ofList (prefixF ++ prefixG) := toDList_eq_ofList _ _ _
++    _ = Batteries.DList.ofList
++        ((toDList f prefixF repF ++ toDList g prefixG repG).toList) := by
++      rw [Batteries.DList.toList_append, toList_toDList, toList_toDList]
++    _ = toDList f prefixF repF ++ toDList g prefixG repG := Batteries.DList.ofList_toList _
++
++/-- Correspondence with Batteries' fused push is a value theorem only. -/
++theorem toDList_pushRun (a : α) (f : Builder α) (pref : List α) (rep : Rep f pref) :
++    toDList (pushRun a f).1 (pref ++ [a]) (pushRun_rep a f pref rep) =
++      Batteries.DList.push (toDList f pref rep) a := by
++  calc
++    toDList (pushRun a f).1 (pref ++ [a]) (pushRun_rep a f pref rep) =
++        Batteries.DList.ofList (pref ++ [a]) := toDList_eq_ofList _ _ _
++    _ = Batteries.DList.ofList ((Batteries.DList.push (toDList f pref rep) a).toList) := by
++      rw [Batteries.DList.toList_push, toList_toDList]
++    _ = Batteries.DList.push (toDList f pref rep) a := Batteries.DList.ofList_toList _
++
++end Resources.DifferenceListCosts
+diff --git a/Applications/Resources/ListMerge.lean b/Applications/Resources/ListMerge.lean
+new file mode 100644
+index 0000000000000000000000000000000000000000..b658809bc2ba424807e326c3ee7cb64712865a46
+--- /dev/null
++++ b/Applications/Resources/ListMerge.lean
+@@ -0,0 +1,201 @@
++import Applications.Sorting.SourceMerge
++import Applications.Resources.CallCount
++
++/-!
++# Ordinary merge with comparison and invocation observations
++
++One execution follows the actual Boolean comparator and records
++`(head comparisons, recursive merge invocations)`. Empty-side calls return the
++remaining list without a comparison and count one invocation. Only the selected
++recursive branch is executed, and its returned list supplies the output tail.
++The comparison projection is the handwritten FDSA `C_merge` recurrence; the
++entry projection is a separately declared invocation model. Neither is a claim
++about the compiled standard-library implementation or a comparator's own work.
++
++Source attribution, the applicable license and remaining chapter obligations:
++`docs/research/fdsa-list-merge.md`.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.ListMerge
++
++universe u v
++variable {α : Type u} {β : Type v}
++
++/-- Execute ordinary merge once, observing comparisons and invocations together. -/
++def run (cmp : α → α → Bool) : List α → List α → Measured (List α) (Nat × Nat)
++  | [], ys => (ys, (0, 1))
++  | xs, [] => (xs, (0, 1))
++  | x :: xs, y :: ys =>
++      if cmp x y then
++        Resources.bind (run cmp xs (y :: ys)) (fun zs => (x :: zs, (1, 1)))
++      else
++        Resources.bind (run cmp (x :: xs) ys) (fun zs => (y :: zs, (1, 1)))
++termination_by xs ys => xs.length + ys.length
++
++/-- Number of comparisons in the actual run; no second scalar execution. -/
++abbrev comparisons (cmp : α → α → Bool) (xs ys : List α) : Nat :=
++  (run cmp xs ys).2.1
++
++/-- Number of invocations, including the initial and terminal calls. -/
++abbrev entries (cmp : α → α → Bool) (xs ys : List α) : Nat :=
++  (run cmp xs ys).2.2
++
++theorem run_nil_left (cmp : α → α → Bool) (ys : List α) :
++    run cmp [] ys = (ys, (0, 1)) := by
++  simp only [run]
++
++theorem run_nil_right (cmp : α → α → Bool) (xs : List α) :
++    run cmp xs [] = (xs, (0, 1)) := by
++  cases xs <;> simp only [run]
++
++/-- The selected recursive execution supplies both the value and observations. -/
++theorem run_cons_cons (cmp : α → α → Bool) (x y : α) (xs ys : List α) :
++    run cmp (x :: xs) (y :: ys) =
++      if cmp x y then
++        Resources.bind (run cmp xs (y :: ys)) (fun zs => (x :: zs, (1, 1)))
++      else
++        Resources.bind (run cmp (x :: xs) ys) (fun zs => (y :: zs, (1, 1))) := by
++  simp only [run]
++
++/-- Value erasure holds for arbitrary comparators and arbitrary input lists. -/
++theorem run_value (cmp : α → α → Bool) (xs ys : List α) :
++    (run cmp xs ys).1 = List.merge xs ys cmp := by
++  induction xs generalizing ys with
++  | nil => simp only [run_nil_left, List.nil_merge]
++  | cons x xs ihx =>
++      induction ys with
++      | nil => simp only [run_nil_right, List.merge_right]
++      | cons y ys ihy =>
++          cases h : cmp x y with
++          | false => simp [run_cons_cons, h, Resources.bind, ihy]
++          | true => simp [run_cons_cons, h, Resources.bind, ihx]
++
++theorem comparisons_nil_left (cmp : α → α → Bool) (ys : List α) :
++    comparisons cmp [] ys = 0 := by
++  simp only [comparisons, run_nil_left]
++
++theorem comparisons_nil_right (cmp : α → α → Bool) (xs : List α) :
++    comparisons cmp xs [] = 0 := by
++  simp only [comparisons, run_nil_right]
++
++/-- Exactly one head comparison precedes the chosen recursive comparison count. -/
++theorem comparisons_cons_cons (cmp : α → α → Bool) (x y : α) (xs ys : List α) :
++    comparisons cmp (x :: xs) (y :: ys) =
++      1 + (if cmp x y then comparisons cmp xs (y :: ys)
++           else comparisons cmp (x :: xs) ys) := by
++  cases h : cmp x y <;>
++    simp [comparisons, run_cons_cons, h, Resources.bind, Nat.add_comm]
++
++theorem entries_nil_left (cmp : α → α → Bool) (ys : List α) :
++    entries cmp [] ys = 1 := by
++  simp only [entries, run_nil_left]
++
++theorem entries_nil_right (cmp : α → α → Bool) (xs : List α) :
++    entries cmp xs [] = 1 := by
++  simp only [entries, run_nil_right]
++
++/-- The current invocation contributes one in addition to the selected child. -/
++theorem entries_cons_cons (cmp : α → α → Bool) (x y : α) (xs ys : List α) :
++    entries cmp (x :: xs) (y :: ys) =
++      1 + (if cmp x y then entries cmp xs (y :: ys)
++           else entries cmp (x :: xs) ys) := by
++  cases h : cmp x y <;>
++    simp [entries, run_cons_cons, h, Resources.bind, Nat.add_comm]
++
++/-- Projection to the existing call convention retains the actual selected
++child computation and its returned list, followed by an uncharged cons. -/
++theorem run_entries_cons_cons (cmp : α → α → Bool) (x y : α) (xs ys : List α) :
++    Resources.reweight Prod.snd (run cmp (x :: xs) (y :: ys)) =
++      CallCount.tick
++        (if cmp x y then
++          Resources.bind (Resources.reweight Prod.snd (run cmp xs (y :: ys)))
++            (fun zs => Resources.pure (x :: zs))
++         else
++          Resources.bind (Resources.reweight Prod.snd (run cmp (x :: xs) ys))
++            (fun zs => Resources.pure (y :: zs))) := by
++  cases h : cmp x y <;>
++    simp [run_cons_cons, h, Resources.reweight, Resources.bind, Resources.pure,
++      CallCount.tick]
++
++/-- A single merge has exactly one terminal invocation without a comparison. -/
++theorem entries_eq_comparisons_add_one (cmp : α → α → Bool) (xs ys : List α) :
++    entries cmp xs ys = comparisons cmp xs ys + 1 := by
++  induction xs generalizing ys with
++  | nil => simp only [entries_nil_left, comparisons_nil_left]
++  | cons x xs ihx =>
++      induction ys with
++      | nil => simp only [entries_nil_right, comparisons_nil_right]
++      | cons y ys ihy =>
++          cases h : cmp x y with
++          | false =>
++              simp [entries_cons_cons, comparisons_cons_cons, h, ihy, Nat.add_assoc]
++          | true =>
++              simp [entries_cons_cons, comparisons_cons_cons, h, ihx, Nat.add_assoc]
++
++/-- The comparison bound requires neither sortedness nor comparator laws. -/
++theorem comparisons_le (cmp : α → α → Bool) (xs ys : List α) :
++    comparisons cmp xs ys ≤ xs.length + ys.length := by
++  induction xs generalizing ys with
++  | nil => simp [comparisons_nil_left]
++  | cons x xs ihx =>
++      induction ys with
++      | nil => simp [comparisons_nil_right]
++      | cons y ys ihy =>
++          rw [comparisons_cons_cons]
++          split
++          · have h := ihx (y :: ys)
++            simp only [List.length_cons] at h ⊢
++            omega
++          · have h := ihy
++            simp only [List.length_cons] at h ⊢
++            omega
++
++/-- The terminal invocation remains in the length bound, also for empty inputs. -/
++theorem entries_le (cmp : α → α → Bool) (xs ys : List α) :
++    entries cmp xs ys ≤ xs.length + ys.length + 1 := by
++  rw [entries_eq_comparisons_add_one]
++  exact Nat.add_le_add_right (comparisons_le cmp xs ys) 1
++
++/-- Two nonempty inputs necessarily cause a first comparison. -/
++theorem comparisons_cons_pos (cmp : α → α → Bool) (x y : α) (xs ys : List α) :
++    1 ≤ comparisons cmp (x :: xs) (y :: ys) := by
++  rw [comparisons_cons_cons]
++  omega
++
++/-- Input-local comparison agreement transports the entire measured result.
++The map need not be injective, and its codomain may live in another universe.
++This is a correspondence of the two declared merge executions, not a charge
++for computing the mapped inputs or mapping an output in a caller. -/
++theorem run_map (cmp : α → α → Bool) (cmp' : β → β → Bool) (f : α → β)
++    (xs ys : List α)
++    (hc : ∀ a ∈ xs, ∀ b ∈ ys, cmp a b = cmp' (f a) (f b)) :
++    run cmp' (xs.map f) (ys.map f) =
++      ((run cmp xs ys).1.map f, (run cmp xs ys).2) := by
++  revert hc
++  induction xs generalizing ys with
++  | nil =>
++      intro _
++      simp only [List.map_nil, run_nil_left]
++  | cons x xs ihx =>
++      induction ys with
++      | nil =>
++          intro _
++          simp only [List.map_nil, run_nil_right]
++      | cons y ys ihy =>
++          intro hc
++          have hxy : cmp x y = cmp' (f x) (f y) :=
++            hc x (by simp) y (by simp)
++          have hcLeft : ∀ a ∈ xs, ∀ b ∈ y :: ys, cmp a b = cmp' (f a) (f b) :=
++            fun a ha b hb => hc a (by simp [ha]) b hb
++          have hcRight : ∀ a ∈ x :: xs, ∀ b ∈ ys, cmp a b = cmp' (f a) (f b) :=
++            fun a ha b hb => hc a ha b (by simp [hb])
++          have hleft := ihx (y :: ys) hcLeft
++          have hright := ihy hcRight
++          simp only [List.map_cons] at hleft hright
++          cases h : cmp x y with
++          | false => simp [run_cons_cons, ← hxy, h, Resources.bind, hright]
++          | true => simp [run_cons_cons, ← hxy, h, Resources.bind, hleft]
++
++end Resources.ListMerge
+diff --git a/Applications/Resources/Partition.lean b/Applications/Resources/Partition.lean
+new file mode 100644
+index 0000000000000000000000000000000000000000..e9d3682a4d3a499aaffd41f73c7fc39965fa0d30
+--- /dev/null
++++ b/Applications/Resources/Partition.lean
+@@ -0,0 +1,61 @@
++import Applications.Sequences.Partition
++import Applications.Resources.CallCount
++
++/-! The companion source's one-pass three-way partition execution.
++The tail is processed once, and its actual returned buckets are extended at
++the head. Every recursive entry, including nil, costs one; comparisons,
++projections, tuple formation and cons add no charge in this source model.
++This does not assign that count to the shared two-pass value implementation,
++the two-filter quicksort tariff, or a physical runtime/stack observation.
++Source and statement assessment: `docs/research/fdsa-three-way-partition.md`.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.Partition
++universe u
++variable {α : Type u} [LinearOrder α]
++
++/-- Execute the tail once, then extend the selected actual returned bucket. -/
++def partitionRun (p : α) : List α → Measured (List α × List α × List α) Nat
++  | [] => CallCount.tick (Resources.pure ([], [], []))
++  | y :: ys => CallCount.tick (Resources.bind (partitionRun p ys) (fun t =>
++      Resources.pure (if y < p then (y :: t.1, t.2.1, t.2.2)
++        else if p = y then (t.1, y :: t.2.1, t.2.2)
++        else (t.1, t.2.1, y :: t.2.2))))
++
++@[simp] theorem partitionRun_nil (p : α) :
++    partitionRun p [] = (([], [], []), 1) := rfl
++
++theorem partitionRun_cons (p y : α) (ys : List α) :
++    partitionRun p (y :: ys) =
++      CallCount.tick (Resources.bind (partitionRun p ys) (fun t =>
++        Resources.pure (if y < p then (y :: t.1, t.2.1, t.2.2)
++          else if p = y then (t.1, y :: t.2.1, t.2.2)
++          else (t.1, t.2.1, y :: t.2.2)))) := rfl
++
++/-- The actual tail-result bridge connects this execution to the shared values. -/
++theorem partitionRun_value (p : α) (xs : List α) :
++    (partitionRun p xs).1 = Sequences.Partition.partition3 p xs := by
++  induction xs with
++  | nil => exact (Sequences.Partition.partition3_nil p).symm
++  | cons y ys ih =>
++      rw [partitionRun_cons, CallCount.tick_value, Resources.bind_value, ih,
++        Sequences.Partition.partition3_cons]
++      rfl
++
++@[simp] theorem partitionRun_nil_cost (p : α) :
++    (partitionRun p []).2 = 1 := rfl
++
++/-- The actual tail execution supplies all work apart from this entry. -/
++theorem partitionRun_cons_cost (p y : α) (ys : List α) :
++    (partitionRun p (y :: ys)).2 = (partitionRun p ys).2 + 1 := rfl
++
++/-- The count follows the execution recurrence, independently of bucket values. -/
++theorem partitionRun_cost (p : α) (xs : List α) :
++    (partitionRun p xs).2 = xs.length + 1 := by
++  induction xs with
++  | nil => exact partitionRun_nil_cost p
++  | cons y ys ih => rw [partitionRun_cons_cost, ih, List.length_cons]
++
++end Resources.Partition
+diff --git a/Applications/Selection/ThreeWay.lean b/Applications/Selection/ThreeWay.lean
+index 278070fc5ac4ea674adb47be8ebb2048c4273aa0..8627ad6d219f55a404dd96c4f4553594eaa71264 100644
+--- a/Applications/Selection/ThreeWay.lean
++++ b/Applications/Selection/ThreeWay.lean
+@@ -1,4 +1,5 @@
+ import Applications.Selection.Rank
++import Applications.Sequences.Partition
+ 
+ /-! Three-way selection with operations separated from pivot validity. -/
+ set_option autoImplicit false
+@@ -10,54 +11,38 @@ variable {α : Type u} [LinearOrder α]
+ 
+ /-- Standard stable partitions retain every equal occurrence in input order. -/
+ def partition3 (p : α) (xs : List α) : List α × List α × List α :=
+-  let sides := xs.partition (fun x => decide (x < p))
+-  let upper := sides.2.partition (fun x => decide (x = p))
+-  (sides.1, upper.1, upper.2)
++  Sequences.Partition.partition3 p xs
+ 
+ theorem partition3_eq_filters (p : α) (xs : List α) :
+     partition3 p xs = (xs.filter (fun x => decide (x < p)),
+-      xs.filter (fun x => decide (x = p)), xs.filter (fun x => decide (p < x))) := by
+-  simp only [partition3, List.partition_eq_filter_filter, List.filter_filter]
+-  congr 2 <;> apply List.filter_congr <;> intro x hx <;>
+-    apply Bool.eq_iff_iff.mpr <;>
+-    simp only [Function.comp_def, Bool.and_eq_true, Bool.not_eq_true', decide_eq_false_iff_not,
+-      decide_eq_true_eq] <;> constructor <;> intro h
+-  · exact h.1
+-  · subst x; simp
+-  · exact lt_of_le_of_ne (le_of_not_gt h.2) (Ne.symm h.1)
+-  · exact ⟨ne_of_gt h, not_lt_of_gt h⟩
++      xs.filter (fun x => decide (x = p)), xs.filter (fun x => decide (p < x))) :=
++  Sequences.Partition.partition3_eq_filters p xs
+ 
+ theorem partition3_perm (p : α) (xs : List α) :
+-    ((partition3 p xs).1 ++ (partition3 p xs).2.1 ++ (partition3 p xs).2.2).Perm xs := by
+-  simp only [partition3, List.partition_eq_filter_filter]
+-  rw [List.append_assoc]
+-  exact (List.Perm.append_left _ (List.filter_append_perm _ _)).trans
+-    (List.filter_append_perm _ _)
++    ((partition3 p xs).1 ++ (partition3 p xs).2.1 ++ (partition3 p xs).2.2).Perm xs :=
++  Sequences.Partition.partition3_perm p xs
+ 
+ theorem partition_left_mem (p : α) (xs : List α) (x : α) :
+-    x∈(partition3 p xs).1 ↔ x∈xs ∧ x<p := by
+-  simp [partition3_eq_filters]
++    x∈(partition3 p xs).1 ↔ x∈xs ∧ x<p :=
++  Sequences.Partition.partition_left_mem p xs x
+ 
+ theorem partition_equal_mem (p : α) (xs : List α) (x : α) :
+-    x∈(partition3 p xs).2.1 ↔ x∈xs ∧ x=p := by
+-  simp [partition3_eq_filters]
++    x∈(partition3 p xs).2.1 ↔ x∈xs ∧ x=p :=
++  Sequences.Partition.partition_equal_mem p xs x
+ 
+ theorem partition_right_mem (p : α) (xs : List α) (x : α) :
+-    x∈(partition3 p xs).2.2 ↔ x∈xs ∧ p<x := by
+-  simp [partition3_eq_filters]
++    x∈(partition3 p xs).2.2 ↔ x∈xs ∧ p<x :=
++  Sequences.Partition.partition_right_mem p xs x
+ 
+ theorem partition_lengths (p : α) (xs : List α) :
+     (partition3 p xs).1.length+(partition3 p xs).2.1.length+
+-      (partition3 p xs).2.2.length=xs.length := by
+-  simpa [Nat.add_assoc] using (partition3_perm p xs).length_eq
++      (partition3 p xs).2.2.length=xs.length :=
++  Sequences.Partition.partition_lengths p xs
+ 
+ theorem partition_strict_sizes (p : α) (xs : List α) (hp : p∈xs) :
+     (partition3 p xs).1.length<xs.length ∧
+-      (partition3 p xs).2.2.length<xs.length := by
+-  have he : p∈(partition3 p xs).2.1 := (partition_equal_mem p xs p).mpr ⟨hp,rfl⟩
+-  have hn : 0<(partition3 p xs).2.1.length := List.length_pos_iff.mpr (List.ne_nil_of_mem he)
+-  have hl:=partition_lengths p xs
+-  omega
++      (partition3 p xs).2.2.length<xs.length :=
++  Sequences.Partition.partition_strict_sizes p xs hp
+ 
+ theorem sorted_partition (p : α) (xs : List α) :
+     ordered xs=ordered (partition3 p xs).1++(partition3 p xs).2.1++ordered (partition3 p xs).2.2 := by
+diff --git a/Applications/Sequences/Partition.lean b/Applications/Sequences/Partition.lean
+new file mode 100644
+index 0000000000000000000000000000000000000000..ff03bd349a39b3b77c49793175d4b474199e7c43
+--- /dev/null
++++ b/Applications/Sequences/Partition.lean
+@@ -0,0 +1,87 @@
++import Mathlib.Data.List.Perm.Basic
++import Mathlib.Order.Defs.LinearOrder
++
++/-! Ordered three-way partition values shared by sorting and selection.
++The existing two-stage operation is kept separate from any measured source
++realization. Each bucket retains input order and every repeated occurrence.
++Source and statement assessment: `docs/research/fdsa-three-way-partition.md`.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Sequences.Partition
++universe u
++variable {α : Type u} [LinearOrder α]
++
++/-- Standard stable partitions retain every equal occurrence in input order. -/
++def partition3 (p : α) (xs : List α) : List α × List α × List α :=
++  let sides := xs.partition (fun x => decide (x < p))
++  let upper := sides.2.partition (fun x => decide (x = p))
++  (sides.1, upper.1, upper.2)
++
++theorem partition3_eq_filters (p : α) (xs : List α) :
++    partition3 p xs = (xs.filter (fun x => decide (x < p)),
++      xs.filter (fun x => decide (x = p)), xs.filter (fun x => decide (p < x))) := by
++  simp only [partition3, List.partition_eq_filter_filter, List.filter_filter]
++  congr 2 <;> apply List.filter_congr <;> intro x hx <;>
++    apply Bool.eq_iff_iff.mpr <;>
++    simp only [Function.comp_def, Bool.and_eq_true, Bool.not_eq_true', decide_eq_false_iff_not,
++      decide_eq_true_eq] <;> constructor <;> intro h
++  · exact h.1
++  · subst x; simp
++  · exact lt_of_le_of_ne (le_of_not_gt h.2) (Ne.symm h.1)
++  · exact ⟨ne_of_gt h, not_lt_of_gt h⟩
++
++theorem partition3_perm (p : α) (xs : List α) :
++    ((partition3 p xs).1 ++ (partition3 p xs).2.1 ++ (partition3 p xs).2.2).Perm xs := by
++  simp only [partition3, List.partition_eq_filter_filter]
++  rw [List.append_assoc]
++  exact (List.Perm.append_left _ (List.filter_append_perm _ _)).trans
++    (List.filter_append_perm _ _)
++
++theorem partition_left_mem (p : α) (xs : List α) (x : α) :
++    x∈(partition3 p xs).1 ↔ x∈xs ∧ x<p := by
++  simp [partition3_eq_filters]
++
++theorem partition_equal_mem (p : α) (xs : List α) (x : α) :
++    x∈(partition3 p xs).2.1 ↔ x∈xs ∧ x=p := by
++  simp [partition3_eq_filters]
++
++theorem partition_right_mem (p : α) (xs : List α) (x : α) :
++    x∈(partition3 p xs).2.2 ↔ x∈xs ∧ p<x := by
++  simp [partition3_eq_filters]
++
++theorem partition_lengths (p : α) (xs : List α) :
++    (partition3 p xs).1.length+(partition3 p xs).2.1.length+
++      (partition3 p xs).2.2.length=xs.length := by
++  simpa [Nat.add_assoc] using (partition3_perm p xs).length_eq
++
++theorem partition_strict_sizes (p : α) (xs : List α) (hp : p∈xs) :
++    (partition3 p xs).1.length<xs.length ∧
++      (partition3 p xs).2.2.length<xs.length := by
++  have he : p∈(partition3 p xs).2.1 := (partition_equal_mem p xs p).mpr ⟨hp,rfl⟩
++  have hn : 0<(partition3 p xs).2.1.length := List.length_pos_iff.mpr (List.ne_nil_of_mem he)
++  have hl:=partition_lengths p xs
++  omega
++
++/-- The existing value operation returns three empty buckets on an empty input. -/
++@[simp] theorem partition3_nil (p : α) : partition3 p [] = ([], [], []) :=
++  partition3_eq_filters p []
++
++/-- The source head step, proved about the existing two-stage value operation.
++It does not assign a one-pass resource observation to that operation. -/
++theorem partition3_cons (p y : α) (ys : List α) :
++    partition3 p (y :: ys) =
++      let t := partition3 p ys
++      if y < p then (y :: t.1, t.2.1, t.2.2)
++      else if p = y then (t.1, y :: t.2.1, t.2.2)
++      else (t.1, t.2.1, y :: t.2.2) := by
++  by_cases hlt : y < p
++  · simp [partition3_eq_filters, hlt, ne_of_lt hlt, not_lt_of_gt hlt]
++  · by_cases heq : p = y
++    · subst y
++      simp [partition3_eq_filters]
++    · have hgt : p < y := lt_of_le_of_ne (le_of_not_gt hlt) heq
++      simp [partition3_eq_filters, hlt, heq, Ne.symm heq, hgt]
++
++end Sequences.Partition
+diff --git a/Applications/Sorting/Merge.lean b/Applications/Sorting/Merge.lean
+index 15708d975dc76472da0c10990e805e2d4dfbdcbb..6595f901a9358398bee07333872125990ef8360c 100644
+--- a/Applications/Sorting/Merge.lean
++++ b/Applications/Sorting/Merge.lean
+@@ -123,4 +123,50 @@ theorem mergeBy_spec [LE κ] [DecidableLE κ] [Std.IsLinearPreorder κ] [Decidab
+     StableSort key (xs ++ ys) (mergeBy key xs ys) :=
+   ⟨mergeBy_sorted key xs ys hx hy, mergeBy_perm key xs ys, mergeBy_stable key xs ys hx hy⟩
+ 
++/-- Ordinary merge retains the left input's ordered occurrences for every comparator. -/
++theorem sublist_merge_left (cmp : α → α → Bool) (xs ys : List α) :
++    List.Sublist xs (List.merge xs ys cmp) := by
++  match xs, ys with
++  | [], ys => simpa only [List.nil_merge] using (List.nil_sublist ys)
++  | xs, [] => simpa only [List.merge_right] using (List.Sublist.refl xs)
++  | x :: xs, y :: ys =>
++    rw [List.cons_merge_cons]
++    split
++    · exact List.Sublist.cons_cons x (sublist_merge_left cmp xs (y :: ys))
++    · exact List.Sublist.cons y (sublist_merge_left cmp (x :: xs) ys)
++termination_by xs.length + ys.length
++
++/-- Ordinary merge retains the right input's ordered occurrences for every comparator. -/
++theorem sublist_merge_right (cmp : α → α → Bool) (xs ys : List α) :
++    List.Sublist ys (List.merge xs ys cmp) := by
++  match xs, ys with
++  | [], ys => simpa only [List.nil_merge] using (List.Sublist.refl ys)
++  | xs, [] => simpa only [List.merge_right] using (List.nil_sublist xs)
++  | x :: xs, y :: ys =>
++    rw [List.cons_merge_cons]
++    split
++    · exact List.Sublist.cons x (sublist_merge_right cmp xs (y :: ys))
++    · exact List.Sublist.cons_cons y (sublist_merge_right cmp (x :: xs) ys)
++termination_by xs.length + ys.length
++
++/-- Any pairwise relation on the merged output holds on each input separately. -/
++theorem pairwise_of_merge {R : α → α → Prop}
++    (cmp : α → α → Bool) (xs ys : List α)
++    (h : (List.merge xs ys cmp).Pairwise R) :
++    xs.Pairwise R ∧ ys.Pairwise R :=
++  ⟨List.Pairwise.sublist (sublist_merge_left cmp xs ys) h,
++    List.Pairwise.sublist (sublist_merge_right cmp xs ys) h⟩
++
++/-- The merge sortedness equivalence retains the existing input-local comparison laws. -/
++theorem merge_sorted_compatible_on_iff [LE κ] [Std.IsPreorder κ]
++    (key : α → κ) (cmp : α → α → Bool) (xs ys : List α)
++    (hc : ∀ a ∈ xs, ∀ b ∈ ys, (cmp a b = true → key a ≤ key b) ∧
++      (cmp a b = false → key b ≤ key a)) :
++    KeySorted key (List.merge xs ys cmp) ↔ KeySorted key xs ∧ KeySorted key ys := by
++  constructor
++  · intro h
++    exact pairwise_of_merge cmp xs ys h
++  · rintro ⟨hx, hy⟩
++    exact merge_sorted_compatible_on key cmp xs ys hc hx hy
++
+ end Applications.Sorting
+diff --git a/Examples/DifferenceListCosts.lean b/Examples/DifferenceListCosts.lean
+new file mode 100644
+index 0000000000000000000000000000000000000000..33fd3bec15f8c9b7c3078b45d90c24d7df0c1df2
+--- /dev/null
++++ b/Examples/DifferenceListCosts.lean
+@@ -0,0 +1,234 @@
++import Applications.Resources.DifferenceListCosts
++import Mathlib.Tactic.NormNum
++
++/-! Connected closure-creation and application observations.
++
++Independent expected counts: composing two singleton-prefix callbacks applies
++three closures. Building three items from identity creates seven closures and
++one application costs seven; construction plus two applications costs 21.
++Four self-composition extensions create five closures but later application
++costs 31. These are observations of the explicit model, not compiler timings.
++See `docs/research/fdsa-difference-list-costs.md`.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.DifferenceListCosts
++open Resources Resources.DifferenceListCosts
++universe u
++variable {α : Type u}
++
++theorem ordered_composition :
++    compose (singleton 1) (singleton 2) [9] = ([1, 2, 9], 3) := by
++  apply Prod.ext
++  · exact compose_rep (singleton 1) (singleton 2) [1] [2]
++      (singleton_rep 1) (singleton_rep 2) [9]
++  · exact compose_appCost (singleton 1) (singleton 2) 1 1
++      (singleton_appCost 1) (singleton_appCost 2) [9]
++
++/-- Standard DList append supplies the same ordered observation, separately
++from the callback's charged application law. -/
++theorem standard_composition_value (f g : Builder α) (pref more : List α)
++    (hf : Rep f pref) (hg : Rep g more) :
++    Batteries.DList.toList
++        (toDList (compose f g) (pref ++ more)
++          (compose_rep f g pref more hf hg)) =
++      Batteries.DList.toList ((toDList f pref hf) ++ (toDList g more hg)) := by
++  rw [toList_toDList, Batteries.DList.toList_append, toList_toDList, toList_toDList]
++
++/-- Capturing supplied callbacks charges neither of their application counts. -/
++theorem expensive_capture (p q : Nat) (suffix : List α) :
++    let f : Builder α := fun xs => (xs, p)
++    let g : Builder α := fun xs => (xs, q)
++    (createCompose f g).2 = 1 ∧
++      ((createCompose f g).1 suffix).2 = p + q + 1 := by
++  dsimp only
++  constructor
++  · rfl
++  · change (compose (fun xs : List α => (xs, p)) (fun xs => (xs, q)) suffix).2 = _
++    rw [compose_cost]
++    change q + p + 1 = p + q + 1
++    omega
++
++/-- This client includes one construction followed by one actual application. -/
++def materialize (items suffix : List α) : Measured (List α) Nat :=
++  bind (build items) (fun f => f suffix)
++
++theorem materialize_eq (items suffix : List α) :
++    materialize items suffix = (items ++ suffix, 4 * items.length + 2) := by
++  apply Prod.ext
++  · change ((build items).1 suffix).1 = items ++ suffix
++    exact build_rep items suffix
++  · change (build items).2 + ((build items).1 suffix).2 = 4 * items.length + 2
++    rw [build_cost, build_appCost items suffix]
++    omega
++
++theorem construction_application_split (items suffix : List α) :
++    (build items).2 = 2 * items.length + 1 ∧
++      ((build items).1 suffix).2 = 2 * items.length + 1 :=
++  ⟨build_cost items, build_appCost items suffix⟩
++
++/-- Both applications run after one construction; their returned lists are
++retained independently and no materialized result is cached. -/
++def materializeTwice (items firstSuffix secondSuffix : List α) :
++    Measured (List α × List α) Nat :=
++  bind (build items) fun f =>
++    bind (f firstSuffix) fun first =>
++      bind (f secondSuffix) fun second =>
++        pure (first, second)
++
++theorem materializeTwice_eq (items firstSuffix secondSuffix : List α) :
++    materializeTwice items firstSuffix secondSuffix =
++      ((items ++ firstSuffix, items ++ secondSuffix), 6 * items.length + 3) := by
++  apply Prod.ext
++  · change (((build items).1 firstSuffix).1, ((build items).1 secondSuffix).1) = _
++    exact Prod.ext (build_rep items firstSuffix) (build_rep items secondSuffix)
++  · change (build items).2 +
++      (((build items).1 firstSuffix).2 + (((build items).1 secondSuffix).2 + 0)) = _
++    rw [build_cost, build_appCost items firstSuffix, build_appCost items secondSuffix]
++    omega
++
++theorem duplicate_values :
++    materialize ([3, 1, 3] : List Nat) [9] = ([3, 1, 3, 9], 14) :=
++  materialize_eq _ _
++
++theorem duplicate_values_twice :
++    materializeTwice ([3, 1, 3] : List Nat) [9] [8, 8] =
++      (([3, 1, 3, 9], [3, 1, 3, 8, 8]), 21) :=
++  materializeTwice_eq _ _ _
++
++theorem empty_payload_boundary :
++    materialize ([] : List Empty) [] = ([], 2) ∧
++      materializeTwice ([] : List Empty) [] [] = (([], []), 3) :=
++  ⟨materialize_eq _ _, materializeTwice_eq _ _ _⟩
++
++theorem singleton_boundary (a : α) (suffix : List α) :
++    materialize [a] suffix = (a :: suffix, 6) := materialize_eq _ _
++
++/-- The supplied singleton seed already exists at this program boundary. -/
++def extendSingleton (a : α) (items suffix : List α) : Measured (List α) Nat :=
++  bind (buildFrom items (singleton a)) (fun f => f suffix)
++
++theorem extendSingleton_eq (a : α) (items suffix : List α) :
++    extendSingleton a items suffix = ((a :: items) ++ suffix, 4 * items.length + 1) := by
++  apply Prod.ext
++  · change ((buildFrom items (singleton a)).1 suffix).1 = _
++    exact buildFrom_rep items (singleton a) [a] (singleton_rep a) suffix
++  · change (buildFrom items (singleton a)).2 +
++      ((buildFrom items (singleton a)).1 suffix).2 = _
++    rw [buildFrom_cost,
++      buildFrom_appCost items (singleton a) 1 (singleton_appCost a) suffix]
++    omega
++
++/-- The existing fused push supplies this value, but the chosen explicit
++composition model has its own application and construction observations. -/
++theorem fused_push_value (a : α) (f : Builder α) (pref suffix : List α)
++    (rep : Rep f pref) :
++    ((pushRun a f).1 suffix).1 =
++      (Batteries.DList.push (toDList f pref rep) a).apply suffix := by
++  rfl
++
++/-- Charged identity preserves values but adds two invocation occurrences. -/
++theorem identity_value_cost (f : Builder α) (suffix : List α) :
++    (compose f empty suffix).1 = (f suffix).1 ∧
++      (compose f empty suffix).2 = (f suffix).2 + 2 := by
++  constructor
++  · rfl
++  · rw [compose_cost]
++    change 1 + (f suffix).2 + 1 = (f suffix).2 + 2
++    omega
++
++/-- A growing composition history whose represented prefix remains empty. -/
++def padded : Nat → Builder α
++  | 0 => empty
++  | n + 1 => compose (padded n) empty
++
++theorem padded_rep (n : Nat) : Rep (padded (α := α) n) [] := by
++  induction n with
++  | zero => exact empty_rep
++  | succ n ih =>
++      exact compose_rep (padded n) empty [] [] ih empty_rep
++
++theorem padded_appCost (n : Nat) : AppCost (padded (α := α) n) (2 * n + 1) := by
++  induction n with
++  | zero => exact empty_appCost
++  | succ n ih =>
++      intro suffix
++      have count := compose_appCost (padded n) empty (2 * n + 1) 1 ih empty_appCost suffix
++      change (compose (padded n) empty suffix).2 = 2 * (n + 1) + 1
++      omega
++
++theorem padded_empty_value (n : Nat) :
++    Batteries.DList.toList (toDList (padded (α := α) n) [] (padded_rep n)) = [] :=
++  toList_toDList _ _ _
++
++/-- No affine expression in the common output length controls these histories. -/
++theorem no_bound_from_output_length (K B : Nat) :
++    ∃ n : Nat, K * ([] : List α).length + B < (padded (α := α) n []).2 := by
++  refine ⟨B + 1, ?_⟩
++  have count := padded_appCost (α := α) (B + 1) []
++  simp only [List.length_nil, Nat.mul_zero, Nat.zero_add]
++  omega
++
++/-- A supplied closure is captured twice by one newly created composition.
++Sharing its description does not memoize either later invocation. -/
++def doubled : Nat → Measured (Builder α) Nat
++  | 0 => createEmpty
++  | n + 1 => bind (doubled n) (fun f => createCompose f f)
++
++theorem doubled_creation (n : Nat) : (doubled (α := α) n).2 = n + 1 := by
++  induction n with
++  | zero => rfl
++  | succ n ih =>
++      change (doubled (α := α) n).2 + 1 = (n + 1) + 1
++      rw [ih]
++
++theorem doubled_rep (n : Nat) : Rep (doubled (α := α) n).1 [] := by
++  induction n with
++  | zero => exact empty_rep
++  | succ n ih =>
++      exact compose_rep (doubled n).1 (doubled n).1 [] [] ih ih
++
++theorem doubled_application_add_one (n : Nat) (suffix : List α) :
++    ((doubled n).1 suffix).2 + 1 = 2 ^ (n + 1) := by
++  induction n generalizing suffix with
++  | zero => rfl
++  | succ n ih =>
++      change (compose (doubled n).1 (doubled n).1 suffix).2 + 1 =
++        2 ^ ((n + 1) + 1)
++      rw [compose_cost, Nat.pow_succ]
++      have inner := ih suffix
++      have outer := ih (((doubled n).1 suffix).1)
++      omega
++
++theorem doubled_appCost (n : Nat) :
++    AppCost (doubled (α := α) n).1 (2 ^ (n + 1) - 1) := by
++  intro suffix
++  have count := doubled_application_add_one n suffix
++  omega
++
++def materializeDoubled (n : Nat) (suffix : List α) : Measured (List α) Nat :=
++  bind (doubled n) (fun f => f suffix)
++
++theorem materializeDoubled_eq (n : Nat) (suffix : List α) :
++    materializeDoubled n suffix = (suffix, n + 2 ^ (n + 1)) := by
++  apply Prod.ext
++  · exact doubled_rep n suffix
++  · change (doubled n).2 + ((doubled n).1 suffix).2 = _
++    rw [doubled_creation]
++    have applied := doubled_application_add_one n suffix
++    omega
++
++theorem four_shared_closure_extensions :
++    (doubled (α := Nat) 4).2 = 5 ∧
++      (doubled 4).1 [9] = ([9], 31) := by
++  refine ⟨doubled_creation 4, ?_⟩
++  apply Prod.ext
++  · exact doubled_rep 4 [9]
++  · exact doubled_appCost 4 [9]
++
++theorem four_shared_closure_extensions_materialized :
++    materializeDoubled 4 ([9] : List Nat) = ([9], 36) :=
++  materializeDoubled_eq _ _
++
++end Examples.DifferenceListCosts
+diff --git a/Examples/MergeCosts.lean b/Examples/MergeCosts.lean
+new file mode 100644
+index 0000000000000000000000000000000000000000..b5f652cf5258c99f5a615b12987c664ed8be3d76
+--- /dev/null
++++ b/Examples/MergeCosts.lean
+@@ -0,0 +1,476 @@
++import Applications.Resources.ListMerge
++import Applications.Resources.CallComparison
++import Applications.Search.LeftistQueue
++import Examples.StableSorting
++import Mathlib.Data.Multiset.AddSub
++
++/-!
++# Connected ordinary merge observations
++
++The independent examples distinguish comparisons from invocations, preserve
++ordered duplicate occurrences, and sequence a second merge on the first actual
++returned list. Source/key order assumptions belong only to their semantic
++claims. The raw queue client counts one merge in the existing node body, not
++the child enumerations or a whole tree traversal.
++Source, scope and statement assessment: docs/research/fdsa-list-merge.md.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.MergeCosts
++open Applications.Sorting
++open _root_.Resources.ListMerge
++
++universe u v
++variable {α : Type u} {κ : Type v}
++
++def natCompare (a b : Nat) : Bool := decide (a ≤ b)
++
++def byKey [LE κ] [DecidableLE κ] (key : α → κ) (a b : α) : Bool :=
++  decide (key a ≤ key b)
++
++/-- Ordinary occurrence preservation is transported through actual value erasure. -/
++theorem result_perm (cmp : α → α → Bool) (xs ys : List α) :
++    (run cmp xs ys).1.Perm (xs ++ ys) := by
++  rw [run_value]
++  exact List.merge_perm_append cmp
++
++theorem result_length (cmp : α → α → Bool) (xs ys : List α) :
++    (run cmp xs ys).1.length = xs.length + ys.length :=
++  (congrArg List.length (run_value cmp xs ys)).trans (List.length_merge cmp xs ys)
++
++theorem result_multiset (cmp : α → α → Bool) (xs ys : List α) :
++    ((run cmp xs ys).1 : Multiset α) = (xs : Multiset α) + (ys : Multiset α) := by
++  calc
++    ((run cmp xs ys).1 : Multiset α) = ((xs ++ ys : List α) : Multiset α) :=
++      Multiset.coe_eq_coe.mpr (result_perm cmp xs ys)
++    _ = _ := (Multiset.coe_add xs ys).symm
++
++theorem result_mem (cmp : α → α → Bool) (xs ys : List α) (a : α) :
++    a ∈ (run cmp xs ys).1 ↔ a ∈ xs ∨ a ∈ ys := by
++  rw [run_value]
++  exact List.mem_merge
++
++theorem empty_sides (cmp : α → α → Bool) (xs ys : List α) :
++    run cmp [] ys = (ys, (0, 1)) ∧ run cmp xs [] = (xs, (0, 1)) :=
++  ⟨run_nil_left cmp ys, run_nil_right cmp xs⟩
++
++theorem empty_payload (cmp : Empty → Empty → Bool) (xs ys : List Empty) :
++    run cmp xs ys = ([], (0, 1)) := by
++  cases xs with
++  | nil =>
++      cases ys with
++      | nil => exact run_nil_left cmp []
++      | cons y _ => exact Empty.elim y
++  | cons x _ => exact Empty.elim x
++
++theorem low_singleton : run natCompare [0] [1, 2] = ([0, 1, 2], (1, 2)) := by
++  simp [natCompare, run_cons_cons, run_nil_left, Resources.bind]
++
++theorem high_singleton : run natCompare [2] [0, 1] = ([0, 1, 2], (2, 3)) := by
++  simp [natCompare, run_cons_cons, run_nil_right, Resources.bind]
++
++/-- The scalar projection uses the existing entry tick on the actual child. -/
++theorem low_singleton_entry_model :
++    Resources.reweight Prod.snd (run natCompare [0] [1, 2]) = ([0, 1, 2], 2) := by
++  rw [run_entries_cons_cons]
++  simp [natCompare, run_nil_left, Resources.reweight, Resources.bind,
++    Resources.pure, Resources.CallCount.tick]
++
++theorem interleaving :
++    run natCompare [0, 2, 2] [1, 2, 3] = ([0, 1, 2, 2, 2, 3], (4, 5)) := by
++  simp [natCompare, run_cons_cons, run_nil_left, Resources.bind]
++
++/-- All three copies of 2 remain, alongside the general multiset and support laws. -/
++theorem interleaving_observations :
++    let output := (run natCompare [0, 2, 2] [1, 2, 3]).1
++    output.length = 6 ∧
++      (output : Multiset Nat) = (([0, 2, 2] : List Nat) : Multiset Nat) +
++        (([1, 2, 3] : List Nat) : Multiset Nat) ∧
++      (2 ∈ output ↔ 2 ∈ ([0, 2, 2] : List Nat) ∨ 2 ∈ ([1, 2, 3] : List Nat)) ∧
++      output.count 2 = 3 := by
++  dsimp only
++  refine ⟨result_length natCompare _ _, result_multiset natCompare _ _,
++    result_mem natCompare _ _ 2, ?_⟩
++  exact (congrArg (fun r : List Nat × (Nat × Nat) => r.1.count 2) interleaving).trans
++    (by decide)
++
++theorem always_true (a b c : α) :
++    run (fun _ _ => true) [a, b] [c] = ([a, b, c], (2, 3)) := by
++  simp [run_cons_cons, run_nil_left, Resources.bind]
++
++theorem always_false (a b c : α) :
++    run (fun _ _ => false) [a, b] [c] = ([c, a, b], (1, 2)) := by
++  simp [run_cons_cons, run_nil_right, Resources.bind]
++
++theorem tied_runs :
++    run natCompare [1, 1] [1] = ([1, 1, 1], (2, 3)) ∧
++      run natCompare [1] [1, 1] = ([1, 1, 1], (1, 2)) := by
++  constructor <;> simp [natCompare, run_cons_cons, run_nil_left, Resources.bind]
++
++/-- Equal values, lengths and contents do not identify either observation. -/
++theorem ties_do_not_determine_cost :
++    (run natCompare [1, 1] [1]).1 = (run natCompare [1] [1, 1]).1 ∧
++      (run natCompare [1, 1] [1]).1.length = (run natCompare [1] [1, 1]).1.length ∧
++      (run natCompare [1, 1] [1]).1.Perm (run natCompare [1] [1, 1]).1 ∧
++      (run natCompare [1, 1] [1]).2.1 ≠ (run natCompare [1] [1, 1]).2.1 ∧
++      (run natCompare [1, 1] [1]).2.2 ≠ (run natCompare [1] [1, 1]).2.2 := by
++  rw [tied_runs.1, tied_runs.2]
++  exact ⟨rfl, rfl, List.Perm.refl _, by decide, by decide⟩
++
++theorem unsorted_run :
++    run natCompare [3, 1] [2, 1] = ([2, 1, 3, 1], (2, 3)) := by
++  simp [natCompare, run_cons_cons, run_nil_right, Resources.bind]
++
++theorem unsorted_cost_bounds :
++    comparisons natCompare [3, 1] [2, 1] ≤ 4 ∧ entries natCompare [3, 1] [2, 1] ≤ 5 :=
++  ⟨comparisons_le natCompare _ _, entries_le natCompare _ _⟩
++
++theorem unsorted_inputs_retained (cmp : Nat → Nat → Bool) :
++    List.Sublist [3, 1] (run cmp [3, 1] [2, 1]).1 ∧
++      List.Sublist [2, 1] (run cmp [3, 1] [2, 1]).1 := by
++  constructor
++  · rw [run_value]
++    exact sublist_merge_left cmp _ _
++  · rw [run_value]
++    exact sublist_merge_right cmp _ _
++
++/-- No comparator can remove the out-of-order pair retained from the left input. -/
++theorem unsorted_for_every_comparator (cmp : Nat → Nat → Bool) :
++    ¬ (run cmp [3, 1] [2, 1]).1.Pairwise (fun a b => a ≤ b) := by
++  intro sorted
++  rw [run_value] at sorted
++  have left := (pairwise_of_merge cmp [3, 1] [2, 1] sorted).1
++  exact (by decide : ¬ ([3, 1] : List Nat).Pairwise (fun a b => a ≤ b)) left
++
++theorem source_value [LE α] [DecidableLE α] (xs ys : List α) :
++    (run (fun a b => decide (a ≤ b)) xs ys).1 = sourceMerge xs ys :=
++  (run_value _ xs ys).trans (sourceMerge_eq_merge xs ys).symm
++
++theorem key_value [LE κ] [DecidableLE κ] (key : α → κ) (xs ys : List α) :
++    (run (byKey key) xs ys).1 = mergeBy key xs ys := run_value _ xs ys
++
++/-- The source adapter pulls back key order without ordering payload records globally. -/
++theorem key_source_value [LE κ] [DecidableLE κ] (key : α → κ) (xs ys : List α) :
++    letI : LE α := ⟨fun a b => key a ≤ key b⟩
++    letI : DecidableLE α := fun a b => inferInstanceAs (Decidable (key a ≤ key b))
++    (run (byKey key) xs ys).1 = sourceMerge xs ys := by
++  let : LE α := ⟨fun a b => key a ≤ key b⟩
++  let : DecidableLE α := fun a b => inferInstanceAs (Decidable (key a ≤ key b))
++  exact (key_value key xs ys).trans (mergeBy_source key xs ys).symm
++
++theorem key_sorted_iff [LE κ] [DecidableLE κ] [Std.IsLinearPreorder κ]
++    (key : α → κ) (xs ys : List α) :
++    KeySorted key (run (byKey key) xs ys).1 ↔ KeySorted key xs ∧ KeySorted key ys := by
++  rw [run_value]
++  apply merge_sorted_compatible_on_iff key (byKey key) xs ys
++  intro a _ b _
++  exact ⟨of_decide_eq_true, fun h =>
++    (Std.le_total (a := key a) (b := key b)).resolve_left (of_decide_eq_false h)⟩
++
++theorem source_key_sorted_iff [LE κ] [DecidableLE κ] [Std.IsLinearPreorder κ]
++    (key : α → κ) (xs ys : List α) :
++    letI : LE α := ⟨fun a b => key a ≤ key b⟩
++    letI : DecidableLE α := fun a b => inferInstanceAs (Decidable (key a ≤ key b))
++    KeySorted key (sourceMerge xs ys) ↔ KeySorted key xs ∧ KeySorted key ys := by
++  let : LE α := ⟨fun a b => key a ≤ key b⟩
++  let : DecidableLE α := fun a b => inferInstanceAs (Decidable (key a ≤ key b))
++  rw [← key_source_value key xs ys]
++  exact key_sorted_iff key xs ys
++
++theorem measured_key_spec [LE κ] [DecidableLE κ] [Std.IsLinearPreorder κ] [DecidableEq κ]
++    (key : α → κ) (xs ys : List α) (hx : KeySorted key xs) (hy : KeySorted key ys) :
++    StableSort key (xs ++ ys) (run (byKey key) xs ys).1 := by
++  rw [key_value]
++  exact mergeBy_spec key xs ys hx hy
++
++def recordsLeft : List Examples.StableSorting.Record := [(2, "first")]
++def recordsRight : List Examples.StableSorting.Record := [(-1, "negative"), (2, "last")]
++
++theorem records_value :
++    (run (byKey Prod.fst) recordsLeft recordsRight).1 = Examples.StableSorting.expected :=
++  (measured_key_spec Prod.fst recordsLeft recordsRight (by decide) (by decide)).unique
++    Examples.StableSorting.expected_spec
++
++/-- The public comparison recurrence counts the negative step and the subsequent left tie. -/
++theorem records_counts : (run (byKey Prod.fst) recordsLeft recordsRight).2 = (2, 3) := by
++  have counted : comparisons (byKey Prod.fst) recordsLeft recordsRight = 2 := by
++    simp [recordsLeft, recordsRight, byKey, comparisons_cons_cons, comparisons_nil_left]
++  exact Prod.ext counted
++    ((entries_eq_comparisons_add_one _ recordsLeft recordsRight).trans
++      (congrArg (fun n : Nat => n + 1) counted))
++
++theorem records_exact :
++    run (byKey Prod.fst) recordsLeft recordsRight = (Examples.StableSorting.expected, (2, 3)) :=
++  Prod.ext records_value records_counts
++
++def taggedLeft (a b : α) : List (Nat × α) := [(1, a), (1, b)]
++def taggedRight (c : α) : List (Nat × α) := [(1, c)]
++
++/-- Key erasure is noninjective, yet the actual branch observations are preserved. -/
++theorem tagged_key_transport (a b c : α) :
++    run natCompare [1, 1] [1] =
++        ((run (byKey Prod.fst) (taggedLeft a b) (taggedRight c)).1.map Prod.fst,
++          (run (byKey Prod.fst) (taggedLeft a b) (taggedRight c)).2) ∧
++      run natCompare [1] [1, 1] =
++        ((run (byKey Prod.fst) (taggedRight c) (taggedLeft a b)).1.map Prod.fst,
++          (run (byKey Prod.fst) (taggedRight c) (taggedLeft a b)).2) :=
++  ⟨run_map (byKey Prod.fst) natCompare Prod.fst (taggedLeft a b) (taggedRight c)
++      (fun _ _ _ _ => rfl),
++    run_map (byKey Prod.fst) natCompare Prod.fst (taggedRight c) (taggedLeft a b)
++      (fun _ _ _ _ => rfl)⟩
++
++theorem tagged_counts (a b c : α) :
++    (run (byKey Prod.fst) (taggedLeft a b) (taggedRight c)).2 = (2, 3) ∧
++      (run (byKey Prod.fst) (taggedRight c) (taggedLeft a b)).2 = (1, 2) :=
++  ⟨(congrArg Prod.snd (tagged_key_transport a b c).1).symm.trans
++      (congrArg Prod.snd tied_runs.1),
++    (congrArg Prod.snd (tagged_key_transport a b c).2).symm.trans
++      (congrArg Prod.snd tied_runs.2)⟩
++
++theorem tagged_values (a b c : α) :
++    (run (byKey Prod.fst) (taggedLeft a b) (taggedRight c)).1 = [(1, a), (1, b), (1, c)] ∧
++      (run (byKey Prod.fst) (taggedRight c) (taggedLeft a b)).1 = [(1, c), (1, a), (1, b)] := by
++  constructor <;> rw [key_value] <;> simp [mergeBy, taggedLeft, taggedRight]
++
++theorem tagged_exact (a b c : α) :
++    run (byKey Prod.fst) (taggedLeft a b) (taggedRight c) =
++        ([(1, a), (1, b), (1, c)], (2, 3)) ∧
++      run (byKey Prod.fst) (taggedRight c) (taggedLeft a b) =
++        ([(1, c), (1, a), (1, b)], (1, 2)) :=
++  ⟨Prod.ext (tagged_values a b c).1 (tagged_counts a b c).1,
++    Prod.ext (tagged_values a b c).2 (tagged_counts a b c).2⟩
++
++theorem tagged_stable (a b c : α) :
++    StableSort Prod.fst (taggedLeft a b ++ taggedRight c)
++      (run (byKey Prod.fst) (taggedLeft a b) (taggedRight c)).1 :=
++  measured_key_spec Prod.fst _ _
++    (by simp [KeySorted, taggedLeft]) (by simp [KeySorted, taggedRight])
++
++def falseLeft : List (Nat × String) := [(1, "A"), (1, "B")]
++def falseRight : List (Nat × String) := [(1, "C")]
++
++theorem false_compare_compatible :
++    ∀ a ∈ falseLeft, ∀ b ∈ falseRight,
++      (false = true → a.1 ≤ b.1) ∧ (false = false → b.1 ≤ a.1) := by
++  intro a ha b hb
++  simp only [falseLeft, falseRight, List.mem_cons, List.not_mem_nil, or_false] at ha hb
++  rcases ha with rfl | rfl <;> rcases hb with rfl <;> decide
++
++theorem false_record_run :
++    run (fun _ _ => false) falseLeft falseRight =
++      ([(1, "C"), (1, "A"), (1, "B")], (1, 2)) :=
++  always_false (1, "A") (1, "B") (1, "C")
++
++/-- Actual compatible sorted output and permutation still do not imply stable tags. -/
++theorem compatible_not_stable :
++    KeySorted Prod.fst (run (fun _ _ => false) falseLeft falseRight).1 ∧
++      (run (fun _ _ => false) falseLeft falseRight).1.Perm (falseLeft ++ falseRight) ∧
++      ¬ Stable Prod.fst (falseLeft ++ falseRight)
++        (run (fun _ _ => false) falseLeft falseRight).1 := by
++  refine ⟨?_, result_perm _ _ _, ?_⟩
++  · rw [run_value]
++    exact merge_sorted_compatible_on Prod.fst _ falseLeft falseRight
++      false_compare_compatible (by decide) (by decide)
++  · intro stable
++    have wrong := stable 1
++    rw [false_record_run] at wrong
++    simp [falseLeft, falseRight] at wrong
++
++def unsortedRecordsLeft : List (Nat × String) := [(3, "A"), (1, "B")]
++def unsortedRecordsRight : List (Nat × String) := [(2, "C"), (1, "D")]
++
++theorem unsorted_records_run :
++    run (byKey Prod.fst) unsortedRecordsLeft unsortedRecordsRight =
++      ([(2, "C"), (1, "D"), (3, "A"), (1, "B")], (2, 3)) := by
++  simp [unsortedRecordsLeft, unsortedRecordsRight, byKey,
++    run_cons_cons, run_nil_right, Resources.bind]
++
++/-- Sorted blocks are a genuine premise even for the left-on-equality comparator. -/
++theorem unsorted_record_filters :
++    (run (byKey Prod.fst) unsortedRecordsLeft unsortedRecordsRight).1.filter
++        (fun a => decide (a.1 = 1)) = [(1, "D"), (1, "B")] ∧
++      (unsortedRecordsLeft ++ unsortedRecordsRight).filter (fun a => decide (a.1 = 1)) =
++        [(1, "B"), (1, "D")] ∧
++      ¬ Stable Prod.fst (unsortedRecordsLeft ++ unsortedRecordsRight)
++        (run (byKey Prod.fst) unsortedRecordsLeft unsortedRecordsRight).1 := by
++  refine ⟨?_, by decide, ?_⟩
++  · rw [unsorted_records_run]
++    decide
++  · intro stable
++    have wrong := stable 1
++    rw [unsorted_records_run] at wrong
++    simp [unsortedRecordsLeft, unsortedRecordsRight] at wrong
++
++/-- The second merge receives the actual list produced by the first execution. -/
++def twoStage (cmp : α → α → Bool) (xs ys zs : List α) :
++    Resources.Measured (List α) (Nat × Nat) :=
++  Resources.bind (run cmp xs ys) (fun first => run cmp zs first)
++
++theorem twoStage_value (cmp : α → α → Bool) (xs ys zs : List α) :
++    (twoStage cmp xs ys zs).1 = List.merge zs (List.merge xs ys cmp) cmp := by
++  unfold twoStage
++  rw [Resources.bind_value, run_value, run_value]
++
++theorem twoStage_observation (cmp : α → α → Bool) (xs ys zs : List α) :
++    (twoStage cmp xs ys zs).2 =
++      (comparisons cmp xs ys + comparisons cmp zs (run cmp xs ys).1,
++        entries cmp xs ys + entries cmp zs (run cmp xs ys).1) :=
++  congrArg Prod.snd
++    (Resources.CallCount.let_rule (run cmp xs ys) (fun first => run cmp zs first))
++
++/-- Each of the two actual executions contributes its own terminal invocation. -/
++theorem twoStage_entries (cmp : α → α → Bool) (xs ys zs : List α) :
++    (twoStage cmp xs ys zs).2.2 = (twoStage cmp xs ys zs).2.1 + 2 := by
++  simp only [twoStage_observation, entries_eq_comparisons_add_one]
++  omega
++
++theorem twoStage_bounds (cmp : α → α → Bool) (xs ys zs : List α) :
++    (twoStage cmp xs ys zs).2.1 ≤ 2 * (xs.length + ys.length) + zs.length ∧
++      (twoStage cmp xs ys zs).2.2 ≤ 2 * (xs.length + ys.length) + zs.length + 2 := by
++  have first := comparisons_le cmp xs ys
++  have second := comparisons_le cmp zs (run cmp xs ys).1
++  have actualLength := result_length cmp xs ys
++  rw [actualLength] at second
++  have upper : (twoStage cmp xs ys zs).2.1 ≤ 2 * (xs.length + ys.length) + zs.length := by
++    rw [twoStage_observation]
++    omega
++  have entryRelation := twoStage_entries cmp xs ys zs
++  exact ⟨upper, by omega⟩
++
++/-- Existing additive projection commutes with this actual value-dependent bind. -/
++theorem twoStage_comparisons_projection (cmp : α → α → Bool) (xs ys zs : List α) :
++    Resources.reweight (AddMonoidHom.fst Nat Nat) (twoStage cmp xs ys zs) =
++      Resources.bind (Resources.reweight (AddMonoidHom.fst Nat Nat) (run cmp xs ys))
++        (fun first => Resources.reweight (AddMonoidHom.fst Nat Nat) (run cmp zs first)) :=
++  Resources.reweight_bind (AddMonoidHom.fst Nat Nat)
++    (run cmp xs ys) (fun first => run cmp zs first)
++
++theorem twoStage_entries_projection (cmp : α → α → Bool) (xs ys zs : List α) :
++    Resources.reweight (AddMonoidHom.snd Nat Nat) (twoStage cmp xs ys zs) =
++      Resources.bind (Resources.reweight (AddMonoidHom.snd Nat Nat) (run cmp xs ys))
++        (fun first => Resources.reweight (AddMonoidHom.snd Nat Nat) (run cmp zs first)) :=
++  Resources.reweight_bind (AddMonoidHom.snd Nat Nat)
++    (run cmp xs ys) (fun first => run cmp zs first)
++
++theorem first_stage : run natCompare [2] [0] = ([0, 2], (1, 2)) := by
++  simp [natCompare, run_cons_cons, run_nil_right, Resources.bind]
++
++theorem second_stage : run natCompare [1] [0, 2] = ([0, 1, 2], (2, 3)) := by
++  simp [natCompare, run_cons_cons, run_nil_left, Resources.bind]
++
++theorem twoStage_example : twoStage natCompare [2] [0] [1] = ([0, 1, 2], (3, 5)) := by
++  rw [twoStage, Resources.CallCount.let_rule, first_stage, second_stage]
++  rfl
++
++/-- Substituting the original concatenation changes both value and subsequent work. -/
++theorem substituted_input_example :
++    Resources.bind (run natCompare [2] [0]) (fun _ => run natCompare [1] [2, 0]) =
++      ([1, 2, 0], (2, 4)) := by
++  have second : run natCompare [1] [2, 0] = ([1, 2, 0], (1, 2)) := by
++    simp [natCompare, run_cons_cons, run_nil_left, Resources.bind]
++  rw [Resources.CallCount.let_rule, first_stage, second]
++  rfl
++
++theorem actual_input_matters :
++    (twoStage natCompare [2] [0] [1]).1 ≠
++        (Resources.bind (run natCompare [2] [0]) (fun _ => run natCompare [1] [2, 0])).1 ∧
++      (twoStage natCompare [2] [0] [1]).2 ≠
++        (Resources.bind (run natCompare [2] [0]) (fun _ => run natCompare [1] [2, 0])).2 := by
++  rw [twoStage_example, substituted_input_example]
++  decide
++
++/-- Only the merge of the already obtained child enumerations is observed here. -/
++def queueBody [LE κ] [DecidableLE κ] (x : α) (p : κ)
++    (l r : Search.LeftistQueue.PQ α κ) : Resources.Measured (List (α × κ)) (Nat × Nat) :=
++  Resources.bind
++    (run (byKey Prod.snd) (Search.LeftistQueue.toListQ l) (Search.LeftistQueue.toListQ r))
++    (fun zs => Resources.pure ((x, p) :: zs))
++
++theorem queueBody_value [LE κ] [DecidableLE κ] (k : Nat) (x : α) (p : κ)
++    (l r : Search.LeftistQueue.PQ α κ) :
++    (queueBody x p l r).1 = Search.LeftistQueue.toListQ (.fork k x p l r) := by
++  calc
++    (queueBody x p l r).1 =
++        (x, p) :: (run (byKey Prod.snd)
++          (Search.LeftistQueue.toListQ l) (Search.LeftistQueue.toListQ r)).1 :=
++      congrArg Prod.fst (Resources.CallCount.primitive_rule (fun zs => (x, p) :: zs)
++        (run (byKey Prod.snd) (Search.LeftistQueue.toListQ l) (Search.LeftistQueue.toListQ r)))
++    _ = (x, p) :: List.merge (Search.LeftistQueue.toListQ l)
++        (Search.LeftistQueue.toListQ r) (byKey Prod.snd) :=
++      congrArg (List.cons (x, p)) (run_value _ _ _)
++    _ = Search.LeftistQueue.toListQ (.fork k x p l r) := rfl
++
++theorem queueBody_observation [LE κ] [DecidableLE κ] (x : α) (p : κ)
++    (l r : Search.LeftistQueue.PQ α κ) :
++    (queueBody x p l r).2 =
++      (comparisons (byKey Prod.snd) (Search.LeftistQueue.toListQ l) (Search.LeftistQueue.toListQ r),
++        entries (byKey Prod.snd) (Search.LeftistQueue.toListQ l) (Search.LeftistQueue.toListQ r)) := by
++  have h := Resources.CallCount.primitive_rule (fun zs => (x, p) :: zs)
++    (run (byKey Prod.snd) (Search.LeftistQueue.toListQ l) (Search.LeftistQueue.toListQ r))
++  simpa only [queueBody, comparisons, entries] using congrArg Prod.snd h
++
++/-- Raw content preservation supplies child lengths without heap or rank invariants. -/
++theorem queueBody_bounds [LE κ] [DecidableLE κ] (x : α) (p : κ)
++    (l r : Search.LeftistQueue.PQ α κ) :
++    (queueBody x p l r).2.1 ≤ Search.LeftistQueue.size l + Search.LeftistQueue.size r ∧
++      (queueBody x p l r).2.2 ≤ Search.LeftistQueue.size l + Search.LeftistQueue.size r + 1 := by
++  have leftLength : (Search.LeftistQueue.toListQ l).length = Search.LeftistQueue.size l :=
++    (Search.LeftistQueue.toListQ_perm l).length_eq.trans (Search.LeftistQueue.entries_length l)
++  have rightLength : (Search.LeftistQueue.toListQ r).length = Search.LeftistQueue.size r :=
++    (Search.LeftistQueue.toListQ_perm r).length_eq.trans (Search.LeftistQueue.entries_length r)
++  constructor
++  · calc
++      (queueBody x p l r).2.1 = comparisons (byKey Prod.snd)
++          (Search.LeftistQueue.toListQ l) (Search.LeftistQueue.toListQ r) :=
++        congrArg Prod.fst (queueBody_observation x p l r)
++      _ ≤ (Search.LeftistQueue.toListQ l).length + (Search.LeftistQueue.toListQ r).length :=
++        comparisons_le _ _ _
++      _ = Search.LeftistQueue.size l + Search.LeftistQueue.size r :=
++        congrArg₂ Nat.add leftLength rightLength
++  · calc
++      (queueBody x p l r).2.2 = entries (byKey Prod.snd)
++          (Search.LeftistQueue.toListQ l) (Search.LeftistQueue.toListQ r) :=
++        congrArg Prod.snd (queueBody_observation x p l r)
++      _ ≤ (Search.LeftistQueue.toListQ l).length + (Search.LeftistQueue.toListQ r).length + 1 :=
++        entries_le _ _ _
++      _ = Search.LeftistQueue.size l + Search.LeftistQueue.size r + 1 :=
++        congrArg (fun n : Nat => n + 1) (congrArg₂ Nat.add leftLength rightLength)
++
++def rawLeft : Search.LeftistQueue.PQ Unit Nat := .fork 0 () 1 .null .null
++def rawRight : Search.LeftistQueue.PQ Unit Nat := .fork 0 () 2 .null .null
++def rawRoot : Search.LeftistQueue.PQ Unit Nat := .fork 99 () 9 rawLeft rawRight
++
++theorem raw_queue_body :
++    queueBody () 9 rawLeft rawRight = ([((), 9), ((), 1), ((), 2)], (1, 2)) := by
++  simp [queueBody, rawLeft, rawRight, Search.LeftistQueue.toListQ,
++    Search.LeftistQueue.mergeOn, byKey, run_cons_cons, run_nil_left,
++    Resources.bind, Resources.pure]
++
++theorem raw_queue_erasure_and_order :
++    (queueBody () 9 rawLeft rawRight).1 = Search.LeftistQueue.toListQ rawRoot ∧
++      ¬ (queueBody () 9 rawLeft rawRight).1.Pairwise (fun a b => a.2 ≤ b.2) := by
++  refine ⟨queueBody_value 99 () 9 rawLeft rawRight, ?_⟩
++  rw [raw_queue_body]
++  decide
++
++/-- The existing C1 comparison applies because both nonempty inputs force a comparison. -/
++theorem nonempty_tariffs (cmp : α → α → Bool) (x y : α) (xs ys : List α) :
++    comparisons cmp (x :: xs) (y :: ys) ≤ entries cmp (x :: xs) (y :: ys) ∧
++      entries cmp (x :: xs) (y :: ys) ≤ 2 * comparisons cmp (x :: xs) (y :: ys) := by
++  rw [entries_eq_comparisons_add_one]
++  exact ⟨Resources.CallCount.cost_le_add_entry _,
++    Resources.CallCount.add_entry_le _ (comparisons_cons_pos cmp x y xs ys)⟩
++
++theorem empty_tariff_not_multiplicative (cmp : α → α → Bool) (ys : List α) (K : Nat) :
++    ¬ entries cmp [] ys ≤ K * comparisons cmp [] ys := by
++  rw [entries_nil_left, comparisons_nil_left]
++  exact Resources.CallCount.zero_cost_entry_matters K
++
++theorem low_singleton_attains_factor_two :
++    (run natCompare [0] [1, 2]).2.1 = 1 ∧ (run natCompare [0] [1, 2]).2.2 = 2 ∧
++      (run natCompare [0] [1, 2]).2.2 = 2 * (run natCompare [0] [1, 2]).2.1 := by
++  rw [low_singleton]
++  decide
++
++end Examples.MergeCosts
+diff --git a/Examples/PermutationMinimum.lean b/Examples/PermutationMinimum.lean
+new file mode 100644
+index 0000000000000000000000000000000000000000..ea120642c760ca7a7947689b3eb2b5a1f2af5876
+--- /dev/null
++++ b/Examples/PermutationMinimum.lean
+@@ -0,0 +1,127 @@
++import Applications.Probability.PermutationMinimum
++import Examples.PermutationMinimumBoundary
++import Mathlib.Tactic
++
++/-!
++# Subset minima under one global random ranking
++
++One uniformly sampled permutation of three key indices determines every
++priority in this example. The two subsets `{0, 1}` and `{1, 2}` share index
++one and the same sampled ranking. Each subset gives that index probability
++`1/2` of being first, while the intersection has probability `1/3`.
++
++These claims use the public minimum law and its event-intersection bridge.
++They do not replace the shared environment by independently chosen subset
++orders. A second specialization uses injective, nonmonotone integer priorities
++with a negative value and unequal gaps: numeric priority values need not be
++ordinal positions, and the priority target need not be finite.
++
++The examples supply no treap construction or sorting execution. Those clients
++still need deterministic minimum/root/comparison bridges and their actual
++conditional sampling and resource observations.
++-/
++
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.PermutationMinimum
++
++open MeasureTheory ProbabilityTheory
++open Applications.Probability.PermutationMinimum
++open scoped ENNReal
++
++local instance : MeasurableSpace (Equiv.Perm (Fin 3)) := ⊤
++local instance : MeasurableSingletonClass (Equiv.Perm (Fin 3)) :=
++  ⟨fun _ => trivial⟩
++
++/-- One common random permutation, mapping key indices to priority labels. -/
++noncomputable def law : Measure (Equiv.Perm (Fin 3)) := uniformOn Set.univ
++
++local instance : IsProbabilityMeasure law := by
++  unfold law
++  infer_instance
++
++def firstSubset : Finset (Fin 3) := {0, 1}
++def secondSubset : Finset (Fin 3) := {1, 2}
++
++theorem first_minimum_mass :
++    law (minimumEvent id firstSubset 1) = 1 / 2 := by
++  simpa [law, firstSubset, one_div] using
++    (uniformOn_minimumEvent (id : Fin 3 → Fin 3) Function.injective_id
++      firstSubset 1 (by simp [firstSubset]))
++
++theorem second_minimum_mass :
++    law (minimumEvent id secondSubset 1) = 1 / 2 := by
++  simpa [law, secondSubset, one_div] using
++    (uniformOn_minimumEvent (id : Fin 3 → Fin 3) Function.injective_id
++      secondSubset 1 (by simp [secondSubset]))
++
++/-- The two observations ask about the same minimum on the union. -/
++theorem overlap_event :
++    minimumEvent id firstSubset 1 ∩ minimumEvent id secondSubset 1 =
++      minimumEvent id Finset.univ 1 := by
++  rw [minimumEvent_inter id firstSubset secondSubset 1
++    (by simp [firstSubset]) (by simp [secondSubset])]
++  have hcover : firstSubset ∪ secondSubset = Finset.univ := by
++    ext a
++    fin_cases a <;> simp [firstSubset, secondSubset]
++  rw [hcover]
++
++theorem full_minimum_mass (a : Fin 3) :
++    law (minimumEvent id Finset.univ a) = 1 / 3 := by
++  simpa [law, one_div] using
++    (uniformOn_minimumEvent (id : Fin 3 → Fin 3) Function.injective_id
++      Finset.univ a (Finset.mem_univ a))
++
++theorem overlap_mass :
++    law (minimumEvent id firstSubset 1 ∩ minimumEvent id secondSubset 1) =
++      1 / 3 := by
++  rw [overlap_event]
++  exact full_minimum_mass 1
++
++theorem marginal_product :
++    law (minimumEvent id firstSubset 1) *
++      law (minimumEvent id secondSubset 1) = 1 / 4 := by
++  rw [first_minimum_mass, second_minimum_mass]
++  simpa only [one_div, show (2 : ℝ≥0∞) * 2 = 4 by norm_num] using
++    (ENNReal.mul_inv (a := (2 : ℝ≥0∞)) (b := 2)
++      (Or.inl (by norm_num)) (Or.inr (by norm_num))).symm
++
++/-- Uniform marginals on overlapping subsets do not assert their independence. -/
++theorem overlap_mass_ne_product :
++    law (minimumEvent id firstSubset 1 ∩ minimumEvent id secondSubset 1) ≠
++      law (minimumEvent id firstSubset 1) *
++        law (minimumEvent id secondSubset 1) := by
++  rw [overlap_mass, marginal_product]
++  norm_num [← ENNReal.coe_div]
++
++theorem singleton_minimum_mass (a : Fin 3) :
++    law (minimumEvent id {a} a) = 1 := by
++  simpa only [law, Finset.card_singleton, Nat.cast_one, inv_one] using
++    (uniformOn_minimumEvent (id : Fin 3 → Fin 3) Function.injective_id
++      {a} a (Finset.mem_singleton_self a))
++
++/-- Distinct integer labels with a negative value and unequal ordered gaps. -/
++def spacedPriority (a : Fin 3) : Int :=
++  if a.val = 0 then -7 else if a.val = 1 then 100 else 4
++
++theorem spacedPriority_values :
++    spacedPriority 0 = -7 ∧ spacedPriority 1 = 100 ∧ spacedPriority 2 = 4 := by
++  decide
++
++theorem spacedPriority_injective : Function.Injective spacedPriority := by
++  decide
++
++theorem spacedPriority_not_monotone : ¬ Monotone spacedPriority := by
++  intro h
++  have h12 := h (show (1 : Fin 3) ≤ 2 by decide)
++  norm_num [spacedPriority] at h12
++
++/-- Only injectivity and the target's linear order matter for the minimum law. -/
++theorem spaced_minimum_mass :
++    law (minimumEvent spacedPriority secondSubset 2) = 1 / 2 := by
++  simpa [law, secondSubset, one_div] using
++    (uniformOn_minimumEvent spacedPriority spacedPriority_injective
++      secondSubset 2 (by simp [secondSubset]))
++
++end Examples.PermutationMinimum
+diff --git a/Examples/PermutationMinimumBoundary.lean b/Examples/PermutationMinimumBoundary.lean
+new file mode 100644
+index 0000000000000000000000000000000000000000..2e7ca462be60d0e3c484573950b194cce532d26c
+--- /dev/null
++++ b/Examples/PermutationMinimumBoundary.lean
+@@ -0,0 +1,113 @@
++import Applications.Probability.PermutationMinimum
++import Mathlib.Tactic.FinCases
++
++/-!
++# Empty, outsider and tied-priority boundaries for uniform permutation minima
++
++The raw outsider comparison is connected to a genuine full-set minimum, so its
++probability uses the public uniform-permutation theorem. Empty and tied events
++exercise the event definition without asserting that the theorem applies when
++membership or injectivity is absent.
++-/
++
++set_option autoImplicit false
++set_option warningAsError true
++
++open MeasureTheory ProbabilityTheory
++open Applications.Probability.PermutationMinimum
++open scoped ENNReal
++
++namespace Examples.PermutationMinimumBoundary
++
++local instance : MeasurableSpace (Equiv.Perm Empty) := ⊤
++local instance : MeasurableSpace (Equiv.Perm (Fin 2)) := ⊤
++
++/-- The empty index universe still has its identity permutation as a sample. -/
++theorem empty_index_normalized :
++    uniformOn (Set.univ : Set (Equiv.Perm Empty)) Set.univ = 1 := by
++  exact uniformOn_self Set.finite_univ ⟨Equiv.refl Empty, Set.mem_univ _⟩
++
++/-- An empty subset has no minimum member, even when an index is available. -/
++theorem empty_subset_event :
++    minimumEvent (id : Fin 2 → Fin 2) ∅ 0 = ∅ :=
++  minimumEvent_empty _ _
++
++theorem empty_subset_mass :
++    uniformOn Set.univ (minimumEvent (id : Fin 2 → Fin 2) ∅ 0) = 0 := by
++  rw [empty_subset_event]
++  exact measure_empty
++
++/-- Candidate 0 is outside the singleton subset {1}. -/
++theorem outsider_event_empty :
++    minimumEvent (id : Fin 2 → Fin 2) {1} 0 = ∅ :=
++  minimumEvent_of_not_mem _ _ _ (by decide)
++
++theorem outsider_mass :
++    uniformOn Set.univ (minimumEvent (id : Fin 2 → Fin 2) {1} 0) = 0 := by
++  rw [outsider_event_empty]
++  exact measure_empty
++
++/-- Dropping membership leaves only the comparison of two assigned priorities. -/
++def outsiderComparison : Set (Equiv.Perm (Fin 2)) :=
++  {π | π 0 ≤ π 1}
++
++/-- That comparison is the event that 0 is the minimum of the full pair. -/
++theorem outsiderComparison_eq_full_minimum :
++    outsiderComparison =
++      minimumEvent (id : Fin 2 → Fin 2) Finset.univ 0 := by
++  ext π
++  change (π 0 ≤ π 1) ↔
++    ((0 : Fin 2) ∈ (Finset.univ : Finset (Fin 2)) ∧
++      ∀ b ∈ (Finset.univ : Finset (Fin 2)), π 0 ≤ π b)
++  constructor
++  · intro h
++    refine ⟨Finset.mem_univ _, ?_⟩
++    intro b _
++    fin_cases b
++    · exact le_rfl
++    · exact h
++  · intro h
++    exact h.2 1 (Finset.mem_univ _)
++
++/-- The mass comes from the public minimum law on the full two-member set. -/
++theorem outsiderComparison_mass :
++    uniformOn Set.univ outsiderComparison = (2 : ℝ≥0∞)⁻¹ := by
++  rw [outsiderComparison_eq_full_minimum]
++  simpa using
++    (uniformOn_minimumEvent (id : Fin 2 → Fin 2) Function.injective_id
++      (Finset.univ : Finset (Fin 2)) 0 (Finset.mem_univ _))
++
++/-- The outsider comparison does not have the singleton reciprocal mass one. -/
++theorem outsiderComparison_ne_singleton_inverse :
++    uniformOn Set.univ outsiderComparison ≠
++      (({1} : Finset (Fin 2)).card : ℝ≥0∞)⁻¹ := by
++  rw [outsiderComparison_mass, Finset.card_singleton, Nat.cast_one, inv_one]
++  exact ne_of_lt ENNReal.one_half_lt_one
++
++/-- Both keys receive the same priority, regardless of the sampled permutation. -/
++def tiedPriority : Fin 2 → ℕ := fun _ => 0
++
++theorem tiedPriority_not_injective : ¬ Function.Injective tiedPriority := by
++  intro h
++  have h01 : (0 : Fin 2) = 1 := h rfl
++  exact (by decide : (0 : Fin 2) ≠ 1) h01
++
++/-- Every member is a non-strict minimum on every sample when priorities tie. -/
++theorem tied_event_univ (a : Fin 2) :
++    minimumEvent tiedPriority Finset.univ a = Set.univ := by
++  ext π
++  simp [minimumEvent, tiedPriority]
++
++theorem tied_mass (a : Fin 2) :
++    uniformOn Set.univ (minimumEvent tiedPriority Finset.univ a) = 1 := by
++  rw [tied_event_univ]
++  exact uniformOn_self Set.finite_univ ⟨Equiv.refl (Fin 2), Set.mem_univ _⟩
++
++/-- Without injectivity, the reciprocal-cardinality conclusion fails. -/
++theorem tied_mass_ne_half (a : Fin 2) :
++    uniformOn Set.univ (minimumEvent tiedPriority Finset.univ a) ≠
++      (2 : ℝ≥0∞)⁻¹ := by
++  rw [tied_mass]
++  exact ne_of_gt ENNReal.one_half_lt_one
++
++end Examples.PermutationMinimumBoundary
+diff --git a/Examples/ThreeWayPartition.lean b/Examples/ThreeWayPartition.lean
+new file mode 100644
+index 0000000000000000000000000000000000000000..a1f29b6310bc8623df2725b0d40f3949513199c5
+--- /dev/null
++++ b/Examples/ThreeWayPartition.lean
+@@ -0,0 +1,172 @@
++import Applications.Resources.Partition
++import Applications.Selection.ThreeWay
++
++/-! Connected cases for shared partition values and the actual source execution.
++Buckets retain order and duplicate occurrences. Pivot membership is needed only
++for the strict-size implication, and the source count includes the empty call.
++Source and statement assessment: `docs/research/fdsa-three-way-partition.md`.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace ThreeWayPartitionExamples
++universe u
++variable {α : Type u} [LinearOrder α]
++
++/-- Every copy of the supplied pivot stays in the equal bucket, including n = 0. -/
++theorem replicate_partition (p : α) (n : Nat) :
++    Sequences.Partition.partition3 p (List.replicate n p) =
++      ([], List.replicate n p, []) := by
++  induction n with
++  | zero => exact Sequences.Partition.partition3_nil p
++  | succ n ih =>
++      rw [List.replicate_succ, Sequences.Partition.partition3_cons, ih]
++      simp
++
++/-- The old Selection operation remains the same public value interface. -/
++theorem selection_partition (p : α) (xs : List α) :
++    Applications.Selection.partition3 p xs = Sequences.Partition.partition3 p xs := rfl
++
++/-- Both strict buckets display input order instead of sorted order. -/
++def mixed : List Nat := [4, 1, 2, 0, 3, 2, 1, 4]
++
++theorem mixed_partition :
++    Sequences.Partition.partition3 2 mixed = ([1, 0, 1], [2, 2], [4, 3, 4]) :=
++  Sequences.Partition.partition3_eq_filters 2 mixed
++
++theorem outside_partition :
++    Sequences.Partition.partition3 4 [3, 1, 3] = ([3, 1, 3], [], []) :=
++  Sequences.Partition.partition3_eq_filters 4 [3, 1, 3]
++
++theorem interior_partition :
++    Sequences.Partition.partition3 2 [3, 1, 3, 1] = ([1, 1], [], [3, 3]) :=
++  Sequences.Partition.partition3_eq_filters 2 [3, 1, 3, 1]
++
++theorem lower_partition :
++    Sequences.Partition.partition3 1 [1, 0, 1] = ([0], [1, 1], []) :=
++  Sequences.Partition.partition3_eq_filters 1 [1, 0, 1]
++
++/-- The final empty invocation is charged even when there are no input cells. -/
++theorem empty_run (p : α) :
++    Resources.Partition.partitionRun p [] = (([], [], []), 1) :=
++  Resources.Partition.partitionRun_nil p
++
++theorem replicate_run (p : α) (n : Nat) :
++    Resources.Partition.partitionRun p (List.replicate n p) =
++      (([], List.replicate n p, []), n + 1) := by
++  apply Prod.ext
++  · exact (Resources.Partition.partitionRun_value p (List.replicate n p)).trans
++      (replicate_partition p n)
++  · simpa only [List.length_replicate] using
++      Resources.Partition.partitionRun_cost p (List.replicate n p)
++
++theorem singleton_run (p : α) :
++    Resources.Partition.partitionRun p [p] = (([], [p], []), 2) :=
++  replicate_run p 1
++
++/-- Only the positive-length instance supplies pivot membership for strict shrinking. -/
++theorem replicate_strict (p : α) (n : Nat) (hn : 0 < n) :
++    (Resources.Partition.partitionRun p (List.replicate n p)).1.1.length < n ∧
++      (Resources.Partition.partitionRun p (List.replicate n p)).1.2.2.length < n := by
++  have hp : p ∈ List.replicate n p := List.mem_replicate.mpr ⟨Nat.ne_of_gt hn, rfl⟩
++  rw [Resources.Partition.partitionRun_value]
++  simpa only [List.length_replicate] using
++    Sequences.Partition.partition_strict_sizes p (List.replicate n p) hp
++
++/-- The measured value also meets the preserved Selection-name interface. -/
++theorem measured_selection_value (p : α) (xs : List α) :
++    (Resources.Partition.partitionRun p xs).1 = Applications.Selection.partition3 p xs :=
++  (Resources.Partition.partitionRun_value p xs).trans (selection_partition p xs).symm
++
++theorem mixed_run :
++    Resources.Partition.partitionRun 2 mixed = (([1, 0, 1], [2, 2], [4, 3, 4]), 9) :=
++  Prod.ext ((Resources.Partition.partitionRun_value 2 mixed).trans mixed_partition)
++    (Resources.Partition.partitionRun_cost 2 mixed)
++
++theorem mixed_value :
++    (Resources.Partition.partitionRun 2 mixed).1 = ([1, 0, 1], [2, 2], [4, 3, 4]) :=
++  congrArg Prod.fst mixed_run
++
++theorem mixed_cost : (Resources.Partition.partitionRun 2 mixed).2 = 9 :=
++  congrArg Prod.snd mixed_run
++
++/-- Grouping the buckets preserves occurrences, without preserving the original sequence. -/
++theorem mixed_perm :
++    let t := (Resources.Partition.partitionRun 2 mixed).1
++    (t.1 ++ t.2.1 ++ t.2.2).Perm mixed := by
++  dsimp only
++  rw [Resources.Partition.partitionRun_value]
++  exact Sequences.Partition.partition3_perm 2 mixed
++
++theorem mixed_lengths :
++    let t := (Resources.Partition.partitionRun 2 mixed).1
++    t.1.length = 3 ∧ t.2.1.length = 2 ∧ t.2.2.length = 3 ∧
++      t.1.length + t.2.1.length + t.2.2.length = 8 := by
++  dsimp only
++  refine ⟨congrArg (fun t : List Nat × List Nat × List Nat => t.1.length) mixed_value,
++    congrArg (fun t : List Nat × List Nat × List Nat => t.2.1.length) mixed_value,
++    congrArg (fun t : List Nat × List Nat × List Nat => t.2.2.length) mixed_value, ?_⟩
++  calc
++    _ = (Sequences.Partition.partition3 2 mixed).1.length +
++        (Sequences.Partition.partition3 2 mixed).2.1.length +
++        (Sequences.Partition.partition3 2 mixed).2.2.length :=
++      congrArg (fun t : List Nat × List Nat × List Nat =>
++        t.1.length + t.2.1.length + t.2.2.length)
++        (Resources.Partition.partitionRun_value 2 mixed)
++    _ = 8 := Sequences.Partition.partition_lengths 2 mixed
++
++theorem mixed_strict :
++    (Resources.Partition.partitionRun 2 mixed).1.1.length < 8 ∧
++      (Resources.Partition.partitionRun 2 mixed).1.2.2.length < 8 := by
++  rw [Resources.Partition.partitionRun_value]
++  exact Sequences.Partition.partition_strict_sizes 2 mixed (by decide)
++
++/-- An outside pivot is still a valid input to the partition operation. -/
++theorem outside_run :
++    Resources.Partition.partitionRun 4 [3, 1, 3] = (([3, 1, 3], [], []), 4) :=
++  Prod.ext ((Resources.Partition.partitionRun_value 4 [3, 1, 3]).trans outside_partition)
++    (Resources.Partition.partitionRun_cost 4 [3, 1, 3])
++
++/-- The unchanged lower side refutes strict shrinking without a suitable premise. -/
++theorem outside_boundary :
++    4 ∉ ([3, 1, 3] : List Nat) ∧
++      (Resources.Partition.partitionRun 4 [3, 1, 3]).1.1.length = 3 ∧
++      ¬ (Resources.Partition.partitionRun 4 [3, 1, 3]).1.1.length < 3 := by
++  rw [outside_run]
++  decide
++
++theorem interior_run :
++    Resources.Partition.partitionRun 2 [3, 1, 3, 1] = (([1, 1], [], [3, 3]), 5) :=
++  Prod.ext ((Resources.Partition.partitionRun_value 2 [3, 1, 3, 1]).trans interior_partition)
++    (Resources.Partition.partitionRun_cost 2 [3, 1, 3, 1])
++
++/-- Pivot membership is sufficient, not necessary, for both strict sides to shrink. -/
++theorem interior_boundary :
++    2 ∉ ([3, 1, 3, 1] : List Nat) ∧
++      (Resources.Partition.partitionRun 2 [3, 1, 3, 1]).1.2.1 = [] ∧
++      (Resources.Partition.partitionRun 2 [3, 1, 3, 1]).1.1.length < 4 ∧
++      (Resources.Partition.partitionRun 2 [3, 1, 3, 1]).1.2.2.length < 4 := by
++  rw [interior_run]
++  decide
++
++/-- The second invocation receives the actual lower bucket of the first result.
++Ordinary bind adds nine and four, with no additional wrapper entry. -/
++theorem bind_returned_lower :
++    Resources.bind (Resources.Partition.partitionRun 2 mixed)
++      (fun t => Resources.Partition.partitionRun 1 t.1) = (([0], [1, 1], []), 13) := by
++  have next : Resources.Partition.partitionRun 1 [1, 0, 1] = (([0], [1, 1], []), 4) :=
++    Prod.ext ((Resources.Partition.partitionRun_value 1 [1, 0, 1]).trans lower_partition)
++      (Resources.Partition.partitionRun_cost 1 [1, 0, 1])
++  calc
++    Resources.bind (Resources.Partition.partitionRun 2 mixed)
++        (fun t => Resources.Partition.partitionRun 1 t.1) =
++        Resources.bind ((([1, 0, 1], [2, 2], [4, 3, 4]), 9) :
++          Resources.Measured (List Nat × List Nat × List Nat) Nat)
++          (fun t => Resources.Partition.partitionRun 1 t.1) :=
++      congrArg (fun r : Resources.Measured (List Nat × List Nat × List Nat) Nat =>
++        Resources.bind r (fun t => Resources.Partition.partitionRun 1 t.1)) mixed_run
++    _ = (([0], [1, 1], []), 13) :=
++      congrArg (fun r : Resources.Measured (List Nat × List Nat × List Nat) Nat =>
++        (r.1, 9 + r.2)) next
++
++end ThreeWayPartitionExamples
+diff --git a/SquareApplications.lean b/SquareApplications.lean
+index 1f7e4544b1eb77614a1c6fb2311e0d3290a3b1a5..a36fa607584d77618858b5f1707b1df913a22cca 100644
+--- a/SquareApplications.lean
++++ b/SquareApplications.lean
+@@ -15,6 +15,7 @@ import Examples.CurryHoward
+ import Examples.ProbabilisticProgress
+ import Examples.MetropolisHastings
+ import Examples.ProbabilityCorrelation
++import Examples.PermutationMinimum
+ import Examples.StatefulIncremental
+ import Examples.ExternalInteraction
+ import Examples.InteractionTransport
+@@ -251,6 +252,9 @@ import Examples.InsertionCosts
+ import Examples.ListLibrary
+ import Examples.ListCalls
+ import Examples.FunctionalNotation
++import Examples.MergeCosts
++import Examples.DifferenceListCosts
++import Examples.ThreeWayPartition
+ 
+ /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
+ 
+diff --git a/docs/research/fdsa-difference-list-costs.md b/docs/research/fdsa-difference-list-costs.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..52b789bb484ca9aceedb584f521c8bab974c0f5f
+--- /dev/null
++++ b/docs/research/fdsa-difference-list-costs.md
+@@ -0,0 +1,219 @@
++# Difference-list closure observations
++
++This shared unit gives an explicit closure model for the constant composition
++and deferred application claims used by FDSA's natural mergesort discussion.
++It does not activate or accept
++Chapter 2, and it does not implement the source scanner.
++
++**Validation snapshot — 4 November 2026.** A successful focused check included
++the difference-list core and examples. A separate successful inspection
++printed 72 public types from those modules. These are historical results;
++reuse requires matching candidate evidence, and complete unit acceptance was
++still outstanding in this snapshot. The full acceptance gates below remain
++required.
++
++## Sources and existing interfaces
++
++The source is the July 27, 2026 [FDSA book](https://fdsa-book.net/), printed
++pp.21–22, PDF SHA-256
++`9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645`.
++The companion `Natural_Mergesort.thy` comes from the dated
++[AFP Efficient-Mergesort archive](https://isa-afp.org/release/afp-Efficient-Mergesort-2026-10-26.tar.gz),
++whose SHA-256 is
++`148ba9c80cf876a77219b1209dfa5df9bafe1aef1388bc84fc7088ff9c550708`.
++The theory's SHA-256 is
++`2fd5d686d7702385cc76f84e153034fe9b460ec94c0f751a56e5bd5ea017fe51`.
++It supplies the actual ascending-run builder recurrence used for later
++correspondence and imports `HOL-Data_Structures.Sorting`. The separately
++inspected `Sorting.thy` is pinned to Isabelle revision
++`f86f290225eebcc52c1ae7dba2e098f405f51c21`; that revision does not identify
++the AFP theory. The dated archive postdates the book edition, so this is
++provenance for the compared source, not a claim of identical July source.
++The exact unit requirements, bounded design preflight and its provenance
++correction are preserved in the external `fdsa-control` checkpoint directory.
++
++The value representation is existing `Batteries.DList`, at pinned revision
++`66e469188fe07963e5cf666c7d4433f45b8131c5`. Its `apply` function and invariant
++say that application appends a fixed prefix to the supplied suffix. Its
++`toList`, append, singleton and push laws already supply the relevant value
++semantics. The timing comments in the library are not themselves formal
++resource proofs.
++
++The unit reuses `Resources.Measured`, `bind`, `CallCount.tick` and `run`.
++There is no alternative DList datatype, expression tree, executor or compiler
++model. Existing ordered-summary and fusion clients retain their value laws;
++they acquire no cost claim merely by using an equivalent representation.
++
++## Two phases and their observations
++
++`Resources.DifferenceListCosts.Builder α` is an ordinary function:
++
++```lean
++List α → Resources.Measured (List α) Nat
++```
++
++The separate contracts are:
++
++```text
++Rep f prefix: for every suffix, value(f suffix) = prefix ++ suffix
++AppCost f k:  for every suffix, cost(f suffix) = k.
++```
++
++Rep says nothing about cost. AppCost is uniform over suffixes because a
++composition applies its first callback to the list produced by its second.
++Neither contract needs equality, order or an inhabitant of the payload type.
++
++The charged identity `empty` returns the suffix with one application entry.
++`singleton a` returns `a :: suffix`, also with one entry. `compose f g` first
++applies g, then applies f to that returned list, and adds one composition
++entry. Its exact general application observation is
++
++```text
++cost(g suffix) + cost(f(value(g suffix))) + 1.
++```
++
++Thus f representing p and g representing q give a callback representing
++`p ++ q`. Their application order is g then f; their output prefix order is
++p then q. If their uniform application costs are k and l, the resulting cost
++is `k+l+1` over natural observations. The proof retains the actual intermediate
++value before specializing those two cost contracts.
++
++`createEmpty`, `createSingleton` and `createCompose` are different operations:
++they return the corresponding callback and charge one construction event.
++They capture their fixed number of supplied references without applying the
++callbacks. A supplied callback has already been constructed at this boundary;
++capturing it does not repeat its construction or application work.
++
++This is a declared fixed-size closure-capture tariff and a unit invocation
++tariff. It is not a measurement of compiler allocation, processor instructions,
++memory retention or Lean's runtime evaluation. Scanner/control traversal costs
++remain a separate observation to be supplied by each source algorithm.
++
++## Compositional construction
++
++`pushRun a f` creates a singleton callback and composes f with it through the
++existing measured bind. The two construction events cost two. `buildFrom`
++executes these pushes through existing `Resources.run`; it does not recreate
++or recharge its supplied seed.
++
++For n items and a seed with prefix p and application cost k, the public laws
++separately establish:
++
++| Observation | Result |
++| --- | --- |
++| Construction during `buildFrom` | `2*n` |
++| Represented prefix afterward | `p ++ items` |
++| One application afterward | `k+2*n` |
++
++`build` first creates charged identity, then runs that construction. Both
++construction and one later application therefore cost `2*n+1`. The bound
++follows from the primitive callbacks and actual push recurrence; the final
++builder's cost is not supplied as an assumption.
++
++The examples define actual measured programs for construction followed by
++one application and by two applications. Both returned values are retained in
++the two-application program; it does not silently reuse the first materialized
++list. Their exact counts are:
++
++| Input length | Construction | Each application | Construct, apply once | Construct, apply twice |
++| ---: | ---: | ---: | ---: | ---: |
++| 0 | 1 | 1 | 2 | 3 |
++| 1 | 3 | 3 | 6 | 9 |
++| 3 | 7 | 7 | 14 | 21 |
++| n | `2*n+1` | `2*n+1` | `4*n+2` | `6*n+3` |
++
++The retained length-three input is `[3,1,3]`; nonempty suffixes and duplicate
++values remain in their original order. Empty construction/application is also
++instantiated at payload type `Empty`. The singleton-seed example charges only
++subsequent construction, giving `4*n+1` when that already supplied seed is
++extended by n items and then applied once.
++
++## Existing DList values and different cost histories
++
++`toDList f prefix rep` uses the existing DList record with application function
++`fun suffix => (f suffix).1`. Rep supplies its invariant and toList value.
++The semantic bridge reuses the standard append/push laws and equality to
++`Batteries.DList.ofList prefix`. It carries no construction history or cost
++information into the DList value.
++
++The pinned `Batteries.DList.push` implementation is the fused function
++`fun suffix => f (a :: suffix)`. The measured push in this unit explicitly
++composes f with a singleton callback. Their values agree, as exercised by
++`fused_push_value`; their exact construction/application decompositions are
++not identified. The two-singleton example independently expects `[1,2,9]`
++from prefixes `[1]`, `[2]` and suffix `[9]`, with three application entries.
++
++Charged identity is also only a value identity. Composing an arbitrary callback
++with it retains the returned list but adds two application entries: the
++identity invocation and the composition invocation. `identity_value_cost`
++retains this equation. No builder Monoid instance asserts a false identity
++law for the full measured observation.
++
++## Empty output does not bound application work
++
++The `padded` family repeatedly composes with charged identity. Every member
++represents the empty prefix and decodes to the same empty DList value, but
++its application count is `2*n+1`. `no_bound_from_output_length` supplies a
++member exceeding any proposed affine expression in that common zero output
++length. Extensional DList validity alone cannot justify a materialization
++bound in output length.
++
++The `doubled` family makes a second distinction. Each extension creates one
++new composition that captures the previously built callback twice. The
++description is shared, while the actual composition invokes that callback
++twice. After n extensions:
++
++```text
++construction cost = n+1
++application cost + 1 = 2^(n+1)
++represented prefix = [].
++```
++
++The successor equation is proved first, before deriving the natural-subtraction
++form `2^(n+1)-1`. Four extensions create five closures; applying the result
++to `[9]` returns `[9]` with application count 31. The actual measured program
++that constructs and applies it costs 36. These examples separate distinct
++creation events from unfolded invocation occurrences.
++
++Consequently, a statement about application work being linear in representation
++size must identify that size. Unfolded occurrence weight or an explicit
++application contract is appropriate here; the number of distinct shared
++closure-creation events is not a bound on arbitrary later application work.
++The push chain has a linear application weight because each extension captures
++its prior builder once and a fresh singleton once, as its recurrence proves.
++
++## Source correspondence still required
++
++The source ascending-run builder starts from singleton-prefix `(#) a`, then
++extends through explicit composition and ultimately applies to `[last]`.
++It does not start from identity. For a run of length r>=2 it has r-2 extensions
++after its singleton seed, so the later correspondence target in this tariff
++is application weight `1+2*(r-2)=2*r-3`. Empty and singleton runs bypass that
++path. The source-to-model branch equations and actual run-size invariant remain
++Chapter 2 obligations; the generic seed theorem merely provides the shared law.
++
++C02-112 additionally needs actual scanner/control, descending cons construction,
++emitted-run construction and merge-dispatch observations. Its comparison
++counters remain unchanged by the separate closure tariff. C02-109's ordinary
++repeated append versus prepend/reverse construction also remains chapter work.
++No chapter completeness claim follows from this shared interface.
++
++## Statement review and validation history
++
++The meaningful premises are the ordered-prefix value relation and a uniform
++cost contract for an already supplied callback. The base constructors satisfy
++both, and composition/build laws preserve them without payload restrictions.
++No final workload bound or physical execution theorem is postulated.
++
++Source review retains the two phase boundaries, actual intermediate values,
++arbitrary suffixes, supplied-seed scope, duplicate/order preservation, empty
++payload case, repeated materialization and the two distinct history examples.
++The architecture preflight identified and corrected the shared-allocation,
++fused-push and singleton-seed distinctions before implementation.
++
++No additional compiler was run for this draft while the frozen old Chapter 1
++gate remained active.
++
++Acceptance requires immutable-candidate elaboration, public-entrypoint coverage,
++the complete guarded candidate build and exhaustive audit, both retained
++independent review axes, and immediate candidate identity verification.
+diff --git a/docs/research/fdsa-list-merge.md b/docs/research/fdsa-list-merge.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..90ff9f07f9b2a2dbad7233dddb6f091fa5f9d89d
+--- /dev/null
++++ b/docs/research/fdsa-list-merge.md
+@@ -0,0 +1,258 @@
++# Ordinary list merge: value laws and two declared observations
++
++This shared source draft connects FDSA's ordinary merge to the existing
++`List.merge`, sorting contracts and measured composition. It adds the missing
++input-sublist/converse facts and one execution that records both head
++comparisons and recursive merge invocations. This note describes the
++draft's mathematical contracts; it does not record chapter acceptance.
++
++**Validation snapshot — 4 November 2026.** A successful focused check covered
++the merge core, measured merge and examples; a separate successful inspection
++printed 17 selected public types. A subsequent independent dependency review
++retained matching defining inputs for ten of those outputs and required new
++inspection of seven after a dependency change. Another 78 public types had
++no recorded inspection in the inventory. These are historical results; reuse
++requires matching candidate evidence, and complete unit acceptance was still
++outstanding in this snapshot. The full acceptance gates below remain required.
++
++## Source and reuse boundary
++
++The prescribed source is Chapter 2 §2.4, printed pp. 17–18 of
++[*Functional Data Structures and Algorithms: A Proof Assistant Approach*](https://fdsa-book.net/functional_data_structures_algorithms.pdf),
++July 27, 2026. Its PDF SHA-256 is
++`9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645`.
++The companion Isabelle equations and proofs are in Tobias Nipkow's
++[`Sorting.thy`](https://github.com/isabelle-prover/mirror-isabelle/blob/f86f290225eebcc52c1ae7dba2e098f405f51c21/src/HOL/Data_Structures/Sorting.thy):
++merge at lines 79–82, multiset/support and sortedness at lines 94–128,
++comparison recurrence/bound at lines 147–155, and output length at lines
++168–169. Its SHA-256 is
++`dfa60eae99cd6fa31e4fdd45f488282f913619a204061960e43ddceba4cadfca`.
++This pinned companion revision postdates the manuscript; it is not asserted
++to be the manuscript's generation revision. The equations were compared
++directly. The applicable Isabelle notice is retained below.
++
++The pinned Lean verification operation is
++[`Init.Data.List.Sort.Basic`](https://github.com/leanprover/lean4/blob/eb6cafb7290e8bd5f2937522d8d804f58f02bafc/src/Init/Data/List/Sort/Basic.lean),
++with its laws in
++[`Sort.Lemmas`](https://github.com/leanprover/lean4/blob/eb6cafb7290e8bd5f2937522d8d804f58f02bafc/src/Init/Data/List/Sort/Lemmas.lean).
++These are the project's Lean 4.35.0 revision; the source files identify Lean
++FRO and the Apache 2.0 license. Existing imported dependencies retain their
++own notices. The corresponding local source bridge remains
++[`Sorting.SourceMerge`](../../Applications/Sorting/SourceMerge.lean).
++
++Ordinary merge is also a useful component of chosen solutions to Chapter 14
++Exercises 14.1 and 14.3, printed pp. 180–181. A sorted-list queue may use it as
++its merge operation; the existing `LeftistQueue.toListQ` uses root followed
++by merge of its two child enumerations. Those exercises leave the algorithm
++choice open. This shared component supplies their merge ingredient, not the
++complete queue implementation, ordinary-tree correspondence or enumeration
++cost theorem. The abstract heap source is
++[`Heaps.thy`](https://github.com/isabelle-prover/mirror-isabelle/blob/f86f290225eebcc52c1ae7dba2e098f405f51c21/src/HOL/Data_Structures/Heaps.thy),
++SHA-256 `662b2bc74840ad46a54e95ed5b62b7117806b9e0cf1407a7d70968e4d2dc95fe`.
++
++## Existing values and the small converse extension
++
++[`Sorting.Merge`](../../Applications/Sorting/Merge.lean) continues to use
++ordinary `List.merge`, with `mergeBy` pulling comparison back from keys.
++Its permutation, forward sortedness, equal-key filter, stability and combined
++specification remain unchanged. The new value declarations are:
++
++| Declaration | Contract and assumptions |
++| --- | --- |
++| `sublist_merge_left`, `sublist_merge_right` | Each input remains an ordered sublist of the output, for every Boolean comparator. No order, equality decision, inhabitant or sortedness is needed. |
++| `pairwise_of_merge` | Any pairwise relation on the output holds on each input. The relation is independent of the comparator; the proof uses the two sublists and existing `List.Pairwise.sublist`. |
++| `merge_sorted_compatible_on_iff` | Combines that converse with the existing forward law under precisely its key preorder and comparison compatibility on actual cross-input members. |
++
++The identity-key/source specialization gives the book's sortedness equivalence,
++equation (2.12). The reverse direction is more general than that ordered
++specialization. Permutation or membership alone would not justify it: these
++facts preserve each operand's occurrence order.
++
++Stability retains its separate hypotheses. The actual key comparator takes
++the left element on an equal-key comparison. The existing filter/stability
++theorems require both blocks to be sorted and the key comparison/equality
++capabilities they state, without ordering or comparing payloads. Sortedness
++compatibility alone permits choosing the right equal-key record first.
++
++## One execution, two observations
++
++[`Resources.ListMerge`](../../Applications/Resources/ListMerge.lean) defines
++one `run cmp xs ys : Measured (List α) (Nat × Nat)`. The cost coordinates are
++**(comparisons, entries)**. An empty-side branch returns the other input with
++observation `(0,1)`. A nonempty branch tests the actual two heads, executes
++only the selected smaller recursive call, and constructs its output cons
++from that call's returned list while adding `(1,1)` through existing `bind`.
++The sum of input lengths is the decreasing measure.
++
++`comparisons` and `entries` are transparent projections of that same result.
++They are not separate recursive executors. The whole-pair equations,
++`run_value` and scalar projection equations connect the actual returned value
++and observations. In particular:
++
++| Public fact | Meaning |
++| --- | --- |
++| `run_nil_left`, `run_nil_right`, `run_cons_cons` | Actual returned-list and observation recurrence, including exactly one invocation for two empty inputs. |
++| `run_value` | The actual returned list is `List.merge xs ys cmp` for arbitrary lists and Boolean comparison. |
++| `comparisons_nil_left/right`, `comparisons_cons_cons` | Exactly the handwritten Chapter 2 `C_merge` equations: zero bases and one head comparison plus the chosen recursive count. |
++| `entries_nil_left/right`, `entries_cons_cons` | Separately declared invocation equations: one at the base and one for each nonterminal entry. |
++| `run_entries_cons_cons` | The scalar projected execution is the existing `CallCount.tick` around the selected projected child and an uncharged cons of its actual returned value. |
++| `entries_eq_comparisons_add_one` | One merge has exactly one terminal invocation with no head comparison. |
++| `comparisons_le`, `entries_le` | Bounds by the input-length sum and that sum plus one, respectively. |
++| `comparisons_cons_pos` | Two nonempty inputs necessarily cause the first comparison. |
++
++These bounds require no sorting, comparator law, distinctness, payload equality
++or inhabitant. The comparison bound is the deliberately loose source bound;
++the entry bound follows in the separately declared invocation model. Neither
++is a tight worst-case formula. The operation supports every payload universe,
++including an empty payload type.
++
++The comparison projection counts calls to the supplied comparator, not the
++work inside an arbitrary comparator or key function. Cons, lengths, external
++preparation and traversal of an untouched suffix have no additional charge in
++this model. The entry projection counts the logical merge's invocations,
++including initial and terminal calls. It does not count every Lean helper.
++The source comparison counter is handwritten; it is not a recovered generated
++`time_fun merge` theorem. Computing an observer program has no inferred cost
++from its returned observation.
++
++Lean replaces its verification-oriented merge at runtime with a proved-equal
++tail-recursive implementation. That value theorem does not identify either
++declared observation with compiled calls, allocation, stack use or elapsed
++time. The present mathematical statements make no such runtime claim.
++
++## Exact key transport and actual composition
++
++`run_map` takes a possibly noninjective map `f : α → β`, allowing independent
++universes, and comparison agreement only on actual cross-input members:
++
++```text
++∀ a ∈ xs, ∀ b ∈ ys, cmp a b = cmp' (f a) (f b).
++```
++
++It relates the entire mapped-input execution to the mapped output of the
++original execution with **both observations unchanged**. Each recursive branch
++agrees. This supplies the tagged-record/key-only connection without payload
++equality or injectivity. Existing `List.map_merge` alone proves only values.
++The theorem does not declare the work of performing a caller's maps free.
++
++The examples use ordinary `Resources.bind` for two merges, with the second
++receiving the first run's actual list. If its operands are `zs` and that result,
++the comparison bound is `2*(length xs + length ys) + length zs`. Total entries
++equal total comparisons plus **two**, since each merge has its own terminal
++invocation. The two coordinate additive homomorphisms and existing
++`reweight_bind` connect scalar projections of this same execution. The affine
++single-merge shift by one is not an additive homomorphism.
++
++The selected small pipeline first merges `[2]` and `[0]`, then merges `[1]`
++with the actual `[0,2]`. It returns `[0,1,2]` with totals `(3,5)`. Feeding the
++original concatenation `[2,0]` into the continuation instead returns `[1,2,0]`
++with `(2,4)`. Thus the case distinguishes actual intermediate-value sequencing
++in both value and work; no enclosing wrapper entry is silently charged.
++
++## Connected examples and boundaries
++
++[`Examples.MergeCosts`](../../Examples/MergeCosts.lean) retains the frozen
++independent expectations and applies the public facts to them. The ordinary
++merge laws supply length, occurrences, support and order after actual erasure.
++
++- Empty sides return the remaining list with `(0,1)`, including arbitrary
++  lists over `Empty`.
++- The singleton witnesses `[0]`/`[1,2]` and `[2]`/`[0,1]` have the same sorted
++  output but observations `(1,2)` and `(2,3)`.
++- Interleaving `[0,2,2]` and `[1,2,3]` retains all three occurrences of 2 and
++  gives `(4,5)`. Generic always-true/false clients retain arbitrary payloads.
++- Equal-key operand swaps can retain the same unlabelled output while changing
++  comparisons. Generic tagged records map to keys through actual `run_map`.
++- The signed-record client reuses the existing stable-sorting expected value
++  and specification, together with the new erasure/counts and existing merge
++  contracts. It does not define a parallel stable-sort specification.
++- Arbitrary comparators cannot sort away the retained unsorted sublist
++  `[3,1]`. Actual unsorted tagged inputs also show why left ties alone do not
++  remove the sorted-block premise of the equal-key filter theorem.
++- On distinct tags with equal keys, always-false comparison can preserve
++  sortedness and occurrences while violating the stable-filter observation.
++- Both nonempty inputs give `C ≤ E ≤ 2*C` through the existing C1
++  `cost_le_add_entry`/`add_entry_le`. An empty side gives `C=0,E=1` and
++  `zero_cost_entry_matters` refutes `E ≤ K*C` for every natural coefficient.
++
++The independent queue client measures one ordinary priority merge of
++`toListQ l` and `toListQ r`, followed by an uncharged root cons. Its value is
++the existing raw `toListQ` node body, with no heap/rank invariant. Existing
++`toListQ_perm.length_eq` and `entries_length` turn the local bounds into
++`C ≤ size l + size r` and `E ≤ size l + size r + 1`.
++
++The concrete raw node has cached rank 99, priority 9 and raw rank-zero singleton
++children with priorities 1 and 2. The body returns priorities `[9,1,2]` with
++**merge-only** counts `(1,2)`; the result is unsorted. Neither child enumeration
++nor the enclosing tree entry is charged by that local observation. A complete
++measured enumeration must sequence and count those computations separately.
++
++## Remaining book obligations and validation
++
++This unit supplies only the ordinary merge portion of the Chapter 2 map:
++C02-025, C02-027's merge termination, C02-028/029/031/033/035/037. It leaves
++all actual floor-left sorter definitions, decreasing halves, sorted-child
++cost composition, stability, printed power-of-two and all-length/real-log
++bounds, bottom-up/natural algorithms, scanner/builder observations and
++exercises to their retained chapter scope. The original 107 and reconciled 112
++inventory records, including C02-108–112, are unchanged. Standard ceil-left
++sort value equality supplies no source-cost equality.
++
++Chapter 14 still needs its concrete sorted-list representation, direct minimum
++and deletion costs, full ADT laws, ordinary-tree/carrier correspondence,
++complete measured enumeration and quadratic theorem, and all other exercises.
++Binomial merge additionally links equal-rank roots and carries through the
++recursively merged forest; its Chapter 17/Appendix B.7 tariff and coupled
++work/output-length argument are not specializations of this ordinary merge.
++
++The local draft uses the existing public entrypoint and unchanged pinned
++environment. Acceptance requires the applicable complete candidate build,
++both integrity passes, source/coverage checks, exhaustive transitive axiom
++audit, both independent review axes and immediate candidate verification.
++Author source readback and finite hand calculations are preparation only.
++
++## Isabelle notice
++
++The following complete notice is retained from the pinned Isabelle source
++distribution (`ISABELLE-COPYRIGHT`, SHA-256
++`44176a9195f0d6110302ca58c302437b2d6685049d4b8a7c1117121883d4b64d`).
++Only trailing spaces at line endings have been normalized.
++
++```text
++ISABELLE COPYRIGHT NOTICE, LICENCE AND DISCLAIMER.
++
++Copyright (c) 1986-2026,
++  University of Cambridge,
++  Technische Universitaet Muenchen,
++  and contributors.
++
++  All rights reserved.
++
++Redistribution and use in source and binary forms, with or without
++modification, are permitted provided that the following conditions are
++met:
++
++* Redistributions of source code must retain the above copyright
++notice, this list of conditions and the following disclaimer.
++
++* Redistributions in binary form must reproduce the above copyright
++notice, this list of conditions and the following disclaimer in the
++documentation and/or other materials provided with the distribution.
++
++* Neither the name of the University of Cambridge or the Technische
++Universitaet Muenchen nor the names of their contributors may be used
++to endorse or promote products derived from this software without
++specific prior written permission.
++
++THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
++IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
++TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
++PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
++OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
++SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
++LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
++DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
++THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
++(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
++OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
++```
+diff --git a/docs/research/fdsa-permutation-minimum.md b/docs/research/fdsa-permutation-minimum.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..052101180ceaf79f81e0873f24160fc73ae52f33
+--- /dev/null
++++ b/docs/research/fdsa-permutation-minimum.md
+@@ -0,0 +1,146 @@
++# Uniform minima under one global ranking
++
++This bounded shared
++unit supports the FDSA reconstruction. It closes no chapter or randomized
++algorithm obligation. Its immutable candidate, exact requirements, independent
++calculations and eventual validation/review results are retained in the local
++durability checkpoint's FDSA-XU01 record.
++
++**Validation snapshot — 4 November 2026.** A successful focused check covered
++the minimum-law core and both example modules. A separate successful
++inspection printed 37 public types from this unit. These are historical
++results; reuse requires matching candidate evidence, and complete unit
++acceptance was still outstanding in this snapshot. The full acceptance gates
++below remain required.
++
++## Mathematical interface
++
++`Applications.Probability.PermutationMinimum.minimumEvent priority S a`
++is a set of ordinary permutations of the index type I. A permutation π
++belongs exactly when a is in the fixed finset S and
++
++`∀ b ∈ S, priority (π a) ≤ priority (π b)`.
++
++Thus π maps key indices to priority labels. A source list which instead maps
++priority positions to keys has the inverse orientation. Every subset observes
++the same π. The event definition needs only the target's order relation;
++injectivity, finiteness and linear order belong to the probability law.
++
++`uniformOn_minimumEvent priority hinj S a ha` states that, under the uniform
++measure on all permutations, this event has mass `(S.card : ℝ≥0∞)⁻¹`.
++The hypotheses are:
++
++- I is finite; no public enumeration, index order or index measurable space
++  is required.
++- P is linearly ordered and `priority : I → P` is injective. P need not be
++  finite or measurable, and priority need not be monotone in an index order.
++- The permutation sample space has a measurable space with measurable
++  singletons. These explicit hypotheses justify ordinary finite event
++  probabilities; the unit installs no global measurable-space instance.
++- `ha : a ∈ S` supplies membership and hence nonemptiness. The index type
++  itself need not be inhabited: the permutation type has its identity even
++  when I is empty.
++
++The reciprocal is not a formula for the minimum of an empty set. The event
++includes membership precisely so that outsiders and an empty S have empty
++minimum events. In contrast, an outsider can satisfy all the raw priority
++comparisons without being a member of the subset.
++
++## Why the uniform law follows
++
++For a nonempty S, finite minimum existence gives a minimum priority. The
++injectivity of priority and the sampled permutation makes its attaining member
++unique. Consequently, the member events are disjoint and cover the sample
++space.
++
++Exchanging two indices in S on the right of π exchanges their minimum events.
++This transformation is a bijection of the whole permutation sample space.
++Mathlib's existing finite uniform/counting measure laws show that the two
++events have equal mass. Summing those equal masses over the disjoint cover
++gives `S.card * p = 1`, and hence the reciprocal formula. No factorial
++calculation, independent subset draw or selector is needed.
++
++This is a small combinatorial connection over existing interfaces. The local
++`Table`, finite-kernel and measured-execution developments keep their current
++semantics; they need no new probability carrier, ranking record or executor.
++The event and its elementary laws remain separate from normalization and
++uniqueness assumptions. The finite-bijection machinery is a proof helper,
++not a replacement invariance framework.
++
++## Connected examples
++
++`Examples.PermutationMinimum` uses the same uniform permutation of Fin 3 for
++the subsets `{0,1}` and `{1,2}`. The public theorem gives index one's minimum
++mass as one-half in each subset. The public event-intersection law identifies
++the joint event with its minimum event in their union, the whole universe.
++The same probability theorem then gives mass one-third. The product of the
++marginal masses is one-quarter, and the example proves the inequality.
++
++This matters for shared priorities: correct uniform marginals alone do not
++license replacing the joint law by independent draws. The full-universe and
++singleton specializations also connect to the generic probability theorem.
++
++`spacedPriority` assigns the three indices the integer values `-7,100,4`.
++Its injectivity and failure of monotonicity in the index order are proved.
++The same public minimum theorem still gives a two-member subset probability
++one-half. The target is infinite, its values have gaps, and its numeric values
++are not ordinal positions. No mean numeric priority is inferred.
++
++`Examples.PermutationMinimumBoundary` retains the consequential boundaries:
++
++- The empty subset has an empty event. The permutation law on an empty index
++  universe is nevertheless normalized.
++- On Fin 2, candidate zero is an outsider of `{1}`, so its membership-aware
++  event has mass zero. Its raw comparison has mass one-half, connected to
++  the genuine minimum event in the full two-member set. It cannot be given
++  the singleton's inverse-cardinality mass one.
++- For constant tied priorities on a two-member set, each member is a
++  non-strict minimum on every sample, with mass one. Dropping injectivity
++  would therefore make the one-half formula false.
++
++Independent exact enumeration checked every permutation and fixed subset
++for universe sizes zero through six, including these overlap and empty
++boundaries. That arithmetic is preparation evidence only. None of these
++source-written examples is called checked until the required Lean gates pass.
++
++## Source use and remaining chapter work
++
++The source edition is *Functional Data Structures and Algorithms: A Proof
++Assistant Approach*, July 27, 2026, available from
++[the authors](https://fdsa-book.net/functional_data_structures_algorithms.pdf).
++Its SHA-256 is
++`9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645`.
++The relevant later obligations are average/randomized quicksort in Chapter 2
++and shared random-priority treaps in Chapter 10's notes. The recovered
++treap source is Blelloch, Ferizovic and Sun,
++[*Joinable Parallel Balanced Binary Trees*](https://doi.org/10.1145/3512769),
++with the [author copy](https://www.cs.ucr.edu/~yihans/papers/TOPC/joinable.pdf)
++pinned at SHA-256
++`c39df24da9ffdd1027777c26a8ef0330d73e8f8b2282c5accb4c090b2b0f3057`.
++The shared-ranking construction is on pp.7:4–5; its root-priority estimate
++and expected bulk-work argument require further results beyond this unit.
++
++The exact fixed-subset minimum law is useful shared groundwork, not a claim
++that the source algorithms have been implemented:
++
++- Quicksort still requires its input-list/permutation orientation bridge,
++  conditional subproblem laws or an explicitly proved equivalent joint
++  construction, both recursive branches and its actual source tariff.
++  Random occurrence pivots and duplicate inputs retain their own obligations.
++- Treaps still require their canonical construction and deterministic
++  root/ancestor characterizations under one shared priority assignment.
++  Expected join/set-operation work additionally needs conditional depth,
++  Jensen/charging arguments and an actual observed-work correspondence.
++- The expected count of labels preceding all members of S has its own
++  count/indicator bridge and finite-linearity proof. Interpreting count plus
++  one as a first position additionally requires a nonempty subset and an
++  ordinal/rank bridge. For empty S that quantity is only a sentinel.
++- Full relative-order restrictions and conditional histories are stronger
++  distribution claims. `Equiv.Perm.subtypePerm` restricts a self-map preserving
++  a subtype; it does not automatically produce the induced order of an
++  arbitrary subset under a global ranking.
++
++The frozen requirements preserve these later obligations. Acceptance requires
++immutable-candidate compilation, whole-candidate guarded verification,
++exhaustive axiom audit, both independent review axes and immediate final
++candidate verification.
+diff --git a/docs/research/fdsa-reconstruction-map.md b/docs/research/fdsa-reconstruction-map.md
+index 327f797c0cfbef722d85bfe9143c32f4415c2680..e753d5325fcd4f576b091d795ffced6d625c2aaf 100644
+--- a/docs/research/fdsa-reconstruction-map.md
++++ b/docs/research/fdsa-reconstruction-map.md
+@@ -28,6 +28,14 @@ tickets, independent review records and candidate validation evidence. That
+ tracker is the authority for acceptance; the presence of a source mapping below
+ does not by itself mean that its chapter has passed all gates.
+ 
++**Accepted-base snapshot — 4 November 2026.** Chapter 1 was accepted at
++`07e480f6ec9958d4975bb90151005b84f2907614`. The shared foundation was accepted at
++`f17cc6b1a2bf44215b16202ed0fcee2b5c130761`, covering insertion costs, all twenty
++Appendix A entries, Appendix B.1 and all ninety Appendix C notation rows.
++The local tracker retains their complete validation and independent review
++evidence. Later shared-unit and chapter acceptance requires its own matching
++immutable-candidate gates; whole Appendix B remains open.
++
+ ## Chapter order and scope
+ 
+ The full scope is all 27 chapters and appendices A–C. Mathematical definitions,
+@@ -38,9 +46,9 @@ Chapter organization is a coverage index; modules follow reusable domain concept
+ 
+ | Chapter | Topic | Current implementation scope |
+ | --- | --- | --- |
+-| 1 | Basics | Detailed witnesses below; acceptance is tracked separately |
+-| 2 | Sorting | Active; shared insertion costs below; acceptance tracked separately |
+-| 3 | Selection | Queued; shared insertion costs below |
++| 1 | Basics | Accepted at `07e480f`; detailed witnesses below |
++| 2 | Sorting | Active; shared insertion, merge, builder, partition and minimum-law groundwork below; acceptance tracked separately |
++| 3 | Selection | Queued; shared insertion and partition groundwork below |
+ | 4 | Binary Trees | Queued |
+ | 5 | Binary Search Trees | Queued |
+ | 6 | Abstract Data Types | Queued |
+@@ -65,9 +73,9 @@ Chapter organization is a coverage index; modules follow reusable domain concept
+ | 25 | Knuth–Morris–Pratt String Search | Queued |
+ | 26 | Huffman's Algorithm | Queued |
+ | 27 | Alpha–Beta Pruning | Queued |
+-| A | List Library | Shared standard interfaces and checked adapters below; acceptance tracked separately |
+-| B | Time Functions | Matched as used; final complete inventory pending |
+-| C | Notation | Matched as used; final complete inventory pending |
++| A | List Library | Accepted at `f17cc6b`; all twenty entries mapped below |
++| B | Time Functions | B.1 accepted at `f17cc6b`; remaining subsections and whole-appendix acceptance pending |
++| C | Notation | Accepted at `f17cc6b`; complete notation correspondence linked below |
+ 
+ ## Chapter 1: Basics, printed pages 1–10
+ 
+@@ -483,3 +491,106 @@ requires the project's immutable-candidate verification and exhaustive proof
+ audit, both independent review axes, and final candidate-identity verification.
+ Their exact outcomes are kept in the local checkpoint's review record rather
+ than inferred from this narrative.
++
++## Shared ordinary list merge observations — FDSA-XM01
++
++`Applications.Sorting.Merge` adds the two order-free input sublists, arbitrary-
++relation pairwise converse and the input-local keyed sortedness iff, preserving
++its existing operation/forward/stability contracts. `Resources.ListMerge.run`
++is one actual selected-branch execution with comparison/invocation observations.
++Its first cost coordinate (`run.2.1`) has the handwritten C_merge equations;
++its second cost coordinate (`run.2.2`) counts all merge entries, including the
++terminal base. Exact erasure, E=C+1, loose length bounds and input-local exact
++map/key transport retain arbitrary payload universes and require no sorting,
++equality or inhabitant on the raw domain.
++
++This supports C02-025, the merge portion of C02-027, and C02-028/029/031/033/035/037.
++`Examples.MergeCosts` connects actual bind/reweight, the second merge's real
++first value, source/key adapters, stable and unsorted cases, noninjective key
++erasure, Empty, the qualified C1 positive/zero comparison, and an actual raw
++LeftistQueue.toListQ node body. That body's counts concern only its one merge
++of already obtained child lists. Full child/traversal work is not included.
++
++The prescribed C2 merge/comparison model and chosen C14 exercise components
++are distinguished in [the source note](fdsa-list-merge.md), with pinned sources,
++license and full observation boundaries. All whole-sort/logarithmic, run/builder,
++exercise and stability obligations remain; the original 107/current 112 C2
++requirements are unchanged. All concrete C14 queue/whole-enumeration/carrier
++and quadratic claims remain queued, and binomial carry is a different operation.
++The original foundation prefix c80eec9 excludes this later component.
++The source note retains a dated validation snapshot; acceptance requires the
++complete immutable-candidate gates recorded in the local FDSA-XM01 record.
++
++## Shared difference-list closure groundwork
++
++`Resources.DifferenceListCosts` adds ordinary measured suffix callbacks with
++separate ordered-prefix and application-cost predicates. Identity, singleton
++and composition callbacks have a declared invocation tariff; their creation
++operations carry a separate fixed-size capture tariff. Existing `run` executes
++compositional pushes. The seed-general construction laws imply `2*n+1` for
++creation and one application of the identity-seeded builder.
++
++The value representation remains Batteries.DList. Its fused push and the
++explicit compositional model have value correspondence, with no transfer of
++exact costs. Connected cases retain nonempty suffixes, duplicate/order
++preservation, empty payloads, repeated materialization, charged identity and
++empty-prefix histories with unbounded application work. Shared self-composition
++distinguishes distinct creation events from unfolded invocation occurrences.
++
++The
++[source and statement notes](fdsa-difference-list-costs.md) retain the actual
++singleton-seeded asc/scanner and repeated ordinary append/reverse obligations
++for Chapter 2. It makes no compiler or machine-runtime claim and does not
++activate or accept that chapter.
++
++The source note retains a dated validation snapshot; full immutable-candidate
++acceptance gates remain required.
++
++## Shared three-way partition values and source execution (FDSA-XQ01)
++
++This bounded cross-cutting unit exposes the existing independent
++partition semantics to Sorting and Selection, with a separately measured
++one-pass realization for Appendix B.2. It activates or accepts neither chapter
++and does not widen the initial Chapter 2 foundation prefix. Exact provenance,
++source/model distinctions, interface compatibility and cases are in
++[fdsa-three-way-partition.md](fdsa-three-way-partition.md).
++The source note retains the dated validation history; it does not substitute
++for this unit's full candidate gates.
++
++| Common source obligation | Draft declarations / intended connection |
++| --- | --- |
++| Three ordered filters and occurrence semantics, partition component of C02-102 and C03-011 | `Sequences.Partition.partition3` retains the existing two-stage value body, exact filter/perm/membership/length laws and standard nested tuple. |
++| Qualified strict-side decrease, C03-013 | Existing `partition_strict_sizes` retains pivot membership as a sufficient premise. Arbitrary-pivot correctness remains unconditional. |
++| Existing Selection compatibility | The old same-signature operation and seven theorem names remain wrappers/adapters. The selection-specific remainder, Rank, Consumers and RankSelection examples are unchanged. |
++| Companion source value equations | Shared nil/cons theorems expose one-tail reconstruction with tests `y<p` then `p=y`, without defining another pure operation or assigning a cost to the old implementation. |
++| Actual source count, C03-031 and B-018/019 | `Resources.Partition.partitionRun` uses one recursive tail call and its actual returned triple; separate value and count laws give the shared value and work `length+1`, including nil. |
++| Consequential clients | Generic equal-block/empty cases; mixed ordered duplicates; absent outside/interior pivots; old-name compatibility; same-program bind on the actual returned lower bucket with expected total thirteen. |
++
++The manuscript prints the three-filter specification and time recurrence;
++the pinned companion supplies the explicit single-pass code equation. The
++old two-pass value implementation, new actual source program and Exercise
++2.4's two-filter quicksort metric remain distinct. No physical runtime,
++tail-recursion, constant stack or arbitrary monotone bucket-transport claim
++is introduced.
++
++Complete quicksort3, selection rank/middle-index bridges, actual selector
++recursion and termination, median-of-medians, random policies and their total
++costs remain mandatory in the original chapters. Accepted repaired Chapter 1,
++focused compatibility checks, the full candidate build/audit, both independent
++review axes and immediate candidate verification remain required. No source
++preflight or authored draft supplies acceptance evidence.
++
++## Shared fixed-subset minimum probability (draft)
++
++The [uniform-permutation minimum unit](fdsa-permutation-minimum.md) supplies a
++source draft of the probability that a member of a fixed finite subset is
++first under one global uniform permutation of injective priorities. It uses
++ordinary permutations, finsets and Mathlib measures, with no new probability
++carrier. Its examples connect the general theorem to overlapping subsets,
++infinite-target integer priorities, empty indices, outsiders and ties.
++
++This groundwork supports Chapters 2 and 10. It does not supply conditional
++pivot/subproblem laws, full relative-order restrictions, the expected first
++position, treap construction/ancestor/charging proofs or algorithm cost
++correspondences. Its source note retains a dated validation snapshot;
++the local FDSA-XU01 record retains the frozen scope and subsequent gate results.
+diff --git a/docs/research/fdsa-three-way-partition.md b/docs/research/fdsa-three-way-partition.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..ee83f49a9c536f22f0340434795e117ea5766484
+--- /dev/null
++++ b/docs/research/fdsa-three-way-partition.md
+@@ -0,0 +1,259 @@
++# Shared three-way partition values and source execution
++
++This cross-cutting draft makes the existing ordered partition interface
++available to both sorting and selection, then supplies a separately measured
++one-pass source realization. The shared value operation retains its existing
++two-stage implementation and Selection-facing compatibility. Its source statements
++and connected clients require the complete immutable-candidate validation
++and review workflow.
++
++**Validation snapshot — 4 November 2026.** The shared partition core, measured
++source execution and examples, together with the retained Selection clients,
++had recorded individual module successes within broader checks that failed.
++A separate successful inspection printed 48 public types belonging to the
++shared and compatibility interfaces. These are historical results; reuse
++requires matching candidate evidence, and complete unit acceptance was still
++outstanding in this snapshot. The full acceptance gates below remain required.
++
++## Source correspondence
++
++The source is the July 27, 2026 edition of
++[Functional Data Structures and Algorithms](https://fdsa-book.net/functional_data_structures_algorithms.pdf),
++PDF SHA-256 `9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645`.
++Exercise 2.3 on printed p.28 specifies three-way partitioning by the ordered
++filters for values smaller than, equal to and greater than a supplied pivot.
++It then asks for correctness of the separate three-way quicksort algorithm.
++Chapter 3 uses the same partition observations in selection on pp.34–35 and
++in the selector's time composition on pp.40–41. Appendix B.2, printed p.348,
++gives the partition time recurrence and its exact `length+1` solution.
++
++The exact single-tail-recursion implementation is supplied by
++[`partition3_code` in Selection.thy](https://raw.githubusercontent.com/isabelle-prover/mirror-isabelle/f86f290225eebcc52c1ae7dba2e098f405f51c21/src/HOL/Data_Structures/Selection.thy),
++SHA-256 `c2e5970bcdc9430ef802a6612381fdd3820a02bc796d20f4a202060f3f00b4e8`.
++The companion first defines the three filters, then proves the code equations
++and explicitly selects them for its timing command before proving
++`T_partition3`. The one-pass implementation is not a separately displayed
++Chapter 3 code block in the inspected manuscript. The companion revision is
++recorded separately from the manuscript version; it is not claimed to have
++generated that PDF.
++
++The companion theory names Manuel Eberl, TU München. Its applicable Isabelle
++source notice is reproduced below. The existing conaled value operation and
++proof interfaces are reused, and the new Lean resource realization connects
++its own actual recursion to those values.
++
++## Shared values and compatibility
++
++`Sequences.Partition.partition3` retains the existing implementation: first
++partition the input by `< pivot`, then partition the first pass's rejected
++list by `= pivot`. The result is the standard right-associated product
++`List α × List α × List α`, with fields `.1`, `.2.1`, `.2.2`. The ordered
++filters are the semantic interface:
++
++| Component | Exact observation |
++| --- | --- |
++| Lower | Every input occurrence strictly below the pivot, in input order. |
++| Equal | Every input occurrence equal to the pivot, in input order. |
++| Upper | Every input occurrence strictly above the pivot, in input order. |
++
++Their concatenation is a permutation of the input and their lengths sum to
++its length. The buckets need not be sorted, and their concatenation need not
++be the original sequence. Set-only equality would lose the required order
++and duplicate occurrences.
++
++The shared module owns `partition3_eq_filters`, `partition3_perm`, the three
++membership equivalences, `partition_lengths` and `partition_strict_sizes`.
++`Applications.Selection.partition3` remains a same-signature definition
++wrapper, and all seven old theorem names remain direct adapters. The old/new
++operation connection is definitional. This preserves current consumers while
++allowing sorting clients to use partition semantics without depending on the
++selector's rank, policy and recursion machinery.
++
++The selection-specific source beginning with `sorted_partition` remains in
++its original module. Rank, Consumers and existing RankSelection examples are
++unchanged. Their ordered-list, equal-block indexing, pivot-policy, fuel,
++zero-based internal and one-based public contracts remain independent of the
++new resource program. The existing selector is not changed to execute that
++program by this extraction.
++
++The shared value and resource modules do not import Selection or Examples.
++The new examples provide the compatibility and sequencing clients. No new
++partition carrier, classifier record, keyed API, syntax or executor is needed.
++
++## Source equations and actual measured recursion
++
++The shared nil and cons theorems expose the companion's equations as value
++laws of the existing operation. For a returned tail triple `(ls,es,gs)`, a
++head `y` is added according to this order:
++
++```text
++if y < p then (y :: ls, es, gs)
++else if p = y then (ls, y :: es, gs)
++else (ls, es, y :: gs).
++```
++
++Equality symmetry reconciles `p = y` in the code equation with `y = p` in the
++filter specification. Linear-order laws identify the final case as `p < y`.
++The cons equation does not define a second pure algorithm and does not assign
++a one-pass cost to the unchanged two-stage value operation.
++
++`Resources.Partition.partitionRun` supplies the actual measured execution.
++Its empty case has one entry tick and the empty triple. Its cons case calls
++itself once on the tail, binds the actual returned triple, reconstructs the
++selected bucket using those returned lists, and adds one entry tick. It uses
++the existing ordinary `Measured`, `bind`, `pure` and `CallCount.tick` interfaces.
++No separately computed value is paired with a desired cost formula.
++
++Two independent contracts connect this execution to the source:
++
++```text
++(partitionRun p xs).1 = Sequences.Partition.partition3 p xs
++(partitionRun p xs).2 = xs.length + 1.
++```
++
++The value proof consumes the actual tail result and the shared cons equation.
++The work proof follows the program's own empty/cons count recurrence. It
++counts one per invocation, including the final empty call, and gives primitive
++comparison, equality, projection, tuple and cons operations zero additional
++observation. There is no extra wrapper-entry charge or executed length pass.
++
++This is the book's mathematical call observation. It does not assert a machine
++comparison, allocation, garbage-collection, stack or physical-runtime bound.
++The source reconstructs after its recursive call; one traversal alone does
++not establish tail recursion or constant stack use.
++
++## Pivot domains and recursion boundaries
++
++The value/filter/permutation/length laws and exact work quantify over every
++finite list and every supplied pivot, with the existing universe-polymorphic
++`[LinearOrder α]` interface. They do not add pivot membership, `Nodup`, input
++sortedness, `Inhabited`, a finite universe or top/bottom elements. Empty lists
++still receive an explicitly supplied pivot; no default value is manufactured.
++
++Membership of the pivot in the full input is a separate sufficient condition
++for both strict buckets to be smaller: it gives a nonempty equal bucket.
++An outside-range pivot can leave an entire strict bucket unchanged. Conversely,
++an absent interior pivot can still produce two smaller strict buckets, so the
++membership condition is not characterized as necessary.
++
++Three-way quicksort partitions the tail after removing its head pivot. That
++pivot need not occur again in the tail. The buckets are bounded by the tail's
++length, which is already smaller than the original nonempty input; the later
++termination proof must use that fact rather than a false membership premise.
++
++Selection's semantic recurrence permits arbitrary pivots. Its middle branch
++requires the reached index bounds to establish an equal occurrence. An
++arbitrary equal bucket can be empty, so neither a nonempty bucket nor direct
++return of its pivot follows from the partition interface alone. The required
++middle-index bridge and full selection algorithms remain Chapter 3 work.
++
++Existing noninjective monotone selected-value transport also remains separate.
++A map that merges values can turn a strict comparison into equality and move
++an occurrence between buckets. No blanket monotone bucket-transport law is
++asserted here. Equal external keys on distinct records likewise require an
++explicitly stated keyed interface, beyond literal equality in this operation.
++
++## Connected cases and independent expectations
++
++The compact examples use public value, filter, permutation, length, strict-size
++and cost interfaces, with hypotheses justified in each consequential use.
++
++| Input / composition | Independent expected result | Expected work |
++| --- | --- | ---: |
++| Empty list, supplied pivot | `([],[],[])` | `1` |
++| `replicate n p`, pivot `p` | `([], replicate n p, [])` | `n+1` |
++| `[4,1,2,0,3,2,1,4]`, pivot `2` | `([1,0,1],[2,2],[4,3,4])`; lengths `3,2,3` | `9` |
++| `[3,1,3]`, absent pivot `4` | `([3,1,3],[],[])`; lower side unchanged | `4` |
++| `[3,1,3,1]`, absent pivot `2` | `([1,1],[],[3,3])`; both strict sides smaller | `5` |
++| Bind the mixed partition to partitioning its actual lower bucket around `1` | Second input `[1,0,1]`, result `([0],[1,1],[])` | `9+4=13` |
++
++The generic equal-block family includes zero and singleton inputs; strict
++shrinking is used only after establishing positive length and pivot membership.
++The mixed fixture has visible nonsorted order within both strict buckets and
++repeated values. It distinguishes the full occurrence contract from set or
++sorted-output observations.
++
++The composition uses the same measured operation twice and ordinary bind.
++Its continuation receives the first actual triple, and its first field is
++the second input list. This is distinct from passing the original input or
++the entire value/cost pair, and it introduces no new executor or outer tick.
++The old Selection names are exercised by compatibility uses while the existing
++complete RankSelection examples remain in the public import/audit closure.
++
++## Distinct cost interpretations and remaining coverage
++
++The value specification, existing two-stage implementation and new one-pass
++realization have explicitly different roles. Output equality supplies no
++`n+1` count for the old uninstrumented operation. It also does not replace
++Exercise 2.4's two-filter quicksort observation. There, each filter on a tail
++of length `m` has charged predicate work and total `2*m+1`; the two filters
++and current-call entry contribute `4*m+3`, in addition to the recursive calls.
++The supplied metric omits append traversal. Its later worst-case and average
++proofs retain that execution and tariff.
++
++This unit supplies shared partition semantics behind C02-102 and C03-011/013,
++and the new one-pass realization required by C03-031 and B-018/019, subject
++to its validation gates. Complete quicksort3 correctness, rank/dispatch
++bridges, actual selection and median-of-medians recursion, random policies,
++whole-algorithm costs and all other book obligations remain in their original
++chapters. No whole chapter or appendix is accepted by this shared draft.
++
++## Statement assessment and validation status
++
++The source review keeps exact tuple order and multiplicity, arbitrary-pivot
++correctness, qualified strict decrease, actual returned-tail sequencing,
++independent work and value laws, and the unchanged old interface separate.
++The API/source/case preflights and original byte identities are retained in
++the local review evidence. They are preparation rather than compiler results.
++
++**Prerequisite history — 4 November 2026.** Chapter 1 was accepted locally on
++3 November 2026 at `07e480f6ec9958d4975bb90151005b84f2907614`. Integration of
++this unit also requires acceptance of the declared shared foundation.
++New and existing affected
++modules require focused compilation, the full applicable candidate build and
++exhaustive audit, both independent review axes and immediate candidate-record
++verification. Source authoring and independent expected calculations do not
++supply those results.
++
++## Referenced companion source notice
++
++The following notice accompanies the pinned Isabelle source equations:
++
++```text
++ISABELLE COPYRIGHT NOTICE, LICENCE AND DISCLAIMER.
++
++Copyright (c) 1986-2026,
++  University of Cambridge,
++  Technische Universitaet Muenchen,
++  and contributors.
++
++  All rights reserved.
++
++Redistribution and use in source and binary forms, with or without
++modification, are permitted provided that the following conditions are
++met:
++
++* Redistributions of source code must retain the above copyright
++notice, this list of conditions and the following disclaimer.
++
++* Redistributions in binary form must reproduce the above copyright
++notice, this list of conditions and the following disclaimer in the
++documentation and/or other materials provided with the distribution.
++
++* Neither the name of the University of Cambridge or the Technische
++Universitaet Muenchen nor the names of their contributors may be used
++to endorse or promote products derived from this software without
++specific prior written permission.
++
++THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
++IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
++TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
++PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
++OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
++SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
++LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
++DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
++THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
++(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
++OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
++```

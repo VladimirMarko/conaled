@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T21:46:45.880737+00:00",
+  "candidate": "b6df3412d52b0a98f92f625a2289252a93004d20",
+  "terminal": {
+    "recorded_utc": "2026-11-04T21:46:45.880499+00:00",
+    "owned_session": 66722,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "65425e",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "b6df3412d52b0a98f92f625a2289252a93004d20"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-tail-focused-attempt2-20261104/full.log",
+    "bytes": 14049,
+    "sha256": "5a4646e66b3b17cbbe7c807a6b8ca75e4d7123d2778361b899d89a59b683555f"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T214540Z-project-run-fcf71dc1",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-tail-focused-attempt2-20261104/native-records/start.json",
+      "bytes": 483,
+      "sha256": "00facd862f9b5b2773d6532205427326f4c6e824f6b59e2fa66ac83cb1641457"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-tail-focused-attempt2-20261104/native-records/result.json",
+      "bytes": 637,
+      "sha256": "076ee062364ada2ffb39695c9a915cb33ffb6520b34c5cc585e5d310cc2a08ab"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-tail-focused-attempt2-20261104/native-records/output.log",
+      "bytes": 13767,
+      "sha256": "ba90e039190a66afc2972976e5b20e82ec6f787d5fbe1564e82eac5f8bca24dc"
+    }
+  },
+  "native_body_exact_outer_offset": 125,
+  "complete_closed_log": true,
+  "scope": "Second focused randomized tail check only; no complete candidate check, actual-type extraction, exhaustive audit or acceptance credit.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

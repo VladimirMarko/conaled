@@ -1,0 +1,472 @@
+{
+  "recorded_utc": "2026-11-04T10:54:51.931936+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Continuation of the original complete R-through-final Chapter2 Standards review:81 paths,112 frozen obligations and all ten shared scopes. Separate exact Foundation F scope is unchanged.",
+  "status": "C02-TYPE-001 resolved on the Standards axis at exact4b5dbfa0; whole-candidate Standards outcome remains Blocked.",
+  "finding_disposition": {
+    "id": "C02-TYPE-001",
+    "axis": "Standards",
+    "status": "Resolved for the exact current candidate statement-inspection evidence and semantic assessment",
+    "concrete_unresolved_type_findings": [],
+    "new_workflow": false,
+    "root_and_other_axis_reconciliation": "Use within the same existing two-axis review round; this receipt does not speak for the independent Spec reviewer.",
+    "overall_candidate_acceptance": "Blocked"
+  },
+  "execution_input_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-execution-input-assessment-4b5dbfa0.json",
+    "bytes": 7434,
+    "lines": 156,
+    "sha256": "489ae557c9eef766ef9bf2e2e85d124fb71658c6546e707b494fe738c27d569a"
+  },
+  "actual_read_progress": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-type-review-progress.json",
+    "bytes": 123595,
+    "lines": 3562,
+    "sha256": "91b9df119e5b47cd94a7930001947eb2c14601d5d144149b796a8bb06f3f4d0b"
+  },
+  "program": {
+    "path": "provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/Statements.lean",
+    "bytes": 46371,
+    "lines": 862,
+    "sha256": "d4d37d6ea2b48fc5c743b1db36fe904ca8623be6c03c05ea5addc99b307687bd"
+  },
+  "prepared_inventory": {
+    "path": "provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/inventory.json",
+    "bytes": 58922,
+    "lines": 1148,
+    "sha256": "7fe7ddfc3242dff5937ef1fba339bd62f0a2ce66401fe919d383237049bd70bf"
+  },
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "full_log": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/full.log",
+    "bytes": 874944,
+    "lines": 11653,
+    "sha256": "a5347095b4f93728b1b384c415189e1d934084eca4af8999028d0864fab9fc6b"
+  },
+  "navigation_index": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/actual-type-ranges.json",
+    "bytes": 232026,
+    "lines": 7349,
+    "sha256": "5f53332f2c9719fc6ce7fe15f6eab6f90a6d7baf9dd1b4cf0e2750d1932ffcef"
+  },
+  "qualified_execution_summary": {
+    "outer_and_native_exit": 0,
+    "initial_and_final_clean_candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "exact_pre_post_identity": true,
+    "names": 815,
+    "source_roots": 36,
+    "local_source_closure": 84,
+    "objects_and_traces": 252,
+    "configurations": 10,
+    "pinned_dependencies": 9,
+    "qualified_runtime_components": 12,
+    "private_build_ownership": "Recorded qualified stock one-thread builds and stable private outputs, with the last required focused11 pass. No transplantation or concurrent owner is inferred.",
+    "fingerprint_boundary": "Supplemental fingerprints identify observed inputs; they do not certify cache authenticity, run an audit, or substitute for the normal whole-candidate integrity guard.",
+    "normal_full_check_before_type_inspection_required": false,
+    "whole_candidate_normal_guard_check_audit_remains_required": true
+  },
+  "actual_semantic_coverage": {
+    "fully_read_types": 815,
+    "type_number_ranges_inclusive": [
+      [
+        1,
+        815
+      ]
+    ],
+    "complete_native_lines_inclusive": [
+      [
+        1,
+        11650
+      ]
+    ],
+    "native_bytes": 874568,
+    "unread_types": 0,
+    "partial_types_counted": 0,
+    "all_names_once_in_exact_program_order": true,
+    "all_blocks_and_chunks_reconciled_to_native_hash": true,
+    "all_output_bytes_covered": true,
+    "read_method": "Manual complete semantic reading in bounded untruncated contiguous output chunks; mechanical index/count/hash checks supplied navigation and accounting only. Large blocks were split and counted only after every part was read.",
+    "largest_block": {
+      "number": 638,
+      "lines": 528,
+      "bytes": 46151,
+      "fully_read": true
+    },
+    "terminal_slice_reread_counted_once": true,
+    "completed_semantic_notes": "See every group in the progress receipt, including the final706-815 assessments.",
+    "prettyprinter_assessment": "All815 full outputs were read, including every quantifier, typeclass, implication and expanded let block. Observed ellipses occur in proof-term arguments, not omitted declaration premises. Explicit Fin.val domains and dependent indices are visible. No concrete hidden-premise or unread-type gap remains for these815 names.",
+    "concrete_findings": []
+  },
+  "per_source_actual_type_counts": [
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "current_actual_type_count": 17,
+      "source_sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2",
+      "source_blob": "b039038772d2ecdb17864678021ffa9aff4efa63"
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "current_actual_type_count": 15,
+      "source_sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed",
+      "source_blob": "437552dda711378d6a0910d9aa79bd99caae8977"
+    },
+    {
+      "source": "Applications/Resources/InsertionSort.lean",
+      "current_actual_type_count": 19,
+      "source_sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+      "source_blob": "d51ea6e9845378d3f7667adee189f8a210b477ed"
+    },
+    {
+      "source": "Applications/Resources/ListCalls.lean",
+      "current_actual_type_count": 34,
+      "source_sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+      "source_blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4"
+    },
+    {
+      "source": "Applications/Resources/ListMerge.lean",
+      "current_actual_type_count": 13,
+      "source_sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975",
+      "source_blob": "b658809bc2ba424807e326c3ee7cb64712865a46"
+    },
+    {
+      "source": "Applications/Resources/NaturalRunOperations.lean",
+      "current_actual_type_count": 63,
+      "source_sha256": "ccbe8f58dd53cbfaa4600780d5d8a2a78da994ba33c3d6edaa3098446d1f09eb",
+      "source_blob": "b6b63bd2714a74c4c66e2ec32b860f7107bb727a"
+    },
+    {
+      "source": "Applications/Resources/QuickSortMean.lean",
+      "current_actual_type_count": 14,
+      "source_sha256": "888bae2d149f2664f41e37f702ce5352718ac2d008f13fa51952239d85e5d09a",
+      "source_blob": "f5bb73b3f1c2c977013919b02a307c0c3669fed1"
+    },
+    {
+      "source": "Applications/Resources/QuickSortTransport.lean",
+      "current_actual_type_count": 5,
+      "source_sha256": "4093b8aa3b1bf884760926a4c866453f8ffa47d40304b8746f8083d2a3f54eff",
+      "source_blob": "438a6a58d720002fac7a2a61abb6b0b29804df21"
+    },
+    {
+      "source": "Applications/Resources/RandomQuickSortGrowth.lean",
+      "current_actual_type_count": 17,
+      "source_sha256": "2b8bf7b4820790edaaa5726efb8e8bd8bccd3a30cb30388148d95bba00e63674",
+      "source_blob": "ecad03eedc57c3bc75e19172eb4941bef9a3faf6"
+    },
+    {
+      "source": "Applications/Resources/RandomQuickSortMean.lean",
+      "current_actual_type_count": 22,
+      "source_sha256": "2c7976bf52a2dbed2eb6eb959055acc7ae0df8319c167f0128b63e5c482bd5d3",
+      "source_blob": "a9ce110d5aca6f04cc8d68cfd1ef5238832dbc0a"
+    },
+    {
+      "source": "Applications/Resources/RandomQuickSortRank.lean",
+      "current_actual_type_count": 12,
+      "source_sha256": "11a3eab707a445f1a205567845485c023e1eddf99358a06bfcd3a19a0a2c66ed",
+      "source_blob": "691d5f4aebc513566813d35891f5bb749dc8d1e8"
+    },
+    {
+      "source": "Applications/Resources/TopDownSorting.lean",
+      "current_actual_type_count": 3,
+      "source_sha256": "26531f25e57c0d198fc90d0a10652051ac6159098f493629af3283b54ab687bc",
+      "source_blob": "91cba444e67f3947d5fca7984242fde825807929"
+    },
+    {
+      "source": "Applications/Resources/UniformQuickSortMean.lean",
+      "current_actual_type_count": 67,
+      "source_sha256": "5e997076f474f1cfcc51cac11c31b870a1cd265cf121c6ae11519beab009ad67",
+      "source_blob": "2e06a117d18b4657dfc3e436a1939acad5427876"
+    },
+    {
+      "source": "Applications/Sorting/InsertionObservations.lean",
+      "current_actual_type_count": 5,
+      "source_sha256": "e537e85fa7d06db4e3030fbac3ad2123dfa295158ee87480ece9c47a56ee5add",
+      "source_blob": "3be66c5841da1fee074b9bbc5dc784f34c9a846f"
+    },
+    {
+      "source": "Applications/Sorting/QuickSort.lean",
+      "current_actual_type_count": 21,
+      "source_sha256": "696ae63c3f5c23940ac0f05c8ac6b48bff74b65e4c66faf319283efedea73802",
+      "source_blob": "01026a360a8f9f44afacd2fbd6ddb356ef8a95d4"
+    },
+    {
+      "source": "Applications/Sorting/TopDown.lean",
+      "current_actual_type_count": 14,
+      "source_sha256": "5a953ff534311e1686112273f7c95db6813c8a06ecee0af8fcc191f1c7d9586f",
+      "source_blob": "845444934d6fec2106e25af62b31f685269c2a59"
+    },
+    {
+      "source": "Examples/FunctionalNotation.lean",
+      "current_actual_type_count": 30,
+      "source_sha256": "fe4b585a6753110dee67c1942ce68d16d9bf00feb5946f32791682c634c42eef",
+      "source_blob": "3e5db8677c94bd330779522f92bc39508540a17a"
+    },
+    {
+      "source": "Examples/InsertionCosts.lean",
+      "current_actual_type_count": 16,
+      "source_sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37",
+      "source_blob": "1c3de9b0a0a5f27f108de09f28f6ac55f4cddb36"
+    },
+    {
+      "source": "Examples/InsertionObservations.lean",
+      "current_actual_type_count": 31,
+      "source_sha256": "29ba454b380ab837133863318611b059bc0af385008667d60c410ddedb7ba0f1",
+      "source_blob": "c164f9c2b150ae3a25dc731846d692b2f36f6e1e"
+    },
+    {
+      "source": "Examples/ListCalls.lean",
+      "current_actual_type_count": 16,
+      "source_sha256": "24d0809f51d04b0a9cadb5a349141e7327a5f7721f63c1021113527917487d5d",
+      "source_blob": "b4c4683ee2bd16ff6f844ce757470515847a63dc"
+    },
+    {
+      "source": "Examples/ListLibrary.lean",
+      "current_actual_type_count": 30,
+      "source_sha256": "036cf4c12ddf5d25ce433d9f7dbedfcbb96dfc3c7f602d10605388d2791e47ad",
+      "source_blob": "99ba369997885e176bbda192ee0feb5c7bf4d034"
+    },
+    {
+      "source": "Examples/MergeCosts.lean",
+      "current_actual_type_count": 72,
+      "source_sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466",
+      "source_blob": "b5f652cf5258c99f5a615b12987c664ed8be3d76"
+    },
+    {
+      "source": "Examples/NaturalRunOperations.lean",
+      "current_actual_type_count": 43,
+      "source_sha256": "7db50231ecbcdf3e63ff20475b0def2af0e855b70c367cc49235edb730b44f90",
+      "source_blob": "bbb89270f236ce467da85bc177c06882b4f9d6e4"
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "current_actual_type_count": 18,
+      "source_sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084",
+      "source_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35"
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "current_actual_type_count": 18,
+      "source_sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121",
+      "source_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59"
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "current_actual_type_count": 24,
+      "source_sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e",
+      "source_blob": "baa3e26a3c72a4589765562167d1d85edc011e67"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "current_actual_type_count": 22,
+      "source_sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54",
+      "source_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0"
+    },
+    {
+      "source": "Examples/QuickSort.lean",
+      "current_actual_type_count": 25,
+      "source_sha256": "2e5e4952bae8edf1fd5985f0cfd40993363a2f642717d61161a2e5ee6835a162",
+      "source_blob": "376371a0a74a54c8aaaaf653d4528af347347018"
+    },
+    {
+      "source": "Examples/QuickSortMean.lean",
+      "current_actual_type_count": 9,
+      "source_sha256": "924ce55ee6af374b55cea67ee6f2da25997b5a81ad098e2e3789622bd793b904",
+      "source_blob": "8b8846019ae3d447a38f0ea0f0797ad1afe7d751"
+    },
+    {
+      "source": "Examples/QuickSortTransport.lean",
+      "current_actual_type_count": 6,
+      "source_sha256": "57dc49986edb9c8f990781c980177a513a9e9e2020c6218ce4f4d88daac4c6b2",
+      "source_blob": "089aaca818282da784d6843205fc8b97ad3c4d73"
+    },
+    {
+      "source": "Examples/RandomQuickSortGrowth.lean",
+      "current_actual_type_count": 14,
+      "source_sha256": "372d0fad2f5a77f0c9c97e6b2004036ab1b922a2a80f623784011381905ab3a1",
+      "source_blob": "f9e153715b0ad68d3eac30f1dc0c2b986475a148"
+    },
+    {
+      "source": "Examples/RandomQuickSortMean.lean",
+      "current_actual_type_count": 10,
+      "source_sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670",
+      "source_blob": "2a1f75a801b49ea6a3bdbaecfc7b8e4a5407e38e"
+    },
+    {
+      "source": "Examples/RandomQuickSortRank.lean",
+      "current_actual_type_count": 18,
+      "source_sha256": "419e02b0865e4ed64041f0afe465271127599a475d3edff658224c9c8fd5d9d6",
+      "source_blob": "239b28e8d564edc0e8ae54ebaa06872060c8fd1b"
+    },
+    {
+      "source": "Examples/TopDownCosts.lean",
+      "current_actual_type_count": 2,
+      "source_sha256": "8f5f6969049712a5a5d37f7beb78c09017a2835b5f1208e54d0c9912dff425a4",
+      "source_blob": "05cf0aa40cfe066499ec49b3bab520cb2f3d9070"
+    },
+    {
+      "source": "Examples/TopDownSorting.lean",
+      "current_actual_type_count": 11,
+      "source_sha256": "0689ac22c8cc716efec24b4744ed606b79f734542101b28fc4f78af40ef089c5",
+      "source_blob": "013dea9599add78a6e839bb9e5831cf660321d69"
+    },
+    {
+      "source": "Examples/UniformQuickSortMean.lean",
+      "current_actual_type_count": 59,
+      "source_sha256": "744562a71000f1d4f2c82a57a681eaf0491dfd7065ad650f09c4403304d8c24b",
+      "source_blob": "cfb82beff57d8bf116b882c0c49850e4be629586"
+    }
+  ],
+  "historical_evidence_retained": {
+    "old_historical_outputs_actually_read": 941,
+    "old_expanded_pp_explicit": 648,
+    "old_ordinary_profile": 293,
+    "retained_qualified_historical_names": 920,
+    "retained_expanded": 648,
+    "retained_ordinary": 272,
+    "original_dependency_matching934_disposition_preserved": true,
+    "seven_changed_dependency_reinspections": [
+      "Examples.MergeCosts.key_source_value",
+      "Examples.MergeCosts.source_key_sorted_iff",
+      "Examples.MergeCosts.tagged_key_transport",
+      "Examples.MergeCosts.tagged_values",
+      "Examples.MergeCosts.twoStage_observation",
+      "Examples.MergeCosts.actual_input_matters",
+      "Examples.MergeCosts.queueBody_observation"
+    ],
+    "fourteen_missing_final_identity_reinspections": [
+      "Applications.Sorting.quickSortBy",
+      "Applications.Sorting.quickSortBy_perm",
+      "Applications.Sorting.quickSortBy_sorted_compatible_on",
+      "Applications.Sorting.quickSortOn_cons",
+      "Applications.Sorting.quickSortOn_correct",
+      "Applications.Sorting.quickSortAccBy",
+      "Applications.Sorting.quickSortAccBy_eq_append",
+      "Applications.Sorting.quickSortAccOn_cons",
+      "Applications.Sorting.quickSortAccOn_eq_append",
+      "Applications.Sorting.quickSortAccOn_correct",
+      "Examples.QuickSort.source_filter_multiset",
+      "Examples.QuickSort.source_complementary_multiset",
+      "Examples.QuickSort.source_sorted_append",
+      "Examples.QuickSort.arbitrary_payload_suffix"
+    ],
+    "reinspection_current_type_numbers_inclusive": [
+      [
+        794,
+        800
+      ],
+      [
+        801,
+        814
+      ]
+    ],
+    "disposition": "Those21 historical outputs remain honestly recorded as read but were not credited for current reuse; their exact current printed types are now read and qualified in the actual815 run. No missing old terminal identity or changed elaboration environment is retroactively repaired.",
+    "historical_dependency_runtime_assessment": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/historical-type-dependency-assessment-6b95185.json",
+      "bytes": 312652,
+      "lines": 6578,
+      "sha256": "4cf7c71ed470047083093dd8a5212d3eaa6013b9e2a7ed9e0ae9e15426d9f9ab"
+    },
+    "current_successor_identity_binding": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-4b5dbfa0.json",
+      "bytes": 27181,
+      "lines": 505,
+      "sha256": "3ae1e9749b8633e64a0adc14bb9cc96f5ee6cd5ba338dd45d55ddeac3df161d7"
+    },
+    "original_full_explicit_inventory": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/public-type-accounting.json",
+      "bytes": 1070441,
+      "lines": 28039,
+      "sha256": "a67cdd001115164b268d0c8d2b2a2dc2c6d95d46970a02bb17a324edb146e556"
+    }
+  },
+  "current_explicit_public_accounting": {
+    "public_names": 1763,
+    "qualified_historical": 920,
+    "qualified_current815": 815,
+    "distinct_qualified_actual_names": 1735,
+    "retained_accepted_base": 28,
+    "remaining_current_type_evidence_gaps": 0,
+    "expanded_actual_current_qualified": 1463,
+    "ordinary_profile_current_qualified": 272,
+    "equation": "920 +815 =1735;1735 +28 =1763",
+    "sets_pairwise_disjoint": true,
+    "set_hash_method": "SHA256 of lexicographically sorted fully qualified names, one UTF-8 name per line with final newline.",
+    "qualified_historical_names_sha256": "4f3f9716fe779be9cbc91d4d6d694f616590408668ab3c0c873e91d1a14501a3",
+    "qualified_current_names_sha256": "1c2ca9eda1aafe525972e2d6bb9862369756cd8da2b61dc5c34672b7e69a1900",
+    "qualified_actual_union_sha256": "cea37515c5cb6b611cca8de96b006864247780d489b82df89fe24af0d137a947",
+    "retained_accepted_base_names_sha256": "20edc112bdb7adcb2f556a2ff59dff6dced959806c5a690bf9d002c04f21ac9b",
+    "all_public_names_sha256": "bb75ae373b6dcd0d9adad97432cd808dd7e8a4729dc2e1072ac11fa77b85c901",
+    "retained_accepted_base_names": [
+      "Applications.Selection.PivotValid",
+      "Applications.Selection.dispatch",
+      "Applications.Selection.dispatch_value",
+      "Applications.Selection.head_pivot_valid",
+      "Applications.Selection.lastPivot",
+      "Applications.Selection.last_pivot_valid",
+      "Applications.Selection.runWith",
+      "Applications.Selection.runWith_value",
+      "Applications.Selection.selectWith",
+      "Applications.Selection.selectWith_eq_sortSelect",
+      "Applications.Selection.selectWith_none",
+      "Applications.Selection.selectWith_policy",
+      "Applications.Selection.selectWith_ranked",
+      "Applications.Selection.selectWith_some_iff",
+      "Applications.Selection.selectWith_value",
+      "Applications.Selection.sortSelect",
+      "Applications.Selection.sortSelect_none",
+      "Applications.Selection.sortSelect_some_iff",
+      "Applications.Selection.sorted_partition",
+      "Applications.Sorting.mergeBy",
+      "Applications.Sorting.mergeBy_filter",
+      "Applications.Sorting.mergeBy_perm",
+      "Applications.Sorting.mergeBy_sorted",
+      "Applications.Sorting.mergeBy_spec",
+      "Applications.Sorting.mergeBy_stable",
+      "Applications.Sorting.merge_sorted_compatible",
+      "Applications.Sorting.merge_sorted_compatible_on",
+      "Resources.isBigO_of_nat_bound"
+    ],
+    "new_authored_inventory_name": "Examples.UniformQuickSortMean.instFintypeLabel",
+    "original1762_and814_histories_preserved": true,
+    "new_named_instance_type": "Fintype Examples.UniformQuickSortMean.Label",
+    "uniform_example_authored_public_count": 59,
+    "uniform_scope_authored_public_count": 126,
+    "private_named_separate": 70,
+    "anonymous_instances_separate": 19,
+    "boundary": "Counts concern the explicit public named source inventory, including definitions, constructors and named instances; they are neither new theorem counts nor exhaustive generated/kernel declaration counts. Private source and generated-instance surfaces remain within the whole-source review and mandatory audit; accepted Chapter1 is not reopened."
+  },
+  "semantic_summary": [
+    "All printed universes, implicit parameters, typeclasses, hypotheses, indices and returned values were assessed against the retained full source/contracts/examples. No extra payload order/equality/inhabitation requirement or omitted counterexample premise was found.",
+    "Execution observations preserve actual recursive outputs and suffixes, exact comparison/entry or builder tariffs, and conditional probability environments and same-sample events. Distinct-key and positive-size/logarithm domains remain present where mathematically necessary.",
+    "The targeted merge/quicksort reinspection types preserve member-local order assumptions, complete measured observations, actual intermediate inputs, and the exact cross-boundary condition for sorted append.",
+    "The explicit finite Label instance has its actual expected concrete type. This does not claim equivalence with a previously unelaborated generated instance or audit away the omitted unused generated helpers."
+  ],
+  "separate_foundation_boundary": {
+    "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "prepared145_status": "Separate acceptance and type disposition still pending; no own compiler/process action.",
+    "potential110_current_credit": 0,
+    "other35_insertion_names": "Separate exactF evidence remains required because the relevant Sorting.Merge dependency differs.",
+    "potential110_receipt": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/foundation110-potential-type-reuse-0a7ef078.json",
+      "bytes": 122392,
+      "lines": 3445,
+      "sha256": "23ec745628fc15a330a492bc70f4a22d9fb452faaf9ba482006cebf7d3546bc0"
+    },
+    "future_reuse": "Any later explicit reuse disposition must apply the recorded exact subset/source/config/runtime/terminal conditions under both independent axes; this receipt does not grant it."
+  },
+  "remaining_gates": [
+    "C02-DOC-003 exact repository application and successor assessment remains open.",
+    "Complete immutable normal candidate check, closed terminal log, exhaustive audit and matching verification record.",
+    "Both independent final Standards and Spec outcomes in the same full-scope review round.",
+    "Immediate qualified check.sh --verify-candidate HEAD before any local fast-forward.",
+    "Separate exact Foundation acceptance gates and full chapter ordering remain mandatory."
+  ],
+  "historical_status_supersession": "Earlier partial-read statuses in the read-progress, execution assessment and report are retained as dated history; this complete assessment supersedes only their pending actual815/C02-TYPE-001 state at exact4b5dbfa0.",
+  "reviewer_actions": "Read-only closed evidence/source assessment and writes only to own review/provenance. No compiler, cache, index, source, ref, pin, ticket, process or other reviewer mutation."
+}

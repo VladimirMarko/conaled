@@ -1,0 +1,68 @@
+{
+  "recorded_utc": "2026-11-04T23:41:27.332358+00:00",
+  "previous_archive": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0134-random-selection-path-progress.tar.gz",
+    "bytes": 38083636,
+    "sha256": "2d70445d6636cb3e86828e5838e978b6282eb2fdfd24bdbd3e38eb6710fbcb70"
+  },
+  "previous_upload_library_file_id": "libfile_5ec3dbda67688191af137be4694522b1",
+  "previous_post_upload_hash_matched": true,
+  "exact_root_manifest_member": "conaled-fdsa-0134-random-selection-path-progress/MANIFEST.json",
+  "extracted_manifest": {
+    "bytes": 17325,
+    "sha256": "c5f4c78be37e60ed792d113c24cd73e4d8c0cc9cd214890a00a262d63a0e40c1"
+  },
+  "previous_verified_receipt": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0134-preparation/integrity.json",
+    "bytes": 1471,
+    "sha256": "3f36c9542ce4881234ca292f16ecc0eefaa02570737735bd6ca985fbbe91486b"
+  },
+  "previous_capture": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0134-preparation/capture.json",
+    "bytes": 1538390,
+    "sha256": "b9aa958213d7001f4db6a8b14b5cac639cb55e42fdf75cf5102007eec419e0cc"
+  },
+  "preparation_files": {
+    "verify-checkpoint.py": {
+      "bytes": 17756,
+      "sha256": "e37f1414942db71169bac948d5b3cc693b3c85084702b5c84cfdb821899455f6"
+    },
+    "capture.py": {
+      "bytes": 4961,
+      "sha256": "645c1385f56bc041ca560eb2d287733d923de623d3f93306df4ded28e70c1021"
+    },
+    "run-stage.py": {
+      "bytes": 2402,
+      "sha256": "8d8f4491d4a0d316eeb638a0381f95af49e4262164bec5eb2911ca31f4b5bf1b"
+    },
+    "verifier-scope-diff.patch": {
+      "bytes": 6818,
+      "sha256": "70340ae0c0d17998ad1ddb44f6972c790369dddf4c3550b415a406ce84c93d0c"
+    },
+    "helper-scope-diffs.patch": {
+      "bytes": 5544,
+      "sha256": "bfe3cff6c764eb30b38bdc8de3f2b955b6b5381c763ec5d2155fa3e37ca8bf5c"
+    },
+    "README.md": {
+      "bytes": 2448,
+      "sha256": "a59079eb4024d2628b0730c148d40ef780cf8087358cb3f711c81434e05b6d98"
+    }
+  },
+  "original_creator": {
+    "bytes": 10520,
+    "sha256": "5e72098a4b07a80c6861cdaf14f4d2234e33cd7b6a0a79170bae762599cbe078"
+  },
+  "original_restorer": {
+    "bytes": 5244,
+    "sha256": "23cdb74849a049df746c9f03af0e90ab261fd4fdc97bf2ea8f8088ffe9159376"
+  },
+  "changes": "Identifier updates, separate strict known-native-failure/missing-transport-terminal gate, two explicitly mutable in-progress Chapter3 independent report paths. Existing gates retained.",
+  "parent_full_verifier_read": [
+    "f2f641",
+    "a597ae"
+  ],
+  "parent_helpers_read": "537b32",
+  "capture_not_started": true,
+  "current_source_snapshot_not_claimed": true,
+  "independent_inspection_pending": true
+}

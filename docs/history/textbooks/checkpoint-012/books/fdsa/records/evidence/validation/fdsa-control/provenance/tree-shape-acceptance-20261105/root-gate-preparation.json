@@ -1,0 +1,22 @@
+{
+  "recorded_utc": "2026-11-05T03:45:53.363791+00:00",
+  "status": "PREPARED, UNEXECUTED, FAIL-CLOSED until actual final-evidence-expectations.json and complete final review records exist",
+  "predecessor": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-acceptance-20261105/reconcile_root_gate_once.py",
+    "bytes": 15033,
+    "sha256": "3a2001623f47a1afbfb09c36ec1d683d0a1f124990bcdd253a57d60a2984d485"
+  },
+  "helper": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/reconcile_root_gate_once.py",
+    "bytes": 15637,
+    "sha256": "b151c4b2b8bdc0418415f933d6fb34f7e47de2ac7ec8b297a1e587ffa9697c76"
+  },
+  "delta": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/root-gate-scope-diff.patch",
+    "bytes": 14367,
+    "sha256": "0ca5aaf4ccb694fb0e25b08b09bc0ade65e873b79aad7d4d0aa5e960f01c7aa5"
+  },
+  "missing_actual_expectations_file": true,
+  "root_complete_readback_pending": true,
+  "scope": "Exact original XT02 base/donor/five requirements/six paths/three formal modules/90 public names; no new mathematical acceptance gate or relaxed existing gate."
+}

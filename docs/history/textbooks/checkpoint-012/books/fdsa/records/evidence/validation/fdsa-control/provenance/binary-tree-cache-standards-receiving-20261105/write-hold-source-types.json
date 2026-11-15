@@ -1,0 +1,73 @@
+{
+  "recorded_utc": "2026-11-05T02:34:08.411632+00:00",
+  "reviewer": "/root/tree_cache_standards",
+  "unit": "FDSA-XT01",
+  "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "tree": "18bf4bc9df979d4ee6ac76182f58faed235a0714",
+  "incorporated_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "original_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "original_donor": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "outcome": "Blocked pending assessment of actual full candidate terminal/audit/success record",
+  "source_assessment_complete": true,
+  "actual115_assessment_complete": true,
+  "unresolved_finding_count": 0,
+  "held_files": [
+    {
+      "path": "reviews/binary-tree-cache-standards-receiving-20261105.md",
+      "bytes": 12933,
+      "sha256": "63001c5b5bd8f57c4b712efea5883efc656e83c409a8ae413365b76f63409bde"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/actual115-assessment.json",
+      "bytes": 54521,
+      "sha256": "74a345559dce391c7a21d016fa6cd1a712c8265e212c47b43a7b9e45d5e6d784"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/read-ledger.json",
+      "bytes": 10203,
+      "sha256": "f20adfb278a53c6870a0cabbf373fb92a53f9ad6df2bf44b1616df2ef75482ba"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/source-and-type-assessment.json",
+      "bytes": 32508,
+      "sha256": "e230cd3ad4c109b5f0e27f1f8a7e3ea9da21e4b3c2819dca370584d10d48c070"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/source-type-report.md",
+      "bytes": 12933,
+      "sha256": "63001c5b5bd8f57c4b712efea5883efc656e83c409a8ae413365b76f63409bde"
+    }
+  ],
+  "complete_report_readback": {
+    "tool_chunk": "02001e",
+    "actual_exit": 0,
+    "lines": [
+      1,
+      63
+    ],
+    "untruncated": true,
+    "all59_evidence_bindings_and9_protected_records_reconciled": true,
+    "all115_assessment_blocks_match_actual_index": true,
+    "complete_type_wrapper_prefix_and_suffix_read": true
+  },
+  "accepted_chapter03_runtime_comparison": {
+    "accepted_input_record": {
+      "path": "provenance/chapter03-final-statement-inputs-20261105/pre-inputs.json",
+      "bytes": 185662,
+      "sha256": "a1d16b9d1f761cf7fc4ab5b933e92fb6292fe614cfc45d7547f4b7c6a61b8c6b"
+    },
+    "matching_record_bound_by_chapter03_acceptance": true,
+    "same_configuration_count": 10,
+    "same_dependency_count": 9,
+    "same_runtime_profile_count": 12,
+    "no_new_fresh_trigger_from_these_inputs": true
+  },
+  "hold": "No further owned review file edits until root supplies the complete full-validation evidence or another explicit scoped continuation. Source/type artifacts remain reusable in this same review loop.",
+  "caller_duties_after_both_axes_pass": [
+    "immediate verify-candidate",
+    "exact local fast-forward",
+    "accurate local tickets and durable acceptance checkpoint"
+  ],
+  "caller_duties_are_not_preconditions_for_this_axis_to_pass_after_validation_assessment": true,
+  "no_compiler_session_poll_source_ref_cache_or_acceptance_action_by_reviewer": true
+}

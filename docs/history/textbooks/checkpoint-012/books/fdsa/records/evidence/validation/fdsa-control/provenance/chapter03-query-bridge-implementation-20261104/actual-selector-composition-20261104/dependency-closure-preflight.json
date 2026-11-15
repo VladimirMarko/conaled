@@ -1,0 +1,304 @@
+{
+  "source": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+  "root": "Applications/Resources/SelectionBounds.lean",
+  "project_closure": {
+    "Applications/Resources/SelectionBounds.lean": {
+      "bytes": 10073,
+      "sha256": "0f9181b569d24b2615c08be5c6a305a75e67679f14338e877fced10113d61edc",
+      "blob": "b68014cfc729990255e6883ac5d874af30bbb058",
+      "project_imports": [
+        "Applications/Resources/Selection.lean",
+        "Applications/Resources/SelectionRecurrence.lean"
+      ],
+      "initial_state": "absent"
+    },
+    "Applications/Resources/SelectionRecurrence.lean": {
+      "bytes": 6560,
+      "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e",
+      "blob": "ff3350e7cc566e62466e056166c8af6f781e32df",
+      "project_imports": [
+        "Applications/Resources/RoundedRecurrenceBounds.lean",
+        "Applications/Resources/Growth.lean"
+      ],
+      "initial_state": "absent"
+    },
+    "Applications/Resources/Growth.lean": {
+      "bytes": 2906,
+      "sha256": "99be17f2d45ac30de1e912c2181460dac046c8b98e40ea3209abfec342107786",
+      "blob": "65cfdecea6a600b9ed80a9784637e9811c4bd425",
+      "project_imports": [],
+      "initial_state": "identical"
+    },
+    "Applications/Resources/RoundedRecurrenceBounds.lean": {
+      "bytes": 6951,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135",
+      "blob": "45b5c20045c45919eb1f368ae0d9c9629b32a27b",
+      "project_imports": [
+        "Applications/Resources/RoundedRecurrence.lean"
+      ],
+      "initial_state": "absent"
+    },
+    "Applications/Resources/RoundedRecurrence.lean": {
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758",
+      "blob": "0f78fd302b88aba9596036a63b79195007e502a8",
+      "project_imports": [],
+      "initial_state": "absent"
+    },
+    "Applications/Resources/Selection.lean": {
+      "bytes": 22435,
+      "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+      "blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3",
+      "project_imports": [
+        "Applications/Resources/SelectionMedians.lean",
+        "Applications/Resources/Partition.lean"
+      ],
+      "initial_state": "absent"
+    },
+    "Applications/Resources/Partition.lean": {
+      "bytes": 2678,
+      "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14",
+      "blob": "e9d3682a4d3a499aaffd41f73c7fc39965fa0d30",
+      "project_imports": [
+        "Applications/Sequences/Partition.lean",
+        "Applications/Resources/CallCount.lean"
+      ],
+      "initial_state": "identical"
+    },
+    "Applications/Resources/CallCount.lean": {
+      "bytes": 2447,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+      "blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+      "project_imports": [
+        "Applications/Resources/Measured.lean"
+      ],
+      "initial_state": "identical"
+    },
+    "Applications/Resources/Measured.lean": {
+      "bytes": 2906,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+      "project_imports": [
+        "Squares.lean"
+      ],
+      "initial_state": "identical"
+    },
+    "Squares.lean": {
+      "bytes": 11694,
+      "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+      "blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+      "project_imports": [],
+      "initial_state": "identical"
+    },
+    "Applications/Sequences/Partition.lean": {
+      "bytes": 3786,
+      "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069",
+      "blob": "ff03bd349a39b3b77c49793175d4b474199e7c43",
+      "project_imports": [],
+      "initial_state": "identical"
+    },
+    "Applications/Resources/SelectionMedians.lean": {
+      "bytes": 9755,
+      "sha256": "e64e998edc9353e5fd52544177fadd32f6398e3260b27ca54195cd8917e5d098",
+      "blob": "cd6bd74d71c43fc76d32555521d612dfb7cc5ee8",
+      "project_imports": [
+        "Applications/Resources/Chunks.lean",
+        "Applications/Resources/SelectionAuxiliary.lean",
+        "Applications/Selection/MedianOfMedians.lean"
+      ],
+      "initial_state": "absent"
+    },
+    "Applications/Selection/MedianOfMedians.lean": {
+      "bytes": 13797,
+      "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba",
+      "blob": "c348fd2b48ec0b40fa76aa30634406580f9063c0",
+      "project_imports": [
+        "Applications/Selection/CountRank.lean",
+        "Applications/Sequences/Chunks.lean"
+      ],
+      "initial_state": "absent"
+    },
+    "Applications/Sequences/Chunks.lean": {
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493",
+      "blob": "c45bcb6427c002d3bab7c728dd6743458c8010fc",
+      "project_imports": [],
+      "initial_state": "absent"
+    },
+    "Applications/Selection/CountRank.lean": {
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d",
+      "blob": "5f6393df9fd804e4234eb16c8ecdcd93426952b3",
+      "project_imports": [
+        "Applications/Selection/Consumers.lean"
+      ],
+      "initial_state": "absent"
+    },
+    "Applications/Selection/Consumers.lean": {
+      "bytes": 5450,
+      "sha256": "7ddfe4da069279ac03b075088ce34e32a5ee8c1a251f6b035b45275bafa3167b",
+      "blob": "40ae5c7f08c8eac2c8a8577deac67975f6455c94",
+      "project_imports": [
+        "Applications/Selection/ThreeWay.lean"
+      ],
+      "initial_state": "identical"
+    },
+    "Applications/Selection/ThreeWay.lean": {
+      "bytes": 9718,
+      "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa",
+      "blob": "8627ad6d219f55a404dd96c4f4553594eaa71264",
+      "project_imports": [
+        "Applications/Selection/Rank.lean",
+        "Applications/Sequences/Partition.lean"
+      ],
+      "initial_state": "identical"
+    },
+    "Applications/Selection/Rank.lean": {
+      "bytes": 3713,
+      "sha256": "4a82df75593d909e2968bf1e27cbfea52c9795abfe81250bb2385e7dfc16f965",
+      "blob": "3412cfa142e12d9a50c725661c6ce133609a3d0c",
+      "project_imports": [
+        "Applications/Sorting/Sort.lean"
+      ],
+      "initial_state": "identical"
+    },
+    "Applications/Sorting/Sort.lean": {
+      "bytes": 5922,
+      "sha256": "5acd7728aaaefdec121df797efafd7dae13476c820d4f85f4ada19868fa71218",
+      "blob": "fb7096ebfede6b6a1721c453295faaa851453049",
+      "project_imports": [
+        "Applications/Sorting/Merge.lean"
+      ],
+      "initial_state": "identical"
+    },
+    "Applications/Sorting/Merge.lean": {
+      "bytes": 7840,
+      "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+      "blob": "6595f901a9358398bee07333872125990ef8360c",
+      "project_imports": [
+        "Applications/Sorting/Stable.lean"
+      ],
+      "initial_state": "identical"
+    },
+    "Applications/Sorting/Stable.lean": {
+      "bytes": 3704,
+      "sha256": "288552150aa002c60ed06c74e69510112cf9b4e2f0045da3d98ca5c39264d881",
+      "blob": "614b0628261442bcbe2a3c97b4af8fc56084fc42",
+      "project_imports": [],
+      "initial_state": "identical"
+    },
+    "Applications/Resources/SelectionAuxiliary.lean": {
+      "bytes": 6215,
+      "sha256": "eeba4ac85dd4e07b8b42f38499748cae69cb6dcaaa01fdc8400a3cf5b947a925",
+      "blob": "2bc892fee38610f0866e0cc3cd3529b7693f7c03",
+      "project_imports": [
+        "Applications/Resources/InsertionSort.lean",
+        "Applications/Resources/ListCalls.lean",
+        "Applications/Selection/CountRank.lean"
+      ],
+      "initial_state": "absent"
+    },
+    "Applications/Resources/ListCalls.lean": {
+      "bytes": 7939,
+      "sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+      "blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4",
+      "project_imports": [
+        "Applications/Resources/CallCount.lean",
+        "Applications/Resources/SymmetricCosts.lean"
+      ],
+      "initial_state": "identical"
+    },
+    "Applications/Resources/SymmetricCosts.lean": {
+      "bytes": 10508,
+      "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+      "blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+      "project_imports": [
+        "Applications/Resources/Potential.lean",
+        "Applications/Sequences/Symmetric/Core.lean"
+      ],
+      "initial_state": "identical"
+    },
+    "Applications/Sequences/Symmetric/Core.lean": {
+      "bytes": 12059,
+      "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+      "blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4",
+      "project_imports": [
+        "SquareKit/ListFusion.lean"
+      ],
+      "initial_state": "identical"
+    },
+    "SquareKit/ListFusion.lean": {
+      "bytes": 2939,
+      "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+      "blob": "33ec447acb6da7b884ae57d2a885707208201607",
+      "project_imports": [],
+      "initial_state": "identical"
+    },
+    "Applications/Resources/Potential.lean": {
+      "bytes": 4638,
+      "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe",
+      "blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+      "project_imports": [
+        "Applications/Resources/Workload.lean"
+      ],
+      "initial_state": "identical"
+    },
+    "Applications/Resources/Workload.lean": {
+      "bytes": 2745,
+      "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+      "blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+      "project_imports": [
+        "Applications/Resources/Measured.lean",
+        "SquareKit/ListFusion.lean"
+      ],
+      "initial_state": "identical"
+    },
+    "Applications/Resources/InsertionSort.lean": {
+      "bytes": 7257,
+      "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+      "blob": "d51ea6e9845378d3f7667adee189f8a210b477ed",
+      "project_imports": [
+        "Applications/Resources/CallCount.lean",
+        "Applications/Sorting/Sort.lean"
+      ],
+      "initial_state": "identical"
+    },
+    "Applications/Resources/Chunks.lean": {
+      "bytes": 4591,
+      "sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc",
+      "blob": "25c7db2d5358bf2087657a8987963ba31dff09eb",
+      "project_imports": [
+        "Applications/Resources/ListCalls.lean",
+        "Applications/Sequences/Chunks.lean"
+      ],
+      "initial_state": "absent"
+    }
+  },
+  "external_imports": [
+    "Lean",
+    "Mathlib.Algebra.BigOperators.Group.List.Basic",
+    "Mathlib.Algebra.Group.Nat.Defs",
+    "Mathlib.Algebra.Group.Prod",
+    "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+    "Mathlib.Algebra.Order.BigOperators.Group.List",
+    "Mathlib.Algebra.Order.Floor.Div",
+    "Mathlib.Algebra.Order.Floor.Ring",
+    "Mathlib.Algebra.Order.Floor.Semiring",
+    "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+    "Mathlib.Analysis.Asymptotics.Defs",
+    "Mathlib.Analysis.Normed.Field.Basic",
+    "Mathlib.Analysis.SpecialFunctions.Log.Base",
+    "Mathlib.Data.Finset.Lattice.Fold",
+    "Mathlib.Data.Finset.Range",
+    "Mathlib.Data.List.Basic",
+    "Mathlib.Data.List.Infix",
+    "Mathlib.Data.List.Perm.Basic",
+    "Mathlib.Data.List.Sort",
+    "Mathlib.Data.List.SplitLengths",
+    "Mathlib.Data.Multiset.AddSub",
+    "Mathlib.Order.Defs.LinearOrder",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.NormNum"
+  ],
+  "conflicts": []
+}

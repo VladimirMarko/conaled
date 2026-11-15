@@ -1,0 +1,14 @@
+{
+  "time": "2026-11-04T00:13:34.564108+00:00",
+  "kind": "late-cancellation-path-advisory-for-one-use-active-observer",
+  "observer": "validation/observe-integration-fresh-r2-045.py",
+  "observer_sha256": "20f44548d9ffe03f84cd7cf36e7fb4979d7437a02d46b1fafb69516c85775e4a",
+  "launched_at": "2026-11-04T00:10:50.061858+00:00",
+  "advisory_arrived_after_launch": true,
+  "finding": "After a forwarded cancellation, an observer-side exception could enter finally and send an additional SIGTERM while the controller is cleaning up. Deferred startup signals also need a single-send guard.",
+  "current_observer_left_immutable": true,
+  "actual_cancellation_or_observer_error_observed": false,
+  "future_use_requirement": "Do not reuse this fixed-ID historical observer. For any next observation harness, track cancellation_sent and deliver at most one signal, then wait without a second termination request.",
+  "formal_gate_effect": "No checker/controller/runtime/source input changed. Assess only genuine actual full terminal/postcheck evidence. Any lost or interrupted result stays incomplete.",
+  "formal_acceptance": false
+}

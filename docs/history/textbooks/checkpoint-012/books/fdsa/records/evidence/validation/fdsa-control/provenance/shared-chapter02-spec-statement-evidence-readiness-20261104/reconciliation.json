@@ -1,0 +1,2268 @@
+{
+  "recorded_utc": "2026-11-04T16:28:04.143229+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "scope": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "Lean_paths": 72,
+    "declaration_bearing_Lean_paths": 71,
+    "public_root_paths": 1,
+    "document_paths": 9,
+    "public_names": 1763,
+    "private_named_declarations": 70,
+    "anonymous_instances": 19,
+    "no_scope_reset": true
+  },
+  "commits": {
+    "original_full_review_base_R": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "accepted_F": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "accepted_I": "312aafb4446b995ff5542041b4e2e074f776db1e",
+    "accepted_J": "932438a765340d69fa6402f6abd17def6ec28d13",
+    "frozen_unaccepted_Tail_L": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+    "historical_C2_Z": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "future_complete_C2_receiver": null
+  },
+  "receiving_credit": 0,
+  "findings": [],
+  "all_assertions_passed": true,
+  "bound_inputs_rehashed": 159,
+  "bound_inputs": [
+    {
+      "path": "provenance/shared-chapter02-integration-readiness-20261104/inventory.json",
+      "bytes": 83228,
+      "LF_count": 1973,
+      "sha256": "d4a4a91d9712c97067c7bb2b83a12444da2f6333f3feab1ab8cbc6be9af80eca"
+    },
+    {
+      "path": "provenance/shared-chapter02-integration-readiness-20261104/readiness.md",
+      "bytes": 21002,
+      "LF_count": 185,
+      "sha256": "74d265e4772c5bffa2a09d218226b02299e50335d688bda13d14910acf9af71b"
+    },
+    {
+      "path": "provenance/shared-chapter02-integration-readiness-20261104/receipt.json",
+      "bytes": 4448,
+      "LF_count": 72,
+      "sha256": "a5183c858e8b6b73c83ceee2f57393c5b20e1df4ee8e36cb191acc2ab7032814"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/handoff.md",
+      "bytes": 14121,
+      "LF_count": 106,
+      "sha256": "f4ffad157c60c3fd69b6a308472f98824b5500004a3f077c5fe956ea91902f45"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/result.json",
+      "bytes": 22289,
+      "LF_count": 539,
+      "sha256": "568868ee361df9ba76fc5171117dadfaecbe0706d070c7b384add3dd9f7cbde7"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/receipt.json",
+      "bytes": 7167,
+      "LF_count": 209,
+      "sha256": "d789d407a24a1fe1099366a34e319d2840233aec5a616040035cb0bd5421d186"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/scope-and-continuation.json",
+      "bytes": 25136,
+      "LF_count": 636,
+      "sha256": "9d35d42ae7d9d3ded2e9e9e310c9a6c2b13bf8f2490b71493c2766dc8bf13cba"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/current-public-type-disposition-4b5dbfa0.json",
+      "bytes": 908317,
+      "LF_count": 24266,
+      "sha256": "6a749dbb10bddc7f8293330cdb56a27bd68b5c6473bd0f2d03aad2722881dee5"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/historical-type-dependency-assessment-6b95185.json",
+      "bytes": 312652,
+      "LF_count": 6578,
+      "sha256": "4cf7c71ed470047083093dd8a5212d3eaa6013b9e2a7ed9e0ae9e15426d9f9ab"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/historical-types-readback.json",
+      "bytes": 53587,
+      "LF_count": 1138,
+      "sha256": "8e9e377b31048e1258894755b92a63181293c7983fd09d53c64688a33a7519c2"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/public-type-accounting.json",
+      "bytes": 1070441,
+      "LF_count": 28039,
+      "sha256": "a67cdd001115164b268d0c8d2b2a2dc2c6d95d46970a02bb17a324edb146e556"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/historical-type-dependency-qualification-5398db.json",
+      "bytes": 3040,
+      "LF_count": 57,
+      "sha256": "6b759e6e251785f618f36b4d1bd4d02cc8406c9f42e9cc50016574f9914e874f"
+    },
+    {
+      "path": "provenance/shared-four-foundation110-reuse-preparation-20261104/inventory.json",
+      "bytes": 144109,
+      "LF_count": 3980,
+      "sha256": "daeea1d0142de847cb105989e32a4fa78fa1281bdfc30a1a6d1e6fefebc6fb32"
+    },
+    {
+      "path": "provenance/shared-four-foundation110-reuse-preparation-20261104/plan.md",
+      "bytes": 8082,
+      "LF_count": 44,
+      "sha256": "da2bf87a897fe5d77e6598a3c30e421e23c2faa96d71e8bb81d729cf22dab620"
+    },
+    {
+      "path": "provenance/shared-four-foundation110-reuse-preparation-20261104/receipt.json",
+      "bytes": 2325,
+      "LF_count": 45,
+      "sha256": "b9e55962fbfe30d412f19aa3ca5c5b3fb4ea8bd69a08109f89b2c8ff00cfcd21"
+    },
+    {
+      "path": "tooling/capture_statement_inputs.py",
+      "bytes": 5812,
+      "LF_count": 119,
+      "sha256": "4df281f3f427ec462a6973b9177fcc3f825b57b19fa8e205780f17cfaa89b5b7"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+      "bytes": 7518,
+      "LF_count": 156,
+      "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4"
+    },
+    {
+      "path": "provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+      "bytes": 16826,
+      "LF_count": 340,
+      "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754"
+    },
+    {
+      "path": "provenance/chapter02-xu02-statement-source-20261104/Statements.lean",
+      "bytes": 3522,
+      "LF_count": 61,
+      "sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+      "bytes": 4105,
+      "LF_count": 75,
+      "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/Statements.lean",
+      "bytes": 46371,
+      "LF_count": 862,
+      "sha256": "d4d37d6ea2b48fc5c743b1db36fe904ca8623be6c03c05ea5addc99b307687bd"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/result.json",
+      "bytes": 1415,
+      "LF_count": 33,
+      "sha256": "f563b12f4b572f99531027ab920784a94b8b9118a6e17cb1e65669217b1a216b"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/full.log",
+      "bytes": 107894,
+      "LF_count": 1494,
+      "sha256": "61ec42665eb65844556f10adb003cb706d45af01111affd0614405b5772fd5f4"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/native-records/output.log",
+      "bytes": 107530,
+      "LF_count": 1491,
+      "sha256": "bbf02ed2d02358a10d1ed670e28bc00e43beef3af20409d4dc926ad36ab193c2"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/native-records/start.json",
+      "bytes": 565,
+      "LF_count": 14,
+      "sha256": "723a36915d1de6ea4f9ccc0bf896b1a335bf73689382c899c657539cd5bd94a1"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/native-records/result.json",
+      "bytes": 718,
+      "LF_count": 19,
+      "sha256": "d41d579cb7a4089cbee06ec5636e458e2b4de7001bd1a99e5d98ad2fa58dc724"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/owned-terminal.json",
+      "bytes": 297,
+      "LF_count": 9,
+      "sha256": "c351b99a32e71abd8e8e05f27650c02e37bd1585010da54d25af3a9909faba78"
+    },
+    {
+      "path": "provenance/foundation145-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 38785,
+      "LF_count": 839,
+      "sha256": "482b005a6b020bc8fbc087ed746202caa89426382200d2aa37b4259ac0116d37"
+    },
+    {
+      "path": "provenance/foundation145-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 39092,
+      "LF_count": 845,
+      "sha256": "3065efbace8dc8cff34d764d33fd29e81f09b5549407d72be5cdaa217d482d16"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/result.json",
+      "bytes": 1412,
+      "LF_count": 33,
+      "sha256": "4e96d347b0303913359798dc0d58981c59f8d07d70eb946f263a6c68fda83f44"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/full.log",
+      "bytes": 257353,
+      "LF_count": 3441,
+      "sha256": "dec9c59e8b0891f7863ad9d84b624b763a58114db0d36c20e8865727f4197352"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/output.log",
+      "bytes": 256987,
+      "LF_count": 3438,
+      "sha256": "3bdb9dc0a92ec781a28b46de1a3eb843bda4efcd17c2292f091c19e52df7c50c"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/start.json",
+      "bytes": 567,
+      "LF_count": 14,
+      "sha256": "146560a48376372f9d6bc12bde6e61edd3a3771e3d015b6b5b6cf2d9f5ec6da6"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/result.json",
+      "bytes": 719,
+      "LF_count": 19,
+      "sha256": "e7a21394c023d7915d9e633d9f9cefce17579fe39c30b613b02f999e80d4749e"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/owned-terminal.json",
+      "bytes": 237,
+      "LF_count": 8,
+      "sha256": "290da6f6103fbbd295d650f5c86d5146399d5b56eb518b39c910738c3ac201a4"
+    },
+    {
+      "path": "provenance/shared-four314-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 45835,
+      "LF_count": 972,
+      "sha256": "c3dc93d12e645171b3df24d417cc36838f666233c09034bb751672f47081f3f9"
+    },
+    {
+      "path": "provenance/shared-four314-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 46143,
+      "LF_count": 978,
+      "sha256": "fb1b01c56f251f9ddc28ae17b301d312b09714e687b5b0803fbe8be32ff95307"
+    },
+    {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/result.json",
+      "bytes": 1399,
+      "LF_count": 33,
+      "sha256": "db079a70c552f4871fc32b4235b96b385e28cef14263966f0208113d4dbf4cde"
+    },
+    {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/full.log",
+      "bytes": 91428,
+      "LF_count": 1078,
+      "sha256": "54821ffa5bf5340248ed33971ff353c1335ff8a4988e23df048fe0892a7b2584"
+    },
+    {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/native-records/output.log",
+      "bytes": 91080,
+      "LF_count": 1075,
+      "sha256": "48466b063b338defe63e54b3eed7594095cd3036dd773443ef9649b2bc211b65"
+    },
+    {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/native-records/start.json",
+      "bytes": 550,
+      "LF_count": 14,
+      "sha256": "0d8130bfa11b453c9cd0d2138181caa81f6a71c923da2155de79bbe47ba6332d"
+    },
+    {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/native-records/result.json",
+      "bytes": 702,
+      "LF_count": 19,
+      "sha256": "221966b7f590b03a50a0c8ae2cb1c8b06e756af0d050b82c181e950f77ecf57b"
+    },
+    {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/owned-terminal.json",
+      "bytes": 236,
+      "LF_count": 8,
+      "sha256": "5516c8198145c691dfd79a20e77b71a95dc0dbc64d71531e500c6357a648786a"
+    },
+    {
+      "path": "provenance/shared-order53-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 15480,
+      "LF_count": 335,
+      "sha256": "eae1066844315be119551281752fcde15ba1f2cb2bf240d3f4186a9ca16ef8ec"
+    },
+    {
+      "path": "provenance/shared-order53-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 15788,
+      "LF_count": 341,
+      "sha256": "40817d0282d0ef62c6dac960429f5f6b8521cc86739f2eb4a195d869b17de15a"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/result.json",
+      "bytes": 1337,
+      "LF_count": 32,
+      "sha256": "408a2fc698c80f7f4527beb0045f21132c3dc544ad0d9054204e2619aff595ab"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/full.log",
+      "bytes": 874944,
+      "LF_count": 11653,
+      "sha256": "a5347095b4f93728b1b384c415189e1d934084eca4af8999028d0864fab9fc6b"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+      "bytes": 874568,
+      "LF_count": 11650,
+      "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/start.json",
+      "bytes": 578,
+      "LF_count": 14,
+      "sha256": "0cb40572871ef587d67958f5163814687d6d091cb0f99904e43b20a178d23fe5"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/result.json",
+      "bytes": 731,
+      "LF_count": 19,
+      "sha256": "2fde52dc025cc4db5b18940f872473232a7c3276665f78abb0b392f98e8782a2"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/secured-terminal.json",
+      "bytes": 2508,
+      "LF_count": 47,
+      "sha256": "c7c0b017ef12185fc8c5cfb4e82bc608dc19bec29bc34cee78fbf959a66c5252"
+    },
+    {
+      "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 125408,
+      "LF_count": 2524,
+      "sha256": "e4187960a469d194aeceed488d7e9bb45a450ae059bef46ba9645c5f9d6868ac"
+    },
+    {
+      "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 125726,
+      "LF_count": 2530,
+      "sha256": "c8a015007775ff98a220c90c328dc10f505cca8ac9ac9c7c3b887e2c0089ab4a"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-type-review-progress.json",
+      "bytes": 123595,
+      "LF_count": 3562,
+      "sha256": "91b9df119e5b47cd94a7930001947eb2c14601d5d144149b796a8bb06f3f4d0b"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+      "bytes": 23539,
+      "LF_count": 472,
+      "sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-execution-input-assessment-4b5dbfa0.json",
+      "bytes": 7434,
+      "LF_count": 156,
+      "sha256": "489ae557c9eef766ef9bf2e2e85d124fb71658c6546e707b494fe738c27d569a"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-complete-spec-assessment-4b5dbfa0.json",
+      "bytes": 23798,
+      "LF_count": 818,
+      "sha256": "116cf0a800841c3a18d338f446ce3a518455487de8e401dae1186a85c73ad878"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-execution-input-qualification.json",
+      "bytes": 6690,
+      "LF_count": 150,
+      "sha256": "9bf1f1e098997b9f4f01944c59b5578a32a4768e00fc0e68d1726c342bb82abe"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-read-progress-complete-before-disposition.json",
+      "bytes": 25943,
+      "LF_count": 1584,
+      "sha256": "a1f4a8504313bb62b46a577a0e3fd96cc3ebeb6aa3b41d08afe833c27df61275"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/actual-type-ranges.json",
+      "bytes": 232026,
+      "LF_count": 7349,
+      "sha256": "5f53332f2c9719fc6ce7fe15f6eab6f90a6d7baf9dd1b4cf0e2750d1932ffcef"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks001-005.json",
+      "bytes": 13091,
+      "LF_count": 248,
+      "sha256": "c483a3e7e92f3aec1913451a914a3b60a0680be9b373bdb92a521fa4585cdb5d"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunk006.json",
+      "bytes": 3111,
+      "LF_count": 54,
+      "sha256": "ac48c4e51172698488038a961f7e1c6ce4acde2d92f453a80d814ac9a67525be"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks007-008.json",
+      "bytes": 7201,
+      "LF_count": 118,
+      "sha256": "64c8f08b48e70c8e0ff34d1671342f50a60d23ac65964c486d706737a208f875"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks009-010.json",
+      "bytes": 6850,
+      "LF_count": 113,
+      "sha256": "ee3d416bcd21bad966aff49186ae694b62da37e91bea18c23f56e4e8554483c3"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks011-012.json",
+      "bytes": 6652,
+      "LF_count": 104,
+      "sha256": "04158840fb732987cf608f11402707482d31ea2a33b18ee96798c14e4dcdfc22"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks013-014.json",
+      "bytes": 5751,
+      "LF_count": 101,
+      "sha256": "892463b342d79b6f704c17879bab8b873294f46e2aa1f31b8242dafe6c508a85"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks015-016.json",
+      "bytes": 5191,
+      "LF_count": 96,
+      "sha256": "e88bc799b0dff12647cd1d319a1c1dd301232b0bc1241ee2ff957177282702b2"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks017-018.json",
+      "bytes": 5641,
+      "LF_count": 106,
+      "sha256": "f3c5fbc9b2f9f4e7acef75050f3bc428a13000d5c5d4358d59fec9863de0573a"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks019-020.json",
+      "bytes": 4456,
+      "LF_count": 86,
+      "sha256": "d06ca00322508269d1e4dfc553cd4900e9f79960267e5deb9ea9138df98174d2"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks021-022.json",
+      "bytes": 6041,
+      "LF_count": 101,
+      "sha256": "aa27522e879357a84f2328dbbc8a5f1353583048cb340aae91a394033e5c792f"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks023-024.json",
+      "bytes": 7771,
+      "LF_count": 131,
+      "sha256": "26a2e4236b164a526592f63c12933638f6e4aae926dce38d596b61b5c45f92e1"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks025-026.json",
+      "bytes": 6020,
+      "LF_count": 106,
+      "sha256": "f51d61de854c01d4214fad9fa1b4bcf031c232da580d095ad0bdf63bbc0aa3bd"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks027-028.json",
+      "bytes": 4813,
+      "LF_count": 88,
+      "sha256": "197643c478c8c8019cfeb912c13c0bfa6fd8508eaf610dbaca7070bc036526bc"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks029-030.json",
+      "bytes": 8216,
+      "LF_count": 148,
+      "sha256": "a9ecd9860e1c0bd62b0de05c9259a39c3a04e46b6133e30a6e3030f021f2321a"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks031-032.json",
+      "bytes": 8083,
+      "LF_count": 135,
+      "sha256": "54127ab0814d981be2927378fc47d0002e2f597368d1aec7123c33c7ba6d2c56"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks033-034.json",
+      "bytes": 5261,
+      "LF_count": 96,
+      "sha256": "be8e8cbf03a5ffff642bac19142bc84d9d03e958d7ad1b4084e707916b338e9c"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks035-036.json",
+      "bytes": 5566,
+      "LF_count": 121,
+      "sha256": "ec71a5428b8e7877586c930f25300087f9b8160b4730618a0c0bb92ce4e0ffd8"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks037-038.json",
+      "bytes": 6619,
+      "LF_count": 119,
+      "sha256": "9c7deb4fcec2c5c355232d446d76fa7c52c975ebf2af3cbd67957e9b480e8d28"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks039-040.json",
+      "bytes": 5740,
+      "LF_count": 109,
+      "sha256": "0345af07612caa25a7d1e19a20e33fe8abd8245aeb97acb4de0898d28fe5b527"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks041-042.json",
+      "bytes": 6781,
+      "LF_count": 122,
+      "sha256": "b15564b99722ba567efe4ba5e5ba31c5218c2ae6a3d5e68eeb3aaa92dbb4ab3c"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks043-044.json",
+      "bytes": 5158,
+      "LF_count": 88,
+      "sha256": "a75766083bbf9ee36e8e09479c668a54131b1e902cff9cbd84ae760897457147"
+    },
+    {
+      "path": "reviews/shared-foundations-spec-final-20261104.md",
+      "bytes": 5066,
+      "LF_count": 30,
+      "sha256": "f8c8d934662192f4376ab7ae2897957647a890ea964fca18555c0d12dfc5a8dc"
+    },
+    {
+      "path": "reviews/shared-foundations-standards-terminal-assessment-20261104.md",
+      "bytes": 9830,
+      "LF_count": 51,
+      "sha256": "5931dafe30f68151d81621ded0274643fb8145c5c57e644b6cca284fc634e141"
+    },
+    {
+      "path": "provenance/foundation-spec-terminal-assessment-20261104/actual145-read-progress.json",
+      "bytes": 9380,
+      "LF_count": 245,
+      "sha256": "ab4ba79877f9d85d3fe4f08d271312ed2f37922e60886e67a653afaea1e62a23"
+    },
+    {
+      "path": "provenance/foundation-spec-terminal-assessment-20261104/terminal-assessment.json",
+      "bytes": 55875,
+      "LF_count": 1082,
+      "sha256": "94ee34d1b1125d852cd790c3d7c1b51b0e304ebcaa96e87ac78d180ed8b9f093"
+    },
+    {
+      "path": "provenance/shared-foundations-standards-terminal-assessment-20261104/actual145-read-progress.json",
+      "bytes": 20912,
+      "LF_count": 378,
+      "sha256": "ef690b8f502c1ac4b70cd956cf682d2faa080b4b36151afc7cd05cd8a3a77a0b"
+    },
+    {
+      "path": "provenance/shared-four-standards-terminal-assessment-20261104/actual314-complete-standards-assessment.json",
+      "bytes": 7958,
+      "LF_count": 200,
+      "sha256": "9c281a08f07b5be0bbc46e7f8eb68fee907b23c536aeb44f4bb3e4bfde0525f4"
+    },
+    {
+      "path": "provenance/shared-four-standards-terminal-assessment-20261104/actual314-read-ledger.json",
+      "bytes": 14033,
+      "LF_count": 294,
+      "sha256": "5e61784905b0f5a6134b64808b84970bb4e5024b05ba2cf5aa836b16fd56fa01"
+    },
+    {
+      "path": "provenance/shared-four-spec-terminal-20261104/actual314-complete-type-assessment.json",
+      "bytes": 19153,
+      "LF_count": 412,
+      "sha256": "93755b8c310680acd71460ca5922362be2e77e3debbce140d2234f2f3bf7067a"
+    },
+    {
+      "path": "provenance/shared-four-spec-terminal-20261104/actual314-type-read-progress.json",
+      "bytes": 21128,
+      "LF_count": 675,
+      "sha256": "0dab0663b61eba1eaa6cd13b2c9480d75bafa4c63acd587ddc7d1a889f9e7012"
+    },
+    {
+      "path": "provenance/shared-order-spec-terminal-20261104/actual53-complete-type-assessment.json",
+      "bytes": 14211,
+      "LF_count": 428,
+      "sha256": "48cf1d163b1c7e0bc064c2664df8a965a42a81d24105a57920a5adc0dfcd9b68"
+    },
+    {
+      "path": "provenance/shared-order-standards-terminal-assessment-20261104/actual53-read-ledger.json",
+      "bytes": 5617,
+      "LF_count": 89,
+      "sha256": "801098585a98ff633f744e86513d037ed45fc1390f88bedcf80041a019d9fa08"
+    },
+    {
+      "path": "provenance/shared-four-foundation110-receiving-qualification-20261104/comparison.json",
+      "bytes": 114579,
+      "LF_count": 3232,
+      "sha256": "bdb7aaaba90baaa748466d7c084e9dd7214c346cc2c0736b92c5d1a5b3d2d256"
+    },
+    {
+      "path": "provenance/shared-order-inherited-type-qualification-20261104/comparison.json",
+      "bytes": 51378,
+      "LF_count": 1123,
+      "sha256": "db26dc39cfe7fabb2f62391769eaf620d0ac758d5cda08536074a3897b40195b"
+    },
+    {
+      "path": "provenance/shared-order-spec-terminal-20261104/inherited-semantic-disposition.json",
+      "bytes": 9770,
+      "LF_count": 184,
+      "sha256": "c9f29b300c14847abcde4a296e11a51ecc56d4ed83d8e5d32262f38e83021081"
+    },
+    {
+      "path": "provenance/foundation-acceptance-20261104/acceptance.json",
+      "bytes": 5234,
+      "LF_count": 146,
+      "sha256": "83c80450ccacba22c263f805670b2ee06dffc757447bb437f86875918c4e7fa0"
+    },
+    {
+      "path": "provenance/shared-four-acceptance-20261104/acceptance.json",
+      "bytes": 8228,
+      "LF_count": 200,
+      "sha256": "1d0e49de391af7f2c500d954e5e4bed4dea9094d0d24cdb57841e3ada5d33046"
+    },
+    {
+      "path": "provenance/shared-order-acceptance-20261104/acceptance.json",
+      "bytes": 19622,
+      "LF_count": 348,
+      "sha256": "639ab129abcdbcc29486f752e498cf859884201ec2a96a2bfac8db122f7c43b8"
+    },
+    {
+      "path": "provenance/foundation-spec-terminal-assessment-20261104/actual145-complete-assessment.json",
+      "bytes": 32768,
+      "LF_count": 970,
+      "sha256": "3912a47bc707618a56c26f6f294938613cc104ac306345989a7337deaadf28b1"
+    },
+    {
+      "path": "provenance/central-output-retirement-20261104/state.json",
+      "bytes": 1641,
+      "LF_count": 22,
+      "sha256": "745e5835b30f2ad6ed72c48130500c3eebf9aa765700bc881b8511cba083dda6"
+    },
+    {
+      "path": "provenance/central-output-retirement-20261104/execution2-result.json",
+      "bytes": 639,
+      "LF_count": 17,
+      "sha256": "2050d1caf65dce7fd04091f761450144f32066ae11f4d7d072be8d75660506eb"
+    },
+    {
+      "path": "provenance/central-output-retirement-20261104/persistence.json",
+      "bytes": 8750,
+      "LF_count": 317,
+      "sha256": "60cc08a9c00e31ba5a33104080a7c1d5aab3d06eca42c449dc59ad34f9ced0d0"
+    },
+    {
+      "path": "provenance/chapter02-measured-sorting-statement-source-20261104/Statements.lean",
+      "bytes": 9342,
+      "LF_count": 183,
+      "sha256": "904bd664fb385ef63fc1d6f2b8fd9fd2e3af2cadcbf6eb7f610a1e71ccbef20a"
+    },
+    {
+      "path": "provenance/chapter02-measured-sorting-types-20261104/result.json",
+      "bytes": 1307,
+      "LF_count": 32,
+      "sha256": "0239a13a5fd5ce2929ca4f949844c35336db81799410437749e5b686139240a2"
+    },
+    {
+      "path": "provenance/chapter02-measured-sorting-types-20261104/full.log",
+      "bytes": 136360,
+      "LF_count": 1805,
+      "sha256": "607eba97643a8361295857fb0777248e018534e0a7a78ed7d49760834f3ae325"
+    },
+    {
+      "path": "provenance/chapter02-xu01-statement-source-20261104/Statements.lean",
+      "bytes": 2495,
+      "LF_count": 45,
+      "sha256": "3755aaeb473b3310749ecc2863f034fc4a7616bb97d16719500c551d831aa367"
+    },
+    {
+      "path": "provenance/chapter02-xu01-types-20261104/result.json",
+      "bytes": 1283,
+      "LF_count": 32,
+      "sha256": "be230f2fb193bc58fd7e9ee60c51f46ab420b0328019a6dd16bacd51f5579ca9"
+    },
+    {
+      "path": "provenance/chapter02-xu01-types-20261104/full.log",
+      "bytes": 46850,
+      "LF_count": 621,
+      "sha256": "79a9faa38a7647046be84cdd475416793e56bb2fef1f802cad1d3306413be94b"
+    },
+    {
+      "path": "provenance/chapter02-bottom-up-costs-statement-source-20261104/Statements.lean",
+      "bytes": 5757,
+      "LF_count": 111,
+      "sha256": "f9486a8f64d9786814f2ffc67dfb158ab13bf1d392585c27ca83b35cadd34c2e"
+    },
+    {
+      "path": "provenance/chapter02-bottom-up-costs-types-20261104/result.json",
+      "bytes": 1305,
+      "LF_count": 32,
+      "sha256": "f1d24ea0cc59994c61ac312cd5d96aa9d3d9ace6f7d9014b8d523d69266409ad"
+    },
+    {
+      "path": "provenance/chapter02-bottom-up-costs-types-20261104/full.log",
+      "bytes": 69695,
+      "LF_count": 915,
+      "sha256": "b77970fe06b930f34286bcdb0e9a9ce1bdfbffceb2cdaf7f213cdf501137493d"
+    },
+    {
+      "path": "provenance/chapter02-natural-sorting-statement-source-20261104/Statements.lean",
+      "bytes": 5922,
+      "LF_count": 114,
+      "sha256": "59d413591ef58c6569fcf39575669aaafcb21d4cf7783f05a88935de0a97b9ac"
+    },
+    {
+      "path": "provenance/chapter02-natural-sorting-types-20261104/result.json",
+      "bytes": 1305,
+      "LF_count": 32,
+      "sha256": "f5615311995f5ceb9c6adf151f13ca00fad20fd061125f6c890e5e4267a4ca0c"
+    },
+    {
+      "path": "provenance/chapter02-natural-sorting-types-20261104/full.log",
+      "bytes": 79992,
+      "LF_count": 1106,
+      "sha256": "136335c62dbd1bd67c9f0ce77c69056b47f4e37b5b42e67ea91b233c1a71e50a"
+    },
+    {
+      "path": "provenance/chapter02-three-way-partition-statement-source-20261104/Statements.lean",
+      "bytes": 4571,
+      "LF_count": 94,
+      "sha256": "48019e7cc7c38382139b939a521527773e59b39f5b4b8ffff210d199babb7dbf"
+    },
+    {
+      "path": "provenance/chapter02-three-way-partition-types-20261104/result.json",
+      "bytes": 1313,
+      "LF_count": 32,
+      "sha256": "96f5ed0f13dab18888343d9544fbec662d26914d1429b70591b55f9c2f9f24f8"
+    },
+    {
+      "path": "provenance/chapter02-three-way-partition-types-20261104/full.log",
+      "bytes": 91292,
+      "LF_count": 1220,
+      "sha256": "c05a5e5a0098492721b81c689383d421a24ec3d6bf2b00a7629ae18be5ad8d99"
+    },
+    {
+      "path": "provenance/chapter02-xd01-random-statement-source-20261104/Statements.lean",
+      "bytes": 7417,
+      "LF_count": 143,
+      "sha256": "5f6eb99c622137c19ff2f5fc35389e7d9a2000cf06e4f3d7a2a25a803a76584b"
+    },
+    {
+      "path": "provenance/chapter02-xd01-random-types-20261104/result.json",
+      "bytes": 1297,
+      "LF_count": 32,
+      "sha256": "9bda3c662f6a9b177bd9f4da465124a722e8017c43eea9eb970a455988f366c3"
+    },
+    {
+      "path": "provenance/chapter02-xd01-random-types-20261104/full.log",
+      "bytes": 123793,
+      "LF_count": 1675,
+      "sha256": "5027831298792411bde1622e6ad00aef816a0f0f41c97e372139eb8a47afe182"
+    },
+    {
+      "path": "provenance/chapter02-bottom-up-alternating-statement-source-20261104/Statements.lean",
+      "bytes": 6776,
+      "LF_count": 133,
+      "sha256": "9ef7e05799ff059a262fc1cab1ffaae1ed269b1076931c44a6913bd6e2dda471"
+    },
+    {
+      "path": "provenance/chapter02-bottom-up-alternating-types-20261104/result.json",
+      "bytes": 1315,
+      "LF_count": 32,
+      "sha256": "e1aea6306fba49563ed8136678010ace5a10268274d56354d593baf1b1b35c57"
+    },
+    {
+      "path": "provenance/chapter02-bottom-up-alternating-types-20261104/full.log",
+      "bytes": 41284,
+      "LF_count": 584,
+      "sha256": "3296e4ba5330af5a1e1d6897ea7acb9898452def68510df2e9c343e70c1180b8"
+    },
+    {
+      "path": "provenance/chapter02-top-down-costs-proof-corrections-20261104/TypeInspection.lean",
+      "bytes": 1663,
+      "LF_count": 38,
+      "sha256": "3f235ac70f6fa1b2234a5899f5ba25f7de7e9caee35c0b8f90b8de98e96ab5c8"
+    },
+    {
+      "path": "provenance/chapter02-top-down-costs-types-20261104/result.json",
+      "bytes": 1307,
+      "LF_count": 32,
+      "sha256": "d8b25ce6073928f25fbebca98ebe94cb30e7e3dca3d7d46d7310b17c3ca5eb2b"
+    },
+    {
+      "path": "provenance/chapter02-top-down-costs-types-20261104/full.log",
+      "bytes": 11545,
+      "LF_count": 150,
+      "sha256": "ad826e1d3c972acbb437e9bceb5403ba230275033c623dc5526649eb2e79e6c8"
+    },
+    {
+      "path": "provenance/chapter02-uniqueness-statement-source-20261104/Statements.lean",
+      "bytes": 614,
+      "LF_count": 16,
+      "sha256": "5d5cb3cfd591633c6e0ef635094917f19f60f2db1e226df3782ba963f01fd5bf"
+    },
+    {
+      "path": "provenance/chapter02-uniqueness-types-20261104/result.json",
+      "bytes": 1360,
+      "LF_count": 32,
+      "sha256": "edcdaf9dcb6432522c27b00cf50d79ec2ca672e3a1853a4b62668cef49400cab"
+    },
+    {
+      "path": "provenance/chapter02-uniqueness-types-20261104/full.log",
+      "bytes": 6817,
+      "LF_count": 94,
+      "sha256": "11b58acd78c4f7b77bf4fbdb8bd7e4ca48378dcb2fab8c32d91fd0e4ccebda3f"
+    },
+    {
+      "path": "provenance/chapter02-natural-runs-statements-20261104/statements.lean",
+      "bytes": 5054,
+      "LF_count": 111,
+      "sha256": "d56c25d992aa23e63c9bfa51cf4561f8ae2e6c1f186dda1493d0741673b372e4"
+    },
+    {
+      "path": "provenance/chapter02-natural-runs-statements-20261104/result.json",
+      "bytes": 2157,
+      "LF_count": 43,
+      "sha256": "581563a848ae2d6dcbb995fbfa0fe9ea098193fd5940aece7b5b6dbd52dbaf41"
+    },
+    {
+      "path": "provenance/chapter02-natural-runs-statements-20261104/full.log",
+      "bytes": 22632,
+      "LF_count": 279,
+      "sha256": "bcde796041ddae8ec96f0e13e3231501cf9170f8cded41dc9565b54a8fc1af31"
+    },
+    {
+      "path": "provenance/chapter02-quicksort-statements-20261104/statements.lean",
+      "bytes": 799,
+      "LF_count": 19,
+      "sha256": "648822ba3ec1cebdf007f4dff758647b628d81a755f261804c2cd696ebe5f78b"
+    },
+    {
+      "path": "provenance/chapter02-quicksort-statements-20261104/result.json",
+      "bytes": 1573,
+      "LF_count": 35,
+      "sha256": "5603d4d2b028996dfb2cdbfa417a74cbcd53dc5cfd74fb48271d99d22e9dc746"
+    },
+    {
+      "path": "provenance/chapter02-quicksort-statements-20261104/full.log",
+      "bytes": 5491,
+      "LF_count": 73,
+      "sha256": "e752dc669d2987d02b11270211f978fd5bb575b4566233fbfbfbe3b7e81bc440"
+    },
+    {
+      "path": "provenance/ordinary-merge-focused-20261104-proof-corrections/TypeInspection.lean",
+      "bytes": 859,
+      "LF_count": 19,
+      "sha256": "72709d2b0430fa10684f3ca088a5d0041568ccfe3182653ce6aec731d49b1215"
+    },
+    {
+      "path": "provenance/ordinary-merge-type-inspection-20261104/result.json",
+      "bytes": 1306,
+      "LF_count": 32,
+      "sha256": "b410a2972784d2bc661f17599d0c0ed66e27639e77df06da34b3de7aa7bde883"
+    },
+    {
+      "path": "provenance/ordinary-merge-type-inspection-20261104/full.log",
+      "bytes": 9351,
+      "LF_count": 129,
+      "sha256": "4645276a14c159ab587b16acb8d11e8db95615c9a41c8fff69384c4b42f85910"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/evidence.json",
+      "bytes": 62209,
+      "LF_count": 1334,
+      "sha256": "26799815a0650f040739f876126301bf10b6850f8fa19316f839d7b20b641d32"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/read-ledger.json",
+      "bytes": 70213,
+      "LF_count": 1558,
+      "sha256": "f1700e05066e097d87a37399256e7ffe2709e118575f41a022ab0ffa2d95b4ae"
+    },
+    {
+      "path": "provenance/chapter02-measured-sorting-types-20261104/QuickSort-core-types.log",
+      "bytes": 42445,
+      "LF_count": 584,
+      "sha256": "8365c4bbcc04463466d927ace4c764d55b80798abc669509d5a0e3a987820ae2"
+    },
+    {
+      "path": "provenance/chapter02-measured-sorting-types-20261104/QuickSortCosts-examples-types.log",
+      "bytes": 31322,
+      "LF_count": 406,
+      "sha256": "99ecb6fb2cd1f0591868ea93bc418801c2f2870b0646df920cb4a4f64887067a"
+    },
+    {
+      "path": "provenance/chapter02-measured-sorting-types-20261104/NaturalRunComparisons-core-types.log",
+      "bytes": 19672,
+      "LF_count": 254,
+      "sha256": "8a767e31c2ab4148a5b56c0e520d20834d30edc5c3ff0037a32a7239efa66b42"
+    },
+    {
+      "path": "provenance/chapter02-measured-sorting-types-20261104/NaturalRunComparisons-examples-types.log",
+      "bytes": 15303,
+      "LF_count": 205,
+      "sha256": "4e2bd42643e4064d5801bc322ada707a5bd8298ef888a1bf183527ab2fe67901"
+    },
+    {
+      "path": "provenance/chapter02-measured-sorting-types-20261104/ListBuildCosts-core-types.log",
+      "bytes": 14486,
+      "LF_count": 183,
+      "sha256": "2cee36c4b4825188db08223cff38bed10ef8715b4d8ae6a5007ad2d7a9c450e2"
+    },
+    {
+      "path": "provenance/chapter02-measured-sorting-types-20261104/ListBuildCosts-examples-types.log",
+      "bytes": 12771,
+      "LF_count": 170,
+      "sha256": "3c213869c7cb8158762615a8c8a726eb28d37bff829211d8d0c4f4aba9b35c8f"
+    },
+    {
+      "path": "provenance/chapter02-xu01-types-20261104/1-Applications-Probability-PermutationMinimum-types.txt",
+      "bytes": 6008,
+      "LF_count": 86,
+      "sha256": "5573bdf42ab81c0adc23cb17d26d69fed45061e6c193771595c5d23385a081e2"
+    },
+    {
+      "path": "provenance/chapter02-xu01-types-20261104/2-Examples-PermutationMinimum-types.txt",
+      "bytes": 24174,
+      "LF_count": 323,
+      "sha256": "d94e81919afbc94cce3757748884761856ce83b8d01ef66e1e6782771b3ac9fb"
+    },
+    {
+      "path": "provenance/chapter02-xu01-types-20261104/3-Examples-PermutationMinimumBoundary-types.txt",
+      "bytes": 16318,
+      "LF_count": 209,
+      "sha256": "0fd48948decb6cb9abe43e2cf02457f60d47469b3175209266d5621282125162"
+    },
+    {
+      "path": "provenance/chapter02-bottom-up-costs-types-20261104/BottomUpSorting-types.txt",
+      "bytes": 36106,
+      "LF_count": 462,
+      "sha256": "884d6bbda53f4fc20a87cdd67fee61d2c75bb70f45847c132a5a8178cf6c4e98"
+    },
+    {
+      "path": "provenance/chapter02-bottom-up-costs-types-20261104/BottomUpCosts-types.txt",
+      "bytes": 33228,
+      "LF_count": 450,
+      "sha256": "877824e5b42c065dd44cc851006c47d84ea3452eaef42a66d937479e1f89520b"
+    },
+    {
+      "path": "provenance/chapter02-natural-sorting-types-20261104/1-Applications-Sorting-Natural-types.txt",
+      "bytes": 8605,
+      "LF_count": 129,
+      "sha256": "6860b7a605f19d4c5242f4ae3a03ddeef5bb8af5b96f91e0d467596e3b407f18"
+    },
+    {
+      "path": "provenance/chapter02-natural-sorting-types-20261104/2-Examples-NaturalSorting-types.txt",
+      "bytes": 15877,
+      "LF_count": 204,
+      "sha256": "cca8a24401b569edfa5d48cdd18c2d6da4c60fd56a61b4663e61d2a6ab19f752"
+    },
+    {
+      "path": "provenance/chapter02-natural-sorting-types-20261104/3-Applications-Resources-NaturalSorting-types.txt",
+      "bytes": 26499,
+      "LF_count": 388,
+      "sha256": "39ccc0ec89a913b5d8bbe4ae834e4cb877fee488f1e2786784323f63b1b29b6e"
+    },
+    {
+      "path": "provenance/chapter02-natural-sorting-types-20261104/4-Examples-NaturalSortingCosts-types.txt",
+      "bytes": 28650,
+      "LF_count": 382,
+      "sha256": "82c0c64f879ece1ef1f298dd0e581054dd3eccf668b4d5d48989bb31a8dfb6d9"
+    },
+    {
+      "path": "provenance/chapter02-three-way-partition-types-20261104/three-way-types.txt",
+      "bytes": 41779,
+      "LF_count": 534,
+      "sha256": "0cfc0cbc9452e2b1dfd7eef5fe4f7022732d43cb41c1d84c308d9a145c99f70c"
+    },
+    {
+      "path": "provenance/chapter02-three-way-partition-types-20261104/partition-and-legacy-types.txt",
+      "bytes": 49149,
+      "LF_count": 683,
+      "sha256": "e11516d6b42a939c886b90aa08b71e3d3f9f558a98f94906767a60ac949c45c4"
+    },
+    {
+      "path": "provenance/chapter02-xd01-random-types-20261104/xd01-types.txt",
+      "bytes": 36180,
+      "LF_count": 484,
+      "sha256": "987e4a4cd89fcaa821e0e8b628dcd6947d4571f39f737ad4f8b05573a2e2830e"
+    },
+    {
+      "path": "provenance/chapter02-xd01-random-types-20261104/random-types.txt",
+      "bytes": 87257,
+      "LF_count": 1188,
+      "sha256": "38119532e0476e3fa4870d924bed6484ed26267f1d6eae5707b41f99eb4728ac"
+    }
+  ],
+  "original_disposition": {
+    "path": "provenance/chapter02-spec-source-preparation-20261104/current-public-type-disposition-4b5dbfa0.json",
+    "bytes": 908317,
+    "LF_count": 24266,
+    "sha256": "6a749dbb10bddc7f8293330cdb56a27bd68b5c6473bd0f2d03aad2722881dee5"
+  },
+  "all_1763_rows_source_kind_group_run_and_program_positions_match": true,
+  "all_81_original_source_identities_match": true,
+  "programs": {
+    "F145": {
+      "identity": {
+        "path": "provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+        "bytes": 7518,
+        "LF_count": 156,
+        "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4"
+      },
+      "names": 145,
+      "ordered_names_sha256": "c215b8c417bfb1fddfb600b9f97ae8cd267d1df552ed489dea3bd5a655975ce1",
+      "actual_run_bound": true
+    },
+    "I314": {
+      "identity": {
+        "path": "provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+        "bytes": 16826,
+        "LF_count": 340,
+        "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754"
+      },
+      "names": 314,
+      "ordered_names_sha256": "6cd991c340d9a2f7896966475a11bfeb110ee844bd146aa79957c78ac258a963",
+      "actual_run_bound": true
+    },
+    "J53": {
+      "identity": {
+        "path": "provenance/chapter02-xu02-statement-source-20261104/Statements.lean",
+        "bytes": 3522,
+        "LF_count": 61,
+        "sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3"
+      },
+      "names": 53,
+      "ordered_names_sha256": "d57faa976c5df28d363e8bfdf021af7aa26e002f2d6d465369411f94dda6e3cb",
+      "actual_run_bound": true
+    },
+    "Tail61": {
+      "identity": {
+        "path": "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+        "bytes": 4105,
+        "LF_count": 75,
+        "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa"
+      },
+      "names": 61,
+      "ordered_names_sha256": "6fbabbc26794a748e9da123a8af800f96da2652d7ca2ee9e007fb4d78cfc49f2",
+      "actual_run_bound": false
+    },
+    "Z815": {
+      "identity": {
+        "path": "provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/Statements.lean",
+        "bytes": 46371,
+        "LF_count": 862,
+        "sha256": "d4d37d6ea2b48fc5c743b1db36fe904ca8623be6c03c05ea5addc99b307687bd"
+      },
+      "names": 815,
+      "ordered_names_sha256": "1309620a9c17c6cfcedc2c697fb9186567bc9cc510adc02b39d0be18cad7c035",
+      "actual_run_bound": true
+    }
+  },
+  "group_counts": {
+    "F110_unchanged_closure_conditional": 110,
+    "I242_unchanged_closure_conditional": 242,
+    "J53_unchanged_closure_conditional": 53,
+    "Tail61_prepared_only_conditional": 61,
+    "I72_Growth_changed": 72,
+    "actual405_same_closure_conditional": 405,
+    "possible466_including_unexecuted_Tail61": 466,
+    "complete_predecessor538_name_union": 538,
+    "conditional1297_remainder_not_a_run": 1297,
+    "historical920": 920,
+    "actualZ815": 815,
+    "acceptedR28": 28
+  },
+  "partition": {
+    "historical920": {
+      "total": 920,
+      "in_predecessor538": 167,
+      "outside_predecessor538": 753,
+      "same_closure405": 167,
+      "conditional466": 167,
+      "conditional1297": 753
+    },
+    "actualZ815": {
+      "total": 815,
+      "in_predecessor538": 344,
+      "outside_predecessor538": 471,
+      "same_closure405": 211,
+      "conditional466": 272,
+      "conditional1297": 543
+    },
+    "acceptedR28": {
+      "total": 28,
+      "in_predecessor538": 27,
+      "outside_predecessor538": 1,
+      "same_closure405": 27,
+      "conditional466": 27,
+      "conditional1297": 1
+    }
+  },
+  "static_closure": {
+    "defining_roots": 71,
+    "local_sources": 97,
+    "external_names": 86,
+    "root_relations": {
+      "new": 46,
+      "exact": 24,
+      "changed": 1
+    },
+    "growth_affected_roots": {
+      "Examples/MergeCosts.lean": 72,
+      "Applications/Resources/Growth.lean": 3,
+      "Examples/NaturalSortingCosts.lean": 30,
+      "Examples/NaturalRunOperations.lean": 43,
+      "Applications/Resources/NaturalRunOperations.lean": 63,
+      "Applications/Resources/NaturalSorting.lean": 37,
+      "Examples/BottomUpCosts.lean": 29,
+      "Applications/Resources/TopDownSorting.lean": 18,
+      "Examples/TopDownCosts.lean": 17,
+      "Applications/Resources/BottomUpSorting.lean": 76
+    },
+    "growth_affected_names": 388
+  },
+  "all72_merge_costs": [
+    {
+      "name": "Examples.MergeCosts.actual_input_matters",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 83,
+        "Z815": 799
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.always_false",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 38,
+        "Z815": 705
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.always_true",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 37,
+        "Z815": 704
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.byKey",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "def",
+      "positions": {
+        "I314": 25,
+        "Z815": 692
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.compatible_not_stable",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 67,
+        "Z815": 730
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.empty_payload",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 31,
+        "Z815": 698
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.empty_sides",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 30,
+        "Z815": 697
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.empty_tariff_not_multiplicative",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 94,
+        "Z815": 754
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.falseLeft",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "def",
+      "positions": {
+        "I314": 63,
+        "Z815": 726
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.falseRight",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "def",
+      "positions": {
+        "I314": 64,
+        "Z815": 727
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.false_compare_compatible",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 65,
+        "Z815": 728
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.false_record_run",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 66,
+        "Z815": 729
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.first_stage",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 79,
+        "Z815": 741
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.high_singleton",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 33,
+        "Z815": 700
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.interleaving",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 35,
+        "Z815": 702
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.interleaving_observations",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 36,
+        "Z815": 703
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.key_sorted_iff",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 48,
+        "Z815": 714
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.key_source_value",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 47,
+        "Z815": 794
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.key_value",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 46,
+        "Z815": 713
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.low_singleton",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 32,
+        "Z815": 699
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.low_singleton_attains_factor_two",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 95,
+        "Z815": 755
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.low_singleton_entry_model",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 34,
+        "Z815": 701
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.measured_key_spec",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 50,
+        "Z815": 715
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.natCompare",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "def",
+      "positions": {
+        "I314": 24,
+        "Z815": 691
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.nonempty_tariffs",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 93,
+        "Z815": 753
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.queueBody",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "def",
+      "positions": {
+        "I314": 84,
+        "Z815": 745
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.queueBody_bounds",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 87,
+        "Z815": 747
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.queueBody_observation",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 86,
+        "Z815": 800
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.queueBody_value",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 85,
+        "Z815": 746
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.rawLeft",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "def",
+      "positions": {
+        "I314": 88,
+        "Z815": 748
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.rawRight",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "def",
+      "positions": {
+        "I314": 89,
+        "Z815": 749
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.rawRoot",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "def",
+      "positions": {
+        "I314": 90,
+        "Z815": 750
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.raw_queue_body",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 91,
+        "Z815": 751
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.raw_queue_erasure_and_order",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 92,
+        "Z815": 752
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.recordsLeft",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "def",
+      "positions": {
+        "I314": 51,
+        "Z815": 716
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.recordsRight",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "def",
+      "positions": {
+        "I314": 52,
+        "Z815": 717
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.records_counts",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 54,
+        "Z815": 719
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.records_exact",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 55,
+        "Z815": 720
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.records_value",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 53,
+        "Z815": 718
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.result_length",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 27,
+        "Z815": 694
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.result_mem",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 29,
+        "Z815": 696
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.result_multiset",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 28,
+        "Z815": 695
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.result_perm",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 26,
+        "Z815": 693
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.second_stage",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 80,
+        "Z815": 742
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.source_key_sorted_iff",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 49,
+        "Z815": 795
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.source_value",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 45,
+        "Z815": 712
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.substituted_input_example",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 82,
+        "Z815": 744
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.taggedLeft",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "def",
+      "positions": {
+        "I314": 56,
+        "Z815": 721
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.taggedRight",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "def",
+      "positions": {
+        "I314": 57,
+        "Z815": 722
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.tagged_counts",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 59,
+        "Z815": 723
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.tagged_exact",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 61,
+        "Z815": 724
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.tagged_key_transport",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 58,
+        "Z815": 796
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.tagged_stable",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 62,
+        "Z815": 725
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.tagged_values",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 60,
+        "Z815": 797
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.tied_runs",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 39,
+        "Z815": 706
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.ties_do_not_determine_cost",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 40,
+        "Z815": 707
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.twoStage",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "def",
+      "positions": {
+        "I314": 72,
+        "Z815": 735
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.twoStage_bounds",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 76,
+        "Z815": 738
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.twoStage_comparisons_projection",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 77,
+        "Z815": 739
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.twoStage_entries",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 75,
+        "Z815": 737
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.twoStage_entries_projection",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 78,
+        "Z815": 740
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.twoStage_example",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 81,
+        "Z815": 743
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.twoStage_observation",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 74,
+        "Z815": 798
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.twoStage_value",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 73,
+        "Z815": 736
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.unsortedRecordsLeft",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "def",
+      "positions": {
+        "I314": 68,
+        "Z815": 731
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.unsortedRecordsRight",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "def",
+      "positions": {
+        "I314": 69,
+        "Z815": 732
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.unsorted_cost_bounds",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 42,
+        "Z815": 709
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.unsorted_for_every_comparator",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 44,
+        "Z815": 711
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.unsorted_inputs_retained",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 43,
+        "Z815": 710
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.unsorted_record_filters",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 71,
+        "Z815": 734
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.unsorted_records_run",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 70,
+        "Z815": 733
+      }
+    },
+    {
+      "name": "Examples.MergeCosts.unsorted_run",
+      "source": "Examples/MergeCosts.lean",
+      "kind": "theorem",
+      "positions": {
+        "I314": 41,
+        "Z815": 708
+      }
+    }
+  ],
+  "producer_saved_inputs": {
+    "F145": {
+      "pre": {
+        "path": "provenance/foundation145-input-observations-20261104-attempt1/pre-inputs.json",
+        "bytes": 38785,
+        "LF_count": 839,
+        "sha256": "482b005a6b020bc8fbc087ed746202caa89426382200d2aa37b4259ac0116d37"
+      },
+      "post": {
+        "path": "provenance/foundation145-input-observations-20261104-attempt1/post-inputs.json",
+        "bytes": 39092,
+        "LF_count": 845,
+        "sha256": "3065efbace8dc8cff34d764d33fd29e81f09b5549407d72be5cdaa217d482d16"
+      },
+      "native": {
+        "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/native-records/output.log",
+        "bytes": 107530,
+        "LF_count": 1491,
+        "sha256": "bbf02ed2d02358a10d1ed670e28bc00e43beef3af20409d4dc926ad36ab193c2"
+      },
+      "counts": {
+        "roots": 6,
+        "sources": 29,
+        "objects_hashes_traces": 87,
+        "configs": 10,
+        "dependencies": 9,
+        "runtime_components": 12
+      },
+      "exact_saved_pre_post": true
+    },
+    "I314": {
+      "pre": {
+        "path": "provenance/shared-four314-input-observations-20261104-attempt1/pre-inputs.json",
+        "bytes": 45835,
+        "LF_count": 972,
+        "sha256": "c3dc93d12e645171b3df24d417cc36838f666233c09034bb751672f47081f3f9"
+      },
+      "post": {
+        "path": "provenance/shared-four314-input-observations-20261104-attempt1/post-inputs.json",
+        "bytes": 46143,
+        "LF_count": 978,
+        "sha256": "fb1b01c56f251f9ddc28ae17b301d312b09714e687b5b0803fbe8be32ff95307"
+      },
+      "native": {
+        "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/output.log",
+        "bytes": 256987,
+        "LF_count": 3438,
+        "sha256": "3bdb9dc0a92ec781a28b46de1a3eb843bda4efcd17c2292f091c19e52df7c50c"
+      },
+      "counts": {
+        "roots": 14,
+        "sources": 27,
+        "objects_hashes_traces": 81,
+        "configs": 10,
+        "dependencies": 9,
+        "runtime_components": 12
+      },
+      "exact_saved_pre_post": true
+    },
+    "J53": {
+      "pre": {
+        "path": "provenance/shared-order53-input-observations-20261104-attempt1/pre-inputs.json",
+        "bytes": 15480,
+        "LF_count": 335,
+        "sha256": "eae1066844315be119551281752fcde15ba1f2cb2bf240d3f4186a9ca16ef8ec"
+      },
+      "post": {
+        "path": "provenance/shared-order53-input-observations-20261104-attempt1/post-inputs.json",
+        "bytes": 15788,
+        "LF_count": 341,
+        "sha256": "40817d0282d0ef62c6dac960429f5f6b8521cc86739f2eb4a195d869b17de15a"
+      },
+      "native": {
+        "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/native-records/output.log",
+        "bytes": 91080,
+        "LF_count": 1075,
+        "sha256": "48466b063b338defe63e54b3eed7594095cd3036dd773443ef9649b2bc211b65"
+      },
+      "counts": {
+        "roots": 3,
+        "sources": 6,
+        "objects_hashes_traces": 18,
+        "configs": 10,
+        "dependencies": 9,
+        "runtime_components": 12
+      },
+      "exact_saved_pre_post": true
+    },
+    "Z815": {
+      "pre": {
+        "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/pre-inputs.json",
+        "bytes": 125408,
+        "LF_count": 2524,
+        "sha256": "e4187960a469d194aeceed488d7e9bb45a450ae059bef46ba9645c5f9d6868ac"
+      },
+      "post": {
+        "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/post-inputs.json",
+        "bytes": 125726,
+        "LF_count": 2530,
+        "sha256": "c8a015007775ff98a220c90c328dc10f505cca8ac9ac9c7c3b887e2c0089ab4a"
+      },
+      "native": {
+        "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+        "bytes": 874568,
+        "LF_count": 11650,
+        "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+      },
+      "counts": {
+        "roots": 36,
+        "sources": 84,
+        "objects_hashes_traces": 252,
+        "configs": 10,
+        "dependencies": 9,
+        "runtime_components": 12
+      },
+      "exact_saved_pre_post": true
+    }
+  },
+  "saved_Z_comparisons": {
+    "F145": {
+      "common_sources": 29,
+      "changed_sources": [
+        "Applications/Sorting/Merge.lean"
+      ],
+      "common_artifact_keys": 87,
+      "exact_artifact_keys": 56,
+      "different_artifact_keys": [
+        ".lake/build/lib/lean/Applications/Arithmetic/EuclidInduction.trace",
+        ".lake/build/lib/lean/Applications/Bracketing/Basic.trace",
+        ".lake/build/lib/lean/Applications/Optimization/SelectionSpec.trace",
+        ".lake/build/lib/lean/Applications/Resources/CallCount.trace",
+        ".lake/build/lib/lean/Applications/Resources/InsertionSort.trace",
+        ".lake/build/lib/lean/Applications/Resources/ListCalls.trace",
+        ".lake/build/lib/lean/Applications/Resources/ListReversal.trace",
+        ".lake/build/lib/lean/Applications/Resources/Measured.trace",
+        ".lake/build/lib/lean/Applications/Resources/Potential.trace",
+        ".lake/build/lib/lean/Applications/Resources/RandomAccess/CacheCosts.trace",
+        ".lake/build/lib/lean/Applications/Resources/SymmetricCosts.trace",
+        ".lake/build/lib/lean/Applications/Resources/TreeFlattening/Core.trace",
+        ".lake/build/lib/lean/Applications/Resources/Workload.trace",
+        ".lake/build/lib/lean/Applications/Selection/Rank.trace",
+        ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Access.trace",
+        ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Basic.trace",
+        ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Borrow.trace",
+        ".lake/build/lib/lean/Applications/Sequences/RandomAccess/TreeBuild.trace",
+        ".lake/build/lib/lean/Applications/Sequences/Symmetric/Core.trace",
+        ".lake/build/lib/lean/Applications/Sorting/Merge.olean",
+        ".lake/build/lib/lean/Applications/Sorting/Merge.olean.hash",
+        ".lake/build/lib/lean/Applications/Sorting/Merge.trace",
+        ".lake/build/lib/lean/Applications/Sorting/Sort.trace",
+        ".lake/build/lib/lean/Applications/Sorting/Stable.trace",
+        ".lake/build/lib/lean/Examples/FunctionalBasics.trace",
+        ".lake/build/lib/lean/Examples/FunctionalNotation.trace",
+        ".lake/build/lib/lean/Examples/InsertionCosts.trace",
+        ".lake/build/lib/lean/Examples/ListCalls.trace",
+        ".lake/build/lib/lean/Examples/ListLibrary.trace",
+        ".lake/build/lib/lean/SquareKit/ListFusion.trace",
+        ".lake/build/lib/lean/Squares.trace"
+      ],
+      "all_nine_actual_dependency_paths_differ": true,
+      "configs_exact": true,
+      "runtime_exact": true
+    },
+    "I314": {
+      "common_sources": 23,
+      "changed_sources": [
+        "Applications/Resources/Growth.lean"
+      ],
+      "common_artifact_keys": 69,
+      "exact_artifact_keys": 40,
+      "different_artifact_keys": [
+        ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.trace",
+        ".lake/build/lib/lean/Applications/Resources/CallComparison.olean",
+        ".lake/build/lib/lean/Applications/Resources/CallComparison.olean.hash",
+        ".lake/build/lib/lean/Applications/Resources/CallComparison.trace",
+        ".lake/build/lib/lean/Applications/Resources/CallCount.trace",
+        ".lake/build/lib/lean/Applications/Resources/DifferenceListCosts.trace",
+        ".lake/build/lib/lean/Applications/Resources/Growth.olean",
+        ".lake/build/lib/lean/Applications/Resources/Growth.olean.hash",
+        ".lake/build/lib/lean/Applications/Resources/Growth.trace",
+        ".lake/build/lib/lean/Applications/Resources/InsertionSort.trace",
+        ".lake/build/lib/lean/Applications/Resources/ListMerge.trace",
+        ".lake/build/lib/lean/Applications/Resources/Measured.trace",
+        ".lake/build/lib/lean/Applications/Resources/Workload.trace",
+        ".lake/build/lib/lean/Applications/Search/LeftistQueue.trace",
+        ".lake/build/lib/lean/Applications/Selection/Rank.trace",
+        ".lake/build/lib/lean/Applications/Sorting/Merge.trace",
+        ".lake/build/lib/lean/Applications/Sorting/Sort.trace",
+        ".lake/build/lib/lean/Applications/Sorting/SourceMerge.trace",
+        ".lake/build/lib/lean/Applications/Sorting/Stable.trace",
+        ".lake/build/lib/lean/Examples/DifferenceListCosts.trace",
+        ".lake/build/lib/lean/Examples/InsertionCosts.trace",
+        ".lake/build/lib/lean/Examples/MergeCosts.olean",
+        ".lake/build/lib/lean/Examples/MergeCosts.olean.hash",
+        ".lake/build/lib/lean/Examples/MergeCosts.trace",
+        ".lake/build/lib/lean/Examples/PermutationMinimum.trace",
+        ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.trace",
+        ".lake/build/lib/lean/Examples/StableSorting.trace",
+        ".lake/build/lib/lean/SquareKit/ListFusion.trace",
+        ".lake/build/lib/lean/Squares.trace"
+      ],
+      "all_nine_actual_dependency_paths_differ": true,
+      "configs_exact": true,
+      "runtime_exact": true
+    },
+    "J53": {
+      "common_sources": 6,
+      "changed_sources": [],
+      "common_artifact_keys": 18,
+      "exact_artifact_keys": 12,
+      "different_artifact_keys": [
+        ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.trace",
+        ".lake/build/lib/lean/Applications/Probability/PermutationOrder.trace",
+        ".lake/build/lib/lean/Examples/PermutationMinimum.trace",
+        ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.trace",
+        ".lake/build/lib/lean/Examples/PermutationOrder.trace",
+        ".lake/build/lib/lean/Examples/PermutationOrderBoundary.trace"
+      ],
+      "all_nine_actual_dependency_paths_differ": true,
+      "configs_exact": true,
+      "runtime_exact": true
+    }
+  },
+  "historical12": [
+    {
+      "run": "chapter02-measured-sorting-types-20261104",
+      "candidate": "1ffb61fceaf7c893e25a35339f6e1fce8531021d",
+      "names": 174,
+      "program_sha256": "904bd664fb385ef63fc1d6f2b8fd9fd2e3af2cadcbf6eb7f610a1e71ccbef20a",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ]
+      ],
+      "qualified920": 174,
+      "excluded": 0,
+      "terminal_boundary": "Actual saved final HEAD and status preserved; no invented full pre/post artifact snapshot"
+    },
+    {
+      "run": "chapter02-xu01-types-20261104",
+      "candidate": "3fa2b59d6dcab007627af98a2f05c3a016a4c4c4",
+      "names": 37,
+      "program_sha256": "3755aaeb473b3310749ecc2863f034fc4a7616bb97d16719500c551d831aa367",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ],
+        [
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "qualified920": 37,
+      "excluded": 0,
+      "terminal_boundary": "Actual saved final HEAD and status preserved; no invented full pre/post artifact snapshot"
+    },
+    {
+      "run": "chapter02-bottom-up-costs-types-20261104",
+      "candidate": "6d91b822d0f3cf1aeeda333a9e1d47ebb26e709b",
+      "names": 105,
+      "program_sha256": "f9486a8f64d9786814f2ffc67dfb158ab13bf1d392585c27ca83b35cadd34c2e",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ]
+      ],
+      "qualified920": 105,
+      "excluded": 0,
+      "terminal_boundary": "Actual saved final HEAD and status preserved; no invented full pre/post artifact snapshot"
+    },
+    {
+      "run": "chapter02-natural-sorting-types-20261104",
+      "candidate": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+      "names": 105,
+      "program_sha256": "59d413591ef58c6569fcf39575669aaafcb21d4cf7783f05a88935de0a97b9ac",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ],
+        [
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "qualified920": 105,
+      "excluded": 0,
+      "terminal_boundary": "Actual saved final HEAD and status preserved; no invented full pre/post artifact snapshot"
+    },
+    {
+      "run": "chapter02-three-way-partition-types-20261104",
+      "candidate": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+      "names": 84,
+      "program_sha256": "48019e7cc7c38382139b939a521527773e59b39f5b4b8ffff210d199babb7dbf",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ]
+      ],
+      "qualified920": 84,
+      "excluded": 0,
+      "terminal_boundary": "Actual saved final HEAD and status preserved; no invented full pre/post artifact snapshot"
+    },
+    {
+      "run": "chapter02-xd01-random-types-20261104",
+      "candidate": "dfaf68114d1dda4e15628c94c3d988c3f5457c49",
+      "names": 134,
+      "program_sha256": "5f6eb99c622137c19ff2f5fc35389e7d9a2000cf06e4f3d7a2a25a803a76584b",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ],
+        [
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "qualified920": 134,
+      "excluded": 0,
+      "terminal_boundary": "Actual saved final HEAD and status preserved; no invented full pre/post artifact snapshot"
+    },
+    {
+      "run": "chapter02-bottom-up-alternating-types-20261104",
+      "candidate": "98696d86162bd93c1cba46719eeb65bf6cabe65a",
+      "names": 126,
+      "program_sha256": "9ef7e05799ff059a262fc1cab1ffaae1ed269b1076931c44a6913bd6e2dda471",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "qualified920": 126,
+      "excluded": 0,
+      "terminal_boundary": "Actual saved final HEAD and status preserved; no invented full pre/post artifact snapshot"
+    },
+    {
+      "run": "chapter02-top-down-costs-types-20261104",
+      "candidate": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+      "names": 32,
+      "program_sha256": "3f235ac70f6fa1b2234a5899f5ba25f7de7e9caee35c0b8f90b8de98e96ab5c8",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "qualified920": 32,
+      "excluded": 0,
+      "terminal_boundary": "Actual saved final HEAD and status preserved; no invented full pre/post artifact snapshot"
+    },
+    {
+      "run": "chapter02-uniqueness-types-20261104",
+      "candidate": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+      "names": 9,
+      "program_sha256": "5d5cb3cfd591633c6e0ef635094917f19f60f2db1e226df3782ba963f01fd5bf",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ],
+        [
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "qualified920": 9,
+      "excluded": 0,
+      "terminal_boundary": "Actual saved final HEAD and status preserved; no invented full pre/post artifact snapshot"
+    },
+    {
+      "run": "chapter02-natural-runs-statements-20261104",
+      "candidate": "ff9749d1ccbcb0949486f67d6273e28c262280e0",
+      "names": 104,
+      "program_sha256": "d56c25d992aa23e63c9bfa51cf4561f8ae2e6c1f186dda1493d0741673b372e4",
+      "printing_options": [],
+      "qualified920": 104,
+      "excluded": 0,
+      "terminal_boundary": "Actual saved final HEAD and status preserved; no invented full pre/post artifact snapshot"
+    },
+    {
+      "run": "chapter02-quicksort-statements-20261104",
+      "candidate": "840252e63026bba5eab109f2b16468deef7670ec",
+      "names": 14,
+      "program_sha256": "648822ba3ec1cebdf007f4dff758647b628d81a755f261804c2cd696ebe5f78b",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "qualified920": 0,
+      "excluded": 14,
+      "terminal_boundary": "Missing immutable terminal HEAD/source closure; preserved and later reinspected in actual Z815"
+    },
+    {
+      "run": "ordinary-merge-type-inspection-20261104",
+      "candidate": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "names": 17,
+      "program_sha256": "72709d2b0430fa10684f3ca088a5d0041568ccfe3182653ce6aec731d49b1215",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "qualified920": 10,
+      "excluded": 7,
+      "terminal_boundary": "Actual saved final HEAD and status preserved; no invented full pre/post artifact snapshot"
+    }
+  ],
+  "historical941_to920": {
+    "original941": 941,
+    "retained920": 920,
+    "excluded21": 21,
+    "reinspected_Z_positions": [
+      794,
+      814
+    ],
+    "added_instance_position": 815
+  },
+  "own_Z815_complete_read_ledger_rebound": {
+    "ledger": {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-read-progress-complete-before-disposition.json",
+      "bytes": 25943,
+      "LF_count": 1584,
+      "sha256": "a1f4a8504313bb62b46a577a0e3fd96cc3ebeb6aa3b41d08afe833c27df61275"
+    },
+    "chunks": 44,
+    "semantic_record_files": 21,
+    "native_lines": 11650,
+    "native_bytes": 874568,
+    "types": 815,
+    "new_type_read_or_receiving_credit": false
+  },
+  "observation_coverage_gaps": {
+    "outside_Z815_local_sources": [
+      "Applications/Resources/ListBuildCosts.lean",
+      "Applications/Resources/Partition.lean",
+      "Applications/Selection/ThreeWay.lean",
+      "Applications/Sequences/Partition.lean",
+      "Applications/Sorting/Alternating.lean",
+      "Applications/Sorting/ThreeWayQuickSort.lean",
+      "Applications/Sorting/Uniqueness.lean",
+      "Examples/AlternatingSorting.lean",
+      "Examples/ListBuildCosts.lean",
+      "Examples/QuickSortCosts.lean",
+      "Examples/SortUniqueness.lean",
+      "Examples/ThreeWayPartition.lean",
+      "Examples/ThreeWayQuickSort.lean"
+    ],
+    "outside_all_four_recent_snapshot_local_sources": [
+      "Applications/Resources/ListBuildCosts.lean",
+      "Applications/Sorting/Alternating.lean",
+      "Applications/Sorting/ThreeWayQuickSort.lean",
+      "Applications/Sorting/Uniqueness.lean",
+      "Examples/AlternatingSorting.lean",
+      "Examples/ListBuildCosts.lean",
+      "Examples/QuickSortCosts.lean",
+      "Examples/SortUniqueness.lean",
+      "Examples/ThreeWayQuickSort.lean"
+    ],
+    "additional_external_imports_beyond_Z815": [
+      "Init.Data.List.Nat.Range",
+      "Mathlib.Data.List.Perm.Basic",
+      "Mathlib.Data.Multiset.Defs",
+      "Mathlib.Order.Defs.LinearOrder"
+    ],
+    "boundary": "Snapshot absence is bounded to these four saved producer captures; it is not a claim that no historical evidence exists anywhere. Old 12 run records are retained separately."
+  },
+  "boundary": "Mechanical complete mapping/source/input reconciliation retaining prior full semantic reads; no new compiler, runtime scan, source/ref change, receiving candidate, type transfer, or acceptance."
+}

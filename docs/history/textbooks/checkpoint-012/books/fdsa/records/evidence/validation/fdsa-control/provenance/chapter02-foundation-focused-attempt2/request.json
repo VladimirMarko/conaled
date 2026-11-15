@@ -1,0 +1,26 @@
+{
+  "requested_utc": "2026-11-03T21:23:51.844752+00:00",
+  "cwd": "/workspace/scratch/31d6377eca78/fdsa/conaled-ch01-review",
+  "candidate": "9875bfd08b37ef841d96de067ff05e2da107ccbf",
+  "command": [
+    "python3",
+    "/workspace/scratch/31d6377eca78/conaled-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/31d6377eca78/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/31d6377eca78/fdsa/conaled-ch01-review",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "build",
+    "Applications.Resources.InsertionSort",
+    "Examples.InsertionCosts",
+    "Examples.ListLibrary",
+    "Applications.Resources.ListCalls",
+    "Examples.ListCalls",
+    "Examples.FunctionalNotation"
+  ],
+  "scope": "Process recording only; command and acceptance policy unchanged."
+}

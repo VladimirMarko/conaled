@@ -1,0 +1,95 @@
+{
+  "recorded_utc": "2026-11-03T02:38:08.929230+00:00",
+  "scope": "Bounded report-only C02-101 preparation; no source unit or implementation freeze",
+  "all_authors_stopped": true,
+  "root_readback": "Complete294-line source report,341-line API report,358-line case snapshot and every final delta to363 lines. Exact final identities match.",
+  "inputs": {
+    "research/quicksort-accumulator-source-readiness.md": {
+      "bytes": 18282,
+      "lines": 294,
+      "sha256": "ce8c019bfe437bbdb71e5863119469a67c0f0d1a7961a3c0f879566731025eba"
+    },
+    "research/quicksort-accumulator-api-readiness.md": {
+      "bytes": 21912,
+      "lines": 341,
+      "sha256": "aeec34427e96f45ede40f9631a201a443f1eded796abf49a04fd861d17f4572f"
+    },
+    "research/quicksort-accumulator-case-readiness.md": {
+      "bytes": 19851,
+      "lines": 363,
+      "sha256": "6251ba2623d7988496be3e54dbdea8085f878810db276f7fec673429319f09f0"
+    },
+    "research/chapter02-obligations.md": {
+      "bytes": 42539,
+      "lines": 391,
+      "sha256": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2"
+    },
+    "reviews/source-inventories-before-scope-repair/chapter02-obligations.md": {
+      "bytes": 37154,
+      "lines": 350,
+      "sha256": "edba53049bb481f2fe21805f6e8a4ccc46ffec1e9b5fa8cb16b7804e446c832d"
+    },
+    "reviews/chapter02-requirements.md": {
+      "bytes": 12034,
+      "lines": 189,
+      "sha256": "f0c9bc939fbfb6da02c1734b121456c35fd6b4c9ee43f1284003d0b8db087a36"
+    },
+    "research/chapter02-reuse-plan.md": {
+      "bytes": 31586,
+      "lines": 346,
+      "sha256": "ad652aa94f5cb4e0d00db58ffc8a7411c41deb582f35979a860a25c7d3c3454a"
+    },
+    "research/scope-reconciliation.md": {
+      "bytes": 14441,
+      "lines": 151,
+      "sha256": "21de30d9c317dadc2cb8aee51ea84ca26f74c8208b754feea57d81140c1a3e87"
+    },
+    "reviews/chapter02-prefix-source-reconciliation.md": {
+      "bytes": 19719,
+      "lines": 337,
+      "sha256": "a563f8001a86326ed124ad0097aab0ea6b652e21ddfbc9e7203a3c934158dd1a"
+    },
+    "reviews/chapter02-prefix-source-compatibility.md": {
+      "bytes": 24435,
+      "lines": 220,
+      "sha256": "0c1945c23f9d3374cda1a4f98083fc2c31309e1310486e2fb8ea9ae150fd1577"
+    }
+  },
+  "row_preservation": {
+    "research/chapter02-obligations.md": {
+      "distinct_count": 112,
+      "range": "C02-001 through C02-112"
+    },
+    "reviews/source-inventories-before-scope-repair/chapter02-obligations.md": {
+      "distinct_count": 107,
+      "range": "C02-001 through C02-107"
+    }
+  },
+  "complete_notice": {
+    "bytes": 1673,
+    "lines": 36,
+    "sha256": "44176a9195f0d6110302ca58c302437b2d6685049d4b8a7c1117121883d4b64d"
+  },
+  "complete_notice_occurrences": 1,
+  "source_states": {
+    "conaled": {
+      "head": "1aabd512284fe86254278ac631eda061d311050b",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.n7UlkJ"
+    },
+    "conaled-ch01-review": {
+      "head": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "status": ""
+    },
+    "conaled-logarithm-bounds": {
+      "head": "a601ad713368daf8e18d5a5537a83d47138491fa",
+      "status": ""
+    }
+  },
+  "initial_chapter02_prefix": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "assessment": {
+    "bytes": 5585,
+    "lines": 90,
+    "sha256": "4c268ef6b28243eafc4e69b1dc529e66990c74ce677d1933555b459b7b88cb07"
+  },
+  "limits": "Ordinary source/control identities and read-only Git source state in pinned Nix only. No compiler/checker/project hash helper, cache/performance action, active build-output access, new source/ref/worktree/index change or final review. C1 sole validator remains untouched. No chapter, appendix, shared unit or obligation accepted."
+}

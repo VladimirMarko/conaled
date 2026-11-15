@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T19:49:23.192710+00:00",
+  "candidate": "4badcd5a7cab38aed7ff6c178c0649ae8ec63228",
+  "terminal": {
+    "recorded_utc": "2026-11-04T19:49:23.192504+00:00",
+    "owned_session": 60468,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "2b3c01",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "4badcd5a7cab38aed7ff6c178c0649ae8ec63228"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/full.log",
+    "bytes": 4852,
+    "sha256": "7af587c501e7335609c07b1c755ed62c72cbd459e78b5a047264a854c5cbc3b9"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T194637Z-project-run-abad4d36",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/native-records/start.json",
+      "bytes": 491,
+      "sha256": "1f9c6e8ce2c617a4ebccd3dfbbf596056744189931a64d4367778821fc5b7764"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/native-records/result.json",
+      "bytes": 644,
+      "sha256": "b393c32c8c75ca072462d5c3d95b44473f64903dc05f94b492c9907eb866570b"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/native-records/output.log",
+      "bytes": 4563,
+      "sha256": "11d20e3b76eb92d14a2e890c50f16ccab2a24acd9c7d74092fc529f6a6caabd0"
+    }
+  },
+  "native_body_exact_outer_offset": 133,
+  "complete_closed_log": true,
+  "scope": "Focused full rounded-recurrence bound core and examples only; not a full candidate acceptance check.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

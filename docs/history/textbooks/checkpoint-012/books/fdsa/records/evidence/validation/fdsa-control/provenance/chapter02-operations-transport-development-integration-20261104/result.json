@@ -1,0 +1,49 @@
+{
+  "recorded_utc": "2026-11-04T07:14:28.668146+00:00",
+  "development_before": "b3ccd6617c9a0bd033ab181a77d0e07d4b72100a",
+  "development_after": "e4965499954e2afe6bb6be0b8a4a61167a0ff2ce",
+  "merges": [
+    {
+      "before": "b3ccd6617c9a0bd033ab181a77d0e07d4b72100a",
+      "source": "fbc9a32a2a7cc333f632c88a27a5d7a977d67f72",
+      "after": "86751c52c4563910011a977a70efa268c61c2798",
+      "scope": [
+        "Examples/PermutationOrderBoundary.lean"
+      ],
+      "output": "Merge made by the 'ort' strategy.\n Examples/PermutationOrderBoundary.lean | 8 ++++++--\n 1 file changed, 6 insertions(+), 2 deletions(-)\n"
+    },
+    {
+      "before": "86751c52c4563910011a977a70efa268c61c2798",
+      "source": "1f315fdbb40288d99921164bb3fd8afcbd756e58",
+      "after": "8d4450a7fddd6bf00f22438005929d92c1dfc939",
+      "scope": [
+        "Applications/Resources/RandomQuickSortMean.lean"
+      ],
+      "output": "Merge made by the 'ort' strategy.\n Applications/Resources/RandomQuickSortMean.lean | 3 ++-\n 1 file changed, 2 insertions(+), 1 deletion(-)\n"
+    },
+    {
+      "before": "8d4450a7fddd6bf00f22438005929d92c1dfc939",
+      "source": "e1f3b5c43ba3b0f4aca5964f2b4568e06b47700c",
+      "after": "43abe6aacc34fe9069c467f75533d336b105c78b",
+      "scope": [
+        "Applications/Resources/NaturalRunOperations.lean",
+        "Examples/NaturalRunOperations.lean"
+      ],
+      "output": "Merge made by the 'ort' strategy.\n Applications/Resources/NaturalRunOperations.lean | 690 +++++++++++++++++++++++\n Examples/NaturalRunOperations.lean               | 352 ++++++++++++\n 2 files changed, 1042 insertions(+)\n create mode 100644 Applications/Resources/NaturalRunOperations.lean\n create mode 100644 Examples/NaturalRunOperations.lean\n"
+    },
+    {
+      "before": "43abe6aacc34fe9069c467f75533d336b105c78b",
+      "source": "5a3af21cb4ff56896f1a7d249736c4804c229873",
+      "after": "e4965499954e2afe6bb6be0b8a4a61167a0ff2ce",
+      "scope": [
+        "Applications/Resources/QuickSortTransport.lean",
+        "Examples/QuickSortTransport.lean"
+      ],
+      "output": "Merge made by the 'ort' strategy.\n Applications/Resources/QuickSortTransport.lean | 56 ++++++++++++++++++++\n Examples/QuickSortTransport.lean               | 72 ++++++++++++++++++++++++++\n 2 files changed, 128 insertions(+)\n create mode 100644 Applications/Resources/QuickSortTransport.lean\n create mode 100644 Examples/QuickSortTransport.lean\n"
+    }
+  ],
+  "full_sources_assessed_before_integration": true,
+  "accepted_main_unchanged": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "foundation_candidate_unchanged": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "acceptance": "Development only; no full gate or independent acceptance yet"
+}

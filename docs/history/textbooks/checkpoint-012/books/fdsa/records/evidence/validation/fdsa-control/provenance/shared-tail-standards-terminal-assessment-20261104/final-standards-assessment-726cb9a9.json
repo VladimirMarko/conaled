@@ -1,0 +1,802 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "axis": "Standards",
+  "recorded_utc": "2026-11-04T16:38:28.888821+00:00",
+  "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "tree": "43f1c15166931d4bd3e91e6dbf12059d0da1cfc2",
+  "ordered_parents": [
+    "932438a765340d69fa6402f6abd17def6ec28d13",
+    "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9"
+  ],
+  "accepted_base": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "original_base": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+  "original_candidate": "a0597381f02eddd074ee96cabaa974f2062285f8",
+  "corrected_tip": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+  "same_original_full_scope": [
+    "Applications/Probability/PermutationTail.lean",
+    "Examples/PermutationTail.lean",
+    "Examples/PermutationTailBoundary.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-permutation-tail.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "frozen_requirements": {
+    "path": "reviews/permutation-tail-requirements.md",
+    "bytes": 12866,
+    "lines": 229,
+    "sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c"
+  },
+  "complete_C2_scope_preserved": {
+    "base_R": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "retained": true
+  },
+  "outcome": "Passed",
+  "new_concrete_findings": 0,
+  "unresolved_findings_in_XU03_acceptance_scope": 0,
+  "supersession": "Supersedes only the pending receiving-validation outcome of the earlier complete Tail source report and the pending final-qualification stage in the new read-progress ledger. All earlier source/type/findings/history and their bytes remain unchanged.",
+  "retained_source_review": {
+    "complete_files": 6,
+    "complete_lines": 2073,
+    "complete_Lean_lines": 975,
+    "all_public_private_anonymous_proofs_read": true,
+    "inventory_rows": 88,
+    "public": 61,
+    "public_theorems": 46,
+    "public_definitions": 15,
+    "private_theorems": 19,
+    "anonymous_local_instances": 8,
+    "anonymous_examples": 0,
+    "all80_named_headers_preserved_from_original": true,
+    "where_header_excludes_fields": true,
+    "compiler_generated_names_invented": false
+  },
+  "source_math_and_architecture": "Complete original public/private/anonymous scope and all meaningful same-sample/conditional examples remain independently assessed. Minimal assumptions, ordinary existing HasLaw/cond/Measure.map vocabulary and local example capabilities are preserved; no new framework, default key, desired-conclusion premise, unsafe proof route or gate weakening.",
+  "current_full_gate": {
+    "run": "shared-tail-full-attempt1-20261104",
+    "start": {
+      "path": "provenance/shared-tail-full-attempt1-20261104/start.json",
+      "bytes": 930,
+      "lines": 26,
+      "sha256": "0b77d91c750f58b019a4fe5a30e001483aee5e46a0759783a07d1b91b9feafca"
+    },
+    "result": {
+      "path": "provenance/shared-tail-full-attempt1-20261104/result.json",
+      "bytes": 1246,
+      "lines": 32,
+      "sha256": "0424520e1881da2154c5b0bcf235429e56433d8e6578b50e694d289e57646002"
+    },
+    "owned": {
+      "path": "provenance/shared-tail-full-attempt1-20261104/owned-terminal.json",
+      "bytes": 260,
+      "lines": 8,
+      "sha256": "440dac3dc0c6e86dfa4baf6a5884f48654e8da0f81b19eebf65896cd2758bed8"
+    },
+    "closed_copy_record": {
+      "path": "provenance/shared-tail-full-attempt1-20261104/closed-evidence-reconciliation.json",
+      "bytes": 3118,
+      "lines": 72,
+      "sha256": "1cdaac8dc158a7db5cfa85baacc06e9c4fb4f7fec625c0d02a1ac290f31fd5af"
+    },
+    "native_start": {
+      "path": "provenance/shared-tail-full-attempt1-20261104/native-records/start.json",
+      "bytes": 421,
+      "lines": 13,
+      "sha256": "34abd303e18c57b8d763295479b5f3b71659b2f2be117a821f163df8871e6b57"
+    },
+    "native_result": {
+      "path": "provenance/shared-tail-full-attempt1-20261104/native-records/result.json",
+      "bytes": 573,
+      "lines": 18,
+      "sha256": "f75be0ad9959dad50584d9f8cbd8bd85af4dbb0e12099733aeff086da6518112"
+    },
+    "outer": {
+      "path": "provenance/shared-tail-full-attempt1-20261104/full.log",
+      "bytes": 284574,
+      "lines": 2487,
+      "sha256": "3247019f0fa2844cf6a719a51a3396d04c12d3e7b7b715117eed797289f805bf"
+    },
+    "native": {
+      "path": "provenance/shared-tail-full-attempt1-20261104/native-records/output.log",
+      "bytes": 284346,
+      "lines": 2484,
+      "sha256": "bd5bd2c170cac6a84f855806595fce60981b86eb1660c52c0d3a7a0b9d149749"
+    },
+    "verification": {
+      "path": "provenance/shared-tail-full-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "lines": 19,
+      "sha256": "0cd4efa701892c229d61bca325a4c0a2aaa9a26428fa409f7d2195ac1e227a46"
+    },
+    "started_utc": "2026-11-04T16:16:29.419554+00:00",
+    "completed_utc": "2026-11-04T16:25:42.962239+00:00",
+    "outer_prefix": "[lock] project-81eeeef193c174f3d829\n[run] ./check.sh --candidate HEAD\n",
+    "outer_suffix": "[result] exit=0, 553.427s; /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T161629Z-project-run-35d70322/result.json\n"
+  },
+  "full_audit": {
+    "checked": 983,
+    "defining_rows": 981,
+    "kernel_safe": 45809,
+    "theorems": 25533,
+    "unsafe": 0,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "all978_predecessor_rows_exact": true,
+    "new_rows": {
+      "Examples.PermutationTail": [
+        29,
+        20,
+        0
+      ],
+      "Examples.PermutationTailBoundary": [
+        49,
+        39,
+        0
+      ],
+      "Applications.Probability.PermutationTail": [
+        24,
+        23,
+        0
+      ]
+    }
+  },
+  "warnings": {
+    "prior_count": 584,
+    "current_count": 591,
+    "new_only_import_advisories": {
+      "warning: Applications/Probability/PermutationTail.lean: imports `Mathlib.Basic.ENNReal.Inv` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+      "warning: Applications/Probability/PermutationTail.lean: imports `Mathlib.Data.Nat.Factorial.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+      "warning: Applications/Probability/PermutationTail.lean: imports `Mathlib.MeasureTheory.Measure.AEMeasurable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+      "warning: Applications/Probability/PermutationTail.lean: imports `Mathlib.Probability.ConditionalProbability` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+      "warning: Applications/Probability/PermutationTail.lean: imports `Mathlib.Probability.HasLaw` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+      "warning: Examples/PermutationTailBoundary.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+      "warning: Examples/PermutationTail.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1
+    },
+    "removed": {}
+  },
+  "full_native_read": {
+    "complete": true,
+    "lines": 2484,
+    "bytes": 284346,
+    "chunks": 13,
+    "ledger": {
+      "path": "provenance/shared-tail-standards-terminal-assessment-20261104/read-progress.json",
+      "bytes": 16362,
+      "lines": 381,
+      "sha256": "d563391d972d86efe1631f30e236956fba74f39d2d24e8e3bd3fe17baaecbc39"
+    },
+    "outer_body_exact_and_wrappers_read": true
+  },
+  "actual61_run": {
+    "run": "shared-tail-complete-public-statements61-20261104-attempt1",
+    "start": {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/start.json",
+      "bytes": 1074,
+      "lines": 27,
+      "sha256": "d999471fa999f46d8c29be91a3889556354538452e2eb6ec526913d121c5e046"
+    },
+    "result": {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/result.json",
+      "bytes": 1414,
+      "lines": 33,
+      "sha256": "166535394036f2c652e6d324c17401eadfc1d0dac2ae0b48bc40b9e97e20dbc8"
+    },
+    "owned": {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/owned-terminal.json",
+      "bytes": 260,
+      "lines": 8,
+      "sha256": "c86bc78c24f047cf2d5195e49c419511f43f12431f8f08ef7cf82221cee30bfe"
+    },
+    "closed_copy_record": {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 3326,
+      "lines": 73,
+      "sha256": "30f501c7c6e807a24b65f5eefa0fbe382da588eab4ae7fc136812421900f30bb"
+    },
+    "native_start": {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/native-records/start.json",
+      "bytes": 565,
+      "lines": 14,
+      "sha256": "2172f925a413a363ce6e81280654b1ef8504fd32a55f75492cf92f6da0cb52d0"
+    },
+    "native_result": {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/native-records/result.json",
+      "bytes": 718,
+      "lines": 19,
+      "sha256": "57111ff744ca1bdc7ef97cdbb4b9b86e2737f566fd4e008c5f9028ba493fd12e"
+    },
+    "outer": {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/full.log",
+      "bytes": 85148,
+      "lines": 1076,
+      "sha256": "6ee54f20c375ad1ddf0ffcd79f30d2552f3bee2c52632f6ce7f8155625cc3b8e"
+    },
+    "native": {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/native-records/output.log",
+      "bytes": 84784,
+      "lines": 1073,
+      "sha256": "57747c4b4764ac5aea6885671ff66b5ff202da2c919a0e9bb38f5921738916cf"
+    },
+    "verification": {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/verification.json",
+      "bytes": 867,
+      "lines": 19,
+      "sha256": "0cd4efa701892c229d61bca325a4c0a2aaa9a26428fa409f7d2195ac1e227a46"
+    },
+    "started_utc": "2026-11-04T16:26:30.315980+00:00",
+    "completed_utc": "2026-11-04T16:26:45.496015+00:00",
+    "outer_prefix": "[lock] project-81eeeef193c174f3d829\n[run] lake env lean /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean\n",
+    "outer_suffix": "[result] exit=0, 15.091s; /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T162630Z-project-run-c4855e31/result.json\n"
+  },
+  "actual61_types": {
+    "complete": true,
+    "count": 61,
+    "lines": 1073,
+    "bytes": 84784,
+    "chunks": 6,
+    "source_public_inventory_program_order_and_all_output_ranges_match": true,
+    "profile": [
+      "pp.universes=true",
+      "pp.explicit=true",
+      "pp.fullNames=true"
+    ],
+    "semantics": [
+      {
+        "ordinals": [
+          1,
+          15
+        ],
+        "lines": [
+          1,
+          294
+        ],
+        "assessment": "All fifteen core declarations expose their full binders. firstEvent/intersection are structure-free; deterministic restriction identities require only explicit equality decision, Nodup and the actual first event. Outsider conditioning is zero. Uniform head/tail laws require coverage and the stated membership; generic HasLaw versions retain arbitrary source space/measure and whole-observation law, with no added finite source, probability-instance, inhabitation or order premise. Same-permutation filtering requires T ⊆ S.erase a. No printer ellipsis occurs in this core range; no finding."
+      },
+      {
+        "ordinals": [
+          16,
+          27
+        ],
+        "lines": [
+          295,
+          461
+        ],
+        "assessment": "Fin4 observation/remaining/tail/conditioned measure definitions have the exact intended carriers. observed_hasLaw uses the original PermutationOrder law; afterFirst is the actual conditional measure and tail law/map use it. Head mass is 1/3, each [2,3]/[3,2] conditional tail mass is 1/2, and repeated [2,2] has mass zero. Concrete no-hypothesis examples retain their explicit local measurable structures. Every displayed ellipsis so far is inside a Fin numeral NeZero or ENNReal numeral AtLeastTwo proof slot; final exhaustive classification pending. No finding."
+      },
+      {
+        "ordinals": [
+          28,
+          39
+        ],
+        "lines": [
+          462,
+          642
+        ],
+        "assessment": "All twelve remaining Main declarations retain the same Fin4 permutation sample and actual afterFirst/afterSecond conditional measures. Filtering to {3} has mass one and equals the same-sample projection only on the first event; the map theorem is explicitly under afterFirst. Conditioning changes the measure, first-event mass becomes one, the second head2 has mass1/2, and the nested last-tail [3] law/mass is under afterSecond. No fresh independent permutation or whole-history claim is introduced. Ellipses remain concrete numeral proof slots; no statement finding."
+      },
+      {
+        "ordinals": [
+          40,
+          43
+        ],
+        "lines": [
+          643,
+          758
+        ],
+        "assessment": "The Fin4 swap example retains selected order [0,2,3] while the complete inverse order is [1,0,2,3]. The conjunction asserts selected head0, complete head1 and failure of complete head0, so it separates subset-first from global-first without strengthening either claim. Ellipses occur only in concrete Fin numeral proof arguments. No finding."
+      },
+      {
+        "ordinals": [
+          44,
+          50
+        ],
+        "lines": [
+          759,
+          933
+        ],
+        "assessment": "The seven boundary outputs assert singleton-tail empty mass one under the actual singleton first-event conditional measure; the empty subset gives None with mass one, an empty first event and zero conditional measure; the excluded label1 in the selected Fin4 subset likewise gives an empty event and zero conditional measure. The Empty index type is retained with None mass one, without inventing an element or global Nonempty assumption. All binders and measure structures are visible; no finding."
+      },
+      {
+        "ordinals": [
+          51,
+          61
+        ],
+        "lines": [
+          934,
+          1073
+        ],
+        "assessment": "All eleven Fin3 counterexample outputs retain the original carrier and actual conditioned measure. The outside subset omits head0 but is not contained in the erased conditioning subset. Counter-first mass is1/2; outside orders [1,2] and [2,1] have conditional masses1/3 and2/3, and the first differs from1/2. The declarations therefore preserve the necessity of the subset condition without a claim of independence or uniformity outside it. The six carrier/measure definitions and all numerical denominators are explicit. No finding."
+      }
+    ],
+    "ellipsis_contexts": 52,
+    "ellipsis_counts": {
+      "Fin.instOfNat NeZero proof instance": 43,
+      "ENNReal instOfNatAtLeastTwo proof instance": 9
+    },
+    "ellipsis_assessment": "All52 complete contexts were read and independently classified; only concrete numeral-instance Prop proof arguments are elided. No hidden binder/premise/carrier/event/measure/result gap. The earlier per-chunk pending classification wording is superseded by this completed assessment.",
+    "retained_exact_pinned_instance_contexts": [
+      {
+        "source": "conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/Fin/Basic.lean",
+        "source_sha256": "bb3d4e46cb40a24f5a09e6e003c76f2b84140a598df81233f0bffe3afe08cbf4",
+        "lines": [
+          237,
+          252
+        ],
+        "range_sha256": "21123f91cf879fa84a2168350a482e1f9530f74278ef3c34348f819eef3c105a",
+        "assessment": "Fin.instOfNat has explicit internal NeZero n instance before numeral i."
+      },
+      {
+        "source": "conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/NeZero.lean",
+        "source_sha256": "94e1883fd4fd9c5612da4a24a0cbc9bd6a656d31ce9a0123b9833175c5964df3",
+        "lines": [
+          22,
+          37
+        ],
+        "range_sha256": "bff7d0888de5d4c517026ea418762ebc83ce71efb7b24e1948e2df98b0cfcff3",
+        "assessment": "NeZero is a Prop class carrying n !=0; no computational carrier data is suppressed."
+      },
+      {
+        "source": "Mathlib/Data/Nat/Init.lean",
+        "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_sha256": "ded24773f40d2499826e1fe3d245cfa10f84b31b326be122ef7a8562fb1c4d9b",
+        "lines": [
+          406,
+          431
+        ],
+        "range_sha256": "300993916fed165bc08fd098f9ca65765e69a837889fb2929bfcf569d475fbe2",
+        "assessment": "Nat.AtLeastTwo is a Prop class with 2<=n."
+      },
+      {
+        "source": "Mathlib/Data/Nat/Cast/Defs.lean",
+        "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_sha256": "5656ed14933f402c33cbe3f1cc3eb7b26e4df670c573187fb7d0972eef4e3118",
+        "lines": [
+          29,
+          51
+        ],
+        "range_sha256": "b9ad148805eb03d1d0096214c0f75934a7edd14bddc82332711c576182c69b06",
+        "assessment": "instOfNatAtLeastTwo uses the shown NatCast and internal Nat.AtLeastTwo proof; the concrete ENNReal numeral remains visible."
+      }
+    ],
+    "type_findings": 0
+  },
+  "receiving_statement_disposition": {
+    "current61": 61,
+    "qualified_J53": 53,
+    "qualified_I314": 314,
+    "qualified_F110": 110,
+    "distinct_names": 538,
+    "all_four_sets_disjoint": true,
+    "all20_saved_observations_and10_pairs_independently_reconciled": true,
+    "all_four_receiving_pairs_surround_actual61_after_successful_full": true,
+    "current61_inputs": [
+      9,
+      27
+    ],
+    "J53_inputs": [
+      6,
+      18
+    ],
+    "I314_inputs": [
+      27,
+      81
+    ],
+    "F110_inputs": [
+      23,
+      69
+    ],
+    "F110_edges": 58,
+    "F110_external_names": 32,
+    "all_complete_supported_keysets_compared": true,
+    "no_trace_or_path_normalization": true,
+    "configs": 10,
+    "clean_dependency_observations": 9,
+    "qualified_runtime_components": 12,
+    "complete_old_same_reader_semantic_reads_and_chunk_hashes_retained": {
+      "J_final": {
+        "path": "provenance/shared-order-standards-terminal-assessment-20261104/final-standards-assessment-932438a7.json",
+        "bytes": 33628,
+        "lines": 579,
+        "sha256": "ec4bd6e8f30d81dc7676e105d5095ba4390f86548e143c8b0ecb2b7284d9d414"
+      },
+      "J_ledger": {
+        "path": "provenance/shared-order-standards-terminal-assessment-20261104/actual53-read-ledger.json",
+        "bytes": 5617,
+        "lines": 89,
+        "sha256": "801098585a98ff633f744e86513d037ed45fc1390f88bedcf80041a019d9fa08"
+      },
+      "J_report": {
+        "path": "reviews/permutation-order-standards-final-20261104.md",
+        "bytes": 15675,
+        "lines": 97,
+        "sha256": "27379408402ad18d6c5e401f2c4e3854263d0a386ee5161759875a7be21b8d10"
+      },
+      "I_final": {
+        "path": "provenance/shared-four-standards-terminal-assessment-20261104/actual314-complete-standards-assessment.json",
+        "bytes": 7958,
+        "lines": 200,
+        "sha256": "9c281a08f07b5be0bbc46e7f8eb68fee907b23c536aeb44f4bb3e4bfde0525f4"
+      },
+      "I_ledger": {
+        "path": "provenance/shared-four-standards-terminal-assessment-20261104/actual314-read-ledger.json",
+        "bytes": 14033,
+        "lines": 294,
+        "sha256": "5e61784905b0f5a6134b64808b84970bb4e5024b05ba2cf5aa836b16fd56fa01"
+      },
+      "F_report": {
+        "path": "reviews/shared-foundations-standards-terminal-assessment-20261104.md",
+        "bytes": 9830,
+        "lines": 51,
+        "sha256": "5931dafe30f68151d81621ded0274643fb8145c5c57e644b6cca284fc634e141"
+      },
+      "F_ledger": {
+        "path": "provenance/shared-foundations-standards-terminal-assessment-20261104/actual145-read-progress.json",
+        "bytes": 20912,
+        "lines": 378,
+        "sha256": "ef690b8f502c1ac4b70cd956cf682d2faa080b4b36151afc7cd05cd8a3a77a0b"
+      }
+    },
+    "F_35_excluded_due_to_Merge": true,
+    "actual_I314_positions_for_those35": [
+      280,
+      314
+    ],
+    "actual_producer_reruns_at_L": 0,
+    "qualification_receipt": {
+      "path": "provenance/shared-tail-standards-terminal-assessment-20261104/independent-execution-and-type-reconciliation.json",
+      "bytes": 299176,
+      "lines": 8421,
+      "sha256": "fda2e2a7568445a94cb92bd8f276915279e1ea2e151a46c07702005722a00f42"
+    }
+  },
+  "reuse_conditions_retained_verbatim": [
+    {
+      "id": "REUSE-01",
+      "condition": "Identify one actually executed producer inspection at exact F or exact current Chapter2 candidate, with the executed program bytes/hash and complete selected-name inventory. Prepared files alone are not evidence. The producer program must contain every transferred name as a fully qualified #check @constant with the stated full-name, explicit and universe printing profile; any successor program must be separately identified."
+    },
+    {
+      "id": "REUSE-02",
+      "condition": "Secure actual exit0 and closed complete outer/native logs and terminal JSONs; match commands, cwd, start/end times, hashes and sizes, with no timeout, recorder error, truncated/missing output or inferred session result. Read the complete actual type output for every one of the110 names; printed-type blocks must expose all quantifiers and premises rather than relying on an occurrence count."
+    },
+    {
+      "id": "REUSE-03",
+      "condition": "Secure producer pre/post HEAD and clean relevant source/configuration state, unchanged executed program hash, and immutable-run ownership. Verify these six/four relevant root closures against the exact produced candidate and the receiving candidate, including the expected source blobs, direct external imports and all pinned configuration. Do not substitute present source equality or an earlier/later unrelated result for missing producer terminal identity."
+    },
+    {
+      "id": "REUSE-04",
+      "condition": "Match the actual Lean4.35.0/Lake/native-kit1.0.0 execution to the preserved qualified profile, official compiler archive and disclosed launcher adapter. Retain command/profile/runtime/loader identities and exact nine package revisions with clean actual dependency sources. Record actual threading (one in the qualified current setup). An incompatible profile, compiler, package revision or unqualified change is a gap requiring applicable qualification, not an assumed equivalent environment."
+    },
+    {
+      "id": "REUSE-05",
+      "condition": "Establish that the producer loaded compiler objects corresponding to the recorded immutable defining sources and pinned dependencies, using the qualified launcher plus retained build/input integrity evidence. Do not reuse stale or unverified outputs merely because the source files match. No concurrent builders may share writable project outputs, and no command may be launched against a project while its other builder owns those outputs."
+    },
+    {
+      "id": "REUSE-06",
+      "condition": "Both independent axes must assess the actual110 printed types and this exact dependency/configuration/profile mapping within their original full review scopes. Retain attribution to the actual producer run and to the source/type reviewers. No author summary, focused module count, selected older output or anticipated success substitutes for that assessment."
+    },
+    {
+      "id": "REUSE-07",
+      "condition": "Transfer only the110 eligible names. The35 InsertionSort/InsertionCosts names remain separate at both candidates because transitive Sorting.Merge differs, even though their root source bytes match and the Merge change appends plain theorems. No elaboration-equivalence proof is claimed for that changed environment."
+    },
+    {
+      "id": "REUSE-08",
+      "condition": "If either candidate advances, reconcile its relevant defining closures, exact names, pins and profile to this receipt before transfer. The current binding is only F and0a7ef078. A later unrelated source/doc delta may permit bounded identity extension, but it is not automatically covered."
+    },
+    {
+      "id": "REUSE-09",
+      "condition": "Record any actual reuse in a new explicit evidence disposition with producing run, receiving candidate, exact names and reviewed output positions, preserving both original pending programs and inventories. This preparation changes no pending count and removes no command. Any later targeted remainder must be a separately recorded derivative after the evidence conditions actually hold."
+    },
+    {
+      "id": "REUSE-10",
+      "condition": "Reuse supplies only public statement-inspection evidence. Each original immutable candidate still requires its applicable complete check, exhaustive kernel/axiom audit including private/generated declarations, new matching verification record, both final independent reviews and immediate qualified --verify-candidate before acceptance. Accepted Chapter1 remains accepted; no extra fresh check is implied without the README trigger."
+    }
+  ],
+  "standards_condition_dispositions": [
+    {
+      "id": "REUSE-01",
+      "disposition": "Satisfied: actual producer F145/I314/J53 programs and all selected fully qualified checks match their executed bytes, unchanged current observation inputs, exact names and explicit/full-name/universe profile."
+    },
+    {
+      "id": "REUSE-02",
+      "disposition": "Satisfied: actual current61 closed outer/native exit0 and complete output are secured and fully read. Original F/I/J terminal qualification and complete same-reader producer semantic assessments remain bound by exact records; all selected original blocks and read chunks rehash exactly."
+    },
+    {
+      "id": "REUSE-03",
+      "disposition": "Satisfied: complete immutable local closures and all pre/post clean source/configuration identities match exact producer and receiving candidates. No old terminal identity is inferred from present source equality."
+    },
+    {
+      "id": "REUSE-04",
+      "disposition": "Satisfied: all twenty observations have identical ten configs, nine exact clean dependency records including paths and twelve already-qualified runtime components. Native commands explicitly use one thread with the qualified Lean4.35.0/Lake/native-kit1.0.0 profile and disclosed adapter."
+    },
+    {
+      "id": "REUSE-05",
+      "disposition": "Satisfied for this trusted stable-checkout review: successful guarded full L build, matching verification, owned sequential actual61 and unchanged input observations establish the required loaded-object lineage. Fingerprints alone are not an authenticity or execution certificate."
+    },
+    {
+      "id": "REUSE-06",
+      "disposition": "Standards satisfied: this same independent axis completed all current61 full types and previously completed every inherited producer type; exact receiving mappings are independently assessed now. The separate independent Spec axis remains the coordinator's required gate."
+    },
+    {
+      "id": "REUSE-07",
+      "disposition": "Satisfied: exactly the110 eligible F145 positions are transferred. All35 insertion names stay excluded from F because Merge differs and are supplied by actual I314 positions280–314 with its matching receiving inputs."
+    },
+    {
+      "id": "REUSE-08",
+      "disposition": "Satisfied by this new explicit L successor qualification: all relevant defining/dependency/configuration/profile inputs were reconstructed against immutable L. Earlier candidate bindings are preserved and are not extended automatically."
+    },
+    {
+      "id": "REUSE-09",
+      "disposition": "Satisfied: the producing runs, receiver L, exact names and output positions are recorded in the new independent reconciliation and this final disposition. No historical pending input or producer inventory is changed; no producer rerun is claimed."
+    },
+    {
+      "id": "REUSE-10",
+      "disposition": "Satisfied for Standards final review: complete L check, integrity guard, exhaustive audit including private/generated declarations and matching verification passed. Both final axes and immediate qualified verification remain coordinator prerequisites to acceptance; accepted C1 is preserved and no extra fresh trigger is invented."
+    }
+  ],
+  "finding_dispositions": [
+    {
+      "ids": [
+        "XU03-SRC-001",
+        "XU03-ELAB-001",
+        "XU03-ELAB-002",
+        "XU03-BND-ELAB-001",
+        "XU03-BND-ELAB-002-006",
+        "XU03-BND-ELAB-007-009",
+        "XU03-ELAB3-01",
+        "XU03-ELAB3-02",
+        "XU03-ELAB3-03",
+        "XU03-ELAB3-04",
+        "XU03-ELAB3-05",
+        "XU03-ELAB3-06",
+        "XU03-ELAB3-07",
+        "XU03-ELAB3-08",
+        "XU03-ELAB3-09",
+        "XU03-ELAB3-10",
+        "XU03-ELAB3-11",
+        "XU03-ELAB3-12",
+        "XU03-ELAB3-13",
+        "XU03-ELAB3-14",
+        "XU03-ELAB3-15",
+        "XU03-ELAB3-16",
+        "XU03-MAIN-ELAB-001",
+        "XU03-MAIN-ELAB-002",
+        "XU03-MAIN-ELAB-003",
+        "XU03-MAIN-ELAB-004",
+        "XU03-MAIN-ELAB-005",
+        "XU03-MAIN-ELAB-006"
+      ],
+      "disposition": "Resolved/confirmed at exact L: all previously independently assessed corrective source is unchanged, and actual complete receiving compilation, all public types and exhaustive audit now pass. Original failed checks/probes and their exact boundaries remain historical."
+    },
+    {
+      "id": "C02-DOC-003",
+      "scope": "Tail portion only",
+      "disposition": "Resolved by the exact applied root/map/dated-note source changes already fully assessed at L; no unrelated Chapter2 documentation closure is inferred."
+    },
+    {
+      "id": "C02-TYPE-001",
+      "scope": "Exact L Tail receiving scope and specifically qualified predecessor statement set",
+      "disposition": "Resolved by current actual61 full semantic assessment plus exact J53/I314/F110 qualification. Historical Z920+815+28 remains separately retained; unmerged completeC2 acceptance is not granted."
+    }
+  ],
+  "normal_fresh_and_focused": "Normal guarded full check is applicable under the existing README. The successful current full compilation includes all affected Tail targets and public entrypoint. No separate focused repeat or fresh check is required by label; exact pins/profile/proof/audit gates remain unchanged.",
+  "qualified_environment": "Unchanged official Lean4.35.0 with matching Lake, native kit1.0.0 and disclosed narrow launcher adapter; one thread and exclusive stable output ownership. Nix waived by user. Fingerprints supplement recorded build/execution/integrity evidence, not hostile-input/cache authenticity.",
+  "coordinator_remaining": [
+    "Reconcile both complete final independent axes for this exact candidate.",
+    "Run immediate qualified ./check.sh --verify-candidate HEAD.",
+    "Fast-forward accepted branch exactly to L and update authorized local controls accurately.",
+    "Create, verify, upload and expose acceptance checkpoint."
+  ],
+  "nonclaims": [
+    "No complete Chapter2 or later-chapter acceptance.",
+    "No whole Z type-evidence transfer.",
+    "No new type command for inherited53/314/145 program observations.",
+    "No old failed aggregate relabeled as passed.",
+    "No final acceptance action performed by this reviewer."
+  ],
+  "independent_reconciliation_execution": {
+    "actual_tool": "27231b",
+    "exit_code": 0,
+    "script": {
+      "path": "provenance/shared-tail-standards-terminal-assessment-20261104/qualify_receiving_inputs.py",
+      "bytes": 25588,
+      "lines": 336,
+      "sha256": "bb0c2fa7a6f3cee8f4bd280b9c82d016762b58882683bf71e8c77c944e70cd77"
+    },
+    "receipt": {
+      "path": "provenance/shared-tail-standards-terminal-assessment-20261104/independent-execution-and-type-reconciliation.json",
+      "bytes": 299176,
+      "lines": 8421,
+      "sha256": "fda2e2a7568445a94cb92bd8f276915279e1ea2e151a46c07702005722a00f42"
+    }
+  },
+  "bookkeeping_boundaries": [
+    {
+      "tool": "be5759",
+      "range": [
+        1,
+        250
+      ],
+      "kind": "full",
+      "disposition": "Middle display was truncated; no complete read credit. Repeat in smaller contiguous ranges."
+    },
+    {
+      "tool": "24294c",
+      "range": [
+        376,
+        500
+      ],
+      "kind": "full",
+      "disposition": "Combined output was truncated in this item; repeat alone in a bounded range before read credit."
+    },
+    {
+      "tool": "91f96a",
+      "range": "Tail61 pre-input schema inspection",
+      "disposition": "Reviewer convenience command used the plural identities instead of actual identity, printed the wrong branch and exited1 after truncated display. No complete snapshot read or qualification credit; the intact file is read again below and independently reconciled."
+    }
+  ],
+  "paused_C2_preparation": "Remains held and unfinished at chapter02-standards-statement-readiness-20261104/paused-for-tail-final.json; original NaturalRuns #print commands/printing profiles are not dropped or deduplicated.",
+  "bound_evidence": [
+    {
+      "path": "reviews/permutation-tail-requirements.md",
+      "bytes": 12866,
+      "lines": 229,
+      "sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c"
+    },
+    {
+      "path": "reviews/permutation-tail-standards-source-continuation-20261104.md",
+      "bytes": 16482,
+      "lines": 72,
+      "sha256": "2ddd1f03d8ee8772d26d6438e865206280f2b31d910410a43a97c2d388041bc3"
+    },
+    {
+      "path": "provenance/shared-tail-standards-source-continuation-20261104/source-assessment.json",
+      "bytes": 22417,
+      "lines": 500,
+      "sha256": "c6a9857bc995e29a159545a6ceb5a15662042576ec34ccec1c02f0f42400ee2a"
+    },
+    {
+      "path": "provenance/shared-tail-standards-source-continuation-20261104/read-ledger.json",
+      "bytes": 14965,
+      "lines": 419,
+      "sha256": "4fc98f01d3c0605da6e3530dd694a3d922cf154b6be1c5681d8b3b117370a339"
+    },
+    {
+      "path": "provenance/shared-tail-standards-source-continuation-20261104/independent-source-reconciliation.json",
+      "bytes": 95291,
+      "lines": 2245,
+      "sha256": "b6a55de4fd14358833075dab828976a0f4c1459b3c610b9b54eeb63f64376ece"
+    },
+    {
+      "path": "provenance/shared-tail-standards-source-continuation-20261104/completion.json",
+      "bytes": 4398,
+      "lines": 104,
+      "sha256": "c272ede6343ae170fcadcd323b97e5fd77d33b860238e6b8fb11e675ff37b081"
+    },
+    {
+      "path": "provenance/shared-tail-full-attempt1-20261104/start.json",
+      "bytes": 930,
+      "lines": 26,
+      "sha256": "0b77d91c750f58b019a4fe5a30e001483aee5e46a0759783a07d1b91b9feafca"
+    },
+    {
+      "path": "provenance/shared-tail-full-attempt1-20261104/result.json",
+      "bytes": 1246,
+      "lines": 32,
+      "sha256": "0424520e1881da2154c5b0bcf235429e56433d8e6578b50e694d289e57646002"
+    },
+    {
+      "path": "provenance/shared-tail-full-attempt1-20261104/owned-terminal.json",
+      "bytes": 260,
+      "lines": 8,
+      "sha256": "440dac3dc0c6e86dfa4baf6a5884f48654e8da0f81b19eebf65896cd2758bed8"
+    },
+    {
+      "path": "provenance/shared-tail-full-attempt1-20261104/closed-evidence-reconciliation.json",
+      "bytes": 3118,
+      "lines": 72,
+      "sha256": "1cdaac8dc158a7db5cfa85baacc06e9c4fb4f7fec625c0d02a1ac290f31fd5af"
+    },
+    {
+      "path": "provenance/shared-tail-full-attempt1-20261104/full.log",
+      "bytes": 284574,
+      "lines": 2487,
+      "sha256": "3247019f0fa2844cf6a719a51a3396d04c12d3e7b7b715117eed797289f805bf"
+    },
+    {
+      "path": "provenance/shared-tail-full-attempt1-20261104/native-records/output.log",
+      "bytes": 284346,
+      "lines": 2484,
+      "sha256": "bd5bd2c170cac6a84f855806595fce60981b86eb1660c52c0d3a7a0b9d149749"
+    },
+    {
+      "path": "provenance/shared-tail-full-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "lines": 19,
+      "sha256": "0cd4efa701892c229d61bca325a4c0a2aaa9a26428fa409f7d2195ac1e227a46"
+    },
+    {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/start.json",
+      "bytes": 1074,
+      "lines": 27,
+      "sha256": "d999471fa999f46d8c29be91a3889556354538452e2eb6ec526913d121c5e046"
+    },
+    {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/result.json",
+      "bytes": 1414,
+      "lines": 33,
+      "sha256": "166535394036f2c652e6d324c17401eadfc1d0dac2ae0b48bc40b9e97e20dbc8"
+    },
+    {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/owned-terminal.json",
+      "bytes": 260,
+      "lines": 8,
+      "sha256": "c86bc78c24f047cf2d5195e49c419511f43f12431f8f08ef7cf82221cee30bfe"
+    },
+    {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 3326,
+      "lines": 73,
+      "sha256": "30f501c7c6e807a24b65f5eefa0fbe382da588eab4ae7fc136812421900f30bb"
+    },
+    {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/full.log",
+      "bytes": 85148,
+      "lines": 1076,
+      "sha256": "6ee54f20c375ad1ddf0ffcd79f30d2552f3bee2c52632f6ce7f8155625cc3b8e"
+    },
+    {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/native-records/output.log",
+      "bytes": 84784,
+      "lines": 1073,
+      "sha256": "57747c4b4764ac5aea6885671ff66b5ff202da2c919a0e9bb38f5921738916cf"
+    },
+    {
+      "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/output-blocks.json",
+      "bytes": 24176,
+      "lines": 684,
+      "sha256": "9e83cbfb18c911c3602c2e9fde71b727456bab93ad6bd76375f472142cadb748"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+      "bytes": 4105,
+      "lines": 75,
+      "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa"
+    },
+    {
+      "path": "provenance/shared-tail-inherited-type-qualification-20261104/comparison.json",
+      "bytes": 65793,
+      "lines": 1369,
+      "sha256": "dc52b0cc515a7d058832f2a39bcf16147a62cfe9ffaf60281d7e76a077849387"
+    },
+    {
+      "path": "provenance/shared-tail-standards-terminal-assessment-20261104/read-progress.json",
+      "bytes": 16362,
+      "lines": 381,
+      "sha256": "d563391d972d86efe1631f30e236956fba74f39d2d24e8e3bd3fe17baaecbc39"
+    },
+    {
+      "path": "provenance/shared-tail-standards-terminal-assessment-20261104/qualify_receiving_inputs.py",
+      "bytes": 25588,
+      "lines": 336,
+      "sha256": "bb0c2fa7a6f3cee8f4bd280b9c82d016762b58882683bf71e8c77c944e70cd77"
+    },
+    {
+      "path": "provenance/shared-tail-standards-terminal-assessment-20261104/independent-execution-and-type-reconciliation.json",
+      "bytes": 299176,
+      "lines": 8421,
+      "sha256": "fda2e2a7568445a94cb92bd8f276915279e1ea2e151a46c07702005722a00f42"
+    },
+    {
+      "path": "reviews/permutation-tail-standards-final-20261104.md",
+      "bytes": 15441,
+      "lines": 79,
+      "sha256": "c912730c717de8ca17595a068f27e360884ef84519c56e93236ac8658084f189"
+    }
+  ],
+  "record_readback_status": "Final semantic receipt written; complete saved-file report/receipt/read-ledger readback and hold will be recorded separately."
+}

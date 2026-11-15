@@ -1,0 +1,27 @@
+{
+  "finding": "C03-RANDOM-WORST-ELAB-001",
+  "candidate_before": "3c04405d207a7b8c6f7452598da88fa3a7a05ac3",
+  "origin": "Actual focused compiler/elaboration failure; separate from independent reviews.",
+  "actual_failure": "Core line73 rw[hs] could not match the Fin numeral0 against explicit Fin constructor0 in the structural predicate. No other core error reported, but no core/pair pass. Examples not built.",
+  "actual_terminal": {
+    "owned_session": 6786,
+    "chunk": "c51a4e",
+    "exit": 1
+  },
+  "scope": {
+    "claim": "Resources.RandomSelection.endpointTrace_singleton",
+    "unchanged_header": "theorem endpointTrace_singleton (x : α) : EndpointTrace 0 [x] [(1, 0)]",
+    "implicit_context": "Arbitrary α : Type u with LinearOrder α; x arbitrary. No Inhabited, Countable, Nodup, rank, mass or cost premise added.",
+    "intended_conclusion": "The actual valid singleton has structural trace[(1,0)], with actual occurrence0 and singleton direct return.",
+    "actual_failure": "rw could not match the proof-local Fin numeral0 against the explicit constructor0 occurring in EndpointTrace.",
+    "exact_remedy": "Only proof-local hs is stated at explicit Fin⟨0,by simp⟩. The bound proof establishes0<[x].length; proof irrelevance identifies it with the existential bound witness in EndpointTrace. No occurrence, step or structural definition changes. Existing simp proof of the same actual step and rw[hs] remain.",
+    "proof_delta": {
+      "before": "  have hs : (stepRun 0 [x] 0).1 = Sum.inr x := by",
+      "after": "  have hs : (stepRun 0 [x] ⟨0, by simp⟩).1 = Sum.inr x := by"
+    },
+    "case_connections_retained": "Generic singleton_endpoint; the arbitrary all-valid-rank endpoint induction base; middle/signed/range4 and mixed-duplicate structural paths all consume the same singleton theorem. All example proof/source bytes and independently expected values remain exact.",
+    "mathematical_assessment": "No mathematical statement correction required. This aligns the proof-local dependent index representation; all source/probability/scan/source-cost domains and constants are preserved.",
+    "status": "Source correction authored; successor has not been compiled or type-checked by author."
+  },
+  "status": "Corrected in source; unresolved pending actual successor focused validation."
+}

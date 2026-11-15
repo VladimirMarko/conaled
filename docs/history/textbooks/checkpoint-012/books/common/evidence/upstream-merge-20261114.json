@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "previous_pin": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "new_pin": "983d0b6b602b71541f182737011621a8805be27b",
+  "prior_candidate": "f52a47b9e240b3937533f48befb8622527b7f6db",
+  "merged_candidate": "6a4fb245642e31dea42e3bc56c413000caa3ce45",
+  "merge_parents": [
+    "f52a47b9e240b3937533f48befb8622527b7f6db",
+    "983d0b6b602b71541f182737011621a8805be27b"
+  ],
+  "upstream_commits": 2,
+  "changed_paths": 15,
+  "instruction_and_pin_blobs_unchanged": {
+    "AGENTS.md": true,
+    "README.md": true,
+    ".agents/skills/implement/SKILL.md": true,
+    ".agents/skills/example-driven-development/SKILL.md": true,
+    "docs/agents/review-loop.md": true,
+    "docs/agents/architectural-quality.md": true,
+    "scripts/review_snapshot.py": true,
+    "check.sh": true,
+    "lean-toolchain": true,
+    "lake-manifest.json": true,
+    "lakefile.toml": true,
+    "flake.lock": true
+  },
+  "upstream_changed_blobs_received_exactly_except_public_import_union": {
+    "Applications/Probability/BinaryBlock.lean": true,
+    "Applications/Probability/BoundedUniform.lean": true,
+    "Applications/Probability/BoundedUniformLaw.lean": true,
+    "Applications/Probability/CoinSuffix.lean": true,
+    "Applications/Probability/FiniteMHSampler.lean": true,
+    "Applications/Probability/RationalRow.lean": true,
+    "Applications/Probability/SamplerWork.lean": true,
+    "Applications/Probability/TableSampler.lean": true,
+    "Applications/Probability/TableSamplerComposition.lean": true,
+    "Applications/Probability/TableSamplerIteration.lean": true,
+    "Applications/Probability/UniformThreeLaw.lean": true,
+    "Applications/Progress/Sequential.lean": true,
+    "Examples/BoundedUniform.lean": true,
+    "Examples/TableSampler.lean": true
+  },
+  "both_parents_public_imports_preserved": true,
+  "original_full_spec_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "source_was_clean": true,
+  "validation": "Not yet checked as a complete candidate; historical/partial runs do not confer approval."
+}

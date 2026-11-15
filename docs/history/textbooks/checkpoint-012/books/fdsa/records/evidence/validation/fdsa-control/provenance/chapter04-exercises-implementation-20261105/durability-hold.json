@@ -1,0 +1,65 @@
+{
+  "status": "DURABILITY HOLD; source pairs UNCOMPILED; no acceptance",
+  "recorded_at_utc": "2026-11-05T02:47:45.315732+00:00",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge",
+  "branch": "work/fdsa-ch04-exercises",
+  "head": "106601ff0c6af392139786f0ad01a56e0dca96fb",
+  "tree": "2bfa27599acb493004838e7e388dfebebf627c17",
+  "status_porcelain": "",
+  "whole_chapter_accepted_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "author_start": "5b17c8e4a962a8e79251eda1b5f94f97a3d4cc34",
+  "author_commits": [
+    "106601ff0c6af392139786f0ad01a56e0dca96fb feat(trees): mirror ordered rose trees (#174)",
+    "3a9e02bd4e47282be0e55b71527016277e1d5ca4 feat(trees): collect ordered tree levels (#174)"
+  ],
+  "source_files": [
+    {
+      "path": "Applications/Trees/Levels.lean",
+      "bytes": 3596,
+      "sha256": "45a2c073f4cecb400b2af4bf49941558d65b7eb52ef667bbab19ed8c7984b023"
+    },
+    {
+      "path": "Examples/TreeLevels.lean",
+      "bytes": 1874,
+      "sha256": "8c70f590b88a4f7c329a72a114af12fc12965e79d94ce6fc794fc6853dd1dc7b"
+    },
+    {
+      "path": "Applications/Trees/Rose.lean",
+      "bytes": 1849,
+      "sha256": "0a56ff6221c1f177c5127a43af32f4cb1c0d624d91f16ec661d916900ce89f71"
+    },
+    {
+      "path": "Examples/TreeRose.lean",
+      "bytes": 1065,
+      "sha256": "7bf335b8acde9dcbab004179daa16a8e0671a18c50fcbc17b4377ec831d34f02"
+    }
+  ],
+  "unfinished_phase2_paths": {
+    "Applications/Trees/Enumeration.lean": false,
+    "Examples/TreeEnumeration.lean": false,
+    "Applications/Trees/Reconstruction.lean": false,
+    "Examples/TreeReconstruction.lean": false
+  },
+  "authored_statement_intent_sha256": "365159499aee23d997e319fc901dd668e462ab8681dc166f4c56426543c392b5",
+  "phase1_contract_sha256": "3385c5051e121908262fde4bf69912f05877496022812ac227560fac5244aa98",
+  "phase2_design_sha256": "a055640f090076565be6e2ba00e421bee2eec950a1017bc90b898e6eb3223855",
+  "actual_validation": "Only source inspection, forbidden-token scan and git diff --cached --check. No Lean/Lake/check/audit/statement elaboration run. Root owns all such gates.",
+  "active_child_processes": "none; all child tool executions returned terminal results",
+  "remaining": [
+    "Root compiler qualification of Levels/Rose exact commits; any actual diagnostics must be repaired without weakening scope.",
+    "Freeze and implement full executable Enumeration plus exact membership/Nodup for all repeated-label lists.",
+    "Freeze and implement total Reconstruction, malformed-input behavior and exact distinct-preorder reconstruction theorem/counterexample.",
+    "All full Chapter4 integration,76obligations,immutable candidate/audit,two independent reviews,and immediate verification remain root-owned and open."
+  ],
+  "hold_scope": "All source and provenance writes stop after this record; readback only, then return. Await root resumption after checkpoint0138 durability.",
+  "root_owned_initial_records": [
+    {
+      "path": "assignment-before-branch.json",
+      "sha256": "bd2005a705f036eef327ff25ab8d6dcc680a4dd526b36344a0fa1ef96ba368b1"
+    },
+    {
+      "path": "branch-creation-result.json",
+      "sha256": "c7b41a45119077a97066aa4d947c301f45b91453b2f0759a67eb5467561d6cdc"
+    }
+  ]
+}

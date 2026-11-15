@@ -1,0 +1,313 @@
+{
+  "scope": "Only checker PID 46434, its direct Lean children, and aggregate host/cgroup counters",
+  "clock_ticks_per_second": 100,
+  "page_bytes": 4096,
+  "samples": [
+    {
+      "timestamp": "2026-11-02T03:02:41.676274+00:00",
+      "monotonic": 22483.284194165,
+      "processes": [
+        {
+          "pid": 46434,
+          "state": "S",
+          "ppid": 46431,
+          "minor_faults": 41908,
+          "major_faults": 551,
+          "user_ticks": 240,
+          "system_ticks": 43,
+          "threads": 5,
+          "start_ticks": 2069560,
+          "virtual_bytes": 328802304,
+          "resident_pages": 3036,
+          "block_io_ticks": 0,
+          "status": "State:\tS (sleeping)\nVmPeak:\t  386632 kB\nVmSize:\t  321096 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   20028 kB\nVmRSS:\t   11752 kB\nVmData:\t   45664 kB\nVmStk:\t     144 kB\nVmExe:\t       4 kB\nVmLib:\t    6596 kB\nVmPTE:\t     108 kB\nVmSwap:\t       0 kB\nThreads:\t5\nCpus_allowed_list:\t0-8\nvoluntary_ctxt_switches:\t1884\nnonvoluntary_ctxt_switches:\t1219",
+          "io": "rchar: 436506185\nwchar: 91599934\nsyscr: 2295806\nsyscw: 4307\nread_bytes: 1059661443072\nwrite_bytes: 94810112\ncancelled_write_bytes: 356352\n",
+          "threads_schedstat": {
+            "46434": "2519997679 1192215230 3103\n",
+            "46582": "26713424 35717014 114\n",
+            "46584": "122019713 148560735 552\n",
+            "46586": "128116554 115003523 556\n",
+            "46588": "46436554 98962655 212\n"
+          }
+        },
+        {
+          "pid": 60742,
+          "state": "S",
+          "ppid": 46434,
+          "minor_faults": 885449,
+          "major_faults": 473617,
+          "user_ticks": 583,
+          "system_ticks": 14569,
+          "threads": 5,
+          "start_ticks": 2184286,
+          "virtual_bytes": 9144315904,
+          "resident_pages": 73759,
+          "block_io_ticks": 0,
+          "status": "State:\tS (sleeping)\nVmPeak:\t 8979156 kB\nVmSize:\t 8929996 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 1177932 kB\nVmRSS:\t  295112 kB\nVmData:\t 8574340 kB\nVmStk:\t     144 kB\nVmExe:\t       4 kB\nVmLib:\t  103228 kB\nVmPTE:\t   97624 kB\nVmSwap:\t       0 kB\nThreads:\t5\nCpus_allowed_list:\t0-8\nvoluntary_ctxt_switches:\t86\nnonvoluntary_ctxt_switches:\t185",
+          "io": "rchar: 2502957\nwchar: 1\nsyscr: 27604\nsyscw: 1\nread_bytes: 138907926528\nwrite_bytes: 0\ncancelled_write_bytes: 0\n",
+          "threads_schedstat": {
+            "60742": "126236689 37743058 271\n",
+            "60751": "4907 102798 1\n",
+            "60752": "126463 0 1\n",
+            "60753": "6194514 986123 26\n",
+            "60754": "151396546219 55442014445 574498\n"
+          },
+          "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean -o /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/fresh-check-pb_o_nw4/Applications/Progress/Examples.olean Applications/Progress/Examples.lean"
+        },
+        {
+          "pid": 64542,
+          "state": "S",
+          "ppid": 46434,
+          "minor_faults": 317895,
+          "major_faults": 121839,
+          "user_ticks": 181,
+          "system_ticks": 4070,
+          "threads": 5,
+          "start_ticks": 2230334,
+          "virtual_bytes": 7757176832,
+          "resident_pages": 84359,
+          "block_io_ticks": 0,
+          "status": "State:\tS (sleeping)\nVmPeak:\t 7591756 kB\nVmSize:\t 7575368 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t  940308 kB\nVmRSS:\t  336940 kB\nVmData:\t 7217792 kB\nVmStk:\t     144 kB\nVmExe:\t       4 kB\nVmLib:\t  103228 kB\nVmPTE:\t   66708 kB\nVmSwap:\t       0 kB\nThreads:\t5\nCpus_allowed_list:\t0-8\nvoluntary_ctxt_switches:\t144\nnonvoluntary_ctxt_switches:\t208",
+          "io": "rchar: 1717432\nwchar: 1\nsyscr: 18698\nsyscw: 1\nread_bytes: 31628038144\nwrite_bytes: 4096\ncancelled_write_bytes: 0\n",
+          "threads_schedstat": {
+            "64542": "226543643 81338593 352\n",
+            "64544": "45333 0 1\n",
+            "64545": "133569 0 1\n",
+            "64546": "60587941 13956264 104\n",
+            "64547": "42238180168 16069138034 150795\n"
+          },
+          "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean -o /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/fresh-check-pb_o_nw4/SquareKit/SmoothAlgebra.olean SquareKit/SmoothAlgebra.lean"
+        },
+        {
+          "pid": 64925,
+          "state": "S",
+          "ppid": 46434,
+          "minor_faults": 157752,
+          "major_faults": 92355,
+          "user_ticks": 158,
+          "system_ticks": 2124,
+          "threads": 5,
+          "start_ticks": 2235296,
+          "virtual_bytes": 8208056320,
+          "resident_pages": 48071,
+          "block_io_ticks": 0,
+          "status": "State:\tS (sleeping)\nVmPeak:\t 8015812 kB\nVmSize:\t 8015680 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t  965236 kB\nVmRSS:\t  191832 kB\nVmData:\t 7658104 kB\nVmStk:\t     144 kB\nVmExe:\t       4 kB\nVmLib:\t  103228 kB\nVmPTE:\t   78296 kB\nVmSwap:\t       0 kB\nThreads:\t5\nCpus_allowed_list:\t0-8\nvoluntary_ctxt_switches:\t57\nnonvoluntary_ctxt_switches:\t37",
+          "io": "rchar: 2017559\nwchar: 1\nsyscr: 22127\nsyscw: 1\nread_bytes: 14251089920\nwrite_bytes: 0\ncancelled_write_bytes: 0\n",
+          "threads_schedstat": {
+            "64925": "100980168 3783118 94\n",
+            "64930": "22818 0 1\n",
+            "64931": "226787 101431 2\n",
+            "64932": "5583159 1351158 19\n",
+            "64933": "22721356807 12382718756 115569\n"
+          },
+          "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean -o /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/fresh-check-pb_o_nw4/SquareKit/SmoothHadamard.olean SquareKit/SmoothHadamard.lean"
+        },
+        {
+          "pid": 64941,
+          "state": "S",
+          "ppid": 46434,
+          "minor_faults": 157267,
+          "major_faults": 91758,
+          "user_ticks": 147,
+          "system_ticks": 2277,
+          "threads": 5,
+          "start_ticks": 2235750,
+          "virtual_bytes": 7411720192,
+          "resident_pages": 64767,
+          "block_io_ticks": 0,
+          "status": "State:\tS (sleeping)\nVmPeak:\t 7246204 kB\nVmSize:\t 7238008 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t  842512 kB\nVmRSS:\t  258660 kB\nVmData:\t 6880432 kB\nVmStk:\t     144 kB\nVmExe:\t       4 kB\nVmLib:\t  103228 kB\nVmPTE:\t   59020 kB\nVmSwap:\t       0 kB\nThreads:\t5\nCpus_allowed_list:\t0-8\nvoluntary_ctxt_switches:\t112\nnonvoluntary_ctxt_switches:\t174",
+          "io": "rchar: 1516601\nwchar: 1\nsyscr: 16471\nsyscw: 1\nread_bytes: 16030445568\nwrite_bytes: 0\ncancelled_write_bytes: 0\n",
+          "threads_schedstat": {
+            "64941": "99703866 32286351 286\n",
+            "64942": "35062 0 1\n",
+            "64943": "122902 0 1\n",
+            "64950": "2648434 909167 7\n",
+            "64951": "24153196917 11692302215 109212\n"
+          },
+          "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean -o /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/fresh-check-pb_o_nw4/Examples/AlgebraicScalar.olean Examples/AlgebraicScalar.lean"
+        }
+      ],
+      "host_cpu": "cpu  715522 0 593731 17982880 786165 0 106347 124227 0 0",
+      "host_load": "15.02 14.80 13.04 1/324 66348\n",
+      "host_memory": "MemTotal:       10206472 kB\nMemFree:         1052748 kB\nMemAvailable:    6415832 kB\nBuffers:           74540 kB\nCached:          4738968 kB\nSwapCached:            0 kB\nActive:          3763772 kB\nInactive:        2909452 kB\nActive(anon):        488 kB\nInactive(anon):  1889916 kB\nActive(file):    3763284 kB\nInactive(file):  1019536 kB\nUnevictable:       29924 kB\nMlocked:               0 kB\nSwapTotal:             0 kB\nSwapFree:              0 kB\nDirty:               300 kB\nWriteback:             0 kB\nAnonPages:       1883608 kB\nMapped:          1315244 kB\nShmem:                12 kB\nKReclaimable:    1107396 kB\nSlab:            1373096 kB\nSReclaimable:    1107396 kB\nSUnreclaim:       265700 kB\nKernelStack:        5328 kB\nPageTables:       842392 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:     5103236 kB\nCommitted_AS:   115413024 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:        6668 kB\nVmallocChunk:          0 kB\nPercpu:             2880 kB\nAnonHugePages:   1021952 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nBalloon:               0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:     1150976 kB\nDirectMap2M:    10739712 kB\nDirectMap1G:     9437184 kB\n",
+      "cgroup": {
+        "cpu.max": "800000 100000\n",
+        "cpu.stat": "usage_usec 14108022434\nuser_usec 7591542565\nsystem_usec 6516479868\nnice_usec 0\nnr_periods 98575\nnr_throttled 2739\nthrottled_usec 169562653\nnr_bursts 0\nburst_usec 0\n",
+        "cpu.pressure": {
+          "unavailable": "FileNotFoundError"
+        },
+        "memory.max": "8589934592\n",
+        "memory.current": "8589922304\n",
+        "memory.events": "low 0\nhigh 0\nmax 17662456\noom 0\noom_kill 0\noom_group_kill 0\n",
+        "memory.stat": "anon 1926705152\nfile 4841418752\nkernel 1814171648\nkernel_stack 2686976\npagetables 859779072\nsec_pagetables 0\npercpu 7392\nsock 409600\nvmalloc 0\nshmem 0\nfile_mapped 1275625472\nfile_dirty 286720\nfile_writeback 4096\nswapcached 0\nanon_thp 1046478848\nfile_thp 0\nshmem_thp 0\ninactive_anon 1933164544\nactive_anon 495616\ninactive_file 1042677760\nactive_file 3798282240\nunevictable 0\nslab_reclaimable 840698224\nslab_unreclaimable 110234464\nslab 950932688\nworkingset_refault_anon 0\nworkingset_refault_file 798884691\nworkingset_activate_anon 0\nworkingset_activate_file 469025594\nworkingset_restore_anon 0\nworkingset_restore_file 351183110\nworkingset_nodereclaim 167746\npgdemote_kswapd 0\npgdemote_direct 0\npgdemote_khugepaged 0\npgdemote_proactive 0\npgscan 935840992\npgsteal 811398491\npswpin 0\npswpout 0\npgscan_kswapd 1620336\npgscan_direct 933833537\npgscan_khugepaged 387119\npgscan_proactive 0\npgsteal_kswapd 1208514\npgsteal_direct 809849402\npgsteal_khugepaged 340575\npgsteal_proactive 0\npgfault 187453551\npgmajfault 15242066\npgrefill 525845117\npgactivate 48696993\npgdeactivate 521059821\npglazyfree 24934\npglazyfreed 0\nswpin_zero 0\nswpout_zero 0\nthp_fault_alloc 120319\nthp_collapse_alloc 186\nthp_swpout 0\nthp_swpout_fallback 0\n",
+        "memory.pressure": {
+          "unavailable": "FileNotFoundError"
+        },
+        "memory.swap.max": "max\n",
+        "memory.swap.current": "0\n",
+        "io.stat": "259:0 rbytes=62939136 wbytes=0 rios=14236 wios=0 dbytes=0 dios=0\n254:0 rbytes=3278212136960 wbytes=54891868160 rios=56598815 wios=1346289 dbytes=0 dios=0\n",
+        "io.pressure": {
+          "unavailable": "FileNotFoundError"
+        },
+        "pids.current": "165\n"
+      }
+    },
+    {
+      "timestamp": "2026-11-02T03:03:01.707714+00:00",
+      "monotonic": 22503.315650455,
+      "processes": [
+        {
+          "pid": 46434,
+          "state": "S",
+          "ppid": 46431,
+          "minor_faults": 41908,
+          "major_faults": 551,
+          "user_ticks": 240,
+          "system_ticks": 43,
+          "threads": 5,
+          "start_ticks": 2069560,
+          "virtual_bytes": 328802304,
+          "resident_pages": 3036,
+          "block_io_ticks": 0,
+          "status": "State:\tS (sleeping)\nVmPeak:\t  386632 kB\nVmSize:\t  321096 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   20028 kB\nVmRSS:\t   11752 kB\nVmData:\t   45664 kB\nVmStk:\t     144 kB\nVmExe:\t       4 kB\nVmLib:\t    6596 kB\nVmPTE:\t     108 kB\nVmSwap:\t       0 kB\nThreads:\t5\nCpus_allowed_list:\t0-8\nvoluntary_ctxt_switches:\t1884\nnonvoluntary_ctxt_switches:\t1219",
+          "io": "rchar: 436506185\nwchar: 91599934\nsyscr: 2295806\nsyscw: 4307\nread_bytes: 1059661443072\nwrite_bytes: 94810112\ncancelled_write_bytes: 356352\n",
+          "threads_schedstat": {
+            "46434": "2519997679 1192215230 3103\n",
+            "46582": "26713424 35717014 114\n",
+            "46584": "122019713 148560735 552\n",
+            "46586": "128116554 115003523 556\n",
+            "46588": "46436554 98962655 212\n"
+          }
+        },
+        {
+          "pid": 60742,
+          "state": "S",
+          "ppid": 46434,
+          "minor_faults": 897092,
+          "major_faults": 488867,
+          "user_ticks": 666,
+          "system_ticks": 14883,
+          "threads": 13,
+          "start_ticks": 2184286,
+          "virtual_bytes": 18271154176,
+          "resident_pages": 107988,
+          "block_io_ticks": 0,
+          "status": "State:\tS (sleeping)\nVmPeak:\t17908460 kB\nVmSize:\t17842924 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 1177932 kB\nVmRSS:\t  432024 kB\nVmData:\t16964100 kB\nVmStk:\t     144 kB\nVmExe:\t       4 kB\nVmLib:\t  103228 kB\nVmPTE:\t   97780 kB\nVmSwap:\t       0 kB\nThreads:\t13\nCpus_allowed_list:\t0-8\nvoluntary_ctxt_switches:\t86\nnonvoluntary_ctxt_switches:\t185",
+          "io": "rchar: 2502961\nwchar: 1\nsyscr: 27605\nsyscw: 1\nread_bytes: 140853936128\nwrite_bytes: 0\ncancelled_write_bytes: 0\n",
+          "threads_schedstat": {
+            "60742": "126236689 37743058 271\n",
+            "60751": "4907 102798 1\n",
+            "60752": "126463 0 1\n",
+            "60753": "10288923 56002698 548\n",
+            "60754": "154558185029 57427577060 591165\n",
+            "66425": "118926432 25228993 436\n",
+            "66426": "79689903 69722383 437\n",
+            "66427": "171565548 76039437 292\n",
+            "66428": "161888730 22264865 421\n",
+            "66429": "75052609 46552525 221\n",
+            "66430": "85123173 43145716 194\n",
+            "66431": "55215470 22129726 159\n",
+            "66432": "59581853 34631822 165\n"
+          },
+          "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean -o /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/fresh-check-pb_o_nw4/Applications/Progress/Examples.olean Applications/Progress/Examples.lean"
+        },
+        {
+          "pid": 64542,
+          "state": "S",
+          "ppid": 46434,
+          "minor_faults": 347501,
+          "major_faults": 133309,
+          "user_ticks": 188,
+          "system_ticks": 4568,
+          "threads": 5,
+          "start_ticks": 2230334,
+          "virtual_bytes": 7757176832,
+          "resident_pages": 89044,
+          "block_io_ticks": 0,
+          "status": "State:\tS (sleeping)\nVmPeak:\t 7591756 kB\nVmSize:\t 7575368 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t  940308 kB\nVmRSS:\t  355588 kB\nVmData:\t 7217792 kB\nVmStk:\t     144 kB\nVmExe:\t       4 kB\nVmLib:\t  103228 kB\nVmPTE:\t   66708 kB\nVmSwap:\t       0 kB\nThreads:\t5\nCpus_allowed_list:\t0-8\nvoluntary_ctxt_switches:\t144\nnonvoluntary_ctxt_switches:\t208",
+          "io": "rchar: 1717432\nwchar: 1\nsyscr: 18698\nsyscw: 1\nread_bytes: 36219682816\nwrite_bytes: 4096\ncancelled_write_bytes: 0\n",
+          "threads_schedstat": {
+            "64542": "226543643 81338593 352\n",
+            "64544": "45333 0 1\n",
+            "64545": "133569 0 1\n",
+            "64546": "60587941 13956264 104\n",
+            "64547": "47279844754 17714373532 165233\n"
+          },
+          "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean -o /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/fresh-check-pb_o_nw4/SquareKit/SmoothAlgebra.olean SquareKit/SmoothAlgebra.lean"
+        },
+        {
+          "pid": 64925,
+          "state": "S",
+          "ppid": 46434,
+          "minor_faults": 170239,
+          "major_faults": 105117,
+          "user_ticks": 159,
+          "system_ticks": 2495,
+          "threads": 5,
+          "start_ticks": 2235296,
+          "virtual_bytes": 8208056320,
+          "resident_pages": 59792,
+          "block_io_ticks": 0,
+          "status": "State:\tS (sleeping)\nVmPeak:\t 8015812 kB\nVmSize:\t 8015680 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t  965236 kB\nVmRSS:\t  238952 kB\nVmData:\t 7658104 kB\nVmStk:\t     144 kB\nVmExe:\t       4 kB\nVmLib:\t  103228 kB\nVmPTE:\t   78296 kB\nVmSwap:\t       0 kB\nThreads:\t5\nCpus_allowed_list:\t0-8\nvoluntary_ctxt_switches:\t57\nnonvoluntary_ctxt_switches:\t37",
+          "io": "rchar: 2017559\nwchar: 1\nsyscr: 22127\nsyscw: 1\nread_bytes: 17597075456\nwrite_bytes: 0\ncancelled_write_bytes: 0\n",
+          "threads_schedstat": {
+            "64925": "100980168 3783118 94\n",
+            "64930": "22818 0 1\n",
+            "64931": "226787 101431 2\n",
+            "64932": "5583159 1351158 19\n",
+            "64933": "26447228785 14100956613 130469\n"
+          },
+          "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean -o /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/fresh-check-pb_o_nw4/SquareKit/SmoothHadamard.olean SquareKit/SmoothHadamard.lean"
+        },
+        {
+          "pid": 64941,
+          "state": "S",
+          "ppid": 46434,
+          "minor_faults": 171805,
+          "major_faults": 106461,
+          "user_ticks": 156,
+          "system_ticks": 2632,
+          "threads": 5,
+          "start_ticks": 2235750,
+          "virtual_bytes": 7411720192,
+          "resident_pages": 62653,
+          "block_io_ticks": 0,
+          "status": "State:\tS (sleeping)\nVmPeak:\t 7246204 kB\nVmSize:\t 7238008 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t  842512 kB\nVmRSS:\t  250192 kB\nVmData:\t 6880432 kB\nVmStk:\t     144 kB\nVmExe:\t       4 kB\nVmLib:\t  103228 kB\nVmPTE:\t   59020 kB\nVmSwap:\t       0 kB\nThreads:\t5\nCpus_allowed_list:\t0-8\nvoluntary_ctxt_switches:\t112\nnonvoluntary_ctxt_switches:\t174",
+          "io": "rchar: 1516601\nwchar: 1\nsyscr: 16471\nsyscw: 1\nread_bytes: 18832121856\nwrite_bytes: 0\ncancelled_write_bytes: 0\n",
+          "threads_schedstat": {
+            "64941": "99703866 32286351 286\n",
+            "64942": "35062 0 1\n",
+            "64943": "122902 0 1\n",
+            "64950": "2648434 909167 7\n",
+            "64951": "27791466463 13689953202 125500\n"
+          },
+          "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean -o /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/fresh-check-pb_o_nw4/Examples/AlgebraicScalar.olean Examples/AlgebraicScalar.lean"
+        }
+      ],
+      "host_cpu": "cpu  716136 0 599159 17983224 796747 0 107381 125045 0 0",
+      "host_load": "15.34 14.89 13.11 4/338 66433\n",
+      "host_memory": "MemTotal:       10206472 kB\nMemFree:         1079276 kB\nMemAvailable:    6252752 kB\nBuffers:          117400 kB\nCached:          4527788 kB\nSwapCached:            0 kB\nActive:          3997096 kB\nInactive:        2574792 kB\nActive(anon):        504 kB\nInactive(anon):  1956316 kB\nActive(file):    3996592 kB\nInactive(file):   618476 kB\nUnevictable:       29924 kB\nMlocked:               0 kB\nSwapTotal:             0 kB\nSwapFree:              0 kB\nDirty:              5628 kB\nWriteback:             0 kB\nAnonPages:       1947208 kB\nMapped:          1461348 kB\nShmem:                12 kB\nKReclaimable:    1085540 kB\nSlab:            1351384 kB\nSReclaimable:    1085540 kB\nSUnreclaim:       265844 kB\nKernelStack:        5536 kB\nPageTables:       898796 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:     5103236 kB\nCommitted_AS:   129512664 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:        6796 kB\nVmallocChunk:          0 kB\nPercpu:             2880 kB\nAnonHugePages:   1081344 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nBalloon:               0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:     1150976 kB\nDirectMap2M:    10739712 kB\nDirectMap1G:     9437184 kB\n",
+      "cgroup": {
+        "cpu.max": "800000 100000\n",
+        "cpu.stat": "usage_usec 14174598884\nuser_usec 7598153135\nsystem_usec 6576445749\nnice_usec 0\nnr_periods 98775\nnr_throttled 2739\nthrottled_usec 169562653\nnr_bursts 0\nburst_usec 0\n",
+        "cpu.pressure": {
+          "unavailable": "FileNotFoundError"
+        },
+        "memory.max": "8589934592\n",
+        "memory.current": "8589864960\n",
+        "memory.events": "low 0\nhigh 0\nmax 17909742\noom 0\noom_kill 0\noom_group_kill 0\n",
+        "memory.stat": "anon 1991208960\nfile 4663808000\nkernel 1924599808\nkernel_stack 2899968\npagetables 917602304\nsec_pagetables 0\npercpu 7568\nsock 0\nvmalloc 0\nshmem 0\nfile_mapped 1425354752\nfile_dirty 249856\nfile_writeback 0\nswapcached 0\nanon_thp 1107296256\nfile_thp 0\nshmem_thp 0\ninactive_anon 2000535552\nactive_anon 507904\ninactive_file 631914496\nactive_file 4031557632\nunevictable 0\nslab_reclaimable 885607264\nslab_unreclaimable 117665728\nslab 1003272992\nworkingset_refault_anon 0\nworkingset_refault_file 808713337\nworkingset_activate_anon 0\nworkingset_activate_file 475016906\nworkingset_restore_anon 0\nworkingset_restore_file 355856424\nworkingset_nodereclaim 167746\npgdemote_kswapd 0\npgdemote_direct 0\npgdemote_khugepaged 0\npgdemote_proactive 0\npgscan 946891265\npgsteal 821298497\npswpin 0\npswpout 0\npgscan_kswapd 1620336\npgscan_direct 944883810\npgscan_khugepaged 387119\npgscan_proactive 0\npgsteal_kswapd 1208514\npgsteal_direct 819749408\npgsteal_khugepaged 340575\npgsteal_proactive 0\npgfault 187997320\npgmajfault 15406080\npgrefill 532019791\npgactivate 48880802\npgdeactivate 527219430\npglazyfree 24934\npglazyfreed 0\nswpin_zero 0\nswpout_zero 0\nthp_fault_alloc 120359\nthp_collapse_alloc 186\nthp_swpout 0\nthp_swpout_fallback 0\n",
+        "memory.pressure": {
+          "unavailable": "FileNotFoundError"
+        },
+        "memory.swap.max": "max\n",
+        "memory.swap.current": "0\n",
+        "io.stat": "259:0 rbytes=63307776 wbytes=0 rios=14326 wios=0 dbytes=0 dios=0\n254:0 rbytes=3318579716096 wbytes=54896422912 rios=57035048 wios=1347016 dbytes=0 dios=0\n",
+        "io.pressure": {
+          "unavailable": "FileNotFoundError"
+        },
+        "pids.current": "178\n"
+      }
+    }
+  ]
+}

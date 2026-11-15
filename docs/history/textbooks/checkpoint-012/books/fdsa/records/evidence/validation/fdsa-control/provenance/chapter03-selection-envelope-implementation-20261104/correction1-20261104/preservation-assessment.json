@@ -1,0 +1,13 @@
+{
+  "recorded_utc": "2026-11-04T21:05:15.930487+00:00",
+  "finding": "C03-ENVELOPE-ELAB-001",
+  "exact_correction": "One proof line explicitly reduces the zero case to closed Nat3<=4 before decide.",
+  "all20_headers_unchanged": true,
+  "all3_definitions_unchanged": true,
+  "all_other19_declaration_blocks_unchanged": true,
+  "all8_case_expectations_and_examples_unchanged": true,
+  "all12_prior_sources_and35_selected_records_unchanged": true,
+  "scope_reuse": "Full original source,20headers and case assessment at7c05d8 plus this complete one-line patch. No other source edits.",
+  "input_change": "Only candidate1.json comment changes to candidate2.json; identical20 explicit checks and printing profile.",
+  "full_type_or_compilation_credit": false
+}

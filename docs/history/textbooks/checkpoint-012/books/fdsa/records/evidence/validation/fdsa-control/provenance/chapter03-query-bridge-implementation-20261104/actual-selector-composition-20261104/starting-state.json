@@ -1,0 +1,182 @@
+{
+  "recorded_utc": "2026-11-04T21:46:18.751281+00:00",
+  "head": "47f12b48b93a1e223b9f743e067685f12f4da5b1",
+  "tree": "19186fe71dbfdcc639a6bf7da778dd14fd8684ff",
+  "branch": "work/fdsa-ch03-query-lower-bounds",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge",
+  "clean": true,
+  "index_sha256": "c0ca315976e13535a66ac222a28367aeb55497c8aaa51dd877d5cc3d9884504a",
+  "preserved_six_sources": {
+    "Applications/Selection/CoordinateSensitivity.lean": {
+      "bytes": 6717,
+      "sha256": "224724056815f73aff552ead23b7dd83af4078ad61009169e1b474f4b94476e6",
+      "blob": "aa11abfc1bc0aba12c564b3f974f1b2dfed097b0"
+    },
+    "Applications/Selection/CoordinateQueries.lean": {
+      "bytes": 11106,
+      "sha256": "ca1c0d339500e77aa14ca47420b9f7a11f213bbcd8ac113c3281c7f9690e6409",
+      "blob": "49aa4bdf4beb2533fe273c3267ae031d862dbcf7"
+    },
+    "Applications/Selection/CoordinateReadAll.lean": {
+      "bytes": 7611,
+      "sha256": "ab2fd8949fe4a73e909cac90f99329fcd3b508e1b221e4411449a535f48f41ff",
+      "blob": "e05374c65ff8dafaf6035ca6792271f70522c9ce"
+    },
+    "Examples/CoordinateSensitivity.lean": {
+      "bytes": 3726,
+      "sha256": "ed3d3d7cd41c97169893fdb5cf95e336a560f6f042ee70cea0a24ad7a6691828",
+      "blob": "83ae3945dc67c142333d41317ae39a38ee3e2b7a"
+    },
+    "Examples/CoordinateQueries.lean": {
+      "bytes": 8079,
+      "sha256": "d90bd28ec4496105d9c5da80171a4c96a5ace119c0e178ded48f4f84ca8ad16d",
+      "blob": "cdc5b93e5a5ebe720a30812a90b3a8cd388edaba"
+    },
+    "Examples/CoordinateReadAll.lean": {
+      "bytes": 5626,
+      "sha256": "8290a02bee2fb078439842c26a6cb46ec231aeb092b30659c8a3b674cc54b603",
+      "blob": "b561b9fa3a67d6962e997659955d0c29eb846526"
+    }
+  },
+  "preserved_prior_records": {
+    "provenance/chapter03-query-bridge-implementation-20261104/HANDOFF.md": {
+      "bytes": 2981,
+      "sha256": "cb1c57c988d44d5dc68f5cbbd4c26e10c4ecc9997aed3794c6b69ecac00dd05c"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/SHA256SUMS": {
+      "bytes": 1999,
+      "sha256": "76c8b73cf354de07ec710be2ad87cb85703dc0eacc64d8b9b4862e5ea0f8077d"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/Statements27-candidate01.lean": {
+      "bytes": 1887,
+      "sha256": "68e9665c25ad286e32b9ca2d2e6c2620649f4e57d4b06e2af8c398de7d23a6f3"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/Statements95-candidate01.lean": {
+      "bytes": 6238,
+      "sha256": "605972ee50066b2f01d3188d7f90fb4761fc9b3e0dd28b4616317068ad8ba882"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/after-index.txt": {
+      "bytes": 151487,
+      "sha256": "95690b21f991c26e7bba9a1dcce21baa2ec43418a4ff1535e6096059e7c2730c"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/after-status.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/baseline.json": {
+      "bytes": 1441,
+      "sha256": "9ef14e6e27a4a742e6b92884533fb6afaf5d3285235184a3ffc659fe24783fb3"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/before-cached-diff.patch": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/before-diff.patch": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/before-index.txt": {
+      "bytes": 151309,
+      "sha256": "a6bb651f1ed226c8de0757f08f6025ffaa03d207010fc1cef088e2f2c8777b3a"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/before-status.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/candidate01.json": {
+      "bytes": 1782,
+      "sha256": "9538fe7f8564a6479c5bf8684e2a92c7f6b505b6f7e0465e71c0a0670d4740c8"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/commit.txt": {
+      "bytes": 256,
+      "sha256": "88b5972f8cd9d1492ec65a5b9123aee12fb66c80d67c6faf1a8735b4b8930dec"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/declaration-inventory.json": {
+      "bytes": 13639,
+      "sha256": "70ba70f938709d1d313ffd25314b02207951a714c65e4a2dd697dc908f89f4a8"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/design-and-expected-cases.md": {
+      "bytes": 3002,
+      "sha256": "1f44b921808d575f74a59bbdea0cf23e39c6219ca8b6ff7e41a99a23248940e8"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/implementation-author-readback-and-c03-083-plan-20261104.md": {
+      "bytes": 28977,
+      "sha256": "241a9935cae904b24a290d1877763954fa1e5aa1d84119c87e6c664981802f7b"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/pre-commit-status.txt": {
+      "bytes": 84,
+      "sha256": "37ce3ad08f084d485343e7fdeb7af9bc69082e1bdf7fe7b860b9d6f7a7fb263f"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/query-whole-branch-candidate01.patch": {
+      "bytes": 45094,
+      "sha256": "699b10cd1ffc2c795d1f8fd68d2749d023e8b7a54f323086549aad89eb879723"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/root-correction1-20261104/candidate.json": {
+      "bytes": 1609,
+      "sha256": "010be09ec5ce559a6f524193a6b6071cd7b6d88147d28566f902c8c2bc2bb1e7"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/root-correction1-20261104/git-commands.json": {
+      "bytes": 631,
+      "sha256": "1b4cf190e8a7f60080a45094395def65e1e3490b2412576359a2977172fc1b63"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/root-correction1-20261104/preparation-count-assertion-failure.json": {
+      "bytes": 712,
+      "sha256": "15a03eccceb7f752858829d5131d807c9a4f0bf58c44d726fffbeba7d3e0fdda"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/root-correction1-20261104/source.diff": {
+      "bytes": 2053,
+      "sha256": "6c60ea51b6e6e59f20547524a11f995d30e17f100fd597d2c4a31ab8d226ccc6"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/root-correction1-20261104/starting-state.json": {
+      "bytes": 6421,
+      "sha256": "9c3fd7e899f60d9bef09505660e88271505bc9be3ed15b1b56ce5e5b3018fca2"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/root-correction2-20261104/candidate.json": {
+      "bytes": 846,
+      "sha256": "46cc3a461aaa8cf7b06ab970079bba6736c9afa2d8f1980e8ff4a2985826a77e"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/root-correction2-20261104/git-commands.json": {
+      "bytes": 646,
+      "sha256": "a3629e9e3f9e994ace6f4b1ad7edfa8bb6ea4d09863489bbd2bcb732c30d2ed5"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/root-correction2-20261104/source.diff": {
+      "bytes": 1063,
+      "sha256": "30e47544b855b2693121de8098754e69eb47c5c80804d186a19e3cdd2d38ddf8"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/root-correction2-20261104/starting-state.json": {
+      "bytes": 1597,
+      "sha256": "82988901134dcc052295514bc1e4e30df6ac1fc42fc6e28368c99fa873892d90"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/slice-candidate01.patch": {
+      "bytes": 13919,
+      "sha256": "56d35db0dc955de01f87c430ae5f8b21b11496fd0f42127ece34804b762628e4"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/source-candidate01/Applications/Selection/CoordinateReadAll.lean": {
+      "bytes": 7602,
+      "sha256": "5ebd75b797b26fb591f3951a68a3cec9d46d4f0bfeedab8c22b1b010e96d8f25"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/source-candidate01/Examples/CoordinateReadAll.lean": {
+      "bytes": 5626,
+      "sha256": "8290a02bee2fb078439842c26a6cb46ec231aeb092b30659c8a3b674cc54b603"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/source-statements.txt": {
+      "bytes": 8962,
+      "sha256": "8c97c82367c65bb337cb121d27cd035c984646319f4c4f9ad17d92be30e9b972"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/statement-assessment.md": {
+      "bytes": 8827,
+      "sha256": "35373c3367e141f46713f77a0ba67fced14bcdeeae292a06d2b3e284b750e3dc"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/static-diff-check.txt": {
+      "bytes": 7,
+      "sha256": "19eaf43821a7660ec323a87c8457bf74823beb296c39f5e01aa8a683aa50f061"
+    }
+  },
+  "source_donor": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+  "source_donor_tree": "dd9c3d765aabd09d147247aba938e59786244aa4",
+  "author_only_no_compiler": true,
+  "authorization": "root assignment after checkpoint0130 release3c4964; exact minimal absent project source dependency closure; never overwrite conflict",
+  "existing_public_inspection_names": 95,
+  "existing_authored_private_helpers": 3,
+  "whole_query_branch_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca"
+}

@@ -1,0 +1,21 @@
+{
+  "recorded_utc": "2026-11-04T04:12:18.468127+00:00",
+  "branch": "work/fdsa-ch02-alternating",
+  "accepted_chapter_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "development_start": "95cfce304b9b63057286acc7d5b20b53d95d8eaa",
+  "reason": "After switching the idle insertion worktree to R, the two exact original insertion files reappeared untracked. Retain their checked development prefix explicitly on this new branch instead of removing/re-excluding task source. No insertion theorem changes and no additional accepted dependency are claimed.",
+  "files": [
+    {
+      "path": "Applications/Sorting/InsertionObservations.lean",
+      "sha256": "e537e85fa7d06db4e3030fbac3ad2123dfa295158ee87480ece9c47a56ee5add",
+      "matches_preserved_insertion_commit": true
+    },
+    {
+      "path": "Examples/InsertionObservations.lean",
+      "sha256": "29ba454b380ab837133863318611b059bc0af385008667d60c410ddedb7ba0f1",
+      "matches_preserved_insertion_commit": true
+    }
+  ],
+  "original_insertion_ref_preserved": true,
+  "alternating_author_owns_only_new_two_files": true
+}

@@ -1,0 +1,16 @@
+diff --git a/Examples/BottomUpCosts.lean b/Examples/BottomUpCosts.lean
+index 4efed66..cd02cf2 100644
+--- a/Examples/BottomUpCosts.lean
++++ b/Examples/BottomUpCosts.lean
+@@ -180,9 +180,9 @@ theorem single_run_power_zero (cmp : α → α → Bool) (xs : List α) :
+   have hl : ∀ ys ∈ [xs], ys.length = xs.length := by simp
+   constructor
+   · simpa only [Nat.mul_zero, Nat.zero_mul] using
+-      allComparisons_le_uniform_pow cmp [xs] xs.length 0 hl (by decide)
++      allComparisons_le_uniform_pow cmp [xs] xs.length 0 hl (by rfl)
+   · simpa only [Nat.mul_zero, Nat.zero_mul] using
+-      allRevComparisons_le_uniform_pow cmp [xs] xs.length 0 hl (by decide)
++      allRevComparisons_le_uniform_pow cmp [xs] xs.length 0 hl (by rfl)
+ 
+ theorem uniform_four_runs_bound :
+     allComparisons natCompare [[0, 4], [1, 5], [2, 6], [3, 7]] ≤ 16 ∧

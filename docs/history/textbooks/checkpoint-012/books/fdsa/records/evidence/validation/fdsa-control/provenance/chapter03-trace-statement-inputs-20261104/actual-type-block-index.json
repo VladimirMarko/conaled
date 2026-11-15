@@ -1,0 +1,197 @@
+{
+  "candidate": "2b5ff20504d8811587859e6eb3351cb1598a4504",
+  "source_log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-statements23-attempt1-20261104/native-records/output.log",
+  "source_log_identity": {
+    "bytes": 35549,
+    "sha256": "31b3ef8b1af81e05f295a75f24e0051f0c24033a40f3384e54de7c1f9f70677e"
+  },
+  "names": 23,
+  "lines": 482,
+  "exact_original_order_and_full_byte_partition": true,
+  "blocks": [
+    {
+      "name": "Resources.RandomSelection.prepend_injective",
+      "first_line": 1,
+      "last_line": 3,
+      "offset": 0,
+      "bytes": 283,
+      "sha256": "4a6a267b16fea010ed2a1098b029fb6a9d8600b962b9d99e044ccbb21a891f64"
+    },
+    {
+      "name": "Resources.RandomSelection.map_prepend_apply",
+      "first_line": 4,
+      "last_line": 15,
+      "offset": 283,
+      "bytes": 964,
+      "sha256": "8a0aa93f928f4435e25b7f62ac70e19bded1a3c73e3fb4f86851de9f03541540"
+    },
+    {
+      "name": "Resources.RandomSelection.run_child_atom",
+      "first_line": 16,
+      "last_line": 54,
+      "offset": 1247,
+      "bytes": 2718,
+      "sha256": "a506bd4a41093d952599d20465414de9322ae3e67f3d24684acf910a4a1b6d36"
+    },
+    {
+      "name": "Resources.RandomSelection.run_trace_injective",
+      "first_line": 55,
+      "last_line": 74,
+      "offset": 3965,
+      "bytes": 1379,
+      "sha256": "39b8cec40bf6178f6dd18a6e54c1d91fa91ac1dc1d3a92a14c88f5cde4997c59"
+    },
+    {
+      "name": "Resources.RandomSelection.traceLaw",
+      "first_line": 75,
+      "last_line": 76,
+      "offset": 5344,
+      "bytes": 159,
+      "sha256": "7a9dc536d23ab356804b571b055c9cfd7bd87dde7b3c3229ed197dbf39c7e63c"
+    },
+    {
+      "name": "Resources.RandomSelection.traceLaw_support",
+      "first_line": 77,
+      "last_line": 94,
+      "offset": 5503,
+      "bytes": 1112,
+      "sha256": "adc38b95d0a656a813096974cf600dac5442d4cb359be4868ac169be125bf26c"
+    },
+    {
+      "name": "Resources.RandomSelection.traceLaw_atom",
+      "first_line": 95,
+      "last_line": 112,
+      "offset": 6615,
+      "bytes": 1292,
+      "sha256": "e93eac64171359a561b2677ce4a2b7e20720d46c1d07ddcc776b7d4bdfce4655"
+    },
+    {
+      "name": "Resources.RandomSelection.traceLaw_nil",
+      "first_line": 113,
+      "last_line": 116,
+      "offset": 7907,
+      "bytes": 331,
+      "sha256": "20f1a1d5d71951307142d32fe130fed2c8b19d03c55d8762d89c6c92673fea9b"
+    },
+    {
+      "name": "Resources.RandomSelection.run_singleton_atom",
+      "first_line": 117,
+      "last_line": 131,
+      "offset": 8238,
+      "bytes": 1161,
+      "sha256": "36683d8fcc5c4a75ae44cf8376dc8342a49e7f66922d13259a2c2ebff65ffb90"
+    },
+    {
+      "name": "Examples.RandomSelectionTrace.singleton_trace_atom",
+      "first_line": 132,
+      "last_line": 142,
+      "offset": 9399,
+      "bytes": 841,
+      "sha256": "73b5757cf948c7e375fbb6bd280e703788a5eb5a1084c372c59220273bbb31d9"
+    },
+    {
+      "name": "Examples.RandomSelectionTrace.middle_child_atom",
+      "first_line": 143,
+      "last_line": 168,
+      "offset": 10240,
+      "bytes": 1899,
+      "sha256": "ef93b9d5c29e01b7cd57c451c616ee693dd64f08e8dcb258a7598dc7308857ed"
+    },
+    {
+      "name": "Examples.RandomSelectionTrace.middle_path_atom",
+      "first_line": 169,
+      "last_line": 198,
+      "offset": 12139,
+      "bytes": 2222,
+      "sha256": "e8bbee80961a185195799e094b94be96b36e49af022e0239596d48fc0eae54df"
+    },
+    {
+      "name": "Examples.RandomSelectionTrace.middle_path_trace",
+      "first_line": 199,
+      "last_line": 223,
+      "offset": 14361,
+      "bytes": 1838,
+      "sha256": "a164f64d40f7f9f48f5798624f7a3187f1b1598349b2a3ab8b2a100454db5616"
+    },
+    {
+      "name": "Examples.RandomSelectionTrace.middle_path_observations",
+      "first_line": 224,
+      "last_line": 261,
+      "offset": 16199,
+      "bytes": 2613,
+      "sha256": "cec5980699945bd704d5fd539c3494f5c58e5131091abf9f35e73dd1304a7145"
+    },
+    {
+      "name": "Examples.RandomSelectionTrace.negative_path_atom",
+      "first_line": 262,
+      "last_line": 300,
+      "offset": 18812,
+      "bytes": 2952,
+      "sha256": "71791e8c77dc9a6d75cacc84e2f90c7899a49ab5af74d573d8f25837b594b7a0"
+    },
+    {
+      "name": "Examples.RandomSelectionTrace.negative_path_trace",
+      "first_line": 301,
+      "last_line": 334,
+      "offset": 21764,
+      "bytes": 2544,
+      "sha256": "92430c1561de26d8f881a77f24b1024c4a263811844c40c5e04360c6a4ed6964"
+    },
+    {
+      "name": "Examples.RandomSelectionTrace.duplicate_trace_atom",
+      "first_line": 335,
+      "last_line": 353,
+      "offset": 24308,
+      "bytes": 1411,
+      "sha256": "c1c3a6f2a6677a29d1c3b9d697fc297da4db57445ad76ba32d73d18e87080db9"
+    },
+    {
+      "name": "Examples.RandomSelectionTrace.empty_trace_atom",
+      "first_line": 354,
+      "last_line": 359,
+      "offset": 25719,
+      "bytes": 525,
+      "sha256": "929b2207d7002f7fc01079f644190c045b4971821614df862c0b5a5511fc5a37"
+    },
+    {
+      "name": "Examples.RandomSelectionTrace.invalid_singleton_trace_atom",
+      "first_line": 360,
+      "last_line": 370,
+      "offset": 26244,
+      "bytes": 840,
+      "sha256": "5f5ff92cef3a6d564a278203677bf27966abe902b78282b947b41b0b30ced682"
+    },
+    {
+      "name": "Examples.RandomSelectionTrace.different_initial_rank_boundary",
+      "first_line": 371,
+      "last_line": 411,
+      "offset": 27084,
+      "bytes": 3166,
+      "sha256": "8945b0fdc789a508d77ffedb348f277d9cbe936b5d206776e7601bd579f929d5"
+    },
+    {
+      "name": "Examples.RandomSelectionTrace.unsupported_empty_trace_boundary",
+      "first_line": 412,
+      "last_line": 434,
+      "offset": 30250,
+      "bytes": 1735,
+      "sha256": "569cd6c42de9f1d40585c9c211485a8bda6e9e3679ad820984e15ab4fd1d7156"
+    },
+    {
+      "name": "Examples.RandomSelectionTrace.arbitrary_supported_trace",
+      "first_line": 435,
+      "last_line": 464,
+      "offset": 31985,
+      "bytes": 2207,
+      "sha256": "9511b4555b8c20965e58e21026f59cfad005257907b0d84966a239873e7fd865"
+    },
+    {
+      "name": "Examples.RandomSelectionTrace.middle_path_supported",
+      "first_line": 465,
+      "last_line": 482,
+      "offset": 34192,
+      "bytes": 1357,
+      "sha256": "a5214674af985f55e42ece1bb6a984a9732d74cafae026d4fe13c02d1fb5cd51"
+    }
+  ]
+}

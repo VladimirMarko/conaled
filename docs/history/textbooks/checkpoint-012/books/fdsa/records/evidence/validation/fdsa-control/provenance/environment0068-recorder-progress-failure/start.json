@@ -1,0 +1,15 @@
+{
+  "cwd": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review",
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-c",
+    "from pathlib import Path; import sys; p=Path(sys.argv[1]); p.open('x').write('one execution\\n'); print('owned child terminal marker', flush=True); sys.exit(7)",
+    "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/environment0068-recorder-progress-failure/child-executed-once.txt"
+  ],
+  "started_utc": "2026-11-03T15:57:04.891815+00:00",
+  "initial_head": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "initial_status": "",
+  "recorder_pid": 4,
+  "available_bytes_at_start": 12961726464
+}

@@ -1,0 +1,408 @@
+
+FILE Mathlib/Basic/ENNReal/Basic.lean
+{"path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Basic/ENNReal/Basic.lean", "bytes": 32272, "lines": 789, "sha256": "f7fe64f0d1865209e4d2be2fd98e3bc5edf9af508dd665f0311e6396f8d513a2", "kind": "pinned Mathlib source", "read_ranges": [[102, 129], [143, 154], [176, 181], [273, 275], [405, 418], [505, 510]], "git_blob": "242f8bc87ce2a87beb391ede8ec77f85f9d7ff84", "exact_pinned_object_matches_local_bytes": true}
+
+102: /-- The extended nonnegative real numbers. This is usually denoted [0, ∞],
+103:   and is relevant as the codomain of a measure. -/
+104: def ENNReal := WithTop ℝ≥0
+105: 
+106: @[inherit_doc]
+107: scoped[ENNReal] notation "ℝ≥0∞" => ENNReal
+108: 
+109: -- note: using notation3 rather than notation means that `∞` pretty-prints
+110: -- as `∞` rather than `top`. Despite this, we still use `top` in the names of lemmas.
+111: /-- Notation for infinity as an `ENNReal` number. -/
+112: scoped[ENNReal] notation3 "∞" => (⊤ : ENNReal)
+113: 
+114: namespace ENNReal
+115: 
+116: /-- Coercion from `ℝ≥0` to `ℝ≥0∞`. -/
+117: @[coe, match_pattern] def ofNNReal : ℝ≥0 → ℝ≥0∞ := WithTop.some
+118: 
+119: instance : Coe ℝ≥0 ℝ≥0∞ := ⟨ofNNReal⟩
+120: 
+121: /- Declare these instances by hand for good defeqs -/
+122: instance : Zero ℝ≥0∞ := ⟨ofNNReal 0⟩
+123: instance : One ℝ≥0∞ := ⟨ofNNReal 1⟩
+124: instance : Bot ℝ≥0∞ := ⟨0⟩
+125: 
+126: example : (0 : ℝ≥0∞) = ⊥ := by with_reducible_and_instances rfl
+127: 
+128: deriving instance Top, LE, PartialOrder, Add, AddCommMonoidWithOne, SemilatticeSup, DistribLattice,
+129:   Nontrivial for ENNReal
+
+143: noncomputable instance : CommSemiring ℝ≥0∞ :=
+144:   inferInstanceAs (CommSemiring (WithTop ℝ≥0))
+145: 
+146: instance : IsOrderedRing ℝ≥0∞ :=
+147:   inferInstanceAs (IsOrderedRing (WithTop ℝ≥0))
+148: 
+149: instance : CanonicallyOrderedAdd ℝ≥0∞ :=
+150:   inferInstanceAs (CanonicallyOrderedAdd (WithTop ℝ≥0))
+151: 
+152: instance : NoZeroDivisors ℝ≥0∞ :=
+153:   inferInstanceAs (NoZeroDivisors (WithTop ℝ≥0))
+154: 
+
+176: -- RFC: redefine using pattern matching?
+177: noncomputable instance : Inv ℝ≥0∞ := ⟨fun a => sInf { b | 1 ≤ a * b }⟩
+178: 
+179: noncomputable instance : DivInvMonoid ℝ≥0∞ where
+180: 
+181: variable {a b c : ℝ≥0∞} {r p q : ℝ≥0} {n : ℕ}
+
+273: @[simp, norm_cast, basify_op ←] theorem coe_zero : ↑(0 : ℝ≥0) = (0 : ℝ≥0∞) := rfl
+274: 
+275: @[simp, norm_cast, basify_op ←] theorem coe_one : ↑(1 : ℝ≥0) = (1 : ℝ≥0∞) := rfl
+
+405: @[simp, norm_cast, basify_op ←] lemma coe_add (x y : ℝ≥0) : (↑(x + y) : ℝ≥0∞) = x + y := rfl
+406: 
+407: @[simp, norm_cast, basify_op ←] lemma coe_mul (x y : ℝ≥0) : (↑(x * y) : ℝ≥0∞) = x * y := rfl
+408: 
+409: @[norm_cast] lemma coe_nsmul (n : ℕ) (x : ℝ≥0) : (↑(n • x) : ℝ≥0∞) = n • x := rfl
+410: 
+411: @[simp, norm_cast, basify_op ←] lemma coe_pow (x : ℝ≥0) (n : ℕ) : (↑(x ^ n) : ℝ≥0∞) = x ^ n := rfl
+412: 
+413: @[simp, norm_cast]
+414: theorem coe_ofNat (n : ℕ) [n.AtLeastTwo] : ((ofNat(n) : ℝ≥0) : ℝ≥0∞) = ofNat(n) := rfl
+415: 
+416: -- TODO: add lemmas about `OfNat.ofNat` and `<`/`≤`
+417: 
+418: theorem coe_two : ((2 : ℝ≥0) : ℝ≥0∞) = 2 := rfl
+
+505: @[simp, norm_cast]
+506: theorem one_lt_coe_iff : 1 < (↑p : ℝ≥0∞) ↔ 1 < p := coe_lt_coe
+507: 
+508: @[simp, norm_cast, basify_op ←]
+509: theorem coe_natCast (n : ℕ) : ((n : ℝ≥0) : ℝ≥0∞) = n := rfl
+510: 
+
+
+FILE Mathlib/Basic/ENNReal/Inv.lean
+{"path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Basic/ENNReal/Inv.lean", "bytes": 44273, "lines": 982, "sha256": "f06e93ae82105c5c03585c2d11377b94aac119b7fdbcaf34a7a333aa27c53f36", "kind": "pinned Mathlib source", "read_ranges": [[43, 92]], "git_blob": "fd51b663656c80c2e47a7a694662fd1c379bdca8", "exact_pinned_object_matches_local_bytes": true}
+
+43: namespace ENNReal
+44: 
+45: noncomputable section Inv
+46: 
+47: variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+48: 
+49: protected theorem div_eq_inv_mul : a / b = b⁻¹ * a := by rw [div_eq_mul_inv, mul_comm]
+50: 
+51: protected theorem div_right_comm : a / b / c = a / c / b := by
+52:   simp only [div_eq_mul_inv, mul_right_comm]
+53: 
+54: @[simp] theorem inv_zero : (0 : ℝ≥0∞)⁻¹ = ∞ :=
+55:   show sInf { b : ℝ≥0∞ | 1 ≤ 0 * b } = ∞ by simp
+56: 
+57: @[simp, basify_simp] theorem inv_top : ∞⁻¹ = 0 :=
+58:   bot_unique <| le_of_forall_gt_imp_ge_of_dense fun a (h : 0 < a) => sInf_le <| by
+59:     simp [*, h.ne', top_mul]
+60: 
+61: theorem coe_inv_le : (↑r⁻¹ : ℝ≥0∞) ≤ (↑r)⁻¹ :=
+62:   le_sInf fun b (hb : 1 ≤ ↑r * b) =>
+63:     coe_le_iff.2 <| by
+64:       rintro b rfl
+65:       apply NNReal.inv_le_of_le_mul
+66:       rwa [← coe_mul, ← coe_one, coe_le_coe] at hb
+67: 
+68: @[simp, norm_cast, basify_op ←]
+69: theorem coe_inv (hr : r ≠ 0) : (↑r⁻¹ : ℝ≥0∞) = (↑r)⁻¹ :=
+70:   coe_inv_le.antisymm <| sInf_le <| mem_ofPred.2 <| by rw [← coe_mul, mul_inv_cancel₀ hr, coe_one]
+71: 
+72: @[simp, norm_cast]
+73: theorem coe_inv' [NeZero r] : (↑r⁻¹ : ℝ≥0∞) = (↑r)⁻¹ := coe_inv (NeZero.ne r)
+74: 
+75: @[norm_cast]
+76: theorem coe_inv_two : ((2⁻¹ : ℝ≥0) : ℝ≥0∞) = 2⁻¹ := by rw [coe_inv _root_.two_ne_zero, coe_two]
+77: 
+78: @[simp, norm_cast, basify_op ←]
+79: theorem coe_div (hr : r ≠ 0) : (↑(p / r) : ℝ≥0∞) = p / r := by
+80:   rw [div_eq_mul_inv, div_eq_mul_inv, coe_mul, coe_inv hr]
+81: 
+82: @[simp, norm_cast]
+83: theorem coe_div' [NeZero r] : (↑(p / r) : ℝ≥0∞) = p / r := coe_div (NeZero.ne r)
+84: 
+85: lemma coe_div_le : ↑(p / r) ≤ (p / r : ℝ≥0∞) := by
+86:   simpa only [div_eq_mul_inv, coe_mul] using _root_.mul_le_mul_right coe_inv_le _
+87: 
+88: theorem div_zero (h : a ≠ 0) : a / 0 = ∞ := by simp [div_eq_mul_inv, h]
+89: 
+90: instance : DivInvOneMonoid ℝ≥0∞ :=
+91:   { (inferInstance : DivInvMonoid ℝ≥0∞) with
+92:     inv_one := by simpa only [coe_inv one_ne_zero, coe_one] using coe_inj.2 inv_one }
+
+
+FILE Mathlib/Basic/NNReal/Defs.lean
+{"path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Basic/NNReal/Defs.lean", "bytes": 40904, "lines": 1058, "sha256": "250d8ef69dc5cca301cd7f02a1521fa21614794b602ddd99ac2cb1e1da8beeae", "kind": "pinned Mathlib source", "read_ranges": [[96, 124]], "git_blob": "3a590beb85007bf2bfd1a070d3da2a1f2ff0719d", "exact_pinned_object_matches_local_bytes": true}
+
+96: -- a computable copy of `Nonneg.instNNRatCast`
+97: instance : NNRatCast ℝ≥0 where nnratCast r := ⟨r, r.cast_nonneg⟩
+98: 
+99: noncomputable instance : Inv ℝ≥0 where
+100:   inv x := .mk (x : ℝ)⁻¹ (inv_nonneg.mpr x.2)
+101: 
+102: noncomputable instance : Div ℝ≥0 where
+103:   div x y := .mk ((x : ℝ) / (y : ℝ)) (div_nonneg x.2 y.2)
+104: 
+105: noncomputable instance : SMul ℚ≥0 ℝ≥0 where
+106:   smul x y := .mk (x • (y : ℝ)) (by rw [NNRat.smul_def]; exact mul_nonneg x.cast_nonneg y.2)
+107: 
+108: noncomputable instance zpow : Pow ℝ≥0 ℤ where
+109:   pow x n := .mk ((x : ℝ) ^ n) (zpow_nonneg x.2 _)
+110: 
+111: /-- Redo the `Nonneg.semifield` instance, because this will get unfolded a lot,
+112: and ends up inserting the non-reducible defeq `ℝ≥0 = { x // x ≥ 0 }` in places where
+113: it needs to be reducible(-with-instances).
+114: -/
+115: noncomputable instance : Semifield ℝ≥0 := fast_instance%
+116:   Function.Injective.semifield toReal Subtype.val_injective
+117:     rfl rfl (fun _ _ => rfl) (fun _ _ => rfl) (fun _ => rfl) (fun _ _ => rfl) (fun _ _ => rfl)
+118:     (fun _ _ => rfl) (fun _ _ => rfl) (fun _ _ => rfl) (fun _ => rfl) (fun _ => rfl)
+119: 
+120: instance : IsOrderedRing ℝ≥0 :=
+121:   Nonneg.isOrderedRing
+122: 
+123: instance : IsStrictOrderedRing ℝ≥0 :=
+124:   Nonneg.isStrictOrderedRing
+
+
+FILE Mathlib/Tactic/NormNum/Basic.lean
+{"path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Tactic/NormNum/Basic.lean", "bytes": 36314, "lines": 736, "sha256": "0a0cb6d9fc3194234e9c48fb350ecd87713a882c406caabbab40782da83411b6", "kind": "pinned Mathlib source", "read_ranges": [[552, 583]], "git_blob": "9f9d9d35498bc88aac40a37beb5aef900ac98187", "exact_pinned_object_matches_local_bytes": true}
+
+552: theorem isNNRat_div {α : Type u} [DivisionSemiring α] : {a b : α} → {cn : ℕ} → {cd : ℕ} →
+553:     IsNNRat (a * b⁻¹) cn cd → IsNNRat (a / b) cn cd
+554:   | _, _, _, _, h => by simpa [div_eq_mul_inv] using h
+555: 
+556: theorem isRat_div {α : Type u} [DivisionRing α] : {a b : α} → {cn : ℤ} → {cd : ℕ} →
+557:     IsRat (a * b⁻¹) cn cd → IsRat (a / b) cn cd
+558:   | _, _, _, _, h => by simpa [div_eq_mul_inv] using h
+559: 
+560: /-- Helper function to synthesize a typed `DivisionSemiring α` expression. -/
+561: def inferDivisionSemiring {u : Level} (α : Q(Type u)) : MetaM Q(DivisionSemiring $α) :=
+562:   return ← synthInstanceQ q(DivisionSemiring $α) <|> throwError "not a division semiring"
+563: 
+564: /-- Helper function to synthesize a typed `DivisionRing α` expression. -/
+565: def inferDivisionRing {u : Level} (α : Q(Type u)) : MetaM Q(DivisionRing $α) :=
+566:   return ← synthInstanceQ q(DivisionRing $α) <|> throwError "not a division ring"
+567: 
+568: attribute [local instance] monadLiftOptionMetaM in
+569: /-- The `norm_num` extension which identifies expressions of the form `a / b`,
+570: such that `norm_num` successfully recognises both `a` and `b`. -/
+571: @[norm_num _ / _] def evalDiv : NormNumExt where eval {u α} e := do
+572:   let .app (.app f (a : Q($α))) (b : Q($α)) ← whnfR e | failure
+573:   let dsα ← inferDivisionSemiring α
+574:   haveI' : $e =Q $a / $b := ⟨⟩
+575:   guard <| ← withNewMCtxDepth <| isDefEq f q(HDiv.hDiv (α := $α))
+576:   let rab ← derive (q($a * $b⁻¹) : Q($α))
+577:   if let some ⟨qa, na, da, pa⟩ := rab.toNNRat' dsα then
+578:     assumeInstancesCommute
+579:     return .isNNRat' dsα qa na da q(isNNRat_div $pa)
+580:   else
+581:     let dα ← inferDivisionRing α
+582:     let ⟨qa, na, da, pa⟩ ← rab.toRat' dα
+583:     assumeInstancesCommute
+
+
+FILE Mathlib/Tactic/NormNum/Inv.lean
+{"path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Tactic/NormNum/Inv.lean", "bytes": 11545, "lines": 254, "sha256": "8c1834cbc470868957d2c382f59c5cbb2b41442470cd514155de91f952bc7a9f", "kind": "pinned Mathlib source", "read_ranges": [[243, 252]], "git_blob": "bfc8ad2f283a9f77344ea77f9d0d436d1df70134", "exact_pinned_object_matches_local_bytes": true}
+
+243: /-- The `norm_num` extension which identifies expressions of the form `a⁻¹`,
+244: such that `norm_num` successfully recognises `a`. -/
+245: @[norm_num _⁻¹] def evalInv : NormNumExt where eval {u α} e := do
+246:   let .app f (a : Q($α)) ← whnfR e | failure
+247:   let ra ← derive a
+248:   let dsα ← inferDivisionSemiring α
+249:   guard <| ← withNewMCtxDepth <| isDefEq f q(Inv.inv (α := $α))
+250:   haveI' : $e =Q $a⁻¹ := ⟨⟩
+251:   assumeInstancesCommute
+252:   ra.inv q($dsα) (← inferCharZeroOfDivisionSemiring? dsα)
+
+
+FILE Lean/Meta/Tactic/Simp/Types.lean
+{"path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Lean/Meta/Tactic/Simp/Types.lean", "bytes": 38847, "lines": 1017, "sha256": "e2b51b0c728cc1143aab68d9a58a5a1cf8420f4a9f11d3012584fe7a84f143c5", "kind": "installed official Lean4.35 source", "read_ranges": [[138, 174], [287, 299]]}
+
+138: /--
+139: Converts `Simp.Config` into `Meta.ConfigWithKey` used for indexing.
+140: -/
+141: private def mkIndexConfig (c : Config) : MetaM ConfigWithKey := do
+142:   let curr ← Meta.getConfig
+143:   return { curr with
+144:     beta         := c.beta
+145:     iota         := c.iota
+146:     zeta         := c.zeta
+147:     zetaHave     := c.zetaHave
+148:     zetaUnused   := c.zetaUnused
+149:     zetaDelta    := c.zetaDelta
+150:     etaStruct    := c.etaStruct
+151:     /-
+152:     When indexing terms we disable projection to ensure a term such as `f ((a, b).1)`
+153:     is an instance of the pattern `f (?x.1)`
+154:     -/
+155:     proj         := .no
+156:     transparency := .reducible
+157:   : Meta.Config }.toConfigWithKey
+158: 
+159: /--
+160: Converts `Simp.Config` into `Meta.ConfigWithKey` used for `isDefEq`.
+161: -/
+162: private def mkMetaConfig (c : Config) : MetaM ConfigWithKey := do
+163:   let curr ← Meta.getConfig
+164:   return { curr with
+165:     beta         := c.beta
+166:     iota         := c.iota
+167:     zeta         := c.zeta
+168:     zetaHave     := c.zetaHave
+169:     zetaUnused   := c.zetaUnused
+170:     zetaDelta    := c.zetaDelta
+171:     etaStruct    := c.etaStruct
+172:     proj         := if c.proj then .yesWithDelta else .no
+173:     transparency := .reducible
+174:   : Meta.Config }.toConfigWithKey
+
+287: Executes `x` using a `MetaM` configuration for indexing terms.
+288: It is inferred from `Simp.Config`.
+289: For example, if the user has set `simp (config := { zeta := false })`,
+290: `isDefEq` and `whnf` in `MetaM` should not perform `zeta` reduction.
+291: -/
+292: @[inline] def withSimpIndexConfig (x : SimpM α) : SimpM α := do
+293:   withConfigWithKey (← readThe Simp.Context).indexConfig x
+294: 
+295: /--
+296: Executes `x` using a `MetaM` configuration for inferred from `Simp.Config`.
+297: -/
+298: @[inline] def withSimpMetaConfig (x : SimpM α) : SimpM α := do
+299:   withConfigWithKey (← readThe Simp.Context).metaConfig x
+
+
+FILE Lean/Meta/Tactic/Simp/Rewrite.lean
+{"path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Lean/Meta/Tactic/Simp/Rewrite.lean", "bytes": 26645, "lines": 670, "sha256": "b21662e4c4462c3eb4e7a5857c8af6435d88adfb8ebb2b466ace06e892aa152e", "kind": "installed official Lean4.35 source", "read_ranges": [[115, 142], [207, 240]]}
+
+115: private def tryTheoremCore (lhs : Expr) (xs : Array Expr) (bis : Array BinderInfo) (val : Expr) (type : Expr) (e : Expr) (thm : SimpTheorem) (numExtraArgs : Nat) : SimpM (Option Result) := do
+116:   recordTriedSimpTheorem thm.origin
+117:   let rec go (e : Expr) : SimpM (Option Result) := do
+118:     trace[Debug.Meta.Tactic.simp] "trying {← ppSimpTheorem thm} to rewrite{indentExpr e}"
+119:     if (← withSimpMetaConfig <| isDefEq lhs e) then
+120:       unless (← synthesizeArgs thm.origin bis xs) do
+121:         return none
+122:       let proof? ← if (← useImplicitDefEqProof thm) then
+123:         pure none
+124:       else
+125:         let proof ← instantiateMVars (mkAppN val xs)
+126:         if (← hasAssignableMVar proof) then
+127:           trace[Meta.Tactic.simp.rewrite] "{← ppSimpTheorem thm}, has unassigned metavariables after unification"
+128:           return none
+129:         pure <| some proof
+130:       let rhs := (← instantiateMVars type).appArg!
+131:       /-
+132:       We used to use `e == rhs` in the following test.
+133:       However, it include unnecessary proof steps when `e` and `rhs`
+134:       are equal after metavariables are instantiated.
+135:       We are hoping the following `instantiateMVars` should not be too expensive since
+136:       we seldom have assigned metavariables in goals.
+137:       -/
+138:       if (← instantiateMVars e) == rhs then
+139:         trace[Debug.Meta.Tactic.simp] "Not applying {← ppSimpTheorem thm} with type\
+140:           {indentExpr type}\nto{indentExpr e}\nas the result is structurally equal \
+141:           to the original expression"
+142:         return none
+
+207: def rewrite? (e : Expr) (s : SimpTheoremTree) (erased : PHashSet Origin) (tag : String) (rflOnly : Bool) : SimpM (Option Result) := do
+208:   if (← getConfig).index then
+209:     rewriteUsingIndex?
+210:   else
+211:     rewriteNoIndex?
+212: where
+213:   /-- For `(← getConfig).index := true`, use discrimination tree structure when collecting `simp` theorem candidates. -/
+214:   rewriteUsingIndex? : SimpM (Option Result) := do
+215:     let candidates ← withSimpIndexConfig <| s.getMatchWithExtra e
+216:     if candidates.isEmpty then
+217:       trace[Debug.Meta.Tactic.simp] "no theorems found for {tag}-rewriting {e}"
+218:       return none
+219:     else
+220:       let candidates := candidates.insertionSort fun e₁ e₂ => e₁.1.priority > e₂.1.priority
+221:       let useBackward := backward.defeqAttrib.useBackward.get (← getOptions)
+222:       for (thm, numExtraArgs) in candidates do
+223:         checkSystem "simp"
+224:         if inErasedSet thm then continue
+225:         if rflOnly then
+226:           unless thm.rfl || (useBackward && thm.backwardRfl) do
+227:             if debug.tactic.simp.checkDefEqAttr.get (← getOptions) &&
+228:                backward.dsimp.useDefEqAttr.get (← getOptions) then
+229:               let isRflOld ← withOptions (backward.dsimp.useDefEqAttr.set · false) do
+230:                 isRflProof thm.proof
+231:               if isRflOld then
+232:                 logWarning m!"theorem {thm.proof} is no longer rfl"
+233:             continue
+234:         if let some result ← tryTheoremWithExtraArgs? e thm numExtraArgs then
+235:           trace[Debug.Meta.Tactic.simp] "rewrite result {e} => {result.expr}"
+236:           if rflOnly && !thm.rfl && thm.backwardRfl then
+237:             trace[Meta.Tactic.simp.backwardDefEq]
+238:               "used `[backward_defeq]` theorem {← ppOrigin thm.origin} to rewrite{indentExpr e}"
+239:           return some result
+240:       return none
+
+
+FILE Lean/Meta/Tactic/Simp/SimpTheorems.lean
+{"path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Lean/Meta/Tactic/Simp/SimpTheorems.lean", "bytes": 35256, "lines": 797, "sha256": "4464c13b99a98a25aebb001e842ec52f82cbf86efa5cb7fa6dd4d0c1e3645cf7", "kind": "installed official Lean4.35 source", "read_ranges": [[396, 416]]}
+
+396: private def mkSimpTheoremKeys (type : Expr) (noIndexAtArgs : Bool) (checkLhs : Bool := false) : MetaM (Array SimpTheoremKey × Bool) := do
+397:   withNewMCtxDepth do
+398:     let (_, _, type) ← forallMetaTelescopeReducing type
+399:     let type ← whnfR type
+400:     match type.eq? with
+401:     | some (_, lhs, rhs) =>
+402:       let keys ← DiscrTree.mkPath lhs noIndexAtArgs
+403:       if checkLhs then
+404:         if warning.simp.varHead.get (← getOptions) && keys[0]? == some .star then
+405:           logWarning m!"Left-hand side of simp theorem has a variable as head symbol. \
+406:             This means the theorem will be tried on every simp step, which can be expensive. \
+407:             This may be acceptable for `local` or `scoped` simp lemmas.\n\
+408:             Use `set_option warning.simp.varHead false` to disable this warning."
+409:         if warning.simp.otherHead.get (← getOptions) && keys[0]? == some .other then
+410:           logWarning m!"Left-hand side of simp theorem is headed by a `.other` key in the \
+411:             discrimination tree (e.g. because it is a lambda expression). \
+412:             This theorem will be tried against all expressions that also have a `.other` key as head, \
+413:             which can cause slowdowns. \
+414:             This may be acceptable for `local` or `scoped` simp lemmas.\n\
+415:             Use `set_option warning.simp.otherHead false` to disable this warning."
+416:       pure (keys, ← isPerm lhs rhs)
+
+
+FILE Lean/Meta/DiscrTree/Main.lean
+{"path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Lean/Meta/DiscrTree/Main.lean", "bytes": 24000, "lines": 608, "sha256": "b75802b76196a6af439b2be370b3cccc41e71c94b5aadc49304fce7692d2889d", "kind": "installed official Lean4.35 source", "read_ranges": [[257, 290]]}
+
+257: /--
+258: When `noIndexAtArgs := true`, `pushArgs` assumes function application arguments have a `no_index` annotation.
+259: That is, `f a b` is indexed as it was `f (no_index a) (no_index b)`.
+260: This feature is used when indexing local proofs in the simplifier. This is useful in examples like the one described on issue #2670.
+261: In this issue, we have a local hypotheses `(h : ∀ p : α × β, f p p.2 = p.2)`, and users expect it to be applicable to
+262: `f (a, b) b = b`. This worked in Lean 3 since no indexing was used. We can retrieve Lean 3 behavior by writing
+263: `(h : ∀ p : α × β, f p (no_index p.2) = p.2)`, but this is very inconvenient when the hypotheses was not written by the user in first place.
+264: For example, it was introduced by another tactic. Thus, when populating the discrimination tree explicit arguments provided to `simp` (e.g., `simp [h]`),
+265: we use `noIndexAtArgs := true`. See comment: https://github.com/leanprover/lean4/issues/2670#issuecomment-1758889365
+266: -/
+267: private def pushArgs (root : Bool) (todo : Array Expr) (e : Expr) (noIndexAtArgs : Bool) : MetaM (Key × Array Expr) := do
+268:   if hasNoindexAnnotation e then
+269:     return (.star, todo)
+270:   else
+271:     let e ← reduceDT e root
+272:     let fn := e.getAppFn
+273:     let push (k : Key) (nargs : Nat) (todo : Array Expr): MetaM (Key × Array Expr) := do
+274:       let info ← getFunInfoNArgs fn nargs
+275:       let todo ← if noIndexAtArgs then
+276:         pure <| pushWildcards nargs todo
+277:       else
+278:         pushArgsAux info.paramInfo (nargs-1) e todo
+279:       return (k, todo)
+280:     match fn with
+281:     | .lit v     =>
+282:       return (.lit v, todo)
+283:     | .const c _ =>
+284:       unless root do
+285:         if let some v := toNatLit? e then
+286:           return (.lit v, todo)
+287:         if (← shouldAddAsStar c e) then
+288:           return (.star, todo)
+289:       let nargs := e.getAppNumArgs
+290:       push (.const c nargs) nargs todo

@@ -1,0 +1,96 @@
+{
+  "recorded_utc": "2026-11-04T23:37:44.122182+00:00",
+  "name": "chapter03-random-selection-trace-focused-attempt1-20261104",
+  "candidate": "0fa717b8c150e0ae6edb9d538dd2b86d73f02b2d",
+  "owned_session": 81642,
+  "launch_tool_chunk": "25a3d5",
+  "observed_first_poll_error": "write_stdin failed: Unknown process id 81642",
+  "failed_poll_context_chunks": [
+    "386a93",
+    "c82bdb"
+  ],
+  "transport_terminal_exit": null,
+  "transport_terminal_tool_chunk": null,
+  "original_session_must_not_be_polled": true,
+  "actual_qualified_command_exit_from_completed_native_recorder": 1,
+  "outer_recorder_recorded_child_exit": 1,
+  "completed_native_command_state": "failed",
+  "complete_native_and_outer_logs_preserved": true,
+  "outer_prefix_bytes": 127,
+  "native_body_bytes": 12920,
+  "outer_suffix_bytes": 157,
+  "complete_closed_outer_log_read_chunk": "adba4d",
+  "completed_records_first_read_chunk": "750e3b",
+  "owned_terminal_credit": false,
+  "focused_pair_pass": false,
+  "chapter_acceptance_credit": false,
+  "core_error": "Applications/Resources/RandomSelectionTrace.lean:30:46 congrArg argument h expected r=s while h proves equal prepended outcomes.",
+  "core_module_built": false,
+  "example_module_built": false,
+  "historical_drift2_is_distinct_unknown_child_outcome": true,
+  "source_status_clean": true,
+  "project_lock_observation": {
+    "recorded_utc": "2026-11-04T23:37:44.120916+00:00",
+    "exclusive_nonblocking_acquired_and_released": true,
+    "global_process_absence_not_claimed": true
+  },
+  "records": {
+    "provenance/chapter03-random-selection-trace-focused-attempt1-20261104/request.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/request.json",
+      "bytes": 801,
+      "sha256": "77a0c5a8b6faeb6eba6fa231bd742a2b97efe504e422fdb89e28afe304f4462a"
+    },
+    "provenance/chapter03-random-selection-trace-focused-attempt1-20261104/start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/start.json",
+      "bytes": 994,
+      "sha256": "f133da26376341a3f7c368399fd265f79c3dd13852fec88b65726b4b0228f924"
+    },
+    "provenance/chapter03-random-selection-trace-focused-attempt1-20261104/launch.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/launch.json",
+      "bytes": 174,
+      "sha256": "f27f715c55ddd5758025012f711e52bdf819f564f9b6dc39981bddb61ed533dc"
+    },
+    "provenance/chapter03-random-selection-trace-focused-attempt1-20261104/progress.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/progress.json",
+      "bytes": 263,
+      "sha256": "1aaba1f0a7db82e45c956ebadfc3d1dcf6b81c4c09a80a9991111a89b82a8913"
+    },
+    "provenance/chapter03-random-selection-trace-focused-attempt1-20261104/result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/result.json",
+      "bytes": 1235,
+      "sha256": "efb5c1385b6e65372e232a2d799b2de97815bb5c4ab2641693a5e08c8c86088b"
+    },
+    "provenance/chapter03-random-selection-trace-focused-attempt1-20261104/full.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/full.log",
+      "bytes": 13204,
+      "sha256": "9ca4d210228b920bd657ba8f4c8ca2738e3049361159260ce8319d17c04bacab"
+    },
+    "provenance/chapter03-random-selection-trace-focused-attempt1-20261104/outer-prefix.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/outer-prefix.log",
+      "bytes": 127,
+      "sha256": "14fa7116aa772370b6ebfdf76505792e46ac712d66dc2b8e52bf9f8311f8daa7"
+    },
+    "provenance/chapter03-random-selection-trace-focused-attempt1-20261104/outer-suffix.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/outer-suffix.log",
+      "bytes": 157,
+      "sha256": "bed97915a48a119f21687ed390254b80cedff238f1b4a787eda00d0232c7a219"
+    },
+    "provenance/chapter03-random-selection-trace-focused-attempt1-20261104/native-records/start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 485,
+      "sha256": "849bf3743bfd6ff28781aecf5dcc2ce8607be127e8a563c70f1892635ef075e2"
+    },
+    "provenance/chapter03-random-selection-trace-focused-attempt1-20261104/native-records/result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 639,
+      "sha256": "ac20fe37c3ebe14e15a36c2ac4c9218ca7fe4c04df9e102e9544123eecb3d4ae"
+    },
+    "provenance/chapter03-random-selection-trace-focused-attempt1-20261104/native-records/output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 12920,
+      "sha256": "67287412d131b49023f193b4c422f8140ad3108e840a12ad58df29eb7d732bf2"
+    }
+  },
+  "classification": "Completed recorder evidence establishes native/recorded-child failure1; original execution-transport terminal remains unavailable. No fabricated owned-terminal.json and no success credit.",
+  "safe_next_action": "Narrow source correction may proceed in isolated author worktree; before any next compiler, preserve this evidence and require fresh qualified serial immutable run under unchanged gates."
+}

@@ -1,0 +1,48 @@
+{
+  "original_path": "session/validation/import-footprint-r2-cache-copy.json",
+  "original_sha256": "50152e6d3e64f804497fadbc399e25610eca908ce93cf046f05779a16ddebbb2",
+  "original_bytes": 832598,
+  "removed_fields": [
+    {
+      "pointer": "/copied",
+      "entries": 4193,
+      "canonical_json_sha256": "c5eab5c2fcce4aa0a049c7a7620be5d6c5a59db34cc63adcf7173f2fd582edaa"
+    },
+    {
+      "pointer": "/selected_modules",
+      "entries": 599,
+      "canonical_json_sha256": "87d97ca33a0bbcfb0eb2836ce6c6648939e82ae0801829207255adf4cc952913"
+    }
+  ],
+  "record": {
+    "started_at": "2026-11-02T21:43:56.802302+00:00",
+    "status": "completed",
+    "source": "/workspace/scratch/ca9a61d0bf30/validation-imports",
+    "target": "/workspace/scratch/ca9a61d0bf30/import-correction",
+    "source_head": "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+    "target_head": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+    "approval_copied": false,
+    "selection": "identical source bytes; no destination module artifacts; complete saved outputs",
+    "skipped": {
+      "Applications.FRP.Equivalence": "destination module already has outputs; do not mix",
+      "Applications.FRP.Frontier": "destination module already has outputs; do not mix",
+      "Applications.FRP.Spec": "destination module already has outputs; do not mix",
+      "Applications.FRP.Trace": "destination module already has outputs; do not mix",
+      "Examples.FRPFrontier": "destination module already has outputs; do not mix",
+      "Examples.FRPTrace": "destination module already has outputs; do not mix",
+      "SquareKit.CartesianMap": "destination module already has outputs; do not mix",
+      "SquareKit.Category": "destination module already has outputs; do not mix",
+      "SquareKit.CategoryMap": "destination module already has outputs; do not mix",
+      "SquareKit.FunctionCategory": "destination module already has outputs; do not mix",
+      "SquareKit.Relations": "destination module already has outputs; do not mix",
+      "Squares": "destination module already has outputs; do not mix"
+    },
+    "acceptance": false,
+    "hashed_artifacts": 1797,
+    "source_inconsistencies": {},
+    "ended_at": "2026-11-02T21:44:00.663594+00:00",
+    "copied_modules": 599,
+    "copied_files": 4193,
+    "copied_bytes": 297436558
+  }
+}

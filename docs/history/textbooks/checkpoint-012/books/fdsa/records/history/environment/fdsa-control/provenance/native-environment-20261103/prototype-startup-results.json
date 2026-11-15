@@ -1,0 +1,60 @@
+{
+  "recorded_utc": "2026-11-03T16:19:58.204644+00:00",
+  "scope": "Native application-path compatibility experiment; no formal acceptance.",
+  "source_sha256": "a53d33c72c32911c0947a51a5f09a467dc4d9d6701d42e20b4f41a3b17e49c93",
+  "shim_sha256": "db68d78de4d37386d021786c92977825bc580ba0cee15deff0c58fec1c56efc3",
+  "results": [
+    {
+      "command": [
+        "/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/bin/lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.29435119399931864,
+      "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/bin/lean",
+        "--githash"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.05862665700078651,
+      "stdout": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/bin/lean",
+        "--print-prefix"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.06090283199955593,
+      "stdout": "/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/bin/lake",
+        "--version"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.09108278599887853,
+      "stdout": "Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/bin/lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 34.79026343199985,
+      "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": ""
+    }
+  ]
+}

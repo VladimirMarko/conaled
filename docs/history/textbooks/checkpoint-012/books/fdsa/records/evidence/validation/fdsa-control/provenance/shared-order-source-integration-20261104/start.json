@@ -1,0 +1,196 @@
+{
+  "utc": "2026-11-04T15:10:51.108656+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "scope": "Actual authorized six-path XU02 normal history-preserving source assembly only",
+  "accepted_base": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "incoming_corrected_tip": "bdac9703aab4b383fa775568d36bf685af329389",
+  "original_base": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+  "original_candidate": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+  "head_before": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "branch_before": "work/fdsa-shared-four-integration",
+  "tree_before": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+  "status_before": "",
+  "refs_before": {
+    "bytes": 5139,
+    "lines": 64,
+    "sha256": "cfc2623b4952023a576138fdd4b2b55fea64ec20ead3b95dc7d2bb3efd3dc48a"
+  },
+  "worktrees_before": {
+    "bytes": 2745,
+    "lines": 60,
+    "sha256": "bdcfff0e77227f6e9226a547f5f237b82e390dc241277414c3cad7304878919d"
+  },
+  "tracked_scope_before": {
+    "Applications/Probability/PermutationOrder.lean": {
+      "present": false,
+      "git_blob": null
+    },
+    "Examples/PermutationOrder.lean": {
+      "present": false,
+      "git_blob": null
+    },
+    "Examples/PermutationOrderBoundary.lean": {
+      "present": false,
+      "git_blob": null
+    },
+    "SquareApplications.lean": {
+      "present": true,
+      "git_blob": "a36fa607584d77618858b5f1707b1df913a22cca"
+    },
+    "docs/research/fdsa-permutation-order.md": {
+      "present": false,
+      "git_blob": null
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "present": true,
+      "git_blob": "e753d5325fcd4f576b091d795ffced6d625c2aaf"
+    }
+  },
+  "expected_scope": [
+    "Applications/Probability/PermutationOrder.lean",
+    "Examples/PermutationOrder.lean",
+    "Examples/PermutationOrderBoundary.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-permutation-order.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "expected_parents": [
+    "312aafb4446b995ff5542041b4e2e074f776db1e",
+    "bdac9703aab4b383fa775568d36bf685af329389"
+  ],
+  "proposed_new_branch": "work/fdsa-order-integration",
+  "branch_absent_checked": true,
+  "unrelated_changes": [],
+  "excluded_unrelated_draft_payloads": "Every I path outside the six declared paths must remain unchanged; no cumulative later branch or old ancestor file replacement.",
+  "source_instructions": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    },
+    {
+      "path": ".agents/skills/implement/SKILL.md",
+      "bytes": 4997,
+      "lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "bytes": 6991,
+      "lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a"
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "bytes": 7113,
+      "lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 26239,
+      "lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216"
+    },
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "bytes": 3876,
+      "lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6"
+    }
+  ],
+  "control_inputs": [
+    {
+      "path": "REQUEST.md",
+      "bytes": 8549,
+      "lines": 148,
+      "sha256": "670038db71064a643014c952161666544cf37a4c9e17f14ddc7c4478e78dc6d8"
+    },
+    {
+      "path": "CURRENT.md",
+      "bytes": 7961,
+      "lines": 43,
+      "sha256": "accabeed59dd270fde8db517f680decd50b0d27b7292716bd90a4d7f1ace6bd2"
+    },
+    {
+      "path": "STATUS.md",
+      "bytes": 3750,
+      "lines": 27,
+      "sha256": "7bb16d49b839e5b73c122944ef2ce4e223763bb51d5ad33911eab127c4d56733"
+    },
+    {
+      "path": "tickets/INDEX.md",
+      "bytes": 34608,
+      "lines": 362,
+      "sha256": "766dd8247fb087e5d2c18f7818ae8ecf0c3b0e379dd297595c52ca68106e750c"
+    },
+    {
+      "path": "tickets/FDSA-XU02.md",
+      "bytes": 6959,
+      "lines": 107,
+      "sha256": "03181edb9402031cf6e7515546858043db1c791ecf573d79206e206d953d83d7"
+    },
+    {
+      "path": "reviews/permutation-order-requirements.md",
+      "bytes": 11430,
+      "lines": 209,
+      "sha256": "f473f593bf4a7ef75dcf2f3163440db6fe187b3b9983f87254d2ddfa8191982d"
+    },
+    {
+      "path": "reviews/permutation-order-candidate.md",
+      "bytes": 10748,
+      "lines": 189,
+      "sha256": "3f8451804200be41641ee821b32ddd25a9d7302187615153a5b3901ea1f9a6a7"
+    },
+    {
+      "path": "reviews/permutation-order-start.md",
+      "bytes": 3699,
+      "lines": 68,
+      "sha256": "586aa3e548bc5225cb5a1ff40e33f483cbe6b33a3ad26b56433856e7a5208e69"
+    },
+    {
+      "path": "provenance/shared-four-acceptance-20261104/acceptance.json",
+      "bytes": 8228,
+      "lines": 200,
+      "sha256": "1d0e49de391af7f2c500d954e5e4bed4dea9094d0d24cdb57841e3ada5d33046"
+    },
+    {
+      "path": "provenance/shared-four-acceptance-20261104/durability.json",
+      "bytes": 984,
+      "lines": 17,
+      "sha256": "aa1076827c9a1e7f8f5fc190498bdf0f094501fd55375b870fec43059323222b"
+    }
+  ],
+  "held_readiness": [
+    {
+      "path": "provenance/shared-order-integration-readiness-20261104/readiness.md",
+      "bytes": 21296,
+      "lines": 156,
+      "sha256": "f579dfd7614d5fae2852abf44fa1b6b3148368cae015ecd0cdf383a56ec1ab19"
+    },
+    {
+      "path": "provenance/shared-order-integration-readiness-20261104/inventory.json",
+      "bytes": 42241,
+      "lines": 980,
+      "sha256": "6debc6d59359448fd3b1d65787a6c954faec865f160949798621a9efe0dc96b4"
+    },
+    {
+      "path": "provenance/shared-order-integration-readiness-20261104/receipt.json",
+      "bytes": 2782,
+      "lines": 53,
+      "sha256": "04dc658e7dacd98b66c2023efcec2e1e4d4609713fc8191e0e30672004e001d4"
+    }
+  ],
+  "installed_verification_before": {
+    "bytes": 867,
+    "lines": 19,
+    "sha256": "2974a2efaa56703448e96ddeec25947e84e91b7733b4e8b405fdcf6d69fe816d"
+  },
+  "installed_verification_credit": "Historical I record only; must remain unchanged during source assembly and cannot validate new successor.",
+  "nix_exception": "Explicit user exception retained; no compiler/environment action in this task.",
+  "resource_before": {
+    "available": 0,
+    "raw_free": 1302589440
+  }
+}

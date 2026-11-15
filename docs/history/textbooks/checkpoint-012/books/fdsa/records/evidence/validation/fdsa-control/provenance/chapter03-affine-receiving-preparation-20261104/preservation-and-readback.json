@@ -1,0 +1,57 @@
+{
+  "observed_utc": "2026-11-04T18:33:43.253079+00:00",
+  "candidate": "4df3bc95b96342250c9b3ff946773449e308e11b",
+  "source_worktree_clean": true,
+  "accepted_Q_preserved": true,
+  "checkpoint0122_ref_basis": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-acceptance-20261104/fast-forward-result.json",
+    "bytes": 7459,
+    "lines": 104,
+    "sha256": "33508645d18cdee1f3106c56226c0c16ef98fc16091a5390f940fbd206bdc0d8"
+  },
+  "all_67_checkpoint0122_refs_preserved": true,
+  "checkpoint0122_ref_differences": [],
+  "69_baseline_ref_boundary": "candidate.json honestly records concurrent movement of the separately assigned C3 values branch; this author changed only its new affine integration branch. All 67 durable accepted-state references are unchanged.",
+  "root_exact_Q_plus_one_import": true,
+  "map_exact_Q_plus_XR_section_and_reviewed_Chapter1_qualifier": true,
+  "all_other_Q_paths_unchanged": true,
+  "both_defining_Lean_blobs_exact_original_XR": true,
+  "author_source_readback": {
+    "complete_receiving_files": [
+      {
+        "path": "Applications/Resources/AffineRecurrence.lean",
+        "bytes": 5839,
+        "lines": 113,
+        "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d"
+      },
+      {
+        "path": "Examples/AffineRecurrence.lean",
+        "bytes": 5165,
+        "lines": 142,
+        "sha256": "eb9239f5810887ba988420c3fe8538eab21285c1e6173eb5467133baa63868d5"
+      },
+      {
+        "path": "SquareApplications.lean",
+        "bytes": 9405,
+        "lines": 287,
+        "sha256": "75563d66c31e9cc1456cedf639812e6025486f69cf8ab50f3961d038a6219d18"
+      },
+      {
+        "path": "docs/research/fdsa-affine-recurrence.md",
+        "bytes": 10290,
+        "lines": 236,
+        "sha256": "8996a9212bd8cf05ec26519cf51ca9ce69f560170512df647fa3fdb9869032f6"
+      },
+      {
+        "path": "docs/research/fdsa-reconstruction-map.md",
+        "bytes": 46693,
+        "lines": 710,
+        "sha256": "fdf63be72114a8002cd4c3786007c8ff0e722c0465f819b00dd93ba2ffe3185e"
+      }
+    ],
+    "full_5_path_line_count": 1488,
+    "new_mathematical_review_claim": false,
+    "read_boundary": "Complete receiving two Lean files, public note, root import file and complete 710-line map read after source freeze; all receiving/documentary hunks read. Existing original two-axis full source assessments retained. Controls: full REQUEST and XR ticket/requirements/candidate/round1/preflight/both completed reports; relevant CURRENT/STATUS/INDEX activation and XR rows, not a claim to have newly read all global history."
+  },
+  "no_compiler_cache_output_capture_or_runtime_mutation_by_author": true
+}

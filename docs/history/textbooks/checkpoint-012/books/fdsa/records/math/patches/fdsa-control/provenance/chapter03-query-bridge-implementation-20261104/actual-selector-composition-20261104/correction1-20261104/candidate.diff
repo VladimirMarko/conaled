@@ -1,0 +1,26 @@
+diff --git a/Applications/Selection/CoordinateSelection.lean b/Applications/Selection/CoordinateSelection.lean
+index c6ddd14..46e2dc5 100644
+--- a/Applications/Selection/CoordinateSelection.lean
++++ b/Applications/Selection/CoordinateSelection.lean
+@@ -293,8 +293,8 @@ competitor's query work, on every distinct valid-rank input and positive tariff.
+ No assumed resource coverage or linear execution bound is a premise. -/
+ theorem exists_uniform_competitor_bound :
+     ∃ K : Nat, ∀ (c m : Nat) (k : Fin m) (input : Fin m → Int)
+-      (distinct : (List.ofFn input).Nodup) (next : Protocol m Int Int)
+-      (correct : Selects next k) (trace : Transcript m Int)
++      (_distinct : (List.ofFn input).Nodup) (next : Protocol m Int Int)
++      (_correct : Selects next k) (trace : Transcript m Int)
+       (observation : Resources.Measured (Option Int) Nat)
+       (otherTrace : Transcript m Int) (value : Int),
+       1 ≤ c → Runs (observedSelect k.val) input [] trace observation →
+@@ -325,8 +325,8 @@ theorem exists_uniform_competitor_bound :
+ This is the concrete optimality comparison in the declared coordinate model. -/
+ theorem exists_uniform_optimality :
+     ∃ K : Nat, ∀ (c m : Nat) (k : Fin m) (input : Fin m → Int)
+-      (distinct : (List.ofFn input).Nodup) (next : Protocol m Int Int)
+-      (total : Total next) (correct : Selects next k),
++      (_distinct : (List.ofFn input).Nodup) (next : Protocol m Int Int)
++      (_total : Total next) (_correct : Selects next k),
+       1 ≤ c → ∃ (trace : Transcript m Int)
+         (observation : Resources.Measured (Option Int) Nat)
+         (otherTrace : Transcript m Int) (value : Int),

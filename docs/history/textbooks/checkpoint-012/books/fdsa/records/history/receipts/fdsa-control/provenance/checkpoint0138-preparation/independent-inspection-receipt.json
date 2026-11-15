@@ -1,0 +1,101 @@
+{
+  "recorded_utc": "2026-11-05T03:09:23.005727+00:00",
+  "inspector": "/root/checkpoint0137_acceptance_inspection",
+  "scope": "Operational final checkpoint helper and actual evidence readiness; not a third mathematical review axis",
+  "outcome": "Passed",
+  "unresolved_findings": [],
+  "findings": {
+    "CP0138-OPS-001": "Resolved; exact two historical JSON key corrections",
+    "CP0138-OPS-002": "Resolved; direct actual axis/root-gate scope/outcome/hold checks and exact program binding"
+  },
+  "helper_identities": {
+    "verify-checkpoint.py": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0138-preparation/verify-checkpoint.py",
+      "bytes": 40301,
+      "sha256": "fab798a3b8474dbb37c178d136bb32b918f31f90ba944456a2bb85d6b3cb0e13"
+    },
+    "capture.py": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0138-preparation/capture.py",
+      "bytes": 5804,
+      "sha256": "deec4ce85d42829e517ff2c8dc38c676d4817756127c1b4da4fa74b7bb2e9295"
+    },
+    "run-stage.py": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0138-preparation/run-stage.py",
+      "bytes": 2406,
+      "sha256": "e440a090f8ee37dacb8a5501cfe8fe0072052c9dd42adec759b68f1faf59c4b0"
+    },
+    "README.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0138-preparation/README.md",
+      "bytes": 3475,
+      "sha256": "5c2a88f51fa0ff853da69474e591ab1f2619aa538e9abbb47a6ce9c53c9a001e"
+    }
+  },
+  "complete_initial_and_corrective_reads": [
+    "fbad23",
+    "fe9f1e",
+    "36533d",
+    "b00731",
+    "a93c7b",
+    "7f9b63",
+    "93a896",
+    "34c007",
+    "9ec0d5",
+    "ee0535",
+    "e9f573",
+    "36b0aa"
+  ],
+  "fast_forward_helper_read_and_reconciliation": [
+    "6914e4 actual0",
+    "be1aa4 actual0"
+  ],
+  "final_actual_readiness_reconciliation": "f394a5 actual0",
+  "actual_reconciliation_counts": {
+    "acceptance_bindings": 122,
+    "root_gate_bindings": 105,
+    "independent_axes": 2,
+    "chapter04_author_holds": 3,
+    "chapter04_source_files": 12,
+    "refs": 78,
+    "worktrees": 9,
+    "closed_runs": 113,
+    "prior_closed_rows_retained_exact": 107,
+    "new_closed_runs": 6,
+    "prior_held_controls_retained": 8098,
+    "allowed_changed_prior_controls": 9,
+    "kit_manifest_entries": 298
+  },
+  "new_run_outcomes": [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0
+  ],
+  "historical_exceptions_preserved": true,
+  "actual_acceptance": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-acceptance-20261105/acceptance.json",
+    "bytes": 51089,
+    "sha256": "be1236e81900aa1c7368719717d8a6ccc7f07c2cb5d49692bd665240d738d214"
+  },
+  "actual_gate": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-acceptance-20261105/root-gate-reconciliation.json",
+    "bytes": 51974,
+    "sha256": "02c6d891be9d514681f34e41b9dadf698ed19704a487e08d5bbf36b27a51caa5"
+  },
+  "actual_write_hold": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0138-preparation/write-hold.json",
+    "bytes": 7790,
+    "sha256": "7d719d3bb39fe8e4d2054febe20c424056ca6b99d7b5a89c74d978c7e50748f6"
+  },
+  "source_branches_held_uncompiled_unaccepted": true,
+  "inspected_resource_observation": {
+    "raw_free_bytes": 439713792,
+    "rounded_control_bytes": 192491520,
+    "scenario_plus_margin_bytes": 326709248,
+    "final_capture_guard_still_required": true
+  },
+  "helper_execution_compiler_restore_fsck_poll_or_writes_by_inspector": false,
+  "capture_creation_verification_upload_not_yet_run": true,
+  "note": "One inspector comparison7f2003 assumed the prior short diff labels;643a61 reconciled unchanged patch bodies and actual absolute filenames, with no code defect or mutation."
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "completed_utc": "2026-11-04T15:22:59.248944+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "status": "COMPLETE PREPARATION; HELD after author readback; no Tail receiving candidate or validation credit",
+  "package": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-integration-readiness-20261104",
+  "prospective_base_J": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "prospective_base_J_accepted": false,
+  "corrected_minimal_tail_tip": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+  "actual_merge_base_J_T": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+  "expected_future_parents": [
+    "932438a765340d69fa6402f6abd17def6ec28d13",
+    "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9"
+  ],
+  "receiving_candidate": null,
+  "receiving_type_credit": 0,
+  "files": [
+    {
+      "path": "readiness.md",
+      "bytes": 26130,
+      "lines": 193,
+      "sha256": "8c78289e814157df89637bfc004092876ec1a26f25ac8354b3dea9cdfb73017f"
+    },
+    {
+      "path": "inventory.json",
+      "bytes": 64400,
+      "lines": 1553,
+      "sha256": "9ae15ac5cfc32f7ebe5b8dbe3ddf664774b4c7fff46c8c70fd2bf2d0b5550109"
+    }
+  ],
+  "author_readback": {
+    "readiness_md": "All 193 lines read, including final chronology/spacing refinements.",
+    "inventory_json": "All keys and nested values read through complete grouped serialization; all 72 bound existing-file identities separately verified against bytes, line counts and SHA-256.",
+    "scope": "All six original paths; 61 public names, 19 private named declarations and eight anonymous instances; existing standalone61 input reused only as preparation, without copying or execution.",
+    "source_boundary": "Immutable ancestry, all source identities, nine-local/19-external static closure, program names and private/anonymous source anchors reconciled. Original full mathematical/source/type assessments retained by identity rather than repeated.",
+    "historical_evidence_boundary": "Closed result dispositions and exact individual-success log lines for attempts 6, 9 and 10, correction/finding mappings and actual815 complete-axis dispositions read. All aggregate failures retained. No claim of rereading every line of all large historical artifacts in this readiness pass.",
+    "chronology_refinement": "Before final hold, the new report was refined to distinguish the already-recorded core success from the later boundary/main successes and actual815. No original proposal, source or earlier report was edited.",
+    "qualification_boundary": "The coordinator-reported Z/current trace and dependency-path gap remains unresolved; no receiver artifact, trace, dependency-path, configuration or runtime inputs captured and no automatic reuse claimed."
+  },
+  "existing_inputs_reverified": {
+    "count": 72,
+    "all_match": true,
+    "identity_list": "inventory.json#existing_file_identities"
+  },
+  "prohibited_actions_performed": {
+    "source_changes": false,
+    "ref_changes": false,
+    "compiler_or_cache_execution": false,
+    "output_capture_or_traversal": false,
+    "process_polling": false,
+    "candidate_assembly_or_merge_simulation": false,
+    "global_control_or_prior_report_changes": false
+  },
+  "write_scope": "Only the three new files in this package. All earlier packages remain unchanged.",
+  "hold": "All own source and provenance writes held for checkpoint0114 after this receipt readback. Tail assembly requires actual J acceptance, exposed durability and root release; fixed accepted I -> accepted Order -> Tail -> new full C2 sequence remains."
+}

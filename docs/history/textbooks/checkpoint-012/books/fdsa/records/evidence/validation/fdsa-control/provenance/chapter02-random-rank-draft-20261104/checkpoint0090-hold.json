@@ -1,0 +1,64 @@
+{
+  "closed_utc": "2026-11-04T07:14:55.010670+00:00",
+  "candidate": "1f315fdbb40288d99921164bb3fd8afcbd756e58",
+  "status": "",
+  "state": "HOLD all source/ref/control/provenance writes for checkpoint0090",
+  "rank_source_files_created": false,
+  "rank_implementation_released_but_not_yet_authored": true,
+  "rank_start": {
+    "bytes": 2937,
+    "lines": 80,
+    "sha256": "aee1904f0d970cb42fec129b7dfe305bc13726e742c07560ab24205dbf7ade3a"
+  },
+  "rank_priority_interruption": {
+    "bytes": 750,
+    "lines": 14,
+    "sha256": "25518f0f4ed6474b5d9fb3fd04bed146b70ab15c33125c0f8f3178a49e797ce0"
+  },
+  "proof_route": {
+    "bytes": 6000,
+    "lines": 98,
+    "sha256": "9a141d2204bb38186f639462245e41d6091ab4b50ac3a4ef4c16884b0ffdfce0"
+  },
+  "cast_repair_original_partial_observation": {
+    "bytes": 1686,
+    "lines": 49,
+    "sha256": "020c420c3cb4b9fb901a309bf0bcf448c66f15b53456dfa8380a253e60d8ebe5"
+  },
+  "cast_repair_original_identity": {
+    "bytes": 2006,
+    "lines": 57,
+    "sha256": "f67d352fddbc52f9d1cbdfaa1e27a3a5b0cc58ecccda5d0b8df0e5fad2018ecc"
+  },
+  "cast_repair_closed_terminal_record": {
+    "bytes": 3165,
+    "lines": 71,
+    "sha256": "7945ec2afa25407b84686314e2d149df2caee2e672c92844ba9d9f83fcd42a5f"
+  },
+  "cast_repair_findings_with_terminal_append": {
+    "bytes": 3752,
+    "lines": 61,
+    "sha256": "662be98fe2fc3ccd0968b00d9e5c602e69facfdd3066698da90fbdf0e38502bd"
+  },
+  "handoff": {
+    "bytes": 42908,
+    "lines": 707,
+    "sha256": "d2c70ea1903369566fd94dfbaa106ca909ad811382d4da26d74dced4b6664410"
+  },
+  "mean_source": {
+    "bytes": 16517,
+    "lines": 335,
+    "sha256": "2c7976bf52a2dbed2eb6eb959055acc7ae0df8319c167f0128b63e5c482bd5d3"
+  },
+  "mean_examples": {
+    "bytes": 5733,
+    "lines": 118,
+    "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670"
+  },
+  "successor_compiled_by_author": false,
+  "author_builds": 0,
+  "cache_writes": false,
+  "lake_directory_present": false,
+  "acceptance_claimed": false,
+  "next_action": "Await root checkpoint completion/release; then implement the two released rank files, giving actual mean diagnostics priority"
+}

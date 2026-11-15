@@ -1,0 +1,911 @@
+{
+  "schema": 1,
+  "scope": "Public native readlink ABI and actual launcher fixture tests only",
+  "started_at": "2026-11-03T16:50:08.578254+00:00",
+  "status": "passed",
+  "formal_acceptance": false,
+  "review_status": "unreviewed implementation evidence",
+  "profile": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-native",
+  "fixture_directory": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1",
+  "inputs_before": {
+    "/workspace/scratch/b566cace4ed6/pfds/session/environment/test-native-own-exe.py": "da5856cb97b1e5a9b86303ee576f3f9dc889e5e5fcf0377d7c6d95e22a872c10",
+    "/workspace/scratch/b566cace4ed6/pfds/session/environment/test-native-own-exe.c": "f26208e4ea0b08349bc99fcb60b15f693fa413c3fbdfcf3649d649de8c748c0b",
+    "/workspace/scratch/b566cace4ed6/pfds/session/environment/native-readlink-fixture.c": "b5ee1645a2bd1ce54e3130560b759253d12c9f915ef7b252397c3db9230328ae",
+    "/workspace/scratch/b566cace4ed6/pfds/session/environment/native-own-exe.c": "479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842",
+    "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-native-toolchain.py": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073",
+    "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-native/support/native-own-exe.so": "01ad9e274870f3ddddfc76a9ec165c88a20e5b10d2622107857293bc53fff7db",
+    "/workspace/scratch/b566cace4ed6/pfds/session/environment/native-profile-identity-042-r2.json": "3cf5da5ddcc18eea16294e13f19752b2aa748c88ddb2d80db9188577ecb0ca02",
+    "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-native/profile-identity.json": "d12b90d76e5a9a841a720707d8d2a50c69522b27e33d27e89dddc86a5dd526ad",
+    "/usr/bin/x86_64-linux-gnu-gcc-13": "6117c52522997d2aaccb2b52b3c6bf42c0a6c5edb1d718431fed6b2fc5fec234",
+    "/workspace/scratch/b566cace4ed6/pfds/session/validation/native-own-exe-red-042.json": "ee5c0a400ac5771e62ba57c50423648cea522c863f4b670a1e0fbd875313eecb"
+  },
+  "inherited_preload": {
+    "present": false,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "contents_recorded": false,
+    "preservation": "Existing entries remain first and retain their exact relative order."
+  },
+  "tdd_context": {
+    "existing_actual_red_record": "/workspace/scratch/b566cace4ed6/pfds/session/validation/native-own-exe-red-042.json",
+    "sha256": "ee5c0a400ac5771e62ba57c50423648cea522c863f4b670a1e0fbd875313eecb",
+    "scope": "Earlier genuine own-path failure remains unchanged; new tests are not retroactively described as earlier red outcomes."
+  },
+  "unsupported": [
+    "scripts",
+    "direct dynamic-loader invocation",
+    "descriptor execution",
+    "mutable or renamed executable images",
+    "asynchronous signal handlers",
+    "invalid pointers",
+    "other libc/architecture ABIs",
+    "static or secure execution",
+    "readlinkat and fortified alternate entry points"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "/usr/bin/x86_64-linux-gnu-gcc-13",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/test-native-own-exe.c",
+        "-o",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "-ldl",
+        "-pthread"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "seconds": 0.16737585500050045,
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "/usr/bin/x86_64-linux-gnu-gcc-13",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2",
+        "-fPIC",
+        "-fvisibility=hidden",
+        "-shared",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/native-readlink-fixture.c",
+        "-o",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/controlled-readlink.so",
+        "-ldl",
+        "-pthread"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "seconds": 0.2596450069995626,
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-native-toolchain.py",
+        "--",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "check",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/absent"
+      ],
+      "returncode": 0,
+      "stdout": "own-pid=passed count=87 errno=33\nself=passed count=87 errno=33\none-byte=passed count=1 errno=33\ntruncation=passed count=3 errno=33\nexact-buffer=passed count=87 errno=33\nlarger-buffer=passed count=87 errno=33\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\n",
+      "stderr": "",
+      "seconds": 0.08695833099955053,
+      "timed_out": false,
+      "controlled_environment": {
+        "launch": "Actual run-native-toolchain.py CLI",
+        "preload_order": [
+          "inherited entries",
+          "native adapter"
+        ],
+        "marker": "Assigned by actual launcher to this canonical fixture ELF"
+      }
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-native-toolchain.py",
+        "--",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "reexec-argv0",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/absent"
+      ],
+      "returncode": 0,
+      "stdout": "changed-argv0=passed\nown-pid=passed count=87 errno=33\nself=passed count=87 errno=33\none-byte=passed count=1 errno=33\ntruncation=passed count=3 errno=33\nexact-buffer=passed count=87 errno=33\nlarger-buffer=passed count=87 errno=33\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\n",
+      "stderr": "",
+      "seconds": 0.07090244000028179,
+      "timed_out": false,
+      "controlled_environment": {
+        "launch": "Actual run-native-toolchain.py CLI",
+        "preload_order": [
+          "inherited entries",
+          "native adapter"
+        ],
+        "marker": "Assigned by actual launcher to this canonical fixture ELF"
+      }
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-native-toolchain.py",
+        "--",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "cwd",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/absent",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/changed-cwd"
+      ],
+      "returncode": 0,
+      "stdout": "changed-cwd=passed\nown-pid=passed count=87 errno=33\nself=passed count=87 errno=33\none-byte=passed count=1 errno=33\ntruncation=passed count=3 errno=33\nexact-buffer=passed count=87 errno=33\nlarger-buffer=passed count=87 errno=33\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\n",
+      "stderr": "",
+      "seconds": 0.05877866300033929,
+      "timed_out": false,
+      "controlled_environment": {
+        "launch": "Actual run-native-toolchain.py CLI",
+        "preload_order": [
+          "inherited entries",
+          "native adapter"
+        ],
+        "marker": "Assigned by actual launcher to this canonical fixture ELF"
+      }
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-native-toolchain.py",
+        "--",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "fork",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/absent"
+      ],
+      "returncode": 0,
+      "stdout": "before-fork=passed count=87 errno=33\nown-pid=passed count=87 errno=33\nself=passed count=87 errno=33\none-byte=passed count=1 errno=33\ntruncation=passed count=3 errno=33\nexact-buffer=passed count=87 errno=33\nlarger-buffer=passed count=87 errno=33\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\nfork-current-pid=passed\nown-pid=passed count=87 errno=33\nself=passed count=87 errno=33\none-byte=passed count=1 errno=33\ntruncation=passed count=3 errno=33\nexact-buffer=passed count=87 errno=33\nlarger-buffer=passed count=87 errno=33\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\n",
+      "stderr": "",
+      "seconds": 0.05425261100026546,
+      "timed_out": false,
+      "controlled_environment": {
+        "launch": "Actual run-native-toolchain.py CLI",
+        "preload_order": [
+          "inherited entries",
+          "native adapter"
+        ],
+        "marker": "Assigned by actual launcher to this canonical fixture ELF"
+      }
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-native-toolchain.py",
+        "--",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "concurrent",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/absent"
+      ],
+      "returncode": 0,
+      "stdout": "concurrent-first-0=passed count=87 errno=33\nconcurrent-first-1=passed count=87 errno=33\nconcurrent-first-2=passed count=87 errno=33\nconcurrent-first-3=passed count=87 errno=33\nown-pid=passed count=87 errno=33\nself=passed count=87 errno=33\none-byte=passed count=1 errno=33\ntruncation=passed count=3 errno=33\nexact-buffer=passed count=87 errno=33\nlarger-buffer=passed count=87 errno=33\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\n",
+      "stderr": "",
+      "seconds": 0.05271267100033583,
+      "timed_out": false,
+      "controlled_environment": {
+        "launch": "Actual run-native-toolchain.py CLI",
+        "preload_order": [
+          "inherited entries",
+          "native adapter"
+        ],
+        "marker": "Assigned by actual launcher to this canonical fixture ELF"
+      }
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-native-toolchain.py",
+        "--",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "constructor",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/absent"
+      ],
+      "returncode": 0,
+      "stdout": "constructor-first=passed count=87 errno=33\nown-pid=passed count=87 errno=33\nself=passed count=87 errno=33\none-byte=passed count=1 errno=33\ntruncation=passed count=3 errno=33\nexact-buffer=passed count=87 errno=33\nlarger-buffer=passed count=87 errno=33\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\n",
+      "stderr": "",
+      "seconds": 0.0481994579986349,
+      "timed_out": false,
+      "controlled_environment": {
+        "launch": "Actual run-native-toolchain.py CLI",
+        "preload_order": [
+          "inherited entries",
+          "native adapter"
+        ],
+        "marker": "Assigned by actual launcher to this canonical fixture ELF"
+      }
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-native-toolchain.py",
+        "--",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "exec-child",
+        "ENOENT",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/absent",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/different-probe"
+      ],
+      "returncode": 0,
+      "stdout": "own-pid-refused=passed count=-1 errno=2\nself-refused=passed count=-1 errno=2\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\n",
+      "stderr": "",
+      "seconds": 0.046587851000367664,
+      "timed_out": false,
+      "controlled_environment": {
+        "launch": "Actual run-native-toolchain.py CLI",
+        "preload_order": [
+          "inherited entries",
+          "native adapter"
+        ],
+        "marker": "Assigned by actual launcher to this canonical fixture ELF"
+      }
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-native-toolchain.py",
+        "--",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/different-probe",
+        "check",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/different-probe",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/absent"
+      ],
+      "returncode": 0,
+      "stdout": "own-pid=passed count=97 errno=33\nself=passed count=97 errno=33\none-byte=passed count=1 errno=33\ntruncation=passed count=3 errno=33\nexact-buffer=passed count=97 errno=33\nlarger-buffer=passed count=97 errno=33\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\n",
+      "stderr": "",
+      "seconds": 0.04626820900011808,
+      "timed_out": false,
+      "controlled_environment": {
+        "launch": "Actual run-native-toolchain.py CLI",
+        "preload_order": [
+          "inherited entries",
+          "native adapter"
+        ],
+        "marker": "Assigned by actual launcher to this canonical fixture ELF"
+      }
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "check",
+        "ENOENT",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/absent"
+      ],
+      "returncode": 0,
+      "stdout": "own-pid-refused=passed count=-1 errno=2\nself-refused=passed count=-1 errno=2\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\n",
+      "stderr": "",
+      "seconds": 0.0023300060001929523,
+      "timed_out": false,
+      "controlled_environment": {
+        "launch": "Direct public fixture",
+        "marker": null,
+        "preload_order": [
+          "inherited entries",
+          "native adapter"
+        ]
+      }
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "check",
+        "ENOENT",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/absent"
+      ],
+      "returncode": 0,
+      "stdout": "own-pid-refused=passed count=-1 errno=2\nself-refused=passed count=-1 errno=2\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\n",
+      "stderr": "",
+      "seconds": 0.0021102339997014496,
+      "timed_out": false,
+      "controlled_environment": {
+        "launch": "Direct public fixture",
+        "marker": "",
+        "preload_order": [
+          "inherited entries",
+          "native adapter"
+        ]
+      }
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "check",
+        "ENOENT",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/absent"
+      ],
+      "returncode": 0,
+      "stdout": "own-pid-refused=passed count=-1 errno=2\nself-refused=passed count=-1 errno=2\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\n",
+      "stderr": "",
+      "seconds": 0.0025648499995440943,
+      "timed_out": false,
+      "controlled_environment": {
+        "launch": "Direct public fixture",
+        "marker": "probe",
+        "preload_order": [
+          "inherited entries",
+          "native adapter"
+        ]
+      }
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "check",
+        "ENOENT",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/absent"
+      ],
+      "returncode": 0,
+      "stdout": "own-pid-refused=passed count=-1 errno=2\nself-refused=passed count=-1 errno=2\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\n",
+      "stderr": "",
+      "seconds": 0.0030211739995138487,
+      "timed_out": false,
+      "controlled_environment": {
+        "launch": "Direct public fixture",
+        "marker": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/different-probe",
+        "preload_order": [
+          "inherited entries",
+          "native adapter"
+        ]
+      }
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "controlled",
+        "fixture-own-executable",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/absent"
+      ],
+      "returncode": 0,
+      "stdout": "own-pid=passed count=22 errno=7\nself=passed count=22 errno=7\none-byte=passed count=1 errno=7\ntruncation=passed count=3 errno=7\nexact-buffer=passed count=22 errno=7\nlarger-buffer=passed count=22 errno=7\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\ncontrolled-layer-reached=passed calls=7\n",
+      "stderr": "",
+      "seconds": 0.0024918369999795686,
+      "timed_out": false,
+      "controlled_environment": {
+        "launch": "Explicit controlled fixture chain",
+        "preload_order": [
+          "inherited entries",
+          "native adapter",
+          "owned downstream fixture"
+        ],
+        "marker": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "fixture_mode": "success",
+        "host_protected_path_observation": false
+      }
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "controlled",
+        "EACCES",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/absent"
+      ],
+      "returncode": 0,
+      "stdout": "own-pid-refused=passed count=-1 errno=13\nself-refused=passed count=-1 errno=13\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\ncontrolled-layer-reached=passed calls=3\n",
+      "stderr": "",
+      "seconds": 0.002619978000439005,
+      "timed_out": false,
+      "controlled_environment": {
+        "launch": "Explicit controlled fixture chain",
+        "preload_order": [
+          "inherited entries",
+          "native adapter",
+          "owned downstream fixture"
+        ],
+        "marker": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "fixture_mode": "eacces",
+        "host_protected_path_observation": false
+      }
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "controlled",
+        "EPERM",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/absent"
+      ],
+      "returncode": 0,
+      "stdout": "own-pid-refused=passed count=-1 errno=1\nself-refused=passed count=-1 errno=1\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\ncontrolled-layer-reached=passed calls=3\n",
+      "stderr": "",
+      "seconds": 0.002646617000209517,
+      "timed_out": false,
+      "controlled_environment": {
+        "launch": "Explicit controlled fixture chain",
+        "preload_order": [
+          "inherited entries",
+          "native adapter",
+          "owned downstream fixture"
+        ],
+        "marker": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "fixture_mode": "eperm",
+        "host_protected_path_observation": false
+      }
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "controlled",
+        "EIO",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/absent"
+      ],
+      "returncode": 0,
+      "stdout": "own-pid-refused=passed count=-1 errno=5\nself-refused=passed count=-1 errno=5\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\ncontrolled-layer-reached=passed calls=3\n",
+      "stderr": "",
+      "seconds": 0.0024534900003345683,
+      "timed_out": false,
+      "controlled_environment": {
+        "launch": "Explicit controlled fixture chain",
+        "preload_order": [
+          "inherited entries",
+          "native adapter",
+          "owned downstream fixture"
+        ],
+        "marker": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "fixture_mode": "eio",
+        "host_protected_path_observation": false
+      }
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "check",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/absent"
+      ],
+      "returncode": 0,
+      "stdout": "own-pid=passed count=87 errno=33\nself=passed count=87 errno=33\none-byte=passed count=1 errno=33\ntruncation=passed count=3 errno=33\nexact-buffer=passed count=87 errno=33\nlarger-buffer=passed count=87 errno=33\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\ncontrolled-layer-reached=passed calls=7\n",
+      "stderr": "",
+      "seconds": 0.0017797370001062518,
+      "timed_out": false,
+      "controlled_environment": {
+        "launch": "Explicit controlled fixture chain",
+        "preload_order": [
+          "inherited entries",
+          "native adapter",
+          "owned downstream fixture"
+        ],
+        "marker": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "fixture_mode": "enoent",
+        "host_protected_path_observation": false
+      }
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-native-toolchain.py",
+        "--",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe",
+        "controlled",
+        "EACCES",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/absent"
+      ],
+      "returncode": 0,
+      "stdout": "own-pid-refused=passed count=-1 errno=13\nself-refused=passed count=-1 errno=13\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=33\nordinary-link-truncated=passed count=2 errno=33\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\ncontrolled-layer-reached=passed calls=3\n",
+      "stderr": "",
+      "seconds": 0.0435104219995992,
+      "timed_out": false,
+      "controlled_environment": {
+        "launch": "Actual launcher with an explicit inherited owned test layer",
+        "preload_order": [
+          "inherited entries",
+          "owned upstream fixture",
+          "native adapter"
+        ],
+        "fixture_mode": "eacces",
+        "host_protected_path_observation": false
+      }
+    }
+  ],
+  "cases": [
+    {
+      "name": "actual-launcher-buffer-and-filesystem-contract",
+      "command_index": 2,
+      "expected_labels": [
+        "own-pid",
+        "self",
+        "one-byte",
+        "truncation",
+        "exact-buffer",
+        "larger-buffer",
+        "zero-size",
+        "ordinary-link",
+        "ordinary-link-truncated",
+        "regular-file",
+        "missing-file"
+      ],
+      "missing_labels": [],
+      "passed": true
+    },
+    {
+      "name": "changed-argv0",
+      "command_index": 3,
+      "expected_labels": [
+        "changed-argv0",
+        "own-pid",
+        "self",
+        "one-byte",
+        "truncation",
+        "exact-buffer",
+        "larger-buffer",
+        "zero-size",
+        "ordinary-link",
+        "ordinary-link-truncated",
+        "regular-file",
+        "missing-file"
+      ],
+      "missing_labels": [],
+      "passed": true
+    },
+    {
+      "name": "changed-working-directory",
+      "command_index": 4,
+      "expected_labels": [
+        "changed-cwd",
+        "own-pid",
+        "self",
+        "one-byte",
+        "truncation",
+        "exact-buffer",
+        "larger-buffer",
+        "zero-size",
+        "ordinary-link",
+        "ordinary-link-truncated",
+        "regular-file",
+        "missing-file"
+      ],
+      "missing_labels": [],
+      "passed": true
+    },
+    {
+      "name": "fork-current-pid",
+      "command_index": 5,
+      "expected_labels": [
+        "before-fork",
+        "fork-current-pid",
+        "own-pid",
+        "self",
+        "one-byte",
+        "truncation",
+        "exact-buffer",
+        "larger-buffer",
+        "zero-size",
+        "ordinary-link",
+        "ordinary-link-truncated",
+        "regular-file",
+        "missing-file"
+      ],
+      "missing_labels": [],
+      "passed": true
+    },
+    {
+      "name": "concurrent-first-calls",
+      "command_index": 6,
+      "expected_labels": [
+        "concurrent-first-0",
+        "concurrent-first-1",
+        "concurrent-first-2",
+        "concurrent-first-3",
+        "own-pid",
+        "self",
+        "one-byte",
+        "truncation",
+        "exact-buffer",
+        "larger-buffer",
+        "zero-size",
+        "ordinary-link",
+        "ordinary-link-truncated",
+        "regular-file",
+        "missing-file"
+      ],
+      "missing_labels": [],
+      "passed": true
+    },
+    {
+      "name": "constructor-first-call",
+      "command_index": 7,
+      "expected_labels": [
+        "constructor-first",
+        "own-pid",
+        "self",
+        "one-byte",
+        "truncation",
+        "exact-buffer",
+        "larger-buffer",
+        "zero-size",
+        "ordinary-link",
+        "ordinary-link-truncated",
+        "regular-file",
+        "missing-file"
+      ],
+      "missing_labels": [],
+      "passed": true
+    },
+    {
+      "name": "child-exec-stale-parent-marker",
+      "command_index": 8,
+      "expected_labels": [
+        "own-pid-refused",
+        "self-refused",
+        "zero-size",
+        "ordinary-link",
+        "ordinary-link-truncated",
+        "regular-file",
+        "missing-file"
+      ],
+      "missing_labels": [],
+      "passed": true
+    },
+    {
+      "name": "child-own-launcher-marker",
+      "command_index": 9,
+      "expected_labels": [
+        "own-pid",
+        "self",
+        "one-byte",
+        "truncation",
+        "exact-buffer",
+        "larger-buffer",
+        "zero-size",
+        "ordinary-link",
+        "ordinary-link-truncated",
+        "regular-file",
+        "missing-file"
+      ],
+      "missing_labels": [],
+      "passed": true
+    },
+    {
+      "name": "marker-unset-inactive",
+      "command_index": 10,
+      "expected_labels": [
+        "own-pid-refused",
+        "self-refused",
+        "zero-size",
+        "ordinary-link",
+        "ordinary-link-truncated",
+        "regular-file",
+        "missing-file"
+      ],
+      "missing_labels": [],
+      "passed": true
+    },
+    {
+      "name": "marker-empty-inactive",
+      "command_index": 11,
+      "expected_labels": [
+        "own-pid-refused",
+        "self-refused",
+        "zero-size",
+        "ordinary-link",
+        "ordinary-link-truncated",
+        "regular-file",
+        "missing-file"
+      ],
+      "missing_labels": [],
+      "passed": true
+    },
+    {
+      "name": "marker-relative-inactive",
+      "command_index": 12,
+      "expected_labels": [
+        "own-pid-refused",
+        "self-refused",
+        "zero-size",
+        "ordinary-link",
+        "ordinary-link-truncated",
+        "regular-file",
+        "missing-file"
+      ],
+      "missing_labels": [],
+      "passed": true
+    },
+    {
+      "name": "marker-stale-inactive",
+      "command_index": 13,
+      "expected_labels": [
+        "own-pid-refused",
+        "self-refused",
+        "zero-size",
+        "ordinary-link",
+        "ordinary-link-truncated",
+        "regular-file",
+        "missing-file"
+      ],
+      "missing_labels": [],
+      "passed": true
+    },
+    {
+      "name": "controlled-downstream-success",
+      "command_index": 14,
+      "expected_labels": [
+        "own-pid",
+        "self",
+        "one-byte",
+        "truncation",
+        "exact-buffer",
+        "larger-buffer",
+        "zero-size",
+        "ordinary-link",
+        "ordinary-link-truncated",
+        "regular-file",
+        "missing-file",
+        "controlled-layer-reached"
+      ],
+      "missing_labels": [],
+      "passed": true
+    },
+    {
+      "name": "controlled-downstream-eacces",
+      "command_index": 15,
+      "expected_labels": [
+        "own-pid-refused",
+        "self-refused",
+        "zero-size",
+        "ordinary-link",
+        "ordinary-link-truncated",
+        "regular-file",
+        "missing-file",
+        "controlled-layer-reached"
+      ],
+      "missing_labels": [],
+      "passed": true
+    },
+    {
+      "name": "controlled-downstream-eperm",
+      "command_index": 16,
+      "expected_labels": [
+        "own-pid-refused",
+        "self-refused",
+        "zero-size",
+        "ordinary-link",
+        "ordinary-link-truncated",
+        "regular-file",
+        "missing-file",
+        "controlled-layer-reached"
+      ],
+      "missing_labels": [],
+      "passed": true
+    },
+    {
+      "name": "controlled-downstream-eio",
+      "command_index": 17,
+      "expected_labels": [
+        "own-pid-refused",
+        "self-refused",
+        "zero-size",
+        "ordinary-link",
+        "ordinary-link-truncated",
+        "regular-file",
+        "missing-file",
+        "controlled-layer-reached"
+      ],
+      "missing_labels": [],
+      "passed": true
+    },
+    {
+      "name": "controlled-downstream-enoent",
+      "command_index": 18,
+      "expected_labels": [
+        "own-pid",
+        "self",
+        "one-byte",
+        "truncation",
+        "exact-buffer",
+        "larger-buffer",
+        "zero-size",
+        "ordinary-link",
+        "ordinary-link-truncated",
+        "regular-file",
+        "missing-file",
+        "controlled-layer-reached"
+      ],
+      "missing_labels": [],
+      "passed": true
+    },
+    {
+      "name": "actual-launcher-retains-upstream-layer",
+      "command_index": 19,
+      "expected_labels": [
+        "own-pid-refused",
+        "self-refused",
+        "zero-size",
+        "ordinary-link",
+        "ordinary-link-truncated",
+        "regular-file",
+        "missing-file",
+        "controlled-layer-reached"
+      ],
+      "missing_labels": [],
+      "passed": true
+    }
+  ],
+  "fixture_binaries": {
+    "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/probe": "77b36e79bdd41ddbd5689102d52f95cec53a12551f5769925d0c830f5f5d24d9",
+    "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/different-probe": "77b36e79bdd41ddbd5689102d52f95cec53a12551f5769925d0c830f5f5d24d9",
+    "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-contract-042-r1/controlled-readlink.so": "6d0714b54860397fc19919908604eb3a20e47cc61abc23d4d9651de57d2ccd6b"
+  },
+  "inputs_after": {
+    "/workspace/scratch/b566cace4ed6/pfds/session/environment/test-native-own-exe.py": "da5856cb97b1e5a9b86303ee576f3f9dc889e5e5fcf0377d7c6d95e22a872c10",
+    "/workspace/scratch/b566cace4ed6/pfds/session/environment/test-native-own-exe.c": "f26208e4ea0b08349bc99fcb60b15f693fa413c3fbdfcf3649d649de8c748c0b",
+    "/workspace/scratch/b566cace4ed6/pfds/session/environment/native-readlink-fixture.c": "b5ee1645a2bd1ce54e3130560b759253d12c9f915ef7b252397c3db9230328ae",
+    "/workspace/scratch/b566cace4ed6/pfds/session/environment/native-own-exe.c": "479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842",
+    "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-native-toolchain.py": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073",
+    "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-native/support/native-own-exe.so": "01ad9e274870f3ddddfc76a9ec165c88a20e5b10d2622107857293bc53fff7db",
+    "/workspace/scratch/b566cace4ed6/pfds/session/environment/native-profile-identity-042-r2.json": "3cf5da5ddcc18eea16294e13f19752b2aa748c88ddb2d80db9188577ecb0ca02",
+    "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-native/profile-identity.json": "d12b90d76e5a9a841a720707d8d2a50c69522b27e33d27e89dddc86a5dd526ad",
+    "/usr/bin/x86_64-linux-gnu-gcc-13": "6117c52522997d2aaccb2b52b3c6bf42c0a6c5edb1d718431fed6b2fc5fec234",
+    "/workspace/scratch/b566cace4ed6/pfds/session/validation/native-own-exe-red-042.json": "ee5c0a400ac5771e62ba57c50423648cea522c863f4b670a1e0fbd875313eecb"
+  },
+  "inputs_unchanged": true,
+  "case_count": 18,
+  "passed_cases": 18,
+  "completed_at": "2026-11-03T16:50:09.551868+00:00"
+}

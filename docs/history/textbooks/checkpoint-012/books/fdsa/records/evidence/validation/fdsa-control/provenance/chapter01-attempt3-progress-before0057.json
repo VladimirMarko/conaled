@@ -1,0 +1,80 @@
+{
+  "observed_utc": "2026-11-02T23:40:02.936300+00:00",
+  "recorder_result": "running",
+  "terminal_fields": {},
+  "review_head": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "review_status": "",
+  "processes": [
+    {
+      "pid": 600750,
+      "start_ticks": "9123853",
+      "state": "S",
+      "ppid": 1,
+      "process_group": 600750,
+      "session": 600750,
+      "command_prefix": [
+        "python3",
+        "/workspace/scratch/845aa1048b05/fdsa-control/provenance/run-chapter01-repair-attempt3.py"
+      ],
+      "argument_count": 2
+    },
+    {
+      "pid": 600779,
+      "start_ticks": "9123889",
+      "state": "S",
+      "ppid": 600750,
+      "process_group": 600750,
+      "session": 600750,
+      "command_prefix": [
+        "python3",
+        "scripts/check.py",
+        "--candidate",
+        "HEAD"
+      ],
+      "argument_count": 4
+    },
+    {
+      "pid": 600956,
+      "start_ticks": "9124698",
+      "state": "S",
+      "ppid": 600779,
+      "process_group": 600750,
+      "session": 600750,
+      "command_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake",
+        "--no-cache",
+        "--rehash",
+        "build"
+      ],
+      "argument_count": 964
+    },
+    {
+      "pid": 635582,
+      "start_ticks": "9476209",
+      "state": "S",
+      "ppid": 600956,
+      "process_group": 600750,
+      "session": 600750,
+      "command_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/Applications/FRP/Engine.lean",
+        "-o",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/Engine.olean"
+      ],
+      "argument_count": 11
+    }
+  ],
+  "unreadable_cwd_count": 0,
+  "effective_uid": 0,
+  "free_block_bytes": 2644185088,
+  "unprivileged_available_bytes": 0,
+  "log_bytes": 167052,
+  "log_sha256": "939f45c060eaeb250578fbe736ace216b733d5e978861c752f7291c72bdc1796",
+  "last_complete_lines": [
+    "info: Applications/FRP/Equivalence.lean:1149:0: 'FRP.Examples.zeno_not_finiteHistory' depends on axioms: [propext, choice, Quot.sound]",
+    "\u2714 [9559/9562] Built Applications.FRP.Finite (1929s)",
+    "\u2714 [9560/9563] Built Examples.FRP (1519s)"
+  ],
+  "verification_copy_exists": false,
+  "qualification": "Current process/log observation only, not a completed candidate check or acceptance. Positive free blocks and zero unprivileged availability are reported separately."
+}

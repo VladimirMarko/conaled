@@ -1,0 +1,37 @@
+{
+  "recorded_utc": "2026-11-02",
+  "scope": "Bounded Chapter 2 mergesort readiness; no activation, implementation, final review or acceptance",
+  "root_read_complete": true,
+  "writers_stopped": true,
+  "reports": [
+    {
+      "path": "research/mergesort-value-api-readiness.md",
+      "bytes": 27669,
+      "lines": 269,
+      "sha256": "8abaea795ad882785308d32b2187de32ee5398e036a07828a4f42f16f2da97ba"
+    },
+    {
+      "path": "research/mergesort-cost-readiness.md",
+      "bytes": 19805,
+      "lines": 302,
+      "sha256": "e36333a7e913fe0b11a1950f23c10a5fcb5975f37adb8c8d5405db2fe61a09a5"
+    },
+    {
+      "path": "research/mergesort-case-readiness.md",
+      "bytes": 14097,
+      "lines": 241,
+      "sha256": "19832ff4ae3578d0bc8319307aef2b099e46e7e397978c978e3c0cd14ab0fc0e"
+    }
+  ],
+  "unchanged_retained_inputs": {
+    "research/mergesort-proof-plan.md": "fa19bd92a19f06087da321bc7b4a18f337883bf3be63fe96b0e2da9b43cb2010",
+    "research/chapter02-reuse-plan.md": "ad652aa94f5cb4e0d00db58ffc8a7411c41deb582f35979a860a25c7d3c3454a",
+    "reviews/chapter02-requirements.md": "f0c9bc939fbfb6da02c1734b121456c35fd6b4c9ee43f1284003d0b8db087a36",
+    "research/scope-reconciliation.md": "21de30d9c317dadc2cb8aee51ea84ca26f74c8208b754feea57d81140c1a3e87",
+    "research/chapter02-obligations.md": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2"
+  },
+  "historical_frozen_inventory_rows": 107,
+  "current_inventory_rows": 112,
+  "disposition": "Retain the existing floor-left implementation plan. Carry comparator/stability assumptions, the all-length real-log bridge, actual returned-child costs, and the separate natural-run operational scope into implementation. No new sharp-cost theorem or extra acceptance gate is added.",
+  "validation": "No compiler, project checker or project hash helper was run. Ordinary recovery-file SHA-256 identities were computed with Python hashlib. Existing gate 80227 remains unchanged."
+}

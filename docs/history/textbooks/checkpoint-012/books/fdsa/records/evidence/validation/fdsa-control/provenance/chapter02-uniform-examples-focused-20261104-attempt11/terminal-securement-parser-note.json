@@ -1,0 +1,8 @@
+{
+  "recorded_utc": "2026-11-04T10:24:51.212867+00:00",
+  "initial_helper_exit": 1,
+  "reason": "The helper expected exit=0; but the actual native summary includes its elapsed time before the semicolon. Assertion stopped before any native copying.",
+  "resolution": "Read actual closed summary, include its optional elapsed field, then verified and copied exact native records.",
+  "compiler_exit_unchanged": 0,
+  "compiler_rerun": false
+}

@@ -1,0 +1,61 @@
+{
+  "started_utc": "2026-11-04T06:39:27.689224+00:00",
+  "completed_utc": "2026-11-04T06:39:27.749199+00:00",
+  "owner": "/root/chapter02_random_pivot",
+  "operation": [
+    "git",
+    "merge",
+    "--ff-only",
+    "0ec9954479b081664bd4504c90fb66fba5fd22c8"
+  ],
+  "old_candidate": "bb4fb243bb7b16ae8bef921fec479a86f2b01c90",
+  "target_candidate": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+  "ancestry_verified": true,
+  "exit_code": 0,
+  "stdout": "Updating bb4fb24..0ec9954\nFast-forward\n Applications/Resources/BottomUpSorting.lean       | 512 ++++++++++++++++++\n Applications/Resources/DifferenceListCosts.lean   | 222 ++++++++\n Applications/Resources/Growth.lean                |  42 ++\n Applications/Resources/ListBuildCosts.lean        | 169 ++++++\n Applications/Resources/ListMerge.lean             | 201 +++++++\n Applications/Resources/NaturalRunComparisons.lean | 330 ++++++++++++\n Applications/Resources/NaturalSorting.lean        | 262 +++++++++\n Applications/Resources/Partition.lean             |  61 +++\n Applications/Resources/TopDownSorting.lean        | 200 +++++++\n Applications/Selection/ThreeWay.lean              |  47 +-\n Applications/Sequences/Partition.lean             |  87 +++\n Applications/Sorting/Alternating.lean             | 194 +++++++\n Applications/Sorting/BottomUp.lean                | 445 ++++++++++++++++\n Applications/Sorting/InsertionObservations.lean   |  69 +++\n Applications/Sorting/Merge.lean                   |  46 ++\n Applications/Sorting/Natural.lean                 | 121 +++++\n Applications/Sorting/NaturalRuns.lean             | 613 ++++++++++++++++++++++\n Applications/Sorting/ThreeWayQuickSort.lean       | 150 ++++++\n Applications/Sorting/TopDown.lean                 | 145 +++++\n Examples/AlternatingSorting.lean                  | 111 ++++\n Examples/BottomUpCosts.lean                       | 243 +++++++++\n Examples/BottomUpSorting.lean                     | 188 +++++++\n Examples/DifferenceListCosts.lean                 | 234 +++++++++\n Examples/InsertionObservations.lean               | 224 ++++++++\n Examples/ListBuildCosts.lean                      |  83 +++\n Examples/MergeCosts.lean                          | 476 +++++++++++++++++\n Examples/NaturalRunComparisons.lean               | 112 ++++\n Examples/NaturalRuns.lean                         | 209 ++++++++\n Examples/NaturalSorting.lean                      | 141 +++++\n Examples/NaturalSortingCosts.lean                 | 231 ++++++++\n Examples/QuickSortCosts.lean                      |   2 +-\n Examples/ThreeWayPartition.lean                   | 172 ++++++\n Examples/ThreeWayQuickSort.lean                   | 142 +++++\n Examples/TopDownCosts.lean                        | 117 +++++\n Examples/TopDownSorting.lean                      |  82 +++\n SquareApplications.lean                           |   3 +\n docs/research/fdsa-difference-list-costs.md       | 213 ++++++++\n docs/research/fdsa-list-merge.md                  | 250 +++++++++\n docs/research/fdsa-reconstruction-map.md          |  82 +++\n docs/research/fdsa-three-way-partition.md         | 250 +++++++++\n 40 files changed, 7449 insertions(+), 32 deletions(-)\n create mode 100644 Applications/Resources/BottomUpSorting.lean\n create mode 100644 Applications/Resources/DifferenceListCosts.lean\n create mode 100644 Applications/Resources/ListBuildCosts.lean\n create mode 100644 Applications/Resources/ListMerge.lean\n create mode 100644 Applications/Resources/NaturalRunComparisons.lean\n create mode 100644 Applications/Resources/NaturalSorting.lean\n create mode 100644 Applications/Resources/Partition.lean\n create mode 100644 Applications/Resources/TopDownSorting.lean\n create mode 100644 Applications/Sequences/Partition.lean\n create mode 100644 Applications/Sorting/Alternating.lean\n create mode 100644 Applications/Sorting/BottomUp.lean\n create mode 100644 Applications/Sorting/InsertionObservations.lean\n create mode 100644 Applications/Sorting/Natural.lean\n create mode 100644 Applications/Sorting/NaturalRuns.lean\n create mode 100644 Applications/Sorting/ThreeWayQuickSort.lean\n create mode 100644 Applications/Sorting/TopDown.lean\n create mode 100644 Examples/AlternatingSorting.lean\n create mode 100644 Examples/BottomUpCosts.lean\n create mode 100644 Examples/BottomUpSorting.lean\n create mode 100644 Examples/DifferenceListCosts.lean\n create mode 100644 Examples/InsertionObservations.lean\n create mode 100644 Examples/ListBuildCosts.lean\n create mode 100644 Examples/MergeCosts.lean\n create mode 100644 Examples/NaturalRunComparisons.lean\n create mode 100644 Examples/NaturalRuns.lean\n create mode 100644 Examples/NaturalSorting.lean\n create mode 100644 Examples/NaturalSortingCosts.lean\n create mode 100644 Examples/ThreeWayPartition.lean\n create mode 100644 Examples/ThreeWayQuickSort.lean\n create mode 100644 Examples/TopDownCosts.lean\n create mode 100644 Examples/TopDownSorting.lean\n create mode 100644 docs/research/fdsa-difference-list-costs.md\n create mode 100644 docs/research/fdsa-list-merge.md\n create mode 100644 docs/research/fdsa-three-way-partition.md\n",
+  "stderr": "",
+  "final_head": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+  "final_status": "",
+  "plan_path": "chapter02-random-expectation-preparation-20261104/PLAN.md",
+  "plan_sha256": "b8b24f667412ae6360bf2b36fb35c416d20feab853bbb68a8cc5727ba939f6d1",
+  "root_assessment": "chapter02-random-expectation-preparation-20261104/root-assessment.json",
+  "source_scope": [
+    "Applications/Resources/RandomQuickSortMean.lean",
+    "Examples/RandomQuickSortMean.lean"
+  ],
+  "author_builds_started": 0,
+  "cache_writes": false,
+  "lake_directory_present": false,
+  "initial_source_identities": {
+    "Applications/Resources/RandomQuickSort.lean": {
+      "bytes": 23601,
+      "sha256": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2",
+      "unchanged_from_held_candidate": true
+    },
+    "Examples/RandomQuickSort.lean": {
+      "bytes": 8255,
+      "sha256": "4f5a21d1656423ac1307b1ca8fe651cd794d70da576ecd14f65d68cc290c424d",
+      "unchanged_from_held_candidate": true
+    },
+    "Applications/Resources/QuickSort.lean": {
+      "bytes": 21782,
+      "sha256": "e98024f6b741e1aba1fb1e38b419eee2e1acad76a8a40e669752f54775783263",
+      "unchanged_from_held_candidate": true
+    },
+    "lean-toolchain": {
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "unchanged_from_held_candidate": true
+    },
+    "lake-manifest.json": {
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "unchanged_from_held_candidate": true
+    },
+    "AGENTS.md": {
+      "bytes": 3118,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "unchanged_from_held_candidate": true
+    }
+  }
+}

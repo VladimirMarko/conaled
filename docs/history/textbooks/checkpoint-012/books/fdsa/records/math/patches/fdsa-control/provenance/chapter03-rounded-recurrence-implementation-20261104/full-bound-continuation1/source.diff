@@ -1,0 +1,309 @@
+diff --git a/Applications/Resources/RoundedRecurrenceBounds.lean b/Applications/Resources/RoundedRecurrenceBounds.lean
+new file mode 100644
+index 0000000..3d1987a
+--- /dev/null
++++ b/Applications/Resources/RoundedRecurrenceBounds.lean
+@@ -0,0 +1,135 @@
++import Applications.Resources.RoundedRecurrence
++import Mathlib.Data.Finset.Lattice.Fold
++import Mathlib.Data.Finset.Range
++
++/-! All-input bounds for the exact rounded scalar recurrence in FDSA §3.5.
++
++The cutoff, finite-prefix maximum and slope are the source's explicit choices.
++The intercept remains signed; only the linear toll coefficient is assumed
++nonnegative. The natural-valued corollary casts the actual recurrence and rounds
++the real bounding constants upward, without a second induction.
++
++The scalar function is already total. These theorems do not supply termination
++or a resource interpretation for an independently proposed recursive algorithm.
++For signed values the conclusion is a one-sided bound, not a norm estimate.
++
++Mathematical source: FDSA, July 27, 2026, printed pp. 41–44; Manuel Eberl's
++Selection.thy at Isabelle f86f290225eebcc52c1ae7dba2e098f405f51c21.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.RoundedRecurrence
++
++/-- The exact source cutoff dominates the original cutoff and strictly exceeds
++the combined quotient. This ceiling fact itself needs no sign assumptions. -/
++theorem explicit_cutoff_bounds (a b c d : ℝ) (n0 : Nat) :
++    let N : Nat := max n0 (⌈(max 0 b + max 0 d + 2) / (1 - a - c)⌉₊ + 1)
++    n0 ≤ N ∧ (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ) := by
++  dsimp only
++  constructor
++  · exact le_max_left _ _
++  · calc
++      (max 0 b + max 0 d + 2) / (1 - a - c) ≤
++          (⌈(max 0 b + max 0 d + 2) / (1 - a - c)⌉₊ : ℝ) := Nat.le_ceil _
++      _ < ((⌈(max 0 b + max 0 d + 2) / (1 - a - c)⌉₊ + 1 : Nat) : ℝ) :=
++        (Nat.cast_lt (α := ℝ)).mpr (Nat.lt_succ_self _)
++      _ ≤ ((max n0 (⌈(max 0 b + max 0 d + 2) / (1 - a - c)⌉₊ + 1) : Nat) : ℝ) :=
++        (Nat.cast_le (α := ℝ)).mpr (le_max_right _ _)
++
++/-- Sharp strong induction with the two source slope constraints. All inputs,
++including zero and the entire prefix, are covered by the same C3 and C4.
++Neither the scalar values nor the intercept need be nonnegative. -/
++theorem affine_bound_of_prefix (f : Nat → ℝ)
++    (a b c d C1 C2 C3 C4 : ℝ) (n0 N : Nat)
++    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1) (toll_nonneg : 0 ≤ C1)
++    (cutoff : n0 ≤ N)
++    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ))
++    (prefix : ∀ n, n ≤ N → f n ≤ C4)
++    (slope : C1 / (1 - a - c) ≤ C3)
++    (absorb : (C1 * (N : ℝ) + C2 + C4) /
++      ((1 - a - c) * (N : ℝ) - max 0 b - max 0 d - 2) ≤ C3)
++    (recurrence : ∀ n, n0 < n →
++      f n = f ⌈a * (n : ℝ) + b⌉₊ + f ⌈c * (n : ℝ) + d⌉₊ +
++        C1 * (n : ℝ) + C2) :
++    ∀ n : Nat, f n ≤ C3 * (n : ℝ) + C4 := by
++  have nonneg := (slope_nonneg_and_margin a c C1 C3 contract toll_nonneg slope).1
++  intro n
++  induction n using Nat.strongRecOn with
++  | ind n ih =>
++      by_cases small : n ≤ N
++      · exact (prefix n small).trans
++          (le_add_of_nonneg_left (mul_nonneg nonneg (Nat.cast_nonneg n)))
++      · have above : N < n := Nat.lt_of_not_ge small
++        have children := ceil_children_lt a b c d N n ha hc contract threshold above
++        exact recurrence_step_le f a b c d C1 C2 C3 C4 N n ha.le hc.le contract
++          toll_nonneg threshold slope absorb above.le
++          (recurrence n (lt_of_le_of_lt cutoff above))
++          (ih _ children.1) (ih _ children.2)
++
++/-- The source construction exposed before existentially hiding its constants.
++C4 is the actual maximum of the nonempty finite prefix, with no truncation to
++zero. The maximum defining C3 retains both exact source quotients. -/
++theorem bound_with_source_constants (f : Nat → ℝ)
++    (a b c d C1 C2 : ℝ) (n0 : Nat)
++    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1) (toll_nonneg : 0 ≤ C1)
++    (recurrence : ∀ n, n0 < n →
++      f n = f ⌈a * (n : ℝ) + b⌉₊ + f ⌈c * (n : ℝ) + d⌉₊ +
++        C1 * (n : ℝ) + C2) :
++    let N : Nat := max n0 (⌈(max 0 b + max 0 d + 2) / (1 - a - c)⌉₊ + 1)
++    let C4 : ℝ := (Finset.range (N + 1)).sup'
++      ⟨0, Finset.mem_range.mpr (Nat.succ_pos N)⟩ f
++    let C3 : ℝ := max (C1 / (1 - a - c))
++      ((C1 * (N : ℝ) + C2 + C4) /
++        ((1 - a - c) * (N : ℝ) - max 0 b - max 0 d - 2))
++    ∀ n : Nat, f n ≤ C3 * (n : ℝ) + C4 := by
++  let N : Nat := max n0 (⌈(max 0 b + max 0 d + 2) / (1 - a - c)⌉₊ + 1)
++  let C4 : ℝ := (Finset.range (N + 1)).sup'
++    ⟨0, Finset.mem_range.mpr (Nat.succ_pos N)⟩ f
++  let C3 : ℝ := max (C1 / (1 - a - c))
++    ((C1 * (N : ℝ) + C2 + C4) /
++      ((1 - a - c) * (N : ℝ) - max 0 b - max 0 d - 2))
++  change ∀ n : Nat, f n ≤ C3 * (n : ℝ) + C4
++  have cutoff : n0 ≤ N ∧ (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ) :=
++    explicit_cutoff_bounds a b c d n0
++  refine affine_bound_of_prefix f a b c d C1 C2 C3 C4 n0 N ha hc contract
++    toll_nonneg cutoff.1 cutoff.2 ?_ (le_max_left _ _) (le_max_right _ _) recurrence
++  intro n hn
++  exact Finset.le_sup' f (Finset.mem_range.mpr (Nat.lt_succ_of_le hn))
++
++/-- FDSA Theorem 3.9: fixed recurrence data admit fixed real affine constants
++for every natural input. Offsets, constant toll and scalar values may be signed. -/
++theorem exists_affine_bound (f : Nat → ℝ) (a b c d C1 C2 : ℝ) (n0 : Nat)
++    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1) (toll_nonneg : 0 ≤ C1)
++    (recurrence : ∀ n, n0 < n →
++      f n = f ⌈a * (n : ℝ) + b⌉₊ + f ⌈c * (n : ℝ) + d⌉₊ +
++        C1 * (n : ℝ) + C2) :
++    ∃ C3 C4 : ℝ, ∀ n : Nat, f n ≤ C3 * (n : ℝ) + C4 := by
++  have bound := bound_with_source_constants f a b c d C1 C2 n0 ha hc contract
++    toll_nonneg recurrence
++  dsimp only at bound
++  exact ⟨_, _, bound⟩
++
++/-- The natural-valued corollary uses natural ceilings of the real witnesses.
++It preserves the exact rounded children and all natural inputs, including zero. -/
++theorem exists_affine_bound_nat (f : Nat → Nat) (a b c d : ℝ) (C1 C2 n0 : Nat)
++    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1)
++    (recurrence : ∀ n, n0 < n →
++      f n = f ⌈a * (n : ℝ) + b⌉₊ + f ⌈c * (n : ℝ) + d⌉₊ + C1 * n + C2) :
++    ∃ C3 C4 : Nat, ∀ n : Nat, f n ≤ C3 * n + C4 := by
++  have real_recurrence : ∀ n, n0 < n →
++      (f n : ℝ) = (f ⌈a * (n : ℝ) + b⌉₊ : ℝ) + (f ⌈c * (n : ℝ) + d⌉₊ : ℝ) +
++        (C1 : ℝ) * (n : ℝ) + (C2 : ℝ) := by
++    intro n hn
++    have equation := congrArg (fun value : Nat => (value : ℝ)) (recurrence n hn)
++    simpa only [Nat.cast_add, Nat.cast_mul] using equation
++  obtain ⟨A, B, bound⟩ := exists_affine_bound (fun n => (f n : ℝ))
++    a b c d (C1 : ℝ) (C2 : ℝ) n0 ha hc contract (Nat.cast_nonneg C1) real_recurrence
++  refine ⟨⌈A⌉₊, ⌈B⌉₊, ?_⟩
++  intro n
++  apply (Nat.cast_le (α := ℝ)).mp
++  rw [Nat.cast_add, Nat.cast_mul]
++  exact (bound n).trans (add_le_add
++    (mul_le_mul_of_nonneg_right (Nat.le_ceil A) (Nat.cast_nonneg n)) (Nat.le_ceil B))
++
++end Resources.RoundedRecurrence
+diff --git a/Examples/RoundedRecurrenceBounds.lean b/Examples/RoundedRecurrenceBounds.lean
+new file mode 100644
+index 0000000..df10f88
+--- /dev/null
++++ b/Examples/RoundedRecurrenceBounds.lean
+@@ -0,0 +1,162 @@
++import Applications.Resources.RoundedRecurrenceBounds
++import Mathlib.Tactic.NormNum
++import Mathlib.Tactic.Ring
++
++/-! Connected all-input clients of the source's rounded recurrence bound.
++
++The rounded-quarter scalar below has values 1, 6, 13 and 48 at 0, 5, 6 and 21.
++Its well-founded construction uses exact child descent before any affine bound
++is applied. It is a scalar recurrence, not a selector or a measured algorithm.
++The real and natural clients consume that same actual recurrence.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.RoundedRecurrenceBounds
++open Resources.RoundedRecurrence
++
++/-- The exact maximum-based source choices give zero slope and zero intercept
++for the zero recurrence. Equality in the slope condition covers every input. -/
++theorem zero_source_witness_bound :
++    ∀ n : Nat, (0 : ℝ) ≤ 0 * (n : ℝ) + 0 := by
++  have bound := bound_with_source_constants (fun _ : Nat => (0 : ℝ))
++    (1 / 4) 0 (1 / 4) 0 0 0 0
++    (by norm_num) (by norm_num) (by norm_num) (by norm_num)
++    (by intro n _; simp)
++  simpa only [Finset.sup'_const, zero_mul, zero_div, zero_add, add_zero, max_self]
++    using bound
++
++/-- The completed induction retains a genuinely negative prefix maximum and
++intercept, rather than replacing them by zero. The offsets are also negative. -/
++theorem negative_intercept_all_inputs :
++    ∀ n : Nat, (-3 : ℝ) ≤ 0 * (n : ℝ) + (-3) := by
++  exact affine_bound_of_prefix (fun _ : Nat => (-3 : ℝ))
++    (1 / 4) (-7) (1 / 4) (-2) 0 3 0 (-3) 0 5
++    (by norm_num) (by norm_num) (by norm_num) (by norm_num)
++    (by norm_num) (by norm_num) (by intro n _; exact le_rfl)
++    (by norm_num) (by norm_num) (by intro n _; norm_num)
++
++/-- Positive constant values with a negative constant toll satisfy the actual
++recurrence, so signed C2 is supported by the complete existence theorem. -/
++theorem negative_constant_toll_affine_bound :
++    ∃ A B : ℝ, ∀ n : Nat, (3 : ℝ) ≤ A * (n : ℝ) + B := by
++  exact exists_affine_bound (fun _ : Nat => (3 : ℝ))
++    (1 / 4) (-7) (1 / 4) (-2) 0 (-3) 0
++    (by norm_num) (by norm_num) (by norm_num) (by norm_num)
++    (by intro n _; norm_num)
++
++/-- An actual natural scalar recurrence with rounded children and a nonconstant
++base prefix. Real ceiling makes the specification noncomputable. -/
++noncomputable def roundedQuarter (n : Nat) : Nat :=
++  if h : n ≤ 5 then n + 1 else
++    roundedQuarter ⌈(1 / 4 : ℝ) * (n : ℝ)⌉₊ +
++      roundedQuarter ⌈(1 / 4 : ℝ) * (n : ℝ)⌉₊ + n + 1
++termination_by n
++decreasing_by
++  all_goals
++    simpa only [add_zero] using
++      ceil_affine_lt_of_threshold (1 / 4) 0 5 n
++        (by norm_num) (by norm_num) (by norm_num) (Nat.lt_of_not_ge h)
++
++theorem roundedQuarter_of_le_five (n : Nat) (small : n ≤ 5) :
++    roundedQuarter n = n + 1 := by
++  rw [roundedQuarter]
++  split
++  · rfl
++  · rename_i not_small
++    exact (not_small small).elim
++
++theorem roundedQuarter_of_five_lt (n : Nat) (large : 5 < n) :
++    roundedQuarter n = roundedQuarter ⌈(1 / 4 : ℝ) * (n : ℝ)⌉₊ +
++      roundedQuarter ⌈(1 / 4 : ℝ) * (n : ℝ)⌉₊ + n + 1 := by
++  rw [roundedQuarter]
++  split
++  · rename_i small
++    exact ((not_le_of_gt large) small).elim
++  · rfl
++
++theorem roundedQuarter_zero : roundedQuarter 0 = 1 :=
++  roundedQuarter_of_le_five 0 (by decide)
++
++theorem roundedQuarter_five : roundedQuarter 5 = 6 :=
++  roundedQuarter_of_le_five 5 (by decide)
++
++/-- The first recursive input uses ceiling 6/4=2, not floor 6/4=1. -/
++theorem roundedQuarter_six : roundedQuarter 6 = 13 := by
++  have child : ⌈(1 / 4 : ℝ) * (6 : ℝ)⌉₊ = 2 := by
++    apply (Nat.ceil_eq_iff (by decide : (2 : Nat) ≠ 0)).mpr
++    norm_num
++  rw [roundedQuarter_of_five_lt 6 (by decide), child,
++    roundedQuarter_of_le_five 2 (by decide)]
++
++/-- This value follows a genuinely recursive child: ceil(21/4)=6 and Q(6)=13. -/
++theorem roundedQuarter_twenty_one : roundedQuarter 21 = 48 := by
++  have child : ⌈(1 / 4 : ℝ) * (21 : ℝ)⌉₊ = 6 := by
++    apply (Nat.ceil_eq_iff (by decide : (6 : Nat) ≠ 0)).mpr
++    norm_num
++  rw [roundedQuarter_of_five_lt 21 (by decide), child, roundedQuarter_six]
++
++/-- Apply the exact source constants: N=5, prefix maximum 6, slope 24. -/
++theorem roundedQuarter_sharp_affine_bound :
++    ∀ n : Nat, (roundedQuarter n : ℝ) ≤ 24 * (n : ℝ) + 6 := by
++  refine affine_bound_of_prefix (fun n => (roundedQuarter n : ℝ))
++    (1 / 4) 0 (1 / 4) 0 1 1 24 6 5 5
++    (by norm_num) (by norm_num) (by norm_num) (by norm_num)
++    (by norm_num) (by norm_num) ?_ (by norm_num) (by norm_num) ?_
++  · intro n hn
++    rw [roundedQuarter_of_le_five n hn]
++    have bound : (n : ℝ) ≤ 5 := (Nat.cast_le (α := ℝ)).mpr hn
++    simp only [Nat.cast_add, Nat.cast_one]
++    linarith only [bound]
++  · intro n hn
++    have equation := congrArg (fun value : Nat => (value : ℝ))
++      (roundedQuarter_of_five_lt n hn)
++    simpa only [Nat.cast_add, Nat.cast_one, add_zero, one_mul] using equation
++
++/-- Real existence consumes the same exact rounded recurrence. -/
++theorem roundedQuarter_real_affine_bound :
++    ∃ A B : ℝ, ∀ n : Nat, (roundedQuarter n : ℝ) ≤ A * (n : ℝ) + B := by
++  refine exists_affine_bound (fun n => (roundedQuarter n : ℝ))
++    (1 / 4) 0 (1 / 4) 0 1 1 5
++    (by norm_num) (by norm_num) (by norm_num) (by norm_num) ?_
++  intro n hn
++  have equation := congrArg (fun value : Nat => (value : ℝ))
++    (roundedQuarter_of_five_lt n hn)
++  simpa only [Nat.cast_add, Nat.cast_one, add_zero, one_mul] using equation
++
++/-- The natural corollary applies to Q without proving a second growth induction. -/
++theorem roundedQuarter_nat_affine_bound :
++    ∃ A B : Nat, ∀ n : Nat, roundedQuarter n ≤ A * n + B := by
++  refine exists_affine_bound_nat roundedQuarter (1 / 4) 0 (1 / 4) 0 1 1 5
++    (by norm_num) (by norm_num) (by norm_num) ?_
++  intro n hn
++  simpa only [add_zero, one_mul] using roundedQuarter_of_five_lt n hn
++
++/-- At a+c=1 with positive linear toll, no fixed affine induction estimate
++closes beyond any finite cutoff. Even inputs have exact half-size children.
++This is a failure of the affine step, not a converse about every scalar law. -/
++theorem noncontracting_affine_step_impossible (A B : ℝ) (N : Nat) :
++    ¬ ∀ n : Nat, N < n →
++      (A * (⌈(1 / 2 : ℝ) * (n : ℝ)⌉₊ : ℝ) + B) +
++        (A * (⌈(1 / 2 : ℝ) * (n : ℝ)⌉₊ : ℝ) + B) + (n : ℝ) ≤
++          A * (n : ℝ) + B := by
++  intro step
++  obtain ⟨m, hm⟩ := exists_nat_gt (max (N : ℝ) (-B))
++  have above_cutoff : (N : ℝ) < (m : ℝ) := (le_max_left _ _).trans_lt hm
++  have above_intercept : -B < (m : ℝ) := (le_max_right _ _).trans_lt hm
++  have nonneg : (0 : ℝ) ≤ (m : ℝ) := Nat.cast_nonneg m
++  have large : N < 2 * m := by
++    apply (Nat.cast_lt (α := ℝ)).mp
++    simp only [Nat.cast_mul, Nat.cast_ofNat]
++    linarith only [above_cutoff, nonneg]
++  have exact_half : (1 / 2 : ℝ) * ((2 * m : Nat) : ℝ) = (m : ℝ) := by
++    simp only [Nat.cast_mul, Nat.cast_ofNat]
++    ring
++  have child : ⌈(1 / 2 : ℝ) * ((2 * m : Nat) : ℝ)⌉₊ = m := by
++    rw [exact_half, Nat.ceil_natCast]
++  have estimate := step (2 * m) large
++  rw [child] at estimate
++  simp only [Nat.cast_mul, Nat.cast_ofNat] at estimate
++  nlinarith only [estimate, above_intercept, nonneg]
++
++end Examples.RoundedRecurrenceBounds

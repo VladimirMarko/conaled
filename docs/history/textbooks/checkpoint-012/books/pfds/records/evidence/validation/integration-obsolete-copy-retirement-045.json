@@ -1,0 +1,120 @@
+{
+  "original_path": "session/validation/integration-obsolete-copy-retirement-045.json",
+  "original_sha256": "7a0a2874e84182fb48c8a57cf9201cbbf90c127dcda9d503a993fbc8a8317c4e",
+  "original_bytes": 311490,
+  "removed_fields": [
+    {
+      "pointer": "/recovery_copy_inventory",
+      "entries": 1145,
+      "canonical_json_sha256": "b46330a0cb248da7179d6aec30f6e0b21538933e81c5ce40210b993d091bbb57"
+    }
+  ],
+  "record": {
+    "schema": 1,
+    "started_at": "2026-11-04T02:41:12.457194+00:00",
+    "kind": "retirement-of-obsolete-task-owned-recovery-and-review-copies",
+    "status": "finished",
+    "acceptance": false,
+    "active_compiler": "integration-3cf-ordinary-r3-045",
+    "active_compiler_locks_not_acquired_or_overridden": true,
+    "source_runtime_inputs_match_active_before": true,
+    "input_digest": "3bbd16a69296b18137b0d6b7bf53964b9bd4bee071a264bd1b9679533cb5b7c7",
+    "ref_state_before": "refs/heads/master 7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd\nrefs/heads/pfds/body-counts 5e048f781aa04be9ce993f1e7455bdc82df22bff\nrefs/heads/pfds/body-counts-review-r1 5e048f781aa04be9ce993f1e7455bdc82df22bff\nrefs/heads/pfds/cache-counts-review-r1 3dd930c3e3989f3e5530463f3ac937a629551335\nrefs/heads/pfds/ch01-union 1ce161412a2cfb725f27525ff98d400209163316\nrefs/heads/pfds/ch02-map fcf086ddc271d4b20d4714e36238e47a325316bd\nrefs/heads/pfds/ch02-ordered 26975a435a38ea89512c68a9d87f9efd7c971113\nrefs/heads/pfds/ch02-review-r1 69f6f00de204617fdd7feefd5b9ee5b80fc0d9f4\nrefs/heads/pfds/ch02-review-r2 c372c470008cdda3043040683451662f61131f81\nrefs/heads/pfds/ch02-review-r3 99a29dcd02eb529fbefbb675e244a8c47b78cdef\nrefs/heads/pfds/ch02-shared 4b0f0c0bc7c139480fb72407b93a2d9eb6874289\nrefs/heads/pfds/import-footprint 226ebaef53b9eba97bef4b3b6ca364fdea488c69\nrefs/heads/pfds/import-footprint-r2 324962e733886e66d6cd92af6cb68627ed4c8f1d\nrefs/heads/pfds/import-footprint-r3 901f734161920a76f3b399a575805b9a1d31e971\nrefs/heads/pfds/local 76d77a107deb37c30e0b061c30b03a3f8c6aa12c\nrefs/heads/pfds/output-migration-review-base 27a2b897983eb0e60b6ebe1ffa2b0b6c4ece6405\nrefs/heads/pfds/output-migration-review-r1 2748089840723943ddc8ae58acd82f5728b2098b\nrefs/heads/pfds/persistent-accounting 577be121e074ddb5de6727a7481c115cb61b3b27\nrefs/heads/pfds/persistent-accounting-review-r1 eedaeca6fc2fcc3f73cb92630dc8d8acf2bd50f8\nrefs/heads/pfds/persistent-accounting-review-r2 eb61c35f911ad0fac36758c878559eaf5f795cfa\nrefs/heads/pfds/persistent-accounting-review-r3 577be121e074ddb5de6727a7481c115cb61b3b27\nrefs/heads/pfds/pure-cache-counts 3dd930c3e3989f3e5530463f3ac937a629551335\nrefs/heads/pfds/pure-suspensions 501a95463f455b52ea839eb8bbcf6ab9379862e4\nrefs/heads/pfds/pure-suspensions-review-r1 ea8afa12706d30cdc69ece1a172d5f21a3ea1809\nrefs/heads/pfds/pure-suspensions-review-r2 361f5f3f6bb3de1974510ce355883dac2bf25333\nrefs/heads/pfds/signed-potential 3cf3de4fbc24c1a144353ae64b13b72f5ead54a5\nrefs/heads/pfds/suspensions c8ea1f8267b701f9797a52b1c8d3f9156422ccf6\nrefs/heads/pfds/suspensions-review-r1 c8ea1f8267b701f9797a52b1c8d3f9156422ccf6\nrefs/heads/pfds/suspensions-review-r2 1286e3d6357785d9c787562b95a5019afeefee40\nrefs/heads/pfds/suspensions-review-r3 a3feaff319ad5fad912fb8bdc113f33fea4e2a60\nrefs/pfds-review/direct-toolchain-base-041 76d77a107deb37c30e0b061c30b03a3f8c6aa12c\nrefs/pfds-review/direct-toolchain-r1-041 f010b5d0fdbef9c9f007c56531c326e738557f9d\nrefs/pfds-review/direct-toolchain-r2-041 822cb7adeed4943acaf10454e9facfc2e3ee8ceb\nrefs/pfds-review/direct-toolchain-r3-042 6526e5cdcde2e58c8fb0839690c34f3f6c04787c\nrefs/pfds-review/direct-toolchain-r4-042 120458c4fd40626d93e568f3387d8f5cb1dce69d\nrefs/pfds-review/native-toolchain-r10-043 060e6b877b8db57a30f947b996b7dfe34a5401a1\nrefs/pfds-review/native-toolchain-r11-045 4f15ff6f5bc8091104a3572ca8ce3716ed8e78f0\nrefs/pfds-review/native-toolchain-r5-042 f3bac5372edc14ff898ead8b38fa58812d6d2713\nrefs/pfds-review/native-toolchain-r6-042 fa87cd3483de75f24039836f8d4357be3a133176\nrefs/pfds-review/native-toolchain-r7-042 af2c53dce68ebb122c81175312d6bb30df9aac05\nrefs/pfds-review/native-toolchain-r8-043 d95518fde8cfc877da9d2bfc720ed4fd1f4698ba\nrefs/pfds-review/native-toolchain-r9-043 ff3f709723e5c49e5ba40798abbed7d36141a6fb\nrefs/pfds-review/signed-d24-before-native-fix-042 d24c443ba22019613b1ce646d6eed7279c791ad6\nrefs/remotes/origin/HEAD 7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd\nrefs/remotes/origin/integrate/frp 5be3ce96dbeb60365002414409c9421450e39cf0\nrefs/remotes/origin/integration/spec-15 47b556e83229ce11b27b5b7b4444c089a1e96ac3\nrefs/remotes/origin/master 7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd\nrefs/remotes/origin/reconstruction/adwh-154 c12296f63c656737d07325e9d8e8e16d6976d099\nrefs/remotes/origin/reconstruction/adwh-155 3efc9d926333c19f697a21afe7dd08af53e3a8cd\nrefs/remotes/origin/reconstruction/adwh-180 e0d76c86040f38728289977c355b848cd6c7d8e3\nrefs/remotes/origin/reconstruction/adwh-181 f68c79000bdb1ce223c403d38f8dd06e20cfbf29\nrefs/remotes/origin/reconstruction/adwh-182 9c0a2649f9601c6294850f2b057698650360da9a\nrefs/remotes/origin/reconstruction/adwh-183 16db707769c322fa17f2c48e24208f81292008da\nrefs/remotes/origin/reconstruction/adwh-184 48b7655155950c4452bebf1268de1866d0f6129f\nrefs/remotes/origin/reconstruction/adwh-186 30bbde79d154d1e8d942561c023a5e44d12ca420\nrefs/remotes/origin/reconstruction/adwh-187 6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e\nrefs/remotes/origin/reconstruction/adwh-190 855ce1f29ae0b7c7a7aec8321ead07be39c6ff32\nrefs/remotes/origin/reconstruction/adwh-array-cost-integration 34c85983f601247fb62aea631c4212b7cb994b5b\nrefs/remotes/origin/research/27-frp-runtime f4d3e2f36d5547f2236a601c837280bd0c23a774",
+    "review_checkout": {
+      "path": "pfds/review-native-toolchain-045-r11",
+      "head": "4f15ff6f5bc8091104a3572ca8ce3716ed8e78f0",
+      "clean": true,
+      "preserved_ref": "refs/pfds-review/native-toolchain-r11-045"
+    },
+    "original_user_attachment_retained": {
+      "path": "upload/conaled-pfds-checkpoint-044.tar(2).gz",
+      "bytes": 79928048,
+      "sha256": "e31e9ab9c6da25705f5dd24262b11eeafa40e6e740988ecdff68d6088bb50362"
+    },
+    "local_uploaded_archives_to_retire": [
+      {
+        "path": "pfds/checkpoints/conaled-pfds-checkpoint-045.tar.gz",
+        "bytes": 9486734,
+        "sha256": "8eb968d0ac3e5776b5d2a80075042c5cc552565cf3e8218eb5dc93f3938b771d",
+        "upload_receipt": "pfds/session/checkpoint045-upload.json",
+        "receipt_sha256": "28adf5b2baf22d6f13378df5c8e302a281d7c39006e2bbe295ed19f016da275a"
+      },
+      {
+        "path": "pfds/checkpoints/conaled-pfds-checkpoint-046.tar.gz",
+        "bytes": 9512260,
+        "sha256": "13b25d0f3909c385702589fd5d55b6a3a9047458216e0517fbb7fdfc3345f96a",
+        "upload_receipt": "pfds/session/checkpoint046-upload.json",
+        "receipt_sha256": "537d168675bd358e933b3b0dd914cf42a196fe1d86f48cf2325b1f3f0cfe7567"
+      },
+      {
+        "path": "pfds/checkpoints/conaled-pfds-checkpoint-047.tar.gz",
+        "bytes": 9754440,
+        "sha256": "9a389a000cd8a98e49ce7b8059563c414fc677f205fd698f26eb459721f1c154",
+        "upload_receipt": "pfds/session/checkpoint047-upload.json",
+        "receipt_sha256": "eb21c7fe2cee3415f3c25a9bcddc5d525f878294c7750344caf476f6e9c380a3"
+      },
+      {
+        "path": "pfds/checkpoints/conaled-pfds-checkpoint-048.tar.gz",
+        "bytes": 9755374,
+        "sha256": "1594a0fc1957403ff42e3540f62047ac1e42bc1f033cec8310f0c89a5c37ed77",
+        "upload_receipt": "pfds/session/checkpoint048-upload.json",
+        "receipt_sha256": "d054e0594e6d0e87bb45dbf3a89754cbd3164b6dbc5199d7af88c0233369726b"
+      },
+      {
+        "path": "pfds/checkpoints/conaled-pfds-checkpoint-049.tar.gz",
+        "bytes": 9961975,
+        "sha256": "96e889be3149e50376a65365bfdd97d656d3944967bd29455f74e35bbfee538d",
+        "upload_receipt": "pfds/session/checkpoint049-upload.json",
+        "receipt_sha256": "1ef36e13f99b8a45cf9f7171f9ece3a0e6055a742d31e3bc436abc47f4e2b10f"
+      },
+      {
+        "path": "pfds/checkpoints/conaled-pfds-checkpoint-050.tar.gz",
+        "bytes": 10212958,
+        "sha256": "2527ea7d2cf36b0acdcdba45da4d439f6fa3ff20721ce280fe1c908b15337acf",
+        "upload_receipt": "pfds/session/checkpoint050-upload.json",
+        "receipt_sha256": "df0ff24cb6a01b4dd873b72ad540c03519d9d96a12c1ea9c3b3b33a7ee110473"
+      },
+      {
+        "path": "pfds/checkpoints/conaled-pfds-checkpoint-051.tar.gz",
+        "bytes": 10237850,
+        "sha256": "c4f0be8ffaf852040baad5ecbc922e6b6f2863a72dbf660bc426a8307cb2fe85",
+        "upload_receipt": "pfds/session/checkpoint051-upload.json",
+        "receipt_sha256": "770c94f13c701b7c44637048a7a2d28371063e8cdae9af8830496de12ae9839e"
+      },
+      {
+        "path": "pfds/checkpoints/conaled-pfds-checkpoint-052.tar.gz",
+        "bytes": 11020120,
+        "sha256": "d2e62e412cffab963fbdb780ad27444a89fee5bcbd2a228dd06fe223fea3acb7",
+        "upload_receipt": "pfds/session/checkpoint052-upload.json",
+        "receipt_sha256": "65d6509921fed86378d2d115a524e377154a44227e26dbbd0625d2ca0d956b2d"
+      },
+      {
+        "path": "pfds/checkpoints/conaled-pfds-checkpoint-053.tar.gz",
+        "bytes": 11221139,
+        "sha256": "5a7fef730d33e9159dc3c40feebe56f8c9b7ad0779952a57469c7724f2c01d47",
+        "upload_receipt": "pfds/session/checkpoint053-upload.json",
+        "receipt_sha256": "f77373efeebc3adebde80c356e278f403404f82122d04475a1d9033f326dbd66"
+      }
+    ],
+    "retained_recent_local_checkpoints": [
+      54,
+      55,
+      56
+    ],
+    "reason": "Reclaim obsolete clean review checkout, already-restored extraction, and older local replicas of uploaded checkpoints. Preserve all Git refs/objects, original user attachments, latest three local recovery archives, upload receipts, runtime/dependencies/current project outputs, and all remote files.",
+    "space_before": {
+      "free_bytes": 962506752,
+      "available_bytes": 0
+    },
+    "finished_at": "2026-11-04T02:41:14.611948+00:00",
+    "inputs_unchanged": true,
+    "all_refs_unchanged": true,
+    "main_head": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+    "removed_paths_absent": true,
+    "original_attachment_unchanged": true,
+    "space_after": {
+      "free_bytes": 1252253696,
+      "available_bytes": 0
+    }
+  }
+}

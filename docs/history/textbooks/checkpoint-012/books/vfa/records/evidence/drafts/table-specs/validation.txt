@@ -1,0 +1,38 @@
+Focused validation of table-observation preparation
+Date: 2026-11-02
+Status: passed focused compilation; not chapter acceptance
+
+Source: TableObservations.lean
+SHA-256: 0233781d210056e9a61ae9a355120429e55007e72713434d25a5338aa6489b57
+
+Working directory: /workspace/scratch/0c54f2db1fdf/conaled
+Command:
+export PATH=/root/.nix-profile/bin:$PATH
+export NIX_CONFIG='build-users-group =
+experimental-features = nix-command flakes'
+export LEAN_NUM_THREADS=1
+nix develop --command lake env lean /workspace/scratch/0c54f2db1fdf/work-state/staging/table-specs/TableObservations.lean
+
+Final result: exit code 0, no diagnostics.
+Lean pin: 4.35.0, as recorded by the project's lean-toolchain and environment.md.
+The file sets autoImplicit false and warningAsError true.
+No sorry, admit, new axiom or native_decide is present in the draft.
+
+Initial compile: failed on dependent Function.update argument elaboration in
+four applications and one unused simp argument. The correction rewrites using
+the same Mathlib update laws after unfolding the observation/operations; it
+changes proof elaboration, not the formal claims. A concrete Maps.examplemap
+case and the distinct-first-write theorem were added before the final check.
+Checkpoint003 contains that earlier known-uncompiled preparatory state; this
+record describes the later corrected source at the hash above.
+
+Only cached Mathlib modules were imported. SquareKit.ListFusion was inspected
+but not imported because its main-checkout olean was absent. No project build,
+main-source edit, emitted project olean, dependency change, integrated proof
+audit, or mandatory chapter Standards/Spec review was performed by this task.
+
+All formal claims received the statement review in README.md. Public-client
+examples exercise repeated and distinct writes, misses, arbitrary payloads,
+Boolean keys, the exact four Maps.examplemap queries, and absence/default
+separation. Root must integrate selected material through the appropriate
+chapter gate before claiming it as accepted library or source coverage.

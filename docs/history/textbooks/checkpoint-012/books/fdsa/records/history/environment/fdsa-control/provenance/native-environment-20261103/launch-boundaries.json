@@ -1,0 +1,73 @@
+{
+  "recorded_utc": "2026-11-03T16:36:26.315718+00:00",
+  "outcome": "passed",
+  "probe_source_sha256": "d3888a6837d4a8392769e5ddfa1203a377ae04f1ac556bc20339ceba9e725990",
+  "probe_binary_sha256": "cc4b96bdea850bd5a9e0383116bd2b55456a0a38254121e3ab99956f2c5ac2b5",
+  "shim_sha256": "65910335cb5a2a4359e9ebf7dae4de1da7a48cdbf9dee5eabe82c3e4b02d88a9",
+  "results": [
+    {
+      "case": "absolute-elf",
+      "command": [
+        "/workspace/scratch/6bb268f9336f/bootstrap/native-probe/path-probe"
+      ],
+      "exit_code": 0,
+      "stdout": "execfn=/workspace/scratch/6bb268f9336f/bootstrap/native-probe/path-probe\nraw_count=-1\nraw_errno=2\nwrapped_count=65\nwrapped_errno=0\nwrapped_path=/workspace/scratch/6bb268f9336f/bootstrap/native-probe/path-probe\n",
+      "stderr": "",
+      "values": {
+        "execfn": "/workspace/scratch/6bb268f9336f/bootstrap/native-probe/path-probe",
+        "raw_count": "-1",
+        "raw_errno": "2",
+        "wrapped_count": "65",
+        "wrapped_errno": "0",
+        "wrapped_path": "/workspace/scratch/6bb268f9336f/bootstrap/native-probe/path-probe"
+      }
+    },
+    {
+      "case": "relative-elf",
+      "command": [
+        "bootstrap/native-probe/path-probe"
+      ],
+      "exit_code": 0,
+      "stdout": "execfn=bootstrap/native-probe/path-probe\nraw_count=-1\nraw_errno=2\nwrapped_count=-1\nwrapped_errno=2\nwrapped_path=\n",
+      "stderr": "",
+      "values": {
+        "execfn": "bootstrap/native-probe/path-probe",
+        "raw_count": "-1",
+        "raw_errno": "2",
+        "wrapped_count": "-1",
+        "wrapped_errno": "2",
+        "wrapped_path": ""
+      }
+    },
+    {
+      "case": "interpreted-script",
+      "command": [
+        "/workspace/scratch/6bb268f9336f/bootstrap/native-probe/interpreted-probe"
+      ],
+      "exit_code": 0,
+      "stdout": "execfn=/workspace/scratch/6bb268f9336f/bootstrap/native-probe/interpreted-probe\nraw_count=-1\nraw_errno=2\nwrapped_count=-1\nwrapped_errno=2\nwrapped_path=\n",
+      "stderr": "",
+      "values": {
+        "execfn": "/workspace/scratch/6bb268f9336f/bootstrap/native-probe/interpreted-probe",
+        "raw_count": "-1",
+        "raw_errno": "2",
+        "wrapped_count": "-1",
+        "wrapped_errno": "2",
+        "wrapped_path": ""
+      }
+    },
+    {
+      "case": "normal-check-entrypoint",
+      "command": [
+        "python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/native_toolchain.py",
+        "--",
+        "./check.sh",
+        "--help"
+      ],
+      "exit_code": 0,
+      "stdout": "usage: check.py [-h] [--candidate REV | --verify-candidate REV] [--fresh]\n                [--jobs JOBS]\n\nVerify project coverage and sources, build with Lake, and run the axiom audit.\n\noptions:\n  -h, --help            show this help message and exit\n  --candidate REV       validate a clean HEAD candidate and save its success\n                        record\n  --verify-candidate REV\n                        check an existing candidate record without compiling\n  --fresh               recompile every project module in private temporary\n                        outputs\n  --jobs JOBS, -j JOBS  fresh mode only: maximum concurrent compilers\n                        (default: up to 4)\n",
+      "stderr": ""
+    }
+  ]
+}

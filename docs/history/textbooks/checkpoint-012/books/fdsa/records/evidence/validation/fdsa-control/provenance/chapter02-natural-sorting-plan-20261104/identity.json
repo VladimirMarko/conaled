@@ -1,0 +1,93 @@
+{
+  "created_utc": "2026-11-04T05:55:01.854607+00:00",
+  "development_base": "5d7a479549f5acd64a9e5adb418ab48780c238ef",
+  "accepted_full_spec_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "pending_first_foundation": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "plan_sha256": "2e2435c80e7ee7c79cb6986de7b890f94fd2994aff3d9c63a56f1e07ccb6e97a",
+  "plan_precedes_all_four_new_source_files": true,
+  "inputs": [
+    {
+      "path": "fdsa-control/reviews/chapter02-requirements.md",
+      "bytes": 12034,
+      "sha256": "f0c9bc939fbfb6da02c1734b121456c35fd6b4c9ee43f1284003d0b8db087a36"
+    },
+    {
+      "path": "fdsa-control/research/chapter02-obligations.md",
+      "bytes": 42539,
+      "sha256": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2"
+    },
+    {
+      "path": "fdsa-control/research/scope-reconciliation.md",
+      "bytes": 14441,
+      "sha256": "21de30d9c317dadc2cb8aee51ea84ca26f74c8208b754feea57d81140c1a3e87"
+    },
+    {
+      "path": "fdsa-control/research/natural-runs-proof-plan.md",
+      "bytes": 31439,
+      "sha256": "a17b41c56b5262edb5844ddd3f7f25a764f9006c20c0efd25cca4d27795c1884"
+    },
+    {
+      "path": "fdsa-control/research/chapter02-reuse-plan.md",
+      "bytes": 31586,
+      "sha256": "ad652aa94f5cb4e0d00db58ffc8a7411c41deb582f35979a860a25c7d3c3454a"
+    },
+    {
+      "path": "fdsa-control/research/mergesort-proof-plan.md",
+      "bytes": 22874,
+      "sha256": "fa19bd92a19f06087da321bc7b4a18f337883bf3be63fe96b0e2da9b43cb2010"
+    },
+    {
+      "path": "Applications/Sorting/BottomUp.lean",
+      "bytes": 19856,
+      "sha256": "4df83022174bc4e5becfb441617624d57695158d69dc7241209ca077dc2c7791"
+    },
+    {
+      "path": "Applications/Sorting/NaturalRuns.lean",
+      "bytes": 25272,
+      "sha256": "123c711b5f0cf05074155f3a0d9ae076aa80a8be482e7e6fc77626aa9db6fb1d"
+    },
+    {
+      "path": "Applications/Resources/BottomUpSorting.lean",
+      "bytes": 23175,
+      "sha256": "74cc812fb1f1706621daeb1c51512a9ddb3d85dc57a36589aafe96e8514a6826"
+    },
+    {
+      "path": "Applications/Resources/NaturalRunComparisons.lean",
+      "bytes": 13562,
+      "sha256": "920e1832416afcdc47a0c2301c2e27c7cd5f0c614a209c8dea21fc2561d809b0"
+    },
+    {
+      "path": "Applications/Resources/Growth.lean",
+      "bytes": 2906,
+      "sha256": "99be17f2d45ac30de1e912c2181460dac046c8b98e40ea3209abfec342107786"
+    },
+    {
+      "path": "Applications/Resources/Measured.lean",
+      "bytes": 2906,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46"
+    },
+    {
+      "path": "Applications/Resources/ListMerge.lean",
+      "bytes": 8629,
+      "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975"
+    },
+    {
+      "path": "Examples/BottomUpCosts.lean",
+      "bytes": 11905,
+      "sha256": "a242d7219d9221b0c085ff2107a40f9532d995bc5326de5a1c7cdcfaa4263aa1"
+    },
+    {
+      "path": "Examples/NaturalRunComparisons.lean",
+      "bytes": 4753,
+      "sha256": "9d4dfe317e1af9ee894385ba3478c0ede17de1e713cc7090b120a4d2ab708f8a"
+    },
+    {
+      "path": "Examples/NaturalRuns.lean",
+      "bytes": 8415,
+      "sha256": "ef0ed6bbc5beb40815f977e80c0b99b0633e8503b0b1634747d41275cb3f6041"
+    }
+  ],
+  "compilation": "Not run; author builds prohibited",
+  "acceptance": "No claim; complete book scope and all validation/review gates remain.",
+  "example_reuse": "NaturalSortingCosts will reuse the existing Examples.BottomUpCosts.all_two_runs specialization, plus the checked natural scan fixtures; the incorporated BottomUp comparison/example candidate remains pending its root-managed focused check."
+}

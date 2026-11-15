@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-04T16:16:25.760012+00:00",
+  "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "source_checkpoint_durable": "conaled-fdsa-0117-reviewed-tail-source",
+  "both_source_reviews_complete_and_held": true,
+  "candidate_clean": true,
+  "space": {
+    "utc": "2026-11-04T16:16:25.760012+00:00",
+    "available_bytes": 0,
+    "raw_free_bytes": 1159348224
+  },
+  "existing_install_and_cache_only": true,
+  "fresh_trigger": false,
+  "full_command": "qualified one-thread ./check.sh --candidate HEAD",
+  "sole_builder": true,
+  "all_other_agents_no_compiler_or_output_authorization": true,
+  "additional_conservative_raw_space_check_bytes": 536870912,
+  "installation_guard_unchanged": "5GiB ordinary available applies to any fresh compiler installation; no fresh installation is attempted.",
+  "new_validation_credit": 0
+}

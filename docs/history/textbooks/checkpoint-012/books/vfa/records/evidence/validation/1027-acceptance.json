@@ -1,0 +1,34 @@
+{
+  "accepted_utc": "2026-11-02T14:07:04.864935+00:00",
+  "status": "tool_and_amendment_accepted",
+  "ticket": 1027,
+  "repository": "work-state/cache-companion",
+  "base": "6f48c1ab7f1e96056c217ca025390aa58a7955b6",
+  "candidate": "a43cef4881d4eb303a81ef25f5ccff0b801a12fe",
+  "tree": "27b06c3e118792cc5a27820540ce22d820ad3ca0",
+  "requirements_sha256": "9d46adc3d69359b29196a615865ce7503a1a073da007cec34dd187da15807f86",
+  "amendment_sha256": "f66b1aa410d3476128c3bcfe2731034cb84505ca68d1fe304505e34a054c7651",
+  "review": {
+    "path": "work-state/reviews/1027-cache-companion.md",
+    "sha256": "f547a6c27fed94ee9275ca93f039371bc01cf4e99a0331053b3a8ff013ab29ef",
+    "standards": "Passed; ST-CACHE-001 fixed; zero unresolved",
+    "spec": "Passed; SP-CACHE-001 fixed; zero unresolved"
+  },
+  "validation": {
+    "path": "work-state/validation/1027-round2-validation.json",
+    "sha256": "cfe0d12d79a6a826a88f31ce7d46746535d75604f0050d1b51e2ab1a353b10f2",
+    "isolated_tests": 18,
+    "raw_returncode": 0,
+    "actual_helper_evidence": "One round1 actual invocation, reused after exact relevant identity checks in 1027-candidate-round2.json"
+  },
+  "final_delivered_content": {
+    "path": "work-state/validation/1027-final-content-verification.json",
+    "sha256": "66e8722e26c8846d3f2eb34dc5cfe48aeabe714220122bf4560a669495d691b9",
+    "result": "delivered-content-matches-approved-snapshot"
+  },
+  "effect": "Explicit optional-cache-companion exception to the historical cache exclusion and standalone-archive requirement. Complete source/history/ticket/review checkpoints remain mandatory and cache-free; all formal acceptance gates and chapter order remain unchanged.",
+  "next_required_before_real_capture": "Create, restore-check, expose and upload a complete source checkpoint containing this accepted tool/amendment and evidence, then bind the optional companion to its exact successful receipt.",
+  "actual_project_cache_captured": false,
+  "chapter_acceptance": false,
+  "formal_candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec"
+}

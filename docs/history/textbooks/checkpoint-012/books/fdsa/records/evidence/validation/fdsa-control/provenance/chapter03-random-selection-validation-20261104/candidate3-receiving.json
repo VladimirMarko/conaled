@@ -1,0 +1,42 @@
+{
+  "recorded_utc": "2026-11-04T18:42:09.435543+00:00",
+  "candidate": "da8a1c6bb03e242d2655b3f38dc9361961102892",
+  "expectedHead": "e1b7b57dd495b9b57597e75141e0ec397536ed35",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "acceptedHead": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "name": "chapter03-random-selection-focused-attempt3-20261104",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Resources.RandomSelection",
+    "Examples.RandomSelection"
+  ],
+  "expectedPaths": [
+    "Applications/Resources/RandomSelection.lean",
+    "Examples/RandomSelection.lean"
+  ],
+  "recordDirectory": "chapter03-random-selection-validation-20261104",
+  "recordName": "candidate3-receiving.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was e1b7b57 fix(sequences): make chunk multiset coercions explicit (#174)\nHEAD is now at da8a1c6 fix(selection): normalize occurrence probability casts (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3"
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e"
+    }
+  ],
+  "candidate_tree": "c21747d673d2e8f4830bb7e99eeb5e590321a137",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 365699072
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

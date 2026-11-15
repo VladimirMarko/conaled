@@ -1,0 +1,150 @@
+{
+  "recorded_utc": "2026-11-04T10:34:13.917887+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "foundation_candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "scope": "Same81-path/112-obligation/ten-shared-unit and exact-F scopes; initial actual815 execution/input qualification only.",
+  "overall_outcome": "Blocked",
+  "approval_or_acceptance": false,
+  "actual_terminal": {
+    "exit_code": 0,
+    "started_utc": "2026-11-04T10:25:46.192567+00:00",
+    "completed_utc": "2026-11-04T10:28:34.728449+00:00",
+    "outer_seconds": 168.53564069700224,
+    "native_seconds": 168.41713930100013,
+    "clean_unchanged": true,
+    "lean_threads": "1",
+    "timeout": false,
+    "recorder_error": null,
+    "owned_session": 20238,
+    "session_closed_do_not_poll": true,
+    "verification_record_present": false
+  },
+  "complete_human_record_reads": [
+    "outer start/result",
+    "secured-terminal",
+    "native start/result",
+    "pre-observation receipt",
+    "observation metadata"
+  ],
+  "closed_artifacts": [
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/start.json",
+      "bytes": 1098,
+      "lines": 27,
+      "sha256": "7d8d4243fca364cf93cadb5230f5a7ec73f0ec1d4f62a86df583fba2c7d8a8f4"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/result.json",
+      "bytes": 1337,
+      "lines": 32,
+      "sha256": "408a2fc698c80f7f4527beb0045f21132c3dc544ad0d9054204e2619aff595ab"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/secured-terminal.json",
+      "bytes": 2508,
+      "lines": 47,
+      "sha256": "c7c0b017ef12185fc8c5cfb4e82bc608dc19bec29bc34cee78fbf959a66c5252"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/full.log",
+      "bytes": 874944,
+      "lines": 11653,
+      "sha256": "a5347095b4f93728b1b384c415189e1d934084eca4af8999028d0864fab9fc6b"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/start.json",
+      "bytes": 578,
+      "lines": 14,
+      "sha256": "0cb40572871ef587d67958f5163814687d6d091cb0f99904e43b20a178d23fe5"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/result.json",
+      "bytes": 731,
+      "lines": 19,
+      "sha256": "2fde52dc025cc4db5b18940f872473232a7c3276665f78abb0b392f98e8782a2"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+      "bytes": 874568,
+      "lines": 11650,
+      "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/actual-type-ranges.json",
+      "bytes": 232026,
+      "lines": 7349,
+      "sha256": "5f53332f2c9719fc6ce7fe15f6eab6f90a6d7baf9dd1b4cf0e2750d1932ffcef"
+    }
+  ],
+  "native_originals_copies_and_full_inner_bytes_identical": true,
+  "input_observations": {
+    "pre": {
+      "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 125408,
+      "lines": 2524,
+      "sha256": "e4187960a469d194aeceed488d7e9bb45a450ae059bef46ba9645c5f9d6868ac"
+    },
+    "post": {
+      "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 125726,
+      "lines": 2530,
+      "sha256": "c8a015007775ff98a220c90c328dc10f505cca8ac9ac9c7c3b887e2c0089ab4a"
+    },
+    "pre_receipt": {
+      "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/pre-observation-receipt.json",
+      "bytes": 888,
+      "lines": 19,
+      "sha256": "02ddf78328a29b6ea1ea276146387e3fa79c0c80e4a7daf000bfd2a38664ebc6"
+    },
+    "identity_exact_match": true,
+    "observations_bracket_actual_run": true,
+    "source_records_compared_with_immutable_Git": 84,
+    "configuration_records_compared_with_immutable_Git": 10,
+    "clean_dependency_pin_records": 9,
+    "runtime_fingerprints_matching_retained_qualification": 12,
+    "objects_and_traces": 252,
+    "object_shape": "Each local module has exactly .olean, .olean.hash and .trace recorded.",
+    "raw_read_boundary": "Complete identity data parsed/reconciled, metadata and relevant class entries assessed; no complete raw2530-line JSON human-read claim."
+  },
+  "pure_immutable_closure": {
+    "roots": 36,
+    "sources": 84,
+    "external_imports": 82,
+    "edges": 246,
+    "exact_recorded_closure": true,
+    "no_live_snapshot_or_recorder": true
+  },
+  "output_accounting": {
+    "program": {
+      "path": "provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/Statements.lean",
+      "bytes": 46371,
+      "lines": 862,
+      "sha256": "d4d37d6ea2b48fc5c743b1db36fe904ca8623be6c03c05ea5addc99b307687bd"
+    },
+    "inventory": {
+      "path": "provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/inventory.json",
+      "bytes": 58922,
+      "lines": 1148,
+      "sha256": "7fe7ddfc3242dff5937ef1fba339bd62f0a2ce66401fe919d383237049bd70bf"
+    },
+    "headers": 815,
+    "exact_name_order": true,
+    "all_native_bytes_partitioned_without_filtering": true,
+    "root_index_independently_reconciled": true,
+    "navigation_is_not_semantic_review": true,
+    "own_parser_notes": "Two preparatory assertions stopped before any writes: a wrapped universe list and an unindented type-body And were initially misclassified. Exact qualified-name prefix recognition now validates all815 headers and allbytes; no source/compiler issue is inferred. A diagnostic mismatch preview was truncated and is not claimed as a semantic read."
+  },
+  "consumption_boundary": "Actual focused11, retained qualified stock build lineage and exclusive central output ownership remain required. Matching snapshots supplement that basis and do not alone qualify mathematical types or replace full audit. No extra full/fresh-before-types gate.",
+  "semantic_read_status": "Zero full actual-type assessments credited; every type remains to be read in bounded complete sections.",
+  "counts_retained": {
+    "qualified_historical": 920,
+    "pending_current_review": 815,
+    "accepted_base": 28,
+    "historical941_reads_retained": true,
+    "foundation145_pending": true,
+    "possible110_uncredited": true
+  },
+  "actions": "Closed records and immutable Git only; own records saved. No compiler, process polling, live source/output/runtime snapshot, source/ref/cache/pin/ticket/global-control mutation."
+}

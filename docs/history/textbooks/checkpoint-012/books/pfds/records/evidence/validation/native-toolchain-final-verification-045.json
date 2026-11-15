@@ -1,0 +1,54 @@
+{
+  "time": "2026-11-03T23:40:38.907466+00:00",
+  "operational_acceptance": true,
+  "formal_acceptance": false,
+  "base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "candidate": "4f15ff6f5bc8091104a3572ca8ce3716ed8e78f0",
+  "complete_scope_files": 20,
+  "source_hashes_and_modes_match": true,
+  "requirements": {
+    "session/requirements/REQUEST.md": "b847f23fcce44837f5b1ead01aae43ac5ed626ffd32aab84055dd664e339e499",
+    "session/requirements/REQUEST-union-v2.md": "3336bed1154438b3683aeb5a1c63fee44e87aff190f5ff69e34705a780b9d22c",
+    "session/requirements/REQUEST-direct-toolchain-041.md": "16845edec15c311e0cfd5ed5d4f5c4feb61e7ad96545653d5b872309d26464bc",
+    "session/environment/direct-toolchain-implementation-scope-041.md": "05c125ee129eafc8f45f9367be16259c3239c7b3945c32f62effba1f1b4c922c",
+    "session/requirements/REQUEST-environment-handoff-042.md": "200789123c60ae137967f881207194412eecea72ba2fc80247978075bd6a4602",
+    "session/requirements/REQUEST-native-toolchain-042.md": "d76dc8dcf771a227779628de91e75c4b63a2898b95e7b30035de83537dae5195",
+    "session/requirements/REQUEST-common-candidate-validation-044.md": "1a6b2a4b0d68b7a559e5d3d9c3fa7a90f0f1113f8d37539dedfb1df1579ca870",
+    "session/requirements/REQUEST-recovery-045.md": "dafc4b266e88c7644d35439ab8aba9a1d0e95a4ccab69e18b9cfb7150e4da44e"
+  },
+  "all_complete_reports_and_reconciliation_read_by_root": true,
+  "independent_outcomes": {
+    "Standards": {
+      "path": "reviews/direct-toolchain-standards-r11-045.md",
+      "sha256": "bc3cebe8df62096442fe8a333901a0c94bc04ffe220563ffd14a4f605b875e4b",
+      "outcome": "Passed",
+      "new_findings": 0,
+      "unresolved_findings": 0,
+      "retained": [
+        "DTS-001 Medium fixed",
+        "DTS-002 Medium fixed",
+        "DTS-003 Medium fixed for the matching legacy recipe"
+      ],
+      "bytes": 15116
+    },
+    "Spec": {
+      "path": "reviews/direct-toolchain-spec-r11-045.md",
+      "sha256": "2afa41d9f27c9ea821e3ae2c92c9151e5909da15161639d8fd5e3eeb60ca3903",
+      "outcome": "Passed",
+      "new_findings": 0,
+      "unresolved_findings": 0,
+      "retained": [
+        "DTP-001 High fixed",
+        "DTP-002 Medium fixed",
+        "DTP-003 Medium fixed for the matching legacy recipe"
+      ],
+      "bytes": 16940
+    }
+  },
+  "coordinator_receipt": {
+    "path": "validation/native-toolchain-coordinator-identity-r11-045.json",
+    "sha256": "142a29c972bd8d2a09691ea96d07f3effe802c9c760040b2ddd4ee83ab734a61"
+  },
+  "runtime_identity_unchanged": true,
+  "allowed_next_step": "Genuine serial fixed common-candidate fresh stock build and exhaustive audit; no chapter acceptance implied."
+}

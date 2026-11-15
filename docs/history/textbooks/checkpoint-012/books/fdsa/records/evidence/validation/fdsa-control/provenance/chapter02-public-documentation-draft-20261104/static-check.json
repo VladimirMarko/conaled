@@ -1,0 +1,366 @@
+{
+  "status": "static source/reference/import check only; no Lean invocation, elaboration, audit or acceptance",
+  "snapshot": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+  "accepted_reference": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "doc_sha256": "93ef5e7e1c159663fa5e450b7c12b33d56a8edc0e91de17062511e2fcaaf3fc3",
+  "aliases": 60,
+  "obligation_rows": 112,
+  "exact_ordered_ids": true,
+  "unique_ids": 112,
+  "explicit_alias_references": 639,
+  "unique_alias_references": 448,
+  "missing_alias_references": [],
+  "proposal_present": true,
+  "proposed_imports": [
+    "Examples.InsertionObservations",
+    "Examples.QuickSort",
+    "Examples.QuickSortCosts",
+    "Examples.TopDownSorting",
+    "Examples.TopDownCosts",
+    "Examples.BottomUpSorting",
+    "Examples.BottomUpCosts",
+    "Examples.AlternatingSorting",
+    "Examples.NaturalRuns",
+    "Examples.NaturalRunComparisons",
+    "Examples.NaturalSorting",
+    "Examples.NaturalSortingCosts",
+    "Examples.ListBuildCosts",
+    "Examples.ThreeWayQuickSort",
+    "Examples.RandomQuickSort",
+    "Examples.SortUniqueness",
+    "Examples.NaturalRunOperations",
+    "Examples.QuickSortTransport",
+    "Examples.RandomQuickSortMean",
+    "Examples.QuickSortMean",
+    "Examples.RandomQuickSortRank",
+    "Examples.UniformQuickSortMean",
+    "Examples.RandomQuickSortGrowth"
+  ],
+  "proposed_import_count": 23,
+  "proposed_imports_unique": true,
+  "missing_import_files": [],
+  "already_direct_in_roots": {
+    "SquareApplications.lean": [],
+    "ProofAudit.lean": []
+  },
+  "static_import_closure": {
+    "candidate_tracked_lean": 1085,
+    "candidate_current_roots": 983,
+    "candidate_proposed_roots": 1029,
+    "candidate_unreached": 56,
+    "accepted_tracked_lean": 1017,
+    "accepted_roots": 961,
+    "accepted_unreached": 56,
+    "unreached_path_sets_match": true,
+    "unreached_bytes_changed": [],
+    "missing_project_imports_before": [],
+    "missing_project_imports_after": [],
+    "missing_project_imports_accepted": [],
+    "candidate_unreached_paths": [
+      "docs/history/frp/FRPEquivalence.lean",
+      "docs/history/frp/FRPSpec.lean",
+      "docs/history/internal-language-frontends/Frontend.lean",
+      "experiments/host-target/Contracts.lean",
+      "experiments/measurement-attempt/Main.lean",
+      "experiments/preservation-authoring/author-a/A-direct-v1.lean",
+      "experiments/preservation-authoring/author-a/A-shared-v1.lean",
+      "experiments/preservation-authoring/author-a/B-direct-v1.lean",
+      "experiments/preservation-authoring/author-a/B-shared-v1.lean",
+      "experiments/preservation-authoring/author-a/Combined.lean",
+      "experiments/preservation-authoring/author-b/ADirect01.lean",
+      "experiments/preservation-authoring/author-b/AShared01.lean",
+      "experiments/preservation-authoring/author-b/AllAudit01.lean",
+      "experiments/preservation-authoring/author-b/BDirect02.lean",
+      "experiments/preservation-authoring/author-b/BShared01.lean",
+      "experiments/relative-graph/AcceptanceStages.lean",
+      "experiments/relative-graph/AcceptedGraph.lean",
+      "experiments/relative-graph/AndPositivityStages.lean",
+      "experiments/relative-graph/ArtifactAudit.lean",
+      "experiments/relative-graph/CheckerReduction.lean",
+      "experiments/relative-graph/ClosedGraph.lean",
+      "experiments/relative-graph/ConLecheAudit.lean",
+      "experiments/relative-graph/EmissionEncoding.lean",
+      "experiments/relative-graph/EmissionSemantics.lean",
+      "experiments/relative-graph/EmittedClosed.lean",
+      "experiments/relative-graph/EmittedComparison.lean",
+      "experiments/relative-graph/EmittedEnvironment.lean",
+      "experiments/relative-graph/EmittedGraph.lean",
+      "experiments/relative-graph/GraphAdapter.lean",
+      "experiments/relative-graph/GraphChecks.lean",
+      "experiments/relative-graph/GraphDeclarations.lean",
+      "experiments/relative-graph/GraphEnvironment.lean",
+      "experiments/relative-graph/Lean4LeanAudit.lean",
+      "experiments/relative-graph/PrimitiveLaws.lean",
+      "experiments/toolkit-authoring/author-a/Attempt01.lean",
+      "experiments/toolkit-authoring/author-a/Attempt02.lean",
+      "experiments/toolkit-authoring/author-a/Attempt03.lean",
+      "experiments/toolkit-authoring/author-a/Attempt04.lean",
+      "experiments/toolkit-authoring/author-a/Attempt05.lean",
+      "experiments/toolkit-authoring/author-a/AuditProbe.lean",
+      "experiments/toolkit-authoring/author-a/Examples/ToolkitAuthorTrialA.lean",
+      "experiments/toolkit-authoring/author-a/Final.lean",
+      "experiments/toolkit-authoring/author-a/FinalAudited.lean",
+      "experiments/toolkit-authoring/author-b/Attempt01.lean",
+      "experiments/toolkit-authoring/author-b/Attempt02.lean",
+      "experiments/toolkit-authoring/author-b/Attempt03.lean",
+      "experiments/toolkit-authoring/author-b/Attempt04.lean",
+      "experiments/toolkit-authoring/author-b/Attempt05.lean",
+      "experiments/toolkit-authoring/author-b/Examples/ToolkitAuthorTrialB.lean",
+      "experiments/toolkit-authoring/author-b/Final.lean",
+      "experiments/toolkit-authoring/author-b/public-exposed/Applications/Sequences/OrderedSummary.lean",
+      "experiments/toolkit-authoring/author-b/public-exposed/Examples/OrderedSummary.lean",
+      "scripts/frp-driver-faults.lean",
+      "scripts/frp-driver.lean",
+      "scripts/lake-output-hashes.lean",
+      "scripts/reactive-service.lean"
+    ]
+  },
+  "source_identity": {
+    "Applications/Sorting/Sort.lean": {
+      "bytes": 5922,
+      "sha256": "5acd7728aaaefdec121df797efafd7dae13476c820d4f85f4ada19868fa71218"
+    },
+    "Applications/Sorting/Stable.lean": {
+      "bytes": 3704,
+      "sha256": "288552150aa002c60ed06c74e69510112cf9b4e2f0045da3d98ca5c39264d881"
+    },
+    "Applications/Sorting/InsertionObservations.lean": {
+      "bytes": 3325,
+      "sha256": "e537e85fa7d06db4e3030fbac3ad2123dfa295158ee87480ece9c47a56ee5add"
+    },
+    "Examples/InsertionObservations.lean": {
+      "bytes": 10998,
+      "sha256": "29ba454b380ab837133863318611b059bc0af385008667d60c410ddedb7ba0f1"
+    },
+    "Applications/Resources/InsertionSort.lean": {
+      "bytes": 7257,
+      "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad"
+    },
+    "Examples/InsertionCosts.lean": {
+      "bytes": 3862,
+      "sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37"
+    },
+    "Applications/Sorting/QuickSort.lean": {
+      "bytes": 9994,
+      "sha256": "696ae63c3f5c23940ac0f05c8ac6b48bff74b65e4c66faf319283efedea73802"
+    },
+    "Examples/QuickSort.lean": {
+      "bytes": 7164,
+      "sha256": "2e5e4952bae8edf1fd5985f0cfd40993363a2f642717d61161a2e5ee6835a162"
+    },
+    "Applications/Resources/QuickSort.lean": {
+      "bytes": 21782,
+      "sha256": "e98024f6b741e1aba1fb1e38b419eee2e1acad76a8a40e669752f54775783263"
+    },
+    "Examples/QuickSortCosts.lean": {
+      "bytes": 8828,
+      "sha256": "9d61ea34342e2f5d961c3d2962630f2ed853939802057dbfc2aca65ee1e9f999"
+    },
+    "Applications/Sorting/Merge.lean": {
+      "bytes": 7840,
+      "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7"
+    },
+    "Applications/Sorting/SourceMerge.lean": {
+      "bytes": 1537,
+      "sha256": "bebd8eb2f06d92cc10e6f319c96b7965cdee36ff14c4a8b0b19e1351e8ebeaf2"
+    },
+    "Applications/Resources/ListMerge.lean": {
+      "bytes": 8629,
+      "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975"
+    },
+    "Examples/MergeCosts.lean": {
+      "bytes": 23410,
+      "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466"
+    },
+    "Applications/Sorting/TopDown.lean": {
+      "bytes": 5978,
+      "sha256": "5a953ff534311e1686112273f7c95db6813c8a06ecee0af8fcc191f1c7d9586f"
+    },
+    "Examples/TopDownSorting.lean": {
+      "bytes": 3620,
+      "sha256": "0689ac22c8cc716efec24b4744ed606b79f734542101b28fc4f78af40ef089c5"
+    },
+    "Applications/Resources/TopDownSorting.lean": {
+      "bytes": 9144,
+      "sha256": "26531f25e57c0d198fc90d0a10652051ac6159098f493629af3283b54ab687bc"
+    },
+    "Applications/Sorting/BottomUp.lean": {
+      "bytes": 19856,
+      "sha256": "4df83022174bc4e5becfb441617624d57695158d69dc7241209ca077dc2c7791"
+    },
+    "Examples/BottomUpSorting.lean": {
+      "bytes": 8304,
+      "sha256": "1d4a312363af87926c085f790ca7279273df050f40234c449e0e0fa9e5b5592b"
+    },
+    "Applications/Resources/BottomUpSorting.lean": {
+      "bytes": 23175,
+      "sha256": "74cc812fb1f1706621daeb1c51512a9ddb3d85dc57a36589aafe96e8514a6826"
+    },
+    "Applications/Sorting/NaturalRuns.lean": {
+      "bytes": 25272,
+      "sha256": "123c711b5f0cf05074155f3a0d9ae076aa80a8be482e7e6fc77626aa9db6fb1d"
+    },
+    "Examples/NaturalRuns.lean": {
+      "bytes": 8415,
+      "sha256": "ef0ed6bbc5beb40815f977e80c0b99b0633e8503b0b1634747d41275cb3f6041"
+    },
+    "Applications/Resources/NaturalRunComparisons.lean": {
+      "bytes": 13562,
+      "sha256": "920e1832416afcdc47a0c2301c2e27c7cd5f0c614a209c8dea21fc2561d809b0"
+    },
+    "Applications/Sorting/Natural.lean": {
+      "bytes": 5528,
+      "sha256": "e4b27eb275e9509b205da7ae25dd7829e664eb47617cb1602e6114eb5d264493"
+    },
+    "Applications/Resources/NaturalSorting.lean": {
+      "bytes": 13059,
+      "sha256": "bfca759cd0f1014d39824bdcb124a3a0b33d1459be2cc4635739965382a50e7a"
+    },
+    "Applications/Sorting/Alternating.lean": {
+      "bytes": 8597,
+      "sha256": "eb927e5978ea410f360441dfa8d4843b5e93de10aae8a5eac5c2f603f4e233e9"
+    },
+    "Examples/AlternatingSorting.lean": {
+      "bytes": 5254,
+      "sha256": "5798ed2ce20dab0ce4b9618fea1e8ea36a7be9b2f60fa7090a85522bfb464c04"
+    },
+    "Applications/Sorting/ThreeWayQuickSort.lean": {
+      "bytes": 6597,
+      "sha256": "7ef1adb48a9211c010c84c20c64bd01690eba11683002d8a16cc820eefaf1f0e"
+    },
+    "Examples/ThreeWayQuickSort.lean": {
+      "bytes": 6360,
+      "sha256": "0951a0f474638250912d4b6ee3084bbbf129c67c0f1527785778003ee1331d86"
+    },
+    "Applications/Resources/RandomQuickSort.lean": {
+      "bytes": 23601,
+      "sha256": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2"
+    },
+    "Examples/RandomQuickSort.lean": {
+      "bytes": 8255,
+      "sha256": "4f5a21d1656423ac1307b1ca8fe651cd794d70da576ecd14f65d68cc290c424d"
+    },
+    "Applications/Resources/ListBuildCosts.lean": {
+      "bytes": 7232,
+      "sha256": "6c2450b98fcb2677fddeea1116519e968223bc0872353d9e34979fc38607547f"
+    },
+    "Examples/ListBuildCosts.lean": {
+      "bytes": 3608,
+      "sha256": "eba2961e501f545323e5403e7874ce3ddb256bad8f4046398acc55ca6ec230a1"
+    },
+    "Applications/Resources/DifferenceListCosts.lean": {
+      "bytes": 10061,
+      "sha256": "f99420b831dff2d0f5fcc3dac1001937942b87c78b710b79f94fa941ab972b01"
+    },
+    "Examples/DifferenceListCosts.lean": {
+      "bytes": 9299,
+      "sha256": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1"
+    },
+    "Applications/Sequences/Partition.lean": {
+      "bytes": 3786,
+      "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069"
+    },
+    "Examples/TopDownCosts.lean": {
+      "bytes": 5403,
+      "sha256": "8f5f6969049712a5a5d37f7beb78c09017a2835b5f1208e54d0c9912dff425a4"
+    },
+    "Examples/BottomUpCosts.lean": {
+      "bytes": 11973,
+      "sha256": "12572e3395c681b18f266374732eb63b059a13eb0f76aef25400aefa8d54a136"
+    },
+    "Examples/NaturalRunComparisons.lean": {
+      "bytes": 4753,
+      "sha256": "9d4dfe317e1af9ee894385ba3478c0ede17de1e713cc7090b120a4d2ab708f8a"
+    },
+    "Examples/NaturalSorting.lean": {
+      "bytes": 5928,
+      "sha256": "69cc14a5f40421076a3af3f8066c0bf2b20678d11f4cbc5e3eefab8454fdbf57"
+    },
+    "Examples/NaturalSortingCosts.lean": {
+      "bytes": 10506,
+      "sha256": "4b6c3fd9c359b31b01f13c5bdeee6b9fc7ccd82ab172f7d6bb5491410379441a"
+    },
+    "Examples/StableSorting.lean": {
+      "bytes": 5041,
+      "sha256": "c894760e594cdc31d9dda54553eeff666156c81f7903dea82738c8a95faaf193"
+    },
+    "Applications/Sorting/Uniqueness.lean": {
+      "bytes": 1999,
+      "sha256": "e0df544f59be358a3e40ad48f25115ae2ba3b4507a30cdeb3425907bf94c8744"
+    },
+    "Examples/SortUniqueness.lean": {
+      "bytes": 3903,
+      "sha256": "ce63cd0d8a953f9441b9b6b1597f9a3604ef736131290cba8c0430c36cd177b7"
+    },
+    "Applications/Resources/NaturalRunOperations.lean": {
+      "bytes": 29855,
+      "sha256": "ccbe8f58dd53cbfaa4600780d5d8a2a78da994ba33c3d6edaa3098446d1f09eb"
+    },
+    "Examples/NaturalRunOperations.lean": {
+      "bytes": 16153,
+      "sha256": "8bbd6c17eadd48a3af7a7f4c5f8ee3c2e9a97f03317bf373032314cdc835ebbc"
+    },
+    "Applications/Resources/RandomQuickSortMean.lean": {
+      "bytes": 16517,
+      "sha256": "2c7976bf52a2dbed2eb6eb959055acc7ae0df8319c167f0128b63e5c482bd5d3"
+    },
+    "Examples/RandomQuickSortMean.lean": {
+      "bytes": 5733,
+      "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670"
+    },
+    "Applications/Resources/RandomQuickSortRank.lean": {
+      "bytes": 19590,
+      "sha256": "8acee8fadda0c94081cc0da43a07c864e54368eaa7ff23ab5cf73c06c2f43108"
+    },
+    "Examples/RandomQuickSortRank.lean": {
+      "bytes": 6427,
+      "sha256": "a0f5fbd6b3d41cad08193a371228bede1b869a773608b21906e85f2848d747bf"
+    },
+    "Applications/Resources/QuickSortMean.lean": {
+      "bytes": 9673,
+      "sha256": "888bae2d149f2664f41e37f702ce5352718ac2d008f13fa51952239d85e5d09a"
+    },
+    "Examples/QuickSortMean.lean": {
+      "bytes": 2488,
+      "sha256": "924ce55ee6af374b55cea67ee6f2da25997b5a81ad098e2e3789622bd793b904"
+    },
+    "Applications/Resources/QuickSortTransport.lean": {
+      "bytes": 2232,
+      "sha256": "4093b8aa3b1bf884760926a4c866453f8ffa47d40304b8746f8083d2a3f54eff"
+    },
+    "Examples/QuickSortTransport.lean": {
+      "bytes": 3084,
+      "sha256": "57dc49986edb9c8f990781c980177a513a9e9e2020c6218ce4f4d88daac4c6b2"
+    },
+    "Applications/Resources/UniformQuickSortMean.lean": {
+      "bytes": 36958,
+      "sha256": "ff977270b5ba80869dd3bdcf309cfcc06dee8f80422d37ff5fb6a9916ef38a72"
+    },
+    "Examples/UniformQuickSortMean.lean": {
+      "bytes": 16466,
+      "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5"
+    },
+    "Applications/Resources/RandomQuickSortGrowth.lean": {
+      "bytes": 9896,
+      "sha256": "2b8bf7b4820790edaaa5726efb8e8bd8bccd3a30cb30388148d95bba00e63674"
+    },
+    "Examples/RandomQuickSortGrowth.lean": {
+      "bytes": 9959,
+      "sha256": "2d173d7572ae76395c3779c216ea43d21719ff1774f6a7f21c68a5677b511a16"
+    },
+    "Applications/Probability/PermutationOrder.lean": {
+      "bytes": 15304,
+      "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2"
+    },
+    "Applications/Probability/PermutationTail.lean": {
+      "bytes": 23521,
+      "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed"
+    }
+  },
+  "limits": [
+    "Source-name parser is not Lean elaboration.",
+    "Grouped unqualified names require full manual readback.",
+    "Import closure is textual project source reachability, not compiled module or declaration counts.",
+    "No mutation of either root file or candidate source."
+  ]
+}

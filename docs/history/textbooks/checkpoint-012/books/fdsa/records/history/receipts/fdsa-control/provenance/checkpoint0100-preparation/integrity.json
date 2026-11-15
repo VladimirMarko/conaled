@@ -1,0 +1,58 @@
+{
+  "verified_utc": "2026-11-04T11:37:22.356744+00:00",
+  "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0100-checked-potential-accounting.tar.gz",
+  "bytes": 19063731,
+  "sha256": "3b947dc12e784f609d640fa6da0a3c0d5a600a767f8926d6395a032774320d03",
+  "actual_creation_owned_session": 70442,
+  "actual_creation_exit_code": 0,
+  "verification_attempt": 2,
+  "earlier_verification_bookkeeping_failure_retained": true,
+  "payload_hashes_verified": 3437,
+  "refs_verified": 63,
+  "worktrees_heads_statuses_fingerprints_verified": 15,
+  "held_control_review_hashes_verified": 21,
+  "closed_XP01_runs_verified": [
+    {
+      "name": "xp01-focused-development-20261104-attempt1",
+      "actual_exit": 1,
+      "complete_outer_and_native_when_launched": true,
+      "native_launched": true
+    },
+    {
+      "name": "xp01-focused-development-20261104-attempt2",
+      "actual_exit": 1,
+      "complete_outer_and_native_when_launched": true,
+      "native_launched": true
+    },
+    {
+      "name": "xp01-focused-development-20261104-attempt3",
+      "actual_exit": 2,
+      "complete_outer_and_native_when_launched": true,
+      "native_launched": false
+    },
+    {
+      "name": "xp01-focused-development-20261104-attempt4",
+      "actual_exit": 0,
+      "complete_outer_and_native_when_launched": true,
+      "native_launched": true
+    },
+    {
+      "name": "xp01-complete-public-statements20-20261104-attempt1",
+      "actual_exit": 0,
+      "complete_outer_and_native_when_launched": true,
+      "native_launched": true
+    }
+  ],
+  "actual_type_pre_post_identity_match": true,
+  "saved_complete_semantic_type_reads": {
+    "Standards": 20,
+    "Spec": 20
+  },
+  "C2_815_and_accepted_Chapter1_records_preserved": true,
+  "foundation_full_terminal_in_archive": false,
+  "foundation_archived_prefix_bytes": 387539,
+  "central_retirement_performed": false,
+  "no_follow_final_preflight_preserved": true,
+  "new_acceptance": false,
+  "restore_roundtrip": "Unchanged tested format2/restorer; no trigger to repeat."
+}

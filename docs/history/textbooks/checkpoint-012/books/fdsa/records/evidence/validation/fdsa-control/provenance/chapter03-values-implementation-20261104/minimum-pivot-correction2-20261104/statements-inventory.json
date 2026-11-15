@@ -1,0 +1,780 @@
+{
+  "candidate": "d0479dd03371f1c1f0b41dff5f1882a36206f40a",
+  "tree": "4f7cc77eb1a7d270117ea33065727084c552a630",
+  "stage_base": "17901d09d155b93de6490dfa40ca17f988107b94",
+  "whole_chapter_review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "status": "Exhaustive lexical source-header inventory, NOT emitted types. Source context records lexical variables even if a declaration does not retain them as implicit parameters. No author compiler. All generated declarations remain full-module/audit scope.",
+  "public_count": 52,
+  "private_count": 0,
+  "modules": [
+    {
+      "module": "Applications.Resources.SelectionPolicy",
+      "repository_path": "Applications/Resources/SelectionPolicy.lean",
+      "namespace": "Resources.SelectionPolicy",
+      "imports": [
+        "Applications.Selection.ThreeWay",
+        "Applications.Resources.Partition",
+        "Applications.Resources.ListCalls"
+      ],
+      "bytes": 5986,
+      "sha256": "c906415dff6fc59694629f3d17977e55d2aa2ea2d989610f222bb781056a3112",
+      "git_blob": "71a146d37dc0b87bbdb38cc94dd1d2b02457a031",
+      "declarations": [
+        {
+          "name": "Resources.SelectionPolicy.Observed",
+          "visibility": "public",
+          "kind": "abbrev",
+          "source_header": "abbrev Observed (α : Type u)",
+          "source_line": 27,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.SelectionPolicy",
+            "universe u"
+          ]
+        },
+        {
+          "name": "Resources.SelectionPolicy.prepend",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def prepend {α : Type u} (n c : Nat) (r : Observed α) : Observed α",
+          "source_line": 30,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.SelectionPolicy",
+            "universe u"
+          ]
+        },
+        {
+          "name": "Resources.SelectionPolicy.runWith",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def runWith (choose : List α → Measured (Option α) Nat) :\n    Nat → Nat → List α → Observed α",
+          "source_line": 38,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.SelectionPolicy",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.SelectionPolicy.runWith_zero",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem runWith_zero (choose : List α → Measured (Option α) Nat)\n    (k : Nat) (xs : List α) : runWith choose 0 k xs = ((none, []), 1)",
+          "source_line": 58,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.SelectionPolicy",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.SelectionPolicy.runWith_nil",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem runWith_nil (choose : List α → Measured (Option α) Nat)\n    (fuel k : Nat) : runWith choose fuel k [] = ((none, []), 1)",
+          "source_line": 61,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.SelectionPolicy",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.SelectionPolicy.runWith_step",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem runWith_step (choose : List α → Measured (Option α) Nat)\n    (fuel k : Nat) (xs : List α) (hx : xs ≠ []) (p : α)\n    (hp : (choose xs).1 = some p) :\n    runWith choose (fuel + 1) k xs =\n      let t := Applications.Selection.partition3 p xs\n      let c := (xs.length + 1) + (choose xs).2 + (xs.length + 1) +\n        (t.1.length + 1) + (t.2.1.length + 1) + 1\n      if k < t.1.length then prepend xs.length c (runWith choose fuel k t.1)\n      else if k < t.1.length + t.2.1.length then\n        ((t.2.1[k - t.1.length]?, [xs.length]),\n          c + (min (k - t.1.length) t.2.1.length + 1))\n      else prepend xs.length c\n        (runWith choose fuel (k - t.1.length - t.2.1.length) t.2.2)",
+          "source_line": 67,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.SelectionPolicy",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.SelectionPolicy.runWith_value",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem runWith_value (choose : List α → Measured (Option α) Nat)\n    (fuel k : Nat) (xs : List α) :\n    (runWith choose fuel k xs).1.1 =\n      Applications.Selection.runWith (fun ys => (choose ys).1) fuel k xs",
+          "source_line": 91,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.SelectionPolicy",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.SelectionPolicy.runWith_correct",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem runWith_correct (choose : List α → Measured (Option α) Nat)\n    (hv : Applications.Selection.PivotValid (fun ys => (choose ys).1))\n    (fuel k : Nat) (xs : List α) (hf : xs.length ≤ fuel) :\n    (runWith choose fuel k xs).1.1 = (Applications.Selection.ordered xs)[k]?",
+          "source_line": 117,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.SelectionPolicy",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "Applications.Resources.MinimumPivot",
+      "repository_path": "Applications/Resources/MinimumPivot.lean",
+      "namespace": "Resources.MinimumPivot",
+      "imports": [
+        "Applications.Resources.SelectionPolicy",
+        "Applications.Resources.FixedRank"
+      ],
+      "bytes": 10610,
+      "sha256": "c4e4ee7b0ef4413684fc13069d2f7f1200ac6387df2aa81565db0aa45bebaabe",
+      "git_blob": "c9ab1d98137636909b96c98b90bbb314eea700ef",
+      "declarations": [
+        {
+          "name": "Resources.MinimumPivot.run",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def run (fuel k : Nat) (xs : List α) : SelectionPolicy.Observed α",
+          "source_line": 22,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.policy_valid",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem policy_valid : PivotValid (fun xs : List α => (FixedRank.select0Run xs).1)",
+          "source_line": 25,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.run_value",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem run_value (fuel k : Nat) (xs : List α) (hf : xs.length ≤ fuel) :\n    (run fuel k xs).1.1 = (ordered xs)[k]?",
+          "source_line": 29,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.minimum_bucket_sizes",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem minimum_bucket_sizes (xs : List α) (p : α) (hn : xs.Nodup)\n    (hp : Applications.Selection.FixedRank.select0 xs = some p) :\n    (partition3 p xs).1.length = 0 ∧ (partition3 p xs).2.1.length = 1 ∧\n      (partition3 p xs).2.2.length + 1 = xs.length ∧\n      (partition3 p xs).2.2.Nodup",
+          "source_line": 34,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.run_zero_rank",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem run_zero_rank (fuel : Nat) (xs : List α) (hn : xs.Nodup) (hx : xs ≠ []) :\n    run (fuel + 1) 0 xs =\n      ((Applications.Selection.FixedRank.select0 xs, [xs.length]), 3 * xs.length + 8)",
+          "source_line": 54,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.run_succ_rank",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem run_succ_rank (fuel k : Nat) (xs : List α) (p : α) (hn : xs.Nodup)\n    (hp : Applications.Selection.FixedRank.select0 xs = some p) :\n    run (fuel + 1) (k + 1) xs =\n      SelectionPolicy.prepend xs.length (3 * xs.length + 7)\n        (run fuel k (partition3 p xs).2.2)",
+          "source_line": 73,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.sizes",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def sizes (n : Nat) : Nat → List Nat",
+          "source_line": 94,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.sizes_length",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem sizes_length (n k : Nat) : (sizes n k).length = k + 1",
+          "source_line": 98,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.run_observations",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem run_observations (fuel k : Nat) (xs : List α) (hn : xs.Nodup)\n    (hk : k < xs.length) (hf : xs.length ≤ fuel) :\n    (run fuel k xs).1.2 = sizes xs.length k ∧\n      (run fuel k xs).2 = 3 * (sizes xs.length k).sum + 7 * (k + 1) + 1",
+          "source_line": 104,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.run_trace",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem run_trace (fuel k : Nat) (xs : List α) (hn : xs.Nodup)\n    (hk : k < xs.length) (hf : xs.length ≤ fuel) :\n    (run fuel k xs).1.2 = sizes xs.length k",
+          "source_line": 134,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.active_calls",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem active_calls (fuel k : Nat) (xs : List α) (hn : xs.Nodup)\n    (hk : k < xs.length) (hf : xs.length ≤ fuel) :\n    (run fuel k xs).1.2.length = k + 1",
+          "source_line": 140,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.recursive_edges",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem recursive_edges (fuel k : Nat) (xs : List α) (hn : xs.Nodup)\n    (hk : k < xs.length) (hf : xs.length ≤ fuel) :\n    (run fuel k xs).1.2.length - 1 = k",
+          "source_line": 146,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.sizes_sum_double",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem sizes_sum_double (n k : Nat) (hk : k < n) :\n    2 * (sizes n k).sum + k * (k + 1) = 2 * ((k + 1) * n)",
+          "source_line": 153,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.sizes_sum",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem sizes_sum (n k : Nat) (hk : k < n) :\n    (sizes n k).sum = (k + 1) * n - k * (k + 1) / 2",
+          "source_line": 165,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.sizes_sum_bounds",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem sizes_sum_bounds (n k : Nat) (hk : k < n) :\n    n ≤ (sizes n k).sum ∧ (sizes n k).sum ≤ (k + 1) * n",
+          "source_line": 170,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.scan_exact",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem scan_exact (fuel k : Nat) (xs : List α) (hn : xs.Nodup)\n    (hk : k < xs.length) (hf : xs.length ≤ fuel) :\n    (run fuel k xs).1.2.sum = (k + 1) * xs.length - k * (k + 1) / 2",
+          "source_line": 178,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.cost_exact",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem cost_exact (fuel k : Nat) (xs : List α) (hn : xs.Nodup)\n    (hk : k < xs.length) (hf : xs.length ≤ fuel) :\n    (run fuel k xs).2 = 3 * (run fuel k xs).1.2.sum + 7 * (k + 1) + 1",
+          "source_line": 184,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.fixed_rank_linear",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem fixed_rank_linear (fuel k : Nat) (xs : List α) (hn : xs.Nodup)\n    (hk : k < xs.length) (hf : xs.length ≤ fuel) :\n    xs.length ≤ (run fuel k xs).2 ∧\n      (run fuel k xs).2 ≤ (10 * (k + 1) + 1) * xs.length",
+          "source_line": 191,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.largest_scan_double",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem largest_scan_double (fuel : Nat) (xs : List α) (hn : xs.Nodup)\n    (hx : xs ≠ []) (hf : xs.length ≤ fuel) :\n    2 * (run fuel (xs.length - 1) xs).1.2.sum = xs.length * (xs.length + 1)",
+          "source_line": 205,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.largest_scan",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem largest_scan (fuel : Nat) (xs : List α) (hn : xs.Nodup)\n    (hx : xs ≠ []) (hf : xs.length ≤ fuel) :\n    (run fuel (xs.length - 1) xs).1.2.sum = xs.length * (xs.length + 1) / 2",
+          "source_line": 216,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        },
+        {
+          "name": "Resources.MinimumPivot.largest_cost_quadratic",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem largest_cost_quadratic (fuel : Nat) (xs : List α) (hn : xs.Nodup)\n    (hx : xs ≠ []) (hf : xs.length ≤ fuel) :\n    xs.length ^ 2 ≤ 2 * (run fuel (xs.length - 1) xs).2 ∧\n      (run fuel (xs.length - 1) xs).2 ≤ 11 * xs.length ^ 2",
+          "source_line": 224,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Resources.MinimumPivot",
+            "open Applications.Selection",
+            "universe u",
+            "variable {α : Type u} [LinearOrder α]"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "Examples.MinimumPivot",
+      "repository_path": "Examples/MinimumPivot.lean",
+      "namespace": "Examples.MinimumPivot",
+      "imports": [
+        "Applications.Resources.MinimumPivot"
+      ],
+      "bytes": 3770,
+      "sha256": "08a54aec03e507b1c8dc87dcf521f96984c6a6cff4988294a60ddb1db6a9cdc8",
+      "git_blob": "098bb18c8422aff6cb9aa1a2b3abf9bf0a66ec61",
+      "declarations": [
+        {
+          "name": "Examples.MinimumPivot.input",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def input : List Nat",
+          "source_line": 12,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.input_nodup",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem input_nodup : input.Nodup",
+          "source_line": 14,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.middle_execution",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem middle_execution : run 4 2 input = ((some 3, [4, 3, 2]), 49)",
+          "source_line": 16,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.middle_trace",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem middle_trace : (run 4 2 input).1.2 = [4, 3, 2]",
+          "source_line": 18,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.middle_calls",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem middle_calls : (run 4 2 input).1.2.length = 3",
+          "source_line": 21,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.middle_edges",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem middle_edges : (run 4 2 input).1.2.length - 1 = 2",
+          "source_line": 24,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.middle_scan",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem middle_scan : (run 4 2 input).1.2.sum = 9",
+          "source_line": 27,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.middle_cost",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem middle_cost : (run 4 2 input).2 = 49",
+          "source_line": 30,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.largest_execution",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem largest_execution : run 4 3 input = ((some 4, [4, 3, 2, 1]), 59)",
+          "source_line": 33,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.largest_scan_connected",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem largest_scan_connected : (run 4 3 input).1.2.sum = 10",
+          "source_line": 35,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.minimum_execution",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem minimum_execution : run 4 0 input = ((some 1, [4]), 20)",
+          "source_line": 38,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.minimum_is_not_four_calls",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem minimum_is_not_four_calls : (run 4 0 input).1.2.length ≠ input.length",
+          "source_line": 40,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.duplicate_execution",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem duplicate_execution :\n    run 4 3 ([7, 7, 7, 7] : List Nat) = ((some 7, [4]), 26)",
+          "source_line": 44,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.duplicates_are_not_four_calls",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem duplicates_are_not_four_calls :\n    (run 4 3 ([7, 7, 7, 7] : List Nat)).1.2.length ≠ 4",
+          "source_line": 47,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.singleton_execution",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem singleton_execution : run 1 0 ([-4] : List Int) = ((some (-4), [1]), 11)",
+          "source_line": 52,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.singleton_edges",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem singleton_edges : (run 1 0 ([-4] : List Int)).1.2.length - 1 = 0",
+          "source_line": 55,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.empty_execution",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem empty_execution : run 0 0 ([] : List Nat) = ((none, []), 1)",
+          "source_line": 58,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.invalid_value",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem invalid_value : (run 4 4 input).1.1 = none",
+          "source_line": 60,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.range_worst_scan",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem range_worst_scan (n : Nat) :\n    (run (n + 1) n (List.range (n + 1))).1.2.sum = (n + 1) * (n + 2) / 2",
+          "source_line": 67,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.range_worst_calls",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem range_worst_calls (n : Nat) :\n    (run (n + 1) n (List.range (n + 1))).1.2.length = n + 1",
+          "source_line": 72,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.range_worst_edges",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem range_worst_edges (n : Nat) :\n    (run (n + 1) n (List.range (n + 1))).1.2.length - 1 = n",
+          "source_line": 76,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.range_worst_quadratic",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem range_worst_quadratic (n : Nat) :\n    (n + 1) ^ 2 ≤ 2 * (run (n + 1) n (List.range (n + 1))).2 ∧\n      (run (n + 1) n (List.range (n + 1))).2 ≤ 11 * (n + 1) ^ 2",
+          "source_line": 80,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        },
+        {
+          "name": "Examples.MinimumPivot.fixed_third_linear",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem fixed_third_linear (xs : List Int) (hn : xs.Nodup) (hk : 2 < xs.length) :\n    xs.length ≤ (run xs.length 2 xs).2 ∧ (run xs.length 2 xs).2 ≤ 31 * xs.length",
+          "source_line": 88,
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MinimumPivot",
+            "open Resources.MinimumPivot"
+          ]
+        }
+      ]
+    }
+  ],
+  "preparation_correction": "C03-MINIMUM-PREP-001: preserve the complete let-containing runWith_step statement; source/candidate/type input unchanged. Original lexical inventory retained.",
+  "correction_from": "b150953544438985ce979cc30b9a2f9237091fe8",
+  "correction": "C03-MINIMUM-ELAB-002: kernel decide completes concrete remaining input-length inequality; previous correction retained, all 52 headers and contexts unchanged."
+}

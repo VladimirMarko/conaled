@@ -1,0 +1,52 @@
+{
+  "observed_at": "2026-11-03T00:34:58.472663+00:00",
+  "read_only": true,
+  "targets": [
+    {
+      "checkout": "validation-purity",
+      "expected_head": "ea8afa12706d30cdc69ece1a172d5f21a3ea1809",
+      "head": "ea8afa12706d30cdc69ece1a172d5f21a3ea1809",
+      "status": "",
+      "build_exists": true,
+      "build_symlink": false,
+      "build_resolved": "/workspace/scratch/ca9a61d0bf30/validation-purity/.lake/build",
+      "du_bytes": 65698972,
+      "saved_traces": 69
+    },
+    {
+      "checkout": "purity-foundation",
+      "expected_head": "501a95463f455b52ea839eb8bbcf6ab9379862e4",
+      "head": "501a95463f455b52ea839eb8bbcf6ab9379862e4",
+      "status": "",
+      "build_exists": true,
+      "build_symlink": false,
+      "build_resolved": "/workspace/scratch/ca9a61d0bf30/purity-foundation/.lake/build",
+      "du_bytes": 96378058,
+      "saved_traces": 69
+    },
+    {
+      "checkout": "suspension-foundation",
+      "expected_head": "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+      "head": "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+      "status": "",
+      "build_exists": true,
+      "build_symlink": false,
+      "build_resolved": "/workspace/scratch/ca9a61d0bf30/suspension-foundation/.lake/build",
+      "du_bytes": 74116231,
+      "saved_traces": 60
+    },
+    {
+      "checkout": "cache-counts",
+      "expected_head": "3dd930c3e3989f3e5530463f3ac937a629551335",
+      "head": "3dd930c3e3989f3e5530463f3ac937a629551335",
+      "status": "",
+      "build_exists": true,
+      "build_symlink": false,
+      "build_resolved": "/workspace/scratch/ca9a61d0bf30/cache-counts/.lake/build",
+      "du_bytes": 91926316,
+      "saved_traces": 116
+    }
+  ],
+  "matching_processes": [],
+  "available_bytes": 586510336
+}

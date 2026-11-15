@@ -1,0 +1,160 @@
+{
+  "recorded_utc": "2026-11-04T09:21:28.572077+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+  "full_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "scope": "Complete Chapter2 R-to-candidate scope retained; this receipt is terminal reconciliation of a focused development check only.",
+  "outcome": "ACTUAL CLOSED FOCUSED FAILURE; OVERALL STANDARDS BLOCKED",
+  "result": {
+    "path": "provenance/chapter02-sorting-and-type-imports-focused-20261104-attempt8/result.json",
+    "bytes": 1704,
+    "lines": 45,
+    "sha256": "dd3e20d4deb887612383516b45e503a17d4cd3685d1da1431633b263f8d9fdf1"
+  },
+  "secured_terminal": {
+    "path": "provenance/chapter02-sorting-and-type-imports-focused-20261104-attempt8/secured-terminal.json",
+    "bytes": 4397,
+    "lines": 76,
+    "sha256": "784c21b750b50d6dc7e82ad1cde266b52121b8e4086dee1326cc68f9a4397a33"
+  },
+  "full_log": {
+    "path": "provenance/chapter02-sorting-and-type-imports-focused-20261104-attempt8/full.log",
+    "bytes": 28888,
+    "lines": 162,
+    "sha256": "eb49e2b97740ea99b7d02f805455717527f7dbe24837e864b32bfbcb657edf65"
+  },
+  "native_records": [
+    {
+      "path": "provenance/chapter02-sorting-and-type-imports-focused-20261104-attempt8/native/start.json",
+      "bytes": 943,
+      "lines": 27,
+      "sha256": "b9032d180b2b70759b545035bb98f2efdacb5408f35fd703bb67522bbcc6d26d"
+    },
+    {
+      "path": "provenance/chapter02-sorting-and-type-imports-focused-20261104-attempt8/native/result.json",
+      "bytes": 1096,
+      "lines": 32,
+      "sha256": "b7d7953fda190af742f1cc34e04a16ac34d44f6265b21ade8b2e2afd278d74fc"
+    },
+    {
+      "path": "provenance/chapter02-sorting-and-type-imports-focused-20261104-attempt8/native/output.log",
+      "bytes": 28238,
+      "lines": 159,
+      "sha256": "947359129f6e3b0fb6fc88ff2b66a7fa6e9e5672b0f1e6eefa052bb70573be39"
+    }
+  ],
+  "started_utc": "2026-11-04T08:59:30.308304+00:00",
+  "completed_utc": "2026-11-04T09:15:15.519198+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 945.2104128079991,
+  "clean_final_head_matches": true,
+  "outer_native_exit_and_command_match": true,
+  "native_closed_copies_match_originals": true,
+  "lean_threads": "1",
+  "actual_individual_new_builds": [
+    {
+      "line": 8,
+      "text": "\u26a0 [877/878] Built Applications.Resources.InsertionSort (15s)"
+    },
+    {
+      "line": 40,
+      "text": "\u26a0 [3148/3154] Built Applications.Sorting.InsertionObservations (12s)"
+    },
+    {
+      "line": 42,
+      "text": "\u26a0 [3150/3157] Built Applications.Arithmetic.EuclidInduction (1.8s)"
+    },
+    {
+      "line": 54,
+      "text": "\u26a0 [3152/3159] Built Examples.FunctionalBasics (2.9s)"
+    },
+    {
+      "line": 60,
+      "text": "\u26a0 [3154/3159] Built Examples.ListLibrary (1.0s)"
+    },
+    {
+      "line": 65,
+      "text": "\u26a0 [3156/3162] Built Applications.Resources.UniformQuickSortMean (85s)"
+    },
+    {
+      "line": 72,
+      "text": "\u26a0 [3157/3162] Built Examples.FunctionalNotation (12s)"
+    },
+    {
+      "line": 86,
+      "text": "\u2714 [3158/3163] Built Examples.InsertionCosts (12s)"
+    },
+    {
+      "line": 87,
+      "text": "\u2714 [3161/3164] Built Examples.ListCalls (7.0s)"
+    },
+    {
+      "line": 88,
+      "text": "\u26a0 [3162/3168] Built Examples.InsertionObservations (1.9s)"
+    },
+    {
+      "line": 96,
+      "text": "\u2714 [3165/3168] Built Applications.Search.LeftistQueue (1.9s)"
+    },
+    {
+      "line": 97,
+      "text": "\u26a0 [3166/3168] Built Applications.Resources.CallComparison (14s)"
+    },
+    {
+      "line": 100,
+      "text": "\u26a0 [3167/3189] Built Examples.MergeCosts (3.9s)"
+    },
+    {
+      "line": 149,
+      "text": "\u26a0 [3753/3758] Built Examples.RandomQuickSortRank (314s)"
+    },
+    {
+      "line": 152,
+      "text": "\u26a0 [3754/3758] Built Examples.TopDownSorting (13s)"
+    },
+    {
+      "line": 156,
+      "text": "\u2714 [3757/3758] Built Examples.RandomQuickSortGrowth (321s)"
+    }
+  ],
+  "actual_ran_not_passes": [
+    {
+      "line": 121,
+      "text": "\u26a0 [3735/3756] Ran Examples.PermutationTail"
+    },
+    {
+      "line": 157,
+      "text": "\u26a0 [3758/3758] Ran Examples.UniformQuickSortMean"
+    }
+  ],
+  "failed_targets": [
+    "Examples.PermutationTailBoundary"
+  ],
+  "actual_error_lines": [
+    {
+      "line": 118,
+      "text": "error: Examples/PermutationTailBoundary.lean:225:2: `simp` made no progress"
+    },
+    {
+      "line": 119,
+      "text": "error: Examples/PermutationTailBoundary.lean:237:2: `simp` made no progress"
+    },
+    {
+      "line": 120,
+      "text": "error: Examples/PermutationTailBoundary.lean:249:2: `simp` made no progress"
+    },
+    {
+      "line": 161,
+      "text": "error: build failed"
+    }
+  ],
+  "warning_count": 109,
+  "warnings_other_than_mathlib_module_advisories": [],
+  "warning_disposition": "The complete focused log contains module-import advisories; do not label every one an unchanged baseline warning. No suppression or new concrete semantic Standards violation is established by these advisories. Full candidate warning inventory remains pending.",
+  "full_log_read_boundary": "All 162 closed-log lines read, including the full trace command at line117; initially truncated middle lines33-82 were subsequently reread fully in a bounded output. Result, secured-terminal, native start/result read completely; all native copy hashes verified.",
+  "source_disposition": "Uniform core c435 and Rank/Growth example corrections now have individual focused success; Tail boundary 13fc has three actual remaining proof diagnostics. Dependent Tail main and Uniform examples have Ran lines and are not counted as passes.",
+  "verification_present": false,
+  "full_candidate_check_or_audit_pass_claimed": false,
+  "compiler_or_process_action_by_reviewer": false,
+  "source_ref_index_pin_cache_mutations": false
+}

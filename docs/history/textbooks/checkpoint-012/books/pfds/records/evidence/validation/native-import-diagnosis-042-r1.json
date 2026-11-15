@@ -1,0 +1,36 @@
+{
+  "recorded_at": "2026-11-03T16:31:00.585584+00:00",
+  "commands": [
+    {
+      "returncode": 0,
+      "stdout": "'native_init_zero' does not depend on any axioms\n",
+      "stderr": "",
+      "timed_out": false,
+      "argv": [
+        "python3",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-native-toolchain.py",
+        "--",
+        "lean",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-diagnosis-042/InitOnly.lean"
+      ],
+      "source": "theorem native_init_zero (n : Nat) : n + 0 = n := Nat.add_zero n\n#print axioms native_init_zero\n",
+      "seconds": 5.3896543819992075
+    },
+    {
+      "returncode": null,
+      "stdout": null,
+      "stderr": null,
+      "timed_out": true,
+      "argv": [
+        "python3",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-native-toolchain.py",
+        "--",
+        "lean",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-diagnosis-042/ImportLean.lean"
+      ],
+      "source": "import Lean\ntheorem native_import_zero (n : Nat) : n + 0 = n := Nat.add_zero n\n#print axioms native_import_zero\n",
+      "seconds": 25.070617768999
+    }
+  ],
+  "formal_acceptance": false
+}

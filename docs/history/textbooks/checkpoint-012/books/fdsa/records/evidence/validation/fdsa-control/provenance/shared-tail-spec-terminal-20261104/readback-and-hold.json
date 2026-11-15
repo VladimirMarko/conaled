@@ -1,0 +1,350 @@
+{
+  "schema": "fdsa-spec-tail-final-readback-hold-v1",
+  "reviewer": "Independent nonauthor Spec",
+  "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "outcome": "PASS",
+  "unresolved_findings": [],
+  "full_original_scope_retained": true,
+  "statement_account": {
+    "actual_L": 61,
+    "qualified_J": 53,
+    "qualified_I": 314,
+    "qualified_F": 110,
+    "distinct": 538
+  },
+  "saved_artifacts": [
+    {
+      "path": "reviews/permutation-tail-spec-final-20261104.md",
+      "bytes": 14391,
+      "lines": 90,
+      "sha256": "e1e97c2726b8aae3e5c12872fd4ebe0213fde92340a4969b1048242525fff485"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/actual61-complete-type-assessment.json",
+      "bytes": 63430,
+      "lines": 1043,
+      "sha256": "f2314d66eccc99f3218046d1320134ba49891851c3d04394fc808c7d6972fa8e"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/final-disposition.json",
+      "bytes": 15314,
+      "lines": 301,
+      "sha256": "08509d2ce431e04c950e2835ad70d28703e6c2a2c446c929ade121dfc281c64e"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/finalize-evidence.py",
+      "bytes": 9970,
+      "lines": 65,
+      "sha256": "640bac4a0221670396ad4f9f92a7c911dae1be1579f30d64f4b69373f0ef3764"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/full-gate-assessment.json",
+      "bytes": 32213,
+      "lines": 451,
+      "sha256": "1bb0cbe61633497daab18b0b806437d8ebab1bc356c716ae2379acd0f74e16e4"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/full-log-read-complete.json",
+      "bytes": 6450,
+      "lines": 289,
+      "sha256": "f15465f27d5b873983dc76430ed14ae6b7044ef0837b443d75fc985010dc307f"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/full-log-read-progress.json",
+      "bytes": 4371,
+      "lines": 197,
+      "sha256": "0b9a05b96e3e2c124ba355cc3f0ecd5f205be737267ff87281566181a7081dd7"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/independent-full-gate-reconciliation.py",
+      "bytes": 6351,
+      "lines": 71,
+      "sha256": "8b100e34f7c2b41363fdfd9f1c34243e815f917f89518259e927748eb3af94e7"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/independent-input-reconciliation-corrected.py",
+      "bytes": 15791,
+      "lines": 196,
+      "sha256": "d6c00153e0510411eb14daaa56d3eb40d1d75dce0b168c28bf70a9f7a747f59a"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/independent-input-reconciliation.json",
+      "bytes": 115193,
+      "lines": 2633,
+      "sha256": "8d81a53f8f3ed075f6dedf7441fbf7e9439d89c75a9833f046eff5e9bbc5b0cf"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/independent-input-reconciliation.py",
+      "bytes": 15790,
+      "lines": 196,
+      "sha256": "a3831532accc9c43de125d53cf7b795f7b7313d1b01588c79be5c8737e4856e6"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/inherited-semantic-disposition.json",
+      "bytes": 15591,
+      "lines": 330,
+      "sha256": "be9c451cba3eac54cf726d8f33c0c220a0eb88ab9cb61e1e9839582ecf99fe1a"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/reconciliation-bookkeeping.json",
+      "bytes": 769,
+      "lines": 11,
+      "sha256": "4f14afbd5a704f66284cc30977a6ffc2982baf3427bd3b707916f191526fa9c0"
+    }
+  ],
+  "saved_readback_chunks": [
+    {
+      "lines": [
+        1,
+        90
+      ],
+      "bytes": 14391,
+      "sha256": "e1e97c2726b8aae3e5c12872fd4ebe0213fde92340a4969b1048242525fff485",
+      "path": "reviews/permutation-tail-spec-final-20261104.md",
+      "tool": "d0f937"
+    },
+    {
+      "lines": [
+        1,
+        644
+      ],
+      "bytes": 18997,
+      "sha256": "01a49d858c4d56ec492d265cfc903e4986939bea42228bc69e838489a71d2275",
+      "path": "provenance/shared-tail-spec-terminal-20261104/actual61-complete-type-assessment.json",
+      "tool": "ecb05c"
+    },
+    {
+      "lines": [
+        645,
+        868
+      ],
+      "bytes": 18617,
+      "sha256": "3f0d3cf12cbed982f907d189c88bb0676eaf04fd3277b7805e84fa92d84e026d",
+      "path": "provenance/shared-tail-spec-terminal-20261104/actual61-complete-type-assessment.json",
+      "tool": "413213"
+    },
+    {
+      "lines": [
+        869,
+        988
+      ],
+      "bytes": 18388,
+      "sha256": "0de74b23d21f70adf3aee813b63bc251d4ad21d0c0ef5f807e812808f8d74355",
+      "path": "provenance/shared-tail-spec-terminal-20261104/actual61-complete-type-assessment.json",
+      "tool": "3e53f0"
+    },
+    {
+      "lines": [
+        989,
+        1043
+      ],
+      "bytes": 7428,
+      "sha256": "12100194adaacf5159954c03adc2b8a3c46ea382fca5a2d514fa25fc3bb7169c",
+      "path": "provenance/shared-tail-spec-terminal-20261104/actual61-complete-type-assessment.json",
+      "tool": "d5e65f"
+    },
+    {
+      "lines": [
+        1,
+        301
+      ],
+      "bytes": 15314,
+      "sha256": "08509d2ce431e04c950e2835ad70d28703e6c2a2c446c929ade121dfc281c64e",
+      "path": "provenance/shared-tail-spec-terminal-20261104/final-disposition.json",
+      "tool": "404f8b"
+    },
+    {
+      "lines": [
+        1,
+        65
+      ],
+      "bytes": 9970,
+      "sha256": "640bac4a0221670396ad4f9f92a7c911dae1be1579f30d64f4b69373f0ef3764",
+      "path": "provenance/shared-tail-spec-terminal-20261104/finalize-evidence.py",
+      "tool": "5ac844"
+    },
+    {
+      "lines": [
+        1,
+        264
+      ],
+      "bytes": 18950,
+      "sha256": "c2a3a86ac95e381d161098d2b2da65d6f66264f4a8bc73724bc34243b4885410",
+      "path": "provenance/shared-tail-spec-terminal-20261104/full-gate-assessment.json",
+      "tool": "c1316e"
+    },
+    {
+      "lines": [
+        265,
+        451
+      ],
+      "bytes": 13263,
+      "sha256": "91e14aff62aae63f7dff11f17dda913b47598ba7b4b1ab7659535995fc1a307c",
+      "path": "provenance/shared-tail-spec-terminal-20261104/full-gate-assessment.json",
+      "tool": "39fd13"
+    },
+    {
+      "lines": [
+        1,
+        289
+      ],
+      "bytes": 6450,
+      "sha256": "f15465f27d5b873983dc76430ed14ae6b7044ef0837b443d75fc985010dc307f",
+      "path": "provenance/shared-tail-spec-terminal-20261104/full-log-read-complete.json",
+      "tool": "9a95d4"
+    },
+    {
+      "lines": [
+        1,
+        197
+      ],
+      "bytes": 4371,
+      "sha256": "0b9a05b96e3e2c124ba355cc3f0ecd5f205be737267ff87281566181a7081dd7",
+      "path": "provenance/shared-tail-spec-terminal-20261104/full-log-read-progress.json",
+      "tool": "9a95d4"
+    },
+    {
+      "lines": [
+        1,
+        71
+      ],
+      "bytes": 6351,
+      "sha256": "8b100e34f7c2b41363fdfd9f1c34243e815f917f89518259e927748eb3af94e7",
+      "path": "provenance/shared-tail-spec-terminal-20261104/independent-full-gate-reconciliation.py",
+      "tool": "9a95d4"
+    },
+    {
+      "lines": [
+        1,
+        196
+      ],
+      "bytes": 15791,
+      "sha256": "d6c00153e0510411eb14daaa56d3eb40d1d75dce0b168c28bf70a9f7a747f59a",
+      "path": "provenance/shared-tail-spec-terminal-20261104/independent-input-reconciliation-corrected.py",
+      "tool": "33c9ad"
+    },
+    {
+      "lines": [
+        1,
+        572
+      ],
+      "bytes": 18954,
+      "sha256": "03fe636813f633cb43772c2bf6ea1ae71f185bc5b03d4611867fd430048f1b9f",
+      "path": "provenance/shared-tail-spec-terminal-20261104/independent-input-reconciliation.json",
+      "tool": "de567c"
+    },
+    {
+      "lines": [
+        573,
+        1132
+      ],
+      "bytes": 18977,
+      "sha256": "d294b40a3d9fbd1ecffe32e5306eac0217b100c8a72cf50167a8d9f60a907f59",
+      "path": "provenance/shared-tail-spec-terminal-20261104/independent-input-reconciliation.json",
+      "tool": "e3e163"
+    },
+    {
+      "lines": [
+        1133,
+        1591
+      ],
+      "bytes": 18969,
+      "sha256": "f5f41143689681f3ff99e930d0e25c4126eca677404cee562c7db37955628441",
+      "path": "provenance/shared-tail-spec-terminal-20261104/independent-input-reconciliation.json",
+      "tool": "68b180"
+    },
+    {
+      "lines": [
+        1592,
+        1918
+      ],
+      "bytes": 18983,
+      "sha256": "027b482667402ec9e3d361516039998e4aae9cb09afcaaa81856d059b2a80124",
+      "path": "provenance/shared-tail-spec-terminal-20261104/independent-input-reconciliation.json",
+      "tool": "aee4c5"
+    },
+    {
+      "lines": [
+        1919,
+        2285
+      ],
+      "bytes": 18984,
+      "sha256": "5923b90753ed20d0b06aa0736e36f7b8f361d29da65e47d8a3d0dda21b86ee5a",
+      "path": "provenance/shared-tail-spec-terminal-20261104/independent-input-reconciliation.json",
+      "tool": "0ceea5"
+    },
+    {
+      "lines": [
+        2286,
+        2623
+      ],
+      "bytes": 18980,
+      "sha256": "014746e4c1abfc553b8cf56511d5fc977a2205d38fd6ce2e997ef6c01edbf959",
+      "path": "provenance/shared-tail-spec-terminal-20261104/independent-input-reconciliation.json",
+      "tool": "585133"
+    },
+    {
+      "lines": [
+        2624,
+        2633
+      ],
+      "bytes": 1346,
+      "sha256": "904a002fdf7ca16618c807ff152febf369d733713c2d22e1623b009d32d169f6",
+      "path": "provenance/shared-tail-spec-terminal-20261104/independent-input-reconciliation.json",
+      "tool": "86f63e"
+    },
+    {
+      "lines": [
+        1,
+        196
+      ],
+      "bytes": 15790,
+      "sha256": "a3831532accc9c43de125d53cf7b795f7b7313d1b01588c79be5c8737e4856e6",
+      "path": "provenance/shared-tail-spec-terminal-20261104/independent-input-reconciliation.py",
+      "tool": "86f63e"
+    },
+    {
+      "lines": [
+        1,
+        330
+      ],
+      "bytes": 15591,
+      "sha256": "be9c451cba3eac54cf726d8f33c0c220a0eb88ab9cb61e1e9839582ecf99fe1a",
+      "path": "provenance/shared-tail-spec-terminal-20261104/inherited-semantic-disposition.json",
+      "tool": "60f92a"
+    },
+    {
+      "lines": [
+        1,
+        11
+      ],
+      "bytes": 769,
+      "sha256": "4f14afbd5a704f66284cc30977a6ffc2982baf3427bd3b707916f191526fa9c0",
+      "path": "provenance/shared-tail-spec-terminal-20261104/reconciliation-bookkeeping.json",
+      "tool": "60f92a"
+    }
+  ],
+  "saved_artifact_count": 13,
+  "total_saved_artifact_bytes": 315624,
+  "all_saved_artifact_bytes_read": true,
+  "all_listed_file_and_chunk_hashes_rechecked": true,
+  "full_native_log_read": {
+    "lines": 2484,
+    "bytes": 284346
+  },
+  "actual61_full_type_read": {
+    "lines": 1073,
+    "bytes": 84784,
+    "complete_types": 61,
+    "ellipsis_contexts": 52,
+    "Fin_NeZero": 43,
+    "ENNReal_AtLeastTwo": 9
+  },
+  "unchanged_final_source_and_semantic_disposition": true,
+  "existing_reports_and_evidence_preserved": true,
+  "hold": "All own review/provenance writes held after this receipt is read back; no further changes without root assignment.",
+  "acceptance_or_immediate_verify_performed_by_reviewer": false,
+  "boundary": "This receipt closes saved-file readback only. The original full source scopes, actual terminal/type/receiving qualification and finding histories remain in the fixed final report and receipts. No compiler, source/ref/cache/runtime capture or global-control action occurred.",
+  "bookkeeping": "The original parser-failed independent-input script remains preserved alongside the one-character corrected successful script. The truncated auxiliary navigation output is not credited; actual native output was fully read separately. The known historical truncated F JSON remains uncredited as recorded.",
+  "completed_utc": "2026-11-04T16:42:54.261188+00:00"
+}

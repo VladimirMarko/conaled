@@ -1,0 +1,42 @@
+{
+  "verified_utc": "2026-11-04T07:18:38.570011+00:00",
+  "checkpoint": "conaled-fdsa-0090-checked-uniqueness-and-operational-mean-continuation",
+  "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0090-checked-uniqueness-and-operational-mean-continuation.tar.gz",
+  "size_bytes": 15885481,
+  "sha256": "4ca014bfb21d2a70db58bcf29292915d016f9e0610550ca9274c69e8305836a5",
+  "payload_hashes_verified": 2433,
+  "refs": 61,
+  "worktrees": 14,
+  "untracked_numerical_files_verified": 2,
+  "closed_results_verified": {
+    "chapter02-mean-uniqueness-xu02-focused-20261104-attempt1": {
+      "candidate": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+      "exit_code": 1,
+      "log_sha256": "48063b4acf544e1cd977f2ffc039a37024bd01e30bfd42357041d4704de22d84"
+    },
+    "chapter02-xu02-focused-20261104-attempt2": {
+      "candidate": "e7d19095cd6c195e78207c4431d7e65226ae9d39",
+      "exit_code": 1,
+      "log_sha256": "ebf2b38376e280f47b907a019bb9bcc01ceb985af04d09b37373c19e9f027051"
+    },
+    "chapter02-mean-xu02-focused-20261104-attempt3": {
+      "candidate": "b3ccd6617c9a0bd033ab181a77d0e07d4b72100a",
+      "exit_code": 1,
+      "log_sha256": "27fffd453a4650aa56976d4cfac2b482fccaae82a8f1ba53bfe38fb5780108ca"
+    },
+    "chapter02-uniqueness-types-20261104": {
+      "candidate": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+      "exit_code": 0,
+      "log_sha256": "11b58acd78c4f7b77bf4fbdb8bd7e4ca48378dcb2fab8c32d91fd0e4ccebda3f"
+    }
+  },
+  "live_terminal_included": {
+    "chapter02-foundation-full-attempt2-recovered-20261104": false,
+    "chapter02-mean-order-operations-transport-focused-20261104-attempt4": false
+  },
+  "method": "Verified archive identity and every payload hash directly from closed tar; checked terminal log identities and exact nested untracked-source bytes. No redundant restore/build.",
+  "library_file_id": "libfile_6afddb8aa11881918ee27eebd8114a5d",
+  "xattrs_applied": true,
+  "exposed": true,
+  "uploaded_utc": "2026-11-04T07:18:45.339456+00:00"
+}

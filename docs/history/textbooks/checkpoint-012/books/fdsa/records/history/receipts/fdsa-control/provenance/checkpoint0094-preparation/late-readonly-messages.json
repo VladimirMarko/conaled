@@ -1,0 +1,35 @@
+{
+  "utc": "2026-11-04T08:45:09.986303+00:00",
+  "shared_plan_clarification": {
+    "author": "/root/shared_acceptance_sequence",
+    "disposition": "Read-only interpretation received after its write HOLD; root has read controlling preflight but still must directly verify the additional cited requirement excerpts before choosing combined assembly. No integration/policy change.",
+    "conclusion": "No requirement found for separate candidates or full-check invocations for independent XM01/XD01/XQ01/XU01 after exactF acceptance. A declared complete combined candidate could share full matching gates while retaining all four scopes/findings. XU02 and XU03 remain later separate dependent acceptances. Any unresolved unit blocks combined promotion.",
+    "cited_local_provisions": [
+      "shared-integration-preflight.md:198\u2013200",
+      "review-loop.md:67\u201392",
+      "ordinary-merge requirements:328\u2013346",
+      "difference-list requirements:121\u2013129",
+      "partition requirements:198\u2013209",
+      "minimum requirements:145\u2013154",
+      "order requirements:208\u2013209",
+      "tail requirements:228\u2013229",
+      "shared-integration-preflight.md:129\u2013135"
+    ]
+  },
+  "foundation_standards_readonly_message": {
+    "type_program_names": 145,
+    "program_sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4",
+    "prefix_bytes": 324642,
+    "prefix_lines": 1924,
+    "prefix_sha256": "36ae6e11faba5df23c215d1e1ecd3116b09c51a6568d203e7ec6dacfeebc41cb",
+    "read_method": "Structured full-byte prefix processing, not full raw line-by-line reading; early large text extractions were truncated and are not claimed complete.",
+    "classifications": {
+      "missing_trace_invalidations": 966,
+      "module_import_advisories": 221,
+      "other_warning_headers_matching_C1_after_normalization": 26
+    },
+    "terminal_result": null,
+    "outcome": "Blocked for actual terminal/audit, all145 actual printed types and matching verification. C2 authorship disclosed, no F authorship.",
+    "writes_during_hold": false
+  }
+}

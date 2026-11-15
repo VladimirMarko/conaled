@@ -1,0 +1,25 @@
+{
+  "scope": "operational helpers only; no formal source acceptance",
+  "base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "candidate": "822cb7adeed4943acaf10454e9facfc2e3ee8ceb",
+  "merge_base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "captured_at": "2026-11-03T15:06:52.911032+00:00",
+  "files": {
+    "session/environment/make-direct-toolchain-profile.py": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb",
+    "session/environment/run-direct-toolchain.py": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+    "session/environment/test-direct-toolchain.py": "028e625c2870bafa2668269f981202d76c6509256ca1822e4ab926b3f2526330",
+    "session/environment/test-direct-lake-build.py": "3e364791c25cfce02c15887b1ae040a1a18315ab5189ff393d5fb2ff9bd239cf",
+    "session/environment/README-direct-toolchain.md": "f3acb7ba89c954019e6288bffc80c37fbc2e4f90523b1172efdd85dc19ee6734",
+    "session/validation/run-direct-validation.py": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b",
+    "session/validation/test-direct-validation.py": "a77b7f3f962c45fbe8affe4999615b3721975cc3c858713c9ef027b6aecf5435",
+    "session/validation/direct-validation-runner-notes.md": "933745db696b993eda5bd8d5470a7b72b5738659658c709fa98705ceb35bdd4e"
+  },
+  "requirements": [
+    "session/requirements/REQUEST-direct-toolchain-041.md",
+    "session/environment/direct-toolchain-implementation-scope-041.md"
+  ],
+  "exclusions": "All formal candidate sources, prior evidence, runtime binaries/caches, tracker/status and review/provenance records are outside this authored-helper diff; their independent obligations persist. Main index/HEAD/working tree unchanged.",
+  "validation": "Pending isolated cold-recovery snapshot tests.",
+  "supersedes": "f010b5d0fdbef9c9f007c56531c326e738557f9d",
+  "corrections": "Fresh full route with exact stock-mode binding and serial jobs; immediate verify retains no fresh/jobs flags. Smoke tests create their own missing temporary parent. All8files remain in full fixed-base scope."
+}

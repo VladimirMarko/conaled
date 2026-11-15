@@ -1,0 +1,45 @@
+--- historical-XR-helper-never-run
++++ prepared-Chapter3-helper-unexecuted
+@@ -1,4 +1,4 @@
+-"""One-use exact approved XR fast-forward after immediate verification."""
++"""One-use exact approved Chapter3 fast-forward after immediate verification."""
+ from pathlib import Path
+ import datetime
+ import hashlib
+@@ -10,11 +10,11 @@
+ MAIN = BASE / 'conaled'
+ QUALIFIED = BASE / 'conaled-ch01-review'
+ HERE = Path(__file__).resolve().parent
+-OLD = '2da5708478a1d943a9214b5b386ec2db16cd9eca'
+-NEW = 'c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5'
+-TREE = 'b62fe504a38948e61c6377a4e7661b639c28c08c'
+-FULL = CTRL / 'provenance/affine-recurrence-receiving-full-attempt2-20261104'
+-IMMEDIATE = CTRL / 'provenance/affine-recurrence-immediate-verification-20261104'
++OLD = 'c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5'
++NEW = '298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2'
++TREE = 'ecb69c3918715cbe0682028cd8697dfcf3e463f9'
++FULL = CTRL / 'provenance/chapter03-final-complete-full-attempt1-20261105'
++IMMEDIATE = CTRL / 'provenance/chapter03-immediate-verification-20261105'
+ 
+ def now():
+     return datetime.datetime.now(datetime.timezone.utc).isoformat()
+@@ -48,7 +48,9 @@
+ gate = read(HERE / 'root-gate-reconciliation.json')
+ assert gate['candidate'] == NEW and gate['candidate_tree'] == TREE and gate['accepted_base'] == OLD
+ assert gate['all_required_preacceptance_gates_passed'] and gate['all_source_writers_held']
+-assert gate['actual_public_names'] == 21 and gate['original_scope_paths'] == 5
++assert gate['actual_public_names'] == 1391 and gate['original_scope_paths'] == 84
++assert gate['original_whole_task_base'] == '2da5708478a1d943a9214b5b386ec2db16cd9eca'
++assert gate['chapter03_public_names'] == 1370 and gate['accepted_XR_public_names'] == 21
+ assert set(gate['axes']) == {'Standards', 'Spec'}
+ for axis in gate['axes'].values():
+     assert axis['outcome'].upper() in {'PASS', 'PASSED'} and axis['unresolved'] == 0 and axis['complete_readback_and_hold']
+@@ -75,7 +77,7 @@
+ assert git(QUALIFIED, 'rev-parse', 'HEAD').strip() == NEW
+ assert not git(QUALIFIED, 'status', '--porcelain=v1', '--untracked-files=all').strip()
+ assert git(QUALIFIED, 'rev-parse', 'HEAD^{tree}').strip() == TREE
+-assert git(MAIN, 'rev-parse', 'work/fdsa-affine-integration').strip() == NEW
++assert git(MAIN, 'rev-parse', 'work/fdsa-ch03-integration').strip() == NEW
+ ancestry = subprocess.run(['git', '-C', str(MAIN), 'merge-base', '--is-ancestor', OLD, NEW], check=False)
+ assert ancestry.returncode == 0
+ before_refs = references()

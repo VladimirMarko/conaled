@@ -1,0 +1,298 @@
+{
+  "recorded_at_utc": "2026-11-02T06:57:18.585493+00:00",
+  "ticket": 1022,
+  "candidate": "bed44c16cee3e1eff6a4175bad9a7ed50651b927",
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 52.5387269769999,
+  "passed_staging_check": true,
+  "ilean_header": {
+    "module": "SquareKit.Temporal.Finite",
+    "directImports": [
+      [
+        "Mathlib.Data.Fin.Basic",
+        false,
+        false,
+        false
+      ],
+      [
+        "Mathlib.Data.Sigma.Basic",
+        false,
+        false,
+        false
+      ],
+      [
+        "Mathlib.Tactic.Convert",
+        false,
+        false,
+        false
+      ]
+    ]
+  },
+  "metadata_error": null,
+  "direct_imports_match": true,
+  "c_imported_initializer_declarations": [
+    "initialize_Init",
+    "initialize_Init",
+    "initialize_mathlib_Mathlib_Data_Fin_Basic",
+    "initialize_mathlib_Mathlib_Data_Sigma_Basic",
+    "initialize_mathlib_Mathlib_Tactic_Convert"
+  ],
+  "diagnostics": [],
+  "non_json_diagnostics": [],
+  "diagnostic_identity": {
+    "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/correction/diagnostics.jsonl",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "all_non_import_bytes_identical": true,
+  "setup_byte_identical": true,
+  "no_imports_override": true,
+  "protected_inputs_after": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/SquareKit/Temporal/Finite.lean",
+      "bytes": 4961,
+      "sha256": "a5250768a66bb6103b3edb188f4ec370f2e9f9f8937ea066c914b3f6056b90a9"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/SquareKit/Temporal/Finite.lean",
+      "bytes": 4961,
+      "sha256": "a5250768a66bb6103b3edb188f4ec370f2e9f9f8937ea066c914b3f6056b90a9"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/ir/SquareKit/Temporal/Finite.setup.json",
+      "bytes": 2329513,
+      "sha256": "66b8e39dac0fb306ac3bfad9d0dfdd64a59320187b45256a949e13218d1d0e2f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/SquareKit/Temporal/Finite.trace",
+      "bytes": 2679,
+      "sha256": "f8abf2847a56be49086eabc78203f1c8730640ab8f11e9651d53f70ef58d8039"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fin/Basic.olean",
+      "bytes": 168640,
+      "sha256": "86fc5ddd1e7c9fa9ebaff15828a4fa31bb83678f82095dc94fe393a2460a59d9"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fin/Basic.olean.server",
+      "bytes": 27584,
+      "sha256": "2bf18662075a15a543a83192815ded03642294b40988dd5be6e6c408b77c94a5"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fin/Basic.olean.private",
+      "bytes": 700680,
+      "sha256": "2c1dfb8fb23acd692b3d6fd5409708f8843812cbb8e0fd1600c64a7900813b07"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fin/Basic.ir.sig",
+      "bytes": 176,
+      "sha256": "00618d10c3a7d27207816f4160a600619cfe464023d115f5e027bcb10bf1d7a2"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fin/Basic.ir",
+      "bytes": 37600,
+      "sha256": "38d7ef0f64c1832110f2e560db15c156a027d1d1055e57951e0fd71a3928d04d"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Sigma/Basic.olean",
+      "bytes": 170848,
+      "sha256": "ac8635b51013441c6ce7582884ab90ac55c6339f350f68408e7e0e1fa1ff862d"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Sigma/Basic.olean.server",
+      "bytes": 13656,
+      "sha256": "0258415958b14b8f68ad70dd698b788b2c17b5ab8c83c58d6285d8586dc3dfbf"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Sigma/Basic.olean.private",
+      "bytes": 356448,
+      "sha256": "314bdcf751b076781580064af20ac140a5e383afce51a81096971bd164acca37"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Sigma/Basic.ir.sig",
+      "bytes": 176,
+      "sha256": "a5875dede7be62121c5c612c86517323560c428d74167e4932a086c07ce48de6"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Sigma/Basic.ir",
+      "bytes": 12944,
+      "sha256": "702b83cd0dfbd585a4f74dd80848cfc149a4524ba91cbe849408dfc27e8a6963"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Convert.olean",
+      "bytes": 590608,
+      "sha256": "b7c87ac3029be4ecdaab2541b8443da1ace561aa49cffb9fa7e3e206ca675ef1"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Convert.olean.server",
+      "bytes": 20304,
+      "sha256": "4ca79128bc9d93f02cfdf0c0e4fa21be5bb6899cb0e178c1a2f1fe8df39925cb"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Convert.olean.private",
+      "bytes": 1305608,
+      "sha256": "7baf1029f58174df6f6af6904d4f51eb2562339a19b2ee2ba5d5c0babae2a7d8"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Convert.ir.sig",
+      "bytes": 176,
+      "sha256": "f03ffd28cf6fcede0976e37d12786704b87dbc2ae1ac1c4472380de5a94636c8"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Convert.ir",
+      "bytes": 508584,
+      "sha256": "5e75016c2d72b36c2c4c2efcf4798be812bf156110704d31d30e92d92dc1f103"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/flake.nix",
+      "bytes": 637,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/flake.lock",
+      "bytes": 564,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/Mathlib/Data/Fin/Basic.lean",
+      "bytes": 19251,
+      "sha256": "2e2366059b7e366871729f63f4c98102bbd7d9b5f3d9982cbf0651e674c1f3e0"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/Mathlib/Data/Sigma/Basic.lean",
+      "bytes": 11219,
+      "sha256": "17276000df01bc19e9d16b8293d72c595e27b0b39fd0ed733afeab4adebff361"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/Mathlib/Tactic/Convert.lean",
+      "bytes": 16040,
+      "sha256": "cbffa3b86d16e0f006755cec72b12dc00da33c0228419e483a2ddba1ee27a32c"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/SquareKit/Temporal/Finite.olean",
+      "bytes": 725696,
+      "sha256": "f6a228eee2cc5377890a5af143cf123d44266fa614e97532489ffaf3f5ae970a"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/SquareKit/Temporal/Finite.ilean",
+      "bytes": 13979,
+      "sha256": "9503ee0ef91863873a85ff7110a9aa40d8f079780af32d04945a96d07399d60f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/ir/SquareKit/Temporal/Finite.c",
+      "bytes": 36217,
+      "sha256": "eeb8eec92de2a820936aa5baa90393c6e7013defe2954edee2f03ba6e713674f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/Finite.original.lean",
+      "bytes": 4961,
+      "sha256": "a5250768a66bb6103b3edb188f4ec370f2e9f9f8937ea066c914b3f6056b90a9"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/Finite.original.trace.json",
+      "bytes": 2679,
+      "sha256": "f8abf2847a56be49086eabc78203f1c8730640ab8f11e9651d53f70ef58d8039"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/Finite.setup.json",
+      "bytes": 2329513,
+      "sha256": "66b8e39dac0fb306ac3bfad9d0dfdd64a59320187b45256a949e13218d1d0e2f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/README.md",
+      "bytes": 6412,
+      "sha256": "e224d9bda61ef79eb6a8da3b044b15edeaea2e0a2e90980bdc8a46af01825590"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/STARTED.json",
+      "bytes": 2554,
+      "sha256": "977a4d3ca4365b7f073807af1fa5fe48ea5780dd01022cc7efde4e3e0e6235a1"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/SquareKit/Temporal/Finite.lean",
+      "bytes": 4999,
+      "sha256": "f4bc872664718f8cb4e0d1ca92f01c4129691eb68871958dafd0c3c28dcb738e"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/diagnostics.jsonl",
+      "bytes": 3329,
+      "sha256": "023b96006428caedbe5fcb11fea99102588cb14a6e2a9624c550e54738f406b1"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/imports.patch",
+      "bytes": 261,
+      "sha256": "74afe6719c3f64b02baa4e9a2ef9940435ac22f0a54a8b5b4d3e3db8b359f615"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/inputs.json",
+      "bytes": 12793,
+      "sha256": "aa8e9a4136505347ce313c9c1209f0ada41b2bf7e73249c61086a5f68c66bd64"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/original-command.txt",
+      "bytes": 1462,
+      "sha256": "bd8a1d82b7e5d4381292b0a863997abbf0392abb82be747b2037360110231e24"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/postcheck-evidence.json",
+      "bytes": 10609,
+      "sha256": "c35832cb64de1f678b731fbeea4680e1517cef88b32d168e1d6f53b6465f22ee"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/postcheck.py",
+      "bytes": 4265,
+      "sha256": "0b0e373ec55578f97bef464227f5748867e5350e32ba5ceb6e212efccb10b141"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/prepare.py",
+      "bytes": 5861,
+      "sha256": "ed28d42dc96e8222f4dc1b57a9946bb7185a93c5f03770b8225f30121a6aaeb3"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/result.json",
+      "bytes": 2691,
+      "sha256": "b845f78e77f2d7520402e0ee376671d5910a586f4c1da664cc08761339478c52"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/run-check.py",
+      "bytes": 2488,
+      "sha256": "d52b289fae0df38bdff3471947a3fa0d2d7cfc78a7b5160517dcb5ff2d6391f7"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/SHA256SUMS",
+      "bytes": 1248,
+      "sha256": "e26df3b2999dd96a9dca2be99b2c2fd9ad63d8893e5a85addcbbad0afbfd239b"
+    }
+  ],
+  "changed_protected_inputs": [],
+  "generated_artifacts": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/correction/out/Finite.c",
+      "bytes": 36713,
+      "sha256": "82d6611e9ec77e7ff3bc08d9c1e980ac28e738fd95c03fe46109e0930942faa5"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/correction/out/Finite.ilean",
+      "bytes": 14083,
+      "sha256": "1d456a72613a573be79e84fe25ca8c5e9f8bdab8b6874da63e3bf29a764f3c21"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/correction/out/Finite.olean",
+      "bytes": 724408,
+      "sha256": "5b80d46e6f772e7ec3b8dfeee85ae83f4855da0763f63e276a3592806c8be2d9"
+    }
+  ],
+  "generated_artifact_disposition": "Removed after metadata extraction and hashing; no further attempt authorized.",
+  "generated_output_directory_absent": true
+}

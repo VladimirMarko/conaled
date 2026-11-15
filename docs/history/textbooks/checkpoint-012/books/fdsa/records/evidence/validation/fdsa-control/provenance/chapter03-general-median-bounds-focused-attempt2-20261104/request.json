@@ -1,0 +1,21 @@
+{
+  "requested_utc": "2026-11-04T20:48:57.589757+00:00",
+  "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+  "candidate": "17901d09d155b93de6490dfa40ca17f988107b94",
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "build",
+    "Examples.GeneralMedianBounds"
+  ],
+  "scope": "Process recording only; command and acceptance policy unchanged."
+}

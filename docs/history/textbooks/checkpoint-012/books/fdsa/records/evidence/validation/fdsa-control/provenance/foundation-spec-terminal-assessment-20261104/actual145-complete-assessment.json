@@ -1,0 +1,971 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-04T13:51:56.367611+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "axis": "Spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "candidate_tree": "1c657c8923e258758aa1118a618c34732eaa9e45",
+  "verdict": "Passed",
+  "supersession": "This final full-scope disposition supersedes historical Blocked/Pending statements only for exact F. All prior reports and the pre-type terminal receipt remain unchanged. It does not assert local integration has occurred.",
+  "scope": "Original complete nine-path/four-unit foundation scope from R through exact F; original prefix c80eec92f5458eccfd1c34c8314d666c2a1e3847 with recorded compiler/API corrections. No later potential-accounting prefix or unrelated draft substituted.",
+  "full_terminal_assessment": {
+    "path": "provenance/foundation-spec-terminal-assessment-20261104/terminal-assessment.json",
+    "bytes": 55875,
+    "lines": 1082,
+    "sha256": "94ee34d1b1125d852cd790c3d7c1b51b0e304ebcaa96e87ac78d180ed8b9f093"
+  },
+  "full_log_read_ledger": {
+    "path": "provenance/foundation-spec-terminal-assessment-20261104/log-read-progress.json",
+    "bytes": 10997,
+    "lines": 339,
+    "sha256": "ec74b9ccb7edcfe3643e7f72d890ab97ff328c4246c378bcebc7a41405f8f8f3"
+  },
+  "actual_type_read_ledger": {
+    "path": "provenance/foundation-spec-terminal-assessment-20261104/actual145-read-progress.json",
+    "bytes": 9380,
+    "lines": 245,
+    "sha256": "ab4ba79877f9d85d3fe4f08d271312ed2f37922e60886e67a653afaea1e62a23"
+  },
+  "native_output": {
+    "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/native-records/output.log",
+    "bytes": 107530,
+    "lines": 1491,
+    "sha256": "bbf02ed2d02358a10d1ed670e28bc00e43beef3af20409d4dc926ad36ab193c2"
+  },
+  "outer_output": {
+    "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/full.log",
+    "bytes": 107894,
+    "lines": 1494,
+    "sha256": "61ec42665eb65844556f10adb003cb706d45af01111affd0614405b5772fd5f4"
+  },
+  "program": {
+    "path": "provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+    "bytes": 7518,
+    "lines": 156,
+    "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4"
+  },
+  "closed_records_independently_read": [
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/request.json",
+      "bytes": 881,
+      "lines": 22,
+      "sha256": "3c58299b5dd19c8b682c680f091da4e116e8424fe5d2d4b16e4a5d06e3a1dbfb"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/launch.json",
+      "bytes": 174,
+      "lines": 6,
+      "sha256": "905e63680f677c404923efaef6e8cf07c2223dee2aab58fde30581d73f52aada"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/start.json",
+      "bytes": 1074,
+      "lines": 27,
+      "sha256": "c418c2cdda7f99074c3c6cae2b516de4821067d544688a0080eb89a29ae4bab7"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/progress.json",
+      "bytes": 262,
+      "lines": 8,
+      "sha256": "4ac5c84b5567b6c6c532bc9a02ae5768c0960a4f6d57ae657d84c03cf30055eb"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/result.json",
+      "bytes": 1415,
+      "lines": 33,
+      "sha256": "f563b12f4b572f99531027ab920784a94b8b9118a6e17cb1e65669217b1a216b"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/owned-terminal.json",
+      "bytes": 297,
+      "lines": 9,
+      "sha256": "c351b99a32e71abd8e8e05f27650c02e37bd1585010da54d25af3a9909faba78"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/native-records/start.json",
+      "bytes": 565,
+      "lines": 14,
+      "sha256": "723a36915d1de6ea4f9ccc0bf896b1a335bf73689382c899c657539cd5bd94a1"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/native-records/result.json",
+      "bytes": 718,
+      "lines": 19,
+      "sha256": "d41d579cb7a4089cbee06ec5636e458e2b4de7001bd1a99e5d98ad2fa58dc724"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/native-records/copy-receipt.json",
+      "bytes": 1408,
+      "lines": 23,
+      "sha256": "d3fccecbe83ce858805a48d5d942a198659fad6eb7b5295dc660f7686e253f88"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/verification.json",
+      "bytes": 867,
+      "lines": 19,
+      "sha256": "9634e5a5318b7ac15cc67871655469838a061340ce719939ddfc5dcc16bc2164"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/output-blocks.json",
+      "bytes": 46564,
+      "lines": 1492,
+      "sha256": "77705d6d4150af6d722114fd8836a2c67efdecd43d26e0019eb8fe5fa2f599d4"
+    }
+  ],
+  "pre_inputs": {
+    "path": "provenance/foundation145-input-observations-20261104-attempt1/pre-inputs.json",
+    "bytes": 38785,
+    "lines": 839,
+    "sha256": "482b005a6b020bc8fbc087ed746202caa89426382200d2aa37b4259ac0116d37"
+  },
+  "post_inputs": {
+    "path": "provenance/foundation145-input-observations-20261104-attempt1/post-inputs.json",
+    "bytes": 39092,
+    "lines": 845,
+    "sha256": "3065efbace8dc8cff34d764d33fd29e81f09b5549407d72be5cdaa217d482d16"
+  },
+  "retained_qualified_runtime": {
+    "path": "provenance/foundation-spec-terminal-continuation-20261104/runtime.json",
+    "bytes": 6709,
+    "lines": 165,
+    "sha256": "4f99938c2d012f66b975383e6d2f419887dfd0fc7d39e9aef9344f0776366374"
+  },
+  "terminal_qualification": {
+    "outer_and_native_exit": 0,
+    "outer_start": "2026-11-04T13:43:27.311615+00:00",
+    "outer_end": "2026-11-04T13:43:42.747483+00:00",
+    "native_start": "2026-11-04T13:43:27.358195+00:00",
+    "native_end": "2026-11-04T13:43:42.731876+00:00",
+    "owned_terminal": "85582 closed at actual chunk abfa7e; no polling by reviewer.",
+    "candidate_clean_before_after": true,
+    "program_exactly_matches_executed_command": true,
+    "one_thread": "1",
+    "outer_native_body_offset": 207,
+    "outer_native_line_offset": 2,
+    "complete_wrapper_read": true,
+    "matching_copies_verified": true,
+    "verification_record": "The 867-byte record with SHA9634e5a5318b7ac15cc67871655469838a061340ce719939ddfc5dcc16bc2164 is inherited from the successful full candidate check, not newly produced by this type-only command.",
+    "before_after_observation_times": [
+      "2026-11-04T13:43:24.040493+00:00",
+      "2026-11-04T13:44:15.028031+00:00"
+    ],
+    "pre_post_identity_exact": true,
+    "qualified_consumption_basis": "Exact stock native full build with successful post-build integrity and exhaustive audit; stable isolated F checkout, exclusive private project-output ownership and source hold through type command; unchanged pre/post relevant inputs. Hash agreement alone does not prove compilation provenance or exclude transient changes."
+  },
+  "immutable_input_reconciliation": {
+    "local_sources": 29,
+    "object_and_trace_records": 87,
+    "configuration_files": 10,
+    "pinned_dependencies": 9,
+    "runtime_records": 12,
+    "direct_roots": 6,
+    "external_imports": 32,
+    "import_edges": 67,
+    "all_local_source_bytes_and_git_blobs_match_F": true,
+    "all_configuration_bytes_match_F": true,
+    "all_dependency_heads_match_F_manifest_and_are_recorded_clean": true,
+    "all_runtime_hashes_match_retained_qualified_F_profile": true,
+    "source_closure": {
+      "Examples/ListLibrary.lean": {
+        "bytes": 6761,
+        "sha256": "036cf4c12ddf5d25ce433d9f7dbedfcbb96dfc3c7f602d10605388d2791e47ad",
+        "git_blob": "99ba369997885e176bbda192ee0feb5c7bf4d034"
+      },
+      "Examples/ListCalls.lean": {
+        "bytes": 4333,
+        "sha256": "24d0809f51d04b0a9cadb5a349141e7327a5f7721f63c1021113527917487d5d",
+        "git_blob": "b4c4683ee2bd16ff6f844ce757470515847a63dc"
+      },
+      "Applications/Resources/ListReversal.lean": {
+        "bytes": 4827,
+        "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+        "git_blob": "62ab85a7325d521bf925405f9abb053703f4d175"
+      },
+      "Applications/Resources/TreeFlattening/Core.lean": {
+        "bytes": 4225,
+        "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+        "git_blob": "d136193bd3823ee00431bc240d1e7a0168b4ddaf"
+      },
+      "Applications/Resources/Measured.lean": {
+        "bytes": 2906,
+        "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+        "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46"
+      },
+      "Squares.lean": {
+        "bytes": 11694,
+        "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+        "git_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a"
+      },
+      "Applications/Resources/RandomAccess/CacheCosts.lean": {
+        "bytes": 2227,
+        "sha256": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+        "git_blob": "e583ec5285ea887c38f4b369071408697f0574b2"
+      },
+      "Applications/Sequences/RandomAccess/TreeBuild.lean": {
+        "bytes": 5392,
+        "sha256": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+        "git_blob": "3b662705f001c2a4b8fbe12868d6c7e77316d95f"
+      },
+      "Applications/Sequences/RandomAccess/Borrow.lean": {
+        "bytes": 5680,
+        "sha256": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+        "git_blob": "81b95e8bd4a6e30f6a20a85828409d6d55437be0"
+      },
+      "Applications/Sequences/RandomAccess/Access.lean": {
+        "bytes": 5219,
+        "sha256": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+        "git_blob": "5354c146a0665cce90ffc996d1b522b8a59079ad"
+      },
+      "Applications/Sequences/RandomAccess/Basic.lean": {
+        "bytes": 5970,
+        "sha256": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+        "git_blob": "fe040b71615878a86d06b326b820e1d5cd5f0229"
+      },
+      "Applications/Bracketing/Basic.lean": {
+        "bytes": 8561,
+        "sha256": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+        "git_blob": "3f6604c226908ee807c7d5076bd1c027b48bbf90"
+      },
+      "Applications/Optimization/SelectionSpec.lean": {
+        "bytes": 738,
+        "sha256": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+        "git_blob": "2548b66575b5a453e8cec30ceb745234bb0ae2e6"
+      },
+      "Applications/Resources/SymmetricCosts.lean": {
+        "bytes": 10508,
+        "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+        "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233"
+      },
+      "Applications/Sequences/Symmetric/Core.lean": {
+        "bytes": 12059,
+        "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+        "git_blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4"
+      },
+      "SquareKit/ListFusion.lean": {
+        "bytes": 2939,
+        "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+        "git_blob": "33ec447acb6da7b884ae57d2a885707208201607"
+      },
+      "Applications/Resources/Potential.lean": {
+        "bytes": 4638,
+        "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe",
+        "git_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1"
+      },
+      "Applications/Resources/Workload.lean": {
+        "bytes": 2745,
+        "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+        "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05"
+      },
+      "Applications/Resources/CallCount.lean": {
+        "bytes": 2447,
+        "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+        "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195"
+      },
+      "Applications/Resources/ListCalls.lean": {
+        "bytes": 7939,
+        "sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+        "git_blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4"
+      },
+      "Examples/InsertionCosts.lean": {
+        "bytes": 3862,
+        "sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37",
+        "git_blob": "1c3de9b0a0a5f27f108de09f28f6ac55f4cddb36"
+      },
+      "Applications/Selection/Rank.lean": {
+        "bytes": 3713,
+        "sha256": "4a82df75593d909e2968bf1e27cbfea52c9795abfe81250bb2385e7dfc16f965",
+        "git_blob": "3412cfa142e12d9a50c725661c6ce133609a3d0c"
+      },
+      "Applications/Sorting/Sort.lean": {
+        "bytes": 5922,
+        "sha256": "5acd7728aaaefdec121df797efafd7dae13476c820d4f85f4ada19868fa71218",
+        "git_blob": "fb7096ebfede6b6a1721c453295faaa851453049"
+      },
+      "Applications/Sorting/Merge.lean": {
+        "bytes": 5604,
+        "sha256": "79b35252d0f551b381ef63974497311336ea92a5d118691647825cade12a1338",
+        "git_blob": "15708d975dc76472da0c10990e805e2d4dfbdcbb"
+      },
+      "Applications/Sorting/Stable.lean": {
+        "bytes": 3704,
+        "sha256": "288552150aa002c60ed06c74e69510112cf9b4e2f0045da3d98ca5c39264d881",
+        "git_blob": "614b0628261442bcbe2a3c97b4af8fc56084fc42"
+      },
+      "Applications/Resources/InsertionSort.lean": {
+        "bytes": 7257,
+        "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+        "git_blob": "d51ea6e9845378d3f7667adee189f8a210b477ed"
+      },
+      "Examples/FunctionalNotation.lean": {
+        "bytes": 8277,
+        "sha256": "fe4b585a6753110dee67c1942ce68d16d9bf00feb5946f32791682c634c42eef",
+        "git_blob": "3e5db8677c94bd330779522f92bc39508540a17a"
+      },
+      "Examples/FunctionalBasics.lean": {
+        "bytes": 3381,
+        "sha256": "f9d141719675eaaf1a09bcfabf1a0e79cc2f68f89406a2229233b71a8d1bae3d",
+        "git_blob": "bdd58014ed1f3ca284e4ba44155da946c65de866"
+      },
+      "Applications/Arithmetic/EuclidInduction.lean": {
+        "bytes": 1069,
+        "sha256": "1195a850cc25d518c50f6f6133da87f5d4fcffd264ea3c687c67b5dcc34abe3e",
+        "git_blob": "0c4d03bcd60641cabb821ad5bfc1f6763656dc54"
+      }
+    },
+    "configuration": {
+      "lean-toolchain": {
+        "bytes": 25,
+        "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+      },
+      "lake-manifest.json": {
+        "bytes": 3138,
+        "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+      },
+      "lakefile.toml": {
+        "bytes": 444,
+        "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+      },
+      "flake.nix": {
+        "bytes": 637,
+        "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+      },
+      "flake.lock": {
+        "bytes": 564,
+        "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+      },
+      "check.sh": {
+        "bytes": 74,
+        "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd"
+      },
+      "scripts/check.py": {
+        "bytes": 16119,
+        "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+      },
+      "scripts/lake_integrity.py": {
+        "bytes": 5781,
+        "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f"
+      },
+      "scripts/lake-output-hashes.lean": {
+        "bytes": 618,
+        "sha256": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b"
+      },
+      "ProofAudit.lean": {
+        "bytes": 7925,
+        "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd"
+      }
+    },
+    "dependency_heads": {
+      "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "plausible": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "LeanSearchClient": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "importGraph": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "proofwidgets": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "aesop": "4a174c490d8707121c4a9290800489f105d85e07",
+      "Qq": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "batteries": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "Cli": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+    },
+    "runtime": {
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/lake": {
+        "bytes": 13416,
+        "sha256": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/lean": {
+        "bytes": 9024,
+        "sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/leanc": {
+        "bytes": 36168,
+        "sha256": "1e0b075573c5ea98e6b196e35d3b159b93e3226714e28cd8febb30a240ec735c"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/leanir": {
+        "bytes": 215864,
+        "sha256": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e"
+      },
+      "conaled-native-state/profile/bin/lake": {
+        "bytes": 122,
+        "sha256": "85df404efd17484b633376fe8d3705f416e059642133d8232ed555a8d3174e21"
+      },
+      "conaled-native-state/profile/bin/lean": {
+        "bytes": 122,
+        "sha256": "e290032a73b271084c56dfde6315062e1523492dc36b1bbde9cc5dea23d1c716"
+      },
+      "conaled-native-state/profile/bin/leanc": {
+        "bytes": 123,
+        "sha256": "0e5517cfaaa530d1e484e45314a8e4be9bf44ccbccb09f8610fa190f6e5443e6"
+      },
+      "conaled-native-state/profile/bin/leanir": {
+        "bytes": 124,
+        "sha256": "3a64f332683efbab0057235ec2b3c22d3ead19cb060e0830b76f1add4cf7c661"
+      },
+      "conaled-native-state/profile/runtime.py": {
+        "bytes": 6368,
+        "sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695"
+      },
+      "conaled-native-state/profile/app_path.c": {
+        "bytes": 3848,
+        "sha256": "fefc39d8645e4a938d6cc27574257d1a1e8e8f0790b75cc15bcf074272066fe0"
+      },
+      "conaled-native-state/profile/app_path.so": {
+        "bytes": 16056,
+        "sha256": "124bc3f19426ab6558b3ca134d0afb70435eaff82a659e6e62a05e8e373e337d"
+      },
+      "/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": {
+        "bytes": 236616,
+        "sha256": "6222a16be7f2d458d6870efe6e715fc0c8d45766fb79cf7dcc3125538d703e28"
+      }
+    },
+    "external_imports_sorted": [
+      "Lean",
+      "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+      "Mathlib.Algebra.BigOperators.Group.List.Basic",
+      "Mathlib.Algebra.BigOperators.Group.Multiset.Basic",
+      "Mathlib.Algebra.Group.Nat.Defs",
+      "Mathlib.Algebra.Group.Prod",
+      "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+      "Mathlib.Algebra.Order.Floor.Ring",
+      "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+      "Mathlib.Basic.Real.Basic",
+      "Mathlib.Data.Int.DivMod",
+      "Mathlib.Data.List.Basic",
+      "Mathlib.Data.List.Chain",
+      "Mathlib.Data.List.Infix",
+      "Mathlib.Data.List.Intervals",
+      "Mathlib.Data.List.MinMax",
+      "Mathlib.Data.List.Sort",
+      "Mathlib.Data.Multiset.Filter",
+      "Mathlib.Data.Nat.GCD.Basic",
+      "Mathlib.Data.Set.Finite.Basic",
+      "Mathlib.Data.Set.Lattice.Bounded",
+      "Mathlib.Data.Set.Lattice.Disjoint",
+      "Mathlib.Data.Set.Lattice.Image",
+      "Mathlib.Data.Set.Lattice.Indexed",
+      "Mathlib.Data.Set.Lattice.Order",
+      "Mathlib.Data.Set.Prod",
+      "Mathlib.Logic.Function.Basic",
+      "Mathlib.Order.Interval.Finset.Nat",
+      "Mathlib.Order.Interval.Set.Defs",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.NormNum",
+      "Std"
+    ],
+    "no_live_object_or_runtime_capture_by_reviewer": true
+  },
+  "actual_type_coverage": {
+    "explicit_authored_public_names": 145,
+    "header_count": 145,
+    "unique_names": 145,
+    "all_order_and_range_hashes_match_program_and_actual_output": true,
+    "complete_native_lines": 1491,
+    "complete_native_bytes": 107530,
+    "all_full_types_independently_read": true,
+    "inventory_groups": [
+      {
+        "scope": "Resources.InsertionSort",
+        "ordinals": [
+          1,
+          19
+        ],
+        "count": 19
+      },
+      {
+        "scope": "Resources.ListCalls",
+        "ordinals": [
+          20,
+          53
+        ],
+        "count": 34
+      },
+      {
+        "scope": "Examples.FunctionalNotation",
+        "ordinals": [
+          54,
+          83
+        ],
+        "count": 30
+      },
+      {
+        "scope": "Examples.InsertionCosts",
+        "ordinals": [
+          84,
+          99
+        ],
+        "count": 16
+      },
+      {
+        "scope": "Examples.ListCalls",
+        "ordinals": [
+          100,
+          115
+        ],
+        "count": 16
+      },
+      {
+        "scope": "Examples.ListLibrary",
+        "ordinals": [
+          116,
+          145
+        ],
+        "count": 30
+      }
+    ],
+    "columns": [
+      "ordinal",
+      "name",
+      "native_start_line",
+      "native_end_line",
+      "actual_full_type_sha256"
+    ],
+    "rows": [
+      [
+        1,
+        "Resources.InsertionSort.insertRun",
+        1,
+        3,
+        "07a1da17f8c35567d5c079818354400d47566d9f6fec2572d7c55a603b76b6e9"
+      ],
+      [
+        2,
+        "Resources.InsertionSort.insertRun_value",
+        4,
+        8,
+        "6d45cb973031a03d5b0e1f889393bf08ed13c7f9170d9b703d312dcc340be411"
+      ],
+      [
+        3,
+        "Resources.InsertionSort.insertRun_cost_bounds",
+        9,
+        17,
+        "2717dc1c95275ce66b5dfff08193f0e957f1b1ecd91088cea9d4a6a2afc0f7f0"
+      ],
+      [
+        4,
+        "Resources.InsertionSort.insertRun_cost_of_head",
+        18,
+        24,
+        "13879429a2259f4bfa687fc9e6c58ff41039b1b229b2881a640c69e3e766ee49"
+      ],
+      [
+        5,
+        "Resources.InsertionSort.insertRun_cost_of_all",
+        25,
+        29,
+        "c310ac7040e057c9f594f673a1a850fcbd10b2f0527acd3cfda65917121954a3"
+      ],
+      [
+        6,
+        "Resources.InsertionSort.insertRun_cost_of_all_not",
+        30,
+        35,
+        "693c87308dd55b4547c0f0fa1a9f3fa91f7ee5d55bb776d777383437db3bc294"
+      ],
+      [
+        7,
+        "Resources.InsertionSort.sortRun",
+        36,
+        38,
+        "fbe976468e2229127a1c9811b9d42fd05b764d11f7faa44f5e2ca3a6901de6d7"
+      ],
+      [
+        8,
+        "Resources.InsertionSort.sortRun_value",
+        39,
+        43,
+        "ec272a83795eb3a737f507f91b72b352f2909ddb3eb3cde4a064d90a8ad31e3f"
+      ],
+      [
+        9,
+        "Resources.InsertionSort.sortRun_length",
+        44,
+        48,
+        "367111c0f26e5ef63d5171e354f559b3805ebccefc784cd3de6a129fa27f2415"
+      ],
+      [
+        10,
+        "Resources.InsertionSort.sortRun_cons_cost",
+        49,
+        59,
+        "131f4ca682a86f51288dab9e40c3106d2eccd776c985d938532f1d3f28115f29"
+      ],
+      [
+        11,
+        "Resources.InsertionSort.sortRun_cost_lower",
+        60,
+        67,
+        "7d2c7a66917b6263e970851ab9a17878ed78e53bf94fe15adfc8d737f8e836fe"
+      ],
+      [
+        12,
+        "Resources.InsertionSort.sortRun_double_cost_le",
+        68,
+        78,
+        "cb0ebba40779696afc392fc100b9ae72d96e4ced0a9568a915720bfcdca4e5ab"
+      ],
+      [
+        13,
+        "Resources.InsertionSort.sortRun_cost_le",
+        79,
+        88,
+        "8bcecf36b77a3f0d8e940a140eb5bcb4e6bfb04ccbac9d29081f52bca36a8395"
+      ],
+      [
+        14,
+        "Resources.InsertionSort.sortRun_quadratic",
+        89,
+        96,
+        "4f8f00cf35bd4cb64bcda4a1ae8610b8532917e65a5308ff346959591b3efe38"
+      ],
+      [
+        15,
+        "Resources.InsertionSort.sortRun_cost_of_pairwise",
+        97,
+        104,
+        "d18639935248598bf8873326d7a704a1d0d223b918f75a77d73e7f064f8b1ae9"
+      ],
+      [
+        16,
+        "Resources.InsertionSort.sortRun_double_cost_of_opposite",
+        105,
+        116,
+        "5b0c9101e537cdbb330e6fe8d32f69ba89842a31a2497396ee67fb6b0b2c183d"
+      ],
+      [
+        17,
+        "Resources.InsertionSort.reverse_range_opposite",
+        117,
+        118,
+        "7f84f90ecbccb64586811c76ab86561f1f910cfad788cbe218f762d407d5e8d5"
+      ],
+      [
+        18,
+        "Resources.InsertionSort.sortRun_cost_reverse_range",
+        119,
+        130,
+        "e9a82ca69e2ca3b3ad718322f18629015b97054077148bb26ec63d0d608ab834"
+      ],
+      [
+        19,
+        "Resources.InsertionSort.sortRun_stable",
+        131,
+        137,
+        "e269c1708de4d11384c9271f4904bc8eb66c3b5b9334a515cb23951292348632"
+      ],
+      [
+        20,
+        "Resources.ListCalls.mapRun",
+        138,
+        141,
+        "ef1a5176c5f949a27dee6f1c486b922148cbe0aca2275f2253c23d21eaa73935"
+      ],
+      [
+        21,
+        "Resources.ListCalls.mapRun_nil",
+        142,
+        147,
+        "34aca5228dd9677c7f149eba51c72c724609c170afa63ed335396508c444dfe3"
+      ],
+      [
+        22,
+        "Resources.ListCalls.mapRun_cons",
+        148,
+        158,
+        "58215a48a8969c6224fe50a8283765d61b1d8863f8047cfcd15e9e49279b087d"
+      ],
+      [
+        23,
+        "Resources.ListCalls.mapRun_value",
+        159,
+        162,
+        "02380f4b2ee087d0b5b7b3d4a90a50ff1e69eec78bd6fa2f2d1ec7734457c955"
+      ],
+      [
+        24,
+        "Resources.ListCalls.mapRun_cost",
+        163,
+        173,
+        "c8128032ce0ceb325a89830ddd4a965d5e525eb44ab731f13b0a4cb98a528db5"
+      ],
+      [
+        25,
+        "Resources.ListCalls.mapRun_exact",
+        174,
+        185,
+        "45a1fe882e2118018f84647e96187db833a1dc1240f9ec490be4fdeefb688181"
+      ],
+      [
+        26,
+        "Resources.ListCalls.mapRun_cost_of_constant",
+        186,
+        197,
+        "a277afe31cb71172fda39ef13f2bcfd0a4c3fe821acfcb445f433c3200bf4bf3"
+      ],
+      [
+        27,
+        "Resources.ListCalls.filterRun",
+        198,
+        199,
+        "36e0b022a5e66e5c9541636d6101684236545f0359c21edd8c0fe954e8fc79af"
+      ],
+      [
+        28,
+        "Resources.ListCalls.filterRun_nil",
+        200,
+        204,
+        "5f78fa5986c3733f4972a2fdae5fb48308a5ec477de583bc87b984dd16fe16cd"
+      ],
+      [
+        29,
+        "Resources.ListCalls.filterRun_cons",
+        205,
+        217,
+        "b26923599b30b20a2558738d9efee2fe94bdf3a5c43c7f12b3d75e647ee0d664"
+      ],
+      [
+        30,
+        "Resources.ListCalls.filterRun_value",
+        218,
+        221,
+        "8a7bdddb0f7b0abb1184567c7d66c160365f57dd2bd0e69f072645e8d4318796"
+      ],
+      [
+        31,
+        "Resources.ListCalls.filterRun_cost",
+        222,
+        232,
+        "bcc6fd24d6beedfae90a8821b3b3eb35be91e39b6dc895dfeda383c014ed9576"
+      ],
+      [
+        32,
+        "Resources.ListCalls.filterRun_exact",
+        233,
+        244,
+        "705d20fc8df0c9ab5809239072ba04cf088f28bfcb3a340310f4be6e02b98d78"
+      ],
+      [
+        33,
+        "Resources.ListCalls.filterRun_cost_eq_mapRun",
+        245,
+        248,
+        "69d775cce00160b025d50ee210f88d29e7faff3aba2831ae685c7654460b4756"
+      ],
+      [
+        34,
+        "Resources.ListCalls.filterRun_cost_of_constant",
+        249,
+        260,
+        "60da2e1389213c201b0e35c8f399ec582759c925687fbf43f32eaa00882ffd01"
+      ],
+      [
+        35,
+        "Resources.ListCalls.takeRun",
+        261,
+        262,
+        "d405f68b97ef78dd238cda3895b167c2916ade395fc8729fa312a3ddaef93884"
+      ],
+      [
+        36,
+        "Resources.ListCalls.dropRun",
+        263,
+        264,
+        "9d20f6a4332bf06c79b18c4438cc13677d4d4f03400fedb4b2465981ae37c827"
+      ],
+      [
+        37,
+        "Resources.ListCalls.takeRun_nil",
+        265,
+        269,
+        "1c12a4c69a35ac5890c7402b20a43710cfc94b745a08233794e187745e93f7ad"
+      ],
+      [
+        38,
+        "Resources.ListCalls.takeRun_zero",
+        270,
+        274,
+        "d0d592a2593adbf8030fcc388b7d17c5d8937a87eed5627a9dfb904803635583"
+      ],
+      [
+        39,
+        "Resources.ListCalls.takeRun_succ_cons",
+        275,
+        285,
+        "763680260556575cf7795a58c49496c239f7285bb78a740b30d9edfd4f0c212b"
+      ],
+      [
+        40,
+        "Resources.ListCalls.dropRun_nil",
+        286,
+        290,
+        "15724246225657cf43095a1b861a859618b2de0608b56343ad0fe68d83ec869f"
+      ],
+      [
+        41,
+        "Resources.ListCalls.dropRun_zero",
+        291,
+        294,
+        "75adc69e0e7e10903b6a96c7b7953069fccc720e8d5dc94f3443789358778a28"
+      ],
+      [
+        42,
+        "Resources.ListCalls.dropRun_succ_cons",
+        295,
+        305,
+        "4e0bdfe94fd4cafe0546da94f9120ea0acdbd4f55ac10eb71168d1e63aea81e3"
+      ],
+      [
+        43,
+        "Resources.ListCalls.takeRun_exact",
+        306,
+        311,
+        "86543076462bfbaa1c4570b0e703c3f37aa2bb038b258f6e7186dac012513ee5"
+      ],
+      [
+        44,
+        "Resources.ListCalls.dropRun_exact",
+        312,
+        317,
+        "0ba7a97397d35b8f27ec711a1e51da70a08bf8fdfda59c6e63c6ff056ba16dbd"
+      ],
+      [
+        45,
+        "Resources.ListCalls.take_drop_separate",
+        318,
+        334,
+        "c0a0591cfaf79ec545e142c30615bfca40cca5007de0867a44ed7b0e86bdeaca"
+      ],
+      [
+        46,
+        "Resources.ListCalls.lookupRun",
+        335,
+        336,
+        "15e08285ead369ed7ff9b1cbfbe20454ef5b6cb6ab05d0ada9c82efc1aa7ad91"
+      ],
+      [
+        47,
+        "Resources.ListCalls.lookupRun_nil",
+        337,
+        341,
+        "1ba614785cf9638b3aa1bbe96cbf3445b011edfec0285e265445d344081f6b4a"
+      ],
+      [
+        48,
+        "Resources.ListCalls.lookupRun_zero_cons",
+        342,
+        347,
+        "a93b18d2bac4397993bf9b74feb32bcf923b5236312caff4eeb08d81ba67e89e"
+      ],
+      [
+        49,
+        "Resources.ListCalls.lookupRun_succ_cons",
+        348,
+        357,
+        "a215c45bbea9a8c62c0ddbf4683defd663910e7d6ef099bf370dc16a21ac52c6"
+      ],
+      [
+        50,
+        "Resources.ListCalls.lookupRun_value",
+        358,
+        361,
+        "74d522584bc8d7514ae687f80bd4c435ac7fd1fa9f220c63e6616255c8b36beb"
+      ],
+      [
+        51,
+        "Resources.ListCalls.lookupRun_cost",
+        362,
+        366,
+        "6d95ce2ab679a30c91f0aebd3d0e6ce2033f8f4c278ac31402d7843be37b9d14"
+      ],
+      [
+        52,
+        "Resources.ListCalls.lookupRun_cost_of_lt",
+        367,
+        371,
+        "cbd86c52f3dc33cbb179edacfcc7d49fd21dcf835a200728f11275376b99e877"
+      ],
+      [
+        53,
+        "Resources.ListCalls.lookupRun_valid",
+        372,
+        381,
+        "34d276c7a03a84fe49749d232a9604e051fe4e3a50d1f966e96ac160a507b753"
+      ],
+      [
+        54,
+        "Examples.FunctionalNotation.composition_and_eta",
+        382,
+        385,
+        "cd29300482fd032ef83c670f3bff52e9adf86e8cd7f9b5ae48fdc540f244aa87"
+      ],
+      [
+        55,
+        "Examples.FunctionalNotation.boolean_truth",
+        386,
+        393,
+        "4b352867110ad5ddc5e92afa78df762d85f764b036e438bdbf37a3c107458a3e"
+      ],
+      [
+        56,
+        "Examples.FunctionalNotation.comprehension_order_and_repetition",
+        394,
+        407,
+        "3e4ccca19badcbf77a63c1c35f21d4f6e11cb94f8fee725813395d05726fbba1"
+      ],
+      [
+        57,
+        "Examples.FunctionalNotation.set_union_intersection",
+        408,
+        419,
+        "f1a6b8ebd5431cb4ee9ef2701e1bdf985029f90f7875466d59f9363fee4dd8af"
+      ],
+      [
+        58,
+        "Examples.FunctionalNotation.proper_subset",
+        420,
+        433,
+        "9263749159c5948670574c8529ae0736e2e698c125dbeb2d73a02d452cf4cc44"
+      ],
+      [
+        59,
+        "Examples.FunctionalNotation.direct_image",
+        434,
+        437,
+        "4d012349b7262ba3caa85ef376039f4331723d2ea66e84089742b64b37e197db"
+      ],
+      [
+        60,
+        "Examples.FunctionalNotation.restricted_comprehension",
+        438,
+        444,
+        "4d8659b318f00d9f2131055e5db1c9bfab3624037c05573451c75f566ef14a7f"
+      ],
+      [
+        61,
+        "Examples.FunctionalNotation.two_variable_comprehension",
+        445,
+        450,
+        "b22184bc52d61f7014481908e226f02fa063dafcffacdaef0e8de108a156ebb8"
+      ],
+      [
+        62,
+        "Examples.FunctionalNotation.indexed_union",
+        451,
+        454,
+        "dcdebd0bb2ceb45083db5937e7948c75f8c2429cdcecef7894330ad7abee9909"
+      ],
+      [
+        63,
+        "Examples.FunctionalNotation.set_of_sets_observations",
+        455,
+        467,
+        "78dd9f5a666fc08eabf8fd0bde2fa75a68fc5bd8a0291629250bad709483bc52"
+      ],
+      [
+        64,
+        "Examples.FunctionalNotation.bounded_quantifiers",
+        468,
+        473,
+        "8a6bc17e66f23e05b28d57c67e78c104b77dbf897b7aa7eb088343e543daf7c5"
+      ],
+      [
+        65,
+        "Examples.FunctionalNotation.produc

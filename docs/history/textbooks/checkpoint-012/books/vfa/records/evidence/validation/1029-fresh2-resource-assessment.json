@@ -1,0 +1,268 @@
+{
+  "schema": 1,
+  "task": "local1029 bounded native memory/process resource assessment",
+  "researcher": "/root/resource_check",
+  "started_utc": "2026-11-02T23:53:14.575788+00:00",
+  "finished_utc": "2026-11-02T23:53:14.586592+00:00",
+  "elapsed_seconds": 0.010798100003739819,
+  "existing_assessment_absent_before_observation": true,
+  "prior_records": [
+    {
+      "path": "work-state/validation/20261102-lean-import-memory-research.json",
+      "bytes": 2629,
+      "sha256": "8e4e4c2aeb4ac664c2309e049d83605b9aaf03e14233eed2417ddb55ff77a8a0"
+    },
+    {
+      "path": "work-state/validation/1029-fresh2-preflight.json",
+      "bytes": 4843,
+      "sha256": "f0f82db87988ed1a8f189117a3a324c4c6df7ac83b233a32026c22aa26436375"
+    },
+    {
+      "path": "work-state/validation/1002-fresh1-handle-loss-scope-observation.json",
+      "bytes": 3057,
+      "sha256": "63abc13dbbabb5b33b6afd55a643e970ab9383f853df004fd74f7e48920a15b4"
+    }
+  ],
+  "prior_evidence_assessment": "Earlier compiler-option research established no applicable supported setting; earlier process preflight and20:50 cgroup snapshot do not establish the current task-associated competing-process state. No option research or source inspection was repeated.",
+  "observation_count": 1,
+  "observer_pid": 660453,
+  "page_size_bytes": 4096,
+  "expected_fresh2_checker": {
+    "pid": 578204,
+    "process_group": 578204,
+    "session": 578204,
+    "start_ticks": 8917111
+  },
+  "fresh2_checker_start_identity_matches": true,
+  "fresh2_checker_stat_error": null,
+  "visible_process_counts": {
+    "visible_entries": 70,
+    "stat_read": 70
+  },
+  "process_read_failure_aggregates": {},
+  "task_associated_processes": [
+    {
+      "pid": 578204,
+      "comm": "python3",
+      "state": "S",
+      "ppid": 1,
+      "process_group": 578204,
+      "session": 578204,
+      "start_ticks": 8917111,
+      "minor_faults": 11321,
+      "major_faults": 381,
+      "user_ticks": 211,
+      "system_ticks": 44,
+      "rss_pages": 3030,
+      "rss_bytes": 12410880,
+      "association_basis": [
+        "working_directory_under_task_workspace",
+        "same_group_or_session_as_start_identity_matched_fresh2_checker"
+      ],
+      "cwd": "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+      "is_observation_process": false,
+      "current_fresh2_group": true,
+      "command_summary": {
+        "argv0": "python3",
+        "argument_count": 7,
+        "task_workspace_reference": false
+      },
+      "command_argv": [
+        "python3",
+        "scripts/check.py",
+        "--fresh",
+        "--jobs",
+        "1",
+        "--candidate",
+        "HEAD"
+      ],
+      "executable": "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3.13",
+      "status_memory_and_threads": {
+        "VmSize": "99972 kB",
+        "VmRSS": "11352 kB",
+        "RssAnon": "11308 kB",
+        "RssFile": "44 kB",
+        "RssShmem": "0 kB",
+        "VmSwap": "0 kB",
+        "Threads": "2"
+      },
+      "cgroup_membership": "0::/"
+    },
+    {
+      "pid": 656438,
+      "comm": "lean",
+      "state": "S",
+      "ppid": 578204,
+      "process_group": 578204,
+      "session": 578204,
+      "start_ticks": 9715322,
+      "minor_faults": 396909,
+      "major_faults": 404999,
+      "user_ticks": 288,
+      "system_ticks": 10223,
+      "rss_pages": 95471,
+      "rss_bytes": 391049216,
+      "association_basis": [
+        "working_directory_under_task_workspace",
+        "same_group_or_session_as_start_identity_matched_fresh2_checker",
+        "explicit_task_workspace_reference_in_arguments"
+      ],
+      "cwd": "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+      "is_observation_process": false,
+      "current_fresh2_group": true,
+      "command_summary": {
+        "argv0": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "argument_count": 4,
+        "task_workspace_reference": true
+      },
+      "command_argv": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-o",
+        "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/fresh-check-4fhvnocs/SquareKit/SmoothGeometricDual.olean",
+        "SquareKit/SmoothGeometricDual.lean"
+      ],
+      "executable": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "status_memory_and_threads": {
+        "VmSize": "9011672 kB",
+        "VmRSS": "381692 kB",
+        "RssAnon": "139520 kB",
+        "RssFile": "242172 kB",
+        "RssShmem": "0 kB",
+        "VmSwap": "0 kB",
+        "Threads": "5"
+      },
+      "cgroup_membership": "0::/"
+    },
+    {
+      "pid": 660450,
+      "comm": "bash",
+      "state": "S",
+      "ppid": 232,
+      "process_group": 660450,
+      "session": 660450,
+      "start_ticks": 9751608,
+      "minor_faults": 4317,
+      "major_faults": 0,
+      "user_ticks": 1,
+      "system_ticks": 1,
+      "rss_pages": 512,
+      "rss_bytes": 2097152,
+      "association_basis": [
+        "working_directory_under_task_workspace"
+      ],
+      "cwd": "/workspace/scratch/0c54f2db1fdf",
+      "is_observation_process": false,
+      "current_fresh2_group": false,
+      "command_summary": {
+        "argv0": "/bin/bash",
+        "argument_count": 3,
+        "task_workspace_reference": true
+      },
+      "executable": "/usr/bin/bash",
+      "status_memory_and_threads": {
+        "VmSize": "7860 kB",
+        "VmRSS": "2148 kB",
+        "RssAnon": "416 kB",
+        "RssFile": "1732 kB",
+        "RssShmem": "0 kB",
+        "VmSwap": "0 kB",
+        "Threads": "1"
+      },
+      "cgroup_membership": "0::/"
+    },
+    {
+      "pid": 660453,
+      "comm": "python3",
+      "state": "R",
+      "ppid": 660450,
+      "process_group": 660450,
+      "session": 660450,
+      "start_ticks": 9751612,
+      "minor_faults": 2866,
+      "major_faults": 0,
+      "user_ticks": 1,
+      "system_ticks": 3,
+      "rss_pages": 2464,
+      "rss_bytes": 10092544,
+      "association_basis": [
+        "working_directory_under_task_workspace"
+      ],
+      "cwd": "/workspace/scratch/0c54f2db1fdf",
+      "is_observation_process": true,
+      "current_fresh2_group": false,
+      "command_summary": {
+        "argv0": "python3",
+        "argument_count": 2,
+        "task_workspace_reference": false
+      },
+      "executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+      "status_memory_and_threads": {
+        "VmSize": "39600 kB",
+        "VmRSS": "10152 kB",
+        "RssAnon": "5732 kB",
+        "RssFile": "4420 kB",
+        "RssShmem": "0 kB",
+        "VmSwap": "0 kB",
+        "Threads": "1"
+      },
+      "cgroup_membership": "0::/"
+    }
+  ],
+  "unrelated_process_aggregates": {
+    "count": 66,
+    "summed_rss_bytes": 3918213120,
+    "max_rss_bytes": 520175616,
+    "rss_at_least_128_MiB_count": 7,
+    "rss_at_least_512_MiB_count": 0,
+    "zero_rss_count": 0
+  },
+  "cgroup_observation": {
+    "controller_root": "/sys/fs/cgroup",
+    "self_membership": "0::/",
+    "files": {
+      "memory.current": "8589877248",
+      "memory.max": "8589934592",
+      "memory.high": "max",
+      "memory.swap.current": "0",
+      "memory.swap.max": "max",
+      "memory.events": "low 0\nhigh 0\nmax 633967566\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.events.local": "low 0\nhigh 0\nmax 633967567\noom 0\noom_kill 0\noom_group_kill 0",
+      "memory.stat": "anon 2388004864\nfile 3717976064\nkernel 2482888704\nkernel_stack 3817472\npagetables 657702912\nsec_pagetables 0\npercpu 12320\nsock 0\nvmalloc 8192\nshmem 4096\nfile_mapped 1162010624\nfile_dirty 6352896\nfile_writeback 0\nswapcached 0\nanon_thp 333447168\nfile_thp 0\nshmem_thp 0\ninactive_anon 2387910656\nactive_anon 483328\ninactive_file 772079616\nactive_file 2945748992\nunevictable 0\nslab_reclaimable 1732351720\nslab_unreclaimable 86474488\nslab 1818826208\nworkingset_refault_anon 0\nworkingset_refault_file 26241914575\nworkingset_activate_anon 0\nworkingset_activate_file 10320349631\nworkingset_restore_anon 0\nworkingset_restore_file 5864434671\nworkingset_nodereclaim 19945334\npgdemote_kswapd 0\npgdemote_direct 0\npgdemote_khugepaged 0\npgdemote_proactive 0\npgscan 30538454860\npgsteal 26841102233\npswpin 0\npswpout 0\npgscan_kswapd 221447254\npgscan_direct 30307273180\npgscan_khugepaged 9734426\npgscan_proactive 0\npgsteal_kswapd 182754687\npgsteal_direct 26649646893\npgsteal_khugepaged 8700653\npgsteal_proactive 0\npgfault 1930834351\npgmajfault 393597687\npgrefill 11175718905\npgactivate 621818536\npgdeactivate 11093675644\npglazyfree 25036\npglazyfreed 0\nswpin_zero 0\nswpout_zero 0\nthp_fault_alloc 500840\nthp_collapse_alloc 2892\nthp_swpout 0\nthp_swpout_fallback 0",
+      "cpu.max": "800000 100000",
+      "cpu.stat": "usage_usec 215338905363\nuser_usec 71679047064\nsystem_usec 143659858299\nnice_usec 0\nnr_periods 848877\nnr_throttled 4208\nthrottled_usec 259210902\nnr_bursts 0\nburst_usec 0"
+    },
+    "read_errors": {
+      "memory.pressure": {
+        "type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpu.pressure": {
+        "type": "FileNotFoundError",
+        "errno": 2
+      },
+      "io.pressure": {
+        "type": "FileNotFoundError",
+        "errno": 2
+      }
+    }
+  },
+  "assessment": {
+    "current_fresh2_group_summed_rss_bytes": 403460096,
+    "other_task_associated_summed_rss_excluding_observer_bytes": 2097152,
+    "other_task_associated_at_least_128_MiB": [],
+    "descriptive_threshold_only_bytes": 134217728,
+    "demonstrably_inactive_or_obsolete_high_memory_process_identified": false,
+    "supported_process_action": "None established by this one sample; do not signal any process on this assessment.",
+    "formal_outcome": "Not assessed; this is no acceptance evidence or gate change."
+  },
+  "scope": "One native, non-atomic metadata sample: stat/cwd for visible processes, command summaries for workspace-associated or Lean/Lake candidates, selected status/cgroup fields for associated processes, and visible cgroup-root memory/CPU/pressure files. Unrelated identities, command lines and private paths are not retained. No environments, source/artifact payloads, descriptors, mappings, signal, compiler/helper, OS/cgroup/configuration change or cleanup.",
+  "limits": [
+    "Working-directory or argument association alone does not prove ownership, inactivity or obsolescence. Only the original checker is bound here to a previously recorded start identity.",
+    "Processes can exit/change during the pass. Restricted namespaces, unavailable processes and the bounded command-line filter limit negative findings; this is not universal discovery.",
+    "RSS sums double-count shared resident pages and do not partition physical or cgroup memory. They are not directly comparable to cgroup charged bytes.",
+    "Cgroup counters and pressure observations are point-in-time or cumulative values and do not identify a performance cause, recorder-loss cause or safe tuning action.",
+    "The visible cgroup root and membership records qualify scope; no wider ancestor or platform-internal inspection was performed.",
+    "No original checker return status or final compilation/audit result follows from this observation."
+  ],
+  "mutations": "Only this new evidence JSON is written; all task processes, source, artifacts, flags and configurations remain unchanged."
+}

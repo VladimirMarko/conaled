@@ -1,0 +1,32 @@
+{
+  "original": {
+    "path": "reviews/permutation-placement-preflight-snapshots/XU06-BC01-PermutationPlacementBoundary.lean",
+    "bytes": 18923,
+    "lines": 404,
+    "sha256": "e159483b9af4503c4097abb469f869c26e7555bc73e6fc9b509cc55a2e4f7d86"
+  },
+  "current_candidate": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+  "current_boundary": {
+    "bytes": 19014,
+    "lines": 406,
+    "sha256": "d453afaeec363a6e409e2d18d6b9e727868015fb840bd7d967c0e81844d4fc05"
+  },
+  "complete_original_to_candidate_diff_read": true,
+  "hunks": 2,
+  "diff_sha256": "055db2fc6e8a5d38954e5b6ef50337d103e863fc5eb86ab666b01f55adf494c1",
+  "corrections": [
+    {
+      "id": "XU06-BC01",
+      "original_status": "source-predicted rewrite mismatch; not an observed compiler failure",
+      "source_change": "typed local hzero at the main rank3 specialization followed by rw [hzero]",
+      "disposition": "implemented and independently source-rechecked; final compiler and review confirmation pending"
+    },
+    {
+      "id": "XU06-BC02",
+      "original_status": "deprecated umbrella import; not an observed compiler failure",
+      "source_change": "Mathlib.MeasureTheory.Measure.Dirac replaced only by its supported Dirac.Def module",
+      "disposition": "implemented and independently source-rechecked against immutable pin; final compiler and review confirmation pending"
+    }
+  ],
+  "no_original_record_overwritten": true
+}

@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "time": "2026-11-04T01:38:10.976592+00:00",
+  "kind": "root-regression-driver-review-reconciliation",
+  "files": {
+    "run-integration-regressions-r1-045.py": {
+      "bytes": 36560,
+      "sha256": "96b367299b0a87fe17c7556b4ebf2f02502fdf8d259c28e594ac0a583a1c351e"
+    },
+    "stock-regression-driver-independent-read-review-045.json": {
+      "bytes": 12035,
+      "sha256": "1ec781c18681e64a2930a25b094454155610b7773f1bea89baf5fe447fb5017c"
+    },
+    "stock-regression-driver-independent-read-review-r2-045.json": {
+      "bytes": 5231,
+      "sha256": "1bab39f3bb7fe2e8144551a17fdd6b73e25eabfbead5a10986539269bb04697b"
+    },
+    "stock-regression-driver-root-read-review-045.json": {
+      "bytes": 2037,
+      "sha256": "a4d0f8a29a8618714da06f81fee2619f336c97290b0b19e2c84edc2beb12cdbf"
+    }
+  },
+  "root_read_both_independent_reports_completely": true,
+  "root_complete_source_and_exact_diff_read_receipt": "stock-regression-driver-root-read-review-045.json",
+  "finding_disposition": {
+    "SRD-READ-001": "fixed by sole final-print deletion, independently verified"
+  },
+  "new_or_unresolved_concrete_static_findings": 0,
+  "independent_static_outcome": "no_unresolved_findings_in_reviewed_scope",
+  "current_ordinary_prerequisite": "integration-3cf-ordinary-r2-045",
+  "current_prerequisite_incomplete": true,
+  "execution_authorized": false,
+  "next_step": "Require actual ordinary full success, then explicit exact prerequisite rebinding and bounded review before one-use execution.",
+  "stock_commands_limits_controller_and_formal_source_unchanged": true,
+  "formal_acceptance": false
+}

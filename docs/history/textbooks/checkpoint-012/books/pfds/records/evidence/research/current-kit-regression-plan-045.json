@@ -1,0 +1,123 @@
+{
+  "time": "2026-11-04T00:53:59.831954+00:00",
+  "kind": "current-kit-regression-execution-plan",
+  "source": "Complete read-only operational_review report, read by root",
+  "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+  "checkout": "validation-pfds-integration",
+  "required_successful_ordinary_run": "integration-3cf-ordinary-r1-045",
+  "execution_started": false,
+  "formal_acceptance": false,
+  "fresh_baseline_still_required": true,
+  "preflight": [
+    "both full/focus locks held nonblocking through final evidence and cleanup",
+    "approved runner.full_evidence with explicit integration and incremental mode",
+    "snapshot explicit integration equals successful final_inputs; require_frozen candidate",
+    "live stock verification bytes equal saved ordinary evidence",
+    "real private checkout/.lake/build; exact shared pinned packages",
+    "space readiness observed again"
+  ],
+  "environment": {
+    "provider": "verified kit.environment(native-state,1)",
+    "proof_addition": {
+      "LAKE_ARTIFACT_CACHE": "false"
+    },
+    "checker_additions_after_kit": {
+      "ELAN_HOME": "native-state/elan-check-tests",
+      "ELAN_TOOLCHAIN": "pfds-unified-4.35.0",
+      "PATH_prefix": "toolchains/elan-4.2.4"
+    },
+    "outer_LEAN_override": false,
+    "record_only_selected_nonsensitive_variables": true
+  },
+  "elan": {
+    "binary_sha256": "e0f4b30b29c565625189744847dfef5f132b6322c5e452dbebfeae780c9749e5",
+    "selection": "pfds-unified-4.35.0",
+    "profile": "native-state/profile",
+    "actual_preflight_commands": [
+      [
+        "elan",
+        "--version"
+      ],
+      [
+        "elan",
+        "which",
+        "lean"
+      ]
+    ],
+    "reinstall_or_relink": false
+  },
+  "steps": [
+    {
+      "name": "proof-audit-artifact",
+      "argv": [
+        "lake",
+        "--no-cache",
+        "--rehash",
+        "build",
+        "+ProofAudit"
+      ],
+      "environment": "proof_env",
+      "prerequisite_for_negative_suite": "actual normal ProofAudit.olean/trace; ordinary check executes audit without emitting this artifact"
+    },
+    {
+      "name": "checker",
+      "argv": [
+        "python3",
+        "scripts/test-check.py"
+      ],
+      "environment": "checker_env",
+      "current_suite_tests": 19,
+      "stock_limits_seconds": [
+        45,
+        15
+      ],
+      "internal_jobs_2_unchanged": true
+    },
+    {
+      "name": "roots",
+      "argv": [
+        "python3",
+        "scripts/test-proof-audit-roots.py"
+      ],
+      "environment": "base_env",
+      "lean_calls": 4,
+      "per_lean_call_limit_seconds": 60,
+      "assertion": "Exact reported/reference root-set equality; retain actual observed count, not a claim of38tests"
+    },
+    {
+      "name": "negative-audit",
+      "argv": [
+        "lake",
+        "env",
+        "python3",
+        "scripts/test-proof-audit.py"
+      ],
+      "environment": "base_env",
+      "expected": [
+        "unused external axiom accepted",
+        "private transitive external axiom rejected",
+        "private admission rejected",
+        "source unsafe declaration rejected"
+      ],
+      "stock_per_call_timeout": null
+    }
+  ],
+  "ownership": [
+    "one direct synchronously owned new session/group per sequential command",
+    "protected startup, deferred single cancellation request, wait and record actual return",
+    "read-only progress display does not infer success",
+    "failed stock inner timeout may leave group descendants after suite leader exits; account for whole current owned group before proceeding",
+    "stop later stages after any failure or unresolved cleanup",
+    "historical3600s wholecommand cap is containment, not an enlarged stock limit"
+  ],
+  "evidence": [
+    "exclusive new receipt/lognames and driver source/hash",
+    "exact argv/cwd/selected env/start/end/elapsed/actualwait/timeouts/cancellation/cleanup/loghashes",
+    "actual normal ProofAudit artifacts and trace hashes",
+    "full before/after approved source/runtime/controller/requirements/dependency snapshots",
+    "before/after genuine Elan binary/link identities",
+    "live stock verification bytes unchanged; never restore bycopy",
+    "acceptancefalse"
+  ],
+  "next_acceptance_boundary": "Separate genuine fresh full/audit success, both independent formal evidence continuations for nine retainedfullscopes/39IDs, dependency order, immediate final verification against matching then-live actual stockrecord."
+}

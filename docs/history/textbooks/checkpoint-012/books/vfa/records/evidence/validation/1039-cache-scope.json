@@ -1,0 +1,763 @@
+{
+  "format": 1,
+  "classification": "static candidate-specific acquisition inventory; not formal validation, cleanup authorization, or process-quiescence evidence",
+  "started_utc": "2026-11-04T06:27:19.103776+00:00",
+  "completed_utc": "2026-11-04T06:27:40.013884+00:00",
+  "candidate": "cf0a687265c1929ffd3ff6f15fa18febe0fb61b5",
+  "previous_candidate": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+  "fixed_review_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "source_root": "/workspace/scratch/60f07f0e98c8/conaled-vfa/conaled",
+  "isolated_candidate_root": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation",
+  "dependency_root": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages",
+  "checkout_observations_before": {
+    "conaled": {
+      "head": "cf0a687265c1929ffd3ff6f15fa18febe0fb61b5",
+      "status": "",
+      "git_optional_locks": "0"
+    },
+    "vfa-summation-validation": {
+      "head": "cf0a687265c1929ffd3ff6f15fa18febe0fb61b5",
+      "status": "",
+      "git_optional_locks": "0"
+    },
+    "vfa-unified-pty-validation": {
+      "head": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+      "status": "",
+      "git_optional_locks": "0"
+    },
+    "vfa-validation": {
+      "head": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+      "status": "",
+      "git_optional_locks": "0"
+    }
+  },
+  "checkout_observations_after": {
+    "conaled": {
+      "head": "cf0a687265c1929ffd3ff6f15fa18febe0fb61b5",
+      "status": "",
+      "git_optional_locks": "0"
+    },
+    "vfa-summation-validation": {
+      "head": "cf0a687265c1929ffd3ff6f15fa18febe0fb61b5",
+      "status": "",
+      "git_optional_locks": "0"
+    },
+    "vfa-unified-pty-validation": {
+      "head": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+      "status": "",
+      "git_optional_locks": "0"
+    },
+    "vfa-validation": {
+      "head": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+      "status": "",
+      "git_optional_locks": "0"
+    }
+  },
+  "git_optional_locks": "0",
+  "source_delta": [
+    {
+      "path": "Applications/Linear/StructuredCosts.lean",
+      "added_prefix": "import Mathlib.Algebra.BigOperators.Group.List.Defs\nimport Mathlib.Algebra.Ring.Defs\n",
+      "previous_sha256": "328e462f214b45754ab7197d869742ffd3c398c82512867931d3ffa6aebef911",
+      "current_sha256": "a0f543a47b9a9205dd171f5e170bb88c628fbd203cbd1afd4cd0ed541ed57056",
+      "existing_body_preserved": true
+    },
+    {
+      "path": "Applications/Probability/FiniteMH.lean",
+      "added_prefix": "import Mathlib.Algebra.Order.BigOperators.Group.Finset\n",
+      "previous_sha256": "5f6d8470d79da75a05655a10543f999b7558bf97abbfa235bd351050a145bad9",
+      "current_sha256": "5dc2a4361e8053fe27e0355dbeea9c646a00a7718b11f9d60d984eabd2e0247d",
+      "existing_body_preserved": true
+    }
+  ],
+  "all_954_local_source_bytes_match_isolated_candidate": true,
+  "dependency_store_policy": "Provisioning project root remains frozen at4adc; only its nine unchanged real package repositories supply dependency inputs. Old isolated checkout remains untouched at4adc; its child terminal state is unknown. New focused/compiler outputs are private to the new checkout and not inspected here.",
+  "pins": [
+    {
+      "package": "Cli",
+      "expected_revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "observed_revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "status": "",
+      "url": "https://github.com/leanprover/lean4-cli",
+      "git_optional_locks": "0"
+    },
+    {
+      "package": "LeanSearchClient",
+      "expected_revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "observed_revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "status": "",
+      "url": "https://github.com/leanprover-community/LeanSearchClient",
+      "git_optional_locks": "0"
+    },
+    {
+      "package": "Qq",
+      "expected_revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "observed_revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "status": "",
+      "url": "https://github.com/leanprover-community/quote4",
+      "git_optional_locks": "0"
+    },
+    {
+      "package": "aesop",
+      "expected_revision": "4a174c490d8707121c4a9290800489f105d85e07",
+      "observed_revision": "4a174c490d8707121c4a9290800489f105d85e07",
+      "status": "",
+      "url": "https://github.com/leanprover-community/aesop",
+      "git_optional_locks": "0"
+    },
+    {
+      "package": "batteries",
+      "expected_revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "observed_revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "status": "",
+      "url": "https://github.com/leanprover-community/batteries",
+      "git_optional_locks": "0"
+    },
+    {
+      "package": "importGraph",
+      "expected_revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "observed_revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "status": "",
+      "url": "https://github.com/leanprover-community/import-graph",
+      "git_optional_locks": "0"
+    },
+    {
+      "package": "mathlib",
+      "expected_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "observed_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "status": "",
+      "url": "https://github.com/leanprover-community/mathlib4.git",
+      "git_optional_locks": "0"
+    },
+    {
+      "package": "plausible",
+      "expected_revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "observed_revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "status": "",
+      "url": "https://github.com/leanprover-community/plausible",
+      "git_optional_locks": "0"
+    },
+    {
+      "package": "proofwidgets",
+      "expected_revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "observed_revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "status": "",
+      "url": "https://github.com/leanprover-community/ProofWidgets4",
+      "git_optional_locks": "0"
+    }
+  ],
+  "toolchain_pin": "leanprover/lean4:v4.35.0",
+  "lake_manifest_sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+  "gate_source_records": [
+    [
+      "check.sh",
+      "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd"
+    ],
+    [
+      "scripts/check.py",
+      "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+    ],
+    [
+      "scripts/lake_integrity.py",
+      "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f"
+    ],
+    [
+      "scripts/lake-output-hashes.lean",
+      "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b"
+    ],
+    [
+      "scripts/test-proof-audit.py",
+      "72e8f1c06ad1ca427b6b2edb914cbf4c36b028a381a205be047f5792fcb1f839"
+    ],
+    [
+      "ProofAudit.lean",
+      "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd"
+    ],
+    [
+      "lakefile.toml",
+      "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+    ],
+    [
+      "lake-manifest.json",
+      "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    ],
+    [
+      "lean-toolchain",
+      "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    ]
+  ],
+  "kit_launcher_sha256": "9d1b1e6f10ae574e5c1f388d8df069f43c9ca3e1a993c372293595abd2e5090a",
+  "prior_evidence": {
+    "source_candidate_record": "validation/1039-candidate.json",
+    "source_candidate_record_sha256": "3b758023c777aac9828282dd1800409f6939b69b4b5992b4266f35b40a5aa5ee",
+    "previous_scope": "validation/1038-cache-scope.json",
+    "previous_scope_sha256": "6ce74671c1ab6c03ad1ab0569355ca5150e0e70009d90710cd74762096be926a",
+    "original_inventory": "validation/1036-static-cache-closure/inventory.json",
+    "original_inventory_sha256": "5a550ae92e0787596d6b0cbcd74c638bf3bfb43b50efdd0cc6321eacc4ed25af",
+    "parser_source_path": "validation/1036-static-cache-closure/README.md",
+    "parser_prefix_sha256": "0f4b725f58644dfe2814e11e07cea3428b59b35dcabaafee170e9f578dc59fe3",
+    "previous_local_source_digest_reproduced": "32fb476eb261b401cb787e67ef4607606ba6dedacc55adf3ccc471a83e41e684",
+    "original_local_source_digest_reproduced": "36b0d0311b31b2307e9824c33ceb44efad525888821322679179596749d0794f",
+    "original_semantic_graph_digest_reproduced": "2d366cf07c462424cb6438b7a7a5aea7ed1e64d3b18d77e44513c23027fa1ded",
+    "previous_semantic_graph_digest_reproduced_with_original_Size_source_fallback_encoding": "6d6e481583179d1c754c7297aff537ab3b09e3ce18a49f6b08ee9da65e8222d7",
+    "previous_graph_representation_note": "Previous1038 inventory predated installation of Size metadata and represented that one node by source-name edges. This record checks that representation explicitly; the current graph uses validated metadata tuples for all3932 artifact nodes.",
+    "original3931_metadata_digest_reproduced": "d47cd67779cc6755e5ce837e59691b4753a7548acce255cb5de76d7539535b3a",
+    "original3931_dependency_source_digest_reproduced": "43f7efb1ca4adebade8a98cd35b9a91768309f6e7dfca871149dd3be10ce9e9a",
+    "original18_Cache_source_fallback_records_match": true
+  },
+  "roots": {
+    "local_modules_count": 954,
+    "local_module_names_sha256": "99bd616131363558d88a34c7a084b9a48c839cf19da25f8d21194112c2e931f6",
+    "direct_external_imports": [
+      "Aesop",
+      "Batteries.Data.DList.Lemmas",
+      "Init",
+      "Lean",
+      "Lean.DeclarationRange",
+      "Lean.Elab.Tactic.NormCast",
+      "Lean.Elab.Tactic.Omega",
+      "Lean.Util.CollectAxioms",
+      "Mathlib.Algebra.Algebra.Subalgebra.Basic",
+      "Mathlib.Algebra.BigOperators.Field",
+      "Mathlib.Algebra.BigOperators.Fin",
+      "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+      "Mathlib.Algebra.BigOperators.Group.Finset.Piecewise",
+      "Mathlib.Algebra.BigOperators.Group.List.Basic",
+      "Mathlib.Algebra.BigOperators.Group.List.Defs",
+      "Mathlib.Algebra.BigOperators.Ring.Finset",
+      "Mathlib.Algebra.Category.Grp.FilteredColimits",
+      "Mathlib.Algebra.Category.Grp.Limits",
+      "Mathlib.Algebra.Category.Ring.Basic",
+      "Mathlib.Algebra.DualNumber",
+      "Mathlib.Algebra.FreeMonoid.Basic",
+      "Mathlib.Algebra.Group.Action.Option",
+      "Mathlib.Algebra.Group.Basic",
+      "Mathlib.Algebra.Group.Nat.Defs",
+      "Mathlib.Algebra.Group.PUnit",
+      "Mathlib.Algebra.Group.Prod",
+      "Mathlib.Algebra.Group.TypeTags.Basic",
+      "Mathlib.Algebra.Group.TypeTags.Finite",
+      "Mathlib.Algebra.GroupWithZero.Units.Basic",
+      "Mathlib.Algebra.MvPolynomial.CommRing",
+      "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+      "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+      "Mathlib.Algebra.Order.BigOperators.Group.List",
+      "Mathlib.Algebra.Order.Field.Rat",
+      "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+      "Mathlib.Algebra.Polynomial.Basic",
+      "Mathlib.Algebra.Polynomial.Eval.Degree",
+      "Mathlib.Algebra.Ring.Basic",
+      "Mathlib.Algebra.Ring.BooleanRing",
+      "Mathlib.Algebra.Ring.Defs",
+      "Mathlib.Algebra.Ring.Int.Defs",
+      "Mathlib.Algebra.Ring.Nat",
+      "Mathlib.Algebra.Ring.Prod",
+      "Mathlib.Algebra.Tropical.Basic",
+      "Mathlib.Analysis.Asymptotics.Defs",
+      "Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension",
+      "Mathlib.Analysis.Calculus.ContDiff.Comp",
+      "Mathlib.Analysis.Calculus.ContDiff.Operations",
+      "Mathlib.Analysis.Calculus.ContDiff.RCLike",
+      "Mathlib.Analysis.Calculus.Deriv.Add",
+      "Mathlib.Analysis.Calculus.Deriv.Inv",
+      "Mathlib.Analysis.Calculus.Deriv.Mul",
+      "Mathlib.Analysis.Calculus.Deriv.Polynomial",
+      "Mathlib.Analysis.Calculus.Deriv.Pow",
+      "Mathlib.Analysis.Calculus.Deriv.Star",
+      "Mathlib.Analysis.Calculus.FDeriv.Add",
+      "Mathlib.Analysis.Calculus.FDeriv.Comp",
+      "Mathlib.Analysis.Calculus.FDeriv.CompCLM",
+      "Mathlib.Analysis.Calculus.FDeriv.Mul",
+      "Mathlib.Analysis.Calculus.FDeriv.Prod",
+      "Mathlib.Analysis.Calculus.IteratedDeriv.Defs",
+      "Mathlib.Analysis.Calculus.MeanValue",
+      "Mathlib.Analysis.Calculus.ParametricIntervalIntegral",
+      "Mathlib.Analysis.Complex.Basic",
+      "Mathlib.Analysis.Complex.RealDeriv",
+      "Mathlib.Analysis.InnerProductSpace.Adjoint",
+      "Mathlib.Analysis.Normed.Field.Basic",
+      "Mathlib.Analysis.Normed.Module.FiniteDimension",
+      "Mathlib.Analysis.ODE.ExistUnique",
+      "Mathlib.Analysis.SpecialFunctions.Artanh",
+      "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+      "Mathlib.Analysis.SpecialFunctions.SmoothTransition",
+      "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+      "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv",
+      "Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp",
+      "Mathlib.Analysis.SpecificLimits.Basic",
+      "Mathlib.Basic.Real.Basic",
+      "Mathlib.CategoryTheory.Action",
+      "Mathlib.CategoryTheory.Adhesive.Basic",
+      "Mathlib.CategoryTheory.Adjunction.Basic",
+      "Mathlib.CategoryTheory.Adjunction.Limits",
+      "Mathlib.CategoryTheory.Adjunction.Mates",
+      "Mathlib.CategoryTheory.Adjunction.Unique",
+      "Mathlib.CategoryTheory.Bicategory.LocallyDiscrete",
+      "Mathlib.CategoryTheory.Bicategory.Strict.Basic",
+      "Mathlib.CategoryTheory.Category.Cat",
+      "Mathlib.CategoryTheory.Category.Preorder",
+      "Mathlib.CategoryTheory.Category.ULift",
+      "Mathlib.CategoryTheory.CodiscreteCategory",
+      "Mathlib.CategoryTheory.Comma.Basic",
+      "Mathlib.CategoryTheory.Comma.Over.Basic",
+      "Mathlib.CategoryTheory.Comma.Over.Pullback",
+      "Mathlib.CategoryTheory.Comma.StructuredArrow.Basic",
+      "Mathlib.CategoryTheory.Discrete.Basic",
+      "Mathlib.CategoryTheory.Discrete.SumsProducts",
+      "Mathlib.CategoryTheory.Elements",
+      "Mathlib.CategoryTheory.Endofunctor.Algebra",
+      "Mathlib.CategoryTheory.EqToHom",
+      "Mathlib.CategoryTheory.Equivalence",
+      "Mathlib.CategoryTheory.Extensive",
+      "Mathlib.CategoryTheory.Grothendieck",
+      "Mathlib.CategoryTheory.Groupoid.Basic",
+      "Mathlib.CategoryTheory.Groupoid.Discrete",
+      "Mathlib.CategoryTheory.Groupoid.Grpd.Basic",
+      "Mathlib.CategoryTheory.HomCongr",
+      "Mathlib.CategoryTheory.Limits.Comma",
+      "Mathlib.CategoryTheory.Limits.Constructions.Over.Basic",
+      "Mathlib.CategoryTheory.Limits.Constructions.Over.Products",
+      "Mathlib.CategoryTheory.Limits.FunctorCategory.Basic",
+      "Mathlib.CategoryTheory.Limits.Preserves.Finite",
+      "Mathlib.CategoryTheory.Limits.Preserves.Shapes.BinaryProducts",
+      "Mathlib.CategoryTheory.Limits.Preserves.Shapes.Over",
+      "Mathlib.CategoryTheory.Limits.Preserves.Shapes.Products",
+      "Mathlib.CategoryTheory.Limits.Preserves.Shapes.Pullbacks",
+      "Mathlib.CategoryTheory.Limits.Preserves.Shapes.Terminal",
+      "Mathlib.CategoryTheory.Limits.Shapes.BinaryProducts.ProdComparison",
+      "Mathlib.CategoryTheory.Limits.Shapes.Equalizers",
+      "Mathlib.CategoryTheory.Limits.Shapes.Multiequalizer",
+      "Mathlib.CategoryTheory.Limits.Shapes.Pullback.HasPullback",
+      "Mathlib.CategoryTheory.Limits.Shapes.Pullback.IsPullback.Basic",
+      "Mathlib.CategoryTheory.Limits.Shapes.Pullback.Pasting",
+      "Mathlib.CategoryTheory.Limits.Shapes.StrictInitial",
+      "Mathlib.CategoryTheory.Limits.Types.Colimits",
+      "Mathlib.CategoryTheory.Limits.Types.Coproducts",
+      "Mathlib.CategoryTheory.Limits.Types.Limits",
+      "Mathlib.CategoryTheory.Limits.Types.Products",
+      "Mathlib.CategoryTheory.Limits.Types.Pullbacks",
+      "Mathlib.CategoryTheory.LocallyCartesianClosed.ExponentiableMorphism",
+      "Mathlib.CategoryTheory.LocallyCartesianClosed.Sections",
+      "Mathlib.CategoryTheory.Monoidal.Cartesian.Basic",
+      "Mathlib.CategoryTheory.Monoidal.Cartesian.FunctorCategory",
+      "Mathlib.CategoryTheory.Monoidal.Cartesian.Over",
+      "Mathlib.CategoryTheory.Monoidal.Closed.Cartesian",
+      "Mathlib.CategoryTheory.Monoidal.Closed.Functor",
+      "Mathlib.CategoryTheory.Monoidal.Closed.FunctorToTypes",
+      "Mathlib.CategoryTheory.Monoidal.Closed.Types",
+      "Mathlib.CategoryTheory.Quotient",
+      "Mathlib.CategoryTheory.SingleObj",
+      "Mathlib.CategoryTheory.Sites.Canonical",
+      "Mathlib.CategoryTheory.Sites.CartesianClosed",
+      "Mathlib.CategoryTheory.Sites.ConcreteSheafification",
+      "Mathlib.CategoryTheory.Sites.ConstantSheaf",
+      "Mathlib.CategoryTheory.Sites.Coverage",
+      "Mathlib.CategoryTheory.Sites.LeftExact",
+      "Mathlib.CategoryTheory.Sites.Limits",
+      "Mathlib.CategoryTheory.Sites.LocallyBijective",
+      "Mathlib.CategoryTheory.Sites.LocallySurjective",
+      "Mathlib.CategoryTheory.Sites.Point.Presheaf",
+      "Mathlib.CategoryTheory.Sites.Point.Skyscraper",
+      "Mathlib.CategoryTheory.Sites.RegularEpi",
+      "Mathlib.CategoryTheory.Sites.Sheaf",
+      "Mathlib.CategoryTheory.Sites.SheafOfTypes",
+      "Mathlib.CategoryTheory.Sites.Subcanonical",
+      "Mathlib.CategoryTheory.Sites.Subsheaf",
+      "Mathlib.CategoryTheory.Sites.Types",
+      "Mathlib.CategoryTheory.Subfunctor.Basic",
+      "Mathlib.CategoryTheory.Subfunctor.Image",
+      "Mathlib.CategoryTheory.Subobject.MonoOver",
+      "Mathlib.CategoryTheory.Types.Basic",
+      "Mathlib.CategoryTheory.Whiskering",
+      "Mathlib.CategoryTheory.Yoneda",
+      "Mathlib.Computability.Language",
+      "Mathlib.Computability.RegularExpressions",
+      "Mathlib.Data.ENat.Basic",
+      "Mathlib.Data.Fin.Basic",
+      "Mathlib.Data.Fin.Rev",
+      "Mathlib.Data.Fin.VecNotation",
+      "Mathlib.Data.Finset.Basic",
+      "Mathlib.Data.Finset.Card",
+      "Mathlib.Data.Finset.Dedup",
+      "Mathlib.Data.Finset.Fin",
+      "Mathlib.Data.Finset.Max",
+      "Mathlib.Data.Finset.Powerset",
+      "Mathlib.Data.Finset.Sort",
+      "Mathlib.Data.Fintype.Basic",
+      "Mathlib.Data.Fintype.BigOperators",
+      "Mathlib.Data.Fintype.EquivFin",
+      "Mathlib.Data.Fintype.Fin",
+      "Mathlib.Data.Fintype.Option",
+      "Mathlib.Data.Fintype.Pi",
+      "Mathlib.Data.Fintype.Powerset",
+      "Mathlib.Data.Fintype.Prod",
+      "Mathlib.Data.Fintype.Sigma",
+      "Mathlib.Data.Fintype.Sum",
+      "Mathlib.Data.Int.Basic",
+      "Mathlib.Data.Int.Cast.Basic",
+      "Mathlib.Data.List.Basic",
+      "Mathlib.Data.List.Destutter",
+      "Mathlib.Data.List.DropRight",
+      "Mathlib.Data.List.Forall2",
+      "Mathlib.Data.List.Induction",
+      "Mathlib.Data.List.Infix",
+      "Mathlib.Data.List.Iterate",
+      "Mathlib.Data.List.Lex",
+      "Mathlib.Data.List.Nodup",
+      "Mathlib.Data.List.OfFn",
+      "Mathlib.Data.List.Pairwise",
+      "Mathlib.Data.List.Perm.Basic",
+      "Mathlib.Data.List.Sort",
+      "Mathlib.Data.List.Sublists",
+      "Mathlib.Data.List.TakeDrop",
+      "Mathlib.Data.Matrix.Block",
+      "Mathlib.Data.Matrix.ColumnRowPartitioned",
+      "Mathlib.Data.Matrix.Mul",
+      "Mathlib.Data.Nat.Basic",
+      "Mathlib.Data.Nat.Find",
+      "Mathlib.Data.Nat.Log",
+      "Mathlib.Data.Nat.Size",
+      "Mathlib.Data.Rat.Defs",
+      "Mathlib.Data.Rat.Floor",
+      "Mathlib.Data.Rat.Lemmas",
+      "Mathlib.Data.Set.Finite.Basic",
+      "Mathlib.Data.Set.Finite.Lattice",
+      "Mathlib.Data.Set.Lattice.Image",
+      "Mathlib.Data.Sigma.Basic",
+      "Mathlib.Data.Vector.Basic",
+      "Mathlib.Data.ZMod.Basic",
+      "Mathlib.Geometry.Diffeology.Basic",
+      "Mathlib.Geometry.Manifold.ContMDiff.Atlas",
+      "Mathlib.Geometry.Manifold.ContMDiff.Constructions",
+      "Mathlib.Geometry.Manifold.ContMDiff.NormedSpace",
+      "Mathlib.Geometry.Manifold.Diffeomorph",
+      "Mathlib.Geometry.Manifold.IsManifold.InteriorBoundary",
+      "Mathlib.Geometry.Manifold.MFDeriv.Atlas",
+      "Mathlib.Geometry.Manifold.MFDeriv.NormedSpace",
+      "Mathlib.Geometry.Manifold.PartitionOfUnity",
+      "Mathlib.LinearAlgebra.Dual.Lemmas",
+      "Mathlib.LinearAlgebra.Matrix.ToLin",
+      "Mathlib.LinearAlgebra.Projectivization.Action",
+      "Mathlib.LinearAlgebra.SesquilinearForm.Star",
+      "Mathlib.Logic.Equiv.Basic",
+      "Mathlib.Logic.Equiv.Defs",
+      "Mathlib.Logic.Equiv.Fin.Basic",
+      "Mathlib.Logic.Equiv.Sum",
+      "Mathlib.Logic.Function.Iterate",
+      "Mathlib.Logic.Relation",
+      "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus",
+      "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+      "Mathlib.MeasureTheory.Measure.ProbabilityMeasure",
+      "Mathlib.Order.Disjoint",
+      "Mathlib.Order.Filter.Extr",
+      "Mathlib.Order.Hom.Basic",
+      "Mathlib.Order.Hom.CompleteLattice",
+      "Mathlib.Order.Interval.Finset.Nat",
+      "Mathlib.Order.OrderDual",
+      "Mathlib.Order.Prod.Lex.Basic",
+      "Mathlib.Order.SuccPred.Nat",
+      "Mathlib.Order.WellFounded",
+      "Mathlib.Order.WithBot",
+      "Mathlib.Probability.Distributions.Geometric",
+      "Mathlib.Probability.Kernel.Category.Stoch",
+      "Mathlib.Probability.Kernel.Composition.Prod",
+      "Mathlib.Probability.Kernel.Invariance",
+      "Mathlib.Probability.Kernel.WithDensity",
+      "Mathlib.Probability.ProductMeasure",
+      "Mathlib.RingTheory.Ideal.Operations",
+      "Mathlib.RingTheory.Ideal.Quotient.Operations",
+      "Mathlib.RingTheory.Nilpotent.Basic",
+      "Mathlib.RingTheory.RootsOfUnity.Complex",
+      "Mathlib.Tactic.Abel",
+      "Mathlib.Tactic.Convert",
+      "Mathlib.Tactic.Ext",
+      "Mathlib.Tactic.FieldSimp",
+      "Mathlib.Tactic.FinCases",
+      "Mathlib.Tactic.FunProp",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.NormNum",
+      "Mathlib.Tactic.Positivity",
+      "Mathlib.Tactic.Ring",
+      "Mathlib.Tactic.SplitIfs",
+      "Mathlib.Tactic.Tauto",
+      "Mathlib.Topology.Compactness.Compact",
+      "Mathlib.Topology.Instances.Discrete",
+      "Mathlib.Topology.LocallyConstant.Basic",
+      "Mathlib.Topology.Sheaves.LocalPredicate",
+      "Std"
+    ],
+    "direct_external_imports_count": 276,
+    "direct_external_imports_added": [
+      "Mathlib.Algebra.BigOperators.Group.List.Defs",
+      "Mathlib.Algebra.Order.BigOperators.Group.Finset"
+    ],
+    "direct_external_imports_removed": [],
+    "auxiliary": [
+      "Cache.Main",
+      "Lake.Build.Trace",
+      "Lean",
+      "Lean.DeclarationRange",
+      "Lean.Util.CollectAxioms",
+      "Mathlib.Tactic.TypeStar"
+    ],
+    "retained_nonmathlib_module_roots_count": 406,
+    "cache_selector_count": 674,
+    "mathlib_selector_count": 268,
+    "cache_selectors_added": [
+      "Mathlib.Algebra.BigOperators.Group.List.Defs",
+      "Mathlib.Algebra.Order.BigOperators.Group.Finset"
+    ],
+    "cache_selectors_removed": [],
+    "selector_file": "validation/1039-targeted-cache-roots.txt",
+    "selector_file_bytes": 20001,
+    "selector_file_sha256": "84e696991df12346b3f46bee5566d1157e74b09c1f43d3020186600473df5b60",
+    "previous_selector_file": "validation/1038-targeted-cache-roots.txt",
+    "previous_selector_file_sha256": "0b3764fcca4aa8064daf49b2f66dc2b2c63a9ac7885486c46a4545ffaf464ddb"
+  },
+  "closure": {
+    "dependency_artifact_module_count": 3932,
+    "dependency_artifact_modules_by_package": {
+      "LeanSearchClient": 4,
+      "Qq": 14,
+      "aesop": 132,
+      "batteries": 195,
+      "importGraph": 35,
+      "mathlib": 3526,
+      "plausible": 13,
+      "proofwidgets": 13
+    },
+    "dependency_artifact_module_names_sha256": "74ccc6ea11d131c93d9244ef898dca2db0cccb0e2a1b7b8776859c2fa60f84ba",
+    "artifact_module_set_unchanged_from_previous_candidate": true,
+    "added_artifact_modules": [],
+    "removed_artifact_modules": [],
+    "source_only_auxiliary_module_count": 18,
+    "core_terminal_name_count": 227,
+    "core_terminal_names_unchanged": true,
+    "current_local_source_record_sha256": "2f870fb87aabf2780474ef16b082f93effafaf34ba43ba45288e7b8ece199254",
+    "current_semantic_graph_sha256": "e92a8fd4a46a5f218d46556209fd9b2ab01ff035c96a3b598e0644d3bd0df238"
+  },
+  "source_metadata_crosscheck": {
+    "visited_metadata_count": 3932,
+    "metadata_schema_version": 5,
+    "parsed_dependency_source_count": 3932,
+    "parsed_by_package": {
+      "LeanSearchClient": 4,
+      "Qq": 14,
+      "aesop": 132,
+      "batteries": 195,
+      "importGraph": 35,
+      "mathlib": 3526,
+      "plausible": 13,
+      "proofwidgets": 13
+    },
+    "explicit_import_name_mismatches": [],
+    "missing_sources": [],
+    "unparsed_headers": [],
+    "unresolved_edges": [],
+    "observed_input_fingerprint_changes": [],
+    "source_records_sha256": "3397e02ffd7136700d909a31669d0f5d4527b9d9c2d1321461a024549b9ec30a",
+    "metadata_records_sha256": "d6297fe775f3a4142c54d44afb3be8e5ae2bc717126d15e9784da48e07d524ed",
+    "source_name_edges_sha256": "d77d6d47a661a6f9bdab0378eb274dabefef46317f814ee0f1d9b3a0405affa0",
+    "metadata_name_edges_sha256": "d77d6d47a661a6f9bdab0378eb274dabefef46317f814ee0f1d9b3a0405affa0",
+    "note": "All source import modifiers and metadata flag combinations included; compare explicit imported-name sets, not flag semantics. Implicit Init is omitted by ilean metadata; the complete official toolchain remains retained."
+  },
+  "added_import_module_status": {
+    "Mathlib.Algebra.Order.BigOperators.Group.Finset": {
+      "already_in_previous_artifact_closure": true,
+      "already_previous_selector": false,
+      "source_record": [
+        "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+        "mathlib",
+        "mathlib/Mathlib/Algebra/Order/BigOperators/Group/Finset.lean",
+        "6c31074e3991a03e6f99c99229fbde4aba6dea19202dab72c880427d9ae351c4"
+      ],
+      "metadata_record": [
+        "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+        "mathlib",
+        "mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/BigOperators/Group/Finset.ilean",
+        "bc4c0db27846c804589464c42a214e0bb249309edacd5c7046d24fa80502166f"
+      ],
+      "direct_imports": [
+        [
+          "Mathlib.Algebra.BigOperators.Group.Finset.Sigma",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.Algebra.Order.BigOperators.Group.Multiset",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.Algebra.Order.Group.Nat",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.Algebra.Order.Hom.Basic",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.Algebra.Order.Monoid.Multiset",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.Algebra.Order.Monoid.Unbundled.Pow",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.Data.Fintype.Card",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.Data.Multiset.Powerset",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.Tactic.Bound.Attribute",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.Algebra.Order.Monoid.OrderDual",
+          true,
+          false,
+          false
+        ]
+      ]
+    },
+    "Mathlib.Algebra.BigOperators.Group.List.Defs": {
+      "already_in_previous_artifact_closure": true,
+      "already_previous_selector": false,
+      "source_record": [
+        "Mathlib.Algebra.BigOperators.Group.List.Defs",
+        "mathlib",
+        "mathlib/Mathlib/Algebra/BigOperators/Group/List/Defs.lean",
+        "be1c5c2b1e1f6734df231ef0ffaeed1c947726f0489eb203b4860e2f5227f669"
+      ],
+      "metadata_record": [
+        "Mathlib.Algebra.BigOperators.Group.List.Defs",
+        "mathlib",
+        "mathlib/.lake/build/lib/lean/Mathlib/Algebra/BigOperators/Group/List/Defs.ilean",
+        "dbb6fb9250287e4b777f05614269eae0b9778fdeadc2e091069c3debf3c7c63a"
+      ],
+      "direct_imports": [
+        [
+          "Batteries.Data.List.Lemmas",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.Algebra.Group.Monoid",
+          false,
+          false,
+          false
+        ]
+      ]
+    },
+    "Mathlib.Algebra.Ring.Defs": {
+      "already_in_previous_artifact_closure": true,
+      "already_previous_selector": true,
+      "source_record": [
+        "Mathlib.Algebra.Ring.Defs",
+        "mathlib",
+        "mathlib/Mathlib/Algebra/Ring/Defs.lean",
+        "d132472f8fb34b88fb8601b16d87cc44d77d64843cbe43bf179dcdad0887198a"
+      ],
+      "metadata_record": [
+        "Mathlib.Algebra.Ring.Defs",
+        "mathlib",
+        "mathlib/.lake/build/lib/lean/Mathlib/Algebra/Ring/Defs.ilean",
+        "70462046ef7ca3eb49f4db2e6888deb061c3b5e4189d4b95252c7275af021400"
+      ],
+      "direct_imports": [
+        [
+          "Mathlib.Algebra.Group.IsCommutative",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.Algebra.GroupWithZero.Defs",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.Algebra.Notation.Defs",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.Data.Int.Cast.Defs",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.Tactic.Spread",
+          false,
+          false,
+          false
+        ]
+      ]
+    }
+  },
+  "Size_metadata_now_installed_and_crosschecked": {
+    "module": "Mathlib.Data.Nat.Size",
+    "metadata_record": [
+      "Mathlib.Data.Nat.Size",
+      "mathlib",
+      "mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Size.ilean",
+      "0b47fc85329519bc255d92730c5012099c11a50782860789e707f213c06e427c"
+    ],
+    "source_record": [
+      "Mathlib.Data.Nat.Size",
+      "mathlib",
+      "mathlib/Mathlib/Data/Nat/Size.lean",
+      "ab4306e1e29d9b254dd41af7e206591130414598403577921c7877e9919c249b"
+    ],
+    "direct_imports": [
+      [
+        "Mathlib.Data.Nat.Bits",
+        false,
+        false,
+        false
+      ]
+    ],
+    "explicit_source_import_names_match_metadata": true
+  },
+  "acquisition": {
+    "extra_artifact_family_required": false,
+    "missing_olean_modules": [],
+    "existing_artifact_module_count": 3932,
+    "cache_acquisition_executed_by_this_agent": false,
+    "recommended_action": "Reuse the existing3932 artifact families; do not run cache/setup/dependency writers for this import-only correction. Use the674-selector file on a future empty restoration."
+  },
+  "limitations": [
+    "Static explicit import closure only; no complete dynamic/native loading proof.",
+    "No compiler, Lake build/cache/setup/cleanup, source edit or Git write was performed by this inventory.",
+    "Only this new record and selector file were written; no existing evidence was overwritten.",
+    "Whole official toolchain, pinned sources and existing runtime ancillary files remain retained.",
+    "No artifact-content authenticity claim follows from source/ilean name agreement or olean presence.",
+    "No process-quiescence conclusion follows from stable file observations; old interrupted child status remains unknown.",
+    "Formal fresh, preservation, guarded, managed audit, regression and independent review requirements remain unchanged.",
+    "Future candidate/import/config changes require re-evaluation."
+  ]
+}

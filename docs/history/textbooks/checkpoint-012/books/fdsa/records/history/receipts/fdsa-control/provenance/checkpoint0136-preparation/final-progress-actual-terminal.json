@@ -1,0 +1,13 @@
+{
+  "actual_exit": 0,
+  "tool_chunk": "238b55",
+  "tool_result": {
+    "chunk_id": "238b55",
+    "wall_time_seconds": 0.219405124,
+    "exit_code": 0,
+    "original_token_count": 364,
+    "output": "{\n  \"progress\": {\n    \"bytes\": 60279,\n    \"sha256\": \"0d5dd7fd25695f6bf5ab1ffe700cda92bf9a96b3f3be187cf53f3b4b23311da2\"\n  },\n  \"hold\": {\n    \"bytes\": 7669,\n    \"sha256\": \"d95f5dcb422846aab81dd7d0a6292100ec72a6e554fdf7da52f7c660b1515163\"\n  },\n  \"resources\": {\n    \"recorded_utc\": \"2026-11-05T00:47:07.484682+00:00\",\n    \"ordinary_available_bytes\": 0,\n    \"raw_free_bytes\": 474669056,\n    \"total_filesystem_bytes\": 67586535424,\n    \"project_lock\": {\n      \"utc\": \"2026-11-05T00:47:07.729189+00:00\",\n      \"exclusive_nonblocking_acquired_and_released\": true,\n      \"global_process_absence_not_claimed\": true\n    },\n    \"compiler_install_or_dependency_hydration_selected\": false,\n    \"unchanged_resource_guards\": true,\n    \"audit_SIGKILL_cause\": \"Unknown; inaccessible memory telemetry establishes no cause.\",\n    \"local_archive_retirement\": \"provenance/checkpoint0135-local-archive-retirement-20261105/result.json\"\n  },\n  \"source_bindings_verified\": 76,\n  \"random_author_file_bindings_verified\": 480,\n  \"closed_runs\": 102,\n  \"reviewer_holds\": {\n    \"provenance/chapter03-standards-review-20261104/write-hold-before0136.json\": {\n      \"bytes\": 4800,\n      \"sha256\": \"5d0890444c5dd0d177e6c5833bd507ed7ffadd792606b735ffa648e05644f3b7\"\n    },\n    \"provenance/chapter03-spec-review-20261104/write-hold-0136.json\": {\n      \"bytes\": 3391,\n      \"sha256\": \"b5ae0baf4b1042baeaf5707151611697f6f8d6103616da0b3bd934f4009d8df6\"\n    }\n  },\n  \"canonical_tops_updated\": 5\n}\n"
+  },
+  "state": "Complete; one-use progress script must not be rerun.",
+  "scope": "Progress/hold/canonical local metadata only; no formal acceptance or compiler result."
+}

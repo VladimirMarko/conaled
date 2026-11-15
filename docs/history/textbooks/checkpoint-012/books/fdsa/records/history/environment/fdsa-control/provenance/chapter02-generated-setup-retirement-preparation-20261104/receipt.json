@@ -1,0 +1,56 @@
+{
+  "schema": "fdsa.chapter02.setup-retirement.preparation-receipt.v1",
+  "recorded_utc": "2026-11-04T17:42:02.017260+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "status": "Prepared, fully read back, HELD; no action executed. Root owns review, actual invocation/terminal and separate persistence.",
+  "files": [
+    {
+      "path": "retire_103_setups_once.py",
+      "bytes": 17209,
+      "lines": 308,
+      "sha256": "9010ff28a33003ad05b4974a00cf7ec0070318101f765f84f777f1ccce4d90ad"
+    },
+    {
+      "path": "bindings.json",
+      "bytes": 6589,
+      "lines": 118,
+      "sha256": "788ba3e9ef23cbd3d60c5f59c81e132c27f52298f284ab6513c91795d06131fc"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5132,
+      "lines": 15,
+      "sha256": "000a8aba4529dd4d7d82e7b15f7be7df5dc7efe2afb820f8928690f6f80473ee"
+    }
+  ],
+  "bound_input_files_reverified": 19,
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "accepted": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "positive_targets": 103,
+  "zero_setups_preserved": 925,
+  "potential_allocated_payload_bytes": 129765376,
+  "potential_reclaim_is_not_net_host_gain": true,
+  "prior_method": "foundation-generated-setup-retirement-20261104/executed-method.json; original script never rerun",
+  "author_readback": {
+    "complete_final_script_bindings_readme": "cf6116",
+    "actual_closed_full_verification_acceptance_and_input_schemas": "f6bb55,36d125,32b971",
+    "current_read_only_refs_and_clean_status": "e182fb",
+    "historical925_name_digest_reconciliation": "ec1754; original966 preflight minus41 positive old paths, no current output traversal",
+    "final_python_AST": "Parsed only; no import, exec, subprocess from prepared script, bytecode compilation or dry run. Actual LF constant confirmed.",
+    "receipt": "Entire receipt read after writing before final handoff."
+  },
+  "new_script_execution": false,
+  "compiler_or_cache_command": false,
+  "source_ref_runtime_pin_output_mutation": false,
+  "target_payload_read_in_this_preparation": false,
+  "protected_record_changes": false,
+  "new_evidence_capture_credit": false,
+  "unchanged_space_and_acceptance_guards": true,
+  "failure_semantics": "An existing execution directory forbids retry. Before every truncation, intention is fsynced and opened-file metadata checked again; actual returned truncation/zero-verification counters and in-flight target retained. If durable evidence cannot be written, stop and retain owned stderr/terminal. Separate persistence is not claimed by this preparation or an in-command result.",
+  "root_command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-generated-setup-retirement-preparation-20261104/retire_103_setups_once.py",
+    "--confirm-exclusive-idle"
+  ],
+  "execution_output": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-generated-setup-retirement-20261104"
+}

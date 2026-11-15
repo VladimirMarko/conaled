@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-04T12:29:37.314953+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "kind": "Historical exact inventory function/loop excerpts from the two successful read-only commands; not a cleanup utility",
+  "held_inputs": [
+    {
+      "path": "provenance/idle-generated-output-retirement-preparation-20261104/plan.md",
+      "bytes": 12439,
+      "sha256": "4074ab867d4605a5a7e8d4c544c5a76b055ccf1c844e7c66b407a5c5e13313dc"
+    },
+    {
+      "path": "provenance/idle-generated-output-retirement-preparation-20261104/receipt.json",
+      "bytes": 278595,
+      "sha256": "724c02e30bc27b7cf02e78706c81cc3ebc4b875e1ae12d011891d572cb8fa693"
+    }
+  ],
+  "inventory1_completed_utc": "2026-11-04T12:17:35.710992+00:00",
+  "inventory2_success_completed_utc": "2026-11-04T12:21:08.019486+00:00",
+  "actual_code_boundary": "Original import/setup, outer descriptive record initialization, final JSON writing/printing and subsequent author readback are omitted. All path-open/walk/metadata-digest/count/suffix/root-output bodies relevant to inventory reproduction are reproduced below. No cleanup body is included.",
+  "required_imports": [
+    "from pathlib import Path",
+    "from datetime import datetime,timezone",
+    "import os,stat,json,hashlib,collections"
+  ],
+  "bindings": {
+    "b": "Path(/workspace/scratch/b4a17a285e23/fdsa-restored-20261104)",
+    "record": "First command record with empty roots list before the excerpt",
+    "r": "JSON loaded from the held receipt; first roots array is unchanged since inventory1"
+  },
+  "first_inventory_exact_excerpt": "flags=os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW|os.O_CLOEXEC\nroots=[]\nfor name in ['conaled-ch02-quicksort','conaled-ch02-natural-runs','conaled-ordinary-merge']:\n rels=['.lake/build']\n pkgs=['mathlib'] if name=='conaled-ch02-quicksort' else ['LeanSearchClient','Qq','aesop','batteries','importGraph','mathlib']\n rels += ['.lake/packages/'+q+'/.lake/build' for q in pkgs]\n roots += [str(b/name/r) for r in rels]\ndef fm(s):return [s.st_mode,s.st_dev,s.st_ino,s.st_nlink,s.st_size,s.st_mtime_ns,s.st_ctime_ns,s.st_blocks]\ndef dm(s):return [s.st_mode,s.st_dev,s.st_ino,s.st_nlink,s.st_size,s.st_blocks]\ndef opened(path):\n fd=os.open('/',flags);anc=[]\n try:\n  for part in Path(path).parts[1:]:\n   x=os.stat(part,dir_fd=fd,follow_symlinks=False);assert stat.S_ISDIR(x.st_mode),(path,part,'not real directory');nf=os.open(part,flags,dir_fd=fd);z=os.fstat(nf);assert (x.st_dev,x.st_ino)==(z.st_dev,z.st_ino);anc.append([part,z.st_dev,z.st_ino]);os.close(fd);fd=nf\n  return fd,anc\n except:os.close(fd);raise\nseen_dirs={};seen_files={};aliases=[]\nfor root in roots:\n fd,anc=opened(root);rs=os.fstat(fd);count=collections.Counter();suffix=collections.Counter();fh=hashlib.sha256();dh=hashlib.sha256();times=[];suspects=[];latest={'mtime_ns':0,'ctime_ns':0};sample={}\n def walk(dfd,rel=''):\n  for name in sorted(os.listdir(dfd)):\n   st=os.stat(name,dir_fd=dfd,follow_symlinks=False);q=rel+'/'+name if rel else name;assert st.st_dev==rs.st_dev,(root,q,'filesystem boundary')\n   key=(st.st_dev,st.st_ino)\n   if stat.S_ISDIR(st.st_mode):\n    if key in seen_dirs:aliases.append([root,q,'directory',seen_dirs[key]])\n    seen_dirs[key]=root+'/'+q\n    dh.update((json.dumps([q,*dm(st)],separators=(',',':'))+'\\n').encode());times.append([q,st.st_mtime_ns,st.st_ctime_ns]);count['directories']+=1\n    nf=os.open(name,flags,dir_fd=dfd)\n    try:assert dm(os.fstat(nf))==dm(st);walk(nf,q)\n    finally:os.close(nf)\n   else:\n    assert stat.S_ISREG(st.st_mode) and st.st_nlink==1,(root,q,'not regular single-link',fm(st))\n    if key in seen_files:aliases.append([root,q,'file',seen_files[key]])\n    seen_files[key]=root+'/'+q\n    fh.update((json.dumps([q,*fm(st)],separators=(',',':'))+'\\n').encode());count['files']+=1;count['apparent_bytes']+=st.st_size;count['allocated_bytes']+=st.st_blocks*512\n    suffix[''.join(Path(name).suffixes) or '<none>']+=1\n    latest['mtime_ns']=max(latest['mtime_ns'],st.st_mtime_ns);latest['ctime_ns']=max(latest['ctime_ns'],st.st_ctime_ns)\n    if name.endswith('.log') or name in ['result.json','start.json','verification.json','audit.json'] or (name.endswith('.json') and not name.endswith('.setup.json')):suspects.append(q)\n    if q.endswith('Mathlib/Tactic/TypeStar.olean') or q.endswith('Mathlib/Data/Nat/Log.olean'):sample[q]=fm(st)\n try:\n  if (rs.st_dev,rs.st_ino) in seen_dirs:aliases.append([root,'','root alias',seen_dirs[(rs.st_dev,rs.st_ino)]])\n  seen_dirs[(rs.st_dev,rs.st_ino)]=root;walk(fd)\n finally:os.close(fd)\n record['roots'].append({'root':root,'root_identity':dm(rs),'root_observed_timestamps':[rs.st_mtime_ns,rs.st_ctime_ns],'ancestors':anc,'counts':dict(count),'files_metadata_sha256':fh.hexdigest(),'directories_identity_sha256':dh.hexdigest(),'directory_timestamps':times,'suffix_counts':dict(suffix),'possible_unique_evidence':suspects,'latest_file_times':latest,'samples':sample})\n",
+  "successful_second_inventory_exact_excerpt": "flags=os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW|os.O_CLOEXEC\nstarted=datetime.now(timezone.utc).isoformat();anchor=['b4a17a285e23',27,2889817]\ndef fm(s):return [s.st_mode,s.st_dev,s.st_ino,s.st_nlink,s.st_size,s.st_mtime_ns,s.st_ctime_ns,s.st_blocks]\ndef dm(s):return [s.st_mode,s.st_dev,s.st_ino,s.st_nlink,s.st_size,s.st_blocks]\ndef opened(path):\n fd=os.open('/',flags);anc=[]\n try:\n  for part in Path(path).parts[1:]:\n   s=os.stat(part,dir_fd=fd,follow_symlinks=False);assert stat.S_ISDIR(s.st_mode);nf=os.open(part,flags,dir_fd=fd);z=os.fstat(nf);assert (s.st_dev,s.st_ino)==(z.st_dev,z.st_ino);anc.append([part,z.st_dev,z.st_ino]);os.close(fd);fd=nf\n  assert anc[2]==anchor\n  return fd,anc\n except:os.close(fd);raise\nsecond=[];seen=set()\nfor old in r['roots']:\n root=old['root'];fd,anc=opened(root);rs=os.fstat(fd);counts=collections.Counter();fh=hashlib.sha256();dh=hashlib.sha256();times=[];suspects=[];suffix=collections.Counter()\n assert (rs.st_dev,rs.st_ino) not in seen;seen.add((rs.st_dev,rs.st_ino))\n def walk(dfd,rel=''):\n  for name in sorted(os.listdir(dfd)):\n   st=os.stat(name,dir_fd=dfd,follow_symlinks=False);q=rel+'/'+name if rel else name;assert st.st_dev==rs.st_dev;key=(st.st_dev,st.st_ino);assert key not in seen;seen.add(key)\n   if stat.S_ISDIR(st.st_mode):\n    dh.update((json.dumps([q,*dm(st)],separators=(',',':'))+'\\n').encode());times.append([q,st.st_mtime_ns,st.st_ctime_ns]);counts['directories']+=1;nf=os.open(name,flags,dir_fd=dfd)\n    try:assert dm(os.fstat(nf))==dm(st);walk(nf,q)\n    finally:os.close(nf)\n   else:\n    assert stat.S_ISREG(st.st_mode) and st.st_nlink==1\n    fh.update((json.dumps([q,*fm(st)],separators=(',',':'))+'\\n').encode());counts['files']+=1;counts['apparent_bytes']+=st.st_size;counts['allocated_bytes']+=st.st_blocks*512;suffix[''.join(Path(name).suffixes) or '<none>']+=1\n    if name.endswith('.log') or name in ['result.json','start.json','verification.json','audit.json'] or (name.endswith('.json') and not name.endswith('.setup.json')):suspects.append(q)\n try:walk(fd)\n finally:os.close(fd)\n now={'root':root,'root_identity':dm(rs),'counts':dict(counts),'files_metadata_sha256':fh.hexdigest(),'directories_identity_sha256':dh.hexdigest(),'suffix_counts':dict(suffix),'possible_unique_evidence':suspects}\n for k,v in now.items():assert v==old[k],(root,k,'comparison mismatch')\n assert anc[2:]==old['ancestors'][2:]\n oldtimes={x[0]:x[1:] for x in old['directory_timestamps']};delta=[x for x in times if oldtimes[x[0]]!=x[1:]]\n now.update({'all_comparison_fields_match':True,'ancestors':anc,'stable_task_root_and_descendant_chain_match':True,'external_prefix_observation_only':anc[:2],'root_observed_timestamps':[rs.st_mtime_ns,rs.st_ctime_ns],'directory_timestamp_changes':delta,'directory_times_encoding':'All first-inventory directory timestamps retained; replace only named rows with these complete second observations.'})\n second.append(now)\n",
+  "digest_recipe": {
+    "traversal": "Per root, depth-first recursive walk; sorted(os.listdir(dfd)) at every directory; process directory metadata before descending into that directory.",
+    "relative_path": "q=rel+'/'+name if rel else name; no leading slash; no path normalization or additional sorting after traversal.",
+    "file_tuple": [
+      "relative_path",
+      "st_mode",
+      "st_dev",
+      "st_ino",
+      "st_nlink",
+      "st_size",
+      "st_mtime_ns",
+      "st_ctime_ns",
+      "st_blocks"
+    ],
+    "directory_tuple": [
+      "relative_path",
+      "st_mode",
+      "st_dev",
+      "st_ino",
+      "st_nlink",
+      "st_size",
+      "st_blocks"
+    ],
+    "serialization": "(json.dumps(tuple_as_list, separators=(',',':')) + '\\n').encode(); default ensure_ascii=True and default UTF-8 encoding; one LF after every record.",
+    "digest": "Fresh hashlib.sha256 per root and per kind; hexdigest() after traversal. File payload contents are not hashed by this inventory.",
+    "root_excluded_from_both_streams": true,
+    "root_record": "root_identity=dm(os.fstat(root_fd)); root timestamps recorded separately.",
+    "counter": "collections.Counter; dict(counter) preserves missing zero-count keys as absent, notably files/apparent_bytes/allocated_bytes in the six directory-only roots.",
+    "directory_count": "Descendant directories only; excludes root.",
+    "allocated_bytes": "Sum st_blocks*512 over regular files only.",
+    "suffixes": "''.join(Path(name).suffixes) or '<none>'",
+    "timestamps": "Directory times recorded observationally; excluded only from directory stability digest. File mtime/ctime remain in the file stability digest."
+  },
+  "approved_ancestor_boundary": "Fresh O_NOFOLLOW validation of every absolute prefix component. Cross-command identity equality compares anc[2:] beginning at [b4a17a285e23,27,2889817]; anc[:2] recorded observationally. Root-approved refinement is recorded in held receipt.",
+  "failed_inventory_preserved": "Earlier second attempt exited1 on full ancestor comparison. Neither excerpt nor new success retroactively credits it.",
+  "root_action_boundary": "Root owns any fresh immediate inventory, opened-leaf fstat checks, unusable marking, payload mutation and separate persistence. These historical excerpts perform none of those mutations.",
+  "held_packages_modified": false,
+  "payload_mutation": false,
+  "compiler_cache_process_ref_source_action": false,
+  "author_readback": {
+    "exact_digest_terminators_verified_by_AST_parse_without_execution": true,
+    "digest_constants": "Each file/directory update appends one actual LF byte after JSON serialization.",
+    "historical_functions_only": true,
+    "held_plan_and_receipt_unchanged": true
+  }
+}

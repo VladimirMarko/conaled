@@ -1,0 +1,69 @@
+{
+  "recorded_utc": "2026-11-04T22:35:16.761226+00:00",
+  "release": "Parent checkpoint0132 release cc78f1 actual0; exact saved doc-only scope",
+  "starting_head": "27281919b9edd31a53336cbb5583ebc17632247e",
+  "preserved_prior_documentation_records": {
+    "starting-state.json": {
+      "bytes": 1231,
+      "sha256": "9402151ebe85055c41aacbdb7c4b9a4a513ac3d6d0f25e012534e640baad6d72"
+    },
+    "draft-v1.json": {
+      "bytes": 683,
+      "sha256": "ff48871da3c3ee2e159cae520cc552e0d77a43860c01c8939fea89269fd0ab6d"
+    },
+    "checkpoint0132-hold.json": {
+      "bytes": 1033,
+      "sha256": "1b43ec186b47feac05016890ae1b9b824640a05b20f094fe3b4891cfe1daf703"
+    }
+  },
+  "preserved_preassembly_records": {
+    "method.json": {
+      "bytes": 1894,
+      "sha256": "7bda63a2e4c0ae02eafe9adefc81acfc09a331042c697b45b1b5a8da6d808839"
+    },
+    "hold.json": {
+      "bytes": 2396,
+      "sha256": "b3a9c65be33082daea20ab8dc0d633ac59f26672fb1fb13fed399db1a89640f7"
+    },
+    "coverage.md": {
+      "bytes": 45327,
+      "sha256": "26272c2920e053bd5d10471d5fcc28b96ff5f6947f75fe3e1948563b3c353c30"
+    },
+    "gaps.md": {
+      "bytes": 14857,
+      "sha256": "0d41e63456ddce2fdfbe8759af19f839d8c371e18f9709128aa2e8d51107f8ba"
+    },
+    "readback.json": {
+      "bytes": 1667,
+      "sha256": "a9bcaa683cfc43291726815a1ffe9fde44e3428b1ae336b6b5abdaba4e02a95b"
+    },
+    "build_report.py": {
+      "bytes": 47351,
+      "sha256": "3c4c639d6b1babc8b1b5387c1dffd55b4ec90b5d07801dc02d88383d09b5b897"
+    },
+    "inputs.json": {
+      "bytes": 50000,
+      "sha256": "a21cb3bd8500281058d5270aee3455277b2e6c003e32946da7363693326a3e2a"
+    },
+    "coverage.json": {
+      "bytes": 57275,
+      "sha256": "8aea50589654cc812a37974b476ab941f0898ef6a0184b2f968406ee7f862251"
+    }
+  },
+  "prior_draft_preserved": {
+    "file": "draft-v1.md.gz",
+    "compressed_bytes": 14374,
+    "sha256": "1cd883b8b22ff668eb51962642fd6e96e1ced980cb1f15d5124b6fb832eaf125",
+    "uncompressed_sha256": "a131fac5474d4f97c508c9dd8dafe0fc676206fe72e50cd64b4bd83f96edcfa1"
+  },
+  "new_source_status_evidence": [
+    "57f7df exact source/working-tree identities",
+    "f8e296 complete equal core and examples at0fa60bad",
+    "8ef1b7 complete query pass and equal failed-pair logs/result/closures, query exact correction diff",
+    "9dbadb actual nested measured small/step/cost equations"
+  ],
+  "source_mutation_scope": [
+    "docs/research/fdsa-selection.md"
+  ],
+  "compiler_runs": false
+}

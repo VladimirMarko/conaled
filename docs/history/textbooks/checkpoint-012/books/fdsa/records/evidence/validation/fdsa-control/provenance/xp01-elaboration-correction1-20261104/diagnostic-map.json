@@ -1,0 +1,22 @@
+[
+  {
+    "id": "XP01-ELAB-001",
+    "input_sites": [
+      "Applications/Resources/Potential.lean:71:10",
+      "Applications/Resources/Potential.lean:148:4"
+    ],
+    "proof_bodies": [
+      "Resources.run_potential_map_of_invariant",
+      "Resources.run_cost_le_map_of_invariant"
+    ],
+    "additional_affected_site": "Old line 67, adjacent monotonicity application in the first authorized proof body; no independent reported diagnostic claimed.",
+    "repair": "Use exact supplied AddLeftMono/AddRightMono CovariantClass.elim direction, retaining all terms and hypotheses.",
+    "status": "Source correction submitted; actual successor validation and independent disposition pending."
+  },
+  {
+    "id": "XP01-DOC-001",
+    "input_site": "docs/research/fdsa-reconstruction-map.md:524-529",
+    "repair": "Scope the only-existing-interface-adjustment sentence expressly to Chapter 1; preserve all following explanation.",
+    "status": "Source correction submitted; independent Standards reassessment pending."
+  }
+]

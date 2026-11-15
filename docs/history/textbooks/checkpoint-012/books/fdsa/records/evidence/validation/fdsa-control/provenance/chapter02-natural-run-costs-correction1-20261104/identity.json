@@ -1,0 +1,55 @@
+{
+  "recorded_utc": "2026-11-04T05:26:53.310928+00:00",
+  "author_parent": "3d5238737299cd365f36e39e5e8a61d34138cba5",
+  "author_candidate": "dd01c1cbdbf181039f62873996935f2b868412a1",
+  "author_status": "",
+  "central_failed_candidate": "8ec1d9cb93e4c38168dc357e8b6f254f8fe83668",
+  "central_input_owned_four_files_match_author_parent": true,
+  "closed_build_attempt": "provenance/chapter02-measured-sorting-focused-20261104-attempt1",
+  "actual_build_exit": 1,
+  "actual_build_seconds": 188.1621173750009,
+  "central_head_unchanged": true,
+  "central_final_status": "",
+  "closed_build_evidence_sha256": {
+    "result.json": "8065fad290a4674a7f541fac69e5b092684d09e86b62c94e4d2c229be177eae1",
+    "full.log": "fd65b65eab6a5cc03a6252895665864a16ac7c3724b9539b938f8800a5c8a44e",
+    "native/result.json": "dc98f29dea322316c141b096f7ff06bf24eeeae4eefab1ecbc9d60f5d50dedb0",
+    "native/output.log": "5e301d5ba4ff0326e81ea2082eaaf4dea6c7b628d1e76a09fe02607a079d2482"
+  },
+  "corrections": [
+    {
+      "file": "Applications/Resources/ListBuildCosts.lean",
+      "cause": "prefix is a reserved token in binders/patterns; parser errors caused downstream unavailable-declaration diagnostics",
+      "fix": "Rename only binder occurrences prefix to acc, preserving comments and all other source text",
+      "status": "Source corrected; compilation pending"
+    },
+    {
+      "file": "Applications/Resources/NaturalRunComparisons.lean",
+      "cause": "Six explicit h simp arguments are unused after cases substituted the Boolean branch",
+      "fix": "Remove precisely h from simp lists at original lines 163,166,179,182,195,199",
+      "status": "Source corrected; compilation pending"
+    }
+  ],
+  "changed_paths": [
+    "Applications/Resources/ListBuildCosts.lean",
+    "Applications/Resources/NaturalRunComparisons.lean"
+  ],
+  "owned_source_sha256": {
+    "Applications/Resources/NaturalRunComparisons.lean": "920e1832416afcdc47a0c2301c2e27c7cd5f0c614a209c8dea21fc2561d809b0",
+    "Examples/NaturalRunComparisons.lean": "9d4dfe317e1af9ee894385ba3478c0ede17de1e713cc7090b120a4d2ab708f8a",
+    "Applications/Resources/ListBuildCosts.lean": "9b93f522703ec9e3254bac47f8836b4edf70db1e0a747c785fa4464826b128cc",
+    "Examples/ListBuildCosts.lean": "99c7affb272fb0f7f1f190cf422484b2b40c76b08e1d9297f182d7106c8ccffb"
+  },
+  "preserved_value_sources_sha256": {
+    "Applications/Sorting/NaturalRuns.lean": "123c711b5f0cf05074155f3a0d9ae076aa80a8be482e7e6fc77626aa9db6fb1d",
+    "Examples/NaturalRuns.lean": "ef0ed6bbc5beb40815f977e80c0b99b0633e8503b0b1634747d41275cb3f6041"
+  },
+  "static_checks": {
+    "permitted_text_transformations_exact": true,
+    "examples_and_checked_value_files_unchanged": true,
+    "unstaged_and_staged_whitespace_check_exit": 0
+  },
+  "subsequent_compiler_run": false,
+  "state": "HOLD after bounded correction and handoff. Root owns the next qualified immutable check; no build/audit/review/acceptance success claimed.",
+  "handoff": "reviews/chapter02-natural-run-costs-implementation.md"
+}

@@ -1,0 +1,52 @@
+{
+  "recorded_utc": "2026-11-04T08:32:46.560421+00:00",
+  "base": "9d5dcd2cfbd6fc5df572234a85bf4957d0c32a21",
+  "add": {
+    "argv": [
+      "git",
+      "add",
+      "--",
+      "Applications/Resources/UniformQuickSortMean.lean"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "staged_scope": {
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--name-only"
+    ],
+    "exit_code": 0,
+    "stdout": "Applications/Resources/UniformQuickSortMean.lean\n",
+    "stderr": ""
+  },
+  "staged_diff_check": {
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "commit": {
+    "argv": [
+      "git",
+      "-c",
+      "user.name=ChatGPT",
+      "-c",
+      "user.email=chatgpt@openai.com",
+      "commit",
+      "-m",
+      "fix(fdsa): elaborate uniform input mean proofs (#174)"
+    ],
+    "exit_code": 0,
+    "stdout": "[work/fdsa-ch02-uniform-input aa89aec] fix(fdsa): elaborate uniform input mean proofs (#174)\n 1 file changed, 30 insertions(+), 11 deletions(-)\n",
+    "stderr": ""
+  }
+}

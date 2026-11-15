@@ -1,0 +1,255 @@
+{
+  "schema": "fdsa.chapter02.spec.receiving-source-readback-and-hold.v1",
+  "reviewer": "/root/chapter02_spec",
+  "recorded_utc": "2026-11-04T17:06:31.071130+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "full_original_scope": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "explicit_public": 1763,
+    "private_named": 70,
+    "anonymous_instances": 19
+  },
+  "all_saved_report_and_new_evidence_bytes_read": true,
+  "files": [
+    {
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/immutable-source-reconciliation.py",
+      "bytes": 9083,
+      "lines": 88,
+      "sha256": "0cce01966528ca1fdeb85130115029063405175f3da98166917bdb6c239bf5f0",
+      "all_bytes_read": true,
+      "chunks": [
+        {
+          "lines": [
+            1,
+            88
+          ],
+          "bytes": 9083,
+          "sha256": "0cce01966528ca1fdeb85130115029063405175f3da98166917bdb6c239bf5f0",
+          "complete_readback_tool_chunk": "43a2dd",
+          "actual_tool_exit": 0
+        }
+      ]
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/immutable-source-reconciliation.json",
+      "bytes": 36120,
+      "lines": 982,
+      "sha256": "90c9bf86798297a3105fc1f34e1ac2ca79e55a5b2d238cbd440b0ed4048681b6",
+      "all_bytes_read": true,
+      "chunks": [
+        {
+          "lines": [
+            1,
+            506
+          ],
+          "bytes": 17956,
+          "sha256": "b56eabbe89742964f7d93a177e99dfd8ef70e6ebd8672acf1bf7e58d2e5d5db9",
+          "complete_readback_tool_chunk": "e9505f",
+          "actual_tool_exit": 0
+        },
+        {
+          "lines": [
+            507,
+            979
+          ],
+          "bytes": 17940,
+          "sha256": "4708ef4af84b4c1d72d1415eec22c12da972bf3e20a0028ea07d709444f8d647",
+          "complete_readback_tool_chunk": "d0df35",
+          "actual_tool_exit": 0
+        },
+        {
+          "lines": [
+            980,
+            982
+          ],
+          "bytes": 224,
+          "sha256": "94450f28a20cc2b674b3777ca00a1e03f4ea2fa8499f9404144600d776dfb7fc",
+          "complete_readback_tool_chunk": "d0df35",
+          "actual_tool_exit": 0
+        }
+      ]
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/retained-full-scope-evidence.json",
+      "bytes": 13284,
+      "lines": 339,
+      "sha256": "534b668e4e4a696570688a953e988f118dabc927c4881eb9356704549a20fd8f",
+      "all_bytes_read": true,
+      "chunks": [
+        {
+          "lines": [
+            1,
+            339
+          ],
+          "bytes": 13284,
+          "sha256": "534b668e4e4a696570688a953e988f118dabc927c4881eb9356704549a20fd8f",
+          "complete_readback_tool_chunk": "75c4af",
+          "actual_tool_exit": 0
+        }
+      ]
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation.py",
+      "bytes": 12582,
+      "lines": 217,
+      "sha256": "f533ee431b94fbf29d6e412d76f48103055822e17e2258c64f673c8a18dbba66",
+      "all_bytes_read": true,
+      "chunks": [
+        {
+          "lines": [
+            1,
+            217
+          ],
+          "bytes": 12582,
+          "sha256": "f533ee431b94fbf29d6e412d76f48103055822e17e2258c64f673c8a18dbba66",
+          "complete_readback_tool_chunk": "31e704",
+          "actual_tool_exit": 0
+        }
+      ]
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation-attempt1-failure.json",
+      "bytes": 854,
+      "lines": 12,
+      "sha256": "c2fa12900431d1f38e3c49056d95d769543dfe3d26165267fb0a2c7b31cfc7dd",
+      "all_bytes_read": true,
+      "chunks": [
+        {
+          "lines": [
+            1,
+            12
+          ],
+          "bytes": 854,
+          "sha256": "c2fa12900431d1f38e3c49056d95d769543dfe3d26165267fb0a2c7b31cfc7dd",
+          "complete_readback_tool_chunk": "19ac07",
+          "actual_tool_exit": 0
+        }
+      ]
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation-attempt2-failure.json",
+      "bytes": 742,
+      "lines": 12,
+      "sha256": "3d9384decab2d2cc87973706ec15f5f16a9f064c6bca30db6da559b111fb6cd4",
+      "all_bytes_read": true,
+      "chunks": [
+        {
+          "lines": [
+            1,
+            12
+          ],
+          "bytes": 742,
+          "sha256": "3d9384decab2d2cc87973706ec15f5f16a9f064c6bca30db6da559b111fb6cd4",
+          "complete_readback_tool_chunk": "19ac07",
+          "actual_tool_exit": 0
+        }
+      ]
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation.json",
+      "bytes": 41717,
+      "lines": 950,
+      "sha256": "bccfbb2d0aab35abdd42cc5e6af26bea81128dbaa363cd986c84df7ffbdd2b91",
+      "all_bytes_read": true,
+      "chunks": [
+        {
+          "lines": [
+            1,
+            240
+          ],
+          "bytes": 9527,
+          "sha256": "afb68938723e93b6a585bfa52ee37a1058331a14098b88b260397dd57a362539",
+          "complete_readback_tool_chunk": "8901fe",
+          "actual_tool_exit": 0
+        },
+        {
+          "lines": [
+            241,
+            480
+          ],
+          "bytes": 12326,
+          "sha256": "9c5779bd3b1c82cb6b05661a2ac14f1c5cd0a618f478d0e73bd0f6a91ba78ad1",
+          "complete_readback_tool_chunk": "eb1e6f",
+          "actual_tool_exit": 0
+        },
+        {
+          "lines": [
+            481,
+            720
+          ],
+          "bytes": 11180,
+          "sha256": "5067d2190dc1e0c5fddc101250210cd278f27f5d27e7e9aeafc57b641627d31b",
+          "complete_readback_tool_chunk": "cc56d9",
+          "actual_tool_exit": 0
+        },
+        {
+          "lines": [
+            721,
+            950
+          ],
+          "bytes": 8684,
+          "sha256": "23fbd45d876b96d840a36b204942bcc160ceda805ac22a63721fedc53a708188",
+          "complete_readback_tool_chunk": "c8608b",
+          "actual_tool_exit": 0
+        }
+      ]
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/source-assessment.json",
+      "bytes": 14310,
+      "lines": 380,
+      "sha256": "9f90a4418f2db2f88d255c3694d8e7585d0ccdad3d448f59563079d61d3b8eec",
+      "all_bytes_read": true,
+      "chunks": [
+        {
+          "lines": [
+            1,
+            380
+          ],
+          "bytes": 14310,
+          "sha256": "9f90a4418f2db2f88d255c3694d8e7585d0ccdad3d448f59563079d61d3b8eec",
+          "complete_readback_tool_chunk": "925158",
+          "actual_tool_exit": 0
+        }
+      ]
+    },
+    {
+      "path": "reviews/chapter02-spec-source-continuation-20261104.md",
+      "bytes": 13724,
+      "lines": 78,
+      "sha256": "c43ac0ca5d5157c4f6729fa751b977f7c8b34197306868d999b1ad0c1c855b46",
+      "all_bytes_read": true,
+      "chunks": [
+        {
+          "lines": [
+            1,
+            78
+          ],
+          "bytes": 13724,
+          "sha256": "c43ac0ca5d5157c4f6729fa751b977f7c8b34197306868d999b1ad0c1c855b46",
+          "complete_readback_tool_chunk": "19ac07",
+          "actual_tool_exit": 0
+        }
+      ]
+    }
+  ],
+  "total_completed_saved_file_bytes": 142416,
+  "old_complete_source_type_assessments_retained_by_exact_identity": true,
+  "retained_same_reader_record_hashes_rechecked": 12,
+  "bookkeeping_failures_retained": [
+    "a18a0c exit1 incorrect ancestor-record shape assumption",
+    "ba9176 exit1 absent started_utc on actual add record"
+  ],
+  "successful_reconciliations": [
+    "dcc1e2 exit0",
+    "fd731f exit0"
+  ],
+  "source_outcome": "Complete; zero new concrete Spec source findings",
+  "overall_outcome": "Blocked pending exact receiving validation and statement-evidence/final gates",
+  "receiving_type_full_audit_credit": 0,
+  "hold": "All this reviewer report/provenance writes HELD after the separate full readback of this receipt for checkpoint0120. All earlier held reports remain untouched.",
+  "receipt_self_readback": "A subsequent read-only tool call and final parent handoff record the complete readback of this receipt; no self-hash recursion."
+}

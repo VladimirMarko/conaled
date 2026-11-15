@@ -1,0 +1,60 @@
+{
+  "recorded_utc": "2026-11-04T22:21:42.828215+00:00",
+  "state": "HELD: all own source, ref and provenance writes stopped pending explicit parent release",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+  "branch": "work/fdsa-ch03-values",
+  "head": "27281919b9edd31a53336cbb5583ebc17632247e",
+  "tree": "e0d90f6ba9b0864a65860983852dd8642e70070a",
+  "status": "",
+  "actual_full_readback_tool_chunk": "1bd78e",
+  "artifacts": {
+    "build_report.py": {
+      "bytes": 47351,
+      "sha256": "3c4c639d6b1babc8b1b5387c1dffd55b4ec90b5d07801dc02d88383d09b5b897"
+    },
+    "coverage.json": {
+      "bytes": 57275,
+      "sha256": "8aea50589654cc812a37974b476ab941f0898ef6a0184b2f968406ee7f862251"
+    },
+    "coverage.md": {
+      "bytes": 45327,
+      "sha256": "26272c2920e053bd5d10471d5fcc28b96ff5f6947f75fe3e1948563b3c353c30"
+    },
+    "gaps.md": {
+      "bytes": 14857,
+      "sha256": "0d41e63456ddce2fdfbe8759af19f839d8c371e18f9709128aa2e8d51107f8ba"
+    },
+    "inputs.json": {
+      "bytes": 50000,
+      "sha256": "a21cb3bd8500281058d5270aee3455277b2e6c003e32946da7363693326a3e2a"
+    },
+    "method.json": {
+      "bytes": 1894,
+      "sha256": "7bda63a2e4c0ae02eafe9adefc81acfc09a331042c697b45b1b5a8da6d808839"
+    },
+    "readback.json": {
+      "bytes": 1667,
+      "sha256": "a9bcaa683cfc43291726815a1ffe9fde44e3428b1ae336b6b5abdaba4e02a95b"
+    }
+  },
+  "coverage": {
+    "canonical_rows": 83,
+    "lexical_source_references": 616,
+    "source_present": 79,
+    "partial": 3,
+    "statement_analysis": 1,
+    "acceptance_claims": 0
+  },
+  "fixed_snapshot_gaps": [
+    "C03-064 universal exact-probability endpoint worst path",
+    "C03-065 general all-equal actual random law",
+    "C03-075 universal source quadratic lower witness dependent on C03-064"
+  ],
+  "follow_ons": "Composition660f974 and generic1249 focused passes are separate; query and all-equal later candidates remain separately qualified in gaps.md.",
+  "integration": "33 direct new example imports missing at fixed root; chapter correspondence and all complete candidate/type/audit/review/verification gates remain.",
+  "no_source_or_ref_changes": true,
+  "no_compiler_runs": true,
+  "no_canonical_control_changes": true,
+  "no_external_mutations": true,
+  "next_scope_not_started": "Potential docs/research/fdsa-selection.md task awaits explicit root release."
+}

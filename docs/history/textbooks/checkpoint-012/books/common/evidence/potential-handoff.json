@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "task": "cohesive Potential accounting integration",
+  "status": "implemented; focused builds passed; full integration acceptance pending",
+  "review_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "starting_head": "f5441b0e52cceea6efe825f823925319731f4c69",
+  "donor": "12cb14fc98b8617b3b625620da8e60936daba340",
+  "finished_utc": "2026-11-14T00:09:45.539235+00:00",
+  "changed_paths": [
+    "Applications/Resources/Potential.lean",
+    "Applications/Resources/FIFOContracts.lean",
+    "Examples/MappedPotentialAccounting.lean",
+    "docs/research/fdsa-potential-accounting.md"
+  ],
+  "unchanged_retained_paths": [
+    "Applications/Resources/SignedPotential.lean",
+    "Examples/PotentialTransport.lean",
+    "Examples/SignedPotential.lean"
+  ],
+  "source_sha256": {
+    "Applications/Resources/Potential.lean": "c7dac5fcb51e02a688e39b60a3a3c5f6777a3d2c4e7222fce8e1c81cdf3f504d",
+    "Applications/Resources/FIFOContracts.lean": "f0215c25e27380b170297c9cc010375da4ef263380088f4ae8fdbb7272373343",
+    "Applications/Resources/SignedPotential.lean": "c839b1e32b3182c5789d05934ea253139d91c338917c1207616fe0043b0ce222",
+    "Examples/MappedPotentialAccounting.lean": "2c83479daec51deb21ec95e26af816bc0dfaa682fdb5ee76ee28cdf1e681386a",
+    "Examples/PotentialTransport.lean": "d56fcf0f72cd4aac8615427391fc9e1a807485753ffd185a22e77df9f2db0056",
+    "Examples/SignedPotential.lean": "6d72c5e1ee5f64ce258f6496389434a9bdd0944fe576773cb41bd828ba9ba9b3",
+    "docs/research/fdsa-potential-accounting.md": "cc15009acdca1e19e9b38372aa5019ea8e8419d14bc67e679a9adfbf50f6b405"
+  },
+  "new_example_exact_donor_bytes": true,
+  "validation": [
+    {
+      "receipt": "focused-core.json",
+      "exit_code": 0,
+      "elapsed_seconds": 34.2,
+      "targets": [
+        "Applications.Resources.Potential",
+        "Examples.MappedPotentialAccounting",
+        "Examples.PotentialTransport",
+        "Examples.SignedPotential"
+      ]
+    },
+    {
+      "receipt": "focused-nat-consumers.json",
+      "exit_code": 0,
+      "elapsed_seconds": 38.82,
+      "inputs_unchanged": true,
+      "targets": [
+        "Applications.Resources.DynamicFrontArrayCosts",
+        "Applications.Resources.FIFOContracts",
+        "Applications.Resources.FoldedPrune",
+        "Applications.Resources.GuardedBuild",
+        "Applications.Resources.PricedPrune",
+        "Applications.Resources.RandomAccess.End",
+        "Applications.Resources.SymmetricCosts",
+        "Examples.FIFOContracts",
+        "Examples.PotentialAccounting"
+      ]
+    }
+  ],
+  "git_diff_check_exit": 0,
+  "statement_review": "statement-review.md",
+  "unresolved_implementation_findings": [],
+  "warnings": "Builds emitted existing Mathlib-module import suggestions; no errors. No module-system migration attempted.",
+  "remaining_coordinator_gates": [
+    "Include Examples.MappedPotentialAccounting in public entrypoint and update provenance.",
+    "Capture isolated full candidate under fixed original baseline.",
+    "Run full guarded candidate check and exhaustive proof audit.",
+    "Independent Standards and Spec review and immediate final identity verification.",
+    "Mandatory durable checkpoint upload before another extended phase."
+  ],
+  "compiler_ownership": "released; no active build session",
+  "git_index_or_commits_modified": false
+}

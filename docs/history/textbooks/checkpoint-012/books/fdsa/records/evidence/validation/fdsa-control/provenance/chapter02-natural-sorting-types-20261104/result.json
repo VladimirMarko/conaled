@@ -1,0 +1,32 @@
+{
+  "candidate": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-natural-sorting-statement-source-20261104/Statements.lean"
+  ],
+  "started_utc": "2026-11-04T06:34:04.363801+00:00",
+  "completed_utc": "2026-11-04T06:36:42.175738+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 157.81176944300023,
+  "state": "passed",
+  "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-natural-sorting-types-20261104/full.log",
+  "progress_bookkeeping_errors": [],
+  "final_head": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+  "final_status": "",
+  "log_size_bytes": 79992,
+  "log_sha256": "136335c62dbd1bd67c9f0ce77c69056b47f4e37b5b42e67ea91b233c1a71e50a",
+  "available_bytes_at_completion": 19854639104,
+  "verification_record_present": false
+}

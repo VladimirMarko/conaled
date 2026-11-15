@@ -1,0 +1,38 @@
+diff --git a/Applications/Resources/SelectionMedians.lean b/Applications/Resources/SelectionMedians.lean
+index 7d88113..ee87798 100644
+--- a/Applications/Resources/SelectionMedians.lean
++++ b/Applications/Resources/SelectionMedians.lean
+@@ -31,7 +31,12 @@ def slowMedianValueRun (xs : List α) (hx : xs ≠ []) : Measured α Nat :=
+ theorem slowMedianValueRun_of_some (xs : List α) (hx : xs ≠ []) (a : α)
+     (ha : (slowMedianRun xs).1 = some a) :
+     slowMedianValueRun xs hx = (a, (slowMedianRun xs).2) := by
+-  simp only [slowMedianValueRun, ha]
++  unfold slowMedianValueRun
++  split
++  next h => exact False.elim (hx ((slowMedianRun_none xs).mp h))
++  next b hb =>
++    have hba : b = a := Option.some.inj (hb.symm.trans ha)
++    exact Prod.ext hba rfl
+ 
+ theorem slowMedianValueRun_of_run (xs : List α) (hx : xs ≠ []) (a : α) (c : Nat)
+     (h : slowMedianRun xs = (some a, c)) : slowMedianValueRun xs hx = (a, c) := by
+@@ -97,7 +102,9 @@ theorem mapSlowMedianRun_cost (xss : List (List α))
+     (mapSlowMedianRun xss hne).2 =
+       (xss.map (fun ys => (slowMedianRun ys).2)).sum + xss.length + 1 := by
+   simp only [mapSlowMedianRun, ListCalls.mapRun_cost, slowMedianValueRun_cost,
+-    List.length_attach, List.attach_map_val]
++    List.length_attach]
++  exact congrArg (fun cs : List Nat => cs.sum + xss.length + 1)
++    (List.attach_map_val (l := xss) (f := fun ys => (slowMedianRun ys).2))
+ 
+ /-- Retain the group parameter for the later generalized-group exercise. -/
+ theorem mapSlowMedianRun_bound (xss : List (List α))
+@@ -117,7 +124,7 @@ theorem mapSlowMedianRun_bound (xss : List (List α))
+         intro c hc
+         obtain ⟨ys, hy, rfl⟩ := List.mem_map.mp hc
+         exact hcallback ys hy)
+-    simpa only [List.length_map, nsmul_eq_mul, Nat.mul_comm] using h
++    simpa only [List.length_map, Nat.nsmul_eq_mul, Nat.mul_comm] using h
+   rw [mapSlowMedianRun_cost]
+   nlinarith
+ 

@@ -1,0 +1,31 @@
+{
+  "recorded_utc": "2026-11-04T20:18:17.910409+00:00",
+  "finding": "C03-MEDIAN-REDUCTION-ELAB-001",
+  "failed_candidate": "24b74c65e2b907f1a4cd8b8c72e22bba8f315eea",
+  "tree": "1a412f79a46a2850a199a6a8d8c88c4826e589ec",
+  "status": "",
+  "whole_chapter_review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "source_before": {
+    "repository_path": "Applications/Resources/MedianReduction.lean",
+    "bytes": 5640,
+    "sha256": "d38d65797526b67c775b44426c122f18c9912e32fab84481a2279c5eb324ff89"
+  },
+  "failure": {
+    "path": "provenance/chapter03-median-reduction-focused-attempt1-20261104/full.log",
+    "actual_exit": 1,
+    "owned_session": 59546,
+    "terminal": "f63bc0",
+    "root_complete_readback": "bb3e9d",
+    "author_complete_log_result_reconciliation_readback": "34213b",
+    "bytes": 6935,
+    "sha256": "79a0bd81696625c7a32868521d9595dbdafad5a32a089b2096d5569331d2b4c2"
+  },
+  "actual_diagnostics": [
+    "extremaRun_value leaves the OrderDual minimumLoopRun first projection unreduced",
+    "extremaRun_cost leaves the OrderDual minimumLoopRun second projection as an unconstrained natural"
+  ],
+  "correction_scope": "Only extremaRun_value and extremaRun_cost proof bodies: add the already proved value/cost lemmas explicitly instantiated at OrderDual \u03b1, x, 0, xs. Preserve every header, definition, example, import, other source and prior record.",
+  "existing_result": "Pure Applications.Selection.MedianReduction built; resource failed and Examples not built. No complete three-module or acceptance credit.",
+  "counterfamily_source_created": false,
+  "author_compiler_execution": false
+}

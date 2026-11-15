@@ -1,0 +1,479 @@
+{
+  "recorded_utc": "2026-11-04T19:47:04.305600+00:00",
+  "author": "/root/chapter03_mom_continue",
+  "baseline": "759589ec63d359231330f732b42c96591a53325e",
+  "tree": "b68c0a0d61282de15ea9aacb41b2e8b90b863ed2",
+  "branch": "work/fdsa-ch03-mom-execution",
+  "status": "",
+  "protected_eight_sources": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Selection/CountRank.lean",
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionCountRank.lean",
+      "bytes": 4423,
+      "sha256": "cc73980788882d39abe44672d89e6a3ce37dfe3b5f5788375255248e8b4a66d2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Sequences/Chunks.lean",
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/ListChunks.lean",
+      "bytes": 2683,
+      "sha256": "161e240f9c07db5b13f9abf5bf09782064adce4862e60fbe35f0eba483c76c78"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Selection/MedianOfMedians.lean",
+      "bytes": 13797,
+      "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/MedianOfMedians.lean",
+      "bytes": 9092,
+      "sha256": "0bbbbdab0f2f41f42fd615231d04d29ebeb8f7ffd5cc83e2a6b832cbfcc25f0c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionAuxiliary.lean",
+      "bytes": 6215,
+      "sha256": "eeba4ac85dd4e07b8b42f38499748cae69cb6dcaaa01fdc8400a3cf5b947a925"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionAuxiliary.lean",
+      "bytes": 7302,
+      "sha256": "d5e495d5a9f6824d9b61fd41ce570059ab5aad3e93f4449f3b712e7d41a4b41e"
+    }
+  ],
+  "protected_prior_records": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/AuxiliaryStatements40-candidate1-preparation.json",
+      "bytes": 6096,
+      "sha256": "5c6366e3afa741fc955bb27addb7775657eb216ba3cd7b0da9fbdc9567f34931"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/AuxiliaryStatements40-candidate1.lean",
+      "bytes": 2783,
+      "sha256": "e3910f89e19232f125eca8c166556f2852ba9d171fe6317d066c9a5ab0a371ae"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/allocation-result.json",
+      "bytes": 349,
+      "sha256": "a3fc90e796dec995ff50bafa87362673ffc88b66e2a831797f0156828fa825f6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-candidate1-author-hold.json",
+      "bytes": 3651,
+      "sha256": "ca6bc455c522289c880afbca02933d3198cd72b3c283d089a7b7500e2db10150"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-candidate1-handoff.md",
+      "bytes": 7506,
+      "sha256": "746e0955345ff9bcad5d313e4078cff55d7a0e411954683bb9fb92c4650c79ef"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-candidate1.json",
+      "bytes": 5670,
+      "sha256": "b209da15c8be35977c90d35b36a613ed943366922f530fc830418300093e5431"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-commit-result.json",
+      "bytes": 352,
+      "sha256": "e52bf42db6a46387367aec86c238fccba16ce963432b7dca27240978af44052a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/author-hold.json",
+      "bytes": 2583,
+      "sha256": "7a9b0eec80da4e444440890ef3b9210d3c3fe27a144929f51881807b76cd92df"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/candidate.json",
+      "bytes": 1929,
+      "sha256": "6caad294442648b06b82b993eda0d5f076f57c1fceb2d90291cf5dbf78eeecf3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/commit-result.json",
+      "bytes": 612,
+      "sha256": "a5c69567a51deceb48c86a6536fe44ac600588cc8d26d604df6b401e21cb230f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/correction.diff",
+      "bytes": 4517,
+      "sha256": "0de9f322729d6e1f1fd7fe9e3ee80e0819b6127947ea92daec5ea02b58f8aee7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/handoff.md",
+      "bytes": 3924,
+      "sha256": "e154233fae8eaae8b0498fb882ed86c115fa16498535e371eb6b109a86408da8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/preparation.json",
+      "bytes": 7581,
+      "sha256": "985f5863a2d0f2643eb7a83736224c47a4519d77a218ea2272285eb76fcfe93e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/source-assessment.json",
+      "bytes": 1509,
+      "sha256": "211613fb630a84e4ce2fb72733c83c655568386fac028386ec29f0de720c7dff"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-preparation.json",
+      "bytes": 3554,
+      "sha256": "2b19d1eb746b0710128900764f0ea721ecaa65331ad28a1d9452281932a9933e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/candidate.json",
+      "bytes": 1428,
+      "sha256": "c9c1712835e8c71fe0650b0ef1ba2f6a8ec4ab6ec8a069acbdce8a10b394aace"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/commit-result.json",
+      "bytes": 170,
+      "sha256": "e249166fcf6917604a82587e7e389477512a00f90fb6701292d194d87f36fc92"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/correction.diff",
+      "bytes": 2930,
+      "sha256": "bf1c07899181ba672e1cf13c723739e3d3b03d4de3ae8366df4e63afd469a944"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/diff-check.json",
+      "bytes": 39,
+      "sha256": "4555466a11b51d337471bdac80f509baf403e0d276b2f256372bd1d99f3252b4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/starting-state.json",
+      "bytes": 4750,
+      "sha256": "9e2024dd36bee9bca7451ac0d1b490e5b6532cad9d45a6cd8255b1c3b8bad37d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-source-inventory-precommit.json",
+      "bytes": 16654,
+      "sha256": "d636bf579286ce0aa6617b96e1ee1e70bdc7f9dfbb7ff322a8cf455afb518a3c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-whitespace-check.json",
+      "bytes": 312,
+      "sha256": "93b7bceb843b8e2dd70e6365c410c87341fff195f6833631594bded4a3a44c26"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/pivot-correction-incorporation-20261104/command-result.json",
+      "bytes": 807,
+      "sha256": "37e801ebf7fb5485ff3744f712467c13d8a914c9dec5fe5e10ee7b465aba217f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/pivot-correction-incorporation-20261104/result.json",
+      "bytes": 1273,
+      "sha256": "d7f4608471bbca053ab5f40f79a1b29b04bcd8a44665fff6cc52736e400d0997"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/pivot-correction-incorporation-20261104/start.json",
+      "bytes": 9262,
+      "sha256": "d7c38ac6c9577e5a10515d11e6ef8fb4e967a67705641ac85ba6896196904319"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/starting-state.json",
+      "bytes": 6935,
+      "sha256": "ffa3143d09aaf84868c847f7e0f1d6457171c48ae34728c8cb2513a64729eb67"
+    }
+  ],
+  "new_paths": [
+    "Applications/Resources/Chunks.lean",
+    "Applications/Resources/SelectionMedians.lean",
+    "Examples/ChunkCalls.lean",
+    "Examples/SelectionMedians.lean"
+  ],
+  "frozen_obligations": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/chapter03-obligations.md",
+    "bytes": 52581,
+    "sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed"
+  },
+  "proof_plan": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/selection-proof-plan.md",
+    "bytes": 31813,
+    "sha256": "4683072c5b47f168f81d0f35b727e247bc2c36af6922c76ab8eaac4fb542d18b"
+  },
+  "scope": [
+    "C03-034 measured separate-take/drop source chop and uniform bound",
+    "C03-035 actual payload callback map, exact sum and source upper bounds",
+    "C03-027 nonempty measured-median payload adapter",
+    "C03-028 preparation only; actual nested selector remains outstanding"
+  ],
+  "expected_cases": [
+    {
+      "case": "zero-size",
+      "d": 0,
+      "input": [
+        7,
+        2,
+        4
+      ],
+      "chunks": [],
+      "chop_calls": 1,
+      "medians": [],
+      "median_map_calls": 1,
+      "combined_calls": 2
+    },
+    {
+      "case": "singleton-chunks",
+      "d": 1,
+      "input": [
+        7,
+        2,
+        4
+      ],
+      "chunks": [
+        [
+          7
+        ],
+        [
+          2
+        ],
+        [
+          4
+        ]
+      ],
+      "chop_calls": 16,
+      "medians": [
+        7,
+        2,
+        4
+      ],
+      "median_map_calls": 22,
+      "combined_calls": 38
+    },
+    {
+      "case": "short-final",
+      "d": 2,
+      "input": [
+        7,
+        2,
+        4
+      ],
+      "chunks": [
+        [
+          7,
+          2
+        ],
+        [
+          4
+        ]
+      ],
+      "chop_calls": 13,
+      "medians": [
+        2,
+        4
+      ],
+      "median_map_calls": 19,
+      "combined_calls": 32
+    },
+    {
+      "case": "oversized",
+      "d": 10,
+      "input": [
+        7,
+        2,
+        4
+      ],
+      "chunks": [
+        [
+          7,
+          2,
+          4
+        ]
+      ],
+      "chop_calls": 10,
+      "medians": [
+        4
+      ],
+      "median_map_calls": 17,
+      "combined_calls": 27
+    },
+    {
+      "case": "two-full",
+      "d": 5,
+      "input": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "chunks": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "chop_calls": 27,
+      "medians": [
+        2,
+        7
+      ],
+      "median_map_calls": 43,
+      "combined_calls": 70
+    },
+    {
+      "case": "partial-seven",
+      "d": 5,
+      "input": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "chunks": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "chop_calls": 21,
+      "medians": [
+        2,
+        5
+      ],
+      "median_map_calls": 32,
+      "combined_calls": 53
+    },
+    {
+      "case": "duplicates-six",
+      "d": 5,
+      "input": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "chunks": [
+        [
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        [
+          4
+        ]
+      ],
+      "chop_calls": 19,
+      "medians": [
+        4,
+        4
+      ],
+      "median_map_calls": 29,
+      "combined_calls": 48
+    },
+    {
+      "case": "first-recursive-size",
+      "d": 5,
+      "input": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "chunks": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        [
+          20
+        ]
+      ],
+      "chop_calls": 58,
+      "medians": [
+        2,
+        7,
+        12,
+        17,
+        20
+      ],
+      "median_map_calls": 92,
+      "combined_calls": 150
+    }
+  ],
+  "expected_empty_chop_calls": 1,
+  "expected_empty_map_calls": 1,
+  "expected_empty_combined_calls": 2,
+  "method": "Original Python reference arithmetic above confirms independently chosen finite targets before any new Lean source is written. This is preparation, not a Lean proof or acceptance test. Actual source definitions will sequence measured operations, extract their returned payloads, and prove correspondence to the existing mathematical chunk/median API.",
+  "actual_checked_dependencies": "Auxiliary pair at4604 and pivot pair atbc269 passed root focused checks; exact pivot corrections were ordinarily cherry-picked as27c0beb then759589, with full identities. Combined759589 has not been compiled.",
+  "auxiliary_actual_terminal_read": "80cabc",
+  "pivot_actual_terminal_and_exact_correction_read": "f0ace8",
+  "pivot_incorporation_tool": "5ff24e",
+  "no_parallel_compiler": true,
+  "actual_types_or_full_audit": false,
+  "no_claim_to_close_chapter03_or_whole_book": true
+}

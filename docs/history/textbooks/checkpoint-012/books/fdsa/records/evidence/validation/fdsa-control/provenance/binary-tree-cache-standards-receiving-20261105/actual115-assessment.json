@@ -1,0 +1,1960 @@
+{
+  "reviewer": "/root/tree_cache_standards",
+  "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "actual_type_semantic_assessment_complete": true,
+  "new_findings": [],
+  "all_original115_names_in_order": true,
+  "native_output": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/native-records/output.log",
+    "bytes": 46032,
+    "sha256": "ea8ebef082abef7de66e7ce3f269771290073bc96a287ff864d49813c90d052b"
+  },
+  "block_index": {
+    "path": "provenance/binary-tree-cache-receiving-statements115-20261105/actual-type-block-index.json",
+    "bytes": 34482,
+    "sha256": "1a44bd06217f4d6ef66c1fb3effd5e06427a627f023adcb97017cb9a3b517bbb"
+  },
+  "groups": [
+    {
+      "ordinals": [
+        1,
+        15
+      ],
+      "assessment": "Ordinary fold/inorder/map/shape: independent universes; only explicit compatibility; no extraneous class or structure hypotheses."
+    },
+    {
+      "ordinals": [
+        16,
+        39
+      ],
+      "assessment": "Cache reader/constructor/invariant/annotation: product carrier, all-node validity, independent erased fold, unconditional shape laws, computed valid annotation."
+    },
+    {
+      "ordinals": [
+        40,
+        47
+      ],
+      "assessment": "Measured operations: Nat cost independent of value universes; reached-argument contracts; unconditional c+3; child validity separate."
+    },
+    {
+      "ordinals": [
+        48,
+        62
+      ],
+      "assessment": "Size/height clients and asymmetric fixture: arbitrary payloads, valid caches, canonical observations4/3 and ordered labels0,1,2,3."
+    },
+    {
+      "ordinals": [
+        63,
+        70
+      ],
+      "assessment": "Pair projections and reader: one pair validity hypothesis and exact(size,height), concrete4/3."
+    },
+    {
+      "ordinals": [
+        71,
+        72
+      ],
+      "assessment": "Ordered summary: only Monoid; left-label-right multiplication order; actual concatenative FreeMonoid word/coercions."
+    },
+    {
+      "ordinals": [
+        73,
+        76
+      ],
+      "assessment": "Shape distinction and noninjective labels: inorder equality with heights2/3;4nodes5leaves3height4occurrences."
+    },
+    {
+      "ordinals": [
+        77,
+        80
+      ],
+      "assessment": "Empty labels: explicit arbitrary-universe summary base and no inhabitance premise."
+    },
+    {
+      "ordinals": [
+        81,
+        87
+      ],
+      "assessment": "Corrupt fixture: correct root count/local equation yet Not Valid; smart constructor retains bad descendants; unconditional erasure."
+    },
+    {
+      "ordinals": [
+        88,
+        88
+      ],
+      "assessment": "Erased fold: independent annotation/summary universes and no validity premise."
+    },
+    {
+      "ordinals": [
+        89,
+        99
+      ],
+      "assessment": "Pure measured size/height: exact values, cost3, bound3, separate validity and reader consequences."
+    },
+    {
+      "ordinals": [
+        100,
+        104
+      ],
+      "assessment": "Actual append callback: exact value, reached-left-summary length+4, separate child-validity contract."
+    },
+    {
+      "ordinals": [
+        105,
+        114
+      ],
+      "assessment": "Valid chain: nodes/summarylength n, next annotation, validity, local costn+4; forallK exceedance atK+1."
+    },
+    {
+      "ordinals": [
+        115,
+        115
+      ],
+      "assessment": "Empty measured read: arbitrary summary universe and explicit base; pair(empty,1)."
+    }
+  ],
+  "blocks": [
+    {
+      "ordinal": 1,
+      "name": "Trees.fold",
+      "start_line": 1,
+      "end_line": 2,
+      "start_byte": 0,
+      "end_byte_exclusive": 153,
+      "bytes": 153,
+      "sha256": "f660d99b31d5a6df36446dad83ccd9bc3aa990d52c17a8d8268d86bb667865d1",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        1,
+        15
+      ]
+    },
+    {
+      "ordinal": 2,
+      "name": "Trees.fold_nil",
+      "start_line": 3,
+      "end_line": 5,
+      "start_byte": 153,
+      "end_byte_exclusive": 369,
+      "bytes": 216,
+      "sha256": "11086be648c6d8d5589b162b052c47499490fec19c2bcc06d375de53753eb9dd",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        1,
+        15
+      ]
+    },
+    {
+      "ordinal": 3,
+      "name": "Trees.fold_node",
+      "start_line": 6,
+      "end_line": 9,
+      "start_byte": 369,
+      "end_byte_exclusive": 734,
+      "bytes": 365,
+      "sha256": "78ddded085674530010e9a1f995dc7b7fdfd7c0a0673192e805dd8f8518b5663",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        1,
+        15
+      ]
+    },
+    {
+      "ordinal": 4,
+      "name": "Trees.fold_map",
+      "start_line": 10,
+      "end_line": 14,
+      "start_byte": 734,
+      "end_byte_exclusive": 1130,
+      "bytes": 396,
+      "sha256": "743bf9ddd4bc0daf47925f246af11a488dbf83f123f319167fb5ebc7ce4a75bf",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        1,
+        15
+      ]
+    },
+    {
+      "ordinal": 5,
+      "name": "Trees.fold_fusion",
+      "start_line": 15,
+      "end_line": 20,
+      "start_byte": 1130,
+      "end_byte_exclusive": 1678,
+      "bytes": 548,
+      "sha256": "4737e9e89d48bbde4e368a12648b6687108ab00e1ef135f82c78c7c18483e8b7",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        1,
+        15
+      ]
+    },
+    {
+      "ordinal": 6,
+      "name": "Trees.fold_numNodes",
+      "start_line": 21,
+      "end_line": 29,
+      "start_byte": 1678,
+      "end_byte_exclusive": 2178,
+      "bytes": 500,
+      "sha256": "4efde06c8227e8d148d6fc28d5d08b4aa794290eca067bee0f9faab36b72462a",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        1,
+        15
+      ]
+    },
+    {
+      "ordinal": 7,
+      "name": "Trees.fold_height",
+      "start_line": 30,
+      "end_line": 37,
+      "start_byte": 2178,
+      "end_byte_exclusive": 2629,
+      "bytes": 451,
+      "sha256": "14dd7a6028b95d50a24098fc0af205185244be7c03112c5d5d4838541afe6785",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        1,
+        15
+      ]
+    },
+    {
+      "ordinal": 8,
+      "name": "Trees.inorder",
+      "start_line": 38,
+      "end_line": 38,
+      "start_byte": 2629,
+      "end_byte_exclusive": 2716,
+      "bytes": 87,
+      "sha256": "cc0b4400adf4a782114393d5c70444969ed6759398748413cc1c2409215a0ca1",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        1,
+        15
+      ]
+    },
+    {
+      "ordinal": 9,
+      "name": "Trees.inorder_nil",
+      "start_line": 39,
+      "end_line": 40,
+      "start_byte": 2716,
+      "end_byte_exclusive": 2870,
+      "bytes": 154,
+      "sha256": "ee270e701b31d1cbf8c9181d2c5af0da38618f703cccd4386d963cafc73b26c5",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        1,
+        15
+      ]
+    },
+    {
+      "ordinal": 10,
+      "name": "Trees.inorder_node",
+      "start_line": 41,
+      "end_line": 45,
+      "start_byte": 2870,
+      "end_byte_exclusive": 3300,
+      "bytes": 430,
+      "sha256": "1935b1df10564fd198c511f36004fdd3f9ac71127e2beaa6177ccd81356eaf5f",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        1,
+        15
+      ]
+    },
+    {
+      "ordinal": 11,
+      "name": "Trees.inorder_length",
+      "start_line": 46,
+      "end_line": 47,
+      "start_byte": 3300,
+      "end_byte_exclusive": 3477,
+      "bytes": 177,
+      "sha256": "435138f2dfd93408a623f6142e2a8f3289ca27bbc23a52ed617e91a64b68c3d9",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        1,
+        15
+      ]
+    },
+    {
+      "ordinal": 12,
+      "name": "Trees.inorder_map",
+      "start_line": 48,
+      "end_line": 51,
+      "start_byte": 3477,
+      "end_byte_exclusive": 3764,
+      "bytes": 287,
+      "sha256": "f0944cbc1301e88e0b3d2eed83cfe9255eba9de3bb59037f75c8fda3f17743a2",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        1,
+        15
+      ]
+    },
+    {
+      "ordinal": 13,
+      "name": "Trees.numNodes_map",
+      "start_line": 52,
+      "end_line": 54,
+      "start_byte": 3764,
+      "end_byte_exclusive": 4007,
+      "bytes": 243,
+      "sha256": "a53730e3ee7dd283baec3a6d0934946be8c859ac042692cd63ca9b5559cdd471",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        1,
+        15
+      ]
+    },
+    {
+      "ordinal": 14,
+      "name": "Trees.numLeaves_map",
+      "start_line": 55,
+      "end_line": 57,
+      "start_byte": 4007,
+      "end_byte_exclusive": 4253,
+      "bytes": 246,
+      "sha256": "acf8f47d2e8f3a0f1f8513d294f26d0d643cda4a9e45b9054dc46d28a4378660",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        1,
+        15
+      ]
+    },
+    {
+      "ordinal": 15,
+      "name": "Trees.height_map",
+      "start_line": 58,
+      "end_line": 60,
+      "start_byte": 4253,
+      "end_byte_exclusive": 4490,
+      "bytes": 237,
+      "sha256": "0fbfdccc67fd744a09d872d07be43b67fb7bd28e286128fd42c4c74a31da5527",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        1,
+        15
+      ]
+    },
+    {
+      "ordinal": 16,
+      "name": "Trees.Cached.erase",
+      "start_line": 61,
+      "end_line": 62,
+      "start_byte": 4490,
+      "end_byte_exclusive": 4646,
+      "bytes": 156,
+      "sha256": "7eaa416f06368548391640047624a83009d7c162455c81e2414f32165e9ab5e5",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 17,
+      "name": "Trees.Cached.erase_nil",
+      "start_line": 63,
+      "end_line": 66,
+      "start_byte": 4646,
+      "end_byte_exclusive": 4888,
+      "bytes": 242,
+      "sha256": "f147134ffe1a513b0ec123052ee188c34bc803b06d6032007391abd4a86b857e",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 18,
+      "name": "Trees.Cached.erase_node",
+      "start_line": 67,
+      "end_line": 72,
+      "start_byte": 4888,
+      "end_byte_exclusive": 5338,
+      "bytes": 450,
+      "sha256": "507cb529d8bc37fa4490a38a71e94c96178df6b8d962ba41978cd4ef23792cc7",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 19,
+      "name": "Trees.Cached.read",
+      "start_line": 73,
+      "end_line": 74,
+      "start_byte": 5338,
+      "end_byte_exclusive": 5487,
+      "bytes": 149,
+      "sha256": "c13280147ece75a0864b5d0c6916b3ae2aa0e0cabe61f95e92b0891568df6323",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 20,
+      "name": "Trees.Cached.read_nil",
+      "start_line": 75,
+      "end_line": 77,
+      "start_byte": 5487,
+      "end_byte_exclusive": 5702,
+      "bytes": 215,
+      "sha256": "649635a7c9c7542524a44fd0a6614559f46321b421eb4e04b9c44d196fae1ac1",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 21,
+      "name": "Trees.Cached.read_node",
+      "start_line": 78,
+      "end_line": 84,
+      "start_byte": 5702,
+      "end_byte_exclusive": 6042,
+      "bytes": 340,
+      "sha256": "5073f468ad459f41e1c9bc219e63c1842aec30d3e72674a4be3ec31b9fcc829d",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 22,
+      "name": "Trees.Cached.smartNode",
+      "start_line": 85,
+      "end_line": 92,
+      "start_byte": 6042,
+      "end_byte_exclusive": 6402,
+      "bytes": 360,
+      "sha256": "d52e2555a9e17472352ff15a35f7720a5dd662554be3f8e68f7e1f9f34dc7bab",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 23,
+      "name": "Trees.Cached.read_smartNode",
+      "start_line": 93,
+      "end_line": 97,
+      "start_byte": 6402,
+      "end_byte_exclusive": 6889,
+      "bytes": 487,
+      "sha256": "6c3700c2ff6d51fc7f0d8cffa4d29561386e7007087f4e1ac35c07df39094a7c",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 24,
+      "name": "Trees.Cached.erase_smartNode",
+      "start_line": 98,
+      "end_line": 103,
+      "start_byte": 6889,
+      "end_byte_exclusive": 7403,
+      "bytes": 514,
+      "sha256": "56aa0a01b2811e716e34ce3d4edb8ff00581d048486d070c4b1af25a7318fc78",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 25,
+      "name": "Trees.Cached.Valid",
+      "start_line": 104,
+      "end_line": 106,
+      "start_byte": 7403,
+      "end_byte_exclusive": 7597,
+      "bytes": 194,
+      "sha256": "1019778cbf0e31e5b295cf1dd8286ef5fcb6320560d0db5b629110bc3f86e825",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 26,
+      "name": "Trees.Cached.valid_nil",
+      "start_line": 107,
+      "end_line": 109,
+      "start_byte": 7597,
+      "end_byte_exclusive": 7833,
+      "bytes": 236,
+      "sha256": "a20ce866fe1d6e31f5b1549f15c26668cd10fb1fc364b5b2768993ab2e0e3e62",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 27,
+      "name": "Trees.Cached.valid_node",
+      "start_line": 110,
+      "end_line": 119,
+      "start_byte": 7833,
+      "end_byte_exclusive": 8475,
+      "bytes": 642,
+      "sha256": "1fe313cacc63339f8b07daf0953da4edb34a5abc435eb15f59bdd5df46d5306f",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 28,
+      "name": "Trees.Cached.smartNode_valid_iff",
+      "start_line": 120,
+      "end_line": 124,
+      "start_byte": 8475,
+      "end_byte_exclusive": 8975,
+      "bytes": 500,
+      "sha256": "eb7345362871761f88da8f7f31854444b8ac7744b2f1fbb697ac04dd3686e873",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 29,
+      "name": "Trees.Cached.read_eq_fold",
+      "start_line": 125,
+      "end_line": 129,
+      "start_byte": 8975,
+      "end_byte_exclusive": 9377,
+      "bytes": 402,
+      "sha256": "12e107fe6a4f92b34de116a0c5013e6582f48ab7cb7c5e5cb0d7cba2d6ad907b",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 30,
+      "name": "Trees.Cached.inorder_erase",
+      "start_line": 130,
+      "end_line": 134,
+      "start_byte": 9377,
+      "end_byte_exclusive": 9767,
+      "bytes": 390,
+      "sha256": "037276f114ead7a9d0b7f827f7d3f36ef69cfb84c85f0cab116d89c64058b78f",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 31,
+      "name": "Trees.Cached.numNodes_erase",
+      "start_line": 135,
+      "end_line": 138,
+      "start_byte": 9767,
+      "end_byte_exclusive": 10059,
+      "bytes": 292,
+      "sha256": "8a7e25c38c7377bdb7dff2f37c98635b64f50c46ac44a936431b8e078d33950a",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 32,
+      "name": "Trees.Cached.numLeaves_erase",
+      "start_line": 139,
+      "end_line": 142,
+      "start_byte": 10059,
+      "end_byte_exclusive": 10354,
+      "bytes": 295,
+      "sha256": "0f9b07495cc67ef0e626be329aca87b78644256417be46757a277ad1d2e13860",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 33,
+      "name": "Trees.Cached.height_erase",
+      "start_line": 143,
+      "end_line": 146,
+      "start_byte": 10354,
+      "end_byte_exclusive": 10640,
+      "bytes": 286,
+      "sha256": "4e88360fbd626e1efe307c379dd5cdc20362a617be191d429a34b13fb547bf09",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 34,
+      "name": "Trees.Cached.annotate",
+      "start_line": 147,
+      "end_line": 150,
+      "start_byte": 10640,
+      "end_byte_exclusive": 10862,
+      "bytes": 222,
+      "sha256": "e52c320f0e9a8b20357d883411468c35eeb5f9f3def8155724d082d72e561356",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 35,
+      "name": "Trees.Cached.annotate_nil",
+      "start_line": 151,
+      "end_line": 155,
+      "start_byte": 10862,
+      "end_byte_exclusive": 11222,
+      "bytes": 360,
+      "sha256": "369c9dcd34b10a59353b60f0e800998cfb6f4f5c4dc95dfb7d6359b7209c3b5d",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 36,
+      "name": "Trees.Cached.annotate_node",
+      "start_line": 156,
+      "end_line": 161,
+      "start_byte": 11222,
+      "end_byte_exclusive": 11752,
+      "bytes": 530,
+      "sha256": "161a4e8fcbcb64ef17ce854f6c2c9452468e7e38d2c677f2c0247a13f660786a",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 37,
+      "name": "Trees.Cached.annotate_valid",
+      "start_line": 162,
+      "end_line": 164,
+      "start_byte": 11752,
+      "end_byte_exclusive": 12021,
+      "bytes": 269,
+      "sha256": "9547efa9834d00d9c6204d07c2bb39c1e311d85eaff5debd15374fa47d410e34",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 38,
+      "name": "Trees.Cached.erase_annotate",
+      "start_line": 165,
+      "end_line": 168,
+      "start_byte": 12021,
+      "end_byte_exclusive": 12320,
+      "bytes": 299,
+      "sha256": "504abf1010ffaad239c4e06c38ef1be8795f01999cdc0f9b445e47005b543a56",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 39,
+      "name": "Trees.Cached.read_annotate",
+      "start_line": 169,
+      "end_line": 172,
+      "start_byte": 12320,
+      "end_byte_exclusive": 12649,
+      "bytes": 329,
+      "sha256": "2771d6d8dd6b2ac89d9788c76b1a5474f3511da92fc143274555f59c487ad8ca",
+      "read_tool_chunk": "0e4158",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        16,
+        39
+      ]
+    },
+    {
+      "ordinal": 40,
+      "name": "Resources.TreeCache.readRun",
+      "start_line": 173,
+      "end_line": 176,
+      "start_byte": 12649,
+      "end_byte_exclusive": 12852,
+      "bytes": 203,
+      "sha256": "681488064629b06876d2f0abd588478e65913df50ae597a2711f2c8e0e2f9dd3",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        40,
+        47
+      ]
+    },
+    {
+      "ordinal": 41,
+      "name": "Resources.TreeCache.readRun_value",
+      "start_line": 177,
+      "end_line": 180,
+      "start_byte": 12852,
+      "end_byte_exclusive": 13162,
+      "bytes": 310,
+      "sha256": "bacf51148a695c71b2c7970cd179afeb3c4937faf010adb3c5a7441cf98d67de",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        40,
+        47
+      ]
+    },
+    {
+      "ordinal": 42,
+      "name": "Resources.TreeCache.readRun_cost",
+      "start_line": 181,
+      "end_line": 184,
+      "start_byte": 13162,
+      "end_byte_exclusive": 13482,
+      "bytes": 320,
+      "sha256": "6453acd3ca4f306eb4382779e689165c7f866344fd740920b284283f10a62f32",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        40,
+        47
+      ]
+    },
+    {
+      "ordinal": 43,
+      "name": "Resources.TreeCache.nodeRun",
+      "start_line": 185,
+      "end_line": 193,
+      "start_byte": 13482,
+      "end_byte_exclusive": 13938,
+      "bytes": 456,
+      "sha256": "5efb179f0e7253c4dd96baeafe14b7fae49d58cf6d878bc1b5a59a8cf5b5984e",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        40,
+        47
+      ]
+    },
+    {
+      "ordinal": 44,
+      "name": "Resources.TreeCache.nodeRun_value",
+      "start_line": 194,
+      "end_line": 206,
+      "start_byte": 13938,
+      "end_byte_exclusive": 14878,
+      "bytes": 940,
+      "sha256": "7437857929024ca8210078f62b53312dbcd5e211fc457e2074b3c3387a264f82",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        40,
+        47
+      ]
+    },
+    {
+      "ordinal": 45,
+      "name": "Resources.TreeCache.nodeRun_cost",
+      "start_line": 207,
+      "end_line": 216,
+      "start_byte": 14878,
+      "end_byte_exclusive": 15637,
+      "bytes": 759,
+      "sha256": "3c59e358c03c92efc882f5d50360a391f2bdc1b4a603f60df9b7e56648b84582",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        40,
+        47
+      ]
+    },
+    {
+      "ordinal": 46,
+      "name": "Resources.TreeCache.nodeRun_le",
+      "start_line": 217,
+      "end_line": 230,
+      "start_byte": 15637,
+      "end_byte_exclusive": 16470,
+      "bytes": 833,
+      "sha256": "0fdf8f2784f051f9a04908a430a697575b316e314dc8c89f9d32c36a51fc92de",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        40,
+        47
+      ]
+    },
+    {
+      "ordinal": 47,
+      "name": "Resources.TreeCache.nodeRun_valid",
+      "start_line": 231,
+      "end_line": 243,
+      "start_byte": 16470,
+      "end_byte_exclusive": 17435,
+      "bytes": 965,
+      "sha256": "0291a089ba0cc909e3d6862998ca33da8cd597a09dec7a800202653d67531bf5",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        40,
+        47
+      ]
+    },
+    {
+      "ordinal": 48,
+      "name": "TreeCacheExamples.sizeStep",
+      "start_line": 244,
+      "end_line": 244,
+      "start_byte": 17435,
+      "end_byte_exclusive": 17530,
+      "bytes": 95,
+      "sha256": "1c281efb8bf7ee79eafb84d2b5a319676a4a83bf828d6baa22d9c99be20d0c2a",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        48,
+        62
+      ]
+    },
+    {
+      "ordinal": 49,
+      "name": "TreeCacheExamples.heightStep",
+      "start_line": 245,
+      "end_line": 245,
+      "start_byte": 17530,
+      "end_byte_exclusive": 17627,
+      "bytes": 97,
+      "sha256": "db09ce195c129aee8364b7093cf5c939ee8e2e1ef49a4fe4f8a187b5cff8ca8d",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        48,
+        62
+      ]
+    },
+    {
+      "ordinal": 50,
+      "name": "TreeCacheExamples.size_reader",
+      "start_line": 246,
+      "end_line": 251,
+      "start_byte": 17627,
+      "end_byte_exclusive": 18064,
+      "bytes": 437,
+      "sha256": "6d5cd6c8e845b14186c6249e6a1ead9945ebaa0a786c2c47654e0e16f9388bb8",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        48,
+        62
+      ]
+    },
+    {
+      "ordinal": 51,
+      "name": "TreeCacheExamples.height_reader",
+      "start_line": 252,
+      "end_line": 257,
+      "start_byte": 18064,
+      "end_byte_exclusive": 18503,
+      "bytes": 439,
+      "sha256": "e44b74c0958d8ec02c142db5c5532705a43370210489479ec7a64449329af3f6",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        48,
+        62
+      ]
+    },
+    {
+      "ordinal": 52,
+      "name": "TreeCacheExamples.sample",
+      "start_line": 258,
+      "end_line": 258,
+      "start_byte": 18503,
+      "end_byte_exclusive": 18549,
+      "bytes": 46,
+      "sha256": "ea5c599e7f5d41b7e15990bc263c08c71ebf4ed4c6f4173ff7fb3b1bfe0d79d5",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        48,
+        62
+      ]
+    },
+    {
+      "ordinal": 53,
+      "name": "TreeCacheExamples.sample_size",
+      "start_line": 259,
+      "end_line": 260,
+      "start_byte": 18549,
+      "end_byte_exclusive": 18713,
+      "bytes": 164,
+      "sha256": "7b681752d553f27d5a2b9b92f16447d285e9f323d598a0cd48245a8c61b2daf2",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        48,
+        62
+      ]
+    },
+    {
+      "ordinal": 54,
+      "name": "TreeCacheExamples.sample_height",
+      "start_line": 261,
+      "end_line": 262,
+      "start_byte": 18713,
+      "end_byte_exclusive": 18877,
+      "bytes": 164,
+      "sha256": "4428f080601fe7127edb26c7e174c8cd5ead02b9d496c2235fe86e672c7f723b",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        48,
+        62
+      ]
+    },
+    {
+      "ordinal": 55,
+      "name": "TreeCacheExamples.sample_inorder",
+      "start_line": 263,
+      "end_line": 267,
+      "start_byte": 18877,
+      "end_byte_exclusive": 19357,
+      "bytes": 480,
+      "sha256": "d5354067bfb3da47ca62f8ca3de0251d7c916596e66df445eca8d572046d5661",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        48,
+        62
+      ]
+    },
+    {
+      "ordinal": 56,
+      "name": "TreeCacheExamples.sizeSample",
+      "start_line": 268,
+      "end_line": 268,
+      "start_byte": 19357,
+      "end_byte_exclusive": 19425,
+      "bytes": 68,
+      "sha256": "05f383483db5e2b9a42bbd7f2ab6b5e65ddd413abc259baf78e5c533b6d146f3",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        48,
+        62
+      ]
+    },
+    {
+      "ordinal": 57,
+      "name": "TreeCacheExamples.sizeSample_valid",
+      "start_line": 269,
+      "end_line": 271,
+      "start_byte": 19425,
+      "end_byte_exclusive": 19630,
+      "bytes": 205,
+      "sha256": "2bc49be449f54d7543b5b81c0b747f046e82019ea3d3f9af40161c649f30d8ea",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        48,
+        62
+      ]
+    },
+    {
+      "ordinal": 58,
+      "name": "TreeCacheExamples.sizeSample_erases",
+      "start_line": 272,
+      "end_line": 273,
+      "start_byte": 19630,
+      "end_byte_exclusive": 19790,
+      "bytes": 160,
+      "sha256": "acd17b9984cac7d398e902d55a5355f45f116f709f55332119e651aa682af622",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        48,
+        62
+      ]
+    },
+    {
+      "ordinal": 59,
+      "name": "TreeCacheExamples.sizeSample_read",
+      "start_line": 274,
+      "end_line": 277,
+      "start_byte": 19790,
+      "end_byte_exclusive": 20035,
+      "bytes": 245,
+      "sha256": "5f7ca53955fa89da6e540cbc9c5e96289d75be779a04b895fcf2e1d1198969fa",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        48,
+        62
+      ]
+    },
+    {
+      "ordinal": 60,
+      "name": "TreeCacheExamples.heightSample",
+      "start_line": 278,
+      "end_line": 278,
+      "start_byte": 20035,
+      "end_byte_exclusive": 20105,
+      "bytes": 70,
+      "sha256": "1c43880c042dad253ef427f6c38d3c4fc0d2b2aa3c8a0d8d8cc0ab9f421a463c",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        48,
+        62
+      ]
+    },
+    {
+      "ordinal": 61,
+      "name": "TreeCacheExamples.heightSample_valid",
+      "start_line": 279,
+      "end_line": 281,
+      "start_byte": 20105,
+      "end_byte_exclusive": 20316,
+      "bytes": 211,
+      "sha256": "931da20b4b37a81942b31046d2f5977a82a5068fbe4a8b73906a53021f2282f7",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        48,
+        62
+      ]
+    },
+    {
+      "ordinal": 62,
+      "name": "TreeCacheExamples.heightSample_read",
+      "start_line": 282,
+      "end_line": 285,
+      "start_byte": 20316,
+      "end_byte_exclusive": 20565,
+      "bytes": 249,
+      "sha256": "bc6abdc8603bc0ff33d211f61d28f67c0096245b11167a28b0bfdc44417a41bf",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        48,
+        62
+      ]
+    },
+    {
+      "ordinal": 63,
+      "name": "TreeCacheExamples.pairStep",
+      "start_line": 286,
+      "end_line": 287,
+      "start_byte": 20565,
+      "end_byte_exclusive": 20710,
+      "bytes": 145,
+      "sha256": "31addce56a81519fd77830cd3de94adab6e78b3e8131ddf0db31ff529098ea09",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        63,
+        70
+      ]
+    },
+    {
+      "ordinal": 64,
+      "name": "TreeCacheExamples.pair_fold_size",
+      "start_line": 288,
+      "end_line": 295,
+      "start_byte": 20710,
+      "end_byte_exclusive": 21153,
+      "bytes": 443,
+      "sha256": "0049f53f53c6c602c7463ee1042c9369c42a4e8bd74b59312639205e80554c6c",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        63,
+        70
+      ]
+    },
+    {
+      "ordinal": 65,
+      "name": "TreeCacheExamples.pair_fold_height",
+      "start_line": 296,
+      "end_line": 303,
+      "start_byte": 21153,
+      "end_byte_exclusive": 21596,
+      "bytes": 443,
+      "sha256": "4e5da23092f0dc193e5e848bb38640a013ae83c32c629f8438fc2e3ce89a2281",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        63,
+        70
+      ]
+    },
+    {
+      "ordinal": 66,
+      "name": "TreeCacheExamples.pair_reader",
+      "start_line": 304,
+      "end_line": 316,
+      "start_byte": 21596,
+      "end_byte_exclusive": 22439,
+      "bytes": 843,
+      "sha256": "65bc68d714d8e60abfb5ff1af5fd11a346c8c7dbe703d47cd51393651d6f69e5",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        63,
+        70
+      ]
+    },
+    {
+      "ordinal": 67,
+      "name": "TreeCacheExamples.pairSample",
+      "start_line": 317,
+      "end_line": 317,
+      "start_byte": 22439,
+      "end_byte_exclusive": 22525,
+      "bytes": 86,
+      "sha256": "2fda776280d0bf12a240ba9b8bc4ef4f96495a41529a99a0afc1aeb1900cc593",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        63,
+        70
+      ]
+    },
+    {
+      "ordinal": 68,
+      "name": "TreeCacheExamples.pairSample_valid",
+      "start_line": 318,
+      "end_line": 321,
+      "start_byte": 22525,
+      "end_byte_exclusive": 22840,
+      "bytes": 315,
+      "sha256": "88128549c5c525b0a7ed4dddfb9dc3233b33fd8fa98fe72b06a7d3ff7c319bd9",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        63,
+        70
+      ]
+    },
+    {
+      "ordinal": 69,
+      "name": "TreeCacheExamples.pairSample_erases",
+      "start_line": 322,
+      "end_line": 323,
+      "start_byte": 22840,
+      "end_byte_exclusive": 23018,
+      "bytes": 178,
+      "sha256": "ee3eabc457567ec494e788d05b96f9ca69a692d3406ea31c071ae77e08e9b3b2",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        63,
+        70
+      ]
+    },
+    {
+      "ordinal": 70,
+      "name": "TreeCacheExamples.pairSample_read",
+      "start_line": 324,
+      "end_line": 330,
+      "start_byte": 23018,
+      "end_byte_exclusive": 23489,
+      "bytes": 471,
+      "sha256": "decfd9f4451e20c0f06fac3464152a26bd0672d9be3d8952828a1597a991709c",
+      "read_tool_chunk": "25a597",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        63,
+        70
+      ]
+    },
+    {
+      "ordinal": 71,
+      "name": "TreeCacheExamples.ordered_summary_fold",
+      "start_line": 331,
+      "end_line": 347,
+      "start_byte": 23489,
+      "end_byte_exclusive": 24420,
+      "bytes": 931,
+      "sha256": "2e1ef75f08684304a6e07ff027b7ea7bca53313321c7ee14d0766bdc936c3bd1",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        71,
+        72
+      ]
+    },
+    {
+      "ordinal": 72,
+      "name": "TreeCacheExamples.sample_word",
+      "start_line": 348,
+      "end_line": 386,
+      "start_byte": 24420,
+      "end_byte_exclusive": 26965,
+      "bytes": 2545,
+      "sha256": "fb840d9a8ada5462405521c1b372303524de833a4df02a54cf06afe939136a61",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        71,
+        72
+      ]
+    },
+    {
+      "ordinal": 73,
+      "name": "TreeCacheExamples.balancedThree",
+      "start_line": 387,
+      "end_line": 387,
+      "start_byte": 26965,
+      "end_byte_exclusive": 27018,
+      "bytes": 53,
+      "sha256": "03a4a7bd63ddd3c334a803da96c295a6c555d8d9d2be1b56bbf8a504c1fd5726",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        73,
+        76
+      ]
+    },
+    {
+      "ordinal": 74,
+      "name": "TreeCacheExamples.leftThree",
+      "start_line": 388,
+      "end_line": 388,
+      "start_byte": 27018,
+      "end_byte_exclusive": 27067,
+      "bytes": 49,
+      "sha256": "c6f2ecd2d86e72c482a0310078b828fba5150f6b553d18c146c045b83e0f02f9",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        73,
+        76
+      ]
+    },
+    {
+      "ordinal": 75,
+      "name": "TreeCacheExamples.same_inorder_different_height",
+      "start_line": 389,
+      "end_line": 396,
+      "start_byte": 27067,
+      "end_byte_exclusive": 27560,
+      "bytes": 493,
+      "sha256": "ef02e9ba26b7bdeb9d8fbf7800ab37c690e5c8062b96746a642c0b0dd1c44c10",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        73,
+        76
+      ]
+    },
+    {
+      "ordinal": 76,
+      "name": "TreeCacheExamples.repeated_sample",
+      "start_line": 397,
+      "end_line": 417,
+      "start_byte": 27560,
+      "end_byte_exclusive": 28620,
+      "bytes": 1060,
+      "sha256": "e07f396f6f7b756190c8c5a24fdea0e4867d3b2235b2c70efe73d40b05aaa6dc",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        73,
+        76
+      ]
+    },
+    {
+      "ordinal": 77,
+      "name": "TreeCacheExamples.empty_tree",
+      "start_line": 418,
+      "end_line": 419,
+      "start_byte": 28620,
+      "end_byte_exclusive": 28746,
+      "bytes": 126,
+      "sha256": "d2ab4de4fda08a56bda9d38f9e4661a356aa1c023463f90731953605eff6e94c",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        77,
+        80
+      ]
+    },
+    {
+      "ordinal": 78,
+      "name": "TreeCacheExamples.empty_fold",
+      "start_line": 420,
+      "end_line": 421,
+      "start_byte": 28746,
+      "end_byte_exclusive": 28957,
+      "bytes": 211,
+      "sha256": "8fffe2b39b9700b4de7b1b7fbdb64ddb16a88db143c979e582f44fec89faf826",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        77,
+        80
+      ]
+    },
+    {
+      "ordinal": 79,
+      "name": "TreeCacheExamples.empty_observations",
+      "start_line": 422,
+      "end_line": 425,
+      "start_byte": 28957,
+      "end_byte_exclusive": 29348,
+      "bytes": 391,
+      "sha256": "1e98a5a70943a6f07ccf71c64e032dd24499f4351e00c3dda2f1a651b765239e",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        77,
+        80
+      ]
+    },
+    {
+      "ordinal": 80,
+      "name": "TreeCacheExamples.empty_annotation",
+      "start_line": 426,
+      "end_line": 431,
+      "start_byte": 29348,
+      "end_byte_exclusive": 29761,
+      "bytes": 413,
+      "sha256": "fd7f0be7f50dceb663a1259465aad1269811683a01b5eab10cc8024a1bb19ed5",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        77,
+        80
+      ]
+    },
+    {
+      "ordinal": 81,
+      "name": "TreeCacheExamples.corrupt",
+      "start_line": 432,
+      "end_line": 432,
+      "start_byte": 29761,
+      "end_byte_exclusive": 29826,
+      "bytes": 65,
+      "sha256": "d0f1e35944e9709a1d9f1f6c166ac2a64340534fd631457f31581972ddc171d9",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        81,
+        87
+      ]
+    },
+    {
+      "ordinal": 82,
+      "name": "TreeCacheExamples.corrupt_root_checks",
+      "start_line": 433,
+      "end_line": 446,
+      "start_byte": 29826,
+      "end_byte_exclusive": 30726,
+      "bytes": 900,
+      "sha256": "1d7cf41d815cba17692e951dea24ceb66eb0fd6502367d24d1268a594eeef119",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        81,
+        87
+      ]
+    },
+    {
+      "ordinal": 83,
+      "name": "TreeCacheExamples.corrupt_not_valid",
+      "start_line": 447,
+      "end_line": 449,
+      "start_byte": 30726,
+      "end_byte_exclusive": 30937,
+      "bytes": 211,
+      "sha256": "bdb6cc1c1a8e057fb1834fe33e5fa876f6467d7f01e71cad2cd82c1aff37e2e4",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        81,
+        87
+      ]
+    },
+    {
+      "ordinal": 84,
+      "name": "TreeCacheExamples.corrupt_erases",
+      "start_line": 450,
+      "end_line": 451,
+      "start_byte": 30937,
+      "end_byte_exclusive": 31091,
+      "bytes": 154,
+      "sha256": "f469a527881694ec1de8d51b3eb6f81154b488f05713a073081815adb752527a",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        81,
+        87
+      ]
+    },
+    {
+      "ordinal": 85,
+      "name": "TreeCacheExamples.corrupt_inorder",
+      "start_line": 452,
+      "end_line": 457,
+      "start_byte": 31091,
+      "end_byte_exclusive": 31612,
+      "bytes": 521,
+      "sha256": "1cc9327aa96043f9ff4966383f7e85fbab93b6638f2d46347247bd84dd4317e0",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        81,
+        87
+      ]
+    },
+    {
+      "ordinal": 86,
+      "name": "TreeCacheExamples.corrupt_smart_not_valid",
+      "start_line": 458,
+      "end_line": 464,
+      "start_byte": 31612,
+      "end_byte_exclusive": 32171,
+      "bytes": 559,
+      "sha256": "ade8d713b360ef58997af1dea33d8553814d1e84fd86fb7d62850b1c681ab789",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        81,
+        87
+      ]
+    },
+    {
+      "ordinal": 87,
+      "name": "TreeCacheExamples.corrupt_smart_same_tree",
+      "start_line": 465,
+      "end_line": 470,
+      "start_byte": 32171,
+      "end_byte_exclusive": 32650,
+      "bytes": 479,
+      "sha256": "ed891617877d8678ded6132c2a6e18733f63e647a1641591cbccf6218fa34eb3",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        81,
+        87
+      ]
+    },
+    {
+      "ordinal": 88,
+      "name": "TreeCacheExamples.erased_fold",
+      "start_line": 471,
+      "end_line": 476,
+      "start_byte": 32650,
+      "end_byte_exclusive": 33145,
+      "bytes": 495,
+      "sha256": "adb680771dba6175e1c63fe02a5b336bf448435b6faab0f17b5d627a67e1790d",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        88,
+        88
+      ]
+    },
+    {
+      "ordinal": 89,
+      "name": "TreeCacheExamples.sizeRun",
+      "start_line": 477,
+      "end_line": 477,
+      "start_byte": 33145,
+      "end_byte_exclusive": 33275,
+      "bytes": 130,
+      "sha256": "4f8399e1cc56eda76a64c93e451c04c1cb3232816d635a2ea9092cf44f9daebd",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        89,
+        99
+      ]
+    },
+    {
+      "ordinal": 90,
+      "name": "TreeCacheExamples.heightRun",
+      "start_line": 478,
+      "end_line": 479,
+      "start_byte": 33275,
+      "end_byte_exclusive": 33409,
+      "bytes": 134,
+      "sha256": "224092cad132167dadfde0d67d66f223c344684bacc4e551f7d4d09367b7d56f",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        89,
+        99
+      ]
+    },
+    {
+      "ordinal": 91,
+      "name": "TreeCacheExamples.size_node_value",
+      "start_line": 480,
+      "end_line": 487,
+      "start_byte": 33409,
+      "end_byte_exclusive": 34031,
+      "bytes": 622,
+      "sha256": "fa7d099f0a79cae6d97437b8f977bd7be143328df90c0460003229ec01179a1e",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        89,
+        99
+      ]
+    },
+    {
+      "ordinal": 92,
+      "name": "TreeCacheExamples.height_node_value",
+      "start_line": 488,
+      "end_line": 495,
+      "start_byte": 34031,
+      "end_byte_exclusive": 34659,
+      "bytes": 628,
+      "sha256": "0027f834c4528a841604c45099ef8cae9e12902165ff7b52bc5318ebc3266e75",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        89,
+        99
+      ]
+    },
+    {
+      "ordinal": 93,
+      "name": "TreeCacheExamples.size_node_cost",
+      "start_line": 496,
+      "end_line": 502,
+      "start_byte": 34659,
+      "end_byte_exclusive": 35143,
+      "bytes": 484,
+      "sha256": "b422c6607d172d1d3fd4c342fec9e41d74227ad898a9fd19eb2032cb826352b4",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        89,
+        99
+      ]
+    },
+    {
+      "ordinal": 94,
+      "name": "TreeCacheExamples.height_node_cost",
+      "start_line": 503,
+      "end_line": 509,
+      "start_byte": 35143,
+      "end_byte_exclusive": 35631,
+      "bytes": 488,
+      "sha256": "430a5f36ac10c9320408d0ddab8583c10a4a91b951e1baccdea71247eec49620",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        89,
+        99
+      ]
+    },
+    {
+      "ordinal": 95,
+      "name": "TreeCacheExamples.size_node_bound",
+      "start_line": 510,
+      "end_line": 516,
+      "start_byte": 35631,
+      "end_byte_exclusive": 36129,
+      "bytes": 498,
+      "sha256": "c733d9ab8cd282c91475a6c689b06ac5a1ce82602e8fc3393faee8da8156ebb0",
+      "read_tool_chunk": "b528f0",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        89,
+        99
+      ]
+    },
+    {
+      "ordinal": 96,
+      "name": "TreeCacheExamples.size_node_valid",
+      "start_line": 517,
+      "end_line": 529,
+      "start_byte": 36129,
+      "end_byte_exclusive": 36993,
+      "bytes": 864,
+      "sha256": "016356b5a246d373daa80108afcce7efce0738bad96a56132dd4b69f92ca3b48",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        89,
+        99
+      ]
+    },
+    {
+      "ordinal": 97,
+      "name": "TreeCacheExamples.height_node_valid",
+      "start_line": 530,
+      "end_line": 542,
+      "start_byte": 36993,
+      "end_byte_exclusive": 37867,
+      "bytes": 874,
+      "sha256": "a0a6eda45c7d20ab23cec8e8d1d9e9d1664aa8c740c0dad48052be77ea82c205",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        89,
+        99
+      ]
+    },
+    {
+      "ordinal": 98,
+      "name": "TreeCacheExamples.measured_size_reader",
+      "start_line": 543,
+      "end_line": 559,
+      "start_byte": 37867,
+      "end_byte_exclusive": 39016,
+      "bytes": 1149,
+      "sha256": "b809aed698fc4eb786ef44f855dcf64d0b63c98382248a8b2c16b4564155025a",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        89,
+        99
+      ]
+    },
+    {
+      "ordinal": 99,
+      "name": "TreeCacheExamples.measured_height_reader",
+      "start_line": 560,
+      "end_line": 576,
+      "start_byte": 39016,
+      "end_byte_exclusive": 40173,
+      "bytes": 1157,
+      "sha256": "22e0232fcefe6e94dc15af198c3573db3c58c92cf152a8cf4b4ca4a45ac8b3c7",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        89,
+        99
+      ]
+    },
+    {
+      "ordinal": 100,
+      "name": "TreeCacheExamples.listStep",
+      "start_line": 577,
+      "end_line": 577,
+      "start_byte": 40173,
+      "end_byte_exclusive": 40304,
+      "bytes": 131,
+      "sha256": "063b7c1498dbdfad6ed5faba8ef7d0b5c859ed0b9f64844f295f7d1330756a0b",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        100,
+        104
+      ]
+    },
+    {
+      "ordinal": 101,
+      "name": "TreeCacheExamples.appendStepRun",
+      "start_line": 578,
+      "end_line": 579,
+      "start_byte": 40304,
+      "end_byte_exclusive": 40476,
+      "bytes": 172,
+      "sha256": "034155b566a7f5df43320e26ece19cc67b3eb0c4bafa1f18ebf8aaac9e994d28",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        100,
+        104
+      ]
+    },
+    {
+      "ordinal": 102,
+      "name": "TreeCacheExamples.append_node_value",
+      "start_line": 580,
+      "end_line": 587,
+      "start_byte": 40476,
+      "end_byte_exclusive": 41108,
+      "bytes": 632,
+      "sha256": "3bef0419ee74bb03a019e723f6e673010641ca1529e8b71ae4d8f4bbaefabe19",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        100,
+        104
+      ]
+    },
+    {
+      "ordinal": 103,
+      "name": "TreeCacheExamples.append_node_cost",
+      "start_line": 588,
+      "end_line": 596,
+      "start_byte": 41108,
+      "end_byte_exclusive": 41791,
+      "bytes": 683,
+      "sha256": "4fbb8f7c778adb1690a775a8d7b8f31472f7bea75d97cdb0e6275ffbbdfa4a4a",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        100,
+        104
+      ]
+    },
+    {
+      "ordinal": 104,
+      "name": "TreeCacheExamples.append_node_valid",
+      "start_line": 597,
+      "end_line": 604,
+      "start_byte": 41791,
+      "end_byte_exclusive": 42573,
+      "bytes": 782,
+      "sha256": "ce1187cf6a38b88c66ea98f8aaaad3a1eca97197d2fd84928682509742059e3e",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        100,
+        104
+      ]
+    },
+    {
+      "ordinal": 105,
+      "name": "TreeCacheExamples.chain",
+      "start_line": 605,
+      "end_line": 605,
+      "start_byte": 42573,
+      "end_byte_exclusive": 42627,
+      "bytes": 54,
+      "sha256": "027a6a83034e1e3a38fbce995d3185e893dcae7183a4b45e24fbc84e40f94831",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        105,
+        114
+      ]
+    },
+    {
+      "ordinal": 106,
+      "name": "TreeCacheExamples.chain_numNodes",
+      "start_line": 606,
+      "end_line": 607,
+      "start_byte": 42627,
+      "end_byte_exclusive": 42753,
+      "bytes": 126,
+      "sha256": "906c60e992310125625c0309cad0cca304b4d190e75ef11094318f52c0556615",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        105,
+        114
+      ]
+    },
+    {
+      "ordinal": 107,
+      "name": "TreeCacheExamples.chainCache",
+      "start_line": 608,
+      "end_line": 608,
+      "start_byte": 42753,
+      "end_byte_exclusive": 42848,
+      "bytes": 95,
+      "sha256": "db383cdffac668b4afb95e306dfa9877c4180e69dcfbfffc06c5356db0c12914",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        105,
+        114
+      ]
+    },
+    {
+      "ordinal": 108,
+      "name": "TreeCacheExamples.chainCache_valid",
+      "start_line": 609,
+      "end_line": 611,
+      "start_byte": 42848,
+      "end_byte_exclusive": 43047,
+      "bytes": 199,
+      "sha256": "78eb863fafd2418cf0c517fed664738853573de5d20c8c8c5d82487bde016f6b",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        105,
+        114
+      ]
+    },
+    {
+      "ordinal": 109,
+      "name": "TreeCacheExamples.chainCache_read",
+      "start_line": 612,
+      "end_line": 615,
+      "start_byte": 43047,
+      "end_byte_exclusive": 43289,
+      "bytes": 242,
+      "sha256": "071f3858a3a5bb02a517b6ccaba9d96a2bdbe25140b892901a15a90bf2303d27",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        105,
+        114
+      ]
+    },
+    {
+      "ordinal": 110,
+      "name": "TreeCacheExamples.chainCache_length",
+      "start_line": 616,
+      "end_line": 620,
+      "start_byte": 43289,
+      "end_byte_exclusive": 43499,
+      "bytes": 210,
+      "sha256": "dc6956e01c32c97702b2c35ce5a19a5a365537e2f5dcc69c1a419dfce0297187",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        105,
+        114
+      ]
+    },
+    {
+      "ordinal": 111,
+      "name": "TreeCacheExamples.chain_node_cost",
+      "start_line": 621,
+      "end_line": 628,
+      "start_byte": 43499,
+      "end_byte_exclusive": 44029,
+      "bytes": 530,
+      "sha256": "6f8b4669c73419821c198d90fd80b02e73630e0918cecd2efba02a4cc39393fc",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        105,
+        114
+      ]
+    },
+    {
+      "ordinal": 112,
+      "name": "TreeCacheExamples.chain_node_value",
+      "start_line": 629,
+      "end_line": 637,
+      "start_byte": 44029,
+      "end_byte_exclusive": 44647,
+      "bytes": 618,
+      "sha256": "701bef3f1fbf6974f40360cedf51b09e47655696f41917faea43c1831291050b",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        105,
+        114
+      ]
+    },
+    {
+      "ordinal": 113,
+      "name": "TreeCacheExamples.chain_node_valid",
+      "start_line": 638,
+      "end_line": 643,
+      "start_byte": 44647,
+      "end_byte_exclusive": 45134,
+      "bytes": 487,
+      "sha256": "9bb71bb82532a276d7e5b86c4548a9a1a69433a90202596d7f43782f36b5a801",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        105,
+        114
+      ]
+    },
+    {
+      "ordinal": 114,
+      "name": "TreeCacheExamples.chain_node_exceeds",
+      "start_line": 644,
+      "end_line": 652,
+      "start_byte": 45134,
+      "end_byte_exclusive": 45700,
+      "bytes": 566,
+      "sha256": "cc9e0e30142ce9304eb7ba16cbf791903f396f9751c82788f234a262109ed9ce",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        105,
+        114
+      ]
+    },
+    {
+      "ordinal": 115,
+      "name": "TreeCacheExamples.empty_read",
+      "start_line": 653,
+      "end_line": 656,
+      "start_byte": 45700,
+      "end_byte_exclusive": 46032,
+      "bytes": 332,
+      "sha256": "197c6e86befbe165580d19e1d6698b71555df8724096aca95a5ab54492940f96",
+      "read_tool_chunk": "0f5ef6",
+      "assessment": "assessed; no mismatch",
+      "assessment_group_ordinals": [
+        115,
+        115
+      ]
+    }
+  ],
+  "limits": "Type review is distinct from whole-project audit and acceptance. Pre/post/current hashes do not prove loaded-object origin or rule out transient/undeclared inputs."
+}

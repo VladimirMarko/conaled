@@ -1,0 +1,2041 @@
+{
+  "schema": "fdsa.xu02.spec.receiving-source-continuation.v1",
+  "reviewer": "/root/chapter02_spec",
+  "recorded_utc": "2026-11-04T15:17:47.785Z",
+  "review_status": "Blocked",
+  "source_assessment_status": "Complete; zero new concrete Spec findings",
+  "review_base": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "candidate_tree": "fc0af937b0b323d5216b3d7533af52edc70ea411",
+  "ordered_parents": [
+    "312aafb4446b995ff5542041b4e2e074f776db1e",
+    "bdac9703aab4b383fa775568d36bf685af329389"
+  ],
+  "original_base": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+  "original_draft": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+  "corrected_tip": "bdac9703aab4b383fa775568d36bf685af329389",
+  "original_full_C2_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "original_full_C2_scope": {
+    "paths": 81,
+    "obligations": 112,
+    "included_shared_scopes": 10,
+    "unchanged": true
+  },
+  "requirements": {
+    "path": "reviews/permutation-order-requirements.md",
+    "bytes": 11430,
+    "lines": 209,
+    "sha256": "f473f593bf4a7ef75dcf2f3163440db6fe187b3b9983f87254d2ddfa8191982d",
+    "read_scope": "Complete content read in this continuation; no truncated spans credited."
+  },
+  "scope": {
+    "paths": [
+      "Applications/Probability/PermutationOrder.lean",
+      "Examples/PermutationOrder.lean",
+      "Examples/PermutationOrderBoundary.lean",
+      "SquareApplications.lean",
+      "docs/research/fdsa-permutation-order.md",
+      "docs/research/fdsa-reconstruction-map.md"
+    ],
+    "additions": 4,
+    "modifications": 2,
+    "insertions": 815,
+    "deletions": 0,
+    "all_original_paths_and_cases_retained": true
+  },
+  "independent_source_read": {
+    "exact_O_all_six_paths_read": true,
+    "same_O_J_three_defining_blobs": true,
+    "complete_Lean_lines_read": 621,
+    "complete_original_note_lines": 166,
+    "complete_J_note_lines": 175,
+    "complete_root_and_map_resolution_diffs_read": true,
+    "I_map_prefix_preserved_exact": true,
+    "I_root_only_exact_Order_import": true,
+    "inherited_accepted_I_source_analysis_retained_by_identity": true,
+    "full_original_source_api_preflights_read": true,
+    "primary_source_boundary": "Existing complete C2 primary-source assessment retained by exact own records. This continuation reads full unit preflights, not a new complete external AFP theory or treap-paper source. No external proof is a Lean dependency.",
+    "clipping_boundary": "Initial combined output clipped 65 tokens in code-review; full code-review repeated in this bounded command. The other original guidance and complete321-line core were visible; no read credit assigned to clipped text."
+  },
+  "declaration_inventory": {
+    "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+    "defining_sources": [
+      {
+        "path": "Applications/Probability/PermutationOrder.lean",
+        "blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+        "bytes": 15304,
+        "lines": 321,
+        "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2",
+        "equals_Z": true,
+        "same_J_blob": true
+      },
+      {
+        "path": "Examples/PermutationOrder.lean",
+        "blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+        "bytes": 6706,
+        "lines": 152,
+        "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084",
+        "equals_Z": true,
+        "same_J_blob": true
+      },
+      {
+        "path": "Examples/PermutationOrderBoundary.lean",
+        "blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+        "bytes": 5605,
+        "lines": 148,
+        "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121",
+        "equals_Z": true,
+        "same_J_blob": true
+      }
+    ],
+    "public": 53,
+    "public_theorems": 45,
+    "public_definitions": 8,
+    "private_theorems": 5,
+    "anonymous_local_instances": 6,
+    "anonymous_examples": 0,
+    "named_declarations": [
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 49,
+        "name": "Applications.Probability.PermutationOrder.restrictedOrder",
+        "kind": "def",
+        "private": false,
+        "header": "def restrictedOrder (positions : List I) (S : Finset I) (π : Equiv.Perm I) : List I ",
+        "header_sha256": "306423c7f81fc052895543a914c2d95099c552bd728426444fd3cccca203c1de"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 53,
+        "name": "Applications.Probability.PermutationOrder.orders",
+        "kind": "def",
+        "private": false,
+        "header": "def orders (positions : List I) (S : Finset I) : Finset (List I) ",
+        "header_sha256": "c14b4b61acd89dad15190e8c147650300c5894404c218632767ac9f03fdf839e"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 57,
+        "name": "Applications.Probability.PermutationOrder.mem_restrictedOrder",
+        "kind": "theorem",
+        "private": false,
+        "header": "@[simp] theorem mem_restrictedOrder (positions : List I) (S : Finset I)\n    (π : Equiv.Perm I) (a : I) :\n    a ∈ restrictedOrder positions S π ↔ π a ∈ positions ∧ a ∈ S ",
+        "header_sha256": "814a25d5dc9956fc29001b8c4611821785991c1918da5f3caedae3f093114268"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 62,
+        "name": "Applications.Probability.PermutationOrder.mem_restrictedOrder_of_complete",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem mem_restrictedOrder_of_complete (positions : List I)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) (a : I) :\n    a ∈ restrictedOrder positions S π ↔ a ∈ S ",
+        "header_sha256": "b589e642daf6f73cad0a96b14f3ba5987a896f259e6abd21da3c08065aaa116d"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 67,
+        "name": "Applications.Probability.PermutationOrder.restrictedOrder_nodup",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem restrictedOrder_nodup (positions : List I) (hnd : positions.Nodup)\n    (S : Finset I) (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).Nodup ",
+        "header_sha256": "2009676c9ca2091ee50f85df5c3db436049c42a48d42a7e94e673c2e627671bc"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 73,
+        "name": "Applications.Probability.PermutationOrder.restrictedOrder_toFinset",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem restrictedOrder_toFinset (positions : List I)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).toFinset = S ",
+        "header_sha256": "2d96ff9cd3f02670b9dd8c90a53ccb4f733931d057a1d94f5770dc69e3bf752d"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 81,
+        "name": "Applications.Probability.PermutationOrder.restrictedOrder_length",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem restrictedOrder_length (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).length = S.card ",
+        "header_sha256": "a49756fa0c0d5ab2fe7eba28e31d9eedec5ed58b453b9759fc6cccd002becab7"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 87,
+        "name": "Applications.Probability.PermutationOrder.restrictedOrder_perm",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem restrictedOrder_perm (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).Perm\n      (positions.filter (fun a => decide (a ∈ S))) ",
+        "header_sha256": "b2e2694c6c8e9a747401e54d9821c8b5023baff52d2cc03eb0baf85de63249c0"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 98,
+        "name": "Applications.Probability.PermutationOrder.map_restrictedOrder_sublist",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem map_restrictedOrder_sublist (positions : List I) (S : Finset I)\n    (π : Equiv.Perm I) :\n    ((restrictedOrder positions S π).map π).Sublist positions ",
+        "header_sha256": "f4bae6f50212161c3acf4dafc48571c586170ed9c157e5c83befb75b7234c39e"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 107,
+        "name": "Applications.Probability.PermutationOrder.filter_restrictedOrder",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem filter_restrictedOrder (positions : List I) (S T : Finset I)\n    (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).filter (fun a => decide (a ∈ T)) =\n      restrictedOrder positions (S ∩ T) π ",
+        "header_sha256": "03290d68f8745c08cf38f0087fad0969ceef59c0d92758f40c6d915f38317aaf"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 117,
+        "name": "Applications.Probability.PermutationOrder.filter_restrictedOrder_of_subset",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem filter_restrictedOrder_of_subset (positions : List I) (S T : Finset I)\n    (π : Equiv.Perm I) (hTS : T ⊆ S) :\n    (restrictedOrder positions S π).filter (fun a => decide (a ∈ T)) =\n      restrictedOrder positions T π ",
+        "header_sha256": "337ed89caa4903173bd8222f222faef8a5d306e14d6689a4f16399db50d3943b"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 123,
+        "name": "Applications.Probability.PermutationOrder.mem_orders",
+        "kind": "theorem",
+        "private": false,
+        "header": "@[simp] theorem mem_orders (positions : List I) (S : Finset I) (xs : List I) :\n    xs ∈ orders positions S ↔\n      xs.Perm (positions.filter (fun a => decide (a ∈ S))) ",
+        "header_sha256": "5cc14309d67172b89e173ed3a479a52474325182e1f6f4b83ebe00128fa3f3e2"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 129,
+        "name": "Applications.Probability.PermutationOrder.orders_nonempty",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem orders_nonempty (positions : List I) (S : Finset I) :\n    (orders positions S).Nonempty ",
+        "header_sha256": "f0b74cce5b20d748a408eeb9db54c89d1c1c0d8165a81c84acbd40a132fc1718"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 134,
+        "name": "Applications.Probability.PermutationOrder.restrictedOrder_mem_orders",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem restrictedOrder_mem_orders (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :\n    restrictedOrder positions S π ∈ orders positions S ",
+        "header_sha256": "04e5de02d1cf5d1861cdb134290fd86c85e186cabdc69f047d902bfb86931c3e"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 139,
+        "name": "Applications.Probability.PermutationOrder.orders_card",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem orders_card (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) :\n    (orders positions S).card = Nat.factorial S.card ",
+        "header_sha256": "dd6358eca4ebdcb3d7d85bb78a6d9c8900d370eefc463d82754100554f462502"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 152,
+        "name": "Applications.Probability.PermutationOrder.exists_map_eq_of_nodup",
+        "kind": "theorem",
+        "private": true,
+        "header": "private theorem exists_map_eq_of_nodup (xs ys : List I)\n    (hxs : xs.Nodup) (hys : ys.Nodup) (hlength : xs.length = ys.length) :\n    ∃ σ : Equiv.Perm I, xs.map σ = ys ",
+        "header_sha256": "af3163880009a4ed16e25043fc1041db617483eabe85db18906d480a8286af78"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 167,
+        "name": "Applications.Probability.PermutationOrder.exists_relabel_orders",
+        "kind": "theorem",
+        "private": true,
+        "header": "private theorem exists_relabel_orders (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (xs ys : List I)\n    (hxs : xs ∈ orders positions S) (hys : ys ∈ orders positions S) :\n    ∃ σ : Equiv.Perm I, xs.map σ = ys ∧ ∀ a, σ a ∈ S ↔ a ∈ S ",
+        "header_sha256": "a78b9ab9bc09c63aa0045b5974e81e31f3eef8766c3c962249faccc130452a6f"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 187,
+        "name": "Applications.Probability.PermutationOrder.restrictedOrder_relabel",
+        "kind": "theorem",
+        "private": true,
+        "header": "private theorem restrictedOrder_relabel (positions : List I) (S : Finset I)\n    (π σ : Equiv.Perm I) (hS : ∀ a, σ a ∈ S ↔ a ∈ S) :\n    restrictedOrder positions S (π * σ.symm) =\n      (restrictedOrder positions S π).map σ ",
+        "header_sha256": "b6409f41e72e2089f62362c36c16b1a0c87d9a122a83b658fcdaac7e3378232f"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 202,
+        "name": "Applications.Probability.PermutationOrder.fiber_mass_eq",
+        "kind": "theorem",
+        "private": true,
+        "header": "private theorem fiber_mass_eq\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (S : Finset I) (xs ys : List I)\n    (hxs : xs ∈ orders positions S) (hys : ys ∈ orders positions S) :\n    uniformOn Set.univ {π | restrictedOrder positions S π = xs} =\n      uniformOn Set.univ {π | restrictedOrder positions S π = ys} ",
+        "header_sha256": "54184f60b0a0cc227a09b4e89716a3b8d85dd5261c5f89c6c25645ea90b0296d"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 234,
+        "name": "Applications.Probability.PermutationOrder.uniformOn_restrictedOrder_eq",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem uniformOn_restrictedOrder_eq\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (S : Finset I) (xs : List I) :\n    uniformOn (Set.univ : Set (Equiv.Perm I))\n        {π | restrictedOrder positions S π = xs} =\n      if xs ∈ orders positions S\n      then (Nat.factorial S.card : ℝ≥0∞)⁻¹\n      else 0 ",
+        "header_sha256": "cfd1879b4c7748d610592dc256fbbd3fa5fb0ee0d3a20e6b5516e4e590193375"
+      },
+      {
+        "source": "Applications/Probability/PermutationOrder.lean",
+        "line": 297,
+        "name": "Applications.Probability.PermutationOrder.map_restrictedOrder_uniformOn",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem map_restrictedOrder_uniformOn\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (S : Finset I) :\n    (uniformOn (Set.univ : Set (Equiv.Perm I))).map (restrictedOrder positions S) =\n      uniformOn (orders positions S : Set (List I)) ",
+        "header_sha256": "2613958361b0b173c4e76fe14cbdddc825612483389bf92f00bf4f54370f179e"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 34,
+        "name": "Examples.PermutationOrder.positions",
+        "kind": "def",
+        "private": false,
+        "header": "def positions : List (Fin 4) ",
+        "header_sha256": "761923344d379f086fb5c08dc30e87b5260ef9d892e4952d067df2b1771243db"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 35,
+        "name": "Examples.PermutationOrder.selected",
+        "kind": "def",
+        "private": false,
+        "header": "def selected : Finset (Fin 4) ",
+        "header_sha256": "27b559d9b5412d21136656d6efbfabe3eacbdcb77c67889489fed6c6c169f2ed"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 36,
+        "name": "Examples.PermutationOrder.smaller",
+        "kind": "def",
+        "private": false,
+        "header": "def smaller : Finset (Fin 4) ",
+        "header_sha256": "42b7d069f06e6b11110389b2f2cb9c0960b2cdf7a76a676a1f31a8439d0f0472"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 38,
+        "name": "Examples.PermutationOrder.positions_nodup",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem positions_nodup : positions.Nodup ",
+        "header_sha256": "beec15256bd9deb222b24154694d71139589bfd3bbcc95a0da3260b357de1d9a"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 40,
+        "name": "Examples.PermutationOrder.positions_complete",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem positions_complete (a : Fin 4) : a ∈ positions ",
+        "header_sha256": "f64d9b2a7341ab72935f04bdaec537e02bdcf8ec5d4baf1b59315b6f1b2deb35"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 43,
+        "name": "Examples.PermutationOrder.law",
+        "kind": "def",
+        "private": false,
+        "header": "noncomputable def law : Measure (Equiv.Perm (Fin 4)) ",
+        "header_sha256": "b90fbcac08ccf8fdd51b8a1ff927a3a86693a07f17bbb4a4058dd036e97bdcde"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 46,
+        "name": "Examples.PermutationOrder.selected_structure",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem selected_structure (π : Equiv.Perm (Fin 4)) :\n    (restrictedOrder positions selected π).Nodup ∧\n      (restrictedOrder positions selected π).toFinset = selected ∧\n      (restrictedOrder positions selected π).length = 3 ∧\n      ((restrictedOrder positions selected π).map π).Sublist positions ",
+        "header_sha256": "0f286f4049379210b447a24ed09745a2549f53f97bba4c43d9bee485607b45c2"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 59,
+        "name": "Examples.PermutationOrder.selected_permutation",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem selected_permutation (π : Equiv.Perm (Fin 4)) :\n    (restrictedOrder positions selected π).Perm [0, 2, 3] ",
+        "header_sha256": "a79be8de54868cc301cdb4e091f69a0703a09770464226033614265a09da6f1d"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 66,
+        "name": "Examples.PermutationOrder.selected_orders_card",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem selected_orders_card : (orders positions selected).card = 6 ",
+        "header_sha256": "d0f32fb862217d3197c5c4f8cd6f6028d0ed83e32a55ea5238e78ff6285df1a9"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 72,
+        "name": "Examples.PermutationOrder.fiber_mass_of_mem",
+        "kind": "theorem",
+        "private": true,
+        "header": "private theorem fiber_mass_of_mem (S : Finset (Fin 4)) (xs : List (Fin 4))\n    (hxs : xs ∈ orders positions S) :\n    law {π | restrictedOrder positions S π = xs} =\n      (Nat.factorial S.card : ℝ≥0∞)⁻¹ ",
+        "header_sha256": "6a5139709a256916225334a47678fd863a2c8035706cb97a297dd65a487e2ce6"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 81,
+        "name": "Examples.PermutationOrder.order_023_mass",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem order_023_mass :\n    law {π | restrictedOrder positions selected π = [0, 2, 3]} = 1 / 6 ",
+        "header_sha256": "92db659978f7a42104eda1245cbaa1971a363d0299a5f1f6c48b363caccb0d85"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 89,
+        "name": "Examples.PermutationOrder.observed_law",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem observed_law :\n    law.map (restrictedOrder positions selected) =\n      uniformOn (orders positions selected : Set (List (Fin 4))) ",
+        "header_sha256": "e2ee6dc8cc2ef5c0796cdb929e0fc2b65767f3a2c3da343fb66f2b4040482f06"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 96,
+        "name": "Examples.PermutationOrder.order_032_mass_via_map",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem order_032_mass_via_map :\n    law {π | restrictedOrder positions selected π = [0, 3, 2]} = 1 / 6 ",
+        "header_sha256": "34af3b6127e792f68f34f372b30588a5e60c5471afaae211186f55bed4f67e43"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 114,
+        "name": "Examples.PermutationOrder.repeated_order_mass_zero",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem repeated_order_mass_zero :\n    law {π | restrictedOrder positions selected π = [0, 0, 2]} = 0 ",
+        "header_sha256": "a318c22445cac21f4536a0f80e81e911688fa99699068a8807f30fa0666d5861"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 125,
+        "name": "Examples.PermutationOrder.nestedObservation",
+        "kind": "def",
+        "private": false,
+        "header": "def nestedObservation (π : Equiv.Perm (Fin 4)) : List (Fin 4) ",
+        "header_sha256": "60b418b00745da7c6f293038284a823501d8b23cddae919320dac10da79274a5"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 128,
+        "name": "Examples.PermutationOrder.nestedObservation_eq",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem nestedObservation_eq (π : Equiv.Perm (Fin 4)) :\n    nestedObservation π = restrictedOrder positions smaller π ",
+        "header_sha256": "ce3b3a2ac24efac22befe787e6b2836db795bf38cc5a7e08c00e144f955ff69f"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 133,
+        "name": "Examples.PermutationOrder.nested_order_30_mass",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem nested_order_30_mass :\n    law {π | nestedObservation π = [3, 0]} = 1 / 2 ",
+        "header_sha256": "45ca028967f0507e652362f66e88fc10997686d29146a6314da3c3518657298e"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 141,
+        "name": "Examples.PermutationOrder.singleton_order_mass",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem singleton_order_mass :\n    law {π | restrictedOrder positions {2} π = [2]} = 1 ",
+        "header_sha256": "ae088db29a91d6e801a90f593929ba27264bc1cdf31aaa34978add73e7a7f081"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 145,
+        "name": "Examples.PermutationOrder.full_order_mass",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem full_order_mass :\n    law {π | restrictedOrder positions Finset.univ π = [3, 1, 0, 2]} = 1 / 24 ",
+        "header_sha256": "44f17d121cab25a0603b1c285a0cc1aa23c851d9bbd932cbc54784259863ad8b"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 32,
+        "name": "Examples.PermutationOrderBoundary.empty_subset_output",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem empty_subset_output (π : Equiv.Perm (Fin 3)) :\n    restrictedOrder [0, 1, 2] ∅ π = [] ",
+        "header_sha256": "2cfcda348ede519af2fbb55f3fa953f28503dd7edcdaf65affe430efa0f93c46"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 37,
+        "name": "Examples.PermutationOrderBoundary.empty_subset_orders",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem empty_subset_orders :\n    orders ([0, 1, 2] : List (Fin 3)) ∅ = {[]} ",
+        "header_sha256": "cecc7f3ef768e740c10392e944ede403f5ad3d5ab540c7a4da6a4c05d703a0ea"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 42,
+        "name": "Examples.PermutationOrderBoundary.empty_subset_mass",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem empty_subset_mass :\n    uniformOn Set.univ\n      {π : Equiv.Perm (Fin 3) | restrictedOrder [0, 1, 2] ∅ π = []} = 1 ",
+        "header_sha256": "ae995ca0c5a82ec6e8220e019b64eac3ceada41ed148f51ac1bf3bda6054b3ad"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 51,
+        "name": "Examples.PermutationOrderBoundary.empty_index_mass",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem empty_index_mass :\n    uniformOn (Set.univ : Set (Equiv.Perm Empty))\n      {π | restrictedOrder ([] : List Empty) ∅ π = []} = 1 ",
+        "header_sha256": "21669a4ff3395d0d6fcf5d736853ad884bf428e382349a7ad66f392ff2f2856f"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 59,
+        "name": "Examples.PermutationOrderBoundary.cycle",
+        "kind": "def",
+        "private": false,
+        "header": "def cycle : Equiv.Perm (Fin 3) ",
+        "header_sha256": "f89755ba1503b708d02fc0e8a8d755474b8ff9e80079cec3f9df47a7e5ae3d09"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 62,
+        "name": "Examples.PermutationOrderBoundary.cycle_values",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem cycle_values : cycle 0 = 1 ∧ cycle 1 = 2 ∧ cycle 2 = 0 ",
+        "header_sha256": "56b45d2fcbf3e6706397ac39156f12059d9cc0bc9607cae2ed1f63616536c279"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 66,
+        "name": "Examples.PermutationOrderBoundary.cycle_inverse_order",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem cycle_inverse_order :\n    ([0, 1, 2] : List (Fin 3)).map cycle.symm = [2, 0, 1] ",
+        "header_sha256": "e3a6dc30fa1fe8c8344cb4e876c6c4536a99492a8da34cdad7cdeb718a42fdfb"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 70,
+        "name": "Examples.PermutationOrderBoundary.cycle_restricted_order",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem cycle_restricted_order :\n    restrictedOrder ([0, 1, 2] : List (Fin 3)) {0, 1} cycle = [0, 1] ",
+        "header_sha256": "be744271219e7e679a24d36da4583eca16a33d4733e6a95b09edc2c02681b716"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 75,
+        "name": "Examples.PermutationOrderBoundary.cycle_direct_order",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem cycle_direct_order :\n    (([0, 1, 2] : List (Fin 3)).map cycle).filter\n      (fun a => decide (a ∈ ({0, 1} : Finset (Fin 3)))) = [1, 0] ",
+        "header_sha256": "55eb58aec2957c0b9c0b4ff3e2fd30bf22691a3986033893d31f4dbaa7b3d547"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 80,
+        "name": "Examples.PermutationOrderBoundary.inverse_and_direct_orders_differ",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem inverse_and_direct_orders_differ :\n    restrictedOrder ([0, 1, 2] : List (Fin 3)) {0, 1} cycle ≠\n      (([0, 1, 2] : List (Fin 3)).map cycle).filter\n        (fun a => decide (a ∈ ({0, 1} : Finset (Fin 3)))) ",
+        "header_sha256": "f60248d73f01f85fce3dc638a9433cca2cfbbdc516a1450598111bdf652e8ad6"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 88,
+        "name": "Examples.PermutationOrderBoundary.numeric_enumeration_values",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem numeric_enumeration_values :\n    (restrictedOrder ([0, 2, 1] : List (Fin 3)) Finset.univ\n      (Equiv.refl (Fin 3))).map spacedPriority = [-7, 4, 100] ",
+        "header_sha256": "4892b703b86377ccd4dc95ec58f7d0b001c1b39ad53f080ce37ac8e03cb48ac3"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 93,
+        "name": "Examples.PermutationOrderBoundary.numeric_enumeration_increasing",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem numeric_enumeration_increasing :\n    List.Pairwise (fun a b : Int => a < b)\n      ((restrictedOrder ([0, 2, 1] : List (Fin 3)) Finset.univ\n        (Equiv.refl (Fin 3))).map spacedPriority) ",
+        "header_sha256": "1a9a50fbd2d537d7c57272c5e838e799af69c6138e1398cf4ac01b3b165bf9a8"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 101,
+        "name": "Examples.PermutationOrderBoundary.ordinary_enumeration_not_increasing",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem ordinary_enumeration_not_increasing :\n    ¬ List.Pairwise (fun a b : Int => a < b)\n      ((restrictedOrder ([0, 1, 2] : List (Fin 3)) Finset.univ\n        (Equiv.refl (Fin 3))).map spacedPriority) ",
+        "header_sha256": "426aebc9b99562eac4da21905fec45b9f35e32fec05b976d0568008fe2147050"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 107,
+        "name": "Examples.PermutationOrderBoundary.numeric_and_ordinary_orders_differ",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem numeric_and_ordinary_orders_differ :\n    restrictedOrder ([0, 2, 1] : List (Fin 3)) Finset.univ (Equiv.refl (Fin 3)) ≠\n      restrictedOrder ([0, 1, 2] : List (Fin 3)) Finset.univ (Equiv.refl (Fin 3)) ",
+        "header_sha256": "4a438b85583383a872ab459a304a551d4c19d590f7640a07665807f23fc34aea"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 113,
+        "name": "Examples.PermutationOrderBoundary.incomplete_output",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem incomplete_output :\n    restrictedOrder ([0] : List (Fin 2)) {0} (Equiv.swap 0 1) = [] ",
+        "header_sha256": "8ea28e62c6e4d7434263426c986552815c970b6b4ea2113569b9ec9d808da499"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 118,
+        "name": "Examples.PermutationOrderBoundary.incomplete_support_counterexample",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem incomplete_support_counterexample :\n    ([0] : List (Fin 2)).Nodup ∧\n      restrictedOrder ([0] : List (Fin 2)) {0} (Equiv.swap 0 1) ∉\n        orders ([0] : List (Fin 2)) {0} ",
+        "header_sha256": "3bbf82682b35c7aad33b5c0fb2965c1e8cc97145a61abcae6da8c991d5ee5dcd"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 130,
+        "name": "Examples.PermutationOrderBoundary.repeated_output",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem repeated_output :\n    restrictedOrder ([0, 0, 1] : List (Fin 2)) Finset.univ (Equiv.swap 0 1) =\n      [1, 1, 0] ",
+        "header_sha256": "4e19cf00046526ee70b1c0052f73527dfc5839ef2a4744e4ea1b9e13813a9c50"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 136,
+        "name": "Examples.PermutationOrderBoundary.repeated_support_counterexample",
+        "kind": "theorem",
+        "private": false,
+        "header": "theorem repeated_support_counterexample :\n    (∀ a : Fin 2, a ∈ ([0, 0, 1] : List (Fin 2))) ∧\n      restrictedOrder ([0, 0, 1] : List (Fin 2)) Finset.univ (Equiv.swap 0 1) ∉\n        orders ([0, 0, 1] : List (Fin 2)) Finset.univ ",
+        "header_sha256": "464ca4c3c146e4293271f074c0f3207b83e8c14bccd95ba5c6cb0a6b07d5732d"
+      }
+    ],
+    "anonymous_instances": [
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 31,
+        "kind": "anonymous local instance"
+      },
+      {
+        "source": "Examples/PermutationOrder.lean",
+        "line": 32,
+        "kind": "anonymous local instance"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 24,
+        "kind": "anonymous local instance"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 25,
+        "kind": "anonymous local instance"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 27,
+        "kind": "anonymous local instance"
+      },
+      {
+        "source": "Examples/PermutationOrderBoundary.lean",
+        "line": 28,
+        "kind": "anonymous local instance"
+      }
+    ],
+    "private_and_generated_full_audit_scope_retained": true,
+    "parser_boundary": "Explicit authored named header prefixes through the first :=; source inventory only. Actual Lean types and compiler-generated declarations are not inferred from this lexical inventory."
+  },
+  "semantics": [
+    "Actual key-to-label inverse-map/filter observation; sole DecidableEq definition input; fixed S is quantified outside sample event.",
+    "General membership keeps both assigned-label membership and S membership; completeness/Nodup are separately necessary and boundary-tested.",
+    "Mapped-sublist and nested/intersection equations are same-permutation pointwise facts, not conditioning or independence.",
+    "Whole supported-output fibers use actual uniform global permutation law; relabeling extends finite position correspondence, preserves S, and transports fibers via π*σ.symm.",
+    "Equal-mass finite support normalization gives ENNReal reciprocal factorial, including empty S/I; no hidden Nonempty I or global finite-I premise.",
+    "Measure.map equality uses additional output measurable singletons and countable List I, without claiming finite List I.",
+    "Fin4 1/6 and 1/6 same-first outputs exercise both generic fiber and map equality; repeated output0, nested pair1/2, singleton1, full1/24 remain connected.",
+    "Cycle distinguishes inverse versus direct pointwise orientation; numeric enumeration -7,4,100 versus ordinary order; incomplete/repeated positions refute removing completeness/Nodup.",
+    "All original SP01/SRC001/ELAB001–014 source corrections retained, with original actual versus anticipated failure boundaries. The Order portion of C02-DOC-003 is source-resolved at exact J by the reviewed receiving documentation.",
+    "No conditional/adaptive/joint/expectation/algorithmic-cost scope expansion; existing C2 full scope and all earlier semantic reads remain held.",
+    "Historical 53 type assessment remains valid historical evidence. Exact receiving qualification not granted; saved comparison independently reconstructed three unequal traces and nine unequal dependency-path records despite equal source/olean/hash/config/runtime."
+  ],
+  "complete_retained_findings": {
+    "XU02-SP01": {
+      "status": "Historical source correction retained at J",
+      "meaning": "Numeric enumeration is not strictly increasing; no false non-increasing claim."
+    },
+    "XU02-SRC-001": {
+      "status": "Historical source correction retained; prior core compilation/type evidence preserved",
+      "meaning": "Three proof-local letI declarations replaced by let without suppressing the pinned linter."
+    },
+    "XU02-ELAB-001": {
+      "status": "Historical correction retained at J",
+      "meaning": "Explicit List.Sublist replaces unsupported notation; intended relation unchanged."
+    },
+    "XU02-ELAB-002": {
+      "status": "Historical correction retained at J",
+      "meaning": "Explicit Fin ys.length type resolves dependent val inference."
+    },
+    "XU02-ELAB-003": {
+      "status": "Historical correction retained at J",
+      "meaning": "Expose the same inverse-composition map before map_map."
+    },
+    "XU02-ELAB-004": {
+      "status": "Historical correction retained at J",
+      "meaning": "Pinned ite_eq_left supported branch."
+    },
+    "XU02-ELAB-005": {
+      "status": "Historical correction retained at J",
+      "meaning": "Pinned ite_eq_right unsupported branch."
+    },
+    "XU02-ELAB-006": {
+      "status": "Historical correction retained at J",
+      "meaning": "Omit unused DecidableEq only from private finite-extension helper."
+    },
+    "XU02-ELAB-007": {
+      "status": "Historical correction retained at J",
+      "meaning": "Incomplete enumeration counterexample established via actual Perm.length_eq."
+    },
+    "XU02-ELAB-008": {
+      "status": "Historical correction retained at J",
+      "meaning": "Repeated enumeration counterexample established via actual Perm.count_eq."
+    },
+    "XU02-ELAB-009": {
+      "status": "Historical correction retained at J",
+      "meaning": "Main selected_structure uses the same explicit Sublist proposition."
+    },
+    "XU02-ELAB-010": {
+      "status": "Historical correction retained at J",
+      "meaning": "Main uses current ite rewrite names."
+    },
+    "XU02-ELAB-011": {
+      "status": "Historical correction retained at J",
+      "meaning": "Five support proofs use existing mem_orders then ordinary decide of List.Perm."
+    },
+    "XU02-ELAB-012": {
+      "status": "Historical correction retained at J",
+      "meaning": "Explicit reflexivity connects actual map singleton preimage and equality event."
+    },
+    "XU02-ELAB-013": {
+      "status": "Historical correction retained at J",
+      "meaning": "Normalize actual finite-cardinality numeral cast."
+    },
+    "XU02-ELAB-014": {
+      "status": "Historical correction retained at J",
+      "meaning": "Repeated output nonmembership via actual count2 versus1 contradiction."
+    },
+    "C02-DOC-003 / Order": {
+      "status": "Resolved at receiving J source application",
+      "meaning": "Both obsolete uncompiled claims replaced by exact dated historical evidence and explicit receiving-gate boundary. Full C2 finding not globally closed."
+    },
+    "C02-TYPE-001": {
+      "status": "Resolved historically at Z; no automatic receiving credit",
+      "meaning": "All53 complete types read previously within815. Actual J53 execution and full input qualification pending."
+    }
+  },
+  "new_findings": [],
+  "corrected_original_chain": [
+    "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+    "758e130cc30b8779dfce0ef2c4687aea0efa1792",
+    "d80edd8f882c74eb4fc9eb4dcd559df32cb370a8",
+    "2695e20f76604cc85396fd8d8e82459b9067f551",
+    "fbc9a32a2a7cc333f632c88a27a5d7a977d67f72",
+    "bdac9703aab4b383fa775568d36bf685af329389"
+  ],
+  "source_only_input_comparison": {
+    "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+    "roots": [
+      "Applications.Probability.PermutationOrder",
+      "Examples.PermutationOrder",
+      "Examples.PermutationOrderBoundary"
+    ],
+    "local_sources": {
+      "Applications/Probability/PermutationOrder.lean": {
+        "bytes": 15304,
+        "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2",
+        "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+        "same_as_Z": true
+      },
+      "Examples/PermutationOrder.lean": {
+        "bytes": 6706,
+        "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084",
+        "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+        "same_as_Z": true
+      },
+      "Examples/PermutationOrderBoundary.lean": {
+        "bytes": 5605,
+        "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121",
+        "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+        "same_as_Z": true
+      },
+      "Examples/PermutationMinimum.lean": {
+        "bytes": 4994,
+        "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+        "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+        "same_as_Z": true
+      },
+      "Applications/Probability/PermutationMinimum.lean": {
+        "bytes": 8241,
+        "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+        "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+        "same_as_Z": true
+      },
+      "Examples/PermutationMinimumBoundary.lean": {
+        "bytes": 4211,
+        "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+        "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+        "same_as_Z": true
+      }
+    },
+    "local_count": 6,
+    "direct_external_imports": [
+      "Mathlib.Data.Finset.Card",
+      "Mathlib.Data.Finset.Lattice.Lemmas",
+      "Mathlib.Data.Finset.Max",
+      "Mathlib.Data.Fintype.OfMap",
+      "Mathlib.Data.Fintype.Perm",
+      "Mathlib.Data.List.Basic",
+      "Mathlib.Data.List.Nodup",
+      "Mathlib.Data.List.Permutation",
+      "Mathlib.Data.Set.Card",
+      "Mathlib.Logic.Equiv.Fintype",
+      "Mathlib.Logic.Equiv.List",
+      "Mathlib.Probability.UniformOn",
+      "Mathlib.Tactic",
+      "Mathlib.Tactic.FinCases"
+    ],
+    "external_count": 14,
+    "import_edges": [
+      [
+        "Applications.Probability.PermutationOrder",
+        "Mathlib.Data.Finset.Card"
+      ],
+      [
+        "Applications.Probability.PermutationOrder",
+        "Mathlib.Data.Finset.Lattice.Lemmas"
+      ],
+      [
+        "Applications.Probability.PermutationOrder",
+        "Mathlib.Data.Fintype.OfMap"
+      ],
+      [
+        "Applications.Probability.PermutationOrder",
+        "Mathlib.Data.Fintype.Perm"
+      ],
+      [
+        "Applications.Probability.PermutationOrder",
+        "Mathlib.Data.List.Basic"
+      ],
+      [
+        "Applications.Probability.PermutationOrder",
+        "Mathlib.Data.List.Nodup"
+      ],
+      [
+        "Applications.Probability.PermutationOrder",
+        "Mathlib.Data.List.Permutation"
+      ],
+      [
+        "Applications.Probability.PermutationOrder",
+        "Mathlib.Data.Set.Card"
+      ],
+      [
+        "Applications.Probability.PermutationOrder",
+        "Mathlib.Logic.Equiv.Fintype"
+      ],
+      [
+        "Applications.Probability.PermutationOrder",
+        "Mathlib.Logic.Equiv.List"
+      ],
+      [
+        "Applications.Probability.PermutationOrder",
+        "Mathlib.Probability.UniformOn"
+      ],
+      [
+        "Examples.PermutationOrder",
+        "Applications.Probability.PermutationOrder"
+      ],
+      [
+        "Examples.PermutationOrder",
+        "Examples.PermutationOrderBoundary"
+      ],
+      [
+        "Examples.PermutationOrderBoundary",
+        "Applications.Probability.PermutationOrder"
+      ],
+      [
+        "Examples.PermutationOrderBoundary",
+        "Examples.PermutationMinimum"
+      ],
+      [
+        "Examples.PermutationMinimum",
+        "Applications.Probability.PermutationMinimum"
+      ],
+      [
+        "Applications.Probability.PermutationMinimum",
+        "Mathlib.Data.Finset.Max"
+      ],
+      [
+        "Applications.Probability.PermutationMinimum",
+        "Mathlib.Data.Fintype.Perm"
+      ],
+      [
+        "Applications.Probability.PermutationMinimum",
+        "Mathlib.Data.Set.Card"
+      ],
+      [
+        "Applications.Probability.PermutationMinimum",
+        "Mathlib.Probability.UniformOn"
+      ],
+      [
+        "Examples.PermutationMinimum",
+        "Examples.PermutationMinimumBoundary"
+      ],
+      [
+        "Examples.PermutationMinimumBoundary",
+        "Applications.Probability.PermutationMinimum"
+      ],
+      [
+        "Examples.PermutationMinimumBoundary",
+        "Mathlib.Tactic.FinCases"
+      ],
+      [
+        "Examples.PermutationMinimum",
+        "Mathlib.Tactic"
+      ],
+      [
+        "Examples.PermutationOrderBoundary",
+        "Mathlib.Tactic"
+      ],
+      [
+        "Examples.PermutationOrder",
+        "Mathlib.Tactic"
+      ]
+    ],
+    "edge_count": 26,
+    "inherited_I314_local_sources": {
+      "Examples/InsertionCosts.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Applications/Selection/Rank.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Applications/Sorting/Sort.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Applications/Sorting/Merge.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Applications/Sorting/Stable.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Applications/Resources/InsertionSort.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Applications/Resources/CallCount.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Applications/Resources/Measured.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Squares.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Examples/ThreeWayPartition.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Applications/Selection/ThreeWay.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Applications/Sequences/Partition.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Applications/Resources/Partition.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Examples/PermutationMinimumBoundary.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Applications/Probability/PermutationMinimum.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Examples/PermutationMinimum.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Examples/MergeCosts.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Examples/StableSorting.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Applications/Sorting/SourceMerge.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Applications/Search/LeftistQueue.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Applications/Resources/CallComparison.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Applications/Resources/Growth.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Applications/Resources/ListMerge.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Examples/DifferenceListCosts.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Applications/Resources/DifferenceListCosts.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "Applications/Resources/Workload.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      },
+      "SquareKit/ListFusion.lean": {
+        "same_I_source": true,
+        "same_saved_I_source": true
+      }
+    },
+    "all_27_I314_sources_exact": true,
+    "root_exact_single_import_insertion": true,
+    "map_all_I_bytes_preserved_prefix": true,
+    "I_lean_Order_references": 0,
+    "source_only": true,
+    "receiving_type_credit": 0
+  },
+  "author_package_independent_reconciliation": {
+    "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+    "payloads_verified": 30,
+    "saved_source_diff_equals_actual_git": true,
+    "all_six_sources_match_author_receipt": true,
+    "protected_refs": {
+      "before": 64,
+      "after": 65,
+      "all_old_unchanged": true,
+      "sole_new_ref": "refs/heads/work/fdsa-order-integration"
+    },
+    "inherited_F110_static_closure": {
+      "roots": [
+        "Applications.Resources.ListCalls",
+        "Examples.FunctionalNotation",
+        "Examples.ListCalls",
+        "Examples.ListLibrary"
+      ],
+      "sources": {
+        "Applications/Resources/ListCalls.lean": {
+          "git_blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4",
+          "sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+          "bytes": 7939
+        },
+        "Applications/Resources/CallCount.lean": {
+          "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+          "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+          "bytes": 2447
+        },
+        "Applications/Resources/Measured.lean": {
+          "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+          "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+          "bytes": 2906
+        },
+        "Squares.lean": {
+          "git_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+          "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+          "bytes": 11694
+        },
+        "Applications/Resources/SymmetricCosts.lean": {
+          "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+          "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+          "bytes": 10508
+        },
+        "Applications/Resources/Potential.lean": {
+          "git_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+          "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe",
+          "bytes": 4638
+        },
+        "Applications/Resources/Workload.lean": {
+          "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+          "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+          "bytes": 2745
+        },
+        "SquareKit/ListFusion.lean": {
+          "git_blob": "33ec447acb6da7b884ae57d2a885707208201607",
+          "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+          "bytes": 2939
+        },
+        "Applications/Sequences/Symmetric/Core.lean": {
+          "git_blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4",
+          "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+          "bytes": 12059
+        },
+        "Examples/FunctionalNotation.lean": {
+          "git_blob": "3e5db8677c94bd330779522f92bc39508540a17a",
+          "sha256": "fe4b585a6753110dee67c1942ce68d16d9bf00feb5946f32791682c634c42eef",
+          "bytes": 8277
+        },
+        "Examples/FunctionalBasics.lean": {
+          "git_blob": "bdd58014ed1f3ca284e4ba44155da946c65de866",
+          "sha256": "f9d141719675eaaf1a09bcfabf1a0e79cc2f68f89406a2229233b71a8d1bae3d",
+          "bytes": 3381
+        },
+        "Applications/Arithmetic/EuclidInduction.lean": {
+          "git_blob": "0c4d03bcd60641cabb821ad5bfc1f6763656dc54",
+          "sha256": "1195a850cc25d518c50f6f6133da87f5d4fcffd264ea3c687c67b5dcc34abe3e",
+          "bytes": 1069
+        },
+        "Examples/ListLibrary.lean": {
+          "git_blob": "99ba369997885e176bbda192ee0feb5c7bf4d034",
+          "sha256": "036cf4c12ddf5d25ce433d9f7dbedfcbb96dfc3c7f602d10605388d2791e47ad",
+          "bytes": 6761
+        },
+        "Examples/ListCalls.lean": {
+          "git_blob": "b4c4683ee2bd16ff6f844ce757470515847a63dc",
+          "sha256": "24d0809f51d04b0a9cadb5a349141e7327a5f7721f63c1021113527917487d5d",
+          "bytes": 4333
+        },
+        "Applications/Resources/ListReversal.lean": {
+          "git_blob": "62ab85a7325d521bf925405f9abb053703f4d175",
+          "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+          "bytes": 4827
+        },
+        "Applications/Resources/TreeFlattening/Core.lean": {
+          "git_blob": "d136193bd3823ee00431bc240d1e7a0168b4ddaf",
+          "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+          "bytes": 4225
+        },
+        "Applications/Resources/RandomAccess/CacheCosts.lean": {
+          "git_blob": "e583ec5285ea887c38f4b369071408697f0574b2",
+          "sha256": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+          "bytes": 2227
+        },
+        "Applications/Sequences/RandomAccess/TreeBuild.lean": {
+          "git_blob": "3b662705f001c2a4b8fbe12868d6c7e77316d95f",
+          "sha256": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+          "bytes": 5392
+        },
+        "Applications/Sequences/RandomAccess/Borrow.lean": {
+          "git_blob": "81b95e8bd4a6e30f6a20a85828409d6d55437be0",
+          "sha256": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+          "bytes": 5680
+        },
+        "Applications/Sequences/RandomAccess/Access.lean": {
+          "git_blob": "5354c146a0665cce90ffc996d1b522b8a59079ad",
+          "sha256": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+          "bytes": 5219
+        },
+        "Applications/Sequences/RandomAccess/Basic.lean": {
+          "git_blob": "fe040b71615878a86d06b326b820e1d5cd5f0229",
+          "sha256": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+          "bytes": 5970
+        },
+        "Applications/Bracketing/Basic.lean": {
+          "git_blob": "3f6604c226908ee807c7d5076bd1c027b48bbf90",
+          "sha256": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+          "bytes": 8561
+        },
+        "Applications/Optimization/SelectionSpec.lean": {
+          "git_blob": "2548b66575b5a453e8cec30ceb745234bb0ae2e6",
+          "sha256": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+          "bytes": 738
+        }
+      },
+      "source_count": 23,
+      "external_imports": [
+        "Lean",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+        "Mathlib.Algebra.BigOperators.Group.List.Basic",
+        "Mathlib.Algebra.BigOperators.Group.Multiset.Basic",
+        "Mathlib.Algebra.Group.Nat.Defs",
+        "Mathlib.Algebra.Group.Prod",
+        "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+        "Mathlib.Algebra.Order.Floor.Ring",
+        "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+        "Mathlib.Basic.Real.Basic",
+        "Mathlib.Data.Int.DivMod",
+        "Mathlib.Data.List.Basic",
+        "Mathlib.Data.List.Chain",
+        "Mathlib.Data.List.Infix",
+        "Mathlib.Data.List.Intervals",
+        "Mathlib.Data.List.MinMax",
+        "Mathlib.Data.List.Sort",
+        "Mathlib.Data.Multiset.Filter",
+        "Mathlib.Data.Nat.GCD.Basic",
+        "Mathlib.Data.Set.Finite.Basic",
+        "Mathlib.Data.Set.Lattice.Bounded",
+        "Mathlib.Data.Set.Lattice.Disjoint",
+        "Mathlib.Data.Set.Lattice.Image",
+        "Mathlib.Data.Set.Lattice.Indexed",
+        "Mathlib.Data.Set.Lattice.Order",
+        "Mathlib.Data.Set.Prod",
+        "Mathlib.Logic.Function.Basic",
+        "Mathlib.Order.Interval.Finset.Nat",
+        "Mathlib.Order.Interval.Set.Defs",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Std"
+      ],
+      "external_count": 32,
+      "edges": [
+        [
+          "Applications.Resources.ListCalls",
+          "Applications.Resources.CallCount"
+        ],
+        [
+          "Applications.Resources.CallCount",
+          "Applications.Resources.Measured"
+        ],
+        [
+          "Applications.Resources.Measured",
+          "Mathlib.Algebra.Group.Prod"
+        ],
+        [
+          "Applications.Resources.Measured",
+          "Mathlib.Algebra.Order.Monoid.Unbundled.Basic"
+        ],
+        [
+          "Applications.Resources.Measured",
+          "Squares"
+        ],
+        [
+          "Squares",
+          "Lean"
+        ],
+        [
+          "Applications.Resources.ListCalls",
+          "Applications.Resources.SymmetricCosts"
+        ],
+        [
+          "Applications.Resources.SymmetricCosts",
+          "Applications.Resources.Potential"
+        ],
+        [
+          "Applications.Resources.Potential",
+          "Applications.Resources.Workload"
+        ],
+        [
+          "Applications.Resources.Workload",
+          "Applications.Resources.Measured"
+        ],
+        [
+          "Applications.Resources.Workload",
+          "SquareKit.ListFusion"
+        ],
+        [
+          "SquareKit.ListFusion",
+          "Mathlib.Data.List.Basic"
+        ],
+        [
+          "Applications.Resources.Potential",
+          "Mathlib.Algebra.Group.Nat.Defs"
+        ],
+        [
+          "Applications.Resources.SymmetricCosts",
+          "Applications.Sequences.Symmetric.Core"
+        ],
+        [
+          "Applications.Sequences.Symmetric.Core",
+          "SquareKit.ListFusion"
+        ],
+        [
+          "Applications.Sequences.Symmetric.Core",
+          "Mathlib.Data.List.Infix"
+        ],
+        [
+          "Applications.Resources.ListCalls",
+          "Mathlib.Algebra.BigOperators.Group.List.Basic"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Examples.FunctionalBasics"
+        ],
+        [
+          "Examples.FunctionalBasics",
+          "Applications.Arithmetic.EuclidInduction"
+        ],
+        [
+          "Applications.Arithmetic.EuclidInduction",
+          "Mathlib.Data.Nat.GCD.Basic"
+        ],
+        [
+          "Examples.FunctionalBasics",
+          "Mathlib.Algebra.BigOperators.Group.Multiset.Basic"
+        ],
+        [
+          "Examples.FunctionalBasics",
+          "Mathlib.Data.Multiset.Filter"
+        ],
+        [
+          "Examples.FunctionalBasics",
+          "Mathlib.Basic.Real.Basic"
+        ],
+        [
+          "Examples.FunctionalBasics",
+          "Mathlib.Logic.Function.Basic"
+        ],
+        [
+          "Examples.FunctionalBasics",
+          "Mathlib.Tactic.NormNum"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Examples.ListLibrary"
+        ],
+        [
+          "Examples.ListLibrary",
+          "Mathlib.Data.List.Intervals"
+        ],
+        [
+          "Examples.ListLibrary",
+          "Mathlib.Data.List.MinMax"
+        ],
+        [
+          "Examples.ListLibrary",
+          "Mathlib.Data.List.Chain"
+        ],
+        [
+          "Examples.ListLibrary",
+          "Mathlib.Data.List.Sort"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Algebra.BigOperators.Group.Finset.Basic"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Algebra.Order.Archimedean.Real.Basic"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Algebra.Order.Floor.Ring"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Data.Int.DivMod"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Data.Set.Lattice.Bounded"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Data.Set.Lattice.Disjoint"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Data.Set.Lattice.Image"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Data.Set.Lattice.Indexed"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Data.Set.Lattice.Order"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Data.Set.Prod"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Data.Set.Finite.Basic"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Order.Interval.Finset.Nat"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Order.Interval.Set.Defs"
+        ],
+        [
+          "Examples.ListCalls",
+          "Applications.Resources.ListCalls"
+        ],
+        [
+          "Examples.ListCalls",
+          "Applications.Resources.ListReversal"
+        ],
+        [
+          "Applications.Resources.ListReversal",
+          "Applications.Resources.CallCount"
+        ],
+        [
+          "Applications.Resources.ListReversal",
+          "Applications.Resources.SymmetricCosts"
+        ],
+        [
+          "Applications.Resources.ListReversal",
+          "Applications.Resources.TreeFlattening.Core"
+        ],
+        [
+          "Applications.Resources.TreeFlattening.Core",
+          "Applications.Resources.RandomAccess.CacheCosts"
+        ],
+        [
+          "Applications.Resources.RandomAccess.CacheCosts",
+          "Applications.Sequences.RandomAccess.TreeBuild"
+        ],
+        [
+          "Applications.Sequences.RandomAccess.TreeBuild",
+          "Applications.Sequences.RandomAccess.Borrow"
+        ],
+        [
+          "Applications.Sequences.RandomAccess.Borrow",
+          "Applications.Sequences.RandomAccess.Access"
+        ],
+        [
+          "Applications.Sequences.RandomAccess.Access",
+          "Applications.Sequences.RandomAccess.Basic"
+        ],
+        [
+          "Applications.Sequences.RandomAccess.Basic",
+          "Applications.Bracketing.Basic"
+        ],
+        [
+          "Applications.Bracketing.Basic",
+          "Applications.Optimization.SelectionSpec"
+        ],
+        [
+          "Applications.Optimization.SelectionSpec",
+          "Std"
+        ],
+        [
+          "Applications.Resources.TreeFlattening.Core",
+          "Applications.Resources.Measured"
+        ],
+        [
+          "Applications.Resources.ListReversal",
+          "Mathlib.Tactic.Linarith"
+        ]
+      ],
+      "edge_count": 58,
+      "all_J_equal_I": true,
+      "type_credit": 0
+    },
+    "retained_own_records": [
+      {
+        "path": "reviews/chapter02-spec-source-preparation-20261104.md",
+        "bytes": 109354,
+        "lines": 473,
+        "sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/source-scope-successor-4b5dbfa0.json",
+        "bytes": 26429,
+        "lines": 721,
+        "sha256": "5bf3a45eab119bbd6b3d16547142282599ea2c26d5e1af986afc42d0ec544620"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-complete-spec-assessment-4b5dbfa0.json",
+        "bytes": 23798,
+        "lines": 818,
+        "sha256": "116cf0a800841c3a18d338f446ce3a518455487de8e401dae1186a85c73ad878"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-execution-input-qualification.json",
+        "bytes": 6690,
+        "lines": 150,
+        "sha256": "9bf1f1e098997b9f4f01944c59b5578a32a4768e00fc0e68d1726c342bb82abe"
+      },
+      {
+        "path": "reviews/shared-four-spec-integration-20261104.md",
+        "bytes": 16133,
+        "lines": 75,
+        "sha256": "3ea59b8a1c62df7f19066c7200410e293d78cf4624d90a67ec148104a7fd9dc1"
+      },
+      {
+        "path": "provenance/shared-four-spec-integration-20261104/source-assessment.json",
+        "bytes": 42136,
+        "lines": 1207,
+        "sha256": "c4cb641895db5651683acd382df5d27d107b4ae137c415b62b5ab24872caf268"
+      },
+      {
+        "path": "reviews/shared-four-spec-final-20261104.md",
+        "bytes": 16201,
+        "lines": 112,
+        "sha256": "e7d6ae04d2cf2a06e482274a9e0ab9f23d5a38ef78952ad0bcd288660d0a0f6c"
+      },
+      {
+        "path": "provenance/shared-four-spec-terminal-20261104/final-disposition.json",
+        "bytes": 9494,
+        "lines": 247,
+        "sha256": "5015445d0793f175ea0cc8e122a31bf3d9e440ad8f70dbb27f3ce36e431bded6"
+      }
+    ]
+  },
+  "future_53_input": {
+    "path": "provenance/chapter02-xu02-statement-source-20261104/Statements.lean",
+    "sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3",
+    "bytes": 3522,
+    "lines": 61,
+    "flags": [
+      "pp.universes true",
+      "pp.explicit true",
+      "pp.fullNames true"
+    ],
+    "names": [
+      "Applications.Probability.PermutationOrder.restrictedOrder",
+      "Applications.Probability.PermutationOrder.orders",
+      "Applications.Probability.PermutationOrder.mem_restrictedOrder",
+      "Applications.Probability.PermutationOrder.mem_restrictedOrder_of_complete",
+      "Applications.Probability.PermutationOrder.restrictedOrder_nodup",
+      "Applications.Probability.PermutationOrder.restrictedOrder_toFinset",
+      "Applications.Probability.PermutationOrder.restrictedOrder_length",
+      "Applications.Probability.PermutationOrder.restrictedOrder_perm",
+      "Applications.Probability.PermutationOrder.map_restrictedOrder_sublist",
+      "Applications.Probability.PermutationOrder.filter_restrictedOrder",
+      "Applications.Probability.PermutationOrder.filter_restrictedOrder_of_subset",
+      "Applications.Probability.PermutationOrder.mem_orders",
+      "Applications.Probability.PermutationOrder.orders_nonempty",
+      "Applications.Probability.PermutationOrder.restrictedOrder_mem_orders",
+      "Applications.Probability.PermutationOrder.orders_card",
+      "Applications.Probability.PermutationOrder.uniformOn_restrictedOrder_eq",
+      "Applications.Probability.PermutationOrder.map_restrictedOrder_uniformOn",
+      "Examples.PermutationOrder.positions",
+      "Examples.PermutationOrder.selected",
+      "Examples.PermutationOrder.smaller",
+      "Examples.PermutationOrder.positions_nodup",
+      "Examples.PermutationOrder.positions_complete",
+      "Examples.PermutationOrder.law",
+      "Examples.PermutationOrder.selected_structure",
+      "Examples.PermutationOrder.selected_permutation",
+      "Examples.PermutationOrder.selected_orders_card",
+      "Examples.PermutationOrder.order_023_mass",
+      "Examples.PermutationOrder.observed_law",
+      "Examples.PermutationOrder.order_032_mass_via_map",
+      "Examples.PermutationOrder.repeated_order_mass_zero",
+      "Examples.PermutationOrder.nestedObservation",
+      "Examples.PermutationOrder.nestedObservation_eq",
+      "Examples.PermutationOrder.nested_order_30_mass",
+      "Examples.PermutationOrder.singleton_order_mass",
+      "Examples.PermutationOrder.full_order_mass",
+      "Examples.PermutationOrderBoundary.empty_subset_output",
+      "Examples.PermutationOrderBoundary.empty_subset_orders",
+      "Examples.PermutationOrderBoundary.empty_subset_mass",
+      "Examples.PermutationOrderBoundary.empty_index_mass",
+      "Examples.PermutationOrderBoundary.cycle",
+      "Examples.PermutationOrderBoundary.cycle_values",
+      "Examples.PermutationOrderBoundary.cycle_inverse_order",
+      "Examples.PermutationOrderBoundary.cycle_restricted_order",
+      "Examples.PermutationOrderBoundary.cycle_direct_order",
+      "Examples.PermutationOrderBoundary.inverse_and_direct_orders_differ",
+      "Examples.PermutationOrderBoundary.numeric_enumeration_values",
+      "Examples.PermutationOrderBoundary.numeric_enumeration_increasing",
+      "Examples.PermutationOrderBoundary.ordinary_enumeration_not_increasing",
+      "Examples.PermutationOrderBoundary.numeric_and_ordinary_orders_differ",
+      "Examples.PermutationOrderBoundary.incomplete_output",
+      "Examples.PermutationOrderBoundary.incomplete_support_counterexample",
+      "Examples.PermutationOrderBoundary.repeated_output",
+      "Examples.PermutationOrderBoundary.repeated_support_counterexample"
+    ],
+    "exact_public_source_order_and_name_set": true,
+    "program_unchanged": true,
+    "old_adjacent_inventory_preserved_as_historical": true,
+    "actual_J_execution": false
+  },
+  "historical_actual_evidence": {
+    "historical_candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "actual815_checks_for_Order": [
+      33,
+      85
+    ],
+    "all53_full_types_previously_independently_read": true,
+    "aggregate_focused_outcomes": [
+      {
+        "attempt": 3,
+        "result": "exit1",
+        "individual": "Core Built63s"
+      },
+      {
+        "attempt": 4,
+        "result": "exit1",
+        "individual": "Boundary Built118s"
+      },
+      {
+        "attempt": 5,
+        "result": "exit1",
+        "individual": "Main Built241s"
+      }
+    ],
+    "no_receiving_credit": true,
+    "concrete_trigger": {
+      "saved_comparison": "provenance/shared-order-type-evidence-readiness-20261104/predecessor-comparison.json",
+      "sha256": "542e1c85785f8248de99af1598c9b364e139e22767cd4d90572f574de1a72b3b",
+      "independently_reconstructed_from_actual_saved_observations": true,
+      "equal_common_Minimum_sources": 3,
+      "equal_olean_and_hash_records": 6,
+      "unequal_trace_records": 3,
+      "unequal_exact_dependency_path_records": 9,
+      "configuration_equal": true,
+      "runtime_equal": true,
+      "path_normalization": false,
+      "disposition": "A new qualified actual53 inspection is justified after full J validation; preserved historical semantic reads are not transferred by source equality."
+    }
+  },
+  "full_control_read_records": [
+    {
+      "path": "reviews/permutation-order-requirements.md",
+      "bytes": 11430,
+      "lines": 209,
+      "sha256": "f473f593bf4a7ef75dcf2f3163440db6fe187b3b9983f87254d2ddfa8191982d",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "reviews/permutation-order-start.md",
+      "bytes": 3699,
+      "lines": 68,
+      "sha256": "586aa3e548bc5225cb5a1ff40e33f483cbe6b33a3ad26b56433856e7a5208e69",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "reviews/permutation-order-candidate.md",
+      "bytes": 10748,
+      "lines": 189,
+      "sha256": "3f8451804200be41641ee821b32ddd25a9d7302187615153a5b3901ea1f9a6a7",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "tickets/FDSA-XU02.md",
+      "bytes": 6959,
+      "lines": 107,
+      "sha256": "03181edb9402031cf6e7515546858043db1c791ecf573d79206e206d953d83d7",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "research/permutation-order-api-preflight.md",
+      "bytes": 26551,
+      "lines": 456,
+      "sha256": "3e18c4f3eb1d47b8335c270aee311eecc3817e4af0edac69232678efd85c4294",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "research/permutation-order-source-preflight.md",
+      "bytes": 8636,
+      "lines": 171,
+      "sha256": "53cd24c2bf07945facb04f0249baf0fc52a64bf498466185d7d528488f7214bd",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "research/permutation-order-draft-preflight.md",
+      "bytes": 8872,
+      "lines": 147,
+      "sha256": "302611bfb28cb30b5cc580185aa7475233d89587187cd53a92696e40f4bb19e8",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "research/permutation-order-calculations.json",
+      "bytes": 5148,
+      "lines": 243,
+      "sha256": "54163e6729373a9c78cd82432d48ae827498321c64e53e3c5160cebb54ca2f80",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-integration-readiness-20261104/readiness.md",
+      "bytes": 21296,
+      "lines": 156,
+      "sha256": "f579dfd7614d5fae2852abf44fa1b6b3148368cae015ecd0cdf383a56ec1ab19",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-type-evidence-readiness-20261104/predecessor-comparison.json",
+      "bytes": 10346,
+      "lines": 276,
+      "sha256": "542e1c85785f8248de99af1598c9b364e139e22767cd4d90572f574de1a72b3b",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/chapter02-xu02-statement-source-20261104/Statements.lean",
+      "bytes": 3522,
+      "lines": 61,
+      "sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/chapter02-xu02-proof-style-correction-20261104/result.json",
+      "bytes": 1560,
+      "lines": 27,
+      "sha256": "0c2a219e8da106fe72e5527dfb8abbd4ee45e7c4dcc1ceb23f56e588245069fd",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/chapter02-xu02-proof-style-correction-20261104/correction.diff",
+      "bytes": 1537,
+      "lines": 31,
+      "sha256": "7503a20d64ea98ad7b05bc8fdacf34b6559959b86657a193ff12b3e4889add98",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction1-20261104/result.json",
+      "bytes": 1726,
+      "lines": 25,
+      "sha256": "ed09e1f713d90af4a1663280b5a2502cc5cd6f69c9873ced5c9ead19eb7999ee",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction1-20261104/correction.diff",
+      "bytes": 2496,
+      "lines": 50,
+      "sha256": "ed0868da23cc25bef57b1f5646069341fabc6933f0a128562dc470055459b9eb",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction2-20261104/result.json",
+      "bytes": 1879,
+      "lines": 33,
+      "sha256": "732642556a85c0974db489f9f17374955cec07cd05ec3f53e0ce235b2557354e",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction2-20261104/correction.diff",
+      "bytes": 651,
+      "lines": 12,
+      "sha256": "f12b2915e706c610d988b55ae54b88c4d4c74c6645f2849b6e674778619efde0",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction3-20261104/result.json",
+      "bytes": 3452,
+      "lines": 54,
+      "sha256": "0a927f716db2b04adf85929cdeabd7a9cda369acf79b86a03add5b36e1cdc216",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction3-20261104/correction.diff",
+      "bytes": 837,
+      "lines": 25,
+      "sha256": "bee99655766e9c7c687ddca27b0c35f4d258168a9f2add344ed418c8b563b9fc",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction4-20261104/result.json",
+      "bytes": 2101,
+      "lines": 24,
+      "sha256": "da5482c00ed3baa400d85973db481affcb45ac101aed80ca564af3804a720a5d",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction4-20261104/source.diff",
+      "bytes": 4483,
+      "lines": 88,
+      "sha256": "43023924e9e2622eccba59d80c40aab861c75876f44d5fa482aa981d214eb240",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/handoff.md",
+      "bytes": 13787,
+      "lines": 83,
+      "sha256": "85ea9bcaaa8fb5f0fe32805ad3695e4b711e56a6ad9a4d7ec39d3d18d8dfc594",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/receipt.json",
+      "bytes": 8385,
+      "lines": 265,
+      "sha256": "213e22f18a8dfa6e35529afc0b61fa40e91126dda95cb9a723242252a643dfb0",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/start.json",
+      "bytes": 6512,
+      "lines": 196,
+      "sha256": "9add7edc2046bb1fd17fa8f6000243996bfe1919453908e55079e7c0241bf581",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/branch-create.json",
+      "bytes": 694,
+      "lines": 26,
+      "sha256": "e5025ff389328157395cc1a5253eda68dd23d11f007b2195b2e474d9e8d00a4d",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/branch-create.log",
+      "bytes": 55,
+      "lines": 1,
+      "sha256": "fb808a7b61a1c594be9fc2682e5f12d3f9aa94c475fea5e0a7f05e593b52e3e0",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/normal-merge.json",
+      "bytes": 807,
+      "lines": 28,
+      "sha256": "6dc27f51fbd00d3055595a7080f263ca90b227ae399d8be58ef2171089632f1a",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/normal-merge.log",
+      "bytes": 157,
+      "lines": 3,
+      "sha256": "421d03788e19c41180932c9a4878ffde644ca5a55dc6815dd5960c0040386f84",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/merge-observation.json",
+      "bytes": 546,
+      "lines": 10,
+      "sha256": "105e3d797e50a1ce359cbe7ce643e90f17e51608d503f631cc130957ff3e6967",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/merge-status.txt",
+      "bytes": 240,
+      "lines": 6,
+      "sha256": "e862b273b2704e19fd00ffeb4d646a4d88ca3196a1ecbaa647ea40400302085d",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/merge-unmerged-index.txt",
+      "bytes": 0,
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/documentary-reconciliation.json",
+      "bytes": 4152,
+      "lines": 76,
+      "sha256": "21eee165becb0a0b97d6da49ac14c0aa78aadf45b3329598a810f60313eeea16",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/precommit.json",
+      "bytes": 3820,
+      "lines": 89,
+      "sha256": "db2ad48247cb766a4c261910b1e4a5680aaa75de3e443cf64c3c3c55fe1d17f5",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/author-source-readback-before-commit.json",
+      "bytes": 1357,
+      "lines": 37,
+      "sha256": "62d0bd6c4d27cf6cb65a20cbbe3d4c01949620d94109af57581d749eb355af71",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/stage-declared-scope.json",
+      "bytes": 737,
+      "lines": 25,
+      "sha256": "14e46f65ace143c6544d2ffd5c6b170bded99c21145c80d0daa891e821967af9",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/staged-diff-check.json",
+      "bytes": 492,
+      "lines": 20,
+      "sha256": "f06feecffc8b33c936c70f2e2026473eb4833c1434e332a46aa1a72fdd23c3ad",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/worktree-index-match.json",
+      "bytes": 483,
+      "lines": 19,
+      "sha256": "fe65e6553e21fd7857ca544e6de6b40437bbf03f2abb473e843f6e94e967020e",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/commit-command.json",
+      "bytes": 727,
+      "lines": 25,
+      "sha256": "27592f23449f8f5473a7e2f2a49e356825d2350b6005ddd65411e9ac191cbc0a",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/commit.log",
+      "bytes": 104,
+      "lines": 1,
+      "sha256": "0de9c513c74900b5a7ae7836676e778d3fe5ef66b3d2184a795834766377b48f",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/commit-identity.txt",
+      "bytes": 288,
+      "lines": 6,
+      "sha256": "dae1b97e221269dd9eb39db177cb97d491f30bb57e0feac2b025dcaeaae07aae",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/result.json",
+      "bytes": 3922,
+      "lines": 99,
+      "sha256": "d09b2836192bf49fa57f4ecce046e571ed1a94cd6ada1e47b5ad7dcddbc09244",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    }
+  ],
+  "full_guidance_read_records": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "read_scope": "Complete content read at exact unchanged I; J blob identical."
+    },
+    {
+      "path": ".agents/skills/implement/SKILL.md",
+      "bytes": 4997,
+      "lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "read_scope": "Complete content read at exact unchanged I; J blob identical."
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "bytes": 7113,
+      "lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "read_scope": "Complete content read at exact unchanged I; J blob identical."
+    },
+    {
+      "path": ".agents/skills/code-review/SKILL.md",
+      "bytes": 7466,
+      "lines": 133,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "read_scope": "Complete content read at exact unchanged I; J blob identical."
+    },
+    {
+      "path": ".agents/skills/code-review/heuristics.md",
+      "bytes": 2232,
+      "lines": 32,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "read_scope": "Complete content read at exact unchanged I; J blob identical."
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "bytes": 6991,
+      "lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "read_scope": "Complete content read at exact unchanged I; J blob identical."
+    },
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "bytes": 3876,
+      "lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "read_scope": "Complete content read at exact unchanged I; J blob identical."
+    },
+    {
+      "path": "docs/agents/domain.md",
+      "bytes": 926,
+      "lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "read_scope": "Complete content read at exact unchanged I; J blob identical."
+    },
+    {
+      "path": "GLOSSARY.md",
+      "bytes": 4824,
+      "lines": 106,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "read_scope": "Complete content read at exact unchanged I; J blob identical."
+    },
+    {
+      "path": "docs/adr/README.md",
+      "bytes": 1547,
+      "lines": 17,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "read_scope": "Complete content read at exact unchanged I; J blob identical."
+    },
+    {
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "lines": 50,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "read_scope": "Complete content read at exact unchanged I; J blob identical."
+    },
+    {
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "bytes": 7331,
+      "lines": 127,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "read_scope": "Complete content read at exact unchanged I; J blob identical."
+    }
+  ],
+  "additional_guidance_read": {
+    "path": "README.md",
+    "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+    "range": [
+      161,
+      248
+    ],
+    "bytes": 5720,
+    "sha256": "81b184569d3424e85dca557cf74d83e267304666c5d06acc0a8bd5aad7ae4774",
+    "boundary": "Exact unchanged I/J range read; remaining README instructions retained from prior accepted-I review."
+  },
+  "requirements_read_chunks": [
+    {
+      "path": "provenance/shared-order-integration-readiness-20261104/readiness.md",
+      "from": 1,
+      "to": 85,
+      "bytes": 11532,
+      "sha256": "4b34aa7ac080d8f33b9986147595ec8b0302b09ebc80e5074b5b945f280e7f23"
+    },
+    {
+      "path": "provenance/shared-order-integration-readiness-20261104/readiness.md",
+      "from": 86,
+      "to": 156,
+      "bytes": 9764,
+      "sha256": "a3ff3673f6fb3024724079c75b8ccd6bea0c10f83361d32a541bb3c076715899"
+    },
+    {
+      "path": "research/permutation-order-api-preflight.md",
+      "from": 1,
+      "to": 230,
+      "bytes": 12649,
+      "sha256": "1654263e67d24b74d34ded462e9e92fbabadc0e5c8d9fd88df5cb2dd98dc1e93"
+    },
+    {
+      "path": "research/permutation-order-api-preflight.md",
+      "from": 231,
+      "to": 456,
+      "bytes": 13902,
+      "sha256": "a9a90be2c0c828acc00231d90e4335a794a70d5d0f68f8f7f7e31b31bc7cd985"
+    }
+  ],
+  "receiving_validation_credit": {
+    "full_check": 0,
+    "actual_types": 0,
+    "inherited_type_transfer": 0,
+    "audit": 0,
+    "final_acceptance": 0
+  },
+  "pending": [
+    "Qualified normal full J check with complete closed log, both integrity phases, whole-project build and exhaustive audit, and exact matching verification record.",
+    "Actual53 pre/run/post evidence and complete independent semantic reading.",
+    "Paired complete receiving-input qualification for inherited I314 and Foundation110; no historical trace/path normalization.",
+    "Both independent final axes on the entire original scope; immediate candidate verification and exact accepted integration/checkpoint by root."
+  ],
+  "source_focused_boundary": "Use matching focused evidence and actual complete candidate build coverage. No duplicate invocation by label or unsupported fresh-mode trigger is introduced.",
+  "mutation_boundary": "Only new own source-continuation report/receipt/readback-and-hold. All previous reports and controls retained unchanged; no source/ref/index/compiler/process/cache/output/runtime/pin/ticket/global-control or external-service mutation.",
+  "readback_status": "New saved report and source receipt require complete bounded readback before own hold receipt."
+}
+

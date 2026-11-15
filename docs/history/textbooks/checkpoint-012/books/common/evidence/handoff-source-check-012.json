@@ -1,0 +1,305 @@
+{
+  "schema": 1,
+  "kind": "fresh read-only source and preservation check for receiving handoff; not Lean validation or final acceptance",
+  "observed_utc": "2026-11-15T02:45:51.291927+00:00",
+  "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+  "candidate_tree": "63205d8a3ff27deb3680c613b70085163f289b83",
+  "incorporated_upstream": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+  "fixed_full_spec_review_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "clean_restored_candidate": true,
+  "source_bundle": {
+    "bytes": 98957987,
+    "sha256": "a508155107a17a63baa01801a89ef2e0d86e9d079eb41ddd0b6bd50c4f1f9a73",
+    "matches_source_integration": true,
+    "stored_catalog_refs_checked": 155,
+    "advertised_bundle_refs_including_HEAD": 156,
+    "mismatches": [],
+    "external_archive_dependencies": []
+  },
+  "incoming_ancestry": {
+    "fdsa": {
+      "commit": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "ancestor_of_candidate": true
+    },
+    "pfds": {
+      "commit": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "ancestor_of_candidate": true
+    },
+    "vfa": {
+      "commit": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+      "ancestor_of_candidate": true
+    }
+  },
+  "historical_FDSA_acceptance_preserved": [
+    {
+      "scope": "chapter01-acceptance-20261103",
+      "commit": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "ancestor_of_candidate": true,
+      "receipt_present": true
+    },
+    {
+      "scope": "chapter02-acceptance-20261104",
+      "commit": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+      "ancestor_of_candidate": true,
+      "receipt_present": true
+    },
+    {
+      "scope": "chapter03-acceptance-20261105",
+      "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+      "ancestor_of_candidate": true,
+      "receipt_present": true
+    },
+    {
+      "scope": "binary-tree-cache-acceptance-20261105",
+      "commit": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "ancestor_of_candidate": true,
+      "receipt_present": true
+    },
+    {
+      "scope": "tree-shape-acceptance-20261105",
+      "commit": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "ancestor_of_candidate": true,
+      "receipt_present": true
+    }
+  ],
+  "public_clients": {
+    "Examples.MappedPotentialAccounting": {
+      "entrypoint": "SquareApplications.lean",
+      "direct_import": true,
+      "blob": "1fb26b51e9f298bd1ba1d1a5fa2a425142f8d8d7",
+      "bytes": 6932
+    },
+    "Examples.TextbookMaps": {
+      "entrypoint": "SquareApplications.lean",
+      "direct_import": true,
+      "blob": "257904c1b3e90d1f2479cfa6802ca40f6fe86e32",
+      "bytes": 8034
+    },
+    "Examples.TextbookSequences": {
+      "entrypoint": "SquareApplications.lean",
+      "direct_import": true,
+      "blob": "bbee89deabceb58c05d98c09bfcebe5edd4ebb06",
+      "bytes": 6486
+    },
+    "Examples.TextbookSorting": {
+      "entrypoint": "SquareApplications.lean",
+      "direct_import": true,
+      "blob": "2134433dfd1894924847a3d7f72606c1910fc47b",
+      "bytes": 4264
+    }
+  },
+  "vfa_perm_source_preserved": [
+    {
+      "path": "Applications/Sorting/FirstPair.lean",
+      "incoming_and_current_blob": "16bc18d29f10bcb1bf4f79fa46e0cdead978b395",
+      "identical": true
+    },
+    {
+      "path": "Examples/ComparisonPermutations.lean",
+      "incoming_and_current_blob": "3e07b3ea1f5a2106d3c88e06885fbb55374a5b5f",
+      "identical": true
+    }
+  ],
+  "vfa_staged_drafts": [
+    {
+      "path": "books/vfa/records/math/drafts/sorting-specs/SortingSpecifications.lean",
+      "bytes": 12291,
+      "sha256": "45546bba250cb8613ff0fa41143f63f1a3f81d271a0bdeafac1663343e15188c",
+      "matches_catalog": true
+    },
+    {
+      "path": "books/vfa/records/math/drafts/table-specs/TableObservations.lean",
+      "bytes": 9579,
+      "sha256": "0233781d210056e9a61ae9a355120429e55007e72713434d25a5338aa6489b57",
+      "matches_catalog": true
+    },
+    {
+      "path": "books/vfa/records/math/drafts/positive-keys/VFAStaging/PositiveKeys.lean",
+      "bytes": 9163,
+      "sha256": "98c890672ed3e91b16089eb82037af46f15061af572c838f436b5692f5182f79",
+      "matches_catalog": true
+    },
+    {
+      "path": "books/vfa/records/math/drafts/unary-costs/UnaryComparisonCosts.lean",
+      "bytes": 7410,
+      "sha256": "997aa73ce69fe65712ba97a1217909a6f7af8c2d00e7e2978a4ca03a18c01c13",
+      "matches_catalog": true
+    },
+    {
+      "path": "books/vfa/records/math/drafts/queue-costs/QueuePeekCost.lean",
+      "bytes": 14619,
+      "sha256": "41486ba378124a2d459a74bd8199655e40a4c521e20abb75b9e5580671161df0",
+      "matches_catalog": true
+    }
+  ],
+  "cataloged_git_donor_blobs": {
+    "catalog_mentions": 162,
+    "distinct_blob_ids": 162,
+    "all_available_as_git_blobs": true,
+    "sorted_id_set_sha256": "89c7fea0b401140df91584b7a94b4514d7201438e3495c0f59290f674e71ec93",
+    "catalog": "books/common/analysis/donor-dispositions.json"
+  },
+  "five_reported_repeated_failure_modules": {
+    "own_source_identity": [
+      {
+        "module": "SquareKit.Internal.Cubical.IdentityEliminationSubstitution",
+        "upstream_and_candidate_blob": "4a2d0fa900ed371ac13565967faa17c29c7b9ba4",
+        "same_own_source": true
+      },
+      {
+        "module": "SquareKit.Internal.DependentJudgments.ReferenceApd",
+        "upstream_and_candidate_blob": "366991b875377e986487a6f27cbd04c986e14eba",
+        "same_own_source": true
+      },
+      {
+        "module": "Examples.DependentFunctionConversionSemantics",
+        "upstream_and_candidate_blob": "3c4fb575b756ef2160ea6bb2bf7b483a9aac2b45",
+        "same_own_source": true
+      },
+      {
+        "module": "Examples.FFTScalarCosts",
+        "upstream_and_candidate_blob": "b6456a93e1b0e1421cb0d09047893460612606f6",
+        "same_own_source": true
+      },
+      {
+        "module": "Examples.TwoFamilyModelRooted",
+        "upstream_and_candidate_blob": "004dfd64bbc57b3cefb745ca17a4a4c7ccc0c1cb",
+        "same_own_source": true
+      }
+    ],
+    "note": "Fresh comparison of each named module source only. No transitive import closure or compiler execution was performed; this does not establish independent upstream failure or a SIGKILL cause."
+  },
+  "pinned_configuration_comparison": {
+    "same_bytes_and_modes": [
+      "lean-toolchain",
+      "lakefile.toml",
+      "lake-manifest.json",
+      "flake.nix",
+      "flake.lock",
+      ".envrc",
+      "check.sh",
+      "check-foundation.sh",
+      "scripts/check.py",
+      "scripts/project_sources.py",
+      "scripts/lean-source-info.lean",
+      "scripts/lake_integrity.py",
+      "scripts/lake-output-hashes.lean"
+    ],
+    "lakefile_lean_absent_at_both": true
+  },
+  "coverage_owner": "books/common/COVERAGE.md",
+  "coverage_structured_owner": "books/common/evidence/coverage-20261114.json",
+  "coverage_frontiers_reconciled_with_existing_records": {
+    "fdsa": {
+      "historically_source_complete_chapters": [
+        1,
+        2,
+        3
+      ],
+      "chapter2_obligations": {
+        "covered": 112,
+        "total": 112,
+        "exercise_headings": 7
+      },
+      "chapter3_obligations": {
+        "covered": 83,
+        "total": 83,
+        "exercise_headings": 8
+      },
+      "chapter1": "complete unnumbered scope at historical receipt",
+      "book_chapters": 27,
+      "book_appendices": 3,
+      "chapter4": "76 obligations/11 exercises, three preserved uncompiled committed streams; shared accepted tree prerequisites do not close the chapter"
+    },
+    "vfa": {
+      "implemented_chapter_frontier": "Perm",
+      "mapped_records": 30,
+      "mapped_exercise_markers": 4,
+      "formal_accepted_chapters": 0,
+      "standalone_developments": 5,
+      "historically_checked_standalone_developments": 5,
+      "book_substantive_chapters": 16,
+      "book_exercise_markers": 182,
+      "inventory_only_records": 811
+    },
+    "pfds": {
+      "chapter1": "accepted introductory accounting only; 16 forward cost contracts open",
+      "chapter2_formal_exercise_headings": 6,
+      "chapter2_total_exercise_headings": 6,
+      "retained_mathematical_scopes": 8,
+      "retained_import_only_scopes": 1,
+      "book_exercise_headings": 83,
+      "later_exercise_headings_not_recorded_proved": 77,
+      "book_chapters": 11,
+      "book_appendices": 1,
+      "formal_accepted_substantive_chapters": 0
+    }
+  },
+  "receiving_pitfalls": [
+    "The portable patch carries the active candidate delta against the pinned upstream; it cannot replace the checkpoint source history, preserved drafts, paper work and local tracking. Retain the complete archive for deferred mathematics.",
+    "All four public integration clients being present or previously compiled does not establish the full guarded build or exhaustive axiom audit.",
+    "Historical FDSA chapter acceptance remains tied to those historical commits; VFA/PFDS formal code and focused checks are substantive mathematics even when chapter acceptance remains open.",
+    "An advanced receiving upstream or a newly created commit after applying a patch is a new acceptance candidate; record that actual identity and follow the receiving repository workflow.",
+    "No percentage of whole-book mathematics follows from module/file/inventory row counts."
+  ],
+  "operations": {
+    "compiler_runs": 0,
+    "setup_changes": 0,
+    "source_index_or_ref_mutations": 0,
+    "remote_access": 0,
+    "new_report_files": [
+      "intake/handoff-source-check.json"
+    ]
+  },
+  "limitations": [
+    "No fresh manuscript inspection or theorem proof audit.",
+    "No new transitive import parser was used; the lost prior dependency assessment was not reconstructed.",
+    "Availability of retained blobs and refs is preservation evidence, not completed capability integration."
+  ],
+  "pfds_chapter2_ledger_recheck": {
+    "ledger": "books/pfds/records/research/coverage/coverage.json",
+    "b2_records": 22,
+    "distinct_cited_lean_paths": 35,
+    "all_present_at_candidate": true,
+    "missing_paths": [],
+    "six_exercise_headings": [
+      "2.1",
+      "2.2",
+      "2.3",
+      "2.4",
+      "2.5",
+      "2.6"
+    ]
+  },
+  "fdsa_chapters1_to4_inventory_identity": [
+    {
+      "chapter": 1,
+      "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter01-obligations.md",
+      "sha256": "bff50cca69043edf08e8941745b70af62296f0e492d735c006f959010950671e",
+      "matches_coverage_identity": true,
+      "numbered_inventory_rows": null
+    },
+    {
+      "chapter": 2,
+      "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter02-obligations.md",
+      "sha256": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2",
+      "matches_coverage_identity": true,
+      "numbered_inventory_rows": 112
+    },
+    {
+      "chapter": 3,
+      "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter03-obligations.md",
+      "sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed",
+      "matches_coverage_identity": true,
+      "numbered_inventory_rows": 83
+    },
+    {
+      "chapter": 4,
+      "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter04-obligations.md",
+      "sha256": "e7e282df7f553cbe8a960d1e20818e09a04f63c2cf47a069284223ee3a8595e4",
+      "matches_coverage_identity": true,
+      "numbered_inventory_rows": 76
+    }
+  ],
+  "read_only_findings": []
+}

@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-05T03:26:52.383434+00:00",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "terminal": {
+    "recorded_utc": "2026-11-05T03:26:52.383165+00:00",
+    "owned_session": 38714,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "52ba6b",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe"
+  },
+  "actual_recorder_and_native_exits": [
+    0,
+    0
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt3-20261105/full.log",
+    "bytes": 3632,
+    "sha256": "b41c0a2ccd8a61fa737c70302d0861d7a6f9d3812ee10602a1bc97d79b63f40e"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261105T032626Z-project-run-63898a70",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt3-20261105/native-records/start.json",
+      "bytes": 490,
+      "sha256": "72fa821eb741406e184cf8ab40fa711353b6f47869383a1fdeaa7b6a3dda4032"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt3-20261105/native-records/result.json",
+      "bytes": 643,
+      "sha256": "e221fc9e1d1fe598c8d15cba8de9fe0f48804d605cfb7bad11cceda1cf9b495f"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt3-20261105/native-records/output.log",
+      "bytes": 3350,
+      "sha256": "3f906fbf494eb1e19c2e1994294bd3b06ee484feed3203c6afba4d49cec6a992"
+    }
+  },
+  "native_body_exact_outer_offset": 125,
+  "complete_closed_log": true,
+  "scope": "Actual successful focused check of all three XT02 modules on e61bb6f. Source/type/full check, exhaustive audit, both independent final axes and immediate-verification gates remain distinct and pending; no acceptance claim.",
+  "verification_record_candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

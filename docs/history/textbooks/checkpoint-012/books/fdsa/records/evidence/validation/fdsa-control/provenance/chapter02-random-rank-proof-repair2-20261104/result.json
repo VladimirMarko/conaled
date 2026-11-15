@@ -1,0 +1,25 @@
+{
+  "completed_utc": "2026-11-04T08:26:37.013539+00:00",
+  "parent": "a111774b7b393cf462029fec8d16e8b6ff1b0089",
+  "candidate": "6f3e010eb3b0a55fe8005c26deefacf2eed10cfc",
+  "changed_files": [
+    "Applications/Resources/RandomQuickSortRank.lean"
+  ],
+  "clean": true,
+  "source_bytes": 19646,
+  "source_lines": 396,
+  "source_sha256": "11a3eab707a445f1a205567845485c023e1eddf99358a06bfcd3a19a0a2c66ed",
+  "declaration_headers_count": 19,
+  "all_core_headers_byte_identical": true,
+  "inventory_note": "Count includes inline @[simp] sizeMean_zero; an initial attribute-blind helper counted18 and aborted before staging, then was corrected to include all19 existing declarations.",
+  "examples_growth_mean_unchanged": true,
+  "findings": {
+    "RANK-ELAB2-001": "After finite-index filter rewrite, close the residual definitionally identical predicate-cardinality equality by rfl.",
+    "RANK-ELAB2-002": "Expose local rank permutation rho in the goal before its apply_symm_apply simplification.",
+    "RANK-ELAB2-003": "Close residual PMF.map Fin.val versus eta-expanded projection by rfl.",
+    "RANK-ELAB2-004": "Rewrite actual child-tail length in the obtained recurrence, then apply it by exact; preserve id-key definitional conversion."
+  },
+  "assessment": "All four complete actual diagnostics and changed source contexts read. Complete diff is source-only proof repair; no intended domain, sampler, occurrence rank, actual child, key-distinctness, cost, universe or recurrence changes. Prior malformed-header correction remains separately disclosed in repair1.",
+  "compiler_status": "Uncompiled isolated successor. Central focused6 actually closed/secured exit1, no new result yet.",
+  "review_status": "Independent corrective assessment under same complete R scope required; no acceptance."
+}

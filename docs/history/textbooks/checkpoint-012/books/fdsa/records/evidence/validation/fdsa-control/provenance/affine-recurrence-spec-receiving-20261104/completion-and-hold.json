@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-11-04T19:19:12.745848+00:00",
+  "axis": "Spec, same independent original XR01 review continuation",
+  "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "tree": "b62fe504a38948e61c6377a4e7661b639c28c08c",
+  "original_base": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+  "original_draft": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+  "receiving_integration_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "frozen_requirements_sha256": "5873700a349c359d15873829f1399a20225fa80eaa980e7ad9f1e4c8f774dd02",
+  "scope": {
+    "original_paths": 5,
+    "authored_public_names": 21,
+    "authored_public_theorems": 19,
+    "authored_public_definitions": 2,
+    "authored_private_names": 0,
+    "authored_anonymous_examples": 0,
+    "authored_new_instances": 0,
+    "retained_complete_original_cases_and_later_chapter_limits": true,
+    "not_a_Chapter3_review_or_acceptance": true
+  },
+  "final_outcome": "PASS",
+  "unresolved_findings": [],
+  "finding_dispositions": [
+    {
+      "id": "XP01-DOC-001",
+      "origin": "Inherited original-draft documentation wording",
+      "status": "Resolved for receiving XR candidate",
+      "basis": "Exact Chapter1 qualifier independently source-assessed; no XP01 implementation imported or accepted through XR."
+    },
+    {
+      "id": "XR01-ELAB-001",
+      "origin": "Actual focused attempt1 absolute-value parser error",
+      "status": "Resolved",
+      "basis": "Exact one-byte opening-bar syntax repair, current successful focused pair/full normal check and directly read actual type18. Prior header was unelaborated; no old-type equivalence assertion."
+    }
+  ],
+  "fixed_final_report": {
+    "path": "provenance/affine-recurrence-spec-receiving-20261104/final-spec-review.md",
+    "bytes": 14057,
+    "lines": 71,
+    "sha256": "5a40de0059860f911ce43d66e2f4d9871a77f3835d845c4b105fd6ef117e7c79"
+  },
+  "completed_final_artifacts": [
+    {
+      "path": "provenance/affine-recurrence-spec-receiving-20261104/final-spec-review.md",
+      "bytes": 14057,
+      "lines": 71,
+      "sha256": "5a40de0059860f911ce43d66e2f4d9871a77f3835d845c4b105fd6ef117e7c79",
+      "saved_readback_complete": true,
+      "saved_readback_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 71,
+          "tool_chunk": "13bf37",
+          "bytes": 14057,
+          "sha256": "5a40de0059860f911ce43d66e2f4d9871a77f3835d845c4b105fd6ef117e7c79",
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": "provenance/affine-recurrence-spec-receiving-20261104/final-disposition.json",
+      "bytes": 5024,
+      "lines": 108,
+      "sha256": "580c761fe31a7ee3742dea828939ada81203d321fcc6f1511b847daaf3c1692c",
+      "saved_readback_complete": true,
+      "saved_readback_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 108,
+          "tool_chunk": "48db35",
+          "bytes": 5024,
+          "sha256": "580c761fe31a7ee3742dea828939ada81203d321fcc6f1511b847daaf3c1692c",
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": "provenance/affine-recurrence-spec-receiving-20261104/final-bound-inputs.json",
+      "bytes": 11751,
+      "lines": 70,
+      "sha256": "0ef2a7f74ab4b4444925014af0f1684efd8fbb2e0633c3bc176959abb3f1a9a2",
+      "saved_readback_complete": true,
+      "saved_readback_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 70,
+          "tool_chunk": "be8665",
+          "bytes": 11751,
+          "sha256": "0ef2a7f74ab4b4444925014af0f1684efd8fbb2e0633c3bc176959abb3f1a9a2",
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": "provenance/affine-recurrence-spec-receiving-20261104/actual21-complete-type-assessment.json",
+      "bytes": 16598,
+      "lines": 353,
+      "sha256": "efeaacff43201cd24bb22497d26aa6847e08ce9bb589b6d0dc2eb2b825ac6e58",
+      "saved_readback_complete": true,
+      "saved_readback_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 180,
+          "tool_chunk": "29064b",
+          "bytes": 7442,
+          "sha256": "bf66622f8e9aa1750b21288fd111badbac05a0fbd89660b365b62d2296557d54",
+          "truncated": false
+        },
+        {
+          "first_line": 181,
+          "last_line": 353,
+          "tool_chunk": "a8cd5c",
+          "bytes": 9156,
+          "sha256": "d3b1059279e2dcbc9d27df22d1bc8afa8d0d1ec106421b24d284fee133b88b76",
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": "provenance/affine-recurrence-spec-receiving-20261104/full-attempt2-read-progress.json",
+      "bytes": 4922,
+      "lines": 167,
+      "sha256": "5f14b273e84ffb665f1584974581dd0f2aebb8a6344e5fbfe5f60ef8867defa9",
+      "saved_readback_complete": true,
+      "saved_readback_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 167,
+          "tool_chunk": "508935",
+          "bytes": 4922,
+          "sha256": "5f14b273e84ffb665f1584974581dd0f2aebb8a6344e5fbfe5f60ef8867defa9",
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": "provenance/affine-recurrence-spec-receiving-20261104/full-attempt2-audit-and-warning-assessment.json",
+      "bytes": 4420,
+      "lines": 91,
+      "sha256": "841dd2ee16787e2111a22b6d77360137fba2f7f942a11e9fb995ee72a24cfb73",
+      "saved_readback_complete": true,
+      "saved_readback_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 91,
+          "tool_chunk": "de0b50",
+          "bytes": 4420,
+          "sha256": "841dd2ee16787e2111a22b6d77360137fba2f7f942a11e9fb995ee72a24cfb73",
+          "truncated": false
+        }
+      ]
+    }
+  ],
+  "bound_input_integrity": {
+    "bound_file_count": 54,
+    "bound_files_rehashed_exact": true,
+    "immutable_candidate_source_blobs": 5,
+    "immutable_source_blobs_rehashed_exact": true,
+    "final_integrity_read_tool_chunk": "1038ac",
+    "all_final_artifact_hashes_and_saved_readback_ranges_rechecked": true,
+    "full_native_17_chunk_hashes_and_complete_contiguous_coverage_rechecked": true,
+    "actual21_full_block_hashes_and_complete_contiguous_coverage_rechecked": true,
+    "mechanical_rechecks_do_not_replace_or_expand_the_recorded_complete_manual_reads": true
+  },
+  "complete_full_gate_read": {
+    "native_path": "provenance/affine-recurrence-receiving-full-attempt2-20261104/native-records/output.log",
+    "bytes": 304174,
+    "lines": 2617,
+    "sha256": "877aca4200b45501e2ae0a92d94a2a04355e58fa6de12bc0920353b8ba35a66f",
+    "manual_chunks": 17,
+    "all_chunks_untruncated": true,
+    "outer_wrapper_and_closed_metadata_complete": true,
+    "independent_audit_warning_reconciliation_tool_chunk": "207437"
+  },
+  "complete_actual_statement_read": {
+    "native_path": "provenance/affine-recurrence-receiving-statements21-attempt1-20261104/native-records/output.log",
+    "bytes": 17154,
+    "lines": 294,
+    "sha256": "afd6d3ab3f0afbc81eba682a50556ada9f9acf72f3bcf80bfea98b8b1c06be07",
+    "complete_public_blocks": 21,
+    "direct_manual_read_tool_chunk": "3df276",
+    "independent_statement_input_qualification_tool_chunk": "7a2aa4",
+    "omission_or_diagnostic_markers": []
+  },
+  "qualified_stable_input_counts": {
+    "local_sources": 2,
+    "local_compiler_hash_trace_files": 6,
+    "configuration": 10,
+    "dependencies": 9,
+    "runtime": 12,
+    "external_imports": 6
+  },
+  "full_gate_disposition": {
+    "attempt": "affine-recurrence-receiving-full-attempt2-20261104",
+    "owned_session": 66741,
+    "terminal_tool_chunk": "487100",
+    "actual_outer_and_native_exit": 0,
+    "checked_modules": 1031,
+    "audit_rows": 1029,
+    "kernel_safe_declarations": 47828,
+    "theorem_declarations": 27242,
+    "unsafe_runtime_declarations": 0,
+    "axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "complete_native_log_lines": 2617,
+    "complete_native_log_bytes": 304174,
+    "all_rows_and_warning_contexts_read": true,
+    "accepted_Q_rows_exact": 1027,
+    "new_XR_audit_rows": 2,
+    "whole_project_totals": true,
+    "matching_verification_sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9",
+    "normal_fresh_policy": "Qualified normal incremental check under unchanged exact pins/profile; no fresh trigger or weakened exception introduced."
+  },
+  "historical_boundaries_preserved": {
+    "earlier_source_reports_and_receipts_unchanged": true,
+    "first_full_attempt_exit1_nested_Lean137_retained": true,
+    "first_failure_cause_remains_unestablished": true,
+    "dated_pending_actual21_labels_in_full_read_ledger_and_audit_assessment_retained": true,
+    "current_final_report_and_disposition_supersede_those_dated_pending_labels_after_actual21_qualification": true,
+    "no_prior_unelaborated_header_type_equivalence_claim": true,
+    "no_Chapter3_review_or_acceptance": true
+  },
+  "hold": {
+    "all_own_completed_source_history_and_final_artifacts_held_byte_identically": true,
+    "this_completion_receipt_to_be_read_back_completely_without_a_further_write": true,
+    "no_further_own_writes_after_successful_completion_receipt_readback_without_new_root_release": true
+  },
+  "reviewer_action_boundary": "Only new own review/provenance files were written. No source/ref/compiler/process polling/runtime/output/cache/global-control mutation or unrelated author-branch snapshot. Root retains the other independent axis, immediate qualified verification and exact acceptance/integration; none was performed by this reviewer."
+}

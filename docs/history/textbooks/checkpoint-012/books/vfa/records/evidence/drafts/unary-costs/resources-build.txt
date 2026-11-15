@@ -1,0 +1,11 @@
+✔ [315/321] Built Mathlib.Algebra.Group.Basic (10s)
+✔ [319/341] Built Mathlib.Algebra.Group.Torsion (4.7s)
+⚠ [439/460] Built Applications.Resources.Measured (26s)
+warning: Applications/Resources/Measured.lean: imports `Mathlib.Algebra.Group.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/Measured.lean: imports `Mathlib.Algebra.Order.Monoid.Unbundled.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [588/590] Built SquareKit.ListFusion (24s)
+warning: SquareKit/ListFusion.lean: imports `Mathlib.Data.List.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [589/590] Built Applications.Resources.Workload (61s)
+⚠ [590/590] Built Applications.Resources.Potential (48s)
+warning: Applications/Resources/Potential.lean: imports `Mathlib.Algebra.Group.Nat.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+Build completed successfully (590 jobs).

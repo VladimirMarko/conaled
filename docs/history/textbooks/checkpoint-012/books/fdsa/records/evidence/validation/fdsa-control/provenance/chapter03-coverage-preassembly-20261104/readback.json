@@ -1,0 +1,48 @@
+{
+  "recorded_utc": "2026-11-04T22:21:34.208637+00:00",
+  "state": "complete artifact readback and fixed source identity checks succeeded",
+  "head": "27281919b9edd31a53336cbb5583ebc17632247e",
+  "tree": "e0d90f6ba9b0864a65860983852dd8642e70070a",
+  "status": "",
+  "all83_ids_exact": true,
+  "all616_source_links_resolved": true,
+  "all_recorded_module_and_union_hashes_rechecked": true,
+  "frozen_requirement_and_plan_hashes_rechecked": true,
+  "rendered_coverage_complete_readback": [
+    "21ad60",
+    "0325fd"
+  ],
+  "gap_and_method_complete_readback": "a68a13",
+  "programmatic_full_readback": {
+    "build_report.py": {
+      "bytes": 47351,
+      "sha256": "3c4c639d6b1babc8b1b5387c1dffd55b4ec90b5d07801dc02d88383d09b5b897"
+    },
+    "coverage.json": {
+      "bytes": 57275,
+      "sha256": "8aea50589654cc812a37974b476ab941f0898ef6a0184b2f968406ee7f862251"
+    },
+    "coverage.md": {
+      "bytes": 45327,
+      "sha256": "26272c2920e053bd5d10471d5fcc28b96ff5f6947f75fe3e1948563b3c353c30"
+    },
+    "gaps.md": {
+      "bytes": 14857,
+      "sha256": "0d41e63456ddce2fdfbe8759af19f839d8c371e18f9709128aa2e8d51107f8ba"
+    },
+    "inputs.json": {
+      "bytes": 50000,
+      "sha256": "a21cb3bd8500281058d5270aee3455277b2e6c003e32946da7363693326a3e2a"
+    },
+    "method.json": {
+      "bytes": 1894,
+      "sha256": "7bda63a2e4c0ae02eafe9adefc81acfc09a331042c697b45b1b5a8da6d808839"
+    }
+  },
+  "qualifications": [
+    "No Lean/Lake compiler was run.",
+    "Lexical source names and artifact readback are not actual elaborated types.",
+    "No source, ref, canonical-control or external mutation.",
+    "No acceptance or independent-review credit."
+  ]
+}

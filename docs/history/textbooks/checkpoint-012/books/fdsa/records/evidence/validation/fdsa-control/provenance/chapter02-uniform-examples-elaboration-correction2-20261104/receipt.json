@@ -1,0 +1,231 @@
+{
+  "recorded_utc": "2026-11-04T10:09:23.368830+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "status": "COMMITTED SOURCE CORRECTION; UNCOMPILED; HOLD for checkpoint0097",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-uniform-input",
+  "branch": "work/fdsa-ch02-uniform-input",
+  "source_identity": {
+    "path": "Examples/UniformQuickSortMean.lean",
+    "before": {
+      "candidate": "c4355db67f6006f58496cc10c2eca1c75ef1aa95",
+      "blob": "cc0432e8fc56f76380a1e48259954cd559937a1b",
+      "bytes": 16466,
+      "lines": 352,
+      "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5"
+    },
+    "after": {
+      "candidate": "3b839319776238fe2a46f22db761058b44d68adc",
+      "blob": "cfb82beff57d8bf116b882c0c49850e4be629586",
+      "bytes": 16973,
+      "lines": 366,
+      "sha256": "744562a71000f1d4f2c82a57a681eaf0491dfd7065ad650f09c4403304d8c24b"
+    }
+  },
+  "commit_subject": "fix(fdsa): elaborate uniform-input mean examples (#174)",
+  "parent": "c4355db67f6006f58496cc10c2eca1c75ef1aa95",
+  "commit": "3b839319776238fe2a46f22db761058b44d68adc",
+  "index_and_worktree_clean": true,
+  "actual_failed_input": {
+    "candidate": "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+    "example_matches_before": true,
+    "full_log_bytes": 19463,
+    "full_log_lines": 170,
+    "full_log_sha256": "35f0f9ea785a94ec66026c0483d566be1a611efb9a699362d0a5b5eed3941ccd",
+    "exit_code": 1,
+    "actual_error_headers": 23,
+    "source_sites": 10,
+    "secured_record": "provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/secured-terminal.json",
+    "execution_session_closed_and_not_polled": true
+  },
+  "repair_scope": {
+    "existing_theorem_proof_bodies": 9,
+    "explicit_Fintype_repair_separately_authorized": true,
+    "not_wholly_proof_body_only": true,
+    "all_45_existing_theorem_headers_exact": true,
+    "all_7_existing_definition_blocks_exact": true,
+    "all_4_existing_explicit_instance_blocks_exact": true,
+    "all_5_imports_and_2_options_exact": true,
+    "inductive_Label_and_4_constructors_preserved": true,
+    "deriving_DecidableEq_retained": true,
+    "all_expected_values_assumptions_events_and_public_law_connections_retained": true,
+    "other_repository_source_changes": []
+  },
+  "generated_instance_inventory": {
+    "explicit_instance": "Examples.UniformQuickSortMean.instFintypeLabel",
+    "source_type": "Fintype Examples.UniformQuickSortMean.Label",
+    "elements": [
+      "Label.high",
+      "Label.low",
+      "Label.middle",
+      "Label.outside"
+    ],
+    "completeness": "Constructor cases followed by ordinary simp",
+    "derived_helpers_not_recreated": [
+      "Examples.UniformQuickSortMean.Label.enumList",
+      "Examples.UniformQuickSortMean.Label.enumList_getElem?_ctorIdx_eq",
+      "Examples.UniformQuickSortMean.Label.enumList_nodup"
+    ],
+    "bounded_helper_client_search": "No literal enumList reference in any tracked *.lean file at isolated parent or actual failed central input; exact commands retained",
+    "source_named_declarations_before": 57,
+    "source_named_declarations_after": 58,
+    "required_actual_type_inspection": "#check @Examples.UniformQuickSortMean.instFintypeLabel",
+    "actual_type_and_kernel_generated_inventory_status": "Pending root/independent reviewers; no output credit or inferred kernel-count delta",
+    "parent_approval": "Root approved explicit named instFintypeLabel over exactly four constructors, retention of DecidableEq and omission of unused deriving-only helpers after the bounded source search. No new premise or weakened gate."
+  },
+  "author_readback": {
+    "original_example_lines_read": 352,
+    "original_core_lines_read": 789,
+    "original_read_context": "Earlier complete bounded Uniform preparation, with exact source identity reconfirmed here",
+    "complete_actual_diagnostic_lines_read": 93,
+    "corrected_source_lines_read": 366,
+    "complete_diff_lines_read": 103,
+    "author_readback_report_lines_read": 135,
+    "report": "author-readback.md",
+    "scope_limit": "Author source/API preservation assessment; not independent final review or compiler evidence"
+  },
+  "performed_source_checks": {
+    "git_diff_check": "exit0; empty log retained",
+    "git_diff_cached_check": "exit0; empty log retained",
+    "staged_and_committed_diff_match_saved": true,
+    "working_saved_and_committed_source_match": true,
+    "source_marker_scan": "No forbidden marker match; not an audit",
+    "executable_commit_hooks_detected": false,
+    "git_identity": "Command-local ChatGPT <chatgpt@openai.com>; no persistent Git configuration change"
+  },
+  "pending_gates": [
+    "Actual qualified focused build of this source in root-owned candidate",
+    "New explicit Fintype actual printed type and inventory reconciliation",
+    "Complete current public-type inspection and all original pending type requirements",
+    "Applicable immutable full candidate check and exhaustive kernel/axiom audit",
+    "Both independent Standards and Spec outcomes on retained complete scope",
+    "Immediate qualified candidate verification before exact integration and acceptance checkpoint"
+  ],
+  "actions": {
+    "compiler_or_build_invocations": 0,
+    "cache_or_project_output_mutations": false,
+    "central_or_foundation_tree_mutations": false,
+    "process_polling": false,
+    "existing_control_ticket_or_review_edits": false,
+    "other_source_edits": false,
+    "GitHub_mutations_or_push": false,
+    "local_commit_authorized": true,
+    "new_provenance_package_only": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-uniform-examples-elaboration-correction2-20261104"
+  },
+  "scope_and_order": "Existing F then combined XM01/XD01/XQ01/XU01 then XU02 then XU03 then complete C2 sequence unchanged; Chapter3 remains queued; existing full source/requirement scopes and findings retained",
+  "artifacts": [
+    {
+      "path": "actual-diagnostics.txt",
+      "bytes": 6925,
+      "lines": 93,
+      "sha256": "284b94feb0773ef436d7de66658ea3932f29ff6234d5b3d01853de42fd211175"
+    },
+    {
+      "path": "after-examples.lean",
+      "bytes": 16973,
+      "lines": 366,
+      "sha256": "744562a71000f1d4f2c82a57a681eaf0491dfd7065ad650f09c4403304d8c24b"
+    },
+    {
+      "path": "api-excerpts.txt",
+      "bytes": 16391,
+      "lines": 602,
+      "sha256": "6b76b30aab0ddeff1b58ca2bbfe495bd379c82b7a15f8dd9af849f9843299ca7"
+    },
+    {
+      "path": "author-readback.md",
+      "bytes": 9044,
+      "lines": 135,
+      "sha256": "f5f1cd9415d758c676c0f334227de575115a355f59b3f7ea0cac5c604b79e9b9"
+    },
+    {
+      "path": "before-examples.lean",
+      "bytes": 16466,
+      "lines": 352,
+      "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5"
+    },
+    {
+      "path": "commit-hook-preflight.json",
+      "bytes": 799,
+      "lines": 27,
+      "sha256": "c8fac3de9a72444c2178c28b4e30821025738b11fe2cd2a8114846b02b377df6"
+    },
+    {
+      "path": "commit-record.json",
+      "bytes": 1313,
+      "lines": 35,
+      "sha256": "e6bc14e66f6aa12c421183a9735d73415451a10997d5574a5aa07b8864669e92"
+    },
+    {
+      "path": "commit.log",
+      "bytes": 145,
+      "lines": 2,
+      "sha256": "48ae74ac2d27db87c726413c68b3f6f1c3a641b73c9b0c1a18ea2062a33db990"
+    },
+    {
+      "path": "committed-examples.lean",
+      "bytes": 16973,
+      "lines": 366,
+      "sha256": "744562a71000f1d4f2c82a57a681eaf0491dfd7065ad650f09c4403304d8c24b"
+    },
+    {
+      "path": "diagnostic-mapping.json",
+      "bytes": 6589,
+      "lines": 121,
+      "sha256": "36e3569d3ac31fd9e4af04dc1cd70fbfbfa22f6b0db1c0ff774b2535bed51729"
+    },
+    {
+      "path": "diff-check.log",
+      "bytes": 0,
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "generated-helper-search.json",
+      "bytes": 1216,
+      "lines": 44,
+      "sha256": "2a5c4424b284dcf93db355f39c9cee1da290d7a462385690734f859b5dda5517"
+    },
+    {
+      "path": "read-ledger.json",
+      "bytes": 7284,
+      "lines": 228,
+      "sha256": "a1537d679d3aac32affc3834a684fd7944288f6576d02bddc2d86a0453b3b37b"
+    },
+    {
+      "path": "source-inventory.json",
+      "bytes": 19474,
+      "lines": 405,
+      "sha256": "d10245a4676b7040a1845ea8a5ba128c92310ccb779665e3641af4d21900e690"
+    },
+    {
+      "path": "source-marker-scan.json",
+      "bytes": 220,
+      "lines": 5,
+      "sha256": "992fa4fa0e1bf6c8ce6bae73244e945f234ffbfa190e0489c3d3a6d12e274356"
+    },
+    {
+      "path": "source.diff",
+      "bytes": 5282,
+      "lines": 103,
+      "sha256": "4aacd466132a619fe9a1b1152a00a2b02b2827803139432691678ec27b80af16"
+    },
+    {
+      "path": "staged-diff-check.log",
+      "bytes": 0,
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "staged-source.diff",
+      "bytes": 5282,
+      "lines": 103,
+      "sha256": "4aacd466132a619fe9a1b1152a00a2b02b2827803139432691678ec27b80af16"
+    },
+    {
+      "path": "start.json",
+      "bytes": 3289,
+      "lines": 67,
+      "sha256": "9d1c1ec82077b47df00c81915b7ac6b39835788c51aba82d9942930bfca3b544"
+    }
+  ]
+}

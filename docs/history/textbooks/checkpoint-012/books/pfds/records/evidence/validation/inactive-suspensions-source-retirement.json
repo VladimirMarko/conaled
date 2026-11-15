@@ -1,0 +1,68 @@
+{
+  "original_path": "session/validation/inactive-suspensions-source-retirement.json",
+  "original_sha256": "1c565a223a83bdf0f5597949f0a43924f7e078be6b3a3678e5294b2a426dfa72",
+  "original_bytes": 736893,
+  "removed_fields": [
+    {
+      "pointer": "/source_files",
+      "entries": 1648,
+      "canonical_json_sha256": "755926f0dbbf59ca008044ce0153e12b093f9bc17721edb142f56d9a2381e166"
+    },
+    {
+      "pointer": "/preserved_files",
+      "entries": 458,
+      "canonical_json_sha256": "cbb6df4bdc7610ea080663b5be270cdbd0c653ee852a98ecea289c6320c66058"
+    }
+  ],
+  "record": {
+    "schema": 1,
+    "created_at": "2026-11-03T04:38:09.789583+00:00",
+    "status": "finished",
+    "candidate": "a3feaff319ad5fad912fb8bdc113f33fea4e2a60",
+    "checkout": "/workspace/scratch/ca9a61d0bf30/validation-suspensions-r3",
+    "stash": "/workspace/scratch/ca9a61d0bf30/inactive-outputs/suspensions-a3feaff",
+    "acceptance": false,
+    "approval_transferred": false,
+    "process_users": [],
+    "unreadable_processes": [],
+    "focused_lock_held": true,
+    "source_count": 1648,
+    "source_aggregate_sha256": "d9884169d69d90ec67b6177cebab96679915d508b223da2b5a0de14262086038",
+    "build_aggregate_sha256": "dbb475ab91363ba77f3afd414c203c2a593f96b42dcc92f3baba31f99070dcc4",
+    "lake_identity_before": [
+      27,
+      3543676,
+      16877,
+      4,
+      4096,
+      1793666841584152612,
+      1793666841584152612
+    ],
+    "build_identity_before": [
+      27,
+      3546098,
+      16877,
+      4,
+      4096,
+      1793659150546665420,
+      1793659150546665420
+    ],
+    "free_before": 210726912,
+    "source_recovery_checkpoint": 38,
+    "recovery_argv": [
+      "git",
+      "worktree",
+      "add",
+      "/workspace/scratch/ca9a61d0bf30/validation-suspensions-r3",
+      "pfds/suspensions-review-r3"
+    ],
+    "recovery_note": "Recreate exact original path and clean a3; return unchanged full .lake and recorded bytecode without overwrite or trace/setup edits; compare every member before own normal gate. Stash is ordinary local outputs, not durable source or acceptance evidence.",
+    "outputs_verified": true,
+    "moved_at": "2026-11-03T04:38:09.870413+00:00",
+    "finished_at": "2026-11-03T04:38:09.944622+00:00",
+    "source_removed": true,
+    "refs_unchanged": true,
+    "free_after": 302739456,
+    "active_inputs_changed": false
+  }
+}

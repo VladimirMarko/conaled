@@ -1,0 +1,11 @@
+{
+  "attempt": "independent-input-reconciliation.py",
+  "actual_exit": 1,
+  "tool_chunk": "95d197",
+  "failure": "Python SyntaxError at final print line 196: one closing dictionary brace omitted; parser failed before executing any statement.",
+  "original_script_preserved": true,
+  "correction": "independent-input-reconciliation-corrected.py adds only the omitted final-print dictionary brace.",
+  "compiler_or_source_failure": false,
+  "no_validation_credit_from_failed_attempt": true,
+  "earlier_navigation_truncation": "Tool 54b5b8 emitted a truncated auxiliary key list; no complete reading of that output is credited. The raw full native log was read separately in complete contiguous chunks, and all row values are independently parsed from those raw bytes."
+}

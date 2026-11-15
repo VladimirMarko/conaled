@@ -1,0 +1,3199 @@
+{
+  "utc": "2026-11-04T14:47:13.573064+00:00",
+  "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "program": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+    "bytes": 16826,
+    "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754"
+  },
+  "native_output": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/output.log",
+    "bytes": 256987,
+    "lines": 3438,
+    "sha256": "3bdb9dc0a92ec781a28b46de1a3eb843bda4efcd17c2292f091c19e52df7c50c"
+  },
+  "ordered_named_headers_match": true,
+  "named_header_rule": "^@?(Examples\\.PermutationMinimumBoundary\\.outsiderComparison_ne_singleton_inverse|Examples\\.DifferenceListCosts\\.four_shared_closure_extensions_materialized|Examples\\.PermutationMinimumBoundary\\.outsiderComparison_eq_full_minimum|Applications\\.Probability\\.PermutationMinimum\\.minimumEvent_of_not_mem|Applications\\.Probability\\.PermutationMinimum\\.minimumEvent_singleton|Applications\\.Probability\\.PermutationMinimum\\.uniformOn_minimumEvent|Applications\\.Probability\\.PermutationMinimum\\.minimumEvent_empty|Applications\\.Probability\\.PermutationMinimum\\.minimumEvent_inter|Examples\\.PermutationMinimumBoundary\\.tiedPriority_not_injective|Applications\\.Probability\\.PermutationMinimum\\.mem_minimumEvent|Examples\\.DifferenceListCosts\\.construction_application_split|Examples\\.DifferenceListCosts\\.four_shared_closure_extensions|Examples\\.PermutationMinimumBoundary\\.outsiderComparison_mass|Examples\\.PermutationMinimumBoundary\\.empty_index_normalized|Examples\\.DifferenceListCosts\\.no_bound_from_output_length|Examples\\.DifferenceListCosts\\.doubled_application_add_one|Applications\\.Probability\\.PermutationMinimum\\.minimumEvent|Examples\\.PermutationMinimumBoundary\\.outsider_event_empty|Examples\\.DifferenceListCosts\\.standard_composition_value|Examples\\.PermutationMinimum\\.spacedPriority_not_monotone|Resources\\.InsertionSort\\.sortRun_double_cost_of_opposite|Examples\\.PermutationMinimumBoundary\\.empty_subset_event|Examples\\.PermutationMinimumBoundary\\.outsiderComparison|Examples\\.PermutationMinimumBoundary\\.empty_subset_mass|Examples\\.PermutationMinimumBoundary\\.tied_mass_ne_half|Examples\\.MergeCosts\\.low_singleton_attains_factor_two|Examples\\.PermutationMinimum\\.spacedPriority_injective|Applications\\.Sorting\\.merge_sorted_compatible_on_iff|Examples\\.MergeCosts\\.twoStage_comparisons_projection|Examples\\.MergeCosts\\.empty_tariff_not_multiplicative|Examples\\.DifferenceListCosts\\.duplicate_values_twice|Examples\\.DifferenceListCosts\\.empty_payload_boundary|Examples\\.PermutationMinimum\\.overlap_mass_ne_product|Examples\\.PermutationMinimumBoundary\\.tied_event_univ|Examples\\.InsertionCosts\\.small_rank_with_sort_budget|Resources\\.ListMerge\\.entries_eq_comparisons_add_one|Examples\\.DifferenceListCosts\\.materializeDoubled_eq|ThreeWayPartitionExamples\\.measured_selection_value|Examples\\.PermutationMinimum\\.singleton_minimum_mass|Resources\\.InsertionSort\\.sortRun_cost_reverse_range|Examples\\.MergeCosts\\.unsorted_for_every_comparator|Examples\\.PermutationMinimum\\.spacedPriority_values|Examples\\.PermutationMinimumBoundary\\.outsider_mass|Resources\\.InsertionSort\\.insertRun_cost_of_all_not|Resources\\.DifferenceListCosts\\.createSingleton_eq|Examples\\.DifferenceListCosts\\.ordered_composition|Examples\\.DifferenceListCosts\\.materializeTwice_eq|Examples\\.DifferenceListCosts\\.identity_value_cost|Examples\\.PermutationMinimumBoundary\\.tiedPriority|Resources\\.InsertionSort\\.sortRun_cost_of_pairwise|Examples\\.MergeCosts\\.twoStage_entries_projection|Examples\\.MergeCosts\\.raw_queue_erasure_and_order|Resources\\.DifferenceListCosts\\.singleton_appCost|Resources\\.DifferenceListCosts\\.buildFrom_appCost|Resources\\.DifferenceListCosts\\.toDList_eq_ofList|Examples\\.DifferenceListCosts\\.singleton_boundary|Examples\\.DifferenceListCosts\\.extendSingleton_eq|Examples\\.DifferenceListCosts\\.padded_empty_value|Examples\\.DifferenceListCosts\\.materializeDoubled|Examples\\.PermutationMinimum\\.second_minimum_mass|Examples\\.PermutationMinimum\\.spaced_minimum_mass|Applications\\.Sorting\\.merge_sorted_compatible_on|Applications\\.Selection\\.selectWith_eq_sortSelect|Examples\\.MergeCosts\\.ties_do_not_determine_cost|Resources\\.DifferenceListCosts\\.createCompose_eq|Examples\\.DifferenceListCosts\\.expensive_capture|Examples\\.PermutationMinimum\\.first_minimum_mass|Resources\\.InsertionSort\\.insertRun_cost_of_head|Resources\\.InsertionSort\\.sortRun_double_cost_le|Resources\\.InsertionSort\\.reverse_range_opposite|Examples\\.InsertionCosts\\.sorted_with_duplicates|Examples\\.InsertionCosts\\.tied_head_ignores_tail|Examples\\.InsertionCosts\\.sorted_result_has_rank|Examples\\.MergeCosts\\.low_singleton_entry_model|Examples\\.MergeCosts\\.interleaving_observations|Examples\\.MergeCosts\\.substituted_input_example|Resources\\.DifferenceListCosts\\.singleton_apply|Resources\\.DifferenceListCosts\\.compose_appCost|Resources\\.DifferenceListCosts\\.createSingleton|Resources\\.DifferenceListCosts\\.pushRun_appCost|Resources\\.DifferenceListCosts\\.toDList_compose|Resources\\.DifferenceListCosts\\.toDList_pushRun|Examples\\.DifferenceListCosts\\.materializeTwice|Examples\\.DifferenceListCosts\\.duplicate_values|Examples\\.DifferenceListCosts\\.fused_push_value|Examples\\.DifferenceListCosts\\.doubled_creation|Applications\\.Selection\\.partition_strict_sizes|ThreeWayPartitionExamples\\.replicate_partition|ThreeWayPartitionExamples\\.selection_partition|ThreeWayPartitionExamples\\.bind_returned_lower|Examples\\.PermutationMinimum\\.full_minimum_mass|Examples\\.PermutationMinimumBoundary\\.tied_mass|Resources\\.InsertionSort\\.insertRun_cost_bounds|Resources\\.InsertionSort\\.insertRun_cost_of_all|Examples\\.MergeCosts\\.unsorted_inputs_retained|Examples\\.MergeCosts\\.false_compare_compatible|Resources\\.DifferenceListCosts\\.createEmpty_eq|Resources\\.DifferenceListCosts\\.buildFrom_cons|Resources\\.DifferenceListCosts\\.buildFrom_cost|Resources\\.DifferenceListCosts\\.toList_toDList|Examples\\.DifferenceListCosts\\.extendSingleton|Examples\\.DifferenceListCosts\\.doubled_appCost|Applications\\.Selection\\.partition3_eq_filters|ThreeWayPartitionExamples\\.interior_partition|Examples\\.PermutationMinimum\\.marginal_product|Applications\\.Sorting\\.merge_sorted_compatible|Examples\\.MergeCosts\\.unsorted_record_filters|Resources\\.DifferenceListCosts\\.empty_appCost|Resources\\.DifferenceListCosts\\.singleton_rep|Resources\\.DifferenceListCosts\\.compose_value|Resources\\.DifferenceListCosts\\.createCompose|Resources\\.DifferenceListCosts\\.buildFrom_nil|Resources\\.DifferenceListCosts\\.buildFrom_rep|Resources\\.DifferenceListCosts\\.build_appCost|Resources\\.DifferenceListCosts\\.toDList_apply|Examples\\.DifferenceListCosts\\.materialize_eq|Examples\\.DifferenceListCosts\\.padded_appCost|ThreeWayPartitionExamples\\.outside_partition|ThreeWayPartitionExamples\\.interior_boundary|Examples\\.InsertionCosts\\.immediate_insertion|Examples\\.InsertionCosts\\.key_tie_observation|Examples\\.InsertionCosts\\.repeated_value_rank|Resources\\.DifferenceListCosts\\.compose_cost|Resources\\.Partition\\.partitionRun_cons_cost|Applications\\.Selection\\.partition_equal_mem|Applications\\.Selection\\.partition_right_mem|Sequences\\.Partition\\.partition_strict_sizes|ThreeWayPartitionExamples\\.replicate_strict|ThreeWayPartitionExamples\\.outside_boundary|Examples\\.PermutationMinimum\\.spacedPriority|Applications\\.Selection\\.selectWith_some_iff|Applications\\.Selection\\.sortSelect_some_iff|Resources\\.InsertionSort\\.sortRun_cost_lower|Resources\\.ListMerge\\.comparisons_nil_right|Resources\\.ListMerge\\.comparisons_cons_cons|Resources\\.ListMerge\\.run_entries_cons_cons|Examples\\.MergeCosts\\.source_key_sorted_iff|Examples\\.MergeCosts\\.compatible_not_stable|Examples\\.MergeCosts\\.queueBody_observation|Resources\\.DifferenceListCosts\\.empty_apply|Resources\\.DifferenceListCosts\\.compose_rep|Resources\\.DifferenceListCosts\\.createEmpty|Resources\\.DifferenceListCosts\\.pushRun_rep|Resources\\.Partition\\.partitionRun_nil_cost|Applications\\.Selection\\.partition_left_mem|Sequences\\.Partition\\.partition3_eq_filters|ThreeWayPartitionExamples\\.mixed_partition|ThreeWayPartitionExamples\\.lower_partition|Examples\\.PermutationMinimum\\.overlap_event|Resources\\.InsertionSort\\.sortRun_cons_cost|Resources\\.InsertionSort\\.sortRun_quadratic|Examples\\.InsertionCosts\\.small_sort_budget|Resources\\.ListMerge\\.comparisons_nil_left|Resources\\.ListMerge\\.comparisons_cons_pos|Applications\\.Sorting\\.sublist_merge_right|Examples\\.MergeCosts\\.unsorted_cost_bounds|Examples\\.MergeCosts\\.tagged_key_transport|Examples\\.MergeCosts\\.unsortedRecordsRight|Examples\\.MergeCosts\\.unsorted_records_run|Examples\\.MergeCosts\\.twoStage_observation|Examples\\.MergeCosts\\.actual_input_matters|Resources\\.DifferenceListCosts\\.pushRun_eq|Resources\\.DifferenceListCosts\\.build_cost|Examples\\.DifferenceListCosts\\.materialize|Examples\\.DifferenceListCosts\\.doubled_rep|Applications\\.Selection\\.partition_lengths|Examples\\.PermutationMinimum\\.secondSubset|Examples\\.PermutationMinimum\\.overlap_mass|Applications\\.Selection\\.selectWith_ranked|Applications\\.Selection\\.selectWith_policy|Examples\\.InsertionCosts\\.descending_worst|Examples\\.InsertionCosts\\.source_quadratic|Applications\\.Sorting\\.sublist_merge_left|Examples\\.MergeCosts\\.unsortedRecordsLeft|Resources\\.DifferenceListCosts\\.singleton|Resources\\.DifferenceListCosts\\.empty_rep|Resources\\.DifferenceListCosts\\.buildFrom|Resources\\.DifferenceListCosts\\.build_rep|Examples\\.DifferenceListCosts\\.padded_rep|Sequences\\.Partition\\.partition_equal_mem|Sequences\\.Partition\\.partition_right_mem|ThreeWayPartitionExamples\\.replicate_run|ThreeWayPartitionExamples\\.singleton_run|ThreeWayPartitionExamples\\.mixed_lengths|Examples\\.PermutationMinimum\\.firstSubset|Applications\\.Selection\\.sorted_partition|Applications\\.Selection\\.selectWith_value|Applications\\.Selection\\.head_pivot_valid|Applications\\.Selection\\.last_pivot_valid|Resources\\.InsertionSort\\.insertRun_value|Resources\\.InsertionSort\\.sortRun_cost_le|Examples\\.InsertionCosts\\.worst_is_global|Applications\\.Sorting\\.pairwise_of_merge|Resources\\.Partition\\.partitionRun_value|Applications\\.Selection\\.partition3_perm|Sequences\\.Partition\\.partition_left_mem|ThreeWayPartitionExamples\\.mixed_strict|ThreeWayPartitionExamples\\.interior_run|Applications\\.Selection\\.selectWith_none|Applications\\.Selection\\.sortSelect_none|Resources\\.InsertionSort\\.sortRun_length|Resources\\.InsertionSort\\.sortRun_stable|Examples\\.InsertionCosts\\.singleton_cost|Examples\\.InsertionCosts\\.best_is_global|Examples\\.InsertionCosts\\.full_traversal|Resources\\.ListMerge\\.entries_nil_right|Resources\\.ListMerge\\.entries_cons_cons|Examples\\.MergeCosts\\.measured_key_spec|Resources\\.DifferenceListCosts\\.Builder|Resources\\.DifferenceListCosts\\.AppCost|Resources\\.DifferenceListCosts\\.compose|Resources\\.DifferenceListCosts\\.pushRun|Resources\\.DifferenceListCosts\\.toDList|Resources\\.Partition\\.partitionRun_cons|Resources\\.Partition\\.partitionRun_cost|Sequences\\.Partition\\.partition_lengths|ThreeWayPartitionExamples\\.mixed_value|ThreeWayPartitionExamples\\.outside_run|Applications\\.Selection\\.dispatch_value|Resources\\.InsertionSort\\.sortRun_value|Resources\\.ListMerge\\.entries_nil_left|Examples\\.MergeCosts\\.key_source_value|Examples\\.MergeCosts\\.false_record_run|Examples\\.MergeCosts\\.twoStage_entries|Examples\\.MergeCosts\\.twoStage_example|Examples\\.MergeCosts\\.queueBody_bounds|Examples\\.MergeCosts\\.nonempty_tariffs|Examples\\.DifferenceListCosts\\.doubled|Resources\\.Partition\\.partitionRun_nil|ThreeWayPartitionExamples\\.mixed_cost|ThreeWayPartitionExamples\\.mixed_perm|Applications\\.Selection\\.runWith_value|Examples\\.InsertionCosts\\.key_contract|Examples\\.MergeCosts\\.result_multiset|Examples\\.MergeCosts\\.twoStage_bounds|Examples\\.MergeCosts\\.queueBody_value|Resources\\.DifferenceListCosts\\.empty|Resources\\.DifferenceListCosts\\.build|Examples\\.DifferenceListCosts\\.padded|Sequences\\.Partition\\.partition3_perm|Sequences\\.Partition\\.partition3_cons|ThreeWayPartitionExamples\\.empty_run|ThreeWayPartitionExamples\\.mixed_run|Applications\\.Sorting\\.mergeBy_sorted|Applications\\.Sorting\\.mergeBy_filter|Applications\\.Sorting\\.mergeBy_stable|Resources\\.ListMerge\\.comparisons_le|Examples\\.MergeCosts\\.high_singleton|Examples\\.MergeCosts\\.key_sorted_iff|Examples\\.MergeCosts\\.records_counts|Examples\\.MergeCosts\\.twoStage_value|Examples\\.MergeCosts\\.raw_queue_body|Sequences\\.Partition\\.partition3_nil|Examples\\.InsertionCosts\\.empty_cost|Resources\\.ListMerge\\.run_nil_right|Resources\\.ListMerge\\.run_cons_cons|Examples\\.MergeCosts\\.result_length|Examples\\.MergeCosts\\.empty_payload|Examples\\.MergeCosts\\.low_singleton|Examples\\.MergeCosts\\.records_value|Examples\\.MergeCosts\\.records_exact|Examples\\.MergeCosts\\.tagged_counts|Examples\\.MergeCosts\\.tagged_values|Examples\\.MergeCosts\\.tagged_stable|Resources\\.DifferenceListCosts\\.Rep|Applications\\.Selection\\.partition3|Applications\\.Sorting\\.mergeBy_perm|Applications\\.Sorting\\.mergeBy_spec|Applications\\.Selection\\.PivotValid|Applications\\.Selection\\.selectWith|Applications\\.Selection\\.sortSelect|Resources\\.InsertionSort\\.insertRun|Resources\\.ListMerge\\.run_nil_left|Examples\\.MergeCosts\\.interleaving|Examples\\.MergeCosts\\.always_false|Examples\\.MergeCosts\\.unsorted_run|Examples\\.MergeCosts\\.source_value|Examples\\.MergeCosts\\.recordsRight|Examples\\.MergeCosts\\.tagged_exact|Examples\\.MergeCosts\\.second_stage|Resources\\.Partition\\.partitionRun|Applications\\.Selection\\.lastPivot|Resources\\.ListMerge\\.comparisons|Examples\\.MergeCosts\\.result_perm|Examples\\.MergeCosts\\.empty_sides|Examples\\.MergeCosts\\.always_true|Examples\\.MergeCosts\\.recordsLeft|Examples\\.MergeCosts\\.taggedRight|Examples\\.MergeCosts\\.first_stage|ThreeWayPartitionExamples\\.mixed|Examples\\.PermutationMinimum\\.law|Applications\\.Selection\\.dispatch|Resources\\.InsertionSort\\.sortRun|Resources\\.ListMerge\\.entries_le|Examples\\.MergeCosts\\.natCompare|Examples\\.MergeCosts\\.result_mem|Examples\\.MergeCosts\\.taggedLeft|Examples\\.MergeCosts\\.falseRight|Sequences\\.Partition\\.partition3|Applications\\.Selection\\.runWith|Resources\\.ListMerge\\.run_value|Examples\\.MergeCosts\\.tied_runs|Examples\\.MergeCosts\\.key_value|Examples\\.MergeCosts\\.falseLeft|Examples\\.MergeCosts\\.queueBody|Examples\\.MergeCosts\\.twoStage|Examples\\.MergeCosts\\.rawRight|Applications\\.Sorting\\.mergeBy|Resources\\.ListMerge\\.entries|Resources\\.ListMerge\\.run_map|Examples\\.MergeCosts\\.rawLeft|Examples\\.MergeCosts\\.rawRoot|Examples\\.MergeCosts\\.byKey|Resources\\.ListMerge\\.run)(?:\\.\\{[^}]*\\})?[ \\t]*:",
+  "scope": "All314 actual full type blocks; parser itself gives no semantic-review credit",
+  "blocks": [
+    {
+      "ordinal": 1,
+      "name": "Resources.ListMerge.run",
+      "start_line": 1,
+      "end_line": 2,
+      "byte_start": 0,
+      "byte_end_exclusive": 182,
+      "bytes": 182,
+      "sha256": "7ba2976a6397f7933daaeebcd60e2f306df431e783c385ea47d58856bf75b95c"
+    },
+    {
+      "ordinal": 2,
+      "name": "Resources.ListMerge.comparisons",
+      "start_line": 3,
+      "end_line": 3,
+      "byte_start": 182,
+      "byte_end_exclusive": 308,
+      "bytes": 126,
+      "sha256": "59bda063b090ba8c61d16e89297ed3e841a2f8669a4a63c995a1799474b79a05"
+    },
+    {
+      "ordinal": 3,
+      "name": "Resources.ListMerge.entries",
+      "start_line": 4,
+      "end_line": 4,
+      "byte_start": 308,
+      "byte_end_exclusive": 430,
+      "bytes": 122,
+      "sha256": "c29f0dbb1cc950345dac62926bc9a516646af06a9665d09e82e0bd8627be4a3b"
+    },
+    {
+      "ordinal": 4,
+      "name": "Resources.ListMerge.run_nil_left",
+      "start_line": 5,
+      "end_line": 10,
+      "byte_start": 430,
+      "byte_end_exclusive": 922,
+      "bytes": 492,
+      "sha256": "42be0b3655256f7d4850f8166473d37c0f0e8f3f4fb23a4a7085d98e481a64e1"
+    },
+    {
+      "ordinal": 5,
+      "name": "Resources.ListMerge.run_nil_right",
+      "start_line": 11,
+      "end_line": 16,
+      "byte_start": 922,
+      "byte_end_exclusive": 1415,
+      "bytes": 493,
+      "sha256": "6c629bbdaddf0b4df3db65968f2de5802e417b6a7fbfbb9c400202a3af6d94b9"
+    },
+    {
+      "ordinal": 6,
+      "name": "Resources.ListMerge.run_cons_cons",
+      "start_line": 17,
+      "end_line": 33,
+      "byte_start": 1415,
+      "byte_end_exclusive": 2903,
+      "bytes": 1488,
+      "sha256": "bc0b97b6f9e87058f34ab51d995d9282d1ad63c83ae43a7801c777b2c6df035d"
+    },
+    {
+      "ordinal": 7,
+      "name": "Resources.ListMerge.run_value",
+      "start_line": 34,
+      "end_line": 37,
+      "byte_start": 2903,
+      "byte_end_exclusive": 3192,
+      "bytes": 289,
+      "sha256": "d4b3dc5c24ca1dbea8dbacdd9da87377509c83b1afec27b764457e53786b1cc9"
+    },
+    {
+      "ordinal": 8,
+      "name": "Resources.ListMerge.comparisons_nil_left",
+      "start_line": 38,
+      "end_line": 40,
+      "byte_start": 3192,
+      "byte_end_exclusive": 3463,
+      "bytes": 271,
+      "sha256": "9b7ac215bb8d7eca28004d238aa0991acd64cdadf046848b5934e827fb9414f9"
+    },
+    {
+      "ordinal": 9,
+      "name": "Resources.ListMerge.comparisons_nil_right",
+      "start_line": 41,
+      "end_line": 43,
+      "byte_start": 3463,
+      "byte_end_exclusive": 3735,
+      "bytes": 272,
+      "sha256": "f6060e4ad307f72e0ef6461b52f58e67ba7bd92d126e57ee15ea291db7f4aa4c"
+    },
+    {
+      "ordinal": 10,
+      "name": "Resources.ListMerge.comparisons_cons_cons",
+      "start_line": 44,
+      "end_line": 51,
+      "byte_start": 3735,
+      "byte_end_exclusive": 4395,
+      "bytes": 660,
+      "sha256": "a9c6d0631ae62f138e86b013d48fcc5e8364af3435de5f95b60dd5191e004d4e"
+    },
+    {
+      "ordinal": 11,
+      "name": "Resources.ListMerge.entries_nil_left",
+      "start_line": 52,
+      "end_line": 54,
+      "byte_start": 4395,
+      "byte_end_exclusive": 4658,
+      "bytes": 263,
+      "sha256": "241fcd8579c3c13430c2e1f53548a0def8629b2bc8cfc1053755e7ecfb2fe595"
+    },
+    {
+      "ordinal": 12,
+      "name": "Resources.ListMerge.entries_nil_right",
+      "start_line": 55,
+      "end_line": 57,
+      "byte_start": 4658,
+      "byte_end_exclusive": 4922,
+      "bytes": 264,
+      "sha256": "aeeb43f247b0ef2ff605939a70b4102b590a2ea549306bd0ddee45c16f8f3bc9"
+    },
+    {
+      "ordinal": 13,
+      "name": "Resources.ListMerge.entries_cons_cons",
+      "start_line": 58,
+      "end_line": 64,
+      "byte_start": 4922,
+      "byte_end_exclusive": 5564,
+      "bytes": 642,
+      "sha256": "a81ea80210147f21eeab0699a2d2408e67f39f6aad4135659342f9db167fa18d"
+    },
+    {
+      "ordinal": 14,
+      "name": "Resources.ListMerge.run_entries_cons_cons",
+      "start_line": 65,
+      "end_line": 84,
+      "byte_start": 5564,
+      "byte_end_exclusive": 7081,
+      "bytes": 1517,
+      "sha256": "6674bfd8470c24281e70e5a4b787ac2b9cf83048feee8953e1f154783980391e"
+    },
+    {
+      "ordinal": 15,
+      "name": "Resources.ListMerge.entries_eq_comparisons_add_one",
+      "start_line": 85,
+      "end_line": 90,
+      "byte_start": 7081,
+      "byte_end_exclusive": 7477,
+      "bytes": 396,
+      "sha256": "87434b268ea7f9876efee4937f99051cbe0b450013c288fa89bdaab55379e334"
+    },
+    {
+      "ordinal": 16,
+      "name": "Resources.ListMerge.comparisons_le",
+      "start_line": 91,
+      "end_line": 94,
+      "byte_start": 7477,
+      "byte_end_exclusive": 7804,
+      "bytes": 327,
+      "sha256": "6f2856ecf5bbbaf8e5121de2e3e388c1a568e4b26b50651ec5f68107e58db6b8"
+    },
+    {
+      "ordinal": 17,
+      "name": "Resources.ListMerge.entries_le",
+      "start_line": 95,
+      "end_line": 100,
+      "byte_start": 7804,
+      "byte_end_exclusive": 8265,
+      "bytes": 461,
+      "sha256": "4acfe808b5ba13d9fb8dbb926b0a41307975401eb89075af1ce2dbf19f308a65"
+    },
+    {
+      "ordinal": 18,
+      "name": "Resources.ListMerge.comparisons_cons_pos",
+      "start_line": 101,
+      "end_line": 104,
+      "byte_start": 8265,
+      "byte_end_exclusive": 8595,
+      "bytes": 330,
+      "sha256": "918c3cee67a5abd9dbf93f8fa9a79db0f772769a8052c8bbe66e7eedc8456fdf"
+    },
+    {
+      "ordinal": 19,
+      "name": "Resources.ListMerge.run_map",
+      "start_line": 105,
+      "end_line": 118,
+      "byte_start": 8595,
+      "byte_end_exclusive": 9595,
+      "bytes": 1000,
+      "sha256": "deaf8dba1f06e554728ba4ce96b35957f8ca6f0969908d7e5d3c609a5e9b9de9"
+    },
+    {
+      "ordinal": 20,
+      "name": "Applications.Sorting.sublist_merge_left",
+      "start_line": 119,
+      "end_line": 120,
+      "byte_start": 9595,
+      "byte_end_exclusive": 9777,
+      "bytes": 182,
+      "sha256": "d4ecfa9bd7f78e9c32f12a85d3ac126aefdc3a6853b22811db2d33d2056ca931"
+    },
+    {
+      "ordinal": 21,
+      "name": "Applications.Sorting.sublist_merge_right",
+      "start_line": 121,
+      "end_line": 122,
+      "byte_start": 9777,
+      "byte_end_exclusive": 9960,
+      "bytes": 183,
+      "sha256": "ce95bc5ba82c85f2f5c7bf9971db284fd6a6d2c1a60e6f64cf67f2d39b65ef2f"
+    },
+    {
+      "ordinal": 22,
+      "name": "Applications.Sorting.pairwise_of_merge",
+      "start_line": 123,
+      "end_line": 126,
+      "byte_start": 9960,
+      "byte_end_exclusive": 10242,
+      "bytes": 282,
+      "sha256": "31b26e5cb8cc693b67c520552b72957404f524a6482a5d93de5e724681302064"
+    },
+    {
+      "ordinal": 23,
+      "name": "Applications.Sorting.merge_sorted_compatible_on_iff",
+      "start_line": 127,
+      "end_line": 138,
+      "byte_start": 10242,
+      "byte_end_exclusive": 11137,
+      "bytes": 895,
+      "sha256": "db0b7082a66de96a4f189fefb26d3e75ca0b33870fd5e079021041a07186bf13"
+    },
+    {
+      "ordinal": 24,
+      "name": "Examples.MergeCosts.natCompare",
+      "start_line": 139,
+      "end_line": 139,
+      "byte_start": 11137,
+      "byte_end_exclusive": 11191,
+      "bytes": 54,
+      "sha256": "1193286066349b616adcfe1f0c2838d4ae504dddcc2ac1ad313e90e416f0f28e"
+    },
+    {
+      "ordinal": 25,
+      "name": "Examples.MergeCosts.byKey",
+      "start_line": 140,
+      "end_line": 141,
+      "byte_start": 11191,
+      "byte_end_exclusive": 11368,
+      "bytes": 177,
+      "sha256": "e5ee38b0299ee45aabe7f63d57be26477ccabc2937aad73b71321fc02662058e"
+    },
+    {
+      "ordinal": 26,
+      "name": "Examples.MergeCosts.result_perm",
+      "start_line": 142,
+      "end_line": 146,
+      "byte_start": 11368,
+      "byte_end_exclusive": 11784,
+      "bytes": 416,
+      "sha256": "487e5015b95611042a40b7167a087c81a29b39469e1afc00974417aab49d70f2"
+    },
+    {
+      "ordinal": 27,
+      "name": "Examples.MergeCosts.result_length",
+      "start_line": 147,
+      "end_line": 152,
+      "byte_start": 11784,
+      "byte_end_exclusive": 12182,
+      "bytes": 398,
+      "sha256": "41cde5231bf44ed1bab1b8a48768b82007513bf8b96904efea07bbcd10efeb35"
+    },
+    {
+      "ordinal": 28,
+      "name": "Examples.MergeCosts.result_multiset",
+      "start_line": 153,
+      "end_line": 159,
+      "byte_start": 12182,
+      "byte_end_exclusive": 12712,
+      "bytes": 530,
+      "sha256": "5abcc9baf004a6be210589d6b1924983f9ff373ab07aaa14b801317ea01fdea6"
+    },
+    {
+      "ordinal": 29,
+      "name": "Examples.MergeCosts.result_mem",
+      "start_line": 160,
+      "end_line": 165,
+      "byte_start": 12712,
+      "byte_end_exclusive": 13221,
+      "bytes": 509,
+      "sha256": "3967be40c26a306f317cf57a77ff4ddc26855d675c49ea093db477cdf2a9d3b7"
+    },
+    {
+      "ordinal": 30,
+      "name": "Examples.MergeCosts.empty_sides",
+      "start_line": 166,
+      "end_line": 177,
+      "byte_start": 13221,
+      "byte_end_exclusive": 14126,
+      "bytes": 905,
+      "sha256": "8c8dd319c60b2cac32920732538b93f3c405d14b80b8c822b86b130ec53fa63f"
+    },
+    {
+      "ordinal": 31,
+      "name": "Examples.MergeCosts.empty_payload",
+      "start_line": 178,
+      "end_line": 183,
+      "byte_start": 14126,
+      "byte_end_exclusive": 14600,
+      "bytes": 474,
+      "sha256": "60d2513d46dacc8ab729ab6cccfcf0c5655989093b9dff9e76d528c6658ecce6"
+    },
+    {
+      "ordinal": 32,
+      "name": "Examples.MergeCosts.low_singleton",
+      "start_line": 184,
+      "end_line": 194,
+      "byte_start": 14600,
+      "byte_end_exclusive": 15584,
+      "bytes": 984,
+      "sha256": "c7dfd249fa51234800a29f183acbac898b908ec98c933815e94b7d952d9c17c8"
+    },
+    {
+      "ordinal": 33,
+      "name": "Examples.MergeCosts.high_singleton",
+      "start_line": 195,
+      "end_line": 205,
+      "byte_start": 15584,
+      "byte_end_exclusive": 16569,
+      "bytes": 985,
+      "sha256": "6d77ddff346f3b90ba9d42f3f09e0d5b1fa2e9b0dcbbcc6683736b450e0691b6"
+    },
+    {
+      "ordinal": 34,
+      "name": "Examples.MergeCosts.low_singleton_entry_model",
+      "start_line": 206,
+      "end_line": 216,
+      "byte_start": 16569,
+      "byte_end_exclusive": 17545,
+      "bytes": 976,
+      "sha256": "5921d3f9f566e2660c85b1bea509e978cf2bd1d1fe163d6b2e2cfa109b0eddcf"
+    },
+    {
+      "ordinal": 35,
+      "name": "Examples.MergeCosts.interleaving",
+      "start_line": 217,
+      "end_line": 234,
+      "byte_start": 17545,
+      "byte_end_exclusive": 19100,
+      "bytes": 1555,
+      "sha256": "e12907b85d07ad872050fae18c0c089bf96792a774aac2f8f20c39198a695cb6"
+    },
+    {
+      "ordinal": 36,
+      "name": "Examples.MergeCosts.interleaving_observations",
+      "start_line": 235,
+      "end_line": 276,
+      "byte_start": 19100,
+      "byte_end_exclusive": 22301,
+      "bytes": 3201,
+      "sha256": "802be1dadeca24e48ac5422e4d8dc71767203f735e9248335fa778d60283bc8c"
+    },
+    {
+      "ordinal": 37,
+      "name": "Examples.MergeCosts.always_true",
+      "start_line": 277,
+      "end_line": 284,
+      "byte_start": 22301,
+      "byte_end_exclusive": 22970,
+      "bytes": 669,
+      "sha256": "d8d1810307a7e1c121cbcf94364984377ee6f11ff6f4477c7b7358a4e2695890"
+    },
+    {
+      "ordinal": 38,
+      "name": "Examples.MergeCosts.always_false",
+      "start_line": 285,
+      "end_line": 292,
+      "byte_start": 22970,
+      "byte_end_exclusive": 23641,
+      "bytes": 671,
+      "sha256": "d7cf5c10f5fe676d8125c8f4503bd2d3233bc31f44e70097f08a249474f41b21"
+    },
+    {
+      "ordinal": 39,
+      "name": "Examples.MergeCosts.tied_runs",
+      "start_line": 293,
+      "end_line": 315,
+      "byte_start": 23641,
+      "byte_end_exclusive": 25621,
+      "bytes": 1980,
+      "sha256": "461fec4b9003833087e7f35a97af4d217819e6639f531a768d2b2ce698d639ea"
+    },
+    {
+      "ordinal": 40,
+      "name": "Examples.MergeCosts.ties_do_not_determine_cost",
+      "start_line": 316,
+      "end_line": 387,
+      "byte_start": 25621,
+      "byte_end_exclusive": 30868,
+      "bytes": 5247,
+      "sha256": "e43387fc1408fc2d5cd1e6c18a8598cbd50214c85c795772a918ffafd09f036d"
+    },
+    {
+      "ordinal": 41,
+      "name": "Examples.MergeCosts.unsorted_run",
+      "start_line": 388,
+      "end_line": 400,
+      "byte_start": 30868,
+      "byte_end_exclusive": 32033,
+      "bytes": 1165,
+      "sha256": "fb44d4b55046e5371744221f35b0a75d9e09070260c8f78b4e74b953edfa6359"
+    },
+    {
+      "ordinal": 42,
+      "name": "Examples.MergeCosts.unsorted_cost_bounds",
+      "start_line": 401,
+      "end_line": 415,
+      "byte_start": 32033,
+      "byte_end_exclusive": 33222,
+      "bytes": 1189,
+      "sha256": "1928ff0fd71c036b33710c97039285b8d8a9b2126c4037f3e98440f249d20520"
+    },
+    {
+      "ordinal": 43,
+      "name": "Examples.MergeCosts.unsorted_inputs_retained",
+      "start_line": 416,
+      "end_line": 435,
+      "byte_start": 33222,
+      "byte_end_exclusive": 34815,
+      "bytes": 1593,
+      "sha256": "8deefa47a3773305de583b3dd2e0b6d22c43dab1678a7a60071d06d1aa6fdcf9"
+    },
+    {
+      "ordinal": 44,
+      "name": "Examples.MergeCosts.unsorted_for_every_comparator",
+      "start_line": 436,
+      "end_line": 444,
+      "byte_start": 34815,
+      "byte_end_exclusive": 35503,
+      "bytes": 688,
+      "sha256": "d113ba00307706e4679b45d2ce533b5b7fa9977e5b503752a5317fc10ee694b1"
+    },
+    {
+      "ordinal": 45,
+      "name": "Examples.MergeCosts.source_value",
+      "start_line": 445,
+      "end_line": 450,
+      "byte_start": 35503,
+      "byte_end_exclusive": 35932,
+      "bytes": 429,
+      "sha256": "9338dbfcc42436706820964e403a9e9a11d74e034d47e221eeddec0bcf984974"
+    },
+    {
+      "ordinal": 46,
+      "name": "Examples.MergeCosts.key_value",
+      "start_line": 451,
+      "end_line": 457,
+      "byte_start": 35932,
+      "byte_end_exclusive": 36400,
+      "bytes": 468,
+      "sha256": "6ab65cc6d06e82ba3fb9664e4fe62ddb08256218426ce058615491ec9955a0c0"
+    },
+    {
+      "ordinal": 47,
+      "name": "Examples.MergeCosts.key_source_value",
+      "start_line": 458,
+      "end_line": 465,
+      "byte_start": 36400,
+      "byte_end_exclusive": 36963,
+      "bytes": 563,
+      "sha256": "9359071dd7ec0b1953a3de0d3a75ca86017e962a8e61ae6bee2b3ae4247ecf7d"
+    },
+    {
+      "ordinal": 48,
+      "name": "Examples.MergeCosts.key_sorted_iff",
+      "start_line": 466,
+      "end_line": 474,
+      "byte_start": 36963,
+      "byte_end_exclusive": 37583,
+      "bytes": 620,
+      "sha256": "dd2d8a39a0800db5082432196cc18173e39be7336de94a5d3f2d8e0903460164"
+    },
+    {
+      "ordinal": 49,
+      "name": "Examples.MergeCosts.source_key_sorted_iff",
+      "start_line": 475,
+      "end_line": 483,
+      "byte_start": 37583,
+      "byte_end_exclusive": 38200,
+      "bytes": 617,
+      "sha256": "27d7b59944281c66f8b7221da402938d0d8eed4b9fe1842860be3240a0abfd34"
+    },
+    {
+      "ordinal": 50,
+      "name": "Examples.MergeCosts.measured_key_spec",
+      "start_line": 484,
+      "end_line": 493,
+      "byte_start": 38200,
+      "byte_end_exclusive": 39039,
+      "bytes": 839,
+      "sha256": "cf61e6c4a6b1b0d06626d0fff7eb68f3c175cc3c3f9bf0fae651e26ec7768b2f"
+    },
+    {
+      "ordinal": 51,
+      "name": "Examples.MergeCosts.recordsLeft",
+      "start_line": 494,
+      "end_line": 494,
+      "byte_start": 39039,
+      "byte_end_exclusive": 39112,
+      "bytes": 73,
+      "sha256": "f018fde7f6672dd2f740e71a42769534a3a38ffb75c6798ce29ff02ac2c9706f"
+    },
+    {
+      "ordinal": 52,
+      "name": "Examples.MergeCosts.recordsRight",
+      "start_line": 495,
+      "end_line": 495,
+      "byte_start": 39112,
+      "byte_end_exclusive": 39186,
+      "bytes": 74,
+      "sha256": "18232e2b13f021f94952293e2bdb740e5b6b7740696a91ed9d6855f61599d932"
+    },
+    {
+      "ordinal": 53,
+      "name": "Examples.MergeCosts.records_value",
+      "start_line": 496,
+      "end_line": 502,
+      "byte_start": 39186,
+      "byte_end_exclusive": 39643,
+      "bytes": 457,
+      "sha256": "5fb1638973a6f11a6ba886539a38cffffcc6461e69cf23e1c8c2728a895e0c01"
+    },
+    {
+      "ordinal": 54,
+      "name": "Examples.MergeCosts.records_counts",
+      "start_line": 503,
+      "end_line": 510,
+      "byte_start": 39643,
+      "byte_end_exclusive": 40209,
+      "bytes": 566,
+      "sha256": "46e6abfa7aa187b398cfda88fb35e020bdb8b119f4e5302ac82fc2f8139cc00e"
+    },
+    {
+      "ordinal": 55,
+      "name": "Examples.MergeCosts.records_exact",
+      "start_line": 511,
+      "end_line": 519,
+      "byte_start": 40209,
+      "byte_end_exclusive": 40872,
+      "bytes": 663,
+      "sha256": "405fc75b315b31dea36f5fd0242f6796401ee2c4d7756f44b83552c2bb36f6bf"
+    },
+    {
+      "ordinal": 56,
+      "name": "Examples.MergeCosts.taggedLeft",
+      "start_line": 520,
+      "end_line": 520,
+      "byte_start": 40872,
+      "byte_end_exclusive": 40980,
+      "bytes": 108,
+      "sha256": "7d4c0bceaba0b33d01c3a0e427746170b235cf9d7e1fc927a5adb9edc61b4569"
+    },
+    {
+      "ordinal": 57,
+      "name": "Examples.MergeCosts.taggedRight",
+      "start_line": 521,
+      "end_line": 521,
+      "byte_start": 40980,
+      "byte_end_exclusive": 41082,
+      "bytes": 102,
+      "sha256": "6c3f13c1b05edc350cc9ed07030da309d1bc1ce1907aefe50572844ef64c3865"
+    },
+    {
+      "ordinal": 58,
+      "name": "Examples.MergeCosts.tagged_key_transport",
+      "start_line": 522,
+      "end_line": 557,
+      "byte_start": 41082,
+      "byte_end_exclusive": 44002,
+      "bytes": 2920,
+      "sha256": "068eff8b767adbe58b23d9761511257733f54fb04ae98f7d434d2a081e6ddb06"
+    },
+    {
+      "ordinal": 59,
+      "name": "Examples.MergeCosts.tagged_counts",
+      "start_line": 558,
+      "end_line": 573,
+      "byte_start": 44002,
+      "byte_end_exclusive": 45235,
+      "bytes": 1233,
+      "sha256": "ac2559c538c8a987fa7ab5f72154b52ee36488ea6ef137e3a4a0c6f05afb512f"
+    },
+    {
+      "ordinal": 60,
+      "name": "Examples.MergeCosts.tagged_values",
+      "start_line": 574,
+      "end_line": 599,
+      "byte_start": 45235,
+      "byte_end_exclusive": 47192,
+      "bytes": 1957,
+      "sha256": "0141b4fb1d74ec208b4c1a0d22b833f1d54f6d9bb8ab40559a14177f786cfab7"
+    },
+    {
+      "ordinal": 61,
+      "name": "Examples.MergeCosts.tagged_exact",
+      "start_line": 600,
+      "end_line": 629,
+      "byte_start": 47192,
+      "byte_end_exclusive": 49602,
+      "bytes": 2410,
+      "sha256": "6a11e93662f1aead6aa8b22f6d29fe7722e5d742ade530b7a14e4b406a47e9dc"
+    },
+    {
+      "ordinal": 62,
+      "name": "Examples.MergeCosts.tagged_stable",
+      "start_line": 630,
+      "end_line": 640,
+      "byte_start": 49602,
+      "byte_end_exclusive": 50549,
+      "bytes": 947,
+      "sha256": "1705532a84d323f16d4385cc12e462d69b204f072586fc101d70d6503c781e71"
+    },
+    {
+      "ordinal": 63,
+      "name": "Examples.MergeCosts.falseLeft",
+      "start_line": 641,
+      "end_line": 641,
+      "byte_start": 50549,
+      "byte_end_exclusive": 50615,
+      "bytes": 66,
+      "sha256": "099abe086fdf357038b6141261caae679903e99026ec235e8fcf9d235ceb9d9c"
+    },
+    {
+      "ordinal": 64,
+      "name": "Examples.MergeCosts.falseRight",
+      "start_line": 642,
+      "end_line": 642,
+      "byte_start": 50615,
+      "byte_end_exclusive": 50682,
+      "bytes": 67,
+      "sha256": "ad3513d5416594d45ee8dc8e0573c607cb807abe9ffee5c272d6dde3177d7e83"
+    },
+    {
+      "ordinal": 65,
+      "name": "Examples.MergeCosts.false_compare_compatible",
+      "start_line": 643,
+      "end_line": 653,
+      "byte_start": 50682,
+      "byte_end_exclusive": 51485,
+      "bytes": 803,
+      "sha256": "18a2bf7466b5788acec3687af7430b8bbc65f174585da2762ffb90673dc037b4"
+    },
+    {
+      "ordinal": 66,
+      "name": "Examples.MergeCosts.false_record_run",
+      "start_line": 654,
+      "end_line": 667,
+      "byte_start": 51485,
+      "byte_end_exclusive": 52511,
+      "bytes": 1026,
+      "sha256": "9d2b3fb7b869c7dec82fc49a04a966206c0073e7fa19bbde5dafdfdc35c01a5b"
+    },
+    {
+      "ordinal": 67,
+      "name": "Examples.MergeCosts.compatible_not_stable",
+      "start_line": 668,
+      "end_line": 690,
+      "byte_start": 52511,
+      "byte_end_exclusive": 54275,
+      "bytes": 1764,
+      "sha256": "328cfb2ede8d400d7f7a95f2751a91c490e3cc4a3281f6e422ee87e158b02728"
+    },
+    {
+      "ordinal": 68,
+      "name": "Examples.MergeCosts.unsortedRecordsLeft",
+      "start_line": 691,
+      "end_line": 691,
+      "byte_start": 54275,
+      "byte_end_exclusive": 54351,
+      "bytes": 76,
+      "sha256": "107db0a8736b341da30d2924c24f5022c604c42ccfda221e521248ec3c5d683d"
+    },
+    {
+      "ordinal": 69,
+      "name": "Examples.MergeCosts.unsortedRecordsRight",
+      "start_line": 692,
+      "end_line": 692,
+      "byte_start": 54351,
+      "byte_end_exclusive": 54428,
+      "bytes": 77,
+      "sha256": "9bb5397118c50416c8fe2f02879da2522479f391c108ae0477ea34eaa7103591"
+    },
+    {
+      "ordinal": 70,
+      "name": "Examples.MergeCosts.unsorted_records_run",
+      "start_line": 693,
+      "end_line": 709,
+      "byte_start": 54428,
+      "byte_end_exclusive": 55732,
+      "bytes": 1304,
+      "sha256": "1c1b0cdb5f1bad07cf5215354f059234af3a01b2ddf9464e9bfa851746e2b33c"
+    },
+    {
+      "ordinal": 71,
+      "name": "Examples.MergeCosts.unsorted_record_filters",
+      "start_line": 710,
+      "end_line": 755,
+      "byte_start": 55732,
+      "byte_end_exclusive": 58922,
+      "bytes": 3190,
+      "sha256": "8e6c4436cdfd9fb718491719f532f102cf8df7aedc3d0e91b58365348cb12f0b"
+    },
+    {
+      "ordinal": 72,
+      "name": "Examples.MergeCosts.twoStage",
+      "start_line": 756,
+      "end_line": 758,
+      "byte_start": 58922,
+      "byte_end_exclusive": 59131,
+      "bytes": 209,
+      "sha256": "cd51a5b0db6e38082172d46800703062399c0a1a9fdfbb8eb811d6cd3172a05f"
+    },
+    {
+      "ordinal": 73,
+      "name": "Examples.MergeCosts.twoStage_value",
+      "start_line": 759,
+      "end_line": 762,
+      "byte_start": 59131,
+      "byte_end_exclusive": 59466,
+      "bytes": 335,
+      "sha256": "2146a56f71972c5b153fe322213eab29de24b53bd82a52ed0c12ab11188e383a"
+    },
+    {
+      "ordinal": 74,
+      "name": "Examples.MergeCosts.twoStage_observation",
+      "start_line": 763,
+      "end_line": 773,
+      "byte_start": 59466,
+      "byte_end_exclusive": 60370,
+      "bytes": 904,
+      "sha256": "64dfaa9ac1377af641cd092eda66ad5ecb85b368752ac443d18078ab44cc86a4"
+    },
+    {
+      "ordinal": 75,
+      "name": "Examples.MergeCosts.twoStage_entries",
+      "start_line": 774,
+      "end_line": 781,
+      "byte_start": 60370,
+      "byte_end_exclusive": 60947,
+      "bytes": 577,
+      "sha256": "50dca342c708166dfa64667295b83976a3b3ba02ad15f852f4f50aa666ebd519"
+    },
+    {
+      "ordinal": 76,
+      "name": "Examples.MergeCosts.twoStage_bounds",
+      "start_line": 782,
+      "end_line": 803,
+      "byte_start": 60947,
+      "byte_end_exclusive": 62387,
+      "bytes": 1440,
+      "sha256": "913652103e1fdc6036e5c285c4d146b80b59eb141511b4b89b8f1f6a7779c520"
+    },
+    {
+      "ordinal": 77,
+      "name": "Examples.MergeCosts.twoStage_comparisons_projection",
+      "start_line": 804,
+      "end_line": 856,
+      "byte_start": 62387,
+      "byte_end_exclusive": 66258,
+      "bytes": 3871,
+      "sha256": "a959e8fa6239527388f8ad15b9f189238a1e1871c13716db5872eae790fc2592"
+    },
+    {
+      "ordinal": 78,
+      "name": "Examples.MergeCosts.twoStage_entries_projection",
+      "start_line": 857,
+      "end_line": 909,
+      "byte_start": 66258,
+      "byte_end_exclusive": 70125,
+      "bytes": 3867,
+      "sha256": "a4255eaa809fc4c82d8d65b04ffabc4d2c63efaee5bbded7d460a30b9d4e4754"
+    },
+    {
+      "ordinal": 79,
+      "name": "Examples.MergeCosts.first_stage",
+      "start_line": 910,
+      "end_line": 918,
+      "byte_start": 70125,
+      "byte_end_exclusive": 70927,
+      "bytes": 802,
+      "sha256": "60098454d3bd3bd7f82b09a163f3cca5f6f85b64957947c8ba022803edbda91e"
+    },
+    {
+      "ordinal": 80,
+      "name": "Examples.MergeCosts.second_stage",
+      "start_line": 919,
+      "end_line": 929,
+      "byte_start": 70927,
+      "byte_end_exclusive": 71910,
+      "bytes": 983,
+      "sha256": "3e251a2b7738edce944f2d507b5c9bc192501a9dee37a46df36acdee7a3d578f"
+    },
+    {
+      "ordinal": 81,
+      "name": "Examples.MergeCosts.twoStage_example",
+      "start_line": 930,
+      "end_line": 940,
+      "byte_start": 71910,
+      "byte_end_exclusive": 72920,
+      "bytes": 1010,
+      "sha256": "6153f4b5a6608b0f3fa7a08e9f0846a2f7bb233ce818e6a919a7d6b003ef1b36"
+    },
+    {
+      "ordinal": 82,
+      "name": "Examples.MergeCosts.substituted_input_example",
+      "start_line": 941,
+      "end_line": 957,
+      "byte_start": 72920,
+      "byte_end_exclusive": 74362,
+      "bytes": 1442,
+      "sha256": "5b29b2e45aca0bc2842467f6713972c3bdc72a83fb32c06bc707b1eaee825668"
+    },
+    {
+      "ordinal": 83,
+      "name": "Examples.MergeCosts.actual_input_matters",
+      "start_line": 958,
+      "end_line": 992,
+      "byte_start": 74362,
+      "byte_end_exclusive": 77244,
+      "bytes": 2882,
+      "sha256": "275466a9534c9560bbbbb7c3a23e0c67aa51272c19cfc215a5a2a7e15d70f77f"
+    },
+    {
+      "ordinal": 84,
+      "name": "Examples.MergeCosts.queueBody",
+      "start_line": 993,
+      "end_line": 1002,
+      "byte_start": 77244,
+      "byte_end_exclusive": 77667,
+      "bytes": 423,
+      "sha256": "5935e5f8b0d4dcdabb3c1be5d11e79b9bacc8a7ffa925e266c021ad711225f11"
+    },
+    {
+      "ordinal": 85,
+      "name": "Examples.MergeCosts.queueBody_value",
+      "start_line": 1003,
+      "end_line": 1009,
+      "byte_start": 77667,
+      "byte_end_exclusive": 78270,
+      "bytes": 603,
+      "sha256": "2d58db22f26dac0f561d5dedc054cb570e009bb29ac8d4e28b4312a87d55b61e"
+    },
+    {
+      "ordinal": 86,
+      "name": "Examples.MergeCosts.queueBody_observation",
+      "start_line": 1010,
+      "end_line": 1024,
+      "byte_start": 78270,
+      "byte_end_exclusive": 79414,
+      "bytes": 1144,
+      "sha256": "5c4aae44219f88c78e92a25389518be09737069aa284a00721c2fada41fa262c"
+    },
+    {
+      "ordinal": 87,
+      "name": "Examples.MergeCosts.queueBody_bounds",
+      "start_line": 1025,
+      "end_line": 1042,
+      "byte_start": 79414,
+      "byte_end_exclusive": 80629,
+      "bytes": 1215,
+      "sha256": "bf4b0dd15e7e7a57e014a3271fd56c77a10ab68dba6c038e1ca3133c78406c7a"
+    },
+    {
+      "ordinal": 88,
+      "name": "Examples.MergeCosts.rawLeft",
+      "start_line": 1043,
+      "end_line": 1043,
+      "byte_start": 80629,
+      "byte_end_exclusive": 80698,
+      "bytes": 69,
+      "sha256": "328c7b27aa35dee1b8e7a949a347660d70623637405fab9bfe54dcbf1b49a2eb"
+    },
+    {
+      "ordinal": 89,
+      "name": "Examples.MergeCosts.rawRight",
+      "start_line": 1044,
+      "end_line": 1044,
+      "byte_start": 80698,
+      "byte_end_exclusive": 80768,
+      "bytes": 70,
+      "sha256": "a5552ca7bc90d6bf6c206a56dbdfed5a468130966c2a9bad3e83e166afe2c25b"
+    },
+    {
+      "ordinal": 90,
+      "name": "Examples.MergeCosts.rawRoot",
+      "start_line": 1045,
+      "end_line": 1045,
+      "byte_start": 80768,
+      "byte_end_exclusive": 80837,
+      "bytes": 69,
+      "sha256": "69982a34bee2a9b70d0e5ec33d22151a314e23460b9204e9b2059ed741c44156"
+    },
+    {
+      "ordinal": 91,
+      "name": "Examples.MergeCosts.raw_queue_body",
+      "start_line": 1046,
+      "end_line": 1060,
+      "byte_start": 80837,
+      "byte_end_exclusive": 81920,
+      "bytes": 1083,
+      "sha256": "eb650d9980a35518b4e00eafc729ef77f205450410a59fb2211d33ce1da22109"
+    },
+    {
+      "ordinal": 92,
+      "name": "Examples.MergeCosts.raw_queue_erasure_and_order",
+      "start_line": 1061,
+      "end_line": 1074,
+      "byte_start": 81920,
+      "byte_end_exclusive": 82885,
+      "bytes": 965,
+      "sha256": "9ef692ab464d04fb059b8ed38518a16bdc64ed47354332bafa99ca1d4c0ba91c"
+    },
+    {
+      "ordinal": 93,
+      "name": "Examples.MergeCosts.nonempty_tariffs",
+      "start_line": 1075,
+      "end_line": 1084,
+      "byte_start": 82885,
+      "byte_end_exclusive": 83650,
+      "bytes": 765,
+      "sha256": "0958b8ddcc8baf2d5a17a0d566a81d004225eeaf3f1d9001c8f3299ee87c4e67"
+    },
+    {
+      "ordinal": 94,
+      "name": "Examples.MergeCosts.empty_tariff_not_multiplicative",
+      "start_line": 1085,
+      "end_line": 1090,
+      "byte_start": 83650,
+      "byte_end_exclusive": 84051,
+      "bytes": 401,
+      "sha256": "7b1c94e0341415cafda82de4e2fbda5645972a96508d5d44ec94eef020a3c4e1"
+    },
+    {
+      "ordinal": 95,
+      "name": "Examples.MergeCosts.low_singleton_attains_factor_two",
+      "start_line": 1091,
+      "end_line": 1124,
+      "byte_start": 84051,
+      "byte_end_exclusive": 86464,
+      "bytes": 2413,
+      "sha256": "c48853a555064e4782647fb216f5ea3b1c543c8cf863061e130e3e1d1a60697a"
+    },
+    {
+      "ordinal": 96,
+      "name": "Resources.DifferenceListCosts.Builder",
+      "start_line": 1125,
+      "end_line": 1125,
+      "byte_start": 86464,
+      "byte_end_exclusive": 86532,
+      "bytes": 68,
+      "sha256": "ac57479c17f022e48138720180212af88120b8e40172382c63ba8ab53e81d7ca"
+    },
+    {
+      "ordinal": 97,
+      "name": "Resources.DifferenceListCosts.Rep",
+      "start_line": 1126,
+      "end_line": 1127,
+      "byte_start": 86532,
+      "byte_end_exclusive": 86671,
+      "bytes": 139,
+      "sha256": "7431972803747cb8dc04b16a5cf21dcd9bbcb92d20a95a554079b3fad0ee0698"
+    },
+    {
+      "ordinal": 98,
+      "name": "Resources.DifferenceListCosts.AppCost",
+      "start_line": 1128,
+      "end_line": 1129,
+      "byte_start": 86671,
+      "byte_end_exclusive": 86804,
+      "bytes": 133,
+      "sha256": "0be6df1c29d6ec864a346802e02aaac58a6af34e1c6f49bf8bc27ca5a0c99341"
+    },
+    {
+      "ordinal": 99,
+      "name": "Resources.DifferenceListCosts.empty",
+      "start_line": 1130,
+      "end_line": 1130,
+      "byte_start": 86804,
+      "byte_end_exclusive": 86916,
+      "bytes": 112,
+      "sha256": "d33d2b36f7b1c4c8f30a09e3ffcf69a17dd84b329a496f4a53a54a0321c1ced0"
+    },
+    {
+      "ordinal": 100,
+      "name": "Resources.DifferenceListCosts.singleton",
+      "start_line": 1131,
+      "end_line": 1131,
+      "byte_start": 86916,
+      "byte_end_exclusive": 87039,
+      "bytes": 123,
+      "sha256": "c21d77eeaea5534618506c7a4f778f788359e3894b94d9c465ece45bee6b9b4b"
+    },
+    {
+      "ordinal": 101,
+      "name": "Resources.DifferenceListCosts.compose",
+      "start_line": 1132,
+      "end_line": 1134,
+      "byte_start": 87039,
+      "byte_end_exclusive": 87261,
+      "bytes": 222,
+      "sha256": "de4a0ba154a06967a0bd3cac96227e11017f92a8c60bb6b75c4cc6bf5327087d"
+    },
+    {
+      "ordinal": 102,
+      "name": "Resources.DifferenceListCosts.empty_apply",
+      "start_line": 1135,
+      "end_line": 1137,
+      "byte_start": 87261,
+      "byte_end_exclusive": 87592,
+      "bytes": 331,
+      "sha256": "bd2d8d8de3c699b911dac7572050262e905e7d64c7dbb6cadb7c339e5df1a27c"
+    },
+    {
+      "ordinal": 103,
+      "name": "Resources.DifferenceListCosts.singleton_apply",
+      "start_line": 1138,
+      "end_line": 1142,
+      "byte_start": 87592,
+      "byte_end_exclusive": 87976,
+      "bytes": 384,
+      "sha256": "dc94e8f21519789618edc08067912b9ac0f3ef801078e380f53f99afabe92721"
+    },
+    {
+      "ordinal": 104,
+      "name": "Resources.DifferenceListCosts.empty_rep",
+      "start_line": 1143,
+      "end_line": 1144,
+      "byte_start": 87976,
+      "byte_end_exclusive": 88161,
+      "bytes": 185,
+      "sha256": "03f623666cee392168f03674a47034f09c344eb278881a3c75a9de02a0054e07"
+    },
+    {
+      "ordinal": 105,
+      "name": "Resources.DifferenceListCosts.empty_appCost",
+      "start_line": 1145,
+      "end_line": 1147,
+      "byte_start": 88161,
+      "byte_end_exclusive": 88399,
+      "bytes": 238,
+      "sha256": "29e9e9cd39b393fddeecd13ce098d2952492d260139d66a9f71b269126730b4d"
+    },
+    {
+      "ordinal": 106,
+      "name": "Resources.DifferenceListCosts.singleton_rep",
+      "start_line": 1148,
+      "end_line": 1150,
+      "byte_start": 88399,
+      "byte_end_exclusive": 88631,
+      "bytes": 232,
+      "sha256": "b66ceb073f53fde94f03228f16e30578059a0fac85e09d51f42dcfa7ee8e55e7"
+    },
+    {
+      "ordinal": 107,
+      "name": "Resources.DifferenceListCosts.singleton_appCost",
+      "start_line": 1151,
+      "end_line": 1153,
+      "byte_start": 88631,
+      "byte_end_exclusive": 88888,
+      "bytes": 257,
+      "sha256": "84d1a433dcd9a26830e36b38a1b26bbfa19bcc274936cea16c4a7dfeec9fb781"
+    },
+    {
+      "ordinal": 108,
+      "name": "Resources.DifferenceListCosts.compose_value",
+      "start_line": 1154,
+      "end_line": 1158,
+      "byte_start": 88888,
+      "byte_end_exclusive": 89283,
+      "bytes": 395,
+      "sha256": "abe646c6c6c9d59f7ce889525a6a889ad727f34d294084a73ee043c74ea7f60d"
+    },
+    {
+      "ordinal": 109,
+      "name": "Resources.DifferenceListCosts.compose_cost",
+      "start_line": 1159,
+      "end_line": 1166,
+      "byte_start": 89283,
+      "byte_end_exclusive": 89929,
+      "bytes": 646,
+      "sha256": "f4a78ad78086af4904143d035f0480070863b5a60248ec9cb31f676a783af255"
+    },
+    {
+      "ordinal": 110,
+      "name": "Resources.DifferenceListCosts.compose_rep",
+      "start_line": 1167,
+      "end_line": 1173,
+      "byte_start": 89929,
+      "byte_end_exclusive": 90508,
+      "bytes": 579,
+      "sha256": "e1138c7c81f173bbb5eaf5422d81cae6932888d37eb787e9d169240fedd01e19"
+    },
+    {
+      "ordinal": 111,
+      "name": "Resources.DifferenceListCosts.compose_appCost",
+      "start_line": 1174,
+      "end_line": 1181,
+      "byte_start": 90508,
+      "byte_end_exclusive": 91105,
+      "bytes": 597,
+      "sha256": "23d8d427e382e6e85bb45a751eeba29ec5cbbc2446af0ddd4afc6fbe4cc2ced5"
+    },
+    {
+      "ordinal": 112,
+      "name": "Resources.DifferenceListCosts.createEmpty",
+      "start_line": 1182,
+      "end_line": 1183,
+      "byte_start": 91105,
+      "byte_end_exclusive": 91259,
+      "bytes": 154,
+      "sha256": "82401b10f7d451afce63d5f16c5fa251d4fa65957bbc1ecd47046ed9cd77cdbc"
+    },
+    {
+      "ordinal": 113,
+      "name": "Resources.DifferenceListCosts.createSingleton",
+      "start_line": 1184,
+      "end_line": 1185,
+      "byte_start": 91259,
+      "byte_end_exclusive": 91424,
+      "bytes": 165,
+      "sha256": "8efb4462a27af15d8204a3d1d092a4a979add57cf18363e7cd0a46588d5045ce"
+    },
+    {
+      "ordinal": 114,
+      "name": "Resources.DifferenceListCosts.createCompose",
+      "start_line": 1186,
+      "end_line": 1189,
+      "byte_start": 91424,
+      "byte_end_exclusive": 91692,
+      "bytes": 268,
+      "sha256": "d5aac93baaa4ec832790d7143aef93edc01d24dc951c89d7fee9c03cf6c7fdff"
+    },
+    {
+      "ordinal": 115,
+      "name": "Resources.DifferenceListCosts.createEmpty_eq",
+      "start_line": 1190,
+      "end_line": 1194,
+      "byte_start": 91692,
+      "byte_end_exclusive": 92117,
+      "bytes": 425,
+      "sha256": "ed051f25ea3b4405da1de395ec216f241845a351eb102b4265b3c73bbb015399"
+    },
+    {
+      "ordinal": 116,
+      "name": "Resources.DifferenceListCosts.createSingleton_eq",
+      "start_line": 1195,
+      "end_line": 1200,
+      "byte_start": 92117,
+      "byte_end_exclusive": 92573,
+      "bytes": 456,
+      "sha256": "64699735a12e6c522644fe65b8ed1668e310c124c39f8f3a6e72261dc11f1245"
+    },
+    {
+      "ordinal": 117,
+      "name": "Resources.DifferenceListCosts.createCompose_eq",
+      "start_line": 1201,
+      "end_line": 1207,
+      "byte_start": 92573,
+      "byte_end_exclusive": 93075,
+      "bytes": 502,
+      "sha256": "334531ab702520595600b74709ba2dee04cbf54c472a04b211f41c68d13c0b7d"
+    },
+    {
+      "ordinal": 118,
+      "name": "Resources.DifferenceListCosts.pushRun",
+      "start_line": 1208,
+      "end_line": 1211,
+      "byte_start": 93075,
+      "byte_end_exclusive": 93293,
+      "bytes": 218,
+      "sha256": "a60225f3b409bd881e6c565a5c89361dad6e935220b7e83634cc2ed9d17c2f48"
+    },
+    {
+      "ordinal": 119,
+      "name": "Resources.DifferenceListCosts.pushRun_eq",
+      "start_line": 1212,
+      "end_line": 1218,
+      "byte_start": 93293,
+      "byte_end_exclusive": 93842,
+      "bytes": 549,
+      "sha256": "c3ec498c67ba2a103b79a3a1654b7aba71794a38f9ed31499627ca33c97fc818"
+    },
+    {
+      "ordinal": 120,
+      "name": "Resources.DifferenceListCosts.pushRun_rep",
+      "start_line": 1219,
+      "end_line": 1227,
+      "byte_start": 93842,
+      "byte_end_exclusive": 94476,
+      "bytes": 634,
+      "sha256": "dd077aa59458d0b5242cde871259eca9ef222b5476dab7a6eab30aae898b7b1d"
+    },
+    {
+      "ordinal": 121,
+      "name": "Resources.DifferenceListCosts.pushRun_appCost",
+      "start_line": 1228,
+      "end_line": 1235,
+      "byte_start": 94476,
+      "byte_end_exclusive": 95022,
+      "bytes": 546,
+      "sha256": "842268b4c100413c16f69453786e4b50efde7200cc75f42f1ed8dc85f4f56f32"
+    },
+    {
+      "ordinal": 122,
+      "name": "Resources.DifferenceListCosts.buildFrom",
+      "start_line": 1236,
+      "end_line": 1239,
+      "byte_start": 95022,
+      "byte_end_exclusive": 95253,
+      "bytes": 231,
+      "sha256": "591a55a8cfd38d789fd99ba402b2b387bc3e6cc770675b138f829329d70c4462"
+    },
+    {
+      "ordinal": 123,
+      "name": "Resources.DifferenceListCosts.buildFrom_nil",
+      "start_line": 1240,
+      "end_line": 1245,
+      "byte_start": 95253,
+      "byte_end_exclusive": 95707,
+      "bytes": 454,
+      "sha256": "d89b60f99570521a8701122ff6d309e7e46546bac4911717fde13e33019d0529"
+    },
+    {
+      "ordinal": 124,
+      "name": "Resources.DifferenceListCosts.buildFrom_cons",
+      "start_line": 1246,
+      "end_line": 1258,
+      "byte_start": 95707,
+      "byte_end_exclusive": 96806,
+      "bytes": 1099,
+      "sha256": "1e4cd7d278cbe005c1399e56f224053acd5fe56da3176a64396013a987ffe34e"
+    },
+    {
+      "ordinal": 125,
+      "name": "Resources.DifferenceListCosts.buildFrom_cost",
+      "start_line": 1259,
+      "end_line": 1265,
+      "byte_start": 96806,
+      "byte_end_exclusive": 97286,
+      "bytes": 480,
+      "sha256": "ec497516b75e95441a5e242bca3914cbb609c23760513e98a424359249982ae0"
+    },
+    {
+      "ordinal": 126,
+      "name": "Resources.DifferenceListCosts.buildFrom_rep",
+      "start_line": 1266,
+      "end_line": 1273,
+      "byte_start": 97286,
+      "byte_end_exclusive": 97896,
+      "bytes": 610,
+      "sha256": "3131bf67d9450967792ece72d94a58d53c30988629ae71a4376c69f6a8e14138"
+    },
+    {
+      "ordinal": 127,
+      "name": "Resources.DifferenceListCosts.buildFrom_appCost",
+      "start_line": 1274,
+      "end_line": 1282,
+      "byte_start": 97896,
+      "byte_end_exclusive": 98571,
+      "bytes": 675,
+      "sha256": "2fe2cd3bfbe0ff758b365689396df402e82f84d922556e1bf8c2c0a2a9bca7d2"
+    },
+    {
+      "ordinal": 128,
+      "name": "Resources.DifferenceListCosts.build",
+      "start_line": 1283,
+      "end_line": 1284,
+      "byte_start": 98571,
+      "byte_end_exclusive": 98737,
+      "bytes": 166,
+      "sha256": "e0b37291317c7c39da3d01d6fd56b740df8c4c90b01db0aaf9f0bdcfb6de7fc7"
+    },
+    {
+      "ordinal": 129,
+      "name": "Resources.DifferenceListCosts.build_cost",
+      "start_line": 1285,
+      "end_line": 1292,
+      "byte_start": 98737,
+      "byte_end_exclusive": 99294,
+      "bytes": 557,
+      "sha256": "45eb8054a21569322d37e45b1e63629abaf33932ba2a0186e743b455d0b329f4"
+    },
+    {
+      "ordinal": 130,
+      "name": "Resources.DifferenceListCosts.build_rep",
+      "start_line": 1293,
+      "end_line": 1297,
+      "byte_start": 99294,
+      "byte_end_exclusive": 99582,
+      "bytes": 288,
+      "sha256": "b69665ee8d60eb37c284a026295a06563a28e6c6b814d96ef45a676a75b10d01"
+    },
+    {
+      "ordinal": 131,
+      "name": "Resources.DifferenceListCosts.build_appCost",
+      "start_line": 1298,
+      "end_line": 1305,
+      "byte_start": 99582,
+      "byte_end_exclusive": 100178,
+      "bytes": 596,
+      "sha256": "970326da320c95a4de93b4b763fd28a1cf615fdf1c8abc6a0f7486a017dbef1d"
+    },
+    {
+      "ordinal": 132,
+      "name": "Resources.DifferenceListCosts.toDList",
+      "start_line": 1306,
+      "end_line": 1308,
+      "byte_start": 100178,
+      "byte_end_exclusive": 100415,
+      "bytes": 237,
+      "sha256": "9674b197e09743b5b9ba325dff010329314925d55381ec2365c0fcd9c4e2d4d4"
+    },
+    {
+      "ordinal": 133,
+      "name": "Resources.DifferenceListCosts.toDList_apply",
+      "start_line": 1309,
+      "end_line": 1314,
+      "byte_start": 100415,
+      "byte_end_exclusive": 100847,
+      "bytes": 432,
+      "sha256": "f8587cd073047067cc4496d9754f08e996df52036fa8c9bded07e072b95901fa"
+    },
+    {
+      "ordinal": 134,
+      "name": "Resources.DifferenceListCosts.toList_toDList",
+      "start_line": 1315,
+      "end_line": 1319,
+      "byte_start": 100847,
+      "byte_end_exclusive": 101198,
+      "bytes": 351,
+      "sha256": "733032917584acd309d7ff9f1d3db9c4822ff3bad1c13f7df72c5fef9809b4b1"
+    },
+    {
+      "ordinal": 135,
+      "name": "Resources.DifferenceListCosts.toDList_eq_ofList",
+      "start_line": 1320,
+      "end_line": 1324,
+      "byte_start": 101198,
+      "byte_end_exclusive": 101563,
+      "bytes": 365,
+      "sha256": "ac3b1124cc04f26188defa2db0725e9c5290eff8d9b94f345fd50875bdd0d07c"
+    },
+    {
+      "ordinal": 136,
+      "name": "Resources.DifferenceListCosts.toDList_compose",
+      "start_line": 1325,
+      "end_line": 1337,
+      "byte_start": 101563,
+      "byte_end_exclusive": 102570,
+      "bytes": 1007,
+      "sha256": "c6f3c04d091794300c37c4e30d387e3f5bdef2fee21a0e051afadcb2f3cf9972"
+    },
+    {
+      "ordinal": 137,
+      "name": "Resources.DifferenceListCosts.toDList_pushRun",
+      "start_line": 1338,
+      "end_line": 1349,
+      "byte_start": 102570,
+      "byte_end_exclusive": 103371,
+      "bytes": 801,
+      "sha256": "3426ad2435d6b6e4a0fd084c7bea90d3ab859d453d2c81284893d072bef517a0"
+    },
+    {
+      "ordinal": 138,
+      "name": "Examples.DifferenceListCosts.ordered_composition",
+      "start_line": 1350,
+      "end_line": 1359,
+      "byte_start": 103371,
+      "byte_end_exclusive": 104261,
+      "bytes": 890,
+      "sha256": "74671b8986d3be8145669f77a6fb7a763f309879e748ef85f8ef2703f8ca4d0a"
+    },
+    {
+      "ordinal": 139,
+      "name": "Examples.DifferenceListCosts.standard_composition_value",
+      "start_line": 1360,
+      "end_line": 1373,
+      "byte_start": 104261,
+      "byte_end_exclusive": 105327,
+      "bytes": 1066,
+      "sha256": "eaf65ed304795cd13247c14b1266eb1895d104dba9a6a8fb52f1d40360ecba08"
+    },
+    {
+      "ordinal": 140,
+      "name": "Examples.DifferenceListCosts.expensive_capture",
+      "start_line": 1374,
+      "end_line": 1388,
+      "byte_start": 105327,
+      "byte_end_exclusive": 106257,
+      "bytes": 930,
+      "sha256": "3a701b5922193379c082cba67839d1af3137584ca61447c542e47294ce19e384"
+    },
+    {
+      "ordinal": 141,
+      "name": "Examples.DifferenceListCosts.materialize",
+      "start_line": 1389,
+      "end_line": 1390,
+      "byte_start": 106257,
+      "byte_end_exclusive": 106413,
+      "bytes": 156,
+      "sha256": "bbcfbe20fbec4e5e17b8b6575b1892bc74d403e19f50b1b25f2771c0acf2b491"
+    },
+    {
+      "ordinal": 142,
+      "name": "Examples.DifferenceListCosts.materialize_eq",
+      "start_line": 1391,
+      "end_line": 1400,
+      "byte_start": 106413,
+      "byte_end_exclusive": 107199,
+      "bytes": 786,
+      "sha256": "cf8778fef7f8e8cd8897fad8c236ff94e96a7f13811161959a8b6564a315296c"
+    },
+    {
+      "ordinal": 143,
+      "name": "Examples.DifferenceListCosts.construction_application_split",
+      "start_line": 1401,
+      "end_line": 1417,
+      "byte_start": 107199,
+      "byte_end_exclusive": 108340,
+      "bytes": 1141,
+      "sha256": "41e5eb1057a77a63a96e9bdf3b9ad08dd69dad1fdbe53f056d35709aee57de96"
+    },
+    {
+      "ordinal": 144,
+      "name": "Examples.DifferenceListCosts.materializeTwice",
+      "start_line": 1418,
+      "end_line": 1420,
+      "byte_start": 108340,
+      "byte_end_exclusive": 108557,
+      "bytes": 217,
+      "sha256": "aeacbf1b66a91cde50bcb7601f9367eb0cbd09726a53e4d576ff0a2b79d2de5e"
+    },
+    {
+      "ordinal": 145,
+      "name": "Examples.DifferenceListCosts.materializeTwice_eq",
+      "start_line": 1421,
+      "end_line": 1434,
+      "byte_start": 108557,
+      "byte_end_exclusive": 109721,
+      "bytes": 1164,
+      "sha256": "7ee69cea4d792de59384a79a852a5707b1787142e80446818585a89d602ff840"
+    },
+    {
+      "ordinal": 146,
+      "name": "Examples.DifferenceListCosts.duplicate_values",
+      "start_line": 1435,
+      "end_line": 1446,
+      "byte_start": 109721,
+      "byte_end_exclusive": 110759,
+      "bytes": 1038,
+      "sha256": "e66801823fa284a9015deb816148dd88ab7dc3255fd3c9823b5f382ebd1f4b78"
+    },
+    {
+      "ordinal": 147,
+      "name": "Examples.DifferenceListCosts.duplicate_values_twice",
+      "start_line": 1447,
+      "end_line": 1468,
+      "byte_start": 110759,
+      "byte_end_exclusive": 112625,
+      "bytes": 1866,
+      "sha256": "d2c3d34f8ab504224c2d2a29677c47f5fab14a37f0ad5ca1e37740ce97b1080f"
+    },
+    {
+      "ordinal": 148,
+      "name": "Examples.DifferenceListCosts.empty_payload_boundary",
+      "start_line": 1469,
+      "end_line": 1479,
+      "byte_start": 112625,
+      "byte_end_exclusive": 113450,
+      "bytes": 825,
+      "sha256": "19199b246f82bff55b2dee630e3c1439f697e5f22316acf1a79f204400ef8fd5"
+    },
+    {
+      "ordinal": 149,
+      "name": "Examples.DifferenceListCosts.singleton_boundary",
+      "start_line": 1480,
+      "end_line": 1484,
+      "byte_start": 113450,
+      "byte_end_exclusive": 113880,
+      "bytes": 430,
+      "sha256": "e0cadf422327696f0f0fd545acc5beb2fe7ff1351be81c608cecc79ec46deee0"
+    },
+    {
+      "ordinal": 150,
+      "name": "Examples.DifferenceListCosts.extendSingleton",
+      "start_line": 1485,
+      "end_line": 1486,
+      "byte_start": 113880,
+      "byte_end_exclusive": 114047,
+      "bytes": 167,
+      "sha256": "20a50c19555430891910b62c4e58d6643c9e08c5ddf6b45dc37844b46e2cc3c2"
+    },
+    {
+      "ordinal": 151,
+      "name": "Examples.DifferenceListCosts.extendSingleton_eq",
+      "start_line": 1487,
+      "end_line": 1496,
+      "byte_start": 114047,
+      "byte_end_exclusive": 114876,
+      "bytes": 829,
+      "sha256": "7d8b26312f0898b1c4f29e091ed558aae57d2073a19522b49df25732e0e3aa6a"
+    },
+    {
+      "ordinal": 152,
+      "name": "Examples.DifferenceListCosts.fused_push_value",
+      "start_line": 1497,
+      "end_line": 1505,
+      "byte_start": 114876,
+      "byte_end_exclusive": 115480,
+      "bytes": 604,
+      "sha256": "3078ec5e8434768efb00b7b9819904fd00bee170b56922f77b673d9b6f5d7a8b"
+    },
+    {
+      "ordinal": 153,
+      "name": "Examples.DifferenceListCosts.identity_value_cost",
+      "start_line": 1506,
+      "end_line": 1518,
+      "byte_start": 115480,
+      "byte_end_exclusive": 116283,
+      "bytes": 803,
+      "sha256": "ff2c1b81c68070d20661172fa1dd3b32119e2330f1f63c2bf2b400696d3b13b9"
+    },
+    {
+      "ordinal": 154,
+      "name": "Examples.DifferenceListCosts.padded",
+      "start_line": 1519,
+      "end_line": 1519,
+      "byte_start": 116283,
+      "byte_end_exclusive": 116403,
+      "bytes": 120,
+      "sha256": "994260a5ba30689b675f2bfc325b7dcfa652084295ebd9b0eab136fb55432692"
+    },
+    {
+      "ordinal": 155,
+      "name": "Examples.DifferenceListCosts.padded_rep",
+      "start_line": 1520,
+      "end_line": 1521,
+      "byte_start": 116403,
+      "byte_end_exclusive": 116600,
+      "bytes": 197,
+      "sha256": "955dbd54935b4b025a67588c64698bd6f5e6e171e9920754021b8c00a71c7ddd"
+    },
+    {
+      "ordinal": 156,
+      "name": "Examples.DifferenceListCosts.padded_appCost",
+      "start_line": 1522,
+      "end_line": 1527,
+      "byte_start": 116600,
+      "byte_end_exclusive": 117066,
+      "bytes": 466,
+      "sha256": "bc8f802731f392e431cea5fba2623f2cc4e6ee3f0a1b554d952cc987fb5a5873"
+    },
+    {
+      "ordinal": 157,
+      "name": "Examples.DifferenceListCosts.padded_empty_value",
+      "start_line": 1528,
+      "end_line": 1533,
+      "byte_start": 117066,
+      "byte_end_exclusive": 117389,
+      "bytes": 323,
+      "sha256": "846b2e5de58cfce6ba796968f21f0db02f839f42af55a0d863f51203293d2b20"
+    },
+    {
+      "ordinal": 158,
+      "name": "Examples.DifferenceListCosts.no_bound_from_output_length",
+      "start_line": 1534,
+      "end_line": 1540,
+      "byte_start": 117389,
+      "byte_end_exclusive": 117847,
+      "bytes": 458,
+      "sha256": "2d4070039561aa297e617daff68513fc7556f8d10d54435ed1b48b904cdd0ffc"
+    },
+    {
+      "ordinal": 159,
+      "name": "Examples.DifferenceListCosts.doubled",
+      "start_line": 1541,
+      "end_line": 1542,
+      "byte_start": 117847,
+      "byte_end_exclusive": 118004,
+      "bytes": 157,
+      "sha256": "95b4c8f6a5d0caec0f089ac9942e9590baef21be17240878df0fa91cda9c3f48"
+    },
+    {
+      "ordinal": 160,
+      "name": "Examples.DifferenceListCosts.doubled_creation",
+      "start_line": 1543,
+      "end_line": 1548,
+      "byte_start": 118004,
+      "byte_end_exclusive": 118379,
+      "bytes": 375,
+      "sha256": "913f4ec6dd1edcab0071424441cbbbb41446c15af5e63f60d18f0a8154d8b19e"
+    },
+    {
+      "ordinal": 161,
+      "name": "Examples.DifferenceListCosts.doubled_rep",
+      "start_line": 1549,
+      "end_line": 1553,
+      "byte_start": 118379,
+      "byte_end_exclusive": 118666,
+      "bytes": 287,
+      "sha256": "597beaa8381c1f433ed4a44be37c147419631e59d22290e727707ec1d0911169"
+    },
+    {
+      "ordinal": 162,
+      "name": "Examples.DifferenceListCosts.doubled_application_add_one",
+      "start_line": 1554,
+      "end_line": 1565,
+      "byte_start": 118666,
+      "byte_end_exclusive": 119483,
+      "bytes": 817,
+      "sha256": "9ef1d281ced6af0b8df438b8a184f4f26de3ef6ed6be6a0d5ff1cd88520e078f"
+    },
+    {
+      "ordinal": 163,
+      "name": "Examples.DifferenceListCosts.doubled_appCost",
+      "start_line": 1566,
+      "end_line": 1576,
+      "byte_start": 119483,
+      "byte_end_exclusive": 120247,
+      "bytes": 764,
+      "sha256": "4007151597a3febf770d9cb94b812e16f95679ffc627af6bee34f0e57df916a2"
+    },
+    {
+      "ordinal": 164,
+      "name": "Examples.DifferenceListCosts.materializeDoubled",
+      "start_line": 1577,
+      "end_line": 1578,
+      "byte_start": 120247,
+      "byte_end_exclusive": 120400,
+      "bytes": 153,
+      "sha256": "0d0252c9535f1589e344140b33be747d9ce842d822e3f2cdf711c4483972e6e9"
+    },
+    {
+      "ordinal": 165,
+      "name": "Examples.DifferenceListCosts.materializeDoubled_eq",
+      "start_line": 1579,
+      "end_line": 1588,
+      "byte_start": 120400,
+      "byte_end_exclusive": 121146,
+      "bytes": 746,
+      "sha256": "ab3f397fe887e864cc26644342b4e47a60e78a9ca3341874646a5f39c8ebd712"
+    },
+    {
+      "ordinal": 166,
+      "name": "Examples.DifferenceListCosts.four_shared_closure_extensions",
+      "start_line": 1589,
+      "end_line": 1600,
+      "byte_start": 121146,
+      "byte_end_exclusive": 122064,
+      "bytes": 918,
+      "sha256": "32875f606299843c217dddce435fc30db48c9f77e363a8064c374601686f8b96"
+    },
+    {
+      "ordinal": 167,
+      "name": "Examples.DifferenceListCosts.four_shared_closure_extensions_materialized",
+      "start_line": 1601,
+      "end_line": 1608,
+      "byte_start": 122064,
+      "byte_end_exclusive": 122644,
+      "bytes": 580,
+      "sha256": "ff9e5ef7daf19da17788e6e003cfaaa7149993d6d2142596e87e5a7d0329f37c"
+    },
+    {
+      "ordinal": 168,
+      "name": "Resources.Partition.partitionRun",
+      "start_line": 1609,
+      "end_line": 1613,
+      "byte_start": 122644,
+      "byte_end_exclusive": 122894,
+      "bytes": 250,
+      "sha256": "96bfb7c809d6b78be50d953e9c276e4d4221c76bb9de57506c26736679edccb0"
+    },
+    {
+      "ordinal": 169,
+      "name": "Resources.Partition.partitionRun_nil",
+      "start_line": 1614,
+      "end_line": 1621,
+      "byte_start": 122894,
+      "byte_end_exclusive": 123614,
+      "bytes": 720,
+      "sha256": "441ed873c5b81d50ddfa433f9ef1691ab061a3599dcb8f10b9374973d1d6a57b"
+    },
+    {
+      "ordinal": 170,
+      "name": "Resources.Partition.partitionRun_cons",
+      "start_line": 1622,
+      "end_line": 1667,
+      "byte_start": 123614,
+      "byte_end_exclusive": 127364,
+      "bytes": 3750,
+      "sha256": "7ef5568e5a6fe5219f39af97d9d4edf85c555af29df250a7593f3cd3dfb5f15c"
+    },
+    {
+      "ordinal": 171,
+      "name": "Resources.Partition.partitionRun_value",
+      "start_line": 1668,
+      "end_line": 1673,
+      "byte_start": 127364,
+      "byte_end_exclusive": 127826,
+      "bytes": 462,
+      "sha256": "10210478becd06c87402d7d4a630c27a5137773a614a97f9b37bd6d6376032b8"
+    },
+    {
+      "ordinal": 172,
+      "name": "Resources.Partition.partitionRun_nil_cost",
+      "start_line": 1674,
+      "end_line": 1678,
+      "byte_start": 127826,
+      "byte_end_exclusive": 128209,
+      "bytes": 383,
+      "sha256": "8759dfd68c963d4098067696ac4545e17dc6154d5b91c02435537fee6f81654f"
+    },
+    {
+      "ordinal": 173,
+      "name": "Resources.Partition.partitionRun_cons_cost",
+      "start_line": 1679,
+      "end_line": 1687,
+      "byte_start": 128209,
+      "byte_end_exclusive": 128874,
+      "bytes": 665,
+      "sha256": "0999d497f626c8b7550793043c9182e4d1b5acad6d9dd08ff5864e53a20d4cc9"
+    },
+    {
+      "ordinal": 174,
+      "name": "Resources.Partition.partitionRun_cost",
+      "start_line": 1688,
+      "end_line": 1694,
+      "byte_start": 128874,
+      "byte_end_exclusive": 129357,
+      "bytes": 483,
+      "sha256": "470cae168837357806ee183db50c09211a60571c4b7538129a8863b778629077"
+    },
+    {
+      "ordinal": 175,
+      "name": "Applications.Selection.partition3",
+      "start_line": 1695,
+      "end_line": 1697,
+      "byte_start": 129357,
+      "byte_end_exclusive": 129560,
+      "bytes": 203,
+      "sha256": "5f6bb9bf827f37d1e2f64d885311f710de7a251124d6f499146a058b7ef1ad38"
+    },
+    {
+      "ordinal": 176,
+      "name": "Applications.Selection.partition3_eq_filters",
+      "start_line": 1698,
+      "end_line": 1729,
+      "byte_start": 129560,
+      "byte_end_exclusive": 131201,
+      "bytes": 1641,
+      "sha256": "4c766240ebf5133ee3f74f914df440d33d750900d0f4648815093846e7da5b4d"
+    },
+    {
+      "ordinal": 177,
+      "name": "Applications.Selection.partition3_perm",
+      "start_line": 1730,
+      "end_line": 1745,
+      "byte_start": 131201,
+      "byte_end_exclusive": 132314,
+      "bytes": 1113,
+      "sha256": "05c8749d0f353a9e973eb90227bf114159fee8cd1eb230df15e473e0244482be"
+    },
+    {
+      "ordinal": 178,
+      "name": "Applications.Selection.partition_left_mem",
+      "start_line": 1746,
+      "end_line": 1760,
+      "byte_start": 132314,
+      "byte_end_exclusive": 133132,
+      "bytes": 818,
+      "sha256": "df0d6f7f2778d95f2190975f8bca5180382c9fcf42a6a888b56c22b44c1c08a5"
+    },
+    {
+      "ordinal": 179,
+      "name": "Applications.Selection.partition_equal_mem",
+      "start_line": 1761,
+      "end_line": 1769,
+      "byte_start": 133132,
+      "byte_end_exclusive": 133716,
+      "bytes": 584,
+      "sha256": "f17de7e8f06e4476b7100b0fc6b3cd388872febea71fa5e44933760803906a6a"
+    },
+    {
+      "ordinal": 180,
+      "name": "Applications.Selection.partition_right_mem",
+      "start_line": 1770,
+      "end_line": 1785,
+      "byte_start": 133716,
+      "byte_end_exclusive": 134600,
+      "bytes": 884,
+      "sha256": "0842a163a9a69a4b05966e37cb57b61c08fbac99ff926d6ec539e049bbb32abc"
+    },
+    {
+      "ordinal": 181,
+      "name": "Applications.Selection.partition_lengths",
+      "start_line": 1786,
+      "end_line": 1802,
+      "byte_start": 134600,
+      "byte_end_exclusive": 135647,
+      "bytes": 1047,
+      "sha256": "4f9f976fddb08edc2e7969f0ad7d1317143239a76fb2d5f22cb132e227535cc1"
+    },
+    {
+      "ordinal": 182,
+      "name": "Applications.Selection.partition_strict_sizes",
+      "start_line": 1803,
+      "end_line": 1817,
+      "byte_start": 135647,
+      "byte_end_exclusive": 136485,
+      "bytes": 838,
+      "sha256": "66e994d927485032f4f4554269a194bf29c5a9a6aa760a21bd746069e5b02cba"
+    },
+    {
+      "ordinal": 183,
+      "name": "Sequences.Partition.partition3",
+      "start_line": 1818,
+      "end_line": 1820,
+      "byte_start": 136485,
+      "byte_end_exclusive": 136685,
+      "bytes": 200,
+      "sha256": "0f6e974e9fe43023518f2a6ed13ebf1c7736ee40744d9d89809fa07c0cfb1881"
+    },
+    {
+      "ordinal": 184,
+      "name": "Sequences.Partition.partition3_eq_filters",
+      "start_line": 1821,
+      "end_line": 1844,
+      "byte_start": 136685,
+      "byte_end_exclusive": 137918,
+      "bytes": 1233,
+      "sha256": "1efc4e09e09b56aefb6b4790e692484afc5337afcf9fa079c039bf81860dfea6"
+    },
+    {
+      "ordinal": 185,
+      "name": "Sequences.Partition.partition3_perm",
+      "start_line": 1845,
+      "end_line": 1859,
+      "byte_start": 137918,
+      "byte_end_exclusive": 139017,
+      "bytes": 1099,
+      "sha256": "dc309be8177a4a6bbcd48c5fb3debbfeb635301b618bee9fe24b8507a4f25775"
+    },
+    {
+      "ordinal": 186,
+      "name": "Sequences.Partition.partition_left_mem",
+      "start_line": 1860,
+      "end_line": 1869,
+      "byte_start": 139017,
+      "byte_end_exclusive": 139648,
+      "bytes": 631,
+      "sha256": "2872b4dab2ed26d0fa2d766903d0aad91a3933c4b1b78f7c977288c0cb71864e"
+    },
+    {
+      "ordinal": 187,
+      "name": "Sequences.Partition.partition_equal_mem",
+      "start_line": 1870,
+      "end_line": 1878,
+      "byte_start": 139648,
+      "byte_end_exclusive": 140226,
+      "bytes": 578,
+      "sha256": "cf2c63704b9c1884c0bfedd34544f4c3dd84a8b6210e57df4931439e3707abd2"
+    },
+    {
+      "ordinal": 188,
+      "name": "Sequences.Partition.partition_right_mem",
+      "start_line": 1879,
+      "end_line": 1889,
+      "byte_start": 140226,
+      "byte_end_exclusive": 140923,
+      "bytes": 697,
+      "sha256": "3621bab63299321ad5c88f2c517e394aa68ad94efaa96c7bb2cb9e69b2a9112e"
+    },
+    {
+      "ordinal": 189,
+      "name": "Sequences.Partition.partition_lengths",
+      "start_line": 1890,
+      "end_line": 1906,
+      "byte_start": 140923,
+      "byte_end_exclusive": 141958,
+      "bytes": 1035,
+      "sha256": "6c9bdf6e697663a0491376ebb3dbecd8e163fb2552032ddb69cff3e2d478e11f"
+    },
+    {
+      "ordinal": 190,
+      "name": "Sequences.Partition.partition_strict_sizes",
+      "start_line": 1907,
+      "end_line": 1921,
+      "byte_start": 141958,
+      "byte_end_exclusive": 142787,
+      "bytes": 829,
+      "sha256": "603b9452ca4885afaf950682061c450d83d5403f0621e8db3ab0ea8d745b35d8"
+    },
+    {
+      "ordinal": 191,
+      "name": "Sequences.Partition.partition3_nil",
+      "start_line": 1922,
+      "end_line": 1926,
+      "byte_start": 142787,
+      "byte_end_exclusive": 143281,
+      "bytes": 494,
+      "sha256": "007853ec193c4757e27ae35a539513a4c57b46f860ca3aa566e4eb009ad2f283"
+    },
+    {
+      "ordinal": 192,
+      "name": "Sequences.Partition.partition3_cons",
+      "start_line": 1927,
+      "end_line": 1960,
+      "byte_start": 143281,
+      "byte_end_exclusive": 146048,
+      "bytes": 2767,
+      "sha256": "e18c3c89fa31dfcdd6ec944dee97734a4c6c480a076aadb739e0c2092780a3b2"
+    },
+    {
+      "ordinal": 193,
+      "name": "ThreeWayPartitionExamples.replicate_partition",
+      "start_line": 1961,
+      "end_line": 1965,
+      "byte_start": 146048,
+      "byte_end_exclusive": 146583,
+      "bytes": 535,
+      "sha256": "29b000220fdd202d4426d436444d59fa71ccd355b7b50534cec78eded66dfad6"
+    },
+    {
+      "ordinal": 194,
+      "name": "ThreeWayPartitionExamples.selection_partition",
+      "start_line": 1966,
+      "end_line": 1969,
+      "byte_start": 146583,
+      "byte_end_exclusive": 146934,
+      "bytes": 351,
+      "sha256": "fb6da3b2c3b62fde63ce68d186ef1e8566d392ec0b2a3b2165bc7bed46bd4bc8"
+    },
+    {
+      "ordinal": 195,
+      "name": "ThreeWayPartitionExamples.mixed",
+      "start_line": 1970,
+      "end_line": 1970,
+      "byte_start": 146934,
+      "byte_end_exclusive": 146981,
+      "bytes": 47,
+      "sha256": "a680154ce1225e51f26e6891911971c28223760133f9def180f3fad1a9822225"
+    },
+    {
+      "ordinal": 196,
+      "name": "ThreeWayPartitionExamples.mixed_partition",
+      "start_line": 1971,
+      "end_line": 1984,
+      "byte_start": 146981,
+      "byte_end_exclusive": 148181,
+      "bytes": 1200,
+      "sha256": "b25caf7f17fce1cc2f9bacb9797f0c6714ce03b48a316e866fa619e254b11853"
+    },
+    {
+      "ordinal": 197,
+      "name": "ThreeWayPartitionExamples.outside_partition",
+      "start_line": 1985,
+      "end_line": 1996,
+      "byte_start": 148181,
+      "byte_end_exclusive": 149185,
+      "bytes": 1004,
+      "sha256": "94fdf01a16199dad0c4b375aa151f64653ebc5805cf1df553a5dda8cd55f4a37"
+    },
+    {
+      "ordinal": 198,
+      "name": "ThreeWayPartitionExamples.interior_partition",
+      "start_line": 1997,
+      "end_line": 2010,
+      "byte_start": 149185,
+      "byte_end_exclusive": 150372,
+      "bytes": 1187,
+      "sha256": "3b11f7d9ab0e892d09a47e16210788be2e0515dfcbbd4ddbf1b3a1e0103ed1c0"
+    },
+    {
+      "ordinal": 199,
+      "name": "ThreeWayPartitionExamples.lower_partition",
+      "start_line": 2011,
+      "end_line": 2023,
+      "byte_start": 150372,
+      "byte_end_exclusive": 151380,
+      "bytes": 1008,
+      "sha256": "acb43f6bb738373d77689f9bb44097fe1679ed8483bc136a4593728ba9e67320"
+    },
+    {
+      "ordinal": 200,
+      "name": "ThreeWayPartitionExamples.empty_run",
+      "start_line": 2024,
+      "end_line": 2031,
+      "byte_start": 151380,
+      "byte_end_exclusive": 152099,
+      "bytes": 719,
+      "sha256": "b945bf45dc93c3cf7a589a626716c32867528f865948bfc544cb233720f4af51"
+    },
+    {
+      "ordinal": 201,
+      "name": "ThreeWayPartitionExamples.replicate_run",
+      "start_line": 2032,
+      "end_line": 2040,
+      "byte_start": 152099,
+      "byte_end_exclusive": 152928,
+      "bytes": 829,
+      "sha256": "5d2dfb259a471cc239c70caec695a3c7ac25227885629844ea6199b194640fc9"
+    },
+    {
+      "ordinal": 202,
+      "name": "ThreeWayPartitionExamples.singleton_run",
+      "start_line": 2041,
+      "end_line": 2049,
+      "byte_start": 152928,
+      "byte_end_exclusive": 153709,
+      "bytes": 781,
+      "sha256": "7f9dd0dc1b0cece1b29967b467d0b54ca30fd34a1ec605957914d277b1854386"
+    },
+    {
+      "ordinal": 203,
+      "name": "ThreeWayPartitionExamples.replicate_strict",
+      "start_line": 2050,
+      "end_line": 2065,
+      "byte_start": 153709,
+      "byte_end_exclusive": 154789,
+      "bytes": 1080,
+      "sha256": "7db4d7b38e86a57bf66278aa7ef424ae4b529bd2cdf68ea7c050258ae3040bf0"
+    },
+    {
+      "ordinal": 204,
+      "name": "ThreeWayPartitionExamples.measured_selection_value",
+      "start_line": 2066,
+      "end_line": 2071,
+      "byte_start": 154789,
+      "byte_end_exclusive": 155266,
+      "bytes": 477,
+      "sha256": "663ef36be3d50a6980ff43df17880ea7d6e6fcefd84b41f0dc4f56360816e761"
+    },
+    {
+      "ordinal": 205,
+      "name": "ThreeWayPartitionExamples.mixed_run",
+      "start_line": 2072,
+      "end_line": 2087,
+      "byte_start": 155266,
+      "byte_end_exclusive": 156677,
+      "bytes": 1411,
+      "sha256": "0100f4ad64aa5662454380eefd223397ac2ee38615d4a50917a8f9711ee834ec"
+    },
+    {
+      "ordinal": 206,
+      "name": "ThreeWayPartitionExamples.mixed_value",
+      "start_line": 2088,
+      "end_line": 2101,
+      "byte_start": 156677,
+      "byte_end_exclusive": 157975,
+      "bytes": 1298,
+      "sha256": "59651d708cbcc739627367233fa756241079d73a3159782205b6ee4897e2683b"
+    },
+    {
+      "ordinal": 207,
+      "name": "ThreeWayPartitionExamples.mixed_cost",
+      "start_line": 2102,
+      "end_line": 2106,
+      "byte_start": 157975,
+      "byte_end_exclusive": 158356,
+      "bytes": 381,
+      "sha256": "6c4f3660c4bc70fcf546f35af1b021eaa3d15aca6f55dbd617e919a55d951204"
+    },
+    {
+      "ordinal": 208,
+      "name": "ThreeWayPartitionExamples.mixed_perm",
+      "start_line": 2107,
+      "end_line": 2121,
+      "byte_start": 158356,
+      "byte_end_exclusive": 159393,
+      "bytes": 1037,
+      "sha256": "afd29b3cac95eb43bd1303b297139cbebba6fcf2ae370b625373ab6baf047cd9"
+    },
+    {
+      "ordinal": 209,
+      "name": "ThreeWayPartitionExamples.mixed_lengths",
+      "start_line": 2122,
+      "end_line": 2151,
+      "byte_start": 159393,
+      "byte_end_exclusive": 161188,
+      "bytes": 1795,
+      "sha256": "f776042c658fe619f9eb10ea615fb4e2f632e905a9c956c92f73b6cde5523f38"
+    },
+    {
+      "ordinal": 210,
+      "name": "ThreeWayPartitionExamples.mixed_strict",
+      "start_line": 2152,
+      "end_line": 2167,
+      "byte_start": 161188,
+      "byte_end_exclusive": 162276,
+      "bytes": 1088,
+      "sha256": "72253e2e202222fb4eb2e899eeadf6368c88031c52b3e1c91d1596b85f0b4539"
+    },
+    {
+      "ordinal": 211,
+      "name": "ThreeWayPartitionExamples.outside_run",
+      "start_line": 2168,
+      "end_line": 2181,
+      "byte_start": 162276,
+      "byte_end_exclusive": 163481,
+      "bytes": 1205,
+      "sha256": "ca168c02d80289e3f392a836077d887398012e51bf717d161fef77c8c83126af"
+    },
+    {
+      "ordinal": 212,
+      "name": "ThreeWayPartitionExamples.outside_boundary",
+      "start_line": 2182,
+      "end_line": 2210,
+      "byte_start": 163481,
+      "byte_end_exclusive": 165528,
+      "bytes": 2047,
+      "sha256": "3d9ebfe3cd548bb345d5b2346e74051e577a1db730ae6add69d59629a05b273a"
+    },
+    {
+      "ordinal": 213,
+      "name": "ThreeWayPartitionExamples.interior_run",
+      "start_line": 2211,
+      "end_line": 2226,
+      "byte_start": 165528,
+      "byte_end_exclusive": 166918,
+      "bytes": 1390,
+      "sha256": "a27bd70359cd5a7246f7dcd3f414514c8efde9656ee193bb276207b3ee85868b"
+    },
+    {
+      "ordinal": 214,
+      "name": "ThreeWayPartitionExamples.interior_boundary",
+      "start_line": 2227,
+      "end_line": 2271,
+      "byte_start": 166918,
+      "byte_end_exclusive": 170281,
+      "bytes": 3363,
+      "sha256": "ef99ad218b9b1d6cbd58beb79d7294100d219ad1db7aa2151d18808e8040c87d"
+    },
+    {
+      "ordinal": 215,
+      "name": "ThreeWayPartitionExamples.bind_returned_lower",
+      "start_line": 2272,
+      "end_line": 2289,
+      "byte_start": 170281,
+      "byte_end_exclusive": 171681,
+      "bytes": 1400,
+      "sha256": "8c23f0e5ea2b18b7e070b357317aac9a3173fad183397057e06ce0adb2c9c74b"
+    },
+    {
+      "ordinal": 216,
+      "name": "Applications.Probability.PermutationMinimum.minimumEvent",
+      "start_line": 2290,
+      "end_line": 2292,
+      "byte_start": 171681,
+      "byte_end_exclusive": 171887,
+      "bytes": 206,
+      "sha256": "75cd09cce67e74e08a8e5ceff8fc3b39fefd793f4d341880f252312336a304be"
+    },
+    {
+      "ordinal": 217,
+      "name": "Applications.Probability.PermutationMinimum.mem_minimumEvent",
+      "start_line": 2293,
+      "end_line": 2316,
+      "byte_start": 171887,
+      "byte_end_exclusive": 173342,
+      "bytes": 1455,
+      "sha256": "6ac65691a4bc32916e3fb46ae2da530214b0513c22b12d2410c76b976a3d4930"
+    },
+    {
+      "ordinal": 218,
+      "name": "Applications.Probability.PermutationMinimum.minimumEvent_empty",
+      "start_line": 2317,
+      "end_line": 2323,
+      "byte_start": 173342,
+      "byte_end_exclusive": 173903,
+      "bytes": 561,
+      "sha256": "0fc3532b2d1bc37a5e0e55786f369d2653b79f489421c23eee927aaa7aa61925"
+    },
+    {
+      "ordinal": 219,
+      "name": "Applications.Probability.PermutationMinimum.minimumEvent_of_not_mem",
+      "start_line": 2324,
+      "end_line": 2330,
+      "byte_start": 173903,
+      "byte_end_exclusive": 174405,
+      "bytes": 502,
+      "sha256": "6a85e922a58204c5b2e604f75c1d54f05da34c132f8c61433e44efc891d7e059"
+    },
+    {
+      "ordinal": 220,
+      "name": "Applications.Probability.PermutationMinimum.minimumEvent_singleton",
+      "start_line": 2331,
+      "end_line": 2336,
+      "byte_start": 174405,
+      "byte_end_exclusive": 174893,
+      "bytes": 488,
+      "sha256": "321e24f127dff34c1725830626c06abf789aeb078e4f6906c08787e21c463bf6"
+    },
+    {
+      "ordinal": 221,
+      "name": "Applications.Probability.PermutationMinimum.minimumEvent_inter",
+      "start_line": 2337,
+      "end_line": 2349,
+      "byte_start": 174893,
+      "byte_end_exclusive": 175981,
+      "bytes": 1088,
+      "sha256": "a834c55c325758225b475c67b21c04c9b1805ad55889ae03a7311f2e29eda333"
+    },
+    {
+      "ordinal": 222,
+      "name": "Applications.Probability.PermutationMinimum.uniformOn_minimumEvent",
+      "start_line": 2350,
+      "end_line": 2375,
+      "byte_start": 175981,
+      "byte_end_exclusive": 177689,
+      "bytes": 1708,
+      "sha256": "7a34707ea7022a03eb71d2d3659520d040e1ad04f1ec00976a23f39e89eed124"
+    },
+    {
+      "ordinal": 223,
+      "name": "Examples.PermutationMinimum.law",
+      "start_line": 2376,
+      "end_line": 2378,
+      "byte_start": 177689,
+      "byte_end_exclusive": 177911,
+      "bytes": 222,
+      "sha256": "9562fc6c5e879c8f28c3a024534c74ff0bca1ef12d3dedd3116579ece582ad9f"
+    },
+    {
+      "ordinal": 224,
+      "name": "Examples.PermutationMinimum.firstSubset",
+      "start_line": 2379,
+      "end_line": 2379,
+      "byte_start": 177911,
+      "byte_end_exclusive": 178032,
+      "bytes": 121,
+      "sha256": "e7fc0fb431197dffaeafeac5cd3fbd7e8564d89df2f9aa4932b9e0d7ca8fddef"
+    },
+    {
+      "ordinal": 225,
+      "name": "Examples.PermutationMinimum.secondSubset",
+      "start_line": 2380,
+      "end_line": 2381,
+      "byte_start": 178032,
+      "byte_end_exclusive": 178156,
+      "bytes": 124,
+      "sha256": "afaaf6a56c6ec62ca111cc31420c224af3252a87c3903152ddc611a21229b9ef"
+    },
+    {
+      "ordinal": 226,
+      "name": "Examples.PermutationMinimum.first_minimum_mass",
+      "start_line": 2382,
+      "end_line": 2406,
+      "byte_start": 178156,
+      "byte_end_exclusive": 179930,
+      "bytes": 1774,
+      "sha256": "76a5a529d1f48d6218cb3be06e47ee79fc9166bafa84289cb8910a8d8c85b407"
+    },
+    {
+      "ordinal": 227,
+      "name": "Examples.PermutationMinimum.second_minimum_mass",
+      "start_line": 2407,
+      "end_line": 2431,
+      "byte_start": 179930,
+      "byte_end_exclusive": 181706,
+      "bytes": 1776,
+      "sha256": "ffe68e74b31b01637ca7a3b582bdd8de9dfff973000349f71fea1d89e71d218a"
+    },
+    {
+      "ordinal": 228,
+      "name": "Examples.PermutationMinimum.overlap_event",
+      "start_line": 2432,
+      "end_line": 2460,
+      "byte_start": 181706,
+      "byte_end_exclusive": 184109,
+      "bytes": 2403,
+      "sha256": "88af9207fd4ee3b16469d26ecea8362de65ce6197a60f9eb0acd8ba75a91e974"
+    },
+    {
+      "ordinal": 229,
+      "name": "Examples.PermutationMinimum.full_minimum_mass",
+      "start_line": 2461,
+      "end_line": 2487,
+      "byte_start": 184109,
+      "byte_end_exclusive": 185942,
+      "bytes": 1833,
+      "sha256": "6be58ed49663598160d510f1df2733e740dd64c284b3d53597e6f5f5551c8be2"
+    },
+    {
+      "ordinal": 230,
+      "name": "Examples.PermutationMinimum.overlap_mass",
+      "start_line": 2488,
+      "end_line": 2522,
+      "byte_start": 185942,
+      "byte_end_exclusive": 188611,
+      "bytes": 2669,
+      "sha256": "80ce2d8733cd165f162322d8fea724e27e3f1ac417c885b9239cd44eb602fbdf"
+    },
+    {
+      "ordinal": 231,
+      "name": "Examples.PermutationMinimum.marginal_product",
+      "start_line": 2523,
+      "end_line": 2567,
+      "byte_start": 188611,
+      "byte_end_exclusive": 191899,
+      "bytes": 3288,
+      "sha256": "ae8aee98c2c2a1f3aa0f6d4eceeda9683d76bc257b8979dc4c1208b33102ee2f"
+    },
+    {
+      "ordinal": 232,
+      "name": "Examples.PermutationMinimum.overlap_mass_ne_product",
+      "start_line": 2568,
+      "end_line": 2630,
+      "byte_start": 191899,
+      "byte_end_exclusive": 196846,
+      "bytes": 4947,
+      "sha256": "17fc97b6ccfdd03dc8d0cb8719dab986fabc50be7eba2a35f0ad9924bfca1ef7"
+    },
+    {
+      "ordinal": 233,
+      "name": "Examples.PermutationMinimum.singleton_minimum_mass",
+      "start_line": 2631,
+      "end_line": 2651,
+      "byte_start": 196846,
+      "byte_end_exclusive": 198400,
+      "bytes": 1554,
+      "sha256": "77907d9554aa36ca58a0281ce8137d252ce582accc34df8c9b8f648713c0e51a"
+    },
+    {
+      "ordinal": 234,
+      "name": "Examples.PermutationMinimum.spacedPriority",
+      "start_line": 2652,
+      "end_line": 2652,
+      "byte_start": 198400,
+      "byte_end_exclusive": 198519,
+      "bytes": 119,
+      "sha256": "298f50b581d08c4642ecfadb3135465e79e46e56990633b0a1d49b22767cfe21"
+    },
+    {
+      "ordinal": 235,
+      "name": "Examples.PermutationMinimum.spacedPriority_values",
+      "start_line": 2653,
+      "end_line": 2669,
+      "byte_start": 198519,
+      "byte_end_exclusive": 199652,
+      "bytes": 1133,
+      "sha256": "ed6b2131744260fac62c6c26b644b4433002f7561e3cd4a1b50f47131ea4d2bd"
+    },
+    {
+      "ordinal": 236,
+      "name": "Examples.PermutationMinimum.spacedPriority_injective",
+      "start_line": 2670,
+      "end_line": 2671,
+      "byte_start": 199652,
+      "byte_end_exclusive": 199851,
+      "bytes": 199,
+      "sha256": "23554fda1aca85bbf5278010a1809bf389c9f95d0fd09f4e51133bc2b5982eef"
+    },
+    {
+      "ordinal": 237,
+      "name": "Examples.PermutationMinimum.spacedPriority_not_monotone",
+      "start_line": 2672,
+      "end_line": 2676,
+      "byte_start": 199851,
+      "byte_end_exclusive": 200265,
+      "bytes": 414,
+      "sha256": "ba66aa491a9ae1b0f2e78d7569639eb2a341e5d130954205db85526ee306e55c"
+    },
+    {
+      "ordinal": 238,
+      "name": "Examples.PermutationMinimum.spaced_minimum_mass",
+      "start_line": 2677,
+      "end_line": 2698,
+      "byte_start": 200265,
+      "byte_end_exclusive": 201863,
+      "bytes": 1598,
+      "sha256": "4832f4a22e548794e77eb844028d682057aa5cc552c2eff2ad5de147be70a419"
+    },
+    {
+      "ordinal": 239,
+      "name": "Examples.PermutationMinimumBoundary.empty_index_normalized",
+      "start_line": 2699,
+      "end_line": 2709,
+      "byte_start": 201863,
+      "byte_end_exclusive": 202617,
+      "bytes": 754,
+      "sha256": "7fb06c17086d72b934de3036ade9846f049bcaa23c1ee43ce63cc05d0681a6e4"
+    },
+    {
+      "ordinal": 240,
+      "name": "Examples.PermutationMinimumBoundary.empty_subset_event",
+      "start_line": 2710,
+      "end_line": 2724,
+      "byte_start": 202617,
+      "byte_end_exclusive": 203855,
+      "bytes": 1238,
+      "sha256": "44633aa30ff5cd277ce363f0d643c5d74a8683265bd08e9de4555efee74d7cc1"
+    },
+    {
+      "ordinal": 241,
+      "name": "Examples.PermutationMinimumBoundary.empty_subset_mass",
+      "start_line": 2725,
+      "end_line": 2747,
+      "byte_start": 203855,
+      "byte_end_exclusive": 205745,
+      "bytes": 1890,
+      "sha256": "d491980ec38e50b97b5819d2e00eaf30129bfa5da76b16f0d1d19c124f6577d0"
+    },
+    {
+      "ordinal": 242,
+      "name": "Examples.PermutationMinimumBoundary.outsider_event_empty",
+      "start_line": 2748,
+      "end_line": 2764,
+      "byte_start": 205745,
+      "byte_end_exclusive": 207246,
+      "bytes": 1501,
+      "sha256": "460661d7a3711c121dda2630fb11e0559008c93c2a8d29e49895dbfce8d5abee"
+    },
+    {
+      "ordinal": 243,
+      "name": "Examples.PermutationMinimumBoundary.outsider_mass",
+      "start_line": 2765,
+      "end_line": 2789,
+      "byte_start": 207246,
+      "byte_end_exclusive": 209397,
+      "bytes": 2151,
+      "sha256": "0c663519e794add61ea2078995da6c6b94fcfd71469ee9a823e315eb4a08cef0"
+    },
+    {
+      "ordinal": 244,
+      "name": "Examples.PermutationMinimumBoundary.outsiderComparison",
+      "start_line": 2790,
+      "end_line": 2791,
+      "byte_start": 209397,
+      "byte_end_exclusive": 209549,
+      "bytes": 152,
+      "sha256": "f0a9f88c70c81ff47eff11df1615c3a9fb2024b5e39dda1f0b0ad7388e394e12"
+    },
+    {
+      "ordinal": 245,
+      "name": "Examples.PermutationMinimumBoundary.outsiderComparison_eq_full_minimum",
+      "start_line": 2792,
+      "end_line": 2803,
+      "byte_start": 209549,
+      "byte_end_exclusive": 210535,
+      "bytes": 986,
+      "sha256": "d9e6e2be37642eec2d59c02bb42fe2d1a0603479abdebb80ab521ded4a0860f1"
+    },
+    {
+      "ordinal": 246,
+      "name": "Examples.PermutationMinimumBoundary.outsiderComparison_mass",
+      "start_line": 2804,
+      "end_line": 2822,
+      "byte_start": 210535,
+      "byte_end_exclusive": 211864,
+      "bytes": 1329,
+      "sha256": "ed49fda5ff4a328fa9d53a4be2abc14ff3fe6bb740c7c824330ef38c1aa4be06"
+    },
+    {
+      "ordinal": 247,
+      "name": "Examples.PermutationMinimumBoundary.outsiderComparison_ne_singleton_inverse",
+      "start_line": 2823,
+      "end_line": 2845,
+      "byte_start": 211864,
+      "byte_end_exclusive": 213737,
+      "bytes": 1873,
+      "sha256": "7668656fbb83669deffe114e6c4175304bac853f3207acb6b2c6b58777c520c5"
+    },
+    {
+      "ordinal": 248,
+      "name": "Examples.PermutationMinimumBoundary.tiedPriority",
+      "start_line": 2846,
+      "end_line": 2847,
+      "byte_start": 213737,
+      "byte_end_exclusive": 213864,
+      "bytes": 127,
+      "sha256": "83b50afd820bc7b5b2385b5fa112c7a9c1b0499b3ed96f5fa5acfc72c6a193bc"
+    },
+    {
+      "ordinal": 249,
+      "name": "Examples.PermutationMinimumBoundary.tiedPriority_not_injective",
+      "start_line": 2848,
+      "end_line": 2850,
+      "byte_start": 213864,
+      "byte_end_exclusive": 214089,
+      "bytes": 225,
+      "sha256": "10ea2c180bf0981234d6632c09169101ed759aa78b3688ed99b2fe8c1bdcc507"
+    },
+    {
+      "ordinal": 250,
+      "name": "Examples.PermutationMinimumBoundary.tied_event_univ",
+      "start_line": 2851,
+      "end_line": 2860,
+      "byte_start": 214089,
+      "byte_end_exclusive": 214831,
+      "bytes": 742,
+      "sha256": "76d9c3551409e66fae9807eafc80ec9727bbe1c21dcb0b2c6fe4a7171a2447ba"
+    },
+    {
+      "ordinal": 251,
+      "name": "Examples.PermutationMinimumBoundary.tied_mass",
+      "start_line": 2861,
+      "end_line": 2881,
+      "byte_start": 214831,
+      "byte_end_exclusive": 216391,
+      "bytes": 1560,
+      "sha256": "ffaa7b0549787580fd24cbf578cde2091a5dabf11e5b7a2f11172d26224f0777"
+    },
+    {
+      "ordinal": 252,
+      "name": "Examples.PermutationMinimumBoundary.tied_mass_ne_half",
+      "start_line": 2882,
+      "end_line": 2907,
+      "byte_start": 216391,
+      "byte_end_exclusive": 218181,
+      "bytes": 1790,
+      "sha256": "961ee94fda7155004a179833053d3bcf0621d970fbc4be507aa61145646e85c2"
+    },
+    {
+      "ordinal": 253,
+      "name": "Applications.Sorting.mergeBy",
+      "start_line": 2908,
+      "end_line": 2911,
+      "byte_start": 218181,
+      "byte_end_exclusive": 218398,
+      "bytes": 217,
+      "sha256": "7075e09d4654e9b763fdedbbaf878325b62195d591662fb99b16667af4e94681"
+    },
+    {
+      "ordinal": 254,
+      "name": "Applications.Sorting.mergeBy_perm",
+      "start_line": 2912,
+      "end_line": 2917,
+      "byte_start": 218398,
+      "byte_end_exclusive": 218855,
+      "bytes": 457,
+      "sha256": "c4aaac9d0e22f67e5d2364882be8696b9eda8b082ce684107d7e4cfcb5a5ba1d"
+    },
+    {
+      "ordinal": 255,
+      "name": "Applications.Sorting.merge_sorted_compatible_on",
+      "start_line": 2918,
+      "end_line": 2929,
+      "byte_start": 218855,
+      "byte_end_exclusive": 219738,
+      "bytes": 883,
+      "sha256": "b0ff1ac5138dac7bf9fc1842492c466c105179dae245e51d3a2d893a4f092eaa"
+    },
+    {
+      "ordinal": 256,
+      "name": "Applications.Sorting.merge_sorted_compatible",
+      "start_line": 2930,
+      "end_line": 2939,
+      "byte_start": 219738,
+      "byte_end_exclusive": 220411,
+      "bytes": 673,
+      "sha256": "d23bca641c01473c16935792c75673004056eb2bc42cb47c35b31f622dd1d90d"
+    },
+    {
+      "ordinal": 257,
+      "name": "Applications.Sorting.mergeBy_sorted",
+      "start_line": 2940,
+      "end_line": 2946,
+      "byte_start": 220411,
+      "byte_end_exclusive": 220922,
+      "bytes": 511,
+      "sha256": "23e6647bbe0703a25865c53c1f86f18c818d8d57f3859077d02b6d5d5389f95c"
+    },
+    {
+      "ordinal": 258,
+      "name": "Applications.Sorting.mergeBy_filter",
+      "start_line": 2947,
+      "end_line": 2959,
+      "byte_start": 220922,
+      "byte_end_exclusive": 221982,
+      "bytes": 1060,
+      "sha256": "a76fa95d58e245e4121cd71aa429f2532c86d5a98b98daa238851a10ab265119"
+    },
+    {
+      "ordinal": 259,
+      "name": "Applications.Sorting.mergeBy_stable",
+      "start_line": 2960,
+      "end_line": 2968,
+      "byte_start": 221982,
+      "byte_end_exclusive": 222702,
+      "bytes": 720,
+      "sha256": "fc5c3ad9d24bb242a67f57ca989d6e4015de92e2d9e39a68e21aeeff7616e40d"
+    },
+    {
+      "ordinal": 260,
+      "name": "Applications.Sorting.mergeBy_spec",
+      "start_line": 2969,
+      "end_line": 2977,
+      "byte_start": 222702,
+      "byte_end_exclusive": 223435,
+      "bytes": 733,
+      "sha256": "27f25d47b952f72509b10152b8362c8d24cf0954a9e7f712579cdd63b314fd8d"
+    },
+    {
+      "ordinal": 261,
+      "name": "Applications.Selection.sorted_partition",
+      "start_line": 2978,
+      "end_line": 2994,
+      "byte_start": 223435,
+      "byte_end_exclusive": 224723,
+      "bytes": 1288,
+      "sha256": "9b4d05f788573442303cd67b3e6a4095c6cdc47b315872976e2c74da5968c011"
+    },
+    {
+      "ordinal": 262,
+      "name": "Applications.Selection.dispatch",
+      "start_line": 2995,
+      "end_line": 2996,
+      "byte_start": 224723,
+      "byte_end_exclusive": 224910,
+      "bytes": 187,
+      "sha256": "b739ad4ceb68cf535e89a980690d8503f0e80c31b783825d7b161c7d125c5b33"
+    },
+    {
+      "ordinal": 263,
+      "name": "Applications.Selection.dispatch_value",
+      "start_line": 2997,
+      "end_line": 3026,
+      "byte_start": 224910,
+      "byte_end_exclusive": 226960,
+      "bytes": 2050,
+      "sha256": "541cffede31fb6dc1832e05de83ad6f3f6a26757473e82fd239ea1d156b8b067"
+    },
+    {
+      "ordinal": 264,
+      "name": "Applications.Selection.PivotValid",
+      "start_line": 3027,
+      "end_line": 3027,
+      "byte_start": 226960,
+      "byte_end_exclusive": 227068,
+      "bytes": 108,
+      "sha256": "7cc7eecbb90c672e9ec00b127473ed9715dbb91242c10ca614497fb02afecb85"
+    },
+    {
+      "ordinal": 265,
+      "name": "Applications.Selection.runWith",
+      "start_line": 3028,
+      "end_line": 3029,
+      "byte_start": 227068,
+      "byte_end_exclusive": 227247,
+      "bytes": 179,
+      "sha256": "26a7f48712716260e6fa8f8178b0bbbceca9aec3dce9448fb421a2987dc5116b"
+    },
+    {
+      "ordinal": 266,
+      "name": "Applications.Selection.runWith_value",
+      "start_line": 3030,
+      "end_line": 3039,
+      "byte_start": 227247,
+      "byte_end_exclusive": 227948,
+      "bytes": 701,
+      "sha256": "059eab51864ff2e5284bfd19f1cd22c1b3099e851ed4887eb38287923d4a87f9"
+    },
+    {
+      "ordinal": 267,
+      "name": "Applications.Selection.selectWith",
+      "start_line": 3040,
+      "end_line": 3041,
+      "byte_start": 227948,
+      "byte_end_exclusive": 228122,
+      "bytes": 174,
+      "sha256": "f9de0abbc6aa3892ca0501122f5e23d84583d3be18117717b880fe7213f4be4e"
+    },
+    {
+      "ordinal": 268,
+      "name": "Applications.Selection.selectWith_value",
+      "start_line": 3042,
+      "end_line": 3052,
+      "byte_start": 228122,
+      "byte_end_exclusive": 228976,
+      "bytes": 854,
+      "sha256": "bce3a8009f3c9964b657b510f15b6d5d346ca47728e68de5008e34218d6d4ebd"
+    },
+    {
+      "ordinal": 269,
+      "name": "Applications.Selection.selectWith_ranked",
+      "start_line": 3053,
+      "end_line": 3069,
+      "byte_start": 228976,
+      "byte_end_exclusive": 230018,
+      "bytes": 1042,
+      "sha256": "64707b64f67e558dd3f6cb3cc031ab98cf0e3751d6fcab6ef2676e3233eebaa4"
+    },
+    {
+      "ordinal": 270,
+      "name": "Applications.Selection.selectWith_none",
+      "start_line": 3070,
+      "end_line": 3078,
+      "byte_start": 230018,
+      "byte_end_exclusive": 230567,
+      "bytes": 549,
+      "sha256": "17e3d6ab70a6a929230eeb46bb7855eeafe3490e09131632994b6222c49782fa"
+    },
+    {
+      "ordinal": 271,
+      "name": "Applications.Selection.head_pivot_valid",
+      "start_line": 3079,
+      "end_line": 3080,
+      "byte_start": 230567,
+      "byte_end_exclusive": 230706,
+      "bytes": 139,
+      "sha256": "be9e8a8d4f44257f1d7cb311b62b955fdafca649676242f6a98bb85393f64682"
+    },
+    {
+      "ordinal": 272,
+      "name": "Applications.Selection.lastPivot",
+      "start_line": 3081,
+      "end_line": 3081,
+      "byte_start": 230706,
+      "byte_end_exclusive": 230802,
+      "bytes": 96,
+      "sha256": "dc2805e03fb434bcd1f46d755829785c30c18397e488dcf247e2afcac4152e4e"
+    },
+    {
+      "ordinal": 273,
+      "name": "Applications.Selection.last_pivot_valid",
+      "start_line": 3082,
+      "end_line": 3083,
+      "byte_start": 230802,
+      "byte_end_exclusive": 230963,
+      "bytes": 161,
+      "sha256": "0de4caec26b85cf4d70b2783d7dddea770e4c97524d777e093aab17c07cfeaf9"
+    },
+    {
+      "ordinal": 274,
+      "name": "Applications.Selection.selectWith_some_iff",
+      "start_line": 3084,
+      "end_line": 3101,
+      "byte_start": 230963,
+      "byte_end_exclusive": 232021,
+      "bytes": 1058,
+      "sha256": "50245fca05da2e3d8cf60a6c76ada6d59b023b753a21364d60d45f60f68b6cb2"
+    },
+    {
+      "ordinal": 275,
+      "name": "Applications.Selection.selectWith_policy",
+      "start_line": 3102,
+      "end_line": 3108,
+      "byte_start": 232021,
+      "byte_end_exclusive": 232513,
+      "bytes": 492,
+      "sha256": "dd7199582c95d4d8a4487af10f45ba5b04134af50ed4cb73c0db32e2bc17eee2"
+    },
+    {
+      "ordinal": 276,
+      "name": "Applications.Selection.sortSelect",
+      "start_line": 3109,
+      "end_line": 3109,
+      "byte_start": 232513,
+      "byte_end_exclusive": 232645,
+      "bytes": 132,
+      "sha256": "ef2f27ea5bb8b4fd52e7146ec2d0e7992168e64b3dbe8661a3385cf642d4d36f"
+    },
+    {
+      "ordinal": 277,
+      "name": "Applications.Selection.selectWith_eq_sortSelect",
+      "start_line": 3110,
+      "end_line": 3115,
+      "byte_start": 232645,
+      "byte_end_exclusive": 233062,
+      "bytes": 417,
+      "sha256": "33f4fd996bad229380d1fa7fb6bc1f8361c39a34c5d99040f2beea7032e2f43f"
+    },
+    {
+      "ordinal": 278,
+      "name": "Applications.Selection.sortSelect_some_iff",
+      "start_line": 3116,
+      "end_line": 3129,
+      "byte_start": 233062,
+      "byte_end_exclusive": 233936,
+      "bytes": 874,
+      "sha256": "f6db2a3ca8ea9c33b672444907b06a9a0bea4d290ad738b7bac30cd23463b60f"
+    },
+    {
+      "ordinal": 279,
+      "name": "Applications.Selection.sortSelect_none",
+      "start_line": 3130,
+      "end_line": 3134,
+      "byte_start": 233936,
+      "byte_end_exclusive": 234337,
+      "bytes": 401,
+      "sha256": "1b650de2d740c9f37844757365a460f7119a413cfeffd47f97dfc5b4002928f8"
+    },
+    {
+      "ordinal": 280,
+      "name": "Resources.InsertionSort.insertRun",
+      "start_line": 3135,
+      "end_line": 3137,
+      "byte_start": 234337,
+      "byte_end_exclusive": 234555,
+      "bytes": 218,
+      "sha256": "07a1da17f8c35567d5c079818354400d47566d9f6fec2572d7c55a603b76b6e9"
+    },
+    {
+      "ordinal": 281,
+      "name": "Resources.InsertionSort.insertRun_value",
+      "start_line": 3138,
+      "end_line": 3142,
+      "byte_start": 234555,
+      "byte_end_exclusive": 234914,
+      "bytes": 359,
+      "sha256": "6d45cb973031a03d5b0e1f889393bf08ed13c7f9170d9b703d312dcc340be411"
+    },
+    {
+      "ordinal": 282,
+      "name": "Resources.InsertionSort.insertRun_cost_bounds",
+      "start_line": 3143,
+      "end_line": 3151,
+      "byte_start": 234914,
+      "byte_end_exclusive": 235606,
+      "bytes": 692,
+      "sha256": "2717dc1c95275ce66b5dfff08193f0e957f1b1ecd91088cea9d4a6a2afc0f7f0"
+    },
+    {
+      "ordinal": 283,
+      "name": "Resources.InsertionSort.insertRun_cost_of_head",
+      "start_line": 3152,
+      "end_line": 3158,
+      "byte_start": 235606,
+      "byte_end_exclusive": 236025,
+      "bytes": 419,
+      "sha256": "13879429a2259f4bfa687fc9e6c58ff41039b1b229b2881a640c69e3e766ee49"
+    },
+    {
+      "ordinal": 284,
+      "name": "Resources.InsertionSort.insertRun_cost_of_all",
+      "start_line": 3159,
+      "end_line": 3163,
+      "byte_start": 236025,
+      "byte_end_exclusive": 236506,
+      "bytes": 481,
+      "sha256": "c310ac7040e057c9f594f673a1a850fcbd10b2f0527acd3cfda65917121954a3"
+    },
+    {
+      "ordinal": 285,
+      "name": "Resources.InsertionSort.insertRun_cost_of_all_not",
+      "start_line": 3164,
+      "end_line": 3169,
+      "byte_start": 236506,
+      "byte_end_exclusive": 237098,
+      "bytes": 592,
+      "sha256": "693c87308dd55b4547c0f0fa1a9f3fa91f7ee5d55bb776d777383437db3bc294"
+    },
+    {
+      "ordinal": 286,
+      "name": "Resources.InsertionSort.sortRun",
+      "start_line": 3170,
+      "end_line": 3172,
+      "byte_start": 237098,
+      "byte_end_exclusive": 237307,
+      "bytes": 209,
+      "sha256": "fbe976468e2229127a1c9811b9d42fd05b764d11f7faa44f5e2ca3a6901de6d7"
+    },
+    {
+      "ordinal": 287,
+      "name": "Resources.InsertionSort.sortRun_value",
+      "start_line": 3173,
+      "end_line": 3177,
+      "byte_start": 237307,
+      "byte_end_exclusive": 237649,
+      "bytes": 342,
+      "sha256": "ec272a83795eb3a737f507f91b72b352f2909ddb3eb3cde4a064d90a8ad31e3f"
+    },
+    {
+      "ordinal": 288,
+      "name": "Resources.InsertionSort.sortRun_length",
+      "start_line": 3178,
+      "end_line": 3182,
+      "byte_start": 237649,
+      "byte_end_exclusive": 237984,
+      "bytes": 335,
+      "sha256": "367111c0f26e5ef63d5171e354f559b3805ebccefc784cd3de6a129fa27f2415"
+    },
+    {
+      "ordinal": 289,
+      "name": "Resources.InsertionSort.sortRun_cons_cost",
+      "start_line": 3183,
+      "end_line": 3193,
+      "byte_start": 237984,
+      "byte_end_exclusive": 238834,
+      "bytes": 850,
+      "sha256": "131f4ca682a86f51288dab9e40c3106d2eccd776c985d938532f1d3f28115f29"
+    },
+    {
+      "ordinal": 290,
+      "name": "Resources.InsertionSort.sortRun_cost_lower",
+      "start_line": 3194,
+      "end_line": 3201,
+      "byte_start": 238834,
+      "byte_end_exclusive": 239438,
+      "bytes": 604,
+      "sha256": "7d2c7a66917b6263e970851ab9a17878ed78e53bf94fe15adfc8d737f8e836fe"
+    },
+    {
+      "ordinal": 291,
+      "name": "Resources.InsertionSort.sortRun_double_cost_le",
+      "start_line": 3202,
+      "end_line": 3212,
+      "byte_start": 239438,
+      "byte_end_exclusive": 240287,
+      "bytes": 849,
+      "sha256": "cb0ebba40779696afc392fc100b9ae72d96e4ced0a9568a915720bfcdca4e5ab"
+    },
+    {
+      "ordinal": 292,
+      "name": "Resources.InsertionSort.sortRun_cost_le",
+      "start_line": 3213,
+      "end_line": 3222,
+      "byte_start": 240287,
+      "byte_end_exclusive": 241134,
+      "bytes": 847,
+      "sha256": "8bcecf36b77a3f0d8e940a140eb5bcb4e6bfb04ccbac9d29081f52bca36a8395"
+    },
+    {
+      "ordinal": 293,
+      "name": "Resources.InsertionSort.sortRun_quadratic",
+      "start_line": 3223,
+      "end_line": 3230,
+      "byte_start": 241134,
+      "byte_end_exclusive": 241797,
+      "bytes": 663,
+      "sha256": "4f8f00cf35bd4cb64bcda4a1ae8610b8532917e65a5308ff346959591b3efe38"
+    },
+    {
+      "ordinal": 294,
+      "name": "Resources.InsertionSort.sortRun_cost_of_pairwise",
+      "start_line": 3231,
+      "end_line": 3238,
+      "byte_start": 241797,
+      "byte_end_exclusive": 242435,
+      "bytes": 638,
+      "sha256": "d18639935248598bf8873326d7a704a1d0d223b918f75a77d73e7f064f8b1ae9"
+    },
+    {
+      "ordinal": 295,
+      "name": "Resources.InsertionSort.sortRun_double_cost_of_opposite",
+      "start_line": 3239,
+      "end_line": 3250,
+      "byte_start": 242435,
+      "byte_end_exclusive": 243356,
+      "bytes": 921,
+      "sha256": "5b0c9101e537cdbb330e6fe8d32f69ba89842a31a2497396ee67fb6b0b2c183d"
+    },
+    {
+      "ordinal": 296,
+      "name": "Resources.InsertionSort.reverse_range_opposite",
+      "start_line": 3251,
+      "end_line": 3252,
+      "byte_start": 243356,
+      "byte_end_exclusive": 243532,
+      "bytes": 176,
+      "sha256": "7f84f90ecbccb64586811c76ab86561f1f910cfad788cbe218f762d407d5e8d5"
+    },
+    {
+      "ordinal": 297,
+      "name": "Resources.InsertionSort.sortRun_cost_reverse_range",
+      "start_line": 3253,
+      "end_line": 3264,
+      "byte_start": 243532,
+      "byte_end_exclusive": 244315,
+      "bytes": 783,
+      "sha256": "e9a82ca69e2ca3b3ad718322f18629015b97054077148bb26ec63d0d608ab834"
+    },
+    {
+      "ordinal": 298,
+      "name": "Resources.InsertionSort.sortRun_stable",
+      "start_line": 3265,
+      "end_line": 3271,
+      "byte_start": 244315,
+      "byte_end_exclusive": 244846,
+      "bytes": 531,
+      "sha256": "e269c1708de4d11384c9271f4904bc8eb66c3b5b9334a515cb23951292348632"
+    },
+    {
+      "ordinal": 299,
+      "name": "Examples.InsertionCosts.empty_cost",
+      "start_line": 3272,
+      "end_line": 3276,
+      "byte_start": 244846,
+      "byte_end_exclusive": 245128,
+      "bytes": 282,
+      "sha256": "f4d82dddd9f129679a388c17ebc5df513521c977a19381c493127a12dbd9413d"
+    },
+    {
+      "ordinal": 300,
+      "name": "Examples.InsertionCosts.singleton_cost",
+      "start_line": 3277,
+      "end_line": 3282,
+      "byte_start": 245128,
+      "byte_end_exclusive": 245510,
+      "bytes": 382,
+      "sha256": "ccc61c20dc6a39acef3896f410a78117b084d0a96ee5d349b0ff45075db0a8f9"
+    },
+    {
+      "ordinal": 301,
+      "name": "Examples.InsertionCosts.sorted_with_duplicates",
+      "start_line": 3283,
+      "end_line": 3289,
+      "byte_start": 245510,
+      "byte_end_exclusive": 246071,
+      "bytes": 561,
+      "sha256": "405a5f6ab72e923eafea7afdac576da21000c19444799f44fe143253bb871fa4"
+    },
+    {
+      "ordinal": 302,
+      "name": "Examples.InsertionCosts.descending_worst",
+      "start_line": 3290,
+      "end_line": 3296,
+      "byte_start": 246071,
+      "byte_end_exclusive": 246628,
+      "bytes": 557,
+      "sha256": "df483cd5ed2894a4d6cd3cfa130f75d432f4f45178a55af154e85b91ee7f789f"
+    },
+    {
+      "ordinal": 303,
+      "name": "Examples.InsertionCosts.best_is_global",
+      "start_line": 3297,
+      "end_line": 3304,
+      "byte_start": 246628,
+      "byte_end_exclusive": 247177,
+      "bytes": 549,
+      "sha256": "9abf2f074dd81439766ad7b0cabe9f5a6461db4f9f0d28baf3ee2cb64727e131"
+    },
+    {
+      "ordinal": 304,
+      "name": "Examples.InsertionCosts.worst_is_global",
+      "start_line": 3305,
+      "end_line": 3315,
+      "byte_start": 247177,
+      "byte_end_exclusive": 247976,
+      "bytes": 799,
+      "sha256": "a59435c0308899c8e94a4de79f12af8916d1390ccfa8f24a6f1ea4df85bb7c59"
+    },
+    {
+      "ordinal": 305,
+      "name": "Examples.InsertionCosts.source_quadratic",
+      "start_line": 3316,
+      "end_line": 3324,
+      "byte_start": 247976,
+      "byte_end_exclusive": 248591,
+      "bytes": 615,
+      "sha256": "fe6f9fe17579cb9b0789c423c8775bac8c89355ab23f9083fab63b5a7b808c88"
+    },
+    {
+      "ordinal": 306,
+      "name": "Examples.InsertionCosts.immediate_insertion",
+      "start_line": 3325,
+      "end_line": 3334,
+      "byte_start": 248591,
+      "byte_end_exclusive": 249449,
+      "bytes": 858,
+      "sha256": "7bc46e98c15569c980bdb166ffa0ac9f5946edcc312787633c59758925895148"
+    },
+    {
+      "ordinal": 307,
+      "name": "Examples.InsertionCosts.full_traversal",
+      "start_line": 3335,
+      "end_line": 3346,
+      "byte_start": 249449,
+      "byte_end_exclusive": 250486,
+      "bytes": 1037,
+      "sha256": "86371d78dbb02efac171d81e46a18e1e73793ffab1caee14c0e3c3f74afa08c3"
+    },
+    {
+      "ordinal": 308,
+      "name": "Examples.InsertionCosts.tied_head_ignores_tail",
+      "start_line": 3347,
+      "end_line": 3356,
+      "byte_start": 250486,
+      "byte_end_exclusive": 251347,
+      "bytes": 861,
+      "sha256": "b439eff05773e3bf5feb5540b6dd17054a5c95814608ac6cf0bf31aaeb25e7aa"
+    },
+    {
+      "ordinal": 309,
+      "name": "Examples.InsertionCosts.key_contract",
+      "start_line": 3357,
+      "end_line": 3363,
+      "byte_start": 251347,
+      "byte_end_exclusive": 251971,
+      "bytes": 624,
+      "sha256": "4541babb7bb1702712720bb3e0a4470f7745c3381e4bc121fb83b3c327afc2f4"
+    },
+    {
+      "ordinal": 310,
+      "name": "Examples.InsertionCosts.key_tie_observation",
+      "start_line": 3364,
+      "end_line": 3386,
+      "byte_start": 251971,
+      "byte_end_exclusive": 253617,
+      "bytes": 1646,
+      "sha256": "0176db11e758f91f4b7bd6e41874ae2e58911657573b032afa2a293770c05f4c"
+    },
+    {
+      "ordinal": 311,
+      "name": "Examples.InsertionCosts.sorted_result_has_rank",
+      "start_line": 3387,
+      "end_line": 3411,
+      "byte_start": 253617,
+      "byte_end_exclusive": 254930,
+      "bytes": 1313,
+      "sha256": "d2184f1d97789c17f0d749076a575e570783d0a71dd39a8357a985780fc80231"
+    },
+    {
+      "ordinal": 312,
+      "name": "Examples.InsertionCosts.repeated_value_rank",
+      "start_line": 3412,
+      "end_line": 3418,
+      "byte_start": 254930,
+      "byte_end_exclusive": 255527,
+      "bytes": 597,
+      "sha256": "93e897e56e4995473501f132450aebe8eea022b48741cc768d4a1c5779592f85"
+    },
+    {
+      "ordinal": 313,
+      "name": "Examples.InsertionCosts.small_sort_budget",
+      "start_line": 3419,
+      "end_line": 3424,
+      "byte_start": 255527,
+      "byte_end_exclusive": 256017,
+      "bytes": 490,
+      "sha256": "6d0c65cc4c1ced516b3ed49621b0c0e82d6e6eecb42062ba02b7ec77b135fcd1"
+    },
+    {
+      "ordinal": 314,
+      "name": "Examples.InsertionCosts.small_rank_with_sort_budget",
+      "start_line": 3425,
+      "end_line": 3438,
+      "byte_start": 256017,
+      "byte_end_exclusive": 256987,
+      "bytes": 970,
+      "sha256": "3b27679f253ea32a99856a47d005d324657fef50432888edbb6be2f8845add62"
+    }
+  ],
+  "ellipsis_lines": [
+    1333,
+    1348,
+    1368,
+    1532,
+    2398,
+    2406,
+    2423,
+    2431,
+    2443,
+    2451,
+    2460,
+    2487,
+    2506,
+    2514,
+    2522,
+    2543,
+    2559,
+    2567,
+    2586,
+    2594,
+    2614,
+    2630,
+    2657,
+    2663,
+    2668,
+    2690,
+    2698,
+    2721,
+    2746,
+    2759,
+    2761,
+    2786,
+    2788,
+    2803,
+    2822,
+    2845,
+    2907
+  ]
+}

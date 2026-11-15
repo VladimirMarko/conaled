@@ -1,0 +1,31 @@
+{
+  "recorded_utc": "2026-11-05T00:17:17.217266+00:00",
+  "reviewer": "/root/chapter03_standards",
+  "axis": "Standards",
+  "finding": "C03-STD-DOC-001",
+  "disposition": "Resolved in this independent axis at exact4c96dc0b",
+  "candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+  "tree": "5d5bc50e567c66d4875b5ed0ed52121de912a953",
+  "parent": "2ff47bdad9f822727fb2d1ea86092c4b26ad0cb6",
+  "full_original_scope": "Q2da5708478a1d943a9214b5b386ec2db16cd9eca through final candidate, all83 frozen obligations; unchanged",
+  "independent_read_receipt": "6abf74",
+  "verified_delta": "Exactly Applications/Resources/MinimumPivot.lean, replacing Only the largest-rank specialization with The largest-rank specialization in the opening comment. All remaining bytes, including every declaration and proof, are identical. All other repository files are unchanged.",
+  "source_identity": {
+    "before": {
+      "bytes": 10610,
+      "sha256": "c4e4ee7b0ef4413684fc13069d2f7f1200ac6387df2aa81565db0aa45bebaabe"
+    },
+    "after": {
+      "bytes": 10605,
+      "sha256": "b670f66c810111f625ebfc514c81dd7890298904f996b16dab6a2cb04341cdf3"
+    }
+  },
+  "assessment": "The corrected wording states the proved largest-rank quadratic specialization without falsely excluding other growing-rank quadratic families. The surrounding fixed-rank linear statement remains correctly scoped.",
+  "validation": "No additional focused compiler run is needed to resolve this comment-only wording issue; final complete candidate check/audit remains mandatory. No compiler run or formal statement change is credited here.",
+  "prior_finding": "C03-SPEC-USE-001 remains resolved from exact2ff, with its source and all evidence-bearing code preserved in4c96.",
+  "whole_chapter_outcome": "Blocked; source review, universal witness stage and final validation incomplete",
+  "open_concrete_findings_in_assessed_sections": [],
+  "source_read_note": "SelectionPolicy core was additionally read in full at4c96 (4bbf4c;5986bytes;SHAc906415dff6fc59694629f3d17977e55d2aa2ea2d989610f222bb781056a3112), awaiting actual statement assessment together with MinimumPivot.",
+  "cumulative_full_source_reads": 20,
+  "cumulative_completed_actual_type_blocks": 375
+}

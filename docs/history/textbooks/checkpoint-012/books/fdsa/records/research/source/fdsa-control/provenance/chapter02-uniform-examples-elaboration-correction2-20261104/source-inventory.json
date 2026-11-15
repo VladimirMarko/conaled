@@ -1,0 +1,405 @@
+{
+  "before_named_declarations": 57,
+  "after_named_declarations": 58,
+  "all_existing_theorem_headers_equal": true,
+  "theorem_count": 45,
+  "all_existing_definition_blocks_equal": true,
+  "definition_count": 7,
+  "all_existing_explicit_instance_blocks_equal": true,
+  "existing_explicit_instance_count": 4,
+  "imports_equal": true,
+  "import_count": 5,
+  "options_equal": true,
+  "option_count": 2,
+  "namespace_open_universe_variable_commands_equal": true,
+  "inductive_constructor_declaration_and_DecidableEq_preserved": true,
+  "changed_existing_proof_bodies": [
+    "observed_card_one",
+    "selected_keys",
+    "extreme_first_mass",
+    "conditional_of_constant",
+    "three_mean_from_closedForm",
+    "low_empty_child_mean",
+    "high_empty_child_mean",
+    "taggedEqual_payloads_distinct",
+    "taggedRange_keys"
+  ],
+  "new_explicit_named_instance": "Examples.UniformQuickSortMean.instFintypeLabel",
+  "new_instance_source_header": "instance instFintypeLabel : Fintype Label where",
+  "new_instance_actual_printed_type_pending": true,
+  "generated_declaration_delta": {
+    "removed_from_deriving_route": [
+      "Examples.UniformQuickSortMean.Label.enumList",
+      "Examples.UniformQuickSortMean.Label.enumList_getElem?_ctorIdx_eq",
+      "Examples.UniformQuickSortMean.Label.enumList_nodup"
+    ],
+    "reason": "Root explicitly approved omission after bounded project source-reference search returned no matches; these are Fintype deriving-only helpers, not removed mathematical cases or constructors",
+    "Fintype": "Explicit instFintypeLabel supplies the same intended capability over exactly four constructors; no additional hypotheses",
+    "limit": "Derived environment/type inventory and kernel-safe generated declarations require actual compiler/type/audit evidence; this source inventory cannot provide those counts"
+  },
+  "theorems": [
+    {
+      "name": "empty_labels_mean",
+      "before_line": 40,
+      "after_line": 40,
+      "header": "theorem empty_labels_mean :\n    meanBy ([] : List Empty) (fun a _ => nomatch a) ∅ = 1",
+      "header_sha256": "0d832758829106ca31e661c70b51eada1e3323252e71948dc3375170f0b976ca"
+    },
+    {
+      "name": "arbitrary_empty",
+      "before_line": 44,
+      "after_line": 44,
+      "header": "theorem arbitrary_empty (lt : α → α → Bool) : inputMeanBy lt [] = 1",
+      "header_sha256": "99af35d456942a876b35c9b0e4f7d08af5c0bd69d8850db6824480d18f52db31"
+    },
+    {
+      "name": "arbitrary_singleton",
+      "before_line": 46,
+      "after_line": 46,
+      "header": "theorem arbitrary_singleton (lt : α → α → Bool) (x : α) :\n    inputMeanBy lt [x] = 5",
+      "header_sha256": "9c86102916827c8798bc858bc87846b4cccc484333fa96e9363101a11f2765d2"
+    },
+    {
+      "name": "actual_pair_cost",
+      "before_line": 50,
+      "after_line": 50,
+      "header": "theorem actual_pair_cost (lt : α → α → Bool) (a b : α) :\n    Resources.QuickSort.exerciseCost lt [a, b] = 13",
+      "header_sha256": "850153fc6a01083d9a68baeb4053383e1ea637d619765fefb3e71ff8b3624975"
+    },
+    {
+      "name": "two_orders",
+      "before_line": 55,
+      "after_line": 55,
+      "header": "theorem two_orders :\n    Resources.QuickSort.exerciseCost (fun a b : Nat => decide (a < b)) [0, 1] = 13 ∧\n      Resources.QuickSort.exerciseCost (fun a b : Nat => decide (a < b)) [1, 0] = 13",
+      "header_sha256": "ef74d6ed6683bc0a83a46fe6e0d7e0cc55f0b65d9482df58b38754c6669c9643"
+    },
+    {
+      "name": "two_input_means",
+      "before_line": 60,
+      "after_line": 60,
+      "header": "theorem two_input_means :\n    inputMean (id : Nat → Nat) [0, 1] = 13 ∧ inputMean (id : Nat → Nat) [1, 0] = 13",
+      "header_sha256": "b918c72d417f615f1ee41582b4d5bc548ce69105b40333a62bcf0625eaf9aa9c"
+    },
+    {
+      "name": "observed_card_one",
+      "before_line": 65,
+      "after_line": 65,
+      "header": "private theorem observed_card_one {I : Type*} [DecidableEq I]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)\n    (lt : I → I → Bool) (S : Finset I) (hcard : S.card = 1) (π : Equiv.Perm I) :\n    observedCost positions lt S π = 5",
+      "header_sha256": "d750acfe3639e2fb2e87ae3d62c8542d3a834e724db8bd05e90e45e64285364f"
+    },
+    {
+      "name": "observed_card_two",
+      "before_line": 74,
+      "after_line": 74,
+      "header": "private theorem observed_card_two {I : Type*} [DecidableEq I]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)\n    (lt : I → I → Bool) (S : Finset I) (hcard : S.card = 2) (π : Equiv.Perm I) :\n    observedCost positions lt S π = 13",
+      "header_sha256": "82c11153bc01e9630fbc28d96ddcb63e795d3efba3180061b64ad2305aa9d740"
+    },
+    {
+      "name": "positions_nodup",
+      "before_line": 110,
+      "after_line": 116,
+      "header": "theorem positions_nodup : positions.Nodup",
+      "header_sha256": "6d6da3f5de7240a31049812e3eab8298717057c33f6249c4aa5b7ddcd3c9662a"
+    },
+    {
+      "name": "positions_complete",
+      "before_line": 112,
+      "after_line": 118,
+      "header": "theorem positions_complete (a : Label) : a ∈ positions",
+      "header_sha256": "a15ab08973a70bbd5d466fbcf7e082f641d03dfd982901f0d51b0fbd7f9d6cda"
+    },
+    {
+      "name": "selected_keys",
+      "before_line": 115,
+      "after_line": 121,
+      "header": "theorem selected_keys : Set.InjOn key (selected : Set Label)",
+      "header_sha256": "263471b8378cf4ca2683735870c1c35894b857bffe18c573a88cfb1dd332a5c2"
+    },
+    {
+      "name": "selected_card",
+      "before_line": 119,
+      "after_line": 125,
+      "header": "theorem selected_card : selected.card = 3",
+      "header_sha256": "8270e4bbf1ad711376df0c361f27e90daa9f5162b0461dcb11d06dffaa06da90"
+    },
+    {
+      "name": "outside_collision",
+      "before_line": 122,
+      "after_line": 128,
+      "header": "theorem outside_collision : outside ∉ selected ∧ key outside = key high ∧\n    ¬ Function.Injective key",
+      "header_sha256": "e5a8c18c9d5f2545c06aed74f1eeb4aebac08b02a9cbb190562bba9329b149d1"
+    },
+    {
+      "name": "low_children",
+      "before_line": 129,
+      "after_line": 135,
+      "header": "theorem low_children :\n    leftChild comparator selected low = ∅ ∧\n      rightChild comparator selected low = {middle, high}",
+      "header_sha256": "94526295c5464706c77beffb46723c5b22c7a65da12de03e860b8aa3ef1f6af1"
+    },
+    {
+      "name": "middle_children",
+      "before_line": 133,
+      "after_line": 139,
+      "header": "theorem middle_children :\n    leftChild comparator selected middle = {low} ∧\n      rightChild comparator selected middle = {high}",
+      "header_sha256": "4b5d89f2c4d8f3d4d3d6141160c50c6d9be2a8583bb4862cd07bec0002597270"
+    },
+    {
+      "name": "high_children",
+      "before_line": 137,
+      "after_line": 143,
+      "header": "theorem high_children :\n    leftChild comparator selected high = {low, middle} ∧\n      rightChild comparator selected high = ∅",
+      "header_sha256": "9d05062fef19364ae2daf532839816d1fd39b040f24e886c7a884a35d59ad3d4"
+    },
+    {
+      "name": "middle_actual_cost",
+      "before_line": 142,
+      "after_line": 148,
+      "header": "theorem middle_actual_cost (π : Equiv.Perm Label)\n    (hπ : π ∈ firstEvent (restrictedOrder positions selected) middle) :\n    observedCost positions comparator selected π = 21",
+      "header_sha256": "bf979d0f96e4316e708de8d22d1a10e58642cae5c210ec543e32fb1da3d008b9"
+    },
+    {
+      "name": "low_actual_cost",
+      "before_line": 153,
+      "after_line": 159,
+      "header": "theorem low_actual_cost (π : Equiv.Perm Label)\n    (hπ : π ∈ firstEvent (restrictedOrder positions selected) low) :\n    observedCost positions comparator selected π = 25",
+      "header_sha256": "c62fdf28eb9987c907b9d525455e0fbb08b73c6938a7834fb02a856c0b926de6"
+    },
+    {
+      "name": "high_actual_cost",
+      "before_line": 162,
+      "after_line": 168,
+      "header": "theorem high_actual_cost (π : Equiv.Perm Label)\n    (hπ : π ∈ firstEvent (restrictedOrder positions selected) high) :\n    observedCost positions comparator selected π = 25",
+      "header_sha256": "2b1ab81a2f0f76605e65886207c09589df3f578ba8a5b52830b691004caecf15"
+    },
+    {
+      "name": "middle_first_mass",
+      "before_line": 171,
+      "after_line": 177,
+      "header": "theorem middle_first_mass : law (firstEvent (restrictedOrder positions selected) middle) = 1 / 3",
+      "header_sha256": "5a5a25653fe42da834ee7ed292abd1f8828cc891d1ff743c5d20cde672d81776"
+    },
+    {
+      "name": "low_first_mass",
+      "before_line": 177,
+      "after_line": 183,
+      "header": "theorem low_first_mass : law (firstEvent (restrictedOrder positions selected) low) = 1 / 3",
+      "header_sha256": "c4a3039046087f296bacbb95709deabca38f514d8d55a701f579aa5061d08712"
+    },
+    {
+      "name": "high_first_mass",
+      "before_line": 183,
+      "after_line": 189,
+      "header": "theorem high_first_mass : law (firstEvent (restrictedOrder positions selected) high) = 1 / 3",
+      "header_sha256": "e5b3fb6d999994bec5e4e0f8a52c385ca591bb0dae274e82b26fc4128f68e4e9"
+    },
+    {
+      "name": "extreme_first_mass",
+      "before_line": 189,
+      "after_line": 195,
+      "header": "theorem extreme_first_mass :\n    law (firstEvent (restrictedOrder positions selected) low ∪\n      firstEvent (restrictedOrder positions selected) high) = 2 / 3",
+      "header_sha256": "c6aeff0907334322f2c2bdaf647cb0e0762bbf4b8ddef7e32a9c435e6f91b751"
+    },
+    {
+      "name": "conditional_of_constant",
+      "before_line": 198,
+      "after_line": 208,
+      "header": "private theorem conditional_of_constant (a : Label) (ha : a ∈ selected) (c : ℝ)\n    (hc : ∀ π ∈ firstEvent (restrictedOrder positions selected) a,\n      observedCost positions comparator selected π = c) :\n    (∫ π, observedCost positions comparator selected π ∂\n      law[|firstEvent (restrictedOrder positions selected) a]) = c",
+      "header_sha256": "b81202efecbc19eae04fa0d4f1411573a7a4dca06f6fb311dfdbf6e2a559c1fe"
+    },
+    {
+      "name": "middle_conditional_mean",
+      "before_line": 209,
+      "after_line": 220,
+      "header": "theorem middle_conditional_mean :\n    (∫ π, observedCost positions comparator selected π ∂\n      law[|firstEvent (restrictedOrder positions selected) middle]) = 21",
+      "header_sha256": "3b0280b9f0df8c1bdd4f2d5a7a5401e173156c84c39870b17a978352284efc99"
+    },
+    {
+      "name": "low_conditional_mean",
+      "before_line": 214,
+      "after_line": 225,
+      "header": "theorem low_conditional_mean :\n    (∫ π, observedCost positions comparator selected π ∂\n      law[|firstEvent (restrictedOrder positions selected) low]) = 25",
+      "header_sha256": "b9b936eb29f3112980fc0a70644cbc85f29506453157701c7ea2971df6bfe199"
+    },
+    {
+      "name": "high_conditional_mean",
+      "before_line": 219,
+      "after_line": 230,
+      "header": "theorem high_conditional_mean :\n    (∫ π, observedCost positions comparator selected π ∂\n      law[|firstEvent (restrictedOrder positions selected) high]) = 25",
+      "header_sha256": "dc587dd4153783be22696f0520f160150c4d0cb68622f5c57e67e798ac84929c"
+    },
+    {
+      "name": "three_mean_from_heads",
+      "before_line": 226,
+      "after_line": 237,
+      "header": "theorem three_mean_from_heads : meanBy positions comparator selected = (71 : ℝ) / 3",
+      "header_sha256": "e8f1c4d2aca80d31b56b38be9d79e60b5e7fe5af0d036f64539f7d24c56c21ee"
+    },
+    {
+      "name": "three_mean_from_closedForm",
+      "before_line": 252,
+      "after_line": 263,
+      "header": "theorem three_mean_from_closedForm : meanBy positions comparator selected = (71 : ℝ) / 3",
+      "header_sha256": "afbb778e0471ce1d6b77cf607a814dc0fc7f32ebf83ae4302045d9b68d014544"
+    },
+    {
+      "name": "low_empty_actual_child",
+      "before_line": 257,
+      "after_line": 269,
+      "header": "theorem low_empty_actual_child (π : Equiv.Perm Label)\n    (hπ : π ∈ firstEvent (restrictedOrder positions selected) low) :\n    (restrictedOrder positions selected π).tail.filter (fun b => comparator b low) = []",
+      "header_sha256": "2e5809388e44ec9d1e1514e8109156aa1f5c43c47fcd0f488941b73629503e4d"
+    },
+    {
+      "name": "low_empty_child_mean",
+      "before_line": 263,
+      "after_line": 275,
+      "header": "theorem low_empty_child_mean :\n    (∫ π, observedCost positions comparator (leftChild comparator selected low) π ∂\n      law[|firstEvent (restrictedOrder positions selected) low]) = 1",
+      "header_sha256": "fde388c416ec0f071b833ad7c08e8fd450379c92fef9d45a8fc9c47442e12c15"
+    },
+    {
+      "name": "high_empty_child_mean",
+      "before_line": 270,
+      "after_line": 283,
+      "header": "theorem high_empty_child_mean :\n    (∫ π, observedCost positions comparator (rightChild comparator selected high) π ∂\n      law[|firstEvent (restrictedOrder positions selected) high]) = 1",
+      "header_sha256": "33e298f3397652aef357f1d9134d397feb170bd6f4cf3628b167f84c1334b43b"
+    },
+    {
+      "name": "arbitrary_payload_occurrences",
+      "before_line": 279,
+      "after_line": 293,
+      "header": "theorem arbitrary_payload_occurrences (xs : List α) (π : Equiv.Perm (Fin xs.length)) :\n    (occurrenceInput xs π).Perm xs ∧ (occurrenceInput xs π).length = xs.length",
+      "header_sha256": "005659299d08adde01e49d94d417416cee3e7832310dffcbabf3d3160b5e436a"
+    },
+    {
+      "name": "arbitrary_tagged_three",
+      "before_line": 283,
+      "after_line": 297,
+      "header": "theorem arbitrary_tagged_three (x y z : α) :\n    inputMean (Prod.fst : Int × α → Int) [(10, x), (-5, y), (7, z)] = (71 : ℝ) / 3",
+      "header_sha256": "74cb1ea42de7199317dfb63c420b81b2ffecb182f0a5716169998700c766b93b"
+    },
+    {
+      "name": "taggedEqual_payloads_distinct",
+      "before_line": 290,
+      "after_line": 304,
+      "header": "theorem taggedEqual_payloads_distinct (n : Nat) : (taggedEqual n).Nodup",
+      "header_sha256": "92dff523d5aba7cbef8079cb3b0e9521d9ecfd91026a3e3f6c498040d7278b69"
+    },
+    {
+      "name": "taggedEqual_mean",
+      "before_line": 295,
+      "after_line": 309,
+      "header": "theorem taggedEqual_mean (n : Nat) :\n    inputMean Prod.fst (taggedEqual n) = ((2 * n ^ 2 + 2 * n + 1 : Nat) : ℝ)",
+      "header_sha256": "0c0e251c1d356f22d81f8600d2f8e83fd41ba9be14001d466aa93eb56f25113e"
+    },
+    {
+      "name": "equal_key_counterexample",
+      "before_line": 304,
+      "after_line": 318,
+      "header": "theorem equal_key_counterexample :\n    (taggedEqual 3).Nodup ∧ ¬ ((taggedEqual 3).map Prod.fst).Nodup ∧\n      inputMean Prod.fst (taggedEqual 3) = 25 ∧\n      inputMean Prod.fst (taggedEqual 3) ≠ (71 : ℝ) / 3",
+      "header_sha256": "6bf992f9fc11a053899af7c903650dc88db4fd6abd284d2ef6656d31f47d7dfe"
+    },
+    {
+      "name": "taggedRange_length",
+      "before_line": 314,
+      "after_line": 328,
+      "header": "theorem taggedRange_length (payload : Nat → α) (n : Nat) :\n    (taggedRange payload n).length = n",
+      "header_sha256": "88703d6f47b0e87963caabbd1c98703aaa13aa39be84a1bf9aa104f3e4101dda"
+    },
+    {
+      "name": "taggedRange_keys",
+      "before_line": 317,
+      "after_line": 331,
+      "header": "theorem taggedRange_keys (payload : Nat → α) (n : Nat) :\n    ((taggedRange payload n).map Prod.fst).Nodup",
+      "header_sha256": "de45c007321dba8d6bacb391f3924f4bd4a1f325f9d784c808f10991e0773ba2"
+    },
+    {
+      "name": "taggedRange_mean",
+      "before_line": 321,
+      "after_line": 335,
+      "header": "theorem taggedRange_mean (payload : Nat → α) (n : Nat) :\n    inputMean Prod.fst (taggedRange payload n) = Resources.QuickSortMean.closedForm n",
+      "header_sha256": "9395cdfe3a9728189923b5c11ef270de3c9dd362d7fd38e2bacc30195e911d50"
+    },
+    {
+      "name": "arbitrary_payload_growth",
+      "before_line": 325,
+      "after_line": 339,
+      "header": "theorem arbitrary_payload_growth (payload : Nat → α) :\n    Asymptotics.IsBigO Filter.atTop\n      (fun n : Nat => inputMean Prod.fst (taggedRange payload n))\n      (fun n : Nat => (n : ℝ) * Real.logb 2 (n : ℝ))",
+      "header_sha256": "52416c1cdb21036e292a806cdd23800eddc814cd301f8db839e738e07ec559c9"
+    },
+    {
+      "name": "taggedRange_scalar_bound",
+      "before_line": 332,
+      "after_line": 346,
+      "header": "theorem taggedRange_scalar_bound (payload : Nat → α) (n : Nat) (hn : 2 ≤ n) :\n    0 ≤ inputMean Prod.fst (taggedRange payload n) ∧\n      inputMean Prod.fst (taggedRange payload n) ≤ 32 * ((n : ℝ) * Real.logb 2 (n : ℝ))",
+      "header_sha256": "27e981f382e8d269bc92bd978eb95da6b0b1fa1b77d617a32ded03eec145c711"
+    },
+    {
+      "name": "taggedRange_literal_bound",
+      "before_line": 340,
+      "after_line": 354,
+      "header": "theorem taggedRange_literal_bound (payload : Nat → α) (n : Nat) (hn : 2 ≤ n) :\n    inputLiteralMean Prod.fst (taggedRange payload n) ≤\n      64 * ((n : ℝ) * Real.logb 2 (n : ℝ))",
+      "header_sha256": "2f0718752849b0e69357427b35adeb3498da66befffe0a83c415473c1d767dca"
+    },
+    {
+      "name": "actual_zero_log_boundary",
+      "before_line": 346,
+      "after_line": 360,
+      "header": "theorem actual_zero_log_boundary [LinearOrder κ] (key : α → κ) (C : ℝ) :\n    ¬ inputMean key [] ≤ C * ((0 : ℝ) * Real.logb 2 0)",
+      "header_sha256": "12236259cdca0e6c53c1c50ff2aa27f9792dc046bf979ad0bbbd2a5294bbc71e"
+    },
+    {
+      "name": "actual_one_log_boundary",
+      "before_line": 349,
+      "after_line": 363,
+      "header": "theorem actual_one_log_boundary [LinearOrder κ] (key : α → κ) (x : α) (C : ℝ) :\n    ¬ inputMean key [x] ≤ C * ((1 : ℝ) * Real.logb 2 1)",
+      "header_sha256": "a4631b71ec68748f2a8ede13dd7df4ee4b687549263ec0bffe1a379b6b7ac1a0"
+    }
+  ],
+  "definitions": [
+    {
+      "name": "positions",
+      "source_block_sha256": "f7ab67b75ad68593c6ab98d92d19dba04d7adf42ea50cc9dd3f4b1ab22ed3b40"
+    },
+    {
+      "name": "selected",
+      "source_block_sha256": "b3525da11d43d9d5a8d3d0a44d5ccb2a7970e90a19a140a9bcdcff0670643c0f"
+    },
+    {
+      "name": "key",
+      "source_block_sha256": "89984d23082ab9ab578589b81f7e71dfbd7eef1a49dc879f1809a8e9fe160545"
+    },
+    {
+      "name": "comparator",
+      "source_block_sha256": "351251971dde86075356e44c023d7577430e5964560f58c9ef8e0019ad057a7e"
+    },
+    {
+      "name": "law",
+      "source_block_sha256": "9a1e2ca61209a9544ce143c7916ff3d95d2d6fa6b0adf6d8f614718c6fa6ef4c"
+    },
+    {
+      "name": "taggedEqual",
+      "source_block_sha256": "8436bc8c167b40269cba7b1cddef4fd7632a2b70243753466b46c526641b180c"
+    },
+    {
+      "name": "taggedRange",
+      "source_block_sha256": "aa8e9934552f0eedf5c0936a369bdb3d48c10a535ec5d648049a43a11ffc0083"
+    }
+  ],
+  "existing_instances": [
+    {
+      "name": "emptyMeasurableSpace",
+      "source_block_sha256": "933951c58605b559d70f99d938b4b903c86afeccf00324487fd0498bc1da7c77"
+    },
+    {
+      "name": "emptyMeasurableSingletons",
+      "source_block_sha256": "0c29c1f0454b66da9daab07c6471236cdd36ec37a330e9cd1aab70aba97bf0fe"
+    },
+    {
+      "name": "labelMeasurableSpace",
+      "source_block_sha256": "30441f96f9823a443d71e460dc1806291dfbcf6c632a647cd6a69aab6bf6be33"
+    },
+    {
+      "name": "labelMeasurableSingletons",
+      "source_block_sha256": "e743daa6cf05574acb568a6b1c7ca38caaa31e8dae8515b35005310c19da3345"
+    }
+  ]
+}

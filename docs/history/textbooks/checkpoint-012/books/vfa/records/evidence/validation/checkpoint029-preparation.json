@@ -1,0 +1,43 @@
+{
+  "recorded_utc": "2026-11-02T21:45:10.766129+00:00",
+  "name": "conaled-vfa-checkpoint-029-fresh-retry-progress",
+  "formal_candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "recorder_candidate": "f2dd147823effc78974d7b2e5363c993afb0f278",
+  "writers": "Formal source and tracker writers paused; accepted recorder runs with append-only logs and stable running-state JSON. Existing checkpoint stability checks remain enabled.",
+  "fresh2_observation": {
+    "run_state": {
+      "schema": 1,
+      "state": "running",
+      "started_utc": "2026-11-02T21:34:09.497595+00:00",
+      "recorder_pid": 578140,
+      "child": {
+        "pid": 578204,
+        "process_group": 578204,
+        "session": 578204
+      },
+      "child_returncode": null,
+      "child_status": "unreaped",
+      "recorder_outcome": null,
+      "recorder_exit_code": null,
+      "interrupt_signal": null,
+      "descendant_quiescence_verified": false,
+      "errors": [],
+      "cleanup": null
+    },
+    "last_complete_heartbeat": {
+      "schema": 1,
+      "recorded_utc": "2026-11-02T21:45:09.515690+00:00",
+      "sequence": 23,
+      "elapsed_seconds": 660.0180860469991,
+      "child_poll_returncode": null
+    },
+    "last_completed_module": "[101/953] SquareKit.Internal.PathTransport.ContextualModel (5.37s)",
+    "tool_session_id": 98080,
+    "scope": "Point-in-time active observation only; archive logs may extend this prefix and may end in a partial record. No completed validation result."
+  },
+  "free_bytes_including_reserved": 4540084224,
+  "available_bytes_excluding_reserved": 1087336448,
+  "effective_uid": 0,
+  "existing_launch_floor_bytes": 2000000000,
+  "scope": "Complete source/history/local tracking, all accepted recorder evidence, actual fresh2 launch and active prefix logs, checkpoint028 receipt. Formal gates remain pending."
+}

@@ -1,0 +1,156 @@
+{
+  "recorded_utc": "2026-11-04T10:32:08.401811+00:00",
+  "reviewer": "chapter02_standards",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete81-path/112-obligation/ten-shared-scope Standards review. Actual execution qualification only; semantic815 output review incomplete.",
+  "run": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/result.json",
+    "bytes": 1337,
+    "lines": 32,
+    "sha256": "408a2fc698c80f7f4527beb0045f21132c3dc544ad0d9054204e2619aff595ab"
+  },
+  "native_result": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/result.json",
+    "bytes": 731,
+    "lines": 19,
+    "sha256": "2fde52dc025cc4db5b18940f872473232a7c3276665f78abb0b392f98e8782a2"
+  },
+  "secured_terminal": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/secured-terminal.json",
+    "bytes": 2508,
+    "lines": 47,
+    "sha256": "c7c0b017ef12185fc8c5cfb4e82bc608dc19bec29bc34cee78fbf959a66c5252"
+  },
+  "full_log": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/full.log",
+    "bytes": 874944,
+    "lines": 11653,
+    "sha256": "a5347095b4f93728b1b384c415189e1d934084eca4af8999028d0864fab9fc6b"
+  },
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "program": {
+    "path": "provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/Statements.lean",
+    "bytes": 46371,
+    "lines": 862,
+    "sha256": "d4d37d6ea2b48fc5c743b1db36fe904ca8623be6c03c05ea5addc99b307687bd"
+  },
+  "inventory": {
+    "path": "provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/inventory.json",
+    "bytes": 58922,
+    "lines": 1148,
+    "sha256": "7fe7ddfc3242dff5937ef1fba339bd62f0a2ce66401fe919d383237049bd70bf"
+  },
+  "actual_pre": {
+    "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/pre-inputs.json",
+    "bytes": 125408,
+    "lines": 2524,
+    "sha256": "e4187960a469d194aeceed488d7e9bb45a450ae059bef46ba9645c5f9d6868ac"
+  },
+  "actual_post": {
+    "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/post-inputs.json",
+    "bytes": 125726,
+    "lines": 2530,
+    "sha256": "c8a015007775ff98a220c90c328dc10f505cca8ac9ac9c7c3b887e2c0089ab4a"
+  },
+  "pre_observation_receipt": {
+    "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/pre-observation-receipt.json",
+    "bytes": 888,
+    "lines": 19,
+    "sha256": "02ddf78328a29b6ea1ea276146387e3fa79c0c80e4a7daf000bfd2a38664ebc6"
+  },
+  "navigation_index": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/actual-type-ranges.json",
+    "bytes": 232026,
+    "lines": 7349,
+    "sha256": "5f53332f2c9719fc6ce7fe15f6eab6f90a6d7baf9dd1b4cf0e2750d1932ffcef"
+  },
+  "execution": {
+    "outer_exit": 0,
+    "native_exit": 0,
+    "started_utc": "2026-11-04T10:25:46.192567+00:00",
+    "completed_utc": "2026-11-04T10:28:34.728449+00:00",
+    "elapsed_seconds": 168.53564069700224,
+    "command": [
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+      "--state",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+      "run",
+      "--project",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+      "--threads",
+      "1",
+      "--",
+      "lake",
+      "env",
+      "lean",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/Statements.lean"
+    ],
+    "native_command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/Statements.lean"
+    ],
+    "lean_threads": "1",
+    "initial_and_final_head": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "initial_and_final_status": "",
+    "timed_out": false,
+    "recorder_error": null,
+    "verification_record_present": false,
+    "closed_session_record_read_not_polled": true
+  },
+  "actual_input_identity_assessment": {
+    "pre_observed_utc": "2026-11-04T10:25:19.748100+00:00",
+    "post_observed_utc": "2026-11-04T10:28:53.325445+00:00",
+    "pre_before_run_and_post_after_run": true,
+    "all_pre_and_post_identity_fields_exact": true,
+    "recorded_pre_and_post_capture_exit0": true,
+    "program_bytes_names_and_path_match_reviewed815": true,
+    "roots": 36,
+    "local_sources": 84,
+    "all84_source_sha_bytes_and_blobs_match_immutable_candidate_and_independent_closure": true,
+    "configurations": 10,
+    "all10_match_immutable_candidate_and_qualified_reference": true,
+    "dependencies": 9,
+    "all9_recorded_heads_match_pins_and_status_clean": true,
+    "runtime_components": 12,
+    "all12_match_retained_qualified_runtime_fingerprints": true,
+    "object_and_trace_files": 252,
+    "expected_olean_hash_trace_paths_exact_for84_sources": true,
+    "all252_before_after_fingerprints_exact": true,
+    "actual_object_fingerprints_read_from_saved_observations_only": true,
+    "trusted_build_lineage": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-4b5dbfa0.json",
+      "bytes": 27181,
+      "lines": 505,
+      "sha256": "3ae1e9749b8633e64a0adc14bb9cc96f5ee6cd5ba338dd45d55ddeac3df161d7"
+    },
+    "actual_successful_last_relevant_build": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/focused11-terminal-assessment.json",
+      "bytes": 8996,
+      "lines": 201,
+      "sha256": "13260e1035f549ddf42d63b16f1b4b2533d6f462272e0f0044043700bc23133c"
+    },
+    "qualification_boundary": "Qualified stock native runtime and recorded stable private-build lineage, corroborated by unchanged actual source/config/dependency/profile/object observations. Fingerprints are supplemental and not cryptographic authenticity or full guard/audit evidence. No output transplantation inferred or performed.",
+    "foundation_uses_separate_outputs": true
+  },
+  "mechanical_output_assessment": {
+    "all815_names_once_exact_program_order_independently_reproduced": true,
+    "index_each_name_range_byte_count_and_sha_independently_verified": true,
+    "all874568_native_bytes_partitioned_without_filtering": true,
+    "full_log_inner_bytes_equal_native_output": true,
+    "native_copies_equal_original_closed_records": true,
+    "warning_or_error_prefixes": 0,
+    "mechanical_index_is_not_semantic_review": true
+  },
+  "semantic_assessment_status": "In progress; only exact ranges recorded in separate actual815-type-review-progress.json count as read. No blanket815 assessment or type/reuse credit.",
+  "gates": "Standards Blocked; C02-TYPE-001 and all full candidate/audit/review/immediate verification gates remain open. F145 remains pending, potential110 reuse uncredited.",
+  "reviewer_actions": "No compiler, process, source/ref/index, pin or cache action; no live object/runtime snapshot. Own evidence/progress writes only."
+}

@@ -1,0 +1,158 @@
+{
+  "schema": 1,
+  "prepared_at": "2026-11-14T21:14:21.374947+00:00",
+  "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+  "authorization": "Latest user instruction removes all agent-selected resource restrictions and requests a full attempt; prior 2/4-thread recommendation is superseded. Root owns setup and execution.",
+  "audit_scope": "Existing workspace only; no network/setup/build/source/checkpoint/Git/host-control mutation. Only intake reports written.",
+  "proposed_argv": [
+    "python3",
+    "-B",
+    "<CONALED_KIT>/conaled_native.py",
+    "--state",
+    "<CONALED_NATIVE_STATE>",
+    "run",
+    "--project",
+    "<CONALED_CANDIDATE_DIR>",
+    "--",
+    "env",
+    "-u",
+    "LEAN_NUM_THREADS",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "./check.sh",
+    "--candidate",
+    "HEAD"
+  ],
+  "native_cli": {
+    "threads_default": 1,
+    "threads_accepted": "positive integer; parser has no upper bound",
+    "automatic_or_unset_option": false,
+    "threads_zero_valid": false
+  },
+  "environment_path": [
+    "outer_environment writes LEAN_NUM_THREADS=1 from omitted default option",
+    "log_command records that outer environment and executes child argv",
+    "GNU env -u removes LEAN_NUM_THREADS before executing check.sh",
+    "checker copies current environment; does not reinsert LEAN_NUM_THREADS",
+    "tool wrappers child_environment preserves absence; no numeric compiler -j flag is supplied"
+  ],
+  "effective_threads": {
+    "expected_child_LEAN_NUM_THREADS": null,
+    "observed_by_running_child": false,
+    "reason": "source inspection; root should record effective child state during actual run",
+    "lake_behavior": "generic executable runtime uses detected hardware concurrency",
+    "lean_cli_behavior": "separate hardware-concurrency default; -j not supplied",
+    "not_a_universal_process_or_thread_ceiling": true
+  },
+  "receipt_caveat": {
+    "native_kit_lean_threads_metadata": "1",
+    "meaning": "environment before env -u; not effective compiler/Lake setting",
+    "action": "Preserve native receipt unchanged; supplement exact argv and effective child observation."
+  },
+  "observed_selected_parent_environment": {},
+  "selected_variables_inspected": [
+    "LEAN_NUM_THREADS",
+    "LEAN_IMPORT_WORKERS",
+    "LEAN_THREAD_STACK_SIZE",
+    "LEAN_STACK_SIZE",
+    "LEAN_MAX_MEMORY",
+    "LEAN_MAX_HEARTBEATS",
+    "OMP_NUM_THREADS",
+    "OMP_THREAD_LIMIT",
+    "OPENBLAS_NUM_THREADS",
+    "MKL_NUM_THREADS",
+    "NUMEXPR_NUM_THREADS",
+    "UV_THREADPOOL_SIZE",
+    "RAYON_NUM_THREADS",
+    "CARGO_BUILD_JOBS",
+    "MAKEFLAGS",
+    "CMAKE_BUILD_PARALLEL_LEVEL",
+    "MAX_JOBS"
+  ],
+  "rlimits": {
+    "RLIMIT_AS": [
+      -1,
+      -1
+    ],
+    "RLIMIT_DATA": [
+      -1,
+      -1
+    ],
+    "RLIMIT_CPU": [
+      -1,
+      -1
+    ],
+    "RLIMIT_NPROC": [
+      39792,
+      39792
+    ],
+    "RLIMIT_STACK": [
+      8388608,
+      -1
+    ]
+  },
+  "caps_found": {
+    "injected_thread_variables": [
+      "LEAN_NUM_THREADS"
+    ],
+    "agent_memory_limit_in_run_path": false,
+    "agent_cpu_time_limit_in_run_path": false,
+    "agent_affinity_or_priority_change_in_run_path": false,
+    "native_run_timeout": null,
+    "checker_subprocess_timeout": null,
+    "checker_jobs_default": "min(4, os.cpu_count() or 1), used only in fresh branch",
+    "normal_incremental_jobs_cap_from_checker": false
+  },
+  "preserve": [
+    "exact pins",
+    "isolated clean candidate and ownership locks",
+    "source and coverage checks",
+    "integrity guards and required artifact-cache policy",
+    "exhaustive audit",
+    "platform/sandbox/security controls",
+    "normal OS limits not known to have been agent-selected"
+  ],
+  "do_not_add": [
+    "explicit substitute threads2/4/9",
+    "--threads0",
+    "--threads auto",
+    "env -i",
+    "--fresh solely to select jobs",
+    "outer timeout or recorder deadline",
+    "taskset",
+    "nice",
+    "prlimit"
+  ],
+  "input_bindings": [
+    {
+      "path": "support/native-kit/lib/runtime.py",
+      "bytes": 6368,
+      "sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695"
+    },
+    {
+      "path": "support/native-kit/conaled_native.py",
+      "bytes": 34020,
+      "sha256": "9d1b1e6f10ae574e5c1f388d8df069f43c9ca3e1a993c372293595abd2e5090a"
+    }
+  ],
+  "candidate_file_bindings": [
+    {
+      "path": "check.sh",
+      "commit": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "bytes": 74,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd"
+    },
+    {
+      "path": "scripts/check.py",
+      "commit": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "bytes": 14956,
+      "sha256": "c6ba0f5c83a5324dc01a2309b8de23d54f38afddcc1b647f6c7b46b212ed8c25"
+    },
+    {
+      "path": "lakefile.toml",
+      "commit": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "bytes": 444,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+    }
+  ],
+  "prior_primary_source_semantics": "build-resource-assessment-evidence.json"
+}

@@ -1,0 +1,221 @@
+{
+  "time": "2026-11-03T23:31:32.828166+00:00",
+  "candidate": "4f15ff6f5bc8091104a3572ca8ce3716ed8e78f0",
+  "artifact_validation_only": true,
+  "formal_acceptance": false,
+  "runtime_identity_repeat_equal": true,
+  "kit_environment_selectors_checked": true,
+  "shell_blocks_syntax_checked": 4,
+  "all_20_delivered_and_isolated_source_hashes_match": true,
+  "runtime_identity": {
+    "provider": "supplied unified kit environment(state, 1)",
+    "kit_manifest_sha256": "72ba31d697b09e71cd21edbf6a46340f1fef6380585df86eb0320e1b05b737b6",
+    "profile_config_sha256": "ef95106ffdf6b594235bfd88284b1ef5450e392d04bbcc3f62a4a7b685dc7573",
+    "profile_config": {
+      "schema": 1,
+      "created_utc": "2026-11-03T23:23:46.438562+00:00",
+      "kit_version": "1.0.0",
+      "toolchain": "../toolchains/lean-4.35.0-linux",
+      "tools": {
+        "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+        "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+        "leanc": "1e0b075573c5ea98e6b196e35d3b159b93e3226714e28cd8febb30a240ec735c",
+        "leanir": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e"
+      },
+      "wrappers": {
+        "lake": "85df404efd17484b633376fe8d3705f416e059642133d8232ed555a8d3174e21",
+        "lean": "e290032a73b271084c56dfde6315062e1523492dc36b1bbde9cc5dea23d1c716",
+        "leanc": "0e5517cfaaa530d1e484e45314a8e4be9bf44ccbccb09f8610fa190f6e5443e6",
+        "leanir": "3a64f332683efbab0057235ec2b3c22d3ead19cb060e0830b76f1add4cf7c661"
+      },
+      "links": {
+        "share": "../toolchains/lean-4.35.0-linux/share",
+        "lib": "../toolchains/lean-4.35.0-linux/lib",
+        "include": "../toolchains/lean-4.35.0-linux/include",
+        "LICENSES": "../toolchains/lean-4.35.0-linux/LICENSES",
+        "LICENSE": "../toolchains/lean-4.35.0-linux/LICENSE",
+        "src": "../toolchains/lean-4.35.0-linux/src",
+        "bin/nanoda_bin": "../../toolchains/lean-4.35.0-linux/bin/nanoda_bin",
+        "bin/leanmake": "../../toolchains/lean-4.35.0-linux/bin/leanmake",
+        "bin/con-leche": "../../toolchains/lean-4.35.0-linux/bin/con-leche",
+        "bin/leanchecker": "../../toolchains/lean-4.35.0-linux/bin/leanchecker",
+        "bin/ld.lld": "../../toolchains/lean-4.35.0-linux/bin/ld.lld",
+        "bin/lean4lean": "../../toolchains/lean-4.35.0-linux/bin/lean4lean",
+        "bin/leantar": "../../toolchains/lean-4.35.0-linux/bin/leantar",
+        "bin/con-ron": "../../toolchains/lean-4.35.0-linux/bin/con-ron",
+        "bin/cadical": "../../toolchains/lean-4.35.0-linux/bin/cadical",
+        "bin/leanexport": "../../toolchains/lean-4.35.0-linux/bin/leanexport",
+        "bin/llvm-ar": "../../toolchains/lean-4.35.0-linux/bin/llvm-ar",
+        "bin/leanchecker-paranoid": "../../toolchains/lean-4.35.0-linux/bin/leanchecker-paranoid",
+        "bin/clang": "../../toolchains/lean-4.35.0-linux/bin/clang"
+      },
+      "official_watch": {
+        "lib/lean/libleanshared.so": {
+          "bytes": 231113560,
+          "mtime_ns": 1793748218905370087
+        },
+        "lib/lean/libleanshared_1.so": {
+          "bytes": 6264,
+          "mtime_ns": 1793748218432619844
+        },
+        "lib/lean/libInit_shared.so": {
+          "bytes": 6264,
+          "mtime_ns": 1793748215346959148
+        },
+        "lib/lean/libleanshared_2.so": {
+          "bytes": 6264,
+          "mtime_ns": 1793748215351659031
+        },
+        "lib/lean/libLake_shared.so": {
+          "bytes": 14070032,
+          "mtime_ns": 1793748218481369890
+        }
+      },
+      "adapter_source_sha256": "fefc39d8645e4a938d6cc27574257d1a1e8e8f0790b75cc15bcf074272066fe0",
+      "runtime_sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695",
+      "adapter_sha256": "124bc3f19426ab6558b3ca134d0afb70435eaff82a659e6e62a05e8e373e337d",
+      "loader": "/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "loader_sha256": "6222a16be7f2d458d6870efe6e715fc0c8d45766fb79cf7dcc3125538d703e28",
+      "initial_host_mode": "compat",
+      "compiler": "cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+      "compile_command": [
+        "/usr/bin/cc",
+        "-std=c11",
+        "-O2",
+        "-fPIC",
+        "-shared",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wl,-z,relro,-z,now",
+        "-o",
+        "/workspace/scratch/09cf0de22282/pfds/native-state/.profile-94v1hdac/app_path.so",
+        "/workspace/scratch/09cf0de22282/pfds/native-state/.profile-94v1hdac/app_path.c"
+      ],
+      "verification_scope": "Unchanged Lean/Lake/leanir pins; local source-to-adapter build; no theorem-acceptance claim."
+    },
+    "doctor": {
+      "profile": "/workspace/scratch/09cf0de22282/pfds/native-state/profile",
+      "host_mode": "compat",
+      "tools": [
+        "lake",
+        "lean",
+        "leanc",
+        "leanir"
+      ],
+      "passed": true,
+      "official": {
+        "status": "passed",
+        "path": "/workspace/scratch/09cf0de22282/pfds/native-state/toolchains/lean-4.35.0-linux",
+        "files_checked": 47,
+        "verified_files": [
+          "bin/clang",
+          "bin/lake",
+          "bin/ld.lld",
+          "bin/lean",
+          "lib/Mcrt1.o",
+          "lib/Scrt1.o",
+          "lib/clang/23/lib/x86_64-unknown-linux-gnu/clang_rt.crtbegin.o",
+          "lib/clang/23/lib/x86_64-unknown-linux-gnu/clang_rt.crtend.o",
+          "lib/clang/23/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a",
+          "lib/crt1.o",
+          "lib/crti.o",
+          "lib/crtn.o",
+          "lib/gcrt1.o",
+          "lib/glibc/ld.so",
+          "lib/glibc/libc.so",
+          "lib/glibc/libc_nonshared.a",
+          "lib/glibc/libdl.so",
+          "lib/glibc/libm.so",
+          "lib/glibc/libpthread.so",
+          "lib/glibc/libpthread_nonshared.a",
+          "lib/glibc/librt.so",
+          "lib/lean/libInit.a",
+          "lib/lean/libLake.a",
+          "lib/lean/libLean.a",
+          "lib/lean/libLeanChecker.a",
+          "lib/lean/libLeanExport.a",
+          "lib/lean/libLeanIR.a",
+          "lib/lean/libLeanc.a",
+          "lib/lean/libStd.a",
+          "lib/lean/libinitialize_minimal.a",
+          "lib/lean/libleancpp.a",
+          "lib/lean/libleanmanifest.a",
+          "lib/lean/libleanrt.a",
+          "lib/lean/libmimalloc_paranoid.a",
+          "lib/libLLVM.so.23.1",
+          "lib/libc++.a",
+          "lib/libc++.so.1",
+          "lib/libc++abi.a",
+          "lib/libc++abi.so.1",
+          "lib/libclang-cpp.so.23.1",
+          "lib/libcrypto.a",
+          "lib/libgcc_s.so.1",
+          "lib/libgmp.a",
+          "lib/libssl.a",
+          "lib/libunwind.a",
+          "lib/libuv.a",
+          "lib/libz.so.1"
+        ],
+        "verification_scope": "47 recorded official executables/link inputs; not a whole-tree attestation",
+        "complete_distribution_attested": false
+      },
+      "extra_runtime_inputs": {
+        "passed": true,
+        "files_checked": 8,
+        "scope": "leanir, leanc, leantar and five Lean/Lake shared libraries"
+      }
+    },
+    "environment": {
+      "CONALED_APP_PATH_EXE": null,
+      "CONALED_APP_PATH_PID": null,
+      "CONALED_NATIVE_EXE": null,
+      "CONALED_SELF_EXE": null,
+      "ELAN_TOOLCHAIN": null,
+      "LAKE": null,
+      "LAKE_HOME": null,
+      "LAKE_OVERRIDE_LEAN": "true",
+      "LD_AUDIT": null,
+      "LD_LIBRARY_PATH": "/workspace/scratch/09cf0de22282/pfds/native-state/toolchains/lean-4.35.0-linux/lib:/workspace/scratch/09cf0de22282/pfds/native-state/toolchains/lean-4.35.0-linux/lib/lean",
+      "LD_PRELOAD": null,
+      "LEAN": null,
+      "LEAN_AR": null,
+      "LEAN_CC": null,
+      "LEAN_GITHASH": null,
+      "LEAN_NUM_THREADS": "1",
+      "LEAN_PATH": null,
+      "LEAN_SRC_PATH": null,
+      "LEAN_SYSROOT": "/workspace/scratch/09cf0de22282/pfds/native-state/profile",
+      "LEAN_WORKER_PATH": null,
+      "MATHLIB_CACHE_BASE_URL": null,
+      "MATHLIB_CACHE_DEBUG_USE_LEGACY": null,
+      "MATHLIB_CACHE_DIR": "/workspace/scratch/09cf0de22282/pfds/native-state/cache/mathlib",
+      "MATHLIB_CACHE_FROM": null,
+      "MATHLIB_CACHE_GET_URL": null,
+      "MATHLIB_CACHE_REPO_SCOPE": null,
+      "PATH": "/workspace/scratch/09cf0de22282/pfds/native-state/profile/bin:/root/.codex/tmp/arg0-linux/codex-arg0Muaz48:/opt/codex/codex-path:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback",
+      "TMPDIR": "/workspace/scratch/09cf0de22282/pfds/native-state/tmp",
+      "XDG_CACHE_HOME": "/workspace/scratch/09cf0de22282/pfds/native-state/cache/xdg",
+      "XDG_CONFIG_HOME": "/workspace/scratch/09cf0de22282/pfds/native-state/config",
+      "XDG_STATE_HOME": "/workspace/scratch/09cf0de22282/pfds/native-state/runtime-state"
+    }
+  },
+  "isolated_fixture_suite_log": "session/validation/native-controller-r11-isolated-045.log",
+  "isolated_fixture_suite": {
+    "tests": 8,
+    "exit_code": 0,
+    "log": "session/validation/native-controller-r11-isolated-045.log",
+    "sha256": "8881c4c4e861231743eef0925acf5f500f4f03de5a3ede9c7e1efabbfc65e2ec"
+  },
+  "checkpoint_restore_test": {
+    "path": "/workspace/scratch/09cf0de22282/pfds/checkpoints/conaled-pfds-checkpoint-045.tar.gz",
+    "bytes": 9486734,
+    "sha256": "8eb968d0ac3e5776b5d2a80075042c5cc552565cf3e8218eb5dc93f3938b771d",
+    "head": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+    "restore_test": "passed",
+    "creation_log": "session/validation/checkpoint045-create.log",
+    "creation_log_sha256": "07a8b1e74c002e9dcb228c3cbbc0a5f0571485f604454a355d8ac61a7ef3edbe",
+    "basis": "restore.py fetched only exact public baseline at depth1 from local source, then checked task refs/source/index/working/untracked/session hashes",
+    "acceptance": false
+  }
+}

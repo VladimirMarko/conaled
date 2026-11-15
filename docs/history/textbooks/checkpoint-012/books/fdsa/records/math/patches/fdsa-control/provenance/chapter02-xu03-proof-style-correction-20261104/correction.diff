@@ -1,0 +1,115 @@
+diff --git a/Applications/Probability/PermutationTail.lean b/Applications/Probability/PermutationTail.lean
+index 97d2159..264877b 100644
+--- a/Applications/Probability/PermutationTail.lean
++++ b/Applications/Probability/PermutationTail.lean
+@@ -175,7 +175,7 @@ theorem uniformOn_firstEvent
+     uniformOn (Set.univ : Set (Equiv.Perm I))
+         (firstEvent (restrictedOrder positions S) a) = (S.card : ℝ≥0∞)⁻¹ := by
+   classical
+-  letI := Fintype.ofList positions hcomplete
++  let := Fintype.ofList positions hcomplete
+   let C := (orders positions (S.erase a)).image (List.cons a)
+   have hpre : (restrictedOrder positions S) ⁻¹' (C : Set (List I)) =
+       firstEvent (restrictedOrder positions S) a := by
+@@ -232,7 +232,7 @@ theorem cond_uniformOn_firstEvent
+         firstEvent (restrictedOrder positions S) a] =
+       uniformOn (firstEvent (restrictedOrder positions S) a) := by
+   classical
+-  letI := Fintype.ofList positions hcomplete
++  let := Fintype.ofList positions hcomplete
+   have hE : MeasurableSet (firstEvent (restrictedOrder positions S) a) :=
+     (Set.toFinite _).measurableSet
+   unfold uniformOn
+@@ -254,7 +254,7 @@ theorem cond_tail_eq
+       then (Nat.factorial (S.erase a).card : ℝ≥0∞)⁻¹
+       else 0 := by
+   classical
+-  letI := Fintype.ofList positions hcomplete
++  let := Fintype.ofList positions hcomplete
+   have hE : MeasurableSet (firstEvent (restrictedOrder positions S) a) :=
+     (Set.toFinite _).measurableSet
+   rw [cond_apply hE, firstEvent_inter_tail (restrictedOrder positions S) a xs,
+@@ -278,7 +278,7 @@ theorem map_tail_cond_first
+         (fun π => (restrictedOrder positions S π).tail) =
+       uniformOn (orders positions (S.erase a) : Set (List I)) := by
+   classical
+-  letI := Fintype.ofList positions hcomplete
++  let := Fintype.ofList positions hcomplete
+   apply Measure.ext_of_singleton
+   intro xs
+   rw [Measure.map_apply (measurable_of_finite _) (measurableSet_singleton xs)]
+@@ -306,7 +306,7 @@ private theorem restrictedOrder_hasLaw
+       (uniformOn (orders positions S : Set (List I)))
+       (uniformOn (Set.univ : Set (Equiv.Perm I))) := by
+   classical
+-  letI := Fintype.ofList positions hcomplete
++  let := Fintype.ofList positions hcomplete
+   exact {
+     aemeasurable := (measurable_of_finite _).aemeasurable
+     map_eq := map_restrictedOrder_uniformOn positions hnd hcomplete S
+@@ -332,9 +332,9 @@ private theorem orders_head_mass
+     uniformOn (orders positions S : Set (List I))
+       (firstEvent (id : List I → List I) a) = (S.card : ℝ≥0∞)⁻¹ := by
+   classical
+-  letI := Fintype.ofList positions hcomplete
+-  letI : MeasurableSpace (Equiv.Perm I) := ⊤
+-  letI : MeasurableSingletonClass (Equiv.Perm I) := ⟨fun _ => trivial⟩
++  let := Fintype.ofList positions hcomplete
++  let : MeasurableSpace (Equiv.Perm I) := ⊤
++  let : MeasurableSingletonClass (Equiv.Perm I) := ⟨fun _ => trivial⟩
+   have hO := restrictedOrder_hasLaw positions hnd hcomplete S
+   have hH : MeasurableSet {xs : List I | xs.head? = some a} :=
+     (Set.to_countable _).measurableSet
+@@ -356,7 +356,7 @@ theorem head_mass_of_hasLaw
+     (hY : HasLaw Y (uniformOn (orders positions S : Set (List I))) μ) :
+     μ (firstEvent Y a) = (S.card : ℝ≥0∞)⁻¹ := by
+   classical
+-  letI := Fintype.ofList positions hcomplete
++  let := Fintype.ofList positions hcomplete
+   have hH : MeasurableSet {xs : List I | xs.head? = some a} :=
+     (Set.to_countable _).measurableSet
+   calc
+@@ -374,9 +374,9 @@ private theorem tail_hasLaw_orders_cond
+       ((uniformOn (orders positions S : Set (List I)))[|
+         firstEvent (id : List I → List I) a]) := by
+   classical
+-  letI := Fintype.ofList positions hcomplete
+-  letI : MeasurableSpace (Equiv.Perm I) := ⊤
+-  letI : MeasurableSingletonClass (Equiv.Perm I) := ⟨fun _ => trivial⟩
++  let := Fintype.ofList positions hcomplete
++  let : MeasurableSpace (Equiv.Perm I) := ⊤
++  let : MeasurableSingletonClass (Equiv.Perm I) := ⟨fun _ => trivial⟩
+   have hH : MeasurableSet (firstEvent (id : List I → List I) a) :=
+     (Set.to_countable _).measurableSet
+   have hcond := hasLaw_cond (restrictedOrder_hasLaw positions hnd hcomplete S)
+@@ -407,7 +407,7 @@ theorem hasLaw_tail_cond_first
+       (uniformOn (orders positions (S.erase a) : Set (List I)))
+       (μ[|firstEvent Y a]) := by
+   classical
+-  letI := Fintype.ofList positions hcomplete
++  let := Fintype.ofList positions hcomplete
+   have hH : MeasurableSet (firstEvent (id : List I → List I) a) :=
+     (Set.to_countable _).measurableSet
+   have hcond := hasLaw_cond hY (firstEvent (id : List I → List I) a) hH
+@@ -424,9 +424,9 @@ private theorem filter_hasLaw_orders
+       (uniformOn (orders positions T : Set (List I)))
+       (uniformOn (orders positions S : Set (List I))) := by
+   classical
+-  letI := Fintype.ofList positions hcomplete
+-  letI : MeasurableSpace (Equiv.Perm I) := ⊤
+-  letI : MeasurableSingletonClass (Equiv.Perm I) := ⟨fun _ => trivial⟩
++  let := Fintype.ofList positions hcomplete
++  let : MeasurableSpace (Equiv.Perm I) := ⊤
++  let : MeasurableSingletonClass (Equiv.Perm I) := ⟨fun _ => trivial⟩
+   refine {
+     aemeasurable := (measurable_of_countable _).aemeasurable
+     map_eq := ?_
+@@ -467,7 +467,7 @@ theorem map_restrictedOrder_cond_first
+         firstEvent (restrictedOrder positions S) a]).map (restrictedOrder positions T) =
+       uniformOn (orders positions T : Set (List I)) := by
+   classical
+-  letI := Fintype.ofList positions hcomplete
++  let := Fintype.ofList positions hcomplete
+   have h := hasLaw_filter_tail_cond_first positions hnd hcomplete S a ha
+     (restrictedOrder_hasLaw positions hnd hcomplete S) T hT
+   have hE : MeasurableSet (firstEvent (restrictedOrder positions S) a) :=

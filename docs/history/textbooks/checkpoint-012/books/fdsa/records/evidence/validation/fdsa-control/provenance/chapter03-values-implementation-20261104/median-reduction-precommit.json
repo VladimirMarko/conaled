@@ -1,0 +1,111 @@
+{
+  "recorded_utc": "2026-11-04T20:12:45.508207+00:00",
+  "fixed_stage_base": "979c4fcb1719a779ffda7462a6df385e876b7d4c",
+  "whole_chapter_review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "scope": [
+    "C03-053",
+    "C03-054"
+  ],
+  "source_readbacks": [
+    "fcb9d0",
+    "219ab0"
+  ],
+  "only_assigned_three_new_files": true,
+  "all_nine_prior_sources_unchanged": true,
+  "files": [
+    {
+      "repository_path": "Applications/Selection/MedianReduction.lean",
+      "bytes": 8269,
+      "sha256": "902329504401dfb5ae2dbd2a62c6c7fa8d3dc9eec22d29d99b350282e57d608a",
+      "public_count": 21,
+      "private_names": [],
+      "public_names": [
+        "padExtrema",
+        "padExtrema_length",
+        "padding_length_identity",
+        "padding_total_le",
+        "extrema",
+        "extrema_spec",
+        "extrema_eq_of_bounds",
+        "ranked_padExtrema",
+        "reduceToMedian",
+        "reduceToMedian_nil",
+        "reduceToMedian_length",
+        "reduceToMedian_nonempty",
+        "reduceToMedian_length_eq",
+        "reduceToMedian_center",
+        "reduceToMedian_odd",
+        "reduceToMedian_length_le",
+        "reduceToMedian_rank_shift",
+        "reduceToMedian_ranked",
+        "reduceToMedian_value",
+        "reduceToMedian_payload_value",
+        "reduceToMedian_spec"
+      ]
+    },
+    {
+      "repository_path": "Applications/Resources/MedianReduction.lean",
+      "bytes": 5640,
+      "sha256": "d38d65797526b67c775b44426c122f18c9912e32fab84481a2279c5eb324ff89",
+      "public_count": 17,
+      "private_names": [],
+      "public_names": [
+        "replicateRun",
+        "replicateRun_exact",
+        "padExtremaRun",
+        "padExtremaRun_value",
+        "padExtremaRun_cost",
+        "padExtremaRun_exact",
+        "extremaRun",
+        "extremaRun_value",
+        "extremaRun_cost",
+        "extremaRun_exact",
+        "reduceToMedianRun",
+        "reduceToMedianRun_nil",
+        "reduceToMedianRun_value",
+        "reduceToMedianRun_cons_cost",
+        "reduceToMedianRun_cost",
+        "reduceToMedianRun_cost_le",
+        "reduceToMedianRun_uniform_bound"
+      ]
+    },
+    {
+      "repository_path": "Examples/MedianReduction.lean",
+      "bytes": 7589,
+      "sha256": "d08959ce8687e1bc6db9dff78fb581c53b072e9db0436da465d9e42fdf652506",
+      "public_count": 27,
+      "private_names": [],
+      "public_names": [
+        "extrema_mixed",
+        "extrema_tied",
+        "extrema_integer",
+        "extrema_execution",
+        "replication_execution",
+        "tied_padding_rank",
+        "first_padding",
+        "last_padding",
+        "lower_middle_padding",
+        "upper_middle_padding",
+        "already_central",
+        "singleton_unchanged",
+        "empty_median_failure",
+        "lower_middle_median",
+        "upper_middle_payload",
+        "reduction_shape",
+        "padding_execution",
+        "first_execution",
+        "last_execution",
+        "central_execution",
+        "singleton_execution",
+        "empty_execution",
+        "first_rank_attains_bound",
+        "measured_reduction_contract",
+        "invalid_rank_values",
+        "invalid_rank_cost_exceeds_valid_bound",
+        "uniform_reduction_constants"
+      ]
+    }
+  ],
+  "compiler_executed": false,
+  "pending": "Focused build, emitted types, full candidate check/audit, both review axes, immediate verification. All 83 obligations and remaining C03-055\u2013058 stay in scope."
+}

@@ -1,0 +1,32 @@
+{
+  "recorded_utc": "2026-11-04T18:19:30.166302+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "held_control_count": 4778,
+  "held_logical_bytes": 107830019,
+  "held_copy_rounded_bytes": 119857152,
+  "ordinary_available_bytes": 0,
+  "raw_free_bytes": 383217664,
+  "additional_staging_scenario_bytes": 167043072,
+  "scenario_margin_against_raw_bytes": 216174592,
+  "scenario_is_not_bound_or_install_guard": true,
+  "capacity_boundary": "Current already-qualified environment; no installation/hydration/build. Scenario includes45MiB allowance for source/worktree stage, directory/metadata and compressed archive above rounded held control. Raw filesystem values are volatile; actual creation outcome remains required.",
+  "fixed_own_preparation_files_included": [
+    "README.md",
+    "final-bindings.json",
+    "final-bindings.template.json",
+    "receipt.json",
+    "resource-observation.json",
+    "schema-correction-receipt.json",
+    "schema-correction.md",
+    "verify-checkpoint-v2.diff",
+    "verify-checkpoint-v2.py",
+    "verify-checkpoint.py"
+  ],
+  "other_own_execution_products_excluded_from_hold_map": true,
+  "capture_identity": {
+    "path": "provenance/checkpoint0122-preparation/capture-control-identities.json",
+    "bytes": 887839,
+    "sha256": "b0baea666fa16bb4d0166241d58c84e2a6355fe3e7d2da90237842570a8d022a"
+  },
+  "actual_archive_creation_pending": true
+}

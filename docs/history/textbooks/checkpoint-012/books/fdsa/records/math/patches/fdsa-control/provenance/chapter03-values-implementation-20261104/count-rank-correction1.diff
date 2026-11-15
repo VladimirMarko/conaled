@@ -1,0 +1,103 @@
+diff --git a/Applications/Selection/CountRank.lean b/Applications/Selection/CountRank.lean
+index 325c8b5..b9c749e 100644
+--- a/Applications/Selection/CountRank.lean
++++ b/Applications/Selection/CountRank.lean
+@@ -72,8 +72,8 @@ theorem ordered_getElem?_partition (p : α) (xs : List α) (k : Nat) :
+       else if k < (partition3 p xs).1.length + (partition3 p xs).2.1.length then
+         some p
+       else
+-        (ordered (partition3 p xs).2.2)
+-          [k - (partition3 p xs).1.length - (partition3 p xs).2.1.length]? := by
++        (ordered (partition3 p xs).2.2)[k - (partition3 p xs).1.length -
++          (partition3 p xs).2.1.length]? := by
+   rw [← dispatch_value (fun j ys => (ordered ys)[j]?) p k xs
+     (fun _ => rfl) (fun _ => rfl)]
+   unfold dispatch
+@@ -100,7 +100,7 @@ theorem ranked_iff_count_bounds {xs : List α} {k : Nat} {a : α} :
+   have he : k < (partition3 a xs).1.length + (partition3 a xs).2.1.length := by
+     omega
+   apply ranked_iff_index.mpr
+-  rw [ordered_getElem?_partition a xs k, if_neg (by omega), if_pos he]
++  rw [ordered_getElem?_partition a xs k, ite_eq_right (by omega), ite_eq_left he]
+ 
+ theorem count_bounds_unique {xs : List α} {k : Nat} {a b : α}
+     (ha : xs.countP (fun x => decide (x < a)) ≤ k ∧
+@@ -112,8 +112,8 @@ theorem count_bounds_unique {xs : List α} {k : Nat} {a b : α}
+ /-- The sublist statement in particular preserves occurrence multiplicities
+ in the source's submultiset argument. -/
+ theorem filter_le_sublist_filter_lt (xs : List α) {a b : α} (hab : a < b) :
+-    xs.filter (fun x => decide (x ≤ a)) <+
+-      xs.filter (fun x => decide (x < b)) := by
++    List.Sublist (xs.filter (fun x => decide (x ≤ a)))
++      (xs.filter (fun x => decide (x < b))) := by
+   apply List.sublist_filter_iff.mpr
+   refine ⟨xs.filter (fun x => decide (x ≤ a)), List.filter_sublist, ?_⟩
+   symm
+@@ -190,7 +190,7 @@ theorem ranked_zero_iff_min {xs : List α} {a : α} :
+       by_contra h
+       have he : xs.countP (fun x => decide (a < x)) = xs.length := by omega
+       have hself := (List.countP_eq_length.mp he) a ha
+-      simpa using hself
++      simp at hself
+     exact ranked_iff_count_bounds.mpr ⟨by omega, by simpa using hg⟩
+ 
+ theorem ordered_getElem?_zero_iff_min {xs : List α} {a : α} :
+@@ -215,15 +215,15 @@ theorem ordered_getElem?_append (xs ys : List α)
+       if k < xs.length then (ordered xs)[k]? else (ordered ys)[k - xs.length]? := by
+   rw [ordered_append xs ys hxy]
+   by_cases hk : k < xs.length
+-  · rw [if_pos hk, List.getElem?_append_left (by simpa only [(ordered_perm xs).length_eq] using hk)]
+-  · rw [if_neg hk, List.getElem?_append_right (by simpa only [(ordered_perm xs).length_eq] using Nat.le_of_not_gt hk),
++  · rw [ite_eq_left hk, List.getElem?_append_left (by simpa only [(ordered_perm xs).length_eq] using hk)]
++  · rw [ite_eq_right hk, List.getElem?_append_right (by simpa only [(ordered_perm xs).length_eq] using Nat.le_of_not_gt hk),
+       (ordered_perm xs).length_eq]
+ 
+ /-- In a sorted list, every strictly smaller occurrence is before the selected
+ occurrence. Sublist is stronger than the source's submultiset containment. -/
+ theorem sorted_filter_lt_sublist_take {ys : List α} {k : Nat} {a : α}
+     (hs : ys.Pairwise (· ≤ ·)) (ha : ys[k]? = some a) :
+-    ys.filter (fun x => decide (x < a)) <+ ys.take k := by
++    List.Sublist (ys.filter (fun x => decide (x < a))) (ys.take k) := by
+   induction ys generalizing k with
+   | nil => simp at ha
+   | cons x ys ih =>
+@@ -245,7 +245,7 @@ theorem sorted_filter_lt_sublist_take {ys : List α} {k : Nat} {a : α}
+ 
+ theorem sorted_filter_gt_sublist_drop {ys : List α} {k : Nat} {a : α}
+     (hs : ys.Pairwise (· ≤ ·)) (ha : ys[k]? = some a) :
+-    ys.filter (fun x => decide (a < x)) <+ ys.drop (k + 1) := by
++    List.Sublist (ys.filter (fun x => decide (a < x))) (ys.drop (k + 1)) := by
+   induction ys generalizing k with
+   | nil => simp at ha
+   | cons x ys ih =>
+@@ -266,7 +266,7 @@ theorem lowerMedian_value (choose : List α → Option α) (hv : PivotValid choo
+   by_cases hx : xs = []
+   · subst xs
+     simp [lowerMedianWith, selectWith, ordered]
+-  · have hn : 0 < xs.length := List.length_pos.mpr hx
++  · have hn : 0 < xs.length := Nat.pos_of_ne_zero (fun h => hx (List.length_eq_zero_iff.mp h))
+     rw [lowerMedianWith, selectWith_value choose hv xs _ (by omega)]
+     congr 1
+     omega
+diff --git a/Examples/SelectionCountRank.lean b/Examples/SelectionCountRank.lean
+index 62f1653..b43d7c7 100644
+--- a/Examples/SelectionCountRank.lean
++++ b/Examples/SelectionCountRank.lean
+@@ -60,7 +60,7 @@ theorem outside_pivot_value :
+   have h : 0 < (partition3 2 ([1] : List Nat)).1.length := by
+     rw [partition3_eq_filters]
+     decide
+-  rw [if_pos h]
++  rw [ite_eq_left h]
+ 
+ theorem equal_occurrence_branch :
+     (ordered ([3, 2, 2, 1] : List Nat))[2]? = some 2 := by
+@@ -72,7 +72,7 @@ theorem equal_occurrence_branch :
+       (partition3 2 ([3, 2, 2, 1] : List Nat)).2.1.length := by
+     rw [partition3_eq_filters]
+     decide
+-  rw [if_neg hl, if_pos he]
++  rw [ite_eq_right hl, ite_eq_left he]
+ 
+ theorem ordered_blocks :
+     ordered ([2, 1] ++ [4, 3] : List Nat) = ordered [2, 1] ++ ordered [4, 3] :=

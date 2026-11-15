@@ -1,0 +1,69 @@
+{
+  "prepared_utc": "2026-11-04T06:37:12.491140+00:00",
+  "candidate": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+  "groups": [
+    {
+      "module": "Applications.Probability.PermutationMinimum",
+      "source": "Applications/Probability/PermutationMinimum.lean",
+      "bytes": 8244,
+      "sha256": "648a2d799ea9905a27992ad4e8653ad21a0457c5301e8c0a026d08d9cd067bbb",
+      "names": [
+        "Applications.Probability.PermutationMinimum.minimumEvent",
+        "Applications.Probability.PermutationMinimum.mem_minimumEvent",
+        "Applications.Probability.PermutationMinimum.minimumEvent_empty",
+        "Applications.Probability.PermutationMinimum.minimumEvent_of_not_mem",
+        "Applications.Probability.PermutationMinimum.minimumEvent_singleton",
+        "Applications.Probability.PermutationMinimum.minimumEvent_inter",
+        "Applications.Probability.PermutationMinimum.uniformOn_minimumEvent"
+      ]
+    },
+    {
+      "module": "Examples.PermutationMinimum",
+      "source": "Examples/PermutationMinimum.lean",
+      "bytes": 4891,
+      "sha256": "b1cef98f9814eb53668cc29896bad750d2b687c4bc162c7ad500e1df82a09442",
+      "names": [
+        "Examples.PermutationMinimum.law",
+        "Examples.PermutationMinimum.firstSubset",
+        "Examples.PermutationMinimum.secondSubset",
+        "Examples.PermutationMinimum.first_minimum_mass",
+        "Examples.PermutationMinimum.second_minimum_mass",
+        "Examples.PermutationMinimum.overlap_event",
+        "Examples.PermutationMinimum.full_minimum_mass",
+        "Examples.PermutationMinimum.overlap_mass",
+        "Examples.PermutationMinimum.marginal_product",
+        "Examples.PermutationMinimum.overlap_mass_ne_product",
+        "Examples.PermutationMinimum.singleton_minimum_mass",
+        "Examples.PermutationMinimum.spacedPriority",
+        "Examples.PermutationMinimum.spacedPriority_values",
+        "Examples.PermutationMinimum.spacedPriority_injective",
+        "Examples.PermutationMinimum.spacedPriority_not_monotone",
+        "Examples.PermutationMinimum.spaced_minimum_mass"
+      ]
+    },
+    {
+      "module": "Examples.PermutationMinimumBoundary",
+      "source": "Examples/PermutationMinimumBoundary.lean",
+      "bytes": 4173,
+      "sha256": "d169fc8ccac457d71978bd1a209ab610338dd601fe816e40f9f0666164cca34d",
+      "names": [
+        "Examples.PermutationMinimumBoundary.empty_index_normalized",
+        "Examples.PermutationMinimumBoundary.empty_subset_event",
+        "Examples.PermutationMinimumBoundary.empty_subset_mass",
+        "Examples.PermutationMinimumBoundary.outsider_event_empty",
+        "Examples.PermutationMinimumBoundary.outsider_mass",
+        "Examples.PermutationMinimumBoundary.outsiderComparison",
+        "Examples.PermutationMinimumBoundary.outsiderComparison_eq_full_minimum",
+        "Examples.PermutationMinimumBoundary.outsiderComparison_mass",
+        "Examples.PermutationMinimumBoundary.outsiderComparison_ne_singleton_inverse",
+        "Examples.PermutationMinimumBoundary.tiedPriority",
+        "Examples.PermutationMinimumBoundary.tiedPriority_not_injective",
+        "Examples.PermutationMinimumBoundary.tied_event_univ",
+        "Examples.PermutationMinimumBoundary.tied_mass",
+        "Examples.PermutationMinimumBoundary.tied_mass_ne_half"
+      ]
+    }
+  ],
+  "total": 37,
+  "status": "Uncompiled original draft; preparation only; no validation inferred"
+}

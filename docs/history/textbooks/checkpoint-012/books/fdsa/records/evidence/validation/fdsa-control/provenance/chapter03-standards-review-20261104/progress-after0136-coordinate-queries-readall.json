@@ -1,0 +1,113 @@
+{
+  "axis": "Standards",
+  "recorded_utc": "2026-11-05T01:11:51.320808+00:00",
+  "outcome": "Blocked; source review and final validation incomplete",
+  "current_immutable_candidate": "6eb3b18f017cad485371546b5a7ab0d6f13eb604",
+  "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "frozen_obligations": 83,
+  "previous_progress": {
+    "path": "provenance/chapter03-standards-review-20261104/progress-after0136-trace-sensitivity-assembly4.json",
+    "bytes": 9538,
+    "sha256": "ef9c12ccced83c120d79255b0a53d4c8cbe4014e81649123539297b235f656be"
+  },
+  "newly_assessed_sources": [
+    {
+      "path": "Applications/Selection/CoordinateQueries.lean",
+      "bytes": 11106,
+      "sha256": "ca1c0d339500e77aa14ca47420b9f7a11f213bbcd8ac113c3281c7f9690e6409",
+      "lines": 239,
+      "equal_to_38": true,
+      "complete_source_and_type_assessment": true
+    },
+    {
+      "path": "Examples/CoordinateQueries.lean",
+      "bytes": 8079,
+      "sha256": "d90bd28ec4496105d9c5da80171a4c96a5ace119c0e178ded48f4f84ca8ad16d",
+      "lines": 181,
+      "equal_to_38": true,
+      "complete_source_and_type_assessment": true
+    },
+    {
+      "path": "Applications/Selection/CoordinateReadAll.lean",
+      "bytes": 7611,
+      "sha256": "ab2fd8949fe4a73e909cac90f99329fcd3b508e1b221e4411449a535f48f41ff",
+      "lines": 156,
+      "equal_to_38": true,
+      "complete_source_and_type_assessment": true
+    },
+    {
+      "path": "Examples/CoordinateReadAll.lean",
+      "bytes": 5626,
+      "sha256": "8290a02bee2fb078439842c26a6cb46ec231aeb092b30659c8a3b674cc54b603",
+      "lines": 107,
+      "equal_to_38": true,
+      "complete_source_and_type_assessment": true
+    }
+  ],
+  "source_receipts": {
+    "Queries/core_and_examples": "779402",
+    "ReadAll/core_and_examples": "4d1c60"
+  },
+  "actual_types": {
+    "index": {
+      "path": "provenance/chapter03-assembly2-statement-inputs-20261104/actual-type-block-index.json",
+      "bytes": 382223,
+      "sha256": "b89adf0160b2a887c5046917d6ac04131e826e3d6dd4d7e31b0edc0ab62961a2"
+    },
+    "inclusive_ranges": [
+      [
+        1160,
+        1183
+      ],
+      [
+        1197,
+        1247
+      ]
+    ],
+    "count": 75,
+    "bytes": 86035,
+    "concatenated_sha256": "d844e240415a2b9105bab454495c10100c3b9960af550ff9319dae61bbb77fbf",
+    "full_raw_block_receipts": {
+      "1160-1183": "5d62bb",
+      "1197-1209": "c1a514",
+      "1210-1220": "5180fc",
+      "1221-1241": "49f341",
+      "1242-1247": "6f3cb1"
+    },
+    "boundary": "Historical prefix38 actual type observations plus unchanged source correspondence. Full candidate qualification remains separate."
+  },
+  "assessment": {
+    "query_execution": "Protocol receives only a prior index/value history, and the Runs query constructor alone obtains a hidden-input value at the requested valid coordinate. Histories are newest-first; completed traces remain chronological. Initial-history emptiness is explicit for correctness/lower bounds. The replay proof reconstructs the same finite transcript/result on any input agreeing at queried coordinates, preserving repeated queries. Determinism and recorded-answer correctness are proved from actual constructors. Totality over every input is separate from correctness over every terminating run on every Int input; neither is restricted to distinct inputs.",
+    "query_lower_bounds": "On every injective Int input at every valid Fin rank, an unqueried-coordinate sensitivity witness and replay contradict correctness; hence the actual trace covers all coordinates and has at least n entries, including repeated entries. A general positive per-query tariff yields work>=n. Transferring that result to a different resource explicitly requires coversQueries; this conditional generic transfer is not claimed to supply a source-call bound. Total correctness separately yields an increasing-input run at every valid size/rank. The uniform upper-bound and BigO/omega statements use concrete terminating witnesses rather than assuming a finite supremum. Public actual types confirm the input, correctness, validity, distinctness and tariff premises exactly.",
+    "query_checked_uses": "The one-coordinate ask/return protocol has actual total runs and correct selected value. repeatNegative makes the actual number of queries depend on an observed sign; repeated negative queries cost6 under tariff3, while a nonnegative execution costs3. The two-coordinate minimum protocol is total and correct even on duplicate inputs, with a full distinct-coverage/lower-bound case and explicit measured-contract transfer. Generic clients exercise replay updates, concrete worst-case witnesses and asymptotic query bounds. All bodies and every public type including Runs constructors were read.",
+    "reading_frontend": "readPlan depends only on a fixed coordinate plan, final pure computation and transcript, querying indices at actual history length and finally computing from reversed chronological observed answers. The full private readPlan_run_from invariant uses an actual answered prefix; it does not treat arbitrary histories as reachable. Induction supplies actual runs for every finite plan, including repetitions; determinism gives the iff laws and exact trace lengths/work. readAll specializes to all Fin coordinates and proves the actual acquired values are List.ofFn input, with totality, every-run trace equality, n queries and exact acquisition work c*n for constant tariff c. Generic specification transfer is explicitly conditional and does not claim an algorithm or computation-cost bound. Reversal, plan lookup and pure-computation costs remain outside this acquisition model, as documented.",
+    "reading_checked_uses": "Empty arbitrary payload types need no fabricated answer, with zero queries and actual compute[]. Totality supplies complete executions before observation contracts. Concrete[8,3,5] sum16 and duplicate[4,4,4] sum12 keep three distinct-coordinate reads; duplicate tariff2 charge is6. Repeated plan[0,1,0] has three actual queries and charge3*c. A supplied-history case computes chronological[7,99] but explicitly makes no reachability claim. Generic sum/spec and all-run clients compose the public laws.",
+    "selection_source_only": "Complete CoordinateSelection core1-220 was read in7c6ed7;221-352 and all200 example lines in7c5669. Actual acquired values are passed to measured selectRun, both optional value and source count are retained, work is queryWork plus actual observed source calls, and concrete query coverage is proved. Uniform affine/positive-size linear constants precede payload/type/tariff/input/rank; selectedValue preserves the same requests/observation and proves the fixed default unused at valid ranks. The full private ofFn-Nodup-to-injective helper and competitor bound/total optimality proofs were read. Their46 actual types remain unread at this save, so the pair is not yet counted complete.",
+    "new_findings": []
+  },
+  "coverage": {
+    "completed_source_and_type_modules": 74,
+    "source_modules_fully_read": 76,
+    "current_chapter_modules": 78,
+    "actual_blocks_assessed": 1299,
+    "original_type_index_complete_ranges": [
+      [
+        0,
+        1247
+      ],
+      [
+        1294,
+        1320
+      ]
+    ],
+    "additional_blocks": "23 Trace and1 CountRank client",
+    "accepted_XR_formal_modules_reused": 2,
+    "remaining_modules": "CoordinateSelection pair actual46 types; Worst pair full source/examples/helpers and25 actual types"
+  },
+  "findings": {
+    "C03-SPEC-USE-001": "Resolved",
+    "C03-STD-DOC-001": "Resolved",
+    "new_findings": []
+  },
+  "remaining": "New universal endpoint trace/mass/triangular/source-family stage remains independently unassessed. Final coherent docs/coverage, final1391 qualification with accepted roots, complete normal check/exhaustive audit, both independent review outcomes and immediate verification are outstanding. Earlier audit SIGKILL gives no success. No compiler/session poll was performed."
+}

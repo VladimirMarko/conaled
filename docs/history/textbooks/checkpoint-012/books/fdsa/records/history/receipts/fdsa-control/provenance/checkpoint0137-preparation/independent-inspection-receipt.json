@@ -1,0 +1,71 @@
+{
+  "recorded_utc": "2026-11-05T02:08:30.737619+00:00",
+  "reviewer": "/root/checkpoint0137_acceptance_inspection",
+  "outcome": "PASS",
+  "unresolved_operational_findings": 0,
+  "scope": "Independent operational packaging inspection only; no additional mathematical review/compiler/acceptance credit.",
+  "inspected_files": {
+    "verify-checkpoint.py": {
+      "bytes": 28634,
+      "sha256": "68992e216e4570b13458a91998c80552861a7b2785980b3cf089493df2a07db3"
+    },
+    "capture.py": {
+      "bytes": 5421,
+      "sha256": "7e5c7786b7239de9bb0217ed2c0b5730fcfd14db2e9bd531380d246d7eb4b1ee"
+    },
+    "run-stage.py": {
+      "bytes": 2382,
+      "sha256": "9d3b50105498a5b05b5a5e1419a6623f39ef30fae4444388cca95517af744eb0"
+    },
+    "README.md": {
+      "bytes": 2784,
+      "sha256": "b9411bcf538cb4dddeee4bc1d78e24b9f7d7ee16c2aa56897d8266218e8e67d5"
+    }
+  },
+  "acceptance": {
+    "bytes": 52490,
+    "sha256": "b0a6cdf9341b2386010f428b7b16d595895eaa8b24f3dd3c47d5d95dd8287c6d"
+  },
+  "progress": {
+    "bytes": 42031,
+    "sha256": "95d709a49014867b5ac0fa0a9f2c9c6ac37c6511aef4172f00c73f40c19c5ae9"
+  },
+  "current_acceptance_bindings_verified": 131,
+  "root_gate_bindings_verified": 111,
+  "prior_held_control_files_verified": 7867,
+  "old_closed_rows_preserved": 102,
+  "new_actual_closed_runs": 5,
+  "closed_runs": 107,
+  "refs": 74,
+  "worktrees": 9,
+  "native_kit_manifest_entries": 298,
+  "all_original_gates_retained": true,
+  "only_added_ref_advance": "work/fdsa-book c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5 to298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "only_added_prior_control_allowance": "reviews/README.md",
+  "read_receipts": {
+    "initial_helpers": [
+      "0c8808 actual0",
+      "2affd7 actual0",
+      "916e02 actual0"
+    ],
+    "final_metadata_AST_README": "1a1dda actual0",
+    "complete_extension_diffs": "8a4cc4 actual0:207 verifier-patch lines,115 helper/README-patch lines",
+    "acceptance_metadata": "e85ec7 actual0;131 identity rows separately rehashed",
+    "actual_acceptance_chain": "58e5a8 actual0",
+    "final_binding_preservation_and_resource_checks": "334401 actual0"
+  },
+  "recovered_inspector_only_errors": [
+    {
+      "chunk": "8eb094",
+      "issue": "Supplemental read path duplicated provenance after complete verifier text.",
+      "recovery": "916e02 actual0; no mutation."
+    },
+    {
+      "chunk": "91da96",
+      "issue": "Additional inspector assertion assumed separate coverage record was in acceptance binding list.",
+      "recovery": "de1094 actual0 established actual schema;334401 actual0 verified all83 rows and archive/control preservation linkage; no gate defect or mutation."
+    }
+  ],
+  "root_read_complete_final_report": true,
+  "capture_creation_verification_upload_pending": true
+}

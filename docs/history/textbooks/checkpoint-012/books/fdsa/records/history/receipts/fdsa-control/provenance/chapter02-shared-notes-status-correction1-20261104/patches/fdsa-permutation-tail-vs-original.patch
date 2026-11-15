@@ -1,0 +1,39 @@
+--- a/docs/research/fdsa-permutation-tail.md
++++ b/docs/research/fdsa-permutation-tail.md
+@@ -1,10 +1,20 @@
+ # Conditional laws of an observed remaining order
+ 
+-Status: **source draft, not compiled or accepted**. This bounded shared unit
++This bounded shared unit
+ continues the [whole-order draft](fdsa-permutation-order.md). Its frozen
+ requirements, preflights, exact finite expectations, candidate identity and
+ eventual gates are retained in the local FDSA-XU03 checkpoint record. No
+ chapter or algorithm obligation is accepted by this source draft.
++
++**Validation snapshot — 4 November 2026.** The conditional-tail core had an
++individual successful compilation, retained in a later focused check.
++Two closed focused checks recorded boundary-example failures, and neither
++established a successful result for the main examples. The later boundary correction was
++recorded as a source-only change; this snapshot claims no validation of that
++correction. All 61 public types from this unit were still awaiting printed
++inspection, and complete unit acceptance was outstanding in this snapshot.
++Reuse of historical results requires matching candidate evidence. The full
++acceptance gates below remain required.
+ 
+ ## The observation and conditioning event
+ 
+@@ -162,7 +172,6 @@
+   the exposed key, but is not a subset of S.erase0. This shows why the
+   containment hypothesis cannot be replaced by nonmembership of a alone.
+ 
+-These mathematical expectations and source-written proofs remain uncompiled.
+ Exact finite enumeration and statement assessments do not supply kernel
+ validation or final review approval.
+ 
+@@ -200,4 +209,5 @@
+ expected positions and treap charging remain queued. Completion of this
+ shared unit still requires its immutable-candidate compilation, guarded full
+ check, exhaustive audit, both independent final review axes and immediate
+-candidate verification. All predecessor drafts retain their own pending gates.
++candidate verification. The prerequisite minimum-law and whole-order units
++require their own recorded acceptance.

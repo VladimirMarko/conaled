@@ -1,0 +1,498 @@
+{
+  "schema": 1,
+  "scope": "Isolated validation of frozen operational environment candidate; no formal VFA build or acceptance",
+  "started_utc": "2026-11-03T16:24:24.617130+00:00",
+  "base": "c411e6c04b4001b80f5b0da812b6792ee9190861",
+  "candidate": "e41336d46dffd7bddd42b242a7ea7484a6055e43",
+  "source_repository": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/native-environment-review",
+  "isolated_checkout": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation",
+  "review_identity_sha256": "882df7d34ba3082f100f36074c98f214f00916624cc18bf59dccf568ba0e880d",
+  "commands": [
+    {
+      "name": "clone",
+      "argv": [
+        "git",
+        "clone",
+        "--quiet",
+        "--no-hardlinks",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/native-environment-review",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation",
+      "started_utc": "2026-11-03T16:24:24.617774+00:00",
+      "state": "completed",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "stdout_log": "work-state/validation/1033-native-environment/isolated-validation-logs/clone.stdout.log",
+      "stderr_log": "work-state/validation/1033-native-environment/isolated-validation-logs/clone.stderr.log",
+      "finished_utc": "2026-11-03T16:24:24.660253+00:00",
+      "elapsed_seconds": 0.04248245899907488
+    },
+    {
+      "name": "checkout",
+      "argv": [
+        "git",
+        "checkout",
+        "--quiet",
+        "--detach",
+        "e41336d46dffd7bddd42b242a7ea7484a6055e43"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation",
+      "started_utc": "2026-11-03T16:24:24.660452+00:00",
+      "state": "completed",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "stdout_log": "work-state/validation/1033-native-environment/isolated-validation-logs/checkout.stdout.log",
+      "stderr_log": "work-state/validation/1033-native-environment/isolated-validation-logs/checkout.stderr.log",
+      "finished_utc": "2026-11-03T16:24:24.667400+00:00",
+      "elapsed_seconds": 0.006957583000257728
+    },
+    {
+      "name": "head",
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation",
+      "started_utc": "2026-11-03T16:24:24.667704+00:00",
+      "state": "completed",
+      "returncode": 0,
+      "stdout": "e41336d46dffd7bddd42b242a7ea7484a6055e43\n",
+      "stderr": "",
+      "stdout_log": "work-state/validation/1033-native-environment/isolated-validation-logs/head.stdout.log",
+      "stderr_log": "work-state/validation/1033-native-environment/isolated-validation-logs/head.stderr.log",
+      "finished_utc": "2026-11-03T16:24:24.672749+00:00",
+      "elapsed_seconds": 0.005049814000813058
+    },
+    {
+      "name": "base-ancestor",
+      "argv": [
+        "git",
+        "merge-base",
+        "--is-ancestor",
+        "c411e6c04b4001b80f5b0da812b6792ee9190861",
+        "e41336d46dffd7bddd42b242a7ea7484a6055e43"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation",
+      "started_utc": "2026-11-03T16:24:24.673021+00:00",
+      "state": "completed",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "stdout_log": "work-state/validation/1033-native-environment/isolated-validation-logs/base-ancestor.stdout.log",
+      "stderr_log": "work-state/validation/1033-native-environment/isolated-validation-logs/base-ancestor.stderr.log",
+      "finished_utc": "2026-11-03T16:24:24.677788+00:00",
+      "elapsed_seconds": 0.0047609149987692945
+    },
+    {
+      "name": "initial-status",
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1",
+        "--untracked-files=all"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation",
+      "started_utc": "2026-11-03T16:24:24.678054+00:00",
+      "state": "completed",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "stdout_log": "work-state/validation/1033-native-environment/isolated-validation-logs/initial-status.stdout.log",
+      "stderr_log": "work-state/validation/1033-native-environment/isolated-validation-logs/initial-status.stderr.log",
+      "finished_utc": "2026-11-03T16:24:24.684678+00:00",
+      "elapsed_seconds": 0.006629950001297402
+    },
+    {
+      "name": "cc-version",
+      "argv": [
+        "/usr/bin/cc",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation",
+      "started_utc": "2026-11-03T16:24:24.687127+00:00",
+      "state": "completed",
+      "returncode": 0,
+      "stdout": "cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "stderr": "",
+      "stdout_log": "work-state/validation/1033-native-environment/isolated-validation-logs/cc-version.stdout.log",
+      "stderr_log": "work-state/validation/1033-native-environment/isolated-validation-logs/cc-version.stderr.log",
+      "finished_utc": "2026-11-03T16:24:24.691324+00:00",
+      "elapsed_seconds": 0.004194442000880372
+    },
+    {
+      "name": "build-shim",
+      "argv": [
+        "/usr/bin/cc",
+        "-shared",
+        "-fPIC",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-o",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/native-compat/libconaled_app_path.new.so",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/work-state/tooling/native_app_path.c"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation",
+      "started_utc": "2026-11-03T16:24:24.691817+00:00",
+      "state": "completed",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "stdout_log": "work-state/validation/1033-native-environment/isolated-validation-logs/build-shim.stdout.log",
+      "stderr_log": "work-state/validation/1033-native-environment/isolated-validation-logs/build-shim.stderr.log",
+      "finished_utc": "2026-11-03T16:24:24.770013+00:00",
+      "elapsed_seconds": 0.07820437900045363
+    },
+    {
+      "name": "boundary-tests",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/work-state/tooling/test_native_app_path.py",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/native-compat/libconaled_app_path.so",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation",
+      "started_utc": "2026-11-03T16:24:24.771456+00:00",
+      "state": "completed",
+      "returncode": 0,
+      "stdout": "{\n  \"passed\": true,\n  \"executable\": \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12\",\n  \"shim\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/native-compat/libconaled_app_path.so\",\n  \"results\": {\n    \"baseline\": {\n      \"self\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"pid\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"truncated\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"zero_size\": {\n        \"return\": -1,\n        \"errno\": 22,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"null_buffer\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"null_path\": {\n        \"return\": -1,\n        \"errno\": 14,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"ordinary\": {\n        \"return\": 15,\n        \"errno\": 123,\n        \"bytes\": \"6f7264696e6172792d746172676574\",\n        \"next_byte\": 33\n      },\n      \"near_match\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"nonexistent_pid\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      }\n    },\n    \"matched\": {\n      \"self\": {\n        \"return\": 76,\n        \"errno\": 123,\n        \"bytes\": \"2f6f70742f636f6465782f72756e74696d65732f636f6465782d7072696d6172792d72756e74696d652f646570656e64656e636965732f707974686f6e2f62696e2f707974686f6e332e3132\",\n        \"next_byte\": 33\n      },\n      \"pid\": {\n        \"return\": 76,\n        \"errno\": 123,\n        \"bytes\": \"2f6f70742f636f6465782f72756e74696d65732f636f6465782d7072696d6172792d72756e74696d652f646570656e64656e636965732f707974686f6e2f62696e2f707974686f6e332e3132\",\n        \"next_byte\": 33\n      },\n      \"truncated\": {\n        \"return\": 3,\n        \"errno\": 123,\n        \"bytes\": \"2f6f70\",\n        \"next_byte\": 33\n      },\n      \"zero_size\": {\n        \"return\": -1,\n        \"errno\": 22,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"null_buffer\": {\n        \"return\": -1,\n        \"errno\": 14,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"null_path\": {\n        \"return\": -1,\n        \"errno\": 14,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"ordinary\": {\n        \"return\": 15,\n        \"errno\": 123,\n        \"bytes\": \"6f7264696e6172792d746172676574\",\n        \"next_byte\": 33\n      },\n      \"near_match\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"nonexistent_pid\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      }\n    },\n    \"mismatched\": {\n      \"self\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"pid\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"truncated\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"zero_size\": {\n        \"return\": -1,\n        \"errno\": 22,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"null_buffer\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"null_path\": {\n        \"return\": -1,\n        \"errno\": 14,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"ordinary\": {\n        \"return\": 15,\n        \"errno\": 123,\n        \"bytes\": \"6f7264696e6172792d746172676574\",\n        \"next_byte\": 33\n      },\n      \"near_match\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"nonexistent_pid\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      }\n    },\n    \"unset\": {\n      \"self\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"pid\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"truncated\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"zero_size\": {\n        \"return\": -1,\n        \"errno\": 22,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"null_buffer\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"null_path\": {\n        \"return\": -1,\n        \"errno\": 14,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"ordinary\": {\n        \"return\": 15,\n        \"errno\": 123,\n        \"bytes\": \"6f7264696e6172792d746172676574\",\n        \"next_byte\": 33\n      },\n      \"near_match\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      },\n      \"nonexistent_pid\": {\n        \"return\": -1,\n        \"errno\": 2,\n        \"bytes\": \"\",\n        \"next_byte\": null\n      }\n    }\n  }\n}\n",
+      "stderr": "",
+      "stdout_log": "work-state/validation/1033-native-environment/isolated-validation-logs/boundary-tests.stdout.log",
+      "stderr_log": "work-state/validation/1033-native-environment/isolated-validation-logs/boundary-tests.stderr.log",
+      "finished_utc": "2026-11-03T16:24:25.003387+00:00",
+      "elapsed_seconds": 0.2319444349996047
+    },
+    {
+      "name": "describe",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/work-state/tooling/pinned_native_toolchain.py",
+        "--describe"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp/minimal-lake-fixture",
+      "started_utc": "2026-11-03T16:24:25.003945+00:00",
+      "state": "completed",
+      "returncode": 0,
+      "stdout": "{\n  \"workspace\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation\",\n  \"official_distribution\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-linux\",\n  \"overlay\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-native\",\n  \"environment_overrides\": {\n    \"PATH\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-native/bin:/root/.codex/tmp/arg0-linux/codex-arg0D0T4n9:/opt/codex/codex-path:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback\",\n    \"LEAN_SYSROOT\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-native\",\n    \"LAKE_OVERRIDE_LEAN\": \"true\",\n    \"LD_LIBRARY_PATH\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-linux/lib:/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-linux/lib/lean\",\n    \"TMPDIR\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp\",\n    \"MATHLIB_CACHE_DIR\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/dependency-cache/mathlib\",\n    \"XDG_CACHE_HOME\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/dependency-cache/xdg\",\n    \"XDG_CONFIG_HOME\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-config\",\n    \"XDG_STATE_HOME\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-state\",\n    \"LEAN_NUM_THREADS\": \"1\"\n  },\n  \"cleared_inherited_selectors\": [\n    \"LEAN\",\n    \"LEAN_PATH\",\n    \"LEAN_SYSROOT\",\n    \"LEAN_AR\",\n    \"LEAN_CC\",\n    \"LEAN_GITHASH\",\n    \"LAKE_HOME\",\n    \"LAKE_OVERRIDE_LEAN\",\n    \"LD_PRELOAD\",\n    \"CONALED_SELF_EXE\"\n  ],\n  \"execution_inputs\": {\n    \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-linux/bin/lean\": \"bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38\",\n    \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-linux/bin/lake\": \"8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1\",\n    \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/work-state/tooling/native_app_path.c\": \"0798e7e0d6b71510dd3f68778af1e487aaa9093af5f7cb1666c22b8605f5fd76\",\n    \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/native-compat/libconaled_app_path.so\": \"8bb82334a2888e37a18b657a16f498cba239aaf3935bf24cc5b59728f6df5a18\"\n  },\n  \"relocated_executables\": {\n    \"lean\": \"bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38\",\n    \"lake\": \"8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1\"\n  },\n  \"launchers\": {\n    \"lean\": {\n      \"sha256\": \"62c4112146c38061bc818ed395ce69cb6d5477f7665900e7f446d0be10ac3c54\",\n      \"content\": \"#!/bin/sh\\nexport LD_PRELOAD=/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/native-compat/libconaled_app_path.so\\nexport CONALED_SELF_EXE=/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-native/libexec/lean\\nexec /workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-native/libexec/lean \\\"$@\\\"\\n\"\n    },\n    \"lake\": {\n      \"sha256\": \"fceede164aee69c6f43e7c167bf7f7ae975170f32bbbe84595c0c7ffad1891b5\",\n      \"content\": \"#!/bin/sh\\nexport LD_PRELOAD=/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/native-compat/libconaled_app_path.so\\nexport CONALED_SELF_EXE=/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-native/libexec/lake\\nexec /workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-native/libexec/lake \\\"$@\\\"\\n\"\n    }\n  }\n}\n",
+      "stderr": "",
+      "stdout_log": "work-state/validation/1033-native-environment/isolated-validation-logs/describe.stdout.log",
+      "stderr_log": "work-state/validation/1033-native-environment/isolated-validation-logs/describe.stderr.log",
+      "finished_utc": "2026-11-03T16:24:25.066404+00:00",
+      "elapsed_seconds": 0.06251580500065756
+    },
+    {
+      "name": "lean-version",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/work-state/tooling/pinned_native_toolchain.py",
+        "--",
+        "lean",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp/minimal-lake-fixture",
+      "started_utc": "2026-11-03T16:24:25.067419+00:00",
+      "state": "completed",
+      "returncode": 0,
+      "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": "",
+      "stdout_log": "work-state/validation/1033-native-environment/isolated-validation-logs/lean-version.stdout.log",
+      "stderr_log": "work-state/validation/1033-native-environment/isolated-validation-logs/lean-version.stderr.log",
+      "finished_utc": "2026-11-03T16:24:25.392611+00:00",
+      "elapsed_seconds": 0.32520555300106935
+    },
+    {
+      "name": "lake-version",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/work-state/tooling/pinned_native_toolchain.py",
+        "--",
+        "lake",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp/minimal-lake-fixture",
+      "started_utc": "2026-11-03T16:24:25.393184+00:00",
+      "state": "completed",
+      "returncode": 0,
+      "stdout": "Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)\n",
+      "stderr": "",
+      "stdout_log": "work-state/validation/1033-native-environment/isolated-validation-logs/lake-version.stdout.log",
+      "stderr_log": "work-state/validation/1033-native-environment/isolated-validation-logs/lake-version.stderr.log",
+      "finished_utc": "2026-11-03T16:24:25.635253+00:00",
+      "elapsed_seconds": 0.24207579100038856
+    },
+    {
+      "name": "lake-child-lean-version",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/work-state/tooling/pinned_native_toolchain.py",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp/minimal-lake-fixture",
+      "started_utc": "2026-11-03T16:24:25.635982+00:00",
+      "state": "completed",
+      "returncode": 0,
+      "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": "info: nativeEnvironmentSmoke: no previous manifest, creating one from scratch\ninfo: toolchain not updated; already up-to-date\n",
+      "stdout_log": "work-state/validation/1033-native-environment/isolated-validation-logs/lake-child-lean-version.stdout.log",
+      "stderr_log": "work-state/validation/1033-native-environment/isolated-validation-logs/lake-child-lean-version.stderr.log",
+      "finished_utc": "2026-11-03T16:24:25.909135+00:00",
+      "elapsed_seconds": 0.2731618720008555
+    },
+    {
+      "name": "lake-child-path",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/work-state/tooling/pinned_native_toolchain.py",
+        "--",
+        "lake",
+        "env",
+        "python3",
+        "-B",
+        "-c",
+        "import shutil; print(shutil.which(\"lean\"))"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp/minimal-lake-fixture",
+      "started_utc": "2026-11-03T16:24:25.909661+00:00",
+      "state": "completed",
+      "returncode": 0,
+      "stdout": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-native/bin/lean\n",
+      "stderr": "",
+      "stdout_log": "work-state/validation/1033-native-environment/isolated-validation-logs/lake-child-path.stdout.log",
+      "stderr_log": "work-state/validation/1033-native-environment/isolated-validation-logs/lake-child-path.stderr.log",
+      "finished_utc": "2026-11-03T16:24:26.143147+00:00",
+      "elapsed_seconds": 0.23349365599824523
+    },
+    {
+      "name": "bare-kernel",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/work-state/tooling/pinned_native_toolchain.py",
+        "--",
+        "lean",
+        "--root",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp/minimal-lake-fixture",
+        "-o",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp/minimal-lake-fixture/bare-kernel.olean",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp/minimal-lake-fixture/Smoke.lean"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp/minimal-lake-fixture",
+      "started_utc": "2026-11-03T16:24:26.143682+00:00",
+      "state": "completed",
+      "returncode": 0,
+      "stdout": "'smoke_zero_add' does not depend on any axioms\n'smoke_map_length' does not depend on any axioms\n",
+      "stderr": "",
+      "stdout_log": "work-state/validation/1033-native-environment/isolated-validation-logs/bare-kernel.stdout.log",
+      "stderr_log": "work-state/validation/1033-native-environment/isolated-validation-logs/bare-kernel.stderr.log",
+      "finished_utc": "2026-11-03T16:24:28.721912+00:00",
+      "elapsed_seconds": 2.5782426109999506
+    },
+    {
+      "name": "lake-kernel",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/work-state/tooling/pinned_native_toolchain.py",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "--root",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp/minimal-lake-fixture",
+        "-o",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp/minimal-lake-fixture/lake-kernel.olean",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp/minimal-lake-fixture/Smoke.lean"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp/minimal-lake-fixture",
+      "started_utc": "2026-11-03T16:24:28.724285+00:00",
+      "state": "completed",
+      "returncode": 0,
+      "stdout": "'smoke_zero_add' does not depend on any axioms\n'smoke_map_length' does not depend on any axioms\n",
+      "stderr": "",
+      "stdout_log": "work-state/validation/1033-native-environment/isolated-validation-logs/lake-kernel.stdout.log",
+      "stderr_log": "work-state/validation/1033-native-environment/isolated-validation-logs/lake-kernel.stderr.log",
+      "finished_utc": "2026-11-03T16:24:29.432617+00:00",
+      "elapsed_seconds": 0.7083409400001983
+    },
+    {
+      "name": "tracked-source-unchanged",
+      "argv": [
+        "git",
+        "diff",
+        "--exit-code",
+        "e41336d46dffd7bddd42b242a7ea7484a6055e43",
+        "--"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation",
+      "started_utc": "2026-11-03T16:24:29.435819+00:00",
+      "state": "completed",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "stdout_log": "work-state/validation/1033-native-environment/isolated-validation-logs/tracked-source-unchanged.stdout.log",
+      "stderr_log": "work-state/validation/1033-native-environment/isolated-validation-logs/tracked-source-unchanged.stderr.log",
+      "finished_utc": "2026-11-03T16:24:29.441756+00:00",
+      "elapsed_seconds": 0.005936859999565058
+    },
+    {
+      "name": "final-status",
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1",
+        "--untracked-files=all"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation",
+      "started_utc": "2026-11-03T16:24:29.442753+00:00",
+      "state": "completed",
+      "returncode": 0,
+      "stdout": "?? runtime-tmp/minimal-lake-fixture/Smoke.lean\n?? runtime-tmp/minimal-lake-fixture/bare-kernel.olean\n?? runtime-tmp/minimal-lake-fixture/lake-kernel.olean\n?? runtime-tmp/minimal-lake-fixture/lake-manifest.json\n?? runtime-tmp/minimal-lake-fixture/lakefile.toml\n?? runtime-tmp/minimal-lake-fixture/lean-toolchain\n?? toolchains/lean-4.35.0-linux\n?? toolchains/lean-4.35.0-native/LICENSE\n?? toolchains/lean-4.35.0-native/LICENSES\n?? toolchains/lean-4.35.0-native/bin/cadical\n?? toolchains/lean-4.35.0-native/bin/clang\n?? toolchains/lean-4.35.0-native/bin/con-leche\n?? toolchains/lean-4.35.0-native/bin/con-ron\n?? toolchains/lean-4.35.0-native/bin/lake\n?? toolchains/lean-4.35.0-native/bin/ld.lld\n?? toolchains/lean-4.35.0-native/bin/lean\n?? toolchains/lean-4.35.0-native/bin/lean4lean\n?? toolchains/lean-4.35.0-native/bin/leanc\n?? toolchains/lean-4.35.0-native/bin/leanchecker\n?? toolchains/lean-4.35.0-native/bin/leanchecker-paranoid\n?? toolchains/lean-4.35.0-native/bin/leanexport\n?? toolchains/lean-4.35.0-native/bin/leanir\n?? toolchains/lean-4.35.0-native/bin/leanmake\n?? toolchains/lean-4.35.0-native/bin/leantar\n?? toolchains/lean-4.35.0-native/bin/llvm-ar\n?? toolchains/lean-4.35.0-native/bin/nanoda_bin\n?? toolchains/lean-4.35.0-native/include\n?? toolchains/lean-4.35.0-native/lib\n?? toolchains/lean-4.35.0-native/libexec/lake\n?? toolchains/lean-4.35.0-native/libexec/lean\n?? toolchains/lean-4.35.0-native/share\n?? toolchains/lean-4.35.0-native/src\n?? toolchains/native-compat/libconaled_app_path.so\n",
+      "stderr": "",
+      "stdout_log": "work-state/validation/1033-native-environment/isolated-validation-logs/final-status.stdout.log",
+      "stderr_log": "work-state/validation/1033-native-environment/isolated-validation-logs/final-status.stderr.log",
+      "finished_utc": "2026-11-03T16:24:29.449289+00:00",
+      "elapsed_seconds": 0.006535350999911316
+    }
+  ],
+  "filesystem_operations": [
+    {
+      "operation": "symlink",
+      "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-linux",
+      "target": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-linux",
+      "role": "Previously verified official distribution, reused without modification"
+    },
+    {
+      "operation": "atomic_install",
+      "from": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/native-compat/libconaled_app_path.new.so",
+      "to": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/native-compat/libconaled_app_path.so",
+      "sha256": "8bb82334a2888e37a18b657a16f498cba239aaf3935bf24cc5b59728f6df5a18"
+    }
+  ],
+  "state": "completed",
+  "formal_candidate_unchanged": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "formal_validation_started": false,
+  "initial_source_hashes": {
+    "native_app_path.c": "0798e7e0d6b71510dd3f68778af1e487aaa9093af5f7cb1666c22b8605f5fd76",
+    "pinned_native_toolchain.py": "ab9e236bb60bf3bbd96e682cc1d48bd1b8566791a5d2213f325c3f5f81d8f19f",
+    "test_native_app_path.py": "be6ec5ef2fe8b427c11befe87ccf8e49123b7dade44fbb9aeb9bb2d4a2454d7c",
+    "NATIVE.md": "18a30814dffd35a14be2c2c7114dc560b1ded2fb0ef0f5ffbe3a63cae79fc8b4",
+    "pinned_toolchain.py": "a343cdbb5aba405c52bca3f5664dfaef592331fa559ba41c232536907febbc47",
+    "README.md": "968a1c6d0df5be47ec2bd1d93256854d8031526828fd526f296d6612e7a9ac27"
+  },
+  "fixture": {
+    "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp/minimal-lake-fixture",
+    "lakefile_toml": "name = \"nativeEnvironmentSmoke\"\nversion = \"0.0.0\"\n",
+    "lean_toolchain": "leanprover/lean4:v4.35.0\n",
+    "source": "import Init\n\ntheorem smoke_zero_add (n : Nat) : 0 + n = n := by\n  induction n with\n  | zero => rfl\n  | succ n ih => exact congrArg Nat.succ ih\n\ntheorem smoke_map_length {\u03b1 \u03b2 : Type} (f : \u03b1 \u2192 \u03b2) (xs : List \u03b1) :\n    (xs.map f).length = xs.length := by\n  induction xs with\n  | nil => rfl\n  | cons a xs ih => exact congrArg Nat.succ ih\n\n#print axioms smoke_zero_add\n#print axioms smoke_map_length\n",
+    "source_sha256": "afcabb8991aa199a8bb6681ceb33693ac6d5cc85c4030c0e2cf63d5389c53a41",
+    "external_dependencies": [],
+    "generated_manifest": {
+      "version": "1.3.0",
+      "packagesDir": ".lake/packages",
+      "packages": [],
+      "name": "nativeEnvironmentSmoke",
+      "lakeDir": ".lake",
+      "fixedToolchain": false
+    }
+  },
+  "rebuilt_shim_sha256": "8bb82334a2888e37a18b657a16f498cba239aaf3935bf24cc5b59728f6df5a18",
+  "expected_shim_sha256": "8bb82334a2888e37a18b657a16f498cba239aaf3935bf24cc5b59728f6df5a18",
+  "launcher_description": {
+    "workspace": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation",
+    "official_distribution": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-linux",
+    "overlay": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-native",
+    "environment_overrides": {
+      "PATH": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-native/bin:/root/.codex/tmp/arg0-linux/codex-arg0D0T4n9:/opt/codex/codex-path:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback",
+      "LEAN_SYSROOT": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-native",
+      "LAKE_OVERRIDE_LEAN": "true",
+      "LD_LIBRARY_PATH": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-linux/lib:/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-linux/lib/lean",
+      "TMPDIR": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp",
+      "MATHLIB_CACHE_DIR": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/dependency-cache/mathlib",
+      "XDG_CACHE_HOME": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/dependency-cache/xdg",
+      "XDG_CONFIG_HOME": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-config",
+      "XDG_STATE_HOME": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-state",
+      "LEAN_NUM_THREADS": "1"
+    },
+    "cleared_inherited_selectors": [
+      "LEAN",
+      "LEAN_PATH",
+      "LEAN_SYSROOT",
+      "LEAN_AR",
+      "LEAN_CC",
+      "LEAN_GITHASH",
+      "LAKE_HOME",
+      "LAKE_OVERRIDE_LEAN",
+      "LD_PRELOAD",
+      "CONALED_SELF_EXE"
+    ],
+    "execution_inputs": {
+      "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-linux/bin/lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-linux/bin/lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/work-state/tooling/native_app_path.c": "0798e7e0d6b71510dd3f68778af1e487aaa9093af5f7cb1666c22b8605f5fd76",
+      "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/native-compat/libconaled_app_path.so": "8bb82334a2888e37a18b657a16f498cba239aaf3935bf24cc5b59728f6df5a18"
+    },
+    "relocated_executables": {
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1"
+    },
+    "launchers": {
+      "lean": {
+        "sha256": "62c4112146c38061bc818ed395ce69cb6d5477f7665900e7f446d0be10ac3c54",
+        "content": "#!/bin/sh\nexport LD_PRELOAD=/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/native-compat/libconaled_app_path.so\nexport CONALED_SELF_EXE=/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-native/libexec/lean\nexec /workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-native/libexec/lean \"$@\"\n"
+      },
+      "lake": {
+        "sha256": "fceede164aee69c6f43e7c167bf7f7ae975170f32bbbe84595c0c7ffad1891b5",
+        "content": "#!/bin/sh\nexport LD_PRELOAD=/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/native-compat/libconaled_app_path.so\nexport CONALED_SELF_EXE=/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-native/libexec/lake\nexec /workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/toolchains/lean-4.35.0-native/libexec/lake \"$@\"\n"
+      }
+    }
+  },
+  "proof_outputs": {
+    "bare-kernel": {
+      "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp/minimal-lake-fixture/bare-kernel.olean",
+      "size_bytes": 9560,
+      "sha256": "782343b6463231f9d6518793acc95c1b225b39f03ff5645135bdf0f37baa6fc7"
+    },
+    "lake-kernel": {
+      "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/native-environment-validation/runtime-tmp/minimal-lake-fixture/lake-kernel.olean",
+      "size_bytes": 9560,
+      "sha256": "782343b6463231f9d6518793acc95c1b225b39f03ff5645135bdf0f37baa6fc7"
+    }
+  },
+  "final_source_hashes": {
+    "native_app_path.c": "0798e7e0d6b71510dd3f68778af1e487aaa9093af5f7cb1666c22b8605f5fd76",
+    "pinned_native_toolchain.py": "ab9e236bb60bf3bbd96e682cc1d48bd1b8566791a5d2213f325c3f5f81d8f19f",
+    "test_native_app_path.py": "be6ec5ef2fe8b427c11befe87ccf8e49123b7dade44fbb9aeb9bb2d4a2454d7c",
+    "NATIVE.md": "18a30814dffd35a14be2c2c7114dc560b1ded2fb0ef0f5ffbe3a63cae79fc8b4",
+    "pinned_toolchain.py": "a343cdbb5aba405c52bca3f5664dfaef592331fa559ba41c232536907febbc47",
+    "README.md": "968a1c6d0df5be47ec2bd1d93256854d8031526828fd526f296d6612e7a9ac27"
+  },
+  "final_status_scope": "Only generated isolated toolchains/runtime/fixture state is untracked; every captured source hash is unchanged.",
+  "reused_squares_evidence": {
+    "record": "work-state/validation/1033-native-environment/native-smoke2.json",
+    "record_sha256": "6a74f3aea3aafbf9ba9d18212f7b1245157afed1ace5489b55ccaefde21bdfa5",
+    "native_olean_sha256": "133589a2adff7fcb278b1bc79fd1fd8f2bcf9315cfae28d6d801a5efa099ac4c",
+    "qemu_olean_sha256": "133589a2adff7fcb278b1bc79fd1fd8f2bcf9315cfae28d6d801a5efa099ac4c",
+    "identical": true,
+    "recompiled_during_this_validation": false,
+    "basis": "Existing complete result retained; captured source/helper hashes match review identity and the isolated rebuilt shim matches the exact runtime hash."
+  },
+  "result": "passed",
+  "finished_utc": "2026-11-03T16:24:29.450687+00:00",
+  "chapter_acceptance": false,
+  "formal_candidate_approval": false
+}

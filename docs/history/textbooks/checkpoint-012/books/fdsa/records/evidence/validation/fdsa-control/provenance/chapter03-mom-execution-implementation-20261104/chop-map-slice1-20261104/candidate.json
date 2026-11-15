@@ -1,0 +1,109 @@
+{
+  "recorded_utc": "2026-11-04T20:00:28.938466+00:00",
+  "author": "/root/chapter03_mom_continue",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+  "branch": "work/fdsa-ch03-mom-execution",
+  "candidate": "557d00df979d95788f093e55551abd02f17dd049",
+  "tree": "2c002d179b0a7ce7623e8bedf3eb560dbd741a1a",
+  "parent": "759589ec63d359231330f732b42c96591a53325e",
+  "status_porcelain": "",
+  "commit_actual_terminal": "aa6f60",
+  "commit_exit": 0,
+  "changes": [
+    "Applications/Resources/Chunks.lean",
+    "Applications/Resources/SelectionMedians.lean",
+    "Examples/ChunkCalls.lean",
+    "Examples/SelectionMedians.lean"
+  ],
+  "focused_targets": [
+    "Applications.Resources.Chunks",
+    "Applications.Resources.SelectionMedians",
+    "Examples.ChunkCalls",
+    "Examples.SelectionMedians"
+  ],
+  "sources": [
+    {
+      "path": "Applications/Resources/Chunks.lean",
+      "bytes": 4591,
+      "sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc",
+      "namespace": "Resources.Chunks",
+      "public_names": 13,
+      "definitions": 1,
+      "theorems": 12,
+      "private_named": 0,
+      "anonymous_instances": 0,
+      "anonymous_examples": 0
+    },
+    {
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "bytes": 9455,
+      "sha256": "e4a5a47540716c68306f286b61deb01c6035ae4771ea03c5eb6b9de38dbf28ff",
+      "namespace": "Resources.SelectionMedians",
+      "public_names": 28,
+      "definitions": 3,
+      "theorems": 25,
+      "private_named": 0,
+      "anonymous_instances": 0,
+      "anonymous_examples": 0
+    },
+    {
+      "path": "Examples/ChunkCalls.lean",
+      "bytes": 2730,
+      "sha256": "ca79f35fe846399bcb180d9b8fbd63fa453108c59c4503adb8a5731182fdc5e3",
+      "namespace": "Examples.ChunkCalls",
+      "public_names": 11,
+      "definitions": 0,
+      "theorems": 11,
+      "private_named": 0,
+      "anonymous_instances": 0,
+      "anonymous_examples": 0
+    },
+    {
+      "path": "Examples/SelectionMedians.lean",
+      "bytes": 5134,
+      "sha256": "50220acbaa05668898e5a412a86dc13099d0987ede7d3a45120058cd59a18dd0",
+      "namespace": "Examples.SelectionMedians",
+      "public_names": 16,
+      "definitions": 0,
+      "theorems": 16,
+      "private_named": 0,
+      "anonymous_instances": 0,
+      "anonymous_examples": 0
+    }
+  ],
+  "all_eight_inherited_sources_preserved": true,
+  "all_26_protected_prior_records_preserved": true,
+  "checkpoint0125_preparation_and_reconciliation_preserved": true,
+  "public_names": 68,
+  "definitions": 4,
+  "theorems": 64,
+  "private_named": 0,
+  "anonymous_instances": 0,
+  "anonymous_examples": 0,
+  "source_statement_assessment": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/source-inventory-and-statement-review.json",
+    "bytes": 45503,
+    "sha256": "473e4e14d3e46d85282db9e60fb5b387aa0f5cae739afadca3eaff51ce14d20c"
+  },
+  "explicit_types_prepared": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/ChopMapStatements68-candidate1.lean",
+    "bytes": 4076,
+    "sha256": "3e1de6e46c407771794f4b315b2c8836e35d5c9cc141d4ca167a554d5a2fd4ac"
+  },
+  "actual_types_captured": 0,
+  "compiler_calls_by_author": 0,
+  "candidate_compiled": false,
+  "full_audit": false,
+  "independent_axes_final": false,
+  "acceptance_credit": false,
+  "reserved_root_paths_not_added": [
+    "Applications/Resources/SelectionRecurrence.lean",
+    "Examples/SelectionRecurrence.lean"
+  ],
+  "remaining_scope": [
+    "Actual nested selector and noncircular termination/correctness",
+    "Exact complete selector source recurrence and branch-sensitive charges",
+    "Actual run cost <= root-owned F after checked exact F incorporation",
+    "Whole Chapter3 integration, exhaustive actual types/full audit, both independent axes, immediate verification and accepted fast-forward"
+  ]
+}

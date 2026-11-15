@@ -1,0 +1,1587 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "axis": "Standards",
+  "unit": "FDSA-XU02",
+  "stage": "Same-loop complete original-scope receiving-source continuation; overall Blocked",
+  "recorded_utc": "2026-11-04T15:21:04.885Z",
+  "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "base": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "original_base": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+  "original_candidate": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+  "corrected_tip": "bdac9703aab4b383fa775568d36bf685af329389",
+  "historical_type_candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "tree": "fc0af937b0b323d5216b3d7533af52edc70ea411",
+  "parents": [
+    "312aafb4446b995ff5542041b4e2e074f776db1e",
+    "bdac9703aab4b383fa775568d36bf685af329389"
+  ],
+  "ancestry": {
+    "312aafb4446b995ff5542041b4e2e074f776db1e": 0,
+    "bdac9703aab4b383fa775568d36bf685af329389": 0,
+    "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8": 0,
+    "ff3dd88082c6283df40bcd86a4363841a0360b12": 0,
+    "f17cc6b1a2bf44215b16202ed0fcee2b5c130761": 0,
+    "07e480f6ec9958d4975bb90151005b84f2907614": 0
+  },
+  "scope": [
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+      "bytes": 15304,
+      "lines": 321,
+      "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2"
+    },
+    {
+      "path": "Examples/PermutationOrder.lean",
+      "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+      "bytes": 6706,
+      "lines": 152,
+      "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084"
+    },
+    {
+      "path": "Examples/PermutationOrderBoundary.lean",
+      "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+      "bytes": 5605,
+      "lines": 148,
+      "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "git_blob": "2bc1fad47c4993199eccd91ee4b249726619d3dc",
+      "bytes": 8577,
+      "lines": 261,
+      "sha256": "63edc6ab268c318e6788a6ef46cd14aa3a6b021b65971c591b0c9023adb1b2a9"
+    },
+    {
+      "path": "docs/research/fdsa-permutation-order.md",
+      "git_blob": "8d8f68c95185bd787ce26bb5ba6cf3a6f652862a",
+      "bytes": 9343,
+      "lines": 175,
+      "sha256": "5368374d61ac214c5609fbaedd3c5449a737a114947978631d1de7893a00d35f"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "d25451ccf02cde119a880d063aa7c0ade5e81cd2",
+      "bytes": 40314,
+      "lines": 614,
+      "sha256": "a39ec672e120fe7761e950f59acfc1ab4cbee282ad69b22934b1e24cdc5f56e7"
+    }
+  ],
+  "diff": {
+    "bytes": 40710,
+    "lines": 858,
+    "sha256": "eb219a1f61489fafe7cf3615bac5f27274d8aab9410b9d117c9516f56d3d2353"
+  },
+  "all_other_I_paths_unchanged": true,
+  "normal_merge_root_exact": true,
+  "automatic_map_equals_complete_I_plus_original_section": true,
+  "three_defining_files_exact_O_and_Z": true,
+  "preserved_Minimum": [
+    {
+      "current": {
+        "path": "Applications/Probability/PermutationMinimum.lean",
+        "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+        "bytes": 8241,
+        "lines": 197,
+        "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64"
+      },
+      "old_incoming": {
+        "path": "Applications/Probability/PermutationMinimum.lean",
+        "git_blob": "9be74c11fda2de70b0fa02fcb597c631dc8e666e",
+        "bytes": 8244,
+        "lines": 197,
+        "sha256": "648a2d799ea9905a27992ad4e8653ad21a0457c5301e8c0a026d08d9cd067bbb"
+      }
+    },
+    {
+      "current": {
+        "path": "Examples/PermutationMinimum.lean",
+        "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+        "bytes": 4994,
+        "lines": 127,
+        "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1"
+      },
+      "old_incoming": {
+        "path": "Examples/PermutationMinimum.lean",
+        "git_blob": "e49e17a2a70836bd2cb8d4fc9bf799dd2be6bad9",
+        "bytes": 4891,
+        "lines": 126,
+        "sha256": "b1cef98f9814eb53668cc29896bad750d2b687c4bc162c7ad500e1df82a09442"
+      }
+    },
+    {
+      "current": {
+        "path": "Examples/PermutationMinimumBoundary.lean",
+        "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+        "bytes": 4211,
+        "lines": 113,
+        "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b"
+      },
+      "old_incoming": {
+        "path": "Examples/PermutationMinimumBoundary.lean",
+        "git_blob": "05642e65256626b6ac881c9c2fe6de822858ca2d",
+        "bytes": 4173,
+        "lines": 113,
+        "sha256": "d169fc8ccac457d71978bd1a209ab610338dd601fe816e40f9f0666164cca34d"
+      }
+    }
+  ],
+  "inventory": [
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 49,
+      "kind": "def",
+      "modifiers": [],
+      "name": "Applications.Probability.PermutationOrder.restrictedOrder",
+      "visibility": "public",
+      "header_raw": "def restrictedOrder (positions : List I) (S : Finset I) (π : Equiv.Perm I) : List I ",
+      "header_bytes": 85,
+      "header_sha256": "306423c7f81fc052895543a914c2d95099c552bd728426444fd3cccca203c1de",
+      "header_byte_start": 1865,
+      "header_byte_end_exclusive": 1950
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 53,
+      "kind": "def",
+      "modifiers": [],
+      "name": "Applications.Probability.PermutationOrder.orders",
+      "visibility": "public",
+      "header_raw": "def orders (positions : List I) (S : Finset I) : Finset (List I) ",
+      "header_bytes": 65,
+      "header_sha256": "c14b4b61acd89dad15190e8c147650300c5894404c218632767ac9f03fdf839e",
+      "header_byte_start": 2089,
+      "header_byte_end_exclusive": 2154
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 57,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Applications.Probability.PermutationOrder.mem_restrictedOrder",
+      "visibility": "public",
+      "header_raw": "@[simp] theorem mem_restrictedOrder (positions : List I) (S : Finset I)\n    (π : Equiv.Perm I) (a : I) :\n    a ∈ restrictedOrder positions S π ↔ π a ∈ positions ∧ a ∈ S ",
+      "header_bytes": 182,
+      "header_sha256": "814a25d5dc9956fc29001b8c4611821785991c1918da5f3caedae3f093114268",
+      "header_byte_start": 2311,
+      "header_byte_end_exclusive": 2493
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 62,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Applications.Probability.PermutationOrder.mem_restrictedOrder_of_complete",
+      "visibility": "public",
+      "header_raw": "theorem mem_restrictedOrder_of_complete (positions : List I)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) (a : I) :\n    a ∈ restrictedOrder positions S π ↔ a ∈ S ",
+      "header_bytes": 200,
+      "header_sha256": "b589e642daf6f73cad0a96b14f3ba5987a896f259e6abd21da3c08065aaa116d",
+      "header_byte_start": 2560,
+      "header_byte_end_exclusive": 2760
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 67,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Applications.Probability.PermutationOrder.restrictedOrder_nodup",
+      "visibility": "public",
+      "header_raw": "theorem restrictedOrder_nodup (positions : List I) (hnd : positions.Nodup)\n    (S : Finset I) (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).Nodup ",
+      "header_bytes": 159,
+      "header_sha256": "2009676c9ca2091ee50f85df5c3db436049c42a48d42a7e94e673c2e627671bc",
+      "header_byte_start": 2822,
+      "header_byte_end_exclusive": 2981
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 73,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Applications.Probability.PermutationOrder.restrictedOrder_toFinset",
+      "visibility": "public",
+      "header_raw": "theorem restrictedOrder_toFinset (positions : List I)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).toFinset = S ",
+      "header_bytes": 182,
+      "header_sha256": "2d96ff9cd3f02670b9dd8c90a53ccb4f733931d057a1d94f5770dc69e3bf752d",
+      "header_byte_start": 3058,
+      "header_byte_end_exclusive": 3240
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 81,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Applications.Probability.PermutationOrder.restrictedOrder_length",
+      "visibility": "public",
+      "header_raw": "theorem restrictedOrder_length (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).length = S.card ",
+      "header_bytes": 207,
+      "header_sha256": "a49756fa0c0d5ab2fe7eba28e31d9eedec5ed58b453b9759fc6cccd002becab7",
+      "header_byte_start": 3372,
+      "header_byte_end_exclusive": 3579
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 87,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Applications.Probability.PermutationOrder.restrictedOrder_perm",
+      "visibility": "public",
+      "header_raw": "theorem restrictedOrder_perm (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).Perm\n      (positions.filter (fun a => decide (a ∈ S))) ",
+      "header_bytes": 247,
+      "header_sha256": "b2e2694c6c8e9a747401e54d9821c8b5023baff52d2cc03eb0baf85de63249c0",
+      "header_byte_start": 3723,
+      "header_byte_end_exclusive": 3970
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 98,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Applications.Probability.PermutationOrder.map_restrictedOrder_sublist",
+      "visibility": "public",
+      "header_raw": "theorem map_restrictedOrder_sublist (positions : List I) (S : Finset I)\n    (π : Equiv.Perm I) :\n    ((restrictedOrder positions S π).map π).Sublist positions ",
+      "header_bytes": 162,
+      "header_sha256": "f4bae6f50212161c3acf4dafc48571c586170ed9c157e5c83befb75b7234c39e",
+      "header_byte_start": 4259,
+      "header_byte_end_exclusive": 4421
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 107,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Applications.Probability.PermutationOrder.filter_restrictedOrder",
+      "visibility": "public",
+      "header_raw": "theorem filter_restrictedOrder (positions : List I) (S T : Finset I)\n    (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).filter (fun a => decide (a ∈ T)) =\n      restrictedOrder positions (S ∩ T) π ",
+      "header_bytes": 214,
+      "header_sha256": "03290d68f8745c08cf38f0087fad0969ceef59c0d92758f40c6d915f38317aaf",
+      "header_byte_start": 4699,
+      "header_byte_end_exclusive": 4913
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 117,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Applications.Probability.PermutationOrder.filter_restrictedOrder_of_subset",
+      "visibility": "public",
+      "header_raw": "theorem filter_restrictedOrder_of_subset (positions : List I) (S T : Finset I)\n    (π : Equiv.Perm I) (hTS : T ⊆ S) :\n    (restrictedOrder positions S π).filter (fun a => decide (a ∈ T)) =\n      restrictedOrder positions T π ",
+      "header_bytes": 232,
+      "header_sha256": "337ed89caa4903173bd8222f222faef8a5d306e14d6689a4f16399db50d3943b",
+      "header_byte_start": 5077,
+      "header_byte_end_exclusive": 5309
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 123,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Applications.Probability.PermutationOrder.mem_orders",
+      "visibility": "public",
+      "header_raw": "@[simp] theorem mem_orders (positions : List I) (S : Finset I) (xs : List I) :\n    xs ∈ orders positions S ↔\n      xs.Perm (positions.filter (fun a => decide (a ∈ S))) ",
+      "header_bytes": 174,
+      "header_sha256": "5cc14309d67172b89e173ed3a479a52474325182e1f6f4b83ebe00128fa3f3e2",
+      "header_byte_start": 5377,
+      "header_byte_end_exclusive": 5551
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 129,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Applications.Probability.PermutationOrder.orders_nonempty",
+      "visibility": "public",
+      "header_raw": "theorem orders_nonempty (positions : List I) (S : Finset I) :\n    (orders positions S).Nonempty ",
+      "header_bytes": 96,
+      "header_sha256": "f0b74cce5b20d748a408eeb9db54c89d1c1c0d8165a81c84acbd40a132fc1718",
+      "header_byte_start": 5660,
+      "header_byte_end_exclusive": 5756
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 134,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Applications.Probability.PermutationOrder.restrictedOrder_mem_orders",
+      "visibility": "public",
+      "header_raw": "theorem restrictedOrder_mem_orders (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :\n    restrictedOrder positions S π ∈ orders positions S ",
+      "header_bytes": 216,
+      "header_sha256": "04e5de02d1cf5d1861cdb134290fd86c85e186cabdc69f047d902bfb86931c3e",
+      "header_byte_start": 5883,
+      "header_byte_end_exclusive": 6099
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 139,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Applications.Probability.PermutationOrder.orders_card",
+      "visibility": "public",
+      "header_raw": "theorem orders_card (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) :\n    (orders positions S).card = Nat.factorial S.card ",
+      "header_bytes": 176,
+      "header_sha256": "dd6358eca4ebdcb3d7d85bb78a6d9c8900d370eefc463d82754100554f462502",
+      "header_byte_start": 6186,
+      "header_byte_end_exclusive": 6362
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 152,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "name": "Applications.Probability.PermutationOrder.exists_map_eq_of_nodup",
+      "visibility": "private",
+      "header_raw": "private theorem exists_map_eq_of_nodup (xs ys : List I)\n    (hxs : xs.Nodup) (hys : ys.Nodup) (hlength : xs.length = ys.length) :\n    ∃ σ : Equiv.Perm I, xs.map σ = ys ",
+      "header_bytes": 172,
+      "header_sha256": "af3163880009a4ed16e25043fc1041db617483eabe85db18906d480a8286af78",
+      "header_byte_start": 6823,
+      "header_byte_end_exclusive": 6995
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 167,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "name": "Applications.Probability.PermutationOrder.exists_relabel_orders",
+      "visibility": "private",
+      "header_raw": "private theorem exists_relabel_orders (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (xs ys : List I)\n    (hxs : xs ∈ orders positions S) (hys : ys ∈ orders positions S) :\n    ∃ σ : Equiv.Perm I, xs.map σ = ys ∧ ∀ a, σ a ∈ S ↔ a ∈ S ",
+      "header_bytes": 306,
+      "header_sha256": "a78b9ab9bc09c63aa0045b5974e81e31f3eef8766c3c962249faccc130452a6f",
+      "header_byte_start": 7525,
+      "header_byte_end_exclusive": 7831
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 187,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "name": "Applications.Probability.PermutationOrder.restrictedOrder_relabel",
+      "visibility": "private",
+      "header_raw": "private theorem restrictedOrder_relabel (positions : List I) (S : Finset I)\n    (π σ : Equiv.Perm I) (hS : ∀ a, σ a ∈ S ↔ a ∈ S) :\n    restrictedOrder positions S (π * σ.symm) =\n      (restrictedOrder positions S π).map σ ",
+      "header_bytes": 237,
+      "header_sha256": "b6409f41e72e2089f62362c36c16b1a0c87d9a122a83b658fcdaac7e3378232f",
+      "header_byte_start": 8595,
+      "header_byte_end_exclusive": 8832
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 202,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "name": "Applications.Probability.PermutationOrder.fiber_mass_eq",
+      "visibility": "private",
+      "header_raw": "private theorem fiber_mass_eq\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (S : Finset I) (xs ys : List I)\n    (hxs : xs ∈ orders positions S) (hys : ys ∈ orders positions S) :\n    uniformOn Set.univ {π | restrictedOrder positions S π = xs} =\n      uniformOn Set.univ {π | restrictedOrder positions S π = ys} ",
+      "header_bytes": 441,
+      "header_sha256": "54184f60b0a0cc227a09b4e89716a3b8d85dd5261c5f89c6c25645ea90b0296d",
+      "header_byte_start": 9198,
+      "header_byte_end_exclusive": 9639
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 234,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Applications.Probability.PermutationOrder.uniformOn_restrictedOrder_eq",
+      "visibility": "public",
+      "header_raw": "theorem uniformOn_restrictedOrder_eq\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (S : Finset I) (xs : List I) :\n    uniformOn (Set.univ : Set (Equiv.Perm I))\n        {π | restrictedOrder positions S π = xs} =\n      if xs ∈ orders positions S\n      then (Nat.factorial S.card : ℝ≥0∞)⁻¹\n      else 0 ",
+      "header_bytes": 436,
+      "header_sha256": "cfd1879b4c7748d610592dc256fbbd3fa5fb0ee0d3a20e6b5516e4e590193375",
+      "header_byte_start": 10979,
+      "header_byte_end_exclusive": 11415
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 297,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Applications.Probability.PermutationOrder.map_restrictedOrder_uniformOn",
+      "visibility": "public",
+      "header_raw": "theorem map_restrictedOrder_uniformOn\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (S : Finset I) :\n    (uniformOn (Set.univ : Set (Equiv.Perm I))).map (restrictedOrder positions S) =\n      uniformOn (orders positions S : Set (List I)) ",
+      "header_bytes": 427,
+      "header_sha256": "2613958361b0b173c4e76fe14cbdddc825612483389bf92f00bf4f54370f179e",
+      "header_byte_start": 14002,
+      "header_byte_end_exclusive": 14429
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 31,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "name": null,
+      "visibility": "anonymous",
+      "header_raw": "local instance : MeasurableSpace (Equiv.Perm (Fin 4)) ",
+      "header_bytes": 54,
+      "header_sha256": "91550a33b6c79b35841c300e68755abe3c68096592bb088c3e7c7df2a22fb618",
+      "header_byte_start": 1132,
+      "header_byte_end_exclusive": 1186
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 32,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "name": null,
+      "visibility": "anonymous",
+      "header_raw": "local instance : MeasurableSpace (List (Fin 4)) ",
+      "header_bytes": 48,
+      "header_sha256": "537e8bddb20508730d4c2f6aec8a705a6e147c578ce028a487fa61c881910a59",
+      "header_byte_start": 1193,
+      "header_byte_end_exclusive": 1241
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 34,
+      "kind": "def",
+      "modifiers": [],
+      "name": "Examples.PermutationOrder.positions",
+      "visibility": "public",
+      "header_raw": "def positions : List (Fin 4) ",
+      "header_bytes": 29,
+      "header_sha256": "761923344d379f086fb5c08dc30e87b5260ef9d892e4952d067df2b1771243db",
+      "header_byte_start": 1249,
+      "header_byte_end_exclusive": 1278
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 35,
+      "kind": "def",
+      "modifiers": [],
+      "name": "Examples.PermutationOrder.selected",
+      "visibility": "public",
+      "header_raw": "def selected : Finset (Fin 4) ",
+      "header_bytes": 30,
+      "header_sha256": "27b559d9b5412d21136656d6efbfabe3eacbdcb77c67889489fed6c6c169f2ed",
+      "header_byte_start": 1294,
+      "header_byte_end_exclusive": 1324
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 36,
+      "kind": "def",
+      "modifiers": [],
+      "name": "Examples.PermutationOrder.smaller",
+      "visibility": "public",
+      "header_raw": "def smaller : Finset (Fin 4) ",
+      "header_bytes": 29,
+      "header_sha256": "42b7d069f06e6b11110389b2f2cb9c0960b2cdf7a76a676a1f31a8439d0f0472",
+      "header_byte_start": 1337,
+      "header_byte_end_exclusive": 1366
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 38,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrder.positions_nodup",
+      "visibility": "public",
+      "header_raw": "theorem positions_nodup : positions.Nodup ",
+      "header_bytes": 42,
+      "header_sha256": "beec15256bd9deb222b24154694d71139589bfd3bbcc95a0da3260b357de1d9a",
+      "header_byte_start": 1377,
+      "header_byte_end_exclusive": 1419
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 40,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrder.positions_complete",
+      "visibility": "public",
+      "header_raw": "theorem positions_complete (a : Fin 4) : a ∈ positions ",
+      "header_bytes": 57,
+      "header_sha256": "f64d9b2a7341ab72935f04bdaec537e02bdcf8ec5d4baf1b59315b6f1b2deb35",
+      "header_byte_start": 1433,
+      "header_byte_end_exclusive": 1490
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 43,
+      "kind": "def",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "name": "Examples.PermutationOrder.law",
+      "visibility": "public",
+      "header_raw": "noncomputable def law : Measure (Equiv.Perm (Fin 4)) ",
+      "header_bytes": 53,
+      "header_sha256": "b90fbcac08ccf8fdd51b8a1ff927a3a86693a07f17bbb4a4058dd036e97bdcde",
+      "header_byte_start": 1522,
+      "header_byte_end_exclusive": 1575
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 46,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrder.selected_structure",
+      "visibility": "public",
+      "header_raw": "theorem selected_structure (π : Equiv.Perm (Fin 4)) :\n    (restrictedOrder positions selected π).Nodup ∧\n      (restrictedOrder positions selected π).toFinset = selected ∧\n      (restrictedOrder positions selected π).length = 3 ∧\n      ((restrictedOrder positions selected π).map π).Sublist positions ",
+      "header_bytes": 313,
+      "header_sha256": "0f286f4049379210b447a24ed09745a2549f53f97bba4c43d9bee485607b45c2",
+      "header_byte_start": 1674,
+      "header_byte_end_exclusive": 1987
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 59,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrder.selected_permutation",
+      "visibility": "public",
+      "header_raw": "theorem selected_permutation (π : Equiv.Perm (Fin 4)) :\n    (restrictedOrder positions selected π).Perm [0, 2, 3] ",
+      "header_bytes": 116,
+      "header_sha256": "a79be8de54868cc301cdb4e091f69a0703a09770464226033614265a09da6f1d",
+      "header_byte_start": 2340,
+      "header_byte_end_exclusive": 2456
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 66,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrder.selected_orders_card",
+      "visibility": "public",
+      "header_raw": "theorem selected_orders_card : (orders positions selected).card = 6 ",
+      "header_bytes": 68,
+      "header_sha256": "d0f32fb862217d3197c5c4f8cd6f6028d0ed83e32a55ea5238e78ff6285df1a9",
+      "header_byte_start": 2668,
+      "header_byte_end_exclusive": 2736
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 72,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "name": "Examples.PermutationOrder.fiber_mass_of_mem",
+      "visibility": "private",
+      "header_raw": "private theorem fiber_mass_of_mem (S : Finset (Fin 4)) (xs : List (Fin 4))\n    (hxs : xs ∈ orders positions S) :\n    law {π | restrictedOrder positions S π = xs} =\n      (Nat.factorial S.card : ℝ≥0∞)⁻¹ ",
+      "header_bytes": 215,
+      "header_sha256": "6a5139709a256916225334a47678fd863a2c8035706cb97a297dd65a487e2ce6",
+      "header_byte_start": 2884,
+      "header_byte_end_exclusive": 3099
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 81,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrder.order_023_mass",
+      "visibility": "public",
+      "header_raw": "theorem order_023_mass :\n    law {π | restrictedOrder positions selected π = [0, 2, 3]} = 1 / 6 ",
+      "header_bytes": 98,
+      "header_sha256": "92db659978f7a42104eda1245cbaa1971a363d0299a5f1f6c48b363caccb0d85",
+      "header_byte_start": 3301,
+      "header_byte_end_exclusive": 3399
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 89,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrder.observed_law",
+      "visibility": "public",
+      "header_raw": "theorem observed_law :\n    law.map (restrictedOrder positions selected) =\n      uniformOn (orders positions selected : Set (List (Fin 4))) ",
+      "header_bytes": 139,
+      "header_sha256": "e2ee6dc8cc2ef5c0796cdb929e0fc2b65767f3a2c3da343fb66f2b4040482f06",
+      "header_byte_start": 3669,
+      "header_byte_end_exclusive": 3808
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 96,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrder.order_032_mass_via_map",
+      "visibility": "public",
+      "header_raw": "theorem order_032_mass_via_map :\n    law {π | restrictedOrder positions selected π = [0, 3, 2]} = 1 / 6 ",
+      "header_bytes": 106,
+      "header_sha256": "34af3b6127e792f68f34f372b30588a5e60c5471afaae211186f55bed4f67e43",
+      "header_byte_start": 4002,
+      "header_byte_end_exclusive": 4108
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 114,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrder.repeated_order_mass_zero",
+      "visibility": "public",
+      "header_raw": "theorem repeated_order_mass_zero :\n    law {π | restrictedOrder positions selected π = [0, 0, 2]} = 0 ",
+      "header_bytes": 104,
+      "header_sha256": "a318c22445cac21f4536a0f80e81e911688fa99699068a8807f30fa0666d5861",
+      "header_byte_start": 4894,
+      "header_byte_end_exclusive": 4998
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 125,
+      "kind": "def",
+      "modifiers": [],
+      "name": "Examples.PermutationOrder.nestedObservation",
+      "visibility": "public",
+      "header_raw": "def nestedObservation (π : Equiv.Perm (Fin 4)) : List (Fin 4) ",
+      "header_bytes": 63,
+      "header_sha256": "60b418b00745da7c6f293038284a823501d8b23cddae919320dac10da79274a5",
+      "header_byte_start": 5439,
+      "header_byte_end_exclusive": 5502
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 128,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrder.nestedObservation_eq",
+      "visibility": "public",
+      "header_raw": "theorem nestedObservation_eq (π : Equiv.Perm (Fin 4)) :\n    nestedObservation π = restrictedOrder positions smaller π ",
+      "header_bytes": 121,
+      "header_sha256": "ce3b3a2ac24efac22befe787e6b2836db795bf38cc5a7e08c00e144f955ff69f",
+      "header_byte_start": 5589,
+      "header_byte_end_exclusive": 5710
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 133,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrder.nested_order_30_mass",
+      "visibility": "public",
+      "header_raw": "theorem nested_order_30_mass :\n    law {π | nestedObservation π = [3, 0]} = 1 / 2 ",
+      "header_bytes": 84,
+      "header_sha256": "45ca028967f0507e652362f66e88fc10997686d29146a6314da3c3518657298e",
+      "header_byte_start": 5887,
+      "header_byte_end_exclusive": 5971
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 141,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrder.singleton_order_mass",
+      "visibility": "public",
+      "header_raw": "theorem singleton_order_mass :\n    law {π | restrictedOrder positions {2} π = [2]} = 1 ",
+      "header_bytes": 89,
+      "header_sha256": "ae088db29a91d6e801a90f593929ba27264bc1cdf31aaa34978add73e7a7f081",
+      "header_byte_start": 6192,
+      "header_byte_end_exclusive": 6281
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 145,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrder.full_order_mass",
+      "visibility": "public",
+      "header_raw": "theorem full_order_mass :\n    law {π | restrictedOrder positions Finset.univ π = [3, 1, 0, 2]} = 1 / 24 ",
+      "header_bytes": 106,
+      "header_sha256": "44f17d121cab25a0603b1c285a0cc1aa23c851d9bbd932cbc54784259863ad8b",
+      "header_byte_start": 6357,
+      "header_byte_end_exclusive": 6463
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 24,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "name": null,
+      "visibility": "anonymous",
+      "header_raw": "local instance : MeasurableSpace (Equiv.Perm Empty) ",
+      "header_bytes": 52,
+      "header_sha256": "558d67dc40a4c5d669f132fa34095705f9347817c76e867dfa7938cc650ae227",
+      "header_byte_start": 753,
+      "header_byte_end_exclusive": 805
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 25,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "name": null,
+      "visibility": "anonymous",
+      "header_raw": "local instance : MeasurableSingletonClass (Equiv.Perm Empty) ",
+      "header_bytes": 61,
+      "header_sha256": "650e8baaafcf2dd5c4f2a9cf9a64bb4500e2b9b18f17a3fe2df133d34c86835e",
+      "header_byte_start": 812,
+      "header_byte_end_exclusive": 873
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 27,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "name": null,
+      "visibility": "anonymous",
+      "header_raw": "local instance : MeasurableSpace (Equiv.Perm (Fin 3)) ",
+      "header_bytes": 54,
+      "header_sha256": "eeb855a86b6f05511a5b874436f10ca5db4e4c90acae6a71911b917e342be39a",
+      "header_byte_start": 901,
+      "header_byte_end_exclusive": 955
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 28,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "name": null,
+      "visibility": "anonymous",
+      "header_raw": "local instance : MeasurableSingletonClass (Equiv.Perm (Fin 3)) ",
+      "header_bytes": 63,
+      "header_sha256": "390557078ab4b1ac67be3c0cfbffcb30ae3945a40ee61b7af105ff0018c05822",
+      "header_byte_start": 962,
+      "header_byte_end_exclusive": 1025
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 32,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrderBoundary.empty_subset_output",
+      "visibility": "public",
+      "header_raw": "theorem empty_subset_output (π : Equiv.Perm (Fin 3)) :\n    restrictedOrder [0, 1, 2] ∅ π = [] ",
+      "header_bytes": 98,
+      "header_sha256": "2cfcda348ede519af2fbb55f3fa953f28503dd7edcdaf65affe430efa0f93c46",
+      "header_byte_start": 1109,
+      "header_byte_end_exclusive": 1207
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 37,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrderBoundary.empty_subset_orders",
+      "visibility": "public",
+      "header_raw": "theorem empty_subset_orders :\n    orders ([0, 1, 2] : List (Fin 3)) ∅ = {[]} ",
+      "header_bytes": 79,
+      "header_sha256": "cecc7f3ef768e740c10392e944ede403f5ad3d5ab540c7a4da6a4c05d703a0ea",
+      "header_byte_start": 1315,
+      "header_byte_end_exclusive": 1394
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 42,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrderBoundary.empty_subset_mass",
+      "visibility": "public",
+      "header_raw": "theorem empty_subset_mass :\n    uniformOn Set.univ\n      {π : Equiv.Perm (Fin 3) | restrictedOrder [0, 1, 2] ∅ π = []} = 1 ",
+      "header_bytes": 127,
+      "header_sha256": "ae995ca0c5a82ec6e8220e019b64eac3ceada41ed148f51ac1bf3bda6054b3ad",
+      "header_byte_start": 1488,
+      "header_byte_end_exclusive": 1615
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 51,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrderBoundary.empty_index_mass",
+      "visibility": "public",
+      "header_raw": "theorem empty_index_mass :\n    uniformOn (Set.univ : Set (Equiv.Perm Empty))\n      {π | restrictedOrder ([] : List Empty) ∅ π = []} = 1 ",
+      "header_bytes": 140,
+      "header_sha256": "21669a4ff3395d0d6fcf5d736853ad884bf428e382349a7ad66f392ff2f2856f",
+      "header_byte_start": 1881,
+      "header_byte_end_exclusive": 2021
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 59,
+      "kind": "def",
+      "modifiers": [],
+      "name": "Examples.PermutationOrderBoundary.cycle",
+      "visibility": "public",
+      "header_raw": "def cycle : Equiv.Perm (Fin 3) ",
+      "header_bytes": 31,
+      "header_sha256": "f89755ba1503b708d02fc0e8a8d755474b8ff9e80079cec3f9df47a7e5ae3d09",
+      "header_byte_start": 2226,
+      "header_byte_end_exclusive": 2257
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 62,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrderBoundary.cycle_values",
+      "visibility": "public",
+      "header_raw": "theorem cycle_values : cycle 0 = 1 ∧ cycle 1 = 2 ∧ cycle 2 = 0 ",
+      "header_bytes": 67,
+      "header_sha256": "56b45d2fcbf3e6706397ac39156f12059d9cc0bc9607cae2ed1f63616536c279",
+      "header_byte_start": 2295,
+      "header_byte_end_exclusive": 2362
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 66,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrderBoundary.cycle_inverse_order",
+      "visibility": "public",
+      "header_raw": "theorem cycle_inverse_order :\n    ([0, 1, 2] : List (Fin 3)).map cycle.symm = [2, 0, 1] ",
+      "header_bytes": 88,
+      "header_sha256": "e3a6dc30fa1fe8c8344cb4e876c6c4536a99492a8da34cdad7cdeb718a42fdfb",
+      "header_byte_start": 2443,
+      "header_byte_end_exclusive": 2531
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 70,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrderBoundary.cycle_restricted_order",
+      "visibility": "public",
+      "header_raw": "theorem cycle_restricted_order :\n    restrictedOrder ([0, 1, 2] : List (Fin 3)) {0, 1} cycle = [0, 1] ",
+      "header_bytes": 102,
+      "header_sha256": "be744271219e7e679a24d36da4583eca16a33d4733e6a95b09edc2c02681b716",
+      "header_byte_start": 2547,
+      "header_byte_end_exclusive": 2649
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 75,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrderBoundary.cycle_direct_order",
+      "visibility": "public",
+      "header_raw": "theorem cycle_direct_order :\n    (([0, 1, 2] : List (Fin 3)).map cycle).filter\n      (fun a => decide (a ∈ ({0, 1} : Finset (Fin 3)))) = [1, 0] ",
+      "header_bytes": 146,
+      "header_sha256": "55eb58aec2957c0b9c0b4ff3e2fd30bf22691a3986033893d31f4dbaa7b3d547",
+      "header_byte_start": 2746,
+      "header_byte_end_exclusive": 2892
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 80,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrderBoundary.inverse_and_direct_orders_differ",
+      "visibility": "public",
+      "header_raw": "theorem inverse_and_direct_orders_differ :\n    restrictedOrder ([0, 1, 2] : List (Fin 3)) {0, 1} cycle ≠\n      (([0, 1, 2] : List (Fin 3)).map cycle).filter\n        (fun a => decide (a ∈ ({0, 1} : Finset (Fin 3)))) ",
+      "header_bytes": 219,
+      "header_sha256": "f60248d73f01f85fce3dc638a9433cca2cfbbdc516a1450598111bdf652e8ad6",
+      "header_byte_start": 2908,
+      "header_byte_end_exclusive": 3127
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 88,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrderBoundary.numeric_enumeration_values",
+      "visibility": "public",
+      "header_raw": "theorem numeric_enumeration_values :\n    (restrictedOrder ([0, 2, 1] : List (Fin 3)) Finset.univ\n      (Equiv.refl (Fin 3))).map spacedPriority = [-7, 4, 100] ",
+      "header_bytes": 159,
+      "header_sha256": "4892b703b86377ccd4dc95ec58f7d0b001c1b39ad53f080ce37ac8e03cb48ac3",
+      "header_byte_start": 3268,
+      "header_byte_end_exclusive": 3427
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 93,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrderBoundary.numeric_enumeration_increasing",
+      "visibility": "public",
+      "header_raw": "theorem numeric_enumeration_increasing :\n    List.Pairwise (fun a b : Int => a < b)\n      ((restrictedOrder ([0, 2, 1] : List (Fin 3)) Finset.univ\n        (Equiv.refl (Fin 3))).map spacedPriority) ",
+      "header_bytes": 197,
+      "header_sha256": "1a9a50fbd2d537d7c57272c5e838e799af69c6138e1398cf4ac01b3b165bf9a8",
+      "header_byte_start": 3443,
+      "header_byte_end_exclusive": 3640
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 101,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrderBoundary.ordinary_enumeration_not_increasing",
+      "visibility": "public",
+      "header_raw": "theorem ordinary_enumeration_not_increasing :\n    ¬ List.Pairwise (fun a b : Int => a < b)\n      ((restrictedOrder ([0, 1, 2] : List (Fin 3)) Finset.univ\n        (Equiv.refl (Fin 3))).map spacedPriority) ",
+      "header_bytes": 205,
+      "header_sha256": "426aebc9b99562eac4da21905fec45b9f35e32fec05b976d0568008fe2147050",
+      "header_byte_start": 3767,
+      "header_byte_end_exclusive": 3972
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 107,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrderBoundary.numeric_and_ordinary_orders_differ",
+      "visibility": "public",
+      "header_raw": "theorem numeric_and_ordinary_orders_differ :\n    restrictedOrder ([0, 2, 1] : List (Fin 3)) Finset.univ (Equiv.refl (Fin 3)) ≠\n      restrictedOrder ([0, 1, 2] : List (Fin 3)) Finset.univ (Equiv.refl (Fin 3)) ",
+      "header_bytes": 211,
+      "header_sha256": "4a438b85583383a872ab459a304a551d4c19d590f7640a07665807f23fc34aea",
+      "header_byte_start": 3988,
+      "header_byte_end_exclusive": 4199
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 113,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrderBoundary.incomplete_output",
+      "visibility": "public",
+      "header_raw": "theorem incomplete_output :\n    restrictedOrder ([0] : List (Fin 2)) {0} (Equiv.swap 0 1) = [] ",
+      "header_bytes": 95,
+      "header_sha256": "8ea28e62c6e4d7434263426c986552815c970b6b4ea2113569b9ec9d808da499",
+      "header_byte_start": 4298,
+      "header_byte_end_exclusive": 4393
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 118,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrderBoundary.incomplete_support_counterexample",
+      "visibility": "public",
+      "header_raw": "theorem incomplete_support_counterexample :\n    ([0] : List (Fin 2)).Nodup ∧\n      restrictedOrder ([0] : List (Fin 2)) {0} (Equiv.swap 0 1) ∉\n        orders ([0] : List (Fin 2)) {0} ",
+      "header_bytes": 187,
+      "header_sha256": "3bbf82682b35c7aad33b5c0fb2965c1e8cc97145a61abcae6da8c991d5ee5dcd",
+      "header_byte_start": 4496,
+      "header_byte_end_exclusive": 4683
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 130,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrderBoundary.repeated_output",
+      "visibility": "public",
+      "header_raw": "theorem repeated_output :\n    restrictedOrder ([0, 0, 1] : List (Fin 2)) Finset.univ (Equiv.swap 0 1) =\n      [1, 1, 0] ",
+      "header_bytes": 120,
+      "header_sha256": "4e19cf00046526ee70b1c0052f73527dfc5839ef2a4744e4ea1b9e13813a9c50",
+      "header_byte_start": 4916,
+      "header_byte_end_exclusive": 5036
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 136,
+      "kind": "theorem",
+      "modifiers": [],
+      "name": "Examples.PermutationOrderBoundary.repeated_support_counterexample",
+      "visibility": "public",
+      "header_raw": "theorem repeated_support_counterexample :\n    (∀ a : Fin 2, a ∈ ([0, 0, 1] : List (Fin 2))) ∧\n      restrictedOrder ([0, 0, 1] : List (Fin 2)) Finset.univ (Equiv.swap 0 1) ∉\n        orders ([0, 0, 1] : List (Fin 2)) Finset.univ ",
+      "header_bytes": 236,
+      "header_sha256": "464ca4c3c146e4293271f074c0f3207b83e8c14bccd95ba5c6cb0a6b07d5732d",
+      "header_byte_start": 5145,
+      "header_byte_end_exclusive": 5381
+    }
+  ],
+  "counts": {
+    "public": 53,
+    "private": 5,
+    "anonymous": 6
+  },
+  "public_kinds": {
+    "def": 8,
+    "theorem": 45
+  },
+  "program": {
+    "path": "provenance/chapter02-xu02-statement-source-20261104/Statements.lean",
+    "bytes": 3522,
+    "lines": 61,
+    "sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3",
+    "names": [
+      "Applications.Probability.PermutationOrder.restrictedOrder",
+      "Applications.Probability.PermutationOrder.orders",
+      "Applications.Probability.PermutationOrder.mem_restrictedOrder",
+      "Applications.Probability.PermutationOrder.mem_restrictedOrder_of_complete",
+      "Applications.Probability.PermutationOrder.restrictedOrder_nodup",
+      "Applications.Probability.PermutationOrder.restrictedOrder_toFinset",
+      "Applications.Probability.PermutationOrder.restrictedOrder_length",
+      "Applications.Probability.PermutationOrder.restrictedOrder_perm",
+      "Applications.Probability.PermutationOrder.map_restrictedOrder_sublist",
+      "Applications.Probability.PermutationOrder.filter_restrictedOrder",
+      "Applications.Probability.PermutationOrder.filter_restrictedOrder_of_subset",
+      "Applications.Probability.PermutationOrder.mem_orders",
+      "Applications.Probability.PermutationOrder.orders_nonempty",
+      "Applications.Probability.PermutationOrder.restrictedOrder_mem_orders",
+      "Applications.Probability.PermutationOrder.orders_card",
+      "Applications.Probability.PermutationOrder.uniformOn_restrictedOrder_eq",
+      "Applications.Probability.PermutationOrder.map_restrictedOrder_uniformOn",
+      "Examples.PermutationOrder.positions",
+      "Examples.PermutationOrder.selected",
+      "Examples.PermutationOrder.smaller",
+      "Examples.PermutationOrder.positions_nodup",
+      "Examples.PermutationOrder.positions_complete",
+      "Examples.PermutationOrder.law",
+      "Examples.PermutationOrder.selected_structure",
+      "Examples.PermutationOrder.selected_permutation",
+      "Examples.PermutationOrder.selected_orders_card",
+      "Examples.PermutationOrder.order_023_mass",
+      "Examples.PermutationOrder.observed_law",
+      "Examples.PermutationOrder.order_032_mass_via_map",
+      "Examples.PermutationOrder.repeated_order_mass_zero",
+      "Examples.PermutationOrder.nestedObservation",
+      "Examples.PermutationOrder.nestedObservation_eq",
+      "Examples.PermutationOrder.nested_order_30_mass",
+      "Examples.PermutationOrder.singleton_order_mass",
+      "Examples.PermutationOrder.full_order_mass",
+      "Examples.PermutationOrderBoundary.empty_subset_output",
+      "Examples.PermutationOrderBoundary.empty_subset_orders",
+      "Examples.PermutationOrderBoundary.empty_subset_mass",
+      "Examples.PermutationOrderBoundary.empty_index_mass",
+      "Examples.PermutationOrderBoundary.cycle",
+      "Examples.PermutationOrderBoundary.cycle_values",
+      "Examples.PermutationOrderBoundary.cycle_inverse_order",
+      "Examples.PermutationOrderBoundary.cycle_restricted_order",
+      "Examples.PermutationOrderBoundary.cycle_direct_order",
+      "Examples.PermutationOrderBoundary.inverse_and_direct_orders_differ",
+      "Examples.PermutationOrderBoundary.numeric_enumeration_values",
+      "Examples.PermutationOrderBoundary.numeric_enumeration_increasing",
+      "Examples.PermutationOrderBoundary.ordinary_enumeration_not_increasing",
+      "Examples.PermutationOrderBoundary.numeric_and_ordinary_orders_differ",
+      "Examples.PermutationOrderBoundary.incomplete_output",
+      "Examples.PermutationOrderBoundary.incomplete_support_counterexample",
+      "Examples.PermutationOrderBoundary.repeated_output",
+      "Examples.PermutationOrderBoundary.repeated_support_counterexample"
+    ],
+    "actual_receiving_credit": 0
+  },
+  "original_public_header_changes": [
+    {
+      "name": "Applications.Probability.PermutationOrder.map_restrictedOrder_sublist",
+      "old_header": "theorem map_restrictedOrder_sublist (positions : List I) (S : Finset I)\n    (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).map π <+ positions ",
+      "current_header": "theorem map_restrictedOrder_sublist (positions : List I) (S : Finset I)\n    (π : Equiv.Perm I) :\n    ((restrictedOrder positions S π).map π).Sublist positions "
+    },
+    {
+      "name": "Examples.PermutationOrder.selected_structure",
+      "old_header": "theorem selected_structure (π : Equiv.Perm (Fin 4)) :\n    (restrictedOrder positions selected π).Nodup ∧\n      (restrictedOrder positions selected π).toFinset = selected ∧\n      (restrictedOrder positions selected π).length = 3 ∧\n      (restrictedOrder positions selected π).map π <+ positions ",
+      "current_header": "theorem selected_structure (π : Equiv.Perm (Fin 4)) :\n    (restrictedOrder positions selected π).Nodup ∧\n      (restrictedOrder positions selected π).toFinset = selected ∧\n      (restrictedOrder positions selected π).length = 3 ∧\n      ((restrictedOrder positions selected π).map π).Sublist positions "
+    }
+  ],
+  "closure": {
+    "local_sources": {
+      "Examples/PermutationOrderBoundary.lean": {
+        "path": "Examples/PermutationOrderBoundary.lean",
+        "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+        "bytes": 5605,
+        "lines": 148,
+        "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121"
+      },
+      "Examples/PermutationMinimum.lean": {
+        "path": "Examples/PermutationMinimum.lean",
+        "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+        "bytes": 4994,
+        "lines": 127,
+        "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1"
+      },
+      "Examples/PermutationMinimumBoundary.lean": {
+        "path": "Examples/PermutationMinimumBoundary.lean",
+        "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+        "bytes": 4211,
+        "lines": 113,
+        "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b"
+      },
+      "Applications/Probability/PermutationMinimum.lean": {
+        "path": "Applications/Probability/PermutationMinimum.lean",
+        "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+        "bytes": 8241,
+        "lines": 197,
+        "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64"
+      },
+      "Applications/Probability/PermutationOrder.lean": {
+        "path": "Applications/Probability/PermutationOrder.lean",
+        "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+        "bytes": 15304,
+        "lines": 321,
+        "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2"
+      },
+      "Examples/PermutationOrder.lean": {
+        "path": "Examples/PermutationOrder.lean",
+        "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+        "bytes": 6706,
+        "lines": 152,
+        "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084"
+      }
+    },
+    "edges": [
+      {
+        "from": "Examples.PermutationOrderBoundary",
+        "to": "Applications.Probability.PermutationOrder",
+        "local": true
+      },
+      {
+        "from": "Examples.PermutationOrderBoundary",
+        "to": "Examples.PermutationMinimum",
+        "local": true
+      },
+      {
+        "from": "Examples.PermutationOrderBoundary",
+        "to": "Mathlib.Tactic",
+        "local": false
+      },
+      {
+        "from": "Examples.PermutationMinimum",
+        "to": "Applications.Probability.PermutationMinimum",
+        "local": true
+      },
+      {
+        "from": "Examples.PermutationMinimum",
+        "to": "Examples.PermutationMinimumBoundary",
+        "local": true
+      },
+      {
+        "from": "Examples.PermutationMinimum",
+        "to": "Mathlib.Tactic",
+        "local": false
+      },
+      {
+        "from": "Examples.PermutationMinimumBoundary",
+        "to": "Applications.Probability.PermutationMinimum",
+        "local": true
+      },
+      {
+        "from": "Examples.PermutationMinimumBoundary",
+        "to": "Mathlib.Tactic.FinCases",
+        "local": false
+      },
+      {
+        "from": "Applications.Probability.PermutationMinimum",
+        "to": "Mathlib.Data.Finset.Max",
+        "local": false
+      },
+      {
+        "from": "Applications.Probability.PermutationMinimum",
+        "to": "Mathlib.Data.Fintype.Perm",
+        "local": false
+      },
+      {
+        "from": "Applications.Probability.PermutationMinimum",
+        "to": "Mathlib.Data.Set.Card",
+        "local": false
+      },
+      {
+        "from": "Applications.Probability.PermutationMinimum",
+        "to": "Mathlib.Probability.UniformOn",
+        "local": false
+      },
+      {
+        "from": "Applications.Probability.PermutationOrder",
+        "to": "Mathlib.Data.Finset.Card",
+        "local": false
+      },
+      {
+        "from": "Applications.Probability.PermutationOrder",
+        "to": "Mathlib.Data.Finset.Lattice.Lemmas",
+        "local": false
+      },
+      {
+        "from": "Applications.Probability.PermutationOrder",
+        "to": "Mathlib.Data.Fintype.OfMap",
+        "local": false
+      },
+      {
+        "from": "Applications.Probability.PermutationOrder",
+        "to": "Mathlib.Data.Fintype.Perm",
+        "local": false
+      },
+      {
+        "from": "Applications.Probability.PermutationOrder",
+        "to": "Mathlib.Data.List.Basic",
+        "local": false
+      },
+      {
+        "from": "Applications.Probability.PermutationOrder",
+        "to": "Mathlib.Data.List.Nodup",
+        "local": false
+      },
+      {
+        "from": "Applications.Probability.PermutationOrder",
+        "to": "Mathlib.Data.List.Permutation",
+        "local": false
+      },
+      {
+        "from": "Applications.Probability.PermutationOrder",
+        "to": "Mathlib.Data.Set.Card",
+        "local": false
+      },
+      {
+        "from": "Applications.Probability.PermutationOrder",
+        "to": "Mathlib.Logic.Equiv.Fintype",
+        "local": false
+      },
+      {
+        "from": "Applications.Probability.PermutationOrder",
+        "to": "Mathlib.Logic.Equiv.List",
+        "local": false
+      },
+      {
+        "from": "Applications.Probability.PermutationOrder",
+        "to": "Mathlib.Probability.UniformOn",
+        "local": false
+      },
+      {
+        "from": "Examples.PermutationOrder",
+        "to": "Applications.Probability.PermutationOrder",
+        "local": true
+      },
+      {
+        "from": "Examples.PermutationOrder",
+        "to": "Examples.PermutationOrderBoundary",
+        "local": true
+      },
+      {
+        "from": "Examples.PermutationOrder",
+        "to": "Mathlib.Tactic",
+        "local": false
+      }
+    ],
+    "external_imports": [
+      "Mathlib.Data.Finset.Card",
+      "Mathlib.Data.Finset.Lattice.Lemmas",
+      "Mathlib.Data.Finset.Max",
+      "Mathlib.Data.Fintype.OfMap",
+      "Mathlib.Data.Fintype.Perm",
+      "Mathlib.Data.List.Basic",
+      "Mathlib.Data.List.Nodup",
+      "Mathlib.Data.List.Permutation",
+      "Mathlib.Data.Set.Card",
+      "Mathlib.Logic.Equiv.Fintype",
+      "Mathlib.Logic.Equiv.List",
+      "Mathlib.Probability.UniformOn",
+      "Mathlib.Tactic",
+      "Mathlib.Tactic.FinCases"
+    ],
+    "all_six_exact_Z": true
+  },
+  "manifest_payloads_verified": 30,
+  "protected_refs": {
+    "before_count": 64,
+    "after_count": 65,
+    "all_before_after_and_current_unchanged": true
+  },
+  "unchanged_instructions": [
+    {
+      "path": ".agents/skills/code-review/SKILL.md",
+      "bytes": 7466,
+      "lines": 133,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": ".agents/skills/code-review/heuristics.md",
+      "bytes": 2232,
+      "lines": 32,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": ".agents/skills/domain-modeling/SKILL.md",
+      "bytes": 3346,
+      "lines": 74,
+      "sha256": "7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "bytes": 6991,
+      "lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": ".agents/skills/example-driven-development/worked-example.md",
+      "bytes": 2356,
+      "lines": 55,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": ".agents/skills/implement/SKILL.md",
+      "bytes": 4997,
+      "lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": ".agents/skills/setup-matt-pocock-skills/domain.md",
+      "bytes": 2042,
+      "lines": 51,
+      "sha256": "593a7042218689f1d24df89df14eaf0a20e19e0d0a7d479a01947ac78f0784b9",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "GLOSSARY.md",
+      "bytes": 4824,
+      "lines": 106,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "README.md",
+      "bytes": 26239,
+      "lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "lines": 50,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "bytes": 7331,
+      "lines": 127,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "docs/language-direction.md",
+      "bytes": 19185,
+      "lines": 306,
+      "sha256": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "bytes": 3876,
+      "lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "bytes": 7113,
+      "lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "docs/agents/domain.md",
+      "bytes": 926,
+      "lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "docs/adr/README.md",
+      "bytes": 1547,
+      "lines": 17,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    }
+  ],
+  "current_receiving_credit": 0,
+  "by_module": [
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "public": 17,
+      "public_theorems": 15,
+      "public_definitions": 2,
+      "private_theorems": 4,
+      "anonymous_local_instances": 0
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "public": 18,
+      "public_theorems": 13,
+      "public_definitions": 5,
+      "private_theorems": 1,
+      "anonymous_local_instances": 2
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "public": 18,
+      "public_theorems": 17,
+      "public_definitions": 1,
+      "private_theorems": 0,
+      "anonymous_local_instances": 4
+    }
+  ],
+  "source_review_complete": true,
+  "complete_original_C2_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "scope_boundary": "All six original XU02 paths, every public/private/anonymous declaration, cases, documentation and affected dependencies remain. This stage neither narrows the complete C2 R-through-final scope nor accepts C2.",
+  "inventory_method": "Independently parsed immutable Git source after nested-comment/string masking. Raw header begins at the declaration command line, including same-line attributes/modifiers, and ends immediately before := while preserving preceding whitespace. No compiler-generated names or actual elaborated equivalence of old failing syntax are inferred.",
+  "generated_boundary": "Five private declarations and six anonymous local instances remain in complete source/build/audit scope. All compiler-generated auxiliaries remain subject to the exhaustive audit; no fabricated separate #check or generated count is credited.",
+  "source_reconciliation_execution": {
+    "chunk_id": "5ca43b",
+    "actual_exit": 0
+  },
+  "saved_predecessor_boundary": {
+    "saved_boundary_receipt": "provenance/shared-order-type-evidence-readiness-20261104/predecessor-comparison.json",
+    "sha256": "542e1c85785f8248de99af1598c9b364e139e22767cd4d90572f574de1a72b3b",
+    "same_sources": {
+      "Applications/Probability/PermutationMinimum.lean": true,
+      "Examples/PermutationMinimum.lean": true,
+      "Examples/PermutationMinimumBoundary.lean": true
+    },
+    "complete_common_artifact_keys": 9,
+    "changed_trace_keys": [
+      ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.trace",
+      ".lake/build/lib/lean/Examples/PermutationMinimum.trace",
+      ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.trace"
+    ],
+    "matched_olean_and_hash_keys": 6,
+    "distinct_dependency_paths": 9,
+    "equal_configuration_count": 10,
+    "equal_runtime_count": 12,
+    "no_normalization": true,
+    "old_I_Order_import_client_scan": {
+      "actual_exit": 1,
+      "stdout": "",
+      "stderr": "",
+      "meaning": "No matches; no declaration-bearing I importer of newly added Order modules"
+    },
+    "receiving_type_credit": 0,
+    "actual_readonly_execution": {
+      "chunk_id": "74cd39",
+      "actual_exit": 0
+    },
+    "meaning": "The real trace/path mismatches prevent automatic Z-to-J receiving credit. The planned current53 inspection is a bounded response to this unmatched input history; it does not revoke original Z semantics or accepted I/F results."
+  },
+  "semantic_assessment": {
+    "operation": "Ordinary positions.map pi.symm followed by stable finset-membership filtering; only DecidableEq I. Every subset observes the same pi; no new carrier, random executor, ranking record, resource model or global instance.",
+    "deterministic_contracts": "General membership retains assigned-label membership and selected-key membership. Completeness alone gives exact finset support; Nodup alone gives distinctness; both give length and permutation. Mapped-sublist and double-filter/intersection are unconditional, with only T subset S for the nested specialization.",
+    "full_fiber": "The universal actual source-event theorem covers every fixed S and every output list, using inverse ENNReal factorial on support and zero off support. Complete positions supply local finiteness without public Finite/Fintype or Nonempty I, index order or index/output measurability. Identity ensures the permutation sample remains inhabited for empty I.",
+    "proof_connection": "The private finite-position extension works through Fin xs.length into arbitrary I, preserving support without fixing the complement. Right composition pi * sigma.symm maps whole fibers, and bijective counting plus a finite exhaustive partition normalizes equal masses. The desired law is derived, not assumed.",
+    "map_semantics": "The actual Measure.map equality adds only existing list measurable-space/singleton hypotheses. Local finiteness supplies finite-source measurability and Countable (List I), without asserting Finite (List I). Ordinary singleton extensionality and target finite counting connect the supplied measures.",
+    "examples": "Distinct triples [0,2,3] and [0,3,2] share a first key but each has mass 1/6 through separate fiber/map connections. Repeated [0,0,2] has mass zero by real multiplicity contradiction. Nested filtering uses the same pi and gives [3,0] mass 1/2; singleton/full give 1 and 1/24.",
+    "boundaries": "Empty subset and Empty indices retain singleton empty output and mass one. Explicit cycle distinguishes inverse [0,1] from direct [1,0]. Existing -7/100/4 priorities distinguish numeric order from label order. Incomplete and repeated complete enumerations witness separately necessary support premises through length and count.",
+    "architecture": "Core imports existing Mathlib only. Main/boundary reuse that core and the accepted Minimum numeric-label client. All six concrete measurable instances are local. No generic action/equal-fiber framework, extra capability, probability carrier, algorithm cost or conditional-history theorem is introduced.",
+    "documentary": "The exact I root adds one Order main import, whose existing imports reach core/boundary. The complete I map prefix and original Order mathematical section survive; only its obsolete terminal status sentence changes. The note removes two obsolete uncompiled claims and adds accurate dated Z815/individual-build history, preserving every mathematical/source/gate paragraph and SP01 wording.",
+    "limitations": "Fixed-subset whole-order uniformity does not establish arbitrary conditioning, adaptive subsets, joint independence, recursive quicksort laws, treap semantics, expectation or work. All original chapter obligations and accepted-I -> Order -> Tail -> complete-C2 sequence remain."
+  },
+  "new_concrete_findings": [],
+  "retained_findings": [
+    {
+      "id": "XU02-SP01",
+      "status": "Source correction independently confirmed in exact J",
+      "detail": "Retains 'a different numeric order that is not strictly increasing'; no false descending-order assertion."
+    },
+    {
+      "id": "XU02-SRC-001",
+      "status": "Source correction independently confirmed; historical successful evidence retained",
+      "detail": "Three proof-local Fintype bindings use let; no linter suppression or public assumption change."
+    },
+    {
+      "id": "XU02-ELAB-001–014",
+      "status": "All exact source corrections independently retained; current full validation remains pending",
+      "detail": "The only original public header byte changes are two explicit Sublist spellings; remaining repairs affect Fin-domain inference, inverse composition, current ite names, removal of an unused private equality instance, exact length/count support reasoning, singleton preimage reflexivity and casts. All intended contracts/cases remain; original failures and individual later successes remain historical."
+    },
+    {
+      "id": "C02-DOC-003",
+      "status": "Order portion source-applied and independently confirmed at J; other unit portions remain separate",
+      "detail": "Dated note and map wording are accurate historical/normative statements. This does not close the remaining Tail application or complete C2 acceptance."
+    },
+    {
+      "id": "C02-TYPE-001",
+      "status": "Retain historical resolution at Z; no current receiving credit",
+      "detail": "All53 historical types are included in this same reviewer's complete qualified815 assessment. Current J53 inspection and all inherited receiving qualifications remain pending."
+    }
+  ],
+  "historical_actual_type_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+    "bytes": 23539,
+    "lines": 472,
+    "sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510",
+    "same_reader_complete_progress": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-type-review-progress.json",
+      "bytes": 123595,
+      "lines": 3562,
+      "sha256": "91b9df119e5b47cd94a7930001947eb2c14601d5d144149b796a8bb06f3f4d0b"
+    },
+    "exact_Order_positions": [
+      33,
+      85
+    ],
+    "retained_historical_count": 53,
+    "new_receiving_credit": 0
+  },
+  "prospective_receiving_account": {
+    "pending_current53": 53,
+    "pending_I314_qualification": 314,
+    "pending_F110_qualification": 110,
+    "conditional_total": 477,
+    "actual_credited_total": 0,
+    "meaning": "Preparation only; actual closed execution and exact qualified receiving identity/lineage plus both independent assessments are mandatory."
+  },
+  "proof_restrictions": "No source admission, new axiom, unsafe/partial/native_decide declaration, compiler bypass or linter weakening found. All three new modules retain autoImplicit false and warningAsError true; exhaustive receiving audit is still required.",
+  "pending_gates": [
+    "Actual J normal full guarded check, complete terminal/native logs, both integrity phases, exhaustive allowed-axiom audit and matching verification record",
+    "Actual unchanged53 command with stable qualified pre/post inputs and complete independent type assessment; separately exact inherited I314 and F110 receiving qualifications",
+    "Both complete independent final axes with no unresolved findings, then immediate qualified verify-candidate, exact local accepted fast-forward and durability"
+  ],
+  "focused_boundary": "Matching successful historical focused evidence is retained. A complete actual current normal build covering all affected targets, with matching dependency/source/input evidence, can satisfy the focused connection under the existing plan; no redundant invocation or fresh-mode trigger is imposed by label.",
+  "outcome": "No new concrete Standards source finding; overall Blocked pending actual receiving validation/type/final gates",
+  "read_ledger": "provenance/shared-order-standards-integration-20261104/read-ledger.json",
+  "reviewer_actions": "Immutable Git/secured-evidence reads and only this new own report/provenance. No compiler, process polling, runtime/output capture, source/ref/index/cache/pin/ticket/global-control action."
+}

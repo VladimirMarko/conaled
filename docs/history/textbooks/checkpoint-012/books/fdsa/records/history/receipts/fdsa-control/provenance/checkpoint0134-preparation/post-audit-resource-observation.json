@@ -1,0 +1,36 @@
+{
+  "recorded_utc": "2026-11-04T23:27:07.803142+00:00",
+  "total_bytes": 67586535424,
+  "ordinary_available_bytes": 0,
+  "raw_free_bytes": 482902016,
+  "earlier_root_observation": "b374cf",
+  "earlier_raw_free_bytes": 483332096,
+  "audit_cause_not_established": true,
+  "compiler_install_or_hydration_selected": false,
+  "resource_guards_unchanged": true,
+  "global_process_absence_not_claimed": true,
+  "/proc/meminfo": {
+    "unavailable": "FileNotFoundError",
+    "message": "[Errno 2] No such file or directory: '/proc/meminfo'"
+  },
+  "/proc/self/cgroup": {
+    "unavailable": "FileNotFoundError",
+    "message": "[Errno 2] No such file or directory: '/proc/self/cgroup'"
+  },
+  "/sys/fs/cgroup/memory.current": {
+    "unavailable": "FileNotFoundError",
+    "message": "[Errno 2] No such file or directory: '/sys/fs/cgroup/memory.current'"
+  },
+  "/sys/fs/cgroup/memory.max": {
+    "unavailable": "FileNotFoundError",
+    "message": "[Errno 2] No such file or directory: '/sys/fs/cgroup/memory.max'"
+  },
+  "/sys/fs/cgroup/memory.events": {
+    "unavailable": "FileNotFoundError",
+    "message": "[Errno 2] No such file or directory: '/sys/fs/cgroup/memory.events'"
+  },
+  "/sys/fs/cgroup/memory.peak": {
+    "unavailable": "FileNotFoundError",
+    "message": "[Errno 2] No such file or directory: '/sys/fs/cgroup/memory.peak'"
+  }
+}

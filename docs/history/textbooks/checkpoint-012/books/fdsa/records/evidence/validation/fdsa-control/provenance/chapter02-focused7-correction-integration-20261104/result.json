@@ -1,0 +1,42 @@
+{
+  "completed_utc": "2026-11-04T08:59:08.691971+00:00",
+  "before": "5398db774ed5ca9938d0562e379d757323e7a355",
+  "candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+  "steps": [
+    {
+      "label": "tail",
+      "before": "5398db774ed5ca9938d0562e379d757323e7a355",
+      "source": "13fc137c67e1dc974c833e81cd46042d757fa546",
+      "after": "c4f151d329267901e1c3c24b1cdba96767d527b9"
+    },
+    {
+      "label": "rank-and-growth-examples",
+      "before": "c4f151d329267901e1c3c24b1cdba96767d527b9",
+      "source": "15a113b075c2ceb4d44c27a06fa9a69e019b57fc",
+      "after": "89ef3b58d4aa75a7f571c421966297b2993eaec9"
+    },
+    {
+      "label": "uniform",
+      "before": "89ef3b58d4aa75a7f571c421966297b2993eaec9",
+      "source": "c4355db67f6006f58496cc10c2eca1c75ef1aa95",
+      "after": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a"
+    }
+  ],
+  "changed_paths": [
+    "Applications/Resources/UniformQuickSortMean.lean",
+    "Examples/PermutationTailBoundary.lean",
+    "Examples/RandomQuickSortGrowth.lean",
+    "Examples/RandomQuickSortRank.lean"
+  ],
+  "source_sha256": {
+    "Examples/PermutationTailBoundary.lean": "03fbb29d9f458a7e76235e198b01ef3dd3b20dbe225d3d1edf3110b5628c437b",
+    "Examples/RandomQuickSortRank.lean": "419e02b0865e4ed64041f0afe465271127599a475d3edff658224c9c8fd5d9d6",
+    "Examples/RandomQuickSortGrowth.lean": "372d0fad2f5a77f0c9c97e6b2004036ab1b922a2a80f623784011381905ab3a1",
+    "Applications/Resources/UniformQuickSortMean.lean": "5e997076f474f1cfcc51cac11c31b870a1cd265cf121c6ae11519beab009ad67"
+  },
+  "clean": true,
+  "closed7_evidence_secured_before_mutation": true,
+  "accepted_R_and_pending_F_unchanged": true,
+  "compile_status": "New exact combined successor uncompiled; next recorded focused check required.",
+  "acceptance_changes": false
+}

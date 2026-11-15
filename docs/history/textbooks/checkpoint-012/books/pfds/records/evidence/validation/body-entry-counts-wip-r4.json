@@ -1,0 +1,43 @@
+{
+  "created_utc": "2026-11-03T03:28:33.259817+00:00",
+  "ticket": 10022,
+  "base": "577be121e074ddb5de6727a7481c115cb61b3b27",
+  "original_integration_base": "577be121e074ddb5de6727a7481c115cb61b3b27",
+  "development_commit": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+  "checkout": "body-counts",
+  "branch": "pfds/body-counts",
+  "clean": true,
+  "files": [
+    "Applications/Suspensions/BodyAccounting.lean",
+    "Applications/Suspensions/BodyRealization.lean",
+    "Applications/Suspensions/EventCounts.lean",
+    "Applications/Suspensions/PendingRetention.lean",
+    "Applications/Suspensions/Pure/BodyCounts.lean",
+    "Examples/SuspensionBodyRealization.lean",
+    "Examples/SuspensionEventCounts.lean",
+    "Examples/SuspensionPendingRetention.lean",
+    "Examples/SuspensionPureBodyCounts.lean",
+    "SquareApplications.lean",
+    "docs/research/pfds-body-counts.md"
+  ],
+  "file_sha256": {
+    "Applications/Suspensions/BodyAccounting.lean": "e068f898e5a01e96426dc4d9fae0acd9686e2d6acbd3ad3235c6417c8fc8a84d",
+    "Applications/Suspensions/BodyRealization.lean": "b0174e8fbb3631010d22b9431e2f8d1f46326730a4d8628d8ed3bdb7471db2bb",
+    "Applications/Suspensions/EventCounts.lean": "f4ba91c590f6482deffabbf67c88853960f2ae4ff60587079e89414ffba73332",
+    "Applications/Suspensions/PendingRetention.lean": "a0d1a2bf2d6d076098327255852cebf8d75a6a771b95202e87ae2a1f8a78097d",
+    "Applications/Suspensions/Pure/BodyCounts.lean": "bb02cc83b9dfa0ab797936df9d325f1300b4c077ad751577bf22ce211ea4040b",
+    "Examples/SuspensionBodyRealization.lean": "2aed95a1b467bb196578009e16cf02c429e0f153a3da1b7b22d796661b2a4abb",
+    "Examples/SuspensionEventCounts.lean": "77d8f182ba1b382cd9e1a5e7306b1b2942bd1096e428efbab137f871f3725ce0",
+    "Examples/SuspensionPendingRetention.lean": "84a6048b63a692d7c719863eb4ed385aeb290ee759363f73744a746773b8549d",
+    "Examples/SuspensionPureBodyCounts.lean": "a4ba47686f06e89bbe7d39554a486ed89fe6fe5b471b9472ba22405e436f1d8f",
+    "SquareApplications.lean": "c36098548928546247cdffaf3bc45c257b7b705da1e7b60863e75dfd1c0ddbbc",
+    "docs/research/pfds-body-counts.md": "43e9c42c868393fcb041c344e5f31f39bd47f67b168b5b430f35ca9b6b71e77c"
+  },
+  "requirements": "requirements/body-entry-counts.md",
+  "requirements_version": 1,
+  "requirements_sha256": "1483d8bfc4470c4aa700c809209b3083db89fa713def40821e1968d9e3ce2a58",
+  "exclusions": [],
+  "validation": "Complete r4 finished1 with71 unchanged inputs; all five cores and pure source/pending/event clients passed. Final realization client corrected using explicit public count and length laws, no budget increase or claim change. Complete r5 now running, no independent review/acceptance.",
+  "acceptance": false,
+  "purpose": "Recoverable complete WIP source, not an immutable acceptance candidate."
+}

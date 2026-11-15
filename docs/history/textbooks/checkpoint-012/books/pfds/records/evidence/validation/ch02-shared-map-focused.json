@@ -1,0 +1,39 @@
+{
+  "candidate": "fcf086ddc271d4b20d4714e36238e47a325316bd",
+  "base": "82501d108f33c62d21b5e0d0f7d2376b902d8d49",
+  "branch": "pfds/ch02-map",
+  "checkout": "chapter02-map",
+  "recorded_at": "2026-11-02T16:48:34.910360+00:00",
+  "status": "pure and shared focused compilation passed; integration acceptance pending",
+  "owned_commits": [
+    "95fc538892f4586388bd0ddca00acc6c05ff4918",
+    "0f0cf2e81648f1fa89374b7b213a075e798de65e",
+    "117746c5f2a92eaa165b549c84207989f5dc718b",
+    "3dd96173695d1b01162fd509e99c1e9bd11da5e8",
+    "fdb02214c56c03b16ca694af1bf83883fd8b8f54",
+    "ed2740c34b7e7e56fcf87c89760ef5067456245c",
+    "fcf086ddc271d4b20d4714e36238e47a325316bd"
+  ],
+  "target": "Examples.SharedTreeMap",
+  "exit_code": 0,
+  "jobs": 666,
+  "source_blobs": {
+    "Applications/Search/OrderedMap/Interface.lean": "d2ade40d5b8873e9e34a295ea7093937217aad34",
+    "Applications/Search/OrderedMap/Basic.lean": "27389f7803c0cc3e69f1c22a6e423a65db21d0a7",
+    "Examples/OrderedMap.lean": "a3b00901e5b67aac6fb4d42ff6112d9ded211e35",
+    "Applications/Search/SharedTree/Map.lean": "70d19fb6390202da1a6c2b9adce1d394bf8dd1f9",
+    "Examples/SharedTreeMap.lean": "b613707987a3ac70530ebeebf8f0e5d0dd24e3c5"
+  },
+  "reused_dependency_blobs": {
+    "Applications/Search/OrderedTree/Basic.lean": "ed9cd83de8e396381d888a5585127309b670e557",
+    "Applications/Search/SharedTree/Basic.lean": "8962079c70738be172807cf89d25d2e3ba07b66b",
+    "Applications/Search/SharedTree/Path.lean": "c1e447bce3ed0b25381ba361154e9632889104ef",
+    "Applications/Search/SharedTree/Observation.lean": "44d6e35a633d795945f1e928b5e7fe3cf11fe7f2"
+  },
+  "git_status": "clean",
+  "command": "Pinned Nix develop --offline --command env LEAN_NUM_THREADS=1 lake build Examples.SharedTreeMap",
+  "environment_note": "Standard task Nix prefix plus eval-cache=false; shared read-only pinned external packages, private project build outputs; focused compiler serialized.",
+  "log": "validation/ch02-shared-map-focused-r4.log",
+  "nix_warning": "Nix reported a dirty Git tree; Git worktree is clean at this record. This is focused development evidence, not an isolated candidate check.",
+  "scope_limits": "No full candidate build, exhaustive proof audit, final candidate verification, independent review or chapter acceptance is asserted."
+}

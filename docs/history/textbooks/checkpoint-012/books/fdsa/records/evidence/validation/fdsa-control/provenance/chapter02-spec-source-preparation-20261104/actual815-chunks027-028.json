@@ -1,0 +1,88 @@
+{
+  "recorded_utc": "2026-11-04T10:49:25.159232+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete 81-path review scope, all 112 obligations and ten shared scopes.",
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "chunks": [
+    {
+      "chunk": 27,
+      "type_numbers": [
+        448,
+        459
+      ],
+      "native_lines": [
+        6927,
+        7232
+      ],
+      "bytes": 19792,
+      "names": [
+        "Resources.RandomQuickSort.literalMean_le_nlogb",
+        "Resources.RandomQuickSort.sizeMean_isBigO_log",
+        "Resources.RandomQuickSort.sizeMean_isBigO_logb",
+        "Resources.RandomQuickSort.exerciseMean_family_isBigO_log",
+        "Resources.RandomQuickSort.literalMean_family_isBigO_log",
+        "Resources.RandomQuickSort.exerciseMean_family_isBigO_logb",
+        "Resources.RandomQuickSort.literalMean_family_isBigO_logb",
+        "Examples.RandomQuickSortGrowth.empty_payload_means",
+        "Examples.RandomQuickSortGrowth.singleton_payload_means",
+        "Examples.RandomQuickSortGrowth.empty_log_boundary",
+        "Examples.RandomQuickSortGrowth.singleton_log_boundary",
+        "Examples.RandomQuickSortGrowth.two_distinct_harmonic"
+      ],
+      "sha256": "7e6bc7a83945290c60742f6b165766b2b2591a519c37f9dca42856579fc084ac",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The fresh-pivot literal binary-log bound retains key-map Nodup and length>=2 with constant64; sizeMean has Nat-atTop real-norm logarithmic and binary-log Big-O statements.",
+        "The four general family statements use the actual exercise/literal expectations under the key comparator, eventual key-map Nodup and lengths tending to Nat atTop along the same arbitrary filter. The benchmark is the actual input length times its logarithm; no fixed finite carrier or implicit nonempty payload assumption is introduced.",
+        "The empty Empty-payload example connects the harmonic expression to actual exercise=1 and literal=1. Arbitrary singleton payloads have exercise=5 and literal=8, with the stated factor-two bounds.",
+        "Both empty and singleton examples explicitly disprove any all-n pure C*n*logb2(n) bound for either actual cost model. The two-element [1,0] example has exercise13, literal in[13,26], and the separate scalar binary-log bounds64/128."
+      ]
+    },
+    {
+      "chunk": 28,
+      "type_numbers": [
+        460,
+        467
+      ],
+      "native_lines": [
+        7233,
+        7489
+      ],
+      "bytes": 18971,
+      "names": [
+        "Examples.RandomQuickSortGrowth.three_reordered_harmonic",
+        "Examples.RandomQuickSortGrowth.four_tagged_harmonic",
+        "Examples.RandomQuickSortGrowth.five_sizeMean",
+        "Examples.RandomQuickSortGrowth.arbitrary_length_indexed_growth",
+        "Examples.RandomQuickSortGrowth.function_tagged_family_growth",
+        "Examples.RandomQuickSortGrowth.shifted_range_family_growth",
+        "Examples.RandomQuickSortGrowth.equal_key_three_not_harmonic",
+        "Examples.RandomQuickSortGrowth.equal_key_family_means"
+      ],
+      "sha256": "dd0faa5318933f4f8fc6298032fea4c21d04055c312604d64577e82c289739e5",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The reordered three-element input has actual exercise71/3 and literal in[71/3,142/3]; four distinct keyed records with arbitrary payloads have exercise109/3 and literal in[109/3,218/3]. The size-five numerical mean is253/5.",
+        "The arbitrary length-indexed family requires actual length n and mapped-key Nodup for every n, and yields both exercise and literal binary-log Big-O at Nat atTop. The concrete function-valued payload family requires no equality instance and the shifted range family grows with actual size n+2.",
+        "The distinct payload list[0,1,2] with constant key7 has non-Nodup keys, actual exercise25 and inequality to the harmonic distinct-key expression. The arbitrary equal-key family keeps exact actual exercise2*n^2+2*n+1 and literal2*n^2+5*n+1, including empty input."
+      ]
+    }
+  ],
+  "prior_progress_sha256": "88b0be6f4b17c3c2cb98bc8dded898b20c02b9856475365cd794480348d6c705",
+  "overall_outcome": "Blocked",
+  "new_type_credit": 0,
+  "possible110_credit": 0
+}

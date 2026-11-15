@@ -1,0 +1,76 @@
+{
+  "recorded_utc": "2026-11-04T07:59:17.427919+00:00",
+  "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "status": "",
+  "report_full_readback": true,
+  "unresolved_truncated_read": false,
+  "new_artifacts": [
+    {
+      "path": "reviews/shared-foundations-spec-recovered-terminal.md",
+      "bytes": 16745,
+      "lines": 115,
+      "sha256": "fc82f2dceed8b6c826de91b83ac0118486eb9b20d7a5e0e3501d3ed943efdd4b"
+    },
+    {
+      "path": "provenance/foundation-spec-terminal-continuation-20261104/assessment.json",
+      "bytes": 5093,
+      "lines": 90,
+      "sha256": "fb2b10755863175e7eef4e4dd5039cbf0f0edeb59cfe10997f0b1ddd9dc8dfe1"
+    },
+    {
+      "path": "provenance/foundation-spec-terminal-continuation-20261104/evidence.json",
+      "bytes": 9481,
+      "lines": 290,
+      "sha256": "2cfec8cc4475097bae51a1054d63d625249b8347c01156dfcb47dad34e356830"
+    },
+    {
+      "path": "provenance/foundation-spec-terminal-continuation-20261104/identity.json",
+      "bytes": 5392,
+      "lines": 138,
+      "sha256": "ea5377e90fb533a101d7dd2359203ebbc7690c7cad136ad8d8f4c9003beaf2ac"
+    },
+    {
+      "path": "provenance/foundation-spec-terminal-continuation-20261104/runtime.json",
+      "bytes": 6709,
+      "lines": 165,
+      "sha256": "4f99938c2d012f66b975383e6d2f419887dfd0fc7d39e9aef9344f0776366374"
+    }
+  ],
+  "retained_records_unchanged": [
+    {
+      "path": "reviews/shared-foundations-round1.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/shared-foundations-spec.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/shared-foundations-spec-recovery-preflight-20261104.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/insertion-requirements.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/list-library-requirements.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/list-calls-requirements.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/notation-requirements.md",
+      "unchanged": true
+    }
+  ],
+  "source_identity_unchanged": true,
+  "builds_started": 0,
+  "overall_spec_outcome": "Blocked",
+  "concrete_findings": 0,
+  "worst_source_issue": null,
+  "hold": true,
+  "next_action": "Await checkpoint0092 release and root-supplied actual terminal evidence; no further writes."
+}

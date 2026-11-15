@@ -1,0 +1,17 @@
+{
+  "recorded_utc": "2026-11-05T02:57:51.121842+00:00",
+  "reviewer": "/root/checkpoint0137_acceptance_inspection",
+  "scope": "Operational inspection of one-use exact XT01 fast-forward helper; not a third semantic review axis",
+  "outcome": "Passed",
+  "unresolved_findings": [],
+  "helper": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-acceptance-20261105/fast_forward_once.py",
+    "bytes": 7330,
+    "sha256": "45f2ff0bc5b04a5da8a394f1329a48efb0f29a8e8c2230c51b49a61bd4c94c92"
+  },
+  "complete_reads": "6914e4 actual0, all113 helper lines, all58 scope-diff lines and preparation record",
+  "independent_reconciliation": "be1aa4 actual0, exact diff, AST, sole local merge mutation, old/new ancestry, current78refs/9WT",
+  "schema_condition": "Root gate all_worktrees_before_immediate uses exact ordered path/head/branch_ref/status rows, detached branch_ref empty string",
+  "execution_by_inspector": false,
+  "actual_review_gate_and_immediate_verification_remain_required": true
+}

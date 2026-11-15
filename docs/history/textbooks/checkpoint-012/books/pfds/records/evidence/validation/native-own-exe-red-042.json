@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "scope": "Actual red result for public own-executable readlink behavior before the adapter exists",
+  "recorded_at": "2026-11-03T16:22:58.672632+00:00",
+  "source": "session/environment/test-native-own-exe.c",
+  "source_sha256": "0c82e10ea2328fefcf5e5df902937f9c98ceb5326bc097437e2846e89c7d4a3f",
+  "commands": [
+    {
+      "argv": [
+        "cc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/test-native-own-exe.c",
+        "-o",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/probe"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "seconds": 0.11145760899853485
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/probe",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/probe",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/absent"
+      ],
+      "returncode": 1,
+      "stdout": "own-pid=failed count=-1 errno=2\nself=failed count=-1 errno=2\ntruncation=failed count=-1 errno=2\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=0\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\nunrelated-pid=passed count=-1 errno=2\n",
+      "stderr": "",
+      "seconds": 0.00380844800019986
+    }
+  ],
+  "formal_acceptance": false
+}

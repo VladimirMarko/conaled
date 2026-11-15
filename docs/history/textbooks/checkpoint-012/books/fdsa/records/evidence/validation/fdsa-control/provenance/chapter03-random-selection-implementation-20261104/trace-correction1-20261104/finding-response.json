@@ -1,0 +1,86 @@
+{
+  "recorded_utc": "2026-11-04T23:40:33.839053+00:00",
+  "finding": "C03-RANDOM-TRACE-ELAB-001",
+  "status": "Authored narrow correction; awaits new named root focused check",
+  "origin": "Actual native and recorded-child exit1, without an original transport terminal receipt",
+  "failed_candidate": "0fa717b8c150e0ae6edb9d538dd2b86d73f02b2d",
+  "failed_run_records": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/closed-recorder-evidence.json",
+      "bytes": 441,
+      "sha256": "0518650cbafea8f8ed72fc0edb41d1bb443967a40a4b74a81053ae3668e94bf9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/full.log",
+      "bytes": 13204,
+      "sha256": "9ca4d210228b920bd657ba8f4c8ca2738e3049361159260ce8319d17c04bacab"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/launch.json",
+      "bytes": 174,
+      "sha256": "f27f715c55ddd5758025012f711e52bdf819f564f9b6dc39981bddb61ed533dc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 12920,
+      "sha256": "67287412d131b49023f193b4c422f8140ad3108e840a12ad58df29eb7d732bf2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 639,
+      "sha256": "ac20fe37c3ebe14e15a36c2ac4c9218ca7fe4c04df9e102e9544123eecb3d4ae"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 485,
+      "sha256": "849bf3743bfd6ff28781aecf5dcc2ce8607be127e8a563c70f1892635ef075e2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/outer-prefix.log",
+      "bytes": 127,
+      "sha256": "14fa7116aa772370b6ebfdf76505792e46ac712d66dc2b8e52bf9f8311f8daa7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/outer-suffix.log",
+      "bytes": 157,
+      "sha256": "bed97915a48a119f21687ed390254b80cedff238f1b4a787eda00d0232c7a219"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/progress.json",
+      "bytes": 263,
+      "sha256": "1aaba1f0a7db82e45c956ebadfc3d1dcf6b81c4c09a80a9991111a89b82a8913"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/request.json",
+      "bytes": 801,
+      "sha256": "77a0c5a8b6faeb6eba6fa231bd742a2b97efe504e422fdb89e28afe304f4462a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/result.json",
+      "bytes": 1235,
+      "sha256": "efb5c1385b6e65372e232a2d799b2de97815bb5c4ab2641693a5e08c8c86088b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-focused-attempt1-20261104/start.json",
+      "bytes": 994,
+      "sha256": "f133da26376341a3f7c368399fd265f79c3dd13852fec88b65726b4b0228f924"
+    }
+  ],
+  "transport_incident": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-trace-attempt1-transport-loss-20261104/reconciliation.json",
+    "bytes": 6118,
+    "sha256": "3d3e6864685ddf0cc75e6c92fafb4e8370eac810f452dca633ac8c6420d5e602"
+  },
+  "owned_transport_terminal": null,
+  "proof_review": {
+    "name": "Resources.RandomSelection.prepend_injective",
+    "unchanged_header": "theorem prepend_injective (n i calls : Nat) :\n    Function.Injective (prepend (\u03b1 := \u03b1) n i calls)",
+    "unchanged_quantifiers": "For every payload Type u and every natural prefix size, occurrence index and local source cost; no LinearOrder, validity, distinctness, PMF support, Inhabited or Countable premise.",
+    "unchanged_conclusion": "Existing prepend is injective on complete Outcome \u03b1, preserving value, trace tail and source cost.",
+    "proof_correction": "Synthesize the same congrArg value-projection result into hv from the actual equal-prepended-outcome hypothesis before checking hv against the component equality. This prevents the goal from forcing the congrArg inputs to r and s prematurely. Definitional reduction of existing prepend gives the required value equality; trace and source cancellation subproofs are unchanged.",
+    "unchanged_cases": "All earlier exact full/trace atoms, unsorted interior-rank and signed paths, duplicates, singleton, empty/invalid cases, fixed-state and unsupported-outcome boundaries, and new support client are byte-identical.",
+    "actual_type_boundary": "All literal statement headers and implicit-context directives remain identical; the289-name explicit input is byte-identical, but actual successor elaboration/output remains pending root."
+  },
+  "support_connection_finding": "Separate C03-RANDOM-TRACE-CONNECTION-001 remains pending actual client compilation",
+  "author_compiler_actions": false
+}

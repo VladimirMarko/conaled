@@ -1,0 +1,603 @@
+{
+  "recorded_utc": "2026-11-05T01:42:59.491976+00:00",
+  "reviewer": "/root/chapter03_spec",
+  "independent_axis": "Spec",
+  "outcome": "PASS",
+  "review_complete": true,
+  "source_assessment_complete": true,
+  "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "accepted_shared_XR_comparison": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "candidate": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "tree": "ecb69c3918715cbe0682028cd8697dfcf3e463f9",
+  "scope_obligations": 83,
+  "scope_ledger_sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed",
+  "previous_progress": {
+    "path": "provenance/chapter03-spec-review-20261104/continuation-0136-014.json",
+    "bytes": 24287,
+    "sha256": "4ea600ab4633b458ba3ac6d7b632527230c34e32772431214f13774699a0a7f7"
+  },
+  "source_and_obligation_assessment": {
+    "path": "provenance/chapter03-spec-review-20261104/obligation-assessment-83-final298.json",
+    "bytes": 165251,
+    "sha256": "6bc2d3707eef297ed080c856e7f218c26978155e1e39a712b323177d4057aed4"
+  },
+  "assessment_boundary": "Same original-Q-to-final whole-Chapter3 loop and all83 frozen obligations. The historical source matrix retained its then-pending acceptance status; this record completes its final qualification and gives the independent Spec disposition. SharedXR is separately accepted and does not reset the base. No Standards conclusion is adopted.",
+  "final_type_qualification": {
+    "actual_owned_session": 27758,
+    "actual_terminal_tool_chunk": "7868c8",
+    "actual_exit": 0,
+    "native_exit": 0,
+    "recorder_exit": 0,
+    "timed_out": false,
+    "recorder_error": null,
+    "read_terminal_metadata_tool_chunk": "ef0475",
+    "read_input_structure_tool_chunk": "fa23aa",
+    "independent_all_block_reconciliation_tool_chunk": "b5f810",
+    "independent_complete_input_terminal_reconciliation_tool_chunk": "7bf553",
+    "names": 1391,
+    "chapter_names": 1370,
+    "accepted_XR_names": 21,
+    "program_imports": 80,
+    "native_bytes": 1625149,
+    "native_LF_lines": 23375,
+    "native_sha256": "79e0dce87cf9ba17fd1fc1a11170ec64a575353dda1122a55ea7b73b3cc7ece0",
+    "outer_bytes": 1625512,
+    "outer_sha256": "3a23c4da2f20c358fe53767a929882017776399e5da1acc48eddd64ff1bfead7",
+    "all_native_bytes_partitioned_once_in_exact_program_order": true,
+    "whole_outer_is206_byte_prefix_native157_byte_suffix": true,
+    "independently_recomputed_byte_identical_types": 1362,
+    "changed_raw_types_fully_read": 29,
+    "changed_raw_type_bytes": 43155,
+    "changed_trace_types": 19,
+    "changed_XR_types": 10,
+    "changed_block_read_coverage": [
+      {
+        "ordinal": 1324,
+        "name": "Resources.RandomSelection.map_prepend_apply",
+        "first_line": 21536,
+        "last_line": 21547,
+        "offset": 1495767,
+        "bytes": 1058,
+        "sha256": "a0945123b7cde7a8dfc33168a58508b1b78055e8615eb2ffe8ad92284c6ca4e9",
+        "complete_raw_read_tool_chunk": "ebd677",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1325,
+        "name": "Resources.RandomSelection.run_child_atom",
+        "first_line": 21548,
+        "last_line": 21587,
+        "offset": 1496825,
+        "bytes": 2704,
+        "sha256": "1f420762f0f41226b9879240c3a4ca0c25208cc07ad14441722456217d0b7c0d",
+        "complete_raw_read_tool_chunk": "ebd677",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1326,
+        "name": "Resources.RandomSelection.run_trace_injective",
+        "first_line": 21588,
+        "last_line": 21610,
+        "offset": 1499529,
+        "bytes": 1362,
+        "sha256": "a0e9751a5f7457404e529b1046472ed6b3d42cadaeef0aedcfe5374d28431b14",
+        "complete_raw_read_tool_chunk": "ebd677",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1327,
+        "name": "Resources.RandomSelection.traceLaw",
+        "first_line": 21611,
+        "last_line": 21612,
+        "offset": 1500891,
+        "bytes": 172,
+        "sha256": "a8f7f6e553d3385f03b2d34dd3a83b0231510eb1dfe496e7d907d26e9eec2048",
+        "complete_raw_read_tool_chunk": "ebd677",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1328,
+        "name": "Resources.RandomSelection.traceLaw_support",
+        "first_line": 21613,
+        "last_line": 21631,
+        "offset": 1501063,
+        "bytes": 1230,
+        "sha256": "e4176ee0e13c2417b5e98f595fcdee116945cda88410c6090828f2b7ebc0df83",
+        "complete_raw_read_tool_chunk": "ebd677",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1329,
+        "name": "Resources.RandomSelection.traceLaw_atom",
+        "first_line": 21632,
+        "last_line": 21650,
+        "offset": 1502293,
+        "bytes": 1362,
+        "sha256": "319b4c268c64a6eba3a645215e91deb7bb7d1c395dbfc3fe3f09df5e064e7c3f",
+        "complete_raw_read_tool_chunk": "ebd677",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1331,
+        "name": "Resources.RandomSelection.run_singleton_atom",
+        "first_line": 21655,
+        "last_line": 21669,
+        "offset": 1503986,
+        "bytes": 1208,
+        "sha256": "9e0f43415091ab81c5189701416b0af77c7f0c84083ee1c34ff92aea5d65e591",
+        "complete_raw_read_tool_chunk": "ebd677",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1332,
+        "name": "Examples.RandomSelectionTrace.singleton_trace_atom",
+        "first_line": 21670,
+        "last_line": 21680,
+        "offset": 1505194,
+        "bytes": 877,
+        "sha256": "69368d5dc1867c2b34a8a9920d161d6a1c4c88d91c7ff14a4bdcf9fc6df3553c",
+        "complete_raw_read_tool_chunk": "77bf78",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1333,
+        "name": "Examples.RandomSelectionTrace.middle_child_atom",
+        "first_line": 21681,
+        "last_line": 21706,
+        "offset": 1506071,
+        "bytes": 1945,
+        "sha256": "8660a82b39b188700bd987311746762474ce0ecd6910304f0035cdfccaa10ca5",
+        "complete_raw_read_tool_chunk": "77bf78",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1334,
+        "name": "Examples.RandomSelectionTrace.middle_path_atom",
+        "first_line": 21707,
+        "last_line": 21736,
+        "offset": 1508016,
+        "bytes": 2268,
+        "sha256": "369d050560e1bbf713919994823517a2c7d2d4f5422a1e343f5d11d99d086713",
+        "complete_raw_read_tool_chunk": "77bf78",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1335,
+        "name": "Examples.RandomSelectionTrace.middle_path_trace",
+        "first_line": 21737,
+        "last_line": 21761,
+        "offset": 1510284,
+        "bytes": 1874,
+        "sha256": "b7494d6e6eeb6628243b00d1be4487cd184b78cc341223bf16403016c7a5564d",
+        "complete_raw_read_tool_chunk": "77bf78",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1336,
+        "name": "Examples.RandomSelectionTrace.middle_path_observations",
+        "first_line": 21762,
+        "last_line": 21800,
+        "offset": 1512158,
+        "bytes": 2539,
+        "sha256": "0a72b202b122488a7f0ecae1009636fa584348eba5a643b5f61b21199e1ec359",
+        "complete_raw_read_tool_chunk": "77bf78",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1337,
+        "name": "Examples.RandomSelectionTrace.negative_path_atom",
+        "first_line": 21801,
+        "last_line": 21839,
+        "offset": 1514697,
+        "bytes": 2998,
+        "sha256": "d2a06915b206b4b8fd8fa387eeb7a79929567ebd5578d36217e059eb347b06e4",
+        "complete_raw_read_tool_chunk": "77bf78",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1338,
+        "name": "Examples.RandomSelectionTrace.negative_path_trace",
+        "first_line": 21840,
+        "last_line": 21873,
+        "offset": 1517695,
+        "bytes": 2580,
+        "sha256": "4f78af8cc251a82b8a48bb161f5a8e10afe23812898ad4fd3e0a0504bc0a8a45",
+        "complete_raw_read_tool_chunk": "77bf78",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1339,
+        "name": "Examples.RandomSelectionTrace.duplicate_trace_atom",
+        "first_line": 21874,
+        "last_line": 21892,
+        "offset": 1520275,
+        "bytes": 1447,
+        "sha256": "4928dcde7cb1fa14643fc31606eadab8ff99f060e72ed17b4e4dac8ec0a436fb",
+        "complete_raw_read_tool_chunk": "77bf78",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1340,
+        "name": "Examples.RandomSelectionTrace.empty_trace_atom",
+        "first_line": 21893,
+        "last_line": 21898,
+        "offset": 1521722,
+        "bytes": 561,
+        "sha256": "ffb50a139be4f960cfe64c91ff77ed30887b95aaf0bb4f18ec9b78b31f3e6311",
+        "complete_raw_read_tool_chunk": "406119",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1341,
+        "name": "Examples.RandomSelectionTrace.invalid_singleton_trace_atom",
+        "first_line": 21899,
+        "last_line": 21909,
+        "offset": 1522283,
+        "bytes": 876,
+        "sha256": "1415ee9d94f9dfa2a2ede9110b640c684471125c901bca5207fac301391155b2",
+        "complete_raw_read_tool_chunk": "406119",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1343,
+        "name": "Examples.RandomSelectionTrace.unsupported_empty_trace_boundary",
+        "first_line": 21951,
+        "last_line": 21977,
+        "offset": 1526325,
+        "bytes": 2098,
+        "sha256": "c87fa6d7d81be0798d1c38ec922c31c4c71cdda7ae683c633196a00b188a70f1",
+        "complete_raw_read_tool_chunk": "406119",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1344,
+        "name": "Examples.RandomSelectionTrace.arbitrary_supported_trace",
+        "first_line": 21978,
+        "last_line": 22010,
+        "offset": 1528423,
+        "bytes": 2213,
+        "sha256": "2d500bb69823978b4a1d9430668b2e0b542f2590a5ccf5e57e45f382fabb8a63",
+        "complete_raw_read_tool_chunk": "406119",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1371,
+        "name": "Resources.AffineRecurrence.exists_affine_bound_of_two_branch",
+        "first_line": 23071,
+        "last_line": 23227,
+        "offset": 1607949,
+        "bytes": 7807,
+        "sha256": "137783ad073788e030b74efea07072fb65551d44472d0bcd50c41b1337fde9a4",
+        "complete_raw_read_tool_chunk": "bd76cd",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1372,
+        "name": "Examples.AffineRecurrence.quarter",
+        "first_line": 23228,
+        "last_line": 23228,
+        "offset": 1615756,
+        "bytes": 54,
+        "sha256": "092e78e7c09abdca44508858191ad1d3197cfa982ef21c93091dbd64f4368822",
+        "complete_raw_read_tool_chunk": "bd76cd",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1373,
+        "name": "Examples.AffineRecurrence.quarter_of_le_one",
+        "first_line": 23229,
+        "last_line": 23231,
+        "offset": 1615810,
+        "bytes": 276,
+        "sha256": "3b7daae0df8de40a0f915211d3a328b8cc05c99f35de0a6d28d618c6c8a3266c",
+        "complete_raw_read_tool_chunk": "bd76cd",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1374,
+        "name": "Examples.AffineRecurrence.quarter_of_one_lt",
+        "first_line": 23232,
+        "last_line": 23243,
+        "offset": 1616086,
+        "bytes": 783,
+        "sha256": "89ab9c7e9e46c5a7232449aa18340d1524cd1ed278a4ebdb8127e81101e714ad",
+        "complete_raw_read_tool_chunk": "bd76cd",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1381,
+        "name": "Examples.AffineRecurrence.quarter_affine_bound",
+        "first_line": 23262,
+        "last_line": 23270,
+        "offset": 1618179,
+        "bytes": 676,
+        "sha256": "b19f29f0b71561c16bd633ba6f01db7e10fb218b2462007fd5aa1a5784e5fb0f",
+        "complete_raw_read_tool_chunk": "bd76cd",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1382,
+        "name": "Examples.AffineRecurrence.signed",
+        "first_line": 23271,
+        "last_line": 23271,
+        "offset": 1618855,
+        "bytes": 53,
+        "sha256": "fb9a3943146951ec9666fe5d44f211d68bd90b53ea5adaae4e2100daf8b50761",
+        "complete_raw_read_tool_chunk": "bd76cd",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1386,
+        "name": "Examples.AffineRecurrence.signed_affine_bound",
+        "first_line": 23289,
+        "last_line": 23297,
+        "offset": 1620186,
+        "bytes": 638,
+        "sha256": "9a28bf41aba2377633de971c4c879c013dfd97a8447ef15de2b26487d64a4db4",
+        "complete_raw_read_tool_chunk": "bd76cd",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1389,
+        "name": "Examples.AffineRecurrence.parameterwise_affine_bound",
+        "first_line": 23350,
+        "last_line": 23360,
+        "offset": 1623653,
+        "bytes": 696,
+        "sha256": "d3dc9b8484fd6faaacddbaec5ae4350c881a9c8be7d9cb52d85563f9f420310f",
+        "complete_raw_read_tool_chunk": "bd76cd",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1390,
+        "name": "Examples.AffineRecurrence.no_uniform_natural_family_bound",
+        "first_line": 23361,
+        "last_line": 23367,
+        "offset": 1624349,
+        "bytes": 356,
+        "sha256": "5b939073da04b55ca73383af5ab04fa12d99cc07af9e65724bf5031c1fbb8e4d",
+        "complete_raw_read_tool_chunk": "bd76cd",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      },
+      {
+        "ordinal": 1391,
+        "name": "Examples.AffineRecurrence.no_uniform_integer_family_bound",
+        "first_line": 23368,
+        "last_line": 23375,
+        "offset": 1624705,
+        "bytes": 444,
+        "sha256": "8a588189c8d46ab9c66e8d256df85310ee50d0c10be3e4b4a0a4faf600ef3ed8",
+        "complete_raw_read_tool_chunk": "bd76cd",
+        "independent_semantic_assessment": "PASS; exact premises, quantifiers and conclusion agree with assessed source and obligation scope"
+      }
+    ],
+    "new_public_names_or_source_edits_during_final_qualification": 0,
+    "omission_error_warning_forbidden_axiom_markers": []
+  },
+  "stable_inputs": {
+    "complete_pre_post_identity_equal": true,
+    "candidate_and_current_head": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+    "initial_final_and_current_git_status_clean": true,
+    "local_sources": 113,
+    "local_source_bytes_currently_rehashed_and_equal_final_Git_blobs": true,
+    "local_compiler_objects_and_traces": 339,
+    "all339_current_file_bytes_rehashed": true,
+    "compiler_artifact_kinds": [
+      ".olean",
+      ".olean.hash",
+      ".trace"
+    ],
+    "configuration_inputs": 10,
+    "all_configuration_current_bytes_equal_final_Git": true,
+    "dependency_pins": 9,
+    "all_current_dependency_heads_exact_and_states_clean": true,
+    "runtime_components": 12,
+    "all12_current_runtime_bytes_rehashed": true,
+    "configuration_dependencies_runtime_equal_retained_assembly2_qualification": true,
+    "local_import_closure_independently_recomputed": 113,
+    "external_imports_independently_recomputed": 59,
+    "full_check_verification_bytes_preserved": true,
+    "verification_sha256": "152ccbf0ee1d37fbe8eef300d88ad16284858464e5c4dc82f1f3884db3641088",
+    "boundary": "Stable captures and ordinary candidate verification support trusted local-checkout qualification; they are not a formal loaded-object provenance certificate. The complete normal build, both artifact guards and exhaustive audit separately passed on the same final candidate."
+  },
+  "conditional_reuse_justification": [
+    "Every original-Q source module, private helper and checked-client body was assessed on immutable source identities and reconciled to final298, including the CountRank correction, MinimumPivot comment correction, trace and universal-worst additions.",
+    "All1391 historical actual types were read and assessed with their exact raw-byte ranges in previous own ledgers. Final output names/order are independently matched to the previously reconciled complete1391 program.",
+    "For1362 blocks, complete current and prior raw bytes are equal, not merely matching declaration names or shortened statements. The final run has its own actual exit0 and stable qualified inputs; prior semantic assessments therefore apply to those exact current types.",
+    "The remaining29 raw blocks were each read in full at final298. The original trace/XR programs used six printing options; final uses the ten disclosed options. Explicit coercions, binder display and elaborated instance projections change presentation without changing the assessed mathematical premises/conclusions.",
+    "No previously truncated content is credited. All changed reads were bounded and returned completely. Earlier parser diagnostics are retained as failed read-only metadata attempts, not Lean failures or altered proof requirements."
+  ],
+  "changed_type_semantic_assessment": [
+    "Trace core: map-prepend mass equality applies to arbitrary PMF/outcome; actual child-atom factorization retains the exact selected step equation, occurrence cardinality and actual child run. No guessed probability or desired cost is a premise.",
+    "Trace injectivity fixes the same k and xs, requires both outcomes in that actual run support and compares their recorded traces. The trace-mass equality explicitly retains support. No cross-input or unsupported-outcome inference is made.",
+    "Trace cases retain singleton mass1/cost9; unsorted middle path input[3,1,2], rank1, trace[(3,1),(2,0),(1,0)], mass1/6, W6 and T33; signed path input[3,-2,8,0,5], rank3, exact endpoint trace, mass1/120 and T67. Duplicate trace mass1/3 is not relabelled as a distinct-input factorial law.",
+    "Empty trace mass1 and invalid singleton behavior remain explicit. The unsupported empty outcome with source cost3 has mass0 while the empty trace has mass1, preserving the necessity of support. General supported-trace clients retain all fixed-state and support premises.",
+    "XR general type retains CommRing, LinearOrder, IsStrictOrderedRing and Archimedean; an already total f, natural child maps, rho<1 and eventual two-child sum/recurrence inequalities. Signed rho/K/C/D are not silently constrained further, and no monotonicity or field premise appears. Constants A/B are nonnegative and existentially chosen before every n.",
+    "XR clients retain the actual cutoff1 quarter recurrence, rational upper constants, integer signed-family constants, parameterwise forall-p/exists-A,B order and the checked failure of exists-A,B/forall-p,n. Their full explicit final types support the previously assessed source and document boundaries."
+  ],
+  "full_check_and_audit": {
+    "independent_assessment_record": {
+      "path": "provenance/chapter03-spec-review-20261104/continuation-0136-014.json",
+      "bytes": 24287,
+      "sha256": "4ea600ab4633b458ba3ac6d7b632527230c34e32772431214f13774699a0a7f7"
+    },
+    "actual_owned_session": 2798,
+    "actual_terminal_tool_chunk": "3b5dc6",
+    "actual_exit": 0,
+    "checked_project_modules": 1109,
+    "audited_project_modules": 1107,
+    "kernel_safe_declarations": 50135,
+    "theorem_declarations": 29316,
+    "unsafe_runtime_declarations": 0,
+    "permitted_axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "normal_mode_applicable": true
+  },
+  "complete_scope_counts": {
+    "original_Q_changed_paths": 84,
+    "added_Lean_sources": 80,
+    "chapter_Lean_sources": 78,
+    "accepted_XR_Lean_sources": 2,
+    "changed_public_entrypoint": 1,
+    "documents": 3,
+    "public_source_declarations": 1391,
+    "final_actual_types": 1391,
+    "frozen_obligations": 83,
+    "baseline_complete_read_modules": 7,
+    "baseline_bounded_read_modules": 5
+  },
+  "resolved_findings": [
+    {
+      "id": "C03-SPEC-USE-001",
+      "resolution": {
+        "path": "provenance/chapter03-spec-review-20261104/finding-C03-SPEC-USE-001-resolution1.json",
+        "bytes": 5432,
+        "sha256": "4529ac45f11eec4c0346f70a51f0526f2f41ec690d199f7175931a1ca8387d3c"
+      },
+      "preserved_in": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2"
+    }
+  ],
+  "unresolved_findings": [],
+  "new_findings": [],
+  "evidence_bindings": [
+    {
+      "path": "provenance/chapter03-final-complete-statements1391-attempt1-20261105/actual-closure-tool.json",
+      "bytes": 2584,
+      "sha256": "a933ce3c515c33154749f25f5840660f5b0cbd18b0efcb411abe81e6d2ebf24b"
+    },
+    {
+      "path": "provenance/chapter03-final-complete-statements1391-attempt1-20261105/actual-tool-launch.json",
+      "bytes": 312,
+      "sha256": "c84864ce8c0001b2ac52d8b7891aca1d06e11ae88e158b94560f18818dfddaa0"
+    },
+    {
+      "path": "provenance/chapter03-final-complete-statements1391-attempt1-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "sha256": "88b5945f0f591e2bc6327b1dd09b6fa1f601d67582559873abb5e5aa7128a01c"
+    },
+    {
+      "path": "provenance/chapter03-final-complete-statements1391-attempt1-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2393,
+      "sha256": "9c1e889c03e75e3df87bffb6131b8a1b0122df66a29056495511fcf6a49d72c8"
+    },
+    {
+      "path": "provenance/chapter03-final-complete-statements1391-attempt1-20261105/full.log",
+      "bytes": 1625512,
+      "sha256": "3a23c4da2f20c358fe53767a929882017776399e5da1acc48eddd64ff1bfead7"
+    },
+    {
+      "path": "provenance/chapter03-final-complete-statements1391-attempt1-20261105/launch.json",
+      "bytes": 174,
+      "sha256": "0ced04a9aff87e0897f622be305868a57a990aefd9d958d1f4c74f2c0449b55f"
+    },
+    {
+      "path": "provenance/chapter03-final-complete-statements1391-attempt1-20261105/native-records/output.log",
+      "bytes": 1625149,
+      "sha256": "79e0dce87cf9ba17fd1fc1a11170ec64a575353dda1122a55ea7b73b3cc7ece0"
+    },
+    {
+      "path": "provenance/chapter03-final-complete-statements1391-attempt1-20261105/native-records/result.json",
+      "bytes": 716,
+      "sha256": "38c97f2f378b03cf8b69a02ece8a941abddb4e6408752dd0b5f304608a5cedf3"
+    },
+    {
+      "path": "provenance/chapter03-final-complete-statements1391-attempt1-20261105/native-records/start.json",
+      "bytes": 564,
+      "sha256": "ba1bdfa19e4fa6c8596e6eae9bdea62130f8a998ff20d3196200431d7a5c84d8"
+    },
+    {
+      "path": "provenance/chapter03-final-complete-statements1391-attempt1-20261105/outer-prefix.log",
+      "bytes": 206,
+      "sha256": "b8b00f1990a5aaadeeb5d9cae93e6a06c371602bfe6d322bf2c8820d06f2e5a1"
+    },
+    {
+      "path": "provenance/chapter03-final-complete-statements1391-attempt1-20261105/outer-suffix.log",
+      "bytes": 157,
+      "sha256": "7f3e0769a94ec1c142aa9307e78061c92d070bf7037c79670c2befe4ce8d0311"
+    },
+    {
+      "path": "provenance/chapter03-final-complete-statements1391-attempt1-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "4ff957404b7a65f9d4f87972647390f518724f6cd7ffa66cb71d4431cdf4db9e"
+    },
+    {
+      "path": "provenance/chapter03-final-complete-statements1391-attempt1-20261105/progress.json",
+      "bytes": 263,
+      "sha256": "c3daaaa6ad322f23a806e9f5cec592b64f471ae15bc9f6df4f8a5b90dc2dccc7"
+    },
+    {
+      "path": "provenance/chapter03-final-complete-statements1391-attempt1-20261105/request.json",
+      "bytes": 880,
+      "sha256": "1cf54a73f14bad7343fef86e926cea578e0b6bab1038edf4de971842fbcf7f00"
+    },
+    {
+      "path": "provenance/chapter03-final-complete-statements1391-attempt1-20261105/result.json",
+      "bytes": 1413,
+      "sha256": "e890794e3bb03b6b01c81ccca4dea901546383a74fbf71fcb0259ba23bb065b2"
+    },
+    {
+      "path": "provenance/chapter03-final-complete-statements1391-attempt1-20261105/start.json",
+      "bytes": 1073,
+      "sha256": "5ead53d44bb9d46102cff07c2715e7b6bebfa19d5f1e778ce81391ed51c9cf66"
+    },
+    {
+      "path": "provenance/chapter03-final-complete-statements1391-attempt1-20261105/verification.json",
+      "bytes": 867,
+      "sha256": "152ccbf0ee1d37fbe8eef300d88ad16284858464e5c4dc82f1f3884db3641088"
+    },
+    {
+      "path": "provenance/chapter03-final-statement-inputs-20261105/Statements1391-complete.lean",
+      "bytes": 82068,
+      "sha256": "a4671a1d5cd377fcdd0899d7700a3b7b635faeef18b9006bab2cfa3521c2aa2d"
+    },
+    {
+      "path": "provenance/chapter03-final-statement-inputs-20261105/preparation.json",
+      "bytes": 22272,
+      "sha256": "8d4431187c0196c73b187f0495941ad75a33fb92d609e125ff7ba409093a1b98"
+    },
+    {
+      "path": "provenance/chapter03-final-statement-inputs-20261105/pre-inputs.json",
+      "bytes": 185662,
+      "sha256": "a1d16b9d1f761cf7fc4ab5b933e92fb6292fe614cfc45d7547f4b7c6a61b8c6b"
+    },
+    {
+      "path": "provenance/chapter03-final-statement-inputs-20261105/post-inputs.json",
+      "bytes": 185961,
+      "sha256": "5dc01e8379f41539585ccf474cbbdc6c884b0ab4bc259c9855d06c88cf157565"
+    },
+    {
+      "path": "provenance/chapter03-final-statement-inputs-20261105/actual-type-block-index.json",
+      "bytes": 359015,
+      "sha256": "7ecceddacced0f5cfbbc629330d2ed2cb2eb13fdcd437f62ebf6ccab7835c3a7"
+    },
+    {
+      "path": "provenance/chapter03-final-statement-inputs-20261105/prior-type-block-comparison.json",
+      "bytes": 229823,
+      "sha256": "50a704913432f1669d3b5d39076b004093e799f04262cbd78d2607520c5cb74b"
+    },
+    {
+      "path": "provenance/chapter03-final-statement-inputs-20261105/observation-reconciliation.json",
+      "bytes": 2528,
+      "sha256": "406384808197fc3d8ce678efe58b417d680999d318d049b77d1ac5461a1942ef"
+    },
+    {
+      "path": "provenance/chapter03-final-statement-inputs-20261105/reconciler-leading-at-correction.json",
+      "bytes": 1189,
+      "sha256": "146a0c236e1219be3277179e8c9b7bb1c54e071e7799713aa79e4ca5d2f061d6"
+    },
+    {
+      "path": "provenance/chapter03-final-statement-inputs-20261105/reconciliation-attempt1-actual-terminal.json",
+      "bytes": 490,
+      "sha256": "2d92d378d01960b1cb04aa5d86fc2ad91eab25087d8f784a39599f56eecb48a4"
+    }
+  ],
+  "disposition": "PASS for independent Spec axis on exact298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2, originalQ/all83 scope; no unresolved findings. Recommend acceptance of this exact candidate once the independent Standards axis also passes and root performs successful immediate candidate verification.",
+  "acceptance_boundary": [
+    "This review does not itself perform or claim immediate --verify-candidate HEAD, local fast-forward, ticket/coverage acceptance update or checkpoint upload.",
+    "Parent retains responsibility for the separate Standards disposition and immediate verification/integration sequence. Any source/configuration/candidate change requires corresponding scope and gate reassessment."
+  ],
+  "no_compiler_source_configuration_or_ref_mutations": true
+}

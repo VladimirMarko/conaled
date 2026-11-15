@@ -1,0 +1,28 @@
+{
+  "recorded_utc": "2026-11-04T19:51:57.968665+00:00",
+  "agent": "/root/checkpoint0124_inspection",
+  "scope": "Read-only checkpoint operations inspection; not mathematical Standards/Spec review",
+  "outcome": "zero findings",
+  "verifier": {
+    "path": "provenance/checkpoint0125-preparation/verify-checkpoint.py",
+    "bytes": 11473,
+    "sha256": "081281944567fde5b76cbafc3f76f75f08aaa7a3a044f5ce2f384034aca9fdac"
+  },
+  "complete_verifier_read_lines": 210,
+  "complete_verifier_README_origin_and_diff_tool": "8e8a52",
+  "schema_baseline_checks": [
+    "fd3702",
+    "fd0080"
+  ],
+  "restorer_creator_read": "439635",
+  "all_read_tool_exits": 0,
+  "prior_refs": 73,
+  "prior_worktrees": 9,
+  "allowed_author_ref_advances": 5,
+  "accepted_XR_unchanged": true,
+  "historical_six_retirements_preserved_not_repeated": true,
+  "capture_write_hold_creation_integrity_absent_at_inspection": true,
+  "no_snapshot_or_verification_success_claimed": true,
+  "writes_or_compiler_or_restore_or_fsck_or_cleanup": false,
+  "agent_held": true
+}

@@ -1,0 +1,48 @@
+{
+  "recorded_utc": "2026-11-04T22:48:00.203511+00:00",
+  "candidate": "7950275f345d1077e23730e1975b6dac7460be87",
+  "tree": "fcdb36aa2fc1fa19efbb5fdf950de47f1ce350e3",
+  "parent": "d82ee6286de99a032eaf5fd925e6b87f48e0fb36",
+  "bound_hold_files": 288,
+  "source_blobs": 14,
+  "new_modules": 2,
+  "new_public_names": 27,
+  "new_private_helpers": 0,
+  "new_logical_definition": "EndpointPivot",
+  "previous12_sources_exact": true,
+  "previous256_headers_contexts_proofs_preserved_by_exact_source": true,
+  "public_input": {
+    "bytes": 15352,
+    "sha256": "61aec968e952e701066db6b5802fe87b2356a3c52bba4f533f0a4b865bc7bc33"
+  },
+  "previous239_names_and_print_profile_exact": true,
+  "new_names_disjoint_from_other_prepared1294": true,
+  "source_scope_read": [
+    "386824 completecore",
+    "98ce01 completeexamples",
+    "2c19fc completehandoff"
+  ],
+  "all27_headers_mathematical_and_case_assessments_read": "2d4abe",
+  "expected_model_complete_read": "af9e95 prefix before truncated declaration metadata; all27 metadata headers separately completed2d4abe",
+  "expected_cases": {
+    "count": 719,
+    "illustrative_paths": 13,
+    "local_steps": 7,
+    "model": {
+      "bytes": 5599,
+      "sha256": "7edb978daacc882721553f8a5f0a2b094f36b8571988e405e28703be5fdaa2c7"
+    },
+    "outcomes": {
+      "bytes": 16751,
+      "sha256": "69f3d90737a56bff4719f8c4c208b1f65ea585c8d9e94d72216ac4f9b77506fe"
+    }
+  },
+  "root_statement_assessment": "Logical endpoint policy uses an actual occurrence; nonempty existence has no Nodup/Inhabited/finite-carrier premise. Nodup is required for uniqueness and one-element removal. Positive-rank minimum and nonsingleton rank-zero maximum derive exact actual step/cost equations, preserving arbitrary unsorted inputs and all valid ranks. Universal child keeps Nodup, valid predecessor rank and exact ordered-index target. Empty example deliberately omits only unused order; later declarations regain full order context. Source-call model and concrete negative/duplicate/invalid/interior-switch cases match. No complete path mass, triangular attainment or unbounded family is claimed by these local steps.",
+  "private_review": "No new private helper; old17 exact.",
+  "prepared_total_names": 1321,
+  "prepared_total_modules": 74,
+  "passed_total_names_before_run": 1294,
+  "passed_total_modules_before_run": 72,
+  "actual_types_or_new_pair_pass": false,
+  "chapter03_accepted": false
+}

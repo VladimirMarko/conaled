@@ -1,0 +1,127 @@
+{
+  "recorded_utc": "2026-11-05T04:05:31.186028+00:00",
+  "unit": "FDSA-XT03",
+  "coordinator": "/root",
+  "state": "Read-only original-scope/source preparation; receiving candidate and all receiving validation remain absent.",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+  "original_tree": "b66d05bc7733290057c6104bcc5a74c43b4037a4",
+  "requirements_ids": [
+    "XT03-01",
+    "XT03-02",
+    "XT03-03",
+    "XT03-04",
+    "XT03-05",
+    "XT03-06"
+  ],
+  "requirements": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-fold-resource-requirements.md",
+    "bytes": 15461,
+    "sha256": "0a83c0b87873c33f2d5bf5aeef655ae4ab2957bb4100202164b217363ed8fcf8"
+  },
+  "original_scope_paths": [
+    "Applications/Resources/TreeFold.lean",
+    "Examples/TreeFold.lean",
+    "Examples/TreeFoldCache.lean",
+    "Examples/TreeFoldObservations.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-fold-resource.md"
+  ],
+  "sources": {
+    "Applications/Resources/TreeFold.lean": {
+      "bytes": 8347,
+      "sha256": "bf2acc856e73949ce09434abffbd952fb6cc583ca2342b11b8dd4230bd259dcc",
+      "git_blob": "442f0b1e3bc3c8919cb7cfd3476f9e76182a880c"
+    },
+    "Examples/TreeFold.lean": {
+      "bytes": 7437,
+      "sha256": "45e193ade4f0a98d8aed86b812c8ee22c5cd9e1e74a5a41e832bf7d87bc48d9c",
+      "git_blob": "44cc3195f016a1a8e74d6bc09db2f9ac0d0d2985"
+    },
+    "Examples/TreeFoldCache.lean": {
+      "bytes": 7743,
+      "sha256": "9a98b200ab681ca7fa0cdf791a21f364654dc43dfa386911fb9ad4cf515123f7",
+      "git_blob": "ed6f64ed9d6a33ac6182057aa9fca8af9169ff9a"
+    },
+    "Examples/TreeFoldObservations.lean": {
+      "bytes": 8654,
+      "sha256": "3aeb7f02113c8e858c433a61981d9cea7b4cf8a332d23dac136ce309f33a86be",
+      "git_blob": "cc70b9d0db6c9c54f4c2446093765bb007d35217"
+    },
+    "SquareApplications.lean": {
+      "bytes": 8355,
+      "sha256": "6d454e0bac73c0beca7bafce073e7c293587d81aa4baff7febf5509d8802cf84",
+      "git_blob": "2d5a05a2221113287b437e1a2b9a5f980c4dd47f"
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "bytes": 20591,
+      "sha256": "6ad9a95519badf2ae2d1cbc4581f1bd8045a8afdf3ce245b0326cddd669f1281",
+      "git_blob": "455dab1a6d0be4deeaca64f97dbaa97908c91d00"
+    },
+    "docs/research/fdsa-tree-fold-resource.md": {
+      "bytes": 13890,
+      "sha256": "29bb52ff57f5a28364e44650f73ce02ca51a0ec9688d8312f7b62bbbe6159b58",
+      "git_blob": "39bd8ef4f47ad15d94f62db1feb252ca43672968"
+    }
+  },
+  "complete_root_reads": [
+    {
+      "chunk": "ad6253",
+      "scope": "Original requirements1-105, retained prior bounded read"
+    },
+    {
+      "chunk": "62f527",
+      "scope": "Original requirements106-205, retained prior bounded read"
+    },
+    {
+      "chunk": "fa7e46",
+      "scope": "Original requirements206-288 completes288"
+    },
+    {
+      "chunk": "76796a",
+      "scope": "Original Resources.TreeFold complete175lines"
+    },
+    {
+      "chunk": "1c4d48",
+      "scope": "Original Examples.TreeFold complete161lines"
+    },
+    {
+      "chunk": "36e30a",
+      "scope": "Original Examples.TreeFoldCache complete164lines"
+    },
+    {
+      "chunk": "57a29d",
+      "scope": "Original Examples.TreeFoldObservations complete198lines"
+    },
+    {
+      "chunk": "9117df",
+      "scope": "Original correspondence note complete249lines"
+    },
+    {
+      "chunk": "8ae06f",
+      "scope": "Complete original root and map patch"
+    }
+  ],
+  "source_assessment": [
+    "Raw run specializes ordinary fold and preserves exact left+(right+callback), then entry grouping under Add with independent universes.",
+    "Actual callback values are erased through fusion without observation assumptions; onlyentrychanges comparisons keep the callback and empty value fixed.",
+    "Natural entry-cost separation compares actual same-callback zero-entry run. Uniform callback bounds quantify over arbitrary finite child-tree summaries at fixed parameters.",
+    "All three append clients call actual measured append and connect returned-list lengths to inorder/nodecount. Their equal values coexist with distinct positive costs.",
+    "Actual annotation executes accepted measuredsmartnode, retains recursivevalidity and erasure bridges, and connects actual childreads before list-costrewriting.",
+    "Ordered word, product reweightings, and unreachable reset callback cases retain exact observation semantics and do not assert machine/runtime costs.",
+    "Original CP01 typedread/proof correction and DOC01 scope correction are retained; no new source issue identified in this preparation. CP01 is an anticipated old risk, not an observed compiler failure.",
+    "Receiving must preserve all acceptedroot/mapcontent and original7path/6requirement/88publicname scope, with originaltwoaxisreviewloop unchanged."
+  ],
+  "boundaries": {
+    "actual_elaborated_types_claimed": false,
+    "receiving_build_claimed": false,
+    "full_check_or_audit_claimed": false,
+    "unit_accepted": false,
+    "chapter04_accepted": false,
+    "new_independent_review_axis": false,
+    "source_or_ref_changes": false
+  },
+  "reception_condition": "Only after actual XT02 acceptance and checkpoint0139 durability. Root retains serial one-thread compiler and unchanged validation gates.",
+  "source_primary_evidence": "Exact original book/source assessments retained by original Spec/Standards loops. No new root primary-manuscript read is claimed by this record."
+}

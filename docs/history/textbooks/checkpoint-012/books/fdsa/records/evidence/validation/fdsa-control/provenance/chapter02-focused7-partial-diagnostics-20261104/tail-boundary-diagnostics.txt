@@ -1,0 +1,120 @@
+error: Examples/PermutationTailBoundary.lean:50:84: unsolved goals
+⊢ (∃ a, positions.head? = some a ∧ (Equiv.symm swap01) a = 1) ∧
+    ∀ (x : Fin 4), positions.head? = some x → ¬(Equiv.symm swap01) x = 0
+error: Examples/PermutationTailBoundary.lean:51:43: This simp argument is unused:
+  swap01_global_order
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [firstEvent, swap01_selected_order]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Examples/PermutationTailBoundary.lean:140:2: Tactic `decide` failed to reduce
+  @decide
+    (∀ xs ∈ counterPositions.permutations.toFinset,
+      (List.filter (fun a => decide (a ∈ conditionSubset)) xs).head? = some 0 ∧
+          List.filter (fun a => decide (a ∈ outsideSubset)) xs = [1, 2] ↔
+        xs = [0, 1, 2])
+    Finset.decidableDforallFinset
+to `true` or `false`.
+
+After unfolding the instances `decidable_of_decidable_of_iff`, `decidable_of_iff`, `Finset.decidableDforallFinset`, `Multiset.decidableDforallMultiset`, and `Multiset.decidableForallMultiset`, reduction got stuck at
+  List.decidableBAll
+    (fun a =>
+      (fun xs a =>
+          (List.filter (fun a => decide (a ∈ conditionSubset)) xs).head? = some 0 ∧
+              List.filter (fun a => decide (a ∈ outsideSubset)) xs = [1, 2] ↔
+            xs = [0, 1, 2])
+        ↑a ⋯)
+    (List.pmap Subtype.mk counterPositions.permutations.dedup ⋯)
+error: Examples/PermutationTailBoundary.lean:148:2: Tactic `decide` failed to reduce
+  @decide
+    (∀ xs ∈ counterPositions.permutations.toFinset,
+      (List.filter (fun a => decide (a ∈ conditionSubset)) xs).head? = some 0 ∧
+          List.filter (fun a => decide (a ∈ outsideSubset)) xs = [2, 1] ↔
+        xs = [0, 2, 1] ∨ xs = [2, 0, 1])
+    Finset.decidableDforallFinset
+to `true` or `false`.
+
+After unfolding the instances `decidable_of_decidable_of_iff`, `decidable_of_iff`, `Finset.decidableDforallFinset`, `Multiset.decidableDforallMultiset`, and `Multiset.decidableForallMultiset`, reduction got stuck at
+  List.decidableBAll
+    (fun a =>
+      (fun xs a =>
+          (List.filter (fun a => decide (a ∈ conditionSubset)) xs).head? = some 0 ∧
+              List.filter (fun a => decide (a ∈ outsideSubset)) xs = [2, 1] ↔
+            xs = [0, 2, 1] ∨ xs = [2, 0, 1])
+        ↑a ⋯)
+    (List.pmap Subtype.mk counterPositions.permutations.dedup ⋯)
+error: Examples/PermutationTailBoundary.lean:198:4: Tactic `decide` failed to reduce
+  @decide ([0, 1, 2] ∈ counterPositions.permutations.toFinset)
+    (Finset.decidableMem [0, 1, 2] counterPositions.permutations.toFinset)
+to `true` or `false`.
+
+After unfolding the instances `instDecidableEqBool`, `Bool.decEq`, `Finset.decidableMem`, and `Multiset.decidableMem`, reduction got stuck at
+  List.elem [0, 1, 2] counterPositions.permutations.dedup
+error: Examples/PermutationTailBoundary.lean:207:6: Tactic `decide` failed to reduce
+  @decide ([0, 2, 1] ∈ counterPositions.permutations.toFinset)
+    (Finset.decidableMem [0, 2, 1] counterPositions.permutations.toFinset)
+to `true` or `false`.
+
+After unfolding the instances `instDecidableEqBool`, `Bool.decEq`, `Finset.decidableMem`, and `Multiset.decidableMem`, reduction got stuck at
+  List.elem [0, 2, 1] counterPositions.permutations.dedup
+error: Examples/PermutationTailBoundary.lean:210:6: Tactic `decide` failed to reduce
+  @decide ([2, 0, 1] ∈ counterPositions.permutations.toFinset)
+    (Finset.decidableMem [2, 0, 1] counterPositions.permutations.toFinset)
+to `true` or `false`.
+
+After unfolding the instances `instDecidableEqBool`, `Bool.decEq`, `Finset.decidableMem`, and `Multiset.decidableMem`, reduction got stuck at
+  List.elem [2, 0, 1] counterPositions.permutations.dedup
+error: Examples/PermutationTailBoundary.lean:211:53: failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+error: Examples/PermutationTailBoundary.lean:211:55: failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+error: Examples/PermutationTailBoundary.lean:211:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑1 / ↑?m.60
+in the target expression
+  1 / 6 + 1 / 6 = 1 / 3
+
+⊢ 1 / 6 + 1 / 6 = 1 / 3
+error: Examples/PermutationTailBoundary.lean:223:53: failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+error: Examples/PermutationTailBoundary.lean:223:55: failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+error: Examples/PermutationTailBoundary.lean:223:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑1 / ↑?m.49
+in the target expression
+  2 * (1 / 6) = 1 / 3
+
+hhalf : (1 / 2)⁻¹ = 2
+⊢ 2 * (1 / 6) = 1 / 3
+error: Examples/PermutationTailBoundary.lean:235:53: failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+error: Examples/PermutationTailBoundary.lean:235:55: failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+error: Examples/PermutationTailBoundary.lean:235:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑1 / ↑?m.49
+in the target expression
+  2 * (1 / 3) = 2 / 3
+
+hhalf : (1 / 2)⁻¹ = 2
+⊢ 2 * (1 / 3) = 2 / 3

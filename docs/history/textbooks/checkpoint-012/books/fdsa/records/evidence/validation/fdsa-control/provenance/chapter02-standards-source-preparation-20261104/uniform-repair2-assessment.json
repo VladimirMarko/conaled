@@ -1,0 +1,77 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "recorded_utc": "2026-11-04T08:59:31.930275+00:00",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "current_integrated_candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+  "isolated_parent": "aa89aeccf7e06cd046b4f3c5c430631d4ea73b5b",
+  "isolated_candidate": "c4355db67f6006f58496cc10c2eca1c75ef1aa95",
+  "only_changed_path": "Applications/Resources/UniformQuickSortMean.lean",
+  "source_bytes": 38157,
+  "source_lines": 789,
+  "source_sha256": "5e997076f474f1cfcc51cac11c31b870a1cd265cf121c6ae11519beab009ad67",
+  "source_git_blob": "2e06a117d18b4657dfc3e436a1939acad5427876",
+  "before_equals_parent_and_central": true,
+  "complete_diff_read_and_git_equal": true,
+  "diff": {
+    "bytes": 2027,
+    "sha256": "af37c072bda9cb2c1c420b9d52f6a3c4f049205051439258031670f26db26b9d"
+  },
+  "source_read_method": "All783 predecessor core lines were read in repair1. Entire36-line exact delta and corrected contexts158\u2013212,230\u2013330,505\u2013600 read here; all other current bytes retain that independent full source read. No claim that the223-line author-readback was read.",
+  "all_authored_headers_byte_identical": true,
+  "authored_named_command_count_including_private_excluding_constructors": 125,
+  "public_count_distinction": {
+    "core_public": 67,
+    "core_private": 1,
+    "core_anonymous_instances": 0,
+    "examples_public_including_four_explicit_constructors": 58,
+    "examples_private": 3,
+    "named_commands_header_count_is_not_public_count": true
+  },
+  "examples_all_bytes_unchanged": true,
+  "definitions_instances_imports_omit_scopes_options_unchanged": true,
+  "actual_diagnostics": {
+    "headers": 2,
+    "lines": 37,
+    "bytes": 2136,
+    "sha256": "427fcc34e2ba86f0958ab30c91a1d526f19fbe977b18275f672a4aee2bab1d2d",
+    "fully_read": true,
+    "original_boundary": "Fixed live-prefix capture at2026-11-04T08:48:02.513086+00:00, not a terminal observation.",
+    "independent_later_terminal_matching": "Both full blocks exactly match the now secured closed focused7 failure at5398. Original dated capture remains unchanged."
+  },
+  "pinned_APIs": [
+    {
+      "path": "Mathlib/MeasureTheory/Integral/Bochner/Basic.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "sha256": "7e46dfb89df86399622c463d2ac657ab679eb2c0151266c82e896634be6d5965",
+      "read_ranges": [
+        [
+          220,
+          255
+        ]
+      ],
+      "name": "MeasureTheory.integral_add",
+      "whole_file_read": false
+    },
+    {
+      "path": "Mathlib/MeasureTheory/Function/L1Space/Integrable.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "sha256": "eb58a9036c9d7d38ad8b0f8b12b757bf598fcd056a5dd0f2ee2d6a0c4d619500",
+      "read_ranges": [
+        [
+          402,
+          435
+        ]
+      ],
+      "name": "MeasureTheory.Integrable.add",
+      "whole_file_read": false
+    }
+  ],
+  "source_assessment": {
+    "conditional_mean": "The first integral_add now fixes f to the pointwise sum of costs of the actual leftChild/rightChild and g to the same constant toll. Explicit child sets instantiate the same integrable_observedCost_cond facts under the original uniform permutation measure conditioned on the same actual first event. Second linearity then separates both actual child costs; child_integral_cond still supplies only marginal transports, not independence. No premise/domain/law change.",
+    "meanBy_eq_closedForm": "Sequential field_simp [hnR] then ring preserves the same real arithmetic step under the existing nonzero n witness. Fixed-environment cardinal induction, local key injectivity and exact recurrence/toll are unchanged; no linter weakening."
+  },
+  "new_source_findings": [],
+  "actual_successor_compile_or_types_assessed": false,
+  "reviewer_executed_compiler_build_check_audit_or_verify": false,
+  "overall": "Blocked; same full R scope/all112 obligations. Both actual compiler findings remain open pending exact successor validation."
+}

@@ -1,0 +1,9 @@
+{
+  "recorded_utc": "2026-11-04T11:38:33.841073+00:00",
+  "upload_succeeded_first_call": true,
+  "duplicate_upload": false,
+  "guard_pause": "Root incorrectly compared the returned Library path to the original local path, so the first create invocation returned before metadata application. These are distinct namespaces.",
+  "remediation": "Preserved original successful response and exact identity; read current route guidance, applied every returned xattr with the current helper to the original local path in a subsequent invocation, and verified the unchanged exact archive bytes.",
+  "same_invocation_metadata_requirement_met": false,
+  "actual_metadata_helper_exit": 0
+}

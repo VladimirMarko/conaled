@@ -1,0 +1,318 @@
+{
+  "schema": "conaled-textbooks-review-coordinator-v1",
+  "round": 6,
+  "recorded_at": "2026-11-15T03:11:23.611918+00:00",
+  "coordinator": "/root/recovery_review",
+  "purpose": "Reconciliation of the two independent current handoff preparation reviews; no third substantive axis or final library approval.",
+  "continuity": {
+    "same_ordinary_loop": true,
+    "same_coordinator_resumed": true,
+    "retained_axes": [
+      "/root/recovery_review/standards_r5",
+      "/root/recovery_review/spec_r5"
+    ],
+    "replacement_agents": false,
+    "historical_rounds_preserved": "R1-R5 remain at their original requirements, evidence and outcomes."
+  },
+  "identity": {
+    "original_full_spec_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+    "retained_merge_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+    "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+    "tree": "63205d8a3ff27deb3680c613b70085163f289b83",
+    "incorporated_upstream": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+    "changed_paths": 381,
+    "changed_lean_paths": 347,
+    "commits": 322,
+    "manifest_paths": 490,
+    "manifest_entries": {},
+    "manifest_exclude": [],
+    "scope_identity": "04aaeba64ef993665ce417ac3441139f22ca88b53f8865ca6423525f21f2c309",
+    "content_identity": "f3d62399fb025c399790a4fd6a9808c9110ebf44d130c984474e9dcb4328cde4",
+    "requirements_version": "2026-11-15-ready-for-conaled-handoff",
+    "requirements_sha256": "e09c5af2de201d808cfe2ed81870991bc82f195223fff2c5aa3f3273a00001ad",
+    "official_candidate_receipt_sha256": "01e15d6d360c81e2d5e06187b35cb7a7fd8f1b2efcdec90b8b4f94a38e73e667",
+    "source_changed_since_r4": false,
+    "source_identity_basis": "Retained official full R4 receipt; root recovery comparison of all 9178 tracked mode/OID entries; coordinator ref, clean worktree, original merge-base and full-scope confirmation. No repeated reviewer source audit."
+  },
+  "input_cut": {
+    "revision": 3,
+    "manifest": "evidence/handoff-content-012.json",
+    "sha256": "e402f619643fd9149298e8b56dc50c5effd75e0092e84d6c77d35dd385a7045f",
+    "files": 16,
+    "both_axes_checked_all_inputs": true,
+    "mismatches": [],
+    "initial_manifest": "evidence/handoff-content-012-initial.json",
+    "intermediate_manifest": "evidence/handoff-content-012-review.json",
+    "only_corrected_input": "ISSUES.json",
+    "final_issues_sha256": "89728e9350fe2fc94c20807d3712780e2bb24a0421ffb5974458f42298d5cbfd",
+    "current_outcome_owner": "REVIEW.json"
+  },
+  "axis_outcomes": {
+    "Standards": {
+      "reviewer": "/root/recovery_review/standards_r5",
+      "source_handoff_preparation": "Passed",
+      "new_findings": 1,
+      "new_findings_fixed": 1,
+      "unresolved_new_handoff_findings": 0,
+      "new_finding": "INT-ST-004",
+      "worst_new_finding": "Low; Fixed",
+      "final_acceptance": "Blocked",
+      "final_approval": false
+    },
+    "Spec": {
+      "reviewer": "/root/recovery_review/spec_r5",
+      "source_handoff_preparation": "Passed",
+      "new_findings": 0,
+      "unresolved_new_handoff_findings": 0,
+      "open_integration_gate": "INT-SP-001",
+      "worst_final_issue": "Blocking; open receiving gate",
+      "final_acceptance": "Blocked",
+      "final_approval": false
+    }
+  },
+  "independent_reports": [
+    {
+      "path": "standards-r6.md",
+      "bytes": 17023,
+      "sha256": "0ab51f01ed663e1c62fe199b0a238851e43b64fcf4e1db8a792cf7bdc5e3b779"
+    },
+    {
+      "path": "standards-r6.json",
+      "bytes": 46354,
+      "sha256": "ecf3454c6152252efc1967a3127fe589975676e77ff3ad186360c02842c68654"
+    },
+    {
+      "path": "spec-r6.md",
+      "bytes": 16257,
+      "sha256": "d3cb3764149ab6c122c2fbca8c750b482381c7846b6f6d8c3c964ec3005d7bc6"
+    },
+    {
+      "path": "spec-r6.json",
+      "bytes": 40432,
+      "sha256": "ec30bb1a5a516519b9a0d658a1edf2f2379609f59d1bae67f8094948290112be"
+    }
+  ],
+  "finding_reconciliation": [
+    {
+      "id": "INT-ST-001",
+      "axis": "Standards",
+      "status": "Fixed",
+      "history": "Prior unique source-ID repair retained."
+    },
+    {
+      "id": "INT-ST-002",
+      "axis": "Standards",
+      "status": "Fixed",
+      "history": "Exact nonterminal R3 start evidence retained."
+    },
+    {
+      "id": "INT-ST-003",
+      "axis": "Standards",
+      "status": "Fixed",
+      "history": "Provisional correction, frozen-doc reopening, restored bytes, mutable EXECUTION overlay and historical reconstruction remain retained."
+    },
+    {
+      "id": "INT-ST-004",
+      "axis": "Standards",
+      "severity": "Low",
+      "status": "Fixed",
+      "initial_issues_sha256": "7abfe22065cd7ceb3dac0dffdac34eb71cfbbb4de928d6d243a36328e8686396",
+      "intermediate_issues_sha256": "f14218d05e632268fa677c1a946cc2ab7fd20a0c826fb41b6c1fc932b082e74e",
+      "final_issues_sha256": "89728e9350fe2fc94c20807d3712780e2bb24a0421ffb5974458f42298d5cbfd",
+      "resolution": "Removed stale R5/retry assignment and made REVIEW the sole changing handoff-outcome owner while retaining unknown retry terminal/no further local experiment and the final gate. Both axes verified; no duplicate Spec finding."
+    },
+    {
+      "id": "INT-SP-001",
+      "axis": "Spec",
+      "severity": "Blocking",
+      "status": "open-delegated-receiving-gate",
+      "related_issue": "INT-090",
+      "owner": "receiving-integrator",
+      "waived": false,
+      "resolved": false
+    }
+  ],
+  "inherited_findings": "Complete VFA/FDSA/PFDS dispositions and original bases remain in both separate reports and the canonical PFDS 39-ID register; no new aggregate replaces those IDs or their evidence.",
+  "reuse": {
+    "retained": "Matching R4 full-source and mathematical statement analysis plus R1-R3 lineage, R5 preparation/first-terminal assessments.",
+    "newly_assessed": "Current complete requirements, operational instructions, recovery/preservation/patch records, retry evidence boundary and receiving/durability route.",
+    "past_approvals_promoted_to_current_final_acceptance": false,
+    "new_source_inventory": false,
+    "new_helper_retention_receipt": false
+  },
+  "validation": {
+    "first_attempt": {
+      "terminal_exit": 1,
+      "seconds": 6018.760040774999,
+      "built_lines": 3174,
+      "compiler_exit137_jobs": 8,
+      "integration_clients_compiled": 4,
+      "audit": "not reached",
+      "verification_record": false
+    },
+    "retry": {
+      "evidence_class": "reported conversation/tool observations; raw files lost",
+      "last_reported_built_lines": 74,
+      "last_reported_exit137_jobs": 5,
+      "terminal_outcome": "unknown",
+      "failure_cause": "undetermined"
+    },
+    "new_local_run": false,
+    "remaining_owner": "receiving-integrator",
+    "final_gates": [
+      "Successful exact receiving-candidate full guarded build and exhaustive permitted-axiom audit.",
+      "Matching terminal and verification evidence.",
+      "Both final independent reviews on the same candidate and requirements.",
+      "Immediate successful candidate verification.",
+      "Official final snapshot comparison with actual receiving checkout receipts/retention."
+    ]
+  },
+  "canonical_reconciliation": {
+    "owner": "root",
+    "changes": [
+      "Copy these six immutable R6 reports to common/evidence/reviews.",
+      "Record both R6 handoff-preparation outcomes Passed while final acceptance remains Blocked and final_approval remains false.",
+      "Mark INT-ST-004 Fixed with both-axis evidence and retain its initial/intermediate/final history.",
+      "Retain all prior rounds, fixed findings, INT-SP-001/INT-090 and reported retry uncertainty."
+    ],
+    "review_is_output": true,
+    "issues_already_stable_outcome_pointer": true,
+    "frozen_input_edits_required": false,
+    "substantive_future_changes_require_review_continuation": true
+  },
+  "delivery": {
+    "input011_verified_and_restored": true,
+    "output012_pack_and_offline_recovery_checks": "root pending",
+    "output012_observed_owner_root_upload": "root pending; not asserted here",
+    "own_upload_receipt_inside_immutable_archive_required": false,
+    "remote_publication_authorized": false
+  },
+  "external_bindings_read_or_identity_checked_for_coordination": [
+    {
+      "path": "REQUIREMENTS.md",
+      "bytes": 13764,
+      "sha256": "e09c5af2de201d808cfe2ed81870991bc82f195223fff2c5aa3f3273a00001ad"
+    },
+    {
+      "path": "ISSUES.json",
+      "bytes": 10697,
+      "sha256": "89728e9350fe2fc94c20807d3712780e2bb24a0421ffb5974458f42298d5cbfd"
+    },
+    {
+      "path": "evidence/handoff-content-012.json",
+      "bytes": 3276,
+      "sha256": "e402f619643fd9149298e8b56dc50c5effd75e0092e84d6c77d35dd385a7045f"
+    },
+    {
+      "path": "evidence/handoff-content-012-initial.json",
+      "bytes": 2875,
+      "sha256": "f34f8e68b730564efe17770e6b4fd08c7b37908794d07582f8810b15a18e2677"
+    },
+    {
+      "path": "evidence/handoff-content-012-review.json",
+      "bytes": 3213,
+      "sha256": "1d2068062251db08ffc24c086593294ea2c140cf42e6d9afb662d2fe7d833113"
+    },
+    {
+      "path": "evidence/recovered-candidate-012.json",
+      "bytes": 1383,
+      "sha256": "bbecb43a2d640ecf398e5f67b71983d864e2d14656b7ec632c5ab4d05c7982fd"
+    },
+    {
+      "path": "evidence/input-recovery-012.json",
+      "bytes": 1977,
+      "sha256": "64969be66830a9ccbba8f195d081d5b6d3396e8a892dd7f729a533722f50fdcd"
+    },
+    {
+      "path": "evidence/patch-export-012.json",
+      "bytes": 975,
+      "sha256": "484a19ae99de92320291e746150fbf2bd400716110274b21ad9ed68429076717"
+    },
+    {
+      "path": "evidence/handoff-source-check-012.json",
+      "bytes": 11346,
+      "sha256": "016c5784ce0a3c481000c16c19312f36e2db2b3a8a42fabfd564bde3af1edc8c"
+    },
+    {
+      "path": "evidence/retry-r5-reported-observations.json",
+      "bytes": 3237,
+      "sha256": "57a28e835105f6d55e590956d97a2c5777407b403d3a834ba4e1b793952c01b8"
+    },
+    {
+      "path": "evidence/validation-handoff-r6.json",
+      "bytes": 1057,
+      "sha256": "8b11fa009ced72dde0de7d2e61329c863680abaafd4eac35d1fea87ddb9064fe"
+    },
+    {
+      "path": "evidence/integration-scope-20261114-evening.json",
+      "bytes": 22061,
+      "sha256": "d9cdf67714389042e0f1c252267506cf42e97fcb7aef606fafb7d850e0c2b773"
+    },
+    {
+      "path": "evidence/reviews/coordinator-r4.md",
+      "bytes": 7997,
+      "sha256": "b004bcd1fb64783eaed37c07889ffe991784a1b980cc61b2b5f62f93850ba1e5"
+    },
+    {
+      "path": "evidence/reviews/first-terminal-r5.json",
+      "bytes": 6682,
+      "sha256": "9d0e55a96d5f6888b7ebc9991b3af48b78d3ad91a39f09569855628938686352"
+    }
+  ],
+  "official_source_receipt": {
+    "path": "evidence/integration-candidate-r4.json",
+    "bytes": 3597146,
+    "sha256": "01e15d6d360c81e2d5e06187b35cb7a7fd8f1b2efcdec90b8b4f94a38e73e667",
+    "inspection": "Complete JSON parsed; pinned identities, scope, projections/exclusions and source-entry count examined, without duplicating its inventory."
+  },
+  "candidate_guidance_read": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 3118,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    },
+    {
+      "path": ".agents/skills/implement/SKILL.md",
+      "bytes": 5383,
+      "sha256": "1ee81882f7b87e2233bd513dc4304ebd9cfc3ac11551fb2736817b4caa1fe243"
+    },
+    {
+      "path": ".agents/skills/code-review/SKILL.md",
+      "bytes": 7724,
+      "sha256": "9540911b44f0b184c3c78fa2cfb42b237cd76045d370c287bf3e97d4fc27e8f9"
+    },
+    {
+      "path": ".agents/skills/code-review/heuristics.md",
+      "bytes": 2232,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060"
+    },
+    {
+      "path": ".agents/skills/writing-for-agents/SKILL-MECHANICS.md",
+      "bytes": 4454,
+      "sha256": "a82d0f68748192ff3681ef74c58f5689b69d34a2158b74be3bb7d2ac91d6d044"
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "bytes": 15566,
+      "sha256": "33f4346af746e8a310c351b21dc1de29c6630142db6be76e7fa848726e8e736c"
+    }
+  ],
+  "operations": {
+    "third_substantive_review": false,
+    "compiler_setup_host_investigation_runs": 0,
+    "source_git_canonical_mutations": 0,
+    "remote_operations": 0,
+    "writes": [
+      "intake/review-r6/coordinator-r6.md",
+      "intake/review-r6/coordinator-r6.json"
+    ]
+  },
+  "final_approval": false,
+  "final_library_acceptance": "Blocked",
+  "source_handoff_preparation": "Passed",
+  "markdown_companion": {
+    "path": "coordinator-r6.md",
+    "bytes": 8804,
+    "sha256": "ef7c287f8a9456387f93f2b775df90c11fbfe822a6484c80a87e7d818123ea73"
+  }
+}

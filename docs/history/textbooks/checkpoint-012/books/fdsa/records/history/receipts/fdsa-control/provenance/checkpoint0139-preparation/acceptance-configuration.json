@@ -1,0 +1,52 @@
+{
+  "format": 1,
+  "state": "RESOLVED_FROM_ACTUAL_FINAL_EVIDENCE",
+  "execution_enabled": true,
+  "root_final_schema_reconciliation_complete": true,
+  "root_independent_code_inspection_complete": true,
+  "unit": "FDSA-XT02",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "candidate_tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "accepted_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "acceptance_record": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/acceptance.json",
+    "bytes": 44993,
+    "sha256": "336e76c369ed37f3f3d874a523ceb219eba380f80661e2be6019fd9bc8453d1f"
+  },
+  "full_audit_counts": {
+    "checked_modules": 1116,
+    "audit_rows": 1114,
+    "logical_declarations": 50422,
+    "theorem_declarations": 29543,
+    "unsafe_runtime_declarations": 0
+  },
+  "full_verification": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/verification.json",
+    "bytes": 867,
+    "sha256": "379dcc3142a4ea4b207f7e1c952ef4ca08c1b80c39168816d168cac5f6023503"
+  },
+  "post_full_inputs": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/final-inputs-after-full.json",
+    "bytes": 34785,
+    "sha256": "c44a0f8632b982d3080329c074fe17b1642eb7fcc5b8e193fcae0a3c034a063f"
+  },
+  "closed_runs_progress": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-20261105/focused-progress-before0139.json",
+    "bytes": 46622,
+    "sha256": "9476013d4d120a89dc13ec5f7643a79dff0fa40b46736d32e9eba2f283937a81"
+  },
+  "expected_total_closed_runs": 119,
+  "declared_prior_control_updates": [
+    "CURRENT.md",
+    "STATUS.md",
+    "checkpoints.json",
+    "reviews/binary-tree-cache-round1.md",
+    "reviews/tree-shape-round1.md",
+    "tickets/FDSA-004.md",
+    "tickets/FDSA-XT01.md",
+    "tickets/FDSA-XT02.md",
+    "tickets/INDEX.md"
+  ],
+  "actual_final_evidence_explanation": "Actual full terminal911909 exit0 and closure0d933c; all1114 audit rows reconciled, 1116checked/50422logical/29543theorems/0unsafe and exact3axioms. Both original independent axes passed and HELD with full source/type/full assessments and complete readbacks. Root gate8abfa5 exit0 verifies all current qualification; actual immediate06a9d6 exit0 closed/read completely0a1c4b, then exact guarded FF223d5d exit0 and acceptance recorder2b00f0 exit0. All119 owned runs are actually closed; two focus failures and historical unknown/transport-terminal exceptions preserved. Root independently read original checkpoint proposal completely; inspector independently approved root schema delta in514ab7 note with own complete02e1ad and roota95b7a readback. Initial pending configuration and all older helper versions remain preserved.",
+  "resolved_utc": "2026-11-05T04:22:40.440792+00:00"
+}

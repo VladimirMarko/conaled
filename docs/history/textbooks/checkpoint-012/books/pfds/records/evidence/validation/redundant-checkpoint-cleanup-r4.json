@@ -1,0 +1,23 @@
+{
+  "observed_utc": "2026-11-03T02:06:45.242053+00:00",
+  "reason": "Restore-tested checkpoint030 is saved; reclaim only older verified duplicate local archives to preserve full-build and checkpoint031 headroom.",
+  "removed": [
+    {
+      "number": 28,
+      "filename": "conaled-pfds-checkpoint-028.tar.gz",
+      "bytes": 74828884,
+      "sha256": "9802c2b07680160470d880d9f910678e180b902eee0f57eeb04d3a58c12e1ce0",
+      "library_file_id": "libfile_586d826655588191829030568fa33b99"
+    },
+    {
+      "number": 29,
+      "filename": "conaled-pfds-checkpoint-029.tar.gz",
+      "bytes": 74950511,
+      "sha256": "d9a09c024f55cf2159efbf8a527564f6fb3b31fd3c452d908c8ccd7cd826d926",
+      "library_file_id": "libfile_0b20482806b48191bb10749b7e8bb0ff"
+    }
+  ],
+  "remote_deleted": false,
+  "available_bytes_before": 162283520,
+  "available_bytes_after": 312078336
+}

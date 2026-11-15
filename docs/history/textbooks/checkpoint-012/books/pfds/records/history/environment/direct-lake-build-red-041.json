@@ -1,0 +1,38 @@
+{
+  "test": "Lake builds and executes a Lean program",
+  "workspace": "/workspace/scratch/b566cace4ed6/pfds",
+  "runner": null,
+  "temporary_project": "/workspace/scratch/b566cace4ed6/pfds/session/tools/lake-smoke-pdhtjl_x",
+  "checks": {
+    "lake_uses_exact_lean": false,
+    "lake_builds_executable": false,
+    "compiled_executable_runs": false
+  },
+  "probes": [
+    {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "error: could not detect the configuration of the Lake installation\n",
+      "elapsed_seconds": 0.10143021099975158
+    },
+    {
+      "command": [
+        "lake",
+        "-v",
+        "build",
+        "smoke"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "error: could not detect the configuration of the Lake installation\n",
+      "elapsed_seconds": 0.07853102500030218
+    }
+  ],
+  "passed": false
+}

@@ -1,0 +1,67 @@
+{
+  "recorded_utc": "2026-11-04T10:05:14.057664+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-uniform-input",
+  "branch": "work/fdsa-ch02-uniform-input",
+  "head": "c4355db67f6006f58496cc10c2eca1c75ef1aa95",
+  "index_and_worktree_status": "",
+  "owned_source_path": "Examples/UniformQuickSortMean.lean",
+  "before_source": {
+    "blob": "cc0432e8fc56f76380a1e48259954cd559937a1b",
+    "bytes": 16466,
+    "lines": 352,
+    "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5"
+  },
+  "failed_candidate": "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+  "failed_source_bytes_match_isolated_base": true,
+  "secured_focused10_evidence": {
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/result.json",
+      "bytes": 1236,
+      "lines": 32,
+      "sha256": "94675fff74381b0954e5b08056d1242d7a68eccdf5ce45bcffc7a810b67c227a"
+    },
+    "secured-terminal.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/secured-terminal.json",
+      "bytes": 3597,
+      "lines": 58,
+      "sha256": "019328a42c6ab829e06cd6dfe23c4ac6502741a38d2da4a8b87962a2deee8009"
+    },
+    "full.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/full.log",
+      "bytes": 19463,
+      "lines": 170,
+      "sha256": "35f0f9ea785a94ec66026c0483d566be1a611efb9a699362d0a5b5eed3941ccd"
+    },
+    "Examples-UniformQuickSortMean-diagnostics.txt": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/Examples-UniformQuickSortMean-diagnostics.txt",
+      "bytes": 6925,
+      "lines": 93,
+      "sha256": "284b94feb0773ef436d7de66658ea3932f29ff6234d5b3d01853de42fd211175"
+    }
+  },
+  "actual_error_header_count": 23,
+  "actual_source_sites": [
+    71,
+    89,
+    117,
+    191,
+    204,
+    253,
+    266,
+    273,
+    291,
+    319
+  ],
+  "parent_authorization": "Nine necessary existing proof-body corrections plus root-approved replacement of failed Fintype deriving with explicit named instFintypeLabel over exactly the same four constructors; keep deriving DecidableEq, preserve all other named declarations/imports/options/instances and record omission of three unused deriving-only enumList helpers. No compiler or central edits.",
+  "full_scope_boundary": "Existing full Chapter2 and shared-unit review scopes retained; this bounded correction is not a new acceptance scope or validation result",
+  "generated_instance_printed_type": "Actual #check @Examples.UniformQuickSortMean.instFintypeLabel and inventory accounting remain root/reviewer obligations after commit",
+  "forbidden_actions": [
+    "No Lean/Lake/compiler",
+    "No cache or project outputs",
+    "No central or foundation writes",
+    "No process polling",
+    "No other source/ref/ticket/existing report edits",
+    "No GitHub mutations or push"
+  ]
+}

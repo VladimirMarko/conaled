@@ -1,0 +1,42 @@
+{
+  "started_utc": "2026-11-04T04:24:37.627930+00:00",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Sorting.NaturalRuns",
+    "Examples.NaturalRuns"
+  ],
+  "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs",
+  "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T042437Z-project-run-e5519e66/output.log",
+  "label": "project-run",
+  "lean_threads": "1",
+  "passed": false,
+  "completed_utc": "2026-11-04T04:24:50.623981+00:00",
+  "seconds": 12.993148164999184,
+  "exit_code": 1,
+  "timed_out": false,
+  "recorder_error": null,
+  "candidate": "ed6dca0a46da01fa6985b2f2822a2e60226d32e6",
+  "final_head": "ed6dca0a46da01fa6985b2f2822a2e60226d32e6",
+  "final_status": "",
+  "source_sha256": {
+    "Applications/Sorting/NaturalRuns.lean": "4d91fb1b98c9c53b7c17279d5c923d98b1746b4f82298b07763a6dd84069603a",
+    "Examples/NaturalRuns.lean": "b9a84bc27bd29c4b1afdb887dffcb4d1cbd90c31a8b1040fbb644627e32eff85",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+  },
+  "final_source_sha256": {
+    "Applications/Sorting/NaturalRuns.lean": "4d91fb1b98c9c53b7c17279d5c923d98b1746b4f82298b07763a6dd84069603a",
+    "Examples/NaturalRuns.lean": "b9a84bc27bd29c4b1afdb887dffcb4d1cbd90c31a8b1040fbb644627e32eff85",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+  },
+  "source_unchanged": true,
+  "outer_exit_code": 1,
+  "log_sha256": "58fa861df15effde9ac62b2389d041bd3f89126f5b8f095e3e3bf2869c068c39",
+  "log_size_bytes": 8520,
+  "available_bytes_at_completion": 18902454272,
+  "validation_scope": "Focused modules; not complete acceptance."
+}

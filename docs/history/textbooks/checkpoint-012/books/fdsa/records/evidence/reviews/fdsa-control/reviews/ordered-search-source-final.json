@@ -1,0 +1,72 @@
+{
+  "recorded_utc": "2026-11-02T23:04:12.920571+00:00",
+  "ticket": "FDSA-XS01",
+  "original_review_base": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+  "candidate": "863aedb924e922ac40747c0ef299701a7785488e",
+  "branch": "work/fdsa-ordered-search",
+  "checkout": "/workspace/scratch/845aa1048b05/conaled-ordered-search",
+  "status": "Committed clean source draft; uncompiled and unaccepted.",
+  "requirements_sha256": "8fc03c60b3aae37d621112504a4fb83ca1675c4c1f2563f5d14cd45e352ab30e",
+  "files": {
+    "Applications/Resources/TreeSearch.lean": {
+      "bytes": 22768,
+      "lines": 501,
+      "sha256": "1924f95f0f4c912cdf4ab0661c8ef182f709b9bd82e7af67d1ae5b93df5dc7f6"
+    },
+    "Examples/TreeSearch.lean": {
+      "bytes": 26264,
+      "lines": 522,
+      "sha256": "69f6137ef1ae4528bae435e90003bcdc94891b685d70ce44ab2711eefcb75f26"
+    },
+    "SquareApplications.lean": {
+      "bytes": 8438,
+      "lines": 257,
+      "sha256": "d19c6a2ece73f6d40e34d2dbbdb238568877e83d05b78a50ac4b400be67fab14"
+    },
+    "docs/research/fdsa-tree-search.md": {
+      "bytes": 28522,
+      "lines": 416,
+      "sha256": "77c80d35a6191978d8da028624d43a4460b1b58469feac6fad8538f5009ca963"
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "bytes": 29184,
+      "lines": 416,
+      "sha256": "5677d98014822d4f7a6cc3852323540ab852e7b048aa268a177ef3c44a7a75e9"
+    }
+  },
+  "unchanged_baseline_paths": [
+    "Applications/Resources/Measured.lean",
+    "Applications/Resources/CallCount.lean",
+    "Applications/Trees/Observations.lean",
+    "Applications/Trees/Cached.lean",
+    "Applications/Trees/Rotations.lean",
+    "Applications/Trees/Ordered.lean",
+    "Applications/Trees/OrderedRotations.lean",
+    "Examples/OrderedTrees.lean",
+    "docs/SOURCES.md",
+    "AGENTS.md",
+    "README.md",
+    "lean-toolchain",
+    "lakefile.toml",
+    "lake-manifest.json",
+    "flake.nix",
+    "flake.lock",
+    "check.sh",
+    "scripts/check.py",
+    "scripts/lake_integrity.py"
+  ],
+  "original_map_prefix_bytes": 23287,
+  "original_map_prefix_sha256": "9c2527dd358bb08e2ef1355f6a1016224f720b98f90b824767004d29d0ec52b4",
+  "root_exact_sole_import": true,
+  "isabelle_notice_bytes": 1673,
+  "isabelle_notice_sha256": "44176a9195f0d6110302ca58c302437b2d6685049d4b8a7c1117121883d4b64d",
+  "all_three_authors_stopped": true,
+  "root_full_source_read": "Core complete; complete preserved examples/note plus all final deltas; complete appended reconstruction map and sole import.",
+  "concrete_source_findings": [],
+  "project_build_absent": true,
+  "no_validation_performed": true,
+  "pending_gates": "Applicable prerequisite acceptance, focused/full guarded candidate checks, both integrity passes, exhaustive audit, independent Standards and Spec reviews and immediate candidate verification.",
+  "initial_chapter02_prefix": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "chapter01_observation": "provenance/chapter01-attempt3-progress-before0056.json",
+  "commit_output": "[work/fdsa-ordered-search 863aedb] feat(resources): draft shared ordered tree search (#174)\n 5 files changed, 1501 insertions(+)\n create mode 100644 Applications/Resources/TreeSearch.lean\n create mode 100644 Examples/TreeSearch.lean\n create mode 100644 docs/research/fdsa-tree-search.md\n"
+}

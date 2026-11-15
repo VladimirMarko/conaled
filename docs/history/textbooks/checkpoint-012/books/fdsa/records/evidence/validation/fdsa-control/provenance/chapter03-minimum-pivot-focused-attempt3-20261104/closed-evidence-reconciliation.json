@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T21:26:46.369553+00:00",
+  "candidate": "d0479dd03371f1c1f0b41dff5f1882a36206f40a",
+  "terminal": {
+    "recorded_utc": "2026-11-04T21:26:46.369425+00:00",
+    "owned_session": 60136,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "394873",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "d0479dd03371f1c1f0b41dff5f1882a36206f40a"
+  },
+  "actual_recorder_and_native_exits": [
+    0,
+    0
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-minimum-pivot-focused-attempt3-20261104/full.log",
+    "bytes": 2959,
+    "sha256": "59d5c87dc172785aa82c91e231d5c7172aa882f12c5a53a9a99fb0a6313a6704"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T212611Z-project-run-d968a183",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-minimum-pivot-focused-attempt3-20261104/native-records/start.json",
+      "bytes": 515,
+      "sha256": "b411c239c97077e7942c6b4809e977b33d5156e6c9cb86d62e5c04e26c0340b1"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-minimum-pivot-focused-attempt3-20261104/native-records/result.json",
+      "bytes": 667,
+      "sha256": "1a280fba453867efb493f0288048fe31f897233048338f20e363702477276107"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-minimum-pivot-focused-attempt3-20261104/native-records/output.log",
+      "bytes": 2653,
+      "sha256": "e2d332052a2a6ab7f1c47d9505275728dd479c1339a02a0dfd2d5a3bc3fbdb88"
+    }
+  },
+  "native_body_exact_outer_offset": 150,
+  "complete_closed_log": true,
+  "scope": "Complete focused three-target pass for the immutable minimum-pivot slice; source inventories only, not full Chapter3 check/audit/types/review/acceptance.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

@@ -1,0 +1,64 @@
+{
+  "started_utc": "2026-11-03T23:33:02.984744+00:00",
+  "candidate": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+  "scope": "Two exact sources in separate outputs. Concurrent unified full fresh run and warm caches are uncontrolled; no causal or full-project speed claim.",
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/work-state/tooling/pinned_native_j1_toolchain.py",
+        "--",
+        "env",
+        "LEAN_PATH=/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/runtime-tmp/j1-core-probe:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/proofwidgets/.lake/build/lib/lean",
+        "/usr/bin/timeout",
+        "--signal=INT",
+        "--kill-after=5s",
+        "180s",
+        "lean",
+        "-o",
+        "Squares.olean",
+        "Squares.lean"
+      ],
+      "source_sha256": "d535da719c3d7b3db4f536b5b791611d07c6dd6dd8bdae59572a8b375040dc41",
+      "exit_code": 0,
+      "seconds": 3.7140782000005856,
+      "stdout": "",
+      "stderr": "",
+      "output_sha256": "3170055a83901337d5f9b3d9aa0917325129bbdb6f431cfa2f3d084ea97ca15a",
+      "unified_control": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-kit-validation/.lake/fresh-check-0tsctz5a/Squares.olean",
+      "unified_control_sha256": "3170055a83901337d5f9b3d9aa0917325129bbdb6f431cfa2f3d084ea97ca15a",
+      "identical_output": true
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/work-state/tooling/pinned_native_j1_toolchain.py",
+        "--",
+        "env",
+        "LEAN_PATH=/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/runtime-tmp/j1-core-probe:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/proofwidgets/.lake/build/lib/lean",
+        "/usr/bin/timeout",
+        "--signal=INT",
+        "--kill-after=5s",
+        "180s",
+        "lean",
+        "-o",
+        "Applications/AD/Core.olean",
+        "Applications/AD/Core.lean"
+      ],
+      "source_sha256": "5b9aca6e9298e7b8b0da747ce76867b6ac3d331a858f30d9d3d2e9ec3f8d4ef2",
+      "exit_code": 0,
+      "seconds": 68.41715976399973,
+      "stdout": "",
+      "stderr": "",
+      "output_sha256": "a3c126b8fabf0df0eb1af5a86726d9e2e689230020fe769bb7a0bf9123eaefe5",
+      "unified_control": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-kit-validation/.lake/fresh-check-0tsctz5a/Applications/AD/Core.olean",
+      "unified_control_sha256": "a3c126b8fabf0df0eb1af5a86726d9e2e689230020fe769bb7a0bf9123eaefe5",
+      "identical_output": true
+    }
+  ],
+  "passed": true,
+  "completed_utc": "2026-11-03T23:34:15.129522+00:00",
+  "root_disposition": "Retain accepted native-j1 as verified fallback. Do not interrupt progressing unified fresh run. Identical compiled output in bounded separate-output probe; warm-cache/concurrent conditions do not establish causal or whole-project speed advantage."
+}

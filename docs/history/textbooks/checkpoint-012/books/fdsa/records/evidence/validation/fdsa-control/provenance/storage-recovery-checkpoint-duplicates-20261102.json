@@ -1,0 +1,283 @@
+{
+  "recorded_utc": "2026-11-02T15:49:45.046885+00:00",
+  "reason": "Recovery from explicit disk exhaustion; remove only local archive duplicates with successful durable-upload receipts and matching SHA256; retain latest complete checkpoint and all checksums, source, history, control, build artifacts and dependencies.",
+  "retained": {
+    "file_name": "conaled-fdsa-0039-mergesort-readiness.tar.gz",
+    "sha256": "7bf339b47e2f6b4d84c0b98f888a5adcfd4463475b716a0348408fd1546b6ad3",
+    "bytes": 73478597,
+    "library_file_id": "libfile_779eb631de6c81918acb3142c9491a3a"
+  },
+  "planned": [
+    {
+      "file_name": "conaled-fdsa-0001-baseline.tar.gz",
+      "sha256": "e618acc8d2e196c00c4d121a311a73d91faa3e05a61f9a6706dd33764413c251",
+      "bytes": 71838893,
+      "library_file_id": "libfile_2d4f0d5afa34819192f73ea4a2e07c79"
+    },
+    {
+      "file_name": "conaled-fdsa-0002-chapter01-candidate.tar.gz",
+      "sha256": "1819eda0490cdb9503bbaa4454de99ee6d738faea759c2365592c61291e2f7ce",
+      "bytes": 71875882,
+      "library_file_id": "libfile_87e424058adc81919769d5bec1011b42"
+    },
+    {
+      "file_name": "conaled-fdsa-0003-review-and-recovery.tar.gz",
+      "sha256": "c298d5bea1416d043e25768cdcb24d0a0b44e256b96eb094bdd546c72500059e",
+      "bytes": 71900787,
+      "library_file_id": "libfile_08a7395436d88191819dc059b6048bfc"
+    },
+    {
+      "file_name": "conaled-fdsa-0004-shared-insertion-costs.tar.gz",
+      "sha256": "2e04cbe32239212c386caa58f0de99b0437cc5ad5fff1904648f1c94949af45e",
+      "bytes": 71988811,
+      "library_file_id": "libfile_8bd3eb45a23c8191ad1c442a6836e77a"
+    },
+    {
+      "file_name": "conaled-fdsa-0005-list-foundations.tar.gz",
+      "sha256": "ce17ce0905e210fabc3252ac83cc1f1da6e5b99a9f27daccd602141fd66c4ae2",
+      "bytes": 72081524,
+      "library_file_id": "libfile_c3476a04bf208191b10c04decbc4ad7c"
+    },
+    {
+      "file_name": "conaled-fdsa-0006-list-calls-draft.tar.gz",
+      "sha256": "d1cbad8f3159fe1657fdb9f54a202654bc03ec504300bf8393b2ebbadf6cbdde",
+      "bytes": 72129008,
+      "library_file_id": "libfile_efabdcf3be9c8191a5e94ba86ae7abb8"
+    },
+    {
+      "file_name": "conaled-fdsa-0007-notation-draft.tar.gz",
+      "sha256": "2ad467d0e301817e80d55cb979f6456f0100f0aca870087f25d2f02f39ce298a",
+      "bytes": 72173032,
+      "library_file_id": "libfile_8540a3c683bc8191917a259910b5ac3a"
+    },
+    {
+      "file_name": "conaled-fdsa-0008-source-and-foundations.tar.gz",
+      "sha256": "fb736bf2af83d1a8ebeb9605d22077188318f3d9cbd4eeb61c1f0397595c5778",
+      "bytes": 72295170,
+      "library_file_id": "libfile_42bf60388e588191876d0d767ff76895"
+    },
+    {
+      "file_name": "conaled-fdsa-0009-full-inventory-and-accounting.tar.gz",
+      "sha256": "5e1c842f05113d130d1a1914d22da9c7c7a80c5178fbdcbc4a444428aa5f5f8d",
+      "bytes": 72425352,
+      "library_file_id": "libfile_0a136b0640cc8191aad21de2e8f933c3"
+    },
+    {
+      "file_name": "conaled-fdsa-0010-cost-model-repair.tar.gz",
+      "sha256": "99c1ef20e5c9f3436e17a51b69a3e21e7317253e042434b2c2ac925ca1a75d43",
+      "bytes": 72694208,
+      "library_file_id": "libfile_58598d0cd87481918459f62761da47cb"
+    },
+    {
+      "file_name": "conaled-fdsa-0011-affine-draft-and-cache-source.tar.gz",
+      "sha256": "20470f453db7e1cbfffdb45f9aa32a38f3a2b03dfd65ea9ae3716924db0c6a82",
+      "bytes": 72750968,
+      "library_file_id": "libfile_6c730d0367e08191a8f78ce83956ab28"
+    },
+    {
+      "file_name": "conaled-fdsa-0012-builder-observations.tar.gz",
+      "sha256": "89ef8c45c2906e04a667de245d700a2fadda240547b440644fb5d47fc349d6bb",
+      "bytes": 72769518,
+      "library_file_id": "libfile_ba66f01e9dec8191b741fe2a49747530"
+    },
+    {
+      "file_name": "conaled-fdsa-0013-probability-preflight.tar.gz",
+      "sha256": "a0b7c7226d0f21a04467add863174c72bbf100e33f9d8551b5d9bb7965794ff2",
+      "bytes": 72804827,
+      "library_file_id": "libfile_a96f53a6f9048191b9fab63faf465dc0"
+    },
+    {
+      "file_name": "conaled-fdsa-0014-accumulated-work.tar.gz",
+      "sha256": "a943d1eb838c8bacce740ae6b861054306df99236e4a7cc8e6df352a3ed2dc4e",
+      "bytes": 72825692,
+      "library_file_id": "libfile_bd59001cbdc4819187bdb5947c0e3496"
+    },
+    {
+      "file_name": "conaled-fdsa-0015-ranking-preflight.tar.gz",
+      "sha256": "2486f926efa9e3d1bc2a07666f9077fe099912550b0eae05e9138afe0db02e50",
+      "bytes": 72845365,
+      "library_file_id": "libfile_befb0cf51b188191831d5f7f3fa04938"
+    },
+    {
+      "file_name": "conaled-fdsa-0016-permutation-minimum.tar.gz",
+      "sha256": "9c11af44bb2b2f482faad0acc794011e25bee321c8261076b047e89d15d0f23f",
+      "bytes": 72864089,
+      "library_file_id": "libfile_801d235a2b7881918f7eed78e4a727b8"
+    },
+    {
+      "file_name": "conaled-fdsa-0017-order-preflight.tar.gz",
+      "sha256": "421a85c501fbf2501b67cff87646800080d7ae6fee06d07b900c77b5c4b32305",
+      "bytes": 72881759,
+      "library_file_id": "libfile_ab9b343de0b08191a036279b079dd8f8"
+    },
+    {
+      "file_name": "conaled-fdsa-0018-permutation-order.tar.gz",
+      "sha256": "71bee710fb2c336906568094523ad69d68426bbcad7103e382d215fecb90b89b",
+      "bytes": 72901356,
+      "library_file_id": "libfile_ea2195d1f5dc81919d420bdc40265bb9"
+    },
+    {
+      "file_name": "conaled-fdsa-0019-tail-preflight.tar.gz",
+      "sha256": "7708919e5af6ea8ba685fbc803cb4bdac677eee931e2c00c366876dbda873a7f",
+      "bytes": 72924319,
+      "library_file_id": "libfile_f0a9b3c43c5c8191990e35ed27543a35"
+    },
+    {
+      "file_name": "conaled-fdsa-0020-permutation-tail.tar.gz",
+      "sha256": "1ba018e63d19f916fa4f4d53283d2d0fd38819cd90491eddd8fd7f7ad86448ae",
+      "bytes": 72947625,
+      "library_file_id": "libfile_b3f81ecbe4b881919a21b5e713ecc5c5"
+    },
+    {
+      "file_name": "conaled-fdsa-0021-expectation-preflight.tar.gz",
+      "sha256": "f12c72e274c270a147091fc8356fa59fea59d1c7b89c6c86b3dc1ada8b332847",
+      "bytes": 72968395,
+      "library_file_id": "libfile_7744373ec99081918ccfd75246483e4e"
+    },
+    {
+      "file_name": "conaled-fdsa-0022-permutation-expectation.tar.gz",
+      "sha256": "94915dff45d9a3badd451a606320bd26f14e3e82923038a7284461c920892fec",
+      "bytes": 72997153,
+      "library_file_id": "libfile_d163244508b88191a786d3f3caf7b346"
+    },
+    {
+      "file_name": "conaled-fdsa-0023-joint-order-preflight.tar.gz",
+      "sha256": "3234e143bec775eb164969f5547877b6250828bbc390abc813631ce240b4ddf8",
+      "bytes": 73021777,
+      "library_file_id": "libfile_df5d44d6306481919f69fc4e3452ed07"
+    },
+    {
+      "file_name": "conaled-fdsa-0024-joint-relative-orders.tar.gz",
+      "sha256": "f3a17c5df7eb55c32cdc7f214f9ccc4e3ab2be1c9b251f50be6d94e39af3ad14",
+      "bytes": 73045336,
+      "library_file_id": "libfile_9267e69c9c3881919f3d8e51be08f051"
+    },
+    {
+      "file_name": "conaled-fdsa-0025-sorting-preparation.tar.gz",
+      "sha256": "897467fb1388ada4d9580d3d3c14c5710cceaca31ab555d5f0e48a30611d9743",
+      "bytes": 73086363,
+      "library_file_id": "libfile_e19f9bcd59a081918745a9247b19f035"
+    },
+    {
+      "file_name": "conaled-fdsa-0026-conditional-treap-preparation.tar.gz",
+      "sha256": "e15a5b11fbd651a7f0738da8ed61c5c8517d218a0f23d4bb7d0ef73070696b24",
+      "bytes": 73110006,
+      "library_file_id": "libfile_6702730c53d08191adbcd7d085ce32d4"
+    },
+    {
+      "file_name": "conaled-fdsa-0027-tree-cache-preflight.tar.gz",
+      "sha256": "72b019cca0b19a43b5001229439fe3378bbb50d9c4f271c621cd186f5eb3d1d7",
+      "bytes": 73140061,
+      "library_file_id": "libfile_2613f801086c8191a51ead5b875bd2b7"
+    },
+    {
+      "file_name": "conaled-fdsa-0028-tree-cache-draft.tar.gz",
+      "sha256": "96367c5e109d698b5b86149514617852cf9d3f777657051883dc867079401ea9",
+      "bytes": 73159734,
+      "library_file_id": "libfile_f8a67b06abb88191bfb912ffda920a27"
+    },
+    {
+      "file_name": "conaled-fdsa-0029-tree-shape-preflight.tar.gz",
+      "sha256": "e54526124d207180fd1a5473e79577ef707a951de5f6e492fa2b8148762ddc20",
+      "bytes": 73184207,
+      "library_file_id": "libfile_791ead23414c8191894812d08f89ab8a"
+    },
+    {
+      "file_name": "conaled-fdsa-0030-tree-shape-draft.tar.gz",
+      "sha256": "94b93298b327a83510cfe962b0aa5a9d03705a807d2565c2e8381aba25285e19",
+      "bytes": 73206883,
+      "library_file_id": "libfile_64f885bfaf3881918be6465290d645f8"
+    },
+    {
+      "file_name": "conaled-fdsa-0031-tree-fold-preflight.tar.gz",
+      "sha256": "41d11bb5f7f71f3271b9773d69707e7abdf23a0904f7a8c7318f29cdf1a296d7",
+      "bytes": 73239466,
+      "library_file_id": "libfile_d69e2fddb5e48191a32d4b238b296c2e"
+    },
+    {
+      "file_name": "conaled-fdsa-0032-tree-fold-draft.tar.gz",
+      "sha256": "b1b87cf61c14aa64024f0094168ad23be030ccf0b9d36616ecb6728ee982bed4",
+      "bytes": 73279582,
+      "library_file_id": "libfile_366fb74379c48191a9081990d5779cea"
+    },
+    {
+      "file_name": "conaled-fdsa-0033-tree-accumulator-preflight.tar.gz",
+      "sha256": "38b3c41273ffb74c8e600a344186149aff746224ad075383c4460a14a573babc",
+      "bytes": 73305024,
+      "library_file_id": "libfile_527de2ab515481919b5022f16de5ba7a"
+    },
+    {
+      "file_name": "conaled-fdsa-0034-tree-accumulator-draft.tar.gz",
+      "sha256": "622446a0446d9d4271bd75f2e983b6692cecabdb249c1b644e92aa4635418d97",
+      "bytes": 73327528,
+      "library_file_id": "libfile_2e30dc68a7e48191b6fb672b3e1da582"
+    },
+    {
+      "file_name": "conaled-fdsa-0035-tree-traversal-work-preflight.tar.gz",
+      "sha256": "95f6766fda151f8d6750d90f09c08b37e6ecade9276e9e632b3072daf2bbcf08",
+      "bytes": 73356708,
+      "library_file_id": "libfile_12a7e087152c81919a18c50899688588"
+    },
+    {
+      "file_name": "conaled-fdsa-0036-tree-traversal-work-draft.tar.gz",
+      "sha256": "3fdf26d780d5800be8ef6bf13b38706ed1aaf6867212fd76728d589f009779ca",
+      "bytes": 73386066,
+      "library_file_id": "libfile_f9f98026afd08191a0e742dc3a58dd72"
+    },
+    {
+      "file_name": "conaled-fdsa-0037-permutation-placement-preflight.tar.gz",
+      "sha256": "1ade0308190f9284945fd8f30ca2fb2d8f27cb0b373dafeef1cc2c412a696104",
+      "bytes": 73420278,
+      "library_file_id": "libfile_0296f357545c8191ab389fd982ca3a9a"
+    },
+    {
+      "file_name": "conaled-fdsa-0038-permutation-placement-draft.tar.gz",
+      "sha256": "0cf9bce31a610e88c6fed3b2996f664ad73c59366114bc1b39b770e5e8d93e45",
+      "bytes": 73456091,
+      "library_file_id": "libfile_a97d960d99648191895751849a512882"
+    }
+  ],
+  "removed": [
+    "conaled-fdsa-0001-baseline.tar.gz",
+    "conaled-fdsa-0002-chapter01-candidate.tar.gz",
+    "conaled-fdsa-0003-review-and-recovery.tar.gz",
+    "conaled-fdsa-0004-shared-insertion-costs.tar.gz",
+    "conaled-fdsa-0005-list-foundations.tar.gz",
+    "conaled-fdsa-0006-list-calls-draft.tar.gz",
+    "conaled-fdsa-0007-notation-draft.tar.gz",
+    "conaled-fdsa-0008-source-and-foundations.tar.gz",
+    "conaled-fdsa-0009-full-inventory-and-accounting.tar.gz",
+    "conaled-fdsa-0010-cost-model-repair.tar.gz",
+    "conaled-fdsa-0011-affine-draft-and-cache-source.tar.gz",
+    "conaled-fdsa-0012-builder-observations.tar.gz",
+    "conaled-fdsa-0013-probability-preflight.tar.gz",
+    "conaled-fdsa-0014-accumulated-work.tar.gz",
+    "conaled-fdsa-0015-ranking-preflight.tar.gz",
+    "conaled-fdsa-0016-permutation-minimum.tar.gz",
+    "conaled-fdsa-0017-order-preflight.tar.gz",
+    "conaled-fdsa-0018-permutation-order.tar.gz",
+    "conaled-fdsa-0019-tail-preflight.tar.gz",
+    "conaled-fdsa-0020-permutation-tail.tar.gz",
+    "conaled-fdsa-0021-expectation-preflight.tar.gz",
+    "conaled-fdsa-0022-permutation-expectation.tar.gz",
+    "conaled-fdsa-0023-joint-order-preflight.tar.gz",
+    "conaled-fdsa-0024-joint-relative-orders.tar.gz",
+    "conaled-fdsa-0025-sorting-preparation.tar.gz",
+    "conaled-fdsa-0026-conditional-treap-preparation.tar.gz",
+    "conaled-fdsa-0027-tree-cache-preflight.tar.gz",
+    "conaled-fdsa-0028-tree-cache-draft.tar.gz",
+    "conaled-fdsa-0029-tree-shape-preflight.tar.gz",
+    "conaled-fdsa-0030-tree-shape-draft.tar.gz",
+    "conaled-fdsa-0031-tree-fold-preflight.tar.gz",
+    "conaled-fdsa-0032-tree-fold-draft.tar.gz",
+    "conaled-fdsa-0033-tree-accumulator-preflight.tar.gz",
+    "conaled-fdsa-0034-tree-accumulator-draft.tar.gz",
+    "conaled-fdsa-0035-tree-traversal-work-preflight.tar.gz",
+    "conaled-fdsa-0036-tree-traversal-work-draft.tar.gz",
+    "conaled-fdsa-0037-permutation-placement-preflight.tar.gz",
+    "conaled-fdsa-0038-permutation-placement-draft.tar.gz"
+  ],
+  "completed_utc": "2026-11-02T15:49:45.351917+00:00",
+  "reclaimed_archive_bytes": 2767608843,
+  "available_bytes_after": 875188224
+}

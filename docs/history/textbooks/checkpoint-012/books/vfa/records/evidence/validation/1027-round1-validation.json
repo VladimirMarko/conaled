@@ -1,0 +1,68 @@
+{
+  "candidate": "5066fb9d0d0963122332149b3b6984ebea3facda",
+  "tree": "2352eb7a03454d1da1f9be8d0887e7ae830118d4",
+  "isolated_checkout": "/workspace/scratch/0c54f2db1fdf/cache-companion-validation",
+  "started_utc": "2026-11-02T13:49:48.929347+00:00",
+  "commands": [
+    {
+      "label": "tests",
+      "command": [
+        "/root/.nix-profile/bin/nix",
+        "develop",
+        "/workspace/scratch/0c54f2db1fdf/conaled",
+        "--command",
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/workspace/scratch/0c54f2db1fdf/cache-companion-validation",
+        "-v"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 6.346357499998703,
+      "log": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1027-round1-tests.log",
+      "log_sha256": "d1feb84c659ea22e0ab6cbaec248664b78ac8535a2f1269bf88d67bc27892a0a"
+    },
+    {
+      "label": "pinned-helper",
+      "command": [
+        "/root/.nix-profile/bin/nix",
+        "develop",
+        "/workspace/scratch/0c54f2db1fdf/conaled",
+        "--command",
+        "python3",
+        "-B",
+        "/workspace/scratch/0c54f2db1fdf/cache-companion-validation/check_pinned_runtime.py",
+        "--repo",
+        "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+        "--work-dir",
+        "/workspace/scratch/0c54f2db1fdf/tmp"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 3.158975452002778,
+      "log": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1027-round1-pinned-helper.log",
+      "log_sha256": "40a16d35f00fbb6464b3ff24d94e533e40a6567e800d6e9f91503fdd8cc0adf4",
+      "helper_status": "passed",
+      "generated_compiler_artifacts": [],
+      "hashes": [
+        "d51ab7bea8996f7d",
+        "074c331011a828ab",
+        "d51ab7bea8996f7d"
+      ],
+      "identity": {
+        "version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+        "platform": [
+          "Linux",
+          "x86_64",
+          "little"
+        ]
+      }
+    }
+  ],
+  "source_cache_capture_performed": false,
+  "finished_utc": "2026-11-02T13:49:58.436081+00:00",
+  "final_status": "",
+  "status": "passed"
+}

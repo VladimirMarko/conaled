@@ -1,0 +1,247 @@
+{
+  "recorded_at_utc": "2026-11-02T06:53:10.243166+00:00",
+  "ticket": 1022,
+  "candidate": "bed44c16cee3e1eff6a4175bad9a7ed50651b927",
+  "exit_code": 1,
+  "timed_out": false,
+  "elapsed_seconds": 11.06642513800034,
+  "passed_staging_check": false,
+  "ilean_header": null,
+  "metadata_error": null,
+  "direct_imports_match": false,
+  "c_imported_initializer_declarations": [],
+  "diagnostics": [
+    {
+      "caption": "",
+      "data": "Unknown constant `Sigma.mk.inj_iff`",
+      "endPos": {
+        "column": 49,
+        "line": 103
+      },
+      "fileName": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/SquareKit/Temporal/Finite.lean",
+      "isSilent": false,
+      "keepFullRange": false,
+      "kind": "lean.unknownIdentifier._namedError",
+      "pos": {
+        "column": 33,
+        "line": 103
+      },
+      "severity": "error"
+    },
+    {
+      "caption": "",
+      "data": "Tactic `apply` failed: could not unify the conclusion of `@funext`\n  ?f = ?g\nwith the goal\n  \u27e80, (fun j => j.elim0, b)\u27e9 = \u27e80, (as, b)\u27e9\n\nNote: The full type of `@funext` is\n  \u2200 {\u03b1 : Sort ?u.51} {\u03b2 : \u03b1 \u2192 Sort ?u.50} {f g : (x : \u03b1) \u2192 \u03b2 x}, (\u2200 (x : \u03b1), f x = g x) \u2192 f = g\n\ncase zero\nA B : \u2115 \u2192 Type u\nn : \u2115\nas : (j : Fin 0) \u2192 A (n + \u2191j)\nb : B (n + 0)\n\u22a2 \u27e80, (fun j => j.elim0, b)\u27e9 = \u27e80, (as, b)\u27e9",
+      "endPos": {
+        "column": 12,
+        "line": 104
+      },
+      "fileName": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/SquareKit/Temporal/Finite.lean",
+      "isSilent": false,
+      "keepFullRange": false,
+      "kind": "[anonymous]",
+      "pos": {
+        "column": 4,
+        "line": 104
+      },
+      "severity": "error"
+    },
+    {
+      "caption": "",
+      "data": "This simp argument is unused:\n  heq_eq_eq\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [ofWindow, window, Sigma.mk.inj_iff, Prod.mk.injEq, and_true, true_and]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+      "endPos": {
+        "column": 60,
+        "line": 103
+      },
+      "fileName": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/SquareKit/Temporal/Finite.lean",
+      "isSilent": false,
+      "keepFullRange": false,
+      "kind": "linter.unusedSimpArgs",
+      "pos": {
+        "column": 51,
+        "line": 103
+      },
+      "severity": "warning"
+    },
+    {
+      "caption": "",
+      "data": "This simp argument is unused:\n  Prod.mk.injEq\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [ofWindow, window, Sigma.mk.inj_iff, heq_eq_eq, and_true, true_and]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+      "endPos": {
+        "column": 75,
+        "line": 103
+      },
+      "fileName": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/SquareKit/Temporal/Finite.lean",
+      "isSilent": false,
+      "keepFullRange": false,
+      "kind": "linter.unusedSimpArgs",
+      "pos": {
+        "column": 62,
+        "line": 103
+      },
+      "severity": "warning"
+    },
+    {
+      "caption": "",
+      "data": "This simp argument is unused:\n  and_true\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [ofWindow, window, Sigma.mk.inj_iff, heq_eq_eq, Prod.mk.injEq, true_and]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+      "endPos": {
+        "column": 85,
+        "line": 103
+      },
+      "fileName": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/SquareKit/Temporal/Finite.lean",
+      "isSilent": false,
+      "keepFullRange": false,
+      "kind": "linter.unusedSimpArgs",
+      "pos": {
+        "column": 77,
+        "line": 103
+      },
+      "severity": "warning"
+    },
+    {
+      "caption": "",
+      "data": "This simp argument is unused:\n  true_and\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [ofWindow, window, Sigma.mk.inj_iff, heq_eq_eq, Prod.mk.injEq, and_true]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+      "endPos": {
+        "column": 95,
+        "line": 103
+      },
+      "fileName": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/SquareKit/Temporal/Finite.lean",
+      "isSilent": false,
+      "keepFullRange": false,
+      "kind": "linter.unusedSimpArgs",
+      "pos": {
+        "column": 87,
+        "line": 103
+      },
+      "severity": "warning"
+    }
+  ],
+  "non_json_diagnostics": [],
+  "diagnostic_identity": {
+    "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/diagnostics.jsonl",
+    "bytes": 3329,
+    "sha256": "023b96006428caedbe5fcb11fea99102588cb14a6e2a9624c550e54738f406b1"
+  },
+  "all_non_import_bytes_identical": true,
+  "setup_byte_identical": true,
+  "no_imports_override": true,
+  "protected_inputs_after": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/SquareKit/Temporal/Finite.lean",
+      "bytes": 4961,
+      "sha256": "a5250768a66bb6103b3edb188f4ec370f2e9f9f8937ea066c914b3f6056b90a9"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/SquareKit/Temporal/Finite.lean",
+      "bytes": 4961,
+      "sha256": "a5250768a66bb6103b3edb188f4ec370f2e9f9f8937ea066c914b3f6056b90a9"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/ir/SquareKit/Temporal/Finite.setup.json",
+      "bytes": 2329513,
+      "sha256": "66b8e39dac0fb306ac3bfad9d0dfdd64a59320187b45256a949e13218d1d0e2f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/SquareKit/Temporal/Finite.trace",
+      "bytes": 2679,
+      "sha256": "f8abf2847a56be49086eabc78203f1c8730640ab8f11e9651d53f70ef58d8039"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fin/Basic.olean",
+      "bytes": 168640,
+      "sha256": "86fc5ddd1e7c9fa9ebaff15828a4fa31bb83678f82095dc94fe393a2460a59d9"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fin/Basic.olean.server",
+      "bytes": 27584,
+      "sha256": "2bf18662075a15a543a83192815ded03642294b40988dd5be6e6c408b77c94a5"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fin/Basic.olean.private",
+      "bytes": 700680,
+      "sha256": "2c1dfb8fb23acd692b3d6fd5409708f8843812cbb8e0fd1600c64a7900813b07"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fin/Basic.ir.sig",
+      "bytes": 176,
+      "sha256": "00618d10c3a7d27207816f4160a600619cfe464023d115f5e027bcb10bf1d7a2"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fin/Basic.ir",
+      "bytes": 37600,
+      "sha256": "38d7ef0f64c1832110f2e560db15c156a027d1d1055e57951e0fd71a3928d04d"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Convert.olean",
+      "bytes": 590608,
+      "sha256": "b7c87ac3029be4ecdaab2541b8443da1ace561aa49cffb9fa7e3e206ca675ef1"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Convert.olean.server",
+      "bytes": 20304,
+      "sha256": "4ca79128bc9d93f02cfdf0c0e4fa21be5bb6899cb0e178c1a2f1fe8df39925cb"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Convert.olean.private",
+      "bytes": 1305608,
+      "sha256": "7baf1029f58174df6f6af6904d4f51eb2562339a19b2ee2ba5d5c0babae2a7d8"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Convert.ir.sig",
+      "bytes": 176,
+      "sha256": "f03ffd28cf6fcede0976e37d12786704b87dbc2ae1ac1c4472380de5a94636c8"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Convert.ir",
+      "bytes": 508584,
+      "sha256": "5e75016c2d72b36c2c4c2efcf4798be812bf156110704d31d30e92d92dc1f103"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/flake.nix",
+      "bytes": 637,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/flake.lock",
+      "bytes": 564,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/Mathlib/Data/Fin/Basic.lean",
+      "bytes": 19251,
+      "sha256": "2e2366059b7e366871729f63f4c98102bbd7d9b5f3d9982cbf0651e674c1f3e0"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/Mathlib/Tactic/Convert.lean",
+      "bytes": 16040,
+      "sha256": "cbffa3b86d16e0f006755cec72b12dc00da33c0228419e483a2ddba1ee27a32c"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/SquareKit/Temporal/Finite.olean",
+      "bytes": 725696,
+      "sha256": "f6a228eee2cc5377890a5af143cf123d44266fa614e97532489ffaf3f5ae970a"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/SquareKit/Temporal/Finite.ilean",
+      "bytes": 13979,
+      "sha256": "9503ee0ef91863873a85ff7110a9aa40d8f079780af32d04945a96d07399d60f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/ir/SquareKit/Temporal/Finite.c",
+      "bytes": 36217,
+      "sha256": "eeb8eec92de2a820936aa5baa90393c6e7013defe2954edee2f03ba6e713674f"
+    }
+  ],
+  "changed_protected_inputs": [],
+  "generated_artifacts": [],
+  "generated_artifact_disposition": "Preserved for parent decision; no retry authorized.",
+  "generated_output_directory_absent": false
+}

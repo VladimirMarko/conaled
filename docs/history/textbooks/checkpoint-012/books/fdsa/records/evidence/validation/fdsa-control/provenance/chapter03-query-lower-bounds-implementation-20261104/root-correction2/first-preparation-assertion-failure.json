@@ -1,0 +1,16 @@
+{
+  "recorded_utc": "2026-11-04T19:40:33.091053+00:00",
+  "actual_tool_result": {
+    "chunk_id": "96b699",
+    "wall_time_seconds": 3.6154e-05,
+    "exit_code": 1,
+    "original_token_count": 23,
+    "output": "Traceback (most recent call last):\n  File \"<stdin>\", line 40, in <module>\nAssertionError\n"
+  },
+  "reconciled_in": "e7b6a0",
+  "cause": "The header scanner looked only for := and absorbed the first theorem after each of three equational definitions. It counted21 sections for24 declarations. The exact header equality held, but the24-count assertion failed before writing the query example file, staging or committing.",
+  "partial_effect": "Starting-state.json created and intended sensitivity example correction written. Query example source, index and HEAD unchanged.",
+  "mathematical_failure": false,
+  "compiler_ran": false,
+  "correction": "Recognize both := and the first equational clause as header boundaries; compare all37 actual declaration headers and all three complete protocol definition blocks, and bind their names to the unchanged explicit68 program. Original failed method preserved."
+}

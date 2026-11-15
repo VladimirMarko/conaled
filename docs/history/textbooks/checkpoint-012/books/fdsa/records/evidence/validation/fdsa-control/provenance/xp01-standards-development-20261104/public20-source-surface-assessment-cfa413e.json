@@ -1,0 +1,517 @@
+{
+  "recorded_utc": "2026-11-04T11:20:35.270921+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+  "previous_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+  "original_XP01_base": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "program": {
+    "path": "provenance/xp01-public-statements20-prepared-20261104/Statements.lean",
+    "bytes": 1002,
+    "lines": 28,
+    "sha256": "ea75026303b461b1bb676e060aaac51e37797cbb2afd3d6356c08ba28c7eb01f"
+  },
+  "program_fully_read": true,
+  "program_prepared_not_executed": true,
+  "program_imports": [
+    "Applications.Resources.Potential",
+    "Applications.Resources.FIFOContracts",
+    "Examples.MappedPotentialAccounting"
+  ],
+  "printing_profile": [
+    "pp.universes true",
+    "pp.explicit true",
+    "pp.fullNames true"
+  ],
+  "bare_fully_qualified_check_at_names": true,
+  "source_files": [
+    {
+      "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+      "path": "Applications/Resources/Potential.lean",
+      "blob": "dcf7ae78d76c1440c2d89711e6939a00ff24cc90",
+      "bytes": 11606,
+      "lines": 239,
+      "sha256": "c921f5a18f9c508c338d49eed9d3bd2a2193f968cfc3e9efb4208f8917efa33c"
+    },
+    {
+      "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+      "path": "Applications/Resources/FIFOContracts.lean",
+      "blob": "01839707e852b3faff6ef1a49ad88a76fb5e5c18",
+      "bytes": 8308,
+      "lines": 168,
+      "sha256": "f0215c25e27380b170297c9cc010375da4ef263380088f4ae8fdbb7272373343"
+    },
+    {
+      "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+      "path": "Examples/MappedPotentialAccounting.lean",
+      "blob": "0291c5979243b0d12332d3628d06aa910732dfa2",
+      "bytes": 6726,
+      "lines": 165,
+      "sha256": "aa57790203c7dbc800586464c46366fcd7e6da6965fdbc3c260285e9c8d693c3"
+    }
+  ],
+  "public_surface": [
+    {
+      "kind": "def",
+      "name": "Resources.budget",
+      "source_line": 15,
+      "header_bytes": 112,
+      "header_sha256": "c6ba8c0ee363cda201ae2605a4031231be79657d2a2f562584cc142e6be7e2be",
+      "source_path": "Applications/Resources/Potential.lean",
+      "program_index": 1,
+      "program_line": 9
+    },
+    {
+      "kind": "theorem",
+      "name": "Resources.budget_append",
+      "source_line": 20,
+      "header_bytes": 258,
+      "header_sha256": "9954e682dbe4d7e007b54a3aa48603f52603e3fe4fb51de83164b6dc0774af92",
+      "source_path": "Applications/Resources/Potential.lean",
+      "program_index": 2,
+      "program_line": 10
+    },
+    {
+      "kind": "theorem",
+      "name": "Resources.budget_map",
+      "source_line": 32,
+      "header_bytes": 225,
+      "header_sha256": "1a23b503ecbb87eb63c79f121054b50b4c3beba5eee841f62d709a207dd6fa38",
+      "source_path": "Applications/Resources/Potential.lean",
+      "program_index": 3,
+      "program_line": 11
+    },
+    {
+      "kind": "theorem",
+      "name": "Resources.run_potential_map_of_invariant",
+      "source_line": 43,
+      "header_bytes": 533,
+      "header_sha256": "c5569d55780495f2b46d854a3a93f7582184883a9a836c459dc93e884d9b65ba",
+      "source_path": "Applications/Resources/Potential.lean",
+      "program_index": 4,
+      "program_line": 12
+    },
+    {
+      "kind": "theorem",
+      "name": "Resources.run_potential_map_exact_of_invariant",
+      "source_line": 76,
+      "header_bytes": 485,
+      "header_sha256": "d66887a16010a8b71dad8f92a2a68adb9a151876746d1764dcabdb18434043af",
+      "source_path": "Applications/Resources/Potential.lean",
+      "program_index": 5,
+      "program_line": 13
+    },
+    {
+      "kind": "theorem",
+      "name": "Resources.run_potential_map",
+      "source_line": 107,
+      "header_bytes": 436,
+      "header_sha256": "376e7c7a5c24fbf45d3f0fa89bfd3c0e4bbabcd1e9a9696a99a9d3dc1f5d9099",
+      "source_path": "Applications/Resources/Potential.lean",
+      "program_index": 6,
+      "program_line": 14
+    },
+    {
+      "kind": "theorem",
+      "name": "Resources.run_potential_map_exact",
+      "source_line": 119,
+      "header_bytes": 388,
+      "header_sha256": "4fea795571007ab03a11c2ef44dbe0404e5ab2c1b4f317244a997a255022bd65",
+      "source_path": "Applications/Resources/Potential.lean",
+      "program_index": 7,
+      "program_line": 15
+    },
+    {
+      "kind": "theorem",
+      "name": "Resources.run_cost_le_map_of_invariant",
+      "source_line": 133,
+      "header_bytes": 543,
+      "header_sha256": "02a93444bfc86f668454677508b010d50586e3aaa818e6bcc1f72c066e15815a",
+      "source_path": "Applications/Resources/Potential.lean",
+      "program_index": 8,
+      "program_line": 16
+    },
+    {
+      "kind": "theorem",
+      "name": "Resources.budget_amortized",
+      "source_line": 155,
+      "header_bytes": 317,
+      "header_sha256": "807dd08358571f32564ffd0c858bc1ad88657c74f149c0914c612407e0de7526",
+      "source_path": "Applications/Resources/Potential.lean",
+      "program_index": 9,
+      "program_line": 17
+    },
+    {
+      "kind": "theorem",
+      "name": "Resources.charge_iff_signed",
+      "source_line": 167,
+      "header_bytes": 166,
+      "header_sha256": "a29069f62c86b0398785c1c5140e11aeea3f55d6e8c3bec69a60828e69a4fa00",
+      "source_path": "Applications/Resources/Potential.lean",
+      "program_index": 10,
+      "program_line": 18
+    },
+    {
+      "kind": "theorem",
+      "name": "Resources.run_potential",
+      "source_line": 172,
+      "header_bytes": 333,
+      "header_sha256": "15652fbfcbad17019ac95ab101c15034364f7286c0a7b349f6d60156cc3ee98f",
+      "source_path": "Applications/Resources/Potential.lean",
+      "program_index": 11,
+      "program_line": 19
+    },
+    {
+      "kind": "theorem",
+      "name": "Resources.run_potential_exact",
+      "source_line": 181,
+      "header_bytes": 335,
+      "header_sha256": "7dda8d1341999a13c0c4d051905836bfa357fa7055ea8b8b2ab0d70a23b5e6f3",
+      "source_path": "Applications/Resources/Potential.lean",
+      "program_index": 12,
+      "program_line": 20
+    },
+    {
+      "kind": "theorem",
+      "name": "Resources.run_cost_le",
+      "source_line": 189,
+      "header_bytes": 295,
+      "header_sha256": "c2aa5a56c14590542b454c2547d892446b6e0f41d8c7974417abccd8b4920b25",
+      "source_path": "Applications/Resources/Potential.lean",
+      "program_index": 13,
+      "program_line": 21
+    },
+    {
+      "kind": "theorem",
+      "name": "Resources.run_zero_potential",
+      "source_line": 197,
+      "header_bytes": 313,
+      "header_sha256": "6453eb71cff6f42d49ddb480856310d5c695a43d5df8a2b566748bdc18c99418",
+      "source_path": "Applications/Resources/Potential.lean",
+      "program_index": 14,
+      "program_line": 22
+    },
+    {
+      "kind": "theorem",
+      "name": "Resources.budget_constant",
+      "source_line": 204,
+      "header_bytes": 145,
+      "header_sha256": "fb8214a4f17eb6abcce636c1d935471b2112da43b3c26bcd275c4550cd76502f",
+      "source_path": "Applications/Resources/Potential.lean",
+      "program_index": 15,
+      "program_line": 23
+    },
+    {
+      "kind": "theorem",
+      "name": "Resources.budget_le_constant",
+      "source_line": 210,
+      "header_bytes": 211,
+      "header_sha256": "6e1a8718d46ace5744cee8d4552e4fedfa7f5462e0707f82483975f0d843a81d",
+      "source_path": "Applications/Resources/Potential.lean",
+      "program_index": 16,
+      "program_line": 24
+    },
+    {
+      "kind": "theorem",
+      "name": "Resources.run_constant_charge",
+      "source_line": 221,
+      "header_bytes": 295,
+      "header_sha256": "fc25d0ac1746c14de93a4a7c07366870503c28c61c756e3b7733e1c22dccd920",
+      "source_path": "Applications/Resources/Potential.lean",
+      "program_index": 17,
+      "program_line": 25
+    },
+    {
+      "kind": "theorem",
+      "name": "Resources.initial_potential_matters",
+      "source_line": 231,
+      "header_bytes": 225,
+      "header_sha256": "368217ea0d801147988af09c73b10f61fc9c3ac27e9cd3f6230f663fabe733e1",
+      "source_path": "Applications/Resources/Potential.lean",
+      "program_index": 18,
+      "program_line": 26
+    },
+    {
+      "name": "Resources.FIFOContracts.abstractBudget",
+      "kind": "def",
+      "source_line": 15,
+      "source_path": "Applications/Resources/FIFOContracts.lean",
+      "program_index": 19,
+      "program_line": 27
+    },
+    {
+      "source_line": 21,
+      "kind": "theorem",
+      "name": "Examples.MappedPotentialAccounting.Counter.real_boundary",
+      "declaration_prefix": "",
+      "source_path": "Examples/MappedPotentialAccounting.lean",
+      "program_index": 20,
+      "program_line": 28
+    }
+  ],
+  "public_count": 20,
+  "potential_authored_public_count": 18,
+  "FIFO_changed_definition_count": 1,
+  "mapped_new_public_count": 1,
+  "original_B_existing_header_comparison": [
+    {
+      "name": "Resources.budget",
+      "same_original_B_header": false,
+      "current_header_bytes": 112,
+      "current_header_sha256": "c6ba8c0ee363cda201ae2605a4031231be79657d2a2f562584cc142e6be7e2be"
+    },
+    {
+      "name": "Resources.budget_append",
+      "same_original_B_header": false,
+      "current_header_bytes": 258,
+      "current_header_sha256": "9954e682dbe4d7e007b54a3aa48603f52603e3fe4fb51de83164b6dc0774af92"
+    },
+    {
+      "name": "Resources.charge_iff_signed",
+      "same_original_B_header": true,
+      "current_header_bytes": 166,
+      "current_header_sha256": "a29069f62c86b0398785c1c5140e11aeea3f55d6e8c3bec69a60828e69a4fa00"
+    },
+    {
+      "name": "Resources.run_potential",
+      "same_original_B_header": true,
+      "current_header_bytes": 333,
+      "current_header_sha256": "15652fbfcbad17019ac95ab101c15034364f7286c0a7b349f6d60156cc3ee98f"
+    },
+    {
+      "name": "Resources.run_potential_exact",
+      "same_original_B_header": true,
+      "current_header_bytes": 335,
+      "current_header_sha256": "7dda8d1341999a13c0c4d051905836bfa357fa7055ea8b8b2ab0d70a23b5e6f3"
+    },
+    {
+      "name": "Resources.run_cost_le",
+      "same_original_B_header": true,
+      "current_header_bytes": 295,
+      "current_header_sha256": "c2aa5a56c14590542b454c2547d892446b6e0f41d8c7974417abccd8b4920b25"
+    },
+    {
+      "name": "Resources.run_zero_potential",
+      "same_original_B_header": true,
+      "current_header_bytes": 313,
+      "current_header_sha256": "6453eb71cff6f42d49ddb480856310d5c695a43d5df8a2b566748bdc18c99418"
+    },
+    {
+      "name": "Resources.budget_constant",
+      "same_original_B_header": true,
+      "current_header_bytes": 145,
+      "current_header_sha256": "fb8214a4f17eb6abcce636c1d935471b2112da43b3c26bcd275c4550cd76502f"
+    },
+    {
+      "name": "Resources.budget_le_constant",
+      "same_original_B_header": true,
+      "current_header_bytes": 211,
+      "current_header_sha256": "6e1a8718d46ace5744cee8d4552e4fedfa7f5462e0707f82483975f0d843a81d"
+    },
+    {
+      "name": "Resources.run_constant_charge",
+      "same_original_B_header": true,
+      "current_header_bytes": 295,
+      "current_header_sha256": "fc25d0ac1746c14de93a4a7c07366870503c28c61c756e3b7733e1c22dccd920"
+    },
+    {
+      "name": "Resources.initial_potential_matters",
+      "same_original_B_header": true,
+      "current_header_bytes": 225,
+      "current_header_sha256": "368217ea0d801147988af09c73b10f61fc9c3ac27e9cd3f6230f663fabe733e1"
+    }
+  ],
+  "potential_18_headers_unchanged_S_to_C": true,
+  "header_method": "Proof delimiter := by or line-final :=; budget equation separator handled separately. A let-expression := inside initial_potential_matters is part of its full statement and is not mistaken for the theorem proof delimiter.",
+  "mapped_private_named_declarations": [
+    {
+      "source_line": 62,
+      "kind": "def",
+      "name": "Examples.MappedPotentialAccounting.InitialCredit.clearStep",
+      "declaration_prefix": "private"
+    },
+    {
+      "source_line": 63,
+      "kind": "def",
+      "name": "Examples.MappedPotentialAccounting.InitialCredit.potential",
+      "declaration_prefix": "private"
+    },
+    {
+      "source_line": 64,
+      "kind": "def",
+      "name": "Examples.MappedPotentialAccounting.InitialCredit.charge",
+      "declaration_prefix": "private"
+    },
+    {
+      "source_line": 72,
+      "kind": "theorem",
+      "name": "Examples.MappedPotentialAccounting.InitialCredit.boundary",
+      "declaration_prefix": "private"
+    },
+    {
+      "source_line": 98,
+      "kind": "def",
+      "name": "Examples.MappedPotentialAccounting.Fractional.step",
+      "declaration_prefix": "private"
+    },
+    {
+      "source_line": 101,
+      "kind": "def",
+      "name": "Examples.MappedPotentialAccounting.Fractional.Valid",
+      "declaration_prefix": "private"
+    },
+    {
+      "source_line": 102,
+      "kind": "def",
+      "name": "Examples.MappedPotentialAccounting.Fractional.potential",
+      "declaration_prefix": "private noncomputable"
+    },
+    {
+      "source_line": 103,
+      "kind": "def",
+      "name": "Examples.MappedPotentialAccounting.Fractional.charge",
+      "declaration_prefix": "private noncomputable"
+    },
+    {
+      "source_line": 105,
+      "kind": "theorem",
+      "name": "Examples.MappedPotentialAccounting.Fractional.closed",
+      "declaration_prefix": "private"
+    },
+    {
+      "source_line": 109,
+      "kind": "theorem",
+      "name": "Examples.MappedPotentialAccounting.Fractional.localLaw",
+      "declaration_prefix": "private"
+    },
+    {
+      "source_line": 115,
+      "kind": "theorem",
+      "name": "Examples.MappedPotentialAccounting.Fractional.nonneg",
+      "declaration_prefix": "private"
+    },
+    {
+      "source_line": 119,
+      "kind": "theorem",
+      "name": "Examples.MappedPotentialAccounting.Fractional.boundary",
+      "declaration_prefix": "private"
+    },
+    {
+      "source_line": 125,
+      "kind": "theorem",
+      "name": "Examples.MappedPotentialAccounting.Fractional.work_bound",
+      "declaration_prefix": "private"
+    },
+    {
+      "source_line": 152,
+      "kind": "def",
+      "name": "Examples.MappedPotentialAccounting.recordStep",
+      "declaration_prefix": "private"
+    }
+  ],
+  "mapped_anonymous_examples": [
+    {
+      "source_line": 43,
+      "kind": "example",
+      "name": null,
+      "declaration_prefix": ""
+    },
+    {
+      "source_line": 45,
+      "kind": "example",
+      "name": null,
+      "declaration_prefix": ""
+    },
+    {
+      "source_line": 55,
+      "kind": "example",
+      "name": null,
+      "declaration_prefix": ""
+    },
+    {
+      "source_line": 66,
+      "kind": "example",
+      "name": null,
+      "declaration_prefix": ""
+    },
+    {
+      "source_line": 78,
+      "kind": "example",
+      "name": null,
+      "declaration_prefix": ""
+    },
+    {
+      "source_line": 79,
+      "kind": "example",
+      "name": null,
+      "declaration_prefix": ""
+    },
+    {
+      "source_line": 81,
+      "kind": "example",
+      "name": null,
+      "declaration_prefix": ""
+    },
+    {
+      "source_line": 85,
+      "kind": "example",
+      "name": null,
+      "declaration_prefix": ""
+    },
+    {
+      "source_line": 90,
+      "kind": "example",
+      "name": null,
+      "declaration_prefix": ""
+    },
+    {
+      "source_line": 130,
+      "kind": "example",
+      "name": null,
+      "declaration_prefix": ""
+    },
+    {
+      "source_line": 132,
+      "kind": "example",
+      "name": null,
+      "declaration_prefix": ""
+    },
+    {
+      "source_line": 137,
+      "kind": "example",
+      "name": null,
+      "declaration_prefix": ""
+    },
+    {
+      "source_line": 142,
+      "kind": "example",
+      "name": null,
+      "declaration_prefix": ""
+    },
+    {
+      "source_line": 145,
+      "kind": "example",
+      "name": null,
+      "declaration_prefix": ""
+    },
+    {
+      "source_line": 155,
+      "kind": "example",
+      "name": null,
+      "declaration_prefix": ""
+    },
+    {
+      "source_line": 162,
+      "kind": "example",
+      "name": null,
+      "declaration_prefix": ""
+    }
+  ],
+  "private_or_anonymous_counts_not_public": {
+    "private_named": 14,
+    "anonymous_examples": 16
+  },
+  "assessment": "Complete explicit new/changed public surface plus every Potential wrapper is represented; no omitted public named XP01 formal claim found. Private helpers and all anonymous connected cases remain within complete source, focused-build and full-check/audit scope.",
+  "source_identity_not_elaborated_type_equivalence": true,
+  "actual_type_output_count": 0,
+  "pending": "Bind exact successful source successor and qualified build/input lineage, execute actual20 command, independently read every full printed type, preserve mandatory separate whole-candidate check/audit and immediate verification."
+}

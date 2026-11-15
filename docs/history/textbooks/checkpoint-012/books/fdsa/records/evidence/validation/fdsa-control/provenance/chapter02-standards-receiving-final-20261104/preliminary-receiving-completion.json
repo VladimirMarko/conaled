@@ -1,0 +1,84 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "recorded_utc": "2026-11-04T17:52:10.466927+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "status": "Preliminary receiving disposition complete and read back; these files are now held unchanged. Overall final Standards remains Blocked.",
+  "files": [
+    {
+      "path": "provenance/chapter02-standards-receiving-final-20261104/preliminary-receiving-name-disposition.tsv",
+      "bytes": 221413,
+      "lf_lines": 1764,
+      "sha256": "4e28da44ba86372f24a44cf1c0965e1c39d460062bfb455226485d291edc3985"
+    },
+    {
+      "path": "provenance/chapter02-standards-receiving-final-20261104/preliminary-receiving-assessment.json",
+      "bytes": 35472,
+      "lf_lines": 826,
+      "sha256": "54e4cedd5177ec390782ca4774933e1a16bbb7559b7821504cf85c69aece0881"
+    },
+    {
+      "path": "provenance/chapter02-standards-receiving-final-20261104/preliminary-receiving-standards.md",
+      "bytes": 6380,
+      "lf_lines": 60,
+      "sha256": "30e6d41a135bede9f41a06e6ac7ea4d24ddd191a09f6a6658180622f16d0b0f7"
+    }
+  ],
+  "assessment_complete_read_ranges": [
+    {
+      "first": 1,
+      "last": 275,
+      "bytes": 10594,
+      "sha256": "fc3aabcd0aac37d36475ef18290b7b17b85a9b1d7deec5effe54b4f28360bb13",
+      "actual_read_tool": "c0555e",
+      "complete_untruncated": true
+    },
+    {
+      "first": 276,
+      "last": 550,
+      "bytes": 12498,
+      "sha256": "05f006c68ed0d4d39eca681ba3dea18519c2626900240b208a3c9d4004857e22",
+      "actual_read_tool": "a03b15",
+      "complete_untruncated": true
+    },
+    {
+      "first": 551,
+      "last": 826,
+      "bytes": 12380,
+      "sha256": "1e7454dbec3cf670d302e2329bef2db2e298957def59acbecee855d059459c5d",
+      "actual_read_tool": "72f803",
+      "complete_untruncated": true
+    }
+  ],
+  "report_readback": "All60 lines /6380bytes read in full at02abba before the outer combined display truncation, and printed completely again in this completion invocation.",
+  "batched_display_boundary": "The first combined assessment display exceeded the outer output budget. It grants no whole-assessment read credit; all826 lines were repeated in the three complete bounded ranges above.",
+  "table_readback": {
+    "bytes": 221413,
+    "data_rows": 1763,
+    "all_exact_names_source_ids_actions_producers_and_check_positions_recomputed": true,
+    "conditional_counts": {
+      "I314": 242,
+      "J53": 53,
+      "Tail61": 61,
+      "F145": 110
+    },
+    "current_inspection_groups": {
+      "chapter02-natural-runs-statements-20261104": 104,
+      "Z815": 543,
+      "chapter02-bottom-up-alternating-types-20261104": 126,
+      "chapter02-natural-sorting-types-20261104": 105,
+      "chapter02-three-way-partition-types-20261104": 36,
+      "chapter02-uniqueness-types-20261104": 9,
+      "chapter02-bottom-up-costs-types-20261104": 105,
+      "chapter02-measured-sorting-types-20261104": 174,
+      "chapter02-xd01-random-types-20261104": 62,
+      "chapter02-top-down-costs-types-20261104": 32,
+      "new_current_Growth": 1
+    },
+    "human_semantic_boundary": "This is complete mechanical mapping readback against the frozen inventory/programs and actual independently reconstructed comparison. It does not claim a new human reading of old types; their complete original semantic ledgers remain bound."
+  },
+  "all_bound_files_rehashed": 44,
+  "all_matches": true,
+  "receiving_credit": 0,
+  "acceptance_credit": 0,
+  "next": "Assess the author exact targeted input mapping and original-profile/source-command preservation. Await actual current outputs/post observations before final qualification."
+}

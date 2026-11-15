@@ -1,0 +1,388 @@
+@Resources.NaturalSorting.run.{u_1} : {α : Type u_1} →
+  (α → α → Bool) → (α → α → Bool) → List.{u_1} α → Resources.Measured.{u_1, 0} (List.{u_1} α) Nat
+@Resources.NaturalSorting.comparisons.{u_1} : {α : Type u_1} → (α → α → Bool) → (α → α → Bool) → List.{u_1} α → Nat
+@Resources.NaturalSorting.run_nil.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat)
+    (@Resources.NaturalSorting.run.{u_1} α lt cmp (@List.nil.{u_1} α))
+    (@Prod.mk.{u_1, 0} (List.{u_1} α) Nat (@List.nil.{u_1} α)
+      (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+@Resources.NaturalSorting.run_singleton.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (a : α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat)
+    (@Resources.NaturalSorting.run.{u_1} α lt cmp (@List.cons.{u_1} α a (@List.nil.{u_1} α)))
+    (@Prod.mk.{u_1, 0} (List.{u_1} α) Nat (@List.cons.{u_1} α a (@List.nil.{u_1} α))
+      (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+@Resources.NaturalSorting.run_value.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α),
+  @Eq.{u_1 + 1} (List.{u_1} α) (@Prod.fst.{u_1, 0} (List.{u_1} α) Nat (@Resources.NaturalSorting.run.{u_1} α lt cmp xs))
+    (@Applications.Sorting.sortNaturalBy.{u_1} α lt cmp xs)
+@Resources.NaturalSorting.run_perm.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α),
+  @List.Perm.{u_1} α (@Prod.fst.{u_1, 0} (List.{u_1} α) Nat (@Resources.NaturalSorting.run.{u_1} α lt cmp xs)) xs
+@Resources.NaturalSorting.run_length.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α),
+  @Eq.{1} Nat
+    (@List.length.{u_1} α (@Prod.fst.{u_1, 0} (List.{u_1} α) Nat (@Resources.NaturalSorting.run.{u_1} α lt cmp xs)))
+    (@List.length.{u_1} α xs)
+@Resources.NaturalSorting.run_multiset.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α),
+  @Eq.{u_1 + 1} (Multiset.{u_1} α)
+    (@Multiset.ofList.{u_1} α (@Prod.fst.{u_1, 0} (List.{u_1} α) Nat (@Resources.NaturalSorting.run.{u_1} α lt cmp xs)))
+    (@Multiset.ofList.{u_1} α xs)
+@Resources.NaturalSorting.run_correct.{u_1,
+    u_2} : ∀ {α : Type u_1} {κ : Type u_2} [inst : LinearOrder.{u_2} κ] (key : α → κ) (xs : List.{u_1} α),
+  And
+    (@Applications.Sorting.KeySorted.{u_1, u_2} α κ
+      (@Preorder.toLE.{u_2} κ
+        (@PartialOrder.toPreorder.{u_2} κ
+          (@SemilatticeInf.toPartialOrder.{u_2} κ
+            (@Lattice.toSemilatticeInf.{u_2} κ
+              (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+      key
+      (@Prod.fst.{u_1, 0} (List.{u_1} α) Nat
+        (@Resources.NaturalSorting.run.{u_1} α
+          (fun a b =>
+            @Decidable.decide
+              (@LT.lt.{u_2} κ
+                (@Preorder.toLT.{u_2} κ
+                  (@PartialOrder.toPreorder.{u_2} κ
+                    (@SemilatticeInf.toPartialOrder.{u_2} κ
+                      (@Lattice.toSemilatticeInf.{u_2} κ
+                        (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+                (key a) (key b))
+              (@LinearOrder.toDecidableLT.{u_2} κ inst (key a) (key b)))
+          (fun a b =>
+            @Decidable.decide
+              (@LE.le.{u_2} κ
+                (@Preorder.toLE.{u_2} κ
+                  (@PartialOrder.toPreorder.{u_2} κ
+                    (@SemilatticeInf.toPartialOrder.{u_2} κ
+                      (@Lattice.toSemilatticeInf.{u_2} κ
+                        (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+                (key a) (key b))
+              (@LinearOrder.toDecidableLE.{u_2} κ inst (key a) (key b)))
+          xs)))
+    (@List.Perm.{u_1} α
+      (@Prod.fst.{u_1, 0} (List.{u_1} α) Nat
+        (@Resources.NaturalSorting.run.{u_1} α
+          (fun a b =>
+            @Decidable.decide
+              (@LT.lt.{u_2} κ
+                (@Preorder.toLT.{u_2} κ
+                  (@PartialOrder.toPreorder.{u_2} κ
+                    (@SemilatticeInf.toPartialOrder.{u_2} κ
+                      (@Lattice.toSemilatticeInf.{u_2} κ
+                        (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+                (key a) (key b))
+              (@LinearOrder.toDecidableLT.{u_2} κ inst (key a) (key b)))
+          (fun a b =>
+            @Decidable.decide
+              (@LE.le.{u_2} κ
+                (@Preorder.toLE.{u_2} κ
+                  (@PartialOrder.toPreorder.{u_2} κ
+                    (@SemilatticeInf.toPartialOrder.{u_2} κ
+                      (@Lattice.toSemilatticeInf.{u_2} κ
+                        (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+                (key a) (key b))
+              (@LinearOrder.toDecidableLE.{u_2} κ inst (key a) (key b)))
+          xs))
+      xs)
+@Resources.NaturalSorting.comparisons_nil.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool),
+  @Eq.{1} Nat (@Resources.NaturalSorting.comparisons.{u_1} α lt cmp (@List.nil.{u_1} α))
+    (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+@Resources.NaturalSorting.comparisons_singleton.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (a : α),
+  @Eq.{1} Nat (@Resources.NaturalSorting.comparisons.{u_1} α lt cmp (@List.cons.{u_1} α a (@List.nil.{u_1} α)))
+    (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+@Resources.NaturalSorting.comparisons_eq_scan_add_merge.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool)
+  (xs : List.{u_1} α),
+  @Eq.{1} Nat (@Resources.NaturalSorting.comparisons.{u_1} α lt cmp xs)
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@Resources.NaturalRunComparisons.runsCountBy.{u_1} α lt xs)
+      (@Resources.BottomUpSorting.allComparisons.{u_1} α cmp (@Applications.Sorting.runsBy.{u_1} α lt xs)))
+@Resources.NaturalSorting.comparisons_eq_length_add_merge.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool)
+  (xs : List.{u_1} α),
+  @Eq.{1} Nat (@Resources.NaturalSorting.comparisons.{u_1} α lt cmp xs)
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@List.length.{u_1} α xs)
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      (@Resources.BottomUpSorting.allComparisons.{u_1} α cmp (@Applications.Sorting.runsBy.{u_1} α lt xs)))
+@Resources.NaturalSorting.run_exact.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat) (@Resources.NaturalSorting.run.{u_1} α lt cmp xs)
+    (@Prod.mk.{u_1, 0} (List.{u_1} α) Nat (@Applications.Sorting.sortNaturalBy.{u_1} α lt cmp xs)
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@List.length.{u_1} α xs)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        (@Resources.BottomUpSorting.allComparisons.{u_1} α cmp (@Applications.Sorting.runsBy.{u_1} α lt xs))))
+@Resources.NaturalSorting.comparisons_lower.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α),
+  @LE.le.{0} Nat instLENat
+    (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@List.length.{u_1} α xs)
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+    (@Resources.NaturalSorting.comparisons.{u_1} α lt cmp xs)
+@Resources.NaturalSorting.comparisons_le_adaptive.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α),
+  @LE.le.{0} Nat instLENat (@Resources.NaturalSorting.comparisons.{u_1} α lt cmp xs)
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@List.length.{u_1} α xs)
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) (@List.length.{u_1} α xs)
+        (Nat.clog (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.length.{u_1} (List.{u_1} α) (@Applications.Sorting.runsBy.{u_1} α lt xs)))))
+@Resources.NaturalSorting.comparisons_le_clog.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α),
+  @LE.le.{0} Nat instLENat (@Resources.NaturalSorting.comparisons.{u_1} α lt cmp xs)
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@List.length.{u_1} α xs)
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) (@List.length.{u_1} α xs)
+        (Nat.clog (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α xs))))
+@Resources.NaturalSorting.comparisons_le_source.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α),
+  @LE.le.{0} Nat instLENat (@Resources.NaturalSorting.comparisons.{u_1} α lt cmp xs)
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@List.length.{u_1} α xs)
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) (@List.length.{u_1} α xs)
+        (Nat.clog (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α xs))))
+@Resources.NaturalSorting.comparisons_le_of_length.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α)
+  (n : Nat),
+  @Eq.{1} Nat (@List.length.{u_1} α xs) n →
+    @LE.le.{0} Nat instLENat (@Resources.NaturalSorting.comparisons.{u_1} α lt cmp xs)
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) n
+          (Nat.clog (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n)))
+@Resources.NaturalSorting.comparisons_le_adaptive_int_ceil.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool)
+  (xs : List.{u_1} α),
+  @LE.le.{0} Int Int.instLEInt
+    (@Nat.cast.{0} Int instNatCastInt (@Resources.NaturalSorting.comparisons.{u_1} α lt cmp xs))
+    (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+      (@Nat.cast.{0} Int instNatCastInt
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@List.length.{u_1} α xs)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (@HMul.hMul.{0, 0, 0} Int Int Int (@instHMul.{0} Int Int.instMul)
+        (@Nat.cast.{0} Int instNatCastInt (@List.length.{u_1} α xs))
+        (@Int.ceil.{0} Real Real.instRing Real.linearOrder Real.instFloorRing
+          (Real.logb (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+            (@Nat.cast.{0} Real Real.instNatCast
+              (@List.length.{u_1} (List.{u_1} α) (@Applications.Sorting.runsBy.{u_1} α lt xs)))))))
+@Resources.NaturalSorting.comparisons_le_int_ceil.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α),
+  @LE.le.{0} Int Int.instLEInt
+    (@Nat.cast.{0} Int instNatCastInt (@Resources.NaturalSorting.comparisons.{u_1} α lt cmp xs))
+    (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd)
+      (@Nat.cast.{0} Int instNatCastInt (@List.length.{u_1} α xs))
+      (@HMul.hMul.{0, 0, 0} Int Int Int (@instHMul.{0} Int Int.instMul)
+        (@Nat.cast.{0} Int instNatCastInt (@List.length.{u_1} α xs))
+        (@Int.ceil.{0} Real Real.instRing Real.linearOrder Real.instFloorRing
+          (Real.logb (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+            (@Nat.cast.{0} Real Real.instNatCast (@List.length.{u_1} α xs))))))
+@Resources.NaturalSorting.comparisons_le_int_ceil_of_length.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool)
+  (xs : List.{u_1} α) (n : Nat),
+  @Eq.{1} Nat (@List.length.{u_1} α xs) n →
+    @LE.le.{0} Int Int.instLEInt
+      (@Nat.cast.{0} Int instNatCastInt (@Resources.NaturalSorting.comparisons.{u_1} α lt cmp xs))
+      (@HAdd.hAdd.{0, 0, 0} Int Int Int (@instHAdd.{0} Int Int.instAdd) (@Nat.cast.{0} Int instNatCastInt n)
+        (@HMul.hMul.{0, 0, 0} Int Int Int (@instHMul.{0} Int Int.instMul) (@Nat.cast.{0} Int instNatCastInt n)
+          (@Int.ceil.{0} Real Real.instRing Real.linearOrder Real.instFloorRing
+            (Real.logb
+              (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+              (@Nat.cast.{0} Real Real.instNatCast n)))))
+@Resources.NaturalSorting.run_of_runs_eq_singleton.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool)
+  (xs ys : List.{u_1} α),
+  @Eq.{u_1 + 1} (List.{u_1} (List.{u_1} α)) (@Applications.Sorting.runsBy.{u_1} α lt xs)
+      (@List.cons.{u_1} (List.{u_1} α) ys (@List.nil.{u_1} (List.{u_1} α))) →
+    @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat) (@Resources.NaturalSorting.run.{u_1} α lt cmp xs)
+      (@Prod.mk.{u_1, 0} (List.{u_1} α) Nat ys
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@List.length.{u_1} α xs)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+@Resources.NaturalSorting.run_of_ascending_chain.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α),
+  @Ne.{u_1 + 1} (List.{u_1} α) xs (@List.nil.{u_1} α) →
+    @List.IsChain.{u_1} α (fun a b => @Eq.{1} Bool (lt b a) Bool.false) xs →
+      @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat) (@Resources.NaturalSorting.run.{u_1} α lt cmp xs)
+        (@Prod.mk.{u_1, 0} (List.{u_1} α) Nat xs
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@List.length.{u_1} α xs)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+@Resources.NaturalSorting.run_of_descending_chain.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α),
+  @Ne.{u_1 + 1} (List.{u_1} α) xs (@List.nil.{u_1} α) →
+    @List.IsChain.{u_1} α (fun a b => @Eq.{1} Bool (lt b a) Bool.true) xs →
+      @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat) (@Resources.NaturalSorting.run.{u_1} α lt cmp xs)
+        (@Prod.mk.{u_1, 0} (List.{u_1} α) Nat (@List.reverse.{u_1} α xs)
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@List.length.{u_1} α xs)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+@Resources.NaturalSorting.mergeComparisons_of_sorted.{u_1,
+    u_2} : ∀ {α : Type u_1} {κ : Type u_2} [inst : LinearOrder.{u_2} κ] (key : α → κ) (cmp : α → α → Bool)
+  (xs : List.{u_1} α),
+  @Applications.Sorting.KeySorted.{u_1, u_2} α κ
+      (@Preorder.toLE.{u_2} κ
+        (@PartialOrder.toPreorder.{u_2} κ
+          (@SemilatticeInf.toPartialOrder.{u_2} κ
+            (@Lattice.toSemilatticeInf.{u_2} κ
+              (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+      key xs →
+    @Ne.{u_1 + 1} (List.{u_1} α) xs (@List.nil.{u_1} α) →
+      @Eq.{1} Nat
+        (@Resources.BottomUpSorting.allComparisons.{u_1} α cmp
+          (@Applications.Sorting.runsOn.{u_1, u_2} α κ
+            (@Preorder.toLT.{u_2} κ
+              (@PartialOrder.toPreorder.{u_2} κ
+                (@SemilatticeInf.toPartialOrder.{u_2} κ
+                  (@Lattice.toSemilatticeInf.{u_2} κ
+                    (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+            (@LinearOrder.toDecidableLT.{u_2} κ inst) key xs))
+        (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+@Resources.NaturalSorting.run_of_sorted.{u_1,
+    u_2} : ∀ {α : Type u_1} {κ : Type u_2} [inst : LinearOrder.{u_2} κ] (key : α → κ) (cmp : α → α → Bool)
+  (xs : List.{u_1} α),
+  @Applications.Sorting.KeySorted.{u_1, u_2} α κ
+      (@Preorder.toLE.{u_2} κ
+        (@PartialOrder.toPreorder.{u_2} κ
+          (@SemilatticeInf.toPartialOrder.{u_2} κ
+            (@Lattice.toSemilatticeInf.{u_2} κ
+              (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+      key xs →
+    @Ne.{u_1 + 1} (List.{u_1} α) xs (@List.nil.{u_1} α) →
+      @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat)
+        (@Resources.NaturalSorting.run.{u_1} α
+          (fun a b =>
+            @Decidable.decide
+              (@LT.lt.{u_2} κ
+                (@Preorder.toLT.{u_2} κ
+                  (@PartialOrder.toPreorder.{u_2} κ
+                    (@SemilatticeInf.toPartialOrder.{u_2} κ
+                      (@Lattice.toSemilatticeInf.{u_2} κ
+                        (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+                (key a) (key b))
+              (@LinearOrder.toDecidableLT.{u_2} κ inst (key a) (key b)))
+          cmp xs)
+        (@Prod.mk.{u_1, 0} (List.{u_1} α) Nat xs
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@List.length.{u_1} α xs)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+@Resources.NaturalSorting.comparisons_of_sorted.{u_1,
+    u_2} : ∀ {α : Type u_1} {κ : Type u_2} [inst : LinearOrder.{u_2} κ] (key : α → κ) (cmp : α → α → Bool)
+  (xs : List.{u_1} α),
+  @Applications.Sorting.KeySorted.{u_1, u_2} α κ
+      (@Preorder.toLE.{u_2} κ
+        (@PartialOrder.toPreorder.{u_2} κ
+          (@SemilatticeInf.toPartialOrder.{u_2} κ
+            (@Lattice.toSemilatticeInf.{u_2} κ
+              (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+      key xs →
+    @Eq.{1} Nat
+      (@Resources.NaturalSorting.comparisons.{u_1} α
+        (fun a b =>
+          @Decidable.decide
+            (@LT.lt.{u_2} κ
+              (@Preorder.toLT.{u_2} κ
+                (@PartialOrder.toPreorder.{u_2} κ
+                  (@SemilatticeInf.toPartialOrder.{u_2} κ
+                    (@Lattice.toSemilatticeInf.{u_2} κ
+                      (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+              (key a) (key b))
+            (@LinearOrder.toDecidableLT.{u_2} κ inst (key a) (key b)))
+        cmp xs)
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@List.length.{u_1} α xs)
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Resources.NaturalSorting.mergeComparisons_of_strictly_descending.{u_1,
+    u_2} : ∀ {α : Type u_1} {κ : Type u_2} [inst : LT.{u_2} κ] [inst_1 : @DecidableLT.{u_2} κ inst] (key : α → κ)
+  (cmp : α → α → Bool) (xs : List.{u_1} α),
+  @List.Pairwise.{u_1} α (fun a b => @LT.lt.{u_2} κ inst (key b) (key a)) xs →
+    @Ne.{u_1 + 1} (List.{u_1} α) xs (@List.nil.{u_1} α) →
+      @Eq.{1} Nat
+        (@Resources.BottomUpSorting.allComparisons.{u_1} α cmp
+          (@Applications.Sorting.runsOn.{u_1, u_2} α κ inst inst_1 key xs))
+        (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+@Resources.NaturalSorting.run_of_strictly_descending.{u_1,
+    u_2} : ∀ {α : Type u_1} {κ : Type u_2} [inst : LT.{u_2} κ] [inst_1 : @DecidableLT.{u_2} κ inst] (key : α → κ)
+  (cmp : α → α → Bool) (xs : List.{u_1} α),
+  @List.Pairwise.{u_1} α (fun a b => @LT.lt.{u_2} κ inst (key b) (key a)) xs →
+    @Ne.{u_1 + 1} (List.{u_1} α) xs (@List.nil.{u_1} α) →
+      @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat)
+        (@Resources.NaturalSorting.run.{u_1} α
+          (fun a b => @Decidable.decide (@LT.lt.{u_2} κ inst (key a) (key b)) (inst_1 (key a) (key b))) cmp xs)
+        (@Prod.mk.{u_1, 0} (List.{u_1} α) Nat (@List.reverse.{u_1} α xs)
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@List.length.{u_1} α xs)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+@Resources.NaturalSorting.length_le_twice_comparisons.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool)
+  (xs : List.{u_1} α),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α xs) →
+    @LE.le.{0} Nat instLENat (@List.length.{u_1} α xs)
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@Resources.NaturalSorting.comparisons.{u_1} α lt cmp xs))
+@Resources.NaturalSorting.comparisons_le_two_clog.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α xs) →
+    @LE.le.{0} Nat instLENat (@Resources.NaturalSorting.comparisons.{u_1} α lt cmp xs)
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) (@List.length.{u_1} α xs)
+          (Nat.clog (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α xs))))
+@Resources.NaturalSorting.comparisons_isBigO.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool)
+  (inputs : Nat → List.{u_1} α),
+  (∀ (n : Nat), @Eq.{1} Nat (@List.length.{u_1} α (inputs n)) n) →
+    @Asymptotics.IsBigO.{0, 0, 0} Nat Real Real Real.norm Real.norm (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (fun n => @Nat.cast.{0} Real Real.instNatCast (@Resources.NaturalSorting.comparisons.{u_1} α lt cmp (inputs n)))
+      fun n =>
+      @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Nat.cast.{0} Real Real.instNatCast n)
+        (Real.logb (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+          (@Nat.cast.{0} Real Real.instNatCast n))
+@Resources.NaturalSorting.comparisons_isBigO_of_bounded_runs.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool)
+  (inputs : Nat → List.{u_1} α),
+  (∀ (n : Nat), @Eq.{1} Nat (@List.length.{u_1} α (inputs n)) n) →
+    ∀ (r : Nat),
+      (∀ (n : Nat),
+          @LE.le.{0} Nat instLENat
+            (@List.length.{u_1} (List.{u_1} α) (@Applications.Sorting.runsBy.{u_1} α lt (inputs n))) r) →
+        @Asymptotics.IsBigO.{0, 0, 0} Nat Real Real Real.norm Real.norm (@Filter.atTop.{0} Nat Nat.instPreorder)
+          (fun n =>
+            @Nat.cast.{0} Real Real.instNatCast (@Resources.NaturalSorting.comparisons.{u_1} α lt cmp (inputs n)))
+          fun n => @Nat.cast.{0} Real Real.instNatCast n
+@Resources.NaturalSorting.size_isBigO_comparisons.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool)
+  (inputs : Nat → List.{u_1} α),
+  (∀ (n : Nat), @Eq.{1} Nat (@List.length.{u_1} α (inputs n)) n) →
+    @Asymptotics.IsBigO.{0, 0, 0} Nat Real Real Real.norm Real.norm (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (fun n => @Nat.cast.{0} Real Real.instNatCast n) fun n =>
+      @Nat.cast.{0} Real Real.instNatCast (@Resources.NaturalSorting.comparisons.{u_1} α lt cmp (inputs n))
+@Resources.NaturalSorting.sorted_comparisons_isBigO.{u_1,
+    u_2} : ∀ {α : Type u_1} {κ : Type u_2} [inst : LinearOrder.{u_2} κ] (key : α → κ) (cmp : α → α → Bool)
+  (inputs : Nat → List.{u_1} α),
+  (∀ (n : Nat), @Eq.{1} Nat (@List.length.{u_1} α (inputs n)) n) →
+    (∀ (n : Nat),
+        @Applications.Sorting.KeySorted.{u_1, u_2} α κ
+          (@Preorder.toLE.{u_2} κ
+            (@PartialOrder.toPreorder.{u_2} κ
+              (@SemilatticeInf.toPartialOrder.{u_2} κ
+                (@Lattice.toSemilatticeInf.{u_2} κ
+                  (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+          key (inputs n)) →
+      @Asymptotics.IsBigO.{0, 0, 0} Nat Real Real Real.norm Real.norm (@Filter.atTop.{0} Nat Nat.instPreorder)
+        (fun n =>
+          @Nat.cast.{0} Real Real.instNatCast
+            (@Resources.NaturalSorting.comparisons.{u_1} α
+              (fun a b =>
+                @Decidable.decide
+                  (@LT.lt.{u_2} κ
+                    (@Preorder.toLT.{u_2} κ
+                      (@PartialOrder.toPreorder.{u_2} κ
+                        (@SemilatticeInf.toPartialOrder.{u_2} κ
+                          (@Lattice.toSemilatticeInf.{u_2} κ
+                            (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+                    (key a) (key b))
+                  (@LinearOrder.toDecidableLT.{u_2} κ inst (key a) (key b)))
+              cmp (inputs n)))
+        fun n => @Nat.cast.{0} Real Real.instNatCast n
+@Resources.NaturalSorting.sorted_comparisons_isTheta.{u_1,
+    u_2} : ∀ {α : Type u_1} {κ : Type u_2} [inst : LinearOrder.{u_2} κ] (key : α → κ) (cmp : α → α → Bool)
+  (inputs : Nat → List.{u_1} α),
+  (∀ (n : Nat), @Eq.{1} Nat (@List.length.{u_1} α (inputs n)) n) →
+    (∀ (n : Nat),
+        @Applications.Sorting.KeySorted.{u_1, u_2} α κ
+          (@Preorder.toLE.{u_2} κ
+            (@PartialOrder.toPreorder.{u_2} κ
+              (@SemilatticeInf.toPartialOrder.{u_2} κ
+                (@Lattice.toSemilatticeInf.{u_2} κ
+                  (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+          key (inputs n)) →
+      @Asymptotics.IsTheta.{0, 0, 0} Nat Real Real Real.norm Real.norm (@Filter.atTop.{0} Nat Nat.instPreorder)
+        (fun n =>
+          @Nat.cast.{0} Real Real.instNatCast
+            (@Resources.NaturalSorting.comparisons.{u_1} α
+              (fun a b =>
+                @Decidable.decide
+                  (@LT.lt.{u_2} κ
+                    (@Preorder.toLT.{u_2} κ
+                      (@PartialOrder.toPreorder.{u_2} κ
+                        (@SemilatticeInf.toPartialOrder.{u_2} κ
+                          (@Lattice.toSemilatticeInf.{u_2} κ
+                            (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+                    (key a) (key b))
+                  (@LinearOrder.toDecidableLT.{u_2} κ inst (key a) (key b)))
+              cmp (inputs n)))
+        fun n => @Nat.cast.{0} Real Real.instNatCast n

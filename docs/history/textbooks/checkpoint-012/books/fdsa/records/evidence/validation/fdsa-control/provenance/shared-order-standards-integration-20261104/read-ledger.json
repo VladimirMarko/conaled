@@ -1,0 +1,1158 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "unit": "FDSA-XU02",
+  "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "incorporated_base": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "original_base": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+  "original_candidate": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+  "recorded_utc": "2026-11-04T15:21:51.573576+00:00",
+  "stage": "Complete original-scope receiving-source continuation; overall Blocked",
+  "source_reads": [
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+      "bytes": 15304,
+      "lines": 321,
+      "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2",
+      "complete_source_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 321,
+          "bytes": 15304,
+          "lines": 321,
+          "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2",
+          "read_tool": "277389",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "Examples/PermutationOrder.lean",
+      "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+      "bytes": 6706,
+      "lines": 152,
+      "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084",
+      "complete_source_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 152,
+          "bytes": 6706,
+          "lines": 152,
+          "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084",
+          "read_tool": "88d3d7",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "Examples/PermutationOrderBoundary.lean",
+      "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+      "bytes": 5605,
+      "lines": 148,
+      "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121",
+      "complete_source_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 148,
+          "bytes": 5605,
+          "lines": 148,
+          "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121",
+          "read_tool": "88d3d7",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "SquareApplications.lean",
+      "git_blob": "2bc1fad47c4993199eccd91ee4b249726619d3dc",
+      "bytes": 8577,
+      "lines": 261,
+      "sha256": "63edc6ab268c318e6788a6ef46cd14aa3a6b021b65971c591b0c9023adb1b2a9",
+      "complete_source_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 261,
+          "bytes": 8577,
+          "lines": 261,
+          "sha256": "63edc6ab268c318e6788a6ef46cd14aa3a6b021b65971c591b0c9023adb1b2a9",
+          "read_tool": "cf2346",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "docs/research/fdsa-permutation-order.md",
+      "git_blob": "8d8f68c95185bd787ce26bb5ba6cf3a6f652862a",
+      "bytes": 9343,
+      "lines": 175,
+      "sha256": "5368374d61ac214c5609fbaedd3c5449a737a114947978631d1de7893a00d35f",
+      "complete_source_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 175,
+          "bytes": 9343,
+          "lines": 175,
+          "sha256": "5368374d61ac214c5609fbaedd3c5449a737a114947978631d1de7893a00d35f",
+          "read_tool": "cf2346",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "d25451ccf02cde119a880d063aa7c0ade5e81cd2",
+      "bytes": 40314,
+      "lines": 614,
+      "sha256": "a39ec672e120fe7761e950f59acfc1ab4cbee282ad69b22934b1e24cdc5f56e7",
+      "complete_source_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 220,
+          "bytes": 13665,
+          "lines": 220,
+          "sha256": "5bf8777f1468ac37e9c3ae23dacc32878cd6155653f3361626c575e24e986781",
+          "read_tool": "2cfec7",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 221,
+          "last_line": 440,
+          "bytes": 15435,
+          "lines": 220,
+          "sha256": "9f7bddabf810f54f704c0ca5c33df7a041b2a7faf8bb7736f970fd4b75f92226",
+          "read_tool": "2cfec7",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 441,
+          "last_line": 614,
+          "bytes": 11214,
+          "lines": 174,
+          "sha256": "aaec6a2fe94610b514cd78347661eae806908f43475f23d115b2b03d809f5e6f",
+          "read_tool": "94c7dd",
+          "complete_nontruncated": true
+        }
+      ]
+    }
+  ],
+  "source_totals": {
+    "files": 6,
+    "bytes": 85849,
+    "lines": 1671,
+    "declaring_Lean_modules": 3,
+    "declaring_Lean_lines": 621
+  },
+  "control_reads": [
+    {
+      "path": "tickets/FDSA-XU02.md",
+      "bytes": 6959,
+      "lines": 107,
+      "sha256": "03181edb9402031cf6e7515546858043db1c791ecf573d79206e206d953d83d7",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 107,
+          "bytes": 6959,
+          "lines": 107,
+          "sha256": "03181edb9402031cf6e7515546858043db1c791ecf573d79206e206d953d83d7",
+          "read_tool": "6414a5",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "reviews/permutation-order-requirements.md",
+      "bytes": 11430,
+      "lines": 209,
+      "sha256": "f473f593bf4a7ef75dcf2f3163440db6fe187b3b9983f87254d2ddfa8191982d",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 209,
+          "bytes": 11430,
+          "lines": 209,
+          "sha256": "f473f593bf4a7ef75dcf2f3163440db6fe187b3b9983f87254d2ddfa8191982d",
+          "read_tool": "6414a5",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "reviews/permutation-order-start.md",
+      "bytes": 3699,
+      "lines": 68,
+      "sha256": "586aa3e548bc5225cb5a1ff40e33f483cbe6b33a3ad26b56433856e7a5208e69",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 68,
+          "bytes": 3699,
+          "lines": 68,
+          "sha256": "586aa3e548bc5225cb5a1ff40e33f483cbe6b33a3ad26b56433856e7a5208e69",
+          "read_tool": "6414a5",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "reviews/permutation-order-candidate.md",
+      "bytes": 10748,
+      "lines": 189,
+      "sha256": "3f8451804200be41641ee821b32ddd25a9d7302187615153a5b3901ea1f9a6a7",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 189,
+          "bytes": 10748,
+          "lines": 189,
+          "sha256": "3f8451804200be41641ee821b32ddd25a9d7302187615153a5b3901ea1f9a6a7",
+          "read_tool": "6414a5",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "research/permutation-order-source-preflight.md",
+      "bytes": 8636,
+      "lines": 171,
+      "sha256": "53cd24c2bf07945facb04f0249baf0fc52a64bf498466185d7d528488f7214bd",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 171,
+          "bytes": 8636,
+          "lines": 171,
+          "sha256": "53cd24c2bf07945facb04f0249baf0fc52a64bf498466185d7d528488f7214bd",
+          "read_tool": "75d267",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "research/permutation-order-draft-preflight.md",
+      "bytes": 8872,
+      "lines": 147,
+      "sha256": "302611bfb28cb30b5cc580185aa7475233d89587187cd53a92696e40f4bb19e8",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 147,
+          "bytes": 8872,
+          "lines": 147,
+          "sha256": "302611bfb28cb30b5cc580185aa7475233d89587187cd53a92696e40f4bb19e8",
+          "read_tool": "75d267",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "research/permutation-order-calculations.json",
+      "bytes": 5148,
+      "lines": 243,
+      "sha256": "54163e6729373a9c78cd82432d48ae827498321c64e53e3c5160cebb54ca2f80",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 243,
+          "bytes": 5148,
+          "lines": 243,
+          "sha256": "54163e6729373a9c78cd82432d48ae827498321c64e53e3c5160cebb54ca2f80",
+          "read_tool": "75d267",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/handoff.md",
+      "bytes": 13787,
+      "lines": 83,
+      "sha256": "85ea9bcaaa8fb5f0fe32805ad3695e4b711e56a6ad9a4d7ec39d3d18d8dfc594",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 83,
+          "bytes": 13787,
+          "lines": 83,
+          "sha256": "85ea9bcaaa8fb5f0fe32805ad3695e4b711e56a6ad9a4d7ec39d3d18d8dfc594",
+          "read_tool": "740797",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/receipt.json",
+      "bytes": 8385,
+      "lines": 265,
+      "sha256": "213e22f18a8dfa6e35529afc0b61fa40e91126dda95cb9a723242252a643dfb0",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 265,
+          "bytes": 8385,
+          "lines": 265,
+          "sha256": "213e22f18a8dfa6e35529afc0b61fa40e91126dda95cb9a723242252a643dfb0",
+          "read_tool": "5a7ec4",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/result.json",
+      "bytes": 3922,
+      "lines": 99,
+      "sha256": "d09b2836192bf49fa57f4ecce046e571ed1a94cd6ada1e47b5ad7dcddbc09244",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 99,
+          "bytes": 3922,
+          "lines": 99,
+          "sha256": "d09b2836192bf49fa57f4ecce046e571ed1a94cd6ada1e47b5ad7dcddbc09244",
+          "read_tool": "5a7ec4",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/documentary-reconciliation.json",
+      "bytes": 4152,
+      "lines": 76,
+      "sha256": "21eee165becb0a0b97d6da49ac14c0aa78aadf45b3329598a810f60313eeea16",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 76,
+          "bytes": 4152,
+          "lines": 76,
+          "sha256": "21eee165becb0a0b97d6da49ac14c0aa78aadf45b3329598a810f60313eeea16",
+          "read_tool": "111633",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/normal-merge.json",
+      "bytes": 807,
+      "lines": 28,
+      "sha256": "6dc27f51fbd00d3055595a7080f263ca90b227ae399d8be58ef2171089632f1a",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 28,
+          "bytes": 807,
+          "lines": 28,
+          "sha256": "6dc27f51fbd00d3055595a7080f263ca90b227ae399d8be58ef2171089632f1a",
+          "read_tool": "111633",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/normal-merge.log",
+      "bytes": 157,
+      "lines": 3,
+      "sha256": "421d03788e19c41180932c9a4878ffde644ca5a55dc6815dd5960c0040386f84",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 3,
+          "bytes": 157,
+          "lines": 3,
+          "sha256": "421d03788e19c41180932c9a4878ffde644ca5a55dc6815dd5960c0040386f84",
+          "read_tool": "111633",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/commit-command.json",
+      "bytes": 727,
+      "lines": 25,
+      "sha256": "27592f23449f8f5473a7e2f2a49e356825d2350b6005ddd65411e9ac191cbc0a",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 25,
+          "bytes": 727,
+          "lines": 25,
+          "sha256": "27592f23449f8f5473a7e2f2a49e356825d2350b6005ddd65411e9ac191cbc0a",
+          "read_tool": "111633",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/shared-order-integration-readiness-20261104/readiness.md",
+      "bytes": 21296,
+      "lines": 156,
+      "sha256": "f579dfd7614d5fae2852abf44fa1b6b3148368cae015ecd0cdf383a56ec1ab19",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 156,
+          "bytes": 21296,
+          "lines": 156,
+          "sha256": "f579dfd7614d5fae2852abf44fa1b6b3148368cae015ecd0cdf383a56ec1ab19",
+          "read_tool": "522e6b",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/shared-order-type-evidence-readiness-20261104/plan.md",
+      "bytes": 5592,
+      "lines": 27,
+      "sha256": "2853fe94cc73ca64861483b71dbfe5e9e5783f8fa3dd4939720a571f66df7007",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 27,
+          "bytes": 5592,
+          "lines": 27,
+          "sha256": "2853fe94cc73ca64861483b71dbfe5e9e5783f8fa3dd4939720a571f66df7007",
+          "read_tool": "dfbc18",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/shared-order-type-evidence-readiness-20261104/predecessor-comparison.json",
+      "bytes": 10346,
+      "lines": 276,
+      "sha256": "542e1c85785f8248de99af1598c9b364e139e22767cd4d90572f574de1a72b3b",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 276,
+          "bytes": 10346,
+          "lines": 276,
+          "sha256": "542e1c85785f8248de99af1598c9b364e139e22767cd4d90572f574de1a72b3b",
+          "read_tool": "dfbc18",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/chapter02-xu02-statement-source-20261104/Statements.lean",
+      "bytes": 3522,
+      "lines": 61,
+      "sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 61,
+          "bytes": 3522,
+          "lines": 61,
+          "sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3",
+          "read_tool": "111633",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/chapter02-xu02-proof-style-correction-20261104/result.json",
+      "bytes": 1560,
+      "lines": 27,
+      "sha256": "0c2a219e8da106fe72e5527dfb8abbd4ee45e7c4dcc1ceb23f56e588245069fd",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 27,
+          "bytes": 1560,
+          "lines": 27,
+          "sha256": "0c2a219e8da106fe72e5527dfb8abbd4ee45e7c4dcc1ceb23f56e588245069fd",
+          "read_tool": "c55074",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/chapter02-xu02-proof-style-correction-20261104/correction.diff",
+      "bytes": 1537,
+      "lines": 31,
+      "sha256": "7503a20d64ea98ad7b05bc8fdacf34b6559959b86657a193ff12b3e4889add98",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 31,
+          "bytes": 1537,
+          "lines": 31,
+          "sha256": "7503a20d64ea98ad7b05bc8fdacf34b6559959b86657a193ff12b3e4889add98",
+          "read_tool": "aa2b8e",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction1-20261104/result.json",
+      "bytes": 1726,
+      "lines": 25,
+      "sha256": "ed09e1f713d90af4a1663280b5a2502cc5cd6f69c9873ced5c9ead19eb7999ee",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 25,
+          "bytes": 1726,
+          "lines": 25,
+          "sha256": "ed09e1f713d90af4a1663280b5a2502cc5cd6f69c9873ced5c9ead19eb7999ee",
+          "read_tool": "c55074",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction1-20261104/correction.diff",
+      "bytes": 2496,
+      "lines": 50,
+      "sha256": "ed0868da23cc25bef57b1f5646069341fabc6933f0a128562dc470055459b9eb",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 50,
+          "bytes": 2496,
+          "lines": 50,
+          "sha256": "ed0868da23cc25bef57b1f5646069341fabc6933f0a128562dc470055459b9eb",
+          "read_tool": "aa2b8e",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction2-20261104/result.json",
+      "bytes": 1879,
+      "lines": 33,
+      "sha256": "732642556a85c0974db489f9f17374955cec07cd05ec3f53e0ce235b2557354e",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 33,
+          "bytes": 1879,
+          "lines": 33,
+          "sha256": "732642556a85c0974db489f9f17374955cec07cd05ec3f53e0ce235b2557354e",
+          "read_tool": "c55074",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction2-20261104/correction.diff",
+      "bytes": 651,
+      "lines": 12,
+      "sha256": "f12b2915e706c610d988b55ae54b88c4d4c74c6645f2849b6e674778619efde0",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 12,
+          "bytes": 651,
+          "lines": 12,
+          "sha256": "f12b2915e706c610d988b55ae54b88c4d4c74c6645f2849b6e674778619efde0",
+          "read_tool": "aa2b8e",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction3-20261104/result.json",
+      "bytes": 3452,
+      "lines": 54,
+      "sha256": "0a927f716db2b04adf85929cdeabd7a9cda369acf79b86a03add5b36e1cdc216",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 54,
+          "bytes": 3452,
+          "lines": 54,
+          "sha256": "0a927f716db2b04adf85929cdeabd7a9cda369acf79b86a03add5b36e1cdc216",
+          "read_tool": "c55074",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction3-20261104/correction.diff",
+      "bytes": 837,
+      "lines": 25,
+      "sha256": "bee99655766e9c7c687ddca27b0c35f4d258168a9f2add344ed418c8b563b9fc",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 25,
+          "bytes": 837,
+          "lines": 25,
+          "sha256": "bee99655766e9c7c687ddca27b0c35f4d258168a9f2add344ed418c8b563b9fc",
+          "read_tool": "aa2b8e",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction4-20261104/result.json",
+      "bytes": 2101,
+      "lines": 24,
+      "sha256": "da5482c00ed3baa400d85973db481affcb45ac101aed80ca564af3804a720a5d",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 24,
+          "bytes": 2101,
+          "lines": 24,
+          "sha256": "da5482c00ed3baa400d85973db481affcb45ac101aed80ca564af3804a720a5d",
+          "read_tool": "c55074",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction4-20261104/source.diff",
+      "bytes": 4483,
+      "lines": 88,
+      "sha256": "43023924e9e2622eccba59d80c40aab861c75876f44d5fa482aa981d214eb240",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 88,
+          "bytes": 4483,
+          "lines": 88,
+          "sha256": "43023924e9e2622eccba59d80c40aab861c75876f44d5fa482aa981d214eb240",
+          "read_tool": "aa2b8e",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "research/permutation-order-api-preflight.md",
+      "bytes": 26551,
+      "lines": 456,
+      "sha256": "3e18c4f3eb1d47b8335c270aee311eecc3817e4af0edac69232678efd85c4294",
+      "complete_new_read": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 230,
+          "bytes": 12649,
+          "lines": 230,
+          "sha256": "1654263e67d24b74d34ded462e9e92fbabadc0e5c8d9fd88df5cb2dd98dc1e93",
+          "read_tool": "509af0",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 231,
+          "last_line": 456,
+          "bytes": 13902,
+          "lines": 226,
+          "sha256": "a9a90be2c0c828acc00231d90e4335a794a70d5d0f68f8f7f7e31b31bc7cd985",
+          "read_tool": "509af0",
+          "complete_nontruncated": true
+        }
+      ]
+    }
+  ],
+  "pinned_API_reads": [
+    {
+      "path": "Mathlib/Logic/Equiv/Fintype.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 7924,
+      "lines": 177,
+      "sha256": "9d8935a7512d322698faca63f11905a376d6601077377ffe07577817e5ea3436",
+      "whole_file_read_claimed": false,
+      "ranges": [
+        {
+          "first_line": 135,
+          "last_line": 174,
+          "bytes": 2040,
+          "lines": 40,
+          "sha256": "a29f0616b6cb74dd2c93d42f851ce6e5313c9928d7aefa2dd77fddf3fc78ee70",
+          "read_tool": "cd96e6",
+          "complete_nontruncated": true
+        }
+      ],
+      "installed_source_equals_pinned_git_during_read": true
+    },
+    {
+      "path": "Mathlib/Data/Fintype/OfMap.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 3511,
+      "lines": 100,
+      "sha256": "4f5e66b29856ad8661648cf1f3e2c243fc4c334fe34ae4f3a7c4c499707e96f2",
+      "whole_file_read_claimed": false,
+      "ranges": [
+        {
+          "first_line": 25,
+          "last_line": 48,
+          "bytes": 717,
+          "lines": 24,
+          "sha256": "a4f93f82c2bc66d1e112f6a004c9c575af72f0caa0ffc031d21259a1366bd501",
+          "read_tool": "cd96e6",
+          "complete_nontruncated": true
+        }
+      ],
+      "installed_source_equals_pinned_git_during_read": true
+    },
+    {
+      "path": "Mathlib/Probability/UniformOn.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 10493,
+      "lines": 230,
+      "sha256": "7f1aac5e8c78698289601133f5b9551eb772b90eab05338900c472270031f5c3",
+      "whole_file_read_claimed": false,
+      "ranges": [
+        {
+          "first_line": 25,
+          "last_line": 149,
+          "bytes": 5243,
+          "lines": 125,
+          "sha256": "ba9685aa295fdb53242585459242b444aa5b8a651c3ec10459540e2ca35bde98",
+          "read_tool": "cd96e6",
+          "complete_nontruncated": true
+        }
+      ],
+      "installed_source_equals_pinned_git_during_read": true
+    },
+    {
+      "path": "Mathlib/MeasureTheory/Measure/Basic.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 25414,
+      "lines": 511,
+      "sha256": "7284bfd8c9c104b019e9880bbb9cf2645b68228a477460f7e4bb3941dd7301a0",
+      "whole_file_read_claimed": false,
+      "ranges": [
+        {
+          "first_line": 165,
+          "last_line": 196,
+          "bytes": 1812,
+          "lines": 32,
+          "sha256": "fa053d131acc0ea081e1f2492a95489403b9c5606961f83c69721d47563c2d50",
+          "read_tool": "cd96e6",
+          "complete_nontruncated": true
+        }
+      ],
+      "installed_source_equals_pinned_git_during_read": true
+    },
+    {
+      "path": "Mathlib/MeasureTheory/Measure/Dirac/Basic.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 15676,
+      "lines": 335,
+      "sha256": "0641a9328dbfb175c9124af3b2efbecb21f603269edcdbf1e5fbb119f44094ae",
+      "whole_file_read_claimed": false,
+      "ranges": [
+        {
+          "first_line": 35,
+          "last_line": 66,
+          "bytes": 1447,
+          "lines": 32,
+          "sha256": "5c7584e6562b71920f309cf45a9fb6c9bd868d7e6be6977f1f063a74d3ebbfa7",
+          "read_tool": "cd96e6",
+          "complete_nontruncated": true
+        }
+      ],
+      "installed_source_equals_pinned_git_during_read": true
+    },
+    {
+      "path": "Mathlib/MeasureTheory/MeasurableSpace/Basic.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 15859,
+      "lines": 383,
+      "sha256": "8cafe2d83ca194225b37f331c01ed08219f58541b6de0aa0d20a6866fa048935",
+      "whole_file_read_claimed": false,
+      "ranges": [
+        {
+          "first_line": 274,
+          "last_line": 297,
+          "bytes": 815,
+          "lines": 24,
+          "sha256": "160550d73f15b77c6b601976b42ad607267ed185dea8aa5e39589b6e07ad9b8d",
+          "read_tool": "cd96e6",
+          "complete_nontruncated": true
+        }
+      ],
+      "installed_source_equals_pinned_git_during_read": true
+    },
+    {
+      "path": "Mathlib/Logic/Equiv/List.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 6118,
+      "lines": 189,
+      "sha256": "11496693bd39dd5e22aa2a62898d828e37b3f6261d25c531da0be293a3249efe",
+      "whole_file_read_claimed": false,
+      "ranges": [
+        {
+          "first_line": 45,
+          "last_line": 76,
+          "bytes": 1103,
+          "lines": 32,
+          "sha256": "d9588bd229bb735842cd16d59f8c15dc32bf350585de57b3517520908d3fd383",
+          "read_tool": "cd96e6",
+          "complete_nontruncated": true
+        }
+      ],
+      "installed_source_equals_pinned_git_during_read": true
+    },
+    {
+      "path": "Mathlib/Data/Set/Card.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 70044,
+      "lines": 1486,
+      "sha256": "027e1840f884e6a6829c969cf66efd71acb201e4fced72a12b6a9f21b718d074",
+      "whole_file_read_claimed": false,
+      "ranges": [
+        {
+          "first_line": 548,
+          "last_line": 562,
+          "bytes": 758,
+          "lines": 15,
+          "sha256": "7b1034b421fcc41f20b8968653baa9b162986db76a2afc7d32f4ee56dcf328f7",
+          "read_tool": "cd96e6",
+          "complete_nontruncated": true
+        }
+      ],
+      "installed_source_equals_pinned_git_during_read": true
+    },
+    {
+      "path": "Mathlib/MeasureTheory/Measure/Count.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 7082,
+      "lines": 191,
+      "sha256": "0c6f199937be999f20c22e939e1aaeb3321f508783929f5ac013c8e22b88c5f6",
+      "whole_file_read_claimed": false,
+      "ranges": [
+        {
+          "first_line": 25,
+          "last_line": 53,
+          "bytes": 999,
+          "lines": 29,
+          "sha256": "a6e945aa92d214661f1764d825fe02468d6c341d587cf09a21789b2cbb120eef",
+          "read_tool": "cd96e6",
+          "complete_nontruncated": true
+        }
+      ],
+      "installed_source_equals_pinned_git_during_read": true
+    }
+  ],
+  "retained_instruction_reads": {
+    "prior_complete_read_ledger": "provenance/tree-fold-resource-standards-preparation-20261104/read-ledger.json",
+    "exact_instruction_identities": [
+      {
+        "path": ".agents/skills/code-review/SKILL.md",
+        "bytes": 7466,
+        "lines": 133,
+        "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+        "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+        "exact_byte_identity": true,
+        "new_reread_claim": false,
+        "current_candidate_exact": true
+      },
+      {
+        "path": ".agents/skills/code-review/heuristics.md",
+        "bytes": 2232,
+        "lines": 32,
+        "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+        "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+        "exact_byte_identity": true,
+        "new_reread_claim": false,
+        "current_candidate_exact": true
+      },
+      {
+        "path": ".agents/skills/domain-modeling/SKILL.md",
+        "bytes": 3346,
+        "lines": 74,
+        "sha256": "7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3",
+        "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+        "exact_byte_identity": true,
+        "new_reread_claim": false,
+        "current_candidate_exact": true
+      },
+      {
+        "path": ".agents/skills/example-driven-development/SKILL.md",
+        "bytes": 6991,
+        "lines": 116,
+        "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+        "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+        "exact_byte_identity": true,
+        "new_reread_claim": false,
+        "current_candidate_exact": true
+      },
+      {
+        "path": ".agents/skills/example-driven-development/worked-example.md",
+        "bytes": 2356,
+        "lines": 55,
+        "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+        "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+        "exact_byte_identity": true,
+        "new_reread_claim": false,
+        "current_candidate_exact": true
+      },
+      {
+        "path": ".agents/skills/implement/SKILL.md",
+        "bytes": 4997,
+        "lines": 83,
+        "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+        "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+        "exact_byte_identity": true,
+        "new_reread_claim": false,
+        "current_candidate_exact": true
+      },
+      {
+        "path": ".agents/skills/setup-matt-pocock-skills/domain.md",
+        "bytes": 2042,
+        "lines": 51,
+        "sha256": "593a7042218689f1d24df89df14eaf0a20e19e0d0a7d479a01947ac78f0784b9",
+        "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+        "exact_byte_identity": true,
+        "new_reread_claim": false,
+        "current_candidate_exact": true
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 3118,
+        "lines": 76,
+        "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+        "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+        "exact_byte_identity": true,
+        "new_reread_claim": false,
+        "current_candidate_exact": true
+      },
+      {
+        "path": "GLOSSARY.md",
+        "bytes": 4824,
+        "lines": 106,
+        "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+        "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+        "exact_byte_identity": true,
+        "new_reread_claim": false,
+        "current_candidate_exact": true
+      },
+      {
+        "path": "README.md",
+        "bytes": 26239,
+        "lines": 343,
+        "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+        "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+        "exact_byte_identity": true,
+        "new_reread_claim": false,
+        "current_candidate_exact": true
+      },
+      {
+        "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+        "bytes": 2561,
+        "lines": 50,
+        "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+        "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+        "exact_byte_identity": true,
+        "new_reread_claim": false,
+        "current_candidate_exact": true
+      },
+      {
+        "path": "docs/adr/0010-composition-and-proof-audit.md",
+        "bytes": 7331,
+        "lines": 127,
+        "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+        "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+        "exact_byte_identity": true,
+        "new_reread_claim": false,
+        "current_candidate_exact": true
+      },
+      {
+        "path": "docs/language-direction.md",
+        "bytes": 19185,
+        "lines": 306,
+        "sha256": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+        "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+        "exact_byte_identity": true,
+        "new_reread_claim": false,
+        "current_candidate_exact": true
+      },
+      {
+        "path": "docs/agents/architectural-quality.md",
+        "bytes": 3876,
+        "lines": 66,
+        "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+        "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+        "exact_byte_identity": true,
+        "new_reread_claim": false,
+        "current_candidate_exact": true
+      },
+      {
+        "path": "docs/agents/review-loop.md",
+        "bytes": 7113,
+        "lines": 115,
+        "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+        "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+        "exact_byte_identity": true,
+        "new_reread_claim": false,
+        "current_candidate_exact": true
+      },
+      {
+        "path": "docs/agents/domain.md",
+        "bytes": 926,
+        "lines": 27,
+        "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+        "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+        "exact_byte_identity": true,
+        "new_reread_claim": false,
+        "current_candidate_exact": true
+      },
+      {
+        "path": "docs/adr/README.md",
+        "bytes": 1547,
+        "lines": 17,
+        "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+        "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+        "exact_byte_identity": true,
+        "new_reread_claim": false,
+        "current_candidate_exact": true
+      }
+    ],
+    "all17_independently_rechecked_at_J": true,
+    "new_whole_instruction_read_claimed": false
+  },
+  "retained_Minimum_read_boundary": {
+    "accepted_I_complete_source_and_terminal_assessments_retained": true,
+    "three_blobs_equal_I_and_Z": true,
+    "new_complete_O_to_I_diff": {
+      "bytes": 3738,
+      "lines": 80,
+      "sha256": "3832d4098050ee317a7d9521c798b6e0126f53e7ec1e1608b4a8f61e6adb256c",
+      "read_tool": "7f7cdd"
+    },
+    "new_spacedPriority_context": {
+      "path": "Examples/PermutationMinimum.lean",
+      "ranges": [
+        {
+          "first_line": 101,
+          "last_line": 127,
+          "bytes": 1043,
+          "lines": 27,
+          "sha256": "4c78f51e6f182bb6f24623bed58afa4482dd2da7d282fa4ea63c9d82febfba5d",
+          "read_tool": "7f7cdd",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    "whole_three_Minimum_files_newly_reread": false,
+    "meaning": "Retain accepted exact-I whole source assessment; inspect complete incoming-old versus retained-current proof delta and the actual numeric-label dependency, without revoking accepted evidence or claiming a new whole read."
+  },
+  "actual_readonly_reconciliations": [
+    {
+      "chunk_id": "81a5e9",
+      "exit": 0,
+      "scope": "immutable J parents/tree/six-path metadata"
+    },
+    {
+      "chunk_id": "5ca43b",
+      "exit": 0,
+      "scope": "full immutable scope, 64 source declarations, program53, original51 unchanged/two syntax headers, six-source closure, all30 manifest hashes, all64 protected refs and17 instructions"
+    },
+    {
+      "chunk_id": "74cd39",
+      "exit": 0,
+      "scope": "independently reconstruct secured Z/I trace/dependency/config/runtime boundary; old-I Order-import grep returns expected1/no matches"
+    }
+  ],
+  "historical_actual_types": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+    "bytes": 23539,
+    "lines": 472,
+    "sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510",
+    "same_reader_complete_progress": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-type-review-progress.json",
+      "bytes": 123595,
+      "lines": 3562,
+      "sha256": "91b9df119e5b47cd94a7930001947eb2c14601d5d144149b796a8bb06f3f4d0b"
+    },
+    "exact_Order_positions": [
+      33,
+      85
+    ],
+    "retained_historical_count": 53,
+    "new_receiving_credit": 0
+  },
+  "scope_preserved": "No contributor preflight substitutes for independent full scope; original C2 R-through-final81 paths/all112 obligations and all original XU02 findings remain. New receiving credit zero.",
+  "primary_source_boundary": "Exact book/AFP/treap correspondence retained from the full frozen requirements and full source/API preflight reads plus prior same-loop assessments. No new source download, whole-PDF/theory reading or alternate pin is claimed.",
+  "no_runtime_or_output_capture": true,
+  "protected_records_unchanged": [
+    {
+      "path": "reviews/shared-four-standards-final-20261104.md",
+      "bytes": 14756,
+      "lines": 72,
+      "sha256": "6e4665d1d4da826bf8d22c1d067bf67f222b495dd44986b6c247c765cf6faf50"
+    },
+    {
+      "path": "provenance/shared-four-standards-terminal-assessment-20261104/final-standards-assessment-312aafb4.json",
+      "bytes": 15828,
+      "lines": 375,
+      "sha256": "954110b3a4ea725c7079bfa9a623894659da225435b105e65f780656d9c4bfc6"
+    },
+    {
+      "path": "reviews/tree-shape-standards-preparation-20261104.md",
+      "bytes": 14250,
+      "lines": 64,
+      "sha256": "b1abec0f25005e867384b0bed2257677747a6204a8ff7cf39cb14b155d17b003"
+    },
+    {
+      "path": "reviews/binary-tree-cache-standards-preparation-20261104.md",
+      "bytes": 22912,
+      "lines": 89,
+      "sha256": "a24df99f02fd70300f25b982b53293d2f0d8485f053b8891829fe81c37043c97"
+    },
+    {
+      "path": "reviews/shared-foundations-standards-terminal-assessment-20261104.md",
+      "bytes": 9830,
+      "lines": 51,
+      "sha256": "5931dafe30f68151d81621ded0274643fb8145c5c57e644b6cca284fc634e141"
+    },
+    {
+      "path": "reviews/chapter02-standards-source-preparation-20261104.md",
+      "bytes": 104381,
+      "lines": 421,
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    {
+      "path": "reviews/potential-standards-development-20261104.md",
+      "bytes": 40275,
+      "lines": 204,
+      "sha256": "a8c87f38de333a77ab03c82f7da1d3d1b3f122369dd9abb36c8d85acebf495f8"
+    },
+    {
+      "path": "reviews/tree-fold-resource-standards-preparation-20261104.md",
+      "bytes": 14007,
+      "lines": 75,
+      "sha256": "3b537954948b22e21889cf9e7c0beccdb9e4e730445e0293c44a9db600364c0b"
+    }
+  ],
+  "own_current_output_boundary": "Only new own source report/provenance, no compiler/process/source/ref/index/cache/pin/ticket/global-control action; no whole acceptance claim."
+}

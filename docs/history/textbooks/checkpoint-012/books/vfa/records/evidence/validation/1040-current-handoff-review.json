@@ -1,0 +1,13 @@
+{
+  "recorded_utc": "2026-11-04T11:31:57.613810+00:00",
+  "reviewer": "/root/recovery_metadata_review",
+  "scope": "current recovery handoff identity, paths, counts, statuses, commands and aliases; read-only bounded review",
+  "findings": [
+    "tickets1001/1002 nested current_run and current_environment aliases referred to preceding cf0 run",
+    "tickets1001/1002 Spec status did not distinguish preceding cf0 failure from unstarted eae9 full fresh",
+    "ACTIVE-NATIVE historical Nat.Size paragraph called the completed cf0 run current"
+  ],
+  "disposition": "all concrete stale references corrected; historical cf0 evidence retained",
+  "no_compiler_or_runtime_mutation": true,
+  "formal_gate_credit": false
+}

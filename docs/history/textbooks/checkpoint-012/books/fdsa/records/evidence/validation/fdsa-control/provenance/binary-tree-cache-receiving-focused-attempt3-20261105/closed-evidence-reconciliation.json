@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-05T02:24:58.502668+00:00",
+  "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "terminal": {
+    "recorded_utc": "2026-11-05T02:24:58.502412+00:00",
+    "owned_session": 89844,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "049454",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58"
+  },
+  "actual_recorder_and_native_exits": [
+    0,
+    0
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt3-20261105/full.log",
+    "bytes": 3137,
+    "sha256": "264674459ef7acb9115cfaf8033a5b535ccc3da9f3c297f0c80997e620b40c2d"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261105T022417Z-project-run-d53fc47f",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt3-20261105/native-records/start.json",
+      "bytes": 535,
+      "sha256": "ae981b4dc297eaf97c7be7a49b182ea5c89a14cf380bf88a44c41176ddd4867c"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt3-20261105/native-records/result.json",
+      "bytes": 687,
+      "sha256": "843b18e2c2652c9280e26afd078647e1bdf525e91f91b378905f60c01770c2a0"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt3-20261105/native-records/output.log",
+      "bytes": 2818,
+      "sha256": "ff90eda3667eb4e234950a2c6d47374543d745f81305788d7c2812efdd877766"
+    }
+  },
+  "native_body_exact_outer_offset": 163,
+  "complete_closed_log": true,
+  "scope": "All four original XT01 modules focused build passed after proof-only repairs. No full candidate check, exhaustive audit, actual-type or acceptance credit from this run.",
+  "verification_record_candidate": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

@@ -1,0 +1,387 @@
+{
+  "prepared_utc": "2026-11-04T07:13:07.411730+00:00",
+  "kind": "Read-only bounded source/API preparation; only this JSON and plan.md are written",
+  "author_head": "e1f3b5c43ba3b0f4aca5964f2b4568e06b47700c",
+  "author_status": "",
+  "mathlib_pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "mathlib_source_root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib",
+  "project_pins": {
+    "lean-toolchain": {
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "contents": "leanprover/lean4:v4.35.0\n"
+    },
+    "lake-manifest.json": {
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "contents": null
+    },
+    "lakefile.toml": {
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "contents": null
+    }
+  },
+  "controlling_documents": [
+    {
+      "path": "fdsa-control/research/quicksort-average-proof-plan.md",
+      "bytes": 18013,
+      "sha256": "ca2090accf91ac662f2738486f7590e8b29968be524794e9356257d5f918dc46",
+      "read_scope": "complete"
+    },
+    {
+      "path": "fdsa-control/research/quicksort-conditional-mean-preflight.md",
+      "bytes": 10877,
+      "sha256": "464af5974d485823b7ecb76b7546ad793ed860fbf947afdb03ef11d91b25b66c",
+      "read_scope": "complete"
+    },
+    {
+      "path": "fdsa-control/research/chapter02-probability-dependency-handoff-20261104.md",
+      "bytes": 15304,
+      "sha256": "1a19f73a1628d0016c3b76dd6a6d7ea0426fd6f6184f6589bbe15d098efa8d4f",
+      "read_scope": "complete"
+    },
+    {
+      "path": "fdsa-control/provenance/chapter02-harmonic-preparation-20261104/plan.md",
+      "bytes": 19157,
+      "sha256": "277ca36ffdc0a0681f84ad7d9c7360e5a78498bf0da6f019584cb78fa58d50ac",
+      "read_scope": "complete"
+    }
+  ],
+  "project_source_objects": [
+    {
+      "commit": "2695e20f76604cc85396fd8d8e82459b9067f551",
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+      "bytes": 15304,
+      "lines": 321,
+      "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2",
+      "read_scope": "complete source read"
+    },
+    {
+      "commit": "97ed9feee78f723cb6294aa5148da9ab5846db7a",
+      "path": "Applications/Probability/PermutationTail.lean",
+      "git_blob": "264877b4cd7db5a241be77ecaa9f28e3303607c0",
+      "bytes": 23385,
+      "lines": 485,
+      "sha256": "9acccef466f57da5621c6582be3332204b85f4de2ba758713fe538de0a205402",
+      "read_scope": "complete source read; root identifies this tail as uncompiled"
+    },
+    {
+      "commit": "97ed9feee78f723cb6294aa5148da9ab5846db7a",
+      "path": "Examples/PermutationTail.lean",
+      "git_blob": "39e9e5ae53e1c137301111ca63293b0ca1feb94a",
+      "bytes": 8775,
+      "lines": 197,
+      "sha256": "7470b1889baf878488eca8dad1240e1ca419a925b6f18f853a82eccd1178abfe",
+      "read_scope": "conditional-law and environment-change examples read"
+    },
+    {
+      "commit": "97ed9feee78f723cb6294aa5148da9ab5846db7a",
+      "path": "Examples/PermutationTailBoundary.lean",
+      "git_blob": "c494fcae8d3ed02d425a05c49ffa2e4c3487987e",
+      "bytes": 10173,
+      "lines": 230,
+      "sha256": "1bf7dd1e54ca551712b93a45b3c1db96bb6d95ad81a2297b34e29f288769fd73",
+      "read_scope": "complete empty/outsider and outside-remainder boundary source read"
+    },
+    {
+      "commit": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+      "path": "Applications/Resources/QuickSort.lean",
+      "git_blob": "66bcbb7075aadfe3e1070ee532b5839091c6ab5d",
+      "bytes": 21782,
+      "lines": 474,
+      "sha256": "e98024f6b741e1aba1fb1e38b419eee2e1acad76a8a40e669752f54775783263",
+      "read_scope": "complete actual deterministic resource source read"
+    },
+    {
+      "commit": "5a3af21cb4ff56896f1a7d249736c4804c229873",
+      "path": "Applications/Resources/QuickSortTransport.lean",
+      "git_blob": "438a6a58d720002fac7a2a61abb6b0b29804df21",
+      "bytes": 2232,
+      "lines": 56,
+      "sha256": "4093b8aa3b1bf884760926a4c866453f8ffa47d40304b8746f8083d2a3f54eff",
+      "read_scope": "complete e71092c source plus exact successor settings-only diff read; no compilation claimed"
+    },
+    {
+      "commit": "5a3af21cb4ff56896f1a7d249736c4804c229873",
+      "path": "Examples/QuickSortTransport.lean",
+      "git_blob": "089aaca818282da784d6843205fc8b97ad3c4d73",
+      "bytes": 3084,
+      "lines": 72,
+      "sha256": "57dc49986edb9c8f990781c980177a513a9e9e2020c6218ce4f4d88daac4c6b2",
+      "read_scope": "complete e71092c source plus exact successor settings-only diff read; no compilation claimed"
+    }
+  ],
+  "mathlib_selected_apis": [
+    {
+      "path": "Mathlib/Probability/HasLaw.lean",
+      "sha256": "7c8d6e2fc09e6d8a17148c1c32435a6826e6426f7127f16d76e1d964ad38ee2c",
+      "git_blob": "69037c1c1f65abaf7d0ac9dd12ea55fe5abdf27d",
+      "bytes": 12171,
+      "matches_pinned_git_blob": true,
+      "selected_source": [
+        {
+          "start": 162,
+          "end": 179,
+          "text": "lemma HasLaw.integrable_comp {ε : Type*} [TopologicalSpace ε] [ContinuousENorm ε]\n    (hX : HasLaw X μ P) {f : 𝓧 → ε} (hf : Integrable f μ) :\n    Integrable (f ∘ X) P :=\n  memLp_one_iff_integrable.1 (hX.memLp_comp (memLp_one_iff_integrable.2 hf))\n\nlemma HasLaw.integrable [TopologicalSpace 𝓧] [ContinuousENorm 𝓧] (hX : HasLaw X μ P)\n    (hμ : Integrable id μ) :\n    Integrable X P := hX.integrable_comp hμ\n\nlemma HasLaw.integral_comp {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]\n    {X : Ω → 𝓧} (hX : HasLaw X μ P) {f : 𝓧 → E} (hf : AEStronglyMeasurable f μ) :\n    P[f ∘ X] = ∫ x, f x ∂μ := by\n  rw [← hX.map_eq, integral_map hX.aemeasurable, Function.comp_def]\n  rwa [hX.map_eq]\n\nlemma HasLaw.lintegral_comp {X : Ω → 𝓧} (hX : HasLaw X μ P) {f : 𝓧 → ℝ≥0∞}\n    (hf : AEMeasurable f μ) : ∫⁻ ω, f (X ω) ∂P = ∫⁻ x, f x ∂μ := by\n  rw [← hX.map_eq, lintegral_map' _ hX.aemeasurable]"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Probability/ConditionalProbability.lean",
+      "sha256": "4245cc130e59294fadd87a6b011273c010bf3a21fd3395b8a3fe0f8a749f3f8c",
+      "git_blob": "89a4d104644a92ab006874d4566b32dc54548577",
+      "bytes": 13138,
+      "matches_pinned_git_blob": true,
+      "selected_source": [
+        {
+          "start": 69,
+          "end": 79,
+          "text": "\nvariable (μ) in\n/-- The conditional probability measure of measure `μ` on set `s` is `μ` restricted to `s`\nand scaled by the inverse of `μ s` (to make it a probability measure):\n`(μ s)⁻¹ • μ.restrict s`. -/\n@[wikidata Q327069]\ndef cond (s : Set Ω) : Measure Ω :=\n  (μ s)⁻¹ • μ.restrict s\n\n@[inherit_doc ProbabilityTheory.cond]\nscoped macro:max μ:term noWs \"[|\" s:term \"]\" : term =>"
+        },
+        {
+          "start": 151,
+          "end": 165,
+          "text": "/-- The conditional probability measure of any measure on any set of finite positive measure\nis a probability measure. -/\ntheorem cond_isProbabilityMeasure_of_finite (hcs : μ s ≠ 0) (hs : μ s ≠ ∞) :\n    IsProbabilityMeasure μ[|s] :=\n  ⟨by\n    unfold ProbabilityTheory.cond\n    simp only [Measure.coe_smul, Pi.smul_apply, MeasurableSet.univ, Measure.restrict_apply,\n      Set.univ_inter, smul_eq_mul]\n    exact ENNReal.inv_mul_cancel hcs hs⟩\n\n/-- The conditional probability measure of any finite measure on any set of positive measure\nis a probability measure. -/\ntheorem cond_isProbabilityMeasure [IsFiniteMeasure μ] (hcs : μ s ≠ 0) :\n    IsProbabilityMeasure μ[|s] := cond_isProbabilityMeasure_of_finite hcs (measure_ne_top μ s)\n"
+        },
+        {
+          "start": 190,
+          "end": 197,
+          "text": "  simp [measure_ne_top]\n\nlemma ae_cond_of_forall_mem (hs : MeasurableSet s) {p : Ω → Prop} (h : ∀ x ∈ s, p x) :\n    ∀ᵐ x ∂μ[|s], p x := ae_smul_measure (ae_restrict_of_forall_mem hs h) _\n\nlemma ae_cond_mem₀ (hs : NullMeasurableSet s μ) : ∀ᵐ x ∂μ[|s], x ∈ s :=\n  ae_smul_measure (ae_restrict_mem₀ hs) _\n"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Probability/UniformOn.lean",
+      "sha256": "7f1aac5e8c78698289601133f5b9551eb772b90eab05338900c472270031f5c3",
+      "git_blob": "535fdcd91956a1f3a09ec1008da345fc04420373",
+      "bytes": 10493,
+      "matches_pinned_git_blob": true,
+      "selected_source": [
+        {
+          "start": 81,
+          "end": 114,
+          "text": "theorem uniformOn_univ [Fintype Ω] {s : Set Ω} :\n    uniformOn Set.univ s = Measure.count s / Fintype.card Ω := by\n  simp [uniformOn, cond_apply, ← ENNReal.div_eq_inv_mul]\n\ntheorem isProbabilityMeasure_uniformOn' {s : Set Ω}\n    (hs_fin : s.Finite) (hs_nonempty : s.Nonempty) (hs_meas : MeasurableSet s) :\n    IsProbabilityMeasure (uniformOn s) := by\n  apply cond_isProbabilityMeasure_of_finite\n  · rwa [Measure.count_ne_zero_iff]\n  · exact (Measure.count_apply_lt_top' hs_meas).2 hs_fin |>.ne\n\ninstance instIsProbabilityMeasure_uniformOn_univ [Finite Ω] [Nonempty Ω] :\n    IsProbabilityMeasure (uniformOn (.univ : Set Ω)) :=\n  isProbabilityMeasure_uniformOn' Set.finite_univ Set.univ_nonempty .univ\n\nlemma uniformOn_apply_finset' {Ω : Type*} [DecidableEq Ω] {_ : MeasurableSpace Ω} {s t : Finset Ω}\n    (hs : MeasurableSet (s : Set Ω)) (ht : MeasurableSet (t : Set Ω)) :\n    uniformOn (s : Set Ω) (t : Set Ω) = #(s ∩ t) / #s := by\n  rw [uniformOn, cond_apply hs, Measure.count_apply_finset' hs, ← coe_inter,\n    Measure.count_apply_finset']\n  · rw [div_eq_mul_inv, mul_comm]\n  rw [coe_inter]\n  exact hs.inter ht\n\nvariable [MeasurableSingletonClass Ω]\n\nlemma uniformOn_apply_finset [DecidableEq Ω] {s t : Finset Ω} :\n    uniformOn (s : Set Ω) (t : Set Ω) = #(s ∩ t) / #s :=\n  uniformOn_apply_finset' s.measurableSet t.measurableSet\n\ntheorem isProbabilityMeasure_uniformOn {s : Set Ω} (hs : s.Finite) (hs' : s.Nonempty) :\n    IsProbabilityMeasure (uniformOn s) := by\n  apply cond_isProbabilityMeasure_of_finite\n  · rwa [Measure.count_ne_zero_iff]"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/MeasureTheory/Function/L1Space/Integrable.lean",
+      "sha256": "eb58a9036c9d7d38ad8b0f8b12b757bf598fcd056a5dd0f2ee2d6a0c4d619500",
+      "git_blob": "8bb1c1fb5176ecb216db25ce04dfd1af4bc522a0",
+      "bytes": 57662,
+      "matches_pinned_git_blob": true,
+      "selected_source": [
+        {
+          "start": 47,
+          "end": 50,
+          "text": "variable {α β γ δ ε ε' : Type*} {m : MeasurableSpace α} {μ ν : Measure α} [MeasurableSpace δ]\nvariable [NormedAddCommGroup β] [NormedAddCommGroup γ]\n  [TopologicalSpace ε] [ContinuousENorm ε] [TopologicalSpace ε'] [ContinuousENorm ε']\n"
+        },
+        {
+          "start": 166,
+          "end": 172,
+          "text": "theorem integrable_const [IsFiniteMeasure μ] (c : β) : Integrable (fun _ : α => c) μ :=\n  integrable_const_iff.2 <| .inr ‹_›\n\n-- TODO: an `ENorm`-version of this lemma requires `HasFiniteIntegral.of_finite`\n@[fun_prop, simp]\nlemma Integrable.of_finite [Finite α] [MeasurableSingletonClass α] [IsFiniteMeasure μ] {f : α → β} :\n    Integrable f μ := ⟨.of_discrete, .of_finite⟩"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/MeasureTheory/Function/StronglyMeasurable/AEStronglyMeasurable.lean",
+      "sha256": "ce3c2f20ec3a71e9827e12a9ae9f17ef65fe796a19b2f1630d496a31907b26dd",
+      "git_blob": "de1bb14dd409c6342eb51e07cf8a5018b7402c5f",
+      "bytes": 48816,
+      "matches_pinned_git_blob": true,
+      "selected_source": [
+        {
+          "start": 163,
+          "end": 167,
+          "text": "namespace AEStronglyMeasurable\n\n@[fun_prop]\nlemma of_discrete [Countable α] [MeasurableSingletonClass α] : AEStronglyMeasurable f μ :=\n  StronglyMeasurable.of_discrete.aestronglyMeasurable"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/MeasureTheory/Integral/Bochner/Set.lean",
+      "sha256": "e4d90b9fde463a9123e1ac3321ce25c0714e19ce92e172f297e062d9de16be75",
+      "git_blob": "b73074a2184a11cc434ed87802f9ca7b38c1f4ed",
+      "bytes": 61504,
+      "matches_pinned_git_blob": true,
+      "selected_source": [
+        {
+          "start": 116,
+          "end": 131,
+          "text": "theorem integral_biUnion_finset {ι : Type*} (t : Finset ι) {s : ι → Set X}\n    (hs : ∀ i ∈ t, MeasurableSet (s i)) (h's : Set.Pairwise (↑t) (Disjoint on s))\n    (hf : ∀ i ∈ t, IntegrableOn f (s i) μ) :\n    ∫ x in ⋃ i ∈ t, s i, f x ∂μ = ∑ i ∈ t, ∫ x in s i, f x ∂μ := by\n  classical\n  induction t using Finset.induction_on with\n  | empty => simp\n  | insert _ _ hat IH =>\n    simp only [Finset.coe_insert, Finset.forall_mem_insert, Set.pairwise_insert,\n      Finset.set_biUnion_insert] at hs hf h's ⊢\n    rw [setIntegral_union _ _ hf.1 (integrableOn_finset_iUnion.2 hf.2)]\n    · rw [Finset.sum_insert hat, IH hs.2 h's.1 hf.2]\n    · simp only [disjoint_iUnion_right]\n      exact fun i hi => (h's.2 i hi (ne_of_mem_of_not_mem hi hat).symm).1\n    · exact Finset.measurableSet_biUnion _ hs.2\n"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/MeasureTheory/Integral/Bochner/Basic.lean",
+      "sha256": "7e46dfb89df86399622c463d2ac657ab679eb2c0151266c82e896634be6d5965",
+      "git_blob": "19442aedbfc1558f989ec33ee6df119e0f1f5508",
+      "bytes": 72737,
+      "matches_pinned_git_blob": true,
+      "selected_source": [
+        {
+          "start": 1050,
+          "end": 1064,
+          "text": "\n@[simp]\ntheorem integral_smul_measure (f : α → G) (c : ℝ≥0∞) :\n    ∫ x, f x ∂c • μ = c.toReal • ∫ x, f x ∂μ := by\n  -- First we consider the “degenerate” case `c = ∞`\n  rcases eq_or_ne c ∞ with (rfl | hc)\n  · rw [ENNReal.toReal_top, zero_smul, integral_eq_setToFun, setToFun_top_smul_measure]\n  -- Main case: `c ≠ ∞`\n  simp_rw [integral_eq_setToFun, ← setToFun_smul_left]\n  have hdfma : DominatedFinMeasAdditive μ (weightedSMul (c • μ) : Set α → G →L[ℝ] G) c.toReal :=\n    mul_one c.toReal ▸ (dominatedFinMeasAdditive_weightedSMul (c • μ)).of_smul_measure hc\n  have hdfma_smul := dominatedFinMeasAdditive_weightedSMul (F := G) (c • μ)\n  rw [← setToFun_congr_smul_measure c hc hdfma hdfma_smul f]\n  exact setToFun_congr_left' _ _ (fun s _ _ => weightedSMul_smul_measure μ c) f\n"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Data/Finset/Sort.lean",
+      "sha256": "7406405adb644f84405b1bbbf7ec3c8cedf9a61901e0c8e0a75d5de701cb6eeb",
+      "git_blob": "d9b5dc2dd9bab8fcad6bb4fd9ef23bda06f97cda",
+      "bytes": 14051,
+      "matches_pinned_git_blob": true,
+      "selected_source": [
+        {
+          "start": 182,
+          "end": 219,
+          "text": "\n/-- Given a finset `s` of cardinality `k` in a linear order `α`, the map `orderIsoOfFin s h`\nis the increasing bijection between `Fin k` and `s` as an `OrderIso`. Here, `h` is a proof that\nthe cardinality of `s` is `k`. We use this instead of an iso `Fin s.card ≃o s` to avoid\ncasting issues in further uses of this function. -/\ndef orderIsoOfFin (s : Finset α) {k : ℕ} (h : s.card = k) : Fin k ≃o s :=\n  OrderIso.trans (Fin.castOrderIso ((s.length_sort (· ≤ ·)).trans h).symm) <|\n    (s.sortedLT_sort.getIso _).trans <| Set.orderIsoOfEq {x | x ∈ s.sort (· ≤ ·)} _ <| by simp\n\n/-- Given a finset `s` of cardinality `k` in a linear order `α`, the map `orderEmbOfFin s h` is\nthe increasing bijection between `Fin k` and `s` as an order embedding into `α`. Here, `h` is a\nproof that the cardinality of `s` is `k`. We use this instead of an embedding `Fin s.card ↪o α` to\navoid casting issues in further uses of this function. -/\ndef orderEmbOfFin (s : Finset α) {k : ℕ} (h : s.card = k) : Fin k ↪o α :=\n  (orderIsoOfFin s h).toOrderEmbedding.trans (OrderEmbedding.subtype _)\n\n@[simp]\ntheorem coe_orderIsoOfFin_apply (s : Finset α) {k : ℕ} (h : s.card = k) (i : Fin k) :\n    ↑(orderIsoOfFin s h i) = orderEmbOfFin s h i :=\n  rfl\n\ntheorem orderIsoOfFin_symm_apply (s : Finset α) {k : ℕ} (h : s.card = k) (x : s) :\n    ↑((s.orderIsoOfFin h).symm x) = s.sort.idxOf ↑x :=\n  rfl\n\ntheorem orderEmbOfFin_apply (s : Finset α) {k : ℕ} (h : s.card = k) (i : Fin k) :\n    s.orderEmbOfFin h i = s.sort[i]'(by rw [length_sort, h]; exact i.2) :=\n  rfl\n\n@[simp]\ntheorem orderEmbOfFin_mem (s : Finset α) {k : ℕ} (h : s.card = k) (i : Fin k) :\n    s.orderEmbOfFin h i ∈ s :=\n  (s.orderIsoOfFin h i).2\n\n@[simp]\ntheorem range_orderEmbOfFin (s : Finset α) {k : ℕ} (h : s.card = k) :\n    Set.range (s.orderEmbOfFin h) = s := by\n  simp only [orderEmbOfFin, Set.range_comp ((↑) : _ → α) (s.orderIsoOfFin h),"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Data/Finset/Card.lean",
+      "sha256": "300b99474dc58cca9b8724362a1a4673a217b2c66a0a7153ccc8eeb684ab51fa",
+      "git_blob": "6e51fa71c87cffcddc4bfbbf865ad3fe6e16fdc2",
+      "bytes": 41394,
+      "matches_pinned_git_blob": true,
+      "selected_source": [
+        {
+          "start": 239,
+          "end": 252,
+          "text": "theorem card_image_of_injOn [DecidableEq β] (H : Set.InjOn f s) : #(s.image f) = #s := by\n  simp only [card, image_val_of_injOn H, card_map]\n\ntheorem injOn_of_card_image_eq [DecidableEq β] (H : #(s.image f) = #s) : Set.InjOn f s := by\n  rw [card_def, card_def, image, toFinset] at H\n  dsimp only at H\n  have : (s.1.map f).dedup = s.1.map f := by\n    refine Multiset.eq_of_le_of_card_le (Multiset.dedup_le _) ?_\n    simp only [H, Multiset.card_map, le_rfl]\n  rw [Multiset.dedup_eq_self] at this\n  exact inj_on_of_nodup_map this\n\ntheorem card_image_iff [DecidableEq β] : #(s.image f) = #s ↔ Set.InjOn f s :=\n  ⟨injOn_of_card_image_eq, card_image_of_injOn⟩"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Logic/Equiv/Defs.lean",
+      "sha256": "fbaeed58650e8477e92fb79315b7558d83118f04df0e4d5c302912a0b183ecde",
+      "git_blob": "e300fb9e2467dee217df8d1452840f75b3ec3116",
+      "bytes": 42242,
+      "matches_pinned_git_blob": true,
+      "selected_source": [
+        {
+          "start": 817,
+          "end": 826,
+          "text": "/-- If `f` is a bijective function, then its domain is equivalent to its codomain. -/\n@[simps (attr := grind =) apply]\nnoncomputable def ofBijective (f : α → β) (hf : Bijective f) : α ≃ β where\n  toFun := f\n  invFun := surjInv hf.surjective\n  left_inv := leftInverse_surjInv hf\n  right_inv := rightInverse_surjInv _\n\n@[simp] lemma coe_ofBijective (f : α → β) (hf : Bijective f) : ⇑(ofBijective f hf) = f := rfl\n"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Order/Interval/Finset/Fin.lean",
+      "sha256": "1f61a87f5a33679269110a3da98111b222e2daecb73418b7b7df64238cf98263",
+      "git_blob": "9e0e5d705b0a65d9b25e9dd1b3de1a6f26ab3590",
+      "bytes": 27422,
+      "matches_pinned_git_blob": true,
+      "selected_source": [
+        {
+          "start": 878,
+          "end": 891,
+          "text": "\n@[simp]\ntheorem card_Ici : #(Ici a) = n - a := by\n  rw [← attachFin_Ico_eq_Ici, card_attachFin, Nat.card_Ico]\n\n@[simp]\ntheorem card_Ioi : #(Ioi a) = n - 1 - a := by\n  rw [← card_map, map_valEmbedding_Ioi, Nat.card_Ioo, Nat.sub_right_comm]\n\n@[simp]\ntheorem card_Iic : #(Iic b) = b + 1 := by rw [← Nat.card_Iic b, ← map_valEmbedding_Iic, card_map]\n\n@[simp]\ntheorem card_Iio : #(Iio b) = b := by rw [← Nat.card_Iio b, ← map_valEmbedding_Iio, card_map]"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean",
+      "sha256": "b39f19daf0988119572dc908b7d70c9b1b0a7c597f61e3f217acf2d8ed69ccd9",
+      "git_blob": "e5e8effe10b93797a7ed9e51f1494fa33209e4e3",
+      "bytes": 36580,
+      "matches_pinned_git_blob": true,
+      "selected_source": [
+        {
+          "start": 733,
+          "end": 750,
+          "text": "automatically fills in most arguments.\n\nSee `Equiv.prod_comp` for a version without `h`.\n-/\n@[to_additive /-- `Fintype.sum_equiv` is a specialization of `Finset.sum_bij` that\nautomatically fills in most arguments.\n\nSee `Equiv.sum_comp` for a version without `h`. -/]\nlemma prod_equiv (e : ι ≃ κ) (f : ι → M) (g : κ → M) (h : ∀ x, f x = g (e x)) :\n    ∏ x, f x = ∏ x, g x := prod_bijective _ e.bijective _ _ h\n\n@[to_additive]\nlemma _root_.Function.Bijective.prod_comp {e : ι → κ} (he : e.Bijective) (g : κ → M) :\n    ∏ i, g (e i) = ∏ i, g i := prod_bijective _ he _ _ fun _ ↦ rfl\n\n@[to_additive]\nlemma _root_.Equiv.prod_comp (e : ι ≃ κ) (g : κ → M) : ∏ i, g (e i) = ∏ i, g i :=\n  prod_equiv e _ _ fun _ ↦ rfl"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+      "sha256": "45b548e8d8491da4820c71eb29b0a2c92786f98e300d947e677f6fbe16e6f78a",
+      "git_blob": "1cdf5007c7c49a68a86da30d136b76c791e29a57",
+      "bytes": 53127,
+      "matches_pinned_git_blob": true,
+      "selected_source": [
+        {
+          "start": 458,
+          "end": 473,
+          "text": "variable (f s)\n\n@[to_additive]\ntheorem prod_coe_sort : ∏ i : s, f i = ∏ i ∈ s, f i := prod_attach _ _\n\n@[to_additive]\ntheorem prod_finset_coe (f : ι → M) (s : Finset ι) : (∏ i : (s : Set ι), f i) = ∏ i ∈ s, f i :=\n  prod_coe_sort s f\n\nvariable {f s}\n\n@[to_additive]\ntheorem prod_subtype {p : ι → Prop} {F : Fintype (Subtype p)} (s : Finset ι) (h : ∀ x, x ∈ s ↔ p x)\n    (f : ι → M) : ∏ a ∈ s, f a = ∏ a : Subtype p, f a := by\n  obtain rfl : p = (· ∈ s) := by simp [h]\n  rw [← prod_coe_sort]"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Algebra/BigOperators/Intervals.lean",
+      "sha256": "01e871093ddfe48538ad95497747fe522f2debe51e99dc9bb6e72bfa462a711b",
+      "git_blob": "9b26ce30f4e31fd752f474d0eb290ea2c706ced0",
+      "bytes": 11314,
+      "matches_pinned_git_blob": true,
+      "selected_source": [
+        {
+          "start": 153,
+          "end": 160,
+          "text": "@[to_additive]\ntheorem prod_range_reflect (f : ℕ → M) (n : ℕ) :\n    (∏ j ∈ range n, f (n - 1 - j)) = ∏ j ∈ range n, f j := by\n  cases n\n  · simp\n  · simp only [← Nat.Ico_zero_eq_range, Nat.succ_sub_succ_eq_sub, tsub_zero]\n    rw [prod_Ico_reflect _ _ le_rfl]\n    simp"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Data/Fintype/BigOperators.lean",
+      "sha256": "d0201051dfa54e8b67710ff484c34dc57e75da0e0bced663d798f6df333da638",
+      "git_blob": "0c7ba7853f7a395c46ce4aa3a72ae28a88d2b9a5",
+      "bytes": 12334,
+      "matches_pinned_git_blob": true,
+      "selected_source": [
+        {
+          "start": 224,
+          "end": 230,
+          "text": "/-- It is equivalent to compute the product of a function over `Fin n` or `Finset.range n`. -/\n@[to_additive /-- It is equivalent to sum a function over `fin n` or `finset.range n`. -/]\ntheorem Fin.prod_univ_eq_prod_range [CommMonoid α] (f : ℕ → α) (n : ℕ) :\n    ∏ i : Fin n, f i = ∏ i ∈ range n, f i :=\n  calc\n    ∏ i : Fin n, f i = ∏ i : { x // x ∈ range n }, f i :=\n      Fintype.prod_equiv (Fin.equivSubtype.trans (Equiv.subtypeEquivRight (by simp))) _ _ (by simp)"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Data/List/Nodup.lean",
+      "sha256": "dd189100bddbb41c32991672a727d0a3ebc41e7243f390cfa25c348eb0520432",
+      "git_blob": "ee90241a7e48ccaba9a870018fb99c556794995d",
+      "bytes": 16643,
+      "matches_pinned_git_blob": true,
+      "selected_source": [
+        {
+          "start": 72,
+          "end": 98,
+          "text": "theorem nodup_iff_injective_getElem {l : List α} :\n    Nodup l ↔ Function.Injective (fun i : Fin l.length => l[i.1]) :=\n  pairwise_iff_getElem.trans\n    ⟨fun h i j hg => by\n      obtain ⟨i, hi⟩ := i; obtain ⟨j, hj⟩ := j\n      rcases Nat.lt_trichotomy i j with (hij | rfl | hji)\n      · exact (h i j hi hj hij hg).elim\n      · rfl\n      · exact (h j i hj hi hji hg.symm).elim,\n      fun hinj i j hi hj hij h => Nat.ne_of_lt hij (Fin.val_eq_of_eq (@hinj ⟨i, hi⟩ ⟨j, hj⟩ h))⟩\n\ntheorem nodup_iff_injective_get {l : List α} : Nodup l ↔ Function.Injective l.get :=\n  nodup_iff_injective_getElem\n\nprotected theorem Nodup.injective_get {l : List α} (h : Nodup l) : Function.Injective l.get :=\n  nodup_iff_injective_get.mp h\n\nprotected theorem _root_.Function.Injective.nodup {l : List α}\n    (h : Function.Injective l.get) : l.Nodup := nodup_iff_injective_get.mpr h\n\ntheorem Nodup.get_inj_iff {l : List α} (h : Nodup l) {i j : Fin l.length} :\n    l.get i = l.get j ↔ i = j :=\n  (nodup_iff_injective_get.1 h).eq_iff\n\ntheorem Nodup.getElem_inj_iff {l : List α} (h : Nodup l)\n    {i : Nat} {hi : i < l.length} {j : Nat} {hj : j < l.length} :\n    l[i] = l[j] ↔ i = j := by"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Data/List/OfFn.lean",
+      "sha256": "bcfcfe7bd80c99423e5d62d7848d158684517bc86b15ba9dd75220d075cce4dc",
+      "git_blob": "3b9eb6ba93ee3e8490497b5be8db9d63250855a1",
+      "bytes": 7649,
+      "matches_pinned_git_blob": true,
+      "selected_source": [
+        {
+          "start": 88,
+          "end": 106,
+          "text": "theorem ofFn_get : ∀ l : List α, (ofFn (get l)) = l\n  | [] => by rw [ofFn_zero]\n  | a :: l => by\n    rw [ofFn_succ]\n    congr\n    exact ofFn_get l\n\n@[simp]\ntheorem ofFn_getElem_eq_map {β : Type*} (l : List α) (f : α → β) :\n    ofFn (fun i : Fin l.length => f l[(i : Nat)]) = l.map f := by\n  rw [← Function.comp_def, ← map_ofFn, ofFn_getElem]\n\n-- Note there is a now another `mem_ofFn` defined in Lean, with an existential on the RHS,\n-- which is marked as a simp lemma.\ntheorem mem_ofFn' {n} (f : Fin n → α) (a : α) : a ∈ ofFn f ↔ a ∈ Set.range f := by grind\n\ntheorem forall_mem_ofFn_iff {n : ℕ} {f : Fin n → α} {P : α → Prop} :\n    (∀ i ∈ ofFn f, P i) ↔ ∀ j : Fin n, P (f j) := by simp\n"
+        }
+      ]
+    }
+  ],
+  "source_relationship_checks": {
+    "XU03_at_97ed9fe_order_source_matches_XU02_2695e20": false,
+    "transport_successor_deterministic_resource_source_matches_0ec": true,
+    "transport_successor_delta": "diff --git a/Applications/Resources/QuickSortTransport.lean b/Applications/Resources/QuickSortTransport.lean\nindex 5ac2dec..438a6a5 100644\n--- a/Applications/Resources/QuickSortTransport.lean\n+++ b/Applications/Resources/QuickSortTransport.lean\n@@ -9,6 +9,9 @@ computing the map or for a later occurrence lookup. No injectivity of the map is\n needed, so duplicate payloads and equal keys retain their occurrences.\n -/\n \n+set_option autoImplicit false\n+set_option warningAsError true\n+\n namespace Resources.QuickSort\n \n universe u v\ndiff --git a/Examples/QuickSortTransport.lean b/Examples/QuickSortTransport.lean\nindex 3dd52b0..089aaca 100644\n--- a/Examples/QuickSortTransport.lean\n+++ b/Examples/QuickSortTransport.lean\n@@ -4,6 +4,9 @@ import Mathlib.Tactic.NormNum\n /-! Connected occurrence, duplicate-payload and comparator-boundary examples\n for the actual measured first-pivot execution. -/\n \n+set_option autoImplicit false\n+set_option warningAsError true\n+\n namespace Examples.QuickSortTransport\n \n open Resources.QuickSort\n",
+    "XU03_older_Order_to_corrected_XU02_diff": "diff --git a/Applications/Probability/PermutationOrder.lean b/Applications/Probability/PermutationOrder.lean\nindex 948b428..b039038 100644\n--- a/Applications/Probability/PermutationOrder.lean\n+++ b/Applications/Probability/PermutationOrder.lean\n@@ -97,7 +97,7 @@ theorem restrictedOrder_perm (positions : List I) (hnd : positions.Nodup)\n /-- Mapping the observed keys back to labels preserves their positions' order. -/\n theorem map_restrictedOrder_sublist (positions : List I) (S : Finset I)\n     (π : Equiv.Perm I) :\n-    (restrictedOrder positions S π).map π <+ positions := by\n+    ((restrictedOrder positions S π).map π).Sublist positions := by\n   have h := List.Sublist.map π\n     (List.filter_sublist (p := fun a => decide (a ∈ S))\n       (l := positions.map π.symm))\n@@ -148,6 +148,7 @@ theorem orders_card (positions : List I) (hnd : positions.Nodup)\n   rw [List.toFinset_card_of_nodup (List.nodup_permutations base hbase),\n     List.length_permutations, hlength]\n \n+omit [DecidableEq I] in\n private theorem exists_map_eq_of_nodup (xs ys : List I)\n     (hxs : xs.Nodup) (hys : ys.Nodup) (hlength : xs.length = ys.length) :\n     ∃ σ : Equiv.Perm I, xs.map σ = ys := by\n@@ -155,7 +156,7 @@ private theorem exists_map_eq_of_nodup (xs ys : List I)\n   have hg : Function.Injective g := by\n     intro i j hij\n     apply Fin.ext\n-    exact congrArg Fin.val (hys.injective_get hij)\n+    exact congrArg (fun k : Fin ys.length => k.val) (hys.injective_get hij)\n   obtain ⟨σ, hσ⟩ :=\n     Equiv.Perm.exists_extending_pair xs.get g hxs.injective_get hg\n   refine ⟨σ, List.ext_getElem (by simpa only [List.length_map] using hlength) ?_⟩\n@@ -189,7 +190,8 @@ private theorem restrictedOrder_relabel (positions : List I) (S : Finset I)\n       (restrictedOrder positions S π).map σ := by\n   have hglobal : positions.map (π * σ.symm).symm =\n       (positions.map π.symm).map σ := by\n-    simp only [List.map_map]\n+    change positions.map (σ ∘ π.symm) = (positions.map π.symm).map σ\n+    rw [List.map_map]\n   unfold restrictedOrder\n   rw [hglobal, List.filter_map]\n   apply congrArg (List.map σ)\n@@ -205,7 +207,7 @@ private theorem fiber_mass_eq\n     uniformOn Set.univ {π | restrictedOrder positions S π = xs} =\n       uniformOn Set.univ {π | restrictedOrder positions S π = ys} := by\n   classical\n-  letI := Fintype.ofList positions hcomplete\n+  let := Fintype.ofList positions hcomplete\n   obtain ⟨σ, hmap, hS⟩ := exists_relabel_orders positions hnd hcomplete S xs ys hxs hys\n   have hpre : (fun π : Equiv.Perm I => π * σ.symm) ⁻¹'\n       {π | restrictedOrder positions S π = ys} =\n@@ -239,9 +241,9 @@ theorem uniformOn_restrictedOrder_eq\n       then (Nat.factorial S.card : ℝ≥0∞)⁻¹\n       else 0 := by\n   classical\n-  letI := Fintype.ofList positions hcomplete\n+  let := Fintype.ofList positions hcomplete\n   by_cases hxs : xs ∈ orders positions S\n-  · rw [if_pos hxs]\n+  · rw [ite_eq_left hxs]\n     have hpre : (restrictedOrder positions S) ⁻¹'\n         (orders positions S : Set (List I)) = Set.univ := by\n       apply Set.eq_univ_of_forall\n@@ -278,7 +280,7 @@ theorem uniformOn_restrictedOrder_eq\n             uniformOn Set.univ {π | restrictedOrder positions S π = ys} := hsum.symm\n         _ = 1 := hpartition\n     simpa only [orders_card positions hnd hcomplete S] using hmass\n-  · rw [if_neg hxs]\n+  · rw [ite_eq_right hxs]\n     have hempty : ({π : Equiv.Perm I | restrictedOrder positions S π = xs}) = ∅ := by\n       apply Set.ext\n       intro π\n@@ -300,7 +302,7 @@ theorem map_restrictedOrder_uniformOn\n     (uniformOn (Set.univ : Set (Equiv.Perm I))).map (restrictedOrder positions S) =\n       uniformOn (orders positions S : Set (List I)) := by\n   classical\n-  letI := Fintype.ofList positions hcomplete\n+  let := Fintype.ofList positions hcomplete\n   apply Measure.ext_of_singleton\n   intro xs\n   rw [Measure.map_apply (measurable_of_finite _) (measurableSet_singleton xs)]\n",
+    "required_alignment": "Combine corrected PermutationOrder bytes from 2695e20 with selected PermutationTail bytes from 97ed9fe; do not restore the historical Tail checkout wholesale."
+  },
+  "status_limits": [
+    "No dependency acceptance inferred from source inspection or ancestry.",
+    "XU03 and transport successor remain uncompiled as described by root.",
+    "Numerical implementation belongs to quicksort owner; its approved plan is the dependency interface, not invented checked theorem names.",
+    "No Lean command, environment requalification, cache write, source edit, reference change or child agent occurred.",
+    "Private XU03 HasLaw convenience constructors are not public client APIs.",
+    "Generated sum theorem names are identified through inspected to_additive product declarations, not new type-check output."
+  ],
+  "plan_sha256": "57a511ef5e727d61002bdfd6d1cdcc0248bb1fe2c022b7b64d497a3fcb4da26f",
+  "final_author_head": "e1f3b5c43ba3b0f4aca5964f2b4568e06b47700c",
+  "final_author_status": "",
+  "state": "HOLD; no implementation authorization requested or inferred"
+}

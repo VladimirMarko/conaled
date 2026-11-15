@@ -1,0 +1,205 @@
+{
+  "recorded_utc": "2026-11-05T01:18:09.059779+00:00",
+  "axis": "Independent Standards; existing Chapter 3 whole-task loop",
+  "outcome": "Blocked; formal source/development-type assessment complete, documentation and final qualification/gates incomplete",
+  "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "accepted_shared_xr": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "fixed_scope": "Original Q-to-final candidate, all 83 frozen obligations. Accepted XR reuse remains explicit and historical.",
+  "current_candidate": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "current_tree": "ecb69c3918715cbe0682028cd8697dfcf3e463f9",
+  "prior_progress": {
+    "path": "provenance/chapter03-standards-review-20261104/progress-after0136-coordinate-queries-readall.json",
+    "bytes": 7997,
+    "sha256": "218dbf5af5df19a1aafca8266b402a871c82af77779772801a8bd1bf68470999"
+  },
+  "prior_canonical_report": {
+    "path": "reviews/chapter03-standards.md",
+    "bytes": 6162,
+    "sha256": "3265511fd835abd304009ecccb63304ec0fc1a8494acfa9ca2edfdd044ead32b"
+  },
+  "coverage": {
+    "chapter3_source_files_fully_read": 78,
+    "chapter3_source_and_development_actual_type_modules_complete": 78,
+    "chapter3_actual_type_blocks_read_complete": 1370,
+    "type_composition": "1321 original prefix + 23 Trace + 1 CountRank checked client + 25 Worst",
+    "accepted_xr_reuse": "2 additional formal modules and 21 names retained under the separate previously recorded identity/evidence reconciliation; no new final object qualification inferred.",
+    "final_candidate_type_inventory_expected": 1391
+  },
+  "coordinate_selection": {
+    "source_revision": "6eb3b18f017cad485371546b5a7ab0d6f13eb604; final298 differs only in correspondence document",
+    "source_files": [
+      {
+        "path": "Applications/Selection/CoordinateSelection.lean",
+        "bytes": 18612,
+        "sha256": "14b87898b02acb8f948ee68629331359652e920331e49d60bdeac62788a21abb",
+        "reads": [
+          "7c6ed7 lines1-220",
+          "7c5669 lines221-352"
+        ]
+      },
+      {
+        "path": "Examples/CoordinateSelection.lean",
+        "bytes": 10593,
+        "sha256": "880f4de41c96ef5076cb16375b8f718992ee0170b305e370bc9dac1e01308189",
+        "reads": [
+          "7c5669 all200lines"
+        ]
+      }
+    ],
+    "actual_type_reads": [
+      {
+        "indexes_in_1321_output": [
+          1248,
+          1263
+        ],
+        "tool": "b44c8c"
+      },
+      {
+        "indexes_in_1321_output": [
+          1264,
+          1277
+        ],
+        "tool": "ff00bc"
+      },
+      {
+        "indexes_in_1321_output": [
+          1278,
+          1285
+        ],
+        "tool": "b08383"
+      },
+      {
+        "indexes_in_1321_output": [
+          1286,
+          1293
+        ],
+        "tool": "fc3528"
+      }
+    ],
+    "assessment": [
+      "observedSelect actually reads all coordinates and invokes Resources.Selection.selectRun on the observed values, retaining the same Option answer and measured source cost; all runs have trace length n and exact c*n acquisition work. Invalid ranks retain the actual n+2 source failure cost.",
+      "combinedWork adds queryWork to the returned source observation; the concrete run proves coverage of queries. Uniform affine and positive-size constants precede the payload, input, rank, size and tariff. Existing actual selectRun bounds are applied rather than assumed from returned-value equality.",
+      "selectedValue preserves every query while projecting the actual measured result. For valid Fin ranks on Int, actual selection correctness proves the default 0 is unused. Total and Selects hold for all inputs; distinctness is required only for the competing query lower bound.",
+      "The full private input-injectivity bridge uses Nodup/ofFn. For c>=1 and a distinct input, every correct competitor execution pays at least c*n. A uniform K precedes tariff, size, rank, input and competitor; concrete book work is bounded by K times competitor query work, without an assumed cost or coverage premise.",
+      "The optimality theorem supplies both actual executions under Total and their equal selected value. This is the stated coordinate-query model, not a physical-runtime lower bound.",
+      "Clients include empty cost2, singleton cost7+c, [8,3,5] middle source16 and total22 at c2, duplicates [4,4,4] source14/total20, invalid n3k3 source5/total11, size20 actual source73+20=93, recursive size21 bound1440, and an independent total/correct pair-minimum competitor."
+    ],
+    "new_findings": []
+  },
+  "worst_pair": {
+    "passed_donor": "96722600aa29636e028751242ce33d562c5a9255",
+    "receiving_source_revisions": [
+      "6eb3b18f017cad485371546b5a7ab0d6f13eb604",
+      "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2"
+    ],
+    "source_correspondence_tool": "3cf471 donor/6eb equality; 439284 and17cba8 final delta only document; 815bf6 all48 captured source inputs equal final298",
+    "source_files": [
+      {
+        "path": "Applications/Resources/RandomSelectionWorst.lean",
+        "bytes": 10727,
+        "sha256": "0e83e44d4e1b2af6b56e09345d248d9af878e8a7d1108458ed8dcee446ec6541",
+        "reads": [
+          "3cf471 lines1-220",
+          "378d17 lines221-241"
+        ]
+      },
+      {
+        "path": "Examples/RandomSelectionWorst.lean",
+        "bytes": 12775,
+        "sha256": "ea06643849f8d958d17659d26886e132fc92d471008d1fa7c1455af808ddf0cb",
+        "reads": [
+          "378d17 all257lines"
+        ]
+      }
+    ],
+    "actual_index": {
+      "path": "provenance/chapter03-worst-statement-inputs-20261105/actual-type-block-index.json",
+      "bytes": 6898,
+      "sha256": "ab0fbda7833bbbc228e7546bca938a2a8c08510c7f18bbf766a590bae55c1389"
+    },
+    "actual_native_output": {
+      "path": "provenance/chapter03-random-selection-worst-statements25-attempt1-20261105/native-records/output.log",
+      "bytes": 75956,
+      "sha256": "df11a9b1e4ccbc7e952935ec0155fa096f58a3c14ff6955132fceabfb69fa519"
+    },
+    "complete_actual_type_reads": [
+      {
+        "indexes": [
+          0,
+          9
+        ],
+        "tool": "087528"
+      },
+      {
+        "indexes": [
+          10,
+          14
+        ],
+        "tool": "6fbe5e"
+      },
+      {
+        "indexes": [
+          15,
+          19
+        ],
+        "tool": "5c1040"
+      },
+      {
+        "indexes": [
+          20,
+          24
+        ],
+        "tool": "4befc5"
+      }
+    ],
+    "actual_index_and_program_checks": "4befc5 all25 indexed blocks hash correctly and partition all75956 native bytes/1042lines once; 857994 all25 explicit-@ program names equal actual names in original order. f622af reads full1878-byte ten-option program.",
+    "assessment": [
+      "EndpointTrace is structural: actual occurrence indexes, endpoint policy, actual stepRun children, and singleton-only terminal return. Neither distinctness, probability nor work is a field. Target existence and valid rank are derived.",
+      "The full private endpoint_outcome proof recurses on the actual child length. For arbitrary unsorted distinct xs and every valid k it chooses minimum at positive rank and maximum at zero, preserves a valid target, and decreases length by exactly one. The private inverse-factorial step derives the actual atom product.",
+      "exists_endpoint_worst has only LinearOrder, Nodup and valid-rank premises. It produces an actual supported outcome with full and projected trace masses 1/n!, n trace entries, twice scan volume n(n+1), triangular scan volume, the ordered-index answer and triangular<=T<=9*triangular+2. No Inhabited or sorted-input premise is inferred.",
+      "The range theorem quantifies every n>0 and k<n, preserving actual factorial masses and proving n*n<=2*T and T<=11*n*n. The unbounded family quantifies B, chooses n>B, then every valid k; each supported actual outcome also has B<T. No arbitrarily large finite carrier is assumed.",
+      "distinct_scan_maximum composes the generic witness with the upper bound for every supported outcome on the same distinct input and rank. It maximizes scan volume, not exact source cost.",
+      "Concrete middle [3,1,2] k1 path has W6/T33/mass1/6; signed [3,-2,8,0,5] k3 has W15/T67/mass1/120; range4 k2 has W10/T48/mass1/24. The generic unsorted endpoint-rank and unbounded every-rank clients are also checked.",
+      "Empty and invalid inputs have no EndpointTrace although their total execution laws remain defined. Singleton valid has one trace entry and unit mass. All-equal [4,4,4] stops before a singleton, while mixed [1,1,2] k2 has a structural endpoint trace with W4/T23/mass1/3 and is not Nodup. These demonstrate the mathematical premises rather than replacing the universal proof."
+    ],
+    "historical_execution_evidence": {
+      "type_execution": "f622af reads complete recorder/result, owned21638 actualexit0/d22e44, nativeexit0 and closed reconciliation; 857994 independently verifies full76325-byte outer log SHAdea5e750afcc89a731e42706560de5b75e173d21a8b78bc13fe0ba936590711c contains all native bytes once at offset213 and reads every wrapper byte.",
+      "stable_capture": "929de1 exact pre/post identity; 815bf6 verifies all48 sources and10 config files match final298, all10 configurations/9dependency records/12runtime records equal the qualified38 capture. All144 historical objects/traces stable; no equality to current outputs inferred.",
+      "focused_execution": "Root reported focused2 exit0; its complete focused command evidence remains to be independently reconciled."
+    },
+    "new_findings": []
+  },
+  "original1321_closed_log_reconciliation": {
+    "tools": [
+      "b0b0d2 result and owned terminal only before missing filename error",
+      "52c066 exact available evidence inventory",
+      "479fbe complete available closure/native result/start/launch plus full wrapper read"
+    ],
+    "actual_result": "Recorded owned38741 closed0/d36044 and nativeexit0 agree at exact38. All1494848 native bytes already semantically read across earlier bounded receipts occur once at offset208 in1495213-byte full log, hashes match saved closure. The historical launch pending field is superseded by the closed result; no current session polled.",
+    "review_helper_error": "b0b0d2 tried absent actual-tool-terminal.json after two successful complete reads. Recovered via exact available files; did not invent a raw terminal artifact or treat that lookup failure as a formal finding."
+  },
+  "documentation_read_so_far": {
+    "final_document_bytes": 86129,
+    "sha256": "c4e363a2e28a1120986571054535573042a06391a1e9277ae98ca8b87d56fa40",
+    "complete_delta_tool": "17cba8 full6eb-to298 document diff",
+    "full_final_document_read_ranges": [
+      {
+        "lines": [
+          1,
+          190
+        ],
+        "tool": "957924"
+      }
+    ],
+    "remaining": "Final document lines191-849, all alias-byte reconciliation and all83 row assessment; originalQ correspondence map/entrypoint and acceptedXR final qualification reconciliation remain."
+  },
+  "findings": "C03-SPEC-USE-001 and C03-STD-DOC-001 remain independently resolved; no additional concrete finding in assessed formal sources/types.",
+  "remaining_gates": [
+    "Complete correspondence/documentation and full-scope inventory reconciliation",
+    "Exact final1391 public-type qualification including acceptedXR21 with stable inputs and complete actual output assessment or justified unchanged reuse",
+    "Final complete normal candidate check, integrity/artifact guards and exhaustive kernel-safe audit with closed matching verification evidence",
+    "Both complete independent review axes and immediate verify-candidate before exact local fast-forward"
+  ],
+  "historical_failure_retained": "The full normal check at38 closed nonzero after ProofAudit SIGKILL9; source/type/focused evidence does not supersede that failed whole-candidate gate.",
+  "reviewer_actions": "Read-only immutable Git/evidence inspection and writes restricted to own authorized review records. No compiler, builder, audit, session polling, source/config/ref edits or uploads."
+}

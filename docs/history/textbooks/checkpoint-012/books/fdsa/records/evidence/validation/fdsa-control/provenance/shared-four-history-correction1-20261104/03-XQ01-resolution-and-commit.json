@@ -1,0 +1,87 @@
+{
+  "recorded_utc": "2026-11-04T14:20:19.079934+00:00",
+  "finding": "SH4-HIST-001",
+  "unit": "XQ01",
+  "source_diff_read": "complete 3-path merge-result diff before resolution",
+  "conflicts": [
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-three-way-partition.md"
+  ],
+  "resolution_reason": "Retain H complete accepted F/four-unit import and map union, which already contains every incoming partition mathematical statement and boundary. H note is the exact reviewed dated-status/prerequisite correction, and all incoming defining blobs/Selection compatibility remain exact.",
+  "resolution": [
+    {
+      "path": "SquareApplications.lean",
+      "selected_source": "97505ca8a1e714601e6d68137f0659b36a569988",
+      "selected_git_blob": "a36fa607584d77618858b5f1707b1df913a22cca",
+      "sha256": "6197b3a27ee1fd07305a506314caeaa3b3534ab166eaea00e5e169ba4c82956d"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "selected_source": "97505ca8a1e714601e6d68137f0659b36a569988",
+      "selected_git_blob": "e753d5325fcd4f576b091d795ffced6d625c2aaf",
+      "sha256": "f479b3b05b2fdfd99683e15cfc1e0d0b9542c58f56a3013872be6df8469cebfe"
+    },
+    {
+      "path": "docs/research/fdsa-three-way-partition.md",
+      "selected_source": "97505ca8a1e714601e6d68137f0659b36a569988",
+      "selected_git_blob": "ee83f49a9c536f22f0340434795e117ea5766484",
+      "sha256": "f79bfd4f9691f56019696c8ea0ac0b63045f7bb1ac5f5d790adf8a425345f136"
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "git",
+        "restore",
+        "--source=97505ca8a1e714601e6d68137f0659b36a569988",
+        "--staged",
+        "--worktree",
+        "--",
+        "SquareApplications.lean",
+        "docs/research/fdsa-reconstruction-map.md",
+        "docs/research/fdsa-three-way-partition.md"
+      ],
+      "actual_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "actual_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "-c",
+        "user.name=ChatGPT",
+        "-c",
+        "user.email=chatgpt@openai.com",
+        "commit",
+        "-m",
+        "fix(fdsa): retain partition integration history (#174)",
+        "-m",
+        "SH4-HIST-001: integrate corrected XQ01 tip0612e80 through an actual normal merge. Preserve reviewed H tree97505ca exactly, including the full shared partition interface, old Selection compatibility, all accepted predecessor imports and map content. Resolve only root/map and dated prerequisite/status-note conflicts; no mathematical source changes or validation credit."
+      ],
+      "actual_exit": 0,
+      "stdout": "[work/fdsa-shared-four-integration b907e90] fix(fdsa): retain partition integration history (#174)\n",
+      "stderr": ""
+    }
+  ],
+  "result_commit": "b907e9017ed1bd0c32361ed0cad596388cb6da31",
+  "parents": [
+    "eb269d9ec3850b21760f5aa83a5a1001a5f219d3",
+    "0612e80a0c297a38fa1add6e837dc7781e1bbd9c"
+  ],
+  "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+  "exact_H_tree": true,
+  "status": "",
+  "compiler_or_cache_action": false
+}

@@ -1,0 +1,12 @@
+{
+  "recorded_at": "2026-11-03T16:42:09.117888+00:00",
+  "fixed_review_base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "native_source_before": "90158463e87d14acdd83721452a4faf810249c17c967731ba55f513c8b2f1858",
+  "native_helper": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073",
+  "main_head": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "main_status": "",
+  "active_formal_builds": false,
+  "scope": "New native runtime under user alternative-to-emulation steering; existing operational loop and its fixed base retained; no compiler/project mutation.",
+  "prior_completed_review": "eight direct/QEMU helpers r2 passed; newer documentation rounds3/4 have incomplete reports after user steering; no approval inferred.",
+  "changes_planned": "Recursion guard in lazy symbol resolution and restoration of entry errno before delegated call, public contract tests and self-contained native handoff."
+}

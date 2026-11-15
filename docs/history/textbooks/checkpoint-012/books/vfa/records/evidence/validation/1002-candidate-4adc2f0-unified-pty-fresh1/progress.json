@@ -1,0 +1,24 @@
+{
+  "status": "interrupted; terminal API1, kit child outcome unknown",
+  "recorded_utc": "2026-11-04T06:18:00.998537+00:00",
+  "candidate": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+  "owned_session": 58093,
+  "requested_interruption": "stop-request.json",
+  "execution_api_terminal_exit_code": 1,
+  "kit_result_present": false,
+  "kit_child_exit_code": null,
+  "kit_child_quiescence": "not established; no assumption from session completion or stable surviving files",
+  "output_snapshot_bytes": 7654,
+  "output_snapshot_sha256": "b3d3267bd28aab69234e045147d2f57d46405e4250cfcf50040c37d45188c239",
+  "snapshot_is_incomplete_prefix": true,
+  "last_logged_completed_module": [
+    "61",
+    "Applications.Orbifold.ProjectiveMotion (35.78s)"
+  ],
+  "verification_present": false,
+  "formal_gate_passed": false,
+  "source_error_observed_in_this_run": false,
+  "reason": "Root interrupted early to investigate independently confirmed static missing-import gaps in later modules. No focused compiler observation exists yet.",
+  "process_observation_limit": "/proc is absent; no escalation, guessed PID signals or unowned cleanup attempted.",
+  "continuation_plan": "Freeze old validation checkout and all outputs. Assess separate new clean worktree with unchanged immutable shared dependencies; no old-output reuse or cache/setup/dependency writer."
+}

@@ -1,0 +1,123 @@
+{
+  "axis": "Standards",
+  "recorded_utc": "2026-11-05T00:58:24.229255+00:00",
+  "outcome": "Blocked; whole source review and final validation incomplete",
+  "current_immutable_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+  "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "frozen_obligations": 83,
+  "scope": "Same original Q-to-final whole-task review; accepted XR reuse retained; no reduction of scope",
+  "release": "Parent explicitly released own review writes after verified/uploaded checkpoint0136; parent release refers to actual38f420. This record preserves rather than overwrites the earlier held artifacts.",
+  "previous_progress": {
+    "path": "provenance/chapter03-standards-review-20261104/progress-before0136-selection-bounds-cutoffs-generic.json",
+    "bytes": 10439,
+    "sha256": "62631304a3dd15539f1f4c50432a04d64e098583403f3ebe33071e4331add235"
+  },
+  "previous_hold": {
+    "path": "provenance/chapter03-standards-review-20261104/write-hold-before0136.json",
+    "bytes": 4800,
+    "sha256": "5d0890444c5dd0d177e6c5833bd507ed7ffadd792606b735ffa648e05644f3b7"
+  },
+  "newly_assessed_sources": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3",
+      "lines": 176,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e",
+      "lines": 79,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionRun.lean",
+      "bytes": 12714,
+      "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718",
+      "lines": 288,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Examples/RandomSelectionRun.lean",
+      "bytes": 3770,
+      "sha256": "76504fe5fa77c581b8a7e3c9f3e0247c8a927adee8b308f84be6167e0ea20e0f",
+      "lines": 96,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    }
+  ],
+  "source_read_receipts": {
+    "RandomSelection/core_and_examples": "533320",
+    "RandomSelectionRun/core_and_examples": "d0bd54"
+  },
+  "actual_types": {
+    "index": {
+      "path": "provenance/chapter03-assembly2-statement-inputs-20261104/actual-type-block-index.json",
+      "bytes": 382223,
+      "sha256": "b89adf0160b2a887c5046917d6ac04131e826e3d6dd4d7e31b0edc0ab62961a2"
+    },
+    "assessed_inclusive_ranges": [
+      [
+        914,
+        973
+      ]
+    ],
+    "count": 60,
+    "bytes": 77535,
+    "concatenated_sha256": "89994a153b0479b3ff55c5b419f987e36b37382406b44381a3e48823456ccc94",
+    "full_block_read_receipts": {
+      "914-924": "9f40c1",
+      "925-932": "0766be",
+      "933-953": "9a99aa",
+      "954-973": "8559ae"
+    },
+    "cumulative_semantic_actual_blocks": 975,
+    "cumulative_original_index_ranges": [
+      [
+        0,
+        973
+      ]
+    ],
+    "additional_actual_blocks": "One new CountRank checked client at2ff47bda",
+    "boundary": "Secured prefix38 actual observations plus exact unchanged source correspondence; no final-candidate or exhaustive-audit credit"
+  },
+  "assessment": {
+    "actual_step": "A valid Fin occurrence is retrieved by the actual measured list lookup, with cost index+1 and no default/inhabited payload. stepRun pays entry, actual input length, lookup, one partition, lower length, and equal length only after the left branch is rejected. Its exact arithmetic keeps the selected recursive state distinct from a larger-side comparison bound. Actual pivot membership proves strict child decrease; valid parent rank proves valid child rank. The private equal_lookup and full step semantics proof derive sorted-index correctness without Nodup. Active costs lie between actual size and9*size; the implicit positive size is supplied by Fin occurrence. These are source calls, with explicitly free abstract random choice and no random-bit runtime claim.",
+    "occurrence_sampling": "pivotLaw maps the uniform indexed occurrence sampler through the actual lookup. The Boolean event formula counts occurrences, retaining duplicate multiplicity with no payload measurable-space/equality requirement. The accepted sampler dependency was independently read through its normalization, reciprocal mass, complete index support, singleton pure law and filtered-cardinality event proof. Its tariff is not imported as the selection tariff.",
+    "actual_recursive_run": "run is a finite PMF constructed by well-founded strict list-length recursion, freshly binding a uniform current occurrence at each reached child. It calls only the selected strict child; the equal branch returns directly. The outcome records returned Option value, actual active-size/index trace and the source cost of the same execution. No truncating fuel, almost-sure termination assumption, independent-size model or assumed balance enters the construction. All supported outcomes have the sorted-index value including invalid ranks. Valid ranks succeed and retain occurrence rank. Public one-based select fails explicitly and freely at0, while positive ranks run the zero-based worker.",
+    "path_and_resource_bounds": "The complete private run_support_bounds proof and termination clauses were read. Strong size induction gives at most n active calls, n<=scanVolume, triangular scan upper bound n*(n+1)/2, valid positive trace entries bounded by initial size, and scanVolume<=sourceCalls<=9*scanVolume+2. The additive2 is the possible empty continuation for invalid worker ranks. scanLaw and sourceLaw project the actual run to Nat before a measure is selected; finite supports are derived from these concrete path bounds. This establishes an upper bound and source bridge, not the pending universal worst-case endpoint mass/family.",
+    "meaningful_checked_uses": "The step examples cover singleton cost9, duplicate middle cost15, selected smaller side distinct from the larger side, checked child validity/rank and explicit source bound, and duplicate pivot probabilities2/3 versus1/3. Whole-run examples cover empty cost2, singleton successful9, invalid singleton11, free public0, two supported pair paths of scan2/3 and calls11/20 with the same value, and equal pair occurrence-dependent calls12/13. Concrete supported outcomes consume the general value, triangular bound and same-execution source bridge; a polymorphic public-rank client consumes select_some_iff. Fully expanded actual types confirm the expected quantifiers, order instances, support premises and closed cases.",
+    "accepted_dependency_read": {
+      "path": "Applications/Resources/RandomQuickSort.lean",
+      "bytes": 23601,
+      "sha256": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2",
+      "fully_read_ranges": [
+        [
+          1,
+          73
+        ]
+      ],
+      "receipt": "26c06d",
+      "boundary": "Only relevant uniform-index interface/proof portion newly read; no claim to a new full review of the accepted module."
+    },
+    "new_findings": []
+  },
+  "cumulative_coverage": {
+    "new_chapter_source_files_read_fully": 56,
+    "new_chapter_source_files_source_and_type_assessed": 56,
+    "accepted_XR_formal_modules_reused": 2,
+    "new_chapter_source_files_not_yet_complete": 20,
+    "full_read_but_pending_actual_type_assessment": []
+  },
+  "findings": {
+    "C03-SPEC-USE-001": "Resolved",
+    "C03-STD-DOC-001": "Resolved",
+    "new_findings": []
+  },
+  "remaining": "20 current new Chapter3 random mean/drift/tail/equal/endpoints/trace/query modules and actual statements, checked clients, helpers and chapter correspondence. Universal actual endpoint/factorial/triangular/source-family stage, full command-evidence reconciliation, exact final candidate qualification including accepted roots, successful complete normal check/audit, both axes and immediate verification remain pending. Parent reports a separate corrected Worst draft undergoing focused validation and three stale documentation aliases awaiting correction; neither is independently assessed here. Prior prefix38 audit SIGKILL remains unresolved. No compiler command was run by this reviewer."
+}

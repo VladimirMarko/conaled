@@ -1,0 +1,79 @@
+{
+  "state": "PREPARED_ONLY_UNBOUND_DO_NOT_EXECUTE",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "accepted_predecessor": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "checkpoint_name": "conaled-fdsa-0122-accepted-chapter02",
+  "files": {
+    "acceptance": {
+      "path": "provenance/chapter02-acceptance-20261104/acceptance.json",
+      "bytes": null,
+      "sha256": null
+    },
+    "root_gate": {
+      "path": "provenance/chapter02-acceptance-20261104/root-gate-reconciliation.json",
+      "bytes": null,
+      "sha256": null
+    },
+    "fast_forward_preflight": {
+      "path": "provenance/chapter02-acceptance-20261104/prepared-fast-forward-preflight.json",
+      "bytes": null,
+      "sha256": null
+    },
+    "fast_forward_result": {
+      "path": "provenance/chapter02-acceptance-20261104/fast-forward-result.json",
+      "bytes": null,
+      "sha256": null
+    },
+    "coverage": {
+      "path": "provenance/chapter02-acceptance-20261104/coverage.md",
+      "bytes": null,
+      "sha256": null
+    },
+    "standards_review": {
+      "path": null,
+      "bytes": null,
+      "sha256": null
+    },
+    "standards_completion": {
+      "path": null,
+      "bytes": null,
+      "sha256": null
+    },
+    "spec_review": {
+      "path": null,
+      "bytes": null,
+      "sha256": null
+    },
+    "spec_completion": {
+      "path": null,
+      "bytes": null,
+      "sha256": null
+    },
+    "immediate_result": {
+      "path": null,
+      "bytes": null,
+      "sha256": null
+    },
+    "immediate_closed_evidence": {
+      "path": null,
+      "bytes": null,
+      "sha256": null
+    },
+    "immediate_owned_terminal": {
+      "path": null,
+      "bytes": null,
+      "sha256": null
+    },
+    "immediate_verification": {
+      "path": null,
+      "bytes": null,
+      "sha256": null
+    },
+    "immediate_full_log": {
+      "path": null,
+      "bytes": null,
+      "sha256": null
+    }
+  },
+  "completion_instruction": "Root creates separate final-bindings.json from actual held files after final reviews, immediate verification, exact FF and acceptance records exist. Replace state with actual-held-final-evidence-bound only after real identities are recorded; keep this template unchanged."
+}

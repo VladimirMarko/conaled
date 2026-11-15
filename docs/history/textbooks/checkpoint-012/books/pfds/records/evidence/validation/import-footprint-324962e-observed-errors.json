@@ -1,0 +1,36 @@
+{
+  "candidate": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+  "discovered_at": "2026-11-02T22:00:34.021129+00:00",
+  "run": "import-footprint-324962e-full-r1",
+  "overall_status": "still running; source compilation failure observed; no success or audit result",
+  "findings": [
+    {
+      "id": "IMPORT-VAL-004",
+      "status": "import-only proposed repair, focused validation pending",
+      "module": "Examples.IndefiniteService",
+      "line": 104,
+      "error": "Unknown constant Nat.size_pow; unsolved False goal at101:56",
+      "provider": "Mathlib.Data.Nat.Size",
+      "provider_declaration": "Nat.size_pow at pinned Mathlib/Data/Nat/Size.lean:94"
+    }
+  ],
+  "diagnostic_excerpt": [
+    "\u2716 [4515/4519] Building Examples.IndefiniteService (3.7s)",
+    "trace: .> LEAN_PATH=/workspace/scratch/ca9a61d0bf30/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ca9a61d0bf30/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ca9a61d0bf30/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ca9a61d0bf30/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ca9a61d0bf30/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ca9a61d0bf30/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ca9a61d0bf30/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ca9a61d0bf30/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ca9a61d0bf30/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ca9a61d0bf30/import-correction/.lake/build/lib/lean /root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /workspace/scratch/ca9a61d0bf30/import-correction/Examples/IndefiniteService.lean -o /workspace/scratch/ca9a61d0bf30/import-correction/.lake/build/lib/lean/Examples/IndefiniteService.olean -i /workspace/scratch/ca9a61d0bf30/import-correction/.lake/build/lib/lean/Examples/IndefiniteService.ilean -c /workspace/scratch/ca9a61d0bf30/import-correction/.lake/build/ir/Examples/IndefiniteService.c --setup /workspace/scratch/ca9a61d0bf30/import-correction/.lake/build/ir/Examples/IndefiniteService.setup.json --json",
+    "error: Examples/IndefiniteService.lean:104:6: Unknown constant `Nat.size_pow`",
+    "error: Examples/IndefiniteService.lean:101:56: unsolved goals",
+    "bound : \u2115",
+    "h : \u2200 (n : \u2115), n.size \u2264 bound",
+    "large : (2 ^ bound).size \u2264 bound",
+    "\u22a2 False",
+    "\u2139 [4516/4540] Replayed Examples.IndexedFeedback",
+    "info: Examples/IndexedFeedback.lean:105:0: (0, 3)"
+  ],
+  "correction_candidate": "901f734161920a76f3b399a575805b9a1d31e971",
+  "correction_checkout": "import-correction-r3",
+  "correction_branch": "pfds/import-footprint-r3",
+  "non_import_bytes_identical": true,
+  "old_source_sha256": "1008cf9f317f4caebfea22d557ffd59949b5251e5d7f1f095c672d971896d1b8",
+  "new_source_sha256": "0daaf049128e56210c605cc5b2d5cf8b155aad1727eac6bad189615fc75fa7fd",
+  "constraints": "Active immutable324 remains untouched. Only a direct import added. Full gate/audit/reviews/final verification remain required."
+}

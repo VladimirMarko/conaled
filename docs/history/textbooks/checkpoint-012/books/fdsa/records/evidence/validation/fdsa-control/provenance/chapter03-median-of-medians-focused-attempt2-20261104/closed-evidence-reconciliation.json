@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T19:35:31.851733+00:00",
+  "candidate": "ac8bee488069d471eef9955fed11db5647cff72f",
+  "terminal": {
+    "recorded_utc": "2026-11-04T19:35:31.851563+00:00",
+    "owned_session": 92661,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "335534",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "ac8bee488069d471eef9955fed11db5647cff72f"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-median-of-medians-focused-attempt2-20261104/full.log",
+    "bytes": 7652,
+    "sha256": "bc68c2b9a7bd89374401680e15cc13c9df46e4929245f6e2e67a6bb8319d553e"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T193506Z-project-run-7d9a451d",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-median-of-medians-focused-attempt2-20261104/native-records/start.json",
+      "bytes": 475,
+      "sha256": "559ca17147b1204b2ab5dad980c7827bfc85672b1b554614513bd58f2fcfee87"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-median-of-medians-focused-attempt2-20261104/native-records/result.json",
+      "bytes": 628,
+      "sha256": "f656b942cc0172cea2444a7e674f50f155c59cdbc16285b8578bf5bf48a6e856"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-median-of-medians-focused-attempt2-20261104/native-records/output.log",
+      "bytes": 7379,
+      "sha256": "d5ba1695b21d0e978eaf3f21c43062c6ba4db8a2c865be25eca11a20956294e6"
+    }
+  },
+  "native_body_exact_outer_offset": 117,
+  "complete_closed_log": true,
+  "scope": "Same original focused pivot and examples scope after C03-PIVOT-ELAB-001 source correction; actual terminal controls, no Chapter3 acceptance.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

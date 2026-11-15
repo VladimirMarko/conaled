@@ -1,0 +1,68 @@
+--- /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/reconcile_root_gate_once.before_standards_actual_schema.py
++++ /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/reconcile_root_gate_once.py
+@@ -56,13 +56,29 @@
+         json.dump(value, stream, indent=2)
+         stream.write('\n')
+ 
++def evidence_bindings(value):
++    if isinstance(value, dict):
++        if {'path', 'bytes', 'sha256'} <= value.keys():
++            yield value
++        else:
++            for child in value.values():
++                yield from evidence_bindings(child)
++    elif isinstance(value, list):
++        for child in value:
++            yield from evidence_bindings(child)
++
+ def require_scope(value, axis):
+     assert value['unit'] == 'FDSA-XT02' and value['axis'] == axis
+     assert value['candidate'] == NEW and value['tree'] == TREE
+     assert value['original_unit_base'] == ORIGINAL and value['original_donor'] == DONOR
+     assert value['incorporated_base'] == OLD
+     assert value['requirements_ids'] == IDS and value['original_scope_paths'] == PATHS
+-    assert value['public_names'] == 90
++    if axis == 'Standards':
++        names = read(I / 'inputs-before.json')['identity']['program']['names']
++        assert len(names) == len(set(names)) == value['public_name_count'] == 90
++        assert value['public_names'] == names
++    else:
++        assert value['public_names'] == 90
+     assert value['outcome'].upper() in {'PASS', 'PASSED'} and not value['unresolved_findings']
+     for flag in ('full_original_scope_complete', 'actual_public_types_complete', 'full_validation_accepted', 'review_complete'):
+         assert value[flag] is True, (axis, flag)
+@@ -100,11 +116,12 @@
+     for value in (assessment, hold):
+         require_scope(value, axis)
+     assert 'HELD' in hold['state']
+-    for row in assessment['evidence_bindings' if axis == 'Standards' else 'bound_evidence'].values():
+-        verify(row)
+-    held_rows = hold['held_files']
+-    for row in (held_rows.values() if isinstance(held_rows, dict) else held_rows):
+-        verify(row)
++    binding_counts = {'Standards': (38, 29), 'Spec': (22, 23)}[axis]
++    for value, expected_count in zip((assessment, hold), binding_counts):
++        rows = list(evidence_bindings(value))
++        assert len(rows) == expected_count, (axis, expected_count, len(rows))
++        for row in rows:
++            verify(row)
+     receipt_path = H / f'{axis.lower()}-completion-readback-receipt.json'
+     receipt = read(receipt_path)
+     assert receipt['axis'] == axis and receipt['candidate'] == NEW
+--- /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/checkpoint0139-verifier-before-actual-schemas.py
++++ /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/verify-checkpoint.py
+@@ -541,7 +541,13 @@
+     assert value["original_donor"] == shape["original_donor"]
+     assert value["incorporated_base"] == xt01_accepted
+     assert value["requirements_ids"] == shape["requirements_ids"]
+-    assert value["original_scope_paths"] == shape_scope_paths and value["public_names"] == 90
++    assert value["original_scope_paths"] == shape_scope_paths
++    if axis_name == "Standards":
++        names = read(control / "provenance/tree-shape-receiving-statements90-20261105/inputs-before.json")["identity"]["program"]["names"]
++        assert len(names) == len(set(names)) == value["public_name_count"] == 90
++        assert value["public_names"] == names
++    else:
++        assert value["public_names"] == 90
+     assert value["outcome"].upper() in {"PASS", "PASSED"} and not value["unresolved_findings"]
+     for flag in ("full_original_scope_complete", "actual_public_types_complete", "full_validation_accepted", "review_complete"):
+         assert value[flag] is True, (axis_name, flag)

@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "reviewer": "integration_preservation",
+  "date": "2026-11-14",
+  "status": "passed_for_intermediate_packaging_scope",
+  "scope": "Independent bounded preservation and user-requirements review of the supplied checkpoint 002 pre-pack payload. This is not Lean acceptance, whole-integration completion review, or an observed durable-upload receipt.",
+  "candidate_identity": {
+    "inventory": "intake/002-review-inventory.json",
+    "inventory_sha256": "d17c2bbb2503712276128624d5b91a143f2b19344df31ae394b70e523bbb6714",
+    "policy_sha256": "0da93ceb362b34b12bb73cd239e2079f518f5bc8d787c82c21dd9173d944e30f",
+    "master_pin": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+    "source_bundle_bytes": 98881206,
+    "source_bundle_sha256_from_reviewed_inventory": "f0822206581deae9ca7d48a7326ee9391c273552f43f3aaaf5efce74e774fced",
+    "original001_manifest_sha256": "b906b1fb02054959d679f50b531f02e75ceeac6a4a818c8e0e964b443d95cfec"
+  },
+  "independence": "The reviewer authored prior preservation/donor analysis, retained byte-for-byte here as input, but did not author the operational instructions, policy amendment, checkpoint tool changes, or integration requirements reviewed in this pass. This review does not independently re-certify all mathematical conclusions in those prior reports.",
+  "checks": [
+    {
+      "concern": "Current user specification and workflow",
+      "result": "Passed",
+      "evidence": "README, AGENTS, common REQUIREMENTS/ISSUES/STATUS, RESUME, WORKFLOW, DURABILITY and CHECKPOINTS make library coherence the first priority, preserve useful mathematics, require actual pinned architecture/skills and current same-candidate review gates, and retain the explicit local tracking and optional-Nix exceptions. Native setup preserves exact compiler/dependency identities; historical kit guidance does not replace current checker requirements. INT-001 and the integration/validation/review issues remain open."
+    },
+    {
+      "concern": "Original mathematical and paper payload preservation",
+      "result": "Passed for the supplied inventory",
+      "evidence": "Read the original 001 manifest, policy, source catalog and three STATE files directly from the attached archive. All 10082 original payload paths remain in the supplied 10104-file inventory. No prior path changed outside the exact operational amendment set and the three STATE additions. Original book records, references and native-kit files retain their original manifest entries. No full payload rehash was repeated."
+    },
+    {
+      "concern": "Source history and acceptance status",
+      "result": "Passed",
+      "evidence": "All original 131 source refs retain exact objects and the old common base is unchanged. The only catalog addition is refs/checkpoint/integration/master-20261113 at the fixed master pin. Bundle headers advertise all 132 catalog refs without changes; the additional HEAD alias points to the preserved VFA candidate. All existing fields of each original book STATE are unchanged; only the integration field is added and explicitly disclaims accepted code integration."
+    },
+    {
+      "concern": "Bounded source import and anti-bloat contract",
+      "result": "Passed",
+      "evidence": "Read contract_update and pack. The amendment is restricted to 001 -> 002, bound to the actual recorded previous archive/manifest and exact new source bundle, and preserves all prior payload entries, source refs, mathematical frozen trees, native-kit and durability policy. Original four inherited archive exceptions are unchanged; precisely twelve identity-bound upstream exceptions are added, for sixteen total. Independently confirmed those twelve object IDs are reachable in the exact pinned master history. Only the compressed archive cap rises from 100 MiB to 128 MiB; normal file/object/total/growth limits are unchanged. The exceptional source increment is exactly 25,300,977 bytes; other inventory growth is 3,752,562 bytes. The normal successor path retains delivery and growth guards."
+    },
+    {
+      "concern": "Honest validation and durability claims",
+      "result": "Passed",
+      "evidence": "The recorded 20-test checkpoint-tool receipt matches the reviewed tool identities; no tests were rerun. Native compatibility/smoke/cache and pre-edit receipts are distinguished from formal integration acceptance. The packer reports completed:false and durable_uploaded:false until the separate observed upload. Wipe/missing-input recovery, explicit latest-archive request, verified self-contained recovery, owner-root create_library_file upload and prompt stop/report on upload uncertainty remain explicit and binding on all agents."
+    }
+  ],
+  "blockers": [],
+  "remaining_release_gates": [
+    "Coordinator must complete the actual bounded pack and deep recovery verification on the final immutable archive.",
+    "Coordinator must observe successful owner-root create_library_file upload, record the real returned identity and archive hash/size, and provide the actual saved file link before describing checkpoint 002 as complete or beginning another extended phase."
+  ],
+  "limitations": [
+    "This is a bounded metadata-and-contract review against the supplied inventory, not a repeated full reinventory, bundle hash check, restore rehearsal or regression run.",
+    "No mathematical source implementation or Lean compilation was performed by this reviewer.",
+    "Whole-scope cohesive integration, donor dispositions, mathematical equivalences, public coverage, full candidate validation and independent Standards/Spec acceptance remain separate pending work."
+  ]
+}

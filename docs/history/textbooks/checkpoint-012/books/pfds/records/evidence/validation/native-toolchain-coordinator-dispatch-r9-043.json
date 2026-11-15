@@ -1,0 +1,349 @@
+{
+  "artifact_validation_sha256": "a86be8c447403d0947e7542461471e47570b69e484e4464522c3a12661221ddc",
+  "base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "candidate": "ff3f709723e5c49e5ba40798abbed7d36141a6fb",
+  "checked_at": "2026-11-03T17:47:20.312624+00:00",
+  "commits": [
+    "ff3f709723e5c49e5ba40798abbed7d36141a6fb docs(toolchain): preserve modes in real Elan recovery snapshot (#10000)"
+  ],
+  "delta_from_approved_r7": [
+    "A\tsession/environment/RECOVER-ELAN-REGRESSIONS.md"
+  ],
+  "failures": [],
+  "files": {
+    "session/checkpoint.py": {
+      "approved_r7_tree": {
+        "blob": "3f9cceb2061fe0d5ddd9a4e569aa408db39e4588",
+        "mode": "100644"
+      },
+      "content_match": true,
+      "delivered_mode": "100644",
+      "isolated_mode": "100644",
+      "matches_r7_blob_mode": true,
+      "mode_match": true,
+      "sha256": "22928db23012fb28c9dee74b3af4998d18587ec91e728d0b2afcf647c6ac47ad",
+      "tree": {
+        "blob": "3f9cceb2061fe0d5ddd9a4e569aa408db39e4588",
+        "mode": "100644"
+      }
+    },
+    "session/environment/README-direct-toolchain.md": {
+      "approved_r7_tree": {
+        "blob": "03893228db93e54108788b5c12ac2144422d2aed",
+        "mode": "100644"
+      },
+      "content_match": true,
+      "delivered_mode": "100644",
+      "isolated_mode": "100644",
+      "matches_r7_blob_mode": true,
+      "mode_match": true,
+      "sha256": "f3acb7ba89c954019e6288bffc80c37fbc2e4f90523b1172efdd85dc19ee6734",
+      "tree": {
+        "blob": "03893228db93e54108788b5c12ac2144422d2aed",
+        "mode": "100644"
+      }
+    },
+    "session/environment/RECOVER-ELAN-REGRESSIONS.md": {
+      "content_match": true,
+      "delivered_mode": "100644",
+      "isolated_mode": "100644",
+      "mode_match": true,
+      "sha256": "b76abf471a5546faa191dd9d7dbf7639341b0028457a01c36494f54bd108d769",
+      "tree": {
+        "blob": "fc53d89f1dd97129cf942f75067a74720189d4ac",
+        "mode": "100644"
+      }
+    },
+    "session/environment/RECOVER-ENVIRONMENT.md": {
+      "approved_r7_tree": {
+        "blob": "912b62be4630dda6a39688336d93fea96de47486",
+        "mode": "100644"
+      },
+      "content_match": true,
+      "delivered_mode": "100644",
+      "isolated_mode": "100644",
+      "matches_r7_blob_mode": true,
+      "mode_match": true,
+      "sha256": "77f1707ac7ff61b4f3ad176d242c63997180be225549859a821b408ce0a9f68f",
+      "tree": {
+        "blob": "912b62be4630dda6a39688336d93fea96de47486",
+        "mode": "100644"
+      }
+    },
+    "session/environment/environment-route-comparison-042.md": {
+      "approved_r7_tree": {
+        "blob": "a17c00e849ae11f27a4678ca9835073a904525b7",
+        "mode": "100644"
+      },
+      "content_match": true,
+      "delivered_mode": "100644",
+      "isolated_mode": "100644",
+      "matches_r7_blob_mode": true,
+      "mode_match": true,
+      "sha256": "0cf565cd251662aa239a991e905c63b14f4c6de6ffc4808a9bbc96147fe7ba92",
+      "tree": {
+        "blob": "a17c00e849ae11f27a4678ca9835073a904525b7",
+        "mode": "100644"
+      }
+    },
+    "session/environment/make-direct-toolchain-profile.py": {
+      "approved_r7_tree": {
+        "blob": "218dac955a120df110820a6e068cb8204e258382",
+        "mode": "100644"
+      },
+      "content_match": true,
+      "delivered_mode": "100644",
+      "isolated_mode": "100644",
+      "matches_r7_blob_mode": true,
+      "mode_match": true,
+      "sha256": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb",
+      "tree": {
+        "blob": "218dac955a120df110820a6e068cb8204e258382",
+        "mode": "100644"
+      }
+    },
+    "session/environment/native-own-exe.c": {
+      "approved_r7_tree": {
+        "blob": "fd9ce3e61e07e8a5d40fb0dcb03645bcc3ef2d66",
+        "mode": "100644"
+      },
+      "content_match": true,
+      "delivered_mode": "100644",
+      "isolated_mode": "100644",
+      "matches_r7_blob_mode": true,
+      "mode_match": true,
+      "sha256": "479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842",
+      "tree": {
+        "blob": "fd9ce3e61e07e8a5d40fb0dcb03645bcc3ef2d66",
+        "mode": "100644"
+      }
+    },
+    "session/environment/native-readlink-fixture.c": {
+      "approved_r7_tree": {
+        "blob": "d8a6d1ac68381f0d34e5c875d3fa9c26f2fa2e29",
+        "mode": "100644"
+      },
+      "content_match": true,
+      "delivered_mode": "100644",
+      "isolated_mode": "100644",
+      "matches_r7_blob_mode": true,
+      "mode_match": true,
+      "sha256": "b5ee1645a2bd1ce54e3130560b759253d12c9f915ef7b252397c3db9230328ae",
+      "tree": {
+        "blob": "d8a6d1ac68381f0d34e5c875d3fa9c26f2fa2e29",
+        "mode": "100644"
+      }
+    },
+    "session/environment/run-direct-toolchain.py": {
+      "approved_r7_tree": {
+        "blob": "fddb9ccc0e16a990804f9e508ac3da5655ae9cba",
+        "mode": "100644"
+      },
+      "content_match": true,
+      "delivered_mode": "100644",
+      "isolated_mode": "100644",
+      "matches_r7_blob_mode": true,
+      "mode_match": true,
+      "sha256": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+      "tree": {
+        "blob": "fddb9ccc0e16a990804f9e508ac3da5655ae9cba",
+        "mode": "100644"
+      }
+    },
+    "session/environment/run-native-toolchain.py": {
+      "approved_r7_tree": {
+        "blob": "5c2dbcdf7ff4c070b23abc7b2bae5f28d8dda97e",
+        "mode": "100644"
+      },
+      "content_match": true,
+      "delivered_mode": "100644",
+      "isolated_mode": "100644",
+      "matches_r7_blob_mode": true,
+      "mode_match": true,
+      "sha256": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073",
+      "tree": {
+        "blob": "5c2dbcdf7ff4c070b23abc7b2bae5f28d8dda97e",
+        "mode": "100644"
+      }
+    },
+    "session/environment/test-direct-lake-build.py": {
+      "approved_r7_tree": {
+        "blob": "aa453187512bb94e1d684371f73f06b56e26b670",
+        "mode": "100644"
+      },
+      "content_match": true,
+      "delivered_mode": "100644",
+      "isolated_mode": "100644",
+      "matches_r7_blob_mode": true,
+      "mode_match": true,
+      "sha256": "3e364791c25cfce02c15887b1ae040a1a18315ab5189ff393d5fb2ff9bd239cf",
+      "tree": {
+        "blob": "aa453187512bb94e1d684371f73f06b56e26b670",
+        "mode": "100644"
+      }
+    },
+    "session/environment/test-direct-toolchain.py": {
+      "approved_r7_tree": {
+        "blob": "f56240defe3eb44fc83848af9977ccbf65c80ce7",
+        "mode": "100644"
+      },
+      "content_match": true,
+      "delivered_mode": "100644",
+      "isolated_mode": "100644",
+      "matches_r7_blob_mode": true,
+      "mode_match": true,
+      "sha256": "028e625c2870bafa2668269f981202d76c6509256ca1822e4ab926b3f2526330",
+      "tree": {
+        "blob": "f56240defe3eb44fc83848af9977ccbf65c80ce7",
+        "mode": "100644"
+      }
+    },
+    "session/environment/test-native-own-exe.c": {
+      "approved_r7_tree": {
+        "blob": "b7a905a0d20e40474f84b60942570ebcf0f6dd7b",
+        "mode": "100644"
+      },
+      "content_match": true,
+      "delivered_mode": "100644",
+      "isolated_mode": "100644",
+      "matches_r7_blob_mode": true,
+      "mode_match": true,
+      "sha256": "f26208e4ea0b08349bc99fcb60b15f693fa413c3fbdfcf3649d649de8c748c0b",
+      "tree": {
+        "blob": "b7a905a0d20e40474f84b60942570ebcf0f6dd7b",
+        "mode": "100644"
+      }
+    },
+    "session/environment/test-native-own-exe.py": {
+      "approved_r7_tree": {
+        "blob": "520a36cc353e03c7fdfa9de0128af995baef0fe2",
+        "mode": "100644"
+      },
+      "content_match": true,
+      "delivered_mode": "100644",
+      "isolated_mode": "100644",
+      "matches_r7_blob_mode": true,
+      "mode_match": true,
+      "sha256": "da5856cb97b1e5a9b86303ee576f3f9dc889e5e5fcf0377d7c6d95e22a872c10",
+      "tree": {
+        "blob": "520a36cc353e03c7fdfa9de0128af995baef0fe2",
+        "mode": "100644"
+      }
+    },
+    "session/validation/direct-validation-runner-notes.md": {
+      "approved_r7_tree": {
+        "blob": "29550f1ccc75fec7dbcb5b0dcda52c2fac97d823",
+        "mode": "100644"
+      },
+      "content_match": true,
+      "delivered_mode": "100644",
+      "isolated_mode": "100644",
+      "matches_r7_blob_mode": true,
+      "mode_match": true,
+      "sha256": "933745db696b993eda5bd8d5470a7b72b5738659658c709fa98705ceb35bdd4e",
+      "tree": {
+        "blob": "29550f1ccc75fec7dbcb5b0dcda52c2fac97d823",
+        "mode": "100644"
+      }
+    },
+    "session/validation/run-direct-validation.py": {
+      "approved_r7_tree": {
+        "blob": "45fde27e09f2db4d7ec1155c613c3ae3e53ee340",
+        "mode": "100644"
+      },
+      "content_match": true,
+      "delivered_mode": "100644",
+      "isolated_mode": "100644",
+      "matches_r7_blob_mode": true,
+      "mode_match": true,
+      "sha256": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b",
+      "tree": {
+        "blob": "45fde27e09f2db4d7ec1155c613c3ae3e53ee340",
+        "mode": "100644"
+      }
+    },
+    "session/validation/run-native-validation.py": {
+      "approved_r7_tree": {
+        "blob": "7ea0b40e8ebdf8b3bd6d6ea39be05bb2b9db12db",
+        "mode": "100755"
+      },
+      "content_match": true,
+      "delivered_mode": "100755",
+      "isolated_mode": "100755",
+      "matches_r7_blob_mode": true,
+      "mode_match": true,
+      "sha256": "62bea076842d766d0ea96c4bf5b14d28b18484689e996f343c5e9ecb9ae04918",
+      "tree": {
+        "blob": "7ea0b40e8ebdf8b3bd6d6ea39be05bb2b9db12db",
+        "mode": "100755"
+      }
+    },
+    "session/validation/test-direct-validation.py": {
+      "approved_r7_tree": {
+        "blob": "b18f95551ee3b0a1761e5a32ffb06d367cb60444",
+        "mode": "100644"
+      },
+      "content_match": true,
+      "delivered_mode": "100644",
+      "isolated_mode": "100644",
+      "matches_r7_blob_mode": true,
+      "mode_match": true,
+      "sha256": "a77b7f3f962c45fbe8affe4999615b3721975cc3c858713c9ef027b6aecf5435",
+      "tree": {
+        "blob": "b18f95551ee3b0a1761e5a32ffb06d367cb60444",
+        "mode": "100644"
+      }
+    },
+    "session/validation/test-native-validation.py": {
+      "approved_r7_tree": {
+        "blob": "d08975e241b8c84d7abd8ea3b7dca2a1c5a975b4",
+        "mode": "100755"
+      },
+      "content_match": true,
+      "delivered_mode": "100755",
+      "isolated_mode": "100755",
+      "matches_r7_blob_mode": true,
+      "mode_match": true,
+      "sha256": "678f953340f920b0ea9a9c7d61ddfba1320b2688aa822df567afad15beb75855",
+      "tree": {
+        "blob": "d08975e241b8c84d7abd8ea3b7dca2a1c5a975b4",
+        "mode": "100755"
+      }
+    }
+  },
+  "formal_acceptance": false,
+  "full_diff": "19 files changed, 3456 insertions(+)",
+  "head": "ff3f709723e5c49e5ba40798abbed7d36141a6fb",
+  "manifest_sha256": "af74d3d1ab35c9a26dd1034bf223d2479232d6e82732c05ac72b701c7f0e09ec",
+  "merge_base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "porcelain": "",
+  "ref": "ff3f709723e5c49e5ba40798abbed7d36141a6fb",
+  "requirements": {
+    "session/environment/direct-toolchain-implementation-scope-041.md": {
+      "match": true,
+      "sha256": "05c125ee129eafc8f45f9367be16259c3239c7b3945c32f62effba1f1b4c922c"
+    },
+    "session/requirements/REQUEST-direct-toolchain-041.md": {
+      "match": true,
+      "sha256": "16845edec15c311e0cfd5ed5d4f5c4feb61e7ad96545653d5b872309d26464bc"
+    },
+    "session/requirements/REQUEST-environment-handoff-042.md": {
+      "match": true,
+      "sha256": "200789123c60ae137967f881207194412eecea72ba2fc80247978075bd6a4602"
+    },
+    "session/requirements/REQUEST-native-toolchain-042.md": {
+      "match": true,
+      "sha256": "d76dc8dcf771a227779628de91e75c4b63a2898b95e7b30035de83537dae5195"
+    },
+    "session/requirements/REQUEST-union-v2.md": {
+      "match": true,
+      "sha256": "3336bed1154438b3683aeb5a1c63fee44e87aff190f5ff69e34705a780b9d22c"
+    },
+    "session/requirements/REQUEST.md": {
+      "match": true,
+      "sha256": "b847f23fcce44837f5b1ead01aae43ac5ed626ffd32aab84055dd664e339e499"
+    }
+  },
+  "schema": 1,
+  "scope": "Read-only coordinator dispatch identity; no substantive third review or execution tests"
+}

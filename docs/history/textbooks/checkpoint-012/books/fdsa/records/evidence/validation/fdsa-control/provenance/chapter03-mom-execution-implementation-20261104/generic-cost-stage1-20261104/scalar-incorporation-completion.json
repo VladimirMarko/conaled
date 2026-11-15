@@ -1,0 +1,57 @@
+{
+  "recorded_utc": "2026-11-04T21:32:42.110276+00:00",
+  "copy_commit": "296780b789766c74ec332846ccaefdc9fb8dafcb",
+  "tree": "793768717d1a1356a58c7a7bc4a9e1181255437c",
+  "parent": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+  "status": "clean",
+  "actual_commit_terminal": "dff9fe exit0",
+  "preparation_and_staged_check": "4e54b5 exit0",
+  "exact_copied_source_blobs": [
+    {
+      "relative_path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "origin_commit": "736857e20c4004af1a9c0c6f77387c690517dd02",
+      "origin_git_blob": "afa3500a13705fe4d49cffd91131b47dbdf81701",
+      "bytes": 11646,
+      "sha256": "0dc225b3009a612bea521813fda96789629fc486201cd9998bd6a72d6fdb9eed"
+    },
+    {
+      "relative_path": "Examples/GroupSelectionRecurrence.lean",
+      "origin_commit": "736857e20c4004af1a9c0c6f77387c690517dd02",
+      "origin_git_blob": "3682e00b8f41da11acea2a1e4dee83952cff7085",
+      "bytes": 5638,
+      "sha256": "bfcb81cf7de89516487aedf12fc223df534fa9ca2a4a964edb872023c45beba3"
+    },
+    {
+      "relative_path": "Applications/Resources/SelectionEnvelope.lean",
+      "origin_commit": "736857e20c4004af1a9c0c6f77387c690517dd02",
+      "origin_git_blob": "789110426092d67b85933493ca48296ff0f526c3",
+      "bytes": 3159,
+      "sha256": "e4d1ca2054a7509a082340448b77f95a56380c8abab41da46b3b817fb8dab754"
+    },
+    {
+      "relative_path": "Examples/SelectionEnvelope.lean",
+      "origin_commit": "736857e20c4004af1a9c0c6f77387c690517dd02",
+      "origin_git_blob": "5cfa0d77048a6a801fb2cabf157f1199f92ac693",
+      "bytes": 1856,
+      "sha256": "02fedd2ffe6def3a5f6794fa90c01cdd90d982276b089aa488247b116c4eb3dd"
+    }
+  ],
+  "all_27_prior_sources_and_112_prior_own_records_preserved": true,
+  "original_scalar_public_scope": {
+    "GroupSelectionRecurrence": 43,
+    "SelectionEnvelope": 20,
+    "definitions": 9,
+    "theorems": 54,
+    "private_source_names": 0
+  },
+  "no_other_origin_content_copied": true,
+  "new_local_compiler_credit": false,
+  "source_assessment_complete_reads": [
+    "65698f Group core",
+    "0d0b28 Group examples",
+    "2f540d Envelope core",
+    "ac84e3 Envelope examples",
+    "43b624 all43Group headers/domains/assessment andcorrectedcandidate",
+    "d3d509 all20Envelope headers/domains/assessment andcorrection"
+  ]
+}

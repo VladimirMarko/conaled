@@ -1,0 +1,47 @@
+{
+  "recorded_utc": "2026-11-04T18:30:34.341794+00:00",
+  "candidate": "a5341e132c63aa8c9e8af13e24b441b42de2fe27",
+  "candidate_tree": "34b91493006f7310583166d9cbe2d8da8407ae14",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "qualified_worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+  "previous_branch": "work/fdsa-chapter02-integration",
+  "sources": [
+    {
+      "path": "Applications/Selection/CountRank.lean",
+      "bytes": 12910,
+      "sha256": "27efd392d5f1489fee9f83ff51e519b92a0239121dec9a1de24fbf74a1e2a73a"
+    },
+    {
+      "path": "Examples/SelectionCountRank.lean",
+      "bytes": 4407,
+      "sha256": "d9116f0c8766d85c23ec4c0f7a728aef6ec98e701967da0fc1e4059aa465986d"
+    }
+  ],
+  "source_scope_only": true,
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 382504960
+  },
+  "operation": "Reuse already-qualified installed runtime/cache for two focused project modules; no installation or hydration and no guard change. Preserve accepted Q branch and every original ref.",
+  "execution_profile": "unchanged official4.35.0 / kit1.0.0 / disclosed narrow adapter / ninepins / one Lean thread; root sole compiler owner",
+  "prior_verification_is_for_Q_not_this_candidate": {
+    "format": 1,
+    "result": "passed",
+    "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+    "dependencies": {
+      "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "plausible": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "LeanSearchClient": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "importGraph": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "proofwidgets": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "aesop": "4a174c490d8707121c4a9290800489f105d85e07",
+      "Qq": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "batteries": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "Cli": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+    },
+    "compiler": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+    "mode": "incremental",
+    "completed_at": "2026-11-04T17:21:56.023898+00:00"
+  },
+  "no_full_acceptance_claim": true
+}

@@ -1,0 +1,29 @@
+{
+  "recorded_utc": "2026-11-04T05:59:38.541021+00:00",
+  "author_parent": "080e2f63ad4ef56dd18a5889d14dcf8c9100f049",
+  "author_worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot",
+  "author_status_before": "",
+  "central_candidate": "5d7a479549f5acd64a9e5adb418ab48780c238ef",
+  "central_actual_exit": 1,
+  "central_elapsed_seconds": 290.0513030030015,
+  "central_final_head": "5d7a479549f5acd64a9e5adb418ab48780c238ef",
+  "central_final_status": "",
+  "central_log_bytes": 17330,
+  "central_log_sha256": "6ff459c43eade60da3fc4a15edd26da81c71ae5767be9b1a73253f0a29faad76",
+  "source_hashes_identical_to_central": {
+    "Applications/Resources/RandomQuickSort.lean": "cea8489bba66981f2909b88f8d20801c4889d8e9b3fef2caaccd3f948fdb30d7",
+    "Examples/RandomQuickSort.lean": "294e5b8f77e063b6e30f876b6203f74a6ff346d6c1e674e1d450bcdc3bb1675e"
+  },
+  "diagnostics": [
+    "Fin (0+1) Subsingleton instance synthesis in uniformIndex_zero",
+    "Bool event proof uses rfl across different proposition deciders",
+    "local pivot/rest lets prevent rewriting actual child support in costs_of_all_false",
+    "empty-list length is not reduced for final append polynomial arithmetic",
+    "unused termination hint is downstream of failed recursive proof elaboration"
+  ],
+  "example_outcome": "Ran after core failure; not a successful checked example module",
+  "authorized_scope": "Proof elaboration only; preserve definitions, theorem statements, hypotheses, examples and expected cases",
+  "local_compilation_started": false,
+  "cache_writes": false,
+  "full_scope_review_and_acceptance_pending": true
+}

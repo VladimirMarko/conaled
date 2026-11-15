@@ -1,0 +1,32 @@
+{
+  "candidate": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-uniqueness-statement-source-20261104/Statements.lean"
+  ],
+  "started_utc": "2026-11-04T07:02:59.717486+00:00",
+  "completed_utc": "2026-11-04T07:03:16.205302+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 16.487604625999666,
+  "state": "passed",
+  "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-uniqueness-types-20261104/full.log",
+  "progress_bookkeeping_errors": [],
+  "final_head": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+  "final_status": "",
+  "log_size_bytes": 6817,
+  "log_sha256": "11b58acd78c4f7b77bf4fbdb8bd7e4ca48378dcb2fab8c32d91fd0e4ccebda3f",
+  "available_bytes_at_completion": 19376406528,
+  "verification_record_present": false
+}

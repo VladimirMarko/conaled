@@ -1,0 +1,72 @@
+{
+  "recorded_utc": "2026-11-04T23:13:48.113779+00:00",
+  "author": "/root/chapter03_path_mass_support",
+  "state": "HELD: all own report/provenance writes stopped pending explicit parent assignment",
+  "authorization": "Report-only preservation in this newly created directory within existing Chapter3 loop",
+  "directory": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-path-mass-support-20261104",
+  "artifacts": {
+    "report.md": {
+      "bytes": 19988,
+      "sha256": "e67b74210c83368b6a0de837048fa5d8f9b481e7ed62ca0577d75cb2fea572bf"
+    },
+    "source-bindings.json": {
+      "bytes": 13285,
+      "sha256": "c4c88b0086aa11e03d092d100ad230455773591961b209df27ede7807b11f53f"
+    }
+  },
+  "full_report_readback": [
+    {
+      "tool_chunk": "d062bb",
+      "actual_exit": 0,
+      "lines": "1\u2013240",
+      "output_complete": true
+    },
+    {
+      "tool_chunk": "b8c8d4",
+      "actual_exit": 0,
+      "lines": "241\u2013478",
+      "output_complete": true
+    }
+  ],
+  "actual_file_creation": {
+    "tool_chunk": "d13fb8",
+    "actual_exit": 0
+  },
+  "source_binding_preflight": {
+    "tool_chunk": "601cfe",
+    "actual_exit": 0
+  },
+  "full_endpoint_delta_read": {
+    "tool_chunk": "648d10",
+    "actual_exit": 0
+  },
+  "report_lines": 478,
+  "complete_code_fences": 22,
+  "repository_blob_bindings_rechecked": 12,
+  "pinned_dependency_file_bindings_rechecked": 7,
+  "canonical_obligation_hash_rechecked": true,
+  "bound_immutable_candidate": "56b46dc955c44057afc366359e4f6f28cfad6330",
+  "bound_run_blob": "4af2a079ad55005657eeac2eaf4d3dd2a3a3ac11",
+  "mathlib_pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "mathlib_tracked_status": "",
+  "all_suggestions_uncompiled": true,
+  "actual_compiler_runs": false,
+  "source_or_ref_mutations": false,
+  "independent_review_or_acceptance_credit": false,
+  "global_writer_hold_not_claimed": true,
+  "historical_spellings_and_immediate_refinements_preserved": true,
+  "scope_boundaries_preserved": [
+    "Fixed initial worker state",
+    "Actual supported complete outcome for trace atom bridge",
+    "Every distinct input and valid rank retained for main endpoint goal",
+    "Actual PMF.map trace projection only"
+  ],
+  "no_writes_outside_authorized_directory": true,
+  "recorder_orchestration_correction": {
+    "initial_attempt": "functions.exec JavaScript parse failed: SyntaxError Invalid or unexpected token",
+    "cause": "Literal triple Markdown backticks inside the JavaScript raw-template recorder source",
+    "before_any_nested_exec_or_filesystem_action": true,
+    "correction": "Use Python chr(96)*3 for the fence-count literal",
+    "formal_source_or_validation_effect": false
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "recorded_utc": "2026-11-02T21:57:10.173584+00:00",
+  "phase": "completed",
+  "prior_attempt": "Receipt and tracking writes succeeded. Initial removal preparation then raised KeyError checkpoint while scanning legacy ledger formats, before any archive selection or removal. Use optional-key lookup without altering old entries.",
+  "reason": "Concrete ongoing storage recovery after prior ENOSPC; only older saved local archive copies are selected.",
+  "free_bytes_before": 390729728,
+  "retained_latest": [
+    "conaled-fdsa-0053-ordinary-merge-draft",
+    "conaled-fdsa-0054-chapter01-session-recovery"
+  ],
+  "protected": "Reappeared0001, all source/refs/history, compiler/dependency outputs and unrelated main historical zip unchanged.",
+  "selected": [
+    {
+      "path": "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0051-priority-queue-draft.tar.gz",
+      "bytes": 74015006,
+      "allocated_bytes": 74027008,
+      "sha256": "bfa60088a749fd610256a5b4d953be54fc2e36ab96244a810cace45081a5bcf5",
+      "successful_library_file_id": "libfile_75cece5073888191a8250103a888c321",
+      "removed": true
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0052-ordinary-merge-start.tar.gz",
+      "bytes": 74085235,
+      "allocated_bytes": 74096640,
+      "sha256": "6ab01d54be59701638a65f87d11ba7f8dfcf1317cd7e8ad3fc6cbeaad8108efe",
+      "successful_library_file_id": "libfile_bd994bf8883c81918ed830e10070f18d",
+      "removed": true
+    }
+  ],
+  "free_bytes_after": 538849280
+}

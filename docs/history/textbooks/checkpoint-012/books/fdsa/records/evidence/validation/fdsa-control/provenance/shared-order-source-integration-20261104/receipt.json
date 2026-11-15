@@ -1,0 +1,265 @@
+{
+  "schema": 1,
+  "completed_utc": "2026-11-04T15:14:24.185458+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "status": "COMPLETE AUTHOR SOURCE INTEGRATION HANDOFF; SOURCE AND PROVENANCE HELD",
+  "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "tree": "fc0af937b0b323d5216b3d7533af52edc70ea411",
+  "review_base": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "ordered_parents": [
+    "312aafb4446b995ff5542041b4e2e074f776db1e",
+    "bdac9703aab4b383fa775568d36bf685af329389"
+  ],
+  "branch": "work/fdsa-order-integration",
+  "source_status": "clean",
+  "compiler_or_acceptance_credit": false,
+  "receiving_validation": "Not run by this author. Root owns subsequent matching type/input/full-check/audit evidence, both independent full-scope final axes and immediate verification.",
+  "actual_command_exits": {
+    "branch-create": 0,
+    "normal-merge": 0,
+    "stage-declared-scope": 0,
+    "staged-diff-check": 0,
+    "worktree-index-match": 0,
+    "commit-command": 0
+  },
+  "merge_conflicts": [],
+  "source_preservation": {
+    "exact_six_path_I_diff": true,
+    "all_three_defining_Order_blobs_exact_O": true,
+    "all_three_Minimum_blobs_exact_I": true,
+    "all_I_tracked_paths_outside_scope_unchanged": true,
+    "all64_original_refs_preserved_at_source_handoff": true,
+    "new_branch_only": true,
+    "new_worktree_or_cache_copy": false,
+    "old_I_verification_unchanged_at_source_handoff": true,
+    "old_I_verification_no_successor_credit": true
+  },
+  "author_readback": {
+    "complete_source_diff": {
+      "lines": 858,
+      "ranges_inclusive": [
+        [
+          1,
+          220
+        ],
+        [
+          221,
+          440
+        ],
+        [
+          441,
+          660
+        ],
+        [
+          661,
+          858
+        ]
+      ],
+      "sha256": "eb219a1f61489fafe7cf3615bac5f27274d8aab9410b9d117c9516f56d3d2353"
+    },
+    "handoff": {
+      "lines": 83,
+      "full_untruncated_read": true,
+      "final_prose_clarification": "Removed ambiguous dependency/source wording to say dependency checkout, and spaced Chapter 1 / standalone 53-name; no source or mathematical statement changed."
+    },
+    "result_json": {
+      "lines": 99,
+      "full_untruncated_read": true
+    },
+    "previous_independent_reviews_replaced": false,
+    "new_independent_review_claim": false
+  },
+  "retained_finding_scope": [
+    "XU02-SP01",
+    "XU02-SRC-001",
+    "XU02-ELAB-001–014",
+    "C02-DOC-003 receiving application",
+    "C02-TYPE-001 historically resolved only at Z"
+  ],
+  "protected_existing_records": "Held readiness, original frozen scope/source records, accepted-I durability and original public-note proposal were rehashed unchanged. Global controls/tickets/reviews were not written by this author.",
+  "source_and_runtime_boundary": "No compiler/Lake/cache hydration, output mutation, dependency checkout, runtime/profile/pin change, process polling, GitHub mutation or push. Source only in the declared six paths through ordinary recorded merge.",
+  "payload_count": 30,
+  "payload_manifest": [
+    {
+      "path": "Order-note.before.md",
+      "bytes": 8851,
+      "lines": 166,
+      "sha256": "39fd16835dccd39c9d34ebfcebbdbdd33f44ec1dad49fdfe582a8ac4801faea3"
+    },
+    {
+      "path": "author-source-readback-before-commit.json",
+      "bytes": 1357,
+      "lines": 37,
+      "sha256": "62d0bd6c4d27cf6cb65a20cbbe3d4c01949620d94109af57581d749eb355af71"
+    },
+    {
+      "path": "automatic-merge.diff",
+      "bytes": 40117,
+      "lines": 848,
+      "sha256": "4569b501b6f81046abfb762d00d88adaba1070cbcc2788b5c64c4241f6641261"
+    },
+    {
+      "path": "branch-create.json",
+      "bytes": 694,
+      "lines": 26,
+      "sha256": "e5025ff389328157395cc1a5253eda68dd23d11f007b2195b2e474d9e8d00a4d"
+    },
+    {
+      "path": "branch-create.log",
+      "bytes": 55,
+      "lines": 1,
+      "sha256": "fb808a7b61a1c594be9fc2682e5f12d3f9aa94c475fea5e0a7f05e593b52e3e0"
+    },
+    {
+      "path": "commit-command.json",
+      "bytes": 727,
+      "lines": 25,
+      "sha256": "27592f23449f8f5473a7e2f2a49e356825d2350b6005ddd65411e9ac191cbc0a"
+    },
+    {
+      "path": "commit-identity.txt",
+      "bytes": 288,
+      "lines": 6,
+      "sha256": "dae1b97e221269dd9eb39db177cb97d491f30bb57e0feac2b025dcaeaae07aae"
+    },
+    {
+      "path": "commit.log",
+      "bytes": 104,
+      "lines": 1,
+      "sha256": "0de9c513c74900b5a7ae7836676e778d3fe5ef66b3d2184a795834766377b48f"
+    },
+    {
+      "path": "documentary-reconciliation.json",
+      "bytes": 4152,
+      "lines": 76,
+      "sha256": "21eee165becb0a0b97d6da49ac14c0aa78aadf45b3329598a810f60313eeea16"
+    },
+    {
+      "path": "handoff.md",
+      "bytes": 13787,
+      "lines": 83,
+      "sha256": "85ea9bcaaa8fb5f0fe32805ad3695e4b711e56a6ad9a4d7ec39d3d18d8dfc594"
+    },
+    {
+      "path": "merge-observation.json",
+      "bytes": 546,
+      "lines": 10,
+      "sha256": "105e3d797e50a1ce359cbe7ce643e90f17e51608d503f631cc130957ff3e6967"
+    },
+    {
+      "path": "merge-status.txt",
+      "bytes": 240,
+      "lines": 6,
+      "sha256": "e862b273b2704e19fd00ffeb4d646a4d88ca3196a1ecbaa647ea40400302085d"
+    },
+    {
+      "path": "merge-unmerged-index.txt",
+      "bytes": 0,
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "normal-merge.json",
+      "bytes": 807,
+      "lines": 28,
+      "sha256": "6dc27f51fbd00d3055595a7080f263ca90b227ae399d8be58ef2171089632f1a"
+    },
+    {
+      "path": "normal-merge.log",
+      "bytes": 157,
+      "lines": 3,
+      "sha256": "421d03788e19c41180932c9a4878ffde644ca5a55dc6815dd5960c0040386f84"
+    },
+    {
+      "path": "precommit.json",
+      "bytes": 3820,
+      "lines": 89,
+      "sha256": "db2ad48247cb766a4c261910b1e4a5680aaa75de3e443cf64c3c3c55fe1d17f5"
+    },
+    {
+      "path": "reconstruction-map.automatic-before.md",
+      "bytes": 40223,
+      "lines": 613,
+      "sha256": "75c28efa5ca561e4a9ce34fecb637a71e480f574b3993ef44692ba4c5aee35ac"
+    },
+    {
+      "path": "refs-after.txt",
+      "bytes": 5219,
+      "lines": 65,
+      "sha256": "782e95963fae35e43a39b8ab7a30de165df929faa9a2a4bb398cf5ececfa8f38"
+    },
+    {
+      "path": "refs-before.txt",
+      "bytes": 5139,
+      "lines": 64,
+      "sha256": "cfc2623b4952023a576138fdd4b2b55fea64ec20ead3b95dc7d2bb3efd3dc48a"
+    },
+    {
+      "path": "result.json",
+      "bytes": 3922,
+      "lines": 99,
+      "sha256": "d09b2836192bf49fa57f4ecce046e571ed1a94cd6ada1e47b5ad7dcddbc09244"
+    },
+    {
+      "path": "source.diff",
+      "bytes": 40710,
+      "lines": 858,
+      "sha256": "eb219a1f61489fafe7cf3615bac5f27274d8aab9410b9d117c9516f56d3d2353"
+    },
+    {
+      "path": "stage-declared-scope.json",
+      "bytes": 737,
+      "lines": 25,
+      "sha256": "14e46f65ace143c6544d2ffd5c6b170bded99c21145c80d0daa891e821967af9"
+    },
+    {
+      "path": "stage-declared-scope.log",
+      "bytes": 0,
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "staged-diff-check.json",
+      "bytes": 492,
+      "lines": 20,
+      "sha256": "f06feecffc8b33c936c70f2e2026473eb4833c1434e332a46aa1a72fdd23c3ad"
+    },
+    {
+      "path": "staged-diff-check.log",
+      "bytes": 0,
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "start.json",
+      "bytes": 6512,
+      "lines": 196,
+      "sha256": "9add7edc2046bb1fd17fa8f6000243996bfe1919453908e55079e7c0241bf581"
+    },
+    {
+      "path": "worktree-index-match.json",
+      "bytes": 483,
+      "lines": 19,
+      "sha256": "fe65e6553e21fd7857ca544e6de6b40437bbf03f2abb473e843f6e94e967020e"
+    },
+    {
+      "path": "worktree-index-match.log",
+      "bytes": 0,
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "worktrees-after.txt",
+      "bytes": 2739,
+      "lines": 60,
+      "sha256": "d344f0c3a664e4e268722d25c3d74dd1a7c0a014718714822d304a9672adb561"
+    },
+    {
+      "path": "worktrees-before.txt",
+      "bytes": 2745,
+      "lines": 60,
+      "sha256": "bdcfff0e77227f6e9226a547f5f237b82e390dc241277414c3cad7304878919d"
+    }
+  ],
+  "hold": "All source and this entire new provenance package held after final receipt readback; do not modify older packages."
+}

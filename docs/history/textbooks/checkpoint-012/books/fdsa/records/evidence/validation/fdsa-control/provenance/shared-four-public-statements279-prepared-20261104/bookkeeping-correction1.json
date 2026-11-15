@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-04T12:02:07.605992+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "kind": "Bounded bookkeeping clarification before checkpoint0102; no source or program change",
+  "finding": "Two copied retained-segment dispositions carried historical no-new-type-run wording into the new279 preparation without a historical label.",
+  "correction": "Keep the exact wording under historical_Z_disposition; explicitly include all27 names in the future prepared279 run without execution/reuse/acceptance credit.",
+  "historical_origin": {
+    "original_source_accounting": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/public-type-accounting.json",
+      "bytes": 1070441,
+      "lines": 28039,
+      "sha256": "a67cdd001115164b268d0c8d2b2a2dc2c6d95d46970a02bb17a324edb146e556"
+    },
+    "original_source_accounting_candidate": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+    "later_Z_reference": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "historical_originals_modified": false
+  },
+  "changed_entries": [
+    {
+      "source": "Applications/Sorting/Merge.lean",
+      "names": 8,
+      "old_disposition": "Exact accepted-base source retained; no new type run requested.",
+      "historical_Z_disposition": "Exact accepted-base source retained; no new type run requested.",
+      "historical_source_accounting_candidate": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+      "new_current_disposition": "Exact accepted-R source segment retained; all listed names are included in the future prepared 279-name run. No execution, future reuse or new acceptance credit."
+    },
+    {
+      "source": "Applications/Selection/ThreeWay.lean",
+      "names": 19,
+      "old_disposition": "Exact accepted-base source retained; no new type run requested.",
+      "historical_Z_disposition": "Exact accepted-base source retained; no new type run requested.",
+      "historical_source_accounting_candidate": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+      "new_current_disposition": "Exact accepted-R source segment retained; all listed names are included in the future prepared 279-name run. No execution, future reuse or new acceptance credit."
+    }
+  ],
+  "original_package_identities": {
+    "preparation.md": {
+      "path": "provenance/shared-four-public-statements279-prepared-20261104/preparation.md",
+      "bytes": 9069,
+      "lines": 56,
+      "sha256": "2633d3a79e331f3958cba5cfd6631959adfd55371575c6f709db65acaca0e3c0"
+    },
+    "Statements.lean": {
+      "path": "provenance/shared-four-public-statements279-prepared-20261104/Statements.lean",
+      "bytes": 15990,
+      "lines": 332,
+      "sha256": "6fb956bd7423cdb8d04e94fa544920907bdb3df291822d5ab1dfbd8fa5cc2925"
+    },
+    "receipt.json": {
+      "path": "provenance/shared-four-public-statements279-prepared-20261104/receipt.json",
+      "bytes": 4997,
+      "lines": 108,
+      "sha256": "c1f244d8fa5f37282d5dce61adedcedfde20c896e5ea3a723775b0cee30b3349"
+    },
+    "inventory.json": {
+      "path": "provenance/shared-four-public-statements279-prepared-20261104/inventory.json",
+      "bytes": 218043,
+      "lines": 5601,
+      "sha256": "d4260881b6afa369f2b76e51d4a3f909cbcbada5dbf188e36428ed0e60c59405"
+    },
+    "source-and-evidence.json": {
+      "path": "provenance/shared-four-public-statements279-prepared-20261104/source-and-evidence.json",
+      "bytes": 64448,
+      "lines": 1661,
+      "sha256": "af4bb9f50ec49d5b049ac96a5b2d26535f827b8ef8d703bb96ee75dd1826ff33"
+    }
+  },
+  "corrected_inventory": {
+    "path": "provenance/shared-four-public-statements279-prepared-20261104/inventory.json",
+    "bytes": 218625,
+    "lines": 5605,
+    "sha256": "4c03ab11c546ce7e5950abe6af1ab636763a4fa0ffc195f8effd8767d5d8367b"
+  },
+  "analogous_field_check": {
+    "declarations_current_Z_disposition": "Explicitly labeled fixed-Z historical review status; not a future candidate disposition.",
+    "source_and_evidence_historical_run_candidates": "Explicit historical-run containers; future_candidate remains null.",
+    "units_original_path_identities_central_bytes_equal": "Retained inside original_path_identities from the dated scope declaration; not a new statement about the retired central worktree.",
+    "retained_segments_current_blob": "Bound to each explicit immutable source_tip; current_candidate stays null and gives no candidate approval.",
+    "other_unlabeled_no_new_type_run_claims": "None in package current-status fields after this correction."
+  },
+  "invariants": {
+    "program_bytes_unchanged": true,
+    "all279_names_and_order_unchanged": true,
+    "source_headers_blobs_and_closures_unchanged": true,
+    "historical_evidence_unchanged": true,
+    "candidate_null": true,
+    "new_type_credit": 0,
+    "new_acceptance": false
+  },
+  "author_readback": "Both complete before/after segment entries read. Reconstruction by removing the two added historical fields and restoring disposition equals the original inventory JSON; no other inventory field changed."
+}

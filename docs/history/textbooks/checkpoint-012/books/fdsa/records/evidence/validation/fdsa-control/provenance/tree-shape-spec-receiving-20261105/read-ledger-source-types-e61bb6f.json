@@ -1,0 +1,230 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-05T03:37:10.050133+00:00",
+  "unit": "FDSA-XT02",
+  "axis": "Spec",
+  "reviewer": "/root/tree_cache_spec",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "incorporated_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "requirements_ids": [
+    "XT02-01",
+    "XT02-02",
+    "XT02-03",
+    "XT02-04",
+    "XT02-05"
+  ],
+  "original_scope_paths": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-shape.md"
+  ],
+  "public_names": 90,
+  "outcome": "Blocked",
+  "unresolved_findings": [],
+  "full_original_scope_complete": true,
+  "actual_public_types_complete": true,
+  "full_validation_accepted": false,
+  "review_complete": false,
+  "prior_complete_original_source_read_ledger": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/read-ledger-source-27c5908.json",
+    "bytes": 7396,
+    "sha256": "57c915ac255f980e2a8b56706adf748328777334c1c49a46f4e6e04e0d139f8f"
+  },
+  "retained_prior_source_stage_hold": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-stage-write-hold-27c5908.json",
+    "bytes": 6913,
+    "sha256": "a6649df6cd66a77dc1fd08ae1a7d7353a3f775b98a378949eecf06a50648bd8e"
+  },
+  "prior_canonical_report_hash_retained_in_snapshot": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-stage-report-27c5908.md",
+    "bytes": 16346,
+    "sha256": "a4b6e6b2a666f7fc0848af2dfb906b3726afacf1e1592202f048e213f38e80cd"
+  },
+  "current_report": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-shape-spec-receiving-20261105.md",
+    "bytes": 23134,
+    "sha256": "24d3040036ac3ba50614365cc564f0844d6466082a93d1cc29bf8d2e78f51a96"
+  },
+  "current_report_snapshot": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-type-stage-report-e61bb6f.md",
+    "bytes": 23134,
+    "sha256": "24d3040036ac3ba50614365cc564f0844d6466082a93d1cc29bf8d2e78f51a96"
+  },
+  "source_type_stage": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-type-stage-e61bb6f.json",
+    "bytes": 6750,
+    "sha256": "0f891ca128de6237ee87faa27add0f07d881962e2264eec53745daf95da7c99a"
+  },
+  "additional_actual_read_receipts": [
+    {
+      "receipt": "b64a89",
+      "scope": "Complete first failed focused outer log 1–47 and terminal/closure/result records",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "d74895",
+      "scope": "First focused request/start/inherited verification/prefix/suffix; independent complete closed reconciliation and saved assessment",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "96199b",
+      "scope": "Complete second failed focused outer log 1–50; request/start/owned/actual terminal/closed/native result",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "6d54ba",
+      "scope": "Focused2 inherited verification and complete outer prefix/suffix; native directory inventory. Guessed native-start filename absent; actual start.json subsequently read in 32746f.",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "a81bf8",
+      "scope": "Complete immutable first proof-correction diff and all 73 ShapeLog lines",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "2d99fe",
+      "scope": "Complete first correction preflight and commit result",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "f01ad3",
+      "scope": "Complete immutable second correction diff, preflight and commit result",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "4d26ae",
+      "scope": "Pinned Mathlib/Data/Nat/Cast/Defs.lean complete bounded 1–110, including Nat.cast_ofNat and Nat.cast_one",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "ff3b0a",
+      "scope": "Complete successful focused3 outer log 1–27, request/start/actual launch and terminal/owned/closed/native records/prefix/suffix/inherited verification",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "06610c",
+      "scope": "Complete actual 90-name program 1–105, preparation and actual-run-start; input schema only",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "5e5cf4",
+      "scope": "Complete actual native type output bounded lines 1–150",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "6316cc",
+      "scope": "Complete actual native type output bounded lines 151–300",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "07cdd9",
+      "scope": "Complete actual native type output bounded lines 301–430",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "32746f",
+      "scope": "Complete actual90 command/start/launch/terminal/owned/closed/native chain/prefix/suffix and focused2 actual native start.json",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "dd54b4",
+      "scope": "Complete combined immutable initial-to-current correction diff; Examples complete bounded 118–150,170–207,250–303, including private recursive predicate",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "425282",
+      "scope": "Focused2 and focused3 independent closed reconciliation saved successfully; subsequent reviewer header-newline double-escape assertion stopped before correction record creation",
+      "actual_exit": 1,
+      "untruncated": true
+    },
+    {
+      "receipt": "1ded8d",
+      "scope": "Corrected ordinary-newline all91-header comparison, exact four-body source reconstruction, all inherited/config/guidance identities and saved correction record",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "f9eb32",
+      "scope": "Complete historical initial receiving report 1–99; accepted XT01 input schema only",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "5afc4b",
+      "scope": "Independent actual90 program/name/block/closed-run/input comparison, all90 semantic assessment saved; complete90 block-index output",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "d45e99",
+      "scope": "Complete saved current report readback 1–117 at SHA24d3040036ac3ba50614365cc564f0844d6466082a93d1cc29bf8d2e78f51a96",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "a0677a",
+      "scope": "Saved actual90 semantic readback was truncated in its aggregated middle; not credited as complete90. Complete displayed non-inventory status fields were read; all27 evidence bindings computationally reverified.",
+      "actual_exit": 0,
+      "untruncated": false
+    },
+    {
+      "receipt": "0fce86",
+      "scope": "Complete saved actual-type assessment rows 1–30, every field",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "d236ba",
+      "scope": "Complete saved actual-type assessment rows 31–60, every field",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "fc0ab5",
+      "scope": "Complete saved actual-type assessment rows 61–90, every field",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "7f9fdf",
+      "scope": "All three complete saved focused assessment JSON files; all13/14/14 bound identities reverified",
+      "actual_exit": 0,
+      "untruncated": true
+    },
+    {
+      "receipt": "9f2484",
+      "scope": "All saved correction semantic/status fields and six current source identities; all91 raw header rows retained and computationally checked. Complete source-type stage JSON and all10 bindings reverified.",
+      "actual_exit": 0,
+      "untruncated": true
+    }
+  ],
+  "reading_limits": "Actual original formal sources and all 430 actual type-output lines were human-read. Large identity/header inventories are computationally reconciled against immutable source and explicit source/type readings; no human reading of every raw hash, every observation byte, or future full-check warning is claimed.",
+  "bookkeeping_issues_fully_resolved": [
+    "Initial double-escaping of source-header newline characters stopped before a correction record was created; corrected comparison established all91 original headers.",
+    "Aggregated saved-type assessment display truncated; all90 saved rows were then fully read in three bounded groups.",
+    "Guessed focused2 native-start filename was absent; actual native-records/start.json was identified and fully read."
+  ],
+  "new_concrete_findings": [],
+  "no_project_helper_compiler_polling_or_live_object_hashing": true
+}

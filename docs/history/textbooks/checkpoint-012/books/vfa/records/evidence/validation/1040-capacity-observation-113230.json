@@ -1,0 +1,38 @@
+{
+  "recorded_utc": "2026-11-04T11:33:21.351738+00:00",
+  "observer": "/root/runtime_observation",
+  "read_only": true,
+  "commands_exit_codes": [
+    0,
+    0
+  ],
+  "du_observed_utc": "2026-11-04T11:32:33Z",
+  "allocated_bytes": {
+    "conaled_vfa": 4973748224,
+    "native_state": 4618903552,
+    "combined": 9592651776
+  },
+  "baseline_record": "work-state/validation/1039-capacity-observation-103246.json",
+  "change_since_baseline_bytes": {
+    "conaled_vfa": -197062656,
+    "native_state": 69632,
+    "combined": -196993024
+  },
+  "focused_outputs": {
+    "root": "vfa-summation-validation/.lake/diagnostic1040/remaining2",
+    "observed_start_utc": "2026-11-04T11:32:30.869909Z",
+    "observed_end_utc": "2026-11-04T11:32:30.873353Z",
+    "regular_files": 51,
+    "logical_bytes": 53151280,
+    "allocated_bytes": 53243904,
+    "subdirectories": 12,
+    "nonregular_entries": 0,
+    "metadata_errors": 0,
+    "already_included_in_project_total": true
+  },
+  "ordinary_available_bytes": 2551631872,
+  "capacity_change_since_baseline_bytes": -5436248064,
+  "unexplained_arithmetic_remainder_bytes": 5633241088,
+  "interpretation": "Measured owned-directory net totals decreased and do not account for the ordinary available-space decline. These live observations are non-atomic; no location, ownership, cause, process, validation, authenticity, or future capacity conclusion.",
+  "mutations": []
+}

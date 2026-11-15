@@ -1,0 +1,118 @@
+diff --git a/SquareApplications.lean b/SquareApplications.lean
+index a36fa60..27d4fc0 100644
+--- a/SquareApplications.lean
++++ b/SquareApplications.lean
+@@ -248,6 +248,7 @@ import Examples.FunctionalBasics
+ import Examples.ListReversal
+ import Examples.CallModels
+ import Examples.SharedDemand
++<<<<<<< HEAD
+ import Examples.InsertionCosts
+ import Examples.ListLibrary
+ import Examples.ListCalls
+@@ -255,6 +256,9 @@ import Examples.FunctionalNotation
+ import Examples.MergeCosts
+ import Examples.DifferenceListCosts
+ import Examples.ThreeWayPartition
++=======
++import Examples.DifferenceListCosts
++>>>>>>> 52722e3ee481167e99b8f6c0b2417df7fb7615d8
+ 
+ /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
+ 
+diff --git a/docs/research/fdsa-difference-list-costs.md b/docs/research/fdsa-difference-list-costs.md
+index 52b789b..1aca174 100644
+--- a/docs/research/fdsa-difference-list-costs.md
++++ b/docs/research/fdsa-difference-list-costs.md
+@@ -2,6 +2,7 @@
+ 
+ This shared unit gives an explicit closure model for the constant composition
+ and deferred application claims used by FDSA's natural mergesort discussion.
++<<<<<<< HEAD
+ It does not activate or accept
+ Chapter 2, and it does not implement the source scanner.
+ 
+@@ -12,6 +13,12 @@ reuse requires matching candidate evidence, and complete unit acceptance was
+ still outstanding in this snapshot. The full acceptance gates below remain
+ required.
+ 
++=======
++It remains a source draft until elaboration, whole-candidate verification and
++the retained independent reviews are recorded. It does not activate or accept
++Chapter 2, and it does not implement the source scanner.
++
++>>>>>>> 52722e3ee481167e99b8f6c0b2417df7fb7615d8
+ ## Sources and existing interfaces
+ 
+ The source is the July 27, 2026 [FDSA book](https://fdsa-book.net/), printed
+@@ -198,7 +205,11 @@ counters remain unchanged by the separate closure tariff. C02-109's ordinary
+ repeated append versus prepend/reverse construction also remains chapter work.
+ No chapter completeness claim follows from this shared interface.
+ 
++<<<<<<< HEAD
+ ## Statement review and validation history
++=======
++## Statement review and pending validation
++>>>>>>> 52722e3ee481167e99b8f6c0b2417df7fb7615d8
+ 
+ The meaningful premises are the ordered-prefix value relation and a uniform
+ cost contract for an already supplied callback. The base constructors satisfy
+@@ -212,8 +223,16 @@ The architecture preflight identified and corrected the shared-allocation,
+ fused-push and singleton-seed distinctions before implementation.
+ 
+ No additional compiler was run for this draft while the frozen old Chapter 1
++<<<<<<< HEAD
+ gate remained active.
+ 
+ Acceptance requires immutable-candidate elaboration, public-entrypoint coverage,
+ the complete guarded candidate build and exhaustive audit, both retained
+ independent review axes, and immediate candidate identity verification.
++=======
++gate remained active. These
++source proofs and examples still need elaboration, public-entrypoint coverage,
++the complete guarded candidate build and exhaustive audit, both retained
++independent review axes, and immediate candidate identity verification before
++acceptance.
++>>>>>>> 52722e3ee481167e99b8f6c0b2417df7fb7615d8
+diff --git a/docs/research/fdsa-reconstruction-map.md b/docs/research/fdsa-reconstruction-map.md
+index e753d53..ca76322 100644
+--- a/docs/research/fdsa-reconstruction-map.md
++++ b/docs/research/fdsa-reconstruction-map.md
+@@ -226,6 +226,7 @@ tracker retains the exact evidence and earlier failed or unknown attempts. Secti
+ 1.5.3's preference for explicit bounds remains explanatory. Higher-order time
+ conventions refer forward to Appendix B.1 and stay on that appendix's list.
+ 
++<<<<<<< HEAD
+ ## Shared insertion costs for Chapters 2 and 3
+ 
+ The local cross-cutting ticket FDSA-X002 develops the insertion-sort cost model
+@@ -441,6 +442,29 @@ clients in `Examples.ListCalls` use the new public exact results:
+ These definitions and examples remain subject to complete candidate validation
+ and independent review before acceptance. Cost observations concern the stated
+ recursive model, not execution time of standard-library list operations.
++=======
++## Shared difference-list closure groundwork
++
++`Resources.DifferenceListCosts` adds ordinary measured suffix callbacks with
++separate ordered-prefix and application-cost predicates. Identity, singleton
++and composition callbacks have a declared invocation tariff; their creation
++operations carry a separate fixed-size capture tariff. Existing `run` executes
++compositional pushes. The seed-general construction laws imply `2*n+1` for
++creation and one application of the identity-seeded builder.
++
++The value representation remains Batteries.DList. Its fused push and the
++explicit compositional model have value correspondence, with no transfer of
++exact costs. Connected cases retain nonempty suffixes, duplicate/order
++preservation, empty payloads, repeated materialization, charged identity and
++empty-prefix histories with unbounded application work. Shared self-composition
++distinguishes distinct creation events from unfolded invocation occurrences.
++
++This is an uncompiled cross-cutting draft. The
++[source and statement notes](fdsa-difference-list-costs.md) retain the actual
++singleton-seeded asc/scanner and repeated ordinary append/reverse obligations
++for Chapter 2. It makes no compiler or machine-runtime claim and does not
++activate or accept that chapter.
++>>>>>>> 52722e3ee481167e99b8f6c0b2417df7fb7615d8
+ 
+ ## Architecture and statement review
+ 

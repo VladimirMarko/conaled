@@ -1,0 +1,12 @@
+{
+  "recorded_utc": "2026-11-04T20:07:57.668278+00:00",
+  "finding": "C03-CHOP-MAP-PREP-001",
+  "actual_tool_chunk": "f99311",
+  "actual_exit": 1,
+  "reconciliation_tool_chunk": "98d4f9",
+  "only_written_file": "starting-state.json",
+  "source_index_HEAD_unchanged": true,
+  "cause": "A preservation assertion treated an inline nonemptiness proof supplied inside the two_chunk_map theorem type as byte-identical header text. The necessary proof correction changes that raw proof term. It does not change the proposition because proof arguments are irrelevant; no mathematical expectation or source execution changes.",
+  "continuation": "Retain complete old/new header text, explicitly identify the proof-term-only change, and compare all other15 headers/blocks byte-for-byte. Do not claim raw header identity for this one statement.",
+  "no_compiler_or_commit_was_run": true
+}

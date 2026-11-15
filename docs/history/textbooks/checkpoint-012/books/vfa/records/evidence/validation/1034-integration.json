@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-11-03T16:42:34.360134+00:00",
+  "previous_candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "candidate": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+  "fixed_review_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "clean_primary": true,
+  "clean_isolated_candidate": true,
+  "files": {
+    "Squares.lean": {
+      "before_sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+      "after_sha256": "d535da719c3d7b3db4f536b5b791611d07c6dd6dd8bdae59572a8b375040dc41",
+      "only_first_import_changed": true
+    },
+    "Dependent.lean": {
+      "before_sha256": "3b00a4e84d18cebe0fec6bbc94de957d60ecff321808149936bb76278f5bde1b",
+      "after_sha256": "1a770edc3353192e1f82315353e52d4a3e6bec511659a6ccfbed42316be29e90",
+      "only_first_import_changed": true
+    }
+  },
+  "full_diff_stat": "Applications/Durability/DiagnosticGraph.lean |   4 +-\n Applications/Durability/Retention.lean       |   3 +-\n Applications/FRP/Demand.lean                 |   1 +\n Applications/FRP/Equivalence.lean            |  14 +-\n Applications/FRP/Spec.lean                   |   6 +-\n Applications/Interaction/Obligation.lean     |   2 +-\n Applications/Linear/Structured.lean          |   1 -\n Applications/Linear/StructuredCosts.lean     |   2 +-\n Applications/Orbifold/ProjectiveMotion.lean  |   3 +-\n Applications/Probability/CoinPaths.lean      |   3 +-\n Applications/Probability/FiniteMH.lean       |   4 +-\n Applications/Progress/Evaluation.lean        |   2 +-\n Applications/Sequences/BoundedSummary.lean   |   3 +-\n Applications/Sorting/FirstPair.lean          | 110 ++++++++++++++++\n Dependent.lean                               |   2 +-\n Examples/ComparisonPermutations.lean         | 189 +++++++++++++++++++++++++++\n Examples/ProbabilityCorrelation.lean         |   3 +-\n README.md                                    |   1 +\n SquareApplications.lean                      |   1 +\n SquareKit/Temporal/Finite.lean               |   4 +-\n SquareKit/Temporal/Monitor.lean              |   3 +-\n Squares.lean                                 |   2 +-\n docs/SOURCES.md                              |  14 ++\n docs/licenses/vfa-MIT.txt                    |  19 +++\n docs/research/vfa-coverage.md                | 117 +++++++++++++++++\n 25 files changed, 496 insertions(+), 17 deletions(-)",
+  "foundation_fixture": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1034-foundation-check",
+  "fixture_inputs": {
+    "check-foundation.sh": "5c15938ba3ad6529676884455b877243c4146bf44946285414d0731380e63f92",
+    "Squares.lean": "d535da719c3d7b3db4f536b5b791611d07c6dd6dd8bdae59572a8b375040dc41",
+    "Compiler.lean": "94a24c23b9e3d2169080d57dbe668f590da6efcf17a4683e8639dad726bfc5ec",
+    "SquareCompiler.lean": "32bca9ac26a9f2bd8ebf7f1348a3dd215e7b42616f8234fec84981b115bdd87e",
+    "FirstOrder.lean": "7bc6796a3c9866111b6833ddfcd3d952951e87c5c355f38a1b3737a3118bb523",
+    "Dependent.lean": "1a770edc3353192e1f82315353e52d4a3e6bec511659a6ccfbed42316be29e90",
+    "Verification.lean": "d68d9403beefcdf24962f3530d6d011a7e7fa5e99900abdc262285e0e908b8d5"
+  },
+  "fixture_scope": "Exact captured-candidate six foundation sources plus unchanged checker, copied to separately owned outputs; no writes into Lake managed output directories.",
+  "formal_acceptance": false
+}

@@ -1,0 +1,69 @@
+{
+  "acceptance_boundary": "Prior-session local acceptance at preserved source commits; packaging performed no revalidation and grants no new integration approval.",
+  "book": "Functional Data Structures and Algorithms: A Proof Assistant Approach",
+  "chapter4": {
+    "accepted": false,
+    "draft_original_refs": [
+      "refs/heads/work/fdsa-ch04-structural",
+      "refs/heads/work/fdsa-ch04-balancing",
+      "refs/heads/work/fdsa-ch04-exercises"
+    ],
+    "draft_status": "Uncompiled committed structural/weighted, balancing/call-count, and levels/rose/enumeration/reconstruction streams.",
+    "exercises": 11,
+    "obligations": 76,
+    "original_whole_chapter_review_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2"
+  },
+  "chapters_recorded_accepted_historically": [
+    1,
+    2,
+    3
+  ],
+  "durability_contract": "../../docs/DURABILITY.md",
+  "evidence_original_paths": [
+    "fdsa-control/reviews/tree-fold-resource-requirements.md",
+    "fdsa-control/tickets/FDSA-XT03.md",
+    "fdsa-control/provenance/tree-fold-resource-receiving-20261105/preparation-before-XT02-acceptance.json",
+    "fdsa-control/research/chapter04-obligations.md",
+    "fdsa-control/provenance/tree-shape-acceptance-20261105/acceptance.json"
+  ],
+  "guidance_registry": "../../reference/SOURCES.json",
+  "integration": {
+    "authority": "books/common/REQUIREMENTS.md",
+    "master_pin": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+    "priority_order": [
+      "library coherence",
+      "preserve useful mathematics"
+    ],
+    "tracker": "books/common/ISSUES.json",
+    "status_file": "books/common/STATUS.md",
+    "source_identity": "source/integration.json",
+    "coverage_account": "books/common/COVERAGE.md",
+    "validation_handoff": "books/common/VALIDATION-HANDOFF.md"
+  },
+  "new_paper_and_uncompiled_work": "work/",
+  "next_later_math_action": {
+    "donor": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+    "formal_modules": 4,
+    "original_review_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+    "public_names": 88,
+    "scope_paths": 7,
+    "status": "Original independent source assessments complete with no new findings; compilation, actual types, full check/audit, final review and immediate verification remain pending. Preserve CP01/DOC01 history.",
+    "unit": "XT03 measured whole-tree folds"
+  },
+  "original_record_resolver": "records/RETENTION.json",
+  "phase": "combined-integration-candidate; historical book acceptance remains unchanged",
+  "schema": 1,
+  "shared_units_recorded_accepted_historically": [
+    "XT01 tree cache",
+    "XT02 tree shape"
+  ],
+  "source_book_key": "fdsa",
+  "source_registry": "../../source/refs.json",
+  "source_roles": [
+    "main",
+    "candidate"
+  ],
+  "status_owner": "This file owns book-specific historical progress and preserved obligations. books/common/STATUS.md owns current combined integration and validation; immutable original records remain evidence.",
+  "whole_book_complete": false,
+  "latest_validation_scope": "The latest_validation field records the recovered book candidate before combined integration. Current integration checks are owned by books/common/STATUS.md."
+}

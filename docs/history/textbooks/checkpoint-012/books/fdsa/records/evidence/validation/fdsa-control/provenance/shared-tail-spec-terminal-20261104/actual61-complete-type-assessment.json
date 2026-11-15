@@ -1,0 +1,1043 @@
+{
+  "recorded_utc": "2026-11-04T16:32:02.969711+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "scope": "Original full six-path XU03 scope within retained complete R-based C2 scope",
+  "status": "Complete actual-type read; final input/full-gate qualification still in progress",
+  "native_output": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-complete-public-statements61-20261104-attempt1/native-records/output.log",
+    "bytes": 84784,
+    "lines": 1073,
+    "sha256": "57747c4b4764ac5aea6885671ff66b5ff202da2c919a0e9bb38f5921738916cf"
+  },
+  "program": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+    "bytes": 4105,
+    "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa"
+  },
+  "all61_headers_once_in_exact_program_order": true,
+  "all_native_bytes_and_lines_fully_read": true,
+  "chunks": [
+    {
+      "lines": [
+        1,
+        180
+      ],
+      "bytes": 13411,
+      "sha256": "68fb538fa1a1a71ee3557b3f3f516ca331de7aab95d83ae46ff4e627eaa5dca2",
+      "actual_read_tool_chunk": "fc5357",
+      "complete_types_ending_within_chunk": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "lines": [
+        181,
+        360
+      ],
+      "bytes": 13662,
+      "sha256": "9f3edf544f648b0a0fba5ce9c2cc53f4e35e391051536ca6d8cc07c07cfd1caf",
+      "actual_read_tool_chunk": "55347b",
+      "complete_types_ending_within_chunk": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ]
+    },
+    {
+      "lines": [
+        361,
+        540
+      ],
+      "bytes": 14612,
+      "sha256": "4fc5fa75f79a84348f81abe6ccdd6bb2eb2dc41390abe266dfc71398e77ad3f2",
+      "actual_read_tool_chunk": "06d674",
+      "complete_types_ending_within_chunk": [
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ]
+    },
+    {
+      "lines": [
+        541,
+        720
+      ],
+      "bytes": 14803,
+      "sha256": "346ed96eb47966caf4a5acb6733f715069003e8e2b1ef9cbd9b04a38137208cf",
+      "actual_read_tool_chunk": "d6bf28",
+      "complete_types_ending_within_chunk": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ]
+    },
+    {
+      "lines": [
+        721,
+        900
+      ],
+      "bytes": 14907,
+      "sha256": "05ecac6e46d63df78ab34c25c8f1391bb7446dbe5289351688dca1634e9acc2d",
+      "actual_read_tool_chunk": "b9bd11",
+      "complete_types_ending_within_chunk": [
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ]
+    },
+    {
+      "lines": [
+        901,
+        1073
+      ],
+      "bytes": 13389,
+      "sha256": "b39f97b7aa5a3bd2fdb3960462cc047d4222835d794ec0f5b29519d5472c8a62",
+      "actual_read_tool_chunk": "21a8bf",
+      "complete_types_ending_within_chunk": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61
+      ]
+    }
+  ],
+  "type_blocks": [
+    {
+      "ordinal": 1,
+      "name": "Applications.Probability.PermutationTail.firstEvent",
+      "start_line": 1,
+      "end_line": 2,
+      "byte_start": 0,
+      "byte_end_exclusive": 154,
+      "bytes": 154,
+      "sha256": "b372d577b29e85be8d92d9cb5d9132096e343fd128a70223acfa9508c491304d"
+    },
+    {
+      "ordinal": 2,
+      "name": "Applications.Probability.PermutationTail.firstEvent_inter_tail",
+      "start_line": 3,
+      "end_line": 9,
+      "byte_start": 154,
+      "byte_end_exclusive": 701,
+      "bytes": 547,
+      "sha256": "f62cbcbc236a3bed17f56bef9c6ae1159f2fb2b4626c46d661bd936b0b805d2f"
+    },
+    {
+      "ordinal": 3,
+      "name": "Applications.Probability.PermutationTail.cons_mem_orders",
+      "start_line": 10,
+      "end_line": 28,
+      "byte_start": 701,
+      "byte_end_exclusive": 2005,
+      "bytes": 1304,
+      "sha256": "72c75d75287b55fae7c722f6cacf449454be66f28ac56de89cc1d98787dcb917"
+    },
+    {
+      "ordinal": 4,
+      "name": "Applications.Probability.PermutationTail.tail_restrictedOrder_eq",
+      "start_line": 29,
+      "end_line": 41,
+      "byte_start": 2005,
+      "byte_end_exclusive": 2942,
+      "bytes": 937,
+      "sha256": "00657975c12d4babfcab09319806e37e34662678a986efa4126d45ca7ef19d97"
+    },
+    {
+      "ordinal": 5,
+      "name": "Applications.Probability.PermutationTail.filter_tail_restrictedOrder_eq",
+      "start_line": 42,
+      "end_line": 65,
+      "byte_start": 2942,
+      "byte_end_exclusive": 4497,
+      "bytes": 1555,
+      "sha256": "9c474ab6d0ab17b1cbdc1f01397732dd3627c32585692dbf98effe5ccda827de"
+    },
+    {
+      "ordinal": 6,
+      "name": "Applications.Probability.PermutationTail.firstEvent_restrictedOrder_of_not_mem",
+      "start_line": 66,
+      "end_line": 73,
+      "byte_start": 4497,
+      "byte_end_exclusive": 5103,
+      "bytes": 606,
+      "sha256": "78cc826517db71350246b0eef1b81aa5b4c97a81cd1eab77346843a8f677f015"
+    },
+    {
+      "ordinal": 7,
+      "name": "Applications.Probability.PermutationTail.cond_firstEvent_restrictedOrder_of_not_mem",
+      "start_line": 74,
+      "end_line": 85,
+      "byte_start": 5103,
+      "byte_end_exclusive": 6096,
+      "bytes": 993,
+      "sha256": "388e680f6ec92fe011bfd236d847a8864e8df041609b7d32d4631ad508986143"
+    },
+    {
+      "ordinal": 8,
+      "name": "Applications.Probability.PermutationTail.uniformOn_firstEvent",
+      "start_line": 86,
+      "end_line": 106,
+      "byte_start": 6096,
+      "byte_end_exclusive": 7666,
+      "bytes": 1570,
+      "sha256": "2ca281f26dd2285d5e2a141e98206d2f4a7bc98adf0a8dd9d482b9eac4fb0cd8"
+    },
+    {
+      "ordinal": 9,
+      "name": "Applications.Probability.PermutationTail.cond_uniformOn_firstEvent",
+      "start_line": 107,
+      "end_line": 120,
+      "byte_start": 7666,
+      "byte_end_exclusive": 8868,
+      "bytes": 1202,
+      "sha256": "c0a2ce3135af5636ed277c256a3caf567d49fe7f4bb0b7df6e7392475eca44b7"
+    },
+    {
+      "ordinal": 10,
+      "name": "Applications.Probability.PermutationTail.cond_tail_eq",
+      "start_line": 121,
+      "end_line": 159,
+      "byte_start": 8868,
+      "byte_end_exclusive": 11737,
+      "bytes": 2869,
+      "sha256": "6ceba68cce4f2d43bdf821344fd74c9d5fa2e8106a4dd87eff47d786a764b2b9"
+    },
+    {
+      "ordinal": 11,
+      "name": "Applications.Probability.PermutationTail.map_tail_cond_first",
+      "start_line": 160,
+      "end_line": 183,
+      "byte_start": 11737,
+      "byte_end_exclusive": 13614,
+      "bytes": 1877,
+      "sha256": "cb580adabe3941a2bebf7d113ac20656bc884707875ab7b45059f60c11f13301"
+    },
+    {
+      "ordinal": 12,
+      "name": "Applications.Probability.PermutationTail.head_mass_of_hasLaw",
+      "start_line": 184,
+      "end_line": 208,
+      "byte_start": 13614,
+      "byte_end_exclusive": 15436,
+      "bytes": 1822,
+      "sha256": "6c689ead7f831660885f970db056e842de813d8ceb825bfc2e0120b576059547"
+    },
+    {
+      "ordinal": 13,
+      "name": "Applications.Probability.PermutationTail.hasLaw_tail_cond_first",
+      "start_line": 209,
+      "end_line": 232,
+      "byte_start": 15436,
+      "byte_end_exclusive": 17273,
+      "bytes": 1837,
+      "sha256": "a523e3156cc48477accc11153f524b2be0b709f96be9d9fa5f71612ee691cb38"
+    },
+    {
+      "ordinal": 14,
+      "name": "Applications.Probability.PermutationTail.hasLaw_filter_tail_cond_first",
+      "start_line": 233,
+      "end_line": 268,
+      "byte_start": 17273,
+      "byte_end_exclusive": 19836,
+      "bytes": 2563,
+      "sha256": "d37effafe11c869e182a8b062319a644fac31e48f11c68eeefed3d75ca3b02d1"
+    },
+    {
+      "ordinal": 15,
+      "name": "Applications.Probability.PermutationTail.map_restrictedOrder_cond_first",
+      "start_line": 269,
+      "end_line": 294,
+      "byte_start": 19836,
+      "byte_end_exclusive": 21947,
+      "bytes": 2111,
+      "sha256": "12e8a3a656a697e19c6b28999fb0f668a5b50b164592ff3cf40a46f9649d8379"
+    },
+    {
+      "ordinal": 16,
+      "name": "Examples.PermutationTail.observedOrder",
+      "start_line": 295,
+      "end_line": 297,
+      "byte_start": 21947,
+      "byte_end_exclusive": 22158,
+      "bytes": 211,
+      "sha256": "f71e693c44ee2904b76af5df2a7248b819f52c6f9e239d091609c20794b654cc"
+    },
+    {
+      "ordinal": 17,
+      "name": "Examples.PermutationTail.remaining",
+      "start_line": 298,
+      "end_line": 298,
+      "byte_start": 22158,
+      "byte_end_exclusive": 22274,
+      "bytes": 116,
+      "sha256": "1ec8233022175f980c1ff63eab4e98ed887a99c4de4724130babe6a72366d820"
+    },
+    {
+      "ordinal": 18,
+      "name": "Examples.PermutationTail.tailOrder",
+      "start_line": 299,
+      "end_line": 301,
+      "byte_start": 22274,
+      "byte_end_exclusive": 22481,
+      "bytes": 207,
+      "sha256": "4ab5b9d3058c95b7bbdd5ef6bea627e041a4893e7678c8dd4f41c06fd02afdf8"
+    },
+    {
+      "ordinal": 19,
+      "name": "Examples.PermutationTail.afterFirst",
+      "start_line": 302,
+      "end_line": 304,
+      "byte_start": 22481,
+      "byte_end_exclusive": 22704,
+      "bytes": 223,
+      "sha256": "52d5937bd5fce18532dd869e3802c45efc154cb52344737e4d3fb86299330f4f"
+    },
+    {
+      "ordinal": 20,
+      "name": "Examples.PermutationTail.observed_hasLaw",
+      "start_line": 305,
+      "end_line": 319,
+      "byte_start": 22704,
+      "byte_end_exclusive": 23973,
+      "bytes": 1269,
+      "sha256": "f1119db9fd44fdd0e25884aa3592ed82d2a2d407fe8757997b38971a1334d32c"
+    },
+    {
+      "ordinal": 21,
+      "name": "Examples.PermutationTail.first_mass",
+      "start_line": 320,
+      "end_line": 342,
+      "byte_start": 23973,
+      "byte_end_exclusive": 25576,
+      "bytes": 1603,
+      "sha256": "760caba5776021d8f8c47353d5b81d81ab637574693468425e3d939bf5c902aa"
+    },
+    {
+      "ordinal": 22,
+      "name": "Examples.PermutationTail.afterFirst_eq_uniformOn",
+      "start_line": 343,
+      "end_line": 354,
+      "byte_start": 25576,
+      "byte_end_exclusive": 26541,
+      "bytes": 965,
+      "sha256": "657055338a8456f02ed69b4b70e4908f12f5bbd8a7e77462fed399fc63956792"
+    },
+    {
+      "ordinal": 23,
+      "name": "Examples.PermutationTail.tail_hasLaw",
+      "start_line": 355,
+      "end_line": 369,
+      "byte_start": 26541,
+      "byte_end_exclusive": 27807,
+      "bytes": 1266,
+      "sha256": "4b175fb5ae79e58d9893bec04df3bc0496c55f17c017527a6669d8c17ca9aea7"
+    },
+    {
+      "ordinal": 24,
+      "name": "Examples.PermutationTail.tail_map",
+      "start_line": 370,
+      "end_line": 387,
+      "byte_start": 27807,
+      "byte_end_exclusive": 29276,
+      "bytes": 1469,
+      "sha256": "a6b6d590b8f58b0f4defd9cf9d743523847a59115a38c52a52ccf645d99a709d"
+    },
+    {
+      "ordinal": 25,
+      "name": "Examples.PermutationTail.tail_23_mass",
+      "start_line": 388,
+      "end_line": 414,
+      "byte_start": 29276,
+      "byte_end_exclusive": 31379,
+      "bytes": 2103,
+      "sha256": "3e0e8b87d3eafda5c3b5b71e19e9a06a83b700d580723176bac71f6397f88dc0"
+    },
+    {
+      "ordinal": 26,
+      "name": "Examples.PermutationTail.tail_32_mass",
+      "start_line": 415,
+      "end_line": 441,
+      "byte_start": 31379,
+      "byte_end_exclusive": 33482,
+      "bytes": 2103,
+      "sha256": "0d146fdf92ef7e7835c58cf77930d6db4176228557da1683e0fdeba1d77104a5"
+    },
+    {
+      "ordinal": 27,
+      "name": "Examples.PermutationTail.repeated_tail_mass_zero",
+      "start_line": 442,
+      "end_line": 461,
+      "byte_start": 33482,
+      "byte_end_exclusive": 35204,
+      "bytes": 1722,
+      "sha256": "64ff3d6010c63808a002c274d19f1114b2340874c2b3c7d180a5258069d8567a"
+    },
+    {
+      "ordinal": 28,
+      "name": "Examples.PermutationTail.filteredTail",
+      "start_line": 462,
+      "end_line": 464,
+      "byte_start": 35204,
+      "byte_end_exclusive": 35414,
+      "bytes": 210,
+      "sha256": "b662786ec8c5ccb87e6e036e25330de97a882d8162148810abccf65f07ca1a52"
+    },
+    {
+      "ordinal": 29,
+      "name": "Examples.PermutationTail.filtered_tail_hasLaw",
+      "start_line": 465,
+      "end_line": 484,
+      "byte_start": 35414,
+      "byte_end_exclusive": 37176,
+      "bytes": 1762,
+      "sha256": "015a57e475ef8af8b5e3b675bc31a99a33cfcdd27cc422379f184ae496d73030"
+    },
+    {
+      "ordinal": 30,
+      "name": "Examples.PermutationTail.filtered_tail_eq_projection",
+      "start_line": 485,
+      "end_line": 508,
+      "byte_start": 37176,
+      "byte_end_exclusive": 39117,
+      "bytes": 1941,
+      "sha256": "3a19793acbcacf0b91d57e2140c20bfcf5bd8a1c3aa44923c6ec74bb5831d52b"
+    },
+    {
+      "ordinal": 31,
+      "name": "Examples.PermutationTail.filtered_tail_mass",
+      "start_line": 509,
+      "end_line": 525,
+      "byte_start": 39117,
+      "byte_end_exclusive": 40518,
+      "bytes": 1401,
+      "sha256": "78849ee1c63e615f7ddcf702798db72416a827e27ea2005be65c4543e03ac179"
+    },
+    {
+      "ordinal": 32,
+      "name": "Examples.PermutationTail.remaining_projection_map",
+      "start_line": 526,
+      "end_line": 557,
+      "byte_start": 40518,
+      "byte_end_exclusive": 43235,
+      "bytes": 2717,
+      "sha256": "a7ffbbf36a94e0bd9300499b7a705331061d0d77baf9cdf9b6c1d70486303321"
+    },
+    {
+      "ordinal": 33,
+      "name": "Examples.PermutationTail.afterFirst_first_event_mass",
+      "start_line": 558,
+      "end_line": 573,
+      "byte_start": 43235,
+      "byte_end_exclusive": 44465,
+      "bytes": 1230,
+      "sha256": "dc0b175eb1df9029c47719e97edd9e4546cb8bb74b775e4e9b1aa968a376ba0a"
+    },
+    {
+      "ordinal": 34,
+      "name": "Examples.PermutationTail.environment_changed",
+      "start_line": 574,
+      "end_line": 577,
+      "byte_start": 44465,
+      "byte_end_exclusive": 44777,
+      "bytes": 312,
+      "sha256": "d0ba3991b78837be64584af0fda54c9e91ed1f5e3034bc4578bed057cafc7d72"
+    },
+    {
+      "ordinal": 35,
+      "name": "Examples.PermutationTail.second_head_mass",
+      "start_line": 578,
+      "end_line": 600,
+      "byte_start": 44777,
+      "byte_end_exclusive": 46386,
+      "bytes": 1609,
+      "sha256": "b9c0242cbd66af3a34e3f7126819393cf7ff47978368ad4119fb11879205f51d"
+    },
+    {
+      "ordinal": 36,
+      "name": "Examples.PermutationTail.afterSecond",
+      "start_line": 601,
+      "end_line": 603,
+      "byte_start": 46386,
+      "byte_end_exclusive": 46610,
+      "bytes": 224,
+      "sha256": "b10de0c8b6e538bd4a6526a9f2ee5e0e569b3394a79be7d2e8571f897d0981ab"
+    },
+    {
+      "ordinal": 37,
+      "name": "Examples.PermutationTail.lastTail",
+      "start_line": 604,
+      "end_line": 605,
+      "byte_start": 46610,
+      "byte_end_exclusive": 46812,
+      "bytes": 202,
+      "sha256": "759391cebbf24c4a88ba999a4787c36a1d304e5bf1c9132c13c27620118f71ad"
+    },
+    {
+      "ordinal": 38,
+      "name": "Examples.PermutationTail.last_tail_hasLaw",
+      "start_line": 606,
+      "end_line": 625,
+      "byte_start": 46812,
+      "byte_end_exclusive": 48498,
+      "bytes": 1686,
+      "sha256": "3be7d27a306ed491a810ca16f965b6016faefddef218930982ae9a75a0fd2b9a"
+    },
+    {
+      "ordinal": 39,
+      "name": "Examples.PermutationTail.last_tail_mass",
+      "start_line": 626,
+      "end_line": 642,
+      "byte_start": 48498,
+      "byte_end_exclusive": 49892,
+      "bytes": 1394,
+      "sha256": "a6a3d9f0ee5ff5ca943207cae123bdd9100ae2508cfa26d5bd6129007aee4c77"
+    },
+    {
+      "ordinal": 40,
+      "name": "Examples.PermutationTailBoundary.swap01",
+      "start_line": 643,
+      "end_line": 644,
+      "byte_start": 49892,
+      "byte_end_exclusive": 50019,
+      "bytes": 127,
+      "sha256": "7c7c27111a2f6a0ddc871cd8f65c2ff8c20ddc6ed6ed8e3f5e53e5ce4efb3511"
+    },
+    {
+      "ordinal": 41,
+      "name": "Examples.PermutationTailBoundary.swap01_global_order",
+      "start_line": 645,
+      "end_line": 676,
+      "byte_start": 50019,
+      "byte_end_exclusive": 52765,
+      "bytes": 2746,
+      "sha256": "0c7fb97e8c84a4b11ec68aa9f3b85e991c16616013fa41abd50dd0a57de09da6"
+    },
+    {
+      "ordinal": 42,
+      "name": "Examples.PermutationTailBoundary.swap01_selected_order",
+      "start_line": 677,
+      "end_line": 692,
+      "byte_start": 52765,
+      "byte_end_exclusive": 54235,
+      "bytes": 1470,
+      "sha256": "fa3ebb655cc55a353ecb3c15580bd74e924b117124400479674d951cb7685549"
+    },
+    {
+      "ordinal": 43,
+      "name": "Examples.PermutationTailBoundary.swap01_first_events",
+      "start_line": 693,
+      "end_line": 758,
+      "byte_start": 54235,
+      "byte_end_exclusive": 59602,
+      "bytes": 5367,
+      "sha256": "473a7280a1955b23fdcf98200776cad31df34bd840bf798b6eb1ce258fafb773"
+    },
+    {
+      "ordinal": 44,
+      "name": "Examples.PermutationTailBoundary.singleton_conditional_tail_mass",
+      "start_line": 759,
+      "end_line": 801,
+      "byte_start": 59602,
+      "byte_end_exclusive": 63381,
+      "bytes": 3779,
+      "sha256": "4555acc6ba82514d8cec60a5e38cc3ea81000dbbdad5538f1e3c7cd3a1ad449c"
+    },
+    {
+      "ordinal": 45,
+      "name": "Examples.PermutationTailBoundary.empty_subset_none_mass",
+      "start_line": 802,
+      "end_line": 826,
+      "byte_start": 63381,
+      "byte_end_exclusive": 65402,
+      "bytes": 2021,
+      "sha256": "220f62176126c2ff8a7fe1bbea05e2b7c55040f0541088049f17c4c4a47df1f9"
+    },
+    {
+      "ordinal": 46,
+      "name": "Examples.PermutationTailBoundary.empty_subset_first_event",
+      "start_line": 827,
+      "end_line": 843,
+      "byte_start": 65402,
+      "byte_end_exclusive": 66774,
+      "bytes": 1372,
+      "sha256": "2fa2dec52e282d986d7af82fbfb89a198afd2ac48afb741a94919d7cd33a3ac8"
+    },
+    {
+      "ordinal": 47,
+      "name": "Examples.PermutationTailBoundary.empty_subset_conditional_zero",
+      "start_line": 844,
+      "end_line": 874,
+      "byte_start": 66774,
+      "byte_end_exclusive": 69223,
+      "bytes": 2449,
+      "sha256": "f26a86c2b4301e8be1b73735caeaf24afd2e56b1f1fc4036a700397b35ee7ea9"
+    },
+    {
+      "ordinal": 48,
+      "name": "Examples.PermutationTailBoundary.outsider_first_event",
+      "start_line": 875,
+      "end_line": 888,
+      "byte_start": 69223,
+      "byte_end_exclusive": 70382,
+      "bytes": 1159,
+      "sha256": "d6323bf746a23d6c734cd7f714f60c5b2a585ed800ff2ed49e33323279de3d1e"
+    },
+    {
+      "ordinal": 49,
+      "name": "Examples.PermutationTailBoundary.outsider_conditional_zero",
+      "start_line": 889,
+      "end_line": 916,
+      "byte_start": 70382,
+      "byte_end_exclusive": 72612,
+      "bytes": 2230,
+      "sha256": "add810f952da2821b34b3a1d4ab049e917d9fd306300717ba8da127685d1593f"
+    },
+    {
+      "ordinal": 50,
+      "name": "Examples.PermutationTailBoundary.empty_indices_none_mass",
+      "start_line": 917,
+      "end_line": 933,
+      "byte_start": 72612,
+      "byte_end_exclusive": 73714,
+      "bytes": 1102,
+      "sha256": "9226a8f422d3d60882a6d908ab303645221c91205811f3a8c36809b91d6709ad"
+    },
+    {
+      "ordinal": 51,
+      "name": "Examples.PermutationTailBoundary.counterPositions",
+      "start_line": 934,
+      "end_line": 935,
+      "byte_start": 73714,
+      "byte_end_exclusive": 73845,
+      "bytes": 131,
+      "sha256": "bdbb217045799885f9001782a07c41b94bf834bee4891668ca684cf93363b0dc"
+    },
+    {
+      "ordinal": 52,
+      "name": "Examples.PermutationTailBoundary.conditionSubset",
+      "start_line": 936,
+      "end_line": 937,
+      "byte_start": 73845,
+      "byte_end_exclusive": 73977,
+      "bytes": 132,
+      "sha256": "2a95508e02ed10a948904c2686e267d0886e463618f4ca78db5d8d9b80ae7f36"
+    },
+    {
+      "ordinal": 53,
+      "name": "Examples.PermutationTailBoundary.outsideSubset",
+      "start_line": 938,
+      "end_line": 939,
+      "byte_start": 73977,
+      "byte_end_exclusive": 74107,
+      "bytes": 130,
+      "sha256": "ec61b625c0c6c07b62c9d589c8a4f70da116f8af21a1f34ec75946a8c4da26d1"
+    },
+    {
+      "ordinal": 54,
+      "name": "Examples.PermutationTailBoundary.counterLaw",
+      "start_line": 940,
+      "end_line": 942,
+      "byte_start": 74107,
+      "byte_end_exclusive": 74348,
+      "bytes": 241,
+      "sha256": "2a5320f9edabe0bc8d006d9a8c621cc21d292e70e8ec5c0b22892d915665bb67"
+    },
+    {
+      "ordinal": 55,
+      "name": "Examples.PermutationTailBoundary.counterFirst",
+      "start_line": 943,
+      "end_line": 944,
+      "byte_start": 74348,
+      "byte_end_exclusive": 74491,
+      "bytes": 143,
+      "sha256": "f633ab0329f430ec118c50434abac2b08d93f4e2269739ca280be6dadcf1e0ad"
+    },
+    {
+      "ordinal": 56,
+      "name": "Examples.PermutationTailBoundary.outsideConditional",
+      "start_line": 945,
+      "end_line": 947,
+      "byte_start": 74491,
+      "byte_end_exclusive": 74740,
+      "bytes": 249,
+      "sha256": "393f87460a4cef9ecd3d481bbc38b958e5bb5eea9eac868f929221b760d13454"
+    },
+    {
+      "ordinal": 57,
+      "name": "Examples.PermutationTailBoundary.outside_subset_boundaries",
+      "start_line": 948,
+      "end_line": 962,
+      "byte_start": 74740,
+      "byte_end_exclusive": 76012,
+      "bytes": 1272,
+      "sha256": "fcfb702987c6a8c5d19b412e1e313e055fa5fc2efd9c3fbdac715667d8f1a423"
+    },
+    {
+      "ordinal": 58,
+      "name": "Examples.PermutationTailBoundary.counter_first_mass",
+      "start_line": 963,
+      "end_line": 979,
+      "byte_start": 76012,
+      "byte_end_exclusive": 77225,
+      "bytes": 1213,
+      "sha256": "62488df395b1bc8d01ed7b50741109cd542d0e60c9ca80a76b6b1799ac378b59"
+    },
+    {
+      "ordinal": 59,
+      "name": "Examples.PermutationTailBoundary.outside_order_12_mass",
+      "start_line": 980,
+      "end_line": 1009,
+      "byte_start": 77225,
+      "byte_end_exclusive": 79687,
+      "bytes": 2462,
+      "sha256": "9b5a7571d396bc96111e373b7b78c229a75dcfc703595a8dc7eefea62bb63fad"
+    },
+    {
+      "ordinal": 60,
+      "name": "Examples.PermutationTailBoundary.outside_order_21_mass",
+      "start_line": 1010,
+      "end_line": 1043,
+      "byte_start": 79687,
+      "byte_end_exclusive": 82318,
+      "bytes": 2631,
+      "sha256": "7e71a978cb5df85af4df9ad1564d05b5955cd3f62488363e16d9e3bbf3418f94"
+    },
+    {
+      "ordinal": 61,
+      "name": "Examples.PermutationTailBoundary.outside_order_not_uniform",
+      "start_line": 1044,
+      "end_line": 1073,
+      "byte_start": 82318,
+      "byte_end_exclusive": 84784,
+      "bytes": 2466,
+      "sha256": "da2e0f148cf71311a368dd962972ad3343810b98066fadad9f1c00983708941d"
+    }
+  ],
+  "ellipsis_contexts": [
+    {
+      "line": 334,
+      "context": "    Examples.PermutationOrder.law\n    (@Applications.Probability.PermutationTail.firstEvent.{0, 0}\n      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n      (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n      Examples.PermutationTail.observedOrder\n      (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 0)\n        (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 0)))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 342,
+      "context": "    (@instHDiv.{0} ENNReal (@DivInvMonoid.toDiv.{0} ENNReal ENNReal.instDivInvMonoid))\n    (@OfNat.ofNat.{0} ENNReal (nat_lit 1) (@One.toOfNat1.{0} ENNReal ENNReal.instOne))\n    (@OfNat.ofNat.{0} ENNReal (nat_lit 3)\n      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 3)\n        (@AddMonoidWithOne.toNatCast.{0} ENNReal\n          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))\n        \u22ef)))",
+      "classification": "instOfNatAtLeastTwo Nat.AtLeastTwo proof-class argument"
+    },
+    {
+      "line": 354,
+      "context": "    Examples.PermutationTail.instMeasurableSpacePermFinOfNatNat_examples\n    (@Applications.Probability.PermutationTail.firstEvent.{0, 0}\n      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n      (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n      Examples.PermutationTail.observedOrder\n      (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 0)\n        (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 0)))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 402,
+      "context": "    Examples.PermutationTail.afterFirst\n    (@Set.ofPred.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))) fun \u03c0 =>\n      @Eq.{1} (List.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n        (Examples.PermutationTail.tailOrder \u03c0)\n        (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 2)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 2)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 405,
+      "context": "        (Examples.PermutationTail.tailOrder \u03c0)\n        (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 2)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 2)))\n          (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 3)\n              (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 3)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 414,
+      "context": "    (@instHDiv.{0} ENNReal (@DivInvMonoid.toDiv.{0} ENNReal ENNReal.instDivInvMonoid))\n    (@OfNat.ofNat.{0} ENNReal (nat_lit 1) (@One.toOfNat1.{0} ENNReal ENNReal.instOne))\n    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)\n      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)\n        (@AddMonoidWithOne.toNatCast.{0} ENNReal\n          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))\n        \u22ef)))",
+      "classification": "instOfNatAtLeastTwo Nat.AtLeastTwo proof-class argument"
+    },
+    {
+      "line": 429,
+      "context": "    Examples.PermutationTail.afterFirst\n    (@Set.ofPred.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))) fun \u03c0 =>\n      @Eq.{1} (List.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n        (Examples.PermutationTail.tailOrder \u03c0)\n        (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 3)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 3)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 432,
+      "context": "        (Examples.PermutationTail.tailOrder \u03c0)\n        (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 3)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 3)))\n          (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 2)\n              (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 2)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 441,
+      "context": "    (@instHDiv.{0} ENNReal (@DivInvMonoid.toDiv.{0} ENNReal ENNReal.instDivInvMonoid))\n    (@OfNat.ofNat.{0} ENNReal (nat_lit 1) (@One.toOfNat1.{0} ENNReal ENNReal.instOne))\n    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)\n      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)\n        (@AddMonoidWithOne.toNatCast.{0} ENNReal\n          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))\n        \u22ef)))",
+      "classification": "instOfNatAtLeastTwo Nat.AtLeastTwo proof-class argument"
+    },
+    {
+      "line": 456,
+      "context": "    Examples.PermutationTail.afterFirst\n    (@Set.ofPred.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))) fun \u03c0 =>\n      @Eq.{1} (List.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n        (Examples.PermutationTail.tailOrder \u03c0)\n        (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 2)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 2)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 459,
+      "context": "        (Examples.PermutationTail.tailOrder \u03c0)\n        (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 2)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 2)))\n          (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 2)\n              (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 2)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 483,
+      "context": "        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n        Examples.PermutationOrder.positions\n        (@Singleton.singleton.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n          (Finset.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n          (@Finset.instSingleton.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 3)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 3)))))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 495,
+      "context": "      (@Set.instMembership.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))))\n      (@Applications.Probability.PermutationTail.firstEvent.{0, 0}\n        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n        (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n        Examples.PermutationTail.observedOrder\n        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 0)\n          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 0))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 507,
+      "context": "        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n        Examples.PermutationOrder.positions\n        (@Singleton.singleton.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n          (Finset.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n          (@Finset.instSingleton.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 3)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 3))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 523,
+      "context": "    Examples.PermutationTail.afterFirst\n    (@Set.ofPred.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))) fun \u03c0 =>\n      @Eq.{1} (List.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n        (Examples.PermutationTail.filteredTail \u03c0)\n        (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 3)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 3)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 542,
+      "context": "      (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n      Examples.PermutationOrder.positions\n      (@Singleton.singleton.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n        (Finset.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n        (@Finset.instSingleton.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 3)\n          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 3)))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 557,
+      "context": "        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n        Examples.PermutationOrder.positions\n        (@Singleton.singleton.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n          (Finset.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n          (@Finset.instSingleton.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 3)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 3)))))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 572,
+      "context": "    Examples.PermutationTail.afterFirst\n    (@Applications.Probability.PermutationTail.firstEvent.{0, 0}\n      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n      (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n      Examples.PermutationTail.observedOrder\n      (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 0)\n        (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 0)))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 592,
+      "context": "    Examples.PermutationTail.afterFirst\n    (@Applications.Probability.PermutationTail.firstEvent.{0, 0}\n      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n      (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n      Examples.PermutationTail.tailOrder\n      (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 2)\n        (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 2)))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 600,
+      "context": "    (@instHDiv.{0} ENNReal (@DivInvMonoid.toDiv.{0} ENNReal ENNReal.instDivInvMonoid))\n    (@OfNat.ofNat.{0} ENNReal (nat_lit 1) (@One.toOfNat1.{0} ENNReal ENNReal.instOne))\n    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)\n      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)\n        (@AddMonoidWithOne.toNatCast.{0} ENNReal\n          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))\n        \u22ef)))",
+      "classification": "instOfNatAtLeastTwo Nat.AtLeastTwo proof-class argument"
+    },
+    {
+      "line": 624,
+      "context": "        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n        Examples.PermutationOrder.positions\n        (@Finset.erase.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n          (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n          Examples.PermutationTail.remaining\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 2)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 2)))))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 640,
+      "context": "    Examples.PermutationTail.afterSecond\n    (@Set.ofPred.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))) fun \u03c0 =>\n      @Eq.{1} (List.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n        (Examples.PermutationTail.lastTail \u03c0)\n        (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 3)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 3)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 666,
+      "context": "          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))))\n      (@Equiv.symm.{1, 1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) Examples.PermutationTailBoundary.swap01))\n    Examples.PermutationOrder.positions)\n  (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n    (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 1)\n      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 1)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 669,
+      "context": "    Examples.PermutationOrder.positions)\n  (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n    (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 1)\n      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 1)))\n    (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n      (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 0)\n        (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 0)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 672,
+      "context": "      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 1)))\n    (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n      (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 0)\n        (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 0)))\n      (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 2)\n          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 2)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 675,
+      "context": "        (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 0)))\n      (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 2)\n          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 2)))\n        (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 3)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 3)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 685,
+      "context": "  (@Applications.Probability.PermutationOrder.restrictedOrder.{0}\n    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n    (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n    Examples.PermutationOrder.positions Examples.PermutationOrder.selected Examples.PermutationTailBoundary.swap01)\n  (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n    (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 0)\n      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 0)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 688,
+      "context": "    Examples.PermutationOrder.positions Examples.PermutationOrder.selected Examples.PermutationTailBoundary.swap01)\n  (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n    (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 0)\n      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 0)))\n    (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n      (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 2)\n        (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 2)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 691,
+      "context": "      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 0)))\n    (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n      (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 2)\n        (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 2)))\n      (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 3)\n          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 3)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 705,
+      "context": "      (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n      (@Applications.Probability.PermutationOrder.restrictedOrder.{0}\n        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n        Examples.PermutationOrder.positions Examples.PermutationOrder.selected)\n      (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 0)\n        (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 0))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 733,
+      "context": "                (@Equiv.instEquivLike.{1, 1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))))\n              (@Equiv.symm.{1, 1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) \u03c0))\n            Examples.PermutationOrder.positions)\n        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 1)\n          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 1))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 758,
+      "context": "                (@Equiv.instEquivLike.{1, 1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))))\n              (@Equiv.symm.{1, 1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) \u03c0))\n            Examples.PermutationOrder.positions)\n        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 0)\n          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 0)))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 784,
+      "context": "          (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n          Examples.PermutationOrder.positions\n          (@Singleton.singleton.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n            (Finset.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n            (@Finset.instSingleton.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 2)\n              (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 2)))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 786,
+      "context": "          (@Singleton.singleton.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n            (Finset.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n            (@Finset.instSingleton.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 2)\n              (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 2)))))\n        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 2)\n          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 2)))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 798,
+      "context": "            (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n            Examples.PermutationOrder.positions\n            (@Singleton.singleton.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n              (Finset.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n              (@Finset.instSingleton.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n              (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 2)\n                (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 2))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 840,
+      "context": "      (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n      Examples.PermutationOrder.positions\n      (@EmptyCollection.emptyCollection.{0}\n        (Finset.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n        (@Finset.instEmptyCollection.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))))\n    (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 0)\n      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 0))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 864,
+      "context": "        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n        Examples.PermutationOrder.positions\n        (@EmptyCollection.emptyCollection.{0}\n          (Finset.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n          (@Finset.instEmptyCollection.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))))\n      (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 0)\n        (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 0)))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 885,
+      "context": "    (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n    (@Applications.Probability.PermutationOrder.restrictedOrder.{0}\n      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n      (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n      Examples.PermutationOrder.positions Examples.PermutationOrder.selected)\n    (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 1)\n      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 1))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 906,
+      "context": "      (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))\n      (@Applications.Probability.PermutationOrder.restrictedOrder.{0}\n        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))\n        Examples.PermutationOrder.positions Examples.PermutationOrder.selected)\n      (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 1)\n        (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) \u22ef (nat_lit 1)))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 950,
+      "context": "  (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))\nExamples.PermutationTailBoundary.outsideConditional : @MeasureTheory.Measure.{0}\n  (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))\n  Examples.PermutationTailBoundary.instMeasurableSpacePermFinOfNatNat_examples_1\nExamples.PermutationTailBoundary.outside_subset_boundaries : And\n  (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 0)\n      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) \u22ef (nat_lit 0)) \u2209",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 962,
+      "context": "          (@Finset.instPartialOrder.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))))\n      Examples.PermutationTailBoundary.outsideSubset\n      (@Finset.erase.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))\n        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))\n        Examples.PermutationTailBoundary.conditionSubset\n        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 0)\n          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) \u22ef (nat_lit 0))))))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 979,
+      "context": "    (@instHDiv.{0} ENNReal (@DivInvMonoid.toDiv.{0} ENNReal ENNReal.instDivInvMonoid))\n    (@OfNat.ofNat.{0} ENNReal (nat_lit 1) (@One.toOfNat1.{0} ENNReal ENNReal.instOne))\n    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)\n      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)\n        (@AddMonoidWithOne.toNatCast.{0} ENNReal\n          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))\n        \u22ef)))",
+      "classification": "instOfNatAtLeastTwo Nat.AtLeastTwo proof-class argument"
+    },
+    {
+      "line": 997,
+      "context": "        (@Applications.Probability.PermutationOrder.restrictedOrder.{0}\n          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))\n          (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))\n          Examples.PermutationTailBoundary.counterPositions Examples.PermutationTailBoundary.outsideSubset \u03c0)\n        (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 1)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) \u22ef (nat_lit 1)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 1000,
+      "context": "          Examples.PermutationTailBoundary.counterPositions Examples.PermutationTailBoundary.outsideSubset \u03c0)\n        (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 1)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) \u22ef (nat_lit 1)))\n          (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))\n            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 2)\n              (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) \u22ef (nat_lit 2)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 1009,
+      "context": "    (@instHDiv.{0} ENNReal (@DivInvMonoid.toDiv.{0} ENNReal ENNReal.instDivInvMonoid))\n    (@OfNat.ofNat.{0} ENNReal (nat_lit 1) (@One.toOfNat1.{0} ENNReal ENNReal.instOne))\n    (@OfNat.ofNat.{0} ENNReal (nat_lit 3)\n      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 3)\n        (@AddMonoidWithOne.toNatCast.{0} ENNReal\n          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))\n        \u22ef)))",
+      "classification": "instOfNatAtLeastTwo Nat.AtLeastTwo proof-class argument"
+    },
+    {
+      "line": 1027,
+      "context": "        (@Applications.Probability.PermutationOrder.restrictedOrder.{0}\n          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))\n          (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))\n          Examples.PermutationTailBoundary.counterPositions Examples.PermutationTailBoundary.outsideSubset \u03c0)\n        (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 2)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) \u22ef (nat_lit 2)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 1030,
+      "context": "          Examples.PermutationTailBoundary.counterPositions Examples.PermutationTailBoundary.outsideSubset \u03c0)\n        (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 2)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) \u22ef (nat_lit 2)))\n          (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))\n            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 1)\n              (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) \u22ef (nat_lit 1)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 1038,
+      "context": "  (@HDiv.hDiv.{0, 0, 0} ENNReal ENNReal ENNReal\n    (@instHDiv.{0} ENNReal (@DivInvMonoid.toDiv.{0} ENNReal ENNReal.instDivInvMonoid))\n    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)\n      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)\n        (@AddMonoidWithOne.toNatCast.{0} ENNReal\n          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))\n        \u22ef))",
+      "classification": "instOfNatAtLeastTwo Nat.AtLeastTwo proof-class argument"
+    },
+    {
+      "line": 1043,
+      "context": "          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))\n        \u22ef))\n    (@OfNat.ofNat.{0} ENNReal (nat_lit 3)\n      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 3)\n        (@AddMonoidWithOne.toNatCast.{0} ENNReal\n          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))\n        \u22ef)))",
+      "classification": "instOfNatAtLeastTwo Nat.AtLeastTwo proof-class argument"
+    },
+    {
+      "line": 1061,
+      "context": "        (@Applications.Probability.PermutationOrder.restrictedOrder.{0}\n          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))\n          (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))\n          Examples.PermutationTailBoundary.counterPositions Examples.PermutationTailBoundary.outsideSubset \u03c0)\n        (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 1)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) \u22ef (nat_lit 1)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 1064,
+      "context": "          Examples.PermutationTailBoundary.counterPositions Examples.PermutationTailBoundary.outsideSubset \u03c0)\n        (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))\n          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 1)\n            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) \u22ef (nat_lit 1)))\n          (@List.cons.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))\n            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 2)\n              (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) \u22ef (nat_lit 2)))",
+      "classification": "Fin.instOfNat NeZero proof-class argument"
+    },
+    {
+      "line": 1073,
+      "context": "    (@instHDiv.{0} ENNReal (@DivInvMonoid.toDiv.{0} ENNReal ENNReal.instDivInvMonoid))\n    (@OfNat.ofNat.{0} ENNReal (nat_lit 1) (@One.toOfNat1.{0} ENNReal ENNReal.instOne))\n    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)\n      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)\n        (@AddMonoidWithOne.toNatCast.{0} ENNReal\n          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))\n        \u22ef)))",
+      "classification": "instOfNatAtLeastTwo Nat.AtLeastTwo proof-class argument"
+    }
+  ],
+  "ellipsis_counts": {
+    "Fin.instOfNat NeZero proof-class argument": 43,
+    "instOfNatAtLeastTwo Nat.AtLeastTwo proof-class argument": 9
+  },
+  "semantic_notes": [
+    "Core arbitrary universes for labels and sample space remain independent; firstEvent is the actual head observation. No arbitrary global Fintype or Inhabited premise was added.",
+    "Finite complete positions and Nodup remain precisely on the relevant laws. Cons support and erase/tail equalities retain actual membership and subset premises.",
+    "The conditional tail mass is reciprocal factorial on supported remaining orders and zero off support. The a-in-S hypothesis is explicit, and impossible outsider events independently yield zero measure.",
+    "HasLaw head and tail theorems use the actual supplied measure and random variable. The conclusion conditions that same measure; no fresh or independent resampling premise replaces it.",
+    "Filtered-tail and remaining-order laws retain T subset S.erase a. The quantifier is a fixed finite subset, not a random adaptive subset.",
+    "Main examples preserve Fin4, the selected three labels, first mass1/3, two tail masses1/2, repeated-list mass0, filtered singleton mass1, and an explicit changed conditional measure.",
+    "The second-head mass1/2 and last-tail mass1 are under afterFirst and afterSecond, respectively. The source definitions retained in the full source assessment establish nested conditioning of the same original environment.",
+    "Boundary examples distinguish global and selected first events through the swap; singleton conditioning gives empty-tail mass1, empty-subset and outsider events condition to zero, and Empty labels give head-none mass1.",
+    "The supported Fin3 outside-subset counterexample retains condition mass1/2, resulting order masses1/3 and2/3, and failure of1/2 uniformity. The explicit outside-subset failure excludes overgeneralizing the remaining-subset law.",
+    "All52 emitted ellipsis contexts were read in their full type blocks. Their locations are proof-valued numeric instance slots, not hidden mathematical quantifiers or assumptions; exact pinned declaration identities will be rebound before final disposition."
+  ],
+  "findings": [],
+  "receiving_transfer_credit": 0,
+  "final_acceptance": false,
+  "prior_source_header_correction_retained": "Examples.PermutationTail.observed_hasLaw before where, e1801311fa9cb315368737f66d10ad011c8235162069e680c346c3dd8afde092; old receipt remains unchanged."
+}

@@ -1,0 +1,879 @@
+{
+  "recorded_utc": "2026-11-05T04:20:36.085199+00:00",
+  "unit": "FDSA-XT02",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "candidate_tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "accepted_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "incorporated_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "requirements_ids": [
+    "XT02-01",
+    "XT02-02",
+    "XT02-03",
+    "XT02-04",
+    "XT02-05"
+  ],
+  "original_scope_paths": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-shape.md"
+  ],
+  "original_formal_source_modules": 3,
+  "actual_public_names": 90,
+  "full_original_scope_complete": true,
+  "all_required_preacceptance_gates_passed": true,
+  "all_source_writers_held": true,
+  "compiler_live": false,
+  "qualified_project_lock_available": true,
+  "axes": {
+    "Standards": {
+      "outcome": "Passed",
+      "unresolved": 0,
+      "complete_readback_and_hold": true,
+      "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+      "unit": "FDSA-XT02",
+      "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+      "incorporated_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "requirements_ids": [
+        "XT02-01",
+        "XT02-02",
+        "XT02-03",
+        "XT02-04",
+        "XT02-05"
+      ],
+      "original_scope_paths": [
+        "Applications/Trees/Shape.lean",
+        "Applications/Trees/ShapeLog.lean",
+        "Examples/TreeShape.lean",
+        "SquareApplications.lean",
+        "docs/research/fdsa-reconstruction-map.md",
+        "docs/research/fdsa-tree-shape.md"
+      ],
+      "public_names": 90,
+      "full_original_scope_complete": true,
+      "actual_public_types_complete": true,
+      "full_validation_accepted": true,
+      "review_complete": true,
+      "receipt": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/standards-completion-readback-receipt.json",
+        "bytes": 3815,
+        "sha256": "ed0409763ecf495ac71c1a2619f85ff37c4b0b195e2d782743e323356bff5cb2"
+      },
+      "final_record": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/final-validation-e61bb6f.json",
+        "bytes": 19254,
+        "sha256": "f3f7ab4def421a431f4bd230245cbb6f134ae5a9a305bcfd92bd305223569e67"
+      },
+      "hold": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/final-write-hold.json",
+        "bytes": 13031,
+        "sha256": "59e85a7a7e99c128d7ab89e586b3bcf0afab865102fb4f3ca401dbaa5d7b9a59"
+      },
+      "report": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-shape-standards-receiving-20261105.md",
+        "bytes": 26731,
+        "sha256": "75049278e999f564958d90b0bc8dff8bdfd873c476fc3f646ed8936dcc8b9321"
+      }
+    },
+    "Spec": {
+      "outcome": "Passed",
+      "unresolved": 0,
+      "complete_readback_and_hold": true,
+      "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+      "unit": "FDSA-XT02",
+      "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+      "incorporated_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "requirements_ids": [
+        "XT02-01",
+        "XT02-02",
+        "XT02-03",
+        "XT02-04",
+        "XT02-05"
+      ],
+      "original_scope_paths": [
+        "Applications/Trees/Shape.lean",
+        "Applications/Trees/ShapeLog.lean",
+        "Examples/TreeShape.lean",
+        "SquareApplications.lean",
+        "docs/research/fdsa-reconstruction-map.md",
+        "docs/research/fdsa-tree-shape.md"
+      ],
+      "public_names": 90,
+      "full_original_scope_complete": true,
+      "actual_public_types_complete": true,
+      "full_validation_accepted": true,
+      "review_complete": true,
+      "receipt": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/spec-completion-readback-receipt.json",
+        "bytes": 3171,
+        "sha256": "e6d5064d06e883d85af245baa0445045eeb06708239bd2a38bb1c12b9658eea5"
+      },
+      "final_record": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/final-validation-e61bb6f.json",
+        "bytes": 19386,
+        "sha256": "1bdf15001c1346b58e8199ff56af2c4a8e4de2dc14e351406fe5fd954cd15f6e"
+      },
+      "hold": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/final-write-hold.json",
+        "bytes": 11273,
+        "sha256": "24cf53ed4ec07465b872fedf84524da4e62c37eefe02a37faf6c3b40d012dda5"
+      },
+      "report": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-shape-spec-receiving-20261105.md",
+        "bytes": 29550,
+        "sha256": "250945adeaa836c381d7366fd62c29388aefcf2a26dc3996115923aaa2b3b138"
+      }
+    }
+  },
+  "full_check": {
+    "actual_exit": 0,
+    "mode": "incremental",
+    "checked_modules": 1116,
+    "audited_modules": 1114,
+    "kernel_safe_declarations": 50422,
+    "theorem_declarations": 29543,
+    "unsafe_runtime_declarations": 0,
+    "axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "normal_mode_applicable": true,
+    "fresh_baseline_preserved": true
+  },
+  "actual_statement_qualification": {
+    "actual_exit": 0,
+    "names": 90,
+    "program": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean",
+      "bytes": 4199,
+      "sha256": "fab2460caafba1f3f28a09006c4e220b9c735857e02294091486cdf4e8461c33"
+    },
+    "current_sources_rehashed": 29,
+    "current_objects_and_traces_rehashed": 87,
+    "current_configuration_files_rehashed": 10,
+    "current_clean_dependencies_verified": 9,
+    "current_runtime_components_rehashed": 12,
+    "pre_post_final_identity_equal": true,
+    "loaded_object_provenance_proof_claimed": false
+  },
+  "author_holds": [
+    {
+      "hold": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/author-readback-and-hold.json",
+        "bytes": 9186,
+        "sha256": "0e1795f1e1e40c259bcda8dbfbbfead760644fdc34bfd4c3ef8a5bbde3fae54e"
+      },
+      "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+      "head": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1",
+      "tree": "e2d4cb95882c3775dc01846c4010da3b92c78d34",
+      "status": "",
+      "sources": [
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort/Applications/Trees/BasicObservations.lean",
+          "bytes": 5009,
+          "sha256": "3d2decdac9a8803edde8b5b36a97d0deba1a4d7b1cb1f15a93057044f342afc6"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort/Examples/TreeBasicObservations.lean",
+          "bytes": 4033,
+          "sha256": "5c40f55fad3e17da5bb28490f898c6ab7573023253e43292813df8d58c6104cb"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort/Applications/Trees/WeightedPaths.lean",
+          "bytes": 2325,
+          "sha256": "e6d8337983bfb9542a879ed9bc2bafc458e2fb2d38b954d157c292a19cacae7b"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort/Examples/TreeWeightedPaths.lean",
+          "bytes": 2780,
+          "sha256": "70bffb98d3e2a3c92e3285ae17111aaaf5ebf1d79864463eb8f3fce49466fe38"
+        }
+      ],
+      "compiled": false,
+      "accepted": false
+    },
+    {
+      "hold": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-balancing-implementation-20261105/durability-hold-20261105.json",
+        "bytes": 2768,
+        "sha256": "92885abbae4a52833108e32817d62c6fe86af2969b4156dc2dcf0b930ebd830f"
+      },
+      "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+      "head": "a8f57dbf153c19e3bad2c8136a90b566eeb35374",
+      "tree": "d6a360509f3fb80b611147303604a893cbba5510",
+      "status": "",
+      "sources": [
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Trees/Balance.lean",
+          "bytes": 8833,
+          "sha256": "1fddadc95a165a8e5c03b15ccdae1a56f94deed5689d345d32b92ed053a1729e"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/TreeBalance.lean",
+          "bytes": 3432,
+          "sha256": "c9e11e2f91713193c3ca75b82dfa0e062c5c0354118a32580b5c08942aada4af"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/TreeBalance.lean",
+          "bytes": 5841,
+          "sha256": "d113019bc1af4e1581a30ff8123e9d86d4b94e0d732cc4257fc9dd685e09b90b"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/TreeBalanceCost.lean",
+          "bytes": 2173,
+          "sha256": "639e50f133580d40d0046f36b12c3a441f90df8e29ea7f28d77ec4dab79bb943"
+        }
+      ],
+      "compiled": false,
+      "accepted": false
+    },
+    {
+      "hold": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-exercises-implementation-20261105/phase2-source-freeze.json",
+        "bytes": 3788,
+        "sha256": "3ee77db1ceeb0554cefc2e274dddb6001d6469d2357424d1ca7effed87c4d355"
+      },
+      "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge",
+      "head": "d02419738a9e16963727b25acf2e18f374dd16de",
+      "tree": "6d2033e33b5282ce965c96b71776ab1aafea8828",
+      "status": "",
+      "sources": [
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Applications/Trees/Levels.lean",
+          "bytes": 3596,
+          "sha256": "45a2c073f4cecb400b2af4bf49941558d65b7eb52ef667bbab19ed8c7984b023"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Examples/TreeLevels.lean",
+          "bytes": 1874,
+          "sha256": "8c70f590b88a4f7c329a72a114af12fc12965e79d94ce6fc794fc6853dd1dc7b"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Applications/Trees/Rose.lean",
+          "bytes": 1849,
+          "sha256": "0a56ff6221c1f177c5127a43af32f4cb1c0d624d91f16ec661d916900ce89f71"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Examples/TreeRose.lean",
+          "bytes": 1065,
+          "sha256": "7bf335b8acde9dcbab004179daa16a8e0671a18c50fcbc17b4377ec831d34f02"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Applications/Trees/Enumeration.lean",
+          "bytes": 6707,
+          "sha256": "c5e91cbaf276843941d31eec5b5cf1693cfe885f43c8831fd9246559712249c3"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Examples/TreeEnumeration.lean",
+          "bytes": 2078,
+          "sha256": "54d112abab423482045370339e5f9bb5144adb599d39baedc6e22a18cb3247de"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Applications/Trees/Reconstruction.lean",
+          "bytes": 4278,
+          "sha256": "19750df3d7e88204bfdbbb6322d14403faa7dae64794a3fdb833d0dd54da4943"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Examples/TreeReconstruction.lean",
+          "bytes": 4034,
+          "sha256": "c5ca06a87724097c9dbe03e0f87e0105182738316b473b55b3ac336b216c2de1"
+        }
+      ],
+      "compiled": false,
+      "accepted": false
+    }
+  ],
+  "all_refs_before_immediate": {
+    "refs/heads/master": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+    "refs/heads/work/fdsa-accumulated-work": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+    "refs/heads/work/fdsa-adt-refinement": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+    "refs/heads/work/fdsa-affine-integration": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "refs/heads/work/fdsa-affine-recurrence": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+    "refs/heads/work/fdsa-basics-cost-models": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "refs/heads/work/fdsa-book": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+    "refs/heads/work/fdsa-braun-shape": "156ba8170852f8e7f0b8c09315e35b837ce77ff9",
+    "refs/heads/work/fdsa-builder-costs": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+    "refs/heads/work/fdsa-ch02-alternating": "43242f43cba0f2c90c17356d44d71e5765d8ba93",
+    "refs/heads/work/fdsa-ch02-bottom-up": "a6f950d7d5dc4aef521445250f9bfbd59166291d",
+    "refs/heads/work/fdsa-ch02-development": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "refs/heads/work/fdsa-ch02-insertion-observations": "95cfce304b9b63057286acc7d5b20b53d95d8eaa",
+    "refs/heads/work/fdsa-ch02-natural-runs": "47f66dccc414d41bddf0dc6576a2338227ee221e",
+    "refs/heads/work/fdsa-ch02-quicksort": "5a3af21cb4ff56896f1a7d249736c4804c229873",
+    "refs/heads/work/fdsa-ch02-random-pivot": "15a113b075c2ceb4d44c27a06fa9a69e019b57fc",
+    "refs/heads/work/fdsa-ch02-three-way": "e0df28b7bbfa722b25623606a5a1905620fac91e",
+    "refs/heads/work/fdsa-ch02-top-down": "66cd1cca539cb667a7bae17d91d51c0ffeb718dc",
+    "refs/heads/work/fdsa-ch02-top-down-costs": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+    "refs/heads/work/fdsa-ch02-uniform-input": "3b839319776238fe2a46f22db761058b44d68adc",
+    "refs/heads/work/fdsa-ch02-values": "b1677172ef85e40865fe8f292660c1bcfd6e5a0c",
+    "refs/heads/work/fdsa-ch03-integration": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+    "refs/heads/work/fdsa-ch03-mom-execution": "1249f39968a44a25bfe3932d84a2cb44c6a83515",
+    "refs/heads/work/fdsa-ch03-query-lower-bounds": "569545102ff70697066de429eb02f9f47dffa07f",
+    "refs/heads/work/fdsa-ch03-random-selection": "96722600aa29636e028751242ce33d562c5a9255",
+    "refs/heads/work/fdsa-ch03-rounded-recurrence": "660f974640fb89a766b26a4d786ae7ed197cecf2",
+    "refs/heads/work/fdsa-ch03-values": "18cde548c080b24d182e754db0e13b0df2d91c15",
+    "refs/heads/work/fdsa-ch04-balancing": "a8f57dbf153c19e3bad2c8136a90b566eeb35374",
+    "refs/heads/work/fdsa-ch04-exercises": "d02419738a9e16963727b25acf2e18f374dd16de",
+    "refs/heads/work/fdsa-ch04-structural": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1",
+    "refs/heads/work/fdsa-chapter02-integration": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+    "refs/heads/work/fdsa-foundation-integration": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "refs/heads/work/fdsa-insertion-costs": "697bcf242ce65d74815b5639bddb1c6e754dd10f",
+    "refs/heads/work/fdsa-list-foundations": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+    "refs/heads/work/fdsa-logarithm-bounds": "a601ad713368daf8e18d5a5537a83d47138491fa",
+    "refs/heads/work/fdsa-order-integration": "932438a765340d69fa6402f6abd17def6ec28d13",
+    "refs/heads/work/fdsa-ordered-search": "863aedb924e922ac40747c0ef299701a7785488e",
+    "refs/heads/work/fdsa-ordinary-merge": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+    "refs/heads/work/fdsa-partition-proof-fixes": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+    "refs/heads/work/fdsa-permutation-expectation": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+    "refs/heads/work/fdsa-permutation-joint": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+    "refs/heads/work/fdsa-permutation-minimum": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+    "refs/heads/work/fdsa-permutation-minimum-validation": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+    "refs/heads/work/fdsa-permutation-order": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+    "refs/heads/work/fdsa-permutation-order-validation": "bdac9703aab4b383fa775568d36bf685af329389",
+    "refs/heads/work/fdsa-permutation-placement": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+    "refs/heads/work/fdsa-permutation-tail": "a0597381f02eddd074ee96cabaa974f2062285f8",
+    "refs/heads/work/fdsa-permutation-tail-validation": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+    "refs/heads/work/fdsa-potential-development": "12cb14fc98b8617b3b625620da8e60936daba340",
+    "refs/heads/work/fdsa-priority-observations": "c088beeb89aa18df45a56f6f1d6b6ff4ad374905",
+    "refs/heads/work/fdsa-shared-four-integration": "312aafb4446b995ff5542041b4e2e074f776db1e",
+    "refs/heads/work/fdsa-tail-integration": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+    "refs/heads/work/fdsa-three-way-partition": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+    "refs/heads/work/fdsa-tree-accumulator": "b035f1151ab4f0c7d7380818576cfe97dae434c4",
+    "refs/heads/work/fdsa-tree-cache": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+    "refs/heads/work/fdsa-tree-cache-integration": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+    "refs/heads/work/fdsa-tree-fold": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+    "refs/heads/work/fdsa-tree-leftmost": "7b8ab2bee299c937256bf9ce7e82977333d07134",
+    "refs/heads/work/fdsa-tree-order": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+    "refs/heads/work/fdsa-tree-rotations": "28ba79d8d425400cb87d2daf3ecf1cc5a63a7aa2",
+    "refs/heads/work/fdsa-tree-shape": "974a97321a8ec174b56104c7e6efaaca881b6639",
+    "refs/heads/work/fdsa-tree-shape-integration": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+    "refs/heads/work/fdsa-tree-traversal-work": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+    "refs/remotes/origin/HEAD": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+    "refs/remotes/origin/integrate/frp": "5be3ce96dbeb60365002414409c9421450e39cf0",
+    "refs/remotes/origin/integration/spec-15": "47b556e83229ce11b27b5b7b4444c089a1e96ac3",
+    "refs/remotes/origin/master": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+    "refs/remotes/origin/reconstruction/adwh-154": "c12296f63c656737d07325e9d8e8e16d6976d099",
+    "refs/remotes/origin/reconstruction/adwh-155": "3efc9d926333c19f697a21afe7dd08af53e3a8cd",
+    "refs/remotes/origin/reconstruction/adwh-180": "e0d76c86040f38728289977c355b848cd6c7d8e3",
+    "refs/remotes/origin/reconstruction/adwh-181": "f68c79000bdb1ce223c403d38f8dd06e20cfbf29",
+    "refs/remotes/origin/reconstruction/adwh-182": "9c0a2649f9601c6294850f2b057698650360da9a",
+    "refs/remotes/origin/reconstruction/adwh-183": "16db707769c322fa17f2c48e24208f81292008da",
+    "refs/remotes/origin/reconstruction/adwh-184": "48b7655155950c4452bebf1268de1866d0f6129f",
+    "refs/remotes/origin/reconstruction/adwh-186": "30bbde79d154d1e8d942561c023a5e44d12ca420",
+    "refs/remotes/origin/reconstruction/adwh-187": "6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e",
+    "refs/remotes/origin/reconstruction/adwh-190": "855ce1f29ae0b7c7a7aec8321ead07be39c6ff32",
+    "refs/remotes/origin/reconstruction/adwh-array-cost-integration": "34c85983f601247fb62aea631c4212b7cb994b5b",
+    "refs/remotes/origin/research/27-frp-runtime": "f4d3e2f36d5547f2236a601c837280bd0c23a774"
+  },
+  "all_worktrees_before_immediate": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled",
+      "head": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "branch_ref": "refs/heads/work/fdsa-book",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.urOBCL\n"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "head": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "branch_ref": "",
+      "status": ""
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-bottom-up",
+      "head": "a6f950d7d5dc4aef521445250f9bfbd59166291d",
+      "branch_ref": "refs/heads/work/fdsa-ch02-bottom-up",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.EA8xCS\n"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-insertion",
+      "head": "43242f43cba0f2c90c17356d44d71e5765d8ba93",
+      "branch_ref": "refs/heads/work/fdsa-ch02-alternating",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.C0d1bT\n"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs",
+      "head": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "branch_ref": "refs/heads/work/fdsa-tree-shape-integration",
+      "status": ""
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+      "head": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1",
+      "branch_ref": "refs/heads/work/fdsa-ch04-structural",
+      "status": ""
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot",
+      "head": "96722600aa29636e028751242ce33d562c5a9255",
+      "branch_ref": "refs/heads/work/fdsa-ch03-random-selection",
+      "status": ""
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+      "head": "a8f57dbf153c19e3bad2c8136a90b566eeb35374",
+      "branch_ref": "refs/heads/work/fdsa-ch04-balancing",
+      "status": ""
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge",
+      "head": "d02419738a9e16963727b25acf2e18f374dd16de",
+      "branch_ref": "refs/heads/work/fdsa-ch04-exercises",
+      "status": ""
+    }
+  ],
+  "bound_files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/final-evidence-expectations.json",
+      "bytes": 965,
+      "sha256": "d9b1badac43cf7f6961b98545593d8d519e4730e5467754d3d392ce4a5188c15"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/fast_forward_once.py",
+      "bytes": 7269,
+      "sha256": "d84afcb02590a4c89f26af8b231e773a23af0af4410d9468edeab54112b1c6b8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-shape-standards-receiving-20261105.md",
+      "bytes": 26731,
+      "sha256": "75049278e999f564958d90b0bc8dff8bdfd873c476fc3f646ed8936dcc8b9321"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/final-report-e61bb6f.md",
+      "bytes": 26731,
+      "sha256": "75049278e999f564958d90b0bc8dff8bdfd873c476fc3f646ed8936dcc8b9321"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/final-report-assessment-readback.json",
+      "bytes": 1729,
+      "sha256": "4b77d9a5fb8901816da26e31c874bebc33cf3af2551b0bb981fb15d611cef5a9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/final-report-assessment-readback-results.json",
+      "bytes": 59016,
+      "sha256": "9f9597695be0267381c21c8934e50aed4fd659412fc9c36435f16f762fac2bd6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/full-validation-assessment-e61bb6f.json",
+      "bytes": 20973,
+      "sha256": "de631a8b53e583651fb814ae8a13ad1d98643cdd377a3c3fac223aaac92ed775"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean",
+      "bytes": 4199,
+      "sha256": "fab2460caafba1f3f28a09006c4e220b9c735857e02294091486cdf4e8461c33"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/native-records/output.log",
+      "bytes": 30252,
+      "sha256": "1df9da87b91e300b1cb9ac92ac52b379ddeba30231a0f149bbab50ba322e5cd7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/actual-types90-assessment-e61bb6f.json",
+      "bytes": 22930,
+      "sha256": "e21ed0245db7c20c19113b39e94108997d0d0a1f615f1dec92185ba9422a9b48"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/actual-types90-blocks-e61bb6f.json",
+      "bytes": 39417,
+      "sha256": "fe7afd60fd784ff101f6ddc152639471aa112031e25deef5f47b1dc77a037da1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/source-corrections-e61bb6f.json",
+      "bytes": 40917,
+      "sha256": "849e7e6bd7b36ef2f16fe112c607be4f04d62524bdc928f70fc06bfe3c84b78c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/source-assessment-27c5908.json",
+      "bytes": 71866,
+      "sha256": "291aeb1e57b93456a9fcc63c46371f1485236ddabac2b2cdf8776ecf71939612"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/source-type-stage-report-e61bb6f.md",
+      "bytes": 20793,
+      "sha256": "87c566ebdd9cdb2eaad1a4c274c1a3361e58cc56ec2a21dbcc6ae868e505bc1c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/source-type-stage-hold-e61bb6f.json",
+      "bytes": 9683,
+      "sha256": "0192eafc6880e9bfaa1eb9ca43cf564d0075d148184d96cabec88ec637a1a552"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/actual-closure-result.json",
+      "bytes": 2567,
+      "sha256": "e4e81fca8f4fad25c5edb766236fd51bc1d7cfea6573b57af82f4f4f2b09e6b3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/actual-launch-result.json",
+      "bytes": 298,
+      "sha256": "5cde899352a9f54c65ba4fa826d5e02a94d47e65171c169c10fa30f090f62f26"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "sha256": "36dfc8ae9b902c8dc8e0232cac699ab94dc95c6b9ac78d62809e417562ced583"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2377,
+      "sha256": "e8f6a27379b5d3fbaead75a7081970976ac042ff2a4884f2e5bc072f527e148b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/full.log",
+      "bytes": 326815,
+      "sha256": "47b4f52f06b9610b6d0c54c7f02daf0feb6cf56783fca555927e164ed9fd358b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/launch.json",
+      "bytes": 174,
+      "sha256": "6defdd366866df0ae82c0c8e2426359423720a2741d2189f84f318dd9fed8143"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/native-records/output.log",
+      "bytes": 326586,
+      "sha256": "24a3e9d664836b1c39cbe7725ef623a030615cd67efaecadfe338e2111d8b078"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/native-records/result.json",
+      "bytes": 574,
+      "sha256": "d40ba095e94d66f8505db69a99fd8e9e321713d0e43e53cf1804d7485ebdec3b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/native-records/start.json",
+      "bytes": 421,
+      "sha256": "9046d202eae67d88712a9199312367c8b14d3e912a3faa2e22e072566ee0fe77"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/outer-prefix.log",
+      "bytes": 70,
+      "sha256": "85b1c84dcee195655562afb91455f0d9c98388a8be8845b8eb9306ffa317cfab"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/outer-suffix.log",
+      "bytes": 159,
+      "sha256": "e22fe7c8d23ba3bc77adbdf767d6c9fa286936973d62f5fd70afb4470fd20fc2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "f36bce46608672c9b43b8cd206b6faf914ff2fa1211fa7e4b740e4d97401cedd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/progress.json",
+      "bytes": 265,
+      "sha256": "c0e652290371acb29d73334354f500096b91567654daffce8f22ded16843868f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/request.json",
+      "bytes": 737,
+      "sha256": "f899730f860180d9a41a062846b95e4a1d973e04dd20a85780e351d5b36f8331"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/result.json",
+      "bytes": 1256,
+      "sha256": "4bec18d19e16579555633111050e54bd4e443add13efa8d348fac2cbbcfcdb61"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/root-audit-reconciliation.json",
+      "bytes": 6725,
+      "sha256": "85dd530168d74c6f631a723154f613804a9777b2ceb3b394eee71becc982cd52"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/start.json",
+      "bytes": 930,
+      "sha256": "d90418969674da2f213dce278b7165f323aaa7bbc74509a9b8086fcdba5ce17c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/verification.json",
+      "bytes": 867,
+      "sha256": "379dcc3142a4ea4b207f7e1c952ef4ca08c1b80c39168816d168cac5f6023503"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/full.log",
+      "bytes": 325963,
+      "sha256": "dbd8ba410b64f7ee2eedc9389c4dceb907549dabbada6fee358277b760141dd8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/inputs-before.json",
+      "bytes": 34483,
+      "sha256": "1ee3406ca37aeaa9b62485d8719d1085fc7803f41c01229526619f48e2c2a963"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/inputs-after.json",
+      "bytes": 34785,
+      "sha256": "e099ff7584144fe5d9c3294dea7d19139009622808de2ab65b4a437dbc0353ee"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/final-inputs-after-full.json",
+      "bytes": 34785,
+      "sha256": "c44a0f8632b982d3080329c074fe17b1642eb7fcc5b8e193fcae0a3c034a063f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/final-inputs-after-full-actual-result.json",
+      "bytes": 449,
+      "sha256": "68a3936e5001bd149a34fd81f5eb180f8f5bffea44b76e4ff23c0a912597cdd4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/focused-failure-27c5908-assessment.json",
+      "bytes": 4622,
+      "sha256": "5be9d97ec77e0d90313bba20d53f6571e38dd515a4f341aa01f5df2c7d1cc3f9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/focused-failure-5b3b9ab-assessment.json",
+      "bytes": 4870,
+      "sha256": "2498a79951af4e3bfe140aae3340f3c48b35d87d7582d140e8b16493dd060426"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/final-validation-e61bb6f.json",
+      "bytes": 19254,
+      "sha256": "f3f7ab4def421a431f4bd230245cbb6f134ae5a9a305bcfd92bd305223569e67"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/final-validation-readback.json",
+      "bytes": 1160,
+      "sha256": "13ccb96dcb68c93b883368ec707936178b6e7db24d1d0e443d247d9cca91de57"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/final-evidence-read-results.json",
+      "bytes": 124181,
+      "sha256": "a3b5fdad95abcc211bf3b977758df420ce8b11335ba6aee2634f8117a84d5f1e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/final-validation-readback-result.json",
+      "bytes": 25800,
+      "sha256": "a6d1dfd565e78890b95f439de094a6cbee01f2c752c8088670acf790a48980bf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/read-ledger-source-27c5908.json",
+      "bytes": 9412,
+      "sha256": "a23b77238facf5e9bb7327ca23c76ec3108f6b8c2fbc927f5b0f91c97c5ce201"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/source-closure-27c5908.json",
+      "bytes": 23690,
+      "sha256": "bad89f2eccd7164be65429353d2ec08884f0bae398da9a21a16eb2e4db3de60d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/source-stage-readback-27c5908.json",
+      "bytes": 1468,
+      "sha256": "6068a67392a7e91e8c7f782849ba916fd50e6de0eacb346890db83c09b9002b0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/source-stage-report-27c5908.md",
+      "bytes": 13948,
+      "sha256": "a5ab3ca3ce6afd961d125e0d38e0ee24328daaa2ac16c300a83be19f22265021"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/source-type-full-readback-results.json",
+      "bytes": 50615,
+      "sha256": "98e849c621744b3fcf35a84f6d2a0214acd56260775554e3e9e49a5b0b4d945b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/source-type-stage-readback-e61bb6f.json",
+      "bytes": 7049,
+      "sha256": "749295bd182db6dd71e5add75e2b05699751c5b6e418814610e12250008bd5ac"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/final-write-hold.json",
+      "bytes": 13031,
+      "sha256": "59e85a7a7e99c128d7ab89e586b3bcf0afab865102fb4f3ca401dbaa5d7b9a59"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/standards-completion-readback-receipt.json",
+      "bytes": 3815,
+      "sha256": "ed0409763ecf495ac71c1a2619f85ff37c4b0b195e2d782743e323356bff5cb2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/focused-attempt3-assessment-e61bb6f.json",
+      "bytes": 7659,
+      "sha256": "c9654a8d57c50eb06cc2964aa3a7a3631433ae33c9838dcca99fc5e299a8afb4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/actual-types90-assessment-e61bb6f.json",
+      "bytes": 69498,
+      "sha256": "e30648cdaea94fbf5eddb97f917bbe3299323e8a97eaacd9ebaa2194e13882ac"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/full-validation-assessment-e61bb6f.json",
+      "bytes": 44303,
+      "sha256": "ce9256abde55152ed9c6652d0ac51a23916f175b2e5be65564ba36b0253bf0f5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-shape-spec-receiving-20261105.md",
+      "bytes": 29550,
+      "sha256": "250945adeaa836c381d7366fd62c29388aefcf2a26dc3996115923aaa2b3b138"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-type-stage-report-e61bb6f.md",
+      "bytes": 23134,
+      "sha256": "24d3040036ac3ba50614365cc564f0844d6466082a93d1cc29bf8d2e78f51a96"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-reconciliation-27c5908.json",
+      "bytes": 76893,
+      "sha256": "29978ad7f74dc89ab0818fc3db780dd907b0c07eb33271f2efce954a6f2287c9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-corrections-e61bb6f.json",
+      "bytes": 51320,
+      "sha256": "3e0eec71c60f4a515dabf05e6b373bfa149a4a777c3c1d1dfe1a6b25396aa912"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-type-stage-e61bb6f.json",
+      "bytes": 6750,
+      "sha256": "0f891ca128de6237ee87faa27add0f07d881962e2264eec53745daf95da7c99a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-type-write-hold-e61bb6f.json",
+      "bytes": 8859,
+      "sha256": "742f51266e05424d93ab78dbb697dd4b639fe629f7e2f97f529a8c59d283cc07"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/read-ledger-source-types-e61bb6f.json",
+      "bytes": 9472,
+      "sha256": "1d2c36380b5df0be05fee309c42de442bb17f78af9b4dd00b5cd6121433d82c4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-shape-requirements.md",
+      "bytes": 11890,
+      "sha256": "50d11472d8380fb3458a3ea71aba3d1104886f676a7b1cec578c0557a6979e91"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-shape-spec-preparation-20261104.md",
+      "bytes": 17550,
+      "sha256": "cf5e7daa6041c8adb5bcd304bea7dc8b91b18b3c45776234ef65d0c8f6491d08"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/final-validation-e61bb6f.json",
+      "bytes": 19386,
+      "sha256": "1bdf15001c1346b58e8199ff56af2c4a8e4de2dc14e351406fe5fd954cd15f6e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/read-ledger-final-e61bb6f.json",
+      "bytes": 11919,
+      "sha256": "37c0d258fe9b7b70ee63f7ea58f19c6320046e59918aaec8dec02f115f601f15"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/focused-attempt1-assessment-27c5908.json",
+      "bytes": 7553,
+      "sha256": "7644eaace1355a7aa3c845ea4394bf9eaaf06f3f83d55a5fa2d5fea20ab63590"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/focused-attempt2-assessment-5b3b9ab.json",
+      "bytes": 8054,
+      "sha256": "ec2d58d5215bb152fb4071e2648d5f8f80b26190c3cdb0e4734bcf69357c3066"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/read-ledger-source-27c5908.json",
+      "bytes": 7396,
+      "sha256": "57c915ac255f980e2a8b56706adf748328777334c1c49a46f4e6e04e0d139f8f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-stage-report-27c5908.md",
+      "bytes": 16346,
+      "sha256": "a4b6e6b2a666f7fc0848af2dfb906b3726afacf1e1592202f048e213f38e80cd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-stage-write-hold-27c5908.json",
+      "bytes": 6913,
+      "sha256": "a6649df6cd66a77dc1fd08ae1a7d7353a3f775b98a378949eecf06a50648bd8e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/final-write-hold.json",
+      "bytes": 11273,
+      "sha256": "24cf53ed4ec07465b872fedf84524da4e62c37eefe02a37faf6c3b40d012dda5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/spec-completion-readback-receipt.json",
+      "bytes": 3171,
+      "sha256": "e6d5064d06e883d85af245baa0445045eeb06708239bd2a38bb1c12b9658eea5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/result.json",
+      "bytes": 1399,
+      "sha256": "e35c7d69b99317e79ae0de869108495fbd7538204381a7a7efcdc70df10cdfde"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "513619e90e121332bb9b7b452b27907e55a8c99825f2fe5c003751964dc1991e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "sha256": "79dd4c41d690248d0208ba2a94dbfdb5be1e056fd8223bee230066724d08f1f6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/native-records/start.json",
+      "bytes": 563,
+      "sha256": "9eb3c7e21c44fe85535c50249f58076c93eb50fcffcc6c9729d7892c197417e4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/native-records/result.json",
+      "bytes": 715,
+      "sha256": "b24f092d7de00e535577d27e40403aac2b1dd7ab8c207705314c570f852daa3e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2250,
+      "sha256": "104ebd3ad28137ad66c797c03efedd314adbb30eaddc9a4735c89aa2ae377694"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/verification.json",
+      "bytes": 867,
+      "sha256": "329f0d0087adc21b3446d7f10b67c472cdf62238ccf578865eec20569c04da61"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/full.log",
+      "bytes": 30613,
+      "sha256": "f5b5ecaaf2ae9c28d5ea3ffa7911b139180765790762e0700d9c968c6f73f69b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/author-readback-and-hold.json",
+      "bytes": 9186,
+      "sha256": "0e1795f1e1e40c259bcda8dbfbbfead760644fdc34bfd4c3ef8a5bbde3fae54e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-balancing-implementation-20261105/durability-hold-20261105.json",
+      "bytes": 2768,
+      "sha256": "92885abbae4a52833108e32817d62c6fe86af2969b4156dc2dcf0b930ebd830f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-exercises-implementation-20261105/phase2-source-freeze.json",
+      "bytes": 3788,
+      "sha256": "3ee77db1ceeb0554cefc2e274dddb6001d6469d2357424d1ca7effed87c4d355"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/save_acceptance_once.py",
+      "bytes": 16065,
+      "sha256": "0656f226aea22861733b4acece2f3b3d789ae30b93f61fd436af85b39224c969"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/reconcile_root_gate_once.py",
+      "bytes": 16302,
+      "sha256": "54464a3da17a5ab69af8416f9612672562b5b40ac28d9614f26948a0c5976c75"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/operational-helper-inspection.json",
+      "bytes": 5713,
+      "sha256": "2d8bc62e8a15a163705774d8fd839949c218fec35f5384b21a76d05d04cf8d9e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/root-source-type-reconciliation.json",
+      "bytes": 49527,
+      "sha256": "052eccc808bbfb542560d8addcec5e9d6436daa6a11a9ac7f988761e3f578f4a"
+    }
+  ],
+  "coordinator_boundary": "Reconciles the two original independent axes and actual validation; not a third semantic review. Historical failed and incomplete outcomes remain unchanged.",
+  "immediate_verification_and_fast_forward_pending": true,
+  "unit_accepted": false,
+  "chapter04_accepted": false,
+  "whole_project_counts_not_new_book_result_counts": true
+}

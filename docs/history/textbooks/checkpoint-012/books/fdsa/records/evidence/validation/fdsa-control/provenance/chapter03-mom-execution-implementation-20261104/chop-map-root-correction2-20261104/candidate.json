@@ -1,0 +1,31 @@
+{
+  "recorded_utc": "2026-11-04T20:06:30.759666+00:00",
+  "finding": "C03-CHOP-MAP-ELAB-002",
+  "candidate": "08decce77c35b0897609df8a4c8bcf6dfe24020d",
+  "tree": "6a1b7bdcc2c8cf0b3d5d519054fb6d34a816601c",
+  "parent": "bd4e273f82de2c2bab2a69d84c2f8daea310eeec",
+  "source_scope_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "source": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionMedians.lean",
+    "bytes": 9755,
+    "sha256": "e64e998edc9353e5fd52544177fadd32f6398e3260b27ca54195cd8917e5d098"
+  },
+  "only_change": "Expose the definition outer let before the existing dependent-match split; one dsimp only line in proof.",
+  "all28_current_core_headers_and_other27_blocks_preserved": true,
+  "all68_public_statements_and_four_execution_definitions_preserved": true,
+  "all11_other_sources_and_cases_preserved": true,
+  "all_prior_records_preserved": true,
+  "unchanged68_program_rebound": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/ChopMapStatements68-candidate1.lean",
+    "bytes": 4076,
+    "sha256": "3e1de6e46c407771794f4b315b2c8836e35d5c9cc141d4ca167a554d5a2fd4ac"
+  },
+  "exact_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction2-20261104/correction.diff",
+    "bytes": 573,
+    "sha256": "21625501ef35d97e6e35ca65e96615cad082b35f341b0ccde73737fb4c423cad"
+  },
+  "compiled": false,
+  "type_fullgate_or_acceptance_credit": false,
+  "source_and_records_held_for_root_focus": true
+}

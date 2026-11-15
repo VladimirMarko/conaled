@@ -1,0 +1,30 @@
+{
+  "recorded_utc": "2026-11-04T04:42:04.409773+00:00",
+  "phase_base": "ff9749d1ccbcb0949486f67d6273e28c262280e0",
+  "initial_status": "",
+  "control_input_sha256": {
+    "reviews/chapter02-requirements.md": "f0c9bc939fbfb6da02c1734b121456c35fd6b4c9ee43f1284003d0b8db087a36",
+    "research/chapter02-obligations.md": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2",
+    "research/natural-runs-proof-plan.md": "a17b41c56b5262edb5844ddd3f7f25a764f9006c20c0efd25cca4d27795c1884",
+    "research/difference-list-cost-preflight.md": "a0bd75c09ea1208c880dc87d5e8abe88be207c1e411b118519e7cf6237984232",
+    "reviews/difference-list-cost-requirements.md": "cb215a33cce3dd258cca37b9d703522d19caf2da76767c01e573d268b3e92c4e",
+    "reviews/difference-list-provenance-correction.md": "55fef0111a352a9e76df32984521bd50abbb53af986ef4d898a99d1891a54667",
+    "research/scope-reconciliation.md": "21de30d9c317dadc2cb8aee51ea84ca26f74c8208b754feea57d81140c1a3e87",
+    "research/mergesort-cost-readiness.md": "e36333a7e913fe0b11a1950f23c10a5fcb5975f37adb8c8d5405db2fe61a09a5"
+  },
+  "preserved_value_sources": {
+    "Applications/Sorting/NaturalRuns.lean": "123c711b5f0cf05074155f3a0d9ae076aa80a8be482e7e6fc77626aa9db6fb1d",
+    "Examples/NaturalRuns.lean": "ef0ed6bbc5beb40815f977e80c0b99b0633e8503b0b1634747d41275cb3f6041"
+  },
+  "new_owned_files": [
+    "Applications/Resources/NaturalRunComparisons.lean",
+    "Examples/NaturalRunComparisons.lean",
+    "Applications/Resources/ListBuildCosts.lean",
+    "Examples/ListBuildCosts.lean"
+  ],
+  "plan": "reviews/chapter02-natural-run-costs-implementation.md",
+  "plan_sha256_at_creation": "a3056c63f2bf1836f93bd1ac7b8087184cc61c7d0625870ab5af318678d0e1e8",
+  "shared_builder_candidate": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+  "shared_builder_core_sha256": "567683626b9a46d07c465ceb44faaafc941e2dc1c83491b093599ca7f8c698a5",
+  "state": "Source-grounded plan recorded before code; compilation held; shared XD01 and measured BottomUp integration pending."
+}

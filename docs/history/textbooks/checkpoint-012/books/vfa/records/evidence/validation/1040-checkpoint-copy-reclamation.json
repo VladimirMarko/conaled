@@ -1,0 +1,466 @@
+{
+  "prepared_utc": "2026-11-04T11:38:29.315746+00:00",
+  "scope": "Only redundant local archive copies with unique successful upload receipts, xattrs success, matching creation bytes/SHA and passed actual restoration/stability checks. Latest104/105 and fixedbase retained. No source, runtime, cache, diagnostic output, receipt, creationmetadata or remote file changed.",
+  "purpose": "Capacity recovery for continued authorized formalization; checkpoints preserve current recovery state rather than historical states.",
+  "before_ordinary_available_bytes": 1455833088,
+  "files": [
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-058-restored-targeted-environment.tar.gz",
+      "bytes": 7890350,
+      "allocated_bytes": 7897088,
+      "sha256": "fd744cc65937a8ec9bc09a2b77ca06a87b3b0e4d7d76e51f6ae5ffd05ad0ac2c",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-058-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1037-checkpoint058-upload.json",
+      "library_file_id": "libfile_2536ec8c44bc819186fb882d3d9814e5"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-059-scoped-native-setup-and-fresh-validation.tar.gz",
+      "bytes": 7922327,
+      "allocated_bytes": 7929856,
+      "sha256": "e541f859960c85d4747fb6eaf0802f8fe7a3434d16930eeffceef2ef20aef87c",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-059-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1037-checkpoint059-upload.json",
+      "library_file_id": "libfile_ce6dec7c20dc8191b7ee111c203d093e"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-060-fresh-validation-progress.tar.gz",
+      "bytes": 7925613,
+      "allocated_bytes": 7929856,
+      "sha256": "b151b4d5478c85ad65c41d16c00fd81710e5a0e565bbc035c55619f00be70988",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-060-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1037-checkpoint060-upload.json",
+      "library_file_id": "libfile_6fbc53d451f08191bed7427436d9e65a"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-061-native-fresh-validation-progress.tar.gz",
+      "bytes": 7926185,
+      "allocated_bytes": 7933952,
+      "sha256": "b4e551727316806ecb2db73eda0bd557e53bc176cae1ddc8344747fa493a60a9",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-061-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1037-checkpoint061-upload.json",
+      "library_file_id": "libfile_82cea30bf32081918d3a8cb74865c38f"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-062-native-fresh-validation-progress.tar.gz",
+      "bytes": 7926842,
+      "allocated_bytes": 7933952,
+      "sha256": "8110d53aa505254f101fb39684091a1e1909e147f6a54087858c97b4de4b2645",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-062-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1037-checkpoint062-upload.json",
+      "library_file_id": "libfile_3ba4591a0fcc81918729ee0849649cb1"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-063-validation-and-reviewer-continuity.tar.gz",
+      "bytes": 7928052,
+      "allocated_bytes": 7933952,
+      "sha256": "bab320becdbc2bf0acf2b1188d32f727023773ab6703c2405b9b009540b8afca",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-063-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1037-checkpoint063-upload.json",
+      "library_file_id": "libfile_8930e04dd2208191b5a225bc3a86d530"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-064-perm-compile-and-full-validation-progress.tar.gz",
+      "bytes": 7931037,
+      "allocated_bytes": 7938048,
+      "sha256": "29237bf0dfd708205310f0e16f75891f022651e9a86ea7bf1e5acfb9820b09a2",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-064-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1037-checkpoint064-upload.json",
+      "library_file_id": "libfile_f73c2a9374588191802ea6f41bd1291a"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-065-native-fresh-validation-progress.tar.gz",
+      "bytes": 7931924,
+      "allocated_bytes": 7938048,
+      "sha256": "a8e1280e9714a58b09a3bfac073faf249e41bf1a84cffc2ee448756dc581436a",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-065-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1037-checkpoint065-upload.json",
+      "library_file_id": "libfile_6fe90aa2502c8191982274f17b00c618"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-067-native-fresh-validation-progress.tar.gz",
+      "bytes": 7932693,
+      "allocated_bytes": 7938048,
+      "sha256": "d781005406b5de882759fe0e65f34a17810b8f4b0a2323f6ff3bf4d2abd007f0",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-067-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1037-checkpoint067-upload.json",
+      "library_file_id": "libfile_3bd9e1656d3881919943709d6c9ba62d"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-068-native-fresh-validation-progress.tar.gz",
+      "bytes": 7932829,
+      "allocated_bytes": 7938048,
+      "sha256": "e4e6162115146d747e438abf0a6c0b42db31ca37450072f6d1998ed82149b127",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-068-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1037-checkpoint068-upload.json",
+      "library_file_id": "libfile_4b43ba84ec808191b06854e650aaa573"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-069-native-fresh-validation-progress.tar.gz",
+      "bytes": 7933753,
+      "allocated_bytes": 7938048,
+      "sha256": "78f7c5a5b160332bd5773d3a100e188d5def8e723c531bf63a9fa7584c1924b4",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-069-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1037-checkpoint069-upload.json",
+      "library_file_id": "libfile_273f8a659a208191b37e9654e622c61c"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-070-native-fresh-validation-progress.tar.gz",
+      "bytes": 7934770,
+      "allocated_bytes": 7942144,
+      "sha256": "ecbbc0dfc367d91d815ce815ce183b1799eb58c5e2dbf1750ed65e3035874ac9",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-070-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1037-checkpoint070-upload.json",
+      "library_file_id": "libfile_531bccb142988191b9392fa70f9d2728"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-071-native-fresh-source-failure.tar.gz",
+      "bytes": 7936866,
+      "allocated_bytes": 7942144,
+      "sha256": "7aec9730dc731fce1cd9b0a592e732c1fff6d6534e10727f24445d2a855270fe",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-071-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1037-checkpoint071-upload.json",
+      "library_file_id": "libfile_8a6ba59e84448191b64f81d82359656a"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-072-size-import-correction-and-fresh-retry.tar.gz",
+      "bytes": 7967182,
+      "allocated_bytes": 7974912,
+      "sha256": "7a244dfaf7c7e472a3481ba13ce419119dc6d8e9a9acca98ab92f63b086ce34c",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-072-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1038-checkpoint072-upload.json",
+      "library_file_id": "libfile_02df572175888191a9042ec4df48c923"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-073-summation-findings-and-interruption.tar.gz",
+      "bytes": 7972189,
+      "allocated_bytes": 7979008,
+      "sha256": "009a66c0190592d93a6f6a097497c38b43abcf528744307a86a506c371f052f3",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-073-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint073-upload.json",
+      "library_file_id": "libfile_edf21eccd0bc8191bea68b85a79620f4"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-074-summation-corrections-and-isolated-fresh.tar.gz",
+      "bytes": 7995077,
+      "allocated_bytes": 7999488,
+      "sha256": "328d44a57f67f7b2ca8b289aeb7ac22597c7ef0e95eb35a7fd671953bde503d7",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-074-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint074-upload.json",
+      "library_file_id": "libfile_bb02478ed9e48191a15d1cb29394e57e"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-075-retained-source-reviews-and-fresh-progress.tar.gz",
+      "bytes": 7999177,
+      "allocated_bytes": 8003584,
+      "sha256": "0ded1d6cb6e54203d907a24f2d689717e1367927eef1b20aefa8b21bbb067a9f",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-075-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint075-upload.json",
+      "library_file_id": "libfile_d5d1867f6c7c8191a82c7cf65bfdef6f"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-076-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8000150,
+      "allocated_bytes": 8007680,
+      "sha256": "ced896c9b1b84d05b662a9bed2dfad3ecbe81ffe50d7005a437e02b316c3909b",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-076-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint076-upload.json",
+      "library_file_id": "libfile_17a13f6638e88191ad8f92283063dc58"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-077-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8000440,
+      "allocated_bytes": 8007680,
+      "sha256": "c52932a0a088f92efdc02814888aad32a62f4160f4e7f90661141d223e452da4",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-077-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint077-upload.json",
+      "library_file_id": "libfile_e442755199648191a55922735ebea094"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-078-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8000659,
+      "allocated_bytes": 8007680,
+      "sha256": "3017badab7dddfae8041d44ea4ae47d42b2365862fade24eda665b34920048a2",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-078-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint078-upload.json",
+      "library_file_id": "libfile_739348cd60188191af54c26ba54ce196"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-079-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8001084,
+      "allocated_bytes": 8007680,
+      "sha256": "2f36af4ca6fe952595d74b957b09e160b4747c82ce1bee24b76e1ad29c51b689",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-079-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint079-upload.json",
+      "library_file_id": "libfile_cf81908f9a6881919c8f9884434764e3"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-080-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8002048,
+      "allocated_bytes": 8007680,
+      "sha256": "61fdaff5ae1ee7261a35d9044b8e5799d21e49abeff872a8e98d8f515fa341a9",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-080-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint080-upload.json",
+      "library_file_id": "libfile_b0d4a8939fe881918044ff3d780a68b3"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-081-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8002347,
+      "allocated_bytes": 8007680,
+      "sha256": "8554e5fd9cf5588bdb68fb265c4e81621426132a31813ef124fd0943cb6d4bad",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-081-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint081-upload.json",
+      "library_file_id": "libfile_8d210f2af7488191a747106d2013f3b3"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-082-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8002738,
+      "allocated_bytes": 8007680,
+      "sha256": "6bb5bcb2d3a968a572b9c4ab8b63e5aeffb5df5e0aa1e8e6106cd66ae6aaf101",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-082-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint082-upload.json",
+      "library_file_id": "libfile_ecf10388963481919195da129eac925f"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-083-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8002535,
+      "allocated_bytes": 8007680,
+      "sha256": "ac0a643cf07441aca5e82860968cc085ceece84ba4944995cd829a33607dec2f",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-083-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint083-upload.json",
+      "library_file_id": "libfile_024902ccd1d0819195193b35e462cb88"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-084-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8003354,
+      "allocated_bytes": 8007680,
+      "sha256": "e8df6b88c653749851c198690b024743aeee5d4702373c42b4305f57849af826",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-084-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint084-upload.json",
+      "library_file_id": "libfile_d771dd7f599481918d4cd41126f5e93b"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-085-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8003493,
+      "allocated_bytes": 8007680,
+      "sha256": "df8417b03e9c832560d3cf5da1afb28a4355ead2dabfcde71999e5af9aa4f9d1",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-085-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint085-upload.json",
+      "library_file_id": "libfile_48071153f6fc8191b32350d5aa84c220"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-086-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8006053,
+      "allocated_bytes": 8011776,
+      "sha256": "e17de50c746b213ce88d97adc4691a5daad4e1fbb08e2dae56d036b0d07f4974",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-086-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint086-upload.json",
+      "library_file_id": "libfile_1b19f56c05dc819182a2124275497ae2"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-087-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8007672,
+      "allocated_bytes": 8011776,
+      "sha256": "06b3cf07ef0ca8254571ee825db2ddb9373addbd7148b03ddf39027ee1dee60d",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-087-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint087-upload.json",
+      "library_file_id": "libfile_d79e1f52e19081918544438b9bc9d7e6"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-088-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8008284,
+      "allocated_bytes": 8015872,
+      "sha256": "b2d3803ff076876de2a514a793ef1308d9cf3f8be80d8b7eb1d8eff56c6d7118",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-088-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint088-upload.json",
+      "library_file_id": "libfile_d69daf6a3f288191ac492e3e06f2eb60"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-089-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8009117,
+      "allocated_bytes": 8015872,
+      "sha256": "a870447e507c804c9ef11556eb288c96d1157fa93aaf74ddff4ce465eeb94cf2",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-089-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint089-upload.json",
+      "library_file_id": "libfile_d54754e1dcc48191a62822e2945f068d"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-090-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8010272,
+      "allocated_bytes": 8015872,
+      "sha256": "8ddfd2bfb7d47802a6c80f1cdc50a361451d8803c9e1f89d8366635d84a01467",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-090-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint090-upload.json",
+      "library_file_id": "libfile_cb03a81d717881919ea6f4d634cdef76"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-091-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8010639,
+      "allocated_bytes": 8015872,
+      "sha256": "752905817abe2b8b2941d87bffe267d7dc318c7b06ced423fc9b74ba70ea9cb7",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-091-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint091-upload.json",
+      "library_file_id": "libfile_f692a5671ea88191a12f7e2b7fb8f403"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-092-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8010777,
+      "allocated_bytes": 8015872,
+      "sha256": "5c6d728c84b87b0a7e8a47e17f68b311d6c1c61dbf8a80685d0a2d1dd12ed718",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-092-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint092-upload.json",
+      "library_file_id": "libfile_af3aefbdda2c8191aaf93d286654d3bd"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-093-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8011627,
+      "allocated_bytes": 8015872,
+      "sha256": "1965a054d9dfd3248dc16cca240df19a2572002b11b56db9620a1dd42a8b1277",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-093-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint093-upload.json",
+      "library_file_id": "libfile_91dc08243ad88191aa6264e082111709"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-094-size-correction-complete-module-progress.tar.gz",
+      "bytes": 8014360,
+      "allocated_bytes": 8019968,
+      "sha256": "b07526ce3aa66cd1bd03f7b06830df25e4c3e2f6ed28e8397a7f735fb1e13c3d",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-094-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint094-upload.json",
+      "library_file_id": "libfile_b9f881993f3c81918389b1aae292d07d"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-095-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8014702,
+      "allocated_bytes": 8019968,
+      "sha256": "0716890959e20a86fd2fa9668ff960af68ca696207d639e812019ad4d11cf033",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-095-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint095-upload.json",
+      "library_file_id": "libfile_8d22e9b511548191b76918630303284b"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-096-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8015110,
+      "allocated_bytes": 8019968,
+      "sha256": "08f6b5fcb8486b9d692669db48388f3ab1b364e6556a1a93a4b7396537ba8a0d",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-096-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint096-upload.json",
+      "library_file_id": "libfile_5d56dd244b708191967e5553ba580cf5"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-097-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8017330,
+      "allocated_bytes": 8024064,
+      "sha256": "3ef51a2035705016974e515aaa708046ea19896c119d233da308087b556a449e",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-097-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint097-upload.json",
+      "library_file_id": "libfile_5827a94845f4819191c4083ed0684302"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-098-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8017516,
+      "allocated_bytes": 8024064,
+      "sha256": "ddcffcaf136e54e945ee73f0771103deb52b42fb7b38ed72c90712692999de10",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-098-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint098-upload.json",
+      "library_file_id": "libfile_9e8cc286594c8191b906d2144a01e9a6"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-099-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8018162,
+      "allocated_bytes": 8024064,
+      "sha256": "b58dc60cbad505317e0d0db5e0781fb5b28d221662f00364bc4db1043a356142",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-099-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint099-upload.json",
+      "library_file_id": "libfile_6a4146a010688191bec6b4637649cde4"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-100-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8019026,
+      "allocated_bytes": 8024064,
+      "sha256": "73dcd3c0b0c254d740368700ddcb7a4ed0256ba7253e2b2e5407abe2f2d460d7",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-100-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint100-upload.json",
+      "library_file_id": "libfile_f6e3b0d2b4a08191a6e564af5ba149bb"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-101-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8019300,
+      "allocated_bytes": 8024064,
+      "sha256": "2041cf1dc4f752bed54bcb25d3195e1c7a526a2951bde3b00ea7ca4d264dbca2",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-101-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint101-upload.json",
+      "library_file_id": "libfile_e746c25eb7fc8191b0a3a27211d96248"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-102-corrected-native-fresh-progress.tar.gz",
+      "bytes": 8022017,
+      "allocated_bytes": 8028160,
+      "sha256": "3aa3a5a1f16ab4996fd83b3ea237c2b4b5e2a9d9bcb7a12917e95b10ac393a1b",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-102-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-checkpoint102-upload.json",
+      "library_file_id": "libfile_2b7b633e1858819189366db6b42781d7"
+    },
+    {
+      "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-103-monitor-failure-and-correction-plan.tar.gz",
+      "bytes": 8027634,
+      "allocated_bytes": 8032256,
+      "sha256": "367a8c789c6095a5906372fee09d8f14cedf8726403d20419f803eae3d2f491a",
+      "creation_record": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/checkpoint-103-created.json",
+      "upload_receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1040-checkpoint103-upload.json",
+      "library_file_id": "libfile_061e27e21508819190e39ce53f7dc204"
+    }
+  ],
+  "logical_bytes_selected": 359265312,
+  "allocated_bytes_selected": 359526400,
+  "deleted": [
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-058-restored-targeted-environment.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-059-scoped-native-setup-and-fresh-validation.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-060-fresh-validation-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-061-native-fresh-validation-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-062-native-fresh-validation-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-063-validation-and-reviewer-continuity.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-064-perm-compile-and-full-validation-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-065-native-fresh-validation-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-067-native-fresh-validation-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-068-native-fresh-validation-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-069-native-fresh-validation-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-070-native-fresh-validation-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-071-native-fresh-source-failure.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-072-size-import-correction-and-fresh-retry.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-073-summation-findings-and-interruption.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-074-summation-corrections-and-isolated-fresh.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-075-retained-source-reviews-and-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-076-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-077-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-078-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-079-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-080-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-081-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-082-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-083-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-084-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-085-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-086-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-087-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-088-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-089-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-090-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-091-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-092-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-093-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-094-size-correction-complete-module-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-095-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-096-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-097-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-098-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-099-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-100-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-101-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-102-corrected-native-fresh-progress.tar.gz",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-103-monitor-failure-and-correction-plan.tar.gz"
+  ],
+  "status": "completed",
+  "completed_utc": "2026-11-04T11:38:29.364948+00:00",
+  "after_ordinary_available_bytes": 1815330816,
+  "actual_available_delta_not_a_causal_measure": true
+}

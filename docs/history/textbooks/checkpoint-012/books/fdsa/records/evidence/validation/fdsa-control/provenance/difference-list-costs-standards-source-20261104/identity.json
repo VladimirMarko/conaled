@@ -1,0 +1,744 @@
+{
+  "record_kind": "independent Standards full source assessment; not compilation or acceptance verification",
+  "reviewer": "/root/foundation_continuation",
+  "captured_utc": "2026-11-04T06:10:21.777269+00:00",
+  "original_unit_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "candidate": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+  "original_source_candidate": "ffeaf8aed84184f49a13acb5c84e1fd608c9b7e8",
+  "merge_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "candidate_tree": "a34f8c4a74db112e5e30003b226150b5ede0f0d0",
+  "branch": "work/fdsa-builder-costs",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-difference-list-costs",
+  "final_observed_head": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+  "final_porcelain_status": "",
+  "accepted_chapter01_separate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "first_pending_foundation_separate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "requirements": {
+    "path": "fdsa-control/reviews/difference-list-cost-requirements.md",
+    "bytes": 6965,
+    "sha256": "cb215a33cce3dd258cca37b9d703522d19caf2da76767c01e573d268b3e92c4e"
+  },
+  "scope": {
+    "mode": "all five committed task paths; exact endpoint diff; merge base equals fixed base",
+    "exclusions": [],
+    "changed_paths": [
+      {
+        "path": "Applications/Resources/DifferenceListCosts.lean",
+        "bytes": 10086,
+        "sha256": "567683626b9a46d07c465ceb44faaafc941e2dc1c83491b093599ca7f8c698a5",
+        "git_blob": "16d2f1c1da9ed10e546525a4360047f8ea74068d",
+        "worktree_bytes_match_git_object": true
+      },
+      {
+        "path": "Examples/DifferenceListCosts.lean",
+        "bytes": 9315,
+        "sha256": "09165e6a1ccb0b0e45b7ddc6083883aa5bf67bc931c59ff44707d1726ffbe102",
+        "git_blob": "ecbcd9e22208c96324650683e47d15b9bacdf501",
+        "worktree_bytes_match_git_object": true
+      },
+      {
+        "path": "SquareApplications.lean",
+        "bytes": 8328,
+        "sha256": "45449f16d4004eee544182a3cd3f8364d4c7d68430be14ef0426b61617e8280a",
+        "git_blob": "ffff6aa3f837ce83d9b0163420a044e146ae596d",
+        "worktree_bytes_match_git_object": true
+      },
+      {
+        "path": "docs/research/fdsa-difference-list-costs.md",
+        "bytes": 10679,
+        "sha256": "fd01432541c9b27ad83def6192e4a3b75d6b77ae7490ec11a2bf665324f1246e",
+        "git_blob": "c383bd71d80daefe587e9fbdcd80e7e11267c2ca",
+        "worktree_bytes_match_git_object": true
+      },
+      {
+        "path": "docs/research/fdsa-reconstruction-map.md",
+        "bytes": 17221,
+        "sha256": "50411c5753aa57bda40dc374a736b0b3c66f360fe5002e51d5473a8f2183fdf9",
+        "git_blob": "6a4183a1169c5e738288af3edb99c57a3a2bd288",
+        "worktree_bytes_match_git_object": true
+      }
+    ],
+    "full_diff_sha256": "07f3e17e6d6c7250cf6164a09e031822fb35bd136f1ff758dad32154e0343629"
+  },
+  "commits": [
+    "62809ced86c561c7a6cce8b71e727177a3f17fb8 ffeaf8aed84184f49a13acb5c84e1fd608c9b7e8 docs(resources): correct natural-merge source provenance (#174)",
+    "ffeaf8aed84184f49a13acb5c84e1fd608c9b7e8 a14977b9e316cc484ffad8a470d26b15615956c0 feat(resources): separate builder creation and application costs (#174)"
+  ],
+  "correction": {
+    "from": "ffeaf8aed84184f49a13acb5c84e1fd608c9b7e8",
+    "to": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+    "changed_paths": [
+      "docs/research/fdsa-difference-list-costs.md"
+    ],
+    "diff_sha256": "61dde2f8ea3e72c34f9d4227d49d70a84eb85b0028e6d28775403327e9f7d3e4",
+    "finding_id": "XD01-DOC-001",
+    "disposition": "fixed in frozen candidate; independent source and current exact-byte confirmation complete"
+  },
+  "source_declaration_inventory": {
+    "status": "lexical source inventory only, not elaborated types or audit roots",
+    "total": 72,
+    "modules": [
+      {
+        "path": "Applications/Resources/DifferenceListCosts.lean",
+        "count": 42,
+        "declarations": [
+          {
+            "line": 26,
+            "kind": "abbrev",
+            "name": "Builder"
+          },
+          {
+            "line": 29,
+            "kind": "def",
+            "name": "Rep"
+          },
+          {
+            "line": 33,
+            "kind": "def",
+            "name": "AppCost"
+          },
+          {
+            "line": 37,
+            "kind": "def",
+            "name": "empty"
+          },
+          {
+            "line": 39,
+            "kind": "def",
+            "name": "singleton"
+          },
+          {
+            "line": 42,
+            "kind": "def",
+            "name": "compose"
+          },
+          {
+            "line": 45,
+            "kind": "theorem",
+            "name": "empty_apply"
+          },
+          {
+            "line": 47,
+            "kind": "theorem",
+            "name": "singleton_apply"
+          },
+          {
+            "line": 50,
+            "kind": "theorem",
+            "name": "empty_rep"
+          },
+          {
+            "line": 54,
+            "kind": "theorem",
+            "name": "empty_appCost"
+          },
+          {
+            "line": 58,
+            "kind": "theorem",
+            "name": "singleton_rep"
+          },
+          {
+            "line": 62,
+            "kind": "theorem",
+            "name": "singleton_appCost"
+          },
+          {
+            "line": 66,
+            "kind": "theorem",
+            "name": "compose_value"
+          },
+          {
+            "line": 71,
+            "kind": "theorem",
+            "name": "compose_cost"
+          },
+          {
+            "line": 74,
+            "kind": "theorem",
+            "name": "compose_rep"
+          },
+          {
+            "line": 80,
+            "kind": "theorem",
+            "name": "compose_appCost"
+          },
+          {
+            "line": 88,
+            "kind": "def",
+            "name": "createEmpty"
+          },
+          {
+            "line": 91,
+            "kind": "def",
+            "name": "createSingleton"
+          },
+          {
+            "line": 95,
+            "kind": "def",
+            "name": "createCompose"
+          },
+          {
+            "line": 98,
+            "kind": "theorem",
+            "name": "createEmpty_eq"
+          },
+          {
+            "line": 101,
+            "kind": "theorem",
+            "name": "createSingleton_eq"
+          },
+          {
+            "line": 103,
+            "kind": "theorem",
+            "name": "createCompose_eq"
+          },
+          {
+            "line": 107,
+            "kind": "def",
+            "name": "pushRun"
+          },
+          {
+            "line": 110,
+            "kind": "theorem",
+            "name": "pushRun_eq"
+          },
+          {
+            "line": 113,
+            "kind": "theorem",
+            "name": "pushRun_rep"
+          },
+          {
+            "line": 117,
+            "kind": "theorem",
+            "name": "pushRun_appCost"
+          },
+          {
+            "line": 123,
+            "kind": "def",
+            "name": "buildFrom"
+          },
+          {
+            "line": 126,
+            "kind": "theorem",
+            "name": "buildFrom_nil"
+          },
+          {
+            "line": 128,
+            "kind": "theorem",
+            "name": "buildFrom_cons"
+          },
+          {
+            "line": 134,
+            "kind": "theorem",
+            "name": "buildFrom_cost"
+          },
+          {
+            "line": 142,
+            "kind": "theorem",
+            "name": "buildFrom_rep"
+          },
+          {
+            "line": 151,
+            "kind": "theorem",
+            "name": "buildFrom_appCost"
+          },
+          {
+            "line": 162,
+            "kind": "def",
+            "name": "build"
+          },
+          {
+            "line": 165,
+            "kind": "theorem",
+            "name": "build_cost"
+          },
+          {
+            "line": 169,
+            "kind": "theorem",
+            "name": "build_rep"
+          },
+          {
+            "line": 173,
+            "kind": "theorem",
+            "name": "build_appCost"
+          },
+          {
+            "line": 178,
+            "kind": "def",
+            "name": "toDList"
+          },
+          {
+            "line": 184,
+            "kind": "theorem",
+            "name": "toDList_apply"
+          },
+          {
+            "line": 187,
+            "kind": "theorem",
+            "name": "toList_toDList"
+          },
+          {
+            "line": 193,
+            "kind": "theorem",
+            "name": "toDList_eq_ofList"
+          },
+          {
+            "line": 198,
+            "kind": "theorem",
+            "name": "toDList_compose"
+          },
+          {
+            "line": 211,
+            "kind": "theorem",
+            "name": "toDList_pushRun"
+          }
+        ]
+      },
+      {
+        "path": "Examples/DifferenceListCosts.lean",
+        "count": 30,
+        "declarations": [
+          {
+            "line": 21,
+            "kind": "theorem",
+            "name": "ordered_composition"
+          },
+          {
+            "line": 31,
+            "kind": "theorem",
+            "name": "standard_composition_value"
+          },
+          {
+            "line": 40,
+            "kind": "theorem",
+            "name": "expensive_capture"
+          },
+          {
+            "line": 54,
+            "kind": "def",
+            "name": "materialize"
+          },
+          {
+            "line": 57,
+            "kind": "theorem",
+            "name": "materialize_eq"
+          },
+          {
+            "line": 66,
+            "kind": "theorem",
+            "name": "construction_application_split"
+          },
+          {
+            "line": 73,
+            "kind": "def",
+            "name": "materializeTwice"
+          },
+          {
+            "line": 80,
+            "kind": "theorem",
+            "name": "materializeTwice_eq"
+          },
+          {
+            "line": 91,
+            "kind": "theorem",
+            "name": "duplicate_values"
+          },
+          {
+            "line": 95,
+            "kind": "theorem",
+            "name": "duplicate_values_twice"
+          },
+          {
+            "line": 100,
+            "kind": "theorem",
+            "name": "empty_payload_boundary"
+          },
+          {
+            "line": 105,
+            "kind": "theorem",
+            "name": "singleton_boundary"
+          },
+          {
+            "line": 109,
+            "kind": "def",
+            "name": "extendSingleton"
+          },
+          {
+            "line": 112,
+            "kind": "theorem",
+            "name": "extendSingleton_eq"
+          },
+          {
+            "line": 125,
+            "kind": "theorem",
+            "name": "fused_push_value"
+          },
+          {
+            "line": 132,
+            "kind": "theorem",
+            "name": "identity_value_cost"
+          },
+          {
+            "line": 142,
+            "kind": "def",
+            "name": "padded"
+          },
+          {
+            "line": 146,
+            "kind": "theorem",
+            "name": "padded_rep"
+          },
+          {
+            "line": 152,
+            "kind": "theorem",
+            "name": "padded_appCost"
+          },
+          {
+            "line": 161,
+            "kind": "theorem",
+            "name": "padded_empty_value"
+          },
+          {
+            "line": 166,
+            "kind": "theorem",
+            "name": "no_bound_from_output_length"
+          },
+          {
+            "line": 175,
+            "kind": "def",
+            "name": "doubled"
+          },
+          {
+            "line": 179,
+            "kind": "theorem",
+            "name": "doubled_creation"
+          },
+          {
+            "line": 186,
+            "kind": "theorem",
+            "name": "doubled_rep"
+          },
+          {
+            "line": 192,
+            "kind": "theorem",
+            "name": "doubled_application_add_one"
+          },
+          {
+            "line": 204,
+            "kind": "theorem",
+            "name": "doubled_appCost"
+          },
+          {
+            "line": 210,
+            "kind": "def",
+            "name": "materializeDoubled"
+          },
+          {
+            "line": 213,
+            "kind": "theorem",
+            "name": "materializeDoubled_eq"
+          },
+          {
+            "line": 222,
+            "kind": "theorem",
+            "name": "four_shared_closure_extensions"
+          },
+          {
+            "line": 230,
+            "kind": "theorem",
+            "name": "four_shared_closure_extensions_materialized"
+          }
+        ]
+      }
+    ]
+  },
+  "guidance": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 3118,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    },
+    {
+      "path": "README.md",
+      "bytes": 26239,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "bytes": 4824,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6"
+    },
+    {
+      "path": ".agents/skills/code-review/SKILL.md",
+      "bytes": 7466,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42"
+    },
+    {
+      "path": ".agents/skills/code-review/heuristics.md",
+      "bytes": 2232,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060"
+    },
+    {
+      "path": ".agents/skills/implement/SKILL.md",
+      "bytes": 4997,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df"
+    },
+    {
+      "path": ".agents/skills/implement-spec/SKILL.md",
+      "bytes": 5698,
+      "sha256": "fae629d1460affb9c1a8a8b462d9da09aeaaac36d64171431244de7dfe872f62"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "bytes": 6991,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a"
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "bytes": 7113,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c"
+    },
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "bytes": 3876,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6"
+    },
+    {
+      "path": "docs/agents/domain.md",
+      "bytes": 926,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d"
+    },
+    {
+      "path": "docs/adr/README.md",
+      "bytes": 1547,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506"
+    },
+    {
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2"
+    },
+    {
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "bytes": 7331,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8"
+    },
+    {
+      "path": "docs/language-direction.md",
+      "bytes": 19185,
+      "sha256": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db"
+    }
+  ],
+  "unchanged_context": [
+    {
+      "path": "Applications/Resources/Measured.lean",
+      "bytes": 2906,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "same_as_original_unit_base": true
+    },
+    {
+      "path": "Applications/Resources/CallCount.lean",
+      "bytes": 2447,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+      "same_as_original_unit_base": true
+    },
+    {
+      "path": "Applications/Resources/Workload.lean",
+      "bytes": 2745,
+      "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+      "same_as_original_unit_base": true
+    },
+    {
+      "path": "Applications/Sequences/OrderedSummary.lean",
+      "bytes": 8765,
+      "sha256": "d484e6c34f4ebace4ba121f931eba53a86f34a3c4b69e06d9d0b24ae8c8c7261",
+      "same_as_original_unit_base": true
+    },
+    {
+      "path": "docs/SOURCES.md",
+      "bytes": 7841,
+      "sha256": "ea7e9c276f7ea729ca1a17b4efa76bb724ccf3ba26df95a2535f7560f4d41766",
+      "same_as_original_unit_base": true
+    }
+  ],
+  "configuration_comparison": [
+    {
+      "path": "lean-toolchain",
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "same_as_unit_base": true,
+      "same_as_accepted_chapter01": true
+    },
+    {
+      "path": "lake-manifest.json",
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "same_as_unit_base": true,
+      "same_as_accepted_chapter01": true
+    },
+    {
+      "path": "lakefile.toml",
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "same_as_unit_base": true,
+      "same_as_accepted_chapter01": true
+    },
+    {
+      "path": "check.sh",
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "same_as_unit_base": true,
+      "same_as_accepted_chapter01": true
+    },
+    {
+      "path": "ProofAudit.lean",
+      "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd",
+      "same_as_unit_base": true,
+      "same_as_accepted_chapter01": true
+    }
+  ],
+  "toolchain": "leanprover/lean4:v4.35.0",
+  "dependency_pins": {
+    "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "plausible": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+    "LeanSearchClient": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+    "importGraph": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+    "proofwidgets": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+    "aesop": "4a174c490d8707121c4a9290800489f105d85e07",
+    "Qq": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+    "batteries": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+    "Cli": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+  },
+  "dependency_sources_read": [
+    {
+      "repository": "batteries",
+      "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "path": "Batteries/Data/DList/Basic.lean",
+      "bytes": 3012,
+      "sha256": "c117082d78432c10889b0abe72dabbaca47fe8cea713854f388b6589951588b0",
+      "license_header": "Apache 2.0; Microsoft Corporation; Leonardo de Moura"
+    },
+    {
+      "repository": "batteries",
+      "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "path": "Batteries/Data/DList/Lemmas.lean",
+      "bytes": 1996,
+      "sha256": "56914d4703b7eacba36a8dad816ac6a1810b16a0b313a6bf9c700bfd3afa48e6",
+      "license_header": "Apache 2.0; Microsoft Corporation; Leonardo de Moura"
+    }
+  ],
+  "control_records": [
+    {
+      "path": "fdsa-control/REQUEST.md",
+      "bytes": 8549,
+      "sha256": "670038db71064a643014c952161666544cf37a4c9e17f14ddc7c4478e78dc6d8"
+    },
+    {
+      "path": "fdsa-control/reviews/difference-list-cost-requirements.md",
+      "bytes": 6965,
+      "sha256": "cb215a33cce3dd258cca37b9d703522d19caf2da76767c01e573d268b3e92c4e"
+    },
+    {
+      "path": "fdsa-control/reviews/difference-list-cost-candidate.md",
+      "bytes": 7380,
+      "sha256": "03b2358bdd5bf6fc60dae79771ab29cbbcf03505589474641687498968a519a0"
+    },
+    {
+      "path": "fdsa-control/reviews/difference-list-provenance-correction.md",
+      "bytes": 3908,
+      "sha256": "55fef0111a352a9e76df32984521bd50abbb53af986ef4d898a99d1891a54667"
+    },
+    {
+      "path": "fdsa-control/research/difference-list-cost-preflight.md",
+      "bytes": 5290,
+      "sha256": "a0bd75c09ea1208c880dc87d5e8abe88be207c1e411b118519e7cf6237984232"
+    },
+    {
+      "path": "fdsa-control/research/chapter02-obligations.md",
+      "bytes": 42539,
+      "sha256": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2"
+    },
+    {
+      "path": "fdsa-control/research/natural-runs-proof-plan.md",
+      "bytes": 31439,
+      "sha256": "a17b41c56b5262edb5844ddd3f7f25a764f9006c20c0efd25cca4d27795c1884"
+    },
+    {
+      "path": "fdsa-control/tickets/FDSA-XD01.md",
+      "bytes": 2475,
+      "sha256": "41dd6f12cd4bdfc57e6c5d9ee798f73cfbbaffaf873145f60935a2c8e706e240"
+    }
+  ],
+  "primary_inputs": [
+    {
+      "path": "fdsa-control/provenance/xd01-primary-source-20261104/afp-Efficient-Mergesort-2026-10-26.tar.gz",
+      "bytes": 5506,
+      "sha256": "148ba9c80cf876a77219b1209dfa5df9bafe1aef1388bc84fc7088ff9c550708"
+    },
+    {
+      "path": "fdsa-control/provenance/xd01-primary-source-20261104/Natural_Mergesort.thy",
+      "bytes": 6723,
+      "sha256": "2fd5d686d7702385cc76f84e153034fe9b460ec94c0f751a56e5bd5ea017fe51"
+    },
+    {
+      "path": "fdsa-control/provenance/xd01-primary-source-20261104/Sorting.thy",
+      "bytes": 14846,
+      "sha256": "dfa60eae99cd6fa31e4fdd45f488282f913619a204061960e43ddceba4cadfca"
+    },
+    {
+      "path": "fdsa-control/provenance/xd01-primary-source-20261104/afp-efficient-mergesort-recovery-20261104.json",
+      "bytes": 501,
+      "sha256": "848b48d970538053767d0ee3fe5524864ca8ca00879da27e391f0a3d4db25cca"
+    },
+    {
+      "path": "fdsa-control/provenance/xd01-primary-source-20261104/isabelle-sorting-recovery.json",
+      "bytes": 517,
+      "sha256": "7fff4f96e69f2c81a67d03b2d30df93310799db05b7ea6220859f87a3b52de1c"
+    }
+  ],
+  "book_input": {
+    "path": "/workspace/scratch/b4a17a285e23/research-source/functional_data_structures_algorithms.pdf",
+    "bytes": 1742029,
+    "sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645"
+  },
+  "primary_confirmation": {
+    "archive_member": "Efficient-Mergesort/Natural_Mergesort.thy",
+    "archive_member_equals_reading_copy": true,
+    "natural_theory_read": "complete",
+    "natural_header_import": "HOL-Data_Structures.Sorting",
+    "sorting_header_read": true,
+    "source_license_records": "retained source inventory reviewed; license pages not refetched; pinned Batteries headers read directly"
+  },
+  "read_only_checks": [
+    {
+      "command": "git diff --check a14977b9e316cc484ffad8a470d26b15615956c0 62809ced86c561c7a6cce8b71e727177a3f17fb8",
+      "actual_exit": 0,
+      "stdout": "",
+      "scope": "whitespace only; not a formal gate"
+    }
+  ],
+  "validation": {
+    "compiler_run": false,
+    "lake_run": false,
+    "full_check_run": false,
+    "audit_run": false,
+    "candidate_verification_run": false,
+    "type_inspection_run": false,
+    "historical_or_live_session_polled": false
+  },
+  "source_assessment": {
+    "complete": true,
+    "new_findings": 0,
+    "unresolved_source_findings": 0,
+    "retained_findings": [
+      {
+        "id": "XD01-DOC-001",
+        "prior_severity": "low",
+        "status": "fixed with independent source evidence"
+      }
+    ]
+  },
+  "overall_outcome": "Blocked pending compiler, final integrated candidate, full audit, both axes, and immediate verification; HOLD",
+  "report": {
+    "path": "fdsa-control/reviews/difference-list-costs-standards.md",
+    "bytes": 25832,
+    "sha256": "724285ba7202417014e832b5833bf5268552e24bd0b1a5c22b53110f281a3b9f"
+  },
+  "writes": "only the dedicated Standards report and this dedicated provenance record; no source, dependency, cache, Git ref, historical report, ticket, or coverage edits"
+}

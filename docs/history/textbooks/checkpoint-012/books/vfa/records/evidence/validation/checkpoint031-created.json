@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "started_utc": "2026-11-02T22:45:47.348652+00:00",
+  "finished_utc": "2026-11-02T22:46:07.952173+00:00",
+  "command": [
+    "python3",
+    "/workspace/scratch/0c54f2db1fdf/work-state/tools/checkpoint.py",
+    "--workspace",
+    "/workspace/scratch/0c54f2db1fdf",
+    "--name",
+    "conaled-vfa-checkpoint-031-recorder-loss-evidence"
+  ],
+  "actual_returncode": 0,
+  "stdout": "{\"file\": \"/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-031-recorder-loss-evidence.tar.gz\", \"size_bytes\": 146169082, \"sha256\": \"50e438d6e1352c0b83006ad4bee606abffe3803e7f930539337ba0a4cc1f81a0\", \"head\": \"3279bacaec4087cc0d6b7e6b8ae862109cb2dfec\", \"bundle_verify\": \"passed\", \"restore_smoke\": \"passed\", \"source_index_workflow_stability\": \"passed\"}\n",
+  "stderr": ""
+}

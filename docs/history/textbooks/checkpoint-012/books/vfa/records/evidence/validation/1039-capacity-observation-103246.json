@@ -1,0 +1,39 @@
+{
+  "observer": "/root/runtime_observation",
+  "recorded_utc": "2026-11-04T10:33:26.846Z",
+  "scope": "bounded read-only capacity observation; no validation or process-status claim",
+  "directory_allocation": {
+    "command": [
+      "du",
+      "-sk",
+      "/workspace/scratch/60f07f0e98c8/conaled-vfa",
+      "/workspace/scratch/60f07f0e98c8/native-state"
+    ],
+    "actual_exit_code": 0,
+    "result_collected_utc": "2026-11-04T10:32:52Z",
+    "reported_allocated_kib": {
+      "/workspace/scratch/60f07f0e98c8/conaled-vfa": 5049620,
+      "/workspace/scratch/60f07f0e98c8/native-state": 4510580
+    }
+  },
+  "fresh_output_metadata": {
+    "actual_exit_code": 0,
+    "observed_start_utc": "2026-11-04T10:32:46.936548Z",
+    "observed_end_utc": "2026-11-04T10:32:46.973247Z",
+    "directory": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/fresh-check-fun0gzcf",
+    "regular_files": 712,
+    "logical_file_bytes": 297436536,
+    "allocated_regular_file_bytes": 298876928,
+    "subdirectories": 47,
+    "nonregular_nondirectory_entries": 0,
+    "metadata_errors": [],
+    "ordinary_available_bytes": 7987879936
+  },
+  "limits": [
+    "Live, non-atomic observations.",
+    "Fresh output allocation is already included in the conaled-vfa total.",
+    "No attribution of earlier free-space decline or prediction of future capacity sufficiency.",
+    "No build-progress, artifact-integrity, provenance, or process-status conclusion.",
+    "No unrelated filesystem or individual quarantined output inspected; no changes or deletion."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "original_path": "session/validation/chapter02-focused-output-copy.json",
+  "original_sha256": "03456d64bf244e19728da9b84b53ae19d97ace1d89cb1dcd1a115d59a6029581",
+  "original_bytes": 35580,
+  "removed_fields": [
+    {
+      "pointer": "/copied",
+      "entries": 175,
+      "canonical_json_sha256": "28811394d87de49f50028f054218ba9967c63ebae45019c63fcf13b6cd8a1926"
+    },
+    {
+      "pointer": "/selected_modules",
+      "entries": 25,
+      "canonical_json_sha256": "26f88b9e8b9f1bbca8879b0cfd3d5c0894c0ef261398d08851bf867845c65bb1"
+    }
+  ],
+  "record": {
+    "started_at": "2026-11-02T22:42:14.531340+00:00",
+    "status": "completed",
+    "source": "/workspace/scratch/ca9a61d0bf30/conaled",
+    "target": "/workspace/scratch/ca9a61d0bf30/validation-chapter02-r3",
+    "source_head": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+    "target_head": "99a29dcd02eb529fbefbb675e244a8c47b78cdef",
+    "approval_copied": false,
+    "source_validation": "focused development outputs only; not accepted",
+    "selection": "identical source bytes; no destination module artifacts; complete saved outputs",
+    "skipped": {},
+    "acceptance": false,
+    "hashed_artifacts": 75,
+    "source_inconsistencies": {},
+    "ended_at": "2026-11-02T22:42:16.979878+00:00",
+    "copied_modules": 25,
+    "copied_files": 175,
+    "copied_bytes": 8019280
+  }
+}

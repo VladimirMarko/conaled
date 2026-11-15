@@ -1,0 +1,35 @@
+{
+  "recorded_utc": "2026-11-04T19:46:07.765630+00:00",
+  "candidate": "4badcd5a7cab38aed7ff6c178c0649ae8ec63228",
+  "tree": "75f5b4734571af07883d7d0669fdba3c2561fe90",
+  "parent": "4e022bf16e793fd5a1f830b14ba30fb4a2dd0525",
+  "original_full_scope_base": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "finding": "C03-ROUNDED-ELAB-001",
+  "changed_paths": [
+    "Applications/Resources/RoundedRecurrenceBounds.lean"
+  ],
+  "changed_source": {
+    "bytes": 6951,
+    "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135"
+  },
+  "complete_affected_header_before": "theorem affine_bound_of_prefix (f : Nat \u2192 \u211d)\n    (a b c d C1 C2 C3 C4 : \u211d) (n0 N : Nat)\n    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1) (toll_nonneg : 0 \u2264 C1)\n    (cutoff : n0 \u2264 N)\n    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : \u211d))\n    (prefix : \u2200 n, n \u2264 N \u2192 f n \u2264 C4)\n    (slope : C1 / (1 - a - c) \u2264 C3)\n    (absorb : (C1 * (N : \u211d) + C2 + C4) /\n      ((1 - a - c) * (N : \u211d) - max 0 b - max 0 d - 2) \u2264 C3)\n    (recurrence : \u2200 n, n0 < n \u2192\n      f n = f \u2308a * (n : \u211d) + b\u2309\u208a + f \u2308c * (n : \u211d) + d\u2309\u208a +\n        C1 * (n : \u211d) + C2) :\n    \u2200 n : Nat, f n \u2264 C3 * (n : \u211d) + C4 ",
+  "complete_affected_header_after": "theorem affine_bound_of_prefix (f : Nat \u2192 \u211d)\n    (a b c d C1 C2 C3 C4 : \u211d) (n0 N : Nat)\n    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1) (toll_nonneg : 0 \u2264 C1)\n    (cutoff : n0 \u2264 N)\n    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : \u211d))\n    (hprefix : \u2200 n, n \u2264 N \u2192 f n \u2264 C4)\n    (slope : C1 / (1 - a - c) \u2264 C3)\n    (absorb : (C1 * (N : \u211d) + C2 + C4) /\n      ((1 - a - c) * (N : \u211d) - max 0 b - max 0 d - 2) \u2264 C3)\n    (recurrence : \u2200 n, n0 < n \u2192\n      f n = f \u2308a * (n : \u211d) + b\u2309\u208a + f \u2308c * (n : \u211d) + d\u2309\u208a +\n        C1 * (n : \u211d) + C2) :\n    \u2200 n : Nat, f n \u2264 C3 * (n : \u211d) + C4 ",
+  "source_header_byte_identical": false,
+  "header_change_is_only_alpha_rename_of_proof_binder": true,
+  "body_change": "Use the renamed hprefix hypothesis at the existing finite-prefix proof step.",
+  "all_other_three_sources_unchanged": true,
+  "all_prior_provenance_unchanged": true,
+  "public_scope": 35,
+  "private_scope": 0,
+  "type_program": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-continuation1/Statements35-candidate1.lean",
+    "bytes": 2756,
+    "sha256": "95b7f41a250f0c4238763dc6e5bf2c9f4da9808755b44fe407d514dcd398684b",
+    "executed": false
+  },
+  "statement_review": "The reserved parser token prefix is replaced only by hprefix. Its universally quantified finite-prefix bound remains an explicit identical premise in the same position. Every domain, quantifier order, inequality, cutoff, signed coefficient/intercept, constructed witness and conclusion is unchanged; examples unchanged. Old header/failed attempt preserved, with this name-only API correction explicitly disclosed. Full actual-type/independent review and C3 gates remain required.",
+  "no_compiler": true,
+  "actual_focused_result": "pending",
+  "all_own_source_writes_held": true,
+  "chapter03_accepted": false
+}

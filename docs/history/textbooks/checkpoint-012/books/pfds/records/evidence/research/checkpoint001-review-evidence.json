@@ -1,0 +1,38 @@
+{
+  "archive": "conaled-pfds-checkpoint-001.tar.gz",
+  "expected_archive_sha256": "f4db5d8f707399e597e94279dd5068d4a688d092f691b70a6dbd0b581bb40525",
+  "all_member_checksums_matched": true,
+  "independent_restore_exit": 0,
+  "restored_head": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "restored_branch": "pfds/local",
+  "restored_status": "",
+  "restored_tickets_exact": true,
+  "bundle_refs": [
+    "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd refs/heads/master",
+    "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd refs/heads/pfds/local",
+    "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd refs/remotes/origin/HEAD",
+    "5be3ce96dbeb60365002414409c9421450e39cf0 refs/remotes/origin/integrate/frp",
+    "47b556e83229ce11b27b5b7b4444c089a1e96ac3 refs/remotes/origin/integration/spec-15",
+    "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd refs/remotes/origin/master",
+    "c12296f63c656737d07325e9d8e8e16d6976d099 refs/remotes/origin/reconstruction/adwh-154",
+    "3efc9d926333c19f697a21afe7dd08af53e3a8cd refs/remotes/origin/reconstruction/adwh-155",
+    "e0d76c86040f38728289977c355b848cd6c7d8e3 refs/remotes/origin/reconstruction/adwh-180",
+    "f68c79000bdb1ce223c403d38f8dd06e20cfbf29 refs/remotes/origin/reconstruction/adwh-181",
+    "9c0a2649f9601c6294850f2b057698650360da9a refs/remotes/origin/reconstruction/adwh-182",
+    "16db707769c322fa17f2c48e24208f81292008da refs/remotes/origin/reconstruction/adwh-183",
+    "48b7655155950c4452bebf1268de1866d0f6129f refs/remotes/origin/reconstruction/adwh-184",
+    "30bbde79d154d1e8d942561c023a5e44d12ca420 refs/remotes/origin/reconstruction/adwh-186",
+    "6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e refs/remotes/origin/reconstruction/adwh-187",
+    "855ce1f29ae0b7c7a7aec8321ead07be39c6ff32 refs/remotes/origin/reconstruction/adwh-190",
+    "34c85983f601247fb62aea631c4212b7cb994b5b refs/remotes/origin/reconstruction/adwh-array-cost-integration",
+    "f4d3e2f36d5547f2236a601c837280bd0c23a774 refs/remotes/origin/research/27-frp-runtime",
+    "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd HEAD"
+  ],
+  "restored_refs": [
+    "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd refs/heads/pfds/local",
+    "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd refs/remotes/origin/HEAD",
+    "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd refs/remotes/origin/master",
+    "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd refs/remotes/origin/pfds/local"
+  ],
+  "scope": "Independent clean-baseline recovery smoke; does not exercise tracked dirty, staged, deleted, binary, or untracked inputs."
+}

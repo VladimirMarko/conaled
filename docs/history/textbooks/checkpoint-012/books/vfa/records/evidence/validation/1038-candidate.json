@@ -1,0 +1,27 @@
+{
+  "recorded_utc": "2026-11-04T05:53:34.642402+00:00",
+  "candidate": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+  "base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "previous_candidate": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+  "scope": "All task changes; no exclusions; existing Preface/Perm review loop",
+  "checkouts": {
+    "conaled": {
+      "head": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+      "status": ""
+    },
+    "vfa-validation": {
+      "head": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+      "status": ""
+    },
+    "vfa-unified-pty-validation": {
+      "head": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+      "status": ""
+    }
+  },
+  "merge_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "full_diff_stat": " Applications/Durability/DiagnosticGraph.lean |   4 +-\n Applications/Durability/Retention.lean       |   3 +-\n Applications/FRP/Demand.lean                 |   1 +\n Applications/FRP/Equivalence.lean            |  14 +-\n Applications/FRP/Spec.lean                   |   6 +-\n Applications/Interaction/Obligation.lean     |   2 +-\n Applications/Linear/Structured.lean          |   1 -\n Applications/Linear/StructuredCosts.lean     |   2 +-\n Applications/Orbifold/ProjectiveMotion.lean  |   3 +-\n Applications/Probability/CoinPaths.lean      |   3 +-\n Applications/Probability/FiniteMH.lean       |   4 +-\n Applications/Progress/Evaluation.lean        |   2 +-\n Applications/Sequences/BoundedSummary.lean   |   3 +-\n Applications/Sorting/FirstPair.lean          | 110 ++++++++++++++++\n Dependent.lean                               |   2 +-\n Examples/ComparisonPermutations.lean         | 189 +++++++++++++++++++++++++++\n Examples/IndefiniteService.lean              |   1 +\n Examples/ProbabilityCorrelation.lean         |   3 +-\n README.md                                    |   1 +\n SquareApplications.lean                      |   1 +\n SquareKit/Temporal/Finite.lean               |   4 +-\n SquareKit/Temporal/Monitor.lean              |   3 +-\n Squares.lean                                 |   2 +-\n docs/SOURCES.md                              |  14 ++\n docs/licenses/vfa-MIT.txt                    |  19 +++\n docs/research/vfa-coverage.md                | 117 +++++++++++++++++\n 26 files changed, 497 insertions(+), 17 deletions(-)\n",
+  "delta": "diff --git a/Examples/IndefiniteService.lean b/Examples/IndefiniteService.lean\nindex f541f3d..be51b07 100644\n--- a/Examples/IndefiniteService.lean\n+++ b/Examples/IndefiniteService.lean\n@@ -1,3 +1,4 @@\n+import Mathlib.Data.Nat.Size\n import Applications.FRP.IndefiniteIO\n \n /-! Checked clients of the finite circuit service criterion. -/\n",
+  "existing_source_body_preserved_byte_for_byte": true,
+  "source_sha256": "0daaf049128e56210c605cc5b2d5cf8b155aad1727eac6bad189615fc75fa7fd",
+  "no_fresh_verification_record": true
+}

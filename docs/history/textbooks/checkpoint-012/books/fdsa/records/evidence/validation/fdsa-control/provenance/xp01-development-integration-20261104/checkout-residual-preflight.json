@@ -1,0 +1,40 @@
+{
+  "observed_utc": "2026-11-04T11:07:56.776412+00:00",
+  "development_commit": "fa17cf8e0362be37ea6eff169db9f2f3233fab9d",
+  "actual_parents": [
+    "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "c28ba71863d2a35ee1c3a089caa90464e4cca692"
+  ],
+  "post_commit_preflight": "Stopped at clean-status assertion; no XP01 compiler command started",
+  "observed_untracked_files": [
+    {
+      "path": "Applications/Sorting/InsertionObservations.lean",
+      "bytes": 3325,
+      "sha256": "e537e85fa7d06db4e3030fbac3ad2123dfa295158ee87480ece9c47a56ee5add",
+      "exact_saved_Z_blob": "3be66c5841da1fee074b9bbc5dc784f34c9a846f"
+    },
+    {
+      "path": "Applications/Sorting/TopDown.lean",
+      "bytes": 5978,
+      "sha256": "5a953ff534311e1686112273f7c95db6813c8a06ecee0af8fcc191f1c7d9586f",
+      "exact_saved_Z_blob": "845444934d6fec2106e25af62b31f685269c2a59"
+    },
+    {
+      "path": "Examples/InsertionObservations.lean",
+      "bytes": 10998,
+      "sha256": "29ba454b380ab837133863318611b059bc0af385008667d60c410ddedb7ba0f1",
+      "exact_saved_Z_blob": "c164f9c2b150ae3a25dc731846d692b2f36f6e1e"
+    },
+    {
+      "path": "Examples/TopDownSorting.lean",
+      "bytes": 3620,
+      "sha256": "0689ac22c8cc716efec24b4744ed606b79f734542101b28fc4f78af40ef089c5",
+      "exact_saved_Z_blob": "013dea9599add78a6e839bb9e5831cf660321d69"
+    }
+  ],
+  "preceding_same_command_post_switch_status": "Only six intended staged XP01 changes; these four were not present as untracked there",
+  "cause": "Unknown; do not infer deletion durability from in-command success",
+  "response": "Preserve every byte and all commits. Use exact Z as the unaccepted development incorporation base, merging Z into the separate XP01 branch. XP01 diff against Z must remain the original six paths; protected R,F,Z,originalX refs stay fixed. No source-policy ignore, cache copy or candidate acceptance.",
+  "first_integration_metadata_script_exit": 1,
+  "outer_shell_exit_note": "The following filename inventory returned0; it did not change the visible Python assertion failure into a successful metadata/preflight result."
+}

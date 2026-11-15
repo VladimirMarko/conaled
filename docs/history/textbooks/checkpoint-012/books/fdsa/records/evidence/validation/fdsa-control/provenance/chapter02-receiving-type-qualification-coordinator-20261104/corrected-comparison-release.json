@@ -1,0 +1,34 @@
+{
+  "utc": "2026-11-04T17:32:55.438229+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "Standards": {
+    "path": "provenance/chapter02-standards-receiving-final-20261104/command-correction-and-full-gate-completion.json",
+    "bytes": 7114,
+    "sha256": "15ce77a023eb2050bf3d73c0ab041ab29cf8a51adfff077a33ced129158e7bd8"
+  },
+  "Spec": {
+    "path": "provenance/chapter02-spec-receiving-terminal-20261104/method-correction-C02-PREP-CMD-001-assessment.json",
+    "bytes": 6318,
+    "sha256": "c9ab93271d07cae0562ae8e3ffbf525f6466ed67f44d3d0f47f5ac5ff4de840d"
+  },
+  "helper": {
+    "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/compare_receiving_v2.py",
+    "bytes": 18779,
+    "sha256": "84a6d52d489c88efa0ddc155ba88bd4fdd2472042b898a3a95843509049f7f0b"
+  },
+  "same_pre_observation": {
+    "path": "provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/pre-inputs.json",
+    "bytes": 90134,
+    "sha256": "6e915cd019a10381fb096fece62bdbd9964f189a446024825a71daabc808a2a3"
+  },
+  "root_complete_reads": [
+    "99984d",
+    "5abb40",
+    "589f81"
+  ],
+  "root_mechanical_delta_check": "0bd99c exit0",
+  "sole_root_ownership_no_compiler_since_full_closed": true,
+  "both_delta_dispositions_suitable": true,
+  "receiving_type_credit": 0,
+  "original_attempt_preserved": true
+}

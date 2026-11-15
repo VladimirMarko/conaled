@@ -1,0 +1,40 @@
+{
+  "verified_utc": "2026-11-04T09:42:51.404578+00:00",
+  "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0096-checked-tail-boundary-and-preserved-review-continuations.tar.gz",
+  "bytes": 17690980,
+  "sha256": "f0e50ed755cdf7a127f84b74224a8db0938882454e453044ef3ef1df4c050131",
+  "payload_hashes_verified": 3051,
+  "refs_verified": 62,
+  "worktrees_heads_statuses_verified": 15,
+  "closed_runs_verified": [
+    {
+      "name": "chapter02-sorting-and-type-imports-focused-20261104-attempt8",
+      "exit_code": 1,
+      "outer_log": "fdsa-control/provenance/chapter02-sorting-and-type-imports-focused-20261104-attempt8/full.log",
+      "native_result": true
+    },
+    {
+      "name": "chapter02-tail-arithmetic-probe-20261104-attempt1",
+      "exit_code": 1,
+      "outer_log": "fdsa-control/provenance/chapter02-tail-arithmetic-probe-20261104-attempt1/full.log",
+      "native_result": true
+    },
+    {
+      "name": "chapter02-tail-arithmetic-probe-20261104-attempt2",
+      "exit_code": 0,
+      "outer_log": "fdsa-control/provenance/chapter02-tail-arithmetic-probe-20261104-attempt2/full.log",
+      "native_result": true
+    },
+    {
+      "name": "chapter02-tail-and-uniform-examples-focused-20261104-attempt9",
+      "exit_code": 1,
+      "outer_log": "fdsa-control/provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/full.log",
+      "native_result": true
+    }
+  ],
+  "foundation_full_terminal_in_archive": false,
+  "control_and_review_hashes_verified": 10,
+  "prepared814_and_potential110_verified": true,
+  "new_acceptance": false,
+  "restore_roundtrip": "Unchanged format 2 and supplied restorer already tested; not repeated without trigger."
+}

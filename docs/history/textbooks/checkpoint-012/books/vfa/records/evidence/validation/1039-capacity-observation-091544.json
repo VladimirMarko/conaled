@@ -1,0 +1,23 @@
+{
+  "observed_utc": "2026-11-04T09:15:44.402825+00:00",
+  "command": ["du", "-sk", "/workspace/scratch/60f07f0e98c8/conaled-vfa", "/workspace/scratch/60f07f0e98c8/native-state", "/workspace/scratch/60f07f0e98c8/reference", "/workspace/scratch/60f07f0e98c8/upload"],
+  "actual_command_exit_code": 0,
+  "reported_allocated_kib": {
+    "conaled-vfa": 4893052,
+    "native-state": 4510560,
+    "reference": 16484,
+    "upload": 77784
+  },
+  "filesystem_ordinary_available_bytes": 14969135104,
+  "earlier_observation": {
+    "observed_utc": "2026-11-04T09:15:09.026760+00:00",
+    "filesystem_ordinary_available_bytes": 14347370496
+  },
+  "scope": "Read-only live metadata usage of four task directories during the current fresh run",
+  "limitations": [
+    "Not a stable inventory, content-integrity check, process-quiescence proof or formal validation result",
+    "This observation does not establish the cause of filesystem capacity fluctuations",
+    "Other filesystem allocation and unlinked open files were not inventoried",
+    "No source, cache, profile or output was changed or removed"
+  ]
+}

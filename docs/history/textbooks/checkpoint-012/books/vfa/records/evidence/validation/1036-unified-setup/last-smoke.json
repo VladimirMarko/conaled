@@ -1,0 +1,217 @@
+{
+  "started_utc": "2026-11-03T23:27:39.597557+00:00",
+  "host_mode": "compat",
+  "fixture": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-prtm_583",
+  "project": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/conaled",
+  "scope": "Environment validation only; project gates are separate.",
+  "passed": true,
+  "completed_utc": "2026-11-03T23:27:53.374281+00:00",
+  "cases": [
+    {
+      "started_utc": "2026-11-03T23:27:39.598214+00:00",
+      "command": [
+        "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lean",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-prtm_583",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261103T232739Z-smoke-lean-version-444be583/output.log",
+      "label": "smoke-lean-version",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-03T23:27:40.400307+00:00",
+      "seconds": 0.8011631809986284,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-03T23:27:40.405386+00:00",
+      "command": [
+        "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lake",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-prtm_583",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261103T232740Z-smoke-lake-version-64886454/output.log",
+      "label": "smoke-lake-version",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-03T23:27:40.822127+00:00",
+      "seconds": 0.4135367409999162,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-03T23:27:40.824309+00:00",
+      "command": [
+        "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lean",
+        "--print-prefix"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-prtm_583",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261103T232740Z-smoke-bare-prefix-62bf0b91/output.log",
+      "label": "smoke-bare-prefix",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-03T23:27:40.927218+00:00",
+      "seconds": 0.10135429699948872,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-03T23:27:40.929296+00:00",
+      "command": [
+        "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lake",
+        "env",
+        "lean",
+        "--print-prefix"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-prtm_583",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261103T232740Z-smoke-child-prefix-e61b12df/output.log",
+      "label": "smoke-child-prefix",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-03T23:27:41.221842+00:00",
+      "seconds": 0.2913960419991781,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-03T23:27:41.297552+00:00",
+      "command": [
+        "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lean",
+        "-o",
+        "Valid.olean",
+        "Valid.lean"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-prtm_583",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261103T232741Z-smoke-valid-proof-3d3e2070/output.log",
+      "label": "smoke-valid-proof",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-03T23:27:44.474892+00:00",
+      "seconds": 3.171820260999084,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-03T23:27:44.478642+00:00",
+      "command": [
+        "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lean",
+        "Invalid.lean"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-prtm_583",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261103T232744Z-smoke-false-proof-ebe8ffca/output.log",
+      "label": "smoke-false-proof",
+      "lean_threads": "1",
+      "passed": false,
+      "completed_utc": "2026-11-03T23:27:45.159836+00:00",
+      "seconds": 0.6754847789998166,
+      "exit_code": 1,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": true
+    },
+    {
+      "started_utc": "2026-11-03T23:27:45.163886+00:00",
+      "command": [
+        "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lake",
+        "env",
+        "lean",
+        "-o",
+        "Child.olean",
+        "Valid.lean"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-prtm_583",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261103T232745Z-smoke-child-proof-49168233/output.log",
+      "label": "smoke-child-proof",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-03T23:27:45.720708+00:00",
+      "seconds": 0.552312220001113,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-03T23:27:45.726503+00:00",
+      "command": [
+        "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lake",
+        "build",
+        "smoke"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-prtm_583",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261103T232745Z-smoke-native-build-8a9fbed7/output.log",
+      "label": "smoke-native-build",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-03T23:27:47.175721+00:00",
+      "seconds": 1.445103558999108,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-03T23:27:47.181395+00:00",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/60f07f0e98c8/restored/conaled-native-kit-4.35.0/conaled_native.py",
+        "--state",
+        "/workspace/scratch/60f07f0e98c8/native-state",
+        "_exec",
+        "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-prtm_583/.lake/build/bin/smoke",
+        "576101c3448a3d0eb0456507cb41d961e54f7f2af00240fcbd8d754f717cc7e1"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-prtm_583",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261103T232747Z-smoke-native-run-28170f0f/output.log",
+      "label": "smoke-native-run",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-03T23:27:47.245797+00:00",
+      "seconds": 0.06294512599924929,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-03T23:27:47.249789+00:00",
+      "command": [
+        "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lake",
+        "env",
+        "lean",
+        "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-prtm_583/MathlibSmoke.lean"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/conaled",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261103T232747Z-smoke-mathlib-import-ae27d5ee/output.log",
+      "label": "smoke-mathlib-import",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-03T23:27:53.372684+00:00",
+      "seconds": 6.121472116999939,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    }
+  ]
+}

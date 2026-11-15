@@ -1,0 +1,11 @@
+{
+  "recorded_utc": "2026-11-04T15:51:39.897Z",
+  "tool_chunk": "1d193e",
+  "exit_code": 1,
+  "stage": "Compose final reviewer completion/readback JSON after successful readback assertions",
+  "actual_error": "NameError: name 'true' is not defined at the JSON-derived readback-range value embedded as a Python literal.",
+  "effect": "All preceding bound-file and contiguous-read checks completed; the completion object was not constructed and completion.json was not written. No source, compiler, evidence, final report or semantic receipt was changed.",
+  "correction": "Decode the exact range JSON with json.loads before composing the completion record; preserve all prior report and evidence hashes.",
+  "semantic_outcome_changed": false
+}
+

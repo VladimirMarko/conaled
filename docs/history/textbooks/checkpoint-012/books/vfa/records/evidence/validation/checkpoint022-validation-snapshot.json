@@ -1,0 +1,61 @@
+{
+  "observed_utc": "2026-11-02T13:55:15.382484+00:00",
+  "formal_candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "checkouts": {
+    "conaled": {
+      "head": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "status": ""
+    },
+    "vfa-validation": {
+      "head": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "status": ""
+    },
+    "work-state/cache-companion": {
+      "head": "5066fb9d0d0963122332149b3b6984ebea3facda",
+      "status": ""
+    }
+  },
+  "primary_run_record": {
+    "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+    "command": [
+      "/root/.nix-profile/bin/nix",
+      "develop",
+      "--command",
+      "./check.sh",
+      "--candidate",
+      "HEAD"
+    ],
+    "working_directory": "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+    "log": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-3279bac.log",
+    "explicit_environment": {
+      "PATH_prefix": "/root/.nix-profile/bin:",
+      "NIX_CONFIG": "build-users-group =\nexperimental-features = nix-command flakes",
+      "LEAN_NUM_THREADS": "1"
+    },
+    "started_utc": "2026-11-02T10:59:38.190453+00:00",
+    "status": "running",
+    "returncode": null,
+    "note": "Exact subprocess return code is recorded independently of interactive session. Required check.sh command unchanged. Checkpoint017 upload completed before launch.",
+    "pid": 283393,
+    "process_group": 283393
+  },
+  "log_prefix_bytes": 180038,
+  "log_prefix_sha256": "01ae6c4198d117a09c475670009978c95720833247e674fc149f48bed4533443",
+  "last_completed_lines": [
+    "\u2714 [3989/3994] Built SquareKit.SmoothTorsorDual (366s)",
+    "\u2714 [3990/3995] Built SquareKit.SmoothTorsorEquivalence (331s)",
+    "\u2714 [3991/3996] Built SquareKit.SmoothTorsorParameters (582s)",
+    "\u2714 [3992/3996] Built Applications.Orbifold.MatrixDisk (558s)",
+    "\u2714 [3993/3997] Built SquareKit.SmoothDiscreteMapping (560s)",
+    "\u2714 [3994/3997] Built Applications.Orbifold.QuarterTurn (190s)",
+    "\u2714 [3995/3998] Built Examples.DiscreteSmoothMapping (176s)",
+    "\u2714 [3996/3999] Built Examples.DiskRealizations (212s)"
+  ],
+  "reported_errors": [],
+  "root_writable_free_bytes": 1751945216,
+  "chapter_acceptance": false,
+  "cache_companion_amendment": "pending independent Standards and Spec review; no actual cache capture",
+  "operational_candidate": "5066fb9d0d0963122332149b3b6984ebea3facda",
+  "provisional_review_observation": "Standards reported a FIFO-open blocking case; its bounded synthetic probe is saved, and the pending ordinary review will assign and resolve its finding.",
+  "review_writers": "All paused after coordinator and both axis acknowledgements."
+}

@@ -1,0 +1,77 @@
+{
+  "recorded_utc": "2026-11-04T20:14:41.183133+00:00",
+  "disposition": "HELD for checkpoint0126. All own source and provenance writes stop here until explicit root release; no next exercise edits.",
+  "candidate": "24b74c65e2b907f1a4cd8b8c72e22bba8f315eea",
+  "tree": "1a412f79a46a2850a199a6a8d8c88c4826e589ec",
+  "branch": "work/fdsa-ch03-values",
+  "status": "",
+  "new_targets": [
+    "Applications.Selection.MedianReduction",
+    "Applications.Resources.MedianReduction",
+    "Examples.MedianReduction"
+  ],
+  "new_public_names": 65,
+  "new_private_helpers": 0,
+  "prior_nine_sources_verified_unchanged": true,
+  "all_twelve_source_identities_verified": true,
+  "combined_author_public_names": 281,
+  "combined_named_private_helpers": 6,
+  "artifacts": [
+    {
+      "path": "median-reduction-starting-state.json",
+      "bytes": 5408,
+      "sha256": "bc91ca76622882704b16ad70cdaae305ceb914541c27d3bd6b22510976c7d000"
+    },
+    {
+      "path": "median-reduction-precommit.json",
+      "bytes": 3421,
+      "sha256": "b479da6c7bcbc74366e7b3b0450c392d5f9f0545f5bded29d7d0105efcabf680"
+    },
+    {
+      "path": "median-reduction-inventory.json",
+      "bytes": 35935,
+      "sha256": "901b2d98c3cefcb242ee57b3d83ab8beced1ea88d7986cdd538514046d1c00a7"
+    },
+    {
+      "path": "MedianReductionStatements.lean",
+      "bytes": 4245,
+      "sha256": "d544c9616e72bdd5c046b208d13d989f8b2ca384c8915ce25e95970ff278fe0c"
+    },
+    {
+      "path": "median-reduction-review-note.md",
+      "bytes": 8959,
+      "sha256": "35e08f24c0dc8ca8c816c4da791785238680391030292692126524ec1cb9f6fc"
+    },
+    {
+      "path": "median-reduction-candidate1.json",
+      "bytes": 7189,
+      "sha256": "d3dfb948c962f299be3d44841b114ad196ec9a2f3ccfc0e7da88f7310f13eaf5"
+    }
+  ],
+  "full_readbacks": {
+    "source": [
+      "fcb9d0",
+      "219ab0"
+    ],
+    "precommit_and_commit": "8797de",
+    "all65_headers_context_identities_and_entire_explicit_at_program": "54f967",
+    "entire_source_assessment_case_table_and_candidate_record": "14f84f"
+  },
+  "actual_validation_state": "Uncompiled MedianReduction development candidate; focused check queued by root, no terminal received. No author Lean/Lake or actual-type execution. Only static source identity, exhaustive input enumeration, complete readback and whitespace checks performed.",
+  "prior_fixed_rank_terminal": "979c4fcb focused three-module attempt2 CLOSED0, complete correction/log/result/reconciliation author read816b3d; this is not MedianReduction or full Chapter3 validation.",
+  "read_only_lookup_failures_preserved_in": "median-reduction-starting-state.json",
+  "remaining_assigned": [
+    "C03-055",
+    "C03-056",
+    "C03-057",
+    "C03-058"
+  ],
+  "full_chapter_scope": 83,
+  "mandatory_gates_preserved": [
+    "Actual focused terminal",
+    "Emitted type assessment",
+    "Full composed candidate check/audit",
+    "Independent Standards and Spec reviews",
+    "Immediate candidate verification"
+  ]
+}

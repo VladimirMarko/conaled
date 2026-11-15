@@ -1,0 +1,16 @@
+{
+  "command": [
+    "python3",
+    "/workspace/scratch/b566cace4ed6/pfds/session/environment/test-direct-toolchain.py",
+    "--workspace",
+    "/workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041",
+    "--runner",
+    "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-direct-toolchain.py",
+    "--report",
+    "/workspace/scratch/b566cace4ed6/pfds/session/tools/unexpected-cold-red-report.json"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/b566cace4ed6/pfds/session/environment/test-direct-toolchain.py\", line 73, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/workspace/scratch/b566cace4ed6/pfds/session/environment/test-direct-toolchain.py\", line 42, in main\n    with tempfile.TemporaryDirectory(prefix=\"toolchain-smoke-\", dir=root / \"session/tools\") as temp:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/tempfile.py\", line 886, in __init__\n    self.name = mkdtemp(suffix, prefix, dir)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/tempfile.py\", line 384, in mkdtemp\n    _os.mkdir(file, 0o700)\nFileNotFoundError: [Errno 2] No such file or directory: '/workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/session/tools/toolchain-smoke-khc342fe'\n",
+  "missing_directory": "/workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/session/tools"
+}

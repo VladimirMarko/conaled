@@ -1,0 +1,264 @@
+{
+  "schema": 1,
+  "coordinator": "/root/recovery_review",
+  "round": 4,
+  "recorded_at": "2026-11-14T20:47:34.955999+00:00",
+  "review_kind": "reconciliation of independent full-original-base source/handoff reviews",
+  "base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "merge_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "prior_candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+  "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+  "tree": "63205d8a3ff27deb3680c613b70085163f289b83",
+  "upstream_pin": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+  "requirements_version": "2026-11-14-evening-probability-and-delegated-validation",
+  "requirements_sha256": "a60dd5a4aa4ef46ff8463e47f536961a7f374c5ade74f012c609470e59f6b29c",
+  "scope": {
+    "declared_paths": 490,
+    "changed_paths": 381,
+    "changed_lean_paths": 347,
+    "commits": 322,
+    "entries": {},
+    "explicit_exclusions": [],
+    "scope_identity": "04aaeba64ef993665ce417ac3441139f22ca88b53f8865ca6423525f21f2c309",
+    "content_identity": "f3d62399fb025c399790a4fd6a9808c9110ebf44d130c984474e9dcb4328cde4",
+    "prior_full_changed_paths_unchanged": 372
+  },
+  "candidate_receipt_sha256": "01e15d6d360c81e2d5e06187b35cb7a7fd8f1b2efcdec90b8b4f94a38e73e667",
+  "axes": {
+    "Standards": {
+      "reviewer": "/root/recovery_review/standards_r4",
+      "source_handoff_outcome": "Passed",
+      "source_analysis_complete": true,
+      "new_findings": 0,
+      "final_acceptance_status": "Pending receiving validation and final acceptance gates",
+      "final_approval": false
+    },
+    "Spec": {
+      "reviewer": "/root/recovery_review/spec_r4",
+      "source_handoff_outcome": "Passed",
+      "source_analysis_complete": true,
+      "new_findings": 0,
+      "final_acceptance_status": "Blocked",
+      "final_approval": false
+    }
+  },
+  "source_handoff_outcome": "Passed",
+  "final_acceptance_status": "Blocked by receiving final-validation gate",
+  "final_approval": false,
+  "merge_approval": false,
+  "source_corrections_requested": [],
+  "finding_dispositions": {
+    "INT-ST-001": "Fixed, retained",
+    "INT-ST-002": "Fixed, retained",
+    "INT-SP-001": "open-delegated-receiving-gate; receiving-integrator; INT-090",
+    "inherited": "All canonical VFA/FDSA/PFDS IDs, boundaries, original bases and validation history retained; no retrospective closures"
+  },
+  "authorization": {
+    "source": "checkpoint/conaled-textbooks/books/common/REQUIREMENTS.md",
+    "full_gate_delegated_not_waived": true,
+    "local_full_pass_prerequisite_for_source_handoff": false,
+    "historical_blocked_reviews_changed": false
+  },
+  "validation": {
+    "new_r4_compiler_runs": 0,
+    "new_r4_full_success": false,
+    "r3_focused_scope_retained": true,
+    "c1_r3_full": "No terminal success; historical execution state, not an active current process",
+    "final_gate_owner": "receiving-integrator"
+  },
+  "handoff": {
+    "document_sha256": "c17d8ba02e66abbf8d3455facb0605cad285d854035685df08c70c1f5f41ebb2",
+    "patch_bytes": 3544383,
+    "patch_sha256": "955c71b607aab9e217f1b0e4b9c1ef476f16a4596e9d47192052acc8f8a88498",
+    "patch_commit_can_be_new_candidate": true,
+    "patch_external_archive_dependency": false,
+    "stored_refs": 155,
+    "bundle_advertised_refs": 156,
+    "input_refs_preserved": 149,
+    "compare_receipt": "intake/integration-handoff-compare-r4.json",
+    "compare_sha256": "4077c7172c802bbc8070b0bdb8353136143fb8a738f074dd2b95c91cc9a6932c",
+    "content_comparison_is_acceptance": false
+  },
+  "reports": {
+    "intake/review-r4/standards-r4.md": {
+      "sha256": "7419875f61ef4bfe81b0de8db55e94569e25b5315562e21afecfa96b6618828e",
+      "bytes": 24013
+    },
+    "intake/review-r4/standards-r4.json": {
+      "sha256": "4dc7b5ebb47ad255254858453206ccc6ce9a5d458af3e85729c6ebcfd9295c08",
+      "bytes": 25149
+    },
+    "intake/review-r4/spec-r4.md": {
+      "sha256": "6c44f87397ef292ff65e4e805f7f45d7f9aab98e4cdaf35912a00da9f6ac66f0",
+      "bytes": 23888
+    },
+    "intake/review-r4/spec-r4.json": {
+      "sha256": "994a06bfa004d292f81f4928cc2724d4f7119555a5212c14c410d751f1c3066c",
+      "bytes": 43879
+    }
+  },
+  "outside_git_inputs": {
+    "checkpoint/conaled-textbooks/books/common/REQUIREMENTS.md": {
+      "sha256": "a60dd5a4aa4ef46ff8463e47f536961a7f374c5ade74f012c609470e59f6b29c",
+      "bytes": 10412,
+      "inspection": "complete contents"
+    },
+    "checkpoint/conaled-textbooks/books/common/VALIDATION-HANDOFF.md": {
+      "sha256": "c17d8ba02e66abbf8d3455facb0605cad285d854035685df08c70c1f5f41ebb2",
+      "bytes": 7751,
+      "inspection": "complete final contents"
+    },
+    "checkpoint/conaled-textbooks/books/common/STATUS.md": {
+      "sha256": "258bc92560460ea8ab369f569e04b22cd79649b89b6a5daef6ac1eb21d9453bf",
+      "bytes": 7555,
+      "inspection": "complete contents"
+    },
+    "checkpoint/conaled-textbooks/books/common/COVERAGE.md": {
+      "sha256": "779c1701392c921b81d6c193c9e149c29adf99cc881a0a0fd03650f5b229a59b",
+      "bytes": 38973,
+      "inspection": "current overview, source cut, map recovery and beginning of retained FDSA accounting; complete account independently read by both axes"
+    },
+    "checkpoint/conaled-textbooks/books/common/README.md": {
+      "sha256": "041e837c443fb2ada2e0a8a88899950b2b3ea9c4f8f82fb25d40e84f3288c758",
+      "bytes": 4996,
+      "inspection": "complete contents"
+    },
+    "checkpoint/conaled-textbooks/books/common/REVIEW.json": {
+      "sha256": "2350a066c50a62086cb9bbf4185d0d9f291e6f8a71d27a66ac9983b1292384de",
+      "bytes": 9777,
+      "inspection": "complete pre-reconciliation record"
+    },
+    "checkpoint/conaled-textbooks/source/integration.json": {
+      "sha256": "558afc496c69f28f09f4289cab6c9dda149ec9a111ff7c6bc02405fb01deeede",
+      "bytes": 2006,
+      "inspection": "complete contents"
+    },
+    "checkpoint/conaled-textbooks/source/refs.json": {
+      "sha256": "f08f0fd29934c4d4311d8980a2422de7f3db23d8166ec676743a2644447fd254",
+      "bytes": 39079,
+      "inspection": "parsed catalog structure and identity; complete ref correspondence assessed by both axes"
+    },
+    "checkpoint/conaled-textbooks/books/common/evidence/integration-baseline-20261114-evening.json": {
+      "sha256": "5552685f5e8e87d51ee0f831346b73533c101706c95d1f0d91c712128565c99c",
+      "bytes": 3596274,
+      "inspection": "complete JSON parsed; identity/scope metadata inspected"
+    },
+    "checkpoint/conaled-textbooks/books/common/evidence/integration-candidate-r4.json": {
+      "sha256": "01e15d6d360c81e2d5e06187b35cb7a7fd8f1b2efcdec90b8b4f94a38e73e667",
+      "bytes": 3597146,
+      "inspection": "complete JSON parsed; identity/scope metadata inspected"
+    },
+    "checkpoint/conaled-textbooks/books/common/evidence/integration-scope-20261114-evening.json": {
+      "sha256": "d9cdf67714389042e0f1c252267506cf42e97fcb7aef606fafb7d850e0c2b773",
+      "bytes": 22061,
+      "inspection": "complete manifest parsed"
+    },
+    "checkpoint/conaled-textbooks/books/common/evidence/patch-export-009.json": {
+      "sha256": "620751b5c1bf85ef97937cf293fddf940009f0bee17644092f2975ad10dd9a10",
+      "bytes": 814,
+      "inspection": "complete contents"
+    },
+    "checkpoint/conaled-textbooks/books/common/evidence/upstream-merge-04514fc1.json": {
+      "sha256": "3fefdc678fad8816d5850f940686e6d38d0624526e6d0f3dd8c10684461b7141",
+      "bytes": 2075,
+      "inspection": "complete contents"
+    },
+    "checkpoint/conaled-textbooks/books/common/analysis/build-resources-20261114.md": {
+      "sha256": "033b62d94235567565823528a02f0903f048c33ad07e05830b1f16ab93f208b3",
+      "bytes": 8302,
+      "inspection": "complete contents with final navigation-only correction reconciled"
+    },
+    "checkpoint/conaled-textbooks/books/common/evidence/build-resource-assessment-20261114.json": {
+      "sha256": "e634cc81e4c32817ba216d1244490251715ebc92af55d64af086825a5f6ba608",
+      "bytes": 11119,
+      "inspection": "complete contents"
+    },
+    "checkpoint/conaled-textbooks/books/common/evidence/current-resource-observation-20261114.json": {
+      "sha256": "006433e060849cc697c7d8832d9bc79eeb4380673d244ddaf53be17f3d930cef",
+      "bytes": 1340,
+      "inspection": "complete contents"
+    },
+    "checkpoint/conaled-textbooks/books/common/evidence/process-interruption-20261114.json": {
+      "sha256": "2fa72f42a70a3404545f88df1d7cf4b1df21d5a9eebe05012e0d648d2ae856d0",
+      "bytes": 1776,
+      "inspection": "complete contents"
+    },
+    "checkpoint/conaled-textbooks/books/common/evidence/reviews/standards-r3.md": {
+      "sha256": "5b8d9fe977a842135b0282922195b2c0c87a864c84896c09e59fc5ab040726e6",
+      "bytes": 23951,
+      "inspection": "previously read complete report; restored copy matched original immutable fingerprint"
+    },
+    "checkpoint/conaled-textbooks/books/common/evidence/reviews/standards-r3.json": {
+      "sha256": "7af4540650677b51ee36f68104f5a939d9902ca2a02b742d1f4506712d83b22f",
+      "bytes": 9510,
+      "inspection": "previously read complete report; restored copy matched original immutable fingerprint"
+    },
+    "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r3.md": {
+      "sha256": "fc833cd10a81c0361102c41aa15fb75f61cef1ccf7c8486b1a338730843c0d7e",
+      "bytes": 22727,
+      "inspection": "previously read complete report; restored copy matched original immutable fingerprint"
+    },
+    "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r3.json": {
+      "sha256": "eb683ad4ed572843406243120b322736d0e9285f19f266ff339c6257a3c7da09",
+      "bytes": 13941,
+      "inspection": "previously read complete report; restored copy matched original immutable fingerprint"
+    },
+    "checkpoint/conaled-textbooks/books/common/evidence/reviews/coordinator-r3.md": {
+      "sha256": "c11162f4ae5399db0b91bc44d4bf047fed840484b7f5695bf1ec1d684d6de877",
+      "bytes": 7432,
+      "inspection": "previously read complete report; restored copy matched original immutable fingerprint"
+    },
+    "checkpoint/conaled-textbooks/books/common/evidence/reviews/coordinator-r3.json": {
+      "sha256": "3dababc52eedd0e5bcf389083f545eef27566a1611c27f9a871d48fd3c0e234c",
+      "bytes": 4538,
+      "inspection": "previously read complete report; restored copy matched original immutable fingerprint"
+    },
+    "checkpoint/conaled-textbooks/books/common/evidence/reviews/standards-r3-navigation-addendum.md": {
+      "sha256": "e4ac749a910be54be3b4f0b35755c96e15f9ff784c61fe2006a09fd031ccb131",
+      "bytes": 5179,
+      "inspection": "previously read complete report; restored copy matched original immutable fingerprint"
+    },
+    "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r3-navigation-addendum.md": {
+      "sha256": "a63dbd0043f30b0436b06d161356a1c39dfb4a6bdb3b7e8c1fc0639332dd1928",
+      "bytes": 4596,
+      "inspection": "previously read complete report; restored copy matched original immutable fingerprint"
+    },
+    "intake/integration-handoff-compare-r4.json": {
+      "sha256": "4077c7172c802bbc8070b0bdb8353136143fb8a738f074dd2b95c91cc9a6932c",
+      "bytes": 394,
+      "inspection": "complete JSON and exact candidate/scope/status inspected"
+    }
+  },
+  "cross_report_matching_input_fingerprints": 44,
+  "limitations": [
+    "Coordinator reconciles reports, not a third substantive axis.",
+    "No new R4 compilation, type inspection or axiom audit.",
+    "Prior source analysis reused only with matching source/context evidence; historical outcomes remain unchanged.",
+    "Runtime semantics beyond directly inspected launcher attributed to retained pinned-source assessment.",
+    "No fresh exhaustive manuscript audit or automatic coverage credit from related upstream mathematics."
+  ],
+  "remaining": [
+    "Root copies six R4 files and mechanically reconciles canonical REVIEW/ISSUES",
+    "Root completes offline recovery/pack verification and actual owner-root durable upload",
+    "Receiving integrator runs exact receiving-candidate full guarded build and exhaustive audit, retains terminal verification evidence",
+    "Both independent final approvals, immediate candidate verification and final snapshot comparison before acceptance"
+  ],
+  "durability": {
+    "owner": "root",
+    "upload_performed_or_asserted_by_reviewer": false,
+    "reports_need_verified_successor_checkpoint": true
+  },
+  "operations": {
+    "compiler": 0,
+    "setup": 0,
+    "source_index_ref_mutations": 0,
+    "checkpoint_mutations": 0,
+    "remote": 0,
+    "writes": [
+      "intake/review-r4/coordinator-r4.md",
+      "intake/review-r4/coordinator-r4.json"
+    ]
+  },
+  "report": "intake/review-r4/coordinator-r4.md",
+  "report_sha256": "b004bcd1fb64783eaed37c07889ffe991784a1b980cc61b2b5f62f93850ba1e5"
+}

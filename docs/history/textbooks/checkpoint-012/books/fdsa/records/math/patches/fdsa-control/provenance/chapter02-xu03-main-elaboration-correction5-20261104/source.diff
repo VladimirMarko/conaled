@@ -1,0 +1,77 @@
+diff --git a/Examples/PermutationTail.lean b/Examples/PermutationTail.lean
+index f118b08cd9d2006ceac0f4c24004e1ed09c1fb93..baa3e26a3c72a4589765562167d1d85edc011e67 100644
+--- a/Examples/PermutationTail.lean
++++ b/Examples/PermutationTail.lean
+@@ -99,6 +99,10 @@ private theorem mass_of_law {Ω : Type*} [MeasurableSpace Ω]
+ /-- The first supported tail mass uses the new universal source-fiber formula. -/
+ theorem tail_23_mass : afterFirst {π | tailOrder π = [2, 3]} = 1 / 2 := by
+   have hmem : ([2, 3] : List (Fin 4)) ∈ orders positions (selected.erase 0) := by
++    simp only [orders]
++    rw [List.toFinset_eq_of_perm _ _
++      (List.permutations_perm_permutations'
++        (positions.filter (fun a => decide (a ∈ selected.erase 0))))]
+     decide
+   calc
+     _ = if ([2, 3] : List (Fin 4)) ∈ orders positions (selected.erase 0)
+@@ -111,12 +115,21 @@ theorem tail_23_mass : afterFirst {π | tailOrder π = [2, 3]} = 1 / 2 := by
+ theorem tail_32_mass : afterFirst {π | tailOrder π = [3, 2]} = 1 / 2 := by
+   calc
+     _ = (Nat.factorial remaining.card : ℝ≥0∞)⁻¹ :=
+-      mass_of_law tail_hasLaw [3, 2] (by decide)
++      mass_of_law tail_hasLaw [3, 2] (by
++        simp only [orders]
++        rw [List.toFinset_eq_of_perm _ _
++          (List.permutations_perm_permutations'
++            (positions.filter (fun a => decide (a ∈ remaining))))]
++        decide)
+     _ = 1 / 2 := by norm_num [remaining, selected, one_div]
+ 
+ /-- A repeated output is outside the conditional tail support. -/
+ theorem repeated_tail_mass_zero : afterFirst {π | tailOrder π = [2, 2]} = 0 := by
+   have hbad : ([2, 2] : List (Fin 4)) ∉ orders positions (selected.erase 0) := by
++    simp only [orders]
++    rw [List.toFinset_eq_of_perm _ _
++      (List.permutations_perm_permutations'
++        (positions.filter (fun a => decide (a ∈ selected.erase 0))))]
+     decide
+   calc
+     _ = if ([2, 2] : List (Fin 4)) ∈ orders positions (selected.erase 0)
+@@ -143,7 +156,12 @@ theorem filtered_tail_eq_projection (π : Equiv.Perm (Fin 4))
+     selected 0 π hπ {3} (by decide)
+ 
+ theorem filtered_tail_mass : afterFirst {π | filteredTail π = [3]} = 1 := by
+-  simpa using mass_of_law filtered_tail_hasLaw [3] (by decide)
++  simpa using mass_of_law filtered_tail_hasLaw [3] (by
++    simp only [orders]
++    rw [List.toFinset_eq_of_perm _ _
++      (List.permutations_perm_permutations'
++        (positions.filter (fun a => decide (a ∈ ({3} : Finset (Fin 4))))))]
++    decide)
+ 
+ /-- The actual remaining-subset projection has that law in the same environment. -/
+ theorem remaining_projection_map :
+@@ -165,7 +183,9 @@ theorem environment_changed : afterFirst ≠ law := by
+   have hmass := congrArg
+     (fun μ : Measure (Equiv.Perm (Fin 4)) => μ (firstEvent observedOrder 0)) h
+   rw [afterFirst_first_event_mass, first_mass] at hmass
+-  norm_num at hmass
++  have hinv := congrArg (fun x : ℝ≥0∞ => x⁻¹) hmass
++  simp only [one_div, inv_one, inv_inv] at hinv
++  norm_num at hinv
+ 
+ /-- A second head law is derived under afterFirst, using only its tail HasLaw. -/
+ theorem second_head_mass : afterFirst (firstEvent tailOrder 2) = 1 / 2 := by
+@@ -191,7 +211,12 @@ theorem last_tail_hasLaw :
+ theorem last_tail_mass : afterSecond {π | lastTail π = [3]} = 1 := by
+   calc
+     _ = (Nat.factorial (remaining.erase 2).card : ℝ≥0∞)⁻¹ :=
+-      mass_of_law last_tail_hasLaw [3] (by decide)
++      mass_of_law last_tail_hasLaw [3] (by
++        simp only [orders]
++        rw [List.toFinset_eq_of_perm _ _
++          (List.permutations_perm_permutations'
++            (positions.filter (fun a => decide (a ∈ remaining.erase 2))))]
++        decide)
+     _ = 1 := by norm_num [remaining, selected]
+ 
+ end Examples.PermutationTail

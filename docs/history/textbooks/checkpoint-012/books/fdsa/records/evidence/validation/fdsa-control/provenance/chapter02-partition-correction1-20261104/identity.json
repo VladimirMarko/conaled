@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-04T05:37:32.331940+00:00",
+  "base": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+  "candidate": "b3bdc12b304499bf6675a58bc1eb0992e19e3e75",
+  "ref": "refs/heads/work/fdsa-partition-proof-fixes",
+  "method": "Temporary index and commit-tree; no live worktree/index content altered.",
+  "source": "Applications/Sequences/Partition.lean",
+  "before_sha256": "c83144cda94133662be7537fa9c2e8e7870f4959c55c78526d1a62e11fe1f56b",
+  "after_sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069",
+  "change": "Remove exactly three unused List.filter_cons simp arguments; definitions/statements/other source identical.",
+  "finding": "XQ-ELAB-001",
+  "matching_validation": "pending",
+  "diagnostic_source": "chapter02-bottom-up-partition-focused-20261104-attempt1, actual closed exit1"
+}

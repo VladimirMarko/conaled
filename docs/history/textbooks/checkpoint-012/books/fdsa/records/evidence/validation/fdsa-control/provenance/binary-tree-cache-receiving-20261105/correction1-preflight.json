@@ -1,0 +1,34 @@
+{
+  "recorded_utc": "2026-11-05T02:23:10.928828+00:00",
+  "parent": "f0fd3faa84d57ab7583f877039da2c703431f0ce",
+  "candidate_pending": true,
+  "failure": "binary-tree-cache-receiving-focused-attempt1-20261105",
+  "actual_exit": 1,
+  "terminal_chunk": "77c010",
+  "original_scope_preserved": true,
+  "proof_only_formal_changes": [
+    "nodeRun_value: unfold existing smartNode after reached-value rewrite",
+    "nodeRun_cost: explicit existing operations then omega additive normalization"
+  ],
+  "statements_definitions_assumptions_cost_model_unchanged": true,
+  "documentation_changes": "Distinguish byte-exact initial reception from later proof-only repairs; remove transient uncompiled label from shared map.",
+  "paths": [
+    "Applications/Resources/TreeCache.lean",
+    "docs/research/fdsa-tree-cache.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "before": {
+    "Applications/Resources/TreeCache.lean": {
+      "bytes": 3877,
+      "sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6"
+    },
+    "docs/research/fdsa-tree-cache.md": {
+      "bytes": 12896,
+      "sha256": "6fc7261df6c2955337f6d4b4df016d04c646e25c90940558d14df4059cfd84d6"
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "bytes": 49195,
+      "sha256": "6f6985eebac08df0e2123c0aa2d1a905cf55c51523e78038a8fc1d7a12ae61f1"
+    }
+  }
+}

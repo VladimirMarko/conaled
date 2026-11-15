@@ -1,0 +1,845 @@
+{
+  "recorded_utc": "2026-11-04T21:19:07.284970+00:00",
+  "accepted_head": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "qualified_candidate": "eaea222672013a67c4e84cf7bf8adae418be0cf6",
+  "scope_obligations": 83,
+  "scope_sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed",
+  "focused_passed_components": [
+    {
+      "scope": "CountRank and Chunks",
+      "public_source_names": 75,
+      "exact_passed_or_preserved_candidate": "bc26994a828eb958fe930c0e46039f9c5addc864"
+    },
+    {
+      "scope": "MedianOfMedians pivot",
+      "public_source_names": 55,
+      "exact_passed_or_preserved_candidate": "bc26994a828eb958fe930c0e46039f9c5addc864"
+    },
+    {
+      "scope": "Insertion selection auxiliaries",
+      "public_source_names": 40,
+      "exact_passed_or_preserved_candidate": "4604d35e44d383fe8e84c2874812b2fc11d8f09b"
+    },
+    {
+      "scope": "Full rounded recurrence",
+      "public_source_names": 35,
+      "exact_passed_or_preserved_candidate": "95406b83968e5b438e206c06f9797804664e0170"
+    },
+    {
+      "scope": "Exact scalar F",
+      "public_source_names": 28,
+      "exact_passed_or_preserved_candidate": "9d4b622ff74ec012d49733ccc0c4c0849b57ade4"
+    },
+    {
+      "scope": "Coordinate sensitivity and query lower bound",
+      "public_source_names": 68,
+      "exact_passed_or_preserved_candidate": "591ecdd855bc2fab3f788e6b134cc18aa80a3b6a"
+    },
+    {
+      "scope": "Finite randomized selection",
+      "public_source_names": 60,
+      "exact_passed_or_preserved_candidate": "93ddb900a9ae01e721883c5b8a409eb37129a3f8"
+    },
+    {
+      "scope": "Fixed-rank algorithms and costs",
+      "public_source_names": 86,
+      "exact_passed_or_preserved_candidate": "979c4fcb1719a779ffda7462a6df385e876b7d4c"
+    },
+    {
+      "scope": "Measured chop and median map",
+      "public_source_names": 68,
+      "exact_passed_or_preserved_candidate": "18279b690e789a60a5e78b40e3977d4064dc3b59"
+    },
+    {
+      "scope": "Median reduction",
+      "public_source_names": 65,
+      "modules": 3,
+      "exact_passed_or_preserved_candidate": "11480d46b4f8f99eb33bdc4b34759031af17c9f0",
+      "actual_passed_run": "chapter03-median-reduction-focused-attempt3-20261104"
+    },
+    {
+      "scope": "Coordinate read-all",
+      "public_source_names": 27,
+      "modules": 2,
+      "exact_passed_or_preserved_candidate": "47f12b48b93a1e223b9f743e067685f12f4da5b1",
+      "actual_passed_run": "chapter03-coordinate-readall-focused-attempt3-20261104"
+    },
+    {
+      "scope": "Randomized selection expectations",
+      "public_source_names": 48,
+      "modules": 2,
+      "exact_passed_or_preserved_candidate": "bf6e86970ea873d8b890cdceedcfd262bbacbb80",
+      "actual_passed_run": "chapter03-random-selection-mean-focused-attempt4-20261104"
+    },
+    {
+      "scope": "General group scalar recurrence",
+      "public_source_names": 43,
+      "modules": 2,
+      "exact_passed_or_preserved_candidate": "36dba1d37672e0e09f838b229240b94fd567fb2c",
+      "actual_passed_run": "chapter03-group-recurrence-focused-attempt4-20261104"
+    },
+    {
+      "scope": "Infinite median counterfamily",
+      "public_source_names": 42,
+      "modules": 2,
+      "exact_passed_or_preserved_candidate": "7758fdcd1d46cee392eee155d74311aeb45322a5",
+      "actual_passed_run": "chapter03-median-counterfamily-focused-attempt2-20261104"
+    },
+    {
+      "scope": "Outside-pivot nontermination",
+      "public_source_names": 30,
+      "modules": 2,
+      "exact_passed_or_preserved_candidate": "3f42358dec92315ac847dc7e1f0c58c2ab26cd40",
+      "actual_passed_run": "chapter03-outside-pivot-focused-attempt1-20261104"
+    },
+    {
+      "scope": "General group pivot bounds and concrete cases",
+      "public_source_names": 27,
+      "modules": 1,
+      "exact_passed_or_preserved_candidate": "17901d09d155b93de6490dfa40ca17f988107b94",
+      "actual_passed_run": "chapter03-general-median-bounds-focused-attempt2-20261104"
+    },
+    {
+      "scope": "Positive halving traces",
+      "public_source_names": 39,
+      "modules": 2,
+      "exact_passed_or_preserved_candidate": "45d120ce0f5bacbaac76cbceeca13ee3ff494dff",
+      "actual_passed_run": "chapter03-halving-trace-focused-attempt1-20261104"
+    },
+    {
+      "scope": "Nested measured selector",
+      "public_source_names": 39,
+      "modules": 2,
+      "exact_passed_or_preserved_candidate": "a9ac654c5dc3454709adc3a519ea82794f42f427",
+      "actual_passed_run": "chapter03-nested-selection-focused-attempt4-20261104"
+    },
+    {
+      "scope": "Random selection drift and linear means",
+      "public_source_names": 31,
+      "modules": 2,
+      "exact_passed_or_preserved_candidate": "cd20a36f52b4ddd95be3cb9d85c0b95368ef1248",
+      "actual_passed_run": "chapter03-random-selection-drift-focused-attempt4-20261104"
+    },
+    {
+      "scope": "Finite selection prefix envelope",
+      "public_source_names": 20,
+      "modules": 2,
+      "exact_passed_or_preserved_candidate": "736857e20c4004af1a9c0c6f77387c690517dd02",
+      "actual_passed_run": "chapter03-selection-envelope-focused-attempt2-20261104"
+    }
+  ],
+  "focused_passed_public_names": 926,
+  "focused_passed_modules": 51,
+  "complete_prepared_public_names": 978,
+  "prepared_modules": 54,
+  "additional_unpassed_inventoried_names": 52,
+  "counts_are_source_inventory_not_audit_or_obligation_closure": true,
+  "unreviewed_uncompiled_drafts_not_in_inventory": [
+    {
+      "worktree": "conaled-ch02-top-down",
+      "path": "Applications/Resources/SelectionBounds.lean",
+      "bytes": 10051,
+      "sha256": "acbd5d979dc645cf48d74193185d91d94b6603538dd97b001763425ed6562ae6",
+      "status": "untracked, uncompiled, uncommitted; incomplete inventory; no candidate or proof credit"
+    },
+    {
+      "worktree": "conaled-ch02-top-down",
+      "path": "Examples/SelectionBounds.lean",
+      "bytes": 5546,
+      "sha256": "d18c19c5e69e3f77029d498e66716bf7fc45ff303294ee1a78d3ca1eb435ce11",
+      "status": "untracked, uncompiled, uncommitted; incomplete inventory; no candidate or proof credit"
+    },
+    {
+      "worktree": "conaled-ch02-random-pivot",
+      "path": "Applications/Resources/RandomSelectionTail.lean",
+      "bytes": 3339,
+      "sha256": "2fb716a7940c1b2630b37b60ddea2ceec2355fd8dd3a6fe232c7df2eb02e86d9",
+      "status": "untracked, uncompiled, uncommitted; incomplete inventory; no candidate or proof credit"
+    }
+  ],
+  "drafts_not_immutable_validation_candidates": true,
+  "closed_runs": 68,
+  "all_closed_runs": [
+    {
+      "name": "affine-recurrence-immediate-verification-20261104",
+      "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+      "exit": 0,
+      "owned_session": 94331,
+      "terminal_tool_chunk": "689efc",
+      "full_log_bytes": 317,
+      "full_log_sha256": "65ee03f27d8d4864e94fb53eaba3c6c2b05dab38469b849249fd6d5e6850eb26"
+    },
+    {
+      "name": "affine-recurrence-receiving-focused-attempt1-20261104",
+      "candidate": "4df3bc95b96342250c9b3ff946773449e308e11b",
+      "exit": 1,
+      "owned_session": 37708,
+      "terminal_tool_chunk": "40f51a",
+      "full_log_bytes": 3800,
+      "full_log_sha256": "6d0b02515abb300fef8abf747e3845ee091ce3ec6281506c093c3c1aa16b0a53"
+    },
+    {
+      "name": "affine-recurrence-receiving-focused-attempt2-20261104",
+      "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+      "exit": 0,
+      "owned_session": 39301,
+      "terminal_tool_chunk": "235f30",
+      "full_log_bytes": 1753,
+      "full_log_sha256": "f8c5dff295862af1d5e2ba538bb0db5012a786dfb7890d58e4de8933a7973f9a"
+    },
+    {
+      "name": "affine-recurrence-receiving-full-attempt1-20261104",
+      "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+      "exit": 1,
+      "owned_session": 18625,
+      "terminal_tool_chunk": "9556b9",
+      "full_log_bytes": 224766,
+      "full_log_sha256": "dab74fdcc00093150c36f7cae8fc7c65304e774a1556f7fa64a372d170ff0cc5"
+    },
+    {
+      "name": "affine-recurrence-receiving-full-attempt2-20261104",
+      "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+      "exit": 0,
+      "owned_session": 66741,
+      "terminal_tool_chunk": "487100",
+      "full_log_bytes": 304402,
+      "full_log_sha256": "cada5fe7ec2fed03ef1eb9295359e9b894cfcdf21b1d2f66e06730bf926b9a24"
+    },
+    {
+      "name": "affine-recurrence-receiving-statements21-attempt1-20261104",
+      "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+      "exit": 0,
+      "owned_session": 55717,
+      "terminal_tool_chunk": "bb0312",
+      "full_log_bytes": 17512,
+      "full_log_sha256": "fbb86fb040e0700421f315af6a111a73e8ba2a54e4c7b151ec7097d1a997df0b"
+    },
+    {
+      "name": "chapter03-chop-map-focused-attempt1-20261104",
+      "candidate": "557d00df979d95788f093e55551abd02f17dd049",
+      "exit": 1,
+      "owned_session": 9908,
+      "terminal_tool_chunk": "c9803a",
+      "full_log_bytes": 8261,
+      "full_log_sha256": "3aabe6cd6f1f01c4bfb66f4cc3053262b4ea445e6d8e0147c5c8b1f265206e0a"
+    },
+    {
+      "name": "chapter03-chop-map-focused-attempt2-20261104",
+      "candidate": "bd4e273f82de2c2bab2a69d84c2f8daea310eeec",
+      "exit": 1,
+      "owned_session": 28621,
+      "terminal_tool_chunk": "430248",
+      "full_log_bytes": 7009,
+      "full_log_sha256": "69c66fa55a3c56cc6e3f84791c99c87a2020d66de549a6cedebeae211f1b5e8c"
+    },
+    {
+      "name": "chapter03-chop-map-focused-attempt3-20261104",
+      "candidate": "08decce77c35b0897609df8a4c8bcf6dfe24020d",
+      "exit": 1,
+      "owned_session": 67064,
+      "terminal_tool_chunk": "242bf5",
+      "full_log_bytes": 6998,
+      "full_log_sha256": "11d29678e7f9a98787f7b2e46207fcc26202b445daa3a24148d60948e59e2655"
+    },
+    {
+      "name": "chapter03-chop-map-focused-attempt4-20261104",
+      "candidate": "18279b690e789a60a5e78b40e3977d4064dc3b59",
+      "exit": 0,
+      "owned_session": 50164,
+      "terminal_tool_chunk": "bf8c5d",
+      "full_log_bytes": 4529,
+      "full_log_sha256": "5fcdb0ad8ca784730174cd1db6045f769148617bd0446842c13eb108259603bf"
+    },
+    {
+      "name": "chapter03-chunks-focused-attempt1-20261104",
+      "candidate": "471af117f915a722a3f1b4446ace4e4b9998dfbb",
+      "exit": 1,
+      "owned_session": 28867,
+      "terminal_tool_chunk": "a61fa1",
+      "full_log_bytes": 4791,
+      "full_log_sha256": "89e42d9561646a9fb69896c4f294b7deb27c1b937bbbb09e672f3003bc163084"
+    },
+    {
+      "name": "chapter03-chunks-focused-attempt2-20261104",
+      "candidate": "e1b7b57dd495b9b57597e75141e0ec397536ed35",
+      "exit": 0,
+      "owned_session": 17606,
+      "terminal_tool_chunk": "be2bce",
+      "full_log_bytes": 1036,
+      "full_log_sha256": "751e95455fac0a4fb808bb85c6e0af090f12a3c2fdf5a23ccfca5bdc11e17c52"
+    },
+    {
+      "name": "chapter03-coordinate-queries-focused-attempt1-20261104",
+      "candidate": "6c66b545f7f7e2e15a274a67a867d8ddc7f980c3",
+      "exit": 1,
+      "owned_session": 24675,
+      "terminal_tool_chunk": "1b5f2e",
+      "full_log_bytes": 6401,
+      "full_log_sha256": "eda4276bc188b27f8a6c0fdc7f4e96920974b300e54ffe2fea11c14cf755d1fe"
+    },
+    {
+      "name": "chapter03-coordinate-queries-focused-attempt2-20261104",
+      "candidate": "0ae89d68b3e1f7002f2766c95cf52492a3a7923e",
+      "exit": 1,
+      "owned_session": 67752,
+      "terminal_tool_chunk": "50b523",
+      "full_log_bytes": 9700,
+      "full_log_sha256": "a055b55cf4440d29c1fd0b63fd2895dba5146f754f300016b5783922603ef897"
+    },
+    {
+      "name": "chapter03-coordinate-queries-focused-attempt3-20261104",
+      "candidate": "591ecdd855bc2fab3f788e6b134cc18aa80a3b6a",
+      "exit": 0,
+      "owned_session": 64627,
+      "terminal_tool_chunk": "d3a94e",
+      "full_log_bytes": 3725,
+      "full_log_sha256": "32166f0d039aa627e8bc6fb8bdc50cae77fb561f749104a16243b9f91b88d8cd"
+    },
+    {
+      "name": "chapter03-coordinate-readall-focused-attempt1-20261104",
+      "candidate": "edd0132b491858feda3307da70817e157dcad151",
+      "exit": 1,
+      "owned_session": 96373,
+      "terminal_tool_chunk": "9ad1a2",
+      "full_log_bytes": 6292,
+      "full_log_sha256": "b662d55da9010f583f2533ffcdf4b386199e5757fad13f13295c427c7d59e931"
+    },
+    {
+      "name": "chapter03-coordinate-readall-focused-attempt2-20261104",
+      "candidate": "67f4add7bf99a20829cee1f7ec2265121546c879",
+      "exit": 1,
+      "owned_session": 87991,
+      "terminal_tool_chunk": "3a6faa",
+      "full_log_bytes": 6070,
+      "full_log_sha256": "97ab9b4d825b9c0ff65988f8ff4063f4a52bf59c0d4ea93d9d066ebb8d9b042f"
+    },
+    {
+      "name": "chapter03-coordinate-readall-focused-attempt3-20261104",
+      "candidate": "47f12b48b93a1e223b9f743e067685f12f4da5b1",
+      "exit": 0,
+      "owned_session": 85675,
+      "terminal_tool_chunk": "113824",
+      "full_log_bytes": 3451,
+      "full_log_sha256": "1f6172a3f1fbf28e5dbd5b3ba82b8cff45ce52364a5f69398cc155cce70d06b1"
+    },
+    {
+      "name": "chapter03-count-rank-focused-attempt1-20261104",
+      "candidate": "a5341e132c63aa8c9e8af13e24b441b42de2fe27",
+      "exit": 1,
+      "owned_session": 44183,
+      "terminal_tool_chunk": "171a77",
+      "full_log_bytes": 4893,
+      "full_log_sha256": "ee87fda0145fcef5e27465248c833845f58e49dcf0c902aaed1db312e7013dce"
+    },
+    {
+      "name": "chapter03-count-rank-focused-attempt2-20261104",
+      "candidate": "79b270943119ae541a8ed5561adae4b55cfbe567",
+      "exit": 1,
+      "owned_session": 53264,
+      "terminal_tool_chunk": "a290aa",
+      "full_log_bytes": 3337,
+      "full_log_sha256": "59f82a85de1909e64049bbafee52924f6fce261fcfeeeed7be2201f6f8cd040c"
+    },
+    {
+      "name": "chapter03-count-rank-focused-attempt3-20261104",
+      "candidate": "e82d1fc8ef3a4bed1b4135711d50cd4abc50e6d3",
+      "exit": 0,
+      "owned_session": 58408,
+      "terminal_tool_chunk": "1fa08a",
+      "full_log_bytes": 1160,
+      "full_log_sha256": "35a677d8def9a7f09aa5c1e942ada9d97de758fc2206664d506a7dd8317ee759"
+    },
+    {
+      "name": "chapter03-fixed-rank-focused-attempt1-20261104",
+      "candidate": "fd490573dc6a0ad2ed4a6f3d449e03d9d1b0bb2f",
+      "exit": 1,
+      "owned_session": 47328,
+      "terminal_tool_chunk": "833857",
+      "full_log_bytes": 5722,
+      "full_log_sha256": "63c9b1c27594d228c2bdd03218a9b6fcb595357f8e327da9e2cf8ea7c92a2ef4"
+    },
+    {
+      "name": "chapter03-fixed-rank-focused-attempt2-20261104",
+      "candidate": "979c4fcb1719a779ffda7462a6df385e876b7d4c",
+      "exit": 0,
+      "owned_session": 80576,
+      "terminal_tool_chunk": "cf9273",
+      "full_log_bytes": 3083,
+      "full_log_sha256": "98f42f19a045edf2ecc7886d93e8fc48f14bbba2fb36000209e8c8fa43855258"
+    },
+    {
+      "name": "chapter03-general-median-bounds-focused-attempt1-20261104",
+      "candidate": "9cf01df8f01eb73ec5a2020995d90bb6b6eaba84",
+      "exit": 1,
+      "owned_session": 22278,
+      "terminal_tool_chunk": "d5ba68",
+      "full_log_bytes": 7782,
+      "full_log_sha256": "c312f18595055e8496c42071b0a8e94af14da93e61562f1ccf686ca5c543317d"
+    },
+    {
+      "name": "chapter03-general-median-bounds-focused-attempt2-20261104",
+      "candidate": "17901d09d155b93de6490dfa40ca17f988107b94",
+      "exit": 0,
+      "owned_session": 7003,
+      "terminal_tool_chunk": "c5cae6",
+      "full_log_bytes": 2043,
+      "full_log_sha256": "18de85e8106c3fb345dbdcf7213652560b4af88c5b36e9c89ffc2190dcaf719a"
+    },
+    {
+      "name": "chapter03-group-recurrence-focused-attempt1-20261104",
+      "candidate": "451766483f401f737f63184f730a7561deb7ccb3",
+      "exit": 1,
+      "owned_session": 63317,
+      "terminal_tool_chunk": "5cb484",
+      "full_log_bytes": 6138,
+      "full_log_sha256": "06ace9cc3291dbb2a0c0e8a9ba8507dfdbd870689b103a517500c82bdcad7888"
+    },
+    {
+      "name": "chapter03-group-recurrence-focused-attempt2-20261104",
+      "candidate": "631ba1d0b3255be426603737050990a8c332f79e",
+      "exit": 1,
+      "owned_session": 30351,
+      "terminal_tool_chunk": "ccc19c",
+      "full_log_bytes": 6062,
+      "full_log_sha256": "90ad1bcf6c172b02b4c1a4a73d53914268d980b25b8b5ba615606dbfb4f7aaf0"
+    },
+    {
+      "name": "chapter03-group-recurrence-focused-attempt3-20261104",
+      "candidate": "fce6f72f1491379138973e659c97b0e37ca60137",
+      "exit": 1,
+      "owned_session": 96839,
+      "terminal_tool_chunk": "fe00a0",
+      "full_log_bytes": 5664,
+      "full_log_sha256": "26b38342fb760deb2e0e462f0a5f386a7178ed89898def5b010ea05c6762dd5b"
+    },
+    {
+      "name": "chapter03-group-recurrence-focused-attempt4-20261104",
+      "candidate": "36dba1d37672e0e09f838b229240b94fd567fb2c",
+      "exit": 0,
+      "owned_session": 25670,
+      "terminal_tool_chunk": "e84868",
+      "full_log_bytes": 2778,
+      "full_log_sha256": "ff401006fb72d2a9d54d7e8f1d8c55ddbf7d9754bed4273b7ec68a4ae0206b80"
+    },
+    {
+      "name": "chapter03-halving-trace-focused-attempt1-20261104",
+      "candidate": "45d120ce0f5bacbaac76cbceeca13ee3ff494dff",
+      "exit": 0,
+      "owned_session": 53358,
+      "terminal_tool_chunk": "e8d513",
+      "full_log_bytes": 1510,
+      "full_log_sha256": "1d4b574bd4bcc680ba7bc7b4377a320e206299657b480edcede531d422662767"
+    },
+    {
+      "name": "chapter03-median-counterfamily-focused-attempt1-20261104",
+      "candidate": "cafc71bef2e2779407944cb04089b9b3b14a13dc",
+      "exit": 1,
+      "owned_session": 91289,
+      "terminal_tool_chunk": "6f6c51",
+      "full_log_bytes": 5313,
+      "full_log_sha256": "e2f57ac28c2afff81dac5ee7aabbdf3c115903375e4fd713d2adc28070d26194"
+    },
+    {
+      "name": "chapter03-median-counterfamily-focused-attempt2-20261104",
+      "candidate": "7758fdcd1d46cee392eee155d74311aeb45322a5",
+      "exit": 0,
+      "owned_session": 26362,
+      "terminal_tool_chunk": "791d68",
+      "full_log_bytes": 2158,
+      "full_log_sha256": "10009f2a4a3f968e9cd06fd2817085df31bdf9d70d8c14f15dd9d523ed95a98e"
+    },
+    {
+      "name": "chapter03-median-of-medians-focused-attempt1-20261104",
+      "candidate": "9ff4d92e20eeabde29fd91b78c37786019e9613b",
+      "exit": 1,
+      "owned_session": 9461,
+      "terminal_tool_chunk": "9f945e",
+      "full_log_bytes": 5939,
+      "full_log_sha256": "0493742f653e8f58b5f4e418eb1e25c46c5fc10ae294c8ff36bda09cd6146a41"
+    },
+    {
+      "name": "chapter03-median-of-medians-focused-attempt2-20261104",
+      "candidate": "ac8bee488069d471eef9955fed11db5647cff72f",
+      "exit": 1,
+      "owned_session": 92661,
+      "terminal_tool_chunk": "335534",
+      "full_log_bytes": 7652,
+      "full_log_sha256": "bc68c2b9a7bd89374401680e15cc13c9df46e4929245f6e2e67a6bb8319d553e"
+    },
+    {
+      "name": "chapter03-median-of-medians-focused-attempt3-20261104",
+      "candidate": "bc26994a828eb958fe930c0e46039f9c5addc864",
+      "exit": 0,
+      "owned_session": 95787,
+      "terminal_tool_chunk": "cebdf4",
+      "full_log_bytes": 2294,
+      "full_log_sha256": "c86d55c97e1a5e12c5c81dd24d31448d1216aca84e2d8c6af6f7fbdcc3c4530a"
+    },
+    {
+      "name": "chapter03-median-reduction-focused-attempt1-20261104",
+      "candidate": "24b74c65e2b907f1a4cd8b8c72e22bba8f315eea",
+      "exit": 1,
+      "owned_session": 59546,
+      "terminal_tool_chunk": "f63bc0",
+      "full_log_bytes": 6935,
+      "full_log_sha256": "79a0bd81696625c7a32868521d9595dbdafad5a32a089b2096d5569331d2b4c2"
+    },
+    {
+      "name": "chapter03-median-reduction-focused-attempt2-20261104",
+      "candidate": "1e499eb9e00c84afa934930822f957f51f5f02f9",
+      "exit": 1,
+      "owned_session": 20282,
+      "terminal_tool_chunk": "06a2c5",
+      "full_log_bytes": 6508,
+      "full_log_sha256": "c7800be8006fa3251a869365c8324bca159ca045b354e91f270ddc673f27c03f"
+    },
+    {
+      "name": "chapter03-median-reduction-focused-attempt3-20261104",
+      "candidate": "11480d46b4f8f99eb33bdc4b34759031af17c9f0",
+      "exit": 0,
+      "owned_session": 13447,
+      "terminal_tool_chunk": "16e310",
+      "full_log_bytes": 4294,
+      "full_log_sha256": "7e2f80d9b6d6e90967db9cc740bde76ddca3e9e5d0cdcefe34a8df4583dc9272"
+    },
+    {
+      "name": "chapter03-minimum-pivot-focused-attempt1-20261104",
+      "candidate": "eaea222672013a67c4e84cf7bf8adae418be0cf6",
+      "exit": 1,
+      "owned_session": 3058,
+      "terminal_tool_chunk": "bc8918",
+      "full_log_bytes": 8715,
+      "full_log_sha256": "7dff60cc3c7261ebdd636d1097a3851c49e8b024717fb2c42d85222bc7e9d860"
+    },
+    {
+      "name": "chapter03-nested-selection-focused-attempt1-20261104",
+      "candidate": "4de8b315a06089b1a715b56332f667ef1587e635",
+      "exit": 1,
+      "owned_session": 68419,
+      "terminal_tool_chunk": "443b97",
+      "full_log_bytes": 9940,
+      "full_log_sha256": "8e6d14aad780c25af2e6ecaaa024f2bd700e256b19395a17b1e6d3035f590e36"
+    },
+    {
+      "name": "chapter03-nested-selection-focused-attempt2-20261104",
+      "candidate": "9c19c0ec07eab0bfa12f58dde8c61f53447be58e",
+      "exit": 1,
+      "owned_session": 67686,
+      "terminal_tool_chunk": "1f3a7c",
+      "full_log_bytes": 66301,
+      "full_log_sha256": "2dc9f2d1437758cb1cfaefc377867b3f9363090d2a5755fce6b1116515413e27"
+    },
+    {
+      "name": "chapter03-nested-selection-focused-attempt3-20261104",
+      "candidate": "9153dd1210039618ebf26511d532354d9207bf84",
+      "exit": 1,
+      "owned_session": 36962,
+      "terminal_tool_chunk": "0df0dd",
+      "full_log_bytes": 9700,
+      "full_log_sha256": "35c0442124de77e600b7341d3152479fb2a40bad031723e0e461bedd2d062f63"
+    },
+    {
+      "name": "chapter03-nested-selection-focused-attempt4-20261104",
+      "candidate": "a9ac654c5dc3454709adc3a519ea82794f42f427",
+      "exit": 0,
+      "owned_session": 95239,
+      "terminal_tool_chunk": "e469e3",
+      "full_log_bytes": 4468,
+      "full_log_sha256": "549884b56b16a956fd00a364183fae40e35895fb1dcce10157dfd7e7bea4ee07"
+    },
+    {
+      "name": "chapter03-outside-pivot-focused-attempt1-20261104",
+      "candidate": "3f42358dec92315ac847dc7e1f0c58c2ab26cd40",
+      "exit": 0,
+      "owned_session": 63573,
+      "terminal_tool_chunk": "e3e748",
+      "full_log_bytes": 1155,
+      "full_log_sha256": "a8671b0a3941881fab220d00403a130347ba220ea15208eb28dbfa97a6d34b61"
+    },
+    {
+      "name": "chapter03-random-selection-drift-focused-attempt1-20261104",
+      "candidate": "eec2172f7296b6bfcd13533aadb68bd9d11c4a32",
+      "exit": 1,
+      "owned_session": 76550,
+      "terminal_tool_chunk": "cc94c2",
+      "full_log_bytes": 14088,
+      "full_log_sha256": "e05fc02253486963d308354dc4a9d1a8a38da85c4467d13b9ccf964da5423e6d"
+    },
+    {
+      "name": "chapter03-random-selection-drift-focused-attempt3-20261104",
+      "candidate": "f535b1ef557795c4e09c97ce0daf599961c9b268",
+      "exit": 1,
+      "owned_session": 12511,
+      "terminal_tool_chunk": "7747b5",
+      "full_log_bytes": 11916,
+      "full_log_sha256": "92bc4a7db977e676e224446ea6aa5ece534de2055e1c8e89cf0e9e9c81f1647a"
+    },
+    {
+      "name": "chapter03-random-selection-drift-focused-attempt4-20261104",
+      "candidate": "cd20a36f52b4ddd95be3cb9d85c0b95368ef1248",
+      "exit": 0,
+      "owned_session": 52024,
+      "terminal_tool_chunk": "18ce07",
+      "full_log_bytes": 9730,
+      "full_log_sha256": "7692228411f3e0cdd61031bf1168cedcd41f44938c553c3cbfd51fdb162850ac"
+    },
+    {
+      "name": "chapter03-random-selection-focused-attempt1-20261104",
+      "candidate": "be1bf8de03554faea7beef0a25d01c40091d33b3",
+      "exit": 1,
+      "owned_session": 62595,
+      "terminal_tool_chunk": "420f8a",
+      "full_log_bytes": 13000,
+      "full_log_sha256": "98180dbe25953895c12ce7560611f9085bcc71c3c888f9b29bb4bb3bb579707e"
+    },
+    {
+      "name": "chapter03-random-selection-focused-attempt2-20261104",
+      "candidate": "5433d48eeba0d3ac27460e4d7b23ad41e26c64d2",
+      "exit": 1,
+      "owned_session": 13397,
+      "terminal_tool_chunk": "11309d",
+      "full_log_bytes": 7007,
+      "full_log_sha256": "bb812ede5f65ad3125eb61240c82382f771b7e1aaa842a34404e8e6ee64ef10d"
+    },
+    {
+      "name": "chapter03-random-selection-focused-attempt3-20261104",
+      "candidate": "da8a1c6bb03e242d2655b3f38dc9361961102892",
+      "exit": 0,
+      "owned_session": 6230,
+      "terminal_tool_chunk": "9fecce",
+      "full_log_bytes": 4147,
+      "full_log_sha256": "319ac3466c554652a3d874a91b9b69d609ede89a7b2ba6ac82ea781de68f1e3e"
+    },
+    {
+      "name": "chapter03-random-selection-mean-focused-attempt1-20261104",
+      "candidate": "f76bc53339e172a179560654b181040a7313506d",
+      "exit": 1,
+      "owned_session": 67278,
+      "terminal_tool_chunk": "41a139",
+      "full_log_bytes": 9295,
+      "full_log_sha256": "f579f7c48fdeb0c1d7a33247a4c8a8f3dbcf6c39b81fdd34fd970e8b54783705"
+    },
+    {
+      "name": "chapter03-random-selection-mean-focused-attempt2-20261104",
+      "candidate": "ffc6707febff782a386615a20a0ef3dee9112b2d",
+      "exit": 1,
+      "owned_session": 33800,
+      "terminal_tool_chunk": "4cd799",
+      "full_log_bytes": 8004,
+      "full_log_sha256": "259a7f867680dd9b1c62afaa714e9537e40e28b82269af206a20ea84b6d84ece"
+    },
+    {
+      "name": "chapter03-random-selection-mean-focused-attempt3-20261104",
+      "candidate": "35d02bac718a7fdc84161dfa802fbc757c62b648",
+      "exit": 1,
+      "owned_session": 89256,
+      "terminal_tool_chunk": "ec928e",
+      "full_log_bytes": 8626,
+      "full_log_sha256": "89a49ef47764b4a615698ea8bf574d138bf8d2abc432487121f49929543f813c"
+    },
+    {
+      "name": "chapter03-random-selection-mean-focused-attempt4-20261104",
+      "candidate": "bf6e86970ea873d8b890cdceedcfd262bbacbb80",
+      "exit": 0,
+      "owned_session": 25034,
+      "terminal_tool_chunk": "bcf60e",
+      "full_log_bytes": 5671,
+      "full_log_sha256": "6c071e09164203cad30644ad49b394995f3f7c85b9d101cf8165a9953d94528f"
+    },
+    {
+      "name": "chapter03-random-selection-run-focused-attempt1-20261104",
+      "candidate": "94f10cf511785d2ecf50817e3c24abb3c6287010",
+      "exit": 1,
+      "owned_session": 51952,
+      "terminal_tool_chunk": "9341a5",
+      "full_log_bytes": 14916,
+      "full_log_sha256": "71d60c039eaeab0977babcc0525dbb5a9334efe108f8d022a574ec241f68d897"
+    },
+    {
+      "name": "chapter03-random-selection-run-focused-attempt2-20261104",
+      "candidate": "b059af864122a6b09912ba0db8095f422f8991bf",
+      "exit": 1,
+      "owned_session": 39520,
+      "terminal_tool_chunk": "26714d",
+      "full_log_bytes": 12839,
+      "full_log_sha256": "e76898a357e67981bf7ddadfb4b3169c85c21421d280ff953c3f6ae8fa11725e"
+    },
+    {
+      "name": "chapter03-random-selection-run-focused-attempt3-20261104",
+      "candidate": "e15c4c1c2e6cfce76f7ca6372fc3c62e49d40ba7",
+      "exit": 1,
+      "owned_session": 98660,
+      "terminal_tool_chunk": "6eb519",
+      "full_log_bytes": 11688,
+      "full_log_sha256": "7b59e0f21c41e05fc58935b786915bf0107e250415638599e816bd8bf329dd90"
+    },
+    {
+      "name": "chapter03-random-selection-run-focused-attempt4-20261104",
+      "candidate": "93ddb900a9ae01e721883c5b8a409eb37129a3f8",
+      "exit": 0,
+      "owned_session": 64441,
+      "terminal_tool_chunk": "d98201",
+      "full_log_bytes": 4160,
+      "full_log_sha256": "8f6b31a924bc621eb6829e9813182bb786a69d87e0527f8154168c4844c280bc"
+    },
+    {
+      "name": "chapter03-rounded-recurrence-bounds-focused-attempt1-20261104",
+      "candidate": "4e022bf16e793fd5a1f830b14ba30fb4a2dd0525",
+      "exit": 1,
+      "owned_session": 26503,
+      "terminal_tool_chunk": "4843ca",
+      "full_log_bytes": 4679,
+      "full_log_sha256": "36545e27c51cdac86455459c410a53309a1325199c8a9351fc115e0325b79a9a"
+    },
+    {
+      "name": "chapter03-rounded-recurrence-bounds-focused-attempt2-20261104",
+      "candidate": "4badcd5a7cab38aed7ff6c178c0649ae8ec63228",
+      "exit": 1,
+      "owned_session": 60468,
+      "terminal_tool_chunk": "2b3c01",
+      "full_log_bytes": 4852,
+      "full_log_sha256": "7af587c501e7335609c07b1c755ed62c72cbd459e78b5a047264a854c5cbc3b9"
+    },
+    {
+      "name": "chapter03-rounded-recurrence-bounds-focused-attempt3-20261104",
+      "candidate": "95406b83968e5b438e206c06f9797804664e0170",
+      "exit": 0,
+      "owned_session": 80278,
+      "terminal_tool_chunk": "731351",
+      "full_log_bytes": 2065,
+      "full_log_sha256": "bbd749fe1f415ef0ae8e5de988be621811e798cc3b05f5d656fad7679586128f"
+    },
+    {
+      "name": "chapter03-rounded-recurrence-focused-attempt1-20261104",
+      "candidate": "a4cd1b6b53fdab38eab40433c3fd60293fdc054f",
+      "exit": 0,
+      "owned_session": 52277,
+      "terminal_tool_chunk": "3e669a",
+      "full_log_bytes": 1319,
+      "full_log_sha256": "98f6a19dba123ee588b5b97135f7b9bb335d3da67d18fd75f6332232928cea14"
+    },
+    {
+      "name": "chapter03-selection-auxiliary-focused-attempt1-20261104",
+      "candidate": "8fef3ea5964f058f1c0036f53414d5d06fa56e59",
+      "exit": 1,
+      "owned_session": 21687,
+      "terminal_tool_chunk": "a10808",
+      "full_log_bytes": 7536,
+      "full_log_sha256": "3c643708f63fd68cb13ae619cc7a046e95da8650b3e0ef2ddd1ca07efed10cb0"
+    },
+    {
+      "name": "chapter03-selection-auxiliary-focused-attempt2-20261104",
+      "candidate": "d204aa2c64937cb1f151bd52759bfcfa50e4248f",
+      "exit": 1,
+      "owned_session": 61135,
+      "terminal_tool_chunk": "24a559",
+      "full_log_bytes": 6778,
+      "full_log_sha256": "4dd326300f22f985eb7dffed645166817814d3fa17cd916b0635b3ff276a9268"
+    },
+    {
+      "name": "chapter03-selection-auxiliary-focused-attempt3-20261104",
+      "candidate": "4604d35e44d383fe8e84c2874812b2fc11d8f09b",
+      "exit": 0,
+      "owned_session": 83350,
+      "terminal_tool_chunk": "651912",
+      "full_log_bytes": 2938,
+      "full_log_sha256": "0d1b23bf30cdf41452f130136413d01df77656d413e04d3dc6bb4afe3bf88490"
+    },
+    {
+      "name": "chapter03-selection-envelope-focused-attempt1-20261104",
+      "candidate": "d872afb3b8bccf01e74f4dc8826915179836dbe0",
+      "exit": 1,
+      "owned_session": 41128,
+      "terminal_tool_chunk": "9453b7",
+      "full_log_bytes": 2890,
+      "full_log_sha256": "3c3b359a7612323ee9b88e9c5057c295a5c8262be4abe6b9523a9d9cb772b0b0"
+    },
+    {
+      "name": "chapter03-selection-envelope-focused-attempt2-20261104",
+      "candidate": "736857e20c4004af1a9c0c6f77387c690517dd02",
+      "exit": 0,
+      "owned_session": 91127,
+      "terminal_tool_chunk": "500091",
+      "full_log_bytes": 661,
+      "full_log_sha256": "36dcd0ef497553bf4d4f7f0a760965223522d70d11251ef8ee27b0705971b26c"
+    },
+    {
+      "name": "chapter03-selection-recurrence-focused-attempt1-20261104",
+      "candidate": "9d4b622ff74ec012d49733ccc0c4c0849b57ade4",
+      "exit": 0,
+      "owned_session": 80105,
+      "terminal_tool_chunk": "4ef837",
+      "full_log_bytes": 2835,
+      "full_log_sha256": "27f3ab3e2128398df4ce98bcaa64369948e4902868f76da9c7256ff8e8e1a795"
+    }
+  ],
+  "compiler_live": false,
+  "source_writers_held": true,
+  "chapter03_accepted": false,
+  "new_actual_C3_type_credit": 0,
+  "full_chapter_check_audit_independent_axes_pending": true,
+  "latest_uploaded_checkpoint_at_capture": "0128",
+  "held_source_heads": {
+    "conaled": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "conaled-ch01-review": "eaea222672013a67c4e84cf7bf8adae418be0cf6",
+    "conaled-ch02-quicksort": "eaea222672013a67c4e84cf7bf8adae418be0cf6",
+    "conaled-ch02-random-pivot": "cd20a36f52b4ddd95be3cb9d85c0b95368ef1248",
+    "conaled-ch02-top-down": "a9ac654c5dc3454709adc3a519ea82794f42f427",
+    "conaled-ch02-natural-runs": "736857e20c4004af1a9c0c6f77387c690517dd02",
+    "conaled-ordinary-merge": "47f12b48b93a1e223b9f743e067685f12f4da5b1"
+  },
+  "held_source_statuses": {
+    "conaled": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.urOBCL\n",
+    "conaled-ch01-review": "",
+    "conaled-ch02-quicksort": "",
+    "conaled-ch02-random-pivot": "?? Applications/Resources/RandomSelectionTail.lean\n",
+    "conaled-ch02-top-down": "?? Applications/Resources/SelectionBounds.lean\n?? Examples/SelectionBounds.lean\n",
+    "conaled-ch02-natural-runs": "",
+    "conaled-ordinary-merge": ""
+  },
+  "next_work": "Correct the actual minimum-pivot check; finish and check actual book-cost <=F then generalized cost/cutoff and balanced-policy bridges; prove actual randomized tail/worst-case families and actual selector-query tariff composition. All Chapter3 gates, then Chapters4--27 and remaining appendices.",
+  "actual_new_pass_closures": {
+    "halving": "21d240",
+    "nested_selector": "b9b47c",
+    "random_drift": "adf424",
+    "selection_envelope": "1a3d06"
+  },
+  "latest_full_source_or_delta_reads": {
+    "halving": "f44bcc,047c6f,0eab4b",
+    "nested_selector": "d9b036,dc2b7f; complete final log b9b47c",
+    "random_drift": "3a6989,036604,ba0884,756f38,6f521d; complete final log adf424",
+    "selection_envelope": "7c05d8,30e088; complete final log1a3d06",
+    "minimum_pivot": "b93a3a,066102,a4bd53,dc55b4; complete failed log061804"
+  },
+  "additional_unpassed_components": [
+    {
+      "scope": "Measured selection policy and minimum-pivot execution",
+      "public_source_names": 52,
+      "modules": 3,
+      "candidate": "eaea222672013a67c4e84cf7bf8adae418be0cf6",
+      "status": "Actual first focused check closed1. Policy step equation elaboration failure; unchanged statements and correction remain required."
+    }
+  ],
+  "interrupted_development_runs": [
+    {
+      "name": "chapter03-random-selection-drift-focused-attempt2-20261104",
+      "candidate": "f535b1ef557795c4e09c97ce0daf599961c9b268",
+      "actual_exit": null,
+      "original_exec_session_id": null,
+      "no_success_or_failure_credit": true,
+      "reconciliation": "provenance/chapter03-drift-attempt2-interruption-20261104/reconciliation.json",
+      "bytes": 4308,
+      "sha256": "cac4122a94fd253af81ac8ed07c27fdf9fb5521f0f1e50287411120b97470a33"
+    }
+  ],
+  "author_draft_hold_records": {
+    "provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/checkpoint0129-hold.json": {
+      "bytes": 2854,
+      "sha256": "31940f5cc73bcb377f84f326b9e397561e6278ea925ca723730d35f6df76c45e"
+    },
+    "provenance/chapter03-random-selection-implementation-20261104/stage05-tail-20261104/checkpoint0129-draft-hold.json": {
+      "bytes": 2595,
+      "sha256": "dcec3615aa637539ade4e5a978648d9170224e063ad7eb5f374de9e0205a536b"
+    }
+  }
+}

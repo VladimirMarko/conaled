@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "observed_at": "2026-11-14T02:46:51.833381+00:00",
+  "candidate": "337c29ff2e2b969e701a9deb84840d6b148dd175",
+  "status": "incomplete-after-session-interruption",
+  "terminal_observed": false,
+  "exit_code": null,
+  "verification_record_exists": false,
+  "native_project_lock_available": true,
+  "log_sha256": "a803fa6ae08a6186c774383d997e55d6d3fe2380e6fa819ed7883df80abf4e7f",
+  "log_last_modified": "2026-11-14T01:44:31.081026+00:00",
+  "cold_project_targets": 3278,
+  "completed_cold_targets_observed": 630,
+  "error_lines": [],
+  "longest_observed_module_seconds": [
+    [
+      "Applications.FRP.Feedback",
+      347.0
+    ],
+    [
+      "Applications.FRP.Spec",
+      316.0
+    ],
+    [
+      "Applications.FRP.MigrationPair",
+      298.0
+    ],
+    [
+      "Applications.FRP.BoundedFold",
+      298.0
+    ],
+    [
+      "Applications.FRP.Indefinite",
+      261.0
+    ],
+    [
+      "SquareKit.SmoothQuotientArcs",
+      220.0
+    ],
+    [
+      "Applications.FRP.ReactiveConsumers",
+      194.0
+    ],
+    [
+      "Applications.FRP.FiniteDelay",
+      179.0
+    ]
+  ],
+  "interpretation": "A large cold integrated build was interrupted before a terminal result. No proof error or explicit memory/disk failure is recorded in the available log. This does not establish host incapacity. Prior source-review approvals remain blocked; current candidate requires its own complete check. The native project lock is a bounded liveness observation, not a claim about invisible OS processes."
+}

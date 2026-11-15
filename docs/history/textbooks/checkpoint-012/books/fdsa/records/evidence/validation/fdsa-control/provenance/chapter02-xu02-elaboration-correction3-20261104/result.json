@@ -1,0 +1,54 @@
+{
+  "recorded_utc": "2026-11-04T07:14:28.392172+00:00",
+  "source_before": "2695e20f76604cc85396fd8d8e82459b9067f551",
+  "source_after": "fbc9a32a2a7cc333f632c88a27a5d7a977d67f72",
+  "findings": {
+    "XU02-ELAB-007": "Kernel decide cannot reduce List.permutations.dedup through the support finset. Use the existing mem_orders equivalence and actual permutation length to refute the incomplete-enumeration support claim.",
+    "XU02-ELAB-008": "Same reduction boundary for repeated enumeration. Use mem_orders and actual Perm.count_eq at label0 to refute the changed multiplicity. Pinned Init/Data/List/Perm.lean declaration was inspected."
+  },
+  "scope": "Two proof bodies only; both exact counterexample propositions, values, complete/Nodup boundaries and public names unchanged.",
+  "failed_attempt": "chapter02-mean-xu02-focused-20261104-attempt3",
+  "failed_log_sha256": "27fffd453a4650aa56976d4cfac2b482fccaae82a8f1ba53bfe38fb5780108ca",
+  "commit_output": "[work/fdsa-permutation-order-validation fbc9a32] fix(fdsa): prove order-support counterexamples by length and counts (#174)\n 1 file changed, 6 insertions(+), 2 deletions(-)\n",
+  "status": "Uncompiled successor",
+  "development_merges": [
+    {
+      "before": "b3ccd6617c9a0bd033ab181a77d0e07d4b72100a",
+      "source": "fbc9a32a2a7cc333f632c88a27a5d7a977d67f72",
+      "after": "86751c52c4563910011a977a70efa268c61c2798",
+      "scope": [
+        "Examples/PermutationOrderBoundary.lean"
+      ],
+      "output": "Merge made by the 'ort' strategy.\n Examples/PermutationOrderBoundary.lean | 8 ++++++--\n 1 file changed, 6 insertions(+), 2 deletions(-)\n"
+    },
+    {
+      "before": "86751c52c4563910011a977a70efa268c61c2798",
+      "source": "1f315fdbb40288d99921164bb3fd8afcbd756e58",
+      "after": "8d4450a7fddd6bf00f22438005929d92c1dfc939",
+      "scope": [
+        "Applications/Resources/RandomQuickSortMean.lean"
+      ],
+      "output": "Merge made by the 'ort' strategy.\n Applications/Resources/RandomQuickSortMean.lean | 3 ++-\n 1 file changed, 2 insertions(+), 1 deletion(-)\n"
+    },
+    {
+      "before": "8d4450a7fddd6bf00f22438005929d92c1dfc939",
+      "source": "e1f3b5c43ba3b0f4aca5964f2b4568e06b47700c",
+      "after": "43abe6aacc34fe9069c467f75533d336b105c78b",
+      "scope": [
+        "Applications/Resources/NaturalRunOperations.lean",
+        "Examples/NaturalRunOperations.lean"
+      ],
+      "output": "Merge made by the 'ort' strategy.\n Applications/Resources/NaturalRunOperations.lean | 690 +++++++++++++++++++++++\n Examples/NaturalRunOperations.lean               | 352 ++++++++++++\n 2 files changed, 1042 insertions(+)\n create mode 100644 Applications/Resources/NaturalRunOperations.lean\n create mode 100644 Examples/NaturalRunOperations.lean\n"
+    },
+    {
+      "before": "43abe6aacc34fe9069c467f75533d336b105c78b",
+      "source": "5a3af21cb4ff56896f1a7d249736c4804c229873",
+      "after": "e4965499954e2afe6bb6be0b8a4a61167a0ff2ce",
+      "scope": [
+        "Applications/Resources/QuickSortTransport.lean",
+        "Examples/QuickSortTransport.lean"
+      ],
+      "output": "Merge made by the 'ort' strategy.\n Applications/Resources/QuickSortTransport.lean | 56 ++++++++++++++++++++\n Examples/QuickSortTransport.lean               | 72 ++++++++++++++++++++++++++\n 2 files changed, 128 insertions(+)\n create mode 100644 Applications/Resources/QuickSortTransport.lean\n create mode 100644 Examples/QuickSortTransport.lean\n"
+    }
+  ]
+}

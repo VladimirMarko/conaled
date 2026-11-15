@@ -1,0 +1,122 @@
+{
+  "recorded_utc": "2026-11-04T08:51:16.700062+00:00",
+  "candidate_status": "Committed clean source-only correction; not compiled",
+  "before_sha256": "a1c623289b2a2059aac08e9d98183fd17ab3985c628fe9dc70b9c006e527943e",
+  "after_sha256": "03fbb29d9f458a7e76235e198b01ef3dd3b20dbe225d3d1edf3110b5628c437b",
+  "after_bytes": 11709,
+  "after_lines": 261,
+  "all25_theorem_headers_byte_identical": true,
+  "all7_definition_blocks_byte_identical": true,
+  "imports_options_and6_local_instances_byte_identical": true,
+  "changed_paths": [
+    "Examples/PermutationTailBoundary.lean"
+  ],
+  "diff_bytes": 4212,
+  "diff_lines": 85,
+  "diff_sha256": "0925bfc6f2f0aa9ddfa3231b5e42045a7fa0e6c808f3df2ff25410b90221cf66",
+  "headers": [
+    {
+      "name": "swap01_global_order",
+      "sha256": "1e04265514cefec4bd8f5f7c9524ee413d70e1924711d5ffdee65a27aaaf942d"
+    },
+    {
+      "name": "swap01_selected_order",
+      "sha256": "0b6ce49750bacbbe8706ebe9ae5403dfa59d1af24f3cf26222df558154027137"
+    },
+    {
+      "name": "swap01_first_events",
+      "sha256": "6264dd360c0a9c3ef4bd8f9f854aaed30ddda5bd3d6901a8d7806050e8eb8b4e"
+    },
+    {
+      "name": "singleton_conditional_tail_mass",
+      "sha256": "08387d17b899ce871559ccaa182bd805c51c8589f443e8af4c15c798b531908d"
+    },
+    {
+      "name": "empty_subset_none_mass",
+      "sha256": "0bb42b0c0f7386a76973e583154cddad026cb77cd49eb33a04420a7e8adac941"
+    },
+    {
+      "name": "empty_subset_first_event",
+      "sha256": "ecdae4555322144adfc5b871fa1875a46d39fe54b1a2425f785fe00d2fa704d8"
+    },
+    {
+      "name": "empty_subset_conditional_zero",
+      "sha256": "3ae8258dc91bd2968f735077d2625775d9e158dea8b0f162ec626c6d7af9ad36"
+    },
+    {
+      "name": "outsider_first_event",
+      "sha256": "247c21936d84be11e6b09a4be9eeccde17a7be95f9fa0b9be0cb50b894798366"
+    },
+    {
+      "name": "outsider_conditional_zero",
+      "sha256": "0d3d79a06846ecabfd2289f79eec8452f11989aa02c2d3cca0c460cf65a4de32"
+    },
+    {
+      "name": "empty_indices_none_mass",
+      "sha256": "f47958ac2de159cab542ffb001c0b86b85017a1ae992ab97d253542bb44ccf87"
+    },
+    {
+      "name": "counterPositions_nodup",
+      "sha256": "c9ef744e2371bab8e66f4d36640958da357fd1876e6077fc2de1ce404adf523a"
+    },
+    {
+      "name": "counterPositions_complete",
+      "sha256": "97fb2a63e87f27061122b7f3fdf400b683c42b6d56d6dd8c76d22141a2ec5c93"
+    },
+    {
+      "name": "outside_subset_boundaries",
+      "sha256": "5b3b75159cfaf92c99f5375545504987e60b3e438b31bf351229db8f60ff18b3"
+    },
+    {
+      "name": "counter_first_mass",
+      "sha256": "f453969a7e04667658f333595ee3780f149f198bf63a9e2503981d9a7abf736b"
+    },
+    {
+      "name": "counter_full_mass",
+      "sha256": "640a108b1cc462d4c618fc04839c758ea99a1e1a4453e749648dcd9d6fb35c5d"
+    },
+    {
+      "name": "joint12_table",
+      "sha256": "bd283e41d3198c21d0086d9a86b23a409c5a12bc30ad3738aa1195a54d3db091"
+    },
+    {
+      "name": "joint21_table",
+      "sha256": "fecb31b8241b66ac63b0981a6875696e09521fd49a5b5663ed34616cf0edebda"
+    },
+    {
+      "name": "counter_joint12",
+      "sha256": "5a0cb483259591635fdc5d3abf41a5cd8a8efd3fee52dc1cd32fa370980cc7aa"
+    },
+    {
+      "name": "counter_joint21",
+      "sha256": "e4525a0fc3fc8d6514ed6258ee8b0a1b552bef41ad31463ed95e62b1385daf8e"
+    },
+    {
+      "name": "full_fibers_disjoint",
+      "sha256": "7e2988bef759edf8440b0c351c658bccc67e5f4eb0f862997d8689a5103038c1"
+    },
+    {
+      "name": "counter_joint12_mass",
+      "sha256": "eef59bd2ba259c4786a9abce7fc047a07dadd02c70bb301b3de6ccfe367b6a78"
+    },
+    {
+      "name": "counter_joint21_mass",
+      "sha256": "626bfe6416121f273ae92f1e8756927cfeea08eb7cacb83bef954f3f85a6eac4"
+    },
+    {
+      "name": "outside_order_12_mass",
+      "sha256": "688051d89259b7bf74688dfe9f848902cd4b1220090ac883ee20624cd7bd908e"
+    },
+    {
+      "name": "outside_order_21_mass",
+      "sha256": "6c7f2ea7e6b8509a3f2af5209ec0e2117a52f96659a4c9d60c72c962ef9a6d12"
+    },
+    {
+      "name": "outside_order_not_uniform",
+      "sha256": "aac7e39d842e02d51bb959acac0d38ea36706ae524ab30873c0de264e36d7de1"
+    }
+  ],
+  "no_compiler_command": true,
+  "candidate": "13fc137c67e1dc974c833e81cd46042d757fa546",
+  "committed_utc": "2026-11-04T08:53:07.996823+00:00"
+}

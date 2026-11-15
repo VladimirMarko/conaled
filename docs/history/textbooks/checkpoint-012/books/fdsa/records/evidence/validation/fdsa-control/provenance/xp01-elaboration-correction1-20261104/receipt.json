@@ -1,0 +1,230 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-04T11:18:05.709956+00:00",
+  "role": "implementation author, not independent review axis",
+  "parent_commit": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+  "result_commit": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+  "branch": "work/fdsa-potential-development",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+  "commit_subject": "fix(resources): preserve ordered potential bounds (#174)",
+  "command_local_identity": "ChatGPT <chatgpt@openai.com>",
+  "author_observed_post_commit_status": "",
+  "protected_refs_before": {
+    "refs/heads/work/fdsa-book": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "refs/heads/work/fdsa-foundation-integration": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "refs/heads/work/fdsa-ch02-development": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "refs/heads/work/fdsa-list-foundations": "c28ba71863d2a35ee1c3a089caa90464e4cca692"
+  },
+  "protected_refs_after": "Root independently confirmed unchanged exact R/F/Z/X before launching focused attempt2; this author performs no additional source/output/process action while that command runs.",
+  "source_files": {
+    "Applications/Resources/Potential.lean": {
+      "before": {
+        "bytes": 11523,
+        "lines": 238,
+        "sha256": "fa33b209a7c8cd700e7a33a6d3ee11ef9ad572c2d2e8406dfbabf6468ebf7d8c",
+        "git_blob": "3ffc5e120f94f87c77a442728f654f3fa94d3aeb"
+      },
+      "after": {
+        "bytes": 11606,
+        "lines": 239,
+        "sha256": "c921f5a18f9c508c338d49eed9d3bd2a2193f968cfc3e9efb4208f8917efa33c",
+        "git_blob": "dcf7ae78d76c1440c2d89711e6939a00ff24cc90"
+      }
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "before": {
+        "bytes": 44518,
+        "lines": 677,
+        "sha256": "9124fe8ac99901d2e5658c215d936889d6de8ff4ded6dfd8264ddc0ed66ef896",
+        "git_blob": "5ae3836703d0d105f6c08a742b5070a62b159ad1"
+      },
+      "after": {
+        "bytes": 44533,
+        "lines": 677,
+        "sha256": "c617f951a84072835c80945c8093a2096272d97f9e21981d865a263a19eb186b",
+        "git_blob": "db598df8a4fe01d368cd0c791040dee22b5d7311"
+      }
+    }
+  },
+  "change_summary": {
+    "files": 2,
+    "insertions": 6,
+    "deletions": 5,
+    "new_named_source_declarations": 0,
+    "removed_named_source_declarations": 0,
+    "changed_theorem_headers": 0,
+    "changed_definitions": 0,
+    "changed_imports_options_instances_or_assumptions": 0,
+    "potential_named_source_declarations_retained": 18
+  },
+  "unchanged_full_unit_scope": [
+    "Applications/Resources/Potential.lean",
+    "Applications/Resources/FIFOContracts.lean",
+    "Examples/MappedPotentialAccounting.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-potential-accounting.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "original_unit_base": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "original_unit_draft": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+  "development_incorporation_base_unaccepted": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "frozen_requirements": {
+    "path": "reviews/potential-requirements.md",
+    "bytes": 7148,
+    "lines": 116,
+    "sha256": "545b5d2ff4a93594f2b1ca245594233bdfcf461b8f4fe14b3bbe698e6ad1aa2f"
+  },
+  "input_failure": {
+    "directory": "provenance/xp01-focused-development-20261104-attempt1",
+    "actual_exit": 1,
+    "closed_outer_and_native_exit": 1,
+    "input_candidate_clean_unchanged": true,
+    "full_log": {
+      "bytes": 8001,
+      "lines": 56,
+      "sha256": "c6c10d379ced0abb312ea08e533135705d2edb1864d6d08076875cbc517337c2"
+    },
+    "native_log_contained_byte_exact_in_outer": true,
+    "actual_sites": [
+      "Potential.lean:71:10",
+      "Potential.lean:148:4"
+    ]
+  },
+  "source_corrections": [
+    {
+      "id": "XP01-ELAB-001",
+      "input_sites": [
+        "Applications/Resources/Potential.lean:71:10",
+        "Applications/Resources/Potential.lean:148:4"
+      ],
+      "proof_bodies": [
+        "Resources.run_potential_map_of_invariant",
+        "Resources.run_cost_le_map_of_invariant"
+      ],
+      "additional_affected_site": "Old line 67, adjacent monotonicity application in the first authorized proof body; no independent reported diagnostic claimed.",
+      "repair": "Use exact supplied AddLeftMono/AddRightMono CovariantClass.elim direction, retaining all terms and hypotheses.",
+      "status": "Source correction submitted; actual successor validation and independent disposition pending."
+    },
+    {
+      "id": "XP01-DOC-001",
+      "input_site": "docs/research/fdsa-reconstruction-map.md:524-529",
+      "repair": "Scope the only-existing-interface-adjustment sentence expressly to Chapter 1; preserve all following explanation.",
+      "status": "Source correction submitted; independent Standards reassessment pending."
+    }
+  ],
+  "author_checks": {
+    "git_diff_check_exit": 0,
+    "complete_source_exact_replacement_scope_verified": true,
+    "compilation_run": false,
+    "elaborated_types_inspected": false,
+    "proof_audit_run": false,
+    "candidate_verification_run": false
+  },
+  "current_limit": "Uncompiled author correction. Root owns subsequent focused2 at this exact commit and all full unit acceptance gates. Neither finding is independently closed here.",
+  "read_boundary": "See complete author-readback.md; complete Potential before/after and original map plus exact successor diff/paragraph and exhaustive byte identity comparison; no new complete six-path mathematical assessment claimed.",
+  "hold": "Source held immediately at immutable handoff; provenance held after complete package readback.",
+  "package_files": [
+    {
+      "path": "author-readback.md",
+      "bytes": 9945,
+      "lines": 58,
+      "sha256": "cd82340af83eb4a1345ac9eb342eb5b2844557675e9e8b721055a249612f448b"
+    },
+    {
+      "path": "before-identity.json",
+      "bytes": 1464,
+      "lines": 33,
+      "sha256": "20cd816dbb5e951f271a60dda49494be2dee15c5cd437676c63428846fe2fa62"
+    },
+    {
+      "path": "diagnostic-map.json",
+      "bytes": 1023,
+      "lines": 22,
+      "sha256": "cd36210d95a09448d616e94e112dab1594f3d8ef25e6fc090e986742c9bb220c"
+    },
+    {
+      "path": "evidence/frozen-requirements.md",
+      "bytes": 7148,
+      "lines": 116,
+      "sha256": "545b5d2ff4a93594f2b1ca245594233bdfcf461b8f4fe14b3bbe698e6ad1aa2f"
+    },
+    {
+      "path": "evidence/input-full.log",
+      "bytes": 8001,
+      "lines": 56,
+      "sha256": "c6c10d379ced0abb312ea08e533135705d2edb1864d6d08076875cbc517337c2"
+    },
+    {
+      "path": "evidence/input-native-result.json",
+      "bytes": 758,
+      "lines": 23,
+      "sha256": "3f46508adf4eac8b7c585114d93a202798c78244d528aaea980c005f4edac807"
+    },
+    {
+      "path": "evidence/input-result.json",
+      "bytes": 1346,
+      "lines": 36,
+      "sha256": "b887a613be2ef9bbf6d92295cc57824cafd91262db3d8e2f7a8942d6391ad8fb"
+    },
+    {
+      "path": "evidence/input-secured-terminal.json",
+      "bytes": 1802,
+      "lines": 47,
+      "sha256": "2612a8b72bc48bc4ae08b4ee23a9903efd082b4a0758831952f2c4ae9e57562d"
+    },
+    {
+      "path": "evidence/pinned-additive-monotonicity-api.txt",
+      "bytes": 6348,
+      "lines": 126,
+      "sha256": "2910f2a91696234c4e264592855b3732f068715da8f49bb2e417ca9313e31264"
+    },
+    {
+      "path": "evidence/pinned-api-identities.json",
+      "bytes": 718,
+      "lines": 26,
+      "sha256": "c8c96459d6b68ea193b9d8ebdded413e9586a6058adbeeb84e3b8a383c24c878"
+    },
+    {
+      "path": "evidence/standards-finding-context.json",
+      "bytes": 957,
+      "lines": 24,
+      "sha256": "00fed1e8674e38158004da1295fc81e72b71a5dd53f18abae2cd8272fbb12bb5"
+    },
+    {
+      "path": "source-after/Applications/Resources/Potential.lean",
+      "bytes": 11606,
+      "lines": 239,
+      "sha256": "c921f5a18f9c508c338d49eed9d3bd2a2193f968cfc3e9efb4208f8917efa33c"
+    },
+    {
+      "path": "source-after/docs/research/fdsa-reconstruction-map.md",
+      "bytes": 44533,
+      "lines": 677,
+      "sha256": "c617f951a84072835c80945c8093a2096272d97f9e21981d865a263a19eb186b"
+    },
+    {
+      "path": "source-before/Applications/Resources/Potential.lean",
+      "bytes": 11523,
+      "lines": 238,
+      "sha256": "fa33b209a7c8cd700e7a33a6d3ee11ef9ad572c2d2e8406dfbabf6468ebf7d8c"
+    },
+    {
+      "path": "source-before/docs/research/fdsa-reconstruction-map.md",
+      "bytes": 44518,
+      "lines": 677,
+      "sha256": "9124fe8ac99901d2e5658c215d936889d6de8ff4ded6dfd8264ddc0ed66ef896"
+    },
+    {
+      "path": "source.diff",
+      "bytes": 2631,
+      "lines": 43,
+      "sha256": "1fe0ed30e48e96602805a019fd8bf7de7f9d56164ccb3220069e545f8cb9b99a"
+    },
+    {
+      "path": "static-readback.json",
+      "bytes": 1807,
+      "lines": 59,
+      "sha256": "7c6f879d8d0b885a8540fed788fddd848e4486c65d47fa3c868edbdb84116cd4"
+    }
+  ]
+}

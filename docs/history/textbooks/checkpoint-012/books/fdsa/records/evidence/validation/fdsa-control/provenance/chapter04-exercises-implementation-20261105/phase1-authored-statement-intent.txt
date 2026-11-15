@@ -1,0 +1,125 @@
+# Authored public statement intent; NOT elaborated compiler output
+
+
+## Applications/Trees/Levels.lean
+
+def level : BinaryTree α → Nat → List α
+  | .nil, _ => []
+  | .node a _ _, 0 => [a]
+  | .node _ l r, k + 1 => level l k ++ level r k
+
+@[simp] theorem level_nil (k : Nat) : level (.nil : BinaryTree α) k = []
+
+@[simp] theorem level_nil (k : Nat) : level (.nil : BinaryTree α) k = []
+
+@[simp] theorem level_node_zero (a : α) (l r : BinaryTree α) :
+    level (.node a l r) 0 = [a]
+
+@[simp] theorem level_node_succ (a : α) (l r : BinaryTree α) (k : Nat) :
+    level (.node a l r) (k + 1) = level l k ++ level r k
+
+def mergeLevels : List (List α) → List (List α) → List (List α)
+  | [], ys => ys
+  | xs, [] => xs
+  | x :: xs, y :: ys => (x ++ y) :: mergeLevels xs ys
+
+/-- Collect all levels by one structural traversal of the input tree. -/
+def levels : BinaryTree α → List (List α)
+  | .nil => []
+  | .node a l r => [a] :: mergeLevels (levels l) (levels r)
+
+@[simp] theorem levels_nil : levels (.nil : BinaryTree α) = []
+
+def levels : BinaryTree α → List (List α)
+  | .nil => []
+  | .node a l r => [a] :: mergeLevels (levels l) (levels r)
+
+@[simp] theorem levels_nil : levels (.nil : BinaryTree α) = []
+
+@[simp] theorem levels_nil : levels (.nil : BinaryTree α) = []
+
+@[simp] theorem levels_node (a : α) (l r : BinaryTree α) :
+    levels (.node a l r) = [a] :: mergeLevels (levels l) (levels r)
+
+theorem mergeLevels_length (xs ys : List (List α)) :
+    (mergeLevels xs ys).length = max xs.length ys.length
+
+theorem mergeLevels_getD (xs ys : List (List α)) (k : Nat) :
+    (mergeLevels xs ys).getD k [] = xs.getD k [] ++ ys.getD k []
+
+theorem levels_length (t : BinaryTree α) : (levels t).length = t.height
+
+theorem levels_getD (t : BinaryTree α) (k : Nat) :
+    (levels t).getD k [] = level t k
+
+theorem levels_getElem? (t : BinaryTree α) (k : Nat) (hk : k < t.height) :
+    (levels t)[k]? = some (level t k)
+
+
+
+
+## Examples/TreeLevels.lean
+
+def sample : BinaryTree Nat
+
+theorem sample_levels : levels sample = [[9], [3, 7], [8, 4, 5], [6]]
+
+theorem sample_height : sample.height = 4
+
+theorem sample_levels_length : (levels sample).length = 4
+
+theorem sample_level_two : level sample 2 = [8, 4, 5]
+
+theorem sample_index_two : (levels sample)[2]? = some [8, 4, 5]
+
+theorem sample_level_four : level sample 4 = []
+
+def repeated : BinaryTree Nat
+
+theorem repeated_levels : levels repeated = [[5], [5, 5]]
+
+theorem repeated_level_one : level repeated 1 = [5, 5]
+
+theorem repeated_index_one : (levels repeated)[1]? = some [5, 5]
+
+theorem empty_label_levels : levels (.nil : BinaryTree Empty) = []
+
+theorem empty_label_length : (levels (.nil : BinaryTree Empty)).length = 0
+
+theorem empty_label_level (k : Nat) : level (.nil : BinaryTree Empty) k = []
+
+
+
+
+## Applications/Trees/Rose.lean
+
+inductive Rose (α : Type u)
+
+def mirror (t : Rose α) : Rose α
+
+@[simp] theorem mirror_node (a : α) (children : List (Rose α)) :
+    mirror (.node a children) = .node a ((children.map mirror).reverse)
+
+theorem mirror_mirror (t : Rose α) : mirror (mirror t) = t
+
+
+
+
+## Examples/TreeRose.lean
+
+def sample : Rose Nat
+
+theorem sample_mirror :
+    Rose.mirror sample =
+      .node 9 [.node 8 [], .node 7 [.node 6 [.node 5 []]],
+        .node 3 [.node 2 [], .node 1 []]]
+
+theorem sample_mirror_mirror : Rose.mirror (Rose.mirror sample) = sample
+
+def repeated : Rose Nat
+
+theorem repeated_mirror : Rose.mirror repeated = .node 5 [.node 5 [], .node 5 []]
+
+theorem repeated_mirror_mirror : Rose.mirror (Rose.mirror repeated) = repeated
+
+

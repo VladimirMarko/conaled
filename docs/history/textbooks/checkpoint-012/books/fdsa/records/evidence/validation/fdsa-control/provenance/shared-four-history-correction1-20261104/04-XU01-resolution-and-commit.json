@@ -1,0 +1,80 @@
+{
+  "recorded_utc": "2026-11-04T14:20:35.357217+00:00",
+  "finding": "SH4-HIST-001",
+  "unit": "XU01",
+  "source_diff_read": "complete 2-path merge-result diff before resolution",
+  "conflicts": [
+    "docs/research/fdsa-permutation-minimum.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "automatic_root_merge": "already exactly equal to H; no root resolution required",
+  "resolution_reason": "Retain H complete four-unit/foundation map and exact reviewed dated minimum note. Both contain all incoming minimum-law mathematics, assumptions, boundaries and remaining obligations. Incoming defining blobs already equal H.",
+  "resolution": [
+    {
+      "path": "docs/research/fdsa-permutation-minimum.md",
+      "selected_source": "97505ca8a1e714601e6d68137f0659b36a569988",
+      "selected_git_blob": "052101180ceaf79f81e0873f24160fc73ae52f33",
+      "sha256": "2054bf4d6cd371b8570fca003f0fe704793377d261cb8e5f10306022e5b2dcc8"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "selected_source": "97505ca8a1e714601e6d68137f0659b36a569988",
+      "selected_git_blob": "e753d5325fcd4f576b091d795ffced6d625c2aaf",
+      "sha256": "f479b3b05b2fdfd99683e15cfc1e0d0b9542c58f56a3013872be6df8469cebfe"
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "git",
+        "restore",
+        "--source=97505ca8a1e714601e6d68137f0659b36a569988",
+        "--staged",
+        "--worktree",
+        "--",
+        "docs/research/fdsa-permutation-minimum.md",
+        "docs/research/fdsa-reconstruction-map.md"
+      ],
+      "actual_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "actual_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "-c",
+        "user.name=ChatGPT",
+        "-c",
+        "user.email=chatgpt@openai.com",
+        "commit",
+        "-m",
+        "fix(fdsa): retain minimum-law integration history (#174)",
+        "-m",
+        "SH4-HIST-001: complete the four history-preserving normal merges by integrating corrected XU01 tipf00078b. Keep the exact reviewed H source tree97505ca and resolve only the note/map conflicts with the complete reviewed union and dated status. All four original corrected tips are now actual ancestors; full candidate validation and independent confirmation remain required."
+      ],
+      "actual_exit": 0,
+      "stdout": "[work/fdsa-shared-four-integration 312aafb] fix(fdsa): retain minimum-law integration history (#174)\n",
+      "stderr": ""
+    }
+  ],
+  "result_commit": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "parents": [
+    "b907e9017ed1bd0c32361ed0cad596388cb6da31",
+    "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0"
+  ],
+  "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+  "exact_H_tree": true,
+  "status": "",
+  "compiler_or_cache_action": false
+}

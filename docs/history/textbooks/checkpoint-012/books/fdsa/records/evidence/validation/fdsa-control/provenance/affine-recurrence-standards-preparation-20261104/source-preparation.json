@@ -1,0 +1,665 @@
+{
+  "schema": 1,
+  "reviewer": "independent Standards /root/chapter02_standards",
+  "created_utc": "2026-11-04T12:09:28.972824+00:00",
+  "mode": "source preparation only",
+  "outcome": "Blocked",
+  "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+  "base": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+  "tree": "7b27a47b60253b398d5f75ce4308915302f7858d",
+  "scope": [
+    {
+      "path": "Applications/Resources/AffineRecurrence.lean",
+      "blob": "afba9e03f3d8178c6fcd469e064f07ddff53c32b",
+      "bytes": 5839,
+      "lines": 113,
+      "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d"
+    },
+    {
+      "path": "Examples/AffineRecurrence.lean",
+      "blob": "e16bc2401027fdced90b86edd15d9eb8b79759b9",
+      "bytes": 5165,
+      "lines": 142,
+      "sha256": "eb9239f5810887ba988420c3fe8538eab21285c1e6173eb5467133baa63868d5"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "blob": "99c912978cbbc57837e5b9dc19995aaa13d71a53",
+      "bytes": 8431,
+      "lines": 256,
+      "sha256": "c7abc390617e80c42c2b604528748fcebe794f869d8abeae88a07a69864ea3ef"
+    },
+    {
+      "path": "docs/research/fdsa-affine-recurrence.md",
+      "blob": "8319a4470bd0dacaa518e6d149fee26e67a1a64a",
+      "bytes": 9975,
+      "lines": 233,
+      "sha256": "a07b086bc846c0898b2713a7b055b9cb451d0471c655eeaab9cc1077f32b87bf"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "blob": "c051f7fa4ebb314068396014d6b16ee61f8d82e4",
+      "bytes": 32550,
+      "lines": 500,
+      "sha256": "4e8acd033864e106e6881d8d5bb3d73993f9c6c65bee14d072553eadf392789b"
+    }
+  ],
+  "source_totals": {
+    "paths": 5,
+    "lines": 1244,
+    "bytes": 61960
+  },
+  "frozen_controls": [
+    {
+      "path": "reviews/affine-recurrence-requirements.md",
+      "bytes": 5540,
+      "lines": 96,
+      "sha256": "5873700a349c359d15873829f1399a20225fa80eaa980e7ad9f1e4c8f774dd02"
+    },
+    {
+      "path": "reviews/affine-recurrence-candidate.md",
+      "bytes": 4774,
+      "lines": 80,
+      "sha256": "4c205b012b58219b0022427e32a12717dd46bd25a38ae68f53c62d16b8baeab4"
+    },
+    {
+      "path": "research/affine-recurrence-preflight.md",
+      "bytes": 27327,
+      "lines": 464,
+      "sha256": "dc20f947d2ff84ece47299a2403c9166d28f8c6103697e3b4b6b28842979b273"
+    }
+  ],
+  "public_surface": {
+    "explicit_named_count": 21,
+    "definitions": 2,
+    "theorems": 19,
+    "private_named_count": 0,
+    "anonymous_example_count": 0,
+    "new_instances": 0,
+    "names": [
+      {
+        "name": "Resources.AffineRecurrence.exists_affine_bound_of_two_branch",
+        "kind": "theorem",
+        "source_path": "Applications/Resources/AffineRecurrence.lean",
+        "line": 31,
+        "source_header": "theorem exists_affine_bound_of_two_branch\n    (f : Nat → R) (left right : Nat → Nat) (n0 : Nat)\n    (rho K C D : R) (contract : rho < 1)\n    (sizes : ∀ n, n0 < n →\n      (left n : R) + (right n : R) ≤ rho * (n : R) + K)\n    (step : ∀ n, n0 < n →\n      f n ≤ f (left n) + f (right n) + C * (n : R) + D) :\n    ∃ A B : R, 0 ≤ A ∧ 0 ≤ B ∧ ∀ n : Nat, f n ≤ A * (n : R) + B",
+        "source_header_sha256": "a1c9465fd6ebcd26339aa20ec95705cd0fe72d1d97cd6abe68b0d2efee36bc46",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter",
+        "kind": "def",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 19,
+        "source_header": "def quarter (n : Nat) : Nat",
+        "source_header_sha256": "6c0f44c505ad5d924a22516e61c2d7f614d6cb167fc70d674a1c10fe8510ca4f",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_of_le_one",
+        "kind": "theorem",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 25,
+        "source_header": "theorem quarter_of_le_one (n : Nat) (small : n ≤ 1) : quarter n = 1",
+        "source_header_sha256": "e86e31de26e3f27303084aca1c23be9b2ce1ca49cc48af120f2824c17457cf41",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_of_one_lt",
+        "kind": "theorem",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 31,
+        "source_header": "theorem quarter_of_one_lt (n : Nat) (large : 1 < n) :\n    quarter n = 2 * quarter (n / 4) + n + 1",
+        "source_header_sha256": "8fdf365f75d98446b44c2ed75a6ae9cb8afcf8cf3f72bad929843325f9120987",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_zero",
+        "kind": "theorem",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 38,
+        "source_header": "theorem quarter_zero : quarter 0 = 1",
+        "source_header_sha256": "080040cab03cbe100f0fe200e17c63a341529b1a820128d5eee4bec40d9ac9a9",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_one",
+        "kind": "theorem",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 39,
+        "source_header": "theorem quarter_one : quarter 1 = 1",
+        "source_header_sha256": "4b41d3a1cf0720b0fcdd7cfb67beab0218d0b207efd0707854ed5f56cb6f7616",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_two",
+        "kind": "theorem",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 41,
+        "source_header": "theorem quarter_two : quarter 2 = 5",
+        "source_header_sha256": "8e70aa5df5938eeef53bf0f556cb81a5d8bb0f307b39b65e4c41454760a004e5",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_four",
+        "kind": "theorem",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 45,
+        "source_header": "theorem quarter_four : quarter 4 = 7",
+        "source_header_sha256": "dc8d993943ef71d03fafebf25acf07860a37ceb69a397c3c03872b73d76b0ffc",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_eight",
+        "kind": "theorem",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 49,
+        "source_header": "theorem quarter_eight : quarter 8 = 19",
+        "source_header_sha256": "cc3615442b7181b6eee4c0647eff49c61a7e95ad1f071e870a7e6f110ce3eedb",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_sixteen",
+        "kind": "theorem",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 53,
+        "source_header": "theorem quarter_sixteen : quarter 16 = 31",
+        "source_header_sha256": "1ffff4f5a98211c047e3dc7d81bf74d9a49de476bba41c280091c050b5ee7f1e",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_affine_bound",
+        "kind": "theorem",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 59,
+        "source_header": "theorem quarter_affine_bound :\n    ∃ A B : ℚ, 0 ≤ A ∧ 0 ≤ B ∧\n      ∀ n : Nat, (quarter n : ℚ) ≤ A * (n : ℚ) + B",
+        "source_header_sha256": "35328daafdfd0c896affe53b0f397a14345abc3da9185cccc46dbb4d42a0de71",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.signed",
+        "kind": "def",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 76,
+        "source_header": "def signed (n : Nat) : Int",
+        "source_header_sha256": "06bf821ea4f7bf8aabc62fa17d87a5f2fd1c5e317428f897dba9a5b1b2d06325",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.signed_base",
+        "kind": "theorem",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 78,
+        "source_header": "theorem signed_base : signed 0 = -1",
+        "source_header_sha256": "2e4834616dc7f71e466403dd772102bddc5915565d85acd3d24c9ec298936734",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.signed_nonpositive",
+        "kind": "theorem",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 80,
+        "source_header": "theorem signed_nonpositive (n : Nat) : signed n ≤ 0",
+        "source_header_sha256": "3467b94e1056e70c3b06fb1383976beaa9d5a34e9634bb04e2e07476e25f607a",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.signed_recurrence",
+        "kind": "theorem",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 85,
+        "source_header": "theorem signed_recurrence (n : Nat) :\n    signed n = signed 0 + signed 0 + (-1) * (n : Int) + 1",
+        "source_header_sha256": "33c370b97c4f7076b456658b7cb0e62955e24939ef2dcb227cb4e26a0a1090aa",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.signed_affine_bound",
+        "kind": "theorem",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 92,
+        "source_header": "theorem signed_affine_bound :\n    ∃ A B : Int, 0 ≤ A ∧ 0 ≤ B ∧\n      ∀ n : Nat, signed n ≤ A * (n : Int) + B",
+        "source_header_sha256": "21fb429882a6e444447469054612713d36f08dd93630b827f727f2e7faba3f98",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.negative_square_upper",
+        "kind": "theorem",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 103,
+        "source_header": "theorem negative_square_upper {R : Type*} [CommRing R] [LinearOrder R]\n    [IsStrictOrderedRing R] (n : Nat) : -((n : R) ^ 2) ≤ 0",
+        "source_header_sha256": "cf5aedcad037d08ea4073660676c31246d32974a95981c753a7c98fa6f072ce6",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.negative_square_absolute_value",
+        "kind": "theorem",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 107,
+        "source_header": "theorem negative_square_absolute_value :\n    -((2 : Int) ^ 2) ≤ 0 ∧ | -((2 : Int) ^ 2)| = 4",
+        "source_header_sha256": "b9f5b5d06763095aea26dc8170c2d2ca9a9d2ddd0d2eb5f5046a1c3ea329b109",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.parameterwise_affine_bound",
+        "kind": "theorem",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 113,
+        "source_header": "theorem parameterwise_affine_bound (p : Nat) :\n    ∃ A B : Int, 0 ≤ A ∧ 0 ≤ B ∧\n      ∀ n : Nat, (p : Int) ≤ A * (n : Int) + B",
+        "source_header_sha256": "24010d6bf3554be63d7e5fd28241007cfe9a86d14ca40d52ade34da80ec6c9ea",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.no_uniform_natural_family_bound",
+        "kind": "theorem",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 126,
+        "source_header": "theorem no_uniform_natural_family_bound :\n    ¬ ∃ A B : Nat, ∀ p n : Nat, p ≤ A * n + B",
+        "source_header_sha256": "1a95af1d5f59e44ea34467cf7609ece5df76c8c1e9733fa26dc6a0b56f868307",
+        "actual_expanded_type_read": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.no_uniform_integer_family_bound",
+        "kind": "theorem",
+        "source_path": "Examples/AffineRecurrence.lean",
+        "line": 134,
+        "source_header": "theorem no_uniform_integer_family_bound :\n    ¬ ∃ A B : Int, ∀ p n : Nat, (p : Int) ≤ A * (n : Int) + B",
+        "source_header_sha256": "1149819714d41a8cc47a4392ee198b163eab11f195281a66f922867bffd0e9a2",
+        "actual_expanded_type_read": false
+      }
+    ],
+    "boundary": "Generated recursion equations and termination/elaboration auxiliaries are not inferred to be absent; actual expanded source-name types and exhaustive audit remain pending."
+  },
+  "configuration": [
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "equal_to_reviewed_xp01_T": true
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "equal_to_reviewed_xp01_T": true
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 444,
+      "lines": 13,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "equal_to_reviewed_xp01_T": true
+    },
+    {
+      "path": "flake.nix",
+      "bytes": 637,
+      "lines": 28,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+      "equal_to_reviewed_xp01_T": true
+    },
+    {
+      "path": "flake.lock",
+      "bytes": 564,
+      "lines": 27,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+      "equal_to_reviewed_xp01_T": true
+    },
+    {
+      "path": "check.sh",
+      "bytes": 74,
+      "lines": 4,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "equal_to_reviewed_xp01_T": true
+    },
+    {
+      "path": "scripts/check.py",
+      "bytes": 16119,
+      "lines": 348,
+      "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+      "equal_to_reviewed_xp01_T": true
+    },
+    {
+      "path": "scripts/lake_integrity.py",
+      "bytes": 5781,
+      "lines": 117,
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+      "equal_to_reviewed_xp01_T": true
+    },
+    {
+      "path": "scripts/lake-output-hashes.lean",
+      "bytes": 618,
+      "lines": 11,
+      "sha256": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b",
+      "equal_to_reviewed_xp01_T": true
+    },
+    {
+      "path": "ProofAudit.lean",
+      "bytes": 7925,
+      "lines": 154,
+      "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd",
+      "equal_to_reviewed_xp01_T": true
+    }
+  ],
+  "dependency_pins": [
+    {
+      "name": "mathlib",
+      "rev": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "url": "https://github.com/leanprover-community/mathlib4.git"
+    },
+    {
+      "name": "plausible",
+      "rev": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "url": "https://github.com/leanprover-community/plausible"
+    },
+    {
+      "name": "LeanSearchClient",
+      "rev": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "url": "https://github.com/leanprover-community/LeanSearchClient"
+    },
+    {
+      "name": "importGraph",
+      "rev": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "url": "https://github.com/leanprover-community/import-graph"
+    },
+    {
+      "name": "proofwidgets",
+      "rev": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "url": "https://github.com/leanprover-community/ProofWidgets4"
+    },
+    {
+      "name": "aesop",
+      "rev": "4a174c490d8707121c4a9290800489f105d85e07",
+      "url": "https://github.com/leanprover-community/aesop"
+    },
+    {
+      "name": "Qq",
+      "rev": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "url": "https://github.com/leanprover-community/quote4"
+    },
+    {
+      "name": "batteries",
+      "rev": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "url": "https://github.com/leanprover-community/batteries"
+    },
+    {
+      "name": "Cli",
+      "rev": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "url": "https://github.com/leanprover/lean4-cli"
+    }
+  ],
+  "dependency_api_reads": [
+    {
+      "dependency": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/Order/Archimedean/Defs.lean",
+      "bytes": 3576,
+      "lines": 102,
+      "sha256": "792d8e81ef492132ffe4cbd31ad9cfa0cf4d2a215b47acb86f1240bba0a6525c",
+      "working_source_equal_to_pinned_blob": true,
+      "read_ranges": [
+        [
+          1,
+          102
+        ]
+      ],
+      "purpose": "Archimedean.arch, exists_nat_gt and their ring/order premises",
+      "whole_file_read": true
+    },
+    {
+      "dependency": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Data/Finset/Lattice/Fold.lean",
+      "bytes": 32716,
+      "lines": 820,
+      "sha256": "52a0ba5288cd672a09016061004b397d59fb9185c33f4f833a27082c7f0af863",
+      "working_source_equal_to_pinned_blob": true,
+      "read_ranges": [
+        [
+          491,
+          580
+        ]
+      ],
+      "purpose": "Nonempty finite supremum and le_sup' with proof-irrelevant nonempty witness",
+      "whole_file_read": false
+    },
+    {
+      "dependency": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Data/Nat/Cast/Order/Basic.lean",
+      "bytes": 4608,
+      "lines": 162,
+      "sha256": "6522497dba7222b8b2eee227c661bd774c302ee5fdd57c0d62e79633e8557876",
+      "working_source_equal_to_pinned_blob": true,
+      "read_ranges": [
+        [
+          1,
+          100
+        ]
+      ],
+      "purpose": "Natural cast monotonicity, strict reflection and one_le_cast",
+      "whole_file_read": false
+    },
+    {
+      "dependency": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Data/Nat/Cast/Order/Ring.lean",
+      "bytes": 3513,
+      "lines": 108,
+      "sha256": "005f95e3c0d18bc11034eff9c7f726e719d61cac7d8fafa1e739096d6d4da255",
+      "working_source_equal_to_pinned_blob": true,
+      "read_ranges": [
+        [
+          1,
+          100
+        ]
+      ],
+      "purpose": "Natural nonnegativity and ordered ring cast specialization",
+      "whole_file_read": false
+    },
+    {
+      "dependency": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/Order/Archimedean/Basic.lean",
+      "bytes": 22393,
+      "lines": 514,
+      "sha256": "0fef31980e08533e08d3bbc67747d1c702c0b9287fe38e4f7018657441340176",
+      "working_source_equal_to_pinned_blob": true,
+      "read_ranges": [
+        [
+          1,
+          41
+        ],
+        [
+          303,
+          355
+        ],
+        [
+          441,
+          458
+        ]
+      ],
+      "purpose": "Exact rational and integer Archimedean instances and client-only broad imports",
+      "whole_file_read": false
+    },
+    {
+      "dependency": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/Order/GroupWithZero/Defs.lean",
+      "bytes": 22559,
+      "lines": 471,
+      "sha256": "0f50ef5fbacb465cadd7a6bfa6eb88badc76751d8fb2ef47c9d520996874293f",
+      "working_source_equal_to_pinned_blob": true,
+      "read_ranges": [
+        [
+          166,
+          239
+        ]
+      ],
+      "purpose": "Left/right multiplication monotonicity orientations",
+      "whole_file_read": false
+    },
+    {
+      "dependency": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/Ring/Defs.lean",
+      "bytes": 23213,
+      "lines": 588,
+      "sha256": "d132472f8fb34b88fb8601b16d87cc44d77d64843cbe43bf179dcdad0887198a",
+      "working_source_equal_to_pinned_blob": true,
+      "read_ranges": [
+        [
+          164,
+          202
+        ]
+      ],
+      "purpose": "nsmul_eq_mul uses the natural cast on the left",
+      "whole_file_read": false
+    },
+    {
+      "dependency": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/Order/Monoid/Unbundled/Basic.lean",
+      "bytes": 48178,
+      "lines": 1221,
+      "sha256": "d0d17e30f7c74c20cf8e75f7f533133e59adfe596bcd561fcab67ee7e5423e6c",
+      "working_source_equal_to_pinned_blob": true,
+      "read_ranges": [
+        [
+          340,
+          393
+        ]
+      ],
+      "purpose": "Generated le_add_of_nonneg_left has the required B ≤ A*n+B orientation",
+      "whole_file_read": false
+    },
+    {
+      "dependency": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/Order/Ring/Defs.lean",
+      "bytes": 8190,
+      "lines": 191,
+      "sha256": "72b8bc8b498c9291b4be3e849ae0c40ff419ab8829f80c92cb187957f7d8b11b",
+      "working_source_equal_to_pinned_blob": true,
+      "read_ranges": [
+        [
+          1,
+          151
+        ]
+      ],
+      "purpose": "Strict ordered ring supplies monotonicity, nontriviality and characteristic zero",
+      "whole_file_read": false
+    },
+    {
+      "dependency": "official Lean 4.35.0 installation source",
+      "path": "conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/Nat/Div/Basic.lean",
+      "bytes": 17794,
+      "lines": 473,
+      "sha256": "0c8fc51180b0d4fb6319e8a44acd7999f3a1b3aad21d8da5c0ad575914f9d120",
+      "read_ranges": [
+        [
+          70,
+          103
+        ],
+        [
+          294,
+          326
+        ]
+      ],
+      "purpose": "div_lt_self requires positive dividend and divisor >1; div_mul_le_self gives the actual floor-division size bound",
+      "whole_file_read": false,
+      "qualification": "Source inspection only; does not certify an XR compiler execution or object lineage."
+    }
+  ],
+  "source_assessments": [
+    {
+      "id": "XR01-CORE",
+      "result": "No concrete source finding",
+      "assessment": "The constants precede all inputs and cover the finite inclusive prefix. The theorem has no monotonicity/nonnegativity hypotheses on f or C/D, no field/topology/ceiling structure, and only a one-sided recurrence assumption. The finite maximum is formed in the existing ordered ring, and Archimedean natural witnesses replace division."
+    },
+    {
+      "id": "XR01-DESCENT",
+      "result": "No concrete source finding",
+      "assessment": "Above N=max(n0,1,M), 2K≤(1-rho)n. Combining the size premise with positive (1-rho)n yields 2(left+right)<2n. Nonnegative natural child casts give each child<n before strong induction; this does not repair the termination of an independently defined algorithm."
+    },
+    {
+      "id": "XR01-ABSORPTION",
+      "result": "No concrete source finding",
+      "assessment": "B is max 0 of the entire finite prefix. A is a nonnegative natural cast satisfying 2(max0C+max0D+B)≤A(1-rho). The positive n region absorbs Cn+D+B; combining the doubled child and toll inequalities with the two induction hypotheses yields f n≤An+B. Ordered-ring algebra suffices; actual tactic elaboration is unverified."
+    },
+    {
+      "id": "XR01-CLIENTS",
+      "result": "No concrete source finding",
+      "assessment": "The actual terminating quarter recurrence, its separate branch laws, six independently calculated values and rational generic application are connected. The signed integer recurrence, independent nonpositivity, negative-square order/absolute boundary and all-input parameter-family uniformity failure retain their actual public-law connections."
+    },
+    {
+      "id": "XR01-ARCHITECTURE",
+      "result": "No concrete source finding",
+      "assessment": "One domain theorem and an example module reuse Mathlib finite maxima/order/Archimedean APIs. No executor, recurrence record, dictionary, new instance or transfer of arbitrary scalar order bounds to norm Big-O is added. Existing Growth is unchanged and is not imported by the core. All five original paths and frozen requirements remain the review scope."
+    },
+    {
+      "id": "XP01-DOC-001",
+      "result": "Inherited carry-forward unresolved at original XR draft d64; resolved XP01 T report untouched",
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "lines": [
+        466,
+        471
+      ],
+      "assessment": "The unqualified claim that erasureSquare is the only existing public-interface adjustment is inherited from c28 even though that parent generalizes Potential.budget/budget_append. The separately reviewed XP01 Chapter 1 qualifier must be retained during eventual incorporation. This is the same finding ID, not a new XR defect or a reopening of the resolved XP01 record."
+    }
+  ],
+  "protection": {
+    "existing_reports_sha256": {
+      "reviews/shared-foundations-standards-continuation-20261104.md": "6e09c7114bbaa2a4d5a7eb538eaf6c2fc29f0bc64d5427afc0a52ceecd68e559",
+      "reviews/chapter02-standards-source-preparation-20261104.md": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde",
+      "reviews/potential-standards-development-20261104.md": "a8c87f38de333a77ab03c82f7da1d3d1b3f122369dd9abb36c8d85acebf495f8"
+    },
+    "unchanged_at_start_and_finish_of_XR_write": true
+  },
+  "validation": {
+    "XR_compiler_commands_run_by_reviewer": 0,
+    "XR_actual_types_read": 0,
+    "XR_full_candidate_check": "pending",
+    "XR_audit": "pending",
+    "both_final_review_axes": "pending",
+    "immediate_verify_candidate": "pending",
+    "source_import_present": true,
+    "accepted_incorporation": "pending",
+    "central_outputs": "retired_unusable; not consumed or snapshotted",
+    "F_terminal": "not supplied; root-owned live run not polled",
+    "source_type_evidence_reuse_credit": 0
+  },
+  "read_only_method_notes": [
+    "All Git commands use --no-optional-locks; all Python commands disable bytecode writes. Only this new report/provenance are written.",
+    "An initial read-only configuration lookup requested nonexistent lakefile.lean and ended exit1 after the Git subcommand exit128. The corrected query discovered/read actual lakefile.toml and all ten configuration identities. This was not a compiler invocation, validation failure, or source change.",
+    "Pinned Mathlib API reads were checked against immutable revision 56a005855ea17e0b0958f73ec801ae140b0a1679; installed source bytes matched. Official compiler source inspection is separately labeled source-only.",
+    "The broad Archimedean.Basic import is confined to the examples. No generated compiler object, trace, or build output was read for this preparation.",
+    "Earlier F/C2/XP outcomes and counts remain unchanged. No source completion or acceptance of Chapter 3 is inferred."
+  ],
+  "pending": [
+    "Preserve full original five-path/frozen scope through any incorporated successor and carry the reviewed XP01 documentation correction.",
+    "Record a qualified immutable build of the actual incorporated source; respect exclusive writable outputs.",
+    "Inspect all actual expanded types for the 21 explicit new public names and any subsequently changed source surface.",
+    "Complete the applicable whole-candidate integrity/check/audit and both independent final review axes.",
+    "Immediately verify the exact approved candidate before any local fast-forward; update acceptance only from actual secured evidence."
+  ],
+  "related_source_reads": [
+    {
+      "path": "Applications/Resources/Growth.lean",
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "blob": "5453fc50cc172b409f12542921a97d82ca60e067",
+      "bytes": 724,
+      "lines": 17,
+      "sha256": "5e252788c2365d3f9140288a1d51f2ef38270798419af40df8505590a7d20dcc",
+      "read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "complete": true,
+      "unchanged_from_XR_base": true,
+      "purpose": "Related existing small Nat-bound to real Big-O adapter; not imported by new core"
+    }
+  ]
+}

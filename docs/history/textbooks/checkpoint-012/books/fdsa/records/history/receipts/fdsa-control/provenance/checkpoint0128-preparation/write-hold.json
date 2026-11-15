@@ -1,0 +1,38 @@
+{
+  "recorded_utc": "2026-11-04T20:56:24.586956+00:00",
+  "checkpoint": "conaled-fdsa-0128-selection-cost-and-policy-progress",
+  "all_writers_held": true,
+  "compiler_live": false,
+  "accepted_head": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "qualified_candidate": "9c19c0ec07eab0bfa12f58dde8c61f53447be58e",
+  "closed_runs": 59,
+  "held_heads": {
+    "conaled": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "conaled-ch01-review": "9c19c0ec07eab0bfa12f58dde8c61f53447be58e",
+    "conaled-ch02-quicksort": "17901d09d155b93de6490dfa40ca17f988107b94",
+    "conaled-ch02-random-pivot": "eec2172f7296b6bfcd13533aadb68bd9d11c4a32",
+    "conaled-ch02-top-down": "9c19c0ec07eab0bfa12f58dde8c61f53447be58e",
+    "conaled-ch02-natural-runs": "45d120ce0f5bacbaac76cbceeca13ee3ff494dff",
+    "conaled-ordinary-merge": "47f12b48b93a1e223b9f743e067685f12f4da5b1"
+  },
+  "held_statuses": {
+    "conaled": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.urOBCL\n",
+    "conaled-ch01-review": "",
+    "conaled-ch02-quicksort": "",
+    "conaled-ch02-random-pivot": "",
+    "conaled-ch02-top-down": "",
+    "conaled-ch02-natural-runs": "",
+    "conaled-ordinary-merge": ""
+  },
+  "drafts": [],
+  "author_holds": {
+    "values": "author completed/held; root temporary correction17901d09 passed and all root source/provenance writes held",
+    "random": "stage04 drift handoff and hold; final a7b031 actual0, candidateeec2172 clean",
+    "mom": "candidate9c19c0 held; root explicit read-only diagnostic instruction after failed attempt2; no write release",
+    "query": "existing47f12b author hold retained",
+    "rounded_halving": "readback-and-hold6259f4 actual0,45d120c clean; explicit root checkpoint hold"
+  },
+  "operations_inspector": "read-only only, no source/provenance writes",
+  "reviewers": "prior accepted-axis reports remain held; no C3 independent review started",
+  "root_remaining_capture_writes_only": true
+}

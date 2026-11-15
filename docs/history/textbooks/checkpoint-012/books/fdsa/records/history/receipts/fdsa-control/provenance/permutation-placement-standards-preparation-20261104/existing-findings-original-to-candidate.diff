@@ -1,0 +1,36 @@
+--- preserved BC01/BC02 original
++++ immutable49d6 candidate
+@@ -1,11 +1,11 @@
+ import Applications.Probability.PermutationPlacement
+ import Examples.PermutationExpectation
+-import Mathlib.MeasureTheory.Measure.Dirac
++import Mathlib.MeasureTheory.Measure.Dirac.Def
+ import Mathlib.Tactic
+ 
+ /-!
+ # Boundaries of fixed placement and internal-order independence
+ 
+ The new independence theorem applies to the existing empty, full, singleton,
+ tied-priority and empty-index observations. Its bare `LT` hypothesis also
+ permits an always-true relation: the actual full-set count is then two, not
+@@ -170,17 +170,19 @@
+   exact indepFun_beforeCount_restrictedOrder positions2 positions2_nodup
+     positions2_complete alwaysPriority (Finset.univ : Finset (Fin 2))
+     (HasLaw.id : HasLaw id law2 law2)
+ 
+ end BareLT
+ 
+ theorem full_infinite_product_value (π : Equiv.Perm (Fin 3)) :
+     (beforeCount rank3 Finset.univ π : ℝ≥0∞) * ∞ = 0 := by
+-  rw [PermutationExpectationBoundary.full_subset_count]
++  have hzero : beforeCount rank3 (Finset.univ : Finset (Fin 3)) π = 0 :=
++    PermutationExpectationBoundary.full_subset_count π
++  rw [hzero]
+   simp
+ 
+ /-- The new lower-integral law retains the actual zero product with infinite weight. -/
+ theorem full_infinite_weight_mean :
+     (∫⁻ π, (beforeCount rank3 Finset.univ π : ℝ≥0∞) *
+       (fun _ : List (Fin 3) => ∞) (restrictedOrder positions3 Finset.univ π)
+       ∂law3) = 0 := by
+   simpa [Nat.card_eq_fintype_card] using

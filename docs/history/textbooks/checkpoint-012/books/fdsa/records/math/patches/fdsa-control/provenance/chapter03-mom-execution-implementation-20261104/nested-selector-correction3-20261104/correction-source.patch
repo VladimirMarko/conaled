@@ -1,0 +1,33 @@
+diff --git a/Examples/SelectionCosts.lean b/Examples/SelectionCosts.lean
+index eb8ffcf..4c8a21d 100644
+--- a/Examples/SelectionCosts.lean
++++ b/Examples/SelectionCosts.lean
+@@ -18,7 +18,7 @@ universe u v
+ 
+ private theorem singleton_with (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
+     (a : Nat) : selectRunWith d cutoff hd hc 0 [a] = (some a, 7) := by
+-  rw [selectRunWith_small d cutoff hd hc 0 [a] (by decide) hc]
++  rw [selectRunWith_small d cutoff hd hc 0 [a] (by change 0 < 1; decide) hc]
+   apply Prod.ext
+   · rw [slowSelectRun_value]
+     simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using
+@@ -145,13 +145,16 @@ private theorem equal_partition :
+ 
+ private theorem equal_run (k : Nat) (hk : k < 21) :
+     selectRun k (List.replicate 21 4) = (some 4, 239) := by
++  have hi : (((List.replicate 21 4).length ⌈/⌉ 5) - 1) / 2 = 2 := by
++    norm_num only [List.length_replicate, Nat.ceilDiv_eq_add_pred_div]
+   have hp : (selectRun ((((List.replicate 21 4).length ⌈/⌉ 5) - 1) / 2)
+       (chunkMediansRun 5 (List.replicate 21 4)).1).1 = some 4 := by
+-    norm_num [equal_preparation, Nat.ceilDiv_eq_add_pred_div, equal_pivot]
++    rw [equal_preparation, hi]
++    exact congrArg Prod.fst equal_pivot
+   rw [selectRun_step k _ (by simpa only [List.length_replicate] using hk)
+     (by decide) 4 hp]
+-  norm_num [equal_partition, equal_preparation, Nat.ceilDiv_eq_add_pred_div,
+-    equal_pivot, Resources.SymmetricCosts.lengthRun_exact,
++  simp only [equal_partition, equal_preparation, hi, equal_pivot]
++  norm_num [Resources.SymmetricCosts.lengthRun_exact,
+     Resources.Partition.partitionRun_cost, hk]
+ 
+ theorem all_equal_first : selectRun 0 (List.replicate 21 4) = (some 4, 239) :=

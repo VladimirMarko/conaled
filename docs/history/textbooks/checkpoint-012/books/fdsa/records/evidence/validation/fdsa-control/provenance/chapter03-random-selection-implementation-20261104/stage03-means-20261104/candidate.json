@@ -1,0 +1,301 @@
+{
+  "recorded_utc": "2026-11-04T20:11:30.300057+00:00",
+  "stage": "stage03 actual selection expectations",
+  "fixed_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "previous_candidate": "93ddb900a9ae01e721883c5b8a409eb37129a3f8",
+  "candidate": "f76bc53339e172a179560654b181040a7313506d",
+  "tree": "efcbd17a77acf8bb73a1541c7e091f5e16d91e72",
+  "branch": "work/fdsa-ch03-random-selection",
+  "status": "",
+  "commit_message": "feat(selection): connect actual run expectations (#174)",
+  "commit_actual_exit": 0,
+  "commit_tool_chunk": "296a98",
+  "changed_paths": [
+    "Applications/Resources/RandomSelectionMean.lean",
+    "Examples/RandomSelectionMean.lean"
+  ],
+  "change_kind": "Two additive source modules, 482 inserted lines; no prior source edits.",
+  "source_files": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3",
+      "public_names": [
+        "Resources.RandomSelection.pivotRun",
+        "Resources.RandomSelection.pivotRun_exact",
+        "Resources.RandomSelection.stepRun",
+        "Resources.RandomSelection.stepRun_eq",
+        "Resources.RandomSelection.stepRun_child",
+        "Resources.RandomSelection.stepRun_semantics",
+        "Resources.RandomSelection.stepRun_ranked",
+        "Resources.RandomSelection.stepRun_cost_bounds",
+        "Resources.RandomSelection.pivotLaw",
+        "Resources.RandomSelection.pivotLaw_support",
+        "Resources.RandomSelection.pivotLaw_event"
+      ],
+      "git_blob": "0307419d586ac03af372629ef264be9a92295f55"
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e",
+      "public_names": [
+        "Examples.RandomSelection.singleton_step",
+        "Examples.RandomSelection.duplicate_middle",
+        "Examples.RandomSelection.selected_side_is_not_larger_side",
+        "Examples.RandomSelection.selected_side_valid",
+        "Examples.RandomSelection.duplicate_ranked",
+        "Examples.RandomSelection.duplicate_source_bound",
+        "Examples.RandomSelection.duplicate_zero_probability",
+        "Examples.RandomSelection.duplicate_one_probability"
+      ],
+      "git_blob": "6f505d29658dc3953baf3aa859205eb7f0569a9a"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionRun.lean",
+      "bytes": 12714,
+      "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718",
+      "public_names": [
+        "Resources.RandomSelection.Trace",
+        "Resources.RandomSelection.Outcome",
+        "Resources.RandomSelection.scanVolume",
+        "Resources.RandomSelection.scanVolume_nil",
+        "Resources.RandomSelection.scanVolume_cons",
+        "Resources.RandomSelection.prepend",
+        "Resources.RandomSelection.run",
+        "Resources.RandomSelection.run_nil",
+        "Resources.RandomSelection.run_cons",
+        "Resources.RandomSelection.run_value",
+        "Resources.RandomSelection.run_ranked",
+        "Resources.RandomSelection.run_none",
+        "Resources.RandomSelection.run_valid",
+        "Resources.RandomSelection.run_active_calls_le",
+        "Resources.RandomSelection.run_initial_scan_le",
+        "Resources.RandomSelection.run_scanVolume_le",
+        "Resources.RandomSelection.run_source_bridge",
+        "Resources.RandomSelection.run_trace_entries",
+        "Resources.RandomSelection.run_source_quadratic",
+        "Resources.RandomSelection.select",
+        "Resources.RandomSelection.select_value",
+        "Resources.RandomSelection.select_none",
+        "Resources.RandomSelection.select_some_iff",
+        "Resources.RandomSelection.scanLaw",
+        "Resources.RandomSelection.sourceLaw",
+        "Resources.RandomSelection.scanLaw_support",
+        "Resources.RandomSelection.scanLaw_support_finite",
+        "Resources.RandomSelection.sourceLaw_support",
+        "Resources.RandomSelection.sourceLaw_support_finite"
+      ],
+      "git_blob": "4af2a079ad55005657eeac2eaf4d3dd2a3a3ac11"
+    },
+    {
+      "path": "Examples/RandomSelectionRun.lean",
+      "bytes": 3770,
+      "sha256": "76504fe5fa77c581b8a7e3c9f3e0247c8a927adee8b308f84be6167e0ea20e0f",
+      "public_names": [
+        "Examples.RandomSelectionRun.empty_failure",
+        "Examples.RandomSelectionRun.singleton_execution",
+        "Examples.RandomSelectionRun.invalid_singleton",
+        "Examples.RandomSelectionRun.rank_zero_public_failure",
+        "Examples.RandomSelectionRun.two_key_execution",
+        "Examples.RandomSelectionRun.duplicate_execution",
+        "Examples.RandomSelectionRun.two_key_first_path",
+        "Examples.RandomSelectionRun.two_key_long_path",
+        "Examples.RandomSelectionRun.same_value_different_scan",
+        "Examples.RandomSelectionRun.maximum_scan_on_pair",
+        "Examples.RandomSelectionRun.bounded_actual_pair_calls",
+        "Examples.RandomSelectionRun.arbitrary_supported_rank"
+      ],
+      "git_blob": "ca900f902acde3c091e67f90108c2adb03b321cb"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionMean.lean",
+      "bytes": 16338,
+      "sha256": "6a223d85659df2788d1d0407d4819ee36d5f008c56555b40c22b6ae0fbfe74a9",
+      "git_blob": "c809a9a9d92444a4252c2db54c23540b1d78d387",
+      "public_names": [
+        "Resources.RandomSelection.workExpectation",
+        "Resources.RandomSelection.workExpectation_mono",
+        "Resources.RandomSelection.workExpectation_const",
+        "Resources.RandomSelection.workExpectation_add",
+        "Resources.RandomSelection.workExpectation_mul",
+        "Resources.RandomSelection.workExpectation_nil",
+        "Resources.RandomSelection.workExpectation_cons",
+        "Resources.RandomSelection.scanExpectation",
+        "Resources.RandomSelection.sourceExpectation",
+        "Resources.RandomSelection.scanExpectation_eq_workExpectation",
+        "Resources.RandomSelection.sourceExpectation_eq_workExpectation",
+        "Resources.RandomSelection.scanExpectation_quadratic_le",
+        "Resources.RandomSelection.sourceExpectation_quadratic_le",
+        "Resources.RandomSelection.scanExpectation_ne_top",
+        "Resources.RandomSelection.sourceExpectation_ne_top",
+        "Resources.RandomSelection.scanLaw_integrable",
+        "Resources.RandomSelection.sourceLaw_integrable",
+        "Resources.RandomSelection.scanExpectation_initial_le",
+        "Resources.RandomSelection.sourceExpectation_comparison",
+        "Resources.RandomSelection.scanExpectation_nil",
+        "Resources.RandomSelection.sourceExpectation_nil",
+        "Resources.RandomSelection.scanExpectation_cons",
+        "Resources.RandomSelection.scanMean",
+        "Resources.RandomSelection.sourceMean",
+        "Resources.RandomSelection.scanMean_eq_toReal",
+        "Resources.RandomSelection.sourceMean_eq_toReal",
+        "Resources.RandomSelection.scanMean_nonneg",
+        "Resources.RandomSelection.sourceMean_nonneg",
+        "Resources.RandomSelection.scanMean_initial_le",
+        "Resources.RandomSelection.scanMean_quadratic_le",
+        "Resources.RandomSelection.sourceMean_quadratic_le",
+        "Resources.RandomSelection.sourceMean_comparison",
+        "Resources.RandomSelection.scanMean_nil",
+        "Resources.RandomSelection.sourceMean_nil"
+      ],
+      "private_helpers": [
+        "Resources.RandomSelection.weighted_bind",
+        "Resources.RandomSelection.weighted_pure",
+        "Resources.RandomSelection.weighted_map",
+        "Resources.RandomSelection.weighted_add",
+        "Resources.RandomSelection.weighted_const",
+        "Resources.RandomSelection.weighted_mono_support",
+        "Resources.RandomSelection.lintegral_nat_eq",
+        "Resources.RandomSelection.lintegral_nat_le_of_support",
+        "Resources.RandomSelection.integrable_nat_of_lower_finite",
+        "Resources.RandomSelection.integral_nat_eq"
+      ],
+      "imports": [
+        "Applications.Resources.RandomSelectionRun",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+        "Mathlib.MeasureTheory.Function.L1Space.Integrable",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "Mathlib.Basic.ENNReal.BigOperators"
+      ],
+      "options": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true"
+      ]
+    },
+    {
+      "path": "Examples/RandomSelectionMean.lean",
+      "bytes": 5764,
+      "sha256": "56b9d86c1a11329c04f1c325c99938035c01d6e52e60ffb806dace361249dcf8",
+      "git_blob": "6afd75f45dcc29a8f8764964c947a9014470b460",
+      "public_names": [
+        "Examples.RandomSelectionMean.empty_means",
+        "Examples.RandomSelectionMean.singleton_means",
+        "Examples.RandomSelectionMean.invalid_singleton_means",
+        "Examples.RandomSelectionMean.two_key_scan_law",
+        "Examples.RandomSelectionMean.two_key_source_law",
+        "Examples.RandomSelectionMean.two_key_scan_mean",
+        "Examples.RandomSelectionMean.two_key_source_mean",
+        "Examples.RandomSelectionMean.duplicate_scan_law",
+        "Examples.RandomSelectionMean.duplicate_source_law",
+        "Examples.RandomSelectionMean.duplicate_means",
+        "Examples.RandomSelectionMean.two_key_scan_step",
+        "Examples.RandomSelectionMean.arbitrary_input_integrable",
+        "Examples.RandomSelectionMean.actual_mean_bridge",
+        "Examples.RandomSelectionMean.selected_value_and_mean_bounds"
+      ],
+      "private_helpers": [
+        "Examples.RandomSelectionMean.integral_nat_map_fin"
+      ],
+      "imports": [
+        "Applications.Resources.RandomSelectionMean",
+        "Examples.RandomSelectionRun",
+        "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "options": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true"
+      ]
+    }
+  ],
+  "public_name_count": 108,
+  "retained_public_name_count": 60,
+  "new_public_name_count": 48,
+  "private_helper_count": 13,
+  "retained_private_helpers": [
+    "Resources.RandomSelection.equal_lookup",
+    "Resources.RandomSelection.run_support_bounds"
+  ],
+  "new_private_helpers": [
+    "Resources.RandomSelection.weighted_bind",
+    "Resources.RandomSelection.weighted_pure",
+    "Resources.RandomSelection.weighted_map",
+    "Resources.RandomSelection.weighted_add",
+    "Resources.RandomSelection.weighted_const",
+    "Resources.RandomSelection.weighted_mono_support",
+    "Resources.RandomSelection.lintegral_nat_eq",
+    "Resources.RandomSelection.lintegral_nat_le_of_support",
+    "Resources.RandomSelection.integrable_nat_of_lower_finite",
+    "Resources.RandomSelection.integral_nat_eq",
+    "Examples.RandomSelectionMean.integral_nat_map_fin"
+  ],
+  "all_original_four_sources_byte_identical": true,
+  "all_original60_public_and2_private_headers_and_bodies_unchanged": true,
+  "starting_state": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/stage03-means-20261104/starting-state.json",
+    "bytes": 28814,
+    "sha256": "b2721001d830fdb010ee69516eeb305773d4cd10537d726743bc8d8ff6fd5f34"
+  },
+  "source_and_statement_assessment": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/stage03-means-20261104/precommit-assessment.json",
+    "bytes": 32740,
+    "sha256": "cd7ab6890f2e11ac755a4cc5fff843c551bf223ceef3398957fbaaad5434303e"
+  },
+  "exact_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/stage03-means-20261104/source.diff",
+    "bytes": 23024,
+    "sha256": "b21f75aa3c486ac74c3f8a2d6b60cac47d698937be8c48aab3695aa0ce3cd3fb"
+  },
+  "statement_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/stage03-means-20261104/Statements108-stage03.lean",
+    "bytes": 5939,
+    "sha256": "a323a5014823dfdacd05249b5829b83d51eb2741cd8964601d02ba6aecb9f46e"
+  },
+  "statement_preparation": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/stage03-means-20261104/Statements108-stage03-preparation.json",
+    "bytes": 8000,
+    "sha256": "c9b4fa5ad77d93a7e5411c8f363dc8bcd8e1b6d71bb011f78d981194b5c8a9fc"
+  },
+  "old_statement_input_unchanged": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/Statements60-candidate04.lean",
+    "bytes": 3264,
+    "sha256": "be10e6e4ef44817ccae42f34d55c156d0b49378f0a24f98dfe961000adf22bd3"
+  },
+  "frozen_specifications": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/chapter03-obligations.md",
+      "bytes": 52581,
+      "sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/selection-proof-plan.md",
+      "bytes": 31813,
+      "sha256": "4683072c5b47f168f81d0f35b727e247bc2c36af6922c76ab8eaac4fb542d18b"
+    }
+  ],
+  "previous_actual_focused_pass": {
+    "candidate": "93ddb900a9ae01e721883c5b8a409eb37129a3f8",
+    "owned_session": 64441,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "d98201",
+    "root_closure_tool_chunk": "a23bc0",
+    "author_full_log_read_tool_chunk": "0307b1",
+    "full_log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-run-focused-attempt4-20261104/full.log",
+      "bytes": 4160,
+      "sha256": "8f6b31a924bc621eb6829e9813182bb786a69d87e0527f8154168c4844c280bc"
+    },
+    "scope": "The exact finite execution core/examples pair passed. This is not whole-candidate, new-mean-stage, proof-audit, or Chapter 3 acceptance credit."
+  },
+  "requested_focus": [
+    "Applications.Resources.RandomSelectionMean",
+    "Examples.RandomSelectionMean"
+  ],
+  "validation_state": "Uncompiled additive successor. Root is sole compiler owner. Full 108-name explicit-type inspection, complete applicable candidate check and exhaustive audit, independent Standards/Spec axes, and immediate candidate verification remain mandatory.",
+  "coverage_boundary": "This stage supplies finite expectation/integrability and exact selected-child mean machinery, lower expectation and affine source-mean transport. C03-066--071 rank drift, 4n expectation and exact natural-w tail, C03-064/065 full worst-case/all-equal families, and C03-078--080 pivot-policy claims remain required and unclaimed. The inaccessible-Karp-primary-source note remains unchanged.",
+  "actual_new_compilation_credit": 0,
+  "actual_new_type_credit": 0,
+  "author_compiler_actions": false,
+  "prior_failures_retained": true
+}

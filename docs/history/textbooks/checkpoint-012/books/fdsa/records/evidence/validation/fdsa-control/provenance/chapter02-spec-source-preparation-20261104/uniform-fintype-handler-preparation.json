@@ -1,0 +1,43 @@
+{
+  "recorded_utc": "2026-11-04T10:05:49.685635+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "scope": "Same complete R-through-eventual-C2 Spec review, including actual Uniform instance-generation boundary.",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "current_candidate": "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+  "overall_outcome": "Blocked",
+  "api": {
+    "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "path": "Mathlib/Tactic/DeriveFintype.lean",
+    "bytes": 9552,
+    "lines": 200,
+    "sha256": "ccc5fecbe99adf96964457156d006c07af730e83ec7af678dc90e289745c2e4e",
+    "working_copy_equals_immutable_pin": true,
+    "human_read": "Complete 200-line file."
+  },
+  "enum_handler": {
+    "entry": "Mathlib.Deriving.Fintype.mkFintypeEnum",
+    "generated_helpers": [
+      "Label.enumList",
+      "Label.enumList_getElem?_ctorIdx_eq",
+      "Label.enumList_nodup"
+    ],
+    "helper_semantics": [
+      "List of every constructor in constructor order.",
+      "Lookup at constructor index returns that constructor.",
+      "No duplicates, proved via mapping to range."
+    ],
+    "instance": "Generated Fintype instance uses that exact finite constructor list and its no-duplicates proof.",
+    "actual_failure_connection": "The generated complete proof rewrites Finset.mem_mk at line 180, matching focused10 source line89 failure.",
+    "generated_declarations_are_real": true
+  },
+  "successor_requirements": [
+    "Exact unchanged four-constructor Label inductive and DecidableEq interface.",
+    "Explicit complete Fintype enumeration of high, low, middle, outside, with no alternative finite carrier or added assumptions.",
+    "Honest omitted-helper/generated-instance delta and complete no-client search.",
+    "New explicit-instance public-type inspection and all generated declarations covered by eventual full audit.",
+    "Actual uniform law, positions/selected set, conditional masses, two mean derivations and arbitrary-family claims preserved.",
+    "Exact immutable successor source, actual compilation and type/full-candidate evidence remain pending."
+  ],
+  "approval_or_acceptance": false,
+  "actions": "Read-only pinned API inspection and this own provenance write; no source, refs, caches, compiler or process actions."
+}

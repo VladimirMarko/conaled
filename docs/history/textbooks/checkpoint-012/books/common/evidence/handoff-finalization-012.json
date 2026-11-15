@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "recorded_at": "2026-11-15T03:13:26.014943+00:00",
+  "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+  "tree": "63205d8a3ff27deb3680c613b70085163f289b83",
+  "clean_source": true,
+  "current_requirements_sha256": "e09c5af2de201d808cfe2ed81870991bc82f195223fff2c5aa3f3273a00001ad",
+  "reviewed_handoff_manifest_sha256": "e402f619643fd9149298e8b56dc50c5effd75e0092e84d6c77d35dd385a7045f",
+  "all16_reviewed_inputs_still_match": true,
+  "reports_copied_byte_for_byte": {
+    "standards-r6.md": {
+      "bytes": 17023,
+      "sha256": "0ab51f01ed663e1c62fe199b0a238851e43b64fcf4e1db8a792cf7bdc5e3b779",
+      "path": "evidence/reviews/standards-r6.md"
+    },
+    "standards-r6.json": {
+      "bytes": 46354,
+      "sha256": "ecf3454c6152252efc1967a3127fe589975676e77ff3ad186360c02842c68654",
+      "path": "evidence/reviews/standards-r6.json"
+    },
+    "spec-r6.md": {
+      "bytes": 16257,
+      "sha256": "d3cb3764149ab6c122c2fbca8c750b482381c7846b6f6d8c3c964ec3005d7bc6",
+      "path": "evidence/reviews/spec-r6.md"
+    },
+    "spec-r6.json": {
+      "bytes": 40432,
+      "sha256": "ec30bb1a5a516519b9a0d658a1edf2f2379609f59d1bae67f8094948290112be",
+      "path": "evidence/reviews/spec-r6.json"
+    },
+    "coordinator-r6.md": {
+      "bytes": 8804,
+      "sha256": "ef7c287f8a9456387f93f2b775df90c11fbfe822a6484c80a87e7d818123ea73",
+      "path": "evidence/reviews/coordinator-r6.md"
+    },
+    "coordinator-r6.json": {
+      "bytes": 12497,
+      "sha256": "03081a88398654b7b790604546bed98aa97fb051bf744ff49fef4608d983a109",
+      "path": "evidence/reviews/coordinator-r6.json"
+    }
+  },
+  "canonical_review_sha256": "7821bdf2db13678bf5b93dfffb5225ba837b6d1bf942f559dab8f1c18dc3ed76",
+  "handoff_preparation": "Passed both axes",
+  "final_acceptance": "Blocked; INT-SP-001 / INT-090 open",
+  "final_approval": false,
+  "own_archive_delivery": "Not claimed by this pre-pack receipt; actual output upload/record receipt follows immutable archive.",
+  "meaning": "Mechanical reconciliation and final handoff source/input identity check. Not integrated Lean validation, an official final acceptance comparison or a new mathematical review."
+}

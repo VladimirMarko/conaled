@@ -1,0 +1,12 @@
+diff --git a/Applications/Resources/Partition.lean b/Applications/Resources/Partition.lean
+index 58f7649..e9d3682 100644
+--- a/Applications/Resources/Partition.lean
++++ b/Applications/Resources/Partition.lean
+@@ -42,6 +42,7 @@ theorem partitionRun_value (p : α) (xs : List α) :
+   | cons y ys ih =>
+       rw [partitionRun_cons, CallCount.tick_value, Resources.bind_value, ih,
+         Sequences.Partition.partition3_cons]
++      rfl
+ 
+ @[simp] theorem partitionRun_nil_cost (p : α) :
+     (partitionRun p []).2 = 1 := rfl

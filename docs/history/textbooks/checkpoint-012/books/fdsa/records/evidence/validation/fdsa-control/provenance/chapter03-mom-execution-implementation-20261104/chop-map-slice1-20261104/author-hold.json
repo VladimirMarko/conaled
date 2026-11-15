@@ -1,0 +1,92 @@
+{
+  "recorded_utc": "2026-11-04T20:00:28.941748+00:00",
+  "state": "HELD",
+  "source_and_own_provenance_writes": "No further writes until root supplies actual focused terminal and release",
+  "candidate": "557d00df979d95788f093e55551abd02f17dd049",
+  "tree": "2c002d179b0a7ce7623e8bedf3eb560dbd741a1a",
+  "branch": "work/fdsa-ch03-mom-execution",
+  "status_porcelain": "",
+  "candidate_record": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/candidate.json",
+    "bytes": 4066,
+    "sha256": "340e7e43d800196b08c2dc237e566755af89d78582e59ad1ff2c8606e66bf828"
+  },
+  "handoff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/handoff.md",
+    "bytes": 6265,
+    "sha256": "fcb8cfac53b667a3c3ca40b0c0e24d7a3fe626066cb7e89ec1b95717f4651daa"
+  },
+  "type_preparation": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/ChopMapStatements68-candidate1.lean",
+    "bytes": 4076,
+    "sha256": "3e1de6e46c407771794f4b315b2c8836e35d5c9cc141d4ca167a554d5a2fd4ac"
+  },
+  "source_inventory": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/source-inventory-and-statement-review.json",
+    "bytes": 45503,
+    "sha256": "473e4e14d3e46d85282db9e60fb5b387aa0f5cae739afadca3eaff51ce14d20c"
+  },
+  "commit_result": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/commit-result.json",
+    "bytes": 695,
+    "sha256": "fcfc199a2981de638ab11f47b1f27b07cb750742e75d03d22e1a6d35e264ed1a"
+  },
+  "precommit_validation": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/precommit-validation.json",
+    "bytes": 2044,
+    "sha256": "20309cc992a9a61d1f115eb3f10221d515e95941030663388f2ed732a7ac3675"
+  },
+  "source_files": [
+    {
+      "path": "Applications/Resources/Chunks.lean",
+      "bytes": 4591,
+      "sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc",
+      "namespace": "Resources.Chunks",
+      "public_names": 13,
+      "definitions": 1,
+      "theorems": 12,
+      "private_named": 0,
+      "anonymous_instances": 0,
+      "anonymous_examples": 0
+    },
+    {
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "bytes": 9455,
+      "sha256": "e4a5a47540716c68306f286b61deb01c6035ae4771ea03c5eb6b9de38dbf28ff",
+      "namespace": "Resources.SelectionMedians",
+      "public_names": 28,
+      "definitions": 3,
+      "theorems": 25,
+      "private_named": 0,
+      "anonymous_instances": 0,
+      "anonymous_examples": 0
+    },
+    {
+      "path": "Examples/ChunkCalls.lean",
+      "bytes": 2730,
+      "sha256": "ca79f35fe846399bcb180d9b8fbd63fa453108c59c4503adb8a5731182fdc5e3",
+      "namespace": "Examples.ChunkCalls",
+      "public_names": 11,
+      "definitions": 0,
+      "theorems": 11,
+      "private_named": 0,
+      "anonymous_instances": 0,
+      "anonymous_examples": 0
+    },
+    {
+      "path": "Examples/SelectionMedians.lean",
+      "bytes": 5134,
+      "sha256": "50220acbaa05668898e5a412a86dc13099d0987ede7d3a45120058cd59a18dd0",
+      "namespace": "Examples.SelectionMedians",
+      "public_names": 16,
+      "definitions": 0,
+      "theorems": 16,
+      "private_named": 0,
+      "anonymous_instances": 0,
+      "anonymous_examples": 0
+    }
+  ],
+  "compiler_owner": "/root",
+  "author_compiler_calls": 0,
+  "new_gate_or_acceptance_credit": false
+}

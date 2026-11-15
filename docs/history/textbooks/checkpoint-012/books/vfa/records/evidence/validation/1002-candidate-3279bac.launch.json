@@ -1,0 +1,28 @@
+{
+  "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "status": "launched",
+  "recorded_utc": "2026-11-02T10:57:21.258264+00:00",
+  "working_directory": "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+  "command": [
+    "/root/.nix-profile/bin/nix",
+    "develop",
+    "--command",
+    "./check.sh",
+    "--candidate",
+    "HEAD"
+  ],
+  "explicit_environment": {
+    "PATH_prefix": "/root/.nix-profile/bin:",
+    "NIX_CONFIG": "build-users-group =\nexperimental-features = nix-command flakes",
+    "LEAN_NUM_THREADS": "1"
+  },
+  "run_record": "work-state/validation/1002-candidate-3279bac.run.json",
+  "log": "work-state/validation/1002-candidate-3279bac.log",
+  "prerequisite": "Create, restore-check, expose and upload checkpoint017 before launch; stable source/dependency/configuration/cache inputs.",
+  "post_success": "Preserve verification record; managed LAKE_ARTIFACT_CACHE=false lake --no-cache --rehash build +ProofAudit prerequisite; required regression; both original independent axes; root --verify-candidate immediately before acceptance.",
+  "started_utc": "2026-11-02T10:59:38.190453+00:00",
+  "pid": 283393,
+  "process_group": 283393,
+  "interactive_session": 10072,
+  "checkpoint017_saved_before_launch": true
+}

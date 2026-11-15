@@ -1,0 +1,292 @@
+{
+  "scope": "Only checker 82650, its current descendants, and aggregate cgroup/CPU counters",
+  "interventions": "None. No signals, builds, Git operations, source or tool changes.",
+  "clock_ticks_per_second": 100,
+  "samples": [
+    {
+      "timestamp": "2026-11-02T05:31:25.643241+00:00",
+      "monotonic": 31407.251160043,
+      "processes": [
+        {
+          "pid": 82650,
+          "ppid": 82647,
+          "start_ticks": 2380494,
+          "state": "S",
+          "minor_faults": 6617,
+          "major_faults": 119,
+          "user_ticks": 203,
+          "system_ticks": 60,
+          "threads": 1,
+          "resident_pages": 2926,
+          "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+          "executable": "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3.13",
+          "io": "rchar: 130851651\nwchar: 1851416\nsyscr: 40614\nsyscw: 1164\nread_bytes: 1549164544\nwrite_bytes: 2408448\ncancelled_write_bytes: 151552\n",
+          "status": "State:\tS (sleeping)\nVmHWM:\t   19628 kB\nVmRSS:\t   11380 kB\nVmPTE:\t      80 kB\nVmSwap:\t       0 kB\nThreads:\t1\nCpus_allowed_list:\t0-8",
+          "command": "python3 scripts/check.py --candidate HEAD",
+          "task_schedstat": {
+            "82650": "2638902681 76226972 4218\n"
+          },
+          "task_wait_channels": {
+            "82650": "do_wait"
+          },
+          "smaps_rollup_kib": {
+            "Rss": 11380,
+            "Pss": 11344,
+            "Pss_Anon": 11340,
+            "Pss_File": 4,
+            "Swap": 0
+          }
+        },
+        {
+          "pid": 83003,
+          "ppid": 82650,
+          "start_ticks": 2382085,
+          "state": "S",
+          "minor_faults": 659900,
+          "major_faults": 2828,
+          "user_ticks": 1087,
+          "system_ticks": 1140,
+          "threads": 8,
+          "resident_pages": 31310,
+          "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+          "executable": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake.orig",
+          "io": "rchar: 3880384182\nwchar: 242277049\nsyscr: 2638649\nsyscw: 28590\nread_bytes: 2552881905664\nwrite_bytes: 414957568\ncancelled_write_bytes: 0\n",
+          "status": "State:\tS (sleeping)\nVmHWM:\t  793940 kB\nVmRSS:\t  125176 kB\nVmPTE:\t   22264 kB\nVmSwap:\t       0 kB\nThreads:\t8\nCpus_allowed_list:\t0-8",
+          "command": "lake --no-cache --rehash build [956 explicit project targets; full command in chapter01-build-processes.json]",
+          "task_schedstat": {
+            "83003": "213412932 3353579 132\n",
+            "83005": "43806 0 1\n",
+            "83006": "195011 0 1\n",
+            "83007": "5071749191 14772176669 81982\n",
+            "83130": "967480910 941903073 13660\n",
+            "83131": "6903085147 2102370041 37726\n",
+            "83132": "9045028342 2498622546 35777\n",
+            "155845": "121180 0 1\n"
+          },
+          "task_wait_channels": {
+            "83003": "__futex_wait",
+            "83005": "io_sq_thread",
+            "83006": "do_epoll_wait",
+            "83007": "hrtimer_nanosleep",
+            "83130": "__futex_wait",
+            "83131": "anon_pipe_read",
+            "83132": "__futex_wait",
+            "155845": "anon_pipe_read"
+          },
+          "smaps_rollup_kib": {
+            "Rss": 125176,
+            "Pss": 125072,
+            "Pss_Anon": 125000,
+            "Pss_File": 72,
+            "Swap": 0
+          }
+        },
+        {
+          "pid": 155844,
+          "ppid": 83003,
+          "start_ticks": 3107303,
+          "state": "S",
+          "minor_faults": 375247,
+          "major_faults": 464425,
+          "user_ticks": 289,
+          "system_ticks": 8724,
+          "threads": 5,
+          "resident_pages": 130814,
+          "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+          "executable": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+          "io": "rchar: 3909632\nwchar: 2\nsyscr: 22078\nsyscw: 2\nread_bytes: 154661363712\nwrite_bytes: 0\ncancelled_write_bytes: 0\n",
+          "status": "State:\tS (sleeping)\nVmHWM:\t 1015372 kB\nVmRSS:\t  523208 kB\nVmPTE:\t   78612 kB\nVmSwap:\t       0 kB\nThreads:\t5\nCpus_allowed_list:\t0-8",
+          "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /workspace/scratch/845aa1048b05/conaled-ch01-review/SquareKit/SmoothPresentedDual.lean -o /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothPresentedDual.olean -i /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothPresentedDual.ilean -c /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/ir/SquareKit/SmoothPresentedDual.c --setup /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/ir/SquareKit/SmoothPresentedDual.setup.json --json",
+          "task_schedstat": {
+            "155844": "65938694 10519894 40\n",
+            "155846": "26409 0 1\n",
+            "155847": "268189 0 1\n",
+            "155848": "53056803 27414964 43\n",
+            "155849": "90018495118 13180739657 532570\n"
+          },
+          "task_wait_channels": {
+            "155844": "__futex_wait",
+            "155846": "io_sq_thread",
+            "155847": "do_epoll_wait",
+            "155848": "__futex_wait",
+            "155849": "0"
+          },
+          "smaps_rollup_kib": {
+            "Rss": 523808,
+            "Pss": 504828,
+            "Pss_Anon": 203932,
+            "Pss_File": 300896,
+            "Swap": 0
+          }
+        }
+      ],
+      "cgroup": {
+        "cpu.max": "800000 100000\n",
+        "cpu.stat": "usage_usec 51742289409\nuser_usec 26823532442\nsystem_usec 24918756966\nnice_usec 0\nnr_periods 187813\nnr_throttled 3539\nthrottled_usec 213964004\nnr_bursts 0\nburst_usec 0\n",
+        "memory.max": "8589934592\n",
+        "memory.current": "8589934592\n",
+        "memory.events": "low 0\nhigh 0\nmax 86408662\noom 0\noom_kill 0\noom_group_kill 0\n",
+        "memory.stat": "anon 1497575424\nfile 5431889920\nkernel 1648193536\nkernel_stack 1622016\npagetables 519888896\nsec_pagetables 0\npercpu 5280\nsock 0\nvmalloc 0\nshmem 11554816\nfile_mapped 1485500416\nfile_dirty 1294336\nfile_writeback 0\nswapcached 0\nanon_thp 704643072\nfile_thp 0\nshmem_thp 0\ninactive_anon 1508302848\nactive_anon 11902976\ninactive_file 713035776\nactive_file 4707028992\nunevictable 0\nslab_reclaimable 1059688656\nslab_unreclaimable 66583632\nslab 1126272288\nworkingset_refault_anon 0\nworkingset_refault_file 3954605401\nworkingset_activate_anon 0\nworkingset_activate_file 2242333393\nworkingset_restore_anon 0\nworkingset_restore_file 1648427632\nworkingset_nodereclaim 316207\npgdemote_kswapd 0\npgdemote_direct 0\npgdemote_khugepaged 0\npgdemote_proactive 0\npgscan 4515464985\npgsteal 3979942551\npswpin 0\npswpout 0\npgscan_kswapd 10476283\npgscan_direct 4503776510\npgscan_khugepaged 1212192\npgscan_proactive 0\npgsteal_kswapd 8345895\npgsteal_direct 3970511144\npgsteal_khugepaged 1085512\npgsteal_proactive 0\npgfault 550097346\npgmajfault 72606102\npgrefill 2475324173\npgactivate 181974264\npgdeactivate 2447128293\npglazyfree 24950\npglazyfreed 0\nswpin_zero 0\nswpout_zero 0\nthp_fault_alloc 359207\nthp_collapse_alloc 570\nthp_swpout 0\nthp_swpout_fallback 0\n",
+        "memory.swap.current": "0\n",
+        "io.stat": "259:0 rbytes=290447360 wbytes=0 rios=66348 wios=0 dbytes=0 dios=0\n254:0 rbytes=16237701398528 wbytes=77820923904 rios=258591850 wios=1901856 dbytes=0 dios=0\n"
+      },
+      "host_cpu": "cpu  2544211 0 2288908 19223951 3630598 0 482734 436303 0 0"
+    },
+    {
+      "timestamp": "2026-11-02T05:31:45.701449+00:00",
+      "monotonic": 31427.309366898,
+      "processes": [
+        {
+          "pid": 82650,
+          "ppid": 82647,
+          "start_ticks": 2380494,
+          "state": "S",
+          "minor_faults": 6617,
+          "major_faults": 119,
+          "user_ticks": 203,
+          "system_ticks": 60,
+          "threads": 1,
+          "resident_pages": 2926,
+          "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+          "executable": "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3.13",
+          "io": "rchar: 130851651\nwchar: 1851416\nsyscr: 40614\nsyscw: 1164\nread_bytes: 1549164544\nwrite_bytes: 2408448\ncancelled_write_bytes: 151552\n",
+          "status": "State:\tS (sleeping)\nVmHWM:\t   19628 kB\nVmRSS:\t   11380 kB\nVmPTE:\t      80 kB\nVmSwap:\t       0 kB\nThreads:\t1\nCpus_allowed_list:\t0-8",
+          "command": "python3 scripts/check.py --candidate HEAD",
+          "task_schedstat": {
+            "82650": "2638902681 76226972 4218\n"
+          },
+          "task_wait_channels": {
+            "82650": "do_wait"
+          },
+          "smaps_rollup_kib": {
+            "Rss": 11380,
+            "Pss": 11344,
+            "Pss_Anon": 11340,
+            "Pss_File": 4,
+            "Swap": 0
+          }
+        },
+        {
+          "pid": 83003,
+          "ppid": 82650,
+          "start_ticks": 2382085,
+          "state": "S",
+          "minor_faults": 659900,
+          "major_faults": 2828,
+          "user_ticks": 1087,
+          "system_ticks": 1141,
+          "threads": 8,
+          "resident_pages": 31310,
+          "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+          "executable": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake.orig",
+          "io": "rchar: 3880384182\nwchar: 242277049\nsyscr: 2638649\nsyscw: 28590\nread_bytes: 2552881905664\nwrite_bytes: 414957568\ncancelled_write_bytes: 0\n",
+          "status": "State:\tS (sleeping)\nVmHWM:\t  793940 kB\nVmRSS:\t  125176 kB\nVmPTE:\t   22264 kB\nVmSwap:\t       0 kB\nThreads:\t8\nCpus_allowed_list:\t0-8",
+          "command": "lake --no-cache --rehash build [956 explicit project targets; full command in chapter01-build-processes.json]",
+          "task_schedstat": {
+            "83003": "213412932 3353579 132\n",
+            "83005": "43806 0 1\n",
+            "83006": "195011 0 1\n",
+            "83007": "5081494242 14784998818 82184\n",
+            "83130": "967480910 941903073 13660\n",
+            "83131": "6903085147 2102370041 37726\n",
+            "83132": "9045028342 2498622546 35777\n",
+            "155845": "121180 0 1\n"
+          },
+          "task_wait_channels": {
+            "83003": "__futex_wait",
+            "83005": "io_sq_thread",
+            "83006": "do_epoll_wait",
+            "83007": "hrtimer_nanosleep",
+            "83130": "__futex_wait",
+            "83131": "anon_pipe_read",
+            "83132": "__futex_wait",
+            "155845": "anon_pipe_read"
+          },
+          "smaps_rollup_kib": {
+            "Rss": 125176,
+            "Pss": 125072,
+            "Pss_Anon": 125000,
+            "Pss_File": 72,
+            "Swap": 0
+          }
+        },
+        {
+          "pid": 155844,
+          "ppid": 83003,
+          "start_ticks": 3107303,
+          "state": "S",
+          "minor_faults": 390061,
+          "major_faults": 496695,
+          "user_ticks": 331,
+          "system_ticks": 9163,
+          "threads": 5,
+          "resident_pages": 81116,
+          "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+          "executable": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+          "io": "rchar: 3909632\nwchar: 2\nsyscr: 22078\nsyscw: 2\nread_bytes: 162017062912\nwrite_bytes: 0\ncancelled_write_bytes: 0\n",
+          "status": "State:\tS (sleeping)\nVmHWM:\t 1015372 kB\nVmRSS:\t  324496 kB\nVmPTE:\t   78628 kB\nVmSwap:\t       0 kB\nThreads:\t5\nCpus_allowed_list:\t0-8",
+          "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /workspace/scratch/845aa1048b05/conaled-ch01-review/SquareKit/SmoothPresentedDual.lean -o /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothPresentedDual.olean -i /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothPresentedDual.ilean -c /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/ir/SquareKit/SmoothPresentedDual.c --setup /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/ir/SquareKit/SmoothPresentedDual.setup.json --json",
+          "task_schedstat": {
+            "155844": "65938694 10519894 40\n",
+            "155846": "26409 0 1\n",
+            "155847": "268189 0 1\n",
+            "155848": "53056803 27414964 43\n",
+            "155849": "94839130459 13570083965 567165\n"
+          },
+          "task_wait_channels": {
+            "155844": "__futex_wait",
+            "155846": "io_sq_thread",
+            "155847": "do_epoll_wait",
+            "155848": "__futex_wait",
+            "155849": "folio_wait_bit_common"
+          },
+          "smaps_rollup_kib": {
+            "Rss": 323556,
+            "Pss": 314933,
+            "Pss_Anon": 212172,
+            "Pss_File": 102761,
+            "Swap": 0
+          }
+        }
+      ],
+      "cgroup": {
+        "cpu.max": "800000 100000\n",
+        "cpu.stat": "usage_usec 51788316671\nuser_usec 26837157514\nsystem_usec 24951159157\nnice_usec 0\nnr_periods 188014\nnr_throttled 3539\nthrottled_usec 213964004\nnr_bursts 0\nburst_usec 0\n",
+        "memory.max": "8589934592\n",
+        "memory.current": "8589864960\n",
+        "memory.events": "low 0\nhigh 0\nmax 86646803\noom 0\noom_kill 0\noom_group_kill 0\n",
+        "memory.stat": "anon 1324376064\nfile 5660463104\nkernel 1590849536\nkernel_stack 1671168\npagetables 519417856\nsec_pagetables 0\npercpu 5456\nsock 2117632\nvmalloc 0\nshmem 11554816\nfile_mapped 1508487168\nfile_dirty 434176\nfile_writeback 0\nswapcached 0\nanon_thp 591396864\nfile_thp 0\nshmem_thp 0\ninactive_anon 1334968320\nactive_anon 11907072\ninactive_file 798474240\nactive_file 4850237440\nunevictable 0\nslab_reclaimable 1002713480\nslab_unreclaimable 66640416\nslab 1069353896\nworkingset_refault_anon 0\nworkingset_refault_file 3963973230\nworkingset_activate_anon 0\nworkingset_activate_file 2246089418\nworkingset_restore_anon 0\nworkingset_restore_file 1650640999\nworkingset_nodereclaim 316207\npgdemote_kswapd 0\npgdemote_direct 0\npgdemote_khugepaged 0\npgdemote_proactive 0\npgscan 4525880729\npgsteal 3989256422\npswpin 0\npswpout 0\npgscan_kswapd 10476283\npgscan_direct 4514192254\npgscan_khugepaged 1212192\npgscan_proactive 0\npgsteal_kswapd 8345895\npgsteal_direct 3979825015\npgsteal_khugepaged 1085512\npgsteal_proactive 0\npgfault 550493587\npgmajfault 72734437\npgrefill 2479194378\npgactivate 182046329\npgdeactivate 2450965109\npglazyfree 24950\npglazyfreed 0\nswpin_zero 0\nswpout_zero 0\nthp_fault_alloc 359279\nthp_collapse_alloc 570\nthp_swpout 0\nthp_swpout_fallback 0\n",
+        "memory.swap.current": "0\n",
+        "io.stat": "259:0 rbytes=290914304 wbytes=0 rios=66462 wios=0 dbytes=0 dios=0\n254:0 rbytes=16276073160704 wbytes=77827096576 rios=258910220 wios=1901971 dbytes=0 dios=0\n"
+      },
+      "host_cpu": "cpu  2545439 0 2291870 19230024 3637623 0 483459 436942 0 0"
+    }
+  ],
+  "summary": {
+    "sample_seconds": 20.0582068549993,
+    "diagnosis": "Persistent shared-cgroup memory pressure with file-page reclaim/refault and I/O waits; not current CPU quota throttling or a dominant runnable-queue delay.",
+    "safe_acceleration": "None identified within the frozen-gate constraints. Keep the existing single-compiler gate running and avoid additional compilers. No speculative tuning is recommended.",
+    "verified_tree": [
+      82650,
+      83003,
+      155844
+    ],
+    "lean_module": "SquareKit.SmoothPresentedDual",
+    "lean_user_cpu_seconds": 0.42,
+    "lean_kernel_cpu_seconds": 4.39,
+    "lean_major_fault_delta": 32270,
+    "lean_accounted_read_bytes": 7355699200,
+    "lean_active_thread_runqueue_wait_seconds": 0.389344308,
+    "cgroup_memory_limit_bytes": 8589934592,
+    "cgroup_memory_usage_bytes": [
+      8589934592,
+      8589864960
+    ],
+    "cgroup_memory_limit_events_delta": 238141,
+    "cgroup_direct_reclaim_scan_delta": 10415744,
+    "cgroup_file_refault_delta": 9367829,
+    "cgroup_read_bytes_delta": 38372229120,
+    "cgroup_throttled_periods_delta": 0,
+    "cgroup_throttled_usec_delta": 0
+  }
+}

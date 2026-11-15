@@ -1,0 +1,23 @@
+{
+  "started_utc": "2026-11-14T21:27:30.218138+00:00",
+  "command": [
+    "env",
+    "-u",
+    "LEAN_NUM_THREADS",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "python3",
+    "-B",
+    "-c",
+    "import os, json, resource, datetime\nfrom pathlib import Path\ncontrols = ['LEAN_NUM_THREADS', 'LAKE_JOBS', 'OMP_NUM_THREADS', 'OMP_THREAD_LIMIT', 'OPENBLAS_NUM_THREADS', 'MKL_NUM_THREADS', 'NUMEXPR_NUM_THREADS', 'RAYON_NUM_THREADS', 'MAKEFLAGS', 'CMAKE_BUILD_PARALLEL_LEVEL']\nassert 'LEAN_NUM_THREADS' not in os.environ\ndata = {'recorded_at': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'pid': os.getpid(), 'cwd': os.getcwd(), 'cpu_count': os.cpu_count(), 'affinity': sorted(os.sched_getaffinity(0)), 'priority': os.getpriority(os.PRIO_PROCESS, 0), 'thread_controls': {k: os.environ.get(k) for k in controls}, 'resource_limits': {k: list(resource.getrlimit(getattr(resource, k))) for k in ['RLIMIT_CPU', 'RLIMIT_AS', 'RLIMIT_DATA']}, 'meaning': 'Observed after the launcher and env -u, immediately before exec of the original checker. No resource limits are changed by this observer.'}\nPath('/workspace/scratch/e1eab3b6b18e/integration-20261114/intake/full-validation-r5-effective-environment.json').write_text(json.dumps(data, indent=2) + '\\n')\nprint('Effective child controls: ' + json.dumps(data), flush=True)\nos.execv('./check.sh', ['./check.sh', '--candidate', 'HEAD'])\n"
+  ],
+  "cwd": "/workspace/scratch/e1eab3b6b18e/integration-20261114/build-unrestricted",
+  "log": "/workspace/scratch/e1eab3b6b18e/integration-20261114/runtime-unrestricted/logs/20261114T212730Z-project-run-4f5bd184/output.log",
+  "label": "project-run",
+  "lean_threads": "1",
+  "passed": false,
+  "completed_utc": "2026-11-14T23:07:48.913277+00:00",
+  "seconds": 6018.693638817999,
+  "exit_code": 1,
+  "timed_out": false,
+  "recorder_error": null
+}

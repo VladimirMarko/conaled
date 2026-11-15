@@ -1,0 +1,120 @@
+{
+  "recorded_utc": "2026-11-04T17:01:45.768870+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "status": "Independent author history/package/source reconciliation passed; no receiving validation credit",
+  "all35_payloads_match_receipt": true,
+  "all68_bound_inputs_exact": true,
+  "all66_prior_refs_preserved_new67th_only": true,
+  "accepted_book_still_L": true,
+  "ordered_parents_L_Z": [
+    "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+    "4b5dbfa07288acc73f25c27838d3fb2f78e77d71"
+  ],
+  "actual_seven_merge_bases": [
+    "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+    "bdac9703aab4b383fa775568d36bf685af329389",
+    "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+    "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+    "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+    "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+    "f17cc6b1a2bf44215b16202ed0fcee2b5c130761"
+  ],
+  "all_recorded_ancestry_checks_independently_reproduced": true,
+  "baseline_and_actual_commands": {
+    "baseline_clean": true,
+    "branch": 0,
+    "ordinary_ort_merge": 1,
+    "actual_conflicts": [
+      "SquareApplications.lean",
+      "docs/research/fdsa-reconstruction-map.md"
+    ],
+    "all6_stage_payloads_exact_blob_and_stage2L_stage3Z": true,
+    "add": 0,
+    "staged_diff_check": 0,
+    "commit": 0,
+    "no_merge_simulation_by_reviewer": true
+  },
+  "all9_map_replacements_reproduce_entire_current_map": true,
+  "all3_resolution_pre_post_payloads_bound": true,
+  "all81_scope_and97_closure_rows_independently_match": true,
+  "all60_alias_source_blobs_exact_Z": true,
+  "all448_alias_qualified_references_exact_Z": true,
+  "saved_other14_worktree_HEAD_branch_records_unchanged": true,
+  "tracked_preservation": {
+    "existing_L_paths": 1610,
+    "unchanged_L_paths": 1607,
+    "outside_original81_scope_L_paths": 1576,
+    "all_outside_scope_preserved": true
+  },
+  "full_R_diff": {
+    "bytes": 943621,
+    "sha256": "d41363b7f44f8a907f9d6378e5c682f5b40218a2d28481e1f4ad913a4e947d73",
+    "reproduce": [
+      "git",
+      "diff",
+      "--binary",
+      "07e480f6ec9958d4975bb90151005b84f2907614",
+      "2da5708478a1d943a9214b5b386ec2db16cd9eca"
+    ]
+  },
+  "L_diff": {
+    "path": "source.diff",
+    "bytes": 614478,
+    "lines": 12061,
+    "sha256": "9d539decf909c07ba6a0ecf4fb38ef0fd1f4c3252ddc336e08f7fd33c124724a"
+  },
+  "author_package_inputs": [
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/handoff.md",
+      "bytes": 14249,
+      "lines": 81,
+      "sha256": "583cc9b4cf1f3f00afe9ca9005099b9cf082108a8a39e4fea14476f1a2111d2d"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/receipt.json",
+      "bytes": 8132,
+      "lines": 259,
+      "sha256": "62db6b03f9da7a190115e1f595153f00550dd65051b04eae8777c7794000b7b3"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/result.json",
+      "bytes": 108380,
+      "lines": 2727,
+      "sha256": "a0642a45b8580bdb9f0427bbe04c996ff6bc39058fd955117f33613178507f0d"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/baseline.json",
+      "bytes": 45004,
+      "lines": 1144,
+      "sha256": "7c85ca73c6f8d481425f394437908de1208f90c93ea2e9c07a2ce3305b0dcf7d"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/bound-inputs.json",
+      "bytes": 16203,
+      "lines": 446,
+      "sha256": "ab4de201566163067aa2ae6e703a2e279319ee6218d86fe273eb8b6cf6bf13de"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/merge-state.json",
+      "bytes": 6453,
+      "lines": 113,
+      "sha256": "1242e4c70e7207f9157fa4b3e80e8877af9f7b4efe6b56fe17c1f5668e915834"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/resolution-plan.json",
+      "bytes": 17322,
+      "lines": 275,
+      "sha256": "3fae1c1287891e64ecc8c4bcac1b58d8bb1971fb12ae159b963632fd0bc29758"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/author-readback.json",
+      "bytes": 9959,
+      "lines": 334,
+      "sha256": "a58b2a2afbd549335a272575166a55d06217a748cf6a0456fcea50be18d3e616"
+    }
+  ],
+  "read_boundary": "Complete handoff/receipt, actual commands, complete stage metadata and nine replacement texts read; full large source/hash arrays independently reconstructed. Prior full source/semantic assessments retained by exact bytes. No claim of a fresh human read of all2727result JSON lines or all12061source.diff lines.",
+  "receiving_type_full_audit_credit": 0,
+  "reviewer_compiler_process_cache_source_ref_changes_or_runtime_output_captures": false
+}

@@ -1,0 +1,61 @@
+{
+  "recorded_utc": "2026-11-03T21:47:35.226516+00:00",
+  "accepted_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "current_candidate": "b1677172ef85e40865fe8f292660c1bcfd6e5a0c",
+  "branch": "work/fdsa-ch02-values",
+  "worktree": "conaled-ch02-top-down",
+  "targets": [
+    "Applications.Sorting.InsertionObservations",
+    "Examples.InsertionObservations",
+    "Applications.Sorting.TopDown",
+    "Examples.TopDownSorting"
+  ],
+  "checks": [
+    {
+      "attempt": 1,
+      "candidate": "89455c366ec1b59d8922773c1f8fd30c92f70f42",
+      "exit_code": 1,
+      "elapsed_seconds": 14.593305213999884,
+      "log_sha256": "3c710e9e34b96f4dde3ade3b722262992d841b3450e64415312b0884152bd763",
+      "final_head": "89455c366ec1b59d8922773c1f8fd30c92f70f42",
+      "final_status": ""
+    },
+    {
+      "attempt": 2,
+      "candidate": "5a61c284f4cf8d0ca937c5c0cd0b961608d234a3",
+      "exit_code": 1,
+      "elapsed_seconds": 5.252949536000415,
+      "log_sha256": "3758d1d7e95b52dfe325994e7910feeabd78c7572766556db568478979a1f162",
+      "final_head": "5a61c284f4cf8d0ca937c5c0cd0b961608d234a3",
+      "final_status": ""
+    },
+    {
+      "attempt": 3,
+      "candidate": "7d9d54bdc05393e811a5f46d0e91728e64f7d278",
+      "exit_code": 1,
+      "elapsed_seconds": 5.649599033999948,
+      "log_sha256": "b97ab54b636ec22f1c4c228ee085a5e26394e7b924e98c80aee60643d003764a",
+      "final_head": "7d9d54bdc05393e811a5f46d0e91728e64f7d278",
+      "final_status": ""
+    },
+    {
+      "attempt": 4,
+      "candidate": "c3f7b1b993f8e9ccb9a3912230d06cc459c23398",
+      "exit_code": 0,
+      "elapsed_seconds": 7.4388240549997136,
+      "log_sha256": "ebc4a8d05081de80b82eed48675f838f586bd29dbc3f902b6690bb81925d1523",
+      "final_head": "c3f7b1b993f8e9ccb9a3912230d06cc459c23398",
+      "final_status": ""
+    },
+    {
+      "attempt": 5,
+      "candidate": "b1677172ef85e40865fe8f292660c1bcfd6e5a0c",
+      "exit_code": 0,
+      "elapsed_seconds": 11.124358354999458,
+      "log_sha256": "4cf4f468133e536a67a4ccafeb419e2668007eddd50430f1bb764fc225c36596",
+      "final_head": "b1677172ef85e40865fe8f292660c1bcfd6e5a0c",
+      "final_status": ""
+    }
+  ],
+  "state": "Focused modules passed; complete Chapter 2 implementation, public integration, full gates and independent reviews still pending."
+}

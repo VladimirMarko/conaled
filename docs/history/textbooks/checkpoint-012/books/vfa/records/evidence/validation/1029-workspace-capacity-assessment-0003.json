@@ -1,0 +1,3664 @@
+{
+  "schema": 1,
+  "task": "Single metadata census within exact task workspace to identify prior selected-root omissions under current capacity pressure",
+  "started_utc": "2026-11-03T00:04:41.005199+00:00",
+  "finished_utc": "2026-11-03T00:05:09.655815+00:00",
+  "elapsed_seconds": 28.65101954100828,
+  "root": "/workspace/scratch/0c54f2db1fdf",
+  "root_identity": {
+    "device": 27,
+    "inode": 2231248,
+    "mode": 493
+  },
+  "capacity_before": {
+    "observed_utc": "2026-11-03T00:04:41.005236+00:00",
+    "effective_uid": 0,
+    "root_free_bytes": 2353487872,
+    "nonreserved_available_bytes": 0,
+    "free_inodes": 3132512
+  },
+  "capacity_after": {
+    "observed_utc": "2026-11-03T00:05:09.655770+00:00",
+    "effective_uid": 0,
+    "root_free_bytes": 2350985216,
+    "nonreserved_available_bytes": 0,
+    "free_inodes": 3132443
+  },
+  "root_free_delta_during_census": -2502656,
+  "visited_entries": 186208,
+  "totals": {
+    "allocated_bytes": 10818228224,
+    "regular_logical_bytes": 10236450958,
+    "directories": 9316,
+    "regular_files": 176697,
+    "regular_single_link_files": 176697,
+    "regular_multi_link_files": 0,
+    "symlinks": 195,
+    "specials": 0
+  },
+  "regular_allocated_bytes_deduplicating_observed_multilinks": 10776727552,
+  "observed_distinct_multilink_regular_inodes": 0,
+  "top_level": {
+    "vfa-validation": {
+      "allocated_bytes": 9065971712,
+      "regular_logical_bytes": 8564312025,
+      "directories": 4536,
+      "regular_files": 153380,
+      "regular_single_link_files": 153380,
+      "regular_multi_link_files": 0,
+      "symlinks": 1,
+      "specials": 0
+    },
+    "conaled": {
+      "allocated_bytes": 813735936,
+      "regular_logical_bytes": 743653044,
+      "directories": 3879,
+      "regular_files": 20499,
+      "regular_single_link_files": 20499,
+      "regular_multi_link_files": 0,
+      "symlinks": 1,
+      "specials": 0
+    },
+    "checkpoints": {
+      "allocated_bytes": 690843648,
+      "regular_logical_bytes": 690795793,
+      "directories": 1,
+      "regular_files": 7,
+      "regular_single_link_files": 7,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "toolchain-setup": {
+      "allocated_bytes": 146771968,
+      "regular_logical_bytes": 141902882,
+      "directories": 491,
+      "regular_files": 1558,
+      "regular_single_link_files": 1558,
+      "regular_multi_link_files": 0,
+      "symlinks": 193,
+      "specials": 0
+    },
+    "work-state": {
+      "allocated_bytes": 68653056,
+      "regular_logical_bytes": 66200721,
+      "directories": 127,
+      "regular_files": 725,
+      "regular_single_link_files": 725,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "reference": {
+      "allocated_bytes": 22286336,
+      "regular_logical_bytes": 20965823,
+      "directories": 24,
+      "regular_files": 395,
+      "regular_single_link_files": 395,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "incident-evidence": {
+      "allocated_bytes": 5251072,
+      "regular_logical_bytes": 5056456,
+      "directories": 26,
+      "regular_files": 54,
+      "regular_single_link_files": 54,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "library-tools": {
+      "allocated_bytes": 2322432,
+      "regular_logical_bytes": 2269763,
+      "directories": 8,
+      "regular_files": 12,
+      "regular_single_link_files": 12,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "tmp": {
+      "allocated_bytes": 1011712,
+      "regular_logical_bytes": 994224,
+      "directories": 2,
+      "regular_files": 5,
+      "regular_single_link_files": 5,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "checkpoint-stage-4h_1mp8m": {
+      "allocated_bytes": 720896,
+      "regular_logical_bytes": 0,
+      "directories": 176,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "cache-companion-validation": {
+      "allocated_bytes": 462848,
+      "regular_logical_bytes": 144838,
+      "directories": 37,
+      "regular_files": 51,
+      "regular_single_link_files": 51,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "library-upload-026": {
+      "allocated_bytes": 131072,
+      "regular_logical_bytes": 120949,
+      "directories": 2,
+      "regular_files": 5,
+      "regular_single_link_files": 5,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "validation-recorder-validation": {
+      "allocated_bytes": 53248,
+      "regular_logical_bytes": 33744,
+      "directories": 2,
+      "regular_files": 5,
+      "regular_single_link_files": 5,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    ".codex": {
+      "allocated_bytes": 8192,
+      "regular_logical_bytes": 696,
+      "directories": 1,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "[workspace root directory]": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    ".git": {
+      "allocated_bytes": 0,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    ".aws": {
+      "allocated_bytes": 0,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    ".agents": {
+      "allocated_bytes": 0,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    }
+  },
+  "second_level": {
+    "vfa-validation/.lake": {
+      "allocated_bytes": 8974266368,
+      "regular_logical_bytes": 8476834500,
+      "directories": 4363,
+      "regular_files": 151804,
+      "regular_single_link_files": 151804,
+      "regular_multi_link_files": 0,
+      "symlinks": 1,
+      "specials": 0
+    },
+    "conaled/.lake": {
+      "allocated_bytes": 648749056,
+      "regular_logical_bytes": 583584201,
+      "directories": 3616,
+      "regular_files": 18810,
+      "regular_single_link_files": 18810,
+      "regular_multi_link_files": 0,
+      "symlinks": 1,
+      "specials": 0
+    },
+    "checkpoints/conaled-vfa-checkpoint-033-capacity-recovery-progress.tar.gz": {
+      "allocated_bytes": 146214912,
+      "regular_logical_bytes": 146201412,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "checkpoints/conaled-vfa-checkpoint-013-retention-imports-candidate.tar.gz": {
+      "allocated_bytes": 145469440,
+      "regular_logical_bytes": 145459275,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "checkpoints/conaled-vfa-checkpoint-012-positive-key-adapters.tar.gz": {
+      "allocated_bytes": 145403904,
+      "regular_logical_bytes": 145397542,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "checkpoints/conaled-vfa-checkpoint-000-bootstrap.tar.gz": {
+      "allocated_bytes": 142667776,
+      "regular_logical_bytes": 142659672,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "toolchain-setup/nix-2.35.4-x86_64-linux": {
+      "allocated_bytes": 119570432,
+      "regular_logical_bytes": 114709635,
+      "directories": 490,
+      "regular_files": 1556,
+      "regular_single_link_files": 1556,
+      "regular_multi_link_files": 0,
+      "symlinks": 193,
+      "specials": 0
+    },
+    "conaled/docs": {
+      "allocated_bytes": 79405056,
+      "regular_logical_bytes": 78689888,
+      "directories": 16,
+      "regular_files": 292,
+      "regular_single_link_files": 292,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/docs": {
+      "allocated_bytes": 79400960,
+      "regular_logical_bytes": 78689888,
+      "directories": 16,
+      "regular_files": 292,
+      "regular_single_link_files": 292,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.git": {
+      "allocated_bytes": 73297920,
+      "regular_logical_bytes": 72600722,
+      "directories": 91,
+      "regular_files": 115,
+      "regular_single_link_files": 115,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/staging": {
+      "allocated_bytes": 61030400,
+      "regular_logical_bytes": 60525488,
+      "directories": 33,
+      "regular_files": 184,
+      "regular_single_link_files": 184,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "checkpoints/.conaled-vfa-checkpoint-000-bootstrap.tar.gz.IpMeI5": {
+      "allocated_bytes": 60817408,
+      "regular_logical_bytes": 60817408,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "checkpoints/.conaled-vfa-checkpoint-000-bootstrap.tar.gz.IpMeI5.ssR50N": {
+      "allocated_bytes": 49545216,
+      "regular_logical_bytes": 49545216,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "toolchain-setup/nix-2.35.4-x86_64-linux.tar.xz": {
+      "allocated_bytes": 27189248,
+      "regular_logical_bytes": 27188748,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "reference/vfa": {
+      "allocated_bytes": 11517952,
+      "regular_logical_bytes": 10228493,
+      "directories": 22,
+      "regular_files": 387,
+      "regular_single_link_files": 387,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "reference/recovery-http-2026-11-02": {
+      "allocated_bytes": 5386240,
+      "regular_logical_bytes": 5363689,
+      "directories": 1,
+      "regular_files": 6,
+      "regular_single_link_files": 6,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "reference/vfa.tgz": {
+      "allocated_bytes": 5361664,
+      "regular_logical_bytes": 5360265,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "incident-evidence/1028-enospc": {
+      "allocated_bytes": 5246976,
+      "regular_logical_bytes": 5056456,
+      "directories": 25,
+      "regular_files": 54,
+      "regular_single_link_files": 54,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/validation": {
+      "allocated_bytes": 4001792,
+      "regular_logical_bytes": 3018534,
+      "directories": 3,
+      "regular_files": 326,
+      "regular_single_link_files": 326,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/Applications": {
+      "allocated_bytes": 3346432,
+      "regular_logical_bytes": 2457076,
+      "directories": 49,
+      "regular_files": 334,
+      "regular_single_link_files": 334,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/Applications": {
+      "allocated_bytes": 3346432,
+      "regular_logical_bytes": 2457076,
+      "directories": 49,
+      "regular_files": 334,
+      "regular_single_link_files": 334,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/SquareKit": {
+      "allocated_bytes": 3194880,
+      "regular_logical_bytes": 2332770,
+      "directories": 6,
+      "regular_files": 418,
+      "regular_single_link_files": 418,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/SquareKit": {
+      "allocated_bytes": 3194880,
+      "regular_logical_bytes": 2332770,
+      "directories": 6,
+      "regular_files": 418,
+      "regular_single_link_files": 418,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/experiments": {
+      "allocated_bytes": 3010560,
+      "regular_logical_bytes": 2292795,
+      "directories": 34,
+      "regular_files": 209,
+      "regular_single_link_files": 209,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/experiments": {
+      "allocated_bytes": 3010560,
+      "regular_logical_bytes": 2292795,
+      "directories": 34,
+      "regular_files": 209,
+      "regular_single_link_files": 209,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "library-tools/transfer-ewpdf2bn": {
+      "allocated_bytes": 2117632,
+      "regular_logical_bytes": 2096401,
+      "directories": 3,
+      "regular_files": 4,
+      "regular_single_link_files": 4,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/Examples": {
+      "allocated_bytes": 1585152,
+      "regular_logical_bytes": 1166516,
+      "directories": 1,
+      "regular_files": 194,
+      "regular_single_link_files": 194,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/Examples": {
+      "allocated_bytes": 1585152,
+      "regular_logical_bytes": 1166516,
+      "directories": 1,
+      "regular_files": 194,
+      "regular_single_link_files": 194,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/source": {
+      "allocated_bytes": 1191936,
+      "regular_logical_bytes": 1114801,
+      "directories": 3,
+      "regular_files": 35,
+      "regular_single_link_files": 35,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "tmp/pdfs": {
+      "allocated_bytes": 1007616,
+      "regular_logical_bytes": 994224,
+      "directories": 1,
+      "regular_files": 5,
+      "regular_single_link_files": 5,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.agents": {
+      "allocated_bytes": 765952,
+      "regular_logical_bytes": 265970,
+      "directories": 62,
+      "regular_files": 86,
+      "regular_single_link_files": 86,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.agents": {
+      "allocated_bytes": 765952,
+      "regular_logical_bytes": 265970,
+      "directories": 62,
+      "regular_files": 86,
+      "regular_single_link_files": 86,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/specs": {
+      "allocated_bytes": 729088,
+      "regular_logical_bytes": 661458,
+      "directories": 1,
+      "regular_files": 24,
+      "regular_single_link_files": 24,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "checkpoints/conaled-vfa-incident-001-enospc-evidence.tar.gz": {
+      "allocated_bytes": 720896,
+      "regular_logical_bytes": 715268,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "checkpoint-stage-4h_1mp8m/restore-smoke": {
+      "allocated_bytes": 700416,
+      "regular_logical_bytes": 0,
+      "directories": 171,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/validation-recorder": {
+      "allocated_bytes": 548864,
+      "regular_logical_bytes": 120984,
+      "directories": 51,
+      "regular_files": 68,
+      "regular_single_link_files": 68,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/reviews": {
+      "allocated_bytes": 442368,
+      "regular_logical_bytes": 378564,
+      "directories": 1,
+      "regular_files": 29,
+      "regular_single_link_files": 29,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/cache-companion": {
+      "allocated_bytes": 430080,
+      "regular_logical_bytes": 144511,
+      "directories": 33,
+      "regular_files": 48,
+      "regular_single_link_files": 48,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "cache-companion-validation/.git": {
+      "allocated_bytes": 356352,
+      "regular_logical_bytes": 71749,
+      "directories": 35,
+      "regular_files": 43,
+      "regular_single_link_files": 43,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/scripts": {
+      "allocated_bytes": 147456,
+      "regular_logical_bytes": 99352,
+      "directories": 2,
+      "regular_files": 18,
+      "regular_single_link_files": 18,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/scripts": {
+      "allocated_bytes": 131072,
+      "regular_logical_bytes": 90026,
+      "directories": 1,
+      "regular_files": 17,
+      "regular_single_link_files": 17,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "library-tools/__pycache__": {
+      "allocated_bytes": 102400,
+      "regular_logical_bytes": 94647,
+      "directories": 1,
+      "regular_files": 3,
+      "regular_single_link_files": 3,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/tickets.json": {
+      "allocated_bytes": 94208,
+      "regular_logical_bytes": 90838,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/STATUS-history-through-checkpoint026.md": {
+      "allocated_bytes": 53248,
+      "regular_logical_bytes": 49419,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "library-upload-026/__pycache__": {
+      "allocated_bytes": 49152,
+      "regular_logical_bytes": 43951,
+      "directories": 1,
+      "regular_files": 2,
+      "regular_single_link_files": 2,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "library-upload-026/library_upload.py": {
+      "allocated_bytes": 45056,
+      "regular_logical_bytes": 44876,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "library-tools/library_upload.py": {
+      "allocated_bytes": 45056,
+      "regular_logical_bytes": 44877,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/APPLICATIONS.md": {
+      "allocated_bytes": 36864,
+      "regular_logical_bytes": 34864,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/APPLICATIONS.md": {
+      "allocated_bytes": 36864,
+      "regular_logical_bytes": 34864,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "cache-companion-validation/cache_companion.py": {
+      "allocated_bytes": 32768,
+      "regular_logical_bytes": 31390,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/checkpoints.json": {
+      "allocated_bytes": 32768,
+      "regular_logical_bytes": 28971,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/README.md": {
+      "allocated_bytes": 28672,
+      "regular_logical_bytes": 26541,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "cache-companion-validation/test_cache_companion.py": {
+      "allocated_bytes": 28672,
+      "regular_logical_bytes": 20543,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/README.md": {
+      "allocated_bytes": 28672,
+      "regular_logical_bytes": 26541,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/Dependent.lean": {
+      "allocated_bytes": 24576,
+      "regular_logical_bytes": 22152,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/Dependent.lean": {
+      "allocated_bytes": 24576,
+      "regular_logical_bytes": 22152,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/STATUS.md": {
+      "allocated_bytes": 20480,
+      "regular_logical_bytes": 18859,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/Perm-coverage-draft.md": {
+      "allocated_bytes": 20480,
+      "regular_logical_bytes": 17902,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/FirstOrder.lean": {
+      "allocated_bytes": 16384,
+      "regular_logical_bytes": 12899,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/Compiler.lean": {
+      "allocated_bytes": 16384,
+      "regular_logical_bytes": 14314,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "cache-companion-validation/vendor": {
+      "allocated_bytes": 16384,
+      "regular_logical_bytes": 6399,
+      "directories": 1,
+      "regular_files": 2,
+      "regular_single_link_files": 2,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "reference/issue-174.json": {
+      "allocated_bytes": 16384,
+      "regular_logical_bytes": 13376,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "library-upload-026/library_file_transfer.py": {
+      "allocated_bytes": 16384,
+      "regular_logical_bytes": 16285,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "library-upload-026/library_hosted_apps.py": {
+      "allocated_bytes": 16384,
+      "regular_logical_bytes": 15837,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "checkpoint-stage-4h_1mp8m/conaled-vfa-checkpoint-000-bootstrap": {
+      "allocated_bytes": 16384,
+      "regular_logical_bytes": 0,
+      "directories": 4,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "library-tools/library_file_transfer.py": {
+      "allocated_bytes": 16384,
+      "regular_logical_bytes": 16286,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "library-tools/library_hosted_apps.py": {
+      "allocated_bytes": 16384,
+      "regular_logical_bytes": 15838,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/FirstOrder.lean": {
+      "allocated_bytes": 16384,
+      "regular_logical_bytes": 12899,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/Compiler.lean": {
+      "allocated_bytes": 16384,
+      "regular_logical_bytes": 14314,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "validation-recorder-validation/tests": {
+      "allocated_bytes": 16384,
+      "regular_logical_bytes": 10718,
+      "directories": 1,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/tools": {
+      "allocated_bytes": 16384,
+      "regular_logical_bytes": 8958,
+      "directories": 1,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/SquareApplications.lean": {
+      "allocated_bytes": 12288,
+      "regular_logical_bytes": 8213,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.github": {
+      "allocated_bytes": 12288,
+      "regular_logical_bytes": 1135,
+      "directories": 2,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/Squares.lean": {
+      "allocated_bytes": 12288,
+      "regular_logical_bytes": 11694,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/SquareCompiler.lean": {
+      "allocated_bytes": 12288,
+      "regular_logical_bytes": 10349,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "cache-companion-validation/README.md": {
+      "allocated_bytes": 12288,
+      "regular_logical_bytes": 9691,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "library-tools/transfer-otd3q8yq": {
+      "allocated_bytes": 12288,
+      "regular_logical_bytes": 0,
+      "directories": 3,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/SquareApplications.lean": {
+      "allocated_bytes": 12288,
+      "regular_logical_bytes": 8213,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.github": {
+      "allocated_bytes": 12288,
+      "regular_logical_bytes": 1135,
+      "directories": 2,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/Squares.lean": {
+      "allocated_bytes": 12288,
+      "regular_logical_bytes": 11694,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/SquareCompiler.lean": {
+      "allocated_bytes": 12288,
+      "regular_logical_bytes": 10349,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "validation-recorder-validation/recorder.py": {
+      "allocated_bytes": 12288,
+      "regular_logical_bytes": 12283,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "validation-recorder-validation/README.md": {
+      "allocated_bytes": 12288,
+      "regular_logical_bytes": 10604,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/environment.md": {
+      "allocated_bytes": 12288,
+      "regular_logical_bytes": 9937,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/skills-lock.json": {
+      "allocated_bytes": 8192,
+      "regular_logical_bytes": 6931,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/ProofAudit.lean": {
+      "allocated_bytes": 8192,
+      "regular_logical_bytes": 7925,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/GLOSSARY.md": {
+      "allocated_bytes": 8192,
+      "regular_logical_bytes": 4824,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "toolchain-setup/install-nix.sh": {
+      "allocated_bytes": 8192,
+      "regular_logical_bytes": 4499,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/skills-lock.json": {
+      "allocated_bytes": 8192,
+      "regular_logical_bytes": 6931,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/ProofAudit.lean": {
+      "allocated_bytes": 8192,
+      "regular_logical_bytes": 7925,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/GLOSSARY.md": {
+      "allocated_bytes": 8192,
+      "regular_logical_bytes": 4824,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/REQUIREMENTS.md": {
+      "allocated_bytes": 8192,
+      "regular_logical_bytes": 4963,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/CACHE-RECOVERY.md": {
+      "allocated_bytes": 8192,
+      "regular_logical_bytes": 4392,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "[workspace root directory]": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.envrc": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 36,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/flake.lock": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 564,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/lake-manifest.json": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 3138,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/check-foundation.sh": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 295,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/flake.nix": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 637,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.git": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 78,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/lean-toolchain": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 25,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/lakefile.toml": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 444,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/check.sh": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 74,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.gitignore": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 68,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/AGENTS.md": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 3118,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/Verification.lean": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 1881,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/DESIGN.md": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 959,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "toolchain-setup": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "cache-companion-validation": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "cache-companion-validation/check_pinned_runtime.py": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 2123,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "cache-companion-validation/.gitignore": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 19,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "cache-companion-validation/AMENDMENT.md": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 2924,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "incident-evidence": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "reference": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "tmp": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "checkpoints": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "library-upload-026": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "checkpoint-stage-4h_1mp8m": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "library-tools": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "library-tools/prepared-000.json": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 1044,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "library-tools/transfer-prepared.py": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 670,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.envrc": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 36,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/flake.lock": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 564,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/lake-manifest.json": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 3138,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/check-foundation.sh": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 295,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/flake.nix": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 637,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/lean-toolchain": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 25,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/lakefile.toml": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 444,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/check.sh": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 74,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.gitignore": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 68,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/AGENTS.md": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 3118,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/Verification.lean": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 1881,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/DESIGN.md": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 959,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "validation-recorder-validation": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "validation-recorder-validation/.git": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 117,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "validation-recorder-validation/.gitignore": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 22,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/AMENDMENTS.md": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 1098,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/cache-companions.json": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 1044,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    ".codex": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    ".codex/config.toml": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 696,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    ".git": {
+      "allocated_bytes": 0,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    ".aws": {
+      "allocated_bytes": 0,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    ".agents": {
+      "allocated_bytes": 0,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    }
+  },
+  "categories": {
+    "vfa-validation/.lake/packages/mathlib/.lake/build": {
+      "allocated_bytes": 7479304192,
+      "regular_logical_bytes": 7047695471,
+      "directories": 2439,
+      "regular_files": 130054,
+      "regular_single_link_files": 130054,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/build": {
+      "allocated_bytes": 802684928,
+      "regular_logical_bytes": 788366001,
+      "directories": 94,
+      "regular_files": 4832,
+      "regular_single_link_files": 4832,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "checkpoints": {
+      "allocated_bytes": 690843648,
+      "regular_logical_bytes": 690795793,
+      "directories": 1,
+      "regular_files": 7,
+      "regular_single_link_files": 7,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/batteries/.lake/build": {
+      "allocated_bytes": 151138304,
+      "regular_logical_bytes": 140887254,
+      "directories": 88,
+      "regular_files": 2904,
+      "regular_single_link_files": 2904,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/batteries/.lake/build": {
+      "allocated_bytes": 151117824,
+      "regular_logical_bytes": 140919470,
+      "directories": 88,
+      "regular_files": 2936,
+      "regular_single_link_files": 2936,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "toolchain-setup": {
+      "allocated_bytes": 146771968,
+      "regular_logical_bytes": 141902882,
+      "directories": 491,
+      "regular_files": 1558,
+      "regular_single_link_files": 1558,
+      "regular_multi_link_files": 0,
+      "symlinks": 193,
+      "specials": 0
+    },
+    "conaled/.lake/packages/aesop/.lake/build": {
+      "allocated_bytes": 138121216,
+      "regular_logical_bytes": 131022471,
+      "directories": 52,
+      "regular_files": 1983,
+      "regular_single_link_files": 1983,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/aesop/.lake/build": {
+      "allocated_bytes": 137715712,
+      "regular_logical_bytes": 131022471,
+      "directories": 52,
+      "regular_files": 1983,
+      "regular_single_link_files": 1983,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/mathlib/source-other": {
+      "allocated_bytes": 129495040,
+      "regular_logical_bytes": 103826487,
+      "directories": 1353,
+      "regular_files": 9397,
+      "regular_single_link_files": 9397,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/mathlib/source-other": {
+      "allocated_bytes": 129495040,
+      "regular_logical_bytes": 103826487,
+      "directories": 1353,
+      "regular_files": 9397,
+      "regular_single_link_files": 9397,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/fresh-check-4fhvnocs": {
+      "allocated_bytes": 104833024,
+      "regular_logical_bytes": 104293264,
+      "directories": 24,
+      "regular_files": 204,
+      "regular_single_link_files": 204,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/source-other": {
+      "allocated_bytes": 91701248,
+      "regular_logical_bytes": 87477447,
+      "directories": 173,
+      "regular_files": 1575,
+      "regular_single_link_files": 1575,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/source-other": {
+      "allocated_bytes": 91688960,
+      "regular_logical_bytes": 87468121,
+      "directories": 172,
+      "regular_files": 1574,
+      "regular_single_link_files": 1574,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.git": {
+      "allocated_bytes": 73297920,
+      "regular_logical_bytes": 72600722,
+      "directories": 91,
+      "regular_files": 115,
+      "regular_single_link_files": 115,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/staging": {
+      "allocated_bytes": 61030400,
+      "regular_logical_bytes": 60525488,
+      "directories": 33,
+      "regular_files": 184,
+      "regular_single_link_files": 184,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/mathlib/.lake/build": {
+      "allocated_bytes": 51875840,
+      "regular_logical_bytes": 38556284,
+      "directories": 1794,
+      "regular_files": 2024,
+      "regular_single_link_files": 2024,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/mathlib/.git": {
+      "allocated_bytes": 45666304,
+      "regular_logical_bytes": 45503434,
+      "directories": 11,
+      "regular_files": 36,
+      "regular_single_link_files": 36,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/mathlib/.git": {
+      "allocated_bytes": 45649920,
+      "regular_logical_bytes": 45503434,
+      "directories": 11,
+      "regular_files": 36,
+      "regular_single_link_files": 36,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/importGraph/.lake/build": {
+      "allocated_bytes": 35180544,
+      "regular_logical_bytes": 33368996,
+      "directories": 24,
+      "regular_files": 526,
+      "regular_single_link_files": 526,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/importGraph/.lake/build": {
+      "allocated_bytes": 35180544,
+      "regular_logical_bytes": 33368996,
+      "directories": 24,
+      "regular_files": 526,
+      "regular_single_link_files": 526,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "reference": {
+      "allocated_bytes": 22286336,
+      "regular_logical_bytes": 20965823,
+      "directories": 24,
+      "regular_files": 395,
+      "regular_single_link_files": 395,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/Qq/.lake/build": {
+      "allocated_bytes": 21716992,
+      "regular_logical_bytes": 21008898,
+      "directories": 8,
+      "regular_files": 210,
+      "regular_single_link_files": 210,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/Qq/.lake/build": {
+      "allocated_bytes": 21716992,
+      "regular_logical_bytes": 21008898,
+      "directories": 8,
+      "regular_files": 210,
+      "regular_single_link_files": 210,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/proofwidgets/.lake/build": {
+      "allocated_bytes": 20779008,
+      "regular_logical_bytes": 20107467,
+      "directories": 14,
+      "regular_files": 196,
+      "regular_single_link_files": 196,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/proofwidgets/.lake/build": {
+      "allocated_bytes": 20107264,
+      "regular_logical_bytes": 19485406,
+      "directories": 14,
+      "regular_files": 180,
+      "regular_single_link_files": 180,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/plausible/.lake/build": {
+      "allocated_bytes": 13737984,
+      "regular_logical_bytes": 13066131,
+      "directories": 6,
+      "regular_files": 195,
+      "regular_single_link_files": 195,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/plausible/.lake/build": {
+      "allocated_bytes": 13737984,
+      "regular_logical_bytes": 13066131,
+      "directories": 6,
+      "regular_files": 195,
+      "regular_single_link_files": 195,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/proofwidgets/source-other": {
+      "allocated_bytes": 9953280,
+      "regular_logical_bytes": 9603824,
+      "directories": 19,
+      "regular_files": 112,
+      "regular_single_link_files": 112,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/proofwidgets/source-other": {
+      "allocated_bytes": 9953280,
+      "regular_logical_bytes": 9603824,
+      "directories": 19,
+      "regular_files": 112,
+      "regular_single_link_files": 112,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/build": {
+      "allocated_bytes": 9601024,
+      "regular_logical_bytes": 9202430,
+      "directories": 16,
+      "regular_files": 120,
+      "regular_single_link_files": 120,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "incident-evidence": {
+      "allocated_bytes": 5251072,
+      "regular_logical_bytes": 5056456,
+      "directories": 26,
+      "regular_files": 54,
+      "regular_single_link_files": 54,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/LeanSearchClient/.lake/build": {
+      "allocated_bytes": 5132288,
+      "regular_logical_bytes": 4912859,
+      "directories": 6,
+      "regular_files": 60,
+      "regular_single_link_files": 60,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/LeanSearchClient/.lake/build": {
+      "allocated_bytes": 5132288,
+      "regular_logical_bytes": 4912859,
+      "directories": 6,
+      "regular_files": 60,
+      "regular_single_link_files": 60,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/validation": {
+      "allocated_bytes": 4001792,
+      "regular_logical_bytes": 3018534,
+      "directories": 3,
+      "regular_files": 326,
+      "regular_single_link_files": 326,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/batteries/.git": {
+      "allocated_bytes": 3481600,
+      "regular_logical_bytes": 3292093,
+      "directories": 11,
+      "regular_files": 36,
+      "regular_single_link_files": 36,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/batteries/.git": {
+      "allocated_bytes": 3424256,
+      "regular_logical_bytes": 3292093,
+      "directories": 11,
+      "regular_files": 36,
+      "regular_single_link_files": 36,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/proofwidgets/.git": {
+      "allocated_bytes": 3010560,
+      "regular_logical_bytes": 2864367,
+      "directories": 11,
+      "regular_files": 36,
+      "regular_single_link_files": 36,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/proofwidgets/.git": {
+      "allocated_bytes": 3010560,
+      "regular_logical_bytes": 2864367,
+      "directories": 11,
+      "regular_files": 36,
+      "regular_single_link_files": 36,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/batteries/source-other": {
+      "allocated_bytes": 2514944,
+      "regular_logical_bytes": 1480219,
+      "directories": 54,
+      "regular_files": 299,
+      "regular_single_link_files": 299,
+      "regular_multi_link_files": 0,
+      "symlinks": 1,
+      "specials": 0
+    },
+    "conaled/.lake/packages/batteries/source-other": {
+      "allocated_bytes": 2514944,
+      "regular_logical_bytes": 1480219,
+      "directories": 54,
+      "regular_files": 299,
+      "regular_single_link_files": 299,
+      "regular_multi_link_files": 0,
+      "symlinks": 1,
+      "specials": 0
+    },
+    "library-tools": {
+      "allocated_bytes": 2322432,
+      "regular_logical_bytes": 2269763,
+      "directories": 8,
+      "regular_files": 12,
+      "regular_single_link_files": 12,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/aesop/source-other": {
+      "allocated_bytes": 1642496,
+      "regular_logical_bytes": 833512,
+      "directories": 29,
+      "regular_files": 258,
+      "regular_single_link_files": 258,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/aesop/source-other": {
+      "allocated_bytes": 1642496,
+      "regular_logical_bytes": 833512,
+      "directories": 29,
+      "regular_files": 258,
+      "regular_single_link_files": 258,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/other": {
+      "allocated_bytes": 1523712,
+      "regular_logical_bytes": 1491189,
+      "directories": 5,
+      "regular_files": 4,
+      "regular_single_link_files": 4,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/other": {
+      "allocated_bytes": 1523712,
+      "regular_logical_bytes": 1491189,
+      "directories": 5,
+      "regular_files": 4,
+      "regular_single_link_files": 4,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/source": {
+      "allocated_bytes": 1191936,
+      "regular_logical_bytes": 1114801,
+      "directories": 3,
+      "regular_files": 35,
+      "regular_single_link_files": 35,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/importGraph/source-other": {
+      "allocated_bytes": 1060864,
+      "regular_logical_bytes": 662909,
+      "directories": 24,
+      "regular_files": 105,
+      "regular_single_link_files": 105,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/importGraph/source-other": {
+      "allocated_bytes": 1060864,
+      "regular_logical_bytes": 662909,
+      "directories": 24,
+      "regular_files": 105,
+      "regular_single_link_files": 105,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "tmp": {
+      "allocated_bytes": 1011712,
+      "regular_logical_bytes": 994224,
+      "directories": 2,
+      "regular_files": 5,
+      "regular_single_link_files": 5,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/aesop/.git": {
+      "allocated_bytes": 937984,
+      "regular_logical_bytes": 798607,
+      "directories": 11,
+      "regular_files": 36,
+      "regular_single_link_files": 36,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/aesop/.git": {
+      "allocated_bytes": 937984,
+      "regular_logical_bytes": 798607,
+      "directories": 11,
+      "regular_files": 36,
+      "regular_single_link_files": 36,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/specs": {
+      "allocated_bytes": 729088,
+      "regular_logical_bytes": 661458,
+      "directories": 1,
+      "regular_files": 24,
+      "regular_single_link_files": 24,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "checkpoint-stage-4h_1mp8m": {
+      "allocated_bytes": 720896,
+      "regular_logical_bytes": 0,
+      "directories": 176,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/importGraph/.git": {
+      "allocated_bytes": 679936,
+      "regular_logical_bytes": 533022,
+      "directories": 11,
+      "regular_files": 36,
+      "regular_single_link_files": 36,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/importGraph/.git": {
+      "allocated_bytes": 679936,
+      "regular_logical_bytes": 533022,
+      "directories": 11,
+      "regular_files": 36,
+      "regular_single_link_files": 36,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/validation-recorder/.git": {
+      "allocated_bytes": 499712,
+      "regular_logical_bytes": 87357,
+      "directories": 49,
+      "regular_files": 64,
+      "regular_single_link_files": 64,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "cache-companion-validation": {
+      "allocated_bytes": 462848,
+      "regular_logical_bytes": 144838,
+      "directories": 37,
+      "regular_files": 51,
+      "regular_single_link_files": 51,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/reviews": {
+      "allocated_bytes": 442368,
+      "regular_logical_bytes": 378564,
+      "directories": 1,
+      "regular_files": 29,
+      "regular_single_link_files": 29,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/Qq/.git": {
+      "allocated_bytes": 385024,
+      "regular_logical_bytes": 236406,
+      "directories": 11,
+      "regular_files": 36,
+      "regular_single_link_files": 36,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/Qq/.git": {
+      "allocated_bytes": 385024,
+      "regular_logical_bytes": 236406,
+      "directories": 11,
+      "regular_files": 36,
+      "regular_single_link_files": 36,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/plausible/.git": {
+      "allocated_bytes": 364544,
+      "regular_logical_bytes": 218521,
+      "directories": 11,
+      "regular_files": 36,
+      "regular_single_link_files": 36,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/plausible/.git": {
+      "allocated_bytes": 364544,
+      "regular_logical_bytes": 218521,
+      "directories": 11,
+      "regular_files": 36,
+      "regular_single_link_files": 36,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/Cli/.git": {
+      "allocated_bytes": 327680,
+      "regular_logical_bytes": 188565,
+      "directories": 11,
+      "regular_files": 36,
+      "regular_single_link_files": 36,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/Cli/.git": {
+      "allocated_bytes": 327680,
+      "regular_logical_bytes": 188565,
+      "directories": 11,
+      "regular_files": 36,
+      "regular_single_link_files": 36,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/cache-companion/.git": {
+      "allocated_bytes": 327680,
+      "regular_logical_bytes": 71422,
+      "directories": 31,
+      "regular_files": 40,
+      "regular_single_link_files": 40,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/LeanSearchClient/.git": {
+      "allocated_bytes": 282624,
+      "regular_logical_bytes": 94884,
+      "directories": 10,
+      "regular_files": 48,
+      "regular_single_link_files": 48,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/LeanSearchClient/.git": {
+      "allocated_bytes": 282624,
+      "regular_logical_bytes": 94884,
+      "directories": 10,
+      "regular_files": 48,
+      "regular_single_link_files": 48,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/plausible/source-other": {
+      "allocated_bytes": 278528,
+      "regular_logical_bytes": 163599,
+      "directories": 8,
+      "regular_files": 35,
+      "regular_single_link_files": 35,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/plausible/source-other": {
+      "allocated_bytes": 278528,
+      "regular_logical_bytes": 163599,
+      "directories": 8,
+      "regular_files": 35,
+      "regular_single_link_files": 35,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/Qq/source-other": {
+      "allocated_bytes": 237568,
+      "regular_logical_bytes": 111634,
+      "directories": 7,
+      "regular_files": 35,
+      "regular_single_link_files": 35,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/Qq/source-other": {
+      "allocated_bytes": 237568,
+      "regular_logical_bytes": 111634,
+      "directories": 7,
+      "regular_files": 35,
+      "regular_single_link_files": 35,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/Cli/source-other": {
+      "allocated_bytes": 172032,
+      "regular_logical_bytes": 115346,
+      "directories": 5,
+      "regular_files": 12,
+      "regular_single_link_files": 12,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/Cli/source-other": {
+      "allocated_bytes": 172032,
+      "regular_logical_bytes": 115346,
+      "directories": 5,
+      "regular_files": 12,
+      "regular_single_link_files": 12,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "library-upload-026": {
+      "allocated_bytes": 131072,
+      "regular_logical_bytes": 120949,
+      "directories": 2,
+      "regular_files": 5,
+      "regular_single_link_files": 5,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.lake/packages/LeanSearchClient/source-other": {
+      "allocated_bytes": 122880,
+      "regular_logical_bytes": 54854,
+      "directories": 6,
+      "regular_files": 15,
+      "regular_single_link_files": 15,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "conaled/.lake/packages/LeanSearchClient/source-other": {
+      "allocated_bytes": 122880,
+      "regular_logical_bytes": 54854,
+      "directories": 6,
+      "regular_files": 15,
+      "regular_single_link_files": 15,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/cache-companion": {
+      "allocated_bytes": 102400,
+      "regular_logical_bytes": 73089,
+      "directories": 2,
+      "regular_files": 8,
+      "regular_single_link_files": 8,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/tickets.json": {
+      "allocated_bytes": 94208,
+      "regular_logical_bytes": 90838,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "validation-recorder-validation": {
+      "allocated_bytes": 53248,
+      "regular_logical_bytes": 33744,
+      "directories": 2,
+      "regular_files": 5,
+      "regular_single_link_files": 5,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/STATUS-history-through-checkpoint026.md": {
+      "allocated_bytes": 53248,
+      "regular_logical_bytes": 49419,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/validation-recorder": {
+      "allocated_bytes": 49152,
+      "regular_logical_bytes": 33627,
+      "directories": 2,
+      "regular_files": 4,
+      "regular_single_link_files": 4,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/checkpoints.json": {
+      "allocated_bytes": 32768,
+      "regular_logical_bytes": 28971,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/STATUS.md": {
+      "allocated_bytes": 20480,
+      "regular_logical_bytes": 18859,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/Perm-coverage-draft.md": {
+      "allocated_bytes": 20480,
+      "regular_logical_bytes": 17902,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/tools": {
+      "allocated_bytes": 16384,
+      "regular_logical_bytes": 8958,
+      "directories": 1,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/environment.md": {
+      "allocated_bytes": 12288,
+      "regular_logical_bytes": 9937,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/REQUIREMENTS.md": {
+      "allocated_bytes": 8192,
+      "regular_logical_bytes": 4963,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/CACHE-RECOVERY.md": {
+      "allocated_bytes": 8192,
+      "regular_logical_bytes": 4392,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    ".codex": {
+      "allocated_bytes": 8192,
+      "regular_logical_bytes": 696,
+      "directories": 1,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "[workspace root directory]": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "vfa-validation/.git": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 78,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/AMENDMENTS.md": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 1098,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    "work-state/cache-companions.json": {
+      "allocated_bytes": 4096,
+      "regular_logical_bytes": 1044,
+      "directories": 0,
+      "regular_files": 1,
+      "regular_single_link_files": 1,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    ".git": {
+      "allocated_bytes": 0,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    ".aws": {
+      "allocated_bytes": 0,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    },
+    ".agents": {
+      "allocated_bytes": 0,
+      "regular_logical_bytes": 0,
+      "directories": 1,
+      "regular_files": 0,
+      "regular_single_link_files": 0,
+      "regular_multi_link_files": 0,
+      "symlinks": 0,
+      "specials": 0
+    }
+  },
+  "largest_regular_files": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-033-capacity-recovery-progress.tar.gz",
+      "allocated_bytes": 146214912,
+      "logical_bytes": 146201412,
+      "nlink": 1,
+      "device": 27,
+      "inode": 2405920,
+      "mtime_ns": 1793662305535442299,
+      "ctime_ns": 1793662323895159402
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-013-retention-imports-candidate.tar.gz",
+      "allocated_bytes": 145469440,
+      "logical_bytes": 145459275,
+      "nlink": 1,
+      "device": 27,
+      "inode": 2403651,
+      "mtime_ns": 1793607851670962784,
+      "ctime_ns": 1793615468619405618
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-012-positive-key-adapters.tar.gz",
+      "allocated_bytes": 145403904,
+      "logical_bytes": 145397542,
+      "nlink": 1,
+      "device": 27,
+      "inode": 2403650,
+      "mtime_ns": 1793605650309045487,
+      "ctime_ns": 1793615468619405618
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-000-bootstrap.tar.gz",
+      "allocated_bytes": 142667776,
+      "logical_bytes": 142659672,
+      "nlink": 1,
+      "device": 27,
+      "inode": 2399921,
+      "mtime_ns": 1793586022140343950,
+      "ctime_ns": 1793609049154806562
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/bin/cache",
+      "allocated_bytes": 115613696,
+      "logical_bytes": 115612976,
+      "nlink": 1,
+      "device": 27,
+      "inode": 4083821,
+      "mtime_ns": 1793586167590754454,
+      "ctime_ns": 1793586595278084754
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/bin/.cache.mNtPkU",
+      "allocated_bytes": 90705920,
+      "logical_bytes": 90701824,
+      "nlink": 1,
+      "device": 27,
+      "inode": 4083824,
+      "mtime_ns": 1793586195948685705,
+      "ctime_ns": 1793586595314084412
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.git/objects/pack/pack-6897dff7a04d4490e43676e2328e574dde9538c8.pack",
+      "allocated_bytes": 71839744,
+      "logical_bytes": 71838482,
+      "nlink": 1,
+      "device": 27,
+      "inode": 2235576,
+      "mtime_ns": 1793585842298232592,
+      "ctime_ns": 1793585842330232235
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/docs/history/algorithm-design-haskell/checkpoint-233.zip",
+      "allocated_bytes": 67928064,
+      "logical_bytes": 67920919,
+      "nlink": 1,
+      "device": 27,
+      "inode": 2231606,
+      "mtime_ns": 1793585842622228972,
+      "ctime_ns": 1793585842622228972
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/docs/history/algorithm-design-haskell/checkpoint-233.zip",
+      "allocated_bytes": 67923968,
+      "logical_bytes": 67920919,
+      "nlink": 1,
+      "device": 27,
+      "inode": 4072615,
+      "mtime_ns": 1793586593582100851,
+      "ctime_ns": 1793586593582100851
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/.conaled-vfa-checkpoint-000-bootstrap.tar.gz.IpMeI5",
+      "allocated_bytes": 60817408,
+      "logical_bytes": 60817408,
+      "nlink": 1,
+      "device": 27,
+      "inode": 2400252,
+      "mtime_ns": 1793586023222524286,
+      "ctime_ns": 1793586025043655111
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/.conaled-vfa-checkpoint-000-bootstrap.tar.gz.IpMeI5.ssR50N",
+      "allocated_bytes": 49545216,
+      "logical_bytes": 49545216,
+      "nlink": 1,
+      "device": 27,
+      "inode": 2398933,
+      "mtime_ns": 1793586028162404861,
+      "ctime_ns": 1793586029845274963
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.git/objects/pack/pack-b1b307e418d8e07575f73bcdb6dd64ea20e9e670.pack",
+      "allocated_bytes": 28188672,
+      "logical_bytes": 28186801,
+      "nlink": 1,
+      "device": 27,
+      "inode": 4073170,
+      "mtime_ns": 1793586010312611618,
+      "ctime_ns": 1793586593682099902
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.git/objects/pack/pack-b1b307e418d8e07575f73bcdb6dd64ea20e9e670.pack",
+      "allocated_bytes": 28188672,
+      "logical_bytes": 28186801,
+      "nlink": 1,
+      "device": 27,
+      "inode": 2388196,
+      "mtime_ns": 1793586010312611618,
+      "ctime_ns": 1793586010332611430
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/toolchain-setup/nix-2.35.4-x86_64-linux.tar.xz",
+      "allocated_bytes": 27189248,
+      "logical_bytes": 27188748,
+      "nlink": 1,
+      "device": 27,
+      "inode": 2238279,
+      "mtime_ns": 1793585899086403824,
+      "ctime_ns": 1793628875968424637
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/fresh-check-4fhvnocs/SquareKit/Internal/PathTransport/Typed.olean",
+      "allocated_bytes": 21876736,
+      "logical_bytes": 21874672,
+      "nlink": 1,
+      "device": 27,
+      "inode": 3282134,
+      "mtime_ns": 1793655931972172916,
+      "ctime_ns": 1793655931972172916
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/SquareKit/Internal/PathTransport/Typed.olean",
+      "allocated_bytes": 21876736,
+      "logical_bytes": 21874776,
+      "nlink": 1,
+      "device": 27,
+      "inode": 420773,
+      "mtime_ns": 1793587604155473374,
+      "ctime_ns": 1793587604155473374
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.git/objects/pack/pack-f05f7cf96c4312b19f853e22951eb875dc378aab.pack",
+      "allocated_bytes": 11317248,
+      "logical_bytes": 11314597,
+      "nlink": 1,
+      "device": 27,
+      "inode": 4073162,
+      "mtime_ns": 1793585996804746776,
+      "ctime_ns": 1793586593672328555
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.git/objects/pack/pack-f05f7cf96c4312b19f853e22951eb875dc378aab.pack",
+      "allocated_bytes": 11317248,
+      "logical_bytes": 11314597,
+      "nlink": 1,
+      "device": 27,
+      "inode": 2366989,
+      "mtime_ns": 1793585996804746776,
+      "ctime_ns": 1793585996840746503
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/AlgebraicGeometry/EllipticCurve/Projective/Formula.olean.private",
+      "allocated_bytes": 9338880,
+      "logical_bytes": 9338376,
+      "nlink": 1,
+      "device": 27,
+      "inode": 277169,
+      "mtime_ns": 1793586196647348099,
+      "ctime_ns": 1793586617785211459
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Etale/QuasiFinite.olean.private",
+      "allocated_bytes": 8228864,
+      "logical_bytes": 8226832,
+      "nlink": 1,
+      "device": 27,
+      "inode": 137006,
+      "mtime_ns": 1793586196894448669,
+      "ctime_ns": 1793586604627013828
+    }
+  ],
+  "prior_selected_root_comparisons": [
+    {
+      "prior_record": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1029-fresh2-capacity-assessment.json",
+      "prior_sha256": "ed1e22681d19a996140811f8fb2ea2a26ba63f48730fee98878196eae6c4ab52",
+      "prior_finished_utc": "2026-11-02T21:49:45.740314+00:00",
+      "prior_capacity_after": {
+        "observed_utc": "2026-11-02T21:49:45.734159+00:00",
+        "effective_uid": 0,
+        "free_bytes_including_reserved": 4074127360,
+        "available_bytes_excluding_reserved": 621379584,
+        "reserved_free_difference_bytes": 3452747776,
+        "free_inodes": 3169883,
+        "available_inodes": 3169883
+      },
+      "roots": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/checkpoints",
+          "prior_allocated_bytes": 1274318848,
+          "current_allocated_bytes": 690843648,
+          "delta_bytes": -583475200,
+          "current_counts": {
+            "allocated_bytes": 690843648,
+            "regular_logical_bytes": 690795793,
+            "directories": 1,
+            "regular_files": 7,
+            "regular_single_link_files": 7,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/build",
+          "prior_allocated_bytes": 9601024,
+          "current_allocated_bytes": 9601024,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 9601024,
+            "regular_logical_bytes": 9202430,
+            "directories": 16,
+            "regular_files": 120,
+            "regular_single_link_files": 120,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build",
+          "prior_allocated_bytes": 51875840,
+          "current_allocated_bytes": 51875840,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 51875840,
+            "regular_logical_bytes": 38556284,
+            "directories": 1794,
+            "regular_files": 2024,
+            "regular_single_link_files": 2024,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/aesop/.lake/build",
+          "prior_allocated_bytes": 138121216,
+          "current_allocated_bytes": 138121216,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 138121216,
+            "regular_logical_bytes": 131022471,
+            "directories": 52,
+            "regular_files": 1983,
+            "regular_single_link_files": 1983,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/batteries/.lake/build",
+          "prior_allocated_bytes": 151138304,
+          "current_allocated_bytes": 151138304,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 151138304,
+            "regular_logical_bytes": 140887254,
+            "directories": 88,
+            "regular_files": 2904,
+            "regular_single_link_files": 2904,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/Qq/.lake/build",
+          "prior_allocated_bytes": 21716992,
+          "current_allocated_bytes": 21716992,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 21716992,
+            "regular_logical_bytes": 21008898,
+            "directories": 8,
+            "regular_files": 210,
+            "regular_single_link_files": 210,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/proofwidgets/.lake/build",
+          "prior_allocated_bytes": 20107264,
+          "current_allocated_bytes": 20107264,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 20107264,
+            "regular_logical_bytes": 19485406,
+            "directories": 14,
+            "regular_files": 180,
+            "regular_single_link_files": 180,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/importGraph/.lake/build",
+          "prior_allocated_bytes": 35180544,
+          "current_allocated_bytes": 35180544,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 35180544,
+            "regular_logical_bytes": 33368996,
+            "directories": 24,
+            "regular_files": 526,
+            "regular_single_link_files": 526,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/LeanSearchClient/.lake/build",
+          "prior_allocated_bytes": 5132288,
+          "current_allocated_bytes": 5132288,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 5132288,
+            "regular_logical_bytes": 4912859,
+            "directories": 6,
+            "regular_files": 60,
+            "regular_single_link_files": 60,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/plausible/.lake/build",
+          "prior_allocated_bytes": 13737984,
+          "current_allocated_bytes": 13737984,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 13737984,
+            "regular_logical_bytes": 13066131,
+            "directories": 6,
+            "regular_files": 195,
+            "regular_single_link_files": 195,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/Cli/.lake/build",
+          "prior_allocated_bytes": 0,
+          "current_allocated_bytes": 0,
+          "delta_bytes": 0,
+          "current_counts": null,
+          "prior_complete": true,
+          "present_in_current_census": false
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build",
+          "prior_allocated_bytes": 802684928,
+          "current_allocated_bytes": 802684928,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 802684928,
+            "regular_logical_bytes": 788366001,
+            "directories": 94,
+            "regular_files": 4832,
+            "regular_single_link_files": 4832,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build",
+          "prior_allocated_bytes": 7479304192,
+          "current_allocated_bytes": 7479304192,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 7479304192,
+            "regular_logical_bytes": 7047695471,
+            "directories": 2439,
+            "regular_files": 130054,
+            "regular_single_link_files": 130054,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/aesop/.lake/build",
+          "prior_allocated_bytes": 137715712,
+          "current_allocated_bytes": 137715712,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 137715712,
+            "regular_logical_bytes": 131022471,
+            "directories": 52,
+            "regular_files": 1983,
+            "regular_single_link_files": 1983,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/batteries/.lake/build",
+          "prior_allocated_bytes": 151117824,
+          "current_allocated_bytes": 151117824,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 151117824,
+            "regular_logical_bytes": 140919470,
+            "directories": 88,
+            "regular_files": 2936,
+            "regular_single_link_files": 2936,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Qq/.lake/build",
+          "prior_allocated_bytes": 21716992,
+          "current_allocated_bytes": 21716992,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 21716992,
+            "regular_logical_bytes": 21008898,
+            "directories": 8,
+            "regular_files": 210,
+            "regular_single_link_files": 210,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/proofwidgets/.lake/build",
+          "prior_allocated_bytes": 20779008,
+          "current_allocated_bytes": 20779008,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 20779008,
+            "regular_logical_bytes": 20107467,
+            "directories": 14,
+            "regular_files": 196,
+            "regular_single_link_files": 196,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/importGraph/.lake/build",
+          "prior_allocated_bytes": 35180544,
+          "current_allocated_bytes": 35180544,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 35180544,
+            "regular_logical_bytes": 33368996,
+            "directories": 24,
+            "regular_files": 526,
+            "regular_single_link_files": 526,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/LeanSearchClient/.lake/build",
+          "prior_allocated_bytes": 5132288,
+          "current_allocated_bytes": 5132288,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 5132288,
+            "regular_logical_bytes": 4912859,
+            "directories": 6,
+            "regular_files": 60,
+            "regular_single_link_files": 60,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/plausible/.lake/build",
+          "prior_allocated_bytes": 13737984,
+          "current_allocated_bytes": 13737984,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 13737984,
+            "regular_logical_bytes": 13066131,
+            "directories": 6,
+            "regular_files": 195,
+            "regular_single_link_files": 195,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Cli/.lake/build",
+          "prior_allocated_bytes": 0,
+          "current_allocated_bytes": 0,
+          "delta_bytes": 0,
+          "current_counts": null,
+          "prior_complete": true,
+          "present_in_current_census": false
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/fresh-check-4fhvnocs",
+          "prior_allocated_bytes": 91836416,
+          "current_allocated_bytes": 104833024,
+          "delta_bytes": 12996608,
+          "current_counts": {
+            "allocated_bytes": 104833024,
+            "regular_logical_bytes": 104293264,
+            "directories": 24,
+            "regular_files": 204,
+            "regular_single_link_files": 204,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        }
+      ]
+    },
+    {
+      "prior_record": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1029-fresh2-capacity-assessment-2318.json",
+      "prior_sha256": "be6a1077945030697d182ffd875c6172cd6807ee548b8307238bea5765e9ba39",
+      "prior_finished_utc": "2026-11-02T23:20:27.013680+00:00",
+      "prior_capacity_after": {
+        "observed_utc": "2026-11-02T23:20:27.013432+00:00",
+        "effective_uid": 0,
+        "free_bytes_including_reserved": 2539282432,
+        "available_bytes_excluding_reserved": 0,
+        "reserved_free_difference_bytes": 2539282432,
+        "free_inodes": 3143064,
+        "available_inodes": 3143064
+      },
+      "roots": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/checkpoints",
+          "prior_allocated_bytes": 1567608832,
+          "current_allocated_bytes": 690843648,
+          "delta_bytes": -876765184,
+          "current_counts": {
+            "allocated_bytes": 690843648,
+            "regular_logical_bytes": 690795793,
+            "directories": 1,
+            "regular_files": 7,
+            "regular_single_link_files": 7,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/build",
+          "prior_allocated_bytes": 9601024,
+          "current_allocated_bytes": 9601024,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 9601024,
+            "regular_logical_bytes": 9202430,
+            "directories": 16,
+            "regular_files": 120,
+            "regular_single_link_files": 120,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build",
+          "prior_allocated_bytes": 51875840,
+          "current_allocated_bytes": 51875840,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 51875840,
+            "regular_logical_bytes": 38556284,
+            "directories": 1794,
+            "regular_files": 2024,
+            "regular_single_link_files": 2024,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/aesop/.lake/build",
+          "prior_allocated_bytes": 138121216,
+          "current_allocated_bytes": 138121216,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 138121216,
+            "regular_logical_bytes": 131022471,
+            "directories": 52,
+            "regular_files": 1983,
+            "regular_single_link_files": 1983,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/batteries/.lake/build",
+          "prior_allocated_bytes": 151138304,
+          "current_allocated_bytes": 151138304,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 151138304,
+            "regular_logical_bytes": 140887254,
+            "directories": 88,
+            "regular_files": 2904,
+            "regular_single_link_files": 2904,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/Qq/.lake/build",
+          "prior_allocated_bytes": 21716992,
+          "current_allocated_bytes": 21716992,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 21716992,
+            "regular_logical_bytes": 21008898,
+            "directories": 8,
+            "regular_files": 210,
+            "regular_single_link_files": 210,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/proofwidgets/.lake/build",
+          "prior_allocated_bytes": 20107264,
+          "current_allocated_bytes": 20107264,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 20107264,
+            "regular_logical_bytes": 19485406,
+            "directories": 14,
+            "regular_files": 180,
+            "regular_single_link_files": 180,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/importGraph/.lake/build",
+          "prior_allocated_bytes": 35180544,
+          "current_allocated_bytes": 35180544,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 35180544,
+            "regular_logical_bytes": 33368996,
+            "directories": 24,
+            "regular_files": 526,
+            "regular_single_link_files": 526,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/LeanSearchClient/.lake/build",
+          "prior_allocated_bytes": 5132288,
+          "current_allocated_bytes": 5132288,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 5132288,
+            "regular_logical_bytes": 4912859,
+            "directories": 6,
+            "regular_files": 60,
+            "regular_single_link_files": 60,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/plausible/.lake/build",
+          "prior_allocated_bytes": 13737984,
+          "current_allocated_bytes": 13737984,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 13737984,
+            "regular_logical_bytes": 13066131,
+            "directories": 6,
+            "regular_files": 195,
+            "regular_single_link_files": 195,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/Cli/.lake/build",
+          "prior_allocated_bytes": 0,
+          "current_allocated_bytes": 0,
+          "delta_bytes": 0,
+          "current_counts": null,
+          "prior_complete": true,
+          "present_in_current_census": false
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build",
+          "prior_allocated_bytes": 802684928,
+          "current_allocated_bytes": 802684928,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 802684928,
+            "regular_logical_bytes": 788366001,
+            "directories": 94,
+            "regular_files": 4832,
+            "regular_single_link_files": 4832,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build",
+          "prior_allocated_bytes": 7479304192,
+          "current_allocated_bytes": 7479304192,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 7479304192,
+            "regular_logical_bytes": 7047695471,
+            "directories": 2439,
+            "regular_files": 130054,
+            "regular_single_link_files": 130054,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/aesop/.lake/build",
+          "prior_allocated_bytes": 137715712,
+          "current_allocated_bytes": 137715712,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 137715712,
+            "regular_logical_bytes": 131022471,
+            "directories": 52,
+            "regular_files": 1983,
+            "regular_single_link_files": 1983,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/batteries/.lake/build",
+          "prior_allocated_bytes": 151117824,
+          "current_allocated_bytes": 151117824,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 151117824,
+            "regular_logical_bytes": 140919470,
+            "directories": 88,
+            "regular_files": 2936,
+            "regular_single_link_files": 2936,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Qq/.lake/build",
+          "prior_allocated_bytes": 21716992,
+          "current_allocated_bytes": 21716992,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 21716992,
+            "regular_logical_bytes": 21008898,
+            "directories": 8,
+            "regular_files": 210,
+            "regular_single_link_files": 210,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/proofwidgets/.lake/build",
+          "prior_allocated_bytes": 20779008,
+          "current_allocated_bytes": 20779008,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 20779008,
+            "regular_logical_bytes": 20107467,
+            "directories": 14,
+            "regular_files": 196,
+            "regular_single_link_files": 196,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/importGraph/.lake/build",
+          "prior_allocated_bytes": 35180544,
+          "current_allocated_bytes": 35180544,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 35180544,
+            "regular_logical_bytes": 33368996,
+            "directories": 24,
+            "regular_files": 526,
+            "regular_single_link_files": 526,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/LeanSearchClient/.lake/build",
+          "prior_allocated_bytes": 5132288,
+          "current_allocated_bytes": 5132288,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 5132288,
+            "regular_logical_bytes": 4912859,
+            "directories": 6,
+            "regular_files": 60,
+            "regular_single_link_files": 60,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/plausible/.lake/build",
+          "prior_allocated_bytes": 13737984,
+          "current_allocated_bytes": 13737984,
+          "delta_bytes": 0,
+          "current_counts": {
+            "allocated_bytes": 13737984,
+            "regular_logical_bytes": 13066131,
+            "directories": 6,
+            "regular_files": 195,
+            "regular_single_link_files": 195,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Cli/.lake/build",
+          "prior_allocated_bytes": 0,
+          "current_allocated_bytes": 0,
+          "delta_bytes": 0,
+          "current_counts": null,
+          "prior_complete": true,
+          "present_in_current_census": false
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/fresh-check-4fhvnocs",
+          "prior_allocated_bytes": 103849984,
+          "current_allocated_bytes": 104833024,
+          "delta_bytes": 983040,
+          "current_counts": {
+            "allocated_bytes": 104833024,
+            "regular_logical_bytes": 104293264,
+            "directories": 24,
+            "regular_files": 204,
+            "regular_single_link_files": 204,
+            "regular_multi_link_files": 0,
+            "symlinks": 0,
+            "specials": 0
+          },
+          "prior_complete": true,
+          "present_in_current_census": true
+        }
+      ]
+    }
+  ],
+  "selected_root_allocated_bytes": 9909657600,
+  "workspace_allocated_outside_prior_selected_roots_bytes": 908570624,
+  "errors": [],
+  "complete_within_scope": true,
+  "eligible_inactive_cleanup_candidates": [],
+  "conclusion": "The wider workspace snapshot quantifies allocations omitted by earlier selected-root censuses, but those omitted roots have no earlier full census baseline. It cannot attribute the continuing filesystem free-space change to any writer or establish unused duplicates from metadata alone. No newly eligible cleanup candidate is established.",
+  "limits": [
+    "Only lstat/scandir/statvfs metadata within the exact workspace is observed; no artifact/source/archive payloads are read or hashed. Only the explicitly requested STATUS and previous small evidence JSON were read.",
+    "Symlinks are counted without traversal; errors, link counts and allocation sums are retained. Path sums can count hard-linked data more than once; regular-only observed-inode deduplication is separately reported.",
+    "A single non-atomic pass while the original fresh checker remains active. Root advised checkpoint034 preparation/capture may be concurrent; no atomic snapshot, stable-input or inactivity claim follows.",
+    "Prior selected roots permit bounded allocation comparisons only. Newly included roots have no prior baseline, and workspace totals are not filesystem-wide ownership or causality evidence.",
+    "No process was inspected, no compiler/helper invoked, no outside-workspace path inspected, and no file was deleted. Previously retired paths are not recurring cleanup options.",
+    "This assessment neither predicts complete-build peak fit nor changes the existing2,000,000,000-byte checkpoint launch floor or any formal validation gate."
+  ],
+  "mutations": "Only this new assessment JSON is written; writer freezes after its creation."
+}

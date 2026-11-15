@@ -1,0 +1,49 @@
+{
+  "completed_utc": "2026-11-04T06:10:26.935464+00:00",
+  "reviewer": "/root/xd01_spec",
+  "base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "candidate": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+  "source_assessment": "complete",
+  "overall_outcome": "Blocked pending validation",
+  "new_findings": 0,
+  "unresolved_mathematical_source_findings": 0,
+  "retained_findings": [
+    {
+      "id": "XD01-DOC-001",
+      "severity": "low",
+      "status": "fixed and independently confirmed in source candidate; final integration retention required"
+    }
+  ],
+  "report": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/difference-list-costs-spec.md",
+    "bytes": 22203,
+    "sha256": "850aa3a8fd0ce1d7774c1e447a4dd9282366d5353eeb750e2804c5fd52d22dbb",
+    "lines": 262
+  },
+  "provenance_files": {
+    "review-inputs.json": {
+      "bytes": 9068,
+      "sha256": "becbcf99cbeca922b4c645e9f0fc880f3717f4140e29ac65383b050b788721ed"
+    },
+    "scope.diff": {
+      "bytes": 33726,
+      "sha256": "07f3e17e6d6c7250cf6164a09e031822fb35bd136f1ff758dad32154e0343629"
+    },
+    "declarations.json": {
+      "bytes": 8518,
+      "sha256": "959093ad925a23ba05b3efeb1fb5881f6a7a007e02e30d31aea715201f25469e"
+    },
+    "requirements.md": {
+      "bytes": 6965,
+      "sha256": "cb215a33cce3dd258cca37b9d703522d19caf2da76767c01e573d268b3e92c4e"
+    },
+    "primary-source-checks.json": {
+      "bytes": 2086,
+      "sha256": "9c5c39af169489f690ed0c9e20a4920b43b5693aec219667188702b26af7f53a"
+    }
+  },
+  "candidate_changed": false,
+  "compiler_started": false,
+  "build_or_cache_writes": false,
+  "hold": "All source/ref/control/provenance writes stopped after this receipt."
+}

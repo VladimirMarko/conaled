@@ -1,0 +1,113 @@
+{
+  "schema": "fdsa.chapter02.targeted-statements.preparation-receipt.v1",
+  "recorded_utc": "2026-11-04T17:54:31.708690+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "status": "Complete prepared-only package; read back and HELD. No Lean/capture/helper execution.",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "accepted_predecessor": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "files": [
+    {
+      "path": "GrowthRetained1.lean",
+      "bytes": 163,
+      "lines": 7,
+      "sha256": "bb4e5d94f5f349aaa4fb8e8ffa4a355b1fc3e7f5a1cb09486a358bbc417f285a"
+    },
+    {
+      "path": "ProjectedRandom62.lean",
+      "bytes": 3583,
+      "lines": 71,
+      "sha256": "501551af4f23759f01fd171b5865543a2c6bccfa58c78067c2c38c7b7cf6d542"
+    },
+    {
+      "path": "ProjectedThreeWay36.lean",
+      "bytes": 2260,
+      "lines": 46,
+      "sha256": "5fff31be12fa4b35d4714b8a81934b44c9dd5b9377939f28131b1255eca4e7b2"
+    },
+    {
+      "path": "ProjectedZ815_543.lean",
+      "bytes": 31622,
+      "lines": 590,
+      "sha256": "b7f0ee4282f183131a58263659afd142b7d0c705bb7a982b32918ca488c835f1"
+    },
+    {
+      "path": "README.md",
+      "bytes": 11379,
+      "lines": 57,
+      "sha256": "36319228d07f0de909fd93ae101cc99051e9dfb65bb086a79d1fc2e8c3953b39"
+    },
+    {
+      "path": "bound-inputs.json",
+      "bytes": 19595,
+      "lines": 424,
+      "sha256": "f9fb153cab9a1df9a5f436d50f05f7be843beeeab1f44ce8e57adf516ad50117"
+    },
+    {
+      "path": "commands.txt",
+      "bytes": 8973,
+      "lines": 14,
+      "sha256": "44741bb2e24f46e9a825db4a3555d6b5fc2337d6d706015573d96eb31560bb6d"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 75796,
+      "lines": 2249,
+      "sha256": "a9f091706995fba21e40e4e6f0ab3f90c29c658f39f4bafd01c564644a744191"
+    },
+    {
+      "path": "mapping.json",
+      "bytes": 432092,
+      "lines": 1,
+      "sha256": "eb127025be51d2f6ae9f85f0f3c01dcc0c748c86ca51ecf3967c685bf6b971d2"
+    }
+  ],
+  "bound_files_reverified": 51,
+  "current_checks": 1297,
+  "additional_original_prints": 3,
+  "conditional_complement": 466,
+  "profiles": 11,
+  "new_Lean_inputs": 4,
+  "unchanged_original_files_reused_without_copy": 7,
+  "selected_command_rows_reconciled": 1300,
+  "original_selected_output_blocks_rehashed": 1299,
+  "all_original815_ranges_reconciled": 815,
+  "complete_old_profiles_nocheck_byte_identity": 10,
+  "all_names_disjoint_and_complete": true,
+  "all28_R_names_preserved": {
+    "conditional": 27,
+    "new_direct_ID": 1730
+  },
+  "all72_Growth_affected_MergeCosts_current_checks": true,
+  "all51_bound_files_current_exact": true,
+  "source_head_and_clean_status_observed_unchanged": true,
+  "new_run_directories_absent_at_readback": true,
+  "transport_difference": "NaturalRuns exact old program file is supplied via filename because recorder uses DEVNULL stdin. Old --stdin command is preserved, and both axes must assess this difference with all107 current output blocks.",
+  "readback": {
+    "four_new_programs_complete": [
+      "cc8f0b",
+      "a91744"
+    ],
+    "seven_referenced_original_programs_complete": [
+      "fa589f",
+      "7d1fef"
+    ],
+    "README_complete": "a2939c",
+    "all11_command_recipes_complete": "e0c4ea",
+    "manifest_profiles_global_fields": "9a3c4e; meaningful global/profile/ledger fields read; truncated command segment separately reread in e0c4ea",
+    "all_mapping_and_manifest_data": "Every1300 command row, every466 complement row, every profile/program/option/import/noncheck field, every1299 historical block, every51 bound file and all11 argv arrays were parsed and reconciled against originals after writing. Large JSON not claimed as a new semantic output review.",
+    "receipt": "Full final receipt read before handoff."
+  },
+  "preparation_diagnostics": [
+    {
+      "tool_chunk": "9b9caf",
+      "actual_exit": 1,
+      "kind": "Inline read-only block-navigation Python had a syntax typo before execution; no files were written and no compiler/capture was invoked.",
+      "corrected_read_only_calculation": "3fc6da actual0; all selected original header boundaries and815 ranges reconciled."
+    }
+  ],
+  "actual_receiving_type_credit": 0,
+  "post_observation": null,
+  "no_source_ref_runtime_cache_output_or_old_record_mutation": true,
+  "all_original_scopes_findings_and_semantic_assessments_retained": true,
+  "next": "Both independent axes assess held preparation; root then owns each actual serial command, exact program bindings/native terminal evidence, one post observation, complete block comparison and final type disposition."
+}

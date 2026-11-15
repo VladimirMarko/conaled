@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-05T03:19:55.816286+00:00",
+  "candidate": "27c5908b07c7a03feefc09472a8701ef940b7aaf",
+  "terminal": {
+    "recorded_utc": "2026-11-05T03:19:55.816050+00:00",
+    "owned_session": 18509,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "749654",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "27c5908b07c7a03feefc09472a8701ef940b7aaf"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt1-20261105/full.log",
+    "bytes": 6245,
+    "sha256": "fe1efdfbe87df7cc20613b7733d3627e05ef4477c031db7a7c61303d05589578"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261105T031933Z-project-run-f48b71a3",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt1-20261105/native-records/start.json",
+      "bytes": 490,
+      "sha256": "3258811a911dadf2d953b33f937655f0175b604edc0edd7774e36e14e6e771dd"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt1-20261105/native-records/result.json",
+      "bytes": 644,
+      "sha256": "b4f166fd78e137b9c668cf1ce8e4fc4068ef4e8e0d48cb8158fcbd5ed4228c42"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt1-20261105/native-records/output.log",
+      "bytes": 5963,
+      "sha256": "7c7d2ed76e49ee8bc532330c547aa571d138b34e6fc518087172480b37ff5260"
+    }
+  },
+  "native_body_exact_outer_offset": 125,
+  "complete_closed_log": true,
+  "scope": "First focused qualification of exact original XT02 formal modules. Actual exit preserved; does not establish full unit or chapter acceptance.",
+  "verification_record_candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "fdsa.spec.local-record-shape-correction.v1",
+  "attempt_tool_chunk": "a18a0c",
+  "actual_exit": 1,
+  "script_before_sha256": "e99850935685df3710e67f40822b7bffc6476b7209e05b882ff77cd48e3a706e",
+  "error": "AssertionError: Unexpected ancestor record representation",
+  "location": "author-evidence-reconciliation.py:76",
+  "cause": "Reviewer bookkeeping incorrectly expected scalar ancestor entries; the held result uses ten explicit ancestor/candidate/actual_exit records.",
+  "inspected_actual_shape_tool_chunk": "bfe3f7",
+  "correction": "For each recorded entry require candidate Q and actual_exit 0, then independently run immutable git merge-base --is-ancestor for its actual ancestor.",
+  "scope_effect": "None. No source, compiler, runtime, proof or acceptance outcome changed. No success receipt was created before this failure."
+}

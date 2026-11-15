@@ -1,0 +1,22 @@
+{
+  "requested_utc": "2026-11-05T00:58:56.312684+00:00",
+  "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+  "candidate": "96722600aa29636e028751242ce33d562c5a9255",
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-worst-statement-inputs-20261105/Statements25-worst-correction1.lean"
+  ],
+  "scope": "Process recording only; command and acceptance policy unchanged."
+}

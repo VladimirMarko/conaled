@@ -1,0 +1,18 @@
+{
+  "recorded_utc": "2026-11-04T20:28:40.074137+00:00",
+  "event": "preparation-output-loss-reconciliation",
+  "actual_readback": "b58ae0 exit 0",
+  "lost_terminal": "The prior preparation-only tool output was lost at context compaction; no original command exit or session is inferred.",
+  "complete_preparation": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/worker-preparation-and-cases.json",
+    "bytes": 36419,
+    "sha256": "628cb4b74a83bd89ba7cb488a259afcdc5e25ab1d7ac643ecf000779e2092e47",
+    "valid_json": true,
+    "expected_case_count": 12
+  },
+  "head": "d1a2299440c6cb327887e5d60f08ce08b046a8ab",
+  "status": "clean",
+  "new_lean_paths_absent": true,
+  "action": "Retain the successfully saved preparation; no retry or overwrite. Continue source writing from this verified readback boundary.",
+  "compiler_run": false
+}

@@ -1,0 +1,856 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "stage": "Bounded independent projection and dependency-rationale assessment within the existing XM01/XD01/XQ01/XU01 preparation; not a new review loop",
+  "overall_outcome": "Blocked pending exact F acceptance, actual later candidate assembly and all actual validation/review gates",
+  "concrete_projection_findings": [],
+  "candidate": null,
+  "required_first_acceptance": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "accepted_Chapter1_preserved": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "inputs": {
+    "provenance/shared-four-public-statements279-prepared-20261104/Statements.lean": {
+      "bytes": 15990,
+      "lines": 332,
+      "sha256": "6fb956bd7423cdb8d04e94fa544920907bdb3df291822d5ab1dfbd8fa5cc2925"
+    },
+    "provenance/shared-four-public-statements279-prepared-20261104/inventory.json": {
+      "bytes": 218625,
+      "lines": 5605,
+      "sha256": "4c03ab11c546ce7e5950abe6af1ab636763a4fa0ffc195f8effd8767d5d8367b"
+    },
+    "provenance/shared-four-public-statements279-prepared-20261104/source-and-evidence.json": {
+      "bytes": 64448,
+      "lines": 1661,
+      "sha256": "af4bb9f50ec49d5b049ac96a5b2d26535f827b8ef8d703bb96ee75dd1826ff33"
+    },
+    "provenance/shared-four-public-statements279-prepared-20261104/receipt.json": {
+      "bytes": 5841,
+      "lines": 122,
+      "sha256": "cbddf1a7bb46a51676c9ea4c2eb3bc20bc88b90f4aacf578189bde9a4d50cd79"
+    },
+    "provenance/shared-four-public-statements279-prepared-20261104/bookkeeping-correction1.json": {
+      "bytes": 5027,
+      "lines": 92,
+      "sha256": "0e7d0d72f2db56909269f6265a66f190bf1f8ad4b87741208d2ea97f1feb4582"
+    },
+    "provenance/shared-four-public-statements279-prepared-20261104/preparation.md": {
+      "bytes": 9069,
+      "lines": 56,
+      "sha256": "2633d3a79e331f3958cba5cfd6631959adfd55371575c6f709db65acaca0e3c0"
+    },
+    "provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean": {
+      "bytes": 7518,
+      "lines": 156,
+      "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4"
+    },
+    "provenance/foundation-complete-public-statements-prepared-20261104/inventory.json": {
+      "bytes": 9630,
+      "lines": 205,
+      "sha256": "d39aa500144f7893088e8e69cb32514d75191d100e7b9fc1405e14055a94fefa"
+    },
+    "provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean": {
+      "bytes": 16826,
+      "lines": 340,
+      "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754"
+    },
+    "provenance/shared-four-and-insertion-statements314-prepared-20261104/inventory.json": {
+      "bytes": 53097,
+      "lines": 1988,
+      "sha256": "052ea733c0e83e8af852b177ba9e350fe62b911ae1d83f430f98a2047b7601a9"
+    },
+    "provenance/shared-four-and-insertion-statements314-prepared-20261104/preparation.md": {
+      "bytes": 2325,
+      "lines": 11,
+      "sha256": "b046cc019a4214f3969ed7cc438e81922e11bf1a9874004b4196e53f786959d6"
+    }
+  },
+  "program_read": {
+    "file": "provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+    "bytes": 16826,
+    "lines": 340,
+    "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754",
+    "complete_read_ranges": [
+      [
+        1,
+        170
+      ],
+      [
+        171,
+        340
+      ]
+    ],
+    "all_source_bytes_read": true,
+    "actual_execution": false
+  },
+  "prose_reads": [
+    "Full original279 preparation.md (56 lines)",
+    "Full future314 preparation.md (11 lines)",
+    "Full original279 receipt.json (122 lines)",
+    "Full original279 bookkeeping-correction1.json (92 lines)",
+    "Full diff from original279 program to future314 program",
+    "All current314 name/origin/index records parsed and reconciled; all35 appended records read",
+    "Relevant complete inherited-foundation and source-module fields from prior source/evidence preparation; no claim to re-review every unrelated old inventory/evidence paragraph"
+  ],
+  "projection": {
+    "original_checks": 279,
+    "original_prefix_preserved_exact_order": true,
+    "added_checks": 35,
+    "total_unique_checks": 314,
+    "appended_F145_indices": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99
+    ],
+    "mappings": [
+      {
+        "index": 280,
+        "name": "Resources.InsertionSort.insertRun",
+        "origin": "exactF145",
+        "origin_index": 1,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 281,
+        "name": "Resources.InsertionSort.insertRun_value",
+        "origin": "exactF145",
+        "origin_index": 2,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 282,
+        "name": "Resources.InsertionSort.insertRun_cost_bounds",
+        "origin": "exactF145",
+        "origin_index": 3,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 283,
+        "name": "Resources.InsertionSort.insertRun_cost_of_head",
+        "origin": "exactF145",
+        "origin_index": 4,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 284,
+        "name": "Resources.InsertionSort.insertRun_cost_of_all",
+        "origin": "exactF145",
+        "origin_index": 5,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 285,
+        "name": "Resources.InsertionSort.insertRun_cost_of_all_not",
+        "origin": "exactF145",
+        "origin_index": 6,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 286,
+        "name": "Resources.InsertionSort.sortRun",
+        "origin": "exactF145",
+        "origin_index": 7,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 287,
+        "name": "Resources.InsertionSort.sortRun_value",
+        "origin": "exactF145",
+        "origin_index": 8,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 288,
+        "name": "Resources.InsertionSort.sortRun_length",
+        "origin": "exactF145",
+        "origin_index": 9,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 289,
+        "name": "Resources.InsertionSort.sortRun_cons_cost",
+        "origin": "exactF145",
+        "origin_index": 10,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 290,
+        "name": "Resources.InsertionSort.sortRun_cost_lower",
+        "origin": "exactF145",
+        "origin_index": 11,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 291,
+        "name": "Resources.InsertionSort.sortRun_double_cost_le",
+        "origin": "exactF145",
+        "origin_index": 12,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 292,
+        "name": "Resources.InsertionSort.sortRun_cost_le",
+        "origin": "exactF145",
+        "origin_index": 13,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 293,
+        "name": "Resources.InsertionSort.sortRun_quadratic",
+        "origin": "exactF145",
+        "origin_index": 14,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 294,
+        "name": "Resources.InsertionSort.sortRun_cost_of_pairwise",
+        "origin": "exactF145",
+        "origin_index": 15,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 295,
+        "name": "Resources.InsertionSort.sortRun_double_cost_of_opposite",
+        "origin": "exactF145",
+        "origin_index": 16,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 296,
+        "name": "Resources.InsertionSort.reverse_range_opposite",
+        "origin": "exactF145",
+        "origin_index": 17,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 297,
+        "name": "Resources.InsertionSort.sortRun_cost_reverse_range",
+        "origin": "exactF145",
+        "origin_index": 18,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 298,
+        "name": "Resources.InsertionSort.sortRun_stable",
+        "origin": "exactF145",
+        "origin_index": 19,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 299,
+        "name": "Examples.InsertionCosts.empty_cost",
+        "origin": "exactF145",
+        "origin_index": 84,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 300,
+        "name": "Examples.InsertionCosts.singleton_cost",
+        "origin": "exactF145",
+        "origin_index": 85,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 301,
+        "name": "Examples.InsertionCosts.sorted_with_duplicates",
+        "origin": "exactF145",
+        "origin_index": 86,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 302,
+        "name": "Examples.InsertionCosts.descending_worst",
+        "origin": "exactF145",
+        "origin_index": 87,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 303,
+        "name": "Examples.InsertionCosts.best_is_global",
+        "origin": "exactF145",
+        "origin_index": 88,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 304,
+        "name": "Examples.InsertionCosts.worst_is_global",
+        "origin": "exactF145",
+        "origin_index": 89,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 305,
+        "name": "Examples.InsertionCosts.source_quadratic",
+        "origin": "exactF145",
+        "origin_index": 90,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 306,
+        "name": "Examples.InsertionCosts.immediate_insertion",
+        "origin": "exactF145",
+        "origin_index": 91,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 307,
+        "name": "Examples.InsertionCosts.full_traversal",
+        "origin": "exactF145",
+        "origin_index": 92,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 308,
+        "name": "Examples.InsertionCosts.tied_head_ignores_tail",
+        "origin": "exactF145",
+        "origin_index": 93,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 309,
+        "name": "Examples.InsertionCosts.key_contract",
+        "origin": "exactF145",
+        "origin_index": 94,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 310,
+        "name": "Examples.InsertionCosts.key_tie_observation",
+        "origin": "exactF145",
+        "origin_index": 95,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 311,
+        "name": "Examples.InsertionCosts.sorted_result_has_rank",
+        "origin": "exactF145",
+        "origin_index": 96,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 312,
+        "name": "Examples.InsertionCosts.repeated_value_rank",
+        "origin": "exactF145",
+        "origin_index": 97,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 313,
+        "name": "Examples.InsertionCosts.small_sort_budget",
+        "origin": "exactF145",
+        "origin_index": 98,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      },
+      {
+        "index": 314,
+        "name": "Examples.InsertionCosts.small_rank_with_sort_budget",
+        "origin": "exactF145",
+        "origin_index": 99,
+        "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+      }
+    ],
+    "old_imports_preserved_exact_order": true,
+    "added_imports": [
+      "Applications.Resources.InsertionSort",
+      "Examples.InsertionCosts"
+    ],
+    "total_imports": 14,
+    "printing_options": [
+      "set_option pp.universes true",
+      "set_option pp.explicit true",
+      "set_option pp.fullNames true"
+    ],
+    "unaccounted_executable_commands": 0,
+    "program_diff": {
+      "bytes": 8887,
+      "lines": 190,
+      "sha256": "da3a6934558a1d316fe9de2748cb196161d5f6d59b02bf746bcd7525b487181b"
+    },
+    "permitted_nonsemantic_changes": "Prepared-status comment adjusted and old group comments/blank lines removed; all279 #check commands and all printing options retained.",
+    "original_279_disposition": "279 =252 unit/changed names +27 inherited accepted-R names, retained without altering those historic classifications",
+    "expanded_disposition": "314 =279 original names +35 inherited insertion names; additions are not new book claims or kernel/audit counts"
+  },
+  "declaration_scope": {
+    "original_changed_paths": [
+      "Applications/Probability/PermutationMinimum.lean",
+      "Applications/Resources/DifferenceListCosts.lean",
+      "Applications/Resources/ListMerge.lean",
+      "Applications/Resources/Partition.lean",
+      "Applications/Selection/ThreeWay.lean",
+      "Applications/Sequences/Partition.lean",
+      "Applications/Sorting/Merge.lean",
+      "Examples/DifferenceListCosts.lean",
+      "Examples/MergeCosts.lean",
+      "Examples/PermutationMinimum.lean",
+      "Examples/PermutationMinimumBoundary.lean",
+      "Examples/ThreeWayPartition.lean",
+      "SquareApplications.lean",
+      "docs/research/fdsa-difference-list-costs.md",
+      "docs/research/fdsa-list-merge.md",
+      "docs/research/fdsa-permutation-minimum.md",
+      "docs/research/fdsa-reconstruction-map.md",
+      "docs/research/fdsa-three-way-partition.md"
+    ],
+    "original_changed_path_count": 18,
+    "frozen_four_requirement_records": [
+      {
+        "path": "reviews/ordinary-merge-requirements.md",
+        "bytes": 19999,
+        "lines": 346,
+        "sha256": "b54e2b332cc31c04ac12fb5b19cc96fa494a80e1455fcfc173f59b6fe340d3d9"
+      },
+      {
+        "path": "reviews/difference-list-cost-requirements.md",
+        "bytes": 6965,
+        "lines": 129,
+        "sha256": "cb215a33cce3dd258cca37b9d703522d19caf2da76767c01e573d268b3e92c4e"
+      },
+      {
+        "path": "reviews/three-way-partition-requirements.md",
+        "bytes": 12208,
+        "lines": 209,
+        "sha256": "b1f55911c44a11def3498484787fcb04972398ec040bf1bd65c75796c116d541"
+      },
+      {
+        "path": "reviews/permutation-minimum-requirements.md",
+        "bytes": 8884,
+        "lines": 154,
+        "sha256": "59e2ff6ff66dd39b6151a42b501bcc22e86eb593a9b854b532f97bc45fdd7686"
+      }
+    ],
+    "source_private_anonymous_generated_scope": "Unchanged complete prior source and exhaustive audit obligations; no scope shrink. Two insertion roots are inherited affected context, not new changed-source paths."
+  },
+  "dependency_analysis": [
+    {
+      "root": "Applications/Resources/InsertionSort.lean",
+      "future314_indices": [
+        280,
+        298
+      ],
+      "exactF145_indices": [
+        1,
+        19
+      ],
+      "root_source_unchanged": true,
+      "local_path_count": 7,
+      "changed_paths": [
+        "Applications/Sorting/Merge.lean"
+      ],
+      "F_closure": {
+        "Applications/Resources/InsertionSort.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 7257,
+          "lines": 178,
+          "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+          "local_imports": [
+            "Applications/Resources/CallCount.lean",
+            "Applications/Sorting/Sort.lean"
+          ]
+        },
+        "Applications/Sorting/Sort.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 5922,
+          "lines": 128,
+          "sha256": "5acd7728aaaefdec121df797efafd7dae13476c820d4f85f4ada19868fa71218",
+          "local_imports": [
+            "Applications/Sorting/Merge.lean"
+          ]
+        },
+        "Applications/Sorting/Merge.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 5604,
+          "lines": 126,
+          "sha256": "79b35252d0f551b381ef63974497311336ea92a5d118691647825cade12a1338",
+          "local_imports": [
+            "Applications/Sorting/Stable.lean"
+          ]
+        },
+        "Applications/Sorting/Stable.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 3704,
+          "lines": 87,
+          "sha256": "288552150aa002c60ed06c74e69510112cf9b4e2f0045da3d98ca5c39264d881",
+          "local_imports": []
+        },
+        "Applications/Resources/CallCount.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 2447,
+          "lines": 58,
+          "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+          "local_imports": [
+            "Applications/Resources/Measured.lean"
+          ]
+        },
+        "Applications/Resources/Measured.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 2906,
+          "lines": 71,
+          "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+          "local_imports": [
+            "Squares.lean"
+          ]
+        },
+        "Squares.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 11694,
+          "lines": 352,
+          "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+          "local_imports": []
+        }
+      },
+      "proposed_static_closure": {
+        "Applications/Resources/InsertionSort.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 7257,
+          "lines": 178,
+          "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+          "local_imports": [
+            "Applications/Resources/CallCount.lean",
+            "Applications/Sorting/Sort.lean"
+          ]
+        },
+        "Applications/Sorting/Sort.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 5922,
+          "lines": 128,
+          "sha256": "5acd7728aaaefdec121df797efafd7dae13476c820d4f85f4ada19868fa71218",
+          "local_imports": [
+            "Applications/Sorting/Merge.lean"
+          ]
+        },
+        "Applications/Sorting/Merge.lean": {
+          "revision": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+          "bytes": 7840,
+          "lines": 172,
+          "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+          "local_imports": [
+            "Applications/Sorting/Stable.lean"
+          ]
+        },
+        "Applications/Sorting/Stable.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 3704,
+          "lines": 87,
+          "sha256": "288552150aa002c60ed06c74e69510112cf9b4e2f0045da3d98ca5c39264d881",
+          "local_imports": []
+        },
+        "Applications/Resources/CallCount.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 2447,
+          "lines": 58,
+          "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+          "local_imports": [
+            "Applications/Resources/Measured.lean"
+          ]
+        },
+        "Applications/Resources/Measured.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 2906,
+          "lines": 71,
+          "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+          "local_imports": [
+            "Squares.lean"
+          ]
+        },
+        "Squares.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 11694,
+          "lines": 352,
+          "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+          "local_imports": []
+        }
+      }
+    },
+    {
+      "root": "Examples/InsertionCosts.lean",
+      "future314_indices": [
+        299,
+        314
+      ],
+      "exactF145_indices": [
+        84,
+        99
+      ],
+      "root_source_unchanged": true,
+      "local_path_count": 9,
+      "changed_paths": [
+        "Applications/Sorting/Merge.lean"
+      ],
+      "F_closure": {
+        "Examples/InsertionCosts.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 3862,
+          "lines": 101,
+          "sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37",
+          "local_imports": [
+            "Applications/Resources/InsertionSort.lean",
+            "Applications/Selection/Rank.lean"
+          ]
+        },
+        "Applications/Selection/Rank.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 3713,
+          "lines": 91,
+          "sha256": "4a82df75593d909e2968bf1e27cbfea52c9795abfe81250bb2385e7dfc16f965",
+          "local_imports": [
+            "Applications/Sorting/Sort.lean"
+          ]
+        },
+        "Applications/Sorting/Sort.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 5922,
+          "lines": 128,
+          "sha256": "5acd7728aaaefdec121df797efafd7dae13476c820d4f85f4ada19868fa71218",
+          "local_imports": [
+            "Applications/Sorting/Merge.lean"
+          ]
+        },
+        "Applications/Sorting/Merge.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 5604,
+          "lines": 126,
+          "sha256": "79b35252d0f551b381ef63974497311336ea92a5d118691647825cade12a1338",
+          "local_imports": [
+            "Applications/Sorting/Stable.lean"
+          ]
+        },
+        "Applications/Sorting/Stable.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 3704,
+          "lines": 87,
+          "sha256": "288552150aa002c60ed06c74e69510112cf9b4e2f0045da3d98ca5c39264d881",
+          "local_imports": []
+        },
+        "Applications/Resources/InsertionSort.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 7257,
+          "lines": 178,
+          "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+          "local_imports": [
+            "Applications/Resources/CallCount.lean",
+            "Applications/Sorting/Sort.lean"
+          ]
+        },
+        "Applications/Resources/CallCount.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 2447,
+          "lines": 58,
+          "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+          "local_imports": [
+            "Applications/Resources/Measured.lean"
+          ]
+        },
+        "Applications/Resources/Measured.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 2906,
+          "lines": 71,
+          "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+          "local_imports": [
+            "Squares.lean"
+          ]
+        },
+        "Squares.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 11694,
+          "lines": 352,
+          "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+          "local_imports": []
+        }
+      },
+      "proposed_static_closure": {
+        "Examples/InsertionCosts.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 3862,
+          "lines": 101,
+          "sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37",
+          "local_imports": [
+            "Applications/Resources/InsertionSort.lean",
+            "Applications/Selection/Rank.lean"
+          ]
+        },
+        "Applications/Selection/Rank.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 3713,
+          "lines": 91,
+          "sha256": "4a82df75593d909e2968bf1e27cbfea52c9795abfe81250bb2385e7dfc16f965",
+          "local_imports": [
+            "Applications/Sorting/Sort.lean"
+          ]
+        },
+        "Applications/Sorting/Sort.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 5922,
+          "lines": 128,
+          "sha256": "5acd7728aaaefdec121df797efafd7dae13476c820d4f85f4ada19868fa71218",
+          "local_imports": [
+            "Applications/Sorting/Merge.lean"
+          ]
+        },
+        "Applications/Sorting/Merge.lean": {
+          "revision": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+          "bytes": 7840,
+          "lines": 172,
+          "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+          "local_imports": [
+            "Applications/Sorting/Stable.lean"
+          ]
+        },
+        "Applications/Sorting/Stable.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 3704,
+          "lines": 87,
+          "sha256": "288552150aa002c60ed06c74e69510112cf9b4e2f0045da3d98ca5c39264d881",
+          "local_imports": []
+        },
+        "Applications/Resources/InsertionSort.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 7257,
+          "lines": 178,
+          "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+          "local_imports": [
+            "Applications/Resources/CallCount.lean",
+            "Applications/Sorting/Sort.lean"
+          ]
+        },
+        "Applications/Resources/CallCount.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 2447,
+          "lines": 58,
+          "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+          "local_imports": [
+            "Applications/Resources/Measured.lean"
+          ]
+        },
+        "Applications/Resources/Measured.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 2906,
+          "lines": 71,
+          "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+          "local_imports": [
+            "Squares.lean"
+          ]
+        },
+        "Squares.lean": {
+          "revision": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "bytes": 11694,
+          "lines": 352,
+          "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+          "local_imports": []
+        }
+      }
+    }
+  ],
+  "complete_Merge_diff": {
+    "from": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "to": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+    "path": "Applications/Sorting/Merge.lean",
+    "bytes": 2747,
+    "lines": 55,
+    "sha256": "dc7b3c00987bd6a3eb8ed9b6f8a870e33f93a0168dfb4aac081bbd582c45c4d9",
+    "read_all_lines": true,
+    "semantic_assessment": "Four appended theorems: left/right ordered-sublist retention, pairwise converse, sortedness iff. Existing declarations/imports/attributes remain intact; no new instance or simp registration. This creates a concrete source-import-closure difference for both insertion roots without itself proving an elaborated type changed."
+  },
+  "rationale": "Single planned314 inspection resolves this concrete relevant-closure identity difference while keeping every original279 name; it does not claim root-file equality alone qualifies type reuse and does not demand a second optional whole-program run. The complete source/type assessment and actual candidate checks remain separate.",
+  "other110_boundary": {
+    "existing_static_preparation": [
+      {
+        "source": "Applications/Resources/InsertionSort.lean",
+        "public_names": 19,
+        "source_unchanged_from_F": true,
+        "proposed_closure_differences_from_F": [
+          "Applications/Sorting/Merge.lean"
+        ],
+        "proposed_closure_differences_from_Z": [],
+        "actual_F_type_credit_here": false
+      },
+      {
+        "source": "Applications/Resources/ListCalls.lean",
+        "public_names": 34,
+        "source_unchanged_from_F": true,
+        "proposed_closure_differences_from_F": [],
+        "proposed_closure_differences_from_Z": [],
+        "actual_F_type_credit_here": false
+      },
+      {
+        "source": "Examples/FunctionalNotation.lean",
+        "public_names": 30,
+        "source_unchanged_from_F": true,
+        "proposed_closure_differences_from_F": [],
+        "proposed_closure_differences_from_Z": [],
+        "actual_F_type_credit_here": false
+      },
+      {
+        "source": "Examples/InsertionCosts.lean",
+        "public_names": 16,
+        "source_unchanged_from_F": true,
+        "proposed_closure_differences_from_F": [
+          "Applications/Sorting/Merge.lean"
+        ],
+        "proposed_closure_differences_from_Z": [],
+        "actual_F_type_credit_here": false
+      },
+      {
+        "source": "Examples/ListCalls.lean",
+        "public_names": 16,
+        "source_unchanged_from_F": true,
+        "proposed_closure_differences_from_F": [],
+        "proposed_closure_differences_from_Z": [],
+        "actual_F_type_credit_here": false
+      },
+      {
+        "source": "Examples/ListLibrary.lean",
+        "public_names": 30,
+        "source_unchanged_from_F": true,
+        "proposed_closure_differences_from_F": [],
+        "proposed_closure_differences_from_Z": [],
+        "actual_F_type_credit_here": false
+      }
+    ],
+    "review_disposition": "Retained prior unchanged-closure preparation only. The four-root potential110 conditions already reviewed remain; no current reuse or type credit and no removal from exactF145. This bounded follow-up independently recalculated only the two affected insertion closures."
+  },
+  "actual_evidence_conditions": [
+    "Exact F receives actual closed full normal result/audit, actual145 types and both complete axes, immediate verification and exact accepted integration first.",
+    "Later assembled immutable candidate must match the complete four-unit source scope and actual defining closures; prepared candidate remains null.",
+    "Before/after actual statement-input identities, trusted qualified stock artifact lineage, source/pins/configuration/runtime agreement, actual successful terminal and complete output must be secured.",
+    "Both independent axes assess all actual complete types and original source/requirements scope; full guarded validation/audit and immediate verification remain mandatory.",
+    "No artifact is transplanted from retired central or live F, and no generated-output observation was made by this review."
+  ],
+  "supersession_boundary": {
+    "only_future_execution_of_279_alone_superseded": true,
+    "original279_files_preserved": true,
+    "exactF145_gate_unchanged": true,
+    "other_review_reports_unchanged": true,
+    "new_candidate_compile_type_reuse_acceptance_credit": 0
+  },
+  "input_identity_readback_unchanged": true
+}

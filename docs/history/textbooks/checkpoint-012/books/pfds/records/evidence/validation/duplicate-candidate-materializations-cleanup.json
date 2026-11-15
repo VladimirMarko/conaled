@@ -1,0 +1,57 @@
+{
+  "created_utc": "2026-11-03T03:17:44.509064+00:00",
+  "status": "completed",
+  "reason": "Remove inactive clean duplicate materializations after full fresh source and output byte checks. Every completed ordinary file remains in body-counts; named source refs/history and saved checkpoint evidence remain. No transfer, active input mutation or acceptance.",
+  "retained_output_checkout": "body-counts",
+  "target_head": "6971fd2a9647d077594ad66f24b5d0f29641cc5b",
+  "source_evidence": "Saved026 ledger/receipt and recorded actual restore result explicitly bind both candidates. Local archive was previously reclaimed; this cleanup does not claim to inspect its unavailable manifest.",
+  "saved_checkpoint": 26,
+  "library_file_id": "libfile_bca00d367b388191a74593d7415fa959",
+  "assessment_sha256": "f2c5e3c3726813c286e0ff28858b2c91965a4a74e0fcea714b59c99ce6a0e1d7",
+  "checked": [
+    {
+      "checkout": "validation-cache-counts",
+      "candidate": "3dd930c3e3989f3e5530463f3ac937a629551335",
+      "ref": "refs/heads/pfds/cache-counts-review-r1",
+      "source_files": 1706,
+      "source_inventory_sha256": "bd8ad8c114d75b42ae1bcc018c47f1a2a79bf5d06be571e495ee357857be235e",
+      "ordinary_groups": 116,
+      "ordinary_files": 812,
+      "ordinary_bytes_retained": 87102765,
+      "warm_record": "pure-cache-counts-focused-output-copy.json",
+      "warm_record_sha256": "733e35fe7b78f20d868ded691291d0899047005d5ba48df4e29a734359cc918c",
+      "generated_bytecode_discarded": {
+        "path": "scripts/__pycache__/lake_integrity.cpython-313.pyc",
+        "sha256": "1343ef856bb8936eb27c742498a8d350cdca82981f259e1a07013e4209cb0ab8"
+      }
+    },
+    {
+      "checkout": "purity-correction",
+      "candidate": "361f5f3f6bb3de1974510ce355883dac2bf25333",
+      "ref": "refs/heads/pfds/pure-suspensions-review-r2",
+      "source_files": 1695,
+      "source_inventory_sha256": "711f927011b47bbe7489312d31409a8b8d8a293166eb8aa52262a55f9b009e59",
+      "ordinary_groups": 69,
+      "ordinary_files": 483,
+      "ordinary_bytes_retained": 65698972,
+      "warm_record": "pure-suspension-r2-focused-output-copy.json",
+      "warm_record_sha256": "633e6cfcfd68d2d4ef92f38858cf83aa4295480b02a0aeca39438f5a37813ccf",
+      "generated_bytecode_discarded": {
+        "path": "scripts/__pycache__/lake_integrity.cpython-313.pyc",
+        "sha256": "258651b04830e96f748478dc91327805a61c0109ac57f5ef2f09bff07c93e4e2"
+      }
+    }
+  ],
+  "process_users": [],
+  "removed": [
+    "validation-cache-counts",
+    "purity-correction"
+  ],
+  "acceptance": false,
+  "available_bytes_before": 0,
+  "recovery": "Recreate each exact named branch at its recorded checkout path before its own full gate. Restore pinned packages link/private build; recheck any ordinary output reuse with stock hashes. All original review scopes/findings and own full/audit/final gates remain required.",
+  "ended_utc": "2026-11-03T03:17:45.803347+00:00",
+  "refs_unchanged": true,
+  "active_inputs_changed": false,
+  "available_bytes_after": 202412032
+}

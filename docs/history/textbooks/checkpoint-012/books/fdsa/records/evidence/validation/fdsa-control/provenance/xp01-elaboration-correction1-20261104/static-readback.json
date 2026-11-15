@@ -1,0 +1,59 @@
+{
+  "recorded_utc": "2026-11-04T11:16:09.115170+00:00",
+  "base": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+  "exact_change_set": [
+    "Applications/Resources/Potential.lean",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "potential_source_equals_original_with_only_three_proof_term_replacements": true,
+  "map_equals_original_with_only_one_sentence_scope_edit": true,
+  "source_named_declarations_before": [
+    "budget",
+    "budget_append",
+    "budget_map",
+    "run_potential_map_of_invariant",
+    "run_potential_map_exact_of_invariant",
+    "run_potential_map",
+    "run_potential_map_exact",
+    "run_cost_le_map_of_invariant",
+    "budget_amortized",
+    "charge_iff_signed",
+    "run_potential",
+    "run_potential_exact",
+    "run_cost_le",
+    "run_zero_potential",
+    "budget_constant",
+    "budget_le_constant",
+    "run_constant_charge",
+    "initial_potential_matters"
+  ],
+  "source_named_declarations_after": [
+    "budget",
+    "budget_append",
+    "budget_map",
+    "run_potential_map_of_invariant",
+    "run_potential_map_exact_of_invariant",
+    "run_potential_map",
+    "run_potential_map_exact",
+    "run_cost_le_map_of_invariant",
+    "budget_amortized",
+    "charge_iff_signed",
+    "run_potential",
+    "run_potential_exact",
+    "run_cost_le",
+    "run_zero_potential",
+    "budget_constant",
+    "budget_le_constant",
+    "run_constant_charge",
+    "initial_potential_matters"
+  ],
+  "index_before_commit": "clean",
+  "nonignored_untracked_before_commit": [],
+  "whitespace_check": {
+    "command": "git diff --check",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "validation_limit": "Text/identity/scope readback only. No Lean or Lake command, elaborated type inspection, candidate verification or audit was performed; correction is uncompiled."
+}

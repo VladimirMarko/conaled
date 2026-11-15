@@ -1,0 +1,86 @@
+{
+  "recorded_utc": "2026-11-04T21:43:36.792699+00:00",
+  "candidate": "42885f0d87f795252ee50dd01dc9220cfeb20a35",
+  "tree": "3eaf4978a860921249d40774980f5ae0eaaf2ff5",
+  "parent": "296780b789766c74ec332846ccaefdc9fb8dafcb",
+  "branch": "work/fdsa-ch03-mom-execution",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+  "status": "clean",
+  "targets": [
+    "Applications.Resources.SelectionGenericEnvelope",
+    "Examples.SelectionGenericEnvelope"
+  ],
+  "counts": {
+    "public_declarations": 17,
+    "public_theorems": 17,
+    "public_definitions": 0,
+    "private_declarations": 1,
+    "private_theorems": 1,
+    "private_definitions": 0,
+    "total_declarations": 18,
+    "anonymous_examples": 0
+  },
+  "files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionGenericEnvelope.lean",
+      "bytes": 9448,
+      "sha256": "946dc54375989de8413ada388e0672d5f862a1c5da5e62efa9522865911db0e3",
+      "relative_path": "Applications/Resources/SelectionGenericEnvelope.lean",
+      "source_lines": 183,
+      "public_count": 6,
+      "private_count": 0
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionGenericEnvelope.lean",
+      "bytes": 5925,
+      "sha256": "3a1748e2f27a77cbf0daf183b6c52c76eedabdfe641cb77865f5364fec6582ca",
+      "relative_path": "Examples/SelectionGenericEnvelope.lean",
+      "source_lines": 112,
+      "public_count": 11,
+      "private_count": 1
+    }
+  ],
+  "actual_commit": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/actual-commit-candidate1.json",
+    "bytes": 2800,
+    "sha256": "8b1caee3b01917ffe70c2ae654e636961f85a65f809bcb0448ca14ab5ab7da7d"
+  },
+  "inventory": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/source-inventory-statement-and-case-assessment-candidate1.json",
+    "bytes": 99998,
+    "sha256": "26541e9a2ebc4a31b4784516fa091301974e27579c69bdae4c9187907798e67c"
+  },
+  "new_public_explicit_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/SelectionGenericEnvelopeStatements17-candidate1.lean",
+    "bytes": 1547,
+    "sha256": "8182acf347d091e215c42c09839fb07e89380e22312ac1cd41970b9418550ca8",
+    "public_count": 17,
+    "execution_status": "UNEXECUTED prepared input only"
+  },
+  "combined_selected_public_explicit_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/NestedSelectionCombinedStatements141-candidate1.lean",
+    "bytes": 8430,
+    "sha256": "bd9f5ed13266e43496e34495193c40ac42ed9ebf7c012eace98b2811d7bbd33c",
+    "public_count": 141,
+    "execution_status": "UNEXECUTED prepared input only",
+    "scope": "39 existing worker + 22 book bounds + 63 exact copied scalar declarations + 17 new envelope declarations. This is a selected scope, not the whole project."
+  },
+  "exact_source_patch": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/actual-envelope-candidate1-source.patch",
+    "bytes": 16138,
+    "sha256": "706e920753c4eb93ccc2588788eb5682d7b4dbba72152e840e8668b9f83b91b1"
+  },
+  "intended_claims": [
+    "The actual recursive pivot agrees with medianOfMedians for every supported generic worker.",
+    "The reached median list is positive and strictly shorter for parent size greater than one.",
+    "Actual entry, length, chop/map, partition and bucket-length charges are at most (d*d + 4*d + 12)*n + 7.",
+    "Strong size induction bounds every valid actual execution by the scalar envelope U_d(n).",
+    "The all-rank bound retains invalid and empty behavior and proves a payload-independent finite prefix, including infinite payload types."
+  ],
+  "case_scope": "All 10 independently prepared finite cases plus the arbitrary-Int prefix consumer are retained. Formal examples cover d = 2, 3, 4, 5, 6; duplicates, empty Fin 0, an invalid boundary rank, a larger actual cutoff, and both selected sides. Exact actual counts 169, 2 and 6 come from previously checked execution laws. Other independent call predictions remain explicitly predictions; their formal claims use envelope budgets.",
+  "preservation": "All 31 previous source paths and 115 prior own provenance records are byte-identical. The unchanged source committed before checkpoint 0130 is now bound to complete inventories; no source or ref changes were made during this record-only release.",
+  "kernel_scope": "17 new public theorem statements and one private logical source theorem are inventoried. Prepared inputs contain every selected public name with @. The compiler-generated private kernel name is not guessed; generated and auxiliary declarations remain in actual-type and whole-candidate audit scope.",
+  "validation": "UNCOMPILED pair. No author Lean/Lake invocation. Root is the sole compiler owner. No actual-type, full check/audit, review or acceptance credit claimed.",
+  "required_next_stage": "After this pair actually passes, prove actual execution ≤ generic G using base U_d(max actualCutoff scalarCutoff), then obtain uniform affine/linear bounds for fixed d ≥ 5. Do not assume desired runtime growth or payload finiteness. Root retains C03-055/cutoff ownership.",
+  "write_hold": "All assigned source, own provenance and ref writes stop after the companion hold record and final read-only verification until parent supplies an actual terminal and releases the next action."
+}

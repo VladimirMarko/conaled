@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-11-04T01:40:10.417186+00:00",
+  "candidate": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+  "argv": [
+    "python3",
+    "-B",
+    "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/work-state/tooling/pinned_native_j1_toolchain.py",
+    "--",
+    "env",
+    "LEAN_PATH=/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/fresh-check-iw8iuais:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/packages/proofwidgets/.lake/build/lib/lean",
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "90s",
+    "lean",
+    "-o",
+    "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/runtime-tmp/jets-j1-control/Jets.olean",
+    "Applications/AD/Jets.lean"
+  ],
+  "cwd": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation",
+  "source_sha256": "5be99dfe1ad767283f1908e475f9907324ec30898a9f739c226607859a479133",
+  "baseline_olean_sha256": "852574083fe8d02b145550afb2255615c8eaf902d51d936fead6622d74fa23a6",
+  "baseline_run_seconds": 73.3,
+  "scope": "One same-helper j1 follow-up after the separate j4 probe, to check cache/load sensitivity. Current formal run unchanged. Sequential, uncontrolled cache/load conditions; no causal or whole-project performance guarantee and no chapter credit."
+}

@@ -1,0 +1,1173 @@
+{
+  "recorded_utc": "2026-11-05T03:29:30.490211+00:00",
+  "reviewer": "/root/tree_cache_standards",
+  "unit": "FDSA-XT02",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "incorporated_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "requirements_ids": [
+    "XT02-01",
+    "XT02-02",
+    "XT02-03",
+    "XT02-04",
+    "XT02-05"
+  ],
+  "original_scope_paths": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-shape.md"
+  ],
+  "full_original_scope_complete": true,
+  "source_assessment_complete": true,
+  "all91_authored_headers_exact": true,
+  "public_names90": [
+    "Trees.minHeight",
+    "Trees.minHeight_nil",
+    "Trees.minHeight_node",
+    "Trees.minHeight_map",
+    "Trees.minHeight_le_height",
+    "Trees.Complete",
+    "Trees.complete_nil",
+    "Trees.complete_node",
+    "Trees.complete_iff_minHeight_eq_height",
+    "Trees.complete_map",
+    "Trees.AlmostComplete",
+    "Trees.almostComplete_nil",
+    "Trees.almostComplete_iff_sub",
+    "Trees.complete_almostComplete",
+    "Trees.almostComplete_children",
+    "Trees.almostComplete_map",
+    "Trees.pow_minHeight_le_numLeaves",
+    "Trees.numLeaves_le_pow_height",
+    "Trees.numLeaves_eq_pow_height",
+    "Trees.numLeaves_eq_pow_minHeight",
+    "Trees.numLeaves_lt_pow_height",
+    "Trees.pow_minHeight_lt_numLeaves",
+    "Trees.complete_iff_numLeaves_eq_pow_height",
+    "Trees.complete_iff_numLeaves_eq_pow_minHeight",
+    "Trees.minHeight_le_log_numLeaves",
+    "Trees.clog_numLeaves_le_height",
+    "Trees.minHeight_eq_log_numLeaves",
+    "Trees.height_eq_clog_numLeaves",
+    "Trees.height_optimal",
+    "Trees.minHeight_le_logb_numLeaves",
+    "Trees.logb_numLeaves_le_height",
+    "Trees.minHeight_lt_logb_numLeaves",
+    "Trees.logb_numLeaves_lt_height",
+    "Trees.height_eq_logb_numLeaves",
+    "Trees.minHeight_eq_floor_logb_numLeaves",
+    "Trees.height_eq_ceil_logb_numLeaves",
+    "TreeShapeExamples.single",
+    "TreeShapeExamples.single_complete",
+    "TreeShapeExamples.single_minHeight",
+    "TreeShapeExamples.single_almostComplete",
+    "TreeShapeExamples.empty_shapes",
+    "TreeShapeExamples.perfectThree",
+    "TreeShapeExamples.perfectThree_complete",
+    "TreeShapeExamples.perfectThree_leaves",
+    "TreeShapeExamples.perfectThree_minHeight",
+    "TreeShapeExamples.rightTwo",
+    "TreeShapeExamples.rightTwo_incomplete",
+    "TreeShapeExamples.rightTwo_almostComplete",
+    "TreeShapeExamples.rightTwo_strict_capacity",
+    "TreeShapeExamples.rightTwo_children",
+    "TreeShapeExamples.rightTwo_sub",
+    "TreeShapeExamples.chainThree_power_not_complete",
+    "TreeShapeExamples.rightTwo_rounded_equalities",
+    "TreeShapeExamples.rightTwo_rounded_strictness_fails",
+    "TreeShapeExamples.empty_logarithms",
+    "TreeShapeExamples.sample_almostComplete",
+    "TreeShapeExamples.sample_minHeight",
+    "TreeShapeExamples.sample_leaves",
+    "TreeShapeExamples.sample_logarithms",
+    "TreeShapeExamples.sample_height_nodes",
+    "TreeShapeExamples.sample_wrong_node_offset",
+    "TreeShapeExamples.perfectThree_real_height",
+    "TreeShapeExamples.rightTwo_strict_real",
+    "TreeShapeExamples.sample_real_rounding",
+    "TreeShapeExamples.empty_real_height",
+    "TreeShapeExamples.mapped_sample",
+    "TreeShapeExamples.relabelled_complete",
+    "TreeShapeExamples.minHeight_erase",
+    "TreeShapeExamples.almostComplete_erase",
+    "TreeShapeExamples.pairSample_shape",
+    "TreeShapeExamples.corrupt_shape_without_validity",
+    "TreeShapeExamples.minStep",
+    "TreeShapeExamples.min_reader",
+    "TreeShapeExamples.minSample",
+    "TreeShapeExamples.minSample_valid",
+    "TreeShapeExamples.minSample_erases",
+    "TreeShapeExamples.minSample_reads",
+    "TreeShapeExamples.heightOptimalCounter",
+    "TreeShapeExamples.heightOptimalCounter_numNodes",
+    "TreeShapeExamples.heightOptimalCounter_shape",
+    "TreeShapeExamples.optimum_across_labels",
+    "TreeShapeExamples.counter_not_almostComplete",
+    "TreeShapeExamples.counter_rounded_height",
+    "TreeShapeExamples.counter_height_optimal",
+    "TreeShapeExamples.almostFour",
+    "TreeShapeExamples.localBalanceCounter",
+    "TreeShapeExamples.localBalanceCounter_balanced",
+    "TreeShapeExamples.localBalanceCounter_shape",
+    "TreeShapeExamples.localBalanceCounter_not_almostComplete",
+    "TreeShapeExamples.chain_rounded_bounds"
+  ],
+  "public_theorems": 79,
+  "public_definitions": 11,
+  "private_definitions": 1,
+  "all_definitions_statements_assumptions_comments_and_other_bytes_unchanged_from_initial_receiving_except_exact_four_proof_bodies": true,
+  "correction1_complete_read": "afd9a9; current full ShapeLog1-73 fb251e",
+  "correction2_complete_read": "afd9a9; current full Examples1-303 fb251e",
+  "pinned_rounding_lemmas_read": "868ecc lines371-425; earlier complete relevant readings retained",
+  "proof_assessment": "Two general bridges calculate through unchanged natural logarithm equalities then normalize Nat2 casts via existing Real rounding equalities; two examples normalize concrete observation/cast facts while consuming original public real results. No premise or claim was weakened.",
+  "source_findings": [],
+  "carried_finding": "XT02-SP01 documentary correction remains; formal/final confirmation pending",
+  "initial_source_assessment": {
+    "path": "provenance/tree-shape-standards-receiving-20261105/source-assessment-27c5908.json",
+    "bytes": 71866,
+    "lines": 1623,
+    "sha256": "291aeb1e57b93456a9fcc63c46371f1485236ddabac2b2cdf8776ecf71939612"
+  },
+  "initial_source_closure": {
+    "path": "provenance/tree-shape-standards-receiving-20261105/source-closure-27c5908.json",
+    "bytes": 23690,
+    "lines": 733,
+    "sha256": "bad89f2eccd7164be65429353d2ec08884f0bae398da9a21a16eb2e4db3de60d"
+  },
+  "headers": [
+    {
+      "name": "Trees.minHeight",
+      "kind": "def",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 17,
+      "sha256": "1642c4e75c8def94ef719dfab81f531ceb8333afbf12cd570e2f38024a2fb270"
+    },
+    {
+      "name": "Trees.minHeight_nil",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 20,
+      "sha256": "89acdacb587591da70cbe71cd3018b9c072a54256752956d8892f62a6292b0b7"
+    },
+    {
+      "name": "Trees.minHeight_node",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 22,
+      "sha256": "77376cdaa28d4f860a1252b1851af8cbf736b07add33e55da0cbcfa02a3d7062"
+    },
+    {
+      "name": "Trees.minHeight_map",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 25,
+      "sha256": "492d2a5c80947cd0046b5e9f9f840035a3575729178d55ea66f4ac6796a33e17"
+    },
+    {
+      "name": "Trees.minHeight_le_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 29,
+      "sha256": "df9cc31797f559b0b44b2280a839bd9e345478b749fb075eff7f45b05fa66b03"
+    },
+    {
+      "name": "Trees.Complete",
+      "kind": "def",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 39,
+      "sha256": "818612c7ef1e844cf12a4780f7f595eb5b4fd9488422ffb9eaaa57a9bab83216"
+    },
+    {
+      "name": "Trees.complete_nil",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 43,
+      "sha256": "7109baf6a07a07f063625b9a498584afc7670531377c88fab5d8bc04793cf4ec"
+    },
+    {
+      "name": "Trees.complete_node",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 45,
+      "sha256": "e760e55ec2a49e219fb75283202c66cb0fb8c241e86222d87c8d0c463ec80475"
+    },
+    {
+      "name": "Trees.complete_iff_minHeight_eq_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 48,
+      "sha256": "0431fd46cf1eff1b64c892e22496ec45918d0828ba03cfed0444785c40a76b51"
+    },
+    {
+      "name": "Trees.complete_map",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 58,
+      "sha256": "b72da16e5c497c532ca121158a584932c994fe82a7d71869950b00c499c3fd72"
+    },
+    {
+      "name": "Trees.AlmostComplete",
+      "kind": "def",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 64,
+      "sha256": "f67247ed5572fd5cb0686cb6827bec85fe9a482bc243dd5a98a4489fe072ce20"
+    },
+    {
+      "name": "Trees.almostComplete_nil",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 66,
+      "sha256": "8153bc15339ce59aa8818c662d5e7d9c684bb0ac4177ce7daadeaf92a5c74eb1"
+    },
+    {
+      "name": "Trees.almostComplete_iff_sub",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 69,
+      "sha256": "3a24f686aec5ae8813f7a3814c7da484eaaa8a058ac570d47c22f9e835f8ed53"
+    },
+    {
+      "name": "Trees.complete_almostComplete",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 74,
+      "sha256": "9aaf92b165161201ba6301a6da48763bfc3c019a73d0e8db6e98fc14265968e3"
+    },
+    {
+      "name": "Trees.almostComplete_children",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 80,
+      "sha256": "a9f65cf7857cceffb4496f8bcdc89a7ad3a514be4b4a0f018a04e62f9c3b7b50"
+    },
+    {
+      "name": "Trees.almostComplete_map",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 85,
+      "sha256": "f9ec78f4e200d256007972dbc67943f31389a06c78a437456e33c9011ffdbf4a"
+    },
+    {
+      "name": "Trees.pow_minHeight_le_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 90,
+      "sha256": "15861c51d0df3627ae0b50f5db0fd8970a83a938fe031da122464bb48a5af922"
+    },
+    {
+      "name": "Trees.numLeaves_le_pow_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 103,
+      "sha256": "fdb59324e3860cd698376a53e43d1344cb3768e0686d523f8001d6b4f5747fae"
+    },
+    {
+      "name": "Trees.numLeaves_eq_pow_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 115,
+      "sha256": "da031ded5f8efa1dc3f5fd4d11f3bb124f716603acf4513b5fdc7e135749b268"
+    },
+    {
+      "name": "Trees.numLeaves_eq_pow_minHeight",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 125,
+      "sha256": "30296b2e6fe2c78441c15000a51698e0f02519241ba409abbd73010c8a74bd74"
+    },
+    {
+      "name": "Trees.numLeaves_lt_pow_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 131,
+      "sha256": "b2ee9992506e6163187ab94ed14e310ed529e4ca063964b86d3b7be3bce87bb7"
+    },
+    {
+      "name": "Trees.pow_minHeight_lt_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 164,
+      "sha256": "b645b9d0b807d9a6034a30b12b0ca61aa9fd6c9bd8f664a471d1211cc7ee9a61"
+    },
+    {
+      "name": "Trees.complete_iff_numLeaves_eq_pow_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 200,
+      "sha256": "6ffeaf7e9e3f9550f262ee21d3349ae364fd2f9db1480e26353f1ef9e078b47a"
+    },
+    {
+      "name": "Trees.complete_iff_numLeaves_eq_pow_minHeight",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 208,
+      "sha256": "7f8f8be4e1af9351336b5a4713aa62637e4d749f7aaa602290bf68b954d0841a"
+    },
+    {
+      "name": "Trees.minHeight_le_log_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 216,
+      "sha256": "2387b1809836b6a52f2bb5b1c2d7b98f48a6123a4fb63e7d8d62cd527d252ca0"
+    },
+    {
+      "name": "Trees.clog_numLeaves_le_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 220,
+      "sha256": "276347b73fc3b3429caf2f61cfad3e0dc6dd564ebd6cc2e0dd2413bf240d7293"
+    },
+    {
+      "name": "Trees.minHeight_eq_log_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 225,
+      "sha256": "9ea4252415b9ea6a61dde821df357163b29f1931c7715281a900aab43a6d0014"
+    },
+    {
+      "name": "Trees.height_eq_clog_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 243,
+      "sha256": "118b595e9a532389de0099713968cb088b75a664bfb774af4307c08fdf11ca3a"
+    },
+    {
+      "name": "Trees.height_optimal",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/Shape.lean",
+      "line": 258,
+      "sha256": "059f6cd85d13191ed6b5d3a6c933a09bb0c6bcfc2c4eb370da1ceaa77d21c349"
+    },
+    {
+      "name": "Trees.minHeight_le_logb_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/ShapeLog.lean",
+      "line": 14,
+      "sha256": "7af9bde4cb20083529165175f96ebf008bb3c094a7a07ea424f70aefe7c0b673"
+    },
+    {
+      "name": "Trees.logb_numLeaves_le_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/ShapeLog.lean",
+      "line": 23,
+      "sha256": "d5706a4a36f4a101533608a2fd770226050d0b1af22fefcddf7465328ac93377"
+    },
+    {
+      "name": "Trees.minHeight_lt_logb_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/ShapeLog.lean",
+      "line": 32,
+      "sha256": "e8ac97009dac5f0206b0307e71daca5bacf4465a1e76e391a20d2877beed5b26"
+    },
+    {
+      "name": "Trees.logb_numLeaves_lt_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/ShapeLog.lean",
+      "line": 41,
+      "sha256": "9f7a6f4abe778c9bbef85f8dd453c35a4b2823f426734f55bd22e7f4b4cc5dd5"
+    },
+    {
+      "name": "Trees.height_eq_logb_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/ShapeLog.lean",
+      "line": 50,
+      "sha256": "a30e1d9796945a581ee526a1f062eb29c316b0164ca73920e413189955b3b78f"
+    },
+    {
+      "name": "Trees.minHeight_eq_floor_logb_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/ShapeLog.lean",
+      "line": 57,
+      "sha256": "24f43f882274406b174455ee87ace6cc5a2c9158c33f7b45b43a0f3894e91bbc"
+    },
+    {
+      "name": "Trees.height_eq_ceil_logb_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Trees/ShapeLog.lean",
+      "line": 65,
+      "sha256": "57df74b060ac39c76529672d5c9351ea6b2867cef1f4fa3c972711fbc0d56b72"
+    },
+    {
+      "name": "TreeShapeExamples.single",
+      "kind": "def",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 14,
+      "sha256": "ff25c462a56efc2f30691451fddbe633a4c3bd399b4814e845e85ee6c053e2b4"
+    },
+    {
+      "name": "TreeShapeExamples.single_complete",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 16,
+      "sha256": "001127a6f09f27bd1ca83e89d5c866ea1eda935b48690a2b42e5427bfff79b00"
+    },
+    {
+      "name": "TreeShapeExamples.single_minHeight",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 19,
+      "sha256": "5d8114efc0be7951a7b8f886de469d7b60b13dcd42b0b52d3f464a24823b34b5"
+    },
+    {
+      "name": "TreeShapeExamples.single_almostComplete",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 25,
+      "sha256": "54e300a07fc2da76fa51f093b16b318a7b7e347d93a02c34204eb64be46980a4"
+    },
+    {
+      "name": "TreeShapeExamples.empty_shapes",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 28,
+      "sha256": "b1abfaf9ed154445705b3d3e99b25e3efaafe2458dcdf335f969d7a869b82bda"
+    },
+    {
+      "name": "TreeShapeExamples.perfectThree",
+      "kind": "def",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 34,
+      "sha256": "29e9b6a52c5047f47552583e978f00eb5f26e18a5b211bd6d50b78103fdcaae1"
+    },
+    {
+      "name": "TreeShapeExamples.perfectThree_complete",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 36,
+      "sha256": "337aa7064c19842bf82a9aaf8fc51a32e9d0b38131f54b66f2991fc0a994ba01"
+    },
+    {
+      "name": "TreeShapeExamples.perfectThree_leaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 39,
+      "sha256": "8dda241be1a4eb292a8f04ad14e009bbadbf8eebb27de5046bd5996f34255665"
+    },
+    {
+      "name": "TreeShapeExamples.perfectThree_minHeight",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 43,
+      "sha256": "9b0fd5f9b9abf441cecb2009d7d03a9c286b6bac29cd18cd4f1dd6f63a53e50b"
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo",
+      "kind": "def",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 49,
+      "sha256": "dafa731f8ebef8d9abd4a7349e9c498629111daf45c3ccf3d5e17fdc186a42f6"
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_incomplete",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 51,
+      "sha256": "90bfdfd42182221b7f7ab10e015433f32969ca1e65fca66ff4053ab19a892ca0"
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_almostComplete",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 55,
+      "sha256": "b8d3be6d5a0e1a98e35c4f72f7fdfd977b8ac3aadc0588f55fc98f515feb4837"
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_strict_capacity",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 59,
+      "sha256": "3063e4f0e7278301e1dcf756c5bd9ad51cc240e90725bba183756fcc747874b5"
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_children",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 65,
+      "sha256": "a28c4974fcad2c2ae0dd040c6dd82c30ff9bd18e7cca59ff0febe3eff868e72a"
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_sub",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 69,
+      "sha256": "82af65c52008b8bd8db0bf65c635d70ac2b86414b505307bb3bdb4e3dff73e46"
+    },
+    {
+      "name": "TreeShapeExamples.chainThree_power_not_complete",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 72,
+      "sha256": "c8df2519cc433079265090ab2f0aea1d9c81b23dd9a357b2a9addcded06457a5"
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_rounded_equalities",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 80,
+      "sha256": "ae37698c99cff31f254078e66e417fce57e7a8328022afa70aed33e83087bef0"
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_rounded_strictness_fails",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 86,
+      "sha256": "9759362e87f5205b93154cd8ffed1548f00a9c3b4b94291499f5fa2f922749be"
+    },
+    {
+      "name": "TreeShapeExamples.empty_logarithms",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 93,
+      "sha256": "fad8fd990139805313e46835511eb3b1be89a6e23b6b11820a6ca83505f3bde4"
+    },
+    {
+      "name": "TreeShapeExamples.sample_almostComplete",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 102,
+      "sha256": "6e638a2b90124f2780510279b40c3960830d9cf576c30a971ec19898b608270b"
+    },
+    {
+      "name": "TreeShapeExamples.sample_minHeight",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 106,
+      "sha256": "a4900570803a81de174398d5c8849713a2de5f84154792fa69fc0ad6fdf53ae1"
+    },
+    {
+      "name": "TreeShapeExamples.sample_leaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 107,
+      "sha256": "f4c89b22836b45b87547e3086a6d289c5ea50f75f32af524eafc04101fb4a719"
+    },
+    {
+      "name": "TreeShapeExamples.sample_logarithms",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 109,
+      "sha256": "ac0d6687bbd1901115e8d8039d1775008be561420b652d6c32d275efab130964"
+    },
+    {
+      "name": "TreeShapeExamples.sample_height_nodes",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 116,
+      "sha256": "6389abde692f287fee1af0c29c58d29be4ca1d6b4abb53589c262676c83b9a0f"
+    },
+    {
+      "name": "TreeShapeExamples.sample_wrong_node_offset",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 121,
+      "sha256": "e876068fef9aff6aecc964f757b25042292174ad1c38cc4b823ce1b4e0417a85"
+    },
+    {
+      "name": "TreeShapeExamples.perfectThree_real_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 125,
+      "sha256": "24cc40bd9426d73f39ef35834cfc46d19603b809a112911806b82ce670e48d7d"
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_strict_real",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 129,
+      "sha256": "6774d29f11aaf4d84ce79df675227305560bfbde413a691d26e968759c2d9b9e"
+    },
+    {
+      "name": "TreeShapeExamples.sample_real_rounding",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 140,
+      "sha256": "80788686f2e42ff976adc00be6edc2cf5479d1fa270d10b85e58e0ff5c1f2f77"
+    },
+    {
+      "name": "TreeShapeExamples.empty_real_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 150,
+      "sha256": "c098a41359745a37db9ca452aee6bd971bde003956d2e4e76a2af3fc0f7775b1"
+    },
+    {
+      "name": "TreeShapeExamples.mapped_sample",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 154,
+      "sha256": "91bf654bef86ddc49813461d217b967b7b24b738d4589889dd433ebc731004b5"
+    },
+    {
+      "name": "TreeShapeExamples.relabelled_complete",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 160,
+      "sha256": "cc3ce93bb8f1accb10844a09a0353d2f5fc5f053e9c158409bc0d639629a14ed"
+    },
+    {
+      "name": "TreeShapeExamples.minHeight_erase",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 165,
+      "sha256": "cf8125bbfc2995e891745237e349d987a95aaf45b51a4caa49d26f1f877a2d7f"
+    },
+    {
+      "name": "TreeShapeExamples.almostComplete_erase",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 169,
+      "sha256": "c161170a03fe4145a64803b026c41029e42f9f39b79b6063afe2b68c66f60ce9"
+    },
+    {
+      "name": "TreeShapeExamples.pairSample_shape",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 173,
+      "sha256": "c1d6593f549aac1895dbf11933e7605e75894a49710ec736232bf234746dced9"
+    },
+    {
+      "name": "TreeShapeExamples.corrupt_shape_without_validity",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 188,
+      "sha256": "e5208adf39252ca63600efa2675efe76337750b01dd18370a13a9bdfa0b86977"
+    },
+    {
+      "name": "TreeShapeExamples.minStep",
+      "kind": "def",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 204,
+      "sha256": "2a1a0922762cc59cdd8d55dba5a0ac6b2455437523052da367fd824656d18c0c"
+    },
+    {
+      "name": "TreeShapeExamples.min_reader",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 207,
+      "sha256": "49a56bc2c4b0e1c910dcba7924db3e7d8115622fe2dd5c4482324b2b7ad0c3b0"
+    },
+    {
+      "name": "TreeShapeExamples.minSample",
+      "kind": "def",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 216,
+      "sha256": "af0d4593c640d404e49576dffba0b95e665a81d8e4090eb7c1b2c30dac92f519"
+    },
+    {
+      "name": "TreeShapeExamples.minSample_valid",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 219,
+      "sha256": "e876719a6fdeed9ca0c866c6c4b47d8da8a557977da6d251ed41d2bdcc0dfe10"
+    },
+    {
+      "name": "TreeShapeExamples.minSample_erases",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 222,
+      "sha256": "d4414e83acdc48373ebfd47399a064ae48f63da088abdc6f7a6acfa4cd825fe6"
+    },
+    {
+      "name": "TreeShapeExamples.minSample_reads",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 225,
+      "sha256": "37e84d0718c61aa5d91b736687ad4abb77bf8a5679f8345c1a47136545cec3ae"
+    },
+    {
+      "name": "TreeShapeExamples.heightOptimalCounter",
+      "kind": "def",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 234,
+      "sha256": "d0194ad836cccdf124ff3f1c5ef3019dd7de74e9e376759542b5407f276533ba"
+    },
+    {
+      "name": "TreeShapeExamples.heightOptimalCounter_numNodes",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 237,
+      "sha256": "817507681665b0e405e0d149c4f4024ae2668236e18c966f9c6db9bc827b543a"
+    },
+    {
+      "name": "TreeShapeExamples.heightOptimalCounter_shape",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 239,
+      "sha256": "bd13d44447b1820c17d07d4281613041d69bb7b881c741d13bc5f30364420dd0"
+    },
+    {
+      "name": "TreeShapeExamples.optimum_across_labels",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 244,
+      "sha256": "c57b478fe321182a577871cf088a7f2d6648bc65e69ed78b58eb9af12eb989fc"
+    },
+    {
+      "name": "TreeShapeExamples.counter_not_almostComplete",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 249,
+      "sha256": "0a8a671977b17782c1c2b77bb74ef979d3acaeb1d3d78e5fce5b7e0530cfab1d"
+    },
+    {
+      "name": "TreeShapeExamples.counter_rounded_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 253,
+      "sha256": "f0db31901191609577671f0021ba7379943998fbcac12e379caef4c32865bd37"
+    },
+    {
+      "name": "TreeShapeExamples.counter_height_optimal",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 263,
+      "sha256": "6978ad78b719f267b706bc5a3ec7222c715b18fced6212be21c614157b39721e"
+    },
+    {
+      "name": "TreeShapeExamples.almostFour",
+      "kind": "def",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 272,
+      "sha256": "8ae38f284bfad5af8bbdb295ef21016011c6b4ee9429bf437c2d26adecd4aa14"
+    },
+    {
+      "name": "TreeShapeExamples.localBalanceCounter",
+      "kind": "def",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 273,
+      "sha256": "58623a78088f5f283811f52f5b433d5d21ba9720f472872ab8bace95f955c1f3"
+    },
+    {
+      "name": "TreeShapeExamples.SiblingHeightBalanced",
+      "kind": "def",
+      "visibility": "private",
+      "path": "Examples/TreeShape.lean",
+      "line": 276,
+      "sha256": "2b4ac5cebb2b44694b4daa3d9cd71b8f039db7a9d0488aec496c44b423f16e46"
+    },
+    {
+      "name": "TreeShapeExamples.localBalanceCounter_balanced",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 281,
+      "sha256": "d10f47021aa654e3c10139e38fbfb7a8a2f21da0ff4ca07a71fe6be951d33fd0"
+    },
+    {
+      "name": "TreeShapeExamples.localBalanceCounter_shape",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 285,
+      "sha256": "901233c9f1e4b729b5d361fa064bb08f6e2a00b58a37746e6a6815795404e7df"
+    },
+    {
+      "name": "TreeShapeExamples.localBalanceCounter_not_almostComplete",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 290,
+      "sha256": "21b1f2b54ba5f9fab1c69f63cf77fb55f299853e82acdacd6718f15cc4a68e0e"
+    },
+    {
+      "name": "TreeShapeExamples.chain_rounded_bounds",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/TreeShape.lean",
+      "line": 295,
+      "sha256": "1cb07a288b5721ce2c327e6cfaea770f739eec55ec00fd3fce0345aaeb82b340"
+    }
+  ],
+  "sources": [
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "git_blob": "52c589e228d4c3a8726f7010ec1de7700ba5eca2",
+      "bytes": 11019,
+      "lines": 267,
+      "sha256": "2233e014900a48ebc239d676a1c8abdaee2046ef503e5219bff460a001b868f3"
+    },
+    {
+      "path": "Applications/Trees/ShapeLog.lean",
+      "git_blob": "13544a17fd22b734e750044e94d1a4d39d5d1c22",
+      "bytes": 3070,
+      "lines": 73,
+      "sha256": "24ba63bd0a8bc04afdcc1f559ae398a7438f8fe9618cc3e29c8d790499bd5629"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "git_blob": "70f8fa17f515be7a419c1ca7ad8b7903b86c3524",
+      "bytes": 12924,
+      "lines": 303,
+      "sha256": "d0f831e3aedca3571a77320485559dcb107664a21f34cd69c46be303a56ecb54"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "git_blob": "afa218e9c6c928bbd3b04268a240c8d90c22e9d9",
+      "bytes": 10769,
+      "lines": 328,
+      "sha256": "a9e0d07ced3385a26f4e1f0f4d45d796ebe4be5c12f03c7f219cce9dc9c9797d"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "e37d8e89d1ba0851d7b3886b8c84b10447abd5ac",
+      "bytes": 51167,
+      "lines": 763,
+      "sha256": "1e58dd24c4b46319d5fdf0cf1e51d2ef42864495df08bba6890e4e02ed21fab9"
+    },
+    {
+      "path": "docs/research/fdsa-tree-shape.md",
+      "git_blob": "dbbdf8e061c4c0132c164897bc99e86498e80057",
+      "bytes": 13230,
+      "lines": 196,
+      "sha256": "804ae74a082ddd1a493c2d36a34f7ebc842c6951501b0aa4eef717eac8d366c6"
+    }
+  ],
+  "local_closure": [
+    {
+      "path": "Applications/Bracketing/Basic.lean",
+      "git_blob": "3f6604c226908ee807c7d5076bd1c027b48bbf90",
+      "bytes": 8561,
+      "lines": 243,
+      "sha256": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9"
+    },
+    {
+      "path": "Applications/Optimization/SelectionSpec.lean",
+      "git_blob": "2548b66575b5a453e8cec30ceb745234bb0ae2e6",
+      "bytes": 738,
+      "lines": 18,
+      "sha256": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b"
+    },
+    {
+      "path": "Applications/Resources/CallCount.lean",
+      "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+      "bytes": 2447,
+      "lines": 58,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8"
+    },
+    {
+      "path": "Applications/Resources/ListReversal.lean",
+      "git_blob": "62ab85a7325d521bf925405f9abb053703f4d175",
+      "bytes": 4827,
+      "lines": 116,
+      "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e"
+    },
+    {
+      "path": "Applications/Resources/Measured.lean",
+      "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+      "bytes": 2906,
+      "lines": 71,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46"
+    },
+    {
+      "path": "Applications/Resources/Potential.lean",
+      "git_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+      "bytes": 4638,
+      "lines": 108,
+      "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe"
+    },
+    {
+      "path": "Applications/Resources/RandomAccess/CacheCosts.lean",
+      "git_blob": "e583ec5285ea887c38f4b369071408697f0574b2",
+      "bytes": 2227,
+      "lines": 61,
+      "sha256": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d"
+    },
+    {
+      "path": "Applications/Resources/SymmetricCosts.lean",
+      "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+      "bytes": 10508,
+      "lines": 281,
+      "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5"
+    },
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "git_blob": "445e49be7535e17640c7c4ca81251dd7c4119117",
+      "bytes": 3862,
+      "lines": 80,
+      "sha256": "c03a102b43bb5f04edf8b5ab6f0685bd82f80d55a67af680dfa8c0ff0c149abc"
+    },
+    {
+      "path": "Applications/Resources/TreeFlattening/Core.lean",
+      "git_blob": "d136193bd3823ee00431bc240d1e7a0168b4ddaf",
+      "bytes": 4225,
+      "lines": 116,
+      "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2"
+    },
+    {
+      "path": "Applications/Resources/Workload.lean",
+      "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+      "bytes": 2745,
+      "lines": 64,
+      "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5"
+    },
+    {
+      "path": "Applications/Sequences/OrderedSummary.lean",
+      "git_blob": "93509e2e97acd47dcd68a109ea8d18ef1d612b57",
+      "bytes": 8765,
+      "lines": 190,
+      "sha256": "d484e6c34f4ebace4ba121f931eba53a86f34a3c4b69e06d9d0b24ae8c8c7261"
+    },
+    {
+      "path": "Applications/Sequences/RandomAccess/Access.lean",
+      "git_blob": "5354c146a0665cce90ffc996d1b522b8a59079ad",
+      "bytes": 5219,
+      "lines": 141,
+      "sha256": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b"
+    },
+    {
+      "path": "Applications/Sequences/RandomAccess/Basic.lean",
+      "git_blob": "fe040b71615878a86d06b326b820e1d5cd5f0229",
+      "bytes": 5970,
+      "lines": 180,
+      "sha256": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb"
+    },
+    {
+      "path": "Applications/Sequences/RandomAccess/Borrow.lean",
+      "git_blob": "81b95e8bd4a6e30f6a20a85828409d6d55437be0",
+      "bytes": 5680,
+      "lines": 145,
+      "sha256": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516"
+    },
+    {
+      "path": "Applications/Sequences/RandomAccess/TreeBuild.lean",
+      "git_blob": "3b662705f001c2a4b8fbe12868d6c7e77316d95f",
+      "bytes": 5392,
+      "lines": 139,
+      "sha256": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6"
+    },
+    {
+      "path": "Applications/Sequences/Symmetric/Core.lean",
+      "git_blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4",
+      "bytes": 12059,
+      "lines": 362,
+      "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3"
+    },
+    {
+      "path": "Applications/Sequences/Symmetric/Finite.lean",
+      "git_blob": "fedbcc0dfa4c7865ef2ee73f395155d45e33dbe5",
+      "bytes": 4923,
+      "lines": 119,
+      "sha256": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490"
+    },
+    {
+      "path": "Applications/Sequences/Symmetric/Observation.lean",
+      "git_blob": "846aba846bfcfa04867cc221043609f9198b0ec0",
+      "bytes": 3425,
+      "lines": 88,
+      "sha256": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557"
+    },
+    {
+      "path": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "git_blob": "b73854f69696abe7cf827372ad070b6e9dc19991",
+      "bytes": 4345,
+      "lines": 114,
+      "sha256": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308"
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "git_blob": "c301ca85e555a8c5bb3c9db10459446121bc6613",
+      "bytes": 5668,
+      "lines": 135,
+      "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6"
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "git_blob": "f90fbe8c85b9c88f760236d48129bd2b4c4d7e71",
+      "bytes": 4119,
+      "lines": 107,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "git_blob": "52c589e228d4c3a8726f7010ec1de7700ba5eca2",
+      "bytes": 11019,
+      "lines": 267,
+      "sha256": "2233e014900a48ebc239d676a1c8abdaee2046ef503e5219bff460a001b868f3"
+    },
+    {
+      "path": "Applications/Trees/ShapeLog.lean",
+      "git_blob": "13544a17fd22b734e750044e94d1a4d39d5d1c22",
+      "bytes": 3070,
+      "lines": 73,
+      "sha256": "24ba63bd0a8bc04afdcc1f559ae398a7438f8fe9618cc3e29c8d790499bd5629"
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "git_blob": "e0f09b851bb4ce6d1093faaf3cbbcb3b3d873f24",
+      "bytes": 16571,
+      "lines": 371,
+      "sha256": "d92dfcbb139395af13a5939daed2739c10f08ec52d5eaef4165d3962bc76b955"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "git_blob": "70f8fa17f515be7a419c1ca7ad8b7903b86c3524",
+      "bytes": 12924,
+      "lines": 303,
+      "sha256": "d0f831e3aedca3571a77320485559dcb107664a21f34cd69c46be303a56ecb54"
+    },
+    {
+      "path": "SquareKit/ListFusion.lean",
+      "git_blob": "33ec447acb6da7b884ae57d2a885707208201607",
+      "bytes": 2939,
+      "lines": 73,
+      "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164"
+    },
+    {
+      "path": "SquareKit/Relations.lean",
+      "git_blob": "cdfa81e8f94728272a5c72da21ae2e4f5a5febc4",
+      "bytes": 5615,
+      "lines": 163,
+      "sha256": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03"
+    },
+    {
+      "path": "Squares.lean",
+      "git_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+      "bytes": 11694,
+      "lines": 352,
+      "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7"
+    }
+  ],
+  "unchanged_import_graph": {
+    "local": 29,
+    "external": 14,
+    "edges": 54
+  },
+  "inherited_sources26_exact_accepted_base": true,
+  "instructions17_config10_pins9_unchanged": true,
+  "protected_original_and_accepted_records20_rechecked": true,
+  "actual_public_types_complete": false,
+  "full_validation_accepted": false,
+  "review_complete": false,
+  "outcome": "Blocked",
+  "runtime_or_object_hashing": false,
+  "compiler_helper_poll_source_ref_or_cache_actions": false,
+  "correction_evidence": [
+    {
+      "path": "provenance/tree-shape-receiving-20261105/proof-correction1/preflight.json",
+      "bytes": 2452,
+      "lines": 47,
+      "sha256": "84b4a3fc7cb0cf310157ee4e763ce7d9d7a8024ab998d887af80f0711b5e433e"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-20261105/proof-correction1/proof-only.patch",
+      "bytes": 1244,
+      "lines": 26,
+      "sha256": "0e6d8fb87c18128d28f66ab288ca453e9b39d82501e2135516d6981877435b48"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-20261105/proof-correction1/commit-result.json",
+      "bytes": 925,
+      "lines": 19,
+      "sha256": "3b074fa0e61a6fe81de49cb72e3e16a35a799c77bda08751b6ea905d0d172547"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-20261105/proof-correction2/preflight.json",
+      "bytes": 1807,
+      "lines": 31,
+      "sha256": "97a285e0a6a5f2b164810f89a59f58202ed9bb572b203d67f2df4e7abb6b9312"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-20261105/proof-correction2/proof-only.patch",
+      "bytes": 1495,
+      "lines": 31,
+      "sha256": "a79863771b4ab60b1aebbaaf1121f87f4d5c898388848d8d435490c8aad0ccf7"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-20261105/proof-correction2/commit-result.json",
+      "bytes": 916,
+      "lines": 19,
+      "sha256": "153d4a10dc2c5fce26fdc65ac817209d3b2b608a5616b1a162d4a700f258ddbd"
+    }
+  ]
+}

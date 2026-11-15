@@ -1,0 +1,2966 @@
+{
+  "observed_utc": "2026-11-02T14:29:39.475815+00:00",
+  "scope": "One read-only metadata/trace budget estimate for the first authorized cache companion. No artifact contents were copied or hashed and no helper/compiler was invoked. Not a usable-cache or source-provenance certification.",
+  "formal_source_commit": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "operational_candidate": "a43cef4881d4eb303a81ef25f5ccff0b801a12fe",
+  "source_checkpoint_binding": "work-state/validation/cache-companion001-source-binding.json",
+  "inventoried_modules": 953,
+  "tentatively_complete_modules": 498,
+  "tentative_file_count": 1992,
+  "tentative_payload_bytes": 246516236,
+  "largest_artifact_bytes": 21874776,
+  "root_writable_free_bytes": 1426268160,
+  "conservative_capture_guard_floor_bytes": 1486064944,
+  "growth_and_metadata_margin_bytes": 50000000,
+  "recommended_launch_bytes": 1536064944,
+  "note": "Actual capture repeats stable reads and checks real Lake hashes, omitting inconsistent/racing families; source identity and all configured limits remain enforced. This estimate can change as the primary build advances.",
+  "cohort_metadata": {
+    "Applications.AD.Compiler": {
+      "size_bytes": 361338,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 299544
+    },
+    "Applications.AD.Core": {
+      "size_bytes": 595109,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 507024
+    },
+    "Applications.AD.Generalized": {
+      "size_bytes": 893003,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 806760
+    },
+    "Applications.AD.HigherOrder": {
+      "size_bytes": 502091,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 416368
+    },
+    "Applications.AD.Jets": {
+      "size_bytes": 379351,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 325112
+    },
+    "Applications.AD.Modes": {
+      "size_bytes": 460661,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 426992
+    },
+    "Applications.AD.SecondOrder": {
+      "size_bytes": 364207,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 333992
+    },
+    "Applications.AD.SecondStage": {
+      "size_bytes": 658362,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 603904
+    },
+    "Applications.AD.Smooth": {
+      "size_bytes": 46734,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 38624
+    },
+    "Applications.AD.SmoothAlgebras": {
+      "size_bytes": 146893,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 120944
+    },
+    "Applications.AD.SmoothDual": {
+      "size_bytes": 185051,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 141656
+    },
+    "Applications.AD.SmoothSecondStage": {
+      "size_bytes": 300790,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 273264
+    },
+    "Applications.AD.SmoothSquareZero": {
+      "size_bytes": 467539,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 425880
+    },
+    "Applications.AD.Verification": {
+      "size_bytes": 14306,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 3238
+    },
+    "Applications.Bracketing.Array": {
+      "size_bytes": 1297649,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1171120
+    },
+    "Applications.Bracketing.Basic": {
+      "size_bytes": 871684,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 797384
+    },
+    "Applications.Bracketing.Cached": {
+      "size_bytes": 421092,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 374256
+    },
+    "Applications.Bracketing.Interpretation": {
+      "size_bytes": 177000,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 143512
+    },
+    "Applications.Bracketing.Recursive": {
+      "size_bytes": 513064,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 464752
+    },
+    "Applications.Bracketing.Selection": {
+      "size_bytes": 37929,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 30888
+    },
+    "Applications.Bracketing.TableSupport": {
+      "size_bytes": 372087,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 351976
+    },
+    "Applications.Checking.OrderCertificate": {
+      "size_bytes": 219122,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 182736
+    },
+    "Applications.Circuits.Correctness": {
+      "size_bytes": 260627,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 199480
+    },
+    "Applications.Circuits.Syntax": {
+      "size_bytes": 596473,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 502024
+    },
+    "Applications.CoinChoice.Basic": {
+      "size_bytes": 620376,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 545128
+    },
+    "Applications.CoinChoice.Descending": {
+      "size_bytes": 188768,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 153656
+    },
+    "Applications.CoinChoice.Presentation": {
+      "size_bytes": 227363,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 193744
+    },
+    "Applications.CoinChoice.Selection": {
+      "size_bytes": 136365,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 96632
+    },
+    "Applications.Connectivity.ListPartition": {
+      "size_bytes": 1391962,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1177896
+    },
+    "Applications.Connectivity.Observation": {
+      "size_bytes": 105113,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 91104
+    },
+    "Applications.Connectivity.ParentArray": {
+      "size_bytes": 846286,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 747664
+    },
+    "Applications.Connectivity.ParentComponents": {
+      "size_bytes": 247197,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 207328
+    },
+    "Applications.Connectivity.ParentConnectivity": {
+      "size_bytes": 297846,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 252032
+    },
+    "Applications.Connectivity.ParentCounts": {
+      "size_bytes": 278007,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 237944
+    },
+    "Applications.Connectivity.ParentForest": {
+      "size_bytes": 409201,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 361488
+    },
+    "Applications.Connectivity.ParentHistory": {
+      "size_bytes": 348233,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 293592
+    },
+    "Applications.Connectivity.ParentUnion": {
+      "size_bytes": 600126,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 516952
+    },
+    "Applications.Connectivity.Realizations": {
+      "size_bytes": 260827,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 211384
+    },
+    "Applications.Connectivity.Refinement": {
+      "size_bytes": 391437,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 330448
+    },
+    "Applications.Connectivity.Requests": {
+      "size_bytes": 595871,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 536296
+    },
+    "Applications.Convolution.Polynomial": {
+      "size_bytes": 667020,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 572528
+    },
+    "Applications.Convolution.Series": {
+      "size_bytes": 836403,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 753992
+    },
+    "Applications.Diffeology.Constructions": {
+      "size_bytes": 246023,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 225648
+    },
+    "Applications.Diffeology.Manifolds": {
+      "size_bytes": 464026,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 425736
+    },
+    "Applications.Dijkstra.AllPaths": {
+      "size_bytes": 287110,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 252952
+    },
+    "Applications.Dijkstra.Core": {
+      "size_bytes": 672298,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 525080
+    },
+    "Applications.Dijkstra.Observation": {
+      "size_bytes": 536074,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 411584
+    },
+    "Applications.Dijkstra.Optimality": {
+      "size_bytes": 504509,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 465400
+    },
+    "Applications.Dijkstra.Paths": {
+      "size_bytes": 650266,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 593584
+    },
+    "Applications.Dijkstra.Semantics": {
+      "size_bytes": 183870,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 157960
+    },
+    "Applications.Dijkstra.Sentinel.Encoding": {
+      "size_bytes": 610427,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 478600
+    },
+    "Applications.Dijkstra.Sentinel.Observation": {
+      "size_bytes": 235875,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 184424
+    },
+    "Applications.Dijkstra.Sentinel.Range": {
+      "size_bytes": 531781,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 500960
+    },
+    "Applications.Dijkstra.Store": {
+      "size_bytes": 198316,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 169992
+    },
+    "Applications.Dijkstra.Target": {
+      "size_bytes": 422533,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 387232
+    },
+    "Applications.Durability.Clients": {
+      "size_bytes": 298254,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 278672
+    },
+    "Applications.Durability.DiagnosticGraph": {
+      "size_bytes": 600711,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 527304
+    },
+    "Applications.Durability.DiagnosticProjection": {
+      "size_bytes": 651310,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 598152
+    },
+    "Applications.Durability.DiagnosticRelational": {
+      "size_bytes": 913299,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 807416
+    },
+    "Applications.Durability.DiagnosticStorage": {
+      "size_bytes": 1048436,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 928176
+    },
+    "Applications.Durability.Encoding": {
+      "size_bytes": 1406146,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1280400
+    },
+    "Applications.Durability.Executions": {
+      "size_bytes": 266314,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 213136
+    },
+    "Applications.Durability.Protocol": {
+      "size_bytes": 754575,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 689120
+    },
+    "Applications.Durability.Recovery": {
+      "size_bytes": 549904,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 516928
+    },
+    "Applications.Durability.ResourceEvents": {
+      "size_bytes": 404324,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 354920
+    },
+    "Applications.Durability.Simulation": {
+      "size_bytes": 434037,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 410888
+    },
+    "Applications.Durability.Storage": {
+      "size_bytes": 928333,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 850080
+    },
+    "Applications.DynamicProgramming.Batch": {
+      "size_bytes": 93059,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 78040
+    },
+    "Applications.DynamicProgramming.Knapsack": {
+      "size_bytes": 312922,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 260880
+    },
+    "Applications.DynamicProgramming.SuffixRow": {
+      "size_bytes": 64879,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 55480
+    },
+    "Applications.EditAlignment.Cached": {
+      "size_bytes": 1024444,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 927120
+    },
+    "Applications.EditAlignment.Observation": {
+      "size_bytes": 147961,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 109960
+    },
+    "Applications.EditAlignment.Recursive": {
+      "size_bytes": 656190,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 621216
+    },
+    "Applications.EditAlignment.Rows": {
+      "size_bytes": 441264,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 386464
+    },
+    "Applications.EditAlignment.Semantics": {
+      "size_bytes": 499268,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 433104
+    },
+    "Applications.Elaboration.Constraints": {
+      "size_bytes": 662735,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 581248
+    },
+    "Applications.Elaboration.Elaborator": {
+      "size_bytes": 817664,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 711704
+    },
+    "Applications.Elaboration.Examples": {
+      "size_bytes": 317743,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 228880
+    },
+    "Applications.Elaboration.Strategies": {
+      "size_bytes": 405697,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 353080
+    },
+    "Applications.Elaboration.Syntax": {
+      "size_bytes": 1613584,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1427576
+    },
+    "Applications.FRP.Demand": {
+      "size_bytes": 945488,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 822784
+    },
+    "Applications.FRP.Frontier": {
+      "size_bytes": 476922,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 397800
+    },
+    "Applications.FRP.Spec": {
+      "size_bytes": 696310,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 625680
+    },
+    "Applications.FRP.Temporal": {
+      "size_bytes": 843971,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 768928
+    },
+    "Applications.FRP.TemporalCausality": {
+      "size_bytes": 188161,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 172928
+    },
+    "Applications.FRP.TemporalPayload": {
+      "size_bytes": 93800,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 75704
+    },
+    "Applications.FRP.Trace": {
+      "size_bytes": 616525,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 510704
+    },
+    "Applications.Incremental.Arithmetic": {
+      "size_bytes": 334413,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 285536
+    },
+    "Applications.Incremental.Core": {
+      "size_bytes": 633404,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 518336
+    },
+    "Applications.Interaction.Snapshot": {
+      "size_bytes": 141967,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 116360
+    },
+    "Applications.Intervals.Arithmetic": {
+      "size_bytes": 398512,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 312832
+    },
+    "Applications.Intervals.HigherOrder": {
+      "size_bytes": 375472,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 277024
+    },
+    "Applications.Languages.Coalgebra": {
+      "size_bytes": 1129281,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1000136
+    },
+    "Applications.Languages.Compositional": {
+      "size_bytes": 1125041,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 985952
+    },
+    "Applications.Languages.ConvolutionBridge": {
+      "size_bytes": 263633,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 221280
+    },
+    "Applications.Languages.Machines": {
+      "size_bytes": 389719,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 335752
+    },
+    "Applications.Languages.Parser": {
+      "size_bytes": 835412,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 725784
+    },
+    "Applications.Languages.ParserBridge": {
+      "size_bytes": 212765,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 183424
+    },
+    "Applications.Languages.Regex": {
+      "size_bytes": 894387,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 796936
+    },
+    "Applications.Languages.Transposition": {
+      "size_bytes": 865497,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 739056
+    },
+    "Applications.Languages.WitnessTrie": {
+      "size_bytes": 1998706,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1853856
+    },
+    "Applications.Languages.Witnesses": {
+      "size_bytes": 742043,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 670096
+    },
+    "Applications.Linear.Compiler": {
+      "size_bytes": 124806,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 93224
+    },
+    "Applications.Linear.FirstOrderNaturality": {
+      "size_bytes": 149596,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 113944
+    },
+    "Applications.Linear.Maps": {
+      "size_bytes": 430426,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 308384
+    },
+    "Applications.Linear.Matrix": {
+      "size_bytes": 325255,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 271208
+    },
+    "Applications.Linear.Operations": {
+      "size_bytes": 603423,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 520552
+    },
+    "Applications.Linear.Similitude": {
+      "size_bytes": 781832,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 718688
+    },
+    "Applications.Optimization.Basic": {
+      "size_bytes": 112705,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 97392
+    },
+    "Applications.Optimization.Relations": {
+      "size_bytes": 116338,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 89024
+    },
+    "Applications.Optimization.SelectionMap": {
+      "size_bytes": 62319,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 54008
+    },
+    "Applications.Optimization.SelectionSpec": {
+      "size_bytes": 17135,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 12104
+    },
+    "Applications.Optimization.SelectionTies": {
+      "size_bytes": 204960,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 187088
+    },
+    "Applications.Optimization.Thinning": {
+      "size_bytes": 441022,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 388728
+    },
+    "Applications.Optimization.Transport": {
+      "size_bytes": 105482,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 95904
+    },
+    "Applications.Orbifold.ConnectionAssessment": {
+      "size_bytes": 798553,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 774752
+    },
+    "Applications.Orbifold.Disk": {
+      "size_bytes": 244634,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 227760
+    },
+    "Applications.Orbifold.MatrixDisk": {
+      "size_bytes": 402164,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 371200
+    },
+    "Applications.Orbifold.Pose": {
+      "size_bytes": 1528925,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1460696
+    },
+    "Applications.Orbifold.ProjectiveMotion": {
+      "size_bytes": 627224,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 581824
+    },
+    "Applications.Orbifold.QuarterTurn": {
+      "size_bytes": 357439,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 307040
+    },
+    "Applications.Orbifold.StandardForm": {
+      "size_bytes": 697306,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 580528
+    },
+    "Applications.Orbifolds.Equivariant": {
+      "size_bytes": 607886,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 554872
+    },
+    "Applications.Orbifolds.QuarterTurn": {
+      "size_bytes": 528512,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 454880
+    },
+    "Applications.Orbifolds.SmoothComparison": {
+      "size_bytes": 264941,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 231544
+    },
+    "Applications.Parallel.ComplexFFT": {
+      "size_bytes": 39621,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 26400
+    },
+    "Applications.Parallel.Examples": {
+      "size_bytes": 462790,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 277768
+    },
+    "Applications.Parallel.FFT": {
+      "size_bytes": 1167653,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1025912
+    },
+    "Applications.Parallel.Polynomial": {
+      "size_bytes": 167434,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 131032
+    },
+    "Applications.Parallel.Scan": {
+      "size_bytes": 503106,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 427408
+    },
+    "Applications.Parallel.ScanPlan": {
+      "size_bytes": 650156,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 539976
+    },
+    "Applications.Parallel.Shape": {
+      "size_bytes": 805945,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 697184
+    },
+    "Applications.Progress.Evaluation": {
+      "size_bytes": 430657,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 384056
+    },
+    "Applications.Progress.Examples": {
+      "size_bytes": 86249,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 42176
+    },
+    "Applications.Progress.Processors": {
+      "size_bytes": 572495,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 487160
+    },
+    "Applications.Progress.Streams": {
+      "size_bytes": 470084,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 418608
+    },
+    "Applications.Resources.BoundedSummary": {
+      "size_bytes": 1027896,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 831224
+    },
+    "Applications.Resources.ByteBuffer": {
+      "size_bytes": 955231,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 807336
+    },
+    "Applications.Resources.Dijkstra.Execution": {
+      "size_bytes": 1132235,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 994352
+    },
+    "Applications.Resources.Dijkstra.Observation": {
+      "size_bytes": 150666,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 109448
+    },
+    "Applications.Resources.Dijkstra.StoreCosts": {
+      "size_bytes": 112412,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 86992
+    },
+    "Applications.Resources.Measured": {
+      "size_bytes": 108650,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 89360
+    },
+    "Applications.Resources.Workload": {
+      "size_bytes": 155461,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 140248
+    },
+    "Applications.Search.ExactPriority": {
+      "size_bytes": 332647,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 287520
+    },
+    "Applications.Search.HeuristicCore": {
+      "size_bytes": 971307,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 820936
+    },
+    "Applications.Search.HeuristicCoverage": {
+      "size_bytes": 509515,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 472320
+    },
+    "Applications.Search.HeuristicOptimality": {
+      "size_bytes": 505453,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 462304
+    },
+    "Applications.Search.HeuristicTermination": {
+      "size_bytes": 709432,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 654192
+    },
+    "Applications.Search.Interpretation": {
+      "size_bytes": 164556,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 129912
+    },
+    "Applications.Search.LeftistQueue": {
+      "size_bytes": 1463895,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1342648
+    },
+    "Applications.Search.PriorityInterface": {
+      "size_bytes": 295090,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 272072
+    },
+    "Applications.Segments.Candidates": {
+      "size_bytes": 505036,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 437608
+    },
+    "Applications.Segments.Maximum": {
+      "size_bytes": 211056,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 165032
+    },
+    "Applications.Segments.Observation": {
+      "size_bytes": 130528,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 98608
+    },
+    "Applications.Segments.Prefixes": {
+      "size_bytes": 887978,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 751344
+    },
+    "Applications.Sequences.AbstractFIFO": {
+      "size_bytes": 424545,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 352824
+    },
+    "Applications.Sequences.AbstractFIFOSyntax": {
+      "size_bytes": 199147,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 165680
+    },
+    "Applications.Sequences.BoundedSummary": {
+      "size_bytes": 1114753,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 889384
+    },
+    "Applications.Sequences.ByteBuffer": {
+      "size_bytes": 783736,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 639488
+    },
+    "Applications.Sequences.OrderedSummary": {
+      "size_bytes": 323729,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 250352
+    },
+    "Applications.Sequences.Symmetric.Core": {
+      "size_bytes": 844071,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 738496
+    },
+    "Applications.Sequences.Symmetric.Finite": {
+      "size_bytes": 298766,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 266808
+    },
+    "Applications.Sequences.Symmetric.Observation": {
+      "size_bytes": 218863,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 165624
+    },
+    "Applications.Sequences.Symmetric.Prefixes": {
+      "size_bytes": 217245,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 180800
+    },
+    "Applications.Sorting.FirstPair": {
+      "size_bytes": 185952,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 165840
+    },
+    "Applications.Stack.Machine": {
+      "size_bytes": 1152289,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1000592
+    },
+    "Applications.Stack.Staging": {
+      "size_bytes": 25229,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 17344
+    },
+    "Applications.Timing.Adders": {
+      "size_bytes": 1215609,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1011464
+    },
+    "Applications.Timing.Digital": {
+      "size_bytes": 1035235,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 845648
+    },
+    "Applications.Timing.Examples": {
+      "size_bytes": 239140,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 160080
+    },
+    "Applications.Timing.Intervals": {
+      "size_bytes": 174787,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 144608
+    },
+    "Compiler": {
+      "size_bytes": 3752033,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 3425560
+    },
+    "Dependent": {
+      "size_bytes": 918857,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 770008
+    },
+    "Examples.AbstractFIFO": {
+      "size_bytes": 105392,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 68976
+    },
+    "Examples.AgdaTransferCaller": {
+      "size_bytes": 271551,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 209904
+    },
+    "Examples.AgdaTransferDiagnostics": {
+      "size_bytes": 7575,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 2616
+    },
+    "Examples.AgdaTransferModels": {
+      "size_bytes": 533881,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 325216
+    },
+    "Examples.AlgebraicKL": {
+      "size_bytes": 214501,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 177152
+    },
+    "Examples.AlgebraicScalar": {
+      "size_bytes": 111372,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 97936
+    },
+    "Examples.ArbitrarySmoothCovers": {
+      "size_bytes": 347365,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 299880
+    },
+    "Examples.ArithmeticPipeline": {
+      "size_bytes": 286903,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 232952
+    },
+    "Examples.ArithmeticStaging": {
+      "size_bytes": 220914,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 152040
+    },
+    "Examples.BoundedSegments": {
+      "size_bytes": 124332,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 107616
+    },
+    "Examples.BoundedSummary": {
+      "size_bytes": 166873,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 92616
+    },
+    "Examples.Bracketing": {
+      "size_bytes": 105296,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 80600
+    },
+    "Examples.BranchingGraphTransport": {
+      "size_bytes": 276091,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 219752
+    },
+    "Examples.ByteBuffer": {
+      "size_bytes": 119297,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 83760
+    },
+    "Examples.CategoryInstances": {
+      "size_bytes": 122417,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 103728
+    },
+    "Examples.CategoryMaps": {
+      "size_bytes": 108453,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 82816
+    },
+    "Examples.ClosedTransport": {
+      "size_bytes": 292432,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 215008
+    },
+    "Examples.CoinChoice": {
+      "size_bytes": 102798,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 79160
+    },
+    "Examples.CommaAgreement": {
+      "size_bytes": 113709,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 76848
+    },
+    "Examples.CommaSquares": {
+      "size_bytes": 209519,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 164848
+    },
+    "Examples.ComparisonPermutations": {
+      "size_bytes": 225388,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 181864
+    },
+    "Examples.CompiledTemporalPayload": {
+      "size_bytes": 223289,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 144712
+    },
+    "Examples.CompositionalCoalgebra": {
+      "size_bytes": 320360,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 206544
+    },
+    "Examples.Connectivity": {
+      "size_bytes": 174321,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 123392
+    },
+    "Examples.ConstantSheafStreams": {
+      "size_bytes": 274233,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 199320
+    },
+    "Examples.CurryHoward": {
+      "size_bytes": 199617,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 122904
+    },
+    "Examples.DependentBaseChange": {
+      "size_bytes": 145001,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 110984
+    },
+    "Examples.DependentCongruence": {
+      "size_bytes": 373987,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 234936
+    },
+    "Examples.DependentFunctionSource": {
+      "size_bytes": 489477,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 395656
+    },
+    "Examples.DependentFunctionSourceEdges": {
+      "size_bytes": 156977,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 116520
+    },
+    "Examples.DependentProducts": {
+      "size_bytes": 107587,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 80720
+    },
+    "Examples.DependentSource": {
+      "size_bytes": 251904,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 186888
+    },
+    "Examples.DependentSourceNative": {
+      "size_bytes": 129992,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 113208
+    },
+    "Examples.DiagnosticProjection": {
+      "size_bytes": 817447,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 537160
+    },
+    "Examples.DiagnosticStorage": {
+      "size_bytes": 1964768,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1761848
+    },
+    "Examples.Dijkstra": {
+      "size_bytes": 362572,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 268408
+    },
+    "Examples.DijkstraCosts": {
+      "size_bytes": 159065,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 116448
+    },
+    "Examples.DijkstraSentinel": {
+      "size_bytes": 295471,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 237104
+    },
+    "Examples.DiscreteSmoothMapping": {
+      "size_bytes": 228462,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 124720
+    },
+    "Examples.DiskRealizations": {
+      "size_bytes": 118626,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 91792
+    },
+    "Examples.Durability": {
+      "size_bytes": 913212,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 652488
+    },
+    "Examples.EditAlignment": {
+      "size_bytes": 190451,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 134304
+    },
+    "Examples.EquationTranspose": {
+      "size_bytes": 355838,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 272664
+    },
+    "Examples.EuclideanOpenEmbedding": {
+      "size_bytes": 161246,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 121592
+    },
+    "Examples.ExpressiveWitnesses": {
+      "size_bytes": 279600,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 185992
+    },
+    "Examples.FRPDemand": {
+      "size_bytes": 251874,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 201320
+    },
+    "Examples.FRPFrontier": {
+      "size_bytes": 121504,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 88280
+    },
+    "Examples.FRPTrace": {
+      "size_bytes": 311844,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 242640
+    },
+    "Examples.FalsePointBaseChange": {
+      "size_bytes": 496842,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 326000
+    },
+    "Examples.FalsePointProduct": {
+      "size_bytes": 433052,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 365408
+    },
+    "Examples.FullSourceNaturality": {
+      "size_bytes": 450242,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 325800
+    },
+    "Examples.GroupoidTransport": {
+      "size_bytes": 94420,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 64000
+    },
+    "Examples.InternalGraphs": {
+      "size_bytes": 55807,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 28144
+    },
+    "Examples.InternalRelations": {
+      "size_bytes": 117019,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 69168
+    },
+    "Examples.LanguageCoalgebra": {
+      "size_bytes": 131036,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 74344
+    },
+    "Examples.PresheafInternal": {
+      "size_bytes": 603474,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 476968
+    },
+    "Examples.ProjectionProducts": {
+      "size_bytes": 155089,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 111344
+    },
+    "Examples.SheafBaseChange": {
+      "size_bytes": 165467,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 128096
+    },
+    "Examples.SheafContexts": {
+      "size_bytes": 1018129,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 891760
+    },
+    "Examples.SheafFamilies": {
+      "size_bytes": 156300,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 127648
+    },
+    "Examples.SheafFunctions": {
+      "size_bytes": 122710,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 88304
+    },
+    "Examples.SheafImage": {
+      "size_bytes": 1154217,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 942448
+    },
+    "Examples.SheafSections": {
+      "size_bytes": 175621,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 124008
+    },
+    "Examples.SheafSliceFunctions": {
+      "size_bytes": 447721,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 308944
+    },
+    "Examples.SheafSlices": {
+      "size_bytes": 235460,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 179192
+    },
+    "Examples.SheafSums": {
+      "size_bytes": 179708,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 144568
+    },
+    "Examples.SmoothFormalLocalization": {
+      "size_bytes": 297518,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 235096
+    },
+    "Examples.SplitDependentFunctionEdges": {
+      "size_bytes": 161858,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 117624
+    },
+    "Examples.SplitDependentFunctions": {
+      "size_bytes": 565564,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 360896
+    },
+    "Examples.SplitNative": {
+      "size_bytes": 73622,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 58456
+    },
+    "Examples.TemporalFRP": {
+      "size_bytes": 537597,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 445208
+    },
+    "Examples.TerminalProducts": {
+      "size_bytes": 125095,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 96368
+    },
+    "Examples.TypeSums": {
+      "size_bytes": 56029,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 40008
+    },
+    "FirstOrder": {
+      "size_bytes": 2103124,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1898304
+    },
+    "SquareCompiler": {
+      "size_bytes": 484155,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 379440
+    },
+    "SquareKit.AdjointComparison": {
+      "size_bytes": 120252,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 108920
+    },
+    "SquareKit.AffineExponential": {
+      "size_bytes": 75935,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 68264
+    },
+    "SquareKit.AlgebraicDerivative": {
+      "size_bytes": 112543,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 91352
+    },
+    "SquareKit.AlgebraicKL": {
+      "size_bytes": 454173,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 387232
+    },
+    "SquareKit.AlgebraicStage": {
+      "size_bytes": 426843,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 384840
+    },
+    "SquareKit.Arithmetic": {
+      "size_bytes": 246133,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 199168
+    },
+    "SquareKit.ArithmeticStaging": {
+      "size_bytes": 158796,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 129272
+    },
+    "SquareKit.CartesianMap": {
+      "size_bytes": 407259,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 351472
+    },
+    "SquareKit.CartesianMapQuotient": {
+      "size_bytes": 713515,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 510808
+    },
+    "SquareKit.Category": {
+      "size_bytes": 498567,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 445648
+    },
+    "SquareKit.CategoryMap": {
+      "size_bytes": 352419,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 305160
+    },
+    "SquareKit.CategoryQuotient": {
+      "size_bytes": 175095,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 146776
+    },
+    "SquareKit.ClosedComparison": {
+      "size_bytes": 53566,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 44944
+    },
+    "SquareKit.ClosedMap": {
+      "size_bytes": 321696,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 273832
+    },
+    "SquareKit.CodeCategory": {
+      "size_bytes": 286256,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 210488
+    },
+    "SquareKit.Combinators": {
+      "size_bytes": 102770,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 79824
+    },
+    "SquareKit.Comma": {
+      "size_bytes": 594362,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 547592
+    },
+    "SquareKit.CommaAgreement": {
+      "size_bytes": 148072,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 116208
+    },
+    "SquareKit.CommaExact": {
+      "size_bytes": 105385,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 74888
+    },
+    "SquareKit.CommaLawful": {
+      "size_bytes": 317667,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 261736
+    },
+    "SquareKit.CommaOptionalExact": {
+      "size_bytes": 195605,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 141008
+    },
+    "SquareKit.CommaProducts": {
+      "size_bytes": 403487,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 334984
+    },
+    "SquareKit.CommaProductsExact": {
+      "size_bytes": 94516,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 64344
+    },
+    "SquareKit.CommaVertical": {
+      "size_bytes": 124069,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 102248
+    },
+    "SquareKit.CompositionalCoalgebra": {
+      "size_bytes": 641139,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 569992
+    },
+    "SquareKit.ConstantSheafProducts": {
+      "size_bytes": 295903,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 246816
+    },
+    "SquareKit.CurryHoward": {
+      "size_bytes": 769719,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 683224
+    },
+    "SquareKit.CurryHowardRelations": {
+      "size_bytes": 130858,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 91312
+    },
+    "SquareKit.DependentBaseChange": {
+      "size_bytes": 653874,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 606800
+    },
+    "SquareKit.DependentBaseChangeIdentity": {
+      "size_bytes": 644774,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 625232
+    },
+    "SquareKit.DiscreteSheaf": {
+      "size_bytes": 260835,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 211536
+    },
+    "SquareKit.ElementFamilies": {
+      "size_bytes": 800815,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 720744
+    },
+    "SquareKit.ElementSheaf": {
+      "size_bytes": 433953,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 391248
+    },
+    "SquareKit.ElementSite": {
+      "size_bytes": 292889,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 262480
+    },
+    "SquareKit.EquationTranspose": {
+      "size_bytes": 917193,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 838144
+    },
+    "SquareKit.ExponentiablePullback": {
+      "size_bytes": 449470,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 413400
+    },
+    "SquareKit.Family": {
+      "size_bytes": 322338,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 305112
+    },
+    "SquareKit.FamilyCoherence": {
+      "size_bytes": 398409,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 375192
+    },
+    "SquareKit.FamilySum": {
+      "size_bytes": 390914,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 359160
+    },
+    "SquareKit.FirstOrder": {
+      "size_bytes": 327495,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 259208
+    },
+    "SquareKit.FirstOrderCategory": {
+      "size_bytes": 55590,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 38320
+    },
+    "SquareKit.FirstOrderNaturality": {
+      "size_bytes": 881020,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 738680
+    },
+    "SquareKit.FirstOrderSubstitution": {
+      "size_bytes": 783474,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 706976
+    },
+    "SquareKit.FunctionCategory": {
+      "size_bytes": 116508,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 83952
+    },
+    "SquareKit.FunctionOptional": {
+      "size_bytes": 92146,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 68504
+    },
+    "SquareKit.GroupoidTransport": {
+      "size_bytes": 26946,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 17688
+    },
+    "SquareKit.InteractionContracts": {
+      "size_bytes": 67092,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 56896
+    },
+    "SquareKit.InteractionEvents": {
+      "size_bytes": 141801,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 131312
+    },
+    "SquareKit.Internal.Associativity": {
+      "size_bytes": 293002,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 231408
+    },
+    "SquareKit.Internal.DependentEquality": {
+      "size_bytes": 272826,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 220048
+    },
+    "SquareKit.Internal.DependentFunctionEmbedding": {
+      "size_bytes": 447424,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 376080
+    },
+    "SquareKit.Internal.DependentFunctionEquality": {
+      "size_bytes": 685457,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 658888
+    },
+    "SquareKit.Internal.DependentFunctionLaws": {
+      "size_bytes": 179495,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 142648
+    },
+    "SquareKit.Internal.DependentFunctionSheafBase": {
+      "size_bytes": 214088,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 172504
+    },
+    "SquareKit.Internal.DependentFunctionSheafComparison": {
+      "size_bytes": 267607,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 221344
+    },
+    "SquareKit.Internal.DependentFunctionSheafContext": {
+      "size_bytes": 352462,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 308936
+    },
+    "SquareKit.Internal.DependentFunctionSheafOperations": {
+      "size_bytes": 176831,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 147808
+    },
+    "SquareKit.Internal.DependentFunctionSheafRenaming": {
+      "size_bytes": 1709987,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1665928
+    },
+    "SquareKit.Internal.DependentFunctionSheafSoundness": {
+      "size_bytes": 666067,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 631232
+    },
+    "SquareKit.Internal.DependentFunctionSheafSubstitution": {
+      "size_bytes": 1741709,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1695992
+    },
+    "SquareKit.Internal.DependentFunctionSheafTerms": {
+      "size_bytes": 349484,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 320424
+    },
+    "SquareKit.Internal.DependentFunctionTyping": {
+      "size_bytes": 706808,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 650896
+    },
+    "SquareKit.Internal.DependentFunctions": {
+      "size_bytes": 2731946,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 2512296
+    },
+    "SquareKit.Internal.DependentSheafComparison": {
+      "size_bytes": 186296,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 151832
+    },
+    "SquareKit.Internal.DependentSheafContext": {
+      "size_bytes": 613531,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 565512
+    },
+    "SquareKit.Internal.DependentSheafSoundness": {
+      "size_bytes": 232564,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 198552
+    },
+    "SquareKit.Internal.DependentSheafSubstitution": {
+      "size_bytes": 570474,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 528592
+    },
+    "SquareKit.Internal.DependentStructural": {
+      "size_bytes": 1264089,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1102832
+    },
+    "SquareKit.Internal.Graph": {
+      "size_bytes": 224568,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 176424
+    },
+    "SquareKit.Internal.InterpretationRoutes": {
+      "size_bytes": 150355,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 115728
+    },
+    "SquareKit.Internal.Logic": {
+      "size_bytes": 1579213,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1472496
+    },
+    "SquareKit.Internal.PathTransport.Authoring": {
+      "size_bytes": 2735951,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1733088
+    },
+    "SquareKit.Internal.PathTransport.BasedPath": {
+      "size_bytes": 102612,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 85224
+    },
+    "SquareKit.Internal.PathTransport.Binding": {
+      "size_bytes": 219735,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 161200
+    },
+    "SquareKit.Internal.PathTransport.CommandCongruence": {
+      "size_bytes": 206557,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 172904
+    },
+    "SquareKit.Internal.PathTransport.ConcatReindexBeta": {
+      "size_bytes": 859183,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 656072
+    },
+    "SquareKit.Internal.PathTransport.ConcatSemantics": {
+      "size_bytes": 999613,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 701992
+    },
+    "SquareKit.Internal.PathTransport.Concatenation": {
+      "size_bytes": 750088,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 508576
+    },
+    "SquareKit.Internal.PathTransport.ConcatenationBeta": {
+      "size_bytes": 438334,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 337632
+    },
+    "SquareKit.Internal.PathTransport.ConcatenationCongr": {
+      "size_bytes": 305083,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 247208
+    },
+    "SquareKit.Internal.PathTransport.ContextualElimination": {
+      "size_bytes": 291184,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 248792
+    },
+    "SquareKit.Internal.PathTransport.ContextualModel": {
+      "size_bytes": 4030356,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 3873704
+    },
+    "SquareKit.Internal.PathTransport.Derived": {
+      "size_bytes": 342706,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 247576
+    },
+    "SquareKit.Internal.PathTransport.DerivedCoherence": {
+      "size_bytes": 249048,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 211328
+    },
+    "SquareKit.Internal.PathTransport.DerivedSemantics": {
+      "size_bytes": 671398,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 632800
+    },
+    "SquareKit.Internal.PathTransport.EliminationUniqueness": {
+      "size_bytes": 179937,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 157936
+    },
+    "SquareKit.Internal.PathTransport.Endpoints": {
+      "size_bytes": 306695,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 228816
+    },
+    "SquareKit.Internal.PathTransport.GroupoidElimination": {
+      "size_bytes": 185279,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 126144
+    },
+    "SquareKit.Internal.PathTransport.GroupoidIdentity": {
+      "size_bytes": 174241,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 148632
+    },
+    "SquareKit.Internal.PathTransport.GroupoidSoundness": {
+      "size_bytes": 2202153,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1736480
+    },
+    "SquareKit.Internal.PathTransport.JNaturality": {
+      "size_bytes": 964237,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 898480
+    },
+    "SquareKit.Internal.PathTransport.Model": {
+      "size_bytes": 612705,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 589560
+    },
+    "SquareKit.Internal.PathTransport.Named": {
+      "size_bytes": 421022,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 325480
+    },
+    "SquareKit.Internal.PathTransport.NativeNormalization": {
+      "size_bytes": 118920,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 83776
+    },
+    "SquareKit.Internal.PathTransport.PathContext": {
+      "size_bytes": 701813,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 660400
+    },
+    "SquareKit.Internal.PathTransport.RawContext": {
+      "size_bytes": 221074,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 187976
+    },
+    "SquareKit.Internal.PathTransport.RawReindex": {
+      "size_bytes": 160643,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 139416
+    },
+    "SquareKit.Internal.PathTransport.ReindexCoherence": {
+      "size_bytes": 547955,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 465776
+    },
+    "SquareKit.Internal.PathTransport.SectionNormalization": {
+      "size_bytes": 485356,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 449312
+    },
+    "SquareKit.Internal.PathTransport.SourceReindex": {
+      "size_bytes": 100237,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 74792
+    },
+    "SquareKit.Internal.PathTransport.SourceSemantics": {
+      "size_bytes": 781630,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 443736
+    },
+    "SquareKit.Internal.PathTransport.SplitFamily": {
+      "size_bytes": 1044417,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 957256
+    },
+    "SquareKit.Internal.PathTransport.StructuralCongruence": {
+      "size_bytes": 105926,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 81432
+    },
+    "SquareKit.Internal.PathTransport.Syntax": {
+      "size_bytes": 701019,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 616856
+    },
+    "SquareKit.Internal.PathTransport.TelescopeElimination": {
+      "size_bytes": 1460408,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 983296
+    },
+    "SquareKit.Internal.PathTransport.Transfer": {
+      "size_bytes": 258235,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 181512
+    },
+    "SquareKit.Internal.PathTransport.TransferApplication": {
+      "size_bytes": 490120,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 372720
+    },
+    "SquareKit.Internal.PathTransport.TransferAssembly": {
+      "size_bytes": 313600,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 209504
+    },
+    "SquareKit.Internal.PathTransport.TransferBranch": {
+      "size_bytes": 100864,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 66928
+    },
+    "SquareKit.Internal.PathTransport.TransferConsumer": {
+      "size_bytes": 716450,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 517400
+    },
+    "SquareKit.Internal.PathTransport.TransferFrame": {
+      "size_bytes": 550734,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 342584
+    },
+    "SquareKit.Internal.PathTransport.TransferRoot": {
+      "size_bytes": 391970,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 323312
+    },
+    "SquareKit.Internal.PathTransport.TransferRootBranch": {
+      "size_bytes": 597617,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 340808
+    },
+    "SquareKit.Internal.PathTransport.TransferSoundness": {
+      "size_bytes": 391187,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 215848
+    },
+    "SquareKit.Internal.PathTransport.TransportCongr": {
+      "size_bytes": 292528,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 231576
+    },
+    "SquareKit.Internal.PathTransport.TransportNormalization": {
+      "size_bytes": 309538,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 227856
+    },
+    "SquareKit.Internal.PathTransport.Typed": {
+      "size_bytes": 22673986,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 21874776
+    },
+    "SquareKit.Internal.PathTransport.UniversalTransfer": {
+      "size_bytes": 898770,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 644448
+    },
+    "SquareKit.Internal.Presheaf": {
+      "size_bytes": 833456,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 761320
+    },
+    "SquareKit.Internal.PresheafGraphs": {
+      "size_bytes": 360629,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 319168
+    },
+    "SquareKit.Internal.SheafContexts": {
+      "size_bytes": 436528,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 400808
+    },
+    "SquareKit.Internal.SheafFamilies": {
+      "size_bytes": 856641,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 833928
+    },
+    "SquareKit.Internal.Squares": {
+      "size_bytes": 69362,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 51136
+    },
+    "SquareKit.Iteration": {
+      "size_bytes": 47123,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 41800
+    },
+    "SquareKit.ListFusion": {
+      "size_bytes": 71742,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 62664
+    },
+    "SquareKit.LocallyConstantSheaf": {
+      "size_bytes": 330057,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 272760
+    },
+    "SquareKit.MatrixCategory": {
+      "size_bytes": 335577,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 276728
+    },
+    "SquareKit.Optional": {
+      "size_bytes": 316455,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 295384
+    },
+    "SquareKit.OptionalMap": {
+      "size_bytes": 251767,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 204992
+    },
+    "SquareKit.OptionalQuotient": {
+      "size_bytes": 189476,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 157240
+    },
+    "SquareKit.ProductStreams": {
+      "size_bytes": 277005,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 244192
+    },
+    "SquareKit.RelationComposition": {
+      "size_bytes": 243930,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 207976
+    },
+    "SquareKit.RelationTransport": {
+      "size_bytes": 69299,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 59488
+    },
+    "SquareKit.RelationalCategory": {
+      "size_bytes": 382480,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 271376
+    },
+    "SquareKit.Relations": {
+      "size_bytes": 342676,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 273592
+    },
+    "SquareKit.STLCCategory": {
+      "size_bytes": 96561,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 66120
+    },
+    "SquareKit.STLCExact": {
+      "size_bytes": 218212,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 167224
+    },
+    "SquareKit.STLCImage": {
+      "size_bytes": 376828,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 273616
+    },
+    "SquareKit.STLCNaturality": {
+      "size_bytes": 998995,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 882992
+    },
+    "SquareKit.STLCRelations": {
+      "size_bytes": 568426,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 475400
+    },
+    "SquareKit.STLCSubstitution": {
+      "size_bytes": 1694433,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1562048
+    },
+    "SquareKit.SheafBaseChange": {
+      "size_bytes": 160494,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 146056
+    },
+    "SquareKit.SheafDependentProduct": {
+      "size_bytes": 252294,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 220536
+    },
+    "SquareKit.SheafFamily": {
+      "size_bytes": 187901,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 168232
+    },
+    "SquareKit.SheafFunction": {
+      "size_bytes": 243970,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 218752
+    },
+    "SquareKit.SheafImage": {
+      "size_bytes": 225426,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 195016
+    },
+    "SquareKit.SheafIndexedProduct": {
+      "size_bytes": 237832,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 215424
+    },
+    "SquareKit.SheafProductBaseChange": {
+      "size_bytes": 198974,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 178072
+    },
+    "SquareKit.SheafProductBaseChangeConstant": {
+      "size_bytes": 287088,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 252664
+    },
+    "SquareKit.SheafProjectionConstant": {
+      "size_bytes": 352889,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 314024
+    },
+    "SquareKit.SheafProjectionProduct": {
+      "size_bytes": 249247,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 224120
+    },
+    "SquareKit.SheafRelation": {
+      "size_bytes": 519260,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 464224
+    },
+    "SquareKit.SheafSections": {
+      "size_bytes": 498166,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 438792
+    },
+    "SquareKit.SheafSectionsConstant": {
+      "size_bytes": 175514,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 152032
+    },
+    "SquareKit.SheafSlice": {
+      "size_bytes": 487902,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 425192
+    },
+    "SquareKit.SheafSliceFunction": {
+      "size_bytes": 533226,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 475992
+    },
+    "SquareKit.SheafTerminalProduct": {
+      "size_bytes": 211283,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 177672
+    },
+    "SquareKit.SheafTorsor": {
+      "size_bytes": 1355818,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1245768
+    },
+    "SquareKit.SliceDependentProduct": {
+      "size_bytes": 149321,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 130232
+    },
+    "SquareKit.SmoothAlgebra": {
+      "size_bytes": 551129,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 482424
+    },
+    "SquareKit.SmoothConstantRigidity": {
+      "size_bytes": 138080,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 112824
+    },
+    "SquareKit.SmoothCoverCharacterization": {
+      "size_bytes": 214075,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 190888
+    },
+    "SquareKit.SmoothDerivative": {
+      "size_bytes": 222547,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 187992
+    },
+    "SquareKit.SmoothDescentHom": {
+      "size_bytes": 110814,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 93440
+    },
+    "SquareKit.SmoothDescentOperations": {
+      "size_bytes": 313150,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 283856
+    },
+    "SquareKit.SmoothDiscreteMapping": {
+      "size_bytes": 340283,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 223408
+    },
+    "SquareKit.SmoothDualCover": {
+      "size_bytes": 596074,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 534384
+    },
+    "SquareKit.SmoothDualExtension": {
+      "size_bytes": 574315,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 530688
+    },
+    "SquareKit.SmoothDualPresentation": {
+      "size_bytes": 221675,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 181912
+    },
+    "SquareKit.SmoothDualSheaf": {
+      "size_bytes": 296861,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 211640
+    },
+    "SquareKit.SmoothElementDescent": {
+      "size_bytes": 370980,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 324824
+    },
+    "SquareKit.SmoothFormalLocalizationStage": {
+      "size_bytes": 109252,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 84280
+    },
+    "SquareKit.SmoothGeometricDerivative": {
+      "size_bytes": 553555,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 401088
+    },
+    "SquareKit.SmoothGeometricDual": {
+      "size_bytes": 164324,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 142144
+    },
+    "SquareKit.SmoothGeometricInfinitesimal": {
+      "size_bytes": 61511,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 48728
+    },
+    "SquareKit.SmoothGeometricKL": {
+      "size_bytes": 593441,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 444776
+    },
+    "SquareKit.SmoothGeometricLocality": {
+      "size_bytes": 65970,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 49648
+    },
+    "SquareKit.SmoothGeometricRepresentable": {
+      "size_bytes": 433370,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 305776
+    },
+    "SquareKit.SmoothGeometricScalar": {
+      "size_bytes": 226478,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 189448
+    },
+    "SquareKit.SmoothHadamard": {
+      "size_bytes": 340524,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 309024
+    },
+    "SquareKit.SmoothIdealArbitraryGluing": {
+      "size_bytes": 208489,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 193112
+    },
+    "SquareKit.SmoothIdealGluing": {
+      "size_bytes": 175195,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 158864
+    },
+    "SquareKit.SmoothIdealLocal": {
+      "size_bytes": 399942,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 371864
+    },
+    "SquareKit.SmoothInverseGraph": {
+      "size_bytes": 258241,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 225792
+    },
+    "SquareKit.SmoothKL": {
+      "size_bytes": 472538,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 404928
+    },
+    "SquareKit.SmoothLocalGluing": {
+      "size_bytes": 132761,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 121880
+    },
+    "SquareKit.SmoothLocalization": {
+      "size_bytes": 793903,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 693768
+    },
+    "SquareKit.SmoothLocalizationBaseChange": {
+      "size_bytes": 291506,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 247960
+    },
+    "SquareKit.SmoothLocalizationDual": {
+      "size_bytes": 398748,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 354320
+    },
+    "SquareKit.SmoothLocalizationFreeComparison": {
+      "size_bytes": 278984,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 213664
+    },
+    "SquareKit.SmoothLocalizationLocalIdeal": {
+      "size_bytes": 388600,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 351704
+    },
+    "SquareKit.SmoothLocalizationOpen": {
+      "size_bytes": 354585,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 311480
+    },
+    "SquareKit.SmoothLocalizationPoints": {
+      "size_bytes": 542876,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 415976
+    },
+    "SquareKit.SmoothLocallyConstantGroup": {
+      "size_bytes": 111506,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 89504
+    },
+    "SquareKit.SmoothOpenCoordinates": {
+      "size_bytes": 286774,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 254968
+    },
+    "SquareKit.SmoothOpenCover": {
+      "size_bytes": 206609,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 186632
+    },
+    "SquareKit.SmoothOpenDescent": {
+      "size_bytes": 195492,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 175800
+    },
+    "SquareKit.SmoothOpenDescentHom": {
+      "size_bytes": 70369,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 57904
+    },
+    "SquareKit.SmoothOpenDescentOperations": {
+      "size_bytes": 217264,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 187520
+    },
+    "SquareKit.SmoothOpenDuality": {
+      "size_bytes": 162268,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 136480
+    },
+    "SquareKit.SmoothOpenEmbedding": {
+      "size_bytes": 160169,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 129040
+    },
+    "SquareKit.SmoothOpenFunctions": {
+      "size_bytes": 252669,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 218688
+    },
+    "SquareKit.SmoothOpenKL": {
+      "size_bytes": 36078,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 23784
+    },
+    "SquareKit.SmoothOpenMaps": {
+      "size_bytes": 232174,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 202528
+    },
+    "SquareKit.SmoothOpenOperations": {
+      "size_bytes": 183730,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 162176
+    },
+    "SquareKit.SmoothOpenScalar": {
+      "size_bytes": 132676,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 106816
+    },
+    "SquareKit.SmoothOpenSheaf": {
+      "size_bytes": 120590,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 99480
+    },
+    "SquareKit.SmoothOpenTopology": {
+      "size_bytes": 88145,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 72648
+    },
+    "SquareKit.SmoothOperations": {
+      "size_bytes": 88380,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 67128
+    },
+    "SquareKit.SmoothOverlapRestriction": {
+      "size_bytes": 417906,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 353776
+    },
+    "SquareKit.SmoothPresentation": {
+      "size_bytes": 337178,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 277760
+    },
+    "SquareKit.SmoothPresentationCategory": {
+      "size_bytes": 206617,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 161384
+    },
+    "SquareKit.SmoothPresentationGeometry": {
+      "size_bytes": 327700,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 288288
+    },
+    "SquareKit.SmoothPresentationSheaf": {
+      "size_bytes": 133979,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 109984
+    },
+    "SquareKit.SmoothPresentedDual": {
+      "size_bytes": 286902,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 220840
+    },
+    "SquareKit.SmoothPresentedLocalization": {
+      "size_bytes": 341792,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 299400
+    },
+    "SquareKit.SmoothPrincipalCover": {
+      "size_bytes": 440346,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 379904
+    },
+    "SquareKit.SmoothPrincipalDescent": {
+      "size_bytes": 233487,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 212976
+    },
+    "SquareKit.SmoothPrincipalOverlap": {
+      "size_bytes": 170816,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 153136
+    },
+    "SquareKit.SmoothPrincipalTopology": {
+      "size_bytes": 109956,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 92944
+    },
+    "SquareKit.SmoothQuotient": {
+      "size_bytes": 448127,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 408352
+    },
+    "SquareKit.SmoothRealPointCovers": {
+      "size_bytes": 179538,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 156520
+    },
+    "SquareKit.SmoothSitePullback": {
+      "size_bytes": 150488,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 134176
+    },
+    "SquareKit.SmoothStage": {
+      "size_bytes": 409462,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 366576
+    },
+    "SquareKit.SmoothTaylor": {
+      "size_bytes": 553003,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 514568
+    },
+    "SquareKit.SmoothTorsorDual": {
+      "size_bytes": 474919,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 368536
+    },
+    "SquareKit.SmoothTorsorEquivalence": {
+      "size_bytes": 855688,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 624920
+    },
+    "SquareKit.SmoothTorsorParameters": {
+      "size_bytes": 729458,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 549944
+    },
+    "SquareKit.SplitFunctionDiagram": {
+      "size_bytes": 839077,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 760552
+    },
+    "SquareKit.SplitFunctionSheaf": {
+      "size_bytes": 902382,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 795992
+    },
+    "SquareKit.SplitFunctionTerms": {
+      "size_bytes": 474451,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 413400
+    },
+    "SquareKit.SplitPiBaseChange": {
+      "size_bytes": 787266,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 717312
+    },
+    "SquareKit.SplitPiComparison": {
+      "size_bytes": 613476,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 553768
+    },
+    "SquareKit.SplitPiPresentations": {
+      "size_bytes": 158451,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 135640
+    },
+    "SquareKit.SplitPresheaf": {
+      "size_bytes": 521847,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 475192
+    },
+    "SquareKit.SplitSheaf": {
+      "size_bytes": 558393,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 487400
+    },
+    "SquareKit.SplitSheafCoherence": {
+      "size_bytes": 290595,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 258008
+    },
+    "SquareKit.SplitSheafConstant": {
+      "size_bytes": 217104,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 180816
+    },
+    "SquareKit.SplitSheafPi": {
+      "size_bytes": 263479,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 220384
+    },
+    "SquareKit.Temporal.BatchRelations": {
+      "size_bytes": 112792,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 93496
+    },
+    "SquareKit.Temporal.Finite": {
+      "size_bytes": 778224,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 724408
+    },
+    "SquareKit.Temporal.Relations": {
+      "size_bytes": 286772,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 269928
+    },
+    "SquareKit.Temporal.Syntax": {
+      "size_bytes": 1503016,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 1413152
+    },
+    "SquareKit.TerminalProduct": {
+      "size_bytes": 272179,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 228600
+    },
+    "SquareKit.TypeFamily": {
+      "size_bytes": 222926,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 195960
+    },
+    "SquareKit.TypeFamilyCoherence": {
+      "size_bytes": 112323,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 84904
+    },
+    "SquareKit.TypeFamilySum": {
+      "size_bytes": 277335,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 229856
+    },
+    "SquareKit.TypeTerminalProduct": {
+      "size_bytes": 367019,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 294904
+    },
+    "SquareKit.WordCoalgebra": {
+      "size_bytes": 515498,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 457560
+    },
+    "Squares": {
+      "size_bytes": 504888,
+      "artifact_count": 3,
+      "largest_artifact_bytes": 397408
+    }
+  },
+  "omitted": {
+    "Applications.Circuits.Execution": "[Errno 2] No such file or directory: 'Execution.trace'",
+    "Applications.Durability.Retention": "[Errno 2] No such file or directory: 'Retention.trace'",
+    "Applications.Durability.RetentionBanks": "[Errno 2] No such file or directory: 'RetentionBanks.trace'",
+    "Applications.Durability.RetentionClients": "[Errno 2] No such file or directory: 'RetentionClients.trace'",
+    "Applications.Durability.RetentionMachine": "[Errno 2] No such file or directory: 'RetentionMachine.trace'",
+    "Applications.Durability.RetentionOwnership": "[Errno 2] No such file or directory: 'RetentionOwnership.trace'",
+    "Applications.Durability.RetentionResources": "[Errno 2] No such file or directory: 'RetentionResources.trace'",
+    "Applications.Durability.RetentionService": "[Errno 2] No such file or directory: 'RetentionService.trace'",
+    "Applications.Durability.RetentionSummary": "[Errno 2] No such file or directory: 'RetentionSummary.trace'",
+    "Applications.FRP.DriverIO": "[Errno 2] No such file or directory: 'DriverIO.trace'",
+    "Applications.FRP.DriverProtocol": "[Errno 2] No such file or directory: 'DriverProtocol.trace'",
+    "Applications.FRP.Engine": "[Errno 2] No such file or directory: 'Engine.trace'",
+    "Applications.FRP.Equivalence": "[Errno 2] No such file or directory: 'Equivalence.trace'",
+    "Applications.FRP.Feedback": "[Errno 2] No such file or directory: 'Feedback.trace'",
+    "Applications.FRP.Finite": "[Errno 2] No such file or directory: 'Finite.trace'",
+    "Applications.FRP.FiniteDelay": "[Errno 2] No such file or directory: 'FiniteDelay.trace'",
+    "Applications.FRP.Indefinite": "[Errno 2] No such file or directory: 'Indefinite.trace'",
+    "Applications.FRP.IndefiniteIO": "[Errno 2] No such file or directory: 'IndefiniteIO.trace'",
+    "Applications.FRP.Lifecycle": "[Errno 2] No such file or directory: 'Lifecycle.trace'",
+    "Applications.FRP.LifecyclePipeline": "[Errno 2] No such file or directory: 'LifecyclePipeline.trace'",
+    "Applications.FRP.LifecycleProgress": "[Errno 2] No such file or directory: 'LifecycleProgress.trace'",
+    "Applications.FRP.LifecycleSafety": "[Errno 2] No such file or directory: 'LifecycleSafety.trace'",
+    "Applications.FRP.Monitor": "[Errno 2] No such file or directory: 'Monitor.trace'",
+    "Applications.FRP.Pipeline": "[Errno 2] No such file or directory: 'Pipeline.trace'",
+    "Applications.FRP.ReactiveConsumers": "[Errno 2] No such file or directory: 'ReactiveConsumers.trace'",
+    "Applications.FRP.ReactiveContracts": "[Errno 2] No such file or directory: 'ReactiveContracts.trace'",
+    "Applications.Geometry.ConformalConnection": "[Errno 2] No such file or directory: 'Geometry'",
+    "Applications.Geometry.ParallelTransport": "[Errno 2] No such file or directory: 'Geometry'",
+    "Applications.Geometry.VariableCurvature": "[Errno 2] No such file or directory: 'Geometry'",
+    "Applications.Huffman.Basic": "[Errno 2] No such file or directory: 'Huffman'",
+    "Applications.Huffman.Exchange": "[Errno 2] No such file or directory: 'Huffman'",
+    "Applications.Huffman.Observation": "[Errno 2] No such file or directory: 'Huffman'",
+    "Applications.Huffman.Priority": "[Errno 2] No such file or directory: 'Huffman'",
+    "Applications.Huffman.SourcePriority": "[Errno 2] No such file or directory: 'Huffman'",
+    "Applications.Incremental.PrefixSum": "[Errno 2] No such file or directory: 'PrefixSum.trace'",
+    "Applications.Incremental.Stateful": "[Errno 2] No such file or directory: 'Stateful.trace'",
+    "Applications.Incremental.VectorSum": "[Errno 2] No such file or directory: 'VectorSum.trace'",
+    "Applications.Incremental.VectorSumCost": "[Errno 2] No such file or directory: 'VectorSumCost.trace'",
+    "Applications.Interaction.Evidence": "[Errno 2] No such file or directory: 'Evidence.trace'",
+    "Applications.Interaction.EvidenceBounds": "[Errno 2] No such file or directory: 'EvidenceBounds.trace'",
+    "Applications.Interaction.Measurement": "[Errno 2] No such file or directory: 'Measurement.trace'",
+    "Applications.Interaction.Obligation": "[Errno 2] No such file or directory: 'Obligation.trace'",
+    "Applications.Intervals.ConditionedComposition": "[Errno 2] No such file or directory: 'ConditionedComposition.trace'",
+    "Applications.Kruskal.AllMinima": "[Errno 2] No such file or directory: 'Kruskal'",
+    "Applications.Kruskal.Basic": "[Errno 2] No such file or directory: 'Kruskal'",
+    "Applications.Kruskal.Correctness": "[Errno 2] No such file or directory: 'Kruskal'",
+    "Applications.Kruskal.Forest": "[Errno 2] No such file or directory: 'Kruskal'",
+    "Applications.Kruskal.ForestObservation": "[Errno 2] No such file or directory: 'Kruskal'",
+    "Applications.Kruskal.Nested": "[Errno 2] No such file or directory: 'Kruskal'",
+    "Applications.Kruskal.NestedClient": "[Errno 2] No such file or directory: 'Kruskal'",
+    "Applications.Kruskal.NestedPartition": "[Errno 2] No such file or directory: 'Kruskal'",
+    "Applications.Kruskal.Observation": "[Errno 2] No such file or directory: 'Kruskal'",
+    "Applications.Linear.Structured": "[Errno 2] No such file or directory: 'Structured.trace'",
+    "Applications.Linear.StructuredCosts": "[Errno 2] No such file or directory: 'StructuredCosts.trace'",
+    "Applications.Linear.StructuredMeasured": "[Errno 2] No such file or directory: 'StructuredMeasured.trace'",
+    "Applications.Optimization.KnapsackThinning": "[Errno 2] No such file or directory: 'KnapsackThinning.trace'",
+    "Applications.Optimization.NetworkPaths": "[Errno 2] No such file or directory: 'NetworkPaths.trace'",
+    "Applications.Optimization.NetworkThinning": "[Errno 2] No such file or directory: 'NetworkThinning.trace'",
+    "Applications.Optimization.ThinningRelations": "[Errno 2] No such file or directory: 'ThinningRelations.trace'",
+    "Applications.Orbifold.CheckedMotion": "[Errno 2] No such file or directory: 'CheckedMotion.trace'",
+    "Applications.Orbifold.CommandComparison": "[Errno 2] No such file or directory: 'CommandComparison.trace'",
+    "Applications.Orbifold.DiskConnection": "[Errno 2] No such file or directory: 'DiskConnection.trace'",
+    "Applications.Orbifold.DiskCurvature": "[Errno 2] No such file or directory: 'DiskCurvature.trace'",
+    "Applications.Orbifold.DiskTransport": "[Errno 2] No such file or directory: 'DiskTransport.trace'",
+    "Applications.Orbifold.MotionUniqueness": "[Errno 2] No such file or directory: 'MotionUniqueness.trace'",
+    "Applications.Orbifold.NumericalBounds": "[Errno 2] No such file or directory: 'NumericalBounds.trace'",
+    "Applications.Orbifold.NumericalExecution": "[Errno 2] No such file or directory: 'NumericalExecution.trace'",
+    "Applications.Orbifold.NumericalSymmetry": "[Errno 2] No such file or directory: 'NumericalSymmetry.trace'",
+    "Applications.Orbifold.PoseConnection": "[Errno 2] No such file or directory: 'PoseConnection.trace'",
+    "Applications.Orbifold.RationalMotion": "[Errno 2] No such file or directory: 'RationalMotion.trace'",
+    "Applications.Orbifold.TimedCommands": "[Errno 2] No such file or directory: 'TimedCommands.trace'",
+    "Applications.Orbifold.TimedMotion": "[Errno 2] No such file or directory: 'TimedMotion.trace'",
+    "Applications.Orbifold.TransportComparison": "[Errno 2] No such file or directory: 'TransportComparison.trace'",
+    "Applications.Orbifold.TransportFrames": "[Errno 2] No such file or directory: 'TransportFrames.trace'",
+    "Applications.Orbifold.TransportSegments": "[Errno 2] No such file or directory: 'TransportSegments.trace'",
+    "Applications.OrderedPartitions.Enumeration": "[Errno 2] No such file or directory: 'OrderedPartitions'",
+    "Applications.OrderedPartitions.Left": "[Errno 2] No such file or directory: 'OrderedPartitions'",
+    "Applications.OrderedPartitions.Right": "[Errno 2] No such file or directory: 'OrderedPartitions'",
+    "Applications.Paragraphs.Candidates": "[Errno 2] No such file or directory: 'Paragraphs'",
+    "Applications.Paragraphs.Greedy": "[Errno 2] No such file or directory: 'Paragraphs'",
+    "Applications.Paragraphs.Helper": "[Errno 2] No such file or directory: 'Paragraphs'",
+    "Applications.Paragraphs.Observation": "[Errno 2] No such file or directory: 'Paragraphs'",
+    "Applications.Parallel.InclusiveScan": "[Errno 2] No such file or directory: 'InclusiveScan.trace'",
+    "Applications.Parallel.MeasuredScan": "[Errno 2] No such file or directory: 'MeasuredScan.trace'",
+    "Applications.Parallel.PrefixBounds": "[Errno 2] No such file or directory: 'PrefixBounds.trace'",
+    "Applications.Parallel.PrefixDAG": "[Errno 2] No such file or directory: 'PrefixDAG.trace'",
+    "Applications.Parallel.ScanSearch": "[Errno 2] No such file or directory: 'ScanSearch.trace'",
+    "Applications.Prim.Array": "[Errno 2] No such file or directory: 'Prim'",
+    "Applications.Prim.ArrayObservation": "[Errno 2] No such file or directory: 'Prim'",
+    "Applications.Prim.ArrayOptimality": "[Errno 2] No such file or directory: 'Prim'",
+    "Applications.Prim.Core": "[Errno 2] No such file or directory: 'Prim'",
+    "Applications.Prim.Correctness": "[Errno 2] No such file or directory: 'Prim'",
+    "Applications.Prim.Exchange": "[Errno 2] No such file or directory: 'Prim'",
+    "Applications.Prim.Observation": "[Errno 2] No such file or directory: 'Prim'",
+    "Applications.Prim.Weights": "[Errno 2] No such file or directory: 'Prim'",
+    "Applications.Probability.AcceptReject": "[Errno 2] No such file or directory: 'Probability'",
+    "Applications.Probability.CoinPaths": "[Errno 2] No such file or directory: 'Probability'",
+    "Applications.Probability.Execution": "[Errno 2] No such file or directory: 'Probability'",
+    "Applications.Probability.FiniteKernel": "[Errno 2] No such file or directory: 'Probability'",
+    "Applications.Probability.FiniteMH": "[Errno 2] No such file or directory: 'Probability'",
+    "Applications.Probability.HeavyTail": "[Errno 2] No such file or directory: 'Probability'",
+    "Applications.Probability.HittingTimes": "[Errno 2] No such file or directory: 'Probability'",
+    "Applications.Probability.MetropolisHastings": "[Errno 2] No such file or directory: 'Probability'",
+    "Applications.Probability.Productivity": "[Errno 2] No such file or directory: 'Probability'",
+    "Applications.Probability.Results": "[Errno 2] No such file or directory: 'Probability'",
+    "Applications.Probability.SearchObservation": "[Errno 2] No such file or directory: 'Probability'",
+    "Applications.Progress.CoupledFeedback": "[Errno 2] No such file or directory: 'CoupledFeedback.trace'",
+    "Applications.Progress.DependentFeedback": "[Errno 2] No such file or directory: 'DependentFeedback.trace'",
+    "Applications.Progress.Feedback": "[Errno 2] No such file or directory: 'Feedback.trace'",
+    "Applications.Progress.OccurrenceCursor": "[Errno 2] No such file or directory: 'OccurrenceCursor.trace'",
+    "Applications.Progress.Reactive": "[Errno 2] No such file or directory: 'Reactive.trace'",
+    "Applications.Resources.BinaryCounter": "[Errno 2] No such file or directory: 'BinaryCounter.trace'",
+    "Applications.Resources.BinaryCounter.Decrement": "[Errno 2] No such file or directory: 'BinaryCounter'",
+    "Applications.Resources.FIFOContracts": "[Errno 2] No such file or directory: 'FIFOContracts.trace'",
+    "Applications.Resources.FoldCompiler": "[Errno 2] No such file or directory: 'FoldCompiler.trace'",
+    "Applications.Resources.Growth": "[Errno 2] No such file or directory: 'Growth.trace'",
+    "Applications.Resources.Knapsack": "[Errno 2] No such file or directory: 'Knapsack.trace'",
+    "Applications.Resources.KnapsackSemantics": "[Errno 2] No such file or directory: 'KnapsackSemantics.trace'",
+    "Applications.Resources.KnapsackSourceCosts": "[Errno 2] No such file or directory: 'KnapsackSourceCosts.trace'",
+    "Applications.Resources.KnapsackWorkload": "[Errno 2] No such file or directory: 'KnapsackWorkload.trace'",
+    "Applications.Resources.Potential": "[Errno 2] No such file or directory: 'Potential.trace'",
+    "Applications.Resources.RandomAccess.Bulk": "[Errno 2] No such file or directory: 'RandomAccess'",
+    "Applications.Resources.RandomAccess.CacheCosts": "[Errno 2] No such file or directory: 'RandomAccess'",
+    "Applications.Resources.RandomAccess.Cycles": "[Errno 2] No such file or directory: 'RandomAccess'",
+    "Applications.Resources.RandomAccess.Drain": "[Errno 2] No such file or directory: 'RandomAccess'",
+    "Applications.Resources.RandomAccess.End": "[Errno 2] No such file or directory: 'RandomAccess'",
+    "Applications.Resources.RandomAccess.EndCases": "[Errno 2] No such file or directory: 'RandomAccess'",
+    "Applications.Resources.RandomAccess.EndObservation": "[Errno 2] No such file or directory: 'RandomAccess'",
+    "Applications.Resources.RandomAccess.Families": "[Errno 2] No such file or directory: 'RandomAccess'",
+    "Applications.Resources.RandomAccess.Lookup": "[Errno 2] No such file or directory: 'RandomAccess'",
+    "Applications.Resources.RandomAccess.Observation": "[Errno 2] No such file or directory: 'RandomAccess'",
+    "Applications.Resources.SymmetricCosts": "[Errno 2] No such file or directory: 'SymmetricCosts.trace'",
+    "Applications.Resources.SymmetricWorkload": "[Errno 2] No such file or directory: 'SymmetricWorkload.trace'",
+    "Applications.Resources.Thinning": "[Errno 2] No such file or directory: 'Thinning.trace'",
+    "Applications.Resources.TreeFlattening.Cached": "[Errno 2] No such file or directory: 'TreeFlattening'",
+    "Applications.Resources.TreeFlattening.Core": "[Errno 2] No such file or directory: 'TreeFlattening'",
+    "Applications.Resources.TreeFlattening.Growth": "[Errno 2] No such file or directory: 'TreeFlattening'",
+    "Applications.Resources.TreeFlattening.Observation": "[Errno 2] No such file or directory: 'TreeFlattening'",
+    "Applications.Search.HeuristicSemantics": "[Errno 2] No such file or directory: 'HeuristicSemantics.trace'",
+    "Applications.Search.Ordered.Consumers": "[Errno 2] No such file or directory: 'Ordered'",
+    "Applications.Search.Ordered.Exact": "[Errno 2] No such file or directory: 'Ordered'",
+    "Applications.Search.Ordered.Global": "[Errno 2] No such file or directory: 'Ordered'",
+    "Applications.Search.Ordered.Threshold": "[Errno 2] No such file or directory: 'Ordered'",
+    "Applications.Search.PrioritySearchQueue": "[Errno 2] No such file or directory: 'PrioritySearchQueue.trace'",
+    "Applications.Search.RationalCost": "[Errno 2] No such file or directory: 'RationalCost.trace'",
+    "Applications.Selection.Consumers": "[Errno 2] No such file or directory: 'Selection'",
+    "Applications.Selection.Rank": "[Errno 2] No such file or directory: 'Selection'",
+    "Applications.Selection.ThreeWay": "[Errno 2] No such file or directory: 'Selection'",
+    "Applications.Sequences.FIFOExtension": "[Errno 2] No such file or directory: 'FIFOExtension.trace'",
+    "Applications.Sequences.RandomAccess.Access": "[Errno 2] No such file or directory: 'RandomAccess'",
+    "Applications.Sequences.RandomAccess.Basic": "[Errno 2] No such file or directory: 'RandomAccess'",
+    "Applications.Sequences.RandomAccess.Borrow": "[Errno 2] No such file or directory: 'RandomAccess'",
+    "Applications.Sequences.RandomAccess.Representation": "[Errno 2] No such file or directory: 'RandomAccess'",
+    "Applications.Sequences.RandomAccess.TreeBuild": "[Errno 2] No such file or directory: 'RandomAccess'",
+    "Applications.Sequences.RunCompression": "[Errno 2] No such file or directory: 'RunCompression.trace'",
+    "Applications.Sorting.Merge": "[Errno 2] No such file or directory: 'Merge.trace'",
+    "Applications.Sorting.Sort": "[Errno 2] No such file or directory: 'Sort.trace'",
+    "Applications.Sorting.SourceMerge": "[Errno 2] No such file or directory: 'SourceMerge.trace'",
+    "Applications.Sorting.Stable": "[Errno 2] No such file or directory: 'Stable.trace'",
+    "Applications.Subsequences.Candidates": "[Errno 2] No such file or directory: 'Subsequences'",
+    "Applications.Subsequences.Frontier": "[Errno 2] No such file or directory: 'Subsequences'",
+    "Applications.Subsequences.Observation": "[Errno 2] No such file or directory: 'Subsequences'",
+    "Applications.Subsequences.Selection": "[Errno 2] No such file or directory: 'Subsequences'",
+    "Examples.ExternalInteraction": "[Errno 2] No such file or directory: 'ExternalInteraction.trace'",
+    "Examples.FIFOContracts": "[Errno 2] No such file or directory: 'FIFOContracts.trace'",
+    "Examples.FRP": "[Errno 2] No such file or directory: 'FRP.trace'",
+    "Examples.FRPDriver": "[Errno 2] No such file or directory: 'FRPDriver.trace'",
+    "Examples.FRPEngine": "[Errno 2] No such file or directory: 'FRPEngine.trace'",
+    "Examples.FamilyCoherence": "[Errno 2] No such file or directory: 'FamilyCoherence.trace'",
+    "Examples.FiniteClassifier": "[Errno 2] No such file or directory: 'FiniteClassifier.trace'",
+    "Examples.FiniteSetting": "[Errno 2] No such file or directory: 'FiniteSetting.trace'",
+    "Examples.FiniteUniverse": "[Errno 2] No such file or directory: 'FiniteUniverse.trace'",
+    "Examples.FreeSmoothAlgebra": "[Errno 2] No such file or directory: 'FreeSmoothAlgebra.trace'",
+    "Examples.Frobenius": "[Errno 2] No such file or directory: 'Frobenius.trace'",
+    "Examples.GeometricSyntheticProduct": "[Errno 2] No such file or directory: 'GeometricSyntheticProduct.trace'",
+    "Examples.GraphEmission": "[Errno 2] No such file or directory: 'GraphEmission.trace'",
+    "Examples.GraphTarget": "[Errno 2] No such file or directory: 'GraphTarget.trace'",
+    "Examples.GraphTranslationValidation": "[Errno 2] No such file or directory: 'GraphTranslationValidation.trace'",
+    "Examples.GroupoidRoutes": "[Errno 2] No such file or directory: 'GroupoidRoutes.trace'",
+    "Examples.HeuristicSearch": "[Errno 2] No such file or directory: 'HeuristicSearch.trace'",
+    "Examples.Huffman": "[Errno 2] No such file or directory: 'Huffman.trace'",
+    "Examples.IncreasingSubsequences": "[Errno 2] No such file or directory: 'IncreasingSubsequences.trace'",
+    "Examples.IndefiniteService": "[Errno 2] No such file or directory: 'IndefiniteService.trace'",
+    "Examples.IndexedFeedback": "[Errno 2] No such file or directory: 'IndexedFeedback.trace'",
+    "Examples.InitializedFeedback": "[Errno 2] No such file or directory: 'InitializedFeedback.trace'",
+    "Examples.InteractionInterfaces": "[Errno 2] No such file or directory: 'InteractionInterfaces.trace'",
+    "Examples.InteractionTransport": "[Errno 2] No such file or directory: 'InteractionTransport.trace'",
+    "Examples.InternalAuthoring": "[Errno 2] No such file or directory: 'InternalAuthoring.trace'",
+    "Examples.JetScan": "[Errno 2] No such file or directory: 'JetScan.trace'",
+    "Examples.KnapsackWorkload": "[Errno 2] No such file or directory: 'KnapsackWorkload.trace'",
+    "Examples.Kruskal": "[Errno 2] No such file or directory: 'Kruskal.trace'",
+    "Examples.LanguageExtension": "[Errno 2] No such file or directory: 'LanguageExtension.trace'",
+    "Examples.ManifoldFullFaithfulness": "[Errno 2] No such file or directory: 'ManifoldFullFaithfulness.trace'",
+    "Examples.MathlibManifoldRealization": "[Errno 2] No such file or directory: 'MathlibManifoldRealization.trace'",
+    "Examples.MatrixCompilerPreservation": "[Errno 2] No such file or directory: 'MatrixCompilerPreservation.trace'",
+    "Examples.MatrixStack": "[Errno 2] No such file or directory: 'MatrixStack.trace'",
+    "Examples.MeasuredScan": "[Errno 2] No such file or directory: 'MeasuredScan.trace'",
+    "Examples.MeasurementAttempt": "[Errno 2] No such file or directory: 'MeasurementAttempt.trace'",
+    "Examples.MetropolisHastings": "[Errno 2] No such file or directory: 'MetropolisHastings.trace'",
+    "Examples.MixedSetting": "[Errno 2] No such file or directory: 'MixedSetting.trace'",
+    "Examples.NativeSliceProducts": "[Errno 2] No such file or directory: 'NativeSliceProducts.trace'",
+    "Examples.NestedKruskal": "[Errno 2] No such file or directory: 'NestedKruskal.trace'",
+    "Examples.NumericalMotion": "[Errno 2] No such file or directory: 'NumericalMotion.trace'",
+    "Examples.OpenSyntheticProduct": "[Errno 2] No such file or directory: 'OpenSyntheticProduct.trace'",
+    "Examples.Optimization": "[Errno 2] No such file or directory: 'Optimization.trace'",
+    "Examples.OptionalSquares": "[Errno 2] No such file or directory: 'OptionalSquares.trace'",
+    "Examples.OrbifoldComparison": "[Errno 2] No such file or directory: 'OrbifoldComparison.trace'",
+    "Examples.OrderCertificate": "[Errno 2] No such file or directory: 'OrderCertificate.trace'",
+    "Examples.OrderedPartitions": "[Errno 2] No such file or directory: 'OrderedPartitions.trace'",
+    "Examples.OrderedSearch": "[Errno 2] No such file or directory: 'OrderedSearch.trace'",
+    "Examples.OrderedSummary": "[Errno 2] No such file or directory: 'OrderedSummary.trace'",
+    "Examples.OrderedSummaryPresheaf": "[Errno 2] No such file or directory: 'OrderedSummaryPresheaf.trace'",
+    "Examples.OrdinaryChartRealization": "[Errno 2] No such file or directory: 'OrdinaryChartRealization.trace'",
+    "Examples.OrdinaryOpenDescent": "[Errno 2] No such file or directory: 'OrdinaryOpenDescent.trace'",
+    "Examples.ParagraphLayout": "[Errno 2] No such file or directory: 'ParagraphLayout.trace'",
+    "Examples.PathTransport": "[Errno 2] No such file or directory: 'PathTransport.trace'",
+    "Examples.PathTransportUniqueness": "[Errno 2] No such file or directory: 'PathTransportUniqueness.trace'",
+    "Examples.PotentialAccounting": "[Errno 2] No such file or directory: 'PotentialAccounting.trace'",
+    "Examples.PreservationAuthorA": "[Errno 2] No such file or directory: 'PreservationAuthorA.trace'",
+    "Examples.PreservationAuthorB": "[Errno 2] No such file or directory: 'PreservationAuthorB.trace'",
+    "Examples.PreservationBounds": "[Errno 2] No such file or directory: 'PreservationBounds.trace'",
+    "Examples.PresheafClassifier": "[Errno 2] No such file or directory: 'PresheafClassifier.trace'",
+    "Examples.PresheafRepresentation": "[Errno 2] No such file or directory: 'PresheafRepresentation.trace'",
+    "Examples.PresheafSetting": "[Errno 2] No such file or directory: 'PresheafSetting.trace'",
+    "Examples.Prim": "[Errno 2] No such file or directory: 'Prim.trace'",
+    "Examples.PrimArray": "[Errno 2] No such file or directory: 'PrimArray.trace'",
+    "Examples.ProbabilisticProgress": "[Errno 2] No such file or directory: 'ProbabilisticProgress.trace'",
+    "Examples.ProbabilityCorrelation": "[Errno 2] No such file or directory: 'ProbabilityCorrelation.trace'",
+    "Examples.QuarterTurnArcs": "[Errno 2] No such file or directory: 'QuarterTurnArcs.trace'",
+    "Examples.QuotientDescent": "[Errno 2] No such file or directory: 'QuotientDescent.trace'",
+    "Examples.RandomAccessCosts": "[Errno 2] No such file or directory: 'RandomAccessCosts.trace'",
+    "Examples.RandomAccessEndCosts": "[Errno 2] No such file or directory: 'RandomAccessEndCosts.trace'",
+    "Examples.RandomAccessLists": "[Errno 2] No such file or directory: 'RandomAccessLists.trace'",
+    "Examples.RankSelection": "[Errno 2] No such file or directory: 'RankSelection.trace'",
+    "Examples.RationalSearch": "[Errno 2] No such file or directory: 'RationalSearch.trace'",
+    "Examples.ReactiveContracts": "[Errno 2] No such file or directory: 'ReactiveContracts.trace'",
+    "Examples.ReactivePipeline": "[Errno 2] No such file or directory: 'ReactivePipeline.trace'",
+    "Examples.ReactiveTarget": "[Errno 2] No such file or directory: 'ReactiveTarget.trace'",
+    "Examples.RecursiveCompilation": "[Errno 2] No such file or directory: 'RecursiveCompilation.trace'",
+    "Examples.RecursiveFusion": "[Errno 2] No such file or directory: 'RecursiveFusion.trace'",
+    "Examples.RelationalBridge": "[Errno 2] No such file or directory: 'RelationalBridge.trace'",
+    "Examples.RequestLifecycle": "[Errno 2] No such file or directory: 'RequestLifecycle.trace'",
+    "Examples.Resources": "[Errno 2] No such file or directory: 'Resources.trace'",
+    "Examples.RetainedHistory": "[Errno 2] No such file or directory: 'RetainedHistory.trace'",
+    "Examples.Run": "[Errno 2] No such file or directory: 'Run.trace'",
+    "Examples.RunCompression": "[Errno 2] No such file or directory: 'RunCompression.trace'",
+    "Examples.ScanFusion": "[Errno 2] No such file or directory: 'ScanFusion.trace'",
+    "Examples.ScanOptimality": "[Errno 2] No such file or directory: 'ScanOptimality.trace'",
+    "Examples.ScanSearch": "[Errno 2] No such file or directory: 'ScanSearch.trace'",
+    "Examples.SecondIdentity": "[Errno 2] No such file or directory: 'SecondIdentity.trace'",
+    "Examples.SecondStage": "[Errno 2] No such file or directory: 'SecondStage.trace'",
+    "Examples.SelectionTies": "[Errno 2] No such file or directory: 'SelectionTies.trace'",
+    "Examples.SessionProtocol": "[Errno 2] No such file or directory: 'SessionProtocol.trace'",
+    "Examples.SheafFormula": "[Errno 2] No such file or directory: 'SheafFormula.trace'",
+    "Examples.SheafRelations": "[Errno 2] No such file or directory: 'SheafRelations.trace'",
+    "Examples.SheafSoundness": "[Errno 2] No such file or directory: 'SheafSoundness.trace'",
+    "Examples.SierpinskiLocal": "[Errno 2] No such file or directory: 'SierpinskiLocal.trace'",
+    "Examples.SierpinskiPoints": "[Errno 2] No such file or directory: 'SierpinskiPoints.trace'",
+    "Examples.SierpinskiSheaf": "[Errno 2] No such file or directory: 'SierpinskiSheaf.trace'",
+    "Examples.SliceUniversal": "[Errno 2] No such file or directory: 'SliceUniversal.trace'",
+    "Examples.SmoothDual": "[Errno 2] No such file or directory: 'SmoothDual.trace'",
+    "Examples.SmoothDualExtension": "[Errno 2] No such file or directory: 'SmoothDualExtension.trace'",
+    "Examples.SmoothGeometricSite": "[Errno 2] No such file or directory: 'SmoothGeometricSite.trace'",
+    "Examples.SmoothKL": "[Errno 2] No such file or directory: 'SmoothKL.trace'",
+    "Examples.SmoothLocalization": "[Errno 2] No such file or directory: 'SmoothLocalization.trace'",
+    "Examples.SmoothLocalizationOpen": "[Errno 2] No such file or directory: 'SmoothLocalizationOpen.trace'",
+    "Examples.SmoothPrincipalDescent": "[Errno 2] No such file or directory: 'SmoothPrincipalDescent.trace'",
+    "Examples.SmoothQuotient": "[Errno 2] No such file or directory: 'SmoothQuotient.trace'",
+    "Examples.SmoothQuotientArcs": "[Errno 2] No such file or directory: 'SmoothQuotientArcs.trace'",
+    "Examples.SmoothSquareZero": "[Errno 2] No such file or directory: 'SmoothSquareZero.trace'",
+    "Examples.SmoothTorsors": "[Errno 2] No such file or directory: 'SmoothTorsors.trace'",
+    "Examples.SplitSheafFamilies": "[Errno 2] No such file or directory: 'SplitSheafFamilies.trace'",
+    "Examples.StableSorting": "[Errno 2] No such file or directory: 'StableSorting.trace'",
+    "Examples.StatefulIncremental": "[Errno 2] No such file or directory: 'StatefulIncremental.trace'",
+    "Examples.StructuredLinear": "[Errno 2] No such file or directory: 'StructuredLinear.trace'",
+    "Examples.StructuredLinearCosts": "[Errno 2] No such file or directory: 'StructuredLinearCosts.trace'",
+    "Examples.SubtypeEvidence": "[Errno 2] No such file or directory: 'SubtypeEvidence.trace'",
+    "Examples.SymmetricLists": "[Errno 2] No such file or directory: 'SymmetricLists.trace'",
+    "Examples.SyntheticProduct": "[Errno 2] No such file or directory: 'SyntheticProduct.trace'",
+    "Examples.TemporalMonitor": "[Errno 2] No such file or directory: 'TemporalMonitor.trace'",
+    "Examples.Thinning": "[Errno 2] No such file or directory: 'Thinning.trace'",
+    "Examples.TimedMotion": "[Errno 2] No such file or directory: 'TimedMotion.trace'",
+    "Examples.TreeFlatteningCosts": "[Errno 2] No such file or directory: 'TreeFlatteningCosts.trace'",
+    "Examples.TypedPathTransport": "[Errno 2] No such file or directory: 'TypedPathTransport.trace'",
+    "SquareApplications": "[Errno 2] No such file or directory: 'SquareApplications.trace'",
+    "SquareKit.ArbitrarySourceClassifier": "[Errno 2] No such file or directory: 'ArbitrarySourceClassifier.trace'",
+    "SquareKit.CommaLimits": "[Errno 2] No such file or directory: 'CommaLimits.trace'",
+    "SquareKit.ConditionedRelations": "[Errno 2] No such file or directory: 'ConditionedRelations.trace'",
+    "SquareKit.DoubleDelooping": "[Errno 2] No such file or directory: 'DoubleDelooping.trace'",
+    "SquareKit.FiniteUniverse": "[Errno 2] No such file or directory: 'FiniteUniverse.trace'",
+    "SquareKit.GeometricProductRule": "[Errno 2] No such file or directory: 'GeometricProductRule.trace'",
+    "SquareKit.GroupoidTransportRoutes": "[Errno 2] No such file or directory: 'GroupoidTransportRoutes.trace'",
+    "SquareKit.Internal.ArrowGeometry": "[Errno 2] No such file or directory: 'ArrowGeometry.trace'",
+    "SquareKit.Internal.ArrowPresentation": "[Errno 2] No such file or directory: 'ArrowPresentation.trace'",
+    "SquareKit.Internal.ArrowPresheaf": "[Errno 2] No such file or directory: 'ArrowPresheaf.trace'",
+    "SquareKit.Internal.ArrowPresheafPushout": "[Errno 2] No such file or directory: 'ArrowPresheafPushout.trace'",
+    "SquareKit.Internal.ArrowPushout": "[Errno 2] No such file or directory: 'ArrowPushout.trace'",
+    "SquareKit.Internal.ArrowPushoutChange": "[Errno 2] No such file or directory: 'ArrowPushoutChange.trace'",
+    "SquareKit.Internal.ArrowPushoutModels": "[Errno 2] No such file or directory: 'ArrowPushoutModels.trace'",
+    "SquareKit.Internal.ArrowReconstruction": "[Errno 2] No such file or directory: 'ArrowReconstruction.trace'",
+    "SquareKit.Internal.ArrowSheaf": "[Errno 2] No such file or directory: 'ArrowSheaf.trace'",
+    "SquareKit.Internal.ArrowTransformation": "[Errno 2] No such file or directory: 'ArrowTransformation.trace'",
+    "SquareKit.Internal.ArrowTransport": "[Errno 2] No such file or directory: 'ArrowTransport.trace'",
+    "SquareKit.Internal.ClassifierBaseChange": "[Errno 2] No such file or directory: 'ClassifierBaseChange.trace'",
+    "SquareKit.Internal.ClassifierComparison": "[Errno 2] No such file or directory: 'ClassifierComparison.trace'",
+    "SquareKit.Internal.ClassifierPseudonaturality": "[Errno 2] No such file or directory: 'ClassifierPseudonaturality.trace'",
+    "SquareKit.Internal.ClassifierRebase": "[Errno 2] No such file or directory: 'ClassifierRebase.trace'",
+    "SquareKit.Internal.ClassifierSourceChange": "[Errno 2] No such file or directory: 'ClassifierSourceChange.trace'",
+    "SquareKit.Internal.ClassifierSourceCoherence": "[Errno 2] No such file or directory: 'ClassifierSourceCoherence.trace'",
+    "SquareKit.Internal.ClassifierTransformation": "[Errno 2] No such file or directory: 'ClassifierTransformation.trace'",
+    "SquareKit.Internal.ComplementaryModel": "[Errno 2] No such file or directory: 'ComplementaryModel.trace'",
+    "SquareKit.Internal.ConditionedComposition": "[Errno 2] No such file or directory: 'ConditionedComposition.trace'",
+    "SquareKit.Internal.CoreSyntax": "[Errno 2] No such file or directory: 'CoreSyntax.trace'",
+    "SquareKit.Internal.CoreTyping": "[Errno 2] No such file or directory: 'CoreTyping.trace'",
+    "SquareKit.Internal.FiniteClassifier": "[Errno 2] No such file or directory: 'FiniteClassifier.trace'",
+    "SquareKit.Internal.FiniteClassifierComparison": "[Errno 2] No such file or directory: 'FiniteClassifierComparison.trace'",
+    "SquareKit.Internal.FiniteModelCategory": "[Errno 2] No such file or directory: 'FiniteModelCategory.trace'",
+    "SquareKit.Internal.FiniteSetting": "[Errno 2] No such file or directory: 'FiniteSetting.trace'",
+    "SquareKit.Internal.Frobenius": "[Errno 2] No such file or directory: 'Frobenius.trace'",
+    "SquareKit.Internal.GenericModel": "[Errno 2] No such file or directory: 'GenericModel.trace'",
+    "SquareKit.Internal.GenericModelPullback": "[Errno 2] No such file or directory: 'GenericModelPullback.trace'",
+    "SquareKit.Internal.GeometricCone": "[Errno 2] No such file or directory: 'GeometricCone.trace'",
+    "SquareKit.Internal.GeometricEquivalence": "[Errno 2] No such file or directory: 'GeometricEquivalence.trace'",
+    "SquareKit.Internal.GeometricLiftCoherence": "[Errno 2] No such file or directory: 'GeometricLiftCoherence.trace'",
+    "SquareKit.Internal.GeometricMixedChange": "[Errno 2] No such file or directory: 'GeometricMixedChange.trace'",
+    "SquareKit.Internal.GeometricMorphism": "[Errno 2] No such file or directory: 'GeometricMorphism.trace'",
+    "SquareKit.Internal.GeometricSections": "[Errno 2] No such file or directory: 'GeometricSections.trace'",
+    "SquareKit.Internal.GeometricSlice": "[Errno 2] No such file or directory: 'GeometricSlice.trace'",
+    "SquareKit.Internal.GraphArtifactEquality": "[Errno 2] No such file or directory: 'GraphArtifactEquality.trace'",
+    "SquareKit.Internal.GraphArtifactTransform": "[Errno 2] No such file or directory: 'GraphArtifactTransform.trace'",
+    "SquareKit.Internal.GraphEmission": "[Errno 2] No such file or directory: 'GraphEmission.trace'",
+    "SquareKit.Internal.GraphEmissionContract": "[Errno 2] No such file or directory: 'GraphEmissionContract.trace'",
+    "SquareKit.Internal.GraphEmissionProof": "[Errno 2] No such file or directory: 'GraphEmissionProof.trace'",
+    "SquareKit.Internal.GraphEmissionPure": "[Errno 2] No such file or directory: 'GraphEmissionPure.trace'",
+    "SquareKit.Internal.GraphEmissionSquares": "[Errno 2] No such file or directory: 'GraphEmissionSquares.trace'",
+    "SquareKit.Internal.GraphEmissionTyping": "[Errno 2] No such file or directory: 'GraphEmissionTyping.trace'",
+    "SquareKit.Internal.GraphPrimitiveEnvironment": "[Errno 2] No such file or directory: 'GraphPrimitiveEnvironment.trace'",
+    "SquareKit.Internal.GraphTarget": "[Errno 2] No such file or directory: 'GraphTarget.trace'",
+    "SquareKit.Internal.GraphTargetComparison": "[Errno 2] No such file or directory: 'GraphTargetComparison.trace'",
+    "SquareKit.Internal.GraphTranslationValidator": "[Errno 2] No such file or directory: 'GraphTranslationValidator.trace'",
+    "SquareKit.Internal.MixedClassifierModel": "[Errno 2] No such file or directory: 'MixedClassifierModel.trace'",
+    "SquareKit.Internal.MixedSetting": "[Errno 2] No such file or directory: 'MixedSetting.trace'",
+    "SquareKit.Internal.PartitionCoherence": "[Errno 2] No such file or directory: 'PartitionCoherence.trace'",
+    "SquareKit.Internal.PartitionMixedChange": "[Errno 2] No such file or directory: 'PartitionMixedChange.trace'",
+    "SquareKit.Internal.PartitionParameter": "[Errno 2] No such file or directory: 'PartitionParameter.trace'",
+    "SquareKit.Internal.PartitionPullback": "[Errno 2] No such file or directory: 'PartitionPullback.trace'",
+    "SquareKit.Internal.PartitionSection": "[Errno 2] No such file or directory: 'PartitionSection.trace'",
+    "SquareKit.Internal.PartitionSequents": "[Errno 2] No such file or directory: 'PartitionSequents.trace'",
+    "SquareKit.Internal.PartitionTransform": "[Errno 2] No such file or directory: 'PartitionTransform.trace'",
+    "SquareKit.Internal.PresheafClassifierComparison": "[Errno 2] No such file or directory: 'PresheafClassifierComparison.trace'",
+    "SquareKit.Internal.PresheafFrobenius": "[Errno 2] No such file or directory: 'PresheafFrobenius.trace'",
+    "SquareKit.Internal.PresheafRepresentation": "[Errno 2] No such file or directory: 'PresheafRepresentation.trace'",
+    "SquareKit.Internal.PresheafSetting": "[Errno 2] No such file or directory: 'PresheafSetting.trace'",
+    "SquareKit.Internal.RelativeSheafClassifier": "[Errno 2] No such file or directory: 'RelativeSheafClassifier.trace'",
+    "SquareKit.Internal.SheafAssociativity": "[Errno 2] No such file or directory: 'SheafAssociativity.trace'",
+    "SquareKit.Internal.SheafFiniteClassifier": "[Errno 2] No such file or directory: 'SheafFiniteClassifier.trace'",
+    "SquareKit.Internal.SheafFormula": "[Errno 2] No such file or directory: 'SheafFormula.trace'",
+    "SquareKit.Internal.SheafPseudopullback": "[Errno 2] No such file or directory: 'SheafPseudopullback.trace'",
+    "SquareKit.Internal.SheafSliceUniversal": "[Errno 2] No such file or directory: 'SheafSliceUniversal.trace'",
+    "SquareKit.Internal.SheafSoundness": "[Errno 2] No such file or directory: 'SheafSoundness.trace'",
+    "SquareKit.Internal.SierpinskiBaseChange": "[Errno 2] No such file or directory: 'SierpinskiBaseChange.trace'",
+    "SquareKit.Internal.SierpinskiBaseCoherence": "[Errno 2] No such file or directory: 'SierpinskiBaseCoherence.trace'",
+    "SquareKit.Internal.SierpinskiClassified": "[Errno 2] No such file or directory: 'SierpinskiClassified.trace'",
+    "SquareKit.Internal.SierpinskiEquivalence": "[Errno 2] No such file or directory: 'SierpinskiEquivalence.trace'",
+    "SquareKit.Internal.SierpinskiGeneric": "[Errno 2] No such file or directory: 'SierpinskiGeneric.trace'",
+    "SquareKit.Internal.SierpinskiSourceChange": "[Errno 2] No such file or directory: 'SierpinskiSourceChange.trace'",
+    "SquareKit.Internal.SierpinskiSourceCoherence": "[Errno 2] No such file or directory: 'SierpinskiSourceCoherence.trace'",
+    "SquareKit.Internal.SierpinskiVaryingBase": "[Errno 2] No such file or directory: 'SierpinskiVaryingBase.trace'",
+    "SquareKit.Internal.SliceBaseChange": "[Errno 2] No such file or directory: 'SliceBaseChange.trace'",
+    "SquareKit.Internal.SliceGenericSection": "[Errno 2] No such file or directory: 'SliceGenericSection.trace'",
+    "SquareKit.Internal.SliceIso": "[Errno 2] No such file or directory: 'SliceIso.trace'",
+    "SquareKit.Internal.SlicePseudopullback": "[Errno 2] No such file or directory: 'SlicePseudopullback.trace'",
+    "SquareKit.Internal.SliceRebase": "[Errno 2] No such file or directory: 'SliceRebase.trace'",
+    "SquareKit.Internal.SliceSection": "[Errno 2] No such file or directory: 'SliceSection.trace'",
+    "SquareKit.Internal.SliceSourceChange": "[Errno 2] No such file or directory: 'SliceSourceChange.trace'",
+    "SquareKit.Internal.SliceSourceCoherence": "[Errno 2] No such file or directory: 'SliceSourceCoherence.trace'",
+    "SquareKit.Internal.SliceUniversal": "[Errno 2] No such file or directory: 'SliceUniversal.trace'",
+    "SquareKit.Internal.SliceVaryingBase": "[Errno 2] No such file or directory: 'SliceVaryingBase.trace'",
+    "SquareKit.Internal.Substitution": "[Errno 2] No such file or directory: 'Substitution.trace'",
+    "SquareKit.Internal.SubterminalChange": "[Errno 2] No such file or directory: 'SubterminalChange.trace'",
+    "SquareKit.Internal.SyntheticScalar": "[Errno 2] No such file or directory: 'SyntheticScalar.trace'",
+    "SquareKit.Internal.SyntheticScalarGeometric": "[Errno 2] No such file or directory: 'SyntheticScalarGeometric.trace'",
+    "SquareKit.Internal.SyntheticScalarSheaf": "[Errno 2] No such file or directory: 'SyntheticScalarSheaf.trace'",
+    "SquareKit.Internal.SyntheticScalarSoundness": "[Errno 2] No such file or directory: 'SyntheticScalarSoundness.trace'",
+    "SquareKit.Internal.TransformationCoherence": "[Errno 2] No such file or directory: 'TransformationCoherence.trace'",
+    "SquareKit.Internal.TwoLoop": "[Errno 2] No such file or directory: 'TwoLoop.trace'",
+    "SquareKit.ListFoldCompiler": "[Errno 2] No such file or directory: 'ListFoldCompiler.trace'",
+    "SquareKit.ListInitial.Fusion": "[Errno 2] No such file or directory: 'ListInitial'",
+    "SquareKit.ListInitial.Presheaves": "[Errno 2] No such file or directory: 'ListInitial'",
+    "SquareKit.ListInitial.Types": "[Errno 2] No such file or directory: 'ListInitial'",
+    "SquareKit.MatrixDoubling": "[Errno 2] No such file or directory: 'MatrixDoubling.trace'",
+    "SquareKit.OptionalMathlib": "[Errno 2] No such file or directory: 'OptionalMathlib.trace'",
+    "SquareKit.PreservationBounds": "[Errno 2] No such file or directory: 'PreservationBounds.trace'",
+    "SquareKit.QuotientFixedArcs": "[Errno 2] No such file or directory: 'QuotientFixedArcs.trace'",
+    "SquareKit.QuotientPointedArcs": "[Errno 2] No such file or directory: 'QuotientPointedArcs.trace'",
+    "SquareKit.ReactiveCompiler": "[Errno 2] No such file or directory: 'ReactiveCompiler.trace'",
+    "SquareKit.STLCSignature": "[Errno 2] No such file or directory: 'STLCSignature.trace'",
+    "SquareKit.Session.Process": "[Errno 2] No such file or directory: 'Session'",
+    "SquareKit.Session.Protocol": "[Errno 2] No such file or directory: 'Session'",
+    "SquareKit.SheafActionQuotient": "[Errno 2] No such file or directory: 'SheafActionQuotient.trace'",
+    "SquareKit.SheafActionQuotientDescent": "[Errno 2] No such file or directory: 'SheafActionQuotientDescent.trace'",
+    "SquareKit.SheafCartesianClosed": "[Errno 2] No such file or directory: 'SheafCartesianClosed.trace'",
+    "SquareKit.SheafPushoutLocal": "[Errno 2] No such file or directory: 'SheafPushoutLocal.trace'",
+    "SquareKit.SheafTorsorDescent": "[Errno 2] No such file or directory: 'SheafTorsorDescent.trace'",
+    "SquareKit.SheafTorsorLocal": "[Errno 2] No such file or directory: 'SheafTorsorLocal.trace'",
+    "SquareKit.SierpinskiClassifier": "[Errno 2] No such file or directory: 'SierpinskiClassifier.trace'",
+    "SquareKit.SliceExtensive": "[Errno 2] No such file or directory: 'SliceExtensive.trace'",
+    "SquareKit.SmoothAtlasSubdivision": "[Errno 2] No such file or directory: 'SmoothAtlasSubdivision.trace'",
+    "SquareKit.SmoothChartLocalLifting": "[Errno 2] No such file or directory: 'SmoothChartLocalLifting.trace'",
+    "SquareKit.SmoothChartMaps": "[Errno 2] No such file or directory: 'SmoothChartMaps.trace'",
+    "SquareKit.SmoothChartOpenAtlas": "[Errno 2] No such file or directory: 'SmoothChartOpenAtlas.trace'",
+    "SquareKit.SmoothChartOverlapRefinement": "[Errno 2] No such file or directory: 'SmoothChartOverlapRefinement.trace'",
+    "SquareKit.SmoothChartRealMaps": "[Errno 2] No such file or directory: 'SmoothChartRealMaps.trace'",
+    "SquareKit.SmoothChartRealSections": "[Errno 2] No such file or directory: 'SmoothChartRealSections.trace'",
+    "SquareKit.SmoothChartRealization": "[Errno 2] No such file or directory: 'SmoothChartRealization.trace'",
+    "SquareKit.SmoothChartReconstruction": "[Errno 2] No such file or directory: 'SmoothChartReconstruction.trace'",
+    "SquareKit.SmoothChartRefinement": "[Errno 2] No such file or directory: 'SmoothChartRefinement.trace'",
+    "SquareKit.SmoothChartSubdivision": "[Errno 2] No such file or directory: 'SmoothChartSubdivision.trace'",
+    "SquareKit.SmoothClutchingPrincipal": "[Errno 2] No such file or directory: 'SmoothClutchingPrincipal.trace'",
+    "SquareKit.SmoothClutchingTorsor": "[Errno 2] No such file or directory: 'SmoothClutchingTorsor.trace'",
+    "SquareKit.SmoothConstantAction": "[Errno 2] No such file or directory: 'SmoothConstantAction.trace'",
+    "SquareKit.SmoothConstantOrdinary": "[Errno 2] No such file or directory: 'SmoothConstantOrdinary.trace'",
+    "SquareKit.SmoothDescentDual": "[Errno 2] No such file or directory: 'SmoothDescentDual.trace'",
+    "SquareKit.SmoothGeometricComparison": "[Errno 2] No such file or directory: 'SmoothGeometricComparison.trace'",
+    "SquareKit.SmoothLocalChartLaws": "[Errno 2] No such file or directory: 'SmoothLocalChartLaws.trace'",
+    "SquareKit.SmoothLocalChartMaps": "[Errno 2] No such file or directory: 'SmoothLocalChartMaps.trace'",
+    "SquareKit.SmoothLocalizationStage": "[Errno 2] No such file or directory: 'SmoothLocalizationStage.trace'",
+    "SquareKit.SmoothManifoldCharts": "[Errno 2] No such file or directory: 'SmoothManifoldCharts.trace'",
+    "SquareKit.SmoothManifoldFullFaithfulness": "[Errno 2] No such file or directory: 'SmoothManifoldFullFaithfulness.trace'",
+    "SquareKit.SmoothManifoldInterpretation": "[Errno 2] No such file or directory: 'SmoothManifoldInterpretation.trace'",
+    "SquareKit.SmoothManifoldLocalSmoothness": "[Errno 2] No such file or directory: 'SmoothManifoldLocalSmoothness.trace'",
+    "SquareKit.SmoothManifoldModel": "[Errno 2] No such file or directory: 'SmoothManifoldModel.trace'",
+    "SquareKit.SmoothManifoldOpenComparison": "[Errno 2] No such file or directory: 'SmoothManifoldOpenComparison.trace'",
+    "SquareKit.SmoothManifoldPrincipalMaps": "[Errno 2] No such file or directory: 'SmoothManifoldPrincipalMaps.trace'",
+    "SquareKit.SmoothManifoldRefinement": "[Errno 2] No such file or directory: 'SmoothManifoldRefinement.trace'",
+    "SquareKit.SmoothOpenArcs": "[Errno 2] No such file or directory: 'SmoothOpenArcs.trace'",
+    "SquareKit.SmoothOpenOverlap": "[Errno 2] No such file or directory: 'SmoothOpenOverlap.trace'",
+    "SquareKit.SmoothOpenRealSections": "[Errno 2] No such file or directory: 'SmoothOpenRealSections.trace'",
+    "SquareKit.SmoothOpenRestriction": "[Errno 2] No such file or directory: 'SmoothOpenRestriction.trace'",
+    "SquareKit.SmoothOpenSheafDescent": "[Errno 2] No such file or directory: 'SmoothOpenSheafDescent.trace'",
+    "SquareKit.SmoothOpenSubdomain": "[Errno 2] No such file or directory: 'SmoothOpenSubdomain.trace'",
+    "SquareKit.SmoothOrdinaryCover": "[Errno 2] No such file or directory: 'SmoothOrdinaryCover.trace'",
+    "SquareKit.SmoothOrdinaryCoverLifting": "[Errno 2] No such file or directory: 'SmoothOrdinaryCoverLifting.trace'",
+    "SquareKit.SmoothOrdinaryGluing": "[Errno 2] No such file or directory: 'SmoothOrdinaryGluing.trace'",
+    "SquareKit.SmoothOrdinaryPullbackCover": "[Errno 2] No such file or directory: 'SmoothOrdinaryPullbackCover.trace'",
+    "SquareKit.SmoothQuarterTurnArcs": "[Errno 2] No such file or directory: 'SmoothQuarterTurnArcs.trace'",
+    "SquareKit.SmoothQuarterTurnQuotient": "[Errno 2] No such file or directory: 'SmoothQuarterTurnQuotient.trace'",
+    "SquareKit.SmoothQuotientArcs": "[Errno 2] No such file or directory: 'SmoothQuotientArcs.trace'",
+    "SquareKit.SmoothQuotientTransport": "[Errno 2] No such file or directory: 'SmoothQuotientTransport.trace'",
+    "SquareKit.SmoothTopologyKLComparison": "[Errno 2] No such file or directory: 'SmoothTopologyKLComparison.trace'",
+    "SquareKit.SubfunctorLattice": "[Errno 2] No such file or directory: 'SubfunctorLattice.trace'",
+    "SquareKit.SyntheticProductRule": "[Errno 2] No such file or directory: 'SyntheticProductRule.trace'",
+    "SquareKit.Temporal.Monitor": "[Errno 2] No such file or directory: 'Monitor.trace'",
+    "SquareKit.Variance": "[Errno 2] No such file or directory: 'Variance.trace'",
+    "Verification": "[Errno 2] No such file or directory: 'Verification.trace'"
+  }
+}

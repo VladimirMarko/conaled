@@ -1,0 +1,228 @@
+{
+  "instructions_and_scope": [
+    {
+      "location": "isolated repository",
+      "path": "AGENTS.md",
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "semantic_read": "whole file"
+    },
+    {
+      "location": "isolated repository",
+      "path": ".agents/skills/implement/SKILL.md",
+      "bytes": 4997,
+      "lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "semantic_read": "whole file"
+    },
+    {
+      "location": "isolated repository",
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "bytes": 6991,
+      "lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "semantic_read": "whole file"
+    },
+    {
+      "location": "isolated repository",
+      "path": "docs/agents/review-loop.md",
+      "bytes": 7113,
+      "lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "semantic_read": "whole file"
+    },
+    {
+      "location": "isolated repository",
+      "path": "README.md",
+      "bytes": 26239,
+      "lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "semantic_read": [
+        [
+          124,
+          307
+        ]
+      ]
+    },
+    {
+      "location": "isolated repository",
+      "path": "docs/agents/domain.md",
+      "bytes": 926,
+      "lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "semantic_read": "whole file"
+    },
+    {
+      "location": "isolated repository",
+      "path": "GLOSSARY.md",
+      "bytes": 4824,
+      "lines": 106,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "semantic_read": "whole file"
+    },
+    {
+      "location": "isolated repository",
+      "path": "docs/agents/architectural-quality.md",
+      "bytes": 3876,
+      "lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "semantic_read": "whole file"
+    },
+    {
+      "location": "isolated repository",
+      "path": "docs/adr/README.md",
+      "bytes": 1547,
+      "lines": 17,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "semantic_read": "whole file"
+    },
+    {
+      "location": "isolated repository",
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "lines": 50,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "semantic_read": "whole file"
+    },
+    {
+      "location": "isolated repository",
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "bytes": 7331,
+      "lines": 127,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "semantic_read": "whole file"
+    },
+    {
+      "location": "control",
+      "path": "reviews/chapter02-requirements.md",
+      "bytes": 12034,
+      "lines": 189,
+      "sha256": "f0c9bc939fbfb6da02c1734b121456c35fd6b4c9ee43f1284003d0b8db087a36",
+      "semantic_read": "whole file; any truncated segments reread in bounded outputs"
+    },
+    {
+      "location": "control",
+      "path": "research/chapter02-probability-dependency-handoff-20261104.md",
+      "bytes": 15304,
+      "lines": 250,
+      "sha256": "1a19f73a1628d0016c3b76dd6a6d7ea0426fd6f6184f6589bbe15d098efa8d4f",
+      "semantic_read": "whole file; any truncated segments reread in bounded outputs"
+    }
+  ],
+  "pinned_api_records": [
+    {
+      "location": "pinned Mathlib",
+      "path": "Mathlib/Tactic/DeriveFintype.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 9552,
+      "lines": 200,
+      "sha256": "ccc5fecbe99adf96964457156d006c07af730e83ec7af678dc90e289745c2e4e",
+      "pin_object_bytes_equal": true,
+      "read_ranges": [
+        [
+          1,
+          200
+        ]
+      ]
+    },
+    {
+      "location": "pinned Mathlib",
+      "path": "Mathlib/Basic/ENNReal/Basic.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 32272,
+      "lines": 789,
+      "sha256": "f7fe64f0d1865209e4d2be2fd98e3bc5edf9af508dd665f0311e6396f8d513a2",
+      "pin_object_bytes_equal": true,
+      "read_ranges": [
+        [
+          273,
+          275
+        ],
+        [
+          405,
+          414
+        ]
+      ]
+    },
+    {
+      "location": "pinned Mathlib",
+      "path": "Mathlib/Basic/ENNReal/Inv.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 44273,
+      "lines": 982,
+      "sha256": "f06e93ae82105c5c03585c2d11377b94aac119b7fdbcaf34a7a333aa27c53f36",
+      "pin_object_bytes_equal": true,
+      "read_ranges": [
+        [
+          68,
+          83
+        ]
+      ]
+    },
+    {
+      "location": "pinned Mathlib",
+      "path": "Mathlib/Probability/ConditionalProbability.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 13138,
+      "lines": 313,
+      "sha256": "4245cc130e59294fadd87a6b011273c010bf3a21fd3395b8a3fe0f8a749f3f8c",
+      "pin_object_bytes_equal": true,
+      "read_ranges": [
+        [
+          149,
+          169
+        ]
+      ]
+    },
+    {
+      "location": "pinned Mathlib",
+      "path": "Mathlib/Probability/UniformOn.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 10493,
+      "lines": 230,
+      "sha256": "7f1aac5e8c78698289601133f5b9551eb772b90eab05338900c472270031f5c3",
+      "pin_object_bytes_equal": true,
+      "read_ranges": [
+        [
+          74,
+          99
+        ]
+      ]
+    },
+    {
+      "location": "retained Lean 4.35.0 compiler source",
+      "path": "Init/Data/List/Lemmas.lean",
+      "bytes": 152724,
+      "lines": 3852,
+      "sha256": "9365fb1c6da0313a4c73e8cf096377e69c28ece28d38290a0423e5f8cc1fdfdb",
+      "read_ranges": [
+        [
+          145,
+          152
+        ]
+      ],
+      "limit": "Source inspected; no compiler or environment qualification was run"
+    },
+    {
+      "location": "retained Lean 4.35.0 compiler source",
+      "path": "Init/Data/List/Nat/Range.lean",
+      "bytes": 15858,
+      "lines": 416,
+      "sha256": "06325fdc2c100a4b20eff48e227419259e0749eb82b156b17a1c57b35a5649e3",
+      "read_ranges": [
+        [
+          257,
+          263
+        ]
+      ],
+      "limit": "Source inspected; no compiler or environment qualification was run"
+    }
+  ],
+  "original_example": "All352 lines read in earlier bounded Uniform preparation; identical immutable source confirmed at c4355db6 and failed8ba7ae11",
+  "core": "All789 lines read in earlier preparation; exact unchanged blob2e06a117d18b4657dfc3e436a1939acad5427876 at both current input commits",
+  "actual_diagnostics": "All93 lines and all23 headers read",
+  "successor_source": "All366 lines and full103-line diff read after correction",
+  "source_assessment_limit": "Author preservation/API assessment only, not independent final review or executed proof/type/audit evidence",
+  "truncation_resolution": "The implement instruction was reread fully; the missing chapter02 requirements segment was reread115–146. Complete applicable sources, not truncated displays, control the correction."
+}

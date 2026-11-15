@@ -1,0 +1,63 @@
+{
+  "original_path": "session/validation/integration-space-recovery-045.json",
+  "original_sha256": "b3e22337abf6ca7184ca596a4cd342b2781c3a8967192d853a9292fce997068c",
+  "original_bytes": 193330,
+  "removed_fields": [
+    {
+      "pointer": "/inventory",
+      "entries": 6,
+      "canonical_json_sha256": "d1f1d11b4dae2bd19cff8e0e9884e45b418175f77f15315455f4da1d15d42231"
+    }
+  ],
+  "record": {
+    "kind": "retire-verified-reproducible-artifacts",
+    "started_at": "2026-11-04T00:38:40.005136+00:00",
+    "status": "finished",
+    "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+    "formal_acceptance": false,
+    "serial_locks_held": true,
+    "actions": [
+      {
+        "path": "native-state/downloads/.lean-4.35.0-linux.tar.zst.6EkHuc",
+        "removed_at": "2026-11-04T00:38:44.771693+00:00"
+      },
+      {
+        "path": "native-state/downloads/lean-4.35.0-linux.tar.zst.part",
+        "removed_at": "2026-11-04T00:38:44.780248+00:00"
+      },
+      {
+        "path": "native-state/downloads/lean-4.35.0-linux.tar.zst",
+        "removed_at": "2026-11-04T00:38:44.805299+00:00"
+      },
+      {
+        "path": "native-state/toolchains/.lean-install-6slq3adu",
+        "removed_at": "2026-11-04T00:38:44.820099+00:00"
+      },
+      {
+        "path": "validation-pfds-integration/.lake/fresh-check-u38h5q5x",
+        "removed_at": "2026-11-04T00:38:44.830645+00:00"
+      },
+      {
+        "path": "validation-pfds-integration/.lake/fresh-check-0zhdrr37",
+        "removed_at": "2026-11-04T00:38:44.836803+00:00"
+      }
+    ],
+    "space_before": {
+      "block_size": 4096,
+      "free_bytes_including_reserved": 3403255808,
+      "available_bytes": 0
+    },
+    "inputs_equal_original_r2": true,
+    "before_inputs_sha256": "3bbd16a69296b18137b0d6b7bf53964b9bd4bee071a264bd1b9679533cb5b7c7",
+    "reason": "Obsolete partial downloads/extraction and incomplete fresh outputs; optional complete installation archive is reproducible at exact retained pin and is not an active runtime input. Source, refs, all session evidence, current installed runtime, exact dependencies and normal project outputs are preserved.",
+    "ended_at": "2026-11-04T00:38:46.728157+00:00",
+    "inputs_unchanged": true,
+    "space_after": {
+      "block_size": 4096,
+      "free_bytes_including_reserved": 4463038464,
+      "available_bytes": 1010290688
+    },
+    "removed_paths": 6,
+    "original_logs_unchanged": true
+  }
+}

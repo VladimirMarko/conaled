@@ -1,0 +1,76 @@
+{
+  "recorded_scope": "Independent final operational checkpoint0133 inspection; source and acceptance assessments remain separate.",
+  "inspector": "/root/checkpoint0124_inspection",
+  "outcome": "PASS",
+  "unresolved_findings": 0,
+  "initial_preparation_receipt": "initial-inspection-receipt.json",
+  "progress": {
+    "bytes": 53613,
+    "sha256": "1b417a83dadb8fabbe3e6eaeb8a852a8e19f497ef979f80a6d65ba216eeaad12",
+    "complete_reads": [
+      "b87ea0 through line400",
+      "9a8623 overlapping complete401\u2013820",
+      "1488c9"
+    ]
+  },
+  "write_hold": {
+    "bytes": 6541,
+    "sha256": "20570e662fb81859516beb79f58341c6ae9f752e5dadf018a21a09021f199e08",
+    "complete_read": "9d0f5b"
+  },
+  "assembly_and_documentation_hold_schemas": "e75aff",
+  "canonical_notes_complete_leading_sections": "7e8215",
+  "final_mechanical_verification": {
+    "tool_chunk": "9543e2",
+    "actual_exit": 0,
+    "held_heads_and_statuses": 7,
+    "inactive_heads": 2,
+    "author_hold_hashes": 8,
+    "nested_path_hashes": 294,
+    "coverage_artifact_hashes": 7,
+    "document_artifact_hashes": 19,
+    "receiving_source_hashes_and_committed_blobs": 72,
+    "exact_donor_source_copies": 71,
+    "comment_only_exception_retained": true,
+    "document_exact_in_both_worktrees": true,
+    "document_unique_rows": 83,
+    "closed_runs": 94,
+    "prior_closed_rows_unchanged": 92,
+    "prior_passing_components_unchanged": 29,
+    "qualified_candidate": "7950275f345d1077e23730e1975b6dac7460be87",
+    "all_closed_candidate_exit_native_owned_log_thread_command_checks": true,
+    "refs": 74,
+    "all73_prior_refs_preserved": true,
+    "exactly_one_new_integration_ref": true,
+    "worktrees": 9,
+    "prepared_names": 1321,
+    "prepared_modules": 74,
+    "passed_names": 1294,
+    "passed_modules": 72,
+    "pending_names": 27,
+    "pending_modules": 2,
+    "drafts": 0,
+    "one_unknown_interruption_and_all_partial_hashes_preserved": true,
+    "initial_helper_verifier_hashes_unchanged": true
+  },
+  "new_terminal_evidence": {
+    "equal3": "actual1656 CLOSED0/a5a63b; full closurec1d4bb",
+    "endpoints1": "actual98749 CLOSED1/5493a7; full closuree0bf5c; one core normalization diagnostic; examples not attempted"
+  },
+  "integration_preparation": {
+    "candidate": "844a8e115e2d2eba480f6c052202eefeb3af40d9",
+    "parent": "660f974640fb89a766b26a4d786ae7ed197cecf2",
+    "accepted_base": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "clean": true,
+    "endpoint_pair_absent": true,
+    "combined_build": false,
+    "types_executed": false,
+    "whole_audit": false,
+    "chapter03_accepted": false
+  },
+  "output_boundary_disclosure": "An initial batched progress read was truncated; inspector secured all missing lines in complete overlapping401\u2013820 read9a8623 before giving receipt.",
+  "inspection_mutations": false,
+  "capture_or_archive_success_claimed": false,
+  "compiler_restore_fsck_upload_polling": false,
+  "inspector_held": true
+}

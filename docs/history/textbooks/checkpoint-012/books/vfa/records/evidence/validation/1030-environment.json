@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-03T13:54:33.061419+00:00",
+  "ticket": 1030,
+  "workspace": "/workspace/scratch/83865511e965",
+  "tool_paths": {
+    "nix": null,
+    "lean": null,
+    "lake": null,
+    "direnv": null
+  },
+  "visible_path_exists": {
+    "/nix": false,
+    "/root/.nix-profile/bin/nix": false,
+    "/root/.elan/bin/lean": false,
+    "/proc": false,
+    "/proc/self/uid_map": false
+  },
+  "workspace_capacity_bytes": {
+    "total": 67586535424,
+    "used": 2924224512,
+    "free": 61209563136
+  },
+  "nix_download": {
+    "url": "https://releases.nixos.org/nix/nix-2.35.4/nix-2.35.4-x86_64-linux.tar.xz",
+    "size_bytes": 27188748,
+    "sha256": "ff66236d2f7e2a21f3350e73668e021ac6a8881ef277a38e16e952bfb22718c3",
+    "matches_recorded_official_hash": true,
+    "installed": false
+  },
+  "archive_inspection": {
+    "installer_destination": "/nix",
+    "elf_interpreter": "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100/lib/ld-linux-x86-64.so.2",
+    "safe_extraction": "Stopped on absolute /nix symlink; no installer or extracted executable was run."
+  },
+  "namespace_probe": {
+    "argv": [
+      "unshare",
+      "--user",
+      "--map-root-user",
+      "--mount",
+      "true"
+    ],
+    "actual_exit_status": 1,
+    "stderr": "unshare: cannot open /proc/self/uid_map: No such file or directory\n",
+    "provenance": "One-shot direct tool observation reported by /root/environment_options in this recovery turn.",
+    "scope": "Harmless capability check; no mounts requested. No workaround or retry after failure."
+  },
+  "permissions": {
+    "normal_install_location_writable_under_current_policy": false,
+    "reason": "/nix is outside the declared writable roots; no escalation was requested and no approval rejection is claimed.",
+    "namespace_limit": "The exposed sandbox lacks /proc/self/uid_map. This does not establish host-wide namespace disablement.",
+    "system_installation_writes_attempted": false,
+    "namespace_probe_limit": "The requested unshare mapping attempted to open the /proc/self/uid_map process interface and failed. No persistent system installation or alternate namespace mechanism was attempted."
+  },
+  "official_documentation": [
+    "https://nix.dev/manual/nix/2.35/installation/installing-binary.html",
+    "https://nix.dev/manual/nix/2.35/store/types/local-store.html"
+  ],
+  "disposition": "Blocked before the pinned development shell. Resume in a workspace with working Nix and permitted store access. Do not substitute a different compiler or waive validation.",
+  "formal_build_or_audit_attempted": false,
+  "project_pins_modified": false,
+  "environment_changes_needed": "An available Nix environment with usable /nix store, or an explicitly supported local chroot store with required user/mount namespace and /proc interfaces."
+}

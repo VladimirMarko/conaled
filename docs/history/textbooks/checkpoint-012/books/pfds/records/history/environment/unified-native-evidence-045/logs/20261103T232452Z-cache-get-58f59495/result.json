@@ -1,0 +1,23 @@
+{
+  "started_utc": "2026-11-03T23:24:52.581669+00:00",
+  "command": [
+    "/workspace/scratch/09cf0de22282/pfds/native-state/profile/bin/lake",
+    "env",
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/09cf0de22282/conaled-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/09cf0de22282/pfds/native-state",
+    "_cache-exec",
+    "get"
+  ],
+  "cwd": "/workspace/scratch/09cf0de22282/pfds/conaled",
+  "log": "/workspace/scratch/09cf0de22282/pfds/native-state/logs/20261103T232452Z-cache-get-58f59495/output.log",
+  "label": "cache-get",
+  "lean_threads": "1",
+  "passed": true,
+  "completed_utc": "2026-11-03T23:25:58.537654+00:00",
+  "seconds": 65.95497854200039,
+  "exit_code": 0,
+  "timed_out": false,
+  "recorder_error": null
+}

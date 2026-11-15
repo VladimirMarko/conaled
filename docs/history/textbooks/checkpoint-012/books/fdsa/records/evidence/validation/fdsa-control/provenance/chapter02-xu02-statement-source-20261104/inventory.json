@@ -1,0 +1,85 @@
+{
+  "prepared_utc": "2026-11-04T06:46:53.323151+00:00",
+  "source_candidate": "758e130cc30b8779dfce0ef2c4687aea0efa1792",
+  "groups": [
+    {
+      "module": "Applications.Probability.PermutationOrder",
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "bytes": 15169,
+      "sha256": "fd2aab30b1a3b8053ad5082e00fbe62e4c0d62dfb33c950276b10bfc3616d98e",
+      "names": [
+        "Applications.Probability.PermutationOrder.restrictedOrder",
+        "Applications.Probability.PermutationOrder.orders",
+        "Applications.Probability.PermutationOrder.mem_restrictedOrder",
+        "Applications.Probability.PermutationOrder.mem_restrictedOrder_of_complete",
+        "Applications.Probability.PermutationOrder.restrictedOrder_nodup",
+        "Applications.Probability.PermutationOrder.restrictedOrder_toFinset",
+        "Applications.Probability.PermutationOrder.restrictedOrder_length",
+        "Applications.Probability.PermutationOrder.restrictedOrder_perm",
+        "Applications.Probability.PermutationOrder.map_restrictedOrder_sublist",
+        "Applications.Probability.PermutationOrder.filter_restrictedOrder",
+        "Applications.Probability.PermutationOrder.filter_restrictedOrder_of_subset",
+        "Applications.Probability.PermutationOrder.mem_orders",
+        "Applications.Probability.PermutationOrder.orders_nonempty",
+        "Applications.Probability.PermutationOrder.restrictedOrder_mem_orders",
+        "Applications.Probability.PermutationOrder.orders_card",
+        "Applications.Probability.PermutationOrder.uniformOn_restrictedOrder_eq",
+        "Applications.Probability.PermutationOrder.map_restrictedOrder_uniformOn"
+      ]
+    },
+    {
+      "module": "Examples.PermutationOrder",
+      "source": "Examples/PermutationOrder.lean",
+      "bytes": 6445,
+      "sha256": "251c0ee0ce7b96711ea57e1ff7496a784fe33137596e8f13b244fa9e44fd57e5",
+      "names": [
+        "Examples.PermutationOrder.positions",
+        "Examples.PermutationOrder.selected",
+        "Examples.PermutationOrder.smaller",
+        "Examples.PermutationOrder.positions_nodup",
+        "Examples.PermutationOrder.positions_complete",
+        "Examples.PermutationOrder.law",
+        "Examples.PermutationOrder.selected_structure",
+        "Examples.PermutationOrder.selected_permutation",
+        "Examples.PermutationOrder.selected_orders_card",
+        "Examples.PermutationOrder.order_023_mass",
+        "Examples.PermutationOrder.observed_law",
+        "Examples.PermutationOrder.order_032_mass_via_map",
+        "Examples.PermutationOrder.repeated_order_mass_zero",
+        "Examples.PermutationOrder.nestedObservation",
+        "Examples.PermutationOrder.nestedObservation_eq",
+        "Examples.PermutationOrder.nested_order_30_mass",
+        "Examples.PermutationOrder.singleton_order_mass",
+        "Examples.PermutationOrder.full_order_mass"
+      ]
+    },
+    {
+      "module": "Examples.PermutationOrderBoundary",
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "bytes": 5434,
+      "sha256": "35c9768d94fd12e553905244a69ffa375e01e469098856b311ac17ad88533fea",
+      "names": [
+        "Examples.PermutationOrderBoundary.empty_subset_output",
+        "Examples.PermutationOrderBoundary.empty_subset_orders",
+        "Examples.PermutationOrderBoundary.empty_subset_mass",
+        "Examples.PermutationOrderBoundary.empty_index_mass",
+        "Examples.PermutationOrderBoundary.cycle",
+        "Examples.PermutationOrderBoundary.cycle_values",
+        "Examples.PermutationOrderBoundary.cycle_inverse_order",
+        "Examples.PermutationOrderBoundary.cycle_restricted_order",
+        "Examples.PermutationOrderBoundary.cycle_direct_order",
+        "Examples.PermutationOrderBoundary.inverse_and_direct_orders_differ",
+        "Examples.PermutationOrderBoundary.numeric_enumeration_values",
+        "Examples.PermutationOrderBoundary.numeric_enumeration_increasing",
+        "Examples.PermutationOrderBoundary.ordinary_enumeration_not_increasing",
+        "Examples.PermutationOrderBoundary.numeric_and_ordinary_orders_differ",
+        "Examples.PermutationOrderBoundary.incomplete_output",
+        "Examples.PermutationOrderBoundary.incomplete_support_counterexample",
+        "Examples.PermutationOrderBoundary.repeated_output",
+        "Examples.PermutationOrderBoundary.repeated_support_counterexample"
+      ]
+    }
+  ],
+  "total": 53,
+  "status": "Preparation only; XU02 is not yet compiled, no acceptance."
+}

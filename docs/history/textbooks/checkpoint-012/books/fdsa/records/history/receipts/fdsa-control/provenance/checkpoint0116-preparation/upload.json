@@ -1,0 +1,31 @@
+{
+  "name": "conaled-fdsa-0116-accepted-order-and-tail-ready",
+  "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0116-accepted-order-and-tail-ready.tar.gz",
+  "uploaded_utc": "2026-11-04T15:56:42.841335+00:00",
+  "status": "succeeded",
+  "size_bytes": 25111562,
+  "sha256": "a3af479ecf3818f06ac1a421d3dd17d47b0bebe681ed4f95ed3da88d7fef13ae",
+  "library_file_id": "libfile_60dcf58fbe508191ab2e60043e427ef5",
+  "file_id": "file_000000001f5c8211b7ef5fe6887eb55b",
+  "current_version_number": 0,
+  "url": "https://chatgpt.com/library?file_id=libfile_60dcf58fbe508191ab2e60043e427ef5&account_id=personal",
+  "metadata_exit": 0,
+  "metadata_chunk": "e0d7a3",
+  "post_upload_hash_matched": true,
+  "creation_owned_session": 18801,
+  "creation_terminal_chunk": "06295e",
+  "verification_owned_session": 64974,
+  "verification_terminal_chunk": "7ba7f2",
+  "payload_hashes_verified": 4156,
+  "refs_verified": 65,
+  "worktrees_verified": 15,
+  "held_control_files_verified": 4104,
+  "accepted_head": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "metadata_prior_failure": {
+    "chunk": "ac937d",
+    "exit_code": 1,
+    "cause": "Tool response path is remote /filename; apply-xattrs requires the original absolute local path.",
+    "effect": "Upload already succeeded; no duplicate upload, archive content unchanged.",
+    "correction": "Apply exact supplied xattrs to original absolute local archive path; actual exit0 e0d7a3."
+  }
+}

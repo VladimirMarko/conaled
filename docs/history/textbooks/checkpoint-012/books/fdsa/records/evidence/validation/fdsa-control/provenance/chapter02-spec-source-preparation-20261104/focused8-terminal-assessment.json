@@ -1,0 +1,101 @@
+{
+  "recorded_utc": "2026-11-04T09:22:41.373995+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "source_candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+  "full_scope": "Complete fixed R-to-eventual-C2 scope: all81 paths,112 obligations and ten shared units retained.",
+  "overall_outcome": "Blocked",
+  "approval_or_acceptance": false,
+  "compiler_or_build_or_process_poll_by_reviewer": false,
+  "actual_exit": 1,
+  "started_utc": "2026-11-04T08:59:30.308304+00:00",
+  "completed_utc": "2026-11-04T09:15:15.519198+00:00",
+  "elapsed_seconds": 945.2104128079991,
+  "exact_clean_source_before_after": true,
+  "full_log_read_ranges": [
+    [
+      1,
+      81
+    ],
+    [
+      82,
+      162
+    ]
+  ],
+  "complete_full_log_read": true,
+  "outer_secured_native_result_read_in_full": true,
+  "all_outer_and_native_hashes_match": true,
+  "historical_closed_session": 56413,
+  "do_not_poll": true,
+  "actual_failed_target": "Examples.PermutationTailBoundary",
+  "complete_diagnostics": [
+    "error: Examples/PermutationTailBoundary.lean:225:2: `simp` made no progress",
+    "error: Examples/PermutationTailBoundary.lean:237:2: `simp` made no progress",
+    "error: Examples/PermutationTailBoundary.lean:249:2: `simp` made no progress"
+  ],
+  "individual_new_passes": [
+    "⚠ [877/878] Built Applications.Resources.InsertionSort (15s)",
+    "⚠ [3148/3154] Built Applications.Sorting.InsertionObservations (12s)",
+    "⚠ [3150/3157] Built Applications.Arithmetic.EuclidInduction (1.8s)",
+    "⚠ [3152/3159] Built Examples.FunctionalBasics (2.9s)",
+    "⚠ [3154/3159] Built Examples.ListLibrary (1.0s)",
+    "⚠ [3156/3162] Built Applications.Resources.UniformQuickSortMean (85s)",
+    "⚠ [3157/3162] Built Examples.FunctionalNotation (12s)",
+    "✔ [3158/3163] Built Examples.InsertionCosts (12s)",
+    "✔ [3161/3164] Built Examples.ListCalls (7.0s)",
+    "⚠ [3162/3168] Built Examples.InsertionObservations (1.9s)",
+    "✔ [3165/3168] Built Applications.Search.LeftistQueue (1.9s)",
+    "⚠ [3166/3168] Built Applications.Resources.CallComparison (14s)",
+    "⚠ [3167/3189] Built Examples.MergeCosts (3.9s)",
+    "⚠ [3753/3758] Built Examples.RandomQuickSortRank (314s)",
+    "⚠ [3754/3758] Built Examples.TopDownSorting (13s)",
+    "✔ [3757/3758] Built Examples.RandomQuickSortGrowth (321s)"
+  ],
+  "dependent_ran": [
+    "Examples.PermutationTail",
+    "Examples.UniformQuickSortMean"
+  ],
+  "dependent_ran_is_not_pass": true,
+  "focused_scope_is_not_full_audit": true,
+  "matching_verification_record_present": false,
+  "current814_type_program_executed": false,
+  "source_correction": "Root preparing isolated repair; no successor or probe outcome inferred in this receipt.",
+  "artifacts": [
+    {
+      "path": "provenance/chapter02-sorting-and-type-imports-focused-20261104-attempt8/full.log",
+      "bytes": 28888,
+      "lines": 162,
+      "sha256": "eb49e2b97740ea99b7d02f805455717527f7dbe24837e864b32bfbcb657edf65"
+    },
+    {
+      "path": "provenance/chapter02-sorting-and-type-imports-focused-20261104-attempt8/result.json",
+      "bytes": 1704,
+      "lines": 45,
+      "sha256": "dd3e20d4deb887612383516b45e503a17d4cd3685d1da1431633b263f8d9fdf1"
+    },
+    {
+      "path": "provenance/chapter02-sorting-and-type-imports-focused-20261104-attempt8/secured-terminal.json",
+      "bytes": 4397,
+      "lines": 76,
+      "sha256": "784c21b750b50d6dc7e82ad1cde266b52121b8e4086dee1326cc68f9a4397a33"
+    },
+    {
+      "path": "provenance/chapter02-sorting-and-type-imports-focused-20261104-attempt8/native/start.json",
+      "bytes": 943,
+      "lines": 27,
+      "sha256": "b9032d180b2b70759b545035bb98f2efdacb5408f35fd703bb67522bbcc6d26d"
+    },
+    {
+      "path": "provenance/chapter02-sorting-and-type-imports-focused-20261104-attempt8/native/output.log",
+      "bytes": 28238,
+      "lines": 159,
+      "sha256": "947359129f6e3b0fb6fc88ff2b66a7fa6e9e5672b0f1e6eefa052bb70573be39"
+    },
+    {
+      "path": "provenance/chapter02-sorting-and-type-imports-focused-20261104-attempt8/native/result.json",
+      "bytes": 1096,
+      "lines": 32,
+      "sha256": "b7d7953fda190af742f1cc34e04a16ac34d44f6265b21ade8b2e2afd278d74fc"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "observed_utc": "2026-11-02T14:36:30.075763+00:00",
+  "execution_context": "native execution, same as planned capture",
+  "status": "first capture launch stopped before any retirement or real capture",
+  "recorded_failure": "Parent launch line16 required free + archive allocated bytes above the conservative recommended launch floor; assertion failed before writing a retirement record.",
+  "current_free_bytes": 1349775360,
+  "local_source_archive_size": 145936501,
+  "local_source_archive_allocated_bytes": 145973248,
+  "projected_free_after_retirement": 1495748608,
+  "internal_guard_estimate_bytes": 1486064944,
+  "recommended_launch_bytes": 1536064944,
+  "retirement_record_exists": false,
+  "capture_launch_record_exists": false,
+  "cache_archive_exists": false
+}

@@ -1,0 +1,433 @@
+{
+  "time": "2026-11-03T23:44:38.248920+00:00",
+  "role": "Coordinator identity/dispatch within nine retained formal loops; no third statement review",
+  "candidate": {
+    "commit": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+    "tree": "d3dcf94916de5ccaf3df357e06192e69c4e0cf33",
+    "preserved_branch": "pfds/signed-potential",
+    "planned_isolated_checkout": "validation-pfds-integration",
+    "restored_main": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c"
+  },
+  "isolated_checkout_clean": true,
+  "scope_matrix_sha256": "7b3d0be9656e87f77cd5fbac62b23475458d08c3f4d47ee4add0156c90947eec",
+  "global_full_files": 170,
+  "guidance_and_gate_files_checked": 21,
+  "scopes": [
+    {
+      "ticket": 10013,
+      "base": "cbb1e27d18c69ce2e0c35ef1cb492483b5ca0833",
+      "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "full_file_count": 170,
+      "full_commit_count": 68,
+      "requirement": {
+        "path": "requirements/shared-persistence.md",
+        "version": 2
+      },
+      "retained_finding_ids": [
+        "PERSIST-VAL-001",
+        "IMPORT-VAL-001",
+        "IMPORT-VAL-002",
+        "IMPORT-VAL-003",
+        "IMPORT-VAL-004"
+      ],
+      "latest_reports": {
+        "standards": "reviews/shared-persistence-standards-r5.md",
+        "spec": "reviews/shared-persistence-spec-r5.md"
+      },
+      "standards": "Pending common-candidate independent continuation",
+      "spec": "Pending common-candidate independent continuation"
+    },
+    {
+      "ticket": 10018,
+      "base": "70a1477d822efd4fdcec2007280f650bb4695eda",
+      "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "full_file_count": 164,
+      "full_commit_count": 66,
+      "requirement": {
+        "path": "requirements/import-footprint.md",
+        "version": 1
+      },
+      "retained_finding_ids": [
+        "IMPORT-VAL-001",
+        "IMPORT-VAL-002",
+        "IMPORT-VAL-003",
+        "IMPORT-VAL-004"
+      ],
+      "latest_reports": {
+        "standards": "reviews/import-footprint-standards-r3.md",
+        "spec": "reviews/import-footprint-spec-r3.md"
+      },
+      "standards": "Pending common-candidate independent continuation",
+      "spec": "Pending common-candidate independent continuation"
+    },
+    {
+      "ticket": 10002,
+      "base": "82501d108f33c62d21b5e0d0f7d2376b902d8d49",
+      "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "full_file_count": 162,
+      "full_commit_count": 65,
+      "requirement": {
+        "path": "requirements/chapter02.md",
+        "version": 1
+      },
+      "retained_finding_ids": [
+        "CH02-PRE-001",
+        "CH02-PRE-002",
+        "CH02-PRE-003",
+        "CH02-PRE-004",
+        "CH02-PRE-005"
+      ],
+      "latest_reports": {
+        "standards": "reviews/chapter02-standards-r3.md",
+        "spec": "reviews/chapter02-spec-r3.md"
+      },
+      "standards": "Pending common-candidate independent continuation",
+      "spec": "Pending common-candidate independent continuation"
+    },
+    {
+      "ticket": 10014,
+      "base": "69f6f00de204617fdd7feefd5b9ee5b80fc0d9f4",
+      "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "full_file_count": 125,
+      "full_commit_count": 34,
+      "requirement": {
+        "path": "requirements/suspension-foundation.md",
+        "version": 1
+      },
+      "retained_finding_ids": [
+        "SUSP-STAT-001",
+        "SUSP-DEV-001",
+        "SUSP-DEV-002",
+        "SUSP-DEV-003",
+        "SUSP-DEV-004",
+        "SUSP-DEV-005",
+        "SUSP-DEV-006",
+        "SUSP-DEV-007",
+        "SUSP-DEV-008",
+        "SUSP-STD-VAL-001",
+        "SUSP-SPEC-VAL-001"
+      ],
+      "latest_reports": {
+        "standards": "reviews/suspension-foundation-standards-r1.md",
+        "spec": "reviews/suspension-foundation-spec-r1.md"
+      },
+      "standards": "Pending common-candidate independent continuation",
+      "spec": "Pending common-candidate independent continuation"
+    },
+    {
+      "ticket": 10019,
+      "base": "b422800fb5b6dc1253823057c0ea71644274d77c",
+      "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "full_file_count": 94,
+      "full_commit_count": 28,
+      "requirement": {
+        "path": "requirements/pure-recursive-forcing.md",
+        "version": 1
+      },
+      "retained_finding_ids": [
+        "PURE-STD-DOC-001",
+        "PURE-STD-EVID-001",
+        "PURE-SPEC-DOC-001",
+        "PURE-SPEC-DOC-002",
+        "PURE-STD-VAL-001",
+        "PURE-SPEC-VAL-001",
+        "PREP-10019-01",
+        "PREP-10019-02"
+      ],
+      "latest_reports": {
+        "standards": "reviews/pure-recursive-forcing-standards-r2.md",
+        "spec": "reviews/pure-recursive-forcing-spec-r2.md"
+      },
+      "standards": "Pending common-candidate independent continuation",
+      "spec": "Pending common-candidate independent continuation"
+    },
+    {
+      "ticket": 10020,
+      "base": "ea8afa12706d30cdc69ece1a172d5f21a3ea1809",
+      "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "full_file_count": 39,
+      "full_commit_count": 18,
+      "requirement": {
+        "path": "requirements/pure-cache-counts.md",
+        "version": 1
+      },
+      "retained_finding_ids": [
+        "PREP-10019-02",
+        "COUNT-STD-VAL-001",
+        "COUNT-SPEC-VAL-001"
+      ],
+      "latest_reports": {
+        "standards": "reviews/pure-cache-counts-standards-r1.md",
+        "spec": "reviews/pure-cache-counts-spec-r1.md"
+      },
+      "standards": "Pending common-candidate independent continuation",
+      "spec": "Pending common-candidate independent continuation"
+    },
+    {
+      "ticket": 10021,
+      "base": "3dd930c3e3989f3e5530463f3ac937a629551335",
+      "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "full_file_count": 26,
+      "full_commit_count": 14,
+      "requirement": {
+        "path": "requirements/persistent-debit-foundation.md",
+        "version": 1
+      },
+      "retained_finding_ids": [
+        "PERSIST-ACC-STD-VAL-001",
+        "PERSIST-ACC-SPEC-VAL-001"
+      ],
+      "latest_reports": {
+        "standards": "reviews/persistent-accounting-standards-r1.md",
+        "spec": "reviews/persistent-accounting-spec-r1.md"
+      },
+      "standards": "Pending common-candidate independent continuation",
+      "spec": "Pending common-candidate independent continuation"
+    },
+    {
+      "ticket": 10022,
+      "base": "577be121e074ddb5de6727a7481c115cb61b3b27",
+      "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "full_file_count": 16,
+      "full_commit_count": 9,
+      "requirement": {
+        "path": "requirements/body-entry-counts.md",
+        "version": 1
+      },
+      "retained_finding_ids": [
+        "BODY-COUNT-STD-VAL-001",
+        "BODY-COUNT-SPEC-VAL-001"
+      ],
+      "latest_reports": {
+        "standards": "reviews/body-entry-counts-standards-r1.md",
+        "spec": "reviews/body-entry-counts-spec-r1.md"
+      },
+      "standards": "Pending common-candidate independent continuation",
+      "spec": "Pending common-candidate independent continuation"
+    },
+    {
+      "ticket": 10023,
+      "base": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+      "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "full_file_count": 6,
+      "full_commit_count": 5,
+      "requirement": {
+        "path": "requirements/signed-potential.md",
+        "version": 1
+      },
+      "retained_finding_ids": [
+        "SIGNED-POT-STD-CODE-001",
+        "SIGNED-POT-SPEC-001",
+        "SIGNED-POT-STD-VAL-001",
+        "SIGNED-POT-SPEC-VAL-001"
+      ],
+      "latest_reports": {
+        "standards": "reviews/signed-potential-standards-r3-042.md",
+        "spec": "reviews/signed-potential-spec-r3-042.md"
+      },
+      "standards": "Pending common-candidate independent continuation",
+      "spec": "Pending common-candidate independent continuation"
+    }
+  ],
+  "retained_findings": [
+    "PERSIST-VAL-001",
+    "IMPORT-VAL-001",
+    "IMPORT-VAL-002",
+    "IMPORT-VAL-003",
+    "IMPORT-VAL-004",
+    "CH02-PRE-001",
+    "CH02-PRE-002",
+    "CH02-PRE-003",
+    "CH02-PRE-004",
+    "CH02-PRE-005",
+    "SUSP-STAT-001",
+    "SUSP-DEV-001",
+    "SUSP-DEV-002",
+    "SUSP-DEV-003",
+    "SUSP-DEV-004",
+    "SUSP-DEV-005",
+    "SUSP-DEV-006",
+    "SUSP-DEV-007",
+    "SUSP-DEV-008",
+    "SUSP-STD-VAL-001",
+    "SUSP-SPEC-VAL-001",
+    "PURE-STD-DOC-001",
+    "PURE-STD-EVID-001",
+    "PURE-SPEC-DOC-001",
+    "PURE-SPEC-DOC-002",
+    "PURE-STD-VAL-001",
+    "PURE-SPEC-VAL-001",
+    "PREP-10019-01",
+    "PREP-10019-02",
+    "COUNT-STD-VAL-001",
+    "COUNT-SPEC-VAL-001",
+    "PERSIST-ACC-STD-VAL-001",
+    "PERSIST-ACC-SPEC-VAL-001",
+    "BODY-COUNT-STD-VAL-001",
+    "BODY-COUNT-SPEC-VAL-001",
+    "SIGNED-POT-STD-CODE-001",
+    "SIGNED-POT-SPEC-001",
+    "SIGNED-POT-STD-VAL-001",
+    "SIGNED-POT-SPEC-VAL-001"
+  ],
+  "retained_finding_count": 39,
+  "context_hashes": {
+    "requirements/shared-persistence.md": "177e80e0beda3ec144279c104d2fa3b968e916b0104db7f2e5d3c7c81a4bec76",
+    "reviews/shared-persistence.md": "5fe71e7bb45dec97290b80b171c9b13eaed1bf39c5223257e4c9f26a881d5a38",
+    "requirements/REQUEST.md": "b847f23fcce44837f5b1ead01aae43ac5ed626ffd32aab84055dd664e339e499",
+    "requirements/REQUEST-union-v2.md": "3336bed1154438b3683aeb5a1c63fee44e87aff190f5ff69e34705a780b9d22c",
+    "requirements/REQUEST-recovery-039.md": "4825fd6d3eb1e79a8f5695803cd8b5206dcbe248f4033b4d7d1320478e913ac8",
+    "requirements/REQUEST-direct-toolchain-041.md": "16845edec15c311e0cfd5ed5d4f5c4feb61e7ad96545653d5b872309d26464bc",
+    "requirements/REQUEST-environment-handoff-042.md": "200789123c60ae137967f881207194412eecea72ba2fc80247978075bd6a4602",
+    "requirements/REQUEST-native-toolchain-042.md": "d76dc8dcf771a227779628de91e75c4b63a2898b95e7b30035de83537dae5195",
+    "requirements/REQUEST-common-candidate-validation-044.md": "1a6b2a4b0d68b7a559e5d3d9c3fa7a90f0f1113f8d37539dedfb1df1579ca870",
+    "reviews/shared-persistence-standards-r5.md": "298ffc8d093ebb61ae548dc931041b0eecce1f48ea8b2fe6ec518300c4109150",
+    "reviews/shared-persistence-spec-r5.md": "8252b7a7a40536f8ba459ad6e3b83672517f1872869328fae7978e821fd2010e",
+    "research/shared-persistence-statement-check.md": "3319cadaa60ad6b826f2671829c7149fa5e2c5a85550668bd3d44d1c84b22025",
+    "research/book-full-inventory.md": "e7c863270e438df6851ab678acdc21e068ed74614832aba0c220c67be6ec50dd",
+    "requirements/import-footprint.md": "cf8fb3133b83ac59fdf6fd46b818d8b279d96385f5de50da843ef9b7fd62444d",
+    "reviews/import-footprint.md": "d11d00d5244bbcbb71870cca3919a7d2097dd5bc46775299da80c2872db9df22",
+    "reviews/import-footprint-standards-r3.md": "f2400335753f98d451efe1001adc7acfed013c995ac76d144f3b19bb462446f8",
+    "reviews/import-footprint-spec-r3.md": "cf25d48863173a81d8608ef382a5a368cb5b4ff009ac27487ff538e389914864",
+    "research/import-footprint.md": "446fd3df656308c607a1d9e516240e32ad03bfd640944ce20a27fbdc3a30a205",
+    "research/import-footprint-r2.md": "6c3c12e9aab1dcfbcc1f1b78ea9203ce6e964134da5be94b106e61c618dde4c6",
+    "research/import-footprint-r3.md": "0cfec261e8ac0d3f1a40c7d3bd60484a15e219348d51eebd31c6e99fa7a5022a",
+    "requirements/chapter02.md": "240b6bfec9f9e8599f1034abc309499928c8472edf76481b553ef99ce40ff944",
+    "reviews/chapter02.md": "afc8e5e2524e605dac4f841a24b47dc8ec3778922b4c5516498ebea4136517a9",
+    "reviews/chapter02-standards-r3.md": "b072e8bb0bb8db85769167ad912478704aebc14ffc5a32ed6fd343b804515226",
+    "reviews/chapter02-spec-r3.md": "b0ff3ecda4fa6f222a7bab7d964f5680880436539001439b35057d515b16f604",
+    "research/book-thesis-union.md": "fd307d2221335bb8412b797b2a750be6d2752c17b487fa81d31ef89d61645ffd",
+    "research/chapter02-preacceptance-gaps.md": "b75a6f7ef10100f055a82bbd0d824dffe7e03af02ebdfec75871316250eaa6a4",
+    "reviews/chapter02-native-continuation-preparation-043.md": "efa1866a9986762692cf834bfbc6bcdf3c9beed7e613d803107efe4824553427",
+    "requirements/suspension-foundation.md": "56828fa549b0f96b76db9c2451b82106ea12cf4c6e15bd7cd0fc5ecdf3a98f3e",
+    "reviews/suspension-foundation.md": "4c4e10ac513e1fcddbd7fe76daad42a175486faf6fce301f6db11b56b1a05ca5",
+    "reviews/suspension-foundation-standards-r1.md": "455507241da9b6aa2bf2bdf2dd299189191762139e69aff6689e31038752f469",
+    "reviews/suspension-foundation-spec-r1.md": "3b10d4aff8764ba1b2741da63c6b2f98ac1238df7d9f879cf7ebde9365f79eee",
+    "research/suspension-foundation-inventory.md": "a5b822225bb67978f5165442449949c49964fd1085b80bf800430df7a241732b",
+    "research/suspension-base-core.md": "50f0e7871aa7c6081d6a608403fdc8855d052da1134d8cd94da794992395d457",
+    "research/sml90-source-identity.json": "d582011afb0668fc13f2d1fcfc7f11bca7db2ad74fba5dcb6d535ec5c79404e8",
+    "requirements/pure-recursive-forcing.md": "57ddefb472b9393a3fe890f880ad4eb94893f5aa6bd8be912da2d7dfa4f4ec55",
+    "reviews/pure-recursive-forcing.md": "b88265f460da0f0b6edbda18ba12c6b65378fb9fc81ae5b1f9fbe79d74327d0b",
+    "reviews/pure-recursive-forcing-standards-r2.md": "a15d2f0608c0669c9a663e71120a278f302e6ad0e44a922ad9ec2da9a5ba9573",
+    "reviews/pure-recursive-forcing-spec-r2.md": "306ade491d79153436186e5c34216aad402878e26e685b6ddb1aa0cecf558abe",
+    "research/pure-recursive-forcing-preacceptance.md": "0348e4190e9a6174aab2a41368e3343abd2ca5755e323955c7deba90c6bf8632",
+    "research/pure-recursive-forcing-cached-closure.md": "b2fa5656cad86bb2572d7c14cb1a0fda1216c1ef21cee2551211d68ba47aa914",
+    "research/pure-recursive-forcing-compatibility.md": "355a7e16e8d8c2447655434860b9275e4a1aba4db9287f05e6847842e1c5d2b0",
+    "requirements/pure-cache-counts.md": "fa5b5c01205aea18cc19aa53047cc7e0d57c0bb225534f0152bc04d7c87e569e",
+    "reviews/pure-cache-counts.md": "ce151bb92ca6a84398a7663bfee7388f7a9e599b26c04ce8560998d0b7d69978",
+    "reviews/pure-cache-counts-standards-r1.md": "7cb9deb7408b1b000b5882717ae625f8cc0fdbf00ba66eb63bb849f94b467f94",
+    "reviews/pure-cache-counts-spec-r1.md": "445a29a5ee99bfc1ec49a1cd809b726f6167748978d9f7d0a6975c90fa5732d4",
+    "research/pure-cache-counts-source.md": "748c7cd84f6cae2b04ef0193f9ec4e0e22f6ad49fa3d9c51bd80a18f8b06da2a",
+    "research/pure-cache-accounting.md": "39b622361afb1c732d934e56e5e8d21301c5d956334cc017f2d63149710774b0",
+    "requirements/persistent-debit-foundation.md": "2a89d7818d73e0b1b118ebf7d902a75afb2b6e25afaae6b9c7842d229964922f",
+    "reviews/persistent-accounting.md": "77d07e7f4c6c11c3cc9aa88ede56daee7fe03bc0b9b9325614239c11a7f41b2c",
+    "reviews/persistent-accounting-standards-r1.md": "6a64a766f3b763d8a5b8e418d323861910692380fc2e67d28b70b1566c0b0aa4",
+    "reviews/persistent-accounting-spec-r1.md": "bcb34d737f08eb987e9286b9d09bfa47a1ceb9a8d896a4de34fe0d8b465277b6",
+    "research/persistent-trace-source-scope.md": "c6353cdb2ef272a841b8467fc5fc6cc773ea34c0439b213ca9db321a8b3b486a",
+    "research/persistent-trace-reuse.md": "877d70984781b5c83406638bd096c9ec3e569156e89135d78c52c323cfb81325",
+    "research/persistent-history-implementation.md": "90eadc3bb17b0d5ef4b5de9bc496bcacfd5fdd4eeec63a815d749f3204dc850c",
+    "research/persistent-debit-implementation.md": "cd3722c33f3100dfd3d450298db25b981464ea7d27697ad7d98cc06ba89f1b8d",
+    "research/persistent-realization-implementation.md": "14a7da903b95ea10dfedcc3531bba3978ea06951616dceb0d5eb471774a8d5fa",
+    "requirements/body-entry-counts.md": "1483d8bfc4470c4aa700c809209b3083db89fa713def40821e1968d9e3ce2a58",
+    "reviews/body-entry-counts.md": "ad8134ee9654a98161466cc1396505c0c62aff0a368d862747277c9c1e403347",
+    "reviews/body-entry-counts-standards-r1.md": "d016deb0e81d5fb97c36e32ba25f00a8b96bf84a257c4820e7878ff3f32a6c36",
+    "reviews/body-entry-counts-spec-r1.md": "f4536ea770c080936b5eed53669b9cad3550885da5bf8b44fab8776ff8b5fd88",
+    "research/body-entry-counts-design.md": "b87d7b058b9cc8ca5256e9cf3bc214a67f19c0c3ea585538ee49aeb04c6114d4",
+    "research/pure-body-counts-source.md": "53c5b556caed395898d6f8ae722d8a1737cd343957884c8c8e0863abb8d817bc",
+    "research/suspension-body-realization-correction-r1.md": "535d31f8047f412d69c4f9516f9f300b76c2bd0606f1a7c48b755d2cfa8c2077",
+    "requirements/signed-potential.md": "bb28d4f56eb48c80d2a9905b6e349d3e4b6fdb4e4ad2a01976408432a434ac81",
+    "reviews/signed-potential.md": "aa4fdbdaa3250549d7dc08e2fe5600ef0c73902630b36c5b4c12061813d9ee64",
+    "reviews/signed-potential-standards-r3-042.md": "9eaf1d489ae6a1c8b858d1389409a8382d602d2178a24dd31ac7b403336dbbd2",
+    "reviews/signed-potential-spec-r3-042.md": "2e12a93fdd8ad851ce14b80b61174f800e67892a07985a83dbe7fc0f52841a23",
+    "research/signed-potential-implementation.md": "583ba6dc25106d58c63e978f4f6319e2cfe311e13ff1d147955b1179997d851a",
+    "research/signed-potential-proof-corrections-042.md": "3f83fe3d10caba8da50b9a1c2cb888aecb209c5b3acf141dc23c7237b049dd99",
+    "research/potential-generalization-inventory.md": "37ba7b5eb3f1ed635050701eed4c3956ca43fc85655bf321c137629f9e63906b",
+    "research/potential-transport-client.md": "cf08f7256fe1799080583acf131a01d9fac773ca4975ec33552342adecffb7e6",
+    "requirements/REQUEST-recovery-045.md": "dafc4b266e88c7644d35439ab8aba9a1d0e95a4ccab69e18b9cfb7150e4da44e"
+  },
+  "controlling_record_continuations": {
+    "reviews/shared-persistence.md": {
+      "matrix_and_checkpoint045_sha256": "c267f92e962e24086256c61c7f18e76e86f2a68543cfbca1a47a583c6d173023",
+      "current_sha256": "5fe71e7bb45dec97290b80b171c9b13eaed1bf39c5223257e4c9f26a881d5a38",
+      "append_only": true,
+      "added_bytes": 928,
+      "scope": "Root explicit pending common-candidate retarget, historical record preserved verbatim"
+    },
+    "reviews/import-footprint.md": {
+      "matrix_and_checkpoint045_sha256": "3d2d2b047de2ef38ba55bd01a43b11fe1ed540c33743774ec296fbece5a519d6",
+      "current_sha256": "d11d00d5244bbcbb71870cca3919a7d2097dd5bc46775299da80c2872db9df22",
+      "append_only": true,
+      "added_bytes": 928,
+      "scope": "Root explicit pending common-candidate retarget, historical record preserved verbatim"
+    },
+    "reviews/chapter02.md": {
+      "matrix_and_checkpoint045_sha256": "9fc6297029aa2b12e8c60e264bb0c80c778e55003076d2d3f093b876ee2f7f78",
+      "current_sha256": "afc8e5e2524e605dac4f841a24b47dc8ec3778922b4c5516498ebea4136517a9",
+      "append_only": true,
+      "added_bytes": 928,
+      "scope": "Root explicit pending common-candidate retarget, historical record preserved verbatim"
+    },
+    "reviews/suspension-foundation.md": {
+      "matrix_and_checkpoint045_sha256": "0f96801b4fe79ec66d0c3f8ce19da0a25a522946fcd936cb2ee9fa00ea51051d",
+      "current_sha256": "4c4e10ac513e1fcddbd7fe76daad42a175486faf6fce301f6db11b56b1a05ca5",
+      "append_only": true,
+      "added_bytes": 928,
+      "scope": "Root explicit pending common-candidate retarget, historical record preserved verbatim"
+    },
+    "reviews/pure-recursive-forcing.md": {
+      "matrix_and_checkpoint045_sha256": "4acce6971d8bd90b7c631c2b76fc1e3dde0bffc466ab0154e824e70e095234f9",
+      "current_sha256": "b88265f460da0f0b6edbda18ba12c6b65378fb9fc81ae5b1f9fbe79d74327d0b",
+      "append_only": true,
+      "added_bytes": 927,
+      "scope": "Root explicit pending common-candidate retarget, historical record preserved verbatim"
+    },
+    "reviews/pure-cache-counts.md": {
+      "matrix_and_checkpoint045_sha256": "f51da59c99ec0ca6f7285fccc753ae90b78356b973f09885969f3fb45953659f",
+      "current_sha256": "ce151bb92ca6a84398a7663bfee7388f7a9e599b26c04ce8560998d0b7d69978",
+      "append_only": true,
+      "added_bytes": 927,
+      "scope": "Root explicit pending common-candidate retarget, historical record preserved verbatim"
+    },
+    "reviews/persistent-accounting.md": {
+      "matrix_and_checkpoint045_sha256": "81f008167e250b6dd59c3174161de3ebf95c11850336120d928b0da6e1e7c94a",
+      "current_sha256": "77d07e7f4c6c11c3cc9aa88ede56daee7fe03bc0b9b9325614239c11a7f41b2c",
+      "append_only": true,
+      "added_bytes": 927,
+      "scope": "Root explicit pending common-candidate retarget, historical record preserved verbatim"
+    },
+    "reviews/body-entry-counts.md": {
+      "matrix_and_checkpoint045_sha256": "bb9ba87d41e2e70180b4356ace9c0cc44ced07df5adebe7f24cf3e1a1a520548",
+      "current_sha256": "ad8134ee9654a98161466cc1396505c0c62aff0a368d862747277c9c1e403347",
+      "append_only": true,
+      "added_bytes": 926,
+      "scope": "Root explicit pending common-candidate retarget, historical record preserved verbatim"
+    },
+    "reviews/signed-potential.md": {
+      "matrix_and_checkpoint045_sha256": "5f2a8ba6e1013c59308d3a2842d92f037a788c1b710c28e098ae6e41e58a8eaa",
+      "current_sha256": "aa4fdbdaa3250549d7dc08e2fe5600ef0c73902630b36c5b4c12061813d9ee64",
+      "append_only": true,
+      "added_bytes": 925,
+      "scope": "Root explicit pending common-candidate retarget, historical record preserved verbatim"
+    }
+  },
+  "independent_axes": {
+    "Standards": "/root/operational_review/standards",
+    "Spec": "/root/operational_review/spec"
+  },
+  "actual_gate_observation": {
+    "run_id": "integration-3cf-fresh-r1-045",
+    "mode": "full",
+    "candidate_scope": "integration",
+    "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+    "runtime": "unified-native-kit",
+    "verification_mode": "fresh",
+    "status": "running",
+    "terminal_result_observed": false,
+    "exit_code": null
+  },
+  "gate_observation_is_not_terminal_evidence": true,
+  "compiler_or_runtime_commands_run": false,
+  "source_or_refs_mutated": false,
+  "git_optional_locks": false,
+  "formal_acceptance": false
+}

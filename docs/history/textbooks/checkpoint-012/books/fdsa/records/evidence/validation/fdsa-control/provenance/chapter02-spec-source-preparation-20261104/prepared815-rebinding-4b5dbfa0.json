@@ -1,0 +1,111 @@
+{
+  "recorded_utc": "2026-11-04T10:17:23.769832+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "previous_candidate": "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+  "scope": "Same complete 81-path R-through-eventual-C2 Spec scope, all 112 obligations, ten shared scopes and exact-F scope retained.",
+  "overall_outcome": "Blocked",
+  "approval_or_acceptance": false,
+  "no_compiler_source_ref_pin_cache_or_process_action": true,
+  "no_live_source_output_or_runtime_snapshot": true,
+  "program": {
+    "path": "provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/Statements.lean",
+    "bytes": 46371,
+    "lines": 862,
+    "sha256": "d4d37d6ea2b48fc5c743b1db36fe904ca8623be6c03c05ea5addc99b307687bd"
+  },
+  "inventory": {
+    "path": "provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/inventory.json",
+    "bytes": 58922,
+    "lines": 1148,
+    "sha256": "7fe7ddfc3242dff5937ef1fba339bd62f0a2ce66401fe919d383237049bd70bf"
+  },
+  "prior_program": {
+    "path": "provenance/chapter02-complete-public-statements814-8ba7ae11-prepared-20261104/Statements.lean",
+    "bytes": 46242,
+    "lines": 859,
+    "sha256": "ec9fb2b9a141630d0d4acb527bc28cf5fb6b5c2032f3f9951ce1d53cd1578577"
+  },
+  "prior_inventory": {
+    "path": "provenance/chapter02-complete-public-statements814-8ba7ae11-prepared-20261104/inventory.json",
+    "bytes": 58108,
+    "lines": 1134,
+    "sha256": "0dd83a1b59b09d6af609d400bc75650afb67a1b3f29245835142313f3edb0b71"
+  },
+  "entire_859_line_old_program_is_byte_exact_prefix": true,
+  "complete_delta_read": "One blank line, one explanatory comment and #check @Examples.UniformQuickSortMean.instFintypeLabel appended.",
+  "ordered_checks": 815,
+  "unique_checks": 815,
+  "new_check": {
+    "check_index_1_based": 815,
+    "program_line_1_based": 862,
+    "name": "Examples.UniformQuickSortMean.instFintypeLabel"
+  },
+  "all_original_814_names_and_positions_unchanged": true,
+  "same_36_imports": true,
+  "print_options": [
+    "set_option pp.universes true",
+    "set_option pp.explicit true",
+    "set_option pp.fullNames true"
+  ],
+  "all_36_source_rows_match_immutable_candidate": true,
+  "sole_source_row_change": "Examples/UniformQuickSortMean.lean",
+  "public_inventory": {
+    "qualified_historical": 920,
+    "pending_current": 815,
+    "accepted_base": 28,
+    "total": 1763,
+    "sole_authored_public_addition": "Examples.UniformQuickSortMean.instFintypeLabel",
+    "no_kernel_or_generated_count_delta_inferred": true
+  },
+  "historical_reuse_extension": {
+    "prior_preparation": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/historical-type-dependency-audit-preparation-6b95185.json",
+      "bytes": 207685,
+      "lines": 4016,
+      "sha256": "293e9dfca4b47047e90d727b346ffa4d7139254b4980494f26d645e28ab36687"
+    },
+    "final_qualification": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/historical-type-dependency-assessment-6b95185.json",
+      "bytes": 312652,
+      "lines": 6578,
+      "sha256": "4cf7c71ed470047083093dd8a5212d3eaa6013b9e2a7ed9e0ae9e15426d9f9ab"
+    },
+    "defining_roots": 41,
+    "local_paths": 67,
+    "all_67_path_blobs_unchanged_from_Y_and_recorded_Q": true,
+    "uniform_example_absent_from_defining_closures_and_program_imports": true,
+    "all_ten_config_inputs_match": true,
+    "qualified_920_disposition_unchanged": true,
+    "historical_941_semantic_reads_retained": true,
+    "runtime_qualifications_retained_not_resnapshotted": true
+  },
+  "potential_110_static_binding": {
+    "original_receipt": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/foundation110-potential-type-reuse-0a7ef078.json",
+      "bytes": 122392,
+      "lines": 3445,
+      "sha256": "23ec745628fc15a330a492bc70f4a22d9fb452faaf9ba482006cebf7d3546bc0"
+    },
+    "independent_conditions": {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/foundation110-conditional-reuse-assessment-0a7ef078.json",
+      "bytes": 8414,
+      "lines": 160,
+      "sha256": "6c1de8f08f1a41872c6fe958424b5752edb12124bc28611f6b18ac104ebb1d68"
+    },
+    "all_six_roots_and_29_local_paths_unchanged": true,
+    "all_ten_configurations_and_nine_pins_unchanged": true,
+    "all_145_name_and_program_position_mappings_match_new_815_program": true,
+    "eligible": 110,
+    "excluded_insertion": 35,
+    "changed_Merge_exclusion_retained": true,
+    "current_credit": 0,
+    "all_actual_producer_runtime_objects_closed_output_terminal_identity_and_both_axes_conditions_retained": true,
+    "original_F145_and_all_prior_C2_programs_preserved": true
+  },
+  "prepared_only_not_executed": true,
+  "supplemental_input_recorder": "This receipt reconciles exact 815 names and immutable source inputs only. It executes no recorder and supplies no live source/output/runtime snapshot. Any actual recorder invocation and its qualified evidence remain root-owned.",
+  "C02_TYPE_001": "Open",
+  "C02_DOC_003": "Open"
+}

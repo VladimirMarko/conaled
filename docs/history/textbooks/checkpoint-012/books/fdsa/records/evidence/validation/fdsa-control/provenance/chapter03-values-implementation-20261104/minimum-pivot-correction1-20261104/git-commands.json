@@ -1,0 +1,83 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--name-only"
+      ],
+      "exit": 0,
+      "stdout": "Applications/Resources/SelectionPolicy.lean\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "add",
+        "--",
+        "Applications/Resources/SelectionPolicy.lean"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "user.name=ChatGPT",
+        "-c",
+        "user.email=chatgpt@openai.com",
+        "commit",
+        "-m",
+        "fix(resources): close normalized selection policy equation (#174)"
+      ],
+      "exit": 0,
+      "stdout": "[work/fdsa-ch03-values b150953] fix(resources): close normalized selection policy equation (#174)\n 1 file changed, 1 insertion(+)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit": 0,
+      "stdout": "b150953544438985ce979cc30b9a2f9237091fe8\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD^{tree}"
+      ],
+      "exit": 0,
+      "stdout": "62eb7f22c8d9f0beab21696c4862de836285b9f0\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "candidate": "b150953544438985ce979cc30b9a2f9237091fe8",
+  "tree": "62eb7f22c8d9f0beab21696c4862de836285b9f0"
+}

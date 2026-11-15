@@ -1,0 +1,34 @@
+{
+  "recorded_utc": "2026-11-05T00:39:16.768203+00:00",
+  "inspector": "/root/checkpoint0124_inspection",
+  "scope": "Initial operational helper inspection only; independent from but not an additional formal Standards/Spec axis.",
+  "outcome": "PASS",
+  "concrete_findings": 0,
+  "full_reads": [
+    "e40970: complete300-line verifier,53-line capture,37-line stage helper",
+    "22cbb4: complete README, preparation, origin, stored diffs"
+  ],
+  "actual_final_reader_exit": 0,
+  "actual_final_reader_chunk": "7ed9be",
+  "derivation": "Only5 verifier,5 capture,2 stage identifier substitutions from0135, exact diff equality and AST parse; no gate changed.",
+  "predecessor_manifest": {
+    "bytes": 17333,
+    "sha256": "c9750cab152cd62ddba5a9dce798a9134439d349cf713f1d7ddddfac5dcd6528",
+    "exact_root_member_compared": true,
+    "refs_and_worktrees_match_saved0135_capture": true,
+    "full_archive_hash_recomputed_by_inspector": false
+  },
+  "unchanged_gates": [
+    "payload and held controls",
+    "74 refs and9 worktrees",
+    "accepted C2/XR, ancestry and retirement",
+    "closed owned runs",
+    "separate drift2 unknown outcome and trace1 known-native-failure with unavailable transport terminal",
+    "298 kit entries and exact creator/restorer",
+    "existing two specifically mutable in-progress canonical axis reports"
+  ],
+  "read_only_assertion_resolution": "6f1d65 assumed stored diff labels checkpoint0135/...; actual labels0135/... independently resolved by7ed9be. No artifact mutation.",
+  "no_final_hold_or_capture_or_archive_exists_at_inspection": true,
+  "no_compiler_restore_fsck_cleanup_or_mutation_by_inspector": true,
+  "no_source_or_formal_acceptance_claim": true
+}

@@ -1,0 +1,257 @@
+{
+  "recorded_utc": "2026-11-04T19:56:58.520290+00:00",
+  "finding": "C03-RANDOM-RUN-ELAB-003",
+  "related_prior_findings": [
+    "C03-RANDOM-RUN-ELAB-001",
+    "C03-RANDOM-RUN-ELAB-002"
+  ],
+  "fixed_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "previous_candidate": "e15c4c1c2e6cfce76f7ca6372fc3c62e49d40ba7",
+  "changed_paths": [
+    "Examples/RandomSelectionRun.lean"
+  ],
+  "changed_example_proof_bodies": [
+    "invalid_singleton",
+    "two_key_execution",
+    "duplicate_execution"
+  ],
+  "source": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Examples/RandomSelectionRun.lean",
+    "bytes": 3770,
+    "sha256": "76504fe5fa77c581b8a7e3c9f3e0247c8a927adee8b308f84be6167e0ea20e0f"
+  },
+  "exact_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/run-correction3-20261104/correction.diff",
+    "bytes": 1486,
+    "sha256": "4a2f68edeeed144df210a2c2c8febbd11e48df7713ead8bab8d771597b7f2792"
+  },
+  "headers": [
+    {
+      "kind": "theorem",
+      "name": "empty_failure",
+      "header": "theorem empty_failure (k : Nat) :\n    run k ([] : List \u03b1) = PMF.pure (none, ([], 2))"
+    },
+    {
+      "kind": "theorem",
+      "name": "singleton_execution",
+      "header": "theorem singleton_execution (x : \u03b1) :\n    run 0 [x] = PMF.pure (some x, ([(1, 0)], 9))"
+    },
+    {
+      "kind": "theorem",
+      "name": "invalid_singleton",
+      "header": "theorem invalid_singleton :\n    run 1 ([7] : List Nat) = PMF.pure (none, ([(1, 0)], 11))"
+    },
+    {
+      "kind": "theorem",
+      "name": "rank_zero_public_failure",
+      "header": "theorem rank_zero_public_failure (xs : List \u03b1) :\n    select 0 xs = PMF.pure (none, ([], 0))"
+    },
+    {
+      "kind": "theorem",
+      "name": "two_key_execution",
+      "header": "theorem two_key_execution :\n    run 0 ([0, 1] : List Nat) =\n      PMF.map (fun i : Fin 2 =>\n        if i = 0 then (some 0, ([(2, 0)], 11))\n        else (some 0, ([(2, 1), (1, 0)], 20)))\n        (Resources.RandomQuickSort.uniformIndex 1)"
+    },
+    {
+      "kind": "theorem",
+      "name": "duplicate_execution",
+      "header": "theorem duplicate_execution (x : \u03b1) :\n    run 1 [x, x] =\n      PMF.map (fun i : Fin 2 => (some x, ([(2, i.val)], 12 + i.val)))\n        (Resources.RandomQuickSort.uniformIndex 1)"
+    },
+    {
+      "kind": "theorem",
+      "name": "two_key_first_path",
+      "header": "theorem two_key_first_path :\n    ((some 0, ([(2, 0)], 11)) : Outcome Nat) \u2208 (run 0 [0, 1]).support"
+    },
+    {
+      "kind": "theorem",
+      "name": "two_key_long_path",
+      "header": "theorem two_key_long_path :\n    ((some 0, ([(2, 1), (1, 0)], 20)) : Outcome Nat) \u2208 (run 0 [0, 1]).support"
+    },
+    {
+      "kind": "theorem",
+      "name": "same_value_different_scan",
+      "header": "theorem same_value_different_scan :\n    ((some 0, ([(2, 0)], 11)) : Outcome Nat).1 =\n      ((some 0, ([(2, 1), (1, 0)], 20)) : Outcome Nat).1 \u2227\n    scanVolume [(2, 0)] \u2260 scanVolume [(2, 1), (1, 0)]"
+    },
+    {
+      "kind": "theorem",
+      "name": "maximum_scan_on_pair",
+      "header": "theorem maximum_scan_on_pair :\n    scanVolume [(2, 1), (1, 0)] = 3 \u2227\n      scanVolume [(2, 1), (1, 0)] \u2264 (2 * (2 + 1)) / 2"
+    },
+    {
+      "kind": "theorem",
+      "name": "bounded_actual_pair_calls",
+      "header": "theorem bounded_actual_pair_calls :\n    scanVolume [(2, 1), (1, 0)] \u2264 20 \u2227\n      20 \u2264 9 * scanVolume [(2, 1), (1, 0)] + 2"
+    },
+    {
+      "kind": "theorem",
+      "name": "arbitrary_supported_rank",
+      "header": "theorem arbitrary_supported_rank (xs : List \u03b1) (k : Nat) (result : Outcome \u03b1)\n    (h : result \u2208 (select k xs).support) (a : \u03b1) :\n    result.1 = some a \u2194 0 < k \u2227 RankedAt xs (k - 1) a"
+    }
+  ],
+  "all12_example_headers_identical": true,
+  "all_other9_example_blocks_identical": true,
+  "other3_source_files_byte_identical": true,
+  "all62_authored_headers_preserved": true,
+  "all_execution_definition_bodies_preserved": true,
+  "passed_finite_core_byte_identical": true,
+  "imports_unchanged": true,
+  "global_options_unchanged": true,
+  "full_public_names": [
+    "Resources.RandomSelection.pivotRun",
+    "Resources.RandomSelection.pivotRun_exact",
+    "Resources.RandomSelection.stepRun",
+    "Resources.RandomSelection.stepRun_eq",
+    "Resources.RandomSelection.stepRun_child",
+    "Resources.RandomSelection.stepRun_semantics",
+    "Resources.RandomSelection.stepRun_ranked",
+    "Resources.RandomSelection.stepRun_cost_bounds",
+    "Resources.RandomSelection.pivotLaw",
+    "Resources.RandomSelection.pivotLaw_support",
+    "Resources.RandomSelection.pivotLaw_event",
+    "Examples.RandomSelection.singleton_step",
+    "Examples.RandomSelection.duplicate_middle",
+    "Examples.RandomSelection.selected_side_is_not_larger_side",
+    "Examples.RandomSelection.selected_side_valid",
+    "Examples.RandomSelection.duplicate_ranked",
+    "Examples.RandomSelection.duplicate_source_bound",
+    "Examples.RandomSelection.duplicate_zero_probability",
+    "Examples.RandomSelection.duplicate_one_probability",
+    "Resources.RandomSelection.Trace",
+    "Resources.RandomSelection.Outcome",
+    "Resources.RandomSelection.scanVolume",
+    "Resources.RandomSelection.scanVolume_nil",
+    "Resources.RandomSelection.scanVolume_cons",
+    "Resources.RandomSelection.prepend",
+    "Resources.RandomSelection.run",
+    "Resources.RandomSelection.run_nil",
+    "Resources.RandomSelection.run_cons",
+    "Resources.RandomSelection.run_value",
+    "Resources.RandomSelection.run_ranked",
+    "Resources.RandomSelection.run_none",
+    "Resources.RandomSelection.run_valid",
+    "Resources.RandomSelection.run_active_calls_le",
+    "Resources.RandomSelection.run_initial_scan_le",
+    "Resources.RandomSelection.run_scanVolume_le",
+    "Resources.RandomSelection.run_source_bridge",
+    "Resources.RandomSelection.run_trace_entries",
+    "Resources.RandomSelection.run_source_quadratic",
+    "Resources.RandomSelection.select",
+    "Resources.RandomSelection.select_value",
+    "Resources.RandomSelection.select_none",
+    "Resources.RandomSelection.select_some_iff",
+    "Resources.RandomSelection.scanLaw",
+    "Resources.RandomSelection.sourceLaw",
+    "Resources.RandomSelection.scanLaw_support",
+    "Resources.RandomSelection.scanLaw_support_finite",
+    "Resources.RandomSelection.sourceLaw_support",
+    "Resources.RandomSelection.sourceLaw_support_finite",
+    "Examples.RandomSelectionRun.empty_failure",
+    "Examples.RandomSelectionRun.singleton_execution",
+    "Examples.RandomSelectionRun.invalid_singleton",
+    "Examples.RandomSelectionRun.rank_zero_public_failure",
+    "Examples.RandomSelectionRun.two_key_execution",
+    "Examples.RandomSelectionRun.duplicate_execution",
+    "Examples.RandomSelectionRun.two_key_first_path",
+    "Examples.RandomSelectionRun.two_key_long_path",
+    "Examples.RandomSelectionRun.same_value_different_scan",
+    "Examples.RandomSelectionRun.maximum_scan_on_pair",
+    "Examples.RandomSelectionRun.bounded_actual_pair_calls",
+    "Examples.RandomSelectionRun.arbitrary_supported_rank"
+  ],
+  "public_name_count": 60,
+  "authored_private_helpers": [
+    "Resources.RandomSelection.equal_lookup",
+    "Resources.RandomSelection.run_support_bounds"
+  ],
+  "all42_prior_own_provenance_files_unchanged": true,
+  "all14_failed_attempt3_files_unchanged": true,
+  "all3_checkpoint0125_records_unchanged": true,
+  "statement_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/Statements60-candidate04.lean",
+    "bytes": 3264,
+    "sha256": "be10e6e4ef44817ccae42f34d55c156d0b49378f0a24f98dfe961000adf22bd3"
+  },
+  "all60_explicit_at_targets_match_public_scope": true,
+  "pinned_api": "PMF.pure_map (f) (a): (PMF.pure a).map f = PMF.pure (f a), present in the already imported pinned Constructions source; it is not registered simp there.",
+  "pinned_api_source": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Constructions.lean",
+    "bytes": 11757,
+    "sha256": "188136d13b18f6ce0018e1483b36a669e880990cf51a7073ebb1e01c99779cca"
+  },
+  "pinned_api_source_read_tool_chunk": "765c85",
+  "proof_corrections": [
+    "Add the existing PMF.pure_map equation to the invalid singleton and two-key simplifications; prepend can then reduce after its mapped pure argument is exposed.",
+    "Enumerate both Fin 2 occurrence indices in duplicate_execution with fin_cases; each index lookup into [x,x] reduces to x, and the exact local costs reduce to 12 and 13.",
+    "Remove generic arithmetic commutation/association simp arguments from the duplicate proof; exhaustive finite index cases reduce the unchanged exact arithmetic directly."
+  ],
+  "changed_case_assessments": [
+    {
+      "name": "invalid_singleton",
+      "statement_preserved": true,
+      "expected": "run 1 [7] = pure (none, ([(1,0)], 11))",
+      "calculation": "The invalid request takes the right empty child, paying local cost 9 and empty cost 2. PMF.pure_map transports that same deterministic child through prepend.",
+      "public_connections": [
+        "run_cons",
+        "stepRun_eq",
+        "run_nil",
+        "PMF.pure_map",
+        "prepend"
+      ]
+    },
+    {
+      "name": "two_key_execution",
+      "statement_preserved": true,
+      "expected": "The original uniform Fin 2 map returns value 0 with trace [(2,0)] and cost 11 at index 0, or trace [(2,1),(1,0)] and cost 20 at index 1.",
+      "calculation": "Index 0 terminates in the middle. Index 1 selects the actual smaller singleton child, paying 11 + 9 = 20; map of the singleton pure outcome prepends the current entry. Neither the uniform distribution nor path cases change.",
+      "public_connections": [
+        "run_cons",
+        "stepRun_eq",
+        "singleton_execution",
+        "PMF.pure_map",
+        "prepend"
+      ]
+    },
+    {
+      "name": "duplicate_execution",
+      "statement_preserved": true,
+      "expected": "For every x, run 1 [x,x] equals the original uniform Fin 2 map returning some x, trace [(2,i.val)], and cost 12+i.val.",
+      "calculation": "The exhaustive two occurrence cases both look up x, giving empty strict partitions and equal block of length 2. The source equation gives 2*2+i+0+2+6 = 12+i; the two distinct indices retain costs 12 and 13. No Nodup or input distribution assumption is introduced.",
+      "public_connections": [
+        "run_cons",
+        "stepRun_eq",
+        "partition3_eq_filters",
+        "Resources.RandomQuickSort.uniformIndex"
+      ],
+      "occurrence_coverage": "fin_cases i exhausts exactly indices 0 and 1; no branch is omitted or replaced by a value-uniform law."
+    }
+  ],
+  "unchanged_case_names": [
+    "empty_failure",
+    "singleton_execution",
+    "rank_zero_public_failure",
+    "two_key_first_path",
+    "two_key_long_path",
+    "same_value_different_scan",
+    "maximum_scan_on_pair",
+    "bounded_actual_pair_calls",
+    "arbitrary_supported_rank",
+    "Examples.RandomSelection.singleton_step",
+    "Examples.RandomSelection.duplicate_middle",
+    "Examples.RandomSelection.selected_side_is_not_larger_side",
+    "Examples.RandomSelection.selected_side_valid",
+    "Examples.RandomSelection.duplicate_ranked",
+    "Examples.RandomSelection.duplicate_source_bound",
+    "Examples.RandomSelection.duplicate_zero_probability",
+    "Examples.RandomSelection.duplicate_one_probability"
+  ],
+  "statement_assessment": "All original 60 public and 2 private authored headers are preserved. Only three example proof bodies differ. Quantifier order, arbitrary LinearOrder type, Option boundaries, ranks, distributions, all outcomes, traces and costs are unchanged; all execution definitions and core theorem proofs remain exact. The same 20 example claims remain in scope.",
+  "validation_boundary": "Previous actual focus built the finite core, then failed examples and exited 1. This example successor is uncompiled. Root owns the next focused attempt, explicit type output, full candidate check/audit, independent axes and immediate candidate verification.",
+  "actual_new_type_credit": 0,
+  "author_compiler_actions": false,
+  "probability_extension_added": false,
+  "finding_disposition": "Proposed examples-only correction; no finding closure or full-pair/Chapter 3 acceptance claimed.",
+  "whitespace_check": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/run-correction3-20261104/whitespace-check.json",
+    "bytes": 166,
+    "sha256": "94ec1278112342cb76520d83a5f9e16dbb846affbe734670bfd11055ef569b9a"
+  }
+}

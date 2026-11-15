@@ -1,0 +1,27 @@
+{
+  "observed_utc": "2026-11-03T01:28:42.899533+00:00",
+  "scope": "Disposable dummy-file filesystem feasibility probe only; no existing source, build, dependency, Git or resource changes.",
+  "dummy_bytes": 1048576,
+  "copy_program": "/usr/bin/cp",
+  "command_options": [
+    "--reflink=always"
+  ],
+  "reflink_supported_observed": false,
+  "acceptance": false,
+  "future_artifact_copy_approved": false,
+  "caveats": [
+    "This observation applies only to this source/destination pair on the current task workspace filesystem.",
+    "It does not establish support across mounts, restored workspaces, or a different copy implementation.",
+    "It does not validate any build artifact, trace, approval record, source dependency or future warming procedure.",
+    "No estimate of physical sharing, quota use or copy-on-write savings is inferred from st_blocks."
+  ],
+  "copy_program_version": "cp (GNU coreutils) 9.4",
+  "source_sha256": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+  "copy_exit_code": 1,
+  "copy_stdout": "",
+  "copy_stderr": "/usr/bin/cp: failed to clone '<disposable-probe>/destination.bin' from '<disposable-probe>/source.bin': Operation not supported\n",
+  "source_unchanged_after_copy": true,
+  "conclusion": "cp --reflink=always failed for this workspace pair. Do not assume reflink support for future artifact warming.",
+  "probe_directory_removed": true,
+  "completed_utc": "2026-11-03T01:28:42.921053+00:00"
+}

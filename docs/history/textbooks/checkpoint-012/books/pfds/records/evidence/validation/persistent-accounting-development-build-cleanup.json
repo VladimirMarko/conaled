@@ -1,0 +1,81 @@
+{
+  "observed_utc": "2026-11-03T02:09:10.076296+00:00",
+  "status": "completed",
+  "source": "/workspace/scratch/ca9a61d0bf30/persistent-accounting",
+  "target": "/workspace/scratch/ca9a61d0bf30/validation-persistent-accounting",
+  "head": "577be121e074ddb5de6727a7481c115cb61b3b27",
+  "warm_record": "validation/persistent-accounting-candidate-focused-output-copy.json",
+  "warm_record_sha256": "073cc2a5945b856e55023f871502e88e7c34dfb52669ed044b16a64654e448e5",
+  "copied_groups": 125,
+  "matching_files": 875,
+  "all_completed_output_groups_retained": true,
+  "reproducible_setup_files_discarded": [
+    {
+      "path": ".lake/build/ir/Examples/PersistentHistory.setup.json",
+      "module": "Examples.PersistentHistory",
+      "bytes": 412797,
+      "sha256": "68392da0e9d187237d6bf3f491b1d77d0d5a03eb7ffbc40fb34e18753e4f3803"
+    },
+    {
+      "path": ".lake/build/ir/Examples/PersistentObservation.setup.json",
+      "module": "Examples.PersistentObservation",
+      "bytes": 524961,
+      "sha256": "1d6911cf830a22c933650e141056d9aa534984d0afab8bb5da8822ca648bcfef"
+    },
+    {
+      "path": ".lake/build/ir/Examples/PersistentDebits.setup.json",
+      "module": "Examples.PersistentDebits",
+      "bytes": 523869,
+      "sha256": "d3e0a9ca001b649d8638c20d11c72a5c680429a2a9ca7386d366de168c6d02ef"
+    },
+    {
+      "path": ".lake/build/ir/Examples/PersistentSourceBoundary.setup.json",
+      "module": "Examples.PersistentSourceBoundary",
+      "bytes": 488979,
+      "sha256": "0e719be725de28fd113c3dbdf0240fcbb13fceccf54e5b4e07db0727122d7430"
+    },
+    {
+      "path": ".lake/build/ir/Examples/PersistentRealization.setup.json",
+      "module": "Examples.PersistentRealization",
+      "bytes": 437535,
+      "sha256": "2320242259061723393e446301163e15c5580d98353a09c82ef60920accbced0"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Resources/Persistent/History.setup.json",
+      "module": "Applications.Resources.Persistent.History",
+      "bytes": 412633,
+      "sha256": "c51e296f132b0fb93bbe415e6c3f3362bd424966306d0c279374d9f5de476970"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Resources/Persistent/Observation.setup.json",
+      "module": "Applications.Resources.Persistent.Observation",
+      "bytes": 524642,
+      "sha256": "b8d8fbc8383b6428637a3fc2e9156e5124d9435f033262a64b55af4092760c03"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Resources/Persistent/Realization.setup.json",
+      "module": "Applications.Resources.Persistent.Realization",
+      "bytes": 436671,
+      "sha256": "4e696f3ddbe23f38ed516e3afccd5b45f89ea6b3dd9ff2b6286bad05bf334cba"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Resources/Persistent/Debits.setup.json",
+      "module": "Applications.Resources.Persistent.Debits",
+      "bytes": 523707,
+      "sha256": "56b7b7020dbc06b1511a4192a1f10c276f07d5b95a9869a8d399fe1cf4c84826"
+    }
+  ],
+  "owned_processes_observed": [
+    700729,
+    700737,
+    701049,
+    714522
+  ],
+  "proposed_path_users": [],
+  "available_bytes_before": 296521728,
+  "acceptance": false,
+  "reason": "Retire inactive development outputs only after every completed group was guard-checked, transferred and verified byte-identical in the retained isolated candidate. Generated compiler setup inputs are reproducible from the unchanged sources.",
+  "ended_utc": "2026-11-03T02:09:10.108481+00:00",
+  "available_bytes_after": 392765440,
+  "refs_unchanged": true
+}

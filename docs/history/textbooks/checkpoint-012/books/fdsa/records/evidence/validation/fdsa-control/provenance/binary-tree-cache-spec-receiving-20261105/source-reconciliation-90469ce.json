@@ -1,0 +1,1436 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-05T02:25:49.229291+00:00",
+  "reviewer": "/root/tree_cache_spec",
+  "unit": "FDSA-XT01",
+  "original_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "original_donor": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "incorporated_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "tree": "18bf4bc9df979d4ee6ac76182f58faed235a0714",
+  "full_scope_paths": [
+    "Applications/Resources/TreeCache.lean",
+    "Applications/Trees/Cached.lean",
+    "Applications/Trees/Observations.lean",
+    "Examples/TreeCache.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-cache.md"
+  ],
+  "formal_source_identities": [
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "bytes": 4119,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752"
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "bytes": 5668,
+      "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6"
+    },
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "bytes": 3862,
+      "sha256": "c03a102b43bb5f04edf8b5ab6f0685bd82f80d55a67af680dfa8c0ff0c149abc"
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "bytes": 16571,
+      "sha256": "d92dfcbb139395af13a5939daed2739c10f08ec52d5eaef4165d3962bc76b955"
+    }
+  ],
+  "retained_headers": [
+    {
+      "name": "Trees.fold",
+      "kind": "def",
+      "path": "Applications/Trees/Observations.lean",
+      "current_line": 17,
+      "header_sha256": "32c6751ced6b080838d1182c9a0d5393db776e22b375ed261b6aae0427cd9965",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.fold_nil",
+      "kind": "theorem",
+      "path": "Applications/Trees/Observations.lean",
+      "current_line": 21,
+      "header_sha256": "134ab35bb46bc8a027a0866a9a8c1207eded2277aece7764b287cac6e9d98562",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.fold_node",
+      "kind": "theorem",
+      "path": "Applications/Trees/Observations.lean",
+      "current_line": 24,
+      "header_sha256": "6169cedb1545bf6d3dadc6b47a06fbfa9866fb9f2b318c66797d10726362fb60",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.fold_map",
+      "kind": "theorem",
+      "path": "Applications/Trees/Observations.lean",
+      "current_line": 30,
+      "header_sha256": "132d83b4e2abbd32ee2de6b3c21124fece02435a1d5a961dd2959ed27774f6af",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.fold_fusion",
+      "kind": "theorem",
+      "path": "Applications/Trees/Observations.lean",
+      "current_line": 41,
+      "header_sha256": "7b504e07822820df00c7f4264a925d08bfa92bebc08091db38589e8394c353de",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.fold_numNodes",
+      "kind": "theorem",
+      "path": "Applications/Trees/Observations.lean",
+      "current_line": 52,
+      "header_sha256": "952e1008d9fa4639e57092468e51c1f589e338c7ef6cc0a73e133a1903fde5d0",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.fold_height",
+      "kind": "theorem",
+      "path": "Applications/Trees/Observations.lean",
+      "current_line": 59,
+      "header_sha256": "7dea2187cb880dbb9ef46561c81ffc2c343af4be2fe3ff8d031086de3f489d88",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.inorder",
+      "kind": "def",
+      "path": "Applications/Trees/Observations.lean",
+      "current_line": 68,
+      "header_sha256": "b5cd169a265bc7a47ad39130fd01ad7703d045428c7161347fe8201a54a3ade5",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.inorder_nil",
+      "kind": "theorem",
+      "path": "Applications/Trees/Observations.lean",
+      "current_line": 71,
+      "header_sha256": "36c8ab6b6c8e701564c0d863d94eb43d4384e519c931890bef16caa6b26b7aea",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.inorder_node",
+      "kind": "theorem",
+      "path": "Applications/Trees/Observations.lean",
+      "current_line": 73,
+      "header_sha256": "a16be30b95557e982d04bebdcba1ba47915eec3da7b1d6d7f288cb088b285078",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.inorder_length",
+      "kind": "theorem",
+      "path": "Applications/Trees/Observations.lean",
+      "current_line": 76,
+      "header_sha256": "04871de1aa062d23f995bf22429cef869dc7fa14572bc523ae98ef2d582b2c08",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.inorder_map",
+      "kind": "theorem",
+      "path": "Applications/Trees/Observations.lean",
+      "current_line": 82,
+      "header_sha256": "2143dca6a607cb79077b54706aba3e6f0ba47a7716853769e6ea92fd7baabfd2",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.numNodes_map",
+      "kind": "theorem",
+      "path": "Applications/Trees/Observations.lean",
+      "current_line": 89,
+      "header_sha256": "f889c8d8d7ad3b3f7852aeb8de24224d8cf935f283c33e2f31128e862b4107a9",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.numLeaves_map",
+      "kind": "theorem",
+      "path": "Applications/Trees/Observations.lean",
+      "current_line": 96,
+      "header_sha256": "92f4723f59a88be01e664249e7ffc8a3fdbb8526d0acc9eeab5a5caa45dcb5af",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.height_map",
+      "kind": "theorem",
+      "path": "Applications/Trees/Observations.lean",
+      "current_line": 100,
+      "header_sha256": "93d079e982ddbee1a1f3319253ecea8041346610a301d27e4536e2eca4b06f46",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.erase",
+      "kind": "def",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 15,
+      "header_sha256": "58a160e7a1ccb8c021c187d69d115a380f3e75487db48432581386a0efe1346b",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.erase_nil",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 17,
+      "header_sha256": "9b68bb84761782df316b414382d31ddc30b2a3d91e198e7145c52505e25a49b0",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.erase_node",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 19,
+      "header_sha256": "e63b6a799cb867f5d39380ad7e645e6626d594cef96338ef7cd39d2d8b03ae64",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.read",
+      "kind": "def",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 23,
+      "header_sha256": "8edd3b7efc6a2bb125275f4f3036b8c4e1a7b7c3c90252ab410ae54e6a6a01cf",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.read_nil",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 27,
+      "header_sha256": "8e260767e9db3cb7b475890f4d59d391500dc39b5b7a12aa34d9cf63d64278ba",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.read_node",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 30,
+      "header_sha256": "0afca1036c364eeb3890546deb4ee5f85e7a2289ded8003b05cbba47727eca99",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.smartNode",
+      "kind": "def",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 34,
+      "header_sha256": "db05f4a301b8841a2f72e756b8124545ac1b4f51105fa736fc4e2f57246c9eea",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.read_smartNode",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 39,
+      "header_sha256": "ac37c39672bc95765c81eb99410072d8f47f6ff82b21e34f6a8f55b61316a250",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.erase_smartNode",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 44,
+      "header_sha256": "eb71ca05ab8b503c0b50798d50e75e949cc145e0330f6d36a1ec1bc4b9dda6e8",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.Valid",
+      "kind": "def",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 49,
+      "header_sha256": "49604fd0500f172da382f1375cc3997ae57fc2b8d586862eb5288aecc7a0a252",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.valid_nil",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 56,
+      "header_sha256": "0f5be551549cb97031956903bd36ffe9dfd7879f1e2c75d7d7dc476f11ca0f0c",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.valid_node",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 59,
+      "header_sha256": "0eb13be1941dda0a5ad3fc5836ea835d66f6a79e462939aa38f8f072fac90bf3",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.smartNode_valid_iff",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 66,
+      "header_sha256": "9c495011898ed17d06ac681cd77bcecce74edec26372ca1618ff6c8a5dc5daf4",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.read_eq_fold",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 77,
+      "header_sha256": "48496d6ccadaa493f53569e08e7b1f463c7d684900937ba6d8e90a7fce4cac28",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.inorder_erase",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 89,
+      "header_sha256": "f2bee4e9e496c686491a6282ed79deea1666b956508cf8a84b95a1c149271f88",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.numNodes_erase",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 93,
+      "header_sha256": "73e1bd8eef8652e5cbeffc872e8951359069fbe1d4639643ebcf5173455b61d8",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.numLeaves_erase",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 96,
+      "header_sha256": "bfd79f2ba237be0eef20373c592a7a3f9efbafb3bdb08b7b49a36ba131cda797",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.height_erase",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 99,
+      "header_sha256": "0fa249a6cf798b0efce4b4bd410a028c6e0e754a600996c9854133695ff87fb1",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.annotate",
+      "kind": "def",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 103,
+      "header_sha256": "4ddb73e89e11e80d2522b8d5426afbaffa700cc0ff8d6a6e2ebde05cff813c70",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.annotate_nil",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 107,
+      "header_sha256": "5f9dd778f10d62f669cd0f6aaa31450084156c1747b0473606a9d4a766968aa7",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.annotate_node",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 110,
+      "header_sha256": "3edd6dd5acd817184ad3189a0a6992ba4fa98cf79774651e9b27cdd054a209db",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.annotate_valid",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 116,
+      "header_sha256": "947b624017b71cc97e440bdb683d5a92dbbac27f05ce9d8a8a50e541accdc54a",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.erase_annotate",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 123,
+      "header_sha256": "f803aa2506fd0ab126497a27a91acf8926885c4f877c3e5cae36e6bd1f6f73e3",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Trees.Cached.read_annotate",
+      "kind": "theorem",
+      "path": "Applications/Trees/Cached.lean",
+      "current_line": 130,
+      "header_sha256": "dd047f3d64213c71759b31ecca1eb99081968f367ffba647287e427e9930a9c2",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Resources.TreeCache.readRun",
+      "kind": "def",
+      "path": "Applications/Resources/TreeCache.lean",
+      "current_line": 19,
+      "header_sha256": "4bb593599b75a3aaa8f4ae1e791c6b71c2da2918b911f6772a4331c3444b6fa5",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Resources.TreeCache.readRun_value",
+      "kind": "theorem",
+      "path": "Applications/Resources/TreeCache.lean",
+      "current_line": 22,
+      "header_sha256": "b958b28b28d3a35c20d6b3315478aa952f65ad99249216caf80eb16ad68e024b",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Resources.TreeCache.readRun_cost",
+      "kind": "theorem",
+      "path": "Applications/Resources/TreeCache.lean",
+      "current_line": 25,
+      "header_sha256": "1c382f77ab83f93c0405fc10c42f6ca7b60224a4ebe6e898c4f0bd7bcf8091d5",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Resources.TreeCache.nodeRun",
+      "kind": "def",
+      "path": "Applications/Resources/TreeCache.lean",
+      "current_line": 30,
+      "header_sha256": "6dd138ba5dce666f33be2f75d7367fba9c2cd5c7b5b1f2cba8eca69d7c483b82",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Resources.TreeCache.nodeRun_value",
+      "kind": "theorem",
+      "path": "Applications/Resources/TreeCache.lean",
+      "current_line": 39,
+      "header_sha256": "a3bd7269995df41bcc6572174dbabf9d3b2372c92025f9282c7ba2a43f0b98d4",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Resources.TreeCache.nodeRun_cost",
+      "kind": "theorem",
+      "path": "Applications/Resources/TreeCache.lean",
+      "current_line": 53,
+      "header_sha256": "b5bffd0ba5a00fb8aeae4c9f03746881b436efad531cf030405959d26e654adf",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Resources.TreeCache.nodeRun_le",
+      "kind": "theorem",
+      "path": "Applications/Resources/TreeCache.lean",
+      "current_line": 60,
+      "header_sha256": "d655c08179d17dc5a154de72008975e02c79a4f4c30f6d033037a20f5d81541b",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "Resources.TreeCache.nodeRun_valid",
+      "kind": "theorem",
+      "path": "Applications/Resources/TreeCache.lean",
+      "current_line": 68,
+      "header_sha256": "03194fd9fb26f47552dcd3b50bdfd4d85253ca8f2e0f074904cefb867923052b",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.sizeStep",
+      "kind": "def",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 17,
+      "header_sha256": "775027ae93654c10f187f8587911643e802d96df6ceaf8059108b0a38e1aae7d",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.heightStep",
+      "kind": "def",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 18,
+      "header_sha256": "bc76185bfc1ddc83dff9583c25561ed4ac68bd435933136bd895155ec88ee232",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.size_reader",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 20,
+      "header_sha256": "512702028edeb13749d06fec9f98d5caa23eb528f74dcca2063ca47478ed51c1",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.height_reader",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 29,
+      "header_sha256": "25c1c3838cc8bc98781b103f48db8bc1c1c64f045219f6216c43298d9e8145be",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.sample",
+      "kind": "def",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 39,
+      "header_sha256": "8495d3da333105fc4ee45ec7b1b23303d5413ee296c663c88e175fa9db216629",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.sample_size",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 42,
+      "header_sha256": "b933002fc2d966be7ec7d2c196c6a6ea7ba212a53f6380c9b61b8cb8c26eea0c",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.sample_height",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 43,
+      "header_sha256": "175126e8eebb0c1a3288209376319cc5894727523e5f0d50681a869ddb9948e5",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.sample_inorder",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 44,
+      "header_sha256": "265aaf945610992184e7bdbc85f7e74b47874b7f15c4d4ccf3fe1c62b18b8beb",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.sizeSample",
+      "kind": "def",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 46,
+      "header_sha256": "6bbee42c8e1a7e66f4bef4ae94020c16e990b98b873b9fb6c7fc79c0578310b1",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.sizeSample_valid",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 48,
+      "header_sha256": "051830ff5bc24626a6f3b98a5326dab478e3eb2b7e471861fcb502a932a7b3e3",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.sizeSample_erases",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 51,
+      "header_sha256": "ebe902506541222e1872257f2e5437d0d5b08bedf7e04f594609348893e23d77",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.sizeSample_read",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 54,
+      "header_sha256": "7fcfbf48bf05ec043b217aff5367b6c90c444c2bf3b232ee645ff5a696feeb55",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.heightSample",
+      "kind": "def",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 62,
+      "header_sha256": "293ff80f49a703791aea2807fad3571a1737642ca96ab5d74f11766253a67915",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.heightSample_valid",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 64,
+      "header_sha256": "1006cbeb50e7343a2727e5cdf87afc7d32453955c84aa758287f9c05720f6ac0",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.heightSample_read",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 67,
+      "header_sha256": "15bb986247eec9b7c7af22fc9f847b217ae9630dac89b67e777b1f338f9060f3",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.pairStep",
+      "kind": "def",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 77,
+      "header_sha256": "f79b0f6134c09d763644177da93d29fe28aa1de4d8a84c0cbbe908a1076ffa4f",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.pair_fold_size",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 80,
+      "header_sha256": "fb651faad6b50ca71958d7161e987239ca4c388ce5621edfe3891afaa4375771",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.pair_fold_height",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 88,
+      "header_sha256": "e0df11cd9219848933a0dc745bfdcb760b29b26b6717f42214224aa72d73a36f",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.pair_reader",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 97,
+      "header_sha256": "a490ad0c00eda19708b52a862aea96f8b8936e77d3d7b3d37931637a9881a8ec",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.pairSample",
+      "kind": "def",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 106,
+      "header_sha256": "32512f69e7f5316f05371a7657dbcd4608e84079ea81ba1f30326219a1978b00",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.pairSample_valid",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 109,
+      "header_sha256": "cc8f38527c1a2720c796ad79caeb5848717cc7ebdb51d7755af34478ae243f3a",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.pairSample_erases",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 112,
+      "header_sha256": "154ed2c334f4862a64dc3c9b6438ba5e108546f0061e53385995906ebc424700",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.pairSample_read",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 115,
+      "header_sha256": "34ee820803ea6bbebfefd8944331cbaae73fb72cb08929e8b66a37dcf6d73435",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.ordered_summary_fold",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 125,
+      "header_sha256": "87cd4dbbe3be9a6d0e2215947241d8cebea39189069c9bf41cfd679c5e28700a",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.sample_word",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 141,
+      "header_sha256": "705876bae5bc7d0221803c1b6356a0d13c41507c2a368b7dfa01f438370b4ed1",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.balancedThree",
+      "kind": "def",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 157,
+      "header_sha256": "06d77d6033685990dcc949e8ab7dd9ccce9aad51f4c144dc41b522e1f7e94976",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.leftThree",
+      "kind": "def",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 158,
+      "header_sha256": "cc94b151fafa083df09b4d22c1e8cca4265d6b2f8c5a7d843716f1f060abcb25",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.same_inorder_different_height",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 161,
+      "header_sha256": "e46da543c2d48dd51eb965ab5163094e56006ea7b668e50c9b99f194d97e93de",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.repeated_sample",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 166,
+      "header_sha256": "57ccb509f4dd12183c2e074431f8221db82445e47db45633c62e39d74e3a3732",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.empty_tree",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 175,
+      "header_sha256": "e970e827199d91027cc21677d8b2677fd034984bc36c778d24ede08b75a499e4",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.empty_fold",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 180,
+      "header_sha256": "4b699218b74615117dd98ce06275b7a0c1c882462cb9b28152e2398d6922c87d",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.empty_observations",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 184,
+      "header_sha256": "64fb427493157d61f1767a309adb42f0eb64ce8f37b6b7887368212b35b9c7e5",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.empty_annotation",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 189,
+      "header_sha256": "36c5faf4d2209db1e148d937cd349d4ed4b15251d3c40606452dc50c71495668",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.corrupt",
+      "kind": "def",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 197,
+      "header_sha256": "b1b51921097147abfe4ef00243cc34711b2239ce1a91dc960a03c7d2568ff9c8",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.corrupt_root_checks",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 201,
+      "header_sha256": "879db4530c4e748e2eaac4b70f06638573272da605ac912d1fc42d85cd912466",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.corrupt_not_valid",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 207,
+      "header_sha256": "88928d77065de0de966a20d0a007d9f3345dd827f42b6efda5ac3ca13636e19e",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.corrupt_erases",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 210,
+      "header_sha256": "13991166c58fbecd976f627e72ef5a4217ed5b1ad4c40e760ba9e66ba92ce830",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.corrupt_inorder",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 212,
+      "header_sha256": "c89591bdaed29c4bd52e645048c989ad4eb729db8cdad65425ec7e623c126ac8",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.corrupt_smart_not_valid",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 216,
+      "header_sha256": "5e6ddc04c5d4f5025741def66c93c2284665d3711bac8ce3a71c877a694c9060",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.corrupt_smart_same_tree",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 222,
+      "header_sha256": "9e0f2a42202cd071631f8ae389a01f9431cd18209e84647e580397eb95bb97bd",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.erased_fold",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 226,
+      "header_sha256": "f5f5ffa3301bef2a77e1baff35e6239d206218e710e237a0a870d497f2f6fb99",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.sizeRun",
+      "kind": "def",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 233,
+      "header_sha256": "640979c8d08bae541e532b7e312b747437e76271021faf753980b5bfacefc459",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.heightRun",
+      "kind": "def",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 236,
+      "header_sha256": "546418b1bdad2ac6e95a7263813bbd0e807087ab1fef271596bc47c60e976d42",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.size_node_value",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 239,
+      "header_sha256": "e144c509edfeed3e2c2f8d06a83e281a46a248f3fd8729dcf9ba3932aad1794c",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.height_node_value",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 245,
+      "header_sha256": "46a914a6e6071398687f13afde8ee43c07f8d2251bc05a8c844f2a5731a220ee",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.size_node_cost",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 251,
+      "header_sha256": "eeebafca4f2282dd9d7f9a87e1a404d0fd65fe8a51ff63f6c9460c8b63eb1483",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.height_node_cost",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 257,
+      "header_sha256": "fcc8f390671c0abab4e1c7ebb85d73f912060df5204424accb2ab477fe20d73f",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.size_node_bound",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 263,
+      "header_sha256": "113aeee4a3b8372bbc1a8bf4e81cd6ae710618065bfba5aceca9c09e3e5e303b",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.size_node_valid",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 268,
+      "header_sha256": "08b10207ae9ca48f01294b1b865699aeb124ec1ab47af4434fe2f1334fab7b5a",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.height_node_valid",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 274,
+      "header_sha256": "e7ef0c85ef668210c54845f395c4d448e0aeea5134810b5f89b900e2d7d0f738",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.measured_size_reader",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 280,
+      "header_sha256": "ce0bcb7451d58cbe8b0ea5dec5ad01b5f323012a2ae1e2827da5ea3c8339a980",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.measured_height_reader",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 287,
+      "header_sha256": "4d481d7eb549d4b8979babec34b82ad3627ff198ca073b1ed77533fb04ee23b9",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.listStep",
+      "kind": "def",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 294,
+      "header_sha256": "0004ff5c9097ff4165e65690683efe9a128c4e034cdadeaa1af7f0a66ca3d8c2",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.appendStepRun",
+      "kind": "def",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 297,
+      "header_sha256": "ebc750f07a0d72fb4e3683be1d0397549160374d89716118917be0723e6bd946",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.append_node_value",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 300,
+      "header_sha256": "e6e8aa5b48cd3b4c25699054cad0a820d5c5837fd1c4d4a7086bbea138ed5f92",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.append_node_cost",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 307,
+      "header_sha256": "b566d1010e335b7990195bdcaf774603f3ecccf83fe5fad74fc7d14a36c672dd",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.append_node_valid",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 314,
+      "header_sha256": "a01e0c68d149203232618bf444d0a5e8897a888c900268d41d109fe86680209b",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.chain",
+      "kind": "def",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 322,
+      "header_sha256": "c8e9c888ae740f9bcaae0d538a5395f86b9e1840412a26e904d57a641f9114ec",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.chain_numNodes",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 326,
+      "header_sha256": "ecc97a8d5ef1119ad3eec6c4f47978b3bba16afc6bb33e91a61c53c928168852",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.chainCache",
+      "kind": "def",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 331,
+      "header_sha256": "c65702b67e1ef363a375b62610e3d4a039c27ca4378c3bc96cb1804b6af8d251",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.chainCache_valid",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 334,
+      "header_sha256": "ac22d2d59a1272355d5fb241b90018cde2c5781e0ee16b79d3f70977ad7ffe96",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.chainCache_read",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 337,
+      "header_sha256": "66dadb0d8e60798080d50f1bf0cace2f56c193e292e157b2443c1e1d3ecfd3f1",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.chainCache_length",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 341,
+      "header_sha256": "9b4e6edf5bf204072fde6c364c0a8dbb4a9117a817a66b199707c0178ecf8c96",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.chain_node_cost",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 347,
+      "header_sha256": "34cd5e1560ef7eaab45c4dcf1d75ab0716f92bc32d66b3cdf318ac33046df11d",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.chain_node_value",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 351,
+      "header_sha256": "c5a411b027bad4bf3a059b082008a1d6c11418974452856426b2780823f15e1f",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.chain_node_valid",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 357,
+      "header_sha256": "cc0517c1ccf266f0963ee879524a17e7343aebadef313eaf25470e2cb3cbd0d6",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.chain_node_exceeds",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 363,
+      "header_sha256": "35c270bde40b72f4c206e8655f2a3083c44d838c6e7a6359c098d11f1f271109",
+      "original_exact_header_retained": true
+    },
+    {
+      "name": "TreeCacheExamples.empty_read",
+      "kind": "theorem",
+      "path": "Examples/TreeCache.lean",
+      "current_line": 368,
+      "header_sha256": "8313a92e0aa733088afa210fad4e50e670c884c151866e73a002a7f547bbcd8b",
+      "original_exact_header_retained": true
+    }
+  ],
+  "header_count": 115,
+  "all115_headers_and_contexts_match_original": true,
+  "current_declaration_counts": {
+    "total_authored_rows": 115,
+    "public_named": 115,
+    "public_definitions": 25,
+    "public_theorems": 90,
+    "new_public_named": 115,
+    "inherited_public_named_in_changed_formal_files": 0,
+    "private_named": 0,
+    "anonymous_examples": 0,
+    "named_instances": 0,
+    "anonymous_instances": 0,
+    "inductives": 0,
+    "structures": 0,
+    "per_file": [
+      {
+        "path": "Applications/Trees/Observations.lean",
+        "public_definitions": 2,
+        "public_theorems": 13,
+        "public_total": 15
+      },
+      {
+        "path": "Applications/Trees/Cached.lean",
+        "public_definitions": 5,
+        "public_theorems": 19,
+        "public_total": 24
+      },
+      {
+        "path": "Applications/Resources/TreeCache.lean",
+        "public_definitions": 2,
+        "public_theorems": 6,
+        "public_total": 8
+      },
+      {
+        "path": "Examples/TreeCache.lean",
+        "public_definitions": 16,
+        "public_theorems": 52,
+        "public_total": 68
+      }
+    ]
+  },
+  "closure": [
+    {
+      "path": "Applications/Bracketing/Basic.lean",
+      "bytes": 8561,
+      "sha256": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Optimization/SelectionSpec.lean",
+      "bytes": 738,
+      "sha256": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Resources/CallCount.lean",
+      "bytes": 2447,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Resources/ListReversal.lean",
+      "bytes": 4827,
+      "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Resources/Measured.lean",
+      "bytes": 2906,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Resources/Potential.lean",
+      "bytes": 4638,
+      "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Resources/RandomAccess/CacheCosts.lean",
+      "bytes": 2227,
+      "sha256": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Resources/SymmetricCosts.lean",
+      "bytes": 10508,
+      "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "bytes": 3862,
+      "sha256": "c03a102b43bb5f04edf8b5ab6f0685bd82f80d55a67af680dfa8c0ff0c149abc",
+      "same_as_original_donor": false,
+      "same_as_accepted_base": null
+    },
+    {
+      "path": "Applications/Resources/TreeFlattening/Core.lean",
+      "bytes": 4225,
+      "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Resources/Workload.lean",
+      "bytes": 2745,
+      "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Sequences/OrderedSummary.lean",
+      "bytes": 8765,
+      "sha256": "d484e6c34f4ebace4ba121f931eba53a86f34a3c4b69e06d9d0b24ae8c8c7261",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Sequences/RandomAccess/Access.lean",
+      "bytes": 5219,
+      "sha256": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Sequences/RandomAccess/Basic.lean",
+      "bytes": 5970,
+      "sha256": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Sequences/RandomAccess/Borrow.lean",
+      "bytes": 5680,
+      "sha256": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Sequences/RandomAccess/TreeBuild.lean",
+      "bytes": 5392,
+      "sha256": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Sequences/Symmetric/Core.lean",
+      "bytes": 12059,
+      "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Sequences/Symmetric/Finite.lean",
+      "bytes": 4923,
+      "sha256": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Sequences/Symmetric/Observation.lean",
+      "bytes": 3425,
+      "sha256": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "bytes": 4345,
+      "sha256": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "bytes": 5668,
+      "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": null
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "bytes": 4119,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": null
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "bytes": 16571,
+      "sha256": "d92dfcbb139395af13a5939daed2739c10f08ec52d5eaef4165d3962bc76b955",
+      "same_as_original_donor": false,
+      "same_as_accepted_base": null
+    },
+    {
+      "path": "SquareKit/ListFusion.lean",
+      "bytes": 2939,
+      "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "SquareKit/Relations.lean",
+      "bytes": 5615,
+      "sha256": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    },
+    {
+      "path": "Squares.lean",
+      "bytes": 11694,
+      "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+      "same_as_original_donor": true,
+      "same_as_accepted_base": true
+    }
+  ],
+  "preexisting22_match_donor_and_accepted_base": true,
+  "guidance": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 3118,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "matches_retained_read": true
+    },
+    {
+      "path": ".agents/skills/implement/SKILL.md",
+      "bytes": 4997,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "matches_retained_read": true
+    },
+    {
+      "path": ".agents/skills/code-review/SKILL.md",
+      "bytes": 7466,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "matches_retained_read": true
+    },
+    {
+      "path": ".agents/skills/code-review/heuristics.md",
+      "bytes": 2232,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "matches_retained_read": true
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "bytes": 6991,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "matches_retained_read": true
+    },
+    {
+      "path": ".agents/skills/example-driven-development/worked-example.md",
+      "bytes": 2356,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+      "matches_retained_read": true
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "bytes": 7113,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "matches_retained_read": true
+    },
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "bytes": 3876,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "matches_retained_read": true
+    },
+    {
+      "path": "docs/agents/domain.md",
+      "bytes": 926,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "matches_retained_read": true
+    },
+    {
+      "path": "GLOSSARY.md",
+      "bytes": 4824,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "matches_retained_read": true
+    },
+    {
+      "path": "docs/adr/README.md",
+      "bytes": 1547,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "matches_retained_read": true
+    },
+    {
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "matches_retained_read": true
+    },
+    {
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "bytes": 7331,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "matches_retained_read": true
+    },
+    {
+      "path": "docs/language-direction.md",
+      "bytes": 19185,
+      "sha256": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+      "matches_retained_read": true
+    },
+    {
+      "path": "README.md",
+      "bytes": 26239,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "matches_retained_read": true
+    }
+  ],
+  "pins": [
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 444,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+    }
+  ],
+  "mathlib": [
+    {
+      "path": "Mathlib/Data/Tree/Basic.lean",
+      "bytes": 6679,
+      "sha256": "43f201537013e2824d18f6b66f6d329f15bc52289c1ae734fa8acd4bd2a9945d",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+    },
+    {
+      "path": "Mathlib/Algebra/FreeMonoid/Basic.lean",
+      "bytes": 19259,
+      "sha256": "82573d5b6f5968524f3c9c84ed91fd6a3f5eb222434789e6a2de7145c870e2a9",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+    }
+  ],
+  "prior_controls": [
+    {
+      "path": "tickets/FDSA-XT01.md",
+      "bytes": 4269,
+      "sha256": "c3e7425928a860a77e677cb86bc66dc2125e3ed7f5cdfd5b1ed4e88ab1a4106f",
+      "matches_original_assessment": false
+    },
+    {
+      "path": "reviews/binary-tree-cache-requirements.md",
+      "bytes": 14576,
+      "sha256": "81260794bec3767bb9eaa2d2fcaa8337da015220df60bf4dda147590c8ed23ce",
+      "matches_original_assessment": true
+    },
+    {
+      "path": "reviews/binary-tree-cache-candidate.md",
+      "bytes": 5880,
+      "sha256": "0f94e8377da3e218a35f97f47d76356aea61ddeb3db959b310e8be12e5d9a18b",
+      "matches_original_assessment": true
+    },
+    {
+      "path": "reviews/binary-tree-cache-start.md",
+      "bytes": 2034,
+      "sha256": "5b9c42701df4577ba8db1fd867fd55e14d908df75b1befcf7de7419c3a59ecbc",
+      "matches_original_assessment": true
+    },
+    {
+      "path": "reviews/binary-tree-cache-start.json",
+      "bytes": 392,
+      "sha256": "1782fab514df5533469afc8769843d7f5cb9813243a33fda8a8da7c2c08dfb69",
+      "matches_original_assessment": true
+    },
+    {
+      "path": "reviews/binary-tree-cache-source-identities.json",
+      "bytes": 1627,
+      "sha256": "838c387994e5061aaaf150e6a8c78174b6dd391a715e2d651df1949cdb7c80aa",
+      "matches_original_assessment": true
+    },
+    {
+      "path": "reviews/binary-tree-cache-source-preflight.md",
+      "bytes": 7607,
+      "sha256": "b0b0c8c5be7f42264f904480c57cd2204b056a6f2fa477b907bdabebc32baa67",
+      "matches_original_assessment": true
+    },
+    {
+      "path": "research/binary-tree-shared-source-preflight.md",
+      "bytes": 24534,
+      "sha256": "1ba6a33ae3af2018a843de6ca6b8b5f6daaedca78f4cb5eabb4ae0433451db07",
+      "matches_original_assessment": true
+    },
+    {
+      "path": "research/binary-tree-shared-case-preflight.md",
+      "bytes": 5002,
+      "sha256": "15964bb73f6ffcfb8ff2ff1792aacb7b2c155d1c73a08fcc37f450f41cc000bd",
+      "matches_original_assessment": true
+    },
+    {
+      "path": "research/binary-tree-shared-api-preflight.md",
+      "bytes": 31067,
+      "sha256": "f20e19c370dec48eccd3a52aa65223012853d75240bfa411b36bad5e5f03bafb",
+      "matches_original_assessment": true
+    },
+    {
+      "path": "research/chapter04-obligations.md",
+      "bytes": 39471,
+      "sha256": "e7e282df7f553cbe8a960d1e20818e09a04f63c2cf47a069284223ee3a8595e4",
+      "matches_original_assessment": true
+    },
+    {
+      "path": "research/chapter05-obligations.md",
+      "bytes": 45177,
+      "sha256": "f512f6b3723e8e036e9292aab985e93d15b2bf49b1c2c6dff79b3e6911ffcaad",
+      "matches_original_assessment": true
+    },
+    {
+      "path": "research/chapter09-obligations.md",
+      "bytes": 45359,
+      "sha256": "6ade1fd1a470c64d613212098e311d2e0189f62bd82045dbb2f8f4387f426285",
+      "matches_original_assessment": true
+    },
+    {
+      "path": "research/chapter15-obligations.md",
+      "bytes": 31107,
+      "sha256": "03f2571e833fa0eb826a3d6d1a1dbf53a62626a9278b5dc1a0fe911aac15812c",
+      "matches_original_assessment": true
+    },
+    {
+      "path": "research/appendix-b-obligations.md",
+      "bytes": 31759,
+      "sha256": "8bf1101e774269ead99ccb23d7de237f0a208cc9a3d2d0522a4ab464ed6981e6",
+      "matches_original_assessment": true
+    }
+  ],
+  "old_report": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/binary-tree-cache-spec-preparation-20261104.md",
+    "bytes": 21429,
+    "sha256": "c54206bcb23cf96bc0968c2bc4f84ed2166ee6f257c4a1d952f5c578418d3432"
+  },
+  "requirements": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/binary-tree-cache-requirements.md",
+    "bytes": 14576,
+    "sha256": "81260794bec3767bb9eaa2d2fcaa8337da015220df60bf4dda147590c8ed23ce"
+  },
+  "book_text": {
+    "path": "/workspace/scratch/b4a17a285e23/research-source/book.txt",
+    "bytes": 719122,
+    "sha256": "7e5c0b4e157d28d303cc6248746aa63e1415445fa79f3556ff95ac1bf6b17333",
+    "read_literal_newline_ranges": [
+      [
+        2056,
+        2183
+      ],
+      [
+        2454,
+        2575
+      ]
+    ]
+  },
+  "entrypoint_only_one_added_import": true,
+  "accepted_reconstruction_map_exact_prefix_preserved": true,
+  "compiler_or_type_or_full_validation_credit": false,
+  "outcome": "Blocked pending matching actual public types and full candidate validation",
+  "source_findings": []
+}

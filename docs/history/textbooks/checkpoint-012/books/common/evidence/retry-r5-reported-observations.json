@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "recorded_at": "2026-11-15T02:48:34.656459+00:00",
+  "classification": "conversation-and-tool-observation-summary; raw retry files not recovered",
+  "provenance": "Retained conversation context from the previous execution, reported during recovery on 2026-11-15. This newly written summary is not an original run receipt.",
+  "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+  "tree": "63205d8a3ff27deb3680c613b70085163f289b83",
+  "reported_started_at": "2026-11-14T23:22:35.010569Z",
+  "reported_last_log_observation_at": "2026-11-15T00:20:07.061614Z",
+  "reported_configuration": "Same clean candidate, pins and normal incremental checker; agent resource caps absent; retry followed durable011.",
+  "reported_last_observation": {
+    "log_bytes_at_observation": 525689,
+    "successful_Built_lines": 74,
+    "exit_137_jobs_observed": 5,
+    "repeated_failures": {
+      "Examples.TwoFamilyModelRooted": 97,
+      "Examples.FFTScalarCosts": 118,
+      "SquareKit.Internal.Cubical.IdentityEliminationSubstitution": 139,
+      "Examples.DependentFunctionConversionSemantics": 178,
+      "SquareKit.Internal.DependentJudgments.ReferenceApd": 177
+    },
+    "first_attempt_failures_that_then_compiled": {
+      "Applications.FRP.Spec": 313,
+      "Examples.CubicalSourceContraction": 207,
+      "SquareKit.SmoothQuotientGeneratedBaseMatching": 288
+    },
+    "duration_units": "Lake job seconds, not per-process CPU time or kill timestamps",
+    "exhaustive_audit_observed": false,
+    "verification_record_observed": false,
+    "terminal_receipt_observed": false
+  },
+  "reported_integrity_guard": {
+    "artifacts_hashed": 9534,
+    "invalidations": 189,
+    "elapsed_seconds": 5.33,
+    "reason": "All reported invalidations were missing trace ENOENT; no other reason observed.",
+    "set_relationship": "Reported as first3363 targets minus3174 successful first-attempt module completions; no previously successful module invalidated. Eight prior failures plus181 other targets without successful first completion.",
+    "limitation": "Does not show that all181 were independently dependency-blocked."
+  },
+  "reported_loss": "New process creation later failed with exec-server -32603 / No such file or directory; the old process handle subsequently became unavailable. Workspace maintenance/pruning was reported and the original source/log/report paths were missing on recovery.",
+  "terminal_exit_code": null,
+  "terminal_outcome": "unknown",
+  "failure_cause": "undetermined",
+  "raw_log_recovered": false,
+  "original_terminal_receipt_recovered": false,
+  "original_dependency_closure_report_recovered": false,
+  "claim_limits": [
+    "The last observation is a partial view, not the final number of failures or completions.",
+    "Loss of a process handle or workspace does not prove exit code, OOM, timeout, supervisor kill, compiler defect or success.",
+    "No new mathematical source change or full-build/audit success is established after011.",
+    "This summary must never be cited as the original raw log or terminal evidence."
+  ],
+  "disposition": "Local experiment closed for this handoff. No automatic retry on restore; receiving full build and audit remain open under INT-090 / INT-SP-001."
+}

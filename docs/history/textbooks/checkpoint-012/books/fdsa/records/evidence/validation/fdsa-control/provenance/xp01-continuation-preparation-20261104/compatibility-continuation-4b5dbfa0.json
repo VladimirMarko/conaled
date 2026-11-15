@@ -1,0 +1,355 @@
+{
+  "created_utc": "2026-11-04T10:24:07.255690+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "state": "Completed bounded source compatibility preparation; uncompiled and no new review or acceptance claim.",
+  "authorization": "Root authorized only these two new continuation files in the existing package; original report.md and receipt.json must remain byte-for-byte unchanged.",
+  "saved_draft": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+  "saved_draft_parent": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "inspected_central_source_snapshot": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "prior_central_comparison_snapshot": "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+  "pinned_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "report": {
+    "path": "compatibility-continuation-4b5dbfa0.md",
+    "bytes": 7208,
+    "lines": 121,
+    "sha256": "3482a4016bc6ca58a0d56596cb2c04d234547174fcffac1a094f17b0856836fa",
+    "full_author_readback_completed": true
+  },
+  "original_artifacts_preserved": [
+    {
+      "path": "report.md",
+      "bytes": 11937,
+      "lines": 188,
+      "sha256": "70081d52f40550c40831a31a3c411f058a81ead270f03c57468d74982617e1c7",
+      "preserved_byte_for_byte": true
+    },
+    {
+      "path": "receipt.json",
+      "bytes": 10933,
+      "lines": 279,
+      "sha256": "9712f198ffc751d5cdf6bfb7ab6b042689c3040c64cf3bddc2ef10fedc29ef9d",
+      "preserved_byte_for_byte": true
+    }
+  ],
+  "sequence_unchanged": [
+    "Exact foundation F acceptance",
+    "Combined XM01/XD01/XQ01/XU01 acceptance",
+    "XU02 acceptance",
+    "XU03 acceptance",
+    "Complete Chapter 2 acceptance and checkpoint",
+    "Chapter 3 remains queued until the preceding Chapter 2 acceptance/checkpoint"
+  ],
+  "accepted_chapter1": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "exact_foundation_candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "xp01_not_inserted_as_prerequisite": true,
+  "findings": [
+    {
+      "topic": "SharedDemand.run_work_remaining",
+      "finding": "Retained Nat-specific run_potential_exact and budget_constant fix both carriers and the zero charge. Existing remaining-work and eager-catalogue statements acquire no additional validity premise. No source repair identified.",
+      "source_reference": "Applications/Resources/SharedDemand.lean:226-247; saved XP Potential Nat wrappers"
+    },
+    {
+      "topic": "FIFO raw zero",
+      "finding": "Generic budget no longer identifies the raw carrier from a Nat charge. The saved draft already includes the explicit (0 : Nat) annotation in abstractBudget. Its other proofs use typed Instrumentation and retain the state trajectory.",
+      "source_reference": "Complete FIFO source and exact one-line delta below"
+    },
+    {
+      "topic": "Other Nat callers",
+      "finding": "Inspected BinaryCounter, SymmetricCosts and RandomAccess.End applications retain Nat work and accounting inputs. No additional carrier inference defect identified in the inspected calls.",
+      "source_reference": "Bounded caller excerpts in source_identities"
+    },
+    {
+      "topic": "Mapped APIs",
+      "finding": "Pinned AddMonoidHom accepts AddZero on both carriers; Nat.castAddMonoidHom and simp coe_castAddMonoidHom exist in the forms used by the examples. No concrete mismatch identified in those inspected uses.",
+      "source_reference": "pinned_api_identities"
+    },
+    {
+      "topic": "Next work",
+      "finding": "No preparatory source edit indicated. Actual elaboration of XP01 and the already recorded compatibility targets remains outstanding. No present build of the old Potential implementation supplies XP01 validation."
+    }
+  ],
+  "source_identities": [
+    {
+      "commit": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+      "path": "Applications/Resources/Potential.lean",
+      "git_blob": "3ffc5e120f94f87c77a442728f654f3fa94d3aeb",
+      "bytes": 11523,
+      "lines": 238,
+      "sha256": "fa33b209a7c8cd700e7a33a6d3ee11ef9ad572c2d2e8406dfbabf6468ebf7d8c",
+      "read_kind": "complete source read",
+      "read_lines_inclusive": [
+        [
+          1,
+          238
+        ]
+      ]
+    },
+    {
+      "commit": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+      "path": "Applications/Resources/FIFOContracts.lean",
+      "git_blob": "01839707e852b3faff6ef1a49ad88a76fb5e5c18",
+      "bytes": 8308,
+      "lines": 168,
+      "sha256": "f0215c25e27380b170297c9cc010375da4ef263380088f4ae8fdbb7272373343",
+      "read_kind": "complete source read",
+      "read_lines_inclusive": [
+        [
+          1,
+          168
+        ]
+      ]
+    },
+    {
+      "commit": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+      "path": "Examples/MappedPotentialAccounting.lean",
+      "git_blob": "0291c5979243b0d12332d3628d06aa910732dfa2",
+      "bytes": 6726,
+      "lines": 165,
+      "sha256": "aa57790203c7dbc800586464c46366fcd7e6da6965fdbc3c260285e9c8d693c3",
+      "read_kind": "complete source read",
+      "read_lines_inclusive": [
+        [
+          1,
+          165
+        ]
+      ]
+    },
+    {
+      "commit": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "path": "Applications/Resources/SharedDemand.lean",
+      "git_blob": "449d7fce653a449be11209c4cb8cb23ae1240609",
+      "bytes": 12012,
+      "lines": 251,
+      "sha256": "c9740655b7afb51b28b044f1a72006d7a393b74a3e60e2f26464dc7eca7ee996",
+      "read_kind": "complete source read at 8ba7ae11; identical current blob",
+      "read_lines_inclusive": [
+        [
+          1,
+          251
+        ]
+      ],
+      "equal_to_8ba7ae11_bytes": true
+    },
+    {
+      "commit": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "path": "Applications/Resources/Workload.lean",
+      "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+      "bytes": 2745,
+      "lines": 64,
+      "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+      "read_kind": "complete source read at 8ba7ae11; identical current blob",
+      "read_lines_inclusive": [
+        [
+          1,
+          64
+        ]
+      ],
+      "equal_to_8ba7ae11_bytes": true
+    },
+    {
+      "commit": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "path": "Examples/PotentialAccounting.lean",
+      "git_blob": "eb0cdb80a1d8728e4b1e4eb827fa24c947092a8a",
+      "bytes": 6221,
+      "lines": 126,
+      "sha256": "ee3fbee1b7e8be75226ac912e3cbb2b82c322d843b3231bdb6ac94908c7b1871",
+      "read_kind": "complete source read at 8ba7ae11; identical current blob",
+      "read_lines_inclusive": [
+        [
+          1,
+          126
+        ]
+      ],
+      "equal_to_8ba7ae11_bytes": true
+    },
+    {
+      "commit": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "path": "Applications/Resources/BinaryCounter.lean",
+      "git_blob": "ed65ac31a2674df62fe26c0ff69a2d6b9bb2101d",
+      "bytes": 11446,
+      "lines": 304,
+      "sha256": "d990e0e8d9b09fff3f774180fa2396558f2d1abcf7e6231be648f5bd66f6f9c0",
+      "read_kind": "bounded caller excerpt",
+      "read_lines_inclusive": [
+        [
+          200,
+          270
+        ]
+      ],
+      "equal_to_8ba7ae11_bytes": true
+    },
+    {
+      "commit": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "path": "Applications/Resources/SymmetricCosts.lean",
+      "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+      "bytes": 10508,
+      "lines": 281,
+      "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+      "read_kind": "bounded caller excerpt",
+      "read_lines_inclusive": [
+        [
+          213,
+          265
+        ]
+      ],
+      "equal_to_8ba7ae11_bytes": true
+    },
+    {
+      "commit": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "path": "Applications/Resources/RandomAccess/End.lean",
+      "git_blob": "74cd8d740e2ed2d45638466faf8eec1c6913ee0e",
+      "bytes": 11480,
+      "lines": 307,
+      "sha256": "ded4129df132c7fd87a40899cea6f483db02f3f95332bd9ec7c8c57dd868f099",
+      "read_kind": "bounded caller excerpt",
+      "read_lines_inclusive": [
+        [
+          125,
+          162
+        ]
+      ],
+      "equal_to_8ba7ae11_bytes": true
+    },
+    {
+      "commit": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "path": "Applications/Resources/Potential.lean",
+      "git_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+      "bytes": 4638,
+      "lines": 108,
+      "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe",
+      "read_kind": "identity comparison only for old implementation in this continuation",
+      "read_lines_inclusive": [],
+      "equal_to_8ba7ae11_bytes": true
+    },
+    {
+      "commit": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "path": "Applications/Resources/FIFOContracts.lean",
+      "git_blob": "51a45acf742f9e984188094bb72d3744e9f6e19b",
+      "bytes": 8300,
+      "lines": 168,
+      "sha256": "dff2940bacabe6b759b4ff1f6ebe361282fb0777192bafbb05911f9c13b6ecbb",
+      "read_kind": "identity comparison plus complete exact XP01 FIFO delta",
+      "read_lines_inclusive": [],
+      "equal_to_8ba7ae11_bytes": true
+    },
+    {
+      "commit": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "path": "Applications/Resources/Measured.lean",
+      "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+      "bytes": 2906,
+      "lines": 71,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "read_kind": "identity comparison only",
+      "read_lines_inclusive": [],
+      "equal_to_8ba7ae11_bytes": true
+    }
+  ],
+  "pinned_api_identities": [
+    {
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/Group/Monoid.lean",
+      "git_blob": "06aa6bcfa7c78db8c784e6984861432df1f99ae8",
+      "bytes": 31274,
+      "lines": 697,
+      "sha256": "20508b506beff9b559f941de9cc44b1e263fc01bf70ec138ed1a5a6e3404f379",
+      "read_kind": "bounded API excerpt, not whole file assessment",
+      "read_lines_inclusive": [
+        [
+          21,
+          88
+        ]
+      ],
+      "relevant_names": [
+        "AddZero",
+        "AddZeroClass"
+      ]
+    },
+    {
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/Group/Hom/Defs.lean",
+      "git_blob": "6fa9cdfaa5483dd76acedc6b65292a805bb861b8",
+      "bytes": 45332,
+      "lines": 1129,
+      "sha256": "01aa5f4c424688f5ef7ca46a65442f1d88ae7148990b6d9a4e85269ed7921c64",
+      "read_kind": "bounded API excerpt, not whole file assessment",
+      "read_lines_inclusive": [
+        [
+          115,
+          166
+        ]
+      ],
+      "relevant_names": [
+        "AddMonoidHom",
+        "AddMonoidHomClass"
+      ]
+    },
+    {
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Data/Nat/Cast/Basic.lean",
+      "git_blob": "c59f659a9563c82a3567716776c0b7c71c308db5",
+      "bytes": 6448,
+      "lines": 202,
+      "sha256": "f3031ed5191c17ed213bbb5731159ed70b600b17224f486cf9c98de39a3b9f64",
+      "read_kind": "bounded API excerpt, not whole file assessment",
+      "read_lines_inclusive": [
+        [
+          25,
+          53
+        ]
+      ],
+      "relevant_names": [
+        "Nat.castAddMonoidHom",
+        "Nat.coe_castAddMonoidHom"
+      ]
+    }
+  ],
+  "complete_control_read": {
+    "path": "report.md",
+    "lines_inclusive": [
+      1,
+      188
+    ],
+    "sha256": "70081d52f40550c40831a31a3c411f058a81ead270f03c57468d74982617e1c7"
+  },
+  "exact_fifo_diff": "diff --git a/Applications/Resources/FIFOContracts.lean b/Applications/Resources/FIFOContracts.lean\nindex 51a45ac..0183970 100644\n--- a/Applications/Resources/FIFOContracts.lean\n+++ b/Applications/Resources/FIFOContracts.lean\n@@ -13,7 +13,7 @@ structure Instrumentation (ops : Ops α Q) where\n   erases : ∀ c q, (measured c q).1 = step ops c q\n \n def abstractBudget (profile : Command α → List α → Nat) :=\n-  budget (fun c xs => (step (lists α) c xs, 0)) profile\n+  budget (fun c xs => (step (lists α) c xs, (0 : Nat))) profile\n \n structure Accounting (ops : Ops α Q) (m : Instrumentation ops)\n     (decode : Q → List α) (profile : Command α → List α → Nat)\n",
+  "explicit_argument_search": {
+    "argv": [
+      "git",
+      "--no-optional-locks",
+      "-C",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled",
+      "grep",
+      "-n",
+      "-E",
+      "@(Resources\\.)?(budget|budget_append|run_potential_exact|run_constant_charge)\\b",
+      "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "--",
+      "*.lean"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "",
+    "interpretation": "No match for this exact explicit positional-application pattern in tracked Lean files at the immutable snapshot. This is not a semantic scan of generated references or external consumers."
+  },
+  "search_read_limitations": [
+    "An initial broad search for budget-related text across Applications and Examples was truncated and included unrelated identifiers; no exhaustive inventory claim is made from it.",
+    "A subsequent target-file search of BinaryCounter, FIFOContracts, SymmetricCosts, RandomAccess.End, SharedDemand and the named compatibility example files was displayed completely.",
+    "Auxiliary textual searches for API declaration spellings were non-dispositive; generated declarations absent from textual matches are not reported missing.",
+    "Whole-file hashes for bounded excerpts identify the source only and do not claim complete-file assessment.",
+    "The original eight Nat statement comparisons and mathematical preflight remain retained evidence; no new printed-type or independent final review result is asserted."
+  ],
+  "actions": {
+    "new_files_only": [
+      "compatibility-continuation-4b5dbfa0.md",
+      "compatibility-continuation-4b5dbfa0.json"
+    ],
+    "source_changes": false,
+    "ref_changes": false,
+    "existing_control_or_review_changes": false,
+    "compiler_or_cache_actions": false,
+    "process_polling": false,
+    "new_candidate": false,
+    "new_validation_gates": false
+  },
+  "handoff": "Coherent saved boundary after full report and receipt readback; available for actual Uniform diagnostics."
+}

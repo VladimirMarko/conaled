@@ -1,0 +1,339 @@
+diff --git a/Applications/Resources/SelectionBounds.lean b/Applications/Resources/SelectionBounds.lean
+new file mode 100644
+index 0000000..7aa9fc0
+--- /dev/null
++++ b/Applications/Resources/SelectionBounds.lean
+@@ -0,0 +1,205 @@
++import Applications.Resources.Selection
++import Applications.Resources.SelectionRecurrence
++
++/-! The actual nested selector is bounded by FDSA's scalar recurrence.
++
++The pivot observation is derived from the checked measured execution and its
++rank law. Both strict bucket sizes then use the duplicate-aware balance result.
++The cost induction retains the actual selected branch and charges the entry,
++cached length, chopping, median map, one-pass partition and reached lengths.
++It assumes no execution bound, growth law or payload finiteness.
++
++The book's valid-rank bound is extended to the public invalid-rank guard. One
++pair of affine constants works before the payload type, list and rank are
++chosen. These are source-call counts, with the tariff of Selection.lean.
++Mathematical source: FDSA Chapter 3, printed pp.40–44, (3.14) and Theorem3.10.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.Selection
++open Applications.Selection
++open Resources.SelectionAuxiliary Resources.SelectionMedians Resources.SelectionRecurrence
++universe u
++variable {α : Type u} [LinearOrder α]
++
++/-- The first recursive input has exactly the scalar's first child size. -/
++theorem chunkMediansRun_length_eq_pivotSize (xs : List α) :
++    (chunkMediansRun 5 xs).1.length = pivotSize xs.length := by
++  rw [chunkMediansRun_length, Nat.ceilDiv_eq_add_pred_div]
++  unfold pivotSize
++  omega
++
++/-- Actual recursive median selection agrees with the mathematical pivot,
++including the empty optional result. This uses the proved worker value law. -/
++theorem selectRun_median_value (xs : List α) :
++    (selectRun (((xs.length ⌈/⌉ 5) - 1) / 2) (chunkMediansRun 5 xs).1).1 =
++      medianOfMedians 5 xs := by
++  rw [selectRun_value, chunkMediansRun_value, medianOfMedians,
++    lowerMedian_value _ head_pivot_valid, length_chunkMedians]
++
++/-- The observed recursive pivot controls both strict sides, even with ties. -/
++theorem selectRun_pivot_size_bounds (xs : List α) (p : α)
++    (hp : (selectRun (((xs.length ⌈/⌉ 5) - 1) / 2)
++      (chunkMediansRun 5 xs).1).1 = some p) :
++    (partition3 p xs).1.length ≤ sideSize xs.length ∧
++      (partition3 p xs).2.2.length ≤ sideSize xs.length := by
++  have hpm : medianOfMedians 5 xs = some p :=
++    (selectRun_median_value xs).symm.trans hp
++  have h := medianOfMedians_five_count_bounds xs p hpm
++  have hl : (partition3 p xs).1.length = xs.countP (fun x => decide (x < p)) := by
++    simp only [partition3_eq_filters, List.countP_eq_length_filter]
++  have hr : (partition3 p xs).2.2.length = xs.countP (fun x => decide (p < x)) := by
++    simp only [partition3_eq_filters, List.countP_eq_length_filter]
++  rw [hl, hr]
++  simp only [Nat.ceilDiv_eq_add_pred_div] at h
++  unfold sideSize
++  constructor <;> omega
++
++/-- A common upper budget includes both reached bucket-length traversals.
++The left branch actually omits the equal length; including it here is safe.
++The two recursive selection counts are absent from this local expression. -/
++theorem selectRun_local_cost_bound (xs : List α) (p : α) :
++    1 + (SymmetricCosts.lengthRun xs).2 + (chunkMediansRun 5 xs).2 +
++      (Partition.partitionRun p xs).2 + (SymmetricCosts.lengthRun (partition3 p xs).1).2 +
++      (SymmetricCosts.lengthRun (partition3 p xs).2.1).2 ≤ 19 * xs.length + 54 := by
++  have hc := chunkMediansRun_five_bound xs
++  have hparts := partition_lengths p xs
++  have hl : (partition3 p xs).1.length ≤ xs.length := by omega
++  have he : (partition3 p xs).2.1.length ≤ xs.length := by omega
++  simp only [SymmetricCosts.lengthRun_exact, Partition.partitionRun_cost]
++  omega
++
++/-- FDSA (3.14): the actual valid-rank execution is bounded by the scalar F.
++Both child ranks are proved valid before applying their size induction. -/
++theorem selectRun_cost_le_F_of_lt (k : Nat) (xs : List α) (hk : k < xs.length) :
++    (selectRun k xs).2 ≤ F xs.length := by
++  suffices h : ∀ n (ys : List α), ys.length = n →
++      ∀ j, j < ys.length → (selectRun j ys).2 ≤ F n by
++    exact h xs.length xs rfl k hk
++  intro n
++  induction n using Nat.strongRecOn with
++  | ind n ih =>
++    intro ys hyn j hj
++    by_cases hs : ys.length ≤ 20
++    · rw [selectRun_small j ys hj hs]
++      change 1 + (SymmetricCosts.lengthRun ys).2 + (slowSelectRun j ys).2 ≤ F n
++      rw [F_of_le_twenty n (by omega)]
++      exact slowSelectRun_cutoff_bound j ys hj hs
++    · have large : 20 < ys.length := Nat.lt_of_not_ge hs
++      have large_n : 20 < n := by omega
++      let ms := (chunkMediansRun 5 ys).1
++      let i := ((ys.length ⌈/⌉ 5) - 1) / 2
++      have hm : ms.length = pivotSize n := by
++        dsimp only [ms]
++        rw [chunkMediansRun_length_eq_pivotSize, hyn]
++      have hmshort : ms.length < n := by
++        rw [hm]
++        exact (pivotSize_lt_iff n).mpr (by omega)
++      have hmpos : 0 < ms.length := by
++        rw [hm]
++        unfold pivotSize
++        omega
++      have hi : i < ms.length := by
++        have hmlen : ms.length = ys.length ⌈/⌉ 5 := chunkMediansRun_length 5 ys
++        dsimp only [i]
++        omega
++      obtain ⟨p, hp⟩ := selectRunWith_exists 5 20 (by decide) (by decide) i ms hi
++      change (selectRun i ms).1 = some p at hp
++      have hpm : medianOfMedians 5 ys = some p :=
++        (selectRun_median_value ys).symm.trans hp
++      have strict := partition_strict_sizes p ys (medianOfMedians_mem 5 ys p hpm)
++      have sides := selectRun_pivot_size_bounds ys p hp
++      have pivot_cost := ih ms.length hmshort ms rfl i hi
++      have pivot_bound : (selectRun i ms).2 ≤ F (pivotSize n) := by
++        simpa only [hm] using pivot_cost
++      have toll := selectRun_local_cost_bound ys p
++      rw [selectRun_cost_step j ys hj large p hp, F_of_twenty_lt n large_n]
++      change 1 + (SymmetricCosts.lengthRun ys).2 + (chunkMediansRun 5 ys).2 +
++        (selectRun i ms).2 + (Partition.partitionRun p ys).2 +
++        (SymmetricCosts.lengthRun (partition3 p ys).1).2 +
++        (if j < (partition3 p ys).1.length then (selectRun j (partition3 p ys).1).2
++        else (SymmetricCosts.lengthRun (partition3 p ys).2.1).2 +
++          if j < (partition3 p ys).1.length + (partition3 p ys).2.1.length then 0
++          else (selectRun (j - (partition3 p ys).1.length - (partition3 p ys).2.1.length)
++            (partition3 p ys).2.2).2) ≤ F (pivotSize n) + F (sideSize n) + 19 * n + 54
++      by_cases hl : j < (partition3 p ys).1.length
++      · rw [if_pos hl]
++        have child := ih (partition3 p ys).1.length (by omega)
++          (partition3 p ys).1 rfl j hl
++        have child_bound : (selectRun j (partition3 p ys).1).2 ≤ F (sideSize n) := by
++          simpa only [hyn] using child.trans (F_monotone sides.1)
++        omega
++      · rw [if_neg hl]
++        by_cases he : j < (partition3 p ys).1.length + (partition3 p ys).2.1.length
++        · rw [if_pos he]
++          omega
++        · rw [if_neg he]
++          have parts := partition_lengths p ys
++          have hj' : j - (partition3 p ys).1.length - (partition3 p ys).2.1.length <
++              (partition3 p ys).2.2.length := by omega
++          have child := ih (partition3 p ys).2.2.length (by omega)
++            (partition3 p ys).2.2 rfl
++            (j - (partition3 p ys).1.length - (partition3 p ys).2.1.length) hj'
++          have child_bound :
++              (selectRun (j - (partition3 p ys).1.length - (partition3 p ys).2.1.length)
++                (partition3 p ys).2.2).2 ≤ F (sideSize n) := by
++            simpa only [hyn] using child.trans (F_monotone sides.2)
++          omega
++
++/-- The entry/length-only invalid extension also fits the same scalar. -/
++theorem invalid_cost_le_F (n : Nat) : n + 2 ≤ F n := by
++  by_cases hn : n ≤ 20
++  · rw [F_of_le_twenty n hn]
++    omega
++  · rw [F_of_twenty_lt n (Nat.lt_of_not_ge hn)]
++    omega
++
++/-- The source bound extends uniformly to every public rank, including empty
++lists and invalid indices. No inhabitedness assumption is needed. -/
++theorem selectRun_cost_le_F (k : Nat) (xs : List α) :
++    (selectRun k xs).2 ≤ F xs.length := by
++  by_cases hk : k < xs.length
++  · exact selectRun_cost_le_F_of_lt k xs hk
++  · rw [selectRun_of_invalid k xs (Nat.le_of_not_gt hk)]
++    exact invalid_cost_le_F xs.length
++
++/-- One pair of constants works before the payload type, list and rank are
++chosen. In particular the constants cannot depend on the selected value. -/
++theorem selectRun_exists_uniform_affine_bound :
++    ∃ A B : Nat, ∀ (β : Type u) [LinearOrder β] (xs : List β) (k : Nat),
++      (selectRun k xs).2 ≤ A * xs.length + B := by
++  obtain ⟨A, B, bound⟩ := Resources.SelectionRecurrence.exists_affine_bound
++  refine ⟨A, B, ?_⟩
++  intro β inst ys j
++  exact (selectRun_cost_le_F j ys).trans (bound ys.length)
++
++/-- For positive input sizes the same uniform affine constants give one
++multiplicative linear constant; empty inputs retain the affine statement. -/
++theorem selectRun_exists_uniform_linear_bound :
++    ∃ C : Nat, ∀ (β : Type u) [LinearOrder β] (xs : List β) (k : Nat),
++      0 < xs.length → (selectRun k xs).2 ≤ C * xs.length := by
++  obtain ⟨A, B, bound⟩ := selectRun_exists_uniform_affine_bound
++  refine ⟨A + B, ?_⟩
++  intro β inst ys j hy
++  have h := bound β ys j
++  have hb : B ≤ B * ys.length := by nlinarith
++  nlinarith
++
++/-- Any size-indexed family of actual executions has ordinary linear growth.
++Ranks may vary and need not be valid; their optional extension is already
++covered. The hypothesis describes input sizes, not an assumed cost bound. -/
++theorem selectRun_family_isBigO (inputs : Nat → List α) (ranks : Nat → Nat)
++    (lengths : ∀ n, (inputs n).length = n) :
++    Asymptotics.IsBigO Filter.atTop
++      (fun n : Nat => ((selectRun (ranks n) (inputs n)).2 : ℝ))
++      (fun n => (n : ℝ)) := by
++  obtain ⟨C, bound⟩ := selectRun_exists_uniform_linear_bound
++  apply Resources.isBigO_of_nat_bound
++    (fun n => (selectRun (ranks n) (inputs n)).2) (fun n => n) C 1
++  intro n hn
++  have positive : 0 < (inputs n).length := by rw [lengths n]; omega
++  have h := bound α (inputs n) (ranks n) positive
++  simpa only [lengths n] using h
++
++end Resources.Selection
+diff --git a/Examples/SelectionBounds.lean b/Examples/SelectionBounds.lean
+new file mode 100644
+index 0000000..97a0ec0
+--- /dev/null
++++ b/Examples/SelectionBounds.lean
+@@ -0,0 +1,122 @@
++import Applications.Resources.SelectionBounds
++import Examples.SelectionCosts
++import Examples.SelectionRecurrence
++
++/-! Actual execution counts connected to the book's scalar and uniform bounds.
++The exact20/21 counts come from the existing public execution examples. The
++size25 scalar has its first recursive child above the finite base; the bound
++there is asserted for every rank, without claiming a new exact25 count.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.SelectionBounds
++open Applications.Selection
++open Resources.Selection Resources.SelectionMedians Resources.SelectionRecurrence
++
++theorem empty_budget :
++    (selectRun 0 ([] : List (Fin 0))).2 = 2 ∧
++      (selectRun 0 ([] : List (Fin 0))).2 ≤ 483 := by
++  constructor
++  · exact congrArg Prod.snd Examples.SelectionCosts.empty_payload
++  · simpa only [List.length_nil, Examples.SelectionRecurrence.F_zero] using
++      selectRun_cost_le_F 0 ([] : List (Fin 0))
++
++theorem cutoff_descending_budget :
++    (selectRun 19 (List.range 20).reverse).2 = 273 ∧
++      (selectRun 19 (List.range 20).reverse).2 ≤ 483 := by
++  constructor
++  · exact congrArg Prod.snd Examples.SelectionCosts.cutoff_descending
++  · simpa only [List.length_reverse, List.length_range,
++      Examples.SelectionRecurrence.F_twenty] using
++      selectRun_cost_le_F 19 (List.range 20).reverse
++
++theorem first_left_budget :
++    (selectRun 0 (List.range 21)).2 = 269 ∧
++      (selectRun 0 (List.range 21)).2 ≤ 1419 := by
++  constructor
++  · exact congrArg Prod.snd Examples.SelectionCosts.first_recursive_left
++  · simpa only [List.length_range, Examples.SelectionRecurrence.F_twenty_one] using
++      selectRun_cost_le_F 0 (List.range 21)
++
++theorem first_equal_budget :
++    (selectRun 12 (List.range 21)).2 = 231 ∧
++      (selectRun 12 (List.range 21)).2 ≤ 1419 := by
++  constructor
++  · exact congrArg Prod.snd Examples.SelectionCosts.first_recursive_equal
++  · simpa only [List.length_range, Examples.SelectionRecurrence.F_twenty_one] using
++      selectRun_cost_le_F 12 (List.range 21)
++
++theorem first_right_budget :
++    (selectRun 20 (List.range 21)).2 = 266 ∧
++      (selectRun 20 (List.range 21)).2 ≤ 1419 := by
++  constructor
++  · exact congrArg Prod.snd Examples.SelectionCosts.first_recursive_right
++  · simpa only [List.length_range, Examples.SelectionRecurrence.F_twenty_one] using
++      selectRun_cost_le_F 20 (List.range 21)
++
++theorem invalid_above_cutoff_budget :
++    selectRun 100 (List.range 21) = (none, 23) ∧
++      (selectRun 100 (List.range 21)).2 ≤ 1419 := by
++  constructor
++  · exact selectRun_of_invalid 100 _ (by decide)
++  · simpa only [List.length_range, Examples.SelectionRecurrence.F_twenty_one] using
++      selectRun_cost_le_F 100 (List.range 21)
++
++theorem all_equal_budget :
++    (selectRun 20 (List.replicate 21 4)).2 = 239 ∧
++      (selectRun 20 (List.replicate 21 4)).2 ≤ 1419 := by
++  constructor
++  · exact congrArg Prod.snd Examples.SelectionCosts.all_equal_last
++  · simpa only [List.length_replicate, Examples.SelectionRecurrence.F_twenty_one] using
++      selectRun_cost_le_F 20 (List.replicate 21 4)
++
++/-- The first recursive scalar child contributes1419 rather than483. -/
++theorem next_scalar_level_budget :
++    F 25 = 2431 ∧ ∀ k : Nat, (selectRun k (List.range 25)).2 ≤ 2431 := by
++  have hf : F 25 = 2431 := by
++    rw [F_of_twenty_lt 25 (by decide)]
++    change F 5 + F 21 + 475 + 54 = 2431
++    rw [F_of_le_twenty 5 (by decide), Examples.SelectionRecurrence.F_twenty_one]
++  refine ⟨hf, ?_⟩
++  intro k
++  simpa only [List.length_range, hf] using selectRun_cost_le_F k (List.range 25)
++
++theorem first_pivot_side_budget :
++    (partition3 12 (List.range 21)).1.length ≤ 18 ∧
++      (partition3 12 (List.range 21)).2.2.length ≤ 18 := by
++  have hp : (selectRun ((((List.range 21).length ⌈/⌉ 5) - 1) / 2)
++      (chunkMediansRun 5 (List.range 21)).1).1 = some 12 := by
++    rw [Examples.SelectionMedians.first_recursive_size]
++    norm_num only [List.length_range, Nat.ceilDiv_eq_add_pred_div]
++    exact congrArg Prod.fst Examples.SelectionCosts.first_recursive_pivot
++  simpa only [List.length_range, sideSize] using
++    selectRun_pivot_size_bounds (List.range 21) 12 hp
++
++theorem first_local_budget :
++    1 + (Resources.SymmetricCosts.lengthRun (List.range 21)).2 +
++      (chunkMediansRun 5 (List.range 21)).2 +
++      (Resources.Partition.partitionRun 12 (List.range 21)).2 +
++      (Resources.SymmetricCosts.lengthRun (partition3 12 (List.range 21)).1).2 +
++      (Resources.SymmetricCosts.lengthRun (partition3 12 (List.range 21)).2.1).2 ≤ 453 := by
++  simpa only [List.length_range] using selectRun_local_cost_bound (List.range 21) 12
++
++/-- The constants are shared by all duplicate-list sizes and all ranks. -/
++theorem duplicate_family_uniform :
++    ∃ A B : Nat, ∀ n k : Nat,
++      (selectRun k (List.replicate n 4)).2 ≤ A * n + B := by
++  obtain ⟨A, B, bound⟩ := selectRun_exists_uniform_affine_bound
++  refine ⟨A, B, ?_⟩
++  intro n k
++  simpa only [List.length_replicate] using bound Nat (List.replicate n 4) k
++
++/-- A family with descending inputs and last valid ranks uses actual counts;
++the n=0 optional extension is covered by the same proved family theorem. -/
++theorem descending_family_linear :
++    Asymptotics.IsBigO Filter.atTop
++      (fun n : Nat => ((selectRun (n - 1) (List.range n).reverse).2 : ℝ))
++      (fun n => (n : ℝ)) :=
++  selectRun_family_isBigO (fun n => (List.range n).reverse) (fun n => n - 1)
++    (by intro n; simp only [List.length_reverse, List.length_range])
++
++end Examples.SelectionBounds

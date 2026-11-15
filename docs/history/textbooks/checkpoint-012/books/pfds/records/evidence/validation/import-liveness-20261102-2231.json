@@ -1,0 +1,62 @@
+{
+  "observed_at": "2026-11-02T22:31:03.787837+00:00",
+  "kind": "read-only exact-owned-checkout compiler liveness; no signals or source/output changes",
+  "processes": [
+    {
+      "pid": 584824,
+      "cwd": "/workspace/scratch/ca9a61d0bf30/import-correction",
+      "command": "python3 scripts/check.py --candidate HEAD ",
+      "elapsed_seconds": 2764.8,
+      "cpu_seconds": 3.0,
+      "State": "S (sleeping)",
+      "VmHWM": "21396 kB",
+      "VmRSS": "13116 kB",
+      "Threads": "1"
+    },
+    {
+      "pid": 584983,
+      "cwd": "/workspace/scratch/ca9a61d0bf30/import-correction",
+      "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake --no-cache --rehash build +Squares +Applications.AD.Core +Applications.AD.Modes +FirstOrder +Applications.AD.Compiler +SquareKit.Relations +Applications.AD.Generalized +Compiler +Applications.AD.HigherOrder +Applications.AD.Jets +Applications.AD.Verification +Applications.Circuits.Syntax +SquareKit.Category +SquareKit.CategoryMap +SquareKit.Comma +SquareKit.FunctionCategory +SquareKit.CommaExact +SquareKit.CommaAgreement +SquareKit.Combinators +Applications.Linear.Matrix +Applications.Timing.Intervals +SquareKit.CartesianMap +SquareKit.CommaProducts +SquareKit.CommaProductsExact +SquareKit.Optional +SquareKit.OptionalQuotient +SquareKit.CommaOptionalExact +SquareKit.RelationalCategory +Applications.Timing.Digital +Applications.Circuits.Correctness +Applications.Convolution.Series +Applications.Convolution.Polynomial +Applications.Elaboration.Syntax +Applications.Elaboration.Constraints +Applications.Elaboration.Elaborator +App",
+      "elapsed_seconds": 2758.1,
+      "cpu_seconds": 17.8,
+      "State": "S (sleeping)",
+      "VmHWM": "830000 kB",
+      "VmRSS": "137700 kB",
+      "Threads": "8"
+    },
+    {
+      "pid": 597211,
+      "cwd": "/workspace/scratch/ca9a61d0bf30/import-correction-r3",
+      "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake build Examples.IndefiniteService ",
+      "elapsed_seconds": 1727.2,
+      "cpu_seconds": 12.4,
+      "State": "S (sleeping)",
+      "VmHWM": "849276 kB",
+      "VmRSS": "131160 kB",
+      "Threads": "8"
+    },
+    {
+      "pid": 608997,
+      "cwd": "/workspace/scratch/ca9a61d0bf30/import-correction",
+      "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /workspace/scratch/ca9a61d0bf30/import-correction/Applications/Orbifold/RationalMotion.lean -o /workspace/scratch/ca9a61d0bf30/import-correction/.lake/build/lib/lean/Applications/Orbifold/RationalMotion.olean -i /workspace/scratch/ca9a61d0bf30/import-correction/.lake/build/lib/lean/Applications/Orbifold/RationalMotion.ilean -c /workspace/scratch/ca9a61d0bf30/import-correction/.lake/build/ir/Applications/Orbifold/RationalMotion.c --setup /workspace/scratch/ca9a61d0bf30/import-correction/.lake/build/ir/Applications/Orbifold/RationalMotion.setup.json --json ",
+      "elapsed_seconds": 345.9,
+      "cpu_seconds": 95.5,
+      "State": "S (sleeping)",
+      "VmHWM": "1076116 kB",
+      "VmRSS": "430268 kB",
+      "Threads": "5"
+    },
+    {
+      "pid": 610050,
+      "cwd": "/workspace/scratch/ca9a61d0bf30/import-correction-r3",
+      "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /workspace/scratch/ca9a61d0bf30/import-correction-r3/Applications/FRP/Temporal.lean -o /workspace/scratch/ca9a61d0bf30/import-correction-r3/.lake/build/lib/lean/Applications/FRP/Temporal.olean -i /workspace/scratch/ca9a61d0bf30/import-correction-r3/.lake/build/lib/lean/Applications/FRP/Temporal.ilean -c /workspace/scratch/ca9a61d0bf30/import-correction-r3/.lake/build/ir/Applications/FRP/Temporal.c --setup /workspace/scratch/ca9a61d0bf30/import-correction-r3/.lake/build/ir/Applications/FRP/Temporal.setup.json --json ",
+      "elapsed_seconds": 205.5,
+      "cpu_seconds": 43.7,
+      "State": "S (sleeping)",
+      "VmHWM": "1116984 kB",
+      "VmRSS": "372096 kB",
+      "Threads": "5"
+    }
+  ],
+  "interpretation": "Liveness/resource observation only; no termination, success or performance comparison inferred."
+}

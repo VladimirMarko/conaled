@@ -1,0 +1,75 @@
+{
+  "recorded_utc": "2026-11-04T14:44:52.601116+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "status": "COMPLETE PREPARED-ONLY PACKAGE; HELD",
+  "source_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_source_candidate": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+  "execution_candidate": null,
+  "actual_type_credit": 0,
+  "files": [
+    {
+      "path": "provenance/tree-fold-resource-public-statements88-prepared-20261104/Statements.lean",
+      "bytes": 4310,
+      "lines": 107,
+      "sha256": "bb50de35ccb4c924173f4f6c0e49ac1038f9f3d38e09bb5300b4f5d2b99c733c"
+    },
+    {
+      "path": "provenance/tree-fold-resource-public-statements88-prepared-20261104/inventory.json",
+      "bytes": 136647,
+      "lines": 2841,
+      "sha256": "c2fdb92a6a8e6192dd3bfd04818f98e2767236f3180eaf374c7f58a3a48e7c7c"
+    },
+    {
+      "path": "provenance/tree-fold-resource-public-statements88-prepared-20261104/preparation.md",
+      "bytes": 6838,
+      "lines": 41,
+      "sha256": "d5d2746ff84e375b7c789b31c8d9bd796384633df0893691446a5fd62595345a"
+    }
+  ],
+  "author_readback": {
+    "program": "All107 saved program lines read completely; all88 unique names/order and source-to-program positions reconciled.",
+    "prose": "All41 saved preparation lines read completely. No mathematical approval, receiver binding or execution claim.",
+    "inventory": "All88 raw header byte slices verified against immutable source; all7 scope files and15 original control inputs checked. Full2841-line JSON not separately human-read as prose; exact field construction and checks are specified.",
+    "source": "Complete698 new Lean lines,249-line note,276-line case report, frozen requirements/ticket/handoffs/findings and original root/map delta read; inherited closure bodies only parsed/fingerprinted, not newly semantically assessed."
+  },
+  "counts": {
+    "authored_declarations": 88,
+    "public_named": 88,
+    "public_theorems": 77,
+    "public_definitions": 10,
+    "public_abbreviations": 1,
+    "private_named": 0,
+    "instances": 0,
+    "anonymous_examples": 0
+  },
+  "dependency_counts": {
+    "local_sources": 30,
+    "inherited_exact_base_sources": 26,
+    "direct_external_imports": 13,
+    "edges": 56,
+    "configurations": 10,
+    "manifest_pins": 9,
+    "actual_compiler_objects_qualified": 0
+  },
+  "findings_carried": [
+    "XT03-CP01",
+    "XT03-DOC01"
+  ],
+  "history_and_scope_retained": true,
+  "acceptance_prerequisites": "Accepted repaired Chapter1 and accepted XT01 before integration/acceptance. XT02 is not a prerequisite. No new authorized-development gate.",
+  "protected_predecessor_packages_unchanged": {
+    "provenance/shared-four-foundation110-reuse-preparation-20261104/plan.md": "da2bf87a897fe5d77e6598a3c30e421e23c2faa96d71e8bb81d729cf22dab620",
+    "provenance/shared-four-foundation110-reuse-preparation-20261104/inventory.json": "daeea1d0142de847cb105989e32a4fa78fa1281bdfc30a1a6d1e6fefebc6fb32",
+    "provenance/shared-four-foundation110-reuse-preparation-20261104/receipt.json": "b9e55962fbfe30d412f19aa3ca5c5b3fb4ea8bd69a08109f89b2c8ff00cfcd21",
+    "provenance/tree-shape-public-statements90-prepared-20261104/Statements.lean": "28622fb1c6417798d4d4c476e9e3d307792c62e881f0158446ca2938434b83ca",
+    "provenance/tree-shape-public-statements90-prepared-20261104/inventory.json": "c866fc795b7aa77b6f7a85e19cd699a685ed97522c774f53c6742f69faa07b5e",
+    "provenance/tree-shape-public-statements90-prepared-20261104/preparation.md": "304b23221702d2b599391e97aa928604d15e645c76a285b69a5c04c64010c0e9",
+    "provenance/tree-shape-public-statements90-prepared-20261104/receipt.json": "0488d9c89a9d3f49edc81a6220959bcf57bcc2ff7830005684a4ca0f4c564787"
+  },
+  "original_control_inputs_unchanged_after_writes": true,
+  "mutation_scope": [
+    "Only this newly authorized XT03 preparation directory"
+  ],
+  "source_ref_cache_output_compiler_process_actions": false,
+  "new_mathematical_review_or_acceptance_claim": false
+}

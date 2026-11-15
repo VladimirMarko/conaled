@@ -1,0 +1,44 @@
+{
+  "recorded_at": "2026-11-14T20:30:46.846752+00:00",
+  "previous_candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+  "pinned_upstream": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+  "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+  "tree": "63205d8a3ff27deb3680c613b70085163f289b83",
+  "parents": [
+    "16440863ddb14d95c402ce65498e22497e246e72",
+    "04514fc144dcebdd2b6d4aea5faf2f9cbf229362"
+  ],
+  "clean": true,
+  "conflicts": [],
+  "changed_paths": [
+    "Applications/Probability/TableProducer.lean",
+    "Applications/Probability/TableProducerStationarity.lean",
+    "Examples/TableProducer.lean",
+    "SquareApplications.lean",
+    "docs/probabilistic-progress.md",
+    "docs/probability.md",
+    "docs/progress-contracts.md",
+    "docs/research/mathematical-suppression.md",
+    "docs/research/textbook-integration.md"
+  ],
+  "new_upstream_lean_blobs_identical": {
+    "Applications/Probability/TableProducer.lean": "501490e9694ad04d4eab0566a95701aa75e43ddd",
+    "Applications/Probability/TableProducerStationarity.lean": "5ad8d16f847ffa025b372f3b68eda0b846877fe7",
+    "Examples/TableProducer.lean": "acc829ec223aa24e82f0e4bf692cb97cef175b02"
+  },
+  "both_parent_public_import_lines_retained": true,
+  "unchanged_instruction_pin_and_checker_paths": [
+    "lean-toolchain",
+    "lake-manifest.json",
+    "flake.lock",
+    "lakefile.toml",
+    "AGENTS.md",
+    "check.sh",
+    "scripts/check.py"
+  ],
+  "candidate_README_unchanged": true,
+  "README_note": "Existing textbook README additions already distinguish candidate from upstream; preserved unchanged. Initial overbroad equality assertion was corrected to distinguish incoming-candidate preservation from upstream identity. No source change was needed.",
+  "git_diff_check": "passed",
+  "formal_changes": "Only the three unchanged upstream Lean additions and their public import; no textbook proof edits. Source correspondence documentation updated.",
+  "compilation": "Not run on this restored host. Final full validation delegated; existing focused receipts retain prior candidate scope."
+}

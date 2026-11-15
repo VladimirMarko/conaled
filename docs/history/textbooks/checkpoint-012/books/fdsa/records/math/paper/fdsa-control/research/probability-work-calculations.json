@@ -1,0 +1,167 @@
+{
+  "status": "independent finite calculations for a proposed shared case; not Lean validation",
+  "law": "uniform counting probability on Fin 8",
+  "q": "1/2",
+  "initial_and_per_stage_cap": 1,
+  "rows": [
+    {
+      "omega": 0,
+      "stages": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "work": 4
+    },
+    {
+      "omega": 1,
+      "stages": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "work": 3
+    },
+    {
+      "omega": 2,
+      "stages": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "work": 2
+    },
+    {
+      "omega": 3,
+      "stages": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "work": 2
+    },
+    {
+      "omega": 4,
+      "stages": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "work": 1
+    },
+    {
+      "omega": 5,
+      "stages": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "work": 1
+    },
+    {
+      "omega": 6,
+      "stages": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "work": 1
+    },
+    {
+      "omega": 7,
+      "stages": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "work": 1
+    }
+  ],
+  "stage_means": [
+    "1",
+    "1/2",
+    "1/4",
+    "1/8"
+  ],
+  "expected_work": "15/8",
+  "expected_work_bound": "2",
+  "tails": [
+    {
+      "w": 0,
+      "threshold": 2,
+      "probability_ge": "1/2",
+      "geometric_bound": "1",
+      "expected_residual": "15/8",
+      "residual_bound": "2"
+    },
+    {
+      "w": 1,
+      "threshold": 3,
+      "probability_ge": "1/4",
+      "geometric_bound": "1/2",
+      "expected_residual": "7/8",
+      "residual_bound": "1"
+    },
+    {
+      "w": 2,
+      "threshold": 4,
+      "probability_ge": "1/8",
+      "geometric_bound": "1/4",
+      "expected_residual": "3/8",
+      "residual_bound": "1/2"
+    },
+    {
+      "w": 3,
+      "threshold": 5,
+      "probability_ge": "0",
+      "geometric_bound": "1/8",
+      "expected_residual": "1/8",
+      "residual_bound": "1/4"
+    },
+    {
+      "w": 4,
+      "threshold": 6,
+      "probability_ge": "0",
+      "geometric_bound": "1/16",
+      "expected_residual": "0",
+      "residual_bound": "1/8"
+    }
+  ],
+  "dependence": {
+    "event_a": "omega < 4",
+    "event_b": "omega < 2",
+    "intersection_probability": "1/4",
+    "product_of_marginals": "1/8"
+  },
+  "q_zero_case": {
+    "first_work": 3,
+    "later_work": 0,
+    "total_work": 3,
+    "tail_w_zero_probability": "1",
+    "tail_w_positive_probability": "0"
+  },
+  "zero_cap_ge_boundary": {
+    "work": 0,
+    "q": "1/2",
+    "w": 1,
+    "threshold": 0,
+    "event_probability": "1",
+    "proposed_rhs": "1/2",
+    "inequality_holds": false
+  },
+  "affine_observation_case": {
+    "observation": "2*work+3",
+    "expected_observation": "27/4",
+    "expected_observation_bound": "7",
+    "tail_w_one_threshold": 9,
+    "tail_probability": "1/4"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "formal_acceptance": false,
+  "guard_sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+  "helper_sha256": "a2c40a0a4d786101442bfe923177e245b66b46e9c5bf5544dcbe00e766fb602c",
+  "kind": "synthetic_preparation_checks",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "real_artifact_inspector_executed": false,
+  "real_project_output_directories_accessed": false,
+  "recorded_utc": "2026-11-03T17:26:19.383293+00:00",
+  "scope_limit": "Fixture inventory/parser/copy/budgets/temp policy, exact shared dependency-link routing, and one owned timeout only; no Lean invocation, real dependency inspection, or end-to-end candidate assessment.",
+  "test_source_sha256": "72b02f3b74cd7f8d8a810d365b717305e9639f9d9bcd25d6c6fb28091ec2ee77",
+  "tests": [
+    {
+      "name": "module-prefix orphan retained",
+      "result": "passed"
+    },
+    {
+      "name": "ProofAudit not mislabeled an orphan",
+      "result": "passed"
+    },
+    {
+      "name": "untraced output retained",
+      "result": "passed"
+    },
+    {
+      "name": "orphan sidecar retained",
+      "result": "passed"
+    },
+    {
+      "name": "surplus artifact retained",
+      "result": "passed"
+    },
+    {
+      "name": "unrecognized file retained",
+      "result": "passed"
+    },
+    {
+      "name": "empty and absolute-like module names remain raw unrecognized files",
+      "result": "passed"
+    },
+    {
+      "name": "noncanonical trace locations selected",
+      "result": "passed"
+    },
+    {
+      "name": "compound sidecar suffix maps correctly",
+      "result": "passed"
+    },
+    {
+      "name": "absent historical family has explicit missing members",
+      "result": "passed"
+    },
+    {
+      "name": "known consistent family setup captured",
+      "result": "passed"
+    },
+    {
+      "name": "raw source/copy digests agree",
+      "result": "passed"
+    },
+    {
+      "name": "synthetic source tree bytes and non-atime metadata unchanged",
+      "result": "passed"
+    },
+    {
+      "name": "inventory budget fails explicitly",
+      "result": "passed"
+    },
+    {
+      "name": "copy budget fails before oversized copy",
+      "result": "passed"
+    },
+    {
+      "name": "directory symlink recorded without traversal",
+      "result": "passed"
+    },
+    {
+      "name": "symlink raw copy refused",
+      "result": "passed"
+    },
+    {
+      "name": "process and child temporary paths stay in evidence",
+      "result": "passed"
+    },
+    {
+      "name": "all nine exact shared dependency links allowed",
+      "result": "passed"
+    },
+    {
+      "name": "dependency link outside approved root rejected",
+      "result": "passed"
+    },
+    {
+      "name": "wrong same-root package target rejected",
+      "result": "passed"
+    },
+    {
+      "name": "owned synthetic timeout retains actual 124",
+      "result": "passed"
+    }
+  ],
+  "timeout": {
+    "fixture_returncode": 124,
+    "path": "/usr/bin/timeout",
+    "sha256": "375eaa8774baf7667515932c4d6fa2e31a2c21e9c50f152a27c4c6a718374ebe",
+    "version": "timeout (GNU coreutils) 9.4\nCopyright (C) 2023 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n\nWritten by P\u00e1draig Brady.\n"
+  }
+}

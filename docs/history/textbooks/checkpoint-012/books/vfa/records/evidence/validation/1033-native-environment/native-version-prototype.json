@@ -1,0 +1,26 @@
+{
+  "recorded_utc": "2026-11-03T16:08:12.426535+00:00",
+  "prototype_only": true,
+  "commands": [
+    {
+      "command": [
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-linux/bin/lean",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": "",
+      "elapsed_seconds": 0.20859540099991136
+    },
+    {
+      "command": [
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-linux/bin/lake",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)\n",
+      "stderr": "",
+      "elapsed_seconds": 0.09266619300069578
+    }
+  ]
+}

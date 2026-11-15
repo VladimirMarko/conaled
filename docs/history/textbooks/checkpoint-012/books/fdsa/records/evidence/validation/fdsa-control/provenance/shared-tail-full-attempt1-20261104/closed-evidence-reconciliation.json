@@ -1,0 +1,72 @@
+{
+  "utc": "2026-11-04T16:26:03.691324+00:00",
+  "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "owned_terminal": {
+    "recorded_utc": "2026-11-04T16:26:03.672478+00:00",
+    "owned_session": 16392,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "a0c3e0",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T161629Z-project-run-35d70322",
+  "copied": [
+    {
+      "name": "start.json",
+      "origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T161629Z-project-run-35d70322/start.json",
+      "bytes": 421,
+      "sha256": "34abd303e18c57b8d763295479b5f3b71659b2f2be117a821f163df8871e6b57"
+    },
+    {
+      "name": "result.json",
+      "origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T161629Z-project-run-35d70322/result.json",
+      "bytes": 573,
+      "sha256": "f75be0ad9959dad50584d9f8cbd8bd85af4dbb0e12099733aeff086da6518112"
+    },
+    {
+      "name": "output.log",
+      "origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T161629Z-project-run-35d70322/output.log",
+      "bytes": 284346,
+      "sha256": "bd5bd2c170cac6a84f855806595fce60981b86eb1660c52c0d3a7a0b9d149749"
+    }
+  ],
+  "native_output_is_exact_outer_body_at_byte_offset": 70,
+  "outer_bytes": 284574,
+  "outer_lines": 2487,
+  "outer_sha256": "3247019f0fa2844cf6a719a51a3396d04c12d3e7b7b715117eed797289f805bf",
+  "verification_bytes": 867,
+  "verification_sha256": "0cd4efa701892c229d61bca325a4c0a2aaa9a26428fa409f7d2195ac1e227a46",
+  "complete_log_closed": true,
+  "actual_result": {
+    "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+    "command": [
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+      "--state",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+      "run",
+      "--project",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "--threads",
+      "1",
+      "--",
+      "./check.sh",
+      "--candidate",
+      "HEAD"
+    ],
+    "started_utc": "2026-11-04T16:16:29.419554+00:00",
+    "completed_utc": "2026-11-04T16:25:42.962239+00:00",
+    "exit_code": 0,
+    "elapsed_seconds": 553.5421607379976,
+    "state": "passed",
+    "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-full-attempt1-20261104/full.log",
+    "progress_bookkeeping_errors": [],
+    "final_head": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+    "final_status": "",
+    "log_size_bytes": 284574,
+    "log_sha256": "3247019f0fa2844cf6a719a51a3396d04c12d3e7b7b715117eed797289f805bf",
+    "available_bytes_at_completion": 0,
+    "verification_record_present": true,
+    "verification_record_sha256": "0cd4efa701892c229d61bca325a4c0a2aaa9a26428fa409f7d2195ac1e227a46"
+  }
+}

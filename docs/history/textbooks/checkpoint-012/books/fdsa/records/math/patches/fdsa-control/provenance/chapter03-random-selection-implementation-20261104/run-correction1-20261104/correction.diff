@@ -1,0 +1,52 @@
+diff --git a/Applications/Resources/RandomSelectionRun.lean b/Applications/Resources/RandomSelectionRun.lean
+index 3a6f535..ea204cf 100644
+--- a/Applications/Resources/RandomSelectionRun.lean
++++ b/Applications/Resources/RandomSelectionRun.lean
+@@ -50,16 +50,18 @@ def run : Nat → List α → PMF (Outcome α)
+   | k, head :: tail =>
+       PMF.bind (RandomQuickSort.uniformIndex tail.length) fun i =>
+         let action := stepRun k (head :: tail) i
+-        match hstep : action.1 with
++        match _hstep : action.1 with
+         | Sum.inl (j, ys) =>
+             PMF.map (prepend (head :: tail).length i.val action.2) (run j ys)
+         | Sum.inr p => PMF.pure (some p, ([((head :: tail).length, i.val)], action.2))
+ termination_by _ xs => xs.length
+ decreasing_by
+-  exact (stepRun_child k (head :: tail) i j ys hstep).1
++  exact (stepRun_child k (head :: tail) i j ys _hstep).1
+ 
+ @[simp] theorem run_nil (k : Nat) :
+-    run k ([] : List α) = PMF.pure (none, ([], 2)) := by rw [run]
++    run k ([] : List α) = PMF.pure (none, ([], 2)) := by
++  rw [run]
++  rfl
+ 
+ /-- The exact probability-tree equation retains the actual measured step. -/
+ theorem run_cons (k : Nat) (head : α) (tail : List α) :
+@@ -71,6 +73,9 @@ theorem run_cons (k : Nat) (head : α) (tail : List α) :
+             PMF.map (prepend (head :: tail).length i.val action.2) (run j ys)
+         | Sum.inr p => PMF.pure (some p, ([((head :: tail).length, i.val)], action.2)) := by
+   rw [run]
++  apply congrArg (PMF.bind _)
++  funext i
++  dsimp only <;> split <;> rfl
+ 
+ /-- All supported choices return the same sorted-index specification. This
+ includes the total invalid-rank extension, not just successful calls. -/
+@@ -85,6 +90,7 @@ theorem run_value (k : Nat) (xs : List α) (result : Outcome α)
+   | head :: tail =>
+       rw [run_cons] at hr
+       obtain ⟨i, _, hr⟩ := (PMF.mem_support_bind_iff _ _ _).mp hr
++      dsimp only at hr
+       have hs := stepRun_semantics k (head :: tail) i
+       cases hstep : (stepRun k (head :: tail) i).1 with
+       | inl state =>
+@@ -142,6 +148,7 @@ private theorem run_support_bounds (k : Nat) (xs : List α) (result : Outcome α
+   | head :: tail =>
+       rw [run_cons] at hr
+       obtain ⟨i, _, hr⟩ := (PMF.mem_support_bind_iff _ _ _).mp hr
++      dsimp only at hr
+       have hi := i.isLt
+       have hn : 0 < (head :: tail).length := by simp
+       have hl := stepRun_cost_bounds k (head :: tail) i

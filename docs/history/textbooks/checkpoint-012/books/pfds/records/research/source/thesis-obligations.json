@@ -1,0 +1,743 @@
+{
+  "schema": 1,
+  "scope": "Initial union obligations, not exhaustive whole-source coverage",
+  "source": "Chris Okasaki, Purely Functional Data Structures, CMU-CS-96-177, September1996",
+  "thesis_sha256": "f4b92ed7ea425f6f1019f20a4ef40df505327fbc5f1346ed6b7a2e28ab56d072",
+  "book_sha256": "b9dbf4f6ade4c24da438fd5415fc3abdd3af0aa8459d7e41e4a27de844c7ad41",
+  "page_convention": "PrintedArabic page n is PDF page n+12 (1-based), in both source files.",
+  "intro_inventory_status": "Chapter1 pp1-6 inspected in full; Table1.1 visually checked.",
+  "formal_status": "No obligation below is declared proved by this source inventory.",
+  "items": [
+    {
+      "id": "T1.01",
+      "classification": "introductory_forward_cost_contract",
+      "implementation": "banker queues",
+      "source_pages": [
+        3
+      ],
+      "source_sections": [
+        "1.3, Table1.1"
+      ],
+      "target_thesis_pages": [
+        26
+      ],
+      "target_thesis_sections": [
+        "3.4.2"
+      ],
+      "paraphrased_contract": "banker queues: snoc O(1), head O(1), tail O(1).",
+      "operations": {
+        "snoc": "O(1)",
+        "head": "O(1)",
+        "tail": "O(1)"
+      },
+      "cost_mode": "amortized",
+      "book_owner_chapter": 6,
+      "status": "unproved",
+      "notes": [
+        "Table1.1 inspected visually at thesis printed p3 / PDF15; the table marks worst-case rows with a dagger and all other costs as amortized.",
+        "Forward mathematical claim, not a Chapter1 proof. Later implementation owner must establish semantics, invariants, failure cases, persistence model and the relevant measured cost theorem.",
+        "Use valid represented inputs and the source evaluation/unit-cost assumptions; refine size parameters and partial-operation domains in the owning specification. No claim about Lean runtime performance."
+      ]
+    },
+    {
+      "id": "T1.02",
+      "classification": "introductory_forward_cost_contract",
+      "implementation": "physicist queues",
+      "source_pages": [
+        3
+      ],
+      "source_sections": [
+        "1.3, Table1.1"
+      ],
+      "target_thesis_pages": [
+        31
+      ],
+      "target_thesis_sections": [
+        "3.5.1"
+      ],
+      "paraphrased_contract": "physicist queues: snoc O(1), head O(1), tail O(1).",
+      "operations": {
+        "snoc": "O(1)",
+        "head": "O(1)",
+        "tail": "O(1)"
+      },
+      "cost_mode": "amortized",
+      "book_owner_chapter": 6,
+      "status": "unproved",
+      "notes": [
+        "Table1.1 inspected visually at thesis printed p3 / PDF15; the table marks worst-case rows with a dagger and all other costs as amortized.",
+        "Forward mathematical claim, not a Chapter1 proof. Later implementation owner must establish semantics, invariants, failure cases, persistence model and the relevant measured cost theorem.",
+        "Use valid represented inputs and the source evaluation/unit-cost assumptions; refine size parameters and partial-operation domains in the owning specification. No claim about Lean runtime performance."
+      ]
+    },
+    {
+      "id": "T1.03",
+      "classification": "introductory_forward_cost_contract",
+      "implementation": "real-time queues",
+      "source_pages": [
+        3
+      ],
+      "source_sections": [
+        "1.3, Table1.1"
+      ],
+      "target_thesis_pages": [
+        43
+      ],
+      "target_thesis_sections": [
+        "4.2"
+      ],
+      "paraphrased_contract": "real-time queues: snoc O(1), head O(1), tail O(1).",
+      "operations": {
+        "snoc": "O(1)",
+        "head": "O(1)",
+        "tail": "O(1)"
+      },
+      "cost_mode": "worst-case",
+      "book_owner_chapter": 7,
+      "status": "unproved",
+      "notes": [
+        "Table1.1 inspected visually at thesis printed p3 / PDF15; the table marks worst-case rows with a dagger and all other costs as amortized.",
+        "Forward mathematical claim, not a Chapter1 proof. Later implementation owner must establish semantics, invariants, failure cases, persistence model and the relevant measured cost theorem.",
+        "Use valid represented inputs and the source evaluation/unit-cost assumptions; refine size parameters and partial-operation domains in the owning specification. No claim about Lean runtime performance."
+      ]
+    },
+    {
+      "id": "T1.04",
+      "classification": "introductory_forward_cost_contract",
+      "implementation": "bootstrapped queues",
+      "source_pages": [
+        3
+      ],
+      "source_sections": [
+        "1.3, Table1.1"
+      ],
+      "target_thesis_pages": [
+        89
+      ],
+      "target_thesis_sections": [
+        "7.1.2"
+      ],
+      "paraphrased_contract": "bootstrapped queues: head O(1) worst-case, snoc O(log* n) amortized, tail O(log* n) amortized.",
+      "operations": {
+        "head": "O(1) worst-case",
+        "snoc": "O(log* n) amortized",
+        "tail": "O(log* n) amortized"
+      },
+      "cost_mode": "mixed: head worst-case; snoc/tail amortized",
+      "book_owner_chapter": 10,
+      "status": "unproved",
+      "notes": [
+        "Table1.1 inspected visually at thesis printed p3 / PDF15; the table marks worst-case rows with a dagger and all other costs as amortized.",
+        "Forward mathematical claim, not a Chapter1 proof. Later implementation owner must establish semantics, invariants, failure cases, persistence model and the relevant measured cost theorem.",
+        "Use valid represented inputs and the source evaluation/unit-cost assumptions; refine size parameters and partial-operation domains in the owning specification. No claim about Lean runtime performance.",
+        "log* is iterated logarithm, not ordinary logarithm; book pp149-150 separately confirms this complexity."
+      ]
+    },
+    {
+      "id": "T1.05",
+      "classification": "introductory_forward_cost_contract",
+      "implementation": "implicit queues",
+      "source_pages": [
+        3
+      ],
+      "source_sections": [
+        "1.3, Table1.1"
+      ],
+      "target_thesis_pages": [
+        113
+      ],
+      "target_thesis_sections": [
+        "8.4"
+      ],
+      "paraphrased_contract": "implicit queues: snoc O(1), head O(1), tail O(1).",
+      "operations": {
+        "snoc": "O(1)",
+        "head": "O(1)",
+        "tail": "O(1)"
+      },
+      "cost_mode": "amortized",
+      "book_owner_chapter": 11,
+      "status": "unproved",
+      "notes": [
+        "Table1.1 inspected visually at thesis printed p3 / PDF15; the table marks worst-case rows with a dagger and all other costs as amortized.",
+        "Forward mathematical claim, not a Chapter1 proof. Later implementation owner must establish semantics, invariants, failure cases, persistence model and the relevant measured cost theorem.",
+        "Use valid represented inputs and the source evaluation/unit-cost assumptions; refine size parameters and partial-operation domains in the owning specification. No claim about Lean runtime performance."
+      ]
+    },
+    {
+      "id": "T1.06",
+      "classification": "introductory_forward_cost_contract",
+      "implementation": "banker deques",
+      "source_pages": [
+        3
+      ],
+      "source_sections": [
+        "1.3, Table1.1"
+      ],
+      "target_thesis_pages": [
+        56
+      ],
+      "target_thesis_sections": [
+        "5.4.2"
+      ],
+      "paraphrased_contract": "banker deques: cons O(1), head O(1), tail O(1), snoc O(1), last O(1), init O(1).",
+      "operations": {
+        "cons": "O(1)",
+        "head": "O(1)",
+        "tail": "O(1)",
+        "snoc": "O(1)",
+        "last": "O(1)",
+        "init": "O(1)"
+      },
+      "cost_mode": "amortized",
+      "book_owner_chapter": 8,
+      "status": "unproved",
+      "notes": [
+        "Table1.1 inspected visually at thesis printed p3 / PDF15; the table marks worst-case rows with a dagger and all other costs as amortized.",
+        "Forward mathematical claim, not a Chapter1 proof. Later implementation owner must establish semantics, invariants, failure cases, persistence model and the relevant measured cost theorem.",
+        "Use valid represented inputs and the source evaluation/unit-cost assumptions; refine size parameters and partial-operation domains in the owning specification. No claim about Lean runtime performance."
+      ]
+    },
+    {
+      "id": "T1.07",
+      "classification": "introductory_forward_cost_contract",
+      "implementation": "real-time deques",
+      "source_pages": [
+        3
+      ],
+      "source_sections": [
+        "1.3, Table1.1"
+      ],
+      "target_thesis_pages": [
+        59
+      ],
+      "target_thesis_sections": [
+        "5.4.3"
+      ],
+      "paraphrased_contract": "real-time deques: cons O(1), head O(1), tail O(1), snoc O(1), last O(1), init O(1).",
+      "operations": {
+        "cons": "O(1)",
+        "head": "O(1)",
+        "tail": "O(1)",
+        "snoc": "O(1)",
+        "last": "O(1)",
+        "init": "O(1)"
+      },
+      "cost_mode": "worst-case",
+      "book_owner_chapter": 8,
+      "status": "unproved",
+      "notes": [
+        "Table1.1 inspected visually at thesis printed p3 / PDF15; the table marks worst-case rows with a dagger and all other costs as amortized.",
+        "Forward mathematical claim, not a Chapter1 proof. Later implementation owner must establish semantics, invariants, failure cases, persistence model and the relevant measured cost theorem.",
+        "Use valid represented inputs and the source evaluation/unit-cost assumptions; refine size parameters and partial-operation domains in the owning specification. No claim about Lean runtime performance."
+      ]
+    },
+    {
+      "id": "T1.08",
+      "classification": "introductory_forward_cost_contract",
+      "implementation": "implicit deques",
+      "source_pages": [
+        3
+      ],
+      "source_sections": [
+        "1.3, Table1.1"
+      ],
+      "target_thesis_pages": [
+        116
+      ],
+      "target_thesis_sections": [
+        "8.4"
+      ],
+      "paraphrased_contract": "implicit deques: cons O(1), head O(1), tail O(1), snoc O(1), last O(1), init O(1).",
+      "operations": {
+        "cons": "O(1)",
+        "head": "O(1)",
+        "tail": "O(1)",
+        "snoc": "O(1)",
+        "last": "O(1)",
+        "init": "O(1)"
+      },
+      "cost_mode": "amortized",
+      "book_owner_chapter": 11,
+      "status": "unproved",
+      "notes": [
+        "Table1.1 inspected visually at thesis printed p3 / PDF15; the table marks worst-case rows with a dagger and all other costs as amortized.",
+        "Forward mathematical claim, not a Chapter1 proof. Later implementation owner must establish semantics, invariants, failure cases, persistence model and the relevant measured cost theorem.",
+        "Use valid represented inputs and the source evaluation/unit-cost assumptions; refine size parameters and partial-operation domains in the owning specification. No claim about Lean runtime performance."
+      ]
+    },
+    {
+      "id": "T1.09",
+      "classification": "introductory_forward_cost_contract",
+      "implementation": "catenable lists",
+      "source_pages": [
+        3
+      ],
+      "source_sections": [
+        "1.3, Table1.1"
+      ],
+      "target_thesis_pages": [
+        97
+      ],
+      "target_thesis_sections": [
+        "7.2.1"
+      ],
+      "paraphrased_contract": "catenable lists: cons O(1), snoc O(1), head O(1), tail O(1), append O(1).",
+      "operations": {
+        "cons": "O(1)",
+        "snoc": "O(1)",
+        "head": "O(1)",
+        "tail": "O(1)",
+        "append": "O(1)"
+      },
+      "cost_mode": "amortized",
+      "book_owner_chapter": 10,
+      "status": "unproved",
+      "notes": [
+        "Table1.1 inspected visually at thesis printed p3 / PDF15; the table marks worst-case rows with a dagger and all other costs as amortized.",
+        "Forward mathematical claim, not a Chapter1 proof. Later implementation owner must establish semantics, invariants, failure cases, persistence model and the relevant measured cost theorem.",
+        "Use valid represented inputs and the source evaluation/unit-cost assumptions; refine size parameters and partial-operation domains in the owning specification. No claim about Lean runtime performance."
+      ]
+    },
+    {
+      "id": "T1.10",
+      "classification": "introductory_forward_cost_contract",
+      "implementation": "simple catenable deques",
+      "source_pages": [
+        3
+      ],
+      "source_sections": [
+        "1.3, Table1.1"
+      ],
+      "target_thesis_pages": [
+        119
+      ],
+      "target_thesis_sections": [
+        "8.5"
+      ],
+      "paraphrased_contract": "simple catenable deques: cons O(1), head O(1), tail O(1), snoc O(1), last O(1), init O(1), append O(log n).",
+      "operations": {
+        "cons": "O(1)",
+        "head": "O(1)",
+        "tail": "O(1)",
+        "snoc": "O(1)",
+        "last": "O(1)",
+        "init": "O(1)",
+        "append": "O(log n)"
+      },
+      "cost_mode": "amortized",
+      "book_owner_chapter": 11,
+      "status": "unproved",
+      "notes": [
+        "Table1.1 inspected visually at thesis printed p3 / PDF15; the table marks worst-case rows with a dagger and all other costs as amortized.",
+        "Forward mathematical claim, not a Chapter1 proof. Later implementation owner must establish semantics, invariants, failure cases, persistence model and the relevant measured cost theorem.",
+        "Use valid represented inputs and the source evaluation/unit-cost assumptions; refine size parameters and partial-operation domains in the owning specification. No claim about Lean runtime performance."
+      ]
+    },
+    {
+      "id": "T1.11",
+      "classification": "introductory_forward_cost_contract",
+      "implementation": "catenable deques",
+      "source_pages": [
+        3
+      ],
+      "source_sections": [
+        "1.3, Table1.1"
+      ],
+      "target_thesis_pages": [
+        122
+      ],
+      "target_thesis_sections": [
+        "8.5"
+      ],
+      "paraphrased_contract": "catenable deques: cons O(1), head O(1), tail O(1), snoc O(1), last O(1), init O(1), append O(1).",
+      "operations": {
+        "cons": "O(1)",
+        "head": "O(1)",
+        "tail": "O(1)",
+        "snoc": "O(1)",
+        "last": "O(1)",
+        "init": "O(1)",
+        "append": "O(1)"
+      },
+      "cost_mode": "amortized",
+      "book_owner_chapter": 11,
+      "status": "unproved",
+      "notes": [
+        "Table1.1 inspected visually at thesis printed p3 / PDF15; the table marks worst-case rows with a dagger and all other costs as amortized.",
+        "Forward mathematical claim, not a Chapter1 proof. Later implementation owner must establish semantics, invariants, failure cases, persistence model and the relevant measured cost theorem.",
+        "Use valid represented inputs and the source evaluation/unit-cost assumptions; refine size parameters and partial-operation domains in the owning specification. No claim about Lean runtime performance."
+      ]
+    },
+    {
+      "id": "T1.12",
+      "classification": "introductory_forward_cost_contract",
+      "implementation": "skew-binary random-access lists",
+      "source_pages": [
+        3
+      ],
+      "source_sections": [
+        "1.3, Table1.1"
+      ],
+      "target_thesis_pages": [
+        79
+      ],
+      "target_thesis_sections": [
+        "6.4.1"
+      ],
+      "paraphrased_contract": "skew-binary random-access lists: cons O(1), head O(1), tail O(1), lookup O(log n), update O(log n).",
+      "operations": {
+        "cons": "O(1)",
+        "head": "O(1)",
+        "tail": "O(1)",
+        "lookup": "O(log n)",
+        "update": "O(log n)"
+      },
+      "cost_mode": "worst-case",
+      "book_owner_chapter": 9,
+      "status": "unproved",
+      "notes": [
+        "Table1.1 inspected visually at thesis printed p3 / PDF15; the table marks worst-case rows with a dagger and all other costs as amortized.",
+        "Forward mathematical claim, not a Chapter1 proof. Later implementation owner must establish semantics, invariants, failure cases, persistence model and the relevant measured cost theorem.",
+        "Use valid represented inputs and the source evaluation/unit-cost assumptions; refine size parameters and partial-operation domains in the owning specification. No claim about Lean runtime performance."
+      ]
+    },
+    {
+      "id": "T1.13",
+      "classification": "introductory_forward_cost_contract",
+      "implementation": "skew binomial heaps",
+      "source_pages": [
+        3
+      ],
+      "source_sections": [
+        "1.3, Table1.1"
+      ],
+      "target_thesis_pages": [
+        83
+      ],
+      "target_thesis_sections": [
+        "6.4.2"
+      ],
+      "paraphrased_contract": "skew binomial heaps: insert O(1), merge O(log n), findMin O(log n), deleteMin O(log n).",
+      "operations": {
+        "insert": "O(1)",
+        "merge": "O(log n)",
+        "findMin": "O(log n)",
+        "deleteMin": "O(log n)"
+      },
+      "cost_mode": "worst-case",
+      "book_owner_chapter": 9,
+      "status": "unproved",
+      "notes": [
+        "Table1.1 inspected visually at thesis printed p3 / PDF15; the table marks worst-case rows with a dagger and all other costs as amortized.",
+        "Forward mathematical claim, not a Chapter1 proof. Later implementation owner must establish semantics, invariants, failure cases, persistence model and the relevant measured cost theorem.",
+        "Use valid represented inputs and the source evaluation/unit-cost assumptions; refine size parameters and partial-operation domains in the owning specification. No claim about Lean runtime performance."
+      ]
+    },
+    {
+      "id": "T1.14",
+      "classification": "introductory_forward_cost_contract",
+      "implementation": "bootstrapped heaps",
+      "source_pages": [
+        3
+      ],
+      "source_sections": [
+        "1.3, Table1.1"
+      ],
+      "target_thesis_pages": [
+        102
+      ],
+      "target_thesis_sections": [
+        "7.2.2"
+      ],
+      "paraphrased_contract": "bootstrapped heaps: insert O(1), merge O(1), findMin O(1), deleteMin O(log n).",
+      "operations": {
+        "insert": "O(1)",
+        "merge": "O(1)",
+        "findMin": "O(1)",
+        "deleteMin": "O(log n)"
+      },
+      "cost_mode": "worst-case",
+      "book_owner_chapter": 10,
+      "status": "unproved",
+      "notes": [
+        "Table1.1 inspected visually at thesis printed p3 / PDF15; the table marks worst-case rows with a dagger and all other costs as amortized.",
+        "Forward mathematical claim, not a Chapter1 proof. Later implementation owner must establish semantics, invariants, failure cases, persistence model and the relevant measured cost theorem.",
+        "Use valid represented inputs and the source evaluation/unit-cost assumptions; refine size parameters and partial-operation domains in the owning specification. No claim about Lean runtime performance.",
+        "Generic heap bootstrapping assumes a primitive heap with worst-case O(1) insertion and O(log n) merge/findMin/deleteMin; the primitive comparator and nonempty subheap invariant must be preserved."
+      ]
+    },
+    {
+      "id": "T1.15",
+      "classification": "introductory_forward_cost_contract",
+      "implementation": "sortable collections",
+      "source_pages": [
+        3
+      ],
+      "source_sections": [
+        "1.3, Table1.1"
+      ],
+      "target_thesis_pages": [
+        35
+      ],
+      "target_thesis_sections": [
+        "3.5.2"
+      ],
+      "paraphrased_contract": "sortable collections: add O(log n), sort O(n).",
+      "operations": {
+        "add": "O(log n)",
+        "sort": "O(n)"
+      },
+      "cost_mode": "amortized",
+      "book_owner_chapter": 6,
+      "status": "unproved",
+      "notes": [
+        "Table1.1 inspected visually at thesis printed p3 / PDF15; the table marks worst-case rows with a dagger and all other costs as amortized.",
+        "Forward mathematical claim, not a Chapter1 proof. Later implementation owner must establish semantics, invariants, failure cases, persistence model and the relevant measured cost theorem.",
+        "Use valid represented inputs and the source evaluation/unit-cost assumptions; refine size parameters and partial-operation domains in the owning specification. No claim about Lean runtime performance."
+      ]
+    },
+    {
+      "id": "T1.16",
+      "classification": "introductory_forward_cost_contract",
+      "implementation": "scheduled sortable collections",
+      "source_pages": [
+        3
+      ],
+      "source_sections": [
+        "1.3, Table1.1"
+      ],
+      "target_thesis_pages": [
+        47
+      ],
+      "target_thesis_sections": [
+        "4.3"
+      ],
+      "paraphrased_contract": "scheduled sortable collections: add O(log n), sort O(n).",
+      "operations": {
+        "add": "O(log n)",
+        "sort": "O(n)"
+      },
+      "cost_mode": "worst-case",
+      "book_owner_chapter": 7,
+      "status": "unproved",
+      "notes": [
+        "Table1.1 inspected visually at thesis printed p3 / PDF15; the table marks worst-case rows with a dagger and all other costs as amortized.",
+        "Forward mathematical claim, not a Chapter1 proof. Later implementation owner must establish semantics, invariants, failure cases, persistence model and the relevant measured cost theorem.",
+        "Use valid represented inputs and the source evaluation/unit-cost assumptions; refine size parameters and partial-operation domains in the owning specification. No claim about Lean runtime performance."
+      ]
+    },
+    {
+      "id": "TU.A",
+      "classification": "thesis_supplemental_semantics",
+      "source_pages": [
+        131,
+        132,
+        133,
+        134,
+        135,
+        136
+      ],
+      "source_sections": [
+        "Appendix A.1",
+        "Appendix A.2",
+        "Appendix A.3",
+        "Appendix A.4"
+      ],
+      "paraphrased_contract": "Account for the explicit StandardML suspension extension: syntax and typing, fresh thunk allocation, body evaluation and memoization before inner matching, effectful matching and exception propagation, recursive environment updates and the separately tracked pure self-reentry claim. A body exception adds no successful write at that frame; a failed inner match can follow a successful cache write.",
+      "cost_mode": "operational/static semantics; supplies assumptions for later resource claims",
+      "book_owner_chapter": "supplemental (cross-cutting support for book4-11)",
+      "status": "unproved",
+      "notes": [
+        "This is distinct from book Appendix A, which supplies Haskell implementations.",
+        "The appendix states modifications to the external Standard ML Definition; full union coverage must delimit the modeled base fragment and explicitly account for every added/modified rule, not silently claim a full Standard ML implementation.",
+        "Recursive self-forcing can memoize more than once in the presence of side effects; optional blackhole detection is discussed as an alternative, not specified as mandatory behavior.",
+        "The effectful examples are semantic tests even though the primary data-structure programs are purely functional.",
+        "The p135 pure self-forcing nontermination remark is an explicit additional proof obligation TU.A.4.PURE under local10019, required before complete AppendixA/Chapter4 acceptance."
+      ],
+      "supplementary_owner_tickets": [
+        10019
+      ]
+    },
+    {
+      "id": "TU.SEG",
+      "classification": "thesis_supplemental_construction",
+      "source_pages": [
+        75,
+        76
+      ],
+      "source_sections": [
+        "6.3.1"
+      ],
+      "paraphrased_contract": "Construct the sketched segmented binomial random-access lists and heaps using real-time deques for segments and child sequences, bulk linking/unlinking and the minimum-root-at-smallest-tree invariant. For the list, cons/head/tail have constant worst-case cost and lookup/update logarithmic cost; for the heap, insert has constant worst-case cost and merge/findMin/deleteMin logarithmic cost.",
+      "cost_mode": "worst-case under primitive real-time deque and unit-cost assumptions",
+      "book_owner_chapter": 9,
+      "status": "unproved",
+      "notes": [
+        "Book9.2.4 and Exercises9.11-9.13 discuss segmented/redundant numerical representations but do not identify this same bulk-link construction.",
+        "The thesis gives a design sketch and bounds, not complete executable code; completion requires making the design concrete and proving the stated contracts."
+      ]
+    },
+    {
+      "id": "TU.DIG123",
+      "classification": "different_source_variant",
+      "source_pages": [
+        110,
+        111
+      ],
+      "source_sections": [
+        "8.3"
+      ],
+      "paraphrased_contract": "Implement and analyze the thesis lazy redundant numeral system with digits1,2,3, where2 is safe and1/3 are dangerous, supporting mixed increment/decrement sequences in constant amortized cost.",
+      "cost_mode": "amortized with one debit on the tail of a safe digit and none on a dangerous-digit tail",
+      "book_owner_chapter": 9,
+      "status": "unproved",
+      "notes": [
+        "Book9.2.3 pp126-127 uses digits0,1,2 with safe1. The numeral-value encodings differ; a constructor rename is insufficient as a correspondence proof.",
+        "Retain the counterexample for alternating ordinary binary increment/decrement and the incompatibility of the separate debit invariants."
+      ]
+    },
+    {
+      "id": "TU.SCHEDULE",
+      "classification": "different_source_realization",
+      "source_pages": [
+        109,
+        110
+      ],
+      "source_sections": [
+        "8.2, Theorem8.2"
+      ],
+      "paraphrased_contract": "Prove the scheduled binary-digit increment realization maintains completed-zero separation of pending ranges and consequently takes constant worst-case cost.",
+      "cost_mode": "worst-case with explicit schedule/memoization invariant",
+      "book_owner_chapter": 9,
+      "status": "unproved",
+      "notes": [
+        "Book7.3 Theorem7.1 uses the analogous range-separation invariant for scheduled binomial heaps; a common generic proof still needs checked instantiations for both representations.",
+        "Thesis8.2 also gives an unscheduled lazy binary increment and its amortized theorem8.1."
+      ]
+    },
+    {
+      "id": "TU.FORCE",
+      "classification": "shared_topic_with_evaluation_variants",
+      "source_pages": [
+        7,
+        8,
+        9,
+        10,
+        107
+      ],
+      "source_sections": [
+        "2",
+        "2.1",
+        "8.2"
+      ],
+      "paraphrased_contract": "Preserve the distinction between delaying pattern matching and forcing arguments before constructing a suspended result, including the take examples and the deliberately one-level-ahead digit increment. Connect book fun-lazy notation to its explicit desugaring.",
+      "cost_mode": "demand/evaluation behavior plus the owning algorithms resource claims",
+      "book_owner_chapter": 4,
+      "status": "unproved",
+      "notes": [
+        "Book4.1 pp32-33 supplies fun-lazy sugar; the thesis uses explicit suspensions and a case expression.",
+        "Extensional equality of fully forced finite results alone does not establish the intended forcing or cost correspondence."
+      ]
+    },
+    {
+      "id": "TU.TRACE",
+      "classification": "shared_foundation_with_explicit_thesis_contract",
+      "source_pages": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "source_sections": [
+        "3.2.1",
+        "3.3.2",
+        "3.4.1"
+      ],
+      "paraphrased_contract": "Model execution traces with the source allowances for cycles, parallel edges, multiple arguments/results and distinct persistent identities. Formalize fresh debit allocation and logical-history discharge/realization conditions, and bound the union of realized debits by the sum of discharge multiset cardinalities.",
+      "cost_mode": "aggregate actual-versus-amortized bound with memoized realized cost",
+      "book_owner_chapter": 6,
+      "status": "unproved",
+      "notes": [
+        "A DAG-only or single-version-path model does not by itself cover this trace scope.",
+        "The source labels s(v) with sets and a(v),r(v) with multisets. The cost of realized work counts each memoized debit once; discharge may be counted repeatedly across logical futures.",
+        "This is shared with book6, not necessarily new book-exclusive mathematics, but the union ledger must preserve the precise assumptions."
+      ]
+    },
+    {
+      "id": "TU.MODULES",
+      "classification": "shared_abstraction_and_translation_obligation",
+      "source_pages": [
+        4,
+        86,
+        87,
+        88,
+        89,
+        90,
+        99,
+        100,
+        101,
+        102
+      ],
+      "source_sections": [
+        "1.4",
+        "7.1.1",
+        "7.1.2",
+        "7.2.2"
+      ],
+      "paraphrased_contract": "Account for nonuniform recursive representations and the translation to uniform Standard ML forms, and for the generic higher-order recursive heap bootstrap transformation with its primitive interface/cost assumptions.",
+      "cost_mode": "semantic correspondence and conditional worst-case/amortized transfer",
+      "book_owner_chapter": 10,
+      "status": "unproved",
+      "notes": [
+        "A single concrete bootstrapped heap does not automatically cover the generic transformation.",
+        "The thesis explicitly excludes effectful primitive functors from the intended recursive-module pattern; do not generalize beyond those assumptions.",
+        "Book10 overlaps this material, including explicit exercises for alternative queue realizations."
+      ]
+    },
+    {
+      "id": "TU.BOOTVAR",
+      "classification": "thesis_supplemental_queue_variants",
+      "source_pages": [
+        90
+      ],
+      "source_sections": [
+        "7.1.2, concluding variations"
+      ],
+      "paraphrased_contract": "Account for two constant-amortized variants beyond the log-star bootstrapped queue: suspend the recursive middle queue and execute all its operations lazily; or use a two-level stream of suspended lists with incremental append and amortize its cost over top-level queue operations.",
+      "cost_mode": "amortized O(1) for the claimed queue operations under explicit laziness/debt assumptions",
+      "book_owner_chapter": 10,
+      "status": "unproved",
+      "notes": [
+        "Book10.1.3 Exercise10.5 gives a primitive-queue functor and a real-time-primitive hypothesis. That does not automatically discharge these specific thesis variants.",
+        "The second variation is described rather than fully coded and points to a separate paper; formalize the stated sketch or record any required external detail before claiming parity."
+      ]
+    },
+    {
+      "id": "TU.A.4.PURE",
+      "classification": "thesis_supplemental_qualitative_claim",
+      "source": "thesis",
+      "source_pages": [
+        135
+      ],
+      "physical_pdf_pages": [
+        147
+      ],
+      "source_sections": [
+        "Appendix A.4, recursive-forcing remark"
+      ],
+      "paraphrased_contract": "In a properly specified pure source domain, an evaluation that forces its own still-pending suspension cannot have a finite completion. Stronger successful memoization bounds must follow from proved client restrictions.",
+      "cost_mode": "qualitative finite-execution and cache-reuse property",
+      "book_owner_chapter": 4,
+      "owner_ticket": 10019,
+      "source_status": "complete paragraph inspected; precise pure-domain assumptions remain to formalize",
+      "proof_status": "unproved",
+      "status": "unproved",
+      "evidence": [
+        "research/suspension-foundation-inventory.md"
+      ]
+    }
+  ]
+}

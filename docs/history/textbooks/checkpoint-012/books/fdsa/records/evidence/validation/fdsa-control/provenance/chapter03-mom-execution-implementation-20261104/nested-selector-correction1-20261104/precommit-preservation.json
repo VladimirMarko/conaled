@@ -1,0 +1,89 @@
+{
+  "recorded_utc": "2026-11-04T20:49:19.327312+00:00",
+  "finding": "C03-NESTED-ELAB-001",
+  "baseline": "4de8b315a06089b1a715b56332f667ef1587e635",
+  "baseline_tree": "ee4df47a36c610bc83b1667787d49c0156d363b4",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "add",
+        "--",
+        "Applications/Resources/Selection.lean"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--stat"
+      ],
+      "exit_code": 0,
+      "stdout": " Applications/Resources/Selection.lean | 18 +++++++++---------\n 1 file changed, 9 insertions(+), 9 deletions(-)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--name-status"
+      ],
+      "exit_code": 0,
+      "stdout": "M\tApplications/Resources/Selection.lean\n",
+      "stderr": ""
+    }
+  ],
+  "changed_declarations": [
+    "selectWorker",
+    "worker_observe",
+    "selectRunWith_of_invalid",
+    "selectRunWith_small",
+    "selectRunWith_step"
+  ],
+  "all39_public_and29_private_raw_headers_unchanged": true,
+  "worker_computation_and_termination_measure_prefix_byte_identical": true,
+  "worker_complete_definition_byte_identical": false,
+  "worker_proof_change": "The decreasing_by dispatch now tries the same median/left/right proofs on every actual obligation, including repeated dependent nested-call obligations. This changes proof annotation bytes, not the computation or measure.",
+  "other_three_definition_blocks_identical": true,
+  "examples_entire_file_byte_identical": true,
+  "all12_independent_expected_pairs_unchanged": true,
+  "all23_preexisting_protected_files_and69_prior_records_unchanged": true,
+  "full_diff_read": "1508f5 exit0",
+  "pinned_official_conditional_lemma_read": "f94def exit0; aliases have identical statements and bodies referring directly to the replacements",
+  "correction_patch": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/correction-source.patch",
+    "bytes": 2504,
+    "sha256": "e26e5c493e5af1ace3e8ef4c08cda667536ce767e2f6ad6947895e1ba150d738"
+  },
+  "sources": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/Selection.lean",
+      "bytes": 20283,
+      "sha256": "5318599cfbbca4f1a7d5ff4d91ded6dba7ad0def8254d5aa16ec58d8ae72ffdb"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionCosts.lean",
+      "bytes": 13466,
+      "sha256": "fc9ab165cac2cd05246592bddbcc63632b4c363e4c478dea02e1aeb0d77e8122"
+    }
+  ],
+  "commit_message": "fix(selection): discharge dependent termination obligations (#174)",
+  "author_compiler_commands": 0,
+  "scope": "Full original39public/29private candidate retained; next root focused attempt required, examples never passed yet; no run<=F additions."
+}

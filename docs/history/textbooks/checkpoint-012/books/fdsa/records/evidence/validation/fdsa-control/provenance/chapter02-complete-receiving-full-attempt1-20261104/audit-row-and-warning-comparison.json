@@ -1,0 +1,314 @@
+{
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "predecessor": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "unchanged_rows": 980,
+  "changed_rows": {
+    "Applications.Resources.Growth": {
+      "before": {
+        "logical": 1,
+        "theorems": 1,
+        "unsafe": 0
+      },
+      "after": {
+        "logical": 4,
+        "theorems": 4,
+        "unsafe": 0
+      }
+    }
+  },
+  "added_rows": {
+    "Examples.AlternatingSorting": {
+      "logical": 18,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "Examples.BottomUpCosts": {
+      "logical": 37,
+      "theorems": 37,
+      "unsafe": 0
+    },
+    "Examples.BottomUpSorting": {
+      "logical": 33,
+      "theorems": 30,
+      "unsafe": 0
+    },
+    "Examples.InsertionObservations": {
+      "logical": 33,
+      "theorems": 27,
+      "unsafe": 0
+    },
+    "Examples.ListBuildCosts": {
+      "logical": 9,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "Examples.NaturalRunComparisons": {
+      "logical": 14,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Examples.NaturalRunOperations": {
+      "logical": 51,
+      "theorems": 49,
+      "unsafe": 0
+    },
+    "Examples.NaturalRuns": {
+      "logical": 53,
+      "theorems": 43,
+      "unsafe": 0
+    },
+    "Examples.NaturalSorting": {
+      "logical": 27,
+      "theorems": 24,
+      "unsafe": 0
+    },
+    "Examples.NaturalSortingCosts": {
+      "logical": 32,
+      "theorems": 31,
+      "unsafe": 0
+    },
+    "Examples.QuickSort": {
+      "logical": 33,
+      "theorems": 32,
+      "unsafe": 0
+    },
+    "Examples.QuickSortCosts": {
+      "logical": 33,
+      "theorems": 33,
+      "unsafe": 0
+    },
+    "Examples.QuickSortMean": {
+      "logical": 9,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "Examples.QuickSortTransport": {
+      "logical": 7,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "Examples.RandomQuickSort": {
+      "logical": 31,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "Examples.RandomQuickSortGrowth": {
+      "logical": 17,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Examples.RandomQuickSortMean": {
+      "logical": 13,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "Examples.RandomQuickSortRank": {
+      "logical": 20,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "Examples.SortUniqueness": {
+      "logical": 6,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "Examples.ThreeWayQuickSort": {
+      "logical": 24,
+      "theorems": 24,
+      "unsafe": 0
+    },
+    "Examples.TopDownCosts": {
+      "logical": 19,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "Examples.TopDownSorting": {
+      "logical": 11,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "Examples.UniformQuickSortMean": {
+      "logical": 101,
+      "theorems": 66,
+      "unsafe": 0
+    },
+    "Applications.Resources.BottomUpSorting": {
+      "logical": 123,
+      "theorems": 87,
+      "unsafe": 0
+    },
+    "Applications.Resources.ListBuildCosts": {
+      "logical": 45,
+      "theorems": 35,
+      "unsafe": 0
+    },
+    "Applications.Resources.NaturalRunComparisons": {
+      "logical": 105,
+      "theorems": 84,
+      "unsafe": 0
+    },
+    "Applications.Resources.NaturalRunOperations": {
+      "logical": 139,
+      "theorems": 118,
+      "unsafe": 0
+    },
+    "Applications.Resources.NaturalSorting": {
+      "logical": 42,
+      "theorems": 40,
+      "unsafe": 0
+    },
+    "Applications.Resources.QuickSort": {
+      "logical": 124,
+      "theorems": 101,
+      "unsafe": 0
+    },
+    "Applications.Resources.QuickSortMean": {
+      "logical": 43,
+      "theorems": 42,
+      "unsafe": 0
+    },
+    "Applications.Resources.QuickSortTransport": {
+      "logical": 6,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Applications.Resources.RandomQuickSort": {
+      "logical": 88,
+      "theorems": 76,
+      "unsafe": 0
+    },
+    "Applications.Resources.RandomQuickSortGrowth": {
+      "logical": 21,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "Applications.Resources.RandomQuickSortMean": {
+      "logical": 42,
+      "theorems": 40,
+      "unsafe": 0
+    },
+    "Applications.Resources.RandomQuickSortRank": {
+      "logical": 27,
+      "theorems": 25,
+      "unsafe": 0
+    },
+    "Applications.Resources.TopDownSorting": {
+      "logical": 33,
+      "theorems": 30,
+      "unsafe": 0
+    },
+    "Applications.Resources.UniformQuickSortMean": {
+      "logical": 102,
+      "theorems": 91,
+      "unsafe": 0
+    },
+    "Applications.Sorting.Alternating": {
+      "logical": 50,
+      "theorems": 36,
+      "unsafe": 0
+    },
+    "Applications.Sorting.BottomUp": {
+      "logical": 110,
+      "theorems": 78,
+      "unsafe": 0
+    },
+    "Applications.Sorting.InsertionObservations": {
+      "logical": 5,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Applications.Sorting.Natural": {
+      "logical": 17,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Applications.Sorting.NaturalRuns": {
+      "logical": 118,
+      "theorems": 101,
+      "unsafe": 0
+    },
+    "Applications.Sorting.QuickSort": {
+      "logical": 56,
+      "theorems": 41,
+      "unsafe": 0
+    },
+    "Applications.Sorting.ThreeWayQuickSort": {
+      "logical": 28,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "Applications.Sorting.TopDown": {
+      "logical": 27,
+      "theorems": 24,
+      "unsafe": 0
+    },
+    "Applications.Sorting.Uniqueness": {
+      "logical": 3,
+      "theorems": 3,
+      "unsafe": 0
+    }
+  },
+  "removed_rows": [],
+  "prior_warning_count": 591,
+  "current_warning_count": 647,
+  "added_warning_lines": {
+    "warning: Examples/AlternatingSorting.lean: imports `Mathlib.Data.Multiset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/Growth.lean: imports `Mathlib.Analysis.SpecialFunctions.Log.Base` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/Growth.lean: imports `Mathlib.Tactic.Linarith` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/Growth.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Sorting/BottomUp.lean: imports `Mathlib.Algebra.Group.Even` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Sorting/BottomUp.lean: imports `Mathlib.Data.Multiset.AddSub` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/BottomUpSorting.lean: imports `Mathlib.Data.Nat.Log` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Sorting/InsertionObservations.lean: imports `Mathlib.Data.List.Sort` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Examples/InsertionObservations.lean: imports `Mathlib.Data.Multiset.ZeroCons` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Sorting/NaturalRuns.lean: imports `Mathlib.Data.Multiset.AddSub` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Examples/QuickSort.lean: imports `Mathlib.Data.Multiset.Filter` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/QuickSort.lean: imports `Mathlib.Tactic.Linarith` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.NumberTheory.Harmonic.Bounds` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Analysis.Asymptotics.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Analysis.Normed.Field.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Analysis.SpecialFunctions.Log.Base` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Tactic.FieldSimp` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Tactic.Linarith` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Tactic.Positivity` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Examples/QuickSortTransport.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/RandomQuickSort.lean: imports `Mathlib.Probability.ProbabilityMassFunction.Constructions` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/RandomQuickSort.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/RandomQuickSort.lean: imports `Mathlib.Order.Interval.Finset.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Examples/RandomQuickSort.lean: imports `Mathlib.Tactic.FinCases` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Examples/RandomQuickSort.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/RandomQuickSortMean.lean: imports `Mathlib.MeasureTheory.Integral.Lebesgue.Countable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/RandomQuickSortMean.lean: imports `Mathlib.MeasureTheory.Function.L1Space.Integrable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/RandomQuickSortMean.lean: imports `Mathlib.MeasureTheory.Integral.Bochner.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/RandomQuickSortMean.lean: imports `Mathlib.Basic.ENNReal.BigOperators` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Data.Fin.Tuple.Sort` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Data.Fin.Rev` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Data.List.OfFn` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Data.List.FinRange` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Order.Interval.Finset.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Data.Fintype.BigOperators` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/RandomQuickSortGrowth.lean: imports `Mathlib.Order.Filter.AtTopBot.Tendsto` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Examples/RandomQuickSortMean.lean: imports `Mathlib.Probability.ProbabilityMassFunction.Integrals` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Examples/RandomQuickSortMean.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Examples/RandomQuickSortRank.lean: imports `Mathlib.Tactic.FinCases` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Examples/RandomQuickSortRank.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Sorting/Uniqueness.lean: imports `Mathlib.Data.List.Sort` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Sorting/Uniqueness.lean: imports `Mathlib.Data.Multiset.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Sorting/ThreeWayQuickSort.lean: imports `Mathlib.Data.Multiset.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/TopDownSorting.lean: imports `Mathlib.Data.Nat.Log` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Examples/TopDownSorting.lean: imports `Mathlib.Data.Multiset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/UniformQuickSortMean.lean: imports `Mathlib.Algebra.BigOperators.Intervals` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/UniformQuickSortMean.lean: imports `Mathlib.Data.Finset.Sort` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/UniformQuickSortMean.lean: imports `Mathlib.Data.List.FinRange` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/UniformQuickSortMean.lean: imports `Mathlib.Data.List.OfFn` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/UniformQuickSortMean.lean: imports `Mathlib.MeasureTheory.Integral.Bochner.Set` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Applications/Resources/UniformQuickSortMean.lean: imports `Mathlib.Order.Interval.Finset.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+    "warning: Examples/UniformQuickSortMean.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1
+  },
+  "removed_warning_lines": {},
+  "comparison_not_an_independent_final_review": true
+}

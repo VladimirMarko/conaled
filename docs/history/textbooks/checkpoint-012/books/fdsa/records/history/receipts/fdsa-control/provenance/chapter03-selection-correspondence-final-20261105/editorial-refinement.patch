@@ -1,0 +1,33 @@
+--- initial-correspondence
++++ refined-correspondence
+@@ -366,8 +366,8 @@
+ ```
+ 
+ These are probabilities under the actual recursive execution. The proof first
+-uses `Trace.run_child_atom` to derive the full-outcome atom, with factor `1/n`
+-at each actual child transition. Positive inverse-factorial mass gives support.
++uses `Trace.run_child_atom` to derive the full-outcome atom, with factor `1/m`
++at a state of current length `m`. Positive inverse-factorial mass gives support.
+ For a fixed initial input and rank, `Trace.run_trace_injective` shows that a
+ supported trace determines the complete outcome, including its source work;
+ `Trace.traceLaw_atom` then gives the equal mass in the actual trace projection.
+@@ -390,8 +390,8 @@
+ | `[1,1,2] : List Nat`, `k=2` | `[(3,0),(1,0)]` | `2`, `4`, `23` | `1/3` each | `EWorst.mixed_duplicate_endpoint_boundary` |
+ 
+ The last row is a boundary case: it satisfies the structural endpoint predicate
+-but has duplicates, so neither `W=6` nor mass `1/6` follows. All-equal length
+-three stops in its equal block and has no singleton-ending endpoint trace.
++but has duplicates, so neither `W=6` nor mass `1/6` follows. The `[4,4,4]`
++rank-1 case stops in its equal block and has no singleton-ending endpoint trace.
+ Empty inputs and invalid ranks also have no such structural trace, while their
+ actual total execution laws remain defined. The singleton valid case has one
+ trace entry and mass 1. These cases delimit the universal theorem's assumptions;
+@@ -715,7 +715,7 @@
+ | **C03-062** — Actual trace scan-volume observation | `RandomRun.Trace`, `RandomRun.scanVolume`, `RandomRun.prepend`, `RandomRun.run_cons`, `Tail.scanVolume_eq_sum_activeSize` | `ERandomRun.same_value_different_scan`, `ETail.finite_trace_decomposition`, `ETail.actual_pair_trace_observations` | Each active positive length is observed; only the reached child is added, with absorbed zero after termination. |
+ | **C03-063** — Every path has triangular scan upper bound | `RandomRun.run_scanVolume_le`, `RandomRun.run_active_calls_le` | `ERandomRun.maximum_scan_on_pair`, `ERandomRun.bounded_actual_pair_calls` | Uniform bound n(n+1)/2 holds with duplicates and all ranks; it is separate from attainment. |
+ | **C03-064** — Universal bad-endpoint path and exact factorial mass | `Endpoint.EndpointPivot`, `Endpoint.exists_endpoint_child`, `Trace.run_child_atom`, `Trace.run_trace_injective`, `Trace.traceLaw_atom`, `Worst.EndpointTrace`, `Worst.endpointTrace_target`, `Worst.endpointTrace_valid`, `Worst.exists_endpoint_worst` | `EEndpoint.arbitrary_distinct_target`, `EWorst.singleton_endpoint`, `EWorst.middle_endpoint_trace`, `EWorst.middle_endpoint_probability`, `EWorst.signed_endpoint_trace`, `EWorst.signed_endpoint_probability`, `EWorst.unsorted_endpoint_ranks`, `EWorst.distinct_scan_maximum` | Every arbitrary Nodup input and every valid rank: actual minimum-while-positive/maximum-at-zero path retains the target until singleton, has n entries, full-outcome and projected-trace mass 1/n!, and W=n(n+1)/2. The structural predicate assumes neither probability nor cost. Supported full-outcome mass is proved before trace projection; maximum W follows by comparison with every supported execution. The unbounded concrete-carrier source family is mapped in C03-075. No exact maximum T is claimed. |
+-| **C03-065** — Correct worst-case quantifiers and all-equal stopping | `RandomEqual.run_all_equal`, `RandomEqual.run_all_equal_summary`, `RandomEqual.run_all_equal_absorbed`, `RandomEqual.run_replicate_scan_lt_quadratic`, `Minimum.run_zero_rank`, `Worst.EndpointTrace`, `Worst.exists_endpoint_worst` | `ERandomEqual.pair_both_valid_ranks`, `ERandomEqual.general_equal_execution`, `ERandomEqual.equal_family_below_quadratic`, `EMinimum.minimum_is_not_four_calls`, `EMinimum.duplicates_are_not_four_calls`, `EWorst.equal_block_endpoint_boundary`, `EWorst.mixed_duplicate_endpoint_boundary` | The focused-passed all-equal pair E gives every valid outcome one active invocation, W=n and actual cost between 3n+6 and 4n+5; its earlier failures and four example proof-body corrections remain recorded. The paid minimum-rank-zero counterexample also remains. Mixed [1,1,2] at rank2 has a structural endpoint trace but W=4 and mass1/3, so Nodup is essential for the distinct family. Neither family claims all-input quadratic cost. |
++| **C03-065** — Correct worst-case quantifiers and all-equal stopping | `RandomEqual.run_all_equal`, `RandomEqual.run_all_equal_summary`, `RandomEqual.run_all_equal_absorbed`, `RandomEqual.run_replicate_scan_lt_quadratic`, `Minimum.run_zero_rank`, `Worst.EndpointTrace`, `Worst.exists_endpoint_worst` | `ERandomEqual.pair_both_valid_ranks`, `ERandomEqual.general_equal_execution`, `ERandomEqual.equal_family_below_quadratic`, `EMinimum.minimum_is_not_four_calls`, `EMinimum.duplicates_are_not_four_calls`, `EWorst.equal_block_endpoint_boundary`, `EWorst.mixed_duplicate_endpoint_boundary` | The focused-passed all-equal pair E gives every valid outcome one active invocation, W=n and actual cost between 3n+6 and 4n+5; its earlier failures and four example proof-body corrections remain recorded. The paid minimum-rank-zero counterexample also remains. Mixed [1,1,2] at rank 2 has a structural endpoint trace but W=4 and mass 1/3, so Nodup is essential for the distinct family. Neither family claims all-input quadratic cost. |
+ | **C03-066** — Stable occurrence-rank coupling and actual child dominance | `Drift.occurrenceRank_uniform`, `Drift.occurrenceRank_tie`, `Drift.strict_side_rank_bounds`, `Drift.nextSize_le_rankSide` | `EDrift.stable_duplicate_positions`, `EDrift.refined_duplicate_uniform`, `EDrift.duplicate_next_choices` | No global Nodup assumption. A stable rank distinguishes tied occurrences and the actual selected strict side is bounded by max(r,m−1−r). |
+ | **C03-067** — Exact three-quarter conditional drift | `Drift.rankSideSum_add_two`, `Drift.rankSideSum_bound`, `Drift.rankSideSum_mean_le`, `Drift.nextSize_drift` | `EDrift.rank_side_small_values`, `EDrift.singleton_next_size`, `EDrift.duplicate_next_expectation`, `EDrift.duplicate_drift_bound` | Finite rank sum and actual next-size expectation; singleton/parity are retained, without asserting independence between later sizes. |
+ | **C03-068** — Uniform expected scan work | `RandomMean.scanExpectation_cons`, `Drift.scanExpectation_linear_bounds`, `Drift.scanMean_linear_bounds` | `EDrift.arbitrary_expected_bounds`, `EDrift.valid_selection_expected_bounds`, `ERandomMean.actual_mean_bridge` | n≤E W≤4n for fixed input/rank; real and nonnegative-integral forms are connected and finite. Constants are independent of an input distribution. |

@@ -1,0 +1,18 @@
+{
+  "observed_utc": "2026-11-04T05:50:22.526548+00:00",
+  "candidate": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+  "failed_source": "Examples/IndefiniteService.lean",
+  "source_sha256": "1008cf9f317f4caebfea22d557ffd59949b5251e5d7f1f095c672d971896d1b8",
+  "source_identical_to_fixed_base": true,
+  "mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "mathlib_lemma_source": "Mathlib/Data/Nat/Size.lean",
+  "mathlib_lemma_source_sha256": "ab4306e1e29d9b254dd41af7e206591130414598403577921c7877e9919c249b",
+  "lemma_statement": "theorem size_pow {n : Nat} : size (2 ^ n) = n + 1",
+  "observed_direct_imports": [
+    "Applications.FRP.IndefiniteIO"
+  ],
+  "scoped_size_artifact_present_before_correction": false,
+  "diagnosis": "The available pinned Mathlib theorem is not imported by this example. Failure is unknown identifier, not a missing imported artifact diagnostic. Proposed explicit import Mathlib.Data.Nat.Size; no theorem/proof text change. Needs targeted acquisition, actual compilation and new full formal gates.",
+  "correction_applied": false,
+  "correction_validated": false
+}

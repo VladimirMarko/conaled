@@ -1,0 +1,297 @@
+{
+  "recorded_utc": "2026-11-04T06:55:28.188619+00:00",
+  "role": "Root implementation source/type assessment, not an independent Standards or Spec axis.",
+  "central_candidate": "3fa2b59d6dcab007627af98a2f05c3a016a4c4c4",
+  "minimal_source_candidate": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+  "source_scope": "Complete original three Lean files including private proofs, all three correction diffs and complete corrected examples. Original frozen requirements, candidate record, source note and root/map delta retained and read.",
+  "type_scope": "All37 complete explicit, universe-visible type blocks. The initially truncated overlap_mass_ne_product block was reread in full separately; no block remains unread. Ordered headings match the exact inspection inventory once each.",
+  "counts": [
+    7,
+    16,
+    14
+  ],
+  "findings": [],
+  "declarations": [
+    {
+      "name": "Applications.Probability.PermutationMinimum.minimumEvent",
+      "assessment": "Arbitrary independent index/priority universes, LE only; event retains member a and every comparison under the same sampled permutation.",
+      "finding": null
+    },
+    {
+      "name": "Applications.Probability.PermutationMinimum.mem_minimumEvent",
+      "assessment": "Exact membership iff; no measurability, finiteness, order-law or default-index premise.",
+      "finding": null
+    },
+    {
+      "name": "Applications.Probability.PermutationMinimum.minimumEvent_empty",
+      "assessment": "Empty subset event is empty for any LE priority operation.",
+      "finding": null
+    },
+    {
+      "name": "Applications.Probability.PermutationMinimum.minimumEvent_of_not_mem",
+      "assessment": "Outside-member premise makes the event empty; no comparison-only substitution.",
+      "finding": null
+    },
+    {
+      "name": "Applications.Probability.PermutationMinimum.minimumEvent_singleton",
+      "assessment": "Preorder reflexivity makes the sole singleton member a minimum on every sample.",
+      "finding": null
+    },
+    {
+      "name": "Applications.Probability.PermutationMinimum.minimumEvent_inter",
+      "assessment": "Intersection of the same member minimum in two subsets equals its minimum on their union; both membership hypotheses and DecidableEq for union remain.",
+      "finding": null
+    },
+    {
+      "name": "Applications.Probability.PermutationMinimum.uniformOn_minimumEvent",
+      "assessment": "Finite I and independently universe-polymorphic LinearOrder P; explicit permutation measurability/singletons, injective priority and a in S yield ENNReal inverse cardinality. No order/measurable structure on I, finite target, Nonempty I or public Fintype premise.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimum.law",
+      "assessment": "One uniform measure on permutations of Fin3 with the local example measurable structure.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimum.firstSubset",
+      "assessment": "Concrete fixed first subset {0,1}.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimum.secondSubset",
+      "assessment": "Concrete fixed second subset {1,2}.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimum.first_minimum_mass",
+      "assessment": "Actual same-law minimum event for shared member1 has mass1/2 in first subset.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimum.second_minimum_mass",
+      "assessment": "Actual same-law minimum event for member1 has mass1/2 in second subset.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimum.overlap_event",
+      "assessment": "Actual intersection under the same permutation equals the full-universe minimum event.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimum.full_minimum_mass",
+      "assessment": "Every Fin3 candidate has full-universe minimum mass1/3.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimum.overlap_mass",
+      "assessment": "Overlap has mass1/3 through the exact event-union bridge and public minimum law.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimum.marginal_product",
+      "assessment": "Product of the two actual marginal masses is1/4; valid ENNReal multiplication side conditions are proved.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimum.overlap_mass_ne_product",
+      "assessment": "Actual intersection mass differs from the actual product; no independence assumption or conclusion is introduced.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimum.singleton_minimum_mass",
+      "assessment": "Every singleton has minimum mass1 through the public minimum theorem, retained by restricted normalization.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimum.spacedPriority",
+      "assessment": "Concrete Fin3-to-Int priority function, with infinite target allowed.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimum.spacedPriority_values",
+      "assessment": "Exact priority values -7,100,4 remain unchanged.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimum.spacedPriority_injective",
+      "assessment": "Actual concrete priority function is injective; kernel-checked decide supplies the finite proof.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimum.spacedPriority_not_monotone",
+      "assessment": "That priority function is not monotone in ordinary Fin3 index order.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimum.spaced_minimum_mass",
+      "assessment": "Its actual second-subset member2 minimum still has mass1/2; injectivity and target order suffice.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimumBoundary.empty_index_normalized",
+      "assessment": "Uniform measure of the empty-index permutation universe is1 because the identity sample exists.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimumBoundary.empty_subset_event",
+      "assessment": "Concrete empty-subset minimum event is empty.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimumBoundary.empty_subset_mass",
+      "assessment": "That event has mass0 through its exact empty-event identity.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimumBoundary.outsider_event_empty",
+      "assessment": "Candidate0 is outside singleton{1}, so its member-minimum event is empty.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimumBoundary.outsider_mass",
+      "assessment": "The outsider event has mass0; no reciprocal singleton law is asserted.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimumBoundary.outsiderComparison",
+      "assessment": "Raw comparison event pi0<=pi1 is defined separately from member minimum.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimumBoundary.outsiderComparison_eq_full_minimum",
+      "assessment": "Raw outsider comparison equals the full two-index minimum event, retaining pointwise meaning.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimumBoundary.outsiderComparison_mass",
+      "assessment": "Its actual mass is2 inverse through the public full-subset theorem.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimumBoundary.outsiderComparison_ne_singleton_inverse",
+      "assessment": "That mass differs from the singleton reciprocal1; the missing-member boundary is consequential.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimumBoundary.tiedPriority",
+      "assessment": "Both indices receive constant Nat priority0.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimumBoundary.tiedPriority_not_injective",
+      "assessment": "The tied priority assignment is not injective.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimumBoundary.tied_event_univ",
+      "assessment": "Every candidate is a non-strict minimum on every sample under tied priorities.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimumBoundary.tied_mass",
+      "assessment": "Both tied-member events have actual mass1.",
+      "finding": null
+    },
+    {
+      "name": "Examples.PermutationMinimumBoundary.tied_mass_ne_half",
+      "assessment": "The tied mass differs from2 inverse, exposing necessity of injectivity.",
+      "finding": null
+    }
+  ],
+  "terminal": {
+    "candidate": "3fa2b59d6dcab007627af98a2f05c3a016a4c4c4",
+    "command": [
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+      "--state",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+      "run",
+      "--project",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+      "--threads",
+      "1",
+      "--",
+      "lake",
+      "env",
+      "lean",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-xu01-statement-source-20261104/Statements.lean"
+    ],
+    "started_utc": "2026-11-04T06:50:55.620667+00:00",
+    "completed_utc": "2026-11-04T06:53:42.444807+00:00",
+    "exit_code": 0,
+    "elapsed_seconds": 166.82391082899994,
+    "state": "passed",
+    "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-xu01-types-20261104/full.log",
+    "progress_bookkeeping_errors": [],
+    "final_head": "3fa2b59d6dcab007627af98a2f05c3a016a4c4c4",
+    "final_status": "",
+    "log_size_bytes": 46850,
+    "log_sha256": "79a9faa38a7647046be84cdd475416793e56bb2fef1f802cad1d3306413be94b",
+    "available_bytes_at_completion": 19460345856,
+    "verification_record_present": false
+  },
+  "sections": [
+    {
+      "module": "Applications.Probability.PermutationMinimum",
+      "names": [
+        "Applications.Probability.PermutationMinimum.minimumEvent",
+        "Applications.Probability.PermutationMinimum.mem_minimumEvent",
+        "Applications.Probability.PermutationMinimum.minimumEvent_empty",
+        "Applications.Probability.PermutationMinimum.minimumEvent_of_not_mem",
+        "Applications.Probability.PermutationMinimum.minimumEvent_singleton",
+        "Applications.Probability.PermutationMinimum.minimumEvent_inter",
+        "Applications.Probability.PermutationMinimum.uniformOn_minimumEvent"
+      ],
+      "bytes": 6008,
+      "sha256": "5573bdf42ab81c0adc23cb17d26d69fed45061e6c193771595c5d23385a081e2",
+      "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-xu01-types-20261104/1-Applications-Probability-PermutationMinimum-types.txt"
+    },
+    {
+      "module": "Examples.PermutationMinimum",
+      "names": [
+        "Examples.PermutationMinimum.law",
+        "Examples.PermutationMinimum.firstSubset",
+        "Examples.PermutationMinimum.secondSubset",
+        "Examples.PermutationMinimum.first_minimum_mass",
+        "Examples.PermutationMinimum.second_minimum_mass",
+        "Examples.PermutationMinimum.overlap_event",
+        "Examples.PermutationMinimum.full_minimum_mass",
+        "Examples.PermutationMinimum.overlap_mass",
+        "Examples.PermutationMinimum.marginal_product",
+        "Examples.PermutationMinimum.overlap_mass_ne_product",
+        "Examples.PermutationMinimum.singleton_minimum_mass",
+        "Examples.PermutationMinimum.spacedPriority",
+        "Examples.PermutationMinimum.spacedPriority_values",
+        "Examples.PermutationMinimum.spacedPriority_injective",
+        "Examples.PermutationMinimum.spacedPriority_not_monotone",
+        "Examples.PermutationMinimum.spaced_minimum_mass"
+      ],
+      "bytes": 24174,
+      "sha256": "d94e81919afbc94cce3757748884761856ce83b8d01ef66e1e6782771b3ac9fb",
+      "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-xu01-types-20261104/2-Examples-PermutationMinimum-types.txt"
+    },
+    {
+      "module": "Examples.PermutationMinimumBoundary",
+      "names": [
+        "Examples.PermutationMinimumBoundary.empty_index_normalized",
+        "Examples.PermutationMinimumBoundary.empty_subset_event",
+        "Examples.PermutationMinimumBoundary.empty_subset_mass",
+        "Examples.PermutationMinimumBoundary.outsider_event_empty",
+        "Examples.PermutationMinimumBoundary.outsider_mass",
+        "Examples.PermutationMinimumBoundary.outsiderComparison",
+        "Examples.PermutationMinimumBoundary.outsiderComparison_eq_full_minimum",
+        "Examples.PermutationMinimumBoundary.outsiderComparison_mass",
+        "Examples.PermutationMinimumBoundary.outsiderComparison_ne_singleton_inverse",
+        "Examples.PermutationMinimumBoundary.tiedPriority",
+        "Examples.PermutationMinimumBoundary.tiedPriority_not_injective",
+        "Examples.PermutationMinimumBoundary.tied_event_univ",
+        "Examples.PermutationMinimumBoundary.tied_mass",
+        "Examples.PermutationMinimumBoundary.tied_mass_ne_half"
+      ],
+      "bytes": 16318,
+      "sha256": "0fd48948decb6cb9abe43e2cf02457f60d47469b3175209266d5621282125162",
+      "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-xu01-types-20261104/3-Examples-PermutationMinimumBoundary-types.txt"
+    }
+  ],
+  "limitations": "Focused modules and statement assessment only. Full integrated check/audit, both independent full-scope reviews, immediate verification and acceptance remain. Historical source-draft prose must be reconciled accurately in the final integration candidate."
+}

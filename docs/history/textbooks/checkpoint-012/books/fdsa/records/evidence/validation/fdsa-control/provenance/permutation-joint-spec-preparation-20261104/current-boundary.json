@@ -1,0 +1,146 @@
+{
+  "unit": "FDSA-XU05",
+  "reviewer": "/root/chapter02_spec",
+  "recorded_utc": "2026-11-04T13:01:18.733600+00:00",
+  "candidate": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+  "fixed_base": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+  "overall": "Blocked",
+  "source_assessment_complete": true,
+  "new_concrete_mathematical_findings": [],
+  "actual_types_read": 0,
+  "compiler_or_audit_credit": 0,
+  "report": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/permutation-joint-spec-preparation-20261104.md",
+    "bytes": 22149,
+    "newline_lines": 120,
+    "sha256": "1be96c03ec7e0dc03fbb47263d119b515e92a7737dd44eb92a0c954279c66ac0"
+  },
+  "source_assessment": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-joint-spec-preparation-20261104/source-assessment.json",
+    "bytes": 144130,
+    "newline_lines": 3572,
+    "sha256": "37b4f05ac8835622c6e04f949713c9870344c732de782d814017cd7b3766d648"
+  },
+  "report_full_readback": {
+    "ranges": [
+      [
+        1,
+        120
+      ]
+    ],
+    "later_wording_revisions_reread_lines": [
+      73,
+      79,
+      85,
+      112
+    ],
+    "all_other_report_bytes_retained": true
+  },
+  "source_assessment_full_readback_ranges": [
+    [
+      1,
+      400
+    ],
+    [
+      401,
+      800
+    ],
+    [
+      801,
+      1200
+    ],
+    [
+      1201,
+      1600
+    ],
+    [
+      1601,
+      2000
+    ],
+    [
+      2001,
+      2400
+    ],
+    [
+      2401,
+      2800
+    ],
+    [
+      2801,
+      3200
+    ],
+    [
+      3201,
+      3572
+    ]
+  ],
+  "complete_scope": "Six immutable paths; eight complete controls; all nine local formal inputs assessed directly or by exact retained complete reads; pinned API and book/attributed AFP boundaries retained.",
+  "inventory": {
+    "all_authored_rows": 125,
+    "explicit_public": 94,
+    "new_public": 77,
+    "retained_old_core_public": 17,
+    "private_theorems": 13,
+    "anonymous_local_instances": 18,
+    "anonymous_examples": 0,
+    "where_headers": 5,
+    "header_hashes_verified": 125
+  },
+  "cross_axis_count_message": "Standards independently reported the same125/94/77 totals and five where boundaries; its report was not used as a substitute for this source assessment.",
+  "historical_documentary_status": "Public note185 is original Nov2 status; date/update at incorporation; acceptedR remains accepted; no new mathematical finding or Chapter1 gate.",
+  "read_output_qualification": "One broad API navigation grep was truncated and was not credited as an API source read. Subsequent bounded immutable source reads supply all API ranges recorded. All report and receipt readback chunks were complete.",
+  "protected_prior_records": [
+    {
+      "path": "reviews/shared-foundations-spec-continuation-20261104.md",
+      "sha256": "450409a89197f229e88e12ff477f7c3e6b60c067fde0eef297a431163a7249d6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/chapter02-spec-source-preparation-20261104.md",
+      "sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/potential-spec-development-20261104.md",
+      "sha256": "9bba3ac4ffa5a5dab1e8a32e3a990851f55846a16dd4a16a72605fd00e21a615",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/affine-recurrence-spec-preparation-20261104.md",
+      "sha256": "8ee3cac08c1cb0d4b4d8b29821b5de9b54e549530d081155130065c3bb8e8b32",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/accumulated-work-spec-preparation-20261104.md",
+      "sha256": "9934402d16c3ff5e5006b8ade3ab6995f50739185ed1e5d68a2d9b004ef3f1ba",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/permutation-expectation-spec-preparation-20261104.md",
+      "sha256": "0c8ed987cea562d8cd783926c3e6fedf3bf82f0e74f673e275bb67b1ebc64d15",
+      "unchanged": true
+    },
+    {
+      "path": "provenance/permutation-expectation-spec-preparation-20261104/source-assessment.json",
+      "sha256": "6d3a28e1f9bf153eafde6cd274bc065a2716730aa310b663ffa76a7c723991c0",
+      "unchanged": true
+    },
+    {
+      "path": "provenance/permutation-expectation-spec-preparation-20261104/current-boundary.json",
+      "sha256": "6c2cd8d74698d227420361111f2ad74bfde536f06848d5d82f9e7a005eaea3c6",
+      "unchanged": true
+    },
+    {
+      "path": "provenance/permutation-expectation-spec-preparation-20261104/header-metadata-correction.json",
+      "sha256": "e79b0c541164a5f18192632256c4ca174ceaf3c892dcc0e0b3d2c1df965ce0e1",
+      "unchanged": true
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/shared-four-statements314-preparation-assessment.json",
+      "sha256": "502ff5011b9657bccc4ce614e003e741c15401f92e257ae1c2b66de7d1f6ed1c",
+      "unchanged": true
+    }
+  ],
+  "next_required": "Qualified exact-successor compilation, complete actual type assessment, full applicable candidate check/audit and immutable terminal evidence, both final independent axes, immediate verification before any accepted local fast-forward.",
+  "holds": "Own XU05 report/provenance writes held unchanged at this completed handoff boundary. All prior reports remain held unchanged. Await parent continuation; actual Foundation terminal evidence has first priority."
+}

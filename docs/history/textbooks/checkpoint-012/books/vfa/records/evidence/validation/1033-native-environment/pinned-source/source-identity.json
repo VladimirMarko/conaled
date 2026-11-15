@@ -1,0 +1,16 @@
+{
+  "source_report": "../concurrency-and-mmap-assessment.md",
+  "preserved": [
+    {
+      "file": "lean-util-shell.cpp",
+      "sha256": "502eaa752396cdff5bb448833a63be54cbbcbb3d36881eb10e235c04c64c0832",
+      "upstream_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc"
+    },
+    {
+      "file": "lean-runtime-io.cpp",
+      "sha256": "c8ef5d102a706d2aae710eac1f2dc9a2b6a81e5245cf5ccb36500973b32aa77f",
+      "upstream_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc"
+    }
+  ],
+  "purpose": "Preserve the small pinned C++ source copies actually corroborated during the doc review; no source/runtime modification."
+}

@@ -1,0 +1,696 @@
+{
+  "schema": "fdsa.chapter02.spec.observation-method-reconciliation.v1",
+  "recorded_utc": "2026-11-04T17:25:07.314122+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "source_scope": "Original R/81 paths/112 obligations/ten scopes; all1763 public and private/generated scope retained.",
+  "status": "Preparation only; all independent mapping checks passed; no current observation, comparison execution or type credit.",
+  "package_files": [
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/ObservationOnly.lean",
+      "bytes": 3236,
+      "lines": 79,
+      "sha256": "d7c61fc87c597ff2d263e30c6848b0057ad59d43e104c99a15af7de074ef341d"
+    },
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/bound-inputs.json",
+      "bytes": 43114,
+      "lines": 873,
+      "sha256": "2120c53da63d2ae57361900937a14b26d115e4a26a0a6c3f560e307df635a6d8"
+    },
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/compare_receiving.py",
+      "bytes": 17282,
+      "lines": 274,
+      "sha256": "ca405b33d8b3e938f2e3a7c6abae7c6b06f754bb12d91d93751833e326e004f9"
+    },
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/plan.md",
+      "bytes": 17411,
+      "lines": 114,
+      "sha256": "3fb3621551d7a6a2f184477da2134ef1af6de0a7ed70a1e56bfffd4a73d5a6c2"
+    },
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/schedule.json",
+      "bytes": 409593,
+      "lines": 1,
+      "sha256": "6216efb85427a6401e1263f34294141c82f2fe88c74dc2dd18eb464207d06c62"
+    },
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/receipt.json",
+      "bytes": 3947,
+      "lines": 105,
+      "sha256": "d5e018458c1ebb888d794383316ec7e22ac00ca8b2b027fcc1675e87a76936c1"
+    }
+  ],
+  "all144_bound_inputs_exact": true,
+  "carrier": {
+    "exact71roots": true,
+    "exact97source_catalog": true,
+    "external_names": 86,
+    "sentinel": "Resources.isBigO_of_nat_bound",
+    "executed": false,
+    "type_credit": 0
+  },
+  "profiles": {
+    "F145": {
+      "program": {
+        "path": "provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+        "bytes": 7518,
+        "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4",
+        "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+      },
+      "counts": {
+        "check": 145,
+        "explicit_at_check": 145,
+        "print": 0
+      },
+      "options": [
+        [
+          8,
+          "pp.universes",
+          "true"
+        ],
+        [
+          9,
+          "pp.explicit",
+          "true"
+        ],
+        [
+          10,
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "all_original_command_rows_exact": true,
+      "name_order_sha256": "c215b8c417bfb1fddfb600b9f97ae8cd267d1df552ed489dea3bd5a655975ce1",
+      "actual_producer_candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761"
+    },
+    "I314": {
+      "program": {
+        "path": "provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+        "bytes": 16826,
+        "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754",
+        "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+      },
+      "counts": {
+        "check": 314,
+        "explicit_at_check": 314,
+        "print": 0
+      },
+      "options": [
+        [
+          21,
+          "pp.universes",
+          "true"
+        ],
+        [
+          22,
+          "pp.explicit",
+          "true"
+        ],
+        [
+          23,
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "all_original_command_rows_exact": true,
+      "name_order_sha256": "6cd991c340d9a2f7896966475a11bfeb110ee844bd146aa79957c78ac258a963",
+      "actual_producer_candidate": "312aafb4446b995ff5542041b4e2e074f776db1e"
+    },
+    "J53": {
+      "program": {
+        "path": "provenance/chapter02-xu02-statement-source-20261104/Statements.lean",
+        "bytes": 3522,
+        "sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3",
+        "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+      },
+      "counts": {
+        "check": 53,
+        "explicit_at_check": 53,
+        "print": 0
+      },
+      "options": [
+        [
+          5,
+          "pp.universes",
+          "true"
+        ],
+        [
+          6,
+          "pp.explicit",
+          "true"
+        ],
+        [
+          7,
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "all_original_command_rows_exact": true,
+      "name_order_sha256": "d57faa976c5df28d363e8bfdf021af7aa26e002f2d6d465369411f94dda6e3cb",
+      "actual_producer_candidate": "932438a765340d69fa6402f6abd17def6ec28d13"
+    },
+    "Tail61": {
+      "program": {
+        "path": "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+        "bytes": 4105,
+        "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa",
+        "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+      },
+      "counts": {
+        "check": 61,
+        "explicit_at_check": 61,
+        "print": 0
+      },
+      "options": [
+        [
+          11,
+          "pp.universes",
+          "true"
+        ],
+        [
+          12,
+          "pp.explicit",
+          "true"
+        ],
+        [
+          13,
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "all_original_command_rows_exact": true,
+      "name_order_sha256": "6fbabbc26794a748e9da123a8af800f96da2652d7ca2ee9e007fb4d78cfc49f2",
+      "actual_producer_candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7"
+    },
+    "Z815": {
+      "program": {
+        "path": "provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/Statements.lean",
+        "bytes": 46371,
+        "sha256": "d4d37d6ea2b48fc5c743b1db36fe904ca8623be6c03c05ea5addc99b307687bd",
+        "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+      },
+      "counts": {
+        "check": 815,
+        "explicit_at_check": 815,
+        "print": 0
+      },
+      "options": [
+        [
+          38,
+          "pp.universes",
+          "true"
+        ],
+        [
+          39,
+          "pp.explicit",
+          "true"
+        ],
+        [
+          40,
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "all_original_command_rows_exact": true,
+      "name_order_sha256": "1309620a9c17c6cfcedc2c697fb9186567bc9cc510adc02b39d0be18cad7c035",
+      "actual_producer_candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71"
+    },
+    "chapter02-measured-sorting-types-20261104": {
+      "program": {
+        "path": "provenance/chapter02-measured-sorting-statement-source-20261104/Statements.lean",
+        "bytes": 9342,
+        "sha256": "904bd664fb385ef63fc1d6f2b8fd9fd2e3af2cadcbf6eb7f610a1e71ccbef20a",
+        "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+      },
+      "counts": {
+        "check": 174,
+        "explicit_at_check": 174,
+        "print": 0
+      },
+      "options": [
+        [
+          7,
+          "pp.universes",
+          "true"
+        ],
+        [
+          8,
+          "pp.explicit",
+          "true"
+        ]
+      ],
+      "all_original_command_rows_exact": true,
+      "name_order_sha256": "415c0512947897866dbdca04b3ce6a93ebd2ebfebec48e9c441ddaf745281cc5",
+      "actual_producer_candidate": "1ffb61fceaf7c893e25a35339f6e1fce8531021d"
+    },
+    "chapter02-xu01-types-20261104": {
+      "program": {
+        "path": "provenance/chapter02-xu01-statement-source-20261104/Statements.lean",
+        "bytes": 2495,
+        "sha256": "3755aaeb473b3310749ecc2863f034fc4a7616bb97d16719500c551d831aa367",
+        "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+      },
+      "counts": {
+        "check": 37,
+        "explicit_at_check": 37,
+        "print": 0
+      },
+      "options": [
+        [
+          5,
+          "pp.universes",
+          "true"
+        ],
+        [
+          6,
+          "pp.explicit",
+          "true"
+        ],
+        [
+          7,
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "all_original_command_rows_exact": true,
+      "name_order_sha256": "dd3d4a52ba3668654b5e26f26af216f9a04e9d39bd92d61e88b670c2c8c727fe",
+      "actual_producer_candidate": "3fa2b59d6dcab007627af98a2f05c3a016a4c4c4"
+    },
+    "chapter02-bottom-up-costs-types-20261104": {
+      "program": {
+        "path": "provenance/chapter02-bottom-up-costs-statement-source-20261104/Statements.lean",
+        "bytes": 5757,
+        "sha256": "f9486a8f64d9786814f2ffc67dfb158ab13bf1d392585c27ca83b35cadd34c2e",
+        "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+      },
+      "counts": {
+        "check": 105,
+        "explicit_at_check": 105,
+        "print": 0
+      },
+      "options": [
+        [
+          4,
+          "pp.universes",
+          "true"
+        ],
+        [
+          5,
+          "pp.explicit",
+          "true"
+        ]
+      ],
+      "all_original_command_rows_exact": true,
+      "name_order_sha256": "14423418775b7b65a58a83d0e8a5962781a477815a4c053b21e643c56c5f78bb",
+      "actual_producer_candidate": "6d91b822d0f3cf1aeeda333a9e1d47ebb26e709b"
+    },
+    "chapter02-natural-sorting-types-20261104": {
+      "program": {
+        "path": "provenance/chapter02-natural-sorting-statement-source-20261104/Statements.lean",
+        "bytes": 5922,
+        "sha256": "59d413591ef58c6569fcf39575669aaafcb21d4cf7783f05a88935de0a97b9ac",
+        "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+      },
+      "counts": {
+        "check": 105,
+        "explicit_at_check": 105,
+        "print": 0
+      },
+      "options": [
+        [
+          6,
+          "pp.universes",
+          "true"
+        ],
+        [
+          7,
+          "pp.explicit",
+          "true"
+        ],
+        [
+          8,
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "all_original_command_rows_exact": true,
+      "name_order_sha256": "4a4b89541466c8f2817668c928e145362a682648002c5dbce24de7dcc4196333",
+      "actual_producer_candidate": "0ec9954479b081664bd4504c90fb66fba5fd22c8"
+    },
+    "chapter02-three-way-partition-types-20261104": {
+      "program": {
+        "path": "provenance/chapter02-three-way-partition-statement-source-20261104/Statements.lean",
+        "bytes": 4571,
+        "sha256": "48019e7cc7c38382139b939a521527773e59b39f5b4b8ffff210d199babb7dbf",
+        "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+      },
+      "counts": {
+        "check": 84,
+        "explicit_at_check": 84,
+        "print": 0
+      },
+      "options": [
+        [
+          8,
+          "pp.universes",
+          "true"
+        ],
+        [
+          9,
+          "pp.explicit",
+          "true"
+        ]
+      ],
+      "all_original_command_rows_exact": true,
+      "name_order_sha256": "d7ba4cfcf8e604773ff974e817eda28dbdfc998df641945231106087f8535960",
+      "actual_producer_candidate": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9"
+    },
+    "chapter02-xd01-random-types-20261104": {
+      "program": {
+        "path": "provenance/chapter02-xd01-random-statement-source-20261104/Statements.lean",
+        "bytes": 7417,
+        "sha256": "5f6eb99c622137c19ff2f5fc35389e7d9a2000cf06e4f3d7a2a25a803a76584b",
+        "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+      },
+      "counts": {
+        "check": 134,
+        "explicit_at_check": 134,
+        "print": 0
+      },
+      "options": [
+        [
+          6,
+          "pp.universes",
+          "true"
+        ],
+        [
+          7,
+          "pp.explicit",
+          "true"
+        ],
+        [
+          8,
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "all_original_command_rows_exact": true,
+      "name_order_sha256": "d0830c58bbb0548cfe7772552f8b452fb0a39ba68013a00c574b5b828b203f01",
+      "actual_producer_candidate": "dfaf68114d1dda4e15628c94c3d988c3f5457c49"
+    },
+    "chapter02-bottom-up-alternating-types-20261104": {
+      "program": {
+        "path": "provenance/chapter02-bottom-up-alternating-statement-source-20261104/Statements.lean",
+        "bytes": 6776,
+        "sha256": "9ef7e05799ff059a262fc1cab1ffaae1ed269b1076931c44a6913bd6e2dda471",
+        "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+      },
+      "counts": {
+        "check": 126,
+        "explicit_at_check": 0,
+        "print": 0
+      },
+      "options": [
+        [
+          4,
+          "autoImplicit",
+          "false"
+        ],
+        [
+          5,
+          "warningAsError",
+          "true"
+        ],
+        [
+          6,
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "all_original_command_rows_exact": true,
+      "name_order_sha256": "d4d08e38ac7d5563b52dec48e10b455e5c287cae6be438141c2201c046f23fe4",
+      "actual_producer_candidate": "98696d86162bd93c1cba46719eeb65bf6cabe65a"
+    },
+    "chapter02-top-down-costs-types-20261104": {
+      "program": {
+        "path": "provenance/chapter02-top-down-costs-proof-corrections-20261104/TypeInspection.lean",
+        "bytes": 1663,
+        "sha256": "3f235ac70f6fa1b2234a5899f5ba25f7de7e9caee35c0b8f90b8de98e96ab5c8",
+        "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+      },
+      "counts": {
+        "check": 32,
+        "explicit_at_check": 0,
+        "print": 0
+      },
+      "options": [
+        [
+          3,
+          "autoImplicit",
+          "false"
+        ],
+        [
+          4,
+          "warningAsError",
+          "true"
+        ],
+        [
+          5,
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "all_original_command_rows_exact": true,
+      "name_order_sha256": "3d9df5b853284d2e71869f974427f6453498671114ec3cfe3efab2a40f8f2784",
+      "actual_producer_candidate": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0"
+    },
+    "chapter02-uniqueness-types-20261104": {
+      "program": {
+        "path": "provenance/chapter02-uniqueness-statement-source-20261104/Statements.lean",
+        "bytes": 614,
+        "sha256": "5d5cb3cfd591633c6e0ef635094917f19f60f2db1e226df3782ba963f01fd5bf",
+        "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+      },
+      "counts": {
+        "check": 9,
+        "explicit_at_check": 9,
+        "print": 0
+      },
+      "options": [
+        [
+          4,
+          "pp.universes",
+          "true"
+        ],
+        [
+          5,
+          "pp.explicit",
+          "true"
+        ],
+        [
+          6,
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "all_original_command_rows_exact": true,
+      "name_order_sha256": "22981ec0d3b0e479701c5d9ca0fb50b8e3f20e34c5109f963a38dd8f3e1c012e",
+      "actual_producer_candidate": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94"
+    },
+    "chapter02-natural-runs-statements-20261104": {
+      "program": {
+        "path": "provenance/chapter02-natural-runs-statements-20261104/statements.lean",
+        "bytes": 5054,
+        "sha256": "d56c25d992aa23e63c9bfa51cf4561f8ae2e6c1f186dda1493d0741673b372e4",
+        "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+      },
+      "counts": {
+        "check": 104,
+        "explicit_at_check": 0,
+        "print": 3
+      },
+      "options": [
+        [
+          3,
+          "autoImplicit",
+          "false"
+        ],
+        [
+          4,
+          "warningAsError",
+          "true"
+        ]
+      ],
+      "all_original_command_rows_exact": true,
+      "name_order_sha256": "07adfe40934304aacedf99012d8c4d78a3db38e19249002bf9f8d79a5ad74cc6",
+      "actual_producer_candidate": "ff9749d1ccbcb0949486f67d6273e28c262280e0"
+    },
+    "chapter02-quicksort-statements-20261104": {
+      "program": {
+        "path": "provenance/chapter02-quicksort-statements-20261104/statements.lean",
+        "bytes": 799,
+        "sha256": "648822ba3ec1cebdf007f4dff758647b628d81a755f261804c2cd696ebe5f78b",
+        "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+      },
+      "counts": {
+        "check": 14,
+        "explicit_at_check": 14,
+        "print": 0
+      },
+      "options": [
+        [
+          4,
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "all_original_command_rows_exact": true,
+      "name_order_sha256": "d784b301a8dbd538d5efaa5d9c6a1fbed2e19faa1eb377199164bb1f88bd6ff0",
+      "actual_producer_candidate": "840252e63026bba5eab109f2b16468deef7670ec"
+    },
+    "ordinary-merge-type-inspection-20261104": {
+      "program": {
+        "path": "provenance/ordinary-merge-focused-20261104-proof-corrections/TypeInspection.lean",
+        "bytes": 859,
+        "sha256": "72709d2b0430fa10684f3ca088a5d0041568ccfe3182653ce6aec731d49b1215",
+        "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+      },
+      "counts": {
+        "check": 17,
+        "explicit_at_check": 17,
+        "print": 0
+      },
+      "options": [
+        [
+          2,
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "all_original_command_rows_exact": true,
+      "name_order_sha256": "15376af392523b5792b26f990732b8439096686b73b4fd5a467481f83499aac5",
+      "actual_producer_candidate": "72a0951aee406f7db67998d2a3bf8810f4e1bccc"
+    }
+  },
+  "actual_producer_pairs": {
+    "F145": {
+      "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "program_sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4",
+      "local_sources": 29,
+      "object_rows": 87,
+      "configs": 10,
+      "dependency_records": 9,
+      "runtime_components": 12,
+      "paired_identity_exact": true,
+      "original_outer_terminal_exact": true
+    },
+    "I314": {
+      "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+      "program_sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754",
+      "local_sources": 27,
+      "object_rows": 81,
+      "configs": 10,
+      "dependency_records": 9,
+      "runtime_components": 12,
+      "paired_identity_exact": true,
+      "original_outer_terminal_exact": true
+    },
+    "J53": {
+      "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+      "program_sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3",
+      "local_sources": 6,
+      "object_rows": 18,
+      "configs": 10,
+      "dependency_records": 9,
+      "runtime_components": 12,
+      "paired_identity_exact": true,
+      "original_outer_terminal_exact": true
+    },
+    "Tail61": {
+      "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+      "program_sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa",
+      "local_sources": 9,
+      "object_rows": 27,
+      "configs": 10,
+      "dependency_records": 9,
+      "runtime_components": 12,
+      "paired_identity_exact": true,
+      "original_outer_terminal_exact": true
+    },
+    "Z815": {
+      "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "program_sha256": "d4d37d6ea2b48fc5c743b1db36fe904ca8623be6c03c05ea5addc99b307687bd",
+      "local_sources": 84,
+      "object_rows": 252,
+      "configs": 10,
+      "dependency_records": 9,
+      "runtime_components": 12,
+      "paired_identity_exact": true,
+      "original_outer_terminal_exact": true
+    }
+  },
+  "older_counts": {
+    "checks": 941,
+    "commands": 944,
+    "explicit_at": 679,
+    "expanded_profile": 648,
+    "other_profile": 293,
+    "additional_prints": [
+      "Applications.Sorting.DListLaw",
+      "Applications.Sorting.dListOfLaw",
+      "Applications.Sorting.ascSourceBy"
+    ],
+    "all_original_commands_options_names_and_positions_verified": true
+  },
+  "name_unions": {
+    "recent": 1009,
+    "older": 941,
+    "recent_union_older": 1762,
+    "sole_remaining_accepted_name": "Resources.isBigO_of_nat_bound"
+  },
+  "input_anchors": {
+    "Z_complete_root_count": 58,
+    "historical920_with_anchor": 723,
+    "historical920_without_anchor": 197,
+    "no_printed_name_or_old_snapshot_credit": true
+  },
+  "concrete_gaps": {
+    "outside_recent_sources": [
+      "Applications/Resources/ListBuildCosts.lean",
+      "Applications/Sorting/Alternating.lean",
+      "Applications/Sorting/ThreeWayQuickSort.lean",
+      "Applications/Sorting/Uniqueness.lean",
+      "Examples/AlternatingSorting.lean",
+      "Examples/ListBuildCosts.lean",
+      "Examples/QuickSortCosts.lean",
+      "Examples/SortUniqueness.lean",
+      "Examples/ThreeWayQuickSort.lean"
+    ],
+    "their_public_names": 149,
+    "additional_external_names": [
+      "Init.Data.List.Nat.Range",
+      "Mathlib.Data.List.Perm.Basic",
+      "Mathlib.Data.Multiset.Defs",
+      "Mathlib.Order.Defs.LinearOrder"
+    ],
+    "Growth_affected_roots": 10,
+    "Growth_affected_names": 388,
+    "all72_MergeCosts_in_Z_actual815": true
+  },
+  "helper_assessment": {
+    "complete274line_source_read": true,
+    "syntax_parse_only_by_this_reviewer": true,
+    "helper_executed_or_imported": false,
+    "receiver_outer_guard_is_not_full_gate_certification": true,
+    "union_source_and_supported_artifact_key_comparison": true,
+    "literal_dependency_paths_and_trace_values_retained": true,
+    "final_post_observation_identity_required": true,
+    "every_name_remains_credit_zero": true,
+    "ordinary_profile_requires_its_own_retained_semantic_assessment": true
+  },
+  "read_limitations": "Two exploratory schema displays0e59e7/c619d8 were truncated and do not supply complete semantic-read credit. Complete plan/helper/carrier/capture helper/receipt and all ten REUSE conditions were read separately without truncation; all17 original program inventories and all144 bound files were reconciled mechanically. Prior full mathematical/type reads remain retained by exact identity.",
+  "unresolved_method_findings": [],
+  "new_receiving_credit": 0
+}

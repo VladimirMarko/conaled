@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-11-14T03:20:50.556843+00:00",
+  "command": [
+    "env",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/scratch/e1eab3b6b18e/integration-20261113/intake/map-public-types-20261114.lean"
+  ],
+  "cwd": "/workspace/scratch/e1eab3b6b18e/integration-20261113/master",
+  "log": "/workspace/scratch/e1eab3b6b18e/integration-20261113/runtime/native/logs/20261114T032050Z-project-run-7164fdd1/output.log",
+  "label": "project-run",
+  "lean_threads": "1",
+  "passed": true,
+  "completed_utc": "2026-11-14T03:20:54.474122+00:00",
+  "seconds": 3.914921408000737,
+  "exit_code": 0,
+  "timed_out": false,
+  "recorder_error": null,
+  "candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+  "probe_sha256": "5f0f16506ef0bf093335fa92b1d1c352691bd15a776247987992ab18fe58d34d",
+  "log_sha256": "98070df4a9c4b8cbf1b992ff3d5eebc7388974766ee632289fb98a5c35e0dd0a",
+  "purpose": "Actual elaborated public-type inspection, not a full proof audit. Independent universes in ordinary laws; existing common-universe Square restriction."
+}

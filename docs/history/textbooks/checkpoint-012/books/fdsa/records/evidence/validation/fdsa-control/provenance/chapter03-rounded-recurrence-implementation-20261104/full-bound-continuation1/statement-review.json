@@ -1,0 +1,74 @@
+{
+  "recorded_utc": "2026-11-04T19:39:35.079176+00:00",
+  "candidate": "4e022bf16e793fd5a1f830b14ba30fb4a2dd0525",
+  "scope": [
+    "C03-039",
+    "C03-040",
+    "C03-041",
+    "C03-042",
+    "C03-043",
+    "C03-044"
+  ],
+  "full_chapter_rows_retained": 83,
+  "author_statement_review_only": true,
+  "independent_axes_not_replaced": true,
+  "quantifiers": "All real recurrence parameters and n0 are fixed before the existential coefficients and final universal natural input. The explicit witness theorem retains N, actual finite-prefix supremum and both source quotients as lets in its statement.",
+  "domains_and_signs": "a,c>0, a+c<1, C1>=0. f,b,d,C2,C4 may be signed. No monotonicity, positivity of f or offset positivity. Nat.ceil is the existing zero-truncated natural ceiling.",
+  "prefix": "Sharp induction requires the independently established finite prefix f(n)<=C4 for n<=N, with n0<=N. The witness theorem discharges it through the actual Finset.sup of the nonempty range 0..N; the prefix maximum is not replaced by max 0.",
+  "descent": "The old exact signed-offset ceiling theorem supplies both strictly smaller children. Induction hypotheses are applied only after these decreases; totality of the scalar function remains a given domain fact.",
+  "slope_and_denominator": "The old slope theorem derives C3>=0; its sharp step derives the positive second denominator from the exact cutoff. Both source slope inequalities are nonstrict.",
+  "natural_bridge": "Cast the actual Nat recurrence using congrArg plus standard cast laws, apply the real theorem, then use Nat.le_ceil for each real witness; no positivity assumption on the witnesses or second induction.",
+  "examples": [
+    {
+      "name": "zero_source_witness_bound",
+      "connection": "bound_with_source_constants",
+      "purpose": "Exact max construction with equality in slope and all-input zero boundary."
+    },
+    {
+      "name": "negative_intercept_all_inputs",
+      "connection": "affine_bound_of_prefix",
+      "purpose": "Negative f and C4=-3, signed offsets, actual recurrence with constant toll 3."
+    },
+    {
+      "name": "negative_constant_toll_affine_bound",
+      "connection": "exists_affine_bound",
+      "purpose": "Actual constant function 3 with C2=-3; arbitrary signed constant toll."
+    },
+    {
+      "name": "roundedQuarter",
+      "connection": "ceil_affine_lt_of_threshold",
+      "purpose": "Actual well-founded scalar recurrence, termination established independently before its growth bound."
+    },
+    {
+      "name": "roundedQuarter_zero/five/six/twenty_one",
+      "connection": "roundedQuarter_of_le_five / roundedQuarter_of_five_lt",
+      "purpose": "Expected values 1,6,13,48; exact nonintegral ceilings and a recursive child at n=21."
+    },
+    {
+      "name": "roundedQuarter_sharp_affine_bound",
+      "connection": "affine_bound_of_prefix",
+      "purpose": "Actual recurrence and prefix at N=5 yield exact source choices C3=24,C4=6."
+    },
+    {
+      "name": "roundedQuarter_real_affine_bound / roundedQuarter_nat_affine_bound",
+      "connection": "exists_affine_bound / exists_affine_bound_nat",
+      "purpose": "Both existential APIs consume the same actual rounded recurrence, not an assumed desired bound."
+    },
+    {
+      "name": "noncontracting_affine_step_impossible",
+      "connection": "exact natural ceilings at even inputs, Archimedean witness",
+      "purpose": "No affine one-step closure beyond any finite cutoff when a=c=1/2 and linear toll1. Does not assert a converse about every scalar recurrence."
+    }
+  ],
+  "remaining": [
+    "Focused elaboration of both new modules",
+    "Complete actual public-type inspection and input qualification",
+    "Full integrated Chapter3 candidate check/audit and both original-scope independent axes",
+    "C03-045 actual F instantiation and C03-046 selector source-cost bridge are separate consumers, not implemented here",
+    "All other Chapter3 obligations, later chapters and appendices remain required"
+  ],
+  "no_source_findings_in_author_review": true,
+  "compiler_executed_by_author": false,
+  "actual_type_credit": 0,
+  "acceptance_claimed": false
+}

@@ -1,0 +1,25 @@
+{
+  "recorded_utc": "2026-11-04T07:02:42.251274+00:00",
+  "source_before": "758e130cc30b8779dfce0ef2c4687aea0efa1792",
+  "source_after": "d80edd8f882c74eb4fc9eb4dcd559df32cb370a8",
+  "findings": {
+    "XU02-ELAB-001": "Spell unsupported <+ notation as the same List.Sublist proposition.",
+    "XU02-ELAB-002": "Fix dependent Fin coercion inference with explicit target index type; both sides still their original val.",
+    "XU02-ELAB-003": "Expose definitional inverse-composition map before List.map_map rewriting.",
+    "XU02-ELAB-004": "Use pinned ite_eq_left in supported-order branch.",
+    "XU02-ELAB-005": "Use pinned ite_eq_right in unsupported-order branch."
+  },
+  "scope": "Notation and proof-only corrections; original public propositions, hypotheses, random law and expected masses preserved.",
+  "changed_path": "Applications/Probability/PermutationOrder.lean",
+  "after": {
+    "bytes": 15280,
+    "sha256": "01ecca8d6ca037f4795e92b17b01e3a2d6a0dd0f50ae6824a6e97be2f8e0797e"
+  },
+  "failed_attempt": "chapter02-mean-uniqueness-xu02-focused-20261104-attempt1",
+  "failed_log_sha256": "48063b4acf544e1cd977f2ffc039a37024bd01e30bfd42357041d4704de22d84",
+  "commit_output": "[work/fdsa-permutation-order-validation d80edd8] fix(fdsa): elaborate whole-order correspondence on pinned APIs\n 1 file changed, 6 insertions(+), 5 deletions(-)\n",
+  "acceptance": "Not accepted; focused and full gates remain.",
+  "development_before": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+  "development_after": "e7d19095cd6c195e78207c4431d7e65226ae9d39",
+  "merge_output": "Merge made by the 'ort' strategy.\n Applications/Probability/PermutationOrder.lean | 11 ++++++-----\n 1 file changed, 6 insertions(+), 5 deletions(-)\n"
+}

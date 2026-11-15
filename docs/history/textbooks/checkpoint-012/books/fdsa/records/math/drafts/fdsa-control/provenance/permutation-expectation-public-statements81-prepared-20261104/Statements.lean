@@ -1,0 +1,92 @@
+/- PREPARED ONLY: original XU04 explicit public names; not executed.
+Future incorporated candidate is not assembled or bound. Twelve private helpers
+and ten anonymous local instances remain full source/build/audit scope. -/
+import Applications.Probability.PermutationExpectation
+import Examples.PermutationExpectation
+import Examples.PermutationExpectationBoundary
+
+set_option pp.universes true
+set_option pp.explicit true
+set_option pp.fullNames true
+
+#check @Applications.Probability.PermutationExpectation.beforeCount
+#check @Applications.Probability.PermutationExpectation.beforeCount_empty
+#check @Applications.Probability.PermutationExpectation.beforeCount_le
+#check @Applications.Probability.PermutationExpectation.lintegral_beforeCount_uniformOn
+#check @Applications.Probability.PermutationExpectation.integral_beforeCount_uniformOn
+#check @Applications.Probability.PermutationExpectation.beforeCount_rank_eq
+#check @Applications.Probability.PermutationExpectation.integral_firstPosition_uniformOn
+#check @Examples.PermutationExpectation.selected
+#check @Examples.PermutationExpectation.rank3
+#check @Examples.PermutationExpectation.selected_nonempty
+#check @Examples.PermutationExpectation.law3
+#check @Examples.PermutationExpectation.count_le_one
+#check @Examples.PermutationExpectation.count_mean_ennreal
+#check @Examples.PermutationExpectation.count_mean_real
+#check @Examples.PermutationExpectation.firstPosition3
+#check @Examples.PermutationExpectation.first_position_bridge
+#check @Examples.PermutationExpectation.first_position_mean
+#check @Examples.PermutationExpectation.swappedRank
+#check @Examples.PermutationExpectation.swappedRank_not_monotone
+#check @Examples.PermutationExpectation.swapped_count
+#check @Examples.PermutationExpectation.swapped_first_position
+#check @Examples.PermutationExpectation.selected4
+#check @Examples.PermutationExpectation.rank4
+#check @Examples.PermutationExpectation.selected4_nonempty
+#check @Examples.PermutationExpectation.law4
+#check @Examples.PermutationExpectation.firstPosition4
+#check @Examples.PermutationExpectation.count_mean_four
+#check @Examples.PermutationExpectation.first_position_mean_four
+#check @Examples.PermutationExpectation.numericPriority
+#check @Examples.PermutationExpectation.numericPriority_injective
+#check @Examples.PermutationExpectation.numericPriority_monotone
+#check @Examples.PermutationExpectation.numeric_count_mean
+#check @Examples.PermutationExpectation.rawMinimum
+#check @Examples.PermutationExpectation.rawMinimum_eq_count
+#check @Examples.PermutationExpectation.raw_minimum_mean
+#check @Examples.PermutationExpectation.raw_mean_differs_from_position_mean
+#check @Examples.PermutationExpectationBoundary.rank3
+#check @Examples.PermutationExpectationBoundary.original
+#check @Examples.PermutationExpectationBoundary.original_isProbabilityMeasure
+#check @Examples.PermutationExpectationBoundary.empty_subset_count
+#check @Examples.PermutationExpectationBoundary.empty_subset_mean
+#check @Examples.PermutationExpectationBoundary.empty_subset_sentinel
+#check @Examples.PermutationExpectationBoundary.emptyPriority
+#check @Examples.PermutationExpectationBoundary.empty_indices_normalized
+#check @Examples.PermutationExpectationBoundary.empty_indices_count
+#check @Examples.PermutationExpectationBoundary.empty_indices_mean
+#check @Examples.PermutationExpectationBoundary.singleton
+#check @Examples.PermutationExpectationBoundary.singleton_count_eq
+#check @Examples.PermutationExpectationBoundary.singleton_count_mean
+#check @Examples.PermutationExpectationBoundary.singleton_first_position_mean
+#check @Examples.PermutationExpectationBoundary.full_subset_count
+#check @Examples.PermutationExpectationBoundary.fullFirstPosition
+#check @Examples.PermutationExpectationBoundary.full_subset_first_position_mean
+#check @Examples.PermutationExpectationBoundary.tiedPriority
+#check @Examples.PermutationExpectationBoundary.tiedSubset
+#check @Examples.PermutationExpectationBoundary.tied_count
+#check @Examples.PermutationExpectationBoundary.tied_count_bound
+#check @Examples.PermutationExpectationBoundary.tied_count_mean
+#check @Examples.PermutationExpectationBoundary.tied_formula_value
+#check @Examples.PermutationExpectationBoundary.tied_mean_ne_formula
+#check @Examples.PermutationExpectationBoundary.adaptiveSubset
+#check @Examples.PermutationExpectationBoundary.adaptive_subset_card
+#check @Examples.PermutationExpectationBoundary.adaptive_count
+#check @Examples.PermutationExpectationBoundary.adaptive_count_mean
+#check @Examples.PermutationExpectationBoundary.adaptive_mean_ne_fixed_singleton
+#check @Examples.PermutationExpectationBoundary.positions
+#check @Examples.PermutationExpectationBoundary.globalOrder
+#check @Examples.PermutationExpectationBoundary.firstZero
+#check @Examples.PermutationExpectationBoundary.afterZero
+#check @Examples.PermutationExpectationBoundary.tail21
+#check @Examples.PermutationExpectationBoundary.first_zero_mass
+#check @Examples.PermutationExpectationBoundary.afterZero_isProbabilityMeasure
+#check @Examples.PermutationExpectationBoundary.conditional_tail12_mass
+#check @Examples.PermutationExpectationBoundary.conditional_tail21_mass
+#check @Examples.PermutationExpectationBoundary.global_order_of_first_zero
+#check @Examples.PermutationExpectationBoundary.conditional_count_mean
+#check @Examples.PermutationExpectationBoundary.placement_means_differ
+#check @Examples.PermutationExpectationBoundary.singletonOrder
+#check @Examples.PermutationExpectationBoundary.singleton_order_value
+#check @Examples.PermutationExpectationBoundary.singleton_order_original_hasLaw
+#check @Examples.PermutationExpectationBoundary.singleton_order_conditional_hasLaw

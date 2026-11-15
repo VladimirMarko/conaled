@@ -1,0 +1,797 @@
+{
+  "schema": 1,
+  "round": 6,
+  "recorded_at": "2026-11-15T03:08:55.926350+00:00",
+  "axis": "Standards",
+  "reviewer": "/root/recovery_review/standards_r5",
+  "coordinator": "/root/recovery_review",
+  "continuity": "Same retained whole-integration loop, coordinator and Standards/Spec axes; matching R4 source analysis and R5 preparation/first-terminal assessment reused. No replacement or new review scope.",
+  "outcome": {
+    "source_handoff_preparation": "Passed",
+    "final_library_acceptance": "Blocked",
+    "final_approval": false,
+    "final_merge_approval": false,
+    "new_r6_findings": 1,
+    "unresolved_new_standards_handoff_findings": 0,
+    "blocking_receiving_gate": [
+      "INT-SP-001",
+      "INT-090"
+    ]
+  },
+  "identity": {
+    "original_full_spec_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+    "retained_merge_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+    "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+    "tree": "63205d8a3ff27deb3680c613b70085163f289b83",
+    "incorporated_upstream": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+    "changed_paths": 381,
+    "changed_lean_paths": 347,
+    "commits": 322,
+    "manifest_paths": 490,
+    "manifest_entries": {},
+    "manifest_exclude": [],
+    "scope_identity": "04aaeba64ef993665ce417ac3441139f22ca88b53f8865ca6423525f21f2c309",
+    "content_identity": "f3d62399fb025c399790a4fd6a9808c9110ebf44d130c984474e9dcb4328cde4",
+    "requirements_version": "2026-11-15-ready-for-conaled-handoff",
+    "requirements_sha256": "e09c5af2de201d808cfe2ed81870991bc82f195223fff2c5aa3f3273a00001ad",
+    "official_candidate_receipt_sha256": "01e15d6d360c81e2d5e06187b35cb7a7fd8f1b2efcdec90b8b4f94a38e73e667",
+    "source_changed_since_r4": false,
+    "source_identity_basis": "Retained official full R4 receipt; root recovery comparison of all 9178 tracked mode/OID entries; coordinator ref, clean worktree, original merge-base and full-scope confirmation. No repeated reviewer source audit."
+  },
+  "final_input_cut": {
+    "manifest": {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/handoff-content-012.json",
+      "bytes": 3276,
+      "sha256": "e402f619643fd9149298e8b56dc50c5effd75e0092e84d6c77d35dd385a7045f",
+      "inspection_scope": "Actual final revision-3 record and all sixteen size/hash pairs verified."
+    },
+    "revision": 3,
+    "all_16_inputs_match": true,
+    "changed_from_revision_2": [
+      "ISSUES.json"
+    ],
+    "initial_manifest": {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/handoff-content-012-initial.json",
+      "bytes": 2875,
+      "sha256": "f34f8e68b730564efe17770e6b4fd08c7b37908794d07582f8810b15a18e2677",
+      "inspection_scope": "Exact preserved initial R6 cut."
+    },
+    "intermediate_manifest": {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/handoff-content-012-review.json",
+      "bytes": 3213,
+      "sha256": "1d2068062251db08ffc24c086593294ea2c140cf42e6d9afb662d2fe7d833113",
+      "inspection_scope": "Exact preserved revision-2 review cut."
+    },
+    "inputs": [
+      {
+        "path": "checkpoint/conaled-textbooks/books/common/HANDOFF.md",
+        "bytes": 12998,
+        "sha256": "dc08dac4cc40108c56e1b18177dc1a39be3261ce1c656aa3c9b69ff0e6864854",
+        "inspection_scope": "Read current R6 document or evidence record; actual bytes bound to final revision-3 input manifest."
+      },
+      {
+        "path": "checkpoint/conaled-textbooks/books/common/README.md",
+        "bytes": 7683,
+        "sha256": "c9ce23b170435ffeb117069f1b81d7087226027252093d87be3bb7e27ca17966",
+        "inspection_scope": "Read current R6 document or evidence record; actual bytes bound to final revision-3 input manifest."
+      },
+      {
+        "path": "checkpoint/conaled-textbooks/books/common/REQUIREMENTS.md",
+        "bytes": 13764,
+        "sha256": "e09c5af2de201d808cfe2ed81870991bc82f195223fff2c5aa3f3273a00001ad",
+        "inspection_scope": "Read current R6 document or evidence record; actual bytes bound to final revision-3 input manifest."
+      },
+      {
+        "path": "checkpoint/conaled-textbooks/books/common/STATUS.md",
+        "bytes": 10854,
+        "sha256": "d9f08da9aa54bb9c0da26e3713d33ee25291cae7b50860da203253c6bf5b2c8f",
+        "inspection_scope": "Read current R6 document or evidence record; actual bytes bound to final revision-3 input manifest."
+      },
+      {
+        "path": "checkpoint/conaled-textbooks/books/common/ISSUES.json",
+        "bytes": 10697,
+        "sha256": "89728e9350fe2fc94c20807d3712780e2bb24a0421ffb5974458f42298d5cbfd",
+        "inspection_scope": "Read current R6 document or evidence record; actual bytes bound to final revision-3 input manifest."
+      },
+      {
+        "path": "checkpoint/conaled-textbooks/books/common/EXECUTION.md",
+        "bytes": 3527,
+        "sha256": "4c5039b2aa077b3c796d02fff7b034875b82670e09dbbdf187204507dfc295c4",
+        "inspection_scope": "Read current R6 document or evidence record; actual bytes bound to final revision-3 input manifest."
+      },
+      {
+        "path": "checkpoint/conaled-textbooks/books/common/VALIDATION-HANDOFF.md",
+        "bytes": 8811,
+        "sha256": "159725dadf892d93fbfc5ba326b793ae9cb0450872d6dab1d779e676f781fa18",
+        "inspection_scope": "Read current R6 document or evidence record; actual bytes bound to final revision-3 input manifest."
+      },
+      {
+        "path": "checkpoint/conaled-textbooks/books/common/COVERAGE.md",
+        "bytes": 38973,
+        "sha256": "779c1701392c921b81d6c193c9e149c29adf99cc881a0a0fd03650f5b229a59b",
+        "inspection_scope": "R6 overview/source-cut/map-delta reread; complete unchanged R4 coverage analysis reused at this identical hash; no new full coverage inventory."
+      },
+      {
+        "path": "checkpoint/conaled-textbooks/books/common/evidence/retry-r5-reported-observations.json",
+        "bytes": 3237,
+        "sha256": "57a28e835105f6d55e590956d97a2c5777407b403d3a834ba4e1b793952c01b8",
+        "inspection_scope": "Read current R6 document or evidence record; actual bytes bound to final revision-3 input manifest."
+      },
+      {
+        "path": "checkpoint/conaled-textbooks/books/common/evidence/input-recovery-012.json",
+        "bytes": 1977,
+        "sha256": "64969be66830a9ccbba8f195d081d5b6d3396e8a892dd7f729a533722f50fdcd",
+        "inspection_scope": "Read current R6 document or evidence record; actual bytes bound to final revision-3 input manifest."
+      },
+      {
+        "path": "checkpoint/conaled-textbooks/books/common/evidence/recovered-candidate-012.json",
+        "bytes": 1383,
+        "sha256": "bbecb43a2d640ecf398e5f67b71983d864e2d14656b7ec632c5ab4d05c7982fd",
+        "inspection_scope": "Read current R6 document or evidence record; actual bytes bound to final revision-3 input manifest."
+      },
+      {
+        "path": "checkpoint/conaled-textbooks/books/common/evidence/patch-export-012.json",
+        "bytes": 975,
+        "sha256": "484a19ae99de92320291e746150fbf2bd400716110274b21ad9ed68429076717",
+        "inspection_scope": "Read current R6 document or evidence record; actual bytes bound to final revision-3 input manifest."
+      },
+      {
+        "path": "checkpoint/conaled-textbooks/books/common/evidence/handoff-source-check-012.json",
+        "bytes": 11346,
+        "sha256": "016c5784ce0a3c481000c16c19312f36e2db2b3a8a42fabfd564bde3af1edc8c",
+        "inspection_scope": "Read current R6 document or evidence record; actual bytes bound to final revision-3 input manifest."
+      },
+      {
+        "path": "checkpoint/conaled-textbooks/books/common/evidence/requirements-r5.md",
+        "bytes": 12036,
+        "sha256": "7b4217dd89508c2863304880e2e99c8776d220bdfe6ff710aaae3bf82670159d",
+        "inspection_scope": "Full R5 requirements previously read; immutable historical snapshot fingerprint retained, not current requirements."
+      },
+      {
+        "path": "checkpoint/conaled-textbooks/books/common/evidence/validation-handoff-r6.json",
+        "bytes": 1057,
+        "sha256": "8b11fa009ced72dde0de7d2e61329c863680abaafd4eac35d1fea87ddb9064fe",
+        "inspection_scope": "Read current R6 document or evidence record; actual bytes bound to final revision-3 input manifest."
+      },
+      {
+        "path": "checkpoint/conaled-textbooks/books/common/evidence/validation-handoff-r6.patch",
+        "bytes": 2878,
+        "sha256": "87d1eeb8006b765c5a0a356b305dec0b7530a1833cd7df8b54f96edacea9f6ff",
+        "inspection_scope": "Read current R6 document or evidence record; actual bytes bound to final revision-3 input manifest."
+      }
+    ],
+    "review_output_observed_before_reconciliation": {
+      "path": "checkpoint/conaled-textbooks/books/common/REVIEW.json",
+      "bytes": 17579,
+      "sha256": "275a1c931570223ae4e56eb78a7bd5e15c64eb2020c9c7064171d54cff39cc8f",
+      "inspection_scope": "Read current round-6 continuity and output state before mechanical recording of these reports; coordinator-owned output outside the sixteen frozen inputs."
+    },
+    "coordinator_record_reconciliation": "Actual same-agent continuity verified in current REVIEW round 6. Its final outcome fields remain root/coordinator-owned mechanical outputs outside the sixteen frozen inputs."
+  },
+  "findings": [
+    {
+      "id": "INT-ST-001",
+      "severity": "Low",
+      "status": "Fixed",
+      "title": "Source catalog labels must be unique",
+      "resolution": "R2 restored unique PFDS S9, VFA S10, FDSA S11 labels. The exact retained R4 source analysis remains applicable to the unchanged candidate.",
+      "history_retained_in": "evidence/reviews/standards-r1.md; standards-r2.md; standards-r3.md; standards-r4.md"
+    },
+    {
+      "id": "INT-ST-002",
+      "severity": "Low",
+      "status": "Fixed",
+      "title": "Keep the exact nonterminal R3 start evidence discoverable",
+      "resolution": "The exact start record is retained at evidence/full-validation-r3-start.json. Current README maps the former intake path and preserves its nonterminal meaning; it must not be replaced with a terminal receipt.",
+      "evidence": {
+        "path": "evidence/full-validation-r3-start.json",
+        "bytes": 1426,
+        "sha256": "33951558afb5c06a6d3c33141d6279470eed3263bc5d74dcd87e0c5c92a6c28b"
+      }
+    },
+    {
+      "id": "INT-ST-003",
+      "severity": "Low",
+      "status": "Fixed",
+      "title": "Current resource instructions must honor the uncapped child environment without editing frozen documentation",
+      "discovery": "Coordinator observed the pre-correction RESUME setup and both acceptance examples with fixed --threads 1; root acknowledged the drift. This reviewer independently verified the first corrected bytes and semantics.",
+      "history": [
+        {
+          "state": "Open",
+          "detail": "Current navigation still exposed superseded fixed-thread acceptance examples."
+        },
+        {
+          "state": "Provisionally fixed",
+          "resume_bytes": 8290,
+          "resume_sha256": "b67187f259ba3a4c425c94df46c738792379858c78e936338cc5721902c6e43a",
+          "handoff_sha256": "d57eca51d8d9da43b14ea4b5fe33271fff3948f33ae865764902fd4e6ab13035",
+          "detail": "Actual corrected instructions unset the child LEAN_NUM_THREADS and separated setup CPU selection; the immutable original preparation receipt records this true historical assessment."
+        },
+        {
+          "state": "Reopened",
+          "detail": "Root discovered policy freezes the entire docs tree. The direct RESUME edit could not be packed through the ordinary checkpoint path; no policy amendment was authorized or used."
+        },
+        {
+          "state": "Fixed",
+          "resume_bytes": 7031,
+          "resume_sha256": "0eb5b77c2ebe66ce13490dddb966e46beb4bb067509bb2c4ed1c6166a2b9e393",
+          "execution_bytes": 3527,
+          "execution_sha256": "4c5039b2aa077b3c796d02fff7b034875b82670e09dbbdf187204507dfc295c4",
+          "detail": "Frozen RESUME was restored byte-for-byte. Mutable books/common/EXECUTION.md owns current resource command arguments and explicitly supersedes fixed-thread examples. Common navigation points to it. Historical proposals and original preparation receipt remain reconstructible. This reviewer confirmed packable overlay semantics, protected guard identities and exact preparation-record equality in R5; R6 retains that correction."
+        }
+      ],
+      "r6_resolution": "Read current EXECUTION and its HANDOFF/README/VALIDATION-HANDOFF navigation. The current receiving route remains explicit while frozen setup/pins/budget instructions retain their own scope. R6 reverse patch preserves the old handoff base needed to reconstruct the R5 proposal.",
+      "original_preparation_sha256": "21a3e653e051d86475524c72b4e7fb879c42d9c1069649e57f398392693e7018",
+      "overlay_preparation_sha256": "ebb147cac707237bbf736178b3c41b35f728ae209a2b8befa40392c3723f2910"
+    },
+    {
+      "id": "INT-ST-004",
+      "severity": "Low",
+      "status": "Fixed",
+      "round_introduced": 6,
+      "title": "Current whole-scope review issue retained an obsolete R5 retry assignment",
+      "location": "checkpoint/conaled-textbooks/books/common/ISSUES.json, INT-091 status and progress",
+      "rule": "Current REQUIREMENTS.md, review-loop continuity, and documentation single ownership require the current assignment and evidence boundary to be accurate.",
+      "problem": "The initial R6 cut described R5 actual validation as pending and ended with retry pending, despite the closed local experiment and lost retry raw evidence with unknown terminal outcome.",
+      "impact": "A successor could follow an obsolete local retry assignment or misread historical R4 readiness as the current R6 disposition.",
+      "requested_correction": "Describe the present R6 receiving handoff, retain historical R4/R5 facts and the open final receiving gate, and give REVIEW.json sole ownership of the changing handoff outcome.",
+      "discovery": "Independently identified by this retained Standards reviewer in the initial R6 cut and promptly relayed through the same coordinator.",
+      "history": [
+        {
+          "state": "Open",
+          "issues_bytes": 10504,
+          "issues_sha256": "7abfe22065cd7ceb3dac0dffdac34eb71cfbbb4de928d6d243a36328e8686396",
+          "manifest_sha256": "f34f8e68b730564efe17770e6b4fd08c7b37908794d07582f8810b15a18e2677"
+        },
+        {
+          "state": "Correction verified; final bookkeeping pending",
+          "issues_bytes": 10631,
+          "issues_sha256": "f14218d05e632268fa677c1a946cc2ab7fd20a0c826fb41b6c1fc932b082e74e",
+          "manifest_sha256": "1d2068062251db08ffc24c086593294ea2c140cf42e6d9afb662d2fe7d833113",
+          "assessment": "Removed the obsolete retry assignment, made R4 historical, retained no R5 approval and unknown retry terminal outcome; a pending R6 status would itself become stale after reports."
+        },
+        {
+          "state": "Fixed",
+          "issues_bytes": 10697,
+          "issues_sha256": "89728e9350fe2fc94c20807d3712780e2bb24a0421ffb5974458f42298d5cbfd",
+          "manifest_sha256": "e402f619643fd9149298e8b56dc50c5effd75e0092e84d6c77d35dd385a7045f",
+          "assessment": "Actual final bytes assign the current handoff outcome solely to REVIEW.json. They retain blocked final acceptance, historical R4, no R5 final or source/handoff approval, lost retry raw evidence, unknown terminal outcome, no further local attempt, and open INT-SP-001."
+        }
+      ],
+      "verification": "Read actual final INT-091 and manifests; all sixteen current input size/hash pairs match revision 3; only ISSUES.json differs from retained revision 2. Source and requirements unchanged.",
+      "source_change_required": false
+    }
+  ],
+  "next_unused_standards_id": "INT-ST-005",
+  "inherited_findings": {
+    "spec_owned_current_gate": {
+      "id": "INT-SP-001",
+      "status": "open-delegated-receiving-gate",
+      "owner": "receiving-integrator",
+      "issue": "INT-090",
+      "closed_by_this_report": false
+    },
+    "vfa_open": [
+      "ST-002",
+      "SP-VAL-001"
+    ],
+    "vfa_source_fix_retained": "ST-006",
+    "fdsa_ids_retained": [
+      "XT03-CP01",
+      "XT03-DOC01"
+    ],
+    "fdsa_xt03_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+    "fdsa_chapter4_original_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+    "fdsa_chapter4_obligations": 76,
+    "fdsa_chapter4_exercises": 11,
+    "pfds_canonical_register": "checkpoint/conaled-textbooks/books/pfds/records/evidence/reviews/common-integration-coordinator-r1-045.md#5-all-retained-ids-with-separate-axis-dispositions",
+    "pfds_canonical_ids": 39,
+    "pfds_aliases": 8,
+    "pfds_retained_repairs_static_development_closures": 23,
+    "pfds_retained_boundaries": [
+      "SUSP-STAT-001",
+      "PREP-10019-02"
+    ],
+    "pfds_open_validation_ids": 14,
+    "pfds_standards_shared_open_validation": [
+      "IMPORT-VAL-004",
+      "CH02-PRE-005",
+      "SUSP-STD-VAL-001",
+      "PURE-STD-VAL-001",
+      "COUNT-STD-VAL-001",
+      "PERSIST-ACC-STD-VAL-001",
+      "BODY-COUNT-STD-VAL-001",
+      "SIGNED-POT-STD-VAL-001"
+    ],
+    "disposition": "Every original ID, severity, alias, boundary and evidence scope retained by the canonical records; no cross-axis reranking or retrospective closures."
+  },
+  "reuse_boundaries": {
+    "reused_in_full": "Matching R4 source/semantic/architecture/statement/example-driven analysis and complete original finding history; R5 preparation/packability and actual first-terminal evidence assessments.",
+    "assessed_anew": "R6 full requirements; receiving handoff wording, ownership, paths, recovery and patch receipts; accurate raw-versus-reported validation boundaries; final INT-091 correction and actual revision-3 identities.",
+    "coverage": "Same COVERAGE.md hash; R6 overview/source-cut/map-delta reread with complete unchanged R4 accounting retained. No expanded chapter claims or full-book percentages.",
+    "not_repeated": [
+      "Full source inventory or Lean theorem audit",
+      "167 donor checks",
+      "Git or patch application checks",
+      "Compiler, setup or build",
+      "Host/process probing",
+      "Historical reconstruction patch application"
+    ],
+    "root_evidence_attribution": "Recovery, source preservation, bundle, ancestry, source-byte comparisons and private-index patch application are root receipts assessed here; not reviewer-performed reruns.",
+    "not_established": [
+      "Successful full guarded build",
+      "Exhaustive audit completion",
+      "Matching verification record",
+      "Diagnosed exit-137 cause",
+      "Retry terminal result",
+      "Failure of upstream in an independently reproduced environment",
+      "Unchanged transitive dependency closures of failing modules"
+    ]
+  },
+  "first_full_attempt": {
+    "evidence_kind": "Retained actual terminal and raw execution evidence",
+    "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+    "start": "2026-11-14T21:27:30.162016+00:00",
+    "finish": "2026-11-14T23:07:48.922060+00:00",
+    "elapsed_seconds": 6018.760040775,
+    "terminal": true,
+    "exit_code": 1,
+    "passed": false,
+    "built_completion_lines": 3174,
+    "compiler_jobs_exit_137": 8,
+    "compiled_integration_clients": [
+      "Examples.MappedPotentialAccounting",
+      "Examples.TextbookMaps",
+      "Examples.TextbookSequences",
+      "Examples.TextbookSorting"
+    ],
+    "audit_reached": false,
+    "matching_verification_record_produced": false,
+    "end_head_unchanged_and_clean_reported": true,
+    "native_timed_out": false,
+    "timeout_flag_scope": "Native launcher flag only, not a diagnosis of other timeout or termination causes.",
+    "child_resource_scope": "Actual child prefix unsets LEAN_NUM_THREADS. Pre-child launcher lean_threads metadata of 1 does not establish an effective child cap. Effective-child receipt records absent selected controls, priority 0, nine visible CPU affinities and unlimited CPU/AS/DATA limits; host/platform controls remain.",
+    "cause": "Undetermined; no inference of OOM, timeout, supervisor, theorem falsity or PC-lifetime cause."
+  },
+  "retry": {
+    "evidence_kind": "Explicitly attributed reported observations only; not original raw execution evidence",
+    "reported_start": "2026-11-14T23:22:35.010569Z",
+    "last_reported_observation": "2026-11-15T00:20:07.061614Z",
+    "reported_built_lines": 74,
+    "reported_repeated_exit_137_jobs": 5,
+    "reported_previously_failing_modules_compiled": [
+      "Applications.FRP.Spec",
+      "Examples.CubicalSourceContraction",
+      "Examples.SmoothQuotientGeneratedBaseMatching"
+    ],
+    "raw_log_recovered": false,
+    "terminal_record_recovered": false,
+    "dependency_closure_report_recovered": false,
+    "terminal_status": "Unknown",
+    "final_exit_code": null,
+    "cause": "Undetermined",
+    "full_success_established": false,
+    "terminal_failure_established": false,
+    "audit_pass_established": false,
+    "new_local_attempt_assigned": false,
+    "r5_final_or_source_handoff_approval_issued": false
+  },
+  "receiving_acceptance_gate": {
+    "owner": "receiving-integrator",
+    "status": "Open",
+    "ids": [
+      "INT-SP-001",
+      "INT-090"
+    ],
+    "requirements": [
+      "Successful guarded full build for actual candidate",
+      "Exhaustive permitted-axiom audit",
+      "Matching validation record",
+      "Both final review approvals",
+      "Immediate candidate verification",
+      "Official snapshot comparison"
+    ],
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "source_progress_or_handoff_pass_closes_gate": false,
+    "resource_owner": "checkpoint/conaled-textbooks/books/common/EXECUTION.md",
+    "user_assigned_further_local_full_experiment": false,
+    "publication_authorized": false
+  },
+  "preservation_receipt_assessment": {
+    "input_archive": {
+      "bytes": 106722196,
+      "sha256": "561462f7fb51278598ba56a45c8854f9c460a5ba803aeebb70f7655654666b75",
+      "serial": 11,
+      "verified_files": 10215,
+      "deep_source": true,
+      "manifest_sha256": "59b3f8d6ba71d2277feb2236077bb805539592548c37b21c4f40ce6f7dc53b27"
+    },
+    "source_bundle": {
+      "bytes": 98957987,
+      "sha256": "a508155107a17a63baa01801a89ef2e0d86e9d079eb41ddd0b6bd50c4f1f9a73",
+      "catalog_refs": 155,
+      "advertisements_including_HEAD": 156
+    },
+    "donor_checks_retained": 167,
+    "git_donor_blobs": 162,
+    "vfa_staging_artifacts": 5,
+    "patch": {
+      "bytes": 3544383,
+      "sha256": "955c71b607aab9e217f1b0e4b9c1ef476f16a4596e9d47192052acc8f8a88498",
+      "paths_against_incorporated_upstream": 360,
+      "byte_identical_to_009": true,
+      "root_private_index_reconstructed_candidate_tree": true
+    },
+    "native_guard_identities_retained_from_r5": {
+      "policy_sha256": "0da93ceb362b34b12bb73cd239e2079f518f5bc8d787c82c21dd9173d944e30f",
+      "protected_launcher_sha256": "9d1b1e6f10ae574e5c1f388d8df069f43c9ca3e1a993c372293595abd2e5090a",
+      "protected_runtime_sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695"
+    },
+    "future_012_upload": "Root-owned later action; no present claim of upload completion; absence of its own receipt inside its immutable archive is not a defect."
+  },
+  "applicable_guidance": [
+    {
+      "path": "source-recovery/worktrees/vfa/AGENTS.md",
+      "bytes": 3118,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "inspection_scope": "Read in R6; README inspection is the build/audit guidance, with the unchanged broader analysis retained."
+    },
+    {
+      "path": "source-recovery/worktrees/vfa/.agents/skills/implement/SKILL.md",
+      "bytes": 5383,
+      "sha256": "1ee81882f7b87e2233bd513dc4304ebd9cfc3ac11551fb2736817b4caa1fe243",
+      "inspection_scope": "Read in R6; README inspection is the build/audit guidance, with the unchanged broader analysis retained."
+    },
+    {
+      "path": "source-recovery/worktrees/vfa/.agents/skills/code-review/SKILL.md",
+      "bytes": 7724,
+      "sha256": "9540911b44f0b184c3c78fa2cfb42b237cd76045d370c287bf3e97d4fc27e8f9",
+      "inspection_scope": "Read in R6; README inspection is the build/audit guidance, with the unchanged broader analysis retained."
+    },
+    {
+      "path": "source-recovery/worktrees/vfa/.agents/skills/code-review/heuristics.md",
+      "bytes": 2232,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "inspection_scope": "Read in R6; README inspection is the build/audit guidance, with the unchanged broader analysis retained."
+    },
+    {
+      "path": "source-recovery/worktrees/vfa/.agents/skills/writing-for-agents/SKILL.md",
+      "bytes": 10886,
+      "sha256": "551adca942227b44192edba88acd4e8db911f0121ce58ad16944ccf6a896a74a",
+      "inspection_scope": "Read in R6; README inspection is the build/audit guidance, with the unchanged broader analysis retained."
+    },
+    {
+      "path": "source-recovery/worktrees/vfa/docs/agents/review-loop.md",
+      "bytes": 15566,
+      "sha256": "33f4346af746e8a310c351b21dc1de29c6630142db6be76e7fa848726e8e736c",
+      "inspection_scope": "Read in R6; README inspection is the build/audit guidance, with the unchanged broader analysis retained."
+    },
+    {
+      "path": "source-recovery/worktrees/vfa/docs/agents/architectural-quality.md",
+      "bytes": 4185,
+      "sha256": "004f04d20f91e22eb932b55c6b2038d0ffef441158276ef75478886a3d67a8f1",
+      "inspection_scope": "Read in R6; README inspection is the build/audit guidance, with the unchanged broader analysis retained."
+    },
+    {
+      "path": "source-recovery/worktrees/vfa/docs/agents/domain.md",
+      "bytes": 926,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "inspection_scope": "Read in R6; README inspection is the build/audit guidance, with the unchanged broader analysis retained."
+    },
+    {
+      "path": "source-recovery/worktrees/vfa/README.md",
+      "bytes": 29395,
+      "sha256": "0f3d12151f6078b844b1fee325333fb5f16e34de4ac0cadf7b3776e260191aae",
+      "inspection_scope": "Read in R6; README inspection is the build/audit guidance, with the unchanged broader analysis retained."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/AGENTS.md",
+      "bytes": 3727,
+      "sha256": "56e2d442aca9487703830bc7287d6e838b0dc5e6b208f7a60becc49c11f3032e",
+      "inspection_scope": "Read in R6 for checkpoint ownership, durability and authorized review operations."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/docs/DURABILITY.md",
+      "bytes": 4729,
+      "sha256": "5a3e8e25705e851f53c6d590aee29b9f5ac44260adb53257cf7ede1b65057ff8",
+      "inspection_scope": "Read in R6 for checkpoint ownership, durability and authorized review operations."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/docs/RESUME.md",
+      "bytes": 7031,
+      "sha256": "0eb5b77c2ebe66ce13490dddb966e46beb4bb067509bb2c4ed1c6166a2b9e393",
+      "inspection_scope": "Frozen identity and scope assessed in R5; actual recovered fingerprint bound in R6. Current resource override is owned by mutable EXECUTION.md."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/policy.json",
+      "bytes": 88888,
+      "sha256": "0da93ceb362b34b12bb73cd239e2079f518f5bc8d787c82c21dd9173d944e30f",
+      "inspection_scope": "Frozen identity and scope assessed in R5; actual recovered fingerprint bound in R6. Current resource override is owned by mutable EXECUTION.md."
+    }
+  ],
+  "additional_evidence": [
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/handoff-content-012.json",
+      "bytes": 3276,
+      "sha256": "e402f619643fd9149298e8b56dc50c5effd75e0092e84d6c77d35dd385a7045f",
+      "inspection_scope": "Read or retained reviewed content; exact recovered bytes bound here. Historical proposals are reconstruction evidence, not current commands."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/handoff-content-012-review.json",
+      "bytes": 3213,
+      "sha256": "1d2068062251db08ffc24c086593294ea2c140cf42e6d9afb662d2fe7d833113",
+      "inspection_scope": "Read or retained reviewed content; exact recovered bytes bound here. Historical proposals are reconstruction evidence, not current commands."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/handoff-content-012-initial.json",
+      "bytes": 2875,
+      "sha256": "f34f8e68b730564efe17770e6b4fd08c7b37908794d07582f8810b15a18e2677",
+      "inspection_scope": "Read or retained reviewed content; exact recovered bytes bound here. Historical proposals are reconstruction evidence, not current commands."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/validation-handoff-r6.json",
+      "bytes": 1057,
+      "sha256": "8b11fa009ced72dde0de7d2e61329c863680abaafd4eac35d1fea87ddb9064fe",
+      "inspection_scope": "Read or retained reviewed content; exact recovered bytes bound here. Historical proposals are reconstruction evidence, not current commands."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/validation-handoff-r6.patch",
+      "bytes": 2878,
+      "sha256": "87d1eeb8006b765c5a0a356b305dec0b7530a1833cd7df8b54f96edacea9f6ff",
+      "inspection_scope": "Read or retained reviewed content; exact recovered bytes bound here. Historical proposals are reconstruction evidence, not current commands."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/navigation-proposal-r5.json",
+      "bytes": 1332,
+      "sha256": "83acca34a90f2ed2c0da8423da1bb56b1e4a14b16ef965e74a6be8312b2d1b9e",
+      "inspection_scope": "Read or retained reviewed content; exact recovered bytes bound here. Historical proposals are reconstruction evidence, not current commands."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/navigation-proposal-r5.patch",
+      "bytes": 3880,
+      "sha256": "03d3bc4e95903cd643fbcfcca890988059f143b58017072ac4e60647944b503d",
+      "inspection_scope": "Read or retained reviewed content; exact recovered bytes bound here. Historical proposals are reconstruction evidence, not current commands."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/analysis/process.md",
+      "bytes": 18928,
+      "sha256": "664faf609487139931459ee2b9d6cf9b72a39b0b6390ee87eded5a012b6635a3",
+      "inspection_scope": "Read or retained reviewed content; exact recovered bytes bound here. Historical proposals are reconstruction evidence, not current commands."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/integration-candidate-r4.json",
+      "bytes": 3597146,
+      "sha256": "01e15d6d360c81e2d5e06187b35cb7a7fd8f1b2efcdec90b8b4f94a38e73e667",
+      "inspection_scope": "Official full R4 scope/identity evidence reused; no new large inventory, source audit or helper-retention receipt created."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/integration-scope-20261114-evening.json",
+      "bytes": 22061,
+      "sha256": "d9cdf67714389042e0f1c252267506cf42e97fcb7aef606fafb7d850e0c2b773",
+      "inspection_scope": "Official full R4 scope/identity evidence reused; no new large inventory, source audit or helper-retention receipt created."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/full-validation-r5-unrestricted.json",
+      "bytes": 2687,
+      "sha256": "d8a71400c8f3cefaae1160f86c076d255e35511c8209c808c5f3087e1901805f",
+      "inspection_scope": "Actual R5 evidence previously read and assessed by this retained axis; recovered identity checked. The R3 record remains nonterminal historical start evidence."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/full-validation-r5-summary.json",
+      "bytes": 4363,
+      "sha256": "4b8f245a197e0433e503306a29ed4ddd04646cb828d5bf6db05b84d26d258e16",
+      "inspection_scope": "Actual R5 evidence previously read and assessed by this retained axis; recovered identity checked. The R3 record remains nonterminal historical start evidence."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/native-project-run-r5-result.json",
+      "bytes": 1838,
+      "sha256": "982a404ad1cfd13c947704030be01fb327eabf21cd68b57c216cb79cad6d36f8",
+      "inspection_scope": "Actual R5 evidence previously read and assessed by this retained axis; recovered identity checked. The R3 record remains nonterminal historical start evidence."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/full-validation-r5-effective-environment.json",
+      "bytes": 919,
+      "sha256": "844e835ff7ea97f1240cdf547b041bb14b8c53e6b1c5bc3f49817a3a7d412086",
+      "inspection_scope": "Actual R5 evidence previously read and assessed by this retained axis; recovered identity checked. The R3 record remains nonterminal historical start evidence."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/full-validation-r5-start.json",
+      "bytes": 2689,
+      "sha256": "140f3ec4b6c403a3a2c993bfc889f0da18c4865317c7c561accf7d0ab2e0f971",
+      "inspection_scope": "Actual R5 evidence previously read and assessed by this retained axis; recovered identity checked. The R3 record remains nonterminal historical start evidence."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/full-validation-r3-start.json",
+      "bytes": 1426,
+      "sha256": "33951558afb5c06a6d3c33141d6279470eed3263bc5d74dcd87e0c5c92a6c28b",
+      "inspection_scope": "Actual R5 evidence previously read and assessed by this retained axis; recovered identity checked. The R3 record remains nonterminal historical start evidence."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/full-validation-r5-unrestricted.log",
+      "bytes": 1624681,
+      "sha256": "4745a20204e25c44b88bce4f4cb4f661359dfad379dc722a5e4fc690e60b5445",
+      "inspection_scope": "Firsthand R5 terminal, failure and client lines assessed and 3174 Built lines counted; recovered exact log hash retained in R6. No rerun or new giant log dump."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/pfds/records/evidence/reviews/common-integration-coordinator-r1-045.md",
+      "bytes": 28777,
+      "sha256": "07fb1b0ea46e06a721ea603dbb99865597d844824f21d01b144659eb3ae1c6d6",
+      "inspection_scope": "Canonical section 5 inherited findings and independent axis dispositions retained; no retrospective closure or reranking."
+    }
+  ],
+  "retained_prior_review_records": [
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/standards-r1.md",
+      "bytes": 18782,
+      "sha256": "614928110c89288ab7296496dd65b46d16a4dd18817edc2d81a2274af0902b1b",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/standards-r1.json",
+      "bytes": 4844,
+      "sha256": "6b72ac532f21e57827197e5c7996ee14eca9190914dd037f790b0f9fd41720ee",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/standards-r2.md",
+      "bytes": 4798,
+      "sha256": "0757de767d72f39de79a029f33908f17db13c459717c24a21bb530440de04863",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/standards-r2.json",
+      "bytes": 3050,
+      "sha256": "8852ce105a4b3b5731216114a885a2ddfc3c9ef8a84a79090072e0c57367cdef",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/standards-r3.md",
+      "bytes": 23951,
+      "sha256": "5b8d9fe977a842135b0282922195b2c0c87a864c84896c09e59fc5ab040726e6",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/standards-r3.json",
+      "bytes": 9510,
+      "sha256": "7af4540650677b51ee36f68104f5a939d9902ca2a02b742d1f4506712d83b22f",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/standards-r3-navigation-addendum.md",
+      "bytes": 5179,
+      "sha256": "e4ac749a910be54be3b4f0b35755c96e15f9ff784c61fe2006a09fd031ccb131",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/standards-r4.md",
+      "bytes": 24013,
+      "sha256": "7419875f61ef4bfe81b0de8db55e94569e25b5315562e21afecfa96b6618828e",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/standards-r4.json",
+      "bytes": 25149,
+      "sha256": "4dc7b5ebb47ad255254858453206ccc6ce9a5d458af3e85729c6ebcfd9295c08",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r1.md",
+      "bytes": 23626,
+      "sha256": "b44bce5a8db5f76c72b02e5f6473508d704a6011d9a4aa8c0cfdcff99836a739",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r1.json",
+      "bytes": 7995,
+      "sha256": "cd9f2a23edc85a2f72e190e689bc46ff83ea79cb0008ab67e3b4ebfe3d32da39",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r2.md",
+      "bytes": 5787,
+      "sha256": "4e866716a504af63933da77f5800eea3d6f27fcf2dd63aa72e0ffb0d5f850916",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r2.json",
+      "bytes": 4782,
+      "sha256": "406fff7f30ab95a59d11a15770f945ce35c2068ee2c0bbef2d4476f29d4d8246",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r3.md",
+      "bytes": 22727,
+      "sha256": "fc833cd10a81c0361102c41aa15fb75f61cef1ccf7c8486b1a338730843c0d7e",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r3.json",
+      "bytes": 13941,
+      "sha256": "eb683ad4ed572843406243120b322736d0e9285f19f266ff339c6257a3c7da09",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r3-navigation-addendum.md",
+      "bytes": 4596,
+      "sha256": "a63dbd0043f30b0436b06d161356a1c39dfb4a6bdb3b7e8c1fc0639332dd1928",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r4.md",
+      "bytes": 23888,
+      "sha256": "6c44f87397ef292ff65e4e805f7f45d7f9aab98e4cdaf35912a00da9f6ac66f0",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r4.json",
+      "bytes": 43879,
+      "sha256": "994a06bfa004d292f81f4928cc2724d4f7119555a5212c14c410d751f1c3066c",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/coordinator-r3.md",
+      "bytes": 7432,
+      "sha256": "c11162f4ae5399db0b91bc44d4bf047fed840484b7f5695bf1ec1d684d6de877",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/coordinator-r3.json",
+      "bytes": 4538,
+      "sha256": "3dababc52eedd0e5bcf389083f545eef27566a1611c27f9a871d48fd3c0e234c",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/coordinator-r4.md",
+      "bytes": 7997,
+      "sha256": "b004bcd1fb64783eaed37c07889ffe991784a1b980cc61b2b5f62f93850ba1e5",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/coordinator-r4.json",
+      "bytes": 12716,
+      "sha256": "cef99123f5702bb898002b11a5d518d52b71204d027e7069d62ec0068f6023c7",
+      "inspection_scope": "Retained complete same-loop analysis and stable finding history; recovered matching fingerprint. Structured records/history were read for R6 reconciliation; unchanged source analyses were reused, not restarted."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/preparation-r5.json",
+      "bytes": 9731,
+      "sha256": "21a3e653e051d86475524c72b4e7fb879c42d9c1069649e57f398392693e7018",
+      "inspection_scope": "Read fully in R6; immutable record of this same retained axis and coordinator R5 preparation/first-terminal work. None is a final R5 approval."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/preparation-r5-overlay.json",
+      "bytes": 7886,
+      "sha256": "ebb147cac707237bbf736178b3c41b35f728ae209a2b8befa40392c3723f2910",
+      "inspection_scope": "Read fully in R6; immutable record of this same retained axis and coordinator R5 preparation/first-terminal work. None is a final R5 approval."
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/first-terminal-r5.json",
+      "bytes": 6682,
+      "sha256": "9d0e55a96d5f6888b7ebc9991b3af48b78d3ad91a39f09569855628938686352",
+      "inspection_scope": "Read fully in R6; immutable record of this same retained axis and coordinator R5 preparation/first-terminal work. None is a final R5 approval."
+    }
+  ],
+  "operations": {
+    "compiler_or_checker_runs": 0,
+    "setup_or_install": 0,
+    "host_or_process_probes": 0,
+    "git_commands_or_source_writes": 0,
+    "canonical_checkpoint_writes": 0,
+    "remote_or_publication_operations": 0,
+    "repeated_large_source_audits": 0,
+    "subagents_created": 0,
+    "authorized_writes": [
+      "intake/review-r6/standards-r6.md",
+      "intake/review-r6/standards-r6.json"
+    ]
+  },
+  "markdown_companion": {
+    "path": "intake/review-r6/standards-r6.md",
+    "bytes": 17023,
+    "sha256": "0ab51f01ed663e1c62fe199b0a238851e43b64fcf4e1db8a792cf7bdc5e3b779"
+  }
+}

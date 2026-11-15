@@ -1,0 +1,1553 @@
+{
+  "schema": 1,
+  "prepared_utc": "2026-11-04T15:19:59.878965+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "status": "PREPARED ONLY; prospective J unaccepted, Tail receiver null and all receiving validation/type credit zero",
+  "control_root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control",
+  "immutable_Git_read_tree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+  "accepted_C1": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "accepted_foundation": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "accepted_shared_four_I": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "prospective_base_J": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "prospective_base_J_accepted": false,
+  "receiving_candidate": null,
+  "receiving_type_credit": 0,
+  "corrected_minimal_tail_tip": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+  "original_tail_base": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+  "original_tail_candidate": "a0597381f02eddd074ee96cabaa974f2062285f8",
+  "historical_actual815_candidate_Z": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "observed_refs": {
+    "work/fdsa-book": "312aafb4446b995ff5542041b4e2e074f776db1e",
+    "work/fdsa-foundation-integration": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "work/fdsa-shared-four-integration": "312aafb4446b995ff5542041b4e2e074f776db1e",
+    "work/fdsa-order-integration": "932438a765340d69fa6402f6abd17def6ec28d13"
+  },
+  "actual_merge_base_J_T": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+  "expected_future_parents": [
+    "932438a765340d69fa6402f6abd17def6ec28d13",
+    "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9"
+  ],
+  "proposed_branch": "work/fdsa-tail-integration",
+  "proposed_branch_absent_checked": true,
+  "normal_merge_recipe_unexecuted": [
+    [
+      "git",
+      "-C",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "switch",
+      "-c",
+      "work/fdsa-tail-integration",
+      "932438a765340d69fa6402f6abd17def6ec28d13"
+    ],
+    [
+      "git",
+      "-C",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "merge",
+      "--no-ff",
+      "--no-commit",
+      "-s",
+      "ort",
+      "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9"
+    ]
+  ],
+  "merge_or_merge_simulation_performed": false,
+  "original_to_corrected_history": [
+    "a0597381f02eddd074ee96cabaa974f2062285f8 4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8 feat(probability): formalize conditional remaining orders (#174)",
+    "97ed9feee78f723cb6294aa5148da9ab5846db7a a0597381f02eddd074ee96cabaa974f2062285f8 fix(fdsa): use proof-local instances for conditional remaining orders",
+    "6f76a4d552773044d3e9494dda8e663471d47e04 97ed9feee78f723cb6294aa5148da9ab5846db7a fix(fdsa): use current conditional rewrite names in tail laws (#174)",
+    "fa86bfb800c1e70cdf61fefd75b8cb2f428daea6 6f76a4d552773044d3e9494dda8e663471d47e04 fix(probability): preserve tail filter and conditional support rewrites (#174)",
+    "ee2ea2406a014e43c355f93317455f27b90dd680 fa86bfb800c1e70cdf61fefd75b8cb2f428daea6 fix: repair conditional-tail boundary proofs (#174)",
+    "13fc137c67e1dc974c833e81cd46042d757fa546 ee2ea2406a014e43c355f93317455f27b90dd680 fix(fdsa): elaborate conditional-tail boundary cases (#174)",
+    "070e3608c439aec23404d23e90de47c6cf835216 13fc137c67e1dc974c833e81cd46042d757fa546 fix(probability): lift tail mass arithmetic through NNReal (#174)",
+    "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9 070e3608c439aec23404d23e90de47c6cf835216 fix(fdsa): elaborate conditional-tail main examples (#174)"
+  ],
+  "six_path_scope": [
+    "Applications/Probability/PermutationTail.lean",
+    "Examples/PermutationTail.lean",
+    "Examples/PermutationTailBoundary.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-permutation-tail.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "original_base_to_tip_name_status": [
+    "A\tApplications/Probability/PermutationTail.lean",
+    "A\tExamples/PermutationTail.lean",
+    "A\tExamples/PermutationTailBoundary.lean",
+    "M\tSquareApplications.lean",
+    "A\tdocs/research/fdsa-permutation-tail.md",
+    "M\tdocs/research/fdsa-reconstruction-map.md"
+  ],
+  "six_path_source_identities": [
+    {
+      "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "path": "Applications/Probability/PermutationTail.lean",
+      "git_blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+      "bytes": 23521,
+      "lines": 487,
+      "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed"
+    },
+    {
+      "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "path": "Examples/PermutationTail.lean",
+      "git_blob": "baa3e26a3c72a4589765562167d1d85edc011e67",
+      "bytes": 9826,
+      "lines": 222,
+      "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e"
+    },
+    {
+      "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "path": "Examples/PermutationTailBoundary.lean",
+      "git_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0",
+      "bytes": 12064,
+      "lines": 266,
+      "sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54"
+    },
+    {
+      "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "path": "SquareApplications.lean",
+      "git_blob": "2cd4b70ebb4b89bfcfcd61c98f1b9594f5a38d7b",
+      "bytes": 8392,
+      "lines": 255,
+      "sha256": "7aedfca880167dc6a66e1b49b7ce1c5210c5f97ad090817061c5961c0b1aa321"
+    },
+    {
+      "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "path": "docs/research/fdsa-permutation-tail.md",
+      "git_blob": "233136b41f38efafa0d5e1d8f22d8c2864340335",
+      "bytes": 10367,
+      "lines": 203,
+      "sha256": "34162854a3bfabbec1e87bea6111b4939495cc27eb9ee811758dceaeb62dc96f"
+    },
+    {
+      "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "0655c5824d0e5b06a0c128de0ea0645fd8f116d3",
+      "bytes": 18893,
+      "lines": 312,
+      "sha256": "f519e995709de1e147439ebfc5a903a9e753883b49fd82f02d5bd484619acb9f"
+    }
+  ],
+  "six_corrected_predecessor_Lean_sources_to_preserve": [
+    {
+      "path": "Applications/Probability/PermutationMinimum.lean",
+      "original_merge_base_blob": "9be74c11fda2de70b0fa02fcb597c631dc8e666e",
+      "incoming_old_tip": {
+        "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+        "path": "Applications/Probability/PermutationMinimum.lean",
+        "git_blob": "9be74c11fda2de70b0fa02fcb597c631dc8e666e",
+        "bytes": 8244,
+        "lines": 197,
+        "sha256": "648a2d799ea9905a27992ad4e8653ad21a0457c5301e8c0a026d08d9cd067bbb"
+      },
+      "required_current_J": {
+        "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+        "path": "Applications/Probability/PermutationMinimum.lean",
+        "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+        "bytes": 8241,
+        "lines": 197,
+        "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64"
+      },
+      "incoming_equals_merge_base": true,
+      "required_source_equals_Z": true,
+      "actual_merge_result": null
+    },
+    {
+      "path": "Examples/PermutationMinimum.lean",
+      "original_merge_base_blob": "e49e17a2a70836bd2cb8d4fc9bf799dd2be6bad9",
+      "incoming_old_tip": {
+        "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+        "path": "Examples/PermutationMinimum.lean",
+        "git_blob": "e49e17a2a70836bd2cb8d4fc9bf799dd2be6bad9",
+        "bytes": 4891,
+        "lines": 126,
+        "sha256": "b1cef98f9814eb53668cc29896bad750d2b687c4bc162c7ad500e1df82a09442"
+      },
+      "required_current_J": {
+        "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+        "path": "Examples/PermutationMinimum.lean",
+        "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+        "bytes": 4994,
+        "lines": 127,
+        "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1"
+      },
+      "incoming_equals_merge_base": true,
+      "required_source_equals_Z": true,
+      "actual_merge_result": null
+    },
+    {
+      "path": "Examples/PermutationMinimumBoundary.lean",
+      "original_merge_base_blob": "05642e65256626b6ac881c9c2fe6de822858ca2d",
+      "incoming_old_tip": {
+        "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+        "path": "Examples/PermutationMinimumBoundary.lean",
+        "git_blob": "05642e65256626b6ac881c9c2fe6de822858ca2d",
+        "bytes": 4173,
+        "lines": 113,
+        "sha256": "d169fc8ccac457d71978bd1a209ab610338dd601fe816e40f9f0666164cca34d"
+      },
+      "required_current_J": {
+        "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+        "path": "Examples/PermutationMinimumBoundary.lean",
+        "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+        "bytes": 4211,
+        "lines": 113,
+        "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b"
+      },
+      "incoming_equals_merge_base": true,
+      "required_source_equals_Z": true,
+      "actual_merge_result": null
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "original_merge_base_blob": "948b428687adb0c370c30298ce22c02e1bd863b6",
+      "incoming_old_tip": {
+        "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+        "path": "Applications/Probability/PermutationOrder.lean",
+        "git_blob": "948b428687adb0c370c30298ce22c02e1bd863b6",
+        "bytes": 15172,
+        "lines": 319,
+        "sha256": "b427902814c19d269c850c97cb43728034d03df2539c5e357ce7ce715191298f"
+      },
+      "required_current_J": {
+        "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+        "path": "Applications/Probability/PermutationOrder.lean",
+        "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+        "bytes": 15304,
+        "lines": 321,
+        "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2"
+      },
+      "incoming_equals_merge_base": true,
+      "required_source_equals_Z": true,
+      "actual_merge_result": null
+    },
+    {
+      "path": "Examples/PermutationOrder.lean",
+      "original_merge_base_blob": "c6f0d7d2a08b5bfc1b9b34563a8a5578a3fcd52d",
+      "incoming_old_tip": {
+        "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+        "path": "Examples/PermutationOrder.lean",
+        "git_blob": "c6f0d7d2a08b5bfc1b9b34563a8a5578a3fcd52d",
+        "bytes": 6445,
+        "lines": 146,
+        "sha256": "251c0ee0ce7b96711ea57e1ff7496a784fe33137596e8f13b244fa9e44fd57e5"
+      },
+      "required_current_J": {
+        "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+        "path": "Examples/PermutationOrder.lean",
+        "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+        "bytes": 6706,
+        "lines": 152,
+        "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084"
+      },
+      "incoming_equals_merge_base": true,
+      "required_source_equals_Z": true,
+      "actual_merge_result": null
+    },
+    {
+      "path": "Examples/PermutationOrderBoundary.lean",
+      "original_merge_base_blob": "9e384a46b8fda579ccee3605928a0fde864c881e",
+      "incoming_old_tip": {
+        "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+        "path": "Examples/PermutationOrderBoundary.lean",
+        "git_blob": "9e384a46b8fda579ccee3605928a0fde864c881e",
+        "bytes": 5434,
+        "lines": 144,
+        "sha256": "35c9768d94fd12e553905244a69ffa375e01e469098856b311ac17ad88533fea"
+      },
+      "required_current_J": {
+        "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+        "path": "Examples/PermutationOrderBoundary.lean",
+        "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+        "bytes": 5605,
+        "lines": 148,
+        "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121"
+      },
+      "incoming_equals_merge_base": true,
+      "required_source_equals_Z": true,
+      "actual_merge_result": null
+    }
+  ],
+  "two_predecessor_public_notes_to_preserve": [
+    {
+      "path": "docs/research/fdsa-permutation-minimum.md",
+      "incoming_old_tip": {
+        "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+        "path": "docs/research/fdsa-permutation-minimum.md",
+        "git_blob": "47f66cf564187d8326cdd880f0c8a36e51aa9101",
+        "bytes": 7608,
+        "lines": 138,
+        "sha256": "9b0ac9218e6a82f40e61faf97447af33adcccfafb60498a4f33acbfce91f5a31"
+      },
+      "required_current_J": {
+        "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+        "path": "docs/research/fdsa-permutation-minimum.md",
+        "git_blob": "052101180ceaf79f81e0873f24160fc73ae52f33",
+        "bytes": 7970,
+        "lines": 146,
+        "sha256": "2054bf4d6cd371b8570fca003f0fe704793377d261cb8e5f10306022e5b2dcc8"
+      },
+      "incoming_equals_merge_base": true
+    },
+    {
+      "path": "docs/research/fdsa-permutation-order.md",
+      "incoming_old_tip": {
+        "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+        "path": "docs/research/fdsa-permutation-order.md",
+        "git_blob": "d3a16fc8713c5dda2797a07ad14f3174ea97f841",
+        "bytes": 8851,
+        "lines": 166,
+        "sha256": "39fd16835dccd39c9d34ebfcebbdbdd33f44ec1dad49fdfe582a8ac4801faea3"
+      },
+      "required_current_J": {
+        "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+        "path": "docs/research/fdsa-permutation-order.md",
+        "git_blob": "8d8f68c95185bd787ce26bb5ba6cf3a6f652862a",
+        "bytes": 9343,
+        "lines": 175,
+        "sha256": "5368374d61ac214c5609fbaedd3c5449a737a114947978631d1de7893a00d35f"
+      },
+      "incoming_equals_merge_base": true
+    }
+  ],
+  "current_J_root_map_identities": [
+    {
+      "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+      "path": "SquareApplications.lean",
+      "git_blob": "2bc1fad47c4993199eccd91ee4b249726619d3dc",
+      "bytes": 8577,
+      "lines": 261,
+      "sha256": "63edc6ab268c318e6788a6ef46cd14aa3a6b021b65971c591b0c9023adb1b2a9"
+    },
+    {
+      "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "d25451ccf02cde119a880d063aa7c0ade5e81cd2",
+      "bytes": 40314,
+      "lines": 614,
+      "sha256": "a39ec672e120fe7761e950f59acfc1ab4cbee282ad69b22934b1e24cdc5f56e7"
+    }
+  ],
+  "prospective_static_local_source_closure": {
+    "Applications/Probability/PermutationTail.lean": {
+      "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "path": "Applications/Probability/PermutationTail.lean",
+      "git_blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+      "bytes": 23521,
+      "lines": 487,
+      "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed"
+    },
+    "Applications/Probability/PermutationOrder.lean": {
+      "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+      "bytes": 15304,
+      "lines": 321,
+      "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2"
+    },
+    "Examples/PermutationTail.lean": {
+      "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "path": "Examples/PermutationTail.lean",
+      "git_blob": "baa3e26a3c72a4589765562167d1d85edc011e67",
+      "bytes": 9826,
+      "lines": 222,
+      "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e"
+    },
+    "Examples/PermutationOrder.lean": {
+      "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+      "path": "Examples/PermutationOrder.lean",
+      "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+      "bytes": 6706,
+      "lines": 152,
+      "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084"
+    },
+    "Examples/PermutationOrderBoundary.lean": {
+      "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+      "path": "Examples/PermutationOrderBoundary.lean",
+      "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+      "bytes": 5605,
+      "lines": 148,
+      "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121"
+    },
+    "Examples/PermutationMinimum.lean": {
+      "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+      "path": "Examples/PermutationMinimum.lean",
+      "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+      "bytes": 4994,
+      "lines": 127,
+      "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1"
+    },
+    "Applications/Probability/PermutationMinimum.lean": {
+      "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+      "path": "Applications/Probability/PermutationMinimum.lean",
+      "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+      "bytes": 8241,
+      "lines": 197,
+      "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64"
+    },
+    "Examples/PermutationMinimumBoundary.lean": {
+      "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+      "path": "Examples/PermutationMinimumBoundary.lean",
+      "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+      "bytes": 4211,
+      "lines": 113,
+      "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b"
+    },
+    "Examples/PermutationTailBoundary.lean": {
+      "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "path": "Examples/PermutationTailBoundary.lean",
+      "git_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0",
+      "bytes": 12064,
+      "lines": 266,
+      "sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54"
+    }
+  },
+  "static_local_import_edges": [
+    [
+      "Applications/Probability/PermutationTail.lean",
+      "Applications/Probability/PermutationOrder.lean"
+    ],
+    [
+      "Examples/PermutationTail.lean",
+      "Applications/Probability/PermutationTail.lean"
+    ],
+    [
+      "Examples/PermutationTail.lean",
+      "Examples/PermutationOrder.lean"
+    ],
+    [
+      "Examples/PermutationOrder.lean",
+      "Applications/Probability/PermutationOrder.lean"
+    ],
+    [
+      "Examples/PermutationOrder.lean",
+      "Examples/PermutationOrderBoundary.lean"
+    ],
+    [
+      "Examples/PermutationOrderBoundary.lean",
+      "Applications/Probability/PermutationOrder.lean"
+    ],
+    [
+      "Examples/PermutationOrderBoundary.lean",
+      "Examples/PermutationMinimum.lean"
+    ],
+    [
+      "Examples/PermutationMinimum.lean",
+      "Applications/Probability/PermutationMinimum.lean"
+    ],
+    [
+      "Examples/PermutationMinimum.lean",
+      "Examples/PermutationMinimumBoundary.lean"
+    ],
+    [
+      "Examples/PermutationMinimumBoundary.lean",
+      "Applications/Probability/PermutationMinimum.lean"
+    ],
+    [
+      "Examples/PermutationTail.lean",
+      "Examples/PermutationTailBoundary.lean"
+    ],
+    [
+      "Examples/PermutationTailBoundary.lean",
+      "Applications/Probability/PermutationTail.lean"
+    ],
+    [
+      "Examples/PermutationTailBoundary.lean",
+      "Examples/PermutationOrder.lean"
+    ]
+  ],
+  "distinct_external_imports": [
+    "Mathlib.Basic.ENNReal.Inv",
+    "Mathlib.Data.Finset.Card",
+    "Mathlib.Data.Finset.Lattice.Lemmas",
+    "Mathlib.Data.Finset.Max",
+    "Mathlib.Data.Fintype.OfMap",
+    "Mathlib.Data.Fintype.Perm",
+    "Mathlib.Data.List.Basic",
+    "Mathlib.Data.List.Nodup",
+    "Mathlib.Data.List.Permutation",
+    "Mathlib.Data.Nat.Factorial.Basic",
+    "Mathlib.Data.Set.Card",
+    "Mathlib.Logic.Equiv.Fintype",
+    "Mathlib.Logic.Equiv.List",
+    "Mathlib.MeasureTheory.Measure.AEMeasurable",
+    "Mathlib.Probability.ConditionalProbability",
+    "Mathlib.Probability.HasLaw",
+    "Mathlib.Probability.UniformOn",
+    "Mathlib.Tactic",
+    "Mathlib.Tactic.FinCases"
+  ],
+  "local_source_count": 9,
+  "external_import_count": 19,
+  "all_nine_local_sources_match_historical_Z": true,
+  "existing_J_Lean_modules_importing_Tail": [],
+  "source_only_qualification_boundary": "These exact sources and existing semantic assessments are the source-compatible subset. No compiler objects, traces, current dependency paths, config/runtime execution observations or receiving inputs were captured. Root reports a concrete historical-Z/current trace and dependency-path gap; this author has not resolved it. Source equality alone does not qualify reuse. Actual receiving matching/lineage and both independent dispositions remain required.",
+  "prior_root_trace_gap_source": "Coordinator task message for this preparation, 4 November 2026; not independently re-investigated or assigned invented artifact hashes.",
+  "explicit_scope_counts": {
+    "public": 61,
+    "private_named": 19,
+    "anonymous_instances": 8,
+    "anonymous_examples": 0,
+    "by_module": {
+      "Applications/Probability/PermutationTail.lean": {
+        "public_count": 15,
+        "private_count": 8,
+        "anonymous_instances": 0
+      },
+      "Examples/PermutationTail.lean": {
+        "public_count": 24,
+        "private_count": 1,
+        "anonymous_instances": 2
+      },
+      "Examples/PermutationTailBoundary.lean": {
+        "public_count": 22,
+        "private_count": 10,
+        "anonymous_instances": 6
+      }
+    }
+  },
+  "existing_standalone61_program": {
+    "path": "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+    "bytes": 4105,
+    "lines": 75,
+    "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa"
+  },
+  "program_reused_without_copy_or_execution": true,
+  "historical_84_program": {
+    "path": "provenance/chapter02-tail-numerical-statement-source-20261104/Statements.lean",
+    "bytes": 5051,
+    "lines": 94,
+    "sha256": "654cd35d4be30170e40b5c5c6ba5d8b351902db07ea899d46cbbeb2e2956c06e"
+  },
+  "historical_84_inventory": {
+    "path": "provenance/chapter02-tail-numerical-statement-source-20261104/inventory.json",
+    "bytes": 19310,
+    "lines": 568,
+    "sha256": "9b3d661055d4312438c6db31b52fd44f254ca99f9164cf6037c67c3050e0dea5"
+  },
+  "public_names_in_existing_program_order": [
+    "Applications.Probability.PermutationTail.firstEvent",
+    "Applications.Probability.PermutationTail.firstEvent_inter_tail",
+    "Applications.Probability.PermutationTail.cons_mem_orders",
+    "Applications.Probability.PermutationTail.tail_restrictedOrder_eq",
+    "Applications.Probability.PermutationTail.filter_tail_restrictedOrder_eq",
+    "Applications.Probability.PermutationTail.firstEvent_restrictedOrder_of_not_mem",
+    "Applications.Probability.PermutationTail.cond_firstEvent_restrictedOrder_of_not_mem",
+    "Applications.Probability.PermutationTail.uniformOn_firstEvent",
+    "Applications.Probability.PermutationTail.cond_uniformOn_firstEvent",
+    "Applications.Probability.PermutationTail.cond_tail_eq",
+    "Applications.Probability.PermutationTail.map_tail_cond_first",
+    "Applications.Probability.PermutationTail.head_mass_of_hasLaw",
+    "Applications.Probability.PermutationTail.hasLaw_tail_cond_first",
+    "Applications.Probability.PermutationTail.hasLaw_filter_tail_cond_first",
+    "Applications.Probability.PermutationTail.map_restrictedOrder_cond_first",
+    "Examples.PermutationTail.observedOrder",
+    "Examples.PermutationTail.remaining",
+    "Examples.PermutationTail.tailOrder",
+    "Examples.PermutationTail.afterFirst",
+    "Examples.PermutationTail.observed_hasLaw",
+    "Examples.PermutationTail.first_mass",
+    "Examples.PermutationTail.afterFirst_eq_uniformOn",
+    "Examples.PermutationTail.tail_hasLaw",
+    "Examples.PermutationTail.tail_map",
+    "Examples.PermutationTail.tail_23_mass",
+    "Examples.PermutationTail.tail_32_mass",
+    "Examples.PermutationTail.repeated_tail_mass_zero",
+    "Examples.PermutationTail.filteredTail",
+    "Examples.PermutationTail.filtered_tail_hasLaw",
+    "Examples.PermutationTail.filtered_tail_eq_projection",
+    "Examples.PermutationTail.filtered_tail_mass",
+    "Examples.PermutationTail.remaining_projection_map",
+    "Examples.PermutationTail.afterFirst_first_event_mass",
+    "Examples.PermutationTail.environment_changed",
+    "Examples.PermutationTail.second_head_mass",
+    "Examples.PermutationTail.afterSecond",
+    "Examples.PermutationTail.lastTail",
+    "Examples.PermutationTail.last_tail_hasLaw",
+    "Examples.PermutationTail.last_tail_mass",
+    "Examples.PermutationTailBoundary.swap01",
+    "Examples.PermutationTailBoundary.swap01_global_order",
+    "Examples.PermutationTailBoundary.swap01_selected_order",
+    "Examples.PermutationTailBoundary.swap01_first_events",
+    "Examples.PermutationTailBoundary.singleton_conditional_tail_mass",
+    "Examples.PermutationTailBoundary.empty_subset_none_mass",
+    "Examples.PermutationTailBoundary.empty_subset_first_event",
+    "Examples.PermutationTailBoundary.empty_subset_conditional_zero",
+    "Examples.PermutationTailBoundary.outsider_first_event",
+    "Examples.PermutationTailBoundary.outsider_conditional_zero",
+    "Examples.PermutationTailBoundary.empty_indices_none_mass",
+    "Examples.PermutationTailBoundary.counterPositions",
+    "Examples.PermutationTailBoundary.conditionSubset",
+    "Examples.PermutationTailBoundary.outsideSubset",
+    "Examples.PermutationTailBoundary.counterLaw",
+    "Examples.PermutationTailBoundary.counterFirst",
+    "Examples.PermutationTailBoundary.outsideConditional",
+    "Examples.PermutationTailBoundary.outside_subset_boundaries",
+    "Examples.PermutationTailBoundary.counter_first_mass",
+    "Examples.PermutationTailBoundary.outside_order_12_mass",
+    "Examples.PermutationTailBoundary.outside_order_21_mass",
+    "Examples.PermutationTailBoundary.outside_order_not_uniform"
+  ],
+  "private_named_declarations": [
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 143,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem factorial_card_erase (S : Finset I) (a : I) (ha : a ∈ S) :",
+      "name": "Applications.Probability.PermutationTail.factorial_card_erase",
+      "unit": "XU03"
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 150,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem factorial_ratio_head (S : Finset I) (a : I) (ha : a ∈ S) :",
+      "name": "Applications.Probability.PermutationTail.factorial_ratio_head",
+      "unit": "XU03"
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 161,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem factorial_ratio_tail (S : Finset I) (a : I) (ha : a ∈ S) :",
+      "name": "Applications.Probability.PermutationTail.factorial_ratio_tail",
+      "unit": "XU03"
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 302,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem restrictedOrder_hasLaw",
+      "name": "Applications.Probability.PermutationTail.restrictedOrder_hasLaw",
+      "unit": "XU03"
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 317,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem hasLaw_cond {A B : Type*} [MeasurableSpace A] [MeasurableSpace B]",
+      "name": "Applications.Probability.PermutationTail.hasLaw_cond",
+      "unit": "XU03"
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 330,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem orders_head_mass",
+      "name": "Applications.Probability.PermutationTail.orders_head_mass",
+      "unit": "XU03"
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 370,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem tail_hasLaw_orders_cond",
+      "name": "Applications.Probability.PermutationTail.tail_hasLaw_orders_cond",
+      "unit": "XU03"
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 421,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem filter_hasLaw_orders",
+      "name": "Applications.Probability.PermutationTail.filter_hasLaw_orders",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 83,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem mass_of_law {Ω : Type*} [MeasurableSpace Ω]",
+      "name": "Examples.PermutationTail.mass_of_law",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 105,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem counterPositions_nodup : counterPositions.Nodup := by decide",
+      "name": "Examples.PermutationTailBoundary.counterPositions_nodup",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 107,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem counterPositions_complete (a : Fin 3) : a ∈ counterPositions := by",
+      "name": "Examples.PermutationTailBoundary.counterPositions_complete",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 129,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem counter_full_mass (xs : List (Fin 3))",
+      "name": "Examples.PermutationTailBoundary.counter_full_mass",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 138,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem joint12_table :",
+      "name": "Examples.PermutationTailBoundary.joint12_table",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 148,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem joint21_table :",
+      "name": "Examples.PermutationTailBoundary.joint21_table",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 158,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem counter_joint12 :",
+      "name": "Examples.PermutationTailBoundary.counter_joint12",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 173,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem counter_joint21 :",
+      "name": "Examples.PermutationTailBoundary.counter_joint21",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 190,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem full_fibers_disjoint :",
+      "name": "Examples.PermutationTailBoundary.full_fibers_disjoint",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 199,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem counter_joint12_mass :",
+      "name": "Examples.PermutationTailBoundary.counter_joint12_mass",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 210,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem counter_joint21_mass :",
+      "name": "Examples.PermutationTailBoundary.counter_joint21_mass",
+      "unit": "XU03"
+    }
+  ],
+  "anonymous_instances": [
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 35,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSpace (Equiv.Perm (Fin 4)) := ⊤",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 36,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSpace (List (Fin 4)) := ⊤",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 26,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSpace (Equiv.Perm (Fin 4)) := ⊤",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 27,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSingletonClass (Equiv.Perm (Fin 4)) :=",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 29,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSpace (Equiv.Perm (Fin 3)) := ⊤",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 30,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSingletonClass (Equiv.Perm (Fin 3)) :=",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 32,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSpace (Equiv.Perm Empty) := ⊤",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 33,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSingletonClass (Equiv.Perm Empty) :=",
+      "unit": "XU03"
+    }
+  ],
+  "compiler_generated_scope": "Retained full source/build/exhaustive-audit obligation; no guessed generated names or source counts treated as kernel totals.",
+  "historical_actual815_positions": [
+    203,
+    263
+  ],
+  "historical_focused_individual_results": [
+    {
+      "unit": "XU03",
+      "run": "chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6",
+      "candidate": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+      "aggregate_exit": 1,
+      "completed_utc": "2026-11-04T08:23:37.410780+00:00",
+      "module": "Applications.Probability.PermutationTail",
+      "individual_success": {
+        "line": 91,
+        "text": "⚠ [3634/3637] Built Applications.Probability.PermutationTail (90s)"
+      },
+      "source_matches_corrected_tip": true,
+      "result": {
+        "path": "provenance/chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6/result.json",
+        "bytes": 1833,
+        "lines": 46,
+        "sha256": "1e40ac4caff1953928a946f37c850f9673d98472628517318cf510630d5e5233"
+      },
+      "full_log": {
+        "path": "provenance/chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6/full.log",
+        "bytes": 48390,
+        "lines": 468,
+        "sha256": "4d18122cfbe8698979673c10b4bdf76b0fb7442d48f75882b95d89c6bae1aa95"
+      },
+      "no_whole_candidate_or_acceptance_credit": true
+    },
+    {
+      "unit": "XU03",
+      "run": "chapter02-tail-and-uniform-examples-focused-20261104-attempt9",
+      "candidate": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+      "aggregate_exit": 1,
+      "completed_utc": "2026-11-04T09:31:46.501639+00:00",
+      "module": "Examples.PermutationTailBoundary",
+      "individual_success": {
+        "line": 34,
+        "text": "⚠ [3602/3604] Built Examples.PermutationTailBoundary (128s)"
+      },
+      "source_matches_corrected_tip": true,
+      "result": {
+        "path": "provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/result.json",
+        "bytes": 1271,
+        "lines": 33,
+        "sha256": "f925a826447c43a82479d93c67200b82887840f9791d40879f9a5c763def2445"
+      },
+      "full_log": {
+        "path": "provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/full.log",
+        "bytes": 17133,
+        "lines": 115,
+        "sha256": "8da63603aa28b114dc5f183bdc4a1be9abe470ebfef1c5bf3353628be979fd0f"
+      },
+      "no_whole_candidate_or_acceptance_credit": true
+    },
+    {
+      "unit": "XU03",
+      "run": "chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10",
+      "candidate": "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+      "aggregate_exit": 1,
+      "completed_utc": "2026-11-04T10:00:54.347234+00:00",
+      "module": "Examples.PermutationTail",
+      "individual_success": {
+        "line": 36,
+        "text": "⚠ [3603/3626] Built Examples.PermutationTail (331s)"
+      },
+      "source_matches_corrected_tip": true,
+      "result": {
+        "path": "provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/result.json",
+        "bytes": 1236,
+        "lines": 32,
+        "sha256": "94675fff74381b0954e5b08056d1242d7a68eccdf5ce45bcffc7a810b67c227a"
+      },
+      "full_log": {
+        "path": "provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/full.log",
+        "bytes": 19463,
+        "lines": 170,
+        "sha256": "35f0f9ea785a94ec66026c0483d566be1a611efb9a699362d0a5b5eed3941ccd"
+      },
+      "no_whole_candidate_or_acceptance_credit": true
+    }
+  ],
+  "documentary_proposal": {
+    "SquareApplications.lean": {
+      "insert_after": "import Examples.PermutationOrder",
+      "insert_only": "import Examples.PermutationTail",
+      "preserve_all_other_current_J_imports": true
+    },
+    "docs/research/fdsa-permutation-tail.md": {
+      "starting_proposal": "provenance/chapter02-shared-notes-status-correction1-20261104/proposed/fdsa-permutation-tail.md",
+      "old_proposal_retained_unchanged": true,
+      "replace_only_validation_snapshot_paragraph_with": "**Development validation — 4 November 2026.** The conditional-tail core and both example modules had individual compilation successes in development checks that failed overall. All 61 explicit public declarations from the corrected source were subsequently included in the successful 815-declaration type inspection at `4b5dbfa07288acc73f25c27838d3fb2f78e77d71`; both independent reviewers assessed their complete printed types. These are historical results for that development candidate. Reuse requires matching integration-candidate evidence. The full acceptance gates below remain required.",
+      "preserve_original_prepared_opening_and_later_uncompiled_claim_removals": true,
+      "preserve_prepared_normative_predecessor_acceptance_sentence": true,
+      "all_other_math_contract_source_case_notice_gate_bytes_retained": true
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "preserve_complete_J_prefix": true,
+      "append_complete_original_Tail_section": true,
+      "replace_only_exact_old_sentence": "The source is uncompiled and\nunaccepted.",
+      "replacement_sentence": "The source note retains the 4 November 2026 development validation history; full immutable-candidate acceptance gates remain required.",
+      "retain_following_Local_FDSA_XU03_sentence": true
+    }
+  },
+  "findings_to_continue": [
+    "XU03-SRC-001",
+    "XU03-ELAB-001",
+    "XU03-ELAB-002",
+    "XU03-BND-ELAB-001",
+    "XU03-BND-ELAB-002-006",
+    "XU03-BND-ELAB-007-009",
+    "XU03-ELAB3-01",
+    "XU03-ELAB3-02",
+    "XU03-ELAB3-03",
+    "XU03-ELAB3-04",
+    "XU03-ELAB3-05",
+    "XU03-ELAB3-06",
+    "XU03-ELAB3-07",
+    "XU03-ELAB3-08",
+    "XU03-ELAB3-09",
+    "XU03-ELAB3-10",
+    "XU03-ELAB3-11",
+    "XU03-ELAB3-12",
+    "XU03-ELAB3-13",
+    "XU03-ELAB3-14",
+    "XU03-ELAB3-15",
+    "XU03-ELAB3-16",
+    "XU03-MAIN-ELAB-001",
+    "XU03-MAIN-ELAB-002",
+    "XU03-MAIN-ELAB-003",
+    "XU03-MAIN-ELAB-004",
+    "XU03-MAIN-ELAB-005",
+    "XU03-MAIN-ELAB-006",
+    "C02-DOC-003"
+  ],
+  "additional_unchanged_corrections_without_invented_finding_IDs": [
+    "Six current ite rewrite names at 6f76a4d; retain exact original API correction record.",
+    "Three boundary NNReal-to-ENNReal proof transports at 070e3608; retain correction4 and actual failed/successful arithmetic probe history."
+  ],
+  "no_original_XU03_SP_finding": "The bounded original contributor preflight explicitly opened no XU03-SP finding; do not invent one.",
+  "C02_TYPE_001": "Historically resolved by both axes at exact Z only; no receiving qualification or acceptance credit.",
+  "required_continuation_groups": {
+    "Original frozen scope and preparation": [
+      "tickets/FDSA-XU03.md",
+      "reviews/permutation-tail-requirements.md",
+      "reviews/permutation-tail-start.md",
+      "reviews/permutation-tail-candidate.md",
+      "research/permutation-tail-api-preflight.md",
+      "research/permutation-tail-source-preflight.md",
+      "research/permutation-tail-calculations.json",
+      "research/permutation-tail-draft-preflight.md"
+    ],
+    "Existing complete C2 independent source/type continuation": [
+      "reviews/chapter02-round1.md",
+      "reviews/chapter02-standards-source-preparation-20261104.md",
+      "reviews/chapter02-spec-source-preparation-20261104.md",
+      "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-4b5dbfa0.json",
+      "provenance/chapter02-spec-source-preparation-20261104/source-scope-successor-4b5dbfa0.json",
+      "provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+      "provenance/chapter02-spec-source-preparation-20261104/actual815-complete-spec-assessment-4b5dbfa0.json",
+      "provenance/chapter02-standards-source-preparation-20261104/actual815-execution-input-assessment-4b5dbfa0.json",
+      "provenance/chapter02-spec-source-preparation-20261104/actual815-execution-input-qualification.json"
+    ],
+    "Corrections and stable findings": [
+      "provenance/chapter02-xu03-proof-style-correction-20261104/result.json",
+      "provenance/chapter02-xu03-proof-style-correction-20261104/correction.diff",
+      "provenance/chapter02-xu03-api-correction-20261104/result.json",
+      "provenance/chapter02-xu03-api-correction-20261104/correction.diff",
+      "provenance/chapter02-xu03-elaboration-correction1-20261104/result.json",
+      "provenance/chapter02-xu03-elaboration-correction1-20261104/source.diff",
+      "provenance/chapter02-xu03-boundary-elaboration-correction2-20261104/result.json",
+      "provenance/chapter02-xu03-boundary-elaboration-correction2-20261104/source.diff",
+      "provenance/chapter02-xu03-boundary-elaboration-correction3-20261104/findings.json",
+      "provenance/chapter02-xu03-boundary-elaboration-correction3-20261104/receipt.json",
+      "provenance/chapter02-xu03-boundary-elaboration-correction3-20261104/root-source-assessment.json",
+      "provenance/chapter02-xu03-boundary-elaboration-correction4-20261104/source-preparation.json",
+      "provenance/chapter02-xu03-boundary-elaboration-correction4-20261104/receipt.json",
+      "provenance/chapter02-xu03-main-elaboration-correction5-20261104/diagnostic-mapping.json",
+      "provenance/chapter02-xu03-main-elaboration-correction5-20261104/receipt.json",
+      "provenance/chapter02-xu03-main-elaboration-correction5-20261104/commit-record.json"
+    ],
+    "Historical note proposals and assessments": [
+      "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-permutation-tail.md",
+      "provenance/chapter02-shared-notes-status-preparation-20261104/patches/fdsa-permutation-tail.md.patch",
+      "provenance/chapter02-shared-notes-status-preparation-20261104/receipt.json",
+      "provenance/chapter02-shared-notes-status-correction1-20261104/proposed/fdsa-permutation-tail.md",
+      "provenance/chapter02-shared-notes-status-correction1-20261104/patches/fdsa-permutation-tail-vs-original.patch",
+      "provenance/chapter02-shared-notes-status-correction1-20261104/patches/fdsa-permutation-tail-vs-prior-proposal.patch",
+      "provenance/chapter02-shared-notes-status-correction1-20261104/receipt.json",
+      "provenance/chapter02-standards-source-preparation-20261104/shared-note-proposals-assessment-6b95185.json",
+      "provenance/chapter02-spec-source-preparation-20261104/shared-note-status-assessment-5398db.json",
+      "provenance/chapter02-spec-source-preparation-20261104/shared-notes-six-plus-correction1-assessment.json"
+    ],
+    "Historical actual815 and observed inputs": [
+      "provenance/chapter02-complete-public-statements815-20261104-attempt1/result.json",
+      "provenance/chapter02-complete-public-statements815-20261104-attempt1/secured-terminal.json",
+      "provenance/chapter02-complete-public-statements815-20261104-attempt1/actual-type-ranges.json",
+      "provenance/chapter02-complete-public-statements815-20261104-attempt1/full.log",
+      "provenance/chapter02-statements815-input-observations-20261104-attempt1/pre-inputs.json",
+      "provenance/chapter02-statements815-input-observations-20261104-attempt1/post-inputs.json"
+    ],
+    "Existing type programs and held source bindings": [
+      "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+      "provenance/shared-order-tail-acceptance-preparation-20261104/inventory.json",
+      "provenance/shared-order-tail-acceptance-preparation-20261104/source-and-evidence.json",
+      "provenance/shared-order-tail-acceptance-preparation-20261104/receipt.json",
+      "provenance/chapter02-tail-numerical-statement-source-20261104/Statements.lean",
+      "provenance/chapter02-tail-numerical-statement-source-20261104/inventory.json"
+    ],
+    "Prior sequence, Order readiness and immutable J handoff": [
+      "REQUEST.md",
+      "reviews/shared-integration-preflight.md",
+      "provenance/shared-acceptance-sequence-20261104/plan.md",
+      "provenance/shared-acceptance-sequence-20261104/receipt.json",
+      "provenance/shared-order-integration-readiness-20261104/readiness.md",
+      "provenance/shared-order-integration-readiness-20261104/inventory.json",
+      "provenance/shared-order-integration-readiness-20261104/receipt.json",
+      "provenance/shared-order-source-integration-20261104/handoff.md",
+      "provenance/shared-order-source-integration-20261104/result.json",
+      "provenance/shared-order-source-integration-20261104/receipt.json",
+      "provenance/shared-order-source-integration-20261104/source.diff"
+    ]
+  },
+  "existing_file_identities": [
+    {
+      "path": "tickets/FDSA-XU03.md",
+      "bytes": 11715,
+      "lines": 184,
+      "sha256": "749a5b2791a9cac4e38a52724fdf2f0181103499cc20637e567ad72a747d8c40"
+    },
+    {
+      "path": "reviews/permutation-tail-requirements.md",
+      "bytes": 12866,
+      "lines": 229,
+      "sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c"
+    },
+    {
+      "path": "reviews/permutation-tail-start.md",
+      "bytes": 4119,
+      "lines": 72,
+      "sha256": "7513827aea4d3596424833662104178101e8a73459b92a19613bd9bc39fa88bc"
+    },
+    {
+      "path": "reviews/permutation-tail-candidate.md",
+      "bytes": 10377,
+      "lines": 169,
+      "sha256": "7c191e45deb2928b3e15c13dfa431e48815ab58c4867959ed46a3075d7dbe383"
+    },
+    {
+      "path": "research/permutation-tail-api-preflight.md",
+      "bytes": 33920,
+      "lines": 685,
+      "sha256": "4488c46c39a6c3bec7f906079686ae76062b9281f056b3782aea1da4f5feff46"
+    },
+    {
+      "path": "research/permutation-tail-source-preflight.md",
+      "bytes": 14509,
+      "lines": 289,
+      "sha256": "b81176f85c477674aa73133f567d655038f6d09324adfddb614364dcbd17646e"
+    },
+    {
+      "path": "research/permutation-tail-calculations.json",
+      "bytes": 4642,
+      "lines": 261,
+      "sha256": "b614ea7eb98b3aaba5c15006a967e1d8da51fc373d5b963c99cdccce6b4632eb"
+    },
+    {
+      "path": "research/permutation-tail-draft-preflight.md",
+      "bytes": 10846,
+      "lines": 172,
+      "sha256": "8f5baa6f9403a579803a2efa6bb416ef31409535212bccba5e301b904580f368"
+    },
+    {
+      "path": "reviews/chapter02-round1.md",
+      "bytes": 19413,
+      "lines": 302,
+      "sha256": "b1fe3a4fa32966b663e94db5e9c2456baec9abd0fa204f375a5d1a2fff43b1a4"
+    },
+    {
+      "path": "reviews/chapter02-standards-source-preparation-20261104.md",
+      "bytes": 104381,
+      "lines": 421,
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    {
+      "path": "reviews/chapter02-spec-source-preparation-20261104.md",
+      "bytes": 109354,
+      "lines": 473,
+      "sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-4b5dbfa0.json",
+      "bytes": 27181,
+      "lines": 505,
+      "sha256": "3ae1e9749b8633e64a0adc14bb9cc96f5ee6cd5ba338dd45d55ddeac3df161d7"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/source-scope-successor-4b5dbfa0.json",
+      "bytes": 26429,
+      "lines": 721,
+      "sha256": "5bf3a45eab119bbd6b3d16547142282599ea2c26d5e1af986afc42d0ec544620"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+      "bytes": 23539,
+      "lines": 472,
+      "sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-complete-spec-assessment-4b5dbfa0.json",
+      "bytes": 23798,
+      "lines": 818,
+      "sha256": "116cf0a800841c3a18d338f446ce3a518455487de8e401dae1186a85c73ad878"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-execution-input-assessment-4b5dbfa0.json",
+      "bytes": 7434,
+      "lines": 156,
+      "sha256": "489ae557c9eef766ef9bf2e2e85d124fb71658c6546e707b494fe738c27d569a"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-execution-input-qualification.json",
+      "bytes": 6690,
+      "lines": 150,
+      "sha256": "9bf1f1e098997b9f4f01944c59b5578a32a4768e00fc0e68d1726c342bb82abe"
+    },
+    {
+      "path": "provenance/chapter02-xu03-proof-style-correction-20261104/result.json",
+      "bytes": 1022,
+      "lines": 17,
+      "sha256": "549a3551a0dc942b7bfea046b40eebd132e6a5a7ec7219f5bf09c58ca50e7e16"
+    },
+    {
+      "path": "provenance/chapter02-xu03-proof-style-correction-20261104/correction.diff",
+      "bytes": 5768,
+      "lines": 115,
+      "sha256": "f1fc825a316132aca7de80c6c9c1a0f1b43caaeda4b0ebe44dba4e8cb3204025"
+    },
+    {
+      "path": "provenance/chapter02-xu03-api-correction-20261104/result.json",
+      "bytes": 1406,
+      "lines": 19,
+      "sha256": "a94f26ce7b5c3e2c4bb63589242efc235df4664137b7346f6955c0829c22a702"
+    },
+    {
+      "path": "provenance/chapter02-xu03-api-correction-20261104/correction.diff",
+      "bytes": 3345,
+      "lines": 60,
+      "sha256": "385d12fc7a286f8dadf1aca3395ad9110aeee8956990fc84a3dd66bcfb84006a"
+    },
+    {
+      "path": "provenance/chapter02-xu03-elaboration-correction1-20261104/result.json",
+      "bytes": 2093,
+      "lines": 23,
+      "sha256": "146c1835b8926da8bdba018f764df9e0ad028d69925c19f554a79d9ac27c4340"
+    },
+    {
+      "path": "provenance/chapter02-xu03-elaboration-correction1-20261104/source.diff",
+      "bytes": 1366,
+      "lines": 26,
+      "sha256": "96f1e28383bb1b4ae4c147d4c42621e439c51d0f28414679b7d8e4eff5a6f1ad"
+    },
+    {
+      "path": "provenance/chapter02-xu03-boundary-elaboration-correction2-20261104/result.json",
+      "bytes": 1566,
+      "lines": 22,
+      "sha256": "c94b1f34f2c6cd60df9b1970a2292c4a7e69c71b8101c81600d69dd4098e601d"
+    },
+    {
+      "path": "provenance/chapter02-xu03-boundary-elaboration-correction2-20261104/source.diff",
+      "bytes": 4045,
+      "lines": 83,
+      "sha256": "88dfb2ca96cdec880f0ed48a5c4a2c0dcb5ec09ebff03c9c8cff277858b3e505"
+    },
+    {
+      "path": "provenance/chapter02-xu03-boundary-elaboration-correction3-20261104/findings.json",
+      "bytes": 10147,
+      "lines": 153,
+      "sha256": "dfe262403d1c2bd2d4745aa88ffb2042c6cb13e88e46b6c623142d70ceb9248f"
+    },
+    {
+      "path": "provenance/chapter02-xu03-boundary-elaboration-correction3-20261104/receipt.json",
+      "bytes": 2821,
+      "lines": 79,
+      "sha256": "c171fafe4d06a0d28143cdd28ecce99c959909e327b97e7a6623a968d5466ff7"
+    },
+    {
+      "path": "provenance/chapter02-xu03-boundary-elaboration-correction3-20261104/root-source-assessment.json",
+      "bytes": 1031,
+      "lines": 23,
+      "sha256": "e2b20163987c05b5622df7fa7c210db183006353f6b37f40a668f0685d9082be"
+    },
+    {
+      "path": "provenance/chapter02-xu03-boundary-elaboration-correction4-20261104/source-preparation.json",
+      "bytes": 1323,
+      "lines": 18,
+      "sha256": "c129aac6ddbc9c85069d38bcc414ca3db4c6c57112049e2a57913facda713a24"
+    },
+    {
+      "path": "provenance/chapter02-xu03-boundary-elaboration-correction4-20261104/receipt.json",
+      "bytes": 1866,
+      "lines": 27,
+      "sha256": "9f3aba1c6c4dd6efc3d6420f74fef56437e211b9b7b334c4d17204e74edc0799"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/diagnostic-mapping.json",
+      "bytes": 4638,
+      "lines": 78,
+      "sha256": "ea0e20ef216f657bc119d943ab709b32725811a5fcd973ea047b1b32cf0e314b"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/receipt.json",
+      "bytes": 6754,
+      "lines": 189,
+      "sha256": "c5b16c9c3b8dbbae37aebb35e122f98f923fe04236734cdf1768e70ec8d2b252"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/commit-record.json",
+      "bytes": 1056,
+      "lines": 24,
+      "sha256": "30a21a988bdf3751b1d65aa1f1bf15da29a540de76bb4f5116e0e1a9dc0fc664"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-permutation-tail.md",
+      "bytes": 10929,
+      "lines": 213,
+      "sha256": "7be59b23d2386f18a8ddd61cf9298fb5f55083d9432d0ccd0d9a7a8129a78432"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-preparation-20261104/patches/fdsa-permutation-tail.md.patch",
+      "bytes": 2071,
+      "lines": 39,
+      "sha256": "071914bbbdb60ed0bf3b89e946a4610c23ce0262abde5399882c15408917a782"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-preparation-20261104/receipt.json",
+      "bytes": 7500,
+      "lines": 211,
+      "sha256": "faa70afc6fa62c47d9b1442f10a20ff9ad9a73b3576f7028e8ee7ead0594edbe"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/proposed/fdsa-permutation-tail.md",
+      "bytes": 10927,
+      "lines": 213,
+      "sha256": "9740fdf8ff9761daebae4ec0be6c9388deffcb55fc567d695be27ca89ea86b87"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/patches/fdsa-permutation-tail-vs-original.patch",
+      "bytes": 2069,
+      "lines": 39,
+      "sha256": "b173be2d0bf04b001441c9da0702c9e5f49b983a937f2b17c572d7ac3886b963"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/patches/fdsa-permutation-tail-vs-prior-proposal.patch",
+      "bytes": 792,
+      "lines": 13,
+      "sha256": "a644fa8ff28e12eeac7b43af971c2e160a6b87bf816df86c68d053fad91584b9"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/receipt.json",
+      "bytes": 4599,
+      "lines": 99,
+      "sha256": "2eaa22b53108301a878171aefa854150b4122431fd83e2f30abb65b33da48d31"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/shared-note-proposals-assessment-6b95185.json",
+      "bytes": 69126,
+      "lines": 1616,
+      "sha256": "ce1ce7e51e89485294e7cdeb3ed3e5ca663e72e720ab434c3f6992a1022e0e16"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/shared-note-status-assessment-5398db.json",
+      "bytes": 19563,
+      "lines": 321,
+      "sha256": "f9e8a6604de9c943a8b9d70f2b1d0c5f91fef1c51a632c5a65deeab35a97c98f"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/shared-notes-six-plus-correction1-assessment.json",
+      "bytes": 11163,
+      "lines": 213,
+      "sha256": "fc99f1293fe87d7b55cb37a5e1646c9706e6056c08a9e89042d4a3a41764ae11"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/result.json",
+      "bytes": 1337,
+      "lines": 32,
+      "sha256": "408a2fc698c80f7f4527beb0045f21132c3dc544ad0d9054204e2619aff595ab"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/secured-terminal.json",
+      "bytes": 2508,
+      "lines": 47,
+      "sha256": "c7c0b017ef12185fc8c5cfb4e82bc608dc19bec29bc34cee78fbf959a66c5252"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/actual-type-ranges.json",
+      "bytes": 232026,
+      "lines": 7349,
+      "sha256": "5f53332f2c9719fc6ce7fe15f6eab6f90a6d7baf9dd1b4cf0e2750d1932ffcef"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/full.log",
+      "bytes": 874944,
+      "lines": 11653,
+      "sha256": "a5347095b4f93728b1b384c415189e1d934084eca4af8999028d0864fab9fc6b"
+    },
+    {
+      "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 125408,
+      "lines": 2524,
+      "sha256": "e4187960a469d194aeceed488d7e9bb45a450ae059bef46ba9645c5f9d6868ac"
+    },
+    {
+      "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 125726,
+      "lines": 2530,
+      "sha256": "c8a015007775ff98a220c90c328dc10f505cca8ac9ac9c7c3b887e2c0089ab4a"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+      "bytes": 4105,
+      "lines": 75,
+      "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/inventory.json",
+      "bytes": 144176,
+      "lines": 3662,
+      "sha256": "1459305992aeb72834dc4360940edc0a221352c16748014ca531cbf0d111433b"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/source-and-evidence.json",
+      "bytes": 25505,
+      "lines": 628,
+      "sha256": "89f2334cb3900acaee8fb60f364808d80ba0ae2c86a32c6371de3281ea29a4f5"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/receipt.json",
+      "bytes": 4184,
+      "lines": 105,
+      "sha256": "b005b47880ff24fee78885d35dbdc27d065bfb85ccf06b8be2bf5e1b5e8b24cb"
+    },
+    {
+      "path": "provenance/chapter02-tail-numerical-statement-source-20261104/Statements.lean",
+      "bytes": 5051,
+      "lines": 94,
+      "sha256": "654cd35d4be30170e40b5c5c6ba5d8b351902db07ea899d46cbbeb2e2956c06e"
+    },
+    {
+      "path": "provenance/chapter02-tail-numerical-statement-source-20261104/inventory.json",
+      "bytes": 19310,
+      "lines": 568,
+      "sha256": "9b3d661055d4312438c6db31b52fd44f254ca99f9164cf6037c67c3050e0dea5"
+    },
+    {
+      "path": "REQUEST.md",
+      "bytes": 8549,
+      "lines": 148,
+      "sha256": "670038db71064a643014c952161666544cf37a4c9e17f14ddc7c4478e78dc6d8"
+    },
+    {
+      "path": "reviews/shared-integration-preflight.md",
+      "bytes": 24778,
+      "lines": 205,
+      "sha256": "e1d9c119e2bca35bbbd283eb47d05330f35d7e548f92e063eeebe7d4d53552eb"
+    },
+    {
+      "path": "provenance/shared-acceptance-sequence-20261104/plan.md",
+      "bytes": 23398,
+      "lines": 369,
+      "sha256": "de57733ffbe19af6cd3617baa875dabbc74ec10ef6b8941419c356ec8ae764e1"
+    },
+    {
+      "path": "provenance/shared-acceptance-sequence-20261104/receipt.json",
+      "bytes": 48744,
+      "lines": 848,
+      "sha256": "c79bdb7c1bb7c8d3579f9b364f742b8ccd5282f233d8bcd885a3eb718d970ae4"
+    },
+    {
+      "path": "provenance/shared-order-integration-readiness-20261104/readiness.md",
+      "bytes": 21296,
+      "lines": 156,
+      "sha256": "f579dfd7614d5fae2852abf44fa1b6b3148368cae015ecd0cdf383a56ec1ab19"
+    },
+    {
+      "path": "provenance/shared-order-integration-readiness-20261104/inventory.json",
+      "bytes": 42241,
+      "lines": 980,
+      "sha256": "6debc6d59359448fd3b1d65787a6c954faec865f160949798621a9efe0dc96b4"
+    },
+    {
+      "path": "provenance/shared-order-integration-readiness-20261104/receipt.json",
+      "bytes": 2782,
+      "lines": 53,
+      "sha256": "04dc658e7dacd98b66c2023efcec2e1e4d4609713fc8191e0e30672004e001d4"
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/handoff.md",
+      "bytes": 13787,
+      "lines": 83,
+      "sha256": "85ea9bcaaa8fb5f0fe32805ad3695e4b711e56a6ad9a4d7ec39d3d18d8dfc594"
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/result.json",
+      "bytes": 3922,
+      "lines": 99,
+      "sha256": "d09b2836192bf49fa57f4ecce046e571ed1a94cd6ada1e47b5ad7dcddbc09244"
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/receipt.json",
+      "bytes": 8385,
+      "lines": 265,
+      "sha256": "213e22f18a8dfa6e35529afc0b61fa40e91126dda95cb9a723242252a643dfb0"
+    },
+    {
+      "path": "provenance/shared-order-source-integration-20261104/source.diff",
+      "bytes": 40710,
+      "lines": 858,
+      "sha256": "eb219a1f61489fafe7cf3615bac5f27274d8aab9410b9d117c9516f56d3d2353"
+    },
+    {
+      "path": "provenance/chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6/result.json",
+      "bytes": 1833,
+      "lines": 46,
+      "sha256": "1e40ac4caff1953928a946f37c850f9673d98472628517318cf510630d5e5233"
+    },
+    {
+      "path": "provenance/chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6/full.log",
+      "bytes": 48390,
+      "lines": 468,
+      "sha256": "4d18122cfbe8698979673c10b4bdf76b0fb7442d48f75882b95d89c6bae1aa95"
+    },
+    {
+      "path": "provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/result.json",
+      "bytes": 1271,
+      "lines": 33,
+      "sha256": "f925a826447c43a82479d93c67200b82887840f9791d40879f9a5c763def2445"
+    },
+    {
+      "path": "provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/full.log",
+      "bytes": 17133,
+      "lines": 115,
+      "sha256": "8da63603aa28b114dc5f183bdc4a1be9abe470ebfef1c5bf3353628be979fd0f"
+    },
+    {
+      "path": "provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/result.json",
+      "bytes": 1236,
+      "lines": 32,
+      "sha256": "94675fff74381b0954e5b08056d1242d7a68eccdf5ce45bcffc7a810b67c227a"
+    },
+    {
+      "path": "provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/full.log",
+      "bytes": 19463,
+      "lines": 170,
+      "sha256": "35f0f9ea785a94ec66026c0483d566be1a611efb9a699362d0a5b5eed3941ccd"
+    }
+  ],
+  "fixed_sequence": [
+    "accepted I",
+    "accepted XU02 J or separately rebound approved successor",
+    "accepted XU03",
+    "new complete C2",
+    "later chapters in existing order"
+  ],
+  "source_ref_compiler_cache_capture_process_action": false,
+  "read_boundary": "Full frozen Tail requirements, current ticket, original candidate and bounded draft-preflight, complete corrected historical Tail note/patch and complete existing standalone61 program read. Actual correction dispositions/diagnostic mappings, closed focused result records/success lines and completed actual815 axis dispositions read. Source identities, exact ancestry, public names and private/anonymous source line anchors plus static import closure were reconciled from immutable Git/held inventory. Prior complete mathematical/source/type assessments retained rather than repeated. No receiver artifacts/output capture or new execution occurred."
+}

@@ -1,0 +1,17 @@
+{
+  "recorded_utc": "2026-11-04T15:46:01.759Z",
+  "tool_chunk": "6e2980",
+  "exit_code": 1,
+  "stage": "Read-only saved import-edge representation reconciliation",
+  "failed_script": {
+    "bytes": 22276,
+    "sha256": "465e54c6bb4686777ae0b6211d5ca7cdf2d6fd9017edd21f9f4cfbde649a1564"
+  },
+  "actual_error": "TypeError: list indices must be integers or slices, not str; root comparator stores source_import_edges as [from,to] pairs, while reviewer closure stores {from,to,local} objects.",
+  "diagnostic_tool": "692284",
+  "receipt_existed_after_failure": false,
+  "correction": "Compare every exact pair after reconstructing only its local/external classification from the same immutable F Git tree; no path/hash normalization, source change, omitted edge or weakened comparison.",
+  "compiler_run": false,
+  "source_or_saved_evidence_mutation": false
+}
+

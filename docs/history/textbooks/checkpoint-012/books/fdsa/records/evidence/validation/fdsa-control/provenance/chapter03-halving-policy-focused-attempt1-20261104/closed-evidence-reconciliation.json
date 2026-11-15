@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T21:53:46.790946+00:00",
+  "candidate": "e40d1f7fa71e51946b29bf1415067240e7cc369a",
+  "terminal": {
+    "recorded_utc": "2026-11-04T21:53:46.790782+00:00",
+    "owned_session": 67421,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "f871cf",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "e40d1f7fa71e51946b29bf1415067240e7cc369a"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-policy-focused-attempt1-20261104/full.log",
+    "bytes": 10191,
+    "sha256": "6f29382bcd15fad321b8c91bb776e08134ed40158f6d1bad08d27ac36b3029a4"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T215314Z-project-run-dddb406b",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-policy-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 516,
+      "sha256": "03100d0c3c874026d2e9e3c7ad9e2d75d18ddb6bef9a528186da2efe9c37a35c"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-policy-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 669,
+      "sha256": "ccd1f2b0a900f4b51d17343b165e8439d595d850b6d9eee3be27d48b7b4afa96"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-policy-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 9884,
+      "sha256": "950b30502d058ad334e91858391e7ba2c4f096ef1261f127ce4d28cb98f72a58"
+    }
+  },
+  "native_body_exact_outer_offset": 151,
+  "complete_closed_log": true,
+  "scope": "Focused first build of the actual halving-policy bridge and measured median policy with examples; no complete candidate check, type capture, audit, independent review, acceptance, or integration.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

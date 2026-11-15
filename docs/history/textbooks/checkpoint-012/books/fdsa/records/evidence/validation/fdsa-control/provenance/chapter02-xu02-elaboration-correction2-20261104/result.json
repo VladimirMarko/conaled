@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-11-04T07:06:45.220867+00:00",
+  "finding": "XU02-ELAB-006",
+  "description": "Pinned unusedSectionVars linter reports an automatically included DecidableEq I instance unused by the private extension helper; explicitly omit it. Public declarations and all mathematical requirements are unchanged. No linter suppression.",
+  "source_before": "d80edd8f882c74eb4fc9eb4dcd559df32cb370a8",
+  "source_after": "2695e20f76604cc85396fd8d8e82459b9067f551",
+  "failed_attempt": "chapter02-xu02-focused-20261104-attempt2",
+  "failed_log_sha256": "ebf2b38376e280f47b907a019bb9bcc01ceb985af04d09b37373c19e9f027051",
+  "commit_output": "[work/fdsa-permutation-order-validation 2695e20] fix(fdsa): omit unused private order-transport equality instance\n 1 file changed, 1 insertion(+)\n",
+  "changed_path": "Applications/Probability/PermutationOrder.lean",
+  "source_sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2",
+  "acceptance": "Not accepted",
+  "development_merges": [
+    {
+      "before": "e7d19095cd6c195e78207c4431d7e65226ae9d39",
+      "source": "2695e20f76604cc85396fd8d8e82459b9067f551",
+      "after": "cd3a8210614f911ee5ad144c1ed9a45c76c66989",
+      "scope": [
+        "Applications/Probability/PermutationOrder.lean"
+      ],
+      "output": "Merge made by the 'ort' strategy.\n Applications/Probability/PermutationOrder.lean | 1 +\n 1 file changed, 1 insertion(+)\n"
+    },
+    {
+      "before": "cd3a8210614f911ee5ad144c1ed9a45c76c66989",
+      "source": "19879f244a81b03b7ccaabbcf53fc0b355e9985b",
+      "after": "b3ccd6617c9a0bd033ab181a77d0e07d4b72100a",
+      "scope": [
+        "Applications/Resources/RandomQuickSortMean.lean"
+      ],
+      "output": "Merge made by the 'ort' strategy.\n Applications/Resources/RandomQuickSortMean.lean | 10 +++++-----\n 1 file changed, 5 insertions(+), 5 deletions(-)\n"
+    }
+  ]
+}

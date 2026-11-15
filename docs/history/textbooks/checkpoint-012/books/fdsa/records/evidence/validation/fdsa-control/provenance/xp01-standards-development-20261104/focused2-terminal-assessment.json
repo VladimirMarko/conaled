@@ -1,0 +1,136 @@
+{
+  "recorded_utc": "2026-11-04T11:20:35.270921+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+  "outcome": "CLOSED exit1; aggregate failure retained",
+  "independently_fully_read": [
+    "full.log",
+    "start.json",
+    "result.json",
+    "secured-terminal.json",
+    "native/start.json",
+    "native/result.json"
+  ],
+  "native_full_text_read_as_exact_contiguous_outer_bytes": true,
+  "files": [
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt2/start.json",
+      "bytes": 1124,
+      "lines": 31,
+      "sha256": "cb4cf8e067ad77b6b4ca4d662edfe5d6f080e984f45e72ef9fb9466f2ea2bcad"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt2/result.json",
+      "bytes": 1346,
+      "lines": 36,
+      "sha256": "2b6e38b8592a0f6e069d010cfd983cb52f57b88d301f9a1200fdcf41f7123486"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt2/secured-terminal.json",
+      "bytes": 1565,
+      "lines": 42,
+      "sha256": "abefcf885453ac893d947b996e017e1631cb68c0ef1619ece39a980a0bdca47c"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt2/full.log",
+      "bytes": 12511,
+      "lines": 152,
+      "sha256": "8fbbdc6d017240e7984585a02ae04afa3d8ed3ca5a46f3767144c5d7558c84a4"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt2/native/start.json",
+      "bytes": 604,
+      "lines": 18,
+      "sha256": "c9cb65a0848d27dbc9bbe3672021651e255815166883603fe74fd10ae40d1bfb"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt2/native/result.json",
+      "bytes": 757,
+      "lines": 23,
+      "sha256": "6163ccb231e4e4aeef38154147353d270fef8bb7a22ae693aac4842b1f3c538b"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt2/native/output.log",
+      "bytes": 12138,
+      "lines": 149,
+      "sha256": "49ab4f56fea1a3523fef441cdf1ec80dd9ace13dc735ec9970237e6befd3ae54"
+    }
+  ],
+  "native_original_copies_byte_equal": {
+    "start.json": true,
+    "result.json": true,
+    "output.log": true
+  },
+  "native_outer_byte_offset": 216,
+  "outer_and_native_command_match": true,
+  "actual_exit": 1,
+  "outer_started": "2026-11-04T11:16:49.321591+00:00",
+  "outer_completed": "2026-11-04T11:17:33.417162+00:00",
+  "native_started": "2026-11-04T11:16:49.402224+00:00",
+  "native_completed": "2026-11-04T11:17:33.366175+00:00",
+  "clean_immutable_pre_post": true,
+  "one_thread": true,
+  "error_headers": [
+    "error: Examples/MappedPotentialAccounting.lean:75:2: Type mismatch: After simplification, term",
+    "error: Examples/MappedPotentialAccounting.lean:83:17: Ambiguous term",
+    "error: Examples/MappedPotentialAccounting.lean:83:23: Ambiguous term",
+    "error: Examples/MappedPotentialAccounting.lean:81:52: unsolved goals",
+    "error: Examples/MappedPotentialAccounting.lean:88:17: Ambiguous term",
+    "error: Examples/MappedPotentialAccounting.lean:88:23: Ambiguous term",
+    "error: Examples/MappedPotentialAccounting.lean:86:42: unsolved goals",
+    "error: Examples/MappedPotentialAccounting.lean:92:17: Ambiguous term",
+    "error: Examples/MappedPotentialAccounting.lean:92:23: Ambiguous term",
+    "error: Examples/MappedPotentialAccounting.lean:90:76: unsolved goals",
+    "error: Examples/MappedPotentialAccounting.lean:130:24: failed to synthesize",
+    "error: Examples/MappedPotentialAccounting.lean:133:35: failed to synthesize",
+    "error: Examples/MappedPotentialAccounting.lean:134:17: Ambiguous term",
+    "error: Examples/MappedPotentialAccounting.lean:134:23: Ambiguous term",
+    "error: Examples/MappedPotentialAccounting.lean:135:2: Type mismatch",
+    "error: Examples/MappedPotentialAccounting.lean:138:39: failed to synthesize",
+    "error: Examples/MappedPotentialAccounting.lean:139:17: Ambiguous term",
+    "error: Examples/MappedPotentialAccounting.lean:139:23: Ambiguous term",
+    "error: Examples/MappedPotentialAccounting.lean:140:2: Type mismatch",
+    "error: Examples/MappedPotentialAccounting.lean:143:46: failed to synthesize"
+  ],
+  "warnings": "Module-system import advisories retained; no option, linter, profile or source suppression is inferred.",
+  "no_timeout_or_recorder_error": true,
+  "type_inspection_credit": 0,
+  "full_candidate_check_audit_or_acceptance_credit": false,
+  "reviewer_executed_compiler_or_polled_process": false,
+  "corrected_core_actual_pass": "Applications.Resources.Potential (3.2s)",
+  "actual_requested_target_builds": [
+    "Examples.PotentialAccounting (2.2s)",
+    "Examples.FIFOContracts (1.0s)",
+    "Examples.RandomAccessEndCosts (3.4s)",
+    "Examples.SharedDemand (2.3s)"
+  ],
+  "prior_SymmetricLists_evidence": "Actually Built6.7s in focused1; no new Built line occurs in focused2. Its source is unchanged. No new per-target elapsed result is invented.",
+  "other_affected_core_passes": [
+    "Applications.Resources.BinaryCounter (2.4s)",
+    "Applications.Resources.SymmetricCosts (2.7s)",
+    "Applications.Resources.SymmetricWorkload (1.8s)",
+    "Applications.Resources.FIFOContracts (2.2s)",
+    "Applications.Resources.RandomAccess.End (2.3s)",
+    "Applications.Resources.SharedDemand (2.9s)"
+  ],
+  "XP01_ELAB_001_disposition": "Resolved for this covariance error at exact cfa413e: independent unchanged-header/source assessment plus actual corrected Potential build. Whole unit remains failed.",
+  "new_finding": "XP01-ELAB-002 Open: twenty error headers in eight original mapped-example proof blocks.",
+  "failed_target": "Examples.MappedPotentialAccounting",
+  "proof_block_source_starts": [
+    72,
+    81,
+    85,
+    90,
+    130,
+    132,
+    137,
+    142
+  ],
+  "failure_classes": [
+    "Pointwise signed charge lambda not identified with the private charge definition",
+    "Resources.bind and Resources.pure ambiguous in simplification lists",
+    "Valid0 remains opaque to ordinary decide without exposing its natural predicate",
+    "Residual concrete arithmetic follows the preceding unresolved reductions"
+  ],
+  "scope_limit": "Statements, definitions, expected values and generic-law connections remain reviewed source; no passing mapped-example module or actual20 types yet."
+}

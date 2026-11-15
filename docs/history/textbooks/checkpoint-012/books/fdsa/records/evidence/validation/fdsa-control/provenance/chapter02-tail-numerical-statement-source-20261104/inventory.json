@@ -1,0 +1,568 @@
+{
+  "prepared_utc": "2026-11-04T07:29:49.868585+00:00",
+  "source_prefix": "204dba90967f11a2dfe186316bc85a29acbcc576",
+  "status": "Preparation only; no compilation or elaborated type inspection. Only fixed committed files inventoried; uniform-input author drafts are excluded.",
+  "groups": [
+    {
+      "module": "Applications.Probability.PermutationTail",
+      "source": "Applications/Probability/PermutationTail.lean",
+      "bytes": 23401,
+      "sha256": "9fd7031f057e55933b9f252370e9541197ee1c7029ec903d630e41a8815691a8",
+      "names": [
+        "Applications.Probability.PermutationTail.firstEvent",
+        "Applications.Probability.PermutationTail.firstEvent_inter_tail",
+        "Applications.Probability.PermutationTail.cons_mem_orders",
+        "Applications.Probability.PermutationTail.tail_restrictedOrder_eq",
+        "Applications.Probability.PermutationTail.filter_tail_restrictedOrder_eq",
+        "Applications.Probability.PermutationTail.firstEvent_restrictedOrder_of_not_mem",
+        "Applications.Probability.PermutationTail.cond_firstEvent_restrictedOrder_of_not_mem",
+        "Applications.Probability.PermutationTail.uniformOn_firstEvent",
+        "Applications.Probability.PermutationTail.cond_uniformOn_firstEvent",
+        "Applications.Probability.PermutationTail.cond_tail_eq",
+        "Applications.Probability.PermutationTail.map_tail_cond_first",
+        "Applications.Probability.PermutationTail.head_mass_of_hasLaw",
+        "Applications.Probability.PermutationTail.hasLaw_tail_cond_first",
+        "Applications.Probability.PermutationTail.hasLaw_filter_tail_cond_first",
+        "Applications.Probability.PermutationTail.map_restrictedOrder_cond_first"
+      ],
+      "declarations": [
+        {
+          "name": "Applications.Probability.PermutationTail.firstEvent",
+          "kind": "def",
+          "source_line": 39
+        },
+        {
+          "name": "Applications.Probability.PermutationTail.firstEvent_inter_tail",
+          "kind": "theorem",
+          "source_line": 43
+        },
+        {
+          "name": "Applications.Probability.PermutationTail.cons_mem_orders",
+          "kind": "theorem",
+          "source_line": 55
+        },
+        {
+          "name": "Applications.Probability.PermutationTail.tail_restrictedOrder_eq",
+          "kind": "theorem",
+          "source_line": 80
+        },
+        {
+          "name": "Applications.Probability.PermutationTail.filter_tail_restrictedOrder_eq",
+          "kind": "theorem",
+          "source_line": 113
+        },
+        {
+          "name": "Applications.Probability.PermutationTail.firstEvent_restrictedOrder_of_not_mem",
+          "kind": "theorem",
+          "source_line": 122
+        },
+        {
+          "name": "Applications.Probability.PermutationTail.cond_firstEvent_restrictedOrder_of_not_mem",
+          "kind": "theorem",
+          "source_line": 134
+        },
+        {
+          "name": "Applications.Probability.PermutationTail.uniformOn_firstEvent",
+          "kind": "theorem",
+          "source_line": 168
+        },
+        {
+          "name": "Applications.Probability.PermutationTail.cond_uniformOn_firstEvent",
+          "kind": "theorem",
+          "source_line": 225
+        },
+        {
+          "name": "Applications.Probability.PermutationTail.cond_tail_eq",
+          "kind": "theorem",
+          "source_line": 243
+        },
+        {
+          "name": "Applications.Probability.PermutationTail.map_tail_cond_first",
+          "kind": "theorem",
+          "source_line": 268
+        },
+        {
+          "name": "Applications.Probability.PermutationTail.head_mass_of_hasLaw",
+          "kind": "theorem",
+          "source_line": 348
+        },
+        {
+          "name": "Applications.Probability.PermutationTail.hasLaw_tail_cond_first",
+          "kind": "theorem",
+          "source_line": 396
+        },
+        {
+          "name": "Applications.Probability.PermutationTail.hasLaw_filter_tail_cond_first",
+          "kind": "theorem",
+          "source_line": 443
+        },
+        {
+          "name": "Applications.Probability.PermutationTail.map_restrictedOrder_cond_first",
+          "kind": "theorem",
+          "source_line": 458
+        }
+      ],
+      "count": 15
+    },
+    {
+      "module": "Examples.PermutationTail",
+      "source": "Examples/PermutationTail.lean",
+      "bytes": 8786,
+      "sha256": "30e07aaede25b10d2484c2a4674bffa66d77094a545fd49f72bc000bd132ddb7",
+      "names": [
+        "Examples.PermutationTail.observedOrder",
+        "Examples.PermutationTail.remaining",
+        "Examples.PermutationTail.tailOrder",
+        "Examples.PermutationTail.afterFirst",
+        "Examples.PermutationTail.observed_hasLaw",
+        "Examples.PermutationTail.first_mass",
+        "Examples.PermutationTail.afterFirst_eq_uniformOn",
+        "Examples.PermutationTail.tail_hasLaw",
+        "Examples.PermutationTail.tail_map",
+        "Examples.PermutationTail.tail_23_mass",
+        "Examples.PermutationTail.tail_32_mass",
+        "Examples.PermutationTail.repeated_tail_mass_zero",
+        "Examples.PermutationTail.filteredTail",
+        "Examples.PermutationTail.filtered_tail_hasLaw",
+        "Examples.PermutationTail.filtered_tail_eq_projection",
+        "Examples.PermutationTail.filtered_tail_mass",
+        "Examples.PermutationTail.remaining_projection_map",
+        "Examples.PermutationTail.afterFirst_first_event_mass",
+        "Examples.PermutationTail.environment_changed",
+        "Examples.PermutationTail.second_head_mass",
+        "Examples.PermutationTail.afterSecond",
+        "Examples.PermutationTail.lastTail",
+        "Examples.PermutationTail.last_tail_hasLaw",
+        "Examples.PermutationTail.last_tail_mass"
+      ],
+      "declarations": [
+        {
+          "name": "Examples.PermutationTail.observedOrder",
+          "kind": "def",
+          "source_line": 37
+        },
+        {
+          "name": "Examples.PermutationTail.remaining",
+          "kind": "def",
+          "source_line": 40
+        },
+        {
+          "name": "Examples.PermutationTail.tailOrder",
+          "kind": "def",
+          "source_line": 42
+        },
+        {
+          "name": "Examples.PermutationTail.afterFirst",
+          "kind": "def",
+          "source_line": 45
+        },
+        {
+          "name": "Examples.PermutationTail.observed_hasLaw",
+          "kind": "theorem",
+          "source_line": 48
+        },
+        {
+          "name": "Examples.PermutationTail.first_mass",
+          "kind": "theorem",
+          "source_line": 55
+        },
+        {
+          "name": "Examples.PermutationTail.afterFirst_eq_uniformOn",
+          "kind": "theorem",
+          "source_line": 63
+        },
+        {
+          "name": "Examples.PermutationTail.tail_hasLaw",
+          "kind": "theorem",
+          "source_line": 68
+        },
+        {
+          "name": "Examples.PermutationTail.tail_map",
+          "kind": "theorem",
+          "source_line": 75
+        },
+        {
+          "name": "Examples.PermutationTail.tail_23_mass",
+          "kind": "theorem",
+          "source_line": 98
+        },
+        {
+          "name": "Examples.PermutationTail.tail_32_mass",
+          "kind": "theorem",
+          "source_line": 109
+        },
+        {
+          "name": "Examples.PermutationTail.repeated_tail_mass_zero",
+          "kind": "theorem",
+          "source_line": 116
+        },
+        {
+          "name": "Examples.PermutationTail.filteredTail",
+          "kind": "def",
+          "source_line": 127
+        },
+        {
+          "name": "Examples.PermutationTail.filtered_tail_hasLaw",
+          "kind": "theorem",
+          "source_line": 130
+        },
+        {
+          "name": "Examples.PermutationTail.filtered_tail_eq_projection",
+          "kind": "theorem",
+          "source_line": 137
+        },
+        {
+          "name": "Examples.PermutationTail.filtered_tail_mass",
+          "kind": "theorem",
+          "source_line": 144
+        },
+        {
+          "name": "Examples.PermutationTail.remaining_projection_map",
+          "kind": "theorem",
+          "source_line": 147
+        },
+        {
+          "name": "Examples.PermutationTail.afterFirst_first_event_mass",
+          "kind": "theorem",
+          "source_line": 154
+        },
+        {
+          "name": "Examples.PermutationTail.environment_changed",
+          "kind": "theorem",
+          "source_line": 162
+        },
+        {
+          "name": "Examples.PermutationTail.second_head_mass",
+          "kind": "theorem",
+          "source_line": 169
+        },
+        {
+          "name": "Examples.PermutationTail.afterSecond",
+          "kind": "def",
+          "source_line": 177
+        },
+        {
+          "name": "Examples.PermutationTail.lastTail",
+          "kind": "def",
+          "source_line": 180
+        },
+        {
+          "name": "Examples.PermutationTail.last_tail_hasLaw",
+          "kind": "theorem",
+          "source_line": 182
+        },
+        {
+          "name": "Examples.PermutationTail.last_tail_mass",
+          "kind": "theorem",
+          "source_line": 190
+        }
+      ],
+      "count": 24
+    },
+    {
+      "module": "Examples.PermutationTailBoundary",
+      "source": "Examples/PermutationTailBoundary.lean",
+      "bytes": 10178,
+      "sha256": "fe6e365ff0f324e1f9b143b6203589f36b89e4b789baa79a11317163d21494c0",
+      "names": [
+        "Examples.PermutationTailBoundary.swap01",
+        "Examples.PermutationTailBoundary.swap01_global_order",
+        "Examples.PermutationTailBoundary.swap01_selected_order",
+        "Examples.PermutationTailBoundary.swap01_first_events",
+        "Examples.PermutationTailBoundary.singleton_conditional_tail_mass",
+        "Examples.PermutationTailBoundary.empty_subset_none_mass",
+        "Examples.PermutationTailBoundary.empty_subset_first_event",
+        "Examples.PermutationTailBoundary.empty_subset_conditional_zero",
+        "Examples.PermutationTailBoundary.outsider_first_event",
+        "Examples.PermutationTailBoundary.outsider_conditional_zero",
+        "Examples.PermutationTailBoundary.empty_indices_none_mass",
+        "Examples.PermutationTailBoundary.counterPositions",
+        "Examples.PermutationTailBoundary.conditionSubset",
+        "Examples.PermutationTailBoundary.outsideSubset",
+        "Examples.PermutationTailBoundary.counterLaw",
+        "Examples.PermutationTailBoundary.counterFirst",
+        "Examples.PermutationTailBoundary.outsideConditional",
+        "Examples.PermutationTailBoundary.outside_subset_boundaries",
+        "Examples.PermutationTailBoundary.counter_first_mass",
+        "Examples.PermutationTailBoundary.outside_order_12_mass",
+        "Examples.PermutationTailBoundary.outside_order_21_mass",
+        "Examples.PermutationTailBoundary.outside_order_not_uniform"
+      ],
+      "declarations": [
+        {
+          "name": "Examples.PermutationTailBoundary.swap01",
+          "kind": "def",
+          "source_line": 35
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.swap01_global_order",
+          "kind": "theorem",
+          "source_line": 38
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.swap01_selected_order",
+          "kind": "theorem",
+          "source_line": 42
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.swap01_first_events",
+          "kind": "theorem",
+          "source_line": 46
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.singleton_conditional_tail_mass",
+          "kind": "theorem",
+          "source_line": 52
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.empty_subset_none_mass",
+          "kind": "theorem",
+          "source_line": 61
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.empty_subset_first_event",
+          "kind": "theorem",
+          "source_line": 67
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.empty_subset_conditional_zero",
+          "kind": "theorem",
+          "source_line": 71
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.outsider_first_event",
+          "kind": "theorem",
+          "source_line": 78
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.outsider_conditional_zero",
+          "kind": "theorem",
+          "source_line": 82
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.empty_indices_none_mass",
+          "kind": "theorem",
+          "source_line": 88
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.counterPositions",
+          "kind": "def",
+          "source_line": 94
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.conditionSubset",
+          "kind": "def",
+          "source_line": 98
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.outsideSubset",
+          "kind": "def",
+          "source_line": 99
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.counterLaw",
+          "kind": "def",
+          "source_line": 105
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.counterFirst",
+          "kind": "def",
+          "source_line": 107
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.outsideConditional",
+          "kind": "def",
+          "source_line": 110
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.outside_subset_boundaries",
+          "kind": "theorem",
+          "source_line": 113
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.counter_first_mass",
+          "kind": "theorem",
+          "source_line": 118
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.outside_order_12_mass",
+          "kind": "theorem",
+          "source_line": 204
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.outside_order_21_mass",
+          "kind": "theorem",
+          "source_line": 213
+        },
+        {
+          "name": "Examples.PermutationTailBoundary.outside_order_not_uniform",
+          "kind": "theorem",
+          "source_line": 222
+        }
+      ],
+      "count": 22
+    },
+    {
+      "module": "Applications.Resources.QuickSortMean",
+      "source": "Applications/Resources/QuickSortMean.lean",
+      "bytes": 9714,
+      "sha256": "6ac46b57a39ad60eaae10d6b90ac4c46c9cbdc02d5caf214097b1e794d03794b",
+      "names": [
+        "Resources.QuickSortMean.closedForm",
+        "Resources.QuickSortMean.closedForm_zero",
+        "Resources.QuickSortMean.closedForm_succ",
+        "Resources.QuickSortMean.closedForm_scaled_sum",
+        "Resources.QuickSortMean.closedForm_recurrence",
+        "Resources.QuickSortMean.step_of_recurrence",
+        "Resources.QuickSortMean.difference_of_recurrence",
+        "Resources.QuickSortMean.eq_closedForm",
+        "Resources.QuickSortMean.closedForm_nonneg",
+        "Resources.QuickSortMean.closedForm_le_log",
+        "Resources.QuickSortMean.closedForm_le_nlog",
+        "Resources.QuickSortMean.closedForm_le_nlogb",
+        "Resources.QuickSortMean.closedForm_isBigO_log",
+        "Resources.QuickSortMean.closedForm_isBigO_logb"
+      ],
+      "declarations": [
+        {
+          "name": "Resources.QuickSortMean.closedForm",
+          "kind": "def",
+          "source_line": 20
+        },
+        {
+          "name": "Resources.QuickSortMean.closedForm_zero",
+          "kind": "theorem",
+          "source_line": 25
+        },
+        {
+          "name": "Resources.QuickSortMean.closedForm_succ",
+          "kind": "theorem",
+          "source_line": 28
+        },
+        {
+          "name": "Resources.QuickSortMean.closedForm_scaled_sum",
+          "kind": "theorem",
+          "source_line": 37
+        },
+        {
+          "name": "Resources.QuickSortMean.closedForm_recurrence",
+          "kind": "theorem",
+          "source_line": 49
+        },
+        {
+          "name": "Resources.QuickSortMean.step_of_recurrence",
+          "kind": "theorem",
+          "source_line": 71
+        },
+        {
+          "name": "Resources.QuickSortMean.difference_of_recurrence",
+          "kind": "theorem",
+          "source_line": 83
+        },
+        {
+          "name": "Resources.QuickSortMean.eq_closedForm",
+          "kind": "theorem",
+          "source_line": 96
+        },
+        {
+          "name": "Resources.QuickSortMean.closedForm_nonneg",
+          "kind": "theorem",
+          "source_line": 113
+        },
+        {
+          "name": "Resources.QuickSortMean.closedForm_le_log",
+          "kind": "theorem",
+          "source_line": 124
+        },
+        {
+          "name": "Resources.QuickSortMean.closedForm_le_nlog",
+          "kind": "theorem",
+          "source_line": 139
+        },
+        {
+          "name": "Resources.QuickSortMean.closedForm_le_nlogb",
+          "kind": "theorem",
+          "source_line": 163
+        },
+        {
+          "name": "Resources.QuickSortMean.closedForm_isBigO_log",
+          "kind": "theorem",
+          "source_line": 192
+        },
+        {
+          "name": "Resources.QuickSortMean.closedForm_isBigO_logb",
+          "kind": "theorem",
+          "source_line": 203
+        }
+      ],
+      "count": 14
+    },
+    {
+      "module": "Examples.QuickSortMean",
+      "source": "Examples/QuickSortMean.lean",
+      "bytes": 2488,
+      "sha256": "924ce55ee6af374b55cea67ee6f2da25997b5a81ad098e2e3789622bd793b904",
+      "names": [
+        "Examples.QuickSortMean.empty_mean",
+        "Examples.QuickSortMean.singleton_mean",
+        "Examples.QuickSortMean.two_mean",
+        "Examples.QuickSortMean.three_mean",
+        "Examples.QuickSortMean.sequence_three",
+        "Examples.QuickSortMean.zero_log_boundary",
+        "Examples.QuickSortMean.one_log_boundary",
+        "Examples.QuickSortMean.two_log_bound",
+        "Examples.QuickSortMean.sequence_binary_growth"
+      ],
+      "declarations": [
+        {
+          "name": "Examples.QuickSortMean.empty_mean",
+          "kind": "theorem",
+          "source_line": 12
+        },
+        {
+          "name": "Examples.QuickSortMean.singleton_mean",
+          "kind": "theorem",
+          "source_line": 14
+        },
+        {
+          "name": "Examples.QuickSortMean.two_mean",
+          "kind": "theorem",
+          "source_line": 19
+        },
+        {
+          "name": "Examples.QuickSortMean.three_mean",
+          "kind": "theorem",
+          "source_line": 25
+        },
+        {
+          "name": "Examples.QuickSortMean.sequence_three",
+          "kind": "theorem",
+          "source_line": 31
+        },
+        {
+          "name": "Examples.QuickSortMean.zero_log_boundary",
+          "kind": "theorem",
+          "source_line": 39
+        },
+        {
+          "name": "Examples.QuickSortMean.one_log_boundary",
+          "kind": "theorem",
+          "source_line": 45
+        },
+        {
+          "name": "Examples.QuickSortMean.two_log_bound",
+          "kind": "theorem",
+          "source_line": 50
+        },
+        {
+          "name": "Examples.QuickSortMean.sequence_binary_growth",
+          "kind": "theorem",
+          "source_line": 56
+        }
+      ],
+      "count": 9
+    }
+  ],
+  "total": 84,
+  "program_sha256": "654cd35d4be30170e40b5c5c6ba5d8b351902db07ea899d46cbbeb2e2956c06e"
+}

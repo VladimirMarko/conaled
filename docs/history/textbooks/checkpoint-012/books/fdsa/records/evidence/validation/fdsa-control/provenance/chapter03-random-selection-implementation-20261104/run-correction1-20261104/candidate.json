@@ -1,0 +1,146 @@
+{
+  "recorded_utc": "2026-11-04T19:38:10.545645+00:00",
+  "finding": "C03-RANDOM-RUN-ELAB-001",
+  "fixed_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "previous_candidate": "94f10cf511785d2ecf50817e3c24abb3c6287010",
+  "candidate": "b059af864122a6b09912ba0db8095f422f8991bf",
+  "tree": "c840851e8147e966507b96f240bb4f826150bc79",
+  "branch": "work/fdsa-ch03-random-selection",
+  "status": "",
+  "commit_actual_exit": 0,
+  "commit_tool_chunk": "f04556",
+  "source_files": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3",
+      "public_names": [
+        "Resources.RandomSelection.pivotRun",
+        "Resources.RandomSelection.pivotRun_exact",
+        "Resources.RandomSelection.stepRun",
+        "Resources.RandomSelection.stepRun_eq",
+        "Resources.RandomSelection.stepRun_child",
+        "Resources.RandomSelection.stepRun_semantics",
+        "Resources.RandomSelection.stepRun_ranked",
+        "Resources.RandomSelection.stepRun_cost_bounds",
+        "Resources.RandomSelection.pivotLaw",
+        "Resources.RandomSelection.pivotLaw_support",
+        "Resources.RandomSelection.pivotLaw_event"
+      ],
+      "git_blob": "0307419d586ac03af372629ef264be9a92295f55"
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e",
+      "public_names": [
+        "Examples.RandomSelection.singleton_step",
+        "Examples.RandomSelection.duplicate_middle",
+        "Examples.RandomSelection.selected_side_is_not_larger_side",
+        "Examples.RandomSelection.selected_side_valid",
+        "Examples.RandomSelection.duplicate_ranked",
+        "Examples.RandomSelection.duplicate_source_bound",
+        "Examples.RandomSelection.duplicate_zero_probability",
+        "Examples.RandomSelection.duplicate_one_probability"
+      ],
+      "git_blob": "6f505d29658dc3953baf3aa859205eb7f0569a9a"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionRun.lean",
+      "bytes": 12833,
+      "sha256": "aafda3bc19d8ac6ed3751947f3d4ad075e4acf2538c728e4b14c51fa3ce47014",
+      "public_names": [
+        "Resources.RandomSelection.Trace",
+        "Resources.RandomSelection.Outcome",
+        "Resources.RandomSelection.scanVolume",
+        "Resources.RandomSelection.scanVolume_nil",
+        "Resources.RandomSelection.scanVolume_cons",
+        "Resources.RandomSelection.prepend",
+        "Resources.RandomSelection.run",
+        "Resources.RandomSelection.run_nil",
+        "Resources.RandomSelection.run_cons",
+        "Resources.RandomSelection.run_value",
+        "Resources.RandomSelection.run_ranked",
+        "Resources.RandomSelection.run_none",
+        "Resources.RandomSelection.run_valid",
+        "Resources.RandomSelection.run_active_calls_le",
+        "Resources.RandomSelection.run_initial_scan_le",
+        "Resources.RandomSelection.run_scanVolume_le",
+        "Resources.RandomSelection.run_source_bridge",
+        "Resources.RandomSelection.run_trace_entries",
+        "Resources.RandomSelection.run_source_quadratic",
+        "Resources.RandomSelection.select",
+        "Resources.RandomSelection.select_value",
+        "Resources.RandomSelection.select_none",
+        "Resources.RandomSelection.select_some_iff",
+        "Resources.RandomSelection.scanLaw",
+        "Resources.RandomSelection.sourceLaw",
+        "Resources.RandomSelection.scanLaw_support",
+        "Resources.RandomSelection.scanLaw_support_finite",
+        "Resources.RandomSelection.sourceLaw_support",
+        "Resources.RandomSelection.sourceLaw_support_finite"
+      ],
+      "git_blob": "ea204cfc8e567fcf0216547e63a5e6a9ace8e7d6"
+    },
+    {
+      "path": "Examples/RandomSelectionRun.lean",
+      "bytes": 3770,
+      "sha256": "a3a199941807eafddb4c2c6c2218b5611ed58d745b1897ac89af3c59ae3730dc",
+      "public_names": [
+        "Examples.RandomSelectionRun.empty_failure",
+        "Examples.RandomSelectionRun.singleton_execution",
+        "Examples.RandomSelectionRun.invalid_singleton",
+        "Examples.RandomSelectionRun.rank_zero_public_failure",
+        "Examples.RandomSelectionRun.two_key_execution",
+        "Examples.RandomSelectionRun.duplicate_execution",
+        "Examples.RandomSelectionRun.two_key_first_path",
+        "Examples.RandomSelectionRun.two_key_long_path",
+        "Examples.RandomSelectionRun.same_value_different_scan",
+        "Examples.RandomSelectionRun.maximum_scan_on_pair",
+        "Examples.RandomSelectionRun.bounded_actual_pair_calls",
+        "Examples.RandomSelectionRun.arbitrary_supported_rank"
+      ],
+      "git_blob": "ed9e22c8a760eed68da9bb9698710ee6d8ae0eb5"
+    }
+  ],
+  "changed_paths": [
+    "Applications/Resources/RandomSelectionRun.lean"
+  ],
+  "full_task_paths": [
+    "Applications/Resources/RandomSelection.lean",
+    "Examples/RandomSelection.lean",
+    "Applications/Resources/RandomSelectionRun.lean",
+    "Examples/RandomSelectionRun.lean"
+  ],
+  "public_names": 60,
+  "new_finite_run_public_names": 41,
+  "old_focused_step_public_names": 19,
+  "private_proof_helpers": 2,
+  "all30_finite_run_declaration_headers_preserved": true,
+  "imports_options_cases_unchanged": true,
+  "precommit_assessment": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/run-correction1-20261104/precommit-assessment.json",
+    "bytes": 9672,
+    "sha256": "af60cbc969bd4200507f353231a358a8eb64ba65b822b452af67a5877f9d77b6"
+  },
+  "exact_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/run-correction1-20261104/correction.diff",
+    "bytes": 2442,
+    "sha256": "e3631a1f1ffd030251d9fbc14bc28a833a36e0d4e21c81bc036cf2d386aecda1"
+  },
+  "statement_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/Statements60-candidate04.lean",
+    "bytes": 3264,
+    "sha256": "be10e6e4ef44817ccae42f34d55c156d0b49378f0a24f98dfe961000adf22bd3"
+  },
+  "statement_input_binding": "Unchanged candidate04 program is explicitly rebound to this successor by this record; original program and its dated preparation remain unchanged.",
+  "requested_focus": [
+    "Applications.Resources.RandomSelectionRun",
+    "Examples.RandomSelectionRun"
+  ],
+  "validation_state": "Uncompiled corrective successor; root owns the next actual focused attempt and later complete candidate/type/audit/review gates.",
+  "actual_type_credit": 0,
+  "author_compiler_actions": false,
+  "original_failure_retained": true,
+  "probability_extension_added": false
+}

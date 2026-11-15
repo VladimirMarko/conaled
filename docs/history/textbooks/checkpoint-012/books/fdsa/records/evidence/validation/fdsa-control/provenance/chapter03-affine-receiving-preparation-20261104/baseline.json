@@ -1,0 +1,323 @@
+{
+  "observed_utc": "2026-11-04T18:29:39.708775+00:00",
+  "task": "XR01 five-path receiving source preparation only",
+  "author_worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs",
+  "prior_head": "47f66dccc414d41bddf0dc6576a2338227ee221e",
+  "prior_branch": "work/fdsa-ch02-natural-runs",
+  "prior_status": "",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "base_tree": "fe0bd9f17a5e1a09797be55fd79491e8c363cbd0",
+  "source_commit": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+  "source_parent": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+  "source_tree": "7b27a47b60253b398d5f75ce4308915302f7858d",
+  "new_branch": "work/fdsa-affine-integration",
+  "refs_before": [
+    "refs/heads/master 7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+    "refs/heads/work/fdsa-accumulated-work 7c6bc92c276d39e84351324c442869b8ffa6758c",
+    "refs/heads/work/fdsa-adt-refinement 20a5b5537a704be016d09e4eb31db0dad8a12d61",
+    "refs/heads/work/fdsa-affine-recurrence d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+    "refs/heads/work/fdsa-basics-cost-models 07e480f6ec9958d4975bb90151005b84f2907614",
+    "refs/heads/work/fdsa-book 2da5708478a1d943a9214b5b386ec2db16cd9eca",
+    "refs/heads/work/fdsa-braun-shape 156ba8170852f8e7f0b8c09315e35b837ce77ff9",
+    "refs/heads/work/fdsa-builder-costs 52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+    "refs/heads/work/fdsa-ch02-alternating 43242f43cba0f2c90c17356d44d71e5765d8ba93",
+    "refs/heads/work/fdsa-ch02-bottom-up a6f950d7d5dc4aef521445250f9bfbd59166291d",
+    "refs/heads/work/fdsa-ch02-development 4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "refs/heads/work/fdsa-ch02-insertion-observations 95cfce304b9b63057286acc7d5b20b53d95d8eaa",
+    "refs/heads/work/fdsa-ch02-natural-runs 47f66dccc414d41bddf0dc6576a2338227ee221e",
+    "refs/heads/work/fdsa-ch02-quicksort 5a3af21cb4ff56896f1a7d249736c4804c229873",
+    "refs/heads/work/fdsa-ch02-random-pivot 15a113b075c2ceb4d44c27a06fa9a69e019b57fc",
+    "refs/heads/work/fdsa-ch02-three-way e0df28b7bbfa722b25623606a5a1905620fac91e",
+    "refs/heads/work/fdsa-ch02-top-down 66cd1cca539cb667a7bae17d91d51c0ffeb718dc",
+    "refs/heads/work/fdsa-ch02-top-down-costs 7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+    "refs/heads/work/fdsa-ch02-uniform-input 3b839319776238fe2a46f22db761058b44d68adc",
+    "refs/heads/work/fdsa-ch02-values b1677172ef85e40865fe8f292660c1bcfd6e5a0c",
+    "refs/heads/work/fdsa-ch03-random-selection 2da5708478a1d943a9214b5b386ec2db16cd9eca",
+    "refs/heads/work/fdsa-ch03-values 2da5708478a1d943a9214b5b386ec2db16cd9eca",
+    "refs/heads/work/fdsa-chapter02-integration 2da5708478a1d943a9214b5b386ec2db16cd9eca",
+    "refs/heads/work/fdsa-foundation-integration f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "refs/heads/work/fdsa-insertion-costs 697bcf242ce65d74815b5639bddb1c6e754dd10f",
+    "refs/heads/work/fdsa-list-foundations c28ba71863d2a35ee1c3a089caa90464e4cca692",
+    "refs/heads/work/fdsa-logarithm-bounds a601ad713368daf8e18d5a5537a83d47138491fa",
+    "refs/heads/work/fdsa-order-integration 932438a765340d69fa6402f6abd17def6ec28d13",
+    "refs/heads/work/fdsa-ordered-search 863aedb924e922ac40747c0ef299701a7785488e",
+    "refs/heads/work/fdsa-ordinary-merge 72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+    "refs/heads/work/fdsa-partition-proof-fixes 0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+    "refs/heads/work/fdsa-permutation-expectation 11923e9ffd17246b6f22c5594002a1ba0434e43c",
+    "refs/heads/work/fdsa-permutation-joint a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+    "refs/heads/work/fdsa-permutation-minimum ff3dd88082c6283df40bcd86a4363841a0360b12",
+    "refs/heads/work/fdsa-permutation-minimum-validation f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+    "refs/heads/work/fdsa-permutation-order 4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+    "refs/heads/work/fdsa-permutation-order-validation bdac9703aab4b383fa775568d36bf685af329389",
+    "refs/heads/work/fdsa-permutation-placement 49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+    "refs/heads/work/fdsa-permutation-tail a0597381f02eddd074ee96cabaa974f2062285f8",
+    "refs/heads/work/fdsa-permutation-tail-validation 02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+    "refs/heads/work/fdsa-potential-development 12cb14fc98b8617b3b625620da8e60936daba340",
+    "refs/heads/work/fdsa-priority-observations c088beeb89aa18df45a56f6f1d6b6ff4ad374905",
+    "refs/heads/work/fdsa-shared-four-integration 312aafb4446b995ff5542041b4e2e074f776db1e",
+    "refs/heads/work/fdsa-tail-integration 726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+    "refs/heads/work/fdsa-three-way-partition de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+    "refs/heads/work/fdsa-tree-accumulator b035f1151ab4f0c7d7380818576cfe97dae434c4",
+    "refs/heads/work/fdsa-tree-cache 64c6b777d828ecfe83234fc2aed94600a1f24297",
+    "refs/heads/work/fdsa-tree-fold b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+    "refs/heads/work/fdsa-tree-leftmost 7b8ab2bee299c937256bf9ce7e82977333d07134",
+    "refs/heads/work/fdsa-tree-order 66eae34815a177c6b4bf5120e05202ebb8876c91",
+    "refs/heads/work/fdsa-tree-rotations 28ba79d8d425400cb87d2daf3ecf1cc5a63a7aa2",
+    "refs/heads/work/fdsa-tree-shape 974a97321a8ec174b56104c7e6efaaca881b6639",
+    "refs/heads/work/fdsa-tree-traversal-work 317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+    "refs/remotes/origin/HEAD 7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+    "refs/remotes/origin/integrate/frp 5be3ce96dbeb60365002414409c9421450e39cf0",
+    "refs/remotes/origin/integration/spec-15 47b556e83229ce11b27b5b7b4444c089a1e96ac3",
+    "refs/remotes/origin/master 7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+    "refs/remotes/origin/reconstruction/adwh-154 c12296f63c656737d07325e9d8e8e16d6976d099",
+    "refs/remotes/origin/reconstruction/adwh-155 3efc9d926333c19f697a21afe7dd08af53e3a8cd",
+    "refs/remotes/origin/reconstruction/adwh-180 e0d76c86040f38728289977c355b848cd6c7d8e3",
+    "refs/remotes/origin/reconstruction/adwh-181 f68c79000bdb1ce223c403d38f8dd06e20cfbf29",
+    "refs/remotes/origin/reconstruction/adwh-182 9c0a2649f9601c6294850f2b057698650360da9a",
+    "refs/remotes/origin/reconstruction/adwh-183 16db707769c322fa17f2c48e24208f81292008da",
+    "refs/remotes/origin/reconstruction/adwh-184 48b7655155950c4452bebf1268de1866d0f6129f",
+    "refs/remotes/origin/reconstruction/adwh-186 30bbde79d154d1e8d942561c023a5e44d12ca420",
+    "refs/remotes/origin/reconstruction/adwh-187 6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e",
+    "refs/remotes/origin/reconstruction/adwh-190 855ce1f29ae0b7c7a7aec8321ead07be39c6ff32",
+    "refs/remotes/origin/reconstruction/adwh-array-cost-integration 34c85983f601247fb62aea631c4212b7cb994b5b",
+    "refs/remotes/origin/research/27-frp-runtime f4d3e2f36d5547f2236a601c837280bd0c23a774"
+  ],
+  "worktree_porcelain_before": "worktree /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled\nHEAD 2da5708478a1d943a9214b5b386ec2db16cd9eca\nbranch refs/heads/work/fdsa-book\n\nworktree /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review\nHEAD 2da5708478a1d943a9214b5b386ec2db16cd9eca\nbranch refs/heads/work/fdsa-chapter02-integration\n\nworktree /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-bottom-up\nHEAD a6f950d7d5dc4aef521445250f9bfbd59166291d\nbranch refs/heads/work/fdsa-ch02-bottom-up\n\nworktree /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-insertion\nHEAD 43242f43cba0f2c90c17356d44d71e5765d8ba93\nbranch refs/heads/work/fdsa-ch02-alternating\n\nworktree /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs\nHEAD 47f66dccc414d41bddf0dc6576a2338227ee221e\nbranch refs/heads/work/fdsa-ch02-natural-runs\n\nworktree /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort\nHEAD 2da5708478a1d943a9214b5b386ec2db16cd9eca\nbranch refs/heads/work/fdsa-ch03-values\n\nworktree /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot\nHEAD 2da5708478a1d943a9214b5b386ec2db16cd9eca\nbranch refs/heads/work/fdsa-ch03-random-selection\n\nworktree /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-three-way\nHEAD e0df28b7bbfa722b25623606a5a1905620fac91e\nbranch refs/heads/work/fdsa-ch02-three-way\n\nworktree /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down\nHEAD 12cb14fc98b8617b3b625620da8e60936daba340\nbranch refs/heads/work/fdsa-potential-development\n\nworktree /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-uniform-input\nHEAD 3b839319776238fe2a46f22db761058b44d68adc\nbranch refs/heads/work/fdsa-ch02-uniform-input\n\nworktree /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-difference-list-costs\nHEAD 52722e3ee481167e99b8f6c0b2417df7fb7615d8\nbranch refs/heads/work/fdsa-builder-costs\n\nworktree /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge\nHEAD 72a0951aee406f7db67998d2a3bf8810f4e1bccc\nbranch refs/heads/work/fdsa-ordinary-merge\n\nworktree /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-permutation-minimum\nHEAD f00078bb2dbf1b8dc8d186d9728c9678f46a96b0\nbranch refs/heads/work/fdsa-permutation-minimum-validation\n\nworktree /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-permutation-order-validation\nHEAD bdac9703aab4b383fa775568d36bf685af329389\nbranch refs/heads/work/fdsa-permutation-order-validation\n\nworktree /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-permutation-tail-validation\nHEAD 02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9\nbranch refs/heads/work/fdsa-permutation-tail-validation\n\n",
+  "original_full_scope": [
+    "Applications/Resources/AffineRecurrence.lean",
+    "Examples/AffineRecurrence.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-affine-recurrence.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "source_identities": [
+    {
+      "commit": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+      "path": "Applications/Resources/AffineRecurrence.lean",
+      "present": false
+    },
+    {
+      "commit": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+      "path": "Examples/AffineRecurrence.lean",
+      "present": false
+    },
+    {
+      "commit": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+      "path": "SquareApplications.lean",
+      "present": true,
+      "blob": "45cbe0faa6e4b6a9070928a73a98c2e876abc309",
+      "bytes": 9372,
+      "lines": 286,
+      "sha256": "39a54b99b5ccc2e7f32307bf3864a3641cf0cd247af4ba9dee2b803d336961b5"
+    },
+    {
+      "commit": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+      "path": "docs/research/fdsa-affine-recurrence.md",
+      "present": false
+    },
+    {
+      "commit": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "present": true,
+      "blob": "00515bdfa3fa1835f5fe62e6d13f9dfb1c64e7ea",
+      "bytes": 45020,
+      "lines": 683,
+      "sha256": "79ca9b2e9761417cdf5951f70e4976a9e134b3fa683d8e4857bb3c86a4bb70ff"
+    },
+    {
+      "commit": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "Applications/Resources/AffineRecurrence.lean",
+      "present": true,
+      "blob": "afba9e03f3d8178c6fcd469e064f07ddff53c32b",
+      "bytes": 5839,
+      "lines": 113,
+      "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d"
+    },
+    {
+      "commit": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "Examples/AffineRecurrence.lean",
+      "present": true,
+      "blob": "e16bc2401027fdced90b86edd15d9eb8b79759b9",
+      "bytes": 5165,
+      "lines": 142,
+      "sha256": "eb9239f5810887ba988420c3fe8538eab21285c1e6173eb5467133baa63868d5"
+    },
+    {
+      "commit": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "SquareApplications.lean",
+      "present": true,
+      "blob": "99c912978cbbc57837e5b9dc19995aaa13d71a53",
+      "bytes": 8431,
+      "lines": 256,
+      "sha256": "c7abc390617e80c42c2b604528748fcebe794f869d8abeae88a07a69864ea3ef"
+    },
+    {
+      "commit": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "docs/research/fdsa-affine-recurrence.md",
+      "present": true,
+      "blob": "8319a4470bd0dacaa518e6d149fee26e67a1a64a",
+      "bytes": 9975,
+      "lines": 233,
+      "sha256": "a07b086bc846c0898b2713a7b055b9cb451d0471c655eeaab9cc1077f32b87bf"
+    },
+    {
+      "commit": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "present": true,
+      "blob": "c051f7fa4ebb314068396014d6b16ee61f8d82e4",
+      "bytes": 32550,
+      "lines": 500,
+      "sha256": "4e8acd033864e106e6881d8d5bb3d73993f9c6c65bee14d072553eadf392789b"
+    }
+  ],
+  "control_inputs": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/REQUEST.md",
+      "bytes": 8549,
+      "lines": 148,
+      "sha256": "670038db71064a643014c952161666544cf37a4c9e17f14ddc7c4478e78dc6d8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/CURRENT.md",
+      "bytes": 30894,
+      "lines": 141,
+      "sha256": "e998cb405d3fe3ddceb7da467f18fc5c6f601321625c5f8dbdf87c4a40546bda"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/STATUS.md",
+      "bytes": 24326,
+      "lines": 115,
+      "sha256": "9c0c4aa4a1ff15ed7e3c12313325457c552fdee1c95d66d2502c24c33c6b2cfb"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tickets/INDEX.md",
+      "bytes": 67088,
+      "lines": 491,
+      "sha256": "bcad8409f402aac2e8ed2bce289bb709521f3e13a774b4d0cc4e2d08c270c06c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tickets/FDSA-XR01.md",
+      "bytes": 2996,
+      "lines": 53,
+      "sha256": "6016e4bb7e0884862b7737db5882f6b7d264bd19a94dc7a063f302ccc10ec4b9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/affine-recurrence-round1.md",
+      "bytes": 1959,
+      "lines": 34,
+      "sha256": "92d797e5a7ca1a60cf2abf2f9340777a12d81e9f14660db883e6053066d88adc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/affine-recurrence-candidate.md",
+      "bytes": 4774,
+      "lines": 80,
+      "sha256": "4c205b012b58219b0022427e32a12717dd46bd25a38ae68f53c62d16b8baeab4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/affine-recurrence-requirements.md",
+      "bytes": 5540,
+      "lines": 96,
+      "sha256": "5873700a349c359d15873829f1399a20225fa80eaa980e7ad9f1e4c8f774dd02"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/affine-recurrence-standards-preparation-20261104.md",
+      "bytes": 15543,
+      "lines": 96,
+      "sha256": "bff3e140f1178b6f77ac2d12a42e544dbf2d7522bc27bcf793d1e7ef55b24e92"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/affine-recurrence-spec-preparation-20261104.md",
+      "bytes": 19622,
+      "lines": 100,
+      "sha256": "8ee3cac08c1cb0d4b4d8b29821b5de9b54e549530d081155130065c3bb8e8b32"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/affine-recurrence-preflight.md",
+      "bytes": 27327,
+      "lines": 464,
+      "sha256": "dc20f947d2ff84ece47299a2403c9166d28f8c6103697e3b4b6b28842979b273"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-activation-20261104/starting-state.json",
+      "bytes": 2443,
+      "lines": 59,
+      "sha256": "8e6215b7b781c50ba7eda51fe9cc31ff57b45878e0c0958dd088541992b7afba"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-public-statements21-prepared-20261104/Statements.lean",
+      "bytes": 1474,
+      "lines": 30,
+      "sha256": "13d96149ecb926ead0a9b892f72331fceeef6e85d674bf5f0d6d0682e03e7d60"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-public-statements21-prepared-20261104/inventory.json",
+      "bytes": 11370,
+      "lines": 250,
+      "sha256": "035fac9705f5625eb05357d5a5182c74e3efbbbb968b4389f0df207dd4093ed0"
+    }
+  ],
+  "instruction_inputs": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/AGENTS.md",
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/.agents/skills/implement/SKILL.md",
+      "bytes": 4997,
+      "lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/.agents/skills/example-driven-development/SKILL.md",
+      "bytes": 6991,
+      "lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/README.md",
+      "bytes": 26239,
+      "lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/GLOSSARY.md",
+      "bytes": 4824,
+      "lines": 106,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/docs/agents/domain.md",
+      "bytes": 926,
+      "lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/docs/agents/architectural-quality.md",
+      "bytes": 3876,
+      "lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/docs/agents/review-loop.md",
+      "bytes": 7113,
+      "lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/docs/adr/README.md",
+      "bytes": 1547,
+      "lines": 17,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "lines": 50,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2"
+    }
+  ],
+  "no_compiler_cache_or_output_action": true,
+  "snapshot_scope": "Current controls are observed as preparation inputs, not frozen by this author; root owns subsequent controls."
+}

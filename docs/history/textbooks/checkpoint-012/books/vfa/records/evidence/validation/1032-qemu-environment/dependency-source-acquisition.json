@@ -1,0 +1,757 @@
+{
+  "started_utc": "2026-11-03T15:43:40.441960+00:00",
+  "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/mathlib",
+        "init",
+        "--quiet"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/mathlib",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/leanprover-community/mathlib4.git"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/mathlib",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/leanprover-community/mathlib4\n * branch            56a005855ea17e0b0958f73ec801ae140b0a1679 -> FETCH_HEAD\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/mathlib",
+        "checkout",
+        "--detach",
+        "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at 56a0058 chore: bump toolchain to v4.35.0 (#44806)\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/mathlib",
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "stdout": "56a005855ea17e0b0958f73ec801ae140b0a1679\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/mathlib",
+        "status",
+        "--porcelain=v1"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/plausible",
+        "init",
+        "--quiet"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/plausible",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/leanprover-community/plausible"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/plausible",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/leanprover-community/plausible\n * branch            dfa4f38190d07c37e315953e08b90fe2d95b3c24 -> FETCH_HEAD\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/plausible",
+        "checkout",
+        "--detach",
+        "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at dfa4f38 chore: bump toolchain to v4.35.0 (#107)\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/plausible",
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "stdout": "dfa4f38190d07c37e315953e08b90fe2d95b3c24\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/plausible",
+        "status",
+        "--porcelain=v1"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/LeanSearchClient",
+        "init",
+        "--quiet"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/LeanSearchClient",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/leanprover-community/LeanSearchClient"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/LeanSearchClient",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/leanprover-community/LeanSearchClient\n * branch            d6b4c7be5be75ec4917c873ac50c756dc1436372 -> FETCH_HEAD\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/LeanSearchClient",
+        "checkout",
+        "--detach",
+        "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at d6b4c7b chore: bump toolchain to v4.35.0 (#46)\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/LeanSearchClient",
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "stdout": "d6b4c7be5be75ec4917c873ac50c756dc1436372\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/LeanSearchClient",
+        "status",
+        "--porcelain=v1"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/importGraph",
+        "init",
+        "--quiet"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/importGraph",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/leanprover-community/import-graph"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/importGraph",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/leanprover-community/import-graph\n * branch            a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93 -> FETCH_HEAD\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/importGraph",
+        "checkout",
+        "--detach",
+        "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at a41f0e9 chore: bump toolchain to v4.35.0 (#175)\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/importGraph",
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "stdout": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/importGraph",
+        "status",
+        "--porcelain=v1"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/proofwidgets",
+        "init",
+        "--quiet"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/proofwidgets",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/leanprover-community/ProofWidgets4"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/proofwidgets",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/leanprover-community/ProofWidgets4\n * branch            df72b022e558978a1c50264cfc4d7fec86fa8e04 -> FETCH_HEAD\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/proofwidgets",
+        "checkout",
+        "--detach",
+        "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at df72b02 chore: bump toolchain to v4.35.0 (#202)\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/proofwidgets",
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "stdout": "df72b022e558978a1c50264cfc4d7fec86fa8e04\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/proofwidgets",
+        "status",
+        "--porcelain=v1"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/aesop",
+        "init",
+        "--quiet"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/aesop",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/leanprover-community/aesop"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/aesop",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "4a174c490d8707121c4a9290800489f105d85e07"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/leanprover-community/aesop\n * branch            4a174c490d8707121c4a9290800489f105d85e07 -> FETCH_HEAD\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/aesop",
+        "checkout",
+        "--detach",
+        "4a174c490d8707121c4a9290800489f105d85e07"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at 4a174c4 chore: bump toolchain to v4.35.0 (#359)\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/aesop",
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "stdout": "4a174c490d8707121c4a9290800489f105d85e07\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/aesop",
+        "status",
+        "--porcelain=v1"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/Qq",
+        "init",
+        "--quiet"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/Qq",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/leanprover-community/quote4"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/Qq",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/leanprover-community/quote4\n * branch            dce0ad79c486cb1fb504af04f953c3466b0c6db8 -> FETCH_HEAD\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/Qq",
+        "checkout",
+        "--detach",
+        "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at dce0ad7 chore: bump toolchain to v4.35.0 (#166)\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/Qq",
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "stdout": "dce0ad79c486cb1fb504af04f953c3466b0c6db8\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/Qq",
+        "status",
+        "--porcelain=v1"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/batteries",
+        "init",
+        "--quiet"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/batteries",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/leanprover-community/batteries"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/batteries",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/leanprover-community/batteries\n * branch            66e469188fe07963e5cf666c7d4433f45b8131c5 -> FETCH_HEAD\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/batteries",
+        "checkout",
+        "--detach",
+        "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at 66e4691 chore: bump toolchain to v4.35.0 (#2024)\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/batteries",
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "stdout": "66e469188fe07963e5cf666c7d4433f45b8131c5\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/batteries",
+        "status",
+        "--porcelain=v1"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/Cli",
+        "init",
+        "--quiet"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/Cli",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/leanprover/lean4-cli"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/Cli",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/leanprover/lean4-cli\n * branch            c24fe6078c630e89b489bffe59b3e20ac30d12c8 -> FETCH_HEAD\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/Cli",
+        "checkout",
+        "--detach",
+        "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at c24fe60 chore: bump toolchain to v4.35.0 (#102)\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/Cli",
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "stdout": "c24fe6078c630e89b489bffe59b3e20ac30d12c8\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/Cli",
+        "status",
+        "--porcelain=v1"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "packages": [
+    {
+      "name": "mathlib",
+      "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "clean": true
+    },
+    {
+      "name": "plausible",
+      "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "clean": true
+    },
+    {
+      "name": "LeanSearchClient",
+      "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "clean": true
+    },
+    {
+      "name": "importGraph",
+      "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "clean": true
+    },
+    {
+      "name": "proofwidgets",
+      "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "clean": true
+    },
+    {
+      "name": "aesop",
+      "head": "4a174c490d8707121c4a9290800489f105d85e07",
+      "clean": true
+    },
+    {
+      "name": "Qq",
+      "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "clean": true
+    },
+    {
+      "name": "batteries",
+      "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "clean": true
+    },
+    {
+      "name": "Cli",
+      "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "clean": true
+    }
+  ],
+  "completed": true,
+  "finished_utc": "2026-11-03T15:44:41.732673+00:00"
+}

@@ -1,0 +1,102 @@
+{
+  "recorded_utc": "2026-11-05T00:11:30.431258+00:00",
+  "reviewer": "/root/chapter03_standards",
+  "axis": "Standards",
+  "outcome": "Blocked",
+  "original_full_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "accepted_XR": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "candidate": "690ab476f4685e5a795d53d18465b067655a34dd",
+  "candidate_tree": "4ac08471525e94e56ec01f96a64ab22905f3fb53",
+  "full_scope": "All 83 frozen obligations, original Q-to-final scope; no reset of baseline or whole-task review.",
+  "release": "Root explicitly released review after checkpoint0135 was verified, uploaded and exposed. Prior hold records remain historical and unchanged.",
+  "identity_reuse": {
+    "receipt": "e80a2d",
+    "old_candidate": "38ae31902682ff6e3f4b28cea519a3bfeb4f96c7",
+    "result": "All nine previously read source files have identical bytes/SHA-256 at 690. Complete old-to-new delta is exactly the two trace modules plus SquareApplications import.",
+    "scope_limit": "This confirms source reuse only; it is not final-candidate build/audit qualification or independent trace assessment."
+  },
+  "new_completed_type_reads": {
+    "median_core_and_examples": {
+      "indices_in_1321_index": [
+        75,
+        129
+      ],
+      "count": 55,
+      "bytes": 66549,
+      "receipts": [
+        "d05b73: complete75-97 and107-129; middle was truncated",
+        "d93a1d: complete98-106"
+      ]
+    },
+    "general_median_bounds": {
+      "indices_in_1321_index": [
+        323,
+        349
+      ],
+      "count": 27,
+      "bytes": 39855,
+      "receipts": [
+        "f1a042: complete323-327",
+        "82c6f5: complete328-349"
+      ]
+    },
+    "discarded_display": "The first combined general-median output item was omitted by display. No semantic credit was claimed from that omitted item; both bounded rereads are complete."
+  },
+  "cumulative_coverage": {
+    "full_source_files_read": 9,
+    "full_source_and_type_areas_assessed": [
+      "CountRank (finding below remains open)",
+      "Chunks value and source costs",
+      "MedianOfMedians value semantics and general bounds"
+    ],
+    "actual_type_blocks_semantically_assessed": 181,
+    "actual_type_zero_based_ranges": [
+      [
+        0,
+        129
+      ],
+      [
+        323,
+        349
+      ],
+      [
+        740,
+        752
+      ],
+      [
+        781,
+        791
+      ]
+    ],
+    "index_byte_identity_only": 1321,
+    "whole_source_review_complete": false
+  },
+  "median_value_assessment": [
+    "All 82 public actual type blocks in the three previously read median files were assessed. Lower-median values require explicit nonempty input; no hidden Inhabited or Nodup requirement appears.",
+    "The mathematical pivot remains the lower median of lower chunk medians. The general pivot API proves existence for positive group size and nonempty input, and its value belongs to the original list. It does not claim to implement the nested source recurrence.",
+    "Chunk groups preserve the multiset of chunks, use Boolean complementary filtering, and count median occurrences rather than distinct values. The even-median strict-half source error is replaced by the valid non-strict floor-half bound.",
+    "The private finite-sum split and chunk-count helpers were inspected in the earlier full source read. They charge bad chunks by d and good chunks by floor(d/2), retain short final chunks, and use the correct natural-subtraction side condition.",
+    "Both side-count bounds have the explicit positive-size/successful-pivot premises and the expression floor(d/2)*ceil(n/d)+(d-floor(d/2))*floor(ceil(n/d)/2). No parity, divisibility or distinctness assumption narrows the general statement.",
+    "The size-five specialization proves the stated ceiling of 7*n/10+3. Actual floor-field instances and natural-versus-field coercions were inspected, including the general ceil_nat_div bridge and a Real checked application.",
+    "Checked applications consume the bounds and bridge to actual partition lengths. They establish usable pivot premises for nonempty inputs, exercise groups3/4/6, duplicate values, lower-even medians, retained short chunks and negative Int values. Concrete rounded bounds are allowed to exceed n and are not advertised as sharp.",
+    "No additional concrete Standards issue was found in these three files. This area assessment does not close nested execution, source-cost recurrence, final candidate validation or other chapter obligations."
+  ],
+  "findings": [
+    {
+      "id": "C03-SPEC-USE-001",
+      "severity": "medium",
+      "state": "Open at immutable690; root repair announced but not yet assessed",
+      "origin": "Spec finding independently confirmed by Standards",
+      "receipt": "45fe5e",
+      "locations": [
+        "Applications/Selection/CountRank.lean:224-261",
+        "docs/research/fdsa-selection.md:521"
+      ],
+      "evidence": "A complete git grep at immutable690 finds each sorted_filter_lt_sublist_take/sorted_filter_gt_sublist_drop only at its Lean declaration. The C03-005 coverage row names duplicate_bounds/invalid_count_bounds, which exercise count/rank results rather than these helpers. Prior full CountRank source and example reads support the distinction.",
+      "consequence": "The sorted filter/take/drop obligation lacks a meaningful checked use of its advertised helper interface, and the table overstates that connection.",
+      "required_resolution": "Add a checked application that consumes the helpers on a duplicate-containing sorted list with a proved valid index, and update the mapping. Assess the exact successor and compiler/type evidence before closing."
+    }
+  ],
+  "remaining": "All source/types not covered by the explicit ranges and nine files, original Q-to-XR shared evidence reuse, full correspondence documents, separate trace additions, final universal endpoint and source-cost witness obligations, successful full check/audit, both complete independent outcomes and immediate verification remain pending.",
+  "no_build_or_external_mutations": true
+}

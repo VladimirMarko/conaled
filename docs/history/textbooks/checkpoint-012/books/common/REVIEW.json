@@ -1,0 +1,353 @@
+{
+  "schema": 1,
+  "requirements": "REQUIREMENTS.md",
+  "requirements_version": "2026-11-15-ready-for-conaled-handoff",
+  "original_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "current_candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+  "baseline_receipt": "evidence/integration-baseline.json",
+  "candidate_receipt": "evidence/integration-candidate-r4.json",
+  "scope_manifest": "evidence/integration-scope-20261114-evening.json",
+  "rounds": [
+    {
+      "round": 1,
+      "base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+      "candidate": "337c29ff2e2b969e701a9deb84840d6b148dd175",
+      "captured": true,
+      "snapshot_status": "ok",
+      "development_validation": "Focused Potential, Nat consumers, TextbookSorting and TextbookSequences passed; receipts in evidence/.",
+      "isolated_candidate_validation": {
+        "status": "incomplete-after-session-interruption",
+        "terminal_observed": false,
+        "evidence": "evidence/validation-interruption-20261114.json",
+        "note": "No terminal result or verification record was produced. Log showed630completedcoldtargets/3278requested, no error line; no host-incapacity conclusion follows."
+      },
+      "standards": {
+        "status": "Blocked",
+        "source_analysis_complete": true,
+        "report": "evidence/reviews/standards-r1.md",
+        "record": "evidence/reviews/standards-r1.json"
+      },
+      "spec": {
+        "status": "Blocked",
+        "source_analysis_complete": true,
+        "report": "evidence/reviews/spec-r1.md",
+        "record": "evidence/reviews/spec-r1.json"
+      },
+      "candidate_receipt": "evidence/integration-candidate-r1.json"
+    },
+    {
+      "round": 2,
+      "base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+      "candidate": "f52a47b9e240b3937533f48befb8622527b7f6db",
+      "captured": true,
+      "snapshot_status": "ok",
+      "candidate_receipt": "evidence/integration-candidate.json",
+      "correction": "Distinct PFDS S9, VFA S10 and FDSA S11 identifiers; inherited AbstractSet EOF blank removed. No mathematical statement/proof token changed.",
+      "isolated_candidate_validation": {
+        "status": "pending",
+        "note": "A successful predecessor pass will not be represented as validation of this corrected candidate. Run its own current full check/audit before approval.",
+        "superseded_by_authorized_continuation": true
+      },
+      "standards": {
+        "status": "Blocked",
+        "source_analysis_complete": true,
+        "unresolved_new_source_findings": 0,
+        "report": "evidence/reviews/standards-r2.md",
+        "record": "evidence/reviews/standards-r2.json"
+      },
+      "spec": {
+        "status": "Blocked",
+        "source_analysis_complete": true,
+        "unresolved_new_source_findings": 0,
+        "report": "evidence/reviews/spec-r2.md",
+        "record": "evidence/reviews/spec-r2.json"
+      }
+    },
+    {
+      "round": 3,
+      "base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+      "candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+      "requirements_version": "2026-11-14-upstream-recovery-and-coverage",
+      "requirements_sha256": "5d48738af724152b67daf993fa0f3d2abd7c2eeb7a47b7e080aa7740de1e07ac",
+      "captured": true,
+      "snapshot_status": "ok",
+      "candidate_receipt": "evidence/integration-candidate-r3.json",
+      "scope_manifest": "evidence/integration-scope-20261114.json",
+      "development_validation": {
+        "status": "focused-pass",
+        "receipt": "evidence/maps-focused-r3.json",
+        "type_inspection": "evidence/map-public-types-20261114.json",
+        "prior_failed_attempts": [
+          "evidence/maps-focused-r1.json",
+          "evidence/maps-focused-r2.json"
+        ],
+        "note": "Existing map/shared-tree clients and new cross-book map examples pass. No full-candidate approval follows."
+      },
+      "isolated_candidate_validation": {
+        "status": "execution-state-lost-without-terminal-outcome",
+        "terminal_observed": false,
+        "evidence": "evidence/full-validation-r3-observation-20261114.json",
+        "start_observation": "evidence/full-validation-r3-start.json",
+        "terminal_receipt": null,
+        "note": "The recorded start/progress observations remain historical. Later process handles disappeared, locks were available, and no verification record existed. Do not call this run active or successful; no exit code or cause is inferred.",
+        "interruption_evidence": "evidence/process-interruption-20261114.json"
+      },
+      "standards": {
+        "status": "Blocked",
+        "source_analysis_complete": true,
+        "unresolved_new_source_findings": 0,
+        "report": "evidence/reviews/standards-r3.md",
+        "record": "evidence/reviews/standards-r3.json",
+        "blocker": "Successful terminal exact-candidate full validation and matching verification record remain required."
+      },
+      "spec": {
+        "status": "Blocked",
+        "source_analysis_complete": true,
+        "unresolved_new_source_findings": 0,
+        "report": "evidence/reviews/spec-r3.md",
+        "record": "evidence/reviews/spec-r3.json",
+        "blocker": "Successful terminal exact-candidate full validation and matching verification record remain required."
+      },
+      "coordinator": {
+        "report": "evidence/reviews/coordinator-r3.md",
+        "record": "evidence/reviews/coordinator-r3.json",
+        "new_source_corrections_requested": 0
+      },
+      "navigation_addenda": {
+        "standards": "evidence/reviews/standards-r3-navigation-addendum.md",
+        "spec": "evidence/reviews/spec-r3-navigation-addendum.md"
+      }
+    },
+    {
+      "round": 4,
+      "base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "requirements_version": "2026-11-14-evening-probability-and-delegated-validation",
+      "requirements_sha256": "a60dd5a4aa4ef46ff8463e47f536961a7f374c5ade74f012c609470e59f6b29c",
+      "captured": true,
+      "snapshot_status": "ok",
+      "candidate_receipt": "evidence/integration-candidate-r4.json",
+      "scope_manifest": "evidence/integration-scope-20261114-evening.json",
+      "source_validation": {
+        "status": "static-preservation-checks-pass",
+        "evidence": "evidence/upstream-merge-04514fc1.json",
+        "note": "New upstream Lean blobs exact; previous textbook proof files unchanged, public import union retained, Git diff checks and ancestry pass. No new compiler run."
+      },
+      "isolated_candidate_validation": {
+        "status": "deferred-to-receiving-integrator",
+        "terminal_observed": false,
+        "evidence": "VALIDATION-HANDOFF.md",
+        "user_authorization": "REQUIREMENTS.md",
+        "note": "Final full guarded build and exhaustive audit remain mandatory before final acceptance; a local full pass does not block further focused mathematics."
+      },
+      "standards": {
+        "status": "Passed",
+        "approval_scope": "source/handoff only; not final library acceptance",
+        "source_analysis_complete": true,
+        "new_findings": 0,
+        "unresolved_new_source_handoff_findings": 0,
+        "final_approval": false,
+        "final_acceptance_status": "Pending receiving validation and final acceptance gates",
+        "report": "evidence/reviews/standards-r4.md",
+        "record": "evidence/reviews/standards-r4.json"
+      },
+      "spec": {
+        "status": "Passed",
+        "approval_scope": "source/handoff only; not final library acceptance",
+        "source_analysis_complete": true,
+        "new_findings": 0,
+        "unresolved_new_source_handoff_findings": 0,
+        "final_approval": false,
+        "final_acceptance_status": "Blocked",
+        "report": "evidence/reviews/spec-r4.md",
+        "record": "evidence/reviews/spec-r4.json"
+      },
+      "coordinator": {
+        "report": "evidence/reviews/coordinator-r4.md",
+        "record": "evidence/reviews/coordinator-r4.json",
+        "new_source_corrections_requested": 0
+      },
+      "handoff_source_comparison": {
+        "status": "ok",
+        "receipt": "evidence/integration-handoff-compare-r4.json",
+        "scope": "source content only; receiving immediate final comparison remains required"
+      }
+    },
+    {
+      "round": 5,
+      "base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "requirements_version": "2026-11-14-unrestricted-full-attempt-and-consolidation",
+      "requirements_sha256": "7b4217dd89508c2863304880e2e99c8776d220bdfe6ff710aaae3bf82670159d",
+      "candidate_receipt": "evidence/integration-candidate-r4.json",
+      "scope_manifest": "evidence/integration-scope-20261114-evening.json",
+      "source_identity": "Unchanged exact R4 candidate/tree; no new source inventory needed.",
+      "isolated_candidate_validation": {
+        "status": "first-unrestricted-attempt-terminal-failure; unchanged-incremental-retry-planned-after-durable-save",
+        "owner": "root-for-local-attempt; receiving-integrator-fallback",
+        "setup_receipt": "evidence/native-setup-20261114-r5.json",
+        "first_attempt_receipt": "evidence/full-validation-r5-unrestricted.json",
+        "first_attempt_summary": "evidence/full-validation-r5-summary.json",
+        "first_attempt_log": "evidence/full-validation-r5-unrestricted.log",
+        "effective_environment": "evidence/full-validation-r5-effective-environment.json",
+        "checker_exit_code": 1,
+        "terminal_observed": true,
+        "verification_record_present": false,
+        "audit": "not reached",
+        "resource_instruction": "EXECUTION.md; no agent-imposed resource caps or deadline",
+        "retry_started": false
+      },
+      "standards": {
+        "status": "Pending",
+        "prior_source_analysis": "evidence/reviews/standards-r4.json"
+      },
+      "spec": {
+        "status": "Pending",
+        "prior_source_analysis": "evidence/reviews/spec-r4.json"
+      },
+      "preparation": {
+        "initial": "evidence/reviews/preparation-r5.json",
+        "overlay_addendum": "evidence/reviews/preparation-r5-overlay.json",
+        "historical_navigation_proposal": "evidence/navigation-proposal-r5.json",
+        "meaning": "Preparation and operational-fix verification only; no source/handoff or final approval."
+      },
+      "record_scope": "As packaged in011 before the retry. The subsequent reported observations are preserved separately; no final R5 approval was obtained."
+    },
+    {
+      "round": 6,
+      "base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "requirements_version": "2026-11-15-ready-for-conaled-handoff",
+      "requirements_sha256": "e09c5af2de201d808cfe2ed81870991bc82f195223fff2c5aa3f3273a00001ad",
+      "candidate_receipt": "evidence/integration-candidate-r4.json",
+      "scope_manifest": "evidence/integration-scope-20261114-evening.json",
+      "source_identity": "Unchanged R4 commit/tree; all9178 tracked entries match the retained official receipt. No new large source inventory or forged retention receipt.",
+      "recovery_comparison": "evidence/recovered-candidate-012.json",
+      "patch_application": "evidence/patch-export-012.json",
+      "preservation_check": "evidence/handoff-source-check-012.json",
+      "handoff_content_manifest": "evidence/handoff-content-012.json",
+      "isolated_candidate_validation": {
+        "status": "required receiving gate open",
+        "owner": "receiving-integrator",
+        "assignment": "VALIDATION-HANDOFF.md",
+        "first_attempt": "evidence/full-validation-r5-unrestricted.json",
+        "retry_reported_observations": "evidence/retry-r5-reported-observations.json",
+        "new_local_build_started": false
+      },
+      "standards": {
+        "status": "Passed",
+        "scope": "source/handoff preparation only",
+        "report": "evidence/reviews/standards-r6.json",
+        "readable_report": "evidence/reviews/standards-r6.md",
+        "final_acceptance": "Blocked",
+        "final_approval": false
+      },
+      "spec": {
+        "status": "Passed",
+        "scope": "source/handoff preparation only",
+        "report": "evidence/reviews/spec-r6.json",
+        "readable_report": "evidence/reviews/spec-r6.md",
+        "final_acceptance": "Blocked",
+        "final_approval": false
+      },
+      "review_continuity": "Resumed the same /root/recovery_review coordinator and its retained Standards/Spec axes via followup_task. No replacement review agents or new acceptance scope were created; all prior findings and the fixed full-spec base remain.",
+      "final_approval": false,
+      "handoff_content_manifest_sha256": "e402f619643fd9149298e8b56dc50c5effd75e0092e84d6c77d35dd385a7045f",
+      "source_handoff_outcome": "Passed on both independent axes",
+      "reconciliation_record": "evidence/reviews/coordinator-r6.json",
+      "final_acceptance": "Blocked; required receiving gate remains open"
+    }
+  ],
+  "finding_history": [
+    {
+      "id": "INT-ST-001",
+      "axis": "Standards",
+      "severity": "Low",
+      "status": "Fixed",
+      "introduced_candidate": "337c29ff2e2b969e701a9deb84840d6b148dd175",
+      "fixed_candidate": "f52a47b9e240b3937533f48befb8622527b7f6db",
+      "evidence": "evidence/reviews/standards-r2.json",
+      "summary": "Duplicate S9 textbook source identifiers corrected and affected references checked."
+    },
+    {
+      "id": "INT-SP-001",
+      "axis": "Spec",
+      "severity": "Blocking",
+      "status": "open-delegated-receiving-gate",
+      "candidate": "f52a47b9e240b3937533f48befb8622527b7f6db",
+      "related_issue": "INT-090",
+      "evidence": "evidence/reviews/spec-r2.json",
+      "summary": "Exact-candidate full build/audit remains required before final acceptance; user assigned execution to receiving integrator. Local mathematical progress and honest source handoff may continue. Historical blocked evidence is unchanged.",
+      "current_candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "owner": "receiving-integrator",
+      "execution_assignment": "VALIDATION-HANDOFF.md"
+    },
+    {
+      "id": "INT-ST-002",
+      "axis": "Standards",
+      "severity": "Low",
+      "status": "Fixed",
+      "candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+      "summary": "Preserve the exact nonterminal run record fingerprinted by R3 source reviews and map its relocated checkpoint path explicitly.",
+      "evidence": "evidence/reviews/standards-r3-navigation-addendum.md",
+      "resolution": "Exact 1426-byte start observation retained with SHA33951558...; README distinguishes it from any future terminal receipt. Independently verified by both axes."
+    },
+    {
+      "id": "INT-ST-003",
+      "axis": "Standards",
+      "severity": "Low",
+      "status": "Fixed",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "summary": "Current resource instructions explicitly supersede frozen one-thread examples through a single mutable EXECUTION.md owner. Frozen docs/policy/tools/kit remain unchanged.",
+      "history": [
+        "Provisional direct RESUME correction reviewed, with no acceptance issued.",
+        "Reopened after discovering docs is a frozen tree and direct edit could not be packed under the existing contract.",
+        "Fixed by exact restoration of frozen RESUME, current EXECUTION overlay and explicit common README/HANDOFF precedence; independently verified by both axes."
+      ],
+      "evidence": "evidence/reviews/preparation-r5-overlay.json",
+      "historical_evidence": "evidence/reviews/preparation-r5.json; evidence/navigation-proposal-r5.json"
+    },
+    {
+      "id": "INT-ST-004",
+      "axis": "Standards",
+      "severity": "Low",
+      "status": "Fixed",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "summary": "INT-091 retained stale R5 retry-pending language inconsistent with the current handoff assignment.",
+      "before": "R4-source-handoff-passed; R5-actual-validation-review-pending; R5 first failure observed, retry pending; INT-SP-001 open.",
+      "correction": "INT-091 now records R6 handoff review pending, no R5 final/source-handoff approval, lost retry raw files/unknown terminal outcome, no further local attempt, and the open receiving gate.",
+      "evidence": "evidence/reviews/standards-r6.json; evidence/reviews/spec-r6.json; evidence/reviews/coordinator-r6.json",
+      "resolution": "Final revision 3 gives INT-091 a stable pointer to REVIEW.json as the sole current handoff-outcome owner, retaining R5 no-approval history, lost retry raw files/unknown terminal result, no further local attempt and the open final gate. Both retained axes independently verified the exact final inputs.",
+      "corrected_issue_sha256": "89728e9350fe2fc94c20807d3712780e2bb24a0421ffb5974458f42298d5cbfd",
+      "final_handoff_manifest_sha256": "e402f619643fd9149298e8b56dc50c5effd75e0092e84d6c77d35dd385a7045f"
+    }
+  ],
+  "acceptance": "Final merge acceptance pending receiving full validation, both final approvals, immediate candidate verification and official snapshot comparison.",
+  "durability": "Input 011 verified/adopted/restored. R6 source/handoff reviews complete; output 012 requires ordinary pack/offline verification and an actual owner-root create_library_file receipt recorded outside the immutable archive before delivery is complete.",
+  "requirements_sha256": "e09c5af2de201d808cfe2ed81870991bc82f195223fff2c5aa3f3273a00001ad",
+  "prior_requirements_snapshot": "evidence/requirements-20261114-r4.md",
+  "continuation_baseline_receipt": "evidence/integration-baseline-20261114-evening.json",
+  "scope_change": "Historical R4 upstream incorporation expanded the review manifest from 483 to 490 paths while retaining the original full-spec base. R6 leaves source and scope unchanged and reviews current handoff requirements.",
+  "continuation_status": "Handoff preparation complete. First local full attempt failed; retry terminal unknown with raw files lost. No further local experiment assigned. Receiver owns the full gate and final acceptance.",
+  "validation_handoff": "VALIDATION-HANDOFF.md",
+  "source_handoff_outcome": "R6 Passed on both independent axes for unchanged-source receiving handoff; final library acceptance Blocked.",
+  "final_approval": false,
+  "reconciliation_record": "evidence/reviews/coordinator-r6.json",
+  "r5_first_terminal_assessment": {
+    "record": "evidence/reviews/first-terminal-r5.json",
+    "sha256": "9d0e55a96d5f6888b7ebc9991b3af48b78d3ad91a39f09569855628938686352",
+    "scope": "Both retained axes verified the actual first terminal failure; no new source/handoff or final approval. Retry outcome and final canonical cut remain pending."
+  },
+  "r5_continuation": {
+    "reported_observations": "evidence/retry-r5-reported-observations.json",
+    "terminal_outcome": "unknown; raw retry files not recovered",
+    "final_r5_approval": false,
+    "disposition": "Local experiment closed; receiving gate retained."
+  },
+  "r5_requirements_snapshot": "evidence/requirements-r5.md",
+  "report_navigation": {
+    "R6_original_prefix": "intake/review-r6/",
+    "R6_checkpoint_prefix": "books/common/evidence/reviews/",
+    "meaning": "All six report files are retained byte-for-byte under the checkpoint prefix with the same basenames. Historical absolute paths describe reviewed workspaces; they are not required restore locations."
+  }
+}

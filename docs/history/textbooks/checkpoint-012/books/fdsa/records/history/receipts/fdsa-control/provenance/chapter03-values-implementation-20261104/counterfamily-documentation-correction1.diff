@@ -1,0 +1,11 @@
+--- counterfamily-review-note.md
++++ counterfamily-review-note-v2.md
+@@ -7,7 +7,7 @@
+ 
+ ## Scope and status
+ 
+-This bounded candidate addresses C03-056, Exercise 3.7, p.41, in the frozen 83-row inventory at `fdsa-control/research/chapter03-obligations.md`, SHA-256 `eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed`. The constructive plan is also recorded in `research/selection-proof-plan.md`, section 10. The requirement explicitly permits the equivalent integer inequality in place of dividing by the input length.
++This bounded candidate addresses C03-056, Exercise 3.7, p.41, in the frozen 83-row inventory at `fdsa-control/research/chapter03-obligations.md`, SHA-256 `eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed`. The constructive plan is also recorded in `research/selection-proof-plan.md`, section 9. The requirement explicitly permits the equivalent integer inequality in place of dividing by the input length.
+ 
+ Only two new source modules are added: `Applications.Selection.MedianCounterfamily` and `Examples.MedianCounterfamily`. Their 25 and 17 public names respectively are exhaustively inventoried. There are no new named private helpers. The local `hm` argument in `chunkMedians_family` remains part of that proof and is in review scope. All previous 12 source files and every prior candidate/failure record are preserved.
+ 

@@ -1,0 +1,36 @@
+{
+  "candidate": "3c04405d207a7b8c6f7452598da88fa3a7a05ac3",
+  "expectedHead": "2ff47bdad9f822727fb2d1ea86092c4b26ad0cb6",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "acceptedHead": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "expectedPaths": [
+    "Applications/Resources/RandomSelection.lean",
+    "Applications/Resources/RandomSelectionDrift.lean",
+    "Applications/Resources/RandomSelectionEndpoints.lean",
+    "Applications/Resources/RandomSelectionEqual.lean",
+    "Applications/Resources/RandomSelectionMean.lean",
+    "Applications/Resources/RandomSelectionRun.lean",
+    "Applications/Resources/RandomSelectionTail.lean",
+    "Applications/Resources/RandomSelectionTrace.lean",
+    "Applications/Resources/RandomSelectionWorst.lean",
+    "Examples/RandomSelection.lean",
+    "Examples/RandomSelectionDrift.lean",
+    "Examples/RandomSelectionEndpoints.lean",
+    "Examples/RandomSelectionEqual.lean",
+    "Examples/RandomSelectionMean.lean",
+    "Examples/RandomSelectionRun.lean",
+    "Examples/RandomSelectionTail.lean",
+    "Examples/RandomSelectionTrace.lean",
+    "Examples/RandomSelectionWorst.lean"
+  ],
+  "name": "chapter03-random-selection-worst-focused-attempt1-20261105",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Resources.RandomSelectionWorst",
+    "Examples.RandomSelectionWorst"
+  ],
+  "recordDirectory": "chapter03-focused-continuation-20261104",
+  "recordName": "random-worst-attempt1-preflight.json",
+  "validationPurpose": "First exact universal-endpoint pair after complete source/header/private/case assessment. Unchanged qualified serial one-thread environment; no install/hydration, whole-candidate validation/audit or acceptance credit."
+}

@@ -1,0 +1,9 @@
+{
+  "first_actual_tool_chunk": "25971a",
+  "first_actual_exit": 1,
+  "first_error": "Full patch equality assertion used abbreviated default index hashes; saved patch uses full-index. No content mismatch established. Only empty preparation directory was created.",
+  "diagnostic_actual_tool_chunk": "0a4c63",
+  "diagnostic_actual_exit": 1,
+  "diagnosis": "Saved index has full40hex, default git diff index abbreviated; lengths156119 versus154931. Later optional lookup of guessed source-write.json failed because that filename does not exist.",
+  "next_action": "Use full-index diff, preserve all originals; no compiler involved."
+}

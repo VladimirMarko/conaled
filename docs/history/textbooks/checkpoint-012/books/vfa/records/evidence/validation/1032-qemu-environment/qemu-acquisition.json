@@ -1,0 +1,71 @@
+{
+  "recorded_utc": "2026-11-03T15:44:46.430099+00:00",
+  "gpgv": {
+    "argv": [
+      "gpgv",
+      "--homedir",
+      "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1032-qemu-environment/gpgv",
+      "--status-fd",
+      "1",
+      "--keyring",
+      "/usr/share/keyrings/ubuntu-archive-keyring.gpg",
+      "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1032-qemu-environment/ubuntu-InRelease"
+    ],
+    "exit_status": 0,
+    "stdout": "[GNUPG:] NEWSIG\n[GNUPG:] KEY_CONSIDERED F6ECB3762474EDA9D21B7022871920D1991BC93C 0\n[GNUPG:] SIG_ID bS7uueToUaoHaWcvJgU0BDrlvEw 2026-11-03 1793709655\n[GNUPG:] GOODSIG 871920D1991BC93C Ubuntu Archive Automatic Signing Key (2018) <ftpmaster@ubuntu.com>\n[GNUPG:] VALIDSIG F6ECB3762474EDA9D21B7022871920D1991BC93C 2026-11-03 1793709655 0 4 0 1 10 01 F6ECB3762474EDA9D21B7022871920D1991BC93C\n",
+    "stderr": "gpgv: Signature made Tue Nov  3 12:40:55 2026 GMT\ngpgv:                using RSA key F6ECB3762474EDA9D21B7022871920D1991BC93C\ngpgv: Good signature from \"Ubuntu Archive Automatic Signing Key (2018) <ftpmaster@ubuntu.com>\"\n"
+  },
+  "trust_basis": "Existing host public Ubuntu archive keyring; retained identical copy is verification evidence, not a new independent trust root.",
+  "inrelease": {
+    "url": "https://archive.ubuntu.com/ubuntu/dists/noble-updates/InRelease",
+    "sha256": "5f4cbfd1daf09c5c6af3eeb67fe923b15010f28d9189b64995e2c0f68eec7b77"
+  },
+  "index": {
+    "url": "https://archive.ubuntu.com/ubuntu/dists/noble-updates/universe/binary-amd64/Packages.xz",
+    "sha256": "2dd82d93dc7fab28f67d5120aa122d8896b557ce4984995635a7dfff1353386d",
+    "size_bytes": 1707340,
+    "matched_signed_release": true
+  },
+  "package_metadata": {
+    "Package": "qemu-user-static",
+    "Source": "qemu",
+    "Priority": "optional",
+    "Section": "universe/otherosfs",
+    "Installed-Size": "133302",
+    "Maintainer": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+    "Architecture": "amd64",
+    "Version": "1:8.2.2+ds-0ubuntu1.18",
+    "Recommends": "systemd",
+    "Provides": "qemu-user-binfmt",
+    "Conflicts": "qemu-user-binfmt",
+    "Filename": "pool/universe/q/qemu/qemu-user-static_8.2.2+ds-0ubuntu1.18_amd64.deb",
+    "Size": "14709858",
+    "MD5sum": "9dd321eff0ed2ecec11863c4956065a8",
+    "SHA1": "62961e637c966b8ab9de9dbacc580a3700a9d86c",
+    "SHA256": "5bb397f66063efa349f6fd5cb3b68cd96f29edd0994e4ba5115cf0859a716bf0",
+    "SHA512": "c18a17c7651d344933deb327237576ba7d585d46201daa68586d6bb6dfbed662c203b278cf7d62e6e9cfcf5f2042a21fc37c9f473b914f97477dfb590fce82c6",
+    "Homepage": "http://www.qemu.org/",
+    "Description": "QEMU user mode emulation binaries (static version)",
+    "Description-md5": "143c5f57d5ff1fe3c42922ff036f914e",
+    "Built-Using": "glib2.0 (= 2.80.0-6ubuntu3.8), glibc (= 2.39-0ubuntu8.7), zlib (= 1:1.3.dfsg-3.1ubuntu2.1)",
+    "Multi-Arch": "foreign",
+    "Original-Maintainer": "Debian QEMU Team <pkg-qemu-devel@lists.alioth.debian.org>",
+    "Origin": "Ubuntu",
+    "Bugs": "https://bugs.launchpad.net/ubuntu/+filebug"
+  },
+  "package": {
+    "url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qemu/qemu-user-static_8.2.2+ds-0ubuntu1.18_amd64.deb",
+    "sha256": "5bb397f66063efa349f6fd5cb3b68cd96f29edd0994e4ba5115cf0859a716bf0",
+    "size_bytes": 14709858,
+    "matched_authenticated_index": true
+  },
+  "executable": {
+    "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/qemu-user/bin/qemu-x86_64-static",
+    "sha256": "90181b5552cd1a0b60d8edcc9f1cf8e38647579ef697d3155e2b6150e8fbcee0",
+    "size_bytes": 3751320,
+    "matched_supplied_guide": true
+  },
+  "keyring_sha256": "80a36b0a6de2f69f49d2df75ef473ccde121e9e190b9ea01d20a4f63778d5c31",
+  "package_installation_performed": false,
+  "selected_extraction_exit_status": 0
+}

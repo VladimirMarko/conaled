@@ -1,0 +1,87 @@
+{
+  "recorded_utc": "2026-11-04T21:19:07.284970+00:00",
+  "checkpoint": "conaled-fdsa-0129-checked-selection-and-linear-means",
+  "all_writers_held": true,
+  "compiler_live": false,
+  "accepted_head": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "qualified_candidate": "eaea222672013a67c4e84cf7bf8adae418be0cf6",
+  "closed_runs": 68,
+  "interrupted_runs_without_terminal": [
+    {
+      "name": "chapter03-random-selection-drift-focused-attempt2-20261104",
+      "candidate": "f535b1ef557795c4e09c97ce0daf599961c9b268",
+      "actual_exit": null,
+      "original_exec_session_id": null,
+      "no_success_or_failure_credit": true,
+      "reconciliation": "provenance/chapter03-drift-attempt2-interruption-20261104/reconciliation.json",
+      "bytes": 4308,
+      "sha256": "cac4122a94fd253af81ac8ed07c27fdf9fb5521f0f1e50287411120b97470a33"
+    }
+  ],
+  "held_heads": {
+    "conaled": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "conaled-ch01-review": "eaea222672013a67c4e84cf7bf8adae418be0cf6",
+    "conaled-ch02-quicksort": "eaea222672013a67c4e84cf7bf8adae418be0cf6",
+    "conaled-ch02-random-pivot": "cd20a36f52b4ddd95be3cb9d85c0b95368ef1248",
+    "conaled-ch02-top-down": "a9ac654c5dc3454709adc3a519ea82794f42f427",
+    "conaled-ch02-natural-runs": "736857e20c4004af1a9c0c6f77387c690517dd02",
+    "conaled-ordinary-merge": "47f12b48b93a1e223b9f743e067685f12f4da5b1"
+  },
+  "held_statuses": {
+    "conaled": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.urOBCL\n",
+    "conaled-ch01-review": "",
+    "conaled-ch02-quicksort": "",
+    "conaled-ch02-random-pivot": "?? Applications/Resources/RandomSelectionTail.lean\n",
+    "conaled-ch02-top-down": "?? Applications/Resources/SelectionBounds.lean\n?? Examples/SelectionBounds.lean\n",
+    "conaled-ch02-natural-runs": "",
+    "conaled-ordinary-merge": ""
+  },
+  "drafts": [
+    {
+      "worktree": "conaled-ch02-top-down",
+      "path": "Applications/Resources/SelectionBounds.lean",
+      "bytes": 10051,
+      "sha256": "acbd5d979dc645cf48d74193185d91d94b6603538dd97b001763425ed6562ae6",
+      "status": "untracked, uncompiled, uncommitted; incomplete inventory; no candidate or proof credit"
+    },
+    {
+      "worktree": "conaled-ch02-top-down",
+      "path": "Examples/SelectionBounds.lean",
+      "bytes": 5546,
+      "sha256": "d18c19c5e69e3f77029d498e66716bf7fc45ff303294ee1a78d3ca1eb435ce11",
+      "status": "untracked, uncompiled, uncommitted; incomplete inventory; no candidate or proof credit"
+    },
+    {
+      "worktree": "conaled-ch02-random-pivot",
+      "path": "Applications/Resources/RandomSelectionTail.lean",
+      "bytes": 3339,
+      "sha256": "2fb716a7940c1b2630b37b60ddea2ceec2355fd8dd3a6fe232c7df2eb02e86d9",
+      "status": "untracked, uncompiled, uncommitted; incomplete inventory; no candidate or proof credit"
+    }
+  ],
+  "author_holds": {
+    "values": "eaea222 held; actual failure closed; root expressly retains hold until checkpoint upload",
+    "random": "explicit final all-write hold0de98e; draft3339 bytes",
+    "mom": "explicit final all-write hold2667bc at21:17:37; two drafts; incomplete inventory honest",
+    "query": "existing47f12b author hold retained",
+    "rounded_halving": "root owned736857e all source/provenance held"
+  },
+  "author_hold_records": {
+    "provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/checkpoint0129-hold.json": {
+      "bytes": 2854,
+      "sha256": "31940f5cc73bcb377f84f326b9e397561e6278ea925ca723730d35f6df76c45e"
+    },
+    "provenance/chapter03-random-selection-implementation-20261104/stage05-tail-20261104/checkpoint0129-draft-hold.json": {
+      "bytes": 2595,
+      "sha256": "dcec3615aa637539ade4e5a978648d9170224e063ad7eb5f374de9e0205a536b"
+    }
+  },
+  "project_lock_observation": {
+    "utc": "2026-11-04T21:19:07.480731+00:00",
+    "exclusive_nonblocking_acquired_and_released": true,
+    "global_process_absence_not_claimed": true
+  },
+  "operations_inspector": "read-only inspection completed with zero unresolved findings; held",
+  "reviewers": "prior accepted axes held; no independent Chapter3 acceptance reviews started",
+  "root_remaining_capture_writes_only": true
+}

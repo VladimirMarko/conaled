@@ -1,0 +1,19 @@
+{
+  "recorded_utc": "2026-11-04T07:47:01.469338+00:00",
+  "source_before": "6f76a4d552773044d3e9494dda8e663471d47e04",
+  "observed_candidate": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+  "observed_attempt": "chapter02-tail-numerical-rank-operations-focused-20261104-attempt5",
+  "diagnostic_snapshot": "chapter02-focused-attempt5-partial-diagnostics-20261104/observed-prefix.log",
+  "snapshot_sha256": "b45bded7778156f7829c4fc80e374276edcc9252ea433f848dbb89ac58239126",
+  "actual_state_at_observation": "Live partial diagnostics, no terminal result inferred",
+  "findings": {
+    "XU03-ELAB-001": "Unrestricted simp unfolds the erased-set predicate in the remaining list filter before hfilter can rewrite, leaving the exact fixed-filter goal and unused hfilter linter. Remove the head with the pinned List.filter_cons_of_neg, then apply hfilter.symm directly.",
+    "XU03-ELAB-002": "rw of cons_mem_orders inside an explicit dependent ite cannot abstract its fixed decidable instance. Use simp only with that same support equivalence so dependent congruence is handled, preserving both support branches."
+  },
+  "scope": "Two proof bodies only in existing Tail core; all15 public core contracts, private helpers, examples, masses, conditioning domains and six-path original scope unchanged.",
+  "pinned_api_read": "Init/Data/List/Lemmas.lean filter_cons_of_neg: (pa : not p a) proves filter p (a::l)=filter p l; current exact4.35.0 compiler sources inspected.",
+  "before_sha256": "9fd7031f057e55933b9f252370e9541197ee1c7029ec903d630e41a8815691a8",
+  "after_sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed",
+  "root_source_assessment": "Both full affected proofs and exact observed goals read; no mathematical contract change or concrete mathematical source finding. No linter suppression.",
+  "validation": "Uncompiled correction; first actual Tail compilation failed, full terminal outcome still pending."
+}

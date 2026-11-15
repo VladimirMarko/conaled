@@ -1,0 +1,39 @@
+{
+  "observed_utc": "2026-11-02T22:26:00.713572+00:00",
+  "recorder_result": "running",
+  "known_processes": [
+    {
+      "role": "wrapper",
+      "pid": 600750,
+      "expected_start_ticks": "9123853",
+      "present": true,
+      "start_ticks": "9123853",
+      "matches": true,
+      "state": "S",
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    },
+    {
+      "role": "checker",
+      "pid": 600779,
+      "expected_start_ticks": "9123889",
+      "present": true,
+      "start_ticks": "9123889",
+      "matches": true,
+      "state": "S",
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    }
+  ],
+  "log_bytes": 166955,
+  "log_tail": [
+    "\u26a0 [9553/9560] Replayed Examples.ExpressiveWitnesses",
+    "warning: Examples/ExpressiveWitnesses.lean: imports `Mathlib.Data.List.OfFn` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+    "\u26a0 [9558/9561] Replayed Applications.FRP.Equivalence",
+    "warning: Applications/FRP/Equivalence.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+    "info: Applications/FRP/Equivalence.lean:1146:0: 'FRP.eventEquiv' depends on axioms: [propext, choice, Quot.sound]",
+    "info: Applications/FRP/Equivalence.lean:1147:0: 'FRP.totalEventEquiv' depends on axioms: [propext, choice, Quot.sound]",
+    "info: Applications/FRP/Equivalence.lean:1148:0: 'FRP.Realization.switcher_eq' depends on axioms: [propext, choice, Quot.sound]",
+    "info: Applications/FRP/Equivalence.lean:1149:0: 'FRP.Examples.zeno_not_finiteHistory' depends on axioms: [propext, choice, Quot.sound]"
+  ],
+  "available_bytes": 704114688,
+  "scope": "Read-only known task PID observation; no process action or terminal inference."
+}

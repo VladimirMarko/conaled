@@ -1,0 +1,26 @@
+{
+  "operation": "POSIX_FADV_DONTNEED on inactive main-checkout Lean artifact files only",
+  "files": 52420,
+  "file_bytes": 5666894000,
+  "before": {
+    "memory.current": "8589864960",
+    "memory.stat": {
+      "anon": 1168695296,
+      "file": 5991890944,
+      "file_mapped": 2311426048,
+      "inactive_file": 1040920576,
+      "active_file": 4950351872
+    }
+  },
+  "after": {
+    "memory.current": "8589684736",
+    "memory.stat": {
+      "anon": 1482940416,
+      "file": 5590114304,
+      "file_mapped": 2085507072,
+      "inactive_file": 797671424,
+      "active_file": 4791988224
+    }
+  },
+  "scope": "No file contents, metadata, validation-checkout artifacts, compiler settings, or resource limits changed. Aggregate memory also includes concurrent activity and does not isolate the effect of this hint."
+}

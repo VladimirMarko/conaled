@@ -1,0 +1,172 @@
+{
+  "recorded_utc": "2026-11-02T21:04:27.308242+00:00",
+  "phase": "Complete frozen pre-code capture before checkpoint0052; source authors remain stopped.",
+  "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "head": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "branch": "work/fdsa-ordinary-merge",
+  "checkout": "/workspace/scratch/845aa1048b05/conaled-ordinary-merge",
+  "status": "",
+  "requirements": {
+    "bytes": 19999,
+    "lines": 346,
+    "sha256": "b54e2b332cc31c04ac12fb5b19cc96fa494a80e1455fcfc173f59b6fe340d3d9"
+  },
+  "inputs": {
+    "reviews/ordinary-merge-requirements.md": {
+      "bytes": 19999,
+      "lines": 346,
+      "sha256": "b54e2b332cc31c04ac12fb5b19cc96fa494a80e1455fcfc173f59b6fe340d3d9"
+    },
+    "research/ordinary-merge-source-preflight.md": {
+      "bytes": 23346,
+      "lines": 319,
+      "sha256": "42552545b9b6e2a1836ef12288c41a655dd5c44e34885c285cd4f191da167a69"
+    },
+    "research/ordinary-merge-api-preflight.md": {
+      "bytes": 28099,
+      "lines": 243,
+      "sha256": "7f4c38df7a2cba111f24a3b7fa684e04922ca0ef7327e3e33ee05a39fb2e5f26"
+    },
+    "research/ordinary-merge-case-preflight.md": {
+      "bytes": 24208,
+      "lines": 469,
+      "sha256": "5df99d21ef97da7eb0ddc4cb21f80a21653dc07406f8eda6369ab1f307418e92"
+    },
+    "reviews/ordinary-merge-case-preflight-before-status-correction.md": {
+      "bytes": 24170,
+      "lines": 468,
+      "sha256": "c87170cc54feee176e1814e5980c300c164c5fd3b8ad06256cd60c872800f94d"
+    },
+    "reviews/ordinary-merge-preflight-identities.json": {
+      "bytes": 1651,
+      "lines": 34,
+      "sha256": "7badbb373b5766f76fc83f316072af3df46b27a65140053ce0b637d1e4b7e3be"
+    },
+    "reviews/ordinary-merge-preflight-assessment.md": {
+      "bytes": 4503,
+      "lines": 69,
+      "sha256": "c63385f8dd01151fdc43022ead1b4e09b6ca23072d1c9e5fd324325fdc452fe5"
+    },
+    "reviews/ordinary-merge-clean-start.json": {
+      "bytes": 4291,
+      "lines": 119,
+      "sha256": "4d0f2bfc0ee67e8b5f6feb9b85da99fec9ac373b829f755c8a18fae00bc098cd"
+    },
+    "reviews/shared-integration-preflight.md": {
+      "bytes": 24778,
+      "lines": 205,
+      "sha256": "e1d9c119e2bca35bbbd283eb47d05330f35d7e548f92e063eeebe7d4d53552eb"
+    },
+    "reviews/chapter02-requirements.md": {
+      "bytes": 12034,
+      "lines": 189,
+      "sha256": "f0c9bc939fbfb6da02c1734b121456c35fd6b4c9ee43f1284003d0b8db087a36"
+    }
+  },
+  "baseline_source_identities": {
+    "Applications/Sorting/Merge.lean": {
+      "bytes": 5604,
+      "lines": 126,
+      "sha256": "79b35252d0f551b381ef63974497311336ea92a5d118691647825cade12a1338"
+    },
+    "Applications/Sorting/SourceMerge.lean": {
+      "bytes": 1537,
+      "lines": 37,
+      "sha256": "bebd8eb2f06d92cc10e6f319c96b7965cdee36ff14c4a8b0b19e1351e8ebeaf2"
+    },
+    "Applications/Sorting/Stable.lean": {
+      "bytes": 3704,
+      "lines": 87,
+      "sha256": "288552150aa002c60ed06c74e69510112cf9b4e2f0045da3d98ca5c39264d881"
+    },
+    "Applications/Resources/Measured.lean": {
+      "bytes": 2906,
+      "lines": 71,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46"
+    },
+    "Applications/Resources/CallCount.lean": {
+      "bytes": 2447,
+      "lines": 58,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8"
+    },
+    "Applications/Resources/CallComparison.lean": {
+      "bytes": 5498,
+      "lines": 123,
+      "sha256": "8d6d9324aa9dc71ceeaeaa04073f0f2a4f721a309995f0b623650bb19f01b520"
+    },
+    "Applications/Resources/Thinning.lean": {
+      "bytes": 6587,
+      "lines": 178,
+      "sha256": "faad84ea6d0ce1a63cc967f5813b36a25b00818357047193f10419078f254e37"
+    },
+    "Applications/Search/LeftistQueue.lean": {
+      "bytes": 13036,
+      "lines": 350,
+      "sha256": "14a0d1130e04e2576dea2abb452823b5504cdbac9dbc1010f15a2f327c6bc378"
+    },
+    "Examples/Resources.lean": {
+      "bytes": 4397,
+      "lines": 100,
+      "sha256": "d192239413ce8ea1ff47696a847238222739be7dcee376cc956e5bb3f8cb1b38"
+    },
+    "SquareApplications.lean": {
+      "bytes": 8292,
+      "lines": 252,
+      "sha256": "b36e3743af5043667735caab1327fda8fc1b6eebc2d7842cdd926b329b2efd68"
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "bytes": 15963,
+      "lines": 262,
+      "sha256": "3283880ec3b0d55286be1b080c3b58e606577e9a522f21477b8499306c627668"
+    },
+    "lean-toolchain": {
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    "lakefile.toml": {
+      "bytes": 444,
+      "lines": 13,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+    },
+    "lake-manifest.json": {
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    "flake.nix": {
+      "bytes": 637,
+      "lines": 28,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+    },
+    "flake.lock": {
+      "bytes": 564,
+      "lines": 27,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+    },
+    "check.sh": {
+      "bytes": 74,
+      "lines": 4,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd"
+    },
+    "scripts/check.py": {
+      "bytes": 16119,
+      "lines": 348,
+      "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+    },
+    "scripts/lake_integrity.py": {
+      "bytes": 5781,
+      "lines": 117,
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f"
+    }
+  },
+  "absent_new_paths": [
+    "Applications/Resources/ListMerge.lean",
+    "Examples/MergeCosts.lean",
+    "docs/research/fdsa-list-merge.md"
+  ],
+  "project_build_absent": true,
+  "source_authoring_released": false,
+  "chapter01_attempt2": "61365 active; progress only, no acceptance",
+  "initial_chapter02_prefix_unchanged": "c80eec92f5458eccfd1c34c8314d666c2a1e3847"
+}

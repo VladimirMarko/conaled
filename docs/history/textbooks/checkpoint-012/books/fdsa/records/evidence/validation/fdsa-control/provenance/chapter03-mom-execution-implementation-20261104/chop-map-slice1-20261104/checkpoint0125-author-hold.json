@@ -1,0 +1,29 @@
+{
+  "recorded_utc": "2026-11-04T19:50:14.266738+00:00",
+  "reason": "Root requested a source/provenance write hold for checkpoint0125. The first clean source boundary is retained without rushing a partial source implementation.",
+  "author": "/root/chapter03_mom_continue",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+  "branch": "work/fdsa-ch03-mom-execution",
+  "head": "759589ec63d359231330f732b42c96591a53325e",
+  "tree": "b68c0a0d61282de15ea9aacb41b2e8b90b863ed2",
+  "status_porcelain": "",
+  "source_state": "All four prepared new paths remain absent; the eight existing files remain exactly the prepared identities. Exact authorized pivot incorporation is complete. No new chop/map Lean source or commit has yet been written.",
+  "slice_records_before_hold": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/preparation-reconciliation.json",
+      "bytes": 671,
+      "sha256": "235d7f03bbc0f4b0be7556cdd8be7b0d5d511dc87c3cfb56ee890e01e94d276b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/preparation.json",
+      "bytes": 15783,
+      "sha256": "7c7e0597df7b12d7275ed2188e2370623d17ad70fc99ed1b42d19b4bfe5ac460"
+    }
+  ],
+  "all_prior_records_unchanged": true,
+  "source_and_own_provenance_writes": "HELD after this record pending root release",
+  "compiler_calls_by_author": 0,
+  "combined_candidate_compiled": false,
+  "actual_type_or_audit_credit": false,
+  "acceptance_credit": false
+}

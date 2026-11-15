@@ -1,0 +1,40 @@
+{
+  "recorded_utc": "2026-11-04T06:51:15.857668+00:00",
+  "candidate": "3b727e83fcf9f00ad7d0c95d07305b036ebecbca",
+  "parent": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+  "whole_chapter_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "branch": "work/fdsa-ch02-three-way",
+  "command": [
+    "git",
+    "-c",
+    "user.name=ChatGPT",
+    "-c",
+    "user.email=chatgpt@openai.com",
+    "commit",
+    "-m",
+    "feat(sorting): prove ordinary sorter extensionality (#174)"
+  ],
+  "exit_code": 0,
+  "stdout": "[work/fdsa-ch02-three-way 3b727e8] feat(sorting): prove ordinary sorter extensionality (#174)\n 2 files changed, 131 insertions(+)\n create mode 100644 Applications/Sorting/Uniqueness.lean\n create mode 100644 Examples/SortUniqueness.lean\n",
+  "stderr": "",
+  "staged_whitespace_exit": 0,
+  "source_diff_sha256": "18e5d73b16032b0a7936c01c68bd4c8572e9b2584d99ca5193602dd9e511b843",
+  "sources": {
+    "Applications/Sorting/Uniqueness.lean": {
+      "bytes": 1999,
+      "lines": 44,
+      "sha256": "e0df544f59be358a3e40ad48f25115ae2ba3b4507a30cdeb3425907bf94c8744"
+    },
+    "Examples/SortUniqueness.lean": {
+      "bytes": 3903,
+      "lines": 87,
+      "sha256": "ce63cd0d8a953f9441b9b6b1597f9a3604ef736131290cba8c0430c36cd177b7"
+    }
+  },
+  "public_declarations": 9,
+  "source_assessment_sha256": "6d27309d1b1e4f505f7a982261c681d0b59f3102fcac9e5a5a7307dcea9b7e55",
+  "final_status": "",
+  "compiler_ran": false,
+  "audit_ran": false,
+  "state": "Clean uncompiled draft commit; HOLD for checkpoint and central validation."
+}

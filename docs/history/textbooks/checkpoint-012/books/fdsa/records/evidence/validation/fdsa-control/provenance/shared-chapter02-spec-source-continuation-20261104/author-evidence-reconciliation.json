@@ -1,0 +1,950 @@
+{
+  "schema": "fdsa.chapter02.spec.receiving-source-author-reconciliation.v1",
+  "reviewer": "/root/chapter02_spec",
+  "recorded_utc": "2026-11-04T17:03:45.468011+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "original_full_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "ordered_parents": [
+    "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+    "4b5dbfa07288acc73f25c27838d3fb2f78e77d71"
+  ],
+  "source_scope": "All original 81 paths, 112 obligations and ten shared scopes; no narrowed delta-only review.",
+  "author_receipt_identity": {
+    "path": "provenance/shared-chapter02-source-integration-20261104/receipt.json",
+    "bytes": 8132,
+    "lines": 259,
+    "sha256": "62db6b03f9da7a190115e1f595153f00550dd65051b04eae8777c7794000b7b3"
+  },
+  "author_payloads_verified": [
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/add-result.json",
+      "bytes": 441,
+      "lines": 20,
+      "sha256": "be79c923b295c29ff9d40c00cbe499fa5e33982f2cb1fcb301729652b57dc38a"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/author-readback.json",
+      "bytes": 9959,
+      "lines": 334,
+      "sha256": "a58b2a2afbd549335a272575166a55d06217a748cf6a0456fcea50be18d3e616"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/baseline-L-tree.bin",
+      "bytes": 151697,
+      "lines": 1,
+      "sha256": "c76b4a098e9cc13738807abebb6c3a5ba3cf45a0e1ffda819deba2aafe397b06"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/baseline.json",
+      "bytes": 45004,
+      "lines": 1144,
+      "sha256": "7c85ca73c6f8d481425f394437908de1208f90c93ea2e9c07a2ce3305b0dcf7d"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/bound-inputs.json",
+      "bytes": 16203,
+      "lines": 446,
+      "sha256": "ab4de201566163067aa2ae6e703a2e279319ee6218d86fe273eb8b6cf6bf13de"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/branch-result.json",
+      "bytes": 548,
+      "lines": 21,
+      "sha256": "65bcbbb2f65362ce844f5a109dd44a4c915df367ddfbb3dc095ca4178ed12375"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/branch-start.json",
+      "bytes": 368,
+      "lines": 16,
+      "sha256": "02abb59d09f14fedb5ac07c107cc92e49bdaadcd198565a7825da3f46645408d"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/commit-result.json",
+      "bytes": 538,
+      "lines": 19,
+      "sha256": "91a12ae6db8eb425374fb405330901100101c27669916f34e4706a0e61c36955"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/commit-start.json",
+      "bytes": 342,
+      "lines": 15,
+      "sha256": "9055a7da46540a694c5c7ce87c3703156cfcb074f5e475efd550cc20a945f08a"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/commit.txt",
+      "bytes": 358,
+      "lines": 8,
+      "sha256": "48a6d2eef4ebeb6b37366f307a0df6590dda823631a0a129df2b0607ea4b63fb"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/conflict-SquareApplications.lean-stage1",
+      "bytes": 8769,
+      "lines": 268,
+      "sha256": "4be374b4672b68eea315625cba159e77c50a8ef8c177635e09bfcac3ae5742fb"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/conflict-SquareApplications.lean-stage2",
+      "bytes": 8609,
+      "lines": 262,
+      "sha256": "a30e93ebbdb80f40d751cc30a5185e5e96ce40861540c35fb439362d66d2678d"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/conflict-SquareApplications.lean-stage3",
+      "bytes": 9371,
+      "lines": 285,
+      "sha256": "31fb256fe70c28b42b85b0221c37ffe60ab60248ebf7babecc410326c1f96d15"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/conflict-docs__research__fdsa-reconstruction-map.md-stage1",
+      "bytes": 40858,
+      "lines": 629,
+      "sha256": "cfe67f21675a2aecd301d5e2f7b8f5adbc54c4b744c462319a95895d7ec3a4d4"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/conflict-docs__research__fdsa-reconstruction-map.md-stage2",
+      "bytes": 41477,
+      "lines": 631,
+      "sha256": "b5997a67ca8e23f4418b5428db17bedcf960f262f2e9a9e711255799970689d6"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/conflict-docs__research__fdsa-reconstruction-map.md-stage3",
+      "bytes": 44132,
+      "lines": 671,
+      "sha256": "dd4ce52d2cec15815dd18788e027808b072af75f4759b6fd9d6520682e6a27c2"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/documentary.diff",
+      "bytes": 13482,
+      "lines": 226,
+      "sha256": "04261b3bb3546bdba2f36b74e6be8f4985d2dbeaa364ba2abdb9a84de8780ab2"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/frozen-candidate.json",
+      "bytes": 1025,
+      "lines": 22,
+      "sha256": "34d8fe03749f8132a9aa186e23add7c046d5f291520e195037204f3a3e6bf83c"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/full-scope-commit-list.txt",
+      "bytes": 30005,
+      "lines": 186,
+      "sha256": "6405dce735e9941fd8ad3fc9a209f0a7ea719154c2a0cace2db98e558bb7abc9"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/full-scope-name-status.txt",
+      "bytes": 3133,
+      "lines": 81,
+      "sha256": "a0c8fb0f7cfe75bd895c8a1ceada183c4fccd954bdef0fc9bc9efd1dda8ec05c"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/handoff.md",
+      "bytes": 14249,
+      "lines": 81,
+      "sha256": "583cc9b4cf1f3f00afe9ca9005099b9cf082108a8a39e4fea14476f1a2111d2d"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/merge-result.json",
+      "bytes": 795,
+      "lines": 23,
+      "sha256": "6786b497ddfa3213c695c2fb6679a226e1e9fe772e99ebf9a36cf1d576dc2f46"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/merge-start.json",
+      "bytes": 373,
+      "lines": 18,
+      "sha256": "22b5b1dd6e28191a93fe352448b9ba4a2f70ab2efa1bfc84cf4dbd218dfb3149"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/merge-state.json",
+      "bytes": 6453,
+      "lines": 113,
+      "sha256": "1242e4c70e7207f9157fa4b3e80e8877af9f7b4efe6b56fe17c1f5668e915834"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/pre-resolution-SquareApplications.lean",
+      "bytes": 9637,
+      "lines": 294,
+      "sha256": "e02ea95627432b002a6dd3603172943fd6397f38652521a639ad1e5ef885ec21"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/pre-resolution-docs__research__fdsa-reconstruction-map.md",
+      "bytes": 48963,
+      "lines": 760,
+      "sha256": "2add240220f9218b822db4162a66abf20c3a30b8bfe4b100431de055d9a93eac"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/pre-resolution-docs__research__fdsa-sorting.md",
+      "bytes": 78811,
+      "lines": 502,
+      "sha256": "4b8776fd7c5ecd3e877addf9f271d2134a63e6a012486be892efc47cbaf476f2"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/precommit-check.json",
+      "bytes": 46527,
+      "lines": 1219,
+      "sha256": "856cabd4fcfdaa80f0b0017816e11df83c9a8af8546ff8fe4e54708e465077a3"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/resolution-applied.json",
+      "bytes": 620,
+      "lines": 22,
+      "sha256": "da2f7cf5a661a8635e2d2c3bffc0b53fefe3d64c026864f863b156c5f5979f78"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/resolution-plan.json",
+      "bytes": 17322,
+      "lines": 275,
+      "sha256": "3fae1c1287891e64ecc8c4bcac1b58d8bb1971fb12ae159b963632fd0bc29758"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/resolved-SquareApplications.lean",
+      "bytes": 9372,
+      "lines": 286,
+      "sha256": "39a54b99b5ccc2e7f32307bf3864a3641cf0cd247af4ba9dee2b803d336961b5"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/resolved-docs__research__fdsa-reconstruction-map.md",
+      "bytes": 45020,
+      "lines": 683,
+      "sha256": "79ca9b2e9761417cdf5951f70e4976a9e134b3fa683d8e4857bb3c86a4bb70ff"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/resolved-docs__research__fdsa-sorting.md",
+      "bytes": 79434,
+      "lines": 512,
+      "sha256": "8829a89f3be3f6485166622f4fe3490d85aa2981d9c8516c8a01c8b0afe6f697"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/result.json",
+      "bytes": 108380,
+      "lines": 2727,
+      "sha256": "a0642a45b8580bdb9f0427bbe04c996ff6bc39058fd955117f33613178507f0d"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/source.diff",
+      "bytes": 614478,
+      "lines": 12061,
+      "sha256": "9d539decf909c07ba6a0ecf4fb38ef0fd1f4c3252ddc336e08f7fd33c124724a"
+    }
+  ],
+  "bound_input_summary": {
+    "count": 68,
+    "all_exact_at_this_observation": true,
+    "identity_rows": [
+      {
+        "path": "REQUEST.md",
+        "saved_sha256": "670038db71064a643014c952161666544cf37a4c9e17f14ddc7c4478e78dc6d8",
+        "current_sha256": "670038db71064a643014c952161666544cf37a4c9e17f14ddc7c4478e78dc6d8",
+        "exact": true
+      },
+      {
+        "path": "ENVIRONMENT.md",
+        "saved_sha256": "62b3dfaa4ce57a0833c7132c991c51053e444b7a9d97a18db826dd2bd557f2b1",
+        "current_sha256": "62b3dfaa4ce57a0833c7132c991c51053e444b7a9d97a18db826dd2bd557f2b1",
+        "exact": true
+      },
+      {
+        "path": "tickets/FDSA-002.md",
+        "saved_sha256": "989b26a1e307eb4b4ef692b32d41e722c898949c6a81e3baedd4074d8a7dbcd1",
+        "current_sha256": "989b26a1e307eb4b4ef692b32d41e722c898949c6a81e3baedd4074d8a7dbcd1",
+        "exact": true
+      },
+      {
+        "path": "reviews/chapter02-requirements.md",
+        "saved_sha256": "f0c9bc939fbfb6da02c1734b121456c35fd6b4c9ee43f1284003d0b8db087a36",
+        "current_sha256": "f0c9bc939fbfb6da02c1734b121456c35fd6b4c9ee43f1284003d0b8db087a36",
+        "exact": true
+      },
+      {
+        "path": "reviews/chapter02-active-scope.md",
+        "saved_sha256": "07bf70884d0076b64dd29642165cbcc267e1f4b33da5e00ac25e7da919a86a6b",
+        "current_sha256": "07bf70884d0076b64dd29642165cbcc267e1f4b33da5e00ac25e7da919a86a6b",
+        "exact": true
+      },
+      {
+        "path": "research/chapter02-obligations.md",
+        "saved_sha256": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2",
+        "current_sha256": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2",
+        "exact": true
+      },
+      {
+        "path": "research/scope-reconciliation.md",
+        "saved_sha256": "21de30d9c317dadc2cb8aee51ea84ca26f74c8208b754feea57d81140c1a3e87",
+        "current_sha256": "21de30d9c317dadc2cb8aee51ea84ca26f74c8208b754feea57d81140c1a3e87",
+        "exact": true
+      },
+      {
+        "path": "research/coverage-scope-audit.md",
+        "saved_sha256": "2ee191f35850404e0236dfe326581839d67396e52f37c05970d7a0553a12a69b",
+        "current_sha256": "2ee191f35850404e0236dfe326581839d67396e52f37c05970d7a0553a12a69b",
+        "exact": true
+      },
+      {
+        "path": "reviews/chapter02-round1.md",
+        "saved_sha256": "a97999b4daf1c1eedc42712d10d47413c81f4bc78357c6e2c1fe5f7881033b51",
+        "current_sha256": "a97999b4daf1c1eedc42712d10d47413c81f4bc78357c6e2c1fe5f7881033b51",
+        "exact": true
+      },
+      {
+        "path": "reviews/chapter02-standards-source-preparation-20261104.md",
+        "saved_sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde",
+        "current_sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde",
+        "exact": true
+      },
+      {
+        "path": "reviews/chapter02-spec-source-preparation-20261104.md",
+        "saved_sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007",
+        "current_sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007",
+        "exact": true
+      },
+      {
+        "path": "reviews/insertion-requirements.md",
+        "saved_sha256": "fbd77fa19c83df3e6d7d10d6e7bd6cddf2d5aa888b512d5af2a7322f222f1a68",
+        "current_sha256": "fbd77fa19c83df3e6d7d10d6e7bd6cddf2d5aa888b512d5af2a7322f222f1a68",
+        "exact": true
+      },
+      {
+        "path": "reviews/list-library-requirements.md",
+        "saved_sha256": "83cffa5aff717943d449f4380189a9e9a761252730f5a14f4e392f1e62d154d4",
+        "current_sha256": "83cffa5aff717943d449f4380189a9e9a761252730f5a14f4e392f1e62d154d4",
+        "exact": true
+      },
+      {
+        "path": "reviews/list-calls-requirements.md",
+        "saved_sha256": "0a2f7a2869c10276da2cc9a852e20936c6aba2d094d5232b96e94fbf47ecf78d",
+        "current_sha256": "0a2f7a2869c10276da2cc9a852e20936c6aba2d094d5232b96e94fbf47ecf78d",
+        "exact": true
+      },
+      {
+        "path": "reviews/notation-requirements.md",
+        "saved_sha256": "21a4ad13752d4316817e97f655af9a768726aa682124a39a2aeac248460b5a48",
+        "current_sha256": "21a4ad13752d4316817e97f655af9a768726aa682124a39a2aeac248460b5a48",
+        "exact": true
+      },
+      {
+        "path": "reviews/difference-list-cost-requirements.md",
+        "saved_sha256": "cb215a33cce3dd258cca37b9d703522d19caf2da76767c01e573d268b3e92c4e",
+        "current_sha256": "cb215a33cce3dd258cca37b9d703522d19caf2da76767c01e573d268b3e92c4e",
+        "exact": true
+      },
+      {
+        "path": "reviews/ordinary-merge-requirements.md",
+        "saved_sha256": "b54e2b332cc31c04ac12fb5b19cc96fa494a80e1455fcfc173f59b6fe340d3d9",
+        "current_sha256": "b54e2b332cc31c04ac12fb5b19cc96fa494a80e1455fcfc173f59b6fe340d3d9",
+        "exact": true
+      },
+      {
+        "path": "reviews/three-way-partition-requirements.md",
+        "saved_sha256": "b1f55911c44a11def3498484787fcb04972398ec040bf1bd65c75796c116d541",
+        "current_sha256": "b1f55911c44a11def3498484787fcb04972398ec040bf1bd65c75796c116d541",
+        "exact": true
+      },
+      {
+        "path": "reviews/permutation-minimum-requirements.md",
+        "saved_sha256": "59e2ff6ff66dd39b6151a42b501bcc22e86eb593a9b854b532f97bc45fdd7686",
+        "current_sha256": "59e2ff6ff66dd39b6151a42b501bcc22e86eb593a9b854b532f97bc45fdd7686",
+        "exact": true
+      },
+      {
+        "path": "reviews/permutation-order-requirements.md",
+        "saved_sha256": "f473f593bf4a7ef75dcf2f3163440db6fe187b3b9983f87254d2ddfa8191982d",
+        "current_sha256": "f473f593bf4a7ef75dcf2f3163440db6fe187b3b9983f87254d2ddfa8191982d",
+        "exact": true
+      },
+      {
+        "path": "reviews/permutation-tail-requirements.md",
+        "saved_sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c",
+        "current_sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-review-scope-20261104/scope.json",
+        "saved_sha256": "6aa149a5b4f6a45f02ae3312ad67cd5b3fd16fa1655c8bf438e8a50a77d3b70f",
+        "current_sha256": "6aa149a5b4f6a45f02ae3312ad67cd5b3fd16fa1655c8bf438e8a50a77d3b70f",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-review-scope-20261104/successor-4b5dbfa0.json",
+        "saved_sha256": "88b020f09bc76fe487a843f001b572b80156b524ac134b07e4945d4c5b12ffb6",
+        "current_sha256": "88b020f09bc76fe487a843f001b572b80156b524ac134b07e4945d4c5b12ffb6",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-4b5dbfa0.json",
+        "saved_sha256": "3ae1e9749b8633e64a0adc14bb9cc96f5ee6cd5ba338dd45d55ddeac3df161d7",
+        "current_sha256": "3ae1e9749b8633e64a0adc14bb9cc96f5ee6cd5ba338dd45d55ddeac3df161d7",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/source-scope-successor-4b5dbfa0.json",
+        "saved_sha256": "5bf3a45eab119bbd6b3d16547142282599ea2c26d5e1af986afc42d0ec544620",
+        "current_sha256": "5bf3a45eab119bbd6b3d16547142282599ea2c26d5e1af986afc42d0ec544620",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+        "saved_sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510",
+        "current_sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-complete-spec-assessment-4b5dbfa0.json",
+        "saved_sha256": "116cf0a800841c3a18d338f446ce3a518455487de8e401dae1186a85c73ad878",
+        "current_sha256": "116cf0a800841c3a18d338f446ce3a518455487de8e401dae1186a85c73ad878",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/current-public-type-disposition-4b5dbfa0.json",
+        "saved_sha256": "6a749dbb10bddc7f8293330cdb56a27bd68b5c6473bd0f2d03aad2722881dee5",
+        "current_sha256": "6a749dbb10bddc7f8293330cdb56a27bd68b5c6473bd0f2d03aad2722881dee5",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-standards-source-preparation-20261104/public-type-accounting.json",
+        "saved_sha256": "a67cdd001115164b268d0c8d2b2a2dc2c6d95d46970a02bb17a324edb146e556",
+        "current_sha256": "a67cdd001115164b268d0c8d2b2a2dc2c6d95d46970a02bb17a324edb146e556",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-standards-source-preparation-20261104/historical-type-dependency-assessment-6b95185.json",
+        "saved_sha256": "4cf7c71ed470047083093dd8a5212d3eaa6013b9e2a7ed9e0ae9e15426d9f9ab",
+        "current_sha256": "4cf7c71ed470047083093dd8a5212d3eaa6013b9e2a7ed9e0ae9e15426d9f9ab",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-execution-input-assessment-4b5dbfa0.json",
+        "saved_sha256": "489ae557c9eef766ef9bf2e2e85d124fb71658c6546e707b494fe738c27d569a",
+        "current_sha256": "489ae557c9eef766ef9bf2e2e85d124fb71658c6546e707b494fe738c27d569a",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-execution-input-qualification.json",
+        "saved_sha256": "9bf1f1e098997b9f4f01944c59b5578a32a4768e00fc0e68d1726c342bb82abe",
+        "current_sha256": "9bf1f1e098997b9f4f01944c59b5578a32a4768e00fc0e68d1726c342bb82abe",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/Statements.lean",
+        "saved_sha256": "d4d37d6ea2b48fc5c743b1db36fe904ca8623be6c03c05ea5addc99b307687bd",
+        "current_sha256": "d4d37d6ea2b48fc5c743b1db36fe904ca8623be6c03c05ea5addc99b307687bd",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/inventory.json",
+        "saved_sha256": "7fe7ddfc3242dff5937ef1fba339bd62f0a2ce66401fe919d383237049bd70bf",
+        "current_sha256": "7fe7ddfc3242dff5937ef1fba339bd62f0a2ce66401fe919d383237049bd70bf",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/result.json",
+        "saved_sha256": "408a2fc698c80f7f4527beb0045f21132c3dc544ad0d9054204e2619aff595ab",
+        "current_sha256": "408a2fc698c80f7f4527beb0045f21132c3dc544ad0d9054204e2619aff595ab",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/secured-terminal.json",
+        "saved_sha256": "c7c0b017ef12185fc8c5cfb4e82bc608dc19bec29bc34cee78fbf959a66c5252",
+        "current_sha256": "c7c0b017ef12185fc8c5cfb4e82bc608dc19bec29bc34cee78fbf959a66c5252",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/full.log",
+        "saved_sha256": "a5347095b4f93728b1b384c415189e1d934084eca4af8999028d0864fab9fc6b",
+        "current_sha256": "a5347095b4f93728b1b384c415189e1d934084eca4af8999028d0864fab9fc6b",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+        "saved_sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29",
+        "current_sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/actual-type-ranges.json",
+        "saved_sha256": "5f53332f2c9719fc6ce7fe15f6eab6f90a6d7baf9dd1b4cf0e2750d1932ffcef",
+        "current_sha256": "5f53332f2c9719fc6ce7fe15f6eab6f90a6d7baf9dd1b4cf0e2750d1932ffcef",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/pre-inputs.json",
+        "saved_sha256": "e4187960a469d194aeceed488d7e9bb45a450ae059bef46ba9645c5f9d6868ac",
+        "current_sha256": "e4187960a469d194aeceed488d7e9bb45a450ae059bef46ba9645c5f9d6868ac",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/post-inputs.json",
+        "saved_sha256": "c8a015007775ff98a220c90c328dc10f505cca8ac9ac9c7c3b887e2c0089ab4a",
+        "current_sha256": "c8a015007775ff98a220c90c328dc10f505cca8ac9ac9c7c3b887e2c0089ab4a",
+        "exact": true
+      },
+      {
+        "path": "provenance/checkpoint0099-preparation/root-review-reconciliation.json",
+        "saved_sha256": "2a3364906aba176499aaa6f5455fb08f3e32b3b2b08587998ae9626903399bc9",
+        "current_sha256": "2a3364906aba176499aaa6f5455fb08f3e32b3b2b08587998ae9626903399bc9",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-four-acceptance-20261104/acceptance.json",
+        "saved_sha256": "1d0e49de391af7f2c500d954e5e4bed4dea9094d0d24cdb57841e3ada5d33046",
+        "current_sha256": "1d0e49de391af7f2c500d954e5e4bed4dea9094d0d24cdb57841e3ada5d33046",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-four-acceptance-20261104/durability.json",
+        "saved_sha256": "aa1076827c9a1e7f8f5fc190498bdf0f094501fd55375b870fec43059323222b",
+        "current_sha256": "aa1076827c9a1e7f8f5fc190498bdf0f094501fd55375b870fec43059323222b",
+        "exact": true
+      },
+      {
+        "path": "provenance/foundation-acceptance-20261104/acceptance.json",
+        "saved_sha256": "83c80450ccacba22c263f805670b2ee06dffc757447bb437f86875918c4e7fa0",
+        "current_sha256": "83c80450ccacba22c263f805670b2ee06dffc757447bb437f86875918c4e7fa0",
+        "exact": true
+      },
+      {
+        "path": "provenance/foundation-acceptance-20261104/durability.json",
+        "saved_sha256": "aa7495d8af0958d6e93d0a7618439eed42501a8fef326f9b232a57a7f0ff8a25",
+        "current_sha256": "aa7495d8af0958d6e93d0a7618439eed42501a8fef326f9b232a57a7f0ff8a25",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter01-acceptance-20261103/acceptance.json",
+        "saved_sha256": "ca68a978d5bfc4ca8164c2f88c160eebfc0a339e80f9270c16b916caf25e9d4b",
+        "current_sha256": "ca68a978d5bfc4ca8164c2f88c160eebfc0a339e80f9270c16b916caf25e9d4b",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-order-source-integration-20261104/handoff.md",
+        "saved_sha256": "85ea9bcaaa8fb5f0fe32805ad3695e4b711e56a6ad9a4d7ec39d3d18d8dfc594",
+        "current_sha256": "85ea9bcaaa8fb5f0fe32805ad3695e4b711e56a6ad9a4d7ec39d3d18d8dfc594",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-order-source-integration-20261104/result.json",
+        "saved_sha256": "d09b2836192bf49fa57f4ecce046e571ed1a94cd6ada1e47b5ad7dcddbc09244",
+        "current_sha256": "d09b2836192bf49fa57f4ecce046e571ed1a94cd6ada1e47b5ad7dcddbc09244",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-order-source-integration-20261104/receipt.json",
+        "saved_sha256": "213e22f18a8dfa6e35529afc0b61fa40e91126dda95cb9a723242252a643dfb0",
+        "current_sha256": "213e22f18a8dfa6e35529afc0b61fa40e91126dda95cb9a723242252a643dfb0",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-tail-integration-readiness-20261104/readiness.md",
+        "saved_sha256": "8c78289e814157df89637bfc004092876ec1a26f25ac8354b3dea9cdfb73017f",
+        "current_sha256": "8c78289e814157df89637bfc004092876ec1a26f25ac8354b3dea9cdfb73017f",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-tail-integration-readiness-20261104/inventory.json",
+        "saved_sha256": "9ae15ac5cfc32f7ebe5b8dbe3ddf664774b4c7fff46c8c70fd2bf2d0b5550109",
+        "current_sha256": "9ae15ac5cfc32f7ebe5b8dbe3ddf664774b4c7fff46c8c70fd2bf2d0b5550109",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-tail-integration-readiness-20261104/receipt.json",
+        "saved_sha256": "0acd1288355966bcfda05afb4f958e66bfd100ddc9cdaf637b60e95cbf9854d9",
+        "current_sha256": "0acd1288355966bcfda05afb4f958e66bfd100ddc9cdaf637b60e95cbf9854d9",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+        "saved_sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa",
+        "current_sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-shared-notes-status-correction1-20261104/proposed/fdsa-permutation-tail.md",
+        "saved_sha256": "9740fdf8ff9761daebae4ec0be6c9388deffcb55fc567d695be27ca89ea86b87",
+        "current_sha256": "9740fdf8ff9761daebae4ec0be6c9388deffcb55fc567d695be27ca89ea86b87",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-shared-notes-status-correction1-20261104/receipt.json",
+        "saved_sha256": "2eaa22b53108301a878171aefa854150b4122431fd83e2f30abb65b33da48d31",
+        "current_sha256": "2eaa22b53108301a878171aefa854150b4122431fd83e2f30abb65b33da48d31",
+        "exact": true
+      },
+      {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/receipt.json",
+        "saved_sha256": "faa70afc6fa62c47d9b1442f10a20ff9ad9a73b3576f7028e8ee7ead0594edbe",
+        "current_sha256": "faa70afc6fa62c47d9b1442f10a20ff9ad9a73b3576f7028e8ee7ead0594edbe",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-chapter02-integration-readiness-20261104/readiness.md",
+        "saved_sha256": "74d265e4772c5bffa2a09d218226b02299e50335d688bda13d14910acf9af71b",
+        "current_sha256": "74d265e4772c5bffa2a09d218226b02299e50335d688bda13d14910acf9af71b",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-chapter02-integration-readiness-20261104/inventory.json",
+        "saved_sha256": "d4a4a91d9712c97067c7bb2b83a12444da2f6333f3feab1ab8cbc6be9af80eca",
+        "current_sha256": "d4a4a91d9712c97067c7bb2b83a12444da2f6333f3feab1ab8cbc6be9af80eca",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-chapter02-integration-readiness-20261104/receipt.json",
+        "saved_sha256": "a5183c858e8b6b73c83ceee2f57393c5b20e1df4ee8e36cb191acc2ab7032814",
+        "current_sha256": "a5183c858e8b6b73c83ceee2f57393c5b20e1df4ee8e36cb191acc2ab7032814",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-chapter02-statement-evidence-readiness-20261104/readiness.md",
+        "saved_sha256": "4171dd19b7c90294a9bea565de757305204acc51dd43ecf011042409ee3caeb0",
+        "current_sha256": "4171dd19b7c90294a9bea565de757305204acc51dd43ecf011042409ee3caeb0",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-chapter02-statement-evidence-readiness-20261104/inventory.json",
+        "saved_sha256": "80311e829c93fa2653616d9b5e85f237a17a6347cda79b69d1388d2cb8bb6b47",
+        "current_sha256": "80311e829c93fa2653616d9b5e85f237a17a6347cda79b69d1388d2cb8bb6b47",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-chapter02-statement-evidence-readiness-20261104/bound-inputs.json",
+        "saved_sha256": "2ce52d69ab4f69c3311b63c92994adf9d47f48532688f8fc72dde17e9d4faf7f",
+        "current_sha256": "2ce52d69ab4f69c3311b63c92994adf9d47f48532688f8fc72dde17e9d4faf7f",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-chapter02-statement-evidence-readiness-20261104/receipt.json",
+        "saved_sha256": "6269925bfe4b8702cfe3e4b1c7f3708df2586056082436eecb3c87964850d9cc",
+        "current_sha256": "6269925bfe4b8702cfe3e4b1c7f3708df2586056082436eecb3c87964850d9cc",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-chapter02-resource-readiness-20261104/report.md",
+        "saved_sha256": "a994fba93cd43be5a8f72e7e4ac94fe69045ac9b99e32fe078811961d2d62324",
+        "current_sha256": "a994fba93cd43be5a8f72e7e4ac94fe69045ac9b99e32fe078811961d2d62324",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-chapter02-resource-readiness-20261104/receipts.json",
+        "saved_sha256": "c980af88babd74251a4896eded792edea81ba7db83876130f7173ec4e2e848cb",
+        "current_sha256": "c980af88babd74251a4896eded792edea81ba7db83876130f7173ec4e2e848cb",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-tail-acceptance-20261104/acceptance.json",
+        "saved_sha256": "8d6eda0bdc0319165aba3434c6f20ff0a6fe6fc2376dca35ebc295ce5cb8cb0d",
+        "current_sha256": "8d6eda0bdc0319165aba3434c6f20ff0a6fe6fc2376dca35ebc295ce5cb8cb0d",
+        "exact": true
+      },
+      {
+        "path": "provenance/shared-tail-acceptance-20261104/durability.json",
+        "saved_sha256": "dc1313d62c34db6b8ae7bc75acc759b61668dedfa2fd346dd10cb5b3819b12f5",
+        "current_sha256": "dc1313d62c34db6b8ae7bc75acc759b61668dedfa2fd346dd10cb5b3819b12f5",
+        "exact": true
+      }
+    ],
+    "historical_control_changes_retained": [
+      {
+        "path": "tickets/FDSA-002.md",
+        "historical": {
+          "path": "tickets/FDSA-002.md",
+          "bytes": 37303,
+          "lines": 589,
+          "sha256": "5226bc0244596b94d963613c260e4e9aab8af4f5abc9ef9bbe161fd0eb4107ff"
+        },
+        "observed_now": {
+          "path": "tickets/FDSA-002.md",
+          "bytes": 40256,
+          "lines": 603,
+          "sha256": "989b26a1e307eb4b4ef692b32d41e722c898949c6a81e3baedd4074d8a7dbcd1"
+        }
+      },
+      {
+        "path": "reviews/chapter02-round1.md",
+        "historical": {
+          "path": "reviews/chapter02-round1.md",
+          "bytes": 20907,
+          "lines": 308,
+          "sha256": "16da55e1de9ca2bdf21fd09d8e1bac42e2e8ff0688a31cddbdba514c7e467542"
+        },
+        "observed_now": {
+          "path": "reviews/chapter02-round1.md",
+          "bytes": 31353,
+          "lines": 350,
+          "sha256": "a97999b4daf1c1eedc42712d10d47413c81f4bc78357c6e2c1fe5f7881033b51"
+        }
+      }
+    ]
+  },
+  "actual_history": {
+    "proper_ordered_parents": true,
+    "ordinary_merge_command": [
+      {
+        "label": "branch",
+        "started_utc": "2026-11-04T16:51:54.317348+00:00",
+        "finished_utc": "2026-11-04T16:51:54.326995+00:00",
+        "argv": [
+          "git",
+          "-C",
+          "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+          "-c",
+          "user.name=ChatGPT",
+          "-c",
+          "user.email=chatgpt@openai.com",
+          "switch",
+          "-c",
+          "work/fdsa-chapter02-integration",
+          "726cb9a9b9ff4444a7614383de4fb336e8804aa7"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": "Switched to a new branch 'work/fdsa-chapter02-integration'\n"
+      },
+      {
+        "label": "merge",
+        "started_utc": "2026-11-04T16:51:54.327171+00:00",
+        "finished_utc": "2026-11-04T16:51:54.389985+00:00",
+        "argv": [
+          "git",
+          "-C",
+          "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+          "-c",
+          "user.name=ChatGPT",
+          "-c",
+          "user.email=chatgpt@openai.com",
+          "merge",
+          "--no-ff",
+          "--no-commit",
+          "-s",
+          "ort",
+          "4b5dbfa07288acc73f25c27838d3fb2f78e77d71"
+        ],
+        "exit": 1,
+        "stdout": "Auto-merging SquareApplications.lean\nCONFLICT (content): Merge conflict in SquareApplications.lean\nAuto-merging docs/research/fdsa-reconstruction-map.md\nCONFLICT (content): Merge conflict in docs/research/fdsa-reconstruction-map.md\nAutomatic merge failed; fix conflicts and then commit the result.\n",
+        "stderr": ""
+      },
+      {
+        "label": "add",
+        "argv": [
+          "git",
+          "-C",
+          "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+          "-c",
+          "user.name=ChatGPT",
+          "-c",
+          "user.email=chatgpt@openai.com",
+          "add",
+          "--",
+          "SquareApplications.lean",
+          "docs/research/fdsa-reconstruction-map.md",
+          "docs/research/fdsa-sorting.md"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": "",
+        "completed_utc": "2026-11-04T16:53:42.984065+00:00"
+      },
+      {
+        "label": "commit",
+        "started_utc": "2026-11-04T16:54:01.014708+00:00",
+        "finished_utc": "2026-11-04T16:54:01.032255+00:00",
+        "argv": [
+          "git",
+          "-C",
+          "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+          "-c",
+          "user.name=ChatGPT",
+          "-c",
+          "user.email=chatgpt@openai.com",
+          "commit",
+          "-m",
+          "feat(fdsa): integrate complete sorting chapter (#174)"
+        ],
+        "exit": 0,
+        "stdout": "[work/fdsa-chapter02-integration 2da5708] feat(fdsa): integrate complete sorting chapter (#174)\n",
+        "stderr": ""
+      }
+    ],
+    "saved_commit_list_exact_immutable_git": true,
+    "full_commit_list_count": 186,
+    "saved_protected_ref_snapshot_counts": [
+      66,
+      67
+    ],
+    "all_66_existing_refs_preserved_in_actual_records": true,
+    "accepted_book_still_L_in_actual_record": true,
+    "other_worktree_records_exact": 14
+  },
+  "actual_conflicts": {
+    "paths": [
+      "SquareApplications.lean",
+      "docs/research/fdsa-reconstruction-map.md"
+    ],
+    "six_payloads_exact_saved_index_and_git_blobs": [
+      {
+        "path": "SquareApplications.lean",
+        "mode": "100644",
+        "blob": "9b9355ced967a8c8c03a7a5a340a03d3467b214d",
+        "stage": 1,
+        "bytes": 8769,
+        "sha256": "4be374b4672b68eea315625cba159e77c50a8ef8c177635e09bfcac3ae5742fb",
+        "saved": "conflict-SquareApplications.lean-stage1"
+      },
+      {
+        "path": "SquareApplications.lean",
+        "mode": "100644",
+        "blob": "623b77c69d1ff2cf09a9429eefbd69641370b9cc",
+        "stage": 2,
+        "bytes": 8609,
+        "sha256": "a30e93ebbdb80f40d751cc30a5185e5e96ce40861540c35fb439362d66d2678d",
+        "saved": "conflict-SquareApplications.lean-stage2"
+      },
+      {
+        "path": "SquareApplications.lean",
+        "mode": "100644",
+        "blob": "1a220ba195105933210bd1578552f07052d6224b",
+        "stage": 3,
+        "bytes": 9371,
+        "sha256": "31fb256fe70c28b42b85b0221c37ffe60ab60248ebf7babecc410326c1f96d15",
+        "saved": "conflict-SquareApplications.lean-stage3"
+      },
+      {
+        "path": "docs/research/fdsa-reconstruction-map.md",
+        "mode": "100644",
+        "blob": "49924e2ebdf10714c44bf95a95f94b2571ddde42",
+        "stage": 1,
+        "bytes": 40858,
+        "sha256": "cfe67f21675a2aecd301d5e2f7b8f5adbc54c4b744c462319a95895d7ec3a4d4",
+        "saved": "conflict-docs__research__fdsa-reconstruction-map.md-stage1"
+      },
+      {
+        "path": "docs/research/fdsa-reconstruction-map.md",
+        "mode": "100644",
+        "blob": "0944dfd5fde6895f2c4cc0db9bd015f3e71ffed1",
+        "stage": 2,
+        "bytes": 41477,
+        "sha256": "b5997a67ca8e23f4418b5428db17bedcf960f262f2e9a9e711255799970689d6",
+        "saved": "conflict-docs__research__fdsa-reconstruction-map.md-stage2"
+      },
+      {
+        "path": "docs/research/fdsa-reconstruction-map.md",
+        "mode": "100644",
+        "blob": "ec2ac8c975be8e5e22fc8574d71c025732cd2ff2",
+        "stage": 3,
+        "bytes": 44132,
+        "sha256": "dd4ce52d2cec15815dd18788e027808b072af75f4759b6fd9d6520682e6a27c2",
+        "saved": "conflict-docs__research__fdsa-reconstruction-map.md-stage3"
+      }
+    ],
+    "base_stage_is_recorded_ort_virtual_base": true,
+    "stage2_is_L_and_stage3_is_Z": true,
+    "all_original_marker_regions_read": {
+      "root": [
+        [
+          252,
+          294
+        ]
+      ],
+      "map": [
+        [
+          44,
+          62
+        ],
+        [
+          230,
+          285
+        ],
+        [
+          491,
+          527
+        ],
+        [
+          590,
+          650
+        ],
+        [
+          665,
+          690
+        ],
+        [
+          694,
+          712
+        ],
+        [
+          717,
+          738
+        ],
+        [
+          742,
+          760
+        ]
+      ]
+    }
+  },
+  "documentary_resolution": {
+    "all_nine_map_replacements_exact_from_L": [
+      {
+        "label": "Chapter 2 table row",
+        "old_sha256": "dcf8ac3ea01e5b1fc8a2ba649a7103680fcfaaf8efe2fbf75f39ad1addefe4d4",
+        "new_sha256": "0d43b03982d50c1bd44f0ec8383b2f7177141a12f323055e2d8757cc31771925"
+      },
+      {
+        "label": "Complete Chapter 2 section",
+        "old_sha256": "42b7708e65f5c627bb4e3b143162875c64ed0385ddb927bf591b51c7dc159f2c",
+        "new_sha256": "43b835d22225aad45b1120453f87c25dd25d63371b335ae0c01721e33a8228d1"
+      },
+      {
+        "label": "XM01 actual C2 clients, retained C14 boundary",
+        "old_sha256": "862920bdda63028a9fd104568ba56dbabce15b3086c05a336cf906ad320a9659",
+        "new_sha256": "e972add61c51832fd9598cce6e359bccc45bf6104c560b6fe451da2c696bcb37"
+      },
+      {
+        "label": "XD01 actual worker/scanner and append/reverse clients without relocating section",
+        "old_sha256": "9f1aec5611b0fdb8550d5dc19b5d111bd7efc2e899f4700b4a1b4ce5bbcacf16",
+        "new_sha256": "d631a3e25df3b5d9b5e8a84c10a58404416f668e9b7a067d8184d79e21c16fb7"
+      },
+      {
+        "label": "XQ01 chapter-activation wording with dated gates retained",
+        "old_sha256": "fc950997ee72b98f32a0559d39a64b2ebca83ade98862e3ccfbadcbe831de9d1",
+        "new_sha256": "1bbb76f65a9a3192e04f042372a31c974c6f9c0bb362040349b0d577c0422f18"
+      },
+      {
+        "label": "XQ01 actual C2 clients and retained Selection obligations",
+        "old_sha256": "a501ee36a790d1b7b04fa4ac3a34261d97830fbd14cd7933a4e84265a41bd1a2",
+        "new_sha256": "8a61a0e23e644c0184ca8f39bf3f9d34752d4b0bf8446de70d74fd040df21bb4"
+      },
+      {
+        "label": "XU01 actual clients without promoting the minimum law alone",
+        "old_sha256": "fd5b4388d8a6ed46ed9e61b5a8b2e6da35a788e420989453cc8ccaff0e7b4f38",
+        "new_sha256": "65fe79faf74d35cf4727b8c4fd553d9415e97dde18a68d577a5aaeae8fd96d91"
+      },
+      {
+        "label": "XU02 actual clients without joint-independence assumption",
+        "old_sha256": "0a91a68357f55d831b5293fc4b92017ed3d16894885a2cbc54aa9ca3a6a246bb",
+        "new_sha256": "46f123549fd1ef6cc977e4a0591b1dfc3a79115e9d3d95ed7d983475166b3507"
+      },
+      {
+        "label": "XU03 actual clients and retained history/Chapter 3 obligations",
+        "old_sha256": "d74994b8efc60162ca5384c715d13c9439043b3166545f6f5a220f12a70ab6d4",
+        "new_sha256": "38f63ac004d9e55753221c8e518bda31ede9dac5fc559e1750c90bc49102c5bc"
+      }
+    ],
+    "root_exact_L_order_plus_23_once": true,
+    "sorting_exact_Z_with_only_prepared_opening": true,
+    "sixty_alias_defining_blobs_exact_Z": true,
+    "table_112_unchanged": "Independently checked in immutable-source-reconciliation.json; all remaining sorting bytes exact Z."
+  },
+  "immutable_source_identity": {
+    "all_81_author_rows_match_Git": true,
+    "all_97_statement_closure_rows_match_Q_and_Z": true,
+    "all_71_defining_blobs_exact_Z": true,
+    "original_R_diff_matches_complete_saved_identity": true,
+    "L_delta_patch_matches_complete_saved_bytes": true,
+    "baseline_tree_and_candidate_tree_match_saved_bytes_and_hash": true,
+    "existing_L_paths_unchanged": 1607,
+    "existing_L_paths_outside_original_81_scope_unchanged": 1576
+  },
+  "read_boundary": "All new actual documentary changes, complete held handoff/receipt/readback/resolution and command records, all conflict regions and result semantic fields read. Large repetitive identity inventories and unchanged source/diff payloads are mechanically reconciled; complete earlier source/math/type readings retained by exact identity, not claimed as reread here.",
+  "concrete_new_source_findings": [],
+  "source_assessment": "Complete with no new source finding; original findings retained in final source report.",
+  "overall": "Blocked pending receiving full validation, actual type qualification and all final acceptance gates.",
+  "receiving_type_full_audit_credit": 0,
+  "actions": "Immutable Git/held-record reads and new own provenance writes only; no compiler, project output/runtime capture, source/ref/cache/global-control mutation."
+}

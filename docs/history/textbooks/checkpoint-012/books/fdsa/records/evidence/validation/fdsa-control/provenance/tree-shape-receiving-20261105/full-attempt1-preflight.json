@@ -1,0 +1,41 @@
+{
+  "recorded_utc": "2026-11-05T03:28:31.621290+00:00",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "accepted_head": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "scope_paths": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-shape.md"
+  ],
+  "mode": "normal",
+  "normal_mode_reason": "The repository normal-versus-fresh rule applies: unchanged compiler, exact dependencies, project execution/audit configuration and native profile; prior accepted Chapter 1 full fresh baseline is preserved. Only the scoped source, root import and documentation differ from accepted XT01. No fresh trigger has been introduced.",
+  "readme": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/README.md",
+    "bytes": 26239,
+    "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216"
+  },
+  "input_counts": {
+    "local_sources": 29,
+    "local_compiler_objects_and_traces": 87,
+    "configuration": 10,
+    "dependencies": 9,
+    "runtime": 12
+  },
+  "before_after_inputs_equal": true,
+  "space": {
+    "filesystem_total_bytes": 67586535424,
+    "ordinary_available_bytes": 0,
+    "raw_free_bytes": 428646400,
+    "unchanged_full_normal_raw_guard_bytes": 402653184
+  },
+  "memory_observation": {},
+  "root_exclusive_serial_owner": true,
+  "lean_threads": 1,
+  "installation_or_hydration": false,
+  "validation_pending": true,
+  "acceptance_claim": false
+}

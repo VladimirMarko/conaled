@@ -1,0 +1,354 @@
+{
+  "kind": "Author source inventory, not elaborated types",
+  "parent": "1f315fdbb40288d99921164bb3fd8afcbd756e58",
+  "compiled": false,
+  "full_source_and_proof_readback_completed": true,
+  "files": {
+    "Applications/Resources/RandomQuickSortRank.lean": {
+      "bytes": 19615,
+      "lines": 393,
+      "sha256": "22960885c968620b957e7e2381baa8b887d9dc80a54fb72fe9644c3ace2890b4",
+      "declarations": [
+        {
+          "source_name": "Resources.RandomQuickSort.occurrenceRank",
+          "kind": "def",
+          "private": false,
+          "line": 35,
+          "source_statement": "def occurrenceRank [LinearOrder κ] (key : α → κ) (xs : List α) :\n    Equiv.Perm (Fin xs.length)"
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.occurrenceRank_lt_iff",
+          "kind": "theorem",
+          "private": false,
+          "line": 40,
+          "source_statement": "theorem occurrenceRank_lt_iff [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (i j : Fin xs.length) :\n    occurrenceRank key xs i < occurrenceRank key xs j ↔\n      key xs[i.val]'i.isLt < key xs[j.val]'j.isLt"
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.filter_length_eq_card_indices",
+          "kind": "theorem",
+          "private": true,
+          "line": 54,
+          "source_statement": "private theorem filter_length_eq_card_indices (xs : List α) (p : α → Bool) :\n    (xs.filter p).length =\n      (Finset.univ.filter (fun i : Fin xs.length => p xs[i.val]'i.isLt)).card"
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.strict_filter_length_eq_rank",
+          "kind": "theorem",
+          "private": true,
+          "line": 71,
+          "source_statement": "private theorem strict_filter_length_eq_rank [LinearOrder κ] (key : α → κ)\n    (xs : List α) (hd : (xs.map key).Nodup) (i : Fin xs.length) :\n    (xs.filter (fun x => decide (key x < key xs[i.val]'i.isLt))).length =\n      (occurrenceRank key xs i).val"
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.left_length_eq_rank",
+          "kind": "theorem",
+          "private": false,
+          "line": 96,
+          "source_statement": "theorem left_length_eq_rank [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (i : Fin xs.length) :\n    ((xs.eraseIdx i.val).filter\n      (fun x => decide (key x < key xs[i.val]'i.isLt))).length =\n        (occurrenceRank key xs i).val"
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.right_length_eq_rank",
+          "kind": "theorem",
+          "private": false,
+          "line": 109,
+          "source_statement": "theorem right_length_eq_rank [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (i : Fin xs.length) :\n    ((xs.eraseIdx i.val).filter\n      (fun x => !(decide (key x < key xs[i.val]'i.isLt)))).length =\n        xs.length - 1 - (occurrenceRank key xs i).val"
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.filtered_remainder_keys_nodup",
+          "kind": "theorem",
+          "private": true,
+          "line": 121,
+          "source_statement": "private theorem filtered_remainder_keys_nodup (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (i : Nat) (p : α → Bool) :\n    (((xs.eraseIdx i).filter p).map key).Nodup"
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.child_keys_nodup",
+          "kind": "theorem",
+          "private": false,
+          "line": 128,
+          "source_statement": "theorem child_keys_nodup [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (i : Fin xs.length) :\n    (((xs.eraseIdx i.val).filter\n      (fun x => decide (key x < key xs[i.val]'i.isLt))).map key).Nodup ∧\n    (((xs.eraseIdx i.val).filter\n      (fun x => !(decide (key x < key xs[i.val]'i.isLt)))).map key).Nodup"
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.filtered_remainder_length_lt",
+          "kind": "theorem",
+          "private": true,
+          "line": 137,
+          "source_statement": "private theorem filtered_remainder_length_lt (xs : List α) (i : Fin xs.length)\n    (p : α → Bool) : ((xs.eraseIdx i.val).filter p).length < xs.length"
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.uniformIndex_map_perm",
+          "kind": "theorem",
+          "private": true,
+          "line": 144,
+          "source_statement": "private theorem uniformIndex_map_perm (m : Nat) (σ : Equiv.Perm (Fin (m + 1))) :\n    PMF.map σ (uniformIndex m) = uniformIndex m"
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.left_length_law",
+          "kind": "theorem",
+          "private": false,
+          "line": 161,
+          "source_statement": "theorem left_length_law [LinearOrder κ] (key : α → κ) (head : α) (tail : List α)\n    (hd : ((head :: tail).map key).Nodup) :\n    PMF.map (fun i : Fin (tail.length + 1) =>\n      (((head :: tail).eraseIdx i.val).filter\n        (fun x => decide (key x < key (head :: tail)[i.val]'i.isLt))).length)\n      (uniformIndex tail.length) =\n        PMF.map (fun i : Fin (tail.length + 1) => i.val) (uniformIndex tail.length)"
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.exerciseMean_eq_of_length_eq",
+          "kind": "theorem",
+          "private": false,
+          "line": 182,
+          "source_statement": "theorem exerciseMean_eq_of_length_eq [LinearOrder κ] [LinearOrder ν]\n    (key₁ : α → κ) (key₂ : β → ν) (xs : List α) (ys : List β)\n    (hx : (xs.map key₁).Nodup) (hy : (ys.map key₂).Nodup)\n    (hlen : xs.length = ys.length) :\n    exerciseMean (fun a b => decide (key₁ a < key₁ b)) xs =\n      exerciseMean (fun a b => decide (key₂ a < key₂ b)) ys"
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.sizeMean",
+          "kind": "def",
+          "private": false,
+          "line": 280,
+          "source_statement": "def sizeMean (n : Nat) : ℝ"
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.exerciseMean_eq_sizeMean",
+          "kind": "theorem",
+          "private": false,
+          "line": 284,
+          "source_statement": "theorem exerciseMean_eq_sizeMean [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) :\n    exerciseMean (fun a b => decide (key a < key b)) xs = sizeMean xs.length"
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.sizeMean_zero",
+          "kind": "theorem",
+          "private": false,
+          "line": 290,
+          "source_statement": "@[simp] theorem sizeMean_zero : sizeMean 0 = 1"
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.sum_rank_children",
+          "kind": "theorem",
+          "private": true,
+          "line": 293,
+          "source_statement": "private theorem sum_rank_children (m : Nat) (A : Nat → ℝ)\n    (ρ : Equiv.Perm (Fin (m + 1))) :\n    (∑ i : Fin (m + 1), (A (ρ i).val + A (m - (ρ i).val))) =\n      2 * ∑ i : Fin (m + 1), A i.val"
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.exerciseMean_cons_size_formula",
+          "kind": "theorem",
+          "private": true,
+          "line": 314,
+          "source_statement": "private theorem exerciseMean_cons_size_formula [LinearOrder κ] (key : α → κ)\n    (head : α) (tail : List α) (hd : ((head :: tail).map key).Nodup) :\n    exerciseMean (fun a b => decide (key a < key b)) (head :: tail) =\n      (2 / ((tail.length + 1 : Nat) : ℝ)) *\n        (∑ i : Fin (tail.length + 1), sizeMean i.val) +\n        ((4 * tail.length + 3 : Nat) : ℝ)"
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.sizeMean_succ",
+          "kind": "theorem",
+          "private": false,
+          "line": 354,
+          "source_statement": "theorem sizeMean_succ (m : Nat) :\n    sizeMean (m + 1) =\n      (2 / ((m + 1 : Nat) : ℝ)) * (∑ i : Fin (m + 1), sizeMean i.val) +\n        ((4 * m + 3 : Nat) : ℝ)"
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.sizeMean_recurrence",
+          "kind": "theorem",
+          "private": false,
+          "line": 379,
+          "source_statement": "theorem sizeMean_recurrence (n : Nat) (hn : 0 < n) :\n    sizeMean n = (2 / (n : ℝ)) * (∑ k ∈ Finset.range n, sizeMean k) +\n      4 * (n : ℝ) - 1"
+        }
+      ],
+      "imports": [
+        "Applications.Resources.RandomQuickSortMean",
+        "Mathlib.Data.Fin.Tuple.Sort",
+        "Mathlib.Data.Fin.Rev",
+        "Mathlib.Data.List.OfFn",
+        "Mathlib.Data.List.FinRange",
+        "Mathlib.Data.Finset.Card",
+        "Mathlib.Order.Interval.Finset.Fin",
+        "Mathlib.Data.Fintype.BigOperators",
+        "Mathlib.Tactic.Ring"
+      ],
+      "universe_declarations": [
+        "u v w z"
+      ],
+      "autoImplicit_false": true,
+      "warningAsError_true": true,
+      "prohibited_token_matches": []
+    },
+    "Examples/RandomQuickSortRank.lean": {
+      "bytes": 6427,
+      "lines": 151,
+      "sha256": "a0f5fbd6b3d41cad08193a371228bede1b869a773608b21906e85f2848d747bf",
+      "declarations": [
+        {
+          "source_name": "Examples.RandomQuickSortRank.empty_rank",
+          "kind": "theorem",
+          "private": false,
+          "line": 25,
+          "source_statement": "theorem empty_rank {α : Type u} {κ : Type v} [LinearOrder κ] (key : α → κ) :\n    occurrenceRank key [] = Equiv.refl (Fin 0)"
+        },
+        {
+          "source_name": "Examples.RandomQuickSortRank.empty_uninhabited_mean",
+          "kind": "theorem",
+          "private": false,
+          "line": 31,
+          "source_statement": "theorem empty_uninhabited_mean :\n    exerciseMean (fun _ _ : Empty => false) [] = sizeMean 0"
+        },
+        {
+          "source_name": "Examples.RandomQuickSortRank.singleton_rank",
+          "kind": "theorem",
+          "private": false,
+          "line": 35,
+          "source_statement": "theorem singleton_rank {α : Type u} {κ : Type v} [LinearOrder κ]\n    (key : α → κ) (x : α) : occurrenceRank key [x] 0 = 0"
+        },
+        {
+          "source_name": "Examples.RandomQuickSortRank.sizeMean_one",
+          "kind": "theorem",
+          "private": false,
+          "line": 42,
+          "source_statement": "theorem sizeMean_one : sizeMean 1 = 5"
+        },
+        {
+          "source_name": "Examples.RandomQuickSortRank.sizeMean_two",
+          "kind": "theorem",
+          "private": false,
+          "line": 46,
+          "source_statement": "theorem sizeMean_two : sizeMean 2 = 13"
+        },
+        {
+          "source_name": "Examples.RandomQuickSortRank.sizeMean_three",
+          "kind": "theorem",
+          "private": false,
+          "line": 50,
+          "source_statement": "theorem sizeMean_three : sizeMean 3 = (71 : ℝ) / 3"
+        },
+        {
+          "source_name": "Examples.RandomQuickSortRank.three_occurrence_ranks",
+          "kind": "theorem",
+          "private": false,
+          "line": 57,
+          "source_statement": "theorem three_occurrence_ranks (i : Fin 3) :\n    (occurrenceRank (id : Nat → Nat) [2, 0, 1] i).val =\n      ([2, 0, 1] : List Nat)[i.val]"
+        },
+        {
+          "source_name": "Examples.RandomQuickSortRank.three_middle_children",
+          "kind": "theorem",
+          "private": false,
+          "line": 63,
+          "source_statement": "theorem three_middle_children :\n    (([2, 0, 1] : List Nat).eraseIdx 2).filter\n        (fun x => decide (x < ([2, 0, 1] : List Nat)[2])) = [0] ∧\n      (([2, 0, 1] : List Nat).eraseIdx 2).filter\n        (fun x => !(decide (x < ([2, 0, 1] : List Nat)[2]))) = [2]"
+        },
+        {
+          "source_name": "Examples.RandomQuickSortRank.three_left_size_law",
+          "kind": "theorem",
+          "private": false,
+          "line": 71,
+          "source_statement": "theorem three_left_size_law :\n    PMF.map (fun i : Fin 3 =>\n      ((([2, 0, 1] : List Nat).eraseIdx i.val).filter\n        (fun x => decide (x < ([2, 0, 1] : List Nat)[i.val]))).length)\n      (uniformIndex 2) = PMF.map (fun i : Fin 3 => i.val) (uniformIndex 2)"
+        },
+        {
+          "source_name": "Examples.RandomQuickSortRank.three_reordered_exercise_mean",
+          "kind": "theorem",
+          "private": false,
+          "line": 78,
+          "source_statement": "theorem three_reordered_exercise_mean : exerciseMean natLt [2, 0, 1] = (71 : ℝ) / 3"
+        },
+        {
+          "source_name": "Examples.RandomQuickSortRank.sizeMean_four",
+          "kind": "theorem",
+          "private": false,
+          "line": 85,
+          "source_statement": "theorem sizeMean_four : sizeMean 4 = (109 : ℝ) / 3"
+        },
+        {
+          "source_name": "Examples.RandomQuickSortRank.four_occurrence_ranks",
+          "kind": "theorem",
+          "private": false,
+          "line": 90,
+          "source_statement": "theorem four_occurrence_ranks (i : Fin 4) :\n    (occurrenceRank (id : Nat → Nat) [3, 1, 0, 2] i).val =\n      ([3, 1, 0, 2] : List Nat)[i.val]"
+        },
+        {
+          "source_name": "Examples.RandomQuickSortRank.four_selected_children",
+          "kind": "theorem",
+          "private": false,
+          "line": 97,
+          "source_statement": "theorem four_selected_children :\n    (([3, 1, 0, 2] : List Nat).eraseIdx 3).filter\n        (fun x => decide (x < ([3, 1, 0, 2] : List Nat)[3])) = [1, 0] ∧\n      (([3, 1, 0, 2] : List Nat).eraseIdx 3).filter\n        (fun x => !(decide (x < ([3, 1, 0, 2] : List Nat)[3]))) = [3]"
+        },
+        {
+          "source_name": "Examples.RandomQuickSortRank.four_reordered_exercise_mean",
+          "kind": "theorem",
+          "private": false,
+          "line": 104,
+          "source_statement": "theorem four_reordered_exercise_mean :\n    exerciseMean natLt [3, 1, 0, 2] = (109 : ℝ) / 3"
+        },
+        {
+          "source_name": "Examples.RandomQuickSortRank.distinct_tags_repeated_keys",
+          "kind": "theorem",
+          "private": false,
+          "line": 110,
+          "source_statement": "theorem distinct_tags_repeated_keys :\n    ([(1, false), (1, true), (2, false)] : List (Nat × Bool)).Nodup ∧\n      ¬ (([(1, false), (1, true), (2, false)] : List (Nat × Bool)).map Prod.fst).Nodup"
+        },
+        {
+          "source_name": "Examples.RandomQuickSortRank.repeated_key_rank_is_not_left_size",
+          "kind": "theorem",
+          "private": false,
+          "line": 118,
+          "source_statement": "theorem repeated_key_rank_is_not_left_size :\n    (occurrenceRank (Prod.fst : Nat × Bool → Nat)\n      [(1, false), (1, true), (2, false)] (1 : Fin 3)).val = 1 ∧\n    ((([(1, false), (1, true), (2, false)] : List (Nat × Bool)).eraseIdx 1).filter\n      (fun x => decide (x.1 < 1))).length = 0"
+        },
+        {
+          "source_name": "Examples.RandomQuickSortRank.equal_keys_keep_quadratic_mean",
+          "kind": "theorem",
+          "private": false,
+          "line": 132,
+          "source_statement": "theorem equal_keys_keep_quadratic_mean :\n    exerciseMean natLt [2, 2, 2] = 25 ∧\n      exerciseMean natLt [2, 2, 2] ≠ sizeMean 3"
+        },
+        {
+          "source_name": "Examples.RandomQuickSortRank.tagged_inputs_equal_mean",
+          "kind": "theorem",
+          "private": false,
+          "line": 142,
+          "source_statement": "theorem tagged_inputs_equal_mean {τ : Type u} {κ : Type v} {υ : Type w} {ν : Type z}\n    [LinearOrder κ] [LinearOrder ν] (xs : List (κ × τ)) (ys : List (ν × υ))\n    (hx : (xs.map Prod.fst).Nodup) (hy : (ys.map Prod.fst).Nodup)\n    (hlen : xs.length = ys.length) :\n    exerciseMean (fun a b : κ × τ => decide (a.1 < b.1)) xs =\n      exerciseMean (fun a b : ν × υ => decide (a.1 < b.1)) ys"
+        }
+      ],
+      "imports": [
+        "Applications.Resources.RandomQuickSortRank",
+        "Examples.RandomQuickSortMean",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "universe_declarations": [
+        "u v w z"
+      ],
+      "autoImplicit_false": true,
+      "warningAsError_true": true,
+      "prohibited_token_matches": []
+    }
+  },
+  "public_names": [
+    "Resources.RandomQuickSort.occurrenceRank",
+    "Resources.RandomQuickSort.occurrenceRank_lt_iff",
+    "Resources.RandomQuickSort.left_length_eq_rank",
+    "Resources.RandomQuickSort.right_length_eq_rank",
+    "Resources.RandomQuickSort.child_keys_nodup",
+    "Resources.RandomQuickSort.left_length_law",
+    "Resources.RandomQuickSort.exerciseMean_eq_of_length_eq",
+    "Resources.RandomQuickSort.sizeMean",
+    "Resources.RandomQuickSort.exerciseMean_eq_sizeMean",
+    "Resources.RandomQuickSort.sizeMean_zero",
+    "Resources.RandomQuickSort.sizeMean_succ",
+    "Resources.RandomQuickSort.sizeMean_recurrence",
+    "Examples.RandomQuickSortRank.empty_rank",
+    "Examples.RandomQuickSortRank.empty_uninhabited_mean",
+    "Examples.RandomQuickSortRank.singleton_rank",
+    "Examples.RandomQuickSortRank.sizeMean_one",
+    "Examples.RandomQuickSortRank.sizeMean_two",
+    "Examples.RandomQuickSortRank.sizeMean_three",
+    "Examples.RandomQuickSortRank.three_occurrence_ranks",
+    "Examples.RandomQuickSortRank.three_middle_children",
+    "Examples.RandomQuickSortRank.three_left_size_law",
+    "Examples.RandomQuickSortRank.three_reordered_exercise_mean",
+    "Examples.RandomQuickSortRank.sizeMean_four",
+    "Examples.RandomQuickSortRank.four_occurrence_ranks",
+    "Examples.RandomQuickSortRank.four_selected_children",
+    "Examples.RandomQuickSortRank.four_reordered_exercise_mean",
+    "Examples.RandomQuickSortRank.distinct_tags_repeated_keys",
+    "Examples.RandomQuickSortRank.repeated_key_rank_is_not_left_size",
+    "Examples.RandomQuickSortRank.equal_keys_keep_quadratic_mean",
+    "Examples.RandomQuickSortRank.tagged_inputs_equal_mean"
+  ],
+  "private_names": [
+    "Resources.RandomQuickSort.filter_length_eq_card_indices",
+    "Resources.RandomQuickSort.strict_filter_length_eq_rank",
+    "Resources.RandomQuickSort.filtered_remainder_keys_nodup",
+    "Resources.RandomQuickSort.filtered_remainder_length_lt",
+    "Resources.RandomQuickSort.uniformIndex_map_perm",
+    "Resources.RandomQuickSort.sum_rank_children",
+    "Resources.RandomQuickSort.exerciseMean_cons_size_formula"
+  ],
+  "public_declaration_count": 30,
+  "private_declaration_count": 7,
+  "candidate": "c19a85f8f5e256e87b0001f3e98afb2c7c1b08cc"
+}

@@ -1,0 +1,233 @@
+{
+  "recorded_utc": "2026-11-05T04:22:40.440792+00:00",
+  "checkpoint": "conaled-fdsa-0139-tree-shape-accepted-and-chapter04-progress",
+  "all_writers_held": true,
+  "compiler_live": false,
+  "qualified_project_lock_available": true,
+  "accepted_head": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "qualified_candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "accepted_tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "acceptance": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/acceptance.json",
+    "bytes": 44993,
+    "sha256": "336e76c369ed37f3f3d874a523ceb219eba380f80661e2be6019fd9bc8453d1f"
+  },
+  "coverage": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/coverage.json",
+    "bytes": 2201,
+    "sha256": "66faa910851942f9593dcaaa5583b185f2043a71341ea790296ff45ae3f67f62"
+  },
+  "root_gate": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/root-gate-reconciliation.json",
+    "bytes": 47567,
+    "sha256": "d617dcde773d1ba9cd05f5b4562fc614b1cdaa38e19f79cb75d2d2714c610b44"
+  },
+  "independent_review_holds": {
+    "Standards": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/final-write-hold.json",
+      "bytes": 13031,
+      "sha256": "59e85a7a7e99c128d7ab89e586b3bcf0afab865102fb4f3ca401dbaa5d7b9a59"
+    },
+    "Spec": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/final-write-hold.json",
+      "bytes": 11273,
+      "sha256": "24cf53ed4ec07465b872fedf84524da4e62c37eefe02a37faf6c3b40d012dda5"
+    }
+  },
+  "chapter04_author_holds": [
+    {
+      "hold": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/author-readback-and-hold.json",
+        "bytes": 9186,
+        "sha256": "0e1795f1e1e40c259bcda8dbfbbfead760644fdc34bfd4c3ef8a5bbde3fae54e"
+      },
+      "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+      "head": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1",
+      "tree": "e2d4cb95882c3775dc01846c4010da3b92c78d34",
+      "status": "",
+      "sources": [
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort/Applications/Trees/BasicObservations.lean",
+          "bytes": 5009,
+          "sha256": "3d2decdac9a8803edde8b5b36a97d0deba1a4d7b1cb1f15a93057044f342afc6"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort/Examples/TreeBasicObservations.lean",
+          "bytes": 4033,
+          "sha256": "5c40f55fad3e17da5bb28490f898c6ab7573023253e43292813df8d58c6104cb"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort/Applications/Trees/WeightedPaths.lean",
+          "bytes": 2325,
+          "sha256": "e6d8337983bfb9542a879ed9bc2bafc458e2fb2d38b954d157c292a19cacae7b"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort/Examples/TreeWeightedPaths.lean",
+          "bytes": 2780,
+          "sha256": "70bffb98d3e2a3c92e3285ae17111aaaf5ebf1d79864463eb8f3fce49466fe38"
+        }
+      ],
+      "compiled": false,
+      "accepted": false
+    },
+    {
+      "hold": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-balancing-implementation-20261105/durability-hold-20261105.json",
+        "bytes": 2768,
+        "sha256": "92885abbae4a52833108e32817d62c6fe86af2969b4156dc2dcf0b930ebd830f"
+      },
+      "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+      "head": "a8f57dbf153c19e3bad2c8136a90b566eeb35374",
+      "tree": "d6a360509f3fb80b611147303604a893cbba5510",
+      "status": "",
+      "sources": [
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Trees/Balance.lean",
+          "bytes": 8833,
+          "sha256": "1fddadc95a165a8e5c03b15ccdae1a56f94deed5689d345d32b92ed053a1729e"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/TreeBalance.lean",
+          "bytes": 3432,
+          "sha256": "c9e11e2f91713193c3ca75b82dfa0e062c5c0354118a32580b5c08942aada4af"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/TreeBalance.lean",
+          "bytes": 5841,
+          "sha256": "d113019bc1af4e1581a30ff8123e9d86d4b94e0d732cc4257fc9dd685e09b90b"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/TreeBalanceCost.lean",
+          "bytes": 2173,
+          "sha256": "639e50f133580d40d0046f36b12c3a441f90df8e29ea7f28d77ec4dab79bb943"
+        }
+      ],
+      "compiled": false,
+      "accepted": false
+    },
+    {
+      "hold": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-exercises-implementation-20261105/phase2-source-freeze.json",
+        "bytes": 3788,
+        "sha256": "3ee77db1ceeb0554cefc2e274dddb6001d6469d2357424d1ca7effed87c4d355"
+      },
+      "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge",
+      "head": "d02419738a9e16963727b25acf2e18f374dd16de",
+      "tree": "6d2033e33b5282ce965c96b71776ab1aafea8828",
+      "status": "",
+      "sources": [
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Applications/Trees/Levels.lean",
+          "bytes": 3596,
+          "sha256": "45a2c073f4cecb400b2af4bf49941558d65b7eb52ef667bbab19ed8c7984b023"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Examples/TreeLevels.lean",
+          "bytes": 1874,
+          "sha256": "8c70f590b88a4f7c329a72a114af12fc12965e79d94ce6fc794fc6853dd1dc7b"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Applications/Trees/Rose.lean",
+          "bytes": 1849,
+          "sha256": "0a56ff6221c1f177c5127a43af32f4cb1c0d624d91f16ec661d916900ce89f71"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Examples/TreeRose.lean",
+          "bytes": 1065,
+          "sha256": "7bf335b8acde9dcbab004179daa16a8e0671a18c50fcbc17b4377ec831d34f02"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Applications/Trees/Enumeration.lean",
+          "bytes": 6707,
+          "sha256": "c5e91cbaf276843941d31eec5b5cf1693cfe885f43c8831fd9246559712249c3"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Examples/TreeEnumeration.lean",
+          "bytes": 2078,
+          "sha256": "54d112abab423482045370339e5f9bb5144adb599d39baedc6e22a18cb3247de"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Applications/Trees/Reconstruction.lean",
+          "bytes": 4278,
+          "sha256": "19750df3d7e88204bfdbbb6322d14403faa7dae64794a3fdb833d0dd54da4943"
+        },
+        {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Examples/TreeReconstruction.lean",
+          "bytes": 4034,
+          "sha256": "c5ca06a87724097c9dbe03e0f87e0105182738316b473b55b3ac336b216c2de1"
+        }
+      ],
+      "compiled": false,
+      "accepted": false
+    }
+  ],
+  "chapter04_phase3_design_hold": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-design-readback-and-hold.json",
+    "bytes": 10357,
+    "sha256": "d6649d1f55e31100126a9f081898ba986a40e268b18df1b9932f336a348a28ee"
+  },
+  "chapter04_phase3_design_artifacts": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-case-notes.md",
+      "bytes": 8228,
+      "sha256": "f7db77a301608f1a70c55a60bb7decf1f8250275caecd1128ce0b5861fa272dd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-completeness-frozen-contract.md",
+      "bytes": 10636,
+      "sha256": "cd954bc25877b7121f20dc0a89cde84f7d7fc4dade4b42bc20757e714acf3202"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-contract-readback-clarifications.md",
+      "bytes": 3008,
+      "sha256": "797121952bd437bc2df69e207e54a7bf6a7c4f2b4b27e5d993725ab260c586a4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-design-input-identities.json",
+      "bytes": 10962,
+      "sha256": "8838a9b399dc3197d15284ddc96c2949eb43f6d6c699dd596837676464e0ef24"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-design-read-receipts.json",
+      "bytes": 9040,
+      "sha256": "002fc479c325fe9f4a5882b66a872146b8d253d4fbe13944b6b41c7b364d0083"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-existing-api-bindings.json",
+      "bytes": 15234,
+      "sha256": "92bc11f022184a9da93090a69adebaf710b5ca0431fe93bdac5333142130077e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-future-almost-complete.md",
+      "bytes": 3757,
+      "sha256": "3618faf4d97ecc455ec73e9a8a314099b2cd177d4ae6ef9fb4445f36fd3b5b14"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-maximal-complete-subtree-frozen-contract.md",
+      "bytes": 12118,
+      "sha256": "533bccd063e03d7a1729a5a56376fb15d237803e14fff92c65471d68687b2c55"
+    }
+  ],
+  "chapter04_phase3_root_contract_assessment": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/root-phase3-contract-assessment-before0139.json",
+    "bytes": 6655,
+    "sha256": "3831c5209247e8042207f07d0429eddddd3e13c13785168e1921a05252ca1614"
+  },
+  "closed_progress": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-20261105/focused-progress-before0139.json",
+    "bytes": 46622,
+    "sha256": "9476013d4d120a89dc13ec5f7643a79dff0fa40b46736d32e9eba2f283937a81"
+  },
+  "closed_owned_runs": 119,
+  "current_reference_count": 79,
+  "current_worktree_count": 9,
+  "historical_execution_exceptions_unchanged": true,
+  "configuration": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/acceptance-configuration.json",
+    "bytes": 2991,
+    "sha256": "610cf9738bdbf4e91b14941a11b486e619e613d82c30d0cf0a39f9f423245f62"
+  },
+  "read_only_parallel_preparation": "Standards and Spec may read immutable XT04 source and return messages only; neither writes files, compiles, polls sessions or alters held XT02 evidence.",
+  "scope": "All source/review/inspector writes held. Root finishes only final checkpoint receipts and capture/create/verify/upload/exposure until actual durability. No compiler, installation or dependency hydration selected.",
+  "release_condition": "Actual archive creation, complete verification, upload, metadata persistence and exposure; record release after durability."
+}

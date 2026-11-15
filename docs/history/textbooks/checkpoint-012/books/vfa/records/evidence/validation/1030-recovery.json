@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-03T13:54:33.061419+00:00",
+  "ticket": 1030,
+  "scope": "Cold restore of user-attached checkpoint035; recovery evidence and current handoff only. No formal source changes or chapter acceptance.",
+  "input": {
+    "uploaded_name": "conaled-vfa-checkpoint-035-returned-archive-preservation.tar(2).gz",
+    "path": "/workspace/scratch/83865511e965/upload/conaled-vfa-checkpoint-035-returned-archive-preservation.tar(2).gz",
+    "size_bytes": 146256772,
+    "sha256": "116f495c49cbb6e525ca88dc59164600e048febc602659882ebfe35e54bd5dbb",
+    "attached_library_file_id": "libfile_d57dc9aae7f08191aa8d210db57c21ac",
+    "library_read_performed": false,
+    "identity_basis": "Current-turn attachment routing metadata; local bytes verified. No original upload receipt for checkpoint035 was present in its own archive."
+  },
+  "restore": {
+    "root": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation",
+    "command": [
+      "python3",
+      "restore.py"
+    ],
+    "actual_exit_status": 0,
+    "manifest_files_verified": 753,
+    "source_index_status_match_metadata": true,
+    "tracked_and_relevant_untracked_paths": 1574,
+    "head": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+    "git_status_porcelain": "",
+    "git_fsck_exit_status": 0,
+    "git_fsck_stdout": "",
+    "git_fsck_stderr": "",
+    "fixed_review_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd"
+  },
+  "upstream_instructions": {
+    "url": "https://raw.githubusercontent.com/VladimirMarko/conaled/master/AGENTS.md",
+    "retrieval_exit_status": 0,
+    "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+    "identical_to_restored_AGENTS": true
+  },
+  "textbook": {
+    "url": "https://softwarefoundations.cis.upenn.edu/vfa-2.1/vfa.tgz",
+    "retrieval_exit_status": 0,
+    "size_bytes": 5360265,
+    "sha256": "f03296c763d78aa5bc18a545d848d398292575e5c8af4b5aa94dc25709e169b8",
+    "matches_pinned_archive": true,
+    "chapter_count": 17,
+    "chapters": [
+      {
+        "chapter": "Preface",
+        "archive_member": "vfa/Preface.v",
+        "size_bytes": 6815,
+        "sha256": "b6a910ecf69bef7682ec6a3d1a3be1d5146ffd046789b254397f0d92db93c1fd",
+        "matches_pinned_inventory": true
+      },
+      {
+        "chapter": "Perm",
+        "archive_member": "vfa/Perm.v",
+        "size_bytes": 21421,
+        "sha256": "0d3ad2421a6bee80b987423b702e8688e59fe802cafa1efa9b98df71d619fd9f",
+        "matches_pinned_inventory": true
+      },
+      {
+        "chapter": "Sort",
+        "archive_member": "vfa/Sort.v",
+        "size_bytes": 10864,
+        "sha256": "aeaf646d3b7e4dd88cb5d6dba9d35ae5714e5451c154d90de499bb09a32a7d33",
+        "matches_pinned_inventory": true
+      },
+      {
+        "chapter": "Multiset",
+        "archive_member": "vfa/Multiset.v",
+        "size_bytes": 10383,
+        "sha256": "ecdc47863b68bbef0d0579f75f4b5537cfb9f99c00f9b2fcc154eadcfdc9ef95",
+        "matches_pinned_inventory": true
+      },
+      {
+        "chapter": "BagPerm",
+        "archive_member": "vfa/BagPerm.v",
+        "size_bytes": 5949,
+        "sha256": "a11149100fcdf0a2c366267288dfbe6538ad0bbc5ba65e53e2c026e1ec8899a7",
+        "matches_pinned_inventory": true
+      },
+      {
+        "chapter": "Selection",
+        "archive_member": "vfa/Selection.v",
+        "size_bytes": 14528,
+        "sha256": "ff343099ae0fd551648a8fa2bf0adfe32bf5fb158389cee211ff8d1b32c28e11",
+        "matches_pinned_inventory": true
+      },
+      {
+        "chapter": "Merge",
+        "archive_member": "vfa/Merge.v",
+        "size_bytes": 17839,
+        "sha256": "090c5afc3a95750336b8b57ed2169b8d77c790266f231bf096be55761c20378b",
+        "matches_pinned_inventory": true
+      },
+      {
+        "chapter": "Maps",
+        "archive_member": "vfa/Maps.v",
+        "size_bytes": 7017,
+        "sha256": "19e79f4b7ac5bce3ffc246e19dd926b14fa5720b47d9618d2607d809d0504aea",
+        "matches_pinned_inventory": true
+      },
+      {
+        "chapter": "SearchTree",
+        "archive_member": "vfa/SearchTree.v",
+        "size_bytes": 44738,
+        "sha256": "44b9464a10e8c9e3222530f6f26be45bd44d1c0568deb1710417618706fae61d",
+        "matches_pinned_inventory": true
+      },
+      {
+        "chapter": "ADT",
+        "archive_member": "vfa/ADT.v",
+        "size_bytes": 45447,
+        "sha256": "87d7ca279b38d22f31ff56bf9f2b11103b382c325969a269bc542de27e4a8fe2",
+        "matches_pinned_inventory": true
+      },
+      {
+        "chapter": "Extract",
+        "archive_member": "vfa/Extract.v",
+        "size_bytes": 13003,
+        "sha256": "c132273a13fafe176573469e664b9cbe8dd3366ec00e2f9a3ab8ab1d42a2e15d",
+        "matches_pinned_inventory": true
+      },
+      {
+        "chapter": "Redblack",
+        "archive_member": "vfa/Redblack.v",
+        "size_bytes": 27066,
+        "sha256": "f44255ba3d0235f6efa401b72f2fcf9a9551a7ebc065912202d6f33494891ce2",
+        "matches_pinned_inventory": true
+      },
+      {
+        "chapter": "Trie",
+        "archive_member": "vfa/Trie.v",
+        "size_bytes": 26268,
+        "sha256": "a5af2b4db4c2cb639a8deb063e57909e11eb44ee763782ad0af9afbf45a78f3e",
+        "matches_pinned_inventory": true
+      },
+      {
+        "chapter": "Priqueue",
+        "archive_member": "vfa/Priqueue.v",
+        "size_bytes": 9029,
+        "sha256": "e4dc740bf2c3f338dedae3e6544a8d94d58fd80f810472610122b9ccc4866b9d",
+        "matches_pinned_inventory": true
+      },
+      {
+        "chapter": "Binom",
+        "archive_member": "vfa/Binom.v",
+        "size_bytes": 13042,
+        "sha256": "f73f18cac4c3a6a38a0e83d4194429eb7ab684ee68068a88025610a13d5c31ed",
+        "matches_pinned_inventory": true
+      },
+      {
+        "chapter": "Decide",
+        "archive_member": "vfa/Decide.v",
+        "size_bytes": 19701,
+        "sha256": "f929d55e2b7b39f2ba0bb72f2e70285dc8e10e64cf18322060bdbfc0552a4b26",
+        "matches_pinned_inventory": true
+      },
+      {
+        "chapter": "Color",
+        "archive_member": "vfa/Color.v",
+        "size_bytes": 23243,
+        "sha256": "67b3410af5fece56c69f4e8301fd6505e89371cfa1279d069ca945b9b2b33370",
+        "matches_pinned_inventory": true
+      }
+    ],
+    "downloaded_research_bytes_excluded_from_checkpoint": true
+  },
+  "observed_absent_paths": [
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/conaled/.lake",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/incident-evidence",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/incident-evidence"
+  ],
+  "historical_runs": {
+    "fresh1_terminal_outcome": "unknown",
+    "fresh2_terminal_outcome": "unknown",
+    "restored_running_states_are_historical": true,
+    "new_formal_validation_launched": false,
+    "old_pids_signalled": false,
+    "historical_raw_records_modified": false,
+    "scope_limit": "No claim about processes on the old host; its process filesystem is not accessible here."
+  },
+  "source_review": {
+    "record": "work-state/reviews/1002-Perm.md",
+    "retained_round": 8,
+    "standards_outcome": "Blocked",
+    "spec_outcome": "Blocked",
+    "fixed_findings": [
+      "ST-001"
+    ],
+    "open_findings": [
+      "ST-002",
+      "SP-VAL-001"
+    ],
+    "new_source_review_or_formal_approval_claimed": false
+  },
+  "environment_record": "work-state/validation/1030-environment.json",
+  "acceptance": {
+    "accepted_chapters": [],
+    "formal_gates_waived": false,
+    "next_formal_chapter": "Sort only after Preface and Perm acceptance"
+  }
+}

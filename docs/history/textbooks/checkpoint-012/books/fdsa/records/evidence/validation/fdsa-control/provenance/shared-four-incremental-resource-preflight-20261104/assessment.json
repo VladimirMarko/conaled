@@ -1,0 +1,69 @@
+{
+  "utc": "2026-11-04T14:10:26.089615+00:00",
+  "assessment_source": "Read-only shared_acceptance_sequence report,14:06:01UTC; root resource observations below. No assembly/build/loaded-object credit from this preflight.",
+  "base": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "minimal_tips": {
+    "XM01": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+    "XD01": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+    "XQ01": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+    "XU01": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0"
+  },
+  "declared_paths": 18,
+  "defining_Lean_paths": 12,
+  "new_modules": 10,
+  "modified_existing_Lean_modules": [
+    "Applications.Sorting.Merge",
+    "Applications.Selection.ThreeWay",
+    "SquareApplications"
+  ],
+  "modeled_total_checked_modules": 977,
+  "modeled_ordinary_build_targets": 976,
+  "affected_existing_modules_including_audit": 35,
+  "affected_existing_compiled_modules": 34,
+  "ordinary_changed_compilation_footprint": 44,
+  "affected_current_artifact_hash_trace_files": 238,
+  "affected_current_artifact_allocated_bytes": 17887232,
+  "prepared_local_source_closure": 25,
+  "direct_external_roots": 21,
+  "nonruntime_direct_external_objects_checked": 19,
+  "all19_regular_singlelink_nonzero": true,
+  "new_direct_external_objects_bytes": {
+    "Mathlib.Data.Finset.Max": 187240,
+    "Mathlib.Data.Fintype.Perm": 168920,
+    "Mathlib.Data.Multiset.AddSub": 124688,
+    "Mathlib.Data.Set.Card": 345248,
+    "Mathlib.Order.Defs.LinearOrder": 256592,
+    "Mathlib.Probability.UniformOn": 59296
+  },
+  "old_affected_setup_allocated_bytes": 27852800,
+  "setup_scale_estimates_bytes": {
+    "old_34_total_plus_10_at_largest": 112762880,
+    "all44_at_largest": 373604352
+  },
+  "scale_estimates_are_not_hard_upper_bounds": true,
+  "no_direct_cache_or_intrinsic_multiGiB_rebuild_blocker_found": true,
+  "no_installation_or_cache_copy_needed_by_this_model": true,
+  "installation_guard_not_automatically_an_incremental_threshold": true,
+  "raw_free_observations": [
+    {
+      "utc": "2026-11-04T14:00:50Z",
+      "bytes": 2743984128
+    },
+    {
+      "utc": "2026-11-04T14:05:15Z",
+      "bytes": 1787461632
+    },
+    {
+      "utc": "2026-11-04T14:06:01Z",
+      "bytes": 1530191872
+    },
+    {
+      "utc": "2026-11-04T14:10:26.089615+00:00",
+      "bytes": 1527840768
+    }
+  ],
+  "current_available_bytes": 0,
+  "current_total_bytes": 67586535424,
+  "host_fluctuation_cause": "not established",
+  "conclusion": "Incremental source footprint is modest, but actual ENOSPC and continued falling headroom prevent a sustained allocation guarantee. Source-only preparation proceeds; a full candidate check is not launched while this capacity problem remains unresolved. No mathematical or validation gate is weakened."
+}

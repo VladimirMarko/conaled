@@ -1,0 +1,89 @@
+{
+  "time": 1793592875.3150654,
+  "processes": [
+    {
+      "pid": "109620",
+      "source": "/workspace/scratch/845aa1048b05/conaled-insertion-costs/Applications/Resources/SymmetricCosts.lean",
+      "threads": [
+        {
+          "tid": "109620",
+          "state": "S",
+          "cpu_ticks": 9,
+          "major_faults": 28,
+          "wait": "__futex_wait"
+        },
+        {
+          "tid": "109622",
+          "state": "S",
+          "cpu_ticks": 0,
+          "major_faults": 0,
+          "wait": "io_sq_thread"
+        },
+        {
+          "tid": "109623",
+          "state": "S",
+          "cpu_ticks": 0,
+          "major_faults": 0,
+          "wait": "do_epoll_wait"
+        },
+        {
+          "tid": "109624",
+          "state": "S",
+          "cpu_ticks": 1,
+          "major_faults": 0,
+          "wait": "__futex_wait"
+        },
+        {
+          "tid": "109625",
+          "state": "D",
+          "cpu_ticks": 8344,
+          "major_faults": 316059,
+          "wait": "folio_wait_bit_common"
+        }
+      ],
+      "io": "rchar: 1702340\nwchar: 2\nsyscr: 14792\nsyscw: 2\nread_bytes: 109006979072\nwrite_bytes: 0\ncancelled_write_bytes: 0\n"
+    },
+    {
+      "pid": "110300",
+      "source": "/workspace/scratch/845aa1048b05/conaled-ch01-review/Applications/Orbifolds/SmoothComparison.lean",
+      "threads": [
+        {
+          "tid": "110300",
+          "state": "S",
+          "cpu_ticks": 15,
+          "major_faults": 42,
+          "wait": "__futex_wait"
+        },
+        {
+          "tid": "110302",
+          "state": "S",
+          "cpu_ticks": 0,
+          "major_faults": 0,
+          "wait": "io_sq_thread"
+        },
+        {
+          "tid": "110303",
+          "state": "S",
+          "cpu_ticks": 0,
+          "major_faults": 0,
+          "wait": "do_epoll_wait"
+        },
+        {
+          "tid": "110304",
+          "state": "S",
+          "cpu_ticks": 24,
+          "major_faults": 2,
+          "wait": "__futex_wait"
+        },
+        {
+          "tid": "110305",
+          "state": "D",
+          "cpu_ticks": 5311,
+          "major_faults": 252680,
+          "wait": "folio_wait_bit_common"
+        }
+      ],
+      "io": "rchar: 4134598\nwchar: 2\nsyscr: 25316\nsyscw: 2\nread_bytes: 62499131392\nwrite_bytes: 0\ncancelled_write_bytes: 0\n"
+    }
+  ]
+}

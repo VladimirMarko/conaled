@@ -1,0 +1,89 @@
+{
+  "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "native_sha256": "48466b063b338defe63e54b3eed7594095cd3036dd773443ef9649b2bc211b65",
+  "program_sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3",
+  "read_chunks": [
+    {
+      "number": 1,
+      "first": 1,
+      "last": 185,
+      "bytes": 12975,
+      "sha256": "642a2c4a3575349443685bf9e3da9ff8484e626edc7016ff9e94caf92950c66b",
+      "actual_tool": "bf35b2",
+      "semantic_note": "All seventeen core types read completely: universe-polymorphic DecidableEq-only combinatorial definitions and lemmas; Nodup/completeness occur exactly where required; nested-filter relation uses explicit List.Sublist; cardinality is |S|!; scalar law has conditional support with inverse-factorial/zero in ENNReal; pushforward law has source and target measurable-singleton assumptions. No ellipsis or hidden binder/premise in these core types. Public example definitions and first Nodup type also read; positions_complete continues."
+    },
+    {
+      "number": 2,
+      "first": 186,
+      "last": 346,
+      "bytes": 12945,
+      "sha256": "75920b46412f56e72e2ef9d2fe4b5f816074621bc2b93eb7ba4e07d2b7a70496",
+      "actual_tool": "c869fd",
+      "semantic_note": "Read example completeness/law, full selected structural conjunction with explicit List.Sublist, permutation [0,2,3], cardinal6, mass1/6 and pushed-forward uniform law. Ellipses occur in explicit Fin numeral instances and the ENNReal OfNatAtLeastTwo instance, not in assumptions or the event law. order_032_mass_via_map continues at chunk boundary."
+    },
+    {
+      "number": 3,
+      "first": 347,
+      "last": 503,
+      "bytes": 12959,
+      "sha256": "e672bcc891daeef95d089a3254617a5b3112e19e4369ed300492d43f3d450b4b",
+      "actual_tool": "a5c331",
+      "semantic_note": "Completed 032 mass1/6 and repeated-order mass0; read same-sample nestedObservation equality/mass1/2, singleton mass1 and full-order mass1/24 with unchanged law and concrete lists. Read empty-subset output [] for every permutation and start of empty-order support. All ellipses in this range are internal numeral-instance arguments; event identities and values remain visible."
+    },
+    {
+      "number": 4,
+      "first": 504,
+      "last": 653,
+      "bytes": 12896,
+      "sha256": "f3ad8da0ae57f33bc584106c69c213d649f6e62085c0fee3dbeaeb0ade9551d1",
+      "actual_tool": "305f89",
+      "semantic_note": "Completed empty-subset singleton-[] support and mass1, and the empty-index permutation-space mass1. Read the fixed three-cycle with explicit 0→1→2→0 and inverse-enumeration image [2,0,1] through its final numeral continuation. Ellipses are each at Fin.instOfNat proof-instance slots; no statement premise is hidden."
+    },
+    {
+      "number": 5,
+      "first": 654,
+      "last": 794,
+      "bytes": 12926,
+      "sha256": "6e37cfca2bad9238a58852197d2f4eb2f83025896f0123b449a591a9fa5e9768",
+      "actual_tool": "b8f1c5",
+      "semantic_note": "Read inverse enumeration result and complete restricted-order[0,1] versus direct-map-filter[1,0] declarations for the explicit three-cycle. The inequality type continues but both operand constructions are visible; all current ellipses are Fin.instOfNat instance-proof arguments. No swapped convention or weakened premise is observed."
+    },
+    {
+      "number": 6,
+      "first": 795,
+      "last": 933,
+      "bytes": 12976,
+      "sha256": "da6b0aae09f9a0ae2c69c73ca057a8ee0e35897dcc8deaf32454e1716b3af5ed",
+      "actual_tool": "cd32af",
+      "semantic_note": "Completed inverse/direct convention counterexample. Numeric-priority example reads [-7,4,100] under [0,2,1], strict Pairwise increasing; ordinary enumeration is explicitly not increasing, and the two observed lists differ. Every Fin numeral/internal instance ellipsis was examined in its full operator context; no theorem hypothesis or substantive relation is suppressed."
+    },
+    {
+      "number": 7,
+      "first": 934,
+      "last": 1070,
+      "bytes": 12906,
+      "sha256": "52f17a3a6d9a3f4950773173a264745cf160d70aa41b8b26494a2bdf15dbb6c5",
+      "actual_tool": "04d8c0",
+      "semantic_note": "Completed all remaining full types, including incomplete-but-Nodup enumeration with swap producing [] outside the original singleton-order support, and complete repeated enumeration [0,0,1] producing [1,1,0] outside its order support. Explicit conjunctions preserve both counterexample premises and results. Every remaining ellipsis is an internal Fin numeral instance. All53 types/all1075 native lines/all91080 bytes now read with zero concrete type finding."
+    },
+    {
+      "number": 8,
+      "first": 1071,
+      "last": 1075,
+      "bytes": 497,
+      "sha256": "81806d83dfddae39083721fea251467ebfcf40a4bb2e021639a6d2ced68998ed",
+      "actual_tool": "04d8c0",
+      "semantic_note": "Completed all remaining full types, including incomplete-but-Nodup enumeration with swap producing [] outside the original singleton-order support, and complete repeated enumeration [0,0,1] producing [1,1,0] outside its order support. Explicit conjunctions preserve both counterexample premises and results. Every remaining ellipsis is an internal Fin numeral instance. All53 types/all1075 native lines/all91080 bytes now read with zero concrete type finding."
+    }
+  ],
+  "complete": true,
+  "total_lines_read": 1075,
+  "total_bytes_read": 91080,
+  "actual_full_types_read": 53,
+  "metadata_read_tools": [
+    "245330",
+    "b22f6b"
+  ],
+  "type_semantic_outcome": "Zero concrete Standards type finding; input and inherited evidence qualification pending."
+}
+

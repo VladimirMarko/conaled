@@ -1,0 +1,205 @@
+{
+  "schema": 1,
+  "candidate": "6526e5cdcde2e58c8fb0839690c34f3f6c04787c",
+  "base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "started_at": "2026-11-03T16:06:58.331777+00:00",
+  "scope": "Documentation syntax and existing-state recipe checks; no network acquisition rerun or new formal build",
+  "checks": [
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 1,
+      "language": "sh",
+      "command": [
+        "bash",
+        "-n"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "executed": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 2,
+      "language": "sh",
+      "command": [
+        "bash",
+        "-n"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "executed": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 3,
+      "language": "sh",
+      "command": [
+        "bash",
+        "-n"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "executed": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 4,
+      "language": "sh",
+      "command": [
+        "bash",
+        "-n"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "executed": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 5,
+      "language": "sh",
+      "command": [
+        "bash",
+        "-n"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "executed": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 7,
+      "language": "python",
+      "command": [
+        "python3",
+        "-"
+      ],
+      "exit_code": 0,
+      "stdout": "mathlib 56a005855ea17e0b0958f73ec801ae140b0a1679 clean\nplausible dfa4f38190d07c37e315953e08b90fe2d95b3c24 clean\nLeanSearchClient d6b4c7be5be75ec4917c873ac50c756dc1436372 clean\nimportGraph a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93 clean\nproofwidgets df72b022e558978a1c50264cfc4d7fec86fa8e04 clean\naesop 4a174c490d8707121c4a9290800489f105d85e07 clean\nQq dce0ad79c486cb1fb504af04f953c3466b0c6db8 clean\nbatteries 66e469188fe07963e5cf666c7d4433f45b8131c5 clean\nCli c24fe6078c630e89b489bffe59b3e20ac30d12c8 clean\n",
+      "stderr": "",
+      "executed": true,
+      "boundary": "All target checkouts/stores/links existed before execution; source operations took verification-only branches."
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 8,
+      "language": "sh",
+      "command": [
+        "bash",
+        "-n"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "executed": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 9,
+      "language": "python",
+      "command": [
+        "python3",
+        "-"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "executed": true,
+      "boundary": "All target checkouts/stores/links existed before execution; source operations took verification-only branches."
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 10,
+      "language": "sh",
+      "command": [
+        "bash",
+        "-n"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "executed": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 11,
+      "language": "sh",
+      "command": [
+        "bash",
+        "-n"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "executed": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 12,
+      "language": "sh",
+      "command": [
+        "bash",
+        "-n"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "executed": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 13,
+      "language": "sh",
+      "command": [
+        "bash",
+        "-n"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "executed": false
+    }
+  ],
+  "reused_evidence": {
+    "session/validation/direct-toolchain-candidate-validation-r2-reconciled-041.json": "998a2fb578d337f92174c0d4343fa8bd593f32c91f7cf753d8a033e3981c9916",
+    "session/validation/direct-toolchain-candidate-cli-r2-041.json": "4b9b52f5c63e5d59e6e025b050ca4ea92d4221efcc8b161ab883337a2fe1ca22",
+    "session/validation/direct-toolchain-candidate-lake-r2-041.json": "69eb08b9cfa19c683ffbb0197f38418b5e664fc45a2672214150326a7404e44b",
+    "session/validation/direct-toolchain-final-verification-041.json": "a441a4555b1b5ed05ef42ef81e5fc82525b4e506f2aae68d062a0f962260435d",
+    "session/environment/direct-dependencies-after-cache-041.json": "12054d8a6fd75348ccba9d454c3807a6268d0f6bc29375b2dd80b2f22fd212f8",
+    "session/validation/direct-cache-bootstrap-041.json": "ba61cace36d2c602f2f4f1c93c4e977771f0e6a8e4ae5dbed8572749510a979e",
+    "session/validation/direct-cache-get-041.json": "fb2dafe96aaee4133356aaca8ccf406457fd0de5e20b43d00244f39dc44ddf73"
+  },
+  "reuse_basis": "All eight runtime/helper sources remain byte-identical; only two prose documentation files were added. Existing approved operational tests and runtime acquisition are reused for those unchanged inputs. Formal source failures are not relabeled.",
+  "not_repeated": [
+    "600 MB Lean download/extraction",
+    "selected Debian QEMU download/extraction",
+    "new dependency clone/fetch",
+    "new profile construction or cold smoke tests",
+    "cache build/get",
+    "formal full check",
+    "Ubuntu runtime execution"
+  ],
+  "new_observations": {
+    "ubuntu_acquisition": {
+      "path": "session/environment/qemu-ubuntu-042/acquisition.json",
+      "sha256": "b98fd7647b12efec8706a9001de50ad169c1044f49f5c174d613ab1fbf827e42"
+    },
+    "signed_focus": {
+      "path": "session/validation/signed-d24-direct-r1.json",
+      "sha256": "1793a0aa7342cdd198925a0ce1d81edc00c81ac978b4eff61ae362ce7aa4904e",
+      "exit_code": 1,
+      "formal_acceptance": false
+    }
+  },
+  "head": "6526e5cdcde2e58c8fb0839690c34f3f6c04787c",
+  "status": "",
+  "delivered_identities": {
+    "session/environment/make-direct-toolchain-profile.py": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb",
+    "session/environment/run-direct-toolchain.py": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+    "session/environment/test-direct-toolchain.py": "028e625c2870bafa2668269f981202d76c6509256ca1822e4ab926b3f2526330",
+    "session/environment/test-direct-lake-build.py": "3e364791c25cfce02c15887b1ae040a1a18315ab5189ff393d5fb2ff9bd239cf",
+    "session/environment/README-direct-toolchain.md": "f3acb7ba89c954019e6288bffc80c37fbc2e4f90523b1172efdd85dc19ee6734",
+    "session/validation/run-direct-validation.py": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b",
+    "session/validation/test-direct-validation.py": "a77b7f3f962c45fbe8affe4999615b3721975cc3c858713c9ef027b6aecf5435",
+    "session/validation/direct-validation-runner-notes.md": "933745db696b993eda5bd8d5470a7b72b5738659658c709fa98705ceb35bdd4e",
+    "session/environment/RECOVER-ENVIRONMENT.md": "920b9eec5762d390e7d4387d8d5bb1fdb2d0cf24b5f1648d66dcc80fbe784fc8",
+    "session/environment/environment-route-comparison-042.md": "ae2cf2039f620a631187f66383a5f677324dbc0b1f7c798bfdb9a912705c0bb5"
+  },
+  "finished_at": "2026-11-03T16:06:59.714667+00:00",
+  "passed": true,
+  "formal_acceptance": false
+}

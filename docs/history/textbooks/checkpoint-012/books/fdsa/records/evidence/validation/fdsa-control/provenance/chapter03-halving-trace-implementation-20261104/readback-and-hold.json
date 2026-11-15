@@ -1,0 +1,126 @@
+{
+  "recorded_utc": "2026-11-04T20:54:48.790789+00:00",
+  "candidate": "45d120ce0f5bacbaac76cbceeca13ee3ff494dff",
+  "tree": "68427ffb24fd6dad0fcafa0e44e28dedd25eb844",
+  "fixed_base": "3f42358dec92315ac847dc7e1f0c58c2ab26cd40",
+  "accepted_XR_unchanged": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "scope": "C03-080 generic positive halving-trace and aligned-tariff arithmetic only; no actual policy/selector bridge or row closure.",
+  "full_chapter_obligations": 83,
+  "state": "ALL_OWN_SOURCE_AND_PROVENANCE_WRITES_HELD_AFTER_THIS_RECEIPT_READBACK",
+  "payloads_excluding_receipt": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-trace-implementation-20261104/Statements-candidate1.lean",
+      "bytes": 2394,
+      "LF_lines": 58,
+      "sha256": "2a1ecb71bbddc5051c7a97f8c309b98eebb238ab38cda4e893bfb39457522857"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-trace-implementation-20261104/baseline.json",
+      "bytes": 49418,
+      "LF_lines": 945,
+      "sha256": "2738c0249ada93b84d19e5ee7818c323cf4e98c72bff491c922862d1b57c0c95"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-trace-implementation-20261104/candidate.json",
+      "bytes": 1536,
+      "LF_lines": 35,
+      "sha256": "af49ea72f45c16d5756974981f344e39703a61b8d7b3079b56bb53ad6c39fba7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-trace-implementation-20261104/git-commands-progress.json",
+      "bytes": 1193,
+      "LF_lines": 46,
+      "sha256": "9a50c5d8deff88895a687876d36d28ad4ab9af3d3201ba310bb4015292b3fc79"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-trace-implementation-20261104/git-commands.json",
+      "bytes": 1193,
+      "LF_lines": 46,
+      "sha256": "9a50c5d8deff88895a687876d36d28ad4ab9af3d3201ba310bb4015292b3fc79"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-trace-implementation-20261104/handoff.md",
+      "bytes": 5292,
+      "LF_lines": 86,
+      "sha256": "9ddd2afbc47bc8873fa28de6b5bb5aa15c9e98b2179092c12aeeb0b93a4124df"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-trace-implementation-20261104/input-bindings.json",
+      "bytes": 7420,
+      "LF_lines": 144,
+      "sha256": "2e592ee2b8d618b50062d3d50d2bf5e8a959fc8f61307f42ff6feaf628379b75"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-trace-implementation-20261104/requirements-and-cases.md",
+      "bytes": 2439,
+      "LF_lines": 38,
+      "sha256": "d7cefc234084822c0b4b9ae93d47c0c1f753ff214b9d29960edc1c8afa62ca0c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-trace-implementation-20261104/source.diff",
+      "bytes": 10144,
+      "LF_lines": 252,
+      "sha256": "5b10c5d0fbb65e47dd71e61913dc17e1801f8e5373040755c19d045171263a79"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-trace-implementation-20261104/statement-review.json",
+      "bytes": 3282,
+      "LF_lines": 55,
+      "sha256": "c86bd300ebc9be26c762dd12b0ca1ce0317d7a6f351001a57638b86e9a2a1979"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-trace-implementation-20261104/statements-inventory.json",
+      "bytes": 25704,
+      "LF_lines": 514,
+      "sha256": "2e6095eacfe9a2a39a56ef1e47ca0fbefcb3ac0fc32798cea2b5cdf63801a6fd"
+    }
+  ],
+  "pre_source_baseline_and_cases": "3ae025 exit0",
+  "actual_commit_and_staged_whitespace_check": "dd0671 exit0",
+  "complete_readbacks": {
+    "final_two_sources_all240_LF_lines": "9ba169",
+    "all39_authored_headers_including_inductive_and_constructors": "e38bfc",
+    "prepared42_explicit_program_author_statement_review_pre_source_cases": "476e39",
+    "handoff_and_input_bindings": "96f69a",
+    "candidate_and_completed_Git_commands": "4b4543"
+  },
+  "preservation": {
+    "ten_prior_sources_exact": true,
+    "all140_prior_related_records_exact": true,
+    "all_other_parent_paths_unchanged": true,
+    "new_sources_equal_Git_blobs": true,
+    "all39_raw_headers_match_source_and_digest": true,
+    "all42_explicit_names_match_inventory_order": true,
+    "worktree_and_index_clean": true,
+    "accepted_XR_ref_unchanged": true
+  },
+  "source_counts": {
+    "authored_public_names_including_constructors": 39,
+    "authored_theorems": 36,
+    "authored_inductive_types": 1,
+    "authored_constructors": 2,
+    "authored_private_declarations": 0,
+    "authored_anonymous_examples": 0,
+    "authored_instances": 0,
+    "additional_expected_generated_eliminators_for_inspection": 3
+  },
+  "generated_scope_boundary": "The authored type, both constructors and all36theorems are exhaustive at source level. Three expected generated eliminators are separately prepared. Actual complete generated declarations and their audit remain mandatory; no compiler-generated inventory completeness is claimed here.",
+  "input_read_boundary_clarification": "The Group/List/Basic source read requested lines510-530; actual EOF is524. Its length/sum lemma was fully read, with no claim to nonexistent lines525-530. The combined d53d36 output was truncated; only earlier complete instruction reads and bounded rereads are credited.",
+  "source_review_status": "No mathematical statement finding in author review; all assumptions, expectations and actual-policy bridge boundaries retained. No independent-axis verdict.",
+  "root_focused_terminal_received_at_recording": false,
+  "compiler_executed_by_author": false,
+  "historical_sessions_polled_by_author": false,
+  "actual_type_credit": 0,
+  "full_candidate_audit_credit": false,
+  "independent_review_credit": false,
+  "C03_080_row_closure": false,
+  "Chapter3_or_book_acceptance_credit": false,
+  "no_canonical_controls_tickets_or_other_author_source_edits": true,
+  "no_GitHub_mutation_or_push": true,
+  "remaining": [
+    "Root focused elaboration and actual closed terminal evidence",
+    "Actual public/eliminator type inspection with input qualification and generated declaration enumeration",
+    "Actual selector-policy trace and actual per-step tariff correspondence by values author",
+    "Full original-scope candidate check/audit, Standards and Spec reviews, immediate verification and acceptance"
+  ]
+}

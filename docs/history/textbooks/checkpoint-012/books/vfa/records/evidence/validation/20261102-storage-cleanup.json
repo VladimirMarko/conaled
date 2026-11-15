@@ -1,0 +1,101 @@
+{
+  "recorded_utc": "2026-11-02T08:43:40.548854+00:00",
+  "reason": "Checkpoint014 restore test failed and the filesystem reported zero available bytes. Remove only redundant local copies with successful durable-upload receipts and matching current file size/library binding.",
+  "removed_local_archive_copies": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-000-bootstrap.tar.gz",
+      "bytes": 142659672,
+      "library_file_id": "libfile_0d34a1741fc4819190461c03352b8931",
+      "sha256_at_creation": "cdd95d12407eb5472f91ab33873b43bca1fe3ea711ba8e497a8e53f09b0d4a1e"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-001-perm-candidate.tar.gz",
+      "bytes": 142771185,
+      "library_file_id": "libfile_9c43917342c481919a0fe4bd919f8ab7",
+      "sha256_at_creation": "e523a24cc822189e971d5dddff0de27d24ff67b344f8c1cca0e68af6b600275a"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-002-perm-review-fix.tar.gz",
+      "bytes": 142874793,
+      "library_file_id": "libfile_d5156da9bcfc81919031acbd3c1a2754",
+      "sha256_at_creation": "84475748fa2ba63b6886e11679e311450e51ead7e355e442950dca7336997a5f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-003-shared-specifications.tar.gz",
+      "bytes": 142894210,
+      "library_file_id": "libfile_18a66d74b5148191ad69bd61eedfcbd9",
+      "sha256_at_creation": "a47b511215e7b2a3ce5152d7b215cdb59665bf34c90cfec1bb4ce8f6f518eb0a"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-004-resource-models.tar.gz",
+      "bytes": 142969044,
+      "library_file_id": "libfile_a6cbfb269a848191a6be40ccfbcc97fc",
+      "sha256_at_creation": "28cd16126046249c4698e6dbc7c68a1599350a3dde5902a20d3b1097de5c7131"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-005-resource-adapters.tar.gz",
+      "bytes": 143002218,
+      "library_file_id": "libfile_bfccd922d5708191bdb10f09f4d64c3b",
+      "sha256_at_creation": "12dfced49265c2a86c04996e3e09f0a8230b0c6abbb7c384682696fec99af56f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-006-versioned-source.tar.gz",
+      "bytes": 143007430,
+      "library_file_id": "libfile_7e1d5ec586188191bebe68bf5a24d93a",
+      "sha256_at_creation": "44b30bee82113b6dd8b4c79867d62664c6e6d3aa703199cdadc2fba9971f4258"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-007-interface-reviews.tar.gz",
+      "bytes": 143037723,
+      "library_file_id": "libfile_f835cb3175f48191acdc49e0b0460e03",
+      "sha256_at_creation": "337195d024e03da3fef131089b3d970b8d6c24a9b512f33363c01ebd863f9dca"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-008-positive-key-semantics.tar.gz",
+      "bytes": 143049454,
+      "library_file_id": "libfile_72aa8a6a7eb481918611dd80ee9275d0",
+      "sha256_at_creation": "3e5a78a6905cce435174cedd6fe4ca8edb65cf6ddc6e38304613af571fa1accd"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-009-frp-imports-candidate.tar.gz",
+      "bytes": 144390876,
+      "library_file_id": "libfile_500ddc531f4481918271d377bf0b2e1f",
+      "sha256_at_creation": "ab92a13898e69bc8914da1f8f555687d831009bdadf0f3e3f62bcfc907f89867"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-010-frp-demand-dependency.tar.gz",
+      "bytes": 144780869,
+      "library_file_id": "libfile_c869d3eee2588191b354552b048bec63",
+      "sha256_at_creation": "73275a402e667dfd909b4f371a45afad15a4ec09248c72ee99c0ccbc3a52fafe"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-011-temporal-imports-candidate.tar.gz",
+      "bytes": 145115631,
+      "library_file_id": "libfile_fa29e7a92f1c81918ea8a60b8dd17aae",
+      "sha256_at_creation": "06bf1125c8a310b5b5b7572b0b070d3b1bfa5f818befdee9ef05427687dcea64"
+    }
+  ],
+  "removed_bytes": 1720553105,
+  "kept_local_checkpoint_numbers": [
+    12,
+    13
+  ],
+  "durable_copies_removed": false,
+  "source_or_build_cache_removed": "Only this inactive generated main Mathlib build cache; no source or active validation cache removed.",
+  "available_bytes_after": 0,
+  "main_generated_cache_cleanup": {
+    "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build",
+    "status": "removed",
+    "started_utc": "2026-11-02T08:50:37.497153+00:00",
+    "independent_allocated_bytes": 6997803008,
+    "ownership_evidence": "Task-created generated Mathlib cache; real directory; no tracked files; independent reviewer checked no symlinks, special entries or hard-linked regular files in main build trees.",
+    "active_cache_evidence": "Environment verified active PID241567/group232108: ten LEAN_PATH entries and 6891 setup artifact paths all resolve under vfa-validation; plugins and dynlibs empty. Active cache is a distinct real directory/inode.",
+    "package_source_and_git_preserved": true,
+    "active_cache_preserved": true,
+    "free_bytes_before": 1720197120,
+    "available_bytes_before": 0,
+    "finished_utc": "2026-11-02T08:50:42.045198+00:00",
+    "free_bytes_after": 8718000128,
+    "available_bytes_after": 5265252352
+  }
+}

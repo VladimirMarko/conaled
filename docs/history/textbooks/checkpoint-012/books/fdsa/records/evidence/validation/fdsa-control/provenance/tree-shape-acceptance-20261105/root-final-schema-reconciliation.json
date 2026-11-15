@@ -1,0 +1,41 @@
+{
+  "recorded_utc": "2026-11-05T04:20:35.201350+00:00",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "outcome": "Passed",
+  "unresolved_findings": [],
+  "actual_independent_schema_inspection": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/operational-complete-actual-schema-inspection.json",
+    "bytes": 10954,
+    "sha256": "514ab712194a92fc5a3e5cf9f0a56790a64a7e23c50e5a556417d3aa82a39895"
+  },
+  "inspector_complete_saved_readback": "02e1ad actual0 entire saved note and15binding rehashes",
+  "root_complete_inspection_readback": "a95b7a actual0 entire saved note",
+  "current_root_gate": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/reconcile_root_gate_once.py",
+    "bytes": 16302,
+    "sha256": "54464a3da17a5ab69af8416f9612672562b5b40ac28d9614f26948a0c5976c75"
+  },
+  "root_complete_current_code_readbacks": [
+    "2dd2e3 actual0 lines1-260",
+    "161c88 actual0 remainder"
+  ],
+  "root_exact_patch_readback": "f903e5 actual0 complete3970-byte correction",
+  "axes_completion_receipts": {
+    "standards": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/standards-completion-readback-receipt.json",
+      "bytes": 3815,
+      "sha256": "ed0409763ecf495ac71c1a2619f85ff37c4b0b195e2d782743e323356bff5cb2"
+    },
+    "spec": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/spec-completion-readback-receipt.json",
+      "bytes": 3171,
+      "sha256": "e6d5064d06e883d85af245baa0445045eeb06708239bd2a38bb1c12b9658eea5"
+    }
+  },
+  "all112_actual_binding_occurrences_reconciled": true,
+  "original_mathematical_reviews_unchanged": true,
+  "chapter04_accepted": false,
+  "root_gate_execution_next": true,
+  "immediate_verification_and_fast_forward_pending": true,
+  "boundary": "Actual-schema reading corrections only; no source, mathematical requirement, validation gate or immutable final record was changed."
+}

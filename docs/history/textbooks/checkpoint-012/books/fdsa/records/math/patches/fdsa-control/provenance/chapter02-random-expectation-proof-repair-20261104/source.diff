@@ -1,0 +1,45 @@
+diff --git a/Applications/Resources/RandomQuickSortMean.lean b/Applications/Resources/RandomQuickSortMean.lean
+index 5446bcd..43b118c 100644
+--- a/Applications/Resources/RandomQuickSortMean.lean
++++ b/Applications/Resources/RandomQuickSortMean.lean
+@@ -61,7 +61,7 @@ private theorem weighted_mono_support (p : PMF α) (f g : α → ℝ≥0∞)
+   intro a
+   by_cases ha : p a = 0
+   · simp [ha]
+-  · exact mul_le_mul_left' (h a ((PMF.mem_support_iff p a).mpr ha)) (p a)
++  · exact mul_le_mul_right (h a ((PMF.mem_support_iff p a).mpr ha)) (p a)
+ 
+ private theorem lintegral_nat_eq (p : PMF Nat) :
+     (∫⁻ k : Nat, (k : ℝ≥0∞) ∂p.toMeasure) = ∑' k, p k * (k : ℝ≥0∞) := by
+@@ -240,7 +240,7 @@ theorem exerciseMean_cons (lt : α → α → Bool) (head : α) (tail : List α)
+   have hL (i) : L i ≠ ∞ := exerciseLaw_lintegral_ne_top lt (left i)
+   have hR (i) : R i ≠ ∞ := exerciseLaw_lintegral_ne_top lt (right i)
+   have hterm (i) : L i + R i ≠ ∞ := ENNReal.add_ne_top.mpr ⟨hL i, hR i⟩
+-  have hsum : (∑ i : Fin (tail.length + 1), L i + R i) ≠ ∞ :=
++  have hsum : (∑ i : Fin (tail.length + 1), (L i + R i)) ≠ ∞ :=
+     ENNReal.sum_ne_top.mpr (fun i _ => hterm i)
+   have hW : W ≠ ∞ := by simp [W]
+   have hreal (i) : (L i + R i).toReal =
+@@ -250,11 +250,11 @@ theorem exerciseMean_cons (lt : α → α → Bool) (head : α) (tail : List α)
+       (exerciseMean_eq_toReal_lintegral lt (left i)).symm
+       (exerciseMean_eq_toReal_lintegral lt (right i)).symm
+   rw [exerciseMean_eq_toReal_lintegral, exerciseLaw_lintegral_cons]
+-  change (W * (∑ i : Fin (tail.length + 1), L i + R i) +
++  change (W * (∑ i : Fin (tail.length + 1), (L i + R i)) +
+       ((4 * tail.length + 3 : Nat) : ℝ≥0∞)).toReal =
+     (((tail.length + 1 : Nat) : ℝ)⁻¹) *
+       (∑ i : Fin (tail.length + 1),
+-        exerciseMean lt (left i) + exerciseMean lt (right i)) +
++        (exerciseMean lt (left i) + exerciseMean lt (right i))) +
+       ((4 * tail.length + 3 : Nat) : ℝ)
+   rw [ENNReal.toReal_add (ENNReal.mul_ne_top hW hsum) (ENNReal.natCast_ne_top _),
+     ENNReal.toReal_mul]
+@@ -304,7 +304,7 @@ theorem literalMean_comparison (lt : α → α → Bool) (xs : List α) :
+   · rw [literalMean_eq_toReal_lintegral, exerciseMean_eq_toReal_lintegral]
+     have h := ENNReal.toReal_mono
+       (ENNReal.mul_ne_top (ENNReal.natCast_ne_top 2) (exerciseLaw_lintegral_ne_top lt xs)) hup
+-    simpa only [ENNReal.toReal_mul, ENNReal.toReal_ofNat] using h
++    simpa only [ENNReal.toReal_mul, ENNReal.toReal_natCast] using h
+ 
+ /-- A source-specific all-false family keeps its quadratic actual mean. -/
+ theorem exerciseMean_of_all_false (lt : α → α → Bool) (xs : List α)

@@ -1,0 +1,337 @@
+{
+  "captured_utc": "2026-11-02T15:54:12.045365+00:00",
+  "exit_observed_utc": "2026-11-02T15:44:10Z",
+  "task": "FDSA-001",
+  "candidate": "1aabd512284fe86254278ac631eda061d311050b",
+  "source_status": "",
+  "command": "env LEAN_NUM_THREADS=1 ./check.sh --candidate HEAD",
+  "parent_execution_session": 80227,
+  "parent_exit_code": 120,
+  "recorded_lean_version": "Lean 4.35.0 eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+  "recorded_lake_version": "Lake 5.0.0-src+eb6cafb",
+  "log": {
+    "bytes": 294912,
+    "sha256": "9e94b0a04aa9a6981d7783fd1f556245cd631de9c8cd9e816644f322d469ee54",
+    "ends_with_newline": false,
+    "truncated": true
+  },
+  "task_local_compiler_checker_processes": [],
+  "verification_record_present": false,
+  "failed_modules_reported_in_surviving_log": [
+    "Applications.Dijkstra.Core",
+    "Applications.DynamicProgramming.SuffixRow",
+    "Applications.EditAlignment.Semantics",
+    "Applications.Optimization.SelectionMap",
+    "Applications.Orbifold.MatrixDisk",
+    "Applications.Orbifold.QuarterTurn",
+    "Applications.Resources.Dijkstra.StoreCosts",
+    "Applications.Search.LeftistQueue",
+    "Examples.SplitNative",
+    "SquareKit.DiscreteSheaf",
+    "SquareKit.EquationTranspose",
+    "SquareKit.Internal.DependentFunctionSheafBase",
+    "SquareKit.RelationTransport",
+    "SquareKit.SheafTorsor",
+    "SquareKit.SmoothCoverCharacterization",
+    "SquareKit.SmoothDualCover",
+    "SquareKit.SmoothGeometricKL",
+    "SquareKit.SmoothKL",
+    "SquareKit.SmoothOpenMaps"
+  ],
+  "surviving_artifact_family_files": {
+    "Applications.Dijkstra.Core": [
+      ".lake/build/ir/Applications/Dijkstra/Core.setup.json"
+    ],
+    "Applications.DynamicProgramming.SuffixRow": [
+      ".lake/build/ir/Applications/DynamicProgramming/SuffixRow.setup.json"
+    ],
+    "Applications.EditAlignment.Semantics": [
+      ".lake/build/ir/Applications/EditAlignment/Semantics.setup.json"
+    ],
+    "Applications.Optimization.SelectionMap": [
+      ".lake/build/ir/Applications/Optimization/SelectionMap.setup.json"
+    ],
+    "Applications.Orbifold.MatrixDisk": [
+      ".lake/build/ir/Applications/Orbifold/MatrixDisk.setup.json"
+    ],
+    "Applications.Orbifold.QuarterTurn": [
+      ".lake/build/ir/Applications/Orbifold/QuarterTurn.setup.json"
+    ],
+    "Applications.Resources.Dijkstra.StoreCosts": [
+      ".lake/build/ir/Applications/Resources/Dijkstra/StoreCosts.setup.json"
+    ],
+    "Applications.Search.LeftistQueue": [
+      ".lake/build/ir/Applications/Search/LeftistQueue.setup.json"
+    ],
+    "Examples.SplitNative": [
+      ".lake/build/ir/Examples/SplitNative.setup.json"
+    ],
+    "SquareKit.DiscreteSheaf": [
+      ".lake/build/ir/SquareKit/DiscreteSheaf.setup.json"
+    ],
+    "SquareKit.EquationTranspose": [
+      ".lake/build/ir/SquareKit/EquationTranspose.setup.json"
+    ],
+    "SquareKit.Internal.DependentFunctionSheafBase": [
+      ".lake/build/ir/SquareKit/Internal/DependentFunctionSheafBase.setup.json"
+    ],
+    "SquareKit.RelationTransport": [
+      ".lake/build/ir/SquareKit/RelationTransport.setup.json"
+    ],
+    "SquareKit.SheafTorsor": [
+      ".lake/build/ir/SquareKit/SheafTorsor.setup.json"
+    ],
+    "SquareKit.SmoothCoverCharacterization": [
+      ".lake/build/ir/SquareKit/SmoothCoverCharacterization.setup.json"
+    ],
+    "SquareKit.SmoothDualCover": [
+      ".lake/build/ir/SquareKit/SmoothDualCover.setup.json"
+    ],
+    "SquareKit.SmoothGeometricKL": [
+      ".lake/build/ir/SquareKit/SmoothGeometricKL.setup.json"
+    ],
+    "SquareKit.SmoothKL": [
+      ".lake/build/ir/SquareKit/SmoothKL.setup.json"
+    ],
+    "SquareKit.SmoothOpenMaps": [
+      ".lake/build/ir/SquareKit/SmoothOpenMaps.setup.json"
+    ]
+  },
+  "captured_files": [
+    {
+      "path": ".lake/build/ir/Applications/Dijkstra/Core.setup.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".lake/build/ir/Applications/DynamicProgramming/SuffixRow.setup.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".lake/build/ir/Applications/EditAlignment/Semantics.setup.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Optimization/SelectionMap.setup.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Orbifold/MatrixDisk.setup.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Orbifold/QuarterTurn.setup.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Resources/Dijkstra/StoreCosts.setup.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Search/LeftistQueue.setup.json",
+      "bytes": 167,
+      "sha256": "a54157fbba9f574fe981ae73107b588a894befe2ed89a8b84baa29770f305cc4"
+    },
+    {
+      "path": ".lake/build/ir/Examples/SplitNative.setup.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/DiscreteSheaf.setup.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/EquationTranspose.setup.json",
+      "bytes": 268,
+      "sha256": "106f47a1a866e6b3128dc6c573c7010a5121d8ee8687ef66e7be66fd75764db8"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/Internal/DependentFunctionSheafBase.setup.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/RelationTransport.setup.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/SheafTorsor.setup.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/SmoothCoverCharacterization.setup.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/SmoothDualCover.setup.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/SmoothGeometricKL.setup.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/SmoothKL.setup.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/SmoothOpenMaps.setup.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Dijkstra/Core.lean",
+      "bytes": 8293,
+      "sha256": "52162d948998b8fae9a0ff3be8ff47b227efad28074cfc598b0d60f2460212dc"
+    },
+    {
+      "path": "Applications/DynamicProgramming/SuffixRow.lean",
+      "bytes": 1527,
+      "sha256": "ad4070910328b20ced95db24c82c54d7d4992fa1637c9aef5040b5466d68314a"
+    },
+    {
+      "path": "Applications/EditAlignment/Semantics.lean",
+      "bytes": 5176,
+      "sha256": "8ed6c3275f0b7fb725259b0cba36951c1e2e7b847ef2d0d9a24dfc4b41d5ddd4"
+    },
+    {
+      "path": "Applications/Optimization/SelectionMap.lean",
+      "bytes": 641,
+      "sha256": "b10744cb7d6f82efe3a96e3837b362640ed2bd861ec2c654e010755b7870f741"
+    },
+    {
+      "path": "Applications/Orbifold/MatrixDisk.lean",
+      "bytes": 4593,
+      "sha256": "3ff4772e4cf1226126a48d9f407fae4754f9a71c9650443d368badedec1c0167"
+    },
+    {
+      "path": "Applications/Orbifold/QuarterTurn.lean",
+      "bytes": 5467,
+      "sha256": "1718f3a07408c898a3a5b931feb40b37383e13a7abafcdcfe2b167f72aad313b"
+    },
+    {
+      "path": "Applications/Resources/Dijkstra/StoreCosts.lean",
+      "bytes": 1999,
+      "sha256": "eaa14ec9df5ae940b50f34377156b6d24b7a78d07e056a27890fd6992cf583f8"
+    },
+    {
+      "path": "Applications/Search/LeftistQueue.lean",
+      "bytes": 13036,
+      "sha256": "14a0d1130e04e2576dea2abb452823b5504cdbac9dbc1010f15a2f327c6bc378"
+    },
+    {
+      "path": "Examples/SplitNative.lean",
+      "bytes": 2189,
+      "sha256": "8dd3e91dc8493bf0c837e088ae844710472c20bf8d497934053a06beb7771e00"
+    },
+    {
+      "path": "SquareKit/DiscreteSheaf.lean",
+      "bytes": 4429,
+      "sha256": "c431981bce1107c645c38682ecc9084b21847ca8f0d6a8912fdc4029a37c1d48"
+    },
+    {
+      "path": "SquareKit/EquationTranspose.lean",
+      "bytes": 6584,
+      "sha256": "184a2688a017f4541b526f7e7ba73b33bb968b2168df15ee2ec00ebcf5b400dd"
+    },
+    {
+      "path": "SquareKit/Internal/DependentFunctionSheafBase.lean",
+      "bytes": 4847,
+      "sha256": "3279d97bed5e5007fc59bd4039e1cc80597f8cb88ba9fb924d38c775f1674a4b"
+    },
+    {
+      "path": "SquareKit/RelationTransport.lean",
+      "bytes": 2667,
+      "sha256": "2b7fe19802d4667d4eca355f16845a339606a15e01544845bd51e0631c06197e"
+    },
+    {
+      "path": "SquareKit/SheafTorsor.lean",
+      "bytes": 14004,
+      "sha256": "85fc7299ea21e4b2a38e0b2be7bccc56063f37856ad74d72492b11a2ecc815d5"
+    },
+    {
+      "path": "SquareKit/SmoothCoverCharacterization.lean",
+      "bytes": 3798,
+      "sha256": "9e357a045dfbe35d1d71041f34e461c1acafafde5022350099a3c5f68988eb98"
+    },
+    {
+      "path": "SquareKit/SmoothDualCover.lean",
+      "bytes": 12696,
+      "sha256": "4c84805cf1380a2d2a951493b7c645a1beaf2b4057173f3c69382ae65b680cbd"
+    },
+    {
+      "path": "SquareKit/SmoothGeometricKL.lean",
+      "bytes": 9160,
+      "sha256": "a3b0c2c4f1f2187d0059fe698cd45e25529ef67de5422765ab53d7bb3530c05a"
+    },
+    {
+      "path": "SquareKit/SmoothKL.lean",
+      "bytes": 13808,
+      "sha256": "787d9c6cab0c2c0cd292e48d6a53fa679d1009905368c608f82eae988e81cf27"
+    },
+    {
+      "path": "SquareKit/SmoothOpenMaps.lean",
+      "bytes": 2737,
+      "sha256": "33af6d83e71a48f1b8fb9fc4bb89f50fbdcafcebd51194b7fe694deeab399a39"
+    },
+    {
+      "path": "check.sh",
+      "bytes": 74,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd"
+    },
+    {
+      "path": "flake.lock",
+      "bytes": 564,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+    },
+    {
+      "path": "flake.nix",
+      "bytes": 637,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 444,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+    },
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "path": "scripts/check.py",
+      "bytes": 16119,
+      "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+    },
+    {
+      "path": "scripts/lake_integrity.py",
+      "bytes": 5781,
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f"
+    }
+  ],
+  "available_bytes_at_capture": 672411648,
+  "free_bytes_at_capture": 4125159424,
+  "classification": "Explicit disk exhaustion during output generation; unsuccessful validation with truncated log. No demonstrated match to the documented GraphEmission stale-artifact recurrence. Surviving output soundness and errors lost from the truncated tail are not established.",
+  "preservation_boundary": "Copied existing source/configuration and surviving failed-module output/trace/sidecar families before any guard or manual artifact invalidation. Missing evidence is not reconstructed. No build, project hash helper, output repair or source change performed.",
+  "acceptance": "none"
+}

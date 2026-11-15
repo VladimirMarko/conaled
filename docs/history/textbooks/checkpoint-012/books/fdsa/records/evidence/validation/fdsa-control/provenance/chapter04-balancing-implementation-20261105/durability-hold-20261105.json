@@ -1,0 +1,62 @@
+{
+  "recorded_utc": "2026-11-05T02:47:20.025608+00:00",
+  "state": "DURABILITY HOLD; no subsequent source/provenance writes until root resumes",
+  "author": "/root/chapter04_balancing",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+  "branch": "work/fdsa-ch04-balancing",
+  "head": "a8f57dbf153c19e3bad2c8136a90b566eeb35374",
+  "tree": "d6a360509f3fb80b611147303604a893cbba5510",
+  "status_porcelain": "",
+  "phase1_commit": "9f8cbba7142c4fc9cd923a9aa6e838de36302259",
+  "source_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "original_whole_chapter_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "original_obligation_count": 76,
+  "changed_paths": [
+    "Applications/Resources/TreeBalance.lean",
+    "Applications/Trees/Balance.lean",
+    "Examples/TreeBalance.lean",
+    "Examples/TreeBalanceCost.lean"
+  ],
+  "files": {
+    "Applications/Trees/Balance.lean": {
+      "bytes": 8833,
+      "sha256": "1fddadc95a165a8e5c03b15ccdae1a56f94deed5689d345d32b92ed053a1729e"
+    },
+    "Examples/TreeBalance.lean": {
+      "bytes": 3432,
+      "sha256": "c9e11e2f91713193c3ca75b82dfa0e062c5c0354118a32580b5c08942aada4af"
+    },
+    "Applications/Resources/TreeBalance.lean": {
+      "bytes": 5841,
+      "sha256": "d113019bc1af4e1581a30ff8123e9d86d4b94e0d732cc4257fc9dd685e09b90b"
+    },
+    "Examples/TreeBalanceCost.lean": {
+      "bytes": 2173,
+      "sha256": "639e50f133580d40d0046f36b12c3a441f90df8e29ea7f28d77ec4dab79bb943"
+    }
+  },
+  "compiler_status": "UNCOMPILED; no author Lean/Lake/check/audit invocation",
+  "source_declaration_count": 66,
+  "source_whitespace_check": "82375a actual exit 0",
+  "phase2_commit_receipt": "e0e4a4 actual exit 0",
+  "completed_source_phases": [
+    "sequential value core, exact success domain, decomposition, four wrapper inorder and size laws, connected examples",
+    "actual measured recursion, unconditional value refinement, conditional exact 2*n+1 call count, connected success/failure examples"
+  ],
+  "incomplete_work": [
+    "Root compilation and actual elaborated statement inspection for all four modules",
+    "Any compiler-driven proof corrections; no successful elaboration is claimed",
+    "Later general height, minimum-height, almost-completeness and wrapper laws C04-054..057",
+    "Strict BST connection in C04-058 after suitable shared ordered/shape prerequisites",
+    "Original whole-chapter 76-obligation integration, full candidate check/audit, independent Standards/Spec and immediate verification"
+  ],
+  "source_assessments": [
+    "phase1-author-assessment.md",
+    "phase2-author-assessment.md"
+  ],
+  "root_records_preserved": [
+    "assignment-before-branch.json",
+    "branch-creation-result.json"
+  ],
+  "acceptance_recorded": false
+}

@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "task": "local1029 fresh2 launch preflight",
+  "started_utc": "2026-11-02T21:26:54.716477+00:00",
+  "finished_utc": "2026-11-02T21:26:54.766724+00:00",
+  "capacity": {
+    "observed_utc": "2026-11-02T21:26:54.716515+00:00",
+    "effective_uid": 0,
+    "path": "/workspace/scratch/0c54f2db1fdf",
+    "fragment_bytes": 4096,
+    "free_bytes_including_reserved": 5092044800,
+    "available_bytes_excluding_reserved": 1639297024,
+    "reserved_free_difference_bytes": 3452747776,
+    "total_inodes": 4194304,
+    "free_inodes": 3175258,
+    "available_inodes": 3175258,
+    "existing_launch_floor_bytes": 2000000000,
+    "floor_source": "Explicit existing 2 GB floor supplied in the parent task; not a predicted full-build requirement",
+    "root_free_above_floor_bytes": 3092044800,
+    "meets_existing_root_free_floor": true
+  },
+  "formal_checkouts": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled",
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled",
+      "observed_utc": "2026-11-02T21:26:54.727596+00:00",
+      "head": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "status_porcelain": "",
+      "commands": [
+        {
+          "command": [
+            "git",
+            "--no-optional-locks",
+            "rev-parse",
+            "HEAD"
+          ],
+          "returncode": 0,
+          "stdout": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "--no-optional-locks",
+            "status",
+            "--porcelain=v1",
+            "--untracked-files=all"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+      "observed_utc": "2026-11-02T21:26:54.756260+00:00",
+      "head": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "status_porcelain": "",
+      "commands": [
+        {
+          "command": [
+            "git",
+            "--no-optional-locks",
+            "rev-parse",
+            "HEAD"
+          ],
+          "returncode": 0,
+          "stdout": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "--no-optional-locks",
+            "status",
+            "--porcelain=v1",
+            "--untracked-files=all"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        }
+      ]
+    }
+  ],
+  "abandoned_private_output_inventory": {
+    "matching_prefix": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/fresh-check-*",
+    "entries": [],
+    "enumeration_errors": [],
+    "total_allocated_bytes_of_observed_paths": 0,
+    "payloads_read": false,
+    "symlinks_followed": false,
+    "limits": "Allocated bytes count metadata entries; multilinks, if any, are not a reclaimable-byte guarantee. Private-output directory names alone do not establish inactivity."
+  },
+  "process_observation": {
+    "started_utc": "2026-11-02T21:26:54.756331+00:00",
+    "finished_utc": "2026-11-02T21:26:54.766680+00:00",
+    "duration_seconds": 0.010383027998614125,
+    "own_probe_pid": 573626,
+    "former_group": 426051,
+    "matching_processes": [],
+    "counts": {
+      "process_entries": 59,
+      "stat_failures": 0,
+      "cwd_failures": 0,
+      "fd_directory_failures": 0,
+      "fd_readlink_failures": 0,
+      "fdinfo_failures": 0,
+      "fd_entries": 388
+    },
+    "completed_visible_pass_within_10_second_bound": true,
+    "scope": "Only stat metadata, cwd symlinks, FD symlinks, and access flags for matched task paths. No argv, environments, payload contents, mappings, signals or attachment. Unmatched identities/paths not retained.",
+    "limits": "Point-in-time, non-atomic observation of visible /proc entries. Exits/races, transient handles, closed mmap descriptors and unavailable processes limit negative evidence; no universal quiescence or causal conclusion."
+  },
+  "assessment": {
+    "capacity": "Above the existing root-free launch floor",
+    "full_build_plus_checkpoint_fit": "Not established by this preflight. The existing floor is not a measured full fresh-build peak. These abandoned output sizes measure partial retained output only and are not an estimate of the remaining complete build. No required-size estimate is invented.",
+    "source_identity_only": "HEAD/status observations are not dependency/compiler/artifact verification.",
+    "cleanup_decision": "None; no path was removed or changed. Root owns any separately justified cleanup or launch decision."
+  },
+  "mutations": "Only creation of this preflight record; no compiler, formal retry, deletion, source/helper/cache change or process signal."
+}

@@ -1,0 +1,42 @@
+{
+  "queued": "2026-11-02T19:03:03.238840+00:00",
+  "command": [
+    "/nix/store/8lza1b8nnci8lmm4q68p0l33pg975s0q-nix-2.35.4/bin/nix",
+    "--extra-experimental-features",
+    "nix-command flakes",
+    "--option",
+    "build-users-group",
+    "",
+    "--option",
+    "sandbox",
+    "false",
+    "--option",
+    "eval-cache",
+    "false",
+    "develop",
+    "--offline",
+    "--command",
+    "env",
+    "LEAN_NUM_THREADS=1",
+    "lake",
+    "build",
+    "Examples.SuspensionDerived"
+  ],
+  "log": "/workspace/scratch/ca9a61d0bf30/active-validation/suspension-derived-r7.log",
+  "scope": "focused development only",
+  "input_sha256": {
+    "Applications/Suspensions/Syntax.lean": "f45ebe0708025c0f431b079caedb310487f7d7758f4c550dda215a61c0a82bd7",
+    "Applications/Suspensions/Store.lean": "4dd30845a11b7ef9a5d32cd3793f7269acabaa2b70a60939b0ba4506b9b16036",
+    "Applications/Suspensions/Machine.lean": "921f9b17fa4e78bcda22d4b2059d49471af529b6aa7e31cd760a364d8bda7204",
+    "Applications/Suspensions/Continuation.lean": "a10202a385afdfe09cedc02884967bb774a896090f4bba5b1ee7f29afcc4c0fc",
+    "Applications/Suspensions/Names.lean": "267803f09543b11acc9d1c305be76fb675351e001d0588dd8d290b17d590b31c",
+    "Applications/Suspensions/Derived.lean": "5298d64d82c5a73b8d7cdb2a6fa7cd3573066d63fc9e3cd4a61832c4b7268b82",
+    "Examples/SuspensionDerived.lean": "b2c2524cc82b743af362e6d97270788484f328673b1427e8e8648e49a9ff1c5c",
+    "Applications/Progress/Evaluation.lean": "27d93c2ebfa3c88e4a8c31e7665aa9a7b4d259ffc73d0f8c020b5102e7cdf564"
+  },
+  "start": "2026-11-02T19:14:32.577319+00:00",
+  "start_inputs_unchanged": true,
+  "end": "2026-11-02T19:18:01.733382+00:00",
+  "exit_code": 1,
+  "end_inputs_unchanged": true
+}

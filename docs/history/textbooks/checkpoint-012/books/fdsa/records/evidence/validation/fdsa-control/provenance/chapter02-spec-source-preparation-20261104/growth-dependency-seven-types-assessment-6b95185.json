@@ -1,0 +1,111 @@
+{
+  "recorded_utc": "2026-11-04T09:04:46.751811+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "target_candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+  "historical_candidate": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+  "overall_outcome": "Blocked",
+  "approval_or_acceptance": false,
+  "standards_closure_receipt": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/historical-type-dependency-audit-preparation-6b95185.json",
+    "bytes": 207685,
+    "lines": 4016,
+    "sha256": "293e9dfca4b47047e90d727b346ffa4d7139254b4980494f26d645e28ab36687"
+  },
+  "read_boundary_for_standards_receipt": "Entire 12-run quantitative summary and ordinary-merge configuration/program/root metadata were read; all nested JSON was machine parsed. A complete human reading of the 207685-byte raw closure inventory is not claimed.",
+  "independent_source_checks": {
+    "old_growth": {
+      "candidate": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "path": "Applications/Resources/Growth.lean",
+      "git_blob": "5453fc50cc172b409f12542921a97d82ca60e067",
+      "bytes": 724,
+      "lines": 17,
+      "sha256": "5e252788c2365d3f9140288a1d51f2ef38270798419af40df8505590a7d20dcc"
+    },
+    "current_growth": {
+      "candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+      "path": "Applications/Resources/Growth.lean",
+      "git_blob": "65cfdecea6a600b9ed80a9784637e9811c4bd425",
+      "bytes": 2906,
+      "lines": 59,
+      "sha256": "99be17f2d45ac30de1e912c2181460dac046c8b98e40ea3209abfec342107786"
+    },
+    "complete_old_and_current_growth_and_diff_read": true,
+    "existing_isBigO_of_nat_bound_complete_declaration_byte_preserved": true,
+    "merge_roots_byte_identical": [
+      {
+        "candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+        "path": "Examples/MergeCosts.lean",
+        "git_blob": "b5f652cf5258c99f5a615b12987c664ed8be3d76",
+        "bytes": 23410,
+        "lines": 476,
+        "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466"
+      },
+      {
+        "candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+        "path": "Applications/Resources/ListMerge.lean",
+        "git_blob": "b658809bc2ba424807e326c3ee7cb64712865a46",
+        "bytes": 8629,
+        "lines": 201,
+        "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975"
+      },
+      {
+        "candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+        "path": "Applications/Sorting/Merge.lean",
+        "git_blob": "6595f901a9358398bee07333872125990ef8360c",
+        "bytes": 7840,
+        "lines": 172,
+        "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7"
+      }
+    ],
+    "merge_example_read_basis": "Previously completed full fixed-scope source read retained by exact blob; current file was reread, and the truncated middle of an initial large output was separately read in full at lines231–310. No missing output counted."
+  },
+  "actual_changed_imports": [
+    "Mathlib.Analysis.SpecialFunctions.Log.Base",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.NormNum"
+  ],
+  "new_growth_theorems": [
+    "Resources.clog_two_cast_le_two_logb",
+    "Resources.isBigO_of_clog_two_bound"
+  ],
+  "no_existing_math_contract_weakened": true,
+  "no_new_project_instance_or_simp_registration_in_delta": true,
+  "seven_selected_names_with_changed_relevant_environment": [
+    "Examples.MergeCosts.key_source_value",
+    "Examples.MergeCosts.source_key_sorted_iff",
+    "Examples.MergeCosts.tagged_key_transport",
+    "Examples.MergeCosts.tagged_values",
+    "Examples.MergeCosts.twoStage_observation",
+    "Examples.MergeCosts.actual_input_matters",
+    "Examples.MergeCosts.queueBody_observation"
+  ],
+  "semantic_assessment": [
+    "The two new Growth lemmas bridge an established natural ceiling-log bound to real binary logarithms with n>=2 slack. The original natural-bound lemma and its proof remain exact.",
+    "The seven selected MergeCosts statements preserve pulled-back key-order instances without global payload order, arbitrary tagged occurrence order/transport, actual value-dependent second-merge input, and the queue node-body observation. Their source and connected proofs are unchanged and do not directly invoke either new Growth theorem.",
+    "The three added Mathlib imports are nevertheless an actual imported-environment difference. Mathematical no-finding is not an assertion of byte-identical type-validation environments."
+  ],
+  "historical_read_count": 941,
+  "historical_print_profiles": {
+    "pp_explicit": 648,
+    "ordinary_or_universe_profile": 293
+  },
+  "source_configuration_matching_remainder": 934,
+  "source_configuration_matching_profiles": {
+    "pp_explicit": 648,
+    "ordinary_or_universe_profile": 286
+  },
+  "source_configuration_count_basis": "Standards independently computed 40 exact defining-file local closures and one changed closure, with all12 immutable configuration identities matching. This Spec receipt independently assessed the sole actual changed source delta.",
+  "runtime_qualification": "Still pending Standards final runtime qualification. In particular, the historical QuickSort record lacks final_head; no final immutable identity is inferred merely from current matching source.",
+  "root_plan": "Root will prepare 800 names =793 current pending names +these exact7, after the live focused run closes. A prepared program is not actual output.",
+  "no_blanket_repeat_required_by_this_source_assessment": true,
+  "current_type_gap_closed": false,
+  "concrete_mathematical_spec_findings": [],
+  "compiler_build_or_process_poll_by_reviewer": false,
+  "prior_historical_type_readback": {
+    "path": "provenance/chapter02-spec-source-preparation-20261104/historical-types-readback.json",
+    "bytes": 53587,
+    "lines": 1138,
+    "sha256": "8e9e377b31048e1258894755b92a63181293c7983fd09d53c64688a33a7519c2"
+  }
+}

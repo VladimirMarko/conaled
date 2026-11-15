@@ -1,0 +1,213 @@
+{
+  "recorded_utc": "2026-11-04T09:22:41.373995+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "source_candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+  "full_scope": "Complete fixed R-to-eventual-C2 scope: all81 paths,112 obligations and ten shared units retained.",
+  "overall_outcome": "Blocked",
+  "approval_or_acceptance": false,
+  "compiler_or_build_or_process_poll_by_reviewer": false,
+  "finding": "C02-DOC-003",
+  "proposal_status": "All six remain unapplied. Status-only content is independently adequate after the separate Tail wording correction; finding remains Open until exact proper-candidate application and reconciliation.",
+  "read_basis": "All six original notes were completely read in the full source assessment and match Q. All six complete final0095 patches and the entire134-line author readback were read. Entire213-line prior Tail proposal was reread; both correction1 patches and its full73-line author readback/receipt were then read. Unchanged content retained through exact diff reconstruction.",
+  "checks": [
+    {
+      "path": "docs/research/fdsa-difference-list-costs.md",
+      "original": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/before/fdsa-difference-list-costs.md",
+        "bytes": 10679,
+        "lines": 213,
+        "sha256": "fd01432541c9b27ad83def6192e4a3b75d6b77ae7490ec11a2bf665324f1246e"
+      },
+      "proposal": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-difference-list-costs.md",
+        "bytes": 10923,
+        "lines": 219,
+        "sha256": "bd450660076b5addbd6b64d7a591f71fc60b68e6bfbf5f9cc36fa09fac4eb735"
+      },
+      "complete_patch": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/patches/fdsa-difference-list-costs.md.patch",
+        "bytes": 1998,
+        "lines": 42,
+        "sha256": "16480242724fe043f8ca809c5d6d77485b0d9e3c36a0eaa0a60da10e87c5bd33"
+      },
+      "original_matches_Q": true,
+      "complete_actual_diff_matches_read_patch": true,
+      "original_markdown_links_exact": true
+    },
+    {
+      "path": "docs/research/fdsa-list-merge.md",
+      "original": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/before/fdsa-list-merge.md",
+        "bytes": 14955,
+        "lines": 250,
+        "sha256": "25f1982d56183111c112d3e38f4473000668685d126677935dcecc3d1a5cf5b3"
+      },
+      "proposal": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-list-merge.md",
+        "bytes": 15491,
+        "lines": 258,
+        "sha256": "9661cc22e3600c0963c37b0f145f7396a1b7677ae2e8f2d240ecd1cf13b88729"
+      },
+      "complete_patch": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/patches/fdsa-list-merge.md.patch",
+        "bytes": 1278,
+        "lines": 22,
+        "sha256": "b4bd4341b634fcdce4fa79f5b6a8b1d8ae91b42ae035bc41ed3ebccd984cc0db"
+      },
+      "original_matches_Q": true,
+      "complete_actual_diff_matches_read_patch": true,
+      "original_markdown_links_exact": true
+    },
+    {
+      "path": "docs/research/fdsa-permutation-minimum.md",
+      "original": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/before/fdsa-permutation-minimum.md",
+        "bytes": 7608,
+        "lines": 138,
+        "sha256": "9b0ac9218e6a82f40e61faf97447af33adcccfafb60498a4f33acbfce91f5a31"
+      },
+      "proposal": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-permutation-minimum.md",
+        "bytes": 7970,
+        "lines": 146,
+        "sha256": "2054bf4d6cd371b8570fca003f0fe704793377d261cb8e5f10306022e5b2dcc8"
+      },
+      "complete_patch": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/patches/fdsa-permutation-minimum.md.patch",
+        "bytes": 1577,
+        "lines": 32,
+        "sha256": "e4487ef41eb38fc1214c8602654b2fb363d58733dc425044af4328ca65c8e3e3"
+      },
+      "original_matches_Q": true,
+      "complete_actual_diff_matches_read_patch": true,
+      "original_markdown_links_exact": true
+    },
+    {
+      "path": "docs/research/fdsa-permutation-order.md",
+      "original": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/before/fdsa-permutation-order.md",
+        "bytes": 8851,
+        "lines": 166,
+        "sha256": "39fd16835dccd39c9d34ebfcebbdbdd33f44ec1dad49fdfe582a8ac4801faea3"
+      },
+      "proposal": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-permutation-order.md",
+        "bytes": 9172,
+        "lines": 173,
+        "sha256": "8c2be8a6879ece74a935dacd2da3aa635d03d5c2d34860881b7bec9db44a3fcf"
+      },
+      "complete_patch": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/patches/fdsa-permutation-order.md.patch",
+        "bytes": 1415,
+        "lines": 30,
+        "sha256": "49c161eeaa158a4da64c027054a4a078266cd310ef83d26d1aaec43af4e27d4c"
+      },
+      "original_matches_Q": true,
+      "complete_actual_diff_matches_read_patch": true,
+      "original_markdown_links_exact": true
+    },
+    {
+      "path": "docs/research/fdsa-permutation-tail.md",
+      "original": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/before/fdsa-permutation-tail.md",
+        "bytes": 10367,
+        "lines": 203,
+        "sha256": "34162854a3bfabbec1e87bea6111b4939495cc27eb9ee811758dceaeb62dc96f"
+      },
+      "proposal": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-permutation-tail.md",
+        "bytes": 10929,
+        "lines": 213,
+        "sha256": "7be59b23d2386f18a8ddd61cf9298fb5f55083d9432d0ccd0d9a7a8129a78432"
+      },
+      "complete_patch": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/patches/fdsa-permutation-tail.md.patch",
+        "bytes": 2071,
+        "lines": 39,
+        "sha256": "071914bbbdb60ed0bf3b89e946a4610c23ce0262abde5399882c15408917a782"
+      },
+      "original_matches_Q": true,
+      "complete_actual_diff_matches_read_patch": true,
+      "original_markdown_links_exact": true
+    },
+    {
+      "path": "docs/research/fdsa-three-way-partition.md",
+      "original": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/before/fdsa-three-way-partition.md",
+        "bytes": 13444,
+        "lines": 250,
+        "sha256": "5e58b195a53e32369dd31a7d6452c73f595419757faeaae0173c0fd659c0858b"
+      },
+      "proposal": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-three-way-partition.md",
+        "bytes": 13959,
+        "lines": 259,
+        "sha256": "f79bfd4f9691f56019696c8ea0ac0b63045f7bb1ac5f5d790adf8a425345f136"
+      },
+      "complete_patch": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/patches/fdsa-three-way-partition.md.patch",
+        "bytes": 2231,
+        "lines": 37,
+        "sha256": "f685394f04b06d1739a9b6fa2d6171e53f48c53d08dd8ee6f94c723a5a6f98c0"
+      },
+      "original_matches_Q": true,
+      "complete_actual_diff_matches_read_patch": true,
+      "original_markdown_links_exact": true
+    }
+  ],
+  "tail_original_wording_finding": "The0095 proposal said two cited closed checks without citing the checks in the public note. Independently confirmed; no mathematical finding.",
+  "tail_correction": {
+    "receipt": {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/receipt.json",
+      "bytes": 4599,
+      "lines": 99,
+      "sha256": "2eaa22b53108301a878171aefa854150b4122431fd83e2f30abb65b33da48d31"
+    },
+    "new_complete_note": {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/proposed/fdsa-permutation-tail.md",
+      "bytes": 10927,
+      "lines": 213,
+      "sha256": "9740fdf8ff9761daebae4ec0be6c9388deffcb55fc567d695be27ca89ea86b87"
+    },
+    "patch_original": {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/patches/fdsa-permutation-tail-vs-original.patch",
+      "bytes": 2069,
+      "lines": 39,
+      "sha256": "b173be2d0bf04b001441c9da0702c9e5f49b983a937f2b17c572d7ac3886b963"
+    },
+    "patch_prior": {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/patches/fdsa-permutation-tail-vs-prior-proposal.patch",
+      "bytes": 792,
+      "lines": 13,
+      "sha256": "a644fa8ff28e12eeac7b43af971c2e160a6b87bf816df86c68d053fad91584b9"
+    },
+    "only_replacement": {
+      "old": "individual successful compilation, retained in a later focused check. The\ntwo cited closed checks recorded boundary-example failures, and neither\n",
+      "new": "individual successful compilation, retained in a later focused check.\nTwo closed focused checks recorded boundary-example failures, and neither\n"
+    },
+    "full_math_suffix_byte_preserved": true,
+    "assessment": "Two closed focused checks accurately describes the dated attempts6/7 without implying public citations or success. No validation of later source-only corrections is asserted.",
+    "application": false
+  },
+  "status_assessments": {
+    "XM01": "17 historical selected types,10 matching defining inputs,7 needing current output,78 other uninspected additions;8 accepted-base names separate.",
+    "XD01": "72 historical unit types from a134-name program; source representation/cost distinctions and the old frozen-C1 historical sentence remain exact.",
+    "XQ01": "48 shared/legacy names from84 printed names;36 belong to Chapter2 sorting.19 accepted-base names remain separate. Individual module successes inside failed aggregate checks are not complete passes. AcceptedC1 is correctly recorded.",
+    "XU01": "37 historical unit types and actual successful focused check; full unit acceptance not inferred.",
+    "XU02": "53 pending unit types; individual module successes inside failed aggregate retained accurately.",
+    "XU03": "61 pending unit types; core success, failed boundaries, dependent-only main and unvalidated corrective source remain separate."
+  },
+  "explicit_XQ_count_clarification": "Earlier84-name shorthand refers to the whole three-way program, not84 shared-unit types. Correct shared/compatibility count48=10 sequence+7 measured+23 examples+8 legacy aliases;36 other outputs are sorting.",
+  "XQ48_by_source": {
+    "Applications/Sequences/Partition.lean": 10,
+    "Applications/Resources/Partition.lean": 7,
+    "Examples/ThreeWayPartition.lean": 23,
+    "Applications/Selection/ThreeWay.lean": 8
+  },
+  "math_source_citations_notices_and_acceptance_requirements_unchanged": true,
+  "no_repository_application": true,
+  "evidence_read_limit": "Original relevant terminal records/type logs already assessed and retained by identity; count/source fields independently reconciled. Large nested evidence JSON was machine parsed and its relevant metadata read; not claimed as a complete raw human read.",
+  "source_stage_documentary_repair_adequate": true,
+  "concrete_mathematical_findings": []
+}

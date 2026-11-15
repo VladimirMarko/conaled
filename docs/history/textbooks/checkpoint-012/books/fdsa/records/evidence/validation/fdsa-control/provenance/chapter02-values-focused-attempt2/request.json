@@ -1,0 +1,24 @@
+{
+  "requested_utc": "2026-11-03T21:36:52.292783+00:00",
+  "cwd": "/workspace/scratch/31d6377eca78/fdsa/conaled-ch02-top-down",
+  "candidate": "5a61c284f4cf8d0ca937c5c0cd0b961608d234a3",
+  "command": [
+    "python3",
+    "/workspace/scratch/31d6377eca78/conaled-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/31d6377eca78/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/31d6377eca78/fdsa/conaled-ch02-top-down",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "build",
+    "Applications.Sorting.InsertionObservations",
+    "Examples.InsertionObservations",
+    "Applications.Sorting.TopDown",
+    "Examples.TopDownSorting"
+  ],
+  "scope": "Process recording only; command and acceptance policy unchanged."
+}

@@ -1,0 +1,519 @@
+{
+  "recorded_utc": "2026-11-04T09:09:17.404218+00:00",
+  "state": "Six completed proposed status-only changes, unapplied; full original notes and all proposed changed prose read. No mathematical review or acceptance claim.",
+  "source_candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+  "files": [
+    {
+      "repository_path": "docs/research/fdsa-list-merge.md",
+      "before": {
+        "bytes": 14955,
+        "lines": 250,
+        "sha256": "25f1982d56183111c112d3e38f4473000668685d126677935dcecc3d1a5cf5b3"
+      },
+      "proposed": {
+        "bytes": 15491,
+        "lines": 258,
+        "sha256": "9661cc22e3600c0963c37b0f145f7396a1b7677ae2e8f2d240ecd1cf13b88729"
+      },
+      "patch": {
+        "bytes": 1278,
+        "lines": 22,
+        "sha256": "b4bd4341b634fcdce4fa79f5b6a8b1d8ae91b42ae035bc41ed3ebccd984cc0db"
+      },
+      "proposed_file": "proposed/fdsa-list-merge.md",
+      "patch_file": "patches/fdsa-list-merge.md.patch",
+      "exact_status_replacements": [
+        {
+          "before": " **Compilation, the full candidate\ngate and independent final reviews are pending.**",
+          "after": "",
+          "occurrence_count": 1
+        },
+        {
+          "before": "draft's mathematical contracts; it does not record chapter acceptance.\n",
+          "after": "draft's mathematical contracts; it does not record chapter acceptance.\n\n**Validation snapshot — 4 November 2026.** A successful focused check covered\nthe merge core, measured merge and examples; a separate successful inspection\nprinted 17 selected public types. A subsequent independent dependency review\nretained matching defining inputs for ten of those outputs and required new\ninspection of seven after a dependency change. Another 78 public types had\nno recorded inspection in the inventory. These are historical results; reuse\nrequires matching candidate evidence, and complete unit acceptance was still\noutstanding in this snapshot. The full acceptance gates below remain required.\n",
+          "occurrence_count": 1
+        }
+      ],
+      "unchanged_line_blocks": [
+        {
+          "old_lines_inclusive": [
+            1,
+            5
+          ],
+          "proposed_lines_inclusive": [
+            1,
+            5
+          ],
+          "bytes": 285,
+          "sha256": "47ccfb54c8403bdb06a26cb90c67efd851da565952965bdc257260c0890733b2"
+        },
+        {
+          "old_lines_inclusive": [
+            8,
+            8
+          ],
+          "proposed_lines_inclusive": [
+            7,
+            7
+          ],
+          "bytes": 71,
+          "sha256": "8b0d885f9118bddb945829f63845c62d0706c9889794c78ac2238eb91a2398ad"
+        },
+        {
+          "old_lines_inclusive": [
+            9,
+            250
+          ],
+          "proposed_lines_inclusive": [
+            17,
+            258
+          ],
+          "bytes": 14446,
+          "sha256": "a686c7a48251506d498828130816a4dc0d7b836d8a8d8af739f6961e2346cce0"
+        }
+      ],
+      "replacement_replay_matches_proposed": true
+    },
+    {
+      "repository_path": "docs/research/fdsa-difference-list-costs.md",
+      "before": {
+        "bytes": 10679,
+        "lines": 213,
+        "sha256": "fd01432541c9b27ad83def6192e4a3b75d6b77ae7490ec11a2bf665324f1246e"
+      },
+      "proposed": {
+        "bytes": 10923,
+        "lines": 219,
+        "sha256": "bd450660076b5addbd6b64d7a591f71fc60b68e6bfbf5f9cc36fa09fac4eb735"
+      },
+      "patch": {
+        "bytes": 1998,
+        "lines": 42,
+        "sha256": "16480242724fe043f8ca809c5d6d77485b0d9e3c36a0eaa0a60da10e87c5bd33"
+      },
+      "proposed_file": "proposed/fdsa-difference-list-costs.md",
+      "patch_file": "patches/fdsa-difference-list-costs.md.patch",
+      "exact_status_replacements": [
+        {
+          "before": "It remains a source draft until elaboration, whole-candidate verification and\nthe retained independent reviews are recorded. ",
+          "after": "",
+          "occurrence_count": 1
+        },
+        {
+          "before": "Chapter 2, and it does not implement the source scanner.\n",
+          "after": "Chapter 2, and it does not implement the source scanner.\n\n**Validation snapshot — 4 November 2026.** A successful focused check included\nthe difference-list core and examples. A separate successful inspection\nprinted 72 public types from those modules. These are historical results;\nreuse requires matching candidate evidence, and complete unit acceptance was\nstill outstanding in this snapshot. The full acceptance gates below remain\nrequired.\n",
+          "occurrence_count": 1
+        },
+        {
+          "before": "## Statement review and pending validation",
+          "after": "## Statement review and validation history",
+          "occurrence_count": 1
+        },
+        {
+          "before": " These\nsource proofs and examples still need elaboration, public-entrypoint coverage,\nthe complete guarded candidate build and exhaustive audit, both retained\nindependent review axes, and immediate candidate identity verification before\nacceptance.",
+          "after": "\n\nAcceptance requires immutable-candidate elaboration, public-entrypoint coverage,\nthe complete guarded candidate build and exhaustive audit, both retained\nindependent review axes, and immediate candidate identity verification.",
+          "occurrence_count": 1
+        }
+      ],
+      "unchanged_line_blocks": [
+        {
+          "old_lines_inclusive": [
+            1,
+            4
+          ],
+          "proposed_lines_inclusive": [
+            1,
+            4
+          ],
+          "bytes": 195,
+          "sha256": "31e55c3b0a98fb5adf6a9cb2989ee746401e818b5956e24477cce55db463562c"
+        },
+        {
+          "old_lines_inclusive": [
+            7,
+            7
+          ],
+          "proposed_lines_inclusive": [
+            6,
+            6
+          ],
+          "bytes": 57,
+          "sha256": "bb9d5f9ff9f27ff6c19b5882f67423a593bfd49c35919ca055fa872f72226c47"
+        },
+        {
+          "old_lines_inclusive": [
+            8,
+            194
+          ],
+          "proposed_lines_inclusive": [
+            14,
+            200
+          ],
+          "bytes": 9206,
+          "sha256": "cc2754c43879ea9740b1099bbf10e4ff65a9bee3ef3aa647c727fb17032642a3"
+        },
+        {
+          "old_lines_inclusive": [
+            196,
+            208
+          ],
+          "proposed_lines_inclusive": [
+            202,
+            214
+          ],
+          "bytes": 752,
+          "sha256": "9bedc99f541f6a0e5eca6ec3ad9c4988ea6c707af8ebc87abb365bdefcc073a2"
+        },
+        {
+          "old_lines_inclusive": [
+            211,
+            211
+          ],
+          "proposed_lines_inclusive": [
+            218,
+            218
+          ],
+          "bytes": 73,
+          "sha256": "819e5db5aba557d6d9c277badad07313ffc07cf015ce471d0641d6029640499a"
+        }
+      ],
+      "replacement_replay_matches_proposed": true
+    },
+    {
+      "repository_path": "docs/research/fdsa-three-way-partition.md",
+      "before": {
+        "bytes": 13444,
+        "lines": 250,
+        "sha256": "5e58b195a53e32369dd31a7d6452c73f595419757faeaae0173c0fd659c0858b"
+      },
+      "proposed": {
+        "bytes": 13959,
+        "lines": 259,
+        "sha256": "f79bfd4f9691f56019696c8ea0ac0b63045f7bb1ac5f5d790adf8a425345f136"
+      },
+      "patch": {
+        "bytes": 2231,
+        "lines": 37,
+        "sha256": "f685394f04b06d1739a9b6fa2d6171e53f48c53d08dd8ee6f94c723a5a6f98c0"
+      },
+      "proposed_file": "proposed/fdsa-three-way-partition.md",
+      "patch_file": "patches/fdsa-three-way-partition.md.patch",
+      "exact_status_replacements": [
+        {
+          "before": " The draft is\nuncompiled and unaccepted; its source statements and connected clients still\nrequire the complete immutable-candidate validation and review workflow.",
+          "after": " Its source statements\nand connected clients require the complete immutable-candidate validation\nand review workflow.",
+          "occurrence_count": 1
+        },
+        {
+          "before": "and review workflow.\n",
+          "after": "and review workflow.\n\n**Validation snapshot — 4 November 2026.** The shared partition core, measured\nsource execution and examples, together with the retained Selection clients,\nhad recorded individual module successes within broader checks that failed.\nA separate successful inspection printed 48 public types belonging to the\nshared and compatibility interfaces. These are historical results; reuse\nrequires matching candidate evidence, and complete unit acceptance was still\noutstanding in this snapshot. The full acceptance gates below remain required.\n",
+          "occurrence_count": 1
+        },
+        {
+          "before": "The draft starts from the focused-pass but unaccepted Chapter 1 repair.\nAccepted repaired Chapter 1 remains required before integration or acceptance;\nthe initial Chapter 2 foundation prefix is unchanged. New and existing affected\n",
+          "after": "**Prerequisite history — 4 November 2026.** Chapter 1 was accepted locally on\n3 November 2026 at `07e480f6ec9958d4975bb90151005b84f2907614`. Integration of\nthis unit also requires acceptance of the declared shared foundation.\nNew and existing affected\n",
+          "occurrence_count": 1
+        }
+      ],
+      "unchanged_line_blocks": [
+        {
+          "old_lines_inclusive": [
+            1,
+            5
+          ],
+          "proposed_lines_inclusive": [
+            1,
+            5
+          ],
+          "bytes": 284,
+          "sha256": "85704ffd341f1fb5e06e22627c245a98810b829e13809648a9fd1bc406167091"
+        },
+        {
+          "old_lines_inclusive": [
+            9,
+            200
+          ],
+          "proposed_lines_inclusive": [
+            17,
+            208
+          ],
+          "bytes": 10670,
+          "sha256": "0571bd5eebfe1c3cd8ebdc86cd10d5cd0cdd300863add81d380af4771017b3d3"
+        },
+        {
+          "old_lines_inclusive": [
+            204,
+            250
+          ],
+          "proposed_lines_inclusive": [
+            213,
+            259
+          ],
+          "bytes": 2035,
+          "sha256": "cb609e348c2c54e85696e0d2b14931937bd6ab320f93f7fb190c46c43bfa2ed8"
+        }
+      ],
+      "replacement_replay_matches_proposed": true
+    },
+    {
+      "repository_path": "docs/research/fdsa-permutation-minimum.md",
+      "before": {
+        "bytes": 7608,
+        "lines": 138,
+        "sha256": "9b0ac9218e6a82f40e61faf97447af33adcccfafb60498a4f33acbfce91f5a31"
+      },
+      "proposed": {
+        "bytes": 7970,
+        "lines": 146,
+        "sha256": "2054bf4d6cd371b8570fca003f0fe704793377d261cb8e5f10306022e5b2dcc8"
+      },
+      "patch": {
+        "bytes": 1577,
+        "lines": 32,
+        "sha256": "e4487ef41eb38fc1214c8602654b2fb363d58733dc425044af4328ca65c8e3e3"
+      },
+      "proposed_file": "proposed/fdsa-permutation-minimum.md",
+      "patch_file": "patches/fdsa-permutation-minimum.md.patch",
+      "exact_status_replacements": [
+        {
+          "before": "Status: **source draft, not yet compiled or accepted**. ",
+          "after": "",
+          "occurrence_count": 1
+        },
+        {
+          "before": "durability checkpoint's FDSA-XU01 record.\n",
+          "after": "durability checkpoint's FDSA-XU01 record.\n\n**Validation snapshot — 4 November 2026.** A successful focused check covered\nthe minimum-law core and both example modules. A separate successful\ninspection printed 37 public types from this unit. These are historical\nresults; reuse requires matching candidate evidence, and complete unit\nacceptance was still outstanding in this snapshot. The full acceptance gates\nbelow remain required.\n",
+          "occurrence_count": 1
+        },
+        {
+          "before": "The frozen requirements preserve these later obligations. Compilation,\nwhole-candidate guarded verification, exhaustive axiom audit, both independent\nreview axes and immediate final candidate verification remain pending.",
+          "after": "The frozen requirements preserve these later obligations. Acceptance requires\nimmutable-candidate compilation, whole-candidate guarded verification,\nexhaustive axiom audit, both independent review axes and immediate final\ncandidate verification.",
+          "occurrence_count": 1
+        }
+      ],
+      "unchanged_line_blocks": [
+        {
+          "old_lines_inclusive": [
+            1,
+            2
+          ],
+          "proposed_lines_inclusive": [
+            1,
+            2
+          ],
+          "bytes": 43,
+          "sha256": "1d15a9a679dfcbea90e6646b255972034b85a1a26ed4f44dd8108d1484feff0f"
+        },
+        {
+          "old_lines_inclusive": [
+            4,
+            7
+          ],
+          "proposed_lines_inclusive": [
+            4,
+            7
+          ],
+          "bytes": 273,
+          "sha256": "f5871026b17bfa088d34786bcbd6b73389157f5c1492f29e4985f3aad63df919"
+        },
+        {
+          "old_lines_inclusive": [
+            8,
+            135
+          ],
+          "proposed_lines_inclusive": [
+            15,
+            142
+          ],
+          "bytes": 6995,
+          "sha256": "ed1be0fb6b4533ca76ab751d3e285aee99861237281f577c078c8cdd0f74cf0a"
+        }
+      ],
+      "replacement_replay_matches_proposed": true
+    },
+    {
+      "repository_path": "docs/research/fdsa-permutation-order.md",
+      "before": {
+        "bytes": 8851,
+        "lines": 166,
+        "sha256": "39fd16835dccd39c9d34ebfcebbdbdd33f44ec1dad49fdfe582a8ac4801faea3"
+      },
+      "proposed": {
+        "bytes": 9172,
+        "lines": 173,
+        "sha256": "8c2be8a6879ece74a935dacd2da3aa635d03d5c2d34860881b7bec9db44a3fcf"
+      },
+      "patch": {
+        "bytes": 1415,
+        "lines": 30,
+        "sha256": "49c161eeaa158a4da64c027054a4a078266cd310ef83d26d1aaec43af4e27d4c"
+      },
+      "proposed_file": "proposed/fdsa-permutation-order.md",
+      "patch_file": "patches/fdsa-permutation-order.md.patch",
+      "exact_status_replacements": [
+        {
+          "before": "Status: **source draft, not compiled or accepted**. ",
+          "after": "",
+          "occurrence_count": 1
+        },
+        {
+          "before": "eventual gate results are retained in the local FDSA-XU02 checkpoint record.\n",
+          "after": "eventual gate results are retained in the local FDSA-XU02 checkpoint record.\n\n**Validation snapshot — 4 November 2026.** The whole-order core and both example\nmodules had recorded individual successes within a broader check that failed.\nThe 53 public types from this unit were still awaiting printed inspection,\nand complete unit acceptance was outstanding in this snapshot. Reuse of\nhistorical module results requires matching candidate evidence. The full\nacceptance gates below remain required.\n",
+          "occurrence_count": 1
+        },
+        {
+          "before": "preparation evidence. These source-written examples remain uncompiled.",
+          "after": "preparation evidence.",
+          "occurrence_count": 1
+        }
+      ],
+      "unchanged_line_blocks": [
+        {
+          "old_lines_inclusive": [
+            1,
+            2
+          ],
+          "proposed_lines_inclusive": [
+            1,
+            2
+          ],
+          "bytes": 51,
+          "sha256": "d08345237d713450ff5bbf7e1af5575eaa923be742894eae72f92abffabc281e"
+        },
+        {
+          "old_lines_inclusive": [
+            4,
+            7
+          ],
+          "proposed_lines_inclusive": [
+            4,
+            7
+          ],
+          "bytes": 304,
+          "sha256": "5002a5c00c74ff59ec120c13cd271399a972ba3a2c4c3dcb2fd838aa222d1fe4"
+        },
+        {
+          "old_lines_inclusive": [
+            8,
+            138
+          ],
+          "proposed_lines_inclusive": [
+            15,
+            145
+          ],
+          "bytes": 6758,
+          "sha256": "45227e59edbcdb5a4184a216bcd50f8a0f7ef6c55dbca3d9dc19d731819bc8c0"
+        },
+        {
+          "old_lines_inclusive": [
+            140,
+            166
+          ],
+          "proposed_lines_inclusive": [
+            147,
+            173
+          ],
+          "bytes": 1590,
+          "sha256": "569247651e5732a0a0e4885e73e0e66f5dfddbc552f3c024e4eaee32cc073235"
+        }
+      ],
+      "replacement_replay_matches_proposed": true
+    },
+    {
+      "repository_path": "docs/research/fdsa-permutation-tail.md",
+      "before": {
+        "bytes": 10367,
+        "lines": 203,
+        "sha256": "34162854a3bfabbec1e87bea6111b4939495cc27eb9ee811758dceaeb62dc96f"
+      },
+      "proposed": {
+        "bytes": 10929,
+        "lines": 213,
+        "sha256": "7be59b23d2386f18a8ddd61cf9298fb5f55083d9432d0ccd0d9a7a8129a78432"
+      },
+      "patch": {
+        "bytes": 2071,
+        "lines": 39,
+        "sha256": "071914bbbdb60ed0bf3b89e946a4610c23ce0262abde5399882c15408917a782"
+      },
+      "proposed_file": "proposed/fdsa-permutation-tail.md",
+      "patch_file": "patches/fdsa-permutation-tail.md.patch",
+      "exact_status_replacements": [
+        {
+          "before": "Status: **source draft, not compiled or accepted**. ",
+          "after": "",
+          "occurrence_count": 1
+        },
+        {
+          "before": "chapter or algorithm obligation is accepted by this source draft.\n",
+          "after": "chapter or algorithm obligation is accepted by this source draft.\n\n**Validation snapshot — 4 November 2026.** The conditional-tail core had an\nindividual successful compilation, retained in a later focused check. The\ntwo cited closed checks recorded boundary-example failures, and neither\nestablished a successful result for the main examples. The later boundary correction was\nrecorded as a source-only change; this snapshot claims no validation of that\ncorrection. All 61 public types from this unit were still awaiting printed\ninspection, and complete unit acceptance was outstanding in this snapshot.\nReuse of historical results requires matching candidate evidence. The full\nacceptance gates below remain required.\n",
+          "occurrence_count": 1
+        },
+        {
+          "before": "These mathematical expectations and source-written proofs remain uncompiled.\n",
+          "after": "",
+          "occurrence_count": 1
+        },
+        {
+          "before": "candidate verification. All predecessor drafts retain their own pending gates.",
+          "after": "candidate verification. The prerequisite minimum-law and whole-order units\nrequire their own recorded acceptance.",
+          "occurrence_count": 1
+        }
+      ],
+      "unchanged_line_blocks": [
+        {
+          "old_lines_inclusive": [
+            1,
+            2
+          ],
+          "proposed_lines_inclusive": [
+            1,
+            2
+          ],
+          "bytes": 51,
+          "sha256": "05fea7583290ae231dd5e8189fef837df610e5e6f10b61b778739cc00504795c"
+        },
+        {
+          "old_lines_inclusive": [
+            4,
+            7
+          ],
+          "proposed_lines_inclusive": [
+            4,
+            7
+          ],
+          "bytes": 288,
+          "sha256": "08daab7382c6dab639329fa985814744c021ff262cee14e3d78f641f6b7a09ae"
+        },
+        {
+          "old_lines_inclusive": [
+            8,
+            164
+          ],
+          "proposed_lines_inclusive": [
+            18,
+            174
+          ],
+          "bytes": 7617,
+          "sha256": "ce7033c0f4df8b53a89f07eef5c686de143e34c68a8a8c5d6c0937da4dd6dd89"
+        },
+        {
+          "old_lines_inclusive": [
+            166,
+            202
+          ],
+          "proposed_lines_inclusive": [
+            175,
+            211
+          ],
+          "bytes": 2178,
+          "sha256": "04eb0c53d9d635e43b143c8e50de21bed135b3af9d0ef763114b1d1d7ac6044d"
+        }
+      ],
+      "replacement_replay_matches_proposed": true
+    }
+  ],
+  "dlist_historical_exclusivity_sentence_exactly_retained": true,
+  "all_unselected_text_preserved": "Each proposal is obtained solely by the exact listed replacements from the saved complete source. All other bytes, mathematical prose, contracts, source references and notices are unchanged.",
+  "source_application": false
+}

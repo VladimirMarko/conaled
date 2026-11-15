@@ -1,0 +1,59 @@
+{
+  "prepared_utc": "2026-11-04T11:48:05.069694+00:00",
+  "candidate": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+  "base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "argv": [
+    "python3",
+    "-B",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/native-kit/conaled_native.py",
+    "--state",
+    "/workspace/scratch/60f07f0e98c8/native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation",
+    "--threads",
+    "1",
+    "--",
+    "./check.sh",
+    "--candidate",
+    "HEAD",
+    "--fresh",
+    "--jobs",
+    "1"
+  ],
+  "cwd": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation",
+  "tty": true,
+  "status": "running",
+  "preexisting_project_run_log_directories": [
+    "20261104T040241Z-project-run-2354e0e9",
+    "20261104T055729Z-project-run-78f1cb44",
+    "20261104T060025Z-project-run-a7ddd994",
+    "20261104T062141Z-project-run-b728350b",
+    "20261104T062357Z-project-run-255d9f07",
+    "20261104T062622Z-project-run-382efb4c",
+    "20261104T062703Z-project-run-55d59b31",
+    "20261104T063010Z-project-run-fde51929",
+    "20261104T111947Z-project-run-aaabdbf7",
+    "20261104T112024Z-project-run-032c389d"
+  ],
+  "source_and_validation_clean": true,
+  "fresh_verification_preexisting": false,
+  "managed_build_preexisting": false,
+  "ordinary_available_bytes": 634544128,
+  "completed_focused_evidence": "work-state/validation/1040-focused-summary.json",
+  "retained_source_and_diagnostic_review": {
+    "path": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/reviews/1002-monitor-correction-source-review.md",
+    "sha256": "8ee88a42dd515a9885bd7a13eabb17aad4cfc82b0e0cdfb5bb927f720b97bb19"
+  },
+  "recovery_checkpoint": 106,
+  "recovery_checkpoint_library_file_id": "libfile_0875603d65b88191ab3204cb23fd7523",
+  "capacity_housekeeping": [
+    "work-state/validation/1040-checkpoint-copy-reclamation.json",
+    "work-state/validation/1040-compressed-download-reclamation.json"
+  ],
+  "isolation": "Sameacceptednewworktree/privateproofoutputs and stableinstalledcompiler/profile/realdependencyinputs; old4adcdescendantstatusunknown; no competing compiler/cache/setup/dependency/profilewriter.",
+  "gate_credit": false,
+  "session": 30015,
+  "kit_log_directory": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T114805Z-project-run-0faa8e6a",
+  "started_utc": "2026-11-04T11:48:05.483081+00:00"
+}

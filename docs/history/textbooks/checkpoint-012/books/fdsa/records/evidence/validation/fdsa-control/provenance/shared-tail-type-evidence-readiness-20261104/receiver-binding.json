@@ -1,0 +1,374 @@
+{
+  "utc": "2026-11-04T16:03:26.851462+00:00",
+  "receiver": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "tree": "43f1c15166931d4bd3e91e6dbf12059d0da1cfc2",
+  "accepted_predecessor": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "original_corrected_tip": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+  "program": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+    "bytes": 4105,
+    "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa",
+    "names": [
+      "Applications.Probability.PermutationTail.firstEvent",
+      "Applications.Probability.PermutationTail.firstEvent_inter_tail",
+      "Applications.Probability.PermutationTail.cons_mem_orders",
+      "Applications.Probability.PermutationTail.tail_restrictedOrder_eq",
+      "Applications.Probability.PermutationTail.filter_tail_restrictedOrder_eq",
+      "Applications.Probability.PermutationTail.firstEvent_restrictedOrder_of_not_mem",
+      "Applications.Probability.PermutationTail.cond_firstEvent_restrictedOrder_of_not_mem",
+      "Applications.Probability.PermutationTail.uniformOn_firstEvent",
+      "Applications.Probability.PermutationTail.cond_uniformOn_firstEvent",
+      "Applications.Probability.PermutationTail.cond_tail_eq",
+      "Applications.Probability.PermutationTail.map_tail_cond_first",
+      "Applications.Probability.PermutationTail.head_mass_of_hasLaw",
+      "Applications.Probability.PermutationTail.hasLaw_tail_cond_first",
+      "Applications.Probability.PermutationTail.hasLaw_filter_tail_cond_first",
+      "Applications.Probability.PermutationTail.map_restrictedOrder_cond_first",
+      "Examples.PermutationTail.observedOrder",
+      "Examples.PermutationTail.remaining",
+      "Examples.PermutationTail.tailOrder",
+      "Examples.PermutationTail.afterFirst",
+      "Examples.PermutationTail.observed_hasLaw",
+      "Examples.PermutationTail.first_mass",
+      "Examples.PermutationTail.afterFirst_eq_uniformOn",
+      "Examples.PermutationTail.tail_hasLaw",
+      "Examples.PermutationTail.tail_map",
+      "Examples.PermutationTail.tail_23_mass",
+      "Examples.PermutationTail.tail_32_mass",
+      "Examples.PermutationTail.repeated_tail_mass_zero",
+      "Examples.PermutationTail.filteredTail",
+      "Examples.PermutationTail.filtered_tail_hasLaw",
+      "Examples.PermutationTail.filtered_tail_eq_projection",
+      "Examples.PermutationTail.filtered_tail_mass",
+      "Examples.PermutationTail.remaining_projection_map",
+      "Examples.PermutationTail.afterFirst_first_event_mass",
+      "Examples.PermutationTail.environment_changed",
+      "Examples.PermutationTail.second_head_mass",
+      "Examples.PermutationTail.afterSecond",
+      "Examples.PermutationTail.lastTail",
+      "Examples.PermutationTail.last_tail_hasLaw",
+      "Examples.PermutationTail.last_tail_mass",
+      "Examples.PermutationTailBoundary.swap01",
+      "Examples.PermutationTailBoundary.swap01_global_order",
+      "Examples.PermutationTailBoundary.swap01_selected_order",
+      "Examples.PermutationTailBoundary.swap01_first_events",
+      "Examples.PermutationTailBoundary.singleton_conditional_tail_mass",
+      "Examples.PermutationTailBoundary.empty_subset_none_mass",
+      "Examples.PermutationTailBoundary.empty_subset_first_event",
+      "Examples.PermutationTailBoundary.empty_subset_conditional_zero",
+      "Examples.PermutationTailBoundary.outsider_first_event",
+      "Examples.PermutationTailBoundary.outsider_conditional_zero",
+      "Examples.PermutationTailBoundary.empty_indices_none_mass",
+      "Examples.PermutationTailBoundary.counterPositions",
+      "Examples.PermutationTailBoundary.conditionSubset",
+      "Examples.PermutationTailBoundary.outsideSubset",
+      "Examples.PermutationTailBoundary.counterLaw",
+      "Examples.PermutationTailBoundary.counterFirst",
+      "Examples.PermutationTailBoundary.outsideConditional",
+      "Examples.PermutationTailBoundary.outside_subset_boundaries",
+      "Examples.PermutationTailBoundary.counter_first_mass",
+      "Examples.PermutationTailBoundary.outside_order_12_mass",
+      "Examples.PermutationTailBoundary.outside_order_21_mass",
+      "Examples.PermutationTailBoundary.outside_order_not_uniform"
+    ]
+  },
+  "roots": [
+    "Applications.Probability.PermutationTail",
+    "Examples.PermutationTail",
+    "Examples.PermutationTailBoundary"
+  ],
+  "local_sources": {
+    "Examples/PermutationTailBoundary.lean": {
+      "bytes": 12064,
+      "sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54",
+      "git_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0"
+    },
+    "Examples/PermutationOrder.lean": {
+      "bytes": 6706,
+      "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084",
+      "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35"
+    },
+    "Examples/PermutationOrderBoundary.lean": {
+      "bytes": 5605,
+      "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121",
+      "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59"
+    },
+    "Examples/PermutationMinimum.lean": {
+      "bytes": 4994,
+      "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+      "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876"
+    },
+    "Examples/PermutationMinimumBoundary.lean": {
+      "bytes": 4211,
+      "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+      "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c"
+    },
+    "Applications/Probability/PermutationMinimum.lean": {
+      "bytes": 8241,
+      "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+      "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d"
+    },
+    "Applications/Probability/PermutationOrder.lean": {
+      "bytes": 15304,
+      "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2",
+      "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63"
+    },
+    "Applications/Probability/PermutationTail.lean": {
+      "bytes": 23521,
+      "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed",
+      "git_blob": "437552dda711378d6a0910d9aa79bd99caae8977"
+    },
+    "Examples/PermutationTail.lean": {
+      "bytes": 9826,
+      "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e",
+      "git_blob": "baa3e26a3c72a4589765562167d1d85edc011e67"
+    }
+  },
+  "direct_external_imports": [
+    "Mathlib.Basic.ENNReal.Inv",
+    "Mathlib.Data.Finset.Card",
+    "Mathlib.Data.Finset.Lattice.Lemmas",
+    "Mathlib.Data.Finset.Max",
+    "Mathlib.Data.Fintype.OfMap",
+    "Mathlib.Data.Fintype.Perm",
+    "Mathlib.Data.List.Basic",
+    "Mathlib.Data.List.Nodup",
+    "Mathlib.Data.List.Permutation",
+    "Mathlib.Data.Nat.Factorial.Basic",
+    "Mathlib.Data.Set.Card",
+    "Mathlib.Logic.Equiv.Fintype",
+    "Mathlib.Logic.Equiv.List",
+    "Mathlib.MeasureTheory.Measure.AEMeasurable",
+    "Mathlib.Probability.ConditionalProbability",
+    "Mathlib.Probability.HasLaw",
+    "Mathlib.Probability.UniformOn",
+    "Mathlib.Tactic",
+    "Mathlib.Tactic.FinCases"
+  ],
+  "import_edges": [
+    {
+      "from": "Examples.PermutationTailBoundary",
+      "to": "Applications.Probability.PermutationTail",
+      "local": true
+    },
+    {
+      "from": "Examples.PermutationTailBoundary",
+      "to": "Examples.PermutationOrder",
+      "local": true
+    },
+    {
+      "from": "Examples.PermutationTailBoundary",
+      "to": "Mathlib.Tactic",
+      "local": false
+    },
+    {
+      "from": "Examples.PermutationOrder",
+      "to": "Applications.Probability.PermutationOrder",
+      "local": true
+    },
+    {
+      "from": "Examples.PermutationOrder",
+      "to": "Examples.PermutationOrderBoundary",
+      "local": true
+    },
+    {
+      "from": "Examples.PermutationOrder",
+      "to": "Mathlib.Tactic",
+      "local": false
+    },
+    {
+      "from": "Examples.PermutationOrderBoundary",
+      "to": "Applications.Probability.PermutationOrder",
+      "local": true
+    },
+    {
+      "from": "Examples.PermutationOrderBoundary",
+      "to": "Examples.PermutationMinimum",
+      "local": true
+    },
+    {
+      "from": "Examples.PermutationOrderBoundary",
+      "to": "Mathlib.Tactic",
+      "local": false
+    },
+    {
+      "from": "Examples.PermutationMinimum",
+      "to": "Applications.Probability.PermutationMinimum",
+      "local": true
+    },
+    {
+      "from": "Examples.PermutationMinimum",
+      "to": "Examples.PermutationMinimumBoundary",
+      "local": true
+    },
+    {
+      "from": "Examples.PermutationMinimum",
+      "to": "Mathlib.Tactic",
+      "local": false
+    },
+    {
+      "from": "Examples.PermutationMinimumBoundary",
+      "to": "Applications.Probability.PermutationMinimum",
+      "local": true
+    },
+    {
+      "from": "Examples.PermutationMinimumBoundary",
+      "to": "Mathlib.Tactic.FinCases",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationMinimum",
+      "to": "Mathlib.Data.Finset.Max",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationMinimum",
+      "to": "Mathlib.Data.Fintype.Perm",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationMinimum",
+      "to": "Mathlib.Data.Set.Card",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationMinimum",
+      "to": "Mathlib.Probability.UniformOn",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationOrder",
+      "to": "Mathlib.Data.Finset.Card",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationOrder",
+      "to": "Mathlib.Data.Finset.Lattice.Lemmas",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationOrder",
+      "to": "Mathlib.Data.Fintype.OfMap",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationOrder",
+      "to": "Mathlib.Data.Fintype.Perm",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationOrder",
+      "to": "Mathlib.Data.List.Basic",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationOrder",
+      "to": "Mathlib.Data.List.Nodup",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationOrder",
+      "to": "Mathlib.Data.List.Permutation",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationOrder",
+      "to": "Mathlib.Data.Set.Card",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationOrder",
+      "to": "Mathlib.Logic.Equiv.Fintype",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationOrder",
+      "to": "Mathlib.Logic.Equiv.List",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationOrder",
+      "to": "Mathlib.Probability.UniformOn",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationTail",
+      "to": "Applications.Probability.PermutationOrder",
+      "local": true
+    },
+    {
+      "from": "Applications.Probability.PermutationTail",
+      "to": "Mathlib.Basic.ENNReal.Inv",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationTail",
+      "to": "Mathlib.Data.Nat.Factorial.Basic",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationTail",
+      "to": "Mathlib.MeasureTheory.Measure.AEMeasurable",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationTail",
+      "to": "Mathlib.Probability.ConditionalProbability",
+      "local": false
+    },
+    {
+      "from": "Applications.Probability.PermutationTail",
+      "to": "Mathlib.Probability.HasLaw",
+      "local": false
+    },
+    {
+      "from": "Examples.PermutationTail",
+      "to": "Applications.Probability.PermutationTail",
+      "local": true
+    },
+    {
+      "from": "Examples.PermutationTail",
+      "to": "Examples.PermutationOrder",
+      "local": true
+    },
+    {
+      "from": "Examples.PermutationTail",
+      "to": "Examples.PermutationTailBoundary",
+      "local": true
+    },
+    {
+      "from": "Examples.PermutationTail",
+      "to": "Mathlib.Tactic",
+      "local": false
+    }
+  ],
+  "source_counts": {
+    "local": 9,
+    "external_names": 19,
+    "local_edges": 13,
+    "external_edges": 26
+  },
+  "exact_predecessor_sources_preserved": 6,
+  "prepared_plan_inputs": {
+    "plan.md": {
+      "bytes": 5862,
+      "sha256": "5a4eff26eeac03853fe0a9c093d62844a4ae060d0e27e4f6804832cced77c5d0"
+    },
+    "preparation.json": {
+      "bytes": 2248,
+      "sha256": "aaab7adea6be11d507c159a4f8e31be6b5d9f8e4183fa930b068a97f27f1d521"
+    },
+    "reconcile_after_actual61.py": {
+      "bytes": 11878,
+      "sha256": "40e2924d7e267a35830f33e334fd360e4692c30ab0c66a6e27cabdd8403769f2"
+    },
+    "reconciliation-script-preparation.json": {
+      "bytes": 945,
+      "sha256": "9cf38dbb4b499bc11aee119f8285ef1f3bdffd4c9765d61259747fd6d76607c2"
+    }
+  },
+  "original_null_receiver_preparation_unchanged": true,
+  "actual_full_type_or_acceptance_credit": 0,
+  "no_compiler_or_capture_invocation": true,
+  "remaining": "Both full source axes and source checkpoint; actual full gate, four receiving pre/post observations and actual61; complete independent final dispositions and remaining acceptance gates."
+}

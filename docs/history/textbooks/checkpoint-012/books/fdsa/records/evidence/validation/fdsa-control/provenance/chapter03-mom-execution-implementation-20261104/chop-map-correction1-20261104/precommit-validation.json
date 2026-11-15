@@ -1,0 +1,55 @@
+{
+  "recorded_utc": "2026-11-04T20:04:07.459643+00:00",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "add",
+        "--",
+        "Applications/Resources/SelectionMedians.lean"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--quiet"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "staged_stat": " Applications/Resources/SelectionMedians.lean | 13 ++++++++++---\n 1 file changed, 10 insertions(+), 3 deletions(-)\n",
+  "status": "M  Applications/Resources/SelectionMedians.lean\n",
+  "source_assessment": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/source-inventory-and-assessment.json",
+    "bytes": 16844,
+    "sha256": "b2d0d7ec73d84a3795828113bee4c09e4fc7ed433a601dd6adfc3c34c63d2544"
+  },
+  "compiler_calls": 0
+}

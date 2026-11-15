@@ -1,0 +1,27 @@
+{
+  "recorded_utc": "2026-11-04T16:52:49.819590+00:00",
+  "scope": "own read-only supplemental metadata reconstruction; no compiler or receiving credit",
+  "original_script_preserved": {
+    "path": "reconcile.py",
+    "sha256": "c5576b4df8f2ea6ca0491867af59ebc06a5e4ea34ab88fa3afde58d168927b10"
+  },
+  "print_profile_derivative_preserved": {
+    "path": "reconcile_print_profiles.py",
+    "sha256": "974e7eaa31aa63234e229b156f8d1413a9272c8009ad314d455db46488bbc00d",
+    "actual_failed_tool_chunk": "d0a0da",
+    "actual_exit_code": 1,
+    "failed_line": 182,
+    "error": "AssertionError: actual Z815 ordered positions801-814 compared directly with sorted historical additional_identity_names"
+  },
+  "diagnosis_tool_chunk": "938381",
+  "diagnosis": "Both lists contain exactly the same14 unique names. The historical receipt is sorted; actual program preserves source order. Correction records an explicit per-name mapping and separately verifies exact program order; no actual #check/#print/profile/output bytes change.",
+  "new_derivative": {
+    "path": "reconcile_print_profiles_ordered.py",
+    "bytes": 24134,
+    "lines": 371,
+    "sha256": "73b4041ccee1b4eb32d37b2ea633ab2468b5eaeb52389a36267df515190d1f11"
+  },
+  "retained_NaturalRuns_boundary": "All107 actual commands are preserved:104selected#checks and3additional#print commands, with distinct command/check ordinals and actual active options.",
+  "original_paused_files_unchanged": true,
+  "actual_reconstruction_pass_claimed": false
+}

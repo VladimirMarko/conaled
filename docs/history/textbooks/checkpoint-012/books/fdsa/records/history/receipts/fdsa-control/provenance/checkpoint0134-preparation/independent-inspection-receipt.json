@@ -1,0 +1,83 @@
+{
+  "recorded_utc": "2026-11-04T23:30:22.129086+00:00",
+  "inspector": "/root/checkpoint0124_inspection",
+  "outcome": "PASS: zero unresolved operational findings; not mathematical acceptance",
+  "checkpoint": "conaled-fdsa-0134-random-selection-path-progress",
+  "retained_initial_receipt": "initial-inspection-receipt.json",
+  "pre_final_reads": [
+    "0c0878",
+    "c25be6"
+  ],
+  "final_full_hold_resource_read": "871ebf",
+  "final_changed_progress_read": "5274d8",
+  "actual_failure_records_and_final80_log_read": "239524",
+  "final_mechanical_reconciliation": {
+    "tool_chunk": "798718",
+    "actual_exit": 0
+  },
+  "progress": {
+    "bytes": 57460,
+    "sha256": "22fe4681cbbbc60398e707785bf809d490845964f1dd2c105b4d50e58a72bdb5"
+  },
+  "write_hold": {
+    "bytes": 8545,
+    "sha256": "b63141d189c5f2d55bc69b305e7b4b427cd3fc3cbcaeec04ae620ce3ce744bca"
+  },
+  "resource": {
+    "bytes": 1339,
+    "sha256": "9f28ea22d9e8859eba29b66dddb73d700131d6a6fdb3f933b3266fa23d6f40d5"
+  },
+  "closed_runs": 96,
+  "closed_run_classification": {
+    "chapter03": 90,
+    "XR": 6
+  },
+  "same_prior_refs": 74,
+  "worktrees": 9,
+  "nested_path_bindings": 375,
+  "explicit_artifact_bindings": [
+    7,
+    19,
+    2
+  ],
+  "root_source_bindings": 74,
+  "passed_names": 1321,
+  "passed_modules": 74,
+  "prepared_names": 1344,
+  "prepared_modules": 76,
+  "uncompiled_trace_names": 23,
+  "drafts": 0,
+  "actual1321_type_input_executed": false,
+  "failed_full_check": {
+    "candidate": "38ae31902682ff6e3f4b28cea519a3bfeb4f96c7",
+    "owned_session": 33211,
+    "actual_exit": 1,
+    "terminal_chunk": "4eded0",
+    "outer_log_bytes": 197513,
+    "outer_log_sha256": "977f2ae0083f87c301a31d59dc02d8727f6f3681e780ef776c3e78bee2375fce",
+    "native_log_bytes": 197285,
+    "native_log_sha256": "448037ab3d03a6491a24317b5caabf120993361bc3080c4fe2100a7be7d9bd58",
+    "outer_composition_bytes": [
+      70,
+      197285,
+      158
+    ],
+    "project_modules_compiled": 1104,
+    "integrity_artifacts_both_guards": 3312,
+    "audit": "SIGKILL9, no completed summary or verification",
+    "cause": "unknown",
+    "full_human_log_read_not_claimed": true
+  },
+  "unknown_interruption_and_all_partial_hashes_unchanged": true,
+  "all_seven_active_heads_and_two_inactive_heads_verified": true,
+  "canonical_five_current_sections_identical": true,
+  "unchanged_creator_capture_stage_verifier_hashes": true,
+  "root_readback": [
+    "beb24b",
+    "fe4ca7"
+  ],
+  "all_remaining_acceptance_gates_retained": true,
+  "capture_started": false,
+  "archive_success_claimed": false,
+  "inspector_writes_or_compiler_actions": false
+}

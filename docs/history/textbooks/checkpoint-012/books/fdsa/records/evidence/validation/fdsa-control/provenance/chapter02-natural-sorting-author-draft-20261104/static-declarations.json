@@ -1,0 +1,887 @@
+{
+  "created_utc": "2026-11-04T06:05:55.499083+00:00",
+  "development_base": "5d7a479549f5acd64a9e5adb418ab48780c238ef",
+  "assessment_kind": "Author static source/derivation per-claim review; not elaborated type inspection or independent final review",
+  "total_public_declarations": 105,
+  "private_source_declarations": 0,
+  "concrete_static_spec_findings": [],
+  "compile_status": "Never compiled in author tree; root-managed exact-candidate compilation and explicit-universe type inspection pending",
+  "entries": [
+    {
+      "path": "Applications/Sorting/Natural.lean",
+      "bytes": 5528,
+      "lines": 121,
+      "sha256": "e4b27eb275e9509b205da7ae25dd7829e664eb47617cb1602e6114eb5d264493",
+      "declaration_count": 16,
+      "declarations": [
+        {
+          "name": "Applications.Sorting.sortNaturalBy",
+          "kind": "def",
+          "source_statement": "def sortNaturalBy (lt cmp : α → α → Bool) (xs : List α) : List α",
+          "author_assessment": "Actual runsBy output feeds the same ordinary mergeAllBy; independent Boolean operations and arbitrary payload universe.",
+          "connected_cases": "three_boundary_runs/three_boundary; odd_runs/odd_runs_value; mixed_records",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Applications.Sorting.sortNaturalBy_eq_mergeAll",
+          "kind": "theorem",
+          "source_statement": "theorem sortNaturalBy_eq_mergeAll (lt cmp : α → α → Bool) (xs : List α) :\n    sortNaturalBy lt cmp xs = mergeAllBy cmp (runsBy lt xs)",
+          "author_assessment": "Actual runsBy output feeds the same ordinary mergeAllBy; independent Boolean operations and arbitrary payload universe.",
+          "connected_cases": "three_boundary_runs/three_boundary; odd_runs/odd_runs_value; mixed_records",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Applications.Sorting.sortNaturalBy_nil",
+          "kind": "theorem",
+          "source_statement": "@[simp] theorem sortNaturalBy_nil (lt cmp : α → α → Bool) :\n    sortNaturalBy lt cmp [] = []",
+          "author_assessment": "Separate total empty and singleton equations; no fabricated empty inner run or payload default.",
+          "connected_cases": "empty_payload; singleton_payload",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Applications.Sorting.sortNaturalBy_singleton",
+          "kind": "theorem",
+          "source_statement": "@[simp] theorem sortNaturalBy_singleton (lt cmp : α → α → Bool) (a : α) :\n    sortNaturalBy lt cmp [a] = [a]",
+          "author_assessment": "Separate total empty and singleton equations; no fabricated empty inner run or payload default.",
+          "connected_cases": "empty_payload; singleton_payload",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Applications.Sorting.sortNaturalBy_perm",
+          "kind": "theorem",
+          "source_statement": "theorem sortNaturalBy_perm (lt cmp : α → α → Bool) (xs : List α) :\n    (sortNaturalBy lt cmp xs).Perm xs",
+          "author_assessment": "Compose full List.Perm witnesses through flatten, then derive multiset/length/support; no comparator laws or payload equality assumption.",
+          "connected_cases": "duplicate_occurrences; arbitrary_operations_preserve_occurrences; tagged_correct",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Applications.Sorting.sortNaturalBy_multiset",
+          "kind": "theorem",
+          "source_statement": "theorem sortNaturalBy_multiset (lt cmp : α → α → Bool) (xs : List α) :\n    (sortNaturalBy lt cmp xs : Multiset α) = (xs : Multiset α)",
+          "author_assessment": "Compose full List.Perm witnesses through flatten, then derive multiset/length/support; no comparator laws or payload equality assumption.",
+          "connected_cases": "duplicate_occurrences; arbitrary_operations_preserve_occurrences; tagged_correct",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Applications.Sorting.sortNaturalBy_length",
+          "kind": "theorem",
+          "source_statement": "theorem sortNaturalBy_length (lt cmp : α → α → Bool) (xs : List α) :\n    (sortNaturalBy lt cmp xs).length = xs.length",
+          "author_assessment": "Compose full List.Perm witnesses through flatten, then derive multiset/length/support; no comparator laws or payload equality assumption.",
+          "connected_cases": "duplicate_occurrences; arbitrary_operations_preserve_occurrences; tagged_correct",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Applications.Sorting.mem_sortNaturalBy",
+          "kind": "theorem",
+          "source_statement": "theorem mem_sortNaturalBy (lt cmp : α → α → Bool) (xs : List α) (a : α) :\n    a ∈ sortNaturalBy lt cmp xs ↔ a ∈ xs",
+          "author_assessment": "Compose full List.Perm witnesses through flatten, then derive multiset/length/support; no comparator laws or payload equality assumption.",
+          "connected_cases": "duplicate_occurrences; arbitrary_operations_preserve_occurrences; tagged_correct",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Applications.Sorting.sortNaturalBy_sorted_compatible_on",
+          "kind": "theorem",
+          "source_statement": "theorem sortNaturalBy_sorted_compatible_on [LE κ] [Std.IsPreorder κ]\n    (key : α → κ) (lt cmp : α → α → Bool) (xs : List α)\n    (hlt : ∀ a ∈ xs, ∀ b ∈ xs,\n      (lt a b = true → key a ≤ key b) ∧ (lt a b = false → key b ≤ key a))\n    (hcmp : ∀ a ∈ xs, ∀ b ∈ xs,\n      (cmp a b = true → key a ≤ key b) ∧ (cmp a b = false → key b ≤ key a)) :\n    KeySorted key (sortNaturalBy lt cmp xs)",
+          "author_assessment": "Input-local compatibility is separate for strict-scanner and merger operations; only observed-key preorder; actual run-member transport uses permutation, not assumed final sortedness.",
+          "connected_cases": "input_local_correct and established nonnegative compatibility; tagged_correct",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Applications.Sorting.sortNaturalBy_of_runs_eq_singleton",
+          "kind": "theorem",
+          "source_statement": "theorem sortNaturalBy_of_runs_eq_singleton (lt cmp : α → α → Bool) (xs ys : List α)\n    (h : runsBy lt xs = [ys]) : sortNaturalBy lt cmp xs = ys",
+          "author_assessment": "Sole-run dispatch and chain-derived scanner laws; explicit nonempty chain premises; arbitrary merger operation, no stability inference.",
+          "connected_cases": "ascending; descending; constant_key_fixed_point; weak_descent_is_not_reversal",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Applications.Sorting.sortNaturalBy_of_ascending_chain",
+          "kind": "theorem",
+          "source_statement": "theorem sortNaturalBy_of_ascending_chain (lt cmp : α → α → Bool) (xs : List α)\n    (hne : xs ≠ []) (h : xs.IsChain (fun a b => lt b a = false)) :\n    sortNaturalBy lt cmp xs = xs",
+          "author_assessment": "Sole-run dispatch and chain-derived scanner laws; explicit nonempty chain premises; arbitrary merger operation, no stability inference.",
+          "connected_cases": "ascending; descending; constant_key_fixed_point; weak_descent_is_not_reversal",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Applications.Sorting.sortNaturalBy_of_descending_chain",
+          "kind": "theorem",
+          "source_statement": "theorem sortNaturalBy_of_descending_chain (lt cmp : α → α → Bool) (xs : List α)\n    (hne : xs ≠ []) (h : xs.IsChain (fun a b => lt b a = true)) :\n    sortNaturalBy lt cmp xs = xs.reverse",
+          "author_assessment": "Sole-run dispatch and chain-derived scanner laws; explicit nonempty chain premises; arbitrary merger operation, no stability inference.",
+          "connected_cases": "ascending; descending; constant_key_fixed_point; weak_descent_is_not_reversal",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Applications.Sorting.sortNaturalOn",
+          "kind": "abbrev",
+          "source_statement": "abbrev sortNaturalOn [LT κ] [DecidableLT κ] [LE κ] [DecidableLE κ]\n    (key : α → κ) (xs : List α) : List α",
+          "author_assessment": "Source keyed operation uses key< for scanning and left-tie key<= for merge; only decidable operations in the definition.",
+          "connected_cases": "tagged_exact; mixed_records; weak_descent_with_ties",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Applications.Sorting.sortNaturalOn_correct",
+          "kind": "theorem",
+          "source_statement": "theorem sortNaturalOn_correct [LinearOrder κ] (key : α → κ) (xs : List α) :\n    KeySorted key (sortNaturalOn key xs) ∧ (sortNaturalOn key xs).Perm xs",
+          "author_assessment": "Sortedness is derived from both component contracts and source order laws; conjunction retains full payload permutation.",
+          "connected_cases": "tagged_correct; odd_runs_value; arbitrary_payload_correct",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Applications.Sorting.sortNaturalOn_of_sorted",
+          "kind": "theorem",
+          "source_statement": "theorem sortNaturalOn_of_sorted [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hs : KeySorted key xs) : sortNaturalOn key xs = xs",
+          "author_assessment": "Actual sorted input is fixed; nil is split from the nonempty one-run proof.",
+          "connected_cases": "ascending; constant_key_fixed_point; range_fixed_point",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Applications.Sorting.sortNaturalOn_of_strictly_descending",
+          "kind": "theorem",
+          "source_statement": "theorem sortNaturalOn_of_strictly_descending\n    [LT κ] [DecidableLT κ] [LE κ] [DecidableLE κ]\n    (key : α → κ) (xs : List α) (hs : xs.Pairwise (fun a b => key b < key a)) :\n    sortNaturalOn key xs = xs.reverse",
+          "author_assessment": "Reverse law needs only decidable strict/non-strict operations and supplied reverse-direction strict Pairwise premise, with no order axioms; nil handled directly.",
+          "connected_cases": "descending; weak_descent_is_not_reversal",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        }
+      ]
+    },
+    {
+      "path": "Examples/NaturalSorting.lean",
+      "bytes": 5831,
+      "lines": 140,
+      "sha256": "8d8b5ee50a516ee0b9938f0be4ed96e4bfee2658f97373c2ecc2c80bba9e2b5b",
+      "declaration_count": 22,
+      "declarations": [
+        {
+          "name": "Examples.NaturalSorting.natCompare",
+          "kind": "def",
+          "source_statement": "def natCompare (a b : Nat) : Bool",
+          "author_assessment": "Concrete Boolean merge operations; second deliberately limits compatibility to the nonnegative input domain.",
+          "connected_cases": "three_boundary; input_local_correct",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.empty_payload",
+          "kind": "theorem",
+          "source_statement": "theorem empty_payload :\n    sortNaturalBy (fun a _ : Empty => nomatch a)\n      (fun a _ : Empty => nomatch a) [] = []",
+          "author_assessment": "Independent empty/singleton values use public total equations without payload instances.",
+          "connected_cases": "sortNaturalBy_nil/singleton",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.singleton_payload",
+          "kind": "theorem",
+          "source_statement": "theorem singleton_payload (a : α) :\n    sortNaturalOn (fun _ : α => (0 : Nat)) [a] = [a]",
+          "author_assessment": "Independent empty/singleton values use public total equations without payload instances.",
+          "connected_cases": "sortNaturalBy_nil/singleton",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.ascending",
+          "kind": "theorem",
+          "source_statement": "theorem ascending : sortNaturalBy natLT natCompare [0, 1, 2] = [0, 1, 2]",
+          "author_assessment": "Independent ordered and reversed outputs consume sorted/strict-descent laws with decidable concrete premises.",
+          "connected_cases": "sortNaturalOn_of_sorted/of_strictly_descending",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.descending",
+          "kind": "theorem",
+          "source_statement": "theorem descending : sortNaturalBy natLT natCompare [2, 1, 0] = [0, 1, 2]",
+          "author_assessment": "Independent ordered and reversed outputs consume sorted/strict-descent laws with decidable concrete premises.",
+          "connected_cases": "sortNaturalOn_of_sorted/of_strictly_descending",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.three_boundary_runs",
+          "kind": "theorem",
+          "source_statement": "theorem three_boundary_runs : runsBy natLT [3, 1, 2] = [[1, 3], [2]]",
+          "author_assessment": "Concrete scanner boundaries preserve the next element; ordinary merger consumes the recorded runs; odd count and unequal run lengths explicit.",
+          "connected_cases": "Source recurrence equations; existing checked restart fixture; later exact measured cases",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.three_boundary",
+          "kind": "theorem",
+          "source_statement": "theorem three_boundary : sortNaturalBy natLT natCompare [3, 1, 2] = [1, 2, 3]",
+          "author_assessment": "Concrete scanner boundaries preserve the next element; ordinary merger consumes the recorded runs; odd count and unequal run lengths explicit.",
+          "connected_cases": "Source recurrence equations; existing checked restart fixture; later exact measured cases",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.restart_boundary",
+          "kind": "theorem",
+          "source_statement": "theorem restart_boundary :\n    sortNaturalBy natLT natCompare [1, 3, 2, 4] = [1, 2, 3, 4]",
+          "author_assessment": "Concrete scanner boundaries preserve the next element; ordinary merger consumes the recorded runs; odd count and unequal run lengths explicit.",
+          "connected_cases": "Source recurrence equations; existing checked restart fixture; later exact measured cases",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.odd_runs",
+          "kind": "theorem",
+          "source_statement": "theorem odd_runs : runsBy natLT [1, 3, 2, 4, 0] = [[1, 3], [2, 4], [0]]",
+          "author_assessment": "Concrete scanner boundaries preserve the next element; ordinary merger consumes the recorded runs; odd count and unequal run lengths explicit.",
+          "connected_cases": "Source recurrence equations; existing checked restart fixture; later exact measured cases",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.odd_runs_value",
+          "kind": "theorem",
+          "source_statement": "theorem odd_runs_value :\n    sortNaturalBy natLT natCompare [1, 3, 2, 4, 0] = [0, 1, 2, 3, 4]",
+          "author_assessment": "Independently sorted [0,1,2,3,4] and explicit full permutation connect the source correctness theorem to the expected output.",
+          "connected_cases": "sortNaturalOn_correct and List.Perm.eq_of_pairwise'",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.duplicate_occurrences",
+          "kind": "theorem",
+          "source_statement": "theorem duplicate_occurrences :\n    (sortNaturalOn id ([2, 1, 2, 0] : List Nat) : Multiset Nat).count 2 = 2",
+          "author_assessment": "Count two occurrences of key 2 after actual sort using the full multiset law; support-only correctness would not suffice.",
+          "connected_cases": "sortNaturalBy_multiset",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.tagged_exact",
+          "kind": "theorem",
+          "source_statement": "theorem tagged_exact (first middle last : α) :\n    sortNaturalOn Prod.fst ([(1, first), (0, middle), (1, last)] : List (Nat × α)) =\n      [(0, middle), (1, first), (1, last)]",
+          "author_assessment": "Arbitrary payload universe, concrete key computations and full sorted/permutation correctness; no payload equality/order/default.",
+          "connected_cases": "Source scanner/ordinary merge recurrences and sortNaturalOn_correct",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.tagged_correct",
+          "kind": "theorem",
+          "source_statement": "theorem tagged_correct (xs : List (Nat × α)) :\n    KeySorted Prod.fst (sortNaturalOn Prod.fst xs) ∧\n      (sortNaturalOn Prod.fst xs).Perm xs",
+          "author_assessment": "Arbitrary payload universe, concrete key computations and full sorted/permutation correctness; no payload equality/order/default.",
+          "connected_cases": "Source scanner/ordinary merge recurrences and sortNaturalOn_correct",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.mixed_records",
+          "kind": "theorem",
+          "source_statement": "theorem mixed_records :\n    sortNaturalOn Prod.fst mixedRecords =\n      [(1, \"D\"), (2, \"B\"), (2, \"C\"), (3, \"A\")]",
+          "author_assessment": "Distinct tagged ties keep independently expected order across ordinary merges; weak descent does not become whole reversal; no generic stability theorem inferred.",
+          "connected_cases": "Existing NaturalRuns fixtures; actual merge recurrences; concrete inequality",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.weak_descent_with_ties",
+          "kind": "theorem",
+          "source_statement": "theorem weak_descent_with_ties :\n    sortNaturalOn Prod.fst ([(3, \"A\"), (3, \"B\"), (2, \"C\")] : List Record) =\n      [(2, \"C\"), (3, \"A\"), (3, \"B\")]",
+          "author_assessment": "Distinct tagged ties keep independently expected order across ordinary merges; weak descent does not become whole reversal; no generic stability theorem inferred.",
+          "connected_cases": "Existing NaturalRuns fixtures; actual merge recurrences; concrete inequality",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.weak_descent_is_not_reversal",
+          "kind": "theorem",
+          "source_statement": "theorem weak_descent_is_not_reversal :\n    sortNaturalOn Prod.fst ([(3, \"A\"), (3, \"B\"), (2, \"C\")] : List Record) ≠\n      [(2, \"C\"), (3, \"B\"), (3, \"A\")]",
+          "author_assessment": "Distinct tagged ties keep independently expected order across ordinary merges; weak descent does not become whole reversal; no generic stability theorem inferred.",
+          "connected_cases": "Existing NaturalRuns fixtures; actual merge recurrences; concrete inequality",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.nonnegativeCompare",
+          "kind": "def",
+          "source_statement": "def nonnegativeCompare (a b : Record) : Bool",
+          "author_assessment": "Concrete Boolean merge operations; second deliberately limits compatibility to the nonnegative input domain.",
+          "connected_cases": "three_boundary; input_local_correct",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.nonnegative_merge_compatible",
+          "kind": "theorem",
+          "source_statement": "theorem nonnegative_merge_compatible :\n    ∀ a ∈ mixedRecords, ∀ b ∈ mixedRecords,\n      (nonnegativeCompare a b = true → a.1 ≤ b.1) ∧\n      (nonnegativeCompare a b = false → b.1 ≤ a.1)",
+          "author_assessment": "All compared input members satisfy separately proved local compatibility; existing scanner counterexample shows no global-law assumption is available.",
+          "connected_cases": "sortNaturalBy_sorted_compatible_on",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.input_local_correct",
+          "kind": "theorem",
+          "source_statement": "theorem input_local_correct :\n    KeySorted Prod.fst\n      (sortNaturalBy NaturalRuns.nonnegativeLT nonnegativeCompare mixedRecords)",
+          "author_assessment": "All compared input members satisfy separately proved local compatibility; existing scanner counterexample shows no global-law assumption is available.",
+          "connected_cases": "sortNaturalBy_sorted_compatible_on",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.arbitrary_operations_preserve_occurrences",
+          "kind": "theorem",
+          "source_statement": "theorem arbitrary_operations_preserve_occurrences (lt cmp : α → α → Bool)\n    (xs : List α) :\n    (sortNaturalBy lt cmp xs).Perm xs ∧\n      (sortNaturalBy lt cmp xs).length = xs.length ∧\n      ∀ a, a ∈ sortNaturalBy lt cmp xs ↔ a ∈ xs",
+          "author_assessment": "Generic independently supplied operations still preserve full occurrences, length and support; no sortedness assertion.",
+          "connected_cases": "sortNaturalBy_perm/length and mem_sortNaturalBy",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.constant_key_fixed_point",
+          "kind": "theorem",
+          "source_statement": "theorem constant_key_fixed_point (xs : List α) :\n    sortNaturalOn (fun _ : α => (0 : Nat)) xs = xs",
+          "author_assessment": "Nonvacuous arbitrary-payload and every-length range families discharge sortedness, including empty input.",
+          "connected_cases": "sortNaturalOn_of_sorted; pairwise range/constant-key relation",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSorting.range_fixed_point",
+          "kind": "theorem",
+          "source_statement": "theorem range_fixed_point (n : Nat) :\n    sortNaturalBy natLT natCompare (List.range n) = List.range n",
+          "author_assessment": "Nonvacuous arbitrary-payload and every-length range families discharge sortedness, including empty input.",
+          "connected_cases": "sortNaturalOn_of_sorted; pairwise range/constant-key relation",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "bytes": 13053,
+      "lines": 262,
+      "sha256": "69e90e8236b7b160ac3bb4d73fe5797a82d616fa3b5e23a247756a37d24ff51b",
+      "declaration_count": 37,
+      "declarations": [
+        {
+          "name": "Resources.NaturalSorting.run",
+          "kind": "def",
+          "source_statement": "def run (lt cmp : α → α → Bool) (xs : List α) : Measured (List α) Nat",
+          "author_assessment": "Measured bind passes the actual runsRunBy first component to allRun; one Nat comparison observation, no added entry/closure costs.",
+          "connected_cases": "three_boundary_scan/merge/total; odd_runs_scan/merge/total",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.comparisons",
+          "kind": "abbrev",
+          "source_statement": "abbrev comparisons (lt cmp : α → α → Bool) (xs : List α) : Nat",
+          "author_assessment": "Measured bind passes the actual runsRunBy first component to allRun; one Nat comparison observation, no added entry/closure costs.",
+          "connected_cases": "three_boundary_scan/merge/total; odd_runs_scan/merge/total",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.run_nil",
+          "kind": "theorem",
+          "source_statement": "@[simp] theorem run_nil (lt cmp : α → α → Bool) : run lt cmp [] = ([], 0)",
+          "author_assessment": "Actual component equations give zero comparisons for empty/singleton, including payload universe without inhabitants.",
+          "connected_cases": "empty_payload; singleton_payload; integer_zero_one_bound",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.run_singleton",
+          "kind": "theorem",
+          "source_statement": "@[simp] theorem run_singleton (lt cmp : α → α → Bool) (a : α) :\n    run lt cmp [a] = ([a], 0)",
+          "author_assessment": "Actual component equations give zero comparisons for empty/singleton, including payload universe without inhabitants.",
+          "connected_cases": "empty_payload; singleton_payload; integer_zero_one_bound",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.run_value",
+          "kind": "theorem",
+          "source_statement": "theorem run_value (lt cmp : α → α → Bool) (xs : List α) :\n    (run lt cmp xs).1 = sortNaturalBy lt cmp xs",
+          "author_assessment": "Erasure is proved from both component value projections; full occurrences and length then derive from the pure composition, independently of count laws.",
+          "connected_cases": "arbitrary_operations_and_bounds; arbitrary_payload_correct; mixed_records",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.run_perm",
+          "kind": "theorem",
+          "source_statement": "theorem run_perm (lt cmp : α → α → Bool) (xs : List α) :\n    (run lt cmp xs).1.Perm xs",
+          "author_assessment": "Erasure is proved from both component value projections; full occurrences and length then derive from the pure composition, independently of count laws.",
+          "connected_cases": "arbitrary_operations_and_bounds; arbitrary_payload_correct; mixed_records",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.run_length",
+          "kind": "theorem",
+          "source_statement": "theorem run_length (lt cmp : α → α → Bool) (xs : List α) :\n    (run lt cmp xs).1.length = xs.length",
+          "author_assessment": "Erasure is proved from both component value projections; full occurrences and length then derive from the pure composition, independently of count laws.",
+          "connected_cases": "arbitrary_operations_and_bounds; arbitrary_payload_correct; mixed_records",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.run_multiset",
+          "kind": "theorem",
+          "source_statement": "theorem run_multiset (lt cmp : α → α → Bool) (xs : List α) :\n    ((run lt cmp xs).1 : Multiset α) = (xs : Multiset α)",
+          "author_assessment": "Erasure is proved from both component value projections; full occurrences and length then derive from the pure composition, independently of count laws.",
+          "connected_cases": "arbitrary_operations_and_bounds; arbitrary_payload_correct; mixed_records",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.run_correct",
+          "kind": "theorem",
+          "source_statement": "theorem run_correct [LinearOrder κ] (key : α → κ) (xs : List α) :\n    KeySorted key\n        (run (fun a b => decide (key a < key b))\n          (fun a b => decide (key a ≤ key b)) xs).1 ∧\n      (run (fun a b => decide (key a < key b))\n        (fun a b => decide (key a ≤ key b)) xs).1.Perm xs",
+          "author_assessment": "Source keyed correctness has only key LinearOrder, retains arbitrary payload universe and actual measured output; no assumed sorting result or stability field.",
+          "connected_cases": "arbitrary_payload_correct",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.comparisons_nil",
+          "kind": "theorem",
+          "source_statement": "@[simp] theorem comparisons_nil (lt cmp : α → α → Bool) :\n    comparisons lt cmp [] = 0",
+          "author_assessment": "Actual component equations give zero comparisons for empty/singleton, including payload universe without inhabitants.",
+          "connected_cases": "empty_payload; singleton_payload; integer_zero_one_bound",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.comparisons_singleton",
+          "kind": "theorem",
+          "source_statement": "@[simp] theorem comparisons_singleton (lt cmp : α → α → Bool) (a : α) :\n    comparisons lt cmp [a] = 0",
+          "author_assessment": "Actual component equations give zero comparisons for empty/singleton, including payload universe without inhabitants.",
+          "connected_cases": "empty_payload; singleton_payload; integer_zero_one_bound",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.comparisons_eq_scan_add_merge",
+          "kind": "theorem",
+          "source_statement": "theorem comparisons_eq_scan_add_merge (lt cmp : α → α → Bool) (xs : List α) :\n    comparisons lt cmp xs = NaturalRunComparisons.runsCountBy lt xs +\n      BottomUpSorting.allComparisons cmp (runsBy lt xs)",
+          "author_assessment": "Actual bind observation equals independently proved scanner count plus merger count at the returned runs; exact scan length-1 is natural subtraction, not a postulated metric.",
+          "connected_cases": "three_boundary 2+2=4; restart 3+3=6; odd_runs 4+4=8; mixed_records 3+3=6",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.comparisons_eq_length_add_merge",
+          "kind": "theorem",
+          "source_statement": "theorem comparisons_eq_length_add_merge (lt cmp : α → α → Bool) (xs : List α) :\n    comparisons lt cmp xs = xs.length - 1 +\n      BottomUpSorting.allComparisons cmp (runsBy lt xs)",
+          "author_assessment": "Actual bind observation equals independently proved scanner count plus merger count at the returned runs; exact scan length-1 is natural subtraction, not a postulated metric.",
+          "connected_cases": "three_boundary 2+2=4; restart 3+3=6; odd_runs 4+4=8; mixed_records 3+3=6",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.run_exact",
+          "kind": "theorem",
+          "source_statement": "theorem run_exact (lt cmp : α → α → Bool) (xs : List α) :\n    run lt cmp xs = (sortNaturalBy lt cmp xs,\n      xs.length - 1 + BottomUpSorting.allComparisons cmp (runsBy lt xs))",
+          "author_assessment": "Actual bind observation equals independently proved scanner count plus merger count at the returned runs; exact scan length-1 is natural subtraction, not a postulated metric.",
+          "connected_cases": "three_boundary 2+2=4; restart 3+3=6; odd_runs 4+4=8; mixed_records 3+3=6",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.comparisons_lower",
+          "kind": "theorem",
+          "source_statement": "theorem comparisons_lower (lt cmp : α → α → Bool) (xs : List α) :\n    xs.length - 1 ≤ comparisons lt cmp xs",
+          "author_assessment": "Unconditional length-1 lower bound follows from nonnegative actual merge cost, with no order/length positivity assumption.",
+          "connected_cases": "arbitrary_operations_and_bounds; ascending/repeated_payload exact best cases",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.comparisons_le_adaptive",
+          "kind": "theorem",
+          "source_statement": "theorem comparisons_le_adaptive (lt cmp : α → α → Bool) (xs : List α) :\n    comparisons lt cmp xs ≤\n      xs.length - 1 + xs.length * Nat.clog 2 (runsBy lt xs).length",
+          "author_assessment": "AllRun general bound plus actual flattened-length preservation; run count is actual scanner output; no sortedness, uniformity or nonempty-run prerequisite in merger API.",
+          "connected_cases": "odd_runs_adaptive_budget=14; arbitrary_operations_and_bounds; empty_inner_runs boundary",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.comparisons_le_clog",
+          "kind": "theorem",
+          "source_statement": "theorem comparisons_le_clog (lt cmp : α → α → Bool) (xs : List α) :\n    comparisons lt cmp xs ≤ xs.length - 1 + xs.length * Nat.clog 2 xs.length",
+          "author_assessment": "Run-count<=input-length and Nat.clog monotonicity give sharp all-length bound; printed n+n*clog is retained separately with explicit length parameter.",
+          "connected_cases": "periodic_family_isBigO; integer_zero_one_bound; odd_runs_adaptive_budget",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.comparisons_le_source",
+          "kind": "theorem",
+          "source_statement": "theorem comparisons_le_source (lt cmp : α → α → Bool) (xs : List α) :\n    comparisons lt cmp xs ≤ xs.length + xs.length * Nat.clog 2 xs.length",
+          "author_assessment": "Run-count<=input-length and Nat.clog monotonicity give sharp all-length bound; printed n+n*clog is retained separately with explicit length parameter.",
+          "connected_cases": "periodic_family_isBigO; integer_zero_one_bound; odd_runs_adaptive_budget",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.comparisons_le_of_length",
+          "kind": "theorem",
+          "source_statement": "theorem comparisons_le_of_length (lt cmp : α → α → Bool) (xs : List α)\n    (n : Nat) (hlen : xs.length = n) :\n    comparisons lt cmp xs ≤ n + n * Nat.clog 2 n",
+          "author_assessment": "Run-count<=input-length and Nat.clog monotonicity give sharp all-length bound; printed n+n*clog is retained separately with explicit length parameter.",
+          "connected_cases": "periodic_family_isBigO; integer_zero_one_bound; odd_runs_adaptive_budget",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.comparisons_le_adaptive_int_ceil",
+          "kind": "theorem",
+          "source_statement": "theorem comparisons_le_adaptive_int_ceil (lt cmp : α → α → Bool) (xs : List α) :\n    (comparisons lt cmp xs : ℤ) ≤ ((xs.length - 1 : Nat) : ℤ) +\n      (xs.length : ℤ) * ⌈Real.logb 2 ((runsBy lt xs).length : ℝ)⌉",
+          "author_assessment": "Reuse existing all-natural integer-ceiling bridge; sharper cast wraps truncated Nat subtraction, printed source form uses integer n; zero/one not excluded.",
+          "connected_cases": "integer_zero_one_bound; adaptive odd-run budget; corresponding general count proofs",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.comparisons_le_int_ceil",
+          "kind": "theorem",
+          "source_statement": "theorem comparisons_le_int_ceil (lt cmp : α → α → Bool) (xs : List α) :\n    (comparisons lt cmp xs : ℤ) ≤\n      (xs.length : ℤ) + (xs.length : ℤ) * ⌈Real.logb 2 (xs.length : ℝ)⌉",
+          "author_assessment": "Reuse existing all-natural integer-ceiling bridge; sharper cast wraps truncated Nat subtraction, printed source form uses integer n; zero/one not excluded.",
+          "connected_cases": "integer_zero_one_bound; adaptive odd-run budget; corresponding general count proofs",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.comparisons_le_int_ceil_of_length",
+          "kind": "theorem",
+          "source_statement": "theorem comparisons_le_int_ceil_of_length (lt cmp : α → α → Bool) (xs : List α)\n    (n : Nat) (hlen : xs.length = n) :\n    (comparisons lt cmp xs : ℤ) ≤ (n : ℤ) + (n : ℤ) * ⌈Real.logb 2 (n : ℝ)⌉",
+          "author_assessment": "Reuse existing all-natural integer-ceiling bridge; sharper cast wraps truncated Nat subtraction, printed source form uses integer n; zero/one not excluded.",
+          "connected_cases": "integer_zero_one_bound; adaptive odd-run budget; corresponding general count proofs",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.run_of_runs_eq_singleton",
+          "kind": "theorem",
+          "source_statement": "theorem run_of_runs_eq_singleton (lt cmp : α → α → Bool) (xs ys : List α)\n    (h : runsBy lt xs = [ys]) : run lt cmp xs = (ys, xs.length - 1)",
+          "author_assessment": "One-run actual merger has zero comparisons; general comparator and explicit nonempty chain premises retained.",
+          "connected_cases": "ascending/descending; three_boundary shows multiple-run extra cost",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.run_of_ascending_chain",
+          "kind": "theorem",
+          "source_statement": "theorem run_of_ascending_chain (lt cmp : α → α → Bool) (xs : List α)\n    (hne : xs ≠ []) (h : xs.IsChain (fun a b => lt b a = false)) :\n    run lt cmp xs = (xs, xs.length - 1)",
+          "author_assessment": "One-run actual merger has zero comparisons; general comparator and explicit nonempty chain premises retained.",
+          "connected_cases": "ascending/descending; three_boundary shows multiple-run extra cost",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.run_of_descending_chain",
+          "kind": "theorem",
+          "source_statement": "theorem run_of_descending_chain (lt cmp : α → α → Bool) (xs : List α)\n    (hne : xs ≠ []) (h : xs.IsChain (fun a b => lt b a = true)) :\n    run lt cmp xs = (xs.reverse, xs.length - 1)",
+          "author_assessment": "One-run actual merger has zero comparisons; general comparator and explicit nonempty chain premises retained.",
+          "connected_cases": "ascending/descending; three_boundary shows multiple-run extra cost",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.mergeComparisons_of_sorted",
+          "kind": "theorem",
+          "source_statement": "theorem mergeComparisons_of_sorted [LinearOrder κ] (key : α → κ)\n    (cmp : α → α → Bool) (xs : List α) (hs : KeySorted key xs) (hne : xs ≠ []) :\n    BottomUpSorting.allComparisons cmp (runsOn key xs) = 0",
+          "author_assessment": "Nonempty sorted input supplies one actual run and zero merge cost; full output/count pair n-1; scalar all-length law splits empty separately.",
+          "connected_cases": "ascending_zero_merge; ascending; ascending_range_exact; repeated_payload_exact",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.run_of_sorted",
+          "kind": "theorem",
+          "source_statement": "theorem run_of_sorted [LinearOrder κ] (key : α → κ) (cmp : α → α → Bool)\n    (xs : List α) (hs : KeySorted key xs) (hne : xs ≠ []) :\n    run (fun a b => decide (key a < key b)) cmp xs = (xs, xs.length - 1)",
+          "author_assessment": "Nonempty sorted input supplies one actual run and zero merge cost; full output/count pair n-1; scalar all-length law splits empty separately.",
+          "connected_cases": "ascending_zero_merge; ascending; ascending_range_exact; repeated_payload_exact",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.comparisons_of_sorted",
+          "kind": "theorem",
+          "source_statement": "theorem comparisons_of_sorted [LinearOrder κ] (key : α → κ)\n    (cmp : α → α → Bool) (xs : List α) (hs : KeySorted key xs) :\n    comparisons (fun a b => decide (key a < key b)) cmp xs = xs.length - 1",
+          "author_assessment": "Nonempty sorted input supplies one actual run and zero merge cost; full output/count pair n-1; scalar all-length law splits empty separately.",
+          "connected_cases": "ascending_zero_merge; ascending; ascending_range_exact; repeated_payload_exact",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.mergeComparisons_of_strictly_descending",
+          "kind": "theorem",
+          "source_statement": "theorem mergeComparisons_of_strictly_descending [LT κ] [DecidableLT κ]\n    (key : α → κ) (cmp : α → α → Bool) (xs : List α)\n    (hs : xs.Pairwise (fun a b => key b < key a)) (hne : xs ≠ []) :\n    BottomUpSorting.allComparisons cmp (runsOn key xs) = 0",
+          "author_assessment": "Only LT/DecidableLT and supplied strict Pairwise condition needed; arbitrary merger; actual sole reversed run and n-1 count.",
+          "connected_cases": "descending; weak_descent_not_best_case preserves boundary",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.run_of_strictly_descending",
+          "kind": "theorem",
+          "source_statement": "theorem run_of_strictly_descending [LT κ] [DecidableLT κ]\n    (key : α → κ) (cmp : α → α → Bool) (xs : List α)\n    (hs : xs.Pairwise (fun a b => key b < key a)) (hne : xs ≠ []) :\n    run (fun a b => decide (key a < key b)) cmp xs = (xs.reverse, xs.length - 1)",
+          "author_assessment": "Only LT/DecidableLT and supplied strict Pairwise condition needed; arbitrary merger; actual sole reversed run and n-1 count.",
+          "connected_cases": "descending; weak_descent_not_best_case preserves boundary",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.length_le_twice_comparisons",
+          "kind": "theorem",
+          "source_statement": "theorem length_le_twice_comparisons (lt cmp : α → α → Bool) (xs : List α)\n    (hlen : 2 ≤ xs.length) : xs.length ≤ 2 * comparisons lt cmp xs",
+          "author_assessment": "Both numerical helper estimates visibly require length>=2; lower uses actual scan bound, upper uses positive Nat.clog and proved source bound.",
+          "connected_cases": "eventual size lower bound; periodic_family_isBigO; linear range/replicate families",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.comparisons_le_two_clog",
+          "kind": "theorem",
+          "source_statement": "theorem comparisons_le_two_clog (lt cmp : α → α → Bool) (xs : List α)\n    (hlen : 2 ≤ xs.length) :\n    comparisons lt cmp xs ≤ 2 * (xs.length * Nat.clog 2 xs.length)",
+          "author_assessment": "Both numerical helper estimates visibly require length>=2; lower uses actual scan bound, upper uses positive Nat.clog and proved source bound.",
+          "connected_cases": "eventual size lower bound; periodic_family_isBigO; linear range/replicate families",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.comparisons_isBigO",
+          "kind": "theorem",
+          "source_statement": "theorem comparisons_isBigO (lt cmp : α → α → Bool) (inputs : Nat → List α)\n    (hlen : ∀ n, (inputs n).length = n) :\n    Asymptotics.IsBigO Filter.atTop (fun n => (comparisons lt cmp (inputs n) : ℝ))\n      (fun n => (n : ℝ) * Real.logb 2 n)",
+          "author_assessment": "Existing Growth adapter applied only after actual count<=2*n*clog for n>=2; family length premise explicit; comparator laws unnecessary.",
+          "connected_cases": "periodic_family_isBigO with verified length of mapped range",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.comparisons_isBigO_of_bounded_runs",
+          "kind": "theorem",
+          "source_statement": "theorem comparisons_isBigO_of_bounded_runs (lt cmp : α → α → Bool)\n    (inputs : Nat → List α) (hlen : ∀ n, (inputs n).length = n)\n    (r : Nat) (hr : ∀ n, (runsBy lt (inputs n)).length ≤ r) :\n    Asymptotics.IsBigO Filter.atTop (fun n => (comparisons lt cmp (inputs n) : ℝ))\n      (fun n => (n : ℝ))",
+          "author_assessment": "Bounded actual run count and family length imply coefficient 1+clog(r); no output-order or externally assumed cost bound.",
+          "connected_cases": "constant_key_run_count; repeated_payload_bounded_runs",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.size_isBigO_comparisons",
+          "kind": "theorem",
+          "source_statement": "theorem size_isBigO_comparisons (lt cmp : α → α → Bool) (inputs : Nat → List α)\n    (hlen : ∀ n, (inputs n).length = n) :\n    Asymptotics.IsBigO Filter.atTop (fun n => (n : ℝ))\n      (fun n => (comparisons lt cmp (inputs n) : ℝ))",
+          "author_assessment": "Growth transport of eventual n<=2*C from the unconditional source scan lower bound.",
+          "connected_cases": "sorted_comparisons_isTheta; ascending_range_linear; repeated_payload_linear",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.sorted_comparisons_isBigO",
+          "kind": "theorem",
+          "source_statement": "theorem sorted_comparisons_isBigO [LinearOrder κ] (key : α → κ)\n    (cmp : α → α → Bool) (inputs : Nat → List α)\n    (hlen : ∀ n, (inputs n).length = n) (hs : ∀ n, KeySorted key (inputs n)) :\n    Asymptotics.IsBigO Filter.atTop\n      (fun n => (comparisons (fun a b => decide (key a < key b)) cmp (inputs n) : ℝ))\n      (fun n => (n : ℝ))",
+          "author_assessment": "Sorted family exact n-1 upper bound and independent general eventual lower bound give comparison-only linear growth; no positive lower claim at n=0/1.",
+          "connected_cases": "ascending_range_linear; repeated_payload_linear with satisfiable all-length sortedness",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Resources.NaturalSorting.sorted_comparisons_isTheta",
+          "kind": "theorem",
+          "source_statement": "theorem sorted_comparisons_isTheta [LinearOrder κ] (key : α → κ)\n    (cmp : α → α → Bool) (inputs : Nat → List α)\n    (hlen : ∀ n, (inputs n).length = n) (hs : ∀ n, KeySorted key (inputs n)) :\n    Asymptotics.IsTheta Filter.atTop\n      (fun n => (comparisons (fun a b => decide (key a < key b)) cmp (inputs n) : ℝ))\n      (fun n => (n : ℝ))",
+          "author_assessment": "Sorted family exact n-1 upper bound and independent general eventual lower bound give comparison-only linear growth; no positive lower claim at n=0/1.",
+          "connected_cases": "ascending_range_linear; repeated_payload_linear with satisfiable all-length sortedness",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        }
+      ]
+    },
+    {
+      "path": "Examples/NaturalSortingCosts.lean",
+      "bytes": 10031,
+      "lines": 225,
+      "sha256": "fcaf832cb41663d21c97e2e41381383c6a112a00695fecebf9a9dc5fa44afe51",
+      "declaration_count": 30,
+      "declarations": [
+        {
+          "name": "Examples.NaturalSortingCosts.empty_payload",
+          "kind": "theorem",
+          "source_statement": "theorem empty_payload :\n    run (fun a _ : Empty => nomatch a) (fun a _ : Empty => nomatch a) [] = ([], 0)",
+          "author_assessment": "Actual full measured boundary equations give zero, without payload class assumptions.",
+          "connected_cases": "run_nil/singleton",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.singleton_payload",
+          "kind": "theorem",
+          "source_statement": "theorem singleton_payload (lt cmp : α → α → Bool) (a : α) :\n    run lt cmp [a] = ([a], 0)",
+          "author_assessment": "Actual full measured boundary equations give zero, without payload class assumptions.",
+          "connected_cases": "run_nil/singleton",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.ascending",
+          "kind": "theorem",
+          "source_statement": "theorem ascending : run natLT natCompare [0, 1, 2] = ([0, 1, 2], 2)",
+          "author_assessment": "Three-element one-run inputs cost exactly two, with zero merging; strict descent reverses output while sorted input is fixed.",
+          "connected_cases": "run_of_sorted; mergeComparisons_of_sorted; run_of_strictly_descending",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.ascending_zero_merge",
+          "kind": "theorem",
+          "source_statement": "theorem ascending_zero_merge :\n    Resources.BottomUpSorting.allComparisons natCompare (runsBy natLT [0, 1, 2]) = 0",
+          "author_assessment": "Three-element one-run inputs cost exactly two, with zero merging; strict descent reverses output while sorted input is fixed.",
+          "connected_cases": "run_of_sorted; mergeComparisons_of_sorted; run_of_strictly_descending",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.descending",
+          "kind": "theorem",
+          "source_statement": "theorem descending : run natLT natCompare [2, 1, 0] = ([0, 1, 2], 2)",
+          "author_assessment": "Three-element one-run inputs cost exactly two, with zero merging; strict descent reverses output while sorted input is fixed.",
+          "connected_cases": "run_of_sorted; mergeComparisons_of_sorted; run_of_strictly_descending",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.three_boundary_scan",
+          "kind": "theorem",
+          "source_statement": "theorem three_boundary_scan :\n    Resources.NaturalRunComparisons.runsRunBy natLT [3, 1, 2] = ([[1, 3], [2]], 2)",
+          "author_assessment": "Independent [3,1,2] execution: two detected runs, scan2, merge2, total4. Each value and count is connected to the actual component execution and bind.",
+          "connected_cases": "Checked scanner erasure/exact cost; pure three_boundary_runs; reused all_two_runs; measured merge recurrence",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.three_boundary_merge",
+          "kind": "theorem",
+          "source_statement": "theorem three_boundary_merge :\n    Resources.BottomUpSorting.allRun natCompare [[1, 3], [2]] = ([1, 2, 3], 2)",
+          "author_assessment": "Independent [3,1,2] execution: two detected runs, scan2, merge2, total4. Each value and count is connected to the actual component execution and bind.",
+          "connected_cases": "Checked scanner erasure/exact cost; pure three_boundary_runs; reused all_two_runs; measured merge recurrence",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.three_boundary",
+          "kind": "theorem",
+          "source_statement": "theorem three_boundary : run natLT natCompare [3, 1, 2] = ([1, 2, 3], 4)",
+          "author_assessment": "Independent [3,1,2] execution: two detected runs, scan2, merge2, total4. Each value and count is connected to the actual component execution and bind.",
+          "connected_cases": "Checked scanner erasure/exact cost; pure three_boundary_runs; reused all_two_runs; measured merge recurrence",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.restart_merge",
+          "kind": "theorem",
+          "source_statement": "theorem restart_merge :\n    Resources.BottomUpSorting.allRun natCompare [[1, 3], [2, 4]] = ([1, 2, 3, 4], 3)",
+          "author_assessment": "Retained [1,3,2,4] fixture has scan3, merge3, total6, retaining failed-boundary element.",
+          "connected_cases": "Checked NaturalRunComparisons fixture; reused measured two-run specialization; actual bind",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.restart_boundary",
+          "kind": "theorem",
+          "source_statement": "theorem restart_boundary : run natLT natCompare [1, 3, 2, 4] = ([1, 2, 3, 4], 6)",
+          "author_assessment": "Retained [1,3,2,4] fixture has scan3, merge3, total6, retaining failed-boundary element.",
+          "connected_cases": "Checked NaturalRunComparisons fixture; reused measured two-run specialization; actual bind",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.odd_runs_scan",
+          "kind": "theorem",
+          "source_statement": "theorem odd_runs_scan :\n    Resources.NaturalRunComparisons.runsRunBy natLT [1, 3, 2, 4, 0] =\n      ([[1, 3], [2, 4], [0]], 4)",
+          "author_assessment": "Five-element three-run case: scan4, first pass3, final pass1, total8; independent adaptive upper budget14 at run-count3.",
+          "connected_cases": "Pure odd_runs fixture; measured pass/merge recurrences; comparisons_le_adaptive",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.odd_runs_merge",
+          "kind": "theorem",
+          "source_statement": "theorem odd_runs_merge :\n    Resources.BottomUpSorting.allRun natCompare [[1, 3], [2, 4], [0]] =\n      ([0, 1, 2, 3, 4], 4)",
+          "author_assessment": "Five-element three-run case: scan4, first pass3, final pass1, total8; independent adaptive upper budget14 at run-count3.",
+          "connected_cases": "Pure odd_runs fixture; measured pass/merge recurrences; comparisons_le_adaptive",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.odd_runs",
+          "kind": "theorem",
+          "source_statement": "theorem odd_runs : run natLT natCompare [1, 3, 2, 4, 0] = ([0, 1, 2, 3, 4], 8)",
+          "author_assessment": "Five-element three-run case: scan4, first pass3, final pass1, total8; independent adaptive upper budget14 at run-count3.",
+          "connected_cases": "Pure odd_runs fixture; measured pass/merge recurrences; comparisons_le_adaptive",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.odd_runs_adaptive_budget",
+          "kind": "theorem",
+          "source_statement": "theorem odd_runs_adaptive_budget : comparisons natLT natCompare [1, 3, 2, 4, 0] ≤ 14",
+          "author_assessment": "Five-element three-run case: scan4, first pass3, final pass1, total8; independent adaptive upper budget14 at run-count3.",
+          "connected_cases": "Pure odd_runs fixture; measured pass/merge recurrences; comparisons_le_adaptive",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.mixed_records_merge",
+          "kind": "theorem",
+          "source_statement": "theorem mixed_records_merge :\n    Resources.BottomUpSorting.allRun (fun a b : Record => decide (a.1 ≤ b.1)) mixedRuns =\n      ([(1, \"D\"), (2, \"B\"), (2, \"C\"), (3, \"A\")], 3)",
+          "author_assessment": "Four distinguishable tied records: actual merge3 plus scan3 gives total6 and expected full-record order.",
+          "connected_cases": "Checked mixed scanner pair; reused two-run specialization and actual comparison recurrence",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.mixed_records",
+          "kind": "theorem",
+          "source_statement": "theorem mixed_records :\n    run (fun a b : Record => decide (a.1 < b.1))\n      (fun a b => decide (a.1 ≤ b.1)) mixedRecords =\n        ([(1, \"D\"), (2, \"B\"), (2, \"C\"), (3, \"A\")], 6)",
+          "author_assessment": "Four distinguishable tied records: actual merge3 plus scan3 gives total6 and expected full-record order.",
+          "connected_cases": "Checked mixed scanner pair; reused two-run specialization and actual comparison recurrence",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.weak_descent_merge",
+          "kind": "theorem",
+          "source_statement": "theorem weak_descent_merge :\n    Resources.BottomUpSorting.allRun (fun a b : Record => decide (a.1 ≤ b.1))\n      [[(3, \"A\"), (3, \"B\")], [(2, \"C\")]] =\n        ([(2, \"C\"), (3, \"A\"), (3, \"B\")], 1)",
+          "author_assessment": "Weak descent with tie: scan2 and merge1 yield3>2, preserving tied A-before-B instead of whole reversal.",
+          "connected_cases": "Checked weak-descent scanner pair; measured merge and composed total",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.weak_descent_with_ties",
+          "kind": "theorem",
+          "source_statement": "theorem weak_descent_with_ties :\n    run (fun a b : Record => decide (a.1 < b.1))\n      (fun a b => decide (a.1 ≤ b.1)) [(3, \"A\"), (3, \"B\"), (2, \"C\")] =\n        ([(2, \"C\"), (3, \"A\"), (3, \"B\")], 3)",
+          "author_assessment": "Weak descent with tie: scan2 and merge1 yield3>2, preserving tied A-before-B instead of whole reversal.",
+          "connected_cases": "Checked weak-descent scanner pair; measured merge and composed total",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.weak_descent_not_best_case",
+          "kind": "theorem",
+          "source_statement": "theorem weak_descent_not_best_case :\n    2 < comparisons (fun a b : Record => decide (a.1 < b.1))\n      (fun a b => decide (a.1 ≤ b.1)) [(3, \"A\"), (3, \"B\"), (2, \"C\")]",
+          "author_assessment": "Weak descent with tie: scan2 and merge1 yield3>2, preserving tied A-before-B instead of whole reversal.",
+          "connected_cases": "Checked weak-descent scanner pair; measured merge and composed total",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.empty_inner_runs",
+          "kind": "theorem",
+          "source_statement": "theorem empty_inner_runs :\n    Resources.BottomUpSorting.allRun natCompare [[], [2], [], [1, 3]] = ([1, 2, 3], 2)",
+          "author_assessment": "Shared merger on four runs including two empty lists retains value [1,2,3] and count2; source scanner is not asserted to emit these runs.",
+          "connected_cases": "Actual pairsRun/allRun equations and measured zero-side merges",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.arbitrary_payload_correct",
+          "kind": "theorem",
+          "source_statement": "theorem arbitrary_payload_correct (xs : List (Nat × α)) :\n    KeySorted Prod.fst\n        (run (fun a b => decide (a.1 < b.1)) (fun a b => decide (a.1 ≤ b.1)) xs).1 ∧\n      (run (fun a b => decide (a.1 < b.1))\n        (fun a b => decide (a.1 ≤ b.1)) xs).1.Perm xs",
+          "author_assessment": "Measured keyed correctness requires only key order; law-free independent comparators retain occurrences/length/lower/adaptive bound.",
+          "connected_cases": "run_correct; run_perm/length; comparisons_lower/le_adaptive",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.arbitrary_operations_and_bounds",
+          "kind": "theorem",
+          "source_statement": "theorem arbitrary_operations_and_bounds (lt cmp : α → α → Bool) (xs : List α) :\n    (run lt cmp xs).1.Perm xs ∧ (run lt cmp xs).1.length = xs.length ∧\n      xs.length - 1 ≤ comparisons lt cmp xs ∧\n      comparisons lt cmp xs ≤ xs.length - 1 + xs.length * Nat.clog 2 (runsBy lt xs).length",
+          "author_assessment": "Measured keyed correctness requires only key order; law-free independent comparators retain occurrences/length/lower/adaptive bound.",
+          "connected_cases": "run_correct; run_perm/length; comparisons_lower/le_adaptive",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.integer_zero_one_bound",
+          "kind": "theorem",
+          "source_statement": "theorem integer_zero_one_bound :\n    (comparisons natLT natCompare [] : ℤ) ≤ 0 ∧\n      (comparisons natLT natCompare [7] : ℤ) ≤ 1",
+          "author_assessment": "Printed weaker integer-ceiling budget specializes to0/1, while exact boundary costs remain0/0.",
+          "connected_cases": "comparisons_le_int_ceil plus totalized logarithm simplification",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.repeated_payload_exact",
+          "kind": "theorem",
+          "source_statement": "theorem repeated_payload_exact (cmp : α → α → Bool) (a : α) (n : Nat) :\n    comparisons (fun _ _ => false) cmp (List.replicate n a) = n - 1",
+          "author_assessment": "All-length arbitrary-payload family has count n-1 and actual run budget<=1, giving comparison linear upper and eventual two-sided growth without payload classes.",
+          "connected_cases": "comparisons_of_sorted; runsOn_of_sorted; bounded-run Growth theorem; sorted Theta theorem",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.constant_key_run_count",
+          "kind": "theorem",
+          "source_statement": "theorem constant_key_run_count (xs : List α) :\n    (runsBy (fun _ _ => false) xs).length ≤ 1",
+          "author_assessment": "All-length arbitrary-payload family has count n-1 and actual run budget<=1, giving comparison linear upper and eventual two-sided growth without payload classes.",
+          "connected_cases": "comparisons_of_sorted; runsOn_of_sorted; bounded-run Growth theorem; sorted Theta theorem",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.repeated_payload_bounded_runs",
+          "kind": "theorem",
+          "source_statement": "theorem repeated_payload_bounded_runs (cmp : α → α → Bool) (a : α) :\n    Asymptotics.IsBigO Filter.atTop\n      (fun n => (comparisons (fun _ _ => false) cmp (List.replicate n a) : ℝ))\n      (fun n => (n : ℝ))",
+          "author_assessment": "All-length arbitrary-payload family has count n-1 and actual run budget<=1, giving comparison linear upper and eventual two-sided growth without payload classes.",
+          "connected_cases": "comparisons_of_sorted; runsOn_of_sorted; bounded-run Growth theorem; sorted Theta theorem",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.repeated_payload_linear",
+          "kind": "theorem",
+          "source_statement": "theorem repeated_payload_linear (cmp : α → α → Bool) (a : α) :\n    Asymptotics.IsTheta Filter.atTop\n      (fun n => (comparisons (fun _ _ => false) cmp (List.replicate n a) : ℝ))\n      (fun n => (n : ℝ))",
+          "author_assessment": "All-length arbitrary-payload family has count n-1 and actual run budget<=1, giving comparison linear upper and eventual two-sided growth without payload classes.",
+          "connected_cases": "comparisons_of_sorted; runsOn_of_sorted; bounded-run Growth theorem; sorted Theta theorem",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.ascending_range_exact",
+          "kind": "theorem",
+          "source_statement": "theorem ascending_range_exact (n : Nat) :\n    comparisons natLT natCompare (List.range n) = n - 1",
+          "author_assessment": "Standard range family discharges length and sortedness at every n, with exact n-1 and eventual linear comparison growth.",
+          "connected_cases": "List.pairwise_lt_range; comparisons_of_sorted; sorted_comparisons_isTheta",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.ascending_range_linear",
+          "kind": "theorem",
+          "source_statement": "theorem ascending_range_linear :\n    Asymptotics.IsTheta Filter.atTop\n      (fun n => (comparisons natLT natCompare (List.range n) : ℝ))\n      (fun n => (n : ℝ))",
+          "author_assessment": "Standard range family discharges length and sortedness at every n, with exact n-1 and eventual linear comparison growth.",
+          "connected_cases": "List.pairwise_lt_range; comparisons_of_sorted; sorted_comparisons_isTheta",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        },
+        {
+          "name": "Examples.NaturalSortingCosts.periodic_family_isBigO",
+          "kind": "theorem",
+          "source_statement": "theorem periodic_family_isBigO :\n    Asymptotics.IsBigO Filter.atTop\n      (fun n => (comparisons natLT natCompare ((List.range n).map (fun k => k % 3)) : ℝ))\n      (fun n => (n : ℝ) * Real.logb 2 n)",
+          "author_assessment": "Concrete range-map modulo3 family has length n and invokes the unrestricted actual-source O(n log n) theorem; no tightness claim.",
+          "connected_cases": "comparisons_isBigO; List.length_map/range",
+          "status": "Static source/derivation assessment complete; elaboration and candidate checks pending"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,536 @@
+{
+  "recorded_utc": "2026-11-05T01:07:25.459342+00:00",
+  "reviewer": "/root/chapter03_spec",
+  "outcome": "Blocked",
+  "review_complete": false,
+  "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "accepted_receiving_comparison_point": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "current_receiver_last_assessed": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+  "additional_immutable_candidate": "96722600aa29636e028751242ce33d562c5a9255",
+  "additional_tree": "b472eb84c0bb9861ba11de235ca5efe8d16ed70e",
+  "scope_obligations": 83,
+  "scope_sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed",
+  "previous_progress": {
+    "path": "provenance/chapter03-spec-review-20261104/continuation-0136-009.json",
+    "bytes": 69226,
+    "sha256": "b807c9c2add6a12dbf37d469dc41eac81e087ca902eadc7dd74814c55c642497"
+  },
+  "record_style": "Incremental assessment of the exact new universal pair within the same original whole-chapter scope. Receiving integration and later documentation delta are separate pending evidence.",
+  "new_complete_sources": {
+    "Applications/Resources/RandomSelectionWorst.lean": {
+      "source_read_candidate": "96722600aa29636e028751242ce33d562c5a9255",
+      "bytes": 10727,
+      "lines": 241,
+      "sha256": "0e83e44d4e1b2af6b56e09345d248d9af878e8a7d1108458ed8dcee446ec6541",
+      "complete_body_read": true,
+      "private_helpers_included": true,
+      "read_tool_chunks": [
+        "7e19de"
+      ]
+    },
+    "Examples/RandomSelectionWorst.lean": {
+      "source_read_candidate": "96722600aa29636e028751242ce33d562c5a9255",
+      "bytes": 12775,
+      "lines": 257,
+      "sha256": "ea06643849f8d958d17659d26886e132fc92d471008d1fa7c1455af808ddf0cb",
+      "complete_body_read": true,
+      "private_helpers_included": true,
+      "read_tool_chunks": [
+        "f047ba"
+      ]
+    }
+  },
+  "new_actual_type_blocks": [
+    {
+      "ordinal": 1,
+      "name": "Resources.RandomSelection.EndpointTrace",
+      "first_line": 1,
+      "last_line": 2,
+      "offset": 0,
+      "bytes": 165,
+      "sha256": "8d66c7eb714fad192c4787329f9330512f7723f02e9f14b193da0185ccf56b67",
+      "raw_complete_read_tool_chunk": "7985cf",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 2,
+      "name": "Resources.RandomSelection.endpointTrace_nil",
+      "first_line": 3,
+      "last_line": 5,
+      "offset": 165,
+      "bytes": 243,
+      "sha256": "1dce01e3260ff5a2076299e21ac418f6fba8848e7b6d5d55929f9fafe4950fa7",
+      "raw_complete_read_tool_chunk": "7985cf",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 3,
+      "name": "Resources.RandomSelection.endpointTrace_empty_input",
+      "first_line": 6,
+      "last_line": 8,
+      "offset": 408,
+      "bytes": 258,
+      "sha256": "e3330d2cac368e309e9df3570f68f270e99a65803551a9f6fb7f3406d3edcaef",
+      "raw_complete_read_tool_chunk": "7985cf",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 4,
+      "name": "Resources.RandomSelection.endpointTrace_singleton",
+      "first_line": 9,
+      "last_line": 15,
+      "offset": 666,
+      "bytes": 538,
+      "sha256": "85f621e796088558cf917217607aa2a41326bf60a4503e324355fc53d14208ad",
+      "raw_complete_read_tool_chunk": "7985cf",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 5,
+      "name": "Resources.RandomSelection.endpointTrace_child",
+      "first_line": 16,
+      "last_line": 27,
+      "offset": 1204,
+      "bytes": 953,
+      "sha256": "16a778ee7159ed6cddfdc4e9983bbd2759755552fdcdcbc73b4e56152efdc110",
+      "raw_complete_read_tool_chunk": "7985cf",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 6,
+      "name": "Resources.RandomSelection.endpointTrace_target",
+      "first_line": 28,
+      "last_line": 36,
+      "offset": 2157,
+      "bytes": 632,
+      "sha256": "85d66096f7c12194a45e74601ffad613d423cf4fb425afd47509ed8b8f97fcde",
+      "raw_complete_read_tool_chunk": "7985cf",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 7,
+      "name": "Resources.RandomSelection.endpointTrace_valid",
+      "first_line": 37,
+      "last_line": 40,
+      "offset": 2789,
+      "bytes": 312,
+      "sha256": "927d43c9ab4240d738041a705dc2034a513dcf5ff3bc9f83435b956c837801b1",
+      "raw_complete_read_tool_chunk": "7985cf",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 8,
+      "name": "Resources.RandomSelection.exists_endpoint_worst",
+      "first_line": 41,
+      "last_line": 133,
+      "offset": 3101,
+      "bytes": 6980,
+      "sha256": "2faf6772c9975422994527700baf1b2acd986405d94a8db23b1e7cb5a1e16079",
+      "raw_complete_read_tool_chunk": "7985cf",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 9,
+      "name": "Resources.RandomSelection.range_endpoint_worst",
+      "first_line": 134,
+      "last_line": 223,
+      "offset": 10081,
+      "bytes": 6433,
+      "sha256": "4788abc2564cf635764accf557be9343923b7dd636f9fd00b50fe151e09bb373",
+      "raw_complete_read_tool_chunk": "7985cf",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 10,
+      "name": "Resources.RandomSelection.unbounded_endpoint_source_family",
+      "first_line": 224,
+      "last_line": 279,
+      "offset": 16514,
+      "bytes": 4142,
+      "sha256": "6137b2452b3a7aeb45a11c4649c33bec5dc122994d8eb7baea89ebfcaaa5d1e6",
+      "raw_complete_read_tool_chunk": "7985cf",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 11,
+      "name": "Examples.RandomSelectionWorst.singleton_endpoint",
+      "first_line": 280,
+      "last_line": 311,
+      "offset": 20656,
+      "bytes": 2078,
+      "sha256": "eead85c988b9c803bff88f250d024030ae0eb9e5a22405181d9bc31e930650ba",
+      "raw_complete_read_tool_chunk": "609450",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 12,
+      "name": "Examples.RandomSelectionWorst.middle_endpoint_trace",
+      "first_line": 312,
+      "last_line": 326,
+      "offset": 22734,
+      "bytes": 1129,
+      "sha256": "a014fa33d70f309539825413d8c940dc456ca5147e0186a556ea6cfac3f9025d",
+      "raw_complete_read_tool_chunk": "609450",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 13,
+      "name": "Examples.RandomSelectionWorst.middle_endpoint_probability",
+      "first_line": 327,
+      "last_line": 412,
+      "offset": 23863,
+      "bytes": 6390,
+      "sha256": "aba3cc403b8115298a9f2dafadd32b37ac66a7acd1de8782f1b8d0cc51940615",
+      "raw_complete_read_tool_chunk": "609450",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 14,
+      "name": "Examples.RandomSelectionWorst.signed_endpoint_trace",
+      "first_line": 413,
+      "last_line": 435,
+      "offset": 30253,
+      "bytes": 1791,
+      "sha256": "e3164005ebcbb6c01db6f683774ec6767b5ad2df0d88d6d4ed86dde39b4c4200",
+      "raw_complete_read_tool_chunk": "609450",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 15,
+      "name": "Examples.RandomSelectionWorst.signed_endpoint_probability",
+      "first_line": 436,
+      "last_line": 555,
+      "offset": 32044,
+      "bytes": 9130,
+      "sha256": "3b2e4387906fa3e2182f4ecf4f772f2bc5eb972bc71cdba51dac52347601b8a8",
+      "raw_complete_read_tool_chunk": "609450",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 16,
+      "name": "Examples.RandomSelectionWorst.distinct_scan_maximum",
+      "first_line": 556,
+      "last_line": 606,
+      "offset": 41174,
+      "bytes": 3613,
+      "sha256": "8de4592a1b06c040a8c334e90e87ceb9522b71f709d690988a6dd423c80e64e2",
+      "raw_complete_read_tool_chunk": "1ec4f8",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 17,
+      "name": "Examples.RandomSelectionWorst.unsorted_endpoint_ranks",
+      "first_line": 607,
+      "last_line": 681,
+      "offset": 44787,
+      "bytes": 5366,
+      "sha256": "aab23bab34c51c314269ac8550cc2b178b1601170b4ec7d6721ed89375faec02",
+      "raw_complete_read_tool_chunk": "1ec4f8",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 18,
+      "name": "Examples.RandomSelectionWorst.range_four_exact",
+      "first_line": 682,
+      "last_line": 773,
+      "offset": 50153,
+      "bytes": 6729,
+      "sha256": "53adb2fb8548769f6a1349a6bf90cf58defe46ac1567beeab1d71b4e3b575715",
+      "raw_complete_read_tool_chunk": "1ec4f8",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 19,
+      "name": "Examples.RandomSelectionWorst.range_four_bounds",
+      "first_line": 774,
+      "last_line": 823,
+      "offset": 56882,
+      "bytes": 3408,
+      "sha256": "3e91ac70a57e946286091ac606492725b5c29358ecb953f7cb85d42521013372",
+      "raw_complete_read_tool_chunk": "1ec4f8",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 20,
+      "name": "Examples.RandomSelectionWorst.large_family_every_rank",
+      "first_line": 824,
+      "last_line": 878,
+      "offset": 60290,
+      "bytes": 3829,
+      "sha256": "3719a9d808d980264d04fe32cee93cc4eb904aa49cf8cdb46b602bb94f13ee89",
+      "raw_complete_read_tool_chunk": "1ec4f8",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 21,
+      "name": "Examples.RandomSelectionWorst.empty_endpoint_boundary",
+      "first_line": 879,
+      "last_line": 886,
+      "offset": 64119,
+      "bytes": 722,
+      "sha256": "dcf7974a6aa78721d42943be54493ef9b4c19d40e72747a0d4493fc63b79b4c8",
+      "raw_complete_read_tool_chunk": "c576f7",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 22,
+      "name": "Examples.RandomSelectionWorst.invalid_endpoint_boundary",
+      "first_line": 887,
+      "last_line": 890,
+      "offset": 64841,
+      "bytes": 330,
+      "sha256": "91b8c335fd52d7ee1092f4bfca23b906dae17eefc4f5af1a4867d206bbe9a32b",
+      "raw_complete_read_tool_chunk": "c576f7",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 23,
+      "name": "Examples.RandomSelectionWorst.invalid_singleton_endpoint_boundary",
+      "first_line": 891,
+      "last_line": 910,
+      "offset": 65171,
+      "bytes": 1430,
+      "sha256": "0bc27cae334082d8de187f1c7d6df6440519911c072630889c4921b77f55f93e",
+      "raw_complete_read_tool_chunk": "c576f7",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 24,
+      "name": "Examples.RandomSelectionWorst.equal_block_endpoint_boundary",
+      "first_line": 911,
+      "last_line": 948,
+      "offset": 66601,
+      "bytes": 2647,
+      "sha256": "847d5090683a64a2070da03fe8fa3ae53ea3f74d079baecf56dd9b488841d305",
+      "raw_complete_read_tool_chunk": "c576f7",
+      "substantively_assessed": true
+    },
+    {
+      "ordinal": 25,
+      "name": "Examples.RandomSelectionWorst.mixed_duplicate_endpoint_boundary",
+      "first_line": 949,
+      "last_line": 1042,
+      "offset": 69248,
+      "bytes": 6708,
+      "sha256": "3d0f83201e71e52534e3b668b21b9b5a707ad4d1e217a231f3ba3979cc8b994a",
+      "raw_complete_read_tool_chunk": "c576f7",
+      "substantively_assessed": true
+    }
+  ],
+  "new_public_names": [
+    "Resources.RandomSelection.EndpointTrace",
+    "Resources.RandomSelection.endpointTrace_nil",
+    "Resources.RandomSelection.endpointTrace_empty_input",
+    "Resources.RandomSelection.endpointTrace_singleton",
+    "Resources.RandomSelection.endpointTrace_child",
+    "Resources.RandomSelection.endpointTrace_target",
+    "Resources.RandomSelection.endpointTrace_valid",
+    "Resources.RandomSelection.exists_endpoint_worst",
+    "Resources.RandomSelection.range_endpoint_worst",
+    "Resources.RandomSelection.unbounded_endpoint_source_family",
+    "Examples.RandomSelectionWorst.singleton_endpoint",
+    "Examples.RandomSelectionWorst.middle_endpoint_trace",
+    "Examples.RandomSelectionWorst.middle_endpoint_probability",
+    "Examples.RandomSelectionWorst.signed_endpoint_trace",
+    "Examples.RandomSelectionWorst.signed_endpoint_probability",
+    "Examples.RandomSelectionWorst.distinct_scan_maximum",
+    "Examples.RandomSelectionWorst.unsorted_endpoint_ranks",
+    "Examples.RandomSelectionWorst.range_four_exact",
+    "Examples.RandomSelectionWorst.range_four_bounds",
+    "Examples.RandomSelectionWorst.large_family_every_rank",
+    "Examples.RandomSelectionWorst.empty_endpoint_boundary",
+    "Examples.RandomSelectionWorst.invalid_endpoint_boundary",
+    "Examples.RandomSelectionWorst.invalid_singleton_endpoint_boundary",
+    "Examples.RandomSelectionWorst.equal_block_endpoint_boundary",
+    "Examples.RandomSelectionWorst.mixed_duplicate_endpoint_boundary"
+  ],
+  "coverage_counts": {
+    "current4c96_chapter_modules": 76,
+    "current4c96_public_source_claims": 1345,
+    "current4c96_raw_actual_types": 1345,
+    "additional96722600_modules": 2,
+    "additional_public_source_claims": 25,
+    "additional_raw_actual_types": 25,
+    "cumulative_chapter_modules_across_these_immutable_sources": 78,
+    "cumulative_public_source_claims": 1370,
+    "cumulative_raw_actual_types": 1370,
+    "accepted_XR_public_claims_not_in_this_count": 21,
+    "complete_baseline_dependency_modules": 6,
+    "bounded_baseline_dependency_modules": 5,
+    "not_a_count_of_closed_obligations": true
+  },
+  "assessment_notes": [
+    "EndpointTrace is a structural policy predicate over actual current occurrence indices, current lengths and stepRun children, ending at a singleton. It contains no distinctness, target, probability or resource assumption. Target existence and valid rank are derived from actual step semantics.",
+    "The private recursive endpoint_outcome covers arbitrary linear-order payloads, every distinct list and each valid zero-based worker rank. Empty contradicts validity; singleton has an actual supported cost9 result. A nonsingleton actual endpoint transition removes exactly one occurrence, preserves distinctness and the rank target, and recursively uses k-1 (saturating at0). The length decrease comes from actual stepRun_child.",
+    "Exact outcome probability is derived with run_child_atom and the factorial identity; the predicate does not assume probability. Positive factorial mass supplies support; fixed-initial-state supported-trace injection transfers exact1/n! to the projected trace event. Trace length n and2W=n(n+1) are proved inductively. Correct value and W<=T<=9W+2 use actual run observations.",
+    "Natural ranges supply every positive size without assuming an arbitrary payload type is infinite. Every valid rank is retained. The actual source observation satisfies n^2<=2T andT<=11n^2. The unbounded theorem chooses n before all valid ranks and derives cost>B from actual initial scan and source lower bounds, with no abstract assigned runtime.",
+    "Checked clients consume the general witness to establish maximum scan volume over all actual supported outcomes, both endpoint ranks on an unsorted list, range4 bounds, and an unbounded positive trace event with an actual source-cost witness. Concrete interior paths cover unsorted3 input W6/T33/probability1/6 and signed5 input W15/T67/probability1/120. Range4 rank2 actual path has W10/T48/probability1/24.",
+    "Boundary clients prove that empty and invalid executions remain actual total laws without a successful EndpointTrace, all-equal3 has W3 and occurrence trace mass1/3, and mixed duplicates [1,1,2] can satisfy the structural endpoint predicate with W4/T23/probability1/3. Thus distinctness is necessary for the factorial/triangular claim and scan volume is not silently equated with source calls.",
+    "All25 full explicit actual types retain precisely these hypotheses, domains and quantifier order; no accidental generalized probability/resource premise, independence assumption or weakened universal rank scope was found."
+  ],
+  "qualification": {
+    "source_metadata_tool": "c67455",
+    "actual_index_metadata_tool": "fa5e0b",
+    "type_terminal_program_and_wrapper_read_tool": "da3bd4",
+    "capture_metadata_read_tools": [
+      "270ee1",
+      "78a48e"
+    ],
+    "independent_complete_type_reconciliation_tool": "0bc268",
+    "focused_terminal_read_tool": "de274a",
+    "complete_focused_log_and_native_reconciliation_tool": "0b4120",
+    "focused_owned_session": 17575,
+    "focused_terminal_chunk": "04aebe",
+    "focused_actual_exit": 0,
+    "type_owned_session": 21638,
+    "type_terminal_chunk": "d22e44",
+    "type_actual_exit": 0,
+    "stable_captured_sources": 48,
+    "stable_captured_objects_and_traces": 144,
+    "configuration_files": 10,
+    "dependencies": 9,
+    "runtime_fingerprints": 12,
+    "native_actual_type_bytes": 75956,
+    "native_actual_type_lines": 1042,
+    "native_actual_type_sha256": "df11a9b1e4ccbc7e952935ec0155fa096f58a3c14ff6955132fceabfb69fa519",
+    "full_actual_type_log_bytes": 76325,
+    "full_actual_type_log_sha256": "dea5e750afcc89a731e42706560de5b75e173d21a8b78bc13fe0ba936590711c",
+    "focused_full_log_bytes": 11385,
+    "focused_full_log_sha256": "5833490d1122e2cbe4955bc3dd4e30716690e59f4722d4948b285bdf6e4bef51",
+    "checks": [
+      "Pre/post entire identity fields equal; exact96722600 clean candidate.",
+      "All48 source bytes/SHA/Git blobs and10 configuration bytes/SHA match immutable96722600. All9 clean dependency heads match immutable lake-manifest pins. Configuration/dependencies/runtime equal earlier qualified assembly2/trace captures.",
+      "The exact1878-byte program lists25 names in exact output/index order. Complete block offset/line/hash partition covers all75956 native bytes/1042 lines, with25 top-level headers and no extra output.",
+      "Owned actual tool, recorder and native type exits all0; exact candidate/final HEAD clean, one-thread native command, no timeout/error. Prefix/native/suffix equal the complete closed76325-byte log and closure native identities match.",
+      "Focused2 closed log was read completely and binds both successfully built modules to the one-thread exact candidate. Native/full hashes and actual zero-exit terminal records agree. Existing module-system import advisories are present; no focused error."
+    ],
+    "truncation_boundary": "270ee1 oversized metadata key list was truncated and received no unseen read credit.78a48e read compact program/source/import metadata;0bc268 independently verified every source/configuration identity and full stable capture. No actual type-body read was truncated.",
+    "full_candidate_acceptance_or_audit": false,
+    "evidence": [
+      {
+        "path": "provenance/chapter03-worst-statement-inputs-20261105/actual-type-block-index.json",
+        "bytes": 6898,
+        "sha256": "ab0fbda7833bbbc228e7546bca938a2a8c08510c7f18bbf766a590bae55c1389"
+      },
+      {
+        "path": "provenance/chapter03-worst-statement-inputs-20261105/Statements25-worst-correction1.lean",
+        "bytes": 1878,
+        "sha256": "3c6f09f10707e92fd31441ec820d0745312d886b84f3a0edb74dd9005ab9b361"
+      },
+      {
+        "path": "provenance/chapter03-worst-statement-inputs-20261105/preparation.json",
+        "bytes": 2995,
+        "sha256": "8c53d0a2419a8ac39a37f8c9aa903d29b4b301c685e706b9153b4672baa6911d"
+      },
+      {
+        "path": "provenance/chapter03-worst-statement-inputs-20261105/pre-inputs.json",
+        "bytes": 48461,
+        "sha256": "7762552671bc6503e3093c6196a32a904038f45e45a374d3f617317afc9cbd75"
+      },
+      {
+        "path": "provenance/chapter03-worst-statement-inputs-20261105/post-inputs.json",
+        "bytes": 48759,
+        "sha256": "8cbeef07a6c16fbddd21021c2474d538acad57a6d2badc23a7e7d3d0006d94bf"
+      },
+      {
+        "path": "provenance/chapter03-worst-statement-inputs-20261105/observation-reconciliation.json",
+        "bytes": 1014,
+        "sha256": "0d5478b02cb2d57645c8e3d5f34635eeeb8be750a94aa3ced3207d66132bef27"
+      },
+      {
+        "path": "provenance/chapter03-random-selection-worst-statements25-attempt1-20261105/owned-terminal.json",
+        "bytes": 260,
+        "sha256": "16523605f64676cf6b142591201ed29b0d171fa23022f3b1d39cc1915aa1d008"
+      },
+      {
+        "path": "provenance/chapter03-random-selection-worst-statements25-attempt1-20261105/actual-tool-terminal.json",
+        "bytes": 125,
+        "sha256": "e9acdbbadc9f287069a83be056b26281cad5b32b696b493422c0afafc79437a0"
+      },
+      {
+        "path": "provenance/chapter03-random-selection-worst-statements25-attempt1-20261105/result.json",
+        "bytes": 1326,
+        "sha256": "c29edfc281911155d2aee27f7c77e4c539ec9429f2a3c927ddc76995a909e3eb"
+      },
+      {
+        "path": "provenance/chapter03-random-selection-worst-statements25-attempt1-20261105/closed-evidence-reconciliation.json",
+        "bytes": 2313,
+        "sha256": "f71fdf4ae7f79083b1f88c9898a042c21e7ebfe8e6c74283617cb9e62db08060"
+      },
+      {
+        "path": "provenance/chapter03-random-selection-worst-statements25-attempt1-20261105/native-records/start.json",
+        "bytes": 571,
+        "sha256": "4e12adc442f923663f4760e1b8a70b59037d4afac3b69d3f75283d9c24402cfa"
+      },
+      {
+        "path": "provenance/chapter03-random-selection-worst-statements25-attempt1-20261105/native-records/result.json",
+        "bytes": 724,
+        "sha256": "38af4c46cacccc6cd214b25f0019d38551be513d523782d53833d45ab9ad084f"
+      },
+      {
+        "path": "provenance/chapter03-random-selection-worst-statements25-attempt1-20261105/native-records/output.log",
+        "bytes": 75956,
+        "sha256": "df11a9b1e4ccbc7e952935ec0155fa096f58a3c14ff6955132fceabfb69fa519"
+      },
+      {
+        "path": "provenance/chapter03-random-selection-worst-statements25-attempt1-20261105/full.log",
+        "bytes": 76325,
+        "sha256": "dea5e750afcc89a731e42706560de5b75e173d21a8b78bc13fe0ba936590711c"
+      },
+      {
+        "path": "provenance/chapter03-random-selection-worst-focused-attempt2-20261105/owned-terminal.json",
+        "bytes": 260,
+        "sha256": "deb108ba65328902594a8d3c155a321d104166f7943d8552d76bf25d0496c4ec"
+      },
+      {
+        "path": "provenance/chapter03-random-selection-worst-focused-attempt2-20261105/actual-tool-terminal.json",
+        "bytes": 126,
+        "sha256": "4fd2bcdb5b4a76a21502ae5ef9ae1f6d1969c7103f2f1579838304b1def87cc7"
+      },
+      {
+        "path": "provenance/chapter03-random-selection-worst-focused-attempt2-20261105/result.json",
+        "bytes": 1235,
+        "sha256": "795885aa2f8512e29aaef6788313132201352c1346b8ec74d83ceb5ac8918136"
+      },
+      {
+        "path": "provenance/chapter03-random-selection-worst-focused-attempt2-20261105/closed-evidence-reconciliation.json",
+        "bytes": 2303,
+        "sha256": "b07224547b7549f51960df04d3f298befecc236f66715a10c65ab17028e16a1a"
+      },
+      {
+        "path": "provenance/chapter03-random-selection-worst-focused-attempt2-20261105/native-records/start.json",
+        "bytes": 485,
+        "sha256": "82742fa1c390727a1239b6e494f9fdc534aa62d937e4243d2bc6414f8e9da385"
+      },
+      {
+        "path": "provenance/chapter03-random-selection-worst-focused-attempt2-20261105/native-records/result.json",
+        "bytes": 637,
+        "sha256": "e5ca88b585d6415575f53b9e668d5e42aaffc17b0abdcea206a290b7df659cfd"
+      },
+      {
+        "path": "provenance/chapter03-random-selection-worst-focused-attempt2-20261105/native-records/output.log",
+        "bytes": 11101,
+        "sha256": "64a107a5d3f5815484308dcb1a1bfc3a318eb9bba1fe0ce803d53657031c0ffe"
+      },
+      {
+        "path": "provenance/chapter03-random-selection-worst-focused-attempt2-20261105/full.log",
+        "bytes": 11385,
+        "sha256": "5833490d1122e2cbe4955bc3dd4e30716690e59f4722d4948b285bdf6e4bef51"
+      }
+    ]
+  },
+  "resolved_findings": [
+    {
+      "id": "C03-SPEC-USE-001",
+      "resolution_record": "finding-C03-SPEC-USE-001-resolution1.json",
+      "preserved_in": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb"
+    }
+  ],
+  "new_findings": [],
+  "remaining_scope": [
+    "Reconcile the exact two new modules and all prior assessed source identities into the immutable receiving successor, retaining originalQ scope.",
+    "Accepted shared-XR theorem/example/document source and exact input reuse; remaining correspondence and entrypoint composition across all83 obligations, including C03-076 and every cost/model boundary.",
+    "Complete final actual-type evidence including accepted XR declarations, successful closed normal whole-project check, exhaustive audit, matching verification, both independent axes and immediate candidate verification."
+  ],
+  "no_compiler_or_source_or_ref_mutations": true
+}

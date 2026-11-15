@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-11-03T17:56:29.083660+00:00",
+  "tool_exit_code": 1,
+  "stage": "Probe setup, before target sources were copied or any compiler was launched",
+  "error": "AssertionError: one-off driver incorrectly expected exactly nine dependency build-output directories",
+  "actual_build_directories": [
+    "import-correction-r3/.lake/packages/LeanSearchClient/.lake/build/lib/lean",
+    "import-correction-r3/.lake/packages/Qq/.lake/build/lib/lean",
+    "import-correction-r3/.lake/packages/aesop/.lake/build/lib/lean",
+    "import-correction-r3/.lake/packages/batteries/.lake/build/lib/lean",
+    "import-correction-r3/.lake/packages/importGraph/.lake/build/lib/lean",
+    "import-correction-r3/.lake/packages/mathlib/.lake/build/lib/lean",
+    "import-correction-r3/.lake/packages/plausible/.lake/build/lib/lean",
+    "import-correction-r3/.lake/packages/proofwidgets/.lake/build/lib/lean"
+  ],
+  "distinction": "Nine exact dependency Git checkouts do not imply nine materialized Lean build directories. The stock fresh checker only enumerates present build directories and checks Mathlib cache availability.",
+  "formal_result": null,
+  "candidate_sources_modified": false
+}

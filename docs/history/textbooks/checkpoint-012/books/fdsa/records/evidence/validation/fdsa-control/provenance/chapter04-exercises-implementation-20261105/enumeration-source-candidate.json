@@ -1,0 +1,71 @@
+{
+  "status": "UNCOMPILED source candidate; no acceptance",
+  "recorded_at_utc": "2026-11-05T03:20:15.648778+00:00",
+  "candidate": "b6affb296a8782284b2ebcaff2d7bd894337c578",
+  "parent": "106601ff0c6af392139786f0ad01a56e0dca96fb",
+  "tree": "6936c8ce32ce0b21f35f6d1e83c6943de39e7efe",
+  "branch": "work/fdsa-ch04-exercises",
+  "status_porcelain": "",
+  "files": [
+    {
+      "path": "Applications/Trees/Enumeration.lean",
+      "bytes": 6707,
+      "sha256": "c5e91cbaf276843941d31eec5b5cf1693cfe885f43c8831fd9246559712249c3",
+      "public_names": [
+        "Trees.insertFirst",
+        "Trees.insertFirst_nil",
+        "Trees.insertFirst_node",
+        "Trees.removeFirst",
+        "Trees.removeFirst_node_of_ne_nil",
+        "Trees.nil_not_mem_insertFirst",
+        "Trees.inorder_of_mem_insertFirst",
+        "Trees.removeFirst_of_mem_insertFirst",
+        "Trees.nodup_insertFirst",
+        "Trees.exists_insertFirst_of_inorder_cons",
+        "Trees.insertFirst_flatMap_nodup",
+        "Trees.enumTree",
+        "Trees.enumTree_nil",
+        "Trees.enumTree_cons",
+        "Trees.mem_enumTree_iff",
+        "Trees.set_enumTree",
+        "Trees.enumTree_nodup"
+      ]
+    },
+    {
+      "path": "Examples/TreeEnumeration.lean",
+      "bytes": 2078,
+      "sha256": "54d112abab423482045370339e5f9bb5144adb599d39baedc6e22a18cb3247de",
+      "public_names": [
+        "TreeEnumerationExamples.empty_label_enum",
+        "TreeEnumerationExamples.empty_label_nodup",
+        "TreeEnumerationExamples.singleton_enum",
+        "TreeEnumerationExamples.pair_enum",
+        "TreeEnumerationExamples.repeated_shapes_nodup",
+        "TreeEnumerationExamples.repeated_shapes_distinct",
+        "TreeEnumerationExamples.three_enum",
+        "TreeEnumerationExamples.three_nodup",
+        "TreeEnumerationExamples.sample",
+        "TreeEnumerationExamples.sample_member",
+        "TreeEnumerationExamples.sample_not_wrong_order"
+      ]
+    }
+  ],
+  "frozen_contract_sha256": "8f0786dc37386d8d6d1ef4c36ef2894c1d31bc6a98bc858b2e285ce267770ea2",
+  "public_headers_sha256": "b93c444124a322a19a8619ebc59d21a8e9d92c6d2bda444ab8de9852d9707462",
+  "actual_source_checks": [
+    "complete source readback520779 actual exit0",
+    "git diff --cached --check520779 actual exit0",
+    "forbidden token scan520779 actual exit0",
+    "four prior source hashes unchanged520779",
+    "only the two authorized Enumeration paths were staged/committed"
+  ],
+  "not_run": [
+    "Lean",
+    "Lake",
+    "check.sh",
+    "proof audit",
+    "elaborated type extraction"
+  ],
+  "root_qualification_required": true,
+  "scope": "C04-019/020; exact generic membership/set equality and duplicate-free output on every list, repeated labels retained. No runtime bound. Full original Chapter4 review/integration remains pending."
+}

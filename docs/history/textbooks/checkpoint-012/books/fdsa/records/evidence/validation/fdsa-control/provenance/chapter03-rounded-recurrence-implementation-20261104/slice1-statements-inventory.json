@@ -1,0 +1,226 @@
+{
+  "candidate": "a4cd1b6b53fdab38eab40433c3fd60293fdc054f",
+  "tree": "cdf8f8ffb0ea2a4afb1188b489491064a89c0a49",
+  "base": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "source_files": [
+    {
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "blob": "0f78fd302b88aba9596036a63b79195007e502a8",
+      "bytes": 7723,
+      "lines": 140,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758"
+    },
+    {
+      "path": "Examples/RoundedRecurrence.lean",
+      "blob": "79e2f5c019122b42b55d1073e0f7e73fec06e94a",
+      "bytes": 3782,
+      "lines": 79,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d"
+    }
+  ],
+  "counts": {
+    "public_theorems": 16,
+    "public_definitions": 0,
+    "private_declarations": 0,
+    "anonymous_examples": 0,
+    "instances": 0
+  },
+  "header_convention": "Raw UTF-8 from the authored theorem command through the bytes immediately before :=, including preceding spaces/newlines. No proof-body bytes are in a header.",
+  "rows": [
+    {
+      "position": 1,
+      "name": "Resources.RoundedRecurrence.ceil_affine_lt_add_one",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "source_blob": "0f78fd302b88aba9596036a63b79195007e502a8",
+      "source_sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758",
+      "line": 25,
+      "raw_header": "theorem ceil_affine_lt_add_one (a b : ℝ) (n : Nat) (ha : 0 ≤ a) :\n    (⌈a * (n : ℝ) + b⌉₊ : ℝ) < a * (n : ℝ) + max 0 b + 1 ",
+      "raw_header_sha256": "75bda5fb2be0cc0533f8faa30595cae788b56dec8ed343d7c3e9490e76c0ca80"
+    },
+    {
+      "position": 2,
+      "name": "Resources.RoundedRecurrence.ceil_affine_lt_of_threshold",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "source_blob": "0f78fd302b88aba9596036a63b79195007e502a8",
+      "source_sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758",
+      "line": 37,
+      "raw_header": "theorem ceil_affine_lt_of_threshold (a b : ℝ) (N n : Nat)\n    (ha : 0 ≤ a) (ha_lt_one : a < 1)\n    (threshold : (max 0 b + 1) / (1 - a) ≤ (N : ℝ)) (large : N < n) :\n    ⌈a * (n : ℝ) + b⌉₊ < n ",
+      "raw_header_sha256": "8e3f7d71e106410e94efdf96de8eb732e6622940513dd02aba3f5a6e3a8ded19"
+    },
+    {
+      "position": 3,
+      "name": "Resources.RoundedRecurrence.thresholds_of_combined_cutoff",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "source_blob": "0f78fd302b88aba9596036a63b79195007e502a8",
+      "source_sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758",
+      "line": 52,
+      "raw_header": "theorem thresholds_of_combined_cutoff (a b c d : ℝ) (N : Nat)\n    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1)\n    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ)) :\n    (max 0 b + 1) / (1 - a) ≤ (N : ℝ) ∧\n      (max 0 d + 1) / (1 - c) ≤ (N : ℝ) ",
+      "raw_header_sha256": "627a5c96a12a12cee6a1bdab55edaec109aa242fb5cca8acf6d5e0d471c3b0b0"
+    },
+    {
+      "position": 4,
+      "name": "Resources.RoundedRecurrence.ceil_children_lt",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "source_blob": "0f78fd302b88aba9596036a63b79195007e502a8",
+      "source_sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758",
+      "line": 71,
+      "raw_header": "theorem ceil_children_lt (a b c d : ℝ) (N n : Nat)\n    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1)\n    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ))\n    (large : N < n) :\n    ⌈a * (n : ℝ) + b⌉₊ < n ∧ ⌈c * (n : ℝ) + d⌉₊ < n ",
+      "raw_header_sha256": "d1ce20a8e2b8ac0dd504ad24a0a5609da75ef0560de340344cccb481d24806b8"
+    },
+    {
+      "position": 5,
+      "name": "Resources.RoundedRecurrence.cutoff_denominator_pos",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "source_blob": "0f78fd302b88aba9596036a63b79195007e502a8",
+      "source_sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758",
+      "line": 83,
+      "raw_header": "theorem cutoff_denominator_pos (a b c d : ℝ) (N : Nat) (contract : a + c < 1)\n    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ)) :\n    0 < (1 - a - c) * (N : ℝ) - max 0 b - max 0 d - 2 ",
+      "raw_header_sha256": "f26949be531a130d1a50c152bb520ee5066a7abc83738b183edbf7b4ade48dc3"
+    },
+    {
+      "position": 6,
+      "name": "Resources.RoundedRecurrence.slope_nonneg_and_margin",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "source_blob": "0f78fd302b88aba9596036a63b79195007e502a8",
+      "source_sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758",
+      "line": 92,
+      "raw_header": "theorem slope_nonneg_and_margin (a c C1 C3 : ℝ) (contract : a + c < 1)\n    (toll_nonneg : 0 ≤ C1) (slope : C1 / (1 - a - c) ≤ C3) :\n    0 ≤ C3 ∧ 0 ≤ C3 * (1 - a - c) - C1 ",
+      "raw_header_sha256": "6b29fdd4b4118b847f77ecfaa89d18d7c2774d40ab3ba6f8fbc6ff9fc80b693b"
+    },
+    {
+      "position": 7,
+      "name": "Resources.RoundedRecurrence.sharp_affine_absorption",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "source_blob": "0f78fd302b88aba9596036a63b79195007e502a8",
+      "source_sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758",
+      "line": 101,
+      "raw_header": "theorem sharp_affine_absorption (a b c d C1 C2 C3 C4 : ℝ) (N n : Nat)\n    (contract : a + c < 1) (toll_nonneg : 0 ≤ C1)\n    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ))\n    (slope : C1 / (1 - a - c) ≤ C3)\n    (absorb : (C1 * (N : ℝ) + C2 + C4) /\n      ((1 - a - c) * (N : ℝ) - max 0 b - max 0 d - 2) ≤ C3)\n    (large : N ≤ n) :\n    (C3 * (a * (n : ℝ) + max 0 b + 1) + C4) +\n      (C3 * (c * (n : ℝ) + max 0 d + 1) + C4) + C1 * (n : ℝ) + C2 ≤\n        C3 * (n : ℝ) + C4 ",
+      "raw_header_sha256": "0ad2f527e3b62ccb414d16c5c8e8045eda84024a7b34c87f108c9d520a062cb5"
+    },
+    {
+      "position": 8,
+      "name": "Resources.RoundedRecurrence.recurrence_step_le",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "source_blob": "0f78fd302b88aba9596036a63b79195007e502a8",
+      "source_sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758",
+      "line": 121,
+      "raw_header": "theorem recurrence_step_le (f : Nat → ℝ) (a b c d C1 C2 C3 C4 : ℝ) (N n : Nat)\n    (ha : 0 ≤ a) (hc : 0 ≤ c) (contract : a + c < 1) (toll_nonneg : 0 ≤ C1)\n    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ))\n    (slope : C1 / (1 - a - c) ≤ C3)\n    (absorb : (C1 * (N : ℝ) + C2 + C4) /\n      ((1 - a - c) * (N : ℝ) - max 0 b - max 0 d - 2) ≤ C3)\n    (large : N ≤ n)\n    (recurrence : f n = f ⌈a * (n : ℝ) + b⌉₊ + f ⌈c * (n : ℝ) + d⌉₊ +\n      C1 * (n : ℝ) + C2)\n    (left_bound : f ⌈a * (n : ℝ) + b⌉₊ ≤ C3 * (⌈a * (n : ℝ) + b⌉₊ : ℝ) + C4)\n    (right_bound : f ⌈c * (n : ℝ) + d⌉₊ ≤ C3 * (⌈c * (n : ℝ) + d⌉₊ : ℝ) + C4) :\n    f n ≤ C3 * (n : ℝ) + C4 ",
+      "raw_header_sha256": "2f3f0fc1555abde361c8ff42fcc81e7ad2382c54344c964fac90b99529566cc3"
+    },
+    {
+      "position": 9,
+      "name": "Examples.RoundedRecurrence.negative_argument_truncation",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/RoundedRecurrence.lean",
+      "source_blob": "79e2f5c019122b42b55d1073e0f7e73fec06e94a",
+      "source_sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d",
+      "line": 17,
+      "raw_header": "theorem negative_argument_truncation :\n    ⌈(-2 : ℝ)⌉₊ = 0 ∧ ¬ (⌈(-2 : ℝ)⌉₊ : ℝ) ≤ -2 + 1 ",
+      "raw_header_sha256": "58a79a5018b18c743c2f76d6549968f28000f88a4caca8fcc31c59b89e767b23"
+    },
+    {
+      "position": 10,
+      "name": "Examples.RoundedRecurrence.signed_offset_descent",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/RoundedRecurrence.lean",
+      "source_blob": "79e2f5c019122b42b55d1073e0f7e73fec06e94a",
+      "source_sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d",
+      "line": 25,
+      "raw_header": "theorem signed_offset_descent (n : Nat) (large : 2 < n) :\n    ⌈(1 / 4 : ℝ) * (n : ℝ) + (-7)⌉₊ < n ",
+      "raw_header_sha256": "cf09e5df8c023743fcf5952eb2ad6c899dd67042e8450379479a235907171158"
+    },
+    {
+      "position": 11,
+      "name": "Examples.RoundedRecurrence.combined_signed_descent",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/RoundedRecurrence.lean",
+      "source_blob": "79e2f5c019122b42b55d1073e0f7e73fec06e94a",
+      "source_sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d",
+      "line": 31,
+      "raw_header": "theorem combined_signed_descent (n : Nat) (large : 5 < n) :\n    ⌈(1 / 4 : ℝ) * (n : ℝ) + (-7)⌉₊ < n ∧\n      ⌈(1 / 4 : ℝ) * (n : ℝ) + (-2)⌉₊ < n ",
+      "raw_header_sha256": "8dc5094c5bdff2f601f4315fad723974cb5433fa8b423ce6c2508ae4b03f74be"
+    },
+    {
+      "position": 12,
+      "name": "Examples.RoundedRecurrence.zero_recurrence",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/RoundedRecurrence.lean",
+      "source_blob": "79e2f5c019122b42b55d1073e0f7e73fec06e94a",
+      "source_sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d",
+      "line": 38,
+      "raw_header": "theorem zero_recurrence (n : Nat) :\n    (fun _ : Nat => (0 : ℝ)) n =\n      (fun _ : Nat => (0 : ℝ)) ⌈(1 / 4 : ℝ) * (n : ℝ) + 0⌉₊ +\n      (fun _ : Nat => (0 : ℝ)) ⌈(1 / 4 : ℝ) * (n : ℝ) + 0⌉₊ + 0 * (n : ℝ) + 0 ",
+      "raw_header_sha256": "992260eba0b29f6ba171371ac5b4919ac4789314ccd461829e9b36965543d467"
+    },
+    {
+      "position": 13,
+      "name": "Examples.RoundedRecurrence.strict_slope_choice_counterexample",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/RoundedRecurrence.lean",
+      "source_blob": "79e2f5c019122b42b55d1073e0f7e73fec06e94a",
+      "source_sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d",
+      "line": 46,
+      "raw_header": "theorem strict_slope_choice_counterexample :\n    (0 : ℝ) < 1 / 4 ∧ (1 / 4 : ℝ) + 1 / 4 < 1 ∧\n      (2 : ℝ) / (1 - 1 / 4 - 1 / 4) < 5 ∧\n      max ((0 : ℝ) / (1 - 1 / 4 - 1 / 4))\n        ((0 * 5 + 0 + 0) / ((1 - 1 / 4 - 1 / 4) * 5 - 0 - 0 - 2)) = 0 ∧\n      ¬ (0 : ℝ) / (1 - 1 / 4 - 1 / 4) < 0 ",
+      "raw_header_sha256": "5a5c36f75c9c6c2a931a1ebbbf0a38b4a41707beb34b3aa50f13b229868cbbc1"
+    },
+    {
+      "position": 14,
+      "name": "Examples.RoundedRecurrence.zero_recurrence_bound_step",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/RoundedRecurrence.lean",
+      "source_blob": "79e2f5c019122b42b55d1073e0f7e73fec06e94a",
+      "source_sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d",
+      "line": 55,
+      "raw_header": "theorem zero_recurrence_bound_step (n : Nat) (large : 5 ≤ n) :\n    (0 : ℝ) ≤ 0 * (n : ℝ) + 0 ",
+      "raw_header_sha256": "cd774069a7eba12f5602e31ba38d4dfcaf78d09d30b54080aa0aaa83a3006783"
+    },
+    {
+      "position": 15,
+      "name": "Examples.RoundedRecurrence.negative_intercept_bound_step",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/RoundedRecurrence.lean",
+      "source_blob": "79e2f5c019122b42b55d1073e0f7e73fec06e94a",
+      "source_sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d",
+      "line": 64,
+      "raw_header": "theorem negative_intercept_bound_step (n : Nat) (large : 5 ≤ n) :\n    (-3 : ℝ) ≤ 0 * (n : ℝ) + (-3) ",
+      "raw_header_sha256": "be479650b0484bd668e19ae6f1c731034c1eaca248faa8eae04ad069b03258a1"
+    },
+    {
+      "position": 16,
+      "name": "Examples.RoundedRecurrence.negative_toll_and_intercept",
+      "kind": "theorem",
+      "visibility": "public",
+      "path": "Examples/RoundedRecurrence.lean",
+      "source_blob": "79e2f5c019122b42b55d1073e0f7e73fec06e94a",
+      "source_sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d",
+      "line": 72,
+      "raw_header": "theorem negative_toll_and_intercept (n : Nat) (large : 5 ≤ n) :\n    (0 * ((1 / 4 : ℝ) * (n : ℝ) + max 0 (-7) + 1) + (-3)) +\n      (0 * ((1 / 4 : ℝ) * (n : ℝ) + max 0 (-2) + 1) + (-3)) + 0 * (n : ℝ) + (-10) ≤\n        0 * (n : ℝ) + (-3) ",
+      "raw_header_sha256": "20f0edd02087081e799d5b8eff5dc06cf85e95c61dd97d0d262b75ea2e8be47c"
+    }
+  ],
+  "actual_printed_type_count": 0,
+  "compiler_credit": false,
+  "acceptance_credit": false
+}

@@ -1,0 +1,769 @@
+{
+  "candidate": "24b74c65e2b907f1a4cd8b8c72e22bba8f315eea",
+  "tree": "1a412f79a46a2850a199a6a8d8c88c4826e589ec",
+  "fixed_stage_base": "979c4fcb1719a779ffda7462a6df385e876b7d4c",
+  "whole_chapter_review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "status": "Source-header inventory, not emitted types; declared source variables need not all survive as parameters. Explicit-@ capture remains pending.",
+  "public_count": 65,
+  "private_count": 0,
+  "modules": [
+    {
+      "module": "Applications.Selection.MedianReduction",
+      "repository_path": "Applications/Selection/MedianReduction.lean",
+      "namespace": "Applications.Selection.MedianReduction",
+      "imports": [
+        "Applications.Selection.FixedRank",
+        "Applications.Selection.MedianOfMedians"
+      ],
+      "bytes": 8269,
+      "sha256": "902329504401dfb5ae2dbd2a62c6c7fa8d3dc9eec22d29d99b350282e57d608a",
+      "git_blob": "1e36217265e5dda7cd3f79f7ffdf1c15e702c4d4",
+      "declarations": [
+        {
+          "name": "Applications.Selection.MedianReduction.padExtrema",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def padExtrema (low high : Nat) (lo hi : \u03b1) (xs : List \u03b1) : List \u03b1",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.padExtrema_length",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem padExtrema_length (low high : Nat) (lo hi : \u03b1) (xs : List \u03b1) :\n    (padExtrema low high lo hi xs).length = low + xs.length + high",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.padding_length_identity",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem padding_length_identity (k n : Nat) :\n    (n - 1 - 2 * k) + n + (2 * k + 1 - n) =\n      2 * (k + (n - 1 - 2 * k)) + 1",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.padding_total_le",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem padding_total_le (k n : Nat) (hk : k < n) :\n    (n - 1 - 2 * k) + (2 * k + 1 - n) \u2264 n - 1",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.extrema",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def extrema (x : \u03b1) (xs : List \u03b1) : \u03b1 \u00d7 \u03b1",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.extrema_spec",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem extrema_spec (x : \u03b1) (xs : List \u03b1) :\n    ((extrema x xs).1 \u2208 x :: xs \u2227 \u2200 y \u2208 x :: xs, (extrema x xs).1 \u2264 y) \u2227\n      ((extrema x xs).2 \u2208 x :: xs \u2227 \u2200 y \u2208 x :: xs, y \u2264 (extrema x xs).2)",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.extrema_eq_of_bounds",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem extrema_eq_of_bounds (x : \u03b1) (xs : List \u03b1) (lo hi : \u03b1)\n    (hlo_mem : lo \u2208 x :: xs) (hhi_mem : hi \u2208 x :: xs)\n    (hlo : \u2200 y \u2208 x :: xs, lo \u2264 y) (hhi : \u2200 y \u2208 x :: xs, y \u2264 hi) :\n    extrema x xs = (lo, hi)",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.ranked_padExtrema",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem ranked_padExtrema (low high : Nat) (lo hi : \u03b1) (xs : List \u03b1) (k : Nat)\n    (a : \u03b1) (ha : RankedAt xs k a) (hlo : lo \u2264 a) (hhi : a \u2264 hi) :\n    RankedAt (padExtrema low high lo hi xs) (k + low) a",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.reduceToMedian",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def reduceToMedian (k : Nat) : List \u03b1 \u2192 List \u03b1",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.reduceToMedian_nil",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduceToMedian_nil (k : Nat) : reduceToMedian k ([] : List \u03b1) = []",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.reduceToMedian_length",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduceToMedian_length (k : Nat) (xs : List \u03b1) (hx : xs \u2260 []) :\n    (reduceToMedian k xs).length =\n      (xs.length - 1 - 2 * k) + xs.length + (2 * k + 1 - xs.length)",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.reduceToMedian_nonempty",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduceToMedian_nonempty (k : Nat) (xs : List \u03b1) (hx : xs \u2260 []) :\n    reduceToMedian k xs \u2260 []",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.reduceToMedian_length_eq",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduceToMedian_length_eq (k : Nat) (xs : List \u03b1) (hx : xs \u2260 []) :\n    (reduceToMedian k xs).length = 2 * (k + (xs.length - 1 - 2 * k)) + 1",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.reduceToMedian_center",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduceToMedian_center (k : Nat) (xs : List \u03b1) (hx : xs \u2260 []) :\n    ((reduceToMedian k xs).length - 1) / 2 = k + (xs.length - 1 - 2 * k)",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.reduceToMedian_odd",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduceToMedian_odd (k : Nat) (xs : List \u03b1) (hx : xs \u2260 []) :\n    (reduceToMedian k xs).length % 2 = 1",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.reduceToMedian_length_le",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduceToMedian_length_le (k : Nat) (xs : List \u03b1) (hk : k < xs.length) :\n    (reduceToMedian k xs).length \u2264 2 * xs.length - 1",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.reduceToMedian_rank_shift",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduceToMedian_rank_shift (k : Nat) (xs : List \u03b1) (a : \u03b1)\n    (ha : RankedAt xs k a) :\n    RankedAt (reduceToMedian k xs) (k + (xs.length - 1 - 2 * k)) a",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.reduceToMedian_ranked",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduceToMedian_ranked (k : Nat) (xs : List \u03b1) (a : \u03b1)\n    (ha : RankedAt xs k a) :\n    RankedAt (reduceToMedian k xs) (((reduceToMedian k xs).length - 1) / 2) a",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.reduceToMedian_value",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduceToMedian_value (choose : List \u03b1 \u2192 Option \u03b1) (hv : PivotValid choose)\n    (k : Nat) (xs : List \u03b1) (hk : k < xs.length) :\n    lowerMedianWith choose (reduceToMedian k xs) = selectFixed k xs",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.reduceToMedian_payload_value",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduceToMedian_payload_value (k : Nat) (xs : List \u03b1)\n    (hx : xs \u2260 []) (hk : k < xs.length) :\n    some (lowerMedianValue (reduceToMedian k xs) (reduceToMedian_nonempty k xs hx)) =\n      selectFixed k xs",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianReduction.reduceToMedian_spec",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduceToMedian_spec (choose : List \u03b1 \u2192 Option \u03b1) (hv : PivotValid choose)\n    (k : Nat) (xs : List \u03b1) (hx : xs \u2260 []) (hk : k < xs.length) :\n    reduceToMedian k xs \u2260 [] \u2227\n      lowerMedianWith choose (reduceToMedian k xs) = selectWith choose (k + 1) xs",
+          "source_context": [
+            "open Applications.Selection.FixedRank",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "Applications.Resources.MedianReduction",
+      "repository_path": "Applications/Resources/MedianReduction.lean",
+      "namespace": "Resources.MedianReduction",
+      "imports": [
+        "Applications.Selection.MedianReduction",
+        "Applications.Resources.FixedRank",
+        "Applications.Resources.ListReversal"
+      ],
+      "bytes": 5640,
+      "sha256": "d38d65797526b67c775b44426c122f18c9912e32fab84481a2279c5eb324ff89",
+      "git_blob": "d99d7ea3b5a16a6877618df8cc2e62552e33039c",
+      "declarations": [
+        {
+          "name": "Resources.MedianReduction.replicateRun",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def replicateRun (a : \u03b1) : Nat \u2192 Measured (List \u03b1) Nat",
+          "source_context": [
+            "open Applications.Selection.MedianReduction",
+            "universe u",
+            "variable {\u03b1 : Type u}"
+          ]
+        },
+        {
+          "name": "Resources.MedianReduction.replicateRun_exact",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem replicateRun_exact (a : \u03b1) (n : Nat) :\n    replicateRun a n = (List.replicate n a, n + 1)",
+          "source_context": [
+            "open Applications.Selection.MedianReduction",
+            "universe u",
+            "variable {\u03b1 : Type u}"
+          ]
+        },
+        {
+          "name": "Resources.MedianReduction.padExtremaRun",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def padExtremaRun (low high : Nat) (lo hi : \u03b1) (xs : List \u03b1) :\n    Measured (List \u03b1) Nat",
+          "source_context": [
+            "open Applications.Selection.MedianReduction",
+            "universe u",
+            "variable {\u03b1 : Type u}"
+          ]
+        },
+        {
+          "name": "Resources.MedianReduction.padExtremaRun_value",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem padExtremaRun_value (low high : Nat) (lo hi : \u03b1) (xs : List \u03b1) :\n    (padExtremaRun low high lo hi xs).1 = padExtrema low high lo hi xs",
+          "source_context": [
+            "open Applications.Selection.MedianReduction",
+            "universe u",
+            "variable {\u03b1 : Type u}"
+          ]
+        },
+        {
+          "name": "Resources.MedianReduction.padExtremaRun_cost",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem padExtremaRun_cost (low high : Nat) (lo hi : \u03b1) (xs : List \u03b1) :\n    (padExtremaRun low high lo hi xs).2 = 2 * low + high + xs.length + 5",
+          "source_context": [
+            "open Applications.Selection.MedianReduction",
+            "universe u",
+            "variable {\u03b1 : Type u}"
+          ]
+        },
+        {
+          "name": "Resources.MedianReduction.padExtremaRun_exact",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem padExtremaRun_exact (low high : Nat) (lo hi : \u03b1) (xs : List \u03b1) :\n    padExtremaRun low high lo hi xs =\n      (padExtrema low high lo hi xs, 2 * low + high + xs.length + 5)",
+          "source_context": [
+            "open Applications.Selection.MedianReduction",
+            "universe u",
+            "variable {\u03b1 : Type u}"
+          ]
+        },
+        {
+          "name": "Resources.MedianReduction.extremaRun",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def extremaRun (x : \u03b1) (xs : List \u03b1) : Measured (\u03b1 \u00d7 \u03b1) Nat",
+          "source_context": [
+            "open Applications.Selection.MedianReduction",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Resources.MedianReduction.extremaRun_value",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem extremaRun_value (x : \u03b1) (xs : List \u03b1) : (extremaRun x xs).1 = extrema x xs",
+          "source_context": [
+            "open Applications.Selection.MedianReduction",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Resources.MedianReduction.extremaRun_cost",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem extremaRun_cost (x : \u03b1) (xs : List \u03b1) :\n    (extremaRun x xs).2 = 2 * xs.length + 3",
+          "source_context": [
+            "open Applications.Selection.MedianReduction",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Resources.MedianReduction.extremaRun_exact",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem extremaRun_exact (x : \u03b1) (xs : List \u03b1) :\n    extremaRun x xs = (extrema x xs, 2 * xs.length + 3)",
+          "source_context": [
+            "open Applications.Selection.MedianReduction",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Resources.MedianReduction.reduceToMedianRun",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def reduceToMedianRun (k : Nat) : List \u03b1 \u2192 Measured (List \u03b1) Nat",
+          "source_context": [
+            "open Applications.Selection.MedianReduction",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Resources.MedianReduction.reduceToMedianRun_nil",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduceToMedianRun_nil (k : Nat) : reduceToMedianRun k ([] : List \u03b1) = ([], 1)",
+          "source_context": [
+            "open Applications.Selection.MedianReduction",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Resources.MedianReduction.reduceToMedianRun_value",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduceToMedianRun_value (k : Nat) (xs : List \u03b1) :\n    (reduceToMedianRun k xs).1 = reduceToMedian k xs",
+          "source_context": [
+            "open Applications.Selection.MedianReduction",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Resources.MedianReduction.reduceToMedianRun_cons_cost",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduceToMedianRun_cons_cost (k : Nat) (x : \u03b1) (xs : List \u03b1) :\n    (reduceToMedianRun k (x :: xs)).2 =\n      4 * (x :: xs).length + 2 * ((x :: xs).length - 1 - 2 * k) +\n        (2 * k + 1 - (x :: xs).length) + 8",
+          "source_context": [
+            "open Applications.Selection.MedianReduction",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Resources.MedianReduction.reduceToMedianRun_cost",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduceToMedianRun_cost (k : Nat) (xs : List \u03b1) (hx : xs \u2260 []) :\n    (reduceToMedianRun k xs).2 =\n      4 * xs.length + 2 * (xs.length - 1 - 2 * k) + (2 * k + 1 - xs.length) + 8",
+          "source_context": [
+            "open Applications.Selection.MedianReduction",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Resources.MedianReduction.reduceToMedianRun_cost_le",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduceToMedianRun_cost_le (k : Nat) (xs : List \u03b1) (hk : k < xs.length) :\n    (reduceToMedianRun k xs).2 \u2264 6 * xs.length + 6",
+          "source_context": [
+            "open Applications.Selection.MedianReduction",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Resources.MedianReduction.reduceToMedianRun_uniform_bound",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduceToMedianRun_uniform_bound :\n    \u2203 C1 C2 : Nat, \u2200 (k : Nat) (xs : List \u03b1), k < xs.length \u2192\n      (reduceToMedianRun k xs).2 \u2264 C1 * xs.length + C2",
+          "source_context": [
+            "open Applications.Selection.MedianReduction",
+            "universe u",
+            "variable {\u03b1 : Type u}",
+            "variable [LinearOrder \u03b1]"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "Examples.MedianReduction",
+      "repository_path": "Examples/MedianReduction.lean",
+      "namespace": "Examples.MedianReduction",
+      "imports": [
+        "Applications.Resources.MedianReduction"
+      ],
+      "bytes": 7589,
+      "sha256": "d08959ce8687e1bc6db9dff78fb581c53b072e9db0436da465d9e42fdf652506",
+      "git_blob": "a123c6bfe01f3c667060cb9787d8ac06acb981c5",
+      "declarations": [
+        {
+          "name": "Examples.MedianReduction.extrema_mixed",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem extrema_mixed : extrema (4 : Nat) [1, 7, 1] = (1, 7)",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.extrema_tied",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem extrema_tied : extrema (3 : Nat) [3, 3] = (3, 3)",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.extrema_integer",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem extrema_integer : extrema (-2 : Int) [7, -2, 0] = (-2, 7)",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.extrema_execution",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem extrema_execution : extremaRun (4 : Nat) [1, 7, 1] = ((1, 7), 9)",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.replication_execution",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem replication_execution : replicateRun (5 : Int) 3 = ([5, 5, 5], 4)",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.tied_padding_rank",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem tied_padding_rank : RankedAt (padExtrema 2 3 (1 : Nat) 1 [1, 1]) 3 1",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.first_padding",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem first_padding :\n    reduceToMedian 0 ([4, 1, 7, 1] : List Nat) = [1, 1, 1, 4, 1, 7, 1]",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.last_padding",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem last_padding :\n    reduceToMedian 3 ([4, 1, 7, 1] : List Nat) = [4, 1, 7, 1, 7, 7, 7]",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.lower_middle_padding",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem lower_middle_padding :\n    reduceToMedian 1 ([4, 1, 7, 1] : List Nat) = [1, 4, 1, 7, 1]",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.upper_middle_padding",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem upper_middle_padding :\n    reduceToMedian 2 ([4, 1, 7, 1] : List Nat) = [4, 1, 7, 1, 7]",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.already_central",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem already_central : reduceToMedian 1 ([4, 1, 1] : List Nat) = [4, 1, 1]",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.singleton_unchanged",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem singleton_unchanged {\u03b1 : Type} [LinearOrder \u03b1] (x : \u03b1) :\n    reduceToMedian 0 [x] = [x]",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.empty_median_failure",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem empty_median_failure (k : Nat) :\n    lowerMedianWith List.head? (reduceToMedian k ([] : List Nat)) = none",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.lower_middle_median",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem lower_middle_median :\n    lowerMedianWith lastPivot (reduceToMedian 1 ([4, 1, 7, 1] : List Nat)) = some 1",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.upper_middle_payload",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem upper_middle_payload :\n    lowerMedianValue (reduceToMedian 2 ([4, 1, 7, 1] : List Nat))\n      (reduceToMedian_nonempty 2 _ (by decide)) = 4",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.reduction_shape",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem reduction_shape {\u03b1 : Type} [LinearOrder \u03b1] (k : Nat) (xs : List \u03b1)\n    (hk : k < xs.length) :\n    reduceToMedian k xs \u2260 [] \u2227 (reduceToMedian k xs).length % 2 = 1 \u2227\n      (reduceToMedian k xs).length \u2264 2 * xs.length - 1 \u2227\n      ((reduceToMedian k xs).length - 1) / 2 = k + (xs.length - 1 - 2 * k)",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.padding_execution",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem padding_execution :\n    padExtremaRun 3 0 (1 : Nat) 7 [4, 1, 7, 1] = ([1, 1, 1, 4, 1, 7, 1], 15)",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.first_execution",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem first_execution :\n    reduceToMedianRun 0 ([4, 1, 7, 1] : List Nat) = ([1, 1, 1, 4, 1, 7, 1], 30)",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.last_execution",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem last_execution :\n    reduceToMedianRun 3 ([4, 1, 7, 1] : List Nat) = ([4, 1, 7, 1, 7, 7, 7], 27)",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.central_execution",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem central_execution :\n    reduceToMedianRun 1 ([4, 1, 1] : List Nat) = ([4, 1, 1], 20)",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.singleton_execution",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem singleton_execution {\u03b1 : Type} [LinearOrder \u03b1] (x : \u03b1) :\n    reduceToMedianRun 0 [x] = ([x], 12)",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.empty_execution",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem empty_execution (k : Nat) : reduceToMedianRun k ([] : List Nat) = ([], 1)",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.first_rank_attains_bound",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem first_rank_attains_bound {\u03b1 : Type} [LinearOrder \u03b1] (xs : List \u03b1)\n    (hx : xs \u2260 []) : (reduceToMedianRun 0 xs).2 = 6 * xs.length + 6",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.measured_reduction_contract",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem measured_reduction_contract {\u03b1 : Type} [LinearOrder \u03b1]\n    (choose : List \u03b1 \u2192 Option \u03b1) (hv : PivotValid choose) (k : Nat) (xs : List \u03b1)\n    (hk : k < xs.length) :\n    (reduceToMedianRun k xs).1 \u2260 [] \u2227\n      lowerMedianWith choose (reduceToMedianRun k xs).1 = selectWith choose (k + 1) xs \u2227\n      (reduceToMedianRun k xs).2 \u2264 6 * xs.length + 6",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.invalid_rank_values",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem invalid_rank_values :\n    lowerMedianWith List.head? (reduceToMedian 1 ([7] : List Nat)) = some 7 \u2227\n      selectFixed 1 ([7] : List Nat) = none",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.invalid_rank_cost_exceeds_valid_bound",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem invalid_rank_cost_exceeds_valid_bound :\n    6 * ([7] : List Nat).length + 6 < (reduceToMedianRun 1 ([7] : List Nat)).2",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        },
+        {
+          "name": "Examples.MedianReduction.uniform_reduction_constants",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem uniform_reduction_constants :\n    \u2203 C1 C2 : Nat, \u2200 (k : Nat) (xs : List Nat), k < xs.length \u2192\n      (reduceToMedianRun k xs).2 \u2264 C1 * xs.length + C2",
+          "source_context": [
+            "open Applications.Selection Applications.Selection.FixedRank",
+            "open Applications.Selection.MedianReduction Resources.MedianReduction"
+          ]
+        }
+      ]
+    }
+  ]
+}

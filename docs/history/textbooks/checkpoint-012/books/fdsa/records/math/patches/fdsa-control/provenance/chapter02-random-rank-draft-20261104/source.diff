@@ -1,0 +1,556 @@
+diff --git a/Applications/Resources/RandomQuickSortRank.lean b/Applications/Resources/RandomQuickSortRank.lean
+new file mode 100644
+index 0000000..0e1179f
+--- /dev/null
++++ b/Applications/Resources/RandomQuickSortRank.lean
+@@ -0,0 +1,393 @@
++import Applications.Resources.RandomQuickSortMean
++import Mathlib.Data.Fin.Tuple.Sort
++import Mathlib.Data.Fin.Rev
++import Mathlib.Data.List.OfFn
++import Mathlib.Data.List.FinRange
++import Mathlib.Data.Finset.Card
++import Mathlib.Order.Interval.Finset.Fin
++import Mathlib.Data.Fintype.BigOperators
++import Mathlib.Tactic.Ring
++
++/-! Ranks of the actual selected occurrences in fresh-pivot quicksort.
++Distinctness concerns mapped keys, with independent payload and key universes.
++The rank permutation only reindexes the existing occurrence sampler. Actual
++indexed removal and complementary filters determine the recursive children.
++Their smaller sizes and inherited distinctness give equality of actual means
++at equal lengths, followed by the actual canonical-input size recurrence.
++No harmonic formula, uniform child-input resampling, or priority coupling is
++assumed. Pivot selection, lookup/removal and random bits remain outside the
++existing exercise and literal observations.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.RandomQuickSort
++open scoped BigOperators ENNReal
++universe u v w z
++variable {α : Type u} {κ : Type v} {β : Type w} {ν : Type z}
++
++noncomputable section
++
++/-- The original occurrence's position in the key-sorted occurrence tuple.
++The permutation exists on an empty domain. With repeated keys its tie positions
++need not equal strict key counts; that correspondence requires mapped-key Nodup.
++-/
++def occurrenceRank [LinearOrder κ] (key : α → κ) (xs : List α) :
++    Equiv.Perm (Fin xs.length) :=
++  (Tuple.sort (fun i : Fin xs.length => key xs[i.val]'i.isLt)).symm
++
++/-- Distinct mapped keys make the actual occurrence permutation a key rank. -/
++theorem occurrenceRank_lt_iff [LinearOrder κ] (key : α → κ) (xs : List α)
++    (hd : (xs.map key).Nodup) (i j : Fin xs.length) :
++    occurrenceRank key xs i < occurrenceRank key xs j ↔
++      key xs[i.val]'i.isLt < key xs[j.val]'j.isLt := by
++  let f : Fin xs.length → κ := fun k => key xs[k.val]'k.isLt
++  have hf : Function.Injective f := by
++    apply List.nodup_ofFn.mp
++    simpa only [f, List.ofFn_getElem_eq_map] using hd
++  have hs : StrictMono (f ∘ Tuple.sort f) :=
++    (Tuple.monotone_sort f).strictMono_of_injective (hf.comp (Tuple.sort f).injective)
++  change (Tuple.sort f).symm i < (Tuple.sort f).symm j ↔ f i < f j
++  have h := hs.lt_iff_lt (a := (Tuple.sort f).symm i) (b := (Tuple.sort f).symm j)
++  simpa only [Function.comp_apply, Equiv.apply_symm_apply] using h.symm
++
++private theorem filter_length_eq_card_indices (xs : List α) (p : α → Bool) :
++    (xs.filter p).length =
++      (Finset.univ.filter (fun i : Fin xs.length => p xs[i.val]'i.isLt)).card := by
++  let f : Fin xs.length → α := fun i => xs[i.val]'i.isLt
++  have hxs : (List.finRange xs.length).map f = xs := by
++    rw [← List.ofFn_eq_map]
++    exact List.ofFn_getElem
++  calc
++    (xs.filter p).length = (((List.finRange xs.length).map f).filter p).length :=
++      congrArg (fun ys => (ys.filter p).length) hxs.symm
++    _ = ((List.finRange xs.length).filter (p ∘ f)).length := by
++      rw [List.filter_map, List.length_map]
++    _ = (((List.finRange xs.length).filter (p ∘ f)).toFinset).card :=
++      (List.toFinset_card_of_nodup ((List.nodup_finRange _).filter _)).symm
++    _ = _ := by
++      rw [List.toFinset_filter, List.toFinset_finRange]
++
++private theorem strict_filter_length_eq_rank [LinearOrder κ] (key : α → κ)
++    (xs : List α) (hd : (xs.map key).Nodup) (i : Fin xs.length) :
++    (xs.filter (fun x => decide (key x < key xs[i.val]'i.isLt))).length =
++      (occurrenceRank key xs i).val := by
++  let ρ := occurrenceRank key xs
++  have himage :
++      (Finset.univ.filter (fun j : Fin xs.length =>
++        key xs[j.val]'j.isLt < key xs[i.val]'i.isLt)).image ρ = Finset.Iio (ρ i) := by
++    ext r
++    constructor
++    · intro hr
++      obtain ⟨j, hj, rfl⟩ := Finset.mem_image.mp hr
++      exact Finset.mem_Iio.mpr
++        ((occurrenceRank_lt_iff key xs hd j i).mpr (Finset.mem_filter.mp hj).2)
++    · intro hr
++      refine Finset.mem_image.mpr ⟨ρ.symm r, ?_, ρ.apply_symm_apply r⟩
++      refine Finset.mem_filter.mpr ⟨Finset.mem_univ _, ?_⟩
++      apply (occurrenceRank_lt_iff key xs hd (ρ.symm r) i).mp
++      simpa only [Equiv.apply_symm_apply] using (Finset.mem_Iio.mp hr)
++  have hc := congrArg Finset.card himage
++  rw [Finset.card_image_of_injective _ ρ.injective, Fin.card_Iio] at hc
++  rw [filter_length_eq_card_indices]
++  simpa only [decide_eq_true_eq] using hc
++
++/-- The actual erased-list strict filter has exactly the selected key's rank. -/
++theorem left_length_eq_rank [LinearOrder κ] (key : α → κ) (xs : List α)
++    (hd : (xs.map key).Nodup) (i : Fin xs.length) :
++    ((xs.eraseIdx i.val).filter
++      (fun x => decide (key x < key xs[i.val]'i.isLt))).length =
++        (occurrenceRank key xs i).val := by
++  calc
++    _ = (xs.filter (fun x => decide (key x < key xs[i.val]'i.isLt))).length := by
++      have hp : (xs[i.val]'i.isLt :: xs.eraseIdx i.val).Perm xs :=
++        List.getElem_cons_eraseIdx_perm i.isLt
++      simpa using (hp.filter (fun x => decide (key x < key xs[i.val]'i.isLt))).length_eq
++    _ = _ := strict_filter_length_eq_rank key xs hd i
++
++/-- The complementary actual filter contains every remaining greater key. -/
++theorem right_length_eq_rank [LinearOrder κ] (key : α → κ) (xs : List α)
++    (hd : (xs.map key).Nodup) (i : Fin xs.length) :
++    ((xs.eraseIdx i.val).filter
++      (fun x => !(decide (key x < key xs[i.val]'i.isLt)))).length =
++        xs.length - 1 - (occurrenceRank key xs i).val := by
++  have hl := left_length_eq_rank key xs hd i
++  have hp := QuickSort.partition_lengths
++    (fun x => decide (key x < key xs[i.val]'i.isLt)) (xs.eraseIdx i.val)
++  have he : (xs.eraseIdx i.val).length + 1 = xs.length :=
++    List.length_eraseIdx_add_one i.isLt
++  omega
++
++private theorem filtered_remainder_keys_nodup (key : α → κ) (xs : List α)
++    (hd : (xs.map key).Nodup) (i : Nat) (p : α → Bool) :
++    (((xs.eraseIdx i).filter p).map key).Nodup :=
++  List.Nodup.sublist
++    ((List.filter_sublist.trans (List.eraseIdx_sublist xs i)).map key) hd
++
++/-- Both actual child inputs inherit the recursive distinct-key hypothesis. -/
++theorem child_keys_nodup [LinearOrder κ] (key : α → κ) (xs : List α)
++    (hd : (xs.map key).Nodup) (i : Fin xs.length) :
++    (((xs.eraseIdx i.val).filter
++      (fun x => decide (key x < key xs[i.val]'i.isLt))).map key).Nodup ∧
++    (((xs.eraseIdx i.val).filter
++      (fun x => !(decide (key x < key xs[i.val]'i.isLt)))).map key).Nodup :=
++  ⟨filtered_remainder_keys_nodup key xs hd i.val _,
++    filtered_remainder_keys_nodup key xs hd i.val _⟩
++
++private theorem filtered_remainder_length_lt (xs : List α) (i : Fin xs.length)
++    (p : α → Bool) : ((xs.eraseIdx i.val).filter p).length < xs.length := by
++  have he : (xs.eraseIdx i.val).length + 1 = xs.length :=
++    List.length_eraseIdx_add_one i.isLt
++  have hf := List.length_filter_le p (xs.eraseIdx i.val)
++  omega
++
++private theorem uniformIndex_map_perm (m : Nat) (σ : Equiv.Perm (Fin (m + 1))) :
++    PMF.map σ (uniformIndex m) = uniformIndex m := by
++  apply PMF.ext
++  intro r
++  rw [PMF.map_apply]
++  have heq (j : Fin (m + 1)) : r = σ j ↔ j = σ.symm r := by
++    constructor
++    · intro h
++      apply σ.injective
++      simpa only [Equiv.apply_symm_apply] using h.symm
++    · intro h
++      rw [h, Equiv.apply_symm_apply]
++  simp only [heq, tsum_ite_eq, uniformIndex_apply]
++
++/-- The left size induced by the actual uniform occurrence choice is uniform
++over the possible ranks. The Nat pushforward is derived from a Fin bijection.
++-/
++theorem left_length_law [LinearOrder κ] (key : α → κ) (head : α) (tail : List α)
++    (hd : ((head :: tail).map key).Nodup) :
++    PMF.map (fun i : Fin (tail.length + 1) =>
++      (((head :: tail).eraseIdx i.val).filter
++        (fun x => decide (key x < key (head :: tail)[i.val]'i.isLt))).length)
++      (uniformIndex tail.length) =
++        PMF.map (fun i : Fin (tail.length + 1) => i.val) (uniformIndex tail.length) := by
++  have hfun : (fun i : Fin (tail.length + 1) =>
++      (((head :: tail).eraseIdx i.val).filter
++        (fun x => decide (key x < key (head :: tail)[i.val]'i.isLt))).length) =
++      (fun i : Fin (tail.length + 1) => (occurrenceRank key (head :: tail) i).val) := by
++    funext i
++    exact left_length_eq_rank key (head :: tail) hd i
++  rw [hfun]
++  change PMF.map (Fin.val ∘ occurrenceRank key (head :: tail)) (uniformIndex tail.length) = _
++  rw [← PMF.map_comp, uniformIndex_map_perm]
++
++/-- Equal lengths and distinct mapped keys give equal means of the actual
++recursive PMFs, even across independent payload and key universes. The proof
++pairs actual equal-rank occurrences and their actual smaller child lists.
++-/
++theorem exerciseMean_eq_of_length_eq [LinearOrder κ] [LinearOrder ν]
++    (key₁ : α → κ) (key₂ : β → ν) (xs : List α) (ys : List β)
++    (hx : (xs.map key₁).Nodup) (hy : (ys.map key₂).Nodup)
++    (hlen : xs.length = ys.length) :
++    exerciseMean (fun a b => decide (key₁ a < key₁ b)) xs =
++      exerciseMean (fun a b => decide (key₂ a < key₂ b)) ys := by
++  let cmp₁ : α → α → Bool := fun a b => decide (key₁ a < key₁ b)
++  let cmp₂ : β → β → Bool := fun a b => decide (key₂ a < key₂ b)
++  have aux : ∀ (n : Nat) (us : List α) (vs : List β),
++      us.length = n → (us.map key₁).Nodup → (vs.map key₂).Nodup →
++        us.length = vs.length → exerciseMean cmp₁ us = exerciseMean cmp₂ vs := by
++    intro n
++    induction n using Nat.strong_induction_on with
++    | h n ih =>
++      intro us vs hu ha hb hab
++      cases us with
++      | nil =>
++        cases vs with
++        | nil => simp
++        | cons b other => simp at hab
++      | cons a tail =>
++        cases vs with
++        | nil => simp at hab
++        | cons b other =>
++          have htail : tail.length = other.length := by
++            simpa only [List.length_cons, Nat.add_left_inj] using hab
++          let ρ₁ : Equiv.Perm (Fin (tail.length + 1)) := occurrenceRank key₁ (a :: tail)
++          let ρ₂ : Equiv.Perm (Fin (other.length + 1)) := occurrenceRank key₂ (b :: other)
++          let e : Fin (tail.length + 1) ≃ Fin (other.length + 1) :=
++            (ρ₁.trans (finCongr hab)).trans ρ₂.symm
++          have hrank (i : Fin (tail.length + 1)) : (ρ₂ (e i)).val = (ρ₁ i).val := by
++            change (ρ₂ (ρ₂.symm (finCongr hab (ρ₁ i)))).val = (ρ₁ i).val
++            exact congrArg Fin.val (ρ₂.apply_symm_apply _)
++          let left₁ (i : Fin (tail.length + 1)) : List α :=
++            ((a :: tail).eraseIdx i.val).filter (fun x => cmp₁ x (a :: tail)[i.val]'i.isLt)
++          let right₁ (i : Fin (tail.length + 1)) : List α :=
++            ((a :: tail).eraseIdx i.val).filter
++              (fun x => !(cmp₁ x (a :: tail)[i.val]'i.isLt))
++          let left₂ (j : Fin (other.length + 1)) : List β :=
++            ((b :: other).eraseIdx j.val).filter (fun x => cmp₂ x (b :: other)[j.val]'j.isLt)
++          let right₂ (j : Fin (other.length + 1)) : List β :=
++            ((b :: other).eraseIdx j.val).filter
++              (fun x => !(cmp₂ x (b :: other)[j.val]'j.isLt))
++          have hleftLen (i : Fin (tail.length + 1)) :
++              (left₁ i).length = (left₂ (e i)).length := by
++            calc
++              _ = (ρ₁ i).val := left_length_eq_rank key₁ (a :: tail) ha i
++              _ = (ρ₂ (e i)).val := (hrank i).symm
++              _ = _ := (left_length_eq_rank key₂ (b :: other) hb (e i)).symm
++          have hrightLen (i : Fin (tail.length + 1)) :
++              (right₁ i).length = (right₂ (e i)).length := by
++            calc
++              _ = (a :: tail).length - 1 - (ρ₁ i).val :=
++                right_length_eq_rank key₁ (a :: tail) ha i
++              _ = (b :: other).length - 1 - (ρ₂ (e i)).val :=
++                congrArg₂ (fun s k : Nat => s - 1 - k) hab (hrank i).symm
++              _ = _ := (right_length_eq_rank key₂ (b :: other) hb (e i)).symm
++          have hleftSmall (i : Fin (tail.length + 1)) : (left₁ i).length < n := by
++            calc
++              _ < (a :: tail).length := filtered_remainder_length_lt (a :: tail) i _
++              _ = n := hu
++          have hrightSmall (i : Fin (tail.length + 1)) : (right₁ i).length < n := by
++            calc
++              _ < (a :: tail).length := filtered_remainder_length_lt (a :: tail) i _
++              _ = n := hu
++          have hleft (i : Fin (tail.length + 1)) :
++              exerciseMean cmp₁ (left₁ i) = exerciseMean cmp₂ (left₂ (e i)) :=
++            ih (left₁ i).length (hleftSmall i) (left₁ i) (left₂ (e i)) rfl
++              (child_keys_nodup key₁ (a :: tail) ha i).1
++              (child_keys_nodup key₂ (b :: other) hb (e i)).1 (hleftLen i)
++          have hright (i : Fin (tail.length + 1)) :
++              exerciseMean cmp₁ (right₁ i) = exerciseMean cmp₂ (right₂ (e i)) :=
++            ih (right₁ i).length (hrightSmall i) (right₁ i) (right₂ (e i)) rfl
++              (child_keys_nodup key₁ (a :: tail) ha i).2
++              (child_keys_nodup key₂ (b :: other) hb (e i)).2 (hrightLen i)
++          have hsum :
++              (∑ i : Fin (tail.length + 1),
++                (exerciseMean cmp₁ (left₁ i) + exerciseMean cmp₁ (right₁ i))) =
++              ∑ j : Fin (other.length + 1),
++                (exerciseMean cmp₂ (left₂ j) + exerciseMean cmp₂ (right₂ j)) :=
++            Fintype.sum_equiv e _ _
++              (fun i => congrArg₂ (fun s t : ℝ => s + t) (hleft i) (hright i))
++          rw [exerciseMean_cons, exerciseMean_cons]
++          change (((tail.length + 1 : Nat) : ℝ)⁻¹) *
++              (∑ i : Fin (tail.length + 1),
++                (exerciseMean cmp₁ (left₁ i) + exerciseMean cmp₁ (right₁ i))) +
++                ((4 * tail.length + 3 : Nat) : ℝ) =
++            (((other.length + 1 : Nat) : ℝ)⁻¹) *
++              (∑ j : Fin (other.length + 1),
++                (exerciseMean cmp₂ (left₂ j) + exerciseMean cmp₂ (right₂ j))) +
++                ((4 * other.length + 3 : Nat) : ℝ)
++          rw [hsum, htail]
++  exact aux xs.length xs ys rfl hx hy hlen
++
++/-- A canonical actual execution mean. This is not a separately stipulated
++numerical recurrence: the input is the existing list `range n` and the law is
++the existing fresh occurrence-pivot cost projection.
++-/
++def sizeMean (n : Nat) : ℝ :=
++  exerciseMean (fun a b : Nat => decide (a < b)) (List.range n)
++
++/-- Every actual distinct-key input has its canonical input's actual mean. -/
++theorem exerciseMean_eq_sizeMean [LinearOrder κ] (key : α → κ) (xs : List α)
++    (hd : (xs.map key).Nodup) :
++    exerciseMean (fun a b => decide (key a < key b)) xs = sizeMean xs.length := by
++  exact exerciseMean_eq_of_length_eq key (id : Nat → Nat) xs (List.range xs.length) hd
++    (by simpa only [List.map_id] using (List.nodup_range (n := xs.length))) (by simp)
++
++@[simp] theorem sizeMean_zero : sizeMean 0 = 1 := by
++  simp [sizeMean]
++
++private theorem sum_rank_children (m : Nat) (A : Nat → ℝ)
++    (ρ : Equiv.Perm (Fin (m + 1))) :
++    (∑ i : Fin (m + 1), (A (ρ i).val + A (m - (ρ i).val))) =
++      2 * ∑ i : Fin (m + 1), A i.val := by
++  have hrev : (∑ i : Fin (m + 1), A (m - i.val)) = ∑ i : Fin (m + 1), A i.val := by
++    calc
++      _ = ∑ i : Fin (m + 1), A ((Fin.revPerm i).val) := by
++        apply Finset.sum_congr rfl
++        intro i _
++        apply congrArg A
++        change m - i.val = m + 1 - (i.val + 1)
++        omega
++      _ = _ := (Fin.revPerm : Equiv.Perm (Fin (m + 1))).sum_comp (fun i => A i.val)
++  calc
++    _ = ∑ i : Fin (m + 1), (A i.val + A (m - i.val)) :=
++      ρ.sum_comp (fun i => A i.val + A (m - i.val))
++    _ = (∑ i : Fin (m + 1), A i.val) + ∑ i : Fin (m + 1), A (m - i.val) :=
++      Finset.sum_add_distrib
++    _ = (∑ i : Fin (m + 1), A i.val) + ∑ i : Fin (m + 1), A i.val := by rw [hrev]
++    _ = _ := by ring
++
++private theorem exerciseMean_cons_size_formula [LinearOrder κ] (key : α → κ)
++    (head : α) (tail : List α) (hd : ((head :: tail).map key).Nodup) :
++    exerciseMean (fun a b => decide (key a < key b)) (head :: tail) =
++      (2 / ((tail.length + 1 : Nat) : ℝ)) *
++        (∑ i : Fin (tail.length + 1), sizeMean i.val) +
++        ((4 * tail.length + 3 : Nat) : ℝ) := by
++  let cmp : α → α → Bool := fun a b => decide (key a < key b)
++  let ρ : Equiv.Perm (Fin (tail.length + 1)) := occurrenceRank key (head :: tail)
++  let left (i : Fin (tail.length + 1)) :=
++    ((head :: tail).eraseIdx i.val).filter (fun x => cmp x (head :: tail)[i.val]'i.isLt)
++  let right (i : Fin (tail.length + 1)) :=
++    ((head :: tail).eraseIdx i.val).filter (fun x => !(cmp x (head :: tail)[i.val]'i.isLt))
++  have hleft (i : Fin (tail.length + 1)) :
++      exerciseMean cmp (left i) = sizeMean (ρ i).val := by
++    calc
++      _ = sizeMean (left i).length :=
++        exerciseMean_eq_sizeMean key (left i) (child_keys_nodup key (head :: tail) hd i).1
++      _ = _ := congrArg sizeMean (left_length_eq_rank key (head :: tail) hd i)
++  have hright (i : Fin (tail.length + 1)) :
++      exerciseMean cmp (right i) = sizeMean (tail.length - (ρ i).val) := by
++    have hlen : (right i).length = tail.length - (ρ i).val := by
++      simpa only [List.length_cons, Nat.add_sub_cancel] using
++        right_length_eq_rank key (head :: tail) hd i
++    calc
++      _ = sizeMean (right i).length :=
++        exerciseMean_eq_sizeMean key (right i) (child_keys_nodup key (head :: tail) hd i).2
++      _ = _ := congrArg sizeMean hlen
++  rw [exerciseMean_cons]
++  change (((tail.length + 1 : Nat) : ℝ)⁻¹) *
++      (∑ i : Fin (tail.length + 1),
++        (exerciseMean cmp (left i) + exerciseMean cmp (right i))) +
++        ((4 * tail.length + 3 : Nat) : ℝ) = _
++  simp only [hleft, hright]
++  rw [sum_rank_children, div_eq_mul_inv]
++  ring
++
++/-- Derived from the actual bind-mean equation, actual child sizes and the
++uniform occurrence-to-rank bijection. Both child inputs remain their executed
++filters throughout the derivation, and their distinctness is proved above.
++-/
++theorem sizeMean_succ (m : Nat) :
++    sizeMean (m + 1) =
++      (2 / ((m + 1 : Nat) : ℝ)) * (∑ i : Fin (m + 1), sizeMean i.val) +
++        ((4 * m + 3 : Nat) : ℝ) := by
++  cases hxs : List.range (m + 1) with
++  | nil =>
++    have hlen := congrArg List.length hxs
++    simp at hlen
++  | cons head tail =>
++    have hlen : m + 1 = tail.length + 1 := by
++      simpa only [List.length_range, List.length_cons] using congrArg List.length hxs
++    have ht : tail.length = m := by omega
++    have hd : ((head :: tail).map (id : Nat → Nat)).Nodup := by
++      rw [List.map_id, ← hxs]
++      exact List.nodup_range
++    calc
++      sizeMean (m + 1) =
++          exerciseMean (fun a b : Nat => decide (a < b)) (head :: tail) :=
++        congrArg (exerciseMean (fun a b : Nat => decide (a < b))) hxs
++      _ = _ := by
++        simpa only [ht] using exerciseMean_cons_size_formula (id : Nat → Nat) head tail hd
++
++/-- Positive-size range-sum interface for a later harmonic solver. Its sequence
++is the actual execution mean; the zero case is the separate theorem above.
++-/
++theorem sizeMean_recurrence (n : Nat) (hn : 0 < n) :
++    sizeMean n = (2 / (n : ℝ)) * (∑ k ∈ Finset.range n, sizeMean k) +
++      4 * (n : ℝ) - 1 := by
++  cases n with
++  | zero => omega
++  | succ m =>
++    change sizeMean (m + 1) =
++      (2 / ((m + 1 : Nat) : ℝ)) * (∑ k ∈ Finset.range (m + 1), sizeMean k) +
++        4 * ((m + 1 : Nat) : ℝ) - 1
++    rw [sizeMean_succ, Fin.sum_univ_eq_sum_range]
++    simp only [Nat.cast_add, Nat.cast_mul, Nat.cast_one, Nat.cast_ofNat]
++    ring
++
++end
++end Resources.RandomQuickSort
+diff --git a/Examples/RandomQuickSortRank.lean b/Examples/RandomQuickSortRank.lean
+new file mode 100644
+index 0000000..0d8d6f0
+--- /dev/null
++++ b/Examples/RandomQuickSortRank.lean
+@@ -0,0 +1,151 @@
++import Applications.Resources.RandomQuickSortRank
++import Examples.RandomQuickSortMean
++import Mathlib.Tactic.FinCases
++import Mathlib.Tactic.NormNum
++
++/-! Consequential clients of the actual occurrence/rank and mean bridge.
++Nontrivial input orders exercise the original-index rank permutation. Actual
++child order is retained. The four-key mean 109/3 was calculated independently
++from extreme-rank means 119/3 and internal-rank means 33. Distinct payload tags
++with repeated keys demonstrate why mapped-key Nodup is required.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.RandomQuickSortRank
++open Resources.RandomQuickSort
++open scoped BigOperators ENNReal
++universe u v w z
++
++noncomputable section
++
++local notation "natLt" => (fun a b : Nat => decide (a < b))
++
++/-- An empty rank permutation uses no default payload or actual pivot. -/
++theorem empty_rank {α : Type u} {κ : Type v} [LinearOrder κ] (key : α → κ) :
++    occurrenceRank key [] = Equiv.refl (Fin 0) := by
++  apply Equiv.ext
++  intro i
++  exact Fin.elim0 i
++
++theorem empty_uninhabited_mean :
++    exerciseMean (fun _ _ : Empty => false) [] = sizeMean 0 := by
++  simp
++
++theorem singleton_rank {α : Type u} {κ : Type v} [LinearOrder κ]
++    (key : α → κ) (x : α) : occurrenceRank key [x] 0 = 0 := by
++  apply Fin.ext
++  have h := (occurrenceRank key [x] 0).isLt
++  simp only [List.length_singleton] at h
++  omega
++
++theorem sizeMean_one : sizeMean 1 = 5 := by
++  have h := exerciseMean_eq_sizeMean (id : Nat → Nat) [0] (by decide)
++  exact h.symm.trans (exerciseMean_singleton natLt 0)
++
++theorem sizeMean_two : sizeMean 2 = 13 := by
++  have h := exerciseMean_eq_sizeMean (id : Nat → Nat) [0, 1] (by decide)
++  exact h.symm.trans Examples.RandomQuickSortMean.two_key_exercise_mean
++
++theorem sizeMean_three : sizeMean 3 = (71 : ℝ) / 3 := by
++  have h := exerciseMean_eq_sizeMean (id : Nat → Nat) [0, 1, 2] (by decide)
++  exact h.symm.trans Examples.RandomQuickSortMean.three_key_exercise_mean
++
++/-- Read back ranks through the actual strict child, without evaluating the
++abstract tuple-sort permutation or replacing the occurrence sampler.
++-/
++theorem three_occurrence_ranks (i : Fin 3) :
++    (occurrenceRank (id : Nat → Nat) [2, 0, 1] i).val =
++      ([2, 0, 1] : List Nat)[i.val] := by
++  have h := left_length_eq_rank (id : Nat → Nat) [2, 0, 1] (by decide) i
++  fin_cases i <;> simpa using h.symm
++
++theorem three_middle_children :
++    (([2, 0, 1] : List Nat).eraseIdx 2).filter
++        (fun x => decide (x < ([2, 0, 1] : List Nat)[2])) = [0] ∧
++      (([2, 0, 1] : List Nat).eraseIdx 2).filter
++        (fun x => !(decide (x < ([2, 0, 1] : List Nat)[2]))) = [2] := by
++  decide
++
++/-- The actual nonidentity occurrence permutation still gives a uniform rank. -/
++theorem three_left_size_law :
++    PMF.map (fun i : Fin 3 =>
++      ((([2, 0, 1] : List Nat).eraseIdx i.val).filter
++        (fun x => decide (x < ([2, 0, 1] : List Nat)[i.val]))).length)
++      (uniformIndex 2) = PMF.map (fun i : Fin 3 => i.val) (uniformIndex 2) := by
++  exact left_length_law (id : Nat → Nat) 2 [0, 1] (by decide)
++
++theorem three_reordered_exercise_mean : exerciseMean natLt [2, 0, 1] = (71 : ℝ) / 3 := by
++  have h := exerciseMean_eq_sizeMean (id : Nat → Nat) [2, 0, 1] (by decide)
++  exact h.trans sizeMean_three
++
++/-- The positive-size range interface is checked against the independently
++calculated four-key value, using earlier actual-execution means as inputs.
++-/
++theorem sizeMean_four : sizeMean 4 = (109 : ℝ) / 3 := by
++  have h := sizeMean_recurrence 4 (by decide)
++  norm_num [Finset.sum_range_succ, sizeMean_one, sizeMean_two, sizeMean_three] at h
++  exact h
++
++theorem four_occurrence_ranks (i : Fin 4) :
++    (occurrenceRank (id : Nat → Nat) [3, 1, 0, 2] i).val =
++      ([3, 1, 0, 2] : List Nat)[i.val] := by
++  have h := left_length_eq_rank (id : Nat → Nat) [3, 1, 0, 2] (by decide) i
++  fin_cases i <;> simpa using h.symm
++
++/-- Pivot 2 leaves the actual left input [1,0], preserving its unsorted order. -/
++theorem four_selected_children :
++    (([3, 1, 0, 2] : List Nat).eraseIdx 3).filter
++        (fun x => decide (x < ([3, 1, 0, 2] : List Nat)[3])) = [1, 0] ∧
++      (([3, 1, 0, 2] : List Nat).eraseIdx 3).filter
++        (fun x => !(decide (x < ([3, 1, 0, 2] : List Nat)[3]))) = [3] := by
++  decide
++
++theorem four_reordered_exercise_mean :
++    exerciseMean natLt [3, 1, 0, 2] = (109 : ℝ) / 3 := by
++  have h := exerciseMean_eq_sizeMean (id : Nat → Nat) [3, 1, 0, 2] (by decide)
++  exact h.trans sizeMean_four
++
++/-- Different tags do not imply the recursive key-distinctness hypothesis. -/
++theorem distinct_tags_repeated_keys :
++    ([(1, false), (1, true), (2, false)] : List (Nat × Bool)).Nodup ∧
++      ¬ (([(1, false), (1, true), (2, false)] : List (Nat × Bool)).map Prod.fst).Nodup := by
++  decide
++
++/-- With a repeated key the second tie position is 1, but the actual left
++child has length 0. Thus a permutation position alone cannot prove the size law.
++-/
++theorem repeated_key_rank_is_not_left_size :
++    (occurrenceRank (Prod.fst : Nat × Bool → Nat)
++      [(1, false), (1, true), (2, false)] (1 : Fin 3)).val = 1 ∧
++    ((([(1, false), (1, true), (2, false)] : List (Nat × Bool)).eraseIdx 1).filter
++      (fun x => decide (x.1 < 1))).length = 0 := by
++  let f : Fin 3 → Nat := fun i =>
++    ([(1, false), (1, true), (2, false)] : List (Nat × Bool))[i.val].1
++  have hm : Monotone f := by decide
++  have hs : Tuple.sort f = Equiv.refl (Fin 3) := Tuple.sort_eq_refl_iff_monotone.mpr hm
++  constructor
++  · change ((Tuple.sort f).symm (1 : Fin 3)).val = 1
++    rw [hs]
++  · decide
++
++theorem equal_keys_keep_quadratic_mean :
++    exerciseMean natLt [2, 2, 2] = 25 ∧
++      exerciseMean natLt [2, 2, 2] ≠ sizeMean 3 := by
++  have h := Examples.RandomQuickSortMean.all_equal_three_means
++  constructor
++  · exact h.1
++  · rw [h.1, sizeMean_three]
++    norm_num
++
++/-- The client uses unrelated key types and unrestricted tag universes. -/
++theorem tagged_inputs_equal_mean {τ : Type u} {κ : Type v} {υ : Type w} {ν : Type z}
++    [LinearOrder κ] [LinearOrder ν] (xs : List (κ × τ)) (ys : List (ν × υ))
++    (hx : (xs.map Prod.fst).Nodup) (hy : (ys.map Prod.fst).Nodup)
++    (hlen : xs.length = ys.length) :
++    exerciseMean (fun a b : κ × τ => decide (a.1 < b.1)) xs =
++      exerciseMean (fun a b : ν × υ => decide (a.1 < b.1)) ys :=
++  exerciseMean_eq_of_length_eq Prod.fst Prod.fst xs ys hx hy hlen
++
++end
++end Examples.RandomQuickSortRank

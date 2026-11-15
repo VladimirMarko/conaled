@@ -1,0 +1,90 @@
+{
+  "observed_utc": "2026-11-03T03:15:31.131479+00:00",
+  "scope": "Read-only liveness of two existing owned validation trees; no signal or setting changed",
+  "jobs": {
+    "full901": {
+      "owner": 700729,
+      "processes": [
+        {
+          "pid": 700729,
+          "ppid": 232,
+          "state": "S",
+          "executable": "python3",
+          "project_inputs": [],
+          "cpu_seconds": 0.06,
+          "elapsed_seconds": 7115.5,
+          "rss_bytes": 11010048
+        },
+        {
+          "pid": 700737,
+          "ppid": 700729,
+          "state": "S",
+          "executable": "python3",
+          "project_inputs": [],
+          "cpu_seconds": 3.66,
+          "elapsed_seconds": 7115.36,
+          "rss_bytes": 13660160
+        },
+        {
+          "pid": 701049,
+          "ppid": 700737,
+          "state": "S",
+          "executable": "lake",
+          "project_inputs": [],
+          "cpu_seconds": 20.79,
+          "elapsed_seconds": 7102.65,
+          "rss_bytes": 139497472
+        },
+        {
+          "pid": 731664,
+          "ppid": 701049,
+          "state": "S",
+          "executable": "lean",
+          "project_inputs": [
+            "/workspace/scratch/ca9a61d0bf30/import-correction-r3/SquareKit/SmoothConstantAction.lean"
+          ],
+          "cpu_seconds": 204.74,
+          "elapsed_seconds": 802.86,
+          "rss_bytes": 277925888
+        }
+      ]
+    },
+    "focused10022": {
+      "owner": 734670,
+      "processes": [
+        {
+          "pid": 734670,
+          "ppid": 232,
+          "state": "S",
+          "executable": "python3",
+          "project_inputs": [],
+          "cpu_seconds": 0.11,
+          "elapsed_seconds": 67.27,
+          "rss_bytes": 12320768
+        },
+        {
+          "pid": 734674,
+          "ppid": 734670,
+          "state": "S",
+          "executable": "lake",
+          "project_inputs": [],
+          "cpu_seconds": 9.33,
+          "elapsed_seconds": 67.07,
+          "rss_bytes": 75272192
+        },
+        {
+          "pid": 734946,
+          "ppid": 734674,
+          "state": "S",
+          "executable": "lean",
+          "project_inputs": [
+            "/workspace/scratch/ca9a61d0bf30/body-counts/Examples/SuspensionPureBodyCounts.lean"
+          ],
+          "cpu_seconds": 5.09,
+          "elapsed_seconds": 25.7,
+          "rss_bytes": 177041408
+        }
+      ]
+    }
+  }
+}

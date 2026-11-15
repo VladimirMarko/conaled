@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-03T14:37:02.228954+00:00",
+  "package": {
+    "Package": "qemu-user-static",
+    "Version": "1:7.2+dfsg-7+deb12u18+b3",
+    "Architecture": "amd64",
+    "Filename": "pool/main/q/qemu/qemu-user-static_7.2+dfsg-7+deb12u18+b3_amd64.deb",
+    "Size": "62603724",
+    "SHA256": "c3e3ba2bd87f8c5b9a5da5ef21b5a3b82d7c63b89dd448d9ddaa4eabc5b6e402",
+    "index_url": "https://deb.debian.org/debian/dists/bookworm/main/binary-amd64/Packages.xz",
+    "index_sha256": "9e0b5aabb2465b3d2e7a7fe27f9913846277833f7a2826e7767acccff5b588c5"
+  },
+  "package_checksum_verified": true,
+  "emulator": "/workspace/scratch/b566cace4ed6/pfds/toolchains/qemu-7.2-deb12u18/qemu-x86_64-static",
+  "emulator_sha256": "8f2e8d5017b23a877fdf52e4021e6348bb5ad92306dd0d0615159ab6276da442",
+  "genuine_lean_binary": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lean",
+  "lean_binary_sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+  "binary_modified": false,
+  "system_installation_or_mount": false,
+  "results": [
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/qemu-7.2-deb12u18/qemu-x86_64-static",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "qemu-x86_64 version 7.2.22 (Debian 1:7.2+dfsg-7+deb12u18+b3)\nCopyright (c) 2003-2022 Fabrice Bellard and the QEMU Project developers\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/qemu-7.2-deb12u18/qemu-x86_64-static",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/qemu-7.2-deb12u18/qemu-x86_64-static",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lean",
+        "--print-prefix"
+      ],
+      "exit_code": 0,
+      "stdout": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux\n",
+      "stderr": ""
+    }
+  ],
+  "formal_acceptance": false
+}

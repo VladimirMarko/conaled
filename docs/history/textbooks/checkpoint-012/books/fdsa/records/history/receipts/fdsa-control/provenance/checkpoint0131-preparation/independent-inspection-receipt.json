@@ -1,0 +1,64 @@
+{
+  "recorded_utc": "2026-11-04T22:03:40.735535+00:00",
+  "inspector": "/root/checkpoint0124_inspection",
+  "scope": "Read-only operational checkpoint preparation inspection, not either mathematical Chapter3 acceptance axis.",
+  "outcome": "PASS",
+  "unresolved_findings": 0,
+  "complete_verifier_reads": [
+    "b27d63",
+    "35f78c"
+  ],
+  "complete_helper_read": "8ae72c",
+  "mechanical_five_identifier_equivalence_and_AST_checks": "dbb12c actual0",
+  "full_final_hold_read_and_progress_fields": "29b3b0 actual0",
+  "final_live_refs_worktrees_all85_run_bindings_and_counts": "a1dfa1 actual0",
+  "verified": {
+    "refs": 73,
+    "worktrees": 9,
+    "explicit_held_heads": 7,
+    "author_hold_files": 5,
+    "prior_component_records_preserved": 22,
+    "prior_closed_rows_preserved": 73,
+    "closed_runs": 85,
+    "new_closed_runs": 12,
+    "new_actual0": 4,
+    "new_actual1": 8,
+    "passed_public_names": 1187,
+    "passed_modules": 65,
+    "prepared_public_names": 1261,
+    "prepared_modules": 69,
+    "unpassed_names": 74,
+    "drafts": 0,
+    "actual_C3_type_credit": 0,
+    "chapter03_accepted": false,
+    "unknown_interruption_preserved": 1,
+    "kit_entries_gate_retained": 298
+  },
+  "unchanged_gates": [
+    "all payload hashes",
+    "reference set and permitted ancestry",
+    "all worktree state",
+    "held controls and allowed prior updates",
+    "accepted Chapter2 and XR evidence",
+    "closed actual terminal exits and complete log identities",
+    "separate unknown interruption snapshots",
+    "unchanged298-entry native kit"
+  ],
+  "root_full_hold_read": "65800c",
+  "root_read_only_preparation_assumption_errors": [
+    {
+      "chunk": "fca843",
+      "exit": 1,
+      "cause": "Old first nine component records have no modules field; corrected read5b2f7c uses preserved total56 plus nine new modules. No writes occurred."
+    },
+    {
+      "chunk": "fe9b7f",
+      "exit": 1,
+      "cause": "Cutoff handoff source paths are repository-relative; exact root-worktree resolution corrected before successful full hold386cd5. Failed preflight occurred before any write."
+    }
+  ],
+  "root_hold_actual_exit": "386cd5 actual0",
+  "inspection_mutations": false,
+  "capture_or_archive_terminal_success_not_claimed": true,
+  "inspector_held": true
+}

@@ -1,0 +1,55 @@
+{
+  "time": "2026-11-04T00:44:48.296277+00:00",
+  "kind": "later-observation-after-successful-local-cleanup",
+  "paths": [
+    {
+      "path": "native-state/downloads/.lean-4.35.0-linux.tar.zst.6EkHuc",
+      "exists": true,
+      "bytes": 275513344,
+      "mtime_ns": 1793748229512607790,
+      "ctime_ns": 1793752751444809332,
+      "symlink": false,
+      "resolved_path": "/workspace/scratch/09cf0de22282/pfds/native-state/downloads/.lean-4.35.0-linux.tar.zst.6EkHuc"
+    },
+    {
+      "path": "native-state/downloads/lean-4.35.0-linux.tar.zst.part",
+      "exists": true,
+      "bytes": 148320256,
+      "mtime_ns": 1793748198921370996,
+      "ctime_ns": 1793752751444809332,
+      "symlink": false,
+      "resolved_path": "/workspace/scratch/09cf0de22282/pfds/native-state/downloads/lean-4.35.0-linux.tar.zst.part"
+    },
+    {
+      "path": "native-state/downloads/lean-4.35.0-linux.tar.zst",
+      "exists": true,
+      "bytes": 594481375,
+      "mtime_ns": 1793748211439122237,
+      "ctime_ns": 1793752751444809332,
+      "symlink": false,
+      "resolved_path": "/workspace/scratch/09cf0de22282/pfds/native-state/downloads/lean-4.35.0-linux.tar.zst"
+    },
+    {
+      "path": "native-state/toolchains/.lean-install-6slq3adu",
+      "exists": true,
+      "bytes": 4096,
+      "mtime_ns": 1793752736399644079,
+      "ctime_ns": 1793752781616530265,
+      "symlink": false,
+      "resolved_path": "/workspace/scratch/09cf0de22282/pfds/native-state/toolchains/.lean-install-6slq3adu"
+    },
+    {
+      "path": "validation-pfds-integration/.lake/fresh-check-u38h5q5x",
+      "exists": false
+    },
+    {
+      "path": "validation-pfds-integration/.lake/fresh-check-0zhdrr37",
+      "exists": false
+    }
+  ],
+  "available_bytes": 0,
+  "free_bytes_including_reserved": 3393290240,
+  "cause_unknown": true,
+  "formal_acceptance": false,
+  "observation": "The three deleted download files and empty extraction scaffold exist again; both deleted incomplete fresh-output dirs remain absent. Current normal output size was about2MB at00:42:34. No mutating action was taken in this observation. Do not infer toolkit/host/process cause."
+}

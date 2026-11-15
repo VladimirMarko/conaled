@@ -1,0 +1,42 @@
+{
+  "recorded_utc": "2026-11-04T04:40:47.404863+00:00",
+  "coordinator": "/root/formal_review",
+  "same_review_loop": true,
+  "replacement_reviewers": false,
+  "candidate": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+  "base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "scope": {
+    "files": 25,
+    "added": 496,
+    "deleted": 17,
+    "exclusions": []
+  },
+  "current_isolated_source_clean": true,
+  "standards": {
+    "thread": "/root/formal_review/standards",
+    "status": "Blocked",
+    "retained_analysis": "Independent rounds1-8 and reviewed foundational import delta; unchanged-source exploration not repeated.",
+    "ST-001": "fixed",
+    "ST-002": "open"
+  },
+  "spec": {
+    "thread": "/root/formal_review/spec",
+    "status": "Blocked",
+    "retained_analysis": "All30 source records,4 exercises, statements, assumptions, connected cases, prior corrections and foundation delta.",
+    "SP-VAL-001": "open"
+  },
+  "records_reused": [
+    "reviews/1002-Perm.md",
+    "reviews/1002-unified-source-review.md"
+  ],
+  "waiting_for": [
+    "Completed fresh build/audit and separately saved matching record",
+    "Unchanged collector and incident classification",
+    "Separate guarded build/postguard/new audit and record",
+    "Managed +ProofAudit prerequisite",
+    "All four required regression cases"
+  ],
+  "final_verification": "Root must immediately verify candidate after both axes pass, before acceptance.",
+  "source_runtime_evidence_writes_by_reviewers": false,
+  "formal_acceptance": false
+}

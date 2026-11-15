@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T18:41:07.123320+00:00",
+  "candidate": "e1b7b57dd495b9b57597e75141e0ec397536ed35",
+  "terminal": {
+    "recorded_utc": "2026-11-04T18:41:07.123224+00:00",
+    "owned_session": 17606,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "be2bce",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "e1b7b57dd495b9b57597e75141e0ec397536ed35"
+  },
+  "actual_recorder_and_native_exits": [
+    0,
+    0
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-chunks-focused-attempt2-20261104/full.log",
+    "bytes": 1036,
+    "sha256": "751e95455fac0a4fb808bb85c6e0af090f12a3c2fdf5a23ccfca5bdc11e17c52"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T184018Z-project-run-1d18efa9",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-chunks-focused-attempt2-20261104/native-records/start.json",
+      "bytes": 461,
+      "sha256": "e091d3636934e32c3c7022d525c0036e433affd9f5017cb2f6681cebf0bbea77"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-chunks-focused-attempt2-20261104/native-records/result.json",
+      "bytes": 613,
+      "sha256": "e360c883461be7b4098ac69bc7cf4e63f96b86d9ac8fa0e3a02d6ec33e5cb81b"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-chunks-focused-attempt2-20261104/native-records/output.log",
+      "bytes": 777,
+      "sha256": "445ba20530c7cc5633e2597247dd09462b521840ce09918505169cbc11c3f48c"
+    }
+  },
+  "native_body_exact_outer_offset": 103,
+  "complete_closed_log": true,
+  "scope": "Both Chunks development modules passed; full C3 acceptance/audit/statement qualification remain pending.",
+  "verification_record_candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

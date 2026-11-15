@@ -1,0 +1,50 @@
+diff --git a/Examples/RandomSelectionEqual.lean b/Examples/RandomSelectionEqual.lean
+index ef9e627d4e40468ec9da0818af172ef6a0c3dff3..a5c7bc4c47d5639f1ad62aa3e6ec413c809b7d95 100644
+--- a/Examples/RandomSelectionEqual.lean
++++ b/Examples/RandomSelectionEqual.lean
+@@ -20,16 +20,17 @@ noncomputable section
+ theorem empty_boundary (k : Nat) (x : α) :
+     run k (List.replicate 0 x) = PMF.pure (none, ([], 2)) ∧
+       scanLaw k (List.replicate 0 x) = PMF.pure 0 ∧
+-      scanMean k (List.replicate 0 x) = 0 :=
+-  ⟨run_nil k, scanLaw_replicate 0 k x, scanMean_replicate 0 k x⟩
++      scanMean k (List.replicate 0 x) = 0 := by
++  refine ⟨run_nil k, scanLaw_replicate 0 k x, ?_⟩
++  simpa only [Nat.cast_zero] using scanMean_replicate 0 k x
+ 
+ theorem singleton_boundary (x : α) :
+     run 0 (List.replicate 1 x) = PMF.pure (some x, ([(1, 0)], 9)) ∧
+       run 1 (List.replicate 1 x) = PMF.pure (none, ([(1, 0)], 11)) := by
+   constructor
+-  · simpa only [Resources.RandomQuickSort.uniformIndex_zero, PMF.pure_map] using
++  · simpa [Resources.RandomQuickSort.uniformIndex_zero, PMF.pure_map] using
+       run_replicate_valid 0 0 x (by decide)
+-  · simpa only [Resources.RandomQuickSort.uniformIndex_zero, PMF.pure_map] using
++  · simpa [Resources.RandomQuickSort.uniformIndex_zero, PMF.pure_map] using
+       run_replicate_invalid 0 1 x (by decide)
+ 
+ theorem pair_both_valid_ranks (k : Nat) (hk : k < 2) (x : α) :
+@@ -37,7 +38,10 @@ theorem pair_both_valid_ranks (k : Nat) (hk : k < 2) (x : α) :
+       (fun i : Fin 2 => (some x, ([(2, i.val)], 12 + i.val)))
+       (Resources.RandomQuickSort.uniformIndex 1) := by
+   have h := run_replicate_valid 1 k x hk
+-  simpa only [List.replicate_succ, List.replicate_zero, Nat.add_right_comm] using h
++  have hc : ∀ i : Nat, 3 * (1 + 1) + i + 6 = 12 + i := by
++    intro i
++    omega
++  simpa only [List.replicate_succ, List.replicate_zero, hc] using h
+ 
+ theorem three_equal_first_atom :
+     run 2 ([-3, -3, -3] : List Int) (some (-3), ([(3, 0)], 15)) =
+@@ -64,7 +68,10 @@ theorem five_equal_source_law :
+     sourceLaw 2 ([4, 4, 4, 4, 4] : List Nat) =
+       PMF.map (fun i : Fin 5 => 21 + i.val)
+         (Resources.RandomQuickSort.uniformIndex 4) := by
+-  simpa only [List.replicate_succ, List.replicate_zero, Nat.add_right_comm] using
++  have hc : ∀ i : Nat, 3 * (4 + 1) + i + 6 = 21 + i := by
++    intro i
++    omega
++  simpa only [List.replicate_succ, List.replicate_zero, hc] using
+     sourceLaw_replicate_valid 4 2 (4 : Nat) (by decide)
+ 
+ theorem general_equal_execution (time k : Nat) (xs : List α) (x : α)

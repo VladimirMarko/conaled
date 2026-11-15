@@ -1,0 +1,46 @@
+{
+  "original_path": "session/validation/body-entry-counts-focused-output-copy.json",
+  "original_sha256": "6f3372f17f70d1cec330546ae20cedccb12bb6fdd562c6ea9d53d3f28ac3ccf1",
+  "original_bytes": 176694,
+  "removed_fields": [
+    {
+      "pointer": "/copied",
+      "entries": 875,
+      "canonical_json_sha256": "5ec70f61fec2c228dc842c19c4f4fe65ddc18e6b92092c84424a79ab8769f8e0"
+    },
+    {
+      "pointer": "/selected_modules",
+      "entries": 125,
+      "canonical_json_sha256": "fc66553099503e863756188f5845eaebeeecae5f1e02326de2a1b1e7b439d5ff"
+    }
+  ],
+  "record": {
+    "started_at": "2026-11-03T02:31:51.638047+00:00",
+    "status": "completed",
+    "source": "/workspace/scratch/ca9a61d0bf30/validation-persistent-accounting",
+    "target": "/workspace/scratch/ca9a61d0bf30/body-counts",
+    "source_head": "577be121e074ddb5de6727a7481c115cb61b3b27",
+    "target_head": "577be121e074ddb5de6727a7481c115cb61b3b27",
+    "approval_copied": false,
+    "source_validation": "Matching focused development outputs from an unaccepted frozen candidate; no approval",
+    "target_development_untracked_files": [
+      "Applications/Suspensions/BodyAccounting.lean",
+      "Applications/Suspensions/EventCounts.lean",
+      "Applications/Suspensions/PendingRetention.lean",
+      "Applications/Suspensions/Pure/BodyCounts.lean",
+      "Examples/SuspensionEventCounts.lean",
+      "Examples/SuspensionPendingRetention.lean",
+      "Examples/SuspensionPureBodyCounts.lean"
+    ],
+    "target_tracked_inputs_clean": true,
+    "selection": "identical source bytes; no destination module artifacts; complete saved outputs",
+    "skipped": {},
+    "acceptance": false,
+    "hashed_artifacts": 375,
+    "source_inconsistencies": {},
+    "ended_at": "2026-11-03T02:31:59.191800+00:00",
+    "copied_modules": 125,
+    "copied_files": 875,
+    "copied_bytes": 89351399
+  }
+}

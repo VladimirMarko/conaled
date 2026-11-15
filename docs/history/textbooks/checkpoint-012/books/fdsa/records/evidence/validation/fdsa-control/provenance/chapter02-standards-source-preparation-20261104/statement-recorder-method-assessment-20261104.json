@@ -1,0 +1,103 @@
+{
+  "recorded_utc": "2026-11-04T09:59:40.609103+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "scope": "Bounded control-tool source/method review only. No formal source, checker gate, mathematical review scope or pending inspection count is changed.",
+  "tool": {
+    "path": "tooling/capture_statement_inputs.py",
+    "bytes": 5812,
+    "lines": 119,
+    "sha256": "4df281f3f427ec462a6973b9177fcc3f825b57b19fa8e205780f17cfaa89b5b7"
+  },
+  "initial_observation": {
+    "path": "tooling/capture_statement_inputs.py",
+    "bytes": 5775,
+    "lines": 117,
+    "sha256": "a42c39a99195ae34bac4fc609616a767218a05ad7fe9d92faf6389a0500a73f8",
+    "complete_source_read": true
+  },
+  "complete_delta_verified_by_reconstructing_original_hash": true,
+  "finding": {
+    "id": "statement-recorder-optional-index-write",
+    "initial_status": "Concrete read-only method issue reported to coordinator before first use.",
+    "initial_location": "Initial helper lines26-27 and its status callers.",
+    "issue": "Ordinary git status may refresh/write the index as an optional operation, contrary to this helper being read-only. No such recorder execution or write is claimed to have occurred.",
+    "required_correction": "Use Git global --no-optional-locks for all metadata reads, or the equivalent GIT_OPTIONAL_LOCKS=0.",
+    "current_status": "Fixed before first use; independently confirmed in119-line source4df281f3.",
+    "evidence": {
+      "path": "provenance/chapter02-focused9-followup-20261104/statement-recorder-method-update.json",
+      "bytes": 534,
+      "lines": 12,
+      "sha256": "1dab9604e1b744d019023ae0812909fbfef6cd2cab229fdf506fe7bdd69f45f9"
+    }
+  },
+  "bytecode_boundary": "sys.dont_write_bytecode=True precedes project-script imports in both the first observed and corrected versions. It was already present in the117-line observation; no new bytecode correction is invented in the two-line source delta.",
+  "static_method_assessment": {
+    "candidate_and_clean_state": "The supplied full candidate is checked against HEAD and project status before capture; all Git calls now disable optional locks. This is a scoped observation, not an atomic repository transaction or a substitute for immutable-run ownership.",
+    "configuration": "All ten recorded pin/checker/configuration inputs are fingerprinted and checked against the retained reference.",
+    "dependencies": "The manifest drives nine dependency source lookups in the intended projects; each HEAD must equal its manifest revision and status must be clean. Dependency object/cache authenticity is not certified by this.",
+    "runtime": "All twelve already-qualified component fingerprints are re-read and compared with the retained expected digests; the reference/profile qualification and actual producer command remain separate evidence.",
+    "project_parser_import": "The pinned checker exposes the pure string/comment remover. Its top-level code and the imported lake_integrity module have imports/constants/function definitions with the checker main guarded by __name__; importing them does not call a build or integrity guard. Bytecode writing is disabled.",
+    "local_closure": "The exact prepared program imports drive local-source traversal; existing local files receive byte hashes and candidate Git blob identifiers, external imports are listed, and each local root requires an existing .olean. The recorded working-source hashes still must be matched to immutable source inputs by the acceptance/reuse review; a blob identifier annotation alone is not a proof of byte equality.",
+    "objects_and_traces": "For each local module, the helper fingerprints the existing .olean, .olean.hash, .olean.private, .olean.server and .trace paths. It does not execute Lake, certify that these objects are authentic/correct/fresh, or verify external package objects. Qualified build/integrity evidence remains separately mandatory.",
+    "program": "The helper records the actual program path, byte count/hash and fully qualified #check names. Program contents are preserved separately in the existing prepared artifact; this JSON records their identity, not a second literal source copy.",
+    "comparison": "A new observation cannot overwrite an existing output. A supplied previous identity is compared exactly; on difference the new record is preserved and the process exits unsuccessfully. Matching snapshots do not themselves establish compiler execution, actual output or acceptance.",
+    "output_location": "Intended invocation must choose a new control/provenance output outside the project/source/build trees; the tool necessarily writes that requested observation."
+  },
+  "reference": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/foundation110-potential-type-reuse-0a7ef078.json",
+    "bytes": 122392,
+    "lines": 3445,
+    "sha256": "23ec745628fc15a330a492bc70f4a22d9fb452faaf9ba482006cebf7d3546bc0"
+  },
+  "pure_text_analysis": {
+    "method": "Without invoking the recorder or importing/executing the checker module, isolated the already-read pure executable_source string function and compared its regex results against an independent nested-comment/string parser over immutable Git source blobs and the exact prepared programs. No compiler or build outputs were read or changed.",
+    "foundation": {
+      "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "program": {
+        "path": "provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+        "bytes": 7518,
+        "lines": 156,
+        "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4"
+      },
+      "names": 145,
+      "roots": 6,
+      "local_sources": 29,
+      "external_imports": 32,
+      "direct_import_edges": 67,
+      "name_inventory_import_and_olean_path_mismatches": 0
+    },
+    "chapter2": {
+      "candidate": "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+      "program": {
+        "path": "provenance/chapter02-complete-public-statements814-8ba7ae11-prepared-20261104/Statements.lean",
+        "bytes": 46242,
+        "lines": 859,
+        "sha256": "ec9fb2b9a141630d0d4acb527bc28cf5fb6b5c2032f3f9951ce1d53cd1578577"
+      },
+      "names": 814,
+      "roots": 36,
+      "local_sources": 84,
+      "external_imports": 82,
+      "direct_import_edges": 246,
+      "name_inventory_import_and_olean_path_mismatches": 0
+    }
+  },
+  "format_scope": "Assessment covers these exact prepared programs and current local import syntax. The regex is not a general Lean parser: it expects the reviewed import/check command layout, and the raw #check scan would not independently distinguish commands inside block comments. Current programs contain no such false matches; cleaned and raw command lists both exactly match the complete145/814 inventories. Any future format change needs a bounded parser/name reconciliation, not automatic reliance on a count.",
+  "required_use_boundary": [
+    "Retain this tool hash/reference/method record with the actual observation and producer run provenance.",
+    "Run pre/post observations only under the same immutable-candidate and exclusive-output discipline as the actual qualified statement command; do not run against a project owned by a concurrent builder.",
+    "Preserve distinct pre/post observation files, the actual executed program bytes and all actual outer/native start/terminal/log artifacts.",
+    "Require successful actual statement inspection and complete output assessment; do not credit prepared programs, input snapshots or hashes as printed types.",
+    "Retain separate qualified build/integrity evidence and all original full candidate/audit/review/immediate-verification gates."
+  ],
+  "remaining_concrete_findings_for_intended_inputs": [],
+  "outcome": "Suitable as the described supplemental read-only input recorder for the exact reviewed145/814 programs after the optional-lock correction. This is not an execution, loaded-object authenticity, complete output, audit or candidate-acceptance certification.",
+  "recorder_invoked": false,
+  "project_checker_or_integrity_command_invoked": false,
+  "compiler_or_build_invoked": false,
+  "process_polled": false,
+  "source_ref_index_pin_cache_mutations": false,
+  "type_evidence_credited": 0,
+  "formal_review_outcomes": "Unchanged and Blocked.",
+  "writes": "Only this bounded own method-assessment receipt."
+}

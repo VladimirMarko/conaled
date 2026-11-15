@@ -1,0 +1,28 @@
+{
+  "recorded_utc": "2026-11-05T01:38:03.226817+00:00",
+  "actual_failed_attempt": {
+    "chunk": "777799",
+    "exit": 1
+  },
+  "failure_stage": "Actual-output header matching; no output records written",
+  "cause": "Lean prints a leading @ on implicit-argument declarations under explicit printing; initial metadata parser omitted that prefix.",
+  "read_only_diagnostic": "33e51d actual0; large missing-name display truncated, no claim of complete display read. First actual headers showed leading @.",
+  "correction": "Only permit optional leading @ before the exact requested name; all1391 exact names/order and complete byte partition gates retained.",
+  "old_helper": {
+    "bytes": 9127,
+    "sha256": "28124ac654106e9d83b0f595fb979cd43520114ecaca03d863c65af05ce23f44"
+  },
+  "new_helper": {
+    "bytes": 9129,
+    "sha256": "c05c80bf73f3b79c219f5fb5c169823977c86e23b530bb7100c22d4d2a043fc5"
+  },
+  "bounded_corrected_header_reconciliation": {
+    "expected": 1391,
+    "matched": 1391,
+    "names_and_order_exact": true,
+    "first_offset": 0
+  },
+  "compiler_input_and_actual_output_unchanged": true,
+  "compiler_rerun_selected": false,
+  "final_reconciliation_executed": false
+}

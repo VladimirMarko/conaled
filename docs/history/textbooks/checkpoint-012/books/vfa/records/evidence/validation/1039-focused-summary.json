@@ -1,0 +1,43 @@
+{
+  "recorded_utc": "2026-11-04T06:27:45.604901+00:00",
+  "candidate": "cf0a687265c1929ffd3ff6f15fa18febe0fb61b5",
+  "base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "source_delta": "Exactly3importlines across2existingtaskfiles; sourcebodies preserved byte-for-byte",
+  "finite_mh_before": {
+    "candidate": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+    "actual_exit": 1,
+    "evidence": "1039-finite-mh-before"
+  },
+  "finite_mh_after": {
+    "actual_exit": 0,
+    "evidence": "1039-finite-mh-after",
+    "scope": "Entire actualmodule"
+  },
+  "structured_before": {
+    "candidate": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+    "actual_exit": 1,
+    "evidence": "1039-structured-before",
+    "module_exits": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "structured_after": {
+    "actual_exit": 0,
+    "evidence": "1039-structured-after",
+    "module_exits": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "scope": "Entire actualtarget and4actual localdependencies"
+  },
+  "no_lake_or_dependency_writer": true,
+  "old_checkout_frozen": true,
+  "integrated_gate_credit": false
+}

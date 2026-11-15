@@ -1,0 +1,36 @@
+{
+  "time": "2026-11-04T01:04:23.261160+00:00",
+  "run_id": "integration-3cf-ordinary-r1-045",
+  "tool_error": "write_stdin failed: Unknown process id62848",
+  "original_controller_status": "running",
+  "original_terminal_result_observed": false,
+  "original_json_sha256": "a81c2cf9f149add9bc5a33a12e25297c0def288edc95e39b244b87014f308c76",
+  "observer_status": "observing",
+  "observer_terminal_result_observed": false,
+  "observer_json_sha256": "b3e9f88f7bc5374bb631b315c22668ed74ae14db0307c5bce3d2824ffb0b1010",
+  "log_sha256": "6b86e3631b1c497f951db5f74aac9f6a59b8f58a7e7768b5b63c58a0d5b99f83",
+  "log_bytes": 253065,
+  "completed_local_module_messages": 10,
+  "last_progress": [
+    "\u2714 [2552/2556] Built Compiler (9.9s)",
+    "\u26a0 [2553/2557] Built Applications.AD.Modes (90s)",
+    "\u2714 [2554/2557] Built Applications.AD.Compiler (424s)",
+    "\u2714 [2556/2561] Built Applications.AD.Generalized (129s)",
+    "\u26a0 [2559/2574] Built Applications.AD.HigherOrder (150s)",
+    "\u26a0 [2571/2574] Built Applications.Circuits.Syntax (39s)"
+  ],
+  "locks": {
+    "full-build.lock": "free",
+    "focused-build.lock": "free"
+  },
+  "stock_record_exists": false,
+  "normal_output_files": 81,
+  "normal_output_bytes": 20687782,
+  "normal_olean_count": 10,
+  "normal_trace_count": 10,
+  "free_including_reserved": 2120622080,
+  "available_bytes": 0,
+  "cause_unknown": true,
+  "formal_acceptance": false,
+  "original_files_untouched": true
+}

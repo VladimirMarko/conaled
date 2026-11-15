@@ -1,0 +1,29 @@
+{
+  "started_utc": "2026-11-03T16:54:58.277435+00:00",
+  "reason": "Earlier successful deletion was followed by observed reappearance of original verified regenerable download paths. Discard their bytes while retaining zero-byte local placeholders so subsequent execution views do not need to materialize the old archives. These are download caches only; exact extracted official distribution and all evidence remain. Reacquire downloads before any future archive use; normal published digest verification rejects a placeholder.",
+  "disk_before": {
+    "total": 67586535424,
+    "used": 62354272256,
+    "free": 1779515392
+  },
+  "files": [
+    {
+      "path": "bootstrap/direct-lean/lean-4.35.0-linux.tar.zst",
+      "verified_sha256_before_discard": "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d",
+      "bytes_discarded": 594481375,
+      "status": "zero-byte regenerable download placeholder retained"
+    },
+    {
+      "path": "bootstrap/nix-portable",
+      "verified_sha256_before_discard": "b409c55904c909ac3aeda3fb1253319f86a89ddd1ba31a5dec33d4a06414c72a",
+      "bytes_discarded": 68062412,
+      "status": "zero-byte regenerable download placeholder retained"
+    }
+  ],
+  "completed_utc": "2026-11-03T16:54:59.087871+00:00",
+  "disk_after": {
+    "total": 67586535424,
+    "used": 61691715584,
+    "free": 2442072064
+  }
+}

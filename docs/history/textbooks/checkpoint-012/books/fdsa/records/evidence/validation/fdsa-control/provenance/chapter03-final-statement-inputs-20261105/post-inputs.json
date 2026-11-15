@@ -1,0 +1,3620 @@
+{
+  "observed_utc": "2026-11-05T01:36:40.942260+00:00",
+  "identity": {
+    "candidate": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+    "clean": true,
+    "project": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "program": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-statement-inputs-20261105/Statements1391-complete.lean",
+      "bytes": 82068,
+      "sha256": "a4671a1d5cd377fcdd0899d7700a3b7b635faeef18b9006bab2cfa3521c2aa2d",
+      "names": [
+        "Applications.Selection.RankedAt.mem",
+        "Applications.Selection.RankedAt.lt_length",
+        "Applications.Selection.RankedAt.count_bounds",
+        "Applications.Selection.partition_equal_getElem?",
+        "Applications.Selection.ordered_getElem?_partition",
+        "Applications.Selection.ranked_iff_count_bounds",
+        "Applications.Selection.count_bounds_unique",
+        "Applications.Selection.filter_le_sublist_filter_lt",
+        "Applications.Selection.count_le_add_count_gt",
+        "Applications.Selection.ordered_eq_of_pairwise_perm",
+        "Applications.Selection.ordered_eq_of_perm",
+        "Applications.Selection.ordered_getElem?_perm",
+        "Applications.Selection.selectWith_succ_value",
+        "Applications.Selection.selectWith_succ_some_iff_count_bounds",
+        "Applications.Selection.ordered_getElem?_mem",
+        "Applications.Selection.ranked_zero_iff_min",
+        "Applications.Selection.ordered_getElem?_zero_iff_min",
+        "Applications.Selection.ordered_append",
+        "Applications.Selection.ordered_getElem?_append",
+        "Applications.Selection.sorted_filter_lt_sublist_take",
+        "Applications.Selection.sorted_filter_gt_sublist_drop",
+        "Applications.Selection.lowerMedian_value",
+        "Applications.Selection.lowerMedian_count_bounds",
+        "Applications.Selection.lowerMedian_mem",
+        "Examples.SelectionCountRank.duplicate_lower_rank",
+        "Examples.SelectionCountRank.duplicate_upper_rank",
+        "Examples.SelectionCountRank.duplicate_bounds",
+        "Examples.SelectionCountRank.duplicate_public_selection",
+        "Examples.SelectionCountRank.weak_upper_count_is_insufficient",
+        "Examples.SelectionCountRank.zero_book_rank_is_public_one",
+        "Examples.SelectionCountRank.smallest_is_not_largest",
+        "Examples.SelectionCountRank.invalid_count_bounds",
+        "Examples.SelectionCountRank.outside_pivot_equal_block",
+        "Examples.SelectionCountRank.outside_pivot_value",
+        "Examples.SelectionCountRank.equal_occurrence_branch",
+        "Examples.SelectionCountRank.ordered_blocks",
+        "Examples.SelectionCountRank.ordered_blocks_invalid_index",
+        "Examples.SelectionCountRank.duplicate_lower_median",
+        "Examples.SelectionCountRank.duplicate_median_counts",
+        "Examples.SelectionCountRank.monotone_count_transport",
+        "Applications.Sequences.Chunks.chop",
+        "Applications.Sequences.Chunks.chop_zero",
+        "Applications.Sequences.Chunks.chop_nil",
+        "Applications.Sequences.Chunks.length_chop",
+        "Applications.Sequences.Chunks.chop_eq_cons",
+        "Applications.Sequences.Chunks.chop_eq_nil_iff",
+        "Applications.Sequences.Chunks.drop_length_lt",
+        "Applications.Sequences.Chunks.chop_mem_ne_nil",
+        "Applications.Sequences.Chunks.length_mem_chop",
+        "Applications.Sequences.Chunks.length_chop_le_iff",
+        "Applications.Sequences.Chunks.length_chop_eq_add_pred_div",
+        "Applications.Sequences.Chunks.length_chop_le",
+        "Applications.Sequences.Chunks.flatten_chop",
+        "Applications.Sequences.Chunks.countP_chop",
+        "Applications.Sequences.Chunks.sum_multiset_chop",
+        "Applications.Sequences.Chunks.mem_chop_iff",
+        "Applications.Sequences.Chunks.mem_of_mem_chop",
+        "Applications.Sequences.Chunks.chop_eq_singleton",
+        "Applications.Sequences.Chunks.chop_append",
+        "Applications.Sequences.Chunks.chop_flatten",
+        "Applications.Sequences.Chunks.chop_replicate_blocks",
+        "Applications.Sequences.Chunks.chop_replicate",
+        "Applications.Sequences.Chunks.chop_one",
+        "Examples.ListChunks.zero_size_source_convention",
+        "Examples.ListChunks.singleton_chunks",
+        "Examples.ListChunks.partial_final_chunk",
+        "Examples.ListChunks.partial_chunk_count",
+        "Examples.ListChunks.partial_chunks_flatten",
+        "Examples.ListChunks.boolean_chunks",
+        "Examples.ListChunks.duplicate_counts",
+        "Examples.ListChunks.duplicate_multiset",
+        "Examples.ListChunks.short_group_nonempty",
+        "Examples.ListChunks.aligned_append",
+        "Examples.ListChunks.repeated_five_blocks",
+        "Examples.ListChunks.repeated_occurrences",
+        "Applications.Selection.lowerMedianValue",
+        "Applications.Selection.lowerMedianValue_ranked",
+        "Applications.Selection.lowerMedianValue_mem",
+        "Applications.Selection.lowerMedianWith_eq_some_value",
+        "Applications.Selection.lowerMedianValue_count_bounds",
+        "Applications.Selection.chunkMedians",
+        "Applications.Selection.length_chunkMedians",
+        "Applications.Selection.chunkMedians_eq_nil_iff",
+        "Applications.Selection.mem_chunkMedians",
+        "Applications.Selection.medianOfMedians",
+        "Applications.Selection.medianOfMedians_some_iff_ranked",
+        "Applications.Selection.medianOfMedians_none",
+        "Applications.Selection.medianOfMedians_mem",
+        "Applications.Selection.medianOfMedians_pivot_valid",
+        "Applications.Selection.medianOfMedians_median_counts",
+        "Applications.Selection.chunkMedianGroups",
+        "Applications.Selection.chunkMedianGroups_perm",
+        "Applications.Selection.chunkMedianGroups_multiset",
+        "Applications.Selection.chunkMedianGroups_lengths",
+        "Applications.Selection.chunkMedianGroups_related_length",
+        "Applications.Selection.chunk_count_lt_of_median_ge",
+        "Applications.Selection.chunk_count_gt_of_median_le",
+        "Applications.Selection.medianOfMedians_count_bounds",
+        "Applications.Selection.size_five_count_arithmetic",
+        "Applications.Selection.medianOfMedians_five_count_bounds",
+        "Applications.Selection.ceil_nat_div",
+        "Applications.Selection.size_five_ceiling",
+        "Applications.Selection.medianOfMedians_five_ceil_bounds",
+        "Examples.MedianOfMedians.lower_even_value",
+        "Examples.MedianOfMedians.lower_even_adapter",
+        "Examples.MedianOfMedians.two_full_chunk_medians",
+        "Examples.MedianOfMedians.two_full_chunk_pivot",
+        "Examples.MedianOfMedians.two_full_chunk_pivot_mem",
+        "Examples.MedianOfMedians.strict_half_is_false",
+        "Examples.MedianOfMedians.corrected_non_strict_half",
+        "Examples.MedianOfMedians.greater_median_group_is_one",
+        "Examples.MedianOfMedians.complementary_group_is_one",
+        "Examples.MedianOfMedians.short_final_chunk_medians",
+        "Examples.MedianOfMedians.short_final_chunk_pivot",
+        "Examples.MedianOfMedians.short_final_chunk_balance",
+        "Examples.MedianOfMedians.duplicate_chunk_medians",
+        "Examples.MedianOfMedians.duplicate_pivot",
+        "Examples.MedianOfMedians.duplicate_strict_sides",
+        "Examples.MedianOfMedians.duplicate_groups",
+        "Examples.MedianOfMedians.duplicate_groups_multiset",
+        "Examples.MedianOfMedians.five_chunk_lower_contribution",
+        "Examples.MedianOfMedians.five_chunk_upper_contribution",
+        "Examples.MedianOfMedians.five_chunk_total_contribution",
+        "Examples.MedianOfMedians.singleton_group_balance",
+        "Examples.MedianOfMedians.source_real_ceiling",
+        "Examples.MedianOfMedians.source_real_balance",
+        "Examples.MedianOfMedians.empty_pivot",
+        "Examples.MedianOfMedians.zero_size_pivot",
+        "Examples.MedianOfMedians.empty_strict_counts",
+        "Examples.MedianOfMedians.mathematical_policy_is_valid",
+        "Applications.Selection.FixedRank.minimumLoop",
+        "Applications.Selection.FixedRank.select0",
+        "Applications.Selection.FixedRank.minimumLoop_spec",
+        "Applications.Selection.FixedRank.select0_none_iff",
+        "Applications.Selection.FixedRank.select0_some_iff_min",
+        "Applications.Selection.FixedRank.select0_value",
+        "Applications.Selection.FixedRank.select0_some_iff_ranked",
+        "Applications.Selection.FixedRank.select0_pivot_valid",
+        "Applications.Selection.FixedRank.select0_spec",
+        "Applications.Selection.FixedRank.secondLoop",
+        "Applications.Selection.FixedRank.select1",
+        "Applications.Selection.FixedRank.boundedInsert",
+        "Applications.Selection.FixedRank.boundedInsert_length_le",
+        "Applications.Selection.FixedRank.ordered_cons_eq_insert",
+        "Applications.Selection.FixedRank.boundedInsert_prefix",
+        "Applications.Selection.FixedRank.prefixLoop",
+        "Applications.Selection.FixedRank.prefixLoop_prefix",
+        "Applications.Selection.FixedRank.takeSort",
+        "Applications.Selection.FixedRank.takeSort_value",
+        "Applications.Selection.FixedRank.takeSort_length",
+        "Applications.Selection.FixedRank.selectFixed",
+        "Applications.Selection.FixedRank.selectFixed_value",
+        "Applications.Selection.FixedRank.selectFixed_some_iff_ranked",
+        "Applications.Selection.FixedRank.selectFixed_some_iff_count_bounds",
+        "Applications.Selection.FixedRank.selectFixed_none_iff",
+        "Applications.Selection.FixedRank.selectFixed_spec",
+        "Applications.Selection.FixedRank.selectFixed_eq_selectWith",
+        "Applications.Selection.FixedRank.select0_eq_selectFixed",
+        "Applications.Selection.FixedRank.boundedInsert_two",
+        "Applications.Selection.FixedRank.prefixLoop_two",
+        "Applications.Selection.FixedRank.boundedInsert_singleton",
+        "Applications.Selection.FixedRank.select1_eq_selectFixed",
+        "Applications.Selection.FixedRank.select1_value",
+        "Applications.Selection.FixedRank.select1_some_iff_ranked",
+        "Applications.Selection.FixedRank.select1_none_iff",
+        "Applications.Selection.FixedRank.select1_spec",
+        "Resources.FixedRank.minimumLoopRun",
+        "Resources.FixedRank.minimumLoopRun_value",
+        "Resources.FixedRank.minimumLoopRun_cost",
+        "Resources.FixedRank.select0Run",
+        "Resources.FixedRank.select0Run_value",
+        "Resources.FixedRank.select0Run_cost",
+        "Resources.FixedRank.select0Run_exact",
+        "Resources.FixedRank.boundedInsertRun",
+        "Resources.FixedRank.boundedInsertRun_value",
+        "Resources.FixedRank.boundedInsertRun_cost",
+        "Resources.FixedRank.boundedInsertRun_cost_le",
+        "Resources.FixedRank.boundedInsertRun_length_le",
+        "Resources.FixedRank.prefixLoopRun",
+        "Resources.FixedRank.prefixLoopRun_value",
+        "Resources.FixedRank.prefixLoopRun_cost_le",
+        "Resources.FixedRank.takeSortRun",
+        "Resources.FixedRank.takeSortRun_value",
+        "Resources.FixedRank.takeSortRun_cost_le",
+        "Resources.FixedRank.selectFixedRun",
+        "Resources.FixedRank.selectFixedRun_value",
+        "Resources.FixedRank.selectFixedRun_cost",
+        "Resources.FixedRank.selectFixedRun_cost_le",
+        "Resources.FixedRank.selectFixedRun_uniform_bound",
+        "Examples.FixedRankSelection.minimum_example",
+        "Examples.FixedRankSelection.minimum_duplicate",
+        "Examples.FixedRankSelection.minimum_empty",
+        "Examples.FixedRankSelection.minimum_execution",
+        "Examples.FixedRankSelection.minimum_empty_execution",
+        "Examples.FixedRankSelection.duplicate_prefix",
+        "Examples.FixedRankSelection.zero_width_prefix",
+        "Examples.FixedRankSelection.prefix_with_history",
+        "Examples.FixedRankSelection.two_loop_correspondence",
+        "Examples.FixedRankSelection.second_duplicate",
+        "Examples.FixedRankSelection.second_distinct",
+        "Examples.FixedRankSelection.second_singleton",
+        "Examples.FixedRankSelection.second_exists",
+        "Examples.FixedRankSelection.fixed_zero_is_minimum",
+        "Examples.FixedRankSelection.fixed_last_occurrence",
+        "Examples.FixedRankSelection.fixed_invalid_rank",
+        "Examples.FixedRankSelection.book_index_two_is_public_rank_three",
+        "Examples.FixedRankSelection.bounded_insert_at_head",
+        "Examples.FixedRankSelection.bounded_insert_after_accumulator",
+        "Examples.FixedRankSelection.bounded_step_for_rank",
+        "Examples.FixedRankSelection.measured_rank_and_bound",
+        "Examples.FixedRankSelection.fixed_zero_execution",
+        "Examples.FixedRankSelection.fixed_zero_bound",
+        "Examples.FixedRankSelection.minimum_and_fixed_costs_differ",
+        "Examples.FixedRankSelection.fixed_second_execution",
+        "Examples.FixedRankSelection.duplicate_second_with_bound",
+        "Examples.FixedRankSelection.uniform_constants_include_minimum",
+        "Applications.Selection.MedianReduction.padExtrema",
+        "Applications.Selection.MedianReduction.padExtrema_length",
+        "Applications.Selection.MedianReduction.padding_length_identity",
+        "Applications.Selection.MedianReduction.padding_total_le",
+        "Applications.Selection.MedianReduction.extrema",
+        "Applications.Selection.MedianReduction.extrema_spec",
+        "Applications.Selection.MedianReduction.extrema_eq_of_bounds",
+        "Applications.Selection.MedianReduction.ranked_padExtrema",
+        "Applications.Selection.MedianReduction.reduceToMedian",
+        "Applications.Selection.MedianReduction.reduceToMedian_nil",
+        "Applications.Selection.MedianReduction.reduceToMedian_length",
+        "Applications.Selection.MedianReduction.reduceToMedian_nonempty",
+        "Applications.Selection.MedianReduction.reduceToMedian_length_eq",
+        "Applications.Selection.MedianReduction.reduceToMedian_center",
+        "Applications.Selection.MedianReduction.reduceToMedian_odd",
+        "Applications.Selection.MedianReduction.reduceToMedian_length_le",
+        "Applications.Selection.MedianReduction.reduceToMedian_rank_shift",
+        "Applications.Selection.MedianReduction.reduceToMedian_ranked",
+        "Applications.Selection.MedianReduction.reduceToMedian_value",
+        "Applications.Selection.MedianReduction.reduceToMedian_payload_value",
+        "Applications.Selection.MedianReduction.reduceToMedian_spec",
+        "Resources.MedianReduction.replicateRun",
+        "Resources.MedianReduction.replicateRun_exact",
+        "Resources.MedianReduction.padExtremaRun",
+        "Resources.MedianReduction.padExtremaRun_value",
+        "Resources.MedianReduction.padExtremaRun_cost",
+        "Resources.MedianReduction.padExtremaRun_exact",
+        "Resources.MedianReduction.extremaRun",
+        "Resources.MedianReduction.extremaRun_value",
+        "Resources.MedianReduction.extremaRun_cost",
+        "Resources.MedianReduction.extremaRun_exact",
+        "Resources.MedianReduction.reduceToMedianRun",
+        "Resources.MedianReduction.reduceToMedianRun_nil",
+        "Resources.MedianReduction.reduceToMedianRun_value",
+        "Resources.MedianReduction.reduceToMedianRun_cons_cost",
+        "Resources.MedianReduction.reduceToMedianRun_cost",
+        "Resources.MedianReduction.reduceToMedianRun_cost_le",
+        "Resources.MedianReduction.reduceToMedianRun_uniform_bound",
+        "Examples.MedianReduction.extrema_mixed",
+        "Examples.MedianReduction.extrema_tied",
+        "Examples.MedianReduction.extrema_integer",
+        "Examples.MedianReduction.extrema_execution",
+        "Examples.MedianReduction.replication_execution",
+        "Examples.MedianReduction.tied_padding_rank",
+        "Examples.MedianReduction.first_padding",
+        "Examples.MedianReduction.last_padding",
+        "Examples.MedianReduction.lower_middle_padding",
+        "Examples.MedianReduction.upper_middle_padding",
+        "Examples.MedianReduction.already_central",
+        "Examples.MedianReduction.singleton_unchanged",
+        "Examples.MedianReduction.empty_median_failure",
+        "Examples.MedianReduction.lower_middle_median",
+        "Examples.MedianReduction.upper_middle_payload",
+        "Examples.MedianReduction.reduction_shape",
+        "Examples.MedianReduction.padding_execution",
+        "Examples.MedianReduction.first_execution",
+        "Examples.MedianReduction.last_execution",
+        "Examples.MedianReduction.central_execution",
+        "Examples.MedianReduction.singleton_execution",
+        "Examples.MedianReduction.empty_execution",
+        "Examples.MedianReduction.first_rank_attains_bound",
+        "Examples.MedianReduction.measured_reduction_contract",
+        "Examples.MedianReduction.invalid_rank_values",
+        "Examples.MedianReduction.invalid_rank_cost_exceeds_valid_bound",
+        "Examples.MedianReduction.uniform_reduction_constants",
+        "Applications.Selection.MedianCounterfamily.lowBlock",
+        "Applications.Selection.MedianCounterfamily.highBlock",
+        "Applications.Selection.MedianCounterfamily.fullBlocks",
+        "Applications.Selection.MedianCounterfamily.family",
+        "Applications.Selection.MedianCounterfamily.fullBlocks_length",
+        "Applications.Selection.MedianCounterfamily.mem_fullBlocks_length",
+        "Applications.Selection.MedianCounterfamily.flatten_fullBlocks_length",
+        "Applications.Selection.MedianCounterfamily.family_length",
+        "Applications.Selection.MedianCounterfamily.family_positive",
+        "Applications.Selection.MedianCounterfamily.family_ne_nil",
+        "Applications.Selection.MedianCounterfamily.family_lengths_strictMono",
+        "Applications.Selection.MedianCounterfamily.chop_family",
+        "Applications.Selection.MedianCounterfamily.lowBlock_median",
+        "Applications.Selection.MedianCounterfamily.highBlock_median",
+        "Applications.Selection.MedianCounterfamily.singleton_zero_median",
+        "Applications.Selection.MedianCounterfamily.chunkMedians_family",
+        "Applications.Selection.MedianCounterfamily.chunkMedians_family_length",
+        "Applications.Selection.MedianCounterfamily.chunkMedians_family_count_lt",
+        "Applications.Selection.MedianCounterfamily.chunkMedians_family_count_gt",
+        "Applications.Selection.MedianCounterfamily.family_pivot",
+        "Applications.Selection.MedianCounterfamily.family_count_gt",
+        "Applications.Selection.MedianCounterfamily.family_excess",
+        "Applications.Selection.MedianCounterfamily.family_strict_seventy",
+        "Applications.Selection.MedianCounterfamily.family_pivot_strict_seventy",
+        "Applications.Selection.MedianCounterfamily.infinite_family",
+        "Examples.MedianCounterfamily.first_input",
+        "Examples.MedianCounterfamily.first_chops",
+        "Examples.MedianCounterfamily.first_medians",
+        "Examples.MedianCounterfamily.first_pivot",
+        "Examples.MedianCounterfamily.first_counts",
+        "Examples.MedianCounterfamily.first_strict_percentage",
+        "Examples.MedianCounterfamily.second_chops",
+        "Examples.MedianCounterfamily.second_medians",
+        "Examples.MedianCounterfamily.second_pivot",
+        "Examples.MedianCounterfamily.second_counts",
+        "Examples.MedianCounterfamily.second_has_duplicates",
+        "Examples.MedianCounterfamily.third_counts",
+        "Examples.MedianCounterfamily.growth_at_every_index",
+        "Examples.MedianCounterfamily.positive_denominator_at_every_index",
+        "Examples.MedianCounterfamily.book_ceiling_still_bounds",
+        "Examples.MedianCounterfamily.dropping_allowance_fails",
+        "Examples.MedianCounterfamily.actual_pivot_comparison",
+        "Examples.GeneralMedianBounds.partition_bounds",
+        "Examples.GeneralMedianBounds.nonempty_input_has_bounded_pivot",
+        "Examples.GeneralMedianBounds.three_group_bounds",
+        "Examples.GeneralMedianBounds.four_group_bounds",
+        "Examples.GeneralMedianBounds.six_group_bounds",
+        "Examples.GeneralMedianBounds.constant_input_pivot",
+        "Examples.GeneralMedianBounds.constant_input_strict_counts",
+        "Examples.GeneralMedianBounds.oddInput",
+        "Examples.GeneralMedianBounds.odd_chops",
+        "Examples.GeneralMedianBounds.odd_chunk_count",
+        "Examples.GeneralMedianBounds.odd_medians",
+        "Examples.GeneralMedianBounds.odd_pivot",
+        "Examples.GeneralMedianBounds.odd_strict_counts",
+        "Examples.GeneralMedianBounds.odd_bound_from_general",
+        "Examples.GeneralMedianBounds.odd_partition_values",
+        "Examples.GeneralMedianBounds.odd_partition_bounds",
+        "Examples.GeneralMedianBounds.evenInput",
+        "Examples.GeneralMedianBounds.even_chops",
+        "Examples.GeneralMedianBounds.even_chunk_count",
+        "Examples.GeneralMedianBounds.even_medians",
+        "Examples.GeneralMedianBounds.even_pivot",
+        "Examples.GeneralMedianBounds.even_strict_counts",
+        "Examples.GeneralMedianBounds.even_bound_from_general",
+        "Examples.GeneralMedianBounds.even_partition_values",
+        "Examples.GeneralMedianBounds.even_partition_bounds",
+        "Examples.GeneralMedianBounds.integer_ties_with_short_chunk",
+        "Examples.GeneralMedianBounds.integer_tie_bound",
+        "Resources.SelectionPolicy.Observed",
+        "Resources.SelectionPolicy.prepend",
+        "Resources.SelectionPolicy.runWith",
+        "Resources.SelectionPolicy.runWith_zero",
+        "Resources.SelectionPolicy.runWith_nil",
+        "Resources.SelectionPolicy.runWith_step",
+        "Resources.SelectionPolicy.runWith_value",
+        "Resources.SelectionPolicy.runWith_correct",
+        "Resources.MinimumPivot.run",
+        "Resources.MinimumPivot.policy_valid",
+        "Resources.MinimumPivot.run_value",
+        "Resources.MinimumPivot.minimum_bucket_sizes",
+        "Resources.MinimumPivot.run_zero_rank",
+        "Resources.MinimumPivot.run_succ_rank",
+        "Resources.MinimumPivot.sizes",
+        "Resources.MinimumPivot.sizes_length",
+        "Resources.MinimumPivot.run_observations",
+        "Resources.MinimumPivot.run_trace",
+        "Resources.MinimumPivot.active_calls",
+        "Resources.MinimumPivot.recursive_edges",
+        "Resources.MinimumPivot.sizes_sum_double",
+        "Resources.MinimumPivot.sizes_sum",
+        "Resources.MinimumPivot.sizes_sum_bounds",
+        "Resources.MinimumPivot.scan_exact",
+        "Resources.MinimumPivot.cost_exact",
+        "Resources.MinimumPivot.fixed_rank_linear",
+        "Resources.MinimumPivot.largest_scan_double",
+        "Resources.MinimumPivot.largest_scan",
+        "Resources.MinimumPivot.largest_cost_quadratic",
+        "Examples.MinimumPivot.input",
+        "Examples.MinimumPivot.input_nodup",
+        "Examples.MinimumPivot.middle_execution",
+        "Examples.MinimumPivot.middle_trace",
+        "Examples.MinimumPivot.middle_calls",
+        "Examples.MinimumPivot.middle_edges",
+        "Examples.MinimumPivot.middle_scan",
+        "Examples.MinimumPivot.middle_cost",
+        "Examples.MinimumPivot.largest_execution",
+        "Examples.MinimumPivot.largest_scan_connected",
+        "Examples.MinimumPivot.minimum_execution",
+        "Examples.MinimumPivot.minimum_is_not_four_calls",
+        "Examples.MinimumPivot.duplicate_execution",
+        "Examples.MinimumPivot.duplicates_are_not_four_calls",
+        "Examples.MinimumPivot.singleton_execution",
+        "Examples.MinimumPivot.singleton_edges",
+        "Examples.MinimumPivot.empty_execution",
+        "Examples.MinimumPivot.invalid_value",
+        "Examples.MinimumPivot.range_worst_scan",
+        "Examples.MinimumPivot.range_worst_calls",
+        "Examples.MinimumPivot.range_worst_edges",
+        "Examples.MinimumPivot.range_worst_quadratic",
+        "Examples.MinimumPivot.fixed_third_linear",
+        "Resources.HalvingSelection.HalvingPolicy",
+        "Resources.HalvingSelection.runWith_trace",
+        "Resources.HalvingSelection.runWith_scan_bounds",
+        "Resources.HalvingSelection.runWith_edges_log",
+        "Resources.HalvingSelection.runWith_edges_clog",
+        "Resources.HalvingSelection.runWith_singleton_trace",
+        "Resources.HalvingSelection.runWith_tariff",
+        "Resources.HalvingSelection.runWith_linear_cost",
+        "Resources.MedianPolicy.pivotRun",
+        "Resources.MedianPolicy.pivotRun_value",
+        "Resources.MedianPolicy.pivotRun_cost",
+        "Resources.MedianPolicy.pivotRun_some_iff",
+        "Resources.MedianPolicy.pivotRun_none",
+        "Resources.MedianPolicy.pivot_valid",
+        "Resources.MedianPolicy.pivot_halving",
+        "Resources.MedianPolicy.pivotRun_small",
+        "Resources.MedianPolicy.pivotRun_singleton",
+        "Resources.MedianPolicy.pivotRun_exists_uniform_linear_bound",
+        "Resources.MedianPolicy.run",
+        "Resources.MedianPolicy.run_value",
+        "Resources.MedianPolicy.run_some_iff",
+        "Resources.MedianPolicy.run_none",
+        "Resources.MedianPolicy.run_trace",
+        "Resources.MedianPolicy.run_scan_bounds",
+        "Resources.MedianPolicy.run_edges_log",
+        "Resources.MedianPolicy.run_edges_clog",
+        "Resources.MedianPolicy.run_singleton_trace",
+        "Resources.MedianPolicy.run_singleton",
+        "Resources.MedianPolicy.run_exists_uniform_linear_bound",
+        "Examples.MedianPolicy.pivot_two",
+        "Examples.MedianPolicy.pivot_four",
+        "Examples.MedianPolicy.pivot_eight",
+        "Examples.MedianPolicy.pivot_three",
+        "Examples.MedianPolicy.pivot_seven",
+        "Examples.MedianPolicy.pivot_four_initial",
+        "Examples.MedianPolicy.pivot_duplicates",
+        "Examples.MedianPolicy.two_execution",
+        "Examples.MedianPolicy.four_tail_execution",
+        "Examples.MedianPolicy.eight_execution",
+        "Examples.MedianPolicy.eight_trace_connected",
+        "Examples.MedianPolicy.eight_scan",
+        "Examples.MedianPolicy.eight_edges",
+        "Examples.MedianPolicy.eight_edges_bound",
+        "Examples.MedianPolicy.three_tail_execution",
+        "Examples.MedianPolicy.seven_execution",
+        "Examples.MedianPolicy.seven_scan_bounds",
+        "Examples.MedianPolicy.seven_edges_strict_clog",
+        "Examples.MedianPolicy.early_equal_execution",
+        "Examples.MedianPolicy.early_equal_edges",
+        "Examples.MedianPolicy.lower_branch_execution",
+        "Examples.MedianPolicy.duplicate_execution",
+        "Examples.MedianPolicy.duplicate_trace_connected",
+        "Examples.MedianPolicy.singleton_execution",
+        "Examples.MedianPolicy.singleton_trace_connected",
+        "Examples.MedianPolicy.singleton_active_and_edges",
+        "Examples.MedianPolicy.empty_execution",
+        "Examples.MedianPolicy.invalid_value",
+        "Examples.MedianPolicy.range_scan_bound",
+        "Examples.MedianPolicy.range_edge_bound",
+        "Examples.MedianPolicy.all_integer_inputs_linear",
+        "Resources.RoundedRecurrence.ceil_affine_lt_add_one",
+        "Resources.RoundedRecurrence.ceil_affine_lt_of_threshold",
+        "Resources.RoundedRecurrence.thresholds_of_combined_cutoff",
+        "Resources.RoundedRecurrence.ceil_children_lt",
+        "Resources.RoundedRecurrence.cutoff_denominator_pos",
+        "Resources.RoundedRecurrence.slope_nonneg_and_margin",
+        "Resources.RoundedRecurrence.sharp_affine_absorption",
+        "Resources.RoundedRecurrence.recurrence_step_le",
+        "Examples.RoundedRecurrence.negative_argument_truncation",
+        "Examples.RoundedRecurrence.signed_offset_descent",
+        "Examples.RoundedRecurrence.combined_signed_descent",
+        "Examples.RoundedRecurrence.zero_recurrence",
+        "Examples.RoundedRecurrence.strict_slope_choice_counterexample",
+        "Examples.RoundedRecurrence.zero_recurrence_bound_step",
+        "Examples.RoundedRecurrence.negative_intercept_bound_step",
+        "Examples.RoundedRecurrence.negative_toll_and_intercept",
+        "Resources.RoundedRecurrence.explicit_cutoff_bounds",
+        "Resources.RoundedRecurrence.affine_bound_of_prefix",
+        "Resources.RoundedRecurrence.bound_with_source_constants",
+        "Resources.RoundedRecurrence.exists_affine_bound",
+        "Resources.RoundedRecurrence.exists_affine_bound_nat",
+        "Examples.RoundedRecurrenceBounds.zero_source_witness_bound",
+        "Examples.RoundedRecurrenceBounds.negative_intercept_all_inputs",
+        "Examples.RoundedRecurrenceBounds.negative_constant_toll_affine_bound",
+        "Examples.RoundedRecurrenceBounds.roundedQuarter",
+        "Examples.RoundedRecurrenceBounds.roundedQuarter_of_le_five",
+        "Examples.RoundedRecurrenceBounds.roundedQuarter_of_five_lt",
+        "Examples.RoundedRecurrenceBounds.roundedQuarter_zero",
+        "Examples.RoundedRecurrenceBounds.roundedQuarter_five",
+        "Examples.RoundedRecurrenceBounds.roundedQuarter_six",
+        "Examples.RoundedRecurrenceBounds.roundedQuarter_twenty_one",
+        "Examples.RoundedRecurrenceBounds.roundedQuarter_sharp_affine_bound",
+        "Examples.RoundedRecurrenceBounds.roundedQuarter_real_affine_bound",
+        "Examples.RoundedRecurrenceBounds.roundedQuarter_nat_affine_bound",
+        "Examples.RoundedRecurrenceBounds.noncontracting_affine_step_impossible",
+        "Resources.SelectionRecurrence.pivotSize",
+        "Resources.SelectionRecurrence.sideSize",
+        "Resources.SelectionRecurrence.pivotSize_lt_iff",
+        "Resources.SelectionRecurrence.sideSize_lt_iff",
+        "Resources.SelectionRecurrence.pivotSize_monotone",
+        "Resources.SelectionRecurrence.sideSize_monotone",
+        "Resources.SelectionRecurrence.F",
+        "Resources.SelectionRecurrence.F_of_le_twenty",
+        "Resources.SelectionRecurrence.F_of_twenty_lt",
+        "Resources.SelectionRecurrence.base_le_F",
+        "Resources.SelectionRecurrence.F_monotone",
+        "Resources.SelectionRecurrence.pivotSize_eq_ceil",
+        "Resources.SelectionRecurrence.sideSize_eq_ceil",
+        "Resources.SelectionRecurrence.F_rounded",
+        "Resources.SelectionRecurrence.exists_affine_bound",
+        "Resources.SelectionRecurrence.F_isBigO",
+        "Examples.SelectionRecurrence.zero_children",
+        "Examples.SelectionRecurrence.scalar_cutoff_obstruction",
+        "Examples.SelectionRecurrence.scalar_cutoff_fourteen",
+        "Examples.SelectionRecurrence.first_recursive_children",
+        "Examples.SelectionRecurrence.F_zero",
+        "Examples.SelectionRecurrence.F_twenty",
+        "Examples.SelectionRecurrence.F_twenty_one",
+        "Examples.SelectionRecurrence.F_twenty_two",
+        "Examples.SelectionRecurrence.first_recursive_is_not_base",
+        "Examples.SelectionRecurrence.resize_across_cutoff",
+        "Examples.SelectionRecurrence.all_smaller_children_uniform",
+        "Examples.SelectionRecurrence.zero_requires_intercept",
+        "Resources.GroupSelectionRecurrence.pivotFraction",
+        "Resources.GroupSelectionRecurrence.sideFraction",
+        "Resources.GroupSelectionRecurrence.fractions_pos",
+        "Resources.GroupSelectionRecurrence.fraction_sum_eq",
+        "Resources.GroupSelectionRecurrence.contracts_iff_half_gap",
+        "Resources.GroupSelectionRecurrence.contracts_iff_five_le",
+        "Resources.GroupSelectionRecurrence.odd_contracts_iff",
+        "Resources.GroupSelectionRecurrence.even_contracts_iff",
+        "Resources.GroupSelectionRecurrence.pivotChild",
+        "Resources.GroupSelectionRecurrence.sideChild",
+        "Resources.GroupSelectionRecurrence.pivotChild_one",
+        "Resources.GroupSelectionRecurrence.pivotChild_monotone",
+        "Resources.GroupSelectionRecurrence.sideChild_monotone",
+        "Resources.GroupSelectionRecurrence.two_group_bound_le_child",
+        "Resources.GroupSelectionRecurrence.cutoff",
+        "Resources.GroupSelectionRecurrence.cutoff_threshold",
+        "Resources.GroupSelectionRecurrence.children_lt",
+        "Resources.GroupSelectionRecurrence.majorant",
+        "Resources.GroupSelectionRecurrence.majorant_small",
+        "Resources.GroupSelectionRecurrence.majorant_large",
+        "Resources.GroupSelectionRecurrence.base_le_majorant",
+        "Resources.GroupSelectionRecurrence.majorant_monotone",
+        "Resources.GroupSelectionRecurrence.majorant_affine_bound",
+        "Resources.GroupSelectionRecurrence.majorant_isBigO",
+        "Resources.GroupSelectionRecurrence.rounded_group_affine_bound",
+        "Examples.GroupSelectionRecurrence.zero_requires_positive_domain",
+        "Examples.GroupSelectionRecurrence.singleton_group",
+        "Examples.GroupSelectionRecurrence.group_two",
+        "Examples.GroupSelectionRecurrence.groups_three_four",
+        "Examples.GroupSelectionRecurrence.groups_five_six",
+        "Examples.GroupSelectionRecurrence.all_odd_even_thresholds",
+        "Examples.GroupSelectionRecurrence.explicit_cutoffs",
+        "Examples.GroupSelectionRecurrence.first_five_children",
+        "Examples.GroupSelectionRecurrence.first_six_children",
+        "Examples.GroupSelectionRecurrence.zero_base_value",
+        "Examples.GroupSelectionRecurrence.last_five_base",
+        "Examples.GroupSelectionRecurrence.first_five_recurrence",
+        "Examples.GroupSelectionRecurrence.first_six_recurrence",
+        "Examples.GroupSelectionRecurrence.short_final_group_bound",
+        "Examples.GroupSelectionRecurrence.zero_group_count_bound",
+        "Examples.GroupSelectionRecurrence.uniform_resizing",
+        "Examples.GroupSelectionRecurrence.positive_base_ne_all_input_linear",
+        "Examples.GroupSelectionRecurrence.exact_book_F_specialization",
+        "Applications.Selection.OutsidePivot.partition3_below",
+        "Applications.Selection.OutsidePivot.partition3_above",
+        "Applications.Selection.OutsidePivot.dispatch_below",
+        "Applications.Selection.OutsidePivot.dispatch_above",
+        "Applications.Selection.OutsidePivot.runWith_step_below",
+        "Applications.Selection.OutsidePivot.runWith_step_above",
+        "Applications.Selection.OutsidePivot.runWith_below_none",
+        "Applications.Selection.OutsidePivot.runWith_above_none",
+        "Applications.Selection.OutsidePivot.not_pivotValid_below",
+        "Applications.Selection.OutsidePivot.not_pivotValid_above",
+        "Applications.Selection.OutsidePivot.selectWith_below_none",
+        "Applications.Selection.OutsidePivot.selectWith_above_none",
+        "Applications.Selection.OutsidePivot.runWith_below_ne_spec",
+        "Applications.Selection.OutsidePivot.runWith_above_ne_spec",
+        "Examples.OutsidePivot.below_partition",
+        "Examples.OutsidePivot.above_partition",
+        "Examples.OutsidePivot.below_dispatch_same_state",
+        "Examples.OutsidePivot.above_dispatch_same_state",
+        "Examples.OutsidePivot.below_both_endpoints",
+        "Examples.OutsidePivot.above_both_endpoints",
+        "Examples.OutsidePivot.negative_duplicate_input",
+        "Examples.OutsidePivot.singleton_never_answers",
+        "Examples.OutsidePivot.below_valid_answer_not_obtained",
+        "Examples.OutsidePivot.above_valid_answer_not_obtained",
+        "Examples.OutsidePivot.below_policy_rejected",
+        "Examples.OutsidePivot.above_policy_rejected",
+        "Examples.OutsidePivot.public_positive_boundary",
+        "Examples.OutsidePivot.empty_has_no_valid_rank",
+        "Examples.OutsidePivot.invalid_above_uses_empty_right",
+        "Examples.OutsidePivot.in_range_policy_contrast",
+        "Resources.HalvingTrace.Halves",
+        "Resources.HalvingTrace.Halves.stop",
+        "Resources.HalvingTrace.Halves.step",
+        "Resources.HalvingTrace.positive",
+        "Resources.HalvingTrace.nonempty",
+        "Resources.HalvingTrace.head_eq",
+        "Resources.HalvingTrace.length_pos",
+        "Resources.HalvingTrace.all_positive",
+        "Resources.HalvingTrace.next_halved",
+        "Resources.HalvingTrace.step_of_le_half",
+        "Resources.HalvingTrace.length_le_sum",
+        "Resources.HalvingTrace.member_le_sum",
+        "Resources.HalvingTrace.initial_le_sum",
+        "Resources.HalvingTrace.sum_le_twice",
+        "Resources.HalvingTrace.pow_edges_le",
+        "Resources.HalvingTrace.edges_le_log",
+        "Resources.HalvingTrace.edges_le_clog",
+        "Resources.HalvingTrace.singleton_at_one",
+        "Resources.HalvingTrace.zero_impossible",
+        "Resources.HalvingTrace.affine_charges_sum_le",
+        "Resources.HalvingTrace.tariff_sum_le",
+        "Resources.HalvingTrace.sum_le_charges",
+        "Resources.HalvingTrace.initial_le_charges",
+        "Examples.HalvingTrace.power_two_trace",
+        "Examples.HalvingTrace.power_two_values",
+        "Examples.HalvingTrace.power_two_bounds",
+        "Examples.HalvingTrace.odd_trace",
+        "Examples.HalvingTrace.odd_values",
+        "Examples.HalvingTrace.odd_bounds",
+        "Examples.HalvingTrace.singleton_trace",
+        "Examples.HalvingTrace.singleton_values",
+        "Examples.HalvingTrace.singleton_forced",
+        "Examples.HalvingTrace.early_stop",
+        "Examples.HalvingTrace.early_stop_bounds",
+        "Examples.HalvingTrace.zero_rejected",
+        "Examples.HalvingTrace.insufficient_halving",
+        "Examples.HalvingTrace.fixed_tariff_alignment",
+        "Examples.HalvingTrace.fixed_tariff_value",
+        "Examples.HalvingTrace.fixed_tariff_bounds",
+        "Resources.SelectionEnvelope.tollCoefficient",
+        "Resources.SelectionEnvelope.smallBudget",
+        "Resources.SelectionEnvelope.envelope",
+        "Resources.SelectionEnvelope.envelope_zero",
+        "Resources.SelectionEnvelope.envelope_succ",
+        "Resources.SelectionEnvelope.recursive_budget_le",
+        "Resources.SelectionEnvelope.le_succ",
+        "Resources.SelectionEnvelope.envelope_mono",
+        "Resources.SelectionEnvelope.small_budget_le",
+        "Resources.SelectionEnvelope.invalid_budget_le",
+        "Resources.SelectionEnvelope.two_child_budget_le",
+        "Resources.SelectionEnvelope.prefix_max_bound",
+        "Examples.SelectionEnvelope.group_two_values",
+        "Examples.SelectionEnvelope.group_five_values",
+        "Examples.SelectionEnvelope.small_budget_values",
+        "Examples.SelectionEnvelope.invalid_empty_bound",
+        "Examples.SelectionEnvelope.charged_two_child_example",
+        "Examples.SelectionEnvelope.nonshrinking_budget_exceeds",
+        "Examples.SelectionEnvelope.actual_cutoff_prefix",
+        "Examples.SelectionEnvelope.scalar_cutoff_prefix",
+        "Resources.SelectionCutoff.FirstPivotCall",
+        "Resources.SelectionCutoff.no_first_call_of_invalid",
+        "Resources.SelectionCutoff.no_first_call_of_small",
+        "Resources.SelectionCutoff.one_ceil_div",
+        "Resources.SelectionCutoff.ceil_div_strict_iff",
+        "Resources.SelectionCutoff.first_pivot_length_strict_iff",
+        "Resources.SelectionCutoff.actual_cutoff_iff",
+        "Resources.SelectionCutoff.lowerMedianValue_singleton",
+        "Resources.SelectionCutoff.singleton_medians",
+        "Resources.SelectionCutoff.zero_cutoff_self_pivot",
+        "Resources.SelectionCutoff.zero_cutoff_self_call",
+        "Resources.SelectionCutoff.zero_cutoff_not_wellFounded",
+        "Resources.SelectionCutoff.group_one_medians",
+        "Resources.SelectionCutoff.group_one_self_pivot",
+        "Resources.SelectionCutoff.group_one_has_no_cutoff",
+        "Resources.SelectionCutoff.group_one_self_call",
+        "Resources.SelectionCutoff.group_one_not_wellFounded",
+        "Resources.SelectionCutoff.recursive_children_decrease",
+        "Resources.SelectionCutoff.cutoff_one_value",
+        "Resources.SelectionCutoff.scalar_cutoff_iff",
+        "Resources.SelectionCutoff.twenty_scalar_safe",
+        "Resources.SelectionCutoff.twenty_polynomial_budget",
+        "Resources.SelectionCutoff.twenty_actual_base_budget",
+        "Examples.SelectionCutoff.singleton_zero_cutoff",
+        "Examples.SelectionCutoff.singleton_guarded_self_call",
+        "Examples.SelectionCutoff.singleton_positive_cutoff_stops",
+        "Examples.SelectionCutoff.singleton_invalid_rank_stops",
+        "Examples.SelectionCutoff.zero_cutoff_recipe_not_wellFounded",
+        "Examples.SelectionCutoff.five_cutoff_is_positive",
+        "Examples.SelectionCutoff.singleton_groups_preserve_duplicates",
+        "Examples.SelectionCutoff.singleton_groups_obstruct_every_cutoff",
+        "Examples.SelectionCutoff.singleton_group_duplicate_self_call",
+        "Examples.SelectionCutoff.singleton_group_recipe_not_wellFounded",
+        "Examples.SelectionCutoff.two_groups_cutoff_one_value",
+        "Examples.SelectionCutoff.two_group_actual_children",
+        "Examples.SelectionCutoff.actual_and_scalar_sizes_differ",
+        "Examples.SelectionCutoff.twelve_fails_scalar",
+        "Examples.SelectionCutoff.thirteen_suffices_scalar",
+        "Examples.SelectionCutoff.twenty_budget_and_next_children",
+        "Examples.SelectionCutoff.descending_twenty_actual_budget",
+        "Examples.SelectionComposition.monotone_ranked_costs",
+        "Examples.SelectionComposition.constant_ranked_costs",
+        "Examples.SelectionComposition.collapsed_actual_work",
+        "Resources.SelectionAuxiliary.slowSelectRun",
+        "Resources.SelectionAuxiliary.slowSelectRun_value",
+        "Resources.SelectionAuxiliary.slowSelectRun_cost",
+        "Resources.SelectionAuxiliary.slowSelectRun_cost_of_lt",
+        "Resources.SelectionAuxiliary.slowSelectRun_some_iff",
+        "Resources.SelectionAuxiliary.slowSelectRun_none",
+        "Resources.SelectionAuxiliary.slowSelectRun_public",
+        "Resources.SelectionAuxiliary.slowSelectRun_cost_bound",
+        "Resources.SelectionAuxiliary.slowSelectRun_cost_of_pairwise",
+        "Resources.SelectionAuxiliary.slowSelectRun_cost_reverse_range",
+        "Resources.SelectionAuxiliary.slowSelectRun_entry_bound",
+        "Resources.SelectionAuxiliary.slowSelectRun_cutoff_bound",
+        "Resources.SelectionAuxiliary.slowMedianRun",
+        "Resources.SelectionAuxiliary.slowMedianRun_value",
+        "Resources.SelectionAuxiliary.slowMedianRun_cost",
+        "Resources.SelectionAuxiliary.slowMedianRun_some_iff",
+        "Resources.SelectionAuxiliary.slowMedianRun_none",
+        "Resources.SelectionAuxiliary.slowMedianRun_mem",
+        "Resources.SelectionAuxiliary.slowMedianRun_cost_bound",
+        "Resources.SelectionAuxiliary.slowMedianRun_small_bound",
+        "Examples.SelectionAuxiliary.empty_payload_selection",
+        "Examples.SelectionAuxiliary.singleton_selection",
+        "Examples.SelectionAuxiliary.singleton_invalid",
+        "Examples.SelectionAuxiliary.public_rank_bridge",
+        "Examples.SelectionAuxiliary.duplicate_occurrence_rank",
+        "Examples.SelectionAuxiliary.collapsed_occurrence_rank",
+        "Examples.SelectionAuxiliary.valid_selection_budget",
+        "Examples.SelectionAuxiliary.empty_payload_median",
+        "Examples.SelectionAuxiliary.singleton_median",
+        "Examples.SelectionAuxiliary.lower_even_median",
+        "Examples.SelectionAuxiliary.repeated_central_values",
+        "Examples.SelectionAuxiliary.ascending_five_median",
+        "Examples.SelectionAuxiliary.descending_five_median",
+        "Examples.SelectionAuxiliary.same_median_different_work",
+        "Examples.SelectionAuxiliary.arbitrary_short_chunk",
+        "Examples.SelectionAuxiliary.singleton_short_chunk",
+        "Examples.SelectionAuxiliary.median_value_and_budget",
+        "Examples.SelectionAuxiliary.cutoff_sorted_last",
+        "Examples.SelectionAuxiliary.cutoff_descending_last",
+        "Examples.SelectionAuxiliary.cutoff_uniform_budget",
+        "Resources.Chunks.chopRun",
+        "Resources.Chunks.chopRun_zero",
+        "Resources.Chunks.chopRun_nil",
+        "Resources.Chunks.chopRun_eq_cons",
+        "Resources.Chunks.chopRun_value",
+        "Resources.Chunks.chopRun_cost",
+        "Resources.Chunks.chopRun_exact",
+        "Resources.Chunks.chopRun_cost_bound",
+        "Resources.Chunks.chopRun_one_cost",
+        "Resources.Chunks.chopRun_length",
+        "Resources.Chunks.chopRun_mem_ne_nil",
+        "Resources.Chunks.chopRun_mem_length",
+        "Resources.Chunks.chopRun_flatten",
+        "Resources.SelectionMedians.slowMedianValueRun",
+        "Resources.SelectionMedians.slowMedianValueRun_of_some",
+        "Resources.SelectionMedians.slowMedianValueRun_of_run",
+        "Resources.SelectionMedians.slowMedianValueRun_some",
+        "Resources.SelectionMedians.slowMedianValueRun_cost",
+        "Resources.SelectionMedians.slowMedianValueRun_ranked",
+        "Resources.SelectionMedians.slowMedianValueRun_mem",
+        "Resources.SelectionMedians.slowMedianValueRun_value",
+        "Resources.SelectionMedians.slowMedianValueRun_small_bound",
+        "Resources.SelectionMedians.mapSlowMedianRun",
+        "Resources.SelectionMedians.mapSlowMedianRun_value",
+        "Resources.SelectionMedians.mapSlowMedianRun_some_values",
+        "Resources.SelectionMedians.mapSlowMedianRun_length",
+        "Resources.SelectionMedians.mapSlowMedianRun_cost",
+        "Resources.SelectionMedians.mapSlowMedianRun_bound",
+        "Resources.SelectionMedians.mapSlowMedianRun_small_bound",
+        "Resources.SelectionMedians.mapSlowMedianRun_chop_five_bound",
+        "Resources.SelectionMedians.chunkMediansRun",
+        "Resources.SelectionMedians.chunkMediansRun_value",
+        "Resources.SelectionMedians.chunkMediansRun_some_values",
+        "Resources.SelectionMedians.chunkMediansRun_cost_split",
+        "Resources.SelectionMedians.chunkMediansRun_cost",
+        "Resources.SelectionMedians.chunkMediansRun_cost_positive",
+        "Resources.SelectionMedians.chunkMediansRun_length",
+        "Resources.SelectionMedians.chunkMediansRun_eq_nil_iff",
+        "Resources.SelectionMedians.chunkMediansRun_mem",
+        "Resources.SelectionMedians.chunkMediansRun_bound",
+        "Resources.SelectionMedians.chunkMediansRun_five_bound",
+        "Examples.ChunkCalls.empty_payload",
+        "Examples.ChunkCalls.zero_size",
+        "Examples.ChunkCalls.singleton_chunks",
+        "Examples.ChunkCalls.short_final_chunk",
+        "Examples.ChunkCalls.oversized_group",
+        "Examples.ChunkCalls.first_recursive_size",
+        "Examples.ChunkCalls.both_traversals_are_charged",
+        "Examples.ChunkCalls.fused_first_step_is_not_source_count",
+        "Examples.ChunkCalls.no_occurrence_is_lost",
+        "Examples.ChunkCalls.reached_chunks_are_valid",
+        "Examples.ChunkCalls.arbitrary_group_budget",
+        "Examples.SelectionMedians.lower_even_payload",
+        "Examples.SelectionMedians.duplicate_payload",
+        "Examples.SelectionMedians.payload_rank_and_budget",
+        "Examples.SelectionMedians.empty_payload_map",
+        "Examples.SelectionMedians.two_chunk_map",
+        "Examples.SelectionMedians.empty_chunk_preparation",
+        "Examples.SelectionMedians.zero_size_preparation",
+        "Examples.SelectionMedians.two_full_chunks",
+        "Examples.SelectionMedians.short_final_chunk",
+        "Examples.SelectionMedians.duplicate_occurrences",
+        "Examples.SelectionMedians.first_recursive_size",
+        "Examples.SelectionMedians.first_recursive_map_count",
+        "Examples.SelectionMedians.prepared_pivot_membership",
+        "Examples.SelectionMedians.general_group_preparation",
+        "Examples.SelectionMedians.book_map_budget",
+        "Examples.SelectionMedians.book_preparation_budget",
+        "Resources.Selection.selectRunWith",
+        "Resources.Selection.selectRun",
+        "Resources.Selection.selectRunWith_of_invalid",
+        "Resources.Selection.selectRunWith_nil",
+        "Resources.Selection.selectRunWith_exists",
+        "Resources.Selection.selectRunWith_mem",
+        "Resources.Selection.selectRunWith_small",
+        "Resources.Selection.selectRunWith_step",
+        "Resources.Selection.selectRunWith_cost_step",
+        "Resources.Selection.selectRunWith_value",
+        "Resources.Selection.selectRunWith_some_iff",
+        "Resources.Selection.selectRunWith_none_iff",
+        "Resources.Selection.selectRunWith_public",
+        "Resources.Selection.selectRun_value",
+        "Resources.Selection.selectRun_some_iff",
+        "Resources.Selection.selectRun_none_iff",
+        "Resources.Selection.selectRun_of_invalid",
+        "Resources.Selection.selectRun_nil",
+        "Resources.Selection.selectRun_small",
+        "Resources.Selection.selectRun_step",
+        "Resources.Selection.selectRun_cost_step",
+        "Examples.SelectionCosts.empty_payload",
+        "Examples.SelectionCosts.empty_arbitrary_rank",
+        "Examples.SelectionCosts.singleton",
+        "Examples.SelectionCosts.singleton_invalid",
+        "Examples.SelectionCosts.cutoff_ascending",
+        "Examples.SelectionCosts.cutoff_descending",
+        "Examples.SelectionCosts.same_cutoff_value_different_work",
+        "Examples.SelectionCosts.first_recursive_pivot",
+        "Examples.SelectionCosts.first_recursive_left",
+        "Examples.SelectionCosts.first_recursive_equal",
+        "Examples.SelectionCosts.first_recursive_right",
+        "Examples.SelectionCosts.first_recursive_invalid",
+        "Examples.SelectionCosts.all_equal_first",
+        "Examples.SelectionCosts.all_equal_last",
+        "Examples.SelectionCosts.group_two_cutoff_one",
+        "Examples.SelectionCosts.one_based_public_bridge",
+        "Examples.SelectionCosts.monotone_payload_selection",
+        "Examples.SelectionCosts.collapsed_payload",
+        "Resources.Selection.chunkMediansRun_length_eq_pivotSize",
+        "Resources.Selection.selectRun_median_value",
+        "Resources.Selection.selectRun_pivot_size_bounds",
+        "Resources.Selection.selectRun_local_cost_bound",
+        "Resources.Selection.selectRun_cost_le_F_of_lt",
+        "Resources.Selection.invalid_cost_le_F",
+        "Resources.Selection.selectRun_cost_le_F",
+        "Resources.Selection.selectRun_exists_uniform_affine_bound",
+        "Resources.Selection.selectRun_exists_uniform_linear_bound",
+        "Resources.Selection.selectRun_family_isBigO",
+        "Examples.SelectionBounds.empty_budget",
+        "Examples.SelectionBounds.cutoff_descending_budget",
+        "Examples.SelectionBounds.first_left_budget",
+        "Examples.SelectionBounds.first_equal_budget",
+        "Examples.SelectionBounds.first_right_budget",
+        "Examples.SelectionBounds.invalid_above_cutoff_budget",
+        "Examples.SelectionBounds.all_equal_budget",
+        "Examples.SelectionBounds.next_scalar_level_budget",
+        "Examples.SelectionBounds.first_pivot_side_budget",
+        "Examples.SelectionBounds.first_local_budget",
+        "Examples.SelectionBounds.duplicate_family_uniform",
+        "Examples.SelectionBounds.descending_family_linear",
+        "Resources.Selection.selectRunWith_median_value",
+        "Resources.Selection.chunkMediansRun_proper_size",
+        "Resources.Selection.selectRunWith_local_cost_bound",
+        "Resources.Selection.selectRunWith_cost_le_envelope_of_lt",
+        "Resources.Selection.selectRunWith_cost_le_envelope",
+        "Resources.Selection.selectRunWith_uniform_prefix_bound",
+        "Examples.SelectionGenericEnvelope.empty_any_group",
+        "Examples.SelectionGenericEnvelope.group_two_budget",
+        "Examples.SelectionGenericEnvelope.group_three_budget",
+        "Examples.SelectionGenericEnvelope.group_four_budget",
+        "Examples.SelectionGenericEnvelope.group_five_budget",
+        "Examples.SelectionGenericEnvelope.group_six_budget",
+        "Examples.SelectionGenericEnvelope.group_three_invalid",
+        "Examples.SelectionGenericEnvelope.larger_cutoff_budget",
+        "Examples.SelectionGenericEnvelope.group_three_left",
+        "Examples.SelectionGenericEnvelope.group_three_right",
+        "Examples.SelectionGenericEnvelope.integer_prefix",
+        "Resources.Selection.chunkMediansRun_length_eq_groupPivotChild",
+        "Resources.Selection.selectRunWith_pivot_size_bounds",
+        "Resources.Selection.genericSelectionBase",
+        "Resources.Selection.genericSelectionMajorant",
+        "Resources.Selection.genericSelectionMajorant_small",
+        "Resources.Selection.genericSelectionMajorant_large",
+        "Resources.Selection.genericSelectionBase_le_majorant",
+        "Resources.Selection.genericSelectionMajorant_monotone",
+        "Resources.Selection.selectRunWith_cost_le_groupBase_of_prefix",
+        "Resources.Selection.invalid_cost_le_groupMajorant",
+        "Resources.Selection.selectRunWith_cost_le_groupMajorant_of_lt",
+        "Resources.Selection.selectRunWith_cost_le_groupMajorant",
+        "Resources.Selection.selectRunWith_exists_uniform_affine_bound",
+        "Resources.Selection.selectRunWith_exists_uniform_linear_bound",
+        "Resources.Selection.selectRunWith_family_isBigO",
+        "Examples.SelectionGenericBounds.empty_every_sufficient_group",
+        "Examples.SelectionGenericBounds.five_repeated_prefix",
+        "Examples.SelectionGenericBounds.six_repeated_prefix",
+        "Examples.SelectionGenericBounds.book_recurses_inside_scalar_prefix",
+        "Examples.SelectionGenericBounds.first_five_recursive_budget",
+        "Examples.SelectionGenericBounds.first_six_recursive_budget",
+        "Examples.SelectionGenericBounds.actual_cutoff_above_scalar",
+        "Examples.SelectionGenericBounds.invalid_above_scalar",
+        "Examples.SelectionGenericBounds.three_four_threshold_semantics",
+        "Examples.SelectionGenericBounds.odd_sufficient_uniform_family",
+        "Examples.SelectionGenericBounds.even_sufficient_uniform_family",
+        "Examples.SelectionGenericBounds.six_duplicate_integer_family",
+        "Examples.SelectionGenericBounds.five_descending_family",
+        "Resources.RandomSelection.pivotRun",
+        "Resources.RandomSelection.pivotRun_exact",
+        "Resources.RandomSelection.stepRun",
+        "Resources.RandomSelection.stepRun_eq",
+        "Resources.RandomSelection.stepRun_child",
+        "Resources.RandomSelection.stepRun_semantics",
+        "Resources.RandomSelection.stepRun_ranked",
+        "Resources.RandomSelection.stepRun_cost_bounds",
+        "Resources.RandomSelection.pivotLaw",
+        "Resources.RandomSelection.pivotLaw_support",
+        "Resources.RandomSelection.pivotLaw_event",
+        "Examples.RandomSelection.singleton_step",
+        "Examples.RandomSelection.duplicate_middle",
+        "Examples.RandomSelection.selected_side_is_not_larger_side",
+        "Examples.RandomSelection.selected_side_valid",
+        "Examples.RandomSelection.duplicate_ranked",
+        "Examples.RandomSelection.duplicate_source_bound",
+        "Examples.RandomSelection.duplicate_zero_probability",
+        "Examples.RandomSelection.duplicate_one_probability",
+        "Resources.RandomSelection.Trace",
+        "Resources.RandomSelection.Outcome",
+        "Resources.RandomSelection.scanVolume",
+        "Resources.RandomSelection.scanVolume_nil",
+        "Resources.RandomSelection.scanVolume_cons",
+        "Resources.RandomSelection.prepend",
+        "Resources.RandomSelection.run",
+        "Resources.RandomSelection.run_nil",
+        "Resources.RandomSelection.run_cons",
+        "Resources.RandomSelection.run_value",
+        "Resources.RandomSelection.run_ranked",
+        "Resources.RandomSelection.run_none",
+        "Resources.RandomSelection.run_valid",
+        "Resources.RandomSelection.run_active_calls_le",
+        "Resources.RandomSelection.run_initial_scan_le",
+        "Resources.RandomSelection.run_scanVolume_le",
+        "Resources.RandomSelection.run_source_bridge",
+        "Resources.RandomSelection.run_trace_entries",
+        "Resources.RandomSelection.run_source_quadratic",
+        "Resources.RandomSelection.select",
+        "Resources.RandomSelection.select_value",
+        "Resources.RandomSelection.select_none",
+        "Resources.RandomSelection.select_some_iff",
+        "Resources.RandomSelection.scanLaw",
+        "Resources.RandomSelection.sourceLaw",
+        "Resources.RandomSelection.scanLaw_support",
+        "Resources.RandomSelection.scanLaw_support_finite",
+        "Resources.RandomSelection.sourceLaw_support",
+        "Resources.RandomSelection.sourceLaw_support_finite",
+        "Examples.RandomSelectionRun.empty_failure",
+        "Examples.RandomSelectionRun.singleton_execution",
+        "Examples.RandomSelectionRun.invalid_singleton",
+        "Examples.RandomSelectionRun.rank_zero_public_failure",
+        "Examples.RandomSelectionRun.two_key_execution",
+        "Examples.RandomSelectionRun.duplicate_execution",
+        "Examples.RandomSelectionRun.two_key_first_path",
+        "Examples.RandomSelectionRun.two_key_long_path",
+        "Examples.RandomSelectionRun.same_value_different_scan",
+        "Examples.RandomSelectionRun.maximum_scan_on_pair",
+        "Examples.RandomSelectionRun.bounded_actual_pair_calls",
+        "Examples.RandomSelectionRun.arbitrary_supported_rank",
+        "Resources.RandomSelection.workExpectation",
+        "Resources.RandomSelection.workExpectation_mono",
+        "Resources.RandomSelection.workExpectation_const",
+        "Resources.RandomSelection.workExpectation_add",
+        "Resources.RandomSelection.workExpectation_mul",
+        "Resources.RandomSelection.workExpectation_nil",
+        "Resources.RandomSelection.workExpectation_cons",
+        "Resources.RandomSelection.scanExpectation",
+        "Resources.RandomSelection.sourceExpectation",
+        "Resources.RandomSelection.scanExpectation_eq_workExpectation",
+        "Resources.RandomSelection.sourceExpectation_eq_workExpectation",
+        "Resources.RandomSelection.scanExpectation_quadratic_le",
+        "Resources.RandomSelection.sourceExpectation_quadratic_le",
+        "Resources.RandomSelection.scanExpectation_ne_top",
+        "Resources.RandomSelection.sourceExpectation_ne_top",
+        "Resources.RandomSelection.scanLaw_integrable",
+        "Resources.RandomSelection.sourceLaw_integrable",
+        "Resources.RandomSelection.scanExpectation_initial_le",
+        "Resources.RandomSelection.sourceExpectation_comparison",
+        "Resources.RandomSelection.scanExpectation_nil",
+        "Resources.RandomSelection.sourceExpectation_nil",
+        "Resources.RandomSelection.scanExpectation_cons",
+        "Resources.RandomSelection.scanMean",
+        "Resources.RandomSelection.sourceMean",
+        "Resources.RandomSelection.scanMean_eq_toReal",
+        "Resources.RandomSelection.sourceMean_eq_toReal",
+        "Resources.RandomSelection.scanMean_nonneg",
+        "Resources.RandomSelection.sourceMean_nonneg",
+        "Resources.RandomSelection.scanMean_initial_le",
+        "Resources.RandomSelection.scanMean_quadratic_le",
+        "Resources.RandomSelection.sourceMean_quadratic_le",
+        "Resources.RandomSelection.sourceMean_comparison",
+        "Resources.RandomSelection.scanMean_nil",
+        "Resources.RandomSelection.sourceMean_nil",
+        "Examples.RandomSelectionMean.empty_means",
+        "Examples.RandomSelectionMean.singleton_means",
+        "Examples.RandomSelectionMean.invalid_singleton_means",
+        "Examples.RandomSelectionMean.two_key_scan_law",
+        "Examples.RandomSelectionMean.two_key_source_law",
+        "Examples.RandomSelectionMean.two_key_scan_mean",
+        "Examples.RandomSelectionMean.two_key_source_mean",
+        "Examples.RandomSelectionMean.duplicate_scan_law",
+        "Examples.RandomSelectionMean.duplicate_source_law",
+        "Examples.RandomSelectionMean.duplicate_means",
+        "Examples.RandomSelectionMean.two_key_scan_step",
+        "Examples.RandomSelectionMean.arbitrary_input_integrable",
+        "Examples.RandomSelectionMean.actual_mean_bridge",
+        "Examples.RandomSelectionMean.selected_value_and_mean_bounds",
+        "Resources.RandomSelection.rankSideSum",
+        "Resources.RandomSelection.rankSideSum_zero",
+        "Resources.RandomSelection.rankSideSum_one",
+        "Resources.RandomSelection.rankSideSum_add_two",
+        "Resources.RandomSelection.rankSideSum_bound",
+        "Resources.RandomSelection.rankSideSum_mean_le",
+        "Resources.RandomSelection.occurrenceRank_lt_of_lt",
+        "Resources.RandomSelection.occurrenceRank_tie",
+        "Resources.RandomSelection.occurrenceRank_uniform",
+        "Resources.RandomSelection.strict_side_rank_bounds",
+        "Resources.RandomSelection.nextSize",
+        "Resources.RandomSelection.nextSize_le_rankSide",
+        "Resources.RandomSelection.nextSize_sum_le",
+        "Resources.RandomSelection.nextSize_drift",
+        "Resources.RandomSelection.scanExpectation_linear_le",
+        "Resources.RandomSelection.scanExpectation_linear_bounds",
+        "Resources.RandomSelection.scanMean_linear_le",
+        "Resources.RandomSelection.scanMean_linear_bounds",
+        "Resources.RandomSelection.sourceExpectation_linear_bounds",
+        "Resources.RandomSelection.sourceMean_linear_bounds",
+        "Examples.RandomSelectionDrift.rank_side_small_values",
+        "Examples.RandomSelectionDrift.stable_duplicate_positions",
+        "Examples.RandomSelectionDrift.refined_duplicate_uniform",
+        "Examples.RandomSelectionDrift.singleton_next_size",
+        "Examples.RandomSelectionDrift.duplicate_next_choices",
+        "Examples.RandomSelectionDrift.duplicate_next_expectation",
+        "Examples.RandomSelectionDrift.duplicate_drift_bound",
+        "Examples.RandomSelectionDrift.selected_branch_is_smaller",
+        "Examples.RandomSelectionDrift.arbitrary_expected_bounds",
+        "Examples.RandomSelectionDrift.valid_selection_expected_bounds",
+        "Examples.RandomSelectionDrift.empty_expected_bounds",
+        "Resources.RandomSelection.activeSize",
+        "Resources.RandomSelection.activeSize_nil",
+        "Resources.RandomSelection.activeSize_zero_cons",
+        "Resources.RandomSelection.activeSize_succ_cons",
+        "Resources.RandomSelection.activeSize_eq_zero_of_length_le",
+        "Resources.RandomSelection.scanVolume_eq_sum_activeSize",
+        "Resources.RandomSelection.residualWork",
+        "Resources.RandomSelection.residualWork_nil",
+        "Resources.RandomSelection.residualWork_zero",
+        "Resources.RandomSelection.residualWork_succ_cons",
+        "Resources.RandomSelection.scanVolume_append",
+        "Resources.RandomSelection.scanVolume_take_add_residualWork",
+        "Resources.RandomSelection.residualWork_le",
+        "Resources.RandomSelection.residualWork_eq_zero_of_length_le",
+        "Resources.RandomSelection.activeSize_pos_of_lt",
+        "Resources.RandomSelection.activeSize_le_of_entries_le",
+        "Resources.RandomSelection.scanVolume_take_le",
+        "Resources.RandomSelection.run_activeSize_zero",
+        "Resources.RandomSelection.run_activeSize_le",
+        "Resources.RandomSelection.run_activeSize_eq_zero_iff",
+        "Resources.RandomSelection.run_activeSize_zero_persists",
+        "Resources.RandomSelection.run_activeSize_absorbed",
+        "Resources.RandomSelection.run_residualWork_absorbed",
+        "Resources.RandomSelection.run_prefix_scan_le",
+        "Resources.RandomSelection.run_tail_residual",
+        "Resources.RandomSelection.sizeExpectation",
+        "Resources.RandomSelection.residualExpectation",
+        "Resources.RandomSelection.sizeExpectation_nil",
+        "Resources.RandomSelection.residualExpectation_nil",
+        "Resources.RandomSelection.sizeExpectation_zero",
+        "Resources.RandomSelection.residualExpectation_zero",
+        "Resources.RandomSelection.sizeExpectation_succ_cons",
+        "Resources.RandomSelection.residualExpectation_succ_cons",
+        "Resources.RandomSelection.sizeExpectation_geometric_le",
+        "Resources.RandomSelection.residualExpectation_geometric_le",
+        "Resources.RandomSelection.sizeExpectation_absorbed",
+        "Resources.RandomSelection.residualExpectation_absorbed",
+        "Resources.RandomSelection.residualExpectation_le_scanExpectation",
+        "Resources.RandomSelection.residualExpectation_ne_top",
+        "Resources.RandomSelection.residualLaw",
+        "Resources.RandomSelection.residualLaw_support",
+        "Resources.RandomSelection.residualLaw_support_finite",
+        "Resources.RandomSelection.residualLaw_lintegral",
+        "Resources.RandomSelection.residualLaw_integrable",
+        "Resources.RandomSelection.scanLaw_tail_le_residualLaw",
+        "Resources.RandomSelection.residualLaw_markov",
+        "Resources.RandomSelection.scanLaw_tail",
+        "Resources.RandomSelection.sourceLaw_tail_le_scanLaw",
+        "Resources.RandomSelection.sourceLaw_tail",
+        "Resources.RandomSelection.scanLaw_nil",
+        "Resources.RandomSelection.scanLaw_empty_tail",
+        "Resources.RandomSelection.scanLaw_empty_tail_bound_fails",
+        "Examples.RandomSelectionTail.finite_trace_decomposition",
+        "Examples.RandomSelectionTail.finite_trace_absorption",
+        "Examples.RandomSelectionTail.actual_pair_trace_observations",
+        "Examples.RandomSelectionTail.singleton_scan_expectation",
+        "Examples.RandomSelectionTail.singleton_absorption",
+        "Examples.RandomSelectionTail.invalid_singleton_absorption",
+        "Examples.RandomSelectionTail.two_key_next_size_expectation",
+        "Examples.RandomSelectionTail.two_key_size_expectations",
+        "Examples.RandomSelectionTail.two_key_residual_first",
+        "Examples.RandomSelectionTail.two_key_residual_expectations",
+        "Examples.RandomSelectionTail.duplicate_residual_law",
+        "Examples.RandomSelectionTail.duplicate_after_first",
+        "Examples.RandomSelectionTail.arbitrary_absorption",
+        "Examples.RandomSelectionTail.arbitrary_residual_integrability",
+        "Examples.RandomSelectionTail.positive_input_tails",
+        "Examples.RandomSelectionTail.valid_answer_and_tails",
+        "Examples.RandomSelectionTail.zero_excess_tail",
+        "Examples.RandomSelectionTail.empty_tail_countercase",
+        "Resources.RandomSelection.stepRun_all_equal",
+        "Resources.RandomSelection.run_all_equal_cons",
+        "Resources.RandomSelection.run_replicate_valid",
+        "Resources.RandomSelection.run_replicate_invalid",
+        "Resources.RandomSelection.run_replicate_valid_support",
+        "Resources.RandomSelection.run_replicate_invalid_support",
+        "Resources.RandomSelection.run_replicate_valid_atom",
+        "Resources.RandomSelection.run_replicate_invalid_atom",
+        "Resources.RandomSelection.scanLaw_replicate",
+        "Resources.RandomSelection.sourceLaw_replicate_valid",
+        "Resources.RandomSelection.sourceLaw_replicate_invalid",
+        "Resources.RandomSelection.run_replicate_scan",
+        "Resources.RandomSelection.scanExpectation_replicate",
+        "Resources.RandomSelection.scanMean_replicate",
+        "Resources.RandomSelection.scanLaw_all_equal",
+        "Resources.RandomSelection.run_all_equal",
+        "Resources.RandomSelection.run_all_equal_summary",
+        "Resources.RandomSelection.run_all_equal_absorbed",
+        "Resources.RandomSelection.run_replicate_scan_lt_quadratic",
+        "Examples.RandomSelectionEqual.empty_boundary",
+        "Examples.RandomSelectionEqual.singleton_boundary",
+        "Examples.RandomSelectionEqual.pair_both_valid_ranks",
+        "Examples.RandomSelectionEqual.three_equal_first_atom",
+        "Examples.RandomSelectionEqual.three_equal_last_atom",
+        "Examples.RandomSelectionEqual.three_equal_invalid_atom",
+        "Examples.RandomSelectionEqual.five_equal_scan",
+        "Examples.RandomSelectionEqual.five_equal_source_law",
+        "Examples.RandomSelectionEqual.general_equal_execution",
+        "Examples.RandomSelectionEqual.equal_family_below_quadratic",
+        "Examples.RandomSelectionEqual.public_zero_still_fails",
+        "Applications.Selection.CoordinateSensitivity.ordered_index_injective",
+        "Applications.Selection.CoordinateSensitivity.exists_fresh_set_changes",
+        "Applications.Selection.CoordinateSensitivity.exists_set_changes",
+        "Applications.Selection.CoordinateSensitivity.sortSelect_set_changes",
+        "Applications.Selection.CoordinateSensitivity.selectWith_set_changes",
+        "Applications.Selection.CoordinateSensitivity.ofFn_update",
+        "Applications.Selection.CoordinateSensitivity.exists_update_changes",
+        "Applications.Selection.CoordinateQueries.Transcript",
+        "Applications.Selection.CoordinateQueries.Protocol",
+        "Applications.Selection.CoordinateQueries.Runs",
+        "Applications.Selection.CoordinateQueries.Runs.done",
+        "Applications.Selection.CoordinateQueries.Runs.query",
+        "Applications.Selection.CoordinateQueries.Total",
+        "Applications.Selection.CoordinateQueries.Runs.answers",
+        "Applications.Selection.CoordinateQueries.Runs.replay",
+        "Applications.Selection.CoordinateQueries.Runs.replay_update_of_not_mem",
+        "Applications.Selection.CoordinateQueries.Runs.deterministic",
+        "Applications.Selection.CoordinateQueries.Selects",
+        "Applications.Selection.CoordinateQueries.Runs.queries_all",
+        "Applications.Selection.CoordinateQueries.Runs.length_lower_bound",
+        "Applications.Selection.CoordinateQueries.queryWork",
+        "Applications.Selection.CoordinateQueries.queryWork_nil",
+        "Applications.Selection.CoordinateQueries.queryWork_cons",
+        "Applications.Selection.CoordinateQueries.queryWork_unit",
+        "Applications.Selection.CoordinateQueries.queryWork_constant",
+        "Applications.Selection.CoordinateQueries.length_le_queryWork",
+        "Applications.Selection.CoordinateQueries.Runs.work_lower_bound",
+        "Applications.Selection.CoordinateQueries.Runs.resource_lower_bound",
+        "Applications.Selection.CoordinateQueries.exists_linear_run",
+        "Applications.Selection.CoordinateQueries.linear_worst_case_bound",
+        "Applications.Selection.CoordinateQueries.linear_isBigO_of_query_bound",
+        "Examples.CoordinateSensitivity.middle_of_triple",
+        "Examples.CoordinateSensitivity.every_triple_coordinate",
+        "Examples.CoordinateSensitivity.triple_fresh_witness",
+        "Examples.CoordinateSensitivity.above_coordinate_replaced",
+        "Examples.CoordinateSensitivity.below_coordinate_replaced",
+        "Examples.CoordinateSensitivity.selected_coordinate_replaced",
+        "Examples.CoordinateSensitivity.singleton_sensitive",
+        "Examples.CoordinateSensitivity.valid_ranks_are_injective",
+        "Examples.CoordinateSensitivity.invalid_ranks_agree",
+        "Examples.CoordinateSensitivity.one_based_middle_changes",
+        "Examples.CoordinateSensitivity.last_pivot_middle_changes",
+        "Examples.CoordinateSensitivity.finite_coordinate_adapter",
+        "Examples.CoordinateSensitivity.increasing_input_sensitive",
+        "Examples.CoordinateQueries.oneQuery",
+        "Examples.CoordinateQueries.oneQuery_run",
+        "Examples.CoordinateQueries.oneQuery_total",
+        "Examples.CoordinateQueries.oneQuery_correct",
+        "Examples.CoordinateQueries.oneQuery_every_run",
+        "Examples.CoordinateQueries.repeatNegative",
+        "Examples.CoordinateQueries.repeatNegative_negative_run",
+        "Examples.CoordinateQueries.repeatNegative_nonnegative_run",
+        "Examples.CoordinateQueries.repeatNegative_total",
+        "Examples.CoordinateQueries.repeatNegative_correct",
+        "Examples.CoordinateQueries.repeated_negative_charges",
+        "Examples.CoordinateQueries.nonnegative_single_charge",
+        "Examples.CoordinateQueries.adaptive_run_lower_bound",
+        "Examples.CoordinateQueries.pairMinimum",
+        "Examples.CoordinateQueries.pairMinimum_run",
+        "Examples.CoordinateQueries.pairMinimum_total",
+        "Examples.CoordinateQueries.pair_minimum_ranked",
+        "Examples.CoordinateQueries.pairMinimum_correct",
+        "Examples.CoordinateQueries.pairMinimum_distinct_coverage",
+        "Examples.CoordinateQueries.pairMinimum_distinct_lower_bound",
+        "Examples.CoordinateQueries.pairMinimum_measured_contract",
+        "Examples.CoordinateQueries.unqueried_update_replays",
+        "Examples.CoordinateQueries.total_correct_protocol_has_witness",
+        "Examples.CoordinateQueries.any_uniform_query_bound_is_linear",
+        "Applications.Selection.CoordinateQueries.readPlan",
+        "Applications.Selection.CoordinateQueries.readPlan_query",
+        "Applications.Selection.CoordinateQueries.readPlan_done",
+        "Applications.Selection.CoordinateQueries.readPlan_run",
+        "Applications.Selection.CoordinateQueries.readPlan_total",
+        "Applications.Selection.CoordinateQueries.readPlan_run_iff",
+        "Applications.Selection.CoordinateQueries.readPlan_length",
+        "Applications.Selection.CoordinateQueries.readPlan_work",
+        "Applications.Selection.CoordinateQueries.readAll",
+        "Applications.Selection.CoordinateQueries.readAll_run",
+        "Applications.Selection.CoordinateQueries.readAll_total",
+        "Applications.Selection.CoordinateQueries.readAll_run_iff",
+        "Applications.Selection.CoordinateQueries.readAll_coordinates",
+        "Applications.Selection.CoordinateQueries.readAll_length",
+        "Applications.Selection.CoordinateQueries.readAll_work",
+        "Applications.Selection.CoordinateQueries.readAll_correct",
+        "Examples.CoordinateReadAll.empty_run",
+        "Examples.CoordinateReadAll.empty_every_run",
+        "Examples.CoordinateReadAll.full_read_exists",
+        "Examples.CoordinateReadAll.full_read_every_run",
+        "Examples.CoordinateReadAll.observed_sum",
+        "Examples.CoordinateReadAll.concrete_full_read",
+        "Examples.CoordinateReadAll.duplicate_full_read",
+        "Examples.CoordinateReadAll.duplicate_every_charge",
+        "Examples.CoordinateReadAll.repeated_plan_run",
+        "Examples.CoordinateReadAll.repeated_plan_every_charge",
+        "Examples.CoordinateReadAll.supplied_history_values",
+        "Applications.Selection.CoordinateSelection.observedSelect",
+        "Applications.Selection.CoordinateSelection.observedSelect_run",
+        "Applications.Selection.CoordinateSelection.observedSelect_total",
+        "Applications.Selection.CoordinateSelection.observedSelect_run_iff",
+        "Applications.Selection.CoordinateSelection.observedSelect_acquired",
+        "Applications.Selection.CoordinateSelection.observedSelect_on_acquired",
+        "Applications.Selection.CoordinateSelection.observedSelect_some_iff",
+        "Applications.Selection.CoordinateSelection.observedSelect_of_invalid",
+        "Applications.Selection.CoordinateSelection.observedSelect_length",
+        "Applications.Selection.CoordinateSelection.observedSelect_query_work",
+        "Applications.Selection.CoordinateSelection.work",
+        "Applications.Selection.CoordinateSelection.work_acquisition",
+        "Applications.Selection.CoordinateSelection.work_exact",
+        "Applications.Selection.CoordinateSelection.work_covers_queries",
+        "Applications.Selection.CoordinateSelection.source_cost_le_F",
+        "Applications.Selection.CoordinateSelection.work_le_F",
+        "Applications.Selection.CoordinateSelection.work_exists_uniform_affine_bound",
+        "Applications.Selection.CoordinateSelection.work_exists_uniform_linear_bound",
+        "Applications.Selection.CoordinateSelection.work_lower_acquisition",
+        "Applications.Selection.CoordinateSelection.work_lower_input",
+        "Applications.Selection.CoordinateSelection.work_family_isBigO",
+        "Applications.Selection.CoordinateSelection.observedSelect_valid",
+        "Applications.Selection.CoordinateSelection.selectedValue",
+        "Applications.Selection.CoordinateSelection.selectedValue_eq_readAll",
+        "Applications.Selection.CoordinateSelection.selectedValue_run_iff",
+        "Applications.Selection.CoordinateSelection.selectedValue_total",
+        "Applications.Selection.CoordinateSelection.selectedValue_correct",
+        "Applications.Selection.CoordinateSelection.competitor_query_work_lower_bound",
+        "Applications.Selection.CoordinateSelection.exists_uniform_competitor_bound",
+        "Applications.Selection.CoordinateSelection.exists_uniform_optimality",
+        "Examples.CoordinateSelection.acquired_worker_execution",
+        "Examples.CoordinateSelection.empty_run",
+        "Examples.CoordinateSelection.empty_every_work",
+        "Examples.CoordinateSelection.singleton_run",
+        "Examples.CoordinateSelection.singleton_every_work",
+        "Examples.CoordinateSelection.concrete_run",
+        "Examples.CoordinateSelection.concrete_value_run",
+        "Examples.CoordinateSelection.concrete_every_work",
+        "Examples.CoordinateSelection.duplicate_run",
+        "Examples.CoordinateSelection.duplicate_every_work",
+        "Examples.CoordinateSelection.invalid_every_work",
+        "Examples.CoordinateSelection.cutoff_twenty_run",
+        "Examples.CoordinateSelection.first_recursive_run",
+        "Examples.CoordinateSelection.total_correct_value_view",
+        "Examples.CoordinateSelection.any_valid_input_contract",
+        "Examples.CoordinateSelection.pair_minimum_comparison",
+        "Resources.RandomSelection.EndpointPivot",
+        "Resources.RandomSelection.partition_equal_singleton_of_nodup",
+        "Resources.RandomSelection.partition_left_eq_nil_of_minimum",
+        "Resources.RandomSelection.partition_right_eq_nil_of_maximum",
+        "Resources.RandomSelection.partition_left_nodup",
+        "Resources.RandomSelection.partition_right_nodup",
+        "Resources.RandomSelection.exists_minimum_occurrence",
+        "Resources.RandomSelection.exists_maximum_occurrence",
+        "Resources.RandomSelection.exists_endpointPivot",
+        "Resources.RandomSelection.endpointPivot_unique",
+        "Resources.RandomSelection.minimum_strict_child_length",
+        "Resources.RandomSelection.maximum_strict_child_length",
+        "Resources.RandomSelection.stepRun_minimum_positive",
+        "Resources.RandomSelection.stepRun_maximum_zero",
+        "Resources.RandomSelection.exists_endpoint_child",
+        "Examples.RandomSelectionEndpoints.unsorted_minimum_step",
+        "Examples.RandomSelectionEndpoints.unsorted_maximum_step",
+        "Examples.RandomSelectionEndpoints.middle_rank_switch",
+        "Examples.RandomSelectionEndpoints.negative_minimum_step",
+        "Examples.RandomSelectionEndpoints.negative_maximum_step",
+        "Examples.RandomSelectionEndpoints.singleton_terminal",
+        "Examples.RandomSelectionEndpoints.duplicate_countercase",
+        "Examples.RandomSelectionEndpoints.invalid_singleton_step",
+        "Examples.RandomSelectionEndpoints.empty_has_no_valid_rank",
+        "Examples.RandomSelectionEndpoints.arbitrary_endpoint_occurrence",
+        "Examples.RandomSelectionEndpoints.arbitrary_distinct_target",
+        "Examples.RandomSelectionEndpoints.endpoint_occurrence_is_unique",
+        "Examples.SelectionCountRank.duplicate_sorted_filter_sublists",
+        "Resources.RandomSelection.prepend_injective",
+        "Resources.RandomSelection.map_prepend_apply",
+        "Resources.RandomSelection.run_child_atom",
+        "Resources.RandomSelection.run_trace_injective",
+        "Resources.RandomSelection.traceLaw",
+        "Resources.RandomSelection.traceLaw_support",
+        "Resources.RandomSelection.traceLaw_atom",
+        "Resources.RandomSelection.traceLaw_nil",
+        "Resources.RandomSelection.run_singleton_atom",
+        "Examples.RandomSelectionTrace.singleton_trace_atom",
+        "Examples.RandomSelectionTrace.middle_child_atom",
+        "Examples.RandomSelectionTrace.middle_path_atom",
+        "Examples.RandomSelectionTrace.middle_path_trace",
+        "Examples.RandomSelectionTrace.middle_path_observations",
+        "Examples.RandomSelectionTrace.negative_path_atom",
+        "Examples.RandomSelectionTrace.negative_path_trace",
+        "Examples.RandomSelectionTrace.duplicate_trace_atom",
+        "Examples.RandomSelectionTrace.empty_trace_atom",
+        "Examples.RandomSelectionTrace.invalid_singleton_trace_atom",
+        "Examples.RandomSelectionTrace.different_initial_rank_boundary",
+        "Examples.RandomSelectionTrace.unsupported_empty_trace_boundary",
+        "Examples.RandomSelectionTrace.arbitrary_supported_trace",
+        "Examples.RandomSelectionTrace.middle_path_supported",
+        "Resources.RandomSelection.EndpointTrace",
+        "Resources.RandomSelection.endpointTrace_nil",
+        "Resources.RandomSelection.endpointTrace_empty_input",
+        "Resources.RandomSelection.endpointTrace_singleton",
+        "Resources.RandomSelection.endpointTrace_child",
+        "Resources.RandomSelection.endpointTrace_target",
+        "Resources.RandomSelection.endpointTrace_valid",
+        "Resources.RandomSelection.exists_endpoint_worst",
+        "Resources.RandomSelection.range_endpoint_worst",
+        "Resources.RandomSelection.unbounded_endpoint_source_family",
+        "Examples.RandomSelectionWorst.singleton_endpoint",
+        "Examples.RandomSelectionWorst.middle_endpoint_trace",
+        "Examples.RandomSelectionWorst.middle_endpoint_probability",
+        "Examples.RandomSelectionWorst.signed_endpoint_trace",
+        "Examples.RandomSelectionWorst.signed_endpoint_probability",
+        "Examples.RandomSelectionWorst.distinct_scan_maximum",
+        "Examples.RandomSelectionWorst.unsorted_endpoint_ranks",
+        "Examples.RandomSelectionWorst.range_four_exact",
+        "Examples.RandomSelectionWorst.range_four_bounds",
+        "Examples.RandomSelectionWorst.large_family_every_rank",
+        "Examples.RandomSelectionWorst.empty_endpoint_boundary",
+        "Examples.RandomSelectionWorst.invalid_endpoint_boundary",
+        "Examples.RandomSelectionWorst.invalid_singleton_endpoint_boundary",
+        "Examples.RandomSelectionWorst.equal_block_endpoint_boundary",
+        "Examples.RandomSelectionWorst.mixed_duplicate_endpoint_boundary",
+        "Resources.AffineRecurrence.exists_affine_bound_of_two_branch",
+        "Examples.AffineRecurrence.quarter",
+        "Examples.AffineRecurrence.quarter_of_le_one",
+        "Examples.AffineRecurrence.quarter_of_one_lt",
+        "Examples.AffineRecurrence.quarter_zero",
+        "Examples.AffineRecurrence.quarter_one",
+        "Examples.AffineRecurrence.quarter_two",
+        "Examples.AffineRecurrence.quarter_four",
+        "Examples.AffineRecurrence.quarter_eight",
+        "Examples.AffineRecurrence.quarter_sixteen",
+        "Examples.AffineRecurrence.quarter_affine_bound",
+        "Examples.AffineRecurrence.signed",
+        "Examples.AffineRecurrence.signed_base",
+        "Examples.AffineRecurrence.signed_nonpositive",
+        "Examples.AffineRecurrence.signed_recurrence",
+        "Examples.AffineRecurrence.signed_affine_bound",
+        "Examples.AffineRecurrence.negative_square_upper",
+        "Examples.AffineRecurrence.negative_square_absolute_value",
+        "Examples.AffineRecurrence.parameterwise_affine_bound",
+        "Examples.AffineRecurrence.no_uniform_natural_family_bound",
+        "Examples.AffineRecurrence.no_uniform_integer_family_bound"
+      ]
+    },
+    "configuration": {
+      "lean-toolchain": {
+        "bytes": 25,
+        "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+      },
+      "lake-manifest.json": {
+        "bytes": 3138,
+        "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+      },
+      "lakefile.toml": {
+        "bytes": 444,
+        "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+      },
+      "flake.nix": {
+        "bytes": 637,
+        "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+      },
+      "flake.lock": {
+        "bytes": 564,
+        "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+      },
+      "check.sh": {
+        "bytes": 74,
+        "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd"
+      },
+      "scripts/check.py": {
+        "bytes": 16119,
+        "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+      },
+      "scripts/lake_integrity.py": {
+        "bytes": 5781,
+        "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f"
+      },
+      "scripts/lake-output-hashes.lean": {
+        "bytes": 618,
+        "sha256": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b"
+      },
+      "ProofAudit.lean": {
+        "bytes": 7925,
+        "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd"
+      }
+    },
+    "dependencies": {
+      "mathlib": {
+        "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib"
+      },
+      "plausible": {
+        "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/plausible"
+      },
+      "LeanSearchClient": {
+        "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/LeanSearchClient"
+      },
+      "importGraph": {
+        "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/importGraph"
+      },
+      "proofwidgets": {
+        "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/proofwidgets"
+      },
+      "aesop": {
+        "head": "4a174c490d8707121c4a9290800489f105d85e07",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/aesop"
+      },
+      "Qq": {
+        "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/Qq"
+      },
+      "batteries": {
+        "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/batteries"
+      },
+      "Cli": {
+        "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/Cli"
+      }
+    },
+    "runtime": {
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/lake": {
+        "bytes": 13416,
+        "sha256": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/lean": {
+        "bytes": 9024,
+        "sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/leanc": {
+        "bytes": 36168,
+        "sha256": "1e0b075573c5ea98e6b196e35d3b159b93e3226714e28cd8febb30a240ec735c"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/leanir": {
+        "bytes": 215864,
+        "sha256": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e"
+      },
+      "conaled-native-state/profile/bin/lake": {
+        "bytes": 122,
+        "sha256": "85df404efd17484b633376fe8d3705f416e059642133d8232ed555a8d3174e21"
+      },
+      "conaled-native-state/profile/bin/lean": {
+        "bytes": 122,
+        "sha256": "e290032a73b271084c56dfde6315062e1523492dc36b1bbde9cc5dea23d1c716"
+      },
+      "conaled-native-state/profile/bin/leanc": {
+        "bytes": 123,
+        "sha256": "0e5517cfaaa530d1e484e45314a8e4be9bf44ccbccb09f8610fa190f6e5443e6"
+      },
+      "conaled-native-state/profile/bin/leanir": {
+        "bytes": 124,
+        "sha256": "3a64f332683efbab0057235ec2b3c22d3ead19cb060e0830b76f1add4cf7c661"
+      },
+      "conaled-native-state/profile/runtime.py": {
+        "bytes": 6368,
+        "sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695"
+      },
+      "conaled-native-state/profile/app_path.c": {
+        "bytes": 3848,
+        "sha256": "fefc39d8645e4a938d6cc27574257d1a1e8e8f0790b75cc15bcf074272066fe0"
+      },
+      "conaled-native-state/profile/app_path.so": {
+        "bytes": 16056,
+        "sha256": "124bc3f19426ab6558b3ca134d0afb70435eaff82a659e6e62a05e8e373e337d"
+      },
+      "/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": {
+        "bytes": 236616,
+        "sha256": "6222a16be7f2d458d6870efe6e715fc0c8d45766fb79cf7dcc3125538d703e28"
+      }
+    },
+    "roots": [
+      "Applications.Resources.AffineRecurrence",
+      "Applications.Resources.Chunks",
+      "Applications.Resources.FixedRank",
+      "Applications.Resources.GroupSelectionRecurrence",
+      "Applications.Resources.HalvingSelection",
+      "Applications.Resources.HalvingTrace",
+      "Applications.Resources.MedianPolicy",
+      "Applications.Resources.MedianReduction",
+      "Applications.Resources.MinimumPivot",
+      "Applications.Resources.RandomSelection",
+      "Applications.Resources.RandomSelectionDrift",
+      "Applications.Resources.RandomSelectionEndpoints",
+      "Applications.Resources.RandomSelectionEqual",
+      "Applications.Resources.RandomSelectionMean",
+      "Applications.Resources.RandomSelectionRun",
+      "Applications.Resources.RandomSelectionTail",
+      "Applications.Resources.RandomSelectionTrace",
+      "Applications.Resources.RandomSelectionWorst",
+      "Applications.Resources.RoundedRecurrence",
+      "Applications.Resources.RoundedRecurrenceBounds",
+      "Applications.Resources.Selection",
+      "Applications.Resources.SelectionAuxiliary",
+      "Applications.Resources.SelectionBounds",
+      "Applications.Resources.SelectionCutoff",
+      "Applications.Resources.SelectionEnvelope",
+      "Applications.Resources.SelectionGenericBounds",
+      "Applications.Resources.SelectionGenericEnvelope",
+      "Applications.Resources.SelectionMedians",
+      "Applications.Resources.SelectionPolicy",
+      "Applications.Resources.SelectionRecurrence",
+      "Applications.Selection.CoordinateQueries",
+      "Applications.Selection.CoordinateReadAll",
+      "Applications.Selection.CoordinateSelection",
+      "Applications.Selection.CoordinateSensitivity",
+      "Applications.Selection.CountRank",
+      "Applications.Selection.FixedRank",
+      "Applications.Selection.MedianCounterfamily",
+      "Applications.Selection.MedianOfMedians",
+      "Applications.Selection.MedianReduction",
+      "Applications.Selection.OutsidePivot",
+      "Applications.Sequences.Chunks",
+      "Examples.AffineRecurrence",
+      "Examples.ChunkCalls",
+      "Examples.CoordinateQueries",
+      "Examples.CoordinateReadAll",
+      "Examples.CoordinateSelection",
+      "Examples.CoordinateSensitivity",
+      "Examples.FixedRankSelection",
+      "Examples.GeneralMedianBounds",
+      "Examples.GroupSelectionRecurrence",
+      "Examples.HalvingTrace",
+      "Examples.ListChunks",
+      "Examples.MedianCounterfamily",
+      "Examples.MedianOfMedians",
+      "Examples.MedianPolicy",
+      "Examples.MedianReduction",
+      "Examples.MinimumPivot",
+      "Examples.OutsidePivot",
+      "Examples.RandomSelection",
+      "Examples.RandomSelectionDrift",
+      "Examples.RandomSelectionEndpoints",
+      "Examples.RandomSelectionEqual",
+      "Examples.RandomSelectionMean",
+      "Examples.RandomSelectionRun",
+      "Examples.RandomSelectionTail",
+      "Examples.RandomSelectionTrace",
+      "Examples.RandomSelectionWorst",
+      "Examples.RoundedRecurrence",
+      "Examples.RoundedRecurrenceBounds",
+      "Examples.SelectionAuxiliary",
+      "Examples.SelectionBounds",
+      "Examples.SelectionComposition",
+      "Examples.SelectionCosts",
+      "Examples.SelectionCountRank",
+      "Examples.SelectionCutoff",
+      "Examples.SelectionEnvelope",
+      "Examples.SelectionGenericBounds",
+      "Examples.SelectionGenericEnvelope",
+      "Examples.SelectionMedians",
+      "Examples.SelectionRecurrence"
+    ],
+    "local_sources": {
+      "Examples/SelectionRecurrence.lean": {
+        "bytes": 2272,
+        "sha256": "6599e51e8d6ea0197d74d2ca43076a355a9c131ce453f4a25c6c3bf086d99971",
+        "git_blob": "e0de045d678cb0ac25ca9ce5b98b4dc70dc5e7fb"
+      },
+      "Applications/Resources/SelectionRecurrence.lean": {
+        "bytes": 6560,
+        "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e",
+        "git_blob": "ff3350e7cc566e62466e056166c8af6f781e32df"
+      },
+      "Applications/Resources/Growth.lean": {
+        "bytes": 2906,
+        "sha256": "99be17f2d45ac30de1e912c2181460dac046c8b98e40ea3209abfec342107786",
+        "git_blob": "65cfdecea6a600b9ed80a9784637e9811c4bd425"
+      },
+      "Applications/Resources/RoundedRecurrenceBounds.lean": {
+        "bytes": 6951,
+        "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135",
+        "git_blob": "45b5c20045c45919eb1f368ae0d9c9629b32a27b"
+      },
+      "Applications/Resources/RoundedRecurrence.lean": {
+        "bytes": 7749,
+        "sha256": "a2a223d9e9710faee234c99fccbb85fdb66e414fedfc27a32380538b2c6b5af2",
+        "git_blob": "bf855838820d138c4ad1c7e66e9f993afd411c9f"
+      },
+      "Examples/SelectionMedians.lean": {
+        "bytes": 5142,
+        "sha256": "4563c04666fdfb6073c8213328a2f868022cf2ed17538cd1671aaea68811c9d8",
+        "git_blob": "2775ddc7f0ae55176ef121b09f9a80bdf6f3ee52"
+      },
+      "Examples/MedianOfMedians.lean": {
+        "bytes": 9092,
+        "sha256": "0bbbbdab0f2f41f42fd615231d04d29ebeb8f7ffd5cc83e2a6b832cbfcc25f0c",
+        "git_blob": "4803b5ce143a7501608810059c80bc263027c6a5"
+      },
+      "Applications/Selection/MedianOfMedians.lean": {
+        "bytes": 13797,
+        "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba",
+        "git_blob": "c348fd2b48ec0b40fa76aa30634406580f9063c0"
+      },
+      "Applications/Sequences/Chunks.lean": {
+        "bytes": 8802,
+        "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493",
+        "git_blob": "c45bcb6427c002d3bab7c728dd6743458c8010fc"
+      },
+      "Applications/Selection/CountRank.lean": {
+        "bytes": 12940,
+        "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d",
+        "git_blob": "5f6393df9fd804e4234eb16c8ecdcd93426952b3"
+      },
+      "Applications/Selection/Consumers.lean": {
+        "bytes": 5450,
+        "sha256": "7ddfe4da069279ac03b075088ce34e32a5ee8c1a251f6b035b45275bafa3167b",
+        "git_blob": "40ae5c7f08c8eac2c8a8577deac67975f6455c94"
+      },
+      "Applications/Selection/ThreeWay.lean": {
+        "bytes": 9718,
+        "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa",
+        "git_blob": "8627ad6d219f55a404dd96c4f4553594eaa71264"
+      },
+      "Applications/Sequences/Partition.lean": {
+        "bytes": 3786,
+        "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069",
+        "git_blob": "ff03bd349a39b3b77c49793175d4b474199e7c43"
+      },
+      "Applications/Selection/Rank.lean": {
+        "bytes": 3713,
+        "sha256": "4a82df75593d909e2968bf1e27cbfea52c9795abfe81250bb2385e7dfc16f965",
+        "git_blob": "3412cfa142e12d9a50c725661c6ce133609a3d0c"
+      },
+      "Applications/Sorting/Sort.lean": {
+        "bytes": 5922,
+        "sha256": "5acd7728aaaefdec121df797efafd7dae13476c820d4f85f4ada19868fa71218",
+        "git_blob": "fb7096ebfede6b6a1721c453295faaa851453049"
+      },
+      "Applications/Sorting/Merge.lean": {
+        "bytes": 7840,
+        "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+        "git_blob": "6595f901a9358398bee07333872125990ef8360c"
+      },
+      "Applications/Sorting/Stable.lean": {
+        "bytes": 3704,
+        "sha256": "288552150aa002c60ed06c74e69510112cf9b4e2f0045da3d98ca5c39264d881",
+        "git_blob": "614b0628261442bcbe2a3c97b4af8fc56084fc42"
+      },
+      "Examples/SelectionAuxiliary.lean": {
+        "bytes": 7302,
+        "sha256": "d5e495d5a9f6824d9b61fd41ce570059ab5aad3e93f4449f3b712e7d41a4b41e",
+        "git_blob": "494cc24a24555f35d42234967fc2e840488081ad"
+      },
+      "Applications/Resources/SelectionAuxiliary.lean": {
+        "bytes": 6215,
+        "sha256": "eeba4ac85dd4e07b8b42f38499748cae69cb6dcaaa01fdc8400a3cf5b947a925",
+        "git_blob": "2bc892fee38610f0866e0cc3cd3529b7693f7c03"
+      },
+      "Applications/Resources/ListCalls.lean": {
+        "bytes": 7939,
+        "sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+        "git_blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4"
+      },
+      "Applications/Resources/SymmetricCosts.lean": {
+        "bytes": 10508,
+        "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+        "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233"
+      },
+      "Applications/Sequences/Symmetric/Core.lean": {
+        "bytes": 12059,
+        "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+        "git_blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4"
+      },
+      "SquareKit/ListFusion.lean": {
+        "bytes": 2939,
+        "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+        "git_blob": "33ec447acb6da7b884ae57d2a885707208201607"
+      },
+      "Applications/Resources/Potential.lean": {
+        "bytes": 4638,
+        "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe",
+        "git_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1"
+      },
+      "Applications/Resources/Workload.lean": {
+        "bytes": 2745,
+        "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+        "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05"
+      },
+      "Applications/Resources/Measured.lean": {
+        "bytes": 2906,
+        "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+        "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46"
+      },
+      "Squares.lean": {
+        "bytes": 11694,
+        "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+        "git_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a"
+      },
+      "Applications/Resources/CallCount.lean": {
+        "bytes": 2447,
+        "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+        "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195"
+      },
+      "Applications/Resources/InsertionSort.lean": {
+        "bytes": 7257,
+        "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+        "git_blob": "d51ea6e9845378d3f7667adee189f8a210b477ed"
+      },
+      "Applications/Resources/SelectionMedians.lean": {
+        "bytes": 9755,
+        "sha256": "e64e998edc9353e5fd52544177fadd32f6398e3260b27ca54195cd8917e5d098",
+        "git_blob": "cd6bd74d71c43fc76d32555521d612dfb7cc5ee8"
+      },
+      "Applications/Resources/Chunks.lean": {
+        "bytes": 4591,
+        "sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc",
+        "git_blob": "25c7db2d5358bf2087657a8987963ba31dff09eb"
+      },
+      "Examples/SelectionGenericEnvelope.lean": {
+        "bytes": 5925,
+        "sha256": "3a1748e2f27a77cbf0daf183b6c52c76eedabdfe641cb77865f5364fec6582ca",
+        "git_blob": "4a08c68b3fd4d08add1aca019a11fcb3fae9352a"
+      },
+      "Examples/SelectionEnvelope.lean": {
+        "bytes": 1856,
+        "sha256": "02fedd2ffe6def3a5f6794fa90c01cdd90d982276b089aa488247b116c4eb3dd",
+        "git_blob": "5cfa0d77048a6a801fb2cabf157f1199f92ac693"
+      },
+      "Applications/Resources/SelectionEnvelope.lean": {
+        "bytes": 3159,
+        "sha256": "e4d1ca2054a7509a082340448b77f95a56380c8abab41da46b3b817fb8dab754",
+        "git_blob": "789110426092d67b85933493ca48296ff0f526c3"
+      },
+      "Examples/SelectionCosts.lean": {
+        "bytes": 13604,
+        "sha256": "d1f2c2e2e5ea3180d7fb1f736b0b3c1a98b3280e0a2902c2bfc712f409044a4e",
+        "git_blob": "4c8a21dd318ad19c412cbe710cff0b4dffad3bf9"
+      },
+      "Applications/Resources/Selection.lean": {
+        "bytes": 22435,
+        "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+        "git_blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3"
+      },
+      "Applications/Resources/Partition.lean": {
+        "bytes": 2678,
+        "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14",
+        "git_blob": "e9d3682a4d3a499aaffd41f73c7fc39965fa0d30"
+      },
+      "Applications/Resources/SelectionGenericEnvelope.lean": {
+        "bytes": 9448,
+        "sha256": "946dc54375989de8413ada388e0672d5f862a1c5da5e62efa9522865911db0e3",
+        "git_blob": "59ef8f3b96d80f86ee97a12efecfe35f07d94209"
+      },
+      "Applications/Resources/SelectionBounds.lean": {
+        "bytes": 10073,
+        "sha256": "0f9181b569d24b2615c08be5c6a305a75e67679f14338e877fced10113d61edc",
+        "git_blob": "b68014cfc729990255e6883ac5d874af30bbb058"
+      },
+      "Examples/SelectionGenericBounds.lean": {
+        "bytes": 11429,
+        "sha256": "181cef244870d4f8aa61dfc99a0cb142ad8b7cbb0c7f3a15835e697d759f8bee",
+        "git_blob": "c5e6cb38ddfbd35e4f548eec7c9f06e2974c3397"
+      },
+      "Examples/GroupSelectionRecurrence.lean": {
+        "bytes": 5638,
+        "sha256": "bfcb81cf7de89516487aedf12fc223df534fa9ca2a4a964edb872023c45beba3",
+        "git_blob": "3682e00b8f41da11acea2a1e4dee83952cff7085"
+      },
+      "Applications/Resources/GroupSelectionRecurrence.lean": {
+        "bytes": 11646,
+        "sha256": "0dc225b3009a612bea521813fda96789629fc486201cd9998bd6a72d6fdb9eed",
+        "git_blob": "afa3500a13705fe4d49cffd91131b47dbdf81701"
+      },
+      "Applications/Resources/SelectionGenericBounds.lean": {
+        "bytes": 14543,
+        "sha256": "1b2b629177c96244d377261f12b45034c3c2107f0ef5c78bb512c947e7f12524",
+        "git_blob": "f8d3d060e323a8c74af0dd423c4ee9feecfa1ca3"
+      },
+      "Examples/SelectionCutoff.lean": {
+        "bytes": 4470,
+        "sha256": "cdde5d4630a888b2ca50f25af8e876bae83cea3bef9d8b8a3de0380b477999a4",
+        "git_blob": "83ad3ce6beec1d8ce9919c24bde86400808455e0"
+      },
+      "Applications/Resources/SelectionCutoff.lean": {
+        "bytes": 10228,
+        "sha256": "12980a69d01206eb2e5e9d45149d7336ff762f0c406ad345d36f1cbdada36218",
+        "git_blob": "6c5abaa508ecdcc0355c9413106c1b9f6fb6c72e"
+      },
+      "Examples/SelectionCountRank.lean": {
+        "bytes": 4992,
+        "sha256": "9e8f303e9e704378a6d82285d7fb72e91cb9b4a528b04f5b5d7ed4dd7e8edf78",
+        "git_blob": "bd2dd42d428b46b6a7ef846a8f252b5386a72916"
+      },
+      "Examples/SelectionComposition.lean": {
+        "bytes": 4056,
+        "sha256": "b70545e72b5826ae94bb2810065684e5d5cb324c4b5c86140609987d20a4d691",
+        "git_blob": "0ca2a584a90a76bf740c1b2a6e14100e7c13bfab"
+      },
+      "Examples/SelectionBounds.lean": {
+        "bytes": 5546,
+        "sha256": "d18c19c5e69e3f77029d498e66716bf7fc45ff303294ee1a78d3ca1eb435ce11",
+        "git_blob": "97a0ec0aa292ba7a8ac69e2be23e89c23671ae13"
+      },
+      "Examples/RoundedRecurrenceBounds.lean": {
+        "bytes": 7295,
+        "sha256": "18275f597cf579edf0db6785d0910e76dcc9cff084566ced73cd0da8828c0135",
+        "git_blob": "0c123861745e060ea6926f6c41423fd5cd832e75"
+      },
+      "Examples/RoundedRecurrence.lean": {
+        "bytes": 3782,
+        "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d",
+        "git_blob": "79e2f5c019122b42b55d1073e0f7e73fec06e94a"
+      },
+      "Examples/RandomSelectionWorst.lean": {
+        "bytes": 12775,
+        "sha256": "ea06643849f8d958d17659d26886e132fc92d471008d1fa7c1455af808ddf0cb",
+        "git_blob": "daccfebe9a1f0b6b57534562d28f8c13d4c567ca"
+      },
+      "Examples/RandomSelectionTrace.lean": {
+        "bytes": 8686,
+        "sha256": "5abb356eeecb3d6a046cd529db4701f88056a4ef95bb4cbff294a86747b11f9d",
+        "git_blob": "92858210b6689d6b172071c8d0fbfca2d91e6391"
+      },
+      "Examples/RandomSelectionEndpoints.lean": {
+        "bytes": 2944,
+        "sha256": "a8daeae4626353eb82b613d081a88737a26b556942cdd456ecc73a0af3f45c1a",
+        "git_blob": "da1f616656f8f99be43f967fb79308842b3b1d83"
+      },
+      "Examples/RandomSelectionEqual.lean": {
+        "bytes": 4114,
+        "sha256": "e1896b17dafc623d26b37168153505faa48ad93968acb51c15032e58dfe3c150",
+        "git_blob": "a5c7bc4c47d5639f1ad62aa3e6ec413c809b7d95"
+      },
+      "Examples/RandomSelectionTail.lean": {
+        "bytes": 8697,
+        "sha256": "2678c1f6fd6cab99353562b050d641427c9b04b7648a30e751051d4f0f0d771e",
+        "git_blob": "682983d2bc4131cb684aad56358a335e9acf59ba"
+      },
+      "Examples/RandomSelectionDrift.lean": {
+        "bytes": 5797,
+        "sha256": "fade4d637a2c50672d6f792326a22264bb4b348cb608bac58c0cf834a914af48",
+        "git_blob": "cfb93cd1ca0922015d4e844406d51c3c1f6f2779"
+      },
+      "Examples/RandomSelectionMean.lean": {
+        "bytes": 5962,
+        "sha256": "b9c83ac6e4dda31c6c70d6ccbf021cfcad5ca8317f5a3bf1133788fc559bb7af",
+        "git_blob": "ae7113072d39c3549208b52feae61e884c5735d5"
+      },
+      "Examples/RandomSelectionRun.lean": {
+        "bytes": 3770,
+        "sha256": "76504fe5fa77c581b8a7e3c9f3e0247c8a927adee8b308f84be6167e0ea20e0f",
+        "git_blob": "ca900f902acde3c091e67f90108c2adb03b321cb"
+      },
+      "Applications/Resources/RandomSelectionRun.lean": {
+        "bytes": 12714,
+        "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718",
+        "git_blob": "4af2a079ad55005657eeac2eaf4d3dd2a3a3ac11"
+      },
+      "Applications/Resources/RandomSelection.lean": {
+        "bytes": 8008,
+        "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3",
+        "git_blob": "0307419d586ac03af372629ef264be9a92295f55"
+      },
+      "Applications/Resources/RandomQuickSort.lean": {
+        "bytes": 23601,
+        "sha256": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2",
+        "git_blob": "99b1b19cbfb6e6dc875e46cdc338bf4a518674fc"
+      },
+      "Applications/Resources/QuickSort.lean": {
+        "bytes": 21782,
+        "sha256": "e98024f6b741e1aba1fb1e38b419eee2e1acad76a8a40e669752f54775783263",
+        "git_blob": "66bcbb7075aadfe3e1070ee532b5839091c6ab5d"
+      },
+      "Applications/Sorting/QuickSort.lean": {
+        "bytes": 9994,
+        "sha256": "696ae63c3f5c23940ac0f05c8ac6b48bff74b65e4c66faf319283efedea73802",
+        "git_blob": "01026a360a8f9f44afacd2fbd6ddb356ef8a95d4"
+      },
+      "Applications/Resources/ListReversal.lean": {
+        "bytes": 4827,
+        "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+        "git_blob": "62ab85a7325d521bf925405f9abb053703f4d175"
+      },
+      "Applications/Resources/TreeFlattening/Core.lean": {
+        "bytes": 4225,
+        "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+        "git_blob": "d136193bd3823ee00431bc240d1e7a0168b4ddaf"
+      },
+      "Applications/Resources/RandomAccess/CacheCosts.lean": {
+        "bytes": 2227,
+        "sha256": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+        "git_blob": "e583ec5285ea887c38f4b369071408697f0574b2"
+      },
+      "Applications/Sequences/RandomAccess/TreeBuild.lean": {
+        "bytes": 5392,
+        "sha256": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+        "git_blob": "3b662705f001c2a4b8fbe12868d6c7e77316d95f"
+      },
+      "Applications/Sequences/RandomAccess/Borrow.lean": {
+        "bytes": 5680,
+        "sha256": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+        "git_blob": "81b95e8bd4a6e30f6a20a85828409d6d55437be0"
+      },
+      "Applications/Sequences/RandomAccess/Access.lean": {
+        "bytes": 5219,
+        "sha256": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+        "git_blob": "5354c146a0665cce90ffc996d1b522b8a59079ad"
+      },
+      "Applications/Sequences/RandomAccess/Basic.lean": {
+        "bytes": 5970,
+        "sha256": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+        "git_blob": "fe040b71615878a86d06b326b820e1d5cd5f0229"
+      },
+      "Applications/Bracketing/Basic.lean": {
+        "bytes": 8561,
+        "sha256": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+        "git_blob": "3f6604c226908ee807c7d5076bd1c027b48bbf90"
+      },
+      "Applications/Optimization/SelectionSpec.lean": {
+        "bytes": 738,
+        "sha256": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+        "git_blob": "2548b66575b5a453e8cec30ceb745234bb0ae2e6"
+      },
+      "Applications/Resources/RandomSelectionMean.lean": {
+        "bytes": 16493,
+        "sha256": "5a7d396ed0d451c0b0ec51493c004b721c804c69263ad7c659f023cab3ddda8f",
+        "git_blob": "b777b0de341a7cb0df0b1b4a2542904250959de1"
+      },
+      "Examples/RandomSelection.lean": {
+        "bytes": 3135,
+        "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e",
+        "git_blob": "6f505d29658dc3953baf3aa859205eb7f0569a9a"
+      },
+      "Applications/Resources/RandomSelectionDrift.lean": {
+        "bytes": 15121,
+        "sha256": "cdb869dc4a7816eb76ab462bd8e6b62df9e9bb7799434903afa9ec67bed59ef4",
+        "git_blob": "19b9648eddb6d6b536128772fa0b7e4d73c6dae5"
+      },
+      "Applications/Resources/RandomQuickSortRank.lean": {
+        "bytes": 19646,
+        "sha256": "11a3eab707a445f1a205567845485c023e1eddf99358a06bfcd3a19a0a2c66ed",
+        "git_blob": "691d5f4aebc513566813d35891f5bb749dc8d1e8"
+      },
+      "Applications/Resources/RandomQuickSortMean.lean": {
+        "bytes": 16517,
+        "sha256": "2c7976bf52a2dbed2eb6eb959055acc7ae0df8319c167f0128b63e5c482bd5d3",
+        "git_blob": "a9ce110d5aca6f04cc8d68cfd1ef5238832dbc0a"
+      },
+      "Applications/Resources/RandomSelectionTail.lean": {
+        "bytes": 24400,
+        "sha256": "76ea201bc310b816f844e45422ecaf75d2d060202d1e391681affd558db99725",
+        "git_blob": "51ffc050d43ae7642b7b94427d3251b61621c6d7"
+      },
+      "Applications/Resources/RandomSelectionEqual.lean": {
+        "bytes": 11702,
+        "sha256": "05abf888d8ef2ab6934a1ad90034ac12e07dd7c79f558828fc719bf3973e1dd2",
+        "git_blob": "8f6aee1ec143ea2a8a8f02902ea0625289aa0a9c"
+      },
+      "Applications/Resources/RandomSelectionEndpoints.lean": {
+        "bytes": 8643,
+        "sha256": "1621c8f16d8c5a4621268ec115ac2cee6eb18fe1b936116cb50f6b641bd3be8e",
+        "git_blob": "e17dbcbdd83a20de00ed5c02dda7a3e7f5fe9e39"
+      },
+      "Applications/Resources/RandomSelectionTrace.lean": {
+        "bytes": 7823,
+        "sha256": "146f81f9db7782fd30f54848bee87038a2f9a1edcb4c2c776e854494bc80729e",
+        "git_blob": "84f42a374c0066da45c42431a0145a78cab2a718"
+      },
+      "Applications/Resources/RandomSelectionWorst.lean": {
+        "bytes": 10727,
+        "sha256": "0e83e44d4e1b2af6b56e09345d248d9af878e8a7d1108458ed8dcee446ec6541",
+        "git_blob": "767a9c819b9f52d451b0db403d98c9e4175b6425"
+      },
+      "Examples/OutsidePivot.lean": {
+        "bytes": 3845,
+        "sha256": "0c2feb488fd784937c8888a3e48e31b32a307b96bcefb6178d7c75274afdb275",
+        "git_blob": "5fc3cf82ffba018307925d0dec1b57726821bd05"
+      },
+      "Applications/Selection/OutsidePivot.lean": {
+        "bytes": 6444,
+        "sha256": "22ceec39e94410200dda20d4224a87518aa001eb127605f02fe6961c01a97809",
+        "git_blob": "e3f8fe0d2fa0dfd02735b45dd298263ee18080c0"
+      },
+      "Examples/MinimumPivot.lean": {
+        "bytes": 3770,
+        "sha256": "08a54aec03e507b1c8dc87dcf521f96984c6a6cff4988294a60ddb1db6a9cdc8",
+        "git_blob": "098bb18c8422aff6cb9aa1a2b3abf9bf0a66ec61"
+      },
+      "Applications/Resources/MinimumPivot.lean": {
+        "bytes": 10605,
+        "sha256": "b670f66c810111f625ebfc514c81dd7890298904f996b16dab6a2cb04341cdf3",
+        "git_blob": "feb0fd0b9540cbdbddb6c4f7a131d5ca50ca0d68"
+      },
+      "Applications/Resources/FixedRank.lean": {
+        "bytes": 7633,
+        "sha256": "831a78121a2ee7d7db773dd335febb938d8dfc8e7dbe944bb4cb7d71ec202c94",
+        "git_blob": "36f8933c8ac1bcbc94f2432a06aa67fc5bd5b702"
+      },
+      "Applications/Selection/FixedRank.lean": {
+        "bytes": 11391,
+        "sha256": "463e00dfd9eaac03dd2bec858eb64454d6c79abf03c80c8011019fb8af527395",
+        "git_blob": "9dd07004e3776b073f2786dbc31a105394e2f065"
+      },
+      "Applications/Resources/SelectionPolicy.lean": {
+        "bytes": 5986,
+        "sha256": "c906415dff6fc59694629f3d17977e55d2aa2ea2d989610f222bb781056a3112",
+        "git_blob": "71a146d37dc0b87bbdb38cc94dd1d2b02457a031"
+      },
+      "Examples/MedianReduction.lean": {
+        "bytes": 7589,
+        "sha256": "d08959ce8687e1bc6db9dff78fb581c53b072e9db0436da465d9e42fdf652506",
+        "git_blob": "a123c6bfe01f3c667060cb9787d8ac06acb981c5"
+      },
+      "Applications/Resources/MedianReduction.lean": {
+        "bytes": 5846,
+        "sha256": "e3bb494b94ed6829ad080b9120a69af16cb12c66cb7f7892598db988e3de354c",
+        "git_blob": "723e7c886a4d01eeb014e02d524c8d85553ac76e"
+      },
+      "Applications/Selection/MedianReduction.lean": {
+        "bytes": 8269,
+        "sha256": "902329504401dfb5ae2dbd2a62c6c7fa8d3dc9eec22d29d99b350282e57d608a",
+        "git_blob": "1e36217265e5dda7cd3f79f7ffdf1c15e702c4d4"
+      },
+      "Examples/MedianPolicy.lean": {
+        "bytes": 7410,
+        "sha256": "fd6259f1b699adc9f7f98f7a90ccb1c34bbb2c7fe4d80ab7196c6a65635c31d4",
+        "git_blob": "f860dfadc7c4e1f4a8e3f0917636047249985b39"
+      },
+      "Applications/Resources/MedianPolicy.lean": {
+        "bytes": 7649,
+        "sha256": "d16093224bc2eac70efc27094ccbc6506418e6b98aac73d0ebe309ad13887f00",
+        "git_blob": "3ff974cfeb3df05338df4128b826a11d6abba593"
+      },
+      "Applications/Resources/HalvingSelection.lean": {
+        "bytes": 8464,
+        "sha256": "7a3f78c70011dca48546cba30ae2c6e3d90ed3208a69b35aaca2a78f52da17a1",
+        "git_blob": "146545b7dad10e2b1bb247f282051ae0db9bc005"
+      },
+      "Applications/Resources/HalvingTrace.lean": {
+        "bytes": 6430,
+        "sha256": "89f15ae8a7e222a5c046e91582c38c61283350b27acacfd0c1278d2da4f7aaa6",
+        "git_blob": "bf85acd26b4d35526ec25a6e6c3009b5589e4949"
+      },
+      "Examples/MedianCounterfamily.lean": {
+        "bytes": 2917,
+        "sha256": "8ebe64ee7b3a819b67a4afc9d2d52b8e659ebcdd20ffea17fb9933c1be0f5083",
+        "git_blob": "64df410b43d670f10a595ae1c967487e9a1ef0cc"
+      },
+      "Applications/Selection/MedianCounterfamily.lean": {
+        "bytes": 7414,
+        "sha256": "8fc4a388b50bd363587b8d8fbdc742d2e9d45426b58af75d9b83f471d1e4e0f6",
+        "git_blob": "6b86f826e0b6d7cba51d592a110219a74279caac"
+      },
+      "Examples/ListChunks.lean": {
+        "bytes": 2683,
+        "sha256": "161e240f9c07db5b13f9abf5bf09782064adce4862e60fbe35f0eba483c76c78",
+        "git_blob": "adb9da5b16f1bef2e1e8fe7cbeee0698ea1b0859"
+      },
+      "Examples/HalvingTrace.lean": {
+        "bytes": 3077,
+        "sha256": "9dc932bb8163746914fa5db351db632864a28a7f0648a1b285dba366689cd6e4",
+        "git_blob": "d229538b0a62562e12ce59614cf783874f671902"
+      },
+      "Examples/GeneralMedianBounds.lean": {
+        "bytes": 9001,
+        "sha256": "dfc1bb996f97104c2925bd6b7d2577272cf5a3e674bb756785cfdcdd234ffd9d",
+        "git_blob": "8a3e98962d217a4a3b198562b4b4e22c90de60a5"
+      },
+      "Examples/FixedRankSelection.lean": {
+        "bytes": 7246,
+        "sha256": "c1ba9819d89af6a1d7f3c1678f10bed4b0614c63b385eb856144d315ebd955da",
+        "git_blob": "fe233b900bbdb3a9c874e79f1bdcf92bb7bb549b"
+      },
+      "Examples/CoordinateSensitivity.lean": {
+        "bytes": 3726,
+        "sha256": "ed3d3d7cd41c97169893fdb5cf95e336a560f6f042ee70cea0a24ad7a6691828",
+        "git_blob": "83ae3945dc67c142333d41317ae39a38ee3e2b7a"
+      },
+      "Applications/Selection/CoordinateSensitivity.lean": {
+        "bytes": 6717,
+        "sha256": "224724056815f73aff552ead23b7dd83af4078ad61009169e1b474f4b94476e6",
+        "git_blob": "aa11abfc1bc0aba12c564b3f974f1b2dfed097b0"
+      },
+      "Examples/CoordinateSelection.lean": {
+        "bytes": 10593,
+        "sha256": "880f4de41c96ef5076cb16375b8f718992ee0170b305e370bc9dac1e01308189",
+        "git_blob": "2d4d41e068e901ff7106092d5e04d9598a1bc4d2"
+      },
+      "Examples/CoordinateQueries.lean": {
+        "bytes": 8079,
+        "sha256": "d90bd28ec4496105d9c5da80171a4c96a5ace119c0e178ded48f4f84ca8ad16d",
+        "git_blob": "cdc5b93e5a5ebe720a30812a90b3a8cd388edaba"
+      },
+      "Applications/Selection/CoordinateQueries.lean": {
+        "bytes": 11106,
+        "sha256": "ca1c0d339500e77aa14ca47420b9f7a11f213bbcd8ac113c3281c7f9690e6409",
+        "git_blob": "49aa4bdf4beb2533fe273c3267ae031d862dbcf7"
+      },
+      "Applications/Selection/CoordinateSelection.lean": {
+        "bytes": 18612,
+        "sha256": "14b87898b02acb8f948ee68629331359652e920331e49d60bdeac62788a21abb",
+        "git_blob": "46e2dc5f47795ad9bd67429dafad87ac6ea7099e"
+      },
+      "Applications/Selection/CoordinateReadAll.lean": {
+        "bytes": 7611,
+        "sha256": "ab2fd8949fe4a73e909cac90f99329fcd3b508e1b221e4411449a535f48f41ff",
+        "git_blob": "e05374c65ff8dafaf6035ca6792271f70522c9ce"
+      },
+      "Examples/CoordinateReadAll.lean": {
+        "bytes": 5626,
+        "sha256": "8290a02bee2fb078439842c26a6cb46ec231aeb092b30659c8a3b674cc54b603",
+        "git_blob": "b561b9fa3a67d6962e997659955d0c29eb846526"
+      },
+      "Examples/ChunkCalls.lean": {
+        "bytes": 2730,
+        "sha256": "ca79f35fe846399bcb180d9b8fbd63fa453108c59c4503adb8a5731182fdc5e3",
+        "git_blob": "bf31edf1a15b503df46e6b79daca89476970a200"
+      },
+      "Examples/AffineRecurrence.lean": {
+        "bytes": 5164,
+        "sha256": "6734b0a54ffdcf81de3c3ec2520618011aa8bab357690c6cca6117174ec4abcf",
+        "git_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+      },
+      "Applications/Resources/AffineRecurrence.lean": {
+        "bytes": 5839,
+        "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d",
+        "git_blob": "afba9e03f3d8178c6fcd469e064f07ddff53c32b"
+      }
+    },
+    "local_compiler_objects_and_traces": {
+      ".lake/build/lib/lean/Examples/SelectionRecurrence.olean": {
+        "bytes": 66496,
+        "sha256": "57d0694ea3a2d03684611f109b0ebbbd3a99650f00ecfcda64a27e9a4605525b"
+      },
+      ".lake/build/lib/lean/Examples/SelectionRecurrence.olean.hash": {
+        "bytes": 16,
+        "sha256": "db80e8f65d47fd3e4bad0c817037aac901720c84cad720d7264a0e28d43d9860"
+      },
+      ".lake/build/lib/lean/Examples/SelectionRecurrence.trace": {
+        "bytes": 3251,
+        "sha256": "c0fbdb023a568fd3a880c76cb6f80e056fc9b0e8026edfd0a51be3fa0915159d"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionRecurrence.olean": {
+        "bytes": 521552,
+        "sha256": "693b2be372a1efd91c5e282c2f57eb6ebba7d76f133d84c3ee2a77b87b0da878"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionRecurrence.olean.hash": {
+        "bytes": 16,
+        "sha256": "62780a6dcc48e963f3f17c33460791ce9c99e1d0aba836b96c00215ae2637def"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionRecurrence.trace": {
+        "bytes": 3531,
+        "sha256": "244b170e43b65aaab16269868b931b3b762b68f3e5a7bff55549eac0a9188786"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Growth.olean": {
+        "bytes": 123136,
+        "sha256": "06d76f1878578b42e760c5e2176d8ebd02099f41da21aad6ff2431fffd0749df"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Growth.olean.hash": {
+        "bytes": 16,
+        "sha256": "ed72953f3aa1fbf1c1f13df1c377283086fb122eee331a93067f05e3a9ee473c"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Growth.trace": {
+        "bytes": 3936,
+        "sha256": "5a5862fad2f8e31287f862d8a4d5a34ff2361ca4bf305b5150494d09b4a4c827"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RoundedRecurrenceBounds.olean": {
+        "bytes": 83200,
+        "sha256": "bccab651cad8b5e58bc25d6611b6ed068a1519ea9374f1664f60f350c6b8ce59"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RoundedRecurrenceBounds.olean.hash": {
+        "bytes": 16,
+        "sha256": "a583b2e0773fe1277420a5ad3078312fcf1cb12d232173e1aba75b7813c5e3c5"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RoundedRecurrenceBounds.trace": {
+        "bytes": 3716,
+        "sha256": "953117d9dec873631ed4b67a25a247f0b48347b28f20e3a3a74b23ecb2849ff6"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RoundedRecurrence.olean": {
+        "bytes": 415104,
+        "sha256": "1b4120a35f9fdebe9ef2a886df54431980b67c9f3e6ac81e820862391730a207"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RoundedRecurrence.olean.hash": {
+        "bytes": 16,
+        "sha256": "d3ae55e885a1ffa3ea7c69008013fe591ffd2d3b7241d3092e60ec7c1ef23775"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RoundedRecurrence.trace": {
+        "bytes": 3690,
+        "sha256": "6bbd30526cca11c62ace0d480eba7ee6d28c847572e11ee5a3adf851de423ad7"
+      },
+      ".lake/build/lib/lean/Examples/SelectionMedians.olean": {
+        "bytes": 109248,
+        "sha256": "4b14474ac7602520ee6a7ca7b7fc3cdcdb9cdfe22eb1c62f17303c1847b6ede0"
+      },
+      ".lake/build/lib/lean/Examples/SelectionMedians.olean.hash": {
+        "bytes": 16,
+        "sha256": "afef8018457282528256bfaefa8bd9a65a45b28a94befa6c27b98c78d4b0abde"
+      },
+      ".lake/build/lib/lean/Examples/SelectionMedians.trace": {
+        "bytes": 3552,
+        "sha256": "32f78f320f152a709f0b1d12f75be823d03730aab019a2454f3297c1117bc794"
+      },
+      ".lake/build/lib/lean/Examples/MedianOfMedians.olean": {
+        "bytes": 155064,
+        "sha256": "7834d7fb5232def18dbc2367d5214013d005d42a4c1ecdbc58bee7623a15e09e"
+      },
+      ".lake/build/lib/lean/Examples/MedianOfMedians.olean.hash": {
+        "bytes": 16,
+        "sha256": "1692cae271a37955d67cc330f223d073d6c73c11e27c6e496be14bf8a849e022"
+      },
+      ".lake/build/lib/lean/Examples/MedianOfMedians.trace": {
+        "bytes": 3423,
+        "sha256": "db7283e834e6e22fbf06b74aa3944b3c28d8540a08278507158648435d4b4f6c"
+      },
+      ".lake/build/lib/lean/Applications/Selection/MedianOfMedians.olean": {
+        "bytes": 570184,
+        "sha256": "64473725f0ed0cf821f17bf17403faf99a77989cf6f67235160f43bffaf884aa"
+      },
+      ".lake/build/lib/lean/Applications/Selection/MedianOfMedians.olean.hash": {
+        "bytes": 16,
+        "sha256": "6f271798fca4a7cb79ca051fae72055036bf62d358c079337ec9bce3c28c5916"
+      },
+      ".lake/build/lib/lean/Applications/Selection/MedianOfMedians.trace": {
+        "bytes": 3649,
+        "sha256": "2d8120294dc03e2bc06e1643de9200cc0679ff8422c8242fa9ce83542cb5f0d8"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Chunks.olean": {
+        "bytes": 341864,
+        "sha256": "80d052e730d7735ceebe03fabfd4033986e17f100ee82fdbc0ba95a81fb7ae7d"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Chunks.olean.hash": {
+        "bytes": 16,
+        "sha256": "f4759e519e39d8b97af8b4592ec8c374d409989571042d7a3bc9524742e4fcfd"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Chunks.trace": {
+        "bytes": 3571,
+        "sha256": "8e5fae7dfc679dfef4cc4938f83b65b1f6ccb673d46d798346a22b183a5fdb6b"
+      },
+      ".lake/build/lib/lean/Applications/Selection/CountRank.olean": {
+        "bytes": 631024,
+        "sha256": "f2ab37e7bb0d86621e349abb7d1b4566ea286044082409582fe0820cc4e934aa"
+      },
+      ".lake/build/lib/lean/Applications/Selection/CountRank.olean.hash": {
+        "bytes": 16,
+        "sha256": "92a8b7c47872aee2b94cf718971902c702fdbbedc9e53563c1efc3e586882b33"
+      },
+      ".lake/build/lib/lean/Applications/Selection/CountRank.trace": {
+        "bytes": 3259,
+        "sha256": "c77ca5cb03c8256c0e56fe337ab6c76daf6c7fe78c3532ab08f0737f1c0526ad"
+      },
+      ".lake/build/lib/lean/Applications/Selection/Consumers.olean": {
+        "bytes": 564280,
+        "sha256": "c6fbfc854aa0b1d89ae83c5f3bc95c39829e591cc1d0701b3169b176d4aebb2c"
+      },
+      ".lake/build/lib/lean/Applications/Selection/Consumers.olean.hash": {
+        "bytes": 16,
+        "sha256": "fa92a75c885e7e969f3a25dcab4daf169fbb770902c7971758e8241a943df8af"
+      },
+      ".lake/build/lib/lean/Applications/Selection/Consumers.trace": {
+        "bytes": 3250,
+        "sha256": "b3026d1f902434a82d0478e8f07a5c9cbc73205f06423ab07cdafa996f65b38e"
+      },
+      ".lake/build/lib/lean/Applications/Selection/ThreeWay.olean": {
+        "bytes": 463552,
+        "sha256": "5055844b7901204640336ffc927779963a6a23397c6adfbdc7498d0a71391b87"
+      },
+      ".lake/build/lib/lean/Applications/Selection/ThreeWay.olean.hash": {
+        "bytes": 16,
+        "sha256": "a62127572dac192bc9332aad6286aed595e355aef70d121c27b51189bf4a6ec9"
+      },
+      ".lake/build/lib/lean/Applications/Selection/ThreeWay.trace": {
+        "bytes": 3419,
+        "sha256": "0fec49f75496e978586f7e45eeacd748eab037a52e5db2e104ad4604cc0c26c5"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Partition.olean": {
+        "bytes": 177136,
+        "sha256": "19faf6ab0e92813ca9d47abd07ac0a1386b081ce292c17a6835d722e157fb20f"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Partition.olean.hash": {
+        "bytes": 16,
+        "sha256": "48fc64f02d36b8bc93e3499ba89ed1dffb6c47377a91392d634ac1316dada6ce"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Partition.trace": {
+        "bytes": 3417,
+        "sha256": "495924b2619362e56818380c8a8c33abcda8ddcff85af275bc74de1d2f2fb07a"
+      },
+      ".lake/build/lib/lean/Applications/Selection/Rank.olean": {
+        "bytes": 183640,
+        "sha256": "bfc4207d6437b4114b90da3164a9b0b91cbc75db9e3725851372012aadf3fd85"
+      },
+      ".lake/build/lib/lean/Applications/Selection/Rank.olean.hash": {
+        "bytes": 16,
+        "sha256": "dd9a6719ceb26d125320f35713d142df888665d2288343586cc83cfabf4eb824"
+      },
+      ".lake/build/lib/lean/Applications/Selection/Rank.trace": {
+        "bytes": 3203,
+        "sha256": "22f8df621947713a9d92490f65d4bd94e6b5d4fc4f2915fb51e91ba6301c606e"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Sort.olean": {
+        "bytes": 272768,
+        "sha256": "966642767ebe319010dfd4179f6ca5f88be1b9ff6af8f2ba219e5f9c885959b6"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Sort.olean.hash": {
+        "bytes": 16,
+        "sha256": "552d791129b22cdc418a9c7db94917344b329de3791801f4a89c0323141183da"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Sort.trace": {
+        "bytes": 3191,
+        "sha256": "51a66c0db8b5aac7b9fbdb3d8f3a5394ba5ebe4798b00de8ced5dec41434ad21"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Merge.olean": {
+        "bytes": 393368,
+        "sha256": "83b7eaa55a1cd25df709f2957bce1be04e84e2e4d4b2ece3cf3a25691123563d"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Merge.olean.hash": {
+        "bytes": 16,
+        "sha256": "8a19c7d6ae1871a046f6e9ac3311e8cb5c9f003dc91a40aa6c445e91548652f9"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Merge.trace": {
+        "bytes": 3200,
+        "sha256": "c502e39e794f70c8c2f2c191336b85d16b199c7ad18fc1bf66913e366c0ab3fc"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Stable.olean": {
+        "bytes": 129496,
+        "sha256": "0842f9b1bc736a483e38de996a9fb81f00127f3174f620e69bb44926018ee142"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Stable.olean.hash": {
+        "bytes": 16,
+        "sha256": "3dc7c5c3e03ada7495dbdcac8cf15acb3db77d68b02b73cb40dcccbe26791530"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Stable.trace": {
+        "bytes": 3197,
+        "sha256": "84214fef0469b8e98d06eaba8dcdbfa70c054aac71269a179b735083d1d64007"
+      },
+      ".lake/build/lib/lean/Examples/SelectionAuxiliary.olean": {
+        "bytes": 141192,
+        "sha256": "a35b978b68a27e95270b2d39f3f48e900a227dd5f3b9b939448b944172800c8a"
+      },
+      ".lake/build/lib/lean/Examples/SelectionAuxiliary.olean.hash": {
+        "bytes": 16,
+        "sha256": "98d8ad0ad8ef5055d614731412215e45e1164c0ba209437de0ea016d2379db92"
+      },
+      ".lake/build/lib/lean/Examples/SelectionAuxiliary.trace": {
+        "bytes": 3242,
+        "sha256": "4ba23647c971daa77805389d2f99bb0392d4a9eebe4c3bdc78f635e01760650e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionAuxiliary.olean": {
+        "bytes": 387624,
+        "sha256": "6fddb6994802028ef13e3686429fc07845c59a9e6fe38746a02da6445c1bc7b9"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionAuxiliary.olean.hash": {
+        "bytes": 16,
+        "sha256": "687be3a56f428acd5009bcc02bf2a6ea32f94a6668bea91e2828782cc143840f"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionAuxiliary.trace": {
+        "bytes": 3694,
+        "sha256": "c16d17fbd859a757d7f01f526f4a6bd5e752c694c41a0c061f63e8a1248022ed"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListCalls.olean": {
+        "bytes": 363912,
+        "sha256": "bea00d4617c486b329004a582a0c410a5c62fbf49591187fa62a4b9d13d174f1"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListCalls.olean.hash": {
+        "bytes": 16,
+        "sha256": "e7c1616656c600615aeb82b815a116d4377753654f1db1f6ba3ffec9d6f7414f"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListCalls.trace": {
+        "bytes": 3656,
+        "sha256": "a5b6b3863534fcd988f3c1807bf8bc0cd7036de5e954eb62f1adfbb2fa3ea669"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SymmetricCosts.olean": {
+        "bytes": 1261488,
+        "sha256": "32c38c6a32129c5c00e08dc4dd706bed08a050cf7c1b04f6b73adebd6c893d79"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SymmetricCosts.olean.hash": {
+        "bytes": 16,
+        "sha256": "8c29ea5014a6f81ab4c26fa137697259959c272475f72d009b796ba427205cd5"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SymmetricCosts.trace": {
+        "bytes": 3481,
+        "sha256": "4d95bec08e112139e9bf714f46eb8401819a7f5483f4d9f5cdf5ab023650ee14"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Symmetric/Core.olean": {
+        "bytes": 738496,
+        "sha256": "9cc54bf89ee8cc6582227f83ab3b7103b0e62a85d6bf19b3861317aa79c92db1"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Symmetric/Core.olean.hash": {
+        "bytes": 16,
+        "sha256": "55c722abd8fd1d4ce8c8651e46fbdb4dfad5f0429f4a36e39b195cb32f7460fd"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Symmetric/Core.trace": {
+        "bytes": 3415,
+        "sha256": "b14dcf60ffaa21ddadafc9a7d3f0f18d19d9ce744d6ea59b80e7c9565b4262d6"
+      },
+      ".lake/build/lib/lean/SquareKit/ListFusion.olean": {
+        "bytes": 62664,
+        "sha256": "d3714fec42b77b43ad8428a8ecf043ece8450d989816932cfb0bcc9dae55ef8d"
+      },
+      ".lake/build/lib/lean/SquareKit/ListFusion.olean.hash": {
+        "bytes": 16,
+        "sha256": "ab045300c1f09b867b44dc041ec3139c14ee809f071e4d2da4a75d5ab6bde2d3"
+      },
+      ".lake/build/lib/lean/SquareKit/ListFusion.trace": {
+        "bytes": 3150,
+        "sha256": "7e42088c18ff5cb03581dabbc532a343db5c34b04be62c3519359b1b26dfed28"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Potential.olean": {
+        "bytes": 239624,
+        "sha256": "ebaf838b961a9f44618e4cee6855dfaae9c89c285280c1209a33fe13d3ae65c7"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Potential.olean.hash": {
+        "bytes": 16,
+        "sha256": "2f8cea79e78d26caa7642fba3baed0e4a116146e36e6267b3cf4cb999797ac3a"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Potential.trace": {
+        "bytes": 3423,
+        "sha256": "0e243a19ecfd761f56bf0b693b8683ae9a5661533f07ba3b74b4a2f0eb0b03f8"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Workload.olean": {
+        "bytes": 140248,
+        "sha256": "02cf7c619f5df5a9bd7a34b6a6e1d652d5ee0685f4dffd6b5cc2191a8b674529"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Workload.olean.hash": {
+        "bytes": 16,
+        "sha256": "e83a987c1a8c5be845f14583351ae9dc2691c283252942ed7a35144f6d0e1c37"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Workload.trace": {
+        "bytes": 3389,
+        "sha256": "a0cc3644c808f2695022c9e89bdc9844187b744bd8726760540b3c9b819ce488"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Measured.olean": {
+        "bytes": 89608,
+        "sha256": "e3bea04397592484406bb442881a4305dc230d2c1b908b1eef2613cb377d9bf7"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Measured.olean.hash": {
+        "bytes": 16,
+        "sha256": "f5b0f6171cb7ac85a0bdea0be7590639628917e6b37ee8ff2fad746de319cc29"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Measured.trace": {
+        "bytes": 3561,
+        "sha256": "aa3b9570cdaa61358eb405cfca2209abc845723b30351f945c58ca67724afaea"
+      },
+      ".lake/build/lib/lean/Squares.olean": {
+        "bytes": 397408,
+        "sha256": "8f5981c72bfd62a0ec3a0ae74b5841269b10cb5dad2aedb8a269a9e229c21ffb"
+      },
+      ".lake/build/lib/lean/Squares.olean.hash": {
+        "bytes": 16,
+        "sha256": "69362eb3e35c4fcb6fc213839d6d07af9195fb0919454223fb2b2bc876597f31"
+      },
+      ".lake/build/lib/lean/Squares.trace": {
+        "bytes": 2919,
+        "sha256": "dd69574ba99f8ada4db3ed1fc015ee620cfc694da3a83f828d4a58dac915c8dc"
+      },
+      ".lake/build/lib/lean/Applications/Resources/CallCount.olean": {
+        "bytes": 70784,
+        "sha256": "213261bb3cc47a6b79696c7e55b4aba27ffe452d29a2ebe8b63c278d8c7d46ca"
+      },
+      ".lake/build/lib/lean/Applications/Resources/CallCount.olean.hash": {
+        "bytes": 16,
+        "sha256": "3e6f69de38b1477145ca9e62d340fc376d494ecdf2baf44ee7dbb8a3242ede14"
+      },
+      ".lake/build/lib/lean/Applications/Resources/CallCount.trace": {
+        "bytes": 3250,
+        "sha256": "263c2d3dd51b591f1e443b16cee36515f38b6ca5fce20f0d468ab5b478ec43b8"
+      },
+      ".lake/build/lib/lean/Applications/Resources/InsertionSort.olean": {
+        "bytes": 526728,
+        "sha256": "f8d6f0279ae7c7df1b732d10cfa2e309c16ce683887b84f0b93a67b5691365ea"
+      },
+      ".lake/build/lib/lean/Applications/Resources/InsertionSort.olean.hash": {
+        "bytes": 16,
+        "sha256": "6a0b56341079b78b3d0de53a418bf01ba405f907a2107df38b68b8608c86245e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/InsertionSort.trace": {
+        "bytes": 3602,
+        "sha256": "eee4a3ed15fb0e96788cea01aa5c10f5bb213099b2a9c7fec7e7b3f4088da3f0"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionMedians.olean": {
+        "bytes": 457944,
+        "sha256": "7e5e92e2450ff64334f61d4dcd395aa9b93972085d1ea98529544fabaea84969"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionMedians.olean.hash": {
+        "bytes": 16,
+        "sha256": "6de3332643d3331b6e208ea38f48626e8711c0f1c3b6925a223e2aac0d081abe"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionMedians.trace": {
+        "bytes": 3903,
+        "sha256": "a427e0eb22c24fde44b92f84f94884157309509c68712c546e0d9e946a585713"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Chunks.olean": {
+        "bytes": 412448,
+        "sha256": "c6bd23612c6194119e6ce186ac97d6bbbdea5f57d6ae791e1491f352d03a9ff6"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Chunks.olean.hash": {
+        "bytes": 16,
+        "sha256": "fda38a8af39c78dacd6c5fd0529509adb824a240c64ede0976549553a9af3d45"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Chunks.trace": {
+        "bytes": 3402,
+        "sha256": "33c8b9e248e869d86ded47248c4899d2a782cddcf2e26259585ee18aa0ed3b09"
+      },
+      ".lake/build/lib/lean/Examples/SelectionGenericEnvelope.olean": {
+        "bytes": 54520,
+        "sha256": "c378f692821005fb048148dc5a0fdba9fc6877972e714c0ae77c8b18fa84b501"
+      },
+      ".lake/build/lib/lean/Examples/SelectionGenericEnvelope.olean.hash": {
+        "bytes": 16,
+        "sha256": "ca3b546f47bebbf48b17a67d79baea5a5bcd6e502a8df39a6997056ca5dc1e62"
+      },
+      ".lake/build/lib/lean/Examples/SelectionGenericEnvelope.trace": {
+        "bytes": 3620,
+        "sha256": "b23e8ffa10fcc040b6d54faddd17234d4301b4ba2feccb226e5b81548ac55fbe"
+      },
+      ".lake/build/lib/lean/Examples/SelectionEnvelope.olean": {
+        "bytes": 29032,
+        "sha256": "96db38f3e0a05b573594e10f4522ae771a04186a46919fa0f04f4a46396f18ba"
+      },
+      ".lake/build/lib/lean/Examples/SelectionEnvelope.olean.hash": {
+        "bytes": 16,
+        "sha256": "6f5c46d49e1dd99056b87656256afa0233035b1c54b59dae090664046f5e8929"
+      },
+      ".lake/build/lib/lean/Examples/SelectionEnvelope.trace": {
+        "bytes": 3233,
+        "sha256": "c6455316563681063035b4548650093e6597795780d73601f5156c46572d9670"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionEnvelope.olean": {
+        "bytes": 167944,
+        "sha256": "f4f2fac7b24ee39a32ddc64ab3fc10030700d0ec5b8cda5d67a6d9a6376fb5d0"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionEnvelope.olean.hash": {
+        "bytes": 16,
+        "sha256": "949dc441c98e621eaff07f525eed1eb7448803fc48d459daaecce5703015a2f3"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionEnvelope.trace": {
+        "bytes": 3300,
+        "sha256": "cc608d54c8627435dd0e2b8435058ce7bd5844a950285c97daaf88ead5d2bbb7"
+      },
+      ".lake/build/lib/lean/Examples/SelectionCosts.olean": {
+        "bytes": 351712,
+        "sha256": "1bb55af4173fb1021d1d8309f8a97920c70dc5d1d76f8de901bc88a3fa1bc7a8"
+      },
+      ".lake/build/lib/lean/Examples/SelectionCosts.olean.hash": {
+        "bytes": 16,
+        "sha256": "62f9489637b98f0661fc6cac36a1ca29440e5d018f4122142cd845a0a5ef08b8"
+      },
+      ".lake/build/lib/lean/Examples/SelectionCosts.trace": {
+        "bytes": 3352,
+        "sha256": "9837447953693d204f93ce398d19aed3ff65448d7ae7f7314ef4c9fd616ef36f"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Selection.olean": {
+        "bytes": 2229272,
+        "sha256": "2822b5995ff11557a23a14c8e3d81fdb81405e8531fe5821f20ca96ef0cc58ec"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Selection.olean.hash": {
+        "bytes": 16,
+        "sha256": "4d4966e00bc35dfcae2e3012cbd000dfb5ec59dcbf0197fb478f11adb0dd5464"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Selection.trace": {
+        "bytes": 3457,
+        "sha256": "f91f1fb86c671a56c299598c4159b5e8eaf2698e740cb42a289ddc337415d94d"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Partition.olean": {
+        "bytes": 96448,
+        "sha256": "8d211848ddb74eae3bacf3ca018bb46d21a8fc6c02e8c63cf43b8e22f0f6c2da"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Partition.olean.hash": {
+        "bytes": 16,
+        "sha256": "0588531cd5f96b4de7ad86e9b8b8773ed8332459c1232a2387eb92b8977b8f58"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Partition.trace": {
+        "bytes": 3436,
+        "sha256": "89598220729f316424dac8723ff3f7669ab42112dec8199d8a293de5b9dd24f0"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionGenericEnvelope.olean": {
+        "bytes": 581704,
+        "sha256": "5767297d32d3f92eb1b4ddf5d4bbae7b17e47c10d32634e6a4e057bd51b49351"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionGenericEnvelope.olean.hash": {
+        "bytes": 16,
+        "sha256": "6e59f521bd34cbd8590ea0e058fa77d8d205516e39351ff1f265e4fd7eabd117"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionGenericEnvelope.trace": {
+        "bytes": 3579,
+        "sha256": "bb909b68ea0153b793215a879d46e39ad409fa7c40ae741b3d0ba1b6bf142b6e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionBounds.olean": {
+        "bytes": 710216,
+        "sha256": "93a5561444965a3fda99441318277a17e737ae1589f822ba4e1daedfb14a354b"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionBounds.olean.hash": {
+        "bytes": 16,
+        "sha256": "4a27e78841a9bf4cd252f54a5cfa298d87c493fa7c2e45efbec0719f5b8dde3c"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionBounds.trace": {
+        "bytes": 3498,
+        "sha256": "d09e0b2ff4c82762b320c3dfefa056cc50f8c2ac54372665a818d0db8d9142b4"
+      },
+      ".lake/build/lib/lean/Examples/SelectionGenericBounds.olean": {
+        "bytes": 212584,
+        "sha256": "0e5f08c4bf8903f34e2ec09380ee4bc89fb6e8bffec668af0dfc29099eb930d5"
+      },
+      ".lake/build/lib/lean/Examples/SelectionGenericBounds.olean.hash": {
+        "bytes": 16,
+        "sha256": "f374c3dbff17664fc29a7223623fa48f5e90568f2bd9ec2e7c6a12b4509ce9c2"
+      },
+      ".lake/build/lib/lean/Examples/SelectionGenericBounds.trace": {
+        "bytes": 3643,
+        "sha256": "5647daf1fbbc2e22f235e38433669bc750754c81bc0a7fff51f0e1cfe05b749c"
+      },
+      ".lake/build/lib/lean/Examples/GroupSelectionRecurrence.olean": {
+        "bytes": 268400,
+        "sha256": "8ee1a88b6be954f78f3fb2f7017fb2253df193d3deae1c2712b75814b95e28ea"
+      },
+      ".lake/build/lib/lean/Examples/GroupSelectionRecurrence.olean.hash": {
+        "bytes": 16,
+        "sha256": "8be44c2663dd83078efc60ddeff8eb7ac57ae31a171a3e3030a9e6c7283c129d"
+      },
+      ".lake/build/lib/lean/Examples/GroupSelectionRecurrence.trace": {
+        "bytes": 3500,
+        "sha256": "db403f743e165035b342459f31146c3037f6bb87fb53dc44df3aee1a3b1a4560"
+      },
+      ".lake/build/lib/lean/Applications/Resources/GroupSelectionRecurrence.olean": {
+        "bytes": 624072,
+        "sha256": "c74a611ae94cf012ff0c0d225fd8aec4df50efddc2487d6edb249cbf6bedd524"
+      },
+      ".lake/build/lib/lean/Applications/Resources/GroupSelectionRecurrence.olean.hash": {
+        "bytes": 16,
+        "sha256": "7cde8a83bdeab05254d48c2fa80784c31a34cc2fe51ab3f129745c1b0894215a"
+      },
+      ".lake/build/lib/lean/Applications/Resources/GroupSelectionRecurrence.trace": {
+        "bytes": 3566,
+        "sha256": "48c560b9ed893d0f1c9e65b5d2f7564511a6f155a18568d68bbc2acb8db56f07"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionGenericBounds.olean": {
+        "bytes": 617832,
+        "sha256": "b95e81672032c1243a22e8b7a3df13c3eaec2f20ed90cd04a25da677959a1681"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionGenericBounds.olean.hash": {
+        "bytes": 16,
+        "sha256": "b40b84364eb0d1d84e88d1598285546e2fc74ec5cea7ee2dbc46c8c992ab339e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionGenericBounds.trace": {
+        "bytes": 3597,
+        "sha256": "a1b3f216d9137c043fbb87cfb54c472b366350f55d6d5f646dc3828bb6eed101"
+      },
+      ".lake/build/lib/lean/Examples/SelectionCutoff.olean": {
+        "bytes": 63208,
+        "sha256": "bd8d9ae5911b74d19e1ff143fba9f7c2e436448564ddbda1efbb12e337ad3938"
+      },
+      ".lake/build/lib/lean/Examples/SelectionCutoff.olean.hash": {
+        "bytes": 16,
+        "sha256": "19671b7cc6f20f7e9020319b133e424c57992d7785c3687d4c5001922aebda10"
+      },
+      ".lake/build/lib/lean/Examples/SelectionCutoff.trace": {
+        "bytes": 3215,
+        "sha256": "c4302f049123a32408604167236ae2bff5ab12c9b0418a933bd54c280c0264ae"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionCutoff.olean": {
+        "bytes": 401256,
+        "sha256": "61482813bf8a9d0ab12faf0676c5da36a2873b001d688254d0e29f21b219a535"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionCutoff.olean.hash": {
+        "bytes": 16,
+        "sha256": "f095e246e18b6dfa178e975b8e1351fee7e344085869643751b44eea38ba15df"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionCutoff.trace": {
+        "bytes": 3659,
+        "sha256": "874abfa5328da6590afcc41b3667bf32f009eff4cbab20db5cd6c79042199320"
+      },
+      ".lake/build/lib/lean/Examples/SelectionCountRank.olean": {
+        "bytes": 75368,
+        "sha256": "50d289a4b5bc42cf3f98c65180954685a7b63d71b830770da1e8ab1027604d64"
+      },
+      ".lake/build/lib/lean/Examples/SelectionCountRank.olean.hash": {
+        "bytes": 16,
+        "sha256": "20f263185cd7ef447a2212390997cca2fdd7376c8053d63e3f59e664df3c572d"
+      },
+      ".lake/build/lib/lean/Examples/SelectionCountRank.trace": {
+        "bytes": 3224,
+        "sha256": "1fd6698cf38cd46fc920ccf85d6b2d6b8eba23d2f057be7b343d9c0567f786fa"
+      },
+      ".lake/build/lib/lean/Examples/SelectionComposition.olean": {
+        "bytes": 74512,
+        "sha256": "0d967099e180357b40293ea88ba40906f8ebf8eb5a3d1a80ab6e47016e220127"
+      },
+      ".lake/build/lib/lean/Examples/SelectionComposition.olean.hash": {
+        "bytes": 16,
+        "sha256": "7af8dd22fa7ebf052e322237ce91b2721024df723bde39907acaf1f8a6c12914"
+      },
+      ".lake/build/lib/lean/Examples/SelectionComposition.trace": {
+        "bytes": 3409,
+        "sha256": "7145967204a9d5daa64033735c2a128f30725f979b061d91e2077078f4d95d05"
+      },
+      ".lake/build/lib/lean/Examples/SelectionBounds.olean": {
+        "bytes": 70808,
+        "sha256": "492fd36b3f1cd94ba774d08fd2f31c1dc0e9176c6e822434cc668d9456a1e530"
+      },
+      ".lake/build/lib/lean/Examples/SelectionBounds.olean.hash": {
+        "bytes": 16,
+        "sha256": "b163a2724184d773a1b6daad1292bb655bf45437756f652d3fbcdd1ccd921157"
+      },
+      ".lake/build/lib/lean/Examples/SelectionBounds.trace": {
+        "bytes": 3543,
+        "sha256": "b981507a6c36d3b8343b295493ad3798f0bba35f6cd668834d8529628e0464ae"
+      },
+      ".lake/build/lib/lean/Examples/RoundedRecurrenceBounds.olean": {
+        "bytes": 278328,
+        "sha256": "4947b278624ab3ee0ac0373fbc99ca88014076ba55129cbd947ae0edc2612624"
+      },
+      ".lake/build/lib/lean/Examples/RoundedRecurrenceBounds.olean.hash": {
+        "bytes": 16,
+        "sha256": "d7ac0bbd4274bc939e121b100d4f552c326b701b04838a5224450413196b40d6"
+      },
+      ".lake/build/lib/lean/Examples/RoundedRecurrenceBounds.trace": {
+        "bytes": 3588,
+        "sha256": "815791062b582ac8b57725b588c670744de774e10b6a114cb09480dd762893cc"
+      },
+      ".lake/build/lib/lean/Examples/RoundedRecurrence.olean": {
+        "bytes": 133168,
+        "sha256": "ef9125a506c36d26a94954f313305c83ea7dbae89688a1ae378cf3f21d5979b6"
+      },
+      ".lake/build/lib/lean/Examples/RoundedRecurrence.olean.hash": {
+        "bytes": 16,
+        "sha256": "c1d1b56bb01b6d13dd18bd1159f91bccd848ac452856b929649ba6f8824f9b7b"
+      },
+      ".lake/build/lib/lean/Examples/RoundedRecurrence.trace": {
+        "bytes": 3390,
+        "sha256": "513d4f6fbdc689187248c05ca1020bd914b49e5106513af2f640304397528978"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionWorst.olean": {
+        "bytes": 565544,
+        "sha256": "928cd006b47eb7acab7a9ff10c6672b9058750dfacfd975e19af68ba3485500c"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionWorst.olean.hash": {
+        "bytes": 16,
+        "sha256": "672418da3fbd6c493f403b51fbfe0ce237985b0bf4d4e65dca802a75d1d341ed"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionWorst.trace": {
+        "bytes": 3431,
+        "sha256": "bd51c357dfadf38b311cb854f38ace94cae0c9968a3fa9595bfd5fe64f6c712f"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionTrace.olean": {
+        "bytes": 250368,
+        "sha256": "fca0352eec263556d061d48b41e466da10a7a8c63419f867ed6ed1b2f1b036f6"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionTrace.olean.hash": {
+        "bytes": 16,
+        "sha256": "a0adc1f0cb3f0f648bac901720edf644ca83315ac524485c0903d70b65b257ac"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionTrace.trace": {
+        "bytes": 3446,
+        "sha256": "f2b60cdbd1825cc9faa2e73bfe4f0807c78dda4ed2b745589bd8e1dbae123fc3"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionEndpoints.olean": {
+        "bytes": 301888,
+        "sha256": "b3b6b64a49df2f5a7b826a32df37e248bea14a4a50226bdfefe83aa2695bb051"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionEndpoints.olean.hash": {
+        "bytes": 16,
+        "sha256": "4aa5fe92778714182d70b146a7bceda6e3158de0a86ff5fb08eeb911a5313b58"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionEndpoints.trace": {
+        "bytes": 3467,
+        "sha256": "2589d9dab2744427c01f281054018665a1e84111ad22fcbb6a938679773230ae"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionEqual.olean": {
+        "bytes": 120544,
+        "sha256": "b58a95552d2f24c3011c4acb4e554feb974369676d981b2c0513d6b4561b5f78"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionEqual.olean.hash": {
+        "bytes": 16,
+        "sha256": "76661689b6fd92666167bcf5c2eaa53029073297b83adc6037127bff39028f21"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionEqual.trace": {
+        "bytes": 3429,
+        "sha256": "4cf22dc31af95b8f0a849ded85db0cca9b41252684ef69ca8b92b9d2ef2a31e7"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionTail.olean": {
+        "bytes": 246656,
+        "sha256": "92ef81d11762b1b32752d233de9e5d5e8e57f78f6d59164644fcd083223bc76d"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionTail.olean.hash": {
+        "bytes": 16,
+        "sha256": "5ed7769e50d8911a81ddb6262e6db33deb012e6c0778e1b70ebd7e532506de62"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionTail.trace": {
+        "bytes": 3579,
+        "sha256": "421dafffef3b440f5304117b48dc3c878ef34b5aa579fc54b3a4bee8e04d0632"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionDrift.olean": {
+        "bytes": 219872,
+        "sha256": "cacd4f3f74a822070298ac05b10e680ddff814a3264a54b2776d60d7d0e9b437"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionDrift.olean.hash": {
+        "bytes": 16,
+        "sha256": "bbafc3c7d3e9e0b2425bb9c265ca1d92b09b7efdceab5725540f2fea40729ddb"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionDrift.trace": {
+        "bytes": 3906,
+        "sha256": "04c2623440ad2d073208ee470ff10221a56b5d9754060556acaf3056fa2ea2e4"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionMean.olean": {
+        "bytes": 286200,
+        "sha256": "6eec229a79caffceb4dea395088a6330cfa7d7d0bc2cc9facfb8d293598d080b"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionMean.olean.hash": {
+        "bytes": 16,
+        "sha256": "dbf43f25b9abfb9c1263bc5db50822686411005f72214687d098463b1b8f8afd"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionMean.trace": {
+        "bytes": 3801,
+        "sha256": "2ef13f3375c5deffe88e2800449cae68b7f88c963a8a3fce56ecea883d8650bf"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionRun.olean": {
+        "bytes": 360520,
+        "sha256": "edb5ae93698c5f8811776b0d89080611f23ac1a9eba7e4bd65d94976c6488e75"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionRun.olean.hash": {
+        "bytes": 16,
+        "sha256": "e4ac41fdf10203f0c9798e2b1aa88a9d95f11f6f90a362a99859698bd4e01bda"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelectionRun.trace": {
+        "bytes": 3401,
+        "sha256": "555a3cd243bd9f275ad1f3106507737febddb6a6a29a79cbe57b4d1a00741fc8"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionRun.olean": {
+        "bytes": 813552,
+        "sha256": "e406a20a67fa578a3bd0d4a9fefdb65d7daade767a0b88d8f4c66d5e79146436"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionRun.olean.hash": {
+        "bytes": 16,
+        "sha256": "3c00c6fd3003ad74bec45605041a2ba51d63b0655d0da4c518c8479e298bce43"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionRun.trace": {
+        "bytes": 3337,
+        "sha256": "af88b0e863b38d9d1e0c395c0b57e7c64098bb83a825c8d273f88cb7daa39973"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelection.olean": {
+        "bytes": 468480,
+        "sha256": "ee4c522bb3eeb0645fbe66cce317566f2b1e7427d250d253fc7377ca3cdaa846"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelection.olean.hash": {
+        "bytes": 16,
+        "sha256": "1f8d5f81dc623d1604226cd928ad182d13bd4509322df997bbd2596e7ef96959"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelection.trace": {
+        "bytes": 3859,
+        "sha256": "49e88babba43aadb58092a1af12adc9abb297ac434fa8e4fc98d3e9f5d2bfce0"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSort.olean": {
+        "bytes": 1348720,
+        "sha256": "9c34ceafd606d54ba2cf7d4d2fbb4655c9f96292036e075aa5ce101314d072d5"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSort.olean.hash": {
+        "bytes": 16,
+        "sha256": "2e2fc4a8eeca0736d550d7c4ae58f528d2fa3c47708258e9073cbad29c147f9b"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSort.trace": {
+        "bytes": 3891,
+        "sha256": "377f0ae9b2c848effecf20a380c4231a1270c80b06be79d69133d28904540b7e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/QuickSort.olean": {
+        "bytes": 1362592,
+        "sha256": "d19333cf2573bda7bed33796b47c4cfdd9bc5814e006885bf47825b21ddcc98f"
+      },
+      ".lake/build/lib/lean/Applications/Resources/QuickSort.olean.hash": {
+        "bytes": 16,
+        "sha256": "ea9e73e19f69c46d1efbc77e7ebf4ba879d8a7480d8e5840783f48feca515081"
+      },
+      ".lake/build/lib/lean/Applications/Resources/QuickSort.trace": {
+        "bytes": 3767,
+        "sha256": "4b1f8df63338fbcc2057bad95b5634b34d5d6cae29e49502236eb567fdc7a845"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/QuickSort.olean": {
+        "bytes": 444240,
+        "sha256": "2ab7497110b7d721542ff2a3b7b4e1431b92bae90eab7a81d504fa2b48aea822"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/QuickSort.olean.hash": {
+        "bytes": 16,
+        "sha256": "b647e8b4cbfea79ac28a9b89d6f379802257148e6aeaf9254f14a82ba0dacce0"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/QuickSort.trace": {
+        "bytes": 3228,
+        "sha256": "8ba276c311c2cac99d80b20e438f6152ee5734ab2cd6acd52e7b17de0a4883db"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListReversal.olean": {
+        "bytes": 356176,
+        "sha256": "c7028949e09b8ba16a425632e926e05d05d95e1269bf58ce94592789e91e784d"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListReversal.olean.hash": {
+        "bytes": 16,
+        "sha256": "e5d1d41628b6562ca131494c403a4d76cfcde25d99b317c9e2590a5742d5f06e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListReversal.trace": {
+        "bytes": 3830,
+        "sha256": "266ee3641a4c1dacaf27efb6a60f4df498eaeb14ff6d15485150e023238083bc"
+      },
+      ".lake/build/lib/lean/Applications/Resources/TreeFlattening/Core.olean": {
+        "bytes": 453376,
+        "sha256": "5428d250bfb434c546b1733053a6cc4463fce38bac8df519265ffd55e5227950"
+      },
+      ".lake/build/lib/lean/Applications/Resources/TreeFlattening/Core.olean.hash": {
+        "bytes": 16,
+        "sha256": "487c1b0638b3dbb7f09b91f484a9816d0da10f69bc71cd74c69fe06bd06c959a"
+      },
+      ".lake/build/lib/lean/Applications/Resources/TreeFlattening/Core.trace": {
+        "bytes": 3535,
+        "sha256": "6a31d8f4388b70da4ecfe2280c7b3dcd94b9e9bbb8f7abf63d851fec1d519ce7"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomAccess/CacheCosts.olean": {
+        "bytes": 142136,
+        "sha256": "5eb3433fbca959b6ff97cacc95998aa57461441d0f31c6d016addd4983764eba"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomAccess/CacheCosts.olean.hash": {
+        "bytes": 16,
+        "sha256": "68022b3348a42cc10b28570d375e4b5a27ffb58aad83cd4021c1bf0afd1f39b9"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomAccess/CacheCosts.trace": {
+        "bytes": 3386,
+        "sha256": "3513c530493b0b4020b4435b6c413989fba538274004d08bd9bf7a8ad6cb5c2e"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/TreeBuild.olean": {
+        "bytes": 450880,
+        "sha256": "6cbafb5348fe73dd25021c36f6f295b942254c263fc5886f2bea2768e6aa1221"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/TreeBuild.olean.hash": {
+        "bytes": 16,
+        "sha256": "ed8ead5338a93838122ffb9c182ac1b1c74739c17b501a956d42e3e3fdcc85a4"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/TreeBuild.trace": {
+        "bytes": 3373,
+        "sha256": "f9ae6d68426cc0e4b49e6353875b7a3b5dc35df7444038d61e0ad5fa3da4eb5a"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Borrow.olean": {
+        "bytes": 480776,
+        "sha256": "29b12915afb9a03eebd186f1c2c7c79ffc020a13b0d672327722370547c8a221"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Borrow.olean.hash": {
+        "bytes": 16,
+        "sha256": "0d112d9019f3225dd629537e9e6a825bc25dfabbbaa1193dba6b80afbde33e2b"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Borrow.trace": {
+        "bytes": 3352,
+        "sha256": "9c3d9b43384ba8f870eefb1320a692de063097777bae72776cb6f4fa79effeb4"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Access.olean": {
+        "bytes": 418704,
+        "sha256": "caf60d8bcd8c840b24b69d3351acb866d4489701fe0c9cbdaab57ccbd55c5285"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Access.olean.hash": {
+        "bytes": 16,
+        "sha256": "6ee1f18f2da34f35519536efc90409cd721420853ef7c21c21ae272e85e01aa7"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Access.trace": {
+        "bytes": 3350,
+        "sha256": "460c4cc609a53d73240209fbc66490a84d86c043e1cd62a6ed7fca6e57fc0d2a"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Basic.olean": {
+        "bytes": 711720,
+        "sha256": "029b3eba80696e9e0ba2d41e0806cb91c988b586c025b3fd9060ad1307979ca8"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Basic.olean.hash": {
+        "bytes": 16,
+        "sha256": "1d83e8dc0bbbab8486209b38bb84c11a60c07546abba66413f203a1ed7521bd6"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Basic.trace": {
+        "bytes": 3312,
+        "sha256": "28de206fcceceb3a1a2a738fac80c8eb171f5504d69abfc3654498073fb49363"
+      },
+      ".lake/build/lib/lean/Applications/Bracketing/Basic.olean": {
+        "bytes": 797384,
+        "sha256": "a534f9d2ab28e81ae0e4b8fa19212e662904317bb541cee92686c8b1837f7c16"
+      },
+      ".lake/build/lib/lean/Applications/Bracketing/Basic.olean.hash": {
+        "bytes": 16,
+        "sha256": "2d12556530ab9648c318752e6ea5a2761d147f0c2c13403c0dafa93fa9aebb0a"
+      },
+      ".lake/build/lib/lean/Applications/Bracketing/Basic.trace": {
+        "bytes": 3252,
+        "sha256": "9a4dee2d5ba209fdc18caa86d664529d8b99138c643298e07e6fb2109f7fb4f9"
+      },
+      ".lake/build/lib/lean/Applications/Optimization/SelectionSpec.olean": {
+        "bytes": 12104,
+        "sha256": "4f560db127967d496643e5373024be3457d44272722cb779b7dc570ff58c3b77"
+      },
+      ".lake/build/lib/lean/Applications/Optimization/SelectionSpec.olean.hash": {
+        "bytes": 16,
+        "sha256": "664548325ab1f38739bd23bc5697ce7061b1ec803dc41b7987b89a1a8fa04a5e"
+      },
+      ".lake/build/lib/lean/Applications/Optimization/SelectionSpec.trace": {
+        "bytes": 3143,
+        "sha256": "a3cfc927db1b29e0e57dac0a9d1549acc15d53a7fc5bcb3f78247668a0059547"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionMean.olean": {
+        "bytes": 309336,
+        "sha256": "6574061ce1d68475051282f661c2390b1aa5dcfd5d79657301837a4bcc5838b5"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionMean.olean.hash": {
+        "bytes": 16,
+        "sha256": "49d618f1cd131780b2e49d8e9778b0df65a403f6f106c9e29fab04ae143e4a54"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionMean.trace": {
+        "bytes": 4182,
+        "sha256": "c25507e1341b30da77755ef3997fc7fe87cff08ca160e82e11d95fe880cb8a3b"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelection.olean": {
+        "bytes": 63136,
+        "sha256": "fdce14f49c287c150357582eb76e77881ea8b9c82641a576998564d053b48b85"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelection.olean.hash": {
+        "bytes": 16,
+        "sha256": "57d0b91329e2fdc97672e476b509b44182392cd79a89bca58fad0d6c637c94b3"
+      },
+      ".lake/build/lib/lean/Examples/RandomSelection.trace": {
+        "bytes": 3372,
+        "sha256": "8efa6cbd39ef49bcec26c66f6dd649221a6135745cbcf6f3fe1dbb1a8e6503ce"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionDrift.olean": {
+        "bytes": 720552,
+        "sha256": "7206a6dcfa2ddc54720b6a6b2db818ada361ab805d53696d9d1963cb224f9b04"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionDrift.olean.hash": {
+        "bytes": 16,
+        "sha256": "3b9689bd93dd045aebeaf2ef5466c693d616ebe136dae6ab3abd3b917b91f6f6"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionDrift.trace": {
+        "bytes": 3870,
+        "sha256": "feeefa51dece8b34994c74b627aca1364b1cfa95042cda6dce953739331ffbb8"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSortRank.olean": {
+        "bytes": 523392,
+        "sha256": "4fb4d0ddd0885a0924361d518daf3865c93268832bf153cf877b478deac45912"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSortRank.olean.hash": {
+        "bytes": 16,
+        "sha256": "3e31b9f6d981d4deaccbffe40a33db8c257bfa119fb505a07b323cee41a7da32"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSortRank.trace": {
+        "bytes": 4650,
+        "sha256": "45cd5b5e8281876e3dd21b5fb2942662171ddd45115f374f6be4a9d491b1fea1"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSortMean.olean": {
+        "bytes": 341040,
+        "sha256": "c035c2683eb740d5961eeb4d1a90590b4549f1ee6dfa0707bf3612239a2b360e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSortMean.olean.hash": {
+        "bytes": 16,
+        "sha256": "3c1c1136cc98a7a25b79e09bb9ac41473a6b275572238bc9981ccdcde1a834b0"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSortMean.trace": {
+        "bytes": 4176,
+        "sha256": "5f3cf0ab06cb7641a41943066080ab2ef8a258b2958d697cb5a95f30f2abff79"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionTail.olean": {
+        "bytes": 571896,
+        "sha256": "0d79d00cfb8d69811c032df4d0fbfb6f4f91a3d461d82d23754941cb2d0afc8c"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionTail.olean.hash": {
+        "bytes": 16,
+        "sha256": "4a40dea2872df3db2871585de2fa36edcc0c23f1c2c7cdf6c6e54fe3306bfe8d"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionTail.trace": {
+        "bytes": 3566,
+        "sha256": "452639ef0d8ddd0ea1d4ce07adab9b935009cba8fb0a9698b7e5c938474468ad"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionEqual.olean": {
+        "bytes": 392216,
+        "sha256": "33875fe1620546a7c03d24b8f7f54f639fdaae885de8ed7de81f938f83400206"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionEqual.olean.hash": {
+        "bytes": 16,
+        "sha256": "434de1ed5ff48368d552e60d3c20b44535d895f85db504a5817982f95e3ee613"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionEqual.trace": {
+        "bytes": 3359,
+        "sha256": "e0f3d4f35e5b4dc8f44fe3e18c51b117d2f9aa59faa2b2e47d7d6fd8dbaa9647"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionEndpoints.olean": {
+        "bytes": 242992,
+        "sha256": "34a66c73fdd2d093510d38fcfb458a1a44d5b15cf431c5b999ca2f50bf440644"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionEndpoints.olean.hash": {
+        "bytes": 16,
+        "sha256": "b1e12e982c913fc0fd706a53c1caa77b7d547b8789854f9196f8068dc1c84a6f"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionEndpoints.trace": {
+        "bytes": 3709,
+        "sha256": "d25e53fc21c4eb67ae60efad68055c0f1a7efd72bef73fdb7876df1f6d6f9597"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionTrace.olean": {
+        "bytes": 435160,
+        "sha256": "398394f1592eb974c22e7f8cda1c4100366257e2ddb5c124d1146001f619f061"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionTrace.olean.hash": {
+        "bytes": 16,
+        "sha256": "327ff44b7e7973d021a7ca7adc62a1b4cc311650b1f8a77dfc3ac8b2fecabb59"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionTrace.trace": {
+        "bytes": 3369,
+        "sha256": "0a13fcf32dacb0f50dc742d4a3fbe462b7c408ba4a5af90196ca7da59dc2be84"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionWorst.olean": {
+        "bytes": 836592,
+        "sha256": "eb6f0e98de180ee358e70b4fbce41fabbd89ff3afa4df21cf2d68a7104155839"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionWorst.olean.hash": {
+        "bytes": 16,
+        "sha256": "bd6482f51b2d30b2ff412ee6ee7ac7facfe5bae29faa4e5124c54b87abe6406a"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomSelectionWorst.trace": {
+        "bytes": 3697,
+        "sha256": "f6cf53fdceaa2b351798a1854c454dcaf0763c1c32e774640780a357df205135"
+      },
+      ".lake/build/lib/lean/Examples/OutsidePivot.olean": {
+        "bytes": 70296,
+        "sha256": "92735175e688144430038069bae1d07836bd23a3ed020da61a0eb70c5d532dd1"
+      },
+      ".lake/build/lib/lean/Examples/OutsidePivot.olean.hash": {
+        "bytes": 16,
+        "sha256": "9c283a47732c05f3d945bd4686746321ebd2d0c5a29ab7da6d036c25f5825ac2"
+      },
+      ".lake/build/lib/lean/Examples/OutsidePivot.trace": {
+        "bytes": 3188,
+        "sha256": "9c979d29dff9f2fd9c50afad2c3329396524d908f3bf2b07af3fbbf9f3cf918c"
+      },
+      ".lake/build/lib/lean/Applications/Selection/OutsidePivot.olean": {
+        "bytes": 139344,
+        "sha256": "623c4166261c3e73d3a5e3109c775d81accf27b558ecae79a5923df596c4f0c3"
+      },
+      ".lake/build/lib/lean/Applications/Selection/OutsidePivot.olean.hash": {
+        "bytes": 16,
+        "sha256": "e954c525836f855250feb5b9dc6236150653ce51a700108f94c8b947f4d68859"
+      },
+      ".lake/build/lib/lean/Applications/Selection/OutsidePivot.trace": {
+        "bytes": 3271,
+        "sha256": "7ca72c32fb011c2a3b191c97d865e4fee667ebee0b568a9be40f42e34fafd698"
+      },
+      ".lake/build/lib/lean/Examples/MinimumPivot.olean": {
+        "bytes": 94128,
+        "sha256": "3bed06d4d53ba4e6628dc8497f647e8e2ff47619e971f945634f0b739bb3f1cf"
+      },
+      ".lake/build/lib/lean/Examples/MinimumPivot.olean.hash": {
+        "bytes": 16,
+        "sha256": "46239fe2c8b5765d0de84c5dcb8ae4ac5900993a7f6baa3eb86d5b21de6d5239"
+      },
+      ".lake/build/lib/lean/Examples/MinimumPivot.trace": {
+        "bytes": 3188,
+        "sha256": "503dfbf66117e676848bb987d63f4306d923b3e0b4760324c705faead3222b2c"
+      },
+      ".lake/build/lib/lean/Applications/Resources/MinimumPivot.olean": {
+        "bytes": 952272,
+        "sha256": "300610777016a0504161b22a22b2e1c9444bd63a7f08536b820f98514970b86e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/MinimumPivot.olean.hash": {
+        "bytes": 16,
+        "sha256": "0be5a2159c5828f274cc9ce3dc88312dec5c78b81f1776368969ad06c5393c1e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/MinimumPivot.trace": {
+        "bytes": 3476,
+        "sha256": "9046c6a44b6713e901439ee876b66e52bde9d7d89c2ec8c0b85244283e302c8b"
+      },
+      ".lake/build/lib/lean/Applications/Resources/FixedRank.olean": {
+        "bytes": 408752,
+        "sha256": "42f80ca0b2be70e1af76029883070b770ab282d5dd52da6ca079e9594d8eb5e4"
+      },
+      ".lake/build/lib/lean/Applications/Resources/FixedRank.olean.hash": {
+        "bytes": 16,
+        "sha256": "a2dfa7b2778744effbb3f0af696cb3cf9c5e92ab104304d944fcf475c53bc32d"
+      },
+      ".lake/build/lib/lean/Applications/Resources/FixedRank.trace": {
+        "bytes": 3628,
+        "sha256": "d7e9da219d0ea4927116b53789dd43deba63d0abb84b92a032e1caa6718bed15"
+      },
+      ".lake/build/lib/lean/Applications/Selection/FixedRank.olean": {
+        "bytes": 425824,
+        "sha256": "38833a78ab3e1f0dd24a773bd18854443350083713457c7f551ec4601a2bdd6c"
+      },
+      ".lake/build/lib/lean/Applications/Selection/FixedRank.olean.hash": {
+        "bytes": 16,
+        "sha256": "728e4c802c683ec358c9fed3b7a5b4c71cbbbe8ad54dfce2fca7db7e38cf630f"
+      },
+      ".lake/build/lib/lean/Applications/Selection/FixedRank.trace": {
+        "bytes": 3259,
+        "sha256": "4d9f0ae91a33eb4529de30e682ab630417f481c692a7e45a6fe688374b049d0a"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionPolicy.olean": {
+        "bytes": 342912,
+        "sha256": "5dd523616aa1f70f6a0fe8b0c88c103f8e00ed941d8bdc616f5d580565bd5d44"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionPolicy.olean.hash": {
+        "bytes": 16,
+        "sha256": "c56a17f9a5bb545182d7d768769467e6dacce6fe4463d9326a09c60a29c280a8"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SelectionPolicy.trace": {
+        "bytes": 3653,
+        "sha256": "7d948d3cdb71cc2306255357766aca0df1fb82aedb8e89950abb806d54274e6f"
+      },
+      ".lake/build/lib/lean/Examples/MedianReduction.olean": {
+        "bytes": 186560,
+        "sha256": "ed620fe594577976111e0719087a9729774df2db1246af22ceb3d9b58599bbc3"
+      },
+      ".lake/build/lib/lean/Examples/MedianReduction.olean.hash": {
+        "bytes": 16,
+        "sha256": "c6b6ed1ffbe47c9382d463f6f358486a011c5d0fd50826c850f267d97c2f7349"
+      },
+      ".lake/build/lib/lean/Examples/MedianReduction.trace": {
+        "bytes": 3215,
+        "sha256": "042611abc6901311a25f9819d231ae4ca7fa7610cb1fa35cc228223f61f5fa4f"
+      },
+      ".lake/build/lib/lean/Applications/Resources/MedianReduction.olean": {
+        "bytes": 350360,
+        "sha256": "f3c3a09fde5103dbc470a09010164cd605703e558b4c536668b0209730a09f59"
+      },
+      ".lake/build/lib/lean/Applications/Resources/MedianReduction.olean.hash": {
+        "bytes": 16,
+        "sha256": "858ca6f1530e8e8a196347f73833ba495986d0183397f97cf83e25085dac48a1"
+      },
+      ".lake/build/lib/lean/Applications/Resources/MedianReduction.trace": {
+        "bytes": 3680,
+        "sha256": "527d815701f81993be8ad7690b24657beff17d92e6dabf6ca3569633f5cd9b56"
+      },
+      ".lake/build/lib/lean/Applications/Selection/MedianReduction.olean": {
+        "bytes": 517776,
+        "sha256": "1b4a97b04ca17f2ed319ed6ff63c95d0f9da0dee6501ab6e03455675336ebc78"
+      },
+      ".lake/build/lib/lean/Applications/Selection/MedianReduction.olean.hash": {
+        "bytes": 16,
+        "sha256": "e1c3d4fe0b708a0401a085711743dd15b2261e08c49605531a8bf67116b08497"
+      },
+      ".lake/build/lib/lean/Applications/Selection/MedianReduction.trace": {
+        "bytes": 3490,
+        "sha256": "6346befe310376d7290333dd4bc3937228635f1209b00c950045bf947b3d8436"
+      },
+      ".lake/build/lib/lean/Examples/MedianPolicy.olean": {
+        "bytes": 152160,
+        "sha256": "98a8612ab8cdaf2eda43a01c04323d5997ade02907f6c0b4db59f751f20c310b"
+      },
+      ".lake/build/lib/lean/Examples/MedianPolicy.olean.hash": {
+        "bytes": 16,
+        "sha256": "408a2d705748227da4c9c33f908a36d0302a5fd19ec1908c66c6b1c327a3d89e"
+      },
+      ".lake/build/lib/lean/Examples/MedianPolicy.trace": {
+        "bytes": 3188,
+        "sha256": "96206d9d14420e93f0e3ddfe78603d1e872b0633e9677fdb431bbec7e3799a9e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/MedianPolicy.olean": {
+        "bytes": 378112,
+        "sha256": "ec7cc062b828164fb9c88c9a5ac0c78b0a02bf13ca94f7b3e577a269839281fc"
+      },
+      ".lake/build/lib/lean/Applications/Resources/MedianPolicy.olean.hash": {
+        "bytes": 16,
+        "sha256": "059737ff11fa97dffa48bbaf9cf20a1a73bfceaca3aefcd428c07b5dffa42a48"
+      },
+      ".lake/build/lib/lean/Applications/Resources/MedianPolicy.trace": {
+        "bytes": 3490,
+        "sha256": "889c4dcb48a414248b155f0ceefd0f433f9a012d24dc6d1b1cc21767d2f8c7e4"
+      },
+      ".lake/build/lib/lean/Applications/Resources/HalvingSelection.olean": {
+        "bytes": 603136,
+        "sha256": "4fb32405ef96bee9dbaa14475d0206075dc505b319667e6adb19a5aa4b433271"
+      },
+      ".lake/build/lib/lean/Applications/Resources/HalvingSelection.olean.hash": {
+        "bytes": 16,
+        "sha256": "36e372f0be8795d97c2d4ae562115ed940d2d7409054c949e6c3f9b15d142cc2"
+      },
+      ".lake/build/lib/lean/Applications/Resources/HalvingSelection.trace": {
+        "bytes": 3510,
+        "sha256": "4f60619fcb7321e00f887c24d441b53f78ddb478469b8a391fb6650cd5599ecc"
+      },
+      ".lake/build/lib/lean/Applications/Resources/HalvingTrace.olean": {
+        "bytes": 312296,
+        "sha256": "ecacdf47ba075a1c1ee4d5059f736b9fcc010c3f087b71d31012d22ff759fcd8"
+      },
+      ".lake/build/lib/lean/Applications/Resources/HalvingTrace.olean.hash": {
+        "bytes": 16,
+        "sha256": "e7cefee4a084d9959af68ef26d077762b490ff4b63fbbd748fa13025742e71e5"
+      },
+      ".lake/build/lib/lean/Applications/Resources/HalvingTrace.trace": {
+        "bytes": 3969,
+        "sha256": "e04930f8e60fb22f8161f6fdc99c2e4ae2ac67024d57470ee1e16802452d3621"
+      },
+      ".lake/build/lib/lean/Examples/MedianCounterfamily.olean": {
+        "bytes": 47264,
+        "sha256": "752cebc0df67cadd3c5409cb92a90fea41e1d9bba70e97877f1cb39083e230d2"
+      },
+      ".lake/build/lib/lean/Examples/MedianCounterfamily.olean.hash": {
+        "bytes": 16,
+        "sha256": "ec506d5bb84a5aaba6795f17a077afb9fedd7f6d01757d7de0ee9ea955038032"
+      },
+      ".lake/build/lib/lean/Examples/MedianCounterfamily.trace": {
+        "bytes": 3251,
+        "sha256": "2e43b46d19ade6dacbb2b372601467d0db82a1f541532ae078ae3b3583f9eb8d"
+      },
+      ".lake/build/lib/lean/Applications/Selection/MedianCounterfamily.olean": {
+        "bytes": 307856,
+        "sha256": "29e5c03d2d220e64d1e40b7e8e915dded1f047471740de9f4be236090b7330c9"
+      },
+      ".lake/build/lib/lean/Applications/Selection/MedianCounterfamily.olean.hash": {
+        "bytes": 16,
+        "sha256": "fbf974e92bf90941b16cb753393158e1c17d592fdeb64d45314d44edba7bd661"
+      },
+      ".lake/build/lib/lean/Applications/Selection/MedianCounterfamily.trace": {
+        "bytes": 3344,
+        "sha256": "72e7a787e6c07a248d6dd64092bf752ddda70dc3ff74cfae62d4d9646c7e7eb8"
+      },
+      ".lake/build/lib/lean/Examples/ListChunks.olean": {
+        "bytes": 41392,
+        "sha256": "6b70396c63cb60b180e9cc0ca918b7b3afeef4c0c98d4906af445433f400a323"
+      },
+      ".lake/build/lib/lean/Examples/ListChunks.olean.hash": {
+        "bytes": 16,
+        "sha256": "d64b099b6529cf600911bdc0226652b8090357a3c51382980f6ac39977e176ad"
+      },
+      ".lake/build/lib/lean/Examples/ListChunks.trace": {
+        "bytes": 3155,
+        "sha256": "8701261469ab6be200411938410aa59cb46c01077241011ffd7d8bf2561c630e"
+      },
+      ".lake/build/lib/lean/Examples/HalvingTrace.olean": {
+        "bytes": 48336,
+        "sha256": "ac84a2e1da9048d9a660b9ffb314cb2f1ebd8f077fc0bd358d5b04253eacf583"
+      },
+      ".lake/build/lib/lean/Examples/HalvingTrace.olean.hash": {
+        "bytes": 16,
+        "sha256": "ae28a538ebb645fdd0a2068fa20c193f2d3e180ce9760e4f663cef2c4c8628b0"
+      },
+      ".lake/build/lib/lean/Examples/HalvingTrace.trace": {
+        "bytes": 3188,
+        "sha256": "0d20768484b18177179c9eea1dee6efd1bf6d9d3a755dc319ef499bbf8b63624"
+      },
+      ".lake/build/lib/lean/Examples/GeneralMedianBounds.olean": {
+        "bytes": 173752,
+        "sha256": "067eec8dc6a6b3671ec21b2c6cf3403afe701a8cb0acde63c20543e6bb16ae1b"
+      },
+      ".lake/build/lib/lean/Examples/GeneralMedianBounds.olean.hash": {
+        "bytes": 16,
+        "sha256": "f8aa1257e1144fb0cb8138d606b7f2859c608a2dd766f8e33dc9c14d6a75406b"
+      },
+      ".lake/build/lib/lean/Examples/GeneralMedianBounds.trace": {
+        "bytes": 3243,
+        "sha256": "14442da00e5bbab64f7178a27ab7715342a22dfd893843ef1cd79029a0be3104"
+      },
+      ".lake/build/lib/lean/Examples/FixedRankSelection.olean": {
+        "bytes": 113280,
+        "sha256": "83f6175b374927ddeff28be509dcf4b673bb939be2481769d64763114a36c87f"
+      },
+      ".lake/build/lib/lean/Examples/FixedRankSelection.olean.hash": {
+        "bytes": 16,
+        "sha256": "d2df70c406a279aa7918aa8dfe70cdf009c2581cebba60e4c229d47f35f01666"
+      },
+      ".lake/build/lib/lean/Examples/FixedRankSelection.trace": {
+        "bytes": 3224,
+        "sha256": "c8420e18e195cd8d69f96f41e68ee69bde49f8d83cf0145b24255ca7a6f9e1f9"
+      },
+      ".lake/build/lib/lean/Examples/CoordinateSensitivity.olean": {
+        "bytes": 75912,
+        "sha256": "dd07741f16bd4589658e6206caf2c1b961e66d614506121fa45ee5915e0a87ef"
+      },
+      ".lake/build/lib/lean/Examples/CoordinateSensitivity.olean.hash": {
+        "bytes": 16,
+        "sha256": "d51a5cc8924f0bd61d1fc5179ad59d57ff2e9e4ff532b9301bcd6459deb30506"
+      },
+      ".lake/build/lib/lean/Examples/CoordinateSensitivity.trace": {
+        "bytes": 3438,
+        "sha256": "4df7f2b57d8b4ab0cc95f8c3c32c4fc34609c4457d9efc2a716d02f7c0fdd05f"
+      },
+      ".lake/build/lib/lean/Applications/Selection/CoordinateSensitivity.olean": {
+        "bytes": 204312,
+        "sha256": "b876ed98e2f35f96a337b57bbe1aad4ebf18beac2f9648946659b54e5a408df8"
+      },
+      ".lake/build/lib/lean/Applications/Selection/CoordinateSensitivity.olean.hash": {
+        "bytes": 16,
+        "sha256": "14fd6a41daff8ea1cd0aff93b5d631922a0cab56ca4333c1f963f543e4e1353a"
+      },
+      ".lake/build/lib/lean/Applications/Selection/CoordinateSensitivity.trace": {
+        "bytes": 3989,
+        "sha256": "39f331a8614bade529469d6aea27c7b36a1d12c69c0847ee151da83cf2ce9a36"
+      },
+      ".lake/build/lib/lean/Examples/CoordinateSelection.olean": {
+        "bytes": 155912,
+        "sha256": "49e8654fafea8ea8dae286eafb4eeea72c9c00af152a1555b963f0ecb708a059"
+      },
+      ".lake/build/lib/lean/Examples/CoordinateSelection.olean.hash": {
+        "bytes": 16,
+        "sha256": "c7c4c2e40297159341ea3ecb861fa394f1ba11be7d441244a553b04bb0959464"
+      },
+      ".lake/build/lib/lean/Examples/CoordinateSelection.trace": {
+        "bytes": 3416,
+        "sha256": "d5723d8efe98013c93485337ab49747ba5911c9a2a7ae22a5e2c38dd79a1f401"
+      },
+      ".lake/build/lib/lean/Examples/CoordinateQueries.olean": {
+        "bytes": 174960,
+        "sha256": "cd0fd97fd894c3be26688078801e7f4654a575c2de1db11147b23cb7a46378f0"
+      },
+      ".lake/build/lib/lean/Examples/CoordinateQueries.olean.hash": {
+        "bytes": 16,
+        "sha256": "da9d5b373d975e9b5eb0d9b19c9f281b16fb58cbc6953d385e78d03300ce9f53"
+      },
+      ".lake/build/lib/lean/Examples/CoordinateQueries.trace": {
+        "bytes": 3402,
+        "sha256": "d1b7c73fc70a7e071737e1b9b95023b39f0517509c5349f4840a2e141e8a6867"
+      },
+      ".lake/build/lib/lean/Applications/Selection/CoordinateQueries.olean": {
+        "bytes": 390240,
+        "sha256": "7deb7c406d13b99a1fcd5df2e25b156b815474f0fd8d008c17f6f1fa734487ca"
+      },
+      ".lake/build/lib/lean/Applications/Selection/CoordinateQueries.olean.hash": {
+        "bytes": 16,
+        "sha256": "960e6ecab45063beb85e89db9095aa0bdf0c0adaf0dfbe5e84eaf6f67b2739e6"
+      },
+      ".lake/build/lib/lean/Applications/Selection/CoordinateQueries.trace": {
+        "bytes": 3510,
+        "sha256": "3b4c5c4c2b0254e724647b8f47a81e48b4e4f742e9b29467d0c6bc7265afd4bd"
+      },
+      ".lake/build/lib/lean/Applications/Selection/CoordinateSelection.olean": {
+        "bytes": 412384,
+        "sha256": "39e4a492967533ef0461d4cf0aae3e00d0ec719937c45164c1df3acdce9186e1"
+      },
+      ".lake/build/lib/lean/Applications/Selection/CoordinateSelection.olean.hash": {
+        "bytes": 16,
+        "sha256": "bbab990c82166413f82f7234fe99b4de1c1ac4ea8d67b43efe141db8ac9e4268"
+      },
+      ".lake/build/lib/lean/Applications/Selection/CoordinateSelection.trace": {
+        "bytes": 3544,
+        "sha256": "8fff1effc46e2366dc68f2592b923167d8c2f7d7a00391fb6384e1411d4b9380"
+      },
+      ".lake/build/lib/lean/Applications/Selection/CoordinateReadAll.olean": {
+        "bytes": 154808,
+        "sha256": "4442d5d422330fdaf555318794f9edbb96a12675eae3c61db85be9a04b3f6ad1"
+      },
+      ".lake/build/lib/lean/Applications/Selection/CoordinateReadAll.olean.hash": {
+        "bytes": 16,
+        "sha256": "63642e7774c2a7a6c325134047a02592895d50e46d0bc479275b64675a1906ac"
+      },
+      ".lake/build/lib/lean/Applications/Selection/CoordinateReadAll.trace": {
+        "bytes": 3331,
+        "sha256": "454736380d24daf0ac9b2c5ad20fb4724c6a630a941ef0b5cbd6dc19d67fc546"
+      },
+      ".lake/build/lib/lean/Examples/CoordinateReadAll.olean": {
+        "bytes": 83448,
+        "sha256": "03e0ce01569932390ea0fe49eb5ce543ddaf94b04b506677f49a7e26dbd3b783"
+      },
+      ".lake/build/lib/lean/Examples/CoordinateReadAll.olean.hash": {
+        "bytes": 16,
+        "sha256": "ea73c7bc5aa02cb49d1b05ddd4e817979ad2411ae21ff7c91f54b2da2673f54d"
+      },
+      ".lake/build/lib/lean/Examples/CoordinateReadAll.trace": {
+        "bytes": 3402,
+        "sha256": "ae72f53a24c01a68cd28b71deaf563c16613998d045ad6bf4369cffa857fa2f5"
+      },
+      ".lake/build/lib/lean/Examples/ChunkCalls.olean": {
+        "bytes": 52104,
+        "sha256": "4bc883dea8d018def00c15d8256c06fc752c8c9a9a1585ce752c47544a612379"
+      },
+      ".lake/build/lib/lean/Examples/ChunkCalls.olean.hash": {
+        "bytes": 16,
+        "sha256": "8cfea2bc45789a02e51bcd69d3a438187f07cfd07048de4df9590695a89d984d"
+      },
+      ".lake/build/lib/lean/Examples/ChunkCalls.trace": {
+        "bytes": 3155,
+        "sha256": "29fbd45c81bf539c43ae75f4d9a87a0d9e85fcd79319b01d40f6f40e1a05a86e"
+      },
+      ".lake/build/lib/lean/Examples/AffineRecurrence.olean": {
+        "bytes": 289984,
+        "sha256": "90bb2aa57d0d765e09431ebb089966a1ce373df52bc0470fbaf219f55754f198"
+      },
+      ".lake/build/lib/lean/Examples/AffineRecurrence.olean.hash": {
+        "bytes": 16,
+        "sha256": "d869ce7f60bb65e5e03be6df5457353dfe19f39559b8d6d7f31d6fbd76b7a55c"
+      },
+      ".lake/build/lib/lean/Examples/AffineRecurrence.trace": {
+        "bytes": 3422,
+        "sha256": "d4de15405091c6cd2f8b0e30231611bc5a0e5f44ce5c1596c3a8bf34b9935827"
+      },
+      ".lake/build/lib/lean/Applications/Resources/AffineRecurrence.olean": {
+        "bytes": 517312,
+        "sha256": "9170292075f28f7e1be39439a5c93f8e0d51935e4ca132b59d319c6746de5fa7"
+      },
+      ".lake/build/lib/lean/Applications/Resources/AffineRecurrence.olean.hash": {
+        "bytes": 16,
+        "sha256": "1d56185dedb8c6d6c284fcb1a6c4d399e97f409272809ef57eb18075dd5c5c3e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/AffineRecurrence.trace": {
+        "bytes": 3996,
+        "sha256": "b5128a062da3276945cac262b99a0f23b2a239a58fcd16a141b19d7d7b1ed91c"
+      }
+    },
+    "direct_external_imports_of_local_closure": [
+      "Init.Data.List.Nat.Count",
+      "Lean",
+      "Lean.Elab.Tactic.Omega",
+      "Mathlib.Algebra.BigOperators.Fin",
+      "Mathlib.Algebra.BigOperators.Group.List.Basic",
+      "Mathlib.Algebra.Group.Nat.Defs",
+      "Mathlib.Algebra.Group.Prod",
+      "Mathlib.Algebra.Order.Archimedean.Basic",
+      "Mathlib.Algebra.Order.Archimedean.Defs",
+      "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+      "Mathlib.Algebra.Order.BigOperators.Group.List",
+      "Mathlib.Algebra.Order.Floor.Div",
+      "Mathlib.Algebra.Order.Floor.Ring",
+      "Mathlib.Algebra.Order.Floor.Semiring",
+      "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+      "Mathlib.Analysis.Asymptotics.Defs",
+      "Mathlib.Analysis.Normed.Field.Basic",
+      "Mathlib.Analysis.SpecialFunctions.Log.Base",
+      "Mathlib.Basic.ENNReal.BigOperators",
+      "Mathlib.Data.Fin.Rev",
+      "Mathlib.Data.Fin.Tuple.Sort",
+      "Mathlib.Data.Fin.VecNotation",
+      "Mathlib.Data.Finset.Card",
+      "Mathlib.Data.Finset.Lattice.Fold",
+      "Mathlib.Data.Finset.Range",
+      "Mathlib.Data.Fintype.BigOperators",
+      "Mathlib.Data.Int.Order.Basic",
+      "Mathlib.Data.List.Basic",
+      "Mathlib.Data.List.FinRange",
+      "Mathlib.Data.List.Forall2",
+      "Mathlib.Data.List.Infix",
+      "Mathlib.Data.List.MinMax",
+      "Mathlib.Data.List.Nodup",
+      "Mathlib.Data.List.OfFn",
+      "Mathlib.Data.List.Perm.Basic",
+      "Mathlib.Data.List.Range",
+      "Mathlib.Data.List.Sort",
+      "Mathlib.Data.List.SplitLengths",
+      "Mathlib.Data.Multiset.AddSub",
+      "Mathlib.Data.Nat.Cast.Order.Ring",
+      "Mathlib.Data.Nat.Factorial.Basic",
+      "Mathlib.Data.Nat.Init",
+      "Mathlib.Data.Nat.Log",
+      "Mathlib.MeasureTheory.Function.L1Space.Integrable",
+      "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+      "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+      "Mathlib.MeasureTheory.Integral.Lebesgue.Markov",
+      "Mathlib.Order.Defs.LinearOrder",
+      "Mathlib.Order.Interval.Finset.Fin",
+      "Mathlib.Order.Interval.Finset.Nat",
+      "Mathlib.Order.Monotone.Basic",
+      "Mathlib.Order.RelClasses",
+      "Mathlib.Probability.ProbabilityMassFunction.Constructions",
+      "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+      "Mathlib.Tactic.FinCases",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.NormNum",
+      "Mathlib.Tactic.Ring",
+      "Std"
+    ]
+  },
+  "boundary": "Read-only input observation; actual execution, loaded-object qualification, complete output review, and candidate acceptance remain separate evidence.",
+  "compared_to": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-statement-inputs-20261105/pre-inputs.json",
+    "bytes": 185662,
+    "sha256": "a1d16b9d1f761cf7fc4ab5b933e92fb6292fe614cfc45d7547f4b7c6a61b8c6b"
+  },
+  "unchanged": true
+}

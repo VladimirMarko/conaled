@@ -1,0 +1,60 @@
+{
+  "recorded_utc": "2026-11-04T18:35:44.897043+00:00",
+  "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "expectedHead": "e82d1fc8ef3a4bed1b4135711d50cd4abc50e6d3",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "acceptedHead": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "name": "affine-recurrence-receiving-focused-attempt2-20261104",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Resources.AffineRecurrence",
+    "Examples.AffineRecurrence"
+  ],
+  "expectedPaths": [
+    "Applications/Resources/AffineRecurrence.lean",
+    "Examples/AffineRecurrence.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-affine-recurrence.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "recordDirectory": "affine-recurrence-receiving-validation-20261104",
+  "recordName": "candidate2-receiving.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was e82d1fc fix(selection): simplify sorted suffix containment base case (#174)\nHEAD is now at c1cefe4 fix(examples): correct affine absolute-value spacing (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Resources/AffineRecurrence.lean",
+      "bytes": 5839,
+      "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d"
+    },
+    {
+      "path": "Examples/AffineRecurrence.lean",
+      "bytes": 5164,
+      "sha256": "6734b0a54ffdcf81de3c3ec2520618011aa8bab357690c6cca6117174ec4abcf"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 9405,
+      "sha256": "75563d66c31e9cc1456cedf639812e6025486f69cf8ab50f3961d038a6219d18"
+    },
+    {
+      "path": "docs/research/fdsa-affine-recurrence.md",
+      "bytes": 10290,
+      "sha256": "8996a9212bd8cf05ec26519cf51ca9ce69f560170512df647fa3fdb9869032f6"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 46693,
+      "sha256": "fdf63be72114a8002cd4c3786007c8ff0e722c0465f819b00dd93ba2ffe3185e"
+    }
+  ],
+  "candidate_tree": "b62fe504a38948e61c6377a4e7661b639c28c08c",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 374898688
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

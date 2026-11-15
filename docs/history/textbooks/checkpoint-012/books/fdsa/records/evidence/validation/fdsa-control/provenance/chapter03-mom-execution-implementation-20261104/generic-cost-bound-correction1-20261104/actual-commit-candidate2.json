@@ -1,0 +1,34 @@
+{
+  "recorded_utc": "2026-11-04T21:58:59.092366+00:00",
+  "finding": "C03-GENERIC-BOUNDS-ELAB-001",
+  "candidate": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330",
+  "tree": "f45cdd048ccf08e0ed3be2cc9db3e76d142bbdb3",
+  "parent": "ef7def9a5a18d2cfc68111bf65d2e036be55c26e",
+  "branch": "work/fdsa-ch03-mom-execution",
+  "status": "clean",
+  "actual_commit_terminal": "61fcd9 exit 0",
+  "precommit_preservation_and_staged_check": "8cf9aa exit 0",
+  "full_diff_and_changed_declaration_read": "973d18 exit 0",
+  "metadata": "commit 9e1c7fc6bce757d7bcfb5d114e2806b566c49330\nAuthor:     ChatGPT <chatgpt@openai.com>\nAuthorDate: Wed Nov 4 21:58:29 2026 +0000\nCommit:     ChatGPT <chatgpt@openai.com>\nCommitDate: Wed Nov 4 21:58:29 2026 +0000\n\n    fix(selection): avoid reserved prefix identifier (#174)",
+  "stat": "Applications/Resources/SelectionGenericBounds.lean | 8 ++++----\n Examples/SelectionGenericBounds.lean               | 4 ++--\n 2 files changed, 6 insertions(+), 6 deletions(-)",
+  "files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionGenericBounds.lean",
+      "bytes": 14543,
+      "sha256": "1b2b629177c96244d377261f12b45034c3c2107f0ef5c78bb512c947e7f12524",
+      "relative_path": "Applications/Resources/SelectionGenericBounds.lean",
+      "source_lines": 260,
+      "public_count": 15,
+      "private_count": 0
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionGenericBounds.lean",
+      "bytes": 11435,
+      "sha256": "762be98de6b9d8c1643156509d947ea298b7d16b9e8535c69194c92811831d50",
+      "relative_path": "Examples/SelectionGenericBounds.lean",
+      "source_lines": 209,
+      "public_count": 13,
+      "private_count": 3
+    }
+  ]
+}

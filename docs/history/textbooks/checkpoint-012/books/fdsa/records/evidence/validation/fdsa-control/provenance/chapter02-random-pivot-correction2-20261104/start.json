@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-11-04T06:14:45.877127+00:00",
+  "parent": "254a4162fa6aeeb7ab2a1ceea5139e5772a5865b",
+  "author_worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot",
+  "status_before": "",
+  "central_candidate": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+  "central_actual_exit": 1,
+  "central_elapsed_seconds": 149.94887695300167,
+  "central_final_head": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+  "central_final_status": "",
+  "central_log_bytes": 19446,
+  "central_log_sha256": "bd000490148fe78ad1f67dfd0f1eb38c05aa9ecd3212ea58ac038e15622947fa",
+  "core_module_outcome": "Built successfully in 68s",
+  "example_module_outcome": "Failed in 52s",
+  "source_hashes_identical_to_central": {
+    "Applications/Resources/RandomQuickSort.lean": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2",
+    "Examples/RandomQuickSort.lean": "294e5b8f77e063b6e30f876b6203f74a6ff346d6c1e674e1d450bcdc3bb1675e"
+  },
+  "authorized_scope": "Example proof-only correction; no source extension",
+  "diagnostics": [
+    "Unused Function.comp_def in two_key_execution",
+    "Unused uniformIndex_apply and Function.comp_def in the zero-mass two_key_append_mass branch",
+    "Unused Function.comp_def in three_key_exercise_law",
+    "Remaining ENNReal goal 3^-1 + 3^-1 = 2/3",
+    "Unused uniformIndex_apply in the zero-mass three_key_exercise_mass branch",
+    "Unused Function.comp_def in equal_key_tag_execution"
+  ],
+  "pinned_arithmetic_source": "Mathlib.Algebra.Ring.Defs.two_mul; Mathlib.Basic.ENNReal.Inv uses the same two_mul/div_eq_mul_inv rewrites for inverse masses",
+  "new_compilation_started": false,
+  "core_source_writes_authorized": false,
+  "cache_writes": false,
+  "no_acceptance_or_coverage_closure": true
+}

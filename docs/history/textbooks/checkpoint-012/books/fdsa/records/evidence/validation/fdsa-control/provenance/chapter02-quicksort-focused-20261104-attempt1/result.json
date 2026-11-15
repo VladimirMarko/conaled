@@ -1,0 +1,35 @@
+{
+  "started_utc": "2026-11-04T04:00:05.176809+00:00",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Sorting.QuickSort",
+    "Examples.QuickSort"
+  ],
+  "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+  "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T040005Z-project-run-e2b4f9de/output.log",
+  "label": "project-run",
+  "lean_threads": "1",
+  "passed": false,
+  "completed_utc": "2026-11-04T04:00:13.951842+00:00",
+  "seconds": 8.770959307999874,
+  "exit_code": 1,
+  "timed_out": false,
+  "recorder_error": null,
+  "candidate": "edbfeb7d810befefd6a3698bd226face6f3de926",
+  "final_head": "edbfeb7d810befefd6a3698bd226face6f3de926",
+  "final_status": "",
+  "source_sha256": {
+    "Applications/Sorting/QuickSort.lean": "723da67e0e0aeb8f1d5ca3719947ad8662c1b937f61ff0ace6875f6106897ef2",
+    "Examples/QuickSort.lean": "c2f713c4d396da3945180d3cd7795a6834ca2de8c21e43c814ef7c0269740b96",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+  },
+  "source_unchanged": true,
+  "outer_exit_code": 1,
+  "log_sha256": "1f5c960d20bd0f9862bdb159a06bcf82fe192acc4a16464108b4f55251d99b89",
+  "log_size_bytes": 4156,
+  "available_bytes_at_completion": 27354832896,
+  "validation_scope": "Focused modules; not complete acceptance."
+}

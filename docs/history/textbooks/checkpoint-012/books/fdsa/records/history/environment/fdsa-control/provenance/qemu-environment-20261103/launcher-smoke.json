@@ -1,0 +1,238 @@
+{
+  "started_at": "2026-11-03T15:45:00.277099+00:00",
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "adapter": "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/pinned_toolchain.py",
+  "adapter_sha256": "8bc54deea672a0ff7928d1de8f839ee97963349c4d97cae13e4ac2257b06ec3f",
+  "commands": [
+    {
+      "name": "describe",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/pinned_toolchain.py",
+        "--describe"
+      ],
+      "cwd": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review",
+      "started_at": "2026-11-03T15:45:00.277719+00:00",
+      "finished_at": "2026-11-03T15:45:00.334882+00:00",
+      "exit_code": 0,
+      "stdout": "{\n  \"workspace\": \"/workspace/scratch/6bb268f9336f\",\n  \"official_distribution\": \"/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux\",\n  \"overlay\": \"/workspace/scratch/6bb268f9336f/bootstrap/lean-4.35.0-host\",\n  \"environment_overrides\": {\n    \"PATH\": \"/workspace/scratch/6bb268f9336f/bootstrap/lean-4.35.0-host/bin:/root/.codex/tmp/arg0-linux/codex-arg0D0T4n9:/opt/codex/codex-path:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback\",\n    \"LEAN_SYSROOT\": \"/workspace/scratch/6bb268f9336f/bootstrap/lean-4.35.0-host\",\n    \"LAKE_OVERRIDE_LEAN\": \"true\",\n    \"LD_LIBRARY_PATH\": \"/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/lib:/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/lib/lean\",\n    \"TMPDIR\": \"/workspace/scratch/6bb268f9336f/runtime-tmp\",\n    \"MATHLIB_CACHE_DIR\": \"/workspace/scratch/6bb268f9336f/dependency-cache/mathlib\",\n    \"XDG_CACHE_HOME\": \"/workspace/scratch/6bb268f9336f/dependency-cache/xdg\",\n    \"XDG_CONFIG_HOME\": \"/workspace/scratch/6bb268f9336f/runtime-config\",\n    \"XDG_STATE_HOME\": \"/workspace/scratch/6bb268f9336f/runtime-state\",\n    \"LEAN_NUM_THREADS\": \"1\"\n  },\n  \"cleared_inherited_selectors\": [\n    \"LEAN\",\n    \"LEAN_PATH\",\n    \"LEAN_SYSROOT\",\n    \"LEAN_AR\",\n    \"LEAN_CC\",\n    \"LEAN_GITHASH\",\n    \"LAKE_HOME\",\n    \"LAKE_OVERRIDE_LEAN\"\n  ],\n  \"executables\": {\n    \"/workspace/scratch/6bb268f9336f/bootstrap/qemu-user/bin/qemu-x86_64-static\": \"90181b5552cd1a0b60d8edcc9f1cf8e38647579ef697d3155e2b6150e8fbcee0\",\n    \"/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/bin/lean\": \"bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38\",\n    \"/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/bin/lake\": \"8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1\"\n  },\n  \"relocated_executables\": {\n    \"lean\": \"bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38\",\n    \"lake\": \"8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1\"\n  },\n  \"launchers\": {\n    \"lean\": {\n      \"sha256\": \"d76120ce30d8d923ae2685f11300629132d60b8b1affc9b675944ee13faecca3\",\n      \"content\": \"#!/bin/sh\\nexec /workspace/scratch/6bb268f9336f/bootstrap/qemu-user/bin/qemu-x86_64-static /workspace/scratch/6bb268f9336f/bootstrap/lean-4.35.0-host/libexec/lean \\\"$@\\\"\\n\"\n    },\n    \"lake\": {\n      \"sha256\": \"d14ec0c1951ad168d6b9aadf51b3f2d696f478cb063bd660ff19d822450441ef\",\n      \"content\": \"#!/bin/sh\\nexec /workspace/scratch/6bb268f9336f/bootstrap/qemu-user/bin/qemu-x86_64-static /workspace/scratch/6bb268f9336f/bootstrap/lean-4.35.0-host/libexec/lake \\\"$@\\\"\\n\"\n    }\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "qemu-version",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/pinned_toolchain.py",
+        "--",
+        "/workspace/scratch/6bb268f9336f/bootstrap/qemu-user/bin/qemu-x86_64-static",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review",
+      "started_at": "2026-11-03T15:45:00.335417+00:00",
+      "finished_at": "2026-11-03T15:45:00.374269+00:00",
+      "exit_code": 0,
+      "stdout": "qemu-x86_64 version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.18)\nCopyright (c) 2003-2023 Fabrice Bellard and the QEMU Project developers\n",
+      "stderr": ""
+    },
+    {
+      "name": "bare-lean-version",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/pinned_toolchain.py",
+        "--",
+        "lean",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review",
+      "started_at": "2026-11-03T15:45:00.374673+00:00",
+      "finished_at": "2026-11-03T15:45:02.909282+00:00",
+      "exit_code": 0,
+      "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": ""
+    },
+    {
+      "name": "bare-lean-githash",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/pinned_toolchain.py",
+        "--",
+        "lean",
+        "--githash"
+      ],
+      "cwd": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review",
+      "started_at": "2026-11-03T15:45:02.909685+00:00",
+      "finished_at": "2026-11-03T15:45:06.480882+00:00",
+      "exit_code": 0,
+      "stdout": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc\n",
+      "stderr": ""
+    },
+    {
+      "name": "bare-lean-prefix",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/pinned_toolchain.py",
+        "--",
+        "lean",
+        "--print-prefix"
+      ],
+      "cwd": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review",
+      "started_at": "2026-11-03T15:45:06.482484+00:00",
+      "finished_at": "2026-11-03T15:45:08.691446+00:00",
+      "exit_code": 0,
+      "stdout": "/workspace/scratch/6bb268f9336f/bootstrap/lean-4.35.0-host\n",
+      "stderr": ""
+    },
+    {
+      "name": "lake-version",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/pinned_toolchain.py",
+        "--",
+        "lake",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review",
+      "started_at": "2026-11-03T15:45:08.691987+00:00",
+      "finished_at": "2026-11-03T15:45:12.769651+00:00",
+      "exit_code": 0,
+      "stdout": "Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)\n",
+      "stderr": ""
+    },
+    {
+      "name": "lake-child-lean-version",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/pinned_toolchain.py",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review",
+      "started_at": "2026-11-03T15:45:12.770006+00:00",
+      "finished_at": "2026-11-03T15:45:57.080088+00:00",
+      "exit_code": 0,
+      "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": ""
+    },
+    {
+      "name": "lake-child-lean-githash",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/pinned_toolchain.py",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "--githash"
+      ],
+      "cwd": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review",
+      "started_at": "2026-11-03T15:45:57.082279+00:00",
+      "finished_at": "2026-11-03T15:46:18.664734+00:00",
+      "exit_code": 0,
+      "stdout": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc\n",
+      "stderr": ""
+    },
+    {
+      "name": "lake-child-lean-prefix",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/pinned_toolchain.py",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "--print-prefix"
+      ],
+      "cwd": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review",
+      "started_at": "2026-11-03T15:46:18.665662+00:00",
+      "finished_at": "2026-11-03T15:46:35.219995+00:00",
+      "exit_code": 0,
+      "stdout": "/workspace/scratch/6bb268f9336f/bootstrap/lean-4.35.0-host\n",
+      "stderr": ""
+    },
+    {
+      "name": "lake-child-path",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/pinned_toolchain.py",
+        "--",
+        "lake",
+        "env",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-c",
+        "import json,os,shutil; print(json.dumps({'lean':shutil.which('lean'),'lake':shutil.which('lake'),'LEAN_SYSROOT':os.environ.get('LEAN_SYSROOT'),'LEAN':os.environ.get('LEAN'),'LEAN_GITHASH':os.environ.get('LEAN_GITHASH'),'LEAN_NUM_THREADS':os.environ.get('LEAN_NUM_THREADS')}))"
+      ],
+      "cwd": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review",
+      "started_at": "2026-11-03T15:46:35.221109+00:00",
+      "finished_at": "2026-11-03T15:46:56.190640+00:00",
+      "exit_code": 0,
+      "stdout": "{\"lean\": \"/workspace/scratch/6bb268f9336f/bootstrap/lean-4.35.0-host/bin/lean\", \"lake\": \"/workspace/scratch/6bb268f9336f/bootstrap/lean-4.35.0-host/bin/lake\", \"LEAN_SYSROOT\": \"/workspace/scratch/6bb268f9336f/bootstrap/lean-4.35.0-host\", \"LEAN\": \"/workspace/scratch/6bb268f9336f/bootstrap/lean-4.35.0-host/bin/lean\", \"LEAN_GITHASH\": \"eb6cafb7290e8bd5f2937522d8d804f58f02bafc\", \"LEAN_NUM_THREADS\": \"1\"}\n",
+      "stderr": ""
+    },
+    {
+      "name": "bare-proof",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/pinned_toolchain.py",
+        "--",
+        "lean",
+        "--root",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/qemu-environment-20261103/smoke",
+        "-o",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/qemu-environment-20261103/smoke/bare-proof/QemuKernelSmoke.olean",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/qemu-environment-20261103/smoke/QemuKernelSmoke.lean"
+      ],
+      "cwd": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review",
+      "started_at": "2026-11-03T15:46:56.196451+00:00",
+      "finished_at": "2026-11-03T15:47:05.201204+00:00",
+      "exit_code": 0,
+      "stdout": "'FdsaEnvironmentSmoke.zero_add' does not depend on any axioms\n'FdsaEnvironmentSmoke.successor_addition' does not depend on any axioms\n",
+      "stderr": ""
+    },
+    {
+      "name": "lake-child-proof",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/tooling/pinned_toolchain.py",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "--root",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/qemu-environment-20261103/smoke",
+        "-o",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/qemu-environment-20261103/smoke/lake-child-proof/QemuKernelSmoke.olean",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/qemu-environment-20261103/smoke/QemuKernelSmoke.lean"
+      ],
+      "cwd": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review",
+      "started_at": "2026-11-03T15:47:05.201912+00:00",
+      "finished_at": "2026-11-03T15:47:50.121037+00:00",
+      "exit_code": 0,
+      "stdout": "'FdsaEnvironmentSmoke.zero_add' does not depend on any axioms\n'FdsaEnvironmentSmoke.successor_addition' does not depend on any axioms\n",
+      "stderr": ""
+    }
+  ],
+  "scope": "Environment identity and Init-only theorem smoke; no dependency cache, project build, or project proof audit.",
+  "proof_source": {
+    "path": "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/qemu-environment-20261103/smoke/QemuKernelSmoke.lean",
+    "sha256": "dd436c6017165807deb86eef190e6e44b2151c01369cce4bd4ec76fa9e69781a"
+  },
+  "proof_artifacts": [
+    {
+      "route": "bare-proof",
+      "path": "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/qemu-environment-20261103/smoke/bare-proof/QemuKernelSmoke.olean",
+      "sha256": "fbf279c5128799661a3f3087d27f139d4da4944e9061ae0c522fce3af38bb980",
+      "size": 6824
+    },
+    {
+      "route": "lake-child-proof",
+      "path": "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/qemu-environment-20261103/smoke/lake-child-proof/QemuKernelSmoke.olean",
+      "sha256": "fbf279c5128799661a3f3087d27f139d4da4944e9061ae0c522fce3af38bb980",
+      "size": 6824
+    }
+  ],
+  "result": "passed",
+  "finished_at": "2026-11-03T15:47:50.124744+00:00"
+}

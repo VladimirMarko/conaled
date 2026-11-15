@@ -1,0 +1,33 @@
+--- compare_receiving.py
++++ compare_receiving_v2.py
+@@ -199,11 +199,28 @@
+         roots = {r["root"]: r for r in old_ledger_by_run[key]["roots"]}
+         qualified = set(producer["historical_qualified920_name_ids"])
+         command = producer["actual_command"]
+-        old_project = command[command.index("--project") + 1]
++        project_positions = [i for i, arg in enumerate(command) if arg == "--project"]
++        old_project = None
++        project_origin = {"status": "unknown", "reason": "No supported authoritative project context in the actual command/result."}
++        if len(project_positions) == 1 and project_positions[0] + 1 < len(command):
++            old_project = command[project_positions[0] + 1]
++            project_origin = {"status": "recorded", "field": "actual_command --project argument"}
++        elif not project_positions and command == ["lake", "env", "lean", "--stdin"]:
++            result_binding = next(entry for entry in bound["files"]
++                                  if entry["path"] == producer["result"])
++            historical_result = read(producer["result"], result_binding)
++            cwd = historical_result.get("cwd")
++            if historical_result.get("command") == command and isinstance(cwd, str) and Path(cwd).is_absolute():
++                old_project = cwd
++                project_origin = {"status": "recorded_working_directory",
++                                  "field": "bound producer result.cwd for the exact recorded lake env lean --stdin command",
++                                  "result": producer["result"], "result_sha256": result_binding["sha256"],
++                                  "boundary": "Actual Lake working-directory context only; does not establish missing terminal HEAD or paired source/object/runtime inputs."}
+         historical_globals[key] = {
+             "actual_historical_command": command,
+             "command_project": {"producer": old_project, "receiver": pre["project"],
+-                                "equal": old_project == pre["project"]},
++                                "equal": old_project == pre["project"] if old_project is not None else None,
++                                "origin": project_origin},
+             "source_configuration_differences": difference(old_source_configs, pre["configuration"]),
+             "source_pin_to_receiving_actual_head_differences": difference(
+                 old_source_pins, {n: v["head"] for n, v in pre["dependencies"].items()}),

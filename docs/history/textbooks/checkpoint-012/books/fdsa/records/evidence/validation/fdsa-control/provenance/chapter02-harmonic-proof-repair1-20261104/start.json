@@ -1,0 +1,57 @@
+{
+  "started_utc": "2026-11-04T07:48:17.547905+00:00",
+  "parent": "012ff45e3bd34a36b67e62a8cc2ee00125613e53",
+  "initial_status": "",
+  "observed_candidate": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+  "diagnostic_log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-focused-attempt5-partial-diagnostics-20261104/observed-prefix.log",
+  "diagnostic_size_bytes": 32431,
+  "diagnostic_sha256": "b45bded7778156f7829c4fc80e374276edcc9252ea433f848dbb89ac58239126",
+  "overall_attempt_status": "Still live; only emitted partial diagnostics secured. No terminal aggregate result asserted.",
+  "owned_source_change": "Applications/Resources/QuickSortMean.lean only",
+  "preserve": [
+    "all 24 declaration source contracts, including 23 public declarations",
+    "Examples/QuickSortMean.lean byte-for-byte",
+    "all recurrence coefficients, quantifiers, log domains and bounds",
+    "all imports, options, restrictions and pins"
+  ],
+  "source_before": {
+    "Applications/Resources/QuickSortMean.lean": {
+      "bytes": 9714,
+      "sha256": "6ac46b57a39ad60eaae10d6b90ac4c46c9cbdc02d5caf214097b1e794d03794b"
+    },
+    "Examples/QuickSortMean.lean": {
+      "bytes": 2488,
+      "sha256": "924ce55ee6af374b55cea67ee6f2da25997b5a81ad098e2e3789622bd793b904"
+    }
+  },
+  "diagnostics": [
+    {
+      "line": 36,
+      "kind": "unused <;> only",
+      "repair": "Use sequential field_simp then ring; retain useful ring."
+    },
+    {
+      "line": 58,
+      "kind": "unused <;> and ring",
+      "repair": "Keep field_simp alone."
+    },
+    {
+      "line": 70,
+      "kind": "unused <;> and ring",
+      "repair": "Keep field_simp alone."
+    },
+    {
+      "line": 155,
+      "kind": "type mismatch in add_le_add_right",
+      "repair": "Derive the exact additive inequality by linarith from hdiv."
+    },
+    {
+      "line": 180,
+      "kind": "unused <;> and ring",
+      "repair": "Keep field_simp alone."
+    }
+  ],
+  "builds_run": false,
+  "cache_changes": false,
+  "children_spawned": false
+}

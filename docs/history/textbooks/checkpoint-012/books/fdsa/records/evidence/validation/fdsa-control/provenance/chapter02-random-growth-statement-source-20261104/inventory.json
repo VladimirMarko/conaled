@@ -1,0 +1,57 @@
+{
+  "prepared_utc": "2026-11-04T07:51:25.417546+00:00",
+  "author_candidate": "08a1e78d6becc713256d245206ef163f9eb55a0a",
+  "status": "Prepared only; no elaborated inspection",
+  "groups": [
+    {
+      "module": "Applications.Resources.RandomQuickSortGrowth",
+      "source": "Applications/Resources/RandomQuickSortGrowth.lean",
+      "bytes": 9896,
+      "sha256": "2b8bf7b4820790edaaa5726efb8e8bd8bccd3a30cb30388148d95bba00e63674",
+      "names": [
+        "Resources.RandomQuickSort.sizeMean_eq_closedForm",
+        "Resources.RandomQuickSort.sizeMean_eq_harmonic",
+        "Resources.RandomQuickSort.exerciseMean_eq_closedForm",
+        "Resources.RandomQuickSort.exerciseMean_eq_harmonic",
+        "Resources.RandomQuickSort.literalMean_harmonic_comparison",
+        "Resources.RandomQuickSort.exerciseMean_le_log",
+        "Resources.RandomQuickSort.literalMean_le_log",
+        "Resources.RandomQuickSort.exerciseMean_le_nlog",
+        "Resources.RandomQuickSort.literalMean_le_nlog",
+        "Resources.RandomQuickSort.exerciseMean_le_nlogb",
+        "Resources.RandomQuickSort.literalMean_le_nlogb",
+        "Resources.RandomQuickSort.sizeMean_isBigO_log",
+        "Resources.RandomQuickSort.sizeMean_isBigO_logb",
+        "Resources.RandomQuickSort.exerciseMean_family_isBigO_log",
+        "Resources.RandomQuickSort.literalMean_family_isBigO_log",
+        "Resources.RandomQuickSort.exerciseMean_family_isBigO_logb",
+        "Resources.RandomQuickSort.literalMean_family_isBigO_logb"
+      ]
+    },
+    {
+      "module": "Examples.RandomQuickSortGrowth",
+      "source": "Examples/RandomQuickSortGrowth.lean",
+      "bytes": 9959,
+      "sha256": "2d173d7572ae76395c3779c216ea43d21719ff1774f6a7f21c68a5677b511a16",
+      "names": [
+        "Examples.RandomQuickSortGrowth.empty_payload_means",
+        "Examples.RandomQuickSortGrowth.singleton_payload_means",
+        "Examples.RandomQuickSortGrowth.empty_log_boundary",
+        "Examples.RandomQuickSortGrowth.singleton_log_boundary",
+        "Examples.RandomQuickSortGrowth.two_distinct_harmonic",
+        "Examples.RandomQuickSortGrowth.three_reordered_harmonic",
+        "Examples.RandomQuickSortGrowth.four_tagged_harmonic",
+        "Examples.RandomQuickSortGrowth.five_sizeMean",
+        "Examples.RandomQuickSortGrowth.arbitrary_length_indexed_growth",
+        "Examples.RandomQuickSortGrowth.function_tagged_family_growth",
+        "Examples.RandomQuickSortGrowth.shifted_range_family_growth",
+        "Examples.RandomQuickSortGrowth.equal_key_three_not_harmonic",
+        "Examples.RandomQuickSortGrowth.equal_key_family_means",
+        "Examples.RandomQuickSortGrowth.equal_key_binary_bounds_fail"
+      ]
+    }
+  ],
+  "total": 31,
+  "private_source_assessed": 0,
+  "program_sha256": "2076262cae90ba8a564cb0de3ec578b66321c83133195698a3b90cf8c6037283"
+}

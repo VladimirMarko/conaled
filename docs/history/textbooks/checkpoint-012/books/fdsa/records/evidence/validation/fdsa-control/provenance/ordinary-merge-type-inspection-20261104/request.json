@@ -1,0 +1,22 @@
+{
+  "requested_utc": "2026-11-04T04:14:11.642617+00:00",
+  "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge",
+  "candidate": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/ordinary-merge-focused-20261104-proof-corrections/TypeInspection.lean"
+  ],
+  "scope": "Process recording only; command and acceptance policy unchanged."
+}

@@ -1,0 +1,205 @@
+{
+  "recorded_utc": "2026-11-04T21:03:08.843550+00:00",
+  "root_implementation_assessment": true,
+  "parent": "45d120ce0f5bacbaac76cbceeca13ee3ff494dff",
+  "sources": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Applications/Resources/SelectionEnvelope.lean",
+      "bytes": 3135,
+      "sha256": "ff13767b08641c2a776fd98e837985005eb5f0856e2a4db2a057cf9e22f59570"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Examples/SelectionEnvelope.lean",
+      "bytes": 1856,
+      "sha256": "02fedd2ffe6def3a5f6794fa90c01cdd90d982276b089aa488247b116c4eb3dd"
+    }
+  ],
+  "public_names": 20,
+  "definitions": 3,
+  "theorems": 17,
+  "private_names": 0,
+  "anonymous_examples": 0,
+  "declarations": [
+    {
+      "name": "Resources.SelectionEnvelope.tollCoefficient",
+      "kind": "def",
+      "header": "def tollCoefficient (d : Nat) : Nat",
+      "private": false,
+      "path": "Applications/Resources/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Resources.SelectionEnvelope.smallBudget",
+      "kind": "def",
+      "header": "def smallBudget (n : Nat) : Nat",
+      "private": false,
+      "path": "Applications/Resources/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Resources.SelectionEnvelope.envelope",
+      "kind": "def",
+      "header": "def envelope (d : Nat) : Nat \u2192 Nat",
+      "private": false,
+      "path": "Applications/Resources/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Resources.SelectionEnvelope.envelope_zero",
+      "kind": "theorem",
+      "header": "@[simp] theorem envelope_zero (d : Nat) : envelope d 0 = 4",
+      "private": false,
+      "path": "Applications/Resources/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Resources.SelectionEnvelope.envelope_succ",
+      "kind": "theorem",
+      "header": "theorem envelope_succ (d n : Nat) :\n    envelope d (n + 1) = max (smallBudget (n + 1))\n      (2 * envelope d n + tollCoefficient d * (n + 1) + 7)",
+      "private": false,
+      "path": "Applications/Resources/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Resources.SelectionEnvelope.recursive_budget_le",
+      "kind": "theorem",
+      "header": "theorem recursive_budget_le (d n : Nat) :\n    2 * envelope d n + tollCoefficient d * (n + 1) + 7 \u2264 envelope d (n + 1)",
+      "private": false,
+      "path": "Applications/Resources/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Resources.SelectionEnvelope.le_succ",
+      "kind": "theorem",
+      "header": "theorem le_succ (d n : Nat) : envelope d n \u2264 envelope d (n + 1)",
+      "private": false,
+      "path": "Applications/Resources/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Resources.SelectionEnvelope.envelope_mono",
+      "kind": "theorem",
+      "header": "theorem envelope_mono (d : Nat) : Monotone (envelope d)",
+      "private": false,
+      "path": "Applications/Resources/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Resources.SelectionEnvelope.small_budget_le",
+      "kind": "theorem",
+      "header": "theorem small_budget_le (d n : Nat) : smallBudget n \u2264 envelope d n",
+      "private": false,
+      "path": "Applications/Resources/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Resources.SelectionEnvelope.invalid_budget_le",
+      "kind": "theorem",
+      "header": "theorem invalid_budget_le (d n : Nat) : n + 2 \u2264 envelope d n",
+      "private": false,
+      "path": "Applications/Resources/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Resources.SelectionEnvelope.two_child_budget_le",
+      "kind": "theorem",
+      "header": "theorem two_child_budget_le (d n m r pivotCost childCost localCost total : Nat)\n    (hm : m < n) (hr : r < n)\n    (hpivot : pivotCost \u2264 envelope d m) (hchild : childCost \u2264 envelope d r)\n    (hlocal : localCost \u2264 tollCoefficient d * n + 7)\n    (htotal : total \u2264 pivotCost + childCost + localCost) : total \u2264 envelope d n",
+      "private": false,
+      "path": "Applications/Resources/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Resources.SelectionEnvelope.prefix_max_bound",
+      "kind": "theorem",
+      "header": "theorem prefix_max_bound (d actualCutoff scalarCutoff n : Nat)\n    (hn : n \u2264 actualCutoff \u2228 n \u2264 scalarCutoff) :\n    envelope d n \u2264 envelope d (max actualCutoff scalarCutoff)",
+      "private": false,
+      "path": "Applications/Resources/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Examples.SelectionEnvelope.group_two_values",
+      "kind": "theorem",
+      "header": "theorem group_two_values :\n    tollCoefficient 2 = 24 \u2227 envelope 2 0 = 4 \u2227 envelope 2 1 = 39 \u2227\n      envelope 2 2 = 133 \u2227 envelope 2 3 = 345",
+      "private": false,
+      "path": "Examples/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Examples.SelectionEnvelope.group_five_values",
+      "kind": "theorem",
+      "header": "theorem group_five_values :\n    tollCoefficient 5 = 57 \u2227 envelope 5 0 = 4 \u2227 envelope 5 1 = 72 \u2227\n      envelope 5 2 = 265 \u2227 envelope 5 3 = 708",
+      "private": false,
+      "path": "Examples/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Examples.SelectionEnvelope.small_budget_values",
+      "kind": "theorem",
+      "header": "theorem small_budget_values :\n    smallBudget 0 = 3 \u2227 smallBudget 1 = 8 \u2227\n      smallBudget 2 = 15 \u2227 smallBudget 3 = 24",
+      "private": false,
+      "path": "Examples/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Examples.SelectionEnvelope.invalid_empty_bound",
+      "kind": "theorem",
+      "header": "theorem invalid_empty_bound (d : Nat) : 2 \u2264 envelope d 0",
+      "private": false,
+      "path": "Examples/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Examples.SelectionEnvelope.charged_two_child_example",
+      "kind": "theorem",
+      "header": "theorem charged_two_child_example :\n    envelope 2 1 + envelope 2 0 + (tollCoefficient 2 * 2 + 7) = 98 \u2227\n      98 \u2264 envelope 2 2",
+      "private": false,
+      "path": "Examples/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Examples.SelectionEnvelope.nonshrinking_budget_exceeds",
+      "kind": "theorem",
+      "header": "theorem nonshrinking_budget_exceeds :\n    2 * envelope 2 1 + tollCoefficient 2 * 1 + 7 = 109 \u2227\n      envelope 2 1 < 109",
+      "private": false,
+      "path": "Examples/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Examples.SelectionEnvelope.actual_cutoff_prefix",
+      "kind": "theorem",
+      "header": "theorem actual_cutoff_prefix (d actualCutoff scalarCutoff n : Nat)\n    (hn : n \u2264 actualCutoff) :\n    envelope d n \u2264 envelope d (max actualCutoff scalarCutoff)",
+      "private": false,
+      "path": "Examples/SelectionEnvelope.lean"
+    },
+    {
+      "name": "Examples.SelectionEnvelope.scalar_cutoff_prefix",
+      "kind": "theorem",
+      "header": "theorem scalar_cutoff_prefix (d actualCutoff scalarCutoff n : Nat)\n    (hn : n \u2264 scalarCutoff) :\n    envelope d n \u2264 envelope d (max actualCutoff scalarCutoff)",
+      "private": false,
+      "path": "Examples/SelectionEnvelope.lean"
+    }
+  ],
+  "all12_prior_sources_preserved": true,
+  "all35_selected_related_records_preserved": true,
+  "scope": "C03-058 supporting scalar only; actual execution/toll/linear comparison still pending",
+  "domains_and_quantifiers": "All quantities are Nat; d, cutoffs, parent and child sizes, charges are explicit. U(d,max cutoffs) is fixed before varying n; no payload domain, finite-type assumption, maximum over data or desired linear bound is postulated. d0/1 are allowed only as scalar parameters.",
+  "definition_review": "K=d*d+4*d+12; B=n*n+4*n+3; U0=4 and U(n+1)=max(B(n+1),2U(n)+K(n+1)+7). Recursive definition structurally decreases n. This is an analysis budget, not a measured algorithm.",
+  "proof_groups": [
+    {
+      "names": [
+        "envelope_zero",
+        "envelope_succ",
+        "recursive_budget_le",
+        "le_succ",
+        "envelope_mono"
+      ],
+      "assessment": "Exact definitional equations and max domination; one-step monotonicity extends to all natural sizes via pinned monotone_nat_of_le_succ."
+    },
+    {
+      "names": [
+        "small_budget_le",
+        "invalid_budget_le"
+      ],
+      "assessment": "Base 4 dominates smallBudget0=3; successor max dominates small branch; n+2\u2264B(n) for all n covers the invalid extension."
+    },
+    {
+      "names": [
+        "two_child_budget_le"
+      ],
+      "assessment": "Both m<n and r<n are explicit. On positive n each is at most predecessor; monotonicity transports child budgets; actual localCost\u2264K*n+7 and total\u2264sum are required. No algorithmic premise is asserted proven here."
+    },
+    {
+      "names": [
+        "prefix_max_bound",
+        "actual_cutoff_prefix",
+        "scalar_cutoff_prefix"
+      ],
+      "assessment": "The finite base uses max of both cutoffs, with no data-dependent or rank-dependent constants. Both individual-cutoff clients consume the same proved monotonicity interface."
+    }
+  ],
+  "case_review": "Exact d2 values4,39,133,345 and d5 values4,72,265,708; small budgets3,8,15,24; empty invalid2\u22644; two strict children at n2 have39+4+55=98\u2264133 via two_child_budget_le; equal-size children at n1 give109>39 and are outside its premises. All expectations precede source creation atd52407.",
+  "no_compiler_credit": true,
+  "no_full_gate_or_acceptance_credit": true
+}

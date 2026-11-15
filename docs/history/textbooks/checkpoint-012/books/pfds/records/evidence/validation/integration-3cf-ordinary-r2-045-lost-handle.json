@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "observed_at": "2026-11-04T01:31:00.719402+00:00",
+  "kind": "execution-service-handle-loss-observation",
+  "run_id": "integration-3cf-ordinary-r2-045",
+  "acceptance": false,
+  "original_records_unchanged": true,
+  "terminal_result_observed": false,
+  "owner": "/root/operational_review",
+  "last_successfully_observed_poll": {
+    "number": 18,
+    "utc": "2026-11-04T01:22:29.094Z",
+    "status": "nonterminal",
+    "progress": "SquareKit.CommaAgreement built in102s"
+  },
+  "owner_reported_service_errors": [
+    {
+      "operation": "functions.wait existing cellg2:3",
+      "result": "exec cell 3 not found"
+    },
+    {
+      "operation": "write_stdin existing session81553",
+      "started_at": "2026-11-04T01:29:15.417Z",
+      "ended_at": "2026-11-04T01:29:15.418Z",
+      "result": "write_stdin failed: Unknown process id81553"
+    }
+  ],
+  "following_wait_tool_record": "aborted by user; no controller terminal result established",
+  "cause": "unknown",
+  "no_pid_signalled": true,
+  "no_replacement_started_at_this_observation": true,
+  "cooperative_locks": {
+    "full-build.lock": "free",
+    "focused-build.lock": "free"
+  },
+  "live_stock_verification_exists": false,
+  "original_evidence": {
+    "integration-3cf-ordinary-r2-045.json": {
+      "path": "session/validation/integration-3cf-ordinary-r2-045.json",
+      "bytes": 436094,
+      "sha256": "870a1b3fe0920a0d23fc0b2debe7ffa5d59e1bfbd5e2b06639ddde313e53a297"
+    },
+    "integration-3cf-ordinary-r2-045-observer.json": {
+      "path": "session/validation/integration-3cf-ordinary-r2-045-observer.json",
+      "bytes": 883,
+      "sha256": "90fd016323e00697f437d49abc7b9e4f848ae82c89112564eaa10faa98cb8018"
+    },
+    "integration-3cf-ordinary-r2-045.log": {
+      "path": "session/validation/integration-3cf-ordinary-r2-045.log",
+      "bytes": 256377,
+      "sha256": "ade275162c7de04c87c7122281a5aed354bb8cdaf921a7212698734456d55662"
+    }
+  },
+  "normal_build_observation": {
+    "files": 169,
+    "bytes": 30328067,
+    "oleans": 21,
+    "reuse_policy": "Retain genuine normal outputs; only unchanged stock guard may decide valid reuse. No full success is implied."
+  },
+  "decision": "Incomplete; require a new actual full run and all subsequent formal gates. Never resume old handles or signal their recorded per-invocation PIDs."
+}

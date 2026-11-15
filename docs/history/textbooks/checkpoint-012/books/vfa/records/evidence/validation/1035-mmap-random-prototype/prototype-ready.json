@@ -1,0 +1,122 @@
+{
+  "ready_utc": "2026-11-03T18:13:58.317283+00:00",
+  "scope": "Frozen experimental source/binary and completed small boundaries; root alone owns separate bounded Lean probe. No production or formal approval.",
+  "source_and_binary_frozen": true,
+  "prototype_path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1035-mmap-random-prototype/libconaled_mmap_random.so",
+  "prototype_sha256": "5927638bd66ec29be8ea496f3a8fe9e13b3d17fd2b7dc7bcf9567d105009799b",
+  "opt_in": {
+    "CONALED_MMAP_RANDOM": "1",
+    "CONALED_MMAP_RANDOM_EXE": "Exact absolute executable pathname supplied to exec, matching AT_EXECFN",
+    "CONALED_MMAP_RANDOM_REPORT": "1 for one normal-exit stderr diagnostic; omitted by default"
+  },
+  "boundary_suite_passed": true,
+  "boundary_cases": [
+    {
+      "case": "optin_unset",
+      "returncode": 0,
+      "passed": true,
+      "wall_seconds": 0.045853095998609206
+    },
+    {
+      "case": "optin_zero",
+      "returncode": 0,
+      "passed": true,
+      "wall_seconds": 0.046465831001114566
+    },
+    {
+      "case": "optin_invalid",
+      "returncode": 0,
+      "passed": true,
+      "wall_seconds": 0.05044352800177876
+    },
+    {
+      "case": "identity_unset",
+      "returncode": 0,
+      "passed": true,
+      "wall_seconds": 0.08578051900258288
+    },
+    {
+      "case": "identity_mismatch",
+      "returncode": 0,
+      "passed": true,
+      "wall_seconds": 0.08323941399794421
+    },
+    {
+      "case": "identity_relative",
+      "returncode": 0,
+      "passed": true,
+      "wall_seconds": 0.07733301000189385
+    },
+    {
+      "case": "diagnostic_default_off",
+      "returncode": 0,
+      "passed": true,
+      "wall_seconds": 0.043269454003166175
+    },
+    {
+      "case": "advice_failure",
+      "returncode": 0,
+      "passed": true,
+      "wall_seconds": 0.051167664998502005
+    },
+    {
+      "case": "passthrough_libc",
+      "returncode": 0,
+      "passed": true,
+      "wall_seconds": 0.06926527199902921
+    },
+    {
+      "case": "passthrough_prototype",
+      "returncode": 0,
+      "passed": true,
+      "wall_seconds": 0.05631415400057449
+    }
+  ],
+  "libc_passthrough_results_match": true,
+  "protected_inputs_unchanged": {
+    "work-state/specs/1035-mmap-random-experiment.md": true,
+    "work-state/validation/1035-mmap-random-prototype/original-squares-input.json": true,
+    "work-state/tooling/pinned_native_toolchain.py": true,
+    "work-state/tooling/native_app_path.c": true
+  },
+  "input_identities": {
+    "mmap_random.c": {
+      "bytes": 4611,
+      "sha256": "c7eb24d83bc3554f1a9ac2f986e5c7dcf0913a44e24f65f782898a00a61ec807"
+    },
+    "mmap_random.h": {
+      "bytes": 570,
+      "sha256": "80911142ad8b8a6dd7836dfcbc8b8e25fdd7d2ec82486b922b41e72a5f613694"
+    },
+    "test_mmap_random.py": {
+      "bytes": 9301,
+      "sha256": "c06eb063b1d3b5438f603a57d51f7dac7a01b3e091eaabca6e70d269a0dc3cf1"
+    },
+    "run_boundary_tests.py": {
+      "bytes": 5016,
+      "sha256": "4ccfe2fc8443d88283240ed5d4bcd57828e0a27c48f09652c534516e4f4a4899"
+    },
+    "SOURCE_BASIS.md": {
+      "bytes": 5183,
+      "sha256": "b87f73b3797ebcd0bc2e3084f589b501168e1e4339a2cbe4d16cd61db656e240"
+    },
+    "prototype-build.json": {
+      "bytes": 2321,
+      "sha256": "4b56fbf68afa7ac57cba77d6719290584fac698e6ff959358aaebf860d3a4192"
+    },
+    "green-positive-test.json": {
+      "bytes": 3625,
+      "sha256": "dfa0ea2f22b9c0c3549e880c0a2a1a016fcd96ce59ee457a639a8e056415612f"
+    },
+    "boundary-suite.json": {
+      "bytes": 64212,
+      "sha256": "3c226910c744aba63e703c59bc044a3f89433b8527592a3ed80d1dc00c1d1885"
+    }
+  },
+  "excluded_test_only_library": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1035-mmap-random-prototype/libfail_madvise_test_only.so",
+  "root_owned_files_untouched": [
+    "original-squares-input.json",
+    "probe-original-squares.py"
+  ],
+  "lean_invocations_by_this_agent": 0
+}

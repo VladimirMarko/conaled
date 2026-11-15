@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T20:18:47.426243+00:00",
+  "candidate": "47f12b48b93a1e223b9f743e067685f12f4da5b1",
+  "terminal": {
+    "recorded_utc": "2026-11-04T20:18:47.426148+00:00",
+    "owned_session": 85675,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "113824",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "47f12b48b93a1e223b9f743e067685f12f4da5b1"
+  },
+  "actual_recorder_and_native_exits": [
+    0,
+    0
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-coordinate-readall-focused-attempt3-20261104/full.log",
+    "bytes": 3451,
+    "sha256": "1f6172a3f1fbf28e5dbd5b3ba82b8cff45ce52364a5f69398cc155cce70d06b1"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T201814Z-project-run-d05de983",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-coordinate-readall-focused-attempt3-20261104/native-records/start.json",
+      "bytes": 479,
+      "sha256": "195b52ec2cc13da616c8b2637d377269bf21a2443db1a6ee8cd662fa2cd13bd9"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-coordinate-readall-focused-attempt3-20261104/native-records/result.json",
+      "bytes": 631,
+      "sha256": "c72a9f7cb15b84552c7b465aed414460f2233de037fba508bfb80be1b4b13e42"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-coordinate-readall-focused-attempt3-20261104/native-records/output.log",
+      "bytes": 3174,
+      "sha256": "e160c47f59c9c0e499a8d00e2ffbca82fa8aae6f643682b39faf6951aeda380e"
+    }
+  },
+  "native_body_exact_outer_offset": 121,
+  "complete_closed_log": true,
+  "scope": "Both new read-plan/read-all modules and all connected cases; exact source additions focused-passed, actual selector composition and whole Chapter3 gates pending.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

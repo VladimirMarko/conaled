@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "coordinator": "/root/recovery_review",
+  "round": 3,
+  "recorded_at": "2026-11-14T03:37:28.355588+00:00",
+  "review_kind": "independent-source-report-reconciliation",
+  "original_full_spec_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+  "tree": "33d087744fc2435c29d60981ca0d79af629b8c8d",
+  "upstream_pin": "983d0b6b602b71541f182737011621a8805be27b",
+  "requirements_version": "2026-11-14-upstream-recovery-and-coverage",
+  "requirements_sha256": "5d48738af724152b67daf993fa0f3d2abd7c2eeb7a47b7e080aa7740de1e07ac",
+  "scope": {
+    "declared_paths": 483,
+    "changed_paths": 374,
+    "changed_lean_paths": 344,
+    "commits": 318,
+    "scope_identity": "2af6c974c630c10dd6d32dd3fc585dfcd5f9b9fc54ce85a349289296cf92030a",
+    "content_identity": "77e32c504c74e498c9a013c7fb269944dfcbb0c1f8c96cd8eb15e6e531755854",
+    "candidate_receipt": "intake/integration-candidate-r3.json",
+    "candidate_receipt_sha256": "9735a260a6d1ab62b5d0b132f87c226f053052526a877fc7047266ec18fca47c"
+  },
+  "axes": {
+    "Standards": {
+      "source_analysis": "complete",
+      "outcome": "Blocked",
+      "new_source_findings": 0,
+      "reviewer": "/root/recovery_review/standards"
+    },
+    "Spec": {
+      "source_analysis": "complete",
+      "outcome": "Blocked",
+      "new_source_findings": 0,
+      "reviewer": "/root/recovery_review/spec"
+    }
+  },
+  "approval": false,
+  "source_corrections_requested": [],
+  "finding_dispositions": {
+    "INT-ST-001": "Fixed, retained",
+    "INT-SP-001": "Blocking, open",
+    "inherited": "Retain canonical IDs and boundaries at fingerprinted registers; no automatic closures"
+  },
+  "reports": {
+    "intake/review-20261114/standards-r3.md": {
+      "sha256": "5b8d9fe977a842135b0282922195b2c0c87a864c84896c09e59fc5ab040726e6",
+      "bytes": 23951
+    },
+    "intake/review-20261114/standards-r3.json": {
+      "sha256": "7af4540650677b51ee36f68104f5a939d9902ca2a02b742d1f4506712d83b22f",
+      "bytes": 9510
+    },
+    "intake/review-20261114/spec-r3.md": {
+      "sha256": "fc833cd10a81c0361102c41aa15fb75f61cef1ccf7c8486b1a338730843c0d7e",
+      "bytes": 22727
+    },
+    "intake/review-20261114/spec-r3.json": {
+      "sha256": "eb683ad4ed572843406243120b322736d0e9285f19f266ff339c6257a3c7da09",
+      "bytes": 13941
+    }
+  },
+  "outside_git_inputs": {
+    "checkpoint/conaled-textbooks/books/common/REQUIREMENTS.md": {
+      "sha256": "5d48738af724152b67daf993fa0f3d2abd7c2eeb7a47b7e080aa7740de1e07ac",
+      "bytes": 8452
+    },
+    "checkpoint/conaled-textbooks/books/common/COVERAGE.md": {
+      "sha256": "3a643997082f7db88d92395e1239cbbc1c86af78dbe7d21c3a8adffaeb53cafa",
+      "bytes": 37543
+    },
+    "checkpoint/conaled-textbooks/books/common/analysis/donor-dispositions.json": {
+      "sha256": "3437ebcd64d5a4f1b9564698a79bd83ee6116f2073b47a2d4619b14115641e6b",
+      "bytes": 86393
+    },
+    "checkpoint/conaled-textbooks/books/common/ISSUES.json": {
+      "sha256": "1bc33b69ec1bee3868adcb049b31b99a9e7da4563c0a88ca2e0614ff30acdf13",
+      "bytes": 8145
+    },
+    "checkpoint/conaled-textbooks/books/pfds/records/evidence/reviews/common-integration-coordinator-r1-045.md": {
+      "sha256": "07fb1b0ea46e06a721ea603dbb99865597d844824f21d01b144659eb3ae1c6d6",
+      "bytes": 28777
+    }
+  },
+  "full_validation_at_cut": {
+    "path": "intake/full-validation-r3.json",
+    "sha256": "33951558afb5c06a6d3c33141d6279470eed3263bc5d74dcd87e0c5c92a6c28b",
+    "started_at": "2026-11-14T03:29:12.689406+00:00",
+    "status": "running; no terminal outcome yet",
+    "terminal_observed": false
+  },
+  "remaining": [
+    "Actual exact-candidate full successful check and exhaustive audit with matching verification record",
+    "Independent terminal-evidence continuation by same reviewers, both passing exact candidate",
+    "Root immediate candidate verification and final snapshot comparison",
+    "Canonical record update and verified durable checkpoint containing review reports"
+  ],
+  "durability": {
+    "checkpoint007": "Root reports verified durable candidate/pre-review checkpoint",
+    "new_reports_saved_by_reviewer": false,
+    "next_checkpoint_owner": "root"
+  },
+  "operations": {
+    "compiler_runs": 0,
+    "setup": 0,
+    "source_mutations": 0,
+    "index_ref_mutations": 0,
+    "checkpoint_mutations": 0,
+    "remote_mutations": 0
+  },
+  "markdown": {
+    "path": "intake/review-20261114/coordinator-r3.md",
+    "sha256": "c11162f4ae5399db0b91bc44d4bf047fed840484b7f5695bf1ec1d684d6de877"
+  }
+}

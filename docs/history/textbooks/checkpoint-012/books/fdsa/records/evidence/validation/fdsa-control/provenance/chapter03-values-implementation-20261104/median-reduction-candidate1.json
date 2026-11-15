@@ -1,0 +1,199 @@
+{
+  "recorded_utc": "2026-11-04T20:14:17.522967+00:00",
+  "candidate": "24b74c65e2b907f1a4cd8b8c72e22bba8f315eea",
+  "tree": "1a412f79a46a2850a199a6a8d8c88c4826e589ec",
+  "branch": "work/fdsa-ch03-values",
+  "status": "",
+  "fixed_stage_base": "979c4fcb1719a779ffda7462a6df385e876b7d4c",
+  "whole_chapter_review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "canonical_requirements_sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed",
+  "canonical_rows": 83,
+  "bounded_scope": [
+    "C03-053",
+    "C03-054"
+  ],
+  "targets": [
+    "Applications.Selection.MedianReduction",
+    "Applications.Resources.MedianReduction",
+    "Examples.MedianReduction"
+  ],
+  "source_status": "Uncompiled development candidate; no coordinator result received yet and no author compiler execution.",
+  "new_source_identities": [
+    {
+      "module": "Applications.Selection.MedianReduction",
+      "repository_path": "Applications/Selection/MedianReduction.lean",
+      "namespace": "Applications.Selection.MedianReduction",
+      "imports": [
+        "Applications.Selection.FixedRank",
+        "Applications.Selection.MedianOfMedians"
+      ],
+      "bytes": 8269,
+      "sha256": "902329504401dfb5ae2dbd2a62c6c7fa8d3dc9eec22d29d99b350282e57d608a",
+      "git_blob": "1e36217265e5dda7cd3f79f7ffdf1c15e702c4d4"
+    },
+    {
+      "module": "Applications.Resources.MedianReduction",
+      "repository_path": "Applications/Resources/MedianReduction.lean",
+      "namespace": "Resources.MedianReduction",
+      "imports": [
+        "Applications.Selection.MedianReduction",
+        "Applications.Resources.FixedRank",
+        "Applications.Resources.ListReversal"
+      ],
+      "bytes": 5640,
+      "sha256": "d38d65797526b67c775b44426c122f18c9912e32fab84481a2279c5eb324ff89",
+      "git_blob": "d99d7ea3b5a16a6877618df8cc2e62552e33039c"
+    },
+    {
+      "module": "Examples.MedianReduction",
+      "repository_path": "Examples/MedianReduction.lean",
+      "namespace": "Examples.MedianReduction",
+      "imports": [
+        "Applications.Resources.MedianReduction"
+      ],
+      "bytes": 7589,
+      "sha256": "d08959ce8687e1bc6db9dff78fb581c53b072e9db0436da465d9e42fdf652506",
+      "git_blob": "a123c6bfe01f3c667060cb9787d8ac06acb981c5"
+    }
+  ],
+  "new_public_names": 65,
+  "new_private_helpers": 0,
+  "prior_nine_source_identities_verified_unchanged": [
+    {
+      "repository_path": "Applications/Selection/CountRank.lean",
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d",
+      "git_blob": "5f6393df9fd804e4234eb16c8ecdcd93426952b3"
+    },
+    {
+      "repository_path": "Examples/SelectionCountRank.lean",
+      "bytes": 4423,
+      "sha256": "cc73980788882d39abe44672d89e6a3ce37dfe3b5f5788375255248e8b4a66d2",
+      "git_blob": "b43d7c7eeb5f2cc3134166a00100edf26e91d2a9"
+    },
+    {
+      "repository_path": "Applications/Sequences/Chunks.lean",
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493",
+      "git_blob": "c45bcb6427c002d3bab7c728dd6743458c8010fc"
+    },
+    {
+      "repository_path": "Examples/ListChunks.lean",
+      "bytes": 2683,
+      "sha256": "161e240f9c07db5b13f9abf5bf09782064adce4862e60fbe35f0eba483c76c78",
+      "git_blob": "adb9da5b16f1bef2e1e8fe7cbeee0698ea1b0859"
+    },
+    {
+      "repository_path": "Applications/Selection/MedianOfMedians.lean",
+      "bytes": 13797,
+      "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba",
+      "git_blob": "c348fd2b48ec0b40fa76aa30634406580f9063c0"
+    },
+    {
+      "repository_path": "Examples/MedianOfMedians.lean",
+      "bytes": 9092,
+      "sha256": "0bbbbdab0f2f41f42fd615231d04d29ebeb8f7ffd5cc83e2a6b832cbfcc25f0c",
+      "git_blob": "4803b5ce143a7501608810059c80bc263027c6a5"
+    },
+    {
+      "repository_path": "Applications/Selection/FixedRank.lean",
+      "bytes": 11391,
+      "sha256": "463e00dfd9eaac03dd2bec858eb64454d6c79abf03c80c8011019fb8af527395",
+      "git_blob": "9dd07004e3776b073f2786dbc31a105394e2f065"
+    },
+    {
+      "repository_path": "Applications/Resources/FixedRank.lean",
+      "bytes": 7633,
+      "sha256": "831a78121a2ee7d7db773dd335febb938d8dfc8e7dbe944bb4cb7d71ec202c94",
+      "git_blob": "36f8933c8ac1bcbc94f2432a06aa67fc5bd5b702"
+    },
+    {
+      "repository_path": "Examples/FixedRankSelection.lean",
+      "bytes": 7246,
+      "sha256": "c1ba9819d89af6a1d7f3c1678f10bed4b0614c63b385eb856144d315ebd955da",
+      "git_blob": "fe233b900bbdb3a9c874e79f1bdcf92bb7bb549b"
+    }
+  ],
+  "combined_author_public_names": 281,
+  "combined_named_private_helpers": 6,
+  "type_inputs_bound_to_current_candidate": [
+    {
+      "path": "CountRankStatements-v3.lean",
+      "bytes": 2490,
+      "sha256": "f777431218bc6b86d08f775f14bee9ca74747d5a66bec0908f4490f99fd28564",
+      "public_names": 40
+    },
+    {
+      "path": "ChunksStatements-v2.lean",
+      "bytes": 2007,
+      "sha256": "6eec8c6ceb180a3f9e262f6e6766ce1597fd9f018af6e25697e6e520a3046dff",
+      "public_names": 35
+    },
+    {
+      "path": "MedianOfMediansStatements-v2.lean",
+      "bytes": 3289,
+      "sha256": "51167fa99bb3da9bdbba996a7ba21972b49a0a16f7cc5367201477b8a46064cd",
+      "public_names": 55
+    },
+    {
+      "path": "FixedRankStatements.lean",
+      "bytes": 5262,
+      "sha256": "788a23b75a1b1f155f1500718f3705a1f719cb37a0295f4a76066e1d05bee7fa",
+      "public_names": 86
+    },
+    {
+      "path": "MedianReductionStatements.lean",
+      "bytes": 4245,
+      "sha256": "d544c9616e72bdd5c046b208d13d989f8b2ca384c8915ce25e95970ff278fe0c",
+      "public_names": 65
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "median-reduction-starting-state.json",
+      "bytes": 5408,
+      "sha256": "bc91ca76622882704b16ad70cdaae305ceb914541c27d3bd6b22510976c7d000"
+    },
+    {
+      "path": "median-reduction-precommit.json",
+      "bytes": 3421,
+      "sha256": "b479da6c7bcbc74366e7b3b0450c392d5f9f0545f5bded29d7d0105efcabf680"
+    },
+    {
+      "path": "median-reduction-inventory.json",
+      "bytes": 35935,
+      "sha256": "901b2d98c3cefcb242ee57b3d83ab8beced1ea88d7986cdd538514046d1c00a7"
+    },
+    {
+      "path": "MedianReductionStatements.lean",
+      "bytes": 4245,
+      "sha256": "d544c9616e72bdd5c046b208d13d989f8b2ca384c8915ce25e95970ff278fe0c"
+    },
+    {
+      "path": "median-reduction-review-note.md",
+      "bytes": 8959,
+      "sha256": "35e08f24c0dc8ca8c816c4da791785238680391030292692126524ec1cb9f6fc"
+    }
+  ],
+  "full_source_readbacks": [
+    "fcb9d0",
+    "219ab0"
+  ],
+  "precommit_commit_readback": "8797de",
+  "git_diff_cached_check_exit": 0,
+  "author_lean_lake_execution": false,
+  "remaining_assigned": [
+    "C03-055",
+    "C03-056",
+    "C03-057",
+    "C03-058"
+  ],
+  "shared_followup": "Root to add the three public module imports and reconstruction map entries when composing Chapter3. No shared file was edited.",
+  "mandatory_pending": [
+    "Focused exact candidate check",
+    "Actual emitted types and assessment",
+    "Full composed Chapter3 check and exhaustive audit",
+    "Both independent review axes over complete 83-row scope",
+    "Immediate verification before local integration"
+  ]
+}

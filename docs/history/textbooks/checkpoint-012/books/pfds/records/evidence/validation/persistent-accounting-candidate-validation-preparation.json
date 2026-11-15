@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-11-03T02:00:16.438732+00:00",
+  "candidate": "eb61c35f911ad0fac36758c878559eaf5f795cfa",
+  "own_full_gate_predecessor": "3dd930c3e3989f3e5530463f3ac937a629551335",
+  "prepared_only": true,
+  "helpers": [
+    {
+      "file": "validation/warm-persistent-accounting-candidate-focused.py",
+      "source": "validation/warm-persistent-accounting-focused-outputs.py",
+      "source_sha256": "85face125b39980b0e94acbe8d92baeb7e0c27acdc86417abb9ce1eff98b19c2",
+      "sha256": "87b10ef09eedab7b2880a02f4d6d5aa0056eb528bc04605f13a59794c2b472a8"
+    },
+    {
+      "file": "validation/warm-persistent-accounting-candidate.py",
+      "source": "validation/warm-pure-cache-counts-candidate.py",
+      "source_sha256": "77992721ec1d3490818effff3f8220218e0318e43be256e861d2bfba14ce6e25",
+      "sha256": "20a251e805e1ce6f1a661265d830619344cdc2eef729a6a67069b36f8ea3d425"
+    },
+    {
+      "file": "validation/run-persistent-accounting-candidate.py",
+      "source": "validation/run-pure-cache-counts-candidate.py",
+      "source_sha256": "82f421bb491e86dab00439874841a1521e65c82d5a6563593afea441b37464fd",
+      "sha256": "84bc3c929d088c05aca29725d423d06bac36440a9ba35c1bbcf67b4663c2f1ba"
+    }
+  ],
+  "policy": "Stock guard, artifact hash adapter, source identity selection, clean checks, full command and audit remain unchanged. Focused ordinary outputs copy no approval; future whole-candidate warming requires actual passed3dd verification. Only the focused-output copy may run before3dd; no own full gate has run."
+}

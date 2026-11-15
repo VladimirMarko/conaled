@@ -1,0 +1,31 @@
+{
+  "start": "2026-11-02T18:07:43.226415+00:00",
+  "end": "2026-11-02T18:15:59.478460+00:00",
+  "command": [
+    "/nix/store/8lza1b8nnci8lmm4q68p0l33pg975s0q-nix-2.35.4/bin/nix",
+    "--extra-experimental-features",
+    "nix-command flakes",
+    "--option",
+    "build-users-group",
+    "",
+    "--option",
+    "sandbox",
+    "false",
+    "--option",
+    "eval-cache",
+    "false",
+    "develop",
+    "--offline",
+    "--command",
+    "env",
+    "LEAN_NUM_THREADS=1",
+    "lake",
+    "build",
+    "Examples.SuspensionMachine",
+    "Applications.Suspensions.Prefix",
+    "Examples.SuspensionNamespaces"
+  ],
+  "exit_code": 1,
+  "log": "/workspace/scratch/ca9a61d0bf30/active-validation/suspension-machine-r4.log",
+  "scope": "focused development only"
+}

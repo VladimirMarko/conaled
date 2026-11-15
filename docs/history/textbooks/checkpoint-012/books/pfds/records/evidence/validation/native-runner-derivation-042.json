@@ -1,0 +1,15 @@
+{
+  "recorded_at": "2026-11-03T16:47:50.615237+00:00",
+  "derived_from": "session/validation/run-direct-validation.py",
+  "original_sha256": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b",
+  "native_runner": "session/validation/run-native-validation.py",
+  "native_runner_sha256": "15e3d0e41841c688fb1e15bbbf4834beb13784ea4ab241f24566297eea94d559",
+  "changes": [
+    "Uses native helper and includes compatibility source plus latest user requirement in captured controller inputs",
+    "Focus candidate is corrected956c4b06; full901 unchanged",
+    "Record explicitly marks native runtime; verify rejects other runtime records",
+    "All original exclusive-record, locking, frozen-input, actual-exit, stock-fresh and final-verify behavior retained"
+  ],
+  "old_evidence_not_reclassified": true,
+  "acceptance": false
+}

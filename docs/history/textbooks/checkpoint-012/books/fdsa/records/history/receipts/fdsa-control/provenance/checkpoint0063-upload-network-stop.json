@@ -1,0 +1,10 @@
+{
+  "recorded_utc": "2026-11-03T02:30:50.665431+00:00",
+  "prior_evidence": "provenance/checkpoint0063-upload-network-observation.json",
+  "action": "SIGTERM sent only to exact owned checkpoint0063 azcopy process after matching PID/start ticks/parent/arguments and no finalization request. Parent upload helper is allowed to collect the failure result.",
+  "pid": 718822,
+  "start_ticks": "10629548",
+  "finalization_requested": false,
+  "finalization_issued": false,
+  "reason": "Repeated explicit local dial-tcp operation-not-permitted errors; latest transfer status reports zero bytes. Retry is not yet started. No C1 process/source/cache action."
+}

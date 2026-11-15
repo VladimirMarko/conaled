@@ -1,0 +1,20 @@
+{
+  "observed_utc": "2026-11-04T05:49:30.899658+00:00",
+  "session": 62004,
+  "actual_terminal_exit_code": 1,
+  "candidate": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+  "kit_log_directory": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T040241Z-project-run-2354e0e9",
+  "output_bytes": 46269,
+  "output_sha256": "56471008639548ece6f7fa0b714d4764ebc9cbb27578e6ff5ef8b85ed589c7f7",
+  "kit_exit_code": 1,
+  "timed_out": false,
+  "recorder_error": null,
+  "successful_ordinary_module_count": 602,
+  "failed_ordinary_module_position": 603,
+  "failed_module": "Examples.IndefiniteService",
+  "diagnostic": "Examples/IndefiniteService.lean:104:6: error(lean.unknownIdentifier): Unknown constant Nat.size_pow; line101 unsolved False goal",
+  "verification_present": false,
+  "exhaustive_audit_executed": false,
+  "gate_passed": false,
+  "ordinary_available_bytes": 21823070208
+}

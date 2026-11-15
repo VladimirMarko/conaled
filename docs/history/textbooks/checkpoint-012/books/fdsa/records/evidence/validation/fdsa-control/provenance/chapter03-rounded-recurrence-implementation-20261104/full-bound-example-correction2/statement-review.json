@@ -1,0 +1,42 @@
+{
+  "recorded_utc": "2026-11-04T19:51:34.273792+00:00",
+  "candidate": "95406b83968e5b438e206c06f9797804664e0170",
+  "parent": "4badcd5a7cab38aed7ff6c178c0649ae8ec63228",
+  "original_full_scope_base": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "author_statement_review_only": true,
+  "full_chapter_obligations": 83,
+  "all35_public_headers_identical_to_parent": true,
+  "only_header_delta_since_original_author_candidate": "Root changed proof binder prefix to hprefix in affine_bound_of_prefix. Mathematical premise, order and all constants unchanged; complete before/after headers retained in root correction record.",
+  "this_correction": "In two local proof facts, express the input literal as the cast of Nat6/Nat21. The unfolded roundedQuarter equations already have exactly this cast. The same Nat.ceil_eq_iff and norm_num proofs establish the unchanged child values2/6 before rewriting the actual recurrence.",
+  "all_other33_declaration_source_blocks_unchanged": true,
+  "actual_recursive_definition_unchanged": true,
+  "all_expected_values_unchanged": {
+    "roundedQuarter_zero": 1,
+    "roundedQuarter_five": 6,
+    "roundedQuarter_six": 13,
+    "roundedQuarter_twenty_one": 48
+  },
+  "all_other_cases_unchanged": [
+    "zero source witnesses and equality slope",
+    "negative intercept and offsets",
+    "negative constant toll",
+    "sharp bound24n+6",
+    "real and natural existence clients",
+    "noncontracting affine-step obstruction"
+  ],
+  "signed_domains_constants_and_quantifiers_unchanged": true,
+  "imports_options_unchanged": true,
+  "full_original_statement_review": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-continuation1/statement-review.json",
+    "bytes": 4150,
+    "LF_lines": 74,
+    "sha256": "d129dfbe5361432d1783a8398114d5a8e66a428c1e10dde85f5cd72ff7d9b63b"
+  },
+  "core_focused_build_observed_at_parent": true,
+  "full_candidate_check_or_audit_not_observed": true,
+  "new_candidate_focus": "pending root exact-candidate result",
+  "actual_type_credit": 0,
+  "compiler_executed_by_author": false,
+  "independent_axes_not_replaced": true,
+  "acceptance_claimed": false
+}

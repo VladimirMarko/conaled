@@ -1,0 +1,68 @@
+--- a/docs/RESUME.md
++++ b/docs/RESUME.md
+@@ -52,11 +52,17 @@
+ CONALED_KIT="$(pwd -P)/support/native-kit"
+ CONALED_NATIVE_STATE="/absolute/new/conaled-native-state"
+ CONALED_PROJECT="/absolute/path/to/selected/conaled"
++CONALED_SETUP_THREADS="$(python3 -B -c 'import os; print(os.cpu_count() or 1)')"
+ 
+ python3 -B "$CONALED_KIT/conaled_native.py" verify
+ python3 -B "$CONALED_KIT/conaled_native.py" --state "$CONALED_NATIVE_STATE" \
+-  setup --project "$CONALED_PROJECT" --threads 1
++  setup --project "$CONALED_PROJECT" --threads "$CONALED_SETUP_THREADS"
+ ```
++
++The setup-only thread argument uses the detected host CPU count because the
++immutable kit requires a positive integer. It is not the full-build setting.
++For project commands, use the uncapped child-command prefix below. Do not copy
++fixed thread counts from the kit's historical examples or earlier run receipts.
+ 
+ The kit requires Linux x86-64/glibc, Python 3.11+, a host C compiler, Git, curl
+ and zstd as specified in its README. Its `setup` checks the exact bytes of
+@@ -87,12 +93,24 @@
+ 
+ ```sh
+ python3 -B "$CONALED_KIT/conaled_native.py" --state "$CONALED_NATIVE_STATE" \
+-  run --project "$CONALED_PROJECT" --threads 1 -- ./check.sh --candidate HEAD
++  run --project "$CONALED_PROJECT" -- \
++  env -u LEAN_NUM_THREADS PYTHONDONTWRITEBYTECODE=1 ./check.sh --candidate HEAD
+ python3 -B "$CONALED_KIT/conaled_native.py" --state "$CONALED_NATIVE_STATE" \
+-  run --project "$CONALED_PROJECT" --threads 1 -- ./check.sh --verify-candidate HEAD
++  run --project "$CONALED_PROJECT" -- \
++  env -u LEAN_NUM_THREADS PYTHONDONTWRITEBYTECODE=1 ./check.sh --verify-candidate HEAD
+ ```
+ 
+-The same `run ... --` prefix can launch `python3 scripts/review_snapshot.py ...`
++The user's current instruction removes agent-imposed resource caps. The native
++launcher inserts `LEAN_NUM_THREADS=1` before executing its child; `env -u` removes
++it so ordinary hardware-based defaults apply. Supply no replacement thread count,
++compiler-process ceiling, memory/CPU-time limit, affinity, priority reduction or
++full-run deadline. Preserve host/platform controls and every validation check.
++The launcher's unchanged metadata records its pre-child default; retain that
++record and observe the effective child environment separately. See
++[VALIDATION-HANDOFF](../books/common/VALIDATION-HANDOFF.md) for the current gate.
++
++The same `run ... -- env -u LEAN_NUM_THREADS PYTHONDONTWRITEBYTECODE=1` prefix
++can launch `python3 -B scripts/review_snapshot.py ...`
+ with the actual scope manifest and snapshot arguments required by the checkout's
+ review-loop instructions, or a focused `lake build ACTUAL_MODULE_TARGET` during
+ development. Wrap the whole command; do not replace the current checker with an
+@@ -110,6 +128,7 @@
+ source, and return to useful paper mathematics or source/statement review. Keep
+ new formal work explicitly uncompiled. An upload blocker instead stops project
+ work under DURABILITY; it is not permission to keep accumulating paper work.
++This setup budget is not a deadline on the authorized full-build attempt.
+ 
+ Keep installation state, downloads, dependency caches and build outputs outside
+ the checkpoint. Retain a compact exact input/command/outcome record, including
+--- a/books/common/VALIDATION-HANDOFF.md
++++ b/books/common/VALIDATION-HANDOFF.md
+@@ -120,7 +120,7 @@
+ or blocked. A real successful local result belongs to its exact candidate and
+ can be reconciled through the existing review loop.
+ 
+-[Current native command settings](EXECUTION.md) is the single current
++[RESUME's native route](../../docs/RESUME.md#native-route) is the single current
+ owner of the launcher prefix and its acceptance-command examples. Use that prefix
+ for the checker commands above; do not recover a fixed thread count from an old
+ receipt or the immutable kit's historical examples. It removes the launcher's

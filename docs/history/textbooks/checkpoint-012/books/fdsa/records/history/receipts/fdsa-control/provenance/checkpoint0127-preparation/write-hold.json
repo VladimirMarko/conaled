@@ -1,0 +1,51 @@
+{
+  "recorded_utc": "2026-11-04T20:36:14.011534+00:00",
+  "checkpoint": "conaled-fdsa-0127-selection-algorithm-progress",
+  "all_writers_held": true,
+  "compiler_live": false,
+  "accepted_head": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "qualified_candidate": "7758fdcd1d46cee392eee155d74311aeb45322a5",
+  "closed_runs": 54,
+  "held_heads": {
+    "conaled": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "conaled-ch01-review": "7758fdcd1d46cee392eee155d74311aeb45322a5",
+    "conaled-ch02-quicksort": "7758fdcd1d46cee392eee155d74311aeb45322a5",
+    "conaled-ch02-random-pivot": "bf6e86970ea873d8b890cdceedcfd262bbacbb80",
+    "conaled-ch02-top-down": "d1a2299440c6cb327887e5d60f08ce08b046a8ab",
+    "conaled-ch02-natural-runs": "36dba1d37672e0e09f838b229240b94fd567fb2c",
+    "conaled-ordinary-merge": "47f12b48b93a1e223b9f743e067685f12f4da5b1"
+  },
+  "held_statuses": {
+    "conaled": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.urOBCL\n",
+    "conaled-ch01-review": "",
+    "conaled-ch02-quicksort": "",
+    "conaled-ch02-random-pivot": "",
+    "conaled-ch02-top-down": "?? Applications/Resources/Selection.lean\n?? Examples/SelectionCosts.lean\n",
+    "conaled-ch02-natural-runs": "",
+    "conaled-ordinary-merge": ""
+  },
+  "drafts": [
+    {
+      "worktree": "conaled-ch02-top-down",
+      "path": "Applications/Resources/Selection.lean",
+      "bytes": 20262,
+      "sha256": "edf5257473fc51bf6db3dd7d3a5bfe492d5171665f7756495db1c16da93209fd"
+    },
+    {
+      "worktree": "conaled-ch02-top-down",
+      "path": "Examples/SelectionCosts.lean",
+      "bytes": 12974,
+      "sha256": "77c709afdf35107ead23210b8f64fe8ad7db77c1463e7a56a39eabc6750d6965"
+    }
+  ],
+  "author_holds": {
+    "values": "counterfamily-correction1-hold.json; a8fa47 actual0; candidate7758fdc clean",
+    "random": "mean-correction3-20261104/author-hold.json; 89dd11 actual0; candidatebf6e869 clean",
+    "mom": "nested-selector-stage1-20261104/checkpoint0127-author-hold.json; d08575 actual0; d1a2299 with exact2 drafts",
+    "query": "implementation-author-readback-and-c03-083-plan-20261104.md;4c27a8 actual0;47f12b clean",
+    "root_group": "36dba1d clean; all root source writes held"
+  },
+  "operations_inspector": "read-only only, no source/provenance writes",
+  "reviewers": "prior accepted-axis reports remain held; no C3 independent source review requested yet",
+  "root_remaining_capture_writes_only": true
+}

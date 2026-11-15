@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-04T11:27:55.707951+00:00",
+  "review_axis": "Spec",
+  "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+  "same_full_original_scope": true,
+  "complete_outer_log_lines_read": [
+    1,
+    31
+  ],
+  "complete_native_log_lines_read": [
+    1,
+    28
+  ],
+  "native_log_read_as_exact_contiguous_outer_bytes": true,
+  "complete_request_start_result_secured_evidence_read": true,
+  "outer_and_native_exit": 0,
+  "source_clean_unchanged": true,
+  "native_original_copies_exact": true,
+  "outer_started": "2026-11-04T11:24:50.241771+00:00",
+  "outer_completed": "2026-11-04T11:26:02.517817+00:00",
+  "outer_elapsed_seconds": 72.27580664999914,
+  "native_started": "2026-11-04T11:24:50.315628+00:00",
+  "native_completed": "2026-11-04T11:26:02.470570+00:00",
+  "native_elapsed_seconds": 72.15154920599889,
+  "qualified_lean_threads": "1",
+  "requested_targets": [
+    "Examples.MappedPotentialAccounting",
+    "Examples.PotentialAccounting",
+    "Examples.FIFOContracts",
+    "Examples.RandomAccessEndCosts",
+    "Examples.SharedDemand",
+    "Examples.SymmetricLists"
+  ],
+  "all_six_requested_targets_successful": true,
+  "new_built_target": "Examples.MappedPotentialAccounting (63s)",
+  "other_targets": "Retained preceding qualified stock build and replay/up-to-date lineage; no invented individual new build duration.",
+  "Lake_job_count": 984,
+  "Lake_job_count_is_not_audit_or_module_count": true,
+  "warnings": {
+    "count": 17,
+    "exact_warning_multiset_equal_attempt2": true,
+    "kind": "Module-system import advisories",
+    "new_warning_text": false,
+    "blanket_accepted_baseline_claim": false,
+    "lines": [
+      "warning: Applications/Resources/BinaryCounter.lean: imports `Mathlib.Data.List.Iterate` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Resources/BinaryCounter.lean: imports `Mathlib.Logic.Function.Iterate` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Resources/Measured.lean: imports `Mathlib.Algebra.Group.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Resources/Measured.lean: imports `Mathlib.Algebra.Order.Monoid.Unbundled.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Resources/Potential.lean: imports `Mathlib.Algebra.Order.Group.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Resources/RandomAccess/Lookup.lean: imports `Mathlib.Data.Nat.Log` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Resources/RandomAccess/Observation.lean: imports `Mathlib.Algebra.Group.Nat.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Resources/SharedDemand.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Resources/SharedDemand.lean: imports `Mathlib.Logic.Function.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Sequences/Symmetric/Core.lean: imports `Mathlib.Data.List.Infix` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Examples/MappedPotentialAccounting.lean: imports `Mathlib.Algebra.FreeMonoid.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Examples/MappedPotentialAccounting.lean: imports `Mathlib.Algebra.Group.TypeTags.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Examples/MappedPotentialAccounting.lean: imports `Mathlib.Basic.Real.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Examples/MappedPotentialAccounting.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Examples/PotentialAccounting.lean: imports `Mathlib.Algebra.FreeMonoid.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Examples/PotentialAccounting.lean: imports `Mathlib.Algebra.Group.TypeTags.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: SquareKit/ListFusion.lean: imports `Mathlib.Data.List.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file"
+    ]
+  },
+  "files": [
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt4/request.json",
+      "bytes": 922,
+      "lines": 26,
+      "sha256": "4aa50751940755ab1df9a854319b77317abb5f2a4354cb625732b33a7acb3560"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt4/start.json",
+      "bytes": 1124,
+      "lines": 31,
+      "sha256": "5e76641dd32bfc319a74fde6dbdfada31cb1038dfd26a46401fdc991602f7e3e"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt4/result.json",
+      "bytes": 1345,
+      "lines": 36,
+      "sha256": "063eafe3417cd0b0bbb49743f6bc139474ada027305c886ca3d2fcc14884debf"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt4/full.log",
+      "bytes": 4666,
+      "lines": 31,
+      "sha256": "af30e36b8363ec4d16eb2702a5c50f49fe51b7117e455607254fed7cc840c19c"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt4/native/start.json",
+      "bytes": 604,
+      "lines": 18,
+      "sha256": "abefdc3962662c3aa6b838da182b6def96cdeac390a790acb6bf51bfae691b4d"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt4/native/result.json",
+      "bytes": 756,
+      "lines": 23,
+      "sha256": "3cae68a0e923f2eb61c06515e460085071019ea8f8dceeaa83190908468002a8"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt4/native/output.log",
+      "bytes": 4293,
+      "lines": 28,
+      "sha256": "b97599f2e000a668dea9db94216129fd08c3b885b1ee6b867fe95c077bab03fd"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt4/secured-terminal.json",
+      "bytes": 1222,
+      "lines": 35,
+      "sha256": "8ad749aa431a3205c5e370b3852e53497346d4302edd7b5d3a9e56fa933100d3"
+    }
+  ],
+  "findings": {
+    "XP01-DOC-001": "Resolved for Spec at E; unchanged map at T.",
+    "XP01-ELAB-001": "Resolved for Spec by E core build; exact core retained at T.",
+    "XP01-ELAB-002": "Resolved for Spec at T by complete original-scope source/correction2 assessment plus actual successful focused4."
+  },
+  "overall": "Blocked pending explicit actual20 qualification/read, accepted incorporation and full candidate gates.",
+  "actual_type_credit": 0,
+  "full_check_or_audit_credit": false,
+  "candidate_verification_present": false,
+  "no_reviewer_runtime_or_source_action": true,
+  "request_exact_subset_of_recorded_start": true
+}

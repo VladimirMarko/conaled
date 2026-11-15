@@ -1,0 +1,163 @@
+{
+  "axis": "Standards",
+  "recorded_utc": "2026-11-05T00:32:47.979670+00:00",
+  "outcome": "Blocked; whole source review and final validation incomplete",
+  "current_immutable_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+  "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "frozen_obligations": 83,
+  "scope": "Same original Q-to-final whole-task review; accepted XR reuse retained and explicitly reconciled, not a narrowed scope",
+  "previous_progress": {
+    "path": "provenance/chapter03-standards-review-20261104/progress-after0135-rounded-recurrence.json",
+    "bytes": 7359,
+    "sha256": "75f055a5bb6da2f1cb6d1c36bd06f5e3cd127e792e893f5624cdb6b0c919f780"
+  },
+  "newly_assessed_sources": [
+    {
+      "path": "Applications/Resources/SelectionRecurrence.lean",
+      "bytes": 6560,
+      "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e",
+      "lines": 165,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Examples/SelectionRecurrence.lean",
+      "bytes": 2272,
+      "sha256": "6599e51e8d6ea0197d74d2ca43076a355a9c131ce453f4a25c6c3bf086d99971",
+      "lines": 61,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "bytes": 11646,
+      "sha256": "0dc225b3009a612bea521813fda96789629fc486201cd9998bd6a72d6fdb9eed",
+      "lines": 259,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "bytes": 5638,
+      "sha256": "bfcb81cf7de89516487aedf12fc223df534fa9ca2a4a964edb872023c45beba3",
+      "lines": 126,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Applications/Selection/OutsidePivot.lean",
+      "bytes": 6444,
+      "sha256": "22ceec39e94410200dda20d4224a87518aa001eb127605f02fe6961c01a97809",
+      "lines": 143,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Examples/OutsidePivot.lean",
+      "bytes": 3845,
+      "sha256": "0c2feb488fd784937c8888a3e48e31b32a307b96bcefb6178d7c75274afdb275",
+      "lines": 90,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Applications/Resources/SelectionEnvelope.lean",
+      "bytes": 3159,
+      "sha256": "e4d1ca2054a7509a082340448b77f95a56380c8abab41da46b3b817fb8dab754",
+      "lines": 80,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Examples/SelectionEnvelope.lean",
+      "bytes": 1856,
+      "sha256": "02fedd2ffe6def3a5f6794fa90c01cdd90d982276b089aa488247b116c4eb3dd",
+      "lines": 50,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    }
+  ],
+  "source_read_receipts": {
+    "selection_scalar_core_and_example": "8eab7b",
+    "group_scalar_core": "3ae6ff",
+    "group_scalar_example_and_outside_pivot_pair": "57739e",
+    "envelope_pair": "805994"
+  },
+  "actual_types": {
+    "index": {
+      "path": "provenance/chapter03-assembly2-statement-inputs-20261104/actual-type-block-index.json",
+      "bytes": 382223,
+      "sha256": "b89adf0160b2a887c5046917d6ac04131e826e3d6dd4d7e31b0edc0ab62961a2"
+    },
+    "assessed_inclusive_ranges": [
+      [
+        497,
+        597
+      ],
+      [
+        637,
+        656
+      ]
+    ],
+    "count": 121,
+    "bytes": 86924,
+    "concatenated_sha256": "7007d3ada49416a56a51c45634533a2f8668db8d13833a5fa9d1110d59dd9cab",
+    "full_block_read_receipts": {
+      "497-512": "aa89b7",
+      "513-524": "f80c0b",
+      "525-549": "13389f",
+      "550-567": "5470c8",
+      "568-581": "d1f6be",
+      "582-597": "df2128",
+      "637-656": "1952cb"
+    },
+    "cumulative_semantic_actual_blocks": 682,
+    "cumulative_original_index_ranges": [
+      [
+        0,
+        656
+      ],
+      [
+        740,
+        752
+      ],
+      [
+        781,
+        791
+      ]
+    ],
+    "additional_actual_blocks": "One new CountRank checked client at2ff47bda",
+    "boundary": "Secured prefix38 observations plus exact unchanged source correspondence; not final-candidate output qualification or exhaustive-audit credit"
+  },
+  "assessment": {
+    "selection_scalar_recurrence": "Total Nat majorant F has base483*n for n<=20 and actual rounded children ceil(n/5),ceil(7*n/10+3) otherwise, with toll19*n+54. Independent child descent makes the definition total. pivotSize decreases exactly for n>1 and sideSize exactly for n>13; casts, natural ceilings and n=0 were inspected. Monotonicity handles crossing the cutoff and compares recursive children. Existential Nat linear witnesses precede every n, then the Growth bridge proves Real BigO. This scalar result alone does not assert an implementation cost. Checked cases include0,13/14,20/21/22,F21=1419,F22=1438 and the zero/intercept boundary.",
+    "general_group_scalar_recurrence": "The half-group size is natural floor d/2 before the Real cast. For positive d the fractions sum to(d+floor(d/2)+2)/(2*d); contraction is exactly2<d-floor(d/2), equivalently d>=5, hence odd>=5/even>=6. d=3/4 equality is a limitation of this recurrence argument, not an impossibility theorem. Actual chunk bounds feed the conservative rounded side child with offset d. Cutoff, independent child descent and total majorant precede monotonicity, uniform bound and BigO. Cases expose d=0,1,2,3,4; exact cutoffs for5/6/7/8; actual first recursive children and values; the book-specific right offset3 is preserved separately from generic d.",
+    "outside_pivot_nonprogress": "Uses actual partition and dispatch. A pivot below every element preserves the full input and rank; above every element requires a valid rank for that statement. A local deterministic policy equation for the nonempty input suffices to show the same state at every fuel depth and therefore None for every finite fuel. Valid-rank specification returns Some, so the mismatch is observable. No claim of nonprogress for arbitrary policies or invalid ranks. Checked clients include both endpoints, duplicates, negative Ints, singleton/empty, invalid-above behavior and an in-range comparison.",
+    "finite_envelope": "Defines an explicitly coarse finite size-prefix envelope, not a runtime or linear-complexity theorem. Recursive envelope uses the maximum of the small quadratic branch and two prior envelopes plus a linear toll. Proved monotonicity, small/invalid bounds, two-child transfer with strict smaller-size premises, and finite-prefix scalar maxima. Clients check exact small values, concrete charged composition, failure of a nonshrinking-child inequality and arbitrary cutoff prefixes.",
+    "restrictions": "All eight files and their checked uses were read in full; actual expanded types were read in full for all121 new blocks. No new concrete finding or restricted proof shortcut was identified. Relevant Growth bridge was inspected separately."
+  },
+  "cumulative_coverage": {
+    "new_chapter_source_files_read_fully": 41,
+    "new_chapter_source_files_source_and_type_assessed": 37,
+    "accepted_XR_formal_modules_reused": 2,
+    "new_chapter_source_files_not_yet_complete": 39,
+    "full_read_but_pending_actual_type_assessment": [
+      "Applications/Resources/SelectionAuxiliary.lean",
+      "Examples/SelectionAuxiliary.lean",
+      "Applications/Resources/SelectionMedians.lean",
+      "Examples/SelectionMedians.lean"
+    ],
+    "pending_source_read_receipts": [
+      "37bff9",
+      "1152e9",
+      "690a55"
+    ],
+    "output_recovery": "Examples/SelectionAuxiliary first40 lines were reread in1152e9 after earlier aggregate output truncation; no unread part is being claimed complete."
+  },
+  "findings": {
+    "C03-SPEC-USE-001": "Resolved",
+    "C03-STD-DOC-001": "Resolved",
+    "new_findings": []
+  },
+  "remaining": "Unfinished Chapter3 source, actual types, relevant private helpers and checked uses; complete chapter correspondence; universal endpoint trace/factorial mass/triangular scan/unbounded source-cost family; final immutable candidate qualification, complete normal check and exhaustive audit, both independent outcomes and immediate verification. The earlier prefix38 audit SIGKILL9 remains non-success. Reviewer ran no compiler/build/audit commands."
+}

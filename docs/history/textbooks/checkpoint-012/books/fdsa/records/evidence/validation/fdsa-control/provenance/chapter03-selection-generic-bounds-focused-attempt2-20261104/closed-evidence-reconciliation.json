@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T22:00:30.836481+00:00",
+  "candidate": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330",
+  "terminal": {
+    "recorded_utc": "2026-11-04T22:00:30.836357+00:00",
+    "owned_session": 83307,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "c5dbe5",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-generic-bounds-focused-attempt2-20261104/full.log",
+    "bytes": 9652,
+    "sha256": "8c3270d0a417fd57f174975cfbac76f4dd8189dbd241a7be39d8d6fc42a63cc6"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T220002Z-project-run-d5033d99",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-generic-bounds-focused-attempt2-20261104/native-records/start.json",
+      "bytes": 489,
+      "sha256": "dd043c1291d637cf9f870e6089bdfb4432012454147fb8827ef509313307fb9d"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-generic-bounds-focused-attempt2-20261104/native-records/result.json",
+      "bytes": 642,
+      "sha256": "cba1fb89599f22719d559156359a3851908074c1c47050466f8787cb7ab350d7"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-generic-bounds-focused-attempt2-20261104/native-records/output.log",
+      "bytes": 9365,
+      "sha256": "181e8cc4f74c1ea7db600f2872b30b1c68657ad9346e72456da0ad83fd5163e7"
+    }
+  },
+  "native_body_exact_outer_offset": 131,
+  "complete_closed_log": true,
+  "scope": "Second focused actual generic linear-cost pair only; no whole-project acceptance gates credited.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

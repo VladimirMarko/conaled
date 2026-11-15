@@ -1,0 +1,35 @@
+{
+  "started_at": "2026-11-03T00:37:08.300293+00:00",
+  "status": "completed",
+  "precheck": "validation/inactive-development-build-cleanup-precheck.json",
+  "scope": "Only four inactive reproducible private build directories; retain current exact candidate outputs, every source/ref, shared dependency and raw validation record.",
+  "removed": [
+    {
+      "checkout": "validation-purity",
+      "candidate": "ea8afa12706d30cdc69ece1a172d5f21a3ea1809",
+      "path": "/workspace/scratch/ca9a61d0bf30/validation-purity/.lake/build",
+      "source_after": "clean and same commit"
+    },
+    {
+      "checkout": "purity-foundation",
+      "candidate": "501a95463f455b52ea839eb8bbcf6ab9379862e4",
+      "path": "/workspace/scratch/ca9a61d0bf30/purity-foundation/.lake/build",
+      "source_after": "clean and same commit"
+    },
+    {
+      "checkout": "suspension-foundation",
+      "candidate": "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+      "path": "/workspace/scratch/ca9a61d0bf30/suspension-foundation/.lake/build",
+      "source_after": "clean and same commit"
+    },
+    {
+      "checkout": "cache-counts",
+      "candidate": "3dd930c3e3989f3e5530463f3ac937a629551335",
+      "path": "/workspace/scratch/ca9a61d0bf30/cache-counts/.lake/build",
+      "source_after": "clean and same commit"
+    }
+  ],
+  "direct_path_process_users": [],
+  "ended_at": "2026-11-03T00:37:08.991223+00:00",
+  "available_bytes_after": 864604160
+}

@@ -1,0 +1,524 @@
+{
+  "recorded_utc": "2026-11-05T03:32:35.280229+00:00",
+  "reviewer": "/root/tree_cache_standards",
+  "axis": "Standards",
+  "unit": "FDSA-XT02",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "incorporated_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "requirements_ids": [
+    "XT02-01",
+    "XT02-02",
+    "XT02-03",
+    "XT02-04",
+    "XT02-05"
+  ],
+  "original_scope_paths": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-shape.md"
+  ],
+  "full_original_scope_complete": true,
+  "actual_public_types_complete": true,
+  "public_names90": [
+    "Trees.minHeight",
+    "Trees.minHeight_nil",
+    "Trees.minHeight_node",
+    "Trees.minHeight_map",
+    "Trees.minHeight_le_height",
+    "Trees.Complete",
+    "Trees.complete_nil",
+    "Trees.complete_node",
+    "Trees.complete_iff_minHeight_eq_height",
+    "Trees.complete_map",
+    "Trees.AlmostComplete",
+    "Trees.almostComplete_nil",
+    "Trees.almostComplete_iff_sub",
+    "Trees.complete_almostComplete",
+    "Trees.almostComplete_children",
+    "Trees.almostComplete_map",
+    "Trees.pow_minHeight_le_numLeaves",
+    "Trees.numLeaves_le_pow_height",
+    "Trees.numLeaves_eq_pow_height",
+    "Trees.numLeaves_eq_pow_minHeight",
+    "Trees.numLeaves_lt_pow_height",
+    "Trees.pow_minHeight_lt_numLeaves",
+    "Trees.complete_iff_numLeaves_eq_pow_height",
+    "Trees.complete_iff_numLeaves_eq_pow_minHeight",
+    "Trees.minHeight_le_log_numLeaves",
+    "Trees.clog_numLeaves_le_height",
+    "Trees.minHeight_eq_log_numLeaves",
+    "Trees.height_eq_clog_numLeaves",
+    "Trees.height_optimal",
+    "Trees.minHeight_le_logb_numLeaves",
+    "Trees.logb_numLeaves_le_height",
+    "Trees.minHeight_lt_logb_numLeaves",
+    "Trees.logb_numLeaves_lt_height",
+    "Trees.height_eq_logb_numLeaves",
+    "Trees.minHeight_eq_floor_logb_numLeaves",
+    "Trees.height_eq_ceil_logb_numLeaves",
+    "TreeShapeExamples.single",
+    "TreeShapeExamples.single_complete",
+    "TreeShapeExamples.single_minHeight",
+    "TreeShapeExamples.single_almostComplete",
+    "TreeShapeExamples.empty_shapes",
+    "TreeShapeExamples.perfectThree",
+    "TreeShapeExamples.perfectThree_complete",
+    "TreeShapeExamples.perfectThree_leaves",
+    "TreeShapeExamples.perfectThree_minHeight",
+    "TreeShapeExamples.rightTwo",
+    "TreeShapeExamples.rightTwo_incomplete",
+    "TreeShapeExamples.rightTwo_almostComplete",
+    "TreeShapeExamples.rightTwo_strict_capacity",
+    "TreeShapeExamples.rightTwo_children",
+    "TreeShapeExamples.rightTwo_sub",
+    "TreeShapeExamples.chainThree_power_not_complete",
+    "TreeShapeExamples.rightTwo_rounded_equalities",
+    "TreeShapeExamples.rightTwo_rounded_strictness_fails",
+    "TreeShapeExamples.empty_logarithms",
+    "TreeShapeExamples.sample_almostComplete",
+    "TreeShapeExamples.sample_minHeight",
+    "TreeShapeExamples.sample_leaves",
+    "TreeShapeExamples.sample_logarithms",
+    "TreeShapeExamples.sample_height_nodes",
+    "TreeShapeExamples.sample_wrong_node_offset",
+    "TreeShapeExamples.perfectThree_real_height",
+    "TreeShapeExamples.rightTwo_strict_real",
+    "TreeShapeExamples.sample_real_rounding",
+    "TreeShapeExamples.empty_real_height",
+    "TreeShapeExamples.mapped_sample",
+    "TreeShapeExamples.relabelled_complete",
+    "TreeShapeExamples.minHeight_erase",
+    "TreeShapeExamples.almostComplete_erase",
+    "TreeShapeExamples.pairSample_shape",
+    "TreeShapeExamples.corrupt_shape_without_validity",
+    "TreeShapeExamples.minStep",
+    "TreeShapeExamples.min_reader",
+    "TreeShapeExamples.minSample",
+    "TreeShapeExamples.minSample_valid",
+    "TreeShapeExamples.minSample_erases",
+    "TreeShapeExamples.minSample_reads",
+    "TreeShapeExamples.heightOptimalCounter",
+    "TreeShapeExamples.heightOptimalCounter_numNodes",
+    "TreeShapeExamples.heightOptimalCounter_shape",
+    "TreeShapeExamples.optimum_across_labels",
+    "TreeShapeExamples.counter_not_almostComplete",
+    "TreeShapeExamples.counter_rounded_height",
+    "TreeShapeExamples.counter_height_optimal",
+    "TreeShapeExamples.almostFour",
+    "TreeShapeExamples.localBalanceCounter",
+    "TreeShapeExamples.localBalanceCounter_balanced",
+    "TreeShapeExamples.localBalanceCounter_shape",
+    "TreeShapeExamples.localBalanceCounter_not_almostComplete",
+    "TreeShapeExamples.chain_rounded_bounds"
+  ],
+  "source_counts": {
+    "theorems": 79,
+    "definitions": 11,
+    "private_definitions": 1
+  },
+  "actual_type_assessment": [
+    {
+      "scope": "XT02-01 / public ordinals1-16",
+      "assessment": "All observation/predicate types are on the existing BinaryTree with arbitrary Type u payload. Constructor/min/max/subtraction sides have the intended Nat instances. Three map laws preserve independent Type u and Type v with only a label function, no injectivity or label structure. Completeness node form has equal maxima plus both recursive child premises; almost-complete child closure retains the parent premise. Definition meaning is assessed from full source, not inferred from printed codomain."
+    },
+    {
+      "scope": "XT02-02 / public ordinals17-24",
+      "assessment": "Universal capacities have no shape or nonempty premise. Equalities assume Complete; both strict inequalities assume Not Complete. Both iff statements express equality with the appropriate power at actual height/minimum, not mere existence of some exponent. All numeric carriers and power instances are Nat."
+    },
+    {
+      "scope": "XT02-03 / public ordinals25-29",
+      "assessment": "Universal log/clog bounds are nonstrict with actual numLeaves. AlmostComplete is the sole shape premise of both exact rounded formulae. height_optimal exports independent payload universes, AlmostComplete only for s, and numNodes s <= numNodes t as its second premise. The competitor needs no invariant; the source proof retains leaves = nodes+1."
+    },
+    {
+      "scope": "XT02-04 / public ordinals30-36",
+      "assessment": "All seven actual claims use Real.logb at real literal base2, casts of actual minHeight/height/numLeaves, and Nat.floor/Nat.ceil for the rounded formulae. Universal comparisons have no extra premise, strict comparisons require incompleteness, complete equality requires Complete, and floor/ceil equalities require AlmostComplete. All are exact unchanged public statements after the proof corrections."
+    },
+    {
+      "scope": "XT02-05 / all54 example public ordinals37-90",
+      "assessment": "Concrete Unit, Nat and Bool fixtures retain intended types and numbers; the Empty cases are genuinely universally quantified over BinaryTree Empty. RightTwo has strict real comparisons and nonstrict-rounded equality/non-strictness counterexamples. The sample has five leaves/minimum2/height3 and exposes both correct nodes+1 and failure of unshifted nodes. Pair erasure remains cross-universe; mapped sample is genuinely noninjective. Corrupt shape remains independent of Valid. Minimum reader has the exact recursive Valid 0 minStep premise; annotated sample has actual validity/erase/read laws. Boolean optimum counter and arbitrary-payload competitor theorem retain useful inhabited witnesses. The private recursive sibling predicate is explicitly present in the exported balance theorem. Chains assert only universal rounded bounds."
+    }
+  ],
+  "new_findings": [],
+  "unresolved_source_or_type_findings": [],
+  "inherited_finding": "XT02-SP01 documentary correction and actual min_reader sufficient-premise type confirmed; final candidate full-validation confirmation pending.",
+  "full_validation_accepted": false,
+  "review_complete": false,
+  "outcome": "Blocked",
+  "block_index": {
+    "path": "provenance/tree-shape-standards-receiving-20261105/actual-types90-blocks-e61bb6f.json",
+    "bytes": 39417,
+    "lines": 1386,
+    "sha256": "fe7afd60fd784ff101f6ddc152639471aa112031e25deef5f47b1dc77a037da1"
+  },
+  "program": {
+    "path": "provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean",
+    "bytes": 4199,
+    "lines": 105,
+    "sha256": "fab2460caafba1f3f28a09006c4e220b9c735857e02294091486cdf4e8461c33"
+  },
+  "prepared_original": {
+    "path": "provenance/tree-shape-public-statements90-prepared-20261104/Statements.lean",
+    "bytes": 4230,
+    "lines": 106,
+    "sha256": "28622fb1c6417798d4d4c476e9e3d307792c62e881f0158446ca2938434b83ca"
+  },
+  "program_change": "Same original90 #check names/imports in original order. The actual program uses the accepted ten-option expanded printing profile; it is distinct from the unexecuted prepared4230-byte program.",
+  "source_corrections": {
+    "path": "provenance/tree-shape-standards-receiving-20261105/source-corrections-e61bb6f.json",
+    "bytes": 40917,
+    "lines": 1173,
+    "sha256": "849e7e6bd7b36ef2f16fe112c607be4f04d62524bdc928f70fc06bfe3c84b78c"
+  },
+  "input_observations": [
+    {
+      "path": "provenance/tree-shape-receiving-statements90-20261105/inputs-before.json",
+      "bytes": 34483,
+      "lines": 763,
+      "sha256": "1ee3406ca37aeaa9b62485d8719d1085fc7803f41c01229526619f48e2c2a963"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-statements90-20261105/inputs-after.json",
+      "bytes": 34785,
+      "lines": 769,
+      "sha256": "e099ff7584144fe5d9c3294dea7d19139009622808de2ab65b4a437dbc0353ee"
+    }
+  ],
+  "full_input_identity_equal_before_after": true,
+  "input_observation_counts": {
+    "sources": 29,
+    "objects_and_traces": 87,
+    "configuration": 10,
+    "dependencies": 9,
+    "runtime": 12,
+    "direct_external_modules": 14
+  },
+  "all29_saved_source_identities_match_immutable_candidate_and_independent_closure": true,
+  "all87_object_trace_entries_compared": true,
+  "all87_current_live_objects_rehashed_by_reviewer": false,
+  "configuration_dependencies_runtime_identical_to_accepted_XT01": true,
+  "accepted_runtime_reference": {
+    "path": "provenance/binary-tree-cache-receiving-statements115-20261105/final-inputs-after-full.json",
+    "bytes": 33026,
+    "lines": 742,
+    "sha256": "77d1486a596f4ea372a4d15f961323aa3dad3dd7339396ea5eba884968860fcf"
+  },
+  "capture_helper": {
+    "path": "tooling/capture_statement_inputs.py",
+    "bytes": 5812,
+    "lines": 119,
+    "sha256": "4df281f3f427ec462a6973b9177fcc3f825b57b19fa8e205780f17cfaa89b5b7"
+  },
+  "capture_helper_read_receipt": "0b5d7e, complete1-119; not executed by reviewer",
+  "read_receipts": {
+    "program": "ed404c, complete1-105",
+    "types": [
+      {
+        "chunk": "8a9c8c",
+        "actual_exit": 0,
+        "lines": [
+          1,
+          100
+        ],
+        "untruncated": true
+      },
+      {
+        "chunk": "ffff71",
+        "actual_exit": 0,
+        "lines": [
+          101,
+          200
+        ],
+        "untruncated": true
+      },
+      {
+        "chunk": "360ece",
+        "actual_exit": 0,
+        "lines": [
+          201,
+          315
+        ],
+        "untruncated": true
+      },
+      {
+        "chunk": "ac6ee1",
+        "actual_exit": 0,
+        "lines": [
+          316,
+          430
+        ],
+        "untruncated": true
+      }
+    ],
+    "focused3": "f87391 full log1-27; closure44 recovered fully in5ca808",
+    "actual_type_terminal_chain": "5ca808 plus actual closure output9babdb",
+    "input_metadata": "1af22f read configuration/dependencies/runtime then stopped on dict indexing; remaining schema fully recovered9babdb; all entries independently reconciled computationally in this record"
+  },
+  "execution_records": [
+    {
+      "directory": "provenance/tree-shape-receiving-focused-attempt3-20261105",
+      "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "actual_terminal": "52ba6b",
+      "owned_session": 38714,
+      "actual_exit": 0,
+      "state": "CLOSED",
+      "all_terminal_native_recorder_exits_agree": true,
+      "exact_outer_prefix_native_suffix": true,
+      "native_origin_copies_match": true,
+      "stale_full_verification_candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "full_candidate_acceptance_credit": 0,
+      "bindings": [
+        {
+          "path": "provenance/tree-shape-receiving-focused-attempt3-20261105/actual-closure-result.json",
+          "bytes": 6038,
+          "lines": 7,
+          "sha256": "3ed02564ce622002c287fd70f53ebd1e3df58ec62735d14e5700f638b33dc3eb"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-focused-attempt3-20261105/actual-launch-result.json",
+          "bytes": 300,
+          "lines": 7,
+          "sha256": "fa4230f20e951c3edc6afc0a9bc52713bcfbea2fbcc12416867c5f62b8179460"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-focused-attempt3-20261105/actual-tool-terminal.json",
+          "bytes": 125,
+          "lines": 7,
+          "sha256": "6e544e3fc25d6f7bb4099f21544087647a6e5972f628a29f9f276a476cb57c2c"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-focused-attempt3-20261105/closed-evidence-reconciliation.json",
+          "bytes": 2253,
+          "lines": 44,
+          "sha256": "e00721a22044871ebdb46e56b5a07ea201598374d4245bcacc6d49346766908b"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-focused-attempt3-20261105/full.log",
+          "bytes": 3632,
+          "lines": 27,
+          "sha256": "b41c0a2ccd8a61fa737c70302d0861d7a6f9d3812ee10602a1bc97d79b63f40e"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-focused-attempt3-20261105/launch.json",
+          "bytes": 174,
+          "lines": 6,
+          "sha256": "7a293d05bc5a6f64eca72002cd7a9543809addc04137b0cb5c74805d3634daff"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-focused-attempt3-20261105/native-records/output.log",
+          "bytes": 3350,
+          "lines": 24,
+          "sha256": "3f906fbf494eb1e19c2e1994294bd3b06ee484feed3203c6afba4d49cec6a992"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-focused-attempt3-20261105/native-records/result.json",
+          "bytes": 643,
+          "lines": 20,
+          "sha256": "e221fc9e1d1fe598c8d15cba8de9fe0f48804d605cfb7bad11cceda1cf9b495f"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-focused-attempt3-20261105/native-records/start.json",
+          "bytes": 490,
+          "lines": 15,
+          "sha256": "72fa821eb741406e184cf8ab40fa711353b6f47869383a1fdeaa7b6a3dda4032"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-focused-attempt3-20261105/outer-prefix.log",
+          "bytes": 125,
+          "lines": 2,
+          "sha256": "999292cbebcbe57384f49b15a5708b8b34724cb93449571aa3b7744593533c37"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-focused-attempt3-20261105/outer-suffix.log",
+          "bytes": 157,
+          "lines": 1,
+          "sha256": "9f62168db6893e2a32d40ad5ea0711113659535ed3341c0d608ca64ce3e64f7a"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-focused-attempt3-20261105/owned-terminal.json",
+          "bytes": 260,
+          "lines": 8,
+          "sha256": "e5505c842f1296e8ac5791565698dc51ea7055f377ccaf7a732f5e586e0826e3"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-focused-attempt3-20261105/progress.json",
+          "bytes": 263,
+          "lines": 8,
+          "sha256": "c31eb9d239aa1cef6f88339c2acbdb840bedbbb2c10f214257b2b07cb70c8c86"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-focused-attempt3-20261105/request.json",
+          "bytes": 806,
+          "lines": 23,
+          "sha256": "c16ae6cf753af82f5141a7bad8e6bdacdac164893622d72a8cfe6e52ce1e0560"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-focused-attempt3-20261105/result.json",
+          "bytes": 1325,
+          "lines": 34,
+          "sha256": "871b1e0590e110ecd01392c543684d2f9527d06d9cdf85676c915938cbf7a4d5"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-focused-attempt3-20261105/start.json",
+          "bytes": 999,
+          "lines": 28,
+          "sha256": "8a40a3facb0e01267846e64382f8ba050fc89aaf453c0ecb3f03b895a230fe1f"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-focused-attempt3-20261105/verification.json",
+          "bytes": 867,
+          "lines": 19,
+          "sha256": "329f0d0087adc21b3446d7f10b67c472cdf62238ccf578865eec20569c04da61"
+        }
+      ]
+    },
+    {
+      "directory": "provenance/tree-shape-receiving-statements90-run-20261105",
+      "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "actual_terminal": "221199",
+      "owned_session": 38759,
+      "actual_exit": 0,
+      "state": "CLOSED",
+      "all_terminal_native_recorder_exits_agree": true,
+      "exact_outer_prefix_native_suffix": true,
+      "native_origin_copies_match": true,
+      "stale_full_verification_candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "full_candidate_acceptance_credit": 0,
+      "bindings": [
+        {
+          "path": "provenance/tree-shape-receiving-statements90-run-20261105/actual-closure-result.json",
+          "bytes": 2440,
+          "lines": 7,
+          "sha256": "eec1c1d897727b16c2004052bef1636b895923ecfdd2bdd8eaf3921ccffa870b"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-statements90-run-20261105/actual-launch-result.json",
+          "bytes": 301,
+          "lines": 7,
+          "sha256": "0d94b662a61fb27eec3aaa147143074c0e2db069e7adda94ba290f2b805ffd57"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-statements90-run-20261105/actual-tool-terminal.json",
+          "bytes": 125,
+          "lines": 7,
+          "sha256": "79dd4c41d690248d0208ba2a94dbfdb5be1e056fd8223bee230066724d08f1f6"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-statements90-run-20261105/closed-evidence-reconciliation.json",
+          "bytes": 2250,
+          "lines": 44,
+          "sha256": "104ebd3ad28137ad66c797c03efedd314adbb30eaddc9a4735c89aa2ae377694"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-statements90-run-20261105/full.log",
+          "bytes": 30613,
+          "lines": 433,
+          "sha256": "f5b5ecaaf2ae9c28d5ea3ffa7911b139180765790762e0700d9c968c6f73f69b"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-statements90-run-20261105/launch.json",
+          "bytes": 174,
+          "lines": 6,
+          "sha256": "b0d34d5dda2700ad2e087f396b50fea320ade0b99a293f6c87c94438382a4e22"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-statements90-run-20261105/native-records/output.log",
+          "bytes": 30252,
+          "lines": 430,
+          "sha256": "1df9da87b91e300b1cb9ac92ac52b379ddeba30231a0f149bbab50ba322e5cd7"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-statements90-run-20261105/native-records/result.json",
+          "bytes": 715,
+          "lines": 19,
+          "sha256": "b24f092d7de00e535577d27e40403aac2b1dd7ab8c207705314c570f852daa3e"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-statements90-run-20261105/native-records/start.json",
+          "bytes": 563,
+          "lines": 14,
+          "sha256": "9eb3c7e21c44fe85535c50249f58076c93eb50fcffcc6c9729d7892c197417e4"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-statements90-run-20261105/outer-prefix.log",
+          "bytes": 205,
+          "lines": 2,
+          "sha256": "4ee66bd99d4608f5465bc9855349083f3a1f477b9b70b17834356840b8954e55"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-statements90-run-20261105/outer-suffix.log",
+          "bytes": 156,
+          "lines": 1,
+          "sha256": "2831489fad753d40e345b4c49589305f2722a2a5b2ae75418628258914946e87"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-statements90-run-20261105/owned-terminal.json",
+          "bytes": 260,
+          "lines": 8,
+          "sha256": "513619e90e121332bb9b7b452b27907e55a8c99825f2fe5c003751964dc1991e"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-statements90-run-20261105/progress.json",
+          "bytes": 263,
+          "lines": 8,
+          "sha256": "c1de19972069e81ff2bd956136ded58bffa9569def0b5af59192017a9032d68a"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-statements90-run-20261105/request.json",
+          "bytes": 879,
+          "lines": 22,
+          "sha256": "704f5d923636f2997a6314cb7dc3672a6175d45bd2c97470d4f61854fb398381"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-statements90-run-20261105/result.json",
+          "bytes": 1399,
+          "lines": 33,
+          "sha256": "e35c7d69b99317e79ae0de869108495fbd7538204381a7a7efcdc70df10cdfde"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-statements90-run-20261105/start.json",
+          "bytes": 1072,
+          "lines": 27,
+          "sha256": "42ba3b3776caff2ea87ed6c0e9eaced5e2197a5343d419644615bbcf64c4c1ef"
+        },
+        {
+          "path": "provenance/tree-shape-receiving-statements90-run-20261105/verification.json",
+          "bytes": 867,
+          "lines": 19,
+          "sha256": "329f0d0087adc21b3446d7f10b67c472cdf62238ccf578865eec20569c04da61"
+        }
+      ]
+    }
+  ],
+  "reading_limits": [
+    "The before/after saved observations establish observed identity, not absence of transient changes or cryptographic provenance of loaded objects.",
+    "No live compiler-object hashes were taken during the root-owned full check.",
+    "A focused/module or type-print success does not replace full candidate validation, exhaustive audit, or the matching successful verification record.",
+    "Private/generated declarations remain exhaustive-audit obligations; a separate private-type command was not run."
+  ],
+  "reviewer_only_incidents": [
+    {
+      "receipt": "f87391",
+      "actual_exit": 0,
+      "kind": "display truncation",
+      "resolution": "Full focused log was visible; omitted closure middle recovered by complete44-line read5ca808."
+    },
+    {
+      "receipt": "1af22f",
+      "actual_exit": 1,
+      "kind": "read-only schema assumption",
+      "resolution": "Input source/object fields are dictionaries, not lists. Remaining schema recovered9babdb; all entries compared without executing a helper or changing inputs."
+    },
+    {
+      "receipt": "d06b59",
+      "actual_exit": 2,
+      "kind": "read-only search included absent guessed prior filename",
+      "resolution": "No evidence read or approval inferred from that absent file; exact accepted final-input record used and independently compared in9babdb and this record."
+    }
+  ]
+}

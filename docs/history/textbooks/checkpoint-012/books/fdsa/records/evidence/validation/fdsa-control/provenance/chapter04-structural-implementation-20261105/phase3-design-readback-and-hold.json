@@ -1,0 +1,322 @@
+{
+  "recorded_utc": "2026-11-05T03:57:16.346308+00:00",
+  "agent": "/root/chapter04_preflight",
+  "kind": "Final bounded source-design hold; no formal implementation or review result",
+  "whole_chapter_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "all76_obligations_retained": true,
+  "scope": [
+    "Shared Boolean completeness/height fold",
+    "C04-074 cache specialization",
+    "C04-038..041 maximal complete structural subtree including equality-free bonus",
+    "Requested node-count maximality corollary"
+  ],
+  "separate_future_scope": [
+    "C04-046 AlmostComplete subtree closure",
+    "C04-059..060 AlmostComplete constructor characterization"
+  ],
+  "XT01": {
+    "commit": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+    "status": "Accepted as supplied by root for this assignment"
+  },
+  "XT02": {
+    "commit": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+    "status": "Unaccepted development dependency in this assignment; this record supplies no later acceptance inference"
+  },
+  "source_hold_sha256": "0e1795f1e1e40c259bcda8dbfbbfead760644fdc34bfd4c3ef8a5bbde3fae54e",
+  "readbacks": [
+    {
+      "file": "phase3-design-input-identities.json",
+      "first": 1,
+      "last": 141,
+      "tool_chunk": "bf0a36",
+      "exit_code": 0,
+      "complete_visible_output": true
+    },
+    {
+      "file": "phase3-existing-api-bindings.json",
+      "first": 1,
+      "last": 174,
+      "tool_chunk": "2cc1fb",
+      "exit_code": 0,
+      "complete_visible_output": true
+    },
+    {
+      "file": "phase3-design-input-identities.json",
+      "first": 142,
+      "last": 282,
+      "tool_chunk": "c7e48b",
+      "exit_code": 0,
+      "complete_visible_output": true
+    },
+    {
+      "file": "phase3-existing-api-bindings.json",
+      "first": 175,
+      "last": 348,
+      "tool_chunk": "f355b7",
+      "exit_code": 0,
+      "complete_visible_output": true
+    },
+    {
+      "file": "phase3-completeness-frozen-contract.md",
+      "first": 1,
+      "last": 162,
+      "tool_chunk": "97c7ca",
+      "exit_code": 0,
+      "complete_visible_output": true
+    },
+    {
+      "file": "phase3-case-notes.md",
+      "first": 1,
+      "last": 90,
+      "tool_chunk": "5ed90c",
+      "exit_code": 0,
+      "complete_visible_output": true
+    },
+    {
+      "file": "phase3-maximal-complete-subtree-frozen-contract.md",
+      "first": 1,
+      "last": 164,
+      "tool_chunk": "089447",
+      "exit_code": 0,
+      "complete_visible_output": true
+    },
+    {
+      "file": "phase3-future-almost-complete.md",
+      "first": 1,
+      "last": 51,
+      "tool_chunk": "e1699c",
+      "exit_code": 0,
+      "complete_visible_output": true
+    },
+    {
+      "file": "phase3-contract-readback-clarifications.md",
+      "first": 1,
+      "last": 39,
+      "tool_chunk": "4700ff",
+      "exit_code": 0,
+      "complete_visible_output": true
+    },
+    {
+      "file": "phase3-design-read-receipts.json",
+      "first": 1,
+      "last": 152,
+      "tool_chunk": "6be335",
+      "exit_code": 0,
+      "complete_visible_output": true
+    },
+    {
+      "file": "phase3-design-read-receipts.json",
+      "first": 153,
+      "last": 304,
+      "tool_chunk": "fb6693",
+      "exit_code": 0,
+      "complete_visible_output": true
+    }
+  ],
+  "receipt_save_actual": {
+    "chunk": "9dd4fd",
+    "exit_code": 0
+  },
+  "mathematical_design_status": "Frozen proposals and independently reasoned cases, unimplemented and uncompiled. Existing API bindings are exact source headers, not new elaborated type observations.",
+  "hold": "All writes held after this record. Source work requires root's contract review and explicit authorization after applicable shared acceptance. Root remains sole compiler, integration/review/durability coordinator.",
+  "prohibited_actions_performed": {
+    "source_changes": false,
+    "old_report_changes": false,
+    "branch_or_ref_changes": false,
+    "entrypoint_or_pin_changes": false,
+    "compiler_or_Lake_or_check_or_audit": false,
+    "project_helpers_or_session_polling": false,
+    "dependency_or_project_output_writes": false,
+    "new_review_loop": false,
+    "uploads_or_remote_mutations": false
+  },
+  "no_new_acceptance_or_coverage_credit": true,
+  "final_record_readback": "This record's own complete bounded readback and final read-only reconciliation will be reported by actual terminal receipts after its creation.",
+  "author_checkout": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+    "branch": "work/fdsa-ch04-structural",
+    "head": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1",
+    "tree": "e2d4cb95882c3775dc01846c4010da3b92c78d34",
+    "status_porcelain": ""
+  },
+  "existing_four_source_files_unchanged": [
+    {
+      "file": "Applications/Trees/BasicObservations.lean",
+      "bytes": 5009,
+      "lines": 139,
+      "sha256": "3d2decdac9a8803edde8b5b36a97d0deba1a4d7b1cb1f15a93057044f342afc6",
+      "git_blob": "b41b456122021f1bc3cb73e8defb2802afb4362c"
+    },
+    {
+      "file": "Examples/TreeBasicObservations.lean",
+      "bytes": 4033,
+      "lines": 107,
+      "sha256": "5c40f55fad3e17da5bb28490f898c6ab7573023253e43292813df8d58c6104cb",
+      "git_blob": "ccd089ead8ab8206c231602ae278d3ab3141ea2e"
+    },
+    {
+      "file": "Applications/Trees/WeightedPaths.lean",
+      "bytes": 2325,
+      "lines": 63,
+      "sha256": "e6d8337983bfb9542a879ed9bc2bafc458e2fb2d38b954d157c292a19cacae7b",
+      "git_blob": "32c68e171958f3d706111e5216f9222fb156fcc1"
+    },
+    {
+      "file": "Examples/TreeWeightedPaths.lean",
+      "bytes": 2780,
+      "lines": 81,
+      "sha256": "70bffb98d3e2a3c92e3285ae17111aaaf5ebf1d79864463eb8f3fce49466fe38",
+      "git_blob": "57c0048f1b616f28a821452fefa5d550370755b4"
+    }
+  ],
+  "preexisting_15_provenance_files_unchanged": [
+    {
+      "file": "assignment-before-branch.json",
+      "bytes": 7839,
+      "lines": 28,
+      "sha256": "c3641a2df441d77a1c5dbe6bf868bc17335f751a6c480776580fa1d11df26e3e"
+    },
+    {
+      "file": "author-readback-and-hold.json",
+      "bytes": 9186,
+      "lines": 296,
+      "sha256": "0e1795f1e1e40c259bcda8dbfbbfead760644fdc34bfd4c3ef8a5bbde3fae54e"
+    },
+    {
+      "file": "branch-creation-result.json",
+      "bytes": 6423,
+      "lines": 9,
+      "sha256": "e41a0d393ad477d0893bd717e68da6e99a4db7c38b1d8ea1852da5f25104050b"
+    },
+    {
+      "file": "phase1-before-commit.json",
+      "bytes": 1220,
+      "lines": 34,
+      "sha256": "6cd741929d9a9f779c5a47fec83196e0791ae468c55b4cf46e5800f40209dba7"
+    },
+    {
+      "file": "phase1-before-source.json",
+      "bytes": 2170,
+      "lines": 43,
+      "sha256": "e56e9f4bcc82de44c31807b6b1a96bd0b39fbe6c282d7b14c338480e5dcd68d5"
+    },
+    {
+      "file": "phase1-commit-actual-tool.json",
+      "bytes": 368,
+      "lines": 7,
+      "sha256": "6d4c28b6017c0a0be311955da1d417207503f68cf4e5ac5e8bfaa7acb7adfee8"
+    },
+    {
+      "file": "phase1-frozen-contract.md",
+      "bytes": 5155,
+      "lines": 77,
+      "sha256": "34000cd0c9fb7708496d18619230aa3b1e219f7ddd847797add0e22c7ca20850"
+    },
+    {
+      "file": "phase1-implementation-report.md",
+      "bytes": 6916,
+      "lines": 42,
+      "sha256": "3ef7942d3e7ee2d40476dbfc94554e9f844fdbb1d6ed048a7122c4a4bc589eb0"
+    },
+    {
+      "file": "phase1-public-statements.json",
+      "bytes": 15786,
+      "lines": 392,
+      "sha256": "ccd5379ec72ce0e1cdf20beeb6d6d1a98ee0b9043ed1efc7017a8547bf99ae07"
+    },
+    {
+      "file": "phase2-before-commit.json",
+      "bytes": 1694,
+      "lines": 50,
+      "sha256": "03c27883ac733579b296d5428a090afc468f09610e062c470d8bf6a83070b5ce"
+    },
+    {
+      "file": "phase2-before-source.json",
+      "bytes": 1269,
+      "lines": 30,
+      "sha256": "bf6ba04b88b389333314d9588b91e2894262651f4c3358b94320a59b8cd4a009"
+    },
+    {
+      "file": "phase2-commit-actual-tool.json",
+      "bytes": 363,
+      "lines": 7,
+      "sha256": "7bfbd98fec8371f99bac8d7ac50bb8340da80d9979e99ca12f264e528218e3a5"
+    },
+    {
+      "file": "phase2-frozen-contract.md",
+      "bytes": 3027,
+      "lines": 41,
+      "sha256": "1e584be541c28248ec87c0eb977db1302d269c548537c1fdfd90683c10f08e88"
+    },
+    {
+      "file": "phase2-implementation-report.md",
+      "bytes": 5434,
+      "lines": 31,
+      "sha256": "b12bfc00703d099e5ef0a9aba4131e5d1875279e209d42116286587a0dd9fc33"
+    },
+    {
+      "file": "phase2-public-statements.json",
+      "bytes": 10093,
+      "lines": 275,
+      "sha256": "b72b04757faea16f2d95e89711285d1bbb845395bd91a0020f8e11966a391baf"
+    }
+  ],
+  "preflight_hold_unchanged": {
+    "file": "readback-and-hold.json",
+    "bytes": 13016,
+    "lines": 370,
+    "sha256": "923846764985b16770184aef032fd459096907b7b8b4253a11e98959b4b7676d"
+  },
+  "new_artifacts_complete_readback": [
+    {
+      "file": "phase3-case-notes.md",
+      "bytes": 8228,
+      "lines": 90,
+      "sha256": "f7db77a301608f1a70c55a60bb7decf1f8250275caecd1128ce0b5861fa272dd"
+    },
+    {
+      "file": "phase3-completeness-frozen-contract.md",
+      "bytes": 10636,
+      "lines": 162,
+      "sha256": "cd954bc25877b7121f20dc0a89cde84f7d7fc4dade4b42bc20757e714acf3202"
+    },
+    {
+      "file": "phase3-contract-readback-clarifications.md",
+      "bytes": 3008,
+      "lines": 39,
+      "sha256": "797121952bd437bc2df69e207e54a7bf6a7c4f2b4b27e5d993725ab260c586a4"
+    },
+    {
+      "file": "phase3-design-input-identities.json",
+      "bytes": 10962,
+      "lines": 282,
+      "sha256": "8838a9b399dc3197d15284ddc96c2949eb43f6d6c699dd596837676464e0ef24"
+    },
+    {
+      "file": "phase3-design-read-receipts.json",
+      "bytes": 9040,
+      "lines": 304,
+      "sha256": "002fc479c325fe9f4a5882b66a872146b8d253d4fbe13944b6b41c7b364d0083"
+    },
+    {
+      "file": "phase3-existing-api-bindings.json",
+      "bytes": 15234,
+      "lines": 348,
+      "sha256": "92bc11f022184a9da93090a69adebaf710b5ca0431fe93bdac5333142130077e"
+    },
+    {
+      "file": "phase3-future-almost-complete.md",
+      "bytes": 3757,
+      "lines": 51,
+      "sha256": "3618faf4d97ecc455ec73e9a8a314099b2cd177d4ae6ef9fb4445f36fd3b5b14"
+    },
+    {
+      "file": "phase3-maximal-complete-subtree-frozen-contract.md",
+      "bytes": 12118,
+      "lines": 164,
+      "sha256": "533bccd063e03d7a1729a5a56376fb15d237803e14fff92c65471d68687b2c55"
+    }
+  ],
+  "new_artifacts_count_before_this_hold": 8,
+  "new_artifacts_bytes_before_this_hold": 72983
+}

@@ -1,0 +1,50 @@
+# FDSA formalization status
+
+Updated 2026-11-04T16:13:13.375815+00:00. CURRENT.md supplies the operative continuation. Previous control text remains verbatim in provenance/shared-tail-review-reconciliation-20261104/control-before-source-update/.
+
+## Accepted locally
+
+| Scope | Exact accepted commit | Evidence |
+| --- | --- | --- |
+| Chapter1 | 07e480f6ec9958d4975bb90151005b84f2907614 | Full native fresh baseline, both axes, immediate verification |
+| Foundation: X002, AppendixA, B.1, AppendixC | f17cc6b1a2bf44215b16202ed0fcee2b5c130761 | Full967module check/audit,145actual types,both axes,immediate verification,checkpoint0109 |
+| XM01/XD01/XQ01/XU01, B-018/B-019 | 312aafb4446b995ff5542041b4e2e074f776db1e | Full977module check/audit,314actual+110qualified types,both axes,immediate verification,checkpoint0113 |
+| XU02 fixed-subset whole order | 932438a765340d69fa6402f6abd17def6ec28d13 | Full980module check/audit,53actual+314+110qualified types,both final axes,immediate verification/exactFF;checkpoint0116 complete |
+
+work/fdsa-book is exactJ. Its whole-project audit has45,707kernel-safe declarations and25,451theorems,978auditrows,zero unsafe/exclusions and only propext/Classical.choice/Quot.sound. These totals are not counts of new book results. All original requirements, corrected histories and prior acceptances remain intact.
+
+## Next pending acceptance
+
+Frozen TailL=726cb9a9b9ff4444a7614383de4fb336e8804aa7 on work/fdsa-tail-integration incorporates acceptedJ and exact correctedT by ordinary merge. One actual map conflict is resolved by the held recipe. All six source paths/61public/19private/eightinstances and original findings are retained. Both complete independent source axes have zero new findings and completed readbacks; overall Blocked, receiving compiler/type/full/audit/acceptance credit zero. C02-DOC-003 Tail portion is source-resolved only. See both permutation-tail source-continuation reports and shared-tail-review-reconciliation-20261104/.
+
+Checkpoint0117 source durability is next, followed by the applicable qualified normal full gate, actual61 and conditional inherited evidence, both final axes, immediateverification, exactacceptedFF and acceptancedurability. No compiler is live. Prepared type538 is conditional only. Then NEWcompleteC2 with originalR/Z,81paths,112obligations,ten sharedscopes and1763public account; C3–27 stayqueued. WholeAppendixB remains open apart from B-002–015/B-018–019. All later shared drafts retain their original pending gates.
+
+## Resources and durability
+
+Latest completed0116:25,111,562bytes,SHAa3af479ecf3818f06ac1a421d3dd17d47b0bebe681ed4f95ed3da88d7fef13ae,libfile_60dcf58fbe508191ab2e60043e427ef5. Checkpoint0117 is being prepared.66refs/15worktrees; compact self-contained recovery with one pinned public asset. One Lean thread/solebuilder/exactpins/profile remain. Ordinaryavailable=0;rawfree=1066680320bytes. No new install/cachecopy/fresh trigger is identified; guard unchanged. Old failure/unknown-terminal histories remain intact.
+
+## Checkpoint0117 completed — 2026-11-04T16:14:58.360986+00:00
+
+conaled-fdsa-0117-reviewed-tail-source.tar.gz:25,496,725bytes,SHA256 204cd3d825911d16420db7b795a4fd997c6c0baaaf7edf00b17e12a6923d74a7,libfile_8c07712ef2a481918505bb20b104cbb3. Actualcreation79314 closed0(a12c1d),verification31120 closed0(87f7c0),4210payload hashes/66refs/15worktrees/4158heldcontrols verified. Upload, local metadata and post-upload full hash passed. This is the latest self-contained recovery checkpoint; it preserves acceptedJ, frozenunacceptedL, both complete source continuations and the actual map-conflict resolution, with zero newTail validation credit. Source/refs/runtime/outputs remain held. Root may now start the new qualified normal full Tail command after fresh resource observation; the author may write only the separately released bounded C2 type-preparation package. Earlier dated pending-checkpoint statements are historical.
+
+## Tail full gate launched — 2026-11-04T16:16:59.071693+00:00
+
+Newly named shared-tail-full-attempt1-20261104 is actually started at exactL726cb9a9, root-owned session16392 (launch906110), qualified normal ./check.sh --candidate HEAD, one Lean thread/sole builder. Terminal remains pending; no result is inferred from progress. Source, refs, dependencies and writable outputs remain exclusive/held; only root's owned compiler may write project outputs. Review source records remain held; the author may write only the released C2 conditional evidence preparation.
+
+Before launch, six exact verified durable local archive copies0110–0115 were retired (ef1480 exit0),142,110,720allocatedbytes, with separate absence verification2d044c.0116/0117 remain local and all uploaded copies/evidence remain. Fresh rawfree1,159,348,224bytes,ordinaryavailable0; no installer/cachecopy/guard bypass. See verified-local-checkpoint-retirement-0110-0115-20261104/ and shared-tail-build-preflight-20261104/launch-readiness.json. Old compiler IDs remain historical; only16392 belongs to this actual live invocation until its terminal is secured.
+
+## Tail full and actual statement evidence secured — 2026-11-04T16:28:18.743822+00:00
+
+Exact frozen L `726cb9a9b9ff4444a7614383de4fb336e8804aa7` remains unaccepted; accepted book remains J `932438a765340d69fa6402f6abd17def6ec28d13`. New qualified normal full check `shared-tail-full-attempt1-20261104` completed actual exit 0 at 2026-11-04T16:25:42.962239+00:00. Owned session16392 is CLOSED0 (a0c3e0); complete outer/native/result/verification copies and reconciliation are secured (45b10d). Actual exhaustive audit:983 checked project modules,981 audit rows,45,809 kernel-safe declarations,25,533 theorems,zero unsafe/exclusions,only propext/Classical.choice/Quot.sound. These are whole-project counts. All978 predecessor audit rows remain exact; three new Tail rows are added. The seven new warnings are module-import advisories. Both integrity phases passed with expected three new module invalidations and zero post-build inconsistency. Native output284346bytes SHA256bd5bd2c170cac6a84f855806595fce60981b86eb1660c52c0d3a7a0b9d149749; outer284574bytes SHA2563247019f0fa2844cf6a719a51a3396d04c12d3e7b7b715117eed797289f805bf. Matching verification SHA2560cd4efa701892c229d61bca325a4c0a2aaa9a26428fa409f7d2195ac1e227a46.
+
+Actual standalone61 inspection `shared-tail-complete-public-statements61-20261104-attempt1` completed exit0 at16:26:45.496015UTC; owned43963 CLOSED0(cc8d52), complete closed reconciliation6c39ca. Native84784bytes/1073lines SHA25657747c4b4764ac5aea6885671ff66b5ff202da2c919a0e9bb38f5921738916cf. All61 ordered blocks and52 printer-ellipsis context lines are mapped without truncating output. The unchanged full-gate verification copied by the recorder is not a new audit. Four receiving pre/post pairs (61,53,314,F145) surround actual61 after successful full and all identities match. Only61 was executed; no53/314/145 rerun. Prepared exact projection reconciliation executed actual0 at5b1add; comparison SHA256dc52b0cc515a7d058832f2a39bcf16147a62cfe9ffaf60281d7e76a077849387. Local-source/artifact counts are9/27,6/18,27/81,23/69; ten configurations,nine full clean dependency records and twelve runtime components match. The prospective distinct account61+53+314+110=538 still requires both independent receiving semantic/final dispositions.
+
+Both original full-scope independent axes are assessing this actual terminal/type evidence, preserving all findings and source assessments. No final pass or accepted fast-forward is claimed. C02-DOC-003 Tail remains source-resolved pending final confirmation. Immediate qualified verification must follow both final passes and precede the exact accepted J→L fast-forward. No compiler is live. Both historical owned sessions must never be polled again.
+
+Checkpoint0118 is preparing with the complete closed validation evidence, acceptedJ/frozenL and completed C2 statement-readiness package. The latter preserves all1763 names,97 source blobs and71 defining-root closures;405/conditional466/1297 are preparation partitions only. All72 MergeCosts names retain the changed Growth-input issue. The original920/815/28 historical account,941→920 boundaries and invalid Foundation ENOSPC artifact remain exactly disclosed. Independent C2 preparation review is unfinished and paused for Tail final review. No C2 receiver is assembled and no Chapter3 scope is activated.
+
+Filesystem total=67586535424bytes,ordinaryavailable=0bytes,rawfree=1117880320bytes. Existing qualified runtime/cache remain exclusive; one thread/solebuilder and5GiB fresh-install guard are unchanged. No new installation/cachecopy/fresh trigger. Local duplicate archives0110–0115 have already been retired with durable uploads retained; do not repeat that cleanup. Source/review/control writers must hold during checkpoint capture. Earlier dated pending/running statements remain historical.
+
+## Checkpoint0118 completed — 2026-11-04T16:31:13.521857+00:00
+
+conaled-fdsa-0118-checked-tail-and-chapter02-evidence.tar.gz:26,039,645bytes,SHA256 a13fdca542b28ac85dfabdef31cd023d553a56f4246ddc2b4ea0fee2c8689305,libfile_8ebcc8c235988191b832c2effcd84104. Actualcreation95934 closed0(bfa2d3),verification73741 closed0(bf4550),4279payloadhashes/66refs/15worktrees/4227heldcontrols verified. Upload,metadata and post-upload full hash passed. Latest self-contained recovery preserves acceptedJ,frozenunacceptedL,complete actual full/audit/61 evidence,four unchanged observation pairs and mechanical inherited qualification. Both final Tail axes remain pending, no acceptance credit. CompletedC2statementplan and Spec preparation disposition/unfinishedStandards boundary are included; Spec final saved-artifact readback completion occurred read-only after capture and its separate receipt is not included. Resource preparation remains read-only outside the archive. No compiler is live. Readiness/resource and final-review writers are released only to their previously assigned own packages after this verified upload; sources/refs/runtime/outputs remain held. Earlier dated running/pendingcheckpoint statements are historical.

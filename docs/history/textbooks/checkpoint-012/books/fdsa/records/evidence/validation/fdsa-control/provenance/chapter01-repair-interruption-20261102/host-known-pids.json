@@ -1,0 +1,22 @@
+{
+  "recorded_utc": "2026-11-02T20:20:49.965201+00:00",
+  "tool_session_id": 83124,
+  "tool_handle_available": false,
+  "execution_environment": "authorized elevated Nix shell with /proc verified present",
+  "exact_checkout": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+  "known_task_pids": [
+    441574,
+    441577,
+    441717,
+    441957
+  ],
+  "processes": [],
+  "absent_or_unreadable_known_or_descendant_pids": [
+    441574,
+    441577,
+    441717,
+    441957
+  ],
+  "rejected_without_reading_command_or_stat": [],
+  "actions": "Read-only identity/liveness check of established task PIDs and their exact-cwd descendants only. No signals, process changes, compiler/checker, cache, hash-helper or Git mutation."
+}

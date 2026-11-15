@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "prepared_at": "2026-11-04T01:50:03.665Z",
+  "kind": "bounded read-only optional ordinary artifact capsule adaptation plan",
+  "reviewer": "/root/native_setup",
+  "implementation_created": false,
+  "capture_authorized": false,
+  "source_paths": [
+    "session/validation/capture-ordinary-output-checkpoint.py",
+    "session/research/build-cache-recovery-assessment.md",
+    "session/validation/ordinary-output-capture-design-review.json",
+    "session/validation/ordinary-output-checkpoint-001.json"
+  ],
+  "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+  "donor": "validation-pfds-integration",
+  "eligibility": "Only after actual ordinary full and all four actual regression stages pass, all owned commands finish, and exact evidence/current input identities match. A current implementation and review remain necessary.",
+  "adaptation": [
+    "Derive root from script, single exact donor, exclusive archive/evidence IDs; stage/archive outside session and small receipt inside validation.",
+    "Use approved full_evidence integration, snapshot integration, require_frozen and unified_kit/environment(state,1). Record before/after inputs and originating record hashes, including genuine normal ProofAudit build.",
+    "Hold both full/focused locks nonblocking throughout preflight, capture, real hash validation, archive verification and final evidence. No controller CLI while holding locks.",
+    "Use directly owned, synchronously waited process group and honest log/exits/cleanup for the real hash step; no nested kit run session.",
+    "Keep decisive guard.inspect_outputs(stage,module_names,selected_env) on private copies using unchanged candidate lake_integrity.py and lake-output-hashes.lean."
+  ],
+  "contents": [
+    "README current native recovery",
+    "manifest candidate/tree/source/config/runtime/provenance/capture interval/selected+skipped groups/actual inspection",
+    "SHA256SUMS with self-exclusion",
+    "candidates/EXACT_SHA/.lake/build whole original trace-described project module groups, required artifacts and optional present hash hints"
+  ],
+  "exclusions": [
+    "fresh outputs",
+    "dependency/runtime caches",
+    "download archives",
+    "source/history copies",
+    "live verification record",
+    "copied approval/acceptance"
+  ],
+  "limits": {
+    "staging_batch_bytes": 67108864,
+    "general_available_headroom_bytes": 536870912,
+    "metadata_allowance_bytes": 33554432,
+    "compressed_archive_ceiling_bytes": 536870912,
+    "whole_group_selection_only": true,
+    "explicit_skipped_accounting": true
+  },
+  "recovery": [
+    "Restore source checkpoint first; verify external archive hash, unique safe relative regular members, sizes and every intended member hash.",
+    "New clean exact-candidate checkout, matching recorded kit/pinned dependency/source/config identities, empty private build destination.",
+    "With no competing writers and both locks held, restore complete candidate groups byte-exactly; artifacts/sidecars first, traces last; no historical path rewriting.",
+    "Actual unchanged inspect_outputs without repair on restored groups. Preserve failure diagnostics.",
+    "Release locks before a new ordinary full stock gate. Lake decides relocation reuse; fresh baseline, exhaustive audit, regressions, reviews and immediate verify remain required."
+  ],
+  "decision": "Defer implementation/capture until actual ordinary/regression eligibility. Keep mandatory compact source checkpoint independent; no migration-accepted-outputs helper."
+}

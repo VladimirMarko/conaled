@@ -1,0 +1,21 @@
+--- original-XU06-BC01-BC02-boundary
++++ 49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe:Examples/PermutationPlacementBoundary.lean
+@@ -1,6 +1,6 @@
+ import Applications.Probability.PermutationPlacement
+ import Examples.PermutationExpectation
+-import Mathlib.MeasureTheory.Measure.Dirac
++import Mathlib.MeasureTheory.Measure.Dirac.Def
+ import Mathlib.Tactic
+ 
+ /-!
+@@ -175,7 +175,9 @@
+ 
+ theorem full_infinite_product_value (π : Equiv.Perm (Fin 3)) :
+     (beforeCount rank3 Finset.univ π : ℝ≥0∞) * ∞ = 0 := by
+-  rw [PermutationExpectationBoundary.full_subset_count]
++  have hzero : beforeCount rank3 (Finset.univ : Finset (Fin 3)) π = 0 :=
++    PermutationExpectationBoundary.full_subset_count π
++  rw [hzero]
+   simp
+ 
+ /-- The new lower-integral law retains the actual zero product with infinite weight. -/

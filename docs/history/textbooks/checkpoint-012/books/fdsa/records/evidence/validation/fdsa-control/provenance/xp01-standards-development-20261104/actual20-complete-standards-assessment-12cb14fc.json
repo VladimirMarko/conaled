@@ -1,0 +1,477 @@
+{
+  "recorded_utc": "2026-11-04T11:32:44.718147+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+  "full_original_XP01_scope_retained": true,
+  "actual_terminal_exit": 0,
+  "terminal_evidence_files": [
+    {
+      "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/start.json",
+      "bytes": 1074,
+      "sha256": "3222a5fb3497db41c23e099ae39f4494c77644d183be8a778e95216a38e2f237",
+      "lines": 27
+    },
+    {
+      "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/result.json",
+      "bytes": 1306,
+      "sha256": "0d8385beb1567b0163059d255a61a431e6468630d50c5cf70a5790d015975545",
+      "lines": 32
+    },
+    {
+      "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/full.log",
+      "bytes": 33722,
+      "sha256": "52743ef8b74aa06f5af0efe5188ae6ebf81af7b948748d3d6b650a9411e1acde",
+      "lines": 535
+    },
+    {
+      "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/native/start.json",
+      "bytes": 554,
+      "sha256": "2a6316d451aedde95abfdc5a02b7c66d8263fd8450827dcc7e636410b7851c83",
+      "lines": 14
+    },
+    {
+      "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/native/result.json",
+      "bytes": 706,
+      "sha256": "4fb910f97d830d26af050a5748cc1fada6790fbaf5f9f0a94dda3a4b14e7d86c",
+      "lines": 19
+    },
+    {
+      "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/native/output.log",
+      "bytes": 33371,
+      "sha256": "e1b29bcf05bd9841e7213b71f024f22153a4eb644d6df2ba659800eb5fd83f76",
+      "lines": 532
+    },
+    {
+      "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/secured-terminal.json",
+      "bytes": 3646,
+      "sha256": "6d28dcc88098e7692d40a1c93b2c31f232f65667cc1674a471006cdd18ba9659",
+      "lines": 130
+    },
+    {
+      "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/terminal-bookkeeping-note.json",
+      "bytes": 648,
+      "sha256": "4acbeddd87e8f3e5a3c505e96fecfb80ac9f6cd1f48c2db020296e14564cf21d",
+      "lines": 15
+    }
+  ],
+  "saved_native_original_byte_equal": {
+    "start.json": true,
+    "result.json": true,
+    "output.log": true
+  },
+  "outer_prefix_suffix_and_all_native_bytes_read": true,
+  "native_byte_offset_in_outer": 194,
+  "clean_exact_source_pre_post": true,
+  "actual_qualified_command": [
+    "lake",
+    "env",
+    "lean",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xp01-public-statements20-prepared-20261104/Statements.lean"
+  ],
+  "one_thread": true,
+  "actual_time_boundary": {
+    "pre": "2026-11-04T11:26:37.139862+00:00",
+    "started": "2026-11-04T11:26:40.989204+00:00",
+    "completed": "2026-11-04T11:27:31.395972+00:00",
+    "post": "2026-11-04T11:28:28.810697+00:00"
+  },
+  "actual_pre_and_post_recorder_exit0": true,
+  "input_observations": [
+    {
+      "path": "provenance/xp01-statements20-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 19981,
+      "sha256": "598abe1b77df57ebe2732aa2d09e4e1ce50887b8345c2ebb8f7754412f28c866",
+      "lines": 453
+    },
+    {
+      "path": "provenance/xp01-statements20-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 20292,
+      "sha256": "e5571ff506eb872fe2086a9de9919e53fbdbd20b3b446620e7580e4c16d5a3bd",
+      "lines": 459
+    }
+  ],
+  "input_read_method": "Complete453-line pre record independently read. Every post identity field was compared structurally exactly equal to that read pre identity; all post nonidentity metadata was independently displayed/read. Distinct observation timestamps/file hashes are preserved, not described as byte-identical files.",
+  "identity_counts": {
+    "public_names": 20,
+    "local_sources": 15,
+    "compiler_objects_and_traces": 45,
+    "configuration": 10,
+    "dependency_pins": 9,
+    "qualified_runtime_components": 12
+  },
+  "exact_source_and_configuration_matches_immutable_candidate": true,
+  "independently_reproduced_complete_local_closure": {
+    "Examples/MappedPotentialAccounting.lean": {
+      "bytes": 6932,
+      "sha256": "2c83479daec51deb21ec95e26af816bc0dfaa682fdb5ee76ee28cdf1e681386a",
+      "git_blob": "1fb26b51e9f298bd1ba1d1a5fa2a425142f8d8d7"
+    },
+    "Applications/Resources/BinaryCounter.lean": {
+      "bytes": 11446,
+      "sha256": "d990e0e8d9b09fff3f774180fa2396558f2d1abcf7e6231be648f5bd66f6f9c0",
+      "git_blob": "ed65ac31a2674df62fe26c0ff69a2d6b9bb2101d"
+    },
+    "Applications/Resources/Potential.lean": {
+      "bytes": 11606,
+      "sha256": "c921f5a18f9c508c338d49eed9d3bd2a2193f968cfc3e9efb4208f8917efa33c",
+      "git_blob": "dcf7ae78d76c1440c2d89711e6939a00ff24cc90"
+    },
+    "Applications/Resources/Workload.lean": {
+      "bytes": 2745,
+      "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+      "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05"
+    },
+    "SquareKit/ListFusion.lean": {
+      "bytes": 2939,
+      "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+      "git_blob": "33ec447acb6da7b884ae57d2a885707208201607"
+    },
+    "Applications/Resources/Measured.lean": {
+      "bytes": 2906,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46"
+    },
+    "Squares.lean": {
+      "bytes": 11694,
+      "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+      "git_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a"
+    },
+    "Applications/Resources/FIFOContracts.lean": {
+      "bytes": 8308,
+      "sha256": "f0215c25e27380b170297c9cc010375da4ef263380088f4ae8fdbb7272373343",
+      "git_blob": "01839707e852b3faff6ef1a49ad88a76fb5e5c18"
+    },
+    "Applications/Resources/SymmetricCosts.lean": {
+      "bytes": 10508,
+      "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+      "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233"
+    },
+    "Applications/Sequences/Symmetric/Core.lean": {
+      "bytes": 12059,
+      "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+      "git_blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4"
+    },
+    "Applications/Sequences/AbstractFIFO.lean": {
+      "bytes": 6480,
+      "sha256": "e9d468a3d60c15f6474e71082c19b561819cb3c084e201c0eb8b935d57af0bb2",
+      "git_blob": "7dc3d3cad106512033cfc8cad62d750757abfb66"
+    },
+    "Applications/Sequences/Symmetric/Observation.lean": {
+      "bytes": 3425,
+      "sha256": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557",
+      "git_blob": "846aba846bfcfa04867cc221043609f9198b0ec0"
+    },
+    "SquareKit/Relations.lean": {
+      "bytes": 5615,
+      "sha256": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03",
+      "git_blob": "cdfa81e8f94728272a5c72da21ae2e4f5a5febc4"
+    },
+    "Applications/Sequences/Symmetric/Finite.lean": {
+      "bytes": 4923,
+      "sha256": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490",
+      "git_blob": "fedbcc0dfa4c7865ef2ee73f395155d45e33dbe5"
+    },
+    "Applications/Sequences/Symmetric/Prefixes.lean": {
+      "bytes": 4345,
+      "sha256": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308",
+      "git_blob": "b73854f69696abe7cf827372ad070b6e9dc19991"
+    }
+  },
+  "independent_local_import_edges": {
+    "Examples.MappedPotentialAccounting": [
+      "Applications.Resources.BinaryCounter",
+      "Mathlib.Basic.Real.Basic",
+      "Mathlib.Tactic.NormNum",
+      "Mathlib.Algebra.FreeMonoid.Basic",
+      "Mathlib.Algebra.Group.TypeTags.Basic"
+    ],
+    "Applications.Resources.BinaryCounter": [
+      "Applications.Resources.Potential",
+      "Mathlib.Data.List.Iterate",
+      "Mathlib.Logic.Function.Iterate"
+    ],
+    "Applications.Resources.Potential": [
+      "Applications.Resources.Workload",
+      "Mathlib.Algebra.Order.Group.Nat"
+    ],
+    "Applications.Resources.Workload": [
+      "Applications.Resources.Measured",
+      "SquareKit.ListFusion"
+    ],
+    "SquareKit.ListFusion": [
+      "Mathlib.Data.List.Basic"
+    ],
+    "Applications.Resources.Measured": [
+      "Mathlib.Algebra.Group.Prod",
+      "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+      "Squares"
+    ],
+    "Squares": [
+      "Lean"
+    ],
+    "Applications.Resources.FIFOContracts": [
+      "Applications.Sequences.AbstractFIFO",
+      "Applications.Resources.SymmetricCosts"
+    ],
+    "Applications.Resources.SymmetricCosts": [
+      "Applications.Resources.Potential",
+      "Applications.Sequences.Symmetric.Core"
+    ],
+    "Applications.Sequences.Symmetric.Core": [
+      "SquareKit.ListFusion",
+      "Mathlib.Data.List.Infix"
+    ],
+    "Applications.Sequences.AbstractFIFO": [
+      "Applications.Sequences.Symmetric.Observation"
+    ],
+    "Applications.Sequences.Symmetric.Observation": [
+      "Applications.Sequences.Symmetric.Finite",
+      "SquareKit.Relations"
+    ],
+    "SquareKit.Relations": [
+      "Squares"
+    ],
+    "Applications.Sequences.Symmetric.Finite": [
+      "Applications.Sequences.Symmetric.Prefixes"
+    ],
+    "Applications.Sequences.Symmetric.Prefixes": [
+      "Applications.Sequences.Symmetric.Core"
+    ]
+  },
+  "direct_external_imports": [
+    "Lean",
+    "Mathlib.Algebra.FreeMonoid.Basic",
+    "Mathlib.Algebra.Group.Prod",
+    "Mathlib.Algebra.Group.TypeTags.Basic",
+    "Mathlib.Algebra.Order.Group.Nat",
+    "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+    "Mathlib.Basic.Real.Basic",
+    "Mathlib.Data.List.Basic",
+    "Mathlib.Data.List.Infix",
+    "Mathlib.Data.List.Iterate",
+    "Mathlib.Logic.Function.Iterate",
+    "Mathlib.Tactic.NormNum"
+  ],
+  "all9_clean_dependency_heads_match_manifest": true,
+  "same_qualified_prior_C2_identity_sections": {
+    "runtime": true,
+    "configuration": true,
+    "dependencies": true
+  },
+  "qualified_prior_C2_pre_record": {
+    "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/pre-inputs.json",
+    "bytes": 125408,
+    "sha256": "e4187960a469d194aeceed488d7e9bb45a450ae059bef46ba9645c5f9d6868ac",
+    "lines": 2524
+  },
+  "loaded_object_qualification": "Private central outputs are from the recorded qualified stock build lineage with exclusive ownership, and successful focused4 at exactlyT immediately precedes pre observation/type execution. Pre/post45 actual local objects/traces and all relevant inputs match. Fingerprints supplement that trusted stable-checkout lineage; they do not independently certify arbitrary artifacts or replace the full check output-integrity guard/exhaustive audit. No cache/trace transplantation is credited.",
+  "focused4_evidence": {
+    "path": "provenance/xp01-standards-development-20261104/focused4-terminal-assessment.json",
+    "bytes": 4126,
+    "sha256": "10248fa19514de9fb98868df9080895b0c7bf251689ab36f20ceb297aa810ebf",
+    "lines": 92
+  },
+  "program": {
+    "path": "provenance/xp01-public-statements20-prepared-20261104/Statements.lean",
+    "bytes": 1002,
+    "sha256": "ea75026303b461b1bb676e060aaac51e37797cbb2afd3d6356c08ba28c7eb01f",
+    "lines": 28
+  },
+  "profile": [
+    "pp.universes=true",
+    "pp.explicit=true",
+    "pp.fullNames=true",
+    "20 bare fully qualified #check @ names"
+  ],
+  "all20_headers_exact_once_and_order_reconciled": true,
+  "individual_actual_type_ranges": [
+    {
+      "index": 1,
+      "name": "Resources.budget",
+      "first_line": 1,
+      "last_line": 6,
+      "bytes": 270,
+      "sha256": "7d2491df8801474403c58dd0773ed118592ad724c11b4319aaacf6e32f9d3f53"
+    },
+    {
+      "index": 2,
+      "name": "Resources.budget_append",
+      "first_line": 7,
+      "last_line": 25,
+      "bytes": 1523,
+      "sha256": "2e8b1c8d9b14eaab0e91b791b21c4a9711429412443ab4176bac04a7d2f56c93"
+    },
+    {
+      "index": 3,
+      "name": "Resources.budget_map",
+      "first_line": 26,
+      "last_line": 40,
+      "bytes": 1051,
+      "sha256": "b4fdb5c81879a0411478ec54e0b48969d04a3a172c91770ea4d22f3f66c5ea8d"
+    },
+    {
+      "index": 4,
+      "name": "Resources.run_potential_map_of_invariant",
+      "first_line": 41,
+      "last_line": 91,
+      "bytes": 3365,
+      "sha256": "0e44d6e6ea039439bccd660b17c81ea474ff102949983afb4c913fe0a32382b6"
+    },
+    {
+      "index": 5,
+      "name": "Resources.run_potential_map_exact_of_invariant",
+      "first_line": 92,
+      "last_line": 137,
+      "bytes": 3006,
+      "sha256": "9f27c7720c26b1532e2f77d7cef165656a2fb6fff789911bef9242fdd4256c71"
+    },
+    {
+      "index": 6,
+      "name": "Resources.run_potential_map",
+      "first_line": 138,
+      "last_line": 184,
+      "bytes": 3072,
+      "sha256": "b1317aa48e03c0068894b11e9599afb67ce2bdf98e2f5e229bee17b561db728f"
+    },
+    {
+      "index": 7,
+      "name": "Resources.run_potential_map_exact",
+      "first_line": 185,
+      "last_line": 226,
+      "bytes": 2713,
+      "sha256": "00dc9bed0fd54135b5369844e5b062fb2e10814db9825d4c1cdaa760ae99044c"
+    },
+    {
+      "index": 8,
+      "name": "Resources.run_cost_le_map_of_invariant",
+      "first_line": 227,
+      "last_line": 280,
+      "bytes": 3383,
+      "sha256": "652c6ab194694d293dee7702335eae7291887c76ad684a34b166cb0b23de1182"
+    },
+    {
+      "index": 9,
+      "name": "Resources.budget_amortized",
+      "first_line": 281,
+      "last_line": 355,
+      "bytes": 4015,
+      "sha256": "ad93fc96d3e041c09c5d8569a5b4e69576ed2b7f2d72b579d425b92778abdb46"
+    },
+    {
+      "index": 10,
+      "name": "Resources.charge_iff_signed",
+      "first_line": 356,
+      "last_line": 364,
+      "bytes": 643,
+      "sha256": "6124c77f6dec4afa9108e0c235c180db4923c76fed5a0d8e82988bc7cbefd5d9"
+    },
+    {
+      "index": 11,
+      "name": "Resources.run_potential",
+      "first_line": 365,
+      "last_line": 391,
+      "bytes": 1561,
+      "sha256": "c5175cadef1a555143dd9ba8d45fbcdc030f6cfb752ea3d7caeddbc8b6a63a72"
+    },
+    {
+      "index": 12,
+      "name": "Resources.run_potential_exact",
+      "first_line": 392,
+      "last_line": 418,
+      "bytes": 1541,
+      "sha256": "c8d8ec22c4781b76d844b03bb61d770d5c81bb65b7aa5de0cb014703d1e65a15"
+    },
+    {
+      "index": 13,
+      "name": "Resources.run_cost_le",
+      "first_line": 419,
+      "last_line": 438,
+      "bytes": 1173,
+      "sha256": "b28bf5d029882b137ca1f4109d5f0faad51b3b0308657c37051ee8eba0333113"
+    },
+    {
+      "index": 14,
+      "name": "Resources.run_zero_potential",
+      "first_line": 439,
+      "last_line": 458,
+      "bytes": 1202,
+      "sha256": "cb01ed1004147cb8f7110087ec8e6d52f73ee93a45cb6ccebb54bc01670acef3"
+    },
+    {
+      "index": 15,
+      "name": "Resources.budget_constant",
+      "first_line": 459,
+      "last_line": 465,
+      "bytes": 497,
+      "sha256": "0899c6df9a1ddaafa487820da99ff86d39ee377566f6be942f2537842851d302"
+    },
+    {
+      "index": 16,
+      "name": "Resources.budget_le_constant",
+      "first_line": 466,
+      "last_line": 475,
+      "bytes": 644,
+      "sha256": "a8551a6e96ebc22b1fb2ae0bda02b5d6f2fd188d1f5298d6fd04f4f9cba69a1d"
+    },
+    {
+      "index": 17,
+      "name": "Resources.run_constant_charge",
+      "first_line": 476,
+      "last_line": 498,
+      "bytes": 1399,
+      "sha256": "915226539046bb3690369edcb9f0731161412ffc83bd264978045be3704116c2"
+    },
+    {
+      "index": 18,
+      "name": "Resources.initial_potential_matters",
+      "first_line": 499,
+      "last_line": 519,
+      "bytes": 1299,
+      "sha256": "5d187b78cdc40a72672f7382bf87f29511eb7ca513dfe09cb55c5869ff30087f"
+    },
+    {
+      "index": 19,
+      "name": "Resources.FIFOContracts.abstractBudget",
+      "first_line": 520,
+      "last_line": 522,
+      "bytes": 225,
+      "sha256": "eb04c3b66addad1c0aa055a96f9dfba416228d8ddc1aad764483e68e560ae96e"
+    },
+    {
+      "index": 20,
+      "name": "Examples.MappedPotentialAccounting.Counter.real_boundary",
+      "first_line": 523,
+      "last_line": 532,
+      "bytes": 789,
+      "sha256": "629ded9502c9a1f390d93864e83184e43f89168b8c1418394b86a39df1ef55e6"
+    }
+  ],
+  "semantic_read_progress": {
+    "path": "provenance/xp01-standards-development-20261104/actual20-read-progress.json",
+    "bytes": 6623,
+    "sha256": "1ffa0b037d0c93ca14fcda0a845afb2d6c0475147d32be8fe1dac38f471b91db",
+    "lines": 110
+  },
+  "actual_full_types_independently_read": 20,
+  "all532_native_lines_and33371_bytes_read": true,
+  "bounded_chunks": 4,
+  "each_type_has_semantic_assessment_in_progress_record": true,
+  "type_findings": [],
+  "printer_elision_note": "Only native531 contains a printer-elided internal proof argument of instOfNatAtLeastTwo for the literal2. The actual numeral, instance path, all declaration binders and premises are exposed; this is not a hidden hypothesis or type gap and does not claim proof-term/audit inspection.",
+  "actual_type_run_warnings_or_errors": [],
+  "bookkeeping_failures": "Two post-command header-locator assertions were corrected to optional leading@, with no compiler rerun or changed terminal. Native exact bytes/once-only full-name order independently reconciled.",
+  "current_explicit_public_disposition": "20/20 current actual-qualified public XP01 types fully assessed by Standards; no omitted new/changed explicit public named claim. Source/current focused evidence retains14 private named helpers and16 anonymous mapped examples in the full unit.",
+  "prior_findings": "XP01-DOC-001, XP01-ELAB-001 and XP01-ELAB-002 retain their resolved concrete dispositions. Initial failed logs and source assessments are preserved.",
+  "full_candidate_check_exhaustive_audit_immediate_verification_or_acceptance_credit": false,
+  "overall_outcome": "Blocked pending accepted prerequisite incorporation and all applicable original immutable full-candidate checks, exhaustive audit, both final axes and immediate verification. Source/type development evidence is not acceptance.",
+  "separate_C2_F_dispositions_unchanged": true,
+  "reviewer_ran_compiler_process_or_cache_actions": false,
+  "supplemental_input_recorder_identity": {
+    "path": "tooling/capture_statement_inputs.py",
+    "bytes": 5812,
+    "lines": 119,
+    "sha256": "4df281f3f427ec462a6973b9177fcc3f825b57b19fa8e205780f17cfaa89b5b7",
+    "exactly_matches_previously_independently_reviewed119line_source": true,
+    "method": "All Git calls use --no-optional-locks and Python bytecode writes are disabled; reused unchanged reviewed read-only method. This fingerprints observed inputs and does not create a new checker/authenticity gate."
+  }
+}

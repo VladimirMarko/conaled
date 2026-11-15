@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "recorded_at": "2026-11-15T02:48:34.656459+00:00",
+  "input": {
+    "source": "user attachment supplied for this handoff turn",
+    "uploaded_name": "conaled-textbooks-011.tar(1).xz",
+    "workspace_path": "/workspace/scratch/e1eab3b6b18e/upload/conaled-textbooks-011.tar(1).xz",
+    "library_file_id": "libfile_fde3_f-a032edadbecc81918fb7475bc0d80259_bcb09d6951dc8191bbb29f2ba3c27d9d",
+    "archive_bytes": 106722196,
+    "archive_sha256": "561462f7fb51278598ba56a45c8854f9c460a5ba803aeebb70f7655654666b75",
+    "extracted_members": 10216,
+    "recovery_root": "/workspace/scratch/e1eab3b6b18e/handoff-20261115/checkpoint/conaled-textbooks"
+  },
+  "deep_verify": {
+    "bytes": 265717560,
+    "deep_source": true,
+    "durable_upload_verified": false,
+    "files": 10215,
+    "serial": 11,
+    "verified": true
+  },
+  "adopt_input": {
+    "archive_bytes": 106722196,
+    "archive_sha256": "561462f7fb51278598ba56a45c8854f9c460a5ba803aeebb70f7655654666b75",
+    "completed": true,
+    "durable_uploaded": true,
+    "library_file_id": "libfile_fde3_f-a032edadbecc81918fb7475bc0d80259_bcb09d6951dc8191bbb29f2ba3c27d9d",
+    "manifest_sha256": "59b3f8d6ba71d2277feb2236077bb805539592548c37b21c4f40ce6f7dc53b27",
+    "method": "user-supplied-library-archive",
+    "note": "Delivery bookkeeping uses the supplied real connector receipt or user attachment identity; it does not call or authenticate a remote upload.",
+    "schema": 1,
+    "serial": 11,
+    "series": "conaled-textbooks"
+  },
+  "restore_source": {
+    "acceptance_changed": false,
+    "candidate_worktrees": [
+      "fdsa",
+      "pfds",
+      "vfa"
+    ],
+    "historical_refs": 155,
+    "restored": "/workspace/scratch/e1eab3b6b18e/handoff-20261115/source-recovery"
+  },
+  "meaning": "Actual recovery before this handoff work. The initial verify had no prior delivery sidecar; adopt-input then recorded the server-supplied attachment identity. No previous archive or old runtime was required."
+}

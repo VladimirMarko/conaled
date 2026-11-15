@@ -1,0 +1,131 @@
+import Applications.Trees.Observations
+import Applications.Trees.Cached
+import Applications.Resources.TreeCache
+import Examples.TreeCache
+
+set_option autoImplicit false
+set_option warningAsError true
+set_option pp.universes true
+set_option pp.explicit true
+set_option pp.fullNames true
+set_option pp.deepTerms true
+set_option pp.proofs true
+set_option pp.maxSteps 1000000
+set_option pp.coercions true
+set_option pp.all true
+
+#check @Trees.fold
+#check @Trees.fold_nil
+#check @Trees.fold_node
+#check @Trees.fold_map
+#check @Trees.fold_fusion
+#check @Trees.fold_numNodes
+#check @Trees.fold_height
+#check @Trees.inorder
+#check @Trees.inorder_nil
+#check @Trees.inorder_node
+#check @Trees.inorder_length
+#check @Trees.inorder_map
+#check @Trees.numNodes_map
+#check @Trees.numLeaves_map
+#check @Trees.height_map
+#check @Trees.Cached.erase
+#check @Trees.Cached.erase_nil
+#check @Trees.Cached.erase_node
+#check @Trees.Cached.read
+#check @Trees.Cached.read_nil
+#check @Trees.Cached.read_node
+#check @Trees.Cached.smartNode
+#check @Trees.Cached.read_smartNode
+#check @Trees.Cached.erase_smartNode
+#check @Trees.Cached.Valid
+#check @Trees.Cached.valid_nil
+#check @Trees.Cached.valid_node
+#check @Trees.Cached.smartNode_valid_iff
+#check @Trees.Cached.read_eq_fold
+#check @Trees.Cached.inorder_erase
+#check @Trees.Cached.numNodes_erase
+#check @Trees.Cached.numLeaves_erase
+#check @Trees.Cached.height_erase
+#check @Trees.Cached.annotate
+#check @Trees.Cached.annotate_nil
+#check @Trees.Cached.annotate_node
+#check @Trees.Cached.annotate_valid
+#check @Trees.Cached.erase_annotate
+#check @Trees.Cached.read_annotate
+#check @Resources.TreeCache.readRun
+#check @Resources.TreeCache.readRun_value
+#check @Resources.TreeCache.readRun_cost
+#check @Resources.TreeCache.nodeRun
+#check @Resources.TreeCache.nodeRun_value
+#check @Resources.TreeCache.nodeRun_cost
+#check @Resources.TreeCache.nodeRun_le
+#check @Resources.TreeCache.nodeRun_valid
+#check @TreeCacheExamples.sizeStep
+#check @TreeCacheExamples.heightStep
+#check @TreeCacheExamples.size_reader
+#check @TreeCacheExamples.height_reader
+#check @TreeCacheExamples.sample
+#check @TreeCacheExamples.sample_size
+#check @TreeCacheExamples.sample_height
+#check @TreeCacheExamples.sample_inorder
+#check @TreeCacheExamples.sizeSample
+#check @TreeCacheExamples.sizeSample_valid
+#check @TreeCacheExamples.sizeSample_erases
+#check @TreeCacheExamples.sizeSample_read
+#check @TreeCacheExamples.heightSample
+#check @TreeCacheExamples.heightSample_valid
+#check @TreeCacheExamples.heightSample_read
+#check @TreeCacheExamples.pairStep
+#check @TreeCacheExamples.pair_fold_size
+#check @TreeCacheExamples.pair_fold_height
+#check @TreeCacheExamples.pair_reader
+#check @TreeCacheExamples.pairSample
+#check @TreeCacheExamples.pairSample_valid
+#check @TreeCacheExamples.pairSample_erases
+#check @TreeCacheExamples.pairSample_read
+#check @TreeCacheExamples.ordered_summary_fold
+#check @TreeCacheExamples.sample_word
+#check @TreeCacheExamples.balancedThree
+#check @TreeCacheExamples.leftThree
+#check @TreeCacheExamples.same_inorder_different_height
+#check @TreeCacheExamples.repeated_sample
+#check @TreeCacheExamples.empty_tree
+#check @TreeCacheExamples.empty_fold
+#check @TreeCacheExamples.empty_observations
+#check @TreeCacheExamples.empty_annotation
+#check @TreeCacheExamples.corrupt
+#check @TreeCacheExamples.corrupt_root_checks
+#check @TreeCacheExamples.corrupt_not_valid
+#check @TreeCacheExamples.corrupt_erases
+#check @TreeCacheExamples.corrupt_inorder
+#check @TreeCacheExamples.corrupt_smart_not_valid
+#check @TreeCacheExamples.corrupt_smart_same_tree
+#check @TreeCacheExamples.erased_fold
+#check @TreeCacheExamples.sizeRun
+#check @TreeCacheExamples.heightRun
+#check @TreeCacheExamples.size_node_value
+#check @TreeCacheExamples.height_node_value
+#check @TreeCacheExamples.size_node_cost
+#check @TreeCacheExamples.height_node_cost
+#check @TreeCacheExamples.size_node_bound
+#check @TreeCacheExamples.size_node_valid
+#check @TreeCacheExamples.height_node_valid
+#check @TreeCacheExamples.measured_size_reader
+#check @TreeCacheExamples.measured_height_reader
+#check @TreeCacheExamples.listStep
+#check @TreeCacheExamples.appendStepRun
+#check @TreeCacheExamples.append_node_value
+#check @TreeCacheExamples.append_node_cost
+#check @TreeCacheExamples.append_node_valid
+#check @TreeCacheExamples.chain
+#check @TreeCacheExamples.chain_numNodes
+#check @TreeCacheExamples.chainCache
+#check @TreeCacheExamples.chainCache_valid
+#check @TreeCacheExamples.chainCache_read
+#check @TreeCacheExamples.chainCache_length
+#check @TreeCacheExamples.chain_node_cost
+#check @TreeCacheExamples.chain_node_value
+#check @TreeCacheExamples.chain_node_valid
+#check @TreeCacheExamples.chain_node_exceeds
+#check @TreeCacheExamples.empty_read

@@ -1,0 +1,19 @@
+{
+  "recorded_utc": "2026-11-03T17:37:37.240593+00:00",
+  "api": "os.statvfs and shutil.disk_usage on owned recovery root",
+  "uid": 0,
+  "euid": 0,
+  "f_bsize": 4096,
+  "f_frsize": 4096,
+  "f_blocks": 16500619,
+  "f_bfree": 831152,
+  "f_bavail": 0,
+  "free_blocks_bytes": 3404398592,
+  "available_blocks_bytes": 0,
+  "disk_usage": {
+    "total": 67586535424,
+    "used": 64182136832,
+    "free": 0
+  },
+  "interpretation": "The available-block figure and all unallocated blocks are different. The earlier zero available-block observation did not establish zero unallocated blocks or a write failure: checkpoint041 actually completed successfully. Neither figure proves task-specific quotas or future write headroom; no permissions or filesystem reservations were changed."
+}

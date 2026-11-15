@@ -1,0 +1,36 @@
+[
+  {
+    "command": [
+      "git",
+      "diff",
+      "--no-index",
+      "--binary",
+      "--full-index",
+      "--",
+      "/dev/null",
+      "Applications/Resources/RandomSelectionEndpoints.lean"
+    ],
+    "actual_exit": 1,
+    "meaning": "Expected no-index difference status1, not a validation failure.",
+    "stdout_bytes": 9126,
+    "stdout_sha256": "5046f601094f7999b532999aaaa326089e7a30cdc41252bd5074846c6fb822ba",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--no-index",
+      "--binary",
+      "--full-index",
+      "--",
+      "/dev/null",
+      "Examples/RandomSelectionEndpoints.lean"
+    ],
+    "actual_exit": 1,
+    "meaning": "Expected no-index difference status1, not a validation failure.",
+    "stdout_bytes": 3296,
+    "stdout_sha256": "4b2f401551f0126e3ba81f36f1627bb71e6489eea5cc26d7a1584ad84ac2451d",
+    "stderr": ""
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "recorded_utc": "2026-11-03T18:30:39.126338+00:00",
+  "base": "0afe0faa014512a0375bb158b6c8a56817075319",
+  "candidate": "c1121c5b99e8714a0d91eab0db6bb60f7c650f2c",
+  "merge_base": "0afe0faa014512a0375bb158b6c8a56817075319",
+  "scope": [
+    "work-state/tooling/pinned_native_j1_toolchain.py",
+    "work-state/tooling/NATIVE-J1.md"
+  ],
+  "stat": "work-state/tooling/NATIVE-J1.md                  | 151 +++++++++++++++++++++++\n work-state/tooling/pinned_native_j1_toolchain.py | 120 ++++++++++++++++++\n 2 files changed, 271 insertions(+)",
+  "requirements": "work-state/specs/1035-native-j1-adoption.md",
+  "requirements_sha256": "df548d34c151ce4c3aef89c95b6b53a619d494ccecea83fa86dd27ce70042389",
+  "source_hashes": {
+    "work-state/tooling/pinned_native_j1_toolchain.py": "575ea992adfa874e2f680b2c9e85120057f21a9e7ebbd8cb1005e1122845c1d5",
+    "work-state/tooling/NATIVE-J1.md": "f80a441358bd37ad5f33348193868c6a2d7b22ca993158f43ef444b711edf7a9"
+  },
+  "exclusions": "Existing accepted native/QEMU files and formal source unchanged; mmap prototype remains excluded operational experiment evidence. No unrelated task changes.",
+  "validation": "Captured candidate isolated validation pending",
+  "review": "Both independent operational axes pending",
+  "formal_credit": false
+}

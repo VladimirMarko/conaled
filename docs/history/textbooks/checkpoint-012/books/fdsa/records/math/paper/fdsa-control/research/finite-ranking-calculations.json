@@ -1,0 +1,231 @@
+{
+  "status": "Independent exact finite arithmetic only; not Lean kernel validation, a proof audit, frozen scope, or chapter acceptance.",
+  "method": "Python itertools enumerates all key-to-priority bijections and all fixed subsets for universe sizes zero through six; Fraction performs exact rational arithmetic. The before-count calculation is preparation for a separately scoped future theorem.",
+  "exhaustive_checks": [
+    {
+      "universe_size": 0,
+      "permutations": 1,
+      "subsets": 1,
+      "pairs": 1,
+      "minimum_mass_and_separate_before_count_identity": true
+    },
+    {
+      "universe_size": 1,
+      "permutations": 1,
+      "subsets": 2,
+      "pairs": 2,
+      "minimum_mass_and_separate_before_count_identity": true
+    },
+    {
+      "universe_size": 2,
+      "permutations": 2,
+      "subsets": 4,
+      "pairs": 8,
+      "minimum_mass_and_separate_before_count_identity": true
+    },
+    {
+      "universe_size": 3,
+      "permutations": 6,
+      "subsets": 8,
+      "pairs": 48,
+      "minimum_mass_and_separate_before_count_identity": true
+    },
+    {
+      "universe_size": 4,
+      "permutations": 24,
+      "subsets": 16,
+      "pairs": 384,
+      "minimum_mass_and_separate_before_count_identity": true
+    },
+    {
+      "universe_size": 5,
+      "permutations": 120,
+      "subsets": 32,
+      "pairs": 3840,
+      "minimum_mass_and_separate_before_count_identity": true
+    },
+    {
+      "universe_size": 6,
+      "permutations": 720,
+      "subsets": 64,
+      "pairs": 46080,
+      "minimum_mass_and_separate_before_count_identity": true
+    }
+  ],
+  "selected_examples": [
+    {
+      "universe_size": 0,
+      "subset": [],
+      "sample_count": 1,
+      "minimum_masses": {},
+      "before_count_distribution": {
+        "0": "1"
+      },
+      "mean_before_count": "0",
+      "count_plus_one_is_first_position": false
+    },
+    {
+      "universe_size": 3,
+      "subset": [],
+      "sample_count": 6,
+      "minimum_masses": {
+        "0": "0",
+        "1": "0",
+        "2": "0"
+      },
+      "before_count_distribution": {
+        "3": "1"
+      },
+      "mean_before_count": "3",
+      "count_plus_one_is_first_position": false
+    },
+    {
+      "universe_size": 3,
+      "subset": [
+        0
+      ],
+      "sample_count": 6,
+      "minimum_masses": {
+        "0": "1",
+        "1": "0",
+        "2": "0"
+      },
+      "before_count_distribution": {
+        "0": "1/3",
+        "1": "1/3",
+        "2": "1/3"
+      },
+      "mean_before_count": "1",
+      "count_plus_one_is_first_position": true
+    },
+    {
+      "universe_size": 3,
+      "subset": [
+        0,
+        1
+      ],
+      "sample_count": 6,
+      "minimum_masses": {
+        "0": "1/2",
+        "1": "1/2",
+        "2": "0"
+      },
+      "before_count_distribution": {
+        "0": "2/3",
+        "1": "1/3"
+      },
+      "mean_before_count": "1/3",
+      "count_plus_one_is_first_position": true
+    },
+    {
+      "universe_size": 3,
+      "subset": [
+        0,
+        1,
+        2
+      ],
+      "sample_count": 6,
+      "minimum_masses": {
+        "0": "1/3",
+        "1": "1/3",
+        "2": "1/3"
+      },
+      "before_count_distribution": {
+        "0": "1"
+      },
+      "mean_before_count": "0",
+      "count_plus_one_is_first_position": true
+    },
+    {
+      "universe_size": 4,
+      "subset": [
+        0,
+        3
+      ],
+      "sample_count": 24,
+      "minimum_masses": {
+        "0": "1/2",
+        "1": "0",
+        "2": "0",
+        "3": "1/2"
+      },
+      "before_count_distribution": {
+        "0": "1/2",
+        "1": "1/3",
+        "2": "1/6"
+      },
+      "mean_before_count": "2/3",
+      "count_plus_one_is_first_position": true
+    }
+  ],
+  "shared_overlap": {
+    "universe_size": 3,
+    "first_subset": [
+      0,
+      1
+    ],
+    "second_subset": [
+      1,
+      2
+    ],
+    "common_candidate": 1,
+    "first_mass": "1/2",
+    "second_mass": "1/2",
+    "joint_mass": "1/3",
+    "product_mass": "1/4"
+  },
+  "necessity_boundaries": {
+    "constant_tied_priorities": {
+      "universe_size": 2,
+      "subset": [
+        0,
+        1
+      ],
+      "each_member_minimum_mass": "1",
+      "would_be_uniform_member_mass": "1/2",
+      "reason": "Non-strict minima are not unique when priority is not injective."
+    },
+    "outsider_comparison": {
+      "universe_size": 2,
+      "subset": [
+        1
+      ],
+      "candidate": 0,
+      "raw_comparison_mass": "1/2",
+      "membership_aware_minimum_mass": "0",
+      "inverse_subset_cardinality": "1"
+    },
+    "uniform_marginals_not_uniform_ranking": {
+      "samples": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ],
+      "each_key_priority_marginal_uniform": true,
+      "probability_key0_precedes_key1": "2/3",
+      "uniform_full_ranking_probability": "1/2"
+    },
+    "raw_numeric_priority_not_rank": {
+      "universe_size": 3,
+      "subset": [
+        0,
+        1
+      ],
+      "priority": "100+10*position",
+      "mean_raw_minimum": "310/3",
+      "mean_one_based_first_position": "4/3"
+    }
+  }
+}

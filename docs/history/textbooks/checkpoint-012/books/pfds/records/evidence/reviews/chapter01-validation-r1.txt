@@ -1,0 +1,7 @@
+Candidate: 99340c79b9123e64f4b5cea313a8dbdf00af740c
+Isolated checkout: /workspace/scratch/ca9a61d0bf30/review-ch01
+Environment: documented Nix develop invocation from session/environment/README.md
+Command: Nix develop --command python3 (assert exact HEAD, assert clean porcelain status, git diff --check BASE HEAD, resolve every relative Markdown link in the two changed documents)
+Result: exit 0
+Output: Pinned clean candidate; diff whitespace and 11 local Markdown links passed.
+No Lean or configuration changes; no integrated build/audit claimed.

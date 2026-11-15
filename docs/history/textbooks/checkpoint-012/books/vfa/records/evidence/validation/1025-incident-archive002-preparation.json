@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-03T00:15:41.585002+00:00",
+  "purpose": "Preserve exact current binary payloads and return metadata for known-returned000/012/013 before any separately justified new cleanup decision. This preparation changes no cleanup exclusion.",
+  "assessment": "work-state/validation/1025-returned-archives000-012-013-assessment.json",
+  "assessment_sha256": "1ee05447323d1e71ba60eda98bcb1c0c128a0868ff2bc6111b8b4b7001d437d7",
+  "root_free_bytes": 2137206784,
+  "existing_launch_floor_bytes": 2000000000,
+  "planned_payload_bytes": 433516489,
+  "output": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-incident-002-returned-archives.tar",
+  "format": "Uncompressed tar; inputs are already compressed complete checkpoint archives.",
+  "latest_complete_source_checkpoint": {
+    "name": "conaled-vfa-checkpoint-034-resource-and-capacity-evidence.tar.gz",
+    "sha256": "1408e77e0f8803f7c5a6116ac9275e330f5e9775b076250462d6916306b57e59",
+    "library_file_id": "libfile_fd1aadbc81288191ac3f5ac46476d128"
+  },
+  "limitations": [
+    "Current old Library bindings are missing and are not reconstructed.",
+    "Unknown writer, return times and return mechanism remain unknown.",
+    "No source, active cache, compiler configuration, process or prior saved item is modified.",
+    "This evidence companion is not the latest source recovery checkpoint."
+  ]
+}

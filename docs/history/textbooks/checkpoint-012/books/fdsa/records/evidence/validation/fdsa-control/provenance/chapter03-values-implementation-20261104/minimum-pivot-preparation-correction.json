@@ -1,0 +1,23 @@
+{
+  "finding": "C03-MINIMUM-PREP-001",
+  "kind": "preparation-method header delimiter, not Lean/source/mathematical finding",
+  "candidate": "eaea222672013a67c4e84cf7bf8adae418be0cf6",
+  "original": {
+    "name": "minimum-pivot-inventory.json",
+    "bytes": 32489,
+    "sha256": "18ea6020574caf827e87f07b658340ac5f654eb5370ef2e7a79a716704231c92"
+  },
+  "corrected": {
+    "name": "minimum-pivot-inventory-v2.json",
+    "bytes": 33174,
+    "sha256": "68e1874ab0e80c398efc76ccf8ebdcff5e3c4e1c76682da8108857f97a2accee"
+  },
+  "unchanged": "All 52 names, all three sources, explicit-@ input, and previous receipts; no compiler/type program has run.",
+  "exact_header_changes": [
+    {
+      "name": "Resources.SelectionPolicy.runWith_step",
+      "original_header": "theorem runWith_step (choose : List α → Measured (Option α) Nat)\n    (fuel k : Nat) (xs : List α) (hx : xs ≠ []) (p : α)\n    (hp : (choose xs).1 = some p) :\n    runWith choose (fuel + 1) k xs =\n      let t",
+      "corrected_header": "theorem runWith_step (choose : List α → Measured (Option α) Nat)\n    (fuel k : Nat) (xs : List α) (hx : xs ≠ []) (p : α)\n    (hp : (choose xs).1 = some p) :\n    runWith choose (fuel + 1) k xs =\n      let t := Applications.Selection.partition3 p xs\n      let c := (xs.length + 1) + (choose xs).2 + (xs.length + 1) +\n        (t.1.length + 1) + (t.2.1.length + 1) + 1\n      if k < t.1.length then prepend xs.length c (runWith choose fuel k t.1)\n      else if k < t.1.length + t.2.1.length then\n        ((t.2.1[k - t.1.length]?, [xs.length]),\n          c + (min (k - t.1.length) t.2.1.length + 1))\n      else prepend xs.length c\n        (runWith choose fuel (k - t.1.length - t.2.1.length) t.2.2)"
+    }
+  ]
+}

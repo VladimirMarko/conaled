@@ -1,0 +1,22 @@
+diff --git a/Examples/SelectionGenericBounds.lean b/Examples/SelectionGenericBounds.lean
+index 447ad53..c5e6cb3 100644
+--- a/Examples/SelectionGenericBounds.lean
++++ b/Examples/SelectionGenericBounds.lean
+@@ -37,7 +37,7 @@ private theorem first_five_scalar :
+     Examples.GroupSelectionRecurrence.first_five_children.2,
+     genericSelectionMajorant_small 5 1 (by decide) 15 (by omega),
+     genericSelectionMajorant_small 5 1 (by decide) 56 (by omega), base]
+-  norm_num [tollCoefficient] <;> omega
++  norm_num [tollCoefficient]; omega
+ 
+ private theorem first_six_scalar :
+     genericSelectionMajorant 6 1 (by decide) 98 = 2 * envelope 6 97 + 7063 := by
+@@ -50,7 +50,7 @@ private theorem first_six_scalar :
+     Examples.GroupSelectionRecurrence.first_six_children.2,
+     genericSelectionMajorant_small 6 1 (by decide) 17 (by omega),
+     genericSelectionMajorant_small 6 1 (by decide) 80 (by omega), base]
+-  norm_num [tollCoefficient] <;> omega
++  norm_num [tollCoefficient]; omega
+ 
+ /-- Empty inputs need the affine or scalar statement: their actual cost is two. -/
+ theorem empty_every_sufficient_group (d cutoff : Nat) (hd : 2 ≤ d)

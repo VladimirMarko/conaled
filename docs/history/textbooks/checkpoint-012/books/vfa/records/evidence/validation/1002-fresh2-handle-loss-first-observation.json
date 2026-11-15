@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-11-02T22:43:58.175043+00:00",
+  "trigger": "Heartbeat remained22:41:39 while compiler log advanced; tool session98080 returned Unknown process id.",
+  "visible_process_count": 59,
+  "matching_owned_identifiers": [
+    {
+      "pid": 578204,
+      "comm": "python3",
+      "state": "S",
+      "ppid": 1,
+      "process_group": 578204,
+      "session": 578204,
+      "start_ticks": 8917111,
+      "user_ticks": 210,
+      "system_ticks": 42,
+      "rss_pages": 2997,
+      "cwd": "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+      "exe": "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3.13",
+      "command_argv": [
+        "python3",
+        "scripts/check.py",
+        "--fresh",
+        "--jobs",
+        "1",
+        "--candidate",
+        "HEAD"
+      ],
+      "wchan": "__futex_wait"
+    },
+    {
+      "pid": 620437,
+      "comm": "lean",
+      "state": "S",
+      "ppid": 578204,
+      "process_group": 578204,
+      "session": 578204,
+      "start_ticks": 9331802,
+      "user_ticks": 122,
+      "system_ticks": 1046,
+      "rss_pages": 176067,
+      "cwd": "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+      "exe": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "command_argv": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-o",
+        "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/fresh-check-4fhvnocs/SquareKit/SmoothPrincipalDescent.olean",
+        "SquareKit/SmoothPrincipalDescent.lean"
+      ],
+      "wchan": "__futex_wait"
+    }
+  ],
+  "stat_scan_errors": [],
+  "scope": "Single native metadata scan for original recorded recorder and child process/session/group identifiers. It does not prove universal quiescence or a cause. No signals sent; no command relaunched.",
+  "run_record": {
+    "schema": 1,
+    "state": "running",
+    "started_utc": "2026-11-02T21:34:09.497595+00:00",
+    "recorder_pid": 578140,
+    "child": {
+      "pid": 578204,
+      "process_group": 578204,
+      "session": 578204
+    },
+    "child_returncode": null,
+    "child_status": "unreaped",
+    "recorder_outcome": null,
+    "recorder_exit_code": null,
+    "interrupt_signal": null,
+    "descendant_quiescence_verified": false,
+    "errors": [],
+    "cleanup": null
+  },
+  "latest_heartbeat": {
+    "schema": 1,
+    "recorded_utc": "2026-11-02T22:41:39.544995+00:00",
+    "sequence": 136,
+    "elapsed_seconds": 4050.0473617700045,
+    "child_poll_returncode": null
+  },
+  "errors_log": ""
+}

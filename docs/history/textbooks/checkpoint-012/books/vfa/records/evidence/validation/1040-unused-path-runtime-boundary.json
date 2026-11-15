@@ -1,0 +1,94 @@
+{
+  "recorded_utc": "2026-11-04T13:44:17.499368+00:00",
+  "candidate": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+  "same_loop_native_reviewer": "/root/native_review",
+  "review_scope": "Bounded read-only source/profile/path assessment while current fresh remains live. No compiler/cache/doctor/setup/acquisition/cleanup/process-control action by reviewer.",
+  "incident": "1040-compressed-download-reappearance.json",
+  "profile_configuration_comparison": {
+    "saved": {
+      "path": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1037-environment/profile-config.json",
+      "bytes": 3641,
+      "sha256": "7909843c87166671a2df7a73a2223c1f7364b5de50214fe8641cdf9a06e1176c"
+    },
+    "current": {
+      "path": "/workspace/scratch/60f07f0e98c8/native-state/profile/config.json",
+      "bytes": 3641,
+      "sha256": "7909843c87166671a2df7a73a2223c1f7364b5de50214fe8641cdf9a06e1176c"
+    },
+    "byte_identical": true,
+    "configuration_only_not_installed_byte_or_continuity_attestation": true
+  },
+  "source_evidence": [
+    {
+      "path": "/workspace/scratch/60f07f0e98c8/conaled-vfa/native-kit/conaled_native.py",
+      "bytes": 34020,
+      "sha256": "9d1b1e6f10ae574e5c1f388d8df069f43c9ca3e1a993c372293595abd2e5090a"
+    },
+    {
+      "path": "/workspace/scratch/60f07f0e98c8/conaled-vfa/native-kit/lib/acquire.py",
+      "bytes": 23835,
+      "sha256": "2d537f9656979f95a441c813640d67a804a544a4d12b698c4f8d965f93627297"
+    },
+    {
+      "path": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/scripts/check.py",
+      "bytes": 16119,
+      "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+    },
+    {
+      "path": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1034-pre-guard-assess.py",
+      "bytes": 23397,
+      "sha256": "a2c40a0a4d786101442bfe923177e245b66b46e9c5bf5544dcbe00e766fb602c"
+    }
+  ],
+  "actual_command_evidence": {
+    "path": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1002-candidate-eae9e11-monitor-fresh1/launch.json",
+    "bytes": 2408,
+    "sha256": "b1b854df9bd8b4dad6cfe36f57da16a8588a3b18a4d3ee3eab17ce8b044db8d6"
+  },
+  "runtime_boundary": {
+    "run": "check_project, then project lock, environment/verify_profile, and log_command; does not invoke acquisition/cache_get/relink_cache.",
+    "compiler_archive": "downloads/lean-4.35.0-linux.tar.zst belongs to acquisition. Active run has no acquisition call.",
+    "ltar_archives": "cache/mathlib/*.ltar belong to dedicated cache hydration. Fresh imports private local outputs and unpacked installed package lib directories; setting MATHLIB_CACHE_DIR does not invoke hydration.",
+    "setup_executable": "bin/mathlib-cache is selected through cache_get/relink_cache/_cache-exec. Active run and prescribed formal gates do not call those operations.",
+    "profile": "Four wrapped tools lake/lean/leanc/leanir and19links into installed official distribution; none selects returned download/helper paths.",
+    "remaining_gates": "Collector, guarded build, managed +ProofAudit, regressions and verify-candidate use the same profile and unpacked inputs. Guarded build disables artifact cache and uses --no-cache --rehash."
+  },
+  "available_existing_reconciliation": {
+    "verify": "Existing kit verify checks its distributed files.",
+    "verify_profile": "Checks payload/wrapper/runtime/adapter hashes, link targets, loader hash and recorded shared-library size/mtime against config; retain config comparison.",
+    "doctor_full": "Without --project, checks runtime/profile without project dependency lock. Historical1038doctor covers47recordedofficialinputs+8extraruntimeinputs. No new doctor result asserted here.",
+    "project_doctor_caveat": "Adding --project would run offline dependency validation and acquire its .lake/.conaled-dependencies.lock. Do not target frozen old worktree or current linked-package layout.",
+    "source_and_dependency_inventory": "1040-cache-scope.json records954localsourcehashes,gatescripthashes,ninepins,3932source/metadata importcrosschecks. Actual post-fresh reconciliation pending.",
+    "collector": "Existing accepted collector requires complete matching fresh evidence, approved real dependency links, source identities, wrapper hashes/versions, local managed-output before/after observations and selected-copybytes+64MiBordinaryavailable."
+  },
+  "coverage_limits": [
+    "No current reconciliation operation claimed except the small profile-config comparison and source/path reads.",
+    "The full doctor does not attest every installed standard-library or external dependency compiled artifact.",
+    "Tracked-source Git cleanliness, source/ilean import consistency, local-output integrity and profile verification have distinct scopes.",
+    "Returned-file byte equality and path separation do not establish uninterrupted installed-input stability or global quiescence.",
+    "Fresh recompiles local project sources while using installed external artifacts.",
+    "The known old fresh command remains confined to frozenoldroot for writes; this does not identify the anomaly writer."
+  ],
+  "acceptance_remains_blocked": true,
+  "formal_gate_credit": false,
+  "retained_standards_prospective_assessment": {
+    "recorded_utc": "2026-11-04T13:46:03.656752+00:00",
+    "same_loop_coordinator": "/root/formal_review",
+    "basis": "Supplied actual path/config/archive comparison facts and documented existing check coverage; reasoning only, no reviewer tool call or write.",
+    "decision": "Existing bounded reconciliation is sufficient to assess the interval once the checks actually complete and agree with retained preincident records. No concrete missing baseline identified that warrants an additional attestation requirement.",
+    "required_matches": [
+      "Current profile config versus retained1037copy; actual postfresh kitverify and boundeddoctor with coverage stated.",
+      "Candidate/source/gatescript identities versus preincidentEAEinventory.",
+      "Ninepackagepins and3932source/metadata fingerprints versus retained identities.",
+      "Unchanged collector under assessedinput/outputconditions; preserve/classify discrepancies before repair."
+    ],
+    "not_asserted": [
+      "Unknown activity was confined to returned paths.",
+      "Every installed artifact attested or uninterrupted immutability proved.",
+      "A newly computed snapshot is a historicalbaseline.",
+      "Pending reconciliation or formal gates already passed."
+    ],
+    "specific_discrepancy_rule": "Any concrete changed relevant path is preserved and investigated, with affected gates reestablished as required. No generic wholemachine/allartifactscan absent a concrete discrepancy.",
+    "finding_status": "ST-002 and SP-VAL-001 remain open."
+  }
+}

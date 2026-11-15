@@ -1,0 +1,47 @@
+--- a/books/common/VALIDATION-HANDOFF.md
++++ b/books/common/VALIDATION-HANDOFF.md
+@@ -103,22 +103,25 @@
+ 
+ ## Standalone patch
+ 
+-The separately delivered `conaled-textbooks-009.patch` applies to the pinned
+-upstream above. Its private-index application was checked to reconstruct exactly
+-the delivered candidate tree; `evidence/patch-export-009.json` records its hash,
+-base, candidate and reproduction command. The source bundle remains the complete
++The separately delivered `conaled-textbooks-012.patch` applies to the pinned
++upstream above. It is a byte-identical re-export of the historical009 patch.
++Its fresh private-index application reconstructs exactly the delivered candidate
++tree; `evidence/patch-export-012.json` records the hash, base, candidate and
++reproduction command. The historical009 receipt remains unchanged. The source bundle remains the complete
+ history and recovery owner. The patch can be regenerated from its recorded two
+ commits using `git diff --binary --full-index`; no earlier archive or separate
+ patch file is required to restore this checkpoint. Patch application checks are
+ source checks, not Lean compilation or axiom-audit evidence.
+ 
+-## Resource settings and the current local attempt
++## Resource settings
+ 
+-The user now requests removing all agent-imposed resource restrictions and
+-attempting the full check locally. This supersedes earlier 1/2/4-thread guidance.
+-The receiving full gate remains the fallback if this experiment is interrupted
+-or blocked. A real successful local result belongs to its exact candidate and
+-can be reconciled through the existing review loop.
++The requested unrestricted local attempt and its single retry have been spent.
++`STATUS.md` owns their disposition. The user now requests a receiving handoff;
++do not start another local attempt or setup campaign on resume. The instruction
++to remove agent-imposed resource caps still supersedes earlier1/2/4 guidance.
++The receiving full gate above is the remaining execution assignment. Any future
++successful result belongs to its actual candidate and must be reconciled through
++the existing review loop.
+ 
+ [Current native command settings](EXECUTION.md) is the single current
+ owner of the launcher prefix and its acceptance-command examples. Use that prefix
+@@ -133,7 +136,7 @@
+ exact argv and the effective environment of the process that execs the checker.
+ The launcher receipt alone does not describe the child after `env -u`.
+ 
+-Keep source and configuration stable throughout the attempt. Record success,
++Keep source and configuration stable throughout receiving validation. Record success,
+ source failure, external termination or incomplete execution according to actual
+ evidence. No timeout, OOM diagnosis or compiler success may be inferred merely
+ from elapsed time, a missing handle or an old success record. `INT-090` owns the

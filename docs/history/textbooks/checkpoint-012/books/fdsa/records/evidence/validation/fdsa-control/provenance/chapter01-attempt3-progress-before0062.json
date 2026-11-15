@@ -1,0 +1,165 @@
+{
+  "observed_start_utc": "2026-11-03T01:56:10.077949+00:00",
+  "observed_end_utc": "2026-11-03T01:56:10.085874+00:00",
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "metadata_path": "provenance/chapter01-repair-guarded-attempt3.json",
+  "metadata_bytes": 1552,
+  "metadata_sha256": "7b00a25b45c8ed51fcfd3cbbb4d986895dd670996aeaeba5f7e04500d8decf35",
+  "metadata_result": "running",
+  "terminal_fields": {},
+  "known_processes": [
+    {
+      "pid": 600750,
+      "state": "S",
+      "ppid": 1,
+      "process_group": 600750,
+      "session": 600750,
+      "start_ticks": "9123853",
+      "argv_prefix": [
+        "python3",
+        "/workspace/scratch/845aa1048b05/fdsa-control/provenance/run-chapter01-repair-attempt3.py"
+      ],
+      "argv_count": 2,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    },
+    {
+      "pid": 600779,
+      "state": "S",
+      "ppid": 600750,
+      "process_group": 600750,
+      "session": 600750,
+      "start_ticks": "9123889",
+      "argv_prefix": [
+        "python3",
+        "scripts/check.py",
+        "--candidate",
+        "HEAD"
+      ],
+      "argv_count": 4,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    },
+    {
+      "pid": 600956,
+      "state": "S",
+      "ppid": 600779,
+      "process_group": 600750,
+      "session": 600750,
+      "start_ticks": "9124698",
+      "argv_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake",
+        "--no-cache",
+        "--rehash",
+        "build",
+        "+Squares",
+        "+Applications.AD.Core",
+        "+Applications.AD.Modes",
+        "+FirstOrder"
+      ],
+      "argv_count": 964,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    }
+  ],
+  "review_cwd_processes": [
+    {
+      "pid": 600750,
+      "state": "S",
+      "ppid": 1,
+      "process_group": 600750,
+      "session": 600750,
+      "start_ticks": "9123853",
+      "argv_prefix": [
+        "python3",
+        "/workspace/scratch/845aa1048b05/fdsa-control/provenance/run-chapter01-repair-attempt3.py"
+      ],
+      "argv_count": 2,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    },
+    {
+      "pid": 600779,
+      "state": "S",
+      "ppid": 600750,
+      "process_group": 600750,
+      "session": 600750,
+      "start_ticks": "9123889",
+      "argv_prefix": [
+        "python3",
+        "scripts/check.py",
+        "--candidate",
+        "HEAD"
+      ],
+      "argv_count": 4,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    },
+    {
+      "pid": 600956,
+      "state": "S",
+      "ppid": 600779,
+      "process_group": 600750,
+      "session": 600750,
+      "start_ticks": "9124698",
+      "argv_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake",
+        "--no-cache",
+        "--rehash",
+        "build",
+        "+Squares",
+        "+Applications.AD.Core",
+        "+Applications.AD.Modes",
+        "+FirstOrder"
+      ],
+      "argv_count": 964,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    },
+    {
+      "pid": 705115,
+      "state": "S",
+      "ppid": 600956,
+      "process_group": 600750,
+      "session": 600750,
+      "start_ticks": "10323274",
+      "argv_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/Applications/FRP/Feedback.lean",
+        "-o",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/Feedback.olean",
+        "-i",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/Feedback.ilean",
+        "-c",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/ir/Applications/FRP/Feedback.c"
+      ],
+      "argv_count": 11,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    }
+  ],
+  "log_snapshot": {
+    "path": "reviews/chapter01-repair-incremental-attempt3.log",
+    "bytes": 167418,
+    "sha256": "dcf02e673c5d2a527aa74a038b7fd9dca9896763d8f01d9d8967d876ba2f4308",
+    "last_lines": [
+      "info: Applications/FRP/Equivalence.lean:1148:0: 'FRP.Realization.switcher_eq' depends on axioms: [propext, choice, Quot.sound]",
+      "info: Applications/FRP/Equivalence.lean:1149:0: 'FRP.Examples.zeno_not_finiteHistory' depends on axioms: [propext, choice, Quot.sound]",
+      "\u2714 [9559/9562] Built Applications.FRP.Finite (1929s)",
+      "\u2714 [9560/9563] Built Examples.FRP (1519s)",
+      "\u2714 [9561/9564] Built Applications.FRP.Engine (2169s)",
+      "\u2714 [9562/9565] Built Applications.FRP.Lifecycle (1982s)",
+      "\u2714 [9563/9566] Built Applications.FRP.LifecycleSafety (1508s)",
+      "\u2714 [9564/9567] Built Applications.FRP.LifecycleProgress (2061s)",
+      "\u2714 [9565/9568] Built Applications.Progress.Feedback (376s)",
+      "\u2714 [9566/9569] Built Applications.Progress.CoupledFeedback (371s)"
+    ]
+  },
+  "verification": {
+    "conaled-ch01-review/.lake/verification.json": {
+      "exists": false
+    },
+    "fdsa-control/provenance/chapter01-repair-attempt3-verification.json": {
+      "exists": false
+    }
+  },
+  "filesystem": {
+    "euid": 0,
+    "free_block_bytes": 3864838144,
+    "available_bytes": 412090368
+  },
+  "limits": "Read-only host observation. stat/cmdline/cwd errors are separated; no auxiliary children file is used. Snapshot/log prefix is partial, not terminal success, cache health or acceptance. No compiler/checker/project hash helper/active artifact hashing/cache or cleanup action; both earlier unknown outcomes remain unknown."
+}

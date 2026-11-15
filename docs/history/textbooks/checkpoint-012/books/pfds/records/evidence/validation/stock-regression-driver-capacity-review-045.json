@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "time": "2026-11-04T02:02:27.331849+00:00",
+  "kind": "bounded-reviewed-unexecuted-capacity-observation-amendment",
+  "source": "session/validation/run-integration-regressions-r1-045.py",
+  "previous_sha256": "96b367299b0a87fe17c7556b4ebf2f02502fdf8d259c28e594ac0a583a1c351e",
+  "current_sha256": "b883ad8045a7e1886033005fa481f30103ac0baf97d8de335c9ad5de7dafe47a",
+  "bytes": 36909,
+  "lines": 731,
+  "exact_diff": "--- prior-frozen-driver\n+++ capacity-observation-amendment\n@@ -117,8 +117,13 @@\n \n def space_observation():\n     value = os.statvfs(ROOT)\n+    effective_uid = os.geteuid()\n     return {\"observed_at\": now(), \"available_bytes\": value.f_bavail * value.f_frsize,\n-            \"free_bytes_including_reserved\": value.f_bfree * value.f_frsize}\n+            \"free_bytes_including_reserved\": value.f_bfree * value.f_frsize,\n+            \"effective_uid\": effective_uid,\n+            \"admission_free_bytes\": (value.f_bfree if effective_uid == 0 else value.f_bavail) * value.f_frsize,\n+            \"admission_basis\": \"f_bfree (effective UID 0)\" if effective_uid == 0\n+                               else \"f_bavail (effective UID != 0)\"}\n \n \n def private_layout():\n@@ -337,7 +342,7 @@\n         require(command[\"status\"] == \"not_run\", f\"Command cannot be repeated: {name}\")\n         self.cancellation.check()\n         command[\"space_before\"] = space_observation()\n-        require(command[\"space_before\"][\"available_bytes\"] > 0,\n+        require(command[\"space_before\"][\"admission_free_bytes\"] > 0,\n                 \"No available filesystem space; command refused\")\n         env = self.envs[command[\"environment_name\"]]\n         command[\"environment\"] = self.selected_environment(env)\n@@ -550,7 +555,7 @@\n     try:\n         cancellation.check()\n         record[\"space_before\"] = space_observation()\n-        require(record[\"space_before\"][\"available_bytes\"] > 0, \"No available space for this run\")\n+        require(record[\"space_before\"][\"admission_free_bytes\"] > 0, \"No available space for this run\")\n         record[\"layout_before\"] = private_layout()\n         full = runner.full_evidence(ROOT, ORDINARY_RUN, \"integration\")\n         require(full[\"record\"][\"verification_mode\"] == \"incremental\",\n",
+  "independent_reviewer": "/root/thesis_bootstrapping_inventory",
+  "independent_proposal_outcome": "Approved exact bounded diff; no concrete defect.",
+  "root_applied_exact_reviewed_proposal": true,
+  "AST_parse_only": "passed",
+  "driver_import_or_execution": false,
+  "ordinary_prerequisite_unchanged": "integration-3cf-ordinary-r2-045",
+  "rationale": "Actual rootUID0 writes repeatedly succeeded at f_bavail0 while f_bfree positive; the prior extra observation-only check would unnecessarily refuse later suites. Preserve both original observations and record effective UID, chosen quantity and explicit basis.",
+  "limits": [
+    "EffectiveUID0 does not guarantee every f_bfree byte is writable under all filesystem/quota/namespace configurations.",
+    "Admission is only a zero-capacity refusal; no space reservation or workload sufficiency assertion.",
+    "Actual IO failures and child exits retain existing failure handling; no filesystem enforcement or credentials change."
+  ],
+  "four_stock_commands_and_limits_unchanged": true,
+  "active_controller_runtime_source_unchanged": true,
+  "execution_authorized": false,
+  "formal_acceptance": false
+}

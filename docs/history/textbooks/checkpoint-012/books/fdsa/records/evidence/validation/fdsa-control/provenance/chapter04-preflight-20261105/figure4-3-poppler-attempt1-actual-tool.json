@@ -1,0 +1,7 @@
+{
+  "chunk_id": "9a70f9",
+  "wall_time_seconds": 2.3445e-05,
+  "exit_code": 1,
+  "original_token_count": 169,
+  "output": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError\nCOMMAND [\"/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override/pdftoppm\", \"-f\", \"60\", \"-l\", \"60\", \"-scale-to\", \"1800\", \"-singlefile\", \"-png\", \"/workspace/scratch/b4a17a285e23/research-source/functional_data_structures_algorithms.pdf\", \"/workspace/scratch/b4a17a285e23/chapter04-preflight-figure-20261105/tmp/pdfs/figure4-3-page60\"]\nACTUAL_EXIT 127\nSTDOUT \nSTDERR /opt/codex/runtimes/codex-primary-runtime/dependencies/native/poppler/poppler/bin/pdftoppm: error while loading shared libraries: libpoppler.so.160: cannot open shared object file: No such file or directory\n\n"
+}

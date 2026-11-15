@@ -1,0 +1,138 @@
+--- a/tickets/FDSA-XU02.md
++++ b/tickets/FDSA-XU02.md
+@@ -1,6 +1,6 @@
+ # FDSA-XU02 — Shared uniform relative order on a fixed subset
+ 
+-State: all three focused targets individually compiled; explicit53 types and complete independent acceptance gates pending. Triage: in-progress.
++State: corrected minimal source bdac9703; all three focused targets have individual successful results; all 53 explicit public types were fully assessed by both axes at C2 candidate 4b5dbfa0. Accepted prerequisite incorporation and full matching unit acceptance gates remain pending. Triage: in-progress.
+ Parent: FDSA-000. Cross-cutting unit; integration depends on repaired
+ FDSA-001 and FDSA-XU01 acceptance and this unit's complete gates.
+ 
+@@ -34,13 +34,13 @@
+ - [x] Write and statement-review the core and connected examples.
+ - [x] Integrate public imports and document source/semantic limits.
+ - [x] Capture an immutable draft candidate.
+-- [ ] Focused compilation under the pinned environment.
++- [ ] Supply matching focused evidence for the eventual immutable acceptance candidate; retain the individual development passes below.
+ - [ ] Full guarded candidate build, exhaustive audit and matching record.
+ - [ ] Independent Standards and Spec review with no unresolved findings.
+ - [ ] Immediate final candidate verification and accepted-base integration.
+ - [ ] Create, expose and upload the acceptance checkpoint.
+ 
+-## Current validation boundary
++## Original draft validation boundary (retained history)
+ 
+ Draft candidate: `4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8`.
+ The core, both example modules, public import and documentation are committed;
+@@ -74,3 +74,34 @@
+ ## Checkpoint0092 continuation — 4 November 2026
+ 
+ At exactC=c0440a99, closed attempt5 exited1 overall, while Examples.PermutationOrder built241s and unchanged core/boundary replayed retained individual successes. Minimalbdac970 is unchanged. All53 explicit types and full matching candidate/audit/independent/immediate gates remain. No unit acceptance.
++
++## Completed development evidence — 4 November 2026
++
++Corrected minimal source bdac9703aab4b383fa775568d36bf685af329389 retains the
++original six-path scope. Actual individual successes are Order core 63s in
++attempt3 at b3ccd661, boundary 118s in attempt4 at e4965499, and main 241s in
++attempt5 at c0440a99. Each enclosing aggregate exited 1; these are individual
++successful module results, not a full unit or candidate acceptance.
++
++All 53 explicit public types were printed and fully assessed by both independent
++axes in the closed actual815 command at 4b5dbfa07288acc73f25c27838d3fb2f78e77d71
++(checks 33–85), with matching actual pre/post inputs. The corrected three source
++blobs match that candidate. Complete Standards/Spec actual815 assessments and
++the exact preparation/evidence mapping remain in provenance; this resolves
++the former absence of actual type inspection for this fixed C2 source only.
++
++The unchanged standalone 53-name input remains reusable as preparation; its original
++inventory records older source bytes and must not be mistaken for this binding.
++The incoming minimal branch contains older Minimum files. Preserve the accepted
++corrected Minimum predecessor when integrating; do not copy its entire tree.
++
++The route remains accepted F → accepted combined XM01/XD01/XQ01/XU01 →
++XU02 → XU03 → new complete C2. Matching future candidate qualification,
++full check/audit, both final axes, immediate verification and the acceptance
++checkpoint remain open. The focused checklist item requires matching evidence
++for that future candidate and does not erase the recorded individual passes.
++The dated public-note proposal remains unapplied; proper-stage documentary
++reconciliation under C02-DOC-003 remains. No acceptance checkbox closes here.
++
++Exact records and proposed source bindings:
++../provenance/shared-order-tail-acceptance-preparation-20261104/.
+--- a/tickets/FDSA-XU03.md
++++ b/tickets/FDSA-XU03.md
+@@ -1,6 +1,6 @@
+ # FDSA-XU03 — Shared conditional remaining-order laws
+ 
+-State: core and corrected boundary individually passed; focused9 main examples failed six diagnostics; correction planning only. Complete types/predecessor/full gates pending. Triage: in-progress.
++State: corrected minimal source 02fc3f3; all three focused targets have individual successful results, including Main in closed focused10; all 61 explicit public types were fully assessed by both axes at C2 candidate 4b5dbfa0. Accepted prerequisite incorporation and full matching unit acceptance gates remain pending. Triage: in-progress.
+ Parent: FDSA-000. Cross-cutting unit; integration depends on repaired
+ FDSA-001 and the preceding minimum/whole-order base acceptance, plus this
+ unit's complete matching gates.
+@@ -34,7 +34,7 @@
+ - [x] Write and statement-review the core and connected examples.
+ - [x] Integrate public imports and source-use documentation.
+ - [x] Capture an immutable draft candidate.
+-- [ ] Focused compilation under the pinned environment.
++- [ ] Supply matching focused evidence for the eventual immutable acceptance candidate; retain the individual development passes below.
+ - [ ] Full guarded candidate build, exhaustive audit and matching record.
+ - [ ] Independent Standards and Spec review with no unresolved findings.
+ - [ ] Immediate final candidate verification and accepted-base integration.
+@@ -47,7 +47,7 @@
+ Pre-implementation recovery checkpoint 0019 is saved; its receipt is in
+ `../checkpoints.json`. It supplies no formal acceptance credit.
+ 
+-## Committed source draft
++## Original committed source draft (retained history)
+ 
+ Candidate: `a0597381f02eddd074ee96cabaa974f2062285f8`, with clean index and
+ working tree. Handoff and source statement assessment:
+@@ -150,3 +150,35 @@
+ is pending exact successor, including faithful explicit Fintype Label enumeration
+ and generated-helper/public-instance accounting. No new type or acceptance credit.
+ Only exactF full71528 remains live;81130 is closed and must not be polled.
++
++## Completed development evidence — 4 November 2026
++
++Corrected minimal source 02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9 retains the
++original six-path scope. Actual individual successes are Tail core 90s in
++attempt6 at f673ee8, boundary 128s in attempt9 at 0a7ef078, and main 331s in
++attempt10 at 8ba7ae11. Each enclosing aggregate exited 1; focused10 failed on
++Uniform examples after Main Tail passed. All prior failures and the six-body
++Main correction remain preserved. They are not full unit acceptance.
++
++All 61 explicit public types were printed and fully assessed by both independent
++axes in the closed actual815 command at 4b5dbfa07288acc73f25c27838d3fb2f78e77d71
++(checks 203–263), with matching actual pre/post inputs. The corrected three source
++blobs match that candidate. Complete Standards/Spec actual815 assessments remain;
++the earlier statements that these types were merely prepared are dated history,
++not the current fixed-Z evidence state.
++
++The complete 61-name block previously shared an 84-name input with numerical means.
++A new prepared-only 61-name projection retains exactly its names and three imports;
++it is not a new execution. The incoming minimal branch contains older Minimum
++and Order files. Preserve both accepted corrected predecessors when integrating.
++
++The route remains accepted F → accepted combined XM01/XD01/XQ01/XU01 →
++accepted XU02 → XU03 → new complete C2. Matching future candidate qualification,
++full check/audit, both final axes, immediate verification and the acceptance
++checkpoint remain open. The focused checklist item requires matching evidence
++for that future candidate and retains the recorded individual successes.
++The corrected dated public-note proposal remains unapplied; C02-DOC-003 proper-
++stage documentary reconciliation remains. No acceptance checkbox closes here.
++
++Exact records and proposed source bindings:
++../provenance/shared-order-tail-acceptance-preparation-20261104/.
+--- a/tickets/INDEX.md
++++ b/tickets/INDEX.md
+@@ -23,8 +23,8 @@
+ | FDSA-XD01 | Shared difference-list closure observations | corrected core/examples and all72 types passed; full source/type readback complete; final integrated gates pending | accepted FDSA-001 and required shared integration |
+ | FDSA-XW01 | Shared bounds for accumulated random work | committed draft; compilation and final reviews pending | repaired FDSA-001 acceptance |
+ | FDSA-XU01 | Shared uniform-permutation minimum law | three focused targets and37 explicit types/source assessments passed; full independent/integrated gates pending | accepted FDSA-001 and required shared integration |
+-| FDSA-XU02 | Shared uniform relative order on a fixed subset | all three targets individually passed;53 explicit types and complete independent gates pending | repaired FDSA-001 and FDSA-XU01 acceptance |
+-| FDSA-XU03 | Shared conditional remaining-order laws | core individually passed; exact ee2ea240 boundary repairs integrated under focused7; types and full gates pending | repaired FDSA-001 and preceding minimum/whole-order acceptance |
++| FDSA-XU02 | Shared uniform relative order on a fixed subset | all three targets individually passed; 53 types fully assessed at 4b5dbfa0; accepted prerequisite incorporation and full unit gates pending | repaired FDSA-001 and FDSA-XU01 acceptance |
++| FDSA-XU03 | Shared conditional remaining-order laws | all three targets individually passed; 61 types fully assessed at 4b5dbfa0; accepted prerequisite incorporation and full unit gates pending | repaired FDSA-001 and preceding minimum/whole-order acceptance |
+ | FDSA-XU04 | Shared preceding-count and ordinal-position means | committed draft; compilation and final reviews pending | repaired FDSA-001 and preceding shared-base acceptance |
+ | FDSA-XU05 | Shared joint relative orders on disjoint subsets | committed draft; compilation and final reviews pending | repaired FDSA-001 and preceding shared-base acceptance |
+ | FDSA-XU06 | Shared fixed-placement and internal-order independence | committed uncompiled draft 49d6d47; final gates pending | repaired FDSA-001 and inherited shared-base acceptance |

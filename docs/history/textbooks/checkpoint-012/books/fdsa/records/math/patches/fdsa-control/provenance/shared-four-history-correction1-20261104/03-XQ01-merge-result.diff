@@ -1,0 +1,109 @@
+diff --git a/SquareApplications.lean b/SquareApplications.lean
+index a36fa60..b1d9757 100644
+--- a/SquareApplications.lean
++++ b/SquareApplications.lean
+@@ -248,12 +248,15 @@ import Examples.FunctionalBasics
+ import Examples.ListReversal
+ import Examples.CallModels
+ import Examples.SharedDemand
++<<<<<<< HEAD
+ import Examples.InsertionCosts
+ import Examples.ListLibrary
+ import Examples.ListCalls
+ import Examples.FunctionalNotation
+ import Examples.MergeCosts
+ import Examples.DifferenceListCosts
++=======
++>>>>>>> 0612e80a0c297a38fa1add6e837dc7781e1bbd9c
+ import Examples.ThreeWayPartition
+ 
+ /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
+diff --git a/docs/research/fdsa-reconstruction-map.md b/docs/research/fdsa-reconstruction-map.md
+index e753d53..1e54954 100644
+--- a/docs/research/fdsa-reconstruction-map.md
++++ b/docs/research/fdsa-reconstruction-map.md
+@@ -492,6 +492,7 @@ audit, both independent review axes, and final candidate-identity verification.
+ Their exact outcomes are kept in the local checkpoint's review record rather
+ than inferred from this narrative.
+ 
++<<<<<<< HEAD
+ ## Shared ordinary list merge observations — FDSA-XM01
+ 
+ `Applications.Sorting.Merge` adds the two order-free input sublists, arbitrary-
+@@ -549,13 +550,21 @@ acceptance gates remain required.
+ ## Shared three-way partition values and source execution (FDSA-XQ01)
+ 
+ This bounded cross-cutting unit exposes the existing independent
++=======
++## Shared three-way partition values and source execution (FDSA-XQ01)
++
++This bounded cross-cutting **uncompiled draft** exposes the existing independent
++>>>>>>> 0612e80a0c297a38fa1add6e837dc7781e1bbd9c
+ partition semantics to Sorting and Selection, with a separately measured
+ one-pass realization for Appendix B.2. It activates or accepts neither chapter
+ and does not widen the initial Chapter 2 foundation prefix. Exact provenance,
+ source/model distinctions, interface compatibility and cases are in
+ [fdsa-three-way-partition.md](fdsa-three-way-partition.md).
++<<<<<<< HEAD
+ The source note retains the dated validation history; it does not substitute
+ for this unit's full candidate gates.
++=======
++>>>>>>> 0612e80a0c297a38fa1add6e837dc7781e1bbd9c
+ 
+ | Common source obligation | Draft declarations / intended connection |
+ | --- | --- |
+@@ -579,6 +588,7 @@ costs remain mandatory in the original chapters. Accepted repaired Chapter 1,
+ focused compatibility checks, the full candidate build/audit, both independent
+ review axes and immediate candidate verification remain required. No source
+ preflight or authored draft supplies acceptance evidence.
++<<<<<<< HEAD
+ 
+ ## Shared fixed-subset minimum probability (draft)
+ 
+@@ -594,3 +604,5 @@ pivot/subproblem laws, full relative-order restrictions, the expected first
+ position, treap construction/ancestor/charging proofs or algorithm cost
+ correspondences. Its source note retains a dated validation snapshot;
+ the local FDSA-XU01 record retains the frozen scope and subsequent gate results.
++=======
++>>>>>>> 0612e80a0c297a38fa1add6e837dc7781e1bbd9c
+diff --git a/docs/research/fdsa-three-way-partition.md b/docs/research/fdsa-three-way-partition.md
+index ee83f49..71190e5 100644
+--- a/docs/research/fdsa-three-way-partition.md
++++ b/docs/research/fdsa-three-way-partition.md
+@@ -3,6 +3,7 @@
+ This cross-cutting draft makes the existing ordered partition interface
+ available to both sorting and selection, then supplies a separately measured
+ one-pass source realization. The shared value operation retains its existing
++<<<<<<< HEAD
+ two-stage implementation and Selection-facing compatibility. Its source statements
+ and connected clients require the complete immutable-candidate validation
+ and review workflow.
+@@ -14,6 +15,11 @@ A separate successful inspection printed 48 public types belonging to the
+ shared and compatibility interfaces. These are historical results; reuse
+ requires matching candidate evidence, and complete unit acceptance was still
+ outstanding in this snapshot. The full acceptance gates below remain required.
++=======
++two-stage implementation and Selection-facing compatibility. The draft is
++uncompiled and unaccepted; its source statements and connected clients still
++require the complete immutable-candidate validation and review workflow.
++>>>>>>> 0612e80a0c297a38fa1add6e837dc7781e1bbd9c
+ 
+ ## Source correspondence
+ 
+@@ -206,10 +212,16 @@ independent work and value laws, and the unchanged old interface separate.
+ The API/source/case preflights and original byte identities are retained in
+ the local review evidence. They are preparation rather than compiler results.
+ 
++<<<<<<< HEAD
+ **Prerequisite history — 4 November 2026.** Chapter 1 was accepted locally on
+ 3 November 2026 at `07e480f6ec9958d4975bb90151005b84f2907614`. Integration of
+ this unit also requires acceptance of the declared shared foundation.
+ New and existing affected
++=======
++The draft starts from the focused-pass but unaccepted Chapter 1 repair.
++Accepted repaired Chapter 1 remains required before integration or acceptance;
++the initial Chapter 2 foundation prefix is unchanged. New and existing affected
++>>>>>>> 0612e80a0c297a38fa1add6e837dc7781e1bbd9c
+ modules require focused compilation, the full applicable candidate build and
+ exhaustive audit, both independent review axes and immediate candidate-record
+ verification. Source authoring and independent expected calculations do not

@@ -1,0 +1,54 @@
+diff --git a/SquareApplications.lean b/SquareApplications.lean
+index a36fa60..6d43d49 100644
+--- a/SquareApplications.lean
++++ b/SquareApplications.lean
+@@ -258,3 +258,4 @@ import Examples.ThreeWayPartition
+ 
+ /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
+ 
++import Examples.MergeCosts
+diff --git a/docs/research/fdsa-list-merge.md b/docs/research/fdsa-list-merge.md
+index 90ff9f0..69f430b 100644
+--- a/docs/research/fdsa-list-merge.md
++++ b/docs/research/fdsa-list-merge.md
+@@ -3,6 +3,7 @@
+ This shared source draft connects FDSA's ordinary merge to the existing
+ `List.merge`, sorting contracts and measured composition. It adds the missing
+ input-sublist/converse facts and one execution that records both head
++<<<<<<< HEAD
+ comparisons and recursive merge invocations. This note describes the
+ draft's mathematical contracts; it does not record chapter acceptance.
+ 
+@@ -15,6 +16,12 @@ no recorded inspection in the inventory. These are historical results; reuse
+ requires matching candidate evidence, and complete unit acceptance was still
+ outstanding in this snapshot. The full acceptance gates below remain required.
+ 
++=======
++comparisons and recursive merge invocations. **Compilation, the full candidate
++gate and independent final reviews are pending.** This note describes the
++draft's mathematical contracts; it does not record chapter acceptance.
++
++>>>>>>> 72a0951aee406f7db67998d2a3bf8810f4e1bccc
+ ## Source and reuse boundary
+ 
+ The prescribed source is Chapter 2 §2.4, printed pp. 17–18 of
+diff --git a/docs/research/fdsa-reconstruction-map.md b/docs/research/fdsa-reconstruction-map.md
+index e753d53..2548b27 100644
+--- a/docs/research/fdsa-reconstruction-map.md
++++ b/docs/research/fdsa-reconstruction-map.md
+@@ -517,6 +517,7 @@ license and full observation boundaries. All whole-sort/logarithmic, run/builder
+ exercise and stability obligations remain; the original 107/current 112 C2
+ requirements are unchanged. All concrete C14 queue/whole-enumeration/carrier
+ and quadratic claims remain queued, and binomial carry is a different operation.
++<<<<<<< HEAD
+ The original foundation prefix c80eec9 excludes this later component.
+ The source note retains a dated validation snapshot; acceptance requires the
+ complete immutable-candidate gates recorded in the local FDSA-XM01 record.
+@@ -594,3 +595,7 @@ pivot/subproblem laws, full relative-order restrictions, the expected first
+ position, treap construction/ancestor/charging proofs or algorithm cost
+ correspondences. Its source note retains a dated validation snapshot;
+ the local FDSA-XU01 record retains the frozen scope and subsequent gate results.
++=======
++The initial C2 integration prefix remains c80eec9, without this later component.
++This is a source draft with no compilation, final-review or acceptance claim.
++>>>>>>> 72a0951aee406f7db67998d2a3bf8810f4e1bccc

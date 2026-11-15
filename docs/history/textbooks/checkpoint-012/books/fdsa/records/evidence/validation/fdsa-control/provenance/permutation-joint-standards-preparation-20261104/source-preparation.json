@@ -1,0 +1,2143 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "unit": "FDSA-XU05",
+  "base": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+  "candidate": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+  "requirements_sha256": "a80952af26c830231070feb9305f7c678277349c95861b39826edc9297486325",
+  "overall_outcome": "Blocked",
+  "source_assessment": "Complete original six-path source assessment: no new concrete mathematical, assumption, public-interface, connected-example or architectural defect identified. Source-stage adequacy only.",
+  "finding_count": 0,
+  "findings": [],
+  "declaration_totals": {
+    "all_explicit": 125,
+    "public": 94,
+    "public_definitions": 29,
+    "public_theorems": 62,
+    "public_named_local_instances": 3,
+    "private_theorems": 13,
+    "anonymous_local_instances": 18,
+    "anonymous_examples": 0,
+    "inherited_core_public": 17,
+    "new_public": 77,
+    "new_public_theorems": 47,
+    "new_public_definitions": 27,
+    "new_public_named_local_instances": 3,
+    "new_private_theorems": 9,
+    "retained_private_core_theorems": 4,
+    "new_structure_or_inductive": 0,
+    "per_file": {
+      "Applications/Probability/PermutationOrder.lean": {
+        "public_def": 2,
+        "public_theorem": 18,
+        "private_theorem": 7
+      },
+      "Examples/PermutationJoint.lean": {
+        "anonymous_instance": 8,
+        "public_instance": 3,
+        "public_def": 12,
+        "public_theorem": 24,
+        "private_theorem": 2
+      },
+      "Examples/PermutationJointBoundary.lean": {
+        "anonymous_instance": 10,
+        "public_def": 15,
+        "public_theorem": 20,
+        "private_theorem": 4
+      }
+    }
+  },
+  "declarations": [
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 55,
+      "header_end_line": 55,
+      "name": "restrictedOrder",
+      "qualified_name": "Applications.Probability.PermutationOrder.restrictedOrder",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": true,
+      "header": "def restrictedOrder (positions : List I) (S : Finset I) (π : Equiv.Perm I) : List I\n",
+      "header_sha256": "eba43f2f160e9e92acfb2cd1ddc6c950dcbabef9b8d81b9d8c11e1b903b977d7",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 59,
+      "header_end_line": 59,
+      "name": "orders",
+      "qualified_name": "Applications.Probability.PermutationOrder.orders",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": true,
+      "header": "def orders (positions : List I) (S : Finset I) : Finset (List I)\n",
+      "header_sha256": "5a32de98081cf64c7e6d34a2261ae4d8162d124826bb1205351310ff99edfb3c",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 63,
+      "header_end_line": 65,
+      "name": "mem_restrictedOrder",
+      "qualified_name": "Applications.Probability.PermutationOrder.mem_restrictedOrder",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": true,
+      "header": "@[simp] theorem mem_restrictedOrder (positions : List I) (S : Finset I)\n    (π : Equiv.Perm I) (a : I) :\n    a ∈ restrictedOrder positions S π ↔ π a ∈ positions ∧ a ∈ S\n",
+      "header_sha256": "4a215489b27789fc622afcdcb6af9cd0527467e502d18c746c1e1167286b9456",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 68,
+      "header_end_line": 70,
+      "name": "mem_restrictedOrder_of_complete",
+      "qualified_name": "Applications.Probability.PermutationOrder.mem_restrictedOrder_of_complete",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": true,
+      "header": "theorem mem_restrictedOrder_of_complete (positions : List I)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) (a : I) :\n    a ∈ restrictedOrder positions S π ↔ a ∈ S\n",
+      "header_sha256": "28e2b66d2fcfbb0eac631dee9dd4bb3c53cb073b3e970e9b9d2efb19c6a13812",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 73,
+      "header_end_line": 75,
+      "name": "restrictedOrder_nodup",
+      "qualified_name": "Applications.Probability.PermutationOrder.restrictedOrder_nodup",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": true,
+      "header": "theorem restrictedOrder_nodup (positions : List I) (hnd : positions.Nodup)\n    (S : Finset I) (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).Nodup\n",
+      "header_sha256": "1cd01a5f1d8c4384eb587c13e77a02ed8c0024af04333e2c1f9076069b6293c1",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 79,
+      "header_end_line": 81,
+      "name": "restrictedOrder_toFinset",
+      "qualified_name": "Applications.Probability.PermutationOrder.restrictedOrder_toFinset",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": true,
+      "header": "theorem restrictedOrder_toFinset (positions : List I)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).toFinset = S\n",
+      "header_sha256": "7d094f2cb134dc438e3912e39fdf61941372f3608e0fdb6953cea34839643f72",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 87,
+      "header_end_line": 89,
+      "name": "restrictedOrder_length",
+      "qualified_name": "Applications.Probability.PermutationOrder.restrictedOrder_length",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": true,
+      "header": "theorem restrictedOrder_length (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).length = S.card\n",
+      "header_sha256": "6faed8ca30d57fed53e397b5e01eba348351da744600fe8da4155d093d36843a",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 93,
+      "header_end_line": 96,
+      "name": "restrictedOrder_perm",
+      "qualified_name": "Applications.Probability.PermutationOrder.restrictedOrder_perm",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": true,
+      "header": "theorem restrictedOrder_perm (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).Perm\n      (positions.filter (fun a => decide (a ∈ S)))\n",
+      "header_sha256": "0cbfda3b2b14ca1198d69c42e1730dba2cccea0f268adb3b0e698aaecfe3a7da",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 104,
+      "header_end_line": 106,
+      "name": "map_restrictedOrder_sublist",
+      "qualified_name": "Applications.Probability.PermutationOrder.map_restrictedOrder_sublist",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": true,
+      "header": "theorem map_restrictedOrder_sublist (positions : List I) (S : Finset I)\n    (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).map π <+ positions\n",
+      "header_sha256": "43ec8bd69a03621f42a2b073739da2d0b44a4ca958ffa392c5c05da2be7204c4",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 113,
+      "header_end_line": 116,
+      "name": "filter_restrictedOrder",
+      "qualified_name": "Applications.Probability.PermutationOrder.filter_restrictedOrder",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": true,
+      "header": "theorem filter_restrictedOrder (positions : List I) (S T : Finset I)\n    (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).filter (fun a => decide (a ∈ T)) =\n      restrictedOrder positions (S ∩ T) π\n",
+      "header_sha256": "5720aaf456892e91780459300c9410bd09a7452031747f1315ce6c3ca35f71e5",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 123,
+      "header_end_line": 126,
+      "name": "filter_restrictedOrder_of_subset",
+      "qualified_name": "Applications.Probability.PermutationOrder.filter_restrictedOrder_of_subset",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": true,
+      "header": "theorem filter_restrictedOrder_of_subset (positions : List I) (S T : Finset I)\n    (π : Equiv.Perm I) (hTS : T ⊆ S) :\n    (restrictedOrder positions S π).filter (fun a => decide (a ∈ T)) =\n      restrictedOrder positions T π\n",
+      "header_sha256": "aa842174f6b01a4a8a495a10c477ef2eade3f06aaf40b2aad85cd7d56a387527",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 129,
+      "header_end_line": 131,
+      "name": "mem_orders",
+      "qualified_name": "Applications.Probability.PermutationOrder.mem_orders",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": true,
+      "header": "@[simp] theorem mem_orders (positions : List I) (S : Finset I) (xs : List I) :\n    xs ∈ orders positions S ↔\n      xs.Perm (positions.filter (fun a => decide (a ∈ S)))\n",
+      "header_sha256": "53701b2da7ba90fd0a794deaaa59b3b0ead1974128630339d67bc1144def802c",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 135,
+      "header_end_line": 136,
+      "name": "orders_nonempty",
+      "qualified_name": "Applications.Probability.PermutationOrder.orders_nonempty",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": true,
+      "header": "theorem orders_nonempty (positions : List I) (S : Finset I) :\n    (orders positions S).Nonempty\n",
+      "header_sha256": "b15fa8dae28eb47232fe771fa8cc987dc9aa4aa144163eb59ca0649aac4956f0",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 140,
+      "header_end_line": 142,
+      "name": "restrictedOrder_mem_orders",
+      "qualified_name": "Applications.Probability.PermutationOrder.restrictedOrder_mem_orders",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": true,
+      "header": "theorem restrictedOrder_mem_orders (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :\n    restrictedOrder positions S π ∈ orders positions S\n",
+      "header_sha256": "5e353ad014fab61ab17c1548d614df7c7a80dfcfe2bf7ccba517d0598a16c0ac",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 145,
+      "header_end_line": 147,
+      "name": "orders_card",
+      "qualified_name": "Applications.Probability.PermutationOrder.orders_card",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": true,
+      "header": "theorem orders_card (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) :\n    (orders positions S).card = Nat.factorial S.card\n",
+      "header_sha256": "ed7257da7ba9067c85b3e4cadf159d72cd9af21cbb029107021215a4024354db",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 157,
+      "header_end_line": 159,
+      "name": "exists_map_eq_of_nodup",
+      "qualified_name": "Applications.Probability.PermutationOrder.exists_map_eq_of_nodup",
+      "kind": "theorem",
+      "visibility": "private",
+      "modifiers": [
+        "private"
+      ],
+      "inherited_from_original_base": true,
+      "header": "private theorem exists_map_eq_of_nodup (xs ys : List I)\n    (hxs : xs.Nodup) (hys : ys.Nodup) (hlength : xs.length = ys.length) :\n    ∃ σ : Equiv.Perm I, xs.map σ = ys\n",
+      "header_sha256": "b547335fa0e7b02135a9efd620151201e13e784d44dc98ee3f767c6565c34aea",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 172,
+      "header_end_line": 175,
+      "name": "exists_relabel_orders",
+      "qualified_name": "Applications.Probability.PermutationOrder.exists_relabel_orders",
+      "kind": "theorem",
+      "visibility": "private",
+      "modifiers": [
+        "private"
+      ],
+      "inherited_from_original_base": true,
+      "header": "private theorem exists_relabel_orders (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (xs ys : List I)\n    (hxs : xs ∈ orders positions S) (hys : ys ∈ orders positions S) :\n    ∃ σ : Equiv.Perm I, xs.map σ = ys ∧ ∀ a, σ a ∈ S ↔ a ∈ S\n",
+      "header_sha256": "dc43fecd4fbd15b2833a2ec1b1c0400fa43ab8845f8b6199516e0378f7981c0d",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 192,
+      "header_end_line": 195,
+      "name": "restrictedOrder_relabel",
+      "qualified_name": "Applications.Probability.PermutationOrder.restrictedOrder_relabel",
+      "kind": "theorem",
+      "visibility": "private",
+      "modifiers": [
+        "private"
+      ],
+      "inherited_from_original_base": true,
+      "header": "private theorem restrictedOrder_relabel (positions : List I) (S : Finset I)\n    (π σ : Equiv.Perm I) (hS : ∀ a, σ a ∈ S ↔ a ∈ S) :\n    restrictedOrder positions S (π * σ.symm) =\n      (restrictedOrder positions S π).map σ\n",
+      "header_sha256": "043b17f2044342fb42f6e2f78324179aac56e499e3005521f00697dca30da787",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 206,
+      "header_end_line": 212,
+      "name": "fiber_mass_eq",
+      "qualified_name": "Applications.Probability.PermutationOrder.fiber_mass_eq",
+      "kind": "theorem",
+      "visibility": "private",
+      "modifiers": [
+        "private"
+      ],
+      "inherited_from_original_base": true,
+      "header": "private theorem fiber_mass_eq\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (S : Finset I) (xs ys : List I)\n    (hxs : xs ∈ orders positions S) (hys : ys ∈ orders positions S) :\n    uniformOn Set.univ {π | restrictedOrder positions S π = xs} =\n      uniformOn Set.univ {π | restrictedOrder positions S π = ys}\n",
+      "header_sha256": "e462bb48ca4d7de621f7441398d370e3ce15d5a8628db8dadee79c3cdcf91737",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 238,
+      "header_end_line": 246,
+      "name": "uniformOn_restrictedOrder_eq",
+      "qualified_name": "Applications.Probability.PermutationOrder.uniformOn_restrictedOrder_eq",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": true,
+      "header": "theorem uniformOn_restrictedOrder_eq\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (S : Finset I) (xs : List I) :\n    uniformOn (Set.univ : Set (Equiv.Perm I))\n        {π | restrictedOrder positions S π = xs} =\n      if xs ∈ orders positions S\n      then (Nat.factorial S.card : ℝ≥0∞)⁻¹\n      else 0\n",
+      "header_sha256": "086857b1aaa8c697aa81cca907521f98bc1417d5abb01b3db1402ed2273b7086",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 301,
+      "header_end_line": 307,
+      "name": "map_restrictedOrder_uniformOn",
+      "qualified_name": "Applications.Probability.PermutationOrder.map_restrictedOrder_uniformOn",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": true,
+      "header": "theorem map_restrictedOrder_uniformOn\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (S : Finset I) :\n    (uniformOn (Set.univ : Set (Equiv.Perm I))).map (restrictedOrder positions S) =\n      uniformOn (orders positions S : Set (List I))\n",
+      "header_sha256": "517ea2da5983bbf50b981cd91ca33aca2ca6e026a24cd374476e6b03e1fcb01a",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 325,
+      "header_end_line": 333,
+      "name": "exists_relabel_order_pair",
+      "qualified_name": "Applications.Probability.PermutationOrder.exists_relabel_order_pair",
+      "kind": "theorem",
+      "visibility": "private",
+      "modifiers": [
+        "private"
+      ],
+      "inherited_from_original_base": false,
+      "header": "private theorem exists_relabel_order_pair (positions : List I)\n    (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (A B : Finset I) (hAB : Disjoint A B)\n    (xs ys xs' ys' : List I)\n    (hxs : xs ∈ orders positions A) (hys : ys ∈ orders positions B)\n    (hxs' : xs' ∈ orders positions A) (hys' : ys' ∈ orders positions B) :\n    ∃ σ : Equiv.Perm I,\n      xs.map σ = xs' ∧ ys.map σ = ys' ∧\n        (∀ a, σ a ∈ A ↔ a ∈ A) ∧ (∀ a, σ a ∈ B ↔ a ∈ B)\n",
+      "header_sha256": "53ab72e759dcd0625dc1b3e9f82c6f74f6f47ddb21b83eacd8cce27ba466119b",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 374,
+      "header_end_line": 383,
+      "name": "pair_fiber_mass_eq",
+      "qualified_name": "Applications.Probability.PermutationOrder.pair_fiber_mass_eq",
+      "kind": "theorem",
+      "visibility": "private",
+      "modifiers": [
+        "private"
+      ],
+      "inherited_from_original_base": false,
+      "header": "private theorem pair_fiber_mass_eq\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (A B : Finset I) (hAB : Disjoint A B) (p q : List I × List I)\n    (hp : p ∈ (orders positions A).product (orders positions B))\n    (hq : q ∈ (orders positions A).product (orders positions B)) :\n    uniformOn Set.univ\n        {π | (restrictedOrder positions A π, restrictedOrder positions B π) = p} =\n      uniformOn Set.univ\n        {π | (restrictedOrder positions A π, restrictedOrder positions B π) = q}\n",
+      "header_sha256": "0b71a083878dd8f23ee8869446ee007ed3f817f49d332495bb760a4bca7df4f2",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 426,
+      "header_end_line": 434,
+      "name": "uniformOn_restrictedOrder_pair_eq",
+      "qualified_name": "Applications.Probability.PermutationOrder.uniformOn_restrictedOrder_pair_eq",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem uniformOn_restrictedOrder_pair_eq\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (A B : Finset I) (hAB : Disjoint A B) (xs ys : List I) :\n    uniformOn (Set.univ : Set (Equiv.Perm I))\n        {π | (restrictedOrder positions A π, restrictedOrder positions B π) = (xs, ys)} =\n      if xs ∈ orders positions A ∧ ys ∈ orders positions B then\n        ((Nat.factorial A.card * Nat.factorial B.card : ℕ) : ℝ≥0∞)⁻¹\n      else 0\n",
+      "header_sha256": "52c11a8383e769ca829255a5857dc6e1c28063718d30eababb94131a9cc7dbcc",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 499,
+      "header_end_line": 507,
+      "name": "map_restrictedOrder_pair_uniformOn",
+      "qualified_name": "Applications.Probability.PermutationOrder.map_restrictedOrder_pair_uniformOn",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem map_restrictedOrder_pair_uniformOn\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (A B : Finset I) (hAB : Disjoint A B) :\n    (uniformOn (Set.univ : Set (Equiv.Perm I))).map\n        (fun π => (restrictedOrder positions A π, restrictedOrder positions B π)) =\n      (uniformOn (orders positions A : Set (List I))).prod\n        (uniformOn (orders positions B : Set (List I)))\n",
+      "header_sha256": "b42b4b72fd03bf32936fe876e026875adbbec59c921be879f813c28332cb3aa0",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 544,
+      "header_end_line": 553,
+      "name": "filter_pair_hasLaw_orders",
+      "qualified_name": "Applications.Probability.PermutationOrder.filter_pair_hasLaw_orders",
+      "kind": "theorem",
+      "visibility": "private",
+      "modifiers": [
+        "private"
+      ],
+      "inherited_from_original_base": false,
+      "header": "private theorem filter_pair_hasLaw_orders\n    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (S A B : Finset I) (hAS : A ⊆ S) (hBS : B ⊆ S) (hAB : Disjoint A B) :\n    HasLaw\n      (fun xs : List I => (xs.filter (fun a => decide (a ∈ A)),\n        xs.filter (fun b => decide (b ∈ B))))\n      ((uniformOn (orders positions A : Set (List I))).prod\n        (uniformOn (orders positions B : Set (List I))))\n      (uniformOn (orders positions S : Set (List I)))\n",
+      "header_sha256": "441d10d7693cea4266bf881fe03d060a7e1c30ce740ff70cd2649f274dc36f0c",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 577,
+      "header_end_line": 587,
+      "name": "hasLaw_filter_pair",
+      "qualified_name": "Applications.Probability.PermutationOrder.hasLaw_filter_pair",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem hasLaw_filter_pair {Ω : Type*}\n    [MeasurableSpace Ω] [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (S : Finset I) {μ : Measure Ω} {Y : Ω → List I}\n    (hY : HasLaw Y (uniformOn (orders positions S : Set (List I))) μ)\n    (A B : Finset I) (hAS : A ⊆ S) (hBS : B ⊆ S) (hAB : Disjoint A B) :\n    HasLaw\n      (fun ω => ((Y ω).filter (fun a => decide (a ∈ A)),\n        (Y ω).filter (fun b => decide (b ∈ B))))\n      ((uniformOn (orders positions A : Set (List I))).prod\n        (uniformOn (orders positions B : Set (List I)))) μ\n",
+      "header_sha256": "025aef426e8a4544db6adb5a86630ea4bf1454b9f9f570f266bc656380ab86d7",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 35,
+      "header_end_line": 35,
+      "name": null,
+      "qualified_name": null,
+      "kind": "instance",
+      "visibility": "anonymous",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance : MeasurableSpace (Equiv.Perm (Fin 4))\n",
+      "header_sha256": "472692d2ae3dd6ca68d502e3eddc3def853425d2553ff501dc9f569796c939dc",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 36,
+      "header_end_line": 36,
+      "name": null,
+      "qualified_name": null,
+      "kind": "instance",
+      "visibility": "anonymous",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance : MeasurableSingletonClass (Equiv.Perm (Fin 4))\n",
+      "header_sha256": "fe148ea1787cef87baca3cc2c170b585d39586de3ea59d08710330c7b33a236d",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 37,
+      "header_end_line": 37,
+      "name": null,
+      "qualified_name": null,
+      "kind": "instance",
+      "visibility": "anonymous",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance : MeasurableSpace (List (Fin 4))\n",
+      "header_sha256": "78efb2f696e8412c4e6fe05d38858e9b99aadff8bd11feb79d7e672322dfc972",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 38,
+      "header_end_line": 38,
+      "name": null,
+      "qualified_name": null,
+      "kind": "instance",
+      "visibility": "anonymous",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance : MeasurableSingletonClass (List (Fin 4))\n",
+      "header_sha256": "d15f2f2dcf3530c1d32dff6a5903e4a9066794170d3ec90e7e4091d264f033e9",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 39,
+      "header_end_line": 39,
+      "name": null,
+      "qualified_name": null,
+      "kind": "instance",
+      "visibility": "anonymous",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance : MeasurableSpace (Equiv.Perm (Fin 5))\n",
+      "header_sha256": "176d1ba262c5d5f40e8f1810578dd1624f003de5e707969a8090c8483346a641",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 40,
+      "header_end_line": 40,
+      "name": null,
+      "qualified_name": null,
+      "kind": "instance",
+      "visibility": "anonymous",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance : MeasurableSingletonClass (Equiv.Perm (Fin 5))\n",
+      "header_sha256": "be51c07d0d9f6c3556d37a22537fd79d76252c1a8fd6432d7d26c68fd3d4ef3f",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 41,
+      "header_end_line": 41,
+      "name": null,
+      "qualified_name": null,
+      "kind": "instance",
+      "visibility": "anonymous",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance : MeasurableSpace (List (Fin 5))\n",
+      "header_sha256": "fc3990a5f7a9b931d4c4cc3967b2f712a0657925cd349beadc53ce7eba64ecac",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 42,
+      "header_end_line": 42,
+      "name": null,
+      "qualified_name": null,
+      "kind": "instance",
+      "visibility": "anonymous",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance : MeasurableSingletonClass (List (Fin 5))\n",
+      "header_sha256": "1856da3445ce783519bc5fb9429a1817e6c135e71a3d2622d57f44a0fbf791be",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 44,
+      "header_end_line": 44,
+      "name": "law_isProbabilityMeasure",
+      "qualified_name": "Examples.PermutationJoint.law_isProbabilityMeasure",
+      "kind": "instance",
+      "visibility": "public",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance law_isProbabilityMeasure : IsProbabilityMeasure law\n",
+      "header_sha256": "d6cc08fe6dd59e8ed0d8d2152519890282913a32ad5fb76c5a840e304ea2736e",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 48,
+      "header_end_line": 48,
+      "name": "law5_isProbabilityMeasure",
+      "qualified_name": "Examples.PermutationJoint.law5_isProbabilityMeasure",
+      "kind": "instance",
+      "visibility": "public",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance law5_isProbabilityMeasure : IsProbabilityMeasure law5\n",
+      "header_sha256": "11404417e25f56349c385b91659ae899ef57ea67a320676a5f1fe5e96ede1337",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 52,
+      "header_end_line": 52,
+      "name": "leftKeys",
+      "qualified_name": "Examples.PermutationJoint.leftKeys",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def leftKeys : Finset (Fin 4)\n",
+      "header_sha256": "561b24a0eade3cd83a10359a325c29ada3eae8540c94440330991837933110ee",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 53,
+      "header_end_line": 53,
+      "name": "rightKeys",
+      "qualified_name": "Examples.PermutationJoint.rightKeys",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def rightKeys : Finset (Fin 4)\n",
+      "header_sha256": "f2944ea9295224a79267b14a49534882b1d3936392696f4b4409e993cc1ac8fd",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 55,
+      "header_end_line": 55,
+      "name": "subsets_disjoint",
+      "qualified_name": "Examples.PermutationJoint.subsets_disjoint",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem subsets_disjoint : Disjoint leftKeys rightKeys\n",
+      "header_sha256": "f929d0bc7e052e5ec9128acfe35f0295728fcb7a2cc8a93463cc5abbcb860326",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 58,
+      "header_end_line": 60,
+      "name": "joint_mass",
+      "qualified_name": "Examples.PermutationJoint.joint_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem joint_mass :\n    law {π | (restrictedOrder positions leftKeys π,\n      restrictedOrder positions rightKeys π) = ([0, 2], [1, 3])} = 1 / 4\n",
+      "header_sha256": "2532d52b248f9282ec1a1d65f2b879a9653c01d985775fead1c3bb71cb340b50",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 68,
+      "header_end_line": 69,
+      "name": "left_mass",
+      "qualified_name": "Examples.PermutationJoint.left_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem left_mass :\n    law {π | restrictedOrder positions leftKeys π = [0, 2]} = 1 / 2\n",
+      "header_sha256": "c2ebb3ccb0fe7ebdcfa5158a1931d8f34c4e6f5b2d783a16134abf5b5c818a7f",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 76,
+      "header_end_line": 77,
+      "name": "right_mass",
+      "qualified_name": "Examples.PermutationJoint.right_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem right_mass :\n    law {π | restrictedOrder positions rightKeys π = [1, 3]} = 1 / 2\n",
+      "header_sha256": "98339dbe0da40d76a264cf907c3259fe1eae52217408b3c36d9ab962ae7eaf4b",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 84,
+      "header_end_line": 86,
+      "name": "unsupported_left_mass",
+      "qualified_name": "Examples.PermutationJoint.unsupported_left_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem unsupported_left_mass :\n    law {π | (restrictedOrder positions leftKeys π,\n      restrictedOrder positions rightKeys π) = ([0, 0], [1, 3])} = 0\n",
+      "header_sha256": "799d2b8c94716cc975ca6045612283099fa9690719d0b17d400291a0e042f843",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 93,
+      "header_end_line": 95,
+      "name": "unsupported_right_mass",
+      "qualified_name": "Examples.PermutationJoint.unsupported_right_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem unsupported_right_mass :\n    law {π | (restrictedOrder positions leftKeys π,\n      restrictedOrder positions rightKeys π) = ([0, 2], [1, 1])} = 0\n",
+      "header_sha256": "7f7eb5019ca5d0f5a2d68c69654d2d5fead1a85aaaa445408bf3900781b068ab",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 103,
+      "header_end_line": 107,
+      "name": "joint_map",
+      "qualified_name": "Examples.PermutationJoint.joint_map",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem joint_map :\n    law.map (fun π => (restrictedOrder positions leftKeys π,\n      restrictedOrder positions rightKeys π)) =\n      (uniformOn (orders positions leftKeys : Set (List (Fin 4)))).prod\n        (uniformOn (orders positions rightKeys : Set (List (Fin 4))))\n",
+      "header_sha256": "64f9ee5cb1357cb0036c8f0a651e0220283da3fe97e59746e4d43628bbe298c5",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 111,
+      "header_end_line": 113,
+      "name": "left_hasLaw",
+      "qualified_name": "Examples.PermutationJoint.left_hasLaw",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem left_hasLaw :\n    HasLaw (restrictedOrder positions leftKeys)\n      (uniformOn (orders positions leftKeys : Set (List (Fin 4)))) law\n",
+      "header_sha256": "5aaad7c72161dfdc1291f1c7f92ce786c0895e77644d598c7bdac0942595fa80",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 117,
+      "header_end_line": 119,
+      "name": "right_hasLaw",
+      "qualified_name": "Examples.PermutationJoint.right_hasLaw",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem right_hasLaw :\n    HasLaw (restrictedOrder positions rightKeys)\n      (uniformOn (orders positions rightKeys : Set (List (Fin 4)))) law\n",
+      "header_sha256": "c2752f8764ecf1931d58378649bfa204006bc6c569187337fb8214a90dbe12c0",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 123,
+      "header_end_line": 127,
+      "name": "joint_hasLaw",
+      "qualified_name": "Examples.PermutationJoint.joint_hasLaw",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem joint_hasLaw :\n    HasLaw (fun π => (restrictedOrder positions leftKeys π,\n      restrictedOrder positions rightKeys π))\n      ((uniformOn (orders positions leftKeys : Set (List (Fin 4)))).prod\n        (uniformOn (orders positions rightKeys : Set (List (Fin 4))))) law\n",
+      "header_sha256": "a4781e755af8531b6d417c4c778030ed1e1b0afd72a83489c5414e2de2e185f1",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 132,
+      "header_end_line": 133,
+      "name": "orders_independent",
+      "qualified_name": "Examples.PermutationJoint.orders_independent",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem orders_independent :\n    IndepFun (restrictedOrder positions leftKeys) (restrictedOrder positions rightKeys) law\n",
+      "header_sha256": "8da03dd0e94c1e71c1459f962915ce0ee909b3c8bd375d4335c9b1e40bc4d7c0",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 138,
+      "header_end_line": 138,
+      "name": "globalOrder5",
+      "qualified_name": "Examples.PermutationJoint.globalOrder5",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def globalOrder5 (π : Equiv.Perm (Fin 5)) : List (Fin 5)\n",
+      "header_sha256": "9cf95a65454ea4d12443d34c2ea61461419a915e5ccd91645a245721be1711d8",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 141,
+      "header_end_line": 141,
+      "name": "firstTwo",
+      "qualified_name": "Examples.PermutationJoint.firstTwo",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def firstTwo : Set (Equiv.Perm (Fin 5))\n",
+      "header_sha256": "b4834d5315c2e7bd49af76c5923039b2ff924efd405db26874ad55996f09f5aa",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 143,
+      "header_end_line": 143,
+      "name": "afterTwo",
+      "qualified_name": "Examples.PermutationJoint.afterTwo",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "inherited_from_original_base": false,
+      "header": "noncomputable def afterTwo : Measure (Equiv.Perm (Fin 5))\n",
+      "header_sha256": "0522812e22d393b15aed88b25446bc73441bace59664d3f051da3dbf67cde6fd",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 145,
+      "header_end_line": 145,
+      "name": "remaining5",
+      "qualified_name": "Examples.PermutationJoint.remaining5",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def remaining5 : Finset (Fin 5)\n",
+      "header_sha256": "400a57995d6e55e396f022f146dab195e8dac9dee65378a0af309bce4adc2352",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 146,
+      "header_end_line": 146,
+      "name": "left5",
+      "qualified_name": "Examples.PermutationJoint.left5",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def left5 : Finset (Fin 5)\n",
+      "header_sha256": "7d096936d79ddc7c45f704d20d66fb8508f756ec1da718f4cd1b9cc4d8b75044",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 147,
+      "header_end_line": 147,
+      "name": "right5",
+      "qualified_name": "Examples.PermutationJoint.right5",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def right5 : Finset (Fin 5)\n",
+      "header_sha256": "7c09eff066cb08784beca75b92823f6cec3884bd5383b4c8c890331ddeb5cb44",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 149,
+      "header_end_line": 149,
+      "name": "tail5",
+      "qualified_name": "Examples.PermutationJoint.tail5",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def tail5 (π : Equiv.Perm (Fin 5)) : List (Fin 5)\n",
+      "header_sha256": "13cb5c3dc183e24d4a485ab78bd5906fec53da193e358cd5a622f74efd258894",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 151,
+      "header_end_line": 151,
+      "name": "leftTail",
+      "qualified_name": "Examples.PermutationJoint.leftTail",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def leftTail (π : Equiv.Perm (Fin 5)) : List (Fin 5)\n",
+      "header_sha256": "58c6673165809c0d7dcfa280d4c721d7d51e15c83718758da5060ddbda459fd4",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 154,
+      "header_end_line": 154,
+      "name": "rightTail",
+      "qualified_name": "Examples.PermutationJoint.rightTail",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def rightTail (π : Equiv.Perm (Fin 5)) : List (Fin 5)\n",
+      "header_sha256": "04eda8d6d228862a8b6be3cb8e0153e4c83aa9cdc9e7fd2a638b149487d9b70a",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 157,
+      "header_end_line": 157,
+      "name": "projectionPair5",
+      "qualified_name": "Examples.PermutationJoint.projectionPair5",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def projectionPair5 (π : Equiv.Perm (Fin 5)) : List (Fin 5) × List (Fin 5)\n",
+      "header_sha256": "5788c08b8c07b117ef75a66efb592af4ee4a3823fbb670c9c28c543cf9c29414",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 160,
+      "header_end_line": 162,
+      "name": "global_hasLaw",
+      "qualified_name": "Examples.PermutationJoint.global_hasLaw",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem global_hasLaw :\n    HasLaw globalOrder5\n      (uniformOn (orders positions5 Finset.univ : Set (List (Fin 5)))) law5\n",
+      "header_sha256": "ab52e8492c5b9b75ddd5a28fba93f1cdeb3dc2dcb3d9eb29a9cd49dbd2b9ba55",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 167,
+      "header_end_line": 167,
+      "name": "first_two_mass",
+      "qualified_name": "Examples.PermutationJoint.first_two_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem first_two_mass : law5 firstTwo = 1 / 5\n",
+      "header_sha256": "0f753700ad31268877f119ec54dd6014406a550b2c6d46219902b5eee1eb61ce",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 174,
+      "header_end_line": 174,
+      "name": "afterTwo_isProbabilityMeasure",
+      "qualified_name": "Examples.PermutationJoint.afterTwo_isProbabilityMeasure",
+      "kind": "instance",
+      "visibility": "public",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance afterTwo_isProbabilityMeasure : IsProbabilityMeasure afterTwo\n",
+      "header_sha256": "183d46970dcb00fb65ba32f7e7378ecd08be5ffb4099995a0fd3be9675c1dd98",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 180,
+      "header_end_line": 182,
+      "name": "tail_hasLaw",
+      "qualified_name": "Examples.PermutationJoint.tail_hasLaw",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem tail_hasLaw :\n    HasLaw tail5 (uniformOn (orders positions5 remaining5 : Set (List (Fin 5))))\n      afterTwo\n",
+      "header_sha256": "35850fd1ec1062ce7beab224a4848eb7788b93c987992eb90585d8ea5b40f77c",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 187,
+      "header_end_line": 190,
+      "name": "conditional_pair_hasLaw",
+      "qualified_name": "Examples.PermutationJoint.conditional_pair_hasLaw",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem conditional_pair_hasLaw :\n    HasLaw (fun π => (leftTail π, rightTail π))\n      ((uniformOn (orders positions5 left5 : Set (List (Fin 5)))).prod\n        (uniformOn (orders positions5 right5 : Set (List (Fin 5))))) afterTwo\n",
+      "header_sha256": "4feda69cb6648e0ba0b21bf95f360efc0a8b3e54443adeecbe1ee0c95e824e1e",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 194,
+      "header_end_line": 196,
+      "name": "conditional_left_hasLaw",
+      "qualified_name": "Examples.PermutationJoint.conditional_left_hasLaw",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem conditional_left_hasLaw :\n    HasLaw leftTail (uniformOn (orders positions5 left5 : Set (List (Fin 5))))\n      afterTwo\n",
+      "header_sha256": "b545c4aa1784e4eead6d53082332074d81a36abedc8b248ba3279a2baf86a3b8",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 200,
+      "header_end_line": 202,
+      "name": "conditional_right_hasLaw",
+      "qualified_name": "Examples.PermutationJoint.conditional_right_hasLaw",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem conditional_right_hasLaw :\n    HasLaw rightTail (uniformOn (orders positions5 right5 : Set (List (Fin 5))))\n      afterTwo\n",
+      "header_sha256": "0cd3d02d687de7c0150b5ed82a52df3f2f3935c5e5c246269f7cb6fcb46dd38a",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 206,
+      "header_end_line": 206,
+      "name": "conditional_tail_orders_independent",
+      "qualified_name": "Examples.PermutationJoint.conditional_tail_orders_independent",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem conditional_tail_orders_independent : IndepFun leftTail rightTail afterTwo\n",
+      "header_sha256": "4360263e7b20fc5c28f220d8d6daf8f4c6580a42b5ca249e4b7219cf3630663f",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 211,
+      "header_end_line": 212,
+      "name": "tail_pair_eq_projection_on_event",
+      "qualified_name": "Examples.PermutationJoint.tail_pair_eq_projection_on_event",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem tail_pair_eq_projection_on_event (π : Equiv.Perm (Fin 5))\n    (hπ : π ∈ firstTwo) : (leftTail π, rightTail π) = projectionPair5 π\n",
+      "header_sha256": "51d0dac4cf0e7b5838cf32be8fbae52bc74e483280c04cde61690f1fe45dddd6",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 220,
+      "header_end_line": 223,
+      "name": "conditional_projection_hasLaw",
+      "qualified_name": "Examples.PermutationJoint.conditional_projection_hasLaw",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem conditional_projection_hasLaw :\n    HasLaw projectionPair5\n      ((uniformOn (orders positions5 left5 : Set (List (Fin 5)))).prod\n        (uniformOn (orders positions5 right5 : Set (List (Fin 5))))) afterTwo\n",
+      "header_sha256": "e9a1ff001b695b3f5043482e0814dbfec4221e52ef0b937902f6fe462bd7dfd8",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 228,
+      "header_end_line": 231,
+      "name": "order_mass5",
+      "qualified_name": "Examples.PermutationJoint.order_mass5",
+      "kind": "theorem",
+      "visibility": "private",
+      "modifiers": [
+        "private"
+      ],
+      "inherited_from_original_base": false,
+      "header": "private theorem order_mass5 (S : Finset (Fin 5)) (xs : List (Fin 5))\n    (hxs : xs ∈ orders positions5 S) :\n    uniformOn (orders positions5 S : Set (List (Fin 5))) {xs} =\n      (Nat.factorial S.card : ℝ≥0∞)⁻¹\n",
+      "header_sha256": "d028dde37edd03c3de85eecf592e35aca55be27c9ddaa8fd5dceb1a98ef5e8e1",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 241,
+      "header_end_line": 244,
+      "name": "product_output_mass",
+      "qualified_name": "Examples.PermutationJoint.product_output_mass",
+      "kind": "theorem",
+      "visibility": "private",
+      "modifiers": [
+        "private"
+      ],
+      "inherited_from_original_base": false,
+      "header": "private theorem product_output_mass :\n    ((uniformOn (orders positions5 left5 : Set (List (Fin 5)))).prod\n      (uniformOn (orders positions5 right5 : Set (List (Fin 5)))))\n        {([0, 1], [3, 4])} = 1 / 4\n",
+      "header_sha256": "211247b894f70f3882bcadb6a80ab5f38688b6bd639e3ac627961ded9cf4696d",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 258,
+      "header_end_line": 259,
+      "name": "conditional_tail_pair_mass",
+      "qualified_name": "Examples.PermutationJoint.conditional_tail_pair_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem conditional_tail_pair_mass :\n    afterTwo {π | (leftTail π, rightTail π) = ([0, 1], [3, 4])} = 1 / 4\n",
+      "header_sha256": "ccc09b35ed72eedbff0130152ac9b6e154cfd9d9c464aab9797eb0909dbe3572",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 268,
+      "header_end_line": 269,
+      "name": "conditional_projection_pair_mass",
+      "qualified_name": "Examples.PermutationJoint.conditional_projection_pair_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem conditional_projection_pair_mass :\n    afterTwo {π | projectionPair5 π = ([0, 1], [3, 4])} = 1 / 4\n",
+      "header_sha256": "b0b3cbe3dcc16dc88f7f8cbbced49cf72c8b37e711831a333d6f5221fb3586fb",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 277,
+      "header_end_line": 277,
+      "name": "afterTwo_first_event_mass",
+      "qualified_name": "Examples.PermutationJoint.afterTwo_first_event_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem afterTwo_first_event_mass : afterTwo firstTwo = 1\n",
+      "header_sha256": "dc3697f489d0f242ed70b1679265cd5fa3aa8c7b45e96a9ec3b81b7f7e8f78ae",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "line": 284,
+      "header_end_line": 284,
+      "name": "environment_changed",
+      "qualified_name": "Examples.PermutationJoint.environment_changed",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem environment_changed : afterTwo ≠ law5\n",
+      "header_sha256": "8b51d393ddf21dfd74e7e6ea6c9222ba27e99be18faf07db112e9e3f899d4286",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 32,
+      "header_end_line": 32,
+      "name": null,
+      "qualified_name": null,
+      "kind": "instance",
+      "visibility": "anonymous",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance : MeasurableSpace (Equiv.Perm (Fin 5))\n",
+      "header_sha256": "176d1ba262c5d5f40e8f1810578dd1624f003de5e707969a8090c8483346a641",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 33,
+      "header_end_line": 33,
+      "name": null,
+      "qualified_name": null,
+      "kind": "instance",
+      "visibility": "anonymous",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance : MeasurableSingletonClass (Equiv.Perm (Fin 5))\n",
+      "header_sha256": "be51c07d0d9f6c3556d37a22537fd79d76252c1a8fd6432d7d26c68fd3d4ef3f",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 34,
+      "header_end_line": 34,
+      "name": null,
+      "qualified_name": null,
+      "kind": "instance",
+      "visibility": "anonymous",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance : MeasurableSpace (Equiv.Perm (Fin 4))\n",
+      "header_sha256": "472692d2ae3dd6ca68d502e3eddc3def853425d2553ff501dc9f569796c939dc",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 35,
+      "header_end_line": 35,
+      "name": null,
+      "qualified_name": null,
+      "kind": "instance",
+      "visibility": "anonymous",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance : MeasurableSingletonClass (Equiv.Perm (Fin 4))\n",
+      "header_sha256": "fe148ea1787cef87baca3cc2c170b585d39586de3ea59d08710330c7b33a236d",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 36,
+      "header_end_line": 36,
+      "name": null,
+      "qualified_name": null,
+      "kind": "instance",
+      "visibility": "anonymous",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance : MeasurableSpace (Equiv.Perm (Fin 3))\n",
+      "header_sha256": "c4a353c181f10d536363f920fab6e9feb7c03e8da2323b3224dc94784878e621",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 37,
+      "header_end_line": 37,
+      "name": null,
+      "qualified_name": null,
+      "kind": "instance",
+      "visibility": "anonymous",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance : MeasurableSingletonClass (Equiv.Perm (Fin 3))\n",
+      "header_sha256": "ea185d4c3727f055fa7671205b9207b45ad299996df5624c986d65a4637371b7",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 38,
+      "header_end_line": 38,
+      "name": null,
+      "qualified_name": null,
+      "kind": "instance",
+      "visibility": "anonymous",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance : MeasurableSpace (Equiv.Perm Empty)\n",
+      "header_sha256": "e1f28c9ad6db7919ece7877ae82c12e0536e56a61a215c472505cf10bd3fd4bb",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 39,
+      "header_end_line": 39,
+      "name": null,
+      "qualified_name": null,
+      "kind": "instance",
+      "visibility": "anonymous",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance : MeasurableSingletonClass (Equiv.Perm Empty)\n",
+      "header_sha256": "069992a4b44449620a70eb2300fecfb8a8d4f840ac25e9f7751c01dbf7d2ee2d",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 40,
+      "header_end_line": 40,
+      "name": null,
+      "qualified_name": null,
+      "kind": "instance",
+      "visibility": "anonymous",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance : MeasurableSpace (List Empty)\n",
+      "header_sha256": "fbbfd1c190d152afa24a735d0a3cd6235216f7ff781be265d179262600c15700",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 41,
+      "header_end_line": 41,
+      "name": null,
+      "qualified_name": null,
+      "kind": "instance",
+      "visibility": "anonymous",
+      "modifiers": [
+        "local"
+      ],
+      "inherited_from_original_base": false,
+      "header": "local instance : MeasurableSingletonClass (List Empty)\n",
+      "header_sha256": "16209c8f8b27000dfe75f9ec654c13aaa16bcc86c933c183794c9894de6ddeeb",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 44,
+      "header_end_line": 44,
+      "name": "positions5",
+      "qualified_name": "Examples.PermutationJointBoundary.positions5",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def positions5 : List (Fin 5)\n",
+      "header_sha256": "ed6117b6c7b7a03291e0c716f4cb5f5911e02082f7fe7217d9a3a996d49f6120",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 46,
+      "header_end_line": 46,
+      "name": "positions5_nodup",
+      "qualified_name": "Examples.PermutationJointBoundary.positions5_nodup",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem positions5_nodup : positions5.Nodup\n",
+      "header_sha256": "3b034f98a002290b0bef2a13c73cc8366e147279fdc79be809bf3d67913a639d",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 48,
+      "header_end_line": 48,
+      "name": "positions5_complete",
+      "qualified_name": "Examples.PermutationJointBoundary.positions5_complete",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem positions5_complete (a : Fin 5) : a ∈ positions5\n",
+      "header_sha256": "18924b3da09ff3b64cf06b6851c124805e70a12ba60f5cb4787092702f489831",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 51,
+      "header_end_line": 51,
+      "name": "law5",
+      "qualified_name": "Examples.PermutationJointBoundary.law5",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "inherited_from_original_base": false,
+      "header": "noncomputable def law5 : Measure (Equiv.Perm (Fin 5))\n",
+      "header_sha256": "f4abc79c28bca152b4d3b760e8ad095f10710076e17f6462106209efde335dd7",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 53,
+      "header_end_line": 53,
+      "name": "properLeft",
+      "qualified_name": "Examples.PermutationJointBoundary.properLeft",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def properLeft : Finset (Fin 5)\n",
+      "header_sha256": "ba8672fea3e848172b07195419752eb54de5c7666f2d244bc2e776c587653131",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 54,
+      "header_end_line": 54,
+      "name": "properRight",
+      "qualified_name": "Examples.PermutationJointBoundary.properRight",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def properRight : Finset (Fin 5)\n",
+      "header_sha256": "c1aa84b8d42a0ddcab315a2b0d8af9aa2b1cbd9d471ecb0e48848c7c1f011f24",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 56,
+      "header_end_line": 56,
+      "name": "proper_disjoint",
+      "qualified_name": "Examples.PermutationJointBoundary.proper_disjoint",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem proper_disjoint : Disjoint properLeft properRight\n",
+      "header_sha256": "f035ec09c4fbb3b3259a4ed05d6485320f98e9f82905d64b33d04b83cc097971",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 59,
+      "header_end_line": 59,
+      "name": "proper_union_excludes_four",
+      "qualified_name": "Examples.PermutationJointBoundary.proper_union_excludes_four",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem proper_union_excludes_four : (4 : Fin 5) ∉ properLeft ∪ properRight\n",
+      "header_sha256": "33bd1723836b600fb397d7aefcb0da00f4b42fc78fa9cff09928fbda1ce681f7",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 61,
+      "header_end_line": 61,
+      "name": "proper_union_ne_univ",
+      "qualified_name": "Examples.PermutationJointBoundary.proper_union_ne_univ",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem proper_union_ne_univ : properLeft ∪ properRight ≠ Finset.univ\n",
+      "header_sha256": "06a01bb85f5b6602cf4b0c29d840ada956d2c30dfc19e3fe2d121e6d6f643d8c",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 63,
+      "header_end_line": 63,
+      "name": "properPair",
+      "qualified_name": "Examples.PermutationJointBoundary.properPair",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def properPair (π : Equiv.Perm (Fin 5)) : List (Fin 5) × List (Fin 5)\n",
+      "header_sha256": "81f18b8afecac302280799acff19bd2e1f4970f183a83de77f96786d1d1e449f",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 67,
+      "header_end_line": 67,
+      "name": "proper_pair_mass",
+      "qualified_name": "Examples.PermutationJointBoundary.proper_pair_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem proper_pair_mass : law5 {π | properPair π = ([0], [1, 2, 3])} = 1 / 6\n",
+      "header_sha256": "dcace1eb7fa961834fbcc45b4cb857ee99f6f9e2a97690b9e07eca79b1ca1fb1",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 80,
+      "header_end_line": 80,
+      "name": "emptyFullPair",
+      "qualified_name": "Examples.PermutationJointBoundary.emptyFullPair",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def emptyFullPair (π : Equiv.Perm (Fin 4)) : List (Fin 4) × List (Fin 4)\n",
+      "header_sha256": "f3976a897afaf8c9ed3036a9c1861119c6222092f1f3e3adb11d73002007fef1",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 84,
+      "header_end_line": 85,
+      "name": "empty_full_value",
+      "qualified_name": "Examples.PermutationJointBoundary.empty_full_value",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem empty_full_value (π : Equiv.Perm (Fin 4)) :\n    emptyFullPair π = ([], positions.map π.symm)\n",
+      "header_sha256": "78eebc7e0116c602e7fdbe32834476b989f5067bd92a90b43c00460b3433a3c0",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 88,
+      "header_end_line": 88,
+      "name": "empty_full_mass",
+      "qualified_name": "Examples.PermutationJointBoundary.empty_full_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem empty_full_mass : law {π | emptyFullPair π = ([], [0, 1, 2, 3])} = 1 / 24\n",
+      "header_sha256": "cf8886d7f17b4c942769e08a63c4ddcce53c2b0268b3473473af2d78ae7d3a62",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 101,
+      "header_end_line": 101,
+      "name": "empty_complete",
+      "qualified_name": "Examples.PermutationJointBoundary.empty_complete",
+      "kind": "theorem",
+      "visibility": "private",
+      "modifiers": [
+        "private"
+      ],
+      "inherited_from_original_base": false,
+      "header": "private theorem empty_complete (a : Empty) : a ∈ ([] : List Empty)\n",
+      "header_sha256": "7056dea33d8a3e0a9a959ce28390804c1701d9952fb3505f62e039d5c612eb91",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 103,
+      "header_end_line": 103,
+      "name": "emptyLaw",
+      "qualified_name": "Examples.PermutationJointBoundary.emptyLaw",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "inherited_from_original_base": false,
+      "header": "noncomputable def emptyLaw : Measure (Equiv.Perm Empty)\n",
+      "header_sha256": "809d88b5855c7efc84103a6c1cf17afea358430b1ac4fcf3770dc07f5dea2827",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 105,
+      "header_end_line": 105,
+      "name": "emptyWholeOrder",
+      "qualified_name": "Examples.PermutationJointBoundary.emptyWholeOrder",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def emptyWholeOrder (π : Equiv.Perm Empty) : List Empty\n",
+      "header_sha256": "087ac2190c9ea89f0b7023f9694f4ef187899cc426780bc29952af2381ab20b4",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 108,
+      "header_end_line": 108,
+      "name": "emptyPair",
+      "qualified_name": "Examples.PermutationJointBoundary.emptyPair",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def emptyPair (π : Equiv.Perm Empty) : List Empty × List Empty\n",
+      "header_sha256": "8535ce3c1e197e8f9fcabeebc5c42cfa3b55e2df4369270afdaaf7fcf80136b1",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 111,
+      "header_end_line": 111,
+      "name": "empty_indices_normalized",
+      "qualified_name": "Examples.PermutationJointBoundary.empty_indices_normalized",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem empty_indices_normalized : emptyLaw Set.univ = 1\n",
+      "header_sha256": "06c3444160b5416bc2895ca1af266f88f7ac3c0e5c6b76798a125206a84cdf89",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 114,
+      "header_end_line": 114,
+      "name": "empty_pair_value",
+      "qualified_name": "Examples.PermutationJointBoundary.empty_pair_value",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem empty_pair_value (π : Equiv.Perm Empty) : emptyPair π = ([], [])\n",
+      "header_sha256": "31f57465bd8f78af1d6c6970693360d1a1dab7c1e9f72efc01ed712d17aaf3e5",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 118,
+      "header_end_line": 118,
+      "name": "empty_pair_mass",
+      "qualified_name": "Examples.PermutationJointBoundary.empty_pair_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem empty_pair_mass : emptyLaw {π | emptyPair π = ([], [])} = 1\n",
+      "header_sha256": "135e4eaedc89e89c50e84e11a7a04746ecf2b015b90e1d4042066720c90e5b1a",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 129,
+      "header_end_line": 131,
+      "name": "empty_whole_hasLaw",
+      "qualified_name": "Examples.PermutationJointBoundary.empty_whole_hasLaw",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem empty_whole_hasLaw :\n    HasLaw emptyWholeOrder\n      (uniformOn (orders ([] : List Empty) ∅ : Set (List Empty))) emptyLaw\n",
+      "header_sha256": "7d7e4b4ed7ce5bbffc49197f99e78e2c33f9c2c12d7cc6a7c657bd17cb5c7249",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 136,
+      "header_end_line": 139,
+      "name": "empty_pair_hasLaw",
+      "qualified_name": "Examples.PermutationJointBoundary.empty_pair_hasLaw",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem empty_pair_hasLaw :\n    HasLaw emptyPair\n      ((uniformOn (orders ([] : List Empty) ∅ : Set (List Empty))).prod\n        (uniformOn (orders ([] : List Empty) ∅ : Set (List Empty)))) emptyLaw\n",
+      "header_sha256": "8ee1016cc2af7b9560fb14d8d45978e04816c08b28d6f7d4f97ceb9fdeb748b0",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 152,
+      "header_end_line": 152,
+      "name": "positions3",
+      "qualified_name": "Examples.PermutationJointBoundary.positions3",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def positions3 : List (Fin 3)\n",
+      "header_sha256": "a8161904482d3dd6e6501a0ed87ca87af7ea7b79fdfa5a9199d8530c6106dd89",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 154,
+      "header_end_line": 154,
+      "name": "positions3_nodup",
+      "qualified_name": "Examples.PermutationJointBoundary.positions3_nodup",
+      "kind": "theorem",
+      "visibility": "private",
+      "modifiers": [
+        "private"
+      ],
+      "inherited_from_original_base": false,
+      "header": "private theorem positions3_nodup : positions3.Nodup\n",
+      "header_sha256": "763c12bcd3c8c7820c116c5738617ea248d49a62c267af2d964a3635e435d762",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 156,
+      "header_end_line": 156,
+      "name": "positions3_complete",
+      "qualified_name": "Examples.PermutationJointBoundary.positions3_complete",
+      "kind": "theorem",
+      "visibility": "private",
+      "modifiers": [
+        "private"
+      ],
+      "inherited_from_original_base": false,
+      "header": "private theorem positions3_complete (a : Fin 3) : a ∈ positions3\n",
+      "header_sha256": "5f8d0c07e6b0a54b3509d50483f89fac483392a9028acbbfa4ff046b5f80cc27",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 159,
+      "header_end_line": 159,
+      "name": "law3",
+      "qualified_name": "Examples.PermutationJointBoundary.law3",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "inherited_from_original_base": false,
+      "header": "noncomputable def law3 : Measure (Equiv.Perm (Fin 3))\n",
+      "header_sha256": "7bffda0ee8752cb74e92d7841f85f98a0d6aeb2fd8f6484340e38c6d189625fa",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 161,
+      "header_end_line": 161,
+      "name": "overlapLeft",
+      "qualified_name": "Examples.PermutationJointBoundary.overlapLeft",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def overlapLeft : Finset (Fin 3)\n",
+      "header_sha256": "231995f620af3a7f319d26381d223bb63814e33d8cb0d1738a21f01459444635",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 162,
+      "header_end_line": 162,
+      "name": "overlapRight",
+      "qualified_name": "Examples.PermutationJointBoundary.overlapRight",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def overlapRight : Finset (Fin 3)\n",
+      "header_sha256": "9bf3e408b75a5509fbff33c44539fbc84f0841ea00284a412b6b67c73a870d6b",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 164,
+      "header_end_line": 164,
+      "name": "overlap_not_disjoint",
+      "qualified_name": "Examples.PermutationJointBoundary.overlap_not_disjoint",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem overlap_not_disjoint : ¬ Disjoint overlapLeft overlapRight\n",
+      "header_sha256": "49a2739be8c5d9cdd5b7f1b8cd2df9fb9502ba77c6103e15b5cfba9f59c1571b",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 166,
+      "header_end_line": 166,
+      "name": "overlapPair",
+      "qualified_name": "Examples.PermutationJointBoundary.overlapPair",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def overlapPair (π : Equiv.Perm (Fin 3)) : List (Fin 3) × List (Fin 3)\n",
+      "header_sha256": "3b646adb43ca7a60a73bf9b8b9c0140c8cb12ad008fc86832a86797353d5c411",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 169,
+      "header_end_line": 169,
+      "name": "fullOrder3",
+      "qualified_name": "Examples.PermutationJointBoundary.fullOrder3",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "def fullOrder3 (π : Equiv.Perm (Fin 3)) : List (Fin 3)\n",
+      "header_sha256": "592ee86285e2d90281f73ab842544fdfcf876f33ab80b1348f4a97a3f0667677",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 172,
+      "header_end_line": 176,
+      "name": "overlap_table",
+      "qualified_name": "Examples.PermutationJointBoundary.overlap_table",
+      "kind": "theorem",
+      "visibility": "private",
+      "modifiers": [
+        "private"
+      ],
+      "inherited_from_original_base": false,
+      "header": "private theorem overlap_table :\n    ∀ xs ∈ orders positions3 (Finset.univ : Finset (Fin 3)),\n      ((xs.filter (fun a => decide (a ∈ overlapLeft)),\n          xs.filter (fun a => decide (a ∈ overlapRight))) = ([1, 0], [1, 2]) ↔\n        xs.head? = some 1)\n",
+      "header_sha256": "09262a6e954c542aedb2ccfdc7465cb27555577afccdb926d424ee8484254a36",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 179,
+      "header_end_line": 180,
+      "name": "overlap_event_eq_first",
+      "qualified_name": "Examples.PermutationJointBoundary.overlap_event_eq_first",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem overlap_event_eq_first :\n    {π | overlapPair π = ([1, 0], [1, 2])} = firstEvent fullOrder3 1\n",
+      "header_sha256": "3fe1b3ed17a8d7359f6b5bf77ae036d1efff845e826487ba330628c4db8eeba7",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 192,
+      "header_end_line": 192,
+      "name": "overlap_joint_mass",
+      "qualified_name": "Examples.PermutationJointBoundary.overlap_joint_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem overlap_joint_mass : law3 {π | overlapPair π = ([1, 0], [1, 2])} = 1 / 3\n",
+      "header_sha256": "527a96c90eaad5d2a82358704e75df44f7ea902056ba8df1a33684e475ea38ae",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 198,
+      "header_end_line": 199,
+      "name": "overlap_left_mass",
+      "qualified_name": "Examples.PermutationJointBoundary.overlap_left_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem overlap_left_mass :\n    law3 {π | restrictedOrder positions3 overlapLeft π = [1, 0]} = 1 / 2\n",
+      "header_sha256": "7daceab35cf7253afde32dfafa13b085221af630f889d177e2d727f59bfc51f7",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 208,
+      "header_end_line": 209,
+      "name": "overlap_right_mass",
+      "qualified_name": "Examples.PermutationJointBoundary.overlap_right_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem overlap_right_mass :\n    law3 {π | restrictedOrder positions3 overlapRight π = [1, 2]} = 1 / 2\n",
+      "header_sha256": "804f2da5e2b29c0b2464102e7ee3eadbdb1463a35a188e28bd4bb56e9e979b0b",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 218,
+      "header_end_line": 220,
+      "name": "overlap_marginal_product",
+      "qualified_name": "Examples.PermutationJointBoundary.overlap_marginal_product",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem overlap_marginal_product :\n    law3 {π | restrictedOrder positions3 overlapLeft π = [1, 0]} *\n      law3 {π | restrictedOrder positions3 overlapRight π = [1, 2]} = 1 / 4\n",
+      "header_sha256": "d4be746ca9d8b30da1378f5b917250fcc394ccb6be9e8a6e75b9781491a5fcd0",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "line": 225,
+      "header_end_line": 228,
+      "name": "overlap_joint_ne_product",
+      "qualified_name": "Examples.PermutationJointBoundary.overlap_joint_ne_product",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "inherited_from_original_base": false,
+      "header": "theorem overlap_joint_ne_product :\n    law3 {π | overlapPair π = ([1, 0], [1, 2])} ≠\n      law3 {π | restrictedOrder positions3 overlapLeft π = [1, 0]} *\n        law3 {π | restrictedOrder positions3 overlapRight π = [1, 2]}\n",
+      "header_sha256": "637cd03b23cce675e194ca9c742bdca3d630f8d44499ca0e8a9f9d8b8e2011db",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type"
+    }
+  ],
+  "configuration_inputs": [
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "same_as_base_and_retained_XU04": true
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "same_as_base_and_retained_XU04": true
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 444,
+      "lines": 13,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "same_as_base_and_retained_XU04": true
+    },
+    {
+      "path": "flake.nix",
+      "bytes": 637,
+      "lines": 28,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+      "same_as_base_and_retained_XU04": true
+    },
+    {
+      "path": "flake.lock",
+      "bytes": 564,
+      "lines": 27,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+      "same_as_base_and_retained_XU04": true
+    },
+    {
+      "path": "check.sh",
+      "bytes": 74,
+      "lines": 4,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "same_as_base_and_retained_XU04": true
+    },
+    {
+      "path": "scripts/check.py",
+      "bytes": 16119,
+      "lines": 348,
+      "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+      "same_as_base_and_retained_XU04": true
+    },
+    {
+      "path": "scripts/lake_integrity.py",
+      "bytes": 5781,
+      "lines": 117,
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+      "same_as_base_and_retained_XU04": true
+    },
+    {
+      "path": "scripts/lake-output-hashes.lean",
+      "bytes": 618,
+      "lines": 11,
+      "sha256": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b",
+      "same_as_base_and_retained_XU04": true
+    },
+    {
+      "path": "ProofAudit.lean",
+      "bytes": 7925,
+      "lines": 154,
+      "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd",
+      "same_as_base_and_retained_XU04": true
+    }
+  ],
+  "dependency_pins": [
+    {
+      "name": "mathlib",
+      "rev": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+    },
+    {
+      "name": "plausible",
+      "rev": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+    },
+    {
+      "name": "LeanSearchClient",
+      "rev": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+    },
+    {
+      "name": "importGraph",
+      "rev": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+    },
+    {
+      "name": "proofwidgets",
+      "rev": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+    },
+    {
+      "name": "aesop",
+      "rev": "4a174c490d8707121c4a9290800489f105d85e07"
+    },
+    {
+      "name": "Qq",
+      "rev": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+    },
+    {
+      "name": "batteries",
+      "rev": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+    },
+    {
+      "name": "Cli",
+      "rev": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+    }
+  ],
+  "compiler_profile_boundary": "Official Lean/Lake 4.35.0, existing qualified native adapter and exact pins retained. Nix explicitly waived. No execution or runtime/output recapture was performed for this source preparation.",
+  "inherited_dispositions": [
+    {
+      "id": "ancestor-elaboration-boundary",
+      "status": "pending in this old candidate",
+      "detail": "The complete old Order formal body and Minimum/Tail/Order examples are original drafts, not later C2 corrected bytes. Later type/build outcomes do not transfer. Corrections include explicit Sublist syntax, private unused-instance omission, Fin.val annotation, relabel map proof, let syntax, conditional rewrites, and example membership/proof repairs. No blanket old-elaborated-type-equivalence claim."
+    },
+    {
+      "id": "C02-DOC-003",
+      "status": "existing separate current-integration finding remains open",
+      "detail": "Historical draft/status prose predates accepted C1. Reconcile at incorporation; it cannot invalidate accepted R or claim current acceptance. Prior note proposals are neither applied nor closed."
+    },
+    {
+      "id": "XP01-DOC-001",
+      "status": "not newly applicable at this immutable branch",
+      "detail": "Original Nat Potential bytes equal c80; generalized XP01 budget is absent. Retain the later Chapter1 qualifier when combining that source."
+    }
+  ],
+  "bounded_elaboration_risks": [
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "lines": [
+        62,
+        70,
+        78,
+        88,
+        97,
+        254
+      ],
+      "detail": "Ordinary decide on orders/permutations support. Similar ancestor forms had actual later failures; this candidate has no compiler result. Any same-support correction must preserve current events/headers."
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "lines": [
+        69,
+        90,
+        172,
+        176,
+        200,
+        210
+      ],
+      "detail": "Support and overlap table use ordinary decide; finite-list support remains meaningful. No new execution result inferred."
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "lines": [
+        288
+      ],
+      "detail": "ENNReal environment contradiction ends in norm_num at hmass, analogous to a later repaired Tail site. Claim 1 versus 1/5 is mathematically correct; elaboration untested."
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "lines": [
+        222,
+        230
+      ],
+      "detail": "Backward coe_div/coe_mul numeral normalization remains uncompiled; later Tail NNReal transport corrections do not automatically validate these proofs."
+    }
+  ],
+  "required_future_evidence": [
+    "Exact receiving incorporation reconciles old dependency corrections without dropping cases or weakening public statements.",
+    "Matching qualified focused compilation with actual terminal results, followed by actual full public-type inspection and independent semantic assessment under receiving-candidate identities; no credit from source inventory.",
+    "Complete immutable normal/fresh check as required by README, exhaustive permitted-axiom audit, both independent full-scope axes, and immediate verify-candidate before accepted fast-forward."
+  ],
+  "credits": {
+    "compiler_runs": 0,
+    "actual_type_outputs": 0,
+    "full_candidate_checks": 0,
+    "audit_results": 0,
+    "acceptance": 0,
+    "reused_C2_or_F_types": 0
+  },
+  "preserved_other_dispositions": {
+    "accepted_C1": "07e480f6ec9958d4975bb90151005b84f2907614 remains accepted",
+    "Foundation": "exact f17cc6 separately pending; root live process never polled",
+    "C2": "1763 = 920 historical + 815 current + 28 retained R at exact4b5; C02-TYPE-001 resolved there only; overall Blocked, C02-DOC-003 open, outputs retired_unusable",
+    "XP01": "20 actual inspected types at12cb14fc retained; overall Blocked pending accepted incorporation/full gates",
+    "XR01_XW01_XU04": "completed source-preparation records unchanged; zero new credit",
+    "potential110": "conditional mapping only, no credit",
+    "prepared314": "unchanged, future input only"
+  },
+  "protected_reports_before": {
+    "reviews/shared-foundations-standards-continuation-20261104.md": {
+      "bytes": 8391,
+      "lines": 129,
+      "sha256": "6e09c7114bbaa2a4d5a7eb538eaf6c2fc29f0bc64d5427afc0a52ceecd68e559"
+    },
+    "reviews/chapter02-standards-source-preparation-20261104.md": {
+      "bytes": 104381,
+      "lines": 421,
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    "reviews/potential-standards-development-20261104.md": {
+      "bytes": 40275,
+      "lines": 204,
+      "sha256": "a8c87f38de333a77ab03c82f7da1d3d1b3f122369dd9abb36c8d85acebf495f8"
+    },
+    "reviews/affine-recurrence-standards-preparation-20261104.md": {
+      "bytes": 15543,
+      "lines": 96,
+      "sha256": "bff3e140f1178b6f77ac2d12a42e544dbf2d7522bc27bcf793d1e7ef55b24e92"
+    },
+    "reviews/accumulated-work-standards-preparation-20261104.md": {
+      "bytes": 19038,
+      "lines": 129,
+      "sha256": "e7ea58583cd0c9eabd73e86e0137c874ea3f85b243e6b6d522387175c33ae1b3"
+    },
+    "reviews/permutation-expectation-standards-preparation-20261104.md": {
+      "bytes": 21944,
+      "lines": 107,
+      "sha256": "4e76fd0c52f06dbee8367db24af2c5da3ad4a1785849a5b0e0609d33f2a9881a"
+    },
+    "provenance/shared-four-statements314-standards-preparation-20261104/projection-and-closure.json": {
+      "bytes": 33096,
+      "lines": 856,
+      "sha256": "47e8b8d4b559f599ea154bcb85afe4ba3d2db0114b6266cb832f68e21ef5a759"
+    }
+  },
+  "protected_reports_after": {
+    "reviews/shared-foundations-standards-continuation-20261104.md": {
+      "bytes": 8391,
+      "lines": 129,
+      "sha256": "6e09c7114bbaa2a4d5a7eb538eaf6c2fc29f0bc64d5427afc0a52ceecd68e559"
+    },
+    "reviews/chapter02-standards-source-preparation-20261104.md": {
+      "bytes": 104381,
+      "lines": 421,
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    "reviews/potential-standards-development-20261104.md": {
+      "bytes": 40275,
+      "lines": 204,
+      "sha256": "a8c87f38de333a77ab03c82f7da1d3d1b3f122369dd9abb36c8d85acebf495f8"
+    },
+    "reviews/affine-recurrence-standards-preparation-20261104.md": {
+      "bytes": 15543,
+      "lines": 96,
+      "sha256": "bff3e140f1178b6f77ac2d12a42e544dbf2d7522bc27bcf793d1e7ef55b24e92"
+    },
+    "reviews/accumulated-work-standards-preparation-20261104.md": {
+      "bytes": 19038,
+      "lines": 129,
+      "sha256": "e7ea58583cd0c9eabd73e86e0137c874ea3f85b243e6b6d522387175c33ae1b3"
+    },
+    "reviews/permutation-expectation-standards-preparation-20261104.md": {
+      "bytes": 21944,
+      "lines": 107,
+      "sha256": "4e76fd0c52f06dbee8367db24af2c5da3ad4a1785849a5b0e0609d33f2a9881a"
+    },
+    "provenance/shared-four-statements314-standards-preparation-20261104/projection-and-closure.json": {
+      "bytes": 33096,
+      "lines": 856,
+      "sha256": "47e8b8d4b559f599ea154bcb85afe4ba3d2db0114b6266cb832f68e21ef5a759"
+    }
+  },
+  "protected_reports_unchanged": true
+}

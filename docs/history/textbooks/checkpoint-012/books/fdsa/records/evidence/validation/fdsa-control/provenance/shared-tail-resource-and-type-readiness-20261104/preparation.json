@@ -1,0 +1,516 @@
+{
+  "utc": "2026-11-04T15:41:13.230495+00:00",
+  "prospective_base_J": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "J_accepted": false,
+  "Tail_receiver": null,
+  "corrected_T": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+  "preparation_only": true,
+  "external_imports": [
+    "Mathlib.Basic.ENNReal.Inv",
+    "Mathlib.Data.Finset.Card",
+    "Mathlib.Data.Finset.Lattice.Lemmas",
+    "Mathlib.Data.Finset.Max",
+    "Mathlib.Data.Fintype.OfMap",
+    "Mathlib.Data.Fintype.Perm",
+    "Mathlib.Data.List.Basic",
+    "Mathlib.Data.List.Nodup",
+    "Mathlib.Data.List.Permutation",
+    "Mathlib.Data.Nat.Factorial.Basic",
+    "Mathlib.Data.Set.Card",
+    "Mathlib.Logic.Equiv.Fintype",
+    "Mathlib.Logic.Equiv.List",
+    "Mathlib.MeasureTheory.Measure.AEMeasurable",
+    "Mathlib.Probability.ConditionalProbability",
+    "Mathlib.Probability.HasLaw",
+    "Mathlib.Probability.UniformOn",
+    "Mathlib.Tactic",
+    "Mathlib.Tactic.FinCases"
+  ],
+  "named_existing_artifacts": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Basic/ENNReal/Inv.olean",
+      "bytes": 243104,
+      "allocated_bytes": 245760
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Basic/ENNReal/Inv.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Basic/ENNReal/Inv.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Card.olean",
+      "bytes": 265272,
+      "allocated_bytes": 266240
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Card.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Card.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Lattice/Lemmas.olean",
+      "bytes": 48664,
+      "allocated_bytes": 49152
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Lattice/Lemmas.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Lattice/Lemmas.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Max.olean",
+      "bytes": 187240,
+      "allocated_bytes": 188416
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Max.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Max.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/OfMap.olean",
+      "bytes": 57664,
+      "allocated_bytes": 61440
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/OfMap.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/OfMap.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/Perm.olean",
+      "bytes": 168920,
+      "allocated_bytes": 172032
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/Perm.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/Perm.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Basic.olean",
+      "bytes": 423040,
+      "allocated_bytes": 425984
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Basic.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Basic.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Nodup.olean",
+      "bytes": 101664,
+      "allocated_bytes": 102400
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Nodup.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Nodup.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Permutation.olean",
+      "bytes": 167880,
+      "allocated_bytes": 167936
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Permutation.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Permutation.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Factorial/Basic.olean",
+      "bytes": 172616,
+      "allocated_bytes": 176128
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Factorial/Basic.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Factorial/Basic.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Card.olean",
+      "bytes": 345248,
+      "allocated_bytes": 348160
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Card.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Card.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Equiv/Fintype.olean",
+      "bytes": 121904,
+      "allocated_bytes": 122880
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Equiv/Fintype.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Equiv/Fintype.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Equiv/List.olean",
+      "bytes": 138152,
+      "allocated_bytes": 139264
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Equiv/List.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Equiv/List.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Measure/AEMeasurable.olean",
+      "bytes": 225920,
+      "allocated_bytes": 229376
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Measure/AEMeasurable.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Measure/AEMeasurable.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Probability/ConditionalProbability.olean",
+      "bytes": 149432,
+      "allocated_bytes": 151552
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Probability/ConditionalProbability.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Probability/ConditionalProbability.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Probability/HasLaw.olean",
+      "bytes": 137200,
+      "allocated_bytes": 139264
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Probability/HasLaw.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Probability/HasLaw.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Probability/UniformOn.olean",
+      "bytes": 59296,
+      "allocated_bytes": 61440
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Probability/UniformOn.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Probability/UniformOn.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic.olean",
+      "bytes": 43272,
+      "allocated_bytes": 45056
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/FinCases.olean",
+      "bytes": 148672,
+      "allocated_bytes": 151552
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/FinCases.olean.hash",
+      "bytes": 16,
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/FinCases.trace",
+      "bytes": 287,
+      "allocated_bytes": 4096
+    }
+  ],
+  "missing_or_zero_named_artifacts": [],
+  "available_bytes": 0,
+  "raw_free_bytes": 1240338432,
+  "new_install_hydration_cache_copy": false,
+  "old_Z_to_current_J_observation_comparison": {
+    "common_source_count": 6,
+    "source_differences": [],
+    "artifact_keysets_equal": true,
+    "artifact_key_count": 18,
+    "artifact_differences": [
+      {
+        "path": ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.trace",
+        "Z": {
+          "bytes": 3828,
+          "sha256": "3ddc2e03c348b01cbaa26249a8dd0d0ceeb0faf84cbd5de6c05d0cd12b474fdf"
+        },
+        "J": {
+          "bytes": 3796,
+          "sha256": "ed8db8501ff0a90329a7d1ed7165abbb3641c12126abd808405c0b8f06daf7bd"
+        }
+      },
+      {
+        "path": ".lake/build/lib/lean/Applications/Probability/PermutationOrder.trace",
+        "Z": {
+          "bytes": 4979,
+          "sha256": "f7bd3a03d26ee7da88633798236d679421be3eb4a4a26b04626d3b1a1a1b6d66"
+        },
+        "J": {
+          "bytes": 4947,
+          "sha256": "e4a894d7caf2cb2a91702955c161c762fa9a850b9beb5aa85852367a0a8e8ae5"
+        }
+      },
+      {
+        "path": ".lake/build/lib/lean/Examples/PermutationMinimum.trace",
+        "Z": {
+          "bytes": 3595,
+          "sha256": "130cb1e07070593f284304e324d7a22bde8b9b039a4c01431941b5c4d6ff0a3a"
+        },
+        "J": {
+          "bytes": 3563,
+          "sha256": "ee7c8b743acc926478334d4367f91206871164a37cf14703c89d70fffecb0d9a"
+        }
+      },
+      {
+        "path": ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.trace",
+        "Z": {
+          "bytes": 3493,
+          "sha256": "37c4224bd92974603c2acb9e1f148e6a0c66af3cc3132b025879c83658c1141f"
+        },
+        "J": {
+          "bytes": 3461,
+          "sha256": "eb2ce4235692e3513927696128b46c4bb0a64e06eafe5ba9b6936cc1f04c4f2e"
+        }
+      },
+      {
+        "path": ".lake/build/lib/lean/Examples/PermutationOrder.trace",
+        "Z": {
+          "bytes": 3573,
+          "sha256": "53962e387630ddf532068be330cbb315ebb73b08e229f70fc08416106e8d9d5b"
+        },
+        "J": {
+          "bytes": 3541,
+          "sha256": "fe99277040e7cce06a931533ca4ce208680e30b6256774f43424477547f01ae4"
+        }
+      },
+      {
+        "path": ".lake/build/lib/lean/Examples/PermutationOrderBoundary.trace",
+        "Z": {
+          "bytes": 3617,
+          "sha256": "48edb75f8130c5af43c0406e276f08e3ba46415601f2963077a2a96879cac5b8"
+        },
+        "J": {
+          "bytes": 3585,
+          "sha256": "25cf66fac0e119f33ae84dc5fb25bd82fdb844b4675b8926ab4b709129102d7c"
+        }
+      }
+    ],
+    "complete_dependency_record_differences": [
+      {
+        "name": "Cli",
+        "Z": {
+          "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+          "status": "",
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/Cli"
+        },
+        "J": {
+          "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+          "status": "",
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/Cli"
+        }
+      },
+      {
+        "name": "LeanSearchClient",
+        "Z": {
+          "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+          "status": "",
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/LeanSearchClient"
+        },
+        "J": {
+          "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+          "status": "",
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/LeanSearchClient"
+        }
+      },
+      {
+        "name": "Qq",
+        "Z": {
+          "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+          "status": "",
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/Qq"
+        },
+        "J": {
+          "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+          "status": "",
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/Qq"
+        }
+      },
+      {
+        "name": "aesop",
+        "Z": {
+          "head": "4a174c490d8707121c4a9290800489f105d85e07",
+          "status": "",
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/aesop"
+        },
+        "J": {
+          "head": "4a174c490d8707121c4a9290800489f105d85e07",
+          "status": "",
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/aesop"
+        }
+      },
+      {
+        "name": "batteries",
+        "Z": {
+          "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+          "status": "",
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/batteries"
+        },
+        "J": {
+          "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+          "status": "",
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/batteries"
+        }
+      },
+      {
+        "name": "importGraph",
+        "Z": {
+          "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+          "status": "",
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/importGraph"
+        },
+        "J": {
+          "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+          "status": "",
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/importGraph"
+        }
+      },
+      {
+        "name": "mathlib",
+        "Z": {
+          "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+          "status": "",
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib"
+        },
+        "J": {
+          "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+          "status": "",
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib"
+        }
+      },
+      {
+        "name": "plausible",
+        "Z": {
+          "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+          "status": "",
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/plausible"
+        },
+        "J": {
+          "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+          "status": "",
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/plausible"
+        }
+      },
+      {
+        "name": "proofwidgets",
+        "Z": {
+          "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+          "status": "",
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/proofwidgets"
+        },
+        "J": {
+          "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+          "status": "",
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/proofwidgets"
+        }
+      }
+    ],
+    "configuration_equal": true,
+    "runtime_equal": true
+  },
+  "boundary": "Historical observations only; no Tail receiver/compiler/type credit. Actual assembly and later resource/input checks remain required after J acceptance/durability. The concrete unequal history supports considering the unchanged standalone61 actual inspection at the future receiver; both axes assess exact applicability."
+}

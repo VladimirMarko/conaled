@@ -1,0 +1,15 @@
+{
+  "recorded_at": "2026-11-15T02:46:34.229983+00:00",
+  "filename": "conaled-textbooks-012.patch",
+  "base": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+  "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+  "expected_tree": "63205d8a3ff27deb3680c613b70085163f289b83",
+  "reconstructed_tree": "63205d8a3ff27deb3680c613b70085163f289b83",
+  "bytes": 3544383,
+  "sha256": "955c71b607aab9e217f1b0e4b9c1ef476f16a4596e9d47192052acc8f8a88498",
+  "changed_paths": 360,
+  "creation": "git diff --binary --full-index BASE CANDIDATE --",
+  "rehearsal": "Private temporary index: read-tree BASE; apply --cached --check PATCH; apply --cached PATCH; write-tree equals exact candidate tree. Real index/HEAD/worktree unchanged.",
+  "byte_identical_prior_export": "patch-export-009.json",
+  "meaning": "Convenience re-export of unchanged active source. No compiler or axiom-audit result; preserved unfinished mathematics and complete history remain in the checkpoint source bundle."
+}

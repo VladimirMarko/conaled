@@ -1,0 +1,106 @@
+{
+  "recorded_utc": "2026-11-04T10:46:36.019982+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete81-path review scope, all112 obligations and ten shared scopes.",
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "chunks": [
+    {
+      "chunk": 25,
+      "type_numbers": [
+        413,
+        433
+      ],
+      "native_lines": [
+        6355,
+        6629
+      ],
+      "bytes": 20620,
+      "names": [
+        "Examples.UniformQuickSortMean.high_first_mass",
+        "Examples.UniformQuickSortMean.extreme_first_mass",
+        "Examples.UniformQuickSortMean.middle_conditional_mean",
+        "Examples.UniformQuickSortMean.low_conditional_mean",
+        "Examples.UniformQuickSortMean.high_conditional_mean",
+        "Examples.UniformQuickSortMean.three_mean_from_heads",
+        "Examples.UniformQuickSortMean.three_mean_from_closedForm",
+        "Examples.UniformQuickSortMean.low_empty_actual_child",
+        "Examples.UniformQuickSortMean.low_empty_child_mean",
+        "Examples.UniformQuickSortMean.high_empty_child_mean",
+        "Examples.UniformQuickSortMean.arbitrary_payload_occurrences",
+        "Examples.UniformQuickSortMean.arbitrary_tagged_three",
+        "Examples.UniformQuickSortMean.taggedEqual",
+        "Examples.UniformQuickSortMean.taggedEqual_payloads_distinct",
+        "Examples.UniformQuickSortMean.taggedEqual_mean",
+        "Examples.UniformQuickSortMean.equal_key_counterexample",
+        "Examples.UniformQuickSortMean.taggedRange",
+        "Examples.UniformQuickSortMean.taggedRange_length",
+        "Examples.UniformQuickSortMean.taggedRange_keys",
+        "Examples.UniformQuickSortMean.taggedRange_mean",
+        "Examples.UniformQuickSortMean.arbitrary_payload_growth"
+      ],
+      "sha256": "b6dc25d07e135b1c996374de1f77491421b9e2c690688c2ba8a16f4eda6a420e",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "High-head event mass is1/3 and the union of low/high events has mass2/3 under the actual four-label permutation law. Actual conditional observed-cost means are21 for middle and25 for either extreme, yielding71/3 both from head decomposition and closedForm.",
+        "The low-left child is actually empty on the low-first event. Both low-left and high-right empty child conditional expectations are1, retaining the nonzero empty-call tariff rather than silently setting empty work to0.",
+        "Arbitrary-payload occurrence permutations preserve permutation and length. Three records with Int keys10,-5,7 and unconstrained payloads have uniform-input expectation71/3.",
+        "The taggedEqual family has distinct payload records but equal keys and quadratic mean2*n^2+2*n+1. Its n=3 counterexample explicitly has non-Nodup keys, mean25, and differs from71/3.",
+        "The taggedRange family accepts an explicit payload function, has actual length n and Nodup projected keys, mean closedForm n and Nat-atTop binary-log Big-O. No payload typeclass assumptions are introduced."
+      ]
+    },
+    {
+      "chunk": 26,
+      "type_numbers": [
+        434,
+        447
+      ],
+      "native_lines": [
+        6630,
+        6926
+      ],
+      "bytes": 20834,
+      "names": [
+        "Examples.UniformQuickSortMean.taggedRange_scalar_bound",
+        "Examples.UniformQuickSortMean.taggedRange_literal_bound",
+        "Examples.UniformQuickSortMean.actual_zero_log_boundary",
+        "Examples.UniformQuickSortMean.actual_one_log_boundary",
+        "Resources.RandomQuickSort.sizeMean_eq_closedForm",
+        "Resources.RandomQuickSort.sizeMean_eq_harmonic",
+        "Resources.RandomQuickSort.exerciseMean_eq_closedForm",
+        "Resources.RandomQuickSort.exerciseMean_eq_harmonic",
+        "Resources.RandomQuickSort.literalMean_harmonic_comparison",
+        "Resources.RandomQuickSort.exerciseMean_le_log",
+        "Resources.RandomQuickSort.literalMean_le_log",
+        "Resources.RandomQuickSort.exerciseMean_le_nlog",
+        "Resources.RandomQuickSort.literalMean_le_nlog",
+        "Resources.RandomQuickSort.exerciseMean_le_nlogb"
+      ],
+      "sha256": "3f3b31e7de77baa541419de456b59a73eea95cd4bcbc653cb74a2f6437506ee3",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "Tagged-range exercise scalar bounds include nonnegativity and32*n*logb2(n), while literal expectation is bounded by64*n*logb2(n), both at n>=2. Actual uniform-input empty/singleton means explicitly refute any all-n pure C*n*logb2(n) inequality.",
+        "The fresh-pivot sizeMean and actual exerciseMean are connected to closedForm and the harmonic expression8*(n+1)*H_n-12*n+1, with harmonic cast from Rat to Real and ordinary real subtraction.",
+        "The actual fresh-pivot harmonic formula requires mapped-key Nodup. The literal mean is bounded below by that exact expression and above by twice it, using the same input/key comparator.",
+        "Fresh-pivot exercise/literal logarithmic bounds retain constants16/32 for n*(1+log n) with n>=1, and16/32 times(1+1/log2) for n*log n with n>=2. The binary-log exercise bound is32*n*logb2(n), also n>=2.",
+        "The two probability models remain distinct named actual expectations throughout these compiled bridges; sharing a closed form does not replace either construction."
+      ]
+    }
+  ],
+  "prior_progress_sha256": "25526e165bd2352cc38160a9e9f7bcbf48a296f4f61c3a5863b14168bd9ab0e5",
+  "overall_outcome": "Blocked",
+  "new_type_credit": 0,
+  "possible110_credit": 0
+}

@@ -1,0 +1,11 @@
+# Four-unit candidate: one prepared 314-name inspection
+
+Prepared only; no candidate assembly, compilation, loaded-object qualification, printed-type credit or acceptance occurred.
+
+The planned XM01/XD01/XQ01/XU01 candidate changes `Applications/Sorting/Merge.lean`. The existing complete279 preparation explicitly records that this changes the local import closure of the35 inherited insertion declarations. Root therefore includes these35 in the same eventual inspection command. This is a concrete dependency-change trigger; it retains the original279 names in exactly their order and appends only the19 `Resources.InsertionSort` and16 `Examples.InsertionCosts` names projected from the already prepared exact-F145 input. The314-name file is the planned single combined-stage input, superseding only the future execution of279 by itself. Both original inputs and all earlier evidence remain unchanged.
+
+Exact F must still receive its own full normal terminal, actual145 types, both complete review outcomes, immediate verification and accepted fast-forward first. The new program does not reduce or replace that gate. The four-unit candidate's original18-path scope and all four frozen requirements remain. Full guarded validation/audit, actual before/after source/object/configuration/pin/runtime observations, complete type output, both full-scope final axes and immediate verification remain mandatory for that later candidate.
+
+The added35 are inherited statements, not new book claims. The other110 foundation names have unchanged local source closures in the existing static preparation; retain their actual F evidence only with the required future-input reconciliation. No reuse is approved in advance, and no accepted Chapter1 result is reopened. All private, anonymous and generated declarations remain under the original full source and exhaustive audit scope.
+
+This file was mechanically projected from exact named inputs, with duplicate/order/import checks. It has not run, and its eventual candidate remains null. Read inventory.json for every name, original position and input hash. Bind the actual assembled source/import closure and qualified environment when execution becomes authorized by completion of the earlier stages. Central and idle outputs remain retired; only the existing F builder is active.

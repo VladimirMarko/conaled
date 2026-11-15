@@ -1,0 +1,63 @@
+{
+  "recorded_utc": "2026-11-03T18:25:47.894296+00:00",
+  "live_handle_poll": {
+    "session_id": 98926,
+    "actual_tool_error": "write_stdin failed: Unknown process id 98926"
+  },
+  "saved_run_state": {
+    "schema": 1,
+    "state": "running",
+    "started_utc": "2026-11-03T16:46:59.294972+00:00",
+    "recorder_pid": 2,
+    "child": {
+      "pid": 4,
+      "process_group": 4,
+      "session": 4
+    },
+    "child_returncode": null,
+    "child_status": "unreaped",
+    "recorder_outcome": null,
+    "recorder_exit_code": null,
+    "interrupt_signal": null,
+    "descendant_quiescence_verified": false,
+    "errors": [],
+    "cleanup": null
+  },
+  "last_observed_heartbeat": {
+    "schema": 1,
+    "recorded_utc": "2026-11-03T18:19:59.357736+00:00",
+    "sequence": 187,
+    "elapsed_seconds": 5580.062762272,
+    "child_poll_returncode": null
+  },
+  "last_observed_module_record": "[123/953] SquareKit.Internal.PathTransport.RawReindex (1.40s)",
+  "observed_files": {
+    "launch.json": {
+      "bytes": 2522,
+      "sha256": "e27ae429da431e282015f051fc67cf94972f5fa1367ef7e36d5481d91839d03d"
+    },
+    "run.json": {
+      "bytes": 409,
+      "sha256": "01bed6e4594703b842ff50bec4e121891c73885beccfe7f95eb77f41df982655"
+    },
+    "child.log": {
+      "bytes": 17003,
+      "sha256": "027d162966c6d8d524d33801a736c0d4dab78b6d0c7e9baf36c7556f8a64de65"
+    },
+    "heartbeat.log": {
+      "bytes": 28312,
+      "sha256": "1fc2af04b30772dfab3ac8447fda87f8491137be736ce96f23a5d8661a7718a7"
+    },
+    "errors.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "verification_record_exists": false,
+  "actual_terminal_child_outcome": null,
+  "actual_terminal_recorder_outcome": null,
+  "actual_terminal_tool_exit": null,
+  "descendant_quiescence_verified": false,
+  "scope": "Observed unavailable live tool handle and incomplete saved evidence. No signaling of historical PIDs, no inferred success/termination/quiescence, no alteration of original run records.",
+  "next_action": "Complete separate explicit-j1 operational candidate review/checkpoint, then new complete formal attempt in a new isolated project-output checkout. Preserve historical attempt and do not combine its prefix with a later successful run."
+}

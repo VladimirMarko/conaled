@@ -1,0 +1,357 @@
+{
+  "base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "candidate": "ff3f709723e5c49e5ba40798abbed7d36141a6fb",
+  "checked_at": "2026-11-03T18:01:15.741892+00:00",
+  "failures": [],
+  "files": {
+    "session/checkpoint.py": {
+      "hashes": {
+        "committed": "22928db23012fb28c9dee74b3af4998d18587ec91e728d0b2afcf647c6ac47ad",
+        "delivered": "22928db23012fb28c9dee74b3af4998d18587ec91e728d0b2afcf647c6ac47ad",
+        "isolated": "22928db23012fb28c9dee74b3af4998d18587ec91e728d0b2afcf647c6ac47ad"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100644",
+        "delivered": "100644",
+        "isolated": "100644"
+      },
+      "sha256": "22928db23012fb28c9dee74b3af4998d18587ec91e728d0b2afcf647c6ac47ad"
+    },
+    "session/environment/README-direct-toolchain.md": {
+      "hashes": {
+        "committed": "f3acb7ba89c954019e6288bffc80c37fbc2e4f90523b1172efdd85dc19ee6734",
+        "delivered": "f3acb7ba89c954019e6288bffc80c37fbc2e4f90523b1172efdd85dc19ee6734",
+        "isolated": "f3acb7ba89c954019e6288bffc80c37fbc2e4f90523b1172efdd85dc19ee6734"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100644",
+        "delivered": "100644",
+        "isolated": "100644"
+      },
+      "sha256": "f3acb7ba89c954019e6288bffc80c37fbc2e4f90523b1172efdd85dc19ee6734"
+    },
+    "session/environment/RECOVER-ELAN-REGRESSIONS.md": {
+      "hashes": {
+        "committed": "b76abf471a5546faa191dd9d7dbf7639341b0028457a01c36494f54bd108d769",
+        "delivered": "b76abf471a5546faa191dd9d7dbf7639341b0028457a01c36494f54bd108d769",
+        "isolated": "b76abf471a5546faa191dd9d7dbf7639341b0028457a01c36494f54bd108d769"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100644",
+        "delivered": "100644",
+        "isolated": "100644"
+      },
+      "sha256": "b76abf471a5546faa191dd9d7dbf7639341b0028457a01c36494f54bd108d769"
+    },
+    "session/environment/RECOVER-ENVIRONMENT.md": {
+      "hashes": {
+        "committed": "77f1707ac7ff61b4f3ad176d242c63997180be225549859a821b408ce0a9f68f",
+        "delivered": "77f1707ac7ff61b4f3ad176d242c63997180be225549859a821b408ce0a9f68f",
+        "isolated": "77f1707ac7ff61b4f3ad176d242c63997180be225549859a821b408ce0a9f68f"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100644",
+        "delivered": "100644",
+        "isolated": "100644"
+      },
+      "sha256": "77f1707ac7ff61b4f3ad176d242c63997180be225549859a821b408ce0a9f68f"
+    },
+    "session/environment/environment-route-comparison-042.md": {
+      "hashes": {
+        "committed": "0cf565cd251662aa239a991e905c63b14f4c6de6ffc4808a9bbc96147fe7ba92",
+        "delivered": "0cf565cd251662aa239a991e905c63b14f4c6de6ffc4808a9bbc96147fe7ba92",
+        "isolated": "0cf565cd251662aa239a991e905c63b14f4c6de6ffc4808a9bbc96147fe7ba92"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100644",
+        "delivered": "100644",
+        "isolated": "100644"
+      },
+      "sha256": "0cf565cd251662aa239a991e905c63b14f4c6de6ffc4808a9bbc96147fe7ba92"
+    },
+    "session/environment/make-direct-toolchain-profile.py": {
+      "hashes": {
+        "committed": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb",
+        "delivered": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb",
+        "isolated": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100644",
+        "delivered": "100644",
+        "isolated": "100644"
+      },
+      "sha256": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb"
+    },
+    "session/environment/native-own-exe.c": {
+      "hashes": {
+        "committed": "479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842",
+        "delivered": "479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842",
+        "isolated": "479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100644",
+        "delivered": "100644",
+        "isolated": "100644"
+      },
+      "sha256": "479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842"
+    },
+    "session/environment/native-readlink-fixture.c": {
+      "hashes": {
+        "committed": "b5ee1645a2bd1ce54e3130560b759253d12c9f915ef7b252397c3db9230328ae",
+        "delivered": "b5ee1645a2bd1ce54e3130560b759253d12c9f915ef7b252397c3db9230328ae",
+        "isolated": "b5ee1645a2bd1ce54e3130560b759253d12c9f915ef7b252397c3db9230328ae"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100644",
+        "delivered": "100644",
+        "isolated": "100644"
+      },
+      "sha256": "b5ee1645a2bd1ce54e3130560b759253d12c9f915ef7b252397c3db9230328ae"
+    },
+    "session/environment/run-direct-toolchain.py": {
+      "hashes": {
+        "committed": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+        "delivered": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+        "isolated": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100644",
+        "delivered": "100644",
+        "isolated": "100644"
+      },
+      "sha256": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d"
+    },
+    "session/environment/run-native-toolchain.py": {
+      "hashes": {
+        "committed": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073",
+        "delivered": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073",
+        "isolated": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100644",
+        "delivered": "100644",
+        "isolated": "100644"
+      },
+      "sha256": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073"
+    },
+    "session/environment/test-direct-lake-build.py": {
+      "hashes": {
+        "committed": "3e364791c25cfce02c15887b1ae040a1a18315ab5189ff393d5fb2ff9bd239cf",
+        "delivered": "3e364791c25cfce02c15887b1ae040a1a18315ab5189ff393d5fb2ff9bd239cf",
+        "isolated": "3e364791c25cfce02c15887b1ae040a1a18315ab5189ff393d5fb2ff9bd239cf"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100644",
+        "delivered": "100644",
+        "isolated": "100644"
+      },
+      "sha256": "3e364791c25cfce02c15887b1ae040a1a18315ab5189ff393d5fb2ff9bd239cf"
+    },
+    "session/environment/test-direct-toolchain.py": {
+      "hashes": {
+        "committed": "028e625c2870bafa2668269f981202d76c6509256ca1822e4ab926b3f2526330",
+        "delivered": "028e625c2870bafa2668269f981202d76c6509256ca1822e4ab926b3f2526330",
+        "isolated": "028e625c2870bafa2668269f981202d76c6509256ca1822e4ab926b3f2526330"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100644",
+        "delivered": "100644",
+        "isolated": "100644"
+      },
+      "sha256": "028e625c2870bafa2668269f981202d76c6509256ca1822e4ab926b3f2526330"
+    },
+    "session/environment/test-native-own-exe.c": {
+      "hashes": {
+        "committed": "f26208e4ea0b08349bc99fcb60b15f693fa413c3fbdfcf3649d649de8c748c0b",
+        "delivered": "f26208e4ea0b08349bc99fcb60b15f693fa413c3fbdfcf3649d649de8c748c0b",
+        "isolated": "f26208e4ea0b08349bc99fcb60b15f693fa413c3fbdfcf3649d649de8c748c0b"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100644",
+        "delivered": "100644",
+        "isolated": "100644"
+      },
+      "sha256": "f26208e4ea0b08349bc99fcb60b15f693fa413c3fbdfcf3649d649de8c748c0b"
+    },
+    "session/environment/test-native-own-exe.py": {
+      "hashes": {
+        "committed": "da5856cb97b1e5a9b86303ee576f3f9dc889e5e5fcf0377d7c6d95e22a872c10",
+        "delivered": "da5856cb97b1e5a9b86303ee576f3f9dc889e5e5fcf0377d7c6d95e22a872c10",
+        "isolated": "da5856cb97b1e5a9b86303ee576f3f9dc889e5e5fcf0377d7c6d95e22a872c10"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100644",
+        "delivered": "100644",
+        "isolated": "100644"
+      },
+      "sha256": "da5856cb97b1e5a9b86303ee576f3f9dc889e5e5fcf0377d7c6d95e22a872c10"
+    },
+    "session/validation/direct-validation-runner-notes.md": {
+      "hashes": {
+        "committed": "933745db696b993eda5bd8d5470a7b72b5738659658c709fa98705ceb35bdd4e",
+        "delivered": "933745db696b993eda5bd8d5470a7b72b5738659658c709fa98705ceb35bdd4e",
+        "isolated": "933745db696b993eda5bd8d5470a7b72b5738659658c709fa98705ceb35bdd4e"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100644",
+        "delivered": "100644",
+        "isolated": "100644"
+      },
+      "sha256": "933745db696b993eda5bd8d5470a7b72b5738659658c709fa98705ceb35bdd4e"
+    },
+    "session/validation/run-direct-validation.py": {
+      "hashes": {
+        "committed": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b",
+        "delivered": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b",
+        "isolated": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100644",
+        "delivered": "100644",
+        "isolated": "100644"
+      },
+      "sha256": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b"
+    },
+    "session/validation/run-native-validation.py": {
+      "hashes": {
+        "committed": "62bea076842d766d0ea96c4bf5b14d28b18484689e996f343c5e9ecb9ae04918",
+        "delivered": "62bea076842d766d0ea96c4bf5b14d28b18484689e996f343c5e9ecb9ae04918",
+        "isolated": "62bea076842d766d0ea96c4bf5b14d28b18484689e996f343c5e9ecb9ae04918"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100755",
+        "delivered": "100755",
+        "isolated": "100755"
+      },
+      "sha256": "62bea076842d766d0ea96c4bf5b14d28b18484689e996f343c5e9ecb9ae04918"
+    },
+    "session/validation/test-direct-validation.py": {
+      "hashes": {
+        "committed": "a77b7f3f962c45fbe8affe4999615b3721975cc3c858713c9ef027b6aecf5435",
+        "delivered": "a77b7f3f962c45fbe8affe4999615b3721975cc3c858713c9ef027b6aecf5435",
+        "isolated": "a77b7f3f962c45fbe8affe4999615b3721975cc3c858713c9ef027b6aecf5435"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100644",
+        "delivered": "100644",
+        "isolated": "100644"
+      },
+      "sha256": "a77b7f3f962c45fbe8affe4999615b3721975cc3c858713c9ef027b6aecf5435"
+    },
+    "session/validation/test-native-validation.py": {
+      "hashes": {
+        "committed": "678f953340f920b0ea9a9c7d61ddfba1320b2688aa822df567afad15beb75855",
+        "delivered": "678f953340f920b0ea9a9c7d61ddfba1320b2688aa822df567afad15beb75855",
+        "isolated": "678f953340f920b0ea9a9c7d61ddfba1320b2688aa822df567afad15beb75855"
+      },
+      "match": true,
+      "modes": {
+        "committed": "100755",
+        "delivered": "100755",
+        "isolated": "100755"
+      },
+      "sha256": "678f953340f920b0ea9a9c7d61ddfba1320b2688aa822df567afad15beb75855"
+    }
+  },
+  "formal_acceptance": false,
+  "head": "ff3f709723e5c49e5ba40798abbed7d36141a6fb",
+  "merge_base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "outcomes": {
+    "Spec": "Findings-present",
+    "Standards": "Findings-present"
+  },
+  "porcelain": "",
+  "purpose": "Final read-only coordinator identity for r9 findings reconciliation, not third review or acceptance",
+  "records": {
+    "session/reviews/direct-toolchain-dispatch-r9-043.md": {
+      "bytes": 9357,
+      "match": true,
+      "sha256": "2e47bd80da2e7f52faefa88cc6f18c23ce1623b2a73b8f941e1e21eb0b7574a1"
+    },
+    "session/reviews/direct-toolchain-spec-r9-043.md": {
+      "bytes": 23878,
+      "match": true,
+      "sha256": "1651fad484a6c01c68e3038a980e2edce9cbe309f9fef84b1a8167731fd60526"
+    },
+    "session/reviews/direct-toolchain-standards-r9-043.md": {
+      "bytes": 22456,
+      "match": true,
+      "sha256": "b40654b0be536883a61ef62c1dd9dde10868ffd4b3fa9a9297f38212b7fb2a7b"
+    },
+    "session/validation/native-toolchain-candidate-r9-043.json": {
+      "bytes": 8128,
+      "match": true,
+      "sha256": "af74d3d1ab35c9a26dd1034bf223d2479232d6e82732c05ac72b701c7f0e09ec"
+    },
+    "session/validation/native-toolchain-candidate-validation-r8-043.json": {
+      "bytes": 12759,
+      "match": true,
+      "sha256": "d8d99e2f557223af3f61c5ab39854ca696f4d4ef1d0fd5da4cd594e6296f766a"
+    },
+    "session/validation/native-toolchain-candidate-validation-r9-043.json": {
+      "bytes": 4535,
+      "match": true,
+      "sha256": "a86be8c447403d0947e7542461471e47570b69e484e4464522c3a12661221ddc"
+    },
+    "session/validation/native-toolchain-coordinator-dispatch-r9-043.json": {
+      "bytes": 12035,
+      "match": true,
+      "sha256": "d4ac3310ba40cf5a93d8b4a352fbbafacdc9c14a4e460e827210c16726c3549f"
+    },
+    "session/validation/native-toolchain-final-verification-042.json": {
+      "bytes": 8655,
+      "match": true,
+      "sha256": "0359e0ef2cbf8da38d0382cfffa9efc84d4c02dc9e22e03f490bd442c466c206"
+    }
+  },
+  "ref": "ff3f709723e5c49e5ba40798abbed7d36141a6fb",
+  "requirements": {
+    "session/environment/direct-toolchain-implementation-scope-041.md": {
+      "match": true,
+      "sha256": "05c125ee129eafc8f45f9367be16259c3239c7b3945c32f62effba1f1b4c922c"
+    },
+    "session/requirements/REQUEST-direct-toolchain-041.md": {
+      "match": true,
+      "sha256": "16845edec15c311e0cfd5ed5d4f5c4feb61e7ad96545653d5b872309d26464bc"
+    },
+    "session/requirements/REQUEST-environment-handoff-042.md": {
+      "match": true,
+      "sha256": "200789123c60ae137967f881207194412eecea72ba2fc80247978075bd6a4602"
+    },
+    "session/requirements/REQUEST-native-toolchain-042.md": {
+      "match": true,
+      "sha256": "d76dc8dcf771a227779628de91e75c4b63a2898b95e7b30035de83537dae5195"
+    },
+    "session/requirements/REQUEST-union-v2.md": {
+      "match": true,
+      "sha256": "3336bed1154438b3683aeb5a1c63fee44e87aff190f5ff69e34705a780b9d22c"
+    },
+    "session/requirements/REQUEST.md": {
+      "match": true,
+      "sha256": "b847f23fcce44837f5b1ead01aae43ac5ed626ffd32aab84055dd664e339e499"
+    }
+  },
+  "schema": 1,
+  "unresolved_findings": [
+    "DTS-003",
+    "DTP-003"
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "schema": 1,
+  "unit": "FDSA-XT01",
+  "reviewer": "/root/chapter02_spec",
+  "recorded_utc": "2026-11-04T13:35:32.987666+00:00",
+  "fixed_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "overall": "Blocked",
+  "source_assessment_complete": true,
+  "new_concrete_spec_findings": [],
+  "complete_original_scope_paths": [
+    "Applications/Resources/TreeCache.lean",
+    "Applications/Trees/Cached.lean",
+    "Applications/Trees/Observations.lean",
+    "Examples/TreeCache.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-cache.md"
+  ],
+  "report": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/binary-tree-cache-spec-preparation-20261104.md",
+    "bytes": 21429,
+    "newline_lines": 127,
+    "sha256": "c54206bcb23cf96bc0968c2bc4f84ed2166ee6f257c4a1d952f5c578418d3432"
+  },
+  "source_receipt": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-spec-preparation-20261104/source-assessment.json",
+    "bytes": 174553,
+    "newline_lines": 4034,
+    "sha256": "e29d75b66949c9bbaabe9ae34e8305057af6015cde693695ee8085d73c811995"
+  },
+  "completed_readback": {
+    "complete_report": true,
+    "report_ranges": [
+      [
+        1,
+        65
+      ],
+      [
+        66,
+        127
+      ]
+    ],
+    "entire_source_receipt_json_decoded": true,
+    "all_raw_json_lines_manually_read": false,
+    "method": "Full report read; every semantic/status/count/finding/source-boundary/gate/context field read in decoded form; complete compact metadata tables and full local-closure source/edge tables read; all 115 complete stored header texts read in bounded blocks. Repeated raw JSON formatting and protected-file metadata are mechanically reconciled, without claiming a manual raw-line read of all 4034 lines.",
+    "stored_authored_header_read_ranges": [
+      [
+        1,
+        60
+      ],
+      [
+        61,
+        115
+      ]
+    ],
+    "prewrite_source_header_read_ranges": [
+      [
+        1,
+        47
+      ],
+      [
+        48,
+        81
+      ],
+      [
+        82,
+        115
+      ]
+    ],
+    "all115_headers_exactly_match_immutable_source": true,
+    "all115_header_hashes_and_lines_verified": true,
+    "all_seven_source_files_complete": true,
+    "all_new_and_existing_diff_scope_complete": true
+  },
+  "mechanical_identity_rechecks": {
+    "source_files": 7,
+    "governing_guidance_blobs": 15,
+    "pins": 3,
+    "complete_local_dependency_reads": 5,
+    "pinned_mathlib_api_files": 2,
+    "local_closure_sources": 26,
+    "control_records": 15,
+    "book_text": true,
+    "prior_protected_files": 126,
+    "all_passed": true
+  },
+  "declaration_counts": {
+    "total_authored_rows": 115,
+    "public_named": 115,
+    "public_definitions": 25,
+    "public_theorems": 90,
+    "new_public_named": 115,
+    "inherited_public_named_in_changed_formal_files": 0,
+    "private_named": 0,
+    "anonymous_examples": 0,
+    "named_instances": 0,
+    "anonymous_instances": 0,
+    "inductives": 0,
+    "structures": 0,
+    "per_file": [
+      {
+        "path": "Applications/Trees/Observations.lean",
+        "public_definitions": 2,
+        "public_theorems": 13,
+        "public_total": 15
+      },
+      {
+        "path": "Applications/Trees/Cached.lean",
+        "public_definitions": 5,
+        "public_theorems": 19,
+        "public_total": 24
+      },
+      {
+        "path": "Applications/Resources/TreeCache.lean",
+        "public_definitions": 2,
+        "public_theorems": 6,
+        "public_total": 8
+      },
+      {
+        "path": "Examples/TreeCache.lean",
+        "public_definitions": 16,
+        "public_theorems": 52,
+        "public_total": 68
+      }
+    ]
+  },
+  "local_closure": {
+    "local_files": 26,
+    "external_imports": 12,
+    "edges": 48,
+    "preexisting_files_identical_to_accepted_R": 22,
+    "new_local_files": 4,
+    "transferred_actual_credit": 0
+  },
+  "actual_printed_types_read_for_candidate": 0,
+  "compiler_results_credited": 0,
+  "full_checks_or_audits_credited": 0,
+  "all126_prior_records_byte_identical": true,
+  "unchanged_prior_accounts": {
+    "accepted_chapter1": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "foundation_candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "foundation_terminal_received": false,
+    "foundation145_pending": true,
+    "potential110_uncredited": true,
+    "c2_actual_qualified": 1735,
+    "c2_retained_base": 28,
+    "xp_actual_types": 20,
+    "chapter3": "queued",
+    "chapter4": "not_activated"
+  },
+  "required_remaining_gates": [
+    "Exact incorporated-base/candidate/source history with all original requirements and any later corrections retained",
+    "Qualified focused validation and complete actual public-type inspection with matching immutable inputs/program/runtime/terminal evidence",
+    "Applicable README normal/fresh full candidate check, source/coverage guards and exhaustive kernel audit",
+    "Both independent final axes over the same complete original scope",
+    "Immediate qualified ./check.sh --verify-candidate HEAD",
+    "Authorized local integration and self-contained checkpoint; no pushes or GitHub mutations"
+  ],
+  "bounded_writes_succeeded": true,
+  "storage_qualification": "These small source-record writes actually succeeded after coordinator authorization clarified zero f_bavail versus raw free blocks/root execution. No installer/hydration/compiler guard was changed, and no new builder was launched.",
+  "foundation_priority": "Exact Foundation terminal and 145-type evidence remain pending; no process polling or outcome inference. Actual Foundation evidence takes priority when supplied.",
+  "no_source_ref_cache_runtime_or_output_mutations": true,
+  "own_review_provenance_writes_held_after_this_boundary": true
+}

@@ -1,0 +1,48 @@
+{
+  "time": "2026-11-03T23:34:52.909498+00:00",
+  "purpose": "Real Elan selection required by unchanged stock test-check.py; no compiler invoked",
+  "source_recipe": "environment/RECOVER-ELAN-REGRESSIONS.md",
+  "adaptation": "Same pinned Elan, selected current user-authorized unified native profile via fresh custom link",
+  "url": "https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz",
+  "archive_sha256": "42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63",
+  "binary_sha256": "e0f4b30b29c565625189744847dfef5f132b6322c5e452dbebfeae780c9749e5",
+  "elan_home": "/workspace/scratch/09cf0de22282/pfds/native-state/elan-check-tests",
+  "profile": "/workspace/scratch/09cf0de22282/pfds/native-state/profile",
+  "selection": "pfds-unified-4.35.0",
+  "records": [
+    {
+      "command": [
+        "/workspace/scratch/09cf0de22282/pfds/toolchains/elan-4.2.4/elan",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "elan 4.2.4 (227caca13 2026-08-25)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/scratch/09cf0de22282/pfds/toolchains/elan-4.2.4/elan",
+        "toolchain",
+        "link",
+        "pfds-unified-4.35.0",
+        "/workspace/scratch/09cf0de22282/pfds/native-state/profile"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/scratch/09cf0de22282/pfds/toolchains/elan-4.2.4/elan",
+        "which",
+        "lean"
+      ],
+      "exit_code": 0,
+      "stdout": "/workspace/scratch/09cf0de22282/pfds/native-state/elan-check-tests/toolchains/pfds-unified-4.35.0/bin/lean\n",
+      "stderr": ""
+    }
+  ],
+  "compiler_executed": false,
+  "suite_run": false,
+  "acceptance": false
+}

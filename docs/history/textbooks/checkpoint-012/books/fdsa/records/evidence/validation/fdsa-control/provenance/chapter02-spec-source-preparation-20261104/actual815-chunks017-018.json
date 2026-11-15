@@ -1,0 +1,106 @@
+{
+  "recorded_utc": "2026-11-04T10:44:48.550202+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete81-path review scope, all112 obligations and ten shared scopes.",
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "chunks": [
+    {
+      "chunk": 17,
+      "type_numbers": [
+        270,
+        289
+      ],
+      "native_lines": [
+        4207,
+        4453
+      ],
+      "bytes": 18842,
+      "sha256": "527af3118a601a5d413eebd90899118a8a1bfae624588fcd22439775fc7eda38",
+      "names": [
+        "Resources.QuickSortMean.difference_of_recurrence",
+        "Resources.QuickSortMean.eq_closedForm",
+        "Resources.QuickSortMean.closedForm_nonneg",
+        "Resources.QuickSortMean.closedForm_le_log",
+        "Resources.QuickSortMean.closedForm_le_nlog",
+        "Resources.QuickSortMean.closedForm_le_nlogb",
+        "Resources.QuickSortMean.closedForm_isBigO_log",
+        "Resources.QuickSortMean.closedForm_isBigO_logb",
+        "Examples.QuickSortMean.empty_mean",
+        "Examples.QuickSortMean.singleton_mean",
+        "Examples.QuickSortMean.two_mean",
+        "Examples.QuickSortMean.three_mean",
+        "Examples.QuickSortMean.sequence_three",
+        "Examples.QuickSortMean.zero_log_boundary",
+        "Examples.QuickSortMean.one_log_boundary",
+        "Examples.QuickSortMean.two_log_bound",
+        "Examples.QuickSortMean.sequence_binary_growth",
+        "Resources.RandomQuickSort.occurrenceRank",
+        "Resources.RandomQuickSort.occurrenceRank_lt_iff",
+        "Resources.RandomQuickSort.left_length_eq_rank"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The difference recurrence is n*A(n)=(n+1)*A(n-1)+8*n-5 for n>0. Uniqueness against closedForm requires A(0)=1 and the complete positive-n recurrence; these assumptions are not omitted.",
+        "Nonnegativity holds at all natural n. The explicit logarithmic bounds preserve n>=1 for16*n*(1+log n), and n>=2 for16*(1+1/log2)*n*log n and32*n*logb2(n). Big-O statements use Nat atTop and real norms.",
+        "The numerical examples retain values1,5,13,71/3. Both n=0 and n=1 explicitly fail any pure C*n*logb2(n) bound; this does not conflict with the eventual Big-O results.",
+        "occurrenceRank is an actual permutation of Fin(input.length), with arbitrary payload and LinearOrder keys. Rank comparison equivalence requires Nodup of mapped keys, not merely distinct payloads.",
+        "The left-child length equals the selected occurrence rank after eraseIdx of precisely that occurrence and filtering by keys below its key. No payload equality or inhabitant is introduced."
+      ]
+    },
+    {
+      "chunk": 18,
+      "type_numbers": [
+        290,
+        304
+      ],
+      "native_lines": [
+        4454,
+        4721
+      ],
+      "bytes": 17605,
+      "sha256": "e16f7fb1cdaaf7e075361263575c456efb5432f29ea59695fec2fd67c1cca688",
+      "names": [
+        "Resources.RandomQuickSort.right_length_eq_rank",
+        "Resources.RandomQuickSort.child_keys_nodup",
+        "Resources.RandomQuickSort.left_length_law",
+        "Resources.RandomQuickSort.exerciseMean_eq_of_length_eq",
+        "Resources.RandomQuickSort.sizeMean",
+        "Resources.RandomQuickSort.exerciseMean_eq_sizeMean",
+        "Resources.RandomQuickSort.sizeMean_zero",
+        "Resources.RandomQuickSort.sizeMean_succ",
+        "Resources.RandomQuickSort.sizeMean_recurrence",
+        "Examples.RandomQuickSortRank.empty_rank",
+        "Examples.RandomQuickSortRank.empty_uninhabited_mean",
+        "Examples.RandomQuickSortRank.singleton_rank",
+        "Examples.RandomQuickSortRank.sizeMean_one",
+        "Examples.RandomQuickSortRank.sizeMean_two",
+        "Examples.RandomQuickSortRank.sizeMean_three"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The right child is the complementary Boolean filter of the same eraseIdx remainder and has natural length n-1-rank. Both child key lists retain Nodup under the original mapped-key Nodup premise.",
+        "The actual PMF.map law sends uniform occurrence choice to uniform left-child size through Fin.val. It retains a nonempty head::tail input and its actual key/filter/erase-index expressions; it is not an assumed size distribution.",
+        "Equal input lengths imply equal exercise means across arbitrary payload types and distinct LinearOrder key types, provided each mapped-key list is Nodup. The sizeMean bridge therefore preserves the exact distinct-key domain.",
+        "sizeMean has zero value1 and the actual successor mean recurrence with average2/(m+1), all Fin(m+1) subproblem sizes and toll4*m+3. The range-form recurrence requires positive n and uses real division.",
+        "Empty-rank identity, uninhabited empty expectation, singleton rank0, and actual sizeMean values5,13,71/3 are all retained in the compiled public types."
+      ]
+    }
+  ],
+  "prior_progress_sha256": "d65716513857986cdc4e38f882a11fbaf0f3accd1bf397d70ef0f80a653513b3",
+  "overall_outcome": "Blocked",
+  "new_type_credit": 0,
+  "possible110_credit": 0
+}

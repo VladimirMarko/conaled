@@ -1,0 +1,673 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-04T11:32:42.090779+00:00",
+  "review_axis": "Spec",
+  "reviewer": "/root/chapter02_spec",
+  "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+  "original_scope_retained": true,
+  "source_review_ledger": {
+    "path": "provenance/xp01-spec-development-20261104/source-and-read-ledger.json",
+    "bytes": 48123,
+    "lines": 1108,
+    "sha256": "647ced252ed6efe229147e1af53e36cab199733ddab054abd1204a6798bf6396"
+  },
+  "exact_correction2_scope": {
+    "path": "provenance/xp01-spec-development-20261104/correction2-and-launch3-assessment.json",
+    "bytes": 22219,
+    "lines": 572,
+    "sha256": "96202ced5c839ccb1ee7a8b5b01c091e3d10c38694315ebb73677160eb96f0ec"
+  },
+  "focused4_qualification": {
+    "path": "provenance/xp01-spec-development-20261104/focused4-terminal-assessment.json",
+    "bytes": 7928,
+    "lines": 127,
+    "sha256": "5b821b09f3b7e25b9fc37865efea63e1bc14f7353b78d3662966f4ac630f8a82"
+  },
+  "result": "All20 explicit public types fully read and qualified at exact T, no concrete Spec type finding. Overall acceptance remains Blocked.",
+  "public_type_names_read": 20,
+  "public_type_names_qualified": 20,
+  "is_new_theorem_or_kernel_count": false,
+  "actual_command": {
+    "outer_exit": 0,
+    "native_exit": 0,
+    "clean_pre_post_candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+    "outer_started": "2026-11-04T11:26:40.989204+00:00",
+    "outer_completed": "2026-11-04T11:27:31.395972+00:00",
+    "outer_seconds": 50.406562608997774,
+    "native_seconds": 50.29656551199878,
+    "lean_threads": "1",
+    "executed_program": {
+      "path": "provenance/xp01-public-statements20-prepared-20261104/Statements.lean",
+      "bytes": 1002,
+      "lines": 28,
+      "sha256": "ea75026303b461b1bb676e060aaac51e37797cbb2afd3d6356c08ba28c7eb01f"
+    },
+    "complete_request_start_result_native_secured_and_bookkeeping_records_read": true,
+    "all_native_original_copies_match": true,
+    "full_native_log_exact_in_outer": true,
+    "full_outer_wrapper_complement_read": true,
+    "warnings_or_errors_in_native_output": [],
+    "files": [
+      {
+        "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/request.json",
+        "bytes": 872,
+        "lines": 22,
+        "sha256": "47f190262dbe4f0dda12e9cff36c2810304270ff3f8894c6ab54a9d7be2b2b4c"
+      },
+      {
+        "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/start.json",
+        "bytes": 1074,
+        "lines": 27,
+        "sha256": "3222a5fb3497db41c23e099ae39f4494c77644d183be8a778e95216a38e2f237"
+      },
+      {
+        "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/result.json",
+        "bytes": 1306,
+        "lines": 32,
+        "sha256": "0d8385beb1567b0163059d255a61a431e6468630d50c5cf70a5790d015975545"
+      },
+      {
+        "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/full.log",
+        "bytes": 33722,
+        "lines": 535,
+        "sha256": "52743ef8b74aa06f5af0efe5188ae6ebf81af7b948748d3d6b650a9411e1acde"
+      },
+      {
+        "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/native/start.json",
+        "bytes": 554,
+        "lines": 14,
+        "sha256": "2a6316d451aedde95abfdc5a02b7c66d8263fd8450827dcc7e636410b7851c83"
+      },
+      {
+        "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/native/result.json",
+        "bytes": 706,
+        "lines": 19,
+        "sha256": "4fb910f97d830d26af050a5748cc1fada6790fbaf5f9f0a94dda3a4b14e7d86c"
+      },
+      {
+        "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/native/output.log",
+        "bytes": 33371,
+        "lines": 532,
+        "sha256": "e1b29bcf05bd9841e7213b71f024f22153a4eb644d6df2ba659800eb5fd83f76"
+      },
+      {
+        "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/secured-terminal.json",
+        "bytes": 3646,
+        "lines": 130,
+        "sha256": "6d28dcc88098e7692d40a1c93b2c31f232f65667cc1674a471006cdd18ba9659"
+      },
+      {
+        "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/terminal-bookkeeping-note.json",
+        "bytes": 648,
+        "lines": 15,
+        "sha256": "4acbeddd87e8f3e5a3c505e96fecfb80ac9f6cd1f48c2db020296e14564cf21d"
+      }
+    ]
+  },
+  "input_qualification": {
+    "pre": {
+      "path": "provenance/xp01-statements20-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 19981,
+      "lines": 453,
+      "sha256": "598abe1b77df57ebe2732aa2d09e4e1ce50887b8345c2ebb8f7754412f28c866"
+    },
+    "post": {
+      "path": "provenance/xp01-statements20-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 20292,
+      "lines": 459,
+      "sha256": "e5571ff506eb872fe2086a9de9919e53fbdbd20b3b446620e7580e4c16d5a3bd"
+    },
+    "actual_pre_exit": 0,
+    "actual_post_exit": 0,
+    "pre_complete_read_lines": [
+      1,
+      453
+    ],
+    "post_read_method": "Complete pre record plus full post/pre textual delta and exact equality of identity and boundary objects. Post-only timestamp, compared_to and unchanged fields fully read.",
+    "all_identity_fields_exact_match": true,
+    "chronology_correct": true,
+    "candidate_clean": true,
+    "qualified_basis": "Recorded actual stock focused4 success at exact held T, same native profile/pins and stable private project output ownership, followed by actual matching pre/type/post records. Fingerprints supplement that lineage; they are not alone a build-origin proof. No competing builder shared these project outputs; live F uses its independent project outputs.",
+    "source_count": 15,
+    "source_identity_checks": [
+      {
+        "path": "Examples/MappedPotentialAccounting.lean",
+        "sha256": "2c83479daec51deb21ec95e26af816bc0dfaa682fdb5ee76ee28cdf1e681386a",
+        "git_blob": "1fb26b51e9f298bd1ba1d1a5fa2a425142f8d8d7",
+        "captured_identity_matches_immutable_T": true
+      },
+      {
+        "path": "Applications/Resources/BinaryCounter.lean",
+        "sha256": "d990e0e8d9b09fff3f774180fa2396558f2d1abcf7e6231be648f5bd66f6f9c0",
+        "git_blob": "ed65ac31a2674df62fe26c0ff69a2d6b9bb2101d",
+        "captured_identity_matches_immutable_T": true
+      },
+      {
+        "path": "Applications/Resources/Potential.lean",
+        "sha256": "c921f5a18f9c508c338d49eed9d3bd2a2193f968cfc3e9efb4208f8917efa33c",
+        "git_blob": "dcf7ae78d76c1440c2d89711e6939a00ff24cc90",
+        "captured_identity_matches_immutable_T": true
+      },
+      {
+        "path": "Applications/Resources/Workload.lean",
+        "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+        "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+        "captured_identity_matches_immutable_T": true
+      },
+      {
+        "path": "SquareKit/ListFusion.lean",
+        "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+        "git_blob": "33ec447acb6da7b884ae57d2a885707208201607",
+        "captured_identity_matches_immutable_T": true
+      },
+      {
+        "path": "Applications/Resources/Measured.lean",
+        "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+        "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+        "captured_identity_matches_immutable_T": true
+      },
+      {
+        "path": "Squares.lean",
+        "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+        "git_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+        "captured_identity_matches_immutable_T": true
+      },
+      {
+        "path": "Applications/Resources/FIFOContracts.lean",
+        "sha256": "f0215c25e27380b170297c9cc010375da4ef263380088f4ae8fdbb7272373343",
+        "git_blob": "01839707e852b3faff6ef1a49ad88a76fb5e5c18",
+        "captured_identity_matches_immutable_T": true
+      },
+      {
+        "path": "Applications/Resources/SymmetricCosts.lean",
+        "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+        "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+        "captured_identity_matches_immutable_T": true
+      },
+      {
+        "path": "Applications/Sequences/Symmetric/Core.lean",
+        "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+        "git_blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4",
+        "captured_identity_matches_immutable_T": true
+      },
+      {
+        "path": "Applications/Sequences/AbstractFIFO.lean",
+        "sha256": "e9d468a3d60c15f6474e71082c19b561819cb3c084e201c0eb8b935d57af0bb2",
+        "git_blob": "7dc3d3cad106512033cfc8cad62d750757abfb66",
+        "captured_identity_matches_immutable_T": true
+      },
+      {
+        "path": "Applications/Sequences/Symmetric/Observation.lean",
+        "sha256": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557",
+        "git_blob": "846aba846bfcfa04867cc221043609f9198b0ec0",
+        "captured_identity_matches_immutable_T": true
+      },
+      {
+        "path": "SquareKit/Relations.lean",
+        "sha256": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03",
+        "git_blob": "cdfa81e8f94728272a5c72da21ae2e4f5a5febc4",
+        "captured_identity_matches_immutable_T": true
+      },
+      {
+        "path": "Applications/Sequences/Symmetric/Finite.lean",
+        "sha256": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490",
+        "git_blob": "fedbcc0dfa4c7865ef2ee73f395155d45e33dbe5",
+        "captured_identity_matches_immutable_T": true
+      },
+      {
+        "path": "Applications/Sequences/Symmetric/Prefixes.lean",
+        "sha256": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308",
+        "git_blob": "b73854f69696abe7cf827372ad070b6e9dc19991",
+        "captured_identity_matches_immutable_T": true
+      }
+    ],
+    "external_imports": [
+      "Lean",
+      "Mathlib.Algebra.FreeMonoid.Basic",
+      "Mathlib.Algebra.Group.Prod",
+      "Mathlib.Algebra.Group.TypeTags.Basic",
+      "Mathlib.Algebra.Order.Group.Nat",
+      "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+      "Mathlib.Basic.Real.Basic",
+      "Mathlib.Data.List.Basic",
+      "Mathlib.Data.List.Infix",
+      "Mathlib.Data.List.Iterate",
+      "Mathlib.Logic.Function.Iterate",
+      "Mathlib.Tactic.NormNum"
+    ],
+    "local_import_edges": [
+      [
+        "Examples.MappedPotentialAccounting",
+        "Applications.Resources.BinaryCounter"
+      ],
+      [
+        "Examples.MappedPotentialAccounting",
+        "Mathlib.Basic.Real.Basic"
+      ],
+      [
+        "Examples.MappedPotentialAccounting",
+        "Mathlib.Tactic.NormNum"
+      ],
+      [
+        "Examples.MappedPotentialAccounting",
+        "Mathlib.Algebra.FreeMonoid.Basic"
+      ],
+      [
+        "Examples.MappedPotentialAccounting",
+        "Mathlib.Algebra.Group.TypeTags.Basic"
+      ],
+      [
+        "Applications.Resources.BinaryCounter",
+        "Applications.Resources.Potential"
+      ],
+      [
+        "Applications.Resources.BinaryCounter",
+        "Mathlib.Data.List.Iterate"
+      ],
+      [
+        "Applications.Resources.BinaryCounter",
+        "Mathlib.Logic.Function.Iterate"
+      ],
+      [
+        "Applications.Resources.Potential",
+        "Applications.Resources.Workload"
+      ],
+      [
+        "Applications.Resources.Potential",
+        "Mathlib.Algebra.Order.Group.Nat"
+      ],
+      [
+        "Applications.Resources.Workload",
+        "Applications.Resources.Measured"
+      ],
+      [
+        "Applications.Resources.Workload",
+        "SquareKit.ListFusion"
+      ],
+      [
+        "SquareKit.ListFusion",
+        "Mathlib.Data.List.Basic"
+      ],
+      [
+        "Applications.Resources.Measured",
+        "Mathlib.Algebra.Group.Prod"
+      ],
+      [
+        "Applications.Resources.Measured",
+        "Mathlib.Algebra.Order.Monoid.Unbundled.Basic"
+      ],
+      [
+        "Applications.Resources.Measured",
+        "Squares"
+      ],
+      [
+        "Squares",
+        "Lean"
+      ],
+      [
+        "Applications.Resources.FIFOContracts",
+        "Applications.Sequences.AbstractFIFO"
+      ],
+      [
+        "Applications.Resources.FIFOContracts",
+        "Applications.Resources.SymmetricCosts"
+      ],
+      [
+        "Applications.Resources.SymmetricCosts",
+        "Applications.Resources.Potential"
+      ],
+      [
+        "Applications.Resources.SymmetricCosts",
+        "Applications.Sequences.Symmetric.Core"
+      ],
+      [
+        "Applications.Sequences.Symmetric.Core",
+        "SquareKit.ListFusion"
+      ],
+      [
+        "Applications.Sequences.Symmetric.Core",
+        "Mathlib.Data.List.Infix"
+      ],
+      [
+        "Applications.Sequences.AbstractFIFO",
+        "Applications.Sequences.Symmetric.Observation"
+      ],
+      [
+        "Applications.Sequences.Symmetric.Observation",
+        "Applications.Sequences.Symmetric.Finite"
+      ],
+      [
+        "Applications.Sequences.Symmetric.Observation",
+        "SquareKit.Relations"
+      ],
+      [
+        "SquareKit.Relations",
+        "Squares"
+      ],
+      [
+        "Applications.Sequences.Symmetric.Finite",
+        "Applications.Sequences.Symmetric.Prefixes"
+      ],
+      [
+        "Applications.Sequences.Symmetric.Prefixes",
+        "Applications.Sequences.Symmetric.Core"
+      ]
+    ],
+    "object_trace_count": 45,
+    "all_object_trace_keys_cover_exact_source_closure": true,
+    "configuration_count": 10,
+    "all_configurations_match_T": true,
+    "dependency_count": 9,
+    "all_pins_match_T_manifest_and_clean": true,
+    "runtime_count": 12,
+    "retained_prior_C2_pre_record": {
+      "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 125408,
+      "lines": 2524,
+      "sha256": "e4187960a469d194aeceed488d7e9bb45a450ae059bef46ba9645c5f9d6868ac"
+    },
+    "configuration_dependencies_runtime_exact_prior_qualified_profile": true,
+    "readme_boundary": "Normal trusted stable-checkout qualification; not an authentication claim against hidden/restored mutations. Full guarded candidate check/audit and immediate verification remain mandatory separate acceptance evidence.",
+    "new_runtime_or_object_snapshot_by_reviewer": false
+  },
+  "full_actual_type_read": {
+    "native_bytes": 33371,
+    "native_lines": 532,
+    "all_bytes_covered": true,
+    "range_index_independent_and_matches_all20_program_names_once_in_order": true,
+    "printing_options": {
+      "pp.universes": true,
+      "pp.explicit": true,
+      "pp.fullNames": true
+    },
+    "read_chunks": [
+      {
+        "first_line": 1,
+        "last_line": 137,
+        "bytes": 9215,
+        "sha256": "a69fb034b329eaedbf88f3ae6af52cb194e4fa348f3fa047715edaaee49e2e7b",
+        "complete_types": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "assessment": "Independent carrier universes and only Zero/Add D for budget; append raw Zero/Add C and target AddMonoid D with actual run state; hom budget transport has raw C unconstrained and AddZero D/E; invariant mapped inequality has exactly target preorder and both covariance premises; exact invariant law has no order. Actual projections, h, local P, final P-dependent conclusion and boundary operand order match the source. No finding."
+      },
+      {
+        "first_line": 138,
+        "last_line": 280,
+        "bytes": 9168,
+        "sha256": "5536666e54446c077d9d75c58949bf5c3c89c5b66cc0b882f41b49fedfce6e15",
+        "complete_types": [
+          6,
+          7,
+          8
+        ],
+        "assessment": "All-state mapped inequality/equality retain exactly the intended local laws and raw/target classes; no extra payload assumptions. The invariant cost-only bound explicitly quantifies nonnegativity on P and starting P, keeps initial potential plus actual budget, and maps the same actual run observation. No finding."
+      },
+      {
+        "first_line": 281,
+        "last_line": 418,
+        "bytes": 7760,
+        "sha256": "5b36dbf38e3be3ad0274faba1ebf964a34c67f216bdcfe5a282b8f84f876eb47",
+        "complete_types": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "assessment": "budget_amortized has only AddZero raw C and AddCommGroup D, explicit additive h, local signed h(work)+Phi(after)-Phi(before), and global h(total)+Phi(final)-Phi(initial), without sign/order premises. charge_iff_signed casts all four naturals to Int before subtraction. Retained run_potential and exact fix raw/charge/potential Nat, keep independent operation/state universes and original local/global boundary order. No finding."
+      },
+      {
+        "first_line": 419,
+        "last_line": 532,
+        "bytes": 7228,
+        "sha256": "e07f5ec6603e419beba336bfdda6534b48cac94dfc3e80731edd231677c34b28",
+        "complete_types": [
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "assessment": "Nat cost-only bound retains initial potential; zero-initial bound has explicit equality premise; constant/bounded budgets and constant-charge potential bound retain exact Nat lengths and boundary terms. The complete initial-credit counterexample includes its local let and conjunction, actual Unit/Nat step, zero new charge and strict work>budget. FIFO abstractBudget has arbitrary-universe payload but exactly Nat profile/result and no hidden raw carrier. Counter.real_boundary quantifies arbitrary n and Bits with Real casts of totalCost/final and initial ones and 2*n, with no Canonical/zero-start premise. No finding."
+      }
+    ],
+    "types": [
+      {
+        "index": 1,
+        "name": "Resources.budget",
+        "first_line": 1,
+        "last_line": 6,
+        "bytes": 270,
+        "sha256": "7d2491df8801474403c58dd0773ed118592ad724c11b4319aaacf6e32f9d3f53",
+        "actual_full_type_read": true,
+        "spec_assessment": "Four independent universes; arbitrary operation/state/raw/charge types; only Zero and Add on D; no raw algebra or payload assumptions.",
+        "concrete_finding": null
+      },
+      {
+        "index": 2,
+        "name": "Resources.budget_append",
+        "first_line": 7,
+        "last_line": 25,
+        "bytes": 1523,
+        "sha256": "2e8b1c8d9b14eaab0e91b791b21c4a9711429412443ab4176bac04a7d2f56c93",
+        "actual_full_type_read": true,
+        "spec_assessment": "Actual appended workload is split at fst(run step is s); raw C has only Zero/Add, charge D AddMonoid; ordered first budget plus second actual-state budget.",
+        "concrete_finding": null
+      },
+      {
+        "index": 3,
+        "name": "Resources.budget_map",
+        "first_line": 26,
+        "last_line": 40,
+        "bytes": 1051,
+        "sha256": "b4fdb5c81879a0411478ec54e0b48969d04a3a172c91770ea4d22f3f66c5ea8d",
+        "actual_full_type_read": true,
+        "spec_assessment": "Five independent universes; raw C has no algebra; D/E have AddZero; explicit additive hom maps charges along same actual state trajectory.",
+        "concrete_finding": null
+      },
+      {
+        "index": 4,
+        "name": "Resources.run_potential_map_of_invariant",
+        "first_line": 41,
+        "last_line": 91,
+        "bytes": 3365,
+        "sha256": "0e44d6e6ea039439bccd660b17c81ea474ff102949983afb4c913fe0a32382b6",
+        "actual_full_type_read": true,
+        "spec_assessment": "Raw AddZero C, target AddMonoid/Preorder/both covariance only; P is preserved at actual successor, local inequality is P-restricted, output retains mapped total work and final potential against initial potential plus actual budget.",
+        "concrete_finding": null
+      },
+      {
+        "index": 5,
+        "name": "Resources.run_potential_map_exact_of_invariant",
+        "first_line": 92,
+        "last_line": 137,
+        "bytes": 3006,
+        "sha256": "9f27c7720c26b1532e2f77d7cef165656a2fb6fff789911bef9242fdd4256c71",
+        "actual_full_type_read": true,
+        "spec_assessment": "Exact invariant law has raw AddZero/target AddMonoid and no order assumptions; P, closure, local equality and both actual boundary terms match.",
+        "concrete_finding": null
+      },
+      {
+        "index": 6,
+        "name": "Resources.run_potential_map",
+        "first_line": 138,
+        "last_line": 184,
+        "bytes": 3072,
+        "sha256": "b1317aa48e03c0068894b11e9599afb67ce2bdf98e2f5e229bee17b561db728f",
+        "actual_full_type_read": true,
+        "spec_assessment": "All-state mapped inequality has the same classes and h, a local law for every state and no hidden invariant or stronger algebra.",
+        "concrete_finding": null
+      },
+      {
+        "index": 7,
+        "name": "Resources.run_potential_map_exact",
+        "first_line": 185,
+        "last_line": 226,
+        "bytes": 2713,
+        "sha256": "00dc9bed0fd54135b5369844e5b062fb2e10814db9825d4c1cdaa760ae99044c",
+        "actual_full_type_read": true,
+        "spec_assessment": "All-state mapped equality removes order/covariance as intended and keeps both actual boundary terms.",
+        "concrete_finding": null
+      },
+      {
+        "index": 8,
+        "name": "Resources.run_cost_le_map_of_invariant",
+        "first_line": 227,
+        "last_line": 280,
+        "bytes": 3383,
+        "sha256": "652c6ab194694d293dee7702335eae7291887c76ad684a34b166cb0b23de1182",
+        "actual_full_type_read": true,
+        "spec_assessment": "Cost-only invariant bound explicitly assumes nonnegative potential on P and P at the initial state; retains initial potential plus budget; no raw work-order or monotone-map premise.",
+        "concrete_finding": null
+      },
+      {
+        "index": 9,
+        "name": "Resources.budget_amortized",
+        "first_line": 281,
+        "last_line": 355,
+        "bytes": 4015,
+        "sha256": "ad93fc96d3e041c09c5d8569a5b4e69576ed2b7f2d72b579d425b92778abdb46",
+        "actual_full_type_read": true,
+        "spec_assessment": "Signed budget requires AddCommGroup D only beyond raw AddZero/h; local charge is h(work)+Phi(after)-Phi(before), global expression is h(total)+Phi(final)-Phi(initial), no sign/nonnegativity premise.",
+        "concrete_finding": null
+      },
+      {
+        "index": 10,
+        "name": "Resources.charge_iff_signed",
+        "first_line": 356,
+        "last_line": 364,
+        "bytes": 643,
+        "sha256": "6124c77f6dec4afa9108e0c235c180db4923c76fed5a0d8e82988bc7cbefd5d9",
+        "actual_full_type_read": true,
+        "spec_assessment": "Four Nat arguments; equivalent signed inequality casts to Int before subtracting after from before, so no truncated natural subtraction.",
+        "concrete_finding": null
+      },
+      {
+        "index": 11,
+        "name": "Resources.run_potential",
+        "first_line": 365,
+        "last_line": 391,
+        "bytes": 1561,
+        "sha256": "c5175cadef1a555143dd9ba8d45fbcdc030f6cfb752ea3d7caeddbc8b6a63a72",
+        "actual_full_type_read": true,
+        "spec_assessment": "Retained Nat inequality with independent operation/state universes and no typeclass/payload restrictions; exact local/global state and cost projections.",
+        "concrete_finding": null
+      },
+      {
+        "index": 12,
+        "name": "Resources.run_potential_exact",
+        "first_line": 392,
+        "last_line": 418,
+        "bytes": 1541,
+        "sha256": "c8d8ec22c4781b76d844b03bb61d770d5c81bb65b7aa5de0cb014703d1e65a15",
+        "actual_full_type_read": true,
+        "spec_assessment": "Retained Nat equality retains both boundary potentials and actual Nat trajectory budget.",
+        "concrete_finding": null
+      },
+      {
+        "index": 13,
+        "name": "Resources.run_cost_le",
+        "first_line": 419,
+        "last_line": 438,
+        "bytes": 1173,
+        "sha256": "b28bf5d029882b137ca1f4109d5f0faad51b3b0308657c37051ee8eba0333113",
+        "actual_full_type_read": true,
+        "spec_assessment": "Retained Nat cost-only inequality keeps initial potential; raw/charge/potential all Nat.",
+        "concrete_finding": null
+      },
+      {
+        "index": 14,
+        "name": "Resources.run_zero_potential",
+        "first_line": 439,
+        "last_line": 458,
+        "bytes": 1202,
+        "sha256": "cb01ed1004147cb8f7110087ec8e6d52f73ee93a45cb6ccebb54bc01670acef3",
+        "actual_full_type_read": true,
+        "spec_assessment": "Retained zero-initial bound includes explicit potential s = 0 before discarding initial credit.",
+        "concrete_finding": null
+      },
+      {
+        "index": 15,
+        "name": "Resources.budget_constant",
+        "first_line": 459,
+        "last_line": 465,
+        "bytes": 497,
+        "sha256": "0899c6df9a1ddaafa487820da99ff86d39ee377566f6be942f2537842851d302",
+        "actual_full_type_read": true,
+        "spec_assessment": "Retained constant Nat charge equals k times workload length on arbitrary step/state.",
+        "concrete_finding": null
+      },
+      {
+        "index": 16,
+        "name": "Resources.budget_le_constant",
+        "first_line": 466,
+        "last_line": 475,
+        "bytes": 644,
+        "sha256": "a8551a6e96ebc22b1fb2ae0bda02b5d6f2fd188d1f5298d6fd04f4f9cba69a1d",
+        "actual_full_type_read": true,
+        "spec_assessment": "Retained bounded-charge law assumes every state/operation charge≤k and bounds actual Nat budget by k*length.",
+        "concrete_finding": null
+      },
+      {
+        "index": 17,
+        "name": "Resources.run_constant_charge",
+        "first_line": 476,
+        "last_line": 498,
+        "bytes": 1399,
+        "sha256": "915226539046bb3690369edcb9f0731161412ffc83bd264978045be3704116c2",
+        "actual_full_type_read": true,
+        "spec_assessment": "Retained constant-charge boundary keeps actual work+final potential≤initial potential+k*length.",
+        "concrete_finding": null
+      },
+      {
+        "index": 18,
+        "name": "Resources.initial_potential_matters",
+        "first_line": 499,
+        "last_line": 519,
+        "bytes": 1299,
+        "sha256": "5d187b78cdc40a72672f7382bf87f29511eb7ca513dfe09cb55c5869ff30087f",
+        "actual_full_type_read": true,
+        "spec_assessment": "Complete let-defined Unit/Nat reset step and conjunction are printed, including local charge0 law and actual one-step work strictly above actual zero budget from initial1.",
+        "concrete_finding": null
+      },
+      {
+        "index": 19,
+        "name": "Resources.FIFOContracts.abstractBudget",
+        "first_line": 520,
+        "last_line": 522,
+        "bytes": 225,
+        "sha256": "eb04c3b66addad1c0aa055a96f9dfba416228d8ddc1aad764483e68e560ae96e",
+        "actual_full_type_read": true,
+        "spec_assessment": "Arbitrary-universe payload α, Nat-valued command/list profile, list of commands and initial list to Nat result; no unresolved extra raw carrier.",
+        "concrete_finding": null
+      },
+      {
+        "index": 20,
+        "name": "Examples.MappedPotentialAccounting.Counter.real_boundary",
+        "first_line": 523,
+        "last_line": 532,
+        "bytes": 789,
+        "sha256": "629ded9502c9a1f390d93864e83184e43f89168b8c1418394b86a39df1ef55e6",
+        "actual_full_type_read": true,
+        "spec_assessment": "Arbitrary Nat n and Bits bs, Real casts of actual totalCost/final ones and initial ones plus2*n; no canonicality or zero-start condition.",
+        "concrete_finding": null
+      }
+    ]
+  },
+  "bookkeeping_failures": "Two terminal header-locator assertions differed on optional leading @. Actual compiler remained exit0; no compiler rerun or closed evidence change. Independently matched exact optional-@ name boundaries and all bytes; no mathematical/type finding.",
+  "finding_disposition": {
+    "XP01-DOC-001": "Resolved",
+    "XP01-ELAB-001": "Resolved",
+    "XP01-ELAB-002": "Resolved"
+  },
+  "remaining_acceptance": "Accepted prerequisite incorporation, applicable complete immutable candidate check and exhaustive permitted-axiom audit, both independent final axes, immediate verify-candidate and exact local integration. No acceptance/check/audit credit granted here.",
+  "other_scope_counts": "C2 remains qualified at its exact reviewed Z with1735+28; Foundation145 and potential110 remain separate/uncredited pending their actual conditions. XP01 20 is its explicit public inspection surface, not a new whole-project count.",
+  "no_compiler_process_source_ref_pin_cache_ticket_global_control_action": true
+}

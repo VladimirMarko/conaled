@@ -1,0 +1,20 @@
+--- initial0138/verify-checkpoint.py
++++ corrected0138/verify-checkpoint.py
+@@ -212,7 +212,7 @@
+ c3_path = checked_binding(capture["chapter03_acceptance"])
+ assert c3_path == control / "provenance/chapter03-acceptance-20261105/acceptance.json"
+ c3 = read(c3_path)
+-assert c3["accepted_commit"] == chapter3_accepted and c3["chapter3_tree"] == chapter3_tree
++assert c3["accepted_commit"] == chapter3_accepted and c3["accepted_tree"] == chapter3_tree
+ assert c3["previous_accepted_commit"] == xr_accepted and c3["original_whole_task_base"] == original_q
+ assert c3["accepted_branch"] == "work/fdsa-book" and c3["approved_candidate_branch"] == "work/fdsa-ch03-integration"
+ assert c3["chapter03_accepted"] and not c3["all27_chapters_and_appendices_complete"]
+@@ -308,7 +308,7 @@
+ ff_actual = read(checked_binding(c3["fast_forward"]["actual_tool_result"]))
+ ff_command = read(checked_binding(ff["command_result"]))
+ assert ff["actual_exit"] == ff_actual["exit_code"] == ff_command["actual_exit"] == 0
+-assert ff["old"] == xr_accepted and ff["accepted_commit"] == chapter3_accepted and ff["chapter3_tree"] == chapter3_tree
++assert ff["old"] == xr_accepted and ff["accepted_commit"] == chapter3_accepted and ff["accepted_tree"] == chapter3_tree
+ assert ff["only_changed_ref"] == book_ref and ff["other_refs_preserved"] == 73 and ff["other_worktree_heads_preserved"] == 8
+ assert ff["all_worktree_statuses_preserved"] and ff["qualified_source_and_verification_preserved"] and ff["local_fast_forward_only"]
+ assert ff_pre["old"] == xr_accepted and ff_pre["candidate"] == chapter3_accepted

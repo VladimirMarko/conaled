@@ -1,0 +1,171 @@
+{
+  "schema": "fdsa.checkpoint0122.verifier-preparation.v1",
+  "recorded_utc": "2026-11-04T18:12:22.120132+00:00",
+  "status": "PREPARED ONLY; not executed; author files held after complete readback; final bindings remain root-owned unresolved task",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "intended_predecessor": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "archive_created": false,
+  "verifier_executed": false,
+  "restore_or_fsck_executed": false,
+  "compiler_or_output_comparator_executed": false,
+  "actual_acceptance_or_durability_claimed": false,
+  "final_binding_status": "Only final-bindings.template.json exists from this author; no actual missing acceptance/review/immediate/FF path or hash was fabricated.",
+  "adaptation_origin": {
+    "path": "provenance/checkpoint0121-preparation/verify-checkpoint.py",
+    "bytes": 10214,
+    "lines": 153,
+    "sha256": "81ec919735fec02247bdaa429033d6bfdb9b5addece7b58958e7047a587e8138"
+  },
+  "author_files_excluding_receipt": [
+    {
+      "path": "provenance/checkpoint0122-preparation/verify-checkpoint.py",
+      "bytes": 23352,
+      "lines": 343,
+      "sha256": "40cf654886c88d70059caf41274d4ba06b089405cb76da9ac799614a900e5428"
+    },
+    {
+      "path": "provenance/checkpoint0122-preparation/final-bindings.template.json",
+      "bytes": 2215,
+      "lines": 79,
+      "sha256": "0ff80537e8cd86e49cf47b854f5afe26f88d7288550161f7c3089d774abb4be2"
+    },
+    {
+      "path": "provenance/checkpoint0122-preparation/resource-observation.json",
+      "bytes": 2382,
+      "lines": 41,
+      "sha256": "cb0a65fb9d201a9ecd4f8e1a135c9903f818c163face791ef44f76618d7e4226"
+    },
+    {
+      "path": "provenance/checkpoint0122-preparation/README.md",
+      "bytes": 7611,
+      "lines": 38,
+      "sha256": "0ec59f6f951e578ab3841afba72ddeecca1160cd3eb37929d9a0603941979192"
+    }
+  ],
+  "bound_inputs": [
+    {
+      "path": "provenance/checkpoint0121-preparation/verify-checkpoint.py",
+      "bytes": 10214,
+      "lines": 153,
+      "sha256": "81ec919735fec02247bdaa429033d6bfdb9b5addece7b58958e7047a587e8138"
+    },
+    {
+      "path": "checkpoint_compact.py",
+      "bytes": 10520,
+      "lines": 181,
+      "sha256": "5e72098a4b07a80c6861cdaf14f4d2234e33cd7b6a0a79170bae762599cbe078"
+    },
+    {
+      "path": "restore_compact.py",
+      "bytes": 5244,
+      "lines": 103,
+      "sha256": "23cdb74849a049df746c9f03af0e90ab261fd4fdc97bf2ea8f8088ffe9159376"
+    },
+    {
+      "path": "ENVIRONMENT.md",
+      "bytes": 8981,
+      "lines": 157,
+      "sha256": "62b3dfaa4ce57a0833c7132c991c51053e444b7a9d97a18db826dd2bd557f2b1"
+    },
+    {
+      "path": "tooling/unified-native-kit-4.35.0/SHA256SUMS",
+      "bytes": 36957,
+      "lines": 298,
+      "sha256": "72ba31d697b09e71cd21edbf6a46340f1fef6380585df86eb0320e1b05b737b6"
+    },
+    {
+      "path": "tooling/unified-native-kit-4.35.0/pins.json",
+      "bytes": 3645,
+      "lines": 104,
+      "sha256": "84f0fb3fc2b392d0249ca078dfc0beb0896dd3764af93acfe25eeda9d0e41bd4"
+    },
+    {
+      "path": "provenance/checkpoint0121-preparation/integrity.json",
+      "bytes": 2073,
+      "lines": 49,
+      "sha256": "cb8cf5317499f401b436d2bbe71f78c4506e2cd76d64b3357ca29f20ec53c81f"
+    },
+    {
+      "path": "provenance/chapter02-checkpoint0121-resource-preparation-20261104/observation.json",
+      "bytes": 57243,
+      "lines": 1,
+      "sha256": "306de24445cf9ee50489d58649be710aed5f4add69c41dee5b236fad411aacc1"
+    },
+    {
+      "path": "provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/manifest.json",
+      "bytes": 75796,
+      "lines": 2249,
+      "sha256": "a9f091706995fba21e40e4e6f0ab3f90c29c658f39f4bafd01c564644a744191"
+    },
+    {
+      "path": "provenance/chapter02-receiving-targeted-execution-coordinator-20261104/execution-result.json",
+      "bytes": 13862,
+      "lines": 242,
+      "sha256": "03f2e85aade3002429b926355284f31362d01e8f96c830b2c3edf7d274fe7a48"
+    },
+    {
+      "path": "provenance/chapter02-receiving-targeted-execution-coordinator-20261104/owned-terminal.json",
+      "bytes": 421,
+      "lines": 12,
+      "sha256": "f78307e9907e8e90b2d84fd0cef4f8866fff8c331cc2527e0eb6880b270cbcb0"
+    },
+    {
+      "path": "provenance/chapter02-receiving-targeted-execution-coordinator-20261104/post-sequence-result.json",
+      "bytes": 836,
+      "lines": 18,
+      "sha256": "5a58ccf7cf01d1a12bf62df886644d5b215210d19ee987dba350fe06c4d78f81"
+    },
+    {
+      "path": "provenance/chapter02-receiving-targeted-execution-coordinator-20261104/post-owned-terminal.json",
+      "bytes": 1062,
+      "lines": 23,
+      "sha256": "22fc29058a5adb67771f5bf047c2b9f4e903f10f83a2265750c6e501c6bfb82d"
+    },
+    {
+      "path": "provenance/chapter02-receiving-targeted-execution-coordinator-20261104/post-observation-execution.json",
+      "bytes": 1698,
+      "lines": 31,
+      "sha256": "0f4c6347e74c1eb1e23d57497113b6dff71a7f7688b86c436cde53601c0bcb95"
+    },
+    {
+      "path": "provenance/chapter02-receiving-targeted-execution-coordinator-20261104/stable-comparison-execution.json",
+      "bytes": 1883,
+      "lines": 31,
+      "sha256": "9b96c1943f8db542974c3b4f3622dbb154d48ffdc59f3862bb1f57faf27c1272"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/stable-comparison.json",
+      "bytes": 2419315,
+      "lines": 62280,
+      "sha256": "e4201e756490c1282d2a5dacbd4c3268f8c1b85961800cfec0dfdb66da27eec1"
+    },
+    {
+      "path": "provenance/shared-tail-acceptance-20261104/acceptance.json",
+      "bytes": 8053,
+      "lines": 176,
+      "sha256": "8d6eda0bdc0319165aba3434c6f20ff0a6fe6fc2376dca35ebc295ce5cb8cb0d"
+    }
+  ],
+  "readback": {
+    "old_verifier_full": "1f2f89",
+    "creator_full": "c95ace",
+    "current_closed_schema_metadata": "5c4bce and 05cfb6",
+    "prior_final_record_schemas": "14d479",
+    "prepared_verifier_lines1_180": "ee450f",
+    "prepared_verifier_lines181_343_and_complete_template": "987999",
+    "static_syntax": "ast.parse only; no verifier import/execution",
+    "README_resource_receipt": "Saved-file full readback immediately follows this exclusive write; final handoff supplies actual tool reference"
+  },
+  "resource_observation_boundary": "d0083b actual read exit0 at18:09:32.937654UTC, control-only metadata; point inventory before these preparation writes and subsequent root records",
+  "preserved": [
+    "All prior verifier/creator/restorer files and preparation packages",
+    "Original L acceptance and Q source/full/failure/retirement/receiving evidence",
+    "All source/ref/runtime/cache/output and root-owned acceptance/global-control files"
+  ],
+  "root_remaining": [
+    "Read the prepared verifier and concrete expected schema",
+    "After real final gate/immediate/FF/acceptance, bind all14 actual files into a new final-bindings.json",
+    "Capture after ordinary writer hold and actual capacity assessment; creation/verification/upload/exposure remain root-owned",
+    "Write actual integrity/upload/durability evidence only after successful operations"
+  ]
+}

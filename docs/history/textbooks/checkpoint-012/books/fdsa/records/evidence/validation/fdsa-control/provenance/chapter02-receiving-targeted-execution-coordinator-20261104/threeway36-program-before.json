@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-11-04T18:02:21.980668+00:00",
+  "program": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/ProjectedThreeWay36.lean",
+    "bytes": 2260,
+    "sha256": "5fff31be12fa4b35d4714b8a81934b44c9dd5b9377939f28131b1255eca4e7b2"
+  },
+  "argv": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/record_command.py",
+    "--name",
+    "chapter02-receiving-targeted-threeway36-20261104-attempt1",
+    "--cwd",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "--candidate",
+    "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+    "--",
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/ProjectedThreeWay36.lean"
+  ]
+}

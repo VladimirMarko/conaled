@@ -1,0 +1,48 @@
+{
+  "candidate": "96c99a18a1f4ad28bbb8d13a17cbefb1899d8ab9",
+  "tree": "c80cbd0f056980069634e5b3ad7d53ea429b733e",
+  "parent": "bc4490d57d1b65849fb0903f7f3e417f3b0879b6",
+  "status": "clean",
+  "finding": "C03-CUTOFF-ELAB-002",
+  "counts": {
+    "public": 40,
+    "definitions": 1,
+    "theorems": 39,
+    "private": 0,
+    "anonymous": 0
+  },
+  "changed_proofs": [
+    "Examples.SelectionCutoff.two_groups_cutoff_one_value",
+    "Examples.SelectionCutoff.two_group_actual_children"
+  ],
+  "files": [
+    {
+      "path": "Applications/Resources/SelectionCutoff.lean",
+      "bytes": 10228,
+      "sha256": "12980a69d01206eb2e5e9d45149d7336ff762f0c406ad345d36f1cbdada36218",
+      "source_lines": 233,
+      "public_names": 23
+    },
+    {
+      "path": "Examples/SelectionCutoff.lean",
+      "bytes": 4470,
+      "sha256": "cdde5d4630a888b2ca50f25af8e876bae83cea3bef9d8b8a3de0380b477999a4",
+      "source_lines": 107,
+      "public_names": 17
+    }
+  ],
+  "inventory": {
+    "bytes": 51170,
+    "sha256": "33e1512e4e1aba9c18c922f9d0d0be0d5618c6b3c59eefcea36e0f4e3aa9c78a"
+  },
+  "statement_input": {
+    "bytes": 2756,
+    "sha256": "1d67b70e9131ef62f3ac2cbad52c96ea0a605fe19b2a5cd504d84fcd6bbf9204"
+  },
+  "patch": {
+    "bytes": 1355,
+    "sha256": "bb3d7fe1d6f3827256d9c5984c5d9a77ac6f8c6176ae46c7e06b8ac089d3f115"
+  },
+  "source_held": true,
+  "no_successor_compiler_credit": true
+}

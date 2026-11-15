@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-04T11:33:27.795101+00:00",
+  "current_candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+  "overall": "Blocked pending full acceptance gates",
+  "report": {
+    "path": "reviews/potential-spec-development-20261104.md",
+    "bytes": 30193,
+    "lines": 150,
+    "sha256": "9bba3ac4ffa5a5dab1e8a32e3a990851f55846a16dd4a16a72605fd00e21a615"
+  },
+  "source_read_ledger": {
+    "path": "provenance/xp01-spec-development-20261104/source-and-read-ledger.json",
+    "bytes": 48123,
+    "sha256": "647ced252ed6efe229147e1af53e36cab199733ddab054abd1204a6798bf6396",
+    "lines": 1108
+  },
+  "prepared20_surface": {
+    "path": "provenance/xp01-spec-development-20261104/prepared20-surface-assessment.json",
+    "bytes": 2528,
+    "lines": 57,
+    "sha256": "0708086026c456d97864f9b269bb6579f83bbfc985ed4c53bcf3c42bc68c899e"
+  },
+  "terminal_and_correction1": {
+    "path": "provenance/xp01-spec-development-20261104/terminal-and-correction1-assessment.json",
+    "bytes": 12385,
+    "lines": 295,
+    "sha256": "78ee2d3912089c80548db90fe2df1ab2b80b40e281bcd790628b40e289667e80"
+  },
+  "source_render": {
+    "path": "provenance/xp01-spec-development-20261104/book-page228-source-render.png",
+    "bytes": 201912,
+    "sha256": "ca93feee8fe756149345a13aea4b730cc40db56df8e4fac4a62615bb2f206f65"
+  },
+  "source_review_complete": true,
+  "actual_XP01_type_count_read": 20,
+  "open_findings": [],
+  "resolved_for_Spec": [
+    "XP01-DOC-001",
+    "XP01-ELAB-001",
+    "XP01-ELAB-002"
+  ],
+  "checkpoint_hold": true,
+  "complete_report_readback": {
+    "initial111_lines": true,
+    "all_successive_changed_ranges": [
+      [
+        1,
+        9
+      ],
+      [
+        112,
+        123
+      ],
+      [
+        124,
+        129
+      ],
+      [
+        130,
+        150
+      ]
+    ],
+    "final_receipt_full_read": [
+      1,
+      673
+    ],
+    "all_previous_scope_retained": true
+  },
+  "correction2_and_launch3": {
+    "path": "provenance/xp01-spec-development-20261104/correction2-and-launch3-assessment.json",
+    "bytes": 22219,
+    "lines": 572,
+    "sha256": "96202ced5c839ccb1ee7a8b5b01c091e3d10c38694315ebb73677160eb96f0ec"
+  },
+  "previous_boundary": {
+    "path": "provenance/xp01-spec-development-20261104/boundary-before-actual20.json",
+    "bytes": 2654,
+    "lines": 89,
+    "sha256": "f74bf5966413713261c527010fc6e4e7882e898844feeb29c3aa48756ef73655"
+  },
+  "focused4_terminal": {
+    "path": "provenance/xp01-spec-development-20261104/focused4-terminal-assessment.json",
+    "bytes": 7928,
+    "lines": 127,
+    "sha256": "5b821b09f3b7e25b9fc37865efea63e1bc14f7353b78d3662966f4ac630f8a82"
+  },
+  "actual20_complete_assessment": {
+    "path": "provenance/xp01-spec-development-20261104/actual20-complete-spec-assessment-12cb14fc.json",
+    "bytes": 28426,
+    "lines": 673,
+    "sha256": "d270babb974f8abac85b96fd46cca5f82102807ab375ffb1c035a29071030bdd"
+  },
+  "actual20_read_progress": {
+    "path": "provenance/xp01-spec-development-20261104/actual20-type-read-progress.json",
+    "bytes": 8580,
+    "lines": 262,
+    "sha256": "6dce46a1a667388e39d1156bf92e7b676cc5738a268ab1e48d759043e928870c"
+  },
+  "actual_XP01_type_count_qualified": 20,
+  "checkpoint_hold_reason": "Parent requested checkpoint0100 capture after complete actual20 review.",
+  "checkpoint0100_boundary": {
+    "path": "provenance/xp01-spec-development-20261104/checkpoint0100-review-boundary.json",
+    "bytes": 3337,
+    "lines": 96,
+    "sha256": "52a6cfc1b413e4e0ac48dc2946e4e2652a102dda1229023bf4ce7a13148c890c"
+  }
+}

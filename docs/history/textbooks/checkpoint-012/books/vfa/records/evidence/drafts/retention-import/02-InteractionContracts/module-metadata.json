@@ -1,0 +1,29 @@
+{
+  "module": "SquareKit.InteractionContracts",
+  "directImports": [
+    [
+      "SquareKit.RelationTransport",
+      false,
+      false,
+      false
+    ]
+  ],
+  "version": 5,
+  "declarations": [
+    "Interaction.Refines",
+    "Interaction.Refines.property",
+    "Interaction.Refines.requirement",
+    "Interaction.Refines.trans",
+    "Interaction.Run",
+    "Interaction.Run.invariant",
+    "Interaction.Stable.closure",
+    "Interaction.refines_iff_subset_image",
+    "Interaction.safe_iff_subset_requirement",
+    "Interaction.safe_interference_seq"
+  ],
+  "c_initializers": [
+    "initialize_Init",
+    "initialize_SquareKit_InteractionContracts",
+    "initialize_SquareKit_RelationTransport"
+  ]
+}

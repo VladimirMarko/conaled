@@ -1,0 +1,55 @@
+{
+  "glibc": "glibc 2.39",
+  "builds": [
+    {
+      "command": [
+        "/usr/bin/cc",
+        "-std=c11",
+        "-shared",
+        "-fPIC",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wl,-z,now",
+        "-Wl,-z,relro",
+        "-o",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1035-mmap-random-prototype/libconaled_mmap_random.so",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1035-mmap-random-prototype/mmap_random.c"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1035-mmap-random-prototype",
+      "returncode": 0,
+      "wall_seconds": 0.11532399100178736,
+      "stdout": "",
+      "stderr": "",
+      "source_sha256": "c7eb24d83bc3554f1a9ac2f986e5c7dcf0913a44e24f65f782898a00a61ec807",
+      "header_sha256": "80911142ad8b8a6dd7836dfcbc8b8e25fdd7d2ec82486b922b41e72a5f613694",
+      "binary_sha256": "5927638bd66ec29be8ea496f3a8fe9e13b3d17fd2b7dc7bcf9567d105009799b"
+    },
+    {
+      "command": [
+        "/usr/bin/cc",
+        "-std=c11",
+        "-shared",
+        "-fPIC",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wl,-z,now",
+        "-Wl,-z,relro",
+        "-o",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1035-mmap-random-prototype/libfail_madvise_test_only.so",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1035-mmap-random-prototype/fail_madvise.c"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1035-mmap-random-prototype",
+      "returncode": 0,
+      "wall_seconds": 0.0504101129990886,
+      "stdout": "",
+      "stderr": "",
+      "source_sha256": "39250e972d9e1e3a8c01abbe8e3d8336f775bc7827591da86f55b445708f74a1",
+      "header_sha256": "80911142ad8b8a6dd7836dfcbc8b8e25fdd7d2ec82486b922b41e72a5f613694",
+      "binary_sha256": "f3e869fdd2c53055eb5679979454d8d14d5d8268fa2c9b97a77bf46b8cb8e211"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+# FDSA-XT01 — Shared binary-tree observations and cached folds
+
+State: committed draft; compilation and final reviews pending.
+Triage: ready-for-agent. Parent: FDSA-000.
+Dependencies: accepted repaired FDSA-001 before integration or acceptance.
+
+## Scope and authority
+
+Under the user's cross-cutting exception, add the bounded common node-labelled
+fold/inorder/shape and recursive cached-fold laws required by interval caches,
+AVL heights and later tree observations. Reuse Mathlib's BinaryTree and the
+existing resource/ordered-summary interfaces. Keep chapter-specific algorithms,
+representations and acceptance dependencies unchanged.
+
+Exact requirements: `reviews/binary-tree-cache-requirements.md`, version 1.
+SHA-256: `81260794bec3767bb9eaa2d2fcaa8337da015220df60bf4dda147590c8ed23ce`.
+The source/API/client preflights listed there were read before this freeze.
+The fixed initial base is `a14977b9e316cc484ffad8a470d26b15615956c0`.
+Branch: `work/fdsa-tree-cache`; checkout: `conaled-tree-cache`.
+The clean preimplementation state is in `reviews/binary-tree-cache-start.json`.
+The human-readable ownership/validation handoff is
+`reviews/binary-tree-cache-start.md`.
+
+## Completion gates
+
+- [x] Bounded source, API and independent client expectations prepared.
+- [x] Exact requirements and clean initial base recorded before source edits.
+- [x] Core and connected formal uses drafted; statement review retained.
+- [ ] Accepted Chapter 1 base incorporated, with original history retained.
+- [ ] Focused builds, applicable candidate build and exhaustive proof audit pass.
+- [ ] Both independent final review axes have no unresolved findings.
+- [ ] Approved candidate immediately verified; checkpoint saved and uploaded.
+
+At the initial freeze no implementation existed; that pre-code history is retained.
+No extra compiler runs while the old Chapter 1 gate is active.
+
+Pre-code checkpoint 0027 is saved as `libfile_2613f801086c8191a51ead5b875bd2b7`,
+SHA-256 `72b019cca0b19a43b5001229439fe3378bbb50d9c4f271c621cd186f5eb3d1d7`.
+It includes the clean starting branch and frozen requirements before any
+implementation. Its creation/upload supplies no formal acceptance credit.
+
+## Committed source draft
+
+Candidate: `64c6b777d828ecfe83234fc2aed94600a1f24297`, seven changed files,
+894 insertions, with a clean post-commit index and working tree. The immutable
+handoff is `reviews/binary-tree-cache-candidate.md`; exact file identities are
+in `reviews/binary-tree-cache-source-identities.json`. Bounded source/API and
+independent client readings found no concrete issue; their retained report is
+`reviews/binary-tree-cache-source-preflight.md`. No compiler result, independent
+final approval or acceptance is inferred from those readings or Git checks.
+
+Committed-draft checkpoint 0028 is saved as
+`libfile_f8a67b06abb88191bfb912ffda920a27`, SHA-256
+`96367c5e109d698b5b86149514617852cf9d3f777657051883dc867079401ea9`.
+It includes this candidate and all prior history/refs/tickets; it supplies no
+compiler or acceptance credit.

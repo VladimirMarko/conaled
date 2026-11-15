@@ -1,0 +1,329 @@
+{
+  "schema": 1,
+  "recorded_at": "2026-11-14T03:34:19.646792+00:00",
+  "reviewer": "/root/recovery_review/spec",
+  "axis": "Spec",
+  "round": 3,
+  "workflow": "continuation of existing ordinary textbook integration loop",
+  "phase": "source-analysis-only",
+  "outcome": "Blocked",
+  "approval": false,
+  "source_analysis_complete": true,
+  "base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "merge_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+  "tree": "33d087744fc2435c29d60981ca0d79af629b8c8d",
+  "previous_candidate": "f52a47b9e240b3937533f48befb8622527b7f6db",
+  "authorized_upstream": "983d0b6b602b71541f182737011621a8805be27b",
+  "diff_command": "git diff 9175737c2b14ef738cfb6c2cdc68d885c0805ddd...16440863ddb14d95c402ce65498e22497e246e72",
+  "requirements_version": "2026-11-14-upstream-recovery-and-coverage",
+  "scope": {
+    "changed_paths": 374,
+    "changed_lean_paths": 344,
+    "commits": 318,
+    "declared_paths": 483,
+    "explicit_exclusions": [],
+    "projections": [],
+    "scope_identity": "2af6c974c630c10dd6d32dd3fc585dfcd5f9b9fc54ce85a349289296cf92030a",
+    "content_identity": "77e32c504c74e498c9a013c7fb269944dfcbb0c1f8c96cd8eb15e6e531755854",
+    "path_list": "intake/review-20261114/round3-changed-paths.txt",
+    "commit_list": "intake/review-20261114/round3-commits.txt",
+    "review_is_not_limited_to_delta": true
+  },
+  "independent_source_observations": {
+    "clean_frozen_worktree": true,
+    "receipt_hash_matches": true,
+    "requirements_hash_matches": true,
+    "prior_scope_paths": 356,
+    "unchanged_prior_scope_blobs": 352,
+    "c2_delta_paths": 22,
+    "c2_delta_insertions": 3044,
+    "c2_delta_deletions": 66,
+    "prior_scope_changed_paths": [
+      "Applications/Search/OrderedMap/Basic.lean",
+      "Applications/Search/OrderedMap/Interface.lean",
+      "SquareApplications.lean",
+      "docs/research/textbook-integration.md"
+    ],
+    "upstream_substantive_blobs_exact": true,
+    "old_and_upstream_public_imports_retained": true,
+    "textbook_maps_publicly_imported": true,
+    "fdsa_selected_donor_objects_checked": 65,
+    "fdsa_donor_mismatches": 0,
+    "vfa_staged_source_hashes_checked": 5,
+    "vfa_staged_hash_mismatches": 0,
+    "fdsa_chapter_inventory_hashes_checked": 27,
+    "fdsa_inventory_hash_mismatches": 0,
+    "historical_fdsa_acceptance_commits_checked_as_ancestors": 5
+  },
+  "assessment": {
+    "maps": "Existing partial-map operations, laws and chronological executor own recovery; valid-subtype equivalence and real ordered-tree specialization; complete Option observation; explicit default/presence reflection and information-loss boundary; arbitrary-start implementation agreement and actual synchronization; raw first-match versus chronological last-write reversal. Ordinary universes independent; Squares remain common-universe. No value-to-cost/sharing inference.",
+    "upstream": "Actual bounded coin-tape sampling, rational row enumeration/weights, sequential returned-cursor execution, path/work-sensitive iteration, finite operational MH stationarity and declared source tariff. Related FDSA probabilistic coverage needs proved model correspondence; stochastic tables are distinct from partial dictionaries.",
+    "coverage": "Retains historical FDSA Chapters 1-3 acceptance, VFA five focused-checked staging files with partial table recovery, and PFDS Chapter1 documentation-only acceptance. No whole-book percentage or chapter closure from generic prerequisites/focused validation.",
+    "preserved_pending": [
+      "generic VFA total-table Ops/Laws and general transport",
+      "FDSA six-law deletion interface",
+      "Modify translations and round trips",
+      "set deletion",
+      "generic valid-graph composition",
+      "other four VFA drafts",
+      "remaining FDSA donor families and Chapter4",
+      "PFDS later source algorithm/work correspondence"
+    ]
+  },
+  "source_findings": [],
+  "findings": [
+    {
+      "id": "INT-SP-001",
+      "severity": "Blocking",
+      "kind": "required-evidence",
+      "status": "open",
+      "title": "Exact-current-candidate full validation pending",
+      "requirement": "Current REQUIREMENTS governing workflow/completion; code-review sections 3/5; review-loop; ADR 0010.",
+      "evidence": "Full check/audit began on the exact candidate at 2026-11-14T03:29:12.689406Z; the supplied record remains nonterminal. Focused compilation and snapshot/patch identity are insufficient.",
+      "consequence": "Spec remains Blocked and does not approve source for acceptance; no host-incapacity or false-theorem conclusion is inferred.",
+      "remedy": "Provide genuine successful exact-candidate terminal full check/audit with matching candidate/runtime/dependency/coverage/verification record. Reconcile on the same axis, then root performs immediate candidate verification and snapshot comparison after both axes pass."
+    }
+  ],
+  "validation": {
+    "focused": {
+      "candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+      "terminal_observed": true,
+      "exit_code": 0,
+      "duration_seconds": 7.578451014000166,
+      "jobs": 732,
+      "roots": [
+        "Examples.TextbookMaps",
+        "Examples.OrderedMap",
+        "Examples.SharedTreeMap"
+      ],
+      "replaces_full_validation": false
+    },
+    "full": {
+      "candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+      "record": "intake/full-validation-r3.json",
+      "started_at": "2026-11-14T03:29:12.689406+00:00",
+      "status_at_review": "running; no terminal outcome yet",
+      "terminal_observed_at_review": false,
+      "success_presented": false,
+      "mutable_running_record": true
+    },
+    "public_types": "Actual elaborated output supplied for candidate; not an exhaustive axiom audit.",
+    "old_interruption": "The C1 cold run has 630 observed completions of 3278 targets, no recorded errors, no terminal outcome and no verification record. This does not establish host incapacity."
+  },
+  "historical_findings": {
+    "pfds_register": "checkpoint/conaled-textbooks/books/pfds/records/evidence/reviews/common-integration-coordinator-r1-045.md#section-5",
+    "pfds_total_ids": 39,
+    "pfds_repair_development_dispositions_retained": 23,
+    "pfds_boundaries": [
+      "SUSP-STAT-001",
+      "PREP-10019-02"
+    ],
+    "pfds_current_validation_ids_retained_open": 14,
+    "pfds_spec_and_shared_validation_ids": [
+      "IMPORT-VAL-004",
+      "CH02-PRE-005",
+      "SUSP-SPEC-VAL-001",
+      "PURE-SPEC-VAL-001",
+      "COUNT-SPEC-VAL-001",
+      "PERSIST-ACC-SPEC-VAL-001",
+      "BODY-COUNT-SPEC-VAL-001",
+      "SIGNED-POT-SPEC-VAL-001"
+    ],
+    "vfa_current_validation_ids": [
+      "ST-002",
+      "SP-VAL-001"
+    ],
+    "vfa_source_fix_retained": "ST-006",
+    "fdsa_xt03_ids_retained": [
+      "XT03-CP01",
+      "XT03-DOC01"
+    ],
+    "fdsa_xt03_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+    "fdsa_xt03_donor": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+    "fdsa_chapter4": {
+      "base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+      "obligations": 76,
+      "exercises": 11,
+      "streams_retained": 3
+    },
+    "INT-ST-001": "C2 source correction retained; Standards owns disposition; this Spec axis does not close another axis finding."
+  },
+  "evidence_identities": [
+    {
+      "path": "intake/review/spec-r1.md",
+      "bytes": 23626,
+      "sha256": "b44bce5a8db5f76c72b02e5f6473508d704a6011d9a4aa8c0cfdcff99836a739",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "intake/review/spec-r2.md",
+      "bytes": 5787,
+      "sha256": "4e866716a504af63933da77f5800eea3d6f27fcf2dd63aa72e0ffb0d5f850916",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "intake/integration-candidate-r3.json",
+      "bytes": 4039719,
+      "sha256": "9735a260a6d1ab62b5d0b132f87c226f053052526a877fc7047266ec18fca47c",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/REQUIREMENTS.md",
+      "bytes": 8452,
+      "sha256": "5d48738af724152b67daf993fa0f3d2abd7c2eeb7a47b7e080aa7740de1e07ac",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/COVERAGE.md",
+      "bytes": 37543,
+      "sha256": "3a643997082f7db88d92395e1239cbbc1c86af78dbe7d21c3a8adffaeb53cafa",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/analysis/donor-dispositions.json",
+      "bytes": 86393,
+      "sha256": "3437ebcd64d5a4f1b9564698a79bd83ee6116f2073b47a2d4619b14115641e6b",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/coverage-20261114.json",
+      "bytes": 43869,
+      "sha256": "d6c08c878f63c581fcadfe3460eb4aafafeb0b37679540ceffc6b8eaa4b58cbe",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/ISSUES.json",
+      "bytes": 8145,
+      "sha256": "1bc33b69ec1bee3868adcb049b31b99a9e7da4563c0a88ca2e0614ff30acdf13",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "intake/fdsa-coverage-20261114.md",
+      "bytes": 13994,
+      "sha256": "8bda3aaa30aac637762b7b3d89a1fe9d58792056da93a1539607861b3459ac70",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "intake/fdsa-coverage-20261114.json",
+      "bytes": 26033,
+      "sha256": "5ae8c7b4f481846e938931813947dbf8a91a7fd9a13d1812207899fb06f47913",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "intake/vfa-pfds-coverage-20261114.md",
+      "bytes": 18559,
+      "sha256": "325df32552a0f75a81ab449b71da86421eeef7f4d25128620e8442194fec417a",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "intake/vfa-pfds-coverage-20261114.json",
+      "bytes": 15928,
+      "sha256": "6cd47faa8a3002f7c05af0da46256dc6928c3ccfaf7590837a1cef9299c2398c",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "intake/validation-interruption-20261114.json",
+      "bytes": 1511,
+      "sha256": "ac0649ae1ee7f69a0507a28a2b2fe00cd1a1329b2224385e8423d4d16727ac41",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "intake/maps-focused-r1.json",
+      "bytes": 2012,
+      "sha256": "b83482e88b81d1b8de3aa021199d5d72ba65cf775baa23387b95eaa7c14fda41",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "intake/maps-focused-r2.json",
+      "bytes": 2009,
+      "sha256": "52b08a55db8434bb33494599e650251a1be3f2b49b37f37265a517850b206332",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "intake/maps-focused-r3.json",
+      "bytes": 2012,
+      "sha256": "eb10b219e860dc3cf8248a7e303446a372038d0d8bb011ed7be91fd7d56feb42",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "intake/maps-focused-r3.log",
+      "bytes": 3660,
+      "sha256": "8dc2b3ac56841e6043f27fb2254d15ee2d4302952368d05d18bcd818c556a8cd",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/map-public-types-20261114.lean",
+      "bytes": 328,
+      "sha256": "5f0f16506ef0bf093335fa92b1d1c352691bd15a776247987992ab18fe58d34d",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/map-public-types-20261114.log",
+      "bytes": 3992,
+      "sha256": "98070df4a9c4b8cbf1b992ff3d5eebc7388974766ee632289fb98a5c35e0dd0a",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/map-public-types-20261114.json",
+      "bytes": 1074,
+      "sha256": "e2089e70932ba0fc22894a2e195847f8d9e14e8786f2fc5fdb9902aed065d29a",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/pfds/records/evidence/reviews/common-integration-coordinator-r1-045.md",
+      "bytes": 28777,
+      "sha256": "07fb1b0ea46e06a721ea603dbb99865597d844824f21d01b144659eb3ae1c6d6",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "intake/map-recovery-handoff-20261114.md",
+      "bytes": 8676,
+      "sha256": "cde82596e493d3d4dd13e2b570022226b0446843dc3e219d4c9eed13215eb688",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "intake/map-recovery-correction-r1.md",
+      "bytes": 1370,
+      "sha256": "45ba98425dc533860c22875b4b828a61962a655d14c563fd399a871b913647c9",
+      "outside_candidate_git": true
+    },
+    {
+      "path": "intake/map-recovery-correction-r2.md",
+      "bytes": 1306,
+      "sha256": "9c532acee16bfb552a0ff91ea2abcd0dfb6488a38255c0298195e9d92074aaef",
+      "outside_candidate_git": true
+    }
+  ],
+  "limitations": [
+    "No current full proof/audit approval.",
+    "No new exhaustive manuscript audit or row-by-row crosswalk of every later book obligation to all latest-master mathematics.",
+    "Prior complete source analyses are reused only with unchanged-byte/context assessment; no prior approval was available.",
+    "All 39 PFDS IDs are retained by canonical register reference; they are not reinterpreted as 39 unproved theorems.",
+    "No claim of equality of performance or physical identity from observed map values."
+  ],
+  "operations": {
+    "compiler_or_checker_runs": 0,
+    "setup_actions": 0,
+    "source_index_ref_changes": 0,
+    "checkpoint_mutations": 0,
+    "remote_mutations": 0,
+    "writes": [
+      "intake/review-20261114/spec-r3.md",
+      "intake/review-20261114/spec-r3.json"
+    ]
+  },
+  "durability": {
+    "checkpoint007": "Coordinator reports completed durable delivery of candidate/pre-review evidence; reviewer did not perform or independently authenticate upload.",
+    "report_saving_owner": "root",
+    "reports_need_next_verified_checkpoint": true
+  },
+  "summary": {
+    "new_source_findings": 0,
+    "worst_source_issue": null,
+    "required_evidence_blockers": 1,
+    "worst_current_issue": "INT-SP-001 Blocking",
+    "outcome": "Blocked"
+  },
+  "markdown": "intake/review-20261114/spec-r3.md"
+}

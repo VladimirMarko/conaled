@@ -1,0 +1,70 @@
+{
+  "recorded_utc": "2026-11-04T19:59:39.072820+00:00",
+  "baseline": "759589ec63d359231330f732b42c96591a53325e",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "add",
+        "--",
+        "Applications/Resources/Chunks.lean",
+        "Applications/Resources/SelectionMedians.lean",
+        "Examples/ChunkCalls.lean",
+        "Examples/SelectionMedians.lean"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--quiet"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "staged_paths": [
+    "Applications/Resources/Chunks.lean",
+    "Applications/Resources/SelectionMedians.lean",
+    "Examples/ChunkCalls.lean",
+    "Examples/SelectionMedians.lean"
+  ],
+  "staged_stat": " Applications/Resources/Chunks.lean           | 125 +++++++++++++++++\n Applications/Resources/SelectionMedians.lean | 203 +++++++++++++++++++++++++++\n Examples/ChunkCalls.lean                     |  74 ++++++++++\n Examples/SelectionMedians.lean               | 126 +++++++++++++++++\n 4 files changed, 528 insertions(+)\n",
+  "status": "A  Applications/Resources/Chunks.lean\nA  Applications/Resources/SelectionMedians.lean\nA  Examples/ChunkCalls.lean\nA  Examples/SelectionMedians.lean\n",
+  "source_reads": {
+    "final_chunks": "7fbae0",
+    "selection_medians": "0da72f",
+    "both_examples": "afbe2e",
+    "all_68_source_statement_assessments": "437749",
+    "all_68_explicit_type_preparation_names": "5616c4"
+  },
+  "four_new_source_identities_match_inventory": true,
+  "eight_existing_sources_and_26_prior_records_preserved": true,
+  "compiler_calls_by_author": 0,
+  "ready_for_local_source_commit": true
+}

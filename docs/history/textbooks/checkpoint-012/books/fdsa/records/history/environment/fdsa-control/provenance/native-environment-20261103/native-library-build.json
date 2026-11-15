@@ -1,0 +1,32 @@
+{
+  "recorded_utc": "2026-11-03T16:43:56.987861+00:00",
+  "actual_compile_command": [
+    "cc",
+    "-shared",
+    "-fPIC",
+    "-O2",
+    "-fvisibility=hidden",
+    "-fstack-protector-strong",
+    "-D_FORTIFY_SOURCE=2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-Wl,-z,relro,-z,now",
+    "-o",
+    "work/fdsa-control/tooling/native/libapp_path_compat.so",
+    "work/fdsa-control/tooling/native/app_path_compat.c"
+  ],
+  "cwd": "/workspace/scratch/6bb268f9336f",
+  "compile_exit_code": 0,
+  "compiler": "cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "source_sha256": "80c1d0e92d7c5c258f32ce3709736bf969c6a24148287f99b238324d7bfbcfb6",
+  "binary_sha256": "65910335cb5a2a4359e9ebf7dae4de1da7a48cdbf9dee5eabe82c3e4b02d88a9",
+  "binary_size_bytes": 15984,
+  "defined_global_function_exports": [
+    "readlink"
+  ],
+  "dynamic_symbols": "\nSymbol table '.dynsym' contains 18 entries:\n   Num:    Value          Size Type    Bind   Vis      Ndx Name\n     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND \n     1: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __snprintf_chk@GLIBC_2.3.4 (2)\n     2: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __errno_location@GLIBC_2.2.5 (3)\n     3: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable\n     4: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND getpid@GLIBC_2.2.5 (3)\n     5: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strlen@GLIBC_2.2.5 (3)\n     6: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (4)\n     7: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND close@GLIBC_2.2.5 (3)\n     8: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __realpath_chk@GLIBC_2.4 (4)\n     9: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND read@GLIBC_2.2.5 (3)\n    10: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strcmp@GLIBC_2.2.5 (3)\n    11: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND syscall@GLIBC_2.2.5 (3)\n    12: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__\n    13: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND getauxval@GLIBC_2.16 (5)\n    14: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND open@GLIBC_2.2.5 (3)\n    15: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable\n    16: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.2.5 (3)\n    17: 0000000000001280   558 FUNC    GLOBAL DEFAULT   14 readlink\n",
+  "source_candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "actual_native_cache_result": "provenance/native-cache-get-20261103/result.json",
+  "formal_acceptance_credit": false
+}

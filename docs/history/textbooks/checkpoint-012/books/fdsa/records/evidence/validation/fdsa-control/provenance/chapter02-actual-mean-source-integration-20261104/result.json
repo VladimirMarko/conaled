@@ -1,0 +1,172 @@
+{
+  "started_utc": "2026-11-04T07:56:02.690837+00:00",
+  "base": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+  "branch": "work/fdsa-ch02-development",
+  "closed_prior_attempt": {
+    "secured_utc": "2026-11-04T07:54:33.700742+00:00",
+    "candidate": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+    "final_status": "",
+    "actual_exit": 1,
+    "elapsed_seconds": 1086.2815814940004,
+    "log_bytes": 47237,
+    "log_sha256": "d367cd2e1054973cac7d1e1c6fa7d9a278eea9cccfa038b2436c377367b6160e",
+    "native_original": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T073427Z-project-run-6af28015",
+    "native_files": {
+      "start.json": {
+        "bytes": 890,
+        "sha256": "40ff6bce5433b3c12fe87c77e2d44a8232489d41ee589dd29fde410d727056fb"
+      },
+      "result.json": {
+        "bytes": 1040,
+        "sha256": "5dd9ed09ac5eac46a161ade091a8cad1e328ed8f5b296f3fd00c08c4ecbc52ed"
+      },
+      "output.log": {
+        "bytes": 46618,
+        "sha256": "256a72a2cf2531d209d380d105a154accf5874f6d858544c723fb9fa131e1ea3"
+      }
+    },
+    "verification_record_present": false,
+    "credited_new_individual_passes": [
+      "Examples.PermutationOrder (241s)",
+      "Applications.Resources.NaturalRunOperations (138s)"
+    ],
+    "failed_targets": [
+      "Examples.NaturalRunOperations",
+      "Applications.Probability.PermutationTail",
+      "Applications.Resources.QuickSortMean",
+      "Applications.Resources.RandomQuickSortRank"
+    ],
+    "aggregate": "Failed; no full-candidate or acceptance result."
+  },
+  "scopes": [
+    {
+      "name": "growth",
+      "source": "08a1e78d6becc713256d245206ef163f9eb55a0a",
+      "paths": [
+        "Applications/Resources/RandomQuickSortGrowth.lean",
+        "Examples/RandomQuickSortGrowth.lean"
+      ]
+    },
+    {
+      "name": "uniform",
+      "source": "9d5dcd2cfbd6fc5df572234a85bf4957d0c32a21",
+      "paths": [
+        "Applications/Resources/UniformQuickSortMean.lean",
+        "Examples/UniformQuickSortMean.lean"
+      ]
+    },
+    {
+      "name": "tail-correction",
+      "source": "fa86bfb800c1e70cdf61fefd75b8cb2f428daea6",
+      "paths": [
+        "Applications/Probability/PermutationTail.lean"
+      ]
+    },
+    {
+      "name": "natural-examples-correction",
+      "source": "b87e4e05d89d774a3e217d0fafd271bee4a9cd9a",
+      "paths": [
+        "Examples/NaturalRunOperations.lean"
+      ]
+    },
+    {
+      "name": "numerical-correction",
+      "source": "e0df28b7bbfa722b25623606a5a1905620fac91e",
+      "paths": [
+        "Applications/Resources/QuickSortMean.lean"
+      ]
+    }
+  ],
+  "status": "Source-only development integration after actual prior command termination; no acceptance.",
+  "completed_utc": "2026-11-04T07:56:03.090034+00:00",
+  "candidate": "10cbb38f421ccc77a6ccd2f48d8124f2e0af4ec4",
+  "steps": [
+    {
+      "scope": "growth",
+      "source": "08a1e78d6becc713256d245206ef163f9eb55a0a",
+      "exit": 0,
+      "head": "08a1e78d6becc713256d245206ef163f9eb55a0a",
+      "status": ""
+    },
+    {
+      "scope": "uniform",
+      "source": "9d5dcd2cfbd6fc5df572234a85bf4957d0c32a21",
+      "exit": 0,
+      "head": "d9ab067eb6862c2629504209f7bcf5fe91bf8c33",
+      "status": ""
+    },
+    {
+      "scope": "tail-correction",
+      "source": "fa86bfb800c1e70cdf61fefd75b8cb2f428daea6",
+      "exit": 0,
+      "head": "49dbb4ce79341cb2793956776f57847cbe595c02",
+      "status": ""
+    },
+    {
+      "scope": "natural-examples-correction",
+      "source": "b87e4e05d89d774a3e217d0fafd271bee4a9cd9a",
+      "exit": 0,
+      "head": "ae02ee042fd7357f84d5e3964406eb2101b682b6",
+      "status": ""
+    },
+    {
+      "scope": "numerical-correction",
+      "source": "e0df28b7bbfa722b25623606a5a1905620fac91e",
+      "exit": 0,
+      "head": "10cbb38f421ccc77a6ccd2f48d8124f2e0af4ec4",
+      "status": ""
+    }
+  ],
+  "changed_paths": [
+    "Applications/Probability/PermutationTail.lean",
+    "Applications/Resources/QuickSortMean.lean",
+    "Applications/Resources/RandomQuickSortGrowth.lean",
+    "Applications/Resources/UniformQuickSortMean.lean",
+    "Examples/NaturalRunOperations.lean",
+    "Examples/RandomQuickSortGrowth.lean",
+    "Examples/UniformQuickSortMean.lean"
+  ],
+  "source_identities": {
+    "Applications/Resources/RandomQuickSortGrowth.lean": {
+      "source_candidate": "08a1e78d6becc713256d245206ef163f9eb55a0a",
+      "sha256": "2b8bf7b4820790edaaa5726efb8e8bd8bccd3a30cb30388148d95bba00e63674",
+      "bytes": 9896
+    },
+    "Examples/RandomQuickSortGrowth.lean": {
+      "source_candidate": "08a1e78d6becc713256d245206ef163f9eb55a0a",
+      "sha256": "2d173d7572ae76395c3779c216ea43d21719ff1774f6a7f21c68a5677b511a16",
+      "bytes": 9959
+    },
+    "Applications/Resources/UniformQuickSortMean.lean": {
+      "source_candidate": "9d5dcd2cfbd6fc5df572234a85bf4957d0c32a21",
+      "sha256": "ff977270b5ba80869dd3bdcf309cfcc06dee8f80422d37ff5fb6a9916ef38a72",
+      "bytes": 36958
+    },
+    "Examples/UniformQuickSortMean.lean": {
+      "source_candidate": "9d5dcd2cfbd6fc5df572234a85bf4957d0c32a21",
+      "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5",
+      "bytes": 16466
+    },
+    "Applications/Probability/PermutationTail.lean": {
+      "source_candidate": "fa86bfb800c1e70cdf61fefd75b8cb2f428daea6",
+      "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed",
+      "bytes": 23521
+    },
+    "Examples/NaturalRunOperations.lean": {
+      "source_candidate": "b87e4e05d89d774a3e217d0fafd271bee4a9cd9a",
+      "sha256": "8bbd6c17eadd48a3af7a7f4c5f8ee3c2e9a97f03317bf373032314cdc835ebbc",
+      "bytes": 16153
+    },
+    "Applications/Resources/QuickSortMean.lean": {
+      "source_candidate": "e0df28b7bbfa722b25623606a5a1905620fac91e",
+      "sha256": "888bae2d149f2664f41e37f702ce5352718ac2d008f13fa51952239d85e5d09a",
+      "bytes": 9673
+    }
+  },
+  "clean": true,
+  "pins_and_existing_roots_unchanged": true,
+  "accepted_base_preserved": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "foundation_preserved": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "validation": "Uncompiled merged development source; rank correction and final public documentation/imports still pending. Foundation is the only running builder."
+}

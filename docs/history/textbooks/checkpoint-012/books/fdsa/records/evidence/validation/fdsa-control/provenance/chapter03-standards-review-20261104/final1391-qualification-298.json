@@ -1,0 +1,866 @@
+{
+  "recorded_utc": "2026-11-05T01:46:25.994562+00:00",
+  "review_axis": "Independent Standards",
+  "outcome": "Passed",
+  "candidate": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "tree": "ecb69c3918715cbe0682028cd8697dfcf3e463f9",
+  "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "accepted_shared_XR": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "scope": "Same existing whole-task loop: original Q to exact final candidate, all 83 frozen obligations, 78 Chapter 3 formal modules plus the two accepted XR modules. No scope reset or independent acceptance claim.",
+  "previous_canonical_report": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter03-standards.md",
+    "bytes": 8746,
+    "sha256": "5315d1f31e93c44717fe892a5b8f05fce6b34f0031495552e93c2ab883c65573"
+  },
+  "program_and_metadata": {
+    "Statements1391-complete.lean": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-statement-inputs-20261105/Statements1391-complete.lean",
+      "bytes": 82068,
+      "sha256": "a4671a1d5cd377fcdd0899d7700a3b7b635faeef18b9006bab2cfa3521c2aa2d"
+    },
+    "preparation.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-statement-inputs-20261105/preparation.json",
+      "bytes": 22272,
+      "sha256": "8d4431187c0196c73b187f0495941ad75a33fb92d609e125ff7ba409093a1b98"
+    },
+    "actual-type-block-index.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-statement-inputs-20261105/actual-type-block-index.json",
+      "bytes": 359015,
+      "sha256": "7ecceddacced0f5cfbbc629330d2ed2cb2eb13fdcd437f62ebf6ccab7835c3a7"
+    },
+    "prior-type-block-comparison.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-statement-inputs-20261105/prior-type-block-comparison.json",
+      "bytes": 229823,
+      "sha256": "50a704913432f1669d3b5d39076b004093e799f04262cbd78d2607520c5cb74b"
+    },
+    "pre-inputs.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-statement-inputs-20261105/pre-inputs.json",
+      "bytes": 185662,
+      "sha256": "a1d16b9d1f761cf7fc4ab5b933e92fb6292fe614cfc45d7547f4b7c6a61b8c6b"
+    },
+    "post-inputs.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-statement-inputs-20261105/post-inputs.json",
+      "bytes": 185961,
+      "sha256": "5dc01e8379f41539585ccf474cbbdc6c884b0ab4bc259c9855d06c88cf157565"
+    },
+    "observation-reconciliation.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-statement-inputs-20261105/observation-reconciliation.json",
+      "bytes": 2528,
+      "sha256": "406384808197fc3d8ce678efe58b417d680999d318d049b77d1ac5461a1942ef"
+    },
+    "reconciler-leading-at-correction.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-statement-inputs-20261105/reconciler-leading-at-correction.json",
+      "bytes": 1189,
+      "sha256": "146a0c236e1219be3277179e8c9b7bb1c54e071e7799713aa79e4ca5d2f061d6"
+    }
+  },
+  "actual_closed_run": {
+    "directory": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-statements1391-attempt1-20261105",
+    "command": [
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+      "--state",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+      "run",
+      "--project",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "--threads",
+      "1",
+      "--",
+      "lake",
+      "env",
+      "lean",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-statement-inputs-20261105/Statements1391-complete.lean"
+    ],
+    "owned_session": 27758,
+    "terminal_tool_chunk": "7868c8",
+    "recorder_exit": 0,
+    "native_exit": 0,
+    "actual_tool_exit": 0,
+    "started_utc": "2026-11-05T01:35:24.700894+00:00",
+    "completed_utc": "2026-11-05T01:36:12.483093+00:00",
+    "native_elapsed_seconds": 47.67840950201207,
+    "candidate_and_final_head": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+    "final_status_clean": true,
+    "no_timeout_or_recorder_error": true,
+    "files": {
+      "result.json": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-statements1391-attempt1-20261105/result.json",
+        "bytes": 1413,
+        "sha256": "e890794e3bb03b6b01c81ccca4dea901546383a74fbf71fcb0259ba23bb065b2"
+      },
+      "owned-terminal.json": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-statements1391-attempt1-20261105/owned-terminal.json",
+        "bytes": 260,
+        "sha256": "4ff957404b7a65f9d4f87972647390f518724f6cd7ffa66cb71d4431cdf4db9e"
+      },
+      "actual-tool-terminal.json": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-statements1391-attempt1-20261105/actual-tool-terminal.json",
+        "bytes": 125,
+        "sha256": "88b5945f0f591e2bc6327b1dd09b6fa1f601d67582559873abb5e5aa7128a01c"
+      },
+      "closed-evidence-reconciliation.json": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-statements1391-attempt1-20261105/closed-evidence-reconciliation.json",
+        "bytes": 2393,
+        "sha256": "9c1e889c03e75e3df87bffb6131b8a1b0122df66a29056495511fcf6a49d72c8"
+      },
+      "native-records/start.json": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-statements1391-attempt1-20261105/native-records/start.json",
+        "bytes": 564,
+        "sha256": "ba1bdfa19e4fa6c8596e6eae9bdea62130f8a998ff20d3196200431d7a5c84d8"
+      },
+      "native-records/result.json": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-statements1391-attempt1-20261105/native-records/result.json",
+        "bytes": 716,
+        "sha256": "38c97f2f378b03cf8b69a02ece8a941abddb4e6408752dd0b5f304608a5cedf3"
+      },
+      "native-records/output.log": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-statements1391-attempt1-20261105/native-records/output.log",
+        "bytes": 1625149,
+        "sha256": "79e0dce87cf9ba17fd1fc1a11170ec64a575353dda1122a55ea7b73b3cc7ece0"
+      },
+      "full.log": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-statements1391-attempt1-20261105/full.log",
+        "bytes": 1625512,
+        "sha256": "3a23c4da2f20c358fe53767a929882017776399e5da1acc48eddd64ff1bfead7"
+      },
+      "verification.json": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-statements1391-attempt1-20261105/verification.json",
+        "bytes": 867,
+        "sha256": "152ccbf0ee1d37fbe8eef300d88ad16284858464e5c4dc82f1f3884db3641088"
+      }
+    },
+    "complete_native_once_in_outer_at_byte": 206,
+    "full_check_verification_preserved_byte_exact": true,
+    "statement_run_is_not_a_separate_full_audit": true
+  },
+  "final_input_qualification": {
+    "pre_observed_utc": "2026-11-05T01:34:59.077502+00:00",
+    "post_observed_utc": "2026-11-05T01:36:40.942260+00:00",
+    "observations_bracket_actual_execution_after_full_normal_check": true,
+    "pre_post_entire_identity_equal": true,
+    "candidate_clean": true,
+    "local_source_count": 113,
+    "all_113_source_and_10_configuration_identities_match_immutable_candidate": true,
+    "objects_hashes_and_traces": 339,
+    "exact_per_source_artifacts": [
+      ".olean",
+      ".olean.hash",
+      ".trace"
+    ],
+    "configuration_count": 10,
+    "dependency_count": 9,
+    "runtime_component_count": 12,
+    "configuration_dependencies_runtime_identical_to_retained_qualified_worst_capture": true,
+    "root_import_count": 80,
+    "captured_root_order_equals_program": true,
+    "captured_name_order_equals_program": true,
+    "ordered_names_sha256": "1a1588699abeb36e9fb99ad238fe480dc42aaea702fc3ad9ed28271212fb04d8",
+    "ordered_imports_sha256": "2b3c3430b89dce1c4189304356332ff122cd529342c9c37627cbb6bc8fe95873",
+    "independent_reconciliation_tool": "c7cd18",
+    "boundary": "Stable before/after observations do not by themselves prove loaded-object provenance or absence of transient edits. Qualification uses the isolated exact-candidate run and successful full normal build/integrity/audit under the unchanged qualified native profile, as required by the repository trusted local-cache acceptance model. Earlier development object files are not claimed byte-identical to current combined outputs."
+  },
+  "complete_actual_output_partition": {
+    "names": 1391,
+    "native_bytes": 1625149,
+    "native_lines": 23375,
+    "exact_name_order_and_no_other_top_level_output": true,
+    "all_index_byte_offsets_lengths_hashes_and_line_bounds_independently_recomputed": true,
+    "no_ellipsis_omission_or_warning_error_headers": true,
+    "raw_partition_independent_tool": "4700f5",
+    "reconfirmed_while_saving": true
+  },
+  "prior_semantic_reuse": {
+    "byte_identical": 1362,
+    "changed_and_read_in_full": 29,
+    "groups": {
+      "chapter03_prefix1321": {
+        "names": 1321,
+        "byte_identical": 1321,
+        "changed": 0
+      },
+      "chapter03_count_rank_client1": {
+        "names": 1,
+        "byte_identical": 1,
+        "changed": 0
+      },
+      "chapter03_trace23": {
+        "names": 23,
+        "byte_identical": 4,
+        "changed": 19
+      },
+      "chapter03_worst25": {
+        "names": 25,
+        "byte_identical": 25,
+        "changed": 0
+      },
+      "accepted_XR21": {
+        "names": 21,
+        "byte_identical": 11,
+        "changed": 10
+      }
+    },
+    "prior_raw_and_index_identities": [
+      {
+        "group": "chapter03_prefix1321",
+        "names": 1321,
+        "native_output": {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-assembly2-statements1321-attempt1-20261104/native-records/output.log",
+          "bytes": 1494848,
+          "sha256": "b5a197138b36a3ecb0cce5bf397f2cfdfb86a6ff2c0d309f4f49303a9557dfd1"
+        },
+        "index": {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-assembly2-statement-inputs-20261104/actual-type-block-index.json",
+          "bytes": 382223,
+          "sha256": "b89adf0160b2a887c5046917d6ac04131e826e3d6dd4d7e31b0edc0ab62961a2"
+        }
+      },
+      {
+        "group": "chapter03_trace23",
+        "names": 23,
+        "native_output": {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-trace-statements23-attempt1-20261104/native-records/output.log",
+          "bytes": 35549,
+          "sha256": "31b3ef8b1af81e05f295a75f24e0051f0c24033a40f3384e54de7c1f9f70677e"
+        },
+        "index": {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-trace-statement-inputs-20261104/actual-type-block-index.json",
+          "bytes": 6304,
+          "sha256": "61ef57f91219feb2e3686ee93debe25224061426d44d6ea05e981c735763c496"
+        }
+      },
+      {
+        "group": "chapter03_worst25",
+        "names": 25,
+        "native_output": {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-worst-statements25-attempt1-20261105/native-records/output.log",
+          "bytes": 75956,
+          "sha256": "df11a9b1e4ccbc7e952935ec0155fa096f58a3c14ff6955132fceabfb69fa519"
+        },
+        "index": {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-worst-statement-inputs-20261105/actual-type-block-index.json",
+          "bytes": 6898,
+          "sha256": "ab0fbda7833bbbc228e7546bca938a2a8c08510c7f18bbf766a590bae55c1389"
+        }
+      },
+      {
+        "group": "accepted_XR21",
+        "names": 21,
+        "native_output": {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-receiving-statements21-attempt1-20261104/native-records/output.log",
+          "bytes": 17154,
+          "sha256": "afd6d3ab3f0afbc81eba682a50556ada9f9acf72f3bcf80bfea98b8b1c06be07"
+        },
+        "index": {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-receiving-statements21-inputs-20261104/actual21-reconciliation.json",
+          "bytes": 6868,
+          "sha256": "651d35acc4e695c7f153f115428fb7fa663ba0f058835b48577356301ea405e9"
+        }
+      },
+      {
+        "group": "chapter03_count_rank_client1",
+        "names": 1,
+        "native_output": {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-count-rank-use-statements1-attempt1-20261105/native-records/output.log",
+          "bytes": 636,
+          "sha256": "35f4982aa1ea24b00d7ffa72c987fb0e42d370d5c0f758116b35b584ae13ba00"
+        },
+        "index": null
+      }
+    ],
+    "independent_all_1391_raw_comparison_tool": "0fcf5a",
+    "comparison_rows_reconfirmed_while_saving": true,
+    "justification": "For 1362 current exact raw blocks, retain the completed semantic analysis in the bound prior Standards progress and accepted-XR reconciliation. This is semantic-analysis reuse after direct byte equality, final-source correspondence, and current full candidate qualification; it is not reuse of a failed preparation audit, unqualified object files, or an author conclusion. The 29 changed blocks were each read in full and reassessed below. All 1391 current public statements are therefore assessed with their actual explicit assumptions, instances, universes and conclusion placement."
+  },
+  "changed_raw_blocks": [
+    {
+      "zero_based_index": 1323,
+      "name": "Resources.RandomSelection.map_prepend_apply",
+      "first_line": 21536,
+      "last_line": 21547,
+      "offset": 1495767,
+      "bytes": 1058,
+      "sha256": "a0945123b7cde7a8dfc33168a58508b1b78055e8615eb2ffe8ad92284c6ca4e9",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "Generic map-prepend atom equality is unconditional and universe-polymorphic in the outcome payload. Explicit DFunLike/PMF applications expose the existing injective-prepend reasoning; no new premise is hidden.",
+      "full_raw_read_tool": "b5e005",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1324,
+      "name": "Resources.RandomSelection.run_child_atom",
+      "first_line": 21548,
+      "last_line": 21587,
+      "offset": 1496825,
+      "bytes": 2704,
+      "sha256": "1f420762f0f41226b9879240c3a4ca0c25208cc07ad14441722456217d0b7c0d",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "For every actual occurrence index in a nonempty input and an actual step returning inl(j,ys), the parent atom of the prepended child outcome equals the reciprocal occurrence count times that actual child atom. The child outcome need not be assumed supported; zero atoms remain in scope.",
+      "full_raw_read_tool": "b5e005",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1325,
+      "name": "Resources.RandomSelection.run_trace_injective",
+      "first_line": 21588,
+      "last_line": 21610,
+      "offset": 1499529,
+      "bytes": 1362,
+      "sha256": "a0e9751a5f7457404e529b1046472ed6b3d42cadaeef0aedcfe5374d28431b14",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "Two supported outcomes from the same actual initial rank/list with equal traces are equal as complete outcomes. Both support premises remain explicit; no distinctness assumption appears.",
+      "full_raw_read_tool": "b5e005",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1326,
+      "name": "Resources.RandomSelection.traceLaw",
+      "first_line": 21611,
+      "last_line": 21612,
+      "offset": 1500891,
+      "bytes": 172,
+      "sha256": "a8f7f6e553d3385f03b2d34dd3a83b0231510eb1dfe496e7d907d26e9eec2048",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "The trace projection is an actual PMF on Trace for every universe-polymorphic linear-order input type, rank and list; it is not an independently chosen law.",
+      "full_raw_read_tool": "b5e005",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1327,
+      "name": "Resources.RandomSelection.traceLaw_support",
+      "first_line": 21613,
+      "last_line": 21631,
+      "offset": 1501063,
+      "bytes": 1230,
+      "sha256": "e4176ee0e13c2417b5e98f595fcdee116945cda88410c6090828f2b7ebc0df83",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "Projected trace support is equivalent to existence of a supported actual complete outcome carrying that trace.",
+      "full_raw_read_tool": "b5e005",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1328,
+      "name": "Resources.RandomSelection.traceLaw_atom",
+      "first_line": 21632,
+      "last_line": 21650,
+      "offset": 1502293,
+      "bytes": 1362,
+      "sha256": "319b4c268c64a6eba3a645215e91deb7bb7d1c395dbfc3fe3f09df5e064e7c3f",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "At an actual supported complete outcome, projected trace mass equals complete-outcome mass at the same initial rank/list. The support premise is retained.",
+      "full_raw_read_tool": "b5e005",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1330,
+      "name": "Resources.RandomSelection.run_singleton_atom",
+      "first_line": 21655,
+      "last_line": 21669,
+      "offset": 1503986,
+      "bytes": 1208,
+      "sha256": "9e0f43415091ab81c5189701416b0af77c7f0c84083ee1c34ff92aea5d65e591",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "For every linear-order payload and value x, rank-zero singleton execution has the actual complete outcome (some x, [(1,0)], 9) with unit mass.",
+      "full_raw_read_tool": "b5e005",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1331,
+      "name": "Examples.RandomSelectionTrace.singleton_trace_atom",
+      "first_line": 21670,
+      "last_line": 21680,
+      "offset": 1505194,
+      "bytes": 877,
+      "sha256": "69368d5dc1867c2b34a8a9920d161d6a1c4c88d91c7ff14a4bdcf9fc6df3553c",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "The valid singleton actual projected trace [(1,0)] has unit mass.",
+      "full_raw_read_tool": "b5e005",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1332,
+      "name": "Examples.RandomSelectionTrace.middle_child_atom",
+      "first_line": 21681,
+      "last_line": 21706,
+      "offset": 1506071,
+      "bytes": 1945,
+      "sha256": "8660a82b39b188700bd987311746762474ce0ecd6910304f0035cdfccaa10ca5",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "The actual rank-zero child [3,2] has outcome value 2, trace [(2,0),(1,0)] and source work 19 with mass 1/2.",
+      "full_raw_read_tool": "b5e005",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1333,
+      "name": "Examples.RandomSelectionTrace.middle_path_atom",
+      "first_line": 21707,
+      "last_line": 21736,
+      "offset": 1508016,
+      "bytes": 2268,
+      "sha256": "369d050560e1bbf713919994823517a2c7d2d4f5422a1e343f5d11d99d086713",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "The actual middle-rank input [3,1,2] has outcome value 2, trace [(3,1),(2,0),(1,0)] and source work 33 with mass 1/6.",
+      "full_raw_read_tool": "b5e005",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1334,
+      "name": "Examples.RandomSelectionTrace.middle_path_trace",
+      "first_line": 21737,
+      "last_line": 21761,
+      "offset": 1510284,
+      "bytes": 1874,
+      "sha256": "b7494d6e6eeb6628243b00d1be4487cd184b78cc341223bf16403016c7a5564d",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "The projected actual middle-rank trace for [3,1,2] has the same mass 1/6.",
+      "full_raw_read_tool": "4b7711",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1335,
+      "name": "Examples.RandomSelectionTrace.middle_path_observations",
+      "first_line": 21762,
+      "last_line": 21800,
+      "offset": 1512158,
+      "bytes": 2539,
+      "sha256": "0a72b202b122488a7f0ecae1009636fa584348eba5a643b5f61b21199e1ec359",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "Every supported outcome from the specified middle-rank input with that trace has value 2, scan volume 6 and source work 33.",
+      "full_raw_read_tool": "4b7711",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1336,
+      "name": "Examples.RandomSelectionTrace.negative_path_atom",
+      "first_line": 21801,
+      "last_line": 21839,
+      "offset": 1514697,
+      "bytes": 2998,
+      "sha256": "d2a06915b206b4b8fd8fa387eeb7a79929567ebd5578d36217e059eb347b06e4",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "The signed input [3,-2,8,0,5] at rank 3 has the actual value-5 endpoint path, source work 67 and mass 1/120.",
+      "full_raw_read_tool": "4b7711",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1337,
+      "name": "Examples.RandomSelectionTrace.negative_path_trace",
+      "first_line": 21840,
+      "last_line": 21873,
+      "offset": 1517695,
+      "bytes": 2580,
+      "sha256": "4f78af8cc251a82b8a48bb161f5a8e10afe23812898ad4fd3e0a0504bc0a8a45",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "The actual projected signed-input endpoint trace has mass 1/120.",
+      "full_raw_read_tool": "4b7711",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1338,
+      "name": "Examples.RandomSelectionTrace.duplicate_trace_atom",
+      "first_line": 21874,
+      "last_line": 21892,
+      "offset": 1520275,
+      "bytes": 1447,
+      "sha256": "4928dcde7cb1fa14643fc31606eadab8ff99f060e72ed17b4e4dac8ec0a436fb",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "The all-equal input [4,4,4] at rank 1 assigns mass 1/3 to occurrence trace [(3,0)]; occurrences are not collapsed to distinct values.",
+      "full_raw_read_tool": "4b7711",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1339,
+      "name": "Examples.RandomSelectionTrace.empty_trace_atom",
+      "first_line": 21893,
+      "last_line": 21898,
+      "offset": 1521722,
+      "bytes": 561,
+      "sha256": "ffb50a139be4f960cfe64c91ff77ed30887b95aaf0bb4f18ec9b78b31f3e6311",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "For every linear-order payload and arbitrary rank, the empty input has empty projected trace with unit mass; no Inhabited premise is introduced.",
+      "full_raw_read_tool": "4b7711",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1340,
+      "name": "Examples.RandomSelectionTrace.invalid_singleton_trace_atom",
+      "first_line": 21899,
+      "last_line": 21909,
+      "offset": 1522283,
+      "bytes": 876,
+      "sha256": "1415ee9d94f9dfa2a2ede9110b640c684471125c901bca5207fac301391155b2",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "The invalid rank-1 singleton [7] still has its actual one-entry projected trace with unit mass.",
+      "full_raw_read_tool": "4b7711",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1342,
+      "name": "Examples.RandomSelectionTrace.unsupported_empty_trace_boundary",
+      "first_line": 21951,
+      "last_line": 21977,
+      "offset": 1526325,
+      "bytes": 2098,
+      "sha256": "c87fa6d7d81be0798d1c38ec922c31c4c71cdda7ae683c633196a00b188a70f1",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "For every rank, the fabricated empty-input complete outcome with cost 3 has zero mass and is unsupported, although the actual empty trace has unit mass. This checks the necessity of the support condition in the atom bridge.",
+      "full_raw_read_tool": "4b7711",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1343,
+      "name": "Examples.RandomSelectionTrace.arbitrary_supported_trace",
+      "first_line": 21978,
+      "last_line": 22010,
+      "offset": 1528423,
+      "bytes": 2213,
+      "sha256": "2d500bb69823978b4a1d9430668b2e0b542f2590a5ccf5e57e45f382fabb8a63",
+      "previous_group": "chapter03_trace23",
+      "semantic_assessment": "The generic checked client retains both support premises at fixed input/rank and trace equality, concluding complete-outcome equality and the actual projected/full atom identity.",
+      "full_raw_read_tool": "4b7711",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1370,
+      "name": "Resources.AffineRecurrence.exists_affine_bound_of_two_branch",
+      "first_line": 23071,
+      "last_line": 23227,
+      "offset": 1607949,
+      "bytes": 7807,
+      "sha256": "137783ad073788e030b74efea07072fb65551d44472d0bcd50c41b1337fde9a4",
+      "previous_group": "accepted_XR21",
+      "semantic_assessment": "The accepted theorem quantifies a universe-polymorphic Archimedean linearly ordered commutative ring, total f : Nat -> R and two Nat branch maps. Its only contraction premise is rho < 1 with affine branch-size control beyond fixed n0, plus the signed affine recurrence inequality there. It yields fixed nonnegative A,B bounding f at all n. No positivity of f,C,D,rho, absolute-value conclusion, or algorithm-termination conclusion is inserted.",
+      "full_raw_read_tool": "be9494",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1371,
+      "name": "Examples.AffineRecurrence.quarter",
+      "first_line": 23228,
+      "last_line": 23228,
+      "offset": 1615756,
+      "bytes": 54,
+      "sha256": "092e78e7c09abdca44508858191ad1d3197cfa982ef21c93091dbd64f4368822",
+      "previous_group": "accepted_XR21",
+      "semantic_assessment": "The quarter recurrence is a total Nat -> Nat function.",
+      "full_raw_read_tool": "be9494",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1372,
+      "name": "Examples.AffineRecurrence.quarter_of_le_one",
+      "first_line": 23229,
+      "last_line": 23231,
+      "offset": 1615810,
+      "bytes": 276,
+      "sha256": "3b7daae0df8de40a0f915211d3a328b8cc05c99f35de0a6d28d618c6c8a3266c",
+      "previous_group": "accepted_XR21",
+      "semantic_assessment": "For n <= 1 the actual quarter recurrence equals 1.",
+      "full_raw_read_tool": "be9494",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1373,
+      "name": "Examples.AffineRecurrence.quarter_of_one_lt",
+      "first_line": 23232,
+      "last_line": 23243,
+      "offset": 1616086,
+      "bytes": 783,
+      "sha256": "89ab9c7e9e46c5a7232449aa18340d1524cd1ed278a4ebdb8127e81101e714ad",
+      "previous_group": "accepted_XR21",
+      "semantic_assessment": "For n > 1 the actual quarter recurrence satisfies quarter n = 2 * quarter (n/4) + n + 1.",
+      "full_raw_read_tool": "be9494",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1380,
+      "name": "Examples.AffineRecurrence.quarter_affine_bound",
+      "first_line": 23262,
+      "last_line": 23270,
+      "offset": 1618179,
+      "bytes": 676,
+      "sha256": "b19f29f0b71561c16bd633ba6f01db7e10fb218b2462007fd5aa1a5784e5fb0f",
+      "previous_group": "accepted_XR21",
+      "semantic_assessment": "There exist fixed nonnegative rational A,B bounding the cast of quarter n for every n.",
+      "full_raw_read_tool": "be9494",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1381,
+      "name": "Examples.AffineRecurrence.signed",
+      "first_line": 23271,
+      "last_line": 23271,
+      "offset": 1618855,
+      "bytes": 53,
+      "sha256": "fb9a3943146951ec9666fe5d44f211d68bd90b53ea5adaae4e2100daf8b50761",
+      "previous_group": "accepted_XR21",
+      "semantic_assessment": "The signed recurrence is a total Nat -> Int function.",
+      "full_raw_read_tool": "be9494",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1385,
+      "name": "Examples.AffineRecurrence.signed_affine_bound",
+      "first_line": 23289,
+      "last_line": 23297,
+      "offset": 1620186,
+      "bytes": 638,
+      "sha256": "9a28bf41aba2377633de971c4c879c013dfd97a8447ef15de2b26487d64a4db4",
+      "previous_group": "accepted_XR21",
+      "semantic_assessment": "There exist fixed nonnegative integer A,B bounding the signed recurrence above at every n; this is an order upper bound, not an absolute-value or norm bound.",
+      "full_raw_read_tool": "be9494",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1388,
+      "name": "Examples.AffineRecurrence.parameterwise_affine_bound",
+      "first_line": 23350,
+      "last_line": 23360,
+      "offset": 1623653,
+      "bytes": 696,
+      "sha256": "d3dc9b8484fd6faaacddbaec5ae4350c881a9c8be7d9cb52d85563f9f420310f",
+      "previous_group": "accepted_XR21",
+      "semantic_assessment": "For every parameter p there exist nonnegative integer A,B bounding its cast uniformly over n. The existential constants occur after p, so the claim is parameterwise.",
+      "full_raw_read_tool": "be9494",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1389,
+      "name": "Examples.AffineRecurrence.no_uniform_natural_family_bound",
+      "first_line": 23361,
+      "last_line": 23367,
+      "offset": 1624349,
+      "bytes": 356,
+      "sha256": "5b939073da04b55ca73383af5ab04fa12d99cc07af9e65724bf5031c1fbb8e4d",
+      "previous_group": "accepted_XR21",
+      "semantic_assessment": "No single natural pair A,B bounds every natural parameter p by A*n+B for every n.",
+      "full_raw_read_tool": "be9494",
+      "finding": null
+    },
+    {
+      "zero_based_index": 1390,
+      "name": "Examples.AffineRecurrence.no_uniform_integer_family_bound",
+      "first_line": 23368,
+      "last_line": 23375,
+      "offset": 1624705,
+      "bytes": 444,
+      "sha256": "8a588189c8d46ab9c66e8d256df85310ee50d0c10be3e4b4a0a4faf600ef3ed8",
+      "previous_group": "accepted_XR21",
+      "semantic_assessment": "No single integer pair A,B bounds every cast natural parameter p by A*cast(n)+B for every n.",
+      "full_raw_read_tool": "be9494",
+      "finding": null
+    }
+  ],
+  "changed_type_conclusion": "The 19 Trace and 10 XR expansions expose additional explicit coercion/typeclass/PMF structure under the final ten printing options. Their fully displayed premises, quantifiers, data domains and conclusions match the reviewed source and intended use; no mathematical weakening, hidden vacuity, or source/profile change was identified.",
+  "parser_correction_assessment": {
+    "root_initial_metadata_attempt": "777799 exited 1 before comparison records; omitted optional leading @ in an output header regex",
+    "correction": "Accept optional leading @ before the same exact requested names, keeping exact order and full byte partition assertions. Root retained original helper and patch. No Lean source, input, native output or compiler rerun changed.",
+    "independent_assessment": "The reviewer independently split the actual raw outputs and checked every current/prior comparison; this does not rely on the corrected helper as proof of correctness.",
+    "read_tools": [
+      "a0625a",
+      "4700f5",
+      "0fcf5a"
+    ],
+    "finding": null
+  },
+  "read_receipts": [
+    {
+      "tool": "6c7d28",
+      "coverage": "Complete actual terminal/owned/result/closed/native result/verification and outer log wrappers."
+    },
+    {
+      "tool": "a55557",
+      "coverage": "Bounded changed-block names/hashes, all five prior raw bindings, complete closed run records; no raw-type semantic credit added by metadata."
+    },
+    {
+      "tool": "b5e005",
+      "coverage": "Full current raw types for changed indices 1323-1328,1330-1333."
+    },
+    {
+      "tool": "4b7711",
+      "coverage": "Full current raw types for changed indices 1334-1340,1342-1343."
+    },
+    {
+      "tool": "be9494",
+      "coverage": "Full current raw types for changed indices 1370-1373,1380,1381,1385,1388-1390."
+    },
+    {
+      "tool": "c5324f",
+      "coverage": "Complete 2528-byte observation reconciliation and canonical prior report; bounded capture hashes and timestamps."
+    },
+    {
+      "tool": "c7cd18",
+      "coverage": "Independent complete 113-source/10-config immutable comparison, 339 artifact-key closure, exact captured names/imports and stable environment."
+    },
+    {
+      "tool": "8174fe",
+      "coverage": "Complete code-review reporting guidance, retained same existing axis."
+    }
+  ],
+  "reviewer_helper_limitations": [
+    {
+      "tool": "5854e3",
+      "event": "Earlier successful stable-input comparison printed too much program metadata, causing display truncation. No semantic credit was assigned to omitted display. Bounded recovery c5324f and c7cd18 records all relevant assertions."
+    },
+    {
+      "tool": "adc982",
+      "event": "Metadata inspection printed too many artifact keys and was display-truncated. Only schema/visible bounded portions were used; c7cd18 re-established exact complete counts and identities without key-list output."
+    },
+    {
+      "tool": "a9dc44",
+      "event": "An ASCII-only reviewer declaration-name regex failed before assertions because it omitted valid identifier characters; it did not expose a candidate failure. Generic non-whitespace #check capture exactly matches all 1391 names and 80 roots in 7c05e1 and c7cd18. No source or evidence was modified."
+    }
+  ],
+  "prior_own_records": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/accepted-xr-reuse-reconciliation-4c96dc0b.json",
+      "bytes": 8847,
+      "sha256": "6e05cb5b63a2e0f00ed7b8f2a994a5490c01894982a8ccd31c0b8b2e4371e199"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/count-rank-use-resolution-2ff47bda.json",
+      "bytes": 4664,
+      "sha256": "acd005dd7d3bbb8979f251281b114830508414693b09d8fdab46dc303e1fb91f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/final1391-program-prepared-assessment-298.json",
+      "bytes": 5474,
+      "sha256": "b2bb61db565370d3ac74f8815150fb0eddee97d2dd5bfaf69611b741985c9c97"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/final298-normal-check-audit-assessment.json",
+      "bytes": 23315,
+      "sha256": "dd58f38a2eac26321eecf2cbf1a50d48b822abb381e4a566cd5c3793f63e4964"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/minimum-pivot-comment-resolution-4c96dc0b.json",
+      "bytes": 2225,
+      "sha256": "398d5088b38b1ce34ced182b9ce0f54c63d0bf7018d7f59a6c66fe94e3b880ed"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0135-fixed-reduction-counterfamily.json",
+      "bytes": 9077,
+      "sha256": "5108ff75aff24c0f9e7d1e637cc8c6ef6f9d3174ee2d8145643415a45d485ede"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0135-measured-selection.json",
+      "bytes": 9496,
+      "sha256": "e99b8e5b9418814dec79de7f644329ffd9d8f9536068b8f809f2dd48b0e0d734"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0135-median-values.json",
+      "bytes": 6053,
+      "sha256": "fc50d06be7bb22bebca0fac7a600e79ccf837d409167cd205b4111e470f7edcf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0135-minimum-halving-policy.json",
+      "bytes": 24935,
+      "sha256": "659dc289cfed95f9336d576435626dc3c64121bef8a05b3efcade93c86c696b7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0135-rounded-recurrence.json",
+      "bytes": 7359,
+      "sha256": "75f055a5bb6da2f1cb6d1c36bd06f5e3cd127e792e893f5624cdb6b0c919f780"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0135-scalar-pivot-envelope.json",
+      "bytes": 8470,
+      "sha256": "8f2daf8361bdd629bbc6afd4e4fe46f1b1189bfc3043463a8cc1db6b47025dfe"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0136-complete-formal-source-types.json",
+      "bytes": 12090,
+      "sha256": "324081c0c3b0f39c6397e433f53b0e8a05210b6f7c86512d73c9a349fee0581e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0136-coordinate-queries-readall.json",
+      "bytes": 7997,
+      "sha256": "218dbf5af5df19a1aafca8266b402a871c82af77779772801a8bd1bf68470999"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0136-random-equal-endpoints.json",
+      "bytes": 8078,
+      "sha256": "b7d906ff32f00a1a3cd234ca91e60199ba3d8e7269422a4b0636dc8ae12bc216"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0136-random-execution.json",
+      "bytes": 8393,
+      "sha256": "e5eca2c755c47348075cd17f29bf1e7dbb7e0d6daac7e526416c0380ec72dc58"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0136-random-expectation-drift.json",
+      "bytes": 8279,
+      "sha256": "d90a18db115e9bb7c5d474c92fe245b54253e79ee0528a08ed1f135015f8f84e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0136-random-tail.json",
+      "bytes": 7321,
+      "sha256": "9836c6dfe119c47e496d5449d15f8499956d662531f0268d707e476340cbf92f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0136-trace-sensitivity-assembly4.json",
+      "bytes": 9538,
+      "sha256": "ef9c12ccced83c120d79255b0a53d4c8cbe4014e81649123539297b235f656be"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-before0135.json",
+      "bytes": 7415,
+      "sha256": "7d8067663c5e50ce53b72986e8c630991cd86a085298acc2127a5c56ce3daf57"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-before0136-selection-bounds-cutoffs-generic.json",
+      "bytes": 10439,
+      "sha256": "62631304a3dd15539f1f4c50432a04d64e098583403f3ebe33071e4331add235"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-final298-source-document-complete.json",
+      "bytes": 57345,
+      "sha256": "ac3d796b93a22284a771718650749c23d54e12ba54384dbbbe48f2e66a472f80"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-supplement-before0135.json",
+      "bytes": 11789,
+      "sha256": "52cab35241d55883191ce8315a8f9f801656a9188793aea0d06c932b149d3f9b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/scalar-pivot-envelope-prose-correction.json",
+      "bytes": 1298,
+      "sha256": "2139ec328cb02ce1e5bac19a2450105924a03974ea3fefb617bb21e35924c748"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/write-hold-before0135.json",
+      "bytes": 826,
+      "sha256": "cb001abcb15fbd5b29f1c72af99223261dc8b97da0a5b9d7a1b4283f90b7c7ff"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/write-hold-before0136.json",
+      "bytes": 4800,
+      "sha256": "5d0890444c5dd0d177e6c5833bd507ed7ffadd792606b735ffa648e05644f3b7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/write-hold-supplement-before0135.json",
+      "bytes": 1238,
+      "sha256": "11289557ea211b533b1a46812eef07d07e530b0e30286c8d033db106c1f68b9d"
+    }
+  ],
+  "final_standards_disposition": {
+    "full_original_scope_complete": true,
+    "all_83_obligations_preserved_and_assessed": true,
+    "all_80_formal_source_paths_and_public_entrypoint_document_delta_assessed": true,
+    "all_1391_final_names_qualified": true,
+    "normal_full_check_and_exhaustive_audit_established": true,
+    "normal_full_check_evidence": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/final298-normal-check-audit-assessment.json",
+      "bytes": 23315,
+      "sha256": "dd58f38a2eac26321eecf2cbf1a50d48b822abb381e4a566cd5c3793f63e4964"
+    },
+    "resolved_findings": [
+      "C03-SPEC-USE-001",
+      "C03-STD-DOC-001"
+    ],
+    "unresolved_findings": [],
+    "worst_unresolved_severity": null,
+    "outcome": "Passed"
+  },
+  "acceptance_boundary": "This is only the independent Standards outcome for exact 298. The independent Spec outcome and immediate ./check.sh --verify-candidate HEAD matching 298 are required before root fast-forwards the accepted integration ref and records acceptance. This reviewer did not execute Lean/Lake/check/audit, mutate source/config/refs, poll sessions, send external messages or upload. Historical preparation38 audit exit1/SIGKILL9 remains preserved with unknown cause; it is not successful evidence and is not erased by the distinct final298 pass."
+}

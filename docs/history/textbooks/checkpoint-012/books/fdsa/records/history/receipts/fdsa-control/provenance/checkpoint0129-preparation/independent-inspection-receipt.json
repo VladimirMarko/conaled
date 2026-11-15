@@ -1,0 +1,25 @@
+{
+  "recorded_utc": "2026-11-04T21:19:07.284970+00:00",
+  "reviewer": "/root/checkpoint0124_inspection",
+  "scope": "Independent operational inspection of checkpoint0129 verifier/derivation and interrupted evidence, not a mathematical acceptance axis.",
+  "full_readback": "7931d8 actual0: all241 verifier lines,84-line derivation,README,origin. 7564b9 actual0: full reconciliation and7 saved partial files.",
+  "mechanical": "16f98a actual0: exact5 substitutions,29 additive lines,one count; zero gate removals, AST/diff agreement; creator/restorer unchanged.",
+  "verifier": {
+    "bytes": 13648,
+    "sha256": "6dfb641bc06a02ac0a5f7591460ac6d356cf72b4132f3a054bfb01624c426e95"
+  },
+  "finding": "CP0129-DOC-001",
+  "root_correction": "fe3b9a actual0, exact wording correction only; README-correction1.json",
+  "resolution_readback": "d8ac5f actual0, complete corrected README and record;1d3d99 actual0 reverse replacement reproduces exact prior README.",
+  "corrected_readme": {
+    "bytes": 2256,
+    "sha256": "a0b8f116c408fd6ba2c6891a7d4a13ade682160026dd1f122b177bc42a25a68f"
+  },
+  "correction_record": {
+    "bytes": 1467,
+    "sha256": "9e51efe2d5fb4756e75c31942094f9131a05195ead82d948ad0709815958f01d"
+  },
+  "outcome": "Passed operational inspection; zero unresolved findings; inspector held and wrote no files.",
+  "no_checkpoint_execution_or_acceptance_credit": true,
+  "preparation_transport_note": "Prior functions.exec source had a JavaScript SyntaxError before any tool dispatch; this is the first filesystem invocation of the progress/hold writer."
+}

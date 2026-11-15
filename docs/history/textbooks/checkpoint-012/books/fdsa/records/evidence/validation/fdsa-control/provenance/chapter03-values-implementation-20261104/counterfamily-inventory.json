@@ -1,0 +1,558 @@
+{
+  "candidate": "cafc71bef2e2779407944cb04089b9b3b14a13dc",
+  "tree": "8ede72c00df8a44b50fcedb49c219d9090c7df26",
+  "stage_base": "11480d46b4f8f99eb33bdc4b34759031af17c9f0",
+  "whole_chapter_review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "status": "Exhaustive source-header inventory, not emitted types. Explicit-@ type capture remains pending.",
+  "public_count": 42,
+  "private_count": 0,
+  "modules": [
+    {
+      "module": "Applications.Selection.MedianCounterfamily",
+      "repository_path": "Applications/Selection/MedianCounterfamily.lean",
+      "namespace": "Applications.Selection.MedianCounterfamily",
+      "imports": [
+        "Applications.Selection.MedianOfMedians"
+      ],
+      "bytes": 7287,
+      "sha256": "a5c0ded8b731f3304183db02529398fd6887ccc28195acab886aceb56ff79994",
+      "git_blob": "5e19f02c0c7b7c47d4e6237aff26332d22f004ed",
+      "declarations": [
+        {
+          "name": "Applications.Selection.MedianCounterfamily.lowBlock",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def lowBlock : List Nat",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.highBlock",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def highBlock : List Nat",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.fullBlocks",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def fullBlocks (i : Nat) : List (List Nat)",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.family",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def family (i : Nat) : List Nat",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.fullBlocks_length",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem fullBlocks_length (i : Nat) : (fullBlocks i).length = 2 * i + 1",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.mem_fullBlocks_length",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem mem_fullBlocks_length (i : Nat) (ys : List Nat) (hy : ys \u2208 fullBlocks i) :\n    ys.length = 5",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.flatten_fullBlocks_length",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem flatten_fullBlocks_length (i : Nat) :\n    (fullBlocks i).flatten.length = 5 * (2 * i + 1)",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.family_length",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem family_length (i : Nat) : (family i).length = 10 * i + 6",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.family_positive",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem family_positive (i : Nat) : 0 < (family i).length",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.family_ne_nil",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem family_ne_nil (i : Nat) : family i \u2260 []",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.family_lengths_strictMono",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem family_lengths_strictMono : StrictMono (fun i => (family i).length)",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.chop_family",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem chop_family (i : Nat) : chop 5 (family i) = fullBlocks i ++ [[0]]",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.lowBlock_median",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem lowBlock_median (h : lowBlock \u2260 []) : lowerMedianValue lowBlock h = 0",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.highBlock_median",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem highBlock_median (h : highBlock \u2260 []) : lowerMedianValue highBlock h = 1",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.singleton_zero_median",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem singleton_zero_median (h : ([0] : List Nat) \u2260 []) :\n    lowerMedianValue [0] h = 0",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.chunkMedians_family",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem chunkMedians_family (i : Nat) :\n    chunkMedians 5 (family i) =\n      List.replicate i 0 ++ List.replicate (i + 1) 1 ++ [0]",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.chunkMedians_family_length",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem chunkMedians_family_length (i : Nat) :\n    (chunkMedians 5 (family i)).length = 2 * i + 2",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.chunkMedians_family_count_lt",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem chunkMedians_family_count_lt (i : Nat) :\n    (chunkMedians 5 (family i)).countP (fun x => decide (x < 0)) = 0",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.chunkMedians_family_count_gt",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem chunkMedians_family_count_gt (i : Nat) :\n    (chunkMedians 5 (family i)).countP (fun x => decide (0 < x)) = i + 1",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.family_pivot",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem family_pivot (i : Nat) : medianOfMedians 5 (family i) = some 0",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.family_count_gt",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem family_count_gt (i : Nat) :\n    (family i).countP (fun x => decide (0 < x)) = 7 * i + 5",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.family_excess",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem family_excess (i : Nat) :\n    10 * (family i).countP (fun x => decide (0 < x)) = 7 * (family i).length + 8",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.family_strict_seventy",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem family_strict_seventy (i : Nat) :\n    7 * (family i).length < 10 * (family i).countP (fun x => decide (0 < x))",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.family_pivot_strict_seventy",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem family_pivot_strict_seventy (i p : Nat)\n    (hp : medianOfMedians 5 (family i) = some p) :\n    7 * (family i).length < 10 * (family i).countP (fun x => decide (p < x))",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Applications.Selection.MedianCounterfamily.infinite_family",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem infinite_family :\n    \u2203 f : Nat \u2192 List Nat, StrictMono (fun i => (f i).length) \u2227\n      \u2200 i, 0 < (f i).length \u2227 \u2203 p : Nat, medianOfMedians 5 (f i) = some p \u2227\n        7 * (f i).length < 10 * (f i).countP (fun x => decide (p < x))",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "Examples.MedianCounterfamily",
+      "repository_path": "Examples/MedianCounterfamily.lean",
+      "namespace": "Examples.MedianCounterfamily",
+      "imports": [
+        "Applications.Selection.MedianCounterfamily"
+      ],
+      "bytes": 2917,
+      "sha256": "8ebe64ee7b3a819b67a4afc9d2d52b8e659ebcdd20ffea17fb9933c1be0f5083",
+      "git_blob": "64df410b43d670f10a595ae1c967487e9a1ef0cc",
+      "declarations": [
+        {
+          "name": "Examples.MedianCounterfamily.first_input",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem first_input : family 0 = [1, 1, 1, 1, 1, 0]",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MedianCounterfamily",
+            "open Applications.Selection Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Examples.MedianCounterfamily.first_chops",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem first_chops : chop 5 (family 0) = [[1, 1, 1, 1, 1], [0]]",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MedianCounterfamily",
+            "open Applications.Selection Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Examples.MedianCounterfamily.first_medians",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem first_medians : chunkMedians 5 (family 0) = [1, 0]",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MedianCounterfamily",
+            "open Applications.Selection Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Examples.MedianCounterfamily.first_pivot",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem first_pivot : medianOfMedians 5 (family 0) = some 0",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MedianCounterfamily",
+            "open Applications.Selection Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Examples.MedianCounterfamily.first_counts",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem first_counts : (family 0).length = 6 \u2227\n    (family 0).countP (fun x => decide (0 < x)) = 5",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MedianCounterfamily",
+            "open Applications.Selection Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Examples.MedianCounterfamily.first_strict_percentage",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem first_strict_percentage :\n    7 * (family 0).length < 10 * (family 0).countP (fun x => decide (0 < x))",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MedianCounterfamily",
+            "open Applications.Selection Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Examples.MedianCounterfamily.second_chops",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem second_chops : chop 5 (family 1) =\n    [[0, 0, 0, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [0]]",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MedianCounterfamily",
+            "open Applications.Selection Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Examples.MedianCounterfamily.second_medians",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem second_medians : chunkMedians 5 (family 1) = [0, 1, 1, 0]",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MedianCounterfamily",
+            "open Applications.Selection Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Examples.MedianCounterfamily.second_pivot",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem second_pivot : medianOfMedians 5 (family 1) = some 0",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MedianCounterfamily",
+            "open Applications.Selection Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Examples.MedianCounterfamily.second_counts",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem second_counts : (family 1).length = 16 \u2227\n    (family 1).countP (fun x => decide (0 < x)) = 12",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MedianCounterfamily",
+            "open Applications.Selection Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Examples.MedianCounterfamily.second_has_duplicates",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem second_has_duplicates : \u00ac(family 1).Nodup",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MedianCounterfamily",
+            "open Applications.Selection Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Examples.MedianCounterfamily.third_counts",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem third_counts : (family 2).length = 26 \u2227\n    (family 2).countP (fun x => decide (0 < x)) = 19",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MedianCounterfamily",
+            "open Applications.Selection Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Examples.MedianCounterfamily.growth_at_every_index",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem growth_at_every_index (i : Nat) :\n    (family i).length < (family (i + 1)).length",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MedianCounterfamily",
+            "open Applications.Selection Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Examples.MedianCounterfamily.positive_denominator_at_every_index",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem positive_denominator_at_every_index (i : Nat) : (family i).length \u2260 0",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MedianCounterfamily",
+            "open Applications.Selection Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Examples.MedianCounterfamily.book_ceiling_still_bounds",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem book_ceiling_still_bounds (i : Nat) :\n    (family i).countP (fun x => decide (0 < x)) \u2264 (7 * (family i).length + 30) \u2308/\u2309 10",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MedianCounterfamily",
+            "open Applications.Selection Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Examples.MedianCounterfamily.dropping_allowance_fails",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem dropping_allowance_fails (i : Nat) :\n    \u00ac10 * (family i).countP (fun x => decide (0 < x)) \u2264 7 * (family i).length",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MedianCounterfamily",
+            "open Applications.Selection Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        },
+        {
+          "name": "Examples.MedianCounterfamily.actual_pivot_comparison",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem actual_pivot_comparison (i p : Nat)\n    (hp : medianOfMedians 5 (family i) = some p) :\n    0 < (family i).length \u2227\n      7 * (family i).length < 10 * (family i).countP (fun x => decide (p < x))",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.MedianCounterfamily",
+            "open Applications.Selection Applications.Selection.MedianCounterfamily",
+            "open Applications.Sequences.Chunks"
+          ]
+        }
+      ]
+    }
+  ]
+}

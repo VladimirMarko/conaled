@@ -1,0 +1,3147 @@
+{
+  "schema": "fdsa-post-c2-shared-integration-preparation-v1",
+  "prepared_at_utc": "2026-11-04T12:46:03.223222+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "disposition": "PREPARATION ONLY; no candidate assembly, validation, new mathematical review, acceptance or future type reuse credit",
+  "fixed_first_route": [
+    "F",
+    "XM01+XD01+XQ01+XU01",
+    "XU02",
+    "XU03",
+    "new full C2"
+  ],
+  "later_operational_option": [
+    "XP01",
+    "XR01",
+    "XW01"
+  ],
+  "later_order_is_new_requirement": false,
+  "refs": {
+    "R": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "F": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "Z": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "T": "12cb14fc98b8617b3b625620da8e60936daba340",
+    "original_XP_base": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+    "original_XP": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+    "original_XW_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+    "XR": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+    "XW": "7c6bc92c276d39e84351324c442869b8ffa6758c"
+  },
+  "units": {
+    "XP01": {
+      "base_key": "Z",
+      "tip_key": "T",
+      "original_base_key": "original_XP_base",
+      "original_tip_key": "original_XP",
+      "roots": [
+        "Applications.Resources.Potential",
+        "Applications.Resources.FIFOContracts",
+        "Examples.MappedPotentialAccounting"
+      ],
+      "expected_paths": 6,
+      "program": "xp01-public-statements20-prepared-20261104/Statements.lean",
+      "public_names": 20,
+      "delta": {
+        "base": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+        "tip": "12cb14fc98b8617b3b625620da8e60936daba340",
+        "full_index_binary_diff_bytes": 31965,
+        "full_index_binary_diff_sha256": "352d429ca4f25e2791d0affbbe3dfb7289e7af325e26b6c5185c36d185343887"
+      },
+      "scope": [
+        {
+          "status": "M",
+          "path": "Applications/Resources/FIFOContracts.lean",
+          "before": {
+            "path": "Applications/Resources/FIFOContracts.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "51a45acf742f9e984188094bb72d3744e9f6e19b",
+            "bytes": 8300,
+            "lines": 168,
+            "sha256": "dff2940bacabe6b759b4ff1f6ebe361282fb0777192bafbb05911f9c13b6ecbb"
+          },
+          "after": {
+            "path": "Applications/Resources/FIFOContracts.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "01839707e852b3faff6ef1a49ad88a76fb5e5c18",
+            "bytes": 8308,
+            "lines": 168,
+            "sha256": "f0215c25e27380b170297c9cc010375da4ef263380088f4ae8fdbb7272373343"
+          }
+        },
+        {
+          "status": "M",
+          "path": "Applications/Resources/Potential.lean",
+          "before": {
+            "path": "Applications/Resources/Potential.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+            "bytes": 4638,
+            "lines": 108,
+            "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe"
+          },
+          "after": {
+            "path": "Applications/Resources/Potential.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "dcf7ae78d76c1440c2d89711e6939a00ff24cc90",
+            "bytes": 11606,
+            "lines": 239,
+            "sha256": "c921f5a18f9c508c338d49eed9d3bd2a2193f968cfc3e9efb4208f8917efa33c"
+          }
+        },
+        {
+          "status": "A",
+          "path": "Examples/MappedPotentialAccounting.lean",
+          "before": null,
+          "after": {
+            "path": "Examples/MappedPotentialAccounting.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "1fb26b51e9f298bd1ba1d1a5fa2a425142f8d8d7",
+            "bytes": 6932,
+            "lines": 166,
+            "sha256": "2c83479daec51deb21ec95e26af816bc0dfaa682fdb5ee76ee28cdf1e681386a"
+          }
+        },
+        {
+          "status": "M",
+          "path": "SquareApplications.lean",
+          "before": {
+            "path": "SquareApplications.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "1a220ba195105933210bd1578552f07052d6224b",
+            "bytes": 9371,
+            "lines": 285,
+            "sha256": "31fb256fe70c28b42b85b0221c37ffe60ab60248ebf7babecc410326c1f96d15"
+          },
+          "after": {
+            "path": "SquareApplications.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "77116918bf2466ff362c7c2357470cd413a43ec3",
+            "bytes": 9413,
+            "lines": 286,
+            "sha256": "f435dd0a16590472f21a9b25d7ae48e21bccf6a74ff4c54539b091529ed574b9"
+          }
+        },
+        {
+          "status": "A",
+          "path": "docs/research/fdsa-potential-accounting.md",
+          "before": null,
+          "after": {
+            "path": "docs/research/fdsa-potential-accounting.md",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "b9e70b3a5c15606de595f319ff5d11cdd9ff941e",
+            "bytes": 9877,
+            "lines": 163,
+            "sha256": "19c6dc50bc71b518c879cdd8a3f238a3fc5726e5d2486469e18a94a3f310d272"
+          }
+        },
+        {
+          "status": "M",
+          "path": "docs/research/fdsa-reconstruction-map.md",
+          "before": {
+            "path": "docs/research/fdsa-reconstruction-map.md",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "ec2ac8c975be8e5e22fc8574d71c025732cd2ff2",
+            "bytes": 44132,
+            "lines": 671,
+            "sha256": "dd4ce52d2cec15815dd18788e027808b072af75f4759b6fd9d6520682e6a27c2"
+          },
+          "after": {
+            "path": "docs/research/fdsa-reconstruction-map.md",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "db598df8a4fe01d368cd0c791040dee22b5d7311",
+            "bytes": 44533,
+            "lines": 677,
+            "sha256": "c617f951a84072835c80945c8093a2096272d97f9e21981d865a263a19eb186b"
+          }
+        }
+      ],
+      "source_import_closure": {
+        "roots": [
+          "Applications.Resources.Potential",
+          "Applications.Resources.FIFOContracts",
+          "Examples.MappedPotentialAccounting"
+        ],
+        "local_count": 15,
+        "local_modules": {
+          "Applications.Resources.Potential": {
+            "path": "Applications/Resources/Potential.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "dcf7ae78d76c1440c2d89711e6939a00ff24cc90",
+            "bytes": 11606,
+            "lines": 239,
+            "sha256": "c921f5a18f9c508c338d49eed9d3bd2a2193f968cfc3e9efb4208f8917efa33c",
+            "direct_imports": [
+              {
+                "module": "Applications.Resources.Workload",
+                "line": 1,
+                "statement": "import Applications.Resources.Workload"
+              },
+              {
+                "module": "Mathlib.Algebra.Order.Group.Nat",
+                "line": 2,
+                "statement": "import Mathlib.Algebra.Order.Group.Nat"
+              }
+            ]
+          },
+          "Applications.Resources.FIFOContracts": {
+            "path": "Applications/Resources/FIFOContracts.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "01839707e852b3faff6ef1a49ad88a76fb5e5c18",
+            "bytes": 8308,
+            "lines": 168,
+            "sha256": "f0215c25e27380b170297c9cc010375da4ef263380088f4ae8fdbb7272373343",
+            "direct_imports": [
+              {
+                "module": "Applications.Sequences.AbstractFIFO",
+                "line": 1,
+                "statement": "import Applications.Sequences.AbstractFIFO"
+              },
+              {
+                "module": "Applications.Resources.SymmetricCosts",
+                "line": 2,
+                "statement": "import Applications.Resources.SymmetricCosts"
+              }
+            ]
+          },
+          "Examples.MappedPotentialAccounting": {
+            "path": "Examples/MappedPotentialAccounting.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "1fb26b51e9f298bd1ba1d1a5fa2a425142f8d8d7",
+            "bytes": 6932,
+            "lines": 166,
+            "sha256": "2c83479daec51deb21ec95e26af816bc0dfaa682fdb5ee76ee28cdf1e681386a",
+            "direct_imports": [
+              {
+                "module": "Applications.Resources.BinaryCounter",
+                "line": 1,
+                "statement": "import Applications.Resources.BinaryCounter"
+              },
+              {
+                "module": "Mathlib.Basic.Real.Basic",
+                "line": 2,
+                "statement": "import Mathlib.Basic.Real.Basic"
+              },
+              {
+                "module": "Mathlib.Tactic.NormNum",
+                "line": 3,
+                "statement": "import Mathlib.Tactic.NormNum"
+              },
+              {
+                "module": "Mathlib.Algebra.FreeMonoid.Basic",
+                "line": 4,
+                "statement": "import Mathlib.Algebra.FreeMonoid.Basic"
+              },
+              {
+                "module": "Mathlib.Algebra.Group.TypeTags.Basic",
+                "line": 5,
+                "statement": "import Mathlib.Algebra.Group.TypeTags.Basic"
+              }
+            ]
+          },
+          "Applications.Resources.Workload": {
+            "path": "Applications/Resources/Workload.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+            "bytes": 2745,
+            "lines": 64,
+            "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+            "direct_imports": [
+              {
+                "module": "Applications.Resources.Measured",
+                "line": 1,
+                "statement": "import Applications.Resources.Measured"
+              },
+              {
+                "module": "SquareKit.ListFusion",
+                "line": 2,
+                "statement": "import SquareKit.ListFusion"
+              }
+            ]
+          },
+          "Applications.Sequences.AbstractFIFO": {
+            "path": "Applications/Sequences/AbstractFIFO.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "7dc3d3cad106512033cfc8cad62d750757abfb66",
+            "bytes": 6480,
+            "lines": 164,
+            "sha256": "e9d468a3d60c15f6474e71082c19b561819cb3c084e201c0eb8b935d57af0bb2",
+            "direct_imports": [
+              {
+                "module": "Applications.Sequences.Symmetric.Observation",
+                "line": 1,
+                "statement": "import Applications.Sequences.Symmetric.Observation"
+              }
+            ]
+          },
+          "Applications.Resources.SymmetricCosts": {
+            "path": "Applications/Resources/SymmetricCosts.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+            "bytes": 10508,
+            "lines": 281,
+            "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+            "direct_imports": [
+              {
+                "module": "Applications.Resources.Potential",
+                "line": 1,
+                "statement": "import Applications.Resources.Potential"
+              },
+              {
+                "module": "Applications.Sequences.Symmetric.Core",
+                "line": 2,
+                "statement": "import Applications.Sequences.Symmetric.Core"
+              }
+            ]
+          },
+          "Applications.Resources.BinaryCounter": {
+            "path": "Applications/Resources/BinaryCounter.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "ed65ac31a2674df62fe26c0ff69a2d6b9bb2101d",
+            "bytes": 11446,
+            "lines": 304,
+            "sha256": "d990e0e8d9b09fff3f774180fa2396558f2d1abcf7e6231be648f5bd66f6f9c0",
+            "direct_imports": [
+              {
+                "module": "Applications.Resources.Potential",
+                "line": 1,
+                "statement": "import Applications.Resources.Potential"
+              },
+              {
+                "module": "Mathlib.Data.List.Iterate",
+                "line": 2,
+                "statement": "import Mathlib.Data.List.Iterate"
+              },
+              {
+                "module": "Mathlib.Logic.Function.Iterate",
+                "line": 3,
+                "statement": "import Mathlib.Logic.Function.Iterate"
+              }
+            ]
+          },
+          "Applications.Resources.Measured": {
+            "path": "Applications/Resources/Measured.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+            "bytes": 2906,
+            "lines": 71,
+            "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+            "direct_imports": [
+              {
+                "module": "Mathlib.Algebra.Group.Prod",
+                "line": 1,
+                "statement": "import Mathlib.Algebra.Group.Prod"
+              },
+              {
+                "module": "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+                "line": 2,
+                "statement": "import Mathlib.Algebra.Order.Monoid.Unbundled.Basic"
+              },
+              {
+                "module": "Squares",
+                "line": 3,
+                "statement": "import Squares"
+              }
+            ]
+          },
+          "SquareKit.ListFusion": {
+            "path": "SquareKit/ListFusion.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "33ec447acb6da7b884ae57d2a885707208201607",
+            "bytes": 2939,
+            "lines": 73,
+            "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+            "direct_imports": [
+              {
+                "module": "Mathlib.Data.List.Basic",
+                "line": 1,
+                "statement": "import Mathlib.Data.List.Basic"
+              }
+            ]
+          },
+          "Applications.Sequences.Symmetric.Observation": {
+            "path": "Applications/Sequences/Symmetric/Observation.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "846aba846bfcfa04867cc221043609f9198b0ec0",
+            "bytes": 3425,
+            "lines": 88,
+            "sha256": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557",
+            "direct_imports": [
+              {
+                "module": "Applications.Sequences.Symmetric.Finite",
+                "line": 1,
+                "statement": "import Applications.Sequences.Symmetric.Finite"
+              },
+              {
+                "module": "SquareKit.Relations",
+                "line": 2,
+                "statement": "import SquareKit.Relations"
+              }
+            ]
+          },
+          "Applications.Sequences.Symmetric.Core": {
+            "path": "Applications/Sequences/Symmetric/Core.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4",
+            "bytes": 12059,
+            "lines": 362,
+            "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+            "direct_imports": [
+              {
+                "module": "SquareKit.ListFusion",
+                "line": 1,
+                "statement": "import SquareKit.ListFusion"
+              },
+              {
+                "module": "Mathlib.Data.List.Infix",
+                "line": 2,
+                "statement": "import Mathlib.Data.List.Infix"
+              }
+            ]
+          },
+          "Squares": {
+            "path": "Squares.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+            "bytes": 11694,
+            "lines": 352,
+            "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+            "direct_imports": [
+              {
+                "module": "Lean",
+                "line": 1,
+                "statement": "import Lean"
+              }
+            ]
+          },
+          "Applications.Sequences.Symmetric.Finite": {
+            "path": "Applications/Sequences/Symmetric/Finite.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "fedbcc0dfa4c7865ef2ee73f395155d45e33dbe5",
+            "bytes": 4923,
+            "lines": 119,
+            "sha256": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490",
+            "direct_imports": [
+              {
+                "module": "Applications.Sequences.Symmetric.Prefixes",
+                "line": 1,
+                "statement": "import Applications.Sequences.Symmetric.Prefixes"
+              }
+            ]
+          },
+          "SquareKit.Relations": {
+            "path": "SquareKit/Relations.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "cdfa81e8f94728272a5c72da21ae2e4f5a5febc4",
+            "bytes": 5615,
+            "lines": 163,
+            "sha256": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03",
+            "direct_imports": [
+              {
+                "module": "Squares",
+                "line": 1,
+                "statement": "import Squares"
+              }
+            ]
+          },
+          "Applications.Sequences.Symmetric.Prefixes": {
+            "path": "Applications/Sequences/Symmetric/Prefixes.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "b73854f69696abe7cf827372ad070b6e9dc19991",
+            "bytes": 4345,
+            "lines": 114,
+            "sha256": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308",
+            "direct_imports": [
+              {
+                "module": "Applications.Sequences.Symmetric.Core",
+                "line": 1,
+                "statement": "import Applications.Sequences.Symmetric.Core"
+              }
+            ]
+          }
+        },
+        "direct_external_count": 12,
+        "direct_external_imports": [
+          "Lean",
+          "Mathlib.Algebra.FreeMonoid.Basic",
+          "Mathlib.Algebra.Group.Prod",
+          "Mathlib.Algebra.Group.TypeTags.Basic",
+          "Mathlib.Algebra.Order.Group.Nat",
+          "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+          "Mathlib.Basic.Real.Basic",
+          "Mathlib.Data.List.Basic",
+          "Mathlib.Data.List.Infix",
+          "Mathlib.Data.List.Iterate",
+          "Mathlib.Logic.Function.Iterate",
+          "Mathlib.Tactic.NormNum"
+        ],
+        "local_import_edges": [
+          [
+            "Applications.Resources.Potential",
+            "Applications.Resources.Workload"
+          ],
+          [
+            "Applications.Resources.FIFOContracts",
+            "Applications.Sequences.AbstractFIFO"
+          ],
+          [
+            "Applications.Resources.FIFOContracts",
+            "Applications.Resources.SymmetricCosts"
+          ],
+          [
+            "Examples.MappedPotentialAccounting",
+            "Applications.Resources.BinaryCounter"
+          ],
+          [
+            "Applications.Resources.Workload",
+            "Applications.Resources.Measured"
+          ],
+          [
+            "Applications.Resources.Workload",
+            "SquareKit.ListFusion"
+          ],
+          [
+            "Applications.Sequences.AbstractFIFO",
+            "Applications.Sequences.Symmetric.Observation"
+          ],
+          [
+            "Applications.Resources.SymmetricCosts",
+            "Applications.Resources.Potential"
+          ],
+          [
+            "Applications.Resources.SymmetricCosts",
+            "Applications.Sequences.Symmetric.Core"
+          ],
+          [
+            "Applications.Resources.BinaryCounter",
+            "Applications.Resources.Potential"
+          ],
+          [
+            "Applications.Resources.Measured",
+            "Squares"
+          ],
+          [
+            "Applications.Sequences.Symmetric.Observation",
+            "Applications.Sequences.Symmetric.Finite"
+          ],
+          [
+            "Applications.Sequences.Symmetric.Observation",
+            "SquareKit.Relations"
+          ],
+          [
+            "Applications.Sequences.Symmetric.Core",
+            "SquareKit.ListFusion"
+          ],
+          [
+            "Applications.Sequences.Symmetric.Finite",
+            "Applications.Sequences.Symmetric.Prefixes"
+          ],
+          [
+            "SquareKit.Relations",
+            "Squares"
+          ],
+          [
+            "Applications.Sequences.Symmetric.Prefixes",
+            "Applications.Sequences.Symmetric.Core"
+          ]
+        ],
+        "boundary": "Project source closure only; external transitive dependency closure and generated outputs were not traversed."
+      },
+      "inherited_local_dependencies": [
+        {
+          "module": "Applications.Resources.BinaryCounter",
+          "path": "Applications/Resources/BinaryCounter.lean",
+          "unit_snapshot_blob": "ed65ac31a2674df62fe26c0ff69a2d6b9bb2101d",
+          "R_F_Z_T_blobs": {
+            "R": "ed65ac31a2674df62fe26c0ff69a2d6b9bb2101d",
+            "F": "ed65ac31a2674df62fe26c0ff69a2d6b9bb2101d",
+            "Z": "ed65ac31a2674df62fe26c0ff69a2d6b9bb2101d",
+            "T": "ed65ac31a2674df62fe26c0ff69a2d6b9bb2101d"
+          },
+          "disposition": "Retain the accepted predecessor version; these exact saved versions currently agree."
+        },
+        {
+          "module": "Applications.Resources.Measured",
+          "path": "Applications/Resources/Measured.lean",
+          "unit_snapshot_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+          "R_F_Z_T_blobs": {
+            "R": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+            "F": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+            "Z": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+            "T": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46"
+          },
+          "disposition": "Retain the accepted predecessor version; these exact saved versions currently agree."
+        },
+        {
+          "module": "Applications.Resources.SymmetricCosts",
+          "path": "Applications/Resources/SymmetricCosts.lean",
+          "unit_snapshot_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+          "R_F_Z_T_blobs": {
+            "R": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+            "F": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+            "Z": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+            "T": "de48b83e51de984e2b2284ec12f5f79cbf9d9233"
+          },
+          "disposition": "Retain the accepted predecessor version; these exact saved versions currently agree."
+        },
+        {
+          "module": "Applications.Resources.Workload",
+          "path": "Applications/Resources/Workload.lean",
+          "unit_snapshot_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+          "R_F_Z_T_blobs": {
+            "R": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+            "F": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+            "Z": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+            "T": "58a93181a8dbde9aa02c2b04f21ec741e7330f05"
+          },
+          "disposition": "Retain the accepted predecessor version; these exact saved versions currently agree."
+        },
+        {
+          "module": "Applications.Sequences.AbstractFIFO",
+          "path": "Applications/Sequences/AbstractFIFO.lean",
+          "unit_snapshot_blob": "7dc3d3cad106512033cfc8cad62d750757abfb66",
+          "R_F_Z_T_blobs": {
+            "R": "7dc3d3cad106512033cfc8cad62d750757abfb66",
+            "F": "7dc3d3cad106512033cfc8cad62d750757abfb66",
+            "Z": "7dc3d3cad106512033cfc8cad62d750757abfb66",
+            "T": "7dc3d3cad106512033cfc8cad62d750757abfb66"
+          },
+          "disposition": "Retain the accepted predecessor version; these exact saved versions currently agree."
+        },
+        {
+          "module": "Applications.Sequences.Symmetric.Core",
+          "path": "Applications/Sequences/Symmetric/Core.lean",
+          "unit_snapshot_blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4",
+          "R_F_Z_T_blobs": {
+            "R": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4",
+            "F": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4",
+            "Z": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4",
+            "T": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4"
+          },
+          "disposition": "Retain the accepted predecessor version; these exact saved versions currently agree."
+        },
+        {
+          "module": "Applications.Sequences.Symmetric.Finite",
+          "path": "Applications/Sequences/Symmetric/Finite.lean",
+          "unit_snapshot_blob": "fedbcc0dfa4c7865ef2ee73f395155d45e33dbe5",
+          "R_F_Z_T_blobs": {
+            "R": "fedbcc0dfa4c7865ef2ee73f395155d45e33dbe5",
+            "F": "fedbcc0dfa4c7865ef2ee73f395155d45e33dbe5",
+            "Z": "fedbcc0dfa4c7865ef2ee73f395155d45e33dbe5",
+            "T": "fedbcc0dfa4c7865ef2ee73f395155d45e33dbe5"
+          },
+          "disposition": "Retain the accepted predecessor version; these exact saved versions currently agree."
+        },
+        {
+          "module": "Applications.Sequences.Symmetric.Observation",
+          "path": "Applications/Sequences/Symmetric/Observation.lean",
+          "unit_snapshot_blob": "846aba846bfcfa04867cc221043609f9198b0ec0",
+          "R_F_Z_T_blobs": {
+            "R": "846aba846bfcfa04867cc221043609f9198b0ec0",
+            "F": "846aba846bfcfa04867cc221043609f9198b0ec0",
+            "Z": "846aba846bfcfa04867cc221043609f9198b0ec0",
+            "T": "846aba846bfcfa04867cc221043609f9198b0ec0"
+          },
+          "disposition": "Retain the accepted predecessor version; these exact saved versions currently agree."
+        },
+        {
+          "module": "Applications.Sequences.Symmetric.Prefixes",
+          "path": "Applications/Sequences/Symmetric/Prefixes.lean",
+          "unit_snapshot_blob": "b73854f69696abe7cf827372ad070b6e9dc19991",
+          "R_F_Z_T_blobs": {
+            "R": "b73854f69696abe7cf827372ad070b6e9dc19991",
+            "F": "b73854f69696abe7cf827372ad070b6e9dc19991",
+            "Z": "b73854f69696abe7cf827372ad070b6e9dc19991",
+            "T": "b73854f69696abe7cf827372ad070b6e9dc19991"
+          },
+          "disposition": "Retain the accepted predecessor version; these exact saved versions currently agree."
+        },
+        {
+          "module": "SquareKit.ListFusion",
+          "path": "SquareKit/ListFusion.lean",
+          "unit_snapshot_blob": "33ec447acb6da7b884ae57d2a885707208201607",
+          "R_F_Z_T_blobs": {
+            "R": "33ec447acb6da7b884ae57d2a885707208201607",
+            "F": "33ec447acb6da7b884ae57d2a885707208201607",
+            "Z": "33ec447acb6da7b884ae57d2a885707208201607",
+            "T": "33ec447acb6da7b884ae57d2a885707208201607"
+          },
+          "disposition": "Retain the accepted predecessor version; these exact saved versions currently agree."
+        },
+        {
+          "module": "SquareKit.Relations",
+          "path": "SquareKit/Relations.lean",
+          "unit_snapshot_blob": "cdfa81e8f94728272a5c72da21ae2e4f5a5febc4",
+          "R_F_Z_T_blobs": {
+            "R": "cdfa81e8f94728272a5c72da21ae2e4f5a5febc4",
+            "F": "cdfa81e8f94728272a5c72da21ae2e4f5a5febc4",
+            "Z": "cdfa81e8f94728272a5c72da21ae2e4f5a5febc4",
+            "T": "cdfa81e8f94728272a5c72da21ae2e4f5a5febc4"
+          },
+          "disposition": "Retain the accepted predecessor version; these exact saved versions currently agree."
+        },
+        {
+          "module": "Squares",
+          "path": "Squares.lean",
+          "unit_snapshot_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+          "R_F_Z_T_blobs": {
+            "R": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+            "F": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+            "Z": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+            "T": "f8b190ece8e801f14aec99e3092c3389bbf6d85a"
+          },
+          "disposition": "Retain the accepted predecessor version; these exact saved versions currently agree."
+        }
+      ],
+      "prepared_program": {
+        "path": "provenance/xp01-public-statements20-prepared-20261104/Statements.lean",
+        "bytes": 1002,
+        "lines": 28,
+        "sha256": "ea75026303b461b1bb676e060aaac51e37797cbb2afd3d6356c08ba28c7eb01f",
+        "names": [
+          "Resources.budget",
+          "Resources.budget_append",
+          "Resources.budget_map",
+          "Resources.run_potential_map_of_invariant",
+          "Resources.run_potential_map_exact_of_invariant",
+          "Resources.run_potential_map",
+          "Resources.run_potential_map_exact",
+          "Resources.run_cost_le_map_of_invariant",
+          "Resources.budget_amortized",
+          "Resources.charge_iff_signed",
+          "Resources.run_potential",
+          "Resources.run_potential_exact",
+          "Resources.run_cost_le",
+          "Resources.run_zero_potential",
+          "Resources.budget_constant",
+          "Resources.budget_le_constant",
+          "Resources.run_constant_charge",
+          "Resources.initial_potential_matters",
+          "Resources.FIFOContracts.abstractBudget",
+          "Examples.MappedPotentialAccounting.Counter.real_boundary"
+        ],
+        "new_execution": false
+      },
+      "saved_tip_parents": [
+        "cfa413e247c084245a270ae7bcc91fd9ea24b002"
+      ]
+    },
+    "XR01": {
+      "base_key": "original_XP",
+      "tip_key": "XR",
+      "roots": [
+        "Applications.Resources.AffineRecurrence",
+        "Examples.AffineRecurrence"
+      ],
+      "expected_paths": 5,
+      "program": "affine-recurrence-public-statements21-prepared-20261104/Statements.lean",
+      "public_names": 21,
+      "delta": {
+        "base": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+        "tip": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+        "full_index_binary_diff_bytes": 24857,
+        "full_index_binary_diff_sha256": "b68897f92882f45a02f3757ed9fecd9fa189d4e4b820eda0b75d0d5166694a66"
+      },
+      "scope": [
+        {
+          "status": "A",
+          "path": "Applications/Resources/AffineRecurrence.lean",
+          "before": null,
+          "after": {
+            "path": "Applications/Resources/AffineRecurrence.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "afba9e03f3d8178c6fcd469e064f07ddff53c32b",
+            "bytes": 5839,
+            "lines": 113,
+            "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d"
+          }
+        },
+        {
+          "status": "A",
+          "path": "Examples/AffineRecurrence.lean",
+          "before": null,
+          "after": {
+            "path": "Examples/AffineRecurrence.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "e16bc2401027fdced90b86edd15d9eb8b79759b9",
+            "bytes": 5165,
+            "lines": 142,
+            "sha256": "eb9239f5810887ba988420c3fe8538eab21285c1e6173eb5467133baa63868d5"
+          }
+        },
+        {
+          "status": "M",
+          "path": "SquareApplications.lean",
+          "before": {
+            "path": "SquareApplications.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "000a52722e4be80ff8ec03a182ef754254db530a",
+            "bytes": 8398,
+            "lines": 255,
+            "sha256": "1d8fa606b206345d7b9c158c6faf9f7eefb88295d4ba75535715b012d5d2ad97"
+          },
+          "after": {
+            "path": "SquareApplications.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "99c912978cbbc57837e5b9dc19995aaa13d71a53",
+            "bytes": 8431,
+            "lines": 256,
+            "sha256": "c7abc390617e80c42c2b604528748fcebe794f869d8abeae88a07a69864ea3ef"
+          }
+        },
+        {
+          "status": "A",
+          "path": "docs/research/fdsa-affine-recurrence.md",
+          "before": null,
+          "after": {
+            "path": "docs/research/fdsa-affine-recurrence.md",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "8319a4470bd0dacaa518e6d149fee26e67a1a64a",
+            "bytes": 9975,
+            "lines": 233,
+            "sha256": "a07b086bc846c0898b2713a7b055b9cb451d0471c655eeaab9cc1077f32b87bf"
+          }
+        },
+        {
+          "status": "M",
+          "path": "docs/research/fdsa-reconstruction-map.md",
+          "before": {
+            "path": "docs/research/fdsa-reconstruction-map.md",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "f4fad4bf564098927d5b7db002a17d8e524871b7",
+            "bytes": 31203,
+            "lines": 477,
+            "sha256": "1684db427737e32751d8f3a6066dc98d673fcded0ab78bfaa5c9e8b293b66e0d"
+          },
+          "after": {
+            "path": "docs/research/fdsa-reconstruction-map.md",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "c051f7fa4ebb314068396014d6b16ee61f8d82e4",
+            "bytes": 32550,
+            "lines": 500,
+            "sha256": "4e8acd033864e106e6881d8d5bb3d73993f9c6c65bee14d072553eadf392789b"
+          }
+        }
+      ],
+      "source_import_closure": {
+        "roots": [
+          "Applications.Resources.AffineRecurrence",
+          "Examples.AffineRecurrence"
+        ],
+        "local_count": 2,
+        "local_modules": {
+          "Applications.Resources.AffineRecurrence": {
+            "path": "Applications/Resources/AffineRecurrence.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "afba9e03f3d8178c6fcd469e064f07ddff53c32b",
+            "bytes": 5839,
+            "lines": 113,
+            "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d",
+            "direct_imports": [
+              {
+                "module": "Mathlib.Algebra.Order.Archimedean.Defs",
+                "line": 1,
+                "statement": "import Mathlib.Algebra.Order.Archimedean.Defs"
+              },
+              {
+                "module": "Mathlib.Data.Finset.Lattice.Fold",
+                "line": 2,
+                "statement": "import Mathlib.Data.Finset.Lattice.Fold"
+              },
+              {
+                "module": "Mathlib.Data.Finset.Range",
+                "line": 3,
+                "statement": "import Mathlib.Data.Finset.Range"
+              },
+              {
+                "module": "Mathlib.Data.Nat.Cast.Order.Ring",
+                "line": 4,
+                "statement": "import Mathlib.Data.Nat.Cast.Order.Ring"
+              },
+              {
+                "module": "Mathlib.Tactic.Linarith",
+                "line": 5,
+                "statement": "import Mathlib.Tactic.Linarith"
+              }
+            ]
+          },
+          "Examples.AffineRecurrence": {
+            "path": "Examples/AffineRecurrence.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "e16bc2401027fdced90b86edd15d9eb8b79759b9",
+            "bytes": 5165,
+            "lines": 142,
+            "sha256": "eb9239f5810887ba988420c3fe8538eab21285c1e6173eb5467133baa63868d5",
+            "direct_imports": [
+              {
+                "module": "Applications.Resources.AffineRecurrence",
+                "line": 1,
+                "statement": "import Applications.Resources.AffineRecurrence"
+              },
+              {
+                "module": "Mathlib.Algebra.Order.Archimedean.Basic",
+                "line": 2,
+                "statement": "import Mathlib.Algebra.Order.Archimedean.Basic"
+              }
+            ]
+          }
+        },
+        "direct_external_count": 6,
+        "direct_external_imports": [
+          "Mathlib.Algebra.Order.Archimedean.Basic",
+          "Mathlib.Algebra.Order.Archimedean.Defs",
+          "Mathlib.Data.Finset.Lattice.Fold",
+          "Mathlib.Data.Finset.Range",
+          "Mathlib.Data.Nat.Cast.Order.Ring",
+          "Mathlib.Tactic.Linarith"
+        ],
+        "local_import_edges": [
+          [
+            "Examples.AffineRecurrence",
+            "Applications.Resources.AffineRecurrence"
+          ]
+        ],
+        "boundary": "Project source closure only; external transitive dependency closure and generated outputs were not traversed."
+      },
+      "inherited_local_dependencies": [],
+      "prepared_program": {
+        "path": "provenance/affine-recurrence-public-statements21-prepared-20261104/Statements.lean",
+        "bytes": 1474,
+        "lines": 30,
+        "sha256": "13d96149ecb926ead0a9b892f72331fceeef6e85d674bf5f0d6d0682e03e7d60",
+        "names": [
+          "Resources.AffineRecurrence.exists_affine_bound_of_two_branch",
+          "Examples.AffineRecurrence.quarter",
+          "Examples.AffineRecurrence.quarter_of_le_one",
+          "Examples.AffineRecurrence.quarter_of_one_lt",
+          "Examples.AffineRecurrence.quarter_zero",
+          "Examples.AffineRecurrence.quarter_one",
+          "Examples.AffineRecurrence.quarter_two",
+          "Examples.AffineRecurrence.quarter_four",
+          "Examples.AffineRecurrence.quarter_eight",
+          "Examples.AffineRecurrence.quarter_sixteen",
+          "Examples.AffineRecurrence.quarter_affine_bound",
+          "Examples.AffineRecurrence.signed",
+          "Examples.AffineRecurrence.signed_base",
+          "Examples.AffineRecurrence.signed_nonpositive",
+          "Examples.AffineRecurrence.signed_recurrence",
+          "Examples.AffineRecurrence.signed_affine_bound",
+          "Examples.AffineRecurrence.negative_square_upper",
+          "Examples.AffineRecurrence.negative_square_absolute_value",
+          "Examples.AffineRecurrence.parameterwise_affine_bound",
+          "Examples.AffineRecurrence.no_uniform_natural_family_bound",
+          "Examples.AffineRecurrence.no_uniform_integer_family_bound"
+        ],
+        "new_execution": false
+      },
+      "saved_tip_parents": [
+        "c28ba71863d2a35ee1c3a089caa90464e4cca692"
+      ],
+      "saved_scope_new_paths_absent_at_T": [
+        "Applications/Resources/AffineRecurrence.lean",
+        "Examples/AffineRecurrence.lean",
+        "docs/research/fdsa-affine-recurrence.md"
+      ],
+      "current_T_public_imports_missing_from_old_root": [
+        "Examples.PermutationMinimum",
+        "Examples.PermutationOrder",
+        "Examples.PermutationTail",
+        "Examples.CallModels",
+        "Examples.SharedDemand",
+        "Examples.ThreeWayPartition",
+        "Examples.DifferenceListCosts",
+        "Examples.MergeCosts",
+        "Examples.InsertionObservations",
+        "Examples.QuickSort",
+        "Examples.QuickSortCosts",
+        "Examples.TopDownSorting",
+        "Examples.TopDownCosts",
+        "Examples.BottomUpSorting",
+        "Examples.BottomUpCosts",
+        "Examples.AlternatingSorting",
+        "Examples.NaturalRuns",
+        "Examples.NaturalRunComparisons",
+        "Examples.NaturalSorting",
+        "Examples.NaturalSortingCosts",
+        "Examples.ListBuildCosts",
+        "Examples.ThreeWayQuickSort",
+        "Examples.RandomQuickSort",
+        "Examples.SortUniqueness",
+        "Examples.NaturalRunOperations",
+        "Examples.QuickSortTransport",
+        "Examples.RandomQuickSortMean",
+        "Examples.QuickSortMean",
+        "Examples.RandomQuickSortRank",
+        "Examples.UniformQuickSortMean",
+        "Examples.RandomQuickSortGrowth"
+      ],
+      "nonunit_source_differences_from_T": [
+        {
+          "path": "Applications/Probability/PermutationMinimum.lean",
+          "old_tip_blob": null,
+          "T_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d"
+        },
+        {
+          "path": "Applications/Probability/PermutationOrder.lean",
+          "old_tip_blob": null,
+          "T_blob": "b039038772d2ecdb17864678021ffa9aff4efa63"
+        },
+        {
+          "path": "Applications/Probability/PermutationTail.lean",
+          "old_tip_blob": null,
+          "T_blob": "437552dda711378d6a0910d9aa79bd99caae8977"
+        },
+        {
+          "path": "Applications/Resources/BottomUpSorting.lean",
+          "old_tip_blob": null,
+          "T_blob": "f141f4393d52e1061feaa2e57149cdea02085555"
+        },
+        {
+          "path": "Applications/Resources/CallComparison.lean",
+          "old_tip_blob": null,
+          "T_blob": "af658c10d82dbae6ee1cf65fe5e8ecf56b6ba9f5"
+        },
+        {
+          "path": "Applications/Resources/DifferenceListCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "b87222f7c0eb0aafc60031864ca815c2e65fc457"
+        },
+        {
+          "path": "Applications/Resources/Growth.lean",
+          "old_tip_blob": "5453fc50cc172b409f12542921a97d82ca60e067",
+          "T_blob": "65cfdecea6a600b9ed80a9784637e9811c4bd425"
+        },
+        {
+          "path": "Applications/Resources/ListBuildCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "6f3c157572db29c6b9a5d415a83368f2afacb952"
+        },
+        {
+          "path": "Applications/Resources/ListCalls.lean",
+          "old_tip_blob": "ed38d5f95f508b564489b676b4dbceb9ac67b87f",
+          "T_blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4"
+        },
+        {
+          "path": "Applications/Resources/ListMerge.lean",
+          "old_tip_blob": null,
+          "T_blob": "b658809bc2ba424807e326c3ee7cb64712865a46"
+        },
+        {
+          "path": "Applications/Resources/NaturalRunComparisons.lean",
+          "old_tip_blob": null,
+          "T_blob": "1ac499d0e87a2d7e91401c90ed01be4a1cbff1f3"
+        },
+        {
+          "path": "Applications/Resources/NaturalRunOperations.lean",
+          "old_tip_blob": null,
+          "T_blob": "b6b63bd2714a74c4c66e2ec32b860f7107bb727a"
+        },
+        {
+          "path": "Applications/Resources/NaturalSorting.lean",
+          "old_tip_blob": null,
+          "T_blob": "d80f1a8f8f5c076cbe763c8a62a4942d267e8b86"
+        },
+        {
+          "path": "Applications/Resources/Partition.lean",
+          "old_tip_blob": null,
+          "T_blob": "e9d3682a4d3a499aaffd41f73c7fc39965fa0d30"
+        },
+        {
+          "path": "Applications/Resources/Potential.lean",
+          "old_tip_blob": "3ffc5e120f94f87c77a442728f654f3fa94d3aeb",
+          "T_blob": "dcf7ae78d76c1440c2d89711e6939a00ff24cc90"
+        },
+        {
+          "path": "Applications/Resources/QuickSort.lean",
+          "old_tip_blob": null,
+          "T_blob": "66bcbb7075aadfe3e1070ee532b5839091c6ab5d"
+        },
+        {
+          "path": "Applications/Resources/QuickSortMean.lean",
+          "old_tip_blob": null,
+          "T_blob": "f5bb73b3f1c2c977013919b02a307c0c3669fed1"
+        },
+        {
+          "path": "Applications/Resources/QuickSortTransport.lean",
+          "old_tip_blob": null,
+          "T_blob": "438a6a58d720002fac7a2a61abb6b0b29804df21"
+        },
+        {
+          "path": "Applications/Resources/RandomQuickSort.lean",
+          "old_tip_blob": null,
+          "T_blob": "99b1b19cbfb6e6dc875e46cdc338bf4a518674fc"
+        },
+        {
+          "path": "Applications/Resources/RandomQuickSortGrowth.lean",
+          "old_tip_blob": null,
+          "T_blob": "ecad03eedc57c3bc75e19172eb4941bef9a3faf6"
+        },
+        {
+          "path": "Applications/Resources/RandomQuickSortMean.lean",
+          "old_tip_blob": null,
+          "T_blob": "a9ce110d5aca6f04cc8d68cfd1ef5238832dbc0a"
+        },
+        {
+          "path": "Applications/Resources/RandomQuickSortRank.lean",
+          "old_tip_blob": null,
+          "T_blob": "691d5f4aebc513566813d35891f5bb749dc8d1e8"
+        },
+        {
+          "path": "Applications/Resources/SharedDemand.lean",
+          "old_tip_blob": null,
+          "T_blob": "449d7fce653a449be11209c4cb8cb23ae1240609"
+        },
+        {
+          "path": "Applications/Resources/TopDownSorting.lean",
+          "old_tip_blob": null,
+          "T_blob": "91cba444e67f3947d5fca7984242fde825807929"
+        },
+        {
+          "path": "Applications/Resources/UniformQuickSortMean.lean",
+          "old_tip_blob": null,
+          "T_blob": "2e06a117d18b4657dfc3e436a1939acad5427876"
+        },
+        {
+          "path": "Applications/Selection/ThreeWay.lean",
+          "old_tip_blob": "278070fc5ac4ea674adb47be8ebb2048c4273aa0",
+          "T_blob": "8627ad6d219f55a404dd96c4f4553594eaa71264"
+        },
+        {
+          "path": "Applications/Sequences/Partition.lean",
+          "old_tip_blob": null,
+          "T_blob": "ff03bd349a39b3b77c49793175d4b474199e7c43"
+        },
+        {
+          "path": "Applications/Sorting/Alternating.lean",
+          "old_tip_blob": null,
+          "T_blob": "b8147f8fc08969c67da07e9331570590a080760a"
+        },
+        {
+          "path": "Applications/Sorting/BottomUp.lean",
+          "old_tip_blob": null,
+          "T_blob": "41d69c71ffeb337684f397e5e35310cf697ba4d3"
+        },
+        {
+          "path": "Applications/Sorting/InsertionObservations.lean",
+          "old_tip_blob": null,
+          "T_blob": "3be66c5841da1fee074b9bbc5dc784f34c9a846f"
+        },
+        {
+          "path": "Applications/Sorting/Merge.lean",
+          "old_tip_blob": "15708d975dc76472da0c10990e805e2d4dfbdcbb",
+          "T_blob": "6595f901a9358398bee07333872125990ef8360c"
+        },
+        {
+          "path": "Applications/Sorting/Natural.lean",
+          "old_tip_blob": null,
+          "T_blob": "c026d784e2397e61b9b2848c6867f5b145a019eb"
+        },
+        {
+          "path": "Applications/Sorting/NaturalRuns.lean",
+          "old_tip_blob": null,
+          "T_blob": "5590b9aeb9f93670602774360e87a374db8228a7"
+        },
+        {
+          "path": "Applications/Sorting/QuickSort.lean",
+          "old_tip_blob": null,
+          "T_blob": "01026a360a8f9f44afacd2fbd6ddb356ef8a95d4"
+        },
+        {
+          "path": "Applications/Sorting/ThreeWayQuickSort.lean",
+          "old_tip_blob": null,
+          "T_blob": "587a649182fc07df34f685021c5b29b9f477be07"
+        },
+        {
+          "path": "Applications/Sorting/TopDown.lean",
+          "old_tip_blob": null,
+          "T_blob": "845444934d6fec2106e25af62b31f685269c2a59"
+        },
+        {
+          "path": "Applications/Sorting/Uniqueness.lean",
+          "old_tip_blob": null,
+          "T_blob": "5a0e68e51d521b6ab216e2487aa523b9b6844fcb"
+        },
+        {
+          "path": "Examples/AlternatingSorting.lean",
+          "old_tip_blob": null,
+          "T_blob": "cb3a191d95fbf83c439b9c6135adec10767723bc"
+        },
+        {
+          "path": "Examples/BottomUpCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "cd02cf29cdfa1c5a0b2db9340603e348c7f4475e"
+        },
+        {
+          "path": "Examples/BottomUpSorting.lean",
+          "old_tip_blob": null,
+          "T_blob": "8acdca99b63ebd22b6fd6dbefd37aa3f54f2d25c"
+        },
+        {
+          "path": "Examples/CallModels.lean",
+          "old_tip_blob": null,
+          "T_blob": "ec352ad4df7ed7f34438be442eddddf61b564e98"
+        },
+        {
+          "path": "Examples/DifferenceListCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "33fd3bec15f8c9b7c3078b45d90c24d7df0c1df2"
+        },
+        {
+          "path": "Examples/FunctionalNotation.lean",
+          "old_tip_blob": "c143bf1b41c4b75a849c249ef370c5d1daf9487f",
+          "T_blob": "3e5db8677c94bd330779522f92bc39508540a17a"
+        },
+        {
+          "path": "Examples/InsertionObservations.lean",
+          "old_tip_blob": null,
+          "T_blob": "c164f9c2b150ae3a25dc731846d692b2f36f6e1e"
+        },
+        {
+          "path": "Examples/ListBuildCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "e42a8264c6286a9b03f34e053a6d39094e09247b"
+        },
+        {
+          "path": "Examples/ListCalls.lean",
+          "old_tip_blob": "09cfa7440b93fa2dc83efcd9a5c1abe45a500b92",
+          "T_blob": "b4c4683ee2bd16ff6f844ce757470515847a63dc"
+        },
+        {
+          "path": "Examples/MappedPotentialAccounting.lean",
+          "old_tip_blob": "0291c5979243b0d12332d3628d06aa910732dfa2",
+          "T_blob": "1fb26b51e9f298bd1ba1d1a5fa2a425142f8d8d7"
+        },
+        {
+          "path": "Examples/MergeCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "b5f652cf5258c99f5a615b12987c664ed8be3d76"
+        },
+        {
+          "path": "Examples/NaturalRunComparisons.lean",
+          "old_tip_blob": null,
+          "T_blob": "3db23a5aedf55911f686bd66d3bc63abd67fd09e"
+        },
+        {
+          "path": "Examples/NaturalRunOperations.lean",
+          "old_tip_blob": null,
+          "T_blob": "bbb89270f236ce467da85bc177c06882b4f9d6e4"
+        },
+        {
+          "path": "Examples/NaturalRuns.lean",
+          "old_tip_blob": null,
+          "T_blob": "83f5d1b1d719fd844c8e2d1920c230a8cfebdef5"
+        },
+        {
+          "path": "Examples/NaturalSorting.lean",
+          "old_tip_blob": null,
+          "T_blob": "cf0dcd57dcf7dabc059874a074d1f902c597078b"
+        },
+        {
+          "path": "Examples/NaturalSortingCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "df34eef25210991ab4ed4c31dff13afb9ffb88ca"
+        },
+        {
+          "path": "Examples/PermutationMinimum.lean",
+          "old_tip_blob": null,
+          "T_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876"
+        },
+        {
+          "path": "Examples/PermutationMinimumBoundary.lean",
+          "old_tip_blob": null,
+          "T_blob": "2e7ca462be60d0e3c484573950b194cce532d26c"
+        },
+        {
+          "path": "Examples/PermutationOrder.lean",
+          "old_tip_blob": null,
+          "T_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35"
+        },
+        {
+          "path": "Examples/PermutationOrderBoundary.lean",
+          "old_tip_blob": null,
+          "T_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59"
+        },
+        {
+          "path": "Examples/PermutationTail.lean",
+          "old_tip_blob": null,
+          "T_blob": "baa3e26a3c72a4589765562167d1d85edc011e67"
+        },
+        {
+          "path": "Examples/PermutationTailBoundary.lean",
+          "old_tip_blob": null,
+          "T_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0"
+        },
+        {
+          "path": "Examples/QuickSort.lean",
+          "old_tip_blob": null,
+          "T_blob": "376371a0a74a54c8aaaaf653d4528af347347018"
+        },
+        {
+          "path": "Examples/QuickSortCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "89508c235b442aef7562119dcc3ba5f643bb7dad"
+        },
+        {
+          "path": "Examples/QuickSortMean.lean",
+          "old_tip_blob": null,
+          "T_blob": "8b8846019ae3d447a38f0ea0f0797ad1afe7d751"
+        },
+        {
+          "path": "Examples/QuickSortTransport.lean",
+          "old_tip_blob": null,
+          "T_blob": "089aaca818282da784d6843205fc8b97ad3c4d73"
+        },
+        {
+          "path": "Examples/RandomQuickSort.lean",
+          "old_tip_blob": null,
+          "T_blob": "9c3608babafebadb470c9e1254fa8bbd15c5ad76"
+        },
+        {
+          "path": "Examples/RandomQuickSortGrowth.lean",
+          "old_tip_blob": null,
+          "T_blob": "f9e153715b0ad68d3eac30f1dc0c2b986475a148"
+        },
+        {
+          "path": "Examples/RandomQuickSortMean.lean",
+          "old_tip_blob": null,
+          "T_blob": "2a1f75a801b49ea6a3bdbaecfc7b8e4a5407e38e"
+        },
+        {
+          "path": "Examples/RandomQuickSortRank.lean",
+          "old_tip_blob": null,
+          "T_blob": "239b28e8d564edc0e8ae54ebaa06872060c8fd1b"
+        },
+        {
+          "path": "Examples/SharedDemand.lean",
+          "old_tip_blob": null,
+          "T_blob": "937400b61230b59ad0889ec554305ce9b6b42800"
+        },
+        {
+          "path": "Examples/SortUniqueness.lean",
+          "old_tip_blob": null,
+          "T_blob": "c4960ecd07a3ed7eb40a7e3eb5240d9efaed0891"
+        },
+        {
+          "path": "Examples/ThreeWayPartition.lean",
+          "old_tip_blob": null,
+          "T_blob": "a1f29b6310bc8623df2725b0d40f3949513199c5"
+        },
+        {
+          "path": "Examples/ThreeWayQuickSort.lean",
+          "old_tip_blob": null,
+          "T_blob": "02e0333981456099e328c65a72683e75af49581a"
+        },
+        {
+          "path": "Examples/TopDownCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "05cf0aa40cfe066499ec49b3bab520cb2f3d9070"
+        },
+        {
+          "path": "Examples/TopDownSorting.lean",
+          "old_tip_blob": null,
+          "T_blob": "013dea9599add78a6e839bb9e5831cf660321d69"
+        },
+        {
+          "path": "Examples/UniformQuickSortMean.lean",
+          "old_tip_blob": null,
+          "T_blob": "cfb82beff57d8bf116b882c0c49850e4be629586"
+        },
+        {
+          "path": "docs/research/fdsa-call-models.md",
+          "old_tip_blob": null,
+          "T_blob": "4da6e1b449c3ead8b85d0f79b84e2f5f20c6ada3"
+        },
+        {
+          "path": "docs/research/fdsa-difference-list-costs.md",
+          "old_tip_blob": null,
+          "T_blob": "c383bd71d80daefe587e9fbdcd80e7e11267c2ca"
+        },
+        {
+          "path": "docs/research/fdsa-list-merge.md",
+          "old_tip_blob": null,
+          "T_blob": "dd81e91e3b4d2fa810a87b2505ace12299b70437"
+        },
+        {
+          "path": "docs/research/fdsa-notation-map.md",
+          "old_tip_blob": "53b1197fdb3c1a8681a4f9ce0cf7b82f2d859ef5",
+          "T_blob": "ba187a2744932874581e0b0b8c3741add60b9cee"
+        },
+        {
+          "path": "docs/research/fdsa-permutation-minimum.md",
+          "old_tip_blob": null,
+          "T_blob": "47f66cf564187d8326cdd880f0c8a36e51aa9101"
+        },
+        {
+          "path": "docs/research/fdsa-permutation-order.md",
+          "old_tip_blob": null,
+          "T_blob": "d3a16fc8713c5dda2797a07ad14f3174ea97f841"
+        },
+        {
+          "path": "docs/research/fdsa-permutation-tail.md",
+          "old_tip_blob": null,
+          "T_blob": "233136b41f38efafa0d5e1d8f22d8c2864340335"
+        },
+        {
+          "path": "docs/research/fdsa-sorting.md",
+          "old_tip_blob": null,
+          "T_blob": "d2fc961436394f2e4a61cdb6635b03efa1942348"
+        },
+        {
+          "path": "docs/research/fdsa-three-way-partition.md",
+          "old_tip_blob": null,
+          "T_blob": "254bc877d2d896c7e9761498518ae72c4b7b858a"
+        }
+      ]
+    },
+    "XW01": {
+      "base_key": "original_XW_base",
+      "tip_key": "XW",
+      "roots": [
+        "Applications.Probability.AccumulatedWork",
+        "Examples.AccumulatedWork",
+        "Examples.AccumulatedWorkBoundary"
+      ],
+      "expected_paths": 6,
+      "program": "accumulated-work-public-statements78-prepared-20261104/Statements.lean",
+      "public_names": 78,
+      "delta": {
+        "base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+        "tip": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+        "full_index_binary_diff_bytes": 42110,
+        "full_index_binary_diff_sha256": "d28209f020378d24faeba9855848264ee87340214f3064dae4cabd9e5dd86259"
+      },
+      "scope": [
+        {
+          "status": "A",
+          "path": "Applications/Probability/AccumulatedWork.lean",
+          "before": null,
+          "after": {
+            "path": "Applications/Probability/AccumulatedWork.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "364a3ae346feaed7205b24dfef27895a9853a3e2",
+            "bytes": 8062,
+            "lines": 157,
+            "sha256": "7731f8a6c5222810ba11a056fc620c68a152dce0024ff3e2544d17fff70a80ba"
+          }
+        },
+        {
+          "status": "A",
+          "path": "Examples/AccumulatedWork.lean",
+          "before": null,
+          "after": {
+            "path": "Examples/AccumulatedWork.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "51f43ab3698fe97b8db83084b1876851388e3738",
+            "bytes": 11953,
+            "lines": 299,
+            "sha256": "7ef773d2ce87ce1b119838e083ee4a4cff072f5d96f4a8887f8494a80d04c20c"
+          }
+        },
+        {
+          "status": "A",
+          "path": "Examples/AccumulatedWorkBoundary.lean",
+          "before": null,
+          "after": {
+            "path": "Examples/AccumulatedWorkBoundary.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "8b7bc778099db7f2de680addb54e53da58cb1f86",
+            "bytes": 9507,
+            "lines": 219,
+            "sha256": "68ba8fd9571ad860d7f5aabd7093f35c0220ff12ead1e283e903b5bdc90a6927"
+          }
+        },
+        {
+          "status": "M",
+          "path": "SquareApplications.lean",
+          "before": {
+            "path": "SquareApplications.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "a64e0129367d6c43fbd67e4cef2641a77d082581",
+            "bytes": 8292,
+            "lines": 252,
+            "sha256": "b36e3743af5043667735caab1327fda8fc1b6eebc2d7842cdd926b329b2efd68"
+          },
+          "after": {
+            "path": "SquareApplications.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "e83c99ff4bc06123a1ae38097f86ad375e5fecbb",
+            "bytes": 8324,
+            "lines": 253,
+            "sha256": "40d97b7972ba8085c076c6482cc99f130f8e92beeea3f5c0b5fc8e040e4727dd"
+          }
+        },
+        {
+          "status": "A",
+          "path": "docs/research/fdsa-accumulated-work.md",
+          "before": null,
+          "after": {
+            "path": "docs/research/fdsa-accumulated-work.md",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "316cf9cc197bbe618f7da7b9efc645b39ed1b46d",
+            "bytes": 8600,
+            "lines": 145,
+            "sha256": "191a7c449f936b84c17f3f5d33a935dd4440a199fc7287e576dfd38f4fbaca8e"
+          }
+        },
+        {
+          "status": "M",
+          "path": "docs/research/fdsa-reconstruction-map.md",
+          "before": {
+            "path": "docs/research/fdsa-reconstruction-map.md",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "7935ddd21ab3c942fb4a70003e212afb2cb01488",
+            "bytes": 15963,
+            "lines": 262,
+            "sha256": "3283880ec3b0d55286be1b080c3b58e606577e9a522f21477b8499306c627668"
+          },
+          "after": {
+            "path": "docs/research/fdsa-reconstruction-map.md",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "6666717e6909a1ece9491d3bca58a31ed0f1be2f",
+            "bytes": 16899,
+            "lines": 278,
+            "sha256": "35c5cf425168b21900c84735020df5b6a6b9ba86c099ad4d2c555821858a7024"
+          }
+        }
+      ],
+      "source_import_closure": {
+        "roots": [
+          "Applications.Probability.AccumulatedWork",
+          "Examples.AccumulatedWork",
+          "Examples.AccumulatedWorkBoundary"
+        ],
+        "local_count": 8,
+        "local_modules": {
+          "Applications.Probability.AccumulatedWork": {
+            "path": "Applications/Probability/AccumulatedWork.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "364a3ae346feaed7205b24dfef27895a9853a3e2",
+            "bytes": 8062,
+            "lines": 157,
+            "sha256": "7731f8a6c5222810ba11a056fc620c68a152dce0024ff3e2544d17fff70a80ba",
+            "direct_imports": [
+              {
+                "module": "Mathlib.MeasureTheory.Integral.Lebesgue.Markov",
+                "line": 1,
+                "statement": "import Mathlib.MeasureTheory.Integral.Lebesgue.Markov"
+              },
+              {
+                "module": "Mathlib.Analysis.SpecificLimits.Basic",
+                "line": 2,
+                "statement": "import Mathlib.Analysis.SpecificLimits.Basic"
+              },
+              {
+                "module": "Mathlib.MeasureTheory.Constructions.Polish.Basic",
+                "line": 3,
+                "statement": "import Mathlib.MeasureTheory.Constructions.Polish.Basic"
+              },
+              {
+                "module": "Mathlib.Topology.Algebra.InfiniteSum.NatInt",
+                "line": 4,
+                "statement": "import Mathlib.Topology.Algebra.InfiniteSum.NatInt"
+              }
+            ]
+          },
+          "Examples.AccumulatedWork": {
+            "path": "Examples/AccumulatedWork.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "51f43ab3698fe97b8db83084b1876851388e3738",
+            "bytes": 11953,
+            "lines": 299,
+            "sha256": "7ef773d2ce87ce1b119838e083ee4a4cff072f5d96f4a8887f8494a80d04c20c",
+            "direct_imports": [
+              {
+                "module": "Applications.Probability.AccumulatedWork",
+                "line": 1,
+                "statement": "import Applications.Probability.AccumulatedWork"
+              },
+              {
+                "module": "Applications.Resources.Workload",
+                "line": 2,
+                "statement": "import Applications.Resources.Workload"
+              },
+              {
+                "module": "Examples.AccumulatedWorkBoundary",
+                "line": 3,
+                "statement": "import Examples.AccumulatedWorkBoundary"
+              },
+              {
+                "module": "Mathlib.Probability.UniformOn",
+                "line": 4,
+                "statement": "import Mathlib.Probability.UniformOn"
+              },
+              {
+                "module": "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+                "line": 5,
+                "statement": "import Mathlib.MeasureTheory.Integral.Lebesgue.Countable"
+              },
+              {
+                "module": "Mathlib.Tactic",
+                "line": 6,
+                "statement": "import Mathlib.Tactic"
+              }
+            ]
+          },
+          "Examples.AccumulatedWorkBoundary": {
+            "path": "Examples/AccumulatedWorkBoundary.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "8b7bc778099db7f2de680addb54e53da58cb1f86",
+            "bytes": 9507,
+            "lines": 219,
+            "sha256": "68ba8fd9571ad860d7f5aabd7093f35c0220ff12ead1e283e903b5bdc90a6927",
+            "direct_imports": [
+              {
+                "module": "Applications.Probability.AccumulatedWork",
+                "line": 1,
+                "statement": "import Applications.Probability.AccumulatedWork"
+              },
+              {
+                "module": "Applications.Resources.CallCount",
+                "line": 2,
+                "statement": "import Applications.Resources.CallCount"
+              },
+              {
+                "module": "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+                "line": 3,
+                "statement": "import Mathlib.MeasureTheory.Integral.Lebesgue.Countable"
+              },
+              {
+                "module": "Mathlib.Probability.UniformOn",
+                "line": 4,
+                "statement": "import Mathlib.Probability.UniformOn"
+              },
+              {
+                "module": "Mathlib.Tactic.NormNum",
+                "line": 5,
+                "statement": "import Mathlib.Tactic.NormNum"
+              }
+            ]
+          },
+          "Applications.Resources.Workload": {
+            "path": "Applications/Resources/Workload.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+            "bytes": 2745,
+            "lines": 64,
+            "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+            "direct_imports": [
+              {
+                "module": "Applications.Resources.Measured",
+                "line": 1,
+                "statement": "import Applications.Resources.Measured"
+              },
+              {
+                "module": "SquareKit.ListFusion",
+                "line": 2,
+                "statement": "import SquareKit.ListFusion"
+              }
+            ]
+          },
+          "Applications.Resources.CallCount": {
+            "path": "Applications/Resources/CallCount.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+            "bytes": 2447,
+            "lines": 58,
+            "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+            "direct_imports": [
+              {
+                "module": "Applications.Resources.Measured",
+                "line": 1,
+                "statement": "import Applications.Resources.Measured"
+              }
+            ]
+          },
+          "Applications.Resources.Measured": {
+            "path": "Applications/Resources/Measured.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+            "bytes": 2906,
+            "lines": 71,
+            "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+            "direct_imports": [
+              {
+                "module": "Mathlib.Algebra.Group.Prod",
+                "line": 1,
+                "statement": "import Mathlib.Algebra.Group.Prod"
+              },
+              {
+                "module": "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+                "line": 2,
+                "statement": "import Mathlib.Algebra.Order.Monoid.Unbundled.Basic"
+              },
+              {
+                "module": "Squares",
+                "line": 3,
+                "statement": "import Squares"
+              }
+            ]
+          },
+          "SquareKit.ListFusion": {
+            "path": "SquareKit/ListFusion.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "33ec447acb6da7b884ae57d2a885707208201607",
+            "bytes": 2939,
+            "lines": 73,
+            "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+            "direct_imports": [
+              {
+                "module": "Mathlib.Data.List.Basic",
+                "line": 1,
+                "statement": "import Mathlib.Data.List.Basic"
+              }
+            ]
+          },
+          "Squares": {
+            "path": "Squares.lean",
+            "mode": "100644",
+            "type": "blob",
+            "blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+            "bytes": 11694,
+            "lines": 352,
+            "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+            "direct_imports": [
+              {
+                "module": "Lean",
+                "line": 1,
+                "statement": "import Lean"
+              }
+            ]
+          }
+        },
+        "direct_external_count": 12,
+        "direct_external_imports": [
+          "Lean",
+          "Mathlib.Algebra.Group.Prod",
+          "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+          "Mathlib.Analysis.SpecificLimits.Basic",
+          "Mathlib.Data.List.Basic",
+          "Mathlib.MeasureTheory.Constructions.Polish.Basic",
+          "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+          "Mathlib.MeasureTheory.Integral.Lebesgue.Markov",
+          "Mathlib.Probability.UniformOn",
+          "Mathlib.Tactic",
+          "Mathlib.Tactic.NormNum",
+          "Mathlib.Topology.Algebra.InfiniteSum.NatInt"
+        ],
+        "local_import_edges": [
+          [
+            "Examples.AccumulatedWork",
+            "Applications.Probability.AccumulatedWork"
+          ],
+          [
+            "Examples.AccumulatedWork",
+            "Applications.Resources.Workload"
+          ],
+          [
+            "Examples.AccumulatedWork",
+            "Examples.AccumulatedWorkBoundary"
+          ],
+          [
+            "Examples.AccumulatedWorkBoundary",
+            "Applications.Probability.AccumulatedWork"
+          ],
+          [
+            "Examples.AccumulatedWorkBoundary",
+            "Applications.Resources.CallCount"
+          ],
+          [
+            "Applications.Resources.Workload",
+            "Applications.Resources.Measured"
+          ],
+          [
+            "Applications.Resources.Workload",
+            "SquareKit.ListFusion"
+          ],
+          [
+            "Applications.Resources.CallCount",
+            "Applications.Resources.Measured"
+          ],
+          [
+            "Applications.Resources.Measured",
+            "Squares"
+          ]
+        ],
+        "boundary": "Project source closure only; external transitive dependency closure and generated outputs were not traversed."
+      },
+      "inherited_local_dependencies": [
+        {
+          "module": "Applications.Resources.CallCount",
+          "path": "Applications/Resources/CallCount.lean",
+          "unit_snapshot_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+          "R_F_Z_T_blobs": {
+            "R": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+            "F": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+            "Z": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+            "T": "39b9bdb9b1b9e35210170c2a1072646eebebf195"
+          },
+          "disposition": "Retain the accepted predecessor version; these exact saved versions currently agree."
+        },
+        {
+          "module": "Applications.Resources.Measured",
+          "path": "Applications/Resources/Measured.lean",
+          "unit_snapshot_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+          "R_F_Z_T_blobs": {
+            "R": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+            "F": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+            "Z": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+            "T": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46"
+          },
+          "disposition": "Retain the accepted predecessor version; these exact saved versions currently agree."
+        },
+        {
+          "module": "Applications.Resources.Workload",
+          "path": "Applications/Resources/Workload.lean",
+          "unit_snapshot_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+          "R_F_Z_T_blobs": {
+            "R": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+            "F": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+            "Z": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+            "T": "58a93181a8dbde9aa02c2b04f21ec741e7330f05"
+          },
+          "disposition": "Retain the accepted predecessor version; these exact saved versions currently agree."
+        },
+        {
+          "module": "SquareKit.ListFusion",
+          "path": "SquareKit/ListFusion.lean",
+          "unit_snapshot_blob": "33ec447acb6da7b884ae57d2a885707208201607",
+          "R_F_Z_T_blobs": {
+            "R": "33ec447acb6da7b884ae57d2a885707208201607",
+            "F": "33ec447acb6da7b884ae57d2a885707208201607",
+            "Z": "33ec447acb6da7b884ae57d2a885707208201607",
+            "T": "33ec447acb6da7b884ae57d2a885707208201607"
+          },
+          "disposition": "Retain the accepted predecessor version; these exact saved versions currently agree."
+        },
+        {
+          "module": "Squares",
+          "path": "Squares.lean",
+          "unit_snapshot_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+          "R_F_Z_T_blobs": {
+            "R": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+            "F": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+            "Z": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+            "T": "f8b190ece8e801f14aec99e3092c3389bbf6d85a"
+          },
+          "disposition": "Retain the accepted predecessor version; these exact saved versions currently agree."
+        }
+      ],
+      "prepared_program": {
+        "path": "provenance/accumulated-work-public-statements78-prepared-20261104/Statements.lean",
+        "bytes": 4862,
+        "lines": 89,
+        "sha256": "321271c07355169ab00c3c61b46f71c4e3264469d67098e8ae288bda0ee8c5f1",
+        "names": [
+          "Applications.Probability.AccumulatedWork.lintegral_le_geometric",
+          "Applications.Probability.AccumulatedWork.lintegral_tsum_shift_le",
+          "Applications.Probability.AccumulatedWork.lintegral_tsum_le",
+          "Applications.Probability.AccumulatedWork.lintegral_tsum_lt_top",
+          "Applications.Probability.AccumulatedWork.measure_tsum_ge_le",
+          "Applications.Probability.AccumulatedWork.measure_tsum_ge_le_of_stage_le",
+          "Examples.AccumulatedWork.law",
+          "Examples.AccumulatedWork.charge",
+          "Examples.AccumulatedWork.charge_le_one",
+          "Examples.AccumulatedWork.charge_late",
+          "Examples.AccumulatedWork.step",
+          "Examples.AccumulatedWork.step_cost",
+          "Examples.AccumulatedWork.program",
+          "Examples.AccumulatedWork.program_value",
+          "Examples.AccumulatedWork.program_cost",
+          "Examples.AccumulatedWork.observation",
+          "Examples.AccumulatedWork.observation_measurable",
+          "Examples.AccumulatedWork.observation_le_one",
+          "Examples.AccumulatedWork.accumulated_eq_cost",
+          "Examples.AccumulatedWork.stage_means",
+          "Examples.AccumulatedWork.initial_mean",
+          "Examples.AccumulatedWork.integrated_drift",
+          "Examples.AccumulatedWork.expected_cost_exact",
+          "Examples.AccumulatedWork.expected_cost_le",
+          "Examples.AccumulatedWork.expected_cost_finite",
+          "Examples.AccumulatedWork.remaining_eq_cost",
+          "Examples.AccumulatedWork.expected_remaining_exact",
+          "Examples.AccumulatedWork.expected_remaining_le",
+          "Examples.AccumulatedWork.tail_event",
+          "Examples.AccumulatedWork.tail_mass",
+          "Examples.AccumulatedWork.tail_le",
+          "Examples.AccumulatedWork.shared_stage_masses",
+          "Examples.AccumulatedWork.shared_stages_not_independent",
+          "Examples.AccumulatedWork.affineProgram",
+          "Examples.AccumulatedWork.affineProgram_value",
+          "Examples.AccumulatedWork.affineProgram_cost",
+          "Examples.AccumulatedWork.affine_expected_exact",
+          "Examples.AccumulatedWork.affine_expected_le",
+          "Examples.AccumulatedWork.affine_tail_event",
+          "Examples.AccumulatedWork.affine_tail_mass",
+          "Examples.AccumulatedWork.affine_tail_le",
+          "Examples.AccumulatedWorkBoundary.oneStageRun",
+          "Examples.AccumulatedWorkBoundary.oneStageRun_value",
+          "Examples.AccumulatedWorkBoundary.oneStageRun_cost",
+          "Examples.AccumulatedWorkBoundary.singleWork",
+          "Examples.AccumulatedWorkBoundary.singleWork_measurable",
+          "Examples.AccumulatedWorkBoundary.singleWork_total",
+          "Examples.AccumulatedWorkBoundary.oneStageRun_observed",
+          "Examples.AccumulatedWorkBoundary.singleWork_initial",
+          "Examples.AccumulatedWorkBoundary.singleWork_drift",
+          "Examples.AccumulatedWorkBoundary.singleWork_stage_le",
+          "Examples.AccumulatedWorkBoundary.singleWork_integral_le",
+          "Examples.AccumulatedWorkBoundary.singleWork_integral_finite",
+          "Examples.AccumulatedWorkBoundary.singleWork_tail",
+          "Examples.AccumulatedWorkBoundary.singleWork_tail_zero",
+          "Examples.AccumulatedWorkBoundary.singleWork_tail_pos",
+          "Examples.AccumulatedWorkBoundary.zeroWork",
+          "Examples.AccumulatedWorkBoundary.zeroWork_integral",
+          "Examples.AccumulatedWorkBoundary.zeroWork_non_strict_tail_fails",
+          "Examples.AccumulatedWorkBoundary.rareWork",
+          "Examples.AccumulatedWorkBoundary.uniform_three_singleton",
+          "Examples.AccumulatedWorkBoundary.rareWork_measurable",
+          "Examples.AccumulatedWorkBoundary.rareWork_initial",
+          "Examples.AccumulatedWorkBoundary.rareWork_drift",
+          "Examples.AccumulatedWorkBoundary.rareWork_total",
+          "Examples.AccumulatedWorkBoundary.rareWork_integral",
+          "Examples.AccumulatedWorkBoundary.rareWork_integral_le",
+          "Examples.AccumulatedWorkBoundary.rareWork_tail_event",
+          "Examples.AccumulatedWorkBoundary.rareWork_tail_mass",
+          "Examples.AccumulatedWorkBoundary.rareWork_tail_positive",
+          "Examples.AccumulatedWorkBoundary.rareWork_tail_without_prefix_fails",
+          "Examples.AccumulatedWorkBoundary.rareWork_prefix_fails",
+          "Examples.AccumulatedWorkBoundary.constantWork",
+          "Examples.AccumulatedWorkBoundary.constantWork_initial",
+          "Examples.AccumulatedWorkBoundary.constantWork_drift",
+          "Examples.AccumulatedWorkBoundary.constantWork_total",
+          "Examples.AccumulatedWorkBoundary.constantWork_integral",
+          "Examples.AccumulatedWorkBoundary.constantWork_extended_bound"
+        ],
+        "new_execution": false
+      },
+      "saved_tip_parents": [
+        "a14977b9e316cc484ffad8a470d26b15615956c0"
+      ],
+      "saved_scope_new_paths_absent_at_T": [
+        "Applications/Probability/AccumulatedWork.lean",
+        "Examples/AccumulatedWork.lean",
+        "Examples/AccumulatedWorkBoundary.lean",
+        "docs/research/fdsa-accumulated-work.md"
+      ],
+      "current_T_public_imports_missing_from_old_root": [
+        "Examples.PermutationMinimum",
+        "Examples.PermutationOrder",
+        "Examples.PermutationTail",
+        "Examples.MappedPotentialAccounting",
+        "Examples.InsertionCosts",
+        "Examples.ListLibrary",
+        "Examples.ListCalls",
+        "Examples.FunctionalNotation",
+        "Examples.ThreeWayPartition",
+        "Examples.DifferenceListCosts",
+        "Examples.MergeCosts",
+        "Examples.InsertionObservations",
+        "Examples.QuickSort",
+        "Examples.QuickSortCosts",
+        "Examples.TopDownSorting",
+        "Examples.TopDownCosts",
+        "Examples.BottomUpSorting",
+        "Examples.BottomUpCosts",
+        "Examples.AlternatingSorting",
+        "Examples.NaturalRuns",
+        "Examples.NaturalRunComparisons",
+        "Examples.NaturalSorting",
+        "Examples.NaturalSortingCosts",
+        "Examples.ListBuildCosts",
+        "Examples.ThreeWayQuickSort",
+        "Examples.RandomQuickSort",
+        "Examples.SortUniqueness",
+        "Examples.NaturalRunOperations",
+        "Examples.QuickSortTransport",
+        "Examples.RandomQuickSortMean",
+        "Examples.QuickSortMean",
+        "Examples.RandomQuickSortRank",
+        "Examples.UniformQuickSortMean",
+        "Examples.RandomQuickSortGrowth"
+      ],
+      "nonunit_source_differences_from_T": [
+        {
+          "path": "Applications/Probability/PermutationMinimum.lean",
+          "old_tip_blob": null,
+          "T_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d"
+        },
+        {
+          "path": "Applications/Probability/PermutationOrder.lean",
+          "old_tip_blob": null,
+          "T_blob": "b039038772d2ecdb17864678021ffa9aff4efa63"
+        },
+        {
+          "path": "Applications/Probability/PermutationTail.lean",
+          "old_tip_blob": null,
+          "T_blob": "437552dda711378d6a0910d9aa79bd99caae8977"
+        },
+        {
+          "path": "Applications/Resources/BottomUpSorting.lean",
+          "old_tip_blob": null,
+          "T_blob": "f141f4393d52e1061feaa2e57149cdea02085555"
+        },
+        {
+          "path": "Applications/Resources/CallComparison.lean",
+          "old_tip_blob": "720cbaa3dbf3db468d696bb6673eb7acd588cef3",
+          "T_blob": "af658c10d82dbae6ee1cf65fe5e8ecf56b6ba9f5"
+        },
+        {
+          "path": "Applications/Resources/DifferenceListCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "b87222f7c0eb0aafc60031864ca815c2e65fc457"
+        },
+        {
+          "path": "Applications/Resources/FIFOContracts.lean",
+          "old_tip_blob": "51a45acf742f9e984188094bb72d3744e9f6e19b",
+          "T_blob": "01839707e852b3faff6ef1a49ad88a76fb5e5c18"
+        },
+        {
+          "path": "Applications/Resources/Growth.lean",
+          "old_tip_blob": "5453fc50cc172b409f12542921a97d82ca60e067",
+          "T_blob": "65cfdecea6a600b9ed80a9784637e9811c4bd425"
+        },
+        {
+          "path": "Applications/Resources/InsertionSort.lean",
+          "old_tip_blob": null,
+          "T_blob": "d51ea6e9845378d3f7667adee189f8a210b477ed"
+        },
+        {
+          "path": "Applications/Resources/ListBuildCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "6f3c157572db29c6b9a5d415a83368f2afacb952"
+        },
+        {
+          "path": "Applications/Resources/ListCalls.lean",
+          "old_tip_blob": null,
+          "T_blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4"
+        },
+        {
+          "path": "Applications/Resources/ListMerge.lean",
+          "old_tip_blob": null,
+          "T_blob": "b658809bc2ba424807e326c3ee7cb64712865a46"
+        },
+        {
+          "path": "Applications/Resources/NaturalRunComparisons.lean",
+          "old_tip_blob": null,
+          "T_blob": "1ac499d0e87a2d7e91401c90ed01be4a1cbff1f3"
+        },
+        {
+          "path": "Applications/Resources/NaturalRunOperations.lean",
+          "old_tip_blob": null,
+          "T_blob": "b6b63bd2714a74c4c66e2ec32b860f7107bb727a"
+        },
+        {
+          "path": "Applications/Resources/NaturalSorting.lean",
+          "old_tip_blob": null,
+          "T_blob": "d80f1a8f8f5c076cbe763c8a62a4942d267e8b86"
+        },
+        {
+          "path": "Applications/Resources/Partition.lean",
+          "old_tip_blob": null,
+          "T_blob": "e9d3682a4d3a499aaffd41f73c7fc39965fa0d30"
+        },
+        {
+          "path": "Applications/Resources/Potential.lean",
+          "old_tip_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+          "T_blob": "dcf7ae78d76c1440c2d89711e6939a00ff24cc90"
+        },
+        {
+          "path": "Applications/Resources/QuickSort.lean",
+          "old_tip_blob": null,
+          "T_blob": "66bcbb7075aadfe3e1070ee532b5839091c6ab5d"
+        },
+        {
+          "path": "Applications/Resources/QuickSortMean.lean",
+          "old_tip_blob": null,
+          "T_blob": "f5bb73b3f1c2c977013919b02a307c0c3669fed1"
+        },
+        {
+          "path": "Applications/Resources/QuickSortTransport.lean",
+          "old_tip_blob": null,
+          "T_blob": "438a6a58d720002fac7a2a61abb6b0b29804df21"
+        },
+        {
+          "path": "Applications/Resources/RandomQuickSort.lean",
+          "old_tip_blob": null,
+          "T_blob": "99b1b19cbfb6e6dc875e46cdc338bf4a518674fc"
+        },
+        {
+          "path": "Applications/Resources/RandomQuickSortGrowth.lean",
+          "old_tip_blob": null,
+          "T_blob": "ecad03eedc57c3bc75e19172eb4941bef9a3faf6"
+        },
+        {
+          "path": "Applications/Resources/RandomQuickSortMean.lean",
+          "old_tip_blob": null,
+          "T_blob": "a9ce110d5aca6f04cc8d68cfd1ef5238832dbc0a"
+        },
+        {
+          "path": "Applications/Resources/RandomQuickSortRank.lean",
+          "old_tip_blob": null,
+          "T_blob": "691d5f4aebc513566813d35891f5bb749dc8d1e8"
+        },
+        {
+          "path": "Applications/Resources/TopDownSorting.lean",
+          "old_tip_blob": null,
+          "T_blob": "91cba444e67f3947d5fca7984242fde825807929"
+        },
+        {
+          "path": "Applications/Resources/UniformQuickSortMean.lean",
+          "old_tip_blob": null,
+          "T_blob": "2e06a117d18b4657dfc3e436a1939acad5427876"
+        },
+        {
+          "path": "Applications/Selection/ThreeWay.lean",
+          "old_tip_blob": "278070fc5ac4ea674adb47be8ebb2048c4273aa0",
+          "T_blob": "8627ad6d219f55a404dd96c4f4553594eaa71264"
+        },
+        {
+          "path": "Applications/Sequences/Partition.lean",
+          "old_tip_blob": null,
+          "T_blob": "ff03bd349a39b3b77c49793175d4b474199e7c43"
+        },
+        {
+          "path": "Applications/Sorting/Alternating.lean",
+          "old_tip_blob": null,
+          "T_blob": "b8147f8fc08969c67da07e9331570590a080760a"
+        },
+        {
+          "path": "Applications/Sorting/BottomUp.lean",
+          "old_tip_blob": null,
+          "T_blob": "41d69c71ffeb337684f397e5e35310cf697ba4d3"
+        },
+        {
+          "path": "Applications/Sorting/InsertionObservations.lean",
+          "old_tip_blob": null,
+          "T_blob": "3be66c5841da1fee074b9bbc5dc784f34c9a846f"
+        },
+        {
+          "path": "Applications/Sorting/Merge.lean",
+          "old_tip_blob": "15708d975dc76472da0c10990e805e2d4dfbdcbb",
+          "T_blob": "6595f901a9358398bee07333872125990ef8360c"
+        },
+        {
+          "path": "Applications/Sorting/Natural.lean",
+          "old_tip_blob": null,
+          "T_blob": "c026d784e2397e61b9b2848c6867f5b145a019eb"
+        },
+        {
+          "path": "Applications/Sorting/NaturalRuns.lean",
+          "old_tip_blob": null,
+          "T_blob": "5590b9aeb9f93670602774360e87a374db8228a7"
+        },
+        {
+          "path": "Applications/Sorting/QuickSort.lean",
+          "old_tip_blob": null,
+          "T_blob": "01026a360a8f9f44afacd2fbd6ddb356ef8a95d4"
+        },
+        {
+          "path": "Applications/Sorting/ThreeWayQuickSort.lean",
+          "old_tip_blob": null,
+          "T_blob": "587a649182fc07df34f685021c5b29b9f477be07"
+        },
+        {
+          "path": "Applications/Sorting/TopDown.lean",
+          "old_tip_blob": null,
+          "T_blob": "845444934d6fec2106e25af62b31f685269c2a59"
+        },
+        {
+          "path": "Applications/Sorting/Uniqueness.lean",
+          "old_tip_blob": null,
+          "T_blob": "5a0e68e51d521b6ab216e2487aa523b9b6844fcb"
+        },
+        {
+          "path": "Examples/AlternatingSorting.lean",
+          "old_tip_blob": null,
+          "T_blob": "cb3a191d95fbf83c439b9c6135adec10767723bc"
+        },
+        {
+          "path": "Examples/BottomUpCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "cd02cf29cdfa1c5a0b2db9340603e348c7f4475e"
+        },
+        {
+          "path": "Examples/BottomUpSorting.lean",
+          "old_tip_blob": null,
+          "T_blob": "8acdca99b63ebd22b6fd6dbefd37aa3f54f2d25c"
+        },
+        {
+          "path": "Examples/CallModels.lean",
+          "old_tip_blob": "b2864078be11bf498366d6e58224ee70c8fa8529",
+          "T_blob": "ec352ad4df7ed7f34438be442eddddf61b564e98"
+        },
+        {
+          "path": "Examples/DifferenceListCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "33fd3bec15f8c9b7c3078b45d90c24d7df0c1df2"
+        },
+        {
+          "path": "Examples/FunctionalNotation.lean",
+          "old_tip_blob": null,
+          "T_blob": "3e5db8677c94bd330779522f92bc39508540a17a"
+        },
+        {
+          "path": "Examples/InsertionCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "1c3de9b0a0a5f27f108de09f28f6ac55f4cddb36"
+        },
+        {
+          "path": "Examples/InsertionObservations.lean",
+          "old_tip_blob": null,
+          "T_blob": "c164f9c2b150ae3a25dc731846d692b2f36f6e1e"
+        },
+        {
+          "path": "Examples/ListBuildCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "e42a8264c6286a9b03f34e053a6d39094e09247b"
+        },
+        {
+          "path": "Examples/ListCalls.lean",
+          "old_tip_blob": null,
+          "T_blob": "b4c4683ee2bd16ff6f844ce757470515847a63dc"
+        },
+        {
+          "path": "Examples/ListLibrary.lean",
+          "old_tip_blob": null,
+          "T_blob": "99ba369997885e176bbda192ee0feb5c7bf4d034"
+        },
+        {
+          "path": "Examples/MappedPotentialAccounting.lean",
+          "old_tip_blob": null,
+          "T_blob": "1fb26b51e9f298bd1ba1d1a5fa2a425142f8d8d7"
+        },
+        {
+          "path": "Examples/MergeCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "b5f652cf5258c99f5a615b12987c664ed8be3d76"
+        },
+        {
+          "path": "Examples/NaturalRunComparisons.lean",
+          "old_tip_blob": null,
+          "T_blob": "3db23a5aedf55911f686bd66d3bc63abd67fd09e"
+        },
+        {
+          "path": "Examples/NaturalRunOperations.lean",
+          "old_tip_blob": null,
+          "T_blob": "bbb89270f236ce467da85bc177c06882b4f9d6e4"
+        },
+        {
+          "path": "Examples/NaturalRuns.lean",
+          "old_tip_blob": null,
+          "T_blob": "83f5d1b1d719fd844c8e2d1920c230a8cfebdef5"
+        },
+        {
+          "path": "Examples/NaturalSorting.lean",
+          "old_tip_blob": null,
+          "T_blob": "cf0dcd57dcf7dabc059874a074d1f902c597078b"
+        },
+        {
+          "path": "Examples/NaturalSortingCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "df34eef25210991ab4ed4c31dff13afb9ffb88ca"
+        },
+        {
+          "path": "Examples/PermutationMinimum.lean",
+          "old_tip_blob": null,
+          "T_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876"
+        },
+        {
+          "path": "Examples/PermutationMinimumBoundary.lean",
+          "old_tip_blob": null,
+          "T_blob": "2e7ca462be60d0e3c484573950b194cce532d26c"
+        },
+        {
+          "path": "Examples/PermutationOrder.lean",
+          "old_tip_blob": null,
+          "T_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35"
+        },
+        {
+          "path": "Examples/PermutationOrderBoundary.lean",
+          "old_tip_blob": null,
+          "T_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59"
+        },
+        {
+          "path": "Examples/PermutationTail.lean",
+          "old_tip_blob": null,
+          "T_blob": "baa3e26a3c72a4589765562167d1d85edc011e67"
+        },
+        {
+          "path": "Examples/PermutationTailBoundary.lean",
+          "old_tip_blob": null,
+          "T_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0"
+        },
+        {
+          "path": "Examples/QuickSort.lean",
+          "old_tip_blob": null,
+          "T_blob": "376371a0a74a54c8aaaaf653d4528af347347018"
+        },
+        {
+          "path": "Examples/QuickSortCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "89508c235b442aef7562119dcc3ba5f643bb7dad"
+        },
+        {
+          "path": "Examples/QuickSortMean.lean",
+          "old_tip_blob": null,
+          "T_blob": "8b8846019ae3d447a38f0ea0f0797ad1afe7d751"
+        },
+        {
+          "path": "Examples/QuickSortTransport.lean",
+          "old_tip_blob": null,
+          "T_blob": "089aaca818282da784d6843205fc8b97ad3c4d73"
+        },
+        {
+          "path": "Examples/RandomQuickSort.lean",
+          "old_tip_blob": null,
+          "T_blob": "9c3608babafebadb470c9e1254fa8bbd15c5ad76"
+        },
+        {
+          "path": "Examples/RandomQuickSortGrowth.lean",
+          "old_tip_blob": null,
+          "T_blob": "f9e153715b0ad68d3eac30f1dc0c2b986475a148"
+        },
+        {
+          "path": "Examples/RandomQuickSortMean.lean",
+          "old_tip_blob": null,
+          "T_blob": "2a1f75a801b49ea6a3bdbaecfc7b8e4a5407e38e"
+        },
+        {
+          "path": "Examples/RandomQuickSortRank.lean",
+          "old_tip_blob": null,
+          "T_blob": "239b28e8d564edc0e8ae54ebaa06872060c8fd1b"
+        },
+        {
+          "path": "Examples/SharedDemand.lean",
+          "old_tip_blob": "a549bdd1c72159477c046cf8f7e9d142cf98e8de",
+          "T_blob": "937400b61230b59ad0889ec554305ce9b6b42800"
+        },
+        {
+          "path": "Examples/SortUniqueness.lean",
+          "old_tip_blob": null,
+          "T_blob": "c4960ecd07a3ed7eb40a7e3eb5240d9efaed0891"
+        },
+        {
+          "path": "Examples/ThreeWayPartition.lean",
+          "old_tip_blob": null,
+          "T_blob": "a1f29b6310bc8623df2725b0d40f3949513199c5"
+        },
+        {
+          "path": "Examples/ThreeWayQuickSort.lean",
+          "old_tip_blob": null,
+          "T_blob": "02e0333981456099e328c65a72683e75af49581a"
+        },
+        {
+          "path": "Examples/TopDownCosts.lean",
+          "old_tip_blob": null,
+          "T_blob": "05cf0aa40cfe066499ec49b3bab520cb2f3d9070"
+        },
+        {
+          "path": "Examples/TopDownSorting.lean",
+          "old_tip_blob": null,
+          "T_blob": "013dea9599add78a6e839bb9e5831cf660321d69"
+        },
+        {
+          "path": "Examples/UniformQuickSortMean.lean",
+          "old_tip_blob": null,
+          "T_blob": "cfb82beff57d8bf116b882c0c49850e4be629586"
+        },
+        {
+          "path": "docs/research/fdsa-difference-list-costs.md",
+          "old_tip_blob": null,
+          "T_blob": "c383bd71d80daefe587e9fbdcd80e7e11267c2ca"
+        },
+        {
+          "path": "docs/research/fdsa-list-merge.md",
+          "old_tip_blob": null,
+          "T_blob": "dd81e91e3b4d2fa810a87b2505ace12299b70437"
+        },
+        {
+          "path": "docs/research/fdsa-notation-map.md",
+          "old_tip_blob": null,
+          "T_blob": "ba187a2744932874581e0b0b8c3741add60b9cee"
+        },
+        {
+          "path": "docs/research/fdsa-permutation-minimum.md",
+          "old_tip_blob": null,
+          "T_blob": "47f66cf564187d8326cdd880f0c8a36e51aa9101"
+        },
+        {
+          "path": "docs/research/fdsa-permutation-order.md",
+          "old_tip_blob": null,
+          "T_blob": "d3a16fc8713c5dda2797a07ad14f3174ea97f841"
+        },
+        {
+          "path": "docs/research/fdsa-permutation-tail.md",
+          "old_tip_blob": null,
+          "T_blob": "233136b41f38efafa0d5e1d8f22d8c2864340335"
+        },
+        {
+          "path": "docs/research/fdsa-potential-accounting.md",
+          "old_tip_blob": null,
+          "T_blob": "b9e70b3a5c15606de595f319ff5d11cdd9ff941e"
+        },
+        {
+          "path": "docs/research/fdsa-sorting.md",
+          "old_tip_blob": null,
+          "T_blob": "d2fc961436394f2e4a61cdb6635b03efa1942348"
+        },
+        {
+          "path": "docs/research/fdsa-three-way-partition.md",
+          "old_tip_blob": null,
+          "T_blob": "254bc877d2d896c7e9761498518ae72c4b7b858a"
+        }
+      ]
+    }
+  },
+  "critical_predecessor_blob_matrix": {
+    "Applications/Resources/Potential.lean": {
+      "R": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+      "F": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+      "Z": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+      "T": "dcf7ae78d76c1440c2d89711e6939a00ff24cc90",
+      "XR": "3ffc5e120f94f87c77a442728f654f3fa94d3aeb",
+      "XW": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1"
+    },
+    "Applications/Resources/FIFOContracts.lean": {
+      "R": "51a45acf742f9e984188094bb72d3744e9f6e19b",
+      "F": "51a45acf742f9e984188094bb72d3744e9f6e19b",
+      "Z": "51a45acf742f9e984188094bb72d3744e9f6e19b",
+      "T": "01839707e852b3faff6ef1a49ad88a76fb5e5c18",
+      "XR": "01839707e852b3faff6ef1a49ad88a76fb5e5c18",
+      "XW": "51a45acf742f9e984188094bb72d3744e9f6e19b"
+    },
+    "Applications/Resources/CallComparison.lean": {
+      "R": "af658c10d82dbae6ee1cf65fe5e8ecf56b6ba9f5",
+      "F": "af658c10d82dbae6ee1cf65fe5e8ecf56b6ba9f5",
+      "Z": "af658c10d82dbae6ee1cf65fe5e8ecf56b6ba9f5",
+      "T": "af658c10d82dbae6ee1cf65fe5e8ecf56b6ba9f5",
+      "XR": null,
+      "XW": "720cbaa3dbf3db468d696bb6673eb7acd588cef3"
+    },
+    "Applications/Resources/SharedDemand.lean": {
+      "R": "449d7fce653a449be11209c4cb8cb23ae1240609",
+      "F": "449d7fce653a449be11209c4cb8cb23ae1240609",
+      "Z": "449d7fce653a449be11209c4cb8cb23ae1240609",
+      "T": "449d7fce653a449be11209c4cb8cb23ae1240609",
+      "XR": null,
+      "XW": "449d7fce653a449be11209c4cb8cb23ae1240609"
+    },
+    "Examples/CallModels.lean": {
+      "R": "ec352ad4df7ed7f34438be442eddddf61b564e98",
+      "F": "ec352ad4df7ed7f34438be442eddddf61b564e98",
+      "Z": "ec352ad4df7ed7f34438be442eddddf61b564e98",
+      "T": "ec352ad4df7ed7f34438be442eddddf61b564e98",
+      "XR": null,
+      "XW": "b2864078be11bf498366d6e58224ee70c8fa8529"
+    },
+    "Examples/SharedDemand.lean": {
+      "R": "937400b61230b59ad0889ec554305ce9b6b42800",
+      "F": "937400b61230b59ad0889ec554305ce9b6b42800",
+      "Z": "937400b61230b59ad0889ec554305ce9b6b42800",
+      "T": "937400b61230b59ad0889ec554305ce9b6b42800",
+      "XR": null,
+      "XW": "a549bdd1c72159477c046cf8f7e9d142cf98e8de"
+    },
+    "Applications/Resources/InsertionSort.lean": {
+      "R": null,
+      "F": "d51ea6e9845378d3f7667adee189f8a210b477ed",
+      "Z": "d51ea6e9845378d3f7667adee189f8a210b477ed",
+      "T": "d51ea6e9845378d3f7667adee189f8a210b477ed",
+      "XR": "d51ea6e9845378d3f7667adee189f8a210b477ed",
+      "XW": null
+    },
+    "Applications/Resources/ListCalls.lean": {
+      "R": null,
+      "F": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4",
+      "Z": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4",
+      "T": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4",
+      "XR": "ed38d5f95f508b564489b676b4dbceb9ac67b87f",
+      "XW": null
+    },
+    "Examples/FunctionalNotation.lean": {
+      "R": null,
+      "F": "3e5db8677c94bd330779522f92bc39508540a17a",
+      "Z": "3e5db8677c94bd330779522f92bc39508540a17a",
+      "T": "3e5db8677c94bd330779522f92bc39508540a17a",
+      "XR": "c143bf1b41c4b75a849c249ef370c5d1daf9487f",
+      "XW": null
+    },
+    "Applications/Resources/Growth.lean": {
+      "R": "5453fc50cc172b409f12542921a97d82ca60e067",
+      "F": "5453fc50cc172b409f12542921a97d82ca60e067",
+      "Z": "65cfdecea6a600b9ed80a9784637e9811c4bd425",
+      "T": "65cfdecea6a600b9ed80a9784637e9811c4bd425",
+      "XR": "5453fc50cc172b409f12542921a97d82ca60e067",
+      "XW": "5453fc50cc172b409f12542921a97d82ca60e067"
+    },
+    "SquareApplications.lean": {
+      "R": "a64e0129367d6c43fbd67e4cef2641a77d082581",
+      "F": "1f7e4544b1eb77614a1c6fb2311e0d3290a3b1a5",
+      "Z": "1a220ba195105933210bd1578552f07052d6224b",
+      "T": "77116918bf2466ff362c7c2357470cd413a43ec3",
+      "XR": "99c912978cbbc57837e5b9dc19995aaa13d71a53",
+      "XW": "e83c99ff4bc06123a1ae38097f86ad375e5fecbb"
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "R": "7935ddd21ab3c942fb4a70003e212afb2cb01488",
+      "F": "327f797c0cfbef722d85bfe9143c32f4415c2680",
+      "Z": "ec2ac8c975be8e5e22fc8574d71c025732cd2ff2",
+      "T": "db598df8a4fe01d368cd0c791040dee22b5d7311",
+      "XR": "c051f7fa4ebb314068396014d6b16ee61f8d82e4",
+      "XW": "6666717e6909a1ece9491d3bca58a31ed0f1be2f"
+    }
+  },
+  "XP01_DOC_001": {
+    "required_T_text": "For Chapter 1, the only existing public-interface adjustment is the universe\nsignature of `Resources.erasureSquare`. Its value carriers may now live above the cost type;",
+    "T_map_identity": {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "db598df8a4fe01d368cd0c791040dee22b5d7311",
+      "bytes": 44533,
+      "lines": 677,
+      "sha256": "c617f951a84072835c80945c8093a2096272d97f9e21981d865a263a19eb186b"
+    },
+    "XR_original_unqualified_text": "The only existing public-interface adjustment is the universe signature of\n`Resources.erasureSquare`. Its value carriers may now live above the cost type;",
+    "disposition": "Preserve already resolved Chapter1 qualifier; inherited XR finding, not a duplicate new finding. XW original predates XP API change."
+  },
+  "public_note_status_contexts": [
+    {
+      "unit": "XP01",
+      "identity": {
+        "path": "docs/research/fdsa-potential-accounting.md",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b9e70b3a5c15606de595f319ff5d11cdd9ff941e",
+        "bytes": 9877,
+        "lines": 163,
+        "sha256": "19c6dc50bc71b518c879cdd8a3f238a3fc5726e5d2486469e18a94a3f310d272"
+      },
+      "read_boundary": "Only the explicit status/correspondence contexts listed here; full mathematical prose is covered by the retained complete independent reports, not newly reviewed here.",
+      "selected_lines": [
+        {
+          "line": 4,
+          "text": "tracked locally as FDSA-XP01 under issue #174. It extends the existing"
+        },
+        {
+          "line": 5,
+          "text": "[workload and potential interfaces](adwh-potential-accounting.md); it does not"
+        },
+        {
+          "line": 6,
+          "text": "introduce another executor or start acceptance of Chapters 19–23. The local"
+        },
+        {
+          "line": 7,
+          "text": "tracker records candidate validation and independent review. This draft has"
+        },
+        {
+          "line": 8,
+          "text": "not yet passed those gates."
+        },
+        {
+          "line": 9,
+          "text": ""
+        },
+        {
+          "line": 81,
+          "text": "or charges."
+        },
+        {
+          "line": 82,
+          "text": ""
+        },
+        {
+          "line": 83,
+          "text": "## Connected cases and statement review"
+        },
+        {
+          "line": 84,
+          "text": ""
+        },
+        {
+          "line": 85,
+          "text": "The new client is `Examples.MappedPotentialAccounting`, imported by the public"
+        },
+        {
+          "line": 86,
+          "text": "entrypoint. The expected calculations were recorded in the external exact"
+        },
+        {
+          "line": 87,
+          "text": "requirements before these definitions and proofs were written. Compilation,"
+        },
+        {
+          "line": 88,
+          "text": "axiom audit and independent final reviews are pending; the following describes"
+        },
+        {
+          "line": 89,
+          "text": "the intended connections, not a completed validation result."
+        },
+        {
+          "line": 90,
+          "text": ""
+        },
+        {
+          "line": 91,
+          "text": "### Existing counter interpreted in real numbers"
+        },
+        {
+          "line": 146,
+          "text": "order. This exercises the boundary theorem without assuming commutative"
+        },
+        {
+          "line": 147,
+          "text": "addition. The old counter, symmetric-list, FIFO and random-access clients"
+        },
+        {
+          "line": 148,
+          "text": "remain validation targets for the generalized definition."
+        },
+        {
+          "line": 149,
+          "text": ""
+        },
+        {
+          "line": 150,
+          "text": "## Remaining boundaries and acceptance"
+        },
+        {
+          "line": 151,
+          "text": ""
+        },
+        {
+          "line": 152,
+          "text": "These are mathematical modeled observations. They assert no compiled runtime,"
+        },
+        {
+          "line": 153,
+          "text": "allocation, machine overflow, lazy evaluation or hardware bound. Persistent"
+        },
+        {
+          "line": 154,
+          "text": "reuse of the same starting object is not repeated execution on its successor"
+        },
+        {
+          "line": 156,
+          "text": "occurrences in an operation history. Neither fact follows from unary `run`."
+        },
+        {
+          "line": 157,
+          "text": ""
+        },
+        {
+          "line": 158,
+          "text": "The exact requirements and preflight are in the checkpoint's `fdsa-control`"
+        },
+        {
+          "line": 159,
+          "text": "directory, outside the implementation diff. Acceptance requires a committed"
+        },
+        {
+          "line": 160,
+          "text": "immutable candidate, applicable focused builds, the full guarded check and"
+        },
+        {
+          "line": 161,
+          "text": "exhaustive proof audit, both independent review axes, and final candidate"
+        },
+        {
+          "line": 162,
+          "text": "identity verification. A checkpoint may preserve this draft before those"
+        },
+        {
+          "line": 163,
+          "text": "gates; it does not confer acceptance on this unit or any later chapter."
+        }
+      ]
+    },
+    {
+      "unit": "XR01",
+      "identity": {
+        "path": "docs/research/fdsa-affine-recurrence.md",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8319a4470bd0dacaa518e6d149fee26e67a1a64a",
+        "bytes": 9975,
+        "lines": 233,
+        "sha256": "a07b086bc846c0898b2713a7b055b9cb451d0471c655eeaab9cc1077f32b87bf"
+      },
+      "read_boundary": "Only the explicit status/correspondence contexts listed here; full mathematical prose is covered by the retained complete independent reports, not newly reviewed here.",
+      "selected_lines": [
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "This is a shared arithmetic unit for the whole-book FDSA reconstruction. Its"
+        },
+        {
+          "line": 4,
+          "text": "source is drafted before compilation; validation and independent review remain"
+        },
+        {
+          "line": 5,
+          "text": "pending. It prepares a reusable argument for later chapter work while preserving"
+        },
+        {
+          "line": 6,
+          "text": "the chapter acceptance order."
+        },
+        {
+          "line": 7,
+          "text": ""
+        },
+        {
+          "line": 8,
+          "text": "## Source and scope"
+        },
+        {
+          "line": 136,
+          "text": "remain internal proof details."
+        },
+        {
+          "line": 137,
+          "text": ""
+        },
+        {
+          "line": 138,
+          "text": "## Connected cases and statement review"
+        },
+        {
+          "line": 139,
+          "text": ""
+        },
+        {
+          "line": 140,
+          "text": "The retained clients are in"
+        },
+        {
+          "line": 141,
+          "text": "[`Examples.AffineRecurrence`](../../Examples/AffineRecurrence.lean). They are"
+        },
+        {
+          "line": 142,
+          "text": "source drafts pending the normal checks; the following records their intended"
+        },
+        {
+          "line": 143,
+          "text": "mathematics and connections."
+        },
+        {
+          "line": 144,
+          "text": ""
+        },
+        {
+          "line": 223,
+          "text": "their direct chapter-specific induction arguments."
+        },
+        {
+          "line": 224,
+          "text": ""
+        },
+        {
+          "line": 225,
+          "text": "## Validation boundary"
+        },
+        {
+          "line": 226,
+          "text": ""
+        },
+        {
+          "line": 227,
+          "text": "The frozen shared-unit requirements and source preflight are preserved in the"
+        },
+        {
+          "line": 228,
+          "text": "external `fdsa-control` checkpoint directory. No compiler was run during this"
+        },
+        {
+          "line": 229,
+          "text": "draft while the earlier Chapter 1 full gate remained active. Static source and"
+        },
+        {
+          "line": 230,
+          "text": "API inspection is not Lean elaboration, an axiom audit or independent approval."
+        },
+        {
+          "line": 231,
+          "text": "The coordinated workflow still needs focused compilation, public-root"
+        },
+        {
+          "line": 232,
+          "text": "integration, the full applicable guarded candidate check and exhaustive audit,"
+        },
+        {
+          "line": 233,
+          "text": "both retained review axes, and immediate final candidate identity verification."
+        }
+      ]
+    },
+    {
+      "unit": "XW01",
+      "identity": {
+        "path": "docs/research/fdsa-accumulated-work.md",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "316cf9cc197bbe618f7da7b9efc645b39ed1b46d",
+        "bytes": 8600,
+        "lines": 145,
+        "sha256": "191a7c449f936b84c17f3f5d33a935dd4440a199fc7287e576dfd38f4fbaca8e"
+      },
+      "read_boundary": "Only the explicit status/correspondence contexts listed here; full mathematical prose is covered by the retained complete independent reports, not newly reviewed here.",
+      "selected_lines": [
+        {
+          "line": 5,
+          "text": "July 27, 2026 FDSA book, especially the selection discussion on printed p.35."
+        },
+        {
+          "line": 6,
+          "text": "The exact source inventories, frozen scope, API preflight and independent"
+        },
+        {
+          "line": 7,
+          "text": "calculations are retained in the local recovery checkpoint under FDSA-XW01."
+        },
+        {
+          "line": 8,
+          "text": ""
+        },
+        {
+          "line": 9,
+          "text": "The implementation is currently **uncompiled**. Its proof scripts, public"
+        },
+        {
+          "line": 10,
+          "text": "integration and statement review do not establish elaboration, exhaustive"
+        },
+        {
+          "line": 11,
+          "text": "axiom compliance, chapter acceptance or final independent approval. The"
+        },
+        {
+          "line": 12,
+          "text": "existing older Chapter 1 gate remains unchanged; no additional compiler run"
+        },
+        {
+          "line": 13,
+          "text": "was started for this draft. Read the checkpoint's status and review records"
+        },
+        {
+          "line": 14,
+          "text": "for the actual validation state."
+        },
+        {
+          "line": 15,
+          "text": ""
+        },
+        {
+          "line": 16,
+          "text": "## Existing semantics and the added argument"
+        },
+        {
+          "line": 120,
+          "text": ""
+        },
+        {
+          "line": 121,
+          "text": "These are ordinary clients of the public claims and standard measure laws."
+        },
+        {
+          "line": 122,
+          "text": "Their source-level proof scripts remain subject to the same compiler/audit"
+        },
+        {
+          "line": 123,
+          "text": "and independent review gates as the core."
+        },
+        {
+          "line": 124,
+          "text": ""
+        },
+        {
+          "line": 125,
+          "text": "## Source-specific obligations still to discharge"
+        }
+      ]
+    }
+  ],
+  "control_and_review_inputs": [
+    {
+      "path": "REQUEST.md",
+      "bytes": 8549,
+      "lines": 148,
+      "sha256": "670038db71064a643014c952161666544cf37a4c9e17f14ddc7c4478e78dc6d8",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "STATUS.md",
+      "bytes": 2653,
+      "lines": 17,
+      "sha256": "773ebefeb56f39488aabf1dfe0b17285a96ec3edc62a3403f984492584027d62",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "reviews/potential-requirements.md",
+      "bytes": 7148,
+      "lines": 116,
+      "sha256": "545b5d2ff4a93594f2b1ca245594233bdfcf461b8f4fe14b3bbe698e6ad1aa2f",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "reviews/affine-recurrence-requirements.md",
+      "bytes": 5540,
+      "lines": 96,
+      "sha256": "5873700a349c359d15873829f1399a20225fa80eaa980e7ad9f1e4c8f774dd02",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "reviews/accumulated-work-requirements.md",
+      "bytes": 9206,
+      "lines": 160,
+      "sha256": "85c651891cf8c8ee016706bf8baad7711dbd9965eb20ad5c6e96d2ab112728e1",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "reviews/potential-round1.md",
+      "bytes": 8069,
+      "lines": 123,
+      "sha256": "7376c6388f06878402844d3f3336f67d55bfd1699b7b1869412a73e917819214",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "reviews/affine-recurrence-round1.md",
+      "bytes": 1959,
+      "lines": 34,
+      "sha256": "92d797e5a7ca1a60cf2abf2f9340777a12d81e9f14660db883e6053066d88adc",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "reviews/accumulated-work-round1.md",
+      "bytes": 1816,
+      "lines": 30,
+      "sha256": "de5d32c071844a7f273a7e29309bfd845ba99bc33260b9d3b41bace23803b5b5",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "reviews/potential-standards-development-20261104.md",
+      "bytes": 40275,
+      "lines": 204,
+      "sha256": "a8c87f38de333a77ab03c82f7da1d3d1b3f122369dd9abb36c8d85acebf495f8",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "reviews/potential-spec-development-20261104.md",
+      "bytes": 30193,
+      "lines": 150,
+      "sha256": "9bba3ac4ffa5a5dab1e8a32e3a990851f55846a16dd4a16a72605fd00e21a615",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "reviews/affine-recurrence-standards-preparation-20261104.md",
+      "bytes": 15543,
+      "lines": 96,
+      "sha256": "bff3e140f1178b6f77ac2d12a42e544dbf2d7522bc27bcf793d1e7ef55b24e92",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "reviews/affine-recurrence-spec-preparation-20261104.md",
+      "bytes": 19622,
+      "lines": 100,
+      "sha256": "8ee3cac08c1cb0d4b4d8b29821b5de9b54e549530d081155130065c3bb8e8b32",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "reviews/accumulated-work-standards-preparation-20261104.md",
+      "bytes": 19038,
+      "lines": 129,
+      "sha256": "e7ea58583cd0c9eabd73e86e0137c874ea3f85b243e6b6d522387175c33ae1b3",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "reviews/accumulated-work-spec-preparation-20261104.md",
+      "bytes": 16845,
+      "lines": 92,
+      "sha256": "9934402d16c3ff5e5006b8ade3ab6995f50739185ed1e5d68a2d9b004ef3f1ba",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "tickets/FDSA-XP01.md",
+      "bytes": 4503,
+      "lines": 75,
+      "sha256": "060786072ff71561f0408786134ed80026f2549763c56639dfef906ed3b2ede0",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "tickets/FDSA-XR01.md",
+      "bytes": 2996,
+      "lines": 53,
+      "sha256": "6016e4bb7e0884862b7737db5882f6b7d264bd19a94dc7a063f302ccc10ec4b9",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "tickets/FDSA-XW01.md",
+      "bytes": 4631,
+      "lines": 80,
+      "sha256": "0fc641a0f17b87b2e497c1c0840e55c02a9042e035731ed24daa191c83539b68",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "reviews/affine-recurrence-candidate.md",
+      "bytes": 4774,
+      "lines": 80,
+      "sha256": "4c205b012b58219b0022427e32a12717dd46bd25a38ae68f53c62d16b8baeab4",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "reviews/accumulated-work-candidate.md",
+      "bytes": 7034,
+      "lines": 122,
+      "sha256": "fedc0f458838911cec5e1f8e94c4e60b494afc40d7142ee041cdf65fdad51343",
+      "read_boundary": "Complete file in this task, including complete current reports in contiguous bounded displays."
+    },
+    {
+      "path": "CURRENT.md",
+      "bytes": 9790,
+      "lines": 59,
+      "sha256": "9190350aa842526ac398d6452a1a31b64853130eb697e57e004a9dc73bb62bd0",
+      "read_boundary": "Complete operative version headed checkpoint0104 saved, updated 2026-11-04T12:35:49.212588+00:00, read in this task; identity is the preparation-time snapshot."
+    },
+    {
+      "path": "tickets/INDEX.md",
+      "bytes": 26683,
+      "lines": 317,
+      "sha256": "df2ee0aef314129a70a84c6a47239c954d8e5ee5428875c9913a45c05ba9022f",
+      "read_boundary": "Current XP01/XR01/XW01 rows21/22/24 only in this task; previous general-index readings are not expanded here."
+    }
+  ],
+  "repository_instructions": {
+    "AGENTS": {
+      "path": "AGENTS.md",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "1b1e65502f0b0771b2475e3b1f37e39d7f18d0c2",
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "read_boundary": "Complete AGENTS.md read; planning/read-only investigation does not initiate a replacement implementation loop."
+    },
+    "other_instructions": "Existing whole-book implementation/review loop, native exact-profile and normal/fresh requirements retained through the cited complete current independent reports; no new code design or mathematical review performed."
+  },
+  "historical_evidence_bindings": {
+    "XP01_focused4_outer_sha256": "af30e36b8363ec4d16eb2702a5c50f49fe51b7117e455607254fed7cc840c19c",
+    "XP01_actual20_native_sha256": "e1b29bcf05bd9841e7213b71f024f22153a4eb644d6df2ba659800eb5fd83f76",
+    "XP01_actual20_outer_sha256": "52743ef8b74aa06f5af0efe5188ae6ebf81af7b948748d3d6b650a9411e1acde",
+    "binding_source": "Complete current independent reports and round1 read in this preparation; no fresh runtime/output observation or repeated full log read is claimed here.",
+    "XR_actual_types": 0,
+    "XW_actual_types": 0,
+    "new_actual_types": 0
+  },
+  "read_boundary": {
+    "full_new_mathematical_review": false,
+    "all_six_current_reports_complete": true,
+    "all_three_requirements_complete": true,
+    "all_three_type_programs_complete": true,
+    "unit_source_boundary": "Immutable source identities, scope diffs, listed ordinary import statements, complete root/map deltas and selected public-note status contexts. Existing full independent source assessments retained.",
+    "external_dependency_source_read_this_task": false,
+    "discarded_truncated_display": true,
+    "expected_absent_git_path_queries": "Missing new-unit paths at R/Z/T were observed by bounded immutable lookups; later ls-tree-based identity accounting avoids stderr noise. No validation result follows."
+  },
+  "actions": {
+    "new_source_or_refs": false,
+    "compiler_or_cache": false,
+    "process_polling": false,
+    "live_F_capture": false,
+    "merge_or_candidate_assembly": false,
+    "future_reuse_credit": false,
+    "only_new_files": [
+      "plan.md",
+      "receipt.json"
+    ]
+  },
+  "plan": {
+    "path": "plan.md",
+    "bytes": 15013,
+    "lines": 76,
+    "sha256": "aaae4973f9b965d9f5520d8a6623f820a80116d6a2469c613ad171626fcffafe"
+  },
+  "author_readback": {
+    "completed_at_utc": "2026-11-04T12:46:34.249123+00:00",
+    "plan_complete_76_lines_read": true,
+    "plan_sha256": "aaae4973f9b965d9f5520d8a6623f820a80116d6a2469c613ad171626fcffafe",
+    "distinct_source_blobs_mechanically_reverified": 38,
+    "all_recorded_control_inputs_still_match": true,
+    "all_three_existing_programs_still_match": true,
+    "scope_counts": [
+      6,
+      5,
+      6
+    ],
+    "local_closure_counts": [
+      15,
+      2,
+      8
+    ],
+    "inherited_equal_R_F_Z_T_counts": [
+      12,
+      0,
+      5
+    ],
+    "public_program_counts": [
+      20,
+      21,
+      78
+    ],
+    "new_source_assessment_or_compiler_credit": false,
+    "write_boundary": "Only plan.md and receipt.json in this new package; source/ref/compiler/cache/process actions remain prohibited."
+  }
+}

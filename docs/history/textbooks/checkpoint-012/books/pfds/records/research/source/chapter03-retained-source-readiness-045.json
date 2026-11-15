@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "observed_at": "2026-11-04T01:57:52.111Z",
+  "kind": "bounded read-only Chapter3 source readiness reconciliation",
+  "reviewer": "/root/thesis_bootstrapping_inventory",
+  "primary_book_reinspected_now": false,
+  "book_sha256": "b9dbf4f6ade4c24da438fd5415fc3abdd3af0aa8459d7e41e4a27de844c7ad41",
+  "records": [
+    "session/research/chapter03-union-inventory.md",
+    "session/research/chapter03-leftist-readiness.md",
+    "session/research/chapter03-first-slice-design.md",
+    "session/requirements/chapter03.md",
+    "session/research/chapter03-binomial-redblack-readiness.md",
+    "session/research/thesis-chapter06-source-inventory-045.md"
+  ],
+  "retained_coverage": "Main-text book Chapter3 printed17–30/PDF29–42, all6figures,10exercises/subparts; first baseline leftist slice independently rechecked printed17–20/PDF29–32 and thesis70/PDF82.",
+  "first_slice": [
+    "B3-HEAP",
+    "B3-HEAP-ORDER",
+    "B3-LEFTIST",
+    "B3-LEFTIST-OPS",
+    "B3-E3.1"
+  ],
+  "conclusion": "No identified missing primary-source obligation blocks the recorded baseline-leftist/E3.1 slice after actual Chapter2 acceptance. Retained readings preserve comparisons, ties, operation conventions and floor-log bound. New unavailable-page ambiguities would require reattachment.",
+  "later_limits": [
+    "All Chapter3 formal work remains unaccepted; ticket10003 open/candidate null/reviews pending",
+    "E3.2/E3.3/E3.4 and later algorithms remain formal obligations despite recorded source coverage",
+    "Book Haskell AppendixA semantic/cost correspondence remains a separate pending source obligation",
+    "Thesis binomial source variants do not silently replace book baselines/exercises/red-black material"
+  ],
+  "historical_notes": "Early book-source-inventory uninspected-Chapter3 line predates complete later inventory; earlier first-slice note that chapter03 requirements did not exist is superseded by current requirement file.",
+  "implementation_started": false,
+  "formal_acceptance": false
+}

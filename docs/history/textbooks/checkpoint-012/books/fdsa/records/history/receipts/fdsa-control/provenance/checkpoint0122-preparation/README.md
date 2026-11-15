@@ -1,0 +1,38 @@
+# Checkpoint 0122 verifier preparation
+
+**Prepared only; not executed.** This package adapts the exact held 0121 verifier for the intended complete Chapter 2 acceptance checkpoint. It does not assert that final acceptance, immediate verification, fast-forward, archive creation, upload or exposure has occurred. Root owns those actions and all acceptance/global-control files.
+
+## Fixed receiving state and preserved recovery method
+
+The intended accepted commit, main-worktree HEAD and qualified-worktree HEAD are all Q `2da5708478a1d943a9214b5b386ec2db16cd9eca`, tree `fe0bd9f17a5e1a09797be55fd79491e8c363cbd0`. The preceding accepted L is `726cb9a9b9ff4444a7614383de4fb336e8804aa7`. The verifier retains **67 references and 15 worktrees**, compares every saved state/fingerprint with the actual capture boundary, and checks that only `work/fdsa-book` changed from L to Q in the recorded fast-forward. Main-worktree tracked tree/index must be clean; its recorded unrelated baseline partial remains allowed and must match the FF/status/fingerprint evidence. The qualified worktree must be clean.
+
+The original format-2 creator and restorer remain unchanged. The verifier streams every archive payload through SHA-256 without extraction, validates all manifest/SHA256SUMS members, compares the complete held control snapshot against both live and archived bytes, and retains the exact external public baseline ZIP identity. It explicitly binds the unchanged creator/restorer/environment and the complete 298-entry native-kit manifest. No compiler, dependency cache, installed runtime, old checkpoint chain, fresh build, restore or fsck execution is added.
+
+The original L acceptance/full audit and Q source-only handoff retain their original L fields and zero-credit historical wording. Q's closed complete full check/audit, original failed comparison and corrected comparison, and setup-only retirement/separate persistence remain checked. The new section checks preservation of all eleven actual closed receiving runs: recorder/native/owned records, exact original-profile programs and commands, native start/result/body copies, outer framing, inherited full verification and the **1,081,225 native-body bytes**. It also binds the actual post capture, its terminal, stable comparison and exact-equality result. This checks checkpoint preservation; it does not rerun output comparison or grant new type credit.
+
+## Root final-binding checklist
+
+Leave `final-bindings.template.json` unchanged. After the actual records exist and both final reviewers hold their reports, create a separate **`final-bindings.json`** in this directory with actual paths, byte sizes and SHA-256 hashes for all 14 roles. The first five paths are the root-specified `chapter02-acceptance-20261104` paths; all unknown paths and every final hash remain null in the template. Do not populate a value from an expectation.
+
+1. Bind `acceptance`, `root_gate`, `fast_forward_preflight`, `fast_forward_result` and `coverage` to the five real root-owned records.
+2. Bind `standards_review`, `standards_completion`, `spec_review` and `spec_completion` to the exact held final files. The acceptance record's independent-axis report/completion fingerprints must match those bindings, have an actual passing outcome and no unresolved findings.
+3. Bind `immediate_result`, `immediate_closed_evidence`, `immediate_owned_terminal`, `immediate_verification` and `immediate_full_log` to the actual qualified immediate command. Its exact candidate, closed-zero outcome, complete log, unchanged matching Q full-verification record and completion-before-FF ordering are checked.
+4. Preserve the real `merge --ff-only Q` outcome, ordered L-to-Q transition, 67-entry before/after reference inventories, unchanged other 66 references, unchanged unrelated baseline and clean qualified worktree.
+5. Set the actual checkpoint name (proposed `conaled-fdsa-0122-accepted-chapter02`) and set `state` to `actual-held-final-evidence-bound` only after the bindings are real. The verifier refuses the unbound template and requires the separate binding file itself inside the held capture.
+6. Establish the ordinary writer hold and fresh root capture boundary, then produce `capture-control-identities.json`, create the compact checkpoint using the unchanged creator, and secure its actual successful `creation-terminal.json` plus sidecar. Only root subsequently runs this verifier. Its output is `integrity.json`; successful upload/exposure and durability records follow separately.
+
+The acceptance JSON checks use the existing Tail-acceptance schema: `accepted_commit`, `accepted_tree`, `previous_accepted_commit`, `branch`; `independent_axes[Standards|Spec].{outcome,unresolved,report,completion}`; `root_gate.{actual_exit,record}`; `immediate_verification.{actual_exit,result,closed_evidence}`; and `fast_forward.{actual_exit,record}`. The FF/preflight and immediate-record key checks follow their actual preserved predecessor schemas. If a later actual record uses different field names, reconcile the concrete schema before execution and preserve the preparation receipt; do not invent data or weaken its evidence checks to make it run.
+
+The unused author output-comparison package remains held and is not a new checkpoint prerequisite. Both independent actual products and their complete semantic/finding histories remain part of the full held control capture. Original R/81 paths/112 obligations/ten scopes/1,763-name accounting is unchanged.
+
+## Bounded staging observation
+
+At **18:09:32 UTC**, the control tree contained **107,088,366 logical bytes**, **119,005,184 bytes rounded per file to 4 KiB**, 4,733 regular files and 943 directories. No control symlink or special entry was observed. Backing filesystem total was **67,586,535,424 bytes**, ordinary available **0**, and raw free **347,996,160 bytes**. This is a point observation, not the later held control snapshot.
+
+The unchanged creator makes one temporary source/control/worktree stage and the compressed archive concurrently. Using the prior actual noncontrol staging scale, current control rounding, directory scale, an assumed **30 MiB** output archive and **1 MiB** for small later records gives **164,241,408 bytes** additional peak storage in this scenario. At that observation raw free exceeded it by **183,754,752 bytes**. Existing completed archives already occupy space and are not added again. The actual 0121 archive was 28,260,739 bytes; 30 MiB is an assumption, not a bound.
+
+New records, allocation overhead, different compression and unrelated filesystem fluctuations can invalidate the forecast. It is **not a new space guard, capacity guarantee or approval**, and ordinary available bytes remain zero. No cleanup, source copy, archive creation, compiler/cache action or host-wide scan was performed. The installed-compiler, hydration and normal/fresh requirements are unchanged.
+
+## Author read boundary and handoff
+
+The complete exact 0121 verifier was read at `1f2f89`; the complete current creator at `c95ace`. The actual closed receiving metadata/schema and prior acceptance/immediate/FF schema were read at `5c4bce`, `05cfb6` and `14d479`; no new mathematical assessment or current-output comparison was performed. The entire prepared 343-line verifier was read back at `ee450f` and `987999`, including the entire unresolved template. Static Python syntax parsing was performed without importing or executing the verifier. The final receipt binds all written preparation files and source inputs. All prior packages and root-owned acceptance/control files remain unchanged.

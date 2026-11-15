@@ -1,0 +1,12 @@
+{
+  "actual_tool_result": {
+    "chunk_id": "558e33",
+    "wall_time_seconds": 2.4157e-05,
+    "exit_code": 1,
+    "original_token_count": 208,
+    "output": "Traceback (most recent call last):\n  File \"<stdin>\", line 49, in <module>\n  File \"<stdin>\", line 4, in read\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1027, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-immediate-verification-20261104/actual-tool-terminal.json'\n"
+  },
+  "failure": "Read-only preparation assumed every old owned run also used the later actual-tool-terminal.json filename; historical accepted XR immediate record uses its existing owned-terminal and closed-evidence records.",
+  "mutation_boundary": "Failed before every acceptance, coverage, progress and canonical-control write. Absence confirmed by ed8ab2 actual0; exact accepted commit remains298 from already successful immediate verification and fast-forward.",
+  "correction": "Preserve the prior102 closed-run rows exactly and verify their existing owned/native/result/log records under the unchanged historical schema. Require the separately saved actual-tool terminal for each of the five new runs. No compiler, candidate, review or validation gate changed."
+}

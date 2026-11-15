@@ -1,0 +1,55 @@
+{
+  "time": "2026-11-04T00:36:47.967Z",
+  "kind": "bounded-noncompiler-active-passive-polling-diagnostic",
+  "duration_seconds": 300,
+  "active_launch": {
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "adab90",
+      "wall_time_seconds": 1.001191226,
+      "session_id": 34703,
+      "original_token_count": 27,
+      "output": "{\"time\": \"2026-11-04T00:31:18.961353+00:00\", \"elapsed_seconds\": 0.000711426000634674, \"acceptance\": false}\n"
+    }
+  },
+  "passive_launch": {
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "c61dde",
+      "wall_time_seconds": 1.000490319,
+      "session_id": 96067,
+      "original_token_count": 28,
+      "output": "{\"time\": \"2026-11-04T00:31:18.964633+00:00\", \"elapsed_seconds\": 0.00017980700067710131, \"acceptance\": false}\n"
+    }
+  },
+  "passive_first_poll": {
+    "chunk_id": "379f88",
+    "wall_time_seconds": 5.000983571,
+    "session_id": 96067,
+    "original_token_count": 315,
+    "output": "{\"time\": \"2026-11-04T00:31:38.965534+00:00\", \"elapsed_seconds\": 20.000909985999897, \"acceptance\": false}\n{\"time\": \"2026-11-04T00:31:58.967503+00:00\", \"elapsed_seconds\": 40.003047040998354, \"acceptance\": false}\n{\"time\": \"2026-11-04T00:32:18.968470+00:00\", \"elapsed_seconds\": 60.004011586999695, \"acceptance\": false}\n{\"time\": \"2026-11-04T00:32:38.969130+00:00\", \"elapsed_seconds\": 80.00465140600136, \"acceptance\": false}\n{\"time\": \"2026-11-04T00:32:58.970582+00:00\", \"elapsed_seconds\": 100.00597639300031, \"acceptance\": false}\n{\"time\": \"2026-11-04T00:33:18.972682+00:00\", \"elapsed_seconds\": 120.00822585599963, \"acceptance\": false}\n{\"time\": \"2026-11-04T00:33:38.973068+00:00\", \"elapsed_seconds\": 140.0086114279984, \"acceptance\": false}\n{\"time\": \"2026-11-04T00:33:58.974213+00:00\", \"elapsed_seconds\": 160.00974749200032, \"acceptance\": false}\n{\"time\": \"2026-11-04T00:34:18.975505+00:00\", \"elapsed_seconds\": 180.0108765369987, \"acceptance\": false}\n{\"time\": \"2026-11-04T00:34:38.977306+00:00\", \"elapsed_seconds\": 200.01284856100028, \"acceptance\": false}\n{\"time\": \"2026-11-04T00:34:58.978625+00:00\", \"elapsed_seconds\": 220.01416555000105, \"acceptance\": false}\n{\"time\": \"2026-11-04T00:35:18.980293+00:00\", \"elapsed_seconds\": 240.01581299199825, \"acceptance\": false}\n"
+  },
+  "active_terminal": {
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "be0d44",
+      "wall_time_seconds": 33.56254921,
+      "exit_code": 0,
+      "original_token_count": 79,
+      "output": "{\"time\": \"2026-11-04T00:35:38.983210+00:00\", \"elapsed_seconds\": 260.02246189200014, \"acceptance\": false}\n{\"time\": \"2026-11-04T00:35:58.986207+00:00\", \"elapsed_seconds\": 280.0255592470021, \"acceptance\": false}\n{\"time\": \"2026-11-04T00:36:18.961491+00:00\", \"elapsed_seconds\": 300.0008448869994, \"acceptance\": false}\n"
+    }
+  },
+  "passive_terminal": {
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "9554ac",
+      "wall_time_seconds": 33.562491253,
+      "exit_code": 0,
+      "original_token_count": 79,
+      "output": "{\"time\": \"2026-11-04T00:35:38.981683+00:00\", \"elapsed_seconds\": 260.01694393900107, \"acceptance\": false}\n{\"time\": \"2026-11-04T00:35:58.984868+00:00\", \"elapsed_seconds\": 280.02040756800125, \"acceptance\": false}\n{\"time\": \"2026-11-04T00:36:18.966247+00:00\", \"elapsed_seconds\": 300.0017906139983, \"acceptance\": false}\n"
+    }
+  },
+  "inference": "Both probes completed with actual tool exit_code 0. Passive handle remained live at its first poll more than four minutes after launch. A simple three-minute per-handle polling expiry was not reproduced. No explanation of the lost compiler runs or long-run reliability guarantee is established.",
+  "formal_acceptance": false,
+  "compiler_executed": false
+}

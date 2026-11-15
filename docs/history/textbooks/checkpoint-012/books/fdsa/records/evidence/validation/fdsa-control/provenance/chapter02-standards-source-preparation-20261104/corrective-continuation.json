@@ -1,0 +1,76 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "updated_utc": "2026-11-04T08:32:59.759220+00:00",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "fixed_source_candidate": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+  "status": "Blocked; exact isolated corrective deltas assessed; no build or acceptance inferred.",
+  "tail_boundary": {
+    "parent": "fa86bfb800c1e70cdf61fefd75b8cb2f428daea6",
+    "candidate": "ee2ea2406a014e43c355f93317455f27b90dd680",
+    "source": "Examples/PermutationTailBoundary.lean",
+    "source_bytes": 11027,
+    "source_lines": 247,
+    "source_sha256": "a1c623289b2a2059aac08e9d98183fd17ab3985c628fe9dc70b9c006e527943e",
+    "only_changed_file": true,
+    "predecessor_equals_M2": true,
+    "saved_diff_equals_git_diff": true,
+    "all_25_theorem_headers_byte_identical": true,
+    "read_coverage": "All nine actual diagnostics, complete correction diff, complete247-line corrected source, result/observation records, exact pinned firstEvent/orders/filter_true/ENNReal.coe_div definitions.",
+    "assessment": "First-event membership is unfolded into already proved observations; universal filter support is normalized before the same six-order kernel decisions; positive-denominator rational ENNReal arithmetic is transported through NNReal coercion identities. Same original conditioned permutation measure, actual projection, support cases and one-third/two-thirds masses. No mathematical domain, assumption or expected value changes.",
+    "source_findings": [],
+    "compiler_status": "No new terminal compiler success supplied for this correction.",
+    "diff_sha256": "88dfb2ca96cdec880f0ed48a5c4a2c0dcb5ec09ebff03c9c8cff277858b3e505"
+  },
+  "rank_repair2": {
+    "parent": "a111774b7b393cf462029fec8d16e8b6ff1b0089",
+    "candidate": "6f3e010eb3b0a55fe8005c26deefacf2eed10cfc",
+    "source": "Applications/Resources/RandomQuickSortRank.lean",
+    "source_bytes": 19646,
+    "source_lines": 396,
+    "source_sha256": "11a3eab707a445f1a205567845485c023e1eddf99358a06bfcd3a19a0a2c66ed",
+    "only_changed_file": true,
+    "predecessor_equals_M2": true,
+    "saved_diff_equals_git_diff": true,
+    "all_19_declaration_headers_byte_identical": true,
+    "read_coverage": "All four actual33-line diagnostics, complete diff, full changed private/public proof contexts, immutable predecessor and successor identities.",
+    "assessment": "Two residual definitional equalities close by rfl; the local rank permutation is exposed before apply_symm_apply; the actual child-tail length is rewritten in the obtained recurrence before exact application. Source domains, occurrence sampler, actual child lengths, key distinctness, cross-universe mean comparison and recurrence coefficients remain unchanged.",
+    "source_findings": [],
+    "compiler_status": "No new terminal compiler success supplied for this correction.",
+    "diff_sha256": "d4c6ca6de33858b1504201048b083c500064c6daddd5d2a1c46d850bdb6b3af9",
+    "declaration_accounting": {
+      "core_named_headers": 19,
+      "core_public": 12,
+      "core_private": 7,
+      "example_public": 18,
+      "combined_public": 30
+    }
+  },
+  "focused6_terminal": {
+    "candidate": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+    "final_head": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+    "final_status": "",
+    "exit_code": 1,
+    "completed_utc": "2026-11-04T08:23:37.410780+00:00",
+    "elapsed_seconds": 1157.3180223529998,
+    "full_log_bytes": 48390,
+    "full_log_sha256": "4d18122cfbe8698979673c10b4bdf76b0fb7442d48f75882b95d89c6bae1aa95",
+    "result_sha256": "1e40ac4caff1953928a946f37c850f9673d98472628517318cf510630d5e5233",
+    "secured_terminal_sha256": "168b196105ae7b78c9dc54f3a80456fcab32b52e6644c5915f3e47b5493e1f80",
+    "native_records_verified": true,
+    "review_read_boundary": "Actual terminal records, native hashes and complete terminal tail inspected; all natural, Tail and rank diagnostic blocks read. The whole aggregate log content and all Uniform diagnostics are not claimed as read in this receipt.",
+    "failed_targets": [
+      "Examples.NaturalRunOperations",
+      "Examples.PermutationTailBoundary",
+      "Applications.Resources.RandomQuickSortRank",
+      "Applications.Resources.UniformQuickSortMean"
+    ],
+    "new_individual_passes": {
+      "Applications.Probability.PermutationTail": "90s",
+      "Applications.Resources.QuickSortMean": "173s",
+      "Examples.QuickSortMean": "208s"
+    },
+    "verification_record_present": false,
+    "dependent_Ran_is_not_a_pass": true
+  },
+  "reviewer_executed_compiler_build_check_audit_or_verify": false
+}

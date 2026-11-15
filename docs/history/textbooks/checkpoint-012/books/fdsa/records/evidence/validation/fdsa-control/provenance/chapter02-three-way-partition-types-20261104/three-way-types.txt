@@ -1,0 +1,534 @@
+@Applications.Sorting.threeWayQuickSort.{u_1} : {α : Type u_1} → [LinearOrder.{u_1} α] → List.{u_1} α → List.{u_1} α
+@Applications.Sorting.threeWayQuickSort_nil.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α],
+  @Eq.{u_1 + 1} (List.{u_1} α) (@Applications.Sorting.threeWayQuickSort.{u_1} α inst (@List.nil.{u_1} α))
+    (@List.nil.{u_1} α)
+@Applications.Sorting.threeWayQuickSort_cons.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (pivot : α)
+  (xs : List.{u_1} α),
+  @Eq.{u_1 + 1} (List.{u_1} α) (@Applications.Sorting.threeWayQuickSort.{u_1} α inst (@List.cons.{u_1} α pivot xs))
+    (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+      (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α))
+      (@Applications.Sorting.threeWayQuickSort.{u_1} α inst
+        (@List.filter.{u_1} α
+          (fun x =>
+            @decide
+              (@LT.lt.{u_1} α
+                (@Preorder.toLT.{u_1} α
+                  (@PartialOrder.toPreorder.{u_1} α
+                    (@SemilatticeInf.toPartialOrder.{u_1} α
+                      (@Lattice.toSemilatticeInf.{u_1} α
+                        (@DistribLattice.toLattice.{u_1} α (@instDistribLatticeOfLinearOrder.{u_1} α inst))))))
+                x pivot)
+              (@LinearOrder.toDecidableLT.{u_1} α inst x pivot))
+          xs))
+      (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+        (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α))
+        (@List.cons.{u_1} α pivot
+          (@List.filter.{u_1} α
+            (fun x => @decide (@Eq.{u_1 + 1} α x pivot) (@LinearOrder.toDecidableEq.{u_1} α inst x pivot)) xs))
+        (@Applications.Sorting.threeWayQuickSort.{u_1} α inst
+          (@List.filter.{u_1} α
+            (fun x =>
+              @decide
+                (@LT.lt.{u_1} α
+                  (@Preorder.toLT.{u_1} α
+                    (@PartialOrder.toPreorder.{u_1} α
+                      (@SemilatticeInf.toPartialOrder.{u_1} α
+                        (@Lattice.toSemilatticeInf.{u_1} α
+                          (@DistribLattice.toLattice.{u_1} α (@instDistribLatticeOfLinearOrder.{u_1} α inst))))))
+                  pivot x)
+                (@LinearOrder.toDecidableLT.{u_1} α inst pivot x))
+            xs))))
+@Applications.Sorting.threeWayQuickSort_singleton.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (x : α),
+  @Eq.{u_1 + 1} (List.{u_1} α)
+    (@Applications.Sorting.threeWayQuickSort.{u_1} α inst (@List.cons.{u_1} α x (@List.nil.{u_1} α)))
+    (@List.cons.{u_1} α x (@List.nil.{u_1} α))
+@Applications.Sorting.threeWayQuickSort_cons_partition.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (pivot : α)
+  (xs : List.{u_1} α),
+  @Eq.{u_1 + 1} (List.{u_1} α) (@Applications.Sorting.threeWayQuickSort.{u_1} α inst (@List.cons.{u_1} α pivot xs))
+    (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+      (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α))
+      (@Applications.Sorting.threeWayQuickSort.{u_1} α inst
+        (@Prod.fst.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+          (@Sequences.Partition.partition3.{u_1} α inst pivot xs)))
+      (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+        (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α))
+        (@List.cons.{u_1} α pivot
+          (@Prod.fst.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+            (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+              (@Sequences.Partition.partition3.{u_1} α inst pivot xs))))
+        (@Applications.Sorting.threeWayQuickSort.{u_1} α inst
+          (@Prod.snd.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+            (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+              (@Sequences.Partition.partition3.{u_1} α inst pivot xs))))))
+@Applications.Sorting.threeWayQuickSort_perm.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (xs : List.{u_1} α),
+  @List.Perm.{u_1} α (@Applications.Sorting.threeWayQuickSort.{u_1} α inst xs) xs
+@Applications.Sorting.threeWayQuickSort_length.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α]
+  (xs : List.{u_1} α),
+  @Eq.{1} Nat (@List.length.{u_1} α (@Applications.Sorting.threeWayQuickSort.{u_1} α inst xs)) (@List.length.{u_1} α xs)
+@Applications.Sorting.mem_threeWayQuickSort.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (xs : List.{u_1} α)
+  (x : α),
+  Iff
+    (@Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α)
+      (@Applications.Sorting.threeWayQuickSort.{u_1} α inst xs) x)
+    (@Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs x)
+@Applications.Sorting.threeWayQuickSort_multiset.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α]
+  (xs : List.{u_1} α),
+  @Eq.{u_1 + 1} (Multiset.{u_1} α) (@Multiset.ofList.{u_1} α (@Applications.Sorting.threeWayQuickSort.{u_1} α inst xs))
+    (@Multiset.ofList.{u_1} α xs)
+@Applications.Sorting.threeWayQuickSort_support.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α]
+  (xs : List.{u_1} α),
+  @Eq.{u_1 + 1} (Set.{u_1} α)
+    (@Set.ofPred.{u_1} α fun x =>
+      @Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α)
+        (@Applications.Sorting.threeWayQuickSort.{u_1} α inst xs) x)
+    (@Set.ofPred.{u_1} α fun x => @Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs x)
+@Applications.Sorting.threeWayQuickSort_sorted.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α]
+  (xs : List.{u_1} α),
+  @Applications.Sorting.KeySorted.{u_1, u_1} α α
+    (@Preorder.toLE.{u_1} α
+      (@PartialOrder.toPreorder.{u_1} α
+        (@SemilatticeInf.toPartialOrder.{u_1} α
+          (@Lattice.toSemilatticeInf.{u_1} α
+            (@DistribLattice.toLattice.{u_1} α (@instDistribLatticeOfLinearOrder.{u_1} α inst))))))
+    (@id.{u_1 + 1} α) (@Applications.Sorting.threeWayQuickSort.{u_1} α inst xs)
+@Applications.Sorting.threeWayQuickSort_correct.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α]
+  (xs : List.{u_1} α),
+  And
+    (@Applications.Sorting.KeySorted.{u_1, u_1} α α
+      (@Preorder.toLE.{u_1} α
+        (@PartialOrder.toPreorder.{u_1} α
+          (@SemilatticeInf.toPartialOrder.{u_1} α
+            (@Lattice.toSemilatticeInf.{u_1} α
+              (@DistribLattice.toLattice.{u_1} α (@instDistribLatticeOfLinearOrder.{u_1} α inst))))))
+      (@id.{u_1 + 1} α) (@Applications.Sorting.threeWayQuickSort.{u_1} α inst xs))
+    (@List.Perm.{u_1} α (@Applications.Sorting.threeWayQuickSort.{u_1} α inst xs) xs)
+@Applications.Sorting.threeWayQuickSort_replicate.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (n : Nat)
+  (x : α),
+  @Eq.{u_1 + 1} (List.{u_1} α) (@Applications.Sorting.threeWayQuickSort.{u_1} α inst (@List.replicate.{u_1} α n x))
+    (@List.replicate.{u_1} α n x)
+@Examples.ThreeWayQuickSort.empty_input.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α],
+  @Eq.{u_1 + 1} (List.{u_1} α) (@Applications.Sorting.threeWayQuickSort.{u_1} α inst (@List.nil.{u_1} α))
+    (@List.nil.{u_1} α)
+@Examples.ThreeWayQuickSort.singleton_input.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (x : α),
+  @Eq.{u_1 + 1} (List.{u_1} α)
+    (@Applications.Sorting.threeWayQuickSort.{u_1} α inst (@List.cons.{u_1} α x (@List.nil.{u_1} α)))
+    (@List.cons.{u_1} α x (@List.nil.{u_1} α))
+Examples.ThreeWayQuickSort.all_equal_buckets : @Eq.{1}
+  (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)))
+  (@Sequences.Partition.partition3.{0} Nat Nat.instLinearOrder
+    (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat))))
+  (@Prod.mk.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)) (@List.nil.{0} Nat)
+    (@Prod.mk.{0, 0} (List.{0} Nat) (List.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))
+      (@List.nil.{0} Nat)))
+Examples.ThreeWayQuickSort.all_equal_source_equation : @Eq.{1} (List.{0} Nat)
+  (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))))
+  (@HAppend.hAppend.{0, 0, 0} (List.{0} Nat) (List.{0} Nat) (List.{0} Nat)
+    (@instHAppendOfAppend.{0} (List.{0} Nat) (@List.instAppend.{0} Nat))
+    (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder (@List.nil.{0} Nat))
+    (@HAppend.hAppend.{0, 0, 0} (List.{0} Nat) (List.{0} Nat) (List.{0} Nat)
+      (@instHAppendOfAppend.{0} (List.{0} Nat) (@List.instAppend.{0} Nat))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat))))
+      (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder (@List.nil.{0} Nat))))
+Examples.ThreeWayQuickSort.all_equal_input : @Eq.{1} (List.{0} Nat)
+  (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))))
+  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat))))
+@Examples.ThreeWayQuickSort.all_equal_family.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (n : Nat) (x : α),
+  @Eq.{u_1 + 1} (List.{u_1} α) (@Applications.Sorting.threeWayQuickSort.{u_1} α inst (@List.replicate.{u_1} α n x))
+    (@List.replicate.{u_1} α n x)
+Examples.ThreeWayQuickSort.mixed_buckets : @Eq.{1}
+  (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)))
+  (@Sequences.Partition.partition3.{0} Nat Nat.instLinearOrder
+    (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                  (@List.nil.{0} Nat)))))))))
+  (@Prod.mk.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat))))
+    (@Prod.mk.{0, 0} (List.{0} Nat) (List.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat)))))
+Examples.ThreeWayQuickSort.mixed_source_equation : @Eq.{1} (List.{0} Nat)
+  (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                    (@List.nil.{0} Nat))))))))))
+  (@HAppend.hAppend.{0, 0, 0} (List.{0} Nat) (List.{0} Nat) (List.{0} Nat)
+    (@instHAppendOfAppend.{0} (List.{0} Nat) (@List.instAppend.{0} Nat))
+    (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))))
+    (@HAppend.hAppend.{0, 0, 0} (List.{0} Nat) (List.{0} Nat) (List.{0} Nat)
+      (@instHAppendOfAppend.{0} (List.{0} Nat) (@List.instAppend.{0} Nat))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat))))
+      (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat))))))
+Examples.ThreeWayQuickSort.mixed_left_child : @Eq.{1} (List.{0} Nat)
+  (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))))
+  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat))))
+Examples.ThreeWayQuickSort.mixed_right_child : @Eq.{1} (List.{0} Nat)
+  (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat))))
+  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat)))
+Examples.ThreeWayQuickSort.mixed_value : @Eq.{1} (List.{0} Nat)
+  (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                    (@List.nil.{0} Nat))))))))))
+  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                  (@List.nil.{0} Nat)))))))))
+Examples.ThreeWayQuickSort.mixed_multiset : @Eq.{1} (Multiset.{0} Nat)
+  (@Multiset.ofList.{0} Nat
+    (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                      (@List.nil.{0} Nat)))))))))))
+  (@Multiset.ofList.{0} Nat
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                    (@List.nil.{0} Nat))))))))))
+Examples.ThreeWayQuickSort.mixed_multiplicities : And
+  (@Eq.{1} Nat
+    (@List.count.{0} Nat (@instBEqOfDecidableEq.{0} Nat instDecidableEqNat)
+      (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+      (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                        (@List.nil.{0} Nat)))))))))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+  (And
+    (@Eq.{1} Nat
+      (@List.count.{0} Nat (@instBEqOfDecidableEq.{0} Nat instDecidableEqNat)
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                          (@List.nil.{0} Nat)))))))))))
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (And
+      (@Eq.{1} Nat
+        (@List.count.{0} Nat (@instBEqOfDecidableEq.{0} Nat instDecidableEqNat)
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                            (@List.nil.{0} Nat)))))))))))
+        (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+      (@Eq.{1} Nat
+        (@List.count.{0} Nat (@instBEqOfDecidableEq.{0} Nat instDecidableEqNat)
+          (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+          (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                            (@List.nil.{0} Nat)))))))))))
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+Examples.ThreeWayQuickSort.mixed_length : @Eq.{1} Nat
+  (@List.length.{0} Nat
+    (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                      (@List.nil.{0} Nat)))))))))))
+  (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8)))
+Examples.ThreeWayQuickSort.mixed_support_boundary : And
+  (@Membership.mem.{0, 0} Nat (List.{0} Nat) (@List.instMembership.{0} Nat)
+    (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                      (@List.nil.{0} Nat))))))))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+  (Not
+    (@Membership.mem.{0, 0} Nat (List.{0} Nat) (@List.instMembership.{0} Nat)
+      (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                        (@List.nil.{0} Nat))))))))))
+      (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))
+Examples.ThreeWayQuickSort.absent_pivot_buckets : @Eq.{1}
+  (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)))
+  (@Sequences.Partition.partition3.{0} Nat Nat.instLinearOrder
+    (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat))))
+  (@Prod.mk.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)) (@List.nil.{0} Nat)
+    (@Prod.mk.{0, 0} (List.{0} Nat) (List.{0} Nat) (@List.nil.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))))
+Examples.ThreeWayQuickSort.absent_pivot_source_equation : @Eq.{1} (List.{0} Nat)
+  (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))))
+  (@HAppend.hAppend.{0, 0, 0} (List.{0} Nat) (List.{0} Nat) (List.{0} Nat)
+    (@instHAppendOfAppend.{0} (List.{0} Nat) (@List.instAppend.{0} Nat))
+    (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder (@List.nil.{0} Nat))
+    (@HAppend.hAppend.{0, 0, 0} (List.{0} Nat) (List.{0} Nat) (List.{0} Nat)
+      (@instHAppendOfAppend.{0} (List.{0} Nat) (@List.instAppend.{0} Nat))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))
+      (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat))))))
+Examples.ThreeWayQuickSort.absent_pivot_child_decrease : And
+  (Not
+    (@Membership.mem.{0, 0} Nat (List.{0} Nat) (@List.instMembership.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))
+      (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+  (And
+    (@Eq.{1} Nat
+      (@List.length.{0} Nat
+        (@Prod.snd.{0, 0} (List.{0} Nat) (List.{0} Nat)
+          (@Prod.snd.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+            (@Sequences.Partition.partition3.{0} Nat Nat.instLinearOrder
+              (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                  (@List.nil.{0} Nat)))))))
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (And
+      (@LT.lt.{0} Nat instLTNat
+        (@List.length.{0} Nat
+          (@Prod.snd.{0, 0} (List.{0} Nat) (List.{0} Nat)
+            (@Prod.snd.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+              (@Sequences.Partition.partition3.{0} Nat Nat.instLinearOrder
+                (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                    (@List.nil.{0} Nat)))))))
+        (@List.length.{0} Nat
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat))))))
+      (Not
+        (@LT.lt.{0} Nat instLTNat
+          (@List.length.{0} Nat
+            (@Prod.snd.{0, 0} (List.{0} Nat) (List.{0} Nat)
+              (@Prod.snd.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+                (@Sequences.Partition.partition3.{0} Nat Nat.instLinearOrder
+                  (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                      (@List.nil.{0} Nat)))))))
+          (@List.length.{0} Nat
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                (@List.nil.{0} Nat))))))))
+Examples.ThreeWayQuickSort.absent_pivot_value : @Eq.{1} (List.{0} Nat)
+  (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))))
+  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat))))
+Examples.ThreeWayQuickSort.omitted_pivot_boundary : have altered :=
+  @HAppend.hAppend.{0, 0, 0} (List.{0} Nat) (List.{0} Nat) (List.{0} Nat)
+    (@instHAppendOfAppend.{0} (List.{0} Nat) (@List.instAppend.{0} Nat))
+    (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))))
+    (@HAppend.hAppend.{0, 0, 0} (List.{0} Nat) (List.{0} Nat) (List.{0} Nat)
+      (@instHAppendOfAppend.{0} (List.{0} Nat) (@List.instAppend.{0} Nat))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))
+      (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat)))));
+And (@Applications.Sorting.KeySorted.{0, 0} Nat Nat instLENat (@id.{1} Nat) altered)
+  (Not
+    (@List.Perm.{0} Nat altered
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                      (@List.nil.{0} Nat)))))))))))
+Examples.ThreeWayQuickSort.omitted_equal_block_boundary : have altered :=
+  @HAppend.hAppend.{0, 0, 0} (List.{0} Nat) (List.{0} Nat) (List.{0} Nat)
+    (@instHAppendOfAppend.{0} (List.{0} Nat) (@List.instAppend.{0} Nat))
+    (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))))
+    (@HAppend.hAppend.{0, 0, 0} (List.{0} Nat) (List.{0} Nat) (List.{0} Nat)
+      (@instHAppendOfAppend.{0} (List.{0} Nat) (@List.instAppend.{0} Nat))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat))
+      (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat)))));
+And (@Applications.Sorting.KeySorted.{0, 0} Nat Nat instLENat (@id.{1} Nat) altered)
+  (Not
+    (@List.Perm.{0} Nat altered
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                      (@List.nil.{0} Nat)))))))))))
+Examples.ThreeWayQuickSort.duplicated_pivot_boundary : have altered :=
+  @HAppend.hAppend.{0, 0, 0} (List.{0} Nat) (List.{0} Nat) (List.{0} Nat)
+    (@instHAppendOfAppend.{0} (List.{0} Nat) (@List.instAppend.{0} Nat))
+    (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))))
+    (@HAppend.hAppend.{0, 0, 0} (List.{0} Nat) (List.{0} Nat) (List.{0} Nat)
+      (@instHAppendOfAppend.{0} (List.{0} Nat) (@List.instAppend.{0} Nat))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))))
+      (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat)))));
+And (@Applications.Sorting.KeySorted.{0, 0} Nat Nat instLENat (@id.{1} Nat) altered)
+  (Not
+    (@List.Perm.{0} Nat altered
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                      (@List.nil.{0} Nat)))))))))))
+Examples.ThreeWayQuickSort.misplaced_pivot_boundary : have altered :=
+  @List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+    (@HAppend.hAppend.{0, 0, 0} (List.{0} Nat) (List.{0} Nat) (List.{0} Nat)
+      (@instHAppendOfAppend.{0} (List.{0} Nat) (@List.instAppend.{0} Nat))
+      (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))))
+      (@HAppend.hAppend.{0, 0, 0} (List.{0} Nat) (List.{0} Nat) (List.{0} Nat)
+        (@instHAppendOfAppend.{0} (List.{0} Nat) (@List.instAppend.{0} Nat))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))
+        (@Applications.Sorting.threeWayQuickSort.{0} Nat Nat.instLinearOrder
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat))))));
+And
+  (@List.Perm.{0} Nat altered
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                    (@List.nil.{0} Nat))))))))))
+  (Not (@Applications.Sorting.KeySorted.{0, 0} Nat Nat instLENat (@id.{1} Nat) altered))

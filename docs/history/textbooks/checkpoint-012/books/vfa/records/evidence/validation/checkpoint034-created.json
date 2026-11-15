@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "started_utc": "2026-11-03T00:05:47.743553+00:00",
+  "finished_utc": "2026-11-03T00:06:08.055754+00:00",
+  "command": [
+    "python3",
+    "/workspace/scratch/0c54f2db1fdf/work-state/tools/checkpoint.py",
+    "--workspace",
+    "/workspace/scratch/0c54f2db1fdf",
+    "--name",
+    "conaled-vfa-checkpoint-034-resource-and-capacity-evidence"
+  ],
+  "actual_returncode": 0,
+  "stdout": "{\"file\": \"/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-034-resource-and-capacity-evidence.tar.gz\", \"size_bytes\": 146225283, \"sha256\": \"1408e77e0f8803f7c5a6116ac9275e330f5e9775b076250462d6916306b57e59\", \"head\": \"3279bacaec4087cc0d6b7e6b8ae862109cb2dfec\", \"bundle_verify\": \"passed\", \"restore_smoke\": \"passed\", \"source_index_workflow_stability\": \"passed\"}\n",
+  "stderr": ""
+}

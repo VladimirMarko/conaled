@@ -1,0 +1,84 @@
+{
+  "recorded_utc": "2026-11-04T20:21:57.992039+00:00",
+  "finding": "C03-MEDIAN-REDUCTION-ELAB-002",
+  "candidate": "11480d46b4f8f99eb33bdc4b34759031af17c9f0",
+  "tree": "a0e60d9f8f6df21aa836541578d928f90c68e3a6",
+  "parent": "1e499eb9e00c84afa934930822f957f51f5f02f9",
+  "fixed_stage_base": "979c4fcb1719a779ffda7462a6df385e876b7d4c",
+  "whole_chapter_review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "status": "",
+  "targets": [
+    "Applications.Selection.MedianReduction",
+    "Applications.Resources.MedianReduction",
+    "Examples.MedianReduction"
+  ],
+  "changed_source": {
+    "repository_path": "Applications/Resources/MedianReduction.lean",
+    "bytes": 5846,
+    "sha256": "e3bb494b94ed6829ad080b9120a69af16cb12c66cb7f7892598db988e3de354c",
+    "git_blob": "723e7c886a4d01eeb014e02d524c8d85553ac76e"
+  },
+  "changed_proof_bodies": [
+    "extremaRun_cost"
+  ],
+  "all65_source_headers_unchanged": true,
+  "all_other64_declaration_blocks_unchanged": true,
+  "all_algorithms_imports_examples_unchanged": true,
+  "all_other11_source_files_unchanged": true,
+  "all_historical_records_preserved": true,
+  "unchanged_type_input_rebound": {
+    "path": "MedianReductionStatements.lean",
+    "bytes": 4245,
+    "sha256": "d544c9616e72bdd5c046b208d13d989f8b2ca384c8915ce25e95970ff278fe0c",
+    "public_names": 65
+  },
+  "prior_source_header_inventory_retained": {
+    "path": "median-reduction-inventory.json",
+    "bytes": 35935,
+    "sha256": "901b2d98c3cefcb242ee57b3d83ab8beced1ea88d7986cdd538514046d1c00a7"
+  },
+  "full_original_source_case_assessment_retained": {
+    "path": "median-reduction-review-note.md",
+    "bytes": 8959,
+    "sha256": "35e08f24c0dc8ca8c816c4da791785238680391030292692126524ec1cb9f6fc"
+  },
+  "correction": {
+    "path": "median-reduction-correction2.diff",
+    "bytes": 649,
+    "sha256": "15e7baf48f6cfeb99c8d71454bd9ab0b3c742fd1df50c3b285753a98bcb3cd1b"
+  },
+  "precommit_record": {
+    "path": "median-reduction-correction2-precommit.json",
+    "bytes": 1645,
+    "sha256": "4a58329cb5fa60c354b25800a6c622eca9f5e70c795b47d95cdf584bc178205a"
+  },
+  "failed_evidence": {
+    "candidate": "1e499eb9e00c84afa934930822f957f51f5f02f9",
+    "actual_exit": 1,
+    "log_path": "provenance/chapter03-median-reduction-focused-attempt2-20261104/full.log",
+    "log_bytes": 6508,
+    "log_sha256": "c7800be8006fa3251a869365c8324bca159ca045b354e91f270ddc673f27c03f",
+    "owned_session": 20282,
+    "terminal": "06a2c5",
+    "root_closed_readback": "b4924f",
+    "author_complete_log_readback": "9bef04",
+    "author_terminal_reconciliation_readback": "a2299e"
+  },
+  "statement_assessment": "Only a definitional change of the proof goal was added: both minimum traversals have the same input length, even though one list is viewed over OrderDual alpha. After exposing the exact call-count sum, all lengths are spelled with ordinary alpha before omega. The exact cost remains 2 * xs.length + 3. Every value/domain/hypothesis/cost formula/rank convention/example/import/header is unchanged. The original65-name inventory and full source/case assessment remain the entire review scope; no types or successor validation have run.",
+  "git_diff_cached_check_exit": 0,
+  "compiled": false,
+  "author_lean_lake_execution": false,
+  "remaining_scope_ownership": {
+    "author": [
+      "C03-056 infinite counterfamily",
+      "C03-057 connected generic pivot-bound application",
+      "C03-055 actual-cutoff bridge and C03-058 generalized algorithm termination/correctness once worker is available"
+    ],
+    "root": [
+      "C03-058 scalar group-coefficient arithmetic and sufficient affine majorants"
+    ],
+    "whole_chapter_rows": 83
+  },
+  "counterfamily_source_started": false,
+  "source_frozen": true
+}

@@ -1,0 +1,10 @@
+{
+  "observed_utc": "2026-11-03T01:40:56.162742+00:00",
+  "helper": "validation/run-chapter02-candidate-r3.py",
+  "before_sha256": "2a02cdacc1b6a98dee60a0a4c57158c85950cbe8d98a8c0789d48a4a67fafe64",
+  "after_sha256": "820809f25f63df8ec0da8b4c4e13a4e7ca00616393e4344decfca3a1ab6b014b",
+  "reason": "901 r1 was interrupted without a terminal result. The unchanged exact901 candidate is now undergoing stock r2; the prepared downstream runner must require its actual successful record.",
+  "new_predecessor": "validation/import-footprint-901f734-full-r2.json",
+  "guards": "Still requires finished exit0, now also explicitly exact901 candidate. No candidate invocation occurred.",
+  "weakens_gate": false
+}

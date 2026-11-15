@@ -1,0 +1,137 @@
+{
+  "completed_utc": "2026-11-04T07:58:12.628397+00:00",
+  "candidate": "a111774b7b393cf462029fec8d16e8b6ff1b0089",
+  "parent": "08a1e78d6becc713256d245206ef163f9eb55a0a",
+  "branch": "work/fdsa-ch02-random-pivot",
+  "final_status": "",
+  "source_before": {
+    "bytes": 19615,
+    "lines": 393,
+    "sha256": "22960885c968620b957e7e2381baa8b887d9dc80a54fb72fe9644c3ace2890b4"
+  },
+  "source_after": {
+    "bytes": 19590,
+    "lines": 392,
+    "sha256": "8acee8fadda0c94081cc0da43a07c864e54368eaa7ff23ab5cf73c06c2f43108"
+  },
+  "unchanged_files": {
+    "Examples/RandomQuickSortRank.lean": {
+      "bytes": 6427,
+      "lines": 151,
+      "sha256": "a0f5fbd6b3d41cad08193a371228bede1b869a773608b21906e85f2848d747bf"
+    },
+    "Applications/Resources/RandomQuickSortGrowth.lean": {
+      "bytes": 9896,
+      "lines": 203,
+      "sha256": "2b8bf7b4820790edaaa5726efb8e8bd8bccd3a30cb30388148d95bba00e63674"
+    },
+    "Examples/RandomQuickSortGrowth.lean": {
+      "bytes": 9959,
+      "lines": 215,
+      "sha256": "2d173d7572ae76395c3779c216ea43d21719ff1774f6a7f21c68a5677b511a16"
+    },
+    "Applications/Resources/RandomQuickSortMean.lean": {
+      "bytes": 16517,
+      "lines": 335,
+      "sha256": "2c7976bf52a2dbed2eb6eb959055acc7ae0df8319c167f0128b63e5c482bd5d3"
+    },
+    "Examples/RandomQuickSortMean.lean": {
+      "bytes": 5733,
+      "lines": 118,
+      "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670"
+    },
+    "lean-toolchain": {
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    "lake-manifest.json": {
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    "AGENTS.md": {
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    }
+  },
+  "evidence": {
+    "attempt": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-tail-numerical-rank-operations-focused-20261104-attempt5",
+    "candidate": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+    "exit_code": 1,
+    "elapsed_seconds": 1086.2815814940004,
+    "final_head": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+    "final_status": "",
+    "full_log": {
+      "bytes": 47237,
+      "lines": 546,
+      "sha256": "d367cd2e1054973cac7d1e1c6fa7d9a278eea9cccfa038b2436c377367b6160e"
+    },
+    "rank_diagnostics": {
+      "bytes": 14806,
+      "lines": 279,
+      "sha256": "4876a327e353abcf4afd95bdfac9d12f820f0d7cfa757ad667439becd01e4677"
+    },
+    "rank_resource_pass": false,
+    "rank_example_pass": false
+  },
+  "records": {
+    "start.json": {
+      "bytes": 4796,
+      "lines": 121,
+      "sha256": "816fd2862f44133548575472097507c96214f50fdd12603055ea2ec3ba17e3d9"
+    },
+    "findings.md": {
+      "bytes": 6682,
+      "lines": 94,
+      "sha256": "bd05d961469727a614fe82dd235b8a6aaf09fd6f5fcc5ed5e57f3269c8cb76e1"
+    },
+    "header-assessment.json": {
+      "bytes": 6853,
+      "lines": 70,
+      "sha256": "97dabad9cec6c6adf8cf6d7405e93beda412daf34ca9960420df839cc1c30d10"
+    },
+    "diagnostic-errors.json": {
+      "bytes": 2589,
+      "lines": 28,
+      "sha256": "1ae4a09587132ff0893dfc5a690983850b543bd151f9318b0f09ec4482b9aaf9"
+    },
+    "source.diff": {
+      "bytes": 9992,
+      "lines": 169,
+      "sha256": "88d543f4dbec5ac9166d78e4046543d6ff71ccd5714fb27019e6c817e527dd5e"
+    },
+    "diff-check.log": {
+      "bytes": 0,
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "commit.json": {
+      "bytes": 482,
+      "lines": 12,
+      "sha256": "4c988c8b4da181b8724f3fbce46b8e3da9846b5310dc5c7a5415acbece3132ba"
+    }
+  },
+  "all279_diagnostic_lines_read": true,
+  "all393_original_core_lines_and_complete_diff_read": true,
+  "all37_authored_names_preserved": true,
+  "all30_public_rank_contracts_preserved_by_source_assessment": true,
+  "syntactic_header_changes": 7,
+  "headers_byte_identical_claimed": false,
+  "previous_elaborated_type_equivalence_claimed": false,
+  "source_assessment": "Only explicit indexed-argument parentheses and proof elaboration corrections. All intended mathematical hypotheses, terms, examples, costs and recurrences preserved.",
+  "growth_pair_frozen_byte_identical": true,
+  "mean_pair_pins_and_examples_unchanged": true,
+  "staged_diff_check_exit_code": 0,
+  "compiled": false,
+  "actual_new_type_inspection": false,
+  "author_builds_started": 0,
+  "cache_writes": false,
+  "central_changes": false,
+  "children_spawned": false,
+  "acceptance_claimed": false,
+  "full_check_audit_or_independent_review_pass_claimed": false,
+  "public_documentation_paused": "chapter02-public-documentation-draft-20261104/progress.json",
+  "next_action": "HOLD all source/ref/control/provenance writes pending parent checkpoint capture or actual diagnostics"
+}

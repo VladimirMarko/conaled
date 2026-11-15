@@ -1,0 +1,131 @@
+{
+  "recorded_utc": "2026-11-04T09:44:58.214700+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "full_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+  "scope": "Same original complete81-path R-through-Chapter2 Standards review, all112 obligations and ten shared scopes. Separate exactF foundation review retained unchanged.",
+  "outcome": "ACTUAL CLOSED FOCUSED FAILURE; OVERALL STANDARDS BLOCKED",
+  "result": {
+    "path": "provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/result.json",
+    "bytes": 1271,
+    "lines": 33,
+    "sha256": "f925a826447c43a82479d93c67200b82887840f9791d40879f9a5c763def2445"
+  },
+  "secured_terminal": {
+    "path": "provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/secured-terminal.json",
+    "bytes": 1498,
+    "lines": 35,
+    "sha256": "c5199e5f08c86e04116d5ee060ebf75f7661595ce2c14507000bb85b1a1e5e1c"
+  },
+  "full_log": {
+    "path": "provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/full.log",
+    "bytes": 17133,
+    "lines": 115,
+    "sha256": "8da63603aa28b114dc5f183bdc4a1be9abe470ebfef1c5bf3353628be979fd0f"
+  },
+  "native_records": [
+    {
+      "path": "provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/native/start.json",
+      "bytes": 508,
+      "lines": 15,
+      "sha256": "9a9b9fd09b6e05e8a94d9e4b041e9598941e1db652117d298a0be342009e8587"
+    },
+    {
+      "path": "provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/native/result.json",
+      "bytes": 662,
+      "lines": 20,
+      "sha256": "f55644c191f82176ab639713b62f308a49472a206c0c19d0f52f4dd53460c978"
+    },
+    {
+      "path": "provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/native/output.log",
+      "bytes": 16834,
+      "lines": 112,
+      "sha256": "46b2a615413850c3324723da27e8dab051973080d0103e52a3eef42df20f5ca2"
+    }
+  ],
+  "started_utc": "2026-11-04T09:27:53.275504+00:00",
+  "completed_utc": "2026-11-04T09:31:46.501639+00:00",
+  "elapsed_seconds": 233.22575044800033,
+  "exit_code": 1,
+  "outer_native_identity_command_exit_and_hashes_match": true,
+  "native_copies_equal_original_closed_records": true,
+  "final_head_exact_and_clean": true,
+  "lean_threads": "1",
+  "actual_individual_pass": {
+    "log_line": 34,
+    "text": "\u26a0 [3602/3604] Built Examples.PermutationTailBoundary (128s)",
+    "source_path": "Examples/PermutationTailBoundary.lean",
+    "source_sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54",
+    "source_review": "Exact previously independently assessed070e source now individually built128s."
+  },
+  "actual_failed_target": "Examples.PermutationTail",
+  "actual_errors": [
+    {
+      "log_start_line": 39,
+      "log_end_line": 45,
+      "text": "error: Examples/PermutationTail.lean:102:4: Tactic `decide` failed to reduce\n  @decide ([2, 3] \u2208 orders positions (selected.erase 0))\n    (Finset.decidableMem [2, 3] (orders positions (selected.erase 0)))\nto `true` or `false`.\n\nAfter unfolding the instances `instDecidableEqBool`, `Bool.decEq`, `Finset.decidableMem`, and `Multiset.decidableMem`, reduction got stuck at\n  List.elem [2, 3] (List.filter (fun a => decide (a \u2208 selected.erase 0)) positions).permutations.dedup",
+      "affected_declaration": "Examples.PermutationTail.tail_23_mass"
+    },
+    {
+      "log_start_line": 46,
+      "log_end_line": 51,
+      "text": "error: Examples/PermutationTail.lean:114:41: Tactic `decide` failed to reduce\n  @decide ([3, 2] \u2208 orders positions remaining) (Finset.decidableMem [3, 2] (orders positions remaining))\nto `true` or `false`.\n\nAfter unfolding the instances `instDecidableEqBool`, `Bool.decEq`, `Finset.decidableMem`, and `Multiset.decidableMem`, reduction got stuck at\n  List.elem [3, 2] (List.filter (fun a => decide (a \u2208 remaining)) positions).permutations.dedup",
+      "affected_declaration": "Examples.PermutationTail.tail_32_mass"
+    },
+    {
+      "log_start_line": 52,
+      "log_end_line": 57,
+      "text": "error: Examples/PermutationTail.lean:120:4: Tactic `decide` failed to reduce\n  @decide ([2, 2] \u2209 orders positions (selected.erase 0)) instDecidableNot\nto `true` or `false`.\n\nAfter unfolding the instances `instDecidableEqBool`, `instDecidableNot`, `Bool.decEq`, `Finset.decidableMem`, and `Multiset.decidableMem`, reduction got stuck at\n  List.elem [2, 2] (List.filter (fun a => decide (a \u2208 selected.erase 0)) positions).permutations.dedup",
+      "affected_declaration": "Examples.PermutationTail.repeated_tail_mass_zero"
+    },
+    {
+      "log_start_line": 58,
+      "log_end_line": 63,
+      "text": "error: Examples/PermutationTail.lean:146:55: Tactic `decide` failed to reduce\n  @decide ([3] \u2208 orders positions {3}) (Finset.decidableMem [3] (orders positions {3}))\nto `true` or `false`.\n\nAfter unfolding the instances `instDecidableEqBool`, `Bool.decEq`, `Finset.decidableMem`, and `Multiset.decidableMem`, reduction got stuck at\n  List.elem [3] (List.filter (fun a => decide (a \u2208 {3})) positions).permutations.dedup",
+      "affected_declaration": "Examples.PermutationTail.filtered_tail_mass"
+    },
+    {
+      "log_start_line": 64,
+      "log_end_line": 67,
+      "text": "error: Examples/PermutationTail.lean:163:50: unsolved goals\nh : afterFirst = law\nhmass : 1 = 3\u207b\u00b9\n\u22a2 False",
+      "affected_declaration": "Examples.PermutationTail.environment_changed"
+    },
+    {
+      "log_start_line": 68,
+      "log_end_line": 73,
+      "text": "error: Examples/PermutationTail.lean:194:43: Tactic `decide` failed to reduce\n  @decide ([3] \u2208 orders positions (remaining.erase 2)) (Finset.decidableMem [3] (orders positions (remaining.erase 2)))\nto `true` or `false`.\n\nAfter unfolding the instances `instDecidableEqBool`, `Bool.decEq`, `Finset.decidableMem`, and `Multiset.decidableMem`, reduction got stuck at\n  List.elem [3] (List.filter (fun a => decide (a \u2208 remaining.erase 2)) positions).permutations.dedup",
+      "affected_declaration": "Examples.PermutationTail.last_tail_mass"
+    }
+  ],
+  "uniform_example_disposition": {
+    "log_line": 110,
+    "text": "\u26a0 [3719/3719] Ran Examples.UniformQuickSortMean",
+    "counts_as_pass": false
+  },
+  "warning_count": 52,
+  "warnings_other_than_module_advisories": [],
+  "warning_disposition": "All closed focused-log warnings are Mathlib module-import advisories. No policy suppression or concrete semantic Standards defect established; they are not collectively labeled unchanged baseline. Full-candidate warning assessment remains required.",
+  "main_source_read": {
+    "path": "Examples/PermutationTail.lean",
+    "candidate": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+    "git_blob": "f118b08cd9d2006ceac0f4c24004e1ed09c1fb93",
+    "bytes": 8786,
+    "lines": 197,
+    "sha256": "30e07aaede25b10d2484c2a4674bffa66d77094a545fd49f72bc000bd132ddb7",
+    "complete_source_read": true
+  },
+  "mathematical_diagnostic_assessment": "Five failed decide calls concern membership/nonmembership of the same finite orders supports, stuck at List.permutations reduction. The sixth is the unfinished contradiction in environment_changed: after assuming afterFirst=law, event evaluation yields hmass:1=3\u207b\u00b9 and goalFalse. That context is intentional in an inequality proof; it is not an asserted mass law or a contradictory theorem statement. No new mathematical weakening or false target is established by the diagnostics. Exact preserving source correction must still be assessed and compiled.",
+  "read_boundary": "All115 closed log lines read, including full trace and all six error contexts, plus complete outer result, secured-terminal, native start/result and immutable197-line Main source. Native copy hashes and original bytes independently matched.",
+  "verification_record_present": false,
+  "full_candidate_check_or_audit_pass_claimed": false,
+  "current_type_accounting_unchanged": {
+    "qualified_historical": 920,
+    "pending_current": 814,
+    "accepted_base_retained": 28,
+    "foundation_pending": 145,
+    "potential_foundation_reuse_credited": 0
+  },
+  "compiler_or_process_action_by_reviewer": false,
+  "source_ref_index_pin_cache_mutations": false,
+  "successor_source_review": "Await exact immutable isolated Main correction notice; no working draft reviewed or inferred."
+}

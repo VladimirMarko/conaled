@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "scope": "Standalone checkpoint001->002 contract amendment; no Lean or project source execution",
+  "command": "python3 -B tools/test_checkpoint.py",
+  "test_count": 20,
+  "elapsed_seconds": 8.06,
+  "files": {
+    "tools/checkpoint.py": {
+      "bytes": 45680,
+      "sha256": "155606bb6a86018dc84c7a5601f5838ed38ef7418a76a14fffb0cfdc70775f07"
+    },
+    "tools/test_checkpoint.py": {
+      "bytes": 28476,
+      "sha256": "ffaa347c3c7f43ec0169ef90fdc29f3d044d473d34f50998bf43aaa603ec3d70"
+    },
+    "tools/README.md": {
+      "bytes": 9654,
+      "sha256": "48ad70439058b70b552b4d2bf2549971380fac56c1ee802174468e8f6811f0dd"
+    }
+  },
+  "new_cases": [
+    "Explicit exact prior and ordinary003 unchanged",
+    "No prior mathematical payload loss even with rewritten policy",
+    "No historical acceptance or normal-growth limit relaxation",
+    "No archive exception outside exact pinned master reachable history"
+  ],
+  "source_code_paths_modified": [
+    "tools/checkpoint.py",
+    "tools/test_checkpoint.py",
+    "tools/README.md"
+  ],
+  "durable_upload_claim": false
+}

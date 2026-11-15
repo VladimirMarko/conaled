@@ -1,0 +1,37 @@
+{
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "review_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "started_utc": "2026-11-02T22:08:37.284385+00:00",
+  "checkout": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+  "initial_status": "",
+  "command": [
+    "env",
+    "LEAN_NUM_THREADS=1",
+    "./check.sh",
+    "--candidate",
+    "HEAD"
+  ],
+  "LEAN_NUM_THREADS": "1",
+  "result": "running",
+  "log": "/workspace/scratch/845aa1048b05/fdsa-control/reviews/chapter01-repair-incremental-attempt3.log",
+  "wrapper": {
+    "pid": 600750,
+    "start_ticks": "9123853",
+    "state": "R",
+    "process_group": 600750,
+    "session": 600750
+  },
+  "available_bytes_at_start": 1277620224,
+  "prior_attempt_outcome": "Attempts1 and2 both have unknown terminal outcomes; both INC02 evidence sets remain preserved without modification.",
+  "recovery_disposition": "reviews/chapter01-session2-recovery-standards.md",
+  "recovery_disposition_sha256": "2f2d829897074900896b69cfb8b2edde0f30cddb6f5a525eb9f31e3b9f323293",
+  "launcher_mode": "External pinned-Nix launch in a separate session; checker command and verification policy unchanged.",
+  "scope": "Full unchanged ordinary guarded candidate check: source/coverage/compiler identity, both integrity passes, complete integrated build and exhaustive proof audit. Both retained final review axes and immediate verify-candidate remain required.",
+  "checker": {
+    "pid": 600779,
+    "start_ticks": "9123889",
+    "state": "R",
+    "process_group": 600750,
+    "session": 600750
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "observed_utc": "2026-11-03T17:35:50.740892+00:00",
+  "observations": [
+    {
+      "path": "/workspace/scratch/83865511e965/toolchain-setup/lean-4.35.0-linux.tar.zst",
+      "size": 594481375,
+      "allocated": 594489344,
+      "inode": 409605,
+      "mtime_ns": 1793716122927179895,
+      "sha256": "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d",
+      "xattrs": {}
+    },
+    {
+      "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/checkpoints/conaled-vfa-checkpoint-036-recovered-environment-handoff.tar.gz",
+      "size": 146624202,
+      "allocated": 146624512,
+      "inode": 430130,
+      "mtime_ns": 1793714408505231277,
+      "sha256": "fe08cb3718b66926051397f42c8a82af3547eb63844f9d8edb19caf3bb337e7b",
+      "xattrs": {}
+    },
+    {
+      "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/checkpoints/conaled-vfa-checkpoint-037-direct-toolchain-runtime-handoff.tar.gz",
+      "size": 146635841,
+      "allocated": 146636800,
+      "inode": 444320,
+      "mtime_ns": 1793717010320357097,
+      "sha256": "88d98e30970438af11c127a962bceae9d3535fee08382cfcc3b25548fe0739ab",
+      "xattrs": {}
+    }
+  ],
+  "prior_actual_retirements": [
+    "work-state/validation/1034-disposable-download-retirement.json",
+    "work-state/validation/1034-checkpoint-copy-retirement.json"
+  ],
+  "disposition": "These exact paths are present again after recorded one-time deletion. Cause/writer and whether the old filesystem identity was restored are unestablished. No repeat removal is authorized by the old records, and none was performed. Preserve current bytes/metadata; do not attribute return or ambient capacity changes to another process or service. The new cleanup selected different exact superseded temporary files only.",
+  "free_bytes_at_recording": 197963776
+}

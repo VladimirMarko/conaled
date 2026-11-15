@@ -1,0 +1,24 @@
+--- checkpoint-generator-before-042.py
++++ checkpoint.py
+@@ -113,7 +113,7 @@
+ subprocess.run(['git', 'remote', 'set-url', 'origin', 'https://github.com/VladimirMarko/conaled.git'], cwd=repo, check=True)
+ subprocess.run(['git', 'config', 'remote.origin.pushurl', 'DISABLED-local-only'], cwd=repo, check=True)
+ print('Restored:', dest)
+-print('Read session/STATUS.md and session/requirements/REQUEST.md before resuming.')
++print('Read session/STATUS.md, session/requirements/REQUEST.md, and session/environment/RECOVER-ENVIRONMENT.md before resuming.')
+ '''
+ 
+ def main() -> None:
+@@ -175,8 +175,10 @@
+ 3. In the new directory read `session/requirements/REQUEST.md`,
+    `session/STATUS.md`, `session/tracker/tickets.json`, and the latest review and
+    environment records. They preserve authorization and outstanding work.
+-4. Read `conaled/AGENTS.md`, then enter its pinned Nix development shell and
+-   restore external dependencies with `lake exe cache get`.
++4. Read `conaled/AGENTS.md` and `session/environment/RECOVER-ENVIRONMENT.md`.
++   The user permits the exact Lean/Lake setup without Nix. Follow that runbook
++   to restore the verified toolchain, all pinned dependencies and their cache.
++   The source, proof, review and candidate-acceptance requirements still apply.
+ 5. Resume the earliest unaccepted chapter. Retain both independent review
+    axes, full source scope and the required candidate build/proof audit.
+ 

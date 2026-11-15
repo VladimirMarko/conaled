@@ -1,0 +1,528 @@
+{
+  "acceptance": false,
+  "argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-direct-toolchain.py",
+    "--workspace",
+    "/workspace/scratch/b566cace4ed6/pfds",
+    "--",
+    "lake",
+    "build",
+    "Applications.Resources.Potential",
+    "Applications.Resources.SignedPotential",
+    "Applications.Resources.BinaryCounter",
+    "Applications.Resources.SymmetricCosts",
+    "Applications.Resources.RandomAccess.End",
+    "Applications.Resources.FIFOContracts",
+    "Examples.PotentialAccounting",
+    "Examples.FIFOContracts",
+    "Examples.RandomAccessEndCosts",
+    "Examples.SignedPotential",
+    "Examples.PotentialTransport"
+  ],
+  "candidate": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+  "checkout": "signed-potential",
+  "child_pid": 128,
+  "clean_after": true,
+  "command": [
+    "lake",
+    "build",
+    "Applications.Resources.Potential",
+    "Applications.Resources.SignedPotential",
+    "Applications.Resources.BinaryCounter",
+    "Applications.Resources.SymmetricCosts",
+    "Applications.Resources.RandomAccess.End",
+    "Applications.Resources.FIFOContracts",
+    "Examples.PotentialAccounting",
+    "Examples.FIFOContracts",
+    "Examples.RandomAccessEndCosts",
+    "Examples.SignedPotential",
+    "Examples.PotentialTransport"
+  ],
+  "command_exit_code": 1,
+  "ended_at": "2026-11-03T16:00:25.552628+00:00",
+  "exit_code": 1,
+  "final_inputs": {
+    "controller_inputs": {
+      "session/environment/make-direct-toolchain-profile.py": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb",
+      "session/environment/run-direct-toolchain.py": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+      "session/requirements/REQUEST-direct-toolchain-041.md": "16845edec15c311e0cfd5ed5d4f5c4feb61e7ad96545653d5b872309d26464bc",
+      "session/validation/run-direct-validation.py": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b"
+    },
+    "dependencies": {
+      "Cli": {
+        "checkout": "dependency-store-041/Cli",
+        "expected": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "porcelain": "",
+        "tree": "915a71e36b9b7067b2bdf21c7362ec883bcbb214"
+      },
+      "LeanSearchClient": {
+        "checkout": "dependency-store-041/LeanSearchClient",
+        "expected": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "porcelain": "",
+        "tree": "bf548235194a21930a91aa9ab852dea26ca0f039"
+      },
+      "Qq": {
+        "checkout": "dependency-store-041/Qq",
+        "expected": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "porcelain": "",
+        "tree": "356cde3a20d62d1008736a4bb98c632a799c4aa6"
+      },
+      "aesop": {
+        "checkout": "dependency-store-041/aesop",
+        "expected": "4a174c490d8707121c4a9290800489f105d85e07",
+        "head": "4a174c490d8707121c4a9290800489f105d85e07",
+        "porcelain": "",
+        "tree": "883b9af90cca8b2d83811a507a62be85b2f3c312"
+      },
+      "batteries": {
+        "checkout": "dependency-store-041/batteries",
+        "expected": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "porcelain": "",
+        "tree": "8b834e0208f1bc8eb66f1816519aef3982e7fb8b"
+      },
+      "importGraph": {
+        "checkout": "dependency-store-041/importGraph",
+        "expected": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "porcelain": "",
+        "tree": "c50cb794df9a6a8618884d0ea5151f0a26c59257"
+      },
+      "mathlib": {
+        "checkout": "dependency-store-041/mathlib",
+        "expected": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "porcelain": "",
+        "tree": "0db52fa68e6b0c5b917c22bc6383325391a00610"
+      },
+      "plausible": {
+        "checkout": "dependency-store-041/plausible",
+        "expected": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "porcelain": "",
+        "tree": "4cb8bf2ba49da888f56e270a08c7803000c1da89"
+      },
+      "proofwidgets": {
+        "checkout": "dependency-store-041/proofwidgets",
+        "expected": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "porcelain": "",
+        "tree": "6f39a3ce916f1cd8c298b85695b620444719e14b"
+      }
+    },
+    "direct_environment": {
+      "environment": {
+        "LAKE_CACHE_DIR": "/workspace/scratch/b566cace4ed6/pfds/runtime-cache/lake",
+        "LD_LIBRARY_PATH": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/lib/lean:/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/lib",
+        "LEAN_NUM_THREADS": "1",
+        "LEAN_SYSROOT": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile",
+        "MATHLIB_CACHE_DIR": "/workspace/scratch/b566cace4ed6/pfds/runtime-cache/mathlib",
+        "PATH": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin:/root/.codex/tmp/arg0-linux/codex-arg0D0T4n9:/opt/codex/codex-path:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback",
+        "TMPDIR": "/workspace/scratch/b566cace4ed6/pfds/runtime-cache/tmp"
+      },
+      "identities": {
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/leanir": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin/lake": "cc6bc53c2aeb31489f24aa565b519c3cfa0bd9f8984eb366e020a6413bcb5744",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin/lake.real": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin/lean": "55fa4ab7fad9dd5ae554878188be8866e201d5bc38185e577a6b4835d0b22c63",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin/lean.real": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin/leanir": "efe2b7e36b406fa490285edc0bfd0de1edc3a86985c50844645751607b96e359",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin/leanir.real": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/profile-identity.json": "a40a66005e5f450f25639ff27f644bf0ae0f827b927818f4d236d7b091758860",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/qemu-7.2-deb12u18/qemu-x86_64-static": "8f2e8d5017b23a877fdf52e4021e6348bb5ad92306dd0d0615159ab6276da442"
+      },
+      "launcher_sha256": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+      "profile": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile",
+      "workspace": "/workspace/scratch/b566cace4ed6/pfds"
+    },
+    "manifest_sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "project": {
+      "head": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+      "porcelain": "",
+      "tree": "9e4d0ca7be2b0016b80b1f7858346eae59990474"
+    },
+    "source_inputs": {
+      "Applications/Bracketing/Basic.lean": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+      "Applications/Optimization/SelectionSpec.lean": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+      "Applications/Resources/BinaryCounter.lean": "d990e0e8d9b09fff3f774180fa2396558f2d1abcf7e6231be648f5bd66f6f9c0",
+      "Applications/Resources/BinaryCounter/Decrement.lean": "dc9d3d7d9a1fb5bd1650d33af54504b12568178f13feac9840267ecbddcc0cab",
+      "Applications/Resources/FIFOContracts.lean": "dff2940bacabe6b759b4ff1f6ebe361282fb0777192bafbb05911f9c13b6ecbb",
+      "Applications/Resources/Measured.lean": "b5f76c8dfdb3cc9dd28a356bebd12787b3a7add61abba1022d474604a6979667",
+      "Applications/Resources/Potential.lean": "690b48d41dc0b4b21a62e29d1a67c8b0494b3a0ca9de378e07cca82f415f961e",
+      "Applications/Resources/RandomAccess/Bulk.lean": "f894c9364e48c3e4845842e57328ba89fbf47b9d3cf3adfcd9200b0c2b544254",
+      "Applications/Resources/RandomAccess/CacheCosts.lean": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+      "Applications/Resources/RandomAccess/Cycles.lean": "3f60553002fefc29cc992a9932f531635648d316d2d8cedeacc807dce24c3b31",
+      "Applications/Resources/RandomAccess/Drain.lean": "2e715a1709a10cb027ec28b66b0a312cd8bc6c3d2845622c29cfaef881529003",
+      "Applications/Resources/RandomAccess/End.lean": "ded4129df132c7fd87a40899cea6f483db02f3f95332bd9ec7c8c57dd868f099",
+      "Applications/Resources/RandomAccess/EndCases.lean": "7b33c4effd2eb8d2eedc997b9769960e075015e1a7bbaedec05c2dd19d69b8a1",
+      "Applications/Resources/RandomAccess/EndObservation.lean": "c670636b445bfc00b9b4053759f2f86876bb341310b52e1e86371779504f03bb",
+      "Applications/Resources/RandomAccess/Families.lean": "3ff9ffb4dafd9e37fb563db019e622a27fbb58ff12a296120c78574ec1daf578",
+      "Applications/Resources/RandomAccess/Lookup.lean": "fee5e437b510db3af153b5c43b940c160c0f5f3163c2b21108550f4aadc689dc",
+      "Applications/Resources/RandomAccess/Observation.lean": "f4e64afdae5d1df4505d0a6a668b049941496d27450d40bf40c9fd20f24c6aaa",
+      "Applications/Resources/SignedPotential.lean": "c839b1e32b3182c5789d05934ea253139d91c338917c1207616fe0043b0ce222",
+      "Applications/Resources/SymmetricCosts.lean": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+      "Applications/Resources/SymmetricWorkload.lean": "c3d5d35f5144d0a9cb7a723c059329ce267cb88cec07fc8f128ca1dd4f8b96a0",
+      "Applications/Resources/Workload.lean": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+      "Applications/Sequences/AbstractFIFO.lean": "e9d468a3d60c15f6474e71082c19b561819cb3c084e201c0eb8b935d57af0bb2",
+      "Applications/Sequences/RandomAccess/Access.lean": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+      "Applications/Sequences/RandomAccess/Basic.lean": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+      "Applications/Sequences/RandomAccess/Borrow.lean": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+      "Applications/Sequences/RandomAccess/Representation.lean": "89d2b1a17b5fafa0f5153283fab8d3c6cf9c68a9816312be09fec8a64b7a1924",
+      "Applications/Sequences/RandomAccess/TreeBuild.lean": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+      "Applications/Sequences/Symmetric/Core.lean": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+      "Applications/Sequences/Symmetric/Finite.lean": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490",
+      "Applications/Sequences/Symmetric/Observation.lean": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557",
+      "Applications/Sequences/Symmetric/Prefixes.lean": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308",
+      "Examples/FIFOContracts.lean": "de9e455109ecb5cca0f5e30b7dc993f81149ab7a6145750cc2b62bcb9f83831b",
+      "Examples/PotentialAccounting.lean": "ee3fbee1b7e8be75226ac912e3cbb2b82c322d843b3231bdb6ac94908c7b1871",
+      "Examples/PotentialTransport.lean": "5fa86b8dec422ca73c6a8c4853a6a2719b2f3892c0bac57b6a58becb18dd3c7c",
+      "Examples/RandomAccessEndCosts.lean": "ea68d8773ae7fea32d43e9b0eb01d3ca9111a0d41eac28079adafa5a719fa600",
+      "Examples/SignedPotential.lean": "745400e50b758413a9087c64a9a9fe99a268236afb46618be02ecd5d82c034fc",
+      "SquareKit/ListFusion.lean": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+      "SquareKit/Relations.lean": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03",
+      "Squares.lean": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+      "flake.lock": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+      "flake.nix": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+      "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    }
+  },
+  "head_after": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+  "inputs": {
+    "controller_inputs": {
+      "session/environment/make-direct-toolchain-profile.py": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb",
+      "session/environment/run-direct-toolchain.py": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+      "session/requirements/REQUEST-direct-toolchain-041.md": "16845edec15c311e0cfd5ed5d4f5c4feb61e7ad96545653d5b872309d26464bc",
+      "session/validation/run-direct-validation.py": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b"
+    },
+    "dependencies": {
+      "Cli": {
+        "checkout": "dependency-store-041/Cli",
+        "expected": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "porcelain": "",
+        "tree": "915a71e36b9b7067b2bdf21c7362ec883bcbb214"
+      },
+      "LeanSearchClient": {
+        "checkout": "dependency-store-041/LeanSearchClient",
+        "expected": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "porcelain": "",
+        "tree": "bf548235194a21930a91aa9ab852dea26ca0f039"
+      },
+      "Qq": {
+        "checkout": "dependency-store-041/Qq",
+        "expected": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "porcelain": "",
+        "tree": "356cde3a20d62d1008736a4bb98c632a799c4aa6"
+      },
+      "aesop": {
+        "checkout": "dependency-store-041/aesop",
+        "expected": "4a174c490d8707121c4a9290800489f105d85e07",
+        "head": "4a174c490d8707121c4a9290800489f105d85e07",
+        "porcelain": "",
+        "tree": "883b9af90cca8b2d83811a507a62be85b2f3c312"
+      },
+      "batteries": {
+        "checkout": "dependency-store-041/batteries",
+        "expected": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "porcelain": "",
+        "tree": "8b834e0208f1bc8eb66f1816519aef3982e7fb8b"
+      },
+      "importGraph": {
+        "checkout": "dependency-store-041/importGraph",
+        "expected": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "porcelain": "",
+        "tree": "c50cb794df9a6a8618884d0ea5151f0a26c59257"
+      },
+      "mathlib": {
+        "checkout": "dependency-store-041/mathlib",
+        "expected": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "porcelain": "",
+        "tree": "0db52fa68e6b0c5b917c22bc6383325391a00610"
+      },
+      "plausible": {
+        "checkout": "dependency-store-041/plausible",
+        "expected": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "porcelain": "",
+        "tree": "4cb8bf2ba49da888f56e270a08c7803000c1da89"
+      },
+      "proofwidgets": {
+        "checkout": "dependency-store-041/proofwidgets",
+        "expected": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "porcelain": "",
+        "tree": "6f39a3ce916f1cd8c298b85695b620444719e14b"
+      }
+    },
+    "direct_environment": {
+      "environment": {
+        "LAKE_CACHE_DIR": "/workspace/scratch/b566cace4ed6/pfds/runtime-cache/lake",
+        "LD_LIBRARY_PATH": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/lib/lean:/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/lib",
+        "LEAN_NUM_THREADS": "1",
+        "LEAN_SYSROOT": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile",
+        "MATHLIB_CACHE_DIR": "/workspace/scratch/b566cace4ed6/pfds/runtime-cache/mathlib",
+        "PATH": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin:/root/.codex/tmp/arg0-linux/codex-arg0D0T4n9:/opt/codex/codex-path:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback",
+        "TMPDIR": "/workspace/scratch/b566cace4ed6/pfds/runtime-cache/tmp"
+      },
+      "identities": {
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/leanir": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin/lake": "cc6bc53c2aeb31489f24aa565b519c3cfa0bd9f8984eb366e020a6413bcb5744",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin/lake.real": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin/lean": "55fa4ab7fad9dd5ae554878188be8866e201d5bc38185e577a6b4835d0b22c63",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin/lean.real": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin/leanir": "efe2b7e36b406fa490285edc0bfd0de1edc3a86985c50844645751607b96e359",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin/leanir.real": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/profile-identity.json": "a40a66005e5f450f25639ff27f644bf0ae0f827b927818f4d236d7b091758860",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/qemu-7.2-deb12u18/qemu-x86_64-static": "8f2e8d5017b23a877fdf52e4021e6348bb5ad92306dd0d0615159ab6276da442"
+      },
+      "launcher_sha256": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+      "profile": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile",
+      "workspace": "/workspace/scratch/b566cace4ed6/pfds"
+    },
+    "manifest_sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "project": {
+      "head": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+      "porcelain": "",
+      "tree": "9e4d0ca7be2b0016b80b1f7858346eae59990474"
+    },
+    "source_inputs": {
+      "Applications/Bracketing/Basic.lean": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+      "Applications/Optimization/SelectionSpec.lean": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+      "Applications/Resources/BinaryCounter.lean": "d990e0e8d9b09fff3f774180fa2396558f2d1abcf7e6231be648f5bd66f6f9c0",
+      "Applications/Resources/BinaryCounter/Decrement.lean": "dc9d3d7d9a1fb5bd1650d33af54504b12568178f13feac9840267ecbddcc0cab",
+      "Applications/Resources/FIFOContracts.lean": "dff2940bacabe6b759b4ff1f6ebe361282fb0777192bafbb05911f9c13b6ecbb",
+      "Applications/Resources/Measured.lean": "b5f76c8dfdb3cc9dd28a356bebd12787b3a7add61abba1022d474604a6979667",
+      "Applications/Resources/Potential.lean": "690b48d41dc0b4b21a62e29d1a67c8b0494b3a0ca9de378e07cca82f415f961e",
+      "Applications/Resources/RandomAccess/Bulk.lean": "f894c9364e48c3e4845842e57328ba89fbf47b9d3cf3adfcd9200b0c2b544254",
+      "Applications/Resources/RandomAccess/CacheCosts.lean": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+      "Applications/Resources/RandomAccess/Cycles.lean": "3f60553002fefc29cc992a9932f531635648d316d2d8cedeacc807dce24c3b31",
+      "Applications/Resources/RandomAccess/Drain.lean": "2e715a1709a10cb027ec28b66b0a312cd8bc6c3d2845622c29cfaef881529003",
+      "Applications/Resources/RandomAccess/End.lean": "ded4129df132c7fd87a40899cea6f483db02f3f95332bd9ec7c8c57dd868f099",
+      "Applications/Resources/RandomAccess/EndCases.lean": "7b33c4effd2eb8d2eedc997b9769960e075015e1a7bbaedec05c2dd19d69b8a1",
+      "Applications/Resources/RandomAccess/EndObservation.lean": "c670636b445bfc00b9b4053759f2f86876bb341310b52e1e86371779504f03bb",
+      "Applications/Resources/RandomAccess/Families.lean": "3ff9ffb4dafd9e37fb563db019e622a27fbb58ff12a296120c78574ec1daf578",
+      "Applications/Resources/RandomAccess/Lookup.lean": "fee5e437b510db3af153b5c43b940c160c0f5f3163c2b21108550f4aadc689dc",
+      "Applications/Resources/RandomAccess/Observation.lean": "f4e64afdae5d1df4505d0a6a668b049941496d27450d40bf40c9fd20f24c6aaa",
+      "Applications/Resources/SignedPotential.lean": "c839b1e32b3182c5789d05934ea253139d91c338917c1207616fe0043b0ce222",
+      "Applications/Resources/SymmetricCosts.lean": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+      "Applications/Resources/SymmetricWorkload.lean": "c3d5d35f5144d0a9cb7a723c059329ce267cb88cec07fc8f128ca1dd4f8b96a0",
+      "Applications/Resources/Workload.lean": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+      "Applications/Sequences/AbstractFIFO.lean": "e9d468a3d60c15f6474e71082c19b561819cb3c084e201c0eb8b935d57af0bb2",
+      "Applications/Sequences/RandomAccess/Access.lean": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+      "Applications/Sequences/RandomAccess/Basic.lean": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+      "Applications/Sequences/RandomAccess/Borrow.lean": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+      "Applications/Sequences/RandomAccess/Representation.lean": "89d2b1a17b5fafa0f5153283fab8d3c6cf9c68a9816312be09fec8a64b7a1924",
+      "Applications/Sequences/RandomAccess/TreeBuild.lean": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+      "Applications/Sequences/Symmetric/Core.lean": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+      "Applications/Sequences/Symmetric/Finite.lean": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490",
+      "Applications/Sequences/Symmetric/Observation.lean": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557",
+      "Applications/Sequences/Symmetric/Prefixes.lean": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308",
+      "Examples/FIFOContracts.lean": "de9e455109ecb5cca0f5e30b7dc993f81149ab7a6145750cc2b62bcb9f83831b",
+      "Examples/PotentialAccounting.lean": "ee3fbee1b7e8be75226ac912e3cbb2b82c322d843b3231bdb6ac94908c7b1871",
+      "Examples/PotentialTransport.lean": "5fa86b8dec422ca73c6a8c4853a6a2719b2f3892c0bac57b6a58becb18dd3c7c",
+      "Examples/RandomAccessEndCosts.lean": "ea68d8773ae7fea32d43e9b0eb01d3ca9111a0d41eac28079adafa5a719fa600",
+      "Examples/SignedPotential.lean": "745400e50b758413a9087c64a9a9fe99a268236afb46618be02ecd5d82c034fc",
+      "SquareKit/ListFusion.lean": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+      "SquareKit/Relations.lean": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03",
+      "Squares.lean": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+      "flake.lock": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+      "flake.nix": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+      "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    }
+  },
+  "inputs_unchanged": true,
+  "log": "session/validation/signed-d24-direct-r1.log",
+  "log_sha256": "f5f22a7c680a2893f2d690a45c28b581eb37c83f0421d465b5fe3203a6bf2367",
+  "mode": "focus",
+  "owner_pid": 2,
+  "queued_at": "2026-11-03T15:17:43.577568+00:00",
+  "queued_inputs": {
+    "controller_inputs": {
+      "session/environment/make-direct-toolchain-profile.py": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb",
+      "session/environment/run-direct-toolchain.py": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+      "session/requirements/REQUEST-direct-toolchain-041.md": "16845edec15c311e0cfd5ed5d4f5c4feb61e7ad96545653d5b872309d26464bc",
+      "session/validation/run-direct-validation.py": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b"
+    },
+    "dependencies": {
+      "Cli": {
+        "checkout": "dependency-store-041/Cli",
+        "expected": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "porcelain": "",
+        "tree": "915a71e36b9b7067b2bdf21c7362ec883bcbb214"
+      },
+      "LeanSearchClient": {
+        "checkout": "dependency-store-041/LeanSearchClient",
+        "expected": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "porcelain": "",
+        "tree": "bf548235194a21930a91aa9ab852dea26ca0f039"
+      },
+      "Qq": {
+        "checkout": "dependency-store-041/Qq",
+        "expected": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "porcelain": "",
+        "tree": "356cde3a20d62d1008736a4bb98c632a799c4aa6"
+      },
+      "aesop": {
+        "checkout": "dependency-store-041/aesop",
+        "expected": "4a174c490d8707121c4a9290800489f105d85e07",
+        "head": "4a174c490d8707121c4a9290800489f105d85e07",
+        "porcelain": "",
+        "tree": "883b9af90cca8b2d83811a507a62be85b2f3c312"
+      },
+      "batteries": {
+        "checkout": "dependency-store-041/batteries",
+        "expected": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "porcelain": "",
+        "tree": "8b834e0208f1bc8eb66f1816519aef3982e7fb8b"
+      },
+      "importGraph": {
+        "checkout": "dependency-store-041/importGraph",
+        "expected": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "porcelain": "",
+        "tree": "c50cb794df9a6a8618884d0ea5151f0a26c59257"
+      },
+      "mathlib": {
+        "checkout": "dependency-store-041/mathlib",
+        "expected": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "porcelain": "",
+        "tree": "0db52fa68e6b0c5b917c22bc6383325391a00610"
+      },
+      "plausible": {
+        "checkout": "dependency-store-041/plausible",
+        "expected": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "porcelain": "",
+        "tree": "4cb8bf2ba49da888f56e270a08c7803000c1da89"
+      },
+      "proofwidgets": {
+        "checkout": "dependency-store-041/proofwidgets",
+        "expected": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "porcelain": "",
+        "tree": "6f39a3ce916f1cd8c298b85695b620444719e14b"
+      }
+    },
+    "direct_environment": {
+      "environment": {
+        "LAKE_CACHE_DIR": "/workspace/scratch/b566cace4ed6/pfds/runtime-cache/lake",
+        "LD_LIBRARY_PATH": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/lib/lean:/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/lib",
+        "LEAN_NUM_THREADS": "1",
+        "LEAN_SYSROOT": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile",
+        "MATHLIB_CACHE_DIR": "/workspace/scratch/b566cace4ed6/pfds/runtime-cache/mathlib",
+        "PATH": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin:/root/.codex/tmp/arg0-linux/codex-arg0D0T4n9:/opt/codex/codex-path:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback",
+        "TMPDIR": "/workspace/scratch/b566cace4ed6/pfds/runtime-cache/tmp"
+      },
+      "identities": {
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/leanir": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin/lake": "cc6bc53c2aeb31489f24aa565b519c3cfa0bd9f8984eb366e020a6413bcb5744",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin/lake.real": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin/lean": "55fa4ab7fad9dd5ae554878188be8866e201d5bc38185e577a6b4835d0b22c63",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin/lean.real": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin/leanir": "efe2b7e36b406fa490285edc0bfd0de1edc3a86985c50844645751607b96e359",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/bin/leanir.real": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile/profile-identity.json": "a40a66005e5f450f25639ff27f644bf0ae0f827b927818f4d236d7b091758860",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/qemu-7.2-deb12u18/qemu-x86_64-static": "8f2e8d5017b23a877fdf52e4021e6348bb5ad92306dd0d0615159ab6276da442"
+      },
+      "launcher_sha256": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+      "profile": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-profile",
+      "workspace": "/workspace/scratch/b566cace4ed6/pfds"
+    },
+    "manifest_sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "project": {
+      "head": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+      "porcelain": "",
+      "tree": "9e4d0ca7be2b0016b80b1f7858346eae59990474"
+    },
+    "source_inputs": {
+      "Applications/Bracketing/Basic.lean": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+      "Applications/Optimization/SelectionSpec.lean": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+      "Applications/Resources/BinaryCounter.lean": "d990e0e8d9b09fff3f774180fa2396558f2d1abcf7e6231be648f5bd66f6f9c0",
+      "Applications/Resources/BinaryCounter/Decrement.lean": "dc9d3d7d9a1fb5bd1650d33af54504b12568178f13feac9840267ecbddcc0cab",
+      "Applications/Resources/FIFOContracts.lean": "dff2940bacabe6b759b4ff1f6ebe361282fb0777192bafbb05911f9c13b6ecbb",
+      "Applications/Resources/Measured.lean": "b5f76c8dfdb3cc9dd28a356bebd12787b3a7add61abba1022d474604a6979667",
+      "Applications/Resources/Potential.lean": "690b48d41dc0b4b21a62e29d1a67c8b0494b3a0ca9de378e07cca82f415f961e",
+      "Applications/Resources/RandomAccess/Bulk.lean": "f894c9364e48c3e4845842e57328ba89fbf47b9d3cf3adfcd9200b0c2b544254",
+      "Applications/Resources/RandomAccess/CacheCosts.lean": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+      "Applications/Resources/RandomAccess/Cycles.lean": "3f60553002fefc29cc992a9932f531635648d316d2d8cedeacc807dce24c3b31",
+      "Applications/Resources/RandomAccess/Drain.lean": "2e715a1709a10cb027ec28b66b0a312cd8bc6c3d2845622c29cfaef881529003",
+      "Applications/Resources/RandomAccess/End.lean": "ded4129df132c7fd87a40899cea6f483db02f3f95332bd9ec7c8c57dd868f099",
+      "Applications/Resources/RandomAccess/EndCases.lean": "7b33c4effd2eb8d2eedc997b9769960e075015e1a7bbaedec05c2dd19d69b8a1",
+      "Applications/Resources/RandomAccess/EndObservation.lean": "c670636b445bfc00b9b4053759f2f86876bb341310b52e1e86371779504f03bb",
+      "Applications/Resources/RandomAccess/Families.lean": "3ff9ffb4dafd9e37fb563db019e622a27fbb58ff12a296120c78574ec1daf578",
+      "Applications/Resources/RandomAccess/Lookup.lean": "fee5e437b510db3af153b5c43b940c160c0f5f3163c2b21108550f4aadc689dc",
+      "Applications/Resources/RandomAccess/Observation.lean": "f4e64afdae5d1df4505d0a6a668b049941496d27450d40bf40c9fd20f24c6aaa",
+      "Applications/Resources/SignedPotential.lean": "c839b1e32b3182c5789d05934ea253139d91c338917c1207616fe0043b0ce222",
+      "Applications/Resources/SymmetricCosts.lean": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+      "Applications/Resources/SymmetricWorkload.lean": "c3d5d35f5144d0a9cb7a723c059329ce267cb88cec07fc8f128ca1dd4f8b96a0",
+      "Applications/Resources/Workload.lean": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+      "Applications/Sequences/AbstractFIFO.lean": "e9d468a3d60c15f6474e71082c19b561819cb3c084e201c0eb8b935d57af0bb2",
+      "Applications/Sequences/RandomAccess/Access.lean": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+      "Applications/Sequences/RandomAccess/Basic.lean": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+      "Applications/Sequences/RandomAccess/Borrow.lean": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+      "Applications/Sequences/RandomAccess/Representation.lean": "89d2b1a17b5fafa0f5153283fab8d3c6cf9c68a9816312be09fec8a64b7a1924",
+      "Applications/Sequences/RandomAccess/TreeBuild.lean": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+      "Applications/Sequences/Symmetric/Core.lean": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+      "Applications/Sequences/Symmetric/Finite.lean": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490",
+      "Applications/Sequences/Symmetric/Observation.lean": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557",
+      "Applications/Sequences/Symmetric/Prefixes.lean": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308",
+      "Examples/FIFOContracts.lean": "de9e455109ecb5cca0f5e30b7dc993f81149ab7a6145750cc2b62bcb9f83831b",
+      "Examples/PotentialAccounting.lean": "ee3fbee1b7e8be75226ac912e3cbb2b82c322d843b3231bdb6ac94908c7b1871",
+      "Examples/PotentialTransport.lean": "5fa86b8dec422ca73c6a8c4853a6a2719b2f3892c0bac57b6a58becb18dd3c7c",
+      "Examples/RandomAccessEndCosts.lean": "ea68d8773ae7fea32d43e9b0eb01d3ca9111a0d41eac28079adafa5a719fa600",
+      "Examples/SignedPotential.lean": "745400e50b758413a9087c64a9a9fe99a268236afb46618be02ecd5d82c034fc",
+      "SquareKit/ListFusion.lean": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+      "SquareKit/Relations.lean": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03",
+      "Squares.lean": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+      "flake.lock": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+      "flake.nix": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+      "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    }
+  },
+  "run_id": "signed-d24-direct-r1",
+  "schema": 1,
+  "scope": "Focused development only",
+  "started_at": "2026-11-03T15:17:44.779172+00:00",
+  "status": "finished",
+  "targets": [
+    "Applications.Resources.Potential",
+    "Applications.Resources.SignedPotential",
+    "Applications.Resources.BinaryCounter",
+    "Applications.Resources.SymmetricCosts",
+    "Applications.Resources.RandomAccess.End",
+    "Applications.Resources.FIFOContracts",
+    "Examples.PotentialAccounting",
+    "Examples.FIFOContracts",
+    "Examples.RandomAccessEndCosts",
+    "Examples.SignedPotential",
+    "Examples.PotentialTransport"
+  ],
+  "terminal_result_observed": true,
+  "verification_mode": null
+}

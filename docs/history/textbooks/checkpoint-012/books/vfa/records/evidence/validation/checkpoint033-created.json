@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "started_utc": "2026-11-02T23:31:21.628313+00:00",
+  "finished_utc": "2026-11-02T23:31:45.983005+00:00",
+  "command": [
+    "python3",
+    "/workspace/scratch/0c54f2db1fdf/work-state/tools/checkpoint.py",
+    "--workspace",
+    "/workspace/scratch/0c54f2db1fdf",
+    "--name",
+    "conaled-vfa-checkpoint-033-capacity-recovery-progress"
+  ],
+  "actual_returncode": 0,
+  "stdout": "{\"file\": \"/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-033-capacity-recovery-progress.tar.gz\", \"size_bytes\": 146201412, \"sha256\": \"4fac9ad9306c728f075f19d5e7c3781f91a139bda134897149c347df6f82760c\", \"head\": \"3279bacaec4087cc0d6b7e6b8ae862109cb2dfec\", \"bundle_verify\": \"passed\", \"restore_smoke\": \"passed\", \"source_index_workflow_stability\": \"passed\"}\n",
+  "stderr": ""
+}

@@ -1,0 +1,239 @@
+{
+  "schema": "fdsa-spec-permutation-order-final-v1",
+  "utc": "2026-11-04T15:47:42.621006+00:00",
+  "reviewer": "Independent nonauthor Spec",
+  "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "accepted_predecessor": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "foundation_producer": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "outcome": "PASS",
+  "full_original_XU02_scope": {
+    "paths": [
+      "Applications/Probability/PermutationOrder.lean",
+      "Examples/PermutationOrder.lean",
+      "Examples/PermutationOrderBoundary.lean",
+      "SquareApplications.lean",
+      "docs/research/fdsa-permutation-order.md",
+      "docs/research/fdsa-reconstruction-map.md"
+    ],
+    "additions": 4,
+    "modifications": 2,
+    "insertions": 815,
+    "deletions": 0,
+    "all_original_paths_and_cases_retained": true
+  },
+  "requirements": {
+    "path": "reviews/permutation-order-requirements.md",
+    "bytes": 11430,
+    "lines": 209,
+    "sha256": "f473f593bf4a7ef75dcf2f3163440db6fe187b3b9983f87254d2ddfa8191982d",
+    "read_scope": "Complete content read in this continuation; no truncated spans credited."
+  },
+  "original_C2_scope_unchanged": {
+    "paths": 81,
+    "obligations": 112,
+    "included_shared_scopes": 10,
+    "unchanged": true
+  },
+  "receiving_source_assessment_retained": {
+    "path": "provenance/shared-order-spec-source-continuation-20261104/source-assessment.json",
+    "bytes": 88083,
+    "lines": 2041,
+    "sha256": "176d0c3ccf6f7cf84d427e9ddbc39b619666f0215b74f2f58e1fe036bfdb67cf"
+  },
+  "current_complete_source_types_and_audit": {
+    "public_names": 53,
+    "public_theorems": 45,
+    "public_definitions": 8,
+    "private_theorems": 5,
+    "anonymous_local_instances": 6,
+    "all_full_source_cases_retained": true,
+    "all53_actual_full_types_read": true,
+    "all118_proof_ellipsis_contexts_assessed": true
+  },
+  "full_gate": {
+    "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+    "mode": "incremental normal",
+    "outer_native_owned_exit0": true,
+    "initial_final_clean_head_J": true,
+    "checked_modules": 980,
+    "audit_module_rows": 978,
+    "kernel_safe_declarations": 45707,
+    "theorem_declarations": 25451,
+    "unsafe_runtime_declarations": 0,
+    "permitted_axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "full_outer_lines_read": 2474,
+    "full_outer_bytes_read": 282530,
+    "native_origin_copies_exact": true,
+    "postguard_supported_artifacts": 2937,
+    "inconsistent_outputs": 0,
+    "warnings": {
+      "current": 584,
+      "accepted_I_exact_headers_retained": 571,
+      "new_Order_import_advisories": 13,
+      "removed_or_changed_predecessor_headers": 0
+    },
+    "verification": {
+      "path": "provenance/shared-order-full-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "lines": 19,
+      "sha256": "dc97fa649fd0b18c30d530a4720b95ee0b1a002d031e6b80094d5b08a9e27124"
+    }
+  },
+  "statement_account": {
+    "current_J": 53,
+    "qualified_I": 314,
+    "qualified_F": 110,
+    "total_distinct": 477,
+    "producer_coverage_and_source_mapping_exact": true
+  },
+  "complete_retained_finding_history": {
+    "XU02-SP01": {
+      "status": "Historical source correction retained at J",
+      "meaning": "Numeric enumeration is not strictly increasing; no false non-increasing claim.",
+      "current_J_status": "Resolved: retained exact source correction confirmed by complete actual J build, all current53 types and full audit."
+    },
+    "XU02-SRC-001": {
+      "status": "Historical source correction retained; prior core compilation/type evidence preserved",
+      "meaning": "Three proof-local letI declarations replaced by let without suppressing the pinned linter.",
+      "current_J_status": "Resolved: retained exact source correction confirmed by complete actual J build, all current53 types and full audit."
+    },
+    "XU02-ELAB-001": {
+      "status": "Historical correction retained at J",
+      "meaning": "Explicit List.Sublist replaces unsupported notation; intended relation unchanged.",
+      "current_J_status": "Resolved: retained exact source correction confirmed by complete actual J build, all current53 types and full audit."
+    },
+    "XU02-ELAB-002": {
+      "status": "Historical correction retained at J",
+      "meaning": "Explicit Fin ys.length type resolves dependent val inference.",
+      "current_J_status": "Resolved: retained exact source correction confirmed by complete actual J build, all current53 types and full audit."
+    },
+    "XU02-ELAB-003": {
+      "status": "Historical correction retained at J",
+      "meaning": "Expose the same inverse-composition map before map_map.",
+      "current_J_status": "Resolved: retained exact source correction confirmed by complete actual J build, all current53 types and full audit."
+    },
+    "XU02-ELAB-004": {
+      "status": "Historical correction retained at J",
+      "meaning": "Pinned ite_eq_left supported branch.",
+      "current_J_status": "Resolved: retained exact source correction confirmed by complete actual J build, all current53 types and full audit."
+    },
+    "XU02-ELAB-005": {
+      "status": "Historical correction retained at J",
+      "meaning": "Pinned ite_eq_right unsupported branch.",
+      "current_J_status": "Resolved: retained exact source correction confirmed by complete actual J build, all current53 types and full audit."
+    },
+    "XU02-ELAB-006": {
+      "status": "Historical correction retained at J",
+      "meaning": "Omit unused DecidableEq only from private finite-extension helper.",
+      "current_J_status": "Resolved: retained exact source correction confirmed by complete actual J build, all current53 types and full audit."
+    },
+    "XU02-ELAB-007": {
+      "status": "Historical correction retained at J",
+      "meaning": "Incomplete enumeration counterexample established via actual Perm.length_eq.",
+      "current_J_status": "Resolved: retained exact source correction confirmed by complete actual J build, all current53 types and full audit."
+    },
+    "XU02-ELAB-008": {
+      "status": "Historical correction retained at J",
+      "meaning": "Repeated enumeration counterexample established via actual Perm.count_eq.",
+      "current_J_status": "Resolved: retained exact source correction confirmed by complete actual J build, all current53 types and full audit."
+    },
+    "XU02-ELAB-009": {
+      "status": "Historical correction retained at J",
+      "meaning": "Main selected_structure uses the same explicit Sublist proposition.",
+      "current_J_status": "Resolved: retained exact source correction confirmed by complete actual J build, all current53 types and full audit."
+    },
+    "XU02-ELAB-010": {
+      "status": "Historical correction retained at J",
+      "meaning": "Main uses current ite rewrite names.",
+      "current_J_status": "Resolved: retained exact source correction confirmed by complete actual J build, all current53 types and full audit."
+    },
+    "XU02-ELAB-011": {
+      "status": "Historical correction retained at J",
+      "meaning": "Five support proofs use existing mem_orders then ordinary decide of List.Perm.",
+      "current_J_status": "Resolved: retained exact source correction confirmed by complete actual J build, all current53 types and full audit."
+    },
+    "XU02-ELAB-012": {
+      "status": "Historical correction retained at J",
+      "meaning": "Explicit reflexivity connects actual map singleton preimage and equality event.",
+      "current_J_status": "Resolved: retained exact source correction confirmed by complete actual J build, all current53 types and full audit."
+    },
+    "XU02-ELAB-013": {
+      "status": "Historical correction retained at J",
+      "meaning": "Normalize actual finite-cardinality numeral cast.",
+      "current_J_status": "Resolved: retained exact source correction confirmed by complete actual J build, all current53 types and full audit."
+    },
+    "XU02-ELAB-014": {
+      "status": "Historical correction retained at J",
+      "meaning": "Repeated output nonmembership via actual count2 versus1 contradiction.",
+      "current_J_status": "Resolved: retained exact source correction confirmed by complete actual J build, all current53 types and full audit."
+    },
+    "C02-DOC-003 / Order": {
+      "status": "Resolved at receiving J source application",
+      "meaning": "Both obsolete uncompiled claims replaced by exact dated historical evidence and explicit receiving-gate boundary. Full C2 finding not globally closed.",
+      "current_J_status": "Resolved only for the Order portion at J; other units unchanged."
+    },
+    "C02-TYPE-001": {
+      "status": "Resolved historically at Z; no automatic receiving credit",
+      "meaning": "All53 complete types read previously within815. Actual J53 execution and full input qualification pending.",
+      "current_J_status": "Historical Z resolution retained; current Order53 evidence gap now resolved independently at J by actual53 and qualified input lineage."
+    }
+  },
+  "unresolved_Spec_findings": [],
+  "new_own_records": [
+    {
+      "path": "provenance/shared-order-spec-terminal-20261104/full-log-assessment.json",
+      "bytes": 21435,
+      "lines": 480,
+      "sha256": "0012729a78a824aa7e08b83e5ab6e00ea04c4d3fec20dccbc49476ee211848f6"
+    },
+    {
+      "path": "provenance/shared-order-spec-terminal-20261104/actual53-read-progress.json",
+      "bytes": 27369,
+      "lines": 853,
+      "sha256": "5da455393e8f02b05619efa9d595bae896bce6033bb3ee3527a5fe3da8da8f00"
+    },
+    {
+      "path": "provenance/shared-order-spec-terminal-20261104/independent-input-reconciliation.py",
+      "bytes": 12602,
+      "lines": 164,
+      "sha256": "e194e25ebb44b9d41e9a018170a3b16d3b4c14b3717e691a3b7ab922787e56e8"
+    },
+    {
+      "path": "provenance/shared-order-spec-terminal-20261104/independent-input-reconciliation.json",
+      "bytes": 100817,
+      "lines": 2689,
+      "sha256": "cab7b1231d86e780e64f89c55a291a6b7bdb7ba2c2db8387e7ad69d61fed4c85"
+    },
+    {
+      "path": "provenance/shared-order-spec-terminal-20261104/actual53-complete-type-assessment.json",
+      "bytes": 14211,
+      "lines": 428,
+      "sha256": "48cf1d163b1c7e0bc064c2664df8a965a42a81d24105a57920a5adc0dfcd9b68"
+    },
+    {
+      "path": "provenance/shared-order-spec-terminal-20261104/inherited-semantic-disposition.json",
+      "bytes": 9770,
+      "lines": 184,
+      "sha256": "c9f29b300c14847abcde4a296e11a51ecc56d4ed83d8e5d32262f38e83021081"
+    }
+  ],
+  "final_report": {
+    "path": "reviews/permutation-order-spec-final-20261104.md",
+    "bytes": 12647,
+    "lines": 80,
+    "sha256": "8cd4b6c8854aaaa2cceff956bbce66821dbe6e22fc7585ff94fdfce6a2748970"
+  },
+  "supersession": "Supersedes only pending-validation status of the unchanged exact-J source continuation. All earlier F/I/C2/Tail source and final reports remain byte-identical. Full Chapter2 acceptance is not asserted.",
+  "coordinator_next_gates": [
+    "Separate final Standards disposition for exact J.",
+    "Immediate qualified ./check.sh --verify-candidate HEAD at exact clean J.",
+    "Authorized local fast-forward only after every required gate remains satisfied."
+  ],
+  "reviewer_no_source_ref_compiler_runtime_output_or_process_actions": true,
+  "acceptance_or_immediate_verification_performed_by_reviewer": false,
+  "readback_status": "Final artifact readback and explicit write hold will be recorded separately after completion."
+}

@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "created_at": "2026-11-03T15:57:14.348419+00:00",
+  "scope": "Public acquisition evidence; no binaries or credentials",
+  "trust_attribution": "Installed public Ubuntu archive keyring; not an independently fetched trust root",
+  "files": [
+    {
+      "path": "InRelease",
+      "bytes": 126125,
+      "sha256": "5f4cbfd1daf09c5c6af3eeb67fe923b15010f28d9189b64995e2c0f68eec7b77"
+    },
+    {
+      "path": "Packages.xz",
+      "bytes": 1707340,
+      "sha256": "2dd82d93dc7fab28f67d5120aa122d8896b557ce4984995635a7dfff1353386d"
+    },
+    {
+      "path": "ubuntu-archive-keyring.gpg",
+      "bytes": 3607,
+      "sha256": "80a36b0a6de2f69f49d2df75ef473ccde121e9e190b9ea01d20a4f63778d5c31"
+    },
+    {
+      "path": "package-stanza.txt",
+      "bytes": 1110,
+      "sha256": "10ba1f4b2c3c85847e7b677844f894d20e8d3bc31d83945527cced3e00ead1b1"
+    },
+    {
+      "path": "package-metadata.json",
+      "bytes": 1288,
+      "sha256": "e6cdd448a14c0260c2837a7e184446a51ae0101fa7e8673822a79486c63a03d2"
+    },
+    {
+      "path": "acquisition.json",
+      "bytes": 12665,
+      "sha256": "b98fd7647b12efec8706a9001de50ad169c1044f49f5c174d613ab1fbf827e42"
+    },
+    {
+      "path": "report.md",
+      "bytes": 7206,
+      "sha256": "476ece2d3566ffe37cb111c18210629e1fe302f791b092e6309b6f81945380fe"
+    }
+  ],
+  "reacquired_not_archived": [
+    {
+      "path": "/workspace/scratch/b566cace4ed6/pfds/session/tools/qemu-ubuntu-042/qemu-user-static_8.2.2+ds-0ubuntu1.18_amd64.deb",
+      "bytes": 14709858,
+      "sha256": "5bb397f66063efa349f6fd5cb3b68cd96f29edd0994e4ba5115cf0859a716bf0"
+    },
+    {
+      "path": "/workspace/scratch/b566cace4ed6/pfds/session/tools/qemu-ubuntu-042/qemu-x86_64-static",
+      "bytes": 3751320,
+      "sha256": "90181b5552cd1a0b60d8edcc9f1cf8e38647579ef697d3155e2b6150e8fbcee0"
+    }
+  ]
+}

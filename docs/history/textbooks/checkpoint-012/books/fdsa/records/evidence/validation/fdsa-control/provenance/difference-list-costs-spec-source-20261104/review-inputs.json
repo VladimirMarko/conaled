@@ -1,0 +1,211 @@
+{
+  "recorded_utc": "2026-11-04T06:10:26.589537+00:00",
+  "reviewer": "/root/xd01_spec",
+  "axis": "Spec",
+  "scope": "Independent complete source assessment; validation pending",
+  "base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "candidate": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+  "merge_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "diff_command": [
+    "git",
+    "diff",
+    "a14977b9e316cc484ffad8a470d26b15615956c0...62809ced86c561c7a6cce8b71e727177a3f17fb8"
+  ],
+  "commits": [
+    "62809ced86c561c7a6cce8b71e727177a3f17fb8 docs(resources): correct natural-merge source provenance (#174)",
+    "ffeaf8aed84184f49a13acb5c84e1fd608c9b7e8 feat(resources): separate builder creation and application costs (#174)"
+  ],
+  "requirements": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/difference-list-cost-requirements.md",
+    "bytes": 6965,
+    "sha256": "cb215a33cce3dd258cca37b9d703522d19caf2da76767c01e573d268b3e92c4e"
+  },
+  "candidate_files": {
+    "Applications/Resources/DifferenceListCosts.lean": {
+      "bytes": 10086,
+      "sha256": "567683626b9a46d07c465ceb44faaafc941e2dc1c83491b093599ca7f8c698a5"
+    },
+    "Examples/DifferenceListCosts.lean": {
+      "bytes": 9315,
+      "sha256": "09165e6a1ccb0b0e45b7ddc6083883aa5bf67bc931c59ff44707d1726ffbe102"
+    },
+    "SquareApplications.lean": {
+      "bytes": 8328,
+      "sha256": "45449f16d4004eee544182a3cd3f8364d4c7d68430be14ef0426b61617e8280a"
+    },
+    "docs/research/fdsa-difference-list-costs.md": {
+      "bytes": 10679,
+      "sha256": "fd01432541c9b27ad83def6192e4a3b75d6b77ae7490ec11a2bf665324f1246e"
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "bytes": 17221,
+      "sha256": "50411c5753aa57bda40dc374a736b0b3c66f360fe5002e51d5473a8f2183fdf9"
+    }
+  },
+  "worktree_start_observation": {
+    "observed_utc": "2026-11-04T06:03:32.790129+00:00",
+    "head": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+    "branch": "work/fdsa-builder-costs",
+    "status": ""
+  },
+  "validation": "No Lean/compiler/build/audit or verification command run by reviewer. No successful XD01 validation supplied at this source assessment.",
+  "explicit_public_declarations": {
+    "core": 42,
+    "examples": 30,
+    "total": 72,
+    "warning": "Static public source inventory, not an audit count or elaborated-type result."
+  },
+  "unchanged_dependency_blobs": {
+    "Applications/Resources/Measured.lean": {
+      "a14977b9e316cc484ffad8a470d26b15615956c0": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+      "07e480f6ec9958d4975bb90151005b84f2907614": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+      "f17cc6b1a2bf44215b16202ed0fcee2b5c130761": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+      "62809ced86c561c7a6cce8b71e727177a3f17fb8": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46"
+    },
+    "Applications/Resources/CallCount.lean": {
+      "a14977b9e316cc484ffad8a470d26b15615956c0": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+      "07e480f6ec9958d4975bb90151005b84f2907614": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+      "f17cc6b1a2bf44215b16202ed0fcee2b5c130761": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+      "62809ced86c561c7a6cce8b71e727177a3f17fb8": "39b9bdb9b1b9e35210170c2a1072646eebebf195"
+    },
+    "Applications/Resources/Workload.lean": {
+      "a14977b9e316cc484ffad8a470d26b15615956c0": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+      "07e480f6ec9958d4975bb90151005b84f2907614": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+      "f17cc6b1a2bf44215b16202ed0fcee2b5c130761": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+      "62809ced86c561c7a6cce8b71e727177a3f17fb8": "58a93181a8dbde9aa02c2b04f21ec741e7330f05"
+    },
+    "SquareKit/ListFusion.lean": {
+      "a14977b9e316cc484ffad8a470d26b15615956c0": "33ec447acb6da7b884ae57d2a885707208201607",
+      "07e480f6ec9958d4975bb90151005b84f2907614": "33ec447acb6da7b884ae57d2a885707208201607",
+      "f17cc6b1a2bf44215b16202ed0fcee2b5c130761": "33ec447acb6da7b884ae57d2a885707208201607",
+      "62809ced86c561c7a6cce8b71e727177a3f17fb8": "33ec447acb6da7b884ae57d2a885707208201607"
+    },
+    "lean-toolchain": {
+      "a14977b9e316cc484ffad8a470d26b15615956c0": "a6aff065db2882c535684f8c5bcd4f16e9a23915",
+      "07e480f6ec9958d4975bb90151005b84f2907614": "a6aff065db2882c535684f8c5bcd4f16e9a23915",
+      "f17cc6b1a2bf44215b16202ed0fcee2b5c130761": "a6aff065db2882c535684f8c5bcd4f16e9a23915",
+      "62809ced86c561c7a6cce8b71e727177a3f17fb8": "a6aff065db2882c535684f8c5bcd4f16e9a23915"
+    },
+    "lake-manifest.json": {
+      "a14977b9e316cc484ffad8a470d26b15615956c0": "0452762ecb2bb5e0d0f7db0b128b0af581febb87",
+      "07e480f6ec9958d4975bb90151005b84f2907614": "0452762ecb2bb5e0d0f7db0b128b0af581febb87",
+      "f17cc6b1a2bf44215b16202ed0fcee2b5c130761": "0452762ecb2bb5e0d0f7db0b128b0af581febb87",
+      "62809ced86c561c7a6cce8b71e727177a3f17fb8": "0452762ecb2bb5e0d0f7db0b128b0af581febb87"
+    }
+  },
+  "batteries": {
+    "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+    "tracked_status": "",
+    "files": {
+      "Batteries/Data/DList/Basic.lean": {
+        "bytes": 3012,
+        "sha256": "c117082d78432c10889b0abe72dabbaca47fe8cea713854f388b6589951588b0"
+      },
+      "Batteries/Data/DList/Lemmas.lean": {
+        "bytes": 1996,
+        "sha256": "56914d4703b7eacba36a8dad816ac6a1810b16a0b313a6bf9c700bfd3afa48e6"
+      }
+    }
+  },
+  "applicable_instruction_files": {
+    "AGENTS.md": {
+      "bytes": 3118,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    },
+    ".agents/skills/implement/SKILL.md": {
+      "bytes": 4997,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df"
+    },
+    ".agents/skills/code-review/SKILL.md": {
+      "bytes": 7466,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42"
+    },
+    ".agents/skills/code-review/heuristics.md": {
+      "bytes": 2232,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060"
+    },
+    ".agents/skills/example-driven-development/SKILL.md": {
+      "bytes": 6991,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a"
+    },
+    ".agents/skills/example-driven-development/worked-example.md": {
+      "bytes": 2356,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c"
+    },
+    "docs/agents/review-loop.md": {
+      "bytes": 7113,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c"
+    },
+    "docs/agents/architectural-quality.md": {
+      "bytes": 3876,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6"
+    },
+    "docs/agents/domain.md": {
+      "bytes": 926,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d"
+    },
+    "GLOSSARY.md": {
+      "bytes": 4824,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6"
+    },
+    "docs/adr/README.md": {
+      "bytes": 1547,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506"
+    },
+    "docs/adr/0001-modules-and-proof-dependencies.md": {
+      "bytes": 2561,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2"
+    },
+    "docs/adr/0010-composition-and-proof-audit.md": {
+      "bytes": 7331,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8"
+    },
+    "README.md": {
+      "bytes": 26239,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216"
+    }
+  },
+  "control_inputs": {
+    "REQUEST.md": {
+      "bytes": 8549,
+      "sha256": "670038db71064a643014c952161666544cf37a4c9e17f14ddc7c4478e78dc6d8"
+    },
+    "CURRENT.md": {
+      "bytes": 14746,
+      "sha256": "e664c6e7cec1f1b84c9fae871a7e169de6fc7aca34d5e3366e72b3c8505e4a55"
+    },
+    "STATUS.md": {
+      "bytes": 3976,
+      "sha256": "5183039c5ef8e354b642b8a0d9d7aaf027c2f3d086c654a5d08096921a6161c6"
+    },
+    "tickets/INDEX.md": {
+      "bytes": 8045,
+      "sha256": "b2d6c2bba64fa15cc87269f32f905f2e1a04b94aaa5caca3e2a5bc1af5df5834"
+    },
+    "reviews/difference-list-cost-requirements.md": {
+      "bytes": 6965,
+      "sha256": "cb215a33cce3dd258cca37b9d703522d19caf2da76767c01e573d268b3e92c4e"
+    },
+    "research/difference-list-cost-preflight.md": {
+      "bytes": 5290,
+      "sha256": "a0bd75c09ea1208c880dc87d5e8abe88be207c1e411b118519e7cf6237984232"
+    },
+    "reviews/difference-list-cost-candidate.md": {
+      "bytes": 7380,
+      "sha256": "03b2358bdd5bf6fc60dae79771ab29cbbcf03505589474641687498968a519a0"
+    },
+    "reviews/difference-list-provenance-correction.md": {
+      "bytes": 3908,
+      "sha256": "55fef0111a352a9e76df32984521bd50abbb53af986ef4d898a99d1891a54667"
+    },
+    "research/chapter02-obligations.md": {
+      "bytes": 42539,
+      "sha256": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2"
+    }
+  },
+  "worktree_end_observation": {
+    "head": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+    "branch": "work/fdsa-builder-costs",
+    "status": ""
+  }
+}

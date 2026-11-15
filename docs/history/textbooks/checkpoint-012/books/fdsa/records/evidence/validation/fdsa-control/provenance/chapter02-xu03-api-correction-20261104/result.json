@@ -1,0 +1,19 @@
+{
+  "recorded_utc": "2026-11-04T07:14:58.074578+00:00",
+  "source_before": "97ed9feee78f723cb6294aa5148da9ab5846db7a",
+  "source_after": "6f76a4d552773044d3e9494dda8e663471d47e04",
+  "proof_name_replacement_counts": {
+    "Applications/Probability/PermutationTail.lean": 3,
+    "Examples/PermutationTail.lean": 2,
+    "Examples/PermutationTailBoundary.lean": 1
+  },
+  "description": "Use current ite_eq_left/ite_eq_right for six proof-only deprecated if_pos/if_neg occurrences. Pin incompatibility is established by actual XU02 attempt1 diagnostics; this is precompile compatibility maintenance, not a claimed XU03 failure.",
+  "scope": "Every public declaration, condition, law, mass and example target is unchanged. No linter or warning suppression.",
+  "source_sha256": {
+    "Applications/Probability/PermutationTail.lean": "9fd7031f057e55933b9f252370e9541197ee1c7029ec903d630e41a8815691a8",
+    "Examples/PermutationTail.lean": "30e07aaede25b10d2484c2a4674bffa66d77094a545fd49f72bc000bd132ddb7",
+    "Examples/PermutationTailBoundary.lean": "fe6e365ff0f324e1f9b143b6203589f36b89e4b789baa79a11317163d21494c0"
+  },
+  "commit_output": "[work/fdsa-permutation-tail-validation 6f76a4d] fix(fdsa): use current conditional rewrite names in tail laws (#174)\n 3 files changed, 6 insertions(+), 6 deletions(-)\n",
+  "status": "Source-only successor; XU03 focused validation and type readback remain pending"
+}

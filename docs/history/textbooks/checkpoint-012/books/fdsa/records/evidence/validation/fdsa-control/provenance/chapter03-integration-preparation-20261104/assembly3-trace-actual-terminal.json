@@ -1,0 +1,16 @@
+{
+  "recorded_utc": "2026-11-05T00:01:22.010888+00:00",
+  "actual_tool_result": {
+    "chunk_id": "f9058c",
+    "wall_time_seconds": 0.095832089,
+    "exit_code": 0,
+    "original_token_count": 274,
+    "output": "{\n  \"candidate\": \"690ab476f4685e5a795d53d18465b067655a34dd\",\n  \"tree\": \"4ac08471525e94e56ec01f96a64ab22905f3fb53\",\n  \"parent\": \"38ae31902682ff6e3f4b28cea519a3bfeb4f96c7\",\n  \"source_modules\": 76,\n  \"public_source_names\": 1344,\n  \"original_task_paths\": 82,\n  \"accepted_receiving_delta_paths\": 79,\n  \"source_bindings\": {\n    \"Applications/Resources/RandomSelectionTrace.lean\": {\n      \"donor\": \"2b5ff20504d8811587859e6eb3351cb1598a4504\",\n      \"git_blob\": \"84f42a374c0066da45c42431a0145a78cab2a718\",\n      \"bytes\": 7823,\n      \"sha256\": \"146f81f9db7782fd30f54848bee87038a2f9a1edcb4c2c776e854494bc80729e\"\n    },\n    \"Examples/RandomSelectionTrace.lean\": {\n      \"donor\": \"2b5ff20504d8811587859e6eb3351cb1598a4504\",\n      \"git_blob\": \"92858210b6689d6b172071c8d0fbfca2d91e6391\",\n      \"bytes\": 8686,\n      \"sha256\": \"5abb356eeecb3d6a046cd529db4701f88056a4ef95bb4cbff294a86747b11f9d\"\n    }\n  },\n  \"entrypoint\": {\n    \"bytes\": 10680,\n    \"sha256\": \"8319961c989975d37cde45130fa762dd924c49576086d690cee1a39b6a7e6ea4\"\n  },\n  \"branch\": \"work/fdsa-ch03-integration\",\n  \"status\": \"\",\n  \"acceptance\": false\n}\n"
+  },
+  "actual_exit": 0,
+  "tool_chunk": "f9058c",
+  "source_operation_completed": true,
+  "recovery_readback_tool_chunk": "d0686b",
+  "candidate": "690ab476f4685e5a795d53d18465b067655a34dd",
+  "no_operation_repeated": true
+}

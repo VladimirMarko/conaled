@@ -1,0 +1,197 @@
+{
+  "schema": 1,
+  "unit": "FDSA-XU06",
+  "reviewer": "/root/chapter02_spec",
+  "recorded_utc": "2026-11-04T13:22:13.051983+00:00",
+  "fixed_base": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+  "candidate": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+  "overall": "Blocked",
+  "independent_nonauthor": true,
+  "source_assessment_complete": true,
+  "new_concrete_spec_findings": [],
+  "complete_original_scope_paths": [
+    "Applications/Probability/PermutationExpectation.lean",
+    "Applications/Probability/PermutationOrder.lean",
+    "Applications/Probability/PermutationPlacement.lean",
+    "Examples/PermutationPlacement.lean",
+    "Examples/PermutationPlacementBoundary.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-permutation-placement.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "scope_path_count": 8,
+  "report": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/permutation-placement-spec-preparation-20261104.md",
+    "bytes": 25474,
+    "newline_lines": 116,
+    "sha256": "3d5a62d33a2f71ae0ca59b9f62b6cbc011d20e77a6092f525f2d6fe5a63b9999"
+  },
+  "source_receipt": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+    "bytes": 277315,
+    "newline_lines": 6218,
+    "sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e"
+  },
+  "original_correction_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/original-boundary-corrections.diff",
+    "bytes": 815,
+    "newline_lines": 21,
+    "sha256": "13bd68ec56f7fb12549983cb1e3ad76e7440aeb6b28c3c1c55859f69d723063a"
+  },
+  "completed_readback": {
+    "report_complete": true,
+    "report_ranges": [
+      [
+        1,
+        60
+      ],
+      [
+        61,
+        116
+      ]
+    ],
+    "source_receipt_entire_json_decoded": true,
+    "source_receipt_all_raw_json_lines_manually_read": false,
+    "source_receipt_method": "All semantic/status/count/finding/book/gate/read-boundary/report fields read in bounded decoded output; all 179 complete authored header rows read; complete compact source/control/guidance/pin/API/closure metadata read; all exact file/blob/header identities independently rechecked. This does not claim a raw manual read of every repeated JSON metadata line.",
+    "authored_header_rows_read": [
+      [
+        1,
+        60
+      ],
+      [
+        61,
+        120
+      ],
+      [
+        121,
+        150
+      ],
+      [
+        151,
+        179
+      ]
+    ],
+    "all179_header_texts_complete": true,
+    "all179_header_hashes_and_normalized_immutable_source_prefixes_rechecked": true,
+    "all_source_files_complete_as_recorded_in_receipt": true,
+    "full_existing_file_diffs_read": true,
+    "all_new_file_sources_read": true,
+    "original_correction_diff_complete": true,
+    "original_correction_diff_range": [
+      1,
+      21
+    ],
+    "boundary_snapshot_content_assessed_via_complete_current_source_and_complete_two_hunk_diff": true,
+    "retained_range_endpoint_qualification": "Retained API read requests are preserved from earlier receipts; credit extends only to actual file content, including where a requested upper bound extends past EOF.",
+    "truncated_display_repair": "The final attempted combined display of header rows 121-179 was truncated and not credited as complete. Two bounded complete displays, rows 121-150 and 151-179, supplied the final readback.",
+    "read_only_helper_assertion": "A final prefix check initially compared normalized header text, including its final newline, directly against the unnormalized source before := and stopped. No files or compiler were touched. The corrected check derives the exact prefix before := or where, trims trailing whitespace and appends the recorded newline; all 179 exact header texts and hashes matched."
+  },
+  "mechanical_rechecks": {
+    "scope_sources": 8,
+    "guidance_blobs": 15,
+    "pins": 3,
+    "inherited_inputs": 4,
+    "new_pinned_api_records": 8,
+    "retained_pinned_api_records": 36,
+    "local_closure_sources": 9,
+    "controls": 20,
+    "protected_prior_records": 122,
+    "original_boundary_snapshot": true,
+    "book_text": true,
+    "report": true,
+    "all_passed": true
+  },
+  "declaration_counts": {
+    "total_authored_rows": 179,
+    "public_named": 138,
+    "public_theorems": 111,
+    "public_definitions": 21,
+    "named_local_instances": 6,
+    "private_named": 25,
+    "anonymous_instances": 16,
+    "anonymous_examples": 0,
+    "new_public_named": 111,
+    "inherited_public_named": 27,
+    "new_private_named": 16,
+    "new_public_kinds": {
+      "theorem": 87,
+      "def": 18,
+      "instance": 6
+    },
+    "per_file": [
+      {
+        "path": "Applications/Probability/PermutationExpectation.lean",
+        "public": 8,
+        "private": 2,
+        "anonymous": 0
+      },
+      {
+        "path": "Applications/Probability/PermutationOrder.lean",
+        "public": 21,
+        "private": 8,
+        "anonymous": 0
+      },
+      {
+        "path": "Applications/Probability/PermutationPlacement.lean",
+        "public": 3,
+        "private": 2,
+        "anonymous": 0
+      },
+      {
+        "path": "Examples/PermutationPlacement.lean",
+        "public": 59,
+        "private": 12,
+        "anonymous": 4
+      },
+      {
+        "path": "Examples/PermutationPlacementBoundary.lean",
+        "public": 47,
+        "private": 1,
+        "anonymous": 12
+      }
+    ]
+  },
+  "retained_findings": [
+    {
+      "id": "XU06-BC01",
+      "origin": "original preserved independent source preflight",
+      "status": "Implemented and source-rechecked; formal confirmation pending",
+      "actual_compiler_failure_observed_for_this_finding": false,
+      "assessment": "The typed hzero explicitly matches the actual opened rank3 alias, obtains the same old full-subset zero theorem by ordinary definitional equality, then rewrites only that equality. The proposition is unchanged. Both aliases and the old theorem were read."
+    },
+    {
+      "id": "XU06-BC02",
+      "origin": "original preserved independent source preflight",
+      "status": "Implemented and source-rechecked; formal confirmation pending",
+      "actual_compiler_failure_observed_for_this_finding": false,
+      "assessment": "The exact pinned deprecated Dirac umbrella is replaced by supported Dirac.Def, containing the actual dirac and dirac_apply used by the unchanged two-atom measure. No warning suppression or statement change."
+    }
+  ],
+  "actual_printed_types_read_for_candidate": 0,
+  "compiler_results_credited": 0,
+  "full_checks_or_audits_credited": 0,
+  "all122_protected_prior_records_byte_identical": true,
+  "prior_accounts_unchanged": {
+    "accepted_chapter1": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "foundation_candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "foundation_terminal_received": false,
+    "foundation145_pending": true,
+    "potential110_uncredited": true,
+    "c2_actual_qualified": 1735,
+    "c2_retained_base": 28,
+    "xp_actual_types": 20,
+    "chapter3": "queued"
+  },
+  "required_remaining_gates": [
+    "Complete unit and applicable predecessor validation under exact pins and qualified native profile",
+    "Complete actual public-type inspection with immutable source/dependency/program/pre-post/terminal evidence",
+    "Actual confirmation of XU06-BC01/BC02 and review of any necessary correction under this original scope",
+    "Applicable normal/fresh full candidate check and exhaustive kernel audit",
+    "Both independent complete-scope final axes",
+    "Immediate qualified ./check.sh --verify-candidate HEAD",
+    "Authorized local integration and self-contained checkpoint; no pushes/GitHub mutations"
+  ],
+  "foundation_priority": "Exact F remains pending actual terminal and actual 145 types; no process polling or outcome inferred. Future actual F terminal review takes priority.",
+  "no_source_ref_cache_runtime_or_output_mutations": true,
+  "own_review_provenance_writes_held_after_this_boundary": true
+}

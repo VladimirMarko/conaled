@@ -1,0 +1,72 @@
+{
+  "started_utc": "2026-11-03T18:15:43.517217+00:00",
+  "command": [
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-native/libexec/lean",
+    "-j1",
+    "--root=/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1035-original-squares-probe",
+    "-o",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1035-original-squares-probe/Squares-random.olean",
+    "Squares.lean"
+  ],
+  "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1035-original-squares-probe",
+  "source_revision": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "current_formal_candidate_unchanged": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+  "selected_environment": {
+    "LEAN_SYSROOT": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-native",
+    "LD_LIBRARY_PATH": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-linux/lib:/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-linux/lib/lean",
+    "LEAN_NUM_THREADS": "1",
+    "LD_PRELOAD": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1035-mmap-random-prototype/libconaled_mmap_random.so:/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/native-compat/libconaled_app_path.so",
+    "CONALED_SELF_EXE": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-native/libexec/lean",
+    "CONALED_MMAP_RANDOM": "1",
+    "CONALED_MMAP_RANDOM_EXE": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-native/libexec/lean",
+    "CONALED_MMAP_RANDOM_REPORT": "1"
+  },
+  "execution_input_sha256": {
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/tooling/pinned_native_toolchain.py": "ab9e236bb60bf3bbd96e682cc1d48bd1b8566791a5d2213f325c3f5f81d8f19f",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation-recorder/recorder.py": "8e5211cd4fd0e6a2eff593af32bea41409675e3165a86946d36dc4156640614a",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1035-mmap-random-prototype/libconaled_mmap_random.so": "5927638bd66ec29be8ea496f3a8fe9e13b3d17fd2b7dc7bcf9567d105009799b",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/native-compat/libconaled_app_path.so": "8bb82334a2888e37a18b657a16f498cba239aaf3935bf24cc5b59728f6df5a18",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-native/libexec/lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1035-original-squares-probe/Squares.lean": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7"
+  },
+  "timeout_seconds": 60,
+  "cleanup_grace_seconds": 5,
+  "expected_output_sha256": "133589a2adff7fcb278b1bc79fd1fd8f2bcf9315cfae28d6d801a5efa099ac4c",
+  "scope": "Separate bounded original-Squares environment probe while fresh4 is active. Uncontrolled concurrent/cache conditions; no causal speedup or full formal credit.",
+  "owned_child": {
+    "pid": 4,
+    "process_group": 4,
+    "session": 4
+  },
+  "timed_out": false,
+  "child_returncode": 0,
+  "finished_utc": "2026-11-03T18:15:50.469875+00:00",
+  "wall_seconds": 6.9524744500013185,
+  "child_reaped": true,
+  "descendant_quiescence_verified": false,
+  "user_cpu_seconds": 1.282029,
+  "system_cpu_seconds": 1.086709,
+  "max_rss_kib": 1477064,
+  "major_faults": 27233,
+  "input_blocks": 279176,
+  "resource_scope": "RUSAGE_CHILDREN for reaped children; counters retained as reported.",
+  "execution_inputs_unchanged": true,
+  "output_sha256": "133589a2adff7fcb278b1bc79fd1fd8f2bcf9315cfae28d6d801a5efa099ac4c",
+  "output_matches_expected": true,
+  "diagnostic_summary_count": 1,
+  "advice_counters": {
+    "calls": 11873,
+    "forwarded": 11873,
+    "mmap_failed": 0,
+    "preferred": 11870,
+    "disabled": 0,
+    "identity_mismatch": 0,
+    "selected": 11870,
+    "bytes": 2009200824,
+    "success": 11870,
+    "failure": 0,
+    "last_errno": 0
+  },
+  "advice_actually_succeeded": true,
+  "bounded_probe_passed": true
+}

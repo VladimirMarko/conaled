@@ -1,0 +1,163 @@
+{
+  "recorded_utc": "2026-11-05T00:03:16.210517+00:00",
+  "checkpoint": "conaled-fdsa-0135-selection-trace-and-statement-progress",
+  "all_writers_held": true,
+  "compiler_live": false,
+  "accepted_head": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "qualified_candidate": "2b5ff20504d8811587859e6eb3351cb1598a4504",
+  "original_whole_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "closed_runs": 99,
+  "held_heads": {
+    "conaled": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "conaled-ch01-review": "2b5ff20504d8811587859e6eb3351cb1598a4504",
+    "conaled-ch02-quicksort": "4f01a75bf4e29cd82b5da932885c22f533cbd7b5",
+    "conaled-ch02-random-pivot": "2b5ff20504d8811587859e6eb3351cb1598a4504",
+    "conaled-ch02-top-down": "1249f39968a44a25bfe3932d84a2cb44c6a83515",
+    "conaled-ch02-natural-runs": "690ab476f4685e5a795d53d18465b067655a34dd",
+    "conaled-ordinary-merge": "569545102ff70697066de429eb02f9f47dffa07f"
+  },
+  "held_statuses": {
+    "conaled": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.urOBCL\n",
+    "conaled-ch01-review": "",
+    "conaled-ch02-quicksort": "",
+    "conaled-ch02-random-pivot": "",
+    "conaled-ch02-top-down": "",
+    "conaled-ch02-natural-runs": "",
+    "conaled-ordinary-merge": ""
+  },
+  "drafts": [],
+  "author_hold_records": {
+    "provenance/chapter03-values-implementation-20261104/halving-policy-correction2-20261104/hold.json": {
+      "bytes": 2070,
+      "sha256": "cf743d340d5666bbd8b222219598739cbd23e42208323be097ba6dd10d992b69"
+    },
+    "provenance/chapter03-coverage-preassembly-20261104/hold.json": {
+      "bytes": 2396,
+      "sha256": "b3a9c65be33082daea20ab8dc0d633ac59f26672fb1fb13fed399db1a89640f7"
+    },
+    "provenance/chapter03-selection-documentation-implementation-20261104/hold-candidate1.json": {
+      "bytes": 3779,
+      "sha256": "b347bf5f7abd66062606220351bb79949bb6f7a044a4e809bc0eb229278b3937"
+    },
+    "provenance/chapter03-mom-execution-implementation-20261104/generic-cost-bound-correction2-20261104/author-hold-candidate3.json": {
+      "bytes": 869,
+      "sha256": "2d06c6a55fa8ee9bb279a1ac15fc3fb85b8d58e148afac82b41cdae48293f711"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/actual-selector-composition-20261104/correction2-20261104/final-preservation.json": {
+      "bytes": 1017,
+      "sha256": "f1f115ffe9787dc42f0604273befe6ae769f6bcfc83d6e383de2995e1246efc2"
+    },
+    "provenance/chapter03-integration-preparation-20261104/assembly1-candidate.json": {
+      "bytes": 4480,
+      "sha256": "1f8d2a537ffffd7f2dc31f6fc6b12affc17f9dab561822c9fe482739d2804c4b"
+    },
+    "provenance/chapter03-integration-preparation-20261104/precommit-assembly1.json": {
+      "bytes": 25626,
+      "sha256": "022598b0e9e4ddf0af66c68db3e3360c8998acb979bc0c4ec9648bbea13fce32"
+    },
+    "provenance/chapter03-integration-preparation-20261104/assembly2-endpoints-candidate.json": {
+      "bytes": 5280,
+      "sha256": "e1ebd139acea5c7f657010aa0c06d5f3c614154bf5f1bec5e5bfbe67dab7dc4e"
+    },
+    "provenance/chapter03-path-mass-support-20261104/hold.json": {
+      "bytes": 2706,
+      "sha256": "58669e97b4f0ae4567ea0fbd4b9c3bda2af7259db50e90e173fd97a7b247ee94"
+    },
+    "provenance/chapter03-random-selection-implementation-20261104/trace-correction1-20261104/author-hold.json": {
+      "bytes": 120442,
+      "sha256": "0e824ec7cacbc681ccbe7cb53698bdae12888482b882021852659bd6ffb11a97"
+    }
+  },
+  "reviewer_hold_records": {
+    "provenance/chapter03-standards-review-20261104/write-hold-supplement-before0135.json": {
+      "bytes": 1238,
+      "sha256": "11289557ea211b533b1a46812eef07d07e530b0e30286c8d033db106c1f68b9d"
+    },
+    "provenance/chapter03-spec-review-20261104/write-hold-0135-supplement1.json": {
+      "bytes": 1203,
+      "sha256": "c4c182d4ec2c00e53b1b33df1be1766164dee03f6136846ea71cd6ab7c344645"
+    }
+  },
+  "random_author_file_bindings_verified": 395,
+  "source_bindings_verified": 76,
+  "integration_preparation": {
+    "candidate": "690ab476f4685e5a795d53d18465b067655a34dd",
+    "tree": "4ac08471525e94e56ec01f96a64ab22905f3fb53",
+    "record": "provenance/chapter03-integration-preparation-20261104/assembly3-trace-candidate.json",
+    "record_identity": {
+      "bytes": 9451,
+      "sha256": "97b2b7547b60c0b27a7236205a1d2225342985b03924b3573be25f4c6e8e8d3e"
+    },
+    "source_modules": 76,
+    "public_names": 1344,
+    "all76_source_bindings_verified": true,
+    "original_Q_delta_paths": 82,
+    "accepted_XR_delta_paths": 79,
+    "accepted_shared_XR_public_names_separate": 21,
+    "full_chapter_candidate": false,
+    "combined_check_performed": false,
+    "whole_audit_passed": false,
+    "verification_record_present": false
+  },
+  "interrupted_runs_without_terminal": [
+    {
+      "name": "chapter03-random-selection-drift-focused-attempt2-20261104",
+      "candidate": "f535b1ef557795c4e09c97ce0daf599961c9b268",
+      "actual_exit": null,
+      "original_exec_session_id": null,
+      "no_success_or_failure_credit": true,
+      "reconciliation": "provenance/chapter03-drift-attempt2-interruption-20261104/reconciliation.json",
+      "bytes": 4308,
+      "sha256": "cac4122a94fd253af81ac8ed07c27fdf9fb5521f0f1e50287411120b97470a33"
+    }
+  ],
+  "transport_terminal_unavailable_runs": [
+    {
+      "name": "chapter03-random-selection-trace-focused-attempt1-20261104",
+      "candidate": "0fa717b8c150e0ae6edb9d538dd2b86d73f02b2d",
+      "reconciliation": "provenance/chapter03-trace-attempt1-transport-loss-20261104/reconciliation.json",
+      "bytes": 6118,
+      "sha256": "3d3e6864685ddf0cc75e6c92fafb4e8370eac810f452dca633ac8c6420d5e602",
+      "original_exec_session_id": 81642,
+      "transport_terminal_exit": null,
+      "recorded_native_exit": 1
+    }
+  ],
+  "project_lock_observation": {
+    "utc": "2026-11-05T00:03:16.527584+00:00",
+    "exclusive_nonblocking_acquired_and_released": true,
+    "global_process_absence_not_claimed": true
+  },
+  "root_remaining_capture_writes_only": true,
+  "independent_review_progress": {
+    "Standards": {
+      "outcome": "Blocked; incomplete",
+      "source_candidate": "38ae31902682ff6e3f4b28cea519a3bfeb4f96c7",
+      "complete_source_files_read": 9,
+      "source_files_with_completed_source_and_type_assessment": 6,
+      "actual_type_blocks_assessed": 99,
+      "full_chapter_review_complete": false,
+      "new_receiving_preparation_assessed": false,
+      "records": "provenance/chapter03-standards-review-20261104"
+    },
+    "Spec": {
+      "outcome": "Blocked; incomplete",
+      "source_candidate": "38ae31902682ff6e3f4b28cea519a3bfeb4f96c7",
+      "new_public_source_claims_assessed": 40,
+      "actual_type_blocks_assessed": 16,
+      "baseline_dependency_files_read": 2,
+      "four_inspected_sources_equal_at_690ab476": true,
+      "full_chapter_review_complete": false,
+      "open_findings": [
+        "C03-SPEC-USE-001"
+      ],
+      "records": "provenance/chapter03-spec-review-20261104"
+    }
+  },
+  "operations_inspector": "Read-only; final receipt pending, no acceptance-axis credit.",
+  "progress_record": {
+    "path": "provenance/chapter03-activation-20261104/focused-progress-before0135.json",
+    "bytes": 56262,
+    "sha256": "6f10b2d4ca3faae9e6ea6cd03d3e6839ec7e5f5d5a60ff98986e145c71311be1"
+  }
+}

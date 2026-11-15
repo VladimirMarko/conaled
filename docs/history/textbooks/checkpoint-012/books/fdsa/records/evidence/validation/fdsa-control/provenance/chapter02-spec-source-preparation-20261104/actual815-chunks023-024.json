@@ -1,0 +1,131 @@
+{
+  "recorded_utc": "2026-11-04T10:46:07.654197+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete81-path review scope, all112 obligations and ten shared scopes.",
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "chunks": [
+    {
+      "chunk": 23,
+      "type_numbers": [
+        353,
+        378
+      ],
+      "native_lines": [
+        5816,
+        6102
+      ],
+      "bytes": 20381,
+      "names": [
+        "Resources.UniformQuickSortMean.leftChild_card_rank",
+        "Resources.UniformQuickSortMean.rightChild_card_rank",
+        "Resources.UniformQuickSortMean.sum_child_cards",
+        "Resources.UniformQuickSortMean.meanBy_eq_closedForm",
+        "Resources.UniformQuickSortMean.meanBy_nonneg",
+        "Resources.UniformQuickSortMean.meanBy_le_nlogb",
+        "Resources.UniformQuickSortMean.occurrenceInput",
+        "Resources.UniformQuickSortMean.occurrenceInput_perm",
+        "Resources.UniformQuickSortMean.occurrenceInput_length",
+        "Resources.UniformQuickSortMean.occurrenceInput_cost",
+        "Resources.UniformQuickSortMean.occurrenceMeasurableSpace",
+        "Resources.UniformQuickSortMean.occurrenceMeasurableSingletons",
+        "Resources.UniformQuickSortMean.inputMeanBy",
+        "Resources.UniformQuickSortMean.integrable_inputCost",
+        "Resources.UniformQuickSortMean.inputMeanBy_eq_meanBy",
+        "Resources.UniformQuickSortMean.inputMeanBy_nil",
+        "Resources.UniformQuickSortMean.inputMeanBy_singleton",
+        "Resources.UniformQuickSortMean.inputMean",
+        "Resources.UniformQuickSortMean.occurrence_key_injective",
+        "Resources.UniformQuickSortMean.occurrenceInput_keys_nodup",
+        "Resources.UniformQuickSortMean.inputMean_eq_closedForm",
+        "Resources.UniformQuickSortMean.inputMean_nil",
+        "Resources.UniformQuickSortMean.inputMean_singleton",
+        "Resources.UniformQuickSortMean.inputMean_of_equal_keys",
+        "Resources.UniformQuickSortMean.inputMean_nonneg",
+        "Resources.UniformQuickSortMean.inputMean_le_log"
+      ],
+      "sha256": "79d02addc2c0e6ac0dd5745e942d21be9ea1a22758652514b8c4c1964460b520",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The rank-indexed child cardinalities are k and card(S)-1-k; summing any real f of both child sizes gives2*sum(k<card S,f k). All retain local key injection on S.",
+        "The actual meanBy equals numerical closedForm(card S) under complete Nodup positions, the original permutation measurable environment and local key injection. Its nonnegativity and32*n*logb2(n) bound retain the latter threshold n>=2.",
+        "occurrenceInput is a genuine permutation of the arbitrary-payload input and preserves length. Its exercise cost is exactly transported to the Fin-occurrence restricted order with lookup-pulled comparator. No DecidableEq, Inhabited, finite-carrier or measurability class is required on payloads.",
+        "Explicit finite-occurrence measurable spaces and singleton instances support integrability of the actual input-cost function and the bridge inputMeanBy=meanBy on Fin(input.length). Empty and singleton means remain1/5 for arbitrary Boolean comparator.",
+        "Mapped-key Nodup gives injective occurrence keys and is preserved under occurrence permutations. inputMean equals closedForm(length) on that domain; equal-key inputs instead retain quadratic2*n^2+2*n+1. The log bound requires n>=1 and mapped-key Nodup."
+      ]
+    },
+    {
+      "chunk": 24,
+      "type_numbers": [
+        379,
+        412
+      ],
+      "native_lines": [
+        6103,
+        6354
+      ],
+      "bytes": 20311,
+      "names": [
+        "Resources.UniformQuickSortMean.inputMean_le_nlogb",
+        "Resources.UniformQuickSortMean.inputMean_family_isBigO",
+        "Resources.UniformQuickSortMean.inputLiteralMean",
+        "Resources.UniformQuickSortMean.inputLiteralMean_bounds",
+        "Resources.UniformQuickSortMean.inputLiteralMean_le_nlogb",
+        "Examples.UniformQuickSortMean.emptyMeasurableSpace",
+        "Examples.UniformQuickSortMean.emptyMeasurableSingletons",
+        "Examples.UniformQuickSortMean.empty_labels_mean",
+        "Examples.UniformQuickSortMean.arbitrary_empty",
+        "Examples.UniformQuickSortMean.arbitrary_singleton",
+        "Examples.UniformQuickSortMean.actual_pair_cost",
+        "Examples.UniformQuickSortMean.two_orders",
+        "Examples.UniformQuickSortMean.two_input_means",
+        "Examples.UniformQuickSortMean.Label",
+        "Examples.UniformQuickSortMean.positions",
+        "Examples.UniformQuickSortMean.selected",
+        "Examples.UniformQuickSortMean.key",
+        "Examples.UniformQuickSortMean.comparator",
+        "Examples.UniformQuickSortMean.labelMeasurableSpace",
+        "Examples.UniformQuickSortMean.labelMeasurableSingletons",
+        "Examples.UniformQuickSortMean.law",
+        "Examples.UniformQuickSortMean.positions_nodup",
+        "Examples.UniformQuickSortMean.positions_complete",
+        "Examples.UniformQuickSortMean.selected_keys",
+        "Examples.UniformQuickSortMean.selected_card",
+        "Examples.UniformQuickSortMean.outside_collision",
+        "Examples.UniformQuickSortMean.low_children",
+        "Examples.UniformQuickSortMean.middle_children",
+        "Examples.UniformQuickSortMean.high_children",
+        "Examples.UniformQuickSortMean.middle_actual_cost",
+        "Examples.UniformQuickSortMean.low_actual_cost",
+        "Examples.UniformQuickSortMean.high_actual_cost",
+        "Examples.UniformQuickSortMean.middle_first_mass",
+        "Examples.UniformQuickSortMean.low_first_mass"
+      ],
+      "sha256": "4e7f16ced79edb39ea67f61bc0b10216783fa109a01385912e09df3ffa93df9d",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The actual uniform-input expectation bound is32*n*logb2(n) for n>=2 with distinct mapped keys. The family Big-O theorem quantifies over actual lists of every length n and assumes mapped-key Nodup for each; it does not hold length fixed inside one finite label carrier.",
+        "The actual literal mean is sandwiched between the exercise mean and twice it for every input, without distinct-key premise. Its64*n*logb2(n) bound then uses distinct keys and n>=2.",
+        "Empty label carrier, arbitrary empty/singleton payloads and arbitrary-comparator pair cost13 retain their intended generality. Both concrete two-element orders and both corresponding uniform-input means are13.",
+        "The four-constructor Label example retains positions, selected subset of cardinality3, Int keys, comparator and actual permutation law. selected_keys is local InjOn; outside_collision explicitly excludes outside from selected while equating its key with high and negating global Injective.",
+        "The actual low/middle/high child sets are respectively(empty,{middle,high}),({low},{high}),({low,middle},empty). Their pathwise costs on the actual first events are25,21,25; middle and low first-event masses under the actual law are1/3."
+      ]
+    }
+  ],
+  "prior_progress_sha256": "6be0a52515ac7df51af613d080cdc0d14a04cfa03a6dd2770ecc1e710e34e3a9",
+  "overall_outcome": "Blocked",
+  "new_type_credit": 0,
+  "possible110_credit": 0
+}

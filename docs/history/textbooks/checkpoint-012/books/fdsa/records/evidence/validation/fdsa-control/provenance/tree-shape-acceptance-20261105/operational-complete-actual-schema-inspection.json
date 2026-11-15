@@ -1,0 +1,172 @@
+{
+  "format": 1,
+  "recorded_utc": "2026-11-05T04:19:47.267104+00:00",
+  "inspector": "/root/checkpoint0137_acceptance_inspection",
+  "role": "Independent operational inspection of the coordinator-authored complete actual-schema delta only; not a new mathematical axis or independent approval of this inspector authored original checkpoint proposal.",
+  "outcome": "Passed: actual Standards and Spec schemas, all explicit bindings, exact ordered public-name inventory and the narrow code delta reconcile.",
+  "unresolved_findings": [],
+  "unit": "FDSA-XT02",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "bindings": {
+    "current_root_gate": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/reconcile_root_gate_once.py",
+      "bytes": 16302,
+      "sha256": "54464a3da17a5ab69af8416f9612672562b5b40ac28d9614f26948a0c5976c75"
+    },
+    "previous_root_gate": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/reconcile_root_gate_once.before_standards_actual_schema.py",
+      "bytes": 15638,
+      "sha256": "df66f21ca262ad19ebab63cdab5d5016b2f195bf9fc4f5b70d18ce20e3e6d74e"
+    },
+    "current_checkpoint_verifier": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/verify-checkpoint.py",
+      "bytes": 59334,
+      "sha256": "bd779785034f20f77b3d9e490e00cdd1c8f85b775a0a02df8ccb64afe404991c"
+    },
+    "previous_checkpoint_verifier": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/checkpoint0139-verifier-before-actual-schemas.py",
+      "bytes": 59014,
+      "sha256": "4691f3fe1c0fca3bee33dec316df085e44b76fe19fef24cc4216867b0c137312"
+    },
+    "complete_correction_patch": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/complete-actual-schema-correction.patch",
+      "bytes": 3970,
+      "sha256": "3397728ed6f36b5ea868be8fd8bf4910fcb1a7367696d88aec743011ee8d4fbe"
+    },
+    "complete_verifier_diff": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/verifier-scope-diff.patch",
+      "bytes": 36755,
+      "sha256": "71790270213c15ff6f7c732a4e68ddc1ac44a3df9bb923e50dcc9a38131533d1"
+    },
+    "previous_verifier_diff": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/checkpoint0139-verifier-diff-before-actual-schemas.patch",
+      "bytes": 36429,
+      "sha256": "e9cb979c78af90962dbe4c121229445329511f204c96d5fc12baf2fad8912090"
+    },
+    "correction_preflight": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/complete-actual-schema-correction-preflight.json",
+      "bytes": 3629,
+      "sha256": "e769b3377a50e451b74cd6f4e29bb78b7e0bf157707ecd66627be97b03613788"
+    },
+    "correction_record": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/complete-actual-schema-correction.json",
+      "bytes": 3058,
+      "sha256": "5dd205f84fc0404c628a5889c928d6cba9afa54e4dd524ef0201c23ddbbdcedd"
+    },
+    "standards_final": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/final-validation-e61bb6f.json",
+      "bytes": 19254,
+      "sha256": "f3f7ab4def421a431f4bd230245cbb6f134ae5a9a305bcfd92bd305223569e67"
+    },
+    "standards_hold": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/final-write-hold.json",
+      "bytes": 13031,
+      "sha256": "59e85a7a7e99c128d7ab89e586b3bcf0afab865102fb4f3ca401dbaa5d7b9a59"
+    },
+    "spec_final": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/final-validation-e61bb6f.json",
+      "bytes": 19386,
+      "sha256": "1bdf15001c1346b58e8199ff56af2c4a8e4de2dc14e351406fe5fd954cd15f6e"
+    },
+    "spec_hold": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/final-write-hold.json",
+      "bytes": 11273,
+      "sha256": "24cf53ed4ec07465b872fedf84524da4e62c37eefe02a37faf6c3b40d012dda5"
+    },
+    "executed_program": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean",
+      "bytes": 4199,
+      "sha256": "fab2460caafba1f3f28a09006c4e220b9c735857e02294091486cdf4e8461c33"
+    },
+    "before_input_observation": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/inputs-before.json",
+      "bytes": 34483,
+      "sha256": "1ee3406ca37aeaa9b62485d8719d1085fc7803f41c01229526619f48e2c2a963"
+    }
+  },
+  "scope": {
+    "root_gate_changes": "Add pure recursive explicit binding enumeration; adapt only Standards public-name list/count checking; replace assumed evidence-container lookups with exact actual occurrence counts and verify every enumerated binding.",
+    "checkpoint_verifier_change": "Only require_shape_axis_scope public-name reading changes: Standards exact ordered list plus count; Spec scalar90 retained. All other verifier bytes are identical to the preserved proposal.",
+    "all_other_gates": "Exact original scope, candidate/tree/base/donor, Passed/zero unresolved findings, all four completion flags, HELD, full/audit/types/input qualification, current source/output/configuration/pin/runtime checks, project lock, author holds, 79 refs/nine worktrees, immediate/FF and historical chapter/checkpoint safeguards remain unchanged."
+  },
+  "independent_reconciliation": {
+    "complete_patch_recomputed_equal": true,
+    "complete_0138_to_current_verifier_diff_recomputed_equal": true,
+    "checkpoint_verifier_exact_one_block_replacement": true,
+    "all_other_existing_root_gate_functions_AST_unchanged": true,
+    "new_evidence_bindings_function_pure": true,
+    "ast_parse_without_helper_import_or_execution": true,
+    "binding_occurrence_counts": {
+      "Standards": {
+        "final": 38,
+        "hold": 29
+      },
+      "Spec": {
+        "final": 22,
+        "hold": 23
+      }
+    },
+    "total_binding_occurrences": 112,
+    "unique_binding_paths": 67,
+    "all_binding_bytes_and_sha256_rehashed_match": true,
+    "relative_Standards_paths_resolve_under_control_and_absolute_Spec_paths_supported": true,
+    "independent_walker_descended_even_inside_binding_objects": true,
+    "nested_binding_objects_inside_binding_objects": 0,
+    "enumerator_omits_no_explicit_binding_in_these_four_actual_records": true,
+    "Standards_final_and_hold_public_name_count": 90,
+    "Standards_final_and_hold_public_names_exactly_equal_executed_program_order": true,
+    "executed_program_unique_check_names": 90,
+    "program_check_names_exactly_equal_before_input_inventory": true,
+    "Spec_final_and_hold_scalar_public_names": 90,
+    "Spec_final_original_public_name_order_matches_program": true,
+    "all_four_records_exact_unit_candidate_tree_original_base_donor_incorporated_base_requirements_scope": true,
+    "all_four_records_Passed_zero_unresolved_and_all_completion_flags_true": true,
+    "both_final_holds_HELD": true
+  },
+  "actual_schema_basis": {
+    "Standards": "Bindings occur in direct fields, full_run_bound_evidence, post_full_inputs, report and held_provenance_files; public_names is an ordered list with public_name_count90.",
+    "Spec": "Additional explicit bindings exist outside bound_evidence/held_files. Recursive enumeration verifies all22 final and23 hold occurrences; scalar90 schema remains exact.",
+    "scope_bound": "The fixed occurrence counts are reconciled against these immutable final records, not predictions for later review rounds."
+  },
+  "historical_reconciliation": "The b151 original root gate, df66 Spec-only root gate, original4691 checkpoint verifier and originale9cb full diff remain preserved in their named snapshots. Earlier preparation/inspection records remain immutable historical observations. Current final coordinator receipt must bind this correction and current identities; no old outcome is reinterpreted.",
+  "read_receipts": [
+    {
+      "tool_chunk": "6e8031",
+      "actual_exit": 0,
+      "scope": "Complete correction preflight, complete3970-byte two-file patch, correction record and all current/preserved code/diff identities"
+    },
+    {
+      "tool_chunk": "0e27e1",
+      "actual_exit": 0,
+      "scope": "Complete actual Standards final record, all510 lines"
+    },
+    {
+      "tool_chunk": "595904",
+      "actual_exit": 0,
+      "scope": "Complete actual Standards hold, all317 lines, and complete exact executed90-name program, all105 lines"
+    },
+    {
+      "tool_chunk": "9ff91d",
+      "actual_exit": 0,
+      "scope": "Retained complete read of unchanged Spec final record, all415 lines; identity rechecked in current correction and binding reconciliation"
+    },
+    {
+      "tool_chunk": "583030",
+      "actual_exit": 0,
+      "scope": "Retained complete read of unchanged Spec final hold, all207 lines; identity rechecked in current correction and binding reconciliation"
+    },
+    {
+      "tool_chunk": "aa723a",
+      "actual_exit": 0,
+      "scope": "Independent full diff equality, single verifier block comparison, existing root-function AST preservation, exhaustive actual112 binding rehash, nested-binding completeness, exact90 program/list comparison and all four scope/flag/hold dispositions"
+    }
+  ],
+  "remaining_required_actions": "This record does not execute or replace the actual root gate, current-source/input checks, immediate verification, exact local fast-forward, acceptance recording, root independent review of the original0139 proposal, actual configuration resolution, final writer hold or checkpoint durability.",
+  "source_or_review_record_changes_by_inspector": false,
+  "helper_compiler_audit_project_or_checkpoint_execution": false,
+  "session_polling": false,
+  "source_ref_profile_dependency_or_output_mutation": false,
+  "only_new_write_this_task": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/operational-complete-actual-schema-inspection.json",
+  "own_readback_and_hold": "Completely read back this saved note and rehash its fifteen bindings in the next read-only call, then report the actual receipt to root; no record rewriting. All inspector writes are held thereafter."
+}

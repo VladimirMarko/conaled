@@ -1,0 +1,113 @@
+{
+  "HEAD": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "MERGE_HEAD": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "status_porcelain_v1": "A  Applications/Resources/BottomUpSorting.lean\nM  Applications/Resources/Growth.lean\nA  Applications/Resources/ListBuildCosts.lean\nA  Applications/Resources/NaturalRunComparisons.lean\nA  Applications/Resources/NaturalRunOperations.lean\nA  Applications/Resources/NaturalSorting.lean\nA  Applications/Resources/QuickSort.lean\nA  Applications/Resources/QuickSortMean.lean\nA  Applications/Resources/QuickSortTransport.lean\nA  Applications/Resources/RandomQuickSort.lean\nA  Applications/Resources/RandomQuickSortGrowth.lean\nA  Applications/Resources/RandomQuickSortMean.lean\nA  Applications/Resources/RandomQuickSortRank.lean\nA  Applications/Resources/TopDownSorting.lean\nA  Applications/Resources/UniformQuickSortMean.lean\nA  Applications/Sorting/Alternating.lean\nA  Applications/Sorting/BottomUp.lean\nA  Applications/Sorting/InsertionObservations.lean\nA  Applications/Sorting/Natural.lean\nA  Applications/Sorting/NaturalRuns.lean\nA  Applications/Sorting/QuickSort.lean\nA  Applications/Sorting/ThreeWayQuickSort.lean\nA  Applications/Sorting/TopDown.lean\nA  Applications/Sorting/Uniqueness.lean\nA  Examples/AlternatingSorting.lean\nA  Examples/BottomUpCosts.lean\nA  Examples/BottomUpSorting.lean\nA  Examples/InsertionObservations.lean\nA  Examples/ListBuildCosts.lean\nA  Examples/NaturalRunComparisons.lean\nA  Examples/NaturalRunOperations.lean\nA  Examples/NaturalRuns.lean\nA  Examples/NaturalSorting.lean\nA  Examples/NaturalSortingCosts.lean\nA  Examples/QuickSort.lean\nA  Examples/QuickSortCosts.lean\nA  Examples/QuickSortMean.lean\nA  Examples/QuickSortTransport.lean\nA  Examples/RandomQuickSort.lean\nA  Examples/RandomQuickSortGrowth.lean\nA  Examples/RandomQuickSortMean.lean\nA  Examples/RandomQuickSortRank.lean\nA  Examples/SortUniqueness.lean\nA  Examples/ThreeWayQuickSort.lean\nA  Examples/TopDownCosts.lean\nA  Examples/TopDownSorting.lean\nA  Examples/UniformQuickSortMean.lean\nUU SquareApplications.lean\nUU docs/research/fdsa-reconstruction-map.md\nA  docs/research/fdsa-sorting.md\n",
+  "unmerged_index_raw": "100644 9b9355ced967a8c8c03a7a5a340a03d3467b214d 1\tSquareApplications.lean\u0000100644 623b77c69d1ff2cf09a9429eefbd69641370b9cc 2\tSquareApplications.lean\u0000100644 1a220ba195105933210bd1578552f07052d6224b 3\tSquareApplications.lean\u0000100644 49924e2ebdf10714c44bf95a95f94b2571ddde42 1\tdocs/research/fdsa-reconstruction-map.md\u0000100644 0944dfd5fde6895f2c4cc0db9bd015f3e71ffed1 2\tdocs/research/fdsa-reconstruction-map.md\u0000100644 ec2ac8c975be8e5e22fc8574d71c025732cd2ff2 3\tdocs/research/fdsa-reconstruction-map.md\u0000",
+  "conflicts": [
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "stages": [
+    {
+      "path": "SquareApplications.lean",
+      "mode": "100644",
+      "blob": "9b9355ced967a8c8c03a7a5a340a03d3467b214d",
+      "stage": 1,
+      "bytes": 8769,
+      "sha256": "4be374b4672b68eea315625cba159e77c50a8ef8c177635e09bfcac3ae5742fb",
+      "saved": "conflict-SquareApplications.lean-stage1"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "mode": "100644",
+      "blob": "623b77c69d1ff2cf09a9429eefbd69641370b9cc",
+      "stage": 2,
+      "bytes": 8609,
+      "sha256": "a30e93ebbdb80f40d751cc30a5185e5e96ce40861540c35fb439362d66d2678d",
+      "saved": "conflict-SquareApplications.lean-stage2"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "mode": "100644",
+      "blob": "1a220ba195105933210bd1578552f07052d6224b",
+      "stage": 3,
+      "bytes": 9371,
+      "sha256": "31fb256fe70c28b42b85b0221c37ffe60ab60248ebf7babecc410326c1f96d15",
+      "saved": "conflict-SquareApplications.lean-stage3"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "mode": "100644",
+      "blob": "49924e2ebdf10714c44bf95a95f94b2571ddde42",
+      "stage": 1,
+      "bytes": 40858,
+      "sha256": "cfe67f21675a2aecd301d5e2f7b8f5adbc54c4b744c462319a95895d7ec3a4d4",
+      "saved": "conflict-docs__research__fdsa-reconstruction-map.md-stage1"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "mode": "100644",
+      "blob": "0944dfd5fde6895f2c4cc0db9bd015f3e71ffed1",
+      "stage": 2,
+      "bytes": 41477,
+      "sha256": "b5997a67ca8e23f4418b5428db17bedcf960f262f2e9a9e711255799970689d6",
+      "saved": "conflict-docs__research__fdsa-reconstruction-map.md-stage2"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "mode": "100644",
+      "blob": "ec2ac8c975be8e5e22fc8574d71c025732cd2ff2",
+      "stage": 3,
+      "bytes": 44132,
+      "sha256": "dd4ce52d2cec15815dd18788e027808b072af75f4759b6fd9d6520682e6a27c2",
+      "saved": "conflict-docs__research__fdsa-reconstruction-map.md-stage3"
+    }
+  ],
+  "commands": [
+    {
+      "label": "branch",
+      "started_utc": "2026-11-04T16:51:54.317348+00:00",
+      "finished_utc": "2026-11-04T16:51:54.326995+00:00",
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+        "-c",
+        "user.name=ChatGPT",
+        "-c",
+        "user.email=chatgpt@openai.com",
+        "switch",
+        "-c",
+        "work/fdsa-chapter02-integration",
+        "726cb9a9b9ff4444a7614383de4fb336e8804aa7"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "Switched to a new branch 'work/fdsa-chapter02-integration'\n"
+    },
+    {
+      "label": "merge",
+      "started_utc": "2026-11-04T16:51:54.327171+00:00",
+      "finished_utc": "2026-11-04T16:51:54.389985+00:00",
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+        "-c",
+        "user.name=ChatGPT",
+        "-c",
+        "user.email=chatgpt@openai.com",
+        "merge",
+        "--no-ff",
+        "--no-commit",
+        "-s",
+        "ort",
+        "4b5dbfa07288acc73f25c27838d3fb2f78e77d71"
+      ],
+      "exit": 1,
+      "stdout": "Auto-merging SquareApplications.lean\nCONFLICT (content): Merge conflict in SquareApplications.lean\nAuto-merging docs/research/fdsa-reconstruction-map.md\nCONFLICT (content): Merge conflict in docs/research/fdsa-reconstruction-map.md\nAutomatic merge failed; fix conflicts and then commit the result.\n",
+      "stderr": ""
+    }
+  ],
+  "captured_utc": "2026-11-04T16:51:54.431645+00:00"
+}

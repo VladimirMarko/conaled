@@ -1,0 +1,23 @@
+{
+  "scope": "operational helpers only; no formal source acceptance",
+  "base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "candidate": "f010b5d0fdbef9c9f007c56531c326e738557f9d",
+  "merge_base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "captured_at": "2026-11-03T14:56:58.092093+00:00",
+  "files": {
+    "session/environment/make-direct-toolchain-profile.py": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb",
+    "session/environment/run-direct-toolchain.py": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+    "session/environment/test-direct-toolchain.py": "535a50ebd03cae40f08c0014c667d96500eafd5bd8f348a3449484a07e5bca24",
+    "session/environment/test-direct-lake-build.py": "210fcff01724d8d27e5f1af33cc882cdb622e962240140e1d722ffd0251029e0",
+    "session/environment/README-direct-toolchain.md": "ac067da2e7586883627fd3b527469e7db6c600f98518b8fd1f971fe6f7f67d92",
+    "session/validation/run-direct-validation.py": "9b8410607494646072488743126fc0c6f7dcc94e500213b395b2b8486446bca6",
+    "session/validation/test-direct-validation.py": "0d8e9660f47fbdedf2fd0e739fef1b76e6884b604e7a15d07a2db6d2814ea52b",
+    "session/validation/direct-validation-runner-notes.md": "02aac2636e9e8a544bd7f27103249bb5946e7ccbed5f0e042edcfe987058cd51"
+  },
+  "requirements": [
+    "session/requirements/REQUEST-direct-toolchain-041.md",
+    "session/environment/direct-toolchain-implementation-scope-041.md"
+  ],
+  "exclusions": "All formal candidate sources, prior evidence, runtime binaries/caches, tracker/status and review/provenance records are outside this authored-helper diff; their independent obligations persist. Main index/HEAD/working tree unchanged.",
+  "validation": "Pending isolated snapshot public CLI/build/refusal tests; previous same-source runtime results retained."
+}

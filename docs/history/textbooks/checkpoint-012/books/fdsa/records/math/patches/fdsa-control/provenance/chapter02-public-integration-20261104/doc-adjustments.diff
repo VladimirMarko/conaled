@@ -1,0 +1,134 @@
+--- prepared/fdsa-sorting.md
++++ applied/fdsa-sorting.md
+@@ -8,15 +8,16 @@
+ headings organize this correspondence; the Lean modules remain organized by
+ sorting, resources, sequences and probability.
+ 
+-**Integration draft.** The exact source snapshot described here is
+-`f673ee87195e4aaeef4b41767a7468c70ad6214f` (M2). Source presence and the
+-correspondence table do not certify this candidate. Its focused validation and
+-independent final reviews are in progress at this documentation boundary; no
+-new complete check, audit, final review outcome or acceptance is asserted.
+-Accepted Chapter 1 remains at `07e480f6ec9958d4975bb90151005b84f2907614`.
+-The exact shared foundation `f17cc6b1a2bf44215b16202ed0fcee2b5c130761`
+-retains its separate pending acceptance. Local checkpoint records own the
+-actual terminal results and the acceptance decision.
++**Source correspondence.** The table records the implemented definitions,
++claims and connected examples; it does not certify an integration candidate.
++The initial combined source was `f673ee87195e4aaeef4b41767a7468c70ad6214f`
++(M2), followed by the recorded preserving corrections below. Validation,
++independent final review and acceptance are recorded for exact immutable
++candidates in the local project evidence. At this documentation boundary,
++accepted Chapter 1 remains `07e480f6ec9958d4975bb90151005b84f2907614` and
++the exact shared foundation `f17cc6b1a2bf44215b16202ed0fcee2b5c130761`
++retains its separate pending acceptance. No successful complete check, audit
++or final approval of Chapter 2 is asserted here.
+ 
+ ## Source identity and correspondence
+ 
+@@ -41,19 +42,27 @@
+ adds no theorem framework, probability carrier, resource executor or root-level
+ assumption.
+ 
+-M2 contains the exact uniform-input pair from
+-`9d5dcd2cfbd6fc5df572234a85bf4957d0c32a21` (U), the exact growth pair from
+-`08a1e78d6becc713256d245206ef163f9eb55a0a` (G), and the rank correction
+-`a111774b7b393cf462029fec8d16e8b6ff1b0089`. It also retains the separately
+-recorded proof corrections for conditional tails
+-`fa86bfb800c1e70cdf61fefd75b8cb2f428daea6`, natural-operation examples
+-`b87e4e05d89d774a3e217d0fafd271bee4a9cd9a`, and numerical mean algebra
+-`e0df28b7bbfa722b25623606a5a1905620fac91e`. The rank correction includes
++The source lineage includes the uniform-input pair from
++`9d5dcd2cfbd6fc5df572234a85bf4957d0c32a21` (U), the growth pair from
++`08a1e78d6becc713256d245206ef163f9eb55a0a` (G), and rank correction
++`a111774b7b393cf462029fec8d16e8b6ff1b0089`. That rank correction supplies
+ explicit parentheses around intended indexed arguments in seven source
+-headers; the other corrections change proof elaboration only. The preceding
+-focused attempt 5 was at `c0440a99c2a503b7816a44367f7e4168378dbbf1` (C)
+-and closed with failure. These source identities are provenance, not successful
+-compiler or acceptance results.
++headers; `6f3e010eb3b0a55fe8005c26deefacf2eed10cfc` adds four preserving
++proof conversions. Conditional-tail core correction
++`fa86bfb800c1e70cdf61fefd75b8cb2f428daea6` is followed by boundary-proof
++correction `ee2ea2406a014e43c355f93317455f27b90dd680`. Natural-operation
++example corrections `b87e4e05d89d774a3e217d0fafd271bee4a9cd9a` and
++`47f66dccc414d41bddf0dc6576a2338227ee221e`, and numerical mean correction
++`e0df28b7bbfa722b25623606a5a1905620fac91e`, retain their stated observations.
++
++Focused attempt 5 at `c0440a99c2a503b7816a44367f7e4168378dbbf1` (C) and
++attempt 6 at M2 both closed with exit 1. Attempt 6 individually built the
++conditional-tail core and numerical mean core/examples; its natural-operation
++examples, conditional-tail boundary examples, rank core and uniform-input core
++reported failures. Dependent targets reported as `Ran` are not successful
++builds. The original logs and later corrections remain separate evidence.
++These source identities and individual results do not establish complete
++candidate validation or acceptance.
+ 
+ ## Sorting, keys and the chosen stable exercise
+ 
+@@ -451,32 +460,36 @@
+ 
+ ## Public exposure and validation boundary
+ 
+-The public example-root proposal contains 23 Chapter 2 imports: the 21 example
+-modules already present as source files at C, plus `Examples.UniformQuickSortMean` and
+-`Examples.RandomQuickSortGrowth` at M2. It preserves existing roots for stable
+-sorting, insertion costs, ordinary merge, list/library/call/notation foundations,
+-three-way partition, difference lists and permutation Minimum/Order/Tail.
+-Boundary example modules remain reachable through their existing main imports.
+-The proposal is not applied by this document draft.
+-
+-At M2, the static documentation check found all 112 IDs exactly once and in
+-order, and all 448 distinct explicit alias-qualified declaration references
+-in their exact source files. The 23 proposed imports reach 1,029 project source
+-modules from the two public roots; the remaining 56 tracked Lean files are
+-exactly the same files, with unchanged bytes, outside those roots at accepted
+-Chapter 1. These are source/import counts, not checked-module or declaration
+-audit counts. Static checks are not Lean elaboration, a kernel audit or a
+-complete candidate check. Historical focused evidence is retained by exact
+-source identity; failed aggregate runs and source-only corrections remain
+-distinguishable from target passes. The original C attempt 5 failed; M2 contains its separately recorded
+-corrections, without an inferred successful terminal result here.
+-
+-The acceptance sequence remains: first resolve the exact shared foundation's
+-applicable gates; then validate the complete immutable Chapter 2 candidate with
+-all required public roots and accurate coverage. Follow the README's actual
+-normal-versus-fresh rules, preserve the closed full check and exhaustive axiom
+-audit, obtain independent Standards and Spec outcomes with no unresolved
+-findings, and run immediate qualified `./check.sh --verify-candidate HEAD`
+-before the authorized local fast-forward. Local tickets stay local; no GitHub
+-mutation or push follows from this note. Chapter 3 and the remaining book scope
+-are not bypassed or accepted by this Chapter 2 preparation.
++`SquareApplications.lean`, the existing complete public entrypoint, includes
++23 Chapter 2 example imports: the 21 example modules present as source at C,
++plus `Examples.UniformQuickSortMean` and `Examples.RandomQuickSortGrowth`.
++It preserves the existing imports for stable sorting, insertion costs, ordinary
++merge, list/library/call/notation foundations, three-way partition, difference
++lists and permutation Minimum/Order/Tail. Boundary modules remain reachable
++through their existing main example imports. `ProofAudit.lean` already imports
++`SquareApplications`; the chapter is exposed to that audit through this existing
++dependency.
++
++The source-only documentation reconciliation found all 112 IDs exactly once
++and in order, and all 448 distinct explicit alias-qualified declaration
++references in their exact source files. The public-entrypoint and audit import
++closure contains 1,029 project source modules out of 1,085 tracked Lean files.
++The remaining 56 tracked Lean files are exactly the unchanged historical,
++experiment and script files outside those roots at accepted Chapter 1.
++These are source/import counts, not checked-module or declaration-audit counts.
++Static checks do not establish Lean elaboration, kernel auditing or a complete
++candidate check. Historical focused and printed-type evidence is retained only
++with explicit matching source identity; selected statement outputs do not
++establish coverage of every public declaration in their source files.
++
++Acceptance first requires the exact shared foundation and every included
++shared unit's applicable gates in the recorded dependency order, including
++XU01 before XU02 before XU03. The complete immutable Chapter 2 candidate then
++requires all public coverage, matching checked statements and the README's
++applicable normal-versus-fresh validation. Preserve the closed complete check,
++exhaustive axiom audit and matching verification record; obtain independent
++Standards and Spec outcomes with no unresolved findings; then run immediate
++qualified `./check.sh --verify-candidate HEAD` before the authorized local
++fast-forward. Local tickets stay local; no GitHub mutation or push follows
++from this note. Chapter 3 and the remaining book scope retain their own
++complete obligations and acceptance gates.

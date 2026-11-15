@@ -1,0 +1,35 @@
+{
+  "recorded_utc": "2026-11-04T02:38:07.091130+00:00",
+  "candidate": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+  "execution_api": "exec_command",
+  "tty": true,
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/60f07f0e98c8/restored/conaled-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/60f07f0e98c8/native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-unified-pty-validation",
+    "--threads",
+    "1",
+    "--",
+    "./check.sh",
+    "--candidate",
+    "HEAD",
+    "--fresh",
+    "--jobs",
+    "1"
+  ],
+  "cwd": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-unified-pty-validation",
+  "session_id": 20574,
+  "initial_response": {
+    "session_id": 20574,
+    "output": "[lock] project-1122c00984f97556aeba\r\n[run] ./check.sh --candidate HEAD --fresh --jobs 1\r\n"
+  },
+  "kit_log_directory": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T023742Z-project-run-15ac8290",
+  "outer_recorder": false,
+  "terminal_result": null,
+  "session_scope": "Owned current environment at launch. Historical after restore; saved session/PID is not evidence of live state or authority to signal."
+}

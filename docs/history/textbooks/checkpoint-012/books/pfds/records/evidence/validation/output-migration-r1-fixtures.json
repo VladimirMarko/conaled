@@ -1,0 +1,23 @@
+{
+  "candidate": "2748089840723943ddc8ae58acd82f5728b2098b",
+  "base": "27a2b897983eb0e60b6ebe1ffa2b0b6c4ece6405",
+  "scope": "Disposable isolated fixture suite only, no compiler or real stock hash or migration",
+  "argv": [
+    "python3",
+    "session/validation/test-output-migration.py"
+  ],
+  "started_at": "2026-11-03T02:53:24.527676+00:00",
+  "ended_at": "2026-11-03T02:53:25.217894+00:00",
+  "status": "finished",
+  "exit_code": 0,
+  "input_sha256": {
+    "session/validation/migrate-accepted-outputs.py": "6b6f17ec3f4001965eb8a27055e50770f9124676f2d1084f7488a2453cf5b60c",
+    "session/validation/test-output-migration.py": "34e38d23006a05b7687b22c029fde3298d71422e3a085591a14a2851e1db401f",
+    "session/research/output-migration-implementation.md": "3a9bb1730fed711af1fdb337e8f201c2b979f2a21e8e9e7db6535bb9bfe27f6f",
+    "conaled/scripts/lake_integrity.py": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f"
+  },
+  "captured_inputs_unchanged": true,
+  "delivered_inputs_match": true,
+  "log": "validation/output-migration-r1-fixtures.log",
+  "acceptance": false
+}

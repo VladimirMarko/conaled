@@ -1,0 +1,135 @@
+{
+  "recorded_utc": "2026-11-04T10:50:30.023535+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete 81-path review scope, all 112 obligations and ten shared scopes.",
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "chunks": [
+    {
+      "chunk": 31,
+      "type_numbers": [
+        545,
+        585
+      ],
+      "native_lines": [
+        8016,
+        8296
+      ],
+      "bytes": 20851,
+      "names": [
+        "Applications.Sorting.quickSortBy_singleton",
+        "Applications.Sorting.quickSortBy_length",
+        "Applications.Sorting.mem_quickSortBy",
+        "Applications.Sorting.quickSortOn",
+        "Applications.Sorting.quickSortAccBy_nil",
+        "Applications.Sorting.quickSortAccBy_cons",
+        "Applications.Sorting.quickSortAccBy_singleton",
+        "Applications.Sorting.quickSortAccBy_perm",
+        "Applications.Sorting.quickSortAccOn",
+        "Applications.Sorting.sortFloorBy",
+        "Applications.Sorting.sortFloorBy_of_length_le",
+        "Applications.Sorting.sortFloorBy_step",
+        "Applications.Sorting.sortFloorBy_nil",
+        "Applications.Sorting.sortFloorBy_singleton",
+        "Applications.Sorting.sortFloorBy_perm",
+        "Applications.Sorting.sortFloorBy_length",
+        "Applications.Sorting.mem_sortFloorBy",
+        "Applications.Sorting.sortFloorBy_sorted_compatible_on",
+        "Applications.Sorting.sortFloorOn",
+        "Applications.Sorting.sortFloorOn_correct",
+        "Applications.Sorting.sortFloorOn_stable",
+        "Applications.Sorting.sortFloorOn_spec",
+        "Applications.Sorting.sortFloorOn_eq_sortOn",
+        "Examples.FunctionalNotation.composition_and_eta",
+        "Examples.FunctionalNotation.boolean_truth",
+        "Examples.FunctionalNotation.comprehension_order_and_repetition",
+        "Examples.FunctionalNotation.set_union_intersection",
+        "Examples.FunctionalNotation.proper_subset",
+        "Examples.FunctionalNotation.direct_image",
+        "Examples.FunctionalNotation.restricted_comprehension",
+        "Examples.FunctionalNotation.two_variable_comprehension",
+        "Examples.FunctionalNotation.indexed_union",
+        "Examples.FunctionalNotation.set_of_sets_observations",
+        "Examples.FunctionalNotation.bounded_quantifiers",
+        "Examples.FunctionalNotation.product_membership",
+        "Examples.FunctionalNotation.all_interval_memberships",
+        "Examples.FunctionalNotation.upper_interval_correction",
+        "Examples.FunctionalNotation.floor_division_nonnegative",
+        "Examples.FunctionalNotation.negative_divisor_distinguishes",
+        "Examples.FunctionalNotation.floor_division_zero",
+        "Examples.FunctionalNotation.typed_arithmetic"
+      ],
+      "sha256": "f96d2cccd6d74487f91bb7fa2bceada2457d060e9ad6bc10a7eb28a75c5f30fb",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "QuickSort value and accumulator base/step/permutation interfaces retain arbitrary Boolean comparators and arbitrary payloads. The accumulator suffix is carried unchanged through the right recursion; key wrappers require only decidable LT for construction.",
+        "Top-down sortFloorBy explicitly takes and drops floor(length/2), returns short lists unchanged, and preserves permutation, length and membership without order laws. Sortedness requires only a key preorder and the stated input-local compatibility of both comparator branches.",
+        "The key-specific top-down correctness result uses a linear preorder; stability and StableSort separately add key equality. Equality to sortOn uses a linear order and key equality, not an unstated payload equality or an inference that sortedness alone implies stability.",
+        "Appendix C composition, Bool/Prop truth, list comprehension order/repetition, set image/comprehension/union/intersection, strict subset, products and bounded quantifier elaborations agree with their stated correspondence roles. The identical elaborated bounded-quantifier sides are intentional notation correspondence.",
+        "All six interval membership equivalences require only a preorder and preserve endpoint directions; the concrete upper-interval example distinguishes Iic from Ici. Int floor division equals ordinary Int division for nonnegative divisor, with explicit negative-divisor5/(-2)=-3 versus -2 and divisor-zero value0; typed arithmetic distinguishes Nat division from Real division."
+      ]
+    },
+    {
+      "chunk": 32,
+      "type_numbers": [
+        586,
+        608
+      ],
+      "native_lines": [
+        8297,
+        8575
+      ],
+      "bytes": 20253,
+      "names": [
+        "Examples.FunctionalNotation.floor_and_ceiling",
+        "Examples.FunctionalNotation.submultiset_is_not_support_subset",
+        "Examples.FunctionalNotation.repeated_sum_and_product",
+        "Examples.FunctionalNotation.closed_interval_fold",
+        "Examples.FunctionalNotation.finiteIndexProduct",
+        "Examples.FunctionalNotation.finiteIndexProduct_of_finite",
+        "Examples.FunctionalNotation.finiteIndexProduct_of_infinite",
+        "Examples.FunctionalNotation.finiteIndexProduct_of_finset",
+        "Examples.FunctionalNotation.finite_index_values",
+        "Examples.FunctionalNotation.infinite_index_values",
+        "Examples.FunctionalNotation.empty_index_type",
+        "Examples.FunctionalNotation.ordered_list_folds",
+        "Examples.InsertionCosts.empty_cost",
+        "Examples.InsertionCosts.singleton_cost",
+        "Examples.InsertionCosts.sorted_with_duplicates",
+        "Examples.InsertionCosts.descending_worst",
+        "Examples.InsertionCosts.best_is_global",
+        "Examples.InsertionCosts.worst_is_global",
+        "Examples.InsertionCosts.source_quadratic",
+        "Examples.InsertionCosts.immediate_insertion",
+        "Examples.InsertionCosts.full_traversal",
+        "Examples.InsertionCosts.tied_head_ignores_tail",
+        "Examples.InsertionCosts.key_contract"
+      ],
+      "sha256": "f130974d34ae6bc5cf5c033a0a11919250bf0600770a0ef6f02d438e4ac92ccb",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "Floor/ceiling of -3/2 are respectively -2/-1. Multiset support inclusion explicitly fails to imply multiplicity order; list/multiset repeated sums/products differ from Finset folds as intended.",
+        "The closed finite interval fold includes both endpoints. finiteIndexProduct requires only CommMonoid and uses the finite index set convention: finite sets use toFinset, infinite index sets return1 even for functions with finite exceptional support. Its sum counterpart returns0 on the infinite-index example. This is the recorded source convention, not a claim about infinite analytic products or sums.",
+        "Empty index type is supported without Inhabited. Ordered list fold concatenation needs only Monoid/AddMonoid, preserving noncommutative order rather than introducing commutativity.",
+        "Insertion examples retain empty cost1, arbitrary singleton cost3, sorted-with-duplicates cost7, descending-three worst10 and the global lower/triangular/quadratic bounds.",
+        "Concrete insertion results distinguish immediate tied-head cost1, full traversal cost4 and early tied-head exit despite an unsorted tail. The keyed record StableSort contract remains generic over arbitrary payload types."
+      ]
+    }
+  ],
+  "prior_progress_sha256": "bb0afaa909634ad3bc13dd4fd41c7f5a8786c59c2ee5816d6883066dfc036272",
+  "overall_outcome": "Blocked",
+  "new_type_credit": 0,
+  "possible110_credit": 0
+}

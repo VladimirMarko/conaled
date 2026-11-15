@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-02T22:45:47.347829+00:00",
+  "root_free_bytes": 3647447040,
+  "existing_floor_bytes": 2000000000,
+  "command": [
+    "python3",
+    "/workspace/scratch/0c54f2db1fdf/work-state/tools/checkpoint.py",
+    "--workspace",
+    "/workspace/scratch/0c54f2db1fdf",
+    "--name",
+    "conaled-vfa-checkpoint-031-recorder-loss-evidence"
+  ],
+  "formal_candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "writers": "Root tracking updates complete; environment and original-reviewer assessments read-only; compiler may append logs. Recorder unavailable and state JSON stale, not rewritten.",
+  "purpose": "Complete recovery after observed recorder loss while original checker remains active, including incident001 upload binding and advisory reuse note. No chapter acceptance."
+}

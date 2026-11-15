@@ -1,0 +1,66 @@
+{
+  "recorded_utc": "2026-11-04T20:50:03.629991+00:00",
+  "finding": "C03-NESTED-ELAB-001",
+  "candidate": "9c19c0ec07eab0bfa12f58dde8c61f53447be58e",
+  "tree": "7104c21fc9365527e63732312c96038d0b42f0e5",
+  "parent": "4de8b315a06089b1a715b56332f667ef1587e635",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+  "branch": "work/fdsa-ch03-mom-execution",
+  "status": "clean",
+  "actual_commit_terminal": "a1fed2 exit0",
+  "precommit_and_preservation_terminal": "a44eca exit0",
+  "targets": [
+    "Applications.Resources.Selection",
+    "Examples.SelectionCosts"
+  ],
+  "files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/Selection.lean",
+      "bytes": 20283,
+      "sha256": "5318599cfbbca4f1a7d5ff4d91ded6dba7ad0def8254d5aa16ec58d8ae72ffdb",
+      "relative_path": "Applications/Resources/Selection.lean",
+      "source_lines": 423,
+      "public_count": 21,
+      "private_count": 12
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionCosts.lean",
+      "bytes": 13466,
+      "sha256": "fc9ab165cac2cd05246592bddbcc63632b4c363e4c478dea02e1aeb0d77e8122",
+      "relative_path": "Examples/SelectionCosts.lean",
+      "source_lines": 286,
+      "public_count": 18,
+      "private_count": 17
+    }
+  ],
+  "counts": {
+    "public_declarations": 39,
+    "public_definitions": 2,
+    "public_theorems": 37,
+    "private_declarations": 29,
+    "private_definitions": 2,
+    "private_theorems": 27,
+    "total_declarations": 68,
+    "anonymous_examples": 0
+  },
+  "inventory": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/source-inventory-and-preservation-candidate2.json",
+    "bytes": 133357,
+    "sha256": "09fd0ad1defada6963b9bf72cb8af2c5d242d30396880b90c1a783c0bc451e80"
+  },
+  "type_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/NestedSelectorStatements39-candidate2.lean",
+    "bytes": 2530,
+    "sha256": "f526c60244a2b5af539fbc99a1b55c50b25a4a40c40993ed870cde2d1e2bb809"
+  },
+  "exact_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/correction-source.patch",
+    "bytes": 2504,
+    "sha256": "e26e5c493e5af1ace3e8ef4c08cda667536ce767e2f6ad6947895e1ba150d738"
+  },
+  "previous_run": "Exact4de8b315 CLOSED1; owned68419 terminal443b97; root closure8809f7. All actual logs and closure read; inherited c1ce verification is not candidate acceptance.",
+  "preserved": "All39public/29private headers,12 expected pairs, entire examples, computation branches, tariffs, cached length, rank conventions and generic parameter range. All23 prior protected source/import paths and69 prior own records match saved bytes.",
+  "changed_definition_disclosure": "selectWorker termination proof annotation changed; its complete definition is not byte-identical. Computational prefix and length measure are byte-identical.",
+  "successor_validation": "UNCOMPILED; explicit types unexecuted; no full check/audit/review/acceptance credit.",
+  "write_hold": "After the companion hold record, all source and own provenance writes stop until root actual terminal and release."
+}

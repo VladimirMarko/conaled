@@ -1,0 +1,105 @@
+{
+  "recorded_utc": "2026-11-04T19:52:27.198358+00:00",
+  "candidate": "95406b83968e5b438e206c06f9797804664e0170",
+  "original_full_scope_base": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "all_original_83_chapter_obligations_retained": true,
+  "scope": [
+    "C03-039",
+    "C03-040",
+    "C03-041",
+    "C03-042",
+    "C03-043",
+    "C03-044"
+  ],
+  "frozen_requirements_and_source_api_binding": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-continuation1/input-bindings.json",
+    "bytes": 9834,
+    "LF_lines": 191,
+    "sha256": "9cd6fc5250d082cc5b8902e1d7bb03d748a1c000422fd740a0209b73f6371dac"
+  },
+  "all18_previously_bound_source_and_instruction_inputs_still_exact": true,
+  "prior_full_statement_review": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-continuation1/statement-review.json",
+    "bytes": 4150,
+    "LF_lines": 74,
+    "sha256": "d129dfbe5361432d1783a8398114d5a8e66a428c1e10dde85f5cd72ff7d9b63b"
+  },
+  "root_alpha_correction": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-root-correction1/candidate.json",
+    "bytes": 3417,
+    "LF_lines": 35,
+    "sha256": "95e54b14d3a79213b03300772f74ddd61f8d25021eaf140029dabb20cffb1795"
+  },
+  "current_inventory": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-example-correction2/statements35-inventory.json",
+    "bytes": 46603,
+    "LF_lines": 716,
+    "sha256": "5a5ca5128cad08d9e07f756de6ef7059a1249422479852dc42339ec142bd2ee7"
+  },
+  "current_program": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-example-correction2/Statements35-candidate3.lean",
+    "bytes": 2756,
+    "LF_lines": 51,
+    "sha256": "835b572ba2f6e18d8ceeec53d7efe977d0eed3347ab223280e289d4e2bc346f3"
+  },
+  "current_four_source_files": [
+    {
+      "relative": "Applications/Resources/RoundedRecurrence.lean",
+      "git_blob": "0f78fd302b88aba9596036a63b79195007e502a8",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Applications/Resources/RoundedRecurrence.lean",
+      "bytes": 7723,
+      "LF_lines": 140,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758"
+    },
+    {
+      "relative": "Examples/RoundedRecurrence.lean",
+      "git_blob": "79e2f5c019122b42b55d1073e0f7e73fec06e94a",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Examples/RoundedRecurrence.lean",
+      "bytes": 3782,
+      "LF_lines": 79,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d"
+    },
+    {
+      "relative": "Applications/Resources/RoundedRecurrenceBounds.lean",
+      "git_blob": "45b5c20045c45919eb1f368ae0d9c9629b32a27b",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Applications/Resources/RoundedRecurrenceBounds.lean",
+      "bytes": 6951,
+      "LF_lines": 135,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135"
+    },
+    {
+      "relative": "Examples/RoundedRecurrenceBounds.lean",
+      "git_blob": "0c123861745e060ea6926f6c41423fd5cd832e75",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Examples/RoundedRecurrenceBounds.lean",
+      "bytes": 7295,
+      "LF_lines": 162,
+      "sha256": "18275f597cf579edf0db6785d0910e76dcc9cff084566ced73cd0da8828c0135"
+    }
+  ],
+  "all35_explicit_check_names_same_order_as_original": true,
+  "all35_current_headers_same_as_immediate_parent": true,
+  "only_header_delta_since_original_candidate": "Proof-binder alpha rename prefix to hprefix recorded by root; no hypothesis or conclusion change.",
+  "printer_profile": {
+    "pp.universes": true,
+    "pp.explicit": true,
+    "pp.fullNames": true,
+    "pp.deepTerms": true,
+    "pp.proofs": true,
+    "pp.maxSteps": 1000000
+  },
+  "pins": {
+    "lean": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "lean_version": "4.35.0",
+    "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+  },
+  "latest_root_focused_feedback": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-example-correction2/root-attempt3-feedback.json",
+    "bytes": 6335,
+    "LF_lines": 126,
+    "sha256": "b3713fc0c67b1e2e86380ce4d316305a1c07d2c85ac484ad131506f4ed148d37"
+  },
+  "input_qualification_or_actual_printed_output_not_claimed": true,
+  "compiler_executed_by_author": false,
+  "actual_type_credit": 0,
+  "acceptance_credit": false
+}

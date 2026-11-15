@@ -1,0 +1,48 @@
+{
+  "recorded_utc": "2026-11-05T02:45:35.624187+00:00",
+  "finding": "CP0138-OPS-001",
+  "state": "corrected; independent confirmation pending",
+  "reported_by": "checkpoint0137_acceptance_inspection",
+  "problem": "Variable rename accidentally changed two unchanged historical dictionary keys from accepted_tree to chapter3_tree.",
+  "remedy": "Restore only the two dictionary keys to accepted_tree, retaining the RHS historical chapter3_tree variable. No historical data changed.",
+  "initial_helpers_and_patches_preserved": {
+    "verify-checkpoint.py": {
+      "bytes": 37000,
+      "sha256": "ae3f82d88d086a2639173a91a5c486ac6c1292a8c217b164ba572b9d16546cc8"
+    },
+    "capture.py": {
+      "bytes": 5804,
+      "sha256": "deec4ce85d42829e517ff2c8dc38c676d4817756127c1b4da4fa74b7bb2e9295"
+    },
+    "run-stage.py": {
+      "bytes": 2406,
+      "sha256": "e440a090f8ee37dacb8a5501cfe8fe0072052c9dd42adec759b68f1faf59c4b0"
+    },
+    "README.md": {
+      "bytes": 2513,
+      "sha256": "99e137d43145815dab8622ec572ddbb79e5dccf4a0230fb2ddd00f2649e498b7"
+    },
+    "verifier-scope-diff.patch": {
+      "bytes": 25470,
+      "sha256": "1b101f797c5bfa1233caf8e52ce2a2d3bdf86c87304598f4c77b9be550b9bb25"
+    },
+    "helper-scope-diffs.patch": {
+      "bytes": 12684,
+      "sha256": "3e853615eaa529e7ff1c116fae23643b925e5de08564b9ba13a24efc0c30f0a3"
+    },
+    "preparation.json": {
+      "bytes": 1045,
+      "sha256": "e79ca0cf971d0df401d278f5e9c5bffecb4ce523d34c58ba1adec5b476d2ad7d"
+    }
+  },
+  "corrected_verifier": {
+    "bytes": 37000,
+    "sha256": "95ad6eb0bf4f4f0d42108f4fcf696609e7385dab175a1d7fca994b7e44299723"
+  },
+  "correction_patch": {
+    "bytes": 1580,
+    "sha256": "765865b51257bdfb4711a07a8360fa13381e6c8ec7b4205aeb790eb3f818d6db"
+  },
+  "helpers_not_executed": true,
+  "formal_candidate_and_actual_validation_inputs_unchanged": true
+}

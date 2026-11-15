@@ -1,0 +1,54 @@
+diff --git a/Applications/Resources/GroupSelectionRecurrence.lean b/Applications/Resources/GroupSelectionRecurrence.lean
+index 0efa603..851bb1e 100644
+--- a/Applications/Resources/GroupSelectionRecurrence.lean
++++ b/Applications/Resources/GroupSelectionRecurrence.lean
+@@ -41,7 +41,7 @@ theorem fraction_sum_eq (d : Nat) (hd : 0 < d) :
+   have hdR : (d : ℝ) ≠ 0 := by exact_mod_cast (Nat.ne_of_gt hd)
+   unfold pivotFraction sideFraction
+   field_simp
+-  <;> ring
++  ring
+ 
+ /-- The subtraction is natural subtraction; its cast is justified explicitly. -/
+ theorem contracts_iff_half_gap (d : Nat) (hd : 0 < d) :
+@@ -88,13 +88,13 @@ theorem pivotChild_monotone (d : Nat) : Monotone (pivotChild d) := by
+   intro m n h
+   apply Nat.ceil_mono
+   have hm : (m : ℝ) ≤ (n : ℝ) := by exact_mod_cast h
+-  exact add_le_add_right (mul_le_mul_of_nonneg_left hm (by unfold pivotFraction; positivity)) 0
++  exact add_le_add_right (mul_le_mul_of_nonneg_left hm (by unfold pivotFraction; positivity : (0 : ℝ) ≤ pivotFraction d)) 0
+ 
+ theorem sideChild_monotone (d : Nat) : Monotone (sideChild d) := by
+   intro m n h
+   apply Nat.ceil_mono
+   have hm : (m : ℝ) ≤ (n : ℝ) := by exact_mod_cast h
+-  exact add_le_add_right (mul_le_mul_of_nonneg_left hm (by unfold sideFraction; positivity)) _
++  exact add_le_add_right (mul_le_mul_of_nonneg_left hm (by unfold sideFraction; positivity : (0 : ℝ) ≤ sideFraction d)) _
+ 
+ /-- Transport the exact two-group bound, retaining the final short chunk.
+ The same arithmetic applies separately to the less-than and greater-than sides. -/
+@@ -124,7 +124,6 @@ theorem two_group_bound_le_child (d n s : Nat) (hd : 0 < d)
+       2 * sideFraction d := by
+     unfold pivotFraction sideFraction
+     field_simp
+-    <;> ring
+   have expand : ((d : ℝ) + ((d / 2 : Nat) : ℝ)) *
+       (pivotFraction d * (n : ℝ) + 1) =
+       2 * sideFraction d * (n : ℝ) + ((d : ℝ) + ((d / 2 : Nat) : ℝ)) := by
+@@ -155,13 +154,13 @@ theorem children_lt (d n : Nat) (hd : 5 ≤ d) (large : cutoff d < n) :
+ /-- A total scalar family, with explicit finite base and natural linear toll.
+ Termination is established by child decrease before affine growth is used. -/
+ def majorant (d base slope constant : Nat) (hd : 5 ≤ d) (n : Nat) : Nat :=
+-  if h : n ≤ cutoff d then base else
++  if _h : n ≤ cutoff d then base else
+     majorant d base slope constant hd (pivotChild d n) +
+       majorant d base slope constant hd (sideChild d n) + slope * n + constant
+ termination_by n
+ decreasing_by
+-  · exact (children_lt d n hd (Nat.lt_of_not_ge h)).1
+-  · exact (children_lt d n hd (Nat.lt_of_not_ge h)).2
++  · exact (children_lt d n hd (Nat.lt_of_not_ge _h)).1
++  · exact (children_lt d n hd (Nat.lt_of_not_ge _h)).2
+ 
+ theorem majorant_small (d base slope constant : Nat) (hd : 5 ≤ d)
+     (n : Nat) (small : n ≤ cutoff d) : majorant d base slope constant hd n = base := by

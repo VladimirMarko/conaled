@@ -1,0 +1,52 @@
+{
+  "recorded_utc": "2026-11-04T19:51:57.817029+00:00",
+  "status": "Design only; no FixedRank source or new theorem has been written, elaborated, or accepted.",
+  "candidate_before_next_slice": "bc26994a828eb958fe930c0e46039f9c5addc864",
+  "scope": [
+    "C03-047",
+    "C03-048",
+    "C03-049",
+    "C03-050",
+    "C03-051"
+  ],
+  "paths": [
+    "Applications/Selection/FixedRank.lean",
+    "Applications/Resources/FixedRank.lean",
+    "Examples/FixedRankSelection.lean"
+  ],
+  "value_constructions": [
+    "Actual tail-recursive minimumLoop keeps a current minimum; select0 returns none for empty, some minimum otherwise. Prove membership and all-elements lower bound, then ordered optional index zero.",
+    "Actual secondLoop keeps lo,hi, inserts a new value by x<=lo versus min x hi; select1 requires at least two elements and counts duplicate occurrences. Prove its exact loop correspondence to the width-two prefix selector before correctness.",
+    "boundedInsert m x acc := (List.orderedInsert (<=) x acc).take m; prefixLoop consumes each source element once in tail position; takeSort starts with []; selectFixed k indexes k into width k+1.",
+    "Prove take m (orderedInsert x (take m ys)) = take m (orderedInsert x ys), then prefixLoop invariant against ordered (xs.reverse ++ seen), canonical takeSort value, fixed-rank count semantics, all-input optional failure, and existing one-based selectWith bridge."
+  ],
+  "resource_constructions": [
+    "Use the established source CallCount model: primitive comparisons/min/max/constructors are free; each explicitly declared source function entry costs one.",
+    "minimumLoopRun best spent is tail-recursive in remaining input with cost accumulator; select0Run charges its entry. Planned exact all-input cost xs.length+1, independently proved from this algorithm.",
+    "boundedInsertRun combines measured ordered insertion and measured take plus its wrapper tick. Under acc.length<=m, planned step upper bound 2*m+3.",
+    "prefixLoopRun keeps spent, charging its entry and actual boundedInsertRun cost at each step. Planned bound spent+(2*m+4)*xs.length+1.",
+    "takeSortRun adds its wrapper; selectFixedRun composes it with measured lookup and wrapper. Planned uniform bound 2*k*n+6*n+k+4, including k=0. This is a target still requiring proof and compiler validation."
+  ],
+  "connected_cases": [
+    "Minimum [8,1,5] -> some 1; duplicates and empty; actual minimum cost n+1.",
+    "Second occurrence [4,1,1] -> some 1, [3,1,2] -> some 2, singleton -> none; exact relation to selectFixed 1.",
+    "takeSort 3 [4,1,7,1] = [1,1,4]; width zero; valid first/last ranks and invalid rank length.",
+    "Source cost distinction between insertion at head and traversal of bounded accumulator; fixed rank zero has a nonzero linear bound.",
+    "Planned independently calculated selectFixedRun 0 [4,1,1] cost 19 against general bound 22, subject to actual model implementation/proof."
+  ],
+  "remaining_assigned_scope": [
+    "C03-053",
+    "C03-054",
+    "C03-055",
+    "C03-056",
+    "C03-057",
+    "C03-058"
+  ],
+  "coordination": [
+    "C03-052 and query model belong to the query author.",
+    "Mom author owns actual nested selector, monotone F, generic measured chunks and medians. Planned worker parameters groupSize>=2 and cutoff>=1; concrete interfaces not yet frozen.",
+    "No need to incorporate absent XR for this first slice. Ask root for exact incorporation before future imports of XR or mom work.",
+    "All 83 frozen rows and complete book remain required; this bounded slice does not reduce scope."
+  ],
+  "restrictions": "No author Lean/Lake/cache/environment commands; root sole serial qualified compiler. Preserve prior six source files and all historical evidence. No canonical controls, shared root/docs, another author files, or GitHub writes."
+}

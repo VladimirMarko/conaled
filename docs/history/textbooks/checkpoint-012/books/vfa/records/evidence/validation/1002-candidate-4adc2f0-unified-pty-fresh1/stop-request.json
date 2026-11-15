@@ -1,0 +1,27 @@
+{
+  "requested_utc": "2026-11-04T06:12:09.342905+00:00",
+  "owned_session": 58093,
+  "candidate": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+  "method": "Ctrl-C through the currently live owned PTY session; no historical PID signaling",
+  "reason": "Root requests early interruption to obtain focused actual checks for concrete static missing-import evidence in FiniteMH and StructuredCosts before a corrected new full baseline. Neither suspect has an observed Lean failure yet.",
+  "static_suspects": [
+    {
+      "module": "Applications.Probability.FiniteMH",
+      "names": [
+        "Finset.sum_le_sum",
+        "Finset.sum_pos"
+      ],
+      "defining_import": "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+      "prior_task_change": "Mathlib.Tactic import narrowing"
+    },
+    {
+      "module": "Applications.Linear.StructuredCosts",
+      "names": [
+        "List.sum_replicate"
+      ],
+      "defining_import": "Mathlib.Algebra.BigOperators.Group.List.Defs",
+      "prior_task_change": "Mathlib.Tactic import narrowing"
+    }
+  ],
+  "terminal_outcome": "pending"
+}

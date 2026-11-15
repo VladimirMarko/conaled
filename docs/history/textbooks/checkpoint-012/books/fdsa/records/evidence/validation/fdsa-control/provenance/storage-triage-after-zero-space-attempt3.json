@@ -1,0 +1,67 @@
+{
+  "observed_utc": "2026-11-02T22:53:18.597769+00:00",
+  "effective_uid": 0,
+  "filesystem": {
+    "all_free_bytes": 3314597888,
+    "unprivileged_available_bytes": 0
+  },
+  "repair_copy": {
+    "path": "/workspace/scratch/845aa1048b05/conaled-ch01-cost-models",
+    "exists": true,
+    "head": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "branch": "work/fdsa-basics-cost-models",
+    "status": "",
+    "ignored_status": "!! .lake/",
+    "lake_entries": [
+      {
+        "name": "packages",
+        "symlink": true,
+        "link": "/workspace/scratch/845aa1048b05/conaled/.lake/packages"
+      }
+    ],
+    "project_build_exists": false
+  },
+  "review_head": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "review_status": "",
+  "task_processes": [
+    {
+      "pid": 600750,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "start_ticks": "9123853",
+      "parent_pid": 1,
+      "state": "S",
+      "executable_basename": "python3",
+      "lean_source_arguments": []
+    },
+    {
+      "pid": 600779,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "start_ticks": "9123889",
+      "parent_pid": 600750,
+      "state": "S",
+      "executable_basename": "python3",
+      "lean_source_arguments": []
+    },
+    {
+      "pid": 600956,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "start_ticks": "9124698",
+      "parent_pid": 600779,
+      "state": "S",
+      "executable_basename": "lake",
+      "lean_source_arguments": []
+    },
+    {
+      "pid": 619348,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "start_ticks": "9324229",
+      "parent_pid": 600956,
+      "state": "S",
+      "executable_basename": "lean",
+      "lean_source_arguments": [
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/Examples/FRP.lean"
+      ]
+    }
+  ],
+  "scope": "Read-only storage/source/process triage; no compiler/cache/source/ref or process changes."
+}

@@ -1,0 +1,105 @@
+{
+  "recorded_utc": "2026-11-05T00:55:12.124204+00:00",
+  "reviewer": "/root/checkpoint0124_inspection",
+  "outcome": "PASS",
+  "unresolved_operational_findings": 0,
+  "scope": "Final operational snapshot inspection only; no Chapter3 Standards/Spec, compiler/audit, or acceptance credit.",
+  "actual_root_progress_action": {
+    "chunk": "238b55",
+    "exit": 0,
+    "terminal_file": "final-progress-actual-terminal.json",
+    "bytes": 1943,
+    "sha256": "18b2feddbd66013d04ae52aee62c55d3094ce7532010d14712bc524b030d7899"
+  },
+  "snapshot": {
+    "progress_bytes": 60279,
+    "progress_sha256": "0d5dd7fd25695f6bf5ab1ffe700cda92bf9a96b3f3be187cf53f3b4b23311da2",
+    "hold_bytes": 7669,
+    "hold_sha256": "d95f5dcb422846aab81dd7d0a6292100ec72a6e554fdf7da52f7c660b1515163",
+    "qualified_candidate": "3c04405d207a7b8c6f7452598da88fa3a7a05ac3",
+    "receiver": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+    "corrected_uncompiled_author": "96722600aa29636e028751242ce33d562c5a9255"
+  },
+  "read_only_actual_checks": [
+    {
+      "chunk": "5f31bc",
+      "exit": 0,
+      "verified": "Seven held heads/statuses, accepted XR/tree,76 receiver sources/current83-row document,11 author-hold identities,480 current plus395 previous random bindings,7/19/2 artifact groups,16 Standards/13 Spec bindings,3 independent resolutions."
+    },
+    {
+      "launch_chunk": "f92e11",
+      "terminal_chunk": "0ec5bf",
+      "exit": 0,
+      "verified": "74refs/nine worktrees, exact prior ref names/worktree paths, only ancestry-preserving integration/random ref advances,7702 previous held-control hashes and allowed coordination changes, unchanged creator/restorer/helpers."
+    },
+    {
+      "chunk": "d4f4bd",
+      "exit": 0,
+      "verified": "All102 owned closures, prior99 rows exact, actual terminal/native/outer agreement, complete log hashes,one thread, matching commands, old32 components and2 type observations exact, stable1321+23+1 statement observations; both exceptional histories separately preserved."
+    },
+    {
+      "chunk": "7acf6a",
+      "exit": 0,
+      "verified": "All three new complete closed outer/native logs read, including all88 universal failure lines; prefix/body/suffix exact."
+    },
+    {
+      "chunk": "d2d925",
+      "exit": 0,
+      "verified": "Same2777-byte new canonical section after preserved title in all5 files; removing it reproduces each previous exact size/hash; oldbytes preserved."
+    }
+  ],
+  "accounting": {
+    "focused_public_names": 1345,
+    "focused_modules": 76,
+    "prepared_public_names": 1370,
+    "prepared_modules": 78,
+    "unpassed_universal_names": 25,
+    "closed_owned_development_runs": 102,
+    "corrected_universal_candidate_compiled": false,
+    "final_receiving_candidate_type_qualification": false,
+    "chapter03_accepted": false
+  },
+  "independent_axes": {
+    "Standards": {
+      "outcome": "Blocked/incomplete",
+      "saved_source_type_modules": 52,
+      "saved_actual_types": 915
+    },
+    "Spec": {
+      "outcome": "Blocked/incomplete",
+      "saved_source_modules": 70,
+      "saved_source_claims": 1224,
+      "saved_actual_types": 1201
+    },
+    "unsaved_post_hold_reads_receive_snapshot_credit": false
+  },
+  "resolved_operational_history": [
+    {
+      "issue": "Inherited current-document metadata described original4f as still exact in receiver.",
+      "resolution": "Current4c96 bytes76834/SHA73a51577 bound explicitly; full oldauthor metadata historical; old626refs/73aliases not promoted."
+    },
+    {
+      "issue": "First progress helper omitted git pathspec separator.",
+      "actual_chunk": "fcdecd",
+      "actual_exit": 1,
+      "preserved_script": "record-final-progress-attempt1.py",
+      "preserved_terminal": "final-progress-attempt1-terminal.json",
+      "resolution": "Exact -- insertion; no gate removed; before successful retry all finalprogress/hold/resource/topupdate outputs were absent. Successful238b55 separately secured."
+    },
+    {
+      "issue": "Inspector read-only8410c1 assumed wrong type-index filename.",
+      "resolution": "Observed actual-type-block-index.json used; finald4f4bd actual0. No artifact changed."
+    }
+  ],
+  "original_helpers_unchanged": {
+    "verify-checkpoint.py": "03998161e0ea863b9a355db680a4eef3f85da3cc4a3f1041389db5f92e59e633",
+    "capture.py": "df1e6f05a9195a8ef01713003ef6002d0651ba7c69feecb8e87219a89f2f93af",
+    "run-stage.py": "46861a735d2af808ae58c72a333cf8fd6d62519ffc1c094f3782eab62b136ef8"
+  },
+  "prior_full_audit_failure": "Preserved SIGKILL9, cause unknown, no successful audit or verification.",
+  "read_only_documentation_planner": "No writer permission until explicit post-upload release; no source/provenance mutation.",
+  "capture_and_creation_preflight_absent_at_final_inspection": true,
+  "all_writers_held": true,
+  "no_owned_compiler": true,
+  "no_inspector_mutation_compiler_restore_cleanup_or_upload": true
+}

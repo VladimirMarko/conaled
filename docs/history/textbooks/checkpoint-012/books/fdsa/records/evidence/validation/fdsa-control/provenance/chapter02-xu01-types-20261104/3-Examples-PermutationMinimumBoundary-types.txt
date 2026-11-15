@@ -1,0 +1,209 @@
+Examples.PermutationMinimumBoundary.empty_index_normalized : @Eq.{1} ENNReal
+  (@DFunLike.coe.{1, 1, 1}
+    (@MeasureTheory.Measure.{0} (Equiv.Perm.{1} Empty)
+      Examples.PermutationMinimumBoundary.instMeasurableSpacePermEmpty_examples)
+    (Set.{0} (Equiv.Perm.{1} Empty)) (fun x => ENNReal)
+    (@MeasureTheory.Measure.instFunLike.{0} (Equiv.Perm.{1} Empty)
+      Examples.PermutationMinimumBoundary.instMeasurableSpacePermEmpty_examples)
+    (@ProbabilityTheory.uniformOn.{0} (Equiv.Perm.{1} Empty)
+      Examples.PermutationMinimumBoundary.instMeasurableSpacePermEmpty_examples (@Set.univ.{0} (Equiv.Perm.{1} Empty)))
+    (@Set.univ.{0} (Equiv.Perm.{1} Empty)))
+  (@OfNat.ofNat.{0} ENNReal (nat_lit 1) (@One.toOfNat1.{0} ENNReal ENNReal.instOne))
+Examples.PermutationMinimumBoundary.empty_subset_event : @Eq.{1}
+  (Set.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+  (@Applications.Probability.PermutationMinimum.minimumEvent.{0, 0}
+    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (@instLEFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (@id.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+    (@EmptyCollection.emptyCollection.{0}
+      (Finset.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      (@Finset.instEmptyCollection.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+    (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 0))))
+  (@EmptyCollection.emptyCollection.{0}
+    (Set.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+    (@Set.instEmptyCollection.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))))
+Examples.PermutationMinimumBoundary.empty_subset_mass : @Eq.{1} ENNReal
+  (@DFunLike.coe.{1, 1, 1}
+    (@MeasureTheory.Measure.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      Examples.PermutationMinimumBoundary.instMeasurableSpacePermFinOfNatNat_examples)
+    (Set.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))) (fun x => ENNReal)
+    (@MeasureTheory.Measure.instFunLike.{0}
+      (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      Examples.PermutationMinimumBoundary.instMeasurableSpacePermFinOfNatNat_examples)
+    (@ProbabilityTheory.uniformOn.{0}
+      (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      Examples.PermutationMinimumBoundary.instMeasurableSpacePermFinOfNatNat_examples
+      (@Set.univ.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))))
+    (@Applications.Probability.PermutationMinimum.minimumEvent.{0, 0}
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@instLEFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@id.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      (@EmptyCollection.emptyCollection.{0}
+        (Finset.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        (@Finset.instEmptyCollection.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+      (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+        (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 0)))))
+  (@OfNat.ofNat.{0} ENNReal (nat_lit 0) (@Zero.toOfNat0.{0} ENNReal ENNReal.instZero))
+Examples.PermutationMinimumBoundary.outsider_event_empty : @Eq.{1}
+  (Set.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+  (@Applications.Probability.PermutationMinimum.minimumEvent.{0, 0}
+    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (@instLEFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (@id.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+    (@Singleton.singleton.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Finset.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      (@Finset.instSingleton.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+        (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1))))
+    (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 0))))
+  (@EmptyCollection.emptyCollection.{0}
+    (Set.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+    (@Set.instEmptyCollection.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))))
+Examples.PermutationMinimumBoundary.outsider_mass : @Eq.{1} ENNReal
+  (@DFunLike.coe.{1, 1, 1}
+    (@MeasureTheory.Measure.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      Examples.PermutationMinimumBoundary.instMeasurableSpacePermFinOfNatNat_examples)
+    (Set.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))) (fun x => ENNReal)
+    (@MeasureTheory.Measure.instFunLike.{0}
+      (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      Examples.PermutationMinimumBoundary.instMeasurableSpacePermFinOfNatNat_examples)
+    (@ProbabilityTheory.uniformOn.{0}
+      (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      Examples.PermutationMinimumBoundary.instMeasurableSpacePermFinOfNatNat_examples
+      (@Set.univ.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))))
+    (@Applications.Probability.PermutationMinimum.minimumEvent.{0, 0}
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@instLEFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@id.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      (@Singleton.singleton.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Finset.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        (@Finset.instSingleton.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+          (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1))))
+      (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+        (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 0)))))
+  (@OfNat.ofNat.{0} ENNReal (nat_lit 0) (@Zero.toOfNat0.{0} ENNReal ENNReal.instZero))
+Examples.PermutationMinimumBoundary.outsiderComparison : Set.{0}
+  (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+Examples.PermutationMinimumBoundary.outsiderComparison_eq_full_minimum : @Eq.{1}
+  (Set.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+  Examples.PermutationMinimumBoundary.outsiderComparison
+  (@Applications.Probability.PermutationMinimum.minimumEvent.{0, 0}
+    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (@instLEFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (@id.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+    (@Finset.univ.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+    (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 0))))
+Examples.PermutationMinimumBoundary.outsiderComparison_mass : @Eq.{1} ENNReal
+  (@DFunLike.coe.{1, 1, 1}
+    (@MeasureTheory.Measure.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      Examples.PermutationMinimumBoundary.instMeasurableSpacePermFinOfNatNat_examples)
+    (Set.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))) (fun x => ENNReal)
+    (@MeasureTheory.Measure.instFunLike.{0}
+      (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      Examples.PermutationMinimumBoundary.instMeasurableSpacePermFinOfNatNat_examples)
+    (@ProbabilityTheory.uniformOn.{0}
+      (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      Examples.PermutationMinimumBoundary.instMeasurableSpacePermFinOfNatNat_examples
+      (@Set.univ.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))))
+    Examples.PermutationMinimumBoundary.outsiderComparison)
+  (@Inv.inv.{0} ENNReal ENNReal.instInv
+    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+        ⋯)))
+Examples.PermutationMinimumBoundary.outsiderComparison_ne_singleton_inverse : @Ne.{1} ENNReal
+  (@DFunLike.coe.{1, 1, 1}
+    (@MeasureTheory.Measure.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      Examples.PermutationMinimumBoundary.instMeasurableSpacePermFinOfNatNat_examples)
+    (Set.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))) (fun x => ENNReal)
+    (@MeasureTheory.Measure.instFunLike.{0}
+      (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      Examples.PermutationMinimumBoundary.instMeasurableSpacePermFinOfNatNat_examples)
+    (@ProbabilityTheory.uniformOn.{0}
+      (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      Examples.PermutationMinimumBoundary.instMeasurableSpacePermFinOfNatNat_examples
+      (@Set.univ.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))))
+    Examples.PermutationMinimumBoundary.outsiderComparison)
+  (@Inv.inv.{0} ENNReal ENNReal.instInv
+    (@Nat.cast.{0} ENNReal
+      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+      (@Finset.card.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@Singleton.singleton.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Finset.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+          (@Finset.instSingleton.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)
+            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 1)))))))
+Examples.PermutationMinimumBoundary.tiedPriority : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) →
+  Nat
+Examples.PermutationMinimumBoundary.tiedPriority_not_injective : Not
+  (@Function.Injective.{1, 1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Nat
+    Examples.PermutationMinimumBoundary.tiedPriority)
+Examples.PermutationMinimumBoundary.tied_event_univ : ∀
+  (a : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))),
+  @Eq.{1} (Set.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+    (@Applications.Probability.PermutationMinimum.minimumEvent.{0, 0}
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Nat instLENat
+      Examples.PermutationMinimumBoundary.tiedPriority
+      (@Finset.univ.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      a)
+    (@Set.univ.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+Examples.PermutationMinimumBoundary.tied_mass : ∀
+  (a : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))),
+  @Eq.{1} ENNReal
+    (@DFunLike.coe.{1, 1, 1}
+      (@MeasureTheory.Measure.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        Examples.PermutationMinimumBoundary.instMeasurableSpacePermFinOfNatNat_examples)
+      (Set.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))) (fun x => ENNReal)
+      (@MeasureTheory.Measure.instFunLike.{0}
+        (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        Examples.PermutationMinimumBoundary.instMeasurableSpacePermFinOfNatNat_examples)
+      (@ProbabilityTheory.uniformOn.{0}
+        (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        Examples.PermutationMinimumBoundary.instMeasurableSpacePermFinOfNatNat_examples
+        (@Set.univ.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))))
+      (@Applications.Probability.PermutationMinimum.minimumEvent.{0, 0}
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Nat instLENat
+        Examples.PermutationMinimumBoundary.tiedPriority
+        (@Finset.univ.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        a))
+    (@OfNat.ofNat.{0} ENNReal (nat_lit 1) (@One.toOfNat1.{0} ENNReal ENNReal.instOne))
+Examples.PermutationMinimumBoundary.tied_mass_ne_half : ∀
+  (a : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))),
+  @Ne.{1} ENNReal
+    (@DFunLike.coe.{1, 1, 1}
+      (@MeasureTheory.Measure.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        Examples.PermutationMinimumBoundary.instMeasurableSpacePermFinOfNatNat_examples)
+      (Set.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))) (fun x => ENNReal)
+      (@MeasureTheory.Measure.instFunLike.{0}
+        (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        Examples.PermutationMinimumBoundary.instMeasurableSpacePermFinOfNatNat_examples)
+      (@ProbabilityTheory.uniformOn.{0}
+        (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        Examples.PermutationMinimumBoundary.instMeasurableSpacePermFinOfNatNat_examples
+        (@Set.univ.{0} (Equiv.Perm.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))))
+      (@Applications.Probability.PermutationMinimum.minimumEvent.{0, 0}
+        (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Nat instLENat
+        Examples.PermutationMinimumBoundary.tiedPriority
+        (@Finset.univ.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        a))
+    (@Inv.inv.{0} ENNReal ENNReal.instInv
+      (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+        (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+          (@AddMonoidWithOne.toNatCast.{0} ENNReal
+            (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+          ⋯)))

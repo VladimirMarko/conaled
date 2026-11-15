@@ -1,0 +1,1647 @@
+{
+  "recorded_utc": "2026-11-04T21:30:20.631159+00:00",
+  "stage": "stage05-tail",
+  "fixed_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "starting_candidate": "cd20a36f52b4ddd95be3cb9d85c0b95368ef1248",
+  "state": "Complete bounded source proposal, entirely uncompiled; root owns all compiler and acceptance actions.",
+  "source_files": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3",
+      "public_names": [
+        "Resources.RandomSelection.pivotRun",
+        "Resources.RandomSelection.pivotRun_exact",
+        "Resources.RandomSelection.stepRun",
+        "Resources.RandomSelection.stepRun_eq",
+        "Resources.RandomSelection.stepRun_child",
+        "Resources.RandomSelection.stepRun_semantics",
+        "Resources.RandomSelection.stepRun_ranked",
+        "Resources.RandomSelection.stepRun_cost_bounds",
+        "Resources.RandomSelection.pivotLaw",
+        "Resources.RandomSelection.pivotLaw_support",
+        "Resources.RandomSelection.pivotLaw_event"
+      ],
+      "git_blob": "0307419d586ac03af372629ef264be9a92295f55",
+      "line_count": 176,
+      "private_helpers": [
+        "Resources.RandomSelection.equal_lookup"
+      ]
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e",
+      "public_names": [
+        "Examples.RandomSelection.singleton_step",
+        "Examples.RandomSelection.duplicate_middle",
+        "Examples.RandomSelection.selected_side_is_not_larger_side",
+        "Examples.RandomSelection.selected_side_valid",
+        "Examples.RandomSelection.duplicate_ranked",
+        "Examples.RandomSelection.duplicate_source_bound",
+        "Examples.RandomSelection.duplicate_zero_probability",
+        "Examples.RandomSelection.duplicate_one_probability"
+      ],
+      "git_blob": "6f505d29658dc3953baf3aa859205eb7f0569a9a",
+      "line_count": 79,
+      "private_helpers": []
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionRun.lean",
+      "bytes": 12714,
+      "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718",
+      "public_names": [
+        "Resources.RandomSelection.Trace",
+        "Resources.RandomSelection.Outcome",
+        "Resources.RandomSelection.scanVolume",
+        "Resources.RandomSelection.scanVolume_nil",
+        "Resources.RandomSelection.scanVolume_cons",
+        "Resources.RandomSelection.prepend",
+        "Resources.RandomSelection.run",
+        "Resources.RandomSelection.run_nil",
+        "Resources.RandomSelection.run_cons",
+        "Resources.RandomSelection.run_value",
+        "Resources.RandomSelection.run_ranked",
+        "Resources.RandomSelection.run_none",
+        "Resources.RandomSelection.run_valid",
+        "Resources.RandomSelection.run_active_calls_le",
+        "Resources.RandomSelection.run_initial_scan_le",
+        "Resources.RandomSelection.run_scanVolume_le",
+        "Resources.RandomSelection.run_source_bridge",
+        "Resources.RandomSelection.run_trace_entries",
+        "Resources.RandomSelection.run_source_quadratic",
+        "Resources.RandomSelection.select",
+        "Resources.RandomSelection.select_value",
+        "Resources.RandomSelection.select_none",
+        "Resources.RandomSelection.select_some_iff",
+        "Resources.RandomSelection.scanLaw",
+        "Resources.RandomSelection.sourceLaw",
+        "Resources.RandomSelection.scanLaw_support",
+        "Resources.RandomSelection.scanLaw_support_finite",
+        "Resources.RandomSelection.sourceLaw_support",
+        "Resources.RandomSelection.sourceLaw_support_finite"
+      ],
+      "git_blob": "4af2a079ad55005657eeac2eaf4d3dd2a3a3ac11",
+      "line_count": 288,
+      "private_helpers": [
+        "Resources.RandomSelection.run_support_bounds"
+      ]
+    },
+    {
+      "path": "Examples/RandomSelectionRun.lean",
+      "bytes": 3770,
+      "sha256": "76504fe5fa77c581b8a7e3c9f3e0247c8a927adee8b308f84be6167e0ea20e0f",
+      "public_names": [
+        "Examples.RandomSelectionRun.empty_failure",
+        "Examples.RandomSelectionRun.singleton_execution",
+        "Examples.RandomSelectionRun.invalid_singleton",
+        "Examples.RandomSelectionRun.rank_zero_public_failure",
+        "Examples.RandomSelectionRun.two_key_execution",
+        "Examples.RandomSelectionRun.duplicate_execution",
+        "Examples.RandomSelectionRun.two_key_first_path",
+        "Examples.RandomSelectionRun.two_key_long_path",
+        "Examples.RandomSelectionRun.same_value_different_scan",
+        "Examples.RandomSelectionRun.maximum_scan_on_pair",
+        "Examples.RandomSelectionRun.bounded_actual_pair_calls",
+        "Examples.RandomSelectionRun.arbitrary_supported_rank"
+      ],
+      "git_blob": "ca900f902acde3c091e67f90108c2adb03b321cb",
+      "line_count": 96,
+      "private_helpers": []
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionMean.lean",
+      "bytes": 16493,
+      "sha256": "5a7d396ed0d451c0b0ec51493c004b721c804c69263ad7c659f023cab3ddda8f",
+      "git_blob": "b777b0de341a7cb0df0b1b4a2542904250959de1",
+      "public_names": [
+        "Resources.RandomSelection.workExpectation",
+        "Resources.RandomSelection.workExpectation_mono",
+        "Resources.RandomSelection.workExpectation_const",
+        "Resources.RandomSelection.workExpectation_add",
+        "Resources.RandomSelection.workExpectation_mul",
+        "Resources.RandomSelection.workExpectation_nil",
+        "Resources.RandomSelection.workExpectation_cons",
+        "Resources.RandomSelection.scanExpectation",
+        "Resources.RandomSelection.sourceExpectation",
+        "Resources.RandomSelection.scanExpectation_eq_workExpectation",
+        "Resources.RandomSelection.sourceExpectation_eq_workExpectation",
+        "Resources.RandomSelection.scanExpectation_quadratic_le",
+        "Resources.RandomSelection.sourceExpectation_quadratic_le",
+        "Resources.RandomSelection.scanExpectation_ne_top",
+        "Resources.RandomSelection.sourceExpectation_ne_top",
+        "Resources.RandomSelection.scanLaw_integrable",
+        "Resources.RandomSelection.sourceLaw_integrable",
+        "Resources.RandomSelection.scanExpectation_initial_le",
+        "Resources.RandomSelection.sourceExpectation_comparison",
+        "Resources.RandomSelection.scanExpectation_nil",
+        "Resources.RandomSelection.sourceExpectation_nil",
+        "Resources.RandomSelection.scanExpectation_cons",
+        "Resources.RandomSelection.scanMean",
+        "Resources.RandomSelection.sourceMean",
+        "Resources.RandomSelection.scanMean_eq_toReal",
+        "Resources.RandomSelection.sourceMean_eq_toReal",
+        "Resources.RandomSelection.scanMean_nonneg",
+        "Resources.RandomSelection.sourceMean_nonneg",
+        "Resources.RandomSelection.scanMean_initial_le",
+        "Resources.RandomSelection.scanMean_quadratic_le",
+        "Resources.RandomSelection.sourceMean_quadratic_le",
+        "Resources.RandomSelection.sourceMean_comparison",
+        "Resources.RandomSelection.scanMean_nil",
+        "Resources.RandomSelection.sourceMean_nil"
+      ],
+      "private_helpers": [
+        "Resources.RandomSelection.weighted_bind",
+        "Resources.RandomSelection.weighted_pure",
+        "Resources.RandomSelection.weighted_map",
+        "Resources.RandomSelection.weighted_add",
+        "Resources.RandomSelection.weighted_const",
+        "Resources.RandomSelection.weighted_mono_support",
+        "Resources.RandomSelection.lintegral_nat_eq",
+        "Resources.RandomSelection.lintegral_nat_le_of_support",
+        "Resources.RandomSelection.integrable_nat_of_lower_finite",
+        "Resources.RandomSelection.integral_nat_eq"
+      ],
+      "imports": [
+        "Applications.Resources.RandomSelectionRun",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+        "Mathlib.MeasureTheory.Function.L1Space.Integrable",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "Mathlib.Basic.ENNReal.BigOperators"
+      ],
+      "options": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true"
+      ],
+      "line_count": 360
+    },
+    {
+      "path": "Examples/RandomSelectionMean.lean",
+      "bytes": 5962,
+      "sha256": "b9c83ac6e4dda31c6c70d6ccbf021cfcad5ca8317f5a3bf1133788fc559bb7af",
+      "git_blob": "ae7113072d39c3549208b52feae61e884c5735d5",
+      "public_names": [
+        "Examples.RandomSelectionMean.empty_means",
+        "Examples.RandomSelectionMean.singleton_means",
+        "Examples.RandomSelectionMean.invalid_singleton_means",
+        "Examples.RandomSelectionMean.two_key_scan_law",
+        "Examples.RandomSelectionMean.two_key_source_law",
+        "Examples.RandomSelectionMean.two_key_scan_mean",
+        "Examples.RandomSelectionMean.two_key_source_mean",
+        "Examples.RandomSelectionMean.duplicate_scan_law",
+        "Examples.RandomSelectionMean.duplicate_source_law",
+        "Examples.RandomSelectionMean.duplicate_means",
+        "Examples.RandomSelectionMean.two_key_scan_step",
+        "Examples.RandomSelectionMean.arbitrary_input_integrable",
+        "Examples.RandomSelectionMean.actual_mean_bridge",
+        "Examples.RandomSelectionMean.selected_value_and_mean_bounds"
+      ],
+      "private_helpers": [
+        "Examples.RandomSelectionMean.integral_nat_map_fin"
+      ],
+      "imports": [
+        "Applications.Resources.RandomSelectionMean",
+        "Examples.RandomSelectionRun",
+        "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "options": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true"
+      ],
+      "line_count": 130
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionDrift.lean",
+      "bytes": 15121,
+      "sha256": "cdb869dc4a7816eb76ab462bd8e6b62df9e9bb7799434903afa9ec67bed59ef4",
+      "git_blob": "19b9648eddb6d6b536128772fa0b7e4d73c6dae5",
+      "public_names": [
+        "Resources.RandomSelection.rankSideSum",
+        "Resources.RandomSelection.rankSideSum_zero",
+        "Resources.RandomSelection.rankSideSum_one",
+        "Resources.RandomSelection.rankSideSum_add_two",
+        "Resources.RandomSelection.rankSideSum_bound",
+        "Resources.RandomSelection.rankSideSum_mean_le",
+        "Resources.RandomSelection.occurrenceRank_lt_of_lt",
+        "Resources.RandomSelection.occurrenceRank_tie",
+        "Resources.RandomSelection.occurrenceRank_uniform",
+        "Resources.RandomSelection.strict_side_rank_bounds",
+        "Resources.RandomSelection.nextSize",
+        "Resources.RandomSelection.nextSize_le_rankSide",
+        "Resources.RandomSelection.nextSize_sum_le",
+        "Resources.RandomSelection.nextSize_drift",
+        "Resources.RandomSelection.scanExpectation_linear_le",
+        "Resources.RandomSelection.scanExpectation_linear_bounds",
+        "Resources.RandomSelection.scanMean_linear_le",
+        "Resources.RandomSelection.scanMean_linear_bounds",
+        "Resources.RandomSelection.sourceExpectation_linear_bounds",
+        "Resources.RandomSelection.sourceMean_linear_bounds"
+      ],
+      "private_helpers": [
+        "Resources.RandomSelection.four_mul_three_quarters",
+        "Resources.RandomSelection.filter_length_eq_card_indices"
+      ],
+      "imports": [
+        "Applications.Resources.RandomSelectionMean",
+        "Applications.Resources.RandomQuickSortRank",
+        "Mathlib.Data.Nat.Init",
+        "Mathlib.Tactic.Linarith"
+      ],
+      "options": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true"
+      ],
+      "line_count": 331
+    },
+    {
+      "path": "Examples/RandomSelectionDrift.lean",
+      "bytes": 5797,
+      "sha256": "fade4d637a2c50672d6f792326a22264bb4b348cb608bac58c0cf834a914af48",
+      "git_blob": "cfb93cd1ca0922015d4e844406d51c3c1f6f2779",
+      "public_names": [
+        "Examples.RandomSelectionDrift.rank_side_small_values",
+        "Examples.RandomSelectionDrift.stable_duplicate_positions",
+        "Examples.RandomSelectionDrift.refined_duplicate_uniform",
+        "Examples.RandomSelectionDrift.singleton_next_size",
+        "Examples.RandomSelectionDrift.duplicate_next_choices",
+        "Examples.RandomSelectionDrift.duplicate_next_expectation",
+        "Examples.RandomSelectionDrift.duplicate_drift_bound",
+        "Examples.RandomSelectionDrift.selected_branch_is_smaller",
+        "Examples.RandomSelectionDrift.arbitrary_expected_bounds",
+        "Examples.RandomSelectionDrift.valid_selection_expected_bounds",
+        "Examples.RandomSelectionDrift.empty_expected_bounds"
+      ],
+      "private_helpers": [],
+      "imports": [
+        "Applications.Resources.RandomSelectionDrift",
+        "Examples.RandomSelection",
+        "Examples.RandomSelectionMean",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "options": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true"
+      ],
+      "line_count": 122
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionTail.lean",
+      "bytes": 23951,
+      "sha256": "ff4978116d7df10df2c9afbe18cfaa178c8f458890e3ff11625099d83748ddbe",
+      "git_blob": "424318d2fb69ef670ac7031cbc4288106231e866",
+      "line_count": 533,
+      "public_names": [
+        "Resources.RandomSelection.activeSize",
+        "Resources.RandomSelection.activeSize_nil",
+        "Resources.RandomSelection.activeSize_zero_cons",
+        "Resources.RandomSelection.activeSize_succ_cons",
+        "Resources.RandomSelection.activeSize_eq_zero_of_length_le",
+        "Resources.RandomSelection.scanVolume_eq_sum_activeSize",
+        "Resources.RandomSelection.residualWork",
+        "Resources.RandomSelection.residualWork_nil",
+        "Resources.RandomSelection.residualWork_zero",
+        "Resources.RandomSelection.residualWork_succ_cons",
+        "Resources.RandomSelection.scanVolume_append",
+        "Resources.RandomSelection.scanVolume_take_add_residualWork",
+        "Resources.RandomSelection.residualWork_le",
+        "Resources.RandomSelection.residualWork_eq_zero_of_length_le",
+        "Resources.RandomSelection.activeSize_pos_of_lt",
+        "Resources.RandomSelection.activeSize_le_of_entries_le",
+        "Resources.RandomSelection.scanVolume_take_le",
+        "Resources.RandomSelection.run_activeSize_zero",
+        "Resources.RandomSelection.run_activeSize_le",
+        "Resources.RandomSelection.run_activeSize_eq_zero_iff",
+        "Resources.RandomSelection.run_activeSize_zero_persists",
+        "Resources.RandomSelection.run_activeSize_absorbed",
+        "Resources.RandomSelection.run_residualWork_absorbed",
+        "Resources.RandomSelection.run_prefix_scan_le",
+        "Resources.RandomSelection.run_tail_residual",
+        "Resources.RandomSelection.sizeExpectation",
+        "Resources.RandomSelection.residualExpectation",
+        "Resources.RandomSelection.sizeExpectation_nil",
+        "Resources.RandomSelection.residualExpectation_nil",
+        "Resources.RandomSelection.sizeExpectation_zero",
+        "Resources.RandomSelection.residualExpectation_zero",
+        "Resources.RandomSelection.sizeExpectation_succ_cons",
+        "Resources.RandomSelection.residualExpectation_succ_cons",
+        "Resources.RandomSelection.sizeExpectation_geometric_le",
+        "Resources.RandomSelection.residualExpectation_geometric_le",
+        "Resources.RandomSelection.sizeExpectation_absorbed",
+        "Resources.RandomSelection.residualExpectation_absorbed",
+        "Resources.RandomSelection.residualExpectation_le_scanExpectation",
+        "Resources.RandomSelection.residualExpectation_ne_top",
+        "Resources.RandomSelection.residualLaw",
+        "Resources.RandomSelection.residualLaw_support",
+        "Resources.RandomSelection.residualLaw_support_finite",
+        "Resources.RandomSelection.residualLaw_lintegral",
+        "Resources.RandomSelection.residualLaw_integrable",
+        "Resources.RandomSelection.scanLaw_tail_le_residualLaw",
+        "Resources.RandomSelection.residualLaw_markov",
+        "Resources.RandomSelection.scanLaw_tail",
+        "Resources.RandomSelection.sourceLaw_tail_le_scanLaw",
+        "Resources.RandomSelection.sourceLaw_tail",
+        "Resources.RandomSelection.scanLaw_nil",
+        "Resources.RandomSelection.scanLaw_empty_tail",
+        "Resources.RandomSelection.scanLaw_empty_tail_bound_fails"
+      ],
+      "private_helpers": [
+        "Resources.RandomSelection.nat_map_lintegral"
+      ],
+      "imports": [
+        "Applications.Resources.RandomSelectionDrift",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Markov"
+      ],
+      "options": [
+        "autoImplicit false",
+        "warningAsError true"
+      ]
+    },
+    {
+      "path": "Examples/RandomSelectionTail.lean",
+      "bytes": 8697,
+      "sha256": "2678c1f6fd6cab99353562b050d641427c9b04b7648a30e751051d4f0f0d771e",
+      "git_blob": "682983d2bc4131cb684aad56358a335e9acf59ba",
+      "line_count": 174,
+      "public_names": [
+        "Examples.RandomSelectionTail.finite_trace_decomposition",
+        "Examples.RandomSelectionTail.finite_trace_absorption",
+        "Examples.RandomSelectionTail.actual_pair_trace_observations",
+        "Examples.RandomSelectionTail.singleton_scan_expectation",
+        "Examples.RandomSelectionTail.singleton_absorption",
+        "Examples.RandomSelectionTail.invalid_singleton_absorption",
+        "Examples.RandomSelectionTail.two_key_next_size_expectation",
+        "Examples.RandomSelectionTail.two_key_size_expectations",
+        "Examples.RandomSelectionTail.two_key_residual_first",
+        "Examples.RandomSelectionTail.two_key_residual_expectations",
+        "Examples.RandomSelectionTail.duplicate_residual_law",
+        "Examples.RandomSelectionTail.duplicate_after_first",
+        "Examples.RandomSelectionTail.arbitrary_absorption",
+        "Examples.RandomSelectionTail.arbitrary_residual_integrability",
+        "Examples.RandomSelectionTail.positive_input_tails",
+        "Examples.RandomSelectionTail.valid_answer_and_tails",
+        "Examples.RandomSelectionTail.zero_excess_tail",
+        "Examples.RandomSelectionTail.empty_tail_countercase"
+      ],
+      "private_helpers": [],
+      "imports": [
+        "Applications.Resources.RandomSelectionTail",
+        "Examples.RandomSelectionDrift",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "options": [
+        "autoImplicit false",
+        "warningAsError true"
+      ]
+    }
+  ],
+  "new_source_files": [
+    {
+      "path": "Applications/Resources/RandomSelectionTail.lean",
+      "bytes": 23951,
+      "sha256": "ff4978116d7df10df2c9afbe18cfaa178c8f458890e3ff11625099d83748ddbe",
+      "git_blob": "424318d2fb69ef670ac7031cbc4288106231e866",
+      "line_count": 533,
+      "public_names": [
+        "Resources.RandomSelection.activeSize",
+        "Resources.RandomSelection.activeSize_nil",
+        "Resources.RandomSelection.activeSize_zero_cons",
+        "Resources.RandomSelection.activeSize_succ_cons",
+        "Resources.RandomSelection.activeSize_eq_zero_of_length_le",
+        "Resources.RandomSelection.scanVolume_eq_sum_activeSize",
+        "Resources.RandomSelection.residualWork",
+        "Resources.RandomSelection.residualWork_nil",
+        "Resources.RandomSelection.residualWork_zero",
+        "Resources.RandomSelection.residualWork_succ_cons",
+        "Resources.RandomSelection.scanVolume_append",
+        "Resources.RandomSelection.scanVolume_take_add_residualWork",
+        "Resources.RandomSelection.residualWork_le",
+        "Resources.RandomSelection.residualWork_eq_zero_of_length_le",
+        "Resources.RandomSelection.activeSize_pos_of_lt",
+        "Resources.RandomSelection.activeSize_le_of_entries_le",
+        "Resources.RandomSelection.scanVolume_take_le",
+        "Resources.RandomSelection.run_activeSize_zero",
+        "Resources.RandomSelection.run_activeSize_le",
+        "Resources.RandomSelection.run_activeSize_eq_zero_iff",
+        "Resources.RandomSelection.run_activeSize_zero_persists",
+        "Resources.RandomSelection.run_activeSize_absorbed",
+        "Resources.RandomSelection.run_residualWork_absorbed",
+        "Resources.RandomSelection.run_prefix_scan_le",
+        "Resources.RandomSelection.run_tail_residual",
+        "Resources.RandomSelection.sizeExpectation",
+        "Resources.RandomSelection.residualExpectation",
+        "Resources.RandomSelection.sizeExpectation_nil",
+        "Resources.RandomSelection.residualExpectation_nil",
+        "Resources.RandomSelection.sizeExpectation_zero",
+        "Resources.RandomSelection.residualExpectation_zero",
+        "Resources.RandomSelection.sizeExpectation_succ_cons",
+        "Resources.RandomSelection.residualExpectation_succ_cons",
+        "Resources.RandomSelection.sizeExpectation_geometric_le",
+        "Resources.RandomSelection.residualExpectation_geometric_le",
+        "Resources.RandomSelection.sizeExpectation_absorbed",
+        "Resources.RandomSelection.residualExpectation_absorbed",
+        "Resources.RandomSelection.residualExpectation_le_scanExpectation",
+        "Resources.RandomSelection.residualExpectation_ne_top",
+        "Resources.RandomSelection.residualLaw",
+        "Resources.RandomSelection.residualLaw_support",
+        "Resources.RandomSelection.residualLaw_support_finite",
+        "Resources.RandomSelection.residualLaw_lintegral",
+        "Resources.RandomSelection.residualLaw_integrable",
+        "Resources.RandomSelection.scanLaw_tail_le_residualLaw",
+        "Resources.RandomSelection.residualLaw_markov",
+        "Resources.RandomSelection.scanLaw_tail",
+        "Resources.RandomSelection.sourceLaw_tail_le_scanLaw",
+        "Resources.RandomSelection.sourceLaw_tail",
+        "Resources.RandomSelection.scanLaw_nil",
+        "Resources.RandomSelection.scanLaw_empty_tail",
+        "Resources.RandomSelection.scanLaw_empty_tail_bound_fails"
+      ],
+      "private_helpers": [
+        "Resources.RandomSelection.nat_map_lintegral"
+      ],
+      "imports": [
+        "Applications.Resources.RandomSelectionDrift",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Markov"
+      ],
+      "options": [
+        "autoImplicit false",
+        "warningAsError true"
+      ]
+    },
+    {
+      "path": "Examples/RandomSelectionTail.lean",
+      "bytes": 8697,
+      "sha256": "2678c1f6fd6cab99353562b050d641427c9b04b7648a30e751051d4f0f0d771e",
+      "git_blob": "682983d2bc4131cb684aad56358a335e9acf59ba",
+      "line_count": 174,
+      "public_names": [
+        "Examples.RandomSelectionTail.finite_trace_decomposition",
+        "Examples.RandomSelectionTail.finite_trace_absorption",
+        "Examples.RandomSelectionTail.actual_pair_trace_observations",
+        "Examples.RandomSelectionTail.singleton_scan_expectation",
+        "Examples.RandomSelectionTail.singleton_absorption",
+        "Examples.RandomSelectionTail.invalid_singleton_absorption",
+        "Examples.RandomSelectionTail.two_key_next_size_expectation",
+        "Examples.RandomSelectionTail.two_key_size_expectations",
+        "Examples.RandomSelectionTail.two_key_residual_first",
+        "Examples.RandomSelectionTail.two_key_residual_expectations",
+        "Examples.RandomSelectionTail.duplicate_residual_law",
+        "Examples.RandomSelectionTail.duplicate_after_first",
+        "Examples.RandomSelectionTail.arbitrary_absorption",
+        "Examples.RandomSelectionTail.arbitrary_residual_integrability",
+        "Examples.RandomSelectionTail.positive_input_tails",
+        "Examples.RandomSelectionTail.valid_answer_and_tails",
+        "Examples.RandomSelectionTail.zero_excess_tail",
+        "Examples.RandomSelectionTail.empty_tail_countercase"
+      ],
+      "private_helpers": [],
+      "imports": [
+        "Applications.Resources.RandomSelectionTail",
+        "Examples.RandomSelectionDrift",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "options": [
+        "autoImplicit false",
+        "warningAsError true"
+      ]
+    }
+  ],
+  "new_declarations": [
+    {
+      "name": "Resources.RandomSelection.activeSize",
+      "kind": "def",
+      "private": false,
+      "header": "def activeSize : Nat \u2192 Trace \u2192 Nat",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.activeSize_nil",
+      "kind": "theorem",
+      "private": false,
+      "header": "@[simp] theorem activeSize_nil (j : Nat) : activeSize j [] = 0",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.activeSize_zero_cons",
+      "kind": "theorem",
+      "private": false,
+      "header": "@[simp] theorem activeSize_zero_cons (n i : Nat) (trace : Trace) :\n    activeSize 0 ((n, i) :: trace) = n",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.activeSize_succ_cons",
+      "kind": "theorem",
+      "private": false,
+      "header": "@[simp] theorem activeSize_succ_cons (j n i : Nat) (trace : Trace) :\n    activeSize (j + 1) ((n, i) :: trace) = activeSize j trace",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.activeSize_eq_zero_of_length_le",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem activeSize_eq_zero_of_length_le (j : Nat) (trace : Trace)\n    (h : trace.length \u2264 j) : activeSize j trace = 0",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.scanVolume_eq_sum_activeSize",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem scanVolume_eq_sum_activeSize (trace : Trace) :\n    scanVolume trace = \u2211 j \u2208 Finset.range trace.length, activeSize j trace",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualWork",
+      "kind": "def",
+      "private": false,
+      "header": "def residualWork (w : Nat) (trace : Trace) : Nat",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualWork_nil",
+      "kind": "theorem",
+      "private": false,
+      "header": "@[simp] theorem residualWork_nil (w : Nat) : residualWork w [] = 0",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualWork_zero",
+      "kind": "theorem",
+      "private": false,
+      "header": "@[simp] theorem residualWork_zero (trace : Trace) : residualWork 0 trace = scanVolume trace",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualWork_succ_cons",
+      "kind": "theorem",
+      "private": false,
+      "header": "@[simp] theorem residualWork_succ_cons (w n i : Nat) (trace : Trace) :\n    residualWork (w + 1) ((n, i) :: trace) = residualWork w trace",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.scanVolume_append",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem scanVolume_append (front back : Trace) :\n    scanVolume (front ++ back) = scanVolume front + scanVolume back",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.scanVolume_take_add_residualWork",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem scanVolume_take_add_residualWork (w : Nat) (trace : Trace) :\n    scanVolume (trace.take w) + residualWork w trace = scanVolume trace",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualWork_le",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem residualWork_le (w : Nat) (trace : Trace) :\n    residualWork w trace \u2264 scanVolume trace",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualWork_eq_zero_of_length_le",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem residualWork_eq_zero_of_length_le (w : Nat) (trace : Trace)\n    (h : trace.length \u2264 w) : residualWork w trace = 0",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.activeSize_pos_of_lt",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem activeSize_pos_of_lt (j : Nat) (trace : Trace) (hj : j < trace.length)\n    (h : \u2200 entry \u2208 trace, 0 < entry.1) : 0 < activeSize j trace",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.activeSize_le_of_entries_le",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem activeSize_le_of_entries_le (j n : Nat) (trace : Trace)\n    (h : \u2200 entry \u2208 trace, entry.1 \u2264 n) : activeSize j trace \u2264 n",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.scanVolume_take_le",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem scanVolume_take_le (w n : Nat) (trace : Trace)\n    (h : \u2200 entry \u2208 trace, entry.1 \u2264 n) : scanVolume (trace.take w) \u2264 w * n",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.nat_map_lintegral",
+      "kind": "theorem",
+      "private": true,
+      "header": "private theorem nat_map_lintegral {\u03b2 : Type v} (p : PMF \u03b2) (f : \u03b2 \u2192 Nat) :\n    (\u222b\u207b n : Nat, (n : \u211d\u22650\u221e) \u2202(p.map f).toMeasure) =\n      \u2211' result, p result * (f result : \u211d\u22650\u221e)",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.run_activeSize_zero",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem run_activeSize_zero (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) : activeSize 0 result.2.1 = xs.length",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.run_activeSize_le",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem run_activeSize_le (j k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) : activeSize j result.2.1 \u2264 xs.length",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.run_activeSize_eq_zero_iff",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem run_activeSize_eq_zero_iff (j k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) :\n    activeSize j result.2.1 = 0 \u2194 result.2.1.length \u2264 j",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.run_activeSize_zero_persists",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem run_activeSize_zero_persists (j l k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) (hjl : j \u2264 l)\n    (hz : activeSize j result.2.1 = 0) : activeSize l result.2.1 = 0",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.run_activeSize_absorbed",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem run_activeSize_absorbed (j k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) (hj : xs.length \u2264 j) :\n    activeSize j result.2.1 = 0",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.run_residualWork_absorbed",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem run_residualWork_absorbed (w k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) (hw : xs.length \u2264 w) :\n    residualWork w result.2.1 = 0",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.run_prefix_scan_le",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem run_prefix_scan_le (w k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) : scanVolume (result.2.1.take w) \u2264 w * xs.length",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.run_tail_residual",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem run_tail_residual (w k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support)\n    (ht : (4 + w) * xs.length \u2264 scanVolume result.2.1) :\n    4 * xs.length \u2264 residualWork w result.2.1",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.sizeExpectation",
+      "kind": "def",
+      "private": false,
+      "header": "def sizeExpectation (j k : Nat) (xs : List \u03b1) : \u211d\u22650\u221e",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualExpectation",
+      "kind": "def",
+      "private": false,
+      "header": "def residualExpectation (w k : Nat) (xs : List \u03b1) : \u211d\u22650\u221e",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.sizeExpectation_nil",
+      "kind": "theorem",
+      "private": false,
+      "header": "@[simp] theorem sizeExpectation_nil (j k : Nat) : sizeExpectation j k ([] : List \u03b1) = 0",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualExpectation_nil",
+      "kind": "theorem",
+      "private": false,
+      "header": "@[simp] theorem residualExpectation_nil (w k : Nat) :\n    residualExpectation w k ([] : List \u03b1) = 0",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.sizeExpectation_zero",
+      "kind": "theorem",
+      "private": false,
+      "header": "@[simp] theorem sizeExpectation_zero (k : Nat) (xs : List \u03b1) :\n    sizeExpectation 0 k xs = (xs.length : \u211d\u22650\u221e)",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualExpectation_zero",
+      "kind": "theorem",
+      "private": false,
+      "header": "@[simp] theorem residualExpectation_zero (k : Nat) (xs : List \u03b1) :\n    residualExpectation 0 k xs = scanExpectation k xs",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.sizeExpectation_succ_cons",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem sizeExpectation_succ_cons (time k : Nat) (head : \u03b1) (tail : List \u03b1) :\n    sizeExpectation (time + 1) k (head :: tail) =\n      \u2211 i : Fin (tail.length + 1), RandomQuickSort.uniformIndex tail.length i *\n        match (stepRun k (head :: tail) i).1 with\n        | Sum.inl (j, ys) => sizeExpectation time j ys\n        | Sum.inr _ => 0",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualExpectation_succ_cons",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem residualExpectation_succ_cons (w k : Nat) (head : \u03b1) (tail : List \u03b1) :\n    residualExpectation (w + 1) k (head :: tail) =\n      \u2211 i : Fin (tail.length + 1), RandomQuickSort.uniformIndex tail.length i *\n        match (stepRun k (head :: tail) i).1 with\n        | Sum.inl (j, ys) => residualExpectation w j ys\n        | Sum.inr _ => 0",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.sizeExpectation_geometric_le",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem sizeExpectation_geometric_le (time k : Nat) (xs : List \u03b1) :\n    sizeExpectation time k xs \u2264 (3 / 4 : \u211d\u22650\u221e) ^ time * xs.length",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualExpectation_geometric_le",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem residualExpectation_geometric_le (w k : Nat) (xs : List \u03b1) :\n    residualExpectation w k xs \u2264 4 * (3 / 4 : \u211d\u22650\u221e) ^ w * xs.length",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.sizeExpectation_absorbed",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem sizeExpectation_absorbed (j k : Nat) (xs : List \u03b1) (hj : xs.length \u2264 j) :\n    sizeExpectation j k xs = 0",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualExpectation_absorbed",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem residualExpectation_absorbed (w k : Nat) (xs : List \u03b1) (hw : xs.length \u2264 w) :\n    residualExpectation w k xs = 0",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualExpectation_le_scanExpectation",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem residualExpectation_le_scanExpectation (w k : Nat) (xs : List \u03b1) :\n    residualExpectation w k xs \u2264 scanExpectation k xs",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualExpectation_ne_top",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem residualExpectation_ne_top (w k : Nat) (xs : List \u03b1) :\n    residualExpectation w k xs \u2260 \u221e",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualLaw",
+      "kind": "def",
+      "private": false,
+      "header": "def residualLaw (w k : Nat) (xs : List \u03b1) : PMF Nat",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualLaw_support",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem residualLaw_support (w k : Nat) (xs : List \u03b1) :\n    (residualLaw w k xs).support \u2286 Set.Iic (xs.length * (xs.length + 1) / 2)",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualLaw_support_finite",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem residualLaw_support_finite (w k : Nat) (xs : List \u03b1) :\n    (residualLaw w k xs).support.Finite",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualLaw_lintegral",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem residualLaw_lintegral (w k : Nat) (xs : List \u03b1) :\n    (\u222b\u207b r : Nat, (r : \u211d\u22650\u221e) \u2202(residualLaw w k xs).toMeasure) = residualExpectation w k xs",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualLaw_integrable",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem residualLaw_integrable (w k : Nat) (xs : List \u03b1) :\n    Integrable (fun r : Nat => (r : \u211d)) (residualLaw w k xs).toMeasure",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.scanLaw_tail_le_residualLaw",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem scanLaw_tail_le_residualLaw (w k : Nat) (xs : List \u03b1) :\n    (scanLaw k xs).toMeasure {s : Nat | (4 + w) * xs.length \u2264 s} \u2264\n      (residualLaw w k xs).toMeasure {r : Nat | 4 * xs.length \u2264 r}",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.residualLaw_markov",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem residualLaw_markov (w k : Nat) (xs : List \u03b1) (threshold : Nat)\n    (ht : 0 < threshold) :\n    (residualLaw w k xs).toMeasure {r : Nat | threshold \u2264 r} \u2264\n      residualExpectation w k xs / (threshold : \u211d\u22650\u221e)",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.scanLaw_tail",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem scanLaw_tail (w k : Nat) (xs : List \u03b1) (hn : 0 < xs.length) :\n    (scanLaw k xs).toMeasure {s : Nat | (4 + w) * xs.length \u2264 s} \u2264\n      (3 / 4 : \u211d\u22650\u221e) ^ w",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.sourceLaw_tail_le_scanLaw",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem sourceLaw_tail_le_scanLaw (w k : Nat) (xs : List \u03b1) :\n    (sourceLaw k xs).toMeasure {t : Nat | 9 * ((4 + w) * xs.length) + 2 \u2264 t} \u2264\n      (scanLaw k xs).toMeasure {s : Nat | (4 + w) * xs.length \u2264 s}",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.sourceLaw_tail",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem sourceLaw_tail (w k : Nat) (xs : List \u03b1) (hn : 0 < xs.length) :\n    (sourceLaw k xs).toMeasure {t : Nat | 9 * ((4 + w) * xs.length) + 2 \u2264 t} \u2264\n      (3 / 4 : \u211d\u22650\u221e) ^ w",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.scanLaw_nil",
+      "kind": "theorem",
+      "private": false,
+      "header": "@[simp] theorem scanLaw_nil (k : Nat) : scanLaw k ([] : List \u03b1) = PMF.pure 0",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.scanLaw_empty_tail",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem scanLaw_empty_tail (w k : Nat) :\n    (scanLaw k ([] : List \u03b1)).toMeasure {s : Nat | (4 + w) * ([] : List \u03b1).length \u2264 s} = 1",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Resources.RandomSelection.scanLaw_empty_tail_bound_fails",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem scanLaw_empty_tail_bound_fails (k : Nat) :\n    \u00ac (scanLaw k ([] : List \u03b1)).toMeasure {s : Nat | (4 + 1) * ([] : List \u03b1).length \u2264 s} \u2264\n      (3 / 4 : \u211d\u22650\u221e) ^ (1 : Nat)",
+      "source_context_directives_before_declaration": [
+        "universe u v",
+        "variable {\u03b1 : Type u}",
+        "noncomputable section",
+        "section Ordered",
+        "variable [LinearOrder \u03b1]"
+      ]
+    },
+    {
+      "name": "Examples.RandomSelectionTail.finite_trace_decomposition",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem finite_trace_decomposition :\n    scanVolume [(5, 1), (1, 0)] = 6 \u2227\n      residualWork 0 [(5, 1), (1, 0)] = 6 \u2227\n      residualWork 1 [(5, 1), (1, 0)] = 1 \u2227\n      residualWork 2 [(5, 1), (1, 0)] = 0 \u2227\n      scanVolume ([(5, 1), (1, 0)].take 1) + residualWork 1 [(5, 1), (1, 0)] =\n        scanVolume [(5, 1), (1, 0)]",
+      "source_context_directives_before_declaration": [
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]",
+        "noncomputable section"
+      ]
+    },
+    {
+      "name": "Examples.RandomSelectionTail.finite_trace_absorption",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem finite_trace_absorption (j : Nat) (hj : 2 \u2264 j) :\n    activeSize j [(5, 1), (1, 0)] = 0 \u2227 residualWork j [(5, 1), (1, 0)] = 0",
+      "source_context_directives_before_declaration": [
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]",
+        "noncomputable section"
+      ]
+    },
+    {
+      "name": "Examples.RandomSelectionTail.actual_pair_trace_observations",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem actual_pair_trace_observations :\n    ((some 0, ([(2, 0)], 11)) : Outcome Nat) \u2208 (run 0 [0, 1]).support \u2227\n      ((some 0, ([(2, 1), (1, 0)], 20)) : Outcome Nat) \u2208 (run 0 [0, 1]).support \u2227\n      activeSize 1 [(2, 0)] = 0 \u2227 activeSize 1 [(2, 1), (1, 0)] = 1 \u2227\n      residualWork 1 [(2, 0)] = 0 \u2227 residualWork 1 [(2, 1), (1, 0)] = 1",
+      "source_context_directives_before_declaration": [
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]",
+        "noncomputable section"
+      ]
+    },
+    {
+      "name": "Examples.RandomSelectionTail.singleton_scan_expectation",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem singleton_scan_expectation (x : \u03b1) : scanExpectation 0 [x] = 1",
+      "source_context_directives_before_declaration": [
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]",
+        "noncomputable section"
+      ]
+    },
+    {
+      "name": "Examples.RandomSelectionTail.singleton_absorption",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem singleton_absorption (x : \u03b1) :\n    sizeExpectation 1 0 [x] = 0 \u2227 residualExpectation 1 0 [x] = 0 \u2227 sourceMean 0 [x] = 9",
+      "source_context_directives_before_declaration": [
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]",
+        "noncomputable section"
+      ]
+    },
+    {
+      "name": "Examples.RandomSelectionTail.invalid_singleton_absorption",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem invalid_singleton_absorption :\n    sizeExpectation 1 1 ([7] : List Nat) = 0 \u2227\n      residualExpectation 1 1 ([7] : List Nat) = 0 \u2227 sourceMean 1 ([7] : List Nat) = 11",
+      "source_context_directives_before_declaration": [
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]",
+        "noncomputable section"
+      ]
+    },
+    {
+      "name": "Examples.RandomSelectionTail.two_key_next_size_expectation",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem two_key_next_size_expectation :\n    sizeExpectation 1 0 ([0, 1] : List Nat) = (1 : \u211d\u22650\u221e) / 2",
+      "source_context_directives_before_declaration": [
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]",
+        "noncomputable section"
+      ]
+    },
+    {
+      "name": "Examples.RandomSelectionTail.two_key_size_expectations",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem two_key_size_expectations :\n    sizeExpectation 0 0 ([0, 1] : List Nat) = 2 \u2227\n      sizeExpectation 1 0 ([0, 1] : List Nat) = (1 : \u211d\u22650\u221e) / 2 \u2227\n      sizeExpectation 2 0 ([0, 1] : List Nat) = 0",
+      "source_context_directives_before_declaration": [
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]",
+        "noncomputable section"
+      ]
+    },
+    {
+      "name": "Examples.RandomSelectionTail.two_key_residual_first",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem two_key_residual_first :\n    residualExpectation 1 0 ([0, 1] : List Nat) = (1 : \u211d\u22650\u221e) / 2",
+      "source_context_directives_before_declaration": [
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]",
+        "noncomputable section"
+      ]
+    },
+    {
+      "name": "Examples.RandomSelectionTail.two_key_residual_expectations",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem two_key_residual_expectations :\n    residualExpectation 0 0 ([0, 1] : List Nat) = (5 : \u211d\u22650\u221e) / 2 \u2227\n      residualExpectation 1 0 ([0, 1] : List Nat) = (1 : \u211d\u22650\u221e) / 2 \u2227\n      residualExpectation 2 0 ([0, 1] : List Nat) = 0",
+      "source_context_directives_before_declaration": [
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]",
+        "noncomputable section"
+      ]
+    },
+    {
+      "name": "Examples.RandomSelectionTail.duplicate_residual_law",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem duplicate_residual_law (w : Nat) (x : \u03b1) : residualLaw (w + 1) 1 [x, x] = PMF.pure 0",
+      "source_context_directives_before_declaration": [
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]",
+        "noncomputable section"
+      ]
+    },
+    {
+      "name": "Examples.RandomSelectionTail.duplicate_after_first",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem duplicate_after_first (w : Nat) (x : \u03b1) :\n    sizeExpectation (w + 1) 1 [x, x] = 0 \u2227 residualExpectation (w + 1) 1 [x, x] = 0",
+      "source_context_directives_before_declaration": [
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]",
+        "noncomputable section"
+      ]
+    },
+    {
+      "name": "Examples.RandomSelectionTail.arbitrary_absorption",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem arbitrary_absorption (j k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) (hj : xs.length \u2264 j) :\n    activeSize j result.2.1 = 0 \u2227 residualWork j result.2.1 = 0 \u2227\n      sizeExpectation j k xs = 0 \u2227 residualExpectation j k xs = 0",
+      "source_context_directives_before_declaration": [
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]",
+        "noncomputable section"
+      ]
+    },
+    {
+      "name": "Examples.RandomSelectionTail.arbitrary_residual_integrability",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem arbitrary_residual_integrability (w k : Nat) (xs : List \u03b1) :\n    Integrable (fun r : Nat => (r : \u211d)) (residualLaw w k xs).toMeasure \u2227\n      sizeExpectation w k xs \u2264 (3 / 4 : \u211d\u22650\u221e) ^ w * xs.length \u2227\n      residualExpectation w k xs \u2264 4 * (3 / 4 : \u211d\u22650\u221e) ^ w * xs.length",
+      "source_context_directives_before_declaration": [
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]",
+        "noncomputable section"
+      ]
+    },
+    {
+      "name": "Examples.RandomSelectionTail.positive_input_tails",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem positive_input_tails (w k : Nat) (xs : List \u03b1) (hn : 0 < xs.length) :\n    (scanLaw k xs).toMeasure {s : Nat | (4 + w) * xs.length \u2264 s} \u2264 (3 / 4 : \u211d\u22650\u221e) ^ w \u2227\n      (sourceLaw k xs).toMeasure {t : Nat | 9 * ((4 + w) * xs.length) + 2 \u2264 t} \u2264\n        (3 / 4 : \u211d\u22650\u221e) ^ w",
+      "source_context_directives_before_declaration": [
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]",
+        "noncomputable section"
+      ]
+    },
+    {
+      "name": "Examples.RandomSelectionTail.valid_answer_and_tails",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem valid_answer_and_tails (w k : Nat) (xs : List \u03b1) (hk : k < xs.length)\n    (result : Outcome \u03b1) (hr : result \u2208 (run k xs).support) :\n    \u2203 a, result.1 = some a \u2227 Applications.Selection.RankedAt xs k a \u2227\n      (scanLaw k xs).toMeasure {s : Nat | (4 + w) * xs.length \u2264 s} \u2264 (3 / 4 : \u211d\u22650\u221e) ^ w \u2227\n      (sourceLaw k xs).toMeasure {t : Nat | 9 * ((4 + w) * xs.length) + 2 \u2264 t} \u2264\n        (3 / 4 : \u211d\u22650\u221e) ^ w",
+      "source_context_directives_before_declaration": [
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]",
+        "noncomputable section"
+      ]
+    },
+    {
+      "name": "Examples.RandomSelectionTail.zero_excess_tail",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem zero_excess_tail (k : Nat) (xs : List \u03b1) (hn : 0 < xs.length) :\n    (scanLaw k xs).toMeasure {s : Nat | 4 * xs.length \u2264 s} \u2264 1",
+      "source_context_directives_before_declaration": [
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]",
+        "noncomputable section"
+      ]
+    },
+    {
+      "name": "Examples.RandomSelectionTail.empty_tail_countercase",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem empty_tail_countercase (k : Nat) :\n    scanLaw k ([] : List \u03b1) = PMF.pure 0 \u2227\n      (scanLaw k ([] : List \u03b1)).toMeasure {s : Nat | 0 \u2264 s} = 1 \u2227\n      \u00ac (scanLaw k ([] : List \u03b1)).toMeasure {s : Nat | 0 \u2264 s} \u2264 (3 / 4 : \u211d\u22650\u221e)",
+      "source_context_directives_before_declaration": [
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]",
+        "noncomputable section"
+      ]
+    }
+  ],
+  "retained_public_count": 139,
+  "retained_private_count": 15,
+  "new_public_count": 70,
+  "new_private_count": 1,
+  "combined_public_count": 209,
+  "combined_authored_private_count": 16,
+  "all_authored_private_helpers": [
+    "Resources.RandomSelection.equal_lookup",
+    "Resources.RandomSelection.run_support_bounds",
+    "Resources.RandomSelection.weighted_bind",
+    "Resources.RandomSelection.weighted_pure",
+    "Resources.RandomSelection.weighted_map",
+    "Resources.RandomSelection.weighted_add",
+    "Resources.RandomSelection.weighted_const",
+    "Resources.RandomSelection.weighted_mono_support",
+    "Resources.RandomSelection.lintegral_nat_eq",
+    "Resources.RandomSelection.lintegral_nat_le_of_support",
+    "Resources.RandomSelection.integrable_nat_of_lower_finite",
+    "Resources.RandomSelection.integral_nat_eq",
+    "Examples.RandomSelectionMean.integral_nat_map_fin",
+    "Resources.RandomSelection.four_mul_three_quarters",
+    "Resources.RandomSelection.filter_length_eq_card_indices",
+    "Resources.RandomSelection.nat_map_lintegral"
+  ],
+  "all_eight_prior_sources_byte_identical": true,
+  "all139_prior_public_and15_private_headers_definitions_proofs_contexts_preserved": true,
+  "all131_prior_own_records_preserved": true,
+  "passing_drift_evidence_unchanged": true,
+  "frozen_specs_unchanged": true,
+  "primary_api_sources_unchanged": true,
+  "mathematical_statement_review": [
+    {
+      "names": [
+        "activeSize",
+        "activeSize_nil",
+        "activeSize_zero_cons",
+        "activeSize_succ_cons",
+        "activeSize_eq_zero_of_length_le",
+        "scanVolume_eq_sum_activeSize",
+        "residualWork",
+        "residualWork_nil",
+        "residualWork_zero",
+        "residualWork_succ_cons",
+        "scanVolume_append",
+        "scanVolume_take_add_residualWork",
+        "residualWork_le",
+        "residualWork_eq_zero_of_length_le",
+        "activeSize_pos_of_lt",
+        "activeSize_le_of_entries_le",
+        "scanVolume_take_le"
+      ],
+      "ids": [
+        "C03-062",
+        "C03-069",
+        "C03-072"
+      ],
+      "assessment": "activeSize reads the actual indexed trace entry and returns0 after exhaustion. residualWork is exactly scanVolume(drop w trace). Pure list lemmas prove finite-size summation, absorption after trace length, positive entries, pointwise bounded observation, exact take/drop decomposition, residual<=total, and prefix<=w*n given the explicitly stated per-entry bound. Those generic list hypotheses are discharged from run_trace_entries in execution theorems; they do not assume desired probability or complexity."
+    },
+    {
+      "names": [
+        "run_activeSize_zero",
+        "run_activeSize_le",
+        "run_activeSize_eq_zero_iff",
+        "run_activeSize_zero_persists",
+        "run_activeSize_absorbed",
+        "run_residualWork_absorbed",
+        "run_prefix_scan_le",
+        "run_tail_residual"
+      ],
+      "ids": [
+        "C03-061",
+        "C03-069",
+        "C03-072"
+      ],
+      "assessment": "Supported actual runs have first size=input length, sizes<=initial length, zero exactly when the finite actual trace ends, persistent zero afterwards, and all observations vanish by time n. The existing run_active_calls_le and positive trace entries supply termination facts. Initial prefixes cost<=w*n, so W>=(4+w)*n implies residual>=4*n. All statements cover empty and invalid worker extensions as applicable; no unrelated process replaces stepRun/run."
+    },
+    {
+      "names": [
+        "sizeExpectation",
+        "residualExpectation",
+        "sizeExpectation_nil",
+        "residualExpectation_nil",
+        "sizeExpectation_zero",
+        "residualExpectation_zero",
+        "sizeExpectation_succ_cons",
+        "residualExpectation_succ_cons"
+      ],
+      "ids": [
+        "C03-069",
+        "C03-070"
+      ],
+      "assessment": "sizeExpectation and residualExpectation are weighted observations of the existing run. Empty observations are0, initial size expectation is n, and residual at0 is the previously checked scanExpectation. Both successor recurrences follow workExpectation_cons and actual prepend; the equal branch is0 and the recursive branch uses the actual selected (rank,list) child under the same fresh current-occurrence uniform weights."
+    },
+    {
+      "names": [
+        "sizeExpectation_geometric_le",
+        "residualExpectation_geometric_le",
+        "sizeExpectation_absorbed",
+        "residualExpectation_absorbed",
+        "residualExpectation_le_scanExpectation",
+        "residualExpectation_ne_top"
+      ],
+      "ids": [
+        "C03-069",
+        "C03-070",
+        "C03-072"
+      ],
+      "assessment": "Natural-time induction plus checked nextSize_drift gives E[X_j]<=q^j*n and E[R_w]<=4*q^w*n with q=3/4. The base residual bound is checked E[W]<=4n. Neither independence nor a target bound is an assumption. Exact absorption also gives zero expectations after n. Residual expectation<=actual scan expectation establishes finite lower expectation independently of cancellation at the tail threshold."
+    },
+    {
+      "names": [
+        "residualLaw",
+        "residualLaw_support",
+        "residualLaw_support_finite",
+        "residualLaw_lintegral",
+        "residualLaw_integrable"
+      ],
+      "ids": [
+        "C03-070",
+        "C03-072"
+      ],
+      "assessment": "residualLaw is the Nat pushforward of actual residualWork, not an assigned cost distribution. Its support lies within the same triangular actual scan bound and is finite. The lower integral is proved equal to residualExpectation using the private standard PMF map/tsum bridge. Existing finite expectation supplies real integrability with no measurable, finite or inhabited payload assumption."
+    },
+    {
+      "names": [
+        "scanLaw_tail_le_residualLaw",
+        "residualLaw_markov",
+        "scanLaw_tail",
+        "sourceLaw_tail_le_scanLaw",
+        "sourceLaw_tail"
+      ],
+      "ids": [
+        "C03-071",
+        "C03-072",
+        "C03-075",
+        "C03-076"
+      ],
+      "assessment": "Support-aware event transport couples scan and residual laws on the same run. Pinned standard Markov gives the non-strict >= residual event, with threshold positivity/finite Nat cast proved. The final scan tail has natural w and explicit 0<xs.length, exact threshold(4+w)*length and upper(3/4)^w. The actual source bridge T<=9W+2 proves event inclusion at9*((4+w)*length)+2 before using the scan tail. For fixed w the upper bound is fixed, so no probability->1 as n grows is claimed."
+    },
+    {
+      "names": [
+        "scanLaw_nil",
+        "scanLaw_empty_tail",
+        "scanLaw_empty_tail_bound_fails"
+      ],
+      "ids": [
+        "C03-071",
+        "C03-072",
+        "C03-076"
+      ],
+      "assessment": "The empty scan law is actually pure0. Its proportional non-strict event has probability1 for every natural w. The explicit w1 theorem refutes the tail conclusion if positive length were omitted. The event is never changed to strict > and no stronger real-w assertion is made."
+    }
+  ],
+  "private_statement_review": {
+    "name": "Resources.RandomSelection.nat_map_lintegral",
+    "assessment": "Standard arbitrary-PMF Nat-pushforward lower integral equals weighted observation. Uses pinned countable integral, singleton mass, PMF.map_apply and nonnegative ENNReal tsum exchange. Located before Ordered section; no payload order/measurability/finite-type assumption. No desired selection bound appears in its hypotheses."
+  },
+  "case_review": [
+    {
+      "names": [
+        "finite_trace_decomposition",
+        "finite_trace_absorption"
+      ],
+      "expected": "On trace[(5,1),(1,0)] work6; residuals at0,1,2 are6,1,0; prefix1 plus residual1 equals6; every later activeSize and residual are0.",
+      "connection": "scanVolume_take_add_residualWork, activeSize_eq_zero_of_length_le, residualWork_eq_zero_of_length_le"
+    },
+    {
+      "names": [
+        "actual_pair_trace_observations"
+      ],
+      "expected": "Existing positive supported outcomes for [0,1],rank0 have traces[2] and[2,1], hence size/residual at1 are0 and1.",
+      "connection": "Existing two_key_first_path and two_key_long_path; new observations read their actual trace data."
+    },
+    {
+      "names": [
+        "singleton_scan_expectation",
+        "singleton_absorption",
+        "invalid_singleton_absorption"
+      ],
+      "expected": "Valid singleton lower scan expectation1; size and residual vanish after one active call; actual source means remain9 valid and11 invalid.",
+      "connection": "Existing singleton_execution/invalid_singleton_means plus sizeExpectation_absorbed/residualExpectation_absorbed."
+    },
+    {
+      "names": [
+        "two_key_next_size_expectation",
+        "two_key_size_expectations",
+        "two_key_residual_first",
+        "two_key_residual_expectations"
+      ],
+      "expected": "On [0,1],rank0, E[X0],E[X1],E[X2]=2,1/2,0; E[R0],E[R1],E[R2]=5/2,1/2,0.",
+      "connection": "New actual successor recurrences exhausted by Fin.sum_univ_two, exact stepRun_eq/partition3 filters, checked previous scan recurrence and singleton actual law."
+    },
+    {
+      "names": [
+        "duplicate_residual_law",
+        "duplicate_after_first"
+      ],
+      "expected": "For any ordered x and any w, [x,x] at rank1 has residual law pure0 and size/residual expectation0 at timew+1. Both occurrence choices are retained.",
+      "connection": "Existing duplicate_execution and its occurrence map; new residualLaw_lintegral and actual size successor recurrence."
+    },
+    {
+      "names": [
+        "arbitrary_absorption",
+        "arbitrary_residual_integrability"
+      ],
+      "expected": "Every supported arbitrary worker run has zero size/residual once time>=n; expectations also0 then. For any time, residual real-integrable and both exact geometric upper bounds hold.",
+      "connection": "All new run/expectation absorption, marginal-integrability and geometric results."
+    },
+    {
+      "names": [
+        "positive_input_tails",
+        "valid_answer_and_tails",
+        "zero_excess_tail"
+      ],
+      "expected": "Generic positive inputs retain the exact scan/source non-strict natural-w tails; valid support additionally returns the RankedAt value. Atw0 the event threshold is4n and upper1.",
+      "connection": "scanLaw_tail/sourceLaw_tail together with existing run_valid; positive length follows from valid worker rank where needed."
+    },
+    {
+      "names": [
+        "empty_tail_countercase"
+      ],
+      "expected": "Actual empty scan law pure0; the event0<=s has measure1 and violates the upper3/4 atw1.",
+      "connection": "scanLaw_nil, scanLaw_empty_tail, scanLaw_empty_tail_bound_fails."
+    }
+  ],
+  "expected_cases_preceded_source_creation": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/stage05-tail-20261104/starting-state.json",
+    "bytes": 65059,
+    "sha256": "b4e2d170ebe765808ec769dfe5e0e27f7caa3983590a7239d25dbe50c8c08116"
+  },
+  "full_final_source_read_chunks": {
+    "Applications/Resources/RandomSelectionTail.lean": "0bd52d",
+    "Examples/RandomSelectionTail.lean": "dfb314"
+  },
+  "private_context_boundary": "Prior drift private omitted-order correction is preserved exactly. The only new private helper is generic before the ordered section.",
+  "additional_primary_api_inputs": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/MeasureTheory/Integral/Lebesgue/Countable.lean",
+      "bytes": 19365,
+      "sha256": "456f4ba959eee9fbb1ba4e741917457e4e199220b18d654d9fd68c9d1ef43216"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Topology/Algebra/InfiniteSum/ENNReal.lean",
+      "bytes": 31623,
+      "sha256": "88ef56c969006630d0066b7af2c74e75dd060608f3c42f0ef288ad1c6da908cc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+      "bytes": 53127,
+      "sha256": "45b548e8d8491da4820c71eb29b0a2c92786f98e300d947e677f6fbe16e6f78a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Monad.lean",
+      "bytes": 11910,
+      "sha256": "fa8edb0c9feb17a79e9119179fbb08178ebca32fa6d126232287866bb7a5088e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Data/Nat/Cast/Order/Basic.lean",
+      "bytes": 4608,
+      "sha256": "6522497dba7222b8b2eee227c661bd774c302ee5fdd57c0d62e79633e8557876"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/List/TakeDrop.lean",
+      "bytes": 17526,
+      "sha256": "9efed9c3f05746ce0dd47c5fcd2c414ba9541d6631d6ddf0cb06203d723c7918"
+    }
+  ],
+  "checkpoint0129_resume": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/stage05-tail-20261104/checkpoint0129-resume.json",
+    "bytes": 1409,
+    "sha256": "85d40e66c44c22b87ea3a5b0fd98c3b23b6cb38d1cc00d36255dc6e09f97fc9e"
+  },
+  "historical_draft_note": "The checkpoint0129 source was honestly uncompiled and is preserved in the durable archive. This authorized development extends that draft; its historical hold record is not reinterpreted as the current file hash.",
+  "statement_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/stage05-tail-20261104/Statements209-stage05.lean",
+    "bytes": 11862,
+    "sha256": "5f3c2af90ccbd65dcdb7e91a555d5cbb2ae2a4579eaf2b9c3fd05f5c44c3c3df"
+  },
+  "statement_input_scope": "All139 old names in exact order, then52 core and18 example names; all209 distinct full explicit-@ inputs. Full printing options unchanged; new example import added. Prepared only, no actual type output.",
+  "source_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/stage05-tail-20261104/source.diff",
+    "bytes": 33795,
+    "sha256": "1f0d0754e09257bc5af280adfeb235e4640257fc114026156f9d584f0adcebd5"
+  },
+  "diff_capture_results": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/stage05-tail-20261104/diff-capture-results.json",
+    "bytes": 810,
+    "sha256": "4924d2145f90f50e2b5c335f35bde73391ceb93a70c9520b39b0f48ae468e577"
+  },
+  "no_forbidden_proof_tokens_in_new_sources": true,
+  "no_source_environment_dependency_execution_profile_changes": true,
+  "requested_focus": [
+    "Applications.Resources.RandomSelectionTail",
+    "Examples.RandomSelectionTail"
+  ],
+  "author_compiler_actions": false,
+  "actual_new_compilation_credit": false,
+  "actual_new_type_credit": false,
+  "coverage_boundary": "Proposes C03-069--072 and tail part of C03-075, preserves C03-062/061 absorbing finite-run observations, and supplies C03-076 statement analysis/C03-077 connected cases. No row accepted by author. C03-064 endpoint probability1/n!, unbounded quadratic families, C03-065 general all-equal behavior and source worst-case transports remain required. C078--080 belong to root/values.",
+  "source_boundary": "Karp1994 primary access limitation retained. This is an original elementary natural-w proof using the actual model; no unseen source quotation or exact reconstruction claim.",
+  "acceptance_boundary": "No new whole-candidate check/audit, independent Standards or Spec outcome, immediate candidate verification or Chapter3 acceptance is established."
+}

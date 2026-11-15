@@ -1,0 +1,99 @@
+{
+  "recorded_utc": "2026-11-04T05:40:02.397645+00:00",
+  "base": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+  "complete_chapter_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "static_source_readback_only": true,
+  "files": {
+    "Applications/Sorting/ThreeWayQuickSort.lean": {
+      "lines": 148,
+      "sha256": "36388954d5478761cb0176f947face60b5c681ceb6c19fce1d1f21c4c2445d3f",
+      "public_declarations": [
+        "threeWayQuickSort",
+        "threeWayQuickSort_nil",
+        "threeWayQuickSort_cons",
+        "threeWayQuickSort_singleton",
+        "threeWayQuickSort_cons_partition",
+        "threeWayQuickSort_perm",
+        "threeWayQuickSort_length",
+        "mem_threeWayQuickSort",
+        "threeWayQuickSort_multiset",
+        "threeWayQuickSort_support",
+        "threeWayQuickSort_sorted",
+        "threeWayQuickSort_correct",
+        "threeWayQuickSort_replicate"
+      ],
+      "imports": [
+        "Applications.Sequences.Partition",
+        "Applications.Sorting.Stable",
+        "Mathlib.Data.Multiset.Defs"
+      ],
+      "namespace_openings": [
+        "Applications.Sorting"
+      ],
+      "namespace_terminators": [
+        "Applications.Sorting"
+      ],
+      "forbidden_proof_tokens": [],
+      "trailing_whitespace_lines": []
+    },
+    "Examples/ThreeWayQuickSort.lean": {
+      "lines": 142,
+      "sha256": "0951a0f474638250912d4b6ee3084bbbf129c67c0f1527785778003ee1331d86",
+      "public_declarations": [
+        "empty_input",
+        "singleton_input",
+        "all_equal_buckets",
+        "all_equal_source_equation",
+        "all_equal_input",
+        "all_equal_family",
+        "mixed_buckets",
+        "mixed_source_equation",
+        "mixed_left_child",
+        "mixed_right_child",
+        "mixed_value",
+        "mixed_multiset",
+        "mixed_multiplicities",
+        "mixed_length",
+        "mixed_support_boundary",
+        "absent_pivot_buckets",
+        "absent_pivot_source_equation",
+        "absent_pivot_child_decrease",
+        "absent_pivot_value",
+        "omitted_pivot_boundary",
+        "omitted_equal_block_boundary",
+        "duplicated_pivot_boundary",
+        "misplaced_pivot_boundary"
+      ],
+      "imports": [
+        "Applications.Sorting.ThreeWayQuickSort"
+      ],
+      "namespace_openings": [
+        "Examples.ThreeWayQuickSort"
+      ],
+      "namespace_terminators": [
+        "Examples.ThreeWayQuickSort"
+      ],
+      "forbidden_proof_tokens": [],
+      "trailing_whitespace_lines": []
+    }
+  },
+  "body_observations": {
+    "tail_filter_occurrences": 3,
+    "strict_recursive_call_occurrences": 2,
+    "equal_filter_returned_directly": true,
+    "held_pivot_occurrences": 1,
+    "right_association_explicit": true
+  },
+  "cache_directory_exists": false,
+  "compiler_run": false,
+  "elaborated_statement_review": false,
+  "accepted": false,
+  "pending_gates": [
+    "immutable focused build centrally",
+    "elaborated public statement readback",
+    "XQ01 matching validation and acceptance",
+    "complete candidate check and exhaustive audit",
+    "independent Standards and Spec reviews",
+    "immediate candidate verification"
+  ]
+}

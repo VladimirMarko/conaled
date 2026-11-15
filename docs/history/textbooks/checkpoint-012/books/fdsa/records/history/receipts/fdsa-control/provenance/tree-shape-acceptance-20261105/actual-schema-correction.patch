@@ -1,0 +1,14 @@
+--- /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/reconcile_root_gate_once.before_actual_schema.py
++++ /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/reconcile_root_gate_once.py
+@@ -100,9 +100,9 @@
+     for value in (assessment, hold):
+         require_scope(value, axis)
+     assert 'HELD' in hold['state']
+-    for row in assessment['evidence_bindings'].values():
++    for row in assessment['evidence_bindings' if axis == 'Standards' else 'bound_evidence'].values():
+         verify(row)
+-    held_rows = hold['held_files' if axis == 'Standards' else 'held_bindings']
++    held_rows = hold['held_files']
+     for row in (held_rows.values() if isinstance(held_rows, dict) else held_rows):
+         verify(row)
+     receipt_path = H / f'{axis.lower()}-completion-readback-receipt.json'

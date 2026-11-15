@@ -1,0 +1,23 @@
+{
+  "utc": "2026-11-04T09:59:17.255821+00:00",
+  "root_read_boundary": {
+    "standards": "All continuation lines266\u2013278 read, previous full prefix retained.",
+    "spec": "All continuation lines343\u2013364 read in two complete reads, previous full prefix retained.",
+    "xp01": "All188 report lines read. Structured receipt inspected except compatibility field; all7 original record hashes and all6 immutable changed-file blob/byte/SHA identities mechanically verified. No new complete mathematical source assessment claimed."
+  },
+  "report_hashes": {
+    "standards": {
+      "bytes": 69696,
+      "lines": 278,
+      "sha256": "99c054b10f7a7f713c32e0be758379894b49aedce1d87a854d3cd46c8400887a"
+    },
+    "spec": {
+      "bytes": 84006,
+      "lines": 364,
+      "sha256": "bce47ebba4a519b20a8d93f060b7ffbc91540bff44569478e74945b8d35478b1"
+    }
+  },
+  "xp01_report_sha256": "70081d52f40550c40831a31a3c411f058a81ead270f03c57468d74982617e1c7",
+  "xp01_receipt_sha256": "9712f198ffc751d5cdf6bfb7ab6b042689c3040c64cf3bddc2ef10fedc29ef9d",
+  "new_acceptance": false
+}

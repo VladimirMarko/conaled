@@ -1,0 +1,10 @@
+{
+  "started_utc": "2026-11-04T10:42:31.669089+00:00",
+  "target": "/workspace/scratch/b4a17a285e23/recovery-validation-0082/restored/conaled/docs/history/algorithm-design-haskell/checkpoint-233.zip",
+  "scope": "One verified redundant public baseline copy in the already preserved completed test tree, not an active baseline or any unrelated partial.",
+  "before_bytes": 67920919,
+  "before_sha256": "8a5e2b2d5535a149a67111c6adf9ba9e173cbbd2a986d63dc702d75178252e63",
+  "active_original_hash_verified": true,
+  "method": "Clear the redundant file contents, then independently check whether that supported write persists; no directory deletion or permissions change.",
+  "checkpoint_with_unique_historical_capsule": "libfile_aa079ee96fc0819196b2faec9d2af058"
+}

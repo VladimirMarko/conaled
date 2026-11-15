@@ -1,0 +1,93 @@
+{
+  "recorded_utc": "2026-11-04T19:07:32.358608+00:00",
+  "state": "HELD: source and own preparation records frozen pending root compilation, checkpoint capture or correction request",
+  "candidate": "6c66b545f7f7e2e15a274a67a867d8ddc7f980c3",
+  "tree": "3eb772753cd1188982c588c1ca96f64f34d41260",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "branch": "work/fdsa-ch03-query-lower-bounds",
+  "clean": true,
+  "scope_paths": [
+    "Applications/Selection/CoordinateSensitivity.lean",
+    "Applications/Selection/CoordinateQueries.lean",
+    "Examples/CoordinateSensitivity.lean",
+    "Examples/CoordinateQueries.lean"
+  ],
+  "source_identities": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Applications/Selection/CoordinateSensitivity.lean",
+      "bytes": 6659,
+      "sha256": "1b517f10f1ebaab226f1f8c450307cab3456432e1e410d828c73240191ed155d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Applications/Selection/CoordinateQueries.lean",
+      "bytes": 11106,
+      "sha256": "ca1c0d339500e77aa14ca47420b9f7a11f213bbcd8ac113c3281c7f9690e6409"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Examples/CoordinateSensitivity.lean",
+      "bytes": 3587,
+      "sha256": "8fc707c507d0212ca92b113b52976a10fa252d600f5127c042e17a2931aee6ef"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/Examples/CoordinateQueries.lean",
+      "bytes": 7860,
+      "sha256": "b471baa5471a0c01324f013d920c7e1159c30cea0e425bca4b6f050cfad2245e"
+    }
+  ],
+  "public_names": 68,
+  "private_source_names": 2,
+  "constructor_names_included": 2,
+  "bound_control_files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-query-lower-bounds-implementation-20261104/Statements68-candidate01-preparation.json",
+      "bytes": 5243,
+      "sha256": "5ac585b02cd1be8e64192162088ca1f57656f757827087fd86d2f20098b9a193"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-query-lower-bounds-implementation-20261104/Statements68-candidate01.lean",
+      "bytes": 4638,
+      "sha256": "9ec7f897aea6ef3eea6b7579b96830770c7bea64ef1a3deda0155930f8c84016"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-query-lower-bounds-implementation-20261104/allocation-result.json",
+      "bytes": 359,
+      "sha256": "860b03f8df3ee6d5c35540e0b23c11c68e6f95724b813bafcf609058815c23fa"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-query-lower-bounds-implementation-20261104/candidate01-commit.json",
+      "bytes": 499,
+      "sha256": "8ac9611b87b406dc0613ab5cf326cd8ef2277f193f72ce3ca11bf25bfe45dc53"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-query-lower-bounds-implementation-20261104/candidate01-handoff.md",
+      "bytes": 7825,
+      "sha256": "bb6091114730d35ec7c25df45b915e642b51cd629b3054027d0cfecc36b97baa"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-query-lower-bounds-implementation-20261104/candidate01-staged-check.json",
+      "bytes": 405,
+      "sha256": "7f362cae16b5957176a734b5377f0b4f60376b1e530fc53968bb5f55abac04ad"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-query-lower-bounds-implementation-20261104/candidate01.json",
+      "bytes": 39625,
+      "sha256": "69d2de7a2b44fc747a66ca430c0394b035f916a123863df1a19f614a610f3006"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-query-lower-bounds-implementation-20261104/design-and-expected-cases.md",
+      "bytes": 5256,
+      "sha256": "000028e21e26f7752f1b7431fec062cec11c8e786cd5d4d15c81639cc4a8a0fb"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-query-lower-bounds-implementation-20261104/starting-state.json",
+      "bytes": 6758,
+      "sha256": "3773e1ddcad1511a9c38c93bfeebcd138bf5942cdb0d99a77e3a01eef45c1910"
+    }
+  ],
+  "saved_handoff_and_program_full_readback": "7ddb68",
+  "manifest_source_program_identity_reconciliation": "Completed by this command; full human readback of every JSON line is not claimed.",
+  "actual_compiler_or_type_inspection": false,
+  "no_review_or_acceptance_claim": true,
+  "remaining": "Actual compilation/type review/all chapter gates; C03-083 actual median-of-medians query-read and declared source-tariff bridge remains outstanding.",
+  "compiler_owner": "Root only; no compiler, cache, runtime/output capture or process polling by this author."
+}

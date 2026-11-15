@@ -1,0 +1,33 @@
+{
+  "candidate": "8b7531d661366d7843ccab9ebd7eca7d41cdbbef",
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "build",
+    "Applications.Selection.CoordinateSelection",
+    "Examples.CoordinateSelection"
+  ],
+  "started_utc": "2026-11-04T22:16:13.692574+00:00",
+  "completed_utc": "2026-11-04T22:16:24.454972+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 10.76208833900455,
+  "state": "failed",
+  "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-query-composition-focused-attempt2-20261104/full.log",
+  "progress_bookkeeping_errors": [],
+  "final_head": "8b7531d661366d7843ccab9ebd7eca7d41cdbbef",
+  "final_status": "",
+  "log_size_bytes": 13203,
+  "log_sha256": "58f387bf4d62a0ba3b1698d45fea4b679313c3993e7fbf765273aa759c056861",
+  "available_bytes_at_completion": 0,
+  "verification_record_present": true,
+  "verification_record_sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9"
+}

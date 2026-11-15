@@ -1,0 +1,40 @@
+--- checkpoint0131/verify-checkpoint.py
++++ checkpoint0132/verify-checkpoint.py
+@@ -13,7 +13,7 @@
+ prep = Path(__file__).resolve().parent
+ control = prep.parents[1]
+ base = control.parent
+-name = "conaled-fdsa-0131-checked-cutoffs-and-selection-bounds"
++name = "conaled-fdsa-0132-selection-composition-and-random-boundaries"
+ accepted = "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5"
+ accepted_tree = "b62fe504a38948e61c6377a4e7661b639c28c08c"
+ 
+@@ -75,7 +75,7 @@
+ for relative, digest in expected.items():
+     assert actual[relative]["sha256"] == digest, relative
+ assert manifest["format"] == 2 and manifest["checkpoint"] == name
+-assert actual["fdsa-control/provenance/checkpoint0131-preparation/capture.json"] == identity(prep / "capture.json")
++assert actual["fdsa-control/provenance/checkpoint0132-preparation/capture.json"] == identity(prep / "capture.json")
+ 
+ spec = importlib.util.spec_from_file_location("compact_reader", control / "checkpoint_compact.py")
+ module = importlib.util.module_from_spec(spec)
+@@ -86,8 +86,8 @@
+          "--format=%(objectname) %(refname) %(symref)").splitlines())]
+ assert refs == manifest["refs"] == capture["refs"]
+ current_refs = {row["ref"]: row for row in refs}
+-previous_manifest = read(prep / "previous-manifest-0130.json")
+-assert previous_manifest["checkpoint"] == "conaled-fdsa-0130-measured-selection-bounds-and-tail-progress"
++previous_manifest = read(prep / "previous-manifest-0131.json")
++assert previous_manifest["checkpoint"] == "conaled-fdsa-0131-checked-cutoffs-and-selection-bounds"
+ assert len(previous_manifest["refs"]) == 73
+ previous_refs = {row["ref"]: row for row in previous_manifest["refs"]}
+ allowed_advances = {"refs/heads/work/fdsa-ch03-values",
+@@ -135,7 +135,7 @@
+ for relative, expected_identity in capture["held_control"].items():
+     assert identity(control / relative) == expected_identity, relative
+     assert actual["fdsa-control/" + relative] == expected_identity, relative
+-previous_controls = read(control / "provenance/checkpoint0130-preparation/capture.json")["held_control"]
++previous_controls = read(control / "provenance/checkpoint0131-preparation/capture.json")["held_control"]
+ allowed = set(capture["declared_prior_control_updates"])
+ assert allowed <= {"CURRENT.md", "STATUS.md", "ENVIRONMENT.md", "checkpoints.json",
+                    "tickets/FDSA-002.md", "tickets/FDSA-003.md", "tickets/FDSA-XR01.md", "tickets/INDEX.md",

@@ -1,0 +1,37 @@
+--- a/docs/research/fdsa-three-way-partition.md
++++ b/docs/research/fdsa-three-way-partition.md
+@@ -3,9 +3,17 @@
+ This cross-cutting draft makes the existing ordered partition interface
+ available to both sorting and selection, then supplies a separately measured
+ one-pass source realization. The shared value operation retains its existing
+-two-stage implementation and Selection-facing compatibility. The draft is
+-uncompiled and unaccepted; its source statements and connected clients still
+-require the complete immutable-candidate validation and review workflow.
++two-stage implementation and Selection-facing compatibility. Its source statements
++and connected clients require the complete immutable-candidate validation
++and review workflow.
++
++**Validation snapshot — 4 November 2026.** The shared partition core, measured
++source execution and examples, together with the retained Selection clients,
++had recorded individual module successes within broader checks that failed.
++A separate successful inspection printed 48 public types belonging to the
++shared and compatibility interfaces. These are historical results; reuse
++requires matching candidate evidence, and complete unit acceptance was still
++outstanding in this snapshot. The full acceptance gates below remain required.
+ 
+ ## Source correspondence
+ 
+@@ -198,9 +206,10 @@
+ The API/source/case preflights and original byte identities are retained in
+ the local review evidence. They are preparation rather than compiler results.
+ 
+-The draft starts from the focused-pass but unaccepted Chapter 1 repair.
+-Accepted repaired Chapter 1 remains required before integration or acceptance;
+-the initial Chapter 2 foundation prefix is unchanged. New and existing affected
++**Prerequisite history — 4 November 2026.** Chapter 1 was accepted locally on
++3 November 2026 at `07e480f6ec9958d4975bb90151005b84f2907614`. Integration of
++this unit also requires acceptance of the declared shared foundation.
++New and existing affected
+ modules require focused compilation, the full applicable candidate build and
+ exhaustive audit, both independent review axes and immediate candidate-record
+ verification. Source authoring and independent expected calculations do not

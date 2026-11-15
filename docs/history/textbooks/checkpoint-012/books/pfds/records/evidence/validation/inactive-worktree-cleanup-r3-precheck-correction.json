@@ -1,0 +1,10 @@
+{
+  "observed_utc": "2026-11-03T02:14:36.683759+00:00",
+  "first_attempt_exit_code": 1,
+  "exception": "StopIteration during precheck: detached70a1477 has no exact matching saved branch tip.",
+  "mutation_reached": false,
+  "evidence_file_created_by_failed_attempt": false,
+  "correction": "For the detached70a1477 worktree, verify its source commit is an ancestor of the exact saved/current901f734 ref instead of incorrectly requiring an exact branch tip. Named worktrees still require exact saved tip identity. No preservation or cleanliness condition weakened.",
+  "helper_sha256_before": "ac30384f83270d152b5866162b7a10f9b5cd20349d069c4e85764c693c388c3c",
+  "helper_sha256_after": "117c7688eb2ff8184c0e13c7218437eefada8715d9a0a74d956a93f8ba87ec75"
+}

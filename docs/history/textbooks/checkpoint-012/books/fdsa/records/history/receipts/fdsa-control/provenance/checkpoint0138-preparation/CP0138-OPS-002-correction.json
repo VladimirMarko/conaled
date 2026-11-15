@@ -1,0 +1,23 @@
+{
+  "recorded_utc": "2026-11-05T02:56:58.745085+00:00",
+  "finding": "CP0138-OPS-002",
+  "status": "Code corrected; independent final inspection pending",
+  "before": {
+    "bytes": 37000,
+    "sha256": "95ad6eb0bf4f4f0d42108f4fcf696609e7385dab175a1d7fca994b7e44299723"
+  },
+  "after": {
+    "bytes": 40301,
+    "sha256": "fab798a3b8474dbb37c178d136bb32b918f31f90ba944456a2bb85d6b3cb0e13"
+  },
+  "correction_patch": {
+    "bytes": 5133,
+    "sha256": "b4ca79bc5e04d43c32d42d52a46aacefa9c59b4bda8731b94bd6dbae3b953fbb"
+  },
+  "actual_final_review_content_required": true,
+  "actual_root_gate_both_axes_and_full_scope_required": true,
+  "exact4721byte_program_bound": true,
+  "AST_parse_passed": true,
+  "helper_executed": false,
+  "historical_records_unchanged": true
+}

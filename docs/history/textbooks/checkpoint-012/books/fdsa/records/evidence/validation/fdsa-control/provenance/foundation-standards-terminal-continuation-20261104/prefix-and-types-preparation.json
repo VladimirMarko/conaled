@@ -1,0 +1,227 @@
+{
+  "kind": "Historical read-only foundation prefix and prepared public types",
+  "observation": {
+    "boundary": {
+      "recorded_in_memory_utc": "2026-11-04T08:44:29.585912+00:00",
+      "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "prefix": {
+        "bytes": 324642,
+        "lines": 1924,
+        "sha256": "36ae6e11faba5df23c215d1e1ecd3116b09c51a6568d203e7ec6dacfeebc41cb",
+        "ends_with_newline": true,
+        "inspection": "Complete fixed-prefix byte processing and structured classification; earlier overlarge raw extractions were truncated, so no line-by-line full raw-read claim.",
+        "source_guard": "passed",
+        "coverage_version_gate_seconds": 4.29,
+        "announced_project_build_modules": 966,
+        "pre_build_invalidations": 966,
+        "invalidation_reason": "All missing trace; no other reason in this prefix.",
+        "warning_headers": 247,
+        "module_import_advisories": 221,
+        "other_warning_headers": 26,
+        "other_headers_match_accepted_C1_fresh_after_format_normalization": 26,
+        "foundation_file_warning_headers": 0,
+        "error_headers_or_failed_job_markers": 0,
+        "terminal_audit_or_success_lines": 0,
+        "last_completed_line": "✔ [9571/9575] Built Applications.FRP.ReactiveConsumers (476s)"
+      },
+      "prepared_types": {
+        "program_bytes": 7518,
+        "program_sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4",
+        "unique_public_names": 145,
+        "counts": {
+          "Resources.InsertionSort": 19,
+          "Resources.ListCalls": 34,
+          "Examples.FunctionalNotation": 30,
+          "Examples.InsertionCosts": 16,
+          "Examples.ListCalls": 16,
+          "Examples.ListLibrary": 30
+        },
+        "six_sources": [
+          {
+            "path": "Applications/Resources/InsertionSort.lean",
+            "matches_retained_exact_F_identity": true
+          },
+          {
+            "path": "Applications/Resources/ListCalls.lean",
+            "matches_retained_exact_F_identity": true
+          },
+          {
+            "path": "Examples/FunctionalNotation.lean",
+            "matches_retained_exact_F_identity": true
+          },
+          {
+            "path": "Examples/InsertionCosts.lean",
+            "matches_retained_exact_F_identity": true
+          },
+          {
+            "path": "Examples/ListCalls.lean",
+            "matches_retained_exact_F_identity": true
+          },
+          {
+            "path": "Examples/ListLibrary.lean",
+            "matches_retained_exact_F_identity": true
+          }
+        ],
+        "status": "PREPARED ONLY; NOT EXECUTED",
+        "type_inspection_not_yet_available": true
+      },
+      "accepted_baseline_log_sha256": "751732fbf985a26956e27eef716bf88834d41e885494884cd80aa858d9f40af2",
+      "terminal_outcome": "unknown; root reports live; no inference from progress",
+      "standards_outcome": "Blocked pending actual terminal/audit, all145 actual type readback, matching verification and required immediate final verification",
+      "historical_findings_retained": [
+        "FDN-ELAB-001",
+        "FDN-ELAB-002"
+      ],
+      "source_findings_added": 0,
+      "file_writes": false,
+      "build_or_output_commands": false,
+      "write_hold": "Active until root announces checkpoint0094 upload/exposure"
+    },
+    "warnings": {
+      "prefix_bytes": 324642,
+      "prefix_sha256": "36ae6e11faba5df23c215d1e1ecd3116b09c51a6568d203e7ec6dacfeebc41cb",
+      "baseline_log_sha256": "751732fbf985a26956e27eef716bf88834d41e885494884cd80aa858d9f40af2",
+      "baseline_warning_count": 102,
+      "baseline_normalized_examples": [
+        "Applications/Timing/Digital.lean:186:70: This simp argument is unused:",
+        "Applications/Convolution/Series.lean:178:62: This simp argument is unused:",
+        "Applications/Convolution/Polynomial.lean:56:30: This simp argument is unused:"
+      ],
+      "warning_count": 247,
+      "module_advisories": 221,
+      "other_warning_count": 26,
+      "exact_normalized_baseline_matches": 26,
+      "not_in_baseline_count": 221,
+      "not_in_baseline_first_8": [
+        "Applications/AD/Core.lean: imports `Mathlib.Analysis.Calculus.FDeriv.Add` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "Applications/AD/Core.lean: imports `Mathlib.Analysis.Calculus.FDeriv.Comp` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "Applications/AD/Core.lean: imports `Mathlib.Analysis.Calculus.FDeriv.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "Applications/AD/Core.lean: imports `Mathlib.Analysis.Calculus.FDeriv.Mul` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "Applications/AD/Modes.lean: imports `Mathlib.Analysis.InnerProductSpace.Adjoint` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "Applications/AD/Modes.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "Applications/AD/HigherOrder.lean: imports `Mathlib.Analysis.Calculus.Deriv.Add` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "Applications/AD/HigherOrder.lean: imports `Mathlib.Analysis.Calculus.Deriv.Mul` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file"
+      ],
+      "nonmodule_baseline_matches": [
+        {
+          "header": "Applications/Convolution/Series.lean:178:62: This simp argument is unused:",
+          "matches": true
+        },
+        {
+          "header": "Applications/Convolution/Polynomial.lean:56:30: This simp argument is unused:",
+          "matches": true
+        },
+        {
+          "header": "Applications/Convolution/Polynomial.lean:57:21: This simp argument is unused:",
+          "matches": true
+        },
+        {
+          "header": "Applications/Timing/Digital.lean:186:70: This simp argument is unused:",
+          "matches": true
+        },
+        {
+          "header": "Applications/Languages/Regex.lean:98:64: This simp argument is unused:",
+          "matches": true
+        },
+        {
+          "header": "Applications/Languages/Regex.lean:99:40: This simp argument is unused:",
+          "matches": true
+        },
+        {
+          "header": "Applications/Languages/ConvolutionBridge.lean:42:30: This simp argument is unused:",
+          "matches": true
+        },
+        {
+          "header": "Applications/Languages/ConvolutionBridge.lean:42:47: This simp argument is unused:",
+          "matches": true
+        },
+        {
+          "header": "Applications/Orbifold/Pose.lean:167:40: `simp` already closes the goal",
+          "matches": true
+        },
+        {
+          "header": "Applications/Parallel/Scan.lean:145:31: This simp argument is unused:",
+          "matches": true
+        },
+        {
+          "header": "Applications/Parallel/Scan.lean:155:17: This simp argument is unused:",
+          "matches": true
+        },
+        {
+          "header": "Applications/Parallel/Scan.lean:159:58: This simp argument is unused:",
+          "matches": true
+        },
+        {
+          "header": "Applications/Orbifold/ConnectionAssessment.lean:72:28: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+          "matches": true
+        },
+        {
+          "header": "Applications/Orbifold/ConnectionAssessment.lean:72:28: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+          "matches": true
+        },
+        {
+          "header": "Applications/Parallel/Polynomial.lean:15:18: This simp argument is unused:",
+          "matches": true
+        },
+        {
+          "header": "Applications/Timing/Adders.lean:121:44: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+          "matches": true
+        },
+        {
+          "header": "Applications/Timing/Adders.lean:131:15: This simp argument is unused:",
+          "matches": true
+        },
+        {
+          "header": "Applications/Timing/Adders.lean:131:28: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+          "matches": true
+        },
+        {
+          "header": "Applications/Timing/Examples.lean:52:39: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+          "matches": true
+        },
+        {
+          "header": "Applications/Timing/Examples.lean:52:39: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+          "matches": true
+        },
+        {
+          "header": "Examples/CategoryMaps.lean:43:0: Definition `Examples.CategoryMaps.evaluationPreservesProducts` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this",
+          "matches": true
+        },
+        {
+          "header": "Examples/CategoryMaps.lean:43:0: Definition `evaluationPreservesProducts` is a proposition; use `theorem` instead of `def`",
+          "matches": true
+        },
+        {
+          "header": "Examples/CategoryMaps.lean:52:0: Definition `Examples.CategoryMaps.evaluationPreservesTerminal` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this",
+          "matches": true
+        },
+        {
+          "header": "Examples/CategoryMaps.lean:52:0: Definition `evaluationPreservesTerminal` is a proposition; use `theorem` instead of `def`",
+          "matches": true
+        },
+        {
+          "header": "SquareKit/ConstantSheafProducts.lean:60:27: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+          "matches": true
+        },
+        {
+          "header": "SquareKit/ConstantSheafProducts.lean:60:27: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+          "matches": true
+        }
+      ],
+      "terminal_inferred": false
+    }
+  },
+  "persistence_authorization": "Root announced checkpoint0094 verified/uploaded/exposed and released this bounded report write hold.",
+  "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "source_assessment": "Retained unchanged; no new concrete source finding.",
+  "current_standards_outcome": "Blocked pending actual full terminal/build/audit evidence, matching new candidate record, and complete145 actual type inspection and assessment.",
+  "acceptance_order": "Both independent axes pass, then immediate qualified verify-candidate before exact local fast-forward.",
+  "read_method_limit": "Structured fixed-prefix processing only; initial overlarge raw displays were truncated, so no full raw line-by-line or terminal-read claim.",
+  "old_report_backup": "preparation-before-145-addendum.md",
+  "old_report_sha256": "6ab918ebcc7157fcbbae2d58475c9a05a6f8ddccadd3c94ed2139898f9710b62",
+  "source_ref_output_build_commands": false,
+  "historical_finding_ids": [
+    "FDN-ELAB-001",
+    "FDN-ELAB-002"
+  ]
+}

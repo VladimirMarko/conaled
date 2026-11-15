@@ -1,0 +1,153 @@
+{
+  "base": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+  "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+  "checked_at": "2026-11-03T17:40:21.903945+00:00",
+  "coordinator_read_complete_independent_reports": true,
+  "failures": [],
+  "focused_log_sha256": "6afb42222951a284d8e740844eeed7cffab46201ac5a280e0b5a5b047f085952",
+  "focused_record_sha256": "72a00fc096d8711659e9671d60f54208c6d4c06128237c493d66d25bc1214e45",
+  "formal_acceptance": false,
+  "guidance": {
+    ".agents/skills/code-review/SKILL.md": {
+      "match": true,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42"
+    },
+    ".agents/skills/code-review/heuristics.md": {
+      "match": true,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060"
+    },
+    ".agents/skills/example-driven-development/SKILL.md": {
+      "match": true,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a"
+    },
+    "AGENTS.md": {
+      "match": true,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    },
+    "GLOSSARY.md": {
+      "match": true,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6"
+    },
+    "README.md": {
+      "match": true,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216"
+    },
+    "docs/adr/0001-modules-and-proof-dependencies.md": {
+      "match": true,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2"
+    },
+    "docs/adr/0002-relations-and-synchronization.md": {
+      "match": true,
+      "sha256": "8b391c27398a51c6681c136c9b40d8e511dc88950608b14b81cacb000d3a843e"
+    },
+    "docs/adr/0010-composition-and-proof-audit.md": {
+      "match": true,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8"
+    },
+    "docs/adr/README.md": {
+      "match": true,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506"
+    },
+    "docs/agents/architectural-quality.md": {
+      "match": true,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6"
+    },
+    "docs/agents/domain.md": {
+      "match": true,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d"
+    },
+    "docs/agents/review-loop.md": {
+      "match": true,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c"
+    },
+    "docs/language-direction.md": {
+      "match": true,
+      "sha256": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db"
+    }
+  },
+  "head": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+  "manifest_sha256": "f7f850ebdbf5e7a229108955db55421a8eeae01608fb598f24a7ed563306d3ef",
+  "merge_base": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+  "own_verification_record_present": false,
+  "porcelain": "",
+  "reports": {
+    "signed-potential-spec-r3-042.md": {
+      "bytes": 26034,
+      "match": true,
+      "sha256": "2e12a93fdd8ad851ce14b80b61174f800e67892a07985a83dbe7fc0f52841a23"
+    },
+    "signed-potential-standards-r3-042.md": {
+      "bytes": 29328,
+      "match": true,
+      "sha256": "9eaf1d489ae6a1c8b858d1389409a8382d602d2178a24dd31ac7b403336dbbd2"
+    }
+  },
+  "requirements": {
+    "REQUEST-direct-toolchain-041.md": {
+      "match": true,
+      "sha256": "16845edec15c311e0cfd5ed5d4f5c4feb61e7ad96545653d5b872309d26464bc"
+    },
+    "REQUEST-environment-handoff-042.md": {
+      "match": true,
+      "sha256": "200789123c60ae137967f881207194412eecea72ba2fc80247978075bd6a4602"
+    },
+    "REQUEST-native-toolchain-042.md": {
+      "match": true,
+      "sha256": "d76dc8dcf771a227779628de91e75c4b63a2898b95e7b30035de83537dae5195"
+    },
+    "REQUEST-union-v2.md": {
+      "match": true,
+      "sha256": "3336bed1154438b3683aeb5a1c63fee44e87aff190f5ff69e34705a780b9d22c"
+    },
+    "REQUEST.md": {
+      "match": true,
+      "sha256": "b847f23fcce44837f5b1ead01aae43ac5ed626ffd32aab84055dd664e339e499"
+    },
+    "signed-potential.md": {
+      "match": true,
+      "sha256": "bb28d4f56eb48c80d2a9905b6e349d3e4b6fdb4e4ad2a01976408432a434ac81"
+    }
+  },
+  "schema": 1,
+  "scope": "Final coordinator identity for blocked static round3; not stock candidate verification or acceptance",
+  "source": {
+    "Applications/Resources/Potential.lean": {
+      "match": true,
+      "sha256": "690b48d41dc0b4b21a62e29d1a67c8b0494b3a0ca9de378e07cca82f415f961e"
+    },
+    "Applications/Resources/SignedPotential.lean": {
+      "match": true,
+      "sha256": "c839b1e32b3182c5789d05934ea253139d91c338917c1207616fe0043b0ce222"
+    },
+    "Examples/PotentialTransport.lean": {
+      "match": true,
+      "sha256": "d56fcf0f72cd4aac8615427391fc9e1a807485753ffd185a22e77df9f2db0056"
+    },
+    "Examples/SignedPotential.lean": {
+      "match": true,
+      "sha256": "6d72c5e1ee5f64ce258f6496389434a9bdd0944fe576773cb41bd828ba9ba9b3"
+    },
+    "SquareApplications.lean": {
+      "match": true,
+      "sha256": "d5f96d925f272187870e3831a33d2f2ee544ddabb149978fbe9ef65dbd8bb581"
+    },
+    "docs/research/pfds-signed-potential.md": {
+      "match": true,
+      "sha256": "e7ebb2dd51fec8706a0bba38da9e9a6c0a2eb3aa3a688c5b80a66e6f7cb8dfe5"
+    }
+  },
+  "spec": {
+    "finding": "SIGNED-POT-SPEC-VAL-001",
+    "outcome": "Blocked",
+    "unresolved_source_findings": 0,
+    "unresolved_validation_findings": 1,
+    "worst_unresolved": "Blocking"
+  },
+  "standards": {
+    "finding": "SIGNED-POT-STD-VAL-001",
+    "outcome": "Blocked",
+    "unresolved_source_findings": 0,
+    "unresolved_validation_findings": 1,
+    "worst_unresolved": "High"
+  }
+}

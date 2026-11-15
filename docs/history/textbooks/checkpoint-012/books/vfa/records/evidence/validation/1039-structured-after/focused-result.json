@@ -1,0 +1,84 @@
+{
+  "candidate": "cf0a687265c1929ffd3ff6f15fa18febe0fb61b5",
+  "root": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation",
+  "private_output": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/diagnostic1039/structured-after",
+  "started_utc": "2026-11-04T06:27:03.601917+00:00",
+  "source_sha256_before": {
+    "Squares": "d535da719c3d7b3db4f536b5b791611d07c6dd6dd8bdae59572a8b375040dc41",
+    "Applications.Resources.Measured": "b5f76c8dfdb3cc9dd28a356bebd12787b3a7add61abba1022d474604a6979667",
+    "Applications.Optimization.Basic": "3d50b415897412b28740b14073941841a9cfdb5c583fdc13aef923671cb2f109",
+    "Applications.Optimization.Transport": "d4397294c684751f9f2dd487eff96425175324ef0b7ab3d48a18239df7c66046",
+    "Applications.Linear.StructuredCosts": "a0f543a47b9a9205dd171f5e170bb88c628fbd203cbd1afd4cd0ed541ed57056"
+  },
+  "LEAN_PATH": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/diagnostic1039/structured-after:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/proofwidgets/.lake/build/lib/lean",
+  "scope": "Five actual source modules; diagnostic only",
+  "gate_credit": false,
+  "modules": [
+    {
+      "module": "Squares",
+      "argv": [
+        "lean",
+        "-o",
+        "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/diagnostic1039/structured-after/Squares.olean",
+        "Squares.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 1.3905981300013082
+    },
+    {
+      "module": "Applications.Resources.Measured",
+      "argv": [
+        "lean",
+        "-o",
+        "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/diagnostic1039/structured-after/Applications/Resources/Measured.olean",
+        "Applications/Resources/Measured.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 3.74675266200029
+    },
+    {
+      "module": "Applications.Optimization.Basic",
+      "argv": [
+        "lean",
+        "-o",
+        "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/diagnostic1039/structured-after/Applications/Optimization/Basic.olean",
+        "Applications/Optimization/Basic.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 2.5805322870000964
+    },
+    {
+      "module": "Applications.Optimization.Transport",
+      "argv": [
+        "lean",
+        "-o",
+        "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/diagnostic1039/structured-after/Applications/Optimization/Transport.olean",
+        "Applications/Optimization/Transport.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 2.035696367000128
+    },
+    {
+      "module": "Applications.Linear.StructuredCosts",
+      "argv": [
+        "lean",
+        "-o",
+        "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/diagnostic1039/structured-after/Applications/Linear/StructuredCosts.olean",
+        "Applications/Linear/StructuredCosts.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 2.2676955309998448
+    }
+  ],
+  "source_sha256_after": {
+    "Squares": "d535da719c3d7b3db4f536b5b791611d07c6dd6dd8bdae59572a8b375040dc41",
+    "Applications.Resources.Measured": "b5f76c8dfdb3cc9dd28a356bebd12787b3a7add61abba1022d474604a6979667",
+    "Applications.Optimization.Basic": "3d50b415897412b28740b14073941841a9cfdb5c583fdc13aef923671cb2f109",
+    "Applications.Optimization.Transport": "d4397294c684751f9f2dd487eff96425175324ef0b7ab3d48a18239df7c66046",
+    "Applications.Linear.StructuredCosts": "a0f543a47b9a9205dd171f5e170bb88c628fbd203cbd1afd4cd0ed541ed57056"
+  },
+  "head_after": "cf0a687265c1929ffd3ff6f15fa18febe0fb61b5",
+  "status_after": "",
+  "completed_utc": "2026-11-04T06:27:15.639502+00:00",
+  "exit_code": 0
+}

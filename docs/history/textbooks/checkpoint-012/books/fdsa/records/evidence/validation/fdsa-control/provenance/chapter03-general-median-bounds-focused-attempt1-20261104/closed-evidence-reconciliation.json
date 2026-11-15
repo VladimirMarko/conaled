@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T20:47:57.690456+00:00",
+  "candidate": "9cf01df8f01eb73ec5a2020995d90bb6b6eaba84",
+  "terminal": {
+    "recorded_utc": "2026-11-04T20:47:57.690290+00:00",
+    "owned_session": 22278,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "d5ba68",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "9cf01df8f01eb73ec5a2020995d90bb6b6eaba84"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-general-median-bounds-focused-attempt1-20261104/full.log",
+    "bytes": 7782,
+    "sha256": "c312f18595055e8496c42071b0a8e94af14da93e61562f1ccf686ca5c543317d"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T204724Z-project-run-e3603cb3",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-general-median-bounds-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 433,
+      "sha256": "207346aec9ab3e5ea8d7e6e3c176d2cffd5149a2d1002bc67c10e512cd4ca987"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-general-median-bounds-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 586,
+      "sha256": "f7f2e2c755e1d51a77338b90eeb762a752b0e92b5bf0731c21ce079b898f8048"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-general-median-bounds-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 7544,
+      "sha256": "48c9c616945faaba561da20f1e6984c805b7efc87c1dba618cd955978127f292"
+    }
+  },
+  "native_body_exact_outer_offset": 82,
+  "complete_closed_log": true,
+  "scope": "Focused Examples.GeneralMedianBounds, 27 public names and1 private helper at9cf01df. Complete source read33bc98, complete source/case assessment and explicit input read0d3213. Arbitrary positive group pivot applications and odd/even duplicate short-chunk cases only; no new actual-type, full audit, algorithmic group cost or acceptance credit.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

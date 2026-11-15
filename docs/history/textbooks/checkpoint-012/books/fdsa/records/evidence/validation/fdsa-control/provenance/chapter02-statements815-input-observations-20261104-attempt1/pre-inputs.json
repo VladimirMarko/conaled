@@ -1,0 +1,2524 @@
+{
+  "observed_utc": "2026-11-04T10:25:19.748100+00:00",
+  "identity": {
+    "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "clean": true,
+    "project": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+    "program": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/Statements.lean",
+      "bytes": 46371,
+      "sha256": "d4d37d6ea2b48fc5c743b1db36fe904ca8623be6c03c05ea5addc99b307687bd",
+      "names": [
+        "Resources.RandomQuickSort.exerciseMean",
+        "Resources.RandomQuickSort.literalMean",
+        "Resources.RandomQuickSort.exerciseLaw_lintegral_le",
+        "Resources.RandomQuickSort.literalLaw_lintegral_le",
+        "Resources.RandomQuickSort.exerciseLaw_lintegral_ne_top",
+        "Resources.RandomQuickSort.literalLaw_lintegral_ne_top",
+        "Resources.RandomQuickSort.exerciseLaw_integrable",
+        "Resources.RandomQuickSort.literalLaw_integrable",
+        "Resources.RandomQuickSort.exerciseMean_eq_toReal_lintegral",
+        "Resources.RandomQuickSort.literalMean_eq_toReal_lintegral",
+        "Resources.RandomQuickSort.exerciseMean_nonneg",
+        "Resources.RandomQuickSort.literalMean_nonneg",
+        "Resources.RandomQuickSort.exerciseMean_le",
+        "Resources.RandomQuickSort.literalMean_le",
+        "Resources.RandomQuickSort.exerciseMean_nil",
+        "Resources.RandomQuickSort.literalMean_nil",
+        "Resources.RandomQuickSort.exerciseMean_singleton",
+        "Resources.RandomQuickSort.literalMean_singleton",
+        "Resources.RandomQuickSort.exerciseMean_cons",
+        "Resources.RandomQuickSort.literalMean_comparison",
+        "Resources.RandomQuickSort.exerciseMean_of_all_false",
+        "Resources.RandomQuickSort.literalMean_of_all_false",
+        "Examples.RandomQuickSortMean.empty_uninhabited_means",
+        "Examples.RandomQuickSortMean.singleton_means",
+        "Examples.RandomQuickSortMean.two_key_exercise_mean",
+        "Examples.RandomQuickSortMean.two_key_literal_mean",
+        "Examples.RandomQuickSortMean.three_key_exercise_mean",
+        "Examples.RandomQuickSortMean.constant_key_payload_means",
+        "Examples.RandomQuickSortMean.two_equal_key_tag_means",
+        "Examples.RandomQuickSortMean.all_equal_three_means",
+        "Examples.RandomQuickSortMean.arbitrary_payload_integrable",
+        "Examples.RandomQuickSortMean.arbitrary_payload_mean_comparison",
+        "Applications.Probability.PermutationOrder.restrictedOrder",
+        "Applications.Probability.PermutationOrder.orders",
+        "Applications.Probability.PermutationOrder.mem_restrictedOrder",
+        "Applications.Probability.PermutationOrder.mem_restrictedOrder_of_complete",
+        "Applications.Probability.PermutationOrder.restrictedOrder_nodup",
+        "Applications.Probability.PermutationOrder.restrictedOrder_toFinset",
+        "Applications.Probability.PermutationOrder.restrictedOrder_length",
+        "Applications.Probability.PermutationOrder.restrictedOrder_perm",
+        "Applications.Probability.PermutationOrder.map_restrictedOrder_sublist",
+        "Applications.Probability.PermutationOrder.filter_restrictedOrder",
+        "Applications.Probability.PermutationOrder.filter_restrictedOrder_of_subset",
+        "Applications.Probability.PermutationOrder.mem_orders",
+        "Applications.Probability.PermutationOrder.orders_nonempty",
+        "Applications.Probability.PermutationOrder.restrictedOrder_mem_orders",
+        "Applications.Probability.PermutationOrder.orders_card",
+        "Applications.Probability.PermutationOrder.uniformOn_restrictedOrder_eq",
+        "Applications.Probability.PermutationOrder.map_restrictedOrder_uniformOn",
+        "Examples.PermutationOrder.positions",
+        "Examples.PermutationOrder.selected",
+        "Examples.PermutationOrder.smaller",
+        "Examples.PermutationOrder.positions_nodup",
+        "Examples.PermutationOrder.positions_complete",
+        "Examples.PermutationOrder.law",
+        "Examples.PermutationOrder.selected_structure",
+        "Examples.PermutationOrder.selected_permutation",
+        "Examples.PermutationOrder.selected_orders_card",
+        "Examples.PermutationOrder.order_023_mass",
+        "Examples.PermutationOrder.observed_law",
+        "Examples.PermutationOrder.order_032_mass_via_map",
+        "Examples.PermutationOrder.repeated_order_mass_zero",
+        "Examples.PermutationOrder.nestedObservation",
+        "Examples.PermutationOrder.nestedObservation_eq",
+        "Examples.PermutationOrder.nested_order_30_mass",
+        "Examples.PermutationOrder.singleton_order_mass",
+        "Examples.PermutationOrder.full_order_mass",
+        "Examples.PermutationOrderBoundary.empty_subset_output",
+        "Examples.PermutationOrderBoundary.empty_subset_orders",
+        "Examples.PermutationOrderBoundary.empty_subset_mass",
+        "Examples.PermutationOrderBoundary.empty_index_mass",
+        "Examples.PermutationOrderBoundary.cycle",
+        "Examples.PermutationOrderBoundary.cycle_values",
+        "Examples.PermutationOrderBoundary.cycle_inverse_order",
+        "Examples.PermutationOrderBoundary.cycle_restricted_order",
+        "Examples.PermutationOrderBoundary.cycle_direct_order",
+        "Examples.PermutationOrderBoundary.inverse_and_direct_orders_differ",
+        "Examples.PermutationOrderBoundary.numeric_enumeration_values",
+        "Examples.PermutationOrderBoundary.numeric_enumeration_increasing",
+        "Examples.PermutationOrderBoundary.ordinary_enumeration_not_increasing",
+        "Examples.PermutationOrderBoundary.numeric_and_ordinary_orders_differ",
+        "Examples.PermutationOrderBoundary.incomplete_output",
+        "Examples.PermutationOrderBoundary.incomplete_support_counterexample",
+        "Examples.PermutationOrderBoundary.repeated_output",
+        "Examples.PermutationOrderBoundary.repeated_support_counterexample",
+        "Resources.NaturalRunOperations.runsOpsBy",
+        "Resources.NaturalRunOperations.ascOpsBy",
+        "Resources.NaturalRunOperations.descOpsBy",
+        "Resources.NaturalRunOperations.runsOpsBy_nil",
+        "Resources.NaturalRunOperations.runsOpsBy_singleton",
+        "Resources.NaturalRunOperations.runsOpsBy_cons_cons",
+        "Resources.NaturalRunOperations.ascOpsBy_nil",
+        "Resources.NaturalRunOperations.ascOpsBy_cons",
+        "Resources.NaturalRunOperations.descOpsBy_nil",
+        "Resources.NaturalRunOperations.descOpsBy_cons",
+        "Resources.NaturalRunOperations.singleton_toDList",
+        "Resources.NaturalRunOperations.runsOpsBy_value",
+        "Resources.NaturalRunOperations.ascOpsBy_value",
+        "Resources.NaturalRunOperations.descOpsBy_value",
+        "Resources.NaturalRunOperations.runsOpsBy_perm",
+        "Resources.NaturalRunOperations.runsOpsBy_flatten_length",
+        "Resources.NaturalRunOperations.runsOpsBy_length_le",
+        "Resources.NaturalRunOperations.runsOpsBy_sorted",
+        "Resources.NaturalRunOperations.runsOpsBy_work_le",
+        "Resources.NaturalRunOperations.ascOpsBy_work_le",
+        "Resources.NaturalRunOperations.descOpsBy_work_le",
+        "Resources.NaturalRunOperations.ascOpsBy_buildFrom",
+        "Resources.NaturalRunOperations.buildAscending",
+        "Resources.NaturalRunOperations.buildAscending_eq",
+        "Resources.NaturalRunOperations.buildAscending_cost",
+        "Resources.NaturalRunOperations.buildAscending_rep",
+        "Resources.NaturalRunOperations.buildAscending_appCost",
+        "Resources.NaturalRunOperations.buildAscending_apply",
+        "Resources.NaturalRunOperations.buildAscending_weight",
+        "Resources.NaturalRunOperations.buildAscending_counts_add_three",
+        "Resources.NaturalRunOperations.buildAscending_counts",
+        "Resources.NaturalRunOperations.runsOpsBy_buildAscending",
+        "Resources.NaturalRunOperations.ascOpsBy_work_of_chain",
+        "Resources.NaturalRunOperations.descOpsBy_work_of_chain",
+        "Resources.NaturalRunOperations.runsOpsBy_work_ascending_add_five",
+        "Resources.NaturalRunOperations.runsOpsBy_work_ascending",
+        "Resources.NaturalRunOperations.runsOpsBy_of_ascending_chain",
+        "Resources.NaturalRunOperations.runsOpsBy_work_descending",
+        "Resources.NaturalRunOperations.runsOpsBy_of_descending_chain",
+        "Resources.NaturalRunOperations.runsOpsBy_of_sorted",
+        "Resources.NaturalRunOperations.runsOpsBy_of_strictly_descending",
+        "Resources.NaturalRunOperations.baseMergeOps",
+        "Resources.NaturalRunOperations.baseMergeOps_nil",
+        "Resources.NaturalRunOperations.baseMergeOps_singleton",
+        "Resources.NaturalRunOperations.baseMergeOps_spec",
+        "Resources.NaturalRunOperations.baseMergeOps_eq_tick_allRun",
+        "Resources.NaturalRunOperations.singleRunOpsBy",
+        "Resources.NaturalRunOperations.singleRunOpsBy_spec",
+        "Resources.NaturalRunOperations.singleRunOpsBy_value",
+        "Resources.NaturalRunOperations.singleRunOpsBy_work",
+        "Resources.NaturalRunOperations.singleRunOpsBy_work_le",
+        "Resources.NaturalRunOperations.singleRunOpsBy_perm",
+        "Resources.NaturalRunOperations.singleRunOpsBy_correct",
+        "Resources.NaturalRunOperations.singleRunOpsBy_nil",
+        "Resources.NaturalRunOperations.singleRunOpsBy_singleton",
+        "Resources.NaturalRunOperations.runsBy_length_le_one_of_ascending_chain",
+        "Resources.NaturalRunOperations.runsBy_length_le_one_of_descending_chain",
+        "Resources.NaturalRunOperations.singleRunOpsBy_of_ascending_chain",
+        "Resources.NaturalRunOperations.singleRunOpsBy_of_descending_chain",
+        "Resources.NaturalRunOperations.runsOn_length_le_one_of_sorted",
+        "Resources.NaturalRunOperations.runsOn_length_le_one_of_strictly_descending",
+        "Resources.NaturalRunOperations.singleRunOpsBy_of_sorted",
+        "Resources.NaturalRunOperations.singleRunOpsBy_of_strictly_descending",
+        "Examples.NaturalRunOperations.empty_payload",
+        "Examples.NaturalRunOperations.empty_payload_execution",
+        "Examples.NaturalRunOperations.singleton_payload",
+        "Examples.NaturalRunOperations.singleton_payload_execution",
+        "Examples.NaturalRunOperations.ascending_two",
+        "Examples.NaturalRunOperations.ascending_three",
+        "Examples.NaturalRunOperations.ascending_two_execution",
+        "Examples.NaturalRunOperations.ascending_three_execution",
+        "Examples.NaturalRunOperations.descending_two",
+        "Examples.NaturalRunOperations.descending_three",
+        "Examples.NaturalRunOperations.descending_two_execution",
+        "Examples.NaturalRunOperations.descending_three_execution",
+        "Examples.NaturalRunOperations.ascending_ties",
+        "Examples.NaturalRunOperations.ascending_ties_execution",
+        "Examples.NaturalRunOperations.three_boundary_worker",
+        "Examples.NaturalRunOperations.three_boundary",
+        "Examples.NaturalRunOperations.restart_worker",
+        "Examples.NaturalRunOperations.restart_boundary",
+        "Examples.NaturalRunOperations.odd_runs",
+        "Examples.NaturalRunOperations.weak_descent_with_ties",
+        "Examples.NaturalRunOperations.multiple_runs_outside_dispatch",
+        "Examples.NaturalRunOperations.weak_descent_outside_dispatch",
+        "Examples.NaturalRunOperations.arbitrary_builder_restart",
+        "Examples.NaturalRunOperations.unsorted_builder_value_and_work",
+        "Examples.NaturalRunOperations.unsorted_builder_remains_unsorted",
+        "Examples.NaturalRunOperations.arbitrary_descending_accumulator",
+        "Examples.NaturalRunOperations.arbitrary_cost_without_rep",
+        "Examples.NaturalRunOperations.arbitrary_callback_continuation",
+        "Examples.NaturalRunOperations.expensive_capture_worker",
+        "Examples.NaturalRunOperations.empty_outer_dispatch",
+        "Examples.NaturalRunOperations.empty_inner_dispatch",
+        "Examples.NaturalRunOperations.source_builder_with_suffix",
+        "Examples.NaturalRunOperations.source_builder_two_applications",
+        "Examples.NaturalRunOperations.charged_identity_changes_worker_work",
+        "Examples.NaturalRunOperations.padded_worker",
+        "Examples.NaturalRunOperations.no_worker_bound_from_empty_prefix",
+        "Examples.NaturalRunOperations.shared_closure_counts_retained",
+        "Examples.NaturalRunOperations.generic_scanner_contracts",
+        "Examples.NaturalRunOperations.arbitrary_payload_correct",
+        "Examples.NaturalRunOperations.constant_key_domain",
+        "Examples.NaturalRunOperations.repeated_payload_exact",
+        "Examples.NaturalRunOperations.ascending_range_exact",
+        "Examples.NaturalRunOperations.comparison_counter_is_separate",
+        "Resources.QuickSort.run_map",
+        "Resources.QuickSort.counts_map",
+        "Resources.QuickSort.exerciseCost_map",
+        "Resources.QuickSort.appendCost_map",
+        "Resources.QuickSort.literalCost_map",
+        "Examples.QuickSortTransport.arbitrary_occurrence_lookup",
+        "Examples.QuickSortTransport.arbitrary_occurrence_costs",
+        "Examples.QuickSortTransport.noninjective_constant_run",
+        "Examples.QuickSortTransport.duplicate_fixture",
+        "Examples.QuickSortTransport.empty_uninhabited",
+        "Examples.QuickSortTransport.comparator_cost_boundary",
+        "Applications.Probability.PermutationTail.firstEvent",
+        "Applications.Probability.PermutationTail.firstEvent_inter_tail",
+        "Applications.Probability.PermutationTail.cons_mem_orders",
+        "Applications.Probability.PermutationTail.tail_restrictedOrder_eq",
+        "Applications.Probability.PermutationTail.filter_tail_restrictedOrder_eq",
+        "Applications.Probability.PermutationTail.firstEvent_restrictedOrder_of_not_mem",
+        "Applications.Probability.PermutationTail.cond_firstEvent_restrictedOrder_of_not_mem",
+        "Applications.Probability.PermutationTail.uniformOn_firstEvent",
+        "Applications.Probability.PermutationTail.cond_uniformOn_firstEvent",
+        "Applications.Probability.PermutationTail.cond_tail_eq",
+        "Applications.Probability.PermutationTail.map_tail_cond_first",
+        "Applications.Probability.PermutationTail.head_mass_of_hasLaw",
+        "Applications.Probability.PermutationTail.hasLaw_tail_cond_first",
+        "Applications.Probability.PermutationTail.hasLaw_filter_tail_cond_first",
+        "Applications.Probability.PermutationTail.map_restrictedOrder_cond_first",
+        "Examples.PermutationTail.observedOrder",
+        "Examples.PermutationTail.remaining",
+        "Examples.PermutationTail.tailOrder",
+        "Examples.PermutationTail.afterFirst",
+        "Examples.PermutationTail.observed_hasLaw",
+        "Examples.PermutationTail.first_mass",
+        "Examples.PermutationTail.afterFirst_eq_uniformOn",
+        "Examples.PermutationTail.tail_hasLaw",
+        "Examples.PermutationTail.tail_map",
+        "Examples.PermutationTail.tail_23_mass",
+        "Examples.PermutationTail.tail_32_mass",
+        "Examples.PermutationTail.repeated_tail_mass_zero",
+        "Examples.PermutationTail.filteredTail",
+        "Examples.PermutationTail.filtered_tail_hasLaw",
+        "Examples.PermutationTail.filtered_tail_eq_projection",
+        "Examples.PermutationTail.filtered_tail_mass",
+        "Examples.PermutationTail.remaining_projection_map",
+        "Examples.PermutationTail.afterFirst_first_event_mass",
+        "Examples.PermutationTail.environment_changed",
+        "Examples.PermutationTail.second_head_mass",
+        "Examples.PermutationTail.afterSecond",
+        "Examples.PermutationTail.lastTail",
+        "Examples.PermutationTail.last_tail_hasLaw",
+        "Examples.PermutationTail.last_tail_mass",
+        "Examples.PermutationTailBoundary.swap01",
+        "Examples.PermutationTailBoundary.swap01_global_order",
+        "Examples.PermutationTailBoundary.swap01_selected_order",
+        "Examples.PermutationTailBoundary.swap01_first_events",
+        "Examples.PermutationTailBoundary.singleton_conditional_tail_mass",
+        "Examples.PermutationTailBoundary.empty_subset_none_mass",
+        "Examples.PermutationTailBoundary.empty_subset_first_event",
+        "Examples.PermutationTailBoundary.empty_subset_conditional_zero",
+        "Examples.PermutationTailBoundary.outsider_first_event",
+        "Examples.PermutationTailBoundary.outsider_conditional_zero",
+        "Examples.PermutationTailBoundary.empty_indices_none_mass",
+        "Examples.PermutationTailBoundary.counterPositions",
+        "Examples.PermutationTailBoundary.conditionSubset",
+        "Examples.PermutationTailBoundary.outsideSubset",
+        "Examples.PermutationTailBoundary.counterLaw",
+        "Examples.PermutationTailBoundary.counterFirst",
+        "Examples.PermutationTailBoundary.outsideConditional",
+        "Examples.PermutationTailBoundary.outside_subset_boundaries",
+        "Examples.PermutationTailBoundary.counter_first_mass",
+        "Examples.PermutationTailBoundary.outside_order_12_mass",
+        "Examples.PermutationTailBoundary.outside_order_21_mass",
+        "Examples.PermutationTailBoundary.outside_order_not_uniform",
+        "Resources.QuickSortMean.closedForm",
+        "Resources.QuickSortMean.closedForm_zero",
+        "Resources.QuickSortMean.closedForm_succ",
+        "Resources.QuickSortMean.closedForm_scaled_sum",
+        "Resources.QuickSortMean.closedForm_recurrence",
+        "Resources.QuickSortMean.step_of_recurrence",
+        "Resources.QuickSortMean.difference_of_recurrence",
+        "Resources.QuickSortMean.eq_closedForm",
+        "Resources.QuickSortMean.closedForm_nonneg",
+        "Resources.QuickSortMean.closedForm_le_log",
+        "Resources.QuickSortMean.closedForm_le_nlog",
+        "Resources.QuickSortMean.closedForm_le_nlogb",
+        "Resources.QuickSortMean.closedForm_isBigO_log",
+        "Resources.QuickSortMean.closedForm_isBigO_logb",
+        "Examples.QuickSortMean.empty_mean",
+        "Examples.QuickSortMean.singleton_mean",
+        "Examples.QuickSortMean.two_mean",
+        "Examples.QuickSortMean.three_mean",
+        "Examples.QuickSortMean.sequence_three",
+        "Examples.QuickSortMean.zero_log_boundary",
+        "Examples.QuickSortMean.one_log_boundary",
+        "Examples.QuickSortMean.two_log_bound",
+        "Examples.QuickSortMean.sequence_binary_growth",
+        "Resources.RandomQuickSort.occurrenceRank",
+        "Resources.RandomQuickSort.occurrenceRank_lt_iff",
+        "Resources.RandomQuickSort.left_length_eq_rank",
+        "Resources.RandomQuickSort.right_length_eq_rank",
+        "Resources.RandomQuickSort.child_keys_nodup",
+        "Resources.RandomQuickSort.left_length_law",
+        "Resources.RandomQuickSort.exerciseMean_eq_of_length_eq",
+        "Resources.RandomQuickSort.sizeMean",
+        "Resources.RandomQuickSort.exerciseMean_eq_sizeMean",
+        "Resources.RandomQuickSort.sizeMean_zero",
+        "Resources.RandomQuickSort.sizeMean_succ",
+        "Resources.RandomQuickSort.sizeMean_recurrence",
+        "Examples.RandomQuickSortRank.empty_rank",
+        "Examples.RandomQuickSortRank.empty_uninhabited_mean",
+        "Examples.RandomQuickSortRank.singleton_rank",
+        "Examples.RandomQuickSortRank.sizeMean_one",
+        "Examples.RandomQuickSortRank.sizeMean_two",
+        "Examples.RandomQuickSortRank.sizeMean_three",
+        "Examples.RandomQuickSortRank.three_occurrence_ranks",
+        "Examples.RandomQuickSortRank.three_middle_children",
+        "Examples.RandomQuickSortRank.three_left_size_law",
+        "Examples.RandomQuickSortRank.three_reordered_exercise_mean",
+        "Examples.RandomQuickSortRank.sizeMean_four",
+        "Examples.RandomQuickSortRank.four_occurrence_ranks",
+        "Examples.RandomQuickSortRank.four_selected_children",
+        "Examples.RandomQuickSortRank.four_reordered_exercise_mean",
+        "Examples.RandomQuickSortRank.distinct_tags_repeated_keys",
+        "Examples.RandomQuickSortRank.repeated_key_rank_is_not_left_size",
+        "Examples.RandomQuickSortRank.equal_keys_keep_quadratic_mean",
+        "Examples.RandomQuickSortRank.tagged_inputs_equal_mean",
+        "Resources.UniformQuickSortMean.leftChild",
+        "Resources.UniformQuickSortMean.rightChild",
+        "Resources.UniformQuickSortMean.mem_leftChild",
+        "Resources.UniformQuickSortMean.mem_rightChild",
+        "Resources.UniformQuickSortMean.leftChild_subset_erase",
+        "Resources.UniformQuickSortMean.rightChild_subset_erase",
+        "Resources.UniformQuickSortMean.children_disjoint",
+        "Resources.UniformQuickSortMean.children_union",
+        "Resources.UniformQuickSortMean.children_card",
+        "Resources.UniformQuickSortMean.leftChild_card_lt",
+        "Resources.UniformQuickSortMean.rightChild_card_lt",
+        "Resources.UniformQuickSortMean.observedCost",
+        "Resources.UniformQuickSortMean.left_filter_on_first",
+        "Resources.UniformQuickSortMean.right_filter_on_first",
+        "Resources.UniformQuickSortMean.observedCost_on_first",
+        "Resources.UniformQuickSortMean.meanBy",
+        "Resources.UniformQuickSortMean.integrable_observedCost",
+        "Resources.UniformQuickSortMean.firstEvent_positive_finite",
+        "Resources.UniformQuickSortMean.integrable_observedCost_cond",
+        "Resources.UniformQuickSortMean.meanBy_empty",
+        "Resources.UniformQuickSortMean.meanBy_singleton",
+        "Resources.UniformQuickSortMean.observedCost_of_all_false",
+        "Resources.UniformQuickSortMean.meanBy_of_all_false",
+        "Resources.UniformQuickSortMean.child_integral_cond",
+        "Resources.UniformQuickSortMean.conditional_mean",
+        "Resources.UniformQuickSortMean.firstEvents_disjoint",
+        "Resources.UniformQuickSortMean.firstEvents_cover",
+        "Resources.UniformQuickSortMean.first_integral",
+        "Resources.UniformQuickSortMean.meanBy_recurrence",
+        "Resources.UniformQuickSortMean.injOn_leftChild",
+        "Resources.UniformQuickSortMean.injOn_rightChild",
+        "Resources.UniformQuickSortMean.restrictedOrder_keys_nodup",
+        "Resources.UniformQuickSortMean.mem_rightChild_key",
+        "Resources.UniformQuickSortMean.rankEquiv",
+        "Resources.UniformQuickSortMean.rankEquiv_key",
+        "Resources.UniformQuickSortMean.leftChild_key_image",
+        "Resources.UniformQuickSortMean.leftChild_card_rank",
+        "Resources.UniformQuickSortMean.rightChild_card_rank",
+        "Resources.UniformQuickSortMean.sum_child_cards",
+        "Resources.UniformQuickSortMean.meanBy_eq_closedForm",
+        "Resources.UniformQuickSortMean.meanBy_nonneg",
+        "Resources.UniformQuickSortMean.meanBy_le_nlogb",
+        "Resources.UniformQuickSortMean.occurrenceInput",
+        "Resources.UniformQuickSortMean.occurrenceInput_perm",
+        "Resources.UniformQuickSortMean.occurrenceInput_length",
+        "Resources.UniformQuickSortMean.occurrenceInput_cost",
+        "Resources.UniformQuickSortMean.occurrenceMeasurableSpace",
+        "Resources.UniformQuickSortMean.occurrenceMeasurableSingletons",
+        "Resources.UniformQuickSortMean.inputMeanBy",
+        "Resources.UniformQuickSortMean.integrable_inputCost",
+        "Resources.UniformQuickSortMean.inputMeanBy_eq_meanBy",
+        "Resources.UniformQuickSortMean.inputMeanBy_nil",
+        "Resources.UniformQuickSortMean.inputMeanBy_singleton",
+        "Resources.UniformQuickSortMean.inputMean",
+        "Resources.UniformQuickSortMean.occurrence_key_injective",
+        "Resources.UniformQuickSortMean.occurrenceInput_keys_nodup",
+        "Resources.UniformQuickSortMean.inputMean_eq_closedForm",
+        "Resources.UniformQuickSortMean.inputMean_nil",
+        "Resources.UniformQuickSortMean.inputMean_singleton",
+        "Resources.UniformQuickSortMean.inputMean_of_equal_keys",
+        "Resources.UniformQuickSortMean.inputMean_nonneg",
+        "Resources.UniformQuickSortMean.inputMean_le_log",
+        "Resources.UniformQuickSortMean.inputMean_le_nlogb",
+        "Resources.UniformQuickSortMean.inputMean_family_isBigO",
+        "Resources.UniformQuickSortMean.inputLiteralMean",
+        "Resources.UniformQuickSortMean.inputLiteralMean_bounds",
+        "Resources.UniformQuickSortMean.inputLiteralMean_le_nlogb",
+        "Examples.UniformQuickSortMean.emptyMeasurableSpace",
+        "Examples.UniformQuickSortMean.emptyMeasurableSingletons",
+        "Examples.UniformQuickSortMean.empty_labels_mean",
+        "Examples.UniformQuickSortMean.arbitrary_empty",
+        "Examples.UniformQuickSortMean.arbitrary_singleton",
+        "Examples.UniformQuickSortMean.actual_pair_cost",
+        "Examples.UniformQuickSortMean.two_orders",
+        "Examples.UniformQuickSortMean.two_input_means",
+        "Examples.UniformQuickSortMean.Label",
+        "Examples.UniformQuickSortMean.positions",
+        "Examples.UniformQuickSortMean.selected",
+        "Examples.UniformQuickSortMean.key",
+        "Examples.UniformQuickSortMean.comparator",
+        "Examples.UniformQuickSortMean.labelMeasurableSpace",
+        "Examples.UniformQuickSortMean.labelMeasurableSingletons",
+        "Examples.UniformQuickSortMean.law",
+        "Examples.UniformQuickSortMean.positions_nodup",
+        "Examples.UniformQuickSortMean.positions_complete",
+        "Examples.UniformQuickSortMean.selected_keys",
+        "Examples.UniformQuickSortMean.selected_card",
+        "Examples.UniformQuickSortMean.outside_collision",
+        "Examples.UniformQuickSortMean.low_children",
+        "Examples.UniformQuickSortMean.middle_children",
+        "Examples.UniformQuickSortMean.high_children",
+        "Examples.UniformQuickSortMean.middle_actual_cost",
+        "Examples.UniformQuickSortMean.low_actual_cost",
+        "Examples.UniformQuickSortMean.high_actual_cost",
+        "Examples.UniformQuickSortMean.middle_first_mass",
+        "Examples.UniformQuickSortMean.low_first_mass",
+        "Examples.UniformQuickSortMean.high_first_mass",
+        "Examples.UniformQuickSortMean.extreme_first_mass",
+        "Examples.UniformQuickSortMean.middle_conditional_mean",
+        "Examples.UniformQuickSortMean.low_conditional_mean",
+        "Examples.UniformQuickSortMean.high_conditional_mean",
+        "Examples.UniformQuickSortMean.three_mean_from_heads",
+        "Examples.UniformQuickSortMean.three_mean_from_closedForm",
+        "Examples.UniformQuickSortMean.low_empty_actual_child",
+        "Examples.UniformQuickSortMean.low_empty_child_mean",
+        "Examples.UniformQuickSortMean.high_empty_child_mean",
+        "Examples.UniformQuickSortMean.arbitrary_payload_occurrences",
+        "Examples.UniformQuickSortMean.arbitrary_tagged_three",
+        "Examples.UniformQuickSortMean.taggedEqual",
+        "Examples.UniformQuickSortMean.taggedEqual_payloads_distinct",
+        "Examples.UniformQuickSortMean.taggedEqual_mean",
+        "Examples.UniformQuickSortMean.equal_key_counterexample",
+        "Examples.UniformQuickSortMean.taggedRange",
+        "Examples.UniformQuickSortMean.taggedRange_length",
+        "Examples.UniformQuickSortMean.taggedRange_keys",
+        "Examples.UniformQuickSortMean.taggedRange_mean",
+        "Examples.UniformQuickSortMean.arbitrary_payload_growth",
+        "Examples.UniformQuickSortMean.taggedRange_scalar_bound",
+        "Examples.UniformQuickSortMean.taggedRange_literal_bound",
+        "Examples.UniformQuickSortMean.actual_zero_log_boundary",
+        "Examples.UniformQuickSortMean.actual_one_log_boundary",
+        "Resources.RandomQuickSort.sizeMean_eq_closedForm",
+        "Resources.RandomQuickSort.sizeMean_eq_harmonic",
+        "Resources.RandomQuickSort.exerciseMean_eq_closedForm",
+        "Resources.RandomQuickSort.exerciseMean_eq_harmonic",
+        "Resources.RandomQuickSort.literalMean_harmonic_comparison",
+        "Resources.RandomQuickSort.exerciseMean_le_log",
+        "Resources.RandomQuickSort.literalMean_le_log",
+        "Resources.RandomQuickSort.exerciseMean_le_nlog",
+        "Resources.RandomQuickSort.literalMean_le_nlog",
+        "Resources.RandomQuickSort.exerciseMean_le_nlogb",
+        "Resources.RandomQuickSort.literalMean_le_nlogb",
+        "Resources.RandomQuickSort.sizeMean_isBigO_log",
+        "Resources.RandomQuickSort.sizeMean_isBigO_logb",
+        "Resources.RandomQuickSort.exerciseMean_family_isBigO_log",
+        "Resources.RandomQuickSort.literalMean_family_isBigO_log",
+        "Resources.RandomQuickSort.exerciseMean_family_isBigO_logb",
+        "Resources.RandomQuickSort.literalMean_family_isBigO_logb",
+        "Examples.RandomQuickSortGrowth.empty_payload_means",
+        "Examples.RandomQuickSortGrowth.singleton_payload_means",
+        "Examples.RandomQuickSortGrowth.empty_log_boundary",
+        "Examples.RandomQuickSortGrowth.singleton_log_boundary",
+        "Examples.RandomQuickSortGrowth.two_distinct_harmonic",
+        "Examples.RandomQuickSortGrowth.three_reordered_harmonic",
+        "Examples.RandomQuickSortGrowth.four_tagged_harmonic",
+        "Examples.RandomQuickSortGrowth.five_sizeMean",
+        "Examples.RandomQuickSortGrowth.arbitrary_length_indexed_growth",
+        "Examples.RandomQuickSortGrowth.function_tagged_family_growth",
+        "Examples.RandomQuickSortGrowth.shifted_range_family_growth",
+        "Examples.RandomQuickSortGrowth.equal_key_three_not_harmonic",
+        "Examples.RandomQuickSortGrowth.equal_key_family_means",
+        "Examples.RandomQuickSortGrowth.equal_key_binary_bounds_fail",
+        "Resources.InsertionSort.insertRun",
+        "Resources.InsertionSort.insertRun_value",
+        "Resources.InsertionSort.insertRun_cost_bounds",
+        "Resources.InsertionSort.insertRun_cost_of_head",
+        "Resources.InsertionSort.insertRun_cost_of_all",
+        "Resources.InsertionSort.insertRun_cost_of_all_not",
+        "Resources.InsertionSort.sortRun",
+        "Resources.InsertionSort.sortRun_value",
+        "Resources.InsertionSort.sortRun_length",
+        "Resources.InsertionSort.sortRun_cons_cost",
+        "Resources.InsertionSort.sortRun_cost_lower",
+        "Resources.InsertionSort.sortRun_double_cost_le",
+        "Resources.InsertionSort.sortRun_cost_le",
+        "Resources.InsertionSort.sortRun_quadratic",
+        "Resources.InsertionSort.sortRun_cost_of_pairwise",
+        "Resources.InsertionSort.sortRun_double_cost_of_opposite",
+        "Resources.InsertionSort.reverse_range_opposite",
+        "Resources.InsertionSort.sortRun_cost_reverse_range",
+        "Resources.InsertionSort.sortRun_stable",
+        "Resources.ListCalls.mapRun",
+        "Resources.ListCalls.mapRun_nil",
+        "Resources.ListCalls.mapRun_cons",
+        "Resources.ListCalls.mapRun_value",
+        "Resources.ListCalls.mapRun_cost",
+        "Resources.ListCalls.mapRun_exact",
+        "Resources.ListCalls.mapRun_cost_of_constant",
+        "Resources.ListCalls.filterRun",
+        "Resources.ListCalls.filterRun_nil",
+        "Resources.ListCalls.filterRun_cons",
+        "Resources.ListCalls.filterRun_value",
+        "Resources.ListCalls.filterRun_cost",
+        "Resources.ListCalls.filterRun_exact",
+        "Resources.ListCalls.filterRun_cost_eq_mapRun",
+        "Resources.ListCalls.filterRun_cost_of_constant",
+        "Resources.ListCalls.takeRun",
+        "Resources.ListCalls.dropRun",
+        "Resources.ListCalls.takeRun_nil",
+        "Resources.ListCalls.takeRun_zero",
+        "Resources.ListCalls.takeRun_succ_cons",
+        "Resources.ListCalls.dropRun_nil",
+        "Resources.ListCalls.dropRun_zero",
+        "Resources.ListCalls.dropRun_succ_cons",
+        "Resources.ListCalls.takeRun_exact",
+        "Resources.ListCalls.dropRun_exact",
+        "Resources.ListCalls.take_drop_separate",
+        "Resources.ListCalls.lookupRun",
+        "Resources.ListCalls.lookupRun_nil",
+        "Resources.ListCalls.lookupRun_zero_cons",
+        "Resources.ListCalls.lookupRun_succ_cons",
+        "Resources.ListCalls.lookupRun_value",
+        "Resources.ListCalls.lookupRun_cost",
+        "Resources.ListCalls.lookupRun_cost_of_lt",
+        "Resources.ListCalls.lookupRun_valid",
+        "Resources.ListMerge.run",
+        "Resources.ListMerge.comparisons",
+        "Resources.ListMerge.entries",
+        "Resources.ListMerge.run_nil_left",
+        "Resources.ListMerge.run_nil_right",
+        "Resources.ListMerge.run_cons_cons",
+        "Resources.ListMerge.comparisons_nil_left",
+        "Resources.ListMerge.comparisons_nil_right",
+        "Resources.ListMerge.comparisons_cons_cons",
+        "Resources.ListMerge.entries_nil_left",
+        "Resources.ListMerge.entries_nil_right",
+        "Resources.ListMerge.entries_cons_cons",
+        "Resources.ListMerge.comparisons_cons_pos",
+        "Resources.TopDownSorting.comparisons",
+        "Resources.TopDownSorting.run_nil",
+        "Resources.TopDownSorting.run_singleton",
+        "Applications.Sorting.pairwise_of_orderedInsert",
+        "Applications.Sorting.pairwise_orderedInsert_iff",
+        "Applications.Sorting.orderedInsert_eq_cons_of_forall",
+        "Applications.Sorting.filter_orderedInsert_of_neg",
+        "Applications.Sorting.filter_orderedInsert_of_pos",
+        "Applications.Sorting.quickSortBy_nil",
+        "Applications.Sorting.quickSortBy_cons",
+        "Applications.Sorting.quickSortBy_singleton",
+        "Applications.Sorting.quickSortBy_length",
+        "Applications.Sorting.mem_quickSortBy",
+        "Applications.Sorting.quickSortOn",
+        "Applications.Sorting.quickSortAccBy_nil",
+        "Applications.Sorting.quickSortAccBy_cons",
+        "Applications.Sorting.quickSortAccBy_singleton",
+        "Applications.Sorting.quickSortAccBy_perm",
+        "Applications.Sorting.quickSortAccOn",
+        "Applications.Sorting.sortFloorBy",
+        "Applications.Sorting.sortFloorBy_of_length_le",
+        "Applications.Sorting.sortFloorBy_step",
+        "Applications.Sorting.sortFloorBy_nil",
+        "Applications.Sorting.sortFloorBy_singleton",
+        "Applications.Sorting.sortFloorBy_perm",
+        "Applications.Sorting.sortFloorBy_length",
+        "Applications.Sorting.mem_sortFloorBy",
+        "Applications.Sorting.sortFloorBy_sorted_compatible_on",
+        "Applications.Sorting.sortFloorOn",
+        "Applications.Sorting.sortFloorOn_correct",
+        "Applications.Sorting.sortFloorOn_stable",
+        "Applications.Sorting.sortFloorOn_spec",
+        "Applications.Sorting.sortFloorOn_eq_sortOn",
+        "Examples.FunctionalNotation.composition_and_eta",
+        "Examples.FunctionalNotation.boolean_truth",
+        "Examples.FunctionalNotation.comprehension_order_and_repetition",
+        "Examples.FunctionalNotation.set_union_intersection",
+        "Examples.FunctionalNotation.proper_subset",
+        "Examples.FunctionalNotation.direct_image",
+        "Examples.FunctionalNotation.restricted_comprehension",
+        "Examples.FunctionalNotation.two_variable_comprehension",
+        "Examples.FunctionalNotation.indexed_union",
+        "Examples.FunctionalNotation.set_of_sets_observations",
+        "Examples.FunctionalNotation.bounded_quantifiers",
+        "Examples.FunctionalNotation.product_membership",
+        "Examples.FunctionalNotation.all_interval_memberships",
+        "Examples.FunctionalNotation.upper_interval_correction",
+        "Examples.FunctionalNotation.floor_division_nonnegative",
+        "Examples.FunctionalNotation.negative_divisor_distinguishes",
+        "Examples.FunctionalNotation.floor_division_zero",
+        "Examples.FunctionalNotation.typed_arithmetic",
+        "Examples.FunctionalNotation.floor_and_ceiling",
+        "Examples.FunctionalNotation.submultiset_is_not_support_subset",
+        "Examples.FunctionalNotation.repeated_sum_and_product",
+        "Examples.FunctionalNotation.closed_interval_fold",
+        "Examples.FunctionalNotation.finiteIndexProduct",
+        "Examples.FunctionalNotation.finiteIndexProduct_of_finite",
+        "Examples.FunctionalNotation.finiteIndexProduct_of_infinite",
+        "Examples.FunctionalNotation.finiteIndexProduct_of_finset",
+        "Examples.FunctionalNotation.finite_index_values",
+        "Examples.FunctionalNotation.infinite_index_values",
+        "Examples.FunctionalNotation.empty_index_type",
+        "Examples.FunctionalNotation.ordered_list_folds",
+        "Examples.InsertionCosts.empty_cost",
+        "Examples.InsertionCosts.singleton_cost",
+        "Examples.InsertionCosts.sorted_with_duplicates",
+        "Examples.InsertionCosts.descending_worst",
+        "Examples.InsertionCosts.best_is_global",
+        "Examples.InsertionCosts.worst_is_global",
+        "Examples.InsertionCosts.source_quadratic",
+        "Examples.InsertionCosts.immediate_insertion",
+        "Examples.InsertionCosts.full_traversal",
+        "Examples.InsertionCosts.tied_head_ignores_tail",
+        "Examples.InsertionCosts.key_contract",
+        "Examples.InsertionCosts.key_tie_observation",
+        "Examples.InsertionCosts.sorted_result_has_rank",
+        "Examples.InsertionCosts.repeated_value_rank",
+        "Examples.InsertionCosts.small_sort_budget",
+        "Examples.InsertionCosts.small_rank_with_sort_budget",
+        "Examples.InsertionObservations.keyed_insert_equations",
+        "Examples.InsertionObservations.keyed_sort_equations",
+        "Examples.InsertionObservations.keyed_insert_observations",
+        "Examples.InsertionObservations.keyed_sorted_iff",
+        "Examples.InsertionObservations.keyed_filter_of_pos",
+        "Examples.InsertionObservations.keyed_sort_observations",
+        "Examples.InsertionObservations.raw_insertion_cannot_repair",
+        "Examples.InsertionObservations.all_members_without_sorted_input",
+        "Examples.InsertionObservations.tied_head_ignores_inversion",
+        "Examples.InsertionObservations.equal_key_payloads",
+        "Examples.InsertionObservations.empty_type_sort",
+        "Examples.InsertionObservations.empty_payload_sort",
+        "Examples.InsertionObservations.predicate_premises_matter",
+        "Examples.InsertionObservations.negative_extreme_relations",
+        "Examples.InsertionObservations.Flagged",
+        "Examples.InsertionObservations.rawFlags",
+        "Examples.InsertionObservations.sortedFlags",
+        "Examples.InsertionObservations.negative_filter_unsorted",
+        "Examples.InsertionObservations.positive_filter_discards_stopping_head",
+        "Examples.InsertionObservations.even",
+        "Examples.InsertionObservations.positive_filter_needs_sorted_input",
+        "Examples.InsertionObservations.cycle",
+        "Examples.InsertionObservations.cycle_total",
+        "Examples.InsertionObservations.cycle_not_transitive",
+        "Examples.InsertionObservations.transitivity_boundaries",
+        "Examples.InsertionObservations.strict_tie_boundary",
+        "Examples.InsertionObservations.signedTail",
+        "Examples.InsertionObservations.signed_tail_fixed",
+        "Examples.InsertionObservations.signed_negative_step",
+        "Examples.InsertionObservations.signed_positive_step",
+        "Examples.InsertionObservations.stability_is_not_arbitrary_filter",
+        "Examples.ListCalls.duplicate_map",
+        "Examples.ListCalls.discarded_last",
+        "Examples.ListCalls.discarded_head",
+        "Examples.ListCalls.zero_and_unit_callbacks",
+        "Examples.ListCalls.discarded_values_still_pay",
+        "Examples.ListCalls.map_then_length",
+        "Examples.ListCalls.composed_callback_count",
+        "Examples.ListCalls.append_then_length",
+        "Examples.ListCalls.valid_lookup",
+        "Examples.ListCalls.first_invalid_lookup",
+        "Examples.ListCalls.farther_invalid_lookup",
+        "Examples.ListCalls.empty_payload_lookup",
+        "Examples.ListCalls.take_drop_values",
+        "Examples.ListCalls.separate_vs_fused",
+        "Examples.ListCalls.zero_and_overlarge",
+        "Examples.ListCalls.empty_payload_split",
+        "Examples.ListLibrary.empty_membership_set",
+        "Examples.ListLibrary.cons_membership_set",
+        "Examples.ListLibrary.dropLast_cons_equation",
+        "Examples.ListLibrary.range_succ_equation",
+        "Examples.ListLibrary.range_zero_equation",
+        "Examples.ListLibrary.range_boundaries",
+        "Examples.ListLibrary.range_membership",
+        "Examples.ListLibrary.head_valid",
+        "Examples.ListLibrary.index_valid",
+        "Examples.ListLibrary.invalid_index_and_update",
+        "Examples.ListLibrary.update_observations",
+        "Examples.ListLibrary.update_repeated_value",
+        "Examples.ListLibrary.invalid_boundary",
+        "Examples.ListLibrary.empty_payload_queries",
+        "Examples.ListLibrary.split_reassembles",
+        "Examples.ListLibrary.overlarge_split",
+        "Examples.ListLibrary.last_and_tail_boundaries",
+        "Examples.ListLibrary.duplicate_pipeline",
+        "Examples.ListLibrary.replication_boundaries",
+        "Examples.ListLibrary.duplicates_are_not_distinct",
+        "Examples.ListLibrary.sorted_wrt_cons",
+        "Examples.ListLibrary.adjacent_relation_is_insufficient",
+        "Examples.ListLibrary.sum_source_equations",
+        "Examples.ListLibrary.minimum_source_equation",
+        "Examples.ListLibrary.minimum_valid",
+        "Examples.ListLibrary.minimum_filter_spec",
+        "Examples.ListLibrary.minimum_repeated_values",
+        "Examples.ListLibrary.minimum_empty",
+        "Examples.ListLibrary.empty_payload_minimum",
+        "Examples.ListLibrary.filtered_minimum_example",
+        "Examples.MergeCosts.natCompare",
+        "Examples.MergeCosts.byKey",
+        "Examples.MergeCosts.result_perm",
+        "Examples.MergeCosts.result_length",
+        "Examples.MergeCosts.result_multiset",
+        "Examples.MergeCosts.result_mem",
+        "Examples.MergeCosts.empty_sides",
+        "Examples.MergeCosts.empty_payload",
+        "Examples.MergeCosts.low_singleton",
+        "Examples.MergeCosts.high_singleton",
+        "Examples.MergeCosts.low_singleton_entry_model",
+        "Examples.MergeCosts.interleaving",
+        "Examples.MergeCosts.interleaving_observations",
+        "Examples.MergeCosts.always_true",
+        "Examples.MergeCosts.always_false",
+        "Examples.MergeCosts.tied_runs",
+        "Examples.MergeCosts.ties_do_not_determine_cost",
+        "Examples.MergeCosts.unsorted_run",
+        "Examples.MergeCosts.unsorted_cost_bounds",
+        "Examples.MergeCosts.unsorted_inputs_retained",
+        "Examples.MergeCosts.unsorted_for_every_comparator",
+        "Examples.MergeCosts.source_value",
+        "Examples.MergeCosts.key_value",
+        "Examples.MergeCosts.key_sorted_iff",
+        "Examples.MergeCosts.measured_key_spec",
+        "Examples.MergeCosts.recordsLeft",
+        "Examples.MergeCosts.recordsRight",
+        "Examples.MergeCosts.records_value",
+        "Examples.MergeCosts.records_counts",
+        "Examples.MergeCosts.records_exact",
+        "Examples.MergeCosts.taggedLeft",
+        "Examples.MergeCosts.taggedRight",
+        "Examples.MergeCosts.tagged_counts",
+        "Examples.MergeCosts.tagged_exact",
+        "Examples.MergeCosts.tagged_stable",
+        "Examples.MergeCosts.falseLeft",
+        "Examples.MergeCosts.falseRight",
+        "Examples.MergeCosts.false_compare_compatible",
+        "Examples.MergeCosts.false_record_run",
+        "Examples.MergeCosts.compatible_not_stable",
+        "Examples.MergeCosts.unsortedRecordsLeft",
+        "Examples.MergeCosts.unsortedRecordsRight",
+        "Examples.MergeCosts.unsorted_records_run",
+        "Examples.MergeCosts.unsorted_record_filters",
+        "Examples.MergeCosts.twoStage",
+        "Examples.MergeCosts.twoStage_value",
+        "Examples.MergeCosts.twoStage_entries",
+        "Examples.MergeCosts.twoStage_bounds",
+        "Examples.MergeCosts.twoStage_comparisons_projection",
+        "Examples.MergeCosts.twoStage_entries_projection",
+        "Examples.MergeCosts.first_stage",
+        "Examples.MergeCosts.second_stage",
+        "Examples.MergeCosts.twoStage_example",
+        "Examples.MergeCosts.substituted_input_example",
+        "Examples.MergeCosts.queueBody",
+        "Examples.MergeCosts.queueBody_value",
+        "Examples.MergeCosts.queueBody_bounds",
+        "Examples.MergeCosts.rawLeft",
+        "Examples.MergeCosts.rawRight",
+        "Examples.MergeCosts.rawRoot",
+        "Examples.MergeCosts.raw_queue_body",
+        "Examples.MergeCosts.raw_queue_erasure_and_order",
+        "Examples.MergeCosts.nonempty_tariffs",
+        "Examples.MergeCosts.empty_tariff_not_multiplicative",
+        "Examples.MergeCosts.low_singleton_attains_factor_two",
+        "Examples.QuickSort.source_key_partition",
+        "Examples.QuickSort.source_multiset",
+        "Examples.QuickSort.source_support",
+        "Examples.QuickSort.mixed_source_equation",
+        "Examples.QuickSort.mixed_source_value",
+        "Examples.QuickSort.mixed_accumulator_equation",
+        "Examples.QuickSort.mixed_accumulator_value",
+        "Examples.QuickSort.empty_first_input",
+        "Examples.QuickSort.singleton_first_input",
+        "Examples.QuickSort.all_equal_right_recursion",
+        "Examples.QuickSort.all_equal_accumulator",
+        "Examples.QuickSort.sorted_suffix_is_not_enough",
+        "Examples.QuickSort.empty_payload",
+        "Examples.QuickSort.empty_payload_suffix",
+        "Examples.QuickSort.arbitrary_comparator_occurrences",
+        "Examples.QuickSort.payload_source_equation",
+        "Examples.QuickSort.arbitrary_payload_order",
+        "Examples.QuickSort.localLess",
+        "Examples.QuickSort.localLess_compatible",
+        "Examples.QuickSort.local_comparator_sorted",
+        "Examples.QuickSort.local_comparator_fails_globally",
+        "Examples.TopDownCosts.natCompare",
+        "Examples.TopDownCosts.ceilThreeRun",
+        "Examples.TopDownSorting.source_three_split",
+        "Examples.TopDownSorting.source_three_value",
+        "Examples.TopDownSorting.full_multiset",
+        "Examples.TopDownSorting.payload_expected_spec",
+        "Examples.TopDownSorting.arbitrary_payload_order",
+        "Examples.TopDownSorting.stable_across_split",
+        "Examples.TopDownSorting.empty_payload",
+        "Examples.TopDownSorting.singleton_payload",
+        "Examples.TopDownSorting.arbitrary_comparator_preserves_occurrences",
+        "Examples.TopDownSorting.local_comparator_keys",
+        "Examples.TopDownSorting.signed_record_value",
+        "Examples.UniformQuickSortMean.Label.high",
+        "Examples.UniformQuickSortMean.Label.low",
+        "Examples.UniformQuickSortMean.Label.middle",
+        "Examples.UniformQuickSortMean.Label.outside",
+        "Examples.MergeCosts.key_source_value",
+        "Examples.MergeCosts.source_key_sorted_iff",
+        "Examples.MergeCosts.tagged_key_transport",
+        "Examples.MergeCosts.tagged_values",
+        "Examples.MergeCosts.twoStage_observation",
+        "Examples.MergeCosts.actual_input_matters",
+        "Examples.MergeCosts.queueBody_observation",
+        "Applications.Sorting.quickSortBy",
+        "Applications.Sorting.quickSortBy_perm",
+        "Applications.Sorting.quickSortBy_sorted_compatible_on",
+        "Applications.Sorting.quickSortOn_cons",
+        "Applications.Sorting.quickSortOn_correct",
+        "Applications.Sorting.quickSortAccBy",
+        "Applications.Sorting.quickSortAccBy_eq_append",
+        "Applications.Sorting.quickSortAccOn_cons",
+        "Applications.Sorting.quickSortAccOn_eq_append",
+        "Applications.Sorting.quickSortAccOn_correct",
+        "Examples.QuickSort.source_filter_multiset",
+        "Examples.QuickSort.source_complementary_multiset",
+        "Examples.QuickSort.source_sorted_append",
+        "Examples.QuickSort.arbitrary_payload_suffix",
+        "Examples.UniformQuickSortMean.instFintypeLabel"
+      ]
+    },
+    "configuration": {
+      "lean-toolchain": {
+        "bytes": 25,
+        "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+      },
+      "lake-manifest.json": {
+        "bytes": 3138,
+        "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+      },
+      "lakefile.toml": {
+        "bytes": 444,
+        "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+      },
+      "flake.nix": {
+        "bytes": 637,
+        "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+      },
+      "flake.lock": {
+        "bytes": 564,
+        "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+      },
+      "check.sh": {
+        "bytes": 74,
+        "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd"
+      },
+      "scripts/check.py": {
+        "bytes": 16119,
+        "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+      },
+      "scripts/lake_integrity.py": {
+        "bytes": 5781,
+        "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f"
+      },
+      "scripts/lake-output-hashes.lean": {
+        "bytes": 618,
+        "sha256": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b"
+      },
+      "ProofAudit.lean": {
+        "bytes": 7925,
+        "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd"
+      }
+    },
+    "dependencies": {
+      "mathlib": {
+        "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib"
+      },
+      "plausible": {
+        "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/plausible"
+      },
+      "LeanSearchClient": {
+        "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/LeanSearchClient"
+      },
+      "importGraph": {
+        "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/importGraph"
+      },
+      "proofwidgets": {
+        "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/proofwidgets"
+      },
+      "aesop": {
+        "head": "4a174c490d8707121c4a9290800489f105d85e07",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/aesop"
+      },
+      "Qq": {
+        "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/Qq"
+      },
+      "batteries": {
+        "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/batteries"
+      },
+      "Cli": {
+        "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/Cli"
+      }
+    },
+    "runtime": {
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/lake": {
+        "bytes": 13416,
+        "sha256": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/lean": {
+        "bytes": 9024,
+        "sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/leanc": {
+        "bytes": 36168,
+        "sha256": "1e0b075573c5ea98e6b196e35d3b159b93e3226714e28cd8febb30a240ec735c"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/leanir": {
+        "bytes": 215864,
+        "sha256": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e"
+      },
+      "conaled-native-state/profile/bin/lake": {
+        "bytes": 122,
+        "sha256": "85df404efd17484b633376fe8d3705f416e059642133d8232ed555a8d3174e21"
+      },
+      "conaled-native-state/profile/bin/lean": {
+        "bytes": 122,
+        "sha256": "e290032a73b271084c56dfde6315062e1523492dc36b1bbde9cc5dea23d1c716"
+      },
+      "conaled-native-state/profile/bin/leanc": {
+        "bytes": 123,
+        "sha256": "0e5517cfaaa530d1e484e45314a8e4be9bf44ccbccb09f8610fa190f6e5443e6"
+      },
+      "conaled-native-state/profile/bin/leanir": {
+        "bytes": 124,
+        "sha256": "3a64f332683efbab0057235ec2b3c22d3ead19cb060e0830b76f1add4cf7c661"
+      },
+      "conaled-native-state/profile/runtime.py": {
+        "bytes": 6368,
+        "sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695"
+      },
+      "conaled-native-state/profile/app_path.c": {
+        "bytes": 3848,
+        "sha256": "fefc39d8645e4a938d6cc27574257d1a1e8e8f0790b75cc15bcf074272066fe0"
+      },
+      "conaled-native-state/profile/app_path.so": {
+        "bytes": 16056,
+        "sha256": "124bc3f19426ab6558b3ca134d0afb70435eaff82a659e6e62a05e8e373e337d"
+      },
+      "/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": {
+        "bytes": 236616,
+        "sha256": "6222a16be7f2d458d6870efe6e715fc0c8d45766fb79cf7dcc3125538d703e28"
+      }
+    },
+    "roots": [
+      "Applications.Probability.PermutationOrder",
+      "Applications.Probability.PermutationTail",
+      "Applications.Resources.InsertionSort",
+      "Applications.Resources.ListCalls",
+      "Applications.Resources.ListMerge",
+      "Applications.Resources.NaturalRunOperations",
+      "Applications.Resources.QuickSortMean",
+      "Applications.Resources.QuickSortTransport",
+      "Applications.Resources.RandomQuickSortGrowth",
+      "Applications.Resources.RandomQuickSortMean",
+      "Applications.Resources.RandomQuickSortRank",
+      "Applications.Resources.TopDownSorting",
+      "Applications.Resources.UniformQuickSortMean",
+      "Applications.Sorting.InsertionObservations",
+      "Applications.Sorting.QuickSort",
+      "Applications.Sorting.TopDown",
+      "Examples.FunctionalNotation",
+      "Examples.InsertionCosts",
+      "Examples.InsertionObservations",
+      "Examples.ListCalls",
+      "Examples.ListLibrary",
+      "Examples.MergeCosts",
+      "Examples.NaturalRunOperations",
+      "Examples.PermutationOrder",
+      "Examples.PermutationOrderBoundary",
+      "Examples.PermutationTail",
+      "Examples.PermutationTailBoundary",
+      "Examples.QuickSort",
+      "Examples.QuickSortMean",
+      "Examples.QuickSortTransport",
+      "Examples.RandomQuickSortGrowth",
+      "Examples.RandomQuickSortMean",
+      "Examples.RandomQuickSortRank",
+      "Examples.TopDownCosts",
+      "Examples.TopDownSorting",
+      "Examples.UniformQuickSortMean"
+    ],
+    "local_sources": {
+      "Examples/UniformQuickSortMean.lean": {
+        "bytes": 16973,
+        "sha256": "744562a71000f1d4f2c82a57a681eaf0491dfd7065ad650f09c4403304d8c24b",
+        "git_blob": "cfb82beff57d8bf116b882c0c49850e4be629586"
+      },
+      "Examples/PermutationTail.lean": {
+        "bytes": 9826,
+        "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e",
+        "git_blob": "baa3e26a3c72a4589765562167d1d85edc011e67"
+      },
+      "Examples/PermutationTailBoundary.lean": {
+        "bytes": 12064,
+        "sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54",
+        "git_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0"
+      },
+      "Examples/PermutationOrder.lean": {
+        "bytes": 6706,
+        "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084",
+        "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35"
+      },
+      "Examples/PermutationOrderBoundary.lean": {
+        "bytes": 5605,
+        "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121",
+        "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59"
+      },
+      "Examples/PermutationMinimum.lean": {
+        "bytes": 4994,
+        "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+        "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876"
+      },
+      "Examples/PermutationMinimumBoundary.lean": {
+        "bytes": 4211,
+        "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+        "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c"
+      },
+      "Applications/Probability/PermutationMinimum.lean": {
+        "bytes": 8241,
+        "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+        "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d"
+      },
+      "Applications/Probability/PermutationOrder.lean": {
+        "bytes": 15304,
+        "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2",
+        "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63"
+      },
+      "Applications/Probability/PermutationTail.lean": {
+        "bytes": 23521,
+        "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed",
+        "git_blob": "437552dda711378d6a0910d9aa79bd99caae8977"
+      },
+      "Examples/QuickSortTransport.lean": {
+        "bytes": 3084,
+        "sha256": "57dc49986edb9c8f990781c980177a513a9e9e2020c6218ce4f4d88daac4c6b2",
+        "git_blob": "089aaca818282da784d6843205fc8b97ad3c4d73"
+      },
+      "Applications/Resources/QuickSortTransport.lean": {
+        "bytes": 2232,
+        "sha256": "4093b8aa3b1bf884760926a4c866453f8ffa47d40304b8746f8083d2a3f54eff",
+        "git_blob": "438a6a58d720002fac7a2a61abb6b0b29804df21"
+      },
+      "Applications/Resources/QuickSort.lean": {
+        "bytes": 21782,
+        "sha256": "e98024f6b741e1aba1fb1e38b419eee2e1acad76a8a40e669752f54775783263",
+        "git_blob": "66bcbb7075aadfe3e1070ee532b5839091c6ab5d"
+      },
+      "Applications/Sorting/QuickSort.lean": {
+        "bytes": 9994,
+        "sha256": "696ae63c3f5c23940ac0f05c8ac6b48bff74b65e4c66faf319283efedea73802",
+        "git_blob": "01026a360a8f9f44afacd2fbd6ddb356ef8a95d4"
+      },
+      "Applications/Sorting/Stable.lean": {
+        "bytes": 3704,
+        "sha256": "288552150aa002c60ed06c74e69510112cf9b4e2f0045da3d98ca5c39264d881",
+        "git_blob": "614b0628261442bcbe2a3c97b4af8fc56084fc42"
+      },
+      "Applications/Resources/ListReversal.lean": {
+        "bytes": 4827,
+        "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+        "git_blob": "62ab85a7325d521bf925405f9abb053703f4d175"
+      },
+      "Applications/Resources/TreeFlattening/Core.lean": {
+        "bytes": 4225,
+        "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+        "git_blob": "d136193bd3823ee00431bc240d1e7a0168b4ddaf"
+      },
+      "Applications/Resources/Measured.lean": {
+        "bytes": 2906,
+        "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+        "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46"
+      },
+      "Squares.lean": {
+        "bytes": 11694,
+        "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+        "git_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a"
+      },
+      "Applications/Resources/RandomAccess/CacheCosts.lean": {
+        "bytes": 2227,
+        "sha256": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+        "git_blob": "e583ec5285ea887c38f4b369071408697f0574b2"
+      },
+      "Applications/Sequences/RandomAccess/TreeBuild.lean": {
+        "bytes": 5392,
+        "sha256": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+        "git_blob": "3b662705f001c2a4b8fbe12868d6c7e77316d95f"
+      },
+      "Applications/Sequences/RandomAccess/Borrow.lean": {
+        "bytes": 5680,
+        "sha256": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+        "git_blob": "81b95e8bd4a6e30f6a20a85828409d6d55437be0"
+      },
+      "Applications/Sequences/RandomAccess/Access.lean": {
+        "bytes": 5219,
+        "sha256": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+        "git_blob": "5354c146a0665cce90ffc996d1b522b8a59079ad"
+      },
+      "Applications/Sequences/RandomAccess/Basic.lean": {
+        "bytes": 5970,
+        "sha256": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+        "git_blob": "fe040b71615878a86d06b326b820e1d5cd5f0229"
+      },
+      "Applications/Bracketing/Basic.lean": {
+        "bytes": 8561,
+        "sha256": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+        "git_blob": "3f6604c226908ee807c7d5076bd1c027b48bbf90"
+      },
+      "Applications/Optimization/SelectionSpec.lean": {
+        "bytes": 738,
+        "sha256": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+        "git_blob": "2548b66575b5a453e8cec30ceb745234bb0ae2e6"
+      },
+      "Applications/Resources/SymmetricCosts.lean": {
+        "bytes": 10508,
+        "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+        "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233"
+      },
+      "Applications/Sequences/Symmetric/Core.lean": {
+        "bytes": 12059,
+        "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+        "git_blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4"
+      },
+      "SquareKit/ListFusion.lean": {
+        "bytes": 2939,
+        "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+        "git_blob": "33ec447acb6da7b884ae57d2a885707208201607"
+      },
+      "Applications/Resources/Potential.lean": {
+        "bytes": 4638,
+        "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe",
+        "git_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1"
+      },
+      "Applications/Resources/Workload.lean": {
+        "bytes": 2745,
+        "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+        "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05"
+      },
+      "Applications/Resources/CallCount.lean": {
+        "bytes": 2447,
+        "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+        "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195"
+      },
+      "Applications/Resources/ListCalls.lean": {
+        "bytes": 7939,
+        "sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+        "git_blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4"
+      },
+      "Examples/QuickSortMean.lean": {
+        "bytes": 2488,
+        "sha256": "924ce55ee6af374b55cea67ee6f2da25997b5a81ad098e2e3789622bd793b904",
+        "git_blob": "8b8846019ae3d447a38f0ea0f0797ad1afe7d751"
+      },
+      "Applications/Resources/QuickSortMean.lean": {
+        "bytes": 9673,
+        "sha256": "888bae2d149f2664f41e37f702ce5352718ac2d008f13fa51952239d85e5d09a",
+        "git_blob": "f5bb73b3f1c2c977013919b02a307c0c3669fed1"
+      },
+      "Applications/Resources/UniformQuickSortMean.lean": {
+        "bytes": 38157,
+        "sha256": "5e997076f474f1cfcc51cac11c31b870a1cd265cf121c6ae11519beab009ad67",
+        "git_blob": "2e06a117d18b4657dfc3e436a1939acad5427876"
+      },
+      "Examples/TopDownSorting.lean": {
+        "bytes": 3620,
+        "sha256": "0689ac22c8cc716efec24b4744ed606b79f734542101b28fc4f78af40ef089c5",
+        "git_blob": "013dea9599add78a6e839bb9e5831cf660321d69"
+      },
+      "Examples/StableSorting.lean": {
+        "bytes": 5041,
+        "sha256": "c894760e594cdc31d9dda54553eeff666156c81f7903dea82738c8a95faaf193",
+        "git_blob": "103451954850b23fc45813630321360546e46349"
+      },
+      "Applications/Sorting/SourceMerge.lean": {
+        "bytes": 1537,
+        "sha256": "bebd8eb2f06d92cc10e6f319c96b7965cdee36ff14c4a8b0b19e1351e8ebeaf2",
+        "git_blob": "0c77bae4f80ad4ba48a0b8c1de38f19daedd7809"
+      },
+      "Applications/Sorting/Merge.lean": {
+        "bytes": 7840,
+        "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+        "git_blob": "6595f901a9358398bee07333872125990ef8360c"
+      },
+      "Applications/Sorting/Sort.lean": {
+        "bytes": 5922,
+        "sha256": "5acd7728aaaefdec121df797efafd7dae13476c820d4f85f4ada19868fa71218",
+        "git_blob": "fb7096ebfede6b6a1721c453295faaa851453049"
+      },
+      "Applications/Sorting/TopDown.lean": {
+        "bytes": 5978,
+        "sha256": "5a953ff534311e1686112273f7c95db6813c8a06ecee0af8fcc191f1c7d9586f",
+        "git_blob": "845444934d6fec2106e25af62b31f685269c2a59"
+      },
+      "Examples/TopDownCosts.lean": {
+        "bytes": 5403,
+        "sha256": "8f5f6969049712a5a5d37f7beb78c09017a2835b5f1208e54d0c9912dff425a4",
+        "git_blob": "05cf0aa40cfe066499ec49b3bab520cb2f3d9070"
+      },
+      "Applications/Resources/TopDownSorting.lean": {
+        "bytes": 9144,
+        "sha256": "26531f25e57c0d198fc90d0a10652051ac6159098f493629af3283b54ab687bc",
+        "git_blob": "91cba444e67f3947d5fca7984242fde825807929"
+      },
+      "Applications/Resources/Growth.lean": {
+        "bytes": 2906,
+        "sha256": "99be17f2d45ac30de1e912c2181460dac046c8b98e40ea3209abfec342107786",
+        "git_blob": "65cfdecea6a600b9ed80a9784637e9811c4bd425"
+      },
+      "Applications/Resources/ListMerge.lean": {
+        "bytes": 8629,
+        "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975",
+        "git_blob": "b658809bc2ba424807e326c3ee7cb64712865a46"
+      },
+      "Examples/RandomQuickSortRank.lean": {
+        "bytes": 6356,
+        "sha256": "419e02b0865e4ed64041f0afe465271127599a475d3edff658224c9c8fd5d9d6",
+        "git_blob": "239b28e8d564edc0e8ae54ebaa06872060c8fd1b"
+      },
+      "Examples/RandomQuickSortMean.lean": {
+        "bytes": 5733,
+        "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670",
+        "git_blob": "2a1f75a801b49ea6a3bdbaecfc7b8e4a5407e38e"
+      },
+      "Examples/RandomQuickSort.lean": {
+        "bytes": 8255,
+        "sha256": "4f5a21d1656423ac1307b1ca8fe651cd794d70da576ecd14f65d68cc290c424d",
+        "git_blob": "9c3608babafebadb470c9e1254fa8bbd15c5ad76"
+      },
+      "Applications/Resources/RandomQuickSort.lean": {
+        "bytes": 23601,
+        "sha256": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2",
+        "git_blob": "99b1b19cbfb6e6dc875e46cdc338bf4a518674fc"
+      },
+      "Applications/Resources/RandomQuickSortMean.lean": {
+        "bytes": 16517,
+        "sha256": "2c7976bf52a2dbed2eb6eb959055acc7ae0df8319c167f0128b63e5c482bd5d3",
+        "git_blob": "a9ce110d5aca6f04cc8d68cfd1ef5238832dbc0a"
+      },
+      "Applications/Resources/RandomQuickSortRank.lean": {
+        "bytes": 19646,
+        "sha256": "11a3eab707a445f1a205567845485c023e1eddf99358a06bfcd3a19a0a2c66ed",
+        "git_blob": "691d5f4aebc513566813d35891f5bb749dc8d1e8"
+      },
+      "Examples/RandomQuickSortGrowth.lean": {
+        "bytes": 10033,
+        "sha256": "372d0fad2f5a77f0c9c97e6b2004036ab1b922a2a80f623784011381905ab3a1",
+        "git_blob": "f9e153715b0ad68d3eac30f1dc0c2b986475a148"
+      },
+      "Applications/Resources/RandomQuickSortGrowth.lean": {
+        "bytes": 9896,
+        "sha256": "2b8bf7b4820790edaaa5726efb8e8bd8bccd3a30cb30388148d95bba00e63674",
+        "git_blob": "ecad03eedc57c3bc75e19172eb4941bef9a3faf6"
+      },
+      "Examples/QuickSort.lean": {
+        "bytes": 7164,
+        "sha256": "2e5e4952bae8edf1fd5985f0cfd40993363a2f642717d61161a2e5ee6835a162",
+        "git_blob": "376371a0a74a54c8aaaaf653d4528af347347018"
+      },
+      "Examples/NaturalRunOperations.lean": {
+        "bytes": 16095,
+        "sha256": "7db50231ecbcdf3e63ff20475b0def2af0e855b70c367cc49235edb730b44f90",
+        "git_blob": "bbb89270f236ce467da85bc177c06882b4f9d6e4"
+      },
+      "Examples/DifferenceListCosts.lean": {
+        "bytes": 9299,
+        "sha256": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1",
+        "git_blob": "33fd3bec15f8c9b7c3078b45d90c24d7df0c1df2"
+      },
+      "Applications/Resources/DifferenceListCosts.lean": {
+        "bytes": 10061,
+        "sha256": "f99420b831dff2d0f5fcc3dac1001937942b87c78b710b79f94fa941ab972b01",
+        "git_blob": "b87222f7c0eb0aafc60031864ca815c2e65fc457"
+      },
+      "Examples/NaturalSortingCosts.lean": {
+        "bytes": 10506,
+        "sha256": "4b6c3fd9c359b31b01f13c5bdeee6b9fc7ccd82ab172f7d6bb5491410379441a",
+        "git_blob": "df34eef25210991ab4ed4c31dff13afb9ffb88ca"
+      },
+      "Examples/BottomUpCosts.lean": {
+        "bytes": 11973,
+        "sha256": "12572e3395c681b18f266374732eb63b059a13eb0f76aef25400aefa8d54a136",
+        "git_blob": "cd02cf29cdfa1c5a0b2db9340603e348c7f4475e"
+      },
+      "Examples/BottomUpSorting.lean": {
+        "bytes": 8304,
+        "sha256": "1d4a312363af87926c085f790ca7279273df050f40234c449e0e0fa9e5b5592b",
+        "git_blob": "8acdca99b63ebd22b6fd6dbefd37aa3f54f2d25c"
+      },
+      "Applications/Sorting/BottomUp.lean": {
+        "bytes": 19856,
+        "sha256": "4df83022174bc4e5becfb441617624d57695158d69dc7241209ca077dc2c7791",
+        "git_blob": "41d69c71ffeb337684f397e5e35310cf697ba4d3"
+      },
+      "Applications/Resources/BottomUpSorting.lean": {
+        "bytes": 23175,
+        "sha256": "74cc812fb1f1706621daeb1c51512a9ddb3d85dc57a36589aafe96e8514a6826",
+        "git_blob": "f141f4393d52e1061feaa2e57149cdea02085555"
+      },
+      "Examples/NaturalRunComparisons.lean": {
+        "bytes": 4753,
+        "sha256": "9d4dfe317e1af9ee894385ba3478c0ede17de1e713cc7090b120a4d2ab708f8a",
+        "git_blob": "3db23a5aedf55911f686bd66d3bc63abd67fd09e"
+      },
+      "Examples/NaturalRuns.lean": {
+        "bytes": 8415,
+        "sha256": "ef0ed6bbc5beb40815f977e80c0b99b0633e8503b0b1634747d41275cb3f6041",
+        "git_blob": "83f5d1b1d719fd844c8e2d1920c230a8cfebdef5"
+      },
+      "Applications/Sorting/NaturalRuns.lean": {
+        "bytes": 25272,
+        "sha256": "123c711b5f0cf05074155f3a0d9ae076aa80a8be482e7e6fc77626aa9db6fb1d",
+        "git_blob": "5590b9aeb9f93670602774360e87a374db8228a7"
+      },
+      "Applications/Resources/NaturalRunComparisons.lean": {
+        "bytes": 13562,
+        "sha256": "920e1832416afcdc47a0c2301c2e27c7cd5f0c614a209c8dea21fc2561d809b0",
+        "git_blob": "1ac499d0e87a2d7e91401c90ed01be4a1cbff1f3"
+      },
+      "Examples/NaturalSorting.lean": {
+        "bytes": 5928,
+        "sha256": "69cc14a5f40421076a3af3f8066c0bf2b20678d11f4cbc5e3eefab8454fdbf57",
+        "git_blob": "cf0dcd57dcf7dabc059874a074d1f902c597078b"
+      },
+      "Applications/Sorting/Natural.lean": {
+        "bytes": 5528,
+        "sha256": "e4b27eb275e9509b205da7ae25dd7829e664eb47617cb1602e6114eb5d264493",
+        "git_blob": "c026d784e2397e61b9b2848c6867f5b145a019eb"
+      },
+      "Applications/Resources/NaturalSorting.lean": {
+        "bytes": 13059,
+        "sha256": "bfca759cd0f1014d39824bdcb124a3a0b33d1459be2cc4635739965382a50e7a",
+        "git_blob": "d80f1a8f8f5c076cbe763c8a62a4942d267e8b86"
+      },
+      "Applications/Resources/NaturalRunOperations.lean": {
+        "bytes": 29855,
+        "sha256": "ccbe8f58dd53cbfaa4600780d5d8a2a78da994ba33c3d6edaa3098446d1f09eb",
+        "git_blob": "b6b63bd2714a74c4c66e2ec32b860f7107bb727a"
+      },
+      "Examples/MergeCosts.lean": {
+        "bytes": 23410,
+        "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466",
+        "git_blob": "b5f652cf5258c99f5a615b12987c664ed8be3d76"
+      },
+      "Applications/Search/LeftistQueue.lean": {
+        "bytes": 13036,
+        "sha256": "14a0d1130e04e2576dea2abb452823b5504cdbac9dbc1010f15a2f327c6bc378",
+        "git_blob": "2c50f5e181ea29d4032f0ae8fec4dd33f30c94f0"
+      },
+      "Applications/Resources/CallComparison.lean": {
+        "bytes": 5498,
+        "sha256": "8d6d9324aa9dc71ceeaeaa04073f0f2a4f721a309995f0b623650bb19f01b520",
+        "git_blob": "af658c10d82dbae6ee1cf65fe5e8ecf56b6ba9f5"
+      },
+      "Examples/ListLibrary.lean": {
+        "bytes": 6761,
+        "sha256": "036cf4c12ddf5d25ce433d9f7dbedfcbb96dfc3c7f602d10605388d2791e47ad",
+        "git_blob": "99ba369997885e176bbda192ee0feb5c7bf4d034"
+      },
+      "Examples/ListCalls.lean": {
+        "bytes": 4333,
+        "sha256": "24d0809f51d04b0a9cadb5a349141e7327a5f7721f63c1021113527917487d5d",
+        "git_blob": "b4c4683ee2bd16ff6f844ce757470515847a63dc"
+      },
+      "Examples/InsertionObservations.lean": {
+        "bytes": 10998,
+        "sha256": "29ba454b380ab837133863318611b059bc0af385008667d60c410ddedb7ba0f1",
+        "git_blob": "c164f9c2b150ae3a25dc731846d692b2f36f6e1e"
+      },
+      "Applications/Sorting/InsertionObservations.lean": {
+        "bytes": 3325,
+        "sha256": "e537e85fa7d06db4e3030fbac3ad2123dfa295158ee87480ece9c47a56ee5add",
+        "git_blob": "3be66c5841da1fee074b9bbc5dc784f34c9a846f"
+      },
+      "Examples/InsertionCosts.lean": {
+        "bytes": 3862,
+        "sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37",
+        "git_blob": "1c3de9b0a0a5f27f108de09f28f6ac55f4cddb36"
+      },
+      "Applications/Selection/Rank.lean": {
+        "bytes": 3713,
+        "sha256": "4a82df75593d909e2968bf1e27cbfea52c9795abfe81250bb2385e7dfc16f965",
+        "git_blob": "3412cfa142e12d9a50c725661c6ce133609a3d0c"
+      },
+      "Applications/Resources/InsertionSort.lean": {
+        "bytes": 7257,
+        "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+        "git_blob": "d51ea6e9845378d3f7667adee189f8a210b477ed"
+      },
+      "Examples/FunctionalNotation.lean": {
+        "bytes": 8277,
+        "sha256": "fe4b585a6753110dee67c1942ce68d16d9bf00feb5946f32791682c634c42eef",
+        "git_blob": "3e5db8677c94bd330779522f92bc39508540a17a"
+      },
+      "Examples/FunctionalBasics.lean": {
+        "bytes": 3381,
+        "sha256": "f9d141719675eaaf1a09bcfabf1a0e79cc2f68f89406a2229233b71a8d1bae3d",
+        "git_blob": "bdd58014ed1f3ca284e4ba44155da946c65de866"
+      },
+      "Applications/Arithmetic/EuclidInduction.lean": {
+        "bytes": 1069,
+        "sha256": "1195a850cc25d518c50f6f6133da87f5d4fcffd264ea3c687c67b5dcc34abe3e",
+        "git_blob": "0c4d03bcd60641cabb821ad5bfc1f6763656dc54"
+      }
+    },
+    "local_compiler_objects_and_traces": {
+      ".lake/build/lib/lean/Examples/UniformQuickSortMean.olean": {
+        "bytes": 475136,
+        "sha256": "f4bfda02c8f225e54ae0417947dedbf4a4ac411040cf18ae5bf4a4d4c60fea71"
+      },
+      ".lake/build/lib/lean/Examples/UniformQuickSortMean.olean.hash": {
+        "bytes": 16,
+        "sha256": "e823d1b177c8e54dbd73e87bafb3154c13841f7d475e25dcf100086fa370a49a"
+      },
+      ".lake/build/lib/lean/Examples/UniformQuickSortMean.trace": {
+        "bytes": 3911,
+        "sha256": "d7f534c5e65a0a6590d52c04b1cf9a3eba8c54cf80421c33feb2687cf09651ef"
+      },
+      ".lake/build/lib/lean/Examples/PermutationTail.olean": {
+        "bytes": 168208,
+        "sha256": "4adbf0c2cb53fae46f1f70797c7ced8fbcbdb6f365fc94a80c64a542c9fd1cc7"
+      },
+      ".lake/build/lib/lean/Examples/PermutationTail.olean.hash": {
+        "bytes": 16,
+        "sha256": "eb8a45c341d581bb152e7fd4cf9d10702a3fab14e29aa86d4da2646178b35e72"
+      },
+      ".lake/build/lib/lean/Examples/PermutationTail.trace": {
+        "bytes": 3725,
+        "sha256": "65c2880c63c02d6f54f5596da21f05ac744649f78dbaf85b9a0f40e6815eabc2"
+      },
+      ".lake/build/lib/lean/Examples/PermutationTailBoundary.olean": {
+        "bytes": 255912,
+        "sha256": "c11a35ec43b7ef00282b5878addeb9d49468d636a6ff0b8756911cc86bdb474f"
+      },
+      ".lake/build/lib/lean/Examples/PermutationTailBoundary.olean.hash": {
+        "bytes": 16,
+        "sha256": "92119bdf7f5f41e23c57d4317406f48b8950e55bae8dc2d43978bb2e1e4e9eab"
+      },
+      ".lake/build/lib/lean/Examples/PermutationTailBoundary.trace": {
+        "bytes": 3604,
+        "sha256": "7101fe2c0e8c7e2d250f4fc9df82e41d3dd22e715efdca9a40557c3ed1e52eb3"
+      },
+      ".lake/build/lib/lean/Examples/PermutationOrder.olean": {
+        "bytes": 253120,
+        "sha256": "60c38eaa8cc90bee8493391507ffadabd91d51c41871ff0467eb90856169c592"
+      },
+      ".lake/build/lib/lean/Examples/PermutationOrder.olean.hash": {
+        "bytes": 16,
+        "sha256": "854d32542630827d3bd8695e8cd2a34f02924689262c5af58a71a210e67dc8ac"
+      },
+      ".lake/build/lib/lean/Examples/PermutationOrder.trace": {
+        "bytes": 3573,
+        "sha256": "53962e387630ddf532068be330cbb315ebb73b08e229f70fc08416106e8d9d5b"
+      },
+      ".lake/build/lib/lean/Examples/PermutationOrderBoundary.olean": {
+        "bytes": 214648,
+        "sha256": "ed3bf03610689f049f237a4b52f8356b37c206226031a20b37ba47ff9c806e15"
+      },
+      ".lake/build/lib/lean/Examples/PermutationOrderBoundary.olean.hash": {
+        "bytes": 16,
+        "sha256": "4cf3dd334a28abcbe173d04560aff2b4c8e123f9665adc95d26a635d59d74a22"
+      },
+      ".lake/build/lib/lean/Examples/PermutationOrderBoundary.trace": {
+        "bytes": 3617,
+        "sha256": "48edb75f8130c5af43c0406e276f08e3ba46415601f2963077a2a96879cac5b8"
+      },
+      ".lake/build/lib/lean/Examples/PermutationMinimum.olean": {
+        "bytes": 179968,
+        "sha256": "5c8a2c931db29f34097acd84cb8aff80871a2be6da96b9af10af36f10aca22ee"
+      },
+      ".lake/build/lib/lean/Examples/PermutationMinimum.olean.hash": {
+        "bytes": 16,
+        "sha256": "d6136436dbcfa1022e9365c4375c3ac6603b630bb7b2404eb808d91873c7b705"
+      },
+      ".lake/build/lib/lean/Examples/PermutationMinimum.trace": {
+        "bytes": 3595,
+        "sha256": "130cb1e07070593f284304e324d7a22bde8b9b039a4c01431941b5c4d6ff0a3a"
+      },
+      ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.olean": {
+        "bytes": 99896,
+        "sha256": "e12c3ec20f45b8397a74b65eadc9a05fd091360677e8ce66ef7201a41f011486"
+      },
+      ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.olean.hash": {
+        "bytes": 16,
+        "sha256": "2148d36a7bc7c7b7eac76d4585f7086cfce013f13b34350aa350b345e0e1ece8"
+      },
+      ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.trace": {
+        "bytes": 3493,
+        "sha256": "37c4224bd92974603c2acb9e1f148e6a0c66af3cc3132b025879c83658c1141f"
+      },
+      ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.olean": {
+        "bytes": 167152,
+        "sha256": "2e0187ad4fa62add7b64ebceb3c45b3481f341a0c6547bb1115b53b0f3bd3dd2"
+      },
+      ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.olean.hash": {
+        "bytes": 16,
+        "sha256": "885771b6aaeb40bacccc7d9b0947f773f035abc860702152133d3e2f77419073"
+      },
+      ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.trace": {
+        "bytes": 3828,
+        "sha256": "3ddc2e03c348b01cbaa26249a8dd0d0ceeb0faf84cbd5de6c05d0cd12b474fdf"
+      },
+      ".lake/build/lib/lean/Applications/Probability/PermutationOrder.olean": {
+        "bytes": 288456,
+        "sha256": "053bb6fbf436d47d332e05b0369b2c3858da000466af5558a1e141806b47e93f"
+      },
+      ".lake/build/lib/lean/Applications/Probability/PermutationOrder.olean.hash": {
+        "bytes": 16,
+        "sha256": "0740f9c0f1e7591c4fd0b4797da500151784112b1ad6e27b15d57eeb1e936720"
+      },
+      ".lake/build/lib/lean/Applications/Probability/PermutationOrder.trace": {
+        "bytes": 4979,
+        "sha256": "f7bd3a03d26ee7da88633798236d679421be3eb4a4a26b04626d3b1a1a1b6d66"
+      },
+      ".lake/build/lib/lean/Applications/Probability/PermutationTail.olean": {
+        "bytes": 341760,
+        "sha256": "1ca2beb842c8e09237543e78d682834e9d6113eaa85dd5785634cba4aee17878"
+      },
+      ".lake/build/lib/lean/Applications/Probability/PermutationTail.olean.hash": {
+        "bytes": 16,
+        "sha256": "4f9365d01acb563e19f228b2856e40ab930c8c0454a29155f7de5e708877dc9b"
+      },
+      ".lake/build/lib/lean/Applications/Probability/PermutationTail.trace": {
+        "bytes": 4278,
+        "sha256": "e9df9b64915f1b20d53c119ed4acdd1f16c24656bc833e169de9565058cfcef6"
+      },
+      ".lake/build/lib/lean/Examples/QuickSortTransport.olean": {
+        "bytes": 141264,
+        "sha256": "224bbedcfe3958ac498104fd1208cede7b103f1ba986597df2f113e5e1f5d07c"
+      },
+      ".lake/build/lib/lean/Examples/QuickSortTransport.olean.hash": {
+        "bytes": 16,
+        "sha256": "0decddca7daa0f81f3c47dbccecf56319dce0b4e187a9afb47c3397264b529cd"
+      },
+      ".lake/build/lib/lean/Examples/QuickSortTransport.trace": {
+        "bytes": 3431,
+        "sha256": "87426b7867a2319a1c058cbffcd5abbabd1053f7ee6699ae87683caf5378fa23"
+      },
+      ".lake/build/lib/lean/Applications/Resources/QuickSortTransport.olean": {
+        "bytes": 63568,
+        "sha256": "d99e539ea4e8ad164fa5b5df7553c873ca5bf3539a8d0cc84ce59a984eef2b32"
+      },
+      ".lake/build/lib/lean/Applications/Resources/QuickSortTransport.olean.hash": {
+        "bytes": 16,
+        "sha256": "8692918545621844aec2bdfc0cb36acf038dc4cce766d8a1285b44c8011ce46c"
+      },
+      ".lake/build/lib/lean/Applications/Resources/QuickSortTransport.trace": {
+        "bytes": 3357,
+        "sha256": "457e1e112990d18e5e2c1be2b455c6e9efa93ef50662dd78b866cee233a612e4"
+      },
+      ".lake/build/lib/lean/Applications/Resources/QuickSort.olean": {
+        "bytes": 1362592,
+        "sha256": "d19333cf2573bda7bed33796b47c4cfdd9bc5814e006885bf47825b21ddcc98f"
+      },
+      ".lake/build/lib/lean/Applications/Resources/QuickSort.olean.hash": {
+        "bytes": 16,
+        "sha256": "ea9e73e19f69c46d1efbc77e7ebf4ba879d8a7480d8e5840783f48feca515081"
+      },
+      ".lake/build/lib/lean/Applications/Resources/QuickSort.trace": {
+        "bytes": 3799,
+        "sha256": "94b4c6d4b9916551c140bea7cfb2c3b7128652aead98e7a197aa67a3da4caf50"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/QuickSort.olean": {
+        "bytes": 444240,
+        "sha256": "2ab7497110b7d721542ff2a3b7b4e1431b92bae90eab7a81d504fa2b48aea822"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/QuickSort.olean.hash": {
+        "bytes": 16,
+        "sha256": "b647e8b4cbfea79ac28a9b89d6f379802257148e6aeaf9254f14a82ba0dacce0"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/QuickSort.trace": {
+        "bytes": 3260,
+        "sha256": "140934b018cf9eb7a1996df638e1f7eced5058e77512230c250285870338fa40"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Stable.olean": {
+        "bytes": 129496,
+        "sha256": "0842f9b1bc736a483e38de996a9fb81f00127f3174f620e69bb44926018ee142"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Stable.olean.hash": {
+        "bytes": 16,
+        "sha256": "3dc7c5c3e03ada7495dbdcac8cf15acb3db77d68b02b73cb40dcccbe26791530"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Stable.trace": {
+        "bytes": 3229,
+        "sha256": "2ec8a02b27b91f6b68f158abfcd4bf02d402e58ceb35658826c4350a75351620"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListReversal.olean": {
+        "bytes": 356176,
+        "sha256": "c7028949e09b8ba16a425632e926e05d05d95e1269bf58ce94592789e91e784d"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListReversal.olean.hash": {
+        "bytes": 16,
+        "sha256": "e5d1d41628b6562ca131494c403a4d76cfcde25d99b317c9e2590a5742d5f06e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListReversal.trace": {
+        "bytes": 3862,
+        "sha256": "4aaf2927c3fdcfb9b7bccd78225a19b456f37a06283c196e50f1a10ef892bd3f"
+      },
+      ".lake/build/lib/lean/Applications/Resources/TreeFlattening/Core.olean": {
+        "bytes": 453376,
+        "sha256": "5428d250bfb434c546b1733053a6cc4463fce38bac8df519265ffd55e5227950"
+      },
+      ".lake/build/lib/lean/Applications/Resources/TreeFlattening/Core.olean.hash": {
+        "bytes": 16,
+        "sha256": "487c1b0638b3dbb7f09b91f484a9816d0da10f69bc71cd74c69fe06bd06c959a"
+      },
+      ".lake/build/lib/lean/Applications/Resources/TreeFlattening/Core.trace": {
+        "bytes": 3567,
+        "sha256": "e1caeaeb2610d1b2a63d3028964529beb58b47cf620fcd38ae417f981fa5bd69"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Measured.olean": {
+        "bytes": 89608,
+        "sha256": "e3bea04397592484406bb442881a4305dc230d2c1b908b1eef2613cb377d9bf7"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Measured.olean.hash": {
+        "bytes": 16,
+        "sha256": "f5b0f6171cb7ac85a0bdea0be7590639628917e6b37ee8ff2fad746de319cc29"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Measured.trace": {
+        "bytes": 3593,
+        "sha256": "96ed20fe45cec38d0868b51c25fe6fcf13f0ee939b69619317fd51d620f3aae2"
+      },
+      ".lake/build/lib/lean/Squares.olean": {
+        "bytes": 397408,
+        "sha256": "8f5981c72bfd62a0ec3a0ae74b5841269b10cb5dad2aedb8a269a9e229c21ffb"
+      },
+      ".lake/build/lib/lean/Squares.olean.hash": {
+        "bytes": 16,
+        "sha256": "69362eb3e35c4fcb6fc213839d6d07af9195fb0919454223fb2b2bc876597f31"
+      },
+      ".lake/build/lib/lean/Squares.trace": {
+        "bytes": 2951,
+        "sha256": "e65fce9e963b9d738d0a5237ba2dcb3b288f788773f1a85c857e01fe716f9756"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomAccess/CacheCosts.olean": {
+        "bytes": 142136,
+        "sha256": "5eb3433fbca959b6ff97cacc95998aa57461441d0f31c6d016addd4983764eba"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomAccess/CacheCosts.olean.hash": {
+        "bytes": 16,
+        "sha256": "68022b3348a42cc10b28570d375e4b5a27ffb58aad83cd4021c1bf0afd1f39b9"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomAccess/CacheCosts.trace": {
+        "bytes": 3418,
+        "sha256": "e836ff2b7f147c03418895dc4a7082a7aa58c7528ace11ea81983767584369a7"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/TreeBuild.olean": {
+        "bytes": 450880,
+        "sha256": "6cbafb5348fe73dd25021c36f6f295b942254c263fc5886f2bea2768e6aa1221"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/TreeBuild.olean.hash": {
+        "bytes": 16,
+        "sha256": "ed8ead5338a93838122ffb9c182ac1b1c74739c17b501a956d42e3e3fdcc85a4"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/TreeBuild.trace": {
+        "bytes": 3405,
+        "sha256": "4a05203783ce407930349c35d45c0d6977a358733d4fd855f4d97b65357adf71"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Borrow.olean": {
+        "bytes": 480776,
+        "sha256": "29b12915afb9a03eebd186f1c2c7c79ffc020a13b0d672327722370547c8a221"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Borrow.olean.hash": {
+        "bytes": 16,
+        "sha256": "0d112d9019f3225dd629537e9e6a825bc25dfabbbaa1193dba6b80afbde33e2b"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Borrow.trace": {
+        "bytes": 3384,
+        "sha256": "540296ce5be20ffe6db71077c34c9cc3725618002a296c649c50f788a7179f43"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Access.olean": {
+        "bytes": 418704,
+        "sha256": "caf60d8bcd8c840b24b69d3351acb866d4489701fe0c9cbdaab57ccbd55c5285"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Access.olean.hash": {
+        "bytes": 16,
+        "sha256": "6ee1f18f2da34f35519536efc90409cd721420853ef7c21c21ae272e85e01aa7"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Access.trace": {
+        "bytes": 3382,
+        "sha256": "a38185a79812b56ded3a990e02591d1b8eede9f48cf8fcf1161326b11b588de3"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Basic.olean": {
+        "bytes": 711720,
+        "sha256": "029b3eba80696e9e0ba2d41e0806cb91c988b586c025b3fd9060ad1307979ca8"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Basic.olean.hash": {
+        "bytes": 16,
+        "sha256": "1d83e8dc0bbbab8486209b38bb84c11a60c07546abba66413f203a1ed7521bd6"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Basic.trace": {
+        "bytes": 3344,
+        "sha256": "254bc7f39994f83101623de45f28e81d8abc1b07baaddcefdfcd60c2571b4ad7"
+      },
+      ".lake/build/lib/lean/Applications/Bracketing/Basic.olean": {
+        "bytes": 797384,
+        "sha256": "a534f9d2ab28e81ae0e4b8fa19212e662904317bb541cee92686c8b1837f7c16"
+      },
+      ".lake/build/lib/lean/Applications/Bracketing/Basic.olean.hash": {
+        "bytes": 16,
+        "sha256": "2d12556530ab9648c318752e6ea5a2761d147f0c2c13403c0dafa93fa9aebb0a"
+      },
+      ".lake/build/lib/lean/Applications/Bracketing/Basic.trace": {
+        "bytes": 3284,
+        "sha256": "7a6160d126ed0f151efe5f29109cebc8e2367af408880ce754376dabd357258c"
+      },
+      ".lake/build/lib/lean/Applications/Optimization/SelectionSpec.olean": {
+        "bytes": 12104,
+        "sha256": "4f560db127967d496643e5373024be3457d44272722cb779b7dc570ff58c3b77"
+      },
+      ".lake/build/lib/lean/Applications/Optimization/SelectionSpec.olean.hash": {
+        "bytes": 16,
+        "sha256": "664548325ab1f38739bd23bc5697ce7061b1ec803dc41b7987b89a1a8fa04a5e"
+      },
+      ".lake/build/lib/lean/Applications/Optimization/SelectionSpec.trace": {
+        "bytes": 3175,
+        "sha256": "f0d8bd9f7db7264add2e713a1cbdfa7b37cd0d8581c544c005c9bfc5664f059b"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SymmetricCosts.olean": {
+        "bytes": 1261488,
+        "sha256": "32c38c6a32129c5c00e08dc4dd706bed08a050cf7c1b04f6b73adebd6c893d79"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SymmetricCosts.olean.hash": {
+        "bytes": 16,
+        "sha256": "8c29ea5014a6f81ab4c26fa137697259959c272475f72d009b796ba427205cd5"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SymmetricCosts.trace": {
+        "bytes": 3513,
+        "sha256": "90919a692b14e901d2ac21e1da537c2acc55d596d5e6e377c81da02d7393fcc2"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Symmetric/Core.olean": {
+        "bytes": 738496,
+        "sha256": "9cc54bf89ee8cc6582227f83ab3b7103b0e62a85d6bf19b3861317aa79c92db1"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Symmetric/Core.olean.hash": {
+        "bytes": 16,
+        "sha256": "55c722abd8fd1d4ce8c8651e46fbdb4dfad5f0429f4a36e39b195cb32f7460fd"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Symmetric/Core.trace": {
+        "bytes": 3447,
+        "sha256": "bc0bbec900c2b5ebcdb9e51709f28cf5c90d8f773367186aa42cfd134097c80b"
+      },
+      ".lake/build/lib/lean/SquareKit/ListFusion.olean": {
+        "bytes": 62664,
+        "sha256": "d3714fec42b77b43ad8428a8ecf043ece8450d989816932cfb0bcc9dae55ef8d"
+      },
+      ".lake/build/lib/lean/SquareKit/ListFusion.olean.hash": {
+        "bytes": 16,
+        "sha256": "ab045300c1f09b867b44dc041ec3139c14ee809f071e4d2da4a75d5ab6bde2d3"
+      },
+      ".lake/build/lib/lean/SquareKit/ListFusion.trace": {
+        "bytes": 3182,
+        "sha256": "e1ed38b835bb9499c9ed1740f9409699405feccc4e5fa2d29b76dd01ff6fd2c5"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Potential.olean": {
+        "bytes": 239624,
+        "sha256": "ebaf838b961a9f44618e4cee6855dfaae9c89c285280c1209a33fe13d3ae65c7"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Potential.olean.hash": {
+        "bytes": 16,
+        "sha256": "2f8cea79e78d26caa7642fba3baed0e4a116146e36e6267b3cf4cb999797ac3a"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Potential.trace": {
+        "bytes": 3455,
+        "sha256": "a1988007401a85c403624e2741aa9cc23ffd4ff87e7830b9957f62801307f150"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Workload.olean": {
+        "bytes": 140248,
+        "sha256": "02cf7c619f5df5a9bd7a34b6a6e1d652d5ee0685f4dffd6b5cc2191a8b674529"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Workload.olean.hash": {
+        "bytes": 16,
+        "sha256": "e83a987c1a8c5be845f14583351ae9dc2691c283252942ed7a35144f6d0e1c37"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Workload.trace": {
+        "bytes": 3421,
+        "sha256": "c2de463f2e760c53038e53bf4df4a0b6dc9336a88f0313c07a9faf0c98ed1829"
+      },
+      ".lake/build/lib/lean/Applications/Resources/CallCount.olean": {
+        "bytes": 70784,
+        "sha256": "213261bb3cc47a6b79696c7e55b4aba27ffe452d29a2ebe8b63c278d8c7d46ca"
+      },
+      ".lake/build/lib/lean/Applications/Resources/CallCount.olean.hash": {
+        "bytes": 16,
+        "sha256": "3e6f69de38b1477145ca9e62d340fc376d494ecdf2baf44ee7dbb8a3242ede14"
+      },
+      ".lake/build/lib/lean/Applications/Resources/CallCount.trace": {
+        "bytes": 3282,
+        "sha256": "b329199e9abb638c364b44a70e74732cbc46e4e11d83a32e19bacd4597fa8f5b"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListCalls.olean": {
+        "bytes": 363912,
+        "sha256": "bea00d4617c486b329004a582a0c410a5c62fbf49591187fa62a4b9d13d174f1"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListCalls.olean.hash": {
+        "bytes": 16,
+        "sha256": "e7c1616656c600615aeb82b815a116d4377753654f1db1f6ba3ffec9d6f7414f"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListCalls.trace": {
+        "bytes": 3688,
+        "sha256": "4658c95439d902ac1cab0fa1b4b7822cd349e7e46992d5804ee4b33130a97704"
+      },
+      ".lake/build/lib/lean/Examples/QuickSortMean.olean": {
+        "bytes": 142096,
+        "sha256": "97a997ea09d66bd0eac3a2e7ede8d975f713118784192d4a79ec279300dca943"
+      },
+      ".lake/build/lib/lean/Examples/QuickSortMean.olean.hash": {
+        "bytes": 16,
+        "sha256": "5c87ee462f547ec3d34787e43038ef7c2e4eaf1329e2ffcca409266d83391c1f"
+      },
+      ".lake/build/lib/lean/Examples/QuickSortMean.trace": {
+        "bytes": 3229,
+        "sha256": "bfd16d0adb2fbb35d4e26e67bd9a6f7d70174bf7d0c7379a899ec2267106294f"
+      },
+      ".lake/build/lib/lean/Applications/Resources/QuickSortMean.olean": {
+        "bytes": 692776,
+        "sha256": "4d975b75fe0c41af7941e22f4e526e5a06cfcb32a2b47725c7838542ce7b00d2"
+      },
+      ".lake/build/lib/lean/Applications/Resources/QuickSortMean.olean.hash": {
+        "bytes": 16,
+        "sha256": "94855896d4384319f84a0d3ebe36b21d959ef4b9891c9a18c4700b4333374eed"
+      },
+      ".lake/build/lib/lean/Applications/Resources/QuickSortMean.trace": {
+        "bytes": 4677,
+        "sha256": "c2f69355027e9baf63c2e47a0c950293b6b4bda76ffde0d3af02b571c22bd9e6"
+      },
+      ".lake/build/lib/lean/Applications/Resources/UniformQuickSortMean.olean": {
+        "bytes": 1085344,
+        "sha256": "f3cc2dee7f6e97b0d723a9ccee05d2d1215041f42cad68423ca482a14d55a0c4"
+      },
+      ".lake/build/lib/lean/Applications/Resources/UniformQuickSortMean.olean.hash": {
+        "bytes": 16,
+        "sha256": "e43da9f087ba398e9aaf04342c0c08cd17d84d47b82baf213cf4496145031c0a"
+      },
+      ".lake/build/lib/lean/Applications/Resources/UniformQuickSortMean.trace": {
+        "bytes": 4850,
+        "sha256": "59d8f6252e099f7edb36aa31c0221350a17d968fa222e3733264083133e9e4f5"
+      },
+      ".lake/build/lib/lean/Examples/TopDownSorting.olean": {
+        "bytes": 91448,
+        "sha256": "88c37532f29b48d60b3f82b98d5b8089339e3cb82f6533f3f525efcee4aade2c"
+      },
+      ".lake/build/lib/lean/Examples/TopDownSorting.olean.hash": {
+        "bytes": 16,
+        "sha256": "ce31639acf1b524f8a3ee211ea411a38bf28eefd49522bcfa4caecd6c56f1ae7"
+      },
+      ".lake/build/lib/lean/Examples/TopDownSorting.trace": {
+        "bytes": 3537,
+        "sha256": "50b6757f0ed184e6affb868f1d576ecd2e67797aa2d6059af4844189bfcf8394"
+      },
+      ".lake/build/lib/lean/Examples/StableSorting.olean": {
+        "bytes": 160512,
+        "sha256": "0fb9e6ef3eb5bba567fa18607219a307e6116aa833d2a3d83bd31791fba19b20"
+      },
+      ".lake/build/lib/lean/Examples/StableSorting.olean.hash": {
+        "bytes": 16,
+        "sha256": "3d77e88308bbda0bc8ac8dae6880f78f7db2617a6bcde0def11d24ad4069bcce"
+      },
+      ".lake/build/lib/lean/Examples/StableSorting.trace": {
+        "bytes": 3384,
+        "sha256": "777f37ef8140d5ec8851cb34e513204408462423ac7dba9318eb65ff46c57edc"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/SourceMerge.olean": {
+        "bytes": 219944,
+        "sha256": "534b53faa6e4fc8a56df5c340fe105f4b5ceeef6d8af48ebd6f741c1fe6211d7"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/SourceMerge.olean.hash": {
+        "bytes": 16,
+        "sha256": "caa14e5e143ab877db2c7e3319d9542601b80aaa41a2d2d3ad3d6db576a43584"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/SourceMerge.trace": {
+        "bytes": 3272,
+        "sha256": "0af57f7cccce9d87ba6029a7474d2398269ab0fc670a415272ee7c30f1623dc1"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Merge.olean": {
+        "bytes": 393368,
+        "sha256": "83b7eaa55a1cd25df709f2957bce1be04e84e2e4d4b2ece3cf3a25691123563d"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Merge.olean.hash": {
+        "bytes": 16,
+        "sha256": "8a19c7d6ae1871a046f6e9ac3311e8cb5c9f003dc91a40aa6c445e91548652f9"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Merge.trace": {
+        "bytes": 3232,
+        "sha256": "f97444cbb17482f22763acfcac167070d6a4b25c0a3cf96f5c2778e05d819308"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Sort.olean": {
+        "bytes": 272768,
+        "sha256": "966642767ebe319010dfd4179f6ca5f88be1b9ff6af8f2ba219e5f9c885959b6"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Sort.olean.hash": {
+        "bytes": 16,
+        "sha256": "552d791129b22cdc418a9c7db94917344b329de3791801f4a89c0323141183da"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Sort.trace": {
+        "bytes": 3223,
+        "sha256": "8ef1d6190a44281d50895a68ff0d37c819c325abcfc041822fc7b0e439fdfce3"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/TopDown.olean": {
+        "bytes": 275400,
+        "sha256": "c165174a4b8d1f4c99526f140814698b28d379ec51629b860e12de180149d243"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/TopDown.olean.hash": {
+        "bytes": 16,
+        "sha256": "4bcf9c3319873416b0a737a15d536b7734bba29c4e5332169eb2baa72ce34314"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/TopDown.trace": {
+        "bytes": 3242,
+        "sha256": "631323ecb9db0cf544c5b4edd1e574c3a029c917ce4e9a8bd5a82cf8547bf334"
+      },
+      ".lake/build/lib/lean/Examples/TopDownCosts.olean": {
+        "bytes": 194464,
+        "sha256": "8d910263b6a484e6604a1b7d3d335d8900dd5492c430b4d05bc6994caeadae2b"
+      },
+      ".lake/build/lib/lean/Examples/TopDownCosts.olean.hash": {
+        "bytes": 16,
+        "sha256": "1f9840d4d1a0cf54da2f6be970a4713cebf70d638f8101b0bce3ddeb82065b19"
+      },
+      ".lake/build/lib/lean/Examples/TopDownCosts.trace": {
+        "bytes": 3224,
+        "sha256": "564fdcbc1d9d2feb4b52caf2469db7ac824eebef548ddf7b42ebcf84e632131e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/TopDownSorting.olean": {
+        "bytes": 532032,
+        "sha256": "53e5a0d4b2fedf496995abbdd4e5143c75309bc5cf256ff4338283df06880e32"
+      },
+      ".lake/build/lib/lean/Applications/Resources/TopDownSorting.olean.hash": {
+        "bytes": 16,
+        "sha256": "e6e3830f2d31811314d116948ecc1e2f36c8523c84f3fee3ac7fe82efe775cbc"
+      },
+      ".lake/build/lib/lean/Applications/Resources/TopDownSorting.trace": {
+        "bytes": 3805,
+        "sha256": "f09a7821320adad647fa9bbf20792176e3d88cf80781fa8ecf658da7178022ba"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Growth.olean": {
+        "bytes": 123136,
+        "sha256": "06d76f1878578b42e760c5e2176d8ebd02099f41da21aad6ff2431fffd0749df"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Growth.olean.hash": {
+        "bytes": 16,
+        "sha256": "ed72953f3aa1fbf1c1f13df1c377283086fb122eee331a93067f05e3a9ee473c"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Growth.trace": {
+        "bytes": 3968,
+        "sha256": "caee3e97fa18a206dfacef829cb128c1287f2f6a91033f383fe07db2d3d0cdb0"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListMerge.olean": {
+        "bytes": 413344,
+        "sha256": "9bd06bdc8f3fa51a25764c7c32817d216d3126515ee2723b2de63d03d2ead55b"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListMerge.olean.hash": {
+        "bytes": 16,
+        "sha256": "7e948e7e166c9f9fe75fc81e007974c6bca43bed88cc28f1a41180fda2a4a91a"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListMerge.trace": {
+        "bytes": 3468,
+        "sha256": "00c2c7bed92516a87a809b57d0f2e7f51e55bebdd6f3b535680d62b5b8aad7fa"
+      },
+      ".lake/build/lib/lean/Examples/RandomQuickSortRank.olean": {
+        "bytes": 385000,
+        "sha256": "e90f0baae1ce53ef61d50ca97f7ec6eb3852a3debe6445cfc03ac3113b24fba7"
+      },
+      ".lake/build/lib/lean/Examples/RandomQuickSortRank.olean.hash": {
+        "bytes": 16,
+        "sha256": "228df4f2e67209aa2a8784c6d3d47da96a02326fb842fd30df441d5654ebccd8"
+      },
+      ".lake/build/lib/lean/Examples/RandomQuickSortRank.trace": {
+        "bytes": 3768,
+        "sha256": "ead32004df5707ff5c7c824e2792aaa64570152b0d5b0c65313166b1b36f943c"
+      },
+      ".lake/build/lib/lean/Examples/RandomQuickSortMean.olean": {
+        "bytes": 311480,
+        "sha256": "2a54d137128f3f975898a6aaec4c8dd950cfa245d9aa46fd6d6559bbed27ebec"
+      },
+      ".lake/build/lib/lean/Examples/RandomQuickSortMean.olean.hash": {
+        "bytes": 16,
+        "sha256": "64fdb7870323cea907cef67f317aff7972b5fe793c443e696a96292f36e0d889"
+      },
+      ".lake/build/lib/lean/Examples/RandomQuickSortMean.trace": {
+        "bytes": 3827,
+        "sha256": "92aa9d3f7e5e4cee0fbc580287e89fec299de2cce1f6edb5990b11d3d5814d29"
+      },
+      ".lake/build/lib/lean/Examples/RandomQuickSort.olean": {
+        "bytes": 623600,
+        "sha256": "9557eb11f7999d3eaa8e27c4e686392fcd8d48942cad6f479c9dc80afeb34fa9"
+      },
+      ".lake/build/lib/lean/Examples/RandomQuickSort.olean.hash": {
+        "bytes": 16,
+        "sha256": "507f81ac0033a8c11fb1566e7eb1b60de30c8cfa5acac92b9954e15cd4191922"
+      },
+      ".lake/build/lib/lean/Examples/RandomQuickSort.trace": {
+        "bytes": 3563,
+        "sha256": "5fca3d964817274a34116bf352dcf9b6d365320ee3050acb24b1a62dbb790889"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSort.olean": {
+        "bytes": 1348720,
+        "sha256": "9c34ceafd606d54ba2cf7d4d2fbb4655c9f96292036e075aa5ce101314d072d5"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSort.olean.hash": {
+        "bytes": 16,
+        "sha256": "2e2fc4a8eeca0736d550d7c4ae58f528d2fa3c47708258e9073cbad29c147f9b"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSort.trace": {
+        "bytes": 3923,
+        "sha256": "e33e094961e90a798d28e9d5a17ed650041a88ec135628ed2d9c3696e149ef00"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSortMean.olean": {
+        "bytes": 341040,
+        "sha256": "c035c2683eb740d5961eeb4d1a90590b4549f1ee6dfa0707bf3612239a2b360e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSortMean.olean.hash": {
+        "bytes": 16,
+        "sha256": "3c1c1136cc98a7a25b79e09bb9ac41473a6b275572238bc9981ccdcde1a834b0"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSortMean.trace": {
+        "bytes": 4208,
+        "sha256": "446b891ddbb1d0c2cd01532ff0cfe18913fcf6de385fd2cbe1daff10901bc176"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSortRank.olean": {
+        "bytes": 523392,
+        "sha256": "4fb4d0ddd0885a0924361d518daf3865c93268832bf153cf877b478deac45912"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSortRank.olean.hash": {
+        "bytes": 16,
+        "sha256": "3e31b9f6d981d4deaccbffe40a33db8c257bfa119fb505a07b323cee41a7da32"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSortRank.trace": {
+        "bytes": 4682,
+        "sha256": "5461db8492260d148184aa67bbcf79e1f5be2eee02c56589ef81b3249fd7311c"
+      },
+      ".lake/build/lib/lean/Examples/RandomQuickSortGrowth.olean": {
+        "bytes": 426624,
+        "sha256": "e568aab6c0a1ad36a1bfbcd66572472b4f149511ab0203418b6defaee6135167"
+      },
+      ".lake/build/lib/lean/Examples/RandomQuickSortGrowth.olean.hash": {
+        "bytes": 16,
+        "sha256": "deef97e9e6a549c5618145b9e83efefaa36ac8ceba96f7c91d92b2e1e82cd2f2"
+      },
+      ".lake/build/lib/lean/Examples/RandomQuickSortGrowth.trace": {
+        "bytes": 3301,
+        "sha256": "0c6a919230b3b99218a523341951fa4679077b0dcd32377e222e33c1e3d50b37"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSortGrowth.olean": {
+        "bytes": 183992,
+        "sha256": "7bb8a818a1a75953da272b2574b79ced032f4d41eb97d4eab96a3376d1f419d5"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSortGrowth.olean.hash": {
+        "bytes": 16,
+        "sha256": "dfdd2b06a26a60c3c48c61c4d82cd0c9177d05660cc2fff495b57146f02d5e21"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomQuickSortGrowth.trace": {
+        "bytes": 3784,
+        "sha256": "99f783df8ceccfdd0f7fd8ceaa0244a2184718af740f6efdfe885f76ac8e57cc"
+      },
+      ".lake/build/lib/lean/Examples/QuickSort.olean": {
+        "bytes": 221184,
+        "sha256": "e9ca42a7ba8465d8766ccc5715e8f9e8bb9500a74f09560f69e7c2c731632503"
+      },
+      ".lake/build/lib/lean/Examples/QuickSort.olean.hash": {
+        "bytes": 16,
+        "sha256": "ee4710458e879bc7a67120479f9c395c4187a0f0a32bbc999891d8594ee62863"
+      },
+      ".lake/build/lib/lean/Examples/QuickSort.trace": {
+        "bytes": 3351,
+        "sha256": "6c5f332664dd5b27269649d65c1db4fae70df86ce24081ec5cc01bac348f0ade"
+      },
+      ".lake/build/lib/lean/Examples/NaturalRunOperations.olean": {
+        "bytes": 305024,
+        "sha256": "a01a648d295f6fcab57c2e044e676dd59f0b89c0d7d42590dbd864b0bbd70373"
+      },
+      ".lake/build/lib/lean/Examples/NaturalRunOperations.olean.hash": {
+        "bytes": 16,
+        "sha256": "ce4dcbae964693816c998c345da861c0168c5bd4669600f4618a8ffbf6a43854"
+      },
+      ".lake/build/lib/lean/Examples/NaturalRunOperations.trace": {
+        "bytes": 3630,
+        "sha256": "7fb256c59fd33ce8767066b9a7ba8e3b8f40f06170e19325d0717063ca363bfa"
+      },
+      ".lake/build/lib/lean/Examples/DifferenceListCosts.olean": {
+        "bytes": 331112,
+        "sha256": "1ca04d90c01fd1b4526d380f2d22ba54fe62dba9b030c367051f7774d0ac8262"
+      },
+      ".lake/build/lib/lean/Examples/DifferenceListCosts.olean.hash": {
+        "bytes": 16,
+        "sha256": "f43808f981d90d4dc316f3b93a5ce9200b86c06b85027163104db8c779f08a78"
+      },
+      ".lake/build/lib/lean/Examples/DifferenceListCosts.trace": {
+        "bytes": 3440,
+        "sha256": "11337e919f998308d6cba098716502dee26dba36528cf32aed0cfc86a173ccac"
+      },
+      ".lake/build/lib/lean/Applications/Resources/DifferenceListCosts.olean": {
+        "bytes": 239184,
+        "sha256": "f878ccbb528e22705a6f00d0b24d5835707945e0f3a4189c8f3a5724332d73a7"
+      },
+      ".lake/build/lib/lean/Applications/Resources/DifferenceListCosts.olean.hash": {
+        "bytes": 16,
+        "sha256": "7062bef5a9431ded4ccd4641c320f497618215662e82e282b952b58ad767164b"
+      },
+      ".lake/build/lib/lean/Applications/Resources/DifferenceListCosts.trace": {
+        "bytes": 3699,
+        "sha256": "a9bb3d053ba905c775e7fbe9fbcf1b65d7065498bb183501b7bdc9e321b4b3af"
+      },
+      ".lake/build/lib/lean/Examples/NaturalSortingCosts.olean": {
+        "bytes": 223872,
+        "sha256": "58910abd89a86a3230cc7e686376166c098fa588869276d7c81e806dcb4ce1da"
+      },
+      ".lake/build/lib/lean/Examples/NaturalSortingCosts.olean.hash": {
+        "bytes": 16,
+        "sha256": "2469fed9b72e1373174b2a6c14d598c157f3cb08e4eac4b32b5d9650681afd0c"
+      },
+      ".lake/build/lib/lean/Examples/NaturalSortingCosts.trace": {
+        "bytes": 3762,
+        "sha256": "30a43ffc57a62fdb9993166144be6148ed8ba5869bc53ad20e98830ef396b15a"
+      },
+      ".lake/build/lib/lean/Examples/BottomUpCosts.olean": {
+        "bytes": 262616,
+        "sha256": "deef6292393e5b502e015d96e0e9686a6693d28589f0562c20795beae8598608"
+      },
+      ".lake/build/lib/lean/Examples/BottomUpCosts.olean.hash": {
+        "bytes": 16,
+        "sha256": "74644290fa58d71aa20d5ba507a5bce9881d46dcbaa02d51bb92185277205545"
+      },
+      ".lake/build/lib/lean/Examples/BottomUpCosts.trace": {
+        "bytes": 3394,
+        "sha256": "487240485a5d49218b1ab878e9e584a0535f3997f4ecb6954b62b8cdf8402074"
+      },
+      ".lake/build/lib/lean/Examples/BottomUpSorting.olean": {
+        "bytes": 184096,
+        "sha256": "3081a36b72d90de5d822687ae0d069d98872d1d720c143dd561199c66f51bdca"
+      },
+      ".lake/build/lib/lean/Examples/BottomUpSorting.olean.hash": {
+        "bytes": 16,
+        "sha256": "ffbd50beba4fb140ba1fb8da398e858fc9f0d27a13aa22792e6542f5af2d9da6"
+      },
+      ".lake/build/lib/lean/Examples/BottomUpSorting.trace": {
+        "bytes": 3379,
+        "sha256": "0986335d4d23a9087c7eaa8452671fe1513754402da0c2863c00fd521f5824e9"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/BottomUp.olean": {
+        "bytes": 651384,
+        "sha256": "a619964da5fb72855a3f2c6ff4965cce1ece5296478929ebb4891e807352cec9"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/BottomUp.olean.hash": {
+        "bytes": 16,
+        "sha256": "689afd51ec15eff5b4765a005ce4922916c6b08822d33e06f9d59c878b4af2cd"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/BottomUp.trace": {
+        "bytes": 3585,
+        "sha256": "8cf3ce9b89ba8e689fc3b1cc9af424bd637d11129cde9dedc64b282531b68ed0"
+      },
+      ".lake/build/lib/lean/Applications/Resources/BottomUpSorting.olean": {
+        "bytes": 678304,
+        "sha256": "b455b1a222dd31ea639ff284ae4ce5b351eae30e05c3d6a06a1019f35e39614f"
+      },
+      ".lake/build/lib/lean/Applications/Resources/BottomUpSorting.olean.hash": {
+        "bytes": 16,
+        "sha256": "16adc01e2bf735e49a67aaf8ec7ef5199b6e197ce8b8c8bcdeb3f377e38362a4"
+      },
+      ".lake/build/lib/lean/Applications/Resources/BottomUpSorting.trace": {
+        "bytes": 3814,
+        "sha256": "a0b13ab926dfea38aed84645ab9690a97de2a28abb47b0e84bf641719a29a5d3"
+      },
+      ".lake/build/lib/lean/Examples/NaturalRunComparisons.olean": {
+        "bytes": 58752,
+        "sha256": "6f0830f6a6d7f25520022a886daa917edd59777c9a2a62fbcdb09cb3683ab5a9"
+      },
+      ".lake/build/lib/lean/Examples/NaturalRunComparisons.olean.hash": {
+        "bytes": 16,
+        "sha256": "d4f74c3afd533d5974c6207f8c8dc786aff7f76846c4b0b809d0d0a51097ab2e"
+      },
+      ".lake/build/lib/lean/Examples/NaturalRunComparisons.trace": {
+        "bytes": 3447,
+        "sha256": "70e6378c87a71d8bf61ce5a84428137e419549b373ca48a962a80be774d2fc5d"
+      },
+      ".lake/build/lib/lean/Examples/NaturalRuns.olean": {
+        "bytes": 272424,
+        "sha256": "96478c008d700785f98e6d9e8eee2b30141a457b0f9c912bcef65e17f01b38c0"
+      },
+      ".lake/build/lib/lean/Examples/NaturalRuns.olean.hash": {
+        "bytes": 16,
+        "sha256": "998bc4756759348b0dd66e97d974e49ed221d18bfb8a48d4b19179f4cec22b1e"
+      },
+      ".lake/build/lib/lean/Examples/NaturalRuns.trace": {
+        "bytes": 3207,
+        "sha256": "2e257a049e5c56fb40c4966210f2b82a6d6d5606ffe8d88ee5d20c5febdd27ff"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/NaturalRuns.olean": {
+        "bytes": 1497120,
+        "sha256": "0023f25c59da24697d22556639ef1f571939c02e48a218ed6815e405c26e1a7a"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/NaturalRuns.olean.hash": {
+        "bytes": 16,
+        "sha256": "266f866c3836200b941c18ff6836e86e88e8af6107308b5b1faee5bb0ca80228"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/NaturalRuns.trace": {
+        "bytes": 3589,
+        "sha256": "14cbccff96897b1b6f1aa19d060913f3617f2274c8d92033e9d44f80b8718b3a"
+      },
+      ".lake/build/lib/lean/Applications/Resources/NaturalRunComparisons.olean": {
+        "bytes": 969304,
+        "sha256": "32567ed3d8335fb87b152278a4f4f76735f79fa441fcd3b2dd0bec6d8764210b"
+      },
+      ".lake/build/lib/lean/Applications/Resources/NaturalRunComparisons.olean.hash": {
+        "bytes": 16,
+        "sha256": "d696d6cccdbbba747952f6a53219f1d098c81ac20dd97c092615f621b63aa940"
+      },
+      ".lake/build/lib/lean/Applications/Resources/NaturalRunComparisons.trace": {
+        "bytes": 3555,
+        "sha256": "fda1d3fd5cc5a3c218b27801b5241713baf155a5fe736568755996373af422e2"
+      },
+      ".lake/build/lib/lean/Examples/NaturalSorting.olean": {
+        "bytes": 210360,
+        "sha256": "df92e3ca351f60a8a4882614ab059e7d982704f38dd3595a557668df10116884"
+      },
+      ".lake/build/lib/lean/Examples/NaturalSorting.olean.hash": {
+        "bytes": 16,
+        "sha256": "4edbfe7ca6db1ea3c108e4466759210d5aac821e22f5f9dab7cda20ae21805d9"
+      },
+      ".lake/build/lib/lean/Examples/NaturalSorting.trace": {
+        "bytes": 3359,
+        "sha256": "c5d5da7975792e0dbcef6bc46236d6a428c71f98b71b3f2e168f31a8a956c9e0"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Natural.olean": {
+        "bytes": 100600,
+        "sha256": "4754cff40a83f60baa374fc8c82fd041ab86db6e906c7b1bc392427e3353fa5b"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Natural.olean.hash": {
+        "bytes": 16,
+        "sha256": "0baceaec98b3adcde0938929d4a54118a6baf0de725e6916f8117d086f5405fb"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Natural.trace": {
+        "bytes": 3427,
+        "sha256": "aba6fe0bb04e6726dbd0a062f0b8b1a1e457d279de70e2c5c87551098ba7f280"
+      },
+      ".lake/build/lib/lean/Applications/Resources/NaturalSorting.olean": {
+        "bytes": 249760,
+        "sha256": "a0873b39bd84401974ea0fb2c74bc9d0ec99ee7293efc719e7e397d611d3114b"
+      },
+      ".lake/build/lib/lean/Applications/Resources/NaturalSorting.olean.hash": {
+        "bytes": 16,
+        "sha256": "caf3585e178cd282829dad91d94f39a7453e71977b06cba98264a96bada1775d"
+      },
+      ".lake/build/lib/lean/Applications/Resources/NaturalSorting.trace": {
+        "bytes": 3715,
+        "sha256": "459abe6b4e0a32b1712ccfe8967b7161f736335a7b8714c78b4c053183d83f79"
+      },
+      ".lake/build/lib/lean/Applications/Resources/NaturalRunOperations.olean": {
+        "bytes": 1647112,
+        "sha256": "b12c1dd13547af39b82caeb86ba37c3f0a9d43adcd10cddc51ba7ebc90c87d3e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/NaturalRunOperations.olean.hash": {
+        "bytes": 16,
+        "sha256": "6b1af296111b6fadcf0cd297f980ab958d8f1d042baec4a3604a1aeec4e6a380"
+      },
+      ".lake/build/lib/lean/Applications/Resources/NaturalRunOperations.trace": {
+        "bytes": 3585,
+        "sha256": "d9c07872e8a5c953847d5477f5790150a13cccde7fbcf1137ab84142911678c6"
+      },
+      ".lake/build/lib/lean/Examples/MergeCosts.olean": {
+        "bytes": 570976,
+        "sha256": "d2ec46a234b80d94fb2f16e1ce6b2bac869e24208fae97c136a091c78459d7ce"
+      },
+      ".lake/build/lib/lean/Examples/MergeCosts.olean.hash": {
+        "bytes": 16,
+        "sha256": "1bd4d11ace0dd421b3b0f88d4bef8393bd57d7a78bd20ee3d3c5fa79a38ffb1c"
+      },
+      ".lake/build/lib/lean/Examples/MergeCosts.trace": {
+        "bytes": 3890,
+        "sha256": "728e664418c31e36822df4b07290cd6f56e19f8c5038d226675c18dfc1d0bd12"
+      },
+      ".lake/build/lib/lean/Applications/Search/LeftistQueue.olean": {
+        "bytes": 1342648,
+        "sha256": "1ef386310b38b50c444b0d3b7adacd640eadf9a56168d8d5f597521c3f5eb913"
+      },
+      ".lake/build/lib/lean/Applications/Search/LeftistQueue.olean.hash": {
+        "bytes": 16,
+        "sha256": "3c18332b60f4b16313763a2ff25b0bc215fceee662ec2bb4bab747c60064cac7"
+      },
+      ".lake/build/lib/lean/Applications/Search/LeftistQueue.trace": {
+        "bytes": 3126,
+        "sha256": "048016966f287a419e9f988d2d1003647f49aebe45a9e060d5be890e403deee5"
+      },
+      ".lake/build/lib/lean/Applications/Resources/CallComparison.olean": {
+        "bytes": 171792,
+        "sha256": "014413b5fd98acd0a6ee86f784ee55d61b2dc7c9ae7fe01b59e22c24c5d8f422"
+      },
+      ".lake/build/lib/lean/Applications/Resources/CallComparison.olean.hash": {
+        "bytes": 16,
+        "sha256": "1073b681b242c2b41dff14966e090d3232170e6655fd3bfcc026cd1b97780025"
+      },
+      ".lake/build/lib/lean/Applications/Resources/CallComparison.trace": {
+        "bytes": 3884,
+        "sha256": "1b7b312e3e068e055ee9e88571d77e5eb29aa9d58e22e01b2e1a4a0018fdf3cd"
+      },
+      ".lake/build/lib/lean/Examples/ListLibrary.olean": {
+        "bytes": 142504,
+        "sha256": "265b39de282301e8033d75dcbab6234039f5f2241837db11fcb67d035820e285"
+      },
+      ".lake/build/lib/lean/Examples/ListLibrary.olean.hash": {
+        "bytes": 16,
+        "sha256": "8e5c4210f10e41264141d6737dc9fd7d9f205a72d89b8dc689edb5e2a97fe567"
+      },
+      ".lake/build/lib/lean/Examples/ListLibrary.trace": {
+        "bytes": 3667,
+        "sha256": "6f97acdc41fa88d634b8b5f641d5d082473ca3b14f503e6c5fff4f751e70a0d9"
+      },
+      ".lake/build/lib/lean/Examples/ListCalls.olean": {
+        "bytes": 135256,
+        "sha256": "59fa71737f9455b81598ed40b26bd27296ab0d5b1d23293693d6fff0173b83e0"
+      },
+      ".lake/build/lib/lean/Examples/ListCalls.olean.hash": {
+        "bytes": 16,
+        "sha256": "f19650c579f3686aff3e9d02cac9fc7440aad201a616851384b9e4585465533c"
+      },
+      ".lake/build/lib/lean/Examples/ListCalls.trace": {
+        "bytes": 3376,
+        "sha256": "9c76f22baaec3c9065f21e7c6e5e92a5ab6663477d8da3d238a1bbfccff7059c"
+      },
+      ".lake/build/lib/lean/Examples/InsertionObservations.olean": {
+        "bytes": 177336,
+        "sha256": "9d5e3640e4551e1b2ca127cd979bb68ddeb3b20c384fa0ae6ed019c08b0184cf"
+      },
+      ".lake/build/lib/lean/Examples/InsertionObservations.olean.hash": {
+        "bytes": 16,
+        "sha256": "cb63e577d814eb1774b040ba520e29ee2021f2e9b02897dd3afeea6f7bc9f968"
+      },
+      ".lake/build/lib/lean/Examples/InsertionObservations.trace": {
+        "bytes": 3627,
+        "sha256": "c087b77863c4385ed392a01fbca8248709cb072ae3e76e4e1fa65f93faa232a6"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/InsertionObservations.olean": {
+        "bytes": 47360,
+        "sha256": "e5ca2923f68629c18ec016ce958e5021e24f59543fedea195344138110c06e87"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/InsertionObservations.olean.hash": {
+        "bytes": 16,
+        "sha256": "f6c32ae3ed71e02670ea84b49998c8a96ee98762f74a6819a05811fa582f6d76"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/InsertionObservations.trace": {
+        "bytes": 3337,
+        "sha256": "e28242cf21c863fea0e637479e9a05633b225a7d893ae410ff793164f1821b78"
+      },
+      ".lake/build/lib/lean/Examples/InsertionCosts.olean": {
+        "bytes": 118320,
+        "sha256": "161a272596c30a48ad495508aa9890cf4a2d965e30c4471379cdc93aa56f4508"
+      },
+      ".lake/build/lib/lean/Examples/InsertionCosts.olean.hash": {
+        "bytes": 16,
+        "sha256": "aab8b9a5e687bc9fafab8c0893ade673e4a4e6185ed74a97d0f6b9efed360055"
+      },
+      ".lake/build/lib/lean/Examples/InsertionCosts.trace": {
+        "bytes": 3403,
+        "sha256": "425de8a9e8a2409d351a62e31ba9a8d072612ff28f565e300f762772ac584bd3"
+      },
+      ".lake/build/lib/lean/Applications/Selection/Rank.olean": {
+        "bytes": 183640,
+        "sha256": "bfc4207d6437b4114b90da3164a9b0b91cbc75db9e3725851372012aadf3fd85"
+      },
+      ".lake/build/lib/lean/Applications/Selection/Rank.olean.hash": {
+        "bytes": 16,
+        "sha256": "dd9a6719ceb26d125320f35713d142df888665d2288343586cc83cfabf4eb824"
+      },
+      ".lake/build/lib/lean/Applications/Selection/Rank.trace": {
+        "bytes": 3235,
+        "sha256": "746a9c1e07439fa4ccfde1e21811adb568c251c43b090499949ece45a811ebcc"
+      },
+      ".lake/build/lib/lean/Applications/Resources/InsertionSort.olean": {
+        "bytes": 526728,
+        "sha256": "f8d6f0279ae7c7df1b732d10cfa2e309c16ce683887b84f0b93a67b5691365ea"
+      },
+      ".lake/build/lib/lean/Applications/Resources/InsertionSort.olean.hash": {
+        "bytes": 16,
+        "sha256": "6a0b56341079b78b3d0de53a418bf01ba405f907a2107df38b68b8608c86245e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/InsertionSort.trace": {
+        "bytes": 3634,
+        "sha256": "530c9c4eef6bd9eb67c24053ccf845a6aa263b19d2fb38e791b9274966407651"
+      },
+      ".lake/build/lib/lean/Examples/FunctionalNotation.olean": {
+        "bytes": 215032,
+        "sha256": "1219695788a785e8fd1d4b517aa2637c33d7c6ff6c0041beedcee12714ec62a8"
+      },
+      ".lake/build/lib/lean/Examples/FunctionalNotation.olean.hash": {
+        "bytes": 16,
+        "sha256": "e696bff0e78f528c9bb02a1727a70b3994a4dcbd2fabd8eeb99f918715548111"
+      },
+      ".lake/build/lib/lean/Examples/FunctionalNotation.trace": {
+        "bytes": 5691,
+        "sha256": "df44333e80e39ae0addd89de0c67cc22ced1323889ca65fa8b38e2a107740aa0"
+      },
+      ".lake/build/lib/lean/Examples/FunctionalBasics.olean": {
+        "bytes": 70632,
+        "sha256": "c7f7f93d4081675debe3393014060b13c56b19e6a0e59804f1d2638e2e08c249"
+      },
+      ".lake/build/lib/lean/Examples/FunctionalBasics.olean.hash": {
+        "bytes": 16,
+        "sha256": "ec729c99c1b8b6e280e9b88f6f0e2453833f9c6e4a960965f874c3a05d42172a"
+      },
+      ".lake/build/lib/lean/Examples/FunctionalBasics.trace": {
+        "bytes": 4130,
+        "sha256": "bc82166594aa927516e783654e181f9c9618da93351a01e34df5e9d7345ad392"
+      },
+      ".lake/build/lib/lean/Applications/Arithmetic/EuclidInduction.olean": {
+        "bytes": 20968,
+        "sha256": "cbb360f506a212370c6eb76146fd550fee4db78aa88b7cd2f042d8e5df096df8"
+      },
+      ".lake/build/lib/lean/Applications/Arithmetic/EuclidInduction.olean.hash": {
+        "bytes": 16,
+        "sha256": "c7be69d8de0d19300595a6500949bf899b0530f5bd8760e6648fa6992f3fad93"
+      },
+      ".lake/build/lib/lean/Applications/Arithmetic/EuclidInduction.trace": {
+        "bytes": 3321,
+        "sha256": "6d64389e700cc03ad2f101e025fe4f0c26ab4a1d668f1a7ada1fb706434e66d3"
+      }
+    },
+    "direct_external_imports_of_local_closure": [
+      "Batteries.Data.DList",
+      "Batteries.Data.DList.Lemmas",
+      "Lean",
+      "Mathlib.Algebra.BigOperators.Fin",
+      "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+      "Mathlib.Algebra.BigOperators.Group.List.Basic",
+      "Mathlib.Algebra.BigOperators.Group.Multiset.Basic",
+      "Mathlib.Algebra.BigOperators.Intervals",
+      "Mathlib.Algebra.Group.Even",
+      "Mathlib.Algebra.Group.Nat.Defs",
+      "Mathlib.Algebra.Group.Prod",
+      "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+      "Mathlib.Algebra.Order.Floor.Ring",
+      "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+      "Mathlib.Analysis.Asymptotics.Defs",
+      "Mathlib.Analysis.Normed.Field.Basic",
+      "Mathlib.Analysis.SpecialFunctions.Log.Base",
+      "Mathlib.Basic.ENNReal.BigOperators",
+      "Mathlib.Basic.ENNReal.Inv",
+      "Mathlib.Basic.Real.Basic",
+      "Mathlib.Data.Fin.Rev",
+      "Mathlib.Data.Fin.Tuple.Sort",
+      "Mathlib.Data.Finset.Card",
+      "Mathlib.Data.Finset.Lattice.Fold",
+      "Mathlib.Data.Finset.Lattice.Lemmas",
+      "Mathlib.Data.Finset.Max",
+      "Mathlib.Data.Finset.Sort",
+      "Mathlib.Data.Fintype.BigOperators",
+      "Mathlib.Data.Fintype.OfMap",
+      "Mathlib.Data.Fintype.Perm",
+      "Mathlib.Data.Int.DivMod",
+      "Mathlib.Data.List.Basic",
+      "Mathlib.Data.List.Chain",
+      "Mathlib.Data.List.FinRange",
+      "Mathlib.Data.List.Infix",
+      "Mathlib.Data.List.Intervals",
+      "Mathlib.Data.List.MinMax",
+      "Mathlib.Data.List.Nodup",
+      "Mathlib.Data.List.OfFn",
+      "Mathlib.Data.List.Permutation",
+      "Mathlib.Data.List.Sort",
+      "Mathlib.Data.Multiset.AddSub",
+      "Mathlib.Data.Multiset.Basic",
+      "Mathlib.Data.Multiset.Filter",
+      "Mathlib.Data.Multiset.ZeroCons",
+      "Mathlib.Data.Nat.Factorial.Basic",
+      "Mathlib.Data.Nat.GCD.Basic",
+      "Mathlib.Data.Nat.Log",
+      "Mathlib.Data.Set.Card",
+      "Mathlib.Data.Set.Finite.Basic",
+      "Mathlib.Data.Set.Lattice.Bounded",
+      "Mathlib.Data.Set.Lattice.Disjoint",
+      "Mathlib.Data.Set.Lattice.Image",
+      "Mathlib.Data.Set.Lattice.Indexed",
+      "Mathlib.Data.Set.Lattice.Order",
+      "Mathlib.Data.Set.Prod",
+      "Mathlib.Logic.Equiv.Fintype",
+      "Mathlib.Logic.Equiv.List",
+      "Mathlib.Logic.Function.Basic",
+      "Mathlib.MeasureTheory.Function.L1Space.Integrable",
+      "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+      "Mathlib.MeasureTheory.Integral.Bochner.Set",
+      "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+      "Mathlib.MeasureTheory.Measure.AEMeasurable",
+      "Mathlib.NumberTheory.Harmonic.Bounds",
+      "Mathlib.Order.Filter.AtTopBot.Tendsto",
+      "Mathlib.Order.Interval.Finset.Fin",
+      "Mathlib.Order.Interval.Finset.Nat",
+      "Mathlib.Order.Interval.Set.Defs",
+      "Mathlib.Probability.ConditionalProbability",
+      "Mathlib.Probability.HasLaw",
+      "Mathlib.Probability.ProbabilityMassFunction.Constructions",
+      "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+      "Mathlib.Probability.UniformOn",
+      "Mathlib.Tactic",
+      "Mathlib.Tactic.FieldSimp",
+      "Mathlib.Tactic.FinCases",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.NormNum",
+      "Mathlib.Tactic.Positivity",
+      "Mathlib.Tactic.Ring",
+      "Std"
+    ]
+  },
+  "boundary": "Read-only input observation; actual execution, loaded-object qualification, complete output review, and candidate acceptance remain separate evidence."
+}

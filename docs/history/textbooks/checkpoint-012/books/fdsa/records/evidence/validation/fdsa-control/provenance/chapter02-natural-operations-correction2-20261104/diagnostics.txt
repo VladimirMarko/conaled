@@ -1,0 +1,105 @@
+error: Examples/NaturalRunOperations.lean:63:2: Type mismatch: After simplification, term
+  runsOpsBy_of_strictly_descending id [2, 1] (of_decide_eq_true (id (Eq.refl true)))
+    (of_eq_true
+      (Eq.trans (congrArg Not (eq_false' fun h => False.elim (noConfusion_of_Nat List.ctorIdx h))) not_false_eq_true))
+ has type
+  @Eq (Measured (List (List ℕ)) ℕ) (runsOpsBy (fun a b => decide (a < b)) [2, 1]) ([[1, 2]], 6)
+but is expected to have type
+  @Eq (Measured (List (List ℕ)) ℕ) (runsOpsBy natLT [2, 1]) ([[1, 2]], 6)
+
+error: Examples/NaturalRunOperations.lean:66:2: Type mismatch: After simplification, term
+  runsOpsBy_of_strictly_descending id [3, 2, 1] (of_decide_eq_true (id (Eq.refl true)))
+    (of_eq_true
+      (Eq.trans (congrArg Not (eq_false' fun h => False.elim (noConfusion_of_Nat List.ctorIdx h))) not_false_eq_true))
+ has type
+  @Eq (Measured (List (List ℕ)) ℕ) (runsOpsBy (fun a b => decide (a < b)) [3, 2, 1]) ([[1, 2, 3]], 9)
+but is expected to have type
+  @Eq (Measured (List (List ℕ)) ℕ) (runsOpsBy natLT [3, 2, 1]) ([[1, 2, 3]], 9)
+
+error: Examples/NaturalRunOperations.lean:71:2: Type mismatch: After simplification, term
+  singleRunOpsBy_of_strictly_descending id [2, 1] (of_decide_eq_true (id (Eq.refl true)))
+    (of_eq_true
+      (Eq.trans (congrArg Not (eq_false' fun h => False.elim (noConfusion_of_Nat List.ctorIdx h))) not_false_eq_true))
+ has type
+  @Eq (Measured (List ℕ) ℕ) (singleRunOpsBy (fun a b => decide (a < b)) [2, 1] ⋯) ([1, 2], 7)
+but is expected to have type
+  @Eq (Measured (List ℕ) ℕ) (singleRunOpsBy natLT [2, 1] ⋯) ([1, 2], 7)
+
+error: Examples/NaturalRunOperations.lean:77:2: Type mismatch: After simplification, term
+  singleRunOpsBy_of_strictly_descending id [3, 2, 1] (of_decide_eq_true (id (Eq.refl true)))
+    (of_eq_true
+      (Eq.trans (congrArg Not (eq_false' fun h => False.elim (noConfusion_of_Nat List.ctorIdx h))) not_false_eq_true))
+ has type
+  @Eq (Measured (List ℕ) ℕ) (singleRunOpsBy (fun a b => decide (a < b)) [3, 2, 1] ⋯) ([1, 2, 3], 10)
+but is expected to have type
+  @Eq (Measured (List ℕ) ℕ) (singleRunOpsBy natLT [3, 2, 1] ⋯) ([1, 2, 3], 10)
+
+error: Examples/NaturalRunOperations.lean:91:82: unsolved goals
+⊢ ([1, 3] :: ([[2]], 3).1, 4 + ([[2]], 3).2) = ([[1, 3], [2]], 7)
+
+error: Examples/NaturalRunOperations.lean:96:76: unsolved goals
+⊢ (([[1, 3], [2]], 7).1, 3 + ([[1, 3], [2]], 7).2) = ([[1, 3], [2]], 10)
+
+error: Examples/NaturalRunOperations.lean:102:70: unsolved goals
+rest : runsOpsBy natLT [2, 4] = ([[2, 4]], 7)
+⊢ ([1, 3] :: ([[2, 4]], 7).1, 1 + 4 + ([[2, 4]], 7).2) = ([[1, 3], [2, 4]], 12)
+
+error: Examples/NaturalRunOperations.lean:110:84: unsolved goals
+⊢ (([[1, 3], [2, 4]], 12).1, 3 + ([[1, 3], [2, 4]], 12).2) = ([[1, 3], [2, 4]], 15)
+
+error: Examples/NaturalRunOperations.lean:119:79: unsolved goals
+⊢ ([2, 4] :: ([[0]], 3).1, 1 + 4 + ([[0]], 3).2) = ([[2, 4], [0]], 8)
+
+error: Examples/NaturalRunOperations.lean:123:65: unsolved goals
+lastWorker : ascOpsBy natLT 4 (DifferenceListCosts.singleton 2) [0] = ([[2, 4], [0]], 8)
+⊢ (([[2, 4], [0]], 8).1, 3 + ([[2, 4], [0]], 8).2) = ([[2, 4], [0]], 11)
+
+error: Examples/NaturalRunOperations.lean:129:80: unsolved goals
+lastWorker : ascOpsBy natLT 4 (DifferenceListCosts.singleton 2) [0] = ([[2, 4], [0]], 8)
+rest : runsOpsBy natLT [2, 4, 0] = ([[2, 4], [0]], 11)
+⊢ ([1, 3] :: ([[2, 4], [0]], 11).1, 1 + 4 + ([[2, 4], [0]], 11).2) = ([[1, 3], [2, 4], [0]], 16)
+
+error: Examples/NaturalRunOperations.lean:118:69: unsolved goals
+lastWorker : ascOpsBy natLT 4 (DifferenceListCosts.singleton 2) [0] = ([[2, 4], [0]], 8)
+rest : runsOpsBy natLT [2, 4, 0] = ([[2, 4], [0]], 11)
+firstWorker : ascOpsBy natLT 3 (DifferenceListCosts.singleton 1) [2, 4, 0] = ([[1, 3], [2, 4], [0]], 16)
+⊢ (([[1, 3], [2, 4], [0]], 16).1, 3 + ([[1, 3], [2, 4], [0]], 16).2) = ([[1, 3], [2, 4], [0]], 19)
+
+error: Examples/NaturalRunOperations.lean:147:53: unsolved goals
+⊢ ([(3, "A"), (3, "B")] :: ([[(2, "C")]], 3).1, 1 + 4 + ([[(2, "C")]], 3).2) = ([[(3, "A"), (3, "B")], [(2, "C")]], 8)
+
+error: Examples/NaturalRunOperations.lean:143:52: unsolved goals
+worker :
+  ascOpsBy (fun a b => decide (a.1 < b.1)) (3, "B") (DifferenceListCosts.singleton (3, "A")) [(2, "C")] =
+    ([[(3, "A"), (3, "B")], [(2, "C")]], 8)
+⊢ (([[(3, "A"), (3, "B")], [(2, "C")]], 8).1, 3 + ([[(3, "A"), (3, "B")], [(2, "C")]], 8).2) =
+    ([[(3, "A"), (3, "B")], [(2, "C")]], 11)
+
+error: Examples/NaturalRunOperations.lean:176:35: unsolved goals
+rest : runsOpsBy natLT [4, 6] = ([[4, 6]], 7)
+⊢ ([1, 3, 5] :: ([[4, 6]], 7).1, 3 + 4 + ([[4, 6]], 7).2) = ([[1, 3, 5], [4, 6]], 14)
+
+error: Examples/NaturalRunOperations.lean:277:2: unsolved goals
+case fst
+α : Type u
+lt : α → α → Bool
+a : α
+n : ℕ
+⊢ [[] ++ [a]] = [[a]]
+
+error: Examples/NaturalRunOperations.lean:323:2: Type mismatch: After simplification, term
+  singleRunOpsBy_of_sorted (fun x => 0) (List.replicate n a) (List.pairwise_of_forall fun x x_1 => Nat.le_refl 0)
+    (Eq.mpr (id (congrArg (LE.le 2) List.length_replicate)) hn)
+ has type
+  @Eq (Measured (List α) ℕ) (singleRunOpsBy (fun a b => decide (0 < 0)) (List.replicate n a) ⋯)
+    (List.replicate n a, 6 * n - 4)
+but is expected to have type
+  @Eq (Measured (List α) ℕ) (singleRunOpsBy (fun x x_1 => false) (List.replicate n a) ⋯) (List.replicate n a, 6 * n - 4)
+
+error: Examples/NaturalRunOperations.lean:333:2: Type mismatch: After simplification, term
+  singleRunOpsBy_of_sorted id (List.range n) (List.Pairwise.imp (fun {a b} h => Nat.le_of_lt h) List.pairwise_lt_range)
+    (Eq.mpr (id (congrArg (LE.le 2) List.length_range)) hn)
+ has type
+  @Eq (Measured (List ℕ) ℕ) (singleRunOpsBy (fun a b => decide (a < b)) (List.range n) ⋯) (List.range n, 6 * n - 4)
+but is expected to have type
+  @Eq (Measured (List ℕ) ℕ) (singleRunOpsBy natLT (List.range n) ⋯) (List.range n, 6 * n - 4)

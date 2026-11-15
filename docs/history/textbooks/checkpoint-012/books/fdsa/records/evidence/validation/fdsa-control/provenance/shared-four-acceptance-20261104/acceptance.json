@@ -1,0 +1,200 @@
+{
+  "accepted_utc": "2026-11-04T15:04:28.557095+00:00",
+  "recorded_utc": "2026-11-04T15:06:24.780756+00:00",
+  "accepted_branch": "work/fdsa-book",
+  "base": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+  "scope": [
+    "FDSA-XM01",
+    "FDSA-XD01",
+    "FDSA-XQ01",
+    "FDSA-XU01"
+  ],
+  "source_paths": [
+    "Applications/Probability/PermutationMinimum.lean",
+    "Applications/Resources/DifferenceListCosts.lean",
+    "Applications/Resources/ListMerge.lean",
+    "Applications/Resources/Partition.lean",
+    "Applications/Selection/ThreeWay.lean",
+    "Applications/Sequences/Partition.lean",
+    "Applications/Sorting/Merge.lean",
+    "Examples/DifferenceListCosts.lean",
+    "Examples/MergeCosts.lean",
+    "Examples/PermutationMinimum.lean",
+    "Examples/PermutationMinimumBoundary.lean",
+    "Examples/ThreeWayPartition.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-difference-list-costs.md",
+    "docs/research/fdsa-list-merge.md",
+    "docs/research/fdsa-permutation-minimum.md",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-three-way-partition.md"
+  ],
+  "history": "Four normal recorded merges retain every original corrected tip as an ancestor; SH4-HIST-001 resolved at I, original H failure preserved.",
+  "full_check": {
+    "mode": "incremental",
+    "actual_exit": 0,
+    "owned_terminal_chunk": "b0c358",
+    "checked_project_modules": 977,
+    "audit_defining_modules": 975,
+    "kernel_safe_declarations": 45630,
+    "theorems": 25386,
+    "unsafe_runtime_exclusions": 0,
+    "transitive_axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "counts_scope": "whole project, not new book results",
+    "postguard_artifacts": 2928,
+    "postguard_inconsistencies": 0
+  },
+  "public_statements": {
+    "actual_current": 314,
+    "actual_exit": 0,
+    "owned_terminal_chunk": "2be344",
+    "both_complete_independent_readings": true,
+    "qualified_F_producer_subset": 110,
+    "both_REUSE01_to10_assessments_pass": true,
+    "fresh_current_insertion_names": 35,
+    "distinct_public_names": 424,
+    "private_and_generated": "Full original source/build/audit scope; no invented public print credit"
+  },
+  "standards": "passed",
+  "spec": "passed",
+  "unresolved_findings": [],
+  "confirmed_findings": [
+    "SH4-HIST-001",
+    "XM01-ELAB-001",
+    "XM01-ELAB-002"
+  ],
+  "original_documentary_and_other_corrections": "Preserved and finally confirmed within full original scopes by both reports.",
+  "C02-DOC-003": "Four incorporated notes confirmed; Order/Tail applications remain open.",
+  "immediate_verification": {
+    "actual_exit": 0,
+    "owned_session": 39944,
+    "owned_terminal_chunk": "8d04e5",
+    "root_full_closed_result_read": "6845c4",
+    "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+    "mode": "incremental"
+  },
+  "integration": {
+    "actual_fast_forward_exit": 0,
+    "owned_root_chunk": "4c4a71",
+    "accepted_head": "312aafb4446b995ff5542041b4e2e074f776db1e",
+    "only_accepted_ref_changed": true,
+    "unrelated_baseline_bytes_unchanged": true,
+    "tracked_and_index_clean": true,
+    "no_push_or_GitHub_mutation": true
+  },
+  "covered_inventory": {
+    "new_shared_units": [
+      "XM01 complete ordinary merge scope",
+      "XD01 complete difference-list observation scope",
+      "XQ01 complete partition scope",
+      "XU01 complete minimum-law scope"
+    ],
+    "Appendix_B_added": [
+      "B-018",
+      "B-019"
+    ],
+    "C02-102": "Partition component only; complete quicksort3/sorting obligation remains for Chapter2.",
+    "C03-011_C03-013_C03-031": "Shared value, strict-size boundary and actual partition call-count subresults now available; Chapter3 itself remains queued."
+  },
+  "not_closed": [
+    "Chapter2",
+    "Chapter3",
+    "whole AppendixB",
+    "Order and Tail shared units",
+    "remaining book"
+  ],
+  "prior_Chapter1_and_Foundation_acceptance_preserved": true,
+  "acceptance_checkpoint": "pending creation and successful upload",
+  "evidence": {
+    "provenance/shared-four-full-attempt1-20261104/result.json": {
+      "bytes": 1246,
+      "sha256": "c539bb6d162c9a3a79f01bf8a74a9f7d2a97c3b4ade567a599ea3890dcb74226"
+    },
+    "provenance/shared-four-full-attempt1-20261104/full.log": {
+      "bytes": 282816,
+      "sha256": "a990e35c10e7c8f664298a028467dcc537f1aa6ae6e150f0d0526abf763c76e5"
+    },
+    "provenance/shared-four-full-attempt1-20261104/verification.json": {
+      "bytes": 867,
+      "sha256": "2974a2efaa56703448e96ddeec25947e84e91b7733b4e8b405fdcf6d69fe816d"
+    },
+    "provenance/shared-four-full-attempt1-20261104/closed-evidence-reconciliation.json": {
+      "bytes": 3107,
+      "sha256": "7b290cbf08530ae5c8599b71435dd8a54d0c3c202395cafd1da1de6a051d262b"
+    },
+    "provenance/shared-four-complete-public-statements314-20261104-attempt1/result.json": {
+      "bytes": 1412,
+      "sha256": "4e96d347b0303913359798dc0d58981c59f8d07d70eb946f263a6c68fda83f44"
+    },
+    "provenance/shared-four-complete-public-statements314-20261104-attempt1/output-blocks.json": {
+      "bytes": 112874,
+      "sha256": "2fe194e3f70287d3be4815f418f7ee898e46980145afc2761c469701b1073f12"
+    },
+    "provenance/shared-four314-input-observations-20261104-attempt1/pre-inputs.json": {
+      "bytes": 45835,
+      "sha256": "c3dc93d12e645171b3df24d417cc36838f666233c09034bb751672f47081f3f9"
+    },
+    "provenance/shared-four314-input-observations-20261104-attempt1/post-inputs.json": {
+      "bytes": 46143,
+      "sha256": "fb1b01c56f251f9ddc28ae17b301d312b09714e687b5b0803fbe8be32ff95307"
+    },
+    "provenance/shared-four-foundation110-receiving-observations-20261104-attempt1/pre-inputs.json": {
+      "bytes": 38785,
+      "sha256": "8086173cd41da9d833701718a3963146ae0b87e54e8a3c7a2fe43dcf4b2124e3"
+    },
+    "provenance/shared-four-foundation110-receiving-observations-20261104-attempt1/post-inputs.json": {
+      "bytes": 39108,
+      "sha256": "c50094536c54d8bfc02d00c77295d2eb7a166f5277075872ca1118452eeb79ce"
+    },
+    "provenance/shared-four-foundation110-receiving-qualification-20261104/comparison.json": {
+      "bytes": 114579,
+      "sha256": "bdb7aaaba90baaa748466d7c084e9dd7214c346cc2c0736b92c5d1a5b3d2d256"
+    },
+    "reviews/shared-four-standards-final-20261104.md": {
+      "bytes": 14756,
+      "sha256": "6e4665d1d4da826bf8d22c1d067bf67f222b495dd44986b6c247c765cf6faf50"
+    },
+    "reviews/shared-four-spec-final-20261104.md": {
+      "bytes": 16201,
+      "sha256": "e7d6ae04d2cf2a06e482274a9e0ab9f23d5a38ef78952ad0bcd288660d0a0f6c"
+    },
+    "provenance/shared-four-standards-terminal-assessment-20261104/final-standards-assessment-312aafb4.json": {
+      "bytes": 15828,
+      "sha256": "954110b3a4ea725c7079bfa9a623894659da225435b105e65f780656d9c4bfc6"
+    },
+    "provenance/shared-four-spec-terminal-20261104/final-disposition.json": {
+      "bytes": 9494,
+      "sha256": "5015445d0793f175ea0cc8e122a31bf3d9e440ad8f70dbb27f3ce36e431bded6"
+    },
+    "provenance/shared-four-standards-terminal-assessment-20261104/completion.json": {
+      "bytes": 2768,
+      "sha256": "aa9077fd83d93565e4dc03c10382f693572e3076f612965a29c7c9508720745c"
+    },
+    "provenance/shared-four-spec-terminal-20261104/readback-and-hold.json": {
+      "bytes": 4925,
+      "sha256": "0ea8cb65cdd451000cbf0aa85314f09e361df9f23637238c2172b16d251c984a"
+    },
+    "provenance/shared-four-immediate-verification-20261104-attempt1/result.json": {
+      "bytes": 1268,
+      "sha256": "89583442815031451aa0293969ecce7324270511cf1045c1cabffe33cff62259"
+    },
+    "provenance/shared-four-immediate-verification-20261104-attempt1/full.log": {
+      "bytes": 317,
+      "sha256": "e55633a8052333b2ab29c7264206cea24fd60e9127682d316cb2a1cad0abb31c"
+    },
+    "provenance/shared-four-acceptance-20261104/root-gate-reconciliation.json": {
+      "bytes": 1661,
+      "sha256": "323e636cf04d06b2cafefc66966ff466ac71fab6c9f082f2aeb9a4f838a5c013"
+    },
+    "provenance/shared-four-acceptance-20261104/fast-forward-result.json": {
+      "bytes": 2817,
+      "sha256": "0b97b3ba651b5e2227e907d5db458fa09b231785c5dc8ec3fa16cca2c8f80755"
+    }
+  }
+}

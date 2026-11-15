@@ -1,0 +1,73 @@
+{
+  "recorded_utc": "2026-11-05T02:02:57.289258+00:00",
+  "checkpoint": "conaled-fdsa-0137-chapter03-accepted",
+  "accepted_commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "accepted_tree": "ecb69c3918715cbe0682028cd8697dfcf3e463f9",
+  "acceptance": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-acceptance-20261105/acceptance.json",
+    "bytes": 52490,
+    "sha256": "b0a6cdf9341b2386010f428b7b16d595895eaa8b24f3dd3c47d5d95dd8287c6d"
+  },
+  "files": {
+    "verify-checkpoint.py": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0137-preparation/verify-checkpoint.py",
+      "bytes": 28634,
+      "sha256": "68992e216e4570b13458a91998c80552861a7b2785980b3cf089493df2a07db3"
+    },
+    "capture.py": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0137-preparation/capture.py",
+      "bytes": 5421,
+      "sha256": "7e5c7786b7239de9bb0217ed2c0b5730fcfd14db2e9bd531380d246d7eb4b1ee"
+    },
+    "run-stage.py": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0137-preparation/run-stage.py",
+      "bytes": 2382,
+      "sha256": "9d3b50105498a5b05b5a5e1419a6623f39ef30fae4444388cca95517af744eb0"
+    },
+    "README.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0137-preparation/README.md",
+      "bytes": 2784,
+      "sha256": "b9411bcf538cb4dddeee4bc1d78e24b9f7d7ee16c2aa56897d8266218e8e67d5"
+    },
+    "acceptance-verifier-extension.patch": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0137-preparation/acceptance-verifier-extension.patch",
+      "bytes": 14779,
+      "sha256": "6dafe5063011e4bdfa5454cca2ae9e304f0573dccad0d5d43f07f7b6f096836b"
+    },
+    "acceptance-helper-extension.patch": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0137-preparation/acceptance-helper-extension.patch",
+      "bytes": 9201,
+      "sha256": "3240b988ddaf40c25203a727a367076526f8d0432efacacf5b82889afbd87be0"
+    },
+    "verifier-scope-diff.patch": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0137-preparation/verifier-scope-diff.patch",
+      "bytes": 16598,
+      "sha256": "5c655ef7fe0c56a1ea1e4ac502aa61b6be3b0889b42f1ebaf72451f373f9a550"
+    },
+    "helper-scope-diffs.patch": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0137-preparation/helper-scope-diffs.patch",
+      "bytes": 6489,
+      "sha256": "aa49a70d11a5778bf0a1d9d0ab22ffa13c18645f8c1c7d10d48c4482c9e877e3"
+    },
+    "initial-preacceptance-preservation.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0137-preparation/initial-preacceptance-preservation.json",
+      "bytes": 1158,
+      "sha256": "c3c9c4ddb25009250ec87a67730a9066e42d33824165e9ce4e9af2046c3dacdf"
+    }
+  },
+  "AST_valid": true,
+  "historical_XR_gates_and_ancestry_preserved": true,
+  "only_new_allowed_ref_advance": "work/fdsa-book c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5 to298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "only_new_mutable_prior_control": "reviews/README.md",
+  "previous0136_manifest_unchanged": true,
+  "independent_final_inspection_pending": true,
+  "capture_creation_verification_upload_not_run": true,
+  "preliminary_space": {
+    "ordinary_available_bytes": 0,
+    "raw_free_bytes": 454193152,
+    "held_control_rounded_bytes_current": 187756544,
+    "unchanged_allowance_and_margin_bytes": 134217728,
+    "current_margin_bytes": 132218880,
+    "final_capture_guard_still_required": true
+  }
+}

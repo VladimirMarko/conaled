@@ -1,0 +1,36 @@
+{
+  "original_path": "session/validation/pure-suspension-focused-output-copy.json",
+  "original_sha256": "e05dbc1d0b8f8aec897bfed17165bbde49a98ce40d0ef49405944f4ed652239d",
+  "original_bytes": 97717,
+  "removed_fields": [
+    {
+      "pointer": "/copied",
+      "entries": 483,
+      "canonical_json_sha256": "a6e6d561c8f750054cd0f1ca2639c5342cc1350b6096d602aa63aa32ce793e3a"
+    },
+    {
+      "pointer": "/selected_modules",
+      "entries": 69,
+      "canonical_json_sha256": "f7ad5f4cc7646e2bf986aad5f359ece2361b383b5dd24210ad45172908e22651"
+    }
+  ],
+  "record": {
+    "started_at": "2026-11-02T22:39:22.943555+00:00",
+    "status": "completed",
+    "source": "/workspace/scratch/ca9a61d0bf30/purity-foundation",
+    "target": "/workspace/scratch/ca9a61d0bf30/validation-purity",
+    "source_head": "501a95463f455b52ea839eb8bbcf6ab9379862e4",
+    "target_head": "ea8afa12706d30cdc69ece1a172d5f21a3ea1809",
+    "approval_copied": false,
+    "source_validation": "focused development outputs only; not accepted",
+    "selection": "identical source bytes; no destination module artifacts; complete saved outputs",
+    "skipped": {},
+    "acceptance": false,
+    "hashed_artifacts": 207,
+    "source_inconsistencies": {},
+    "ended_at": "2026-11-02T22:39:28.281759+00:00",
+    "copied_modules": 69,
+    "copied_files": 483,
+    "copied_bytes": 65698972
+  }
+}

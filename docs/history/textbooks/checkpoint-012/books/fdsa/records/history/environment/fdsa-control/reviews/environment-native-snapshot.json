@@ -1,0 +1,41 @@
+{
+  "snapshot_repository": "/workspace/scratch/6bb268f9336f/environment-review-0068",
+  "review_base": "900614e27f7d3dfffd9a29139884a8f1a4fce8d3",
+  "candidate": "9f673480206912d7df4a1dcc2b09ca7527bb0275",
+  "previous_environment_candidate": "5fe6d4f7cdac2761c7c3622d26479282cfb7fa1b",
+  "source_candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "scope": [
+    "ENVIRONMENT.md",
+    "REQUEST.md",
+    "checkpoint.py",
+    "tooling/pinned_toolchain.py",
+    "tooling/record_command.py",
+    "tooling/native_toolchain.py",
+    "tooling/native/app_path_compat.c",
+    "tooling/native/libapp_path_compat.so",
+    "provenance/native-environment-20261103/check_readlink.py",
+    "provenance/native-environment-20261103/path_probe.c",
+    "provenance/native-environment-20261103/run_native_smoke.py"
+  ],
+  "files": {
+    "ENVIRONMENT.md": "0e1f079f1ce472d72d5b87b188e9a3b6981727ce75ad80e046fb550c3f5f07ee",
+    "REQUEST.md": "020aad6df71bafb45b4e6624c03e52383ed0a6dbe152b2e574246b1747af91c0",
+    "checkpoint.py": "0074d74333d7005290ead98db4c3e1b142844af3a89e67a17c54a8d60d9c88fd",
+    "tooling/pinned_toolchain.py": "8bc54deea672a0ff7928d1de8f839ee97963349c4d97cae13e4ac2257b06ec3f",
+    "tooling/record_command.py": "f84384210851b0fd1999a323aa693eab8d464fa82f344446bd04b9e61d78c686",
+    "tooling/native_toolchain.py": "23fc2cac34d82e882a164850ada16304f1dce66fb60675479814dc6e0e4881b2",
+    "tooling/native/app_path_compat.c": "80c1d0e92d7c5c258f32ce3709736bf969c6a24148287f99b238324d7bfbcfb6",
+    "tooling/native/libapp_path_compat.so": "65910335cb5a2a4359e9ebf7dae4de1da7a48cdbf9dee5eabe82c3e4b02d88a9",
+    "provenance/native-environment-20261103/check_readlink.py": "9a16c8ef864b6ae5e60bb6c7ca4018d365bcfede7aa1ecfa37ee8d070b6014aa",
+    "provenance/native-environment-20261103/path_probe.c": "d3888a6837d4a8392769e5ddfa1203a377ae04f1ac556bc20339ceba9e725990",
+    "provenance/native-environment-20261103/run_native_smoke.py": "1a0e6d5b1e2bd366ddb12ff148aef5d4a5b97bef2e1045d0efb0340936c6bee1"
+  },
+  "validation": [
+    "provenance/native-environment-20261103/native-smoke-results.json",
+    "provenance/native-environment-20261103/readlink-results.json",
+    "provenance/native-environment-20261103/launch-boundaries.json",
+    "provenance/native-environment-20261103/native-library-build.json",
+    "provenance/native-cache-get-20261103/result.json"
+  ],
+  "formal_acceptance_credit": false
+}

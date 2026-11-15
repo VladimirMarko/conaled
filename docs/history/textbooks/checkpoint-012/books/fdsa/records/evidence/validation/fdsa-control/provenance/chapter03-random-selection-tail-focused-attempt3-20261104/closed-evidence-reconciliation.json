@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T21:54:47.032937+00:00",
+  "candidate": "831b6df2daeb7278581bdd05f0d1f6aca8a5be39",
+  "terminal": {
+    "recorded_utc": "2026-11-04T21:54:47.032812+00:00",
+    "owned_session": 8306,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "ee2b0a",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "831b6df2daeb7278581bdd05f0d1f6aca8a5be39"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-tail-focused-attempt3-20261104/full.log",
+    "bytes": 12781,
+    "sha256": "3079a173e67cb649a27526029198bf7677e0ee848c1390554a931b085b1e0288"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T215413Z-project-run-ea034f88",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-tail-focused-attempt3-20261104/native-records/start.json",
+      "bytes": 483,
+      "sha256": "08313c4790af5d016fc71914808223ba48b245a02cd12737c7e401ca962fcc77"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-tail-focused-attempt3-20261104/native-records/result.json",
+      "bytes": 636,
+      "sha256": "65e0d322f64d58ab648a27665a1519c988e72d11f8d3530821b89519245cb563"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-tail-focused-attempt3-20261104/native-records/output.log",
+      "bytes": 12499,
+      "sha256": "65a27fa591c624ca977b307d8c90f83f1177d8e1bdfc4988f640ca94a957ac54"
+    }
+  },
+  "native_body_exact_outer_offset": 125,
+  "complete_closed_log": true,
+  "scope": "Focused immutable random-tail third attempt only. No full candidate check, audit, independent review, or acceptance.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

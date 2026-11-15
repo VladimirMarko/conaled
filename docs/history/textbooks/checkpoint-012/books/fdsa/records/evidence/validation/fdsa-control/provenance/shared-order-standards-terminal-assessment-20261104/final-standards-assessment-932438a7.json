@@ -1,0 +1,579 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "axis": "Standards",
+  "recorded_utc": "2026-11-04T15:49:28.354527+00:00",
+  "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "tree": "fc0af937b0b323d5216b3d7533af52edc70ea411",
+  "ordered_parents": [
+    "312aafb4446b995ff5542041b4e2e074f776db1e",
+    "bdac9703aab4b383fa775568d36bf685af329389"
+  ],
+  "original_base": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+  "original_candidate": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+  "complete_source_scope": [
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+      "bytes": 15304,
+      "lines": 321,
+      "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2"
+    },
+    {
+      "path": "Examples/PermutationOrder.lean",
+      "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+      "bytes": 6706,
+      "lines": 152,
+      "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084"
+    },
+    {
+      "path": "Examples/PermutationOrderBoundary.lean",
+      "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+      "bytes": 5605,
+      "lines": 148,
+      "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "git_blob": "2bc1fad47c4993199eccd91ee4b249726619d3dc",
+      "bytes": 8577,
+      "lines": 261,
+      "sha256": "63edc6ab268c318e6788a6ef46cd14aa3a6b021b65971c591b0c9023adb1b2a9"
+    },
+    {
+      "path": "docs/research/fdsa-permutation-order.md",
+      "git_blob": "8d8f68c95185bd787ce26bb5ba6cf3a6f652862a",
+      "bytes": 9343,
+      "lines": 175,
+      "sha256": "5368374d61ac214c5609fbaedd3c5449a737a114947978631d1de7893a00d35f"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "d25451ccf02cde119a880d063aa7c0ade5e81cd2",
+      "bytes": 40314,
+      "lines": 614,
+      "sha256": "a39ec672e120fe7761e950f59acfc1ab4cbee282ad69b22934b1e24cdc5f56e7"
+    }
+  ],
+  "frozen_requirements": {
+    "path": "reviews/permutation-order-requirements.md",
+    "bytes": 11430,
+    "lines": 209,
+    "sha256": "f473f593bf4a7ef75dcf2f3163440db6fe187b3b9983f87254d2ddfa8191982d"
+  },
+  "outcome": "Passed",
+  "unresolved_findings_in_XU02_acceptance_scope": 0,
+  "new_concrete_findings": 0,
+  "same_loop_full_scope_retained": true,
+  "full_C2_scope_boundary": "All six original XU02 paths, every public/private/anonymous declaration, cases, documentation and affected dependencies remain. This stage neither narrows the complete C2 R-through-final scope nor accepts C2.",
+  "authored_public_inventory": {
+    "public": 53,
+    "theorems": 45,
+    "definitions": 8,
+    "private_theorems": 5,
+    "anonymous_local_instances": 6,
+    "generated_boundary": "Five private declarations and six anonymous local instances remain in complete source/build/audit scope. All compiler-generated auxiliaries remain subject to the exhaustive audit; no fabricated separate #check or generated count is credited."
+  },
+  "retained_complete_source_assessment": {
+    "operation": "Ordinary positions.map pi.symm followed by stable finset-membership filtering; only DecidableEq I. Every subset observes the same pi; no new carrier, random executor, ranking record, resource model or global instance.",
+    "deterministic_contracts": "General membership retains assigned-label membership and selected-key membership. Completeness alone gives exact finset support; Nodup alone gives distinctness; both give length and permutation. Mapped-sublist and double-filter/intersection are unconditional, with only T subset S for the nested specialization.",
+    "full_fiber": "The universal actual source-event theorem covers every fixed S and every output list, using inverse ENNReal factorial on support and zero off support. Complete positions supply local finiteness without public Finite/Fintype or Nonempty I, index order or index/output measurability. Identity ensures the permutation sample remains inhabited for empty I.",
+    "proof_connection": "The private finite-position extension works through Fin xs.length into arbitrary I, preserving support without fixing the complement. Right composition pi * sigma.symm maps whole fibers, and bijective counting plus a finite exhaustive partition normalizes equal masses. The desired law is derived, not assumed.",
+    "map_semantics": "The actual Measure.map equality adds only existing list measurable-space/singleton hypotheses. Local finiteness supplies finite-source measurability and Countable (List I), without asserting Finite (List I). Ordinary singleton extensionality and target finite counting connect the supplied measures.",
+    "examples": "Distinct triples [0,2,3] and [0,3,2] share a first key but each has mass 1/6 through separate fiber/map connections. Repeated [0,0,2] has mass zero by real multiplicity contradiction. Nested filtering uses the same pi and gives [3,0] mass 1/2; singleton/full give 1 and 1/24.",
+    "boundaries": "Empty subset and Empty indices retain singleton empty output and mass one. Explicit cycle distinguishes inverse [0,1] from direct [1,0]. Existing -7/100/4 priorities distinguish numeric order from label order. Incomplete and repeated complete enumerations witness separately necessary support premises through length and count.",
+    "architecture": "Core imports existing Mathlib only. Main/boundary reuse that core and the accepted Minimum numeric-label client. All six concrete measurable instances are local. No generic action/equal-fiber framework, extra capability, probability carrier, algorithm cost or conditional-history theorem is introduced.",
+    "documentary": "The exact I root adds one Order main import, whose existing imports reach core/boundary. The complete I map prefix and original Order mathematical section survive; only its obsolete terminal status sentence changes. The note removes two obsolete uncompiled claims and adds accurate dated Z815/individual-build history, preserving every mathematical/source/gate paragraph and SP01 wording.",
+    "limitations": "Fixed-subset whole-order uniformity does not establish arbitrary conditioning, adaptive subsets, joint independence, recursive quicksort laws, treap semantics, expectation or work. All original chapter obligations and accepted-I -> Order -> Tail -> complete-C2 sequence remain."
+  },
+  "actual_full_gate": {
+    "run": "shared-order-full-attempt1-20261104",
+    "start": {
+      "path": "provenance/shared-order-full-attempt1-20261104/start.json",
+      "bytes": 930,
+      "lines": 26,
+      "sha256": "972796b499fd24e5e92538002459d1a9eb7784b1e338c85754eddeaf741596a4"
+    },
+    "result": {
+      "path": "provenance/shared-order-full-attempt1-20261104/result.json",
+      "bytes": 1247,
+      "lines": 32,
+      "sha256": "3ddcc182f42aed93f57621a74326a12035135d919d99fd3345efc444769892ac"
+    },
+    "native_start": {
+      "path": "provenance/shared-order-full-attempt1-20261104/native-records/start.json",
+      "bytes": 421,
+      "lines": 13,
+      "sha256": "32adb5c50b3c345b55e727727852313dd57f08d4312b26e173b11ff673e460cd"
+    },
+    "native_result": {
+      "path": "provenance/shared-order-full-attempt1-20261104/native-records/result.json",
+      "bytes": 573,
+      "lines": 18,
+      "sha256": "15299705000623fdd8d0db4a8bb3f726bc0a5cf1df63eae74023cdb36f0f9a48"
+    },
+    "outer": {
+      "path": "provenance/shared-order-full-attempt1-20261104/full.log",
+      "bytes": 282530,
+      "lines": 2474,
+      "sha256": "6ec0d7cd82b578f426b667a8be0f783ef73132fd5266d69098083093c7bc0e58"
+    },
+    "native": {
+      "path": "provenance/shared-order-full-attempt1-20261104/native-records/output.log",
+      "bytes": 282302,
+      "lines": 2471,
+      "sha256": "3910b2bd1613b6f4b7473549bee3fdc4c5bdf1cd6230f40cb3a3904ccf03e16a"
+    },
+    "verification": {
+      "path": "provenance/shared-order-full-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "lines": 19,
+      "sha256": "dc97fa649fd0b18c30d530a4720b95ee0b1a002d031e6b80094d5b08a9e27124"
+    },
+    "started_utc": "2026-11-04T15:27:28.763025+00:00",
+    "completed_utc": "2026-11-04T15:35:53.242927+00:00"
+  },
+  "full_audit": {
+    "checked_modules": 980,
+    "defining_rows": 978,
+    "kernel_safe": 45707,
+    "theorems": 25451,
+    "unsafe": 0,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "full_log_read": {
+    "lines": 2471,
+    "bytes": 282302,
+    "chunks": 21,
+    "complete": true,
+    "outer_exact_wrappers_read": true
+  },
+  "actual53_run": {
+    "run": "shared-order-complete-public-statements53-20261104-attempt1",
+    "start": {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/start.json",
+      "bytes": 1059,
+      "lines": 27,
+      "sha256": "6bba9996b8ca320da3e80e28600cb9fe88aa5cd5a8129e4b621c1c7839786529"
+    },
+    "result": {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/result.json",
+      "bytes": 1399,
+      "lines": 33,
+      "sha256": "db079a70c552f4871fc32b4235b96b385e28cef14263966f0208113d4dbf4cde"
+    },
+    "native_start": {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/native-records/start.json",
+      "bytes": 550,
+      "lines": 14,
+      "sha256": "0d8130bfa11b453c9cd0d2138181caa81f6a71c923da2155de79bbe47ba6332d"
+    },
+    "native_result": {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/native-records/result.json",
+      "bytes": 702,
+      "lines": 19,
+      "sha256": "221966b7f590b03a50a0c8ae2cb1c8b06e756af0d050b82c181e950f77ecf57b"
+    },
+    "outer": {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/full.log",
+      "bytes": 91428,
+      "lines": 1078,
+      "sha256": "54821ffa5bf5340248ed33971ff353c1335ff8a4988e23df048fe0892a7b2584"
+    },
+    "native": {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/native-records/output.log",
+      "bytes": 91080,
+      "lines": 1075,
+      "sha256": "48466b063b338defe63e54b3eed7594095cd3036dd773443ef9649b2bc211b65"
+    },
+    "verification": {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/verification.json",
+      "bytes": 867,
+      "lines": 19,
+      "sha256": "dc97fa649fd0b18c30d530a4720b95ee0b1a002d031e6b80094d5b08a9e27124"
+    },
+    "started_utc": "2026-11-04T15:36:28.738638+00:00",
+    "completed_utc": "2026-11-04T15:36:38.792704+00:00"
+  },
+  "current_public_types": {
+    "count": 53,
+    "lines": 1075,
+    "bytes": 91080,
+    "chunks": 8,
+    "complete": true,
+    "source_inventory_program_and_all_output_blocks_match": true,
+    "concrete_type_findings": 0,
+    "profile": [
+      "pp.universes=true",
+      "pp.explicit=true",
+      "pp.fullNames=true"
+    ],
+    "core_assessment": "All17 core declarations preserve minimal general parameters, separated distinctness/completeness, List.Sublist/intersection/subset semantics, factorial support cardinality, actual ENNReal source-event mass and actual pushforward law with exactly the needed measurable-singleton premises.",
+    "examples_assessment": "All36 public example/boundary types preserve the two distinct triple masses1/6, repeated mass0, same-sample nested mass1/2, singleton/full masses1 and1/24, empty support/index mass1, inverse/direct convention, numeric-priority order distinction, and separate incomplete/repeated support counterexamples.",
+    "ellipsis_contexts": 118,
+    "ellipsis_counts": {
+      "Fin.instOfNat NeZero proof instance": 114,
+      "ENNReal instOfNatAtLeastTwo proof instance": 4
+    },
+    "ellipsis_conclusion": "Every actual context was read. Only internal proof-instance arguments of the two pinned numeral instances are elided; no theorem binder, substantive premise, carrier, event or result is hidden.",
+    "pinned_api_reads": [
+      {
+        "source": "conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/Fin/Basic.lean",
+        "source_sha256": "bb3d4e46cb40a24f5a09e6e003c76f2b84140a598df81233f0bffe3afe08cbf4",
+        "lines": [
+          237,
+          252
+        ],
+        "range_sha256": "21123f91cf879fa84a2168350a482e1f9530f74278ef3c34348f819eef3c105a",
+        "assessment": "Fin.instOfNat has explicit internal NeZero n instance before numeral i."
+      },
+      {
+        "source": "conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/NeZero.lean",
+        "source_sha256": "94e1883fd4fd9c5612da4a24a0cbc9bd6a656d31ce9a0123b9833175c5964df3",
+        "lines": [
+          22,
+          37
+        ],
+        "range_sha256": "bff7d0888de5d4c517026ea418762ebc83ce71efb7b24e1948e2df98b0cfcff3",
+        "assessment": "NeZero is a Prop class carrying n !=0; no computational carrier data is suppressed."
+      },
+      {
+        "source": "Mathlib/Data/Nat/Init.lean",
+        "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_sha256": "ded24773f40d2499826e1fe3d245cfa10f84b31b326be122ef7a8562fb1c4d9b",
+        "lines": [
+          406,
+          431
+        ],
+        "range_sha256": "300993916fed165bc08fd098f9ca65765e69a837889fb2929bfcf569d475fbe2",
+        "assessment": "Nat.AtLeastTwo is a Prop class with 2<=n."
+      },
+      {
+        "source": "Mathlib/Data/Nat/Cast/Defs.lean",
+        "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_sha256": "5656ed14933f402c33cbe3f1cc3eb7b26e4df670c573187fb7d0972eef4e3118",
+        "lines": [
+          29,
+          51
+        ],
+        "range_sha256": "b9ad148805eb03d1d0096214c0f75934a7edd14bddc82332711c576182c69b06",
+        "assessment": "instOfNatAtLeastTwo uses the shown NatCast and internal Nat.AtLeastTwo proof; the concrete ENNReal numeral remains visible."
+      }
+    ],
+    "api_read_tool": "cc0a8c"
+  },
+  "receiving_statement_disposition": {
+    "current_actual_J53": 53,
+    "actual_I314_qualified_at_J": 314,
+    "actual_F110_qualified_at_J": 110,
+    "distinct_total": 477,
+    "source_artifact_counts": {
+      "J53": [
+        6,
+        26,
+        14,
+        18
+      ],
+      "I314": [
+        27,
+        56,
+        22,
+        81
+      ],
+      "F110": [
+        23,
+        58,
+        32,
+        69
+      ]
+    },
+    "counts_order": [
+      "local_sources",
+      "import_edges",
+      "distinct_external_imports",
+      "complete_supported_artifact_keys"
+    ],
+    "all12_observation_records_independently_checked": true,
+    "producer_semantic_reads_retained": true,
+    "original_I314_15_chunks_and_F145_10_chunks_rehashed": true,
+    "all_original314_and145_output_blocks_reconstructed": true,
+    "F110_positions": [
+      [
+        20,
+        83
+      ],
+      [
+        100,
+        145
+      ]
+    ],
+    "insertion35_fresh_I314_positions": [
+      280,
+      314
+    ],
+    "insertion_difference": "Applications/Sorting/Merge.lean",
+    "no_automatic_Z_transfer": "Three Minimum trace and nine dependency-path differences remain recorded. Actual J53 supplies the receiving evidence.",
+    "unchanged_configurations": 10,
+    "exact_clean_dependencies": 9,
+    "qualified_runtime_components": 12,
+    "all_three_receiving_pairs_after_full_and_around_actual53": true,
+    "no_receiving_I314_or_F145_program_execution_claim": true
+  },
+  "original_reuse_conditions_retained_verbatim": [
+    {
+      "id": "REUSE-01",
+      "condition": "Identify one actually executed producer inspection at exact F or exact current Chapter2 candidate, with the executed program bytes/hash and complete selected-name inventory. Prepared files alone are not evidence. The producer program must contain every transferred name as a fully qualified #check @constant with the stated full-name, explicit and universe printing profile; any successor program must be separately identified."
+    },
+    {
+      "id": "REUSE-02",
+      "condition": "Secure actual exit0 and closed complete outer/native logs and terminal JSONs; match commands, cwd, start/end times, hashes and sizes, with no timeout, recorder error, truncated/missing output or inferred session result. Read the complete actual type output for every one of the110 names; printed-type blocks must expose all quantifiers and premises rather than relying on an occurrence count."
+    },
+    {
+      "id": "REUSE-03",
+      "condition": "Secure producer pre/post HEAD and clean relevant source/configuration state, unchanged executed program hash, and immutable-run ownership. Verify these six/four relevant root closures against the exact produced candidate and the receiving candidate, including the expected source blobs, direct external imports and all pinned configuration. Do not substitute present source equality or an earlier/later unrelated result for missing producer terminal identity."
+    },
+    {
+      "id": "REUSE-04",
+      "condition": "Match the actual Lean4.35.0/Lake/native-kit1.0.0 execution to the preserved qualified profile, official compiler archive and disclosed launcher adapter. Retain command/profile/runtime/loader identities and exact nine package revisions with clean actual dependency sources. Record actual threading (one in the qualified current setup). An incompatible profile, compiler, package revision or unqualified change is a gap requiring applicable qualification, not an assumed equivalent environment."
+    },
+    {
+      "id": "REUSE-05",
+      "condition": "Establish that the producer loaded compiler objects corresponding to the recorded immutable defining sources and pinned dependencies, using the qualified launcher plus retained build/input integrity evidence. Do not reuse stale or unverified outputs merely because the source files match. No concurrent builders may share writable project outputs, and no command may be launched against a project while its other builder owns those outputs."
+    },
+    {
+      "id": "REUSE-06",
+      "condition": "Both independent axes must assess the actual110 printed types and this exact dependency/configuration/profile mapping within their original full review scopes. Retain attribution to the actual producer run and to the source/type reviewers. No author summary, focused module count, selected older output or anticipated success substitutes for that assessment."
+    },
+    {
+      "id": "REUSE-07",
+      "condition": "Transfer only the110 eligible names. The35 InsertionSort/InsertionCosts names remain separate at both candidates because transitive Sorting.Merge differs, even though their root source bytes match and the Merge change appends plain theorems. No elaboration-equivalence proof is claimed for that changed environment."
+    },
+    {
+      "id": "REUSE-08",
+      "condition": "If either candidate advances, reconcile its relevant defining closures, exact names, pins and profile to this receipt before transfer. The current binding is only F and0a7ef078. A later unrelated source/doc delta may permit bounded identity extension, but it is not automatically covered."
+    },
+    {
+      "id": "REUSE-09",
+      "condition": "Record any actual reuse in a new explicit evidence disposition with producing run, receiving candidate, exact names and reviewed output positions, preserving both original pending programs and inventories. This preparation changes no pending count and removes no command. Any later targeted remainder must be a separately recorded derivative after the evidence conditions actually hold."
+    },
+    {
+      "id": "REUSE-10",
+      "condition": "Reuse supplies only public statement-inspection evidence. Each original immutable candidate still requires its applicable complete check, exhaustive kernel/axiom audit including private/generated declarations, new matching verification record, both final independent reviews and immediate qualified --verify-candidate before acceptance. Accepted Chapter1 remains accepted; no extra fresh check is implied without the README trigger."
+    }
+  ],
+  "standards_condition_dispositions": [
+    {
+      "id": "REUSE-01",
+      "assessment": "Satisfied. The actual complete I314 and F145 producer programs and command identities are secured; only their exact ordered names with the unchanged explicit/full-name/universe profile transfer. Current Order uses its own actual J53 command, not a prepared input or unqualified Z replay."
+    },
+    {
+      "id": "REUSE-02",
+      "assessment": "Satisfied. Closed producer terminal/output evidence and my complete prior 314/145 semantic-read records remain bound. Every original producer block and every bounded reader-chunk hash was independently reconstructed. All 53 current full types and complete full/inspection outer and native logs are read; actual exits are zero and no timeout or recorder error appears."
+    },
+    {
+      "id": "REUSE-03",
+      "assessment": "Satisfied at explicit J. Current53 has six defining/dependency source files. I314 has exact27 files/56 edges/22 external imports; F110 has exact23 files/58 edges/32 external imports. Actual producer and receiving pre/post identities, programs and clean candidate states are used; present root-source equality alone is not credited."
+    },
+    {
+      "id": "REUSE-04",
+      "assessment": "Satisfied. All ten configs, nine exact clean dependency records including literal paths, and twelve already-qualified runtime component fingerprints match across the twelve observations. The actual qualified Lean4.35.0/matching Lake/native-kit1.0 profile, official compiler archive qualification, disclosed adapter and one thread are retained; no profile or pin substitution."
+    },
+    {
+      "id": "REUSE-05",
+      "assessment": "Satisfied under the existing trusted stable-checkout discipline. The successful guarded full F/I/J lineage and exclusive command/output ownership support the stored objects. Complete supported artifact keysets and bytes match:18 current,81 I314 and69 selected F110. No ignored extra/missing supported key or transplanted output is credited. Fingerprints do not independently certify hostile artifact authenticity or hash every external object."
+    },
+    {
+      "id": "REUSE-06",
+      "assessment": "Standards independently satisfied. Same-reader complete producer semantic assessments are retained by exact identity and the current J mapping is independently reproduced. This receipt does not speak for Spec; root must reconcile the separate final Spec disposition under the same original scopes."
+    },
+    {
+      "id": "REUSE-07",
+      "assessment": "Satisfied. Transfer exactly F145 positions20–83 and100–145,110 names. All35 insertion names stay outside F transfer because transitive Sorting.Merge differs; they retain actual fresh I314 positions280–314 and exact I/J inputs."
+    },
+    {
+      "id": "REUSE-08",
+      "assessment": "Satisfied by this new explicit receiving-J reconciliation. The original F/0a7ef078 preparation and accepted-I extension remain historical and unmodified. Neither the old binding nor this J binding grants automatic transfer to a later candidate or another unit."
+    },
+    {
+      "id": "REUSE-09",
+      "assessment": "Satisfied by the new exact mapping and final disposition. All original programs, inventories, block outputs and prior reports remain unchanged. Current53+qualifiedI314+qualifiedF110=477 distinct names; the receiving program-only observations are not executions and are not counted as new type runs."
+    },
+    {
+      "id": "REUSE-10",
+      "assessment": "Boundary satisfied/retained. Only statement-inspection evidence transfers. J has its own successful full normal gate, exhaustive audit and matching verification. Both final axes and root immediate qualified candidate verification before accepted fast-forward remain required coordinator actions. Accepted C1/F/I remain accepted; no untriggered fresh check or redundant focused invocation is imposed."
+    }
+  ],
+  "finding_dispositions": [
+    {
+      "id": "XU02-SP01",
+      "disposition": "Resolved atJ; exact corrected numeric-order prose retained."
+    },
+    {
+      "id": "XU02-SRC-001",
+      "disposition": "Resolved atJ; reviewed local-binding correction plus complete successful receiving gate, no suppression."
+    },
+    {
+      "id": "XU02-ELAB-001–014",
+      "disposition": "Resolved atJ by retained full source corrections, current full compilation, all53 public full types and exhaustive audit; no old failed elaborated-equivalence claim."
+    },
+    {
+      "id": "C02-DOC-003",
+      "disposition": "Order portion applied/resolved atJ; remaining Tail portion is separate and open."
+    },
+    {
+      "id": "C02-TYPE-001",
+      "disposition": "Current XU02 receiving53 plus inherited424 satisfied at exactJ. HistoricalZ resolution and completeC2 final candidate gate remain separate."
+    }
+  ],
+  "warnings": {
+    "prior_warning_count": 571,
+    "current_warning_count": 584,
+    "new_only13_import_advisories": {
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Data.Finset.Lattice.Lemmas` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Data.Fintype.OfMap` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Data.Fintype.Perm` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Data.List.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Data.List.Nodup` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Data.List.Permutation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Data.Set.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Logic.Equiv.Fintype` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Logic.Equiv.List` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Probability.UniformOn` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+      "warning: Examples/PermutationOrderBoundary.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+      "warning: Examples/PermutationOrder.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1
+    },
+    "removed": {}
+  },
+  "normal_vs_fresh": "Actual normal gate retains guard/audit and compiles all current affected targets. Existing successful fresh baseline and qualified profile remain. No fresh trigger or unmatched focused input is identified.",
+  "independent_reconciliation_execution": {
+    "tool_chunk": "75ecd7",
+    "exit_code": 0,
+    "prior_failure_preserved": {
+      "path": "provenance/shared-order-standards-terminal-assessment-20261104/qualification-bookkeeping-note.json",
+      "bytes": 857,
+      "lines": 17,
+      "sha256": "56fab88bb62f0c0fae4bced5b089de4db02ccd03a67c70a343ac5a1fa2d2a88b"
+    }
+  },
+  "report": {
+    "path": "reviews/permutation-order-standards-final-20261104.md",
+    "bytes": 15675,
+    "lines": 97,
+    "sha256": "27379408402ad18d6c5e401f2c4e3854263d0a386ee5161759875a7be21b8d10"
+  },
+  "bound_evidence": [
+    {
+      "path": "reviews/permutation-order-standards-source-continuation-20261104.md",
+      "bytes": 14665,
+      "lines": 71,
+      "sha256": "6028f4a75fb71771eeaa3faacdc5f1cfb0a3f0dd9d8a8ecabf7038942bbd10d0"
+    },
+    {
+      "path": "provenance/shared-order-standards-integration-20261104/source-assessment.json",
+      "bytes": 72538,
+      "lines": 1587,
+      "sha256": "8f2c86c2be79f2903bb19ea6f15f2ce3d554fcf63f890b3c47c1c6f1b3635f28"
+    },
+    {
+      "path": "provenance/shared-order-standards-integration-20261104/read-ledger.json",
+      "bytes": 39768,
+      "lines": 1158,
+      "sha256": "380034b3854f473f264fca9bab44d3be845f4355ecf86bd68c5e4be869739362"
+    },
+    {
+      "path": "reviews/permutation-order-requirements.md",
+      "bytes": 11430,
+      "lines": 209,
+      "sha256": "f473f593bf4a7ef75dcf2f3163440db6fe187b3b9983f87254d2ddfa8191982d"
+    },
+    {
+      "path": "provenance/shared-order-standards-terminal-assessment-20261104/full-log-read-ledger.json",
+      "bytes": 11483,
+      "lines": 229,
+      "sha256": "a7eb6c96f06b58246655eaa99cea82611cedeee2f6a257321a4f622663746ffc"
+    },
+    {
+      "path": "provenance/shared-order-standards-terminal-assessment-20261104/actual53-read-ledger.json",
+      "bytes": 5617,
+      "lines": 89,
+      "sha256": "801098585a98ff633f744e86513d037ed45fc1390f88bedcf80041a019d9fa08"
+    },
+    {
+      "path": "provenance/shared-order-standards-terminal-assessment-20261104/independent-execution-and-type-reconciliation.json",
+      "bytes": 161786,
+      "lines": 4427,
+      "sha256": "e40c73acaa26f702473a8bce7d758291484fe965ba356d08564e83eee32d7d84"
+    },
+    {
+      "path": "provenance/shared-order-standards-terminal-assessment-20261104/qualify_receiving_inputs.py",
+      "bytes": 22549,
+      "lines": 334,
+      "sha256": "009a6525ef9c5e4f59fc1d3d29916a75e403d8f5390fceeb512d09dcf0d29565"
+    },
+    {
+      "path": "provenance/shared-order-standards-terminal-assessment-20261104/qualification-bookkeeping-note.json",
+      "bytes": 857,
+      "lines": 17,
+      "sha256": "56fab88bb62f0c0fae4bced5b089de4db02ccd03a67c70a343ac5a1fa2d2a88b"
+    },
+    {
+      "path": "reviews/shared-four-standards-final-20261104.md",
+      "bytes": 14756,
+      "lines": 72,
+      "sha256": "6e4665d1d4da826bf8d22c1d067bf67f222b495dd44986b6c247c765cf6faf50"
+    },
+    {
+      "path": "provenance/shared-four-standards-terminal-assessment-20261104/final-standards-assessment-312aafb4.json",
+      "bytes": 15828,
+      "lines": 375,
+      "sha256": "954110b3a4ea725c7079bfa9a623894659da225435b105e65f780656d9c4bfc6"
+    },
+    {
+      "path": "provenance/shared-four-standards-terminal-assessment-20261104/actual314-read-ledger.json",
+      "bytes": 14033,
+      "lines": 294,
+      "sha256": "5e61784905b0f5a6134b64808b84970bb4e5024b05ba2cf5aa836b16fd56fa01"
+    },
+    {
+      "path": "provenance/shared-four-standards-terminal-assessment-20261104/actual110-standards-disposition.json",
+      "bytes": 11507,
+      "lines": 156,
+      "sha256": "b543609754c4da5ba98bb826a03408d4b324882a6f5ec0e9e6a73b824934c988"
+    },
+    {
+      "path": "reviews/shared-foundations-standards-terminal-assessment-20261104.md",
+      "bytes": 9830,
+      "lines": 51,
+      "sha256": "5931dafe30f68151d81621ded0274643fb8145c5c57e644b6cca284fc634e141"
+    },
+    {
+      "path": "provenance/shared-foundations-standards-terminal-assessment-20261104/actual145-read-progress.json",
+      "bytes": 20912,
+      "lines": 378,
+      "sha256": "ef690b8f502c1ac4b70cd956cf682d2faa080b4b36151afc7cd05cd8a3a77a0b"
+    }
+  ],
+  "coordinator_remaining": [
+    "Reconcile the independent final Spec disposition at exactlyJ.",
+    "Immediately run qualified ./check.sh --verify-candidate HEAD before accepted fast-forward.",
+    "Fast-forward accepted branch only to the exact approved candidate, update local status accurately and preserve/upload acceptance checkpoint."
+  ],
+  "nonclaims": [
+    "No Chapter2, Tail receiver, other cross-cutting draft, later chapter or whole-book acceptance.",
+    "No inherited verification copy is called a new audit.",
+    "No prepared input, progress record or historical session ID is treated as actual current success.",
+    "No source/ref/cache/index/pin/ticket/compiler/process/runtime-capture action by this reviewer.",
+    "No authenticity claim from fingerprints alone; trusted guarded stable-checkout lineage and exact profiles remain essential."
+  ],
+  "reviewer_package_status": "Final semantic assessment saved; complete final report and receipt readback follows, then own writes held.",
+  "final_report_prose_correction": {
+    "path": "provenance/shared-order-standards-terminal-assessment-20261104/final-report-prose-correction.json",
+    "bytes": 1232,
+    "lines": 24,
+    "sha256": "152c529b5e1af127f8f076ce1630c1cf7e4c0984162b063f52ad908c3fd4a784"
+  }
+}

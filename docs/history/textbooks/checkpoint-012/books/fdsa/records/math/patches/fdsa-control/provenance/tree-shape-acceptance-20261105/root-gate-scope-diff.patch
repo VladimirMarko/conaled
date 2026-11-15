@@ -1,0 +1,210 @@
+--- /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-acceptance-20261105/reconcile_root_gate_once.py
++++ /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/reconcile_root_gate_once.py
+@@ -1,4 +1,4 @@
+-"""Reconcile completed XT01 preacceptance gates without building or accepting."""
++"""Reconcile completed XT02 preacceptance gates without building or accepting."""
+ from pathlib import Path
+ import datetime
+ import fcntl
+@@ -10,19 +10,18 @@
+ C = B / 'fdsa-control'
+ P = B / 'conaled-ch01-review'
+ H = Path(__file__).resolve().parent
+-NEW = '90469ce4ba3fc49397d369a5db7d58aec7014f58'
+-TREE = '18bf4bc9df979d4ee6ac76182f58faed235a0714'
+-OLD = '298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2'
+-ORIGINAL = 'a14977b9e316cc484ffad8a470d26b15615956c0'
+-DONOR = '64c6b777d828ecfe83234fc2aed94600a1f24297'
+-F = C / 'provenance/binary-tree-cache-receiving-full-attempt1-20261105'
+-T = C / 'provenance/binary-tree-cache-receiving-statements115-attempt1-20261105'
+-I = C / 'provenance/binary-tree-cache-receiving-statements115-20261105'
+-PATHS = ['Applications/Resources/TreeCache.lean', 'Applications/Trees/Cached.lean',
+-         'Applications/Trees/Observations.lean', 'Examples/TreeCache.lean',
+-         'SquareApplications.lean', 'docs/research/fdsa-reconstruction-map.md',
+-         'docs/research/fdsa-tree-cache.md']
+-IDS = [f'XT01-{i:02}' for i in range(1, 8)]
++NEW = 'e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe'
++TREE = 'd002afee18c38828f01221837f4c3f302ab155cc'
++OLD = '90469ce4ba3fc49397d369a5db7d58aec7014f58'
++ORIGINAL = '64c6b777d828ecfe83234fc2aed94600a1f24297'
++DONOR = '974a97321a8ec174b56104c7e6efaaca881b6639'
++F = C / 'provenance/tree-shape-receiving-full-attempt1-20261105'
++T = C / 'provenance/tree-shape-receiving-statements90-run-20261105'
++I = C / 'provenance/tree-shape-receiving-statements90-20261105'
++PATHS = ['Applications/Trees/Shape.lean', 'Applications/Trees/ShapeLog.lean',
++         'Examples/TreeShape.lean', 'SquareApplications.lean',
++         'docs/research/fdsa-reconstruction-map.md', 'docs/research/fdsa-tree-shape.md']
++IDS = [f'XT02-{i:02}' for i in range(1, 6)]
+ bound = {}
+ 
+ def now():
+@@ -58,20 +57,29 @@
+         stream.write('\n')
+ 
+ def require_scope(value, axis):
+-    assert value['unit'] == 'FDSA-XT01' and value['axis'] == axis
++    assert value['unit'] == 'FDSA-XT02' and value['axis'] == axis
+     assert value['candidate'] == NEW and value['tree'] == TREE
+     assert value['original_unit_base'] == ORIGINAL and value['original_donor'] == DONOR
+     assert value['incorporated_base'] == OLD
+     assert value['requirements_ids'] == IDS and value['original_scope_paths'] == PATHS
+-    assert value['public_names'] == 115
++    assert value['public_names'] == 90
+     assert value['outcome'].upper() in {'PASS', 'PASSED'} and not value['unresolved_findings']
+     for flag in ('full_original_scope_complete', 'actual_public_types_complete', 'full_validation_accepted', 'review_complete'):
+         assert value[flag] is True, (axis, flag)
+ 
++# Fail closed until root records actual completed evidence; no prospective values.
++expected_path = H / 'final-evidence-expectations.json'
++assert expected_path.is_file(), 'Actual terminal/audit expectations are not yet available'
++expected = read(expected_path)
++assert expected['actual_full_evidence_reconciled'] is True
++assert expected['candidate'] == NEW and expected['tree'] == TREE
++assert expected['unsafe_runtime_declarations'] == 0
++bind(expected_path)
++
+ assert not (H / 'root-gate-reconciliation.json').exists()
+-assert ident(H / 'fast_forward_once.py')['sha256'] == '45f2ff0bc5b04a5da8a394f1329a48efb0f29a8e8c2230c51b49a61bd4c94c92'
++assert ident(H / 'fast_forward_once.py')['sha256'] == 'd84afcb02590a4c89f26af8b231e773a23af0af4410d9468edeab54112b1c6b8'
+ inspection = read(H / 'operational-helper-inspection.json')
+-assert inspection['outcome'] == 'Passed' and inspection['unresolved_findings'] == []
++assert inspection['outcome'].split(':', 1)[0] == 'Passed' and inspection['unresolved_findings'] == []
+ verify(inspection['helper'])
+ assert git(B / 'conaled', 'rev-parse', 'HEAD').strip() == OLD
+ assert git(B / 'conaled', 'symbolic-ref', 'HEAD').strip() == 'refs/heads/work/fdsa-book'
+@@ -86,8 +94,8 @@
+ assert git(P, 'merge-base', OLD, NEW).strip() == OLD
+ axes = {}
+ for axis in ('Standards', 'Spec'):
+-    d = C / f'provenance/binary-tree-cache-{axis.lower()}-receiving-20261105'
+-    assessment = read(d / 'final-validation-90469ce.json')
++    d = C / f'provenance/tree-shape-{axis.lower()}-receiving-20261105'
++    assessment = read(d / 'final-validation-e61bb6f.json')
+     hold = read(d / 'final-write-hold.json')
+     for value in (assessment, hold):
+         require_scope(value, axis)
+@@ -106,16 +114,16 @@
+         verify(receipt[key])
+     axes[axis] = {'outcome': assessment['outcome'], 'unresolved': 0,
+                   'complete_readback_and_hold': True, 'candidate': NEW, 'tree': TREE,
+-                  'unit': 'FDSA-XT01', 'original_unit_base': ORIGINAL, 'original_donor': DONOR,
++                  'unit': 'FDSA-XT02', 'original_unit_base': ORIGINAL, 'original_donor': DONOR,
+                   'incorporated_base': OLD, 'requirements_ids': IDS, 'original_scope_paths': PATHS,
+-                  'public_names': 115, 'full_original_scope_complete': True,
++                  'public_names': 90, 'full_original_scope_complete': True,
+                   'actual_public_types_complete': True, 'full_validation_accepted': True,
+                   'review_complete': True, 'receipt': bind(receipt_path),
+-                  'final_record': bind(d / 'final-validation-90469ce.json'),
++                  'final_record': bind(d / 'final-validation-e61bb6f.json'),
+                   'hold': bind(d / 'final-write-hold.json'), 'report': verify(receipt['report'])}
+ 
+ for directory, command in ((F, ['./check.sh', '--candidate', 'HEAD']),
+-                           (T, ['lake', 'env', 'lean', str(I / 'Statements115-complete.lean')])):
++                           (T, ['lake', 'env', 'lean', str(I / 'Statements90-complete.lean')])):
+     run, owned, actual, native, closed = (read(directory / rel) for rel in (
+         'result.json', 'owned-terminal.json', 'actual-tool-terminal.json',
+         'native-records/result.json', 'closed-evidence-reconciliation.json'))
+@@ -134,23 +142,23 @@
+         bind(directory / rel)
+ verification = (F / 'verification.json').read_bytes()
+ assert (P / '.lake/verification.json').read_bytes() == verification
+-assert hashlib.sha256(verification).hexdigest() == '329f0d0087adc21b3446d7f10b67c472cdf62238ccf578865eec20569c04da61'
++assert hashlib.sha256(verification).hexdigest() == expected['verification_sha256']
+ assert read(F / 'verification.json')['candidate'] == NEW
+ assert read(T / 'verification.json')['candidate'] == OLD
+ audit = read(F / 'root-audit-reconciliation.json')
+ assert (audit['checked_modules'], audit['audit_rows'], audit['logical_declarations'],
+-        audit['theorem_declarations'], audit['unsafe_runtime_declarations']) == (1113, 1111, 50288, 29430, 0)
++        audit['theorem_declarations'], audit['unsafe_runtime_declarations']) == tuple(expected[k] for k in ('checked_modules', 'audit_rows', 'logical_declarations', 'theorem_declarations', 'unsafe_runtime_declarations'))
+ assert set(audit['axiom_union']) == {'propext', 'Classical.choice', 'Quot.sound'}
+-assert audit['all4_scope_modules_in_audit_rows'] and audit['source_policy_passed']
++assert audit['all3_scope_modules_in_audit_rows'] and audit['source_policy_passed']
+ assert audit['pre_invalidated_modules'] == audit['post_inconsistent_modules'] == 0
+-pre = read(I / 'pre-inputs.json')['identity']
+-assert pre == read(I / 'post-inputs.json')['identity'] == read(I / 'final-inputs-after-full.json')['identity']
++pre = read(I / 'inputs-before.json')['identity']
++assert pre == read(I / 'inputs-after.json')['identity'] == read(I / 'final-inputs-after-full.json')['identity']
+ assert pre['candidate'] == NEW and pre['clean']
+-program = bind(I / 'Statements115-complete.lean')
+-assert program['bytes'] == 4721 and program['sha256'] == 'eea207cce83ce453b3625076041ff1262235771a8b92add322a149a044c98738'
+-assert len(pre['program']['names']) == 115
+-for field, base, count in (('configuration', P, 10), ('local_sources', P, 26),
+-                           ('local_compiler_objects_and_traces', P, 78), ('runtime', B, 12)):
++program = bind(I / 'Statements90-complete.lean')
++assert program['bytes'] == 4199 and program['sha256'] == 'fab2460caafba1f3f28a09006c4e220b9c735857e02294091486cdf4e8461c33'
++assert len(pre['program']['names']) == 90
++for field, base, count in (('configuration', P, 10), ('local_sources', P, 29),
++                           ('local_compiler_objects_and_traces', P, 87), ('runtime', B, 12)):
+     assert len(pre[field]) == count
+     for rel, expected in pre[field].items():
+         actual = ident(base / rel)
+@@ -171,8 +179,8 @@
+      'af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1', 'e2d4cb95882c3775dc01846c4010da3b92c78d34'),
+     ('chapter04-balancing-implementation-20261105/durability-hold-20261105.json', 'conaled-ch02-top-down',
+      'a8f57dbf153c19e3bad2c8136a90b566eeb35374', 'd6a360509f3fb80b611147303604a893cbba5510'),
+-    ('chapter04-exercises-implementation-20261105/durability-hold.json', 'conaled-ordinary-merge',
+-     '106601ff0c6af392139786f0ad01a56e0dca96fb', '2bfa27599acb493004838e7e388dfebebf627c17')]
++    ('chapter04-exercises-implementation-20261105/phase2-source-freeze.json', 'conaled-ordinary-merge',
++     'd02419738a9e16963727b25acf2e18f374dd16de', '6d2033e33b5282ce965c96b71776ab1aafea8828')]
+ for index, (rel, checkout, head, tree) in enumerate(author_specs):
+     hold_path = C / 'provenance' / rel
+     hold = read(hold_path)
+@@ -189,10 +197,10 @@
+         assert 'HOLD' in hold['state'] and not hold['acceptance_recorded']
+         sources = [{'path': key, **value} for key, value in hold['files'].items()]
+     else:
+-        assert hold['head'] == head and hold['tree'] == tree and 'HOLD' in hold['status']
++        assert hold['head'] == head and hold['tree'] == tree and 'SOURCE FROZEN' in hold['status']
+         sources = hold['source_files']
+-        assert not any(hold['unfinished_phase2_paths'].values())
+-        assert all(not (worktree / rel).exists() for rel in hold['unfinished_phase2_paths'])
++        assert len(sources) == 8 and hold['authored_declarations'] == 98
++        assert hold['author_processes'].startswith('none')
+     source_identities = []
+     for row in sources:
+         p = worktree / row['path']
+@@ -204,10 +212,10 @@
+                         'tree': tree, 'status': '', 'sources': source_identities,
+                         'compiled': False, 'accepted': False})
+ 
+-for path in (H / 'fast_forward_once.py', H / 'operational-helper-inspection.json',
+-             F / 'root-audit-reconciliation.json', I / 'observation-reconciliation.json',
+-             I / 'pre-inputs.json', I / 'post-inputs.json', I / 'final-inputs-after-full.json',
+-             I / 'actual-type-block-index.json', C / 'reviews/binary-tree-cache-requirements.md'):
++for path in (H / 'fast_forward_once.py', H / 'save_acceptance_once.py', H / 'reconcile_root_gate_once.py', H / 'operational-helper-inspection.json',
++             F / 'root-audit-reconciliation.json', I / 'root-source-type-reconciliation.json',
++             I / 'inputs-before.json', I / 'inputs-after.json', I / 'final-inputs-after-full.json',
++             I / 'root-source-type-reconciliation.json', C / 'reviews/tree-shape-requirements.md'):
+     bind(path)
+ refs = dict(line.split(' ', 1) for line in git(P, 'for-each-ref', '--format=%(refname) %(objectname)').splitlines())
+ worktrees = []
+@@ -216,20 +224,20 @@
+     path = Path(fields['worktree'])
+     worktrees.append({'path': str(path), 'head': fields['HEAD'], 'branch_ref': fields.get('branch', ''),
+                       'status': git(path, 'status', '--porcelain=v1', '--untracked-files=all')})
+-assert len(refs) == 78 and len(worktrees) == 9
+-gate = {'recorded_utc': now(), 'unit': 'FDSA-XT01', 'candidate': NEW, 'candidate_tree': TREE,
++assert len(refs) == 79 and len(worktrees) == 9
++gate = {'recorded_utc': now(), 'unit': 'FDSA-XT02', 'candidate': NEW, 'candidate_tree': TREE,
+         'accepted_base': OLD, 'incorporated_base': OLD, 'original_unit_base': ORIGINAL, 'original_donor': DONOR,
+-        'requirements_ids': IDS, 'original_scope_paths': PATHS, 'original_formal_source_modules': 4,
+-        'actual_public_names': 115, 'full_original_scope_complete': True,
++        'requirements_ids': IDS, 'original_scope_paths': PATHS, 'original_formal_source_modules': 3,
++        'actual_public_names': 90, 'full_original_scope_complete': True,
+         'all_required_preacceptance_gates_passed': True, 'all_source_writers_held': True,
+         'compiler_live': False, 'qualified_project_lock_available': True, 'axes': axes,
+-        'full_check': {'actual_exit': 0, 'mode': 'incremental', 'checked_modules': 1113,
+-                       'audited_modules': 1111, 'kernel_safe_declarations': 50288,
+-                       'theorem_declarations': 29430, 'unsafe_runtime_declarations': 0,
++        'full_check': {'actual_exit': 0, 'mode': 'incremental', 'checked_modules': audit['checked_modules'],
++                       'audited_modules': audit['audit_rows'], 'kernel_safe_declarations': audit['logical_declarations'],
++                       'theorem_declarations': audit['theorem_declarations'], 'unsafe_runtime_declarations': 0,
+                        'axiom_union': ['propext', 'Classical.choice', 'Quot.sound'],
+                        'normal_mode_applicable': True, 'fresh_baseline_preserved': True},
+-        'actual_statement_qualification': {'actual_exit': 0, 'names': 115, 'program': program,
+-            'current_sources_rehashed': 26, 'current_objects_and_traces_rehashed': 78,
++        'actual_statement_qualification': {'actual_exit': 0, 'names': 90, 'program': program,
++            'current_sources_rehashed': 29, 'current_objects_and_traces_rehashed': 87,
+             'current_configuration_files_rehashed': 10, 'current_clean_dependencies_verified': 9,
+             'current_runtime_components_rehashed': 12, 'pre_post_final_identity_equal': True,
+             'loaded_object_provenance_proof_claimed': False},

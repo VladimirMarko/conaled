@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-02T22:45:24.040971+00:00",
+  "formal_candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "attempt": "fresh2",
+  "disposition": "recorder unavailable; original checker observed active; preserve active validation without duplicate or signal",
+  "tool_handle": {
+    "session_id": 98080,
+    "poll_result": "write_stdin failed: Unknown process id 98080"
+  },
+  "native_observation": {
+    "path": "work-state/validation/1002-fresh2-handle-loss-first-observation.json",
+    "sha256": "daf08415cc07ae8ebcaa9ab90eeb8faa1daedba5140111a7b59b4810d4f9cc42",
+    "time": "2026-11-02T22:43:58.175043+00:00",
+    "recorder_pid_578140_observed": false,
+    "child_pid_578204_observed": true,
+    "child_ppid": 1,
+    "child_group_session": 578204,
+    "child_start_ticks": 8917111,
+    "active_compiler_pid": 620437,
+    "visible_processes": 59,
+    "stat_scan_errors": 0
+  },
+  "recorded_state": {
+    "schema": 1,
+    "state": "running",
+    "started_utc": "2026-11-02T21:34:09.497595+00:00",
+    "recorder_pid": 578140,
+    "child": {
+      "pid": 578204,
+      "process_group": 578204,
+      "session": 578204
+    },
+    "child_returncode": null,
+    "child_status": "unreaped",
+    "recorder_outcome": null,
+    "recorder_exit_code": null,
+    "interrupt_signal": null,
+    "descendant_quiescence_verified": false,
+    "errors": [],
+    "cleanup": null
+  },
+  "last_complete_heartbeat": {
+    "schema": 1,
+    "recorded_utc": "2026-11-02T22:41:39.544995+00:00",
+    "sequence": 136,
+    "elapsed_seconds": 4050.0473617700045,
+    "child_poll_returncode": null
+  },
+  "actual_checker_returncode": null,
+  "recorder_termination_cause": "unknown",
+  "checker_terminal_outcome": "not yet available",
+  "actions": [
+    "Preserve existing attempt records unchanged; run.json is stale recorder state.",
+    "Leave original checker and compiler undisturbed.",
+    "Do not launch replacement while original check is active.",
+    "Original independent reviewers asked for a prospective repository-policy assessment of terminal record/audit evidence if raw parent wait status remains unavailable. No acceptance requirement changed.",
+    "Preserve compiler output and later outcome honestly; no chapter accepted."
+  ],
+  "limits": [
+    "A single scoped native process scan is not a universal process absence proof.",
+    "Continued module output establishes retained progress, not successful completion.",
+    "The recorded null return cannot be replaced by an inferred zero.",
+    "No cause is assigned to recorder or handle loss."
+  ]
+}

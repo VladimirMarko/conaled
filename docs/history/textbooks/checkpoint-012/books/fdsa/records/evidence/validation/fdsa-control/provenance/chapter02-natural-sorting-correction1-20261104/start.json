@@ -1,0 +1,55 @@
+{
+  "started_utc": "2026-11-04T06:22:51.408575+00:00",
+  "parent": "9c5858d0feb56b42701ab1f84e5d9265b953cfea",
+  "author_status_before": "",
+  "authority": "Root bounded compiler-correction release; no builds or unrelated changes.",
+  "failed_build": {
+    "candidate": "e2db54211dfe3b2efd76904f1797a9460567ebbc",
+    "command": [
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+      "--state",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+      "run",
+      "--project",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+      "--threads",
+      "1",
+      "--",
+      "lake",
+      "build",
+      "Applications.Sorting.Natural",
+      "Examples.NaturalSorting",
+      "Applications.Resources.NaturalSorting",
+      "Examples.NaturalSortingCosts",
+      "Applications.Resources.DifferenceListCosts",
+      "Examples.DifferenceListCosts"
+    ],
+    "started_utc": "2026-11-04T06:16:32.995141+00:00",
+    "completed_utc": "2026-11-04T06:17:00.314525+00:00",
+    "exit_code": 1,
+    "elapsed_seconds": 27.319240105000063,
+    "state": "failed",
+    "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-natural-xd01-focused-20261104-attempt1/full.log",
+    "progress_bookkeeping_errors": [],
+    "final_head": "e2db54211dfe3b2efd76904f1797a9460567ebbc",
+    "final_status": "",
+    "log_size_bytes": 11989,
+    "log_sha256": "057996ba9c497d0821e21cb47efad8b7eda3a2a8db26b7f112259adf77e0983f",
+    "available_bytes_at_completion": 20630335488,
+    "verification_record_present": false
+  },
+  "failed_build_result_sha256": "69733676824e40c6757b16b7ad466dafe43771d625821bbc6a31a09dfaaa6672",
+  "before_sha256": {
+    "Applications/Sorting/Natural.lean": "e4b27eb275e9509b205da7ae25dd7829e664eb47617cb1602e6114eb5d264493",
+    "Examples/NaturalSorting.lean": "8d8b5ee50a516ee0b9938f0be4ed96e4bfee2658f97373c2ecc2c80bba9e2b5b",
+    "Applications/Resources/NaturalSorting.lean": "69e90e8236b7b160ac3bb4d73fe5797a82d616fa3b5e23a247756a37d24ff51b",
+    "Examples/NaturalSortingCosts.lean": "fcaf832cb41663d21c97e2e41381383c6a112a00695fecebf9a9dc5fa44afe51"
+  },
+  "planned_edits": [
+    "Expose the definitional sortNaturalOn target before the existing strict-descending specialization.",
+    "Use List.pairwise_of_forall for the arbitrary constant-key payload list.",
+    "Respect implicit element binders in List.Pairwise.imp; pass only the relation proof.",
+    "Annotate the size_isBigO_comparisons first function index as Nat, preserving intended length indexing."
+  ]
+}

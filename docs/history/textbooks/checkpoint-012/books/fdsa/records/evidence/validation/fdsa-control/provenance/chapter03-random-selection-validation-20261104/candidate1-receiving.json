@@ -1,0 +1,42 @@
+{
+  "recorded_utc": "2026-11-04T18:34:05.049041+00:00",
+  "candidate": "be1bf8de03554faea7beef0a25d01c40091d33b3",
+  "expectedHead": "79b270943119ae541a8ed5561adae4b55cfbe567",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "acceptedHead": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "name": "chapter03-random-selection-focused-attempt1-20261104",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Resources.RandomSelection",
+    "Examples.RandomSelection"
+  ],
+  "expectedPaths": [
+    "Applications/Resources/RandomSelection.lean",
+    "Examples/RandomSelection.lean"
+  ],
+  "recordDirectory": "chapter03-random-selection-validation-20261104",
+  "recordName": "candidate1-receiving.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was 79b2709 fix(selection): adapt count-rank proofs to pinned Lean APIs (#174)\nHEAD is now at be1bf8d feat(selection): model measured occurrence-pivot steps (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 7961,
+      "sha256": "1968275bcde9b2b61aedad3454fd073d4a4224f4ab1831cd0cb4b40ae653b533"
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 2713,
+      "sha256": "e983ac3d2ea94247f343898bba36648d6a07c6d42860f7bf0b15e96d8373156a"
+    }
+  ],
+  "candidate_tree": "a2cb6ba0780b4903a80fac6b37e056bbbe908132",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 379256832
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

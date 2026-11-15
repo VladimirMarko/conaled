@@ -1,0 +1,21 @@
+{
+  "created_utc": "2026-11-03T02:07:19.286401+00:00",
+  "previous_candidate": "eb61c35f911ad0fac36758c878559eaf5f795cfa",
+  "candidate": "577be121e074ddb5de6727a7481c115cb61b3b27",
+  "reason": "Unrun future own-gate helpers follow the doc-only correction. All67 captured focused formal/config inputs remain identical. The already executed focused warmer and its record retain old identity.",
+  "previous_preparation": "validation/persistent-accounting-candidate-validation-preparation.json",
+  "prepared_only": true,
+  "helpers": [
+    {
+      "file": "validation/warm-persistent-accounting-candidate.py",
+      "previous_sha256": "20a251e805e1ce6f1a661265d830619344cdc2eef729a6a67069b36f8ea3d425",
+      "sha256": "0a834f5fd679f21b27fb142903fc752dcc84b7eb391f656cb9a6ad9ef8247022"
+    },
+    {
+      "file": "validation/run-persistent-accounting-candidate.py",
+      "previous_sha256": "84bc3c929d088c05aca29725d423d06bac36440a9ba35c1bbcf67b4663c2f1ba",
+      "sha256": "8be07c7df25bd87a14ae48d278650a736c1000ed570b77963e16b43f33185eda"
+    }
+  ],
+  "policy": "No command, integrity guard, artifact hash adapter, predecessor success requirement, compiler setting or audit changed."
+}

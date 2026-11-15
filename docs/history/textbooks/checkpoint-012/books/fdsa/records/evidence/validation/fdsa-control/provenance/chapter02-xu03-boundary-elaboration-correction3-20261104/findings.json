@@ -1,0 +1,153 @@
+{
+  "recorded_utc": "2026-11-04T08:52:34.650201+00:00",
+  "full_original_review_scope_retained": true,
+  "actual_error_count": 16,
+  "complete_actual_diagnostic_sha256": "44466cb4649068d21f49600456b086e1eff2a99d7d1d5a26518989cda1aa0b6c",
+  "findings": [
+    {
+      "id": "XU03-ELAB3-01",
+      "original_line": 50,
+      "column": 84,
+      "header": "unsolved goals",
+      "declaration": "swap01_first_events",
+      "source_disposition": "Expose exactly the three optional-head propositions by change, then rewrite the already established selected/global list values before ordinary decide. No broad head?-map simplification or unused explicit simp argument remains.",
+      "validation_status": "Source correction proposed; matching compilation/types/audit and independent confirmation remain pending."
+    },
+    {
+      "id": "XU03-ELAB3-02",
+      "original_line": 51,
+      "column": 43,
+      "header": "This simp argument is unused:",
+      "declaration": "swap01_first_events",
+      "source_disposition": "Expose exactly the three optional-head propositions by change, then rewrite the already established selected/global list values before ordinary decide. No broad head?-map simplification or unused explicit simp argument remains.",
+      "validation_status": "Source correction proposed; matching compilation/types/audit and independent confirmation remain pending."
+    },
+    {
+      "id": "XU03-ELAB3-03",
+      "original_line": 140,
+      "column": 2,
+      "header": "Tactic `decide` failed to reduce",
+      "declaration": "joint12_table",
+      "source_disposition": "After the existing all-universe filter normalization, rewrite the support Finset through List.toFinset_eq_of_perm and List.permutations_perm_permutations' before ordinary decide. This is the same support set, not a new distribution or sampling operation.",
+      "validation_status": "Source correction proposed; matching compilation/types/audit and independent confirmation remain pending."
+    },
+    {
+      "id": "XU03-ELAB3-04",
+      "original_line": 148,
+      "column": 2,
+      "header": "Tactic `decide` failed to reduce",
+      "declaration": "joint21_table",
+      "source_disposition": "After the existing all-universe filter normalization, rewrite the support Finset through List.toFinset_eq_of_perm and List.permutations_perm_permutations' before ordinary decide. This is the same support set, not a new distribution or sampling operation.",
+      "validation_status": "Source correction proposed; matching compilation/types/audit and independent confirmation remain pending."
+    },
+    {
+      "id": "XU03-ELAB3-05",
+      "original_line": 198,
+      "column": 4,
+      "header": "Tactic `decide` failed to reduce",
+      "declaration": "counter_joint12_mass",
+      "source_disposition": "Rewrite the exact full-order support membership through the same pinned permutation-to-structural-enumerator equality before ordinary decide. Existing public full-fiber mass theorem application remains.",
+      "validation_status": "Source correction proposed; matching compilation/types/audit and independent confirmation remain pending."
+    },
+    {
+      "id": "XU03-ELAB3-06",
+      "original_line": 207,
+      "column": 6,
+      "header": "Tactic `decide` failed to reduce",
+      "declaration": "counter_joint21_mass",
+      "source_disposition": "Rewrite the exact full-order support membership through the same pinned permutation-to-structural-enumerator equality before ordinary decide. Existing public full-fiber mass theorem application remains.",
+      "validation_status": "Source correction proposed; matching compilation/types/audit and independent confirmation remain pending."
+    },
+    {
+      "id": "XU03-ELAB3-07",
+      "original_line": 210,
+      "column": 6,
+      "header": "Tactic `decide` failed to reduce",
+      "declaration": "counter_joint21_mass",
+      "source_disposition": "Rewrite the exact full-order support membership through the same pinned permutation-to-structural-enumerator equality before ordinary decide. Existing public full-fiber mass theorem application remains.",
+      "validation_status": "Source correction proposed; matching compilation/types/audit and independent confirmation remain pending."
+    },
+    {
+      "id": "XU03-ELAB3-08",
+      "original_line": 211,
+      "column": 53,
+      "header": "failed to synthesize instance of type class",
+      "declaration": "counter_joint21_mass",
+      "source_disposition": "Use the explicit NNReal type for nonzero numeral denominators, then simp only with the exact nonzero-denominator ENNReal coercion laws for every occurrence and coe_inj before NNReal norm_num. The finite constants and original conditioning expression are unchanged.",
+      "validation_status": "Source correction proposed; matching compilation/types/audit and independent confirmation remain pending."
+    },
+    {
+      "id": "XU03-ELAB3-09",
+      "original_line": 211,
+      "column": 55,
+      "header": "failed to synthesize instance of type class",
+      "declaration": "counter_joint21_mass",
+      "source_disposition": "Use the explicit NNReal type for nonzero numeral denominators, then simp only with the exact nonzero-denominator ENNReal coercion laws for every occurrence and coe_inj before NNReal norm_num. The finite constants and original conditioning expression are unchanged.",
+      "validation_status": "Source correction proposed; matching compilation/types/audit and independent confirmation remain pending."
+    },
+    {
+      "id": "XU03-ELAB3-10",
+      "original_line": 211,
+      "column": 6,
+      "header": "Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+      "declaration": "counter_joint21_mass",
+      "source_disposition": "Use the explicit NNReal type for nonzero numeral denominators, then simp only with the exact nonzero-denominator ENNReal coercion laws for every occurrence and coe_inj before NNReal norm_num. The finite constants and original conditioning expression are unchanged.",
+      "validation_status": "Source correction proposed; matching compilation/types/audit and independent confirmation remain pending."
+    },
+    {
+      "id": "XU03-ELAB3-11",
+      "original_line": 223,
+      "column": 53,
+      "header": "failed to synthesize instance of type class",
+      "declaration": "outside_order_12_mass",
+      "source_disposition": "Use the explicit NNReal type for nonzero numeral denominators, then simp only with the exact nonzero-denominator ENNReal coercion laws for every occurrence and coe_inj before NNReal norm_num. The finite constants and original conditioning expression are unchanged.",
+      "validation_status": "Source correction proposed; matching compilation/types/audit and independent confirmation remain pending."
+    },
+    {
+      "id": "XU03-ELAB3-12",
+      "original_line": 223,
+      "column": 55,
+      "header": "failed to synthesize instance of type class",
+      "declaration": "outside_order_12_mass",
+      "source_disposition": "Use the explicit NNReal type for nonzero numeral denominators, then simp only with the exact nonzero-denominator ENNReal coercion laws for every occurrence and coe_inj before NNReal norm_num. The finite constants and original conditioning expression are unchanged.",
+      "validation_status": "Source correction proposed; matching compilation/types/audit and independent confirmation remain pending."
+    },
+    {
+      "id": "XU03-ELAB3-13",
+      "original_line": 223,
+      "column": 6,
+      "header": "Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+      "declaration": "outside_order_12_mass",
+      "source_disposition": "Use the explicit NNReal type for nonzero numeral denominators, then simp only with the exact nonzero-denominator ENNReal coercion laws for every occurrence and coe_inj before NNReal norm_num. The finite constants and original conditioning expression are unchanged.",
+      "validation_status": "Source correction proposed; matching compilation/types/audit and independent confirmation remain pending."
+    },
+    {
+      "id": "XU03-ELAB3-14",
+      "original_line": 235,
+      "column": 53,
+      "header": "failed to synthesize instance of type class",
+      "declaration": "outside_order_21_mass",
+      "source_disposition": "Use the explicit NNReal type for nonzero numeral denominators, then simp only with the exact nonzero-denominator ENNReal coercion laws for every occurrence and coe_inj before NNReal norm_num. The finite constants and original conditioning expression are unchanged.",
+      "validation_status": "Source correction proposed; matching compilation/types/audit and independent confirmation remain pending."
+    },
+    {
+      "id": "XU03-ELAB3-15",
+      "original_line": 235,
+      "column": 55,
+      "header": "failed to synthesize instance of type class",
+      "declaration": "outside_order_21_mass",
+      "source_disposition": "Use the explicit NNReal type for nonzero numeral denominators, then simp only with the exact nonzero-denominator ENNReal coercion laws for every occurrence and coe_inj before NNReal norm_num. The finite constants and original conditioning expression are unchanged.",
+      "validation_status": "Source correction proposed; matching compilation/types/audit and independent confirmation remain pending."
+    },
+    {
+      "id": "XU03-ELAB3-16",
+      "original_line": 235,
+      "column": 6,
+      "header": "Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+      "declaration": "outside_order_21_mass",
+      "source_disposition": "Use the explicit NNReal type for nonzero numeral denominators, then simp only with the exact nonzero-denominator ENNReal coercion laws for every occurrence and coe_inj before NNReal norm_num. The finite constants and original conditioning expression are unchanged.",
+      "validation_status": "Source correction proposed; matching compilation/types/audit and independent confirmation remain pending."
+    }
+  ],
+  "aggregate_outcome": "Focused7 was still live at supplied prefix; no terminal outcome inferred. No later validation run was performed by this agent."
+}

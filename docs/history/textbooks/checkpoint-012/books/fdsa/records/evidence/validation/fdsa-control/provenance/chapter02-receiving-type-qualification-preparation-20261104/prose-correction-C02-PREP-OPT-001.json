@@ -1,0 +1,93 @@
+{
+  "schema": "fdsa.receiving-preparation-prose-correction.v1",
+  "recorded_utc": "2026-11-04T17:24:48.339559+00:00",
+  "finding": "C02-PREP-OPT-001",
+  "author": "/root/shared_acceptance_sequence",
+  "finding_origin": "Independent Standards same-scope preparation review; root authorized a separate correction record without old-file edits.",
+  "status": "Complete prose clarification and author readback; HELD. No source, program, helper or gate change.",
+  "stable_id_search": {
+    "scope": [
+      "fdsa-control/provenance",
+      "fdsa-control/reviews",
+      "fdsa-control/tickets"
+    ],
+    "method": "rg -l --fixed-strings C02-PREP-OPT-001",
+    "actual_exit": 1,
+    "tool_chunk": "368591",
+    "matches": []
+  },
+  "correction": {
+    "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/prose-correction-C02-PREP-OPT-001.md",
+    "bytes": 1824,
+    "lines": 9,
+    "sha256": "f23b09ce5b5fd5b43660ec522bc26071ee5226edb0080199a633f78c55b6eeda"
+  },
+  "original_six_files_preserved": [
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/ObservationOnly.lean",
+      "bytes": 3236,
+      "lines": 79,
+      "sha256": "d7c61fc87c597ff2d263e30c6848b0057ad59d43e104c99a15af7de074ef341d"
+    },
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/bound-inputs.json",
+      "bytes": 43114,
+      "lines": 873,
+      "sha256": "2120c53da63d2ae57361900937a14b26d115e4a26a0a6c3f560e307df635a6d8"
+    },
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/compare_receiving.py",
+      "bytes": 17282,
+      "lines": 274,
+      "sha256": "ca405b33d8b3e938f2e3a7c6abae7c6b06f754bb12d91d93751833e326e004f9"
+    },
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/plan.md",
+      "bytes": 17411,
+      "lines": 114,
+      "sha256": "3fb3621551d7a6a2f184477da2134ef1af6de0a7ed70a1e56bfffd4a73d5a6c2"
+    },
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/schedule.json",
+      "bytes": 409593,
+      "lines": 1,
+      "sha256": "6216efb85427a6401e1263f34294141c82f2fe88c74dc2dd18eb464207d06c62"
+    },
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/receipt.json",
+      "bytes": 3947,
+      "lines": 105,
+      "sha256": "d5e018458c1ebb888d794383316ec7e22ac00ca8b2b027fcc1675e87a76936c1"
+    }
+  ],
+  "bound_inputs_preserved": 144,
+  "NaturalRuns_original_program": {
+    "path": "provenance/chapter02-natural-runs-statements-20261104/statements.lean",
+    "bytes": 5054,
+    "sha256": "d56c25d992aa23e63c9bfa51cf4561f8ae2e6c1f186dda1493d0741673b372e4",
+    "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+  },
+  "NaturalRuns_exact_option_commands": [
+    [
+      3,
+      "autoImplicit",
+      "false"
+    ],
+    [
+      4,
+      "warningAsError",
+      "true"
+    ]
+  ],
+  "original_program_context_full_read": "9d02e8, lines1\u201315, exit0",
+  "clarification_scope": [
+    "Table heading Recorded options means Pretty-printer options.",
+    "NaturalRuns cell means No explicit pretty-printer options.",
+    "All original set_option commands remain in the mechanical schedule and original programs."
+  ],
+  "carrier_helper_and_schedule_unchanged": true,
+  "compiler_capture_or_helper_execution": false,
+  "receiving_credit": 0,
+  "source_ref_runtime_cache_output_changes": false,
+  "readback_boundary": "Complete correction prose read at 2f2b04 and complete receipt read at 85dccf, both actual exit0; this final status/readback update is read in full before handoff. All original evidence remains held."
+}

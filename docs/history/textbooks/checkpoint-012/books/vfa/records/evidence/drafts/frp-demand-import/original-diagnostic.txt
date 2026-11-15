@@ -1,0 +1,8 @@
+error: Applications/FRP/Demand.lean:139:16: Application type mismatch: The argument
+  le_rfl
+has type
+  ?m.155 ≤ ?m.155
+but is expected to have type
+  n < n + 1
+in the application
+  And.intro le_rfl

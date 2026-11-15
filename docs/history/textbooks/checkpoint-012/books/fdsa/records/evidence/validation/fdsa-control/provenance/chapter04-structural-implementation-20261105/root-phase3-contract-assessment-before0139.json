@@ -1,0 +1,108 @@
+{
+  "recorded_utc": "2026-11-05T04:01:57.923129+00:00",
+  "coordinator": "/root",
+  "whole_chapter_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "all76_obligations_retained": true,
+  "outcome": "Frozen design reviewed; zero concrete design findings. Source implementation remains held until actual XT02 acceptance and checkpoint0139 durability, followed by an explicit bounded assignment.",
+  "scope": [
+    "Shared Bool x Nat completeness/height fold",
+    "C04-074 generic cache specialization",
+    "C04-038..041 maximal complete structural subtree including equality-free bonus",
+    "Derived node-count maximality corollary"
+  ],
+  "complete_root_reads": [
+    {
+      "chunk": "3c98ce",
+      "scope": "Completeness/cache frozen contract and all readback clarifications complete"
+    },
+    {
+      "chunk": "77df32",
+      "scope": "Maximal complete structural subtree frozen contract complete"
+    },
+    {
+      "chunk": "d0451d",
+      "scope": "All expected cases and separate future almost-complete note complete"
+    },
+    {
+      "chunk": "ad5f01",
+      "scope": "Final design hold complete"
+    }
+  ],
+  "assessment": [
+    "Pure Bool/height fold computes both child summaries once; only natural-height equality is executable. No equality, order or inhabitance of labels required.",
+    "Cache definitions specialize accepted generic read/smartNode/Valid/annotate. annotateCh input is unaugmented BinaryTree alpha as explicit clarification states. Recursive validity, not local root consistency, is required for correctness.",
+    "MCS summary separates original whole-tree completeness/height from the selected candidate and its stored height. A complete root returns the original node; otherwise select an existing child candidate by bestHeight, left on ties.",
+    "Executable MCS dependency graph excludes tree or label equality, Complete/Subtree/subtrees queries, separate height traversals, and recombination of best children. Its theorem statements retain structural containment and height maximality universally.",
+    "Node-count maximality follows from complete-tree leaves = 2^height and numLeaves = numNodes+1; this is an additional corollary, not a replacement for source height maximality.",
+    "Case matrix independently distinguishes both asymmetric directions, repeated labels, equal-height incomplete children, tied distinct maxima, tall incomplete branch versus better shorter candidate, nonstructural recombination and an invalid descendant under a locally correct parent.",
+    "AlmostComplete structural closure and exact shorter-child-complete constructor formula are separate future scope, retaining all other chapter obligations."
+  ],
+  "reserved_future_paths": [
+    "Applications/Trees/CompleteSummary.lean",
+    "Examples/TreeCompleteSummary.lean",
+    "Applications/Trees/CompleteCache.lean",
+    "Examples/TreeCompleteCache.lean",
+    "Applications/Trees/MaximalCompleteSubtree.lean",
+    "Examples/TreeMaximalCompleteSubtree.lean"
+  ],
+  "source_branch_unchanged": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+    "branch": "work/fdsa-ch04-structural",
+    "head": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1",
+    "tree": "e2d4cb95882c3775dc01846c4010da3b92c78d34",
+    "status_porcelain": ""
+  },
+  "bindings": {
+    "phase3-case-notes.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-case-notes.md",
+      "bytes": 8228,
+      "sha256": "f7db77a301608f1a70c55a60bb7decf1f8250275caecd1128ce0b5861fa272dd"
+    },
+    "phase3-completeness-frozen-contract.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-completeness-frozen-contract.md",
+      "bytes": 10636,
+      "sha256": "cd954bc25877b7121f20dc0a89cde84f7d7fc4dade4b42bc20757e714acf3202"
+    },
+    "phase3-contract-readback-clarifications.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-contract-readback-clarifications.md",
+      "bytes": 3008,
+      "sha256": "797121952bd437bc2df69e207e54a7bf6a7c4f2b4b27e5d993725ab260c586a4"
+    },
+    "phase3-design-input-identities.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-design-input-identities.json",
+      "bytes": 10962,
+      "sha256": "8838a9b399dc3197d15284ddc96c2949eb43f6d6c699dd596837676464e0ef24"
+    },
+    "phase3-design-read-receipts.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-design-read-receipts.json",
+      "bytes": 9040,
+      "sha256": "002fc479c325fe9f4a5882b66a872146b8d253d4fbe13944b6b41c7b364d0083"
+    },
+    "phase3-existing-api-bindings.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-existing-api-bindings.json",
+      "bytes": 15234,
+      "sha256": "92bc11f022184a9da93090a69adebaf710b5ca0431fe93bdac5333142130077e"
+    },
+    "phase3-future-almost-complete.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-future-almost-complete.md",
+      "bytes": 3757,
+      "sha256": "3618faf4d97ecc455ec73e9a8a314099b2cd177d4ae6ef9fb4445f36fd3b5b14"
+    },
+    "phase3-maximal-complete-subtree-frozen-contract.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-maximal-complete-subtree-frozen-contract.md",
+      "bytes": 12118,
+      "sha256": "533bccd063e03d7a1729a5a56376fb15d237803e14fff92c65471d68687b2c55"
+    }
+  },
+  "final_author_hold": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-structural-implementation-20261105/phase3-design-readback-and-hold.json",
+    "bytes": 10357,
+    "sha256": "d6649d1f55e31100126a9f081898ba986a40e268b18df1b9932f336a348a28ee"
+  },
+  "historical_author_holds_unchanged": true,
+  "review_axes_replaced": false,
+  "compiler_execution": false,
+  "implementation_or_compilation_claimed": false,
+  "acceptance_or_coverage_credit": false,
+  "XT02_status_at_design_assignment": "Unaccepted; original notes remain historical and unchanged. Later acceptance must be separately established."
+}

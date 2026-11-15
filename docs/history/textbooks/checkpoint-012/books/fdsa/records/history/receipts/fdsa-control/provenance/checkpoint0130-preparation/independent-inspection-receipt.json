@@ -1,0 +1,30 @@
+{
+  "recorded_utc": "2026-11-04T21:41:23.512277+00:00",
+  "inspector": "/root/checkpoint0124_inspection",
+  "role": "Read-only bounded operational inspection; not mathematical acceptance review",
+  "outcome": "Complete; zero unresolved operational findings",
+  "full_verifier_diff_original_readme_origin_read": "a743b7 exit0",
+  "five_substitution_exact_diff_AST_check": "ca6206 exit0",
+  "corrected_readme_and_full_correction_read": "535daa",
+  "full_write_hold_read": "0560fc",
+  "progress_identity_structure_scope_inspection": "dee41f",
+  "five_new_closed_runs_and_preserved68": "41ffbb exit0; matched real recorder/native/owned terminals and closed hashes",
+  "inspector_assumption_error": {
+    "tool_chunk": "473983",
+    "actual_exit": 1,
+    "reason": "Read-only assertion assumed chronological array order, but the saved list is sorted by name. No artifact defect or mutation.",
+    "resolution": "41ffbb compares actual completed timestamps and passes."
+  },
+  "all73_closed_runs_retained": true,
+  "one_interrupted_run_preserved_without_terminal_or_credit": true,
+  "new_tail_has_actual_exit1": true,
+  "tail_inherited_XR_verification_is_not_tail_credit": true,
+  "prepared_names": 1070,
+  "focused_passed_names": 1000,
+  "provisional_generic_envelope_names_excluded": 17,
+  "uncommitted_drafts": 5,
+  "exact_borrowed_sources": 7,
+  "all_source_and_provenance_authors_held": true,
+  "inspector_held": true,
+  "no_compiler_restore_or_acceptance_execution": true
+}

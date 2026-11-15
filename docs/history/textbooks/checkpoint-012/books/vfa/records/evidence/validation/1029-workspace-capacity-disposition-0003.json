@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-03T00:05:47.733051+00:00",
+  "assessment": "work-state/validation/1029-workspace-capacity-assessment-0003.json",
+  "assessment_sha256": "50095461bf93c11677ddb99fd525fe61f90f8124c7966225f1bec68bb4789039",
+  "root_review_scope": "Assessment totals, top-level/category allocation projection, comparative findings, conclusion and limitations; raw nested inventory output was not all read.",
+  "decision": "No additional cleanup supported by this metadata census. Preserve current inputs and continue the active original checker.",
+  "evidence_limits": [
+    "Only lstat/scandir/statvfs metadata within the exact workspace is observed; no artifact/source/archive payloads are read or hashed. Only the explicitly requested STATUS and previous small evidence JSON were read.",
+    "Symlinks are counted without traversal; errors, link counts and allocation sums are retained. Path sums can count hard-linked data more than once; regular-only observed-inode deduplication is separately reported.",
+    "A single non-atomic pass while the original fresh checker remains active. Root advised checkpoint034 preparation/capture may be concurrent; no atomic snapshot, stable-input or inactivity claim follows.",
+    "Prior selected roots permit bounded allocation comparisons only. Newly included roots have no prior baseline, and workspace totals are not filesystem-wide ownership or causality evidence.",
+    "No process was inspected, no compiler/helper invoked, no outside-workspace path inspected, and no file was deleted. Previously retired paths are not recurring cleanup options.",
+    "This assessment neither predicts complete-build peak fit nor changes the existing2,000,000,000-byte checkpoint launch floor or any formal validation gate."
+  ],
+  "checkpoint_launch_floor_bytes": 2000000000,
+  "broader_probe_or_recurring_cleanup_authorized": false
+}

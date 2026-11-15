@@ -1,0 +1,72 @@
+{
+  "kind": "repeat-retirement-of-reappeared-unused-installer-artifacts",
+  "started_at": "2026-11-04T01:00:13.990738+00:00",
+  "status": "finished",
+  "formal_acceptance": false,
+  "ordinary_run_active": "integration-3cf-ordinary-r1-045",
+  "full_focus_locks": "Remain owned by the existing compiler controller; not acquired or overridden here.",
+  "setup_lock": "exclusive nonblocking for this unused-installer cleanup",
+  "reason": "Available bytes0 and free including reserved falling; code inspection found these downloads/scaffold are not current snapshot, doctor, environment or compiler inputs. Preserve installed toolchain, dependency caches and normal outputs.",
+  "space_before": {
+    "available_bytes": 0,
+    "free_bytes_including_reserved": 1487908864
+  },
+  "actions": [
+    {
+      "path": "native-state/downloads/.lean-4.35.0-linux.tar.zst.6EkHuc",
+      "removed_at": "2026-11-04T01:00:19.356718+00:00"
+    },
+    {
+      "path": "native-state/downloads/lean-4.35.0-linux.tar.zst.part",
+      "removed_at": "2026-11-04T01:00:19.359747+00:00"
+    },
+    {
+      "path": "native-state/downloads/lean-4.35.0-linux.tar.zst",
+      "removed_at": "2026-11-04T01:00:19.401214+00:00"
+    },
+    {
+      "path": "native-state/toolchains/.lean-install-6slq3adu",
+      "removed_at": "2026-11-04T01:00:19.415993+00:00"
+    }
+  ],
+  "approved_inputs_equal_active_start": true,
+  "inventory": [
+    {
+      "path": "native-state/downloads/.lean-4.35.0-linux.tar.zst.6EkHuc",
+      "bytes": 275513344,
+      "allocated_bytes": 275517440,
+      "sha256": "6fa08a920fd3680559f11bff0974b809dc152940b3bc230140080e28effbb5b3",
+      "mtime_ns": 1793748229512607790,
+      "ctime_ns": 1793752751444809332
+    },
+    {
+      "path": "native-state/downloads/lean-4.35.0-linux.tar.zst.part",
+      "bytes": 148320256,
+      "allocated_bytes": 148320256,
+      "sha256": "37ac89841804fa730dc054a99dc84c010525a9e3f1be90a61bafad20acb64670",
+      "mtime_ns": 1793748198921370996,
+      "ctime_ns": 1793752751444809332
+    },
+    {
+      "path": "native-state/downloads/lean-4.35.0-linux.tar.zst",
+      "bytes": 594481375,
+      "allocated_bytes": 594489344,
+      "sha256": "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d",
+      "mtime_ns": 1793748211439122237,
+      "ctime_ns": 1793752751444809332
+    }
+  ],
+  "scaffold": {
+    "path": "native-state/toolchains/.lean-install-6slq3adu",
+    "directories": 604,
+    "files": 0,
+    "symlinks": 0
+  },
+  "ended_at": "2026-11-04T01:00:22.407699+00:00",
+  "approved_inputs_unchanged": true,
+  "paths_absent_after_snapshot": true,
+  "space_after": {
+    "available_bytes": 0,
+    "free_bytes_including_reserved": 2508705792
+  }
+}

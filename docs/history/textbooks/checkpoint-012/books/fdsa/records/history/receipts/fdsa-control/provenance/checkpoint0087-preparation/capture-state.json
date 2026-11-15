@@ -1,0 +1,140 @@
+{
+  "observed_utc": "2026-11-04T06:11:48.050018+00:00",
+  "checkpoint": "conaled-fdsa-0087-bottom-up-costs-and-natural-sort-draft",
+  "authors_held": [
+    "root source/ref/control capture",
+    "chapter02_bottom_up",
+    "chapter02_natural_runs",
+    "chapter02_quicksort",
+    "chapter02_random_pivot",
+    "foundation_continuation XD01 Standards",
+    "xd01_spec"
+  ],
+  "foundation_terminal_result_at_inspection": null,
+  "foundation_caveat": "Saved progress/session IDs do not establish outcome or post-recovery liveness.",
+  "available_bytes": 21122076672,
+  "worktrees": [
+    {
+      "worktree": "conaled",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled",
+      "head": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "branch": "refs/heads/work/fdsa-book",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.urOBCL\n"
+    },
+    {
+      "worktree": "conaled-ch01-review",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "head": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "branch": "refs/heads/work/fdsa-foundation-integration",
+      "status": ""
+    },
+    {
+      "worktree": "conaled-ch02-bottom-up",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-bottom-up",
+      "head": "a6f950d7d5dc4aef521445250f9bfbd59166291d",
+      "branch": "refs/heads/work/fdsa-ch02-bottom-up",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.EA8xCS\n"
+    },
+    {
+      "worktree": "conaled-ch02-insertion",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-insertion",
+      "head": "43242f43cba0f2c90c17356d44d71e5765d8ba93",
+      "branch": "refs/heads/work/fdsa-ch02-alternating",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.C0d1bT\n"
+    },
+    {
+      "worktree": "conaled-ch02-natural-runs",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs",
+      "head": "9c5858d0feb56b42701ab1f84e5d9265b953cfea",
+      "branch": "refs/heads/work/fdsa-ch02-natural-runs",
+      "status": ""
+    },
+    {
+      "worktree": "conaled-ch02-quicksort",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+      "head": "df67f1cc9c0f4fb51d317ff4a2957ab047c179b9",
+      "branch": "refs/heads/work/fdsa-ch02-quicksort",
+      "status": ""
+    },
+    {
+      "worktree": "conaled-ch02-random-pivot",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot",
+      "head": "254a4162fa6aeeb7ab2a1ceea5139e5772a5865b",
+      "branch": "refs/heads/work/fdsa-ch02-random-pivot",
+      "status": ""
+    },
+    {
+      "worktree": "conaled-ch02-three-way",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-three-way",
+      "head": "d4208023c1c30f5f15773b1f50a4d11db0a29e2c",
+      "branch": "refs/heads/work/fdsa-ch02-three-way",
+      "status": ""
+    },
+    {
+      "worktree": "conaled-ch02-top-down",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+      "head": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+      "branch": "refs/heads/work/fdsa-ch02-development",
+      "status": ""
+    },
+    {
+      "worktree": "conaled-difference-list-costs",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-difference-list-costs",
+      "head": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+      "branch": "refs/heads/work/fdsa-builder-costs",
+      "status": ""
+    },
+    {
+      "worktree": "conaled-ordinary-merge",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge",
+      "head": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "branch": "refs/heads/work/fdsa-ordinary-merge",
+      "status": ""
+    }
+  ],
+  "focused_commands": "All focused commands closed and native records secured. Only separate foundation full builder remains live.",
+  "latest_focused_result": {
+    "candidate": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+    "command": [
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+      "--state",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+      "run",
+      "--project",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+      "--threads",
+      "1",
+      "--",
+      "lake",
+      "build",
+      "Applications.Sorting.ThreeWayQuickSort",
+      "Examples.ThreeWayQuickSort",
+      "Applications.Resources.RandomQuickSort",
+      "Examples.RandomQuickSort",
+      "Applications.Resources.DifferenceListCosts",
+      "Examples.DifferenceListCosts"
+    ],
+    "started_utc": "2026-11-04T06:07:52.166626+00:00",
+    "completed_utc": "2026-11-04T06:10:22.115779+00:00",
+    "exit_code": 1,
+    "elapsed_seconds": 149.94887695300167,
+    "state": "failed",
+    "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-variants-xd01-focused-20261104-attempt1/full.log",
+    "progress_bookkeeping_errors": [],
+    "final_head": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+    "final_status": "",
+    "log_size_bytes": 19446,
+    "log_sha256": "bd000490148fe78ad1f67dfd0f1eb38c05aa9ecd3212ea58ac038e15622947fa",
+    "available_bytes_at_completion": 21151080448,
+    "verification_record_present": false
+  },
+  "bottom_up_types": {
+    "candidate": "6d91b822d0f3cf1aeeda333a9e1d47ebb26e709b",
+    "exit_code": 0,
+    "public_declarations": 105,
+    "source_type_readback": "pending"
+  },
+  "natural_draft": "9c5858d0feb56b42701ab1f84e5d9265b953cfea",
+  "xd01_axes": "Full source assessments complete, zero mathematical source findings, overall Blocked. No integrated/terminal approval."
+}

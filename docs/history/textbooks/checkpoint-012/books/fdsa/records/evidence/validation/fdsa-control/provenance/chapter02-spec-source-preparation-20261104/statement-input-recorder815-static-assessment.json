@@ -1,0 +1,53 @@
+{
+  "recorded_utc": "2026-11-04T10:18:49.168835+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Bounded static supplemental-recorder/name reconciliation within the same complete Chapter2 Spec review; not a compiler or runtime qualification.",
+  "script": {
+    "path": "tooling/capture_statement_inputs.py",
+    "bytes": 5812,
+    "lines": 119,
+    "sha256": "4df281f3f427ec462a6973b9177fcc3f825b57b19fa8e205780f17cfaa89b5b7"
+  },
+  "script_read": "Complete 119 lines; not imported or executed.",
+  "program": {
+    "path": "provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/Statements.lean",
+    "bytes": 46371,
+    "lines": 862,
+    "sha256": "d4d37d6ea2b48fc5c743b1db36fe904ca8623be6c03c05ea5addc99b307687bd"
+  },
+  "inventory": {
+    "path": "provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/inventory.json",
+    "bytes": 58922,
+    "lines": 1148,
+    "sha256": "7fe7ddfc3242dff5937ef1fba339bd62f0a2ce66401fe919d383237049bd70bf"
+  },
+  "pure_static_name_reconciliation": {
+    "exact_script_check_regex_applied_only_to_prepared_text": true,
+    "ordered_unique_names": 815,
+    "names_equal_prepared_inventory": true,
+    "imports": 36,
+    "new_name": "Examples.UniformQuickSortMean.instFintypeLabel",
+    "original_814_names_positions_preserved": true,
+    "actual_program_execution": false
+  },
+  "method_observations": [
+    "The script refuses an existing observation path and requires the intended clean HEAD before observing inputs.",
+    "It records configuration hashes, exact dependency revisions/statuses, retained runtime component fingerprints, prepared-program bytes/names, reachable local source hashes and available local compiler objects/traces.",
+    "The immutable project comment/string lexer and main guard were inspected; the prepared import/name syntax is within this recorder parser's supported format.",
+    "The compare mode retains a separate observation and reports identity differences; its exact use and evidence are root-owned."
+  ],
+  "limits": [
+    "No live source, output, dependency-runtime or object snapshot was taken by this reviewer.",
+    "The source/blob linkage, complete observed closure, actual pre/post identity, successful recorded compiler execution, loaded-object qualification and complete output still require assessment from actual receipts.",
+    "Matching observations alone do not prove the prepared program ran, close a type-review finding, replace Lake integrity/audit, or establish acceptance.",
+    "This is static method/name accounting only, not a new runtime qualification or blanket endorsement of all possible parser inputs."
+  ],
+  "actual_recorder_invoked": false,
+  "source_output_runtime_snapshot_performed": false,
+  "compiler_or_process_action": false,
+  "new_type_credit": 0,
+  "overall_outcome": "Blocked",
+  "approval_or_acceptance": false
+}

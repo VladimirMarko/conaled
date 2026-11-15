@@ -1,0 +1,22 @@
+{
+  "recorded_utc": "2026-11-04T21:55:18.603061+00:00",
+  "finding": "C03-CUTOFF-ELAB-002",
+  "parent": "bc4490d57d1b65849fb0903f7f3e417f3b0879b6",
+  "all40headers_exact": true,
+  "one_computational_definition_exact": true,
+  "all_core_source_exact": true,
+  "other15_examples_exact": true,
+  "all22_other_candidate_paths_unchanged": true,
+  "changed_proofs": [
+    "Examples.SelectionCutoff.two_groups_cutoff_one_value",
+    "Examples.SelectionCutoff.two_group_actual_children"
+  ],
+  "proof_review": "Concrete rank/count characterization computes the original occurrence without reducing opaque ordered; explicit closed ceiling-index equality specializes the existing actual child theorem. No execution, mathematical statement, premise, numeric case or cost changes. Entire original scope assessment retained.",
+  "actual_failure_full_read": "e94f27",
+  "prior_full_examples_read": "c9b488",
+  "patch": {
+    "bytes": 1355,
+    "sha256": "bb3d7fe1d6f3827256d9c5984c5d9a77ac6f8c6176ae46c7e06b8ac089d3f115"
+  },
+  "actual_successor_compilation": false
+}

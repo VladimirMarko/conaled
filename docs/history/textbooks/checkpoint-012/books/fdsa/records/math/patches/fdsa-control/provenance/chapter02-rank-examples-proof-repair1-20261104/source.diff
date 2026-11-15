@@ -1,0 +1,22 @@
+--- a/Examples/RandomQuickSortRank.lean
++++ b/Examples/RandomQuickSortRank.lean
+@@ -34,10 +34,7 @@
+ 
+ theorem singleton_rank {α : Type u} {κ : Type v} [LinearOrder κ]
+     (key : α → κ) (x : α) : occurrenceRank key [x] 0 = 0 := by
+-  apply Fin.ext
+-  have h := (occurrenceRank key [x] 0).isLt
+-  simp only [List.length_singleton] at h
+-  omega
++  exact Fin.fin_one_eq_zero _
+ 
+ theorem sizeMean_one : sizeMean 1 = 5 := by
+   have h := exerciseMean_eq_sizeMean (id : Nat → Nat) [0] (by decide)
+@@ -127,6 +124,7 @@
+   constructor
+   · change ((Tuple.sort f).symm (1 : Fin 3)).val = 1
+     rw [hs]
++    rfl
+   · decide
+ 
+ theorem equal_keys_keep_quadratic_mean :

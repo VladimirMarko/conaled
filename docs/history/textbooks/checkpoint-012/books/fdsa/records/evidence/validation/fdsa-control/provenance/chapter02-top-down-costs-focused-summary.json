@@ -1,0 +1,54 @@
+{
+  "utc": "2026-11-04T04:44:01.922403+00:00",
+  "accepted_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "development_parents": [
+    "b1677172ef85e40865fe8f292660c1bcfd6e5a0c",
+    "72a0951aee406f7db67998d2a3bf8810f4e1bccc"
+  ],
+  "development_merge": "c00558e6d69cdba24475e73c027ce7a003b2dc2a",
+  "initial_draft": "497ecb9e3eec7ce63606785d49489a3810e2dcfe",
+  "candidate": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+  "source_sha256": {
+    "Applications/Resources/Growth.lean": "99be17f2d45ac30de1e912c2181460dac046c8b98e40ea3209abfec342107786",
+    "Applications/Resources/TopDownSorting.lean": "26531f25e57c0d198fc90d0a10652051ac6159098f493629af3283b54ab687bc",
+    "Examples/TopDownCosts.lean": "8f5f6969049712a5a5d37f7beb78c09017a2835b5f1208e54d0c9912dff425a4",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+  },
+  "checks": [
+    {
+      "attempt": 1,
+      "candidate": "497ecb9e3eec7ce63606785d49489a3810e2dcfe",
+      "exit_code": 1,
+      "elapsed_seconds": 85.1946031159996,
+      "log_sha256": "6ad18cd8bb0dad3a2fdb765d8a88adb1766aefa01a0e01054eea28b41d7317c1",
+      "record": "provenance/chapter02-top-down-costs-focused-20261104-attempt1/result.json"
+    },
+    {
+      "attempt": 2,
+      "candidate": "fc54ed5dc9514a7f8b04f4f3a00670b0ecc21f9d",
+      "exit_code": 1,
+      "elapsed_seconds": 106.42757598900062,
+      "log_sha256": "c7515a0e1a9548d90c3176ee3c17e09ab3890020abb67b9e7e0f12aeafa72cf1",
+      "record": "provenance/chapter02-top-down-costs-focused-20261104-attempt2/result.json"
+    },
+    {
+      "attempt": 3,
+      "candidate": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+      "exit_code": 0,
+      "elapsed_seconds": 51.550620785999854,
+      "log_sha256": "c2e18c5ccdac8983e39d96cc66094803bf6083f344ec96095b81433b6f1935d3",
+      "record": "provenance/chapter02-top-down-costs-focused-20261104-attempt3/result.json"
+    }
+  ],
+  "statement_inspection": {
+    "exit_code": 0,
+    "elapsed_seconds": 59.08425958800035,
+    "declarations": 32,
+    "log_sha256": "ad826e1d3c972acbb437e9bceb5403ba230275033c623dc5526649eb2e79e6c8",
+    "record": "provenance/chapter02-top-down-costs-types-20261104/result.json"
+  },
+  "scope": "Actual floor-left sorting comparison run, erasure, exact scalar recurrence, all-length ceiling-log and power-of-two/real-log bounds, BigO, and connected independent cases.",
+  "outcome": "Focused targets and author elaborated-statement review passed; no full Chapter 2 acceptance or exhaustive audit."
+}

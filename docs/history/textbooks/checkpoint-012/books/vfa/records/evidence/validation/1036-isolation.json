@@ -1,0 +1,80 @@
+{
+  "recorded_utc": "2026-11-03T23:28:19.053713+00:00",
+  "candidate": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+  "root": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-kit-validation",
+  "dependency_store": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation",
+  "setup_completed_exit": 0,
+  "relocated_from": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/conaled/.lake",
+  "relocated_to": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake",
+  "no_mutation_during_setup": true,
+  "packages": [
+    {
+      "name": "mathlib",
+      "rev": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "target": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/mathlib",
+      "link": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-kit-validation/.lake/packages/mathlib",
+      "clean": true
+    },
+    {
+      "name": "plausible",
+      "rev": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "target": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/plausible",
+      "link": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-kit-validation/.lake/packages/plausible",
+      "clean": true
+    },
+    {
+      "name": "LeanSearchClient",
+      "rev": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "target": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/LeanSearchClient",
+      "link": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-kit-validation/.lake/packages/LeanSearchClient",
+      "clean": true
+    },
+    {
+      "name": "importGraph",
+      "rev": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "target": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/importGraph",
+      "link": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-kit-validation/.lake/packages/importGraph",
+      "clean": true
+    },
+    {
+      "name": "proofwidgets",
+      "rev": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "target": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/proofwidgets",
+      "link": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-kit-validation/.lake/packages/proofwidgets",
+      "clean": true
+    },
+    {
+      "name": "aesop",
+      "rev": "4a174c490d8707121c4a9290800489f105d85e07",
+      "target": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/aesop",
+      "link": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-kit-validation/.lake/packages/aesop",
+      "clean": true
+    },
+    {
+      "name": "Qq",
+      "rev": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "target": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/Qq",
+      "link": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-kit-validation/.lake/packages/Qq",
+      "clean": true
+    },
+    {
+      "name": "batteries",
+      "rev": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "target": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/batteries",
+      "link": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-kit-validation/.lake/packages/batteries",
+      "clean": true
+    },
+    {
+      "name": "Cli",
+      "rev": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "target": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/Cli",
+      "link": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-kit-validation/.lake/packages/Cli",
+      "clean": true
+    }
+  ],
+  "ownership": "Root alone schedules writers. Store dedicated to this one candidate; no setup/cache/build against store during candidate gates. Source conaled has no build outputs.",
+  "project_build_present": false,
+  "kit_threads": 1,
+  "fresh_jobs": 1,
+  "explicit_lean_cli_j": null
+}

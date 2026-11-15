@@ -1,0 +1,195 @@
+{
+  "accepted_recorded_utc": "2026-11-04T19:23:22.202523+00:00",
+  "unit": "XR01 shared affine upper recurrence",
+  "accepted_commit": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "accepted_tree": "b62fe504a38948e61c6377a4e7661b639c28c08c",
+  "previous_accepted_commit": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "accepted_branch": "work/fdsa-book",
+  "approved_candidate_branch": "work/fdsa-affine-integration",
+  "original_source_base": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+  "original_source_candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+  "original_scope_paths": 5,
+  "source_paths": [
+    "Applications/Resources/AffineRecurrence.lean",
+    "Examples/AffineRecurrence.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-affine-recurrence.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "authored_public_names": 21,
+  "authored_theorems": 19,
+  "authored_definitions": 2,
+  "authored_private_anonymous_or_instances": 0,
+  "requirements": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/affine-recurrence-requirements.md",
+    "bytes": 5540,
+    "sha256": "5873700a349c359d15873829f1399a20225fa80eaa980e7ad9f1e4c8f774dd02"
+  },
+  "full_check": {
+    "directory": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-receiving-full-attempt2-20261104",
+    "actual_exit": 0,
+    "owned_session": 66741,
+    "terminal_chunk": "487100",
+    "closure_chunk": "5b531d",
+    "complete_log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-receiving-full-attempt2-20261104/full.log",
+      "bytes": 304402,
+      "sha256": "cada5fe7ec2fed03ef1eb9295359e9b894cfcdf21b1d2f66e06730bf926b9a24"
+    },
+    "native_log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-receiving-full-attempt2-20261104/native-records/output.log",
+      "bytes": 304174,
+      "sha256": "877aca4200b45501e2ae0a92d94a2a04355e58fa6de12bc0920353b8ba35a66f"
+    },
+    "result": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-receiving-full-attempt2-20261104/result.json",
+      "bytes": 1262,
+      "sha256": "37e3cd37c275be838a2a6701041a95a6f84e9a876a3587d3c7e44169f2fa1602"
+    },
+    "verification": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-receiving-full-attempt2-20261104/verification.json",
+      "bytes": 867,
+      "sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9"
+    },
+    "mode": "incremental; actual README normal/fresh rules, no fresh trigger",
+    "whole_project_audit": {
+      "recorded_utc": "2026-11-04T19:08:56.617698+00:00",
+      "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+      "checked_modules": 1031,
+      "audit_rows": 1029,
+      "logical_declarations": 47828,
+      "theorem_declarations": 27242,
+      "unsafe_runtime_declarations": 0,
+      "axiom_union": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "matching_live_verification": true,
+      "verification_sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9",
+      "source_guard_passed": true,
+      "pre_integrity": "3087 artifacts; one expected missing aggregate olean following closed failed attempt1",
+      "post_integrity": "3090 artifacts; zero inconsistent modules",
+      "method": "Every audit row parsed and summed; full manual log reading not claimed by this coordinator reconciliation. Both independent final axes remain required.",
+      "whole_project_counts_not_new_book_result_counts": true
+    }
+  },
+  "actual_public_types": {
+    "count": 21,
+    "actual_exit": 0,
+    "owned_session": 55717,
+    "terminal_chunk": "bb0312",
+    "complete_root_output_read_and_closure": "b97343",
+    "stable_pre_post_identity": true,
+    "native_bytes": 17154,
+    "native_LF_lines": 294,
+    "native_output": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-receiving-statements21-attempt1-20261104/native-records/output.log",
+      "bytes": 17154,
+      "sha256": "afd6d3ab3f0afbc81eba682a50556ada9f9acf72f3bcf80bfea98b8b1c06be07"
+    },
+    "reconciliation": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-receiving-statements21-inputs-20261104/actual21-reconciliation.json",
+      "bytes": 6868,
+      "sha256": "651d35acc4e695c7f153f115428fb7fa663ba0f058835b48577356301ea405e9"
+    },
+    "not_a_new_full_audit": true
+  },
+  "independent_axes": {
+    "Standards": {
+      "outcome": "Passed",
+      "unresolved": 0,
+      "full_saved_readback_and_hold": true,
+      "report": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/affine-recurrence-standards-final-20261104.md",
+        "bytes": 11293,
+        "sha256": "0b7b1db49597156e20af931876f0c22dab27bd22d426ff90222fcb09dbf18d26"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-standards-receiving-20261104/final-completion-and-hold.json",
+        "bytes": 4499,
+        "sha256": "cff186d24d5d76eac34bfc23932b9d4c22e244c8804dcc7a11c1a0a44e69762d"
+      },
+      "reviewer_receipt_readback": "73b25b"
+    },
+    "Spec": {
+      "outcome": "PASS",
+      "unresolved": 0,
+      "full_saved_readback_and_hold": true,
+      "report": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-spec-receiving-20261104/final-spec-review.md",
+        "bytes": 14057,
+        "sha256": "5a40de0059860f911ce43d66e2f4d9871a77f3835d845c4b105fd6ef117e7c79"
+      },
+      "receipt": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-spec-receiving-20261104/completion-and-hold.json",
+        "bytes": 9451,
+        "sha256": "28ae568a9f97d2d94d8f273d221312b0fdc08cd6f098324f9e78a7e9c5d5ef7a"
+      },
+      "reviewer_receipt_readback": "5178d0"
+    }
+  },
+  "resolved_findings": [
+    "XP01-DOC-001",
+    "XR01-ELAB-001"
+  ],
+  "root_gate": {
+    "tool_chunk": "561f4c",
+    "binding_count": 102,
+    "full_log_read_ranges_reconciled": 28,
+    "saved_final_artifact_ranges_reconciled": 9,
+    "record": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-acceptance-20261104/root-gate-reconciliation.json",
+      "bytes": 31367,
+      "sha256": "6a5e9754e461c52ea8092483706967cb9ad143d0b64238af6ac6b462f4335d2a"
+    },
+    "coordinator_not_third_semantic_reviewer": true
+  },
+  "immediate_verification": {
+    "actual_exit": 0,
+    "owned_session": 94331,
+    "terminal_chunk": "689efc",
+    "complete_closed_output_and_closure_chunk": "ba9130",
+    "completed_utc": "2026-11-04T19:21:22.997263+00:00",
+    "command": [
+      "./check.sh",
+      "--verify-candidate",
+      "HEAD"
+    ],
+    "qualified_native_profile": true,
+    "one_Lean_thread": true,
+    "result": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-immediate-verification-20261104/result.json",
+      "bytes": 1266,
+      "sha256": "c8e3c5478a8638fc152b748c2ee1d348bb4a26bdaa3492eebd356e5dec81e20b"
+    },
+    "log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-immediate-verification-20261104/full.log",
+      "bytes": 317,
+      "sha256": "65ee03f27d8d4864e94fb53eaba3c6c2b05dab38469b849249fd6d5e6850eb26"
+    }
+  },
+  "fast_forward": {
+    "actual_exit": 0,
+    "tool_chunk": "ae504c",
+    "completed_utc": "2026-11-04T19:21:33.203295+00:00",
+    "seconds_after_immediate_completion": 10.206011,
+    "only_changed_ref": "refs/heads/work/fdsa-book",
+    "other_refs_preserved": 72,
+    "other_worktree_heads_preserved": 8,
+    "all_worktree_statuses_preserved": true,
+    "record": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-acceptance-20261104/fast-forward-result.json",
+      "bytes": 943,
+      "sha256": "9ec9852eb6ff8436e4ebb64ca11a3b05ce4bbe0c7583f61ccddc615473ae249f"
+    },
+    "one_use_script_must_never_be_rerun": true
+  },
+  "environment": "Unchanged official Lean/Lake 4.35.0, exact nine dependency pins, kit 1.0.0, disclosed narrow native adapter, one thread and exclusive compiler ownership; only Nix waived.",
+  "historical_failure_preserved": "First full attempt actual 1 / nested Lean 137, cause unestablished; second unchanged full run supplies current success. Initial focused parser failure and correction remain preserved.",
+  "mathematical_scope": "Uniform all-natural-input one-sided affine bound over an Archimedean linearly ordered commutative ring, with arbitrary signed scalar function/tolls and derived child descent; connected recurrence, signed and quantifier-boundary cases.",
+  "chapter03_accepted": false,
+  "later_requirements_preserved": "Exact source ceilings/sharp constants, actual nested selector and costs, generalized grouping, noncontracting boundary, probability results, exercises and query/tariff bridge remain Chapter 3 work; all 27 chapters and Appendices A-C remain the overall goal.",
+  "durability": "Acceptance checkpoint 0124 pending actual creation, verification, upload and exposure; latest durable currently 0123.",
+  "no_push_or_github_mutation": true
+}

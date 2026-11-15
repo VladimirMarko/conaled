@@ -1,0 +1,75 @@
+diff --git a/docs/research/fdsa-permutation-minimum.md b/docs/research/fdsa-permutation-minimum.md
+index 0521011..f715a68 100644
+--- a/docs/research/fdsa-permutation-minimum.md
++++ b/docs/research/fdsa-permutation-minimum.md
+@@ -1,11 +1,16 @@
+ # Uniform minima under one global ranking
+ 
++<<<<<<< HEAD
+ This bounded shared
++=======
++Status: **source draft, not yet compiled or accepted**. This bounded shared
++>>>>>>> f00078bb2dbf1b8dc8d186d9728c9678f46a96b0
+ unit supports the FDSA reconstruction. It closes no chapter or randomized
+ algorithm obligation. Its immutable candidate, exact requirements, independent
+ calculations and eventual validation/review results are retained in the local
+ durability checkpoint's FDSA-XU01 record.
+ 
++<<<<<<< HEAD
+ **Validation snapshot — 4 November 2026.** A successful focused check covered
+ the minimum-law core and both example modules. A separate successful
+ inspection printed 37 public types from this unit. These are historical
+@@ -13,6 +18,8 @@ results; reuse requires matching candidate evidence, and complete unit
+ acceptance was still outstanding in this snapshot. The full acceptance gates
+ below remain required.
+ 
++=======
++>>>>>>> f00078bb2dbf1b8dc8d186d9728c9678f46a96b0
+ ## Mathematical interface
+ 
+ `Applications.Probability.PermutationMinimum.minimumEvent priority S a`
+@@ -140,7 +147,13 @@ that the source algorithms have been implemented:
+   a subtype; it does not automatically produce the induced order of an
+   arbitrary subset under a global ranking.
+ 
++<<<<<<< HEAD
+ The frozen requirements preserve these later obligations. Acceptance requires
+ immutable-candidate compilation, whole-candidate guarded verification,
+ exhaustive axiom audit, both independent review axes and immediate final
+ candidate verification.
++=======
++The frozen requirements preserve these later obligations. Compilation,
++whole-candidate guarded verification, exhaustive axiom audit, both independent
++review axes and immediate final candidate verification remain pending.
++>>>>>>> f00078bb2dbf1b8dc8d186d9728c9678f46a96b0
+diff --git a/docs/research/fdsa-reconstruction-map.md b/docs/research/fdsa-reconstruction-map.md
+index e753d53..62f6b40 100644
+--- a/docs/research/fdsa-reconstruction-map.md
++++ b/docs/research/fdsa-reconstruction-map.md
+@@ -492,6 +492,7 @@ audit, both independent review axes, and final candidate-identity verification.
+ Their exact outcomes are kept in the local checkpoint's review record rather
+ than inferred from this narrative.
+ 
++<<<<<<< HEAD
+ ## Shared ordinary list merge observations — FDSA-XM01
+ 
+ `Applications.Sorting.Merge` adds the two order-free input sublists, arbitrary-
+@@ -580,6 +581,8 @@ focused compatibility checks, the full candidate build/audit, both independent
+ review axes and immediate candidate verification remain required. No source
+ preflight or authored draft supplies acceptance evidence.
+ 
++=======
++>>>>>>> f00078bb2dbf1b8dc8d186d9728c9678f46a96b0
+ ## Shared fixed-subset minimum probability (draft)
+ 
+ The [uniform-permutation minimum unit](fdsa-permutation-minimum.md) supplies a
+@@ -592,5 +595,9 @@ infinite-target integer priorities, empty indices, outsiders and ties.
+ This groundwork supports Chapters 2 and 10. It does not supply conditional
+ pivot/subproblem laws, full relative-order restrictions, the expected first
+ position, treap construction/ancestor/charging proofs or algorithm cost
++<<<<<<< HEAD
+ correspondences. Its source note retains a dated validation snapshot;
++=======
++correspondences. Its source and examples remain uncompiled and unaccepted;
++>>>>>>> f00078bb2dbf1b8dc8d186d9728c9678f46a96b0
+ the local FDSA-XU01 record retains the frozen scope and subsequent gate results.

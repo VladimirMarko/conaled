@@ -1,0 +1,330 @@
+{
+  "schema": "fdsa-spec-tail-inherited-semantic-v1",
+  "reviewer": "Independent nonauthor Spec",
+  "recipient": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "outcome": "Qualified for Spec statement-inspection purposes at exact L",
+  "current61_complete_semantic_read": {
+    "path": "provenance/shared-tail-spec-terminal-20261104/actual61-complete-type-assessment.json",
+    "bytes": 63430,
+    "lines": 1043,
+    "sha256": "f2314d66eccc99f3218046d1320134ba49891851c3d04394fc808c7d6972fa8e"
+  },
+  "input_qualification": {
+    "path": "provenance/shared-tail-spec-terminal-20261104/independent-input-reconciliation.json",
+    "bytes": 115193,
+    "lines": 2633,
+    "sha256": "8d81a53f8f3ed075f6dedf7441fbf7e9439d89c75a9833f046eff5e9bbc5b0cf"
+  },
+  "producer_semantic_records": [
+    {
+      "path": "provenance/shared-order-spec-terminal-20261104/final-disposition.json",
+      "bytes": 11450,
+      "lines": 239,
+      "sha256": "b719dc1f9534bbebd1df670160bf33609fbcdc8609aec4b7c069c9f4362a45c1"
+    },
+    {
+      "path": "provenance/shared-order-spec-terminal-20261104/actual53-complete-type-assessment.json",
+      "bytes": 14211,
+      "lines": 428,
+      "sha256": "48cf1d163b1c7e0bc064c2664df8a965a42a81d24105a57920a5adc0dfcd9b68"
+    },
+    {
+      "path": "provenance/shared-order-spec-terminal-20261104/inherited-semantic-disposition.json",
+      "bytes": 9770,
+      "lines": 184,
+      "sha256": "c9f29b300c14847abcde4a296e11a51ecc56d4ed83d8e5d32262f38e83021081"
+    },
+    {
+      "path": "provenance/shared-four-spec-terminal-20261104/final-disposition.json",
+      "bytes": 9494,
+      "lines": 247,
+      "sha256": "5015445d0793f175ea0cc8e122a31bf3d9e440ad8f70dbb27f3ce36e431bded6"
+    },
+    {
+      "path": "provenance/shared-four-spec-terminal-20261104/actual314-complete-type-assessment.json",
+      "bytes": 19153,
+      "lines": 412,
+      "sha256": "93755b8c310680acd71460ca5922362be2e77e3debbce140d2234f2f3bf7067a"
+    },
+    {
+      "path": "provenance/shared-four-spec-terminal-20261104/actual314-type-read-progress.json",
+      "bytes": 21128,
+      "lines": 675,
+      "sha256": "0dab0663b61eba1eaa6cd13b2c9480d75bafa4c63acd587ddc7d1a889f9e7012"
+    },
+    {
+      "path": "provenance/foundation-spec-terminal-assessment-20261104/actual145-read-progress.json",
+      "bytes": 9380,
+      "lines": 245,
+      "sha256": "ab4ba79877f9d85d3fe4f08d271312ed2f37922e60886e67a653afaea1e62a23"
+    },
+    {
+      "path": "reviews/shared-foundations-spec-final-20261104.md",
+      "bytes": 5066,
+      "lines": 30,
+      "sha256": "f8c8d934662192f4376ab7ae2897957647a890ea964fca18555c0d12dfc5a8dc"
+    }
+  ],
+  "same_reviewer_complete_prior_type_readings_retained": true,
+  "account": {
+    "actual_L61": 61,
+    "qualified_J53": 53,
+    "qualified_I314": 314,
+    "qualified_F110": 110,
+    "distinct": 538
+  },
+  "F110_exact_positions": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145
+  ],
+  "excluded35_insertion_names_separate_actual_I314": true,
+  "original_full_scope_preserved": {
+    "paths": [
+      "Applications/Probability/PermutationTail.lean",
+      "Examples/PermutationTail.lean",
+      "Examples/PermutationTailBoundary.lean",
+      "SquareApplications.lean",
+      "docs/research/fdsa-permutation-tail.md",
+      "docs/research/fdsa-reconstruction-map.md"
+    ],
+    "counts": {
+      "public": 61,
+      "private": 19,
+      "anonymous_instances": 8,
+      "public_theorems": 46,
+      "public_definitions": 15
+    },
+    "anonymous_examples": 0,
+    "C2_paths": 81,
+    "C2_obligations": 112,
+    "C2_shared_scopes": 10
+  },
+  "all_REUSE_conditions": [
+    {
+      "id": "REUSE-01",
+      "condition_retained_verbatim": "Identify one actually executed producer inspection at exact F or exact current Chapter2 candidate, with the executed program bytes/hash and complete selected-name inventory. Prepared files alone are not evidence. The producer program must contain every transferred name as a fully qualified #check @constant with the stated full-name, explicit and universe printing profile; any successor program must be separately identified.",
+      "Spec_disposition": "Executed F145, I314, J53 and currentL61 program hashes, full ordered names and complete full-name/explicit/universe profile were independently checked. No prepared-only input supplies output credit."
+    },
+    {
+      "id": "REUSE-02",
+      "condition_retained_verbatim": "Secure actual exit0 and closed complete outer/native logs and terminal JSONs; match commands, cwd, start/end times, hashes and sizes, with no timeout, recorder error, truncated/missing output or inferred session result. Read the complete actual type output for every one of the110 names; printed-type blocks must expose all quantifiers and premises rather than relying on an occurrence count.",
+      "Spec_disposition": "Actual closed producer/native/outer results and all original complete semantic-read ledgers remain exact. Current61 output has every full type and all52 ellipsis contexts read. No count or summary substitutes for types."
+    },
+    {
+      "id": "REUSE-03",
+      "condition_retained_verbatim": "Secure producer pre/post HEAD and clean relevant source/configuration state, unchanged executed program hash, and immutable-run ownership. Verify these six/four relevant root closures against the exact produced candidate and the receiving candidate, including the expected source blobs, direct external imports and all pinned configuration. Do not substitute present source equality or an earlier/later unrelated result for missing producer terminal identity.",
+      "Spec_disposition": "All producer and receiving clean pre/post identities are secured. Immutable defining source/import closures and every relevant configuration are independently reconstructed; candidate identity is the sole excluded field for same-program J53/I314 comparisons."
+    },
+    {
+      "id": "REUSE-04",
+      "condition_retained_verbatim": "Match the actual Lean4.35.0/Lake/native-kit1.0.0 execution to the preserved qualified profile, official compiler archive and disclosed launcher adapter. Retain command/profile/runtime/loader identities and exact nine package revisions with clean actual dependency sources. Record actual threading (one in the qualified current setup). An incompatible profile, compiler, package revision or unqualified change is a gap requiring applicable qualification, not an assumed equivalent environment.",
+      "Spec_disposition": "Exact stock Lean4.35.0, matching Lake, native-kit1.0.0 qualified launcher/adapter and one-thread execution remain. Ten configs, nine complete clean actual dependency records with exact paths, and12 runtime components match across producers and recipient."
+    },
+    {
+      "id": "REUSE-05",
+      "condition_retained_verbatim": "Establish that the producer loaded compiler objects corresponding to the recorded immutable defining sources and pinned dependencies, using the qualified launcher plus retained build/input integrity evidence. Do not reuse stale or unverified outputs merely because the source files match. No concurrent builders may share writable project outputs, and no command may be launched against a project while its other builder owns those outputs.",
+      "Spec_disposition": "Current L guarded full build, postguard and exhaustive audit precede all four receiving pre observations. Sole actual61 is surrounded by all four unchanged post pairs. Matching complete supported artifact/hash/trace keysets supplement stable qualified ownership; no stale output or fingerprint-only trust."
+    },
+    {
+      "id": "REUSE-06",
+      "condition_retained_verbatim": "Both independent axes must assess the actual110 printed types and this exact dependency/configuration/profile mapping within their original full review scopes. Retain attribution to the actual producer run and to the source/type reviewers. No author summary, focused module count, selected older output or anticipated success substitutes for that assessment.",
+      "Spec_disposition": "Same independent Spec reviewer retains the complete original F/I/J source and actual-type assessments and independently assesses this new L mapping. Separate Standards axis remains required; this is the Spec disposition only."
+    },
+    {
+      "id": "REUSE-07",
+      "condition_retained_verbatim": "Transfer only the110 eligible names. The35 InsertionSort/InsertionCosts names remain separate at both candidates because transitive Sorting.Merge differs, even though their root source bytes match and the Merge change appends plain theorems. No elaboration-equivalence proof is claimed for that changed environment.",
+      "Spec_disposition": "Only original F14520–83 and100–145 are transferred as F110. The35 insertion names remain separately inspected by actualI314 and are not included in the F projection."
+    },
+    {
+      "id": "REUSE-08",
+      "condition_retained_verbatim": "If either candidate advances, reconcile its relevant defining closures, exact names, pins and profile to this receipt before transfer. The current binding is only F and0a7ef078. A later unrelated source/doc delta may permit bounded identity extension, but it is not automatically covered.",
+      "Spec_disposition": "Original F/0a7ef078 preparation is explicitly extended through accepted I/J to immutable L, with source graphs and all actual F/I/J/L projected input pairs reconciled here. No automatic successor coverage is claimed."
+    },
+    {
+      "id": "REUSE-09",
+      "condition_retained_verbatim": "Record any actual reuse in a new explicit evidence disposition with producing run, receiving candidate, exact names and reviewed output positions, preserving both original pending programs and inventories. This preparation changes no pending count and removes no command. Any later targeted remainder must be a separately recorded derivative after the evidence conditions actually hold.",
+      "Spec_disposition": "New receiving disposition identifies the producer runs, exact recipient, every selected name and output positions. All old programs/receipts remain byte-identical; no prepared command or pending scope was silently removed."
+    },
+    {
+      "id": "REUSE-10",
+      "condition_retained_verbatim": "Reuse supplies only public statement-inspection evidence. Each original immutable candidate still requires its applicable complete check, exhaustive kernel/axiom audit including private/generated declarations, new matching verification record, both final independent reviews and immediate qualified --verify-candidate before acceptance. Accepted Chapter1 remains accepted; no extra fresh check is implied without the README trigger.",
+      "Spec_disposition": "Transfer supplies explicit public-statement evidence only. Full private/generated source scope and current L full audit are retained; both final axes and immediate qualified candidate verification precede acceptance. Accepted Chapter1 remains accepted; no fresh trigger is invented."
+    }
+  ],
+  "current_ellipsis_assessment": {
+    "all52_complete_contexts_read": true,
+    "classification_counts": {
+      "Fin.instOfNat NeZero proof-class argument": 43,
+      "instOfNatAtLeastTwo Nat.AtLeastTwo proof-class argument": 9
+    },
+    "pinned_API_reads_rehashed_and_reread_tool": "f43bf1",
+    "pinned_API_reads": [
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/Fin/Basic.lean",
+        "bytes": 12956,
+        "lines": 423,
+        "sha256": "bb3d4e46cb40a24f5a09e6e003c76f2b84140a598df81233f0bffe3afe08cbf4",
+        "read_range": [
+          239,
+          250
+        ],
+        "read_range_sha256": "03e737f17c154004e0f7232b87521ba587947af059adc8201c06a12a8fb1883b",
+        "assessment": "Fin.instOfNat accepts [NeZero n] and returns OfNat (Fin n) i.",
+        "read_scope": "These exact bounded source ranges only; no new full-file read is claimed."
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/NeZero.lean",
+        "bytes": 1591,
+        "lines": 64,
+        "sha256": "94e1883fd4fd9c5612da4a24a0cbc9bd6a656d31ce9a0123b9833175c5964df3",
+        "read_range": [
+          20,
+          36
+        ],
+        "read_range_sha256": "d1f65bd50f6c59fabe68418e772624c1861af7026d9714961a9e220e089b92d0",
+        "assessment": "NeZero is a Prop class with n ≠ 0.",
+        "read_scope": "These exact bounded source ranges only; no new full-file read is claimed."
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Data/Nat/Init.lean",
+        "bytes": 19480,
+        "lines": 441,
+        "sha256": "ded24773f40d2499826e1fe3d245cfa10f84b31b326be122ef7a8562fb1c4d9b",
+        "read_range": [
+          409,
+          432
+        ],
+        "read_range_sha256": "cf00784afa71b9961abe582e318481b7a3575a1294eae08cd4b371bc6dbfae6c",
+        "assessment": "Nat.AtLeastTwo is a Prop class with 2 ≤ n.",
+        "read_scope": "These exact bounded source ranges only; no new full-file read is claimed."
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Data/Nat/Cast/Defs.lean",
+        "bytes": 6965,
+        "lines": 190,
+        "sha256": "5656ed14933f402c33cbe3f1cc3eb7b26e4df670c573187fb7d0972eef4e3118",
+        "read_range": [
+          26,
+          48
+        ],
+        "read_range_sha256": "692c82c07ed126485c4727be07f9f932c947d8e80e3c1b4091077332b18c44e1",
+        "assessment": "instOfNatAtLeastTwo takes [NatCast R] and [Nat.AtLeastTwo n]; the hidden slot is the latter proof class.",
+        "read_scope": "These exact bounded source ranges only; no new full-file read is claimed."
+      }
+    ],
+    "conclusion": "Only displayed numeral Prop-class proof terms are elided; no public binder, premise, carrier, function, measure or result is hidden."
+  },
+  "receiving_lineage": "All four exact pre observations follow full L success and surround sole actual61 with matching posts; actual J/I/F producer outputs and prior complete semantic reads remain exact. No other compiler invocation in this stage.",
+  "no_full_environment_or_hostile_artifact_equivalence_claim": true,
+  "malformed_historical_F_file_boundary": "The previously disclosed truncated ENOSPC actual145-complete-assessment.json is not parsed or credited; accepted F final report and valid complete read ledger remain authoritative.",
+  "unresolved_findings": [],
+  "acceptance_or_immediate_verify_performed_by_reviewer": false
+}

@@ -1,0 +1,166 @@
+{
+  "utc": "2026-11-04T00:02:49.554548+00:00",
+  "action": "remove_reproducible_download_archive_after_completed_install",
+  "path": "/workspace/scratch/60f07f0e98c8/native-state/downloads/lean-4.35.0-linux.tar.zst",
+  "size_bytes": 594481375,
+  "sha256": "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d",
+  "active_runtime_and_dependency_files_changed": false,
+  "free_bytes_after": 0,
+  "reason": "Filesystem reported zero available bytes while fresh validation remained live. Removed only verified setup download; installed official distribution and all cache/build inputs retained.",
+  "followup": {
+    "utc": "2026-11-04T00:03:33.112498+00:00",
+    "free_including_reserved_bytes": 3314290688,
+    "ordinary_available_bytes": 0,
+    "writes_observed_succeeding": true,
+    "note": "Zero bavail is not zero total free space; the owned validation continues compiling. No source, toolchain, installed dependency, project output or recovery artifact was removed."
+  },
+  "compressed_dependency_download_cleanup": {
+    "utc": "2026-11-04T00:04:24.026568+00:00",
+    "directory": "/workspace/scratch/60f07f0e98c8/native-state/cache/mathlib",
+    "direct_regular_ltar_count_removed": 9031,
+    "logical_bytes": 455355304,
+    "allocated_bytes": 473616384,
+    "free_including_reserved_bytes_after": 3763245056,
+    "ordinary_available_bytes_after": 310497280,
+    "independent_advisory": "native_review confirmed direct fresh compiler reads extracted .lake/build/lib/lean outputs; Mathlib Cache/IO.lean implements archive cleanup through unlink of .ltar downloads. No setup/cache/dependency writer active.",
+    "inputs_changed": false,
+    "offline_archive_restore_requires_redownload": true
+  },
+  "superseded_local_compact_copies_removed": {
+    "utc": "2026-11-04T00:21:25.237129+00:00",
+    "entries": [
+      {
+        "file_name": "conaled-vfa-checkpoint-043-unified-native-compact.tar.gz",
+        "size_bytes": 7689448,
+        "sha256": "83d8be22db72b0995cf58163f925337fbb3f73c0205271ea8dba5e4ddfa855fc",
+        "retained_library_file_id": "libfile_0c98e68e52f8819180e3fc087af81650"
+      },
+      {
+        "file_name": "conaled-vfa-checkpoint-044-unified-fresh-progress.tar.gz",
+        "size_bytes": 7695779,
+        "sha256": "8f29fb011d0af2ba1f847571267c127a314ba0f4d0bb5055d59e34d2c8f29e57",
+        "retained_library_file_id": "libfile_a54448f8e2fc8191898e6e0b140c63f1"
+      }
+    ],
+    "reason": "Latest checkpoint045 and fixed base are verified and saved; earlier complete copies remain uploaded and are not recovery dependencies. All source/history/work-state/evidence and upload receipts retained.",
+    "free_total_bytes_after": 3568996352,
+    "ordinary_available_bytes_after": 116248576
+  },
+  "later_superseded_compact_cleanup": [
+    {
+      "utc": "2026-11-04T00:26:30.738206+00:00",
+      "file_name": "conaled-vfa-checkpoint-045-unified-gate-readiness.tar.gz",
+      "size_bytes": 7711295,
+      "sha256": "9ba5215faf486f8106af4cef4ad6c632c8fb6fc695047e7f30820214aa833775",
+      "retained_library_file_id": "libfile_72f5741d7fb08191ac089a5350d88d95",
+      "latest_saved_number": 46,
+      "free_total_bytes_after": 3525705728,
+      "ordinary_available_bytes_after": 72957952
+    },
+    {
+      "utc": "2026-11-04T00:37:13.977049+00:00",
+      "file_name": "conaled-vfa-checkpoint-046-unified-fresh-progress.tar.gz",
+      "size_bytes": 7712120,
+      "sha256": "ca7227c90bdca6307548f8f884c994c12bffc54c953916910312aec79e153fd8",
+      "retained_library_file_id": "libfile_69ed27c3811881918c7ea665c5587123",
+      "latest_saved_number": 47,
+      "free_total_bytes_after": 3411070976,
+      "ordinary_available_bytes_after": 0
+    },
+    {
+      "utc": "2026-11-04T00:47:45.480074+00:00",
+      "file_name": "conaled-vfa-checkpoint-047-unified-fresh-progress.tar.gz",
+      "size_bytes": 7713257,
+      "sha256": "037a9918bdea2a677c1ec39ea6458933dd98985beb2604494c6a331fc8dcbc6d",
+      "retained_library_file_id": "libfile_3842983a8358819192d4855bc091bb59",
+      "latest_saved_number": 48,
+      "free_total_bytes_after": 3147231232,
+      "ordinary_available_bytes_after": 0
+    },
+    {
+      "utc": "2026-11-04T00:58:52.124155+00:00",
+      "file_name": "conaled-vfa-checkpoint-048-unified-fresh-progress.tar.gz",
+      "size_bytes": 7715085,
+      "sha256": "7f1d486c3c7e6084409a03f8ba4a84c92d0995f753bbc4f26da65e649329f547",
+      "retained_library_file_id": "libfile_2a7fc716df248191a8929bafbe8f887c",
+      "latest_saved_number": 49,
+      "free_total_bytes_after": 1488650240,
+      "ordinary_available_bytes_after": 0
+    },
+    {
+      "utc": "2026-11-04T01:09:49.988006+00:00",
+      "file_name": "conaled-vfa-checkpoint-049-unified-capacity-record.tar.gz",
+      "size_bytes": 7719022,
+      "sha256": "da40c379fda5b86bfb995ce9ed2c51ff6ecf840af7099921645358fe8e793475",
+      "retained_library_file_id": "libfile_2905e7ba219c81919bba38bdd93d1e91",
+      "latest_saved_number": 50,
+      "free_total_bytes_after": 1663746048,
+      "ordinary_available_bytes_after": 0
+    }
+  ],
+  "redundant_original_extracted_source_payload_removed": {
+    "utc": "2026-11-04T00:32:32.701832+00:00",
+    "removed_path": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/conaled-source.tar.gz",
+    "size_bytes": 70830760,
+    "sha256": "547e1464c733328a69018aebdd701bf8cbc5aeabc40fe4d4378e72be8ba747fc",
+    "matches_original_042_manifest": true,
+    "original_attachment_retained": "/workspace/scratch/60f07f0e98c8/upload/conaled-vfa-checkpoint-042-native-j1-validation-readiness.tar(2).gz",
+    "source_git_history_work_state_and_latest_recovery_preserved": true,
+    "independent_confirmation": "recovery_efficiency read exact accepted compact tool SHA0dcce33b9e1430a05f084a8ae6181ef003078e998f350c2d19546c982a73cab5: capture uses source Git repository, work-state, kit and immutable base; restore uses base plus current compact checkpoint. Neither reads this extracted duplicate source tar.",
+    "free_total_bytes_after": 3529117696,
+    "ordinary_available_bytes_after": 76369920
+  },
+  "generated_cache_utility_cleanup": {
+    "utc": "2026-11-04T00:57:37.992536+00:00",
+    "path": "/workspace/scratch/60f07f0e98c8/native-state/bin/mathlib-cache",
+    "size_bytes": 119669648,
+    "allocated_bytes": 119672832,
+    "sha256": "a8b0bf258ad991ba40561bffcbcadc88ad429eef6e4ac2cd8ae99b229590d624",
+    "matched_successful_relink_receipt": true,
+    "receipt_preserved": "validation/1036-unified-setup/cache-relink.json",
+    "read_only_source_assessment": "validation/1036-capacity-readiness.md",
+    "no_setup_or_cache_writer_active": true,
+    "current_formal_inputs_changed": false,
+    "reason": "Standalone generated setup/cache utility is absent from installed profile references and from current fresh and all remaining formal gate routes. Preserved link inputs and receipt; a future explicit cache/setup operation must regenerate it.",
+    "free_total_bytes_after": 1617924096,
+    "ordinary_available_bytes_after": 0
+  },
+  "original_source_payload_reappearance_observation": {
+    "recorded_utc": "2026-11-04T02:03:06.414891+00:00",
+    "path": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/conaled-source.tar.gz",
+    "size_bytes": 70830760,
+    "sha256": "547e1464c733328a69018aebdd701bf8cbc5aeabc40fe4d4378e72be8ba747fc",
+    "mtime_utc": "2026-11-03T18:40:52.555460+00:00",
+    "ctime_utc": "2026-11-04T00:32:46.728407+00:00",
+    "prior_removal_record": "validation/1036-capacity-recovery.json/redundant_original_extracted_source_payload_removed",
+    "assessment": "Original source payload is present again with the original manifest bytes after the recorded earlier removal. Current inspection identifies no recreating path in compact captures or active runtime helpers. Actual recreating cause/writer unknown; this is a redundant recovery payload, not an observed active-cache mismatch. It is left unchanged in this action."
+  },
+  "redundant_original_history_bundle_removed": {
+    "utc": "2026-11-04T02:03:06.540153+00:00",
+    "path": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/conaled-history.bundle",
+    "size_bytes": 71839328,
+    "sha256": "3e51eb54bde115dc8fd697e8067953f47d74fd3da8afe56b132bb22734955860",
+    "matches_original_manifest": true,
+    "original_attachment_retained_and_rehashed": "/workspace/scratch/60f07f0e98c8/upload/conaled-vfa-checkpoint-042-native-j1-validation-readiness.tar(2).gz",
+    "latest_restore_smoke_passed": 53,
+    "fixed_base_library_file_id": "libfile_d3c4236538d4819189d2b3c49acf0afe",
+    "latest_library_file_id": "libfile_9533ef91179081919d5406f5f90f8291",
+    "source_git_alternates": false,
+    "active_inputs_changed": false,
+    "reason": "Verified redundant original extracted bundle; accepted compact capture/restore uses the existing fixed base plus current source Git/work-state/kit and does not read this file. Original attachment and all current source/history/evidence retained.",
+    "physical_free_after": 3511767040,
+    "ordinary_available_after": 59019264,
+    "removed_path_absent_immediately": true
+  },
+  "original_history_bundle_reappearance_observation": {
+    "recorded_utc": "2026-11-04T02:06:23.487864+00:00",
+    "path": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/conaled-history.bundle",
+    "size_bytes": 71839328,
+    "allocated_bytes": 71843840,
+    "sha256": "3e51eb54bde115dc8fd697e8067953f47d74fd3da8afe56b132bb22734955860",
+    "mtime_utc": "2026-11-03T18:40:49.171456+00:00",
+    "ctime_utc": "2026-11-04T02:03:12.692393+00:00",
+    "prior_removal_record": "validation/1036-capacity-recovery.json/redundant_original_history_bundle_removed",
+    "assessment": "The verified duplicate is present again after the immediately observed successful removal. No writer or cause is identified. The compact capture and current formal runtime have no automatic recreation route in inspected source. Do not repeatedly delete it or claim persistent reclaimed capacity. Source Git and active compiler/dependency/project inputs remain unchanged."
+  }
+}

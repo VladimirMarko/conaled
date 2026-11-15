@@ -1,0 +1,20 @@
+{
+  "candidate": "80671e07ff65e00cd6410d1bad05d181ff91958c",
+  "base": "79f798372bfcef4663544fd617465fac8866c911",
+  "accepted_utc": "2026-11-03T23:48:10.859456+00:00",
+  "Standards": "Passed",
+  "Spec": "Passed",
+  "source_comparison": "all three delivered files match exact approved candidate",
+  "files": {
+    "tools/checkpoint_compact.py": "0dcce33b9e1430a05f084a8ae6181ef003078e998f350c2d19546c982a73cab5",
+    "tools/test_checkpoint_compact.py": "7ea374f1abc45d3e47e48c4e2d0c41ed0f0b19a4ff3841b41a4e2f1188bf65cf",
+    "specs/1036-compact-recovery.md": "c7d76ff1e545a8aa8485392063bd4282b27cf4e9bab0622ec6fa4094496263ac"
+  },
+  "tests": {
+    "log": "work-state/validation/1036-compact-tests-round3.log",
+    "exit_code": 0,
+    "tests": 9,
+    "seconds": 2.81
+  },
+  "formal_chapter_acceptance": false
+}

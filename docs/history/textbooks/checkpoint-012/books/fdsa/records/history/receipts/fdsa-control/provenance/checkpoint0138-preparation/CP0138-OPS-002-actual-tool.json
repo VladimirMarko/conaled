@@ -1,0 +1,7 @@
+{
+  "chunk_id": "1b9893",
+  "wall_time_seconds": 0.000024767,
+  "exit_code": 0,
+  "original_token_count": 193,
+  "output": "{\n  \"recorded_utc\": \"2026-11-05T02:56:58.745085+00:00\",\n  \"finding\": \"CP0138-OPS-002\",\n  \"status\": \"Code corrected; independent final inspection pending\",\n  \"before\": {\n    \"bytes\": 37000,\n    \"sha256\": \"95ad6eb0bf4f4f0d42108f4fcf696609e7385dab175a1d7fca994b7e44299723\"\n  },\n  \"after\": {\n    \"bytes\": 40301,\n    \"sha256\": \"fab798a3b8474dbb37c178d136bb32b918f31f90ba944456a2bb85d6b3cb0e13\"\n  },\n  \"correction_patch\": {\n    \"bytes\": 5133,\n    \"sha256\": \"b4ca79bc5e04d43c32d42d52a46aacefa9c59b4bda8731b94bd6dbae3b953fbb\"\n  },\n  \"actual_final_review_content_required\": true,\n  \"actual_root_gate_both_axes_and_full_scope_required\": true,\n  \"exact4721byte_program_bound\": true,\n  \"AST_parse_passed\": true,\n  \"helper_executed\": false,\n  \"historical_records_unchanged\": true\n}\n"
+}

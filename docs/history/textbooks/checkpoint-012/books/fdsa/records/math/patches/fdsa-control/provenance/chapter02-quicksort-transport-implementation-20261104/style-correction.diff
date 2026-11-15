@@ -1,0 +1,28 @@
+diff --git a/Applications/Resources/QuickSortTransport.lean b/Applications/Resources/QuickSortTransport.lean
+index 5ac2dec..438a6a5 100644
+--- a/Applications/Resources/QuickSortTransport.lean
++++ b/Applications/Resources/QuickSortTransport.lean
+@@ -9,6 +9,9 @@ computing the map or for a later occurrence lookup. No injectivity of the map is
+ needed, so duplicate payloads and equal keys retain their occurrences.
+ -/
+ 
++set_option autoImplicit false
++set_option warningAsError true
++
+ namespace Resources.QuickSort
+ 
+ universe u v
+diff --git a/Examples/QuickSortTransport.lean b/Examples/QuickSortTransport.lean
+index 3dd52b0..089aaca 100644
+--- a/Examples/QuickSortTransport.lean
++++ b/Examples/QuickSortTransport.lean
+@@ -4,6 +4,9 @@ import Mathlib.Tactic.NormNum
+ /-! Connected occurrence, duplicate-payload and comparator-boundary examples
+ for the actual measured first-pivot execution. -/
+ 
++set_option autoImplicit false
++set_option warningAsError true
++
+ namespace Examples.QuickSortTransport
+ 
+ open Resources.QuickSort

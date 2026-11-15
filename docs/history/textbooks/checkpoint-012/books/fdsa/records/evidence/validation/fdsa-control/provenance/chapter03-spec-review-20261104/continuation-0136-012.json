@@ -1,0 +1,186 @@
+{
+  "recorded_utc": "2026-11-05T01:24:25.253036+00:00",
+  "reviewer": "/root/chapter03_spec",
+  "outcome": "Blocked",
+  "source_assessment_complete": true,
+  "review_complete": false,
+  "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "accepted_receiving_comparison_point": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "current_immutable_candidate": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "current_tree": "ecb69c3918715cbe0682028cd8697dfcf3e463f9",
+  "scope_obligations": 83,
+  "scope_sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed",
+  "previous_progress": {
+    "path": "provenance/chapter03-spec-review-20261104/continuation-0136-011.json",
+    "bytes": 19987,
+    "sha256": "8619f17fcc3b9bc92a7762809a10d57b1e026d3ac777b69dff067bff14d16811"
+  },
+  "obligation_assessment": {
+    "path": "provenance/chapter03-spec-review-20261104/obligation-assessment-83-final298.json",
+    "bytes": 165251,
+    "sha256": "6bc2d3707eef297ed080c856e7f218c26978155e1e39a712b323177d4057aed4"
+  },
+  "final_composition": {
+    "parent": "6eb3b18f017cad485371546b5a7ab0d6f13eb604",
+    "documentation_donor": "18cde548c080b24d182e754db0e13b0df2d91c15",
+    "only_parent_delta": "docs/research/fdsa-selection.md",
+    "doc_donor_bytes_equal": true,
+    "all80_source_module_and_entrypoint_and_other_doc_bytes_preserved": true,
+    "independent_tool_chunks": [
+      "f2aa05",
+      "f9d039"
+    ],
+    "original_Q_paths": 84,
+    "accepted_XR_delta_paths": 81
+  },
+  "new_complete_documents": [
+    {
+      "path": "docs/research/fdsa-selection.md",
+      "candidate": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+      "bytes": 86129,
+      "LF_lines": 849,
+      "sha256": "c4e363a2e28a1120986571054535573042a06391a1e9277ae98ca8b87d56fa40",
+      "git_blob": "ce02e00bbca5fed86178dbd1a85bbc299dfc7515",
+      "complete_substantive_read": true,
+      "read_ranges": [
+        {
+          "first": 1,
+          "last": 270,
+          "tool_chunk": "6a92ba"
+        },
+        {
+          "first": 271,
+          "last": 519,
+          "tool_chunk": "9c25d0"
+        },
+        {
+          "first": 520,
+          "last": 660,
+          "tool_chunk": "a3775e"
+        },
+        {
+          "first": 661,
+          "last": 707,
+          "tool_chunk": "cdfe22"
+        },
+        {
+          "first": 708,
+          "last": 747,
+          "tool_chunk": "4c5d79"
+        },
+        {
+          "first": 748,
+          "last": 849,
+          "tool_chunk": "8b3738"
+        }
+      ],
+      "complete391_line_diff_tool_chunk": "c5753e"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "candidate": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+      "bytes": 46755,
+      "LF_lines": 710,
+      "sha256": "dca421107e141c97e48ae28225b26e308816e0b5bae201dca39a2a3d5cc8e741",
+      "git_blob": "7008f74e15916ceabdc7902a5fce3a2bcde3ce34",
+      "complete_substantive_read": true,
+      "read_ranges": [
+        {
+          "first": 1,
+          "last": 260,
+          "tool_chunk": "fdfb87"
+        },
+        {
+          "first": 261,
+          "last": 514,
+          "tool_chunk": "4ae76f"
+        },
+        {
+          "first": 515,
+          "last": 710,
+          "tool_chunk": "b3dd84"
+        }
+      ],
+      "complete_original_Q_diff_and_navigation_tool_chunk": "64828c"
+    }
+  ],
+  "additional_complete_baseline_source": {
+    "path": "Examples/ThreeWayPartition.lean",
+    "candidate": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+    "bytes": 8109,
+    "LF_lines": 172,
+    "sha256": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526",
+    "git_blob": "a1f29b6310bc8623df2725b0d40f3949513199c5",
+    "source_byte_equal_original_Q": true,
+    "read_tool_chunk": "126817",
+    "complete_substantive_read": true,
+    "assessment": "Actual one-pass partition costs n+1 including nil, preserves duplicate order and arbitrary pivot semantics; mixed list/actual returned lower-list continuation pays9+4=13. Membership sufficiency for shrink is not confused with necessity."
+  },
+  "documentation_reconciliation": {
+    "tool_chunk": "f2aa05",
+    "source_keys": 12,
+    "aliases": 79,
+    "all_alias_source_identities_match_final_candidate": true,
+    "distinct_obligation_rows": 83,
+    "only_changed_mapping_rows_from6eb": [
+      "C03-064",
+      "C03-065",
+      "C03-075",
+      "C03-077"
+    ],
+    "C03_005_and_C03_076_exact_prior_bytes": true,
+    "reference_check_tool_chunk": "8adef4",
+    "unique_alias_qualified_names": 595,
+    "new_public_names_resolving_to_reviewed_actual_types": 573,
+    "unchanged_baseline_references": 21,
+    "private_worker_references": 1,
+    "all_names_exist_in_intended_sources": true,
+    "targeted_C03_043_frozen_scope_read_tool_chunk": "7b577a",
+    "C03_043_sufficient_only_no_converse_required": true,
+    "row_parser_diagnostic": "f9d039 used an unbolded-first-cell regex for current mapping and printed0;429384 inspected actual bold syntax. Current matrix uses exact bolded-ID regex and verifies83 unique expected IDs. This navigation correction changes no source or prior semantic read credit."
+  },
+  "coverage_counts": {
+    "chapter_source_modules": 78,
+    "separately_accepted_shared_XR_source_modules": 2,
+    "total_added_original_Q_source_modules": 80,
+    "changed_entrypoint_fully_read": 1,
+    "documents_fully_read": 3,
+    "original_Q_changed_paths_fully_assessed": 84,
+    "chapter_public_source_claims": 1370,
+    "shared_XR_public_source_claims": 21,
+    "original_Q_total_public_source_claims": 1391,
+    "chapter_raw_actual_types": 1370,
+    "shared_XR_raw_actual_types": 21,
+    "original_Q_total_raw_actual_types": 1391,
+    "complete_baseline_dependency_modules": 7,
+    "bounded_baseline_dependency_modules": 5,
+    "frozen_obligation_source_assessments_complete": 83,
+    "not_a_count_of_accepted_obligations": true
+  },
+  "semantic_conclusions": [
+    "The final document preserves every frozen obligation, actual algorithm/call/probability meaning, duplicate and valid-rank boundaries, and exact universal endpoint quantifiers. It no longer presents the universal worst-case stage as pending.",
+    "All endpoint source/probability/cost witnesses are connected to actual execution. The maximum scan theorem is not relabelled as an exact maximum source-cost theorem.",
+    "The coordinate comparison remains explicitly scoped to its declared protocol and combined tariff; source-call, scan, query and physical-runtime metrics are not conflated.",
+    "The finite-trace tail proof retains nonempty input, natural excess parameter, actual conditional process and no independence assumption. Fixed excess is not represented as fixed-constant high-probability O(n).",
+    "The map records Chapter3 in progress and retains accepted XR/Chapter1 provenance without asserting new acceptance. Historical baseline material is distinguished from current integration status.",
+    "Original source/proof/type coverage and earlier truncation limits are retained in previous ledgers. Exact unchanged-source identity permits reuse; no hidden truncated content receives read credit."
+  ],
+  "resolved_findings": [
+    {
+      "id": "C03-SPEC-USE-001",
+      "resolution_record": {
+        "path": "provenance/chapter03-spec-review-20261104/finding-C03-SPEC-USE-001-resolution1.json",
+        "bytes": 5432,
+        "sha256": "4529ac45f11eec4c0346f70a51f0526f2f41ec690d199f7175931a1ca8387d3c"
+      },
+      "preserved_in": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2"
+    }
+  ],
+  "new_findings": [],
+  "remaining_scope": [
+    "Final1391-name actual-type qualification on exact298: independently reconcile complete native/full output, program inventory, every changed block, stable pre/post source/artifact/configuration/dependency/runtime identities and actual terminal result.",
+    "Closed successful normal full candidate check and exhaustive kernel-safe audit with matching verification under the repository normal-versus-fresh rules. Root current run2798 remains live; this reviewer has not read its partial output.",
+    "Both independent axes must assess exact final candidate and complete validation; immediate candidate verification before local fast-forward remains mandatory."
+  ],
+  "no_compiler_or_source_or_ref_mutations": true
+}

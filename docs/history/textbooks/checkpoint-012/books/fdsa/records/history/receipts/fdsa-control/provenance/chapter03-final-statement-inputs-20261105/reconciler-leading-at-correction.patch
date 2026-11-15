@@ -1,0 +1,11 @@
+--- attempt1
++++ corrected
+@@ -46,7 +46,7 @@
+ for marker in ['⋯', '…', '...']:
+     assert marker.encode() not in raw, ('Possible omission marker', marker)
+ assert not re.search(rb'(?im)^.*\b(?:error|warning):', raw)
+-pattern = re.compile(rb'(?m)^(?P<name>' + b'|'.join(re.escape(n.encode()) for n in sorted(names, key=len, reverse=True)) + rb')(?=\.\{|[\s:])')
++pattern = re.compile(rb'(?m)^@?(?P<name>' + b'|'.join(re.escape(n.encode()) for n in sorted(names, key=len, reverse=True)) + rb')(?=\.\{|[\s:])')
+ matches = list(pattern.finditer(raw))
+ assert [m.group('name').decode() for m in matches] == names
+ assert matches[0].start() == 0

@@ -1,0 +1,49 @@
+{
+  "recorded_utc": "2026-11-02T20:25:37.643386+00:00",
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "original_review_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "review_checkout": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+  "git_status": "",
+  "original_tool_session": 83124,
+  "terminal_exit_code": null,
+  "result": "terminal outcome unavailable; original running metadata is preserved, not treated as current liveness or success",
+  "tool_handle_error": "Unknown process id 83124",
+  "host_process_evidence": "Known task PIDs absent/unreadable with /proc present, followed by no exact-checkout matching process. No unrelated command/stat data inspected.",
+  "verification_record_present": false,
+  "copied_verification_record_present": false,
+  "artifact_preservation_limit": "No files in the task project build had mtime at or after the last partial-log modification. Inventory is preserved; it does not establish absence of all possible incomplete older artifacts or prove healthy cache. No guard/cache cleanup/retry has occurred.",
+  "files": {
+    "partial.log": {
+      "source": "/workspace/scratch/845aa1048b05/fdsa-control/reviews/chapter01-repair-incremental.log",
+      "bytes": 185588,
+      "sha256": "a3ea7d678554d2d8b746f41f0ffcd47c4b91d99dbd12f7e8315185ba822ef899"
+    },
+    "attempt-metadata.json": {
+      "source": "/workspace/scratch/845aa1048b05/fdsa-control/provenance/chapter01-repair-guarded-attempt1.json",
+      "bytes": 767,
+      "sha256": "a6d4e4944919ac3fa04ef16150262af29c9449a718aa88a9fbb90d1da417a448"
+    },
+    "initial-probe-qualified.json": {
+      "source": "/workspace/scratch/845aa1048b05/fdsa-control/provenance/chapter01-repair-session-handoff-20261102.json",
+      "bytes": 1116,
+      "sha256": "b1edc6f0f4cc82fc0582f8c9936dad176ebfece58b91b492726224ab581e88b0"
+    },
+    "host-known-pids.json": {
+      "source": "/workspace/scratch/845aa1048b05/fdsa-control/provenance/chapter01-repair-session-host-check-20261102.json",
+      "bytes": 727,
+      "sha256": "3890a9a7fc1b8b160fd9f4edee1c44ca79e7911aab9312572b30ede74cfc19a0"
+    },
+    "exact-checkout-processes.json": {
+      "source": "/workspace/scratch/845aa1048b05/fdsa-control/provenance/chapter01-repair-exact-checkout-processes-20261102.json",
+      "bytes": 662,
+      "sha256": "6e6a7a9df4ee0a470f07790dfa405c0fdfd1edf3537d12770227b412ceba76c0"
+    },
+    "artifact-inventory.json": {
+      "source": "/workspace/scratch/845aa1048b05/fdsa-control/provenance/chapter01-repair-interruption-artifact-inventory.json",
+      "bytes": 421,
+      "sha256": "9587d3e9fcd6218bac523f45b3fd0926ee745b054855c8cb4552652dbb6a1136"
+    }
+  },
+  "source_scope": "A\tApplications/Arithmetic/EuclidInduction.lean\nA\tApplications/Resources/CallComparison.lean\nA\tApplications/Resources/CallCount.lean\nA\tApplications/Resources/ListReversal.lean\nM\tApplications/Resources/Measured.lean\nA\tApplications/Resources/SharedDemand.lean\nA\tExamples/CallModels.lean\nA\tExamples/FunctionalBasics.lean\nA\tExamples/ListReversal.lean\nA\tExamples/SharedDemand.lean\nM\tSquareApplications.lean\nM\tdocs/SOURCES.md\nA\tdocs/research/fdsa-call-models.md\nA\tdocs/research/fdsa-reconstruction-map.md",
+  "next": "Retained Standards continuation disposition before any new compiler/checker; preserve all original requirements/findings and exact full candidate scope."
+}

@@ -1,0 +1,28 @@
+{
+  "recorded_utc": "2026-11-04T19:51:57.836696+00:00",
+  "disposition": "HELD for checkpoint 0125; no further source or own-provenance writes until root release.",
+  "branch": "work/fdsa-ch03-values",
+  "head": "bc26994a828eb958fe930c0e46039f9c5addc864",
+  "tree": "a04fe3e8309bdf8ec6c0f9fba9c78c24fe9fe02a",
+  "status": "",
+  "new_source_paths_all_absent": [
+    "Applications/Selection/FixedRank.lean",
+    "Applications/Resources/FixedRank.lean",
+    "Examples/FixedRankSelection.lean"
+  ],
+  "six_prior_source_files_verified_unchanged": true,
+  "new_stage_records": [
+    {
+      "path": "fixed-rank-starting-state.json",
+      "bytes": 3752,
+      "sha256": "6884b3a1ed3c261f40be1042e0b0931baeaec62013019cf95ac83c77e4d89dc0"
+    },
+    {
+      "path": "fixed-rank-design-before-0125.json",
+      "bytes": 3828,
+      "sha256": "2ea434696171d5c76a0cde2f42620bf9458dae3686dbb697a8c2ab0524277d5b"
+    }
+  ],
+  "validation": "Prior pivot focused pair passed at this exact HEAD. No FixedRank source, new execution, actual-type capture, full Chapter3 audit/review or acceptance is claimed.",
+  "next_action_after_release": "Continue the same C03-047\u2013051 first source slice, preserving remaining assigned exercise scope."
+}

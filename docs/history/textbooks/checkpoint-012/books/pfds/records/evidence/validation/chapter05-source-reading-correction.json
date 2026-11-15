@@ -1,0 +1,40 @@
+{
+  "recorded_at": "2026-11-03T03:54:22.435315+00:00",
+  "kind": "source-reading correction, not source erratum",
+  "source_sha256": "b9dbf4f6ade4c24da438fd5415fc3abdd3af0aa8459d7e41e4a27de844c7ad41",
+  "inspection": "Root viewed printed pages198 and199, rendered at200dpi, individually.",
+  "facts": {
+    "binomial_link_p198": "non-strict <=, agrees with main SML Elem.leq",
+    "binomial_removeMinTree_p198": "strict <, differs from main SML Elem.leq",
+    "pairing_merge_p199": "strict <, differs from main SML Elem.leq"
+  },
+  "effect": "Correct research note only; no Lean/candidate/requirements/coverage change. Distinct-priority counterexample derivations unaffected.",
+  "files": {
+    "session/research/chapter05-readiness-initial.md": {
+      "bytes": 17699,
+      "sha256": "8206129736ba2c4758ddefac1a775ce3f601c693a7fdfd355c3b389aeadde913"
+    },
+    "session/research/chapter05-readiness.md": {
+      "bytes": 18315,
+      "sha256": "991cae56ffbd6e90b8306bfe5bff0a2a13d08ed34e0f4cdebc8c3b4d23017b5c"
+    },
+    "research-pfds/chapter05/book-p198-detail.png": {
+      "bytes": 78025,
+      "sha256": "30dfeffd7d1451f3a3dcc5991a2c19dd6a7b6c122a22cdfc0f8937843bab219f"
+    },
+    "research-pfds/chapter05/book-p199-detail.png": {
+      "bytes": 69416,
+      "sha256": "3761e70f1ce390ce0ab213e6ae87092498f88122b4d562e1d97d83470da2e117"
+    },
+    "session/research/chapter05-persistent-counterexample-readiness-initial.md": {
+      "bytes": 14338,
+      "sha256": "fea7d43b2446d297d4452a06712de740e18d870f2864605e31f1adabbeb0cbbc"
+    },
+    "session/research/chapter05-persistent-counterexample-readiness.md": {
+      "bytes": 15405,
+      "sha256": "ffbf632854ed1fe855f20d98060719e9633ae3d8e27a728b63f9e7275eac1ec9"
+    }
+  },
+  "render_storage": "Source renders remain excluded from checkpoints; source identity and page/resolution recorded for recovery.",
+  "counterexample_author_confirmation": "Author independently viewed both pages at200dpi; corrected only the comparison paragraph/provenance, preserved all mathematical families and initial bytes."
+}

@@ -1,0 +1,117 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "updated_utc": "2026-11-04T08:39:25.328761+00:00",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "isolated_parent": "9d5dcd2cfbd6fc5df572234a85bf4957d0c32a21",
+  "isolated_candidate": "aa89aeccf7e06cd046b4f3c5c430631d4ea73b5b",
+  "integrated_candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+  "source": "Applications/Resources/UniformQuickSortMean.lean",
+  "bytes": 37880,
+  "lines": 783,
+  "sha256": "135066a5f434ddd99981212a739b165ccdacadbff1448e5f7c358ff04e33883f",
+  "only_changed_file": true,
+  "predecessor_exact_at_M2_and_9409826": true,
+  "saved_diff_equals_git_diff": true,
+  "diff_sha256": "ff7b2240d6a6db2eff639eeb967480a7d12cbcd188c5b9e7b598f378058284ad",
+  "complete_corrected_core_and_diff_read": true,
+  "actual_diagnostic_headers_read": 24,
+  "actual_diagnostic_lines_read": 192,
+  "diagnostics_sha256": "fa80b7c7cbad5cea596a243977c8214d2845dda181503cecc40f957340dc26b2",
+  "examples_previously_fully_read_and_byte_identical": {
+    "bytes": 16466,
+    "lines": 352,
+    "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5"
+  },
+  "definitions_and_named_instances_unchanged": true,
+  "public_core_names": 67,
+  "public_example_names_including_explicit_constructors": 58,
+  "private_core_names": 1,
+  "private_example_names": 3,
+  "named_local_instances_included": 6,
+  "regular_definition_theorem_headers_checked": 66,
+  "written_header_changes": [
+    "firstEvents_disjoint"
+  ],
+  "scoped_omissions": [
+    {
+      "line": 201,
+      "name": "meanBy_empty",
+      "omitted_instances": "[MeasurableSingletonClass (Equiv.Perm I)]",
+      "independent_reason": "Constant integral; singleton measurability unused."
+    },
+    {
+      "line": 207,
+      "name": "meanBy_singleton",
+      "omitted_instances": "[MeasurableSingletonClass (Equiv.Perm I)]",
+      "independent_reason": "Actual singleton order gives constant integral; singleton measurability unused."
+    },
+    {
+      "line": 221,
+      "name": "observedCost_of_all_false",
+      "omitted_instances": "[MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]",
+      "independent_reason": "Pointwise execution/cardinality, no measure."
+    },
+    {
+      "line": 238,
+      "name": "meanBy_of_all_false",
+      "omitted_instances": "[MeasurableSingletonClass (Equiv.Perm I)]",
+      "independent_reason": "Pointwise constant observation integrated; singleton measurability unused."
+    },
+    {
+      "line": 311,
+      "name": "firstEvents_disjoint",
+      "omitted_instances": "[MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]",
+      "independent_reason": "Unique optional heads give pure set disjointness, no measure."
+    },
+    {
+      "line": 321,
+      "name": "firstEvents_cover",
+      "omitted_instances": "[MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]",
+      "independent_reason": "Nonempty selected order gives pure event coverage, no measure."
+    },
+    {
+      "line": 378,
+      "name": "injOn_leftChild",
+      "omitted_instances": "[LinearOrder \u03ba]",
+      "independent_reason": "Injectivity restricts to a subset without key order."
+    },
+    {
+      "line": 386,
+      "name": "injOn_rightChild",
+      "omitted_instances": "[LinearOrder \u03ba]",
+      "independent_reason": "Injectivity restricts to a subset without key order."
+    },
+    {
+      "line": 394,
+      "name": "restrictedOrder_keys_nodup",
+      "omitted_instances": "[LinearOrder \u03ba]",
+      "independent_reason": "Selected-support injectivity preserves Nodup without key order."
+    },
+    {
+      "line": 443,
+      "name": "rankEquiv_key",
+      "omitted_instances": "[DecidableEq I]",
+      "independent_reason": "Projection from selected-key equivalence needs no external label equality decision."
+    },
+    {
+      "line": 666,
+      "name": "occurrence_key_injective",
+      "omitted_instances": "[LinearOrder \u03ba]",
+      "independent_reason": "Mapped-key Nodup gives occurrence injectivity without key order."
+    },
+    {
+      "line": 675,
+      "name": "occurrenceInput_keys_nodup",
+      "omitted_instances": "[LinearOrder \u03ba]",
+      "independent_reason": "Actual permutation preserves mapped Nodup without key order."
+    }
+  ],
+  "assessment": "The explicit disjoint-event lambda states the same intended set relation; old unknown on notation establishes no elaborated-type equivalence. Nine proof changes expose definitions/beta reductions, fix the original uniform measure, supply exact rank/sum parameters, preserve the induction cardinal equation and type the universal Finset coercion. Actual child filters, conditioning, integrability, selected-support key injectivity, independent payload universes, harmonic recurrence, same-sample literal bounds and all connected examples remain. Needed measurable/order hypotheses remain on the integral and ordered-key statements; omissions are command-local.",
+  "no_prior_elaborated_type_equivalence_claim": true,
+  "source_findings": [],
+  "proof_restrictions": "autoImplicit false and warningAsError true remain. No linter/audit/pin/environment/gate changes. Downstream recovery-admission diagnostic belongs to failed predecessor validation and is not discharged until actual successful compilation and audit.",
+  "actual_successor_compilation_or_types_assessed": false,
+  "overall": "Blocked pending exact immutable focused/type/full-check/audit and final two-axis gates.",
+  "reviewer_executed_compiler_build_check_audit_or_verify": false,
+  "author_report_read_boundary": "Handoff/receipt read as aids. Separate334-line author table not claimed fully read; all corrected source and actual diagnostics independently assessed."
+}

@@ -1,0 +1,135 @@
+{
+  "completed_utc": "2026-11-04T07:34:15.289173+00:00",
+  "before": "e4965499954e2afe6bb6be0b8a4a61167a0ff2ce",
+  "after": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+  "steps": [
+    {
+      "before": "e4965499954e2afe6bb6be0b8a4a61167a0ff2ce",
+      "source": "204dba90967f11a2dfe186316bc85a29acbcc576",
+      "after": "204dba90967f11a2dfe186316bc85a29acbcc576",
+      "changed_paths": [
+        "Applications/Probability/PermutationTail.lean",
+        "Applications/Resources/QuickSortMean.lean",
+        "Examples/PermutationTail.lean",
+        "Examples/PermutationTailBoundary.lean",
+        "Examples/QuickSortMean.lean",
+        "SquareApplications.lean",
+        "docs/research/fdsa-permutation-tail.md",
+        "docs/research/fdsa-reconstruction-map.md"
+      ],
+      "exit_code": 0
+    },
+    {
+      "before": "204dba90967f11a2dfe186316bc85a29acbcc576",
+      "source": "bdac9703aab4b383fa775568d36bf685af329389",
+      "after": "3f7e90fdd900bc423237337d640e75d58f9782d4",
+      "changed_paths": [
+        "Examples/PermutationOrder.lean"
+      ],
+      "exit_code": 0
+    },
+    {
+      "before": "3f7e90fdd900bc423237337d640e75d58f9782d4",
+      "source": "c7aa6fa810af070434155ece48b92470ca4a91ec",
+      "after": "eb2471c809369f090f95275ba2497464c58380a2",
+      "changed_paths": [
+        "Applications/Resources/NaturalRunOperations.lean"
+      ],
+      "exit_code": 0
+    },
+    {
+      "before": "eb2471c809369f090f95275ba2497464c58380a2",
+      "source": "c19a85f8f5e256e87b0001f3e98afb2c7c1b08cc",
+      "after": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+      "changed_paths": [
+        "Applications/Resources/RandomQuickSortRank.lean",
+        "Examples/RandomQuickSortRank.lean"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "source_identities": {
+    "Applications/Probability/PermutationTail.lean": {
+      "source_candidate": "6f76a4d552773044d3e9494dda8e663471d47e04",
+      "bytes": 23401,
+      "sha256": "9fd7031f057e55933b9f252370e9541197ee1c7029ec903d630e41a8815691a8"
+    },
+    "Examples/PermutationTail.lean": {
+      "source_candidate": "6f76a4d552773044d3e9494dda8e663471d47e04",
+      "bytes": 8786,
+      "sha256": "30e07aaede25b10d2484c2a4674bffa66d77094a545fd49f72bc000bd132ddb7"
+    },
+    "Examples/PermutationTailBoundary.lean": {
+      "source_candidate": "6f76a4d552773044d3e9494dda8e663471d47e04",
+      "bytes": 10178,
+      "sha256": "fe6e365ff0f324e1f9b143b6203589f36b89e4b789baa79a11317163d21494c0"
+    },
+    "docs/research/fdsa-permutation-tail.md": {
+      "source_candidate": "6f76a4d552773044d3e9494dda8e663471d47e04",
+      "bytes": 10367,
+      "sha256": "34162854a3bfabbec1e87bea6111b4939495cc27eb9ee811758dceaeb62dc96f"
+    },
+    "Applications/Resources/QuickSortMean.lean": {
+      "source_candidate": "012ff45e3bd34a36b67e62a8cc2ee00125613e53",
+      "bytes": 9714,
+      "sha256": "6ac46b57a39ad60eaae10d6b90ac4c46c9cbdc02d5caf214097b1e794d03794b"
+    },
+    "Examples/QuickSortMean.lean": {
+      "source_candidate": "012ff45e3bd34a36b67e62a8cc2ee00125613e53",
+      "bytes": 2488,
+      "sha256": "924ce55ee6af374b55cea67ee6f2da25997b5a81ad098e2e3789622bd793b904"
+    },
+    "Applications/Probability/PermutationOrder.lean": {
+      "source_candidate": "bdac9703aab4b383fa775568d36bf685af329389",
+      "bytes": 15304,
+      "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2"
+    },
+    "Examples/PermutationOrder.lean": {
+      "source_candidate": "bdac9703aab4b383fa775568d36bf685af329389",
+      "bytes": 6706,
+      "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084"
+    },
+    "Examples/PermutationOrderBoundary.lean": {
+      "source_candidate": "bdac9703aab4b383fa775568d36bf685af329389",
+      "bytes": 5605,
+      "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121"
+    },
+    "Applications/Resources/NaturalRunOperations.lean": {
+      "source_candidate": "c7aa6fa810af070434155ece48b92470ca4a91ec",
+      "bytes": 29855,
+      "sha256": "ccbe8f58dd53cbfaa4600780d5d8a2a78da994ba33c3d6edaa3098446d1f09eb"
+    },
+    "Examples/NaturalRunOperations.lean": {
+      "source_candidate": "c7aa6fa810af070434155ece48b92470ca4a91ec",
+      "bytes": 15966,
+      "sha256": "fe08adbd075edbed29bd094e3c3a4d5ef156b31cf84463f5b1957c5f019dff9a"
+    },
+    "Applications/Resources/RandomQuickSortRank.lean": {
+      "source_candidate": "c19a85f8f5e256e87b0001f3e98afb2c7c1b08cc",
+      "bytes": 19615,
+      "sha256": "22960885c968620b957e7e2381baa8b887d9dc80a54fb72fe9644c3ace2890b4"
+    },
+    "Examples/RandomQuickSortRank.lean": {
+      "source_candidate": "c19a85f8f5e256e87b0001f3e98afb2c7c1b08cc",
+      "bytes": 6427,
+      "sha256": "a0f5fbd6b3d41cad08193a371228bede1b869a773608b21906e85f2848d747bf"
+    },
+    "Applications/Resources/RandomQuickSortMean.lean": {
+      "source_candidate": "c19a85f8f5e256e87b0001f3e98afb2c7c1b08cc",
+      "bytes": 16517,
+      "sha256": "2c7976bf52a2dbed2eb6eb959055acc7ae0df8319c167f0128b63e5c482bd5d3"
+    },
+    "Examples/RandomQuickSortMean.lean": {
+      "source_candidate": "c19a85f8f5e256e87b0001f3e98afb2c7c1b08cc",
+      "bytes": 5733,
+      "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670"
+    }
+  },
+  "protected_refs_unchanged": {
+    "work/fdsa-book": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "work/fdsa-foundation-integration": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761"
+  },
+  "clean": true,
+  "no_live_central_command": true,
+  "validation": "Prepared immutable development candidate; no new compile/type/candidate acceptance claim."
+}

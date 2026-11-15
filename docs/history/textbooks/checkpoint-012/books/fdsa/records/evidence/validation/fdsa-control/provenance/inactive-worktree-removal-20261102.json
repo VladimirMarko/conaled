@@ -1,0 +1,585 @@
+{
+  "started_utc": "2026-11-02T21:08:38.216700+00:00",
+  "reason": "Avoid repeated ENOSPC during the active full Chapter1 check by removing redundant clean inactive draft working copies. All commits and branch refs are retained locally and in successfully saved checkpoints0051/0052. No build outputs or shared dependency cache is removed.",
+  "triage_sha256": "ec6d0290ed292a3d516a171d0ce1471e49e621893054226510d9c42f8b4995f5",
+  "source_checkpoint": "conaled-fdsa-0051-priority-queue-draft",
+  "source_library_file_id": "libfile_75cece5073888191a8250103a888c321",
+  "newer_checkpoint": "conaled-fdsa-0052-ordinary-merge-start",
+  "available_bytes_before": 362147840,
+  "planned": [
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-accumulated-work",
+      "head": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "branch": "refs/heads/work/fdsa-accumulated-work",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91054080,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-accumulated-work work/fdsa-accumulated-work"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-adt-refinement",
+      "head": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+      "branch": "refs/heads/work/fdsa-adt-refinement",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91119616,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-adt-refinement work/fdsa-adt-refinement"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-affine-recurrence",
+      "head": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "branch": "refs/heads/work/fdsa-affine-recurrence",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91095040,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-affine-recurrence work/fdsa-affine-recurrence"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-builder-costs",
+      "head": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+      "branch": "refs/heads/work/fdsa-builder-costs",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91045888,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-builder-costs work/fdsa-builder-costs"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-permutation-expectation",
+      "head": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+      "branch": "refs/heads/work/fdsa-permutation-expectation",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91226112,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-permutation-expectation work/fdsa-permutation-expectation"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-permutation-joint",
+      "head": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+      "branch": "refs/heads/work/fdsa-permutation-joint",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91287552,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-permutation-joint work/fdsa-permutation-joint"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-permutation-minimum",
+      "head": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+      "branch": "refs/heads/work/fdsa-permutation-minimum",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91295744,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-permutation-minimum work/fdsa-permutation-minimum"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-permutation-order",
+      "head": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+      "branch": "refs/heads/work/fdsa-permutation-order",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91369472,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-permutation-order work/fdsa-permutation-order"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-permutation-placement",
+      "head": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "branch": "refs/heads/work/fdsa-permutation-placement",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91504640,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-permutation-placement work/fdsa-permutation-placement"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-permutation-tail",
+      "head": "a0597381f02eddd074ee96cabaa974f2062285f8",
+      "branch": "refs/heads/work/fdsa-permutation-tail",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91152384,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-permutation-tail work/fdsa-permutation-tail"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-priority-observations",
+      "head": "c088beeb89aa18df45a56f6f1d6b6ff4ad374905",
+      "branch": "refs/heads/work/fdsa-priority-observations",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91115520,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-priority-observations work/fdsa-priority-observations"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-three-way-partition",
+      "head": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+      "branch": "refs/heads/work/fdsa-three-way-partition",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91045888,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-three-way-partition work/fdsa-three-way-partition"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-accumulator",
+      "head": "b035f1151ab4f0c7d7380818576cfe97dae434c4",
+      "branch": "refs/heads/work/fdsa-tree-accumulator",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91295744,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-tree-accumulator work/fdsa-tree-accumulator"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-cache",
+      "head": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "branch": "refs/heads/work/fdsa-tree-cache",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91090944,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-tree-cache work/fdsa-tree-cache"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-fold",
+      "head": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+      "branch": "refs/heads/work/fdsa-tree-fold",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91271168,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-tree-fold work/fdsa-tree-fold"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-order",
+      "head": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+      "branch": "refs/heads/work/fdsa-tree-order",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91193344,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-tree-order work/fdsa-tree-order"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-rotations",
+      "head": "28ba79d8d425400cb87d2daf3ecf1cc5a63a7aa2",
+      "branch": "refs/heads/work/fdsa-tree-rotations",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91140096,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-tree-rotations work/fdsa-tree-rotations"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-shape",
+      "head": "974a97321a8ec174b56104c7e6efaaca881b6639",
+      "branch": "refs/heads/work/fdsa-tree-shape",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91156480,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-tree-shape work/fdsa-tree-shape"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-traversal-work",
+      "head": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "branch": "refs/heads/work/fdsa-tree-traversal-work",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91377664,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-tree-traversal-work work/fdsa-tree-traversal-work"
+    }
+  ],
+  "removed": [
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-accumulated-work",
+      "head": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "branch": "refs/heads/work/fdsa-accumulated-work",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91054080,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-accumulated-work work/fdsa-accumulated-work",
+      "removed_utc": "2026-11-02T21:08:39.358947+00:00",
+      "retained_ref_verified": true
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-adt-refinement",
+      "head": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+      "branch": "refs/heads/work/fdsa-adt-refinement",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91119616,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-adt-refinement work/fdsa-adt-refinement",
+      "removed_utc": "2026-11-02T21:08:39.414608+00:00",
+      "retained_ref_verified": true
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-affine-recurrence",
+      "head": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "branch": "refs/heads/work/fdsa-affine-recurrence",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91095040,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-affine-recurrence work/fdsa-affine-recurrence",
+      "removed_utc": "2026-11-02T21:08:39.463165+00:00",
+      "retained_ref_verified": true
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-builder-costs",
+      "head": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+      "branch": "refs/heads/work/fdsa-builder-costs",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91045888,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-builder-costs work/fdsa-builder-costs",
+      "removed_utc": "2026-11-02T21:11:36.062471+00:00",
+      "retained_ref_verified": true,
+      "residue_cleanup": {
+        "present": true,
+        "regular_files": 0,
+        "directories": 173,
+        "allowed_links": [
+          ".lake/packages"
+        ],
+        "empty_directories_removed": true
+      }
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-permutation-expectation",
+      "head": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+      "branch": "refs/heads/work/fdsa-permutation-expectation",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91226112,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-permutation-expectation work/fdsa-permutation-expectation",
+      "removed_utc": "2026-11-02T21:11:36.207946+00:00",
+      "retained_ref_verified": true,
+      "residue_cleanup": null
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-permutation-joint",
+      "head": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+      "branch": "refs/heads/work/fdsa-permutation-joint",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91287552,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-permutation-joint work/fdsa-permutation-joint",
+      "removed_utc": "2026-11-02T21:11:36.325408+00:00",
+      "retained_ref_verified": true,
+      "residue_cleanup": null
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-permutation-minimum",
+      "head": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+      "branch": "refs/heads/work/fdsa-permutation-minimum",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91295744,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-permutation-minimum work/fdsa-permutation-minimum",
+      "removed_utc": "2026-11-02T21:11:36.451282+00:00",
+      "retained_ref_verified": true,
+      "residue_cleanup": null
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-permutation-order",
+      "head": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+      "branch": "refs/heads/work/fdsa-permutation-order",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91369472,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-permutation-order work/fdsa-permutation-order",
+      "removed_utc": "2026-11-02T21:11:36.611551+00:00",
+      "retained_ref_verified": true,
+      "residue_cleanup": null
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-permutation-placement",
+      "head": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "branch": "refs/heads/work/fdsa-permutation-placement",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91504640,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-permutation-placement work/fdsa-permutation-placement",
+      "removed_utc": "2026-11-02T21:11:36.741624+00:00",
+      "retained_ref_verified": true,
+      "residue_cleanup": null
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-permutation-tail",
+      "head": "a0597381f02eddd074ee96cabaa974f2062285f8",
+      "branch": "refs/heads/work/fdsa-permutation-tail",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91152384,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-permutation-tail work/fdsa-permutation-tail",
+      "removed_utc": "2026-11-02T21:11:36.870132+00:00",
+      "retained_ref_verified": true,
+      "residue_cleanup": null
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-priority-observations",
+      "head": "c088beeb89aa18df45a56f6f1d6b6ff4ad374905",
+      "branch": "refs/heads/work/fdsa-priority-observations",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91115520,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-priority-observations work/fdsa-priority-observations",
+      "removed_utc": "2026-11-02T21:11:36.978029+00:00",
+      "retained_ref_verified": true,
+      "residue_cleanup": null
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-three-way-partition",
+      "head": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+      "branch": "refs/heads/work/fdsa-three-way-partition",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91045888,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-three-way-partition work/fdsa-three-way-partition",
+      "removed_utc": "2026-11-02T21:11:37.090539+00:00",
+      "retained_ref_verified": true,
+      "residue_cleanup": null
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-accumulator",
+      "head": "b035f1151ab4f0c7d7380818576cfe97dae434c4",
+      "branch": "refs/heads/work/fdsa-tree-accumulator",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91295744,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-tree-accumulator work/fdsa-tree-accumulator",
+      "removed_utc": "2026-11-02T21:11:37.230197+00:00",
+      "retained_ref_verified": true,
+      "residue_cleanup": null
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-cache",
+      "head": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "branch": "refs/heads/work/fdsa-tree-cache",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91090944,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-tree-cache work/fdsa-tree-cache",
+      "removed_utc": "2026-11-02T21:11:37.332160+00:00",
+      "retained_ref_verified": true,
+      "residue_cleanup": null
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-fold",
+      "head": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+      "branch": "refs/heads/work/fdsa-tree-fold",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91271168,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-tree-fold work/fdsa-tree-fold",
+      "removed_utc": "2026-11-02T21:11:37.467578+00:00",
+      "retained_ref_verified": true,
+      "residue_cleanup": null
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-order",
+      "head": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+      "branch": "refs/heads/work/fdsa-tree-order",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91193344,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-tree-order work/fdsa-tree-order",
+      "removed_utc": "2026-11-02T21:11:37.574162+00:00",
+      "retained_ref_verified": true,
+      "residue_cleanup": null
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-rotations",
+      "head": "28ba79d8d425400cb87d2daf3ecf1cc5a63a7aa2",
+      "branch": "refs/heads/work/fdsa-tree-rotations",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91140096,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-tree-rotations work/fdsa-tree-rotations",
+      "removed_utc": "2026-11-02T21:11:37.674891+00:00",
+      "retained_ref_verified": true,
+      "residue_cleanup": null
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-shape",
+      "head": "974a97321a8ec174b56104c7e6efaaca881b6639",
+      "branch": "refs/heads/work/fdsa-tree-shape",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91156480,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-tree-shape work/fdsa-tree-shape",
+      "removed_utc": "2026-11-02T21:11:37.813809+00:00",
+      "retained_ref_verified": true,
+      "residue_cleanup": null
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-traversal-work",
+      "head": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "branch": "refs/heads/work/fdsa-tree-traversal-work",
+      "verified_clean": true,
+      "verified_no_build": true,
+      "packages_symlink_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+      "expected_source_allocated_bytes": 91377664,
+      "restore_command": "git -C /workspace/scratch/845aa1048b05/conaled worktree add /workspace/scratch/845aa1048b05/conaled-tree-traversal-work work/fdsa-tree-traversal-work",
+      "removed_utc": "2026-11-02T21:11:37.941206+00:00",
+      "retained_ref_verified": true,
+      "residue_cleanup": null
+    }
+  ],
+  "protected_worktrees": [
+    "/workspace/scratch/845aa1048b05/conaled",
+    "/workspace/scratch/845aa1048b05/conaled-ch01-cost-models",
+    "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+    "/workspace/scratch/845aa1048b05/conaled-insertion-costs",
+    "/workspace/scratch/845aa1048b05/conaled-ordinary-merge"
+  ],
+  "result": "completed",
+  "failure": {
+    "recorded_utc": "2026-11-02T21:09:27.612674+00:00",
+    "path": "/workspace/scratch/845aa1048b05/conaled-builder-costs",
+    "git_exit_code": 255,
+    "wrapper_exit_code": 1,
+    "message": "error: failed to delete conaled-builder-costs: Directory not empty",
+    "scope": "Only working-copy removal; no compiler/source validation failure is implied."
+  },
+  "continuation_started_utc": "2026-11-02T21:11:35.954917+00:00",
+  "removal_events": [
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-builder-costs",
+      "started_utc": "2026-11-02T21:11:35.962378+00:00",
+      "prior_normal_git_exit": 255,
+      "residue": {
+        "present": true,
+        "regular_files": 0,
+        "directories": 173,
+        "allowed_links": [
+          ".lake/packages"
+        ],
+        "empty_directories_removed": true
+      },
+      "result": "working copy removed; exact branch retained"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-permutation-expectation",
+      "started_utc": "2026-11-02T21:11:36.066088+00:00",
+      "normal_git_exit": 0,
+      "result": "working copy removed; exact branch retained"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-permutation-joint",
+      "started_utc": "2026-11-02T21:11:36.212515+00:00",
+      "normal_git_exit": 0,
+      "result": "working copy removed; exact branch retained"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-permutation-minimum",
+      "started_utc": "2026-11-02T21:11:36.328002+00:00",
+      "normal_git_exit": 0,
+      "result": "working copy removed; exact branch retained"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-permutation-order",
+      "started_utc": "2026-11-02T21:11:36.454092+00:00",
+      "normal_git_exit": 0,
+      "result": "working copy removed; exact branch retained"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-permutation-placement",
+      "started_utc": "2026-11-02T21:11:36.614022+00:00",
+      "normal_git_exit": 0,
+      "result": "working copy removed; exact branch retained"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-permutation-tail",
+      "started_utc": "2026-11-02T21:11:36.745619+00:00",
+      "normal_git_exit": 0,
+      "result": "working copy removed; exact branch retained"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-priority-observations",
+      "started_utc": "2026-11-02T21:11:36.873920+00:00",
+      "normal_git_exit": 0,
+      "result": "working copy removed; exact branch retained"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-three-way-partition",
+      "started_utc": "2026-11-02T21:11:36.982352+00:00",
+      "normal_git_exit": 0,
+      "result": "working copy removed; exact branch retained"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-accumulator",
+      "started_utc": "2026-11-02T21:11:37.094131+00:00",
+      "normal_git_exit": 0,
+      "result": "working copy removed; exact branch retained"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-cache",
+      "started_utc": "2026-11-02T21:11:37.233754+00:00",
+      "normal_git_exit": 0,
+      "result": "working copy removed; exact branch retained"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-fold",
+      "started_utc": "2026-11-02T21:11:37.335298+00:00",
+      "normal_git_exit": 0,
+      "result": "working copy removed; exact branch retained"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-order",
+      "started_utc": "2026-11-02T21:11:37.470621+00:00",
+      "normal_git_exit": 0,
+      "result": "working copy removed; exact branch retained"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-rotations",
+      "started_utc": "2026-11-02T21:11:37.577512+00:00",
+      "normal_git_exit": 0,
+      "result": "working copy removed; exact branch retained"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-shape",
+      "started_utc": "2026-11-02T21:11:37.678048+00:00",
+      "normal_git_exit": 0,
+      "result": "working copy removed; exact branch retained"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/conaled-tree-traversal-work",
+      "started_utc": "2026-11-02T21:11:37.816767+00:00",
+      "normal_git_exit": 0,
+      "result": "working copy removed; exact branch retained"
+    }
+  ],
+  "completed_utc": "2026-11-02T21:11:38.017338+00:00",
+  "available_bytes_after": 2057371648,
+  "main_head_preserved": "1aabd512284fe86254278ac631eda061d311050b",
+  "main_status_preserved": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.n7UlkJ",
+  "all_branch_refs_retained": true,
+  "shared_packages_preserved": true
+}

@@ -1,0 +1,27 @@
+{
+  "started_utc": "2026-11-03T16:32:32.540901+00:00",
+  "purpose": "Bounded scratch import-footprint experiment; no formal source change",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/tooling/pinned_native_toolchain.py",
+    "--",
+    "lean",
+    "-o",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1033-import-footprint/Squares.olean",
+    "Squares.lean"
+  ],
+  "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1033-import-footprint",
+  "original_source_sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+  "scratch_source_sha256": "d535da719c3d7b3db4f536b5b791611d07c6dd6dd8bdae59572a8b375040dc41",
+  "only_source_change": "import Lean replaced by import Init",
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "",
+  "elapsed_seconds": 4.789610697000171,
+  "child_user_cpu_seconds": 0.657337,
+  "child_system_cpu_seconds": 1.3299400000000001,
+  "child_maxrss_KiB": 491512,
+  "child_major_faults": 2944,
+  "child_in_blocks": 1854080
+}

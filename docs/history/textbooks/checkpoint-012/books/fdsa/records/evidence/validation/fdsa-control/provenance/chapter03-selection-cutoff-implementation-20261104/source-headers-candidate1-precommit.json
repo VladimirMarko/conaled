@@ -1,0 +1,218 @@
+[
+  {
+    "name": "Resources.SelectionCutoff.one_ceil_div",
+    "path": "Applications/Resources/SelectionCutoff.lean",
+    "header": "theorem one_ceil_div (d : Nat) (hd : 0 < d) : (1 : Nat) \u2308/\u2309 d = 1",
+    "header_sha256": "bb7c474f3f128def1d093e2ff0f4e15bdca15d7c51d0cd7877b3d151d8a0daa1",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Resources.SelectionCutoff.ceil_div_strict_iff",
+    "path": "Applications/Resources/SelectionCutoff.lean",
+    "header": "theorem ceil_div_strict_iff (n d : Nat) (hd : 2 \u2264 d) :\n    n \u2308/\u2309 d < n \u2194 1 < n",
+    "header_sha256": "0b62157a77f5c004db91d93a564c305e900f45da98b01711c3e17303610bfdfd",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Resources.SelectionCutoff.first_pivot_length_strict_iff",
+    "path": "Applications/Resources/SelectionCutoff.lean",
+    "header": "theorem first_pivot_length_strict_iff (d : Nat) (hd : 2 \u2264 d) (xs : List \u03b1) :\n    (chunkMediansRun d xs).1.length < xs.length \u2194 1 < xs.length",
+    "header_sha256": "8762a609c98fa5043ba575e6e7154ea272a553874154751b8ffc4367efb43f9a",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Resources.SelectionCutoff.actual_cutoff_iff",
+    "path": "Applications/Resources/SelectionCutoff.lean",
+    "header": "theorem actual_cutoff_iff (d cutoff : Nat) (hd : 2 \u2264 d) (a : \u03b1) :\n    (\u2200 xs : List \u03b1, cutoff < xs.length \u2192\n      (chunkMediansRun d xs).1.length < xs.length) \u2194 1 \u2264 cutoff",
+    "header_sha256": "261d822567f9f92411fc890bc7710ea90b8e3c94383e5129758364d58aa99d6e",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Resources.SelectionCutoff.lowerMedianValue_singleton",
+    "path": "Applications/Resources/SelectionCutoff.lean",
+    "header": "theorem lowerMedianValue_singleton (a : \u03b1) (h : [a] \u2260 []) :\n    lowerMedianValue [a] h = a",
+    "header_sha256": "a079208ee0cdb2ff6269b7feb9f890097e7e519e9f56ed88fe4f122cb0d0b0f0",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Resources.SelectionCutoff.singleton_medians",
+    "path": "Applications/Resources/SelectionCutoff.lean",
+    "header": "theorem singleton_medians (d : Nat) (hd : 0 < d) (a : \u03b1) :\n    (chunkMediansRun d [a]).1 = [a]",
+    "header_sha256": "42d8a04cca3db815625aa0b3936de2ad9ee830fffbc6b4cae8cae5d40c76cb76",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Resources.SelectionCutoff.zero_cutoff_self_pivot",
+    "path": "Applications/Resources/SelectionCutoff.lean",
+    "header": "theorem zero_cutoff_self_pivot (d : Nat) (hd : 0 < d) (a : \u03b1) :\n    0 < ([a] : List \u03b1).length \u2227\n      (((([a] : List \u03b1).length \u2308/\u2309 d) - 1) / 2,\n        (chunkMediansRun d [a]).1) = (0, [a])",
+    "header_sha256": "64ab178554fe0b8196278773bd583854c71df994edc28d86e3796b5f06386e20",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Resources.SelectionCutoff.group_one_medians",
+    "path": "Applications/Resources/SelectionCutoff.lean",
+    "header": "theorem group_one_medians (xs : List \u03b1) : (chunkMediansRun 1 xs).1 = xs",
+    "header_sha256": "81af9c32d2a9cf5b7b0b971c656ec8937e2a3b16b959612fb739e675f18e800b",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Resources.SelectionCutoff.group_one_self_pivot",
+    "path": "Applications/Resources/SelectionCutoff.lean",
+    "header": "theorem group_one_self_pivot (xs : List \u03b1) :\n    (((xs.length \u2308/\u2309 1) - 1) / 2, (chunkMediansRun 1 xs).1) =\n      ((xs.length - 1) / 2, xs)",
+    "header_sha256": "f854879c8ede646555881765ea15b61f296007a0014c95cabbea6d30134a642c",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Resources.SelectionCutoff.group_one_has_no_cutoff",
+    "path": "Applications/Resources/SelectionCutoff.lean",
+    "header": "theorem group_one_has_no_cutoff (cutoff : Nat) (a : \u03b1) :\n    \u2203 xs : List \u03b1, cutoff < xs.length \u2227 (chunkMediansRun 1 xs).1 = xs",
+    "header_sha256": "2206cbb169528f13cc0df7bd9f9b79143bfa120c782f39656720d21bee95af59",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Resources.SelectionCutoff.recursive_children_decrease",
+    "path": "Applications/Resources/SelectionCutoff.lean",
+    "header": "theorem recursive_children_decrease (d cutoff : Nat) (hd : 2 \u2264 d) (hc : 1 \u2264 cutoff)\n    (xs : List \u03b1) (hlarge : cutoff < xs.length) :\n    \u2203 p : \u03b1, (selectRunWith d cutoff hd hc (((xs.length \u2308/\u2309 d) - 1) / 2)\n      (chunkMediansRun d xs).1).1 = some p \u2227 p \u2208 xs \u2227\n      (chunkMediansRun d xs).1.length < xs.length \u2227\n      (partition3 p xs).1.length < xs.length \u2227\n      (partition3 p xs).2.2.length < xs.length",
+    "header_sha256": "7050e5081ecf9f4dbd7d4280c3cd4ccd57d03dba6b04f66c8b6b11f65ed25e63",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Resources.SelectionCutoff.cutoff_one_value",
+    "path": "Applications/Resources/SelectionCutoff.lean",
+    "header": "theorem cutoff_one_value (d : Nat) (hd : 2 \u2264 d) (k : Nat) (xs : List \u03b1) :\n    (selectRunWith d 1 hd (by decide) k xs).1 = (ordered xs)[k]?",
+    "header_sha256": "6db2806396d9453410956103d927d3c30f36d4619aebe995cf3670b766387205",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Resources.SelectionCutoff.scalar_cutoff_iff",
+    "path": "Applications/Resources/SelectionCutoff.lean",
+    "header": "theorem scalar_cutoff_iff (cutoff : Nat) :\n    (\u2200 n : Nat, cutoff < n \u2192 pivotSize n < n \u2227 sideSize n < n) \u2194\n      13 \u2264 cutoff",
+    "header_sha256": "928d29ce389b70d4e08a39655df0cd5bc0e248f105622312cbcb33bc26466380",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Resources.SelectionCutoff.twenty_scalar_safe",
+    "path": "Applications/Resources/SelectionCutoff.lean",
+    "header": "theorem twenty_scalar_safe (n : Nat) (hn : 20 < n) :\n    pivotSize n < n \u2227 sideSize n < n",
+    "header_sha256": "897879d93ad1e86d3feaed47521b3445a366e2b6edf0e5087e7780663177130e",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Resources.SelectionCutoff.twenty_polynomial_budget",
+    "path": "Applications/Resources/SelectionCutoff.lean",
+    "header": "theorem twenty_polynomial_budget (n : Nat) (hn : n \u2264 20) :\n    n * n + 4 * n + 3 \u2264 483",
+    "header_sha256": "bcb4585b4978c2f6012b528cc58eaeeee55f622ec7e0495b2b5aaf882b22e877",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Resources.SelectionCutoff.twenty_actual_base_budget",
+    "path": "Applications/Resources/SelectionCutoff.lean",
+    "header": "theorem twenty_actual_base_budget (k : Nat) (xs : List \u03b1)\n    (hk : k < xs.length) (hs : xs.length \u2264 20) :\n    (selectRun k xs).2 \u2264 483",
+    "header_sha256": "80cfeddda4f1bcd341508f36e2d6b37023c0dc6dbb66b90d0b734fb3566ee65d",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Examples.SelectionCutoff.singleton_zero_cutoff",
+    "path": "Examples/SelectionCutoff.lean",
+    "header": "theorem singleton_zero_cutoff :\n    0 < ([(-4 : Int)]).length \u2227\n      ((([(-4 : Int)]).length \u2308/\u2309 5 - 1) / 2,\n        (chunkMediansRun 5 [-4]).1) = (0, [-4])",
+    "header_sha256": "b2256e3511c718ff21c5d800140268d1993db7ce30c3d4f74f87e38e157ee62e",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Examples.SelectionCutoff.five_cutoff_is_positive",
+    "path": "Examples/SelectionCutoff.lean",
+    "header": "theorem five_cutoff_is_positive (cutoff : Nat) :\n    (\u2200 xs : List Int, cutoff < xs.length \u2192\n      (chunkMediansRun 5 xs).1.length < xs.length) \u2194 1 \u2264 cutoff",
+    "header_sha256": "f4431ce64656296f5903c90eea69f95c5c909b9402062b0c61d1d050ab947513",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Examples.SelectionCutoff.singleton_groups_preserve_duplicates",
+    "path": "Examples/SelectionCutoff.lean",
+    "header": "theorem singleton_groups_preserve_duplicates :\n    (chunkMediansRun 1 [(-3 : Int), 4, -3]).1 = [-3, 4, -3] \u2227\n      (((([(-3 : Int), 4, -3]).length \u2308/\u2309 1) - 1) / 2,\n        (chunkMediansRun 1 [(-3 : Int), 4, -3]).1) = (1, [-3, 4, -3])",
+    "header_sha256": "a5d116f99a8aa23511f37bd777447ad78d194a7c4b46ddf4f0a28d6e0b9ac4cf",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Examples.SelectionCutoff.singleton_groups_obstruct_every_cutoff",
+    "path": "Examples/SelectionCutoff.lean",
+    "header": "theorem singleton_groups_obstruct_every_cutoff (cutoff : Nat) :\n    \u2203 xs : List Int, cutoff < xs.length \u2227 (chunkMediansRun 1 xs).1 = xs",
+    "header_sha256": "a7330bd7c3dfa57d4708fcaaf1936ed53f5c7b1a31ddb1f50c1b35e9b9429ea0",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Examples.SelectionCutoff.two_groups_cutoff_one_value",
+    "path": "Examples/SelectionCutoff.lean",
+    "header": "theorem two_groups_cutoff_one_value :\n    (selectRunWith 2 1 (by decide) (by decide) 2 [3, 1, 2, 2]).1 = some 2",
+    "header_sha256": "81aeec986403f20582d7e2af9609a7cf2dcc361807f95edb18423dc16f0d0dbc",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Examples.SelectionCutoff.two_group_actual_children",
+    "path": "Examples/SelectionCutoff.lean",
+    "header": "theorem two_group_actual_children :\n    \u2203 p : Nat, (selectRunWith 2 1 (by decide) (by decide) 0\n      (chunkMediansRun 2 [3, 1, 2, 2]).1).1 = some p \u2227 p \u2208 [3, 1, 2, 2] \u2227\n      (chunkMediansRun 2 [3, 1, 2, 2]).1.length < 4 \u2227\n      (Applications.Selection.partition3 p [3, 1, 2, 2]).1.length < 4 \u2227\n      (Applications.Selection.partition3 p [3, 1, 2, 2]).2.2.length < 4",
+    "header_sha256": "b2ee4a1371c84d3ecfb597c0140b58f38b46a10cdaf279650efb5404bf51073c",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Examples.SelectionCutoff.actual_and_scalar_sizes_differ",
+    "path": "Examples/SelectionCutoff.lean",
+    "header": "theorem actual_and_scalar_sizes_differ :\n    (chunkMediansRun 5 ([3, 1] : List Nat)).1.length < 2 \u2227 sideSize 2 = 5",
+    "header_sha256": "3adb33a9e038a72a796840228e6a20f6da9c6eb5f285bd6ce18a3326c5f56d00",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Examples.SelectionCutoff.twelve_fails_scalar",
+    "path": "Examples/SelectionCutoff.lean",
+    "header": "theorem twelve_fails_scalar :\n    \u00ac (\u2200 n : Nat, 12 < n \u2192 pivotSize n < n \u2227 sideSize n < n)",
+    "header_sha256": "eb444f75386c5a373497160b88bdf09e0809a9389e6eaa474e138fdf64bcc445",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Examples.SelectionCutoff.thirteen_suffices_scalar",
+    "path": "Examples/SelectionCutoff.lean",
+    "header": "theorem thirteen_suffices_scalar :\n    \u2200 n : Nat, 13 < n \u2192 pivotSize n < n \u2227 sideSize n < n",
+    "header_sha256": "2d0c82eae3daf221a684aac2f251ec4b31c4a03c6089e232c94e25e26e559290",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Examples.SelectionCutoff.twenty_budget_and_next_children",
+    "path": "Examples/SelectionCutoff.lean",
+    "header": "theorem twenty_budget_and_next_children :\n    (20 * 20 + 4 * 20 + 3 : Nat) = 483 \u2227\n      (\u2200 n : Nat, n \u2264 20 \u2192 n * n + 4 * n + 3 \u2264 483) \u2227\n      pivotSize 21 < 21 \u2227 sideSize 21 < 21",
+    "header_sha256": "4d65122e15fef87100c67498b45a3de745bb11aff4088fe978153340b64417ad",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  },
+  {
+    "name": "Examples.SelectionCutoff.descending_twenty_actual_budget",
+    "path": "Examples/SelectionCutoff.lean",
+    "header": "theorem descending_twenty_actual_budget :\n    (selectRun 19 (List.range 20).reverse).2 \u2264 483",
+    "header_sha256": "e326b050c63d30fa818d50e08ded171809f8a429011efe99be08c23679421303",
+    "kind": "public theorem",
+    "lexical_context": "autoImplicit false; warningAsError true; declared namespace/open directives preserved; core universeu and variable{alpha:Typeu}[LinearOrderalpha] are included only when used."
+  }
+]

@@ -1,0 +1,104 @@
+{
+  "before": {
+    "utc": "2026-11-04T16:16:02.106609+00:00",
+    "available_bytes": 0,
+    "raw_free_bytes": 1017257984
+  },
+  "purpose": "Retire only exact verified durable redundant local archive copies to preserve headroom for existing-checkout incremental validation. No remote deletion.",
+  "current_self_contained_recovery": "conaled-fdsa-0117-reviewed-tail-source",
+  "current_recovery_integrity_receipt": "checkpoint0117-preparation/integrity.json",
+  "selected": [
+    {
+      "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0110-shared-four-history-preserved-candidate.tar.gz",
+      "bytes": 22669208,
+      "sha256": "c76c1fa6033822688026170bf69c31ad00c0498c20bef4979e85cedb4a7c40b8",
+      "allocated_bytes": 22675456,
+      "inode": 396313,
+      "library_file_id": "libfile_88affd75fecc8191a5a48b8ccab56805",
+      "verified_upload_receipt": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0110-preparation/upload.json",
+      "upload_receipt_sha256": "d2fc37bb9f081b8a00cc766402652771d85af5046e86b51770b3af6f8d2bef44"
+    },
+    {
+      "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0111-reviewed-tree-shape-and-live-shared-audit.tar.gz",
+      "bytes": 23019639,
+      "sha256": "f654f65743647e240d10f33e9f16a8ae2f23f2a5dd4fc13e20ea311c9f2baeab",
+      "allocated_bytes": 23027712,
+      "inode": 393985,
+      "library_file_id": "libfile_da9be154e3f081918b37e63a9addd15e",
+      "verified_upload_receipt": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0111-preparation/upload.json",
+      "upload_receipt_sha256": "1ea4cdb3707eb89f79b503d8e3b2b6e6ce94593f834e09f6c8bae1d6a92b446e"
+    },
+    {
+      "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0112-checked-shared-four-and-complete-statement-reads.tar.gz",
+      "bytes": 23538171,
+      "sha256": "bd8ad979c8e90807056c70814dba07562c71bca15ee4a9c87d84d73156f97b28",
+      "allocated_bytes": 23543808,
+      "inode": 400312,
+      "library_file_id": "libfile_ca04bc889c608191adc185b720382f7a",
+      "verified_upload_receipt": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0112-preparation/upload.json",
+      "upload_receipt_sha256": "25cf7c70bd846070ed3e4c633fbcb52c799494f10b469242ba660d67ba0665ab"
+    },
+    {
+      "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0113-accepted-shared-four-and-order-integration-ready.tar.gz",
+      "bytes": 23821565,
+      "sha256": "a983aff67bd49800ef43ee44c3315eca60a4fe16e4ff49572deafd71e46d9d4a",
+      "allocated_bytes": 23826432,
+      "inode": 400316,
+      "library_file_id": "libfile_da6797e9723c8191a749e6690986efe4",
+      "verified_upload_receipt": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0113-preparation/upload.json",
+      "upload_receipt_sha256": "7b72f7e2b8f01155d7e1eeada0959b2220b375db57ce9b8d8f2567b9be29ecd4"
+    },
+    {
+      "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0114-reviewed-order-source-and-tail-readiness.tar.gz",
+      "bytes": 24290959,
+      "sha256": "bf302120603db453fa81c4bb0250d0714c82c4373a0f69141b5ab6631d7e5932",
+      "allocated_bytes": 24297472,
+      "inode": 400321,
+      "library_file_id": "libfile_d3d7b76e673c8191964b8d626084f892",
+      "verified_upload_receipt": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0114-preparation/upload.json",
+      "upload_receipt_sha256": "8ece9e778f92bbba45cb06b9affff2ad8db7d792135bac3694225201a318921e"
+    },
+    {
+      "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0115-checked-order-awaiting-final-reviews.tar.gz",
+      "bytes": 24730177,
+      "sha256": "216ba046c5a6af9621cf457abfbe3632f28f6b92581a11dd8b2bc63b6be557e6",
+      "allocated_bytes": 24739840,
+      "inode": 434904,
+      "library_file_id": "libfile_34cbd1b83e708191af01f2e4ade8050d",
+      "verified_upload_receipt": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0115-preparation/upload.json",
+      "upload_receipt_sha256": "8595e82ce1ef5c61b4836432151f9ba6f34c05265153ae90b685831ea47a57b3"
+    }
+  ],
+  "preserved_latest_local_checkpoints": [
+    {
+      "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0116-accepted-order-and-tail-ready.tar.gz",
+      "bytes": 25111562,
+      "sha256": "a3af479ecf3818f06ac1a421d3dd17d47b0bebe681ed4f95ed3da88d7fef13ae",
+      "library_file_id": "libfile_60dcf58fbe508191ab2e60043e427ef5"
+    },
+    {
+      "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0117-reviewed-tail-source.tar.gz",
+      "bytes": 25496725,
+      "sha256": "204cd3d825911d16420db7b795a4fd997c6c0baaaf7edf00b17e12a6923d74a7",
+      "library_file_id": "libfile_8c07712ef2a481918505bb20b104cbb3"
+    }
+  ],
+  "no_source_ref_runtime_cache_compiler_artifact_or_external_mutation": true,
+  "completed_utc": "2026-11-04T16:16:02.111823+00:00",
+  "removed_files": [
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0110-shared-four-history-preserved-candidate.tar.gz",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0111-reviewed-tree-shape-and-live-shared-audit.tar.gz",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0112-checked-shared-four-and-complete-statement-reads.tar.gz",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0113-accepted-shared-four-and-order-integration-ready.tar.gz",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0114-reviewed-order-source-and-tail-readiness.tar.gz",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0115-checked-order-awaiting-final-reviews.tar.gz"
+  ],
+  "removed_payload_bytes": 142069719,
+  "removed_allocated_bytes": 142110720,
+  "after": {
+    "utc": "2026-11-04T16:16:02.111847+00:00",
+    "available_bytes": 0,
+    "raw_free_bytes": 1159360512
+  },
+  "immediately_absent": true
+}

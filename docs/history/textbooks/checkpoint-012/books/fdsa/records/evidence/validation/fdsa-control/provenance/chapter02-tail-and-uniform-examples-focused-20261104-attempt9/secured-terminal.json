@@ -1,0 +1,35 @@
+{
+  "secured_utc": "2026-11-04T09:36:07.928985+00:00",
+  "owned_exec_session": 93298,
+  "owned_exec_terminal_exit": 1,
+  "session_closed_do_not_poll": true,
+  "candidate": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+  "clean_unchanged": true,
+  "full_log_bytes": 17133,
+  "full_log_sha256": "8da63603aa28b114dc5f183bdc4a1be9abe470ebfef1c5bf3353628be979fd0f",
+  "full_log_lines": 115,
+  "native_records": {
+    "start.json": {
+      "original": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T092753Z-project-run-0e00b2f4/start.json",
+      "bytes": 508,
+      "sha256": "9a9b9fd09b6e05e8a94d9e4b041e9598941e1db652117d298a0be342009e8587"
+    },
+    "result.json": {
+      "original": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T092753Z-project-run-0e00b2f4/result.json",
+      "bytes": 662,
+      "sha256": "f55644c191f82176ab639713b62f308a49472a206c0c19d0f52f4dd53460c978"
+    },
+    "output.log": {
+      "original": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T092753Z-project-run-0e00b2f4/output.log",
+      "bytes": 16834,
+      "sha256": "46b2a615413850c3324723da27e8dab051973080d0103e52a3eef42df20f5ca2"
+    }
+  },
+  "actual_individual_passes": [
+    "\u26a0 [3602/3604] Built Examples.PermutationTailBoundary (128s)"
+  ],
+  "failed_targets": [
+    "\u2716 [3603/3613] Building Examples.PermutationTail (82s)"
+  ],
+  "verification_record_present": false
+}

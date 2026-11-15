@@ -1,0 +1,15 @@
+{
+  "recorded_utc": "2026-11-04T03:55:39.984753+00:00",
+  "prior_attempt_exit_code": 1,
+  "completed_archives": 1227,
+  "missing_archives": 2704,
+  "retry_command": "Same 671-selector unchanged kit cache invocation",
+  "task_local_curl_home": "/workspace/scratch/60f07f0e98c8/native-state/config/scoped-cache-curl",
+  "curlrc_text": "parallel-max = 1\n",
+  "curlrc_sha256": "e2607531e96609cc58a34ac70b677ec809b3b638ba3b2f7e8e10eecb726fd21a",
+  "semantics": "At most one simultaneous curl transfer; not a requests-per-second guarantee",
+  "backoff": "At least five minutes after prior cache result before one continuation; pinned retry5/retry-all-errors and Retry-After behavior retained. If HTTP429 persists, preserve outcome and pause further batches.",
+  "changes_to_pins_sources_kit": false,
+  "formal_runtime_environment_changed": false,
+  "assessment": "Native reviewer inspected pinned Cache Requests/IO, kit runtime environment and installed curl8.5.0 manual. Root checked pinned retry arguments. Existing successful archives are reused by ordinary get."
+}

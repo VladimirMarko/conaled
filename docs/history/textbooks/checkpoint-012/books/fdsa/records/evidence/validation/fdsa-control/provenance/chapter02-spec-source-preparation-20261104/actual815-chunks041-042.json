@@ -1,0 +1,122 @@
+{
+  "recorded_utc": "2026-11-04T10:53:16.753001+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete 81-path review scope, all 112 obligations and ten shared scopes.",
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "chunks": [
+    {
+      "chunk": 41,
+      "type_numbers": [
+        745,
+        766
+      ],
+      "native_lines": [
+        10794,
+        11060
+      ],
+      "bytes": 20763,
+      "names": [
+        "Examples.MergeCosts.queueBody",
+        "Examples.MergeCosts.queueBody_value",
+        "Examples.MergeCosts.queueBody_bounds",
+        "Examples.MergeCosts.rawLeft",
+        "Examples.MergeCosts.rawRight",
+        "Examples.MergeCosts.rawRoot",
+        "Examples.MergeCosts.raw_queue_body",
+        "Examples.MergeCosts.raw_queue_erasure_and_order",
+        "Examples.MergeCosts.nonempty_tariffs",
+        "Examples.MergeCosts.empty_tariff_not_multiplicative",
+        "Examples.MergeCosts.low_singleton_attains_factor_two",
+        "Examples.QuickSort.source_key_partition",
+        "Examples.QuickSort.source_multiset",
+        "Examples.QuickSort.source_support",
+        "Examples.QuickSort.mixed_source_equation",
+        "Examples.QuickSort.mixed_source_value",
+        "Examples.QuickSort.mixed_accumulator_equation",
+        "Examples.QuickSort.mixed_accumulator_value",
+        "Examples.QuickSort.empty_first_input",
+        "Examples.QuickSort.singleton_first_input",
+        "Examples.QuickSort.all_equal_right_recursion",
+        "Examples.QuickSort.all_equal_accumulator"
+      ],
+      "sha256": "9490eac2e27aabff2223418705127621100a33008b105e6fe9b6edf460d16ba9",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The queue-body client connects the measured merge body to the actual LeftistQueue.toListQ fork for any stored rank and raw subtrees, with only decidable key LE. Its cost bounds use actual subtree sizes. The raw queue example explicitly preserves the source value while failing sortedness; no heap-validity claim is inferred.",
+        "For two nonempty lists, comparisons<=entries<=2*comparisons. Empty input has zero comparisons and one entry, explicitly refuting every multiplicative factor K; the low-singleton example attains factor two.",
+        "QuickSort key partition preserves multiset multiplicity across strict-less and greater-or-equal sides under LinearOrder, while source multiset/support preservation is comparator-law-free.",
+        "The mixed input recursion explicitly uses left[1,0] and right[2,3], returns[0,1,2,2,3], and the accumulator carries the unsorted suffix[4,0,2] unchanged. Empty/singleton first arguments and all-equal right recursion retain the same suffix behavior."
+      ]
+    },
+    {
+      "chunk": 42,
+      "type_numbers": [
+        767,
+        796
+      ],
+      "native_lines": [
+        11061,
+        11328
+      ],
+      "bytes": 20434,
+      "names": [
+        "Examples.QuickSort.sorted_suffix_is_not_enough",
+        "Examples.QuickSort.empty_payload",
+        "Examples.QuickSort.empty_payload_suffix",
+        "Examples.QuickSort.arbitrary_comparator_occurrences",
+        "Examples.QuickSort.payload_source_equation",
+        "Examples.QuickSort.arbitrary_payload_order",
+        "Examples.QuickSort.localLess",
+        "Examples.QuickSort.localLess_compatible",
+        "Examples.QuickSort.local_comparator_sorted",
+        "Examples.QuickSort.local_comparator_fails_globally",
+        "Examples.TopDownCosts.natCompare",
+        "Examples.TopDownCosts.ceilThreeRun",
+        "Examples.TopDownSorting.source_three_split",
+        "Examples.TopDownSorting.source_three_value",
+        "Examples.TopDownSorting.full_multiset",
+        "Examples.TopDownSorting.payload_expected_spec",
+        "Examples.TopDownSorting.arbitrary_payload_order",
+        "Examples.TopDownSorting.stable_across_split",
+        "Examples.TopDownSorting.empty_payload",
+        "Examples.TopDownSorting.singleton_payload",
+        "Examples.TopDownSorting.arbitrary_comparator_preserves_occurrences",
+        "Examples.TopDownSorting.local_comparator_keys",
+        "Examples.TopDownSorting.signed_record_value",
+        "Examples.UniformQuickSortMean.Label.high",
+        "Examples.UniformQuickSortMean.Label.low",
+        "Examples.UniformQuickSortMean.Label.middle",
+        "Examples.UniformQuickSortMean.Label.outside",
+        "Examples.MergeCosts.key_source_value",
+        "Examples.MergeCosts.source_key_sorted_iff",
+        "Examples.MergeCosts.tagged_key_transport"
+      ],
+      "sha256": "a7e243e072fa13fb6c18816402665157d094ab85c632caf35053725551795465",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "A sorted singleton suffix alone is explicitly insufficient for accumulator sortedness. Empty payload and law-free arbitrary comparator occurrence/permutation statements retain no payload typeclass assumptions.",
+        "Arbitrary keyed payload quicksort preserves first-before-last tie order. The local comparator is compatible on the actual nonnegative input and yields sorted output while explicitly failing global compatibility at(-1,0).",
+        "Top-down source-three splitting is floor-left[2] and right[1,0], with actual sorted value[0,1,2]. Full multiset preservation is comparator-law-free; arbitrary payload examples establish StableSort and equal-key order across the split. Empty/singleton payload and signed/local-comparator outputs remain connected to sortFloor.",
+        "The four explicit UniformQuickSortMean Label constructors all have exactly the same Label carrier type. Their inspection does not claim generated helper declarations or kernel-count deltas.",
+        "The targeted current MergeCosts statements connect the measured run to sourceMerge under the explicit pulled-back key LE instance, keep the linear-preorder sortedness equivalence, and preserve both returned key lists and exact work under tag erasure. These are current expanded inspections, not reuse of the old changed-Growth closure output."
+      ]
+    }
+  ],
+  "prior_progress_sha256": "787fec5fa202a7094ce3d346b2bd2f481b820e95c728a287e21dd3773665e699",
+  "overall_outcome": "Blocked",
+  "new_type_credit": 0,
+  "possible110_credit": 0
+}

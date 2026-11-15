@@ -1,0 +1,9 @@
+--- Applications/Progress/Evaluation.lean
++++ Applications/Progress/Evaluation.lean
+@@ -1,5 +1,5 @@
+ import Applications.Optimization.Relations
+-import Mathlib.Tactic
++import Lean.Elab.Tactic.Omega
+ 
+ /-!
+ # Finite evaluation and certificate checking

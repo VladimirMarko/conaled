@@ -1,0 +1,151 @@
+{
+  "recorded_utc": "2026-11-05T01:57:12.907480+00:00",
+  "old": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "candidate": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "tree": "ecb69c3918715cbe0682028cd8697dfcf3e463f9",
+  "gate": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-acceptance-20261105/root-gate-reconciliation.json",
+    "bytes": 41745,
+    "sha256": "3a0b8c23b7885886dc905d84369508c1703e3cc8b65cb6899c3237507b69d0c3"
+  },
+  "all_refs": {
+    "refs/heads/master": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+    "refs/heads/work/fdsa-accumulated-work": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+    "refs/heads/work/fdsa-adt-refinement": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+    "refs/heads/work/fdsa-affine-integration": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "refs/heads/work/fdsa-affine-recurrence": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+    "refs/heads/work/fdsa-basics-cost-models": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "refs/heads/work/fdsa-book": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "refs/heads/work/fdsa-braun-shape": "156ba8170852f8e7f0b8c09315e35b837ce77ff9",
+    "refs/heads/work/fdsa-builder-costs": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+    "refs/heads/work/fdsa-ch02-alternating": "43242f43cba0f2c90c17356d44d71e5765d8ba93",
+    "refs/heads/work/fdsa-ch02-bottom-up": "a6f950d7d5dc4aef521445250f9bfbd59166291d",
+    "refs/heads/work/fdsa-ch02-development": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "refs/heads/work/fdsa-ch02-insertion-observations": "95cfce304b9b63057286acc7d5b20b53d95d8eaa",
+    "refs/heads/work/fdsa-ch02-natural-runs": "47f66dccc414d41bddf0dc6576a2338227ee221e",
+    "refs/heads/work/fdsa-ch02-quicksort": "5a3af21cb4ff56896f1a7d249736c4804c229873",
+    "refs/heads/work/fdsa-ch02-random-pivot": "15a113b075c2ceb4d44c27a06fa9a69e019b57fc",
+    "refs/heads/work/fdsa-ch02-three-way": "e0df28b7bbfa722b25623606a5a1905620fac91e",
+    "refs/heads/work/fdsa-ch02-top-down": "66cd1cca539cb667a7bae17d91d51c0ffeb718dc",
+    "refs/heads/work/fdsa-ch02-top-down-costs": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+    "refs/heads/work/fdsa-ch02-uniform-input": "3b839319776238fe2a46f22db761058b44d68adc",
+    "refs/heads/work/fdsa-ch02-values": "b1677172ef85e40865fe8f292660c1bcfd6e5a0c",
+    "refs/heads/work/fdsa-ch03-integration": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+    "refs/heads/work/fdsa-ch03-mom-execution": "1249f39968a44a25bfe3932d84a2cb44c6a83515",
+    "refs/heads/work/fdsa-ch03-query-lower-bounds": "569545102ff70697066de429eb02f9f47dffa07f",
+    "refs/heads/work/fdsa-ch03-random-selection": "96722600aa29636e028751242ce33d562c5a9255",
+    "refs/heads/work/fdsa-ch03-rounded-recurrence": "660f974640fb89a766b26a4d786ae7ed197cecf2",
+    "refs/heads/work/fdsa-ch03-values": "18cde548c080b24d182e754db0e13b0df2d91c15",
+    "refs/heads/work/fdsa-chapter02-integration": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+    "refs/heads/work/fdsa-foundation-integration": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "refs/heads/work/fdsa-insertion-costs": "697bcf242ce65d74815b5639bddb1c6e754dd10f",
+    "refs/heads/work/fdsa-list-foundations": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+    "refs/heads/work/fdsa-logarithm-bounds": "a601ad713368daf8e18d5a5537a83d47138491fa",
+    "refs/heads/work/fdsa-order-integration": "932438a765340d69fa6402f6abd17def6ec28d13",
+    "refs/heads/work/fdsa-ordered-search": "863aedb924e922ac40747c0ef299701a7785488e",
+    "refs/heads/work/fdsa-ordinary-merge": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+    "refs/heads/work/fdsa-partition-proof-fixes": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+    "refs/heads/work/fdsa-permutation-expectation": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+    "refs/heads/work/fdsa-permutation-joint": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+    "refs/heads/work/fdsa-permutation-minimum": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+    "refs/heads/work/fdsa-permutation-minimum-validation": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+    "refs/heads/work/fdsa-permutation-order": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+    "refs/heads/work/fdsa-permutation-order-validation": "bdac9703aab4b383fa775568d36bf685af329389",
+    "refs/heads/work/fdsa-permutation-placement": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+    "refs/heads/work/fdsa-permutation-tail": "a0597381f02eddd074ee96cabaa974f2062285f8",
+    "refs/heads/work/fdsa-permutation-tail-validation": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+    "refs/heads/work/fdsa-potential-development": "12cb14fc98b8617b3b625620da8e60936daba340",
+    "refs/heads/work/fdsa-priority-observations": "c088beeb89aa18df45a56f6f1d6b6ff4ad374905",
+    "refs/heads/work/fdsa-shared-four-integration": "312aafb4446b995ff5542041b4e2e074f776db1e",
+    "refs/heads/work/fdsa-tail-integration": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+    "refs/heads/work/fdsa-three-way-partition": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+    "refs/heads/work/fdsa-tree-accumulator": "b035f1151ab4f0c7d7380818576cfe97dae434c4",
+    "refs/heads/work/fdsa-tree-cache": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+    "refs/heads/work/fdsa-tree-fold": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+    "refs/heads/work/fdsa-tree-leftmost": "7b8ab2bee299c937256bf9ce7e82977333d07134",
+    "refs/heads/work/fdsa-tree-order": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+    "refs/heads/work/fdsa-tree-rotations": "28ba79d8d425400cb87d2daf3ecf1cc5a63a7aa2",
+    "refs/heads/work/fdsa-tree-shape": "974a97321a8ec174b56104c7e6efaaca881b6639",
+    "refs/heads/work/fdsa-tree-traversal-work": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+    "refs/remotes/origin/HEAD": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+    "refs/remotes/origin/integrate/frp": "5be3ce96dbeb60365002414409c9421450e39cf0",
+    "refs/remotes/origin/integration/spec-15": "47b556e83229ce11b27b5b7b4444c089a1e96ac3",
+    "refs/remotes/origin/master": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+    "refs/remotes/origin/reconstruction/adwh-154": "c12296f63c656737d07325e9d8e8e16d6976d099",
+    "refs/remotes/origin/reconstruction/adwh-155": "3efc9d926333c19f697a21afe7dd08af53e3a8cd",
+    "refs/remotes/origin/reconstruction/adwh-180": "e0d76c86040f38728289977c355b848cd6c7d8e3",
+    "refs/remotes/origin/reconstruction/adwh-181": "f68c79000bdb1ce223c403d38f8dd06e20cfbf29",
+    "refs/remotes/origin/reconstruction/adwh-182": "9c0a2649f9601c6294850f2b057698650360da9a",
+    "refs/remotes/origin/reconstruction/adwh-183": "16db707769c322fa17f2c48e24208f81292008da",
+    "refs/remotes/origin/reconstruction/adwh-184": "48b7655155950c4452bebf1268de1866d0f6129f",
+    "refs/remotes/origin/reconstruction/adwh-186": "30bbde79d154d1e8d942561c023a5e44d12ca420",
+    "refs/remotes/origin/reconstruction/adwh-187": "6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e",
+    "refs/remotes/origin/reconstruction/adwh-190": "855ce1f29ae0b7c7a7aec8321ead07be39c6ff32",
+    "refs/remotes/origin/reconstruction/adwh-array-cost-integration": "34c85983f601247fb62aea631c4212b7cb994b5b",
+    "refs/remotes/origin/research/27-frp-runtime": "f4d3e2f36d5547f2236a601c837280bd0c23a774"
+  },
+  "worktrees": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled",
+      "head": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+      "branch_ref": "refs/heads/work/fdsa-book",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.urOBCL\n"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "head": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+      "branch_ref": "",
+      "status": ""
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-bottom-up",
+      "head": "a6f950d7d5dc4aef521445250f9bfbd59166291d",
+      "branch_ref": "refs/heads/work/fdsa-ch02-bottom-up",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.EA8xCS\n"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-insertion",
+      "head": "43242f43cba0f2c90c17356d44d71e5765d8ba93",
+      "branch_ref": "refs/heads/work/fdsa-ch02-alternating",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.C0d1bT\n"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs",
+      "head": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+      "branch_ref": "refs/heads/work/fdsa-ch03-integration",
+      "status": ""
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+      "head": "18cde548c080b24d182e754db0e13b0df2d91c15",
+      "branch_ref": "refs/heads/work/fdsa-ch03-values",
+      "status": ""
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot",
+      "head": "96722600aa29636e028751242ce33d562c5a9255",
+      "branch_ref": "refs/heads/work/fdsa-ch03-random-selection",
+      "status": ""
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+      "head": "1249f39968a44a25bfe3932d84a2cb44c6a83515",
+      "branch_ref": "refs/heads/work/fdsa-ch03-mom-execution",
+      "status": ""
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge",
+      "head": "569545102ff70697066de429eb02f9f47dffa07f",
+      "branch_ref": "refs/heads/work/fdsa-ch03-query-lower-bounds",
+      "status": ""
+    }
+  ],
+  "immediate_result": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-immediate-verification-20261105/result.json",
+    "bytes": 1257,
+    "sha256": "e91c631ce86e77e4ce8082a8d3d82d1d7f11e9da908c442b4003b9d85a0638ac"
+  },
+  "immediate_completed_utc": "2026-11-05T01:57:04.663294+00:00",
+  "verification_sha256": "152ccbf0ee1d37fbe8eef300d88ad16284858464e5c4dc82f1f3884db3641088",
+  "no_push_or_remote_operation": true
+}

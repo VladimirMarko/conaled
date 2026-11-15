@@ -1,0 +1,584 @@
+{
+  "active_start_controllers": {
+    "session/environment/native-own-exe.c": {
+      "actual": "479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842",
+      "expected": "479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842",
+      "match": true
+    },
+    "session/environment/run-native-toolchain.py": {
+      "actual": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073",
+      "expected": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073",
+      "match": true
+    },
+    "session/requirements/REQUEST-direct-toolchain-041.md": {
+      "actual": "16845edec15c311e0cfd5ed5d4f5c4feb61e7ad96545653d5b872309d26464bc",
+      "expected": "16845edec15c311e0cfd5ed5d4f5c4feb61e7ad96545653d5b872309d26464bc",
+      "match": true
+    },
+    "session/requirements/REQUEST-native-toolchain-042.md": {
+      "actual": "d76dc8dcf771a227779628de91e75c4b63a2898b95e7b30035de83537dae5195",
+      "expected": "d76dc8dcf771a227779628de91e75c4b63a2898b95e7b30035de83537dae5195",
+      "match": true
+    },
+    "session/validation/run-native-validation.py": {
+      "actual": "62bea076842d766d0ea96c4bf5b14d28b18484689e996f343c5e9ecb9ae04918",
+      "expected": "62bea076842d766d0ea96c4bf5b14d28b18484689e996f343c5e9ecb9ae04918",
+      "match": true
+    }
+  },
+  "active_start_runtime_identities": {
+    "session/environment/native-own-exe.c": {
+      "actual": "479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842",
+      "expected": "479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842",
+      "match": true
+    },
+    "session/environment/run-native-toolchain.py": {
+      "actual": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073",
+      "expected": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073",
+      "match": true
+    },
+    "toolchains/lean-4.35.0-linux/bin/lake": {
+      "actual": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "expected": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "match": true
+    },
+    "toolchains/lean-4.35.0-linux/bin/lean": {
+      "actual": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "expected": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "match": true
+    },
+    "toolchains/lean-4.35.0-linux/bin/leanir": {
+      "actual": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e",
+      "expected": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e",
+      "match": true
+    },
+    "toolchains/lean-4.35.0-native/bin/lake": {
+      "actual": "1921dc767286e00bcb884285591e5b86fd270abf77dc2d1c728871857b522b09",
+      "expected": "1921dc767286e00bcb884285591e5b86fd270abf77dc2d1c728871857b522b09",
+      "match": true
+    },
+    "toolchains/lean-4.35.0-native/bin/lake.real": {
+      "actual": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "expected": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "match": true
+    },
+    "toolchains/lean-4.35.0-native/bin/lean": {
+      "actual": "f0aec0c950b202ba09a2413546ec118dc07b974c8b341210bf71ddd89a1d3bd7",
+      "expected": "f0aec0c950b202ba09a2413546ec118dc07b974c8b341210bf71ddd89a1d3bd7",
+      "match": true
+    },
+    "toolchains/lean-4.35.0-native/bin/lean.real": {
+      "actual": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "expected": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "match": true
+    },
+    "toolchains/lean-4.35.0-native/bin/leanir": {
+      "actual": "eec6e2479e33e5fae4e7c8173c672dbafe741c729987b6b26c9fa3b220e1896f",
+      "expected": "eec6e2479e33e5fae4e7c8173c672dbafe741c729987b6b26c9fa3b220e1896f",
+      "match": true
+    },
+    "toolchains/lean-4.35.0-native/bin/leanir.real": {
+      "actual": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e",
+      "expected": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e",
+      "match": true
+    },
+    "toolchains/lean-4.35.0-native/profile-identity.json": {
+      "actual": "d12b90d76e5a9a841a720707d8d2a50c69522b27e33d27e89dddc86a5dd526ad",
+      "expected": "d12b90d76e5a9a841a720707d8d2a50c69522b27e33d27e89dddc86a5dd526ad",
+      "match": true
+    },
+    "toolchains/lean-4.35.0-native/support/native-own-exe.so": {
+      "actual": "01ad9e274870f3ddddfc76a9ec165c88a20e5b10d2622107857293bc53fff7db",
+      "expected": "01ad9e274870f3ddddfc76a9ec165c88a20e5b10d2622107857293bc53fff7db",
+      "match": true
+    }
+  },
+  "candidate": "901f734161920a76f3b399a575805b9a1d31e971",
+  "checker_test_and_config": {
+    ".agents/skills/implement/SKILL.md": {
+      "candidate": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "isolated": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "match": true
+    },
+    "ProofAudit.lean": {
+      "candidate": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd",
+      "isolated": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd",
+      "match": true
+    },
+    "check.sh": {
+      "candidate": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "isolated": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "match": true
+    },
+    "lake-manifest.json": {
+      "candidate": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "isolated": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "match": true
+    },
+    "lakefile.toml": {
+      "candidate": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "isolated": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "match": true
+    },
+    "lean-toolchain": {
+      "candidate": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "isolated": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "match": true
+    },
+    "scripts/check.py": {
+      "candidate": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+      "isolated": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+      "match": true
+    },
+    "scripts/lake-output-hashes.lean": {
+      "candidate": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b",
+      "isolated": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b",
+      "match": true
+    },
+    "scripts/lake_integrity.py": {
+      "candidate": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+      "isolated": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+      "match": true
+    },
+    "scripts/test-check.py": {
+      "candidate": "a8a8a373f922c9cd9e68f7735d7959938644755c95f5223fb9a279f1182f6dff",
+      "isolated": "a8a8a373f922c9cd9e68f7735d7959938644755c95f5223fb9a279f1182f6dff",
+      "match": true
+    },
+    "scripts/test-proof-audit-roots.py": {
+      "candidate": "906003c5eb3caf4f7150674ce42c404a82ea9dade536bca3286b1a620c5b9601",
+      "isolated": "906003c5eb3caf4f7150674ce42c404a82ea9dade536bca3286b1a620c5b9601",
+      "match": true
+    },
+    "scripts/test-proof-audit.py": {
+      "candidate": "72e8f1c06ad1ca427b6b2edb914cbf4c36b028a381a205be047f5792fcb1f839",
+      "isolated": "72e8f1c06ad1ca427b6b2edb914cbf4c36b028a381a205be047f5792fcb1f839",
+      "match": true
+    }
+  },
+  "checkout": "import-correction-r3",
+  "coordinator": "/root/direct_toolchain_validation_plan",
+  "current_native_full_observation": {
+    "acceptance": false,
+    "candidate": "901f734161920a76f3b399a575805b9a1d31e971",
+    "checkout": "import-correction-r3",
+    "command": [
+      "./check.sh",
+      "--candidate",
+      "HEAD",
+      "--fresh",
+      "--jobs",
+      "1"
+    ],
+    "run_id": "import-901-native-fresh-r1",
+    "started_at": "2026-11-03T17:18:33.109349+00:00",
+    "status": "running",
+    "terminal_result_observed": false,
+    "verification_mode": "fresh"
+  },
+  "dependency_identity": {
+    "Cli": {
+      "clean": true,
+      "expected": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "matches_active_start": true,
+      "tree": "915a71e36b9b7067b2bdf21c7362ec883bcbb214"
+    },
+    "LeanSearchClient": {
+      "clean": true,
+      "expected": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "matches_active_start": true,
+      "tree": "bf548235194a21930a91aa9ab852dea26ca0f039"
+    },
+    "Qq": {
+      "clean": true,
+      "expected": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "matches_active_start": true,
+      "tree": "356cde3a20d62d1008736a4bb98c632a799c4aa6"
+    },
+    "aesop": {
+      "clean": true,
+      "expected": "4a174c490d8707121c4a9290800489f105d85e07",
+      "head": "4a174c490d8707121c4a9290800489f105d85e07",
+      "matches_active_start": true,
+      "tree": "883b9af90cca8b2d83811a507a62be85b2f3c312"
+    },
+    "batteries": {
+      "clean": true,
+      "expected": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "matches_active_start": true,
+      "tree": "8b834e0208f1bc8eb66f1816519aef3982e7fb8b"
+    },
+    "importGraph": {
+      "clean": true,
+      "expected": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "matches_active_start": true,
+      "tree": "c50cb794df9a6a8618884d0ea5151f0a26c59257"
+    },
+    "mathlib": {
+      "clean": true,
+      "expected": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "matches_active_start": true,
+      "tree": "0db52fa68e6b0c5b917c22bc6383325391a00610"
+    },
+    "plausible": {
+      "clean": true,
+      "expected": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "matches_active_start": true,
+      "tree": "4cb8bf2ba49da888f56e270a08c7803000c1da89"
+    },
+    "proofwidgets": {
+      "clean": true,
+      "expected": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "matches_active_start": true,
+      "tree": "6f39a3ce916f1cd8c298b85695b620444719e14b"
+    }
+  },
+  "existing_rounds": {
+    "10013": 5,
+    "10018": 3
+  },
+  "failures": [],
+  "formal_acceptance": false,
+  "guidance": {
+    ".agents/skills/code-review/SKILL.md": {
+      "candidate": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "isolated": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "match": true,
+      "prior_226ebae": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42"
+    },
+    ".agents/skills/code-review/heuristics.md": {
+      "candidate": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "isolated": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "match": true,
+      "prior_226ebae": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060"
+    },
+    ".agents/skills/example-driven-development/SKILL.md": {
+      "candidate": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "isolated": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "match": true,
+      "prior_226ebae": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a"
+    },
+    "AGENTS.md": {
+      "candidate": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "isolated": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "match": true,
+      "prior_226ebae": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    },
+    "GLOSSARY.md": {
+      "candidate": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "isolated": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "match": true,
+      "prior_226ebae": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6"
+    },
+    "README.md": {
+      "candidate": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "isolated": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "match": true,
+      "prior_226ebae": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216"
+    },
+    "docs/adr/0001-modules-and-proof-dependencies.md": {
+      "candidate": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "isolated": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "match": true,
+      "prior_226ebae": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2"
+    },
+    "docs/adr/0002-relations-and-synchronization.md": {
+      "candidate": "8b391c27398a51c6681c136c9b40d8e511dc88950608b14b81cacb000d3a843e",
+      "isolated": "8b391c27398a51c6681c136c9b40d8e511dc88950608b14b81cacb000d3a843e",
+      "match": true,
+      "prior_226ebae": "8b391c27398a51c6681c136c9b40d8e511dc88950608b14b81cacb000d3a843e"
+    },
+    "docs/adr/0010-composition-and-proof-audit.md": {
+      "candidate": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "isolated": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "match": true,
+      "prior_226ebae": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8"
+    },
+    "docs/adr/README.md": {
+      "candidate": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "isolated": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "match": true,
+      "prior_226ebae": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506"
+    },
+    "docs/agents/architectural-quality.md": {
+      "candidate": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "isolated": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "match": true,
+      "prior_226ebae": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6"
+    },
+    "docs/agents/domain.md": {
+      "candidate": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "isolated": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "match": true,
+      "prior_226ebae": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d"
+    },
+    "docs/agents/review-loop.md": {
+      "candidate": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "isolated": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "match": true,
+      "prior_226ebae": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c"
+    },
+    "docs/language-direction.md": {
+      "candidate": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+      "isolated": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+      "match": true,
+      "prior_226ebae": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db"
+    }
+  },
+  "head": "901f734161920a76f3b399a575805b9a1d31e971",
+  "independent_acceptance_reviews_dispatched": false,
+  "manifest": {
+    "bytes": 3178,
+    "path": "session/validation/import-footprint-candidate-r3.json",
+    "sha256": "1f1c3f86e52d68bba25cd01ceaeead2a0b01b2f651810efe6ed0dd64ee291ead"
+  },
+  "operational_receipt": {
+    "bytes": 8655,
+    "path": "session/validation/native-toolchain-final-verification-042.json",
+    "sha256": "0359e0ef2cbf8da38d0382cfffa9efc84d4c02dc9e22e03f490bd442c466c206"
+  },
+  "porcelain": "",
+  "prepared_at": "2026-11-03T17:23:11.393593+00:00",
+  "prior_preparation": {
+    "bytes": 15030,
+    "path": "session/reviews/prerequisites-901f734-continuation-preparation.md",
+    "sha256": "b4d7984447d3f69e66987834954e7573dc5a833976c64a2133185ac5c6fc0219"
+  },
+  "regression_suites": {
+    "test-check": "Required for this native-runtime transition; no matching native terminal evidence supplied; actual Elan and stock timeouts remain material",
+    "test-proof-audit": "Required for this native-runtime transition; requires ordinary project output closure; no matching native terminal evidence supplied",
+    "test-proof-audit-roots": "Required for this native-runtime transition; no matching native terminal evidence supplied"
+  },
+  "requirements": {
+    "REQUEST-direct-toolchain-041.md": {
+      "bytes": 1375,
+      "path": "session/requirements/REQUEST-direct-toolchain-041.md",
+      "role": "later user steering; does not waive formal gates",
+      "sha256": "16845edec15c311e0cfd5ed5d4f5c4feb61e7ad96545653d5b872309d26464bc"
+    },
+    "REQUEST-environment-handoff-042.md": {
+      "bytes": 1286,
+      "path": "session/requirements/REQUEST-environment-handoff-042.md",
+      "role": "later user steering; does not waive formal gates",
+      "sha256": "200789123c60ae137967f881207194412eecea72ba2fc80247978075bd6a4602"
+    },
+    "REQUEST-native-toolchain-042.md": {
+      "bytes": 912,
+      "path": "session/requirements/REQUEST-native-toolchain-042.md",
+      "role": "later user steering; does not waive formal gates",
+      "sha256": "d76dc8dcf771a227779628de91e75c4b63a2898b95e7b30035de83537dae5195"
+    },
+    "REQUEST-union-v2.md": {
+      "bytes": 3578,
+      "expected": "3336bed1154438b3683aeb5a1c63fee44e87aff190f5ff69e34705a780b9d22c",
+      "match": true,
+      "path": "session/requirements/REQUEST-union-v2.md",
+      "sha256": "3336bed1154438b3683aeb5a1c63fee44e87aff190f5ff69e34705a780b9d22c"
+    },
+    "REQUEST.md": {
+      "bytes": 4182,
+      "expected": "b847f23fcce44837f5b1ead01aae43ac5ed626ffd32aab84055dd664e339e499",
+      "match": true,
+      "path": "session/requirements/REQUEST.md",
+      "sha256": "b847f23fcce44837f5b1ead01aae43ac5ed626ffd32aab84055dd664e339e499"
+    },
+    "import-footprint.md": {
+      "bytes": 1523,
+      "expected": "cf8fb3133b83ac59fdf6fd46b818d8b279d96385f5de50da843ef9b7fd62444d",
+      "match": true,
+      "path": "session/requirements/import-footprint.md",
+      "sha256": "cf8fb3133b83ac59fdf6fd46b818d8b279d96385f5de50da843ef9b7fd62444d"
+    },
+    "shared-persistence.md": {
+      "bytes": 2907,
+      "expected": "177e80e0beda3ec144279c104d2fa3b968e916b0104db7f2e5d3c7c81a4bec76",
+      "match": true,
+      "path": "session/requirements/shared-persistence.md",
+      "sha256": "177e80e0beda3ec144279c104d2fa3b968e916b0104db7f2e5d3c7c81a4bec76"
+    }
+  },
+  "retained_reports": {
+    "session/reviews/import-footprint-spec-r3.md": {
+      "bytes": 9027,
+      "expected": "cf25d48863173a81d8608ef382a5a368cb5b4ff009ac27487ff538e389914864",
+      "match": true,
+      "outcome": "Blocked; static assessment complete",
+      "path": "session/reviews/import-footprint-spec-r3.md",
+      "sha256": "cf25d48863173a81d8608ef382a5a368cb5b4ff009ac27487ff538e389914864"
+    },
+    "session/reviews/import-footprint-standards-r3.md": {
+      "bytes": 11208,
+      "expected": "f2400335753f98d451efe1001adc7acfed013c995ac76d144f3b19bb462446f8",
+      "match": true,
+      "outcome": "Blocked; static assessment complete",
+      "path": "session/reviews/import-footprint-standards-r3.md",
+      "sha256": "f2400335753f98d451efe1001adc7acfed013c995ac76d144f3b19bb462446f8"
+    },
+    "session/reviews/shared-persistence-spec-r5.md": {
+      "bytes": 21650,
+      "expected": "8252b7a7a40536f8ba459ad6e3b83672517f1872869328fae7978e821fd2010e",
+      "match": true,
+      "outcome": "Blocked; static assessment complete",
+      "path": "session/reviews/shared-persistence-spec-r5.md",
+      "sha256": "8252b7a7a40536f8ba459ad6e3b83672517f1872869328fae7978e821fd2010e"
+    },
+    "session/reviews/shared-persistence-standards-r5.md": {
+      "bytes": 21915,
+      "expected": "298ffc8d093ebb61ae548dc931041b0eecce1f48ea8b2fe6ec518300c4109150",
+      "match": true,
+      "outcome": "Blocked; static assessment complete",
+      "path": "session/reviews/shared-persistence-standards-r5.md",
+      "sha256": "298ffc8d093ebb61ae548dc931041b0eecce1f48ea8b2fe6ec518300c4109150"
+    }
+  },
+  "runtime_revalidation_required": true,
+  "schema": 1,
+  "scope": "Read-only coordinator continuation identity; not compiler/test/audit or acceptance evidence",
+  "scopes": {
+    "10013": {
+      "base": "cbb1e27d18c69ce2e0c35ef1cb492483b5ca0833",
+      "commits": [
+        "ad730010ab1929bbd7a16a035c7990a6f328b178",
+        "70a1477d822efd4fdcec2007280f650bb4695eda",
+        "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+        "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+        "901f734161920a76f3b399a575805b9a1d31e971"
+      ],
+      "files": [
+        "Applications/FRP/Demand.lean",
+        "Applications/FRP/Equivalence.lean",
+        "Applications/FRP/Finite.lean",
+        "Applications/FRP/Spec.lean",
+        "Applications/Resources/SharedList.lean",
+        "Applications/Sequences/SharedList/Basic.lean",
+        "Applications/Sequences/SharedList/Copy.lean",
+        "Applications/Sequences/SharedList/Observation.lean",
+        "Applications/Sequences/SharedList/Suffixes.lean",
+        "Examples/FRP.lean",
+        "Examples/IndefiniteService.lean",
+        "Examples/SharedList.lean",
+        "SquareApplications.lean",
+        "docs/research/pfds-shared-persistence.md"
+      ],
+      "matches_manifest": true,
+      "merge_base": "cbb1e27d18c69ce2e0c35ef1cb492483b5ca0833",
+      "shortstat": "14 files changed, 955 insertions(+), 2 deletions(-)"
+    },
+    "10018": {
+      "base": "70a1477d822efd4fdcec2007280f650bb4695eda",
+      "commits": [
+        "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+        "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+        "901f734161920a76f3b399a575805b9a1d31e971"
+      ],
+      "files": [
+        "Applications/FRP/Demand.lean",
+        "Applications/FRP/Equivalence.lean",
+        "Applications/FRP/Finite.lean",
+        "Applications/FRP/Spec.lean",
+        "Examples/FRP.lean",
+        "Examples/IndefiniteService.lean"
+      ],
+      "matches_manifest": true,
+      "merge_base": "70a1477d822efd4fdcec2007280f650bb4695eda",
+      "shortstat": "6 files changed, 16 insertions(+), 2 deletions(-)"
+    }
+  },
+  "sources": {
+    "Applications/FRP/Demand.lean": {
+      "committed": "4e92f97ac56aa684c27f3421cdf1890b64159b631fdd828c420af00d3d9c6ad6",
+      "expected": "4e92f97ac56aa684c27f3421cdf1890b64159b631fdd828c420af00d3d9c6ad6",
+      "isolated": "4e92f97ac56aa684c27f3421cdf1890b64159b631fdd828c420af00d3d9c6ad6",
+      "match": true
+    },
+    "Applications/FRP/Equivalence.lean": {
+      "committed": "71abc997d44acf7831a423f2b17559feed15e39517f20ab3dd22ae14c8733b83",
+      "expected": "71abc997d44acf7831a423f2b17559feed15e39517f20ab3dd22ae14c8733b83",
+      "isolated": "71abc997d44acf7831a423f2b17559feed15e39517f20ab3dd22ae14c8733b83",
+      "match": true
+    },
+    "Applications/FRP/Finite.lean": {
+      "committed": "f617d2f3db4fd162f43e53abd8271ebcf15bd242d79dd201a61b314afa90954c",
+      "expected": "f617d2f3db4fd162f43e53abd8271ebcf15bd242d79dd201a61b314afa90954c",
+      "isolated": "f617d2f3db4fd162f43e53abd8271ebcf15bd242d79dd201a61b314afa90954c",
+      "match": true
+    },
+    "Applications/FRP/Spec.lean": {
+      "committed": "c8b349b4a0919acfe55302b1c1998e942b0d8281f2244fec5606fa368f5c1db7",
+      "expected": "c8b349b4a0919acfe55302b1c1998e942b0d8281f2244fec5606fa368f5c1db7",
+      "isolated": "c8b349b4a0919acfe55302b1c1998e942b0d8281f2244fec5606fa368f5c1db7",
+      "match": true
+    },
+    "Applications/Resources/SharedList.lean": {
+      "committed": "ed5c78b79eb530bf76937da4036303304d96c902bb7a7130686773d74b62145b",
+      "expected": "ed5c78b79eb530bf76937da4036303304d96c902bb7a7130686773d74b62145b",
+      "isolated": "ed5c78b79eb530bf76937da4036303304d96c902bb7a7130686773d74b62145b",
+      "match": true
+    },
+    "Applications/Sequences/SharedList/Basic.lean": {
+      "committed": "ef62f66166b1934ebd52e68783ea7865c678dea792f66632bd5c5eb7c4bf674b",
+      "expected": "ef62f66166b1934ebd52e68783ea7865c678dea792f66632bd5c5eb7c4bf674b",
+      "isolated": "ef62f66166b1934ebd52e68783ea7865c678dea792f66632bd5c5eb7c4bf674b",
+      "match": true
+    },
+    "Applications/Sequences/SharedList/Copy.lean": {
+      "committed": "8604ffc06c4e03cae537e07af6efcccd7c78dda964126e72db0d6a9964c3124f",
+      "expected": "8604ffc06c4e03cae537e07af6efcccd7c78dda964126e72db0d6a9964c3124f",
+      "isolated": "8604ffc06c4e03cae537e07af6efcccd7c78dda964126e72db0d6a9964c3124f",
+      "match": true
+    },
+    "Applications/Sequences/SharedList/Observation.lean": {
+      "committed": "1f9f6360c0a02771445f5a88bbeea62488391a33309721b3ebc190e5889ae431",
+      "expected": "1f9f6360c0a02771445f5a88bbeea62488391a33309721b3ebc190e5889ae431",
+      "isolated": "1f9f6360c0a02771445f5a88bbeea62488391a33309721b3ebc190e5889ae431",
+      "match": true
+    },
+    "Applications/Sequences/SharedList/Suffixes.lean": {
+      "committed": "8af7f29bce9a719c2200128bf28eccd4e24de0e321c9db7c7fe93e3e0268e72b",
+      "expected": "8af7f29bce9a719c2200128bf28eccd4e24de0e321c9db7c7fe93e3e0268e72b",
+      "isolated": "8af7f29bce9a719c2200128bf28eccd4e24de0e321c9db7c7fe93e3e0268e72b",
+      "match": true
+    },
+    "Examples/FRP.lean": {
+      "committed": "a5bf0f5263b45514b4f9b88b09ef1abe2a6a1fb773a44493afd5a8198abeb22b",
+      "expected": "a5bf0f5263b45514b4f9b88b09ef1abe2a6a1fb773a44493afd5a8198abeb22b",
+      "isolated": "a5bf0f5263b45514b4f9b88b09ef1abe2a6a1fb773a44493afd5a8198abeb22b",
+      "match": true
+    },
+    "Examples/IndefiniteService.lean": {
+      "committed": "0daaf049128e56210c605cc5b2d5cf8b155aad1727eac6bad189615fc75fa7fd",
+      "expected": "0daaf049128e56210c605cc5b2d5cf8b155aad1727eac6bad189615fc75fa7fd",
+      "isolated": "0daaf049128e56210c605cc5b2d5cf8b155aad1727eac6bad189615fc75fa7fd",
+      "match": true
+    },
+    "Examples/SharedList.lean": {
+      "committed": "0e2847b8bcbfa522638ec1bddee15b47792effdfc4d607f0ffeb589fd4c2845a",
+      "expected": "0e2847b8bcbfa522638ec1bddee15b47792effdfc4d607f0ffeb589fd4c2845a",
+      "isolated": "0e2847b8bcbfa522638ec1bddee15b47792effdfc4d607f0ffeb589fd4c2845a",
+      "match": true
+    },
+    "SquareApplications.lean": {
+      "committed": "129d892f8a72abff2bf10c17f2d4d67b8aefb5eac4596cc7df57577d74b1e159",
+      "expected": "129d892f8a72abff2bf10c17f2d4d67b8aefb5eac4596cc7df57577d74b1e159",
+      "isolated": "129d892f8a72abff2bf10c17f2d4d67b8aefb5eac4596cc7df57577d74b1e159",
+      "match": true
+    },
+    "docs/research/pfds-shared-persistence.md": {
+      "committed": "e13e4986e4e7755b136951ab681cfce94f9ec24ff4c32affab3d878898a9cc34",
+      "expected": "e13e4986e4e7755b136951ab681cfce94f9ec24ff4c32affab3d878898a9cc34",
+      "isolated": "e13e4986e4e7755b136951ab681cfce94f9ec24ff4c32affab3d878898a9cc34",
+      "match": true
+    }
+  },
+  "static_analysis_reuse_eligible_subject_to_independent_axes": true,
+  "tree": "0303ec543e180641a7670666f9a6b37b8e10e9c0",
+  "validation_inputs_match_old_nix_run": false
+}

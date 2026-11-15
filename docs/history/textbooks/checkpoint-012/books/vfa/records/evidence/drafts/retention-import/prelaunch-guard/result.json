@@ -1,0 +1,16 @@
+{
+  "recorded_at_utc": "2026-11-02T08:15:58.808242+00:00",
+  "argv": [
+    "python",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import/run-chain.py"
+  ],
+  "exit_code": 1,
+  "compiler_invocations": 0,
+  "failure": "Overly broad prelaunch assertion required every inherited search directory to exist, including the unused Cli path absent from the completed Finite trace environment.",
+  "absent_search_directory": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Cli/.lake/build/lib/lean",
+  "STARTED_created": false,
+  "generated_outputs_created": false,
+  "runner_sha256": "5ee7046e3eddadaad161031e457ed1de69498398624c3a5134a6a51e92ca2f9c",
+  "diagnostics_provenance": "Exact stdout/stderr text returned by exec_command for the Python runner; no compiler diagnostic was produced.",
+  "retry_started": false
+}

@@ -1,0 +1,2206 @@
+{
+  "recorded_utc": "2026-11-04T20:43:12.471645+00:00",
+  "stage": "Bounded nested selector candidate1 source preparation, uncompiled",
+  "baseline": "d1a2299440c6cb327887e5d60f08ce08b046a8ab",
+  "baseline_tree": "a87ae33094321c7475fb31ef176eac8f1d44f833",
+  "status_before_stage": "?? Applications/Resources/Selection.lean\n?? Examples/SelectionCosts.lean\n",
+  "full_frozen_scope_retained": {
+    "count": 83,
+    "obligations": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/chapter03-obligations.md",
+      "bytes": 52581,
+      "sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed"
+    },
+    "plan": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/selection-proof-plan.md",
+      "bytes": 31813,
+      "sha256": "4683072c5b47f168f81d0f35b727e247bc2c36af6922c76ab8eaac4fb542d18b"
+    },
+    "no_acceptance_or_coverage_change": true
+  },
+  "full_source_reads": {
+    "core": "b43426 exit0",
+    "examples_held": "9aae66 exit0",
+    "two_exact_changed_blocks": "836fa4 exit0; all other bytes programmatically equal to held draft",
+    "posthold_identity": "95abcf exit0",
+    "static_name_inventory": "55e18f exit0"
+  },
+  "checkpoint_release": "0127 actual8c5ad2 at2026-11-04T20:38:01.433262 UTC",
+  "files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/Selection.lean",
+      "bytes": 20262,
+      "sha256": "edf5257473fc51bf6db3dd7d3a5bfe492d5171665f7756495db1c16da93209fd",
+      "relative_path": "Applications/Resources/Selection.lean",
+      "source_lines": 423,
+      "public_count": 21,
+      "private_count": 12
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionCosts.lean",
+      "bytes": 13466,
+      "sha256": "fc9ab165cac2cd05246592bddbcc63632b4c363e4c478dea02e1aeb0d77e8122",
+      "relative_path": "Examples/SelectionCosts.lean",
+      "source_lines": 286,
+      "public_count": 18,
+      "private_count": 17
+    }
+  ],
+  "public_names": [
+    "Resources.Selection.selectRunWith",
+    "Resources.Selection.selectRun",
+    "Resources.Selection.selectRunWith_of_invalid",
+    "Resources.Selection.selectRunWith_nil",
+    "Resources.Selection.selectRunWith_exists",
+    "Resources.Selection.selectRunWith_mem",
+    "Resources.Selection.selectRunWith_small",
+    "Resources.Selection.selectRunWith_step",
+    "Resources.Selection.selectRunWith_cost_step",
+    "Resources.Selection.selectRunWith_value",
+    "Resources.Selection.selectRunWith_some_iff",
+    "Resources.Selection.selectRunWith_none_iff",
+    "Resources.Selection.selectRunWith_public",
+    "Resources.Selection.selectRun_value",
+    "Resources.Selection.selectRun_some_iff",
+    "Resources.Selection.selectRun_none_iff",
+    "Resources.Selection.selectRun_of_invalid",
+    "Resources.Selection.selectRun_nil",
+    "Resources.Selection.selectRun_small",
+    "Resources.Selection.selectRun_step",
+    "Resources.Selection.selectRun_cost_step",
+    "Examples.SelectionCosts.empty_payload",
+    "Examples.SelectionCosts.empty_arbitrary_rank",
+    "Examples.SelectionCosts.singleton",
+    "Examples.SelectionCosts.singleton_invalid",
+    "Examples.SelectionCosts.cutoff_ascending",
+    "Examples.SelectionCosts.cutoff_descending",
+    "Examples.SelectionCosts.same_cutoff_value_different_work",
+    "Examples.SelectionCosts.first_recursive_pivot",
+    "Examples.SelectionCosts.first_recursive_left",
+    "Examples.SelectionCosts.first_recursive_equal",
+    "Examples.SelectionCosts.first_recursive_right",
+    "Examples.SelectionCosts.first_recursive_invalid",
+    "Examples.SelectionCosts.all_equal_first",
+    "Examples.SelectionCosts.all_equal_last",
+    "Examples.SelectionCosts.group_two_cutoff_one",
+    "Examples.SelectionCosts.one_based_public_bridge",
+    "Examples.SelectionCosts.monotone_payload_selection",
+    "Examples.SelectionCosts.collapsed_payload"
+  ],
+  "private_logical_source_names": [
+    "Resources.Selection.length_value",
+    "Resources.Selection.partition_value",
+    "Resources.Selection.left_member",
+    "Resources.Selection.right_member",
+    "Resources.Selection.strict_sizes",
+    "Resources.Selection.right_rank",
+    "Resources.Selection.medians_positive",
+    "Resources.Selection.medians_shorter",
+    "Resources.Selection.median_rank",
+    "Resources.Selection.selectWorker",
+    "Resources.Selection.observe",
+    "Resources.Selection.worker_observe",
+    "Examples.SelectionCosts.singleton_with",
+    "Examples.SelectionCosts.sorted_base",
+    "Examples.SelectionCosts.first_left_child",
+    "Examples.SelectionCosts.first_right_child",
+    "Examples.SelectionCosts.first_partition",
+    "Examples.SelectionCosts.first_pivot_observation",
+    "Examples.SelectionCosts.equal_preparation",
+    "Examples.SelectionCosts.equal_pivot",
+    "Examples.SelectionCosts.equal_partition",
+    "Examples.SelectionCosts.equal_run",
+    "Examples.SelectionCosts.two_preparation_12",
+    "Examples.SelectionCosts.two_preparation_22",
+    "Examples.SelectionCosts.two_preparation_322",
+    "Examples.SelectionCosts.two_preparation_3122",
+    "Examples.SelectionCosts.two_select_12",
+    "Examples.SelectionCosts.two_select_22",
+    "Examples.SelectionCosts.two_select_322"
+  ],
+  "counts": {
+    "public_declarations": 39,
+    "public_definitions": 2,
+    "public_theorems": 37,
+    "private_declarations": 29,
+    "private_definitions": 2,
+    "private_theorems": 27,
+    "total_declarations": 68,
+    "anonymous_examples": 0
+  },
+  "declarations": [
+    {
+      "logical_source_name": "Resources.Selection.length_value",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 31,
+      "raw_header": "private theorem length_value (xs : List α) :\n    (SymmetricCosts.lengthRun xs).1 = xs.length",
+      "raw_header_sha256": "167acf9fd60c5f704eb597338410dbcda2e11de6af1e905ceaa1ec0e5aea306b",
+      "intended_claim": "The value of the actual measured length is mathematical length; retain its separate count. No LinearOrder is needed.",
+      "domains_and_quantifiers": "Polymorphic payload universe, with LinearOrder explicitly omitted.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.partition_value",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 35,
+      "raw_header": "private theorem partition_value (p : α) (xs : List α) :\n    (Partition.partitionRun p xs).1 = partition3 p xs",
+      "raw_header_sha256": "3625c725855e63a8ba8f53f14c024665a999c76b8c9655f7d147159e225f5d0a",
+      "intended_claim": "The existing actual one-pass partition has the shared three-bucket value, through its public bridge.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.left_member",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 39,
+      "raw_header": "private theorem left_member (p : α) (xs : List α) (a : α)\n    (ha : a ∈ (Partition.partitionRun p xs).1.1) : a ∈ xs",
+      "raw_header_sha256": "f55bdb66bad2cf8719417e1a9ae06c0de8fd8519ad00d6139a8a5117832eb67c",
+      "intended_claim": "Membership in the actual strict-left bucket implies original-input membership, without a rank or distinctness assumption.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.right_member",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 44,
+      "raw_header": "private theorem right_member (p : α) (xs : List α) (a : α)\n    (ha : a ∈ (Partition.partitionRun p xs).1.2.2) : a ∈ xs",
+      "raw_header_sha256": "a1a8f3386cfbb0f74e826753212e42bf0d8f0a9536db2141396b205a8ed04846",
+      "intended_claim": "Membership in the actual strict-right bucket implies original-input membership, without a rank or distinctness assumption.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.strict_sizes",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 49,
+      "raw_header": "private theorem strict_sizes (p : α) (xs : List α) (hp : p ∈ xs) :\n    (Partition.partitionRun p xs).1.1.length < xs.length ∧\n      (Partition.partitionRun p xs).1.2.2.length < xs.length",
+      "raw_header_sha256": "295d6d0b4b6c2560e7d888839293bf7b66bdd31eb958e9b4474d6102b0e34719",
+      "intended_claim": "A pivot occurrence makes both actual strict buckets shorter; the equal block may contain arbitrary multiplicity.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.right_rank",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 55,
+      "raw_header": "private theorem right_rank (p : α) (xs : List α) (k : Nat)\n    (hk : k < xs.length)\n    (he : ¬ k < (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.1).1 +\n      (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.2.1).1) :\n    k - (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.1).1 -\n        (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.2.1).1 <\n      (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.2.2).1",
+      "raw_header_sha256": "2c5afa113b418be526f31bf58c6a31ed33ff33206c98d9a4d4e8ef031679e34a",
+      "intended_claim": "A valid parent rank at or beyond left-plus-equal size gives a valid adjusted strict-right rank, from length conservation.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.medians_positive",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 66,
+      "raw_header": "private theorem medians_positive (d : Nat) (xs : List α)\n    (hd : 2 ≤ d) (hx : 0 < xs.length) :\n    0 < (chunkMediansRun d xs).1.length",
+      "raw_header_sha256": "8027349e76637879506fedcb055d8ab56cf6e9d741823657846ff45526d266bb",
+      "intended_claim": "For d>=2 and n>0, the actual median list is nonempty, by its nil characterization and without selection correctness.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.medians_shorter",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 77,
+      "raw_header": "private theorem medians_shorter (d : Nat) (xs : List α)\n    (hd : 2 ≤ d) (hx : 1 < xs.length) :\n    (chunkMediansRun d xs).1.length < xs.length",
+      "raw_header_sha256": "195ccd6f5481c474b9cdaa663bcb8574faa867cccc4b9cffdcd9a53c171aa01d",
+      "intended_claim": "For d>=2 and n>1, actual median-list length ceil(n/d)<n. The generic ceiling proof supplies n<=d*(n-1).",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.median_rank",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 88,
+      "raw_header": "private theorem median_rank (d : Nat) (xs : List α)\n    (hd : 2 ≤ d) (hx : 0 < xs.length) :\n    ((xs.length ⌈/⌉ d) - 1) / 2 <\n      (SymmetricCosts.lengthRun (chunkMediansRun d xs).1).1",
+      "raw_header_sha256": "7bd20782776e90a49329a21c2b97c66ce3d771948569a13b9de6bb144852d81a",
+      "intended_claim": "The lower median index (ceil(n/d)-1)/2 is valid for the actual prepared median list when d>=2 and n>0.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectWorker",
+      "visibility": "private",
+      "kind": "def",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 99,
+      "raw_header": "private def selectWorker (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)\n    (k : Nat) (xs : List α) (nr : Measured Nat Nat)\n    (hn : nr = SymmetricCosts.lengthRun xs) (hk : k < nr.1) :\n    Measured {a // a ∈ xs} Nat",
+      "raw_header_sha256": "742d333c76711ee95a53b4e7c23936208a8a5d4bba40ff2ac7fd3c6bec35c083",
+      "intended_claim": "Actual nested execution on a valid rank and an exact cached measured entry length. Returns an original-input member and actual Nat source calls. Recursive membership supplies strict-child termination before rank correctness. Exactly one recursive median call and at most one strict child occur.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.observe",
+      "visibility": "private",
+      "kind": "def",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 146,
+      "raw_header": "private def observe {xs : List α} (r : Measured {a // a ∈ xs} Nat) :\n    Measured (Option α) Nat",
+      "raw_header_sha256": "0c60e74a3bbb97f62f8edb7599db3bf2146cc7ea16e8fbce544b31329c417cdd",
+      "intended_claim": "Erase only the membership proof, retaining the successful payload under Some and its exact count. No payload order is needed.",
+      "domains_and_quantifiers": "Polymorphic payload universe, with LinearOrder explicitly omitted.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith",
+      "visibility": "public",
+      "kind": "def",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 152,
+      "raw_header": "def selectRunWith (groupSize cutoff : Nat) (hd : 2 ≤ groupSize) (hc : 1 ≤ cutoff)\n    (k : Nat) (xs : List α) : Measured (Option α) Nat",
+      "raw_header_sha256": "8ff6e1f765ba4374d681b69a75bfe3e329c64120ade043d4eebd8cb0baa784c8",
+      "intended_claim": "Total Option-valued measured selector for arbitrary duplicates, d>=2 and cutoff>=1. Evaluate length once, reuse it at the guard and worker; invalid k>=n returns none with entry plus actual length cost.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRun",
+      "visibility": "public",
+      "kind": "def",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 160,
+      "raw_header": "def selectRun (k : Nat) (xs : List α) : Measured (Option α) Nat",
+      "raw_header_sha256": "039b0fe220918a9ac34f7df73e3ff71adcbe2146483376377578b3172d4d0c6a",
+      "intended_claim": "Book group-five/cutoff-twenty specialization of the same execution, without any additional entry tariff.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.worker_observe",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 163,
+      "raw_header": "private theorem worker_observe (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)\n    (k : Nat) (xs : List α) (nr : Measured Nat Nat)\n    (hn : nr = SymmetricCosts.lengthRun xs) (hk : k < nr.1) :\n    selectRunWith d cutoff hd hc k xs = observe (selectWorker d cutoff hd hc k xs nr hn hk)",
+      "raw_header_sha256": "4211113362c1788776969a8751204bf7cae78ac86ea272afe211e294bcac0849",
+      "intended_claim": "Both public value and count equal the private worker observation supplied the same actual measured length. The premise identifies only that cached primitive observation, not the result or a cost bound.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith_of_invalid",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 173,
+      "raw_header": "theorem selectRunWith_of_invalid (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)\n    (k : Nat) (xs : List α) (hk : xs.length ≤ k) :\n    selectRunWith d cutoff hd hc k xs = (none, xs.length + 2)",
+      "raw_header_sha256": "65f5d68f234efb68b0a3b9137dd6b1ca9e89066b08a7b43b2d465cdb9f840def",
+      "intended_claim": "Every invalid k>=n returns exactly(none,n+2), before insertion or nested recursion. This is the disclosed optional extension, not a claim about HOL out-of-range values.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith_nil",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 182,
+      "raw_header": "theorem selectRunWith_nil (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (k : Nat) :\n    selectRunWith d cutoff hd hc k ([] : List α) = (none, 2)",
+      "raw_header_sha256": "b6bb1c8f54ed57c14858328c28b2015bf2489150b8166e91411ca67c6f03fbea",
+      "intended_claim": "Every empty-list rank returns(none,2), without an Inhabited payload assumption.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith_exists",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 187,
+      "raw_header": "theorem selectRunWith_exists (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)\n    (k : Nat) (xs : List α) (hk : k < xs.length) :\n    ∃ a, (selectRunWith d cutoff hd hc k xs).1 = some a",
+      "raw_header_sha256": "15bdc6b6a3ed7b9320b921349863acfb41b301c6bd30a9ab592e122ecdd07fc0",
+      "intended_claim": "Every valid rank produces Some before full rank correctness is used; the certificate construction establishes success.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith_mem",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 195,
+      "raw_header": "theorem selectRunWith_mem (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)\n    (k : Nat) (xs : List α) (a : α)\n    (ha : (selectRunWith d cutoff hd hc k xs).1 = some a) : a ∈ xs",
+      "raw_header_sha256": "37d1e83a992e6629c0094c0b1648c8e8a0aeeaaf28a9a37e0f82ef36f6873faf",
+      "intended_claim": "Any successful payload belongs to the input, from the worker certificate; the invalid branch cannot return Some.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith_small",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 208,
+      "raw_header": "theorem selectRunWith_small (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)\n    (k : Nat) (xs : List α) (hk : k < xs.length) (hs : xs.length ≤ cutoff) :\n    selectRunWith d cutoff hd hc k xs =\n      ((slowSelectRun k xs).1,\n        1 + (SymmetricCosts.lengthRun xs).2 + (slowSelectRun k xs).2)",
+      "raw_header_sha256": "2be3d51c44a702e4f4004320c09bd34b4fd6c5e5caec451bb968bb144ee8d2ad",
+      "intended_claim": "The valid n<=cutoff branch returns the actual slowSelectRun value and exact entry plus measured length plus insertion/lookup calls.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith_step",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 229,
+      "raw_header": "theorem selectRunWith_step (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)\n    (k : Nat) (xs : List α) (hk : k < xs.length) (hs : cutoff < xs.length)\n    (p : α)\n    (hp : (selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)\n      (chunkMediansRun d xs).1).1 = some p) :\n    selectRunWith d cutoff hd hc k xs =\n      let t := partition3 p xs\n      let pivot := selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)\n        (chunkMediansRun d xs).1\n      let common := 1 + (SymmetricCosts.lengthRun xs).2 + (chunkMediansRun d xs).2 +\n        pivot.2 + (Partition.partitionRun p xs).2 + (SymmetricCosts.lengthRun t.1).2\n      if k < t.1.length then\n        let child := selectRunWith d cutoff hd hc k t.1\n        (child.1, common + child.2)\n      else if k < t.1.length + t.2.1.length then\n        (some p, common + (SymmetricCosts.lengthRun t.2.1).2)\n      else\n        let child := selectRunWith d cutoff hd hc (k - t.1.length - t.2.1.length) t.2.2\n        (child.1, common + (SymmetricCosts.lengthRun t.2.1).2 + child.2)",
+      "raw_header_sha256": "4d6a956ff96396e2bddf6ee1876266b90811083c36fd0d15bb7e45ee8eb564ec",
+      "intended_claim": "Exact pair recurrence for the observed result of the same algorithm on chunk medians. The observed-pivot premise assumes neither rank correctness nor cost. Exposes actual preparation, pivot call, partition, mandatory left length and exactly the selected continuation, delaying equal length.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith_cost_step",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 291,
+      "raw_header": "theorem selectRunWith_cost_step (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)\n    (k : Nat) (xs : List α) (hk : k < xs.length) (hs : cutoff < xs.length)\n    (p : α)\n    (hp : (selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)\n      (chunkMediansRun d xs).1).1 = some p) :\n    (selectRunWith d cutoff hd hc k xs).2 =\n      let t := partition3 p xs\n      1 + (SymmetricCosts.lengthRun xs).2 + (chunkMediansRun d xs).2 +\n        (selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)\n          (chunkMediansRun d xs).1).2 + (Partition.partitionRun p xs).2 +\n        (SymmetricCosts.lengthRun t.1).2 +\n        (if k < t.1.length then (selectRunWith d cutoff hd hc k t.1).2\n        else (SymmetricCosts.lengthRun t.2.1).2 +\n          if k < t.1.length + t.2.1.length then 0\n          else (selectRunWith d cutoff hd hc (k - t.1.length - t.2.1.length) t.2.2).2)",
+      "raw_header_sha256": "467976775fc52e8b5c924e5edff441f73abbb992e6397174621cf22ceae6a573",
+      "intended_claim": "Project the exact Nat count from the full execution equation: left omits equal length; equal adds equal length and no second recursion; right adds equal length and one adjusted strict child.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith_value",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 316,
+      "raw_header": "theorem selectRunWith_value (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)\n    (k : Nat) (xs : List α) :\n    (selectRunWith d cutoff hd hc k xs).1 = (ordered xs)[k]?",
+      "raw_header_sha256": "106faccce21512ca4b882c42a886523b9ca40cb433d583c979ee1dc399a3ba73",
+      "intended_claim": "For every rank and terminating parameter pair, the optional result equals sorted occurrence indexing. Strict-child induction uses separately proved pivot membership. Arbitrary duplicates and invalid/empty inputs are included.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith_some_iff",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 349,
+      "raw_header": "theorem selectRunWith_some_iff (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)\n    (k : Nat) (xs : List α) (a : α) :\n    (selectRunWith d cutoff hd hc k xs).1 = some a ↔ RankedAt xs k a",
+      "raw_header_sha256": "63cdd127994d567183ccc61fcaebe0a98ff0e0b376fc757148734db2ef7d2d71",
+      "intended_claim": "Successful result a is equivalent to RankedAt xs k a, without Nodup or a separate valid-index premise.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith_none_iff",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 354,
+      "raw_header": "theorem selectRunWith_none_iff (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)\n    (k : Nat) (xs : List α) :\n    (selectRunWith d cutoff hd hc k xs).1 = none ↔ xs.length ≤ k",
+      "raw_header_sha256": "654ed9eccde944b0e5c5277c947ddd0a0745440a3446aec36eec0e60d7939294",
+      "intended_claim": "Optional failure occurs exactly at k>=length xs, covering all empty/invalid inputs.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith_public",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 360,
+      "raw_header": "theorem selectRunWith_public (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)\n    (k : Nat) (xs : List α) :\n    (selectRunWith d cutoff hd hc k xs).1 = sortSelect (k + 1) xs",
+      "raw_header_sha256": "7fb6ee735a3e624b86970391470ada7fe57b3e6f180fe43f23b4e74792436925",
+      "intended_claim": "Source zero-based rank k corresponds to the existing public one-based rank k+1, including optional failure.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRun_value",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 366,
+      "raw_header": "theorem selectRun_value (k : Nat) (xs : List α) :\n    (selectRun k xs).1 = (ordered xs)[k]?",
+      "raw_header_sha256": "49cea07bbad6c26ddb2b7593f5265fa9525f81c3075c8775359e3be959c8846d",
+      "intended_claim": "Book five/twenty execution satisfies all-rank sorted occurrence indexing.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRun_some_iff",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 370,
+      "raw_header": "theorem selectRun_some_iff (k : Nat) (xs : List α) (a : α) :\n    (selectRun k xs).1 = some a ↔ RankedAt xs k a",
+      "raw_header_sha256": "27a1a6d7a83a43877c5da4071d5d1c1ad6796d45ed1088c2cde3362e6a8e94ca",
+      "intended_claim": "Book success is equivalent to the occurrence-rank relation, including repeated values.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRun_none_iff",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 374,
+      "raw_header": "theorem selectRun_none_iff (k : Nat) (xs : List α) :\n    (selectRun k xs).1 = none ↔ xs.length ≤ k",
+      "raw_header_sha256": "4e03d176aa8e930ce014479832f5de9c6157016bb3fbe404aa657dbf11704533",
+      "intended_claim": "Book optional failure is characterized exactly by k>=n.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRun_of_invalid",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 378,
+      "raw_header": "theorem selectRun_of_invalid (k : Nat) (xs : List α) (hk : xs.length ≤ k) :\n    selectRun k xs = (none, xs.length + 2)",
+      "raw_header_sha256": "7c6f867fd26c1764859083e4534d2f63cdde74b7646738a8e8874637f62c6c80",
+      "intended_claim": "Book optional extension returns(none,n+2) for invalid ranks using one entry length.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRun_nil",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 382,
+      "raw_header": "theorem selectRun_nil (k : Nat) : selectRun k ([] : List α) = (none, 2)",
+      "raw_header_sha256": "7bf1c8408b415fc1656eec4ae28235873bfe9aab40550b4ac3bec6d071a3afa6",
+      "intended_claim": "Book execution on empty payload lists returns(none,2) at every rank.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRun_small",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 385,
+      "raw_header": "theorem selectRun_small (k : Nat) (xs : List α) (hk : k < xs.length)\n    (hs : xs.length ≤ 20) :\n    selectRun k xs = ((slowSelectRun k xs).1,\n      1 + (SymmetricCosts.lengthRun xs).2 + (slowSelectRun k xs).2)",
+      "raw_header_sha256": "aa877e49719dda179620e15a55bf4cae2dd0f68f4e6acd604d9e3bfcb253ff79",
+      "intended_claim": "Book valid lengths through twenty execute insertion/lookup with the exact source entry and length counts.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRun_step",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 391,
+      "raw_header": "theorem selectRun_step (k : Nat) (xs : List α) (hk : k < xs.length)\n    (hs : 20 < xs.length) (p : α)\n    (hp : (selectRun (((xs.length ⌈/⌉ 5) - 1) / 2) (chunkMediansRun 5 xs).1).1 = some p) :\n    selectRun k xs =\n      let t := partition3 p xs\n      let pivot := selectRun (((xs.length ⌈/⌉ 5) - 1) / 2) (chunkMediansRun 5 xs).1\n      let common := 1 + (SymmetricCosts.lengthRun xs).2 + (chunkMediansRun 5 xs).2 +\n        pivot.2 + (Partition.partitionRun p xs).2 + (SymmetricCosts.lengthRun t.1).2\n      if k < t.1.length then\n        let child := selectRun k t.1\n        (child.1, common + child.2)\n      else if k < t.1.length + t.2.1.length then\n        (some p, common + (SymmetricCosts.lengthRun t.2.1).2)\n      else\n        let child := selectRun (k - t.1.length - t.2.1.length) t.2.2\n        (child.1, common + (SymmetricCosts.lengthRun t.2.1).2 + child.2)",
+      "raw_header_sha256": "2a9142f78025746c33060925eee190bd482ff283f2980d2bd2080aba5ecea4f0",
+      "intended_claim": "Book full pair recurrence at median index(ceil(n/5)-1)/2, with one recursive pivot, one actual partition and only the selected strict child.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRun_cost_step",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/Selection.lean",
+      "start_line": 409,
+      "raw_header": "theorem selectRun_cost_step (k : Nat) (xs : List α) (hk : k < xs.length)\n    (hs : 20 < xs.length) (p : α)\n    (hp : (selectRun (((xs.length ⌈/⌉ 5) - 1) / 2) (chunkMediansRun 5 xs).1).1 = some p) :\n    (selectRun k xs).2 =\n      let t := partition3 p xs\n      1 + (SymmetricCosts.lengthRun xs).2 + (chunkMediansRun 5 xs).2 +\n        (selectRun (((xs.length ⌈/⌉ 5) - 1) / 2) (chunkMediansRun 5 xs).1).2 +\n        (Partition.partitionRun p xs).2 + (SymmetricCosts.lengthRun t.1).2 +\n        (if k < t.1.length then (selectRun k t.1).2\n        else (SymmetricCosts.lengthRun t.2.1).2 +\n          if k < t.1.length + t.2.1.length then 0\n          else (selectRun (k - t.1.length - t.2.1.length) t.2.2).2)",
+      "raw_header_sha256": "a6f32eb2bfb1a91e271c3241681e7f12cb8079af35d9c8167a3ee3186ac20438",
+      "intended_claim": "Book exact selected-branch source count; this is the later run<=F comparison input, not an assumed cost law.",
+      "domains_and_quantifiers": "Polymorphic payload universe and LinearOrder; no Inhabited/Nodup. Generic d>=2/cutoff>=1; book fixed5/20.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.singleton_with",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 19,
+      "raw_header": "private theorem singleton_with (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)\n    (a : Nat) : selectRunWith d cutoff hd hc 0 [a] = (some a, 7)",
+      "raw_header_sha256": "46f1f5eb978b60c057dd56113448ccc0dfc3c1e95dc4bd4ce69cd94c85823bbb",
+      "intended_claim": "Every allowed group/cutoff on[a],rank0 returns(a,7): entry/length3 and actual slow selection4.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.sorted_base",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 29,
+      "raw_header": "private theorem sorted_base (k : Nat) (xs : List Nat) (a : Nat)\n    (hk : k < xs.length) (hs : xs.length ≤ 20) (hp : xs.Pairwise (· ≤ ·))\n    (ha : (Applications.Sorting.insertionOn id xs)[k]? = some a) :\n    selectRun k xs = (some a, 3 * xs.length + k + 4)",
+      "raw_header_sha256": "5da89c5ebef0d5069ec3d8f034699a1f095e9769d6ccc58d3ad5af8fd386ecff",
+      "intended_claim": "Sorted Nat base inputs with a separately supplied insertion-order statistic return that value with3*n+k+4 calls. Validity and cutoff are justified per use; cost follows actual pairwise insertion time.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.empty_payload",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 40,
+      "raw_header": "theorem empty_payload : selectRun 0 ([] : List (Fin 0)) = (none, 2)",
+      "raw_header_sha256": "a732041233130f71691e843e87ed611ae07efb42513b8fd86bf1db70616a8377",
+      "intended_claim": "Rank0 on List(Fin0) returns(none,2), exhibiting the absence of an inhabited-payload requirement.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.empty_arbitrary_rank",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 43,
+      "raw_header": "theorem empty_arbitrary_rank (k : Nat) : selectRun k ([] : List (Fin 0)) = (none, 2)",
+      "raw_header_sha256": "969bc46759d74d378582596d8fa93e144fad0ee71434f39216c3a5d999d97003",
+      "intended_claim": "Every rank on the empty Fin0 payload list returns(none,2).",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.singleton",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 46,
+      "raw_header": "theorem singleton : selectRun 0 ([7] : List Nat) = (some 7, 7)",
+      "raw_header_sha256": "11074286e829522a57702cb5295586f815c79827cf1eafbfd7842efe91f57d6e",
+      "intended_claim": "Book[7],rank0 returns(some7,7).",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.singleton_invalid",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 49,
+      "raw_header": "theorem singleton_invalid : selectRun 1 ([7] : List Nat) = (none, 3)",
+      "raw_header_sha256": "44e243c86452cf3692672c4e92f1f6f602998f5ec7faadd5f84d653041091f4b",
+      "intended_claim": "Book[7],rank1 returns(none,3), stopping after entry and cached length.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.cutoff_ascending",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 52,
+      "raw_header": "theorem cutoff_ascending : selectRun 19 (List.range 20) = (some 19, 83)",
+      "raw_header_sha256": "7c218a5b940a718dcd0a8e9d67cc258540f55d53fc69c47e37f409bccfc80b0c",
+      "intended_claim": "Ascending range20,rank19 returns(some19,83), at the n=20 base boundary.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.cutoff_descending",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 56,
+      "raw_header": "theorem cutoff_descending : selectRun 19 (List.range 20).reverse = (some 19, 273)",
+      "raw_header_sha256": "dcee1dc0f1d13686527491112c880ca1bdedce2a2338605aa231c5a4026c57a9",
+      "intended_claim": "Descending range20,rank19 returns(some19,273), using actual reverse-range insertion cost.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.same_cutoff_value_different_work",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 65,
+      "raw_header": "theorem same_cutoff_value_different_work :\n    (selectRun 19 (List.range 20)).1 = (selectRun 19 (List.range 20).reverse).1 ∧\n      (selectRun 19 (List.range 20)).2 < (selectRun 19 (List.range 20).reverse).2",
+      "raw_header_sha256": "e774c62756fd78fcbe8f0fc4f58e637182c0f5cb008a6760d7765e5e098fe0f0",
+      "intended_claim": "The two cutoff inputs have the same selected value and strictly different actual work, using their independently prepared pairs.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.first_recursive_pivot",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 71,
+      "raw_header": "theorem first_recursive_pivot :\n    selectRun 2 ([2, 7, 12, 17, 20] : List Nat) = (some 12, 21)",
+      "raw_header_sha256": "c283ccb66326dceab9709be4c7984990bd0dd92c3208086851bf3562e7cc5aa4",
+      "intended_claim": "The actual call on[2,7,12,17,20],rank2 returns(some12,21), supplying the n=21 pivot recursion.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.first_left_child",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 76,
+      "raw_header": "private theorem first_left_child : selectRun 0 (List.range 12) = (some 0, 40)",
+      "raw_header_sha256": "214dca439ccfd4ad5b3e01795c327a14825a3340a4ff15d5a9c17871a2ce4aae",
+      "intended_claim": "The selected left child range12,rank0 returns(some0,40) through the public small-branch law.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.first_right_child",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 80,
+      "raw_header": "private theorem first_right_child :\n    selectRun 7 ([13, 14, 15, 16, 17, 18, 19, 20] : List Nat) = (some 20, 35)",
+      "raw_header_sha256": "a012a625d8aaea9fccfb46cd4e901049f6da96159d65ebd22ce222544a1370f3",
+      "intended_claim": "The selected right child[13,...,20],rank7 returns(some20,35) through the public small-branch law.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.first_partition",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 85,
+      "raw_header": "private theorem first_partition :\n    partition3 12 (List.range 21) =\n      (List.range 12, [12], [13, 14, 15, 16, 17, 18, 19, 20])",
+      "raw_header_sha256": "6b11141e906f2815ab6c28b1d3da993f528f554eac119f8cd4f8293a6831e258",
+      "intended_claim": "Partitioning range21 around12 gives exactly(range12,[12],[13,...,20]), with every occurrence retained.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.first_pivot_observation",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 91,
+      "raw_header": "private theorem first_pivot_observation :\n    (selectRun ((((List.range 21).length ⌈/⌉ 5) - 1) / 2)\n      (chunkMediansRun 5 (List.range 21)).1).1 = some 12",
+      "raw_header_sha256": "5fb0f7afade9454bd4d88cd6df88dd470d545b0d71becc2593a394efcf944491",
+      "intended_claim": "Actual preparation and recursive selection at the computed lower-median rank establish pivot12, discharging the step premise.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.first_recursive_left",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 99,
+      "raw_header": "theorem first_recursive_left : selectRun 0 (List.range 21) = (some 0, 269)",
+      "raw_header_sha256": "139ae6c3b536ee2602882fd27d3b5de43508679fc4643e044c48cf50a8508774",
+      "intended_claim": "Book range21,rank0 returns(some0,269). Value consumes new correctness; cost consumes new cost-step. Phases23+150+21+22+13+40 omit equal length.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.first_recursive_equal",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 111,
+      "raw_header": "theorem first_recursive_equal : selectRun 12 (List.range 21) = (some 12, 231)",
+      "raw_header_sha256": "1da1da704f1b09fb822f67750b0126aa19793be462b67b15de4478bb11301cab",
+      "intended_claim": "Book range21,rank12 returns(some12,231). Full pair equation gives23+150+21+22+13+2, with no second recursion.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.first_recursive_right",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 118,
+      "raw_header": "theorem first_recursive_right : selectRun 20 (List.range 21) = (some 20, 266)",
+      "raw_header_sha256": "8272150ad6b1bb2573009bfa933f19a509bd53d8a93392a7441601b4a6eedb54",
+      "intended_claim": "Book range21,rank20 returns(some20,266). Full pair equation gives23+150+21+22+13+2+35, adjusted rank7.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.first_recursive_invalid",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 124,
+      "raw_header": "theorem first_recursive_invalid : selectRun 21 (List.range 21) = (none, 23)",
+      "raw_header_sha256": "717fc986f53acffa1c0f7f788a414236976e187eb36a00aa9cfd42c00695f536",
+      "intended_claim": "Book range21,rank21 returns(none,23), without preparing medians.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.equal_preparation",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 127,
+      "raw_header": "private theorem equal_preparation :\n    chunkMediansRun 5 (List.replicate 21 4) = (List.replicate 5 4, 150)",
+      "raw_header_sha256": "0f41762e87674bcb2a6c2ccc3023c40f841516b823537362654c9d1cf119ce08",
+      "intended_claim": "Actual preparation of21 copies of4 returns5 copies of4 with150 calls, including the final singleton chunk.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.equal_pivot",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 137,
+      "raw_header": "private theorem equal_pivot : selectRun 2 (List.replicate 5 4) = (some 4, 21)",
+      "raw_header_sha256": "45b417ed269dcc199c8a0bf9283b8ab457cd1853f4d5ade8359baf9d5f8b0f47",
+      "intended_claim": "The actual call on5 copies of4 at rank2 returns4 with21 calls.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.equal_partition",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 141,
+      "raw_header": "private theorem equal_partition :\n    partition3 4 (List.replicate 21 4) = ([], List.replicate 21 4, [])",
+      "raw_header_sha256": "b0f33d493ded5f23ab34a0bb841cc2dfb1f81dc28ed643e1a072de034e9a98dc",
+      "intended_claim": "Partitioning21 copies of4 around4 has empty strict buckets and all21 occurrences in the equal bucket.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.equal_run",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 146,
+      "raw_header": "private theorem equal_run (k : Nat) (hk : k < 21) :\n    selectRun k (List.replicate 21 4) = (some 4, 239)",
+      "raw_header_sha256": "0c1cf9becbbc6b4434b80651d8a066693463d9c56dbb4b4350a734d883bfc587",
+      "intended_claim": "For every k<21, the repeated-value execution returns(some4,239), with phases23+150+21+22+1+22 and no strict child.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.all_equal_first",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 157,
+      "raw_header": "theorem all_equal_first : selectRun 0 (List.replicate 21 4) = (some 4, 239)",
+      "raw_header_sha256": "e794b1aaf108a0863e7541d1455f7660148638272c4189e19561214b24093548",
+      "intended_claim": "First occurrence rank on21 equal values returns(some4,239).",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.all_equal_last",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 160,
+      "raw_header": "theorem all_equal_last : selectRun 20 (List.replicate 21 4) = (some 4, 239)",
+      "raw_header_sha256": "1b0e0f8b5f419806ee4c8e9a374cda6eac69d34bcc444c81547e5a0111cbbdbb",
+      "intended_claim": "Last occurrence rank on21 equal values returns(some4,239), retaining multiplicity.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.two_preparation_12",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 163,
+      "raw_header": "private theorem two_preparation_12 :\n    chunkMediansRun 2 ([1, 2] : List Nat) = ([1], 19)",
+      "raw_header_sha256": "e66a4cf5febd536560847baa02f813282a897dc8bd869c4d801143e6e0a6758c",
+      "intended_claim": "Actual group-two preparation[1,2] returns([1],19), including the lower-even median.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.two_preparation_22",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 173,
+      "raw_header": "private theorem two_preparation_22 :\n    chunkMediansRun 2 ([2, 2] : List Nat) = ([2], 19)",
+      "raw_header_sha256": "5f61c984971826bf3a3bff153a98b8db6880a4b7b36a36475104c33ca95148ac",
+      "intended_claim": "Actual group-two preparation[2,2] returns([2],19), preserving duplicates.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.two_preparation_322",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 183,
+      "raw_header": "private theorem two_preparation_322 :\n    chunkMediansRun 2 ([3, 2, 2] : List Nat) = ([2, 2], 32)",
+      "raw_header_sha256": "4b6294f7e0c03ffea3a2063321255387ef134e9c2f70cc6eaeb05f604f4ce46a",
+      "intended_claim": "Actual group-two preparation[3,2,2] returns([2,2],32), retaining its short final chunk.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.two_preparation_3122",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 193,
+      "raw_header": "private theorem two_preparation_3122 :\n    chunkMediansRun 2 ([3, 1, 2, 2] : List Nat) = ([1, 2], 37)",
+      "raw_header_sha256": "dfeb97d13865b63cb54ff9d0fd7317ce4022fdd6d06600a87fea2c6252bb8156",
+      "intended_claim": "Actual group-two preparation[3,1,2,2] returns([1,2],37), from genuine chop/callback costs.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.two_select_12",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 203,
+      "raw_header": "private theorem two_select_12 :\n    selectRunWith 2 1 (by decide) (by decide) 0 ([1, 2] : List Nat) = (some 1, 36)",
+      "raw_header_sha256": "ab9d54e26ea03ec25003ffc891a098b72b39ef3fd61f09fb6b9be7bbefaa47ca",
+      "intended_claim": "Generic d2/cutoff1 selection[1,2],rank0 returns(some1,36), with singleton pivot recursion and equal branch.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.two_select_22",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 217,
+      "raw_header": "private theorem two_select_22 :\n    selectRunWith 2 1 (by decide) (by decide) 0 ([2, 2] : List Nat) = (some 2, 37)",
+      "raw_header_sha256": "a2487a8ed4974a2d516a9299563a6828cb2ac77837aad66db751402304b314b4",
+      "intended_claim": "Generic d2/cutoff1 selection[2,2],rank0 returns(some2,37), charging the two-occurrence equal length.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.two_select_322",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 231,
+      "raw_header": "private theorem two_select_322 :\n    selectRunWith 2 1 (by decide) (by decide) 1 ([3, 2, 2] : List Nat) = (some 2, 82)",
+      "raw_header_sha256": "cdd4c7dc47b1f60fff28ca1a5bd1fc6c88bca12ebd1ecb109e69662a27a068a3",
+      "intended_claim": "Generic d2/cutoff1 selection[3,2,2],rank1 returns(some2,82), including the actual two-median pivot call.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.group_two_cutoff_one",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 247,
+      "raw_header": "theorem group_two_cutoff_one :\n    selectRunWith 2 1 (by decide) (by decide) 2 ([3, 1, 2, 2] : List Nat) =\n      (some 2, 169)",
+      "raw_header_sha256": "4804d4f98449d805fdc02fb878c26ec4486009d817a72caa6381c4bd1c08c40e",
+      "intended_claim": "Generic d2/cutoff1 selection[3,1,2,2],rank2 returns(some2,169). Directly consumes generic value and cost-step laws with justified actual subcalls; no group-two linear bound is asserted.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.one_based_public_bridge",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 268,
+      "raw_header": "theorem one_based_public_bridge {α : Type u} [LinearOrder α] (k : Nat) (xs : List α) :\n    (selectRun k xs).1 = sortSelect (k + 1) xs",
+      "raw_header_sha256": "d4af678f2330d900a862241fbe52440333d2b508675505acc999e69db592d6c6",
+      "intended_claim": "Universally connects actual book rank k to public sortSelect(k+1), including invalid indices.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.monotone_payload_selection",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 274,
+      "raw_header": "theorem monotone_payload_selection {α : Type u} {β : Type v}\n    [LinearOrder α] [LinearOrder β] (f : α → β) (hf : Monotone f)\n    (k : Nat) (xs : List α) (a : α) (ha : (selectRun k xs).1 = some a) :\n    (selectRun k (xs.map f)).1 = some (f a)",
+      "raw_header_sha256": "4cbff06e36bc7db1eb1d4757c3b5d263dfbf0b531d813d522842f4831bbdb892",
+      "intended_claim": "Across arbitrary ordered types, every monotone map transports a successful occurrence value. Noninjective maps are allowed; no cost equality is claimed.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    },
+    {
+      "logical_source_name": "Examples.SelectionCosts.collapsed_payload",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionCosts.lean",
+      "start_line": 281,
+      "raw_header": "theorem collapsed_payload :\n    (selectRun 20 ((List.range 21).map (fun _ : Nat => (0 : Nat)))).1 = some 0",
+      "raw_header_sha256": "156537d7d22a8f923f53efd9c2e70b27ba424924410335b2fbc7b9a70b7a03ff",
+      "intended_claim": "Map the n=21 last-rank input by constant zero to obtain Some0, visibly exercising noninjective transport.",
+      "domains_and_quantifiers": "Finite Nat cases, explicit empty Fin0 cases, or explicitly quantified universal ordered-type/map consumers.",
+      "statement_assessment": "Full source reviewed: intended conclusion and hypotheses agree; satisfiable generic parameters are exercised at2/1 and5/20. No cost/termination conclusion is assumed as a premise. Actual elaborated type/kernel check remains pending root.",
+      "case_connection": "Prepared finite execution cases, internal public-equation derivations, and universal rank/map consumers; examples never unfold the private worker.",
+      "actual_type_status": "UNEXECUTED; source-author assessment only"
+    }
+  ],
+  "cases": [
+    {
+      "name": "empty",
+      "group_size": 5,
+      "cutoff": 20,
+      "rank": 0,
+      "input": [],
+      "expected_value": null,
+      "expected_cost": 2,
+      "source_phases": {
+        "branch": "invalid",
+        "entry_and_length": 2
+      },
+      "public_case": "Examples.SelectionCosts.empty_payload",
+      "independent_expectation_unchanged": true,
+      "connection_status": "Connected proof source; uncompiled"
+    },
+    {
+      "name": "singleton",
+      "group_size": 5,
+      "cutoff": 20,
+      "rank": 0,
+      "input": [
+        7
+      ],
+      "expected_value": 7,
+      "expected_cost": 7,
+      "source_phases": {
+        "branch": "base",
+        "entry_and_length": 3,
+        "slow_selection": 4
+      },
+      "public_case": "Examples.SelectionCosts.singleton",
+      "independent_expectation_unchanged": true,
+      "connection_status": "Connected proof source; uncompiled"
+    },
+    {
+      "name": "singleton-invalid",
+      "group_size": 5,
+      "cutoff": 20,
+      "rank": 1,
+      "input": [
+        7
+      ],
+      "expected_value": null,
+      "expected_cost": 3,
+      "source_phases": {
+        "branch": "invalid",
+        "entry_and_length": 3
+      },
+      "public_case": "Examples.SelectionCosts.singleton_invalid",
+      "independent_expectation_unchanged": true,
+      "connection_status": "Connected proof source; uncompiled"
+    },
+    {
+      "name": "cutoff-ascending",
+      "group_size": 5,
+      "cutoff": 20,
+      "rank": 19,
+      "input": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "expected_value": 19,
+      "expected_cost": 83,
+      "source_phases": {
+        "branch": "base",
+        "entry_and_length": 22,
+        "slow_selection": 61
+      },
+      "public_case": "Examples.SelectionCosts.cutoff_ascending",
+      "independent_expectation_unchanged": true,
+      "connection_status": "Connected proof source; uncompiled"
+    },
+    {
+      "name": "cutoff-descending",
+      "group_size": 5,
+      "cutoff": 20,
+      "rank": 19,
+      "input": [
+        19,
+        18,
+        17,
+        16,
+        15,
+        14,
+        13,
+        12,
+        11,
+        10,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "expected_value": 19,
+      "expected_cost": 273,
+      "source_phases": {
+        "branch": "base",
+        "entry_and_length": 22,
+        "slow_selection": 251
+      },
+      "public_case": "Examples.SelectionCosts.cutoff_descending",
+      "independent_expectation_unchanged": true,
+      "connection_status": "Connected proof source; uncompiled"
+    },
+    {
+      "name": "recursive-left",
+      "group_size": 5,
+      "cutoff": 20,
+      "rank": 0,
+      "input": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "expected_value": 0,
+      "expected_cost": 269,
+      "source_phases": {
+        "entry_and_length": 23,
+        "chunks": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          [
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          [
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          [
+            20
+          ]
+        ],
+        "chop": 58,
+        "medians": [
+          2,
+          7,
+          12,
+          17,
+          20
+        ],
+        "map": 92,
+        "pivot_index": 2,
+        "pivot": 12,
+        "pivot_selection": 21,
+        "partition": 22,
+        "lower_length": 13,
+        "lower_size": 12,
+        "equal_size": 1,
+        "greater_size": 8,
+        "branch": "left",
+        "child_selection": 40,
+        "equal_length_charged": false
+      },
+      "public_case": "Examples.SelectionCosts.first_recursive_left",
+      "independent_expectation_unchanged": true,
+      "connection_status": "Connected proof source; uncompiled"
+    },
+    {
+      "name": "recursive-equal",
+      "group_size": 5,
+      "cutoff": 20,
+      "rank": 12,
+      "input": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "expected_value": 12,
+      "expected_cost": 231,
+      "source_phases": {
+        "entry_and_length": 23,
+        "chunks": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          [
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          [
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          [
+            20
+          ]
+        ],
+        "chop": 58,
+        "medians": [
+          2,
+          7,
+          12,
+          17,
+          20
+        ],
+        "map": 92,
+        "pivot_index": 2,
+        "pivot": 12,
+        "pivot_selection": 21,
+        "partition": 22,
+        "lower_length": 13,
+        "lower_size": 12,
+        "equal_size": 1,
+        "greater_size": 8,
+        "branch": "equal",
+        "equal_length": 2,
+        "child_selection": 0
+      },
+      "public_case": "Examples.SelectionCosts.first_recursive_equal",
+      "independent_expectation_unchanged": true,
+      "connection_status": "Connected proof source; uncompiled"
+    },
+    {
+      "name": "recursive-right",
+      "group_size": 5,
+      "cutoff": 20,
+      "rank": 20,
+      "input": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "expected_value": 20,
+      "expected_cost": 266,
+      "source_phases": {
+        "entry_and_length": 23,
+        "chunks": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          [
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          [
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          [
+            20
+          ]
+        ],
+        "chop": 58,
+        "medians": [
+          2,
+          7,
+          12,
+          17,
+          20
+        ],
+        "map": 92,
+        "pivot_index": 2,
+        "pivot": 12,
+        "pivot_selection": 21,
+        "partition": 22,
+        "lower_length": 13,
+        "lower_size": 12,
+        "equal_size": 1,
+        "greater_size": 8,
+        "branch": "right",
+        "equal_length": 2,
+        "child_selection": 35,
+        "adjusted_rank": 7
+      },
+      "public_case": "Examples.SelectionCosts.first_recursive_right",
+      "independent_expectation_unchanged": true,
+      "connection_status": "Connected proof source; uncompiled"
+    },
+    {
+      "name": "recursive-invalid",
+      "group_size": 5,
+      "cutoff": 20,
+      "rank": 21,
+      "input": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "expected_value": null,
+      "expected_cost": 23,
+      "source_phases": {
+        "branch": "invalid",
+        "entry_and_length": 23
+      },
+      "public_case": "Examples.SelectionCosts.first_recursive_invalid",
+      "independent_expectation_unchanged": true,
+      "connection_status": "Connected proof source; uncompiled"
+    },
+    {
+      "name": "all-equal-first",
+      "group_size": 5,
+      "cutoff": 20,
+      "rank": 0,
+      "input": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "expected_value": 4,
+      "expected_cost": 239,
+      "source_phases": {
+        "entry_and_length": 23,
+        "chunks": [
+          [
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          [
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          [
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          [
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          [
+            4
+          ]
+        ],
+        "chop": 58,
+        "medians": [
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "map": 92,
+        "pivot_index": 2,
+        "pivot": 4,
+        "pivot_selection": 21,
+        "partition": 22,
+        "lower_length": 1,
+        "lower_size": 0,
+        "equal_size": 21,
+        "greater_size": 0,
+        "branch": "equal",
+        "equal_length": 22,
+        "child_selection": 0
+      },
+      "public_case": "Examples.SelectionCosts.all_equal_first",
+      "independent_expectation_unchanged": true,
+      "connection_status": "Connected proof source; uncompiled"
+    },
+    {
+      "name": "all-equal-last",
+      "group_size": 5,
+      "cutoff": 20,
+      "rank": 20,
+      "input": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "expected_value": 4,
+      "expected_cost": 239,
+      "source_phases": {
+        "entry_and_length": 23,
+        "chunks": [
+          [
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          [
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          [
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          [
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          [
+            4
+          ]
+        ],
+        "chop": 58,
+        "medians": [
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "map": 92,
+        "pivot_index": 2,
+        "pivot": 4,
+        "pivot_selection": 21,
+        "partition": 22,
+        "lower_length": 1,
+        "lower_size": 0,
+        "equal_size": 21,
+        "greater_size": 0,
+        "branch": "equal",
+        "equal_length": 22,
+        "child_selection": 0
+      },
+      "public_case": "Examples.SelectionCosts.all_equal_last",
+      "independent_expectation_unchanged": true,
+      "connection_status": "Connected proof source; uncompiled"
+    },
+    {
+      "name": "generic-two-one",
+      "group_size": 2,
+      "cutoff": 1,
+      "rank": 2,
+      "input": [
+        3,
+        1,
+        2,
+        2
+      ],
+      "expected_value": 2,
+      "expected_cost": 169,
+      "source_phases": {
+        "entry_and_length": 6,
+        "chunks": [
+          [
+            3,
+            1
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        "chop": 15,
+        "medians": [
+          1,
+          2
+        ],
+        "map": 22,
+        "pivot_index": 0,
+        "pivot": 1,
+        "pivot_selection": 36,
+        "partition": 5,
+        "lower_length": 1,
+        "lower_size": 0,
+        "equal_size": 1,
+        "greater_size": 3,
+        "branch": "right",
+        "equal_length": 2,
+        "child_selection": 82,
+        "adjusted_rank": 1
+      },
+      "public_case": "Examples.SelectionCosts.group_two_cutoff_one",
+      "independent_expectation_unchanged": true,
+      "connection_status": "Connected proof source; uncompiled"
+    }
+  ],
+  "explicit_public_type_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/NestedSelectorStatements39-candidate1.lean",
+    "bytes": 2461,
+    "sha256": "8d1fabab9fa3a5d349b0d6573563ee2f5c2bba8e2c9f5ae1f335830b4c259396"
+  },
+  "construction_review": {
+    "termination": "Median list shorter for d>=2,n>cutoff>=1. Its certified result is a member; actual chunk-median membership transports this to the parent. Pivot membership makes both strict buckets shorter, and partition lengths give the adjusted valid right rank. Full RankedAt correctness is proved afterward.",
+    "cached_length": "Public optional boundary evaluates one measured length and passes the exact observation to the worker. Each recursive invocation receives its own measured entry length. Pivot index uses cached parent n, without an uncounted median-list length traversal.",
+    "exact_source_phases": "One entry and one entry length; either actual insertion/lookup baseline or actual chop+median-map, one recursive median selection, one measured partition, measured lower length; then left recursion OR equal length+return pivot OR equal length+adjusted right recursion. Left never evaluates equal length.",
+    "optional_extension": "Invalid k>=n returns(none,n+2), including empty cost2. This is explicitly disclosed and does not broaden the valid-rank source bound.",
+    "duplicates": "No Nodup. Strict/equal partition retains occurrences; first/last ranks of21 equal values are connected cases.",
+    "generic": "d>=2/cutoff>=1 ensure total execution/correctness; no group2 linearity claim. Boundary counterexamples and contracting-group runtime comparison remain separately scoped work.",
+    "transport": "Monotone noninjective maps transport the semantic result only, with no cost preservation assertion.",
+    "cost_premises": "No assumed cost/termination/rank law in the execution. Exact counts are projected from its equation; observed pivot premises are discharged from actual smaller executions."
+  },
+  "precommit_case_adjustment": {
+    "record": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/source-readback-case-connection-adjustment.json",
+      "bytes": 3383,
+      "sha256": "008c16492c471c4b54fe0df1e6f2ee28e4f67dc36a2a17e3f19ea1235419df53"
+    },
+    "all_headers_unchanged_from_held_draft": true,
+    "execution_definitions_unchanged": true,
+    "expected_pairs_unchanged": true
+  },
+  "obligation_relation": {
+    "C03-028": "Nested same-algorithm execution drafted.",
+    "C03-029": "All-rank Option occurrence correctness drafted.",
+    "C03-030": "Noncircular dependent well-founded construction drafted.",
+    "C03-036": "Exact base and selected-branch pair/cost equations drafted.",
+    "C03-027/031-035": "Focused-checked auxiliaries reused byte-for-byte.",
+    "C03-037/045": "Root exact scalar F/affine source incorporated by authorized seven commits, unchanged.",
+    "C03-038/046": "MANDATORY next slice: actual book run<=F and input/rank-uniform affine constants; not done.",
+    "C03-055/058": "Generic worker/correctness interface drafted for exercise consumers; generalized actual-source comparison remains due."
+  },
+  "protected_existing_paths_verified": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Selection/CountRank.lean",
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionCountRank.lean",
+      "bytes": 4423,
+      "sha256": "cc73980788882d39abe44672d89e6a3ce37dfe3b5f5788375255248e8b4a66d2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Sequences/Chunks.lean",
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/ListChunks.lean",
+      "bytes": 2683,
+      "sha256": "161e240f9c07db5b13f9abf5bf09782064adce4862e60fbe35f0eba483c76c78"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Selection/MedianOfMedians.lean",
+      "bytes": 13797,
+      "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/MedianOfMedians.lean",
+      "bytes": 9092,
+      "sha256": "0bbbbdab0f2f41f42fd615231d04d29ebeb8f7ffd5cc83e2a6b832cbfcc25f0c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionAuxiliary.lean",
+      "bytes": 6215,
+      "sha256": "eeba4ac85dd4e07b8b42f38499748cae69cb6dcaaa01fdc8400a3cf5b947a925"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionAuxiliary.lean",
+      "bytes": 7302,
+      "sha256": "d5e495d5a9f6824d9b61fd41ce570059ab5aad3e93f4449f3b712e7d41a4b41e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/Chunks.lean",
+      "bytes": 4591,
+      "sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionMedians.lean",
+      "bytes": 9755,
+      "sha256": "e64e998edc9353e5fd52544177fadd32f6398e3260b27ca54195cd8917e5d098"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/ChunkCalls.lean",
+      "bytes": 2730,
+      "sha256": "ca79f35fe846399bcb180d9b8fbd63fa453108c59c4503adb8a5731182fdc5e3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionMedians.lean",
+      "bytes": 5142,
+      "sha256": "4563c04666fdfb6073c8213328a2f868022cf2ed17538cd1671aaea68811c9d8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/AffineRecurrence.lean",
+      "bytes": 5839,
+      "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/RoundedRecurrence.lean",
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/RoundedRecurrenceBounds.lean",
+      "bytes": 6951,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionRecurrence.lean",
+      "bytes": 6560,
+      "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/AffineRecurrence.lean",
+      "bytes": 5164,
+      "sha256": "6734b0a54ffdcf81de3c3ec2520618011aa8bab357690c6cca6117174ec4abcf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/RoundedRecurrence.lean",
+      "bytes": 3782,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/RoundedRecurrenceBounds.lean",
+      "bytes": 7295,
+      "sha256": "18275f597cf579edf0db6785d0910e76dcc9cff084566ced73cd0da8828c0135"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionRecurrence.lean",
+      "bytes": 2272,
+      "sha256": "6599e51e8d6ea0197d74d2ca43076a355a9c131ce453f4a25c6c3bf086d99971"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/SquareApplications.lean",
+      "bytes": 9405,
+      "sha256": "75563d66c31e9cc1456cedf639812e6025486f69cf8ab50f3961d038a6219d18"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/docs/research/fdsa-affine-recurrence.md",
+      "bytes": 10290,
+      "sha256": "8996a9212bd8cf05ec26519cf51ca9ce69f560170512df647fa3fdb9869032f6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/docs/research/fdsa-reconstruction-map.md",
+      "bytes": 46693,
+      "sha256": "fdf63be72114a8002cd4c3786007c8ff0e722c0465f819b00dd93ba2ffe3185e"
+    }
+  ],
+  "all_23_existing_files_unchanged": true,
+  "prior_57_own_records_verified": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/AuxiliaryStatements40-candidate1-preparation.json",
+      "bytes": 6096,
+      "sha256": "5c6366e3afa741fc955bb27addb7775657eb216ba3cd7b0da9fbdc9567f34931"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/AuxiliaryStatements40-candidate1.lean",
+      "bytes": 2783,
+      "sha256": "e3910f89e19232f125eca8c166556f2852ba9d171fe6317d066c9a5ab0a371ae"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/allocation-result.json",
+      "bytes": 349,
+      "sha256": "a3fc90e796dec995ff50bafa87362673ffc88b66e2a831797f0156828fa825f6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-candidate1-author-hold.json",
+      "bytes": 3651,
+      "sha256": "ca6bc455c522289c880afbca02933d3198cd72b3c283d089a7b7500e2db10150"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-candidate1-handoff.md",
+      "bytes": 7506,
+      "sha256": "746e0955345ff9bcad5d313e4078cff55d7a0e411954683bb9fb92c4650c79ef"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-candidate1.json",
+      "bytes": 5670,
+      "sha256": "b209da15c8be35977c90d35b36a613ed943366922f530fc830418300093e5431"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-commit-result.json",
+      "bytes": 352,
+      "sha256": "e52bf42db6a46387367aec86c238fccba16ce963432b7dca27240978af44052a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/author-hold.json",
+      "bytes": 2583,
+      "sha256": "7a9b0eec80da4e444440890ef3b9210d3c3fe27a144929f51881807b76cd92df"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/candidate.json",
+      "bytes": 1929,
+      "sha256": "6caad294442648b06b82b993eda0d5f076f57c1fceb2d90291cf5dbf78eeecf3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/commit-result.json",
+      "bytes": 612,
+      "sha256": "a5c69567a51deceb48c86a6536fe44ac600588cc8d26d604df6b401e21cb230f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/correction.diff",
+      "bytes": 4517,
+      "sha256": "0de9f322729d6e1f1fd7fe9e3ee80e0819b6127947ea92daec5ea02b58f8aee7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/handoff.md",
+      "bytes": 3924,
+      "sha256": "e154233fae8eaae8b0498fb882ed86c115fa16498535e371eb6b109a86408da8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/preparation.json",
+      "bytes": 7581,
+      "sha256": "985f5863a2d0f2643eb7a83736224c47a4519d77a218ea2272285eb76fcfe93e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/source-assessment.json",
+      "bytes": 1509,
+      "sha256": "211613fb630a84e4ce2fb72733c83c655568386fac028386ec29f0de720c7dff"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-preparation.json",
+      "bytes": 3554,
+      "sha256": "2b19d1eb746b0710128900764f0ea721ecaa65331ad28a1d9452281932a9933e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/candidate.json",
+      "bytes": 1428,
+      "sha256": "c9c1712835e8c71fe0650b0ef1ba2f6a8ec4ab6ec8a069acbdce8a10b394aace"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/commit-result.json",
+      "bytes": 170,
+      "sha256": "e249166fcf6917604a82587e7e389477512a00f90fb6701292d194d87f36fc92"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/correction.diff",
+      "bytes": 2930,
+      "sha256": "bf1c07899181ba672e1cf13c723739e3d3b03d4de3ae8366df4e63afd469a944"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/diff-check.json",
+      "bytes": 39,
+      "sha256": "4555466a11b51d337471bdac80f509baf403e0d276b2f256372bd1d99f3252b4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/starting-state.json",
+      "bytes": 4750,
+      "sha256": "9e2024dd36bee9bca7451ac0d1b490e5b6532cad9d45a6cd8255b1c3b8bad37d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-source-inventory-precommit.json",
+      "bytes": 16654,
+      "sha256": "d636bf579286ce0aa6617b96e1ee1e70bdc7f9dfbb7ff322a8cf455afb518a3c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-whitespace-check.json",
+      "bytes": 312,
+      "sha256": "93b7bceb843b8e2dd70e6365c410c87341fff195f6833631594bded4a3a44c26"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/author-hold.json",
+      "bytes": 2718,
+      "sha256": "6099aa4ebda0fc248fc8ae538bec2f9ca3ecaa5d7cc64c7ac8e07ec299cfbcd7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/candidate.json",
+      "bytes": 4201,
+      "sha256": "ab6b53b38195e495d98f2142558d6c9684e8cfe43da3a430a150e683f404ae5d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/commit-result.json",
+      "bytes": 464,
+      "sha256": "5de62520f7f4f61bae73a031ca76668d5770253027700c367b03c1ce4e600203"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/correction.diff",
+      "bytes": 1917,
+      "sha256": "1805efb2bce45a334eaaf1e8c868c399c47dd988d949c1ffc13adb2b65db29c9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/handoff.md",
+      "bytes": 3843,
+      "sha256": "1135f95abbc2b9ca8465b29563846e7ee852b8e31700596cf08f1d901ad70096"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/precommit-validation.json",
+      "bytes": 1305,
+      "sha256": "853d30e746b20f99641c2b8e42f9595b910b09f035210efa5999a64f0c98a2ff"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/preparation.json",
+      "bytes": 18487,
+      "sha256": "71170010414453108e09cc3a96179d676722ab58cea8673a265b0dfbf4f96d19"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/source-inventory-and-assessment.json",
+      "bytes": 16844,
+      "sha256": "b2d0d7ec73d84a3795828113bee4c09e4fc7ed433a601dd6adfc3c34c63d2544"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction2-20261104/candidate.json",
+      "bytes": 1721,
+      "sha256": "ded5be3938bd89ac395087e2b6b3988f1a95746a38a5a5c4113b6da26332ab53"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction2-20261104/correction.diff",
+      "bytes": 573,
+      "sha256": "21625501ef35d97e6e35ca65e96615cad082b35f341b0ccde73737fb4c423cad"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction2-20261104/git-commands.json",
+      "bytes": 639,
+      "sha256": "eb6bec91fe42d6f27e6e607814af3550c33d033da2952e076f0f6de5bc2727fa"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction2-20261104/starting-state.json",
+      "bytes": 14110,
+      "sha256": "59b0abe758b41f42db7b6265dc4872e1fe78a8b1111fa2ef324dee9675d886fc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction3-20261104/candidate.json",
+      "bytes": 2786,
+      "sha256": "2ea03cdff27f176390ddf6fa1a8c340d480cccd54e020fccf43e60b6c364704e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction3-20261104/correction.diff",
+      "bytes": 561,
+      "sha256": "f24a1c9d1e66f8e5200eb8cd6c5a429f0727614eb7584a03f1b2a9c3a8a33ebd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction3-20261104/first-preparation-assertion-failure.json",
+      "bytes": 878,
+      "sha256": "11fbbd610fbf18fd5282d8803365086e6c7fac462882097d248f8bfc66e20359"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction3-20261104/git-commands.json",
+      "bytes": 648,
+      "sha256": "e27174eff5eb080b21d99d736d04e804d7c13cc2b3a82ff7a7f38af62e10dfbc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction3-20261104/starting-state.json",
+      "bytes": 15410,
+      "sha256": "0be044f9601cc2287caa96967e36f6f67e804709a8e51bf343e2b80eb70018c6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/ChopMapStatements68-candidate1.lean",
+      "bytes": 4076,
+      "sha256": "3e1de6e46c407771794f4b315b2c8836e35d5c9cc141d4ca167a554d5a2fd4ac"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/author-hold.json",
+      "bytes": 3911,
+      "sha256": "dd832a07d5ac0552fc8c576fc0ff31cd95e85b50d6b8b62e31a5b5d412245615"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/candidate.json",
+      "bytes": 4066,
+      "sha256": "340e7e43d800196b08c2dc237e566755af89d78582e59ad1ff2c8606e66bf828"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/checkpoint0125-author-hold.json",
+      "bytes": 1711,
+      "sha256": "2f2665f56f57243c4735931710f0ac0579275a743119d066c473bb07ddcac44f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/commit-result.json",
+      "bytes": 695,
+      "sha256": "fcfc199a2981de638ab11f47b1f27b07cb750742e75d03d22e1a6d35e264ed1a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/handoff.md",
+      "bytes": 6265,
+      "sha256": "fcb8cfac53b667a3c3ca40b0c0e24d7a3fe626066cb7e89ec1b95717f4651daa"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/precommit-validation.json",
+      "bytes": 2044,
+      "sha256": "20309cc992a9a61d1f115eb3f10221d515e95941030663388f2ed732a7ac3675"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/preparation-reconciliation.json",
+      "bytes": 671,
+      "sha256": "235d7f03bbc0f4b0be7556cdd8be7b0d5d511dc87c3cfb56ee890e01e94d276b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/preparation.json",
+      "bytes": 15783,
+      "sha256": "7c7e0597df7b12d7275ed2188e2370623d17ad70fc99ed1b42d19b4bfe5ac460"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/source-inventory-and-statement-review.json",
+      "bytes": 45503,
+      "sha256": "473e4e14d3e46d85282db9e60fb5b387aa0f5cae739afadca3eaff51ce14d20c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/checkpoint0126-author-hold.json",
+      "bytes": 2675,
+      "sha256": "0fe517ae80b4fce4194cbb92091f1ccc6d2320a3e53330600e30d9d140a354c2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/recurrence-incorporation-command.json",
+      "bytes": 1986,
+      "sha256": "01a1819d96f85ac4f55ebee849a1e9bcd86b419c7ac0e792c2031558d083384c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/recurrence-incorporation-result.json",
+      "bytes": 1658,
+      "sha256": "fc67ccd9ebcf7ce60447df1b680bf7997b46c93a6027e0872802bfadcdaebd74"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/recurrence-incorporation-start.json",
+      "bytes": 24091,
+      "sha256": "253a41403f6538d6c6e3bbfccc9f301231c02e55292f158264477bd2cc114456"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/pivot-correction-incorporation-20261104/command-result.json",
+      "bytes": 807,
+      "sha256": "37e801ebf7fb5485ff3744f712467c13d8a914c9dec5fe5e10ee7b465aba217f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/pivot-correction-incorporation-20261104/result.json",
+      "bytes": 1273,
+      "sha256": "d7f4608471bbca053ab5f40f79a1b29b04bcd8a44665fff6cc52736e400d0997"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/pivot-correction-incorporation-20261104/start.json",
+      "bytes": 9262,
+      "sha256": "d7c38ac6c9577e5a10515d11e6ef8fb4e967a67705641ac85ba6896196904319"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/starting-state.json",
+      "bytes": 6935,
+      "sha256": "ffa3143d09aaf84868c847f7e0f1d6457171c48ae34728c8cb2513a64729eb67"
+    }
+  ],
+  "all_prior_records_unchanged": true,
+  "validation_boundary": {
+    "author_compiler_commands": 0,
+    "focused_modules": "NOT RUN",
+    "explicit_types": "PREPARED ONLY",
+    "full_candidate_check": "NOT RUN",
+    "whole_project_audit": "NOT RUN",
+    "independent_Standards": "Pending existing root review loop",
+    "independent_Spec": "Pending existing root review loop",
+    "immediate_candidate_verification": "Pending applicable acceptance",
+    "acceptance_credit": "NONE"
+  },
+  "group_scalar_commits": "Not incorporated. Actual book run<=F first."
+}

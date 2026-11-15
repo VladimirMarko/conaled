@@ -1,0 +1,13 @@
+{
+  "actual_tool": {
+    "chunk_id": "985cf5",
+    "wall_time_seconds": 0.011944549,
+    "exit_code": 1,
+    "original_token_count": 34,
+    "output": "Traceback (most recent call last):\n  File \"<string>\", line 18, in <module>\n  File \"<string>\", line 18, in <genexpr>\nKeyError: 'name'\n"
+  },
+  "failure": "Legacy catalog row has no name key; duplicate-name check failed before all metadata/control writes.",
+  "correction": "Use optional name lookup while preserving every prior catalog row exactly.",
+  "all_durability_update_outputs_absent": true,
+  "checkpoint_upload_and_full_hash_verification_already_succeeded": true
+}

@@ -1,0 +1,733 @@
+{
+  "reviewer": "/root/tree_cache_standards",
+  "unit": "FDSA-XT02",
+  "candidate": "27c5908b07c7a03feefc09472a8701ef940b7aaf",
+  "tree": "2833c54c80e93940eaea859737d6854fb2ce933e",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "incorporated_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "method": "Independent read-only traversal of simple immutable local import lines; no project helper or compiler execution. Exact edge set and source bytes recorded.",
+  "roots": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean"
+  ],
+  "counts": {
+    "local_sources": 29,
+    "direct_external_modules": 14,
+    "import_edges": 54,
+    "new_local_sources": 3,
+    "inherited_local_sources": 26,
+    "all_inherited_equal_incorporated_base": 26,
+    "inherited_equal_original_donor": 24
+  },
+  "local_sources": [
+    {
+      "path": "Applications/Bracketing/Basic.lean",
+      "git_blob": "3f6604c226908ee807c7d5076bd1c027b48bbf90",
+      "bytes": 8561,
+      "lines": 243,
+      "sha256": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Optimization/SelectionSpec.lean",
+      "git_blob": "2548b66575b5a453e8cec30ceb745234bb0ae2e6",
+      "bytes": 738,
+      "lines": 18,
+      "sha256": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Resources/CallCount.lean",
+      "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+      "bytes": 2447,
+      "lines": 58,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Resources/ListReversal.lean",
+      "git_blob": "62ab85a7325d521bf925405f9abb053703f4d175",
+      "bytes": 4827,
+      "lines": 116,
+      "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Resources/Measured.lean",
+      "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+      "bytes": 2906,
+      "lines": 71,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Resources/Potential.lean",
+      "git_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+      "bytes": 4638,
+      "lines": 108,
+      "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Resources/RandomAccess/CacheCosts.lean",
+      "git_blob": "e583ec5285ea887c38f4b369071408697f0574b2",
+      "bytes": 2227,
+      "lines": 61,
+      "sha256": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Resources/SymmetricCosts.lean",
+      "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+      "bytes": 10508,
+      "lines": 281,
+      "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "git_blob": "445e49be7535e17640c7c4ca81251dd7c4119117",
+      "bytes": 3862,
+      "lines": 80,
+      "sha256": "c03a102b43bb5f04edf8b5ab6f0685bd82f80d55a67af680dfa8c0ff0c149abc",
+      "new_unit_source": false,
+      "same_original_donor": false,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Resources/TreeFlattening/Core.lean",
+      "git_blob": "d136193bd3823ee00431bc240d1e7a0168b4ddaf",
+      "bytes": 4225,
+      "lines": 116,
+      "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Resources/Workload.lean",
+      "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+      "bytes": 2745,
+      "lines": 64,
+      "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Sequences/OrderedSummary.lean",
+      "git_blob": "93509e2e97acd47dcd68a109ea8d18ef1d612b57",
+      "bytes": 8765,
+      "lines": 190,
+      "sha256": "d484e6c34f4ebace4ba121f931eba53a86f34a3c4b69e06d9d0b24ae8c8c7261",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Sequences/RandomAccess/Access.lean",
+      "git_blob": "5354c146a0665cce90ffc996d1b522b8a59079ad",
+      "bytes": 5219,
+      "lines": 141,
+      "sha256": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Sequences/RandomAccess/Basic.lean",
+      "git_blob": "fe040b71615878a86d06b326b820e1d5cd5f0229",
+      "bytes": 5970,
+      "lines": 180,
+      "sha256": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Sequences/RandomAccess/Borrow.lean",
+      "git_blob": "81b95e8bd4a6e30f6a20a85828409d6d55437be0",
+      "bytes": 5680,
+      "lines": 145,
+      "sha256": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Sequences/RandomAccess/TreeBuild.lean",
+      "git_blob": "3b662705f001c2a4b8fbe12868d6c7e77316d95f",
+      "bytes": 5392,
+      "lines": 139,
+      "sha256": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Sequences/Symmetric/Core.lean",
+      "git_blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4",
+      "bytes": 12059,
+      "lines": 362,
+      "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Sequences/Symmetric/Finite.lean",
+      "git_blob": "fedbcc0dfa4c7865ef2ee73f395155d45e33dbe5",
+      "bytes": 4923,
+      "lines": 119,
+      "sha256": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Sequences/Symmetric/Observation.lean",
+      "git_blob": "846aba846bfcfa04867cc221043609f9198b0ec0",
+      "bytes": 3425,
+      "lines": 88,
+      "sha256": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "git_blob": "b73854f69696abe7cf827372ad070b6e9dc19991",
+      "bytes": 4345,
+      "lines": 114,
+      "sha256": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "git_blob": "c301ca85e555a8c5bb3c9db10459446121bc6613",
+      "bytes": 5668,
+      "lines": 135,
+      "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "git_blob": "f90fbe8c85b9c88f760236d48129bd2b4c4d7e71",
+      "bytes": 4119,
+      "lines": 107,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "git_blob": "52c589e228d4c3a8726f7010ec1de7700ba5eca2",
+      "bytes": 11019,
+      "lines": 267,
+      "sha256": "2233e014900a48ebc239d676a1c8abdaee2046ef503e5219bff460a001b868f3",
+      "new_unit_source": true,
+      "same_original_donor": true,
+      "same_incorporated_base": null
+    },
+    {
+      "path": "Applications/Trees/ShapeLog.lean",
+      "git_blob": "2b9d3e3ce0adef033ecba262cd5b1126591c390b",
+      "bytes": 2796,
+      "lines": 69,
+      "sha256": "35c0555383fc3d03bcac4f368d41b2c8f744a49e18ef72b192c3753b7ef4497b",
+      "new_unit_source": true,
+      "same_original_donor": true,
+      "same_incorporated_base": null
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "git_blob": "e0f09b851bb4ce6d1093faaf3cbbcb3b3d873f24",
+      "bytes": 16571,
+      "lines": 371,
+      "sha256": "d92dfcbb139395af13a5939daed2739c10f08ec52d5eaef4165d3962bc76b955",
+      "new_unit_source": false,
+      "same_original_donor": false,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "git_blob": "ad88549bad45b77c33f039d3e465cd074f038b01",
+      "bytes": 12648,
+      "lines": 297,
+      "sha256": "2bcf2b65fa7a0eccc043c3bc7ba66d1bfdcd469489eab52d9085fdfb3db0b516",
+      "new_unit_source": true,
+      "same_original_donor": true,
+      "same_incorporated_base": null
+    },
+    {
+      "path": "SquareKit/ListFusion.lean",
+      "git_blob": "33ec447acb6da7b884ae57d2a885707208201607",
+      "bytes": 2939,
+      "lines": 73,
+      "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "SquareKit/Relations.lean",
+      "git_blob": "cdfa81e8f94728272a5c72da21ae2e4f5a5febc4",
+      "bytes": 5615,
+      "lines": 163,
+      "sha256": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    },
+    {
+      "path": "Squares.lean",
+      "git_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+      "bytes": 11694,
+      "lines": 352,
+      "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+      "new_unit_source": false,
+      "same_original_donor": true,
+      "same_incorporated_base": true
+    }
+  ],
+  "external_modules": [
+    "Batteries.Data.DList.Lemmas",
+    "Lean",
+    "Mathlib.Algebra.FreeMonoid.Basic",
+    "Mathlib.Algebra.Group.Nat.Defs",
+    "Mathlib.Algebra.Group.Prod",
+    "Mathlib.Algebra.Group.TypeTags.Basic",
+    "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+    "Mathlib.Analysis.SpecialFunctions.Log.Base",
+    "Mathlib.Data.List.Basic",
+    "Mathlib.Data.List.Infix",
+    "Mathlib.Data.Nat.Log",
+    "Mathlib.Data.Tree.Basic",
+    "Mathlib.Tactic.Linarith",
+    "Std"
+  ],
+  "edges": [
+    {
+      "source_path": "Applications/Bracketing/Basic.lean",
+      "import": "Applications.Optimization.SelectionSpec",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Optimization/SelectionSpec.lean",
+      "import": "Std",
+      "local": false
+    },
+    {
+      "source_path": "Applications/Resources/CallCount.lean",
+      "import": "Applications.Resources.Measured",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Resources/ListReversal.lean",
+      "import": "Applications.Resources.CallCount",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Resources/ListReversal.lean",
+      "import": "Applications.Resources.SymmetricCosts",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Resources/ListReversal.lean",
+      "import": "Applications.Resources.TreeFlattening.Core",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Resources/ListReversal.lean",
+      "import": "Mathlib.Tactic.Linarith",
+      "local": false
+    },
+    {
+      "source_path": "Applications/Resources/Measured.lean",
+      "import": "Mathlib.Algebra.Group.Prod",
+      "local": false
+    },
+    {
+      "source_path": "Applications/Resources/Measured.lean",
+      "import": "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+      "local": false
+    },
+    {
+      "source_path": "Applications/Resources/Measured.lean",
+      "import": "Squares",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Resources/Potential.lean",
+      "import": "Applications.Resources.Workload",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Resources/Potential.lean",
+      "import": "Mathlib.Algebra.Group.Nat.Defs",
+      "local": false
+    },
+    {
+      "source_path": "Applications/Resources/RandomAccess/CacheCosts.lean",
+      "import": "Applications.Sequences.RandomAccess.TreeBuild",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Resources/SymmetricCosts.lean",
+      "import": "Applications.Resources.Potential",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Resources/SymmetricCosts.lean",
+      "import": "Applications.Sequences.Symmetric.Core",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Resources/TreeCache.lean",
+      "import": "Applications.Resources.CallCount",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Resources/TreeCache.lean",
+      "import": "Applications.Trees.Cached",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Resources/TreeFlattening/Core.lean",
+      "import": "Applications.Resources.Measured",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Resources/TreeFlattening/Core.lean",
+      "import": "Applications.Resources.RandomAccess.CacheCosts",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Resources/Workload.lean",
+      "import": "Applications.Resources.Measured",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Resources/Workload.lean",
+      "import": "SquareKit.ListFusion",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Sequences/OrderedSummary.lean",
+      "import": "Applications.Sequences.Symmetric.Observation",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Sequences/OrderedSummary.lean",
+      "import": "Batteries.Data.DList.Lemmas",
+      "local": false
+    },
+    {
+      "source_path": "Applications/Sequences/OrderedSummary.lean",
+      "import": "Mathlib.Algebra.FreeMonoid.Basic",
+      "local": false
+    },
+    {
+      "source_path": "Applications/Sequences/OrderedSummary.lean",
+      "import": "Mathlib.Algebra.Group.Prod",
+      "local": false
+    },
+    {
+      "source_path": "Applications/Sequences/OrderedSummary.lean",
+      "import": "Mathlib.Algebra.Group.TypeTags.Basic",
+      "local": false
+    },
+    {
+      "source_path": "Applications/Sequences/OrderedSummary.lean",
+      "import": "SquareKit.ListFusion",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Sequences/OrderedSummary.lean",
+      "import": "SquareKit.Relations",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Sequences/RandomAccess/Access.lean",
+      "import": "Applications.Sequences.RandomAccess.Basic",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Sequences/RandomAccess/Basic.lean",
+      "import": "Applications.Bracketing.Basic",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Sequences/RandomAccess/Borrow.lean",
+      "import": "Applications.Sequences.RandomAccess.Access",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Sequences/RandomAccess/TreeBuild.lean",
+      "import": "Applications.Sequences.RandomAccess.Borrow",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Sequences/Symmetric/Core.lean",
+      "import": "Mathlib.Data.List.Infix",
+      "local": false
+    },
+    {
+      "source_path": "Applications/Sequences/Symmetric/Core.lean",
+      "import": "SquareKit.ListFusion",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Sequences/Symmetric/Finite.lean",
+      "import": "Applications.Sequences.Symmetric.Prefixes",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Sequences/Symmetric/Observation.lean",
+      "import": "Applications.Sequences.Symmetric.Finite",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Sequences/Symmetric/Observation.lean",
+      "import": "SquareKit.Relations",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "import": "Applications.Sequences.Symmetric.Core",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Trees/Cached.lean",
+      "import": "Applications.Trees.Observations",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Trees/Observations.lean",
+      "import": "Mathlib.Data.List.Basic",
+      "local": false
+    },
+    {
+      "source_path": "Applications/Trees/Observations.lean",
+      "import": "Mathlib.Data.Tree.Basic",
+      "local": false
+    },
+    {
+      "source_path": "Applications/Trees/Shape.lean",
+      "import": "Applications.Trees.Observations",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Trees/Shape.lean",
+      "import": "Mathlib.Data.Nat.Log",
+      "local": false
+    },
+    {
+      "source_path": "Applications/Trees/ShapeLog.lean",
+      "import": "Applications.Trees.Shape",
+      "local": true
+    },
+    {
+      "source_path": "Applications/Trees/ShapeLog.lean",
+      "import": "Mathlib.Analysis.SpecialFunctions.Log.Base",
+      "local": false
+    },
+    {
+      "source_path": "Examples/TreeCache.lean",
+      "import": "Applications.Resources.ListReversal",
+      "local": true
+    },
+    {
+      "source_path": "Examples/TreeCache.lean",
+      "import": "Applications.Resources.TreeCache",
+      "local": true
+    },
+    {
+      "source_path": "Examples/TreeCache.lean",
+      "import": "Applications.Sequences.OrderedSummary",
+      "local": true
+    },
+    {
+      "source_path": "Examples/TreeCache.lean",
+      "import": "Applications.Trees.Cached",
+      "local": true
+    },
+    {
+      "source_path": "Examples/TreeShape.lean",
+      "import": "Applications.Trees.ShapeLog",
+      "local": true
+    },
+    {
+      "source_path": "Examples/TreeShape.lean",
+      "import": "Examples.TreeCache",
+      "local": true
+    },
+    {
+      "source_path": "SquareKit/ListFusion.lean",
+      "import": "Mathlib.Data.List.Basic",
+      "local": false
+    },
+    {
+      "source_path": "SquareKit/Relations.lean",
+      "import": "Squares",
+      "local": true
+    },
+    {
+      "source_path": "Squares.lean",
+      "import": "Lean",
+      "local": false
+    }
+  ],
+  "inherited_donor_differences": [
+    "Applications/Resources/TreeCache.lean",
+    "Examples/TreeCache.lean"
+  ],
+  "difference_reason": "Only accepted XT01 proof corrections in Resources.TreeCache and Examples.TreeCache; their full immutable source and actual115 types were assessed in the held accepted XT01 Standards review.",
+  "reading_boundary": "Three declaration-bearing sources freshly read completely during read-only preparation and now byte-identical; original root/map full readings retained, receiving complete note and current root/map diff freshly read. Other dependency hashes do not claim a new full semantic reading.",
+  "configuration": [
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 444,
+      "lines": 13,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    },
+    {
+      "path": "flake.nix",
+      "bytes": 637,
+      "lines": 28,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    },
+    {
+      "path": "flake.lock",
+      "bytes": 564,
+      "lines": 27,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    },
+    {
+      "path": "check.sh",
+      "bytes": 74,
+      "lines": 4,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    },
+    {
+      "path": "scripts/check.py",
+      "bytes": 16119,
+      "lines": 348,
+      "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    },
+    {
+      "path": "scripts/lake_integrity.py",
+      "bytes": 5781,
+      "lines": 117,
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    },
+    {
+      "path": "scripts/lake-output-hashes.lean",
+      "bytes": 618,
+      "lines": 11,
+      "sha256": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    },
+    {
+      "path": "ProofAudit.lean",
+      "bytes": 7925,
+      "lines": 154,
+      "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    }
+  ],
+  "pins": [
+    {
+      "name": "mathlib",
+      "rev": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+    },
+    {
+      "name": "plausible",
+      "rev": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+    },
+    {
+      "name": "LeanSearchClient",
+      "rev": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+    },
+    {
+      "name": "importGraph",
+      "rev": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+    },
+    {
+      "name": "proofwidgets",
+      "rev": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+    },
+    {
+      "name": "aesop",
+      "rev": "4a174c490d8707121c4a9290800489f105d85e07"
+    },
+    {
+      "name": "Qq",
+      "rev": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+    },
+    {
+      "name": "batteries",
+      "rev": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+    },
+    {
+      "name": "Cli",
+      "rev": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+    }
+  ],
+  "runtime_capture": null,
+  "compiled_artifact_capture": null,
+  "actual_execution_credit": 0
+}

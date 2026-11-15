@@ -1,0 +1,81 @@
+{
+  "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "process_group": 283393,
+  "scope": "Read-only ps selection of recorded task session; inspect only matching group and isolated cwd. No environment reads, signals, source or cache changes.",
+  "prior_sampler_limitation": "The known leader cwd/stat/cmdline were readable, but /proc/283393/task/283393/children returned ENOENT. The prior empty samples therefore establish no inactivity or progress.",
+  "samples": [
+    {
+      "utc": "2026-11-02T11:41:32.666993+00:00",
+      "processes": [
+        {
+          "pid": 283393,
+          "program": "python3",
+          "state": "S",
+          "user_seconds": 2.9,
+          "system_seconds": 0.67,
+          "major_faults": 129,
+          "rss_bytes": 12980224
+        },
+        {
+          "pid": 283631,
+          "program": "lake",
+          "state": "S",
+          "user_seconds": 5.59,
+          "system_seconds": 9.48,
+          "major_faults": 683,
+          "rss_bytes": 140083200
+        },
+        {
+          "pid": 305071,
+          "program": "lean",
+          "state": "S",
+          "user_seconds": 0.28,
+          "system_seconds": 0.99,
+          "major_faults": 1679,
+          "rss_bytes": 230019072,
+          "source_files": [
+            "/workspace/scratch/0c54f2db1fdf/vfa-validation/SquareKit/SmoothOpenEmbedding.lean"
+          ]
+        }
+      ],
+      "skips": []
+    },
+    {
+      "utc": "2026-11-02T11:41:44.676187+00:00",
+      "processes": [
+        {
+          "pid": 283393,
+          "program": "python3",
+          "state": "S",
+          "user_seconds": 2.9,
+          "system_seconds": 0.67,
+          "major_faults": 129,
+          "rss_bytes": 12980224
+        },
+        {
+          "pid": 283631,
+          "program": "lake",
+          "state": "S",
+          "user_seconds": 5.59,
+          "system_seconds": 9.48,
+          "major_faults": 683,
+          "rss_bytes": 137592832
+        },
+        {
+          "pid": 305071,
+          "program": "lean",
+          "state": "S",
+          "user_seconds": 0.5,
+          "system_seconds": 3.74,
+          "major_faults": 9674,
+          "rss_bytes": 304640000,
+          "source_files": [
+            "/workspace/scratch/0c54f2db1fdf/vfa-validation/SquareKit/SmoothOpenEmbedding.lean"
+          ]
+        }
+      ],
+      "skips": []
+    }
+  ],
+  "interpretation": "Cumulative process metrics over a bounded interval only; not validation success or a causal performance explanation."
+}

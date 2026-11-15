@@ -1,0 +1,40 @@
+[
+  {
+    "argv": [
+      "git",
+      "add",
+      "--",
+      "Applications/Selection/OutsidePivot.lean",
+      "Examples/OutsidePivot.lean"
+    ],
+    "actual_exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "actual_exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "git",
+      "-c",
+      "user.name=ChatGPT",
+      "-c",
+      "user.email=chatgpt@openai.com",
+      "commit",
+      "-m",
+      "feat(selection): prove outside-pivot nontermination (#174)"
+    ],
+    "actual_exit": 0,
+    "stdout": "[work/fdsa-ch03-rounded-recurrence 3f42358] feat(selection): prove outside-pivot nontermination (#174)\n 2 files changed, 233 insertions(+)\n create mode 100644 Applications/Selection/OutsidePivot.lean\n create mode 100644 Examples/OutsidePivot.lean\n",
+    "stderr": ""
+  }
+]

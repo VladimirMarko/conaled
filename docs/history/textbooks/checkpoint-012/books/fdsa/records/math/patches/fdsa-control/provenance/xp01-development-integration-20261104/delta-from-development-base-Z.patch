@@ -1,0 +1,603 @@
+diff --git a/Applications/Resources/FIFOContracts.lean b/Applications/Resources/FIFOContracts.lean
+index 51a45ac..0183970 100644
+--- a/Applications/Resources/FIFOContracts.lean
++++ b/Applications/Resources/FIFOContracts.lean
+@@ -13,7 +13,7 @@ structure Instrumentation (ops : Ops α Q) where
+   erases : ∀ c q, (measured c q).1 = step ops c q
+ 
+ def abstractBudget (profile : Command α → List α → Nat) :=
+-  budget (fun c xs => (step (lists α) c xs, 0)) profile
++  budget (fun c xs => (step (lists α) c xs, (0 : Nat))) profile
+ 
+ structure Accounting (ops : Ops α Q) (m : Instrumentation ops)
+     (decode : Q → List α) (profile : Command α → List α → Nat)
+diff --git a/Applications/Resources/Potential.lean b/Applications/Resources/Potential.lean
+index 82e8613..3ffc5e1 100644
+--- a/Applications/Resources/Potential.lean
++++ b/Applications/Resources/Potential.lean
+@@ -1,24 +1,166 @@
+ import Applications.Resources.Workload
+-import Mathlib.Algebra.Group.Nat.Defs
++import Mathlib.Algebra.Order.Group.Nat
+ 
+ /-! Trajectory-dependent charges and telescoping with explicit boundary potentials.
+-Provenance and statement review: `docs/research/adwh-potential-accounting.md`. -/
++Raw work and accounting charges can have different carriers. The additive
++boundary laws preserve observation order; signed amortized charges use a
++commutative group. Provenance and statement review:
++`docs/research/adwh-potential-accounting.md` and
++`docs/research/fdsa-potential-accounting.md`. -/
+ namespace Resources
+-universe u v
+-variable {ι : Type u} {σ : Type v}
++universe u v w x y
++variable {ι : Type u} {σ : Type v} {C : Type w} {D : Type x} {E : Type y}
+ 
+ /-- Sum amortized charges along the same actual state trajectory. -/
+-def budget (step : ι → σ → σ × Nat) (charge : ι → σ → Nat) : List ι → σ → Nat
++def budget [Zero D] [Add D] (step : ι → σ → σ × C) (charge : ι → σ → D) :
++    List ι → σ → D
+   | [], _ => 0
+   | i :: is, s => charge i s + budget step charge is (step i s).1
+ 
+-theorem budget_append (step : ι → σ → σ × Nat) (charge : ι → σ → Nat)
++theorem budget_append [Zero C] [Add C] [AddMonoid D]
++    (step : ι → σ → σ × C) (charge : ι → σ → D)
+     (is js : List ι) (s : σ) :
+     budget step charge (is ++ js) s =
+       budget step charge is s + budget step charge js (run step is s).1 := by
+   induction is generalizing s with
+   | nil => simp [run, pure, budget]
+-  | cons i is ih => simp [run, bind, budget, ih, Nat.add_assoc]
++  | cons i is ih => simp [run, bind, budget, ih, add_assoc]
++
++/-- Additive observation maps preserve a budget on its actual state trajectory.
++The raw work carrier needs no algebra because this observation uses only states.
++-/
++theorem budget_map [AddZero D] [AddZero E] (h : D →+ E)
++    (step : ι → σ → σ × C) (charge : ι → σ → D) (is : List ι) (s : σ) :
++    h (budget step charge is s) = budget step (fun i s => h (charge i s)) is s := by
++  induction is generalizing s with
++  | nil => exact h.map_zero
++  | cons i is ih => simp only [budget, map_add, ih]
++
++/-- Mapped work telescopes using local laws only on preserved valid states.
++Neither carrier needs an order-compatible cost map: the supplied local law
++already compares its image. The accounting addition need not commute.
++-/
++theorem run_potential_map_of_invariant [AddZero C] [AddMonoid D] [Preorder D]
++    [AddLeftMono D] [AddRightMono D]
++    (step : ι → σ → σ × C) (charge : ι → σ → D) (potential : σ → D)
++    (h : C →+ D) (P : σ → Prop)
++    (closed : ∀ i s, P s → P (step i s).1)
++    (hstep : ∀ i s, P s →
++      h (step i s).2 + potential (step i s).1 ≤ potential s + charge i s)
++    (is : List ι) (s : σ) (hs : P s) :
++    h (run step is s).2 + potential (run step is s).1 ≤
++      potential s + budget step charge is s := by
++  induction is generalizing s with
++  | nil => simp [run, pure, budget]
++  | cons i is ih =>
++      have localLaw := hstep i s hs
++      have tail := ih (step i s).1 (closed i s hs)
++      simp only [run_cons, budget, map_add]
++      calc
++        (h (step i s).2 + h (run step is (step i s).1).2) +
++            potential (run step is (step i s).1).1 =
++            h (step i s).2 +
++              (h (run step is (step i s).1).2 + potential (run step is (step i s).1).1) :=
++          add_assoc _ _ _
++        _ ≤ h (step i s).2 +
++            (potential (step i s).1 + budget step charge is (step i s).1) :=
++          add_le_add_left tail _
++        _ = (h (step i s).2 + potential (step i s).1) +
++            budget step charge is (step i s).1 := (add_assoc _ _ _).symm
++        _ ≤ (potential s + charge i s) + budget step charge is (step i s).1 :=
++          add_le_add_right localLaw _
++        _ = potential s + (charge i s + budget step charge is (step i s).1) :=
++          add_assoc _ _ _
++
++/-- Exact boundary accounting needs only additive laws in the target. -/
++theorem run_potential_map_exact_of_invariant [AddZero C] [AddMonoid D]
++    (step : ι → σ → σ × C) (charge : ι → σ → D) (potential : σ → D)
++    (h : C →+ D) (P : σ → Prop)
++    (closed : ∀ i s, P s → P (step i s).1)
++    (hstep : ∀ i s, P s →
++      h (step i s).2 + potential (step i s).1 = potential s + charge i s)
++    (is : List ι) (s : σ) (hs : P s) :
++    h (run step is s).2 + potential (run step is s).1 =
++      potential s + budget step charge is s := by
++  induction is generalizing s with
++  | nil => simp [run, pure, budget]
++  | cons i is ih =>
++      have localLaw := hstep i s hs
++      have tail := ih (step i s).1 (closed i s hs)
++      simp only [run_cons, budget, map_add]
++      calc
++        (h (step i s).2 + h (run step is (step i s).1).2) +
++            potential (run step is (step i s).1).1 =
++            h (step i s).2 +
++              (h (run step is (step i s).1).2 + potential (run step is (step i s).1).1) :=
++          add_assoc _ _ _
++        _ = h (step i s).2 +
++            (potential (step i s).1 + budget step charge is (step i s).1) :=
++          congrArg (fun d => h (step i s).2 + d) tail
++        _ = (h (step i s).2 + potential (step i s).1) +
++            budget step charge is (step i s).1 := (add_assoc _ _ _).symm
++        _ = (potential s + charge i s) + budget step charge is (step i s).1 :=
++          congrArg (fun d => d + budget step charge is (step i s).1) localLaw
++        _ = potential s + (charge i s + budget step charge is (step i s).1) :=
++          add_assoc _ _ _
++
++theorem run_potential_map [AddZero C] [AddMonoid D] [Preorder D]
++    [AddLeftMono D] [AddRightMono D]
++    (step : ι → σ → σ × C) (charge : ι → σ → D) (potential : σ → D)
++    (h : C →+ D)
++    (hstep : ∀ i s,
++      h (step i s).2 + potential (step i s).1 ≤ potential s + charge i s)
++    (is : List ι) (s : σ) :
++    h (run step is s).2 + potential (run step is s).1 ≤
++      potential s + budget step charge is s :=
++  run_potential_map_of_invariant step charge potential h (fun _ => True)
++    (fun _ _ _ => True.intro) (fun i s _ => hstep i s) is s True.intro
++
++theorem run_potential_map_exact [AddZero C] [AddMonoid D]
++    (step : ι → σ → σ × C) (charge : ι → σ → D) (potential : σ → D)
++    (h : C →+ D)
++    (hstep : ∀ i s,
++      h (step i s).2 + potential (step i s).1 = potential s + charge i s)
++    (is : List ι) (s : σ) :
++    h (run step is s).2 + potential (run step is s).1 =
++      potential s + budget step charge is s :=
++  run_potential_map_exact_of_invariant step charge potential h (fun _ => True)
++    (fun _ _ _ => True.intro) (fun i s _ => hstep i s) is s True.intro
++
++/-- Dropping the final potential requires its nonnegativity on the actual
++preserved domain. The initial potential remains available in the conclusion.
++-/
++theorem run_cost_le_map_of_invariant [AddZero C] [AddMonoid D] [Preorder D]
++    [AddLeftMono D] [AddRightMono D]
++    (step : ι → σ → σ × C) (charge : ι → σ → D) (potential : σ → D)
++    (h : C →+ D) (P : σ → Prop)
++    (closed : ∀ i s, P s → P (step i s).1)
++    (hstep : ∀ i s, P s →
++      h (step i s).2 + potential (step i s).1 ≤ potential s + charge i s)
++    (nonneg : ∀ s, P s → 0 ≤ potential s)
++    (is : List ι) (s : σ) (hs : P s) :
++    h (run step is s).2 ≤ potential s + budget step charge is s := by
++  have final := nonneg _ (run_invariant step P closed is s hs)
++  have boundary := run_potential_map_of_invariant step charge potential h P
++    closed hstep is s hs
++  have lower : h (run step is s).2 ≤
++      h (run step is s).2 + potential (run step is s).1 := by
++    simpa only [add_zero] using add_le_add_left final (h (run step is s).2)
++  exact lower.trans boundary
++
++/-- The signed source amortized expression, summed along the actual trajectory.
++Commutative-group subtraction is essential here; no sign assumptions are needed.
++-/
++theorem budget_amortized [AddZero C] [AddCommGroup D]
++    (step : ι → σ → σ × C) (potential : σ → D) (h : C →+ D)
++    (is : List ι) (s : σ) :
++    budget step (fun i s => h (step i s).2 + potential (step i s).1 - potential s) is s =
++      h (run step is s).2 + potential (run step is s).1 - potential s := by
++  have boundary := run_potential_map_exact step
++    (fun i s => h (step i s).2 + potential (step i s).1 - potential s) potential h
++    (fun i s => by rw [add_comm (potential s), sub_add_cancel]) is s
++  apply (eq_sub_iff_add_eq).2
++  exact (add_comm _ _).trans boundary.symm
+ 
+ /-- Source equation (2.3), expressed without truncated subtraction. -/
+ theorem charge_iff_signed (cost before after amortized : Nat) :
+@@ -31,14 +173,8 @@ theorem run_potential (step : ι → σ → σ × Nat) (charge : ι → σ → N
+     (hstep : ∀ i s, (step i s).2 + potential (step i s).1 ≤ potential s + charge i s)
+     (is : List ι) (s : σ) :
+     (run step is s).2 + potential (run step is s).1 ≤
+-      potential s + budget step charge is s := by
+-  induction is generalizing s with
+-  | nil => simp [run, pure, budget]
+-  | cons i is ih =>
+-      have hs := hstep i s
+-      have hr := ih (step i s).1
+-      simp only [run, bind, budget]
+-      omega
++      potential s + budget step charge is s :=
++  run_potential_map step charge potential (AddMonoidHom.id Nat) hstep is s
+ 
+ /-- Exact local identities telescope to an exact global identity. -/
+ theorem run_potential_exact (step : ι → σ → σ × Nat) (charge : ι → σ → Nat)
+@@ -46,14 +182,8 @@ theorem run_potential_exact (step : ι → σ → σ × Nat) (charge : ι → σ
+     (hstep : ∀ i s, (step i s).2 + potential (step i s).1 = potential s + charge i s)
+     (is : List ι) (s : σ) :
+     (run step is s).2 + potential (run step is s).1 =
+-      potential s + budget step charge is s := by
+-  induction is generalizing s with
+-  | nil => simp [run, pure, budget]
+-  | cons i is ih =>
+-      have hs := hstep i s
+-      have hr := ih (step i s).1
+-      simp only [run, bind, budget]
+-      omega
++      potential s + budget step charge is s :=
++  run_potential_map_exact step charge potential (AddMonoidHom.id Nat) hstep is s
+ 
+ theorem run_cost_le (step : ι → σ → σ × Nat) (charge : ι → σ → Nat)
+     (potential : σ → Nat)
+diff --git a/Examples/MappedPotentialAccounting.lean b/Examples/MappedPotentialAccounting.lean
+new file mode 100644
+index 0000000..0291c59
+--- /dev/null
++++ b/Examples/MappedPotentialAccounting.lean
+@@ -0,0 +1,165 @@
++import Applications.Resources.BinaryCounter
++import Mathlib.Basic.Real.Basic
++import Mathlib.Tactic.NormNum
++import Mathlib.Algebra.FreeMonoid.Basic
++import Mathlib.Algebra.Group.TypeTags.Basic
++
++/-! Connected cases for mapped, signed and invariant-restricted potential
++accounting. These observe actual measured executions; the small transitions
++below are accounting examples, not implementations of later book algorithms.
++Statement review and independent expected calculations:
++`docs/research/fdsa-potential-accounting.md`. -/
++namespace Examples.MappedPotentialAccounting
++open Resources
++
++namespace Counter
++open Resources.BinaryCounter
++
++/-- Transport the local write law, then telescope the actual counter execution.
++No canonicality or zero-initial-potential premise is required.
++-/
++theorem real_boundary (n : Nat) (bs : Bits) :
++    (totalCost n bs : ℝ) + (ones (advance n bs) : ℝ) =
++      (ones bs : ℝ) + 2 * (n : ℝ) := by
++  have localLaw : ∀ (_ : Unit) s,
++      (Nat.castAddMonoidHom ℝ) (incWithCost s).2 + (ones (incWithCost s).1 : ℝ) =
++        (ones s : ℝ) + 2 := by
++    intro _ s
++    simpa [incWithCost_eq, add_comm] using
++      congrArg (fun k : Nat => (k : ℝ)) (flipCost_potential s)
++  have constantBudget :
++      budget (fun (_ : Unit) => incWithCost) (fun _ _ => (2 : ℝ))
++        (List.replicate n ()) bs = 2 * (n : ℝ) := by
++    have mapped := budget_map (Nat.castAddMonoidHom ℝ)
++      (fun (_ : Unit) => incWithCost) (fun _ _ => (2 : Nat)) (List.replicate n ()) bs
++    rw [budget_constant] at mapped
++    simpa using mapped.symm
++  have boundary := run_potential_map_exact (fun (_ : Unit) => incWithCost)
++    (fun _ _ => (2 : ℝ)) (fun s => (ones s : ℝ)) (Nat.castAddMonoidHom ℝ)
++    localLaw (List.replicate n ()) bs
++  rw [constantBudget] at boundary
++  simpa only [counter_run, advanceWithCost_eq, Nat.coe_castAddMonoidHom] using boundary
++
++example : value (advance 4 []) = 4 := by simpa [value] using value_advance 4 []
++
++example : (totalCost 4 [] : ℝ) = 7 := by
++  have boundary := real_boundary 4 []
++  have final : ones (advance 4 []) = 1 := rfl
++  have paid : (totalCost 4 [] : ℝ) + 1 = 8 := by
++    norm_num [final, ones] at boundary
++    exact boundary
++  calc
++    (totalCost 4 [] : ℝ) = 8 - 1 := (eq_sub_iff_add_eq).2 paid
++    _ = 7 := by norm_num
++
++example (n : Nat) : (totalCost n [] : ℝ) + (ones (advance n []) : ℝ) = 2 * n := by
++  simpa [ones] using real_boundary n []
++
++end Counter
++
++namespace InitialCredit
++
++private def clearStep (_ : Unit) (_ : Nat) : Measured Nat Nat := (0, 1)
++private def potential (s : Nat) : Int := 2 * (s : Int)
++private def charge (_ : Unit) (s : Nat) : Int := 1 - 2 * (s : Int)
++
++example (s : Nat) : 0 ≤ potential s := by
++  exact mul_nonneg (by decide) (by omega)
++
++/-- A first charge of minus one is followed by a charge of plus one, because
++the actual state has changed. The raw work remains two.
++-/
++private theorem boundary (is : List Unit) (s : Nat) :
++    budget clearStep charge is s =
++      ((run clearStep is s).2 : Int) + potential (run clearStep is s).1 - potential s := by
++  simpa [clearStep, charge, potential] using
++    budget_amortized clearStep potential (Nat.castAddMonoidHom Int) is s
++
++example : charge () 1 = -1 := rfl
++example : (run clearStep [(), ()] 1).2 = 2 := rfl
++
++example : budget clearStep charge [(), ()] 1 = 0 := by
++  rw [boundary]
++  norm_num [run, bind, pure, clearStep, potential]
++
++example : ¬ ((run clearStep [(), ()] 1).2 : Int) ≤
++    budget clearStep charge [(), ()] 1 := by
++  rw [boundary]
++  norm_num [run, bind, pure, clearStep, potential]
++
++example : budget clearStep charge [(), ()] 1 ≠ charge () 1 + charge () 1 := by
++  rw [boundary]
++  norm_num [run, bind, pure, clearStep, potential, charge]
++
++end InitialCredit
++
++namespace Fractional
++
++private def step (_ : Unit) (s : Nat) : Measured Nat Nat :=
++  if s = 0 then (1, 1) else if s = 1 then (0, 1) else (s, 100)
++
++private def Valid (s : Nat) : Prop := s ≤ 1
++private noncomputable def potential (s : Nat) : ℝ := if s = 1 then 1 / 2 else 0
++private noncomputable def charge (_ : Unit) (s : Nat) : ℝ := if s = 0 then 3 / 2 else 1 / 2
++
++private theorem closed (i : Unit) (s : Nat) (hs : Valid s) : Valid (step i s).1 := by
++  have small : s = 0 ∨ s = 1 := by unfold Valid at hs; omega
++  rcases small with rfl | rfl <;> norm_num [step, Valid]
++
++private theorem localLaw (i : Unit) (s : Nat) (hs : Valid s) :
++    (Nat.castAddMonoidHom ℝ) (step i s).2 + potential (step i s).1 =
++      potential s + charge i s := by
++  have small : s = 0 ∨ s = 1 := by unfold Valid at hs; omega
++  rcases small with rfl | rfl <;> norm_num [step, potential, charge]
++
++private theorem nonneg (s : Nat) (_ : Valid s) : 0 ≤ potential s := by
++  unfold potential
++  split <;> norm_num
++
++private theorem boundary (is : List Unit) (s : Nat) (hs : Valid s) :
++    ((run step is s).2 : ℝ) + potential (run step is s).1 =
++      potential s + budget step charge is s :=
++  run_potential_map_exact_of_invariant step charge potential (Nat.castAddMonoidHom ℝ)
++    Valid closed localLaw is s hs
++
++private theorem work_bound (is : List Unit) (s : Nat) (hs : Valid s) :
++    ((run step is s).2 : ℝ) ≤ potential s + budget step charge is s :=
++  run_cost_le_map_of_invariant step charge potential (Nat.castAddMonoidHom ℝ)
++    Valid closed (fun i s hs => (localLaw i s hs).le) nonneg is s hs
++
++example : Valid 0 := by decide
++
++example : budget step charge [()] 0 = (3 / 2 : ℝ) := by
++  have paid := boundary [()] 0 (by decide)
++  norm_num [run, bind, pure, step, potential] at paid
++  exact paid.symm
++
++example : budget step charge [(), ()] 0 = (2 : ℝ) := by
++  have paid := boundary [(), ()] 0 (by decide)
++  norm_num [run, bind, pure, step, potential] at paid
++  exact paid.symm
++
++example (is : List Unit) : ((run step is 0).2 : ℝ) ≤ budget step charge is 0 := by
++  simpa [potential] using work_bound is 0 (by decide)
++
++example : ¬ ((step () 2).2 : ℝ) + potential (step () 2).1 ≤
++    potential 2 + charge () 2 := by
++  norm_num [step, potential, charge]
++
++end Fractional
++
++/-- The exact boundary theorem also preserves noncommutative observations. -/
++private def recordStep (i : Nat) (s : Unit) : Measured Unit (Additive (FreeMonoid Nat)) :=
++  (s, Additive.ofMul (FreeMonoid.of i))
++
++example (is : List Nat) :
++    (run recordStep is ()).2 =
++      budget recordStep (fun i _ => Additive.ofMul (FreeMonoid.of i)) is () := by
++  simpa using run_potential_map_exact recordStep
++    (fun i _ => Additive.ofMul (FreeMonoid.of i)) (fun _ => 0)
++    (AddMonoidHom.id (Additive (FreeMonoid Nat))) (fun _ _ => by simp [recordStep]) is ()
++
++example : budget recordStep (fun i _ => Additive.ofMul (FreeMonoid.of i)) [1, 2] () =
++    Additive.ofMul (FreeMonoid.ofList [1, 2]) := rfl
++
++end Examples.MappedPotentialAccounting
+diff --git a/SquareApplications.lean b/SquareApplications.lean
+index 1a220ba..7711691 100644
+--- a/SquareApplications.lean
++++ b/SquareApplications.lean
+@@ -28,6 +28,7 @@ import Examples.DijkstraSentinel
+ import Examples.RandomAccessEndCosts
+ import Examples.RandomAccessCosts
+ import Examples.PotentialAccounting
++import Examples.MappedPotentialAccounting
+ import Examples.OrderedSearch
+ import Examples.SymmetricLists
+ import Examples.RandomAccessLists
+diff --git a/docs/research/fdsa-potential-accounting.md b/docs/research/fdsa-potential-accounting.md
+new file mode 100644
+index 0000000..b9e70b3
+--- /dev/null
++++ b/docs/research/fdsa-potential-accounting.md
+@@ -0,0 +1,163 @@
++# Mapped, signed and invariant-aware potential accounting
++
++This is a shared preparation unit for the whole-book FDSA reconstruction,
++tracked locally as FDSA-XP01 under issue #174. It extends the existing
++[workload and potential interfaces](adwh-potential-accounting.md); it does not
++introduce another executor or start acceptance of Chapters 19–23. The local
++tracker records candidate validation and independent review. This draft has
++not yet passed those gates.
++
++## Source and mathematical scope
++
++The primary source is the [official FDSA book](https://fdsa-book.net/), edition
++July 27, 2026, printed pages 227–232. Its PDF SHA-256 is
++`9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645`.
++The chapter's equation (19.1) defines an amortized charge by actual work plus
++the change in potential. It uses signed real arithmetic. Its telescoping
++argument follows the actual successive states, retains initial credit, and
++drops the final potential only when that value is nonnegative.
++
++The source inventory in `fdsa-control/research/chapter19-obligations.md` records
++the pinned AFP archive and its separate framework variants. The inspected
++`Amortized_Framework0.thy` has SHA-256
++`905899004289e7a68601a2f416ba33926135f31288c2396a0ae1abcac7133eff`.
++It provides the closest unary source correspondence. No external theorem is
++introduced as an axiom and no Isabelle rebuild is claimed.
++
++| Source obligation | Shared correspondence |
++| --- | --- |
++| C19-011: valid-state potential and explicit initial boundary | `run_potential_map_of_invariant`, `run_cost_le_map_of_invariant` |
++| C19-012: signed charge `work + Phi(after) - Phi(before)` | The charge expression in `budget_amortized`, in an additive commutative group |
++| C19-013: exact telescoping along actual states | `budget_amortized`, supported by `run_potential_map_exact` |
++| C19-014: upper bound with initial credit | `run_cost_le_map_of_invariant`, requiring nonnegativity on preserved states |
++| C19-015: zero-initial specialization | The arbitrary-workload zero-start fractional example, obtained from the preceding bound |
++| C19-016: state-dependent local bounds on a preserved domain | `run_potential_map_of_invariant` and the existing `run_invariant` |
++| C19-017–018: two input potentials and operation histories | Remain open; a unary state trajectory does not prove these claims |
++
++These rows locate the common accounting argument. The book's counter, dynamic
++tables, queues and heaps still require their own exact algorithm, potential,
++local-law and cost-model correspondence. The toy fractional transition below
++is not a dynamic-table implementation.
++
++## Change relative to the existing interface
++
++`Resources.run` still executes the supplied measured transition and combines
++its raw work observations in order. Neither its definition nor its contracts
++change. `Resources.budget` keeps its four explicit arguments and its empty and
++nonempty recurrences, but its charge type is now independent of the step's raw
++observation type. A real or signed charge therefore follows the same natural
++work transition without creating a reweighted executor.
++
++An explicit additive homomorphism `h : C →+ D` interprets accumulated raw work
++in the accounting carrier. This is an algebraic observation map. It is not a
++runtime estimate or an assertion that the map preserves order. The local law
++already compares the mapped observation. The retained reweighting interfaces
++remain available to clients that need a measured computation whose returned
++observation itself has changed.
++
++| Declaration | Raw-work requirements | Charge/accounting requirements |
++| --- | --- | --- |
++| `budget` | None | `Zero`, `Add` |
++| `budget_append` | `Zero`, `Add`, to use the existing executor's state | `AddMonoid` |
++| `budget_map` | None | `AddZero` on both charge carriers and an additive homomorphism |
++| `run_potential_map_exact_of_invariant`, `run_potential_map_exact` | `AddZero`, to form the homomorphism and run | `AddMonoid` |
++| `run_potential_map_of_invariant`, `run_potential_map` | `AddZero` | `AddMonoid`, `Preorder`, `AddLeftMono`, `AddRightMono` |
++| `run_cost_le_map_of_invariant` | `AddZero` | The preceding ordered additive structure and a stated nonnegativity premise |
++| `budget_amortized` | `AddZero` | `AddCommGroup`, because the displayed signed formula uses subtraction |
++
++The boundary proofs associate sums without commuting their terms. They require
++neither cancellation nor commutativity, and the inequality version does not
++require a linear order. The raw work carrier need not be associative: the
++existing executor's actual right-associated observation is mapped as it stands.
++Request, state and observation types keep independent universes. No payload
++equality, finiteness, inhabitance or ordering requirement is added.
++
++The existing natural theorems `run_potential` and `run_potential_exact` retain
++their public statements and delegate to the generic laws using the identity
++homomorphism. The remaining natural constant-charge and cost-bound contracts
++remain unchanged. `FIFOContracts.abstractBudget` now annotates its unused raw
++cost literal as `(0 : Nat)`: previously the natural-only budget fixed that type
++implicitly. This is a compatibility annotation, not a change in its trajectory
++or charges.
++
++## Connected cases and statement review
++
++The new client is `Examples.MappedPotentialAccounting`, imported by the public
++entrypoint. The expected calculations were recorded in the external exact
++requirements before these definitions and proofs were written. Compilation,
++axiom audit and independent final reviews are pending; the following describes
++the intended connections, not a completed validation result.
++
++### Existing counter interpreted in real numbers
++
++`Counter.real_boundary` uses the existing `BinaryCounter.incWithCost` and its
++local natural identity `flipCost + ones_after = 2 + ones_before`. It casts that
++local identity, invokes `run_potential_map_exact`, and uses `budget_map` together
++with the existing `budget_constant` to interpret the constant budget in `Real`.
++It does not obtain its theorem by casting the already proved global bound.
++
++For every Boolean list and every number of increments the intended conclusion
++is `totalCost + finalOnes = initialOnes + 2*n`, in `Real`. There is no canonicality
++or initialization premise. Existing value and cost refinement identify the
++same execution. From the empty counter, four increments have numeric value
++four, final one-bit potential one and work seven; the real boundary gives
++`7 + 1 = 0 + 8`. The zero-start specialization still retains final potential.
++
++### Negative charges spend initial credit
++
++`InitialCredit.clearStep` has natural state and work, resets its state to zero,
++and costs one per call. Its integer potential is twice its state. The signed
++charge is `1 - 2*s`. Starting at one, the first charge is minus one and the
++second is plus one, because the second transition starts at zero. Raw work is
++two, initial potential is two, final potential is zero and the trajectory
++budget is zero.
++
++The arbitrary-workload boundary is obtained from `budget_amortized`. The
++two-step clients use that result to obtain the budget and refute both the
++bound with initial credit omitted and the substitution of the first state's
++charge for both actual charges. The potential is nonnegative for every natural
++state; negative amortized charge does not mean negative actual work.
++
++### Fractional accounting on a preserved domain
++
++The valid natural states are zero and one. The total transition alternates
++those states at natural cost one; on all other states it stays in place at
++cost one hundred. Potential is one half at state one and zero elsewhere.
++The charge is three halves at state zero and one half elsewhere.
++
++On valid states, the independently calculated local equations are
++`1 + 1/2 = 0 + 3/2` and `1 + 0 = 1/2 + 1/2`. The validity predicate contains
++zero, is preserved, and justifies the local equality. The generic
++invariant-aware theorem yields budgets three halves and two after one and two
++steps from zero, respectively. The cost-only bound uses the proved
++nonnegativity premise; the arbitrary-workload zero-start bound specializes its
++initial boundary to zero.
++
++At state two the local inequality would assert `100 ≤ 1/2`, which is false.
++That counterexample records why the local-law premise is restricted; no
++unconditional bound is inferred from this client. The exact and inequality
++results quantify an arbitrary request list, not just the concrete examples.
++
++### Ordered observations and retained natural clients
++
++An additive free-monoid observation records requests in their execution order.
++An instance of `run_potential_map_exact` with zero potential equates that work
++to its actual budget, and the concrete requests `[1,2]` retain precisely that
++order. This exercises the boundary theorem without assuming commutative
++addition. The old counter, symmetric-list, FIFO and random-access clients
++remain validation targets for the generalized definition.
++
++## Remaining boundaries and acceptance
++
++These are mathematical modeled observations. They assert no compiled runtime,
++allocation, machine overflow, lazy evaluation or hardware bound. Persistent
++reuse of the same starting object is not repeated execution on its successor
++states. A binary merge must account for both input potentials and their
++occurrences in an operation history. Neither fact follows from unary `run`.
++
++The exact requirements and preflight are in the checkpoint's `fdsa-control`
++directory, outside the implementation diff. Acceptance requires a committed
++immutable candidate, applicable focused builds, the full guarded check and
++exhaustive proof audit, both independent review axes, and final candidate
++identity verification. A checkpoint may preserve this draft before those
++gates; it does not confer acceptance on this unit or any later chapter.
+diff --git a/docs/research/fdsa-reconstruction-map.md b/docs/research/fdsa-reconstruction-map.md
+index ec2ac8c..5ae3836 100644
+--- a/docs/research/fdsa-reconstruction-map.md
++++ b/docs/research/fdsa-reconstruction-map.md
+@@ -56,7 +56,7 @@ Chapter organization is a coverage index; modules follow reusable domain concept
+ | 16 | Priority Queues via Braun Trees | Queued |
+ | 17 | Binomial Priority Queues | Queued |
+ | 18 | Dynamic Programming | Queued |
+-| 19 | Amortized Analysis | Queued |
++| 19 | Amortized Analysis | Queued; shared mapped potential-accounting draft linked below |
+ | 20 | Queues | Queued |
+ | 21 | Splay Trees | Queued |
+ | 22 | Skew Heaps | Queued |
+@@ -69,6 +69,12 @@ Chapter organization is a coverage index; modules follow reusable domain concept
+ | B | Time Functions | Matched as used; final complete inventory pending |
+ | C | Notation | Matched as used; final complete inventory pending |
+ 
++The shared [mapped potential-accounting extension](fdsa-potential-accounting.md)
++prepares signed and fractional observations for Chapters 19–23. Its generic
++unary laws and connected clients are a draft, with validation and review still
++pending. Algorithm-specific and binary-history obligations remain in their
++chapter tickets.
++
+ ## Chapter 1: Basics, printed pages 1–10
+ 
+ ### Standard language, types and notation (§§1.1–1.3)

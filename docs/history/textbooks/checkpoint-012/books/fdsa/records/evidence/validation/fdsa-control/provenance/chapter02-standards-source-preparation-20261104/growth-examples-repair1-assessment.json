@@ -1,0 +1,42 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "recorded_utc": "2026-11-04T08:59:31.930275+00:00",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "current_integrated_candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+  "isolated_parent": "a07d27634786220294038c0eb1e1c42428adccdf",
+  "isolated_candidate": "15a113b075c2ceb4d44c27a06fa9a69e019b57fc",
+  "only_changed_path": "Examples/RandomQuickSortGrowth.lean",
+  "source_bytes": 10033,
+  "source_lines": 216,
+  "source_sha256": "372d0fad2f5a77f0c9c97e6b2004036ab1b922a2a80f623784011381905ab3a1",
+  "source_git_blob": "f9e153715b0ad68d3eac30f1dc0c2b986475a148",
+  "fully_read_corrected_source": true,
+  "complete_diff_read_and_git_equal": true,
+  "diff": {
+    "bytes": 1157,
+    "sha256": "3db6fed73e157b2a5e76aa80b948f60ed0a89a5c9e1b7f814f63608e3ec1862a"
+  },
+  "before_equals_parent_and_central": true,
+  "all14_example_headers_byte_identical": true,
+  "core_unchanged_from_parent_and_central": true,
+  "core_sha256": "2b8bf7b4820790edaaa5726efb8e8bd8bccd3a30cb30388148d95bba00e63674",
+  "public_growth_scope_count": 31,
+  "rank_example_a07_bytes_retained": true,
+  "actual_diagnostics": {
+    "headers": 2,
+    "lines": 21,
+    "bytes": 1191,
+    "sha256": "f95c2df042e08654047be95b81b3a14861b44c6d6d972871d379b1f84822d4a3",
+    "fully_read": true,
+    "both_exact_full_blocks_match_secured_closed_focused7_log": true
+  },
+  "source_assessment": {
+    "empty_payload_means": "The original actual exerciseMean_eq_harmonic theorem is specialized to Empty payloads and constant Nat key. Restricted simplification uses exerciseMean_nil, length_nil and cast_zero on both actual goal/source; it preserves the explicit zero-size harmonic identity and both positive nil means. It does not add a payload inhabitance assumption or replace the actual expectation with a new recurrence.",
+    "shifted_range_family_growth": "Unfolding id inside the comparator and using length_range exposes the exact same exercise/literal family observations at actual length n+2. Both eventual key-distinctness and length divergence are still proved. The growth function remains (n+2)*logb2(n+2), not the indexing variable n.",
+    "retained_cases": "Full216-line read confirms distinct-key small cases, polymorphic/function-valued payloads, empty/singleton log boundaries, constant-key exact quadratic formulas and finite fixed-constant failures remain. Same source tariff and no sampler/index/removal cost added."
+  },
+  "new_source_findings": [],
+  "actual_successor_compile_or_types_assessed": false,
+  "reviewer_executed_compiler_build_check_audit_or_verify": false,
+  "overall": "Blocked; original R scope and all112 obligations retained. Growth core individual126s build is historical exact5398 evidence, not compilation of this changed example."
+}

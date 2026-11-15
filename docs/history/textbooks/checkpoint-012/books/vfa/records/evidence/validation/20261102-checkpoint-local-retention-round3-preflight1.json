@@ -1,0 +1,10 @@
+{
+  "recorded_utc": "2026-11-02T12:54:43.219968+00:00",
+  "status": "failed before any archive removal",
+  "error": "KeyError: path while reading a legacy checkpoint manifest entry",
+  "mutations_before_error": [
+    "20261102-validation-throughput-assessment.json written"
+  ],
+  "archive_removals": [],
+  "resolution": "Read actual legacy manifest/receipt fields, retain this failure and retry the same narrow verification/removal scope."
+}

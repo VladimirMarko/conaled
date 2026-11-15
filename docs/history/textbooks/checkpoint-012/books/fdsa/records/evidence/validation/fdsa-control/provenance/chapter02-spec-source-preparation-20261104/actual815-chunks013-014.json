@@ -1,0 +1,101 @@
+{
+  "recorded_utc": "2026-11-04T10:43:47.758047+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete81-path review scope, all112 obligations and ten shared scopes.",
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "chunks": [
+    {
+      "chunk": 13,
+      "type_numbers": [
+        213,
+        227
+      ],
+      "native_lines": [
+        3206,
+        3460
+      ],
+      "bytes": 19642,
+      "sha256": "781064eaee64679ce2af9931fa6336764a0af54eccae1415be9b65506abdf625",
+      "names": [
+        "Applications.Probability.PermutationTail.map_tail_cond_first",
+        "Applications.Probability.PermutationTail.head_mass_of_hasLaw",
+        "Applications.Probability.PermutationTail.hasLaw_tail_cond_first",
+        "Applications.Probability.PermutationTail.hasLaw_filter_tail_cond_first",
+        "Applications.Probability.PermutationTail.map_restrictedOrder_cond_first",
+        "Examples.PermutationTail.observedOrder",
+        "Examples.PermutationTail.remaining",
+        "Examples.PermutationTail.tailOrder",
+        "Examples.PermutationTail.afterFirst",
+        "Examples.PermutationTail.observed_hasLaw",
+        "Examples.PermutationTail.first_mass",
+        "Examples.PermutationTail.afterFirst_eq_uniformOn",
+        "Examples.PermutationTail.tail_hasLaw",
+        "Examples.PermutationTail.tail_map",
+        "Examples.PermutationTail.tail_23_mass"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The actual tail pushforward identity includes precisely source/target measurable spaces and measurable-singleton classes, complete Nodup positions and a in S; it maps the tail under the original permutation measure conditioned on the actual first event to uniform orders of S.erase a.",
+        "The generic HasLaw theorems quantify over an arbitrary sample space Omega and measure mu. They retain the original observation Y, head event, actual conditional measure mu[|firstEvent Y a], and require the supplied uniform-order law. No independent resampling or extra payload assumptions appear.",
+        "The generic filtered-tail law and same-permutation restrictedOrder pushforward retain the critical T subset of S.erase a premise, with the target uniform law on orders T.",
+        "The concrete Fin4 setup retains selected labels{0,2,3}, head0, remaining{2,3}, the actual observation and afterFirst measure. Its head mass is1/3, conditional measure is uniform on the actual head event, and tail law/pushforward are uniform remaining orders.",
+        "The concrete tail[2,3] has conditional mass1/2. The local measurable-instance names differ across imported examples but remain the previously assessed definitionally matching spaces; no extra class or changed source measure is introduced."
+      ]
+    },
+    {
+      "chunk": 14,
+      "type_numbers": [
+        228,
+        242
+      ],
+      "native_lines": [
+        3461,
+        3690
+      ],
+      "bytes": 18640,
+      "sha256": "93168cfcb1af9b1b536bc5f8daf54ea85dbfcaf0bce9418aec56b496af0a6520",
+      "names": [
+        "Examples.PermutationTail.tail_32_mass",
+        "Examples.PermutationTail.repeated_tail_mass_zero",
+        "Examples.PermutationTail.filteredTail",
+        "Examples.PermutationTail.filtered_tail_hasLaw",
+        "Examples.PermutationTail.filtered_tail_eq_projection",
+        "Examples.PermutationTail.filtered_tail_mass",
+        "Examples.PermutationTail.remaining_projection_map",
+        "Examples.PermutationTail.afterFirst_first_event_mass",
+        "Examples.PermutationTail.environment_changed",
+        "Examples.PermutationTail.second_head_mass",
+        "Examples.PermutationTail.afterSecond",
+        "Examples.PermutationTail.lastTail",
+        "Examples.PermutationTail.last_tail_hasLaw",
+        "Examples.PermutationTail.last_tail_mass",
+        "Examples.PermutationTailBoundary.swap01"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The other supported tail[3,2] has conditional mass1/2, while repeated tail[2,2] has mass0. Filtering to{3} retains a uniform singleton-order HasLaw under afterFirst and concrete mass1.",
+        "The pathwise filtered-tail/projection equality is explicitly restricted to permutations satisfying the original head0 event. The corresponding remaining projection pushforward retains afterFirst, rather than replacing it by the unconditioned measure.",
+        "afterFirst assigns the conditioning head event mass1, and environment_changed is an actual inequality of the conditional measure and original permutation law. The original head mass1/3 is not silently reused after conditioning.",
+        "The second-head event for tailOrder has mass1/2 under afterFirst. afterSecond, lastTail, its uniform law on remaining.erase2 and last-tail[3] mass1 retain nested conditioning on the same sample-space permutations.",
+        "The first Boundary declaration is an actual Equiv.Perm(Fin4), preserving the intended four-label carrier."
+      ]
+    }
+  ],
+  "prior_progress_sha256": "f1f62b931c5563685fe3f80a3aa74577e65a9142e4bd728ed67f18e59e9e2d9d",
+  "overall_outcome": "Blocked",
+  "new_type_credit": 0,
+  "possible110_credit": 0
+}

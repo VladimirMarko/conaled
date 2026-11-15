@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "time": "2026-11-04T01:28:43.642116+00:00",
+  "kind": "bounded-primary-source-read-only-efficiency-investigation",
+  "reviewer": "/root/thesis_bootstrapping_inventory",
+  "root_decision": "Retain all stock commands and all planned four regression commands unchanged. No alternate artifact generation or omitted ordinary full gate adopted.",
+  "findings": [
+    "Stock ordinary builds explicit +Module targets using Lake mod.leanArts. These request olean, ilean, C output, setup metadata and JSON diagnostics.",
+    "+Module:olean still fetches leanArts, so this facet does not avoid the other work.",
+    "Stock --rehash sets trustHash=false and reads artifact bytes for new and reused dependency modules; separate stock integrity guards also hash project outputs.",
+    "The displayed Lake module build duration excludes waiting for prerequisite module jobs, but includes its own setup/compiler/output hashes/trace.",
+    "Code inspection alone does not establish the cause of current timing differences.",
+    "A direct lean -o primitive exists, but it was not adopted: the approved plan uses Lake +ProofAudit to retain complete artifact/trace groups, consistent with the stock checker warning against writing an olean behind Lake.",
+    "Recovery requirements explicitly require a distinct genuine guarded ordinary full when normal outputs are needed for negative audit. Ordinary full therefore remains mandatory."
+  ],
+  "primary_sources": [
+    "validation-pfds-integration/scripts/check.py",
+    "native-state/toolchains/lean-4.35.0-linux/src/lean/lake/Lake/CLI/Build.lean",
+    "native-state/toolchains/lean-4.35.0-linux/src/lean/lake/Lake/Build/Module.lean",
+    "native-state/toolchains/lean-4.35.0-linux/src/lean/lake/Lake/Build/Actions.lean",
+    "native-state/toolchains/lean-4.35.0-linux/src/lean/lake/Lake/Build/Common.lean",
+    "native-state/toolchains/lean-4.35.0-linux/src/lean/lake/Lake/Build/Trace.lean",
+    "native-state/toolchains/lean-4.35.0-linux/src/lean/lake/Lake/Build/Job/Register.lean",
+    "native-state/toolchains/lean-4.35.0-linux/src/lean/lake/Lake/Build/Run.lean",
+    "session/environment/RECOVER-INTEGRATION.md"
+  ],
+  "no_runtime_or_source_mutation": true,
+  "no_benchmark_test_or_compiler_execution": true,
+  "formal_acceptance": false,
+  "source_sha256": {
+    "validation-pfds-integration/scripts/check.py": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+    "native-state/toolchains/lean-4.35.0-linux/src/lean/lake/Lake/CLI/Build.lean": "54c0be50b874fbe993831628f7b86d30cebf4e4bfbcbb9cc394c3015597dd652",
+    "native-state/toolchains/lean-4.35.0-linux/src/lean/lake/Lake/Build/Module.lean": "c67fff2c7bd95671b49ea64482c4f843f55fefdc4c038858f22a269f0b070b69",
+    "native-state/toolchains/lean-4.35.0-linux/src/lean/lake/Lake/Build/Actions.lean": "9c7d7101f89eb1d0618d8a76b86c30d628932ed2d2088db29792fdf88fb1e870",
+    "native-state/toolchains/lean-4.35.0-linux/src/lean/lake/Lake/Build/Common.lean": "ac4245ce6f64078d0204503c0340d27572e331c2a3df452b29432b463fe2fccd",
+    "native-state/toolchains/lean-4.35.0-linux/src/lean/lake/Lake/Build/Trace.lean": "1e8c5fc3965fa87a215ff707b536b40372eb3edbb7807a68e6fddaa86af1f738",
+    "native-state/toolchains/lean-4.35.0-linux/src/lean/lake/Lake/Build/Job/Register.lean": "9765e051367d8254ca339107326f2134e55bd1d7fee1abe0889cf53d31ca22e9",
+    "native-state/toolchains/lean-4.35.0-linux/src/lean/lake/Lake/Build/Run.lean": "5fa858b9ced499937ef703e32db31fad00118ca4982bf8ad0e250c435ce5e08c",
+    "session/environment/RECOVER-INTEGRATION.md": "7f1a00a1e13c931dc2ba55c88e1f5180ab814c505587387ffff41166525a6157"
+  }
+}

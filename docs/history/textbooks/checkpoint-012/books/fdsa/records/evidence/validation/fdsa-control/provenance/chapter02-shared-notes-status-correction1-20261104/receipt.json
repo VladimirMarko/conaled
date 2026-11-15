@@ -1,0 +1,99 @@
+{
+  "completed_utc": "2026-11-04T09:16:39.517932+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "state": "COMPLETE PROPOSED CORRECTION ONLY — UNAPPLIED — HOLD",
+  "finding": "C02-DOC-003",
+  "finding_origin": "Independent Standards issue relayed by root; no author claim of independent finding resolution.",
+  "authorized_write_directory": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-shared-notes-status-correction1-20261104",
+  "source_candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+  "source_path": "docs/research/fdsa-permutation-tail.md",
+  "source_git_blob": "233136b41f38efafa0d5e1d8f22d8c2864340335",
+  "prior_receipt": {
+    "path": "provenance/chapter02-shared-notes-status-preparation-20261104/receipt.json",
+    "bytes": 7500,
+    "lines": 211,
+    "sha256": "faa70afc6fa62c47d9b1442f10a20ff9ad9a73b3576f7028e8ee7ead0594edbe"
+  },
+  "original_note": {
+    "path": "provenance/chapter02-shared-notes-status-correction1-20261104/original/fdsa-permutation-tail.md",
+    "bytes": 10367,
+    "lines": 203,
+    "sha256": "34162854a3bfabbec1e87bea6111b4939495cc27eb9ee811758dceaeb62dc96f"
+  },
+  "prior_proposed_note": {
+    "path": "provenance/chapter02-shared-notes-status-correction1-20261104/prior-proposal/fdsa-permutation-tail.md",
+    "bytes": 10929,
+    "lines": 213,
+    "sha256": "7be59b23d2386f18a8ddd61cf9298fb5f55083d9432d0ccd0d9a7a8129a78432"
+  },
+  "new_proposed_note": {
+    "path": "provenance/chapter02-shared-notes-status-correction1-20261104/proposed/fdsa-permutation-tail.md",
+    "bytes": 10927,
+    "lines": 213,
+    "sha256": "9740fdf8ff9761daebae4ec0be6c9388deffcb55fc567d695be27ca89ea86b87"
+  },
+  "only_change_vs_0095_proposal": {
+    "old": "individual successful compilation, retained in a later focused check. The\ntwo cited closed checks recorded boundary-example failures, and neither\n",
+    "new": "individual successful compilation, retained in a later focused check.\nTwo closed focused checks recorded boundary-example failures, and neither\n"
+  },
+  "other_five_proposals_and_all_prior_files_unchanged": true,
+  "previous_file_hashes_verified": 27,
+  "all_math_contracts_sources_notices_gates_and_status_distinctions_unchanged": true,
+  "complete_new_note_and_both_patches_read": true,
+  "patches_against_original_and_prior_verified": true,
+  "closed_evidence_reverification_only": true,
+  "new_validation_claimed": false,
+  "independent_review_pass_or_acceptance_claimed": false,
+  "repository_ref_build_cache_changes_or_live_session_polling": false,
+  "artifacts": [
+    {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/author-readback.md",
+      "bytes": 3784,
+      "lines": 73,
+      "sha256": "8f19b104fb371827dbba88a078567b9765b0177dfee0a7bb048da5860504394d"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/input-identities.json",
+      "bytes": 10790,
+      "lines": 223,
+      "sha256": "d803f70137c7f2c9f4e048f3e07f8070a7d9e93061f435392e4d41c90be26c7f"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/original/fdsa-permutation-tail.md",
+      "bytes": 10367,
+      "lines": 203,
+      "sha256": "34162854a3bfabbec1e87bea6111b4939495cc27eb9ee811758dceaeb62dc96f"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/patches/fdsa-permutation-tail-vs-original.patch",
+      "bytes": 2069,
+      "lines": 39,
+      "sha256": "b173be2d0bf04b001441c9da0702c9e5f49b983a937f2b17c572d7ac3886b963"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/patches/fdsa-permutation-tail-vs-prior-proposal.patch",
+      "bytes": 792,
+      "lines": 13,
+      "sha256": "a644fa8ff28e12eeac7b43af971c2e160a6b87bf816df86c68d053fad91584b9"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/prior-proposal/fdsa-permutation-tail.md",
+      "bytes": 10929,
+      "lines": 213,
+      "sha256": "7be59b23d2386f18a8ddd61cf9298fb5f55083d9432d0ccd0d9a7a8129a78432"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/proposed/fdsa-permutation-tail.md",
+      "bytes": 10927,
+      "lines": 213,
+      "sha256": "9740fdf8ff9761daebae4ec0be6c9388deffcb55fc567d695be27ca89ea86b87"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/verification.json",
+      "bytes": 5120,
+      "lines": 113,
+      "sha256": "3163ea3e105693756849c4dcd8296c4f7d9627706b262a8619d9a8a2f6cbbba8"
+    }
+  ],
+  "hold": true
+}

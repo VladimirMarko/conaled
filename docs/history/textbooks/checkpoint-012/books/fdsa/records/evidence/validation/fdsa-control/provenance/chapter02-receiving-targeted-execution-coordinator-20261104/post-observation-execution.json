@@ -1,0 +1,31 @@
+{
+  "started_utc": "2026-11-04T18:03:12.257004+00:00",
+  "completed_utc": "2026-11-04T18:03:13.230623+00:00",
+  "actual_exit": 0,
+  "elapsed_seconds": 0.9736331459935172,
+  "argv": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/capture_statement_inputs.py",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "--candidate",
+    "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+    "--program",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-type-qualification-preparation-20261104/ObservationOnly.lean",
+    "--output",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/post-inputs.json",
+    "--compare",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/pre-inputs.json"
+  ],
+  "log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/post-observation.log",
+    "bytes": 316,
+    "sha256": "7ab3febb42cdf65f59a373cb2220fc07b1853f9aa40e15a4c5e5971a84e46d09"
+  },
+  "product": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/post-inputs.json",
+    "bytes": 90456,
+    "sha256": "7dfa8f4fa803ad8a3d9c8c0b0c54ebbb7f3925b78a25a6d3d4ac02ba0ff29723"
+  },
+  "observed_by": "/root synchronous subprocess return; no automatic retry"
+}

@@ -1,0 +1,22 @@
+{
+  "recorded_at": "2026-11-03T17:53:44.865156+00:00",
+  "tool_session": 97929,
+  "tool_exit_code": 1,
+  "stage": "Before target sources were copied/compiled: obtaining Lake LEAN_PATH",
+  "command": [
+    "python3",
+    "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-native-toolchain.py",
+    "--",
+    "lake",
+    "env",
+    "printenv",
+    "LEAN_PATH"
+  ],
+  "cwd": "/workspace/scratch/b566cace4ed6/pfds/import-correction-r3",
+  "exception": "subprocess.TimeoutExpired",
+  "timeout_seconds": 60,
+  "compiler_result": null,
+  "target_probe_compilation_started": false,
+  "record_limitation": "Original one-off harness failed before writing its planned probe record. This sidecar preserves the actual tool-observed failure; no terminal compiler result is invented. Lake preparation internal child behavior was not observed.",
+  "next_step": "Use the unchanged stock fresh check's pinned dependency build-path enumeration for a separate bounded owned-process-group probe."
+}

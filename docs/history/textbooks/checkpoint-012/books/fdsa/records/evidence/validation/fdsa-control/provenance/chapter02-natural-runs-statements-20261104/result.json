@@ -1,0 +1,43 @@
+{
+  "started_utc": "2026-11-04T04:27:34.288675+00:00",
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "--stdin"
+  ],
+  "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs",
+  "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T042734Z-project-run-09353263/output.log",
+  "label": "project-run",
+  "lean_threads": "1",
+  "passed": true,
+  "completed_utc": "2026-11-04T04:27:39.428929+00:00",
+  "seconds": 5.138318010000148,
+  "exit_code": 0,
+  "timed_out": false,
+  "recorder_error": null,
+  "candidate": "ff9749d1ccbcb0949486f67d6273e28c262280e0",
+  "final_head": "ff9749d1ccbcb0949486f67d6273e28c262280e0",
+  "final_status": "",
+  "source_sha256": {
+    "Applications/Sorting/NaturalRuns.lean": "123c711b5f0cf05074155f3a0d9ae076aa80a8be482e7e6fc77626aa9db6fb1d",
+    "Examples/NaturalRuns.lean": "ef0ed6bbc5beb40815f977e80c0b99b0633e8503b0b1634747d41275cb3f6041",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+  },
+  "final_source_sha256": {
+    "Applications/Sorting/NaturalRuns.lean": "123c711b5f0cf05074155f3a0d9ae076aa80a8be482e7e6fc77626aa9db6fb1d",
+    "Examples/NaturalRuns.lean": "ef0ed6bbc5beb40815f977e80c0b99b0633e8503b0b1634747d41275cb3f6041",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+  },
+  "source_unchanged": true,
+  "stdin_file": "statements.lean",
+  "stdin_sha256": "d56c25d992aa23e63c9bfa51cf4561f8ae2e6c1f186dda1493d0741673b372e4",
+  "log_sha256": "bcde796041ddae8ec96f0e13e3231501cf9170f8cded41dc9565b54a8fc1af31",
+  "log_size_bytes": 22632,
+  "outer_exit_code": 0,
+  "scope": "Elaborated public types and adapter definitions for statement review; no full audit or new project theorem."
+}

@@ -1,0 +1,89 @@
+{
+  "recorded_utc": "2026-11-04T06:00:25.199758+00:00",
+  "candidate": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+  "base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "setup_reuse": "1037-setup-attempt2-result.json; exact installed compiler/profile/dependency sources retained",
+  "cache_result": "1038-cache-result.json",
+  "cache_actual_exit_code": 0,
+  "artifact_module_count": 3932,
+  "selector_count": 672,
+  "smoke_session": 44812,
+  "smoke_actual_exit_code": 0,
+  "smoke_passed_cases": 10,
+  "smoke_raw_log_directories_copied": 10,
+  "doctor_session": 4458,
+  "doctor_actual_exit_code": 0,
+  "doctor_file": "1038-doctor.json",
+  "official_input_count": 47,
+  "official_verification_scope": "47 recorded official executables/link inputs; not a whole-tree attestation",
+  "complete_distribution_attested": false,
+  "additional_runtime_input_count": 8,
+  "focused_check": "1038-focused-size/terminal.json",
+  "focused_actual_exit_code": 0,
+  "source_identities": {
+    "conaled": {
+      "candidate": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+      "status": ""
+    },
+    "vfa-validation": {
+      "candidate": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+      "status": ""
+    },
+    "vfa-unified-pty-validation": {
+      "candidate": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+      "status": ""
+    }
+  },
+  "package_parent_is_real": true,
+  "package_links": [
+    {
+      "name": "mathlib",
+      "link": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-unified-pty-validation/.lake/packages/mathlib",
+      "resolved": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages/mathlib"
+    },
+    {
+      "name": "plausible",
+      "link": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-unified-pty-validation/.lake/packages/plausible",
+      "resolved": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages/plausible"
+    },
+    {
+      "name": "LeanSearchClient",
+      "link": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-unified-pty-validation/.lake/packages/LeanSearchClient",
+      "resolved": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages/LeanSearchClient"
+    },
+    {
+      "name": "importGraph",
+      "link": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-unified-pty-validation/.lake/packages/importGraph",
+      "resolved": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages/importGraph"
+    },
+    {
+      "name": "proofwidgets",
+      "link": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-unified-pty-validation/.lake/packages/proofwidgets",
+      "resolved": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages/proofwidgets"
+    },
+    {
+      "name": "aesop",
+      "link": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-unified-pty-validation/.lake/packages/aesop",
+      "resolved": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages/aesop"
+    },
+    {
+      "name": "Qq",
+      "link": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-unified-pty-validation/.lake/packages/Qq",
+      "resolved": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages/Qq"
+    },
+    {
+      "name": "batteries",
+      "link": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-unified-pty-validation/.lake/packages/batteries",
+      "resolved": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages/batteries"
+    },
+    {
+      "name": "Cli",
+      "link": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-unified-pty-validation/.lake/packages/Cli",
+      "resolved": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages/Cli"
+    }
+  ],
+  "CURL_HOME_in_formal_parent": null,
+  "sole_writer_state": "Owned acquisition, focused proof, smoke and doctor commands completed; no other compiler/cache writer authorized or running by this task",
+  "ordinary_available_bytes": 21448290304,
+  "formal_acceptance": false
+}

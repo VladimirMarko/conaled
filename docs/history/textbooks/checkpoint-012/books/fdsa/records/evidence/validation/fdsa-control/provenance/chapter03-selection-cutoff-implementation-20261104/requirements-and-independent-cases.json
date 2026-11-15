@@ -1,0 +1,46 @@
+{
+  "recorded_before_source": "2026-11-04T21:28:13.243441+00:00",
+  "requirements_source": {
+    "path": "research/chapter03-obligations.md",
+    "sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed",
+    "ids": [
+      "C03-055",
+      "C03-058 group1 observation only"
+    ]
+  },
+  "independent_cases": [
+    {
+      "name": "singleton_zero_cutoff",
+      "expected": "Any positive group size maps [a] to [a]; active cutoff0 first pivot state is (0,[a]), identical to valid singleton selection."
+    },
+    {
+      "name": "singleton_groups",
+      "expected": "Grouping into singleton chunks and taking each lower median returns exactly the original list, including duplicates and negative integers. Every finite cutoff has a longer list with the same first-pivot input."
+    },
+    {
+      "name": "actual_minimum_cutoff",
+      "expected": "For d>=2 and every n>=2, ceil(n/d)<=n-1. For n1 it equals1, so first-child strictness on every n>cutoff is equivalent to cutoff>=1."
+    },
+    {
+      "name": "cutoff_one_actual",
+      "expected": "The already measured and terminating generic selectRunWith d1, d>=2, returns the sorted optional rank on every input; [3,1,2,2] at rank2 returns2."
+    },
+    {
+      "name": "later_children",
+      "expected": "Actual recursively selected pivot belongs to median list and input; both strict partition sides are shorter, independent of duplicates. No balanced-side premise is needed for termination."
+    },
+    {
+      "name": "scalar_separation",
+      "expected": "For book size5: n2 has first child1 but crude side bound5. At n13 side bound13 is not strict; for all n>13 both scalar children are strict."
+    },
+    {
+      "name": "twenty_budget",
+      "expected": "20>13 gives both scalar decreases above20; worst polynomial small budget20^2+4*20+3=483. No claim about a uniquely established author motive."
+    }
+  ],
+  "planned_new_paths": [
+    "Applications/Resources/SelectionCutoff.lean",
+    "Examples/SelectionCutoff.lean"
+  ],
+  "constraints": "Only constructive checked theorems and kernel-safe tactics; no sorry, axioms, native_decide, build profile or statement weakening. Author/coordinator is root, final independent Standards/Spec remain separate. Full claim inventory and explicit@ input before immutable focus."
+}

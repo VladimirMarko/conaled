@@ -1,0 +1,52 @@
+{
+  "recorded_utc": "2026-11-04T23:47:58.915133+00:00",
+  "candidate": "2b5ff20504d8811587859e6eb3351cb1598a4504",
+  "purpose": "First actual elaborated-type inspection for exactly23 new trace names absent from the executed1321 prefix. No repeat of266 existing random checks; final complete candidate qualification remains separate.",
+  "original289_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/trace-correction1-20261104/Statements289-trace-correction1.lean",
+    "bytes": 16690,
+    "sha256": "e13e022e1727aeb2ec1cc896906a639530fa1c67a5cb5afed990b192dca23db2"
+  },
+  "previous1321_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-integration-preparation-20261104/Statements1321-assembly2.lean",
+    "bytes": 77831,
+    "sha256": "f6d4bbbedf9da900b318e91ea544298b136c6c84484ff5d075bb7fc9b8ae218d"
+  },
+  "program": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-trace-statement-inputs-20261104/Statements23-trace-delta.lean",
+    "bytes": 1734,
+    "sha256": "7e8648e6581eccd868a7e56e748ba7381c28b9ff5109dcc03174282d1e494e07"
+  },
+  "names": [
+    "Resources.RandomSelection.prepend_injective",
+    "Resources.RandomSelection.map_prepend_apply",
+    "Resources.RandomSelection.run_child_atom",
+    "Resources.RandomSelection.run_trace_injective",
+    "Resources.RandomSelection.traceLaw",
+    "Resources.RandomSelection.traceLaw_support",
+    "Resources.RandomSelection.traceLaw_atom",
+    "Resources.RandomSelection.traceLaw_nil",
+    "Resources.RandomSelection.run_singleton_atom",
+    "Examples.RandomSelectionTrace.singleton_trace_atom",
+    "Examples.RandomSelectionTrace.middle_child_atom",
+    "Examples.RandomSelectionTrace.middle_path_atom",
+    "Examples.RandomSelectionTrace.middle_path_trace",
+    "Examples.RandomSelectionTrace.middle_path_observations",
+    "Examples.RandomSelectionTrace.negative_path_atom",
+    "Examples.RandomSelectionTrace.negative_path_trace",
+    "Examples.RandomSelectionTrace.duplicate_trace_atom",
+    "Examples.RandomSelectionTrace.empty_trace_atom",
+    "Examples.RandomSelectionTrace.invalid_singleton_trace_atom",
+    "Examples.RandomSelectionTrace.different_initial_rank_boundary",
+    "Examples.RandomSelectionTrace.unsupported_empty_trace_boundary",
+    "Examples.RandomSelectionTrace.arbitrary_supported_trace",
+    "Examples.RandomSelectionTrace.middle_path_supported"
+  ],
+  "preserved_all_imports_options_and_noncheck_lines": true,
+  "explicit_checks_retained_in_original_order": true,
+  "new_names": 23,
+  "previous_random_names_not_reexecuted": 266,
+  "source_binding": "provenance/chapter03-focused-continuation-20261104/random-trace-correction1-bindings-before-attempt2.json",
+  "actual_execution": false,
+  "final_chapter_candidate": false
+}

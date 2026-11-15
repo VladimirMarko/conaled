@@ -1,0 +1,44 @@
+{
+  "base": "1aabd512284fe86254278ac631eda061d311050b",
+  "candidate": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+  "branch": "work/fdsa-list-foundations",
+  "worktree": "conaled-insertion-costs",
+  "requirements_sha256": {
+    "insertion-requirements.md": "fbd77fa19c83df3e6d7d10d6e7bd6cddf2d5aa888b512d5af2a7322f222f1a68",
+    "list-library-requirements.md": "83cffa5aff717943d449f4380189a9e9a761252730f5a14f4e392f1e62d154d4",
+    "list-calls-requirements.md": "0a2f7a2869c10276da2cc9a852e20936c6aba2d094d5232b96e94fbf47ecf78d",
+    "notation-requirements.md": "21a4ad13752d4316817e97f655af9a768726aa682124a39a2aeac248460b5a48",
+    "potential-requirements.md": "545b5d2ff4a93594f2b1ca245594233bdfcf461b8f4fe14b3bbe698e6ad1aa2f"
+  },
+  "units": [
+    {
+      "ticket": "FDSA-X002",
+      "candidate": "697bcf242ce65d74815b5639bddb1c6e754dd10f",
+      "state": "core and examples focused builds passed; full gates pending"
+    },
+    {
+      "ticket": "FDSA-APP-A",
+      "candidate": "333f900d04be3153518e68cc8c10920f40a08e05",
+      "state": "focused example build passed; full gates pending"
+    },
+    {
+      "ticket": "FDSA-XB01",
+      "candidate": "df116c2f6d834eeb952157505b5c93a9ab5497e8",
+      "state": "draft; focused session66704 intentionally stopped with exit143 during dependency compilation to prioritize Chapter1; no new-module or example compile result"
+    },
+    {
+      "ticket": "FDSA-APP-C",
+      "candidate": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+      "state": "draft, including explicit Nat interval dependency, Finset bridge and Empty index boundary; focused build not started"
+    },
+    {
+      "ticket": "FDSA-XP01",
+      "candidate": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+      "state": "draft written; source preflight complete, connected cases and statement review written; no focused compile result, full gates and independent final review pending"
+    }
+  ],
+  "gates": [],
+  "accepted_units": [],
+  "result": "Not accepted. Combined candidate validation, both independent review axes, Chapter1 acceptance and final identity verification remain required.",
+  "focused_build_plan": "After Chapter1 acceptance, use its idle isolated checkout/cache for the immutable shared candidate. The secondary worker is terminated; no PID resume is pending."
+}

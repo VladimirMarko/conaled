@@ -1,0 +1,49 @@
+{
+  "workspace": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation",
+  "official_distribution": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-linux",
+  "overlay": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-native",
+  "environment_overrides": {
+    "PATH": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-native/bin:/root/.codex/tmp/arg0-linux/codex-arg0D0T4n9:/opt/codex/codex-path:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback",
+    "LEAN_SYSROOT": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-native",
+    "LAKE_OVERRIDE_LEAN": "true",
+    "LD_LIBRARY_PATH": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-linux/lib:/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-linux/lib/lean",
+    "TMPDIR": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp",
+    "MATHLIB_CACHE_DIR": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/dependency-cache/mathlib",
+    "XDG_CACHE_HOME": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/dependency-cache/xdg",
+    "XDG_CONFIG_HOME": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-config",
+    "XDG_STATE_HOME": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-state",
+    "LEAN_NUM_THREADS": "1"
+  },
+  "cleared_inherited_selectors": [
+    "LEAN",
+    "LEAN_PATH",
+    "LEAN_SYSROOT",
+    "LEAN_AR",
+    "LEAN_CC",
+    "LEAN_GITHASH",
+    "LAKE_HOME",
+    "LAKE_OVERRIDE_LEAN",
+    "LD_PRELOAD",
+    "CONALED_SELF_EXE"
+  ],
+  "execution_inputs": {
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-linux/bin/lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-linux/bin/lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/tooling/native_app_path.c": "3c9c326463e11f060ee0f3ba15005fd9cad2a565b3a2056e3c30d6bf3f1578ad",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/native-compat/libconaled_app_path.so": "913faeddfcb2983fcd404ba6e43edd3f77aa63fad7ae87ef943946ff9c552c0e"
+  },
+  "relocated_executables": {
+    "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+    "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1"
+  },
+  "launchers": {
+    "lean": {
+      "sha256": "9c3cac2e7c1186710359a22383118c785ae6caa45a86cf35bc7e35ae02ac5c0a",
+      "content": "#!/bin/sh\nexport LD_PRELOAD=/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/native-compat/libconaled_app_path.so\nexport CONALED_SELF_EXE=/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-native/libexec/lean\nexec /workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-native/libexec/lean \"$@\"\n"
+    },
+    "lake": {
+      "sha256": "51a50f3342a52cb8cc62565f85b484777117137654c3d203b151d4da5eaa551c",
+      "content": "#!/bin/sh\nexport LD_PRELOAD=/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/native-compat/libconaled_app_path.so\nexport CONALED_SELF_EXE=/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-native/libexec/lake\nexec /workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-native/libexec/lake \"$@\"\n"
+    }
+  }
+}

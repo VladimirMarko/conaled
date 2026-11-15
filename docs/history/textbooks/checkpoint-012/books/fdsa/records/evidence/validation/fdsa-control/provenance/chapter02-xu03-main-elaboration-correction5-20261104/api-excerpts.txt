@@ -1,0 +1,64 @@
+FILE Mathlib/Data/List/Permutation.lean
+{"path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Data/List/Permutation.lean", "bytes": 23893, "lines": 538, "sha256": "ef2d1bddfbd1fd4368456709b8d44863bb733be3972f88db55d9de1ca1a8c35c", "git_blob": "44ba3311147081b64a246490e2bf8c2cfa5a834d", "read_ranges": [[354, 386]], "exact_pin_bytes": true}
+
+354: theorem Perm.permutations' {s t : List α} (p : s ~ t) : permutations' s ~ permutations' t := by
+355:   induction p with
+356:   | nil => simp
+357:   | cons _ _ IH => exact IH.flatMap_right _
+358:   | swap =>
+359:     dsimp
+360:     rw [flatMap_assoc, flatMap_assoc]
+361:     apply Perm.flatMap_left
+362:     intro l' _
+363:     apply perm_permutations'Aux_comm
+364:   | trans _ _ IH₁ IH₂ => exact IH₁.trans IH₂
+365: 
+366: theorem permutations_perm_permutations' (ts : List α) : ts.permutations ~ ts.permutations' := by
+367:   obtain ⟨n, h⟩ : ∃ n, length ts < n := ⟨_, Nat.lt_succ_self _⟩
+368:   induction n generalizing ts with | zero => cases h | succ n IH => ?_
+369:   refine List.reverseRecOn ts (fun _ => ?_) (fun ts t _ h => ?_) h; · simp [permutations]
+370:   rw [← concat_eq_append, length_concat, Nat.succ_lt_succ_iff] at h
+371:   have IH₂ := (IH ts.reverse (by rwa [length_reverse])).trans (reverse_perm _).permutations'
+372:   simp only [permutations_append, foldr_permutationsAux2, permutationsAux_nil,
+373:     permutationsAux_cons, append_nil]
+374:   refine
+375:     (perm_append_comm.trans ((IH₂.flatMap_right _).append ((IH _ h).map _))).trans
+376:       (Perm.trans ?_ perm_append_comm.permutations')
+377:   rw [map_eq_flatMap, singleton_append, permutations']
+378:   refine (flatMap_append_perm _ _ _).trans ?_
+379:   refine Perm.of_eq ?_
+380:   congr
+381:   funext _
+382:   rw [permutations'Aux_eq_permutationsAux2, permutationsAux2_append]
+383: 
+384: @[simp]
+385: theorem mem_permutations' {s t : List α} : s ∈ permutations' t ↔ s ~ t :=
+386:   (permutations_perm_permutations' _).symm.mem_iff.trans mem_permutations
+
+FILE Mathlib/Data/Finset/Dedup.lean
+{"path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Data/Finset/Dedup.lean", "bytes": 6049, "lines": 206, "sha256": "613c90e8726039f6f8a65f530b6e0eba4f092ba31561a6f40d658f76f0d6e3fe", "git_blob": "b922a4771da34c285d287363257b328cdfcf2e0e", "read_ranges": [[142, 152]], "exact_pin_bytes": true}
+
+142: theorem toFinset_eq_iff_perm_dedup : l.toFinset = l'.toFinset ↔ l.dedup ~ l'.dedup := by
+143:   simp [Finset.ext_iff, perm_ext_iff_of_nodup (nodup_dedup _) (nodup_dedup _)]
+144: 
+145: theorem toFinset.ext_iff {a b : List α} : a.toFinset = b.toFinset ↔ ∀ x, x ∈ a ↔ x ∈ b := by
+146:   simp only [Finset.ext_iff, mem_toFinset]
+147: 
+148: theorem toFinset.ext : (∀ x, x ∈ l ↔ x ∈ l') → l.toFinset = l'.toFinset :=
+149:   toFinset.ext_iff.mpr
+150: 
+151: theorem toFinset_eq_of_perm (l l' : List α) (h : l ~ l') : l.toFinset = l'.toFinset :=
+152:   toFinset_eq_iff_perm_dedup.mpr h.dedup
+
+FILE Mathlib/Basic/ENNReal/Inv.lean
+{"path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Basic/ENNReal/Inv.lean", "bytes": 44273, "lines": 982, "sha256": "f06e93ae82105c5c03585c2d11377b94aac119b7fdbcaf34a7a333aa27c53f36", "git_blob": "fd51b663656c80c2e47a7a694662fd1c379bdca8", "read_ranges": [[90, 92], [198, 202]], "exact_pin_bytes": true}
+
+90: instance : DivInvOneMonoid ℝ≥0∞ :=
+91:   { (inferInstance : DivInvMonoid ℝ≥0∞) with
+92:     inv_one := by simpa only [coe_inv one_ne_zero, coe_one] using coe_inj.2 inv_one }
+
+198: instance : InvolutiveInv ℝ≥0∞ where
+199:   inv_inv a := by
+200:     by_cases a = 0 <;> cases a <;> simp_all [-coe_inv, (coe_inv _).symm]
+201: 
+202: @[simp] protected lemma inv_eq_one : a⁻¹ = 1 ↔ a = 1 := by rw [← inv_inj, inv_inv, inv_one]

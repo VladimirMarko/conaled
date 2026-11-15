@@ -1,0 +1,131 @@
+{
+  "recorded_utc": "2026-11-04T11:20:35.270921+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "base": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+  "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+  "exact_parent": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+  "full_original_scope_preserved": true,
+  "changed_paths": [
+    "Applications/Resources/Potential.lean",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "before_after": [
+    {
+      "before": {
+        "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+        "path": "Applications/Resources/Potential.lean",
+        "blob": "3ffc5e120f94f87c77a442728f654f3fa94d3aeb",
+        "bytes": 11523,
+        "lines": 238,
+        "sha256": "fa33b209a7c8cd700e7a33a6d3ee11ef9ad572c2d2e8406dfbabf6468ebf7d8c"
+      },
+      "after": {
+        "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+        "path": "Applications/Resources/Potential.lean",
+        "blob": "dcf7ae78d76c1440c2d89711e6939a00ff24cc90",
+        "bytes": 11606,
+        "lines": 239,
+        "sha256": "c921f5a18f9c508c338d49eed9d3bd2a2193f968cfc3e9efb4208f8917efa33c"
+      }
+    },
+    {
+      "before": {
+        "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+        "path": "docs/research/fdsa-reconstruction-map.md",
+        "blob": "5ae3836703d0d105f6c08a742b5070a62b159ad1",
+        "bytes": 44518,
+        "lines": 677,
+        "sha256": "9124fe8ac99901d2e5658c215d936889d6de8ff4ded6dfd8264ddc0ed66ef896"
+      },
+      "after": {
+        "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+        "path": "docs/research/fdsa-reconstruction-map.md",
+        "blob": "db598df8a4fe01d368cd0c791040dee22b5d7311",
+        "bytes": 44533,
+        "lines": 677,
+        "sha256": "c617f951a84072835c80945c8093a2096272d97f9e21981d865a263a19eb186b"
+      }
+    }
+  ],
+  "independent_complete_read": "Full43-line Git diff, all239 successor Potential lines, changed map512-541 with retained full677-line original map read; all author final readback/receipt and the two actual focused terminal packages independently read.",
+  "all_18_source_headers_exact": true,
+  "precise_three_proof_term_replacements_only": true,
+  "map_exact_single_qualified_sentence_replacement_only": true,
+  "pinned_covariance_source": {
+    "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "path": "Mathlib/Algebra/Order/Monoid/Unbundled/Defs.lean",
+    "full_read_ranges": [
+      [
+        1,
+        175
+      ]
+    ],
+    "bytes": 24958,
+    "lines": 581,
+    "sha256": "3ffec259f3ceff4c07ce572d133d76ac052acb034402f2ff672562dec5f2ed5a"
+  },
+  "proof_assessment": [
+    "AddLeftMono.elim prepends the mapped current work to the induction inequality.",
+    "AddRightMono.elim appends the actual tail budget to the local boundary inequality.",
+    "AddLeftMono.elim prepends mapped total work to nonnegative final potential; existing add_zero simplifies only the zero.",
+    "All original order, associativity, map, invariant and potential premises/conclusions remain; no commutativity/cancellation/order on C or monotonicity of the map is added."
+  ],
+  "author_evidence_files_fully_read": [
+    {
+      "path": "provenance/xp01-elaboration-correction1-20261104/before-identity.json",
+      "bytes": 1464,
+      "lines": 33,
+      "sha256": "20cd816dbb5e951f271a60dda49494be2dee15c5cd437676c63428846fe2fa62"
+    },
+    {
+      "path": "provenance/xp01-elaboration-correction1-20261104/source.diff",
+      "bytes": 2631,
+      "lines": 43,
+      "sha256": "1fe0ed30e48e96602805a019fd8bf7de7f9d56164ccb3220069e545f8cb9b99a"
+    },
+    {
+      "path": "provenance/xp01-elaboration-correction1-20261104/static-readback.json",
+      "bytes": 1807,
+      "lines": 59,
+      "sha256": "7c6f879d8d0b885a8540fed788fddd848e4486c65d47fa3c868edbdb84116cd4"
+    },
+    {
+      "path": "provenance/xp01-elaboration-correction1-20261104/author-readback.md",
+      "bytes": 9945,
+      "lines": 58,
+      "sha256": "cd82340af83eb4a1345ac9eb342eb5b2844557675e9e8b721055a249612f448b"
+    },
+    {
+      "path": "provenance/xp01-elaboration-correction1-20261104/diagnostic-map.json",
+      "bytes": 1023,
+      "lines": 22,
+      "sha256": "cd36210d95a09448d616e94e112dab1594f3d8ef25e6fc090e986742c9bb220c"
+    },
+    {
+      "path": "provenance/xp01-elaboration-correction1-20261104/receipt.json",
+      "bytes": 8865,
+      "lines": 230,
+      "sha256": "e9f9ff7bc4c7968ab5d3cd17e54f793e4437bd45df711f2dbc64bc2927ed9868"
+    }
+  ],
+  "author_package_hashes_verified": true,
+  "finding_disposition": [
+    {
+      "id": "XP01-DOC-001",
+      "status": "Resolved at source at cfa413e",
+      "reason": "Explicit For Chapter1 qualifier removes the overbroad sole-interface-adjustment claim while retaining its complete historical explanation."
+    },
+    {
+      "id": "XP01-ELAB-001",
+      "status": "Resolved for the concrete core errors at cfa413e",
+      "reason": "Independent unchanged-statement source correction and actual focused2 Potential Built3.2s; initial failed evidence retained."
+    },
+    {
+      "id": "XP01-ELAB-002",
+      "status": "Open",
+      "reason": "Mapped examples actually fail focused2; exact correction not yet supplied."
+    }
+  ],
+  "other_mathematical_or_architectural_findings": [],
+  "overall_outcome": "Blocked pending mapped example correction/qualified validation, actual20 full type assessment, original full acceptance gates and accepted prerequisite incorporation."
+}

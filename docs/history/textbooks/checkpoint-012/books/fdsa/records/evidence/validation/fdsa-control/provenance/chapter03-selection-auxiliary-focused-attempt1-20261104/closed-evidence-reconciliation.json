@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T19:31:51.080309+00:00",
+  "candidate": "8fef3ea5964f058f1c0036f53414d5d06fa56e59",
+  "terminal": {
+    "recorded_utc": "2026-11-04T19:31:51.080224+00:00",
+    "owned_session": 21687,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "a10808",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "8fef3ea5964f058f1c0036f53414d5d06fa56e59"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-auxiliary-focused-attempt1-20261104/full.log",
+    "bytes": 7536,
+    "sha256": "3c643708f63fd68cb13ae619cc7a046e95da8650b3e0ef2ddd1ca07efed10cb0"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T193131Z-project-run-e521578c",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-auxiliary-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 481,
+      "sha256": "dfe9b1443b9fe9e14779d6c046b6dfde9a3f7c14413a692fcf327fc662211dd8"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-auxiliary-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 634,
+      "sha256": "9b03aa43083fa9fa2c4ee4bb4531dbe64bbb64908135246466111e7982c00d1d"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-auxiliary-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 7257,
+      "sha256": "83a2a4ac8d57912e04a3eaedfaeb5283c752d751b0068157b644e4ae1219c58c"
+    }
+  },
+  "native_body_exact_outer_offset": 123,
+  "complete_closed_log": true,
+  "scope": "Focused development check of SelectionAuxiliary and its examples; does not import the uncompiled pivot module and supplies no whole-candidate audit or Chapter3 acceptance.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

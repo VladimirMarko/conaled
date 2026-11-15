@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-02T23:55:50.432465+00:00",
+  "assessment": "work-state/validation/1029-fresh2-resource-assessment.json",
+  "assessment_sha256": "f87ac10a76b183b0d3357b438a57b7ed005d1fcaf6311c1ced74feafe3a8f003",
+  "decision": "Keep processes, compiler flags, OS/cgroup settings and source unchanged; continue the original checker.",
+  "basis": "One bounded native sample identified no demonstrably obsolete/inactive high-memory task process. It observed the original checker with matching start identity and its current Lean child; the cgroup was near8GiB limit but the sample establishes no performance or recorder-loss cause.",
+  "formal_gate_change": false,
+  "chapter_credit": false,
+  "further_probe_authorized_by_this_record": false
+}

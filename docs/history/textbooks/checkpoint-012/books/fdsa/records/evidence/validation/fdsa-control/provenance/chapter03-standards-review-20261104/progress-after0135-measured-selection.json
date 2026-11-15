@@ -1,0 +1,162 @@
+{
+  "axis": "Standards",
+  "recorded_utc": "2026-11-05T00:35:11.617855+00:00",
+  "outcome": "Blocked; whole source review and final validation incomplete",
+  "current_immutable_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+  "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "frozen_obligations": 83,
+  "scope": "Same original Q-to-final whole-task review; accepted XR reuse retained; no reduction of scope",
+  "previous_progress": {
+    "path": "provenance/chapter03-standards-review-20261104/progress-after0135-scalar-pivot-envelope.json",
+    "bytes": 8470,
+    "sha256": "8f2daf8361bdd629bbc6afd4e4fe46f1b1189bfc3043463a8cc1db6b47025dfe"
+  },
+  "previous_prose_correction": {
+    "path": "provenance/chapter03-standards-review-20261104/scalar-pivot-envelope-prose-correction.json",
+    "bytes": 1298,
+    "sha256": "2139ec328cb02ce1e5bac19a2450105924a03974ea3fefb617bb21e35924c748"
+  },
+  "newly_assessed_sources": [
+    {
+      "path": "Applications/Resources/SelectionAuxiliary.lean",
+      "bytes": 6215,
+      "sha256": "eeba4ac85dd4e07b8b42f38499748cae69cb6dcaaa01fdc8400a3cf5b947a925",
+      "lines": 132,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Examples/SelectionAuxiliary.lean",
+      "bytes": 7302,
+      "sha256": "d5e495d5a9f6824d9b61fd41ce570059ab5aad3e93f4449f3b712e7d41a4b41e",
+      "lines": 161,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "bytes": 9755,
+      "sha256": "e64e998edc9353e5fd52544177fadd32f6398e3260b27ca54195cd8917e5d098",
+      "lines": 211,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Examples/SelectionMedians.lean",
+      "bytes": 5142,
+      "sha256": "4563c04666fdfb6073c8213328a2f868022cf2ed17538cd1671aaea68811c9d8",
+      "lines": 126,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Applications/Resources/Selection.lean",
+      "bytes": 22435,
+      "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+      "lines": 460,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Examples/SelectionCosts.lean",
+      "bytes": 13604,
+      "sha256": "d1f2c2e2e5ea3180d7fb1f736b0b3c1a98b3280e0a2902c2bfc712f409044a4e",
+      "lines": 289,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Examples/SelectionComposition.lean",
+      "bytes": 4056,
+      "sha256": "b70545e72b5826ae94bb2810065684e5d5cb324c4b5c86140609987d20a4d691",
+      "lines": 86,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    }
+  ],
+  "source_read_receipts": {
+    "auxiliary_core": "37bff9",
+    "auxiliary_example_full_after_recovery": "37bff9 and1152e9",
+    "medians_core": "690a55",
+    "medians_example": "1152e9",
+    "main_worker_lines1-225": "0549c3",
+    "main_worker_lines226-460": "48d638",
+    "cost_and_composition_examples": "c49846"
+  },
+  "actual_types": {
+    "index": {
+      "path": "provenance/chapter03-assembly2-statement-inputs-20261104/actual-type-block-index.json",
+      "bytes": 382223,
+      "sha256": "b89adf0160b2a887c5046917d6ac04131e826e3d6dd4d7e31b0edc0ab62961a2"
+    },
+    "assessed_inclusive_ranges": [
+      [
+        697,
+        739
+      ],
+      [
+        753,
+        780
+      ],
+      [
+        792,
+        846
+      ]
+    ],
+    "count": 126,
+    "bytes": 153156,
+    "concatenated_sha256": "2e106b40558a219d228497cbaf2f717af90153161e2d6cbbd16fe41ca75c2eda",
+    "full_block_read_receipts": {
+      "697-699": "47526d",
+      "700-719": "56df9f",
+      "720-739": "4693bc",
+      "753-767": "35de8b",
+      "768-780": "e87814",
+      "792-795": "c8787f",
+      "796": "b1fbeb",
+      "797-807": "9ea455",
+      "808-815": "7b639d",
+      "816-826": "474f0c",
+      "827-828": "a2f2b7",
+      "829-846": "2a28b0"
+    },
+    "cumulative_semantic_actual_blocks": 808,
+    "cumulative_original_index_ranges": [
+      [
+        0,
+        656
+      ],
+      [
+        697,
+        846
+      ]
+    ],
+    "additional_actual_blocks": "One new CountRank checked client at2ff47bda",
+    "boundary": "Secured prefix38 observations plus exact unchanged source correspondence; no final-candidate or exhaustive-audit credit"
+  },
+  "assessment": {
+    "auxiliary": "slowSelectRun executes insertion sort then sequential optional lookup. Exact cost is actual sort cost plus min(k,n)+1; for valid k it is sort cost+k+1. slowMedianRun additionally pays one actual length traversal and uses the lower central index(n-1)/2. Entry/length/slow-selection base budget is n^2+4n+3, hence constant483 through n=20; positive chunks through5 have median cost<=47. Public types require only LinearOrder, no inhabitedness; Fin0 empty clients and invalid ranks are covered. Sorted/reverse equal answers retain different actual costs. Accepted InsertionSort remaining source76-178 was read in c48d57, completing actual sort bounds and sorted/reverse extremal cost proof context.",
+    "median_pipeline": "The payload adapter consumes the actual optional measured median and eliminates impossible None using nonemptiness. It preserves the same measured cost without recomputing a pivot or choosing a default. mapSlowMedianRun charges each callback and one map traversal; attach provides proof-bearing membership, not an additional source operation. Exact map cost is sum of actual callback costs + chunk count +1. chunkMediansRun executes one chop and the actual map. For d>0 exact cost is2n+4*ceilDiv(n,d)+sum(actual medians)+2; all d and inputs have the stated conservative bound, and d=5 gives15n+49. Actual types expose all nonempty and length premises. Empty/d=0, repeated chunks, short final chunks and first recursive-size21 are checked clients.",
+    "main_private_worker": "Every valid worker returns an input member before correctness or balance is used. Actual chunk medians have positive size and strictly smaller size when recursion occurs, using d>=2 and cutoff>=1. Returned pivot membership supplies strict partition decrease and right-rank validity. The worker executes cached entry length, actual preparation, one recursive pivot selection, partition and lower length. Equal length is reached only after the left test fails; exactly one strict child is run, and none in the equal branch. All private helpers, termination clauses, worker observation proof and branch equation proof were read. No assumed cost or pivot-balance law is used to construct the worker.",
+    "public_value_and_cost_equations": "The public invalid guard reuses entry length and costs n+2, with empty count2. Valid base executes actual slowSelectRun. Step premise identifies only the observed pivot from the actual recursive median execution; it does not assume its rank, cost or side-size balance. Full measured equality proves value and cost together; projected cost equation preserves conditional length and child costs. Correctness uses independent membership-based descent and actual partition rank decomposition. Generic d>=2/cutoff>=1 correctness includes duplicates and all ranks; no linearity is claimed for every such d.",
+    "checked_uses": "Examples consume public equations and actual phase observations, never private worker unfolding. n=20 ascending/descending counts83/273; n=21 pivot12 cost21, left269/equal231/right266 and invalid23. All-equal n=21 costs239 at both endpoint ranks. Group2/cutoff1 actual repeated-value execution costs169 and explicitly asserts no linearity. Public one-based bridge is k+1. Monotone relabeling may merge values, transports ranked values and uniform common bounds, and the constant-map client exhibits actual266 versus239. Expanded composition types place A,B before both types/orders/map/input/rank; no injectivity or assumed execution-cost premise.",
+    "dependency_boundary": "SelectionBounds implementation was subsequently read in full in88bf43, but its actual type blocks and own checked examples remain pending. Its source derives pivot balance from proved worker value and performs a branch-sensitive strong induction to the constant-base scalar F. The composition client dependency will be fully closed when that section is assessed. No whole-chapter or gate completion is claimed.",
+    "new_findings": []
+  },
+  "cumulative_coverage": {
+    "new_chapter_source_files_read_fully": 45,
+    "new_chapter_source_files_source_and_type_assessed": 44,
+    "accepted_XR_formal_modules_reused": 2,
+    "new_chapter_source_files_not_yet_complete": 32,
+    "full_read_but_pending_actual_type_assessment": [
+      "Applications/Resources/SelectionBounds.lean"
+    ],
+    "pending_source_read_receipt": "88bf43"
+  },
+  "findings": {
+    "C03-SPEC-USE-001": "Resolved",
+    "C03-STD-DOC-001": "Resolved",
+    "new_findings": []
+  },
+  "remaining": "Unfinished Chapter3 source/types/checked uses/private helpers and correspondence; cutoff/generic bounds; random/query/trace pair and pending universal endpoint/factorial/triangular/source-family stage; exact final candidate qualification, successful complete normal check/audit, both independent outcomes, immediate verification. Prefix38 SIGKILL audit is not success. No compiler command was run by this reviewer."
+}

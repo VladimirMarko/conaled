@@ -1,0 +1,56 @@
+{
+  "recorded_utc": "2026-11-04T19:40:39.127246+00:00",
+  "candidate": "591ecdd855bc2fab3f788e6b134cc18aa80a3b6a",
+  "expectedHead": "4604d35e44d383fe8e84c2874812b2fc11d8f09b",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "acceptedHead": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "name": "chapter03-coordinate-queries-focused-attempt3-20261104",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Selection.CoordinateSensitivity",
+    "Examples.CoordinateSensitivity",
+    "Applications.Selection.CoordinateQueries",
+    "Examples.CoordinateQueries"
+  ],
+  "expectedPaths": [
+    "Applications/Selection/CoordinateQueries.lean",
+    "Applications/Selection/CoordinateSensitivity.lean",
+    "Examples/CoordinateQueries.lean",
+    "Examples/CoordinateSensitivity.lean"
+  ],
+  "recordDirectory": "chapter03-focused-continuation-20261104",
+  "recordName": "coordinate-queries-attempt3-preflight.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was 4604d35 fix(selection): normalize concrete median indices (#174)\nHEAD is now at 591ecdd fix(selection): normalize finite query examples (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Selection/CoordinateQueries.lean",
+      "bytes": 11106,
+      "sha256": "ca1c0d339500e77aa14ca47420b9f7a11f213bbcd8ac113c3281c7f9690e6409"
+    },
+    {
+      "path": "Applications/Selection/CoordinateSensitivity.lean",
+      "bytes": 6717,
+      "sha256": "224724056815f73aff552ead23b7dd83af4078ad61009169e1b474f4b94476e6"
+    },
+    {
+      "path": "Examples/CoordinateQueries.lean",
+      "bytes": 8079,
+      "sha256": "d90bd28ec4496105d9c5da80171a4c96a5ace119c0e178ded48f4f84ca8ad16d"
+    },
+    {
+      "path": "Examples/CoordinateSensitivity.lean",
+      "bytes": 3726,
+      "sha256": "ed3d3d7cd41c97169893fdb5cf95e336a560f6f042ee70cea0a24ad7a6691828"
+    }
+  ],
+  "candidate_tree": "e4294be51f8b17e9198c0c6c58cafbf44f33aa9e",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 780054528
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

@@ -1,0 +1,679 @@
+{
+  "kind": "prepared_only_source_incorporation_mapping",
+  "created_utc": "2026-11-04T13:06:37.723426+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "accepted_R": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "F": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "route_unchanged": [
+    "F",
+    "XM01+XD01+XQ01+XU01",
+    "XU02",
+    "XU03",
+    "new complete C2"
+  ],
+  "units": [
+    {
+      "unit": "XU04",
+      "base": "a0597381f02eddd074ee96cabaa974f2062285f8",
+      "tip": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+      "parent": "a0597381f02eddd074ee96cabaa974f2062285f8",
+      "tree": "9f18cef3688cd376cc42671558a8af2dcaa6efb9",
+      "paths": [
+        {
+          "ref": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+          "path": "Applications/Probability/PermutationExpectation.lean",
+          "blob": "02c6d8a12807838c02d33def261ff13139c56b9d",
+          "bytes": 12849,
+          "lines": 273,
+          "sha256": "a322a016ea767d0a1f294cac5f709c20bc7e41d0e1e4f05d2aa2eb9ebc1c1cf9",
+          "change": "A"
+        },
+        {
+          "ref": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+          "path": "Examples/PermutationExpectation.lean",
+          "blob": "047afa3eb12c722e85fa20bb7bbc45a0e687c500",
+          "bytes": 8255,
+          "lines": 191,
+          "sha256": "5f89da2fb3dc77e886532708962eccdf7fc93cbdbaaaf0ef5fe486f231f7a037",
+          "change": "A"
+        },
+        {
+          "ref": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+          "path": "Examples/PermutationExpectationBoundary.lean",
+          "blob": "76f8a118a872ffe94dd2c7aaffdec4d4c3673520",
+          "bytes": 14682,
+          "lines": 332,
+          "sha256": "e5547ba32b5f786c221a5f2259282452c17e05b86eacc9808d5d490a5f62b333",
+          "change": "A"
+        },
+        {
+          "ref": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+          "path": "SquareApplications.lean",
+          "blob": "0c1b166916f875ce01b4540b02757d788c122740",
+          "bytes": 8431,
+          "lines": 256,
+          "sha256": "2a537090f1bb7c625897e5206c20ac4753afc6d722733950a667645082c9a71e",
+          "change": "M",
+          "base": {
+            "ref": "a0597381f02eddd074ee96cabaa974f2062285f8",
+            "path": "SquareApplications.lean",
+            "blob": "2cd4b70ebb4b89bfcfcd61c98f1b9594f5a38d7b",
+            "bytes": 8392,
+            "lines": 255,
+            "sha256": "7aedfca880167dc6a66e1b49b7ce1c5210c5f97ad090817061c5961c0b1aa321"
+          }
+        },
+        {
+          "ref": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+          "path": "docs/research/fdsa-permutation-expectation.md",
+          "blob": "463c72275a0902373cc0e97c8962a7f701bf23ed",
+          "bytes": 9278,
+          "lines": 184,
+          "sha256": "9a835956f4f914f9a76e50975458b01d90597e09ceebf606ed9349bbb18ecabe",
+          "change": "A"
+        },
+        {
+          "ref": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+          "path": "docs/research/fdsa-reconstruction-map.md",
+          "blob": "34d0a600895cc1d02927fdc68f54a02964878a84",
+          "bytes": 20131,
+          "lines": 332,
+          "sha256": "bf1f4f5dd009da181a1cfbcf94dc52ebbbdde3a564b24cf000b6c477f049d0d1",
+          "change": "M",
+          "base": {
+            "ref": "a0597381f02eddd074ee96cabaa974f2062285f8",
+            "path": "docs/research/fdsa-reconstruction-map.md",
+            "blob": "0655c5824d0e5b06a0c128de0ea0645fd8f116d3",
+            "bytes": 18893,
+            "lines": 312,
+            "sha256": "f519e995709de1e147439ebfc5a903a9e753883b49fd82f02d5bd484619acb9f"
+          }
+        }
+      ]
+    },
+    {
+      "unit": "XU05",
+      "base": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+      "tip": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+      "parent": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+      "tree": "4b0ba3272e44a23f7a2c629097fdcacbc4406b9b",
+      "paths": [
+        {
+          "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+          "path": "Applications/Probability/PermutationOrder.lean",
+          "blob": "3527f32c466c4cedb1a9aa35b53d2576496f8822",
+          "bytes": 29717,
+          "lines": 590,
+          "sha256": "8a427831a044b3c2aac2b7272648ec702d8b04da2e11a1db57521dde28a0e50c",
+          "change": "M",
+          "base": {
+            "ref": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+            "path": "Applications/Probability/PermutationOrder.lean",
+            "blob": "948b428687adb0c370c30298ce22c02e1bd863b6",
+            "bytes": 15172,
+            "lines": 319,
+            "sha256": "b427902814c19d269c850c97cb43728034d03df2539c5e357ce7ce715191298f"
+          }
+        },
+        {
+          "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+          "path": "Examples/PermutationJoint.lean",
+          "blob": "c899032455692900c02bebcdf9f120da226f70da",
+          "bytes": 13379,
+          "lines": 290,
+          "sha256": "51e712d2b69ea8abb930597452988d4fb02ec57b48503f30a18cb97287de3c28",
+          "change": "A"
+        },
+        {
+          "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+          "path": "Examples/PermutationJointBoundary.lean",
+          "blob": "3b472702b73d713f0af51b31a36073dbae67b214",
+          "bytes": 11107,
+          "lines": 232,
+          "sha256": "2ed11acdb8615ae5fd9696ce9c843bf93cb59821a580229753d5b45396a7526f",
+          "change": "A"
+        },
+        {
+          "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+          "path": "SquareApplications.lean",
+          "blob": "c9307a8c5fc752623731ef4639a8e1f33dadd3c5",
+          "bytes": 8464,
+          "lines": 257,
+          "sha256": "556524fdf37e4237c0e086af06c97d43561b19c35886913688568ad228bdb700",
+          "change": "M",
+          "base": {
+            "ref": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+            "path": "SquareApplications.lean",
+            "blob": "0c1b166916f875ce01b4540b02757d788c122740",
+            "bytes": 8431,
+            "lines": 256,
+            "sha256": "2a537090f1bb7c625897e5206c20ac4753afc6d722733950a667645082c9a71e"
+          }
+        },
+        {
+          "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+          "path": "docs/research/fdsa-permutation-joint.md",
+          "blob": "d2c1d4ed0f6095320d07cddc10728172a897c1bf",
+          "bytes": 10069,
+          "lines": 185,
+          "sha256": "cf80730065f60325297835548c98790b14778d7db61bde84da9429c0192b4b64",
+          "change": "A"
+        },
+        {
+          "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+          "path": "docs/research/fdsa-reconstruction-map.md",
+          "blob": "e0371ecc9e87a6bd90c9574f5d42db01fc1198b9",
+          "bytes": 21507,
+          "lines": 356,
+          "sha256": "8583097adf4bb97611ddda8b276cd5d85d7d7c1dab5bfb31685f427daa3ac408",
+          "change": "M",
+          "base": {
+            "ref": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+            "path": "docs/research/fdsa-reconstruction-map.md",
+            "blob": "34d0a600895cc1d02927fdc68f54a02964878a84",
+            "bytes": 20131,
+            "lines": 332,
+            "sha256": "bf1f4f5dd009da181a1cfbcf94dc52ebbbdde3a564b24cf000b6c477f049d0d1"
+          }
+        }
+      ]
+    }
+  ],
+  "corrected_predecessors": [
+    {
+      "path": "Applications/Probability/PermutationMinimum.lean",
+      "old_XU04": {
+        "ref": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+        "path": "Applications/Probability/PermutationMinimum.lean",
+        "blob": "9be74c11fda2de70b0fa02fcb597c631dc8e666e",
+        "bytes": 8244,
+        "lines": 197,
+        "sha256": "648a2d799ea9905a27992ad4e8653ad21a0457c5301e8c0a026d08d9cd067bbb"
+      },
+      "XU05": {
+        "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+        "path": "Applications/Probability/PermutationMinimum.lean",
+        "blob": "9be74c11fda2de70b0fa02fcb597c631dc8e666e",
+        "bytes": 8244,
+        "lines": 197,
+        "sha256": "648a2d799ea9905a27992ad4e8653ad21a0457c5301e8c0a026d08d9cd067bbb"
+      },
+      "corrected_minimal": {
+        "ref": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+        "path": "Applications/Probability/PermutationMinimum.lean",
+        "blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+        "bytes": 8241,
+        "lines": 197,
+        "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64"
+      },
+      "Z_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+      "preservation": "Retain eventual accepted corrected predecessor, including example fixtures; XU05 adds only its declared Order delta."
+    },
+    {
+      "path": "Examples/PermutationMinimum.lean",
+      "old_XU04": {
+        "ref": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+        "path": "Examples/PermutationMinimum.lean",
+        "blob": "e49e17a2a70836bd2cb8d4fc9bf799dd2be6bad9",
+        "bytes": 4891,
+        "lines": 126,
+        "sha256": "b1cef98f9814eb53668cc29896bad750d2b687c4bc162c7ad500e1df82a09442"
+      },
+      "XU05": {
+        "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+        "path": "Examples/PermutationMinimum.lean",
+        "blob": "e49e17a2a70836bd2cb8d4fc9bf799dd2be6bad9",
+        "bytes": 4891,
+        "lines": 126,
+        "sha256": "b1cef98f9814eb53668cc29896bad750d2b687c4bc162c7ad500e1df82a09442"
+      },
+      "corrected_minimal": {
+        "ref": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+        "path": "Examples/PermutationMinimum.lean",
+        "blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+        "bytes": 4994,
+        "lines": 127,
+        "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1"
+      },
+      "Z_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+      "preservation": "Retain eventual accepted corrected predecessor, including example fixtures; XU05 adds only its declared Order delta."
+    },
+    {
+      "path": "Examples/PermutationMinimumBoundary.lean",
+      "old_XU04": {
+        "ref": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+        "path": "Examples/PermutationMinimumBoundary.lean",
+        "blob": "05642e65256626b6ac881c9c2fe6de822858ca2d",
+        "bytes": 4173,
+        "lines": 113,
+        "sha256": "d169fc8ccac457d71978bd1a209ab610338dd601fe816e40f9f0666164cca34d"
+      },
+      "XU05": {
+        "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+        "path": "Examples/PermutationMinimumBoundary.lean",
+        "blob": "05642e65256626b6ac881c9c2fe6de822858ca2d",
+        "bytes": 4173,
+        "lines": 113,
+        "sha256": "d169fc8ccac457d71978bd1a209ab610338dd601fe816e40f9f0666164cca34d"
+      },
+      "corrected_minimal": {
+        "ref": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+        "path": "Examples/PermutationMinimumBoundary.lean",
+        "blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+        "bytes": 4211,
+        "lines": 113,
+        "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b"
+      },
+      "Z_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+      "preservation": "Retain eventual accepted corrected predecessor, including example fixtures; XU05 adds only its declared Order delta."
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "old_XU04": {
+        "ref": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+        "path": "Applications/Probability/PermutationOrder.lean",
+        "blob": "948b428687adb0c370c30298ce22c02e1bd863b6",
+        "bytes": 15172,
+        "lines": 319,
+        "sha256": "b427902814c19d269c850c97cb43728034d03df2539c5e357ce7ce715191298f"
+      },
+      "XU05": {
+        "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+        "path": "Applications/Probability/PermutationOrder.lean",
+        "blob": "3527f32c466c4cedb1a9aa35b53d2576496f8822",
+        "bytes": 29717,
+        "lines": 590,
+        "sha256": "8a427831a044b3c2aac2b7272648ec702d8b04da2e11a1db57521dde28a0e50c"
+      },
+      "corrected_minimal": {
+        "ref": "bdac9703aab4b383fa775568d36bf685af329389",
+        "path": "Applications/Probability/PermutationOrder.lean",
+        "blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+        "bytes": 15304,
+        "lines": 321,
+        "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2"
+      },
+      "Z_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+      "preservation": "Retain eventual accepted corrected predecessor, including example fixtures; XU05 adds only its declared Order delta."
+    },
+    {
+      "path": "Examples/PermutationOrder.lean",
+      "old_XU04": {
+        "ref": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+        "path": "Examples/PermutationOrder.lean",
+        "blob": "c6f0d7d2a08b5bfc1b9b34563a8a5578a3fcd52d",
+        "bytes": 6445,
+        "lines": 146,
+        "sha256": "251c0ee0ce7b96711ea57e1ff7496a784fe33137596e8f13b244fa9e44fd57e5"
+      },
+      "XU05": {
+        "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+        "path": "Examples/PermutationOrder.lean",
+        "blob": "c6f0d7d2a08b5bfc1b9b34563a8a5578a3fcd52d",
+        "bytes": 6445,
+        "lines": 146,
+        "sha256": "251c0ee0ce7b96711ea57e1ff7496a784fe33137596e8f13b244fa9e44fd57e5"
+      },
+      "corrected_minimal": {
+        "ref": "bdac9703aab4b383fa775568d36bf685af329389",
+        "path": "Examples/PermutationOrder.lean",
+        "blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+        "bytes": 6706,
+        "lines": 152,
+        "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084"
+      },
+      "Z_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+      "preservation": "Retain eventual accepted corrected predecessor, including example fixtures; XU05 adds only its declared Order delta."
+    },
+    {
+      "path": "Examples/PermutationOrderBoundary.lean",
+      "old_XU04": {
+        "ref": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+        "path": "Examples/PermutationOrderBoundary.lean",
+        "blob": "9e384a46b8fda579ccee3605928a0fde864c881e",
+        "bytes": 5434,
+        "lines": 144,
+        "sha256": "35c9768d94fd12e553905244a69ffa375e01e469098856b311ac17ad88533fea"
+      },
+      "XU05": {
+        "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+        "path": "Examples/PermutationOrderBoundary.lean",
+        "blob": "9e384a46b8fda579ccee3605928a0fde864c881e",
+        "bytes": 5434,
+        "lines": 144,
+        "sha256": "35c9768d94fd12e553905244a69ffa375e01e469098856b311ac17ad88533fea"
+      },
+      "corrected_minimal": {
+        "ref": "bdac9703aab4b383fa775568d36bf685af329389",
+        "path": "Examples/PermutationOrderBoundary.lean",
+        "blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+        "bytes": 5605,
+        "lines": 148,
+        "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121"
+      },
+      "Z_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+      "preservation": "Retain eventual accepted corrected predecessor, including example fixtures; XU05 adds only its declared Order delta."
+    },
+    {
+      "path": "Applications/Probability/PermutationTail.lean",
+      "old_XU04": {
+        "ref": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+        "path": "Applications/Probability/PermutationTail.lean",
+        "blob": "97d2159ff96dadb45626cd790f01878750e91254",
+        "bytes": 23402,
+        "lines": 485,
+        "sha256": "1093b94886936b4cb859a371a863bfcf0b388db90a3bc063018329a399fe6f33"
+      },
+      "XU05": {
+        "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+        "path": "Applications/Probability/PermutationTail.lean",
+        "blob": "97d2159ff96dadb45626cd790f01878750e91254",
+        "bytes": 23402,
+        "lines": 485,
+        "sha256": "1093b94886936b4cb859a371a863bfcf0b388db90a3bc063018329a399fe6f33"
+      },
+      "corrected_minimal": {
+        "ref": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+        "path": "Applications/Probability/PermutationTail.lean",
+        "blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+        "bytes": 23521,
+        "lines": 487,
+        "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed"
+      },
+      "Z_blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+      "preservation": "Retain eventual accepted corrected predecessor, including example fixtures; XU05 adds only its declared Order delta."
+    },
+    {
+      "path": "Examples/PermutationTail.lean",
+      "old_XU04": {
+        "ref": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+        "path": "Examples/PermutationTail.lean",
+        "blob": "39e9e5ae53e1c137301111ca63293b0ca1feb94a",
+        "bytes": 8775,
+        "lines": 197,
+        "sha256": "7470b1889baf878488eca8dad1240e1ca419a925b6f18f853a82eccd1178abfe"
+      },
+      "XU05": {
+        "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+        "path": "Examples/PermutationTail.lean",
+        "blob": "39e9e5ae53e1c137301111ca63293b0ca1feb94a",
+        "bytes": 8775,
+        "lines": 197,
+        "sha256": "7470b1889baf878488eca8dad1240e1ca419a925b6f18f853a82eccd1178abfe"
+      },
+      "corrected_minimal": {
+        "ref": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+        "path": "Examples/PermutationTail.lean",
+        "blob": "baa3e26a3c72a4589765562167d1d85edc011e67",
+        "bytes": 9826,
+        "lines": 222,
+        "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e"
+      },
+      "Z_blob": "baa3e26a3c72a4589765562167d1d85edc011e67",
+      "preservation": "Retain eventual accepted corrected predecessor, including example fixtures; XU05 adds only its declared Order delta."
+    },
+    {
+      "path": "Examples/PermutationTailBoundary.lean",
+      "old_XU04": {
+        "ref": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+        "path": "Examples/PermutationTailBoundary.lean",
+        "blob": "c494fcae8d3ed02d425a05c49ffa2e4c3487987e",
+        "bytes": 10173,
+        "lines": 230,
+        "sha256": "1bf7dd1e54ca551712b93a45b3c1db96bb6d95ad81a2297b34e29f288769fd73"
+      },
+      "XU05": {
+        "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+        "path": "Examples/PermutationTailBoundary.lean",
+        "blob": "c494fcae8d3ed02d425a05c49ffa2e4c3487987e",
+        "bytes": 10173,
+        "lines": 230,
+        "sha256": "1bf7dd1e54ca551712b93a45b3c1db96bb6d95ad81a2297b34e29f288769fd73"
+      },
+      "corrected_minimal": {
+        "ref": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+        "path": "Examples/PermutationTailBoundary.lean",
+        "blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0",
+        "bytes": 12064,
+        "lines": 266,
+        "sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54"
+      },
+      "Z_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0",
+      "preservation": "Retain eventual accepted corrected predecessor, including example fixtures; XU05 adds only its declared Order delta."
+    }
+  ],
+  "order_segments": {
+    "standards_old_lines": [
+      36,
+      318
+    ],
+    "standards_XU05_lines": [
+      42,
+      324
+    ],
+    "standards": {
+      "bytes": 13576,
+      "lines": 283,
+      "sha256": "fe569a22a7ddf082b54834d4685e8bcdde1ba71051744ead5d9be2b06a78b178"
+    },
+    "spec_old_lines": [
+      36,
+      317
+    ],
+    "spec_XU05_lines": [
+      42,
+      323
+    ],
+    "spec": {
+      "bytes": 13575,
+      "lines": 282,
+      "sha256": "b1d18d46656f604b53f655a4e100611e670f9cfb4625a055194505d5975c63c2"
+    },
+    "relation": "standards_bytes == spec_bytes + b\"\\n\"; each exact slice separately equals its own old/new counterpart",
+    "new_append_XU05_lines": [
+      325,
+      589
+    ],
+    "new_append": {
+      "bytes": 14197,
+      "lines": 265,
+      "sha256": "d8d32369ac7a85cca9b3eae97a80a16ef4cf074f5c0e3f5d1ba6886f553eb617"
+    },
+    "corrected_Z_lines": [
+      36,
+      320
+    ],
+    "corrected_Z_body": {
+      "bytes": 13708,
+      "lines": 285,
+      "sha256": "a900c42584e59a3a89c55ae613fd8134d350974f5521f7697565db99f10a1446"
+    },
+    "combined_successor_constructed": false
+  },
+  "old_Order_public_names": [
+    "restrictedOrder",
+    "orders",
+    "mem_restrictedOrder",
+    "mem_restrictedOrder_of_complete",
+    "restrictedOrder_nodup",
+    "restrictedOrder_toFinset",
+    "restrictedOrder_length",
+    "restrictedOrder_perm",
+    "map_restrictedOrder_sublist",
+    "filter_restrictedOrder",
+    "filter_restrictedOrder_of_subset",
+    "mem_orders",
+    "orders_nonempty",
+    "restrictedOrder_mem_orders",
+    "orders_card",
+    "uniformOn_restrictedOrder_eq",
+    "map_restrictedOrder_uniformOn"
+  ],
+  "old_Order_private_names": [
+    "exists_map_eq_of_nodup",
+    "exists_relabel_orders",
+    "restrictedOrder_relabel",
+    "fiber_mass_eq"
+  ],
+  "new_Order_public_names": [
+    "uniformOn_restrictedOrder_pair_eq",
+    "map_restrictedOrder_pair_uniformOn",
+    "hasLaw_filter_pair"
+  ],
+  "new_Order_private_names": [
+    "exists_relabel_order_pair",
+    "pair_fiber_mass_eq",
+    "filter_pair_hasLaw_orders"
+  ],
+  "counts": {
+    "XU04": {
+      "authored": 103,
+      "public": 81,
+      "private": 12,
+      "anonymous_local_instances": 10,
+      "actual_types": 0
+    },
+    "XU05": {
+      "authored": 125,
+      "public": 94,
+      "retained_public": 17,
+      "new_public": 77,
+      "private": 13,
+      "anonymous_local_instances": 18,
+      "actual_types": 0
+    }
+  },
+  "held_records": [
+    {
+      "path": "reviews/permutation-expectation-requirements.md",
+      "bytes": 14497,
+      "lines": 272,
+      "sha256": "926fddbeb2d20b45842416b90ba96c78dbeaa84064d5d135cf3bb5b2d620624a"
+    },
+    {
+      "path": "reviews/permutation-joint-requirements.md",
+      "bytes": 14845,
+      "lines": 277,
+      "sha256": "a80952af26c830231070feb9305f7c678277349c95861b39826edc9297486325"
+    },
+    {
+      "path": "reviews/permutation-expectation-candidate.md",
+      "bytes": 9070,
+      "lines": 151,
+      "sha256": "15a9390023f814d2c927f43d8e2ac4881186bb6357e95cd053b815f013b2b8f6"
+    },
+    {
+      "path": "reviews/permutation-joint-candidate.md",
+      "bytes": 10565,
+      "lines": 176,
+      "sha256": "d899db54db55fd7cab50376ecf40cfc4894c0ac3dfc46fa8bc8f0bf80ab2eb3b"
+    },
+    {
+      "path": "reviews/permutation-expectation-standards-preparation-20261104.md",
+      "bytes": 21944,
+      "lines": 107,
+      "sha256": "4e76fd0c52f06dbee8367db24af2c5da3ad4a1785849a5b0e0609d33f2a9881a"
+    },
+    {
+      "path": "reviews/permutation-expectation-spec-preparation-20261104.md",
+      "bytes": 23193,
+      "lines": 130,
+      "sha256": "0c8ed987cea562d8cd783926c3e6fedf3bf82f0e74f673e275bb67b1ebc64d15"
+    },
+    {
+      "path": "reviews/permutation-joint-standards-preparation-20261104.md",
+      "bytes": 21469,
+      "lines": 91,
+      "sha256": "91aa0305006960edde631eec405f2d8e66461bd016ee21900a9831731ddc0c6d"
+    },
+    {
+      "path": "reviews/permutation-joint-spec-preparation-20261104.md",
+      "bytes": 22149,
+      "lines": 120,
+      "sha256": "1be96c03ec7e0dc03fbb47263d119b515e92a7737dd44eb92a0c954279c66ac0"
+    },
+    {
+      "path": "provenance/permutation-expectation-spec-preparation-20261104/header-metadata-correction.json",
+      "bytes": 6201,
+      "lines": 119,
+      "sha256": "e79b0c541164a5f18192632256c4ca174ceaf3c892dcc0e0b3d2c1df965ce0e1"
+    },
+    {
+      "path": "provenance/permutation-joint-standards-preparation-20261104/read-ledger.json",
+      "bytes": 37319,
+      "lines": 1084,
+      "sha256": "71d535fdd3038dedb09696691e0a3ed849095255c94d9f909e23d6fe23b4d9bc"
+    },
+    {
+      "path": "provenance/permutation-joint-standards-preparation-20261104/source-preparation.json",
+      "bytes": 103656,
+      "lines": 2143,
+      "sha256": "68e498c4c95555bd12ccd54af09f229093c79ef58b94dc53b4a6437eadfdede0"
+    },
+    {
+      "path": "provenance/permutation-joint-spec-preparation-20261104/source-assessment.json",
+      "bytes": 144130,
+      "lines": 3572,
+      "sha256": "37b4f05ac8835622c6e04f949713c9870344c732de782d814017cd7b3766d648"
+    },
+    {
+      "path": "provenance/permutation-joint-spec-preparation-20261104/current-boundary.json",
+      "bytes": 5312,
+      "lines": 146,
+      "sha256": "0bde7c77f9721b1ab0c1799eb6627946e7e9fd486bf47587c46e20e9083ae169"
+    },
+    {
+      "path": "provenance/permutation-expectation-public-statements81-prepared-20261104/Statements.lean",
+      "bytes": 5672,
+      "lines": 92,
+      "sha256": "2b6cb3efd0ef4c5e824379bbc77415f42f4d58bff402e9f76c7fe7ba470da768"
+    },
+    {
+      "path": "provenance/permutation-expectation-public-statements81-prepared-20261104/inventory.json",
+      "bytes": 55841,
+      "lines": 1207,
+      "sha256": "487308c476e9282a753b36250dd65c8e759d483611921c0096ad2e960b527e7c"
+    },
+    {
+      "path": "provenance/permutation-joint-public-statements94-prepared-20261104/Statements.lean",
+      "bytes": 5941,
+      "lines": 105,
+      "sha256": "47bfb74e34506cf00ba8dd8bb9bc541fab5ed361f2176917087397c887184658"
+    }
+  ],
+  "read_boundary": "Plan final section is the complete versus bounded read ledger. Whole source files are hashed, not freshly mathematically reviewed. Four held complete reports are relied upon as preserved source assessments, not acceptance. No compiler/output/process activity.",
+  "plan": {
+    "path": "plan.md",
+    "bytes": 11917,
+    "lines": 56,
+    "sha256": "949e21514e1c1ff29c408c505b4f3b746abf5eff9b3a0fa854d307d8c5481cbb"
+  },
+  "mutations": "Only this new control provenance package. No repository/ref/compiler/cache/output changes.",
+  "author_readback": {
+    "complete_prose": "Both prose files read fully from disk; the final 94-program binding paragraph and all 94 prepared check lines were then read completely. No remaining author readback item.",
+    "identity_reverification": "44 nested immutable source identities recomputed; all original held records unchanged; prepared94 exact hash and all94 commands verified.",
+    "receipt_boundary": "Generated structured source identities mechanically verified; not a claim of rereading the whole earlier independent receipts.",
+    "completed_utc": "2026-11-04T13:08:03.204117+00:00"
+  },
+  "XU05_prepared94_binding": {
+    "path": "provenance/permutation-joint-public-statements94-prepared-20261104/Statements.lean",
+    "check_count": 94,
+    "status": "prepared_only_no_execution_credit",
+    "sha256": "47bfb74e34506cf00ba8dd8bb9bc541fab5ed361f2176917087397c887184658",
+    "author_read_boundary": "Complete program read at final handoff; no duplicate program created."
+  },
+  "resource_survey_files": [
+    {
+      "path": "compressed-cache-survey.md",
+      "bytes": 6319,
+      "lines": 28,
+      "sha256": "893a981bc083226a7d09084a507e29c90f722139f845cb3120ef456e036af421"
+    },
+    {
+      "path": "compressed-cache-survey.json",
+      "bytes": 7904,
+      "lines": 231,
+      "sha256": "8873b8baec5f38585e2d188c57f7d3a65edca4147582239bcbe27a43247e361f"
+    }
+  ]
+}

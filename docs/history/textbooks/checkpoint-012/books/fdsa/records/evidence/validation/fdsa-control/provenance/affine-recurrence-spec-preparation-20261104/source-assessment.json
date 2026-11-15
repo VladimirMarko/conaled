@@ -1,0 +1,1118 @@
+{
+  "schema": "fdsa-independent-spec-source-preparation-v1",
+  "recorded_utc": "2026-11-04T12:08:53.263654+00:00",
+  "review_axis": "Spec",
+  "reviewer": "/root/chapter02_spec",
+  "independent_nonauthor": true,
+  "unit": "XR01",
+  "kind": "preliminary source preparation only; same original whole-book review loop",
+  "overall": "Blocked",
+  "new_source_findings": [],
+  "identities": {
+    "original_fixed_base": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+    "immutable_candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+    "candidate_parents": [
+      "c28ba71863d2a35ee1c3a089caa90464e4cca692"
+    ],
+    "development_branch": "work/fdsa-affine-recurrence",
+    "accepted_chapter1_preserved": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "exact_pending_foundation": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "later_XP_successor_not_substituted": "12cb14fc98b8617b3b625620da8e60936daba340"
+  },
+  "checkpoint_release": {
+    "checkpoint": "0102",
+    "bytes": 19310918,
+    "sha256": "382e4c27db51ed259d748ae8e404fdbf3f30465bcc10d62b5fdd6d2164168106",
+    "library_file_id": "libfile_ae099a8df6d88191bef03da09eaa7186",
+    "writes_released_for": "own XR01 source-preparation records only"
+  },
+  "original_scope": {
+    "paths": [
+      "Applications/Resources/AffineRecurrence.lean",
+      "Examples/AffineRecurrence.lean",
+      "SquareApplications.lean",
+      "docs/research/fdsa-affine-recurrence.md",
+      "docs/research/fdsa-reconstruction-map.md"
+    ],
+    "all_five_paths_fully_read": true,
+    "whole_changed_files_read_not_only_diff": true,
+    "additions": 512,
+    "deletions": 0,
+    "only_five_paths_differ": true,
+    "all_other_base_paths_unchanged": true,
+    "root_map_diff_sha256": "79d6ccdf84f210fab64a8e0fc9c590c5b9856466ccc0e0f11e7c284dffb62c4f"
+  },
+  "source_reads": [
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "Applications/Resources/AffineRecurrence.lean",
+      "git_blob": "afba9e03f3d8178c6fcd469e064f07ddff53c32b",
+      "bytes": 5839,
+      "newline_lines": 113,
+      "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          113
+        ]
+      ],
+      "all_read_outputs_untruncated": true
+    },
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "Examples/AffineRecurrence.lean",
+      "git_blob": "e16bc2401027fdced90b86edd15d9eb8b79759b9",
+      "bytes": 5165,
+      "newline_lines": 142,
+      "sha256": "eb9239f5810887ba988420c3fe8538eab21285c1e6173eb5467133baa63868d5",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          142
+        ]
+      ],
+      "all_read_outputs_untruncated": true
+    },
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "SquareApplications.lean",
+      "git_blob": "99c912978cbbc57837e5b9dc19995aaa13d71a53",
+      "bytes": 8431,
+      "newline_lines": 256,
+      "sha256": "c7abc390617e80c42c2b604528748fcebe794f869d8abeae88a07a69864ea3ef",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          256
+        ]
+      ],
+      "all_read_outputs_untruncated": true
+    },
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "docs/research/fdsa-affine-recurrence.md",
+      "git_blob": "8319a4470bd0dacaa518e6d149fee26e67a1a64a",
+      "bytes": 9975,
+      "newline_lines": 233,
+      "sha256": "a07b086bc846c0898b2713a7b055b9cb451d0471c655eeaab9cc1077f32b87bf",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          233
+        ]
+      ],
+      "all_read_outputs_untruncated": true
+    },
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "c051f7fa4ebb314068396014d6b16ee61f8d82e4",
+      "bytes": 32550,
+      "newline_lines": 500,
+      "sha256": "4e8acd033864e106e6881d8d5bb3d73993f9c6c65bee14d072553eadf392789b",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          160
+        ],
+        [
+          161,
+          320
+        ],
+        [
+          321,
+          500
+        ]
+      ],
+      "all_read_outputs_untruncated": true
+    }
+  ],
+  "full_control_reads": [
+    {
+      "path": "reviews/affine-recurrence-requirements.md",
+      "bytes": 5540,
+      "newline_lines": 96,
+      "sha256": "5873700a349c359d15873829f1399a20225fa80eaa980e7ad9f1e4c8f774dd02",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          96
+        ]
+      ]
+    },
+    {
+      "path": "reviews/affine-recurrence-candidate.md",
+      "bytes": 4774,
+      "newline_lines": 80,
+      "sha256": "4c205b012b58219b0022427e32a12717dd46bd25a38ae68f53c62d16b8baeab4",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          80
+        ]
+      ]
+    },
+    {
+      "path": "research/affine-recurrence-preflight.md",
+      "bytes": 27327,
+      "newline_lines": 464,
+      "sha256": "dc20f947d2ff84ece47299a2403c9166d28f8c6103697e3b4b6b28842979b273",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          160
+        ],
+        [
+          161,
+          320
+        ],
+        [
+          321,
+          464
+        ]
+      ]
+    }
+  ],
+  "guidance_retained_exact_reads": [
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "AGENTS.md",
+      "git_blob": "1b1e65502f0b0771b2475e3b1f37e39d7f18d0c2",
+      "bytes": 3118,
+      "newline_lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          76
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": ".agents/skills/implement/SKILL.md",
+      "git_blob": "45b885f90c1ce212e45fbb30727322e4eb34bcd8",
+      "bytes": 4997,
+      "newline_lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          83
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": ".agents/skills/code-review/SKILL.md",
+      "git_blob": "8b79f5e9db43d028f2b9a252d907b9b9b02feb01",
+      "bytes": 7466,
+      "newline_lines": 133,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          133
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": ".agents/skills/code-review/heuristics.md",
+      "git_blob": "9c5666ca66022e0322ebb9687c69182d6d63e553",
+      "bytes": 2232,
+      "newline_lines": 32,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          32
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "git_blob": "8f279691ee250a713f7cd70f7c37c5d581ead152",
+      "bytes": 6991,
+      "newline_lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          116
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": ".agents/skills/example-driven-development/worked-example.md",
+      "git_blob": "255389dab7b86dae37bf06f477f42c5a77fcbec9",
+      "bytes": 2356,
+      "newline_lines": 55,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          55
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "docs/agents/review-loop.md",
+      "git_blob": "6c4724d8b5dde60c55543e73414873a5f355d165",
+      "bytes": 7113,
+      "newline_lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          115
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "docs/agents/architectural-quality.md",
+      "git_blob": "bfcdb4a22899e11ba61b67d068d380ef5ea69f9f",
+      "bytes": 3876,
+      "newline_lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          66
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "docs/agents/domain.md",
+      "git_blob": "c26859ec35e14a9051d84066b3b5315aad67ee8b",
+      "bytes": 926,
+      "newline_lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "GLOSSARY.md",
+      "git_blob": "58735721568c19cbdc0bfd691280fd24b98e65c9",
+      "bytes": 4824,
+      "newline_lines": 106,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          106
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "docs/adr/README.md",
+      "git_blob": "d8cced6079e8bc98d3ddd9f655a3e1d78bf29107",
+      "bytes": 1547,
+      "newline_lines": 17,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "git_blob": "c997496c5aa49412715630f853419d3a6b10c825",
+      "bytes": 2561,
+      "newline_lines": 50,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          50
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "git_blob": "a864fb47055dc03ffad69dfea236f9e1c1f860f4",
+      "bytes": 7331,
+      "newline_lines": 127,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          127
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "docs/language-direction.md",
+      "git_blob": "1ff46ed93a8c9b34cd7cb30c631b4e427b7d8a6d",
+      "bytes": 19185,
+      "newline_lines": 306,
+      "sha256": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          306
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "README.md",
+      "git_blob": "b2d38cbfc770f0ecb3d653dc819a67a9dd3dfa3b",
+      "bytes": 26239,
+      "newline_lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          161,
+          248
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true,
+      "qualification": "XP independently reread normal/fresh rules 161-248 and retained the previous complete C2 read; all bytes match this XR candidate."
+    }
+  ],
+  "primary_book": {
+    "pdf": {
+      "path": "/workspace/scratch/b4a17a285e23/research-source/functional_data_structures_algorithms.pdf",
+      "bytes": 1742029,
+      "sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645"
+    },
+    "text": {
+      "path": "/workspace/scratch/b4a17a285e23/research-source/book.txt",
+      "bytes": 719122,
+      "newline_lines": 14906,
+      "sha256": "7e5c0b4e157d28d303cc6248746aa63e1415445fa79f3556ff95ac1bf6b17333",
+      "read_ranges_literal_newline": [
+        [
+          1837,
+          2027
+        ]
+      ],
+      "entire_book_read": false,
+      "role": "Printed pages 41-43 plus following page 44 scalar-to-selector composition proof."
+    },
+    "rendered_pages": [
+      {
+        "path": "/workspace/scratch/b4a17a285e23/research-source/xr01-page-renders/book-printed-page-41.png",
+        "bytes": 159890,
+        "sha256": "c1b1b59159d1735734ffe0aaaabc28a0ac6f4af646bd80eed344f13b74665a8b",
+        "printed_page": 41,
+        "zero_based_pdf_page": 46,
+        "visually_read_complete": true,
+        "previous_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-spec-preparation-20261104/book-printed-page-41.png",
+        "checkpoint_payload": false,
+        "artifact_role": "Regenerable primary-source viewing artifact; not task source or acceptance output",
+        "relocated_bytes_and_hash_unchanged": true
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/research-source/xr01-page-renders/book-printed-page-42.png",
+        "bytes": 164604,
+        "sha256": "37728f6704b073b0bb28cb23831f8b0aa68bbaa35e7618ab294692a6f6f1b1e7",
+        "printed_page": 42,
+        "zero_based_pdf_page": 47,
+        "visually_read_complete": true,
+        "previous_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-spec-preparation-20261104/book-printed-page-42.png",
+        "checkpoint_payload": false,
+        "artifact_role": "Regenerable primary-source viewing artifact; not task source or acceptance output",
+        "relocated_bytes_and_hash_unchanged": true
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/research-source/xr01-page-renders/book-printed-page-43.png",
+        "bytes": 136607,
+        "sha256": "68419b1b5e340a73534922b590de94273ecff19bb9af92f30aaed1002ae9dcec",
+        "printed_page": 43,
+        "zero_based_pdf_page": 48,
+        "visually_read_complete": true,
+        "previous_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-spec-preparation-20261104/book-printed-page-43.png",
+        "checkpoint_payload": false,
+        "artifact_role": "Regenerable primary-source viewing artifact; not task source or acceptance output",
+        "relocated_bytes_and_hash_unchanged": true
+      }
+    ],
+    "assessment": "All-input constants, signed source boundary, strict-slope typography and source-to-selector composition independently compared. Exact quantitative source choices remain deferred obligations.",
+    "checkpoint_packaging": {
+      "classification": "Regenerable primary-source viewing artifacts outside checkpoint payload; not task source",
+      "render_bytes_preserved": 461101,
+      "rendered_page_read_credit_unchanged": true,
+      "source_pdf_and_text_external": true,
+      "relocation_utc": "2026-11-04T12:20:20.914918+00:00",
+      "new_render_performed": false,
+      "recovery_recipe_language": "Python with PyMuPDF",
+      "recovery_recipe": "from pathlib import Path\nimport fitz\nroot = Path('/workspace/scratch/b4a17a285e23/research-source')\ndoc = fitz.open(root / 'functional_data_structures_algorithms.pdf')\nout = root / 'xr01-page-renders'\nout.mkdir(exist_ok=True)\nfor printed, pdf_index in [(41, 46), (42, 47), (43, 48)]:\n    target = out / f'book-printed-page-{printed}.png'\n    if target.exists():\n        raise FileExistsError(target)\n    doc[pdf_index].get_pixmap(matrix=fitz.Matrix(1.65, 1.65), alpha=False).save(target)\n",
+      "recipe_status": "Reconstructed recovery command, not an assertion of the original executed argv/code. Original command text was not retained in the prior receipt. The 1.65 scale is consistent with the preserved 612x792-point pages and 1010x1307-pixel RGB images. Recipe was not run, and exact regenerated hashes are not promised.",
+      "observed_reader_PyMuPDF_version": "1.26.6",
+      "original_image_metadata": {
+        "pixels": [
+          1010,
+          1307
+        ],
+        "mode": "RGB",
+        "reported_dpi": [
+          96.012,
+          96.012
+        ]
+      },
+      "old_report_identity": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/affine-recurrence-spec-preparation-20261104.md",
+        "bytes": 18414,
+        "lines": 96,
+        "sha256": "51d44fb60b962dd4237450c2a88c5dd24cd62c5187f79354f20eab90448204af"
+      },
+      "old_receipt_identity": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-spec-preparation-20261104/source-assessment.json",
+        "bytes": 39241,
+        "lines": 1064,
+        "sha256": "bb28f48fa23b5a5b0193970f2129f34914b5abac2283dd8f0bfaa2f762c6fed6"
+      },
+      "old_boundary_identity": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-spec-preparation-20261104/current-boundary.json",
+        "bytes": 1479,
+        "lines": 48,
+        "sha256": "1009e063299f2d778b9967389df2f6d6aa83675ebf35c055ed16fe24f5ea0d65"
+      }
+    }
+  },
+  "original_theory_boundary": {
+    "theory": "Selection.thy",
+    "revision": "f86f290225eebcc52c1ae7dba2e098f405f51c21",
+    "sha256": "c2e5970bcdc9430ef802a6612381fdd3820a02bc796d20f4a202060f3f00b4e8",
+    "attribution": "Manuel Eberl; pinned distribution BSD-3-Clause",
+    "retained_attributed_preflight_inspection": true,
+    "fresh_complete_theory_read": false,
+    "theory_rebuild": false,
+    "lean_dependency": false,
+    "note": "No claim that the theory revision generated the earlier PDF; no new general external-proof gate."
+  },
+  "pinned_API_reads": [
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/Order/Archimedean/Defs.lean",
+      "git_blob": "12a4edc56509122b31ba8d2a539aecb7393353af",
+      "bytes": 3576,
+      "newline_lines": 102,
+      "sha256": "792d8e81ef492132ffe4cbd31ad9cfa0cf4d2a215b47acb86f1240bba0a6525c",
+      "read_ranges": [
+        [
+          1,
+          102
+        ]
+      ],
+      "read_complete": true
+    },
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Data/Finset/Lattice/Fold.lean",
+      "git_blob": "efa4c56df3ed2b8eecdfeb7b9263fd4205c6b7d8",
+      "bytes": 32716,
+      "newline_lines": 820,
+      "sha256": "52a0ba5288cd672a09016061004b397d59fb9185c33f4f833a27082c7f0af863",
+      "read_ranges": [
+        [
+          470,
+          580
+        ]
+      ],
+      "read_complete": false
+    },
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Data/Nat/Cast/Order/Basic.lean",
+      "git_blob": "5c232d7e9a550023ab9204bee2f2e0dc3b019088",
+      "bytes": 4608,
+      "newline_lines": 162,
+      "sha256": "6522497dba7222b8b2eee227c661bd774c302ee5fdd57c0d62e79633e8557876",
+      "read_ranges": [
+        [
+          1,
+          95
+        ]
+      ],
+      "read_complete": false
+    },
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Data/Nat/Cast/Order/Ring.lean",
+      "git_blob": "dd5419a62a310e79e82e1784bfee60de1f566e75",
+      "bytes": 3513,
+      "newline_lines": 108,
+      "sha256": "005f95e3c0d18bc11034eff9c7f726e719d61cac7d8fafa1e739096d6d4da255",
+      "read_ranges": [
+        [
+          1,
+          108
+        ]
+      ],
+      "read_complete": true
+    },
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/Ring/Defs.lean",
+      "git_blob": "8afb79e8c61c7674ddf861a7596cdc5c3a04e722",
+      "bytes": 23213,
+      "newline_lines": 588,
+      "sha256": "d132472f8fb34b88fb8601b16d87cc44d77d64843cbe43bf179dcdad0887198a",
+      "read_ranges": [
+        [
+          155,
+          194
+        ]
+      ],
+      "read_complete": false
+    },
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/Order/Archimedean/Basic.lean",
+      "git_blob": "64f9ab3ccec8034053049e3674a6b7cf3b85f452",
+      "bytes": 22393,
+      "newline_lines": 514,
+      "sha256": "0fef31980e08533e08d3bbc67747d1c702c0b9287fe38e4f7018657441340176",
+      "read_ranges": [
+        [
+          1,
+          100
+        ],
+        [
+          328,
+          355
+        ],
+        [
+          430,
+          458
+        ]
+      ],
+      "read_complete": false
+    },
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Data/Finset/Range.lean",
+      "git_blob": "43fb35f379700f133c16945442823aec0575665c",
+      "bytes": 4157,
+      "newline_lines": 147,
+      "sha256": "558338b4d2aafb16975268881803408ffa50d44abc7b9d9eee418e1590094576",
+      "read_ranges": [
+        [
+          1,
+          70
+        ]
+      ],
+      "read_complete": false
+    }
+  ],
+  "official_kit_Lean_source_read": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/Nat/Div/Basic.lean",
+    "bytes": 17794,
+    "newline_lines": 473,
+    "sha256": "0c8fc51180b0d4fb6319e8a44acd7999f3a1b3aad21d8da5c0ad575914f9d120",
+    "read_ranges": [
+      [
+        82,
+        102
+      ],
+      [
+        303,
+        317
+      ]
+    ],
+    "declarations": [
+      "Nat.div_lt_self",
+      "Nat.div_mul_le_self"
+    ],
+    "runtime_executed": false,
+    "qualification": "Read-only source from the retained official Lean 4.35.0 kit installation; this is not a new runtime/archive qualification."
+  },
+  "additional_read_source": [
+    {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "ProofAudit.lean",
+      "git_blob": "70948301305d0ff09aba391ad9aa0f7413e6800e",
+      "bytes": 7925,
+      "newline_lines": 154,
+      "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          154
+        ]
+      ]
+    }
+  ],
+  "context_excerpt_reads": [
+    {
+      "path": "research/chapter03-obligations.md",
+      "sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed",
+      "read_ranges": [
+        [
+          175,
+          186
+        ],
+        [
+          457,
+          475
+        ]
+      ],
+      "whole_file_read_in_this_continuation": false
+    },
+    {
+      "path": "research/selection-proof-plan.md",
+      "sha256": "4683072c5b47f168f81d0f35b727e247bc2c36af6922c76ab8eaac4fb542d18b",
+      "read_ranges": [
+        [
+          404,
+          412
+        ]
+      ],
+      "whole_file_read_in_this_continuation": false
+    }
+  ],
+  "public_surface": {
+    "authored_named_public_total": 21,
+    "theorems": 19,
+    "definitions": 2,
+    "core_public_names": 1,
+    "example_public_names": 20,
+    "authored_private_named": 0,
+    "anonymous_examples": 0,
+    "authored_instances": 0,
+    "declarations": [
+      {
+        "name": "Resources.AffineRecurrence.exists_affine_bound_of_two_branch",
+        "kind": "theorem",
+        "path": "Applications/Resources/AffineRecurrence.lean",
+        "source_line": 31,
+        "source_header": "theorem exists_affine_bound_of_two_branch\n    (f : Nat → R) (left right : Nat → Nat) (n0 : Nat)\n    (rho K C D : R) (contract : rho < 1)\n    (sizes : ∀ n, n0 < n →\n      (left n : R) + (right n : R) ≤ rho * (n : R) + K)\n    (step : ∀ n, n0 < n →\n      f n ≤ f (left n) + f (right n) + C * (n : R) + D) :\n    ∃ A B : R, 0 ≤ A ∧ 0 ≤ B ∧ ∀ n : Nat, f n ≤ A * (n : R) + B",
+        "source_header_sha256": "a1c9465fd6ebcd26339aa20ec95705cd0fe72d1d97cd6abe68b0d2efee36bc46",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter",
+        "kind": "def",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 19,
+        "source_header": "def quarter (n : Nat) : Nat",
+        "source_header_sha256": "6c0f44c505ad5d924a22516e61c2d7f614d6cb167fc70d674a1c10fe8510ca4f",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_of_le_one",
+        "kind": "theorem",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 25,
+        "source_header": "theorem quarter_of_le_one (n : Nat) (small : n ≤ 1) : quarter n = 1",
+        "source_header_sha256": "e86e31de26e3f27303084aca1c23be9b2ce1ca49cc48af120f2824c17457cf41",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_of_one_lt",
+        "kind": "theorem",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 31,
+        "source_header": "theorem quarter_of_one_lt (n : Nat) (large : 1 < n) :\n    quarter n = 2 * quarter (n / 4) + n + 1",
+        "source_header_sha256": "8fdf365f75d98446b44c2ed75a6ae9cb8afcf8cf3f72bad929843325f9120987",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_zero",
+        "kind": "theorem",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 38,
+        "source_header": "theorem quarter_zero : quarter 0 = 1",
+        "source_header_sha256": "080040cab03cbe100f0fe200e17c63a341529b1a820128d5eee4bec40d9ac9a9",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_one",
+        "kind": "theorem",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 39,
+        "source_header": "theorem quarter_one : quarter 1 = 1",
+        "source_header_sha256": "4b41d3a1cf0720b0fcdd7cfb67beab0218d0b207efd0707854ed5f56cb6f7616",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_two",
+        "kind": "theorem",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 41,
+        "source_header": "theorem quarter_two : quarter 2 = 5",
+        "source_header_sha256": "8e70aa5df5938eeef53bf0f556cb81a5d8bb0f307b39b65e4c41454760a004e5",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_four",
+        "kind": "theorem",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 45,
+        "source_header": "theorem quarter_four : quarter 4 = 7",
+        "source_header_sha256": "dc8d993943ef71d03fafebf25acf07860a37ceb69a397c3c03872b73d76b0ffc",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_eight",
+        "kind": "theorem",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 49,
+        "source_header": "theorem quarter_eight : quarter 8 = 19",
+        "source_header_sha256": "cc3615442b7181b6eee4c0647eff49c61a7e95ad1f071e870a7e6f110ce3eedb",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_sixteen",
+        "kind": "theorem",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 53,
+        "source_header": "theorem quarter_sixteen : quarter 16 = 31",
+        "source_header_sha256": "1ffff4f5a98211c047e3dc7d81bf74d9a49de476bba41c280091c050b5ee7f1e",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_affine_bound",
+        "kind": "theorem",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 59,
+        "source_header": "theorem quarter_affine_bound :\n    ∃ A B : ℚ, 0 ≤ A ∧ 0 ≤ B ∧\n      ∀ n : Nat, (quarter n : ℚ) ≤ A * (n : ℚ) + B",
+        "source_header_sha256": "35328daafdfd0c896affe53b0f397a14345abc3da9185cccc46dbb4d42a0de71",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.signed",
+        "kind": "def",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 76,
+        "source_header": "def signed (n : Nat) : Int",
+        "source_header_sha256": "06bf821ea4f7bf8aabc62fa17d87a5f2fd1c5e317428f897dba9a5b1b2d06325",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.signed_base",
+        "kind": "theorem",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 78,
+        "source_header": "theorem signed_base : signed 0 = -1",
+        "source_header_sha256": "2e4834616dc7f71e466403dd772102bddc5915565d85acd3d24c9ec298936734",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.signed_nonpositive",
+        "kind": "theorem",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 80,
+        "source_header": "theorem signed_nonpositive (n : Nat) : signed n ≤ 0",
+        "source_header_sha256": "3467b94e1056e70c3b06fb1383976beaa9d5a34e9634bb04e2e07476e25f607a",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.signed_recurrence",
+        "kind": "theorem",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 85,
+        "source_header": "theorem signed_recurrence (n : Nat) :\n    signed n = signed 0 + signed 0 + (-1) * (n : Int) + 1",
+        "source_header_sha256": "33c370b97c4f7076b456658b7cb0e62955e24939ef2dcb227cb4e26a0a1090aa",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.signed_affine_bound",
+        "kind": "theorem",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 92,
+        "source_header": "theorem signed_affine_bound :\n    ∃ A B : Int, 0 ≤ A ∧ 0 ≤ B ∧\n      ∀ n : Nat, signed n ≤ A * (n : Int) + B",
+        "source_header_sha256": "21fb429882a6e444447469054612713d36f08dd93630b827f727f2e7faba3f98",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.negative_square_upper",
+        "kind": "theorem",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 103,
+        "source_header": "theorem negative_square_upper {R : Type*} [CommRing R] [LinearOrder R]\n    [IsStrictOrderedRing R] (n : Nat) : -((n : R) ^ 2) ≤ 0",
+        "source_header_sha256": "cf5aedcad037d08ea4073660676c31246d32974a95981c753a7c98fa6f072ce6",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.negative_square_absolute_value",
+        "kind": "theorem",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 107,
+        "source_header": "theorem negative_square_absolute_value :\n    -((2 : Int) ^ 2) ≤ 0 ∧ | -((2 : Int) ^ 2)| = 4",
+        "source_header_sha256": "b9f5b5d06763095aea26dc8170c2d2ca9a9d2ddd0d2eb5f5046a1c3ea329b109",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.parameterwise_affine_bound",
+        "kind": "theorem",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 113,
+        "source_header": "theorem parameterwise_affine_bound (p : Nat) :\n    ∃ A B : Int, 0 ≤ A ∧ 0 ≤ B ∧\n      ∀ n : Nat, (p : Int) ≤ A * (n : Int) + B",
+        "source_header_sha256": "24010d6bf3554be63d7e5fd28241007cfe9a86d14ca40d52ade34da80ec6c9ea",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.no_uniform_natural_family_bound",
+        "kind": "theorem",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 126,
+        "source_header": "theorem no_uniform_natural_family_bound :\n    ¬ ∃ A B : Nat, ∀ p n : Nat, p ≤ A * n + B",
+        "source_header_sha256": "1a95af1d5f59e44ea34467cf7609ece5df76c8c1e9733fa26dc6a0b56f868307",
+        "actual_type_assessed": false
+      },
+      {
+        "name": "Examples.AffineRecurrence.no_uniform_integer_family_bound",
+        "kind": "theorem",
+        "path": "Examples/AffineRecurrence.lean",
+        "source_line": 134,
+        "source_header": "theorem no_uniform_integer_family_bound :\n    ¬ ∃ A B : Int, ∀ p n : Nat, (p : Int) ≤ A * (n : Int) + B",
+        "source_header_sha256": "1149819714d41a8cc47a4392ee198b163eab11f195281a66f922867bffd0e9a2",
+        "actual_type_assessed": false
+      }
+    ],
+    "generated_declarations_not_counted_by_source_inventory": true,
+    "actual_expanded_types_read": 0,
+    "all21_pending_actual_type_inspection": true,
+    "kernel_safe_audit_count": null
+  },
+  "requirement_mapping": [
+    {
+      "scope": "Ordinary all-input theorem",
+      "source": [
+        "Applications/Resources/AffineRecurrence.lean:31-38"
+      ],
+      "assessment": "Fixed recurrence data precede one existential pair A,B; n ranges over all naturals, and both constants are nonnegative. No function/child monotonicity, sign of f/K/C/D or final bound is a premise."
+    },
+    {
+      "scope": "Finite prefix and division-free witnesses",
+      "source": [
+        "Applications/Resources/AffineRecurrence.lean:39-70"
+      ],
+      "assessment": "Archimedean natural multiples choose cutoff and slope. N=max n0(max 1 M); range(N+1) includes zero. B=max 0 finite_sup_f controls every n<=N; no field, norm, topology, completeness or floor is used."
+    },
+    {
+      "scope": "Strict natural child decrease",
+      "source": [
+        "Applications/Resources/AffineRecurrence.lean:71-94"
+      ],
+      "assessment": "Contracted doubled sum and nonnegative casts yield each child<n; Nat.cast_lt reflects back before strong induction. The total f was supplied, not recursively defined by the theorem."
+    },
+    {
+      "scope": "Signed toll and extra intercept absorption",
+      "source": [
+        "Applications/Resources/AffineRecurrence.lean:95-111"
+      ],
+      "assessment": "Positive parts of C,D and B>=0, together with n>=1, prove 2(Cn+D+B)<=A(1-rho)n. This exactly absorbs the extra child intercept after doubling the two IH bounds."
+    },
+    {
+      "scope": "Natural quarter recurrence with actual definition-level termination",
+      "source": [
+        "Examples/AffineRecurrence.lean:19-55"
+      ],
+      "assessment": "Actual n<=1 cutoff and Nat.div_lt_self supply termination. Branch equations and values 1,1,5,7,19,31 at 0,1,2,4,8,16 match independent arithmetic."
+    },
+    {
+      "scope": "Rational generic application",
+      "source": [
+        "Examples/AffineRecurrence.lean:59-73"
+      ],
+      "assessment": "rho=1/2,K=0,C=1,D=1, both child maps n/4 and cutoff1. Natural division product bound is cast and supplies every remainder; actual quarter branch supplies recurrence. No selector/runtime cost claim."
+    },
+    {
+      "scope": "Signed integer nonfield application",
+      "source": [
+        "Examples/AffineRecurrence.lean:76-100"
+      ],
+      "assessment": "signed n=-n-1 has negative base and toll1-n, zero children and rho=0. Actual signed recurrence and nonpositive bound make the generic client satisfiable."
+    },
+    {
+      "scope": "One-sided bound versus norm",
+      "source": [
+        "Examples/AffineRecurrence.lean:103-109"
+      ],
+      "assessment": "Negative square is nonpositive; concrete Int input2 has absolute value4. No signed Big-O theorem or complete asymptotic counterexample is claimed or required here."
+    },
+    {
+      "scope": "Parameter quantifier order",
+      "source": [
+        "Examples/AffineRecurrence.lean:113-140"
+      ],
+      "assessment": "Per-p integer constant function has shared recurrence coefficients, but constants remain after p. Natural and arbitrary integer coefficient obstructions at n=0 rule out a common all-p intercept."
+    },
+    {
+      "scope": "Later chapter exclusions",
+      "source": [
+        "docs/research/fdsa-affine-recurrence.md:209-223",
+        "docs/research/fdsa-reconstruction-map.md:429-450"
+      ],
+      "assessment": "Exact source rounding/negative offsets, child thresholds, C03-041/042 sharper possibly negative intercept, source/natural adapters, median-of-medians scalar and selector correspondence, generalized grouping and actual noncontracting halving counterexample remain Chapter3 obligations; later exact tree/Braun arguments remain their chapter scope."
+    },
+    {
+      "scope": "Ordinary modules, existing Growth, public entrypoint",
+      "source": [
+        "SquareApplications.lean:29",
+        "Examples/AffineRecurrence.lean:1-2",
+        "ProofAudit.lean:1-37"
+      ],
+      "assessment": "One new example import reaches its core through existing root. Growth unchanged; no new recurrence/executor/translator structure. Audit source covers generated/private project roots, but no audit ran here."
+    }
+  ],
+  "inherited_finding": {
+    "id": "XP01-DOC-001",
+    "new_XR_finding": false,
+    "path": "docs/research/fdsa-reconstruction-map.md",
+    "source_lines": [
+      466,
+      471
+    ],
+    "present_in_original_XR": true,
+    "outside_XR_delta": true,
+    "later_source_correction_preserved_in_XP_review": true,
+    "later_correction_credited_at_XR": false,
+    "disposition": "Historical dependency correction required during eventual integration; not duplicated as a new unresolved XR defect."
+  },
+  "unchanged_Growth": {
+    "path": "Applications/Resources/Growth.lean",
+    "base_blob": "5453fc50cc172b409f12542921a97d82ca60e067",
+    "candidate_blob": "5453fc50cc172b409f12542921a97d82ca60e067",
+    "bytes_equal": true
+  },
+  "pin_source_identity": {
+    "lean_toolchain": {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "lean-toolchain",
+      "git_blob": "a6aff065db2882c535684f8c5bcd4f16e9a23915",
+      "bytes": 25,
+      "newline_lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    "lake_manifest": {
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "path": "lake-manifest.json",
+      "git_blob": "0452762ecb2bb5e0d0f7db0b128b0af581febb87",
+      "bytes": 3138,
+      "newline_lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    "Mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "Lean": "4.35.0",
+    "runtime_qualification_performed": false
+  },
+  "gate_disposition": {
+    "focused_compilation": "pending",
+    "actual_complete_public_types": "pending all21",
+    "integrated_immutable_candidate_check": "pending",
+    "exhaustive_permitted_axiom_audit": "pending",
+    "both_final_independent_axes": "pending",
+    "immediate_verify_candidate": "pending",
+    "integration_or_acceptance": "no credit"
+  },
+  "preserved_earlier_reports": [
+    {
+      "path": "reviews/shared-foundations-spec-continuation-20261104.md",
+      "bytes": 8862,
+      "newline_lines": 57,
+      "sha256": "450409a89197f229e88e12ff477f7c3e6b60c067fde0eef297a431163a7249d6",
+      "expected_sha256": "450409a89197f229e88e12ff477f7c3e6b60c067fde0eef297a431163a7249d6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/chapter02-spec-source-preparation-20261104.md",
+      "bytes": 109354,
+      "newline_lines": 473,
+      "sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007",
+      "expected_sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/potential-spec-development-20261104.md",
+      "bytes": 30193,
+      "newline_lines": 150,
+      "sha256": "9bba3ac4ffa5a5dab1e8a32e3a990851f55846a16dd4a16a72605fd00e21a615",
+      "expected_sha256": "9bba3ac4ffa5a5dab1e8a32e3a990851f55846a16dd4a16a72605fd00e21a615",
+      "unchanged": true
+    }
+  ],
+  "counts_and_reuse_changed": false,
+  "actions": {
+    "source_or_ref_mutation": false,
+    "compiler_or_checker_execution": false,
+    "process_poll": false,
+    "cache_or_generated_output_mutation": false,
+    "live_generated_output_observation": false,
+    "ticket_or_global_control_mutation": false,
+    "F_C2_XP_record_mutation": false,
+    "own_XR_report_and_provenance_only": true,
+    "public_external_message_sent": false,
+    "primary_source_viewing_artifact_relocation_only": true
+  },
+  "report": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/affine-recurrence-spec-preparation-20261104.md",
+    "bytes": 19622,
+    "lines": 100,
+    "sha256": "8ee3cac08c1cb0d4b4d8b29821b5de9b54e549530d081155130065c3bb8e8b32"
+  }
+}

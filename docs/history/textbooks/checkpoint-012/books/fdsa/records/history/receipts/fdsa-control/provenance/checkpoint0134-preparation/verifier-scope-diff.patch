@@ -1,0 +1,86 @@
+--- checkpoint0133/verify-checkpoint.py
++++ checkpoint0134/verify-checkpoint.py
+@@ -13,7 +13,7 @@
+ prep = Path(__file__).resolve().parent
+ control = prep.parents[1]
+ base = control.parent
+-name = "conaled-fdsa-0133-selection-integration-and-endpoint-progress"
++name = "conaled-fdsa-0134-random-selection-path-progress"
+ accepted = "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5"
+ accepted_tree = "b62fe504a38948e61c6377a4e7661b639c28c08c"
+ 
+@@ -75,7 +75,7 @@
+ for relative, digest in expected.items():
+     assert actual[relative]["sha256"] == digest, relative
+ assert manifest["format"] == 2 and manifest["checkpoint"] == name
+-assert actual["fdsa-control/provenance/checkpoint0133-preparation/capture.json"] == identity(prep / "capture.json")
++assert actual["fdsa-control/provenance/checkpoint0134-preparation/capture.json"] == identity(prep / "capture.json")
+ 
+ spec = importlib.util.spec_from_file_location("compact_reader", control / "checkpoint_compact.py")
+ module = importlib.util.module_from_spec(spec)
+@@ -86,15 +86,16 @@
+          "--format=%(objectname) %(refname) %(symref)").splitlines())]
+ assert refs == manifest["refs"] == capture["refs"]
+ current_refs = {row["ref"]: row for row in refs}
+-previous_manifest = read(prep / "previous-manifest-0132.json")
+-assert previous_manifest["checkpoint"] == "conaled-fdsa-0132-selection-composition-and-random-boundaries"
+-assert len(previous_manifest["refs"]) == 73
++previous_manifest = read(prep / "previous-manifest-0133.json")
++assert previous_manifest["checkpoint"] == "conaled-fdsa-0133-selection-integration-and-endpoint-progress"
++assert len(previous_manifest["refs"]) == 74
+ previous_refs = {row["ref"]: row for row in previous_manifest["refs"]}
+ allowed_advances = {"refs/heads/work/fdsa-ch03-values",
+                     "refs/heads/work/fdsa-ch03-random-selection",
+                     "refs/heads/work/fdsa-ch03-query-lower-bounds",
+                     "refs/heads/work/fdsa-ch03-mom-execution",
+-                    "refs/heads/work/fdsa-ch03-rounded-recurrence"}
++                    "refs/heads/work/fdsa-ch03-rounded-recurrence",
++                    "refs/heads/work/fdsa-ch03-integration"}
+ advanced = []
+ for ref, row in previous_refs.items():
+     assert ref in current_refs
+@@ -102,18 +103,18 @@
+         assert ref in allowed_advances and current_refs[ref]["symref"] == row["symref"]
+         module.git(repo, "merge-base", "--is-ancestor", row["oid"], current_refs[ref]["oid"])
+         advanced.append(ref)
+-new_integration_ref = "refs/heads/work/fdsa-ch03-integration"
+-assert new_integration_ref not in previous_refs
+-assert set(current_refs) == set(previous_refs) | {new_integration_ref}
++integration_ref = "refs/heads/work/fdsa-ch03-integration"
++assert integration_ref in previous_refs
++assert set(current_refs) == set(previous_refs)
+ assert len(current_refs) == 74
+-assert current_refs[new_integration_ref]["symref"] == ""
++assert current_refs[integration_ref]["symref"] == ""
+ integration_origin = "660f974640fb89a766b26a4d786ae7ed197cecf2"
+ module.git(repo, "merge-base", "--is-ancestor", accepted, integration_origin)
+ module.git(repo, "merge-base", "--is-ancestor", integration_origin,
+-           current_refs[new_integration_ref]["oid"])
++           current_refs[integration_ref]["oid"])
+ integration_worktree = base / "conaled-ch02-natural-runs"
+ assert module.git(integration_worktree, "branch", "--show-current").strip() == "work/fdsa-ch03-integration"
+-assert module.git(integration_worktree, "rev-parse", "HEAD").strip() == current_refs[new_integration_ref]["oid"]
++assert module.git(integration_worktree, "rev-parse", "HEAD").strip() == current_refs[integration_ref]["oid"]
+ 
+ live = module.worktrees(repo)
+ assert live == capture["worktrees"]
+@@ -146,7 +147,7 @@
+ for relative, expected_identity in capture["held_control"].items():
+     assert identity(control / relative) == expected_identity, relative
+     assert actual["fdsa-control/" + relative] == expected_identity, relative
+-previous_controls = read(control / "provenance/checkpoint0132-preparation/capture.json")["held_control"]
++previous_controls = read(control / "provenance/checkpoint0133-preparation/capture.json")["held_control"]
+ allowed = set(capture["declared_prior_control_updates"])
+ assert allowed <= {"CURRENT.md", "STATUS.md", "ENVIRONMENT.md", "checkpoints.json",
+                    "tickets/FDSA-002.md", "tickets/FDSA-003.md", "tickets/FDSA-XR01.md", "tickets/INDEX.md",
+@@ -234,8 +235,8 @@
+ 
+ record = {"verified_utc": datetime.now(timezone.utc).isoformat(), "file": str(archive),
+           **outer, "payload_hashes_verified": len(expected), "refs_verified": len(refs),
+-          "all73_prior_refs_retained": True, "authorized_ref_advances": sorted(advanced),
+-          "authorized_new_refs": [new_integration_ref], "integration_origin": integration_origin,
++          "all74_prior_refs_retained": True, "authorized_ref_advances": sorted(advanced),
++          "authorized_new_refs": [], "integration_origin": integration_origin,
+           "retired_clean_worktrees_reconstructible": 6, "worktrees_verified": len(live),
+           "held_control_hashes_verified": len(capture["held_control"]),
+           "prior_control_changes_explicit": sorted(changed), "accepted_head": accepted,

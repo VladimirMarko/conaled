@@ -1,0 +1,46 @@
+{
+  "recorded_utc": "2026-11-05T01:18:44.659262+00:00",
+  "role": "Independent operational checkpoint helper inspection, not a formal Standards or Spec axis",
+  "agent": "/root/checkpoint0137_inspection",
+  "outcome": "Passed initial helper inspection",
+  "concrete_findings": 0,
+  "full_verifier_read_receipts": [
+    "f1b5c9:1-160 actual0",
+    "27595f:161-300 actual0"
+  ],
+  "complete_other_helpers_read": "0121f6 actual0",
+  "independent_replacement_ast_diff_archive_manifest_reconciliation": "bc779a actual0",
+  "expected_identifier_changes": {
+    "verify-checkpoint.py": 5,
+    "capture.py": 5,
+    "run-stage.py": 2
+  },
+  "helper_identities": {
+    "verify-checkpoint.py": {
+      "bytes": 17758,
+      "sha256": "731023143f7b9d29f388ff14ce72f1575b53bd05c11a405e66f8d0a4a76389d4"
+    },
+    "capture.py": {
+      "bytes": 4960,
+      "sha256": "503601e76db853bf2497b1e5884b6bcec8cde3fa2e0d17ccadfbfe84e9a85cc6"
+    },
+    "run-stage.py": {
+      "bytes": 2401,
+      "sha256": "f8d246e446ad77ccde350ad7b0d6043a2b754b7a4463c64a93ab0edf9131eb74"
+    }
+  },
+  "previous_archive": {
+    "bytes": 40241987,
+    "sha256": "3dfe34eb4e5e81b8698b1960e916bd2e9df3c53b6f79e1bea055a103268c8e2f"
+  },
+  "previous_manifest": {
+    "bytes": 17328,
+    "sha256": "cb93fe9180acb29170d154ea0a73100ecf7cd650aaeb3626cb5dee38214b5fbb",
+    "refs": 74,
+    "worktrees": 9
+  },
+  "all_existing_gates_preserved": true,
+  "no_future_terminal_or_acceptance_credit": true,
+  "writes_or_helper_execution_by_inspector": false,
+  "final_held_state_inspection_pending": true
+}

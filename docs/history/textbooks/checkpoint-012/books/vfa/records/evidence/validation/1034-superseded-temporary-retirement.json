@@ -1,0 +1,62 @@
+{
+  "started_utc": "2026-11-03T17:34:54.918572+00:00",
+  "one_time": true,
+  "assessment_sha256": "b25c8ab62f6c07b0679bdec6a7cc063128ba1516ee1f9c53d9cc64a9adc44a94",
+  "scope": "Only the three exact superseded temporary files assessed here. No returned completed archive is removed; no compiler/source/cache input changes. Source tar contents are byte-identical after gzip decompression; all bundle refs exist in retained full Git; partial installer equals the known completed archive prefix.",
+  "free_before": 327192576,
+  "retired": [
+    {
+      "path": "/workspace/scratch/83865511e965/toolchain-setup/.lean-4.35.0-linux.tar.zst.ynel1A",
+      "kind": "superseded_partial_installer",
+      "size": 141557760,
+      "sha256": "64f510b9363a69abc9bf9d09b32ab413dd199feaf4a04364aec617aff167dee1",
+      "prefix_matches_verified_full_archive": true,
+      "allocated": 141557760,
+      "inode": 430094,
+      "mtime_ns": 1793716306413068546,
+      "nlink": 1,
+      "absent_after": true
+    },
+    {
+      "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/checkpoint-stage-g45wf5im/conaled-vfa-checkpoint-036-recovered-environment-handoff/conaled-source.tar.gz",
+      "kind": "superseded_checkpoint_stage_source_archive",
+      "size": 70830735,
+      "sha256": "3486d77fbf39abd08b5101f197051f120c99ffe4dbcd19427f3d437b173ae416",
+      "identical_to_retained_original_extraction": false,
+      "allocated": 70832128,
+      "inode": 548784,
+      "mtime_ns": 1793714396725202346,
+      "nlink": 1,
+      "uncompressed_tar_sha256": "ec3a03e3379a44dc33f7b99cad0d3a696e63f987378984e833964b73ab39cb1a",
+      "retained_uncompressed_tar_sha256": "ec3a03e3379a44dc33f7b99cad0d3a696e63f987378984e833964b73ab39cb1a",
+      "uncompressed_tar_identical": true,
+      "comparison_recorded_utc": "2026-11-03T17:33:53.522983+00:00",
+      "absent_after": true
+    },
+    {
+      "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/checkpoint-stage-g45wf5im/conaled-vfa-checkpoint-036-recovered-environment-handoff/conaled-history.bundle",
+      "kind": "superseded_checkpoint_stage_git_bundle",
+      "size": 71838419,
+      "sha256": "a44f3daba05f88b7f4694c3691a6dcb3cbf5876dce0b8217c2cd07215be36156",
+      "bundle_verify_returncode": 0,
+      "bundle_verify_output": "The bundle contains these 6 refs:\n3279bacaec4087cc0d6b7e6b8ae862109cb2dfec refs/heads/local/vfa\n3279bacaec4087cc0d6b7e6b8ae862109cb2dfec refs/heads/local/vfa-recovery\n3279bacaec4087cc0d6b7e6b8ae862109cb2dfec refs/remotes/origin/HEAD\n3279bacaec4087cc0d6b7e6b8ae862109cb2dfec refs/remotes/origin/local/vfa\n7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd refs/remotes/origin/master\n3279bacaec4087cc0d6b7e6b8ae862109cb2dfec HEAD\nThe bundle records a complete history.\nThe bundle uses this hash algorithm: sha1\n/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/checkpoint-stage-g45wf5im/conaled-vfa-checkpoint-036-recovered-environment-handoff/conaled-history.bundle is okay\n",
+      "refs": [
+        "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec refs/heads/local/vfa",
+        "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec refs/heads/local/vfa-recovery",
+        "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec refs/remotes/origin/HEAD",
+        "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec refs/remotes/origin/local/vfa",
+        "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd refs/remotes/origin/master",
+        "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec HEAD"
+      ],
+      "all_ref_commits_exist_in_retained_current_git": true,
+      "allocated": 71839744,
+      "inode": 548786,
+      "mtime_ns": 1793714395329200475,
+      "nlink": 1,
+      "absent_after": true
+    }
+  ],
+  "finished_utc": "2026-11-03T17:34:54.939274+00:00",
+  "free_after": 611422208,
+  "allocated_file_bytes_reclaimed": 284229632
+}

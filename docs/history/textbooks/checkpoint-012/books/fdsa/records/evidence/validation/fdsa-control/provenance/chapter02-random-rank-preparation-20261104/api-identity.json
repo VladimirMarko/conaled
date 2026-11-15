@@ -1,0 +1,290 @@
+{
+  "saved_utc": "2026-11-04T07:07:55.657306+00:00",
+  "kind": "Read-only bounded source/API plan; no Lean implementation, compilation, review pass, or acceptance claim",
+  "plan": {
+    "bytes": 21178,
+    "lines": 399,
+    "sha256": "58803b7efc845f09fc4e48cd7d4623930fc4500fe456968cc50984ddcf3bca64"
+  },
+  "plan_read_back_completely": true,
+  "author_worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot",
+  "author_branch": "work/fdsa-ch02-random-pivot",
+  "current_candidate": "19879f244a81b03b7ccaabbcf53fc0b355e9985b",
+  "current_status": "",
+  "lake_directory_present": false,
+  "mean_dependency_status": "First central attempt at fff993ec1d041c0a86e7e79a94d13f5be6b92a94 failed exit 1; current proof-only successor uncompiled by author and awaiting central validation",
+  "initial_pair_focused_pass_candidate": "dfaf68114d1dda4e15628c94c3d988c3f5457c49",
+  "initial_pair_author_candidate": "bb4fb243bb7b16ae8bef921fec479a86f2b01c90",
+  "accepted_book_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "foundation_dependency": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "foundation_acceptance_claimed": false,
+  "lean_lake_version": "4.35.0",
+  "official_compiler_archive_sha256": "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d",
+  "native_adapter_retained": true,
+  "nix_only_waived": true,
+  "mathlib_root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib",
+  "mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "lean_source_root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/toolchains/lean-4.35.0-linux/src/lean",
+  "source_read_scope": "Relevant declarations, proofs, and typeclass contexts were inspected; full file hashes identify these qualified sources, not a claim that every unrelated declaration in every large source file was read.",
+  "mathlib_source_identities": {
+    "Mathlib/Data/Fin/Tuple/Sort.lean": {
+      "bytes": 8478,
+      "lines": 210,
+      "sha256": "8187813f9c26e7b84dd6e75cf064f82ede40ecf31cd1c457c99651b01ac15b1d"
+    },
+    "Mathlib/Data/Finset/Sort.lean": {
+      "bytes": 14051,
+      "lines": 352,
+      "sha256": "7406405adb644f84405b1bbbf7ec3c8cedf9a61901e0c8e0a75d5de701cb6eeb"
+    },
+    "Mathlib/Data/List/NodupEquivFin.lean": {
+      "bytes": 8322,
+      "lines": 226,
+      "sha256": "05bb230a25a0d5cb6d94659067530ca301575b203bb1027751fd1d2ae7e9c347"
+    },
+    "Mathlib/Data/List/OfFn.lean": {
+      "bytes": 7649,
+      "lines": 192,
+      "sha256": "bcfcfe7bd80c99423e5d62d7848d158684517bc86b15ba9dd75220d075cce4dc"
+    },
+    "Mathlib/Data/List/FinRange.lean": {
+      "bytes": 2264,
+      "lines": 76,
+      "sha256": "527982d73a83036988dbfc8550364cdea2ee16b6e0bc889ecac508632aad46ac"
+    },
+    "Mathlib/Data/List/Nodup.lean": {
+      "bytes": 16643,
+      "lines": 400,
+      "sha256": "dd189100bddbb41c32991672a727d0a3ebc41e7243f390cfa25c348eb0520432"
+    },
+    "Mathlib/Data/List/Basic.lean": {
+      "bytes": 44433,
+      "lines": 1194,
+      "sha256": "d954cf5406e239d718e03bf9eb755e4d1245e2b66c0eb814eb6ec9c24c87c5eb"
+    },
+    "Mathlib/Data/List/Perm/Basic.lean": {
+      "bytes": 10399,
+      "lines": 264,
+      "sha256": "73cb327fd595ffec05bc06dc317f339b05824096cb2d68873d4f39d49e96ef71"
+    },
+    "Mathlib/Data/Finset/Basic.lean": {
+      "bytes": 25236,
+      "lines": 699,
+      "sha256": "53bb84e53e5075aa59464fb469aa88460bec677f1b753f268603a07296d45b81"
+    },
+    "Mathlib/Data/Finset/Card.lean": {
+      "bytes": 41394,
+      "lines": 992,
+      "sha256": "300b99474dc58cca9b8724362a1a4673a217b2c66a0a7153ccc8eeb684ab51fa"
+    },
+    "Mathlib/Data/Fintype/Basic.lean": {
+      "bytes": 12084,
+      "lines": 293,
+      "sha256": "2ee2e1939a402d1c3e330cb54720c680c11e2635a1d31a66711664b24ff0be69"
+    },
+    "Mathlib/Order/Monotone/Defs.lean": {
+      "bytes": 21657,
+      "lines": 581,
+      "sha256": "9b75e423f4425994dec847788cbcf1a510fce43c1c69facba3f9cdef50ed37d6"
+    },
+    "Mathlib/Order/Monotone/Basic.lean": {
+      "bytes": 31453,
+      "lines": 754,
+      "sha256": "3d5f6527c1b58eb65c398195fffab5e7ad681f2d5621cb721098197963a99d34"
+    },
+    "Mathlib/Order/Interval/Finset/Fin.lean": {
+      "bytes": 27422,
+      "lines": 968,
+      "sha256": "1f61a87f5a33679269110a3da98111b222e2daecb73418b7b7df64238cf98263"
+    },
+    "Mathlib/Data/Fin/SuccPred.lean": {
+      "bytes": 40975,
+      "lines": 950,
+      "sha256": "25f0c7c1694854e861290430c89bfc8b3ef5403b54720287f5dee1cffaee9ad4"
+    },
+    "Mathlib/Data/Fin/Rev.lean": {
+      "bytes": 4197,
+      "lines": 123,
+      "sha256": "d4633da3d0c9050d365ee369fbc414ee2be342d7963f9d84b71f4a9863a18a1e"
+    },
+    "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean": {
+      "bytes": 36580,
+      "lines": 920,
+      "sha256": "b39f19daf0988119572dc908b7d70c9b1b0a7c597f61e3f217acf2d8ed69ccd9"
+    },
+    "Mathlib/Data/Fintype/BigOperators.lean": {
+      "bytes": 12334,
+      "lines": 297,
+      "sha256": "d0201051dfa54e8b67710ff484c34dc57e75da0e0bced663d798f6df333da638"
+    },
+    "Mathlib/Algebra/BigOperators/Fin.lean": {
+      "bytes": 31632,
+      "lines": 801,
+      "sha256": "2d1513845663c2e6882699e51e8c5cba62700c27c6d2ef1f28d3bf35577e3d6a"
+    },
+    "Mathlib/Probability/ProbabilityMassFunction/Constructions.lean": {
+      "bytes": 11757,
+      "lines": 335,
+      "sha256": "188136d13b18f6ce0018e1483b36a669e880990cf51a7073ebb1e01c99779cca"
+    }
+  },
+  "lean_source_identities": {
+    "Init/Data/List/OfFn.lean": {
+      "bytes": 6342,
+      "lines": 198,
+      "sha256": "b91368ac7239f0171498250d1de0e270102c5f8431fa5723a449c83b02807c1b"
+    },
+    "Init/Data/List/FinRange.lean": {
+      "bytes": 3694,
+      "lines": 116,
+      "sha256": "23534ca339ebcbbeaf9c15a8cd726fa1f7cdf4233e164500d12c31798432b541"
+    },
+    "Init/Data/List/Lemmas.lean": {
+      "bytes": 152724,
+      "lines": 3852,
+      "sha256": "9365fb1c6da0313a4c73e8cf096377e69c28ece28d38290a0423e5f8cc1fdfdb"
+    },
+    "Init/Data/List/Sublist.lean": {
+      "bytes": 58532,
+      "lines": 1448,
+      "sha256": "21989b3207dc70b9097d04587d73562445f1444c72cc1bf377dd9852f6e64d6e"
+    },
+    "Init/Data/List/Pairwise.lean": {
+      "bytes": 17626,
+      "lines": 405,
+      "sha256": "fcc984c70a81216c178d42a858dea5e3640201023a9a4d2837e76f138fd9b0f4"
+    },
+    "Init/Data/List/Erase.lean": {
+      "bytes": 25817,
+      "lines": 715,
+      "sha256": "8a56a5a4368da5cbc0c7d5bed616cf71ecfbb4e937724d2ed306fdafcf5142bd"
+    },
+    "Init/Data/List/Perm.lean": {
+      "bytes": 27501,
+      "lines": 658,
+      "sha256": "d91620e1c9767119095b48601266b8c5267ed4ab0afb7fe31a4780209b9751fb"
+    },
+    "Init/Data/List/Nat/Range.lean": {
+      "bytes": 15858,
+      "lines": 416,
+      "sha256": "06325fdc2c100a4b20eff48e227419259e0749eb82b156b17a1c57b35a5649e3"
+    }
+  },
+  "project_source_identities": {
+    "AGENTS.md": {
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    },
+    "lean-toolchain": {
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    "lake-manifest.json": {
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    "Applications/Resources/QuickSort.lean": {
+      "bytes": 21782,
+      "lines": 474,
+      "sha256": "e98024f6b741e1aba1fb1e38b419eee2e1acad76a8a40e669752f54775783263"
+    },
+    "Applications/Resources/RandomQuickSort.lean": {
+      "bytes": 23601,
+      "lines": 509,
+      "sha256": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2"
+    },
+    "Examples/RandomQuickSort.lean": {
+      "bytes": 8255,
+      "lines": 203,
+      "sha256": "4f5a21d1656423ac1307b1ca8fe651cd794d70da576ecd14f65d68cc290c424d"
+    },
+    "Applications/Resources/RandomQuickSortMean.lean": {
+      "bytes": 16488,
+      "lines": 334,
+      "sha256": "135af328490993bc48ff9c8a0ccfd847768fca22329292bd2ee0ff4db21662c0"
+    },
+    "Examples/RandomQuickSortMean.lean": {
+      "bytes": 5733,
+      "lines": 118,
+      "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670"
+    }
+  },
+  "frozen_and_prior_plan_identities": {
+    "reviews/chapter02-requirements.md": {
+      "bytes": 12034,
+      "lines": 189,
+      "sha256": "f0c9bc939fbfb6da02c1734b121456c35fd6b4c9ee43f1284003d0b8db087a36"
+    },
+    "research/chapter02-obligations.md": {
+      "bytes": 42539,
+      "lines": 391,
+      "sha256": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2"
+    },
+    "research/quicksort-average-proof-plan.md": {
+      "bytes": 18013,
+      "lines": 308,
+      "sha256": "ca2090accf91ac662f2738486f7590e8b29968be524794e9356257d5f918dc46"
+    },
+    "research/random-pivot-api-preflight.md": {
+      "bytes": 26357,
+      "lines": 314,
+      "sha256": "91d34b4c86d315935f0df98023cf382fe3d141e8ab7d748baf9fdc64738a0ed0"
+    },
+    "research/chapter02-probability-dependency-handoff-20261104.md": {
+      "bytes": 15304,
+      "lines": 250,
+      "sha256": "1a19f73a1628d0016c3b76dd6a6d7ea0426fd6f6184f6589bbe15d098efa8d4f"
+    },
+    "provenance/chapter02-random-expectation-preparation-20261104/PLAN.md": {
+      "bytes": 21825,
+      "lines": 389,
+      "sha256": "b8b24f667412ae6360bf2b36fb35c416d20feab853bbb68a8cc5727ba939f6d1"
+    },
+    "provenance/chapter02-random-expectation-proof-repair-20261104/identity.json": {
+      "bytes": 5235,
+      "lines": 142,
+      "sha256": "b2fe188237ea85a34f643d76166287f35f9a6195ea0e0249878496558af7ebd6"
+    }
+  },
+  "recommended_future_source_files": [
+    "Applications/Resources/RandomQuickSortRank.lean",
+    "Examples/RandomQuickSortRank.lean"
+  ],
+  "future_source_files_absent": true,
+  "rank_object": "Inverse of Tuple.sort over the actual occurrence-key tuple, not a sampler change",
+  "key_hypothesis": "(xs.map key).Nodup",
+  "payload_and_key_universes_independent": true,
+  "same_size_bridge_universes": 4,
+  "new_payload_finiteness_equality_inhabitation_measurability_assumptions": false,
+  "exact_children": "xs.eraseIdx i.val filtered by decide (key x < key pivot) and its Boolean complement",
+  "canonical_actual_sequence": "sizeMean n := exerciseMean (fun a b : Nat => decide (a < b)) (List.range n)",
+  "succ_recurrence": "sizeMean (m+1) = (2 / ((m+1 : Nat) : Real)) * (sum r : Fin (m+1), sizeMean r.val) + ((4*m+3 : Nat) : Real)",
+  "harmonic_owner_agreed_interface": "A 0 = 1; 0 < n -> A n = (2 / (n : Real)) * (sum k in Finset.range n, A k) + 4*(n : Real)-1",
+  "harmonic_owner": "/root/chapter02_quicksort",
+  "harmonic_module_proposal": "Applications/Resources/QuickSortMean.lean; Resources.QuickSortMean; probability-independent generic numerical solver",
+  "no_import_cycle": "Rank/actual recurrence does not use the numerical solver; final actual bound may import both",
+  "source_changes_in_this_rank_preparation": false,
+  "ref_changes_in_this_rank_preparation": false,
+  "builds_started": 0,
+  "cache_writes": false,
+  "children_spawned": false,
+  "global_control_ticket_or_coverage_edits": false,
+  "writes_in_this_rank_preparation": [
+    "plan.md",
+    "api-identity.json"
+  ],
+  "mandatory_pending": [
+    "Central acceptance of the mean dependency and full type readback",
+    "Source release and implementation of actual occurrence/rank correspondence",
+    "Inherited actual-child key distinctness and size correspondence",
+    "Actual cross-input mean equality and canonical-input size recurrence",
+    "Connected harmonic/logarithmic/Big-O proofs",
+    "Separate uniform-input deterministic quicksort mean",
+    "Pivot implementation overhead qualification",
+    "Full immutable-candidate check/audit, independent Standards and Spec reviews, and immediate verification"
+  ],
+  "next_action": "HOLD all source/ref/control writes; await root assessment and any priority mean compiler diagnostics"
+}

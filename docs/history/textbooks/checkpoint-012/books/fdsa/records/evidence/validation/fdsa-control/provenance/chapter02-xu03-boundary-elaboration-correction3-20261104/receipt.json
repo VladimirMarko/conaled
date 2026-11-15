@@ -1,0 +1,79 @@
+{
+  "completed_utc": "2026-11-04T08:53:07.997032+00:00",
+  "agent": "/root/tail_boundary_repair",
+  "parent": "ee2ea2406a014e43c355f93317455f27b90dd680",
+  "candidate": "13fc137c67e1dc974c833e81cd46042d757fa546",
+  "branch": "work/fdsa-permutation-tail-validation",
+  "clean_status": "",
+  "changed_paths": [
+    "Examples/PermutationTailBoundary.lean"
+  ],
+  "commit_message": "fix(fdsa): elaborate conditional-tail boundary cases (#174)",
+  "source_bytes": 11709,
+  "source_lines": 261,
+  "source_sha256": "03fbb29d9f458a7e76235e198b01ef3dd3b20dbe225d3d1edf3110b5628c437b",
+  "theorem_header_count": 25,
+  "theorem_headers_byte_identical": true,
+  "definition_count": 7,
+  "definitions_byte_identical": true,
+  "six_anonymous_instances_options_imports_unchanged": true,
+  "changed_proofs": [
+    "swap01_first_events",
+    "joint12_table",
+    "joint21_table",
+    "counter_joint12_mass",
+    "counter_joint21_mass",
+    "outside_order_12_mass",
+    "outside_order_21_mass"
+  ],
+  "actual_error_headers_preserved": 16,
+  "source_assessment": "No mathematical contract/case finding in this bounded author assessment; source-only successor has no compiler, type, audit or final-review credit.",
+  "no_compiler_build_cache_command": true,
+  "no_live_tree_ref_output_session_activity": true,
+  "artifacts": {
+    "before-examples.lean": {
+      "bytes": 11027,
+      "sha256": "a1c623289b2a2059aac08e9d98183fd17ab3985c628fe9dc70b9c006e527943e"
+    },
+    "committed-examples.lean": {
+      "bytes": 11709,
+      "sha256": "03fbb29d9f458a7e76235e198b01ef3dd3b20dbe225d3d1edf3110b5628c437b"
+    },
+    "actual-diagnostics.txt": {
+      "bytes": 6332,
+      "sha256": "44466cb4649068d21f49600456b086e1eff2a99d7d1d5a26518989cda1aa0b6c"
+    },
+    "findings.json": {
+      "bytes": 10147,
+      "sha256": "dfe262403d1c2bd2d4745aa88ffb2042c6cb13e88e46b6c623142d70ceb9248f"
+    },
+    "source.diff": {
+      "bytes": 4212,
+      "sha256": "0925bfc6f2f0aa9ddfa3231b5e42045a7fa0e6c808f3df2ff25410b90221cf66"
+    },
+    "source-inventory.json": {
+      "bytes": 4248,
+      "sha256": "5f4d92d8373258a5a29fc243c34dc19070719b0d230e78e8a0b56de1013c3427"
+    },
+    "author-readback.md": {
+      "bytes": 12810,
+      "sha256": "9b2ce07058abbb4292343e4a80e608c511ce5bcb0ca701b2d0c83a9d5867f6fc"
+    },
+    "read-ledger.json": {
+      "bytes": 8234,
+      "sha256": "0eff0913d7850edf9ac884355a7600301d0664e2d848b266c68a9b5ca5ee2cc3"
+    },
+    "start.json": {
+      "bytes": 1141,
+      "sha256": "140d77a0db3a38ae8323cb65efb93061600776040e95865d0e0c2eb0bc897a55"
+    },
+    "diff-check.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "commit.log": {
+      "bytes": 158,
+      "sha256": "41b6ffae5c29b83b5b4695e54ecbeabcc33adcfba0a5e6ece5f4f5daf2d9fbc9"
+    }
+  }
+}

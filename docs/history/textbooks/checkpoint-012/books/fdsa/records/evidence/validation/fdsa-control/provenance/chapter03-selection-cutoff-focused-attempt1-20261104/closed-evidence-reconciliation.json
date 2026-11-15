@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T21:47:36.892983+00:00",
+  "candidate": "89858274b82e25b748762942dd46ff0643df09d3",
+  "terminal": {
+    "recorded_utc": "2026-11-04T21:47:36.892884+00:00",
+    "owned_session": 80379,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "ff9023",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "89858274b82e25b748762942dd46ff0643df09d3"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt1-20261104/full.log",
+    "bytes": 12903,
+    "sha256": "0ac4020b35bfe375a636cf44e8f4f232edf9cb1764675a5d92e11dd90bd73cea"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T214704Z-project-run-fa02b0c9",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 475,
+      "sha256": "5c1ea250bb4d6308229a30b8934a75b51e580a4bed376ada81050e49038d33cb"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 628,
+      "sha256": "4c4b0c40e9065cb9ba5028257f5d5283ff66930ff57109857d86aacbfa28b251"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 12630,
+      "sha256": "06dfe3cc676eb112a5779da47fd05709c305259858337993f6c3b87254bcba54"
+    }
+  },
+  "native_body_exact_outer_offset": 117,
+  "complete_closed_log": true,
+  "scope": "First focused check of actual cutoff, guarded first-call obstruction, scalar cutoff and connected cases only; not full candidate check/audit or any acceptance review.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

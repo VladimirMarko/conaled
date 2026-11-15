@@ -1,0 +1,3962 @@
+diff --git a/Applications/Resources/Chunks.lean b/Applications/Resources/Chunks.lean
+new file mode 100644
+index 0000000..25c7db2
+--- /dev/null
++++ b/Applications/Resources/Chunks.lean
+@@ -0,0 +1,125 @@
++import Applications.Resources.ListCalls
++import Applications.Sequences.Chunks
++
++/-! The FDSA chopping execution calls take and drop separately at each
++nonempty positive-size step. Their measured traversals both contribute to the
++source call count. The existing split-length adapter specifies only the value;
++it supplies neither the execution nor its cost. Zero-size and empty calls each
++return the source's empty result with one entry charge.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.Chunks
++open Applications.Sequences.Chunks
++universe u
++variable {α : Type u}
++
++/-- Source recursion with separate measured take and drop calls. -/
++def chopRun : (d : Nat) → List α → Measured (List (List α)) Nat
++  | 0, _ => ([], 1)
++  | _ + 1, [] => ([], 1)
++  | d + 1, x :: xs =>
++      let taken := ListCalls.takeRun (d + 1) (x :: xs)
++      let dropped := ListCalls.dropRun (d + 1) (x :: xs)
++      let tail := chopRun (d + 1) dropped.1
++      (taken.1 :: tail.1, taken.2 + dropped.2 + tail.2 + 1)
++termination_by _ xs => xs.length
++decreasing_by
++  simp only [ListCalls.dropRun_exact, List.length_drop, List.length_cons]
++  omega
++
++theorem chopRun_zero (xs : List α) : chopRun 0 xs = ([], 1) := by
++  rw [chopRun]
++
++theorem chopRun_nil (d : Nat) : chopRun d ([] : List α) = ([], 1) := by
++  cases d <;> rw [chopRun]
++
++/-- The positive step exposes both traversals and one recursive entry. -/
++theorem chopRun_eq_cons (d : Nat) (xs : List α) (hd : 0 < d) (hx : xs ≠ []) :
++    chopRun d xs =
++      (xs.take d :: (chopRun d (xs.drop d)).1,
++        (ListCalls.takeRun d xs).2 + (ListCalls.dropRun d xs).2 +
++          (chopRun d (xs.drop d)).2 + 1) := by
++  cases d with
++  | zero => omega
++  | succ d =>
++      cases xs with
++      | nil => exact False.elim (hx rfl)
++      | cons x xs =>
++          rw [chopRun]
++          simp only [ListCalls.takeRun_exact, ListCalls.dropRun_exact]
++
++theorem chopRun_value (d : Nat) (xs : List α) : (chopRun d xs).1 = chop d xs := by
++  by_cases hd : d = 0
++  · subst d
++    rw [chopRun_zero, chop_zero]
++  by_cases hx : xs = []
++  · subst xs
++    rw [chopRun_nil, chop_nil]
++  rw [chopRun_eq_cons d xs (Nat.pos_of_ne_zero hd) hx,
++    chop_eq_cons d xs (Nat.pos_of_ne_zero hd) hx]
++  simp only [chopRun_value d (xs.drop d)]
++termination_by xs.length
++decreasing_by exact drop_length_lt d xs (Nat.pos_of_ne_zero hd) hx
++
++/-- The exact count includes the terminal empty call, both list traversals,
++and one chopping entry for each nonempty chunk. -/
++theorem chopRun_cost (d : Nat) (xs : List α) (hd : 0 < d) :
++    (chopRun d xs).2 = 2 * xs.length + 3 * (xs.length ⌈/⌉ d) + 1 := by
++  by_cases hx : xs = []
++  · subst xs
++    rw [chopRun_nil]
++    simp
++  have hcount : xs.length ⌈/⌉ d = (xs.drop d).length ⌈/⌉ d + 1 := by
++    have h := congrArg List.length (chop_eq_cons d xs hd hx)
++    simpa only [length_chop, List.length_cons] using h
++  rw [chopRun_eq_cons d xs hd hx]
++  simp only [ListCalls.takeRun_exact, ListCalls.dropRun_exact]
++  rw [chopRun_cost d (xs.drop d) hd]
++  have hsplit : min d xs.length + (xs.drop d).length = xs.length := by
++    simp only [List.length_drop]
++    omega
++  omega
++termination_by xs.length
++decreasing_by exact drop_length_lt d xs hd hx
++
++theorem chopRun_exact (d : Nat) (xs : List α) (hd : 0 < d) :
++    chopRun d xs = (chop d xs, 2 * xs.length + 3 * (xs.length ⌈/⌉ d) + 1) :=
++  Prod.ext (chopRun_value d xs) (chopRun_cost d xs hd)
++
++/-- This source bound is uniform in the grouping size, including size zero. -/
++theorem chopRun_cost_bound (d : Nat) (xs : List α) :
++    (chopRun d xs).2 ≤ 5 * xs.length + 1 := by
++  by_cases hd : d = 0
++  · subst d
++    rw [chopRun_zero]
++    omega
++  have hc := length_chop_le d xs
++  rw [length_chop] at hc
++  rw [chopRun_cost d xs (Nat.pos_of_ne_zero hd)]
++  omega
++
++theorem chopRun_one_cost (xs : List α) : (chopRun 1 xs).2 = 5 * xs.length + 1 := by
++  rw [chopRun_cost 1 xs (by decide), Nat.ceilDiv_eq_add_pred_div]
++  omega
++
++theorem chopRun_length (d : Nat) (xs : List α) :
++    (chopRun d xs).1.length = xs.length ⌈/⌉ d := by
++  rw [chopRun_value, length_chop]
++
++theorem chopRun_mem_ne_nil (d : Nat) (xs ys : List α)
++    (hy : ys ∈ (chopRun d xs).1) : ys ≠ [] := by
++  rw [chopRun_value] at hy
++  exact chop_mem_ne_nil d xs ys hy
++
++theorem chopRun_mem_length (d : Nat) (xs ys : List α)
++    (hy : ys ∈ (chopRun d xs).1) : ys.length ≤ d := by
++  rw [chopRun_value] at hy
++  exact length_mem_chop d xs ys hy
++
++theorem chopRun_flatten (d : Nat) (xs : List α) (hd : 0 < d) :
++    (chopRun d xs).1.flatten = xs := by
++  rw [chopRun_value, flatten_chop d xs hd]
++
++end Resources.Chunks
+diff --git a/Applications/Resources/RoundedRecurrence.lean b/Applications/Resources/RoundedRecurrence.lean
+new file mode 100644
+index 0000000..0f78fd3
+--- /dev/null
++++ b/Applications/Resources/RoundedRecurrence.lean
+@@ -0,0 +1,140 @@
++import Mathlib.Algebra.Order.Archimedean.Real.Basic
++import Mathlib.Algebra.Order.Floor.Semiring
++import Mathlib.Tactic.Linarith
++
++/-! Rounded affine child sizes and the sharp one-step estimate in FDSA §3.5.
++
++The child sizes use Mathlib's natural ceiling, which is integer ceiling followed
++by conversion to Nat. Negative arguments therefore truncate to zero. The source
++offsets and constant toll are arbitrary reals. The induction intercept is also
++unrestricted; no nonnegativity assumption on the scalar function is introduced.
++
++These statements reconstruct (3.16)--(3.18) and the exact rounded recurrence
++step. The slope condition is non-strict, correcting the printed strict sign.
++The full induction and the existence/natural-valued corollaries are separate
++remaining obligations. Source: FDSA, July 27, 2026, printed pp. 41--43;
++Manuel Eberl's Selection.thy at f86f290225eebcc52c1ae7dba2e098f405f51c21.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.RoundedRecurrence
++
++/-- The natural ceiling has the required upper bound after replacing a signed
++offset by its nonnegative part. The nonpositive-argument branch is explicit. -/
++theorem ceil_affine_lt_add_one (a b : ℝ) (n : Nat) (ha : 0 ≤ a) :
++    (⌈a * (n : ℝ) + b⌉₊ : ℝ) < a * (n : ℝ) + max 0 b + 1 := by
++  by_cases nonpositive : a * (n : ℝ) + b ≤ 0
++  · have truncated : ⌈a * (n : ℝ) + b⌉₊ = 0 := Nat.ceil_eq_zero.mpr nonpositive
++    rw [truncated, Nat.cast_zero]
++    have product_nonneg := mul_nonneg ha (Nat.cast_nonneg n : (0 : ℝ) ≤ (n : ℝ))
++    linarith only [product_nonneg, le_max_left (0 : ℝ) b]
++  · have argument_nonneg : 0 ≤ a * (n : ℝ) + b := (lt_of_not_ge nonpositive).le
++    exact (Nat.ceil_lt_add_one argument_nonneg).trans_le (by
++      linarith only [le_max_right (0 : ℝ) b])
++
++/-- The signed-offset form of either sufficient descent condition in (3.16). -/
++theorem ceil_affine_lt_of_threshold (a b : ℝ) (N n : Nat)
++    (ha : 0 ≤ a) (ha_lt_one : a < 1)
++    (threshold : (max 0 b + 1) / (1 - a) ≤ (N : ℝ)) (large : N < n) :
++    ⌈a * (n : ℝ) + b⌉₊ < n := by
++  have gap : 0 < 1 - a := sub_pos.mpr ha_lt_one
++  have at_cutoff : max 0 b + 1 ≤ (N : ℝ) * (1 - a) :=
++    (div_le_iff₀ gap).mp threshold
++  have after_cutoff : (N : ℝ) * (1 - a) < (n : ℝ) * (1 - a) :=
++    mul_lt_mul_of_pos_right ((Nat.cast_lt (α := ℝ)).mpr large) gap
++  have rounded := ceil_affine_lt_add_one a b n ha
++  apply (Nat.cast_lt (α := ℝ)).mp
++  nlinarith only [at_cutoff, after_cutoff, rounded]
++
++/-- The combined strict cutoff in (3.18) implies both earlier (3.16) thresholds.
++The two offsets may be negative. -/
++theorem thresholds_of_combined_cutoff (a b c d : ℝ) (N : Nat)
++    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1)
++    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ)) :
++    (max 0 b + 1) / (1 - a) ≤ (N : ℝ) ∧
++      (max 0 d + 1) / (1 - c) ≤ (N : ℝ) := by
++  have gap : 0 < 1 - a - c := by linarith only [contract]
++  have left_gap : 0 < 1 - a := by linarith only [contract, hc]
++  have right_gap : 0 < 1 - c := by linarith only [contract, ha]
++  have combined : max 0 b + max 0 d + 2 < (N : ℝ) * (1 - a - c) :=
++    (div_lt_iff₀ gap).mp threshold
++  constructor
++  · apply (div_le_iff₀ left_gap).mpr
++    nlinarith only [combined, le_max_left (0 : ℝ) d,
++      mul_nonneg hc.le (Nat.cast_nonneg N : (0 : ℝ) ≤ (N : ℝ))]
++  · apply (div_le_iff₀ right_gap).mpr
++    nlinarith only [combined, le_max_left (0 : ℝ) b,
++      mul_nonneg ha.le (Nat.cast_nonneg N : (0 : ℝ) ≤ (N : ℝ))]
++
++/-- Both exact natural-ceiling children decrease beyond the combined cutoff. -/
++theorem ceil_children_lt (a b c d : ℝ) (N n : Nat)
++    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1)
++    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ))
++    (large : N < n) :
++    ⌈a * (n : ℝ) + b⌉₊ < n ∧ ⌈c * (n : ℝ) + d⌉₊ < n := by
++  have thresholds := thresholds_of_combined_cutoff a b c d N ha hc contract threshold
++  exact ⟨ceil_affine_lt_of_threshold a b N n ha.le
++    (by linarith only [contract, hc]) thresholds.1 large,
++    ceil_affine_lt_of_threshold c d N n hc.le
++      (by linarith only [contract, ha]) thresholds.2 large⟩
++
++/-- The denominator in the source's second slope constraint is positive. -/
++theorem cutoff_denominator_pos (a b c d : ℝ) (N : Nat) (contract : a + c < 1)
++    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ)) :
++    0 < (1 - a - c) * (N : ℝ) - max 0 b - max 0 d - 2 := by
++  have gap : 0 < 1 - a - c := by linarith only [contract]
++  have combined := (div_lt_iff₀ gap).mp threshold
++  nlinarith only [combined]
++
++/-- Non-strict (3.17) suffices. Nonnegativity of C3 follows from C1 ≥ 0 and
++the positive contraction gap, rather than from a restriction on C4 or f. -/
++theorem slope_nonneg_and_margin (a c C1 C3 : ℝ) (contract : a + c < 1)
++    (toll_nonneg : 0 ≤ C1) (slope : C1 / (1 - a - c) ≤ C3) :
++    0 ≤ C3 ∧ 0 ≤ C3 * (1 - a - c) - C1 := by
++  have gap : 0 < 1 - a - c := by linarith only [contract]
++  have quotient_nonneg : 0 ≤ C1 / (1 - a - c) := div_nonneg toll_nonneg gap.le
++  exact ⟨quotient_nonneg.trans slope, sub_nonneg.mpr ((div_le_iff₀ gap).mp slope)⟩
++
++/-- The sharp absorption calculation from (3.18), with a possibly negative
++intercept C4 and arbitrary constant toll C2. -/
++theorem sharp_affine_absorption (a b c d C1 C2 C3 C4 : ℝ) (N n : Nat)
++    (contract : a + c < 1) (toll_nonneg : 0 ≤ C1)
++    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ))
++    (slope : C1 / (1 - a - c) ≤ C3)
++    (absorb : (C1 * (N : ℝ) + C2 + C4) /
++      ((1 - a - c) * (N : ℝ) - max 0 b - max 0 d - 2) ≤ C3)
++    (large : N ≤ n) :
++    (C3 * (a * (n : ℝ) + max 0 b + 1) + C4) +
++      (C3 * (c * (n : ℝ) + max 0 d + 1) + C4) + C1 * (n : ℝ) + C2 ≤
++        C3 * (n : ℝ) + C4 := by
++  have denominator_pos := cutoff_denominator_pos a b c d N contract threshold
++  have at_cutoff := (div_le_iff₀ denominator_pos).mp absorb
++  have margin := (slope_nonneg_and_margin a c C1 C3 contract toll_nonneg slope).2
++  have after_cutoff := mul_le_mul_of_nonneg_left
++    ((Nat.cast_le (α := ℝ)).mpr large) margin
++  nlinarith only [at_cutoff, after_cutoff]
++
++/-- One exact rounded recurrence step consumes the two genuine child bounds.
++No positivity of f, b, d, C2 or C4 is assumed. Strong induction and construction
++of the fixed constants are separate from this local implication. -/
++theorem recurrence_step_le (f : Nat → ℝ) (a b c d C1 C2 C3 C4 : ℝ) (N n : Nat)
++    (ha : 0 ≤ a) (hc : 0 ≤ c) (contract : a + c < 1) (toll_nonneg : 0 ≤ C1)
++    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ))
++    (slope : C1 / (1 - a - c) ≤ C3)
++    (absorb : (C1 * (N : ℝ) + C2 + C4) /
++      ((1 - a - c) * (N : ℝ) - max 0 b - max 0 d - 2) ≤ C3)
++    (large : N ≤ n)
++    (recurrence : f n = f ⌈a * (n : ℝ) + b⌉₊ + f ⌈c * (n : ℝ) + d⌉₊ +
++      C1 * (n : ℝ) + C2)
++    (left_bound : f ⌈a * (n : ℝ) + b⌉₊ ≤ C3 * (⌈a * (n : ℝ) + b⌉₊ : ℝ) + C4)
++    (right_bound : f ⌈c * (n : ℝ) + d⌉₊ ≤ C3 * (⌈c * (n : ℝ) + d⌉₊ : ℝ) + C4) :
++    f n ≤ C3 * (n : ℝ) + C4 := by
++  have nonneg := (slope_nonneg_and_margin a c C1 C3 contract toll_nonneg slope).1
++  have left_size := mul_le_mul_of_nonneg_left (ceil_affine_lt_add_one a b n ha).le nonneg
++  have right_size := mul_le_mul_of_nonneg_left (ceil_affine_lt_add_one c d n hc).le nonneg
++  have absorption := sharp_affine_absorption a b c d C1 C2 C3 C4 N n
++    contract toll_nonneg threshold slope absorb large
++  nlinarith only [recurrence, left_bound, right_bound, left_size, right_size, absorption]
++
++end Resources.RoundedRecurrence
+diff --git a/Applications/Resources/RoundedRecurrenceBounds.lean b/Applications/Resources/RoundedRecurrenceBounds.lean
+new file mode 100644
+index 0000000..45b5c20
+--- /dev/null
++++ b/Applications/Resources/RoundedRecurrenceBounds.lean
+@@ -0,0 +1,135 @@
++import Applications.Resources.RoundedRecurrence
++import Mathlib.Data.Finset.Lattice.Fold
++import Mathlib.Data.Finset.Range
++
++/-! All-input bounds for the exact rounded scalar recurrence in FDSA §3.5.
++
++The cutoff, finite-prefix maximum and slope are the source's explicit choices.
++The intercept remains signed; only the linear toll coefficient is assumed
++nonnegative. The natural-valued corollary casts the actual recurrence and rounds
++the real bounding constants upward, without a second induction.
++
++The scalar function is already total. These theorems do not supply termination
++or a resource interpretation for an independently proposed recursive algorithm.
++For signed values the conclusion is a one-sided bound, not a norm estimate.
++
++Mathematical source: FDSA, July 27, 2026, printed pp. 41–44; Manuel Eberl's
++Selection.thy at Isabelle f86f290225eebcc52c1ae7dba2e098f405f51c21.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.RoundedRecurrence
++
++/-- The exact source cutoff dominates the original cutoff and strictly exceeds
++the combined quotient. This ceiling fact itself needs no sign assumptions. -/
++theorem explicit_cutoff_bounds (a b c d : ℝ) (n0 : Nat) :
++    let N : Nat := max n0 (⌈(max 0 b + max 0 d + 2) / (1 - a - c)⌉₊ + 1)
++    n0 ≤ N ∧ (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ) := by
++  dsimp only
++  constructor
++  · exact le_max_left _ _
++  · calc
++      (max 0 b + max 0 d + 2) / (1 - a - c) ≤
++          (⌈(max 0 b + max 0 d + 2) / (1 - a - c)⌉₊ : ℝ) := Nat.le_ceil _
++      _ < ((⌈(max 0 b + max 0 d + 2) / (1 - a - c)⌉₊ + 1 : Nat) : ℝ) :=
++        (Nat.cast_lt (α := ℝ)).mpr (Nat.lt_succ_self _)
++      _ ≤ ((max n0 (⌈(max 0 b + max 0 d + 2) / (1 - a - c)⌉₊ + 1) : Nat) : ℝ) :=
++        (Nat.cast_le (α := ℝ)).mpr (le_max_right _ _)
++
++/-- Sharp strong induction with the two source slope constraints. All inputs,
++including zero and the entire prefix, are covered by the same C3 and C4.
++Neither the scalar values nor the intercept need be nonnegative. -/
++theorem affine_bound_of_prefix (f : Nat → ℝ)
++    (a b c d C1 C2 C3 C4 : ℝ) (n0 N : Nat)
++    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1) (toll_nonneg : 0 ≤ C1)
++    (cutoff : n0 ≤ N)
++    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ))
++    (hprefix : ∀ n, n ≤ N → f n ≤ C4)
++    (slope : C1 / (1 - a - c) ≤ C3)
++    (absorb : (C1 * (N : ℝ) + C2 + C4) /
++      ((1 - a - c) * (N : ℝ) - max 0 b - max 0 d - 2) ≤ C3)
++    (recurrence : ∀ n, n0 < n →
++      f n = f ⌈a * (n : ℝ) + b⌉₊ + f ⌈c * (n : ℝ) + d⌉₊ +
++        C1 * (n : ℝ) + C2) :
++    ∀ n : Nat, f n ≤ C3 * (n : ℝ) + C4 := by
++  have nonneg := (slope_nonneg_and_margin a c C1 C3 contract toll_nonneg slope).1
++  intro n
++  induction n using Nat.strongRecOn with
++  | ind n ih =>
++      by_cases small : n ≤ N
++      · exact (hprefix n small).trans
++          (le_add_of_nonneg_left (mul_nonneg nonneg (Nat.cast_nonneg n)))
++      · have above : N < n := Nat.lt_of_not_ge small
++        have children := ceil_children_lt a b c d N n ha hc contract threshold above
++        exact recurrence_step_le f a b c d C1 C2 C3 C4 N n ha.le hc.le contract
++          toll_nonneg threshold slope absorb above.le
++          (recurrence n (lt_of_le_of_lt cutoff above))
++          (ih _ children.1) (ih _ children.2)
++
++/-- The source construction exposed before existentially hiding its constants.
++C4 is the actual maximum of the nonempty finite prefix, with no truncation to
++zero. The maximum defining C3 retains both exact source quotients. -/
++theorem bound_with_source_constants (f : Nat → ℝ)
++    (a b c d C1 C2 : ℝ) (n0 : Nat)
++    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1) (toll_nonneg : 0 ≤ C1)
++    (recurrence : ∀ n, n0 < n →
++      f n = f ⌈a * (n : ℝ) + b⌉₊ + f ⌈c * (n : ℝ) + d⌉₊ +
++        C1 * (n : ℝ) + C2) :
++    let N : Nat := max n0 (⌈(max 0 b + max 0 d + 2) / (1 - a - c)⌉₊ + 1)
++    let C4 : ℝ := (Finset.range (N + 1)).sup'
++      ⟨0, Finset.mem_range.mpr (Nat.succ_pos N)⟩ f
++    let C3 : ℝ := max (C1 / (1 - a - c))
++      ((C1 * (N : ℝ) + C2 + C4) /
++        ((1 - a - c) * (N : ℝ) - max 0 b - max 0 d - 2))
++    ∀ n : Nat, f n ≤ C3 * (n : ℝ) + C4 := by
++  let N : Nat := max n0 (⌈(max 0 b + max 0 d + 2) / (1 - a - c)⌉₊ + 1)
++  let C4 : ℝ := (Finset.range (N + 1)).sup'
++    ⟨0, Finset.mem_range.mpr (Nat.succ_pos N)⟩ f
++  let C3 : ℝ := max (C1 / (1 - a - c))
++    ((C1 * (N : ℝ) + C2 + C4) /
++      ((1 - a - c) * (N : ℝ) - max 0 b - max 0 d - 2))
++  change ∀ n : Nat, f n ≤ C3 * (n : ℝ) + C4
++  have cutoff : n0 ≤ N ∧ (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ) :=
++    explicit_cutoff_bounds a b c d n0
++  refine affine_bound_of_prefix f a b c d C1 C2 C3 C4 n0 N ha hc contract
++    toll_nonneg cutoff.1 cutoff.2 ?_ (le_max_left _ _) (le_max_right _ _) recurrence
++  intro n hn
++  exact Finset.le_sup' f (Finset.mem_range.mpr (Nat.lt_succ_of_le hn))
++
++/-- FDSA Theorem 3.9: fixed recurrence data admit fixed real affine constants
++for every natural input. Offsets, constant toll and scalar values may be signed. -/
++theorem exists_affine_bound (f : Nat → ℝ) (a b c d C1 C2 : ℝ) (n0 : Nat)
++    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1) (toll_nonneg : 0 ≤ C1)
++    (recurrence : ∀ n, n0 < n →
++      f n = f ⌈a * (n : ℝ) + b⌉₊ + f ⌈c * (n : ℝ) + d⌉₊ +
++        C1 * (n : ℝ) + C2) :
++    ∃ C3 C4 : ℝ, ∀ n : Nat, f n ≤ C3 * (n : ℝ) + C4 := by
++  have bound := bound_with_source_constants f a b c d C1 C2 n0 ha hc contract
++    toll_nonneg recurrence
++  dsimp only at bound
++  exact ⟨_, _, bound⟩
++
++/-- The natural-valued corollary uses natural ceilings of the real witnesses.
++It preserves the exact rounded children and all natural inputs, including zero. -/
++theorem exists_affine_bound_nat (f : Nat → Nat) (a b c d : ℝ) (C1 C2 n0 : Nat)
++    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1)
++    (recurrence : ∀ n, n0 < n →
++      f n = f ⌈a * (n : ℝ) + b⌉₊ + f ⌈c * (n : ℝ) + d⌉₊ + C1 * n + C2) :
++    ∃ C3 C4 : Nat, ∀ n : Nat, f n ≤ C3 * n + C4 := by
++  have real_recurrence : ∀ n, n0 < n →
++      (f n : ℝ) = (f ⌈a * (n : ℝ) + b⌉₊ : ℝ) + (f ⌈c * (n : ℝ) + d⌉₊ : ℝ) +
++        (C1 : ℝ) * (n : ℝ) + (C2 : ℝ) := by
++    intro n hn
++    have equation := congrArg (fun value : Nat => (value : ℝ)) (recurrence n hn)
++    simpa only [Nat.cast_add, Nat.cast_mul] using equation
++  obtain ⟨A, B, bound⟩ := exists_affine_bound (fun n => (f n : ℝ))
++    a b c d (C1 : ℝ) (C2 : ℝ) n0 ha hc contract (Nat.cast_nonneg C1) real_recurrence
++  refine ⟨⌈A⌉₊, ⌈B⌉₊, ?_⟩
++  intro n
++  apply (Nat.cast_le (α := ℝ)).mp
++  rw [Nat.cast_add, Nat.cast_mul]
++  exact (bound n).trans (add_le_add
++    (mul_le_mul_of_nonneg_right (Nat.le_ceil A) (Nat.cast_nonneg n)) (Nat.le_ceil B))
++
++end Resources.RoundedRecurrence
+diff --git a/Applications/Resources/Selection.lean b/Applications/Resources/Selection.lean
+new file mode 100644
+index 0000000..b77373a
+--- /dev/null
++++ b/Applications/Resources/Selection.lean
+@@ -0,0 +1,460 @@
++import Applications.Resources.SelectionMedians
++import Applications.Resources.Partition
++
++/-! Nested median-of-medians execution for FDSA Chapter 3.
++
++Every invocation evaluates its entry length once. The recursive branch executes
++chopping and the median map, recursively selects one median, and then executes
++the source partition. It evaluates the equal-bucket length only after the left
++branch has failed, and recurses into at most one strict bucket.
++
++The private valid-rank worker returns an input member. That modest invariant
++justifies strict child decrease before rank correctness is proved; no balance,
++growth, pivot-rank, or cost law is assumed by the construction. The supplied
++entry-length observation is an actual cached length execution, including its
++count. Proofs, comparisons and projections have the source's zero tariff.
++
++The public operation uses Option without requiring an inhabited payload type.
++Its invalid-rank guard reuses the entry length. The resulting n+2 invalid count
++belongs to this total extension of the source's valid-rank operation.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.Selection
++open Applications.Selection
++open Resources.SelectionAuxiliary Resources.SelectionMedians
++universe u
++variable {α : Type u} [LinearOrder α]
++
++omit [LinearOrder α] in
++private theorem length_value (xs : List α) :
++    (SymmetricCosts.lengthRun xs).1 = xs.length :=
++  congrArg Prod.fst (SymmetricCosts.lengthRun_exact xs)
++
++private theorem partition_value (p : α) (xs : List α) :
++    (Partition.partitionRun p xs).1 = partition3 p xs :=
++  Partition.partitionRun_value p xs
++
++private theorem left_member (p : α) (xs : List α) (a : α)
++    (ha : a ∈ (Partition.partitionRun p xs).1.1) : a ∈ xs := by
++  rw [partition_value] at ha
++  exact ((partition_left_mem p xs a).mp ha).1
++
++private theorem right_member (p : α) (xs : List α) (a : α)
++    (ha : a ∈ (Partition.partitionRun p xs).1.2.2) : a ∈ xs := by
++  rw [partition_value] at ha
++  exact ((partition_right_mem p xs a).mp ha).1
++
++private theorem strict_sizes (p : α) (xs : List α) (hp : p ∈ xs) :
++    (Partition.partitionRun p xs).1.1.length < xs.length ∧
++      (Partition.partitionRun p xs).1.2.2.length < xs.length := by
++  rw [partition_value]
++  exact partition_strict_sizes p xs hp
++
++private theorem right_rank (p : α) (xs : List α) (k : Nat)
++    (hk : k < xs.length)
++    (he : ¬ k < (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.1).1 +
++      (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.2.1).1) :
++    k - (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.1).1 -
++        (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.2.1).1 <
++      (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.2.2).1 := by
++  simp only [length_value, partition_value] at he ⊢
++  have h := partition_lengths p xs
++  omega
++
++private theorem medians_positive (d : Nat) (xs : List α)
++    (hd : 2 ≤ d) (hx : 0 < xs.length) :
++    0 < (chunkMediansRun d xs).1.length := by
++  apply List.length_pos_iff.mpr
++  intro h
++  rcases (chunkMediansRun_eq_nil_iff d xs).mp h with h | h
++  · omega
++  · subst xs
++    simp only [List.length_nil] at hx
++    omega
++
++private theorem medians_shorter (d : Nat) (xs : List α)
++    (hd : 2 ≤ d) (hx : 1 < xs.length) :
++    (chunkMediansRun d xs).1.length < xs.length := by
++  rw [chunkMediansRun_length]
++  have hc : xs.length ⌈/⌉ d ≤ xs.length - 1 := by
++    apply (ceilDiv_le_iff_le_mul (by omega : 0 < d)).mpr
++    calc
++      xs.length ≤ 2 * (xs.length - 1) := by omega
++      _ ≤ d * (xs.length - 1) := Nat.mul_le_mul_right _ hd
++  omega
++
++private theorem median_rank (d : Nat) (xs : List α)
++    (hd : 2 ≤ d) (hx : 0 < xs.length) :
++    ((xs.length ⌈/⌉ d) - 1) / 2 <
++      (SymmetricCosts.lengthRun (chunkMediansRun d xs).1).1 := by
++  have hp := medians_positive d xs hd hx
++  rw [chunkMediansRun_length] at hp
++  rw [length_value, chunkMediansRun_length]
++  omega
++
++/-- The cached observation contributes its actual cost at this invocation.
++The result carries membership solely to support noncircular termination. -/
++private def selectWorker (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) (nr : Measured Nat Nat)
++    (hn : nr = SymmetricCosts.lengthRun xs) (hk : k < nr.1) :
++    Measured {a // a ∈ xs} Nat :=
++  have hlen : nr.1 = xs.length := by rw [hn, SymmetricCosts.lengthRun_exact]
++  if hsmall : nr.1 ≤ cutoff then
++    let r := slowSelectRun k xs
++    match h : r.1 with
++    | none => False.elim (by
++        have hi := (slowSelectRun_none k xs).mp h
++        omega)
++    | some a =>
++        (⟨a, ((slowSelectRun_some_iff k xs a).mp h).mem⟩, 1 + nr.2 + r.2)
++  else
++    let med := chunkMediansRun d xs
++    let i := ((nr.1 ⌈/⌉ d) - 1) / 2
++    let pivot := selectWorker d cutoff hd hc i med.1
++      (SymmetricCosts.lengthRun med.1) rfl (by
++        dsimp only [i, med]
++        rw [hlen]
++        exact median_rank d xs hd (by omega))
++    let p := pivot.1.val
++    have hp : p ∈ xs := chunkMediansRun_mem d xs p pivot.1.property
++    let parts := Partition.partitionRun p xs
++    let lower := SymmetricCosts.lengthRun parts.1.1
++    let common := 1 + nr.2 + med.2 + pivot.2 + parts.2 + lower.2
++    if hl : k < lower.1 then
++      let child := selectWorker d cutoff hd hc k parts.1.1
++        (SymmetricCosts.lengthRun parts.1.1) rfl hl
++      (⟨child.1.val, left_member p xs child.1.val child.1.property⟩, common + child.2)
++    else
++      let equal := SymmetricCosts.lengthRun parts.1.2.1
++      if he : k < lower.1 + equal.1 then
++        (⟨p, hp⟩, common + equal.2)
++      else
++        let child := selectWorker d cutoff hd hc (k - lower.1 - equal.1) parts.1.2.2
++          (SymmetricCosts.lengthRun parts.1.2.2) rfl
++          (right_rank p xs k (by omega) he)
++        (⟨child.1.val, right_member p xs child.1.val child.1.property⟩,
++          common + equal.2 + child.2)
++termination_by xs.length
++decreasing_by
++  all_goals
++    first
++    | exact medians_shorter d xs hd (by omega)
++    | exact (strict_sizes p xs hp).1
++    | exact (strict_sizes p xs hp).2
++
++omit [LinearOrder α] in
++private def observe {xs : List α} (r : Measured {a // a ∈ xs} Nat) :
++    Measured (Option α) Nat := (some r.1.val, r.2)
++
++/-- Execute the nested selector for a group size and a finite base cutoff.
++The constraints ensure termination; a linear bound additionally requires a
++contracting grouping regime and a separately proved source-cost comparison. -/
++def selectRunWith (groupSize cutoff : Nat) (hd : 2 ≤ groupSize) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) : Measured (Option α) Nat :=
++  let nr := SymmetricCosts.lengthRun xs
++  if hk : k < nr.1 then
++    observe (selectWorker groupSize cutoff hd hc k xs nr rfl hk)
++  else (none, 1 + nr.2)
++
++/-- The book uses groups of five and insertion selection through size twenty. -/
++def selectRun (k : Nat) (xs : List α) : Measured (Option α) Nat :=
++  selectRunWith 5 20 (by decide) (by decide) k xs
++
++private theorem worker_observe (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) (nr : Measured Nat Nat)
++    (hn : nr = SymmetricCosts.lengthRun xs) (hk : k < nr.1) :
++    selectRunWith d cutoff hd hc k xs = observe (selectWorker d cutoff hd hc k xs nr hn hk) := by
++  subst nr
++  unfold selectRunWith
++  dsimp only
++  rw [dite_eq_left hk]
++
++/-- The optional extension stops after its entry and the one cached length. -/
++theorem selectRunWith_of_invalid (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) (hk : xs.length ≤ k) :
++    selectRunWith d cutoff hd hc k xs = (none, xs.length + 2) := by
++  unfold selectRunWith
++  dsimp only
++  rw [dite_eq_right (by simpa only [length_value] using Nat.not_lt.mpr hk)]
++  rw [SymmetricCosts.lengthRun_exact]
++  exact Prod.ext rfl (by omega)
++
++theorem selectRunWith_nil (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (k : Nat) :
++    selectRunWith d cutoff hd hc k ([] : List α) = (none, 2) :=
++  selectRunWith_of_invalid d cutoff hd hc k [] (Nat.zero_le k)
++
++/-- Validity is established before any rank-correctness induction. -/
++theorem selectRunWith_exists (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) (hk : k < xs.length) :
++    ∃ a, (selectRunWith d cutoff hd hc k xs).1 = some a := by
++  have hi : k < (SymmetricCosts.lengthRun xs).1 := by rw [length_value]; exact hk
++  rw [worker_observe d cutoff hd hc k xs (SymmetricCosts.lengthRun xs) rfl hi]
++  exact ⟨_, rfl⟩
++
++/-- Every returned payload is a member, independently of its eventual rank law. -/
++theorem selectRunWith_mem (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) (a : α)
++    (ha : (selectRunWith d cutoff hd hc k xs).1 = some a) : a ∈ xs := by
++  by_cases hk : k < xs.length
++  · have hi : k < (SymmetricCosts.lengthRun xs).1 := by rw [length_value]; exact hk
++    rw [worker_observe d cutoff hd hc k xs (SymmetricCosts.lengthRun xs) rfl hi] at ha
++    have he : (selectWorker d cutoff hd hc k xs (SymmetricCosts.lengthRun xs) rfl hi).1.val =
++        a := Option.some.inj ha
++    exact he ▸ (selectWorker d cutoff hd hc k xs (SymmetricCosts.lengthRun xs) rfl hi).1.property
++  · rw [selectRunWith_of_invalid d cutoff hd hc k xs (Nat.le_of_not_gt hk)] at ha
++    cases ha
++
++/-- The base branch executes the actual insertion/lookup helper. -/
++theorem selectRunWith_small (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) (hk : k < xs.length) (hs : xs.length ≤ cutoff) :
++    selectRunWith d cutoff hd hc k xs =
++      ((slowSelectRun k xs).1,
++        1 + (SymmetricCosts.lengthRun xs).2 + (slowSelectRun k xs).2) := by
++  have hi : k < (SymmetricCosts.lengthRun xs).1 := by rw [length_value]; exact hk
++  rw [worker_observe d cutoff hd hc k xs (SymmetricCosts.lengthRun xs) rfl hi]
++  rw [selectWorker]
++  dsimp only
++  rw [dite_eq_left (by simpa only [length_value] using hs)]
++  split
++  next h =>
++    have hbad := (slowSelectRun_none k xs).mp h
++    omega
++  next a ha =>
++    exact Prod.ext ha.symm rfl
++
++/-- The full recursive source equation uses the value returned by its own
++median recursion. The premise identifies that observed value; it assumes
++neither its rank, its cost, nor a bound on either strict bucket. -/
++theorem selectRunWith_step (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) (hk : k < xs.length) (hs : cutoff < xs.length)
++    (p : α)
++    (hp : (selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)
++      (chunkMediansRun d xs).1).1 = some p) :
++    selectRunWith d cutoff hd hc k xs =
++      let t := partition3 p xs
++      let pivot := selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)
++        (chunkMediansRun d xs).1
++      let common := 1 + (SymmetricCosts.lengthRun xs).2 + (chunkMediansRun d xs).2 +
++        pivot.2 + (Partition.partitionRun p xs).2 + (SymmetricCosts.lengthRun t.1).2
++      if k < t.1.length then
++        let child := selectRunWith d cutoff hd hc k t.1
++        (child.1, common + child.2)
++      else if k < t.1.length + t.2.1.length then
++        (some p, common + (SymmetricCosts.lengthRun t.2.1).2)
++      else
++        let child := selectRunWith d cutoff hd hc (k - t.1.length - t.2.1.length) t.2.2
++        (child.1, common + (SymmetricCosts.lengthRun t.2.1).2 + child.2) := by
++  have hm : (((SymmetricCosts.lengthRun xs).1 ⌈/⌉ d) - 1) / 2 <
++      (SymmetricCosts.lengthRun (chunkMediansRun d xs).1).1 := by
++    simpa only [length_value] using median_rank d xs hd (by omega)
++  let pr := selectWorker d cutoff hd hc
++    ((((SymmetricCosts.lengthRun xs).1 ⌈/⌉ d) - 1) / 2)
++    (chunkMediansRun d xs).1 (SymmetricCosts.lengthRun (chunkMediansRun d xs).1) rfl hm
++  have hpr : selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)
++      (chunkMediansRun d xs).1 = observe pr := by
++    rw [← length_value xs]
++    exact worker_observe d cutoff hd hc _ _ _ rfl hm
++  have pivot_cost : (selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)
++      (chunkMediansRun d xs).1).2 = pr.2 := congrArg Prod.snd hpr
++  have hpv : pr.1.val = p :=
++    Option.some.inj ((congrArg Prod.fst hpr).symm.trans hp)
++  subst p
++  let parts := Partition.partitionRun pr.1.val xs
++  let common := 1 + (SymmetricCosts.lengthRun xs).2 + (chunkMediansRun d xs).2 +
++    pr.2 + parts.2 + (SymmetricCosts.lengthRun parts.1.1).2
++  have hi : k < (SymmetricCosts.lengthRun xs).1 := by rw [length_value]; exact hk
++  rw [worker_observe d cutoff hd hc k xs (SymmetricCosts.lengthRun xs) rfl hi]
++  rw [selectWorker]
++  dsimp only
++  rw [dite_eq_right (by simpa only [length_value] using Nat.not_le.mpr hs)]
++  by_cases hl : k < (SymmetricCosts.lengthRun parts.1.1).1
++  · rw [dite_eq_left hl]
++    let child := selectWorker d cutoff hd hc k parts.1.1
++      (SymmetricCosts.lengthRun parts.1.1) rfl hl
++    have child_eq : selectRunWith d cutoff hd hc k parts.1.1 = observe child :=
++      worker_observe d cutoff hd hc k parts.1.1 (SymmetricCosts.lengthRun parts.1.1) rfl hl
++    have child_value : (selectRunWith d cutoff hd hc k parts.1.1).1 = some child.1.val :=
++      congrArg Prod.fst child_eq
++    have child_cost : (selectRunWith d cutoff hd hc k parts.1.1).2 = child.2 :=
++      congrArg Prod.snd child_eq
++    have hl_math : k < (partition3 pr.1.val xs).1.length := by
++      simpa only [parts, length_value, partition_value] using hl
++    change (some child.1.val, common + child.2) = _
++    rw [← child_value, ← child_cost]
++    dsimp only [common, parts]
++    rw [pivot_cost]
++    simp only [partition_value, hl_math, ↓reduceIte]
++  · rw [dite_eq_right hl]
++    have hl_math : ¬ k < (partition3 pr.1.val xs).1.length := by
++      simpa only [parts, length_value, partition_value] using hl
++    by_cases he : k < (SymmetricCosts.lengthRun parts.1.1).1 +
++        (SymmetricCosts.lengthRun parts.1.2.1).1
++    · rw [dite_eq_left he]
++      have he_math : k < (partition3 pr.1.val xs).1.length +
++          (partition3 pr.1.val xs).2.1.length := by
++        simpa only [parts, length_value, partition_value] using he
++      change (some pr.1.val, common + (SymmetricCosts.lengthRun parts.1.2.1).2) = _
++      dsimp only [common, parts]
++      rw [pivot_cost]
++      simp only [partition_value, hl_math, he_math, ↓reduceIte]
++    · rw [dite_eq_right he]
++      let j := k - (SymmetricCosts.lengthRun parts.1.1).1 -
++        (SymmetricCosts.lengthRun parts.1.2.1).1
++      have hj : j < (SymmetricCosts.lengthRun parts.1.2.2).1 :=
++        right_rank pr.1.val xs k hk he
++      let child := selectWorker d cutoff hd hc j parts.1.2.2
++        (SymmetricCosts.lengthRun parts.1.2.2) rfl hj
++      have child_eq : selectRunWith d cutoff hd hc j parts.1.2.2 = observe child :=
++        worker_observe d cutoff hd hc j parts.1.2.2 (SymmetricCosts.lengthRun parts.1.2.2) rfl hj
++      have child_value : (selectRunWith d cutoff hd hc j parts.1.2.2).1 = some child.1.val :=
++        congrArg Prod.fst child_eq
++      have child_cost : (selectRunWith d cutoff hd hc j parts.1.2.2).2 = child.2 :=
++        congrArg Prod.snd child_eq
++      have he_math : ¬ k < (partition3 pr.1.val xs).1.length +
++          (partition3 pr.1.val xs).2.1.length := by
++        simpa only [parts, length_value, partition_value] using he
++      change (some child.1.val,
++        common + (SymmetricCosts.lengthRun parts.1.2.1).2 + child.2) = _
++      rw [← child_value, ← child_cost]
++      dsimp only [common, parts, j]
++      rw [pivot_cost]
++      simp only [length_value, partition_value, hl_math, he_math, ↓reduceIte]
++
++/-- Project the count from the proved execution equation. In particular, the
++equal-length traversal is absent from the left branch, and the equal branch
++has no second recursive selection call. -/
++theorem selectRunWith_cost_step (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) (hk : k < xs.length) (hs : cutoff < xs.length)
++    (p : α)
++    (hp : (selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)
++      (chunkMediansRun d xs).1).1 = some p) :
++    (selectRunWith d cutoff hd hc k xs).2 =
++      let t := partition3 p xs
++      1 + (SymmetricCosts.lengthRun xs).2 + (chunkMediansRun d xs).2 +
++        (selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)
++          (chunkMediansRun d xs).1).2 + (Partition.partitionRun p xs).2 +
++        (SymmetricCosts.lengthRun t.1).2 +
++        (if k < t.1.length then (selectRunWith d cutoff hd hc k t.1).2
++        else (SymmetricCosts.lengthRun t.2.1).2 +
++          if k < t.1.length + t.2.1.length then 0
++          else (selectRunWith d cutoff hd hc (k - t.1.length - t.2.1.length) t.2.2).2) := by
++  have h := congrArg Prod.snd (selectRunWith_step d cutoff hd hc k xs hk hs p hp)
++  dsimp only at h ⊢
++  by_cases hl : k < (partition3 p xs).1.length
++  · simpa only [hl, ↓reduceIte] using h
++  · by_cases he : k < (partition3 p xs).1.length + (partition3 p xs).2.1.length
++    · simpa only [hl, he, ↓reduceIte, Nat.add_zero] using h
++    · simpa only [hl, he, ↓reduceIte, Nat.add_assoc] using h
++
++/-- Every grouping/cutoff in the terminating parameter range returns the
++requested occurrence, including arbitrary duplicates and invalid ranks. -/
++theorem selectRunWith_value (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) :
++    (selectRunWith d cutoff hd hc k xs).1 = (ordered xs)[k]? := by
++  by_cases hk : k < xs.length
++  · by_cases hs : xs.length ≤ cutoff
++    · rw [selectRunWith_small d cutoff hd hc k xs hk hs]
++      exact slowSelectRun_value k xs
++    · have hi : ((xs.length ⌈/⌉ d) - 1) / 2 < (chunkMediansRun d xs).1.length := by
++        simpa only [length_value] using median_rank d xs hd (by omega)
++      obtain ⟨p, hp⟩ := selectRunWith_exists d cutoff hd hc _ _ hi
++      have hp_mem : p ∈ xs := chunkMediansRun_mem d xs p
++        (selectRunWith_mem d cutoff hd hc _ _ p hp)
++      rw [selectRunWith_step d cutoff hd hc k xs hk (Nat.lt_of_not_ge hs) p hp,
++        ordered_getElem?_partition p xs k]
++      dsimp only
++      by_cases hl : k < (partition3 p xs).1.length
++      · simp only [hl, ↓reduceIte]
++        exact selectRunWith_value d cutoff hd hc k (partition3 p xs).1
++      · by_cases he : k < (partition3 p xs).1.length + (partition3 p xs).2.1.length
++        · simp only [hl, he, ↓reduceIte]
++        · simp only [hl, he, ↓reduceIte]
++          exact selectRunWith_value d cutoff hd hc
++            (k - (partition3 p xs).1.length - (partition3 p xs).2.1.length)
++            (partition3 p xs).2.2
++  · rw [selectRunWith_of_invalid d cutoff hd hc k xs (Nat.le_of_not_gt hk)]
++    symm
++    apply List.getElem?_eq_none_iff.mpr
++    simpa only [(ordered_perm xs).length_eq] using Nat.le_of_not_gt hk
++termination_by xs.length
++decreasing_by
++  · exact (partition_strict_sizes p xs hp_mem).1
++  · exact (partition_strict_sizes p xs hp_mem).2
++
++theorem selectRunWith_some_iff (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) (a : α) :
++    (selectRunWith d cutoff hd hc k xs).1 = some a ↔ RankedAt xs k a := by
++  rw [selectRunWith_value, ← ranked_iff_index]
++
++theorem selectRunWith_none_iff (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) :
++    (selectRunWith d cutoff hd hc k xs).1 = none ↔ xs.length ≤ k := by
++  rw [selectRunWith_value, List.getElem?_eq_none_iff, (ordered_perm xs).length_eq]
++
++/-- Preserve the repository's one-based public selection interface. -/
++theorem selectRunWith_public (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) :
++    (selectRunWith d cutoff hd hc k xs).1 = sortSelect (k + 1) xs := by
++  rw [selectRunWith_value]
++  simp [sortSelect]
++
++theorem selectRun_value (k : Nat) (xs : List α) :
++    (selectRun k xs).1 = (ordered xs)[k]? :=
++  selectRunWith_value 5 20 (by decide) (by decide) k xs
++
++theorem selectRun_some_iff (k : Nat) (xs : List α) (a : α) :
++    (selectRun k xs).1 = some a ↔ RankedAt xs k a :=
++  selectRunWith_some_iff 5 20 (by decide) (by decide) k xs a
++
++theorem selectRun_none_iff (k : Nat) (xs : List α) :
++    (selectRun k xs).1 = none ↔ xs.length ≤ k :=
++  selectRunWith_none_iff 5 20 (by decide) (by decide) k xs
++
++theorem selectRun_of_invalid (k : Nat) (xs : List α) (hk : xs.length ≤ k) :
++    selectRun k xs = (none, xs.length + 2) :=
++  selectRunWith_of_invalid 5 20 (by decide) (by decide) k xs hk
++
++theorem selectRun_nil (k : Nat) : selectRun k ([] : List α) = (none, 2) :=
++  selectRunWith_nil 5 20 (by decide) (by decide) k
++
++theorem selectRun_small (k : Nat) (xs : List α) (hk : k < xs.length)
++    (hs : xs.length ≤ 20) :
++    selectRun k xs = ((slowSelectRun k xs).1,
++      1 + (SymmetricCosts.lengthRun xs).2 + (slowSelectRun k xs).2) :=
++  selectRunWith_small 5 20 (by decide) (by decide) k xs hk hs
++
++theorem selectRun_step (k : Nat) (xs : List α) (hk : k < xs.length)
++    (hs : 20 < xs.length) (p : α)
++    (hp : (selectRun (((xs.length ⌈/⌉ 5) - 1) / 2) (chunkMediansRun 5 xs).1).1 = some p) :
++    selectRun k xs =
++      let t := partition3 p xs
++      let pivot := selectRun (((xs.length ⌈/⌉ 5) - 1) / 2) (chunkMediansRun 5 xs).1
++      let common := 1 + (SymmetricCosts.lengthRun xs).2 + (chunkMediansRun 5 xs).2 +
++        pivot.2 + (Partition.partitionRun p xs).2 + (SymmetricCosts.lengthRun t.1).2
++      if k < t.1.length then
++        let child := selectRun k t.1
++        (child.1, common + child.2)
++      else if k < t.1.length + t.2.1.length then
++        (some p, common + (SymmetricCosts.lengthRun t.2.1).2)
++      else
++        let child := selectRun (k - t.1.length - t.2.1.length) t.2.2
++        (child.1, common + (SymmetricCosts.lengthRun t.2.1).2 + child.2) :=
++  selectRunWith_step 5 20 (by decide) (by decide) k xs hk hs p hp
++
++theorem selectRun_cost_step (k : Nat) (xs : List α) (hk : k < xs.length)
++    (hs : 20 < xs.length) (p : α)
++    (hp : (selectRun (((xs.length ⌈/⌉ 5) - 1) / 2) (chunkMediansRun 5 xs).1).1 = some p) :
++    (selectRun k xs).2 =
++      let t := partition3 p xs
++      1 + (SymmetricCosts.lengthRun xs).2 + (chunkMediansRun 5 xs).2 +
++        (selectRun (((xs.length ⌈/⌉ 5) - 1) / 2) (chunkMediansRun 5 xs).1).2 +
++        (Partition.partitionRun p xs).2 + (SymmetricCosts.lengthRun t.1).2 +
++        (if k < t.1.length then (selectRun k t.1).2
++        else (SymmetricCosts.lengthRun t.2.1).2 +
++          if k < t.1.length + t.2.1.length then 0
++          else (selectRun (k - t.1.length - t.2.1.length) t.2.2).2) :=
++  selectRunWith_cost_step 5 20 (by decide) (by decide) k xs hk hs p hp
++
++end Resources.Selection
+diff --git a/Applications/Resources/SelectionAuxiliary.lean b/Applications/Resources/SelectionAuxiliary.lean
+new file mode 100644
+index 0000000..2bc892f
+--- /dev/null
++++ b/Applications/Resources/SelectionAuxiliary.lean
+@@ -0,0 +1,132 @@
++import Applications.Resources.InsertionSort
++import Applications.Resources.ListCalls
++import Applications.Selection.CountRank
++
++/-! Insertion-based selection helpers with the FDSA Appendix B.2 call tariff.
++Sorting, lookup and length are the existing measured executions. These
++nonrecursive wrappers add no entry charge. The canonical sorted list is only
++the value specification; its merge-sort realization supplies no cost here.
++Valid source ranks are zero-based. Optional failure makes the operations total
++without an inhabitant of the payload type; invalid-input costs describe that
++extension, not an additional assertion about the book's out-of-bounds indexing.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.SelectionAuxiliary
++open Applications.Selection
++universe u
++variable {α : Type u} [LinearOrder α]
++
++/-- Execute insertion sorting and then the source's sequential lookup. -/
++def slowSelectRun (k : Nat) (xs : List α) : Measured (Option α) Nat :=
++  bind (InsertionSort.sortRun (· ≤ ·) xs) fun ys => ListCalls.lookupRun ys k
++
++theorem slowSelectRun_value (k : Nat) (xs : List α) :
++    (slowSelectRun k xs).1 = (ordered xs)[k]? := by
++  rw [slowSelectRun, bind_value, ListCalls.lookupRun_value, InsertionSort.sortRun_value]
++  change (Applications.Sorting.insertionOn id xs)[k]? = (ordered xs)[k]?
++  rw [← Applications.Sorting.sortOn_eq_insertionOn id xs]
++
++/-- Exact total count, including the declared optional lookup extension. -/
++theorem slowSelectRun_cost (k : Nat) (xs : List α) :
++    (slowSelectRun k xs).2 =
++      (InsertionSort.sortRun (· ≤ ·) xs).2 + min k xs.length + 1 := by
++  simp only [slowSelectRun, bind, ListCalls.lookupRun_cost,
++    InsertionSort.sortRun_length, Nat.add_assoc]
++
++theorem slowSelectRun_cost_of_lt (k : Nat) (xs : List α) (hk : k < xs.length) :
++    (slowSelectRun k xs).2 = (InsertionSort.sortRun (· ≤ ·) xs).2 + k + 1 := by
++  rw [slowSelectRun_cost, Nat.min_eq_left (Nat.le_of_lt hk)]
++
++theorem slowSelectRun_some_iff (k : Nat) (xs : List α) (a : α) :
++    (slowSelectRun k xs).1 = some a ↔ RankedAt xs k a := by
++  rw [slowSelectRun_value, ← ranked_iff_index]
++
++theorem slowSelectRun_none (k : Nat) (xs : List α) :
++    (slowSelectRun k xs).1 = none ↔ xs.length ≤ k := by
++  rw [slowSelectRun_value, List.getElem?_eq_none_iff, (ordered_perm xs).length_eq]
++
++/-- Book rank k corresponds to public rank k+1, including optional failure. -/
++theorem slowSelectRun_public (k : Nat) (xs : List α) :
++    (slowSelectRun k xs).1 = sortSelect (k + 1) xs := by
++  rw [slowSelectRun_value]
++  simp [sortSelect]
++
++/-- The book's deliberately coarse insertion/lookup bound for valid ranks. -/
++theorem slowSelectRun_cost_bound (k : Nat) (xs : List α) (hk : k < xs.length) :
++    (slowSelectRun k xs).2 ≤ xs.length ^ 2 + 3 * xs.length + 1 := by
++  have hs := InsertionSort.sortRun_quadratic (· ≤ ·) xs
++  rw [slowSelectRun_cost_of_lt k xs hk]
++  nlinarith
++
++theorem slowSelectRun_cost_of_pairwise (k : Nat) (xs : List α)
++    (hk : k < xs.length) (hs : xs.Pairwise (· ≤ ·)) :
++    (slowSelectRun k xs).2 = 2 * xs.length + k + 2 := by
++  rw [slowSelectRun_cost_of_lt k xs hk, InsertionSort.sortRun_cost_of_pairwise _ xs hs]
++  omega
++
++theorem slowSelectRun_cost_reverse_range (n k : Nat) (hk : k < n) :
++    (slowSelectRun k (List.range n).reverse).2 =
++      (n + 1) * (n + 2) / 2 + k + 1 := by
++  rw [slowSelectRun_cost_of_lt k _ (by
++    simpa only [List.length_reverse, List.length_range] using hk),
++    InsertionSort.sortRun_cost_reverse_range]
++
++/-- The source base branch additionally charges entry and its cached length. -/
++theorem slowSelectRun_entry_bound (k : Nat) (xs : List α) (hk : k < xs.length) :
++    1 + (SymmetricCosts.lengthRun xs).2 + (slowSelectRun k xs).2 ≤
++      xs.length ^ 2 + 4 * xs.length + 3 := by
++  have hs := slowSelectRun_cost_bound k xs hk
++  rw [SymmetricCosts.lengthRun_exact]
++  omega
++
++theorem slowSelectRun_cutoff_bound (k : Nat) (xs : List α)
++    (hk : k < xs.length) (hn : xs.length ≤ 20) :
++    1 + (SymmetricCosts.lengthRun xs).2 + (slowSelectRun k xs).2 ≤ 483 := by
++  have hs := slowSelectRun_entry_bound k xs hk
++  have hsq : xs.length * xs.length ≤ 20 * 20 := Nat.mul_le_mul hn hn
++  nlinarith
++
++/-- Evaluate length once, then use its lower-occurrence index in slow selection. -/
++def slowMedianRun (xs : List α) : Measured (Option α) Nat :=
++  bind (SymmetricCosts.lengthRun xs) fun n => slowSelectRun ((n - 1) / 2) xs
++
++theorem slowMedianRun_value (xs : List α) :
++    (slowMedianRun xs).1 = lowerMedianWith List.head? xs := by
++  simp only [slowMedianRun, bind_value, SymmetricCosts.lengthRun_exact, slowSelectRun_value]
++  exact (lowerMedian_value List.head? head_pivot_valid xs).symm
++
++theorem slowMedianRun_cost (xs : List α) :
++    (slowMedianRun xs).2 = (SymmetricCosts.lengthRun xs).2 +
++      (slowSelectRun ((xs.length - 1) / 2) xs).2 := by
++  simp only [slowMedianRun, bind, SymmetricCosts.lengthRun_exact]
++
++theorem slowMedianRun_some_iff (xs : List α) (a : α) :
++    (slowMedianRun xs).1 = some a ↔ RankedAt xs ((xs.length - 1) / 2) a := by
++  rw [slowMedianRun_value, lowerMedian_value List.head? head_pivot_valid, ← ranked_iff_index]
++
++theorem slowMedianRun_none (xs : List α) :
++    (slowMedianRun xs).1 = none ↔ xs = [] := by
++  rw [slowMedianRun_value, lowerMedian_none List.head? head_pivot_valid]
++
++theorem slowMedianRun_mem (xs : List α) (a : α)
++    (ha : (slowMedianRun xs).1 = some a) : a ∈ xs :=
++  ((slowMedianRun_some_iff xs a).mp ha).mem
++
++theorem slowMedianRun_cost_bound (xs : List α) (hx : xs ≠ []) :
++    (slowMedianRun xs).2 ≤ xs.length ^ 2 + 4 * xs.length + 2 := by
++  have hn : 0 < xs.length := List.length_pos_iff.mpr hx
++  have hi : (xs.length - 1) / 2 < xs.length := by omega
++  have hs := slowSelectRun_cost_bound ((xs.length - 1) / 2) xs hi
++  rw [slowMedianRun_cost, SymmetricCosts.lengthRun_exact]
++  omega
++
++/-- The last chunk may have any positive size up to five. -/
++theorem slowMedianRun_small_bound (xs : List α) (hx : xs ≠ [])
++    (hn : xs.length ≤ 5) : (slowMedianRun xs).2 ≤ 47 := by
++  have hs := slowMedianRun_cost_bound xs hx
++  have hsq : xs.length * xs.length ≤ 5 * 5 := Nat.mul_le_mul hn hn
++  nlinarith
++
++end Resources.SelectionAuxiliary
+diff --git a/Applications/Resources/SelectionBounds.lean b/Applications/Resources/SelectionBounds.lean
+new file mode 100644
+index 0000000..b68014c
+--- /dev/null
++++ b/Applications/Resources/SelectionBounds.lean
+@@ -0,0 +1,205 @@
++import Applications.Resources.Selection
++import Applications.Resources.SelectionRecurrence
++
++/-! The actual nested selector is bounded by FDSA's scalar recurrence.
++
++The pivot observation is derived from the checked measured execution and its
++rank law. Both strict bucket sizes then use the duplicate-aware balance result.
++The cost induction retains the actual selected branch and charges the entry,
++cached length, chopping, median map, one-pass partition and reached lengths.
++It assumes no execution bound, growth law or payload finiteness.
++
++The book's valid-rank bound is extended to the public invalid-rank guard. One
++pair of affine constants works before the payload type, list and rank are
++chosen. These are source-call counts, with the tariff of Selection.lean.
++Mathematical source: FDSA Chapter 3, printed pp.40–44, (3.14) and Theorem3.10.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.Selection
++open Applications.Selection
++open Resources.SelectionAuxiliary Resources.SelectionMedians Resources.SelectionRecurrence
++universe u
++variable {α : Type u} [LinearOrder α]
++
++/-- The first recursive input has exactly the scalar's first child size. -/
++theorem chunkMediansRun_length_eq_pivotSize (xs : List α) :
++    (chunkMediansRun 5 xs).1.length = pivotSize xs.length := by
++  rw [chunkMediansRun_length, Nat.ceilDiv_eq_add_pred_div]
++  unfold pivotSize
++  omega
++
++/-- Actual recursive median selection agrees with the mathematical pivot,
++including the empty optional result. This uses the proved worker value law. -/
++theorem selectRun_median_value (xs : List α) :
++    (selectRun (((xs.length ⌈/⌉ 5) - 1) / 2) (chunkMediansRun 5 xs).1).1 =
++      medianOfMedians 5 xs := by
++  rw [selectRun_value, chunkMediansRun_value, medianOfMedians,
++    lowerMedian_value _ head_pivot_valid, length_chunkMedians]
++
++/-- The observed recursive pivot controls both strict sides, even with ties. -/
++theorem selectRun_pivot_size_bounds (xs : List α) (p : α)
++    (hp : (selectRun (((xs.length ⌈/⌉ 5) - 1) / 2)
++      (chunkMediansRun 5 xs).1).1 = some p) :
++    (partition3 p xs).1.length ≤ sideSize xs.length ∧
++      (partition3 p xs).2.2.length ≤ sideSize xs.length := by
++  have hpm : medianOfMedians 5 xs = some p :=
++    (selectRun_median_value xs).symm.trans hp
++  have h := medianOfMedians_five_count_bounds xs p hpm
++  have hl : (partition3 p xs).1.length = xs.countP (fun x => decide (x < p)) := by
++    simp only [partition3_eq_filters, List.countP_eq_length_filter]
++  have hr : (partition3 p xs).2.2.length = xs.countP (fun x => decide (p < x)) := by
++    simp only [partition3_eq_filters, List.countP_eq_length_filter]
++  rw [hl, hr]
++  simp only [Nat.ceilDiv_eq_add_pred_div] at h
++  unfold sideSize
++  constructor <;> omega
++
++/-- A common upper budget includes both reached bucket-length traversals.
++The left branch actually omits the equal length; including it here is safe.
++The two recursive selection counts are absent from this local expression. -/
++theorem selectRun_local_cost_bound (xs : List α) (p : α) :
++    1 + (SymmetricCosts.lengthRun xs).2 + (chunkMediansRun 5 xs).2 +
++      (Partition.partitionRun p xs).2 + (SymmetricCosts.lengthRun (partition3 p xs).1).2 +
++      (SymmetricCosts.lengthRun (partition3 p xs).2.1).2 ≤ 19 * xs.length + 54 := by
++  have hc := chunkMediansRun_five_bound xs
++  have hparts := partition_lengths p xs
++  have hl : (partition3 p xs).1.length ≤ xs.length := by omega
++  have he : (partition3 p xs).2.1.length ≤ xs.length := by omega
++  simp only [SymmetricCosts.lengthRun_exact, Partition.partitionRun_cost]
++  omega
++
++/-- FDSA (3.14): the actual valid-rank execution is bounded by the scalar F.
++Both child ranks are proved valid before applying their size induction. -/
++theorem selectRun_cost_le_F_of_lt (k : Nat) (xs : List α) (hk : k < xs.length) :
++    (selectRun k xs).2 ≤ F xs.length := by
++  suffices h : ∀ n (ys : List α), ys.length = n →
++      ∀ j, j < ys.length → (selectRun j ys).2 ≤ F n by
++    exact h xs.length xs rfl k hk
++  intro n
++  induction n using Nat.strongRecOn with
++  | ind n ih =>
++    intro ys hyn j hj
++    by_cases hs : ys.length ≤ 20
++    · rw [selectRun_small j ys hj hs]
++      change 1 + (SymmetricCosts.lengthRun ys).2 + (slowSelectRun j ys).2 ≤ F n
++      rw [F_of_le_twenty n (by omega)]
++      exact slowSelectRun_cutoff_bound j ys hj hs
++    · have large : 20 < ys.length := Nat.lt_of_not_ge hs
++      have large_n : 20 < n := by omega
++      let ms := (chunkMediansRun 5 ys).1
++      let i := ((ys.length ⌈/⌉ 5) - 1) / 2
++      have hm : ms.length = pivotSize n := by
++        dsimp only [ms]
++        rw [chunkMediansRun_length_eq_pivotSize, hyn]
++      have hmshort : ms.length < n := by
++        rw [hm]
++        exact (pivotSize_lt_iff n).mpr (by omega)
++      have hmpos : 0 < ms.length := by
++        rw [hm]
++        unfold pivotSize
++        omega
++      have hi : i < ms.length := by
++        have hmlen : ms.length = ys.length ⌈/⌉ 5 := chunkMediansRun_length 5 ys
++        dsimp only [i]
++        omega
++      obtain ⟨p, hp⟩ := selectRunWith_exists 5 20 (by decide) (by decide) i ms hi
++      change (selectRun i ms).1 = some p at hp
++      have hpm : medianOfMedians 5 ys = some p :=
++        (selectRun_median_value ys).symm.trans hp
++      have strict := partition_strict_sizes p ys (medianOfMedians_mem 5 ys p hpm)
++      have sides := selectRun_pivot_size_bounds ys p hp
++      have pivot_cost := ih ms.length hmshort ms rfl i hi
++      have pivot_bound : (selectRun i ms).2 ≤ F (pivotSize n) := by
++        simpa only [hm] using pivot_cost
++      have toll := selectRun_local_cost_bound ys p
++      rw [selectRun_cost_step j ys hj large p hp, F_of_twenty_lt n large_n]
++      change 1 + (SymmetricCosts.lengthRun ys).2 + (chunkMediansRun 5 ys).2 +
++        (selectRun i ms).2 + (Partition.partitionRun p ys).2 +
++        (SymmetricCosts.lengthRun (partition3 p ys).1).2 +
++        (if j < (partition3 p ys).1.length then (selectRun j (partition3 p ys).1).2
++        else (SymmetricCosts.lengthRun (partition3 p ys).2.1).2 +
++          if j < (partition3 p ys).1.length + (partition3 p ys).2.1.length then 0
++          else (selectRun (j - (partition3 p ys).1.length - (partition3 p ys).2.1.length)
++            (partition3 p ys).2.2).2) ≤ F (pivotSize n) + F (sideSize n) + 19 * n + 54
++      by_cases hl : j < (partition3 p ys).1.length
++      · rw [ite_eq_left hl]
++        have child := ih (partition3 p ys).1.length (by omega)
++          (partition3 p ys).1 rfl j hl
++        have child_bound : (selectRun j (partition3 p ys).1).2 ≤ F (sideSize n) := by
++          simpa only [hyn] using child.trans (F_monotone sides.1)
++        omega
++      · rw [ite_eq_right hl]
++        by_cases he : j < (partition3 p ys).1.length + (partition3 p ys).2.1.length
++        · rw [ite_eq_left he]
++          omega
++        · rw [ite_eq_right he]
++          have parts := partition_lengths p ys
++          have hj' : j - (partition3 p ys).1.length - (partition3 p ys).2.1.length <
++              (partition3 p ys).2.2.length := by omega
++          have child := ih (partition3 p ys).2.2.length (by omega)
++            (partition3 p ys).2.2 rfl
++            (j - (partition3 p ys).1.length - (partition3 p ys).2.1.length) hj'
++          have child_bound :
++              (selectRun (j - (partition3 p ys).1.length - (partition3 p ys).2.1.length)
++                (partition3 p ys).2.2).2 ≤ F (sideSize n) := by
++            simpa only [hyn] using child.trans (F_monotone sides.2)
++          omega
++
++/-- The entry/length-only invalid extension also fits the same scalar. -/
++theorem invalid_cost_le_F (n : Nat) : n + 2 ≤ F n := by
++  by_cases hn : n ≤ 20
++  · rw [F_of_le_twenty n hn]
++    omega
++  · rw [F_of_twenty_lt n (Nat.lt_of_not_ge hn)]
++    omega
++
++/-- The source bound extends uniformly to every public rank, including empty
++lists and invalid indices. No inhabitedness assumption is needed. -/
++theorem selectRun_cost_le_F (k : Nat) (xs : List α) :
++    (selectRun k xs).2 ≤ F xs.length := by
++  by_cases hk : k < xs.length
++  · exact selectRun_cost_le_F_of_lt k xs hk
++  · rw [selectRun_of_invalid k xs (Nat.le_of_not_gt hk)]
++    exact invalid_cost_le_F xs.length
++
++/-- One pair of constants works before the payload type, list and rank are
++chosen. In particular the constants cannot depend on the selected value. -/
++theorem selectRun_exists_uniform_affine_bound :
++    ∃ A B : Nat, ∀ (β : Type u) [LinearOrder β] (xs : List β) (k : Nat),
++      (selectRun k xs).2 ≤ A * xs.length + B := by
++  obtain ⟨A, B, bound⟩ := Resources.SelectionRecurrence.exists_affine_bound
++  refine ⟨A, B, ?_⟩
++  intro β inst ys j
++  exact (selectRun_cost_le_F j ys).trans (bound ys.length)
++
++/-- For positive input sizes the same uniform affine constants give one
++multiplicative linear constant; empty inputs retain the affine statement. -/
++theorem selectRun_exists_uniform_linear_bound :
++    ∃ C : Nat, ∀ (β : Type u) [LinearOrder β] (xs : List β) (k : Nat),
++      0 < xs.length → (selectRun k xs).2 ≤ C * xs.length := by
++  obtain ⟨A, B, bound⟩ := selectRun_exists_uniform_affine_bound
++  refine ⟨A + B, ?_⟩
++  intro β inst ys j hy
++  have h := bound β ys j
++  have hb : B ≤ B * ys.length := by nlinarith
++  nlinarith
++
++/-- Any size-indexed family of actual executions has ordinary linear growth.
++Ranks may vary and need not be valid; their optional extension is already
++covered. The hypothesis describes input sizes, not an assumed cost bound. -/
++theorem selectRun_family_isBigO (inputs : Nat → List α) (ranks : Nat → Nat)
++    (lengths : ∀ n, (inputs n).length = n) :
++    Asymptotics.IsBigO Filter.atTop
++      (fun n : Nat => ((selectRun (ranks n) (inputs n)).2 : ℝ))
++      (fun n => (n : ℝ)) := by
++  obtain ⟨C, bound⟩ := selectRun_exists_uniform_linear_bound
++  apply Resources.isBigO_of_nat_bound
++    (fun n => (selectRun (ranks n) (inputs n)).2) (fun n => n) C 1
++  intro n hn
++  have positive : 0 < (inputs n).length := by rw [lengths n]; omega
++  have h := bound α (inputs n) (ranks n) positive
++  simpa only [lengths n] using h
++
++end Resources.Selection
+diff --git a/Applications/Resources/SelectionMedians.lean b/Applications/Resources/SelectionMedians.lean
+new file mode 100644
+index 0000000..cd6bd74
+--- /dev/null
++++ b/Applications/Resources/SelectionMedians.lean
+@@ -0,0 +1,211 @@
++import Applications.Resources.Chunks
++import Applications.Resources.SelectionAuxiliary
++import Applications.Selection.MedianOfMedians
++import Mathlib.Algebra.Order.BigOperators.Group.List
++
++/-! Measured chunk medians for FDSA Chapter 3 and Appendix B.2.
++
++The callback extracts the payload from its actual successful slow-median run.
++Nonemptiness discharges the impossible optional failure without an inhabitant,
++default value, filtering pass, or separately evaluated specification median.
++The proof-carrying attach adapter records the callback's domain; the source
++tariff charges the actual median calls and the ordinary map entries. These
++observations are source call counts, not claims about Lean allocation costs.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.SelectionMedians
++open Applications.Selection Applications.Sequences.Chunks
++open Resources.SelectionAuxiliary
++universe u
++variable {α : Type u} [LinearOrder α]
++
++/-- Extract the value and count of the actual run on a nonempty input. -/
++def slowMedianValueRun (xs : List α) (hx : xs ≠ []) : Measured α Nat :=
++  let r := slowMedianRun xs
++  match h : r.1 with
++  | none => False.elim (hx ((slowMedianRun_none xs).mp h))
++  | some a => (a, r.2)
++
++theorem slowMedianValueRun_of_some (xs : List α) (hx : xs ≠ []) (a : α)
++    (ha : (slowMedianRun xs).1 = some a) :
++    slowMedianValueRun xs hx = (a, (slowMedianRun xs).2) := by
++  unfold slowMedianValueRun
++  dsimp only
++  split
++  next h => exact False.elim (hx ((slowMedianRun_none xs).mp h))
++  next b hb =>
++    have hba : b = a := Option.some.inj (hb.symm.trans ha)
++    exact Prod.ext hba rfl
++
++theorem slowMedianValueRun_of_run (xs : List α) (hx : xs ≠ []) (a : α) (c : Nat)
++    (h : slowMedianRun xs = (some a, c)) : slowMedianValueRun xs hx = (a, c) := by
++  have hv : (slowMedianRun xs).1 = some a := congrArg Prod.fst h
++  have hc : (slowMedianRun xs).2 = c := congrArg Prod.snd h
++  rw [slowMedianValueRun_of_some xs hx a hv, hc]
++
++theorem slowMedianValueRun_some (xs : List α) (hx : xs ≠ []) :
++    some (slowMedianValueRun xs hx).1 = (slowMedianRun xs).1 := by
++  cases h : (slowMedianRun xs).1 with
++  | none => exact False.elim (hx ((slowMedianRun_none xs).mp h))
++  | some a => rw [slowMedianValueRun_of_some xs hx a h]
++
++theorem slowMedianValueRun_cost (xs : List α) (hx : xs ≠ []) :
++    (slowMedianValueRun xs hx).2 = (slowMedianRun xs).2 := by
++  cases h : (slowMedianRun xs).1 with
++  | none => exact False.elim (hx ((slowMedianRun_none xs).mp h))
++  | some a => rw [slowMedianValueRun_of_some xs hx a h]
++
++theorem slowMedianValueRun_ranked (xs : List α) (hx : xs ≠ []) :
++    RankedAt xs ((xs.length - 1) / 2) (slowMedianValueRun xs hx).1 :=
++  (slowMedianRun_some_iff xs _).mp (slowMedianValueRun_some xs hx).symm
++
++theorem slowMedianValueRun_mem (xs : List α) (hx : xs ≠ []) :
++    (slowMedianValueRun xs hx).1 ∈ xs := (slowMedianValueRun_ranked xs hx).mem
++
++theorem slowMedianValueRun_value (xs : List α) (hx : xs ≠ []) :
++    (slowMedianValueRun xs hx).1 = lowerMedianValue xs hx :=
++  (slowMedianValueRun_ranked xs hx).unique (lowerMedianValue_ranked xs hx)
++
++theorem slowMedianValueRun_small_bound (xs : List α) (hx : xs ≠ [])
++    (hn : xs.length ≤ 5) : (slowMedianValueRun xs hx).2 ≤ 47 := by
++  rw [slowMedianValueRun_cost]
++  exact slowMedianRun_small_bound xs hx hn
++
++/-- Each occurrence executes its own measured median callback. -/
++def mapSlowMedianRun (xss : List (List α))
++    (hne : ∀ ys ∈ xss, ys ≠ []) : Measured (List α) Nat :=
++  ListCalls.mapRun (fun ys : {ys // ys ∈ xss} =>
++    slowMedianValueRun ys.val (hne ys.val ys.property)) xss.attach
++
++theorem mapSlowMedianRun_value (xss : List (List α))
++    (hne : ∀ ys ∈ xss, ys ≠ []) :
++    (mapSlowMedianRun xss hne).1 =
++      xss.attach.map (fun ys => lowerMedianValue ys.val (hne ys.val ys.property)) := by
++  simp only [mapSlowMedianRun, ListCalls.mapRun_value, slowMedianValueRun_value]
++
++/-- An observation of the returned payloads, not another execution pass. -/
++theorem mapSlowMedianRun_some_values (xss : List (List α))
++    (hne : ∀ ys ∈ xss, ys ≠ []) :
++    (mapSlowMedianRun xss hne).1.map some = xss.map (fun ys => (slowMedianRun ys).1) := by
++  simp only [mapSlowMedianRun, ListCalls.mapRun_value, List.map_map,
++    Function.comp_def, slowMedianValueRun_some]
++  exact List.attach_map_val (f := fun ys => (slowMedianRun ys).1)
++
++theorem mapSlowMedianRun_length (xss : List (List α))
++    (hne : ∀ ys ∈ xss, ys ≠ []) : (mapSlowMedianRun xss hne).1.length = xss.length := by
++  simp only [mapSlowMedianRun_value, List.length_map, List.length_attach]
++
++/-- Exact callback sum plus one map call per element and its empty call. -/
++theorem mapSlowMedianRun_cost (xss : List (List α))
++    (hne : ∀ ys ∈ xss, ys ≠ []) :
++    (mapSlowMedianRun xss hne).2 =
++      (xss.map (fun ys => (slowMedianRun ys).2)).sum + xss.length + 1 := by
++  simp only [mapSlowMedianRun, ListCalls.mapRun_cost, slowMedianValueRun_cost,
++    List.length_attach]
++  exact congrArg (fun cs : List Nat => cs.sum + xss.length + 1)
++    (List.attach_map_val (l := xss) (f := fun ys => (slowMedianRun ys).2))
++
++/-- Retain the group parameter for the later generalized-group exercise. -/
++theorem mapSlowMedianRun_bound (xss : List (List α))
++    (hne : ∀ ys ∈ xss, ys ≠ []) (d : Nat)
++    (hlen : ∀ ys ∈ xss, ys.length ≤ d) :
++    (mapSlowMedianRun xss hne).2 ≤ (d ^ 2 + 4 * d + 3) * xss.length + 1 := by
++  have hcallback (ys : List α) (hy : ys ∈ xss) :
++      (slowMedianRun ys).2 ≤ d ^ 2 + 4 * d + 2 := by
++    have hs := slowMedianRun_cost_bound ys (hne ys hy)
++    have hl := hlen ys hy
++    have hsq : ys.length * ys.length ≤ d * d := Nat.mul_le_mul hl hl
++    nlinarith
++  have hsum : (xss.map (fun ys => (slowMedianRun ys).2)).sum ≤
++      (d ^ 2 + 4 * d + 2) * xss.length := by
++    have h := List.sum_le_length_nsmul (xss.map (fun ys => (slowMedianRun ys).2))
++      (d ^ 2 + 4 * d + 2) (by
++        intro c hc
++        obtain ⟨ys, hy, rfl⟩ := List.mem_map.mp hc
++        exact hcallback ys hy)
++    simpa only [List.length_map, Nat.nsmul_eq_mul, Nat.mul_comm] using h
++  rw [mapSlowMedianRun_cost]
++  nlinarith
++
++theorem mapSlowMedianRun_small_bound (xss : List (List α))
++    (hne : ∀ ys ∈ xss, ys ≠ []) (hlen : ∀ ys ∈ xss, ys.length ≤ 5) :
++    (mapSlowMedianRun xss hne).2 ≤ 48 * xss.length + 1 := by
++  have h := mapSlowMedianRun_bound xss hne 5 hlen
++  norm_num at h
++  exact h
++
++theorem mapSlowMedianRun_chop_five_bound (xs : List α) :
++    (mapSlowMedianRun (chop 5 xs) (chop_mem_ne_nil 5 xs)).2 ≤ 10 * xs.length + 48 := by
++  have h := mapSlowMedianRun_small_bound (chop 5 xs) (chop_mem_ne_nil 5 xs)
++    (length_mem_chop 5 xs)
++  rw [length_chop, Nat.ceilDiv_eq_add_pred_div] at h
++  omega
++
++/-- Execute chopping once, then the payload map on the returned chunks.
++The nonrecursive composition adds no entry beyond its component executions. -/
++def chunkMediansRun (d : Nat) (xs : List α) : Measured (List α) Nat :=
++  let chunks := Resources.Chunks.chopRun d xs
++  let medians := mapSlowMedianRun chunks.1
++    (fun ys hy => Resources.Chunks.chopRun_mem_ne_nil d xs ys hy)
++  (medians.1, chunks.2 + medians.2)
++
++theorem chunkMediansRun_value (d : Nat) (xs : List α) :
++    (chunkMediansRun d xs).1 = chunkMedians d xs := by
++  simp only [chunkMediansRun, mapSlowMedianRun_value, Resources.Chunks.chopRun_value,
++    chunkMedians]
++
++theorem chunkMediansRun_some_values (d : Nat) (xs : List α) :
++    (chunkMediansRun d xs).1.map some = (chop d xs).map (fun ys => (slowMedianRun ys).1) := by
++  simpa only [chunkMediansRun, Resources.Chunks.chopRun_value] using
++    mapSlowMedianRun_some_values (chop d xs) (chop_mem_ne_nil d xs)
++
++theorem chunkMediansRun_cost_split (d : Nat) (xs : List α) :
++    (chunkMediansRun d xs).2 = (Resources.Chunks.chopRun d xs).2 +
++      (mapSlowMedianRun (chop d xs) (chop_mem_ne_nil d xs)).2 := by
++  simp only [chunkMediansRun, Resources.Chunks.chopRun_value]
++
++theorem chunkMediansRun_cost (d : Nat) (xs : List α) :
++    (chunkMediansRun d xs).2 = (Resources.Chunks.chopRun d xs).2 +
++      ((chop d xs).map (fun ys => (slowMedianRun ys).2)).sum + (xs.length ⌈/⌉ d) + 1 := by
++  rw [chunkMediansRun_cost_split, mapSlowMedianRun_cost, length_chop]
++  omega
++
++theorem chunkMediansRun_cost_positive (d : Nat) (xs : List α) (hd : 0 < d) :
++    (chunkMediansRun d xs).2 = 2 * xs.length + 4 * (xs.length ⌈/⌉ d) +
++      ((chop d xs).map (fun ys => (slowMedianRun ys).2)).sum + 2 := by
++  rw [chunkMediansRun_cost, Resources.Chunks.chopRun_cost d xs hd]
++  omega
++
++theorem chunkMediansRun_length (d : Nat) (xs : List α) :
++    (chunkMediansRun d xs).1.length = xs.length ⌈/⌉ d := by
++  rw [chunkMediansRun_value, length_chunkMedians]
++
++theorem chunkMediansRun_eq_nil_iff (d : Nat) (xs : List α) :
++    (chunkMediansRun d xs).1 = [] ↔ d = 0 ∨ xs = [] := by
++  rw [chunkMediansRun_value, chunkMedians_eq_nil_iff]
++
++theorem chunkMediansRun_mem (d : Nat) (xs : List α) (a : α)
++    (ha : a ∈ (chunkMediansRun d xs).1) : a ∈ xs := by
++  rw [chunkMediansRun_value] at ha
++  exact mem_chunkMedians d xs a ha
++
++theorem chunkMediansRun_bound (d : Nat) (xs : List α) :
++    (chunkMediansRun d xs).2 ≤
++      5 * xs.length + (d ^ 2 + 4 * d + 3) * (xs.length ⌈/⌉ d) + 2 := by
++  have hc := Resources.Chunks.chopRun_cost_bound d xs
++  have hm := mapSlowMedianRun_bound (chop d xs) (chop_mem_ne_nil d xs) d
++    (length_mem_chop d xs)
++  rw [length_chop] at hm
++  rw [chunkMediansRun_cost_split]
++  omega
++
++theorem chunkMediansRun_five_bound (xs : List α) :
++    (chunkMediansRun 5 xs).2 ≤ 15 * xs.length + 49 := by
++  have hc := Resources.Chunks.chopRun_cost_bound 5 xs
++  have hm := mapSlowMedianRun_chop_five_bound xs
++  rw [chunkMediansRun_cost_split]
++  omega
++
++end Resources.SelectionMedians
+diff --git a/Applications/Resources/SelectionRecurrence.lean b/Applications/Resources/SelectionRecurrence.lean
+new file mode 100644
+index 0000000..ff3350e
+--- /dev/null
++++ b/Applications/Resources/SelectionRecurrence.lean
+@@ -0,0 +1,165 @@
++import Applications.Resources.RoundedRecurrenceBounds
++import Applications.Resources.Growth
++
++/-! The exact scalar majorant for FDSA's median-of-medians selector.
++
++The total natural recurrence has base 483 through size 20, children
++ceil(n/5) and ceil(7n/10+3), and toll 19n+54. Child decrease establishes
++its definition before any bound is proved. Its monotonicity justifies later
++replacement of actual child lengths by the balance theorem's upper bounds.
++
++This scalar is not an implementation or an execution count. The measured
++selector must separately prove that its actual cost is bounded by this F.
++Mathematical source: FDSA, July 27, 2026, Chapter 3, printed pp. 39–44.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.SelectionRecurrence
++
++/-- The number of chunks of size five, retaining a final short chunk. -/
++def pivotSize (n : Nat) : Nat := (n + 4) / 5
++
++/-- The rounded upper bound for either strict selected side. -/
++def sideSize (n : Nat) : Nat := (7 * n + 39) / 10
++
++/-- The median list strictly decreases exactly above singleton size. -/
++theorem pivotSize_lt_iff (n : Nat) : pivotSize n < n ↔ 1 < n := by
++  unfold pivotSize
++  omega
++
++/-- The coarse strict-side scalar first decreases at size fourteen. -/
++theorem sideSize_lt_iff (n : Nat) : sideSize n < n ↔ 13 < n := by
++  unfold sideSize
++  omega
++
++theorem pivotSize_monotone : Monotone pivotSize := by
++  intro m n h
++  unfold pivotSize
++  omega
++
++theorem sideSize_monotone : Monotone sideSize := by
++  intro m n h
++  unfold sideSize
++  omega
++
++/-- FDSA's source majorant, including its deliberately coarse finite base. -/
++def F (n : Nat) : Nat :=
++  if h : n ≤ 20 then 483 else
++    F (pivotSize n) + F (sideSize n) + 19 * n + 54
++termination_by n
++decreasing_by
++  · exact (pivotSize_lt_iff n).mpr
++      (lt_trans (by decide : 1 < 20) (Nat.lt_of_not_ge h))
++  · exact (sideSize_lt_iff n).mpr
++      (lt_trans (by decide : 13 < 20) (Nat.lt_of_not_ge h))
++
++theorem F_of_le_twenty (n : Nat) (small : n ≤ 20) : F n = 483 := by
++  rw [F]
++  split
++  · rfl
++  · rename_i not_small
++    exact (not_small small).elim
++
++theorem F_of_twenty_lt (n : Nat) (large : 20 < n) :
++    F n = F (pivotSize n) + F (sideSize n) + 19 * n + 54 := by
++  rw [F]
++  split
++  · rename_i small
++    exact ((not_le_of_gt large) small).elim
++  · rfl
++
++/-- Every recursive value still dominates the whole finite base. -/
++theorem base_le_F (n : Nat) : 483 ≤ F n := by
++  induction n using Nat.strongRecOn with
++  | ind n ih =>
++      by_cases small : n ≤ 20
++      · rw [F_of_le_twenty n small]
++      · have large : 20 < n := Nat.lt_of_not_ge small
++        have child := ih (pivotSize n) ((pivotSize_lt_iff n).mpr (by omega))
++        rw [F_of_twenty_lt n large]
++        omega
++
++/-- Increasing the input size cannot decrease the actual scalar recurrence.
++The recursive argument uses both child maps' monotonicity and strict decrease. -/
++theorem F_monotone : Monotone F := by
++  have comparison : ∀ n m : Nat, m ≤ n → F m ≤ F n := by
++    intro n
++    induction n using Nat.strongRecOn with
++    | ind n ih =>
++        intro m hmn
++        by_cases small_n : n ≤ 20
++        · rw [F_of_le_twenty m (hmn.trans small_n), F_of_le_twenty n small_n]
++        · by_cases small_m : m ≤ 20
++          · rw [F_of_le_twenty m small_m]
++            exact base_le_F n
++          · have large_n : 20 < n := Nat.lt_of_not_ge small_n
++            have large_m : 20 < m := Nat.lt_of_not_ge small_m
++            have left := ih (pivotSize n) ((pivotSize_lt_iff n).mpr (by omega))
++              (pivotSize m) (pivotSize_monotone hmn)
++            have right := ih (sideSize n) ((sideSize_lt_iff n).mpr (by omega))
++              (sideSize m) (sideSize_monotone hmn)
++            rw [F_of_twenty_lt m large_m, F_of_twenty_lt n large_n]
++            omega
++  intro m n hmn
++  exact comparison n m hmn
++
++/-- The integer formula agrees with real ceiling also at zero. -/
++theorem pivotSize_eq_ceil (n : Nat) :
++    pivotSize n = ⌈(1 / 5 : ℝ) * (n : ℝ)⌉₊ := by
++  apply Nat.le_antisymm
++  · have bound := Nat.le_ceil ((1 / 5 : ℝ) * (n : ℝ))
++    have cast_bound : (n : ℝ) ≤ 5 * (⌈(1 / 5 : ℝ) * (n : ℝ)⌉₊ : ℝ) := by
++      linarith
++    have natural_bound : n ≤ 5 * ⌈(1 / 5 : ℝ) * (n : ℝ)⌉₊ := by
++      exact_mod_cast cast_bound
++    unfold pivotSize
++    omega
++  · apply Nat.ceil_le.mpr
++    have natural_bound : n ≤ 5 * pivotSize n := by unfold pivotSize; omega
++    have cast_bound : (n : ℝ) ≤ 5 * (pivotSize n : ℝ) := by
++      exact_mod_cast natural_bound
++    linarith
++
++/-- The additive three belongs inside the source ceiling. The integer formula
++retains it even for small inputs where F instead takes its base branch. -/
++theorem sideSize_eq_ceil (n : Nat) :
++    sideSize n = ⌈(7 / 10 : ℝ) * (n : ℝ) + 3⌉₊ := by
++  apply Nat.le_antisymm
++  · have bound := Nat.le_ceil ((7 / 10 : ℝ) * (n : ℝ) + 3)
++    have cast_bound : 7 * (n : ℝ) + 30 ≤
++        10 * (⌈(7 / 10 : ℝ) * (n : ℝ) + 3⌉₊ : ℝ) := by linarith
++    have natural_bound : 7 * n + 30 ≤ 10 * ⌈(7 / 10 : ℝ) * (n : ℝ) + 3⌉₊ := by
++      exact_mod_cast cast_bound
++    unfold sideSize
++    omega
++  · apply Nat.ceil_le.mpr
++    have natural_bound : 7 * n + 30 ≤ 10 * sideSize n := by unfold sideSize; omega
++    have cast_bound : 7 * (n : ℝ) + 30 ≤ 10 * (sideSize n : ℝ) := by
++      exact_mod_cast natural_bound
++    linarith
++
++/-- Exact input to the general two-branch rounded-recurrence theorem. -/
++theorem F_rounded (n : Nat) (large : 20 < n) :
++    F n = F ⌈(1 / 5 : ℝ) * (n : ℝ) + 0⌉₊ +
++      F ⌈(7 / 10 : ℝ) * (n : ℝ) + 3⌉₊ + 19 * n + 54 := by
++  simpa only [pivotSize_eq_ceil, sideSize_eq_ceil, add_zero] using F_of_twenty_lt n large
++
++/-- One pair of natural constants bounds every input, including the base and
++zero. The actual F recurrence supplies the premise; no growth is assumed. -/
++theorem exists_affine_bound : ∃ A B : Nat, ∀ n : Nat, F n ≤ A * n + B :=
++  RoundedRecurrence.exists_affine_bound_nat F (1 / 5) 0 (7 / 10) 3 19 54 20
++    (by norm_num) (by norm_num) (by norm_num) F_rounded
++
++/-- The exact natural scalar has ordinary linear asymptotic growth after casting. -/
++theorem F_isBigO :
++    Asymptotics.IsBigO Filter.atTop (fun n : Nat => (F n : ℝ)) (fun n => (n : ℝ)) := by
++  obtain ⟨A, B, bound⟩ := exists_affine_bound
++  apply isBigO_of_nat_bound F (fun n => n) (A + B) 1
++  intro n hn
++  have constant : B ≤ B * n := by nlinarith
++  calc
++    F n ≤ A * n + B := bound n
++    _ ≤ (A + B) * n := by nlinarith
++
++end Resources.SelectionRecurrence
+diff --git a/Applications/Selection/CoordinateQueries.lean b/Applications/Selection/CoordinateQueries.lean
+new file mode 100644
+index 0000000..49aa4bd
+--- /dev/null
++++ b/Applications/Selection/CoordinateQueries.lean
+@@ -0,0 +1,239 @@
++import Applications.Selection.CoordinateSensitivity
++import Applications.Resources.Growth
++
++/-!
++Deterministic adaptive coordinate queries for selection.
++
++The operation receives only its prior index/value history. `Runs` supplies each
++answer by the requested coordinate of the hidden input. Histories are newest
++first; completed query traces are chronological. Termination, correctness and
++resource tariffs are separate laws. The lower bound concerns this query model,
++not a tariff that provides an uncharged bulk-input operation.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Applications.Selection.CoordinateQueries
++universe u v
++
++abbrev Transcript (n : Nat) (α : Type u) := List (Fin n × α)
++
++/-- Either return an answer or request one valid coordinate. No input is passed
++to this operation; fixed size and rank may be parameters of the operation. -/
++abbrev Protocol (n : Nat) (α : Type u) (β : Type v) :=
++  Transcript n α → Sum β (Fin n)
++
++variable {n : Nat} {α : Type u} {β : Type v}
++
++/-- A finite execution. The query constructor is the only access to the input. -/
++inductive Runs (next : Protocol n α β) (input : Fin n → α) :
++    Transcript n α → Transcript n α → β → Prop where
++  | done {history : Transcript n α} {value : β}
++      (decision : next history = Sum.inl value) :
++      Runs next input history [] value
++  | query {history : Transcript n α} {i : Fin n}
++      {trace : Transcript n α} {value : β}
++      (decision : next history = Sum.inr i)
++      (rest : Runs next input ((i, input i) :: history) trace value) :
++      Runs next input history ((i, input i) :: trace) value
++
++variable {next : Protocol n α β} {input other : Fin n → α}
++variable {history trace trace' : Transcript n α} {value value' : β}
++
++/-- Termination is required on every input, not just on distinct inputs or on
++the one execution used by a lower-bound witness. -/
++def Total (next : Protocol n α β) : Prop :=
++  ∀ input : Fin n → α, ∃ trace value, Runs next input [] trace value
++
++/-- The recorded answer at every query is the actual coordinate value. -/
++theorem Runs.answers (run : Runs next input history trace value) :
++    ∀ i a, (i, a) ∈ trace → a = input i := by
++  induction run with
++  | done _ => simp
++  | query _ _ ih =>
++    intro i a ha
++    rcases List.mem_cons.mp ha with ha | ha
++    · cases ha
++      rfl
++    · exact ih i a ha
++
++/-- Agreement on the coordinates actually queried reproduces the complete
++terminating transcript and result, including any repeated queries. -/
++theorem Runs.replay (run : Runs next input history trace value)
++    (agree : ∀ i ∈ trace.map Prod.fst, input i = other i) :
++    Runs next other history trace value := by
++  revert agree
++  induction run with
++  | done decision =>
++    intro _
++    exact Runs.done decision
++  | @query history i trace value decision rest ih =>
++    intro agree
++    have hi : input i = other i := agree i (by simp)
++    have ht := ih (fun j hj => agree j (List.mem_cons_of_mem i hj))
++    rw [hi] at ht ⊢
++    exact Runs.query decision ht
++
++/-- An unqueried coordinate can be changed without changing this execution. -/
++theorem Runs.replay_update_of_not_mem (run : Runs next input history trace value)
++    (i : Fin n) (a : α) (missing : i ∉ trace.map Prod.fst) :
++    Runs next (Function.update input i a) history trace value :=
++  run.replay (fun j hj => by
++    have hji : j ≠ i := by
++      intro he
++      subst j
++      exact missing hj
++    exact (Function.update_of_ne hji a input).symm)
++
++/-- A fixed operation and input cannot produce two different finite results. -/
++theorem Runs.deterministic (run : Runs next input history trace value)
++    (run' : Runs next input history trace' value') :
++    trace = trace' ∧ value = value' := by
++  induction run generalizing trace' value' with
++  | done decision =>
++    cases run' with
++    | done decision' => exact ⟨rfl, Sum.inl.inj (decision.symm.trans decision')⟩
++    | query decision' _ => cases (decision.symm.trans decision')
++  | query decision _ ih =>
++    cases run' with
++    | done decision' => cases (decision.symm.trans decision')
++    | query decision' rest' =>
++      cases (Sum.inr.inj (decision.symm.trans decision'))
++      obtain ⟨ht, hv⟩ := ih rest'
++      exact ⟨by cases ht; rfl, hv⟩
++
++/-- Correctness at the fixed valid rank for every integer input. Duplicates in
++the input are allowed. `Total` separately requires an execution on every input. -/
++def Selects (next : Protocol n Int Int) (k : Fin n) : Prop :=
++  ∀ (input : Fin n → Int) trace value,
++    Runs next input [] trace value → RankedAt (List.ofFn input) k.val value
++
++/-- Sensitivity and replay force every coordinate to occur in a correct
++terminating execution on a distinct input. -/
++theorem Runs.queries_all {next : Protocol n Int Int} {input : Fin n → Int}
++    {trace : Transcript n Int} {value : Int} (run : Runs next input [] trace value)
++    (k : Fin n) (correct : Selects next k) (distinct : Function.Injective input) :
++    ∀ i : Fin n, i ∈ trace.map Prod.fst := by
++  intro i
++  by_contra missing
++  obtain ⟨z, changes⟩ := CoordinateSensitivity.exists_update_changes input k i distinct
++  have replay : Runs next (Function.update input i z) [] trace value :=
++    run.replay_update_of_not_mem i z missing
++  have oldRank := correct input trace value run
++  have newRank := correct (Function.update input i z) trace value replay
++  exact changes ((ranked_iff_index.mp newRank).trans (ranked_iff_index.mp oldRank).symm)
++
++/-- Repetitions count repeatedly. Covering all coordinates requires at least n
++entries in the actual trace, not merely n distinct possible requests. -/
++theorem Runs.length_lower_bound {next : Protocol n Int Int} {input : Fin n → Int}
++    {trace : Transcript n Int} {value : Int} (run : Runs next input [] trace value)
++    (k : Fin n) (correct : Selects next k) (distinct : Function.Injective input) :
++    n ≤ trace.length := by
++  have hsub : List.finRange n ⊆ trace.map Prod.fst := by
++    intro i _
++    exact run.queries_all k correct distinct i
++  have h := (List.nodup_finRange n).length_le_of_subset hsub
++  simpa only [List.length_finRange, List.length_map] using h
++
++/-- The declared per-query resource observation on the actual chronological trace. -/
++def queryWork (tariff : Fin n → α → Nat) : Transcript n α → Nat
++  | [] => 0
++  | (i, a) :: rest => tariff i a + queryWork tariff rest
++
++theorem queryWork_nil (tariff : Fin n → α → Nat) : queryWork tariff [] = 0 := rfl
++
++theorem queryWork_cons (tariff : Fin n → α → Nat) (i : Fin n) (a : α)
++    (rest : Transcript n α) :
++    queryWork tariff ((i, a) :: rest) = tariff i a + queryWork tariff rest := rfl
++
++theorem queryWork_unit (trace : Transcript n α) :
++    queryWork (fun _ _ => 1) trace = trace.length := by
++  induction trace with
++  | nil => rfl
++  | cons entry rest ih =>
++    cases entry
++    simp only [queryWork, List.length_cons, ih]
++    omega
++
++theorem queryWork_constant (c : Nat) (trace : Transcript n α) :
++    queryWork (fun _ _ => c) trace = c * trace.length := by
++  induction trace with
++  | nil => simp [queryWork]
++  | cons entry rest ih =>
++    cases entry
++    simp only [queryWork, List.length_cons, ih, Nat.mul_add, Nat.mul_one]
++    omega
++
++/-- Each actual query must be charged at least one unit for this transfer. -/
++theorem length_le_queryWork (tariff : Fin n → α → Nat)
++    (positive : ∀ i a, 1 ≤ tariff i a) (trace : Transcript n α) :
++    trace.length ≤ queryWork tariff trace := by
++  induction trace with
++  | nil => exact Nat.le_refl 0
++  | cons entry rest ih =>
++    obtain ⟨i, a⟩ := entry
++    have hp := positive i a
++    simp only [queryWork, List.length_cons]
++    omega
++
++theorem Runs.work_lower_bound {next : Protocol n Int Int} {input : Fin n → Int}
++    {trace : Transcript n Int} {value : Int} (run : Runs next input [] trace value)
++    (k : Fin n) (correct : Selects next k) (distinct : Function.Injective input)
++    (tariff : Fin n → Int → Nat) (positive : ∀ i a, 1 ≤ tariff i a) :
++    n ≤ queryWork tariff trace :=
++  (run.length_lower_bound k correct distinct).trans
++    (length_le_queryWork tariff positive trace)
++
++/-- Explicit resource-contract transfer. Applying this to a source-call model
++requires a separate proof of `coversQueries` for that actual execution. -/
++theorem Runs.resource_lower_bound {next : Protocol n Int Int} {input : Fin n → Int}
++    {trace : Transcript n Int} {value : Int} (run : Runs next input [] trace value)
++    (k : Fin n) (correct : Selects next k) (distinct : Function.Injective input)
++    (tariff : Fin n → Int → Nat) (positive : ∀ i a, 1 ≤ tariff i a)
++    (resource : Nat) (coversQueries : queryWork tariff trace ≤ resource) :
++    n ≤ resource :=
++  (run.work_lower_bound k correct distinct tariff positive).trans coversQueries
++
++/-- Total correctness yields a concrete distinct-input worst-case witness at
++every valid size and rank. The increasing integer input supplies distinctness. -/
++theorem exists_linear_run (next : Protocol n Int Int) (k : Fin n)
++    (total : Total next) (correct : Selects next k) :
++    ∃ (input : Fin n → Int) (trace : Transcript n Int) (value : Int),
++      Function.Injective input ∧ Runs next input [] trace value ∧ n ≤ trace.length := by
++  let input : Fin n → Int := fun i => (i.val : Int)
++  have distinct : Function.Injective input := by
++    intro i j he
++    exact Fin.ext (Int.ofNat.inj he)
++  obtain ⟨trace, value, run⟩ := total input
++  exact ⟨input, trace, value, distinct, run, run.length_lower_bound k correct distinct⟩
++
++/-- Every uniform worst-case bound for a family of correct total protocols is
++at least the positive input size. No finite worst-case supremum is presumed. -/
++theorem linear_worst_case_bound
++    (next : (m : Nat) → Protocol (m + 1) Int Int) (k : (m : Nat) → Fin (m + 1))
++    (total : ∀ m, Total (next m)) (correct : ∀ m, Selects (next m) (k m))
++    (bound : Nat → Nat)
++    (upper : ∀ m input trace value,
++      Runs (next m) input [] trace value → trace.length ≤ bound (m + 1))
++    (m : Nat) : m + 1 ≤ bound (m + 1) := by
++  obtain ⟨input, trace, value, _, run, lower⟩ :=
++    exists_linear_run (next m) (k m) (total m) (correct m)
++  exact lower.trans (upper m input trace value run)
++
++/-- The usual Ω(n) consequence: the size function is O of any uniform
++worst-case query bound. This does not assert a physical-runtime lower bound. -/
++theorem linear_isBigO_of_query_bound
++    (next : (m : Nat) → Protocol (m + 1) Int Int) (k : (m : Nat) → Fin (m + 1))
++    (total : ∀ m, Total (next m)) (correct : ∀ m, Selects (next m) (k m))
++    (bound : Nat → Nat)
++    (upper : ∀ m input trace value,
++      Runs (next m) input [] trace value → trace.length ≤ bound (m + 1)) :
++    Asymptotics.IsBigO Filter.atTop (fun m : Nat => (m : ℝ))
++      (fun m => (bound m : ℝ)) := by
++  apply Resources.isBigO_of_nat_bound (fun m => m) bound 1 1
++  intro m hm
++  have h := linear_worst_case_bound next k total correct bound upper (m - 1)
++  have he : m - 1 + 1 = m := by omega
++  simpa only [he, Nat.one_mul] using h
++
++end Applications.Selection.CoordinateQueries
+diff --git a/Applications/Selection/CoordinateReadAll.lean b/Applications/Selection/CoordinateReadAll.lean
+new file mode 100644
+index 0000000..e05374c
+--- /dev/null
++++ b/Applications/Selection/CoordinateReadAll.lean
+@@ -0,0 +1,156 @@
++import Applications.Selection.CoordinateQueries
++
++/-!
++A fixed coordinate-reading frontend for a computation on observed values.
++
++`readPlan` sees only the fixed plan, the pure final computation, and the prior
++transcript. Its input values are acquired by the existing charged `Runs.query`
++transitions. `readAll` reads every coordinate in increasing index order before
++applying the computation to those values. These query counts do not charge the
++computation itself, transcript reversal, or plan lookup. Connecting a measured
++selection implementation and its source-call tariff is a separate obligation.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Applications.Selection.CoordinateQueries
++universe u v
++
++variable {n : Nat} {α : Type u} {β : Type v}
++
++/-- Query the next planned coordinate, then compute using the chronological
++observed answers. The hidden input is not an argument to the operation. -/
++def readPlan (indices : List (Fin n)) (compute : List α → β) : Protocol n α β :=
++  fun history =>
++    match indices[history.length]? with
++    | some i => Sum.inr i
++    | none => Sum.inl (compute (history.reverse.map Prod.snd))
++
++theorem readPlan_query (indices : List (Fin n)) (compute : List α → β)
++    (history : Transcript n α) (i : Fin n)
++    (query : indices[history.length]? = some i) :
++    readPlan indices compute history = Sum.inr i := by
++  simp only [readPlan, query]
++
++theorem readPlan_done (indices : List (Fin n)) (compute : List α → β)
++    (history : Transcript n α) (done : indices[history.length]? = none) :
++    readPlan indices compute history = Sum.inl (compute (history.reverse.map Prod.snd)) := by
++  simp only [readPlan, done]
++
++/-- The prefix history is generated from actual answers. An arbitrary supplied
++history is not presumed to satisfy this execution invariant. -/
++private theorem readPlan_run_from (input : Fin n → α) (compute : List α → β)
++    (prior remaining : List (Fin n)) :
++    Runs (readPlan (prior ++ remaining) compute) input
++      (prior.map (fun i => (i, input i))).reverse
++      (remaining.map (fun i => (i, input i)))
++      (compute ((prior ++ remaining).map input)) := by
++  induction remaining generalizing prior with
++  | nil =>
++    apply Runs.done
++    simp [readPlan, Function.comp_def]
++  | cons i remaining ih =>
++    apply Runs.query
++    · have query : (prior ++ i :: remaining)[prior.length]? = some i := by
++        rw [List.getElem?_append_right (Nat.le_refl prior.length)]
++        simp
++      simp only [readPlan, List.length_reverse, List.length_map, query]
++    · simpa only [List.append_assoc, List.singleton_append, List.map_append,
++        List.map_cons, List.map_nil, List.reverse_append, List.reverse_cons,
++        List.reverse_nil, List.nil_append] using ih (prior ++ [i])
++
++/-- Every finite plan has this actual execution, including repeated indices. -/
++theorem readPlan_run (indices : List (Fin n)) (compute : List α → β)
++    (input : Fin n → α) :
++    Runs (readPlan indices compute) input []
++      (indices.map (fun i => (i, input i))) (compute (indices.map input)) := by
++  simpa only [List.nil_append, List.map_nil, List.reverse_nil] using
++    readPlan_run_from input compute [] indices
++
++theorem readPlan_total (indices : List (Fin n)) (compute : List α → β) :
++    Total (readPlan indices compute) :=
++  fun input => ⟨_, _, readPlan_run indices compute input⟩
++
++/-- Determinism identifies every terminating execution from an empty history;
++the reverse implication supplies existence rather than assuming it. -/
++theorem readPlan_run_iff (indices : List (Fin n)) (compute : List α → β)
++    (input : Fin n → α) (trace : Transcript n α) (value : β) :
++    Runs (readPlan indices compute) input [] trace value ↔
++      trace = indices.map (fun i => (i, input i)) ∧
++        value = compute (indices.map input) := by
++  constructor
++  · intro run
++    exact run.deterministic (readPlan_run indices compute input)
++  · rintro ⟨rfl, rfl⟩
++    exact readPlan_run indices compute input
++
++/-- Repeated plan entries remain separate charged queries. -/
++theorem readPlan_length (indices : List (Fin n)) (compute : List α → β)
++    (input : Fin n → α) (trace : Transcript n α) (value : β)
++    (run : Runs (readPlan indices compute) input [] trace value) :
++    trace.length = indices.length := by
++  rw [((readPlan_run_iff indices compute input trace value).mp run).1]
++  exact List.length_map _
++
++theorem readPlan_work (indices : List (Fin n)) (compute : List α → β)
++    (input : Fin n → α) (trace : Transcript n α) (value : β)
++    (run : Runs (readPlan indices compute) input [] trace value) (c : Nat) :
++    queryWork (fun _ _ => c) trace = c * indices.length := by
++  rw [queryWork_constant, readPlan_length indices compute input trace value run]
++
++/-- Read each of the n coordinates once, in increasing index order. -/
++def readAll (compute : List α → β) : Protocol n α β :=
++  readPlan (List.finRange n) compute
++
++/-- The final computation consumes precisely the values actually read. -/
++theorem readAll_run (compute : List α → β) (input : Fin n → α) :
++    Runs (readAll compute) input [] (List.ofFn (fun i => (i, input i)))
++      (compute (List.ofFn input)) := by
++  simpa only [readAll, List.finRange, List.map_ofFn, Function.comp_def] using
++    readPlan_run (List.finRange n) compute input
++
++theorem readAll_total (compute : List α → β) : Total (readAll (n := n) compute) :=
++  fun input => ⟨_, _, readAll_run compute input⟩
++
++theorem readAll_run_iff (compute : List α → β) (input : Fin n → α)
++    (trace : Transcript n α) (value : β) :
++    Runs (readAll compute) input [] trace value ↔
++      trace = List.ofFn (fun i => (i, input i)) ∧ value = compute (List.ofFn input) := by
++  constructor
++  · intro run
++    exact run.deterministic (readAll_run compute input)
++  · rintro ⟨rfl, rfl⟩
++    exact readAll_run compute input
++
++theorem readAll_coordinates (compute : List α → β) (input : Fin n → α)
++    (trace : Transcript n α) (value : β)
++    (run : Runs (readAll compute) input [] trace value) :
++    trace.map Prod.fst = List.finRange n := by
++  rw [((readAll_run_iff compute input trace value).mp run).1]
++  simp only [List.map_ofFn, Function.comp_def, List.finRange]
++
++theorem readAll_length (compute : List α → β) (input : Fin n → α)
++    (trace : Transcript n α) (value : β)
++    (run : Runs (readAll compute) input [] trace value) : trace.length = n := by
++  rw [((readAll_run_iff compute input trace value).mp run).1]
++  exact List.length_ofFn
++
++/-- Exact acquisition tariff. This includes c=0; a positive-tariff lower bound
++must separately assume positivity, as in `Runs.work_lower_bound`. -/
++theorem readAll_work (compute : List α → β) (input : Fin n → α)
++    (trace : Transcript n α) (value : β)
++    (run : Runs (readAll compute) input [] trace value) (c : Nat) :
++    queryWork (fun _ _ => c) trace = c * n := by
++  rw [queryWork_constant, readAll_length compute input trace value run]
++
++/-- Transfer a length-n value specification of the pure computation. This
++conditional theorem supplies no selection algorithm or computation-cost bound. -/
++theorem readAll_correct (compute : List α → β) (spec : List α → β → Prop)
++    (correct : ∀ xs : List α, xs.length = n → spec xs (compute xs))
++    (input : Fin n → α) (trace : Transcript n α) (value : β)
++    (run : Runs (readAll compute) input [] trace value) :
++    spec (List.ofFn input) value := by
++  rw [((readAll_run_iff compute input trace value).mp run).2]
++  exact correct (List.ofFn input) List.length_ofFn
++
++end Applications.Selection.CoordinateQueries
+diff --git a/Applications/Selection/CoordinateSelection.lean b/Applications/Selection/CoordinateSelection.lean
+new file mode 100644
+index 0000000..c6ddd14
+--- /dev/null
++++ b/Applications/Selection/CoordinateSelection.lean
+@@ -0,0 +1,352 @@
++import Applications.Selection.CoordinateReadAll
++import Applications.Resources.SelectionBounds
++
++/-!
++The actual measured book selector after charged coordinate acquisition.
++
++The operation knows only its fixed rank and prior transcript. `readAll` obtains
++the list supplied to `Resources.Selection.selectRun`; its measured source calls
++are retained in the result. Combined work charges every coordinate query and
++adds those actual calls. The existing query model leaves frontend bookkeeping,
++plan lookup and projections uncharged. No physical-runtime claim is made.
++
++Correctness permits duplicate inputs. The competitor lower bound keeps the
++distinct-input, valid-rank and positive-query-tariff domain of C03-081--083.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Applications.Selection.CoordinateSelection
++open Applications.Selection.CoordinateQueries
++universe u
++
++variable {n : Nat} {α : Type u}
++
++/-- Read all unknown coordinates before executing the fixed measured selector.
++The hidden input is not an argument to this operation. -/
++def observedSelect [LinearOrder α] (k : Nat) :
++    Protocol n α (Resources.Measured (Option α) Nat) :=
++  readAll (Resources.Selection.selectRun k)
++
++/-- An actual execution, including empty inputs and invalid natural ranks. -/
++theorem observedSelect_run [LinearOrder α] (k : Nat) (input : Fin n → α) :
++    Runs (observedSelect k) input [] (List.ofFn (fun i => (i, input i)))
++      (Resources.Selection.selectRun k (List.ofFn input)) :=
++  readAll_run (Resources.Selection.selectRun k) input
++
++theorem observedSelect_total [LinearOrder α] (k : Nat) :
++    Total (observedSelect (n := n) (α := α) k) :=
++  readAll_total (Resources.Selection.selectRun k)
++
++theorem observedSelect_run_iff [LinearOrder α] (k : Nat) (input : Fin n → α)
++    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat) :
++    Runs (observedSelect k) input [] trace observation ↔
++      trace = List.ofFn (fun i => (i, input i)) ∧
++        observation = Resources.Selection.selectRun k (List.ofFn input) :=
++  readAll_run_iff (Resources.Selection.selectRun k) input trace observation
++
++/-- The chronological answers are exactly the acquired source list. -/
++theorem observedSelect_acquired [LinearOrder α] (k : Nat) (input : Fin n → α)
++    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
++    (run : Runs (observedSelect k) input [] trace observation) :
++    trace.map Prod.snd = List.ofFn input := by
++  rw [((observedSelect_run_iff k input trace observation).mp run).1]
++  simp only [List.map_ofFn, Function.comp_def]
++
++/-- Both the value and source-call observation come from the actual worker
++on acquired answers, not from a separately supplied input or answer. -/
++theorem observedSelect_on_acquired [LinearOrder α] (k : Nat) (input : Fin n → α)
++    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
++    (run : Runs (observedSelect k) input [] trace observation) :
++    observation = Resources.Selection.selectRun k (trace.map Prod.snd) := by
++  rw [observedSelect_acquired k input trace observation run]
++  exact ((observedSelect_run_iff k input trace observation).mp run).2
++
++theorem observedSelect_some_iff [LinearOrder α] (k : Nat) (input : Fin n → α)
++    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
++    (run : Runs (observedSelect k) input [] trace observation) (a : α) :
++    observation.1 = some a ↔ RankedAt (List.ofFn input) k a := by
++  rw [((observedSelect_run_iff k input trace observation).mp run).2]
++  exact Resources.Selection.selectRun_some_iff k (List.ofFn input) a
++
++/-- Invalid ranks retain their actual entry/length-only selector charge. -/
++theorem observedSelect_of_invalid [LinearOrder α] (k : Nat) (input : Fin n → α)
++    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
++    (run : Runs (observedSelect k) input [] trace observation) (invalid : n ≤ k) :
++    observation = (none, n + 2) := by
++  rw [((observedSelect_run_iff k input trace observation).mp run).2]
++  simpa only [List.length_ofFn] using Resources.Selection.selectRun_of_invalid
++    k (List.ofFn input) (by simpa only [List.length_ofFn] using invalid)
++
++theorem observedSelect_length [LinearOrder α] (k : Nat) (input : Fin n → α)
++    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
++    (run : Runs (observedSelect k) input [] trace observation) : trace.length = n :=
++  readAll_length (Resources.Selection.selectRun k) input trace observation run
++
++theorem observedSelect_query_work [LinearOrder α] (k : Nat) (input : Fin n → α)
++    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
++    (run : Runs (observedSelect k) input [] trace observation) (c : Nat) :
++    queryWork (fun _ _ => c) trace = c * n :=
++  readAll_work (Resources.Selection.selectRun k) input trace observation run c
++
++/-- The declared combined observation pays acquisition and actual selection.
++The second summand is the source-call count returned by the measured worker. -/
++def work (c : Nat) (trace : Transcript n α)
++    (observation : Resources.Measured (Option α) Nat) : Nat :=
++  queryWork (fun _ _ => c) trace + observation.2
++
++theorem work_acquisition [LinearOrder α] (k : Nat) (input : Fin n → α)
++    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
++    (run : Runs (observedSelect k) input [] trace observation) (c : Nat) :
++    work c trace observation = c * n + observation.2 := by
++  rw [work, observedSelect_query_work k input trace observation run c]
++
++/-- This exact identity supplies the source-call observation bridge. -/
++theorem work_exact [LinearOrder α] (k : Nat) (input : Fin n → α)
++    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
++    (run : Runs (observedSelect k) input [] trace observation) (c : Nat) :
++    work c trace observation =
++      c * n + (Resources.Selection.selectRun k (List.ofFn input)).2 := by
++  rw [work_acquisition k input trace observation run c,
++    ((observedSelect_run_iff k input trace observation).mp run).2]
++
++/-- Query coverage is proved for this concrete observation, not assumed as a
++resource-contract hypothesis. -/
++theorem work_covers_queries (c : Nat) (trace : Transcript n α)
++    (observation : Resources.Measured (Option α) Nat) :
++    queryWork (fun _ _ => c) trace ≤ work c trace observation := by
++  unfold work
++  omega
++
++theorem source_cost_le_F [LinearOrder α] (k : Nat) (input : Fin n → α)
++    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
++    (run : Runs (observedSelect k) input [] trace observation) :
++    observation.2 ≤ Resources.SelectionRecurrence.F n := by
++  rw [((observedSelect_run_iff k input trace observation).mp run).2]
++  simpa only [List.length_ofFn] using
++    Resources.Selection.selectRun_cost_le_F k (List.ofFn input)
++
++/-- The paid upper bound uses the checked actual worker recurrence. -/
++theorem work_le_F [LinearOrder α] (k : Nat) (input : Fin n → α)
++    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
++    (run : Runs (observedSelect k) input [] trace observation) (c : Nat) :
++    work c trace observation ≤ c * n + Resources.SelectionRecurrence.F n := by
++  rw [work_acquisition k input trace observation run c]
++  exact Nat.add_le_add_left (source_cost_le_F k input trace observation run) (c * n)
++
++/-- One pair of constants precedes the type, tariff, size, rank and input.
++The affine statement includes empty inputs and every invalid rank. -/
++theorem work_exists_uniform_affine_bound :
++    ∃ A B : Nat, ∀ (β : Type u) [LinearOrder β] (c m k : Nat)
++      (input : Fin m → β) (trace : Transcript m β)
++      (observation : Resources.Measured (Option β) Nat),
++      Runs (observedSelect k) input [] trace observation →
++        work c trace observation ≤ (c + A) * m + B := by
++  obtain ⟨A, B, bound⟩ := Resources.Selection.selectRun_exists_uniform_affine_bound.{u}
++  refine ⟨A, B, ?_⟩
++  intro β inst c m k input trace observation run
++  rw [work_exact k input trace observation run c]
++  have h := bound β (List.ofFn input) k
++  simpa only [List.length_ofFn, Nat.add_mul, Nat.add_assoc] using
++    Nat.add_le_add_left h (c * m)
++
++/-- Positive sizes absorb the affine constant. The constants remain uniform
++over payload types, inputs, ranks and acquisition tariffs. -/
++theorem work_exists_uniform_linear_bound :
++    ∃ C : Nat, ∀ (β : Type u) [LinearOrder β] (c m k : Nat)
++      (input : Fin m → β) (trace : Transcript m β)
++      (observation : Resources.Measured (Option β) Nat),
++      Runs (observedSelect k) input [] trace observation → 0 < m →
++        work c trace observation ≤ (c + C) * m := by
++  obtain ⟨C, bound⟩ := Resources.Selection.selectRun_exists_uniform_linear_bound.{u}
++  refine ⟨C, ?_⟩
++  intro β inst c m k input trace observation run positive
++  rw [work_exact k input trace observation run c]
++  have h := bound β (List.ofFn input) k
++    (by simpa only [List.length_ofFn] using positive)
++  simpa only [List.length_ofFn, Nat.add_mul] using Nat.add_le_add_left h (c * m)
++
++theorem work_lower_acquisition [LinearOrder α] (k : Nat) (input : Fin n → α)
++    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
++    (run : Runs (observedSelect k) input [] trace observation) (c : Nat) :
++    c * n ≤ work c trace observation := by
++  rw [work_acquisition k input trace observation run c]
++  omega
++
++theorem work_lower_input [LinearOrder α] (k : Nat) (input : Fin n → α)
++    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
++    (run : Runs (observedSelect k) input [] trace observation) (c : Nat)
++    (positive : 1 ≤ c) : n ≤ work c trace observation := by
++  have hn : n ≤ c * n := by
++    simpa only [Nat.one_mul] using Nat.mul_le_mul_right n positive
++  exact hn.trans (work_lower_acquisition k input trace observation run c)
++
++/-- Any family of actual executions has linear declared work for fixed c.
++The run premise identifies execution, not a hypothesized cost bound. -/
++theorem work_family_isBigO [LinearOrder α] (c : Nat)
++    (inputs : (m : Nat) → Fin m → α) (ranks : Nat → Nat)
++    (traces : (m : Nat) → Transcript m α)
++    (observations : Nat → Resources.Measured (Option α) Nat)
++    (runs : ∀ m, Runs (observedSelect (ranks m)) (inputs m) []
++      (traces m) (observations m)) :
++    Asymptotics.IsBigO Filter.atTop
++      (fun m : Nat => (work c (traces m) (observations m) : ℝ))
++      (fun m => (m : ℝ)) := by
++  obtain ⟨C, bound⟩ := work_exists_uniform_linear_bound.{u}
++  apply Resources.isBigO_of_nat_bound
++    (fun m => work c (traces m) (observations m)) (fun m => m) (c + C) 1
++  intro m hm
++  exact bound α c m (ranks m) (inputs m) (traces m) (observations m)
++    (runs m) (by omega)
++
++/-- Valid integer ranks return some actual value before the fixed default is
++projected. Duplicates are allowed throughout this correctness statement. -/
++theorem observedSelect_valid (k : Fin n) (input : Fin n → Int)
++    (trace : Transcript n Int) (observation : Resources.Measured (Option Int) Nat)
++    (run : Runs (observedSelect k.val) input [] trace observation) :
++    observation.1 = some (observation.1.getD 0) ∧
++      RankedAt (List.ofFn input) k.val (observation.1.getD 0) := by
++  obtain ⟨a, ha⟩ := Resources.Selection.selectRunWith_exists 5 20
++    (by decide) (by decide) k.val (List.ofFn input)
++    (by simpa only [List.length_ofFn] using k.isLt)
++  change (Resources.Selection.selectRun k.val (List.ofFn input)).1 = some a at ha
++  have answer : observation.1 = some a := by
++    rw [((observedSelect_run_iff k.val input trace observation).mp run).2]
++    exact ha
++  have ranked := (observedSelect_some_iff k.val input trace observation run a).mp answer
++  constructor
++  · simp only [answer, Option.getD_some]
++  · simpa only [answer, Option.getD_some] using ranked
++
++/-- The value view projects the final measured result and preserves requests.
++Its default is fixed independently of the hidden input. -/
++def selectedValue (k : Nat) : Protocol n Int Int :=
++  fun history =>
++    match observedSelect k history with
++    | Sum.inl observation => Sum.inl (observation.1.getD 0)
++    | Sum.inr i => Sum.inr i
++
++theorem selectedValue_eq_readAll (k : Nat) :
++    selectedValue (n := n) k =
++      readAll (fun xs : List Int => (Resources.Selection.selectRun k xs).1.getD 0) := by
++  funext history
++  cases lookup : (List.finRange n)[history.length]? <;>
++    simp only [selectedValue, observedSelect, readAll, readPlan, lookup]
++
++/-- The projected run is the same actual observation and trace. -/
++theorem selectedValue_run_iff (k : Nat) (input : Fin n → Int)
++    (trace : Transcript n Int) (value : Int) :
++    Runs (selectedValue k) input [] trace value ↔
++      ∃ observation : Resources.Measured (Option Int) Nat,
++        Runs (observedSelect k) input [] trace observation ∧
++          value = observation.1.getD 0 := by
++  rw [selectedValue_eq_readAll, readAll_run_iff]
++  constructor
++  · rintro ⟨ht, hv⟩
++    refine ⟨Resources.Selection.selectRun k (List.ofFn input), ?_, hv⟩
++    rw [ht]
++    exact observedSelect_run k input
++  · rintro ⟨observation, run, hv⟩
++    obtain ⟨ht, ho⟩ := (observedSelect_run_iff k input trace observation).mp run
++    rw [ho] at hv
++    exact ⟨ht, hv⟩
++
++theorem selectedValue_total (k : Nat) : Total (selectedValue (n := n) k) := by
++  intro input
++  obtain ⟨trace, observation, run⟩ := observedSelect_total k input
++  exact ⟨trace, observation.1.getD 0,
++    (selectedValue_run_iff k input trace (observation.1.getD 0)).mpr
++      ⟨observation, run, rfl⟩⟩
++
++/-- The existing lower-bound consumer is correct on every integer input. -/
++theorem selectedValue_correct (k : Fin n) : Selects (selectedValue k.val) k := by
++  intro input trace value run
++  obtain ⟨observation, actual, value_eq⟩ :=
++    (selectedValue_run_iff k.val input trace value).mp run
++  rw [value_eq]
++  exact (observedSelect_valid k input trace observation actual).2
++
++private theorem input_injective_of_nodup (input : Fin n → Int)
++    (distinct : (List.ofFn input).Nodup) : Function.Injective input := by
++  intro i j equal
++  have hi : i.val < (List.ofFn input).length := by
++    simpa only [List.length_ofFn] using i.isLt
++  have hj : j.val < (List.ofFn input).length := by
++    simpa only [List.length_ofFn] using j.isLt
++  have elements : (List.ofFn input)[i.val]'hi = (List.ofFn input)[j.val]'hj := by
++    simpa only [List.getElem_ofFn] using equal
++  exact Fin.ext (distinct.getElem_inj.mp elements)
++
++/-- Every correct competitor run on a distinct valid-rank input pays for at
++least n query occurrences. Repeated requests remain separately charged. -/
++theorem competitor_query_work_lower_bound (k : Fin n) (input : Fin n → Int)
++    (distinct : (List.ofFn input).Nodup) (next : Protocol n Int Int)
++    (correct : Selects next k) (trace : Transcript n Int) (value : Int)
++    (run : Runs next input [] trace value) (c : Nat) :
++    c * n ≤ queryWork (fun _ _ => c) trace := by
++  rw [queryWork_constant]
++  exact Nat.mul_le_mul_left c
++    (run.length_lower_bound k correct (input_injective_of_nodup input distinct))
++
++/-- One constant compares the actual paid book algorithm with every correct
++competitor's query work, on every distinct valid-rank input and positive tariff.
++No assumed resource coverage or linear execution bound is a premise. -/
++theorem exists_uniform_competitor_bound :
++    ∃ K : Nat, ∀ (c m : Nat) (k : Fin m) (input : Fin m → Int)
++      (distinct : (List.ofFn input).Nodup) (next : Protocol m Int Int)
++      (correct : Selects next k) (trace : Transcript m Int)
++      (observation : Resources.Measured (Option Int) Nat)
++      (otherTrace : Transcript m Int) (value : Int),
++      1 ≤ c → Runs (observedSelect k.val) input [] trace observation →
++      Runs next input [] otherTrace value →
++        work c trace observation ≤ K * queryWork (fun _ _ => c) otherTrace := by
++  obtain ⟨C, bound⟩ := work_exists_uniform_linear_bound.{0}
++  refine ⟨C + 1, ?_⟩
++  intro c m k input distinct next correct trace observation otherTrace value
++    positive run otherRun
++  have hm : 0 < m := Nat.lt_of_le_of_lt (Nat.zero_le k.val) k.isLt
++  have upper := bound Int c m k.val input trace observation run hm
++  have lower := competitor_query_work_lower_bound
++    k input distinct next correct otherTrace value otherRun c
++  have size : m ≤ c * m := by
++    simpa only [Nat.one_mul] using Nat.mul_le_mul_right m positive
++  calc
++    work c trace observation ≤ (c + C) * m := upper
++    _ = c * m + C * m := Nat.add_mul c C m
++    _ ≤ c * m + C * (c * m) :=
++      Nat.add_le_add_left (Nat.mul_le_mul_left C size) (c * m)
++    _ = (C + 1) * (c * m) := by
++      rw [Nat.add_mul, Nat.one_mul]
++      exact Nat.add_comm _ _
++    _ ≤ (C + 1) * queryWork (fun _ _ => c) otherTrace :=
++      Nat.mul_le_mul_left (C + 1) lower
++
++/-- Total correctness supplies both real executions and equal selected values.
++This is the concrete optimality comparison in the declared coordinate model. -/
++theorem exists_uniform_optimality :
++    ∃ K : Nat, ∀ (c m : Nat) (k : Fin m) (input : Fin m → Int)
++      (distinct : (List.ofFn input).Nodup) (next : Protocol m Int Int)
++      (total : Total next) (correct : Selects next k),
++      1 ≤ c → ∃ (trace : Transcript m Int)
++        (observation : Resources.Measured (Option Int) Nat)
++        (otherTrace : Transcript m Int) (value : Int),
++        Runs (observedSelect k.val) input [] trace observation ∧
++        Runs next input [] otherTrace value ∧ observation.1 = some value ∧
++        m ≤ queryWork (fun _ _ => c) otherTrace ∧
++        work c trace observation ≤ K * queryWork (fun _ _ => c) otherTrace := by
++  obtain ⟨K, bound⟩ := exists_uniform_competitor_bound
++  refine ⟨K, ?_⟩
++  intro c m k input distinct next total correct positive
++  obtain ⟨trace, observation, run⟩ := observedSelect_total k.val input
++  obtain ⟨otherTrace, value, otherRun⟩ := total input
++  have lower := competitor_query_work_lower_bound
++    k input distinct next correct otherTrace value otherRun c
++  have size : m ≤ c * m := by
++    simpa only [Nat.one_mul] using Nat.mul_le_mul_right m positive
++  refine ⟨trace, observation, otherTrace, value, run, otherRun, ?_, size.trans lower,
++    bound c m k input distinct next correct trace observation otherTrace value
++      positive run otherRun⟩
++  exact (observedSelect_some_iff k.val input trace observation run value).mpr
++    (correct input otherTrace value otherRun)
++
++end Applications.Selection.CoordinateSelection
+diff --git a/Applications/Selection/CoordinateSensitivity.lean b/Applications/Selection/CoordinateSensitivity.lean
+new file mode 100644
+index 0000000..aa11abf
+--- /dev/null
++++ b/Applications/Selection/CoordinateSensitivity.lean
+@@ -0,0 +1,159 @@
++import Applications.Selection.Consumers
++import Mathlib.Data.Int.Order.Basic
++import Mathlib.Data.List.FinRange
++import Mathlib.Data.List.Nodup
++import Mathlib.Data.List.OfFn
++import Init.Data.List.Nat.Count
++
++/-!
++Coordinate sensitivity of integer selection (FDSA, Exercise 3.4).
++
++The book observation is the zero-based index of `ordered`. The public
++one-based selectors are connected separately. This file proves sensitivity;
++an execution model and a query lower bound belong to `CoordinateQueries`.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Applications.Selection.CoordinateSensitivity
++universe u
++variable {α : Type u} {n : Nat}
++
++private theorem exists_above (xs : List Int) :
++    ∃ z : Int, ∀ x ∈ xs, x < z := by
++  induction xs with
++  | nil => exact ⟨0, by simp⟩
++  | cons x xs ih =>
++    obtain ⟨z, hz⟩ := ih
++    refine ⟨max x z + 1, ?_⟩
++    intro y hy
++    rcases List.mem_cons.mp hy with he | hy
++    · subst y
++      have h := le_max_left x z
++      omega
++    · have h := le_max_right x z
++      have h' := hz y hy
++      omega
++
++private theorem exists_below (xs : List Int) :
++    ∃ z : Int, ∀ x ∈ xs, z < x := by
++  induction xs with
++  | nil => exact ⟨0, by simp⟩
++  | cons x xs ih =>
++    obtain ⟨z, hz⟩ := ih
++    refine ⟨min x z - 1, ?_⟩
++    intro y hy
++    rcases List.mem_cons.mp hy with he | hy
++    · subst y
++      have h := min_le_left x z
++      omega
++    · have h := min_le_right x z
++      have h' := hz y hy
++      omega
++
++/-- The hint in Exercise 3.4 applies only to valid occurrence indices. -/
++theorem ordered_index_injective [LinearOrder α] (xs : List α) (hd : xs.Nodup) :
++    Function.Injective (fun k : Fin xs.length => (ordered xs)[k.val]?) := by
++  intro i j hij
++  have hi : i.val < (ordered xs).length := by
++    rw [(ordered_perm xs).length_eq]
++    exact i.isLt
++  have hj : j.val < (ordered xs).length := by
++    rw [(ordered_perm xs).length_eq]
++    exact j.isLt
++  change (ordered xs)[i.val]? = (ordered xs)[j.val]? at hij
++  rw [List.getElem?_eq_getElem hi, List.getElem?_eq_getElem hj] at hij
++  have hs : (ordered xs).Nodup := (ordered_perm xs).nodup_iff.mpr hd
++  exact Fin.ext (hs.getElem_inj.mp (Option.some.inj hij))
++
++/-- A fresh replacement can change any valid rank at any valid input coordinate.
++The fresh witness is proved to exist, not supplied as an input assumption. -/
++theorem exists_fresh_set_changes (xs : List Int) (k i : Nat)
++    (hd : xs.Nodup) (hk : k < xs.length) (hi : i < xs.length) :
++    ∃ z : Int, z ∉ xs ∧
++      (ordered (xs.set i z))[k]? ≠ (ordered xs)[k]? := by
++  have hk' : k < (ordered xs).length := by
++    rwa [(ordered_perm xs).length_eq]
++  let a : Int := (ordered xs)[k]
++  have ha : (ordered xs)[k]? = some a := List.getElem?_eq_getElem hk'
++  have haMem : a ∈ xs :=
++    (ordered_perm xs).mem_iff.mp (List.mem_of_getElem? ha)
++  have hr : RankedAt xs k a := ranked_iff_index.mpr ha
++  have hcount := (ranked_strict_counts xs k a hd hr).2
++  by_cases hx : xs[i] ≤ a
++  · obtain ⟨z, hz⟩ := exists_above xs
++    have hzFresh : z ∉ xs := fun hm => (lt_irrefl z) (hz z hm)
++    refine ⟨z, hzFresh, ?_⟩
++    intro he
++    have hr' : RankedAt (xs.set i z) k a := ranked_iff_index.mpr (he.trans ha)
++    have hcount' := (ranked_strict_counts (xs.set i z) k a
++      (hd.set hzFresh) hr').2
++    simp only [List.length_set] at hcount'
++    have hupdate := List.countP_set (p := fun x => decide (a < x)) (a := z) hi
++    have hnot : ¬ a < xs[i] := not_lt_of_ge hx
++    have haz : a < z := hz a haMem
++    simp only [decide_eq_true_eq, hnot, haz, ↓reduceIte, Nat.sub_zero] at hupdate
++    omega
++  · obtain ⟨z, hz⟩ := exists_below xs
++    have hzFresh : z ∉ xs := fun hm => (lt_irrefl z) (hz z hm)
++    refine ⟨z, hzFresh, ?_⟩
++    intro he
++    have hr' : RankedAt (xs.set i z) k a := ranked_iff_index.mpr (he.trans ha)
++    have hcount' := (ranked_strict_counts (xs.set i z) k a
++      (hd.set hzFresh) hr').2
++    simp only [List.length_set] at hcount'
++    have hupdate := List.countP_set (p := fun x => decide (a < x)) (a := z) hi
++    have hxi : a < xs[i] := lt_of_not_ge hx
++    have hnot : ¬ a < z := not_lt_of_ge (le_of_lt (hz a haMem))
++    have hpositive : 0 < xs.countP (fun x => decide (a < x)) :=
++      List.countP_pos_iff.mpr ⟨xs[i], List.getElem_mem hi, by simpa using hxi⟩
++    simp only [decide_eq_true_eq, hxi, hnot, ↓reduceIte, Nat.add_zero] at hupdate
++    omega
++
++/-- Exactly the zero-based coordinate-sensitivity conclusion of Exercise 3.4. -/
++theorem exists_set_changes (xs : List Int) (k i : Nat)
++    (hd : xs.Nodup) (hk : k < xs.length) (hi : i < xs.length) :
++    ∃ z : Int, (ordered (xs.set i z))[k]? ≠ (ordered xs)[k]? := by
++  obtain ⟨z, _, hz⟩ := exists_fresh_set_changes xs k i hd hk hi
++  exact ⟨z, hz⟩
++
++/-- The same sensitivity at public one-based rank `k+1`. -/
++theorem sortSelect_set_changes (xs : List Int) (k i : Nat)
++    (hd : xs.Nodup) (hk : k < xs.length) (hi : i < xs.length) :
++    ∃ z : Int, sortSelect (k + 1) (xs.set i z) ≠ sortSelect (k + 1) xs := by
++  obtain ⟨z, hz⟩ := exists_set_changes xs k i hd hk hi
++  exact ⟨z, by simpa [sortSelect] using hz⟩
++
++/-- Pivot-policy independence transports values, without attaching a cost model. -/
++theorem selectWith_set_changes (choose : List Int → Option Int)
++    (hv : PivotValid choose) (xs : List Int) (k i : Nat)
++    (hd : xs.Nodup) (hk : k < xs.length) (hi : i < xs.length) :
++    ∃ z : Int, selectWith choose (k + 1) (xs.set i z) ≠
++      selectWith choose (k + 1) xs := by
++  simpa only [selectWith_eq_sortSelect choose hv] using
++    sortSelect_set_changes xs k i hd hk hi
++
++/-- Coordinate updates commute with the standard finite-function/list adapter. -/
++theorem ofFn_update (input : Fin n → α) (i : Fin n) (z : α) :
++    List.ofFn (Function.update input i z) = (List.ofFn input).set i.val z := by
++  apply List.ext_getElem (by simp)
++  intro j hj hj'
++  by_cases he : j = i.val
++  · subst j
++    simp only [List.getElem_ofFn, List.getElem_set_self, Function.update_self]
++  · rw [List.getElem_ofFn, List.getElem_set_ne (Ne.symm he), List.getElem_ofFn]
++    apply Function.update_of_ne
++    intro h
++    exact he (congrArg Fin.val h)
++
++/-- Sensitivity with the exact input representation consumed by query protocols. -/
++theorem exists_update_changes (input : Fin n → Int) (k i : Fin n)
++    (hd : Function.Injective input) :
++    ∃ z : Int,
++      (ordered (List.ofFn (Function.update input i z)))[k.val]? ≠
++        (ordered (List.ofFn input))[k.val]? := by
++  obtain ⟨z, hz⟩ := exists_set_changes (List.ofFn input) k.val i.val
++    (List.nodup_ofFn_ofInjective hd) (by simp) (by simp)
++  exact ⟨z, by simpa only [ofFn_update] using hz⟩
++
++end Applications.Selection.CoordinateSensitivity
+diff --git a/Applications/Selection/CountRank.lean b/Applications/Selection/CountRank.lean
+new file mode 100644
+index 0000000..5f6393d
+--- /dev/null
++++ b/Applications/Selection/CountRank.lean
+@@ -0,0 +1,286 @@
++import Applications.Selection.Consumers
++
++/-!
++Occurrence-count characterizations of selection, including duplicates.
++
++The zero-based specification is the existing RankedAt relation. The public
++selector remains one-based and partial through Option. These laws connect the
++two interfaces without imposing distinctness or choosing an inhabitant for an
++empty input type. They cover the elementary selection arguments in FDSA §3.1.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Applications.Selection
++universe u
++variable {α : Type u}
++
++theorem RankedAt.mem [LE α] {xs : List α} {k : Nat} {a : α}
++    (h : RankedAt xs k a) : a ∈ xs := by
++  obtain ⟨pre, post, hp, _, _, _⟩ := h
++  exact hp.mem_iff.mp (by simp)
++
++theorem RankedAt.lt_length [LE α] {xs : List α} {k : Nat} {a : α}
++    (h : RankedAt xs k a) : k < xs.length := by
++  obtain ⟨pre, post, hp, hk, _, _⟩ := h
++  have hl := hp.length_eq
++  simp only [List.length_append, List.length_cons] at hl
++  omega
++
++variable [LinearOrder α]
++
++/-- Equal occurrences may surround the chosen occurrence. Strict counts are
++therefore bounded, rather than equal to the chosen index. -/
++theorem RankedAt.count_bounds {xs : List α} {k : Nat} {a : α}
++    (h : RankedAt xs k a) :
++    xs.countP (fun x => decide (x < a)) ≤ k ∧
++      xs.countP (fun x => decide (a < x)) < xs.length - k := by
++  obtain ⟨pre, post, hp, hk, hlo, hhi⟩ := h
++  have hpr : pre.countP (fun x => decide (a < x)) = 0 :=
++    List.countP_eq_zero.mpr (fun x hx => by
++      simpa only [decide_eq_true_eq] using not_lt_of_ge (hlo x hx))
++  have hql : post.countP (fun x => decide (x < a)) = 0 :=
++    List.countP_eq_zero.mpr (fun x hx => by
++      simpa only [decide_eq_true_eq] using not_lt_of_ge (hhi x hx))
++  have hpl : pre.countP (fun x => decide (x < a)) ≤ pre.length :=
++    List.countP_le_length
++  have hqr : post.countP (fun x => decide (a < x)) ≤ post.length :=
++    List.countP_le_length
++  have hl := hp.countP_eq (fun x => decide (x < a))
++  have hr := hp.countP_eq (fun x => decide (a < x))
++  have hlen := hp.length_eq
++  simp only [List.countP_append, List.countP_cons, lt_self_iff_false,
++    decide_false, Bool.false_eq_true, ↓reduceIte, hpr, hql,
++    List.length_append, List.length_cons] at hl hr hlen
++  omega
++
++/-- The middle branch supplies the nonempty equal block; the pivot need not
++have been assumed to occur in the input. -/
++theorem partition_equal_getElem? (p : α) (xs : List α) (j : Nat)
++    (hj : j < (partition3 p xs).2.1.length) :
++    (partition3 p xs).2.1[j]? = some p := by
++  apply List.getElem?_eq_some_iff.mpr
++  refine ⟨hj, ?_⟩
++  exact ((partition_equal_mem p xs _).mp (List.getElem_mem hj)).2
++
++/-- The literal book branches are valid for an arbitrary pivot, even outside
++the input range. This is a value law, without a termination claim. -/
++theorem ordered_getElem?_partition (p : α) (xs : List α) (k : Nat) :
++    (ordered xs)[k]? =
++      if k < (partition3 p xs).1.length then
++        (ordered (partition3 p xs).1)[k]?
++      else if k < (partition3 p xs).1.length + (partition3 p xs).2.1.length then
++        some p
++      else
++        (ordered (partition3 p xs).2.2)[k - (partition3 p xs).1.length -
++          (partition3 p xs).2.1.length]? := by
++  rw [← dispatch_value (fun j ys => (ordered ys)[j]?) p k xs
++    (fun _ => rfl) (fun _ => rfl)]
++  unfold dispatch
++  by_cases hl : k < (partition3 p xs).1.length
++  · simp only [hl, ↓reduceIte]
++  · by_cases he : k < (partition3 p xs).1.length + (partition3 p xs).2.1.length
++    · simp only [hl, he, ↓reduceIte]
++      exact partition_equal_getElem? p xs _ (by omega)
++    · simp only [hl, he, ↓reduceIte]
++
++/-- The strict upper-count inequality already implies a valid input index;
++no separate nonempty, in-bounds, or distinctness hypothesis is needed. -/
++theorem ranked_iff_count_bounds {xs : List α} {k : Nat} {a : α} :
++    RankedAt xs k a ↔
++      xs.countP (fun x => decide (x < a)) ≤ k ∧
++        xs.countP (fun x => decide (a < x)) < xs.length - k := by
++  refine ⟨RankedAt.count_bounds, ?_⟩
++  intro h
++  have hl : (partition3 a xs).1.length ≤ k := by
++    simpa only [partition3_eq_filters, List.countP_eq_length_filter] using h.1
++  have hg : (partition3 a xs).2.2.length < xs.length - k := by
++    simpa only [partition3_eq_filters, List.countP_eq_length_filter] using h.2
++  have hlen := partition_lengths a xs
++  have he : k < (partition3 a xs).1.length + (partition3 a xs).2.1.length := by
++    omega
++  apply ranked_iff_index.mpr
++  rw [ordered_getElem?_partition a xs k, ite_eq_right (by omega), ite_eq_left he]
++
++theorem count_bounds_unique {xs : List α} {k : Nat} {a b : α}
++    (ha : xs.countP (fun x => decide (x < a)) ≤ k ∧
++      xs.countP (fun x => decide (a < x)) < xs.length - k)
++    (hb : xs.countP (fun x => decide (x < b)) ≤ k ∧
++      xs.countP (fun x => decide (b < x)) < xs.length - k) : a = b :=
++  (ranked_iff_count_bounds.mpr ha).unique (ranked_iff_count_bounds.mpr hb)
++
++/-- The sublist statement in particular preserves occurrence multiplicities
++in the source's submultiset argument. -/
++theorem filter_le_sublist_filter_lt (xs : List α) {a b : α} (hab : a < b) :
++    List.Sublist (xs.filter (fun x => decide (x ≤ a)))
++      (xs.filter (fun x => decide (x < b))) := by
++  apply List.sublist_filter_iff.mpr
++  refine ⟨xs.filter (fun x => decide (x ≤ a)), List.filter_sublist, ?_⟩
++  symm
++  apply List.filter_eq_self.mpr
++  intro x hx
++  simp only [List.mem_filter, decide_eq_true_eq] at hx
++  simpa only [decide_eq_true_eq] using lt_of_le_of_lt hx.2 hab
++
++theorem count_le_add_count_gt (xs : List α) (a : α) :
++    xs.countP (fun x => decide (x ≤ a)) +
++      xs.countP (fun x => decide (a < x)) = xs.length := by
++  induction xs with
++  | nil => rfl
++  | cons x xs ih =>
++    by_cases hx : x ≤ a
++    · simp only [List.countP_cons, hx, decide_true,
++        show ¬a < x from not_lt_of_ge hx, decide_false,
++        Bool.false_eq_true, ↓reduceIte, List.length_cons]
++      omega
++    · have hax : a < x := lt_of_not_ge hx
++      simp only [List.countP_cons, hx, hax, decide_true, decide_false,
++        Bool.false_eq_true, ↓reduceIte, List.length_cons]
++      omega
++
++theorem ordered_eq_of_pairwise_perm {xs ys : List α}
++    (hs : ys.Pairwise (· ≤ ·)) (hp : ys.Perm xs) : ordered xs = ys := by
++  exact ((ordered_perm xs).trans hp.symm).eq_of_pairwise
++    (fun _ _ _ _ hab hba => le_antisymm hab hba) (ordered_pairwise xs) hs
++
++theorem ordered_eq_of_perm {xs ys : List α} (hp : xs.Perm ys) :
++    ordered xs = ordered ys :=
++  ordered_eq_of_pairwise_perm (ordered_pairwise ys) ((ordered_perm ys).trans hp.symm)
++
++/-- Permutation invariance includes invalid indices through the Option result. -/
++theorem ordered_getElem?_perm {xs ys : List α} (hp : xs.Perm ys) (k : Nat) :
++    (ordered xs)[k]? = (ordered ys)[k]? := by rw [ordered_eq_of_perm hp]
++
++/-- Book index zero corresponds to public rank one, not public failure rank zero. -/
++theorem selectWith_succ_value (choose : List α → Option α) (hv : PivotValid choose)
++    (xs : List α) (k : Nat) : selectWith choose (k + 1) xs = (ordered xs)[k]? := by
++  simpa using selectWith_value choose hv xs (k + 1) (by omega)
++
++theorem selectWith_succ_some_iff_count_bounds (choose : List α → Option α)
++    (hv : PivotValid choose) (xs : List α) (k : Nat) (a : α) :
++    selectWith choose (k + 1) xs = some a ↔
++      xs.countP (fun x => decide (x < a)) ≤ k ∧
++        xs.countP (fun x => decide (a < x)) < xs.length - k := by
++  rw [selectWith_succ_value choose hv xs k, ← ranked_iff_index, ranked_iff_count_bounds]
++
++theorem ordered_getElem?_mem {xs : List α} {k : Nat} {a : α}
++    (ha : (ordered xs)[k]? = some a) : a ∈ xs :=
++  (ranked_iff_index.mpr ha).mem
++
++theorem ranked_zero_iff_min {xs : List α} {a : α} :
++    RankedAt xs 0 a ↔ a ∈ xs ∧ ∀ x ∈ xs, a ≤ x := by
++  constructor
++  · intro h
++    refine ⟨h.mem, ?_⟩
++    obtain ⟨pre, post, hp, hk, _, hhi⟩ := h
++    have he : pre = [] := List.length_eq_zero_iff.mp hk
++    subst pre
++    intro x hx
++    have hx' : x ∈ a :: post := hp.mem_iff.mpr hx
++    rcases List.mem_cons.mp hx' with rfl | hx'
++    · exact le_rfl
++    · exact hhi x hx'
++  · rintro ⟨ha, hlo⟩
++    have hl : xs.countP (fun x => decide (x < a)) = 0 :=
++      List.countP_eq_zero.mpr (fun x hx => by
++        simpa only [decide_eq_true_eq] using not_lt_of_ge (hlo x hx))
++    have hg : xs.countP (fun x => decide (a < x)) < xs.length := by
++      have hle : xs.countP (fun x => decide (a < x)) ≤ xs.length :=
++        List.countP_le_length
++      by_contra h
++      have he : xs.countP (fun x => decide (a < x)) = xs.length := by omega
++      have hself := (List.countP_eq_length.mp he) a ha
++      simp at hself
++    exact ranked_iff_count_bounds.mpr ⟨by omega, by simpa using hg⟩
++
++theorem ordered_getElem?_zero_iff_min {xs : List α} {a : α} :
++    (ordered xs)[0]? = some a ↔ a ∈ xs ∧ ∀ x ∈ xs, a ≤ x := by
++  rw [← ranked_iff_index, ranked_zero_iff_min]
++
++/-- The inputs need not be sorted; only the cross-list bound is required. -/
++theorem ordered_append (xs ys : List α)
++    (hxy : ∀ x ∈ xs, ∀ y ∈ ys, x ≤ y) :
++    ordered (xs ++ ys) = ordered xs ++ ordered ys := by
++  apply ordered_eq_of_pairwise_perm
++  · rw [List.pairwise_append]
++    refine ⟨ordered_pairwise xs, ordered_pairwise ys, ?_⟩
++    intro x hx y hy
++    exact hxy x ((ordered_perm xs).mem_iff.mp hx) y ((ordered_perm ys).mem_iff.mp hy)
++  · exact (ordered_perm xs).append (ordered_perm ys)
++
++/-- Option indexing extends the source's valid-index recurrence to all indices. -/
++theorem ordered_getElem?_append (xs ys : List α)
++    (hxy : ∀ x ∈ xs, ∀ y ∈ ys, x ≤ y) (k : Nat) :
++    (ordered (xs ++ ys))[k]? =
++      if k < xs.length then (ordered xs)[k]? else (ordered ys)[k - xs.length]? := by
++  rw [ordered_append xs ys hxy]
++  by_cases hk : k < xs.length
++  · rw [ite_eq_left hk, List.getElem?_append_left (by simpa only [(ordered_perm xs).length_eq] using hk)]
++  · rw [ite_eq_right hk, List.getElem?_append_right (by simpa only [(ordered_perm xs).length_eq] using Nat.le_of_not_gt hk),
++      (ordered_perm xs).length_eq]
++
++/-- In a sorted list, every strictly smaller occurrence is before the selected
++occurrence. Sublist is stronger than the source's submultiset containment. -/
++theorem sorted_filter_lt_sublist_take {ys : List α} {k : Nat} {a : α}
++    (hs : ys.Pairwise (· ≤ ·)) (ha : ys[k]? = some a) :
++    List.Sublist (ys.filter (fun x => decide (x < a))) (ys.take k) := by
++  induction ys generalizing k with
++  | nil => simp at ha
++  | cons x ys ih =>
++    cases k with
++    | zero =>
++      simp only [List.getElem?_cons_zero, Option.some.injEq] at ha
++      subst a
++      have he : ys.filter (fun y => decide (y < x)) = [] :=
++        List.filter_eq_nil_iff.mpr (fun y hy => by
++          simpa only [decide_eq_true_eq] using
++            not_lt_of_ge ((List.pairwise_cons.mp hs).1 y hy))
++      simp [he]
++    | succ k =>
++      have ht : ys[k]? = some a := ha
++      have hh := ih (List.pairwise_cons.mp hs).2 ht
++      by_cases hx : x < a
++      · simpa [List.filter_cons, hx] using hh.cons_cons x
++      · simpa [List.filter_cons, hx] using hh.cons x
++
++theorem sorted_filter_gt_sublist_drop {ys : List α} {k : Nat} {a : α}
++    (hs : ys.Pairwise (· ≤ ·)) (ha : ys[k]? = some a) :
++    List.Sublist (ys.filter (fun x => decide (a < x))) (ys.drop (k + 1)) := by
++  induction ys generalizing k with
++  | nil => simp at ha
++  | cons x ys ih =>
++    cases k with
++    | zero =>
++      simp only [List.getElem?_cons_zero, Option.some.injEq] at ha
++      subst a
++      simp
++    | succ k =>
++      have ht : ys[k]? = some a := ha
++      have hx : x ≤ a := (List.pairwise_cons.mp hs).1 a (List.mem_of_getElem? ht)
++      simpa [List.filter_cons, not_lt_of_ge hx] using
++        ih (List.pairwise_cons.mp hs).2 ht
++
++/-- The lower occurrence convention is also valid for empty input as none. -/
++theorem lowerMedian_value (choose : List α → Option α) (hv : PivotValid choose)
++    (xs : List α) : lowerMedianWith choose xs = (ordered xs)[(xs.length - 1) / 2]? := by
++  by_cases hx : xs = []
++  · subst xs
++    simp [lowerMedianWith, selectWith, ordered]
++  · have hn : 0 < xs.length := Nat.pos_of_ne_zero (fun h => hx (List.length_eq_zero_iff.mp h))
++    rw [lowerMedianWith, selectWith_value choose hv xs _ (by omega)]
++    congr 1
++    omega
++
++theorem lowerMedian_count_bounds (choose : List α → Option α) (hv : PivotValid choose)
++    (xs : List α) (a : α) (ha : lowerMedianWith choose xs = some a) :
++    xs.countP (fun x => decide (x < a)) ≤ (xs.length - 1) / 2 ∧
++      xs.countP (fun x => decide (a < x)) ≤ xs.length / 2 := by
++  rw [lowerMedian_value choose hv xs] at ha
++  have h := (ranked_iff_index.mpr ha).count_bounds
++  omega
++
++theorem lowerMedian_mem (choose : List α → Option α) (hv : PivotValid choose)
++    (xs : List α) (a : α) (ha : lowerMedianWith choose xs = some a) : a ∈ xs :=
++  (lowerMedian_ranked choose hv xs a ha).mem
++
++end Applications.Selection
+diff --git a/Applications/Selection/MedianOfMedians.lean b/Applications/Selection/MedianOfMedians.lean
+new file mode 100644
+index 0000000..c348fd2
+--- /dev/null
++++ b/Applications/Selection/MedianOfMedians.lean
+@@ -0,0 +1,296 @@
++import Applications.Selection.CountRank
++import Applications.Sequences.Chunks
++import Mathlib.Algebra.Order.Floor.Ring
++
++/-!
++The mathematical median-of-medians pivot and its two-sided occurrence bounds.
++
++Each chunk carries a proof of nonemptiness, so its median is a payload value.
++The outer pivot remains optional, including on empty inputs and at chunk size
++zero. This is the specification value from FDSA §3.2, not the fast recursive
++selection realization or a claim about its execution cost.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Applications.Selection
++open Applications.Sequences.Chunks
++universe u v
++variable {α : Type u} [LinearOrder α]
++
++/-- The lower median of a list with an explicit nonemptiness proof. -/
++def lowerMedianValue (xs : List α) (hx : xs ≠ []) : α :=
++  (ordered xs)[(xs.length - 1) / 2]'(by
++    have hn : 0 < xs.length :=
++      Nat.pos_of_ne_zero (fun h => hx (List.length_eq_zero_iff.mp h))
++    have hl := (ordered_perm xs).length_eq
++    omega)
++
++theorem lowerMedianValue_ranked (xs : List α) (hx : xs ≠ []) :
++    RankedAt xs ((xs.length - 1) / 2) (lowerMedianValue xs hx) := by
++  apply ranked_iff_index.mpr
++  apply List.getElem?_eq_some_iff.mpr
++  have hn : 0 < xs.length :=
++    Nat.pos_of_ne_zero (fun h => hx (List.length_eq_zero_iff.mp h))
++  have hl := (ordered_perm xs).length_eq
++  exact ⟨by omega, rfl⟩
++
++theorem lowerMedianValue_mem (xs : List α) (hx : xs ≠ []) :
++    lowerMedianValue xs hx ∈ xs := (lowerMedianValue_ranked xs hx).mem
++
++/-- The payload adapter agrees with every valid existing pivot policy. -/
++theorem lowerMedianWith_eq_some_value (choose : List α → Option α)
++    (hv : PivotValid choose) (xs : List α) (hx : xs ≠ []) :
++    lowerMedianWith choose xs = some (lowerMedianValue xs hx) := by
++  rw [lowerMedian_value choose hv xs]
++  exact ranked_iff_index.mp (lowerMedianValue_ranked xs hx)
++
++theorem lowerMedianValue_count_bounds (xs : List α) (hx : xs ≠ []) :
++    xs.countP (fun x => decide (x < lowerMedianValue xs hx)) ≤ (xs.length - 1) / 2 ∧
++      xs.countP (fun x => decide (lowerMedianValue xs hx < x)) ≤ xs.length / 2 :=
++  lowerMedian_count_bounds _ head_pivot_valid xs _
++    (lowerMedianWith_eq_some_value _ head_pivot_valid xs hx)
++
++/-- Mapping proof-carrying nonempty chunks produces payloads directly. -/
++def chunkMedians (d : Nat) (xs : List α) : List α :=
++  (chop d xs).attach.map fun ys =>
++    lowerMedianValue ys.val (chop_mem_ne_nil d xs ys.val ys.property)
++
++@[simp] theorem length_chunkMedians (d : Nat) (xs : List α) :
++    (chunkMedians d xs).length = xs.length ⌈/⌉ d := by
++  simp only [chunkMedians, List.length_map, List.length_attach, length_chop]
++
++theorem chunkMedians_eq_nil_iff (d : Nat) (xs : List α) :
++    chunkMedians d xs = [] ↔ d = 0 ∨ xs = [] := by
++  have he : (chunkMedians d xs).length = (chop d xs).length := by
++    simp only [chunkMedians, List.length_map, List.length_attach]
++  rw [← List.length_eq_zero_iff, he, List.length_eq_zero_iff, chop_eq_nil_iff]
++
++theorem mem_chunkMedians (d : Nat) (xs : List α) (a : α)
++    (ha : a ∈ chunkMedians d xs) : a ∈ xs := by
++  obtain ⟨ys, _, he⟩ := List.mem_map.mp ha
++  rw [← he]
++  exact mem_of_mem_chop ys.property (lowerMedianValue_mem _ _)
++
++/-- General chunk size is retained for Exercise 3.8; the chapter uses five. -/
++def medianOfMedians (d : Nat) (xs : List α) : Option α :=
++  lowerMedianWith List.head? (chunkMedians d xs)
++
++theorem medianOfMedians_some_iff_ranked (d : Nat) (xs : List α) (p : α) :
++    medianOfMedians d xs = some p ↔
++      RankedAt (chunkMedians d xs) (((chunkMedians d xs).length - 1) / 2) p := by
++  rw [medianOfMedians, lowerMedian_value _ head_pivot_valid, ranked_iff_index]
++
++theorem medianOfMedians_none (d : Nat) (xs : List α) :
++    medianOfMedians d xs = none ↔ d = 0 ∨ xs = [] := by
++  rw [medianOfMedians, lowerMedian_none _ head_pivot_valid, chunkMedians_eq_nil_iff]
++
++theorem medianOfMedians_mem (d : Nat) (xs : List α) (p : α)
++    (hp : medianOfMedians d xs = some p) : p ∈ xs :=
++  mem_chunkMedians d xs p (lowerMedian_mem _ head_pivot_valid _ p hp)
++
++theorem medianOfMedians_pivot_valid (d : Nat) (hd : 0 < d) :
++    PivotValid (medianOfMedians d : List α → Option α) := by
++  intro xs hx
++  cases hp : medianOfMedians d xs with
++  | none =>
++    rcases (medianOfMedians_none d xs).mp hp with h | h
++    · omega
++    · exact False.elim (hx h)
++  | some p => exact ⟨p, rfl, medianOfMedians_mem d xs p hp⟩
++
++/-- A non-strict half bound is necessary when the number of chunks is even. -/
++theorem medianOfMedians_median_counts (d : Nat) (xs : List α) (p : α)
++    (hp : medianOfMedians d xs = some p) :
++    (chunkMedians d xs).countP (fun x => decide (x < p)) ≤ (xs.length ⌈/⌉ d) / 2 ∧
++      (chunkMedians d xs).countP (fun x => decide (p < x)) ≤ (xs.length ⌈/⌉ d) / 2 := by
++  have hm := lowerMedian_count_bounds _ head_pivot_valid (chunkMedians d xs) p hp
++  rw [length_chunkMedians] at hm
++  constructor <;> omega
++
++/-- The predicate is a relation to the chosen pivot. Its Boolean complement
++is taken for either orientation, preserving repeated chunks and occurrences. -/
++def chunkMedianGroups (d : Nat) (xs : List α) (r : α → Bool) :
++    List (List α) × List (List α) :=
++  let chunks := (chop d xs).attach
++  let pick := fun ys : {ys // ys ∈ chop d xs} =>
++    r (lowerMedianValue ys.val (chop_mem_ne_nil d xs ys.val ys.property))
++  ((chunks.filter pick).map Subtype.val,
++    (chunks.filter (fun ys => !pick ys)).map Subtype.val)
++
++theorem chunkMedianGroups_perm (d : Nat) (xs : List α) (r : α → Bool) :
++    ((chunkMedianGroups d xs r).1 ++ (chunkMedianGroups d xs r).2).Perm (chop d xs) := by
++  unfold chunkMedianGroups
++  simpa only [List.map_append, List.attach_map_subtype_val] using
++    (List.filter_append_perm
++      (fun ys : {ys // ys ∈ chop d xs} =>
++        r (lowerMedianValue ys.val (chop_mem_ne_nil d xs ys.val ys.property)))
++      (chop d xs).attach).map Subtype.val
++
++theorem chunkMedianGroups_multiset (d : Nat) (xs : List α) (r : α → Bool) :
++    ((chunkMedianGroups d xs r).1 : Multiset (List α)) +
++      ((chunkMedianGroups d xs r).2 : Multiset (List α)) =
++        (chop d xs : Multiset (List α)) := by
++  rw [Multiset.coe_add]
++  exact Multiset.coe_eq_coe.mpr (chunkMedianGroups_perm d xs r)
++
++theorem chunkMedianGroups_lengths (d : Nat) (xs : List α) (r : α → Bool) :
++    (chunkMedianGroups d xs r).1.length + (chunkMedianGroups d xs r).2.length =
++      xs.length ⌈/⌉ d := by
++  have h := (chunkMedianGroups_perm d xs r).length_eq
++  simpa only [List.length_append, length_chop] using h
++
++theorem chunkMedianGroups_related_length (d : Nat) (xs : List α) (r : α → Bool) :
++    (chunkMedianGroups d xs r).1.length = (chunkMedians d xs).countP r := by
++  unfold chunkMedianGroups chunkMedians
++  simp only [List.length_map, ← List.countP_eq_length_filter, List.countP_map,
++    Function.comp_def]
++
++/-- A chunk whose median is at least the pivot contributes at most half its
++size to the strict lower side, including a short final chunk and ties. -/
++theorem chunk_count_lt_of_median_ge (d : Nat) (xs ys : List α)
++    (hy : ys ∈ chop d xs) (p : α)
++    (hp : p ≤ lowerMedianValue ys (chop_mem_ne_nil d xs ys hy)) :
++    ys.countP (fun x => decide (x < p)) ≤ d / 2 := by
++  have hm := (lowerMedianValue_count_bounds ys (chop_mem_ne_nil d xs ys hy)).1
++  have hl := length_mem_chop d xs ys hy
++  have hc : ys.countP (fun x => decide (x < p)) ≤
++      ys.countP (fun x => decide (x < lowerMedianValue ys (chop_mem_ne_nil d xs ys hy))) := by
++    apply List.countP_mono_left
++    intro x _ hx
++    exact decide_eq_true (lt_of_lt_of_le (of_decide_eq_true hx) hp)
++  omega
++
++theorem chunk_count_gt_of_median_le (d : Nat) (xs ys : List α)
++    (hy : ys ∈ chop d xs) (p : α)
++    (hp : lowerMedianValue ys (chop_mem_ne_nil d xs ys hy) ≤ p) :
++    ys.countP (fun x => decide (p < x)) ≤ d / 2 := by
++  have hm := (lowerMedianValue_count_bounds ys (chop_mem_ne_nil d xs ys hy)).2
++  have hl := length_mem_chop d xs ys hy
++  have hc : ys.countP (fun x => decide (p < x)) ≤
++      ys.countP (fun x => decide (lowerMedianValue ys (chop_mem_ne_nil d xs ys hy) < x)) := by
++    apply List.countP_mono_left
++    intro x _ hx
++    exact decide_eq_true (lt_of_le_of_lt hp (of_decide_eq_true hx))
++  omega
++
++private theorem sum_le_count_split {β : Type v} (zs : List β)
++    (cost : β → Nat) (bad : β → Bool) (small big : Nat) (hs : small ≤ big)
++    (hc : ∀ z ∈ zs, cost z ≤ if bad z then big else small) :
++    (zs.map cost).sum ≤ small * zs.length + (big - small) * zs.countP bad := by
++  revert hc
++  induction zs with
++  | nil => simp
++  | cons z zs ih =>
++    intro hc
++    have hz := hc z (by simp)
++    have ht := ih (fun x hx => hc x (by simp [hx]))
++    have hsub := Nat.sub_add_cancel hs
++    cases hb : bad z with
++    | false =>
++      simp only [hb, Bool.false_eq_true, ↓reduceIte] at hz
++      simp only [List.map_cons, List.sum_cons, List.length_cons, List.countP_cons,
++        hb, Bool.false_eq_true, ↓reduceIte, Nat.add_zero, Nat.mul_add, Nat.mul_one]
++      omega
++    | true =>
++      simp only [hb, ↓reduceIte] at hz
++      simp only [List.map_cons, List.sum_cons, List.length_cons, List.countP_cons,
++        hb, ↓reduceIte, Nat.mul_add, Nat.mul_one]
++      omega
++
++private theorem chunk_count_bound (d : Nat) (xs : List α) (r bad : α → Bool)
++    (hd : 0 < d)
++    (hmed : (chunkMedians d xs).countP bad ≤ (xs.length ⌈/⌉ d) / 2)
++    (hgood : ∀ ys (hy : ys ∈ chop d xs),
++      bad (lowerMedianValue ys (chop_mem_ne_nil d xs ys hy)) = false →
++        ys.countP r ≤ d / 2) :
++    xs.countP r ≤ d / 2 * (xs.length ⌈/⌉ d) +
++      (d - d / 2) * ((xs.length ⌈/⌉ d) / 2) := by
++  let chunks := (chop d xs).attach
++  let med := fun ys : {ys // ys ∈ chop d xs} =>
++    lowerMedianValue ys.val (chop_mem_ne_nil d xs ys.val ys.property)
++  have hc : ∀ ys ∈ chunks,
++      ys.val.countP r ≤ if bad (med ys) then d else d / 2 := by
++    intro ys _
++    cases hb : bad (med ys) with
++    | false => exact hgood ys.val ys.property hb
++    | true => exact List.countP_le_length.trans (length_mem_chop d xs ys.val ys.property)
++  have h := sum_le_count_split chunks (fun ys => ys.val.countP r)
++    (fun ys => bad (med ys)) (d / 2) d (Nat.div_le_self d 2) hc
++  have hsum : (chunks.map (fun ys => ys.val.countP r)).sum = xs.countP r := by
++    dsimp only [chunks]
++    rw [List.attach_map_val, countP_chop d xs hd r]
++  have hlen : chunks.length = xs.length ⌈/⌉ d := by
++    simp only [chunks, List.length_attach, length_chop]
++  have hbad : chunks.countP (fun ys => bad (med ys)) =
++      (chunkMedians d xs).countP bad := by
++    dsimp only [chunks, med]
++    simp only [chunkMedians, List.countP_map, Function.comp_def]
++  rw [hsum, hlen, hbad] at h
++  exact h.trans (Nat.add_le_add_left (Nat.mul_le_mul_left _ hmed) _)
++
++/-- The general group-size bound needed by Exercise 3.8. Both counts retain
++multiplicity; no distinctness, full-final-chunk, or parity hypothesis is used. -/
++theorem medianOfMedians_count_bounds (d : Nat) (xs : List α) (p : α)
++    (hd : 0 < d) (hp : medianOfMedians d xs = some p) :
++    xs.countP (fun x => decide (x < p)) ≤
++        d / 2 * (xs.length ⌈/⌉ d) + (d - d / 2) * ((xs.length ⌈/⌉ d) / 2) ∧
++      xs.countP (fun x => decide (p < x)) ≤
++        d / 2 * (xs.length ⌈/⌉ d) + (d - d / 2) * ((xs.length ⌈/⌉ d) / 2) := by
++  have hm := medianOfMedians_median_counts d xs p hp
++  constructor
++  · apply chunk_count_bound d xs (fun x => decide (x < p))
++      (fun x => decide (x < p)) hd hm.1
++    intro ys hy h
++    exact chunk_count_lt_of_median_ge d xs ys hy p
++      (le_of_not_gt (of_decide_eq_false h))
++  · apply chunk_count_bound d xs (fun x => decide (p < x))
++      (fun x => decide (p < x)) hd hm.2
++    intro ys hy h
++    exact chunk_count_gt_of_median_le d xs ys hy p
++      (le_of_not_gt (of_decide_eq_false h))
++
++theorem size_five_count_arithmetic (n : Nat) :
++    2 * (n ⌈/⌉ 5) + 3 * ((n ⌈/⌉ 5) / 2) ≤ (7 * n + 30) ⌈/⌉ 10 := by
++  simp only [Nat.ceilDiv_eq_add_pred_div]
++  omega
++
++theorem medianOfMedians_five_count_bounds (xs : List α) (p : α)
++    (hp : medianOfMedians 5 xs = some p) :
++    xs.countP (fun x => decide (x < p)) ≤ (7 * xs.length + 30) ⌈/⌉ 10 ∧
++      xs.countP (fun x => decide (p < x)) ≤ (7 * xs.length + 30) ⌈/⌉ 10 := by
++  have hm := medianOfMedians_count_bounds 5 xs p (by decide) hp
++  have ha := size_five_count_arithmetic xs.length
++  exact ⟨hm.1.trans ha, hm.2.trans ha⟩
++
++section CeilingCorrespondence
++variable (R : Type v) [Field R] [LinearOrder R] [IsOrderedRing R] [FloorRing R]
++
++/-- Natural ceiling division is the exact ceiling of a positive-denominator
++quotient in any ordered floor field, in particular the source's real field. -/
++theorem ceil_nat_div (n d : Nat) (hd : 0 < d) :
++    ⌈(n : R) / (d : R)⌉₊ = n ⌈/⌉ d := by
++  apply eq_of_forall_ge_iff
++  intro k
++  rw [Nat.ceil_le, ceilDiv_le_iff_le_mul hd,
++    div_le_iff₀ (Nat.cast_pos.mpr hd : (0 : R) < d), ← Nat.cast_mul, Nat.cast_le]
++  simp only [Nat.mul_comm]
++
++/-- The integer expression includes the source's additive three inside the
++ceiling; no rounding or short-final-chunk error is dropped. -/
++theorem size_five_ceiling (n : Nat) :
++    (7 * n + 30) ⌈/⌉ 10 = ⌈(7 : R) * n / 10 + 3⌉₊ := by
++  rw [← ceil_nat_div R (7 * n + 30) 10 (by decide)]
++  congr 1
++  push_cast
++  norm_num [add_div]
++
++theorem medianOfMedians_five_ceil_bounds (xs : List α) (p : α)
++    (hp : medianOfMedians 5 xs = some p) :
++    xs.countP (fun x => decide (x < p)) ≤ ⌈(7 : R) * xs.length / 10 + 3⌉₊ ∧
++      xs.countP (fun x => decide (p < x)) ≤ ⌈(7 : R) * xs.length / 10 + 3⌉₊ := by
++  rw [← size_five_ceiling R]
++  exact medianOfMedians_five_count_bounds xs p hp
++
++end CeilingCorrespondence
++end Applications.Selection
+diff --git a/Applications/Sequences/Chunks.lean b/Applications/Sequences/Chunks.lean
+new file mode 100644
+index 0000000..c45bcb6
+--- /dev/null
++++ b/Applications/Sequences/Chunks.lean
+@@ -0,0 +1,212 @@
++import Mathlib.Data.List.SplitLengths
++import Mathlib.Algebra.Order.Floor.Div
++import Mathlib.Data.Multiset.AddSub
++
++/-!
++The source chopping operation as a value adapter to List.splitLengths.
++
++Natural ceiling division supplies the chunk count, including the source's
++zero-size convention. The positive-size equation is the take/drop recursion
++used in FDSA Chapter 3. This reference value definition is not an execution
++cost model: a measured source realization must account for its own traversals.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Applications.Sequences.Chunks
++universe u
++variable {α : Type u}
++
++/-- Consecutive chunks of size at most d, with a short final chunk retained.
++At size zero the source result is empty, even for nonempty input. -/
++def chop (d : Nat) (xs : List α) : List (List α) :=
++  (List.replicate (xs.length ⌈/⌉ d) d).splitLengths xs
++
++@[simp] theorem chop_zero (xs : List α) : chop 0 xs = [] := by
++  simp [chop]
++
++@[simp] theorem chop_nil (d : Nat) : chop d ([] : List α) = [] := by
++  simp [chop]
++
++@[simp] theorem length_chop (d : Nat) (xs : List α) :
++    (chop d xs).length = xs.length ⌈/⌉ d := by simp [chop]
++
++private theorem ceilDiv_sub_add_one (n d : Nat) (hn : 0 < n) (hd : 0 < d) :
++    n ⌈/⌉ d = (n - d) ⌈/⌉ d + 1 := by
++  have hcover : n ≤ d * (n ⌈/⌉ d) := (ceilDiv_le_iff_le_mul hd).mp le_rfl
++  have hpos : 0 < n ⌈/⌉ d := by
++    by_contra h
++    have he : n ⌈/⌉ d = 0 := by omega
++    simp only [he, Nat.mul_zero] at hcover
++    omega
++  apply Nat.le_antisymm
++  · apply (ceilDiv_le_iff_le_mul hd).mpr
++    have htail : n - d ≤ d * ((n - d) ⌈/⌉ d) :=
++      (ceilDiv_le_iff_le_mul hd).mp le_rfl
++    rw [Nat.mul_add, Nat.mul_one]
++    omega
++  · have hmul : d * (n ⌈/⌉ d - 1) + d = d * (n ⌈/⌉ d) := by
++      calc
++        d * (n ⌈/⌉ d - 1) + d = d * (n ⌈/⌉ d - 1 + 1) := by
++          rw [Nat.mul_add, Nat.mul_one]
++        _ = d * (n ⌈/⌉ d) := by congr 1; omega
++    have htail : (n - d) ⌈/⌉ d ≤ n ⌈/⌉ d - 1 := by
++      apply (ceilDiv_le_iff_le_mul hd).mpr
++      omega
++    omega
++
++/-- Exact positive-size source equation, derived from the standard adapter. -/
++theorem chop_eq_cons (d : Nat) (xs : List α) (hd : 0 < d) (hx : xs ≠ []) :
++    chop d xs = xs.take d :: chop d (xs.drop d) := by
++  have hn : 0 < xs.length := Nat.pos_of_ne_zero (fun h => hx (List.length_eq_zero_iff.mp h))
++  simp only [chop, ceilDiv_sub_add_one xs.length d hn hd,
++    List.replicate_succ, List.splitLengths_cons, List.length_drop]
++
++theorem chop_eq_nil_iff (d : Nat) (xs : List α) : chop d xs = [] ↔ d = 0 ∨ xs = [] := by
++  constructor
++  · intro h
++    by_cases hd : d = 0
++    · exact Or.inl hd
++    · right
++      by_contra hx
++      rw [chop_eq_cons d xs (Nat.pos_of_ne_zero hd) hx] at h
++      simp at h
++  · rintro (rfl | rfl) <;> simp
++
++theorem drop_length_lt (d : Nat) (xs : List α) (hd : 0 < d) (hx : xs ≠ []) :
++    (xs.drop d).length < xs.length := by
++  have hn : 0 < xs.length := Nat.pos_of_ne_zero (fun h => hx (List.length_eq_zero_iff.mp h))
++  simp only [List.length_drop]
++  omega
++
++theorem chop_mem_ne_nil (d : Nat) (xs ys : List α) (hy : ys ∈ chop d xs) : ys ≠ [] := by
++  by_cases hd : d = 0
++  · simp [hd] at hy
++  by_cases hx : xs = []
++  · simp [hx] at hy
++  rw [chop_eq_cons d xs (Nat.pos_of_ne_zero hd) hx] at hy
++  rcases List.mem_cons.mp hy with rfl | hy
++  · intro he
++    have hl := congrArg List.length he
++    have hn : 0 < xs.length := Nat.pos_of_ne_zero (fun h => hx (List.length_eq_zero_iff.mp h))
++    simp only [List.length_take, List.length_nil] at hl
++    omega
++  · exact chop_mem_ne_nil d (xs.drop d) ys hy
++termination_by xs.length
++decreasing_by exact drop_length_lt d xs (Nat.pos_of_ne_zero hd) hx
++
++theorem length_mem_chop (d : Nat) (xs ys : List α) (hy : ys ∈ chop d xs) :
++    ys.length ≤ d := by
++  apply List.length_mem_splitLengths xs (List.replicate (xs.length ⌈/⌉ d) d) d
++    (fun n hn => ?_) ys hy
++  exact le_of_eq (List.mem_replicate.mp hn).2
++
++/-- This characterizes the exact natural ceiling, rather than truncating a
++natural quotient before applying a ceiling. -/
++theorem length_chop_le_iff (d : Nat) (xs : List α) (hd : 0 < d) (k : Nat) :
++    (chop d xs).length ≤ k ↔ xs.length ≤ d * k := by
++  rw [length_chop, ceilDiv_le_iff_le_mul hd]
++
++theorem length_chop_eq_add_pred_div (d : Nat) (xs : List α) :
++    (chop d xs).length = (xs.length + d - 1) / d := by
++  rw [length_chop, Nat.ceilDiv_eq_add_pred_div]
++
++theorem length_chop_le (d : Nat) (xs : List α) : (chop d xs).length ≤ xs.length := by
++  by_cases hd : d = 0
++  · simp [hd]
++  apply (length_chop_le_iff d xs (Nat.pos_of_ne_zero hd) xs.length).mpr
++  calc
++    xs.length = 1 * xs.length := by simp
++    _ ≤ d * xs.length := Nat.mul_le_mul_right xs.length (by omega)
++
++/-- The last partial chunk is retained, so flattening loses no occurrence. -/
++theorem flatten_chop (d : Nat) (xs : List α) (hd : 0 < d) : (chop d xs).flatten = xs := by
++  apply List.flatten_splitLengths
++  have h : xs.length ≤ d * (xs.length ⌈/⌉ d) := (ceilDiv_le_iff_le_mul hd).mp le_rfl
++  simpa only [List.sum_replicate_nat, Nat.mul_comm] using h
++
++theorem countP_chop (d : Nat) (xs : List α) (hd : 0 < d) (p : α → Bool) :
++    ((chop d xs).map (List.countP p)).sum = xs.countP p := by
++  rw [← List.countP_flatten, flatten_chop d xs hd]
++
++theorem sum_multiset_chop (d : Nat) (xs : List α) (hd : 0 < d) :
++    ((chop d xs).map (fun ys : List α => (ys : Multiset α))).sum = (xs : Multiset α) := by
++  have h (xss : List (List α)) :
++      (xss.map (fun ys : List α => (ys : Multiset α))).sum = (xss.flatten : Multiset α) := by
++    induction xss with
++    | nil => rfl
++    | cons ys xss ih =>
++      simp only [List.map_cons, List.sum_cons, List.flatten_cons, ih, Multiset.coe_add]
++  rw [h, flatten_chop d xs hd]
++
++theorem mem_chop_iff (d : Nat) (xs : List α) (hd : 0 < d) (x : α) :
++    (∃ ys ∈ chop d xs, x ∈ ys) ↔ x ∈ xs := by
++  rw [← List.mem_flatten, flatten_chop d xs hd]
++
++theorem mem_of_mem_chop {d : Nat} {xs ys : List α} {x : α}
++    (hy : ys ∈ chop d xs) (hx : x ∈ ys) : x ∈ xs := by
++  by_cases hd : d = 0
++  · simp [hd] at hy
++  exact (mem_chop_iff d xs (Nat.pos_of_ne_zero hd) x).mp ⟨ys, hy, hx⟩
++
++theorem chop_eq_singleton (d : Nat) (xs : List α) (hd : 0 < d) (hx : xs ≠ [])
++    (hl : xs.length ≤ d) : chop d xs = [xs] := by
++  rw [chop_eq_cons d xs hd hx, List.take_of_length_le hl,
++    List.drop_eq_nil_of_le hl, chop_nil]
++
++/-- Alignment is necessary: the boundary between xs and ys is a chunk boundary
++when d divides the length of xs. -/
++theorem chop_append (d : Nat) (xs ys : List α) (hd : 0 < d) (ha : d ∣ xs.length) :
++    chop d (xs ++ ys) = chop d xs ++ chop d ys := by
++  by_cases hx : xs = []
++  · simp [hx]
++  have hn : 0 < xs.length := Nat.pos_of_ne_zero (fun h => hx (List.length_eq_zero_iff.mp h))
++  have hdl : d ≤ xs.length := Nat.le_of_dvd hn ha
++  have hxy : xs ++ ys ≠ [] := by
++    intro he
++    exact hx (List.append_eq_nil_iff.mp he).1
++  rw [chop_eq_cons d (xs ++ ys) hd hxy, List.take_append_of_le_length hdl,
++    List.drop_append_of_le_length hdl, chop_eq_cons d xs hd hx, List.cons_append]
++  congr 1
++  apply chop_append d (xs.drop d) ys hd
++  simpa only [List.length_drop] using Nat.dvd_sub ha (Nat.dvd_refl d)
++termination_by xs.length
++decreasing_by exact drop_length_lt d xs hd hx
++
++theorem chop_flatten (d : Nat) (xss : List (List α)) (hd : 0 < d)
++    (hl : ∀ ys ∈ xss, ys.length = d) : chop d xss.flatten = xss := by
++  induction xss with
++  | nil => simp
++  | cons ys xss ih =>
++    have hy : ys.length = d := hl ys (by simp)
++    have hn : ys ≠ [] := by
++      intro he
++      simp only [he, List.length_nil] at hy
++      omega
++    have ht : ∀ zs ∈ xss, zs.length = d := fun zs hz => hl zs (by simp [hz])
++    rw [List.flatten_cons, chop_append d ys xss.flatten hd (by simp [hy]),
++      chop_eq_singleton d ys hd hn (by omega), ih ht]
++    rfl
++
++theorem chop_replicate_blocks (d : Nat) (xs : List α) (n : Nat)
++    (hd : 0 < d) (hl : xs.length = d) :
++    chop d (List.replicate n xs).flatten = List.replicate n xs := by
++  apply chop_flatten d _ hd
++  intro ys hy
++  have he : ys = xs := (List.mem_replicate.mp hy).2
++  simpa only [he] using hl
++
++theorem chop_replicate (d n : Nat) (a : α) (hd : 0 < d) :
++    chop d (List.replicate (n * d) a) = List.replicate n (List.replicate d a) := by
++  rw [← List.flatten_replicate_replicate]
++  exact chop_replicate_blocks d _ n hd (by simp)
++
++theorem chop_one (xs : List α) : chop 1 xs = xs.map (fun x => [x]) := by
++  induction xs with
++  | nil => simp
++  | cons x xs ih =>
++    rw [chop_eq_cons 1 (x :: xs) (by decide) (by simp)]
++    simpa only [List.take_succ_cons, List.take_zero, List.drop_succ_cons,
++      List.drop_zero, List.map_cons] using congrArg (List.cons [x]) ih
++
++end Applications.Sequences.Chunks
+diff --git a/Examples/CoordinateQueries.lean b/Examples/CoordinateQueries.lean
+new file mode 100644
+index 0000000..cdc5b93
+--- /dev/null
++++ b/Examples/CoordinateQueries.lean
+@@ -0,0 +1,181 @@
++import Applications.Selection.CoordinateQueries
++import Mathlib.Data.Fin.VecNotation
++
++/-! Total correct query protocols, adaptive repetition, and their actual charges. -/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.CoordinateQueries
++open Applications.Selection
++open Applications.Selection.CoordinateQueries
++
++/-- A nonvacuous one-coordinate protocol: ask, then return the recorded answer. -/
++def oneQuery : Protocol 1 Int Int
++  | [] => Sum.inr 0
++  | (_, a) :: _ => Sum.inl a
++
++theorem oneQuery_run (input : Fin 1 → Int) :
++    Runs oneQuery input [] [(0, input 0)] (input 0) :=
++  Runs.query rfl (Runs.done rfl)
++
++theorem oneQuery_total : Total oneQuery :=
++  fun input => ⟨[(0, input 0)], input 0, oneQuery_run input⟩
++
++theorem oneQuery_correct : Selects oneQuery 0 := by
++  intro input trace value run
++  have hv := (run.deterministic (oneQuery_run input)).2
++  rw [hv]
++  have he : List.ofFn input = [input 0] := by
++    simp only [List.ofFn_succ, List.ofFn_zero]
++  rw [he]
++  exact ⟨[], [], List.Perm.refl _, rfl, by simp, by simp⟩
++
++theorem oneQuery_every_run (input : Fin 1 → Int) (trace : Transcript 1 Int)
++    (value : Int) (run : Runs oneQuery input [] trace value) :
++    trace = [(0, input 0)] ∧ value = input 0 ∧ 1 ≤ trace.length := by
++  have h := run.deterministic (oneQuery_run input)
++  exact ⟨h.1, h.2, run.length_lower_bound 0 oneQuery_correct
++    (fun i j _ => Subsingleton.elim i j)⟩
++
++/-- The number of queries really depends on an observed value. A repeated
++coordinate remains a second query and incurs a second charge. -/
++def repeatNegative : Protocol 1 Int Int
++  | [] => Sum.inr 0
++  | [(_, a)] => if a < 0 then Sum.inr 0 else Sum.inl a
++  | (_, a) :: _ :: _ => Sum.inl a
++
++theorem repeatNegative_negative_run (input : Fin 1 → Int) (negative : input 0 < 0) :
++    Runs repeatNegative input [] [(0, input 0), (0, input 0)] (input 0) :=
++  Runs.query rfl (Runs.query (by simp only [repeatNegative, negative, ↓reduceIte])
++    (Runs.done rfl))
++
++theorem repeatNegative_nonnegative_run (input : Fin 1 → Int) (nonnegative : 0 ≤ input 0) :
++    Runs repeatNegative input [] [(0, input 0)] (input 0) :=
++  Runs.query rfl (Runs.done (by
++    simp only [repeatNegative, not_lt_of_ge nonnegative, ↓reduceIte]))
++
++theorem repeatNegative_total : Total repeatNegative := by
++  intro input
++  by_cases negative : input 0 < 0
++  · exact ⟨_, _, repeatNegative_negative_run input negative⟩
++  · exact ⟨_, _, repeatNegative_nonnegative_run input (le_of_not_gt negative)⟩
++
++theorem repeatNegative_correct : Selects repeatNegative 0 := by
++  intro input trace value run
++  have hv : value = input 0 := by
++    by_cases negative : input 0 < 0
++    · exact (run.deterministic (repeatNegative_negative_run input negative)).2
++    · exact (run.deterministic
++        (repeatNegative_nonnegative_run input (le_of_not_gt negative))).2
++  rw [hv]
++  exact oneQuery_correct input [(0, input 0)] (input 0) (oneQuery_run input)
++
++theorem repeated_negative_charges (a : Int) (negative : a < 0) :
++    Runs repeatNegative (fun _ => a) [] [(0, a), (0, a)] a ∧
++      ([(0, a), (0, a)] : Transcript 1 Int).length = 2 ∧
++      queryWork (fun _ _ => 3) ([(0, a), (0, a)] : Transcript 1 Int) = 6 := by
++  refine ⟨repeatNegative_negative_run _ negative, rfl, ?_⟩
++  norm_num [queryWork_constant]
++
++theorem nonnegative_single_charge (a : Int) (nonnegative : 0 ≤ a) :
++    Runs repeatNegative (fun _ => a) [] [(0, a)] a ∧
++      queryWork (fun _ _ => 3) ([(0, a)] : Transcript 1 Int) = 3 := by
++  refine ⟨repeatNegative_nonnegative_run _ nonnegative, ?_⟩
++  norm_num [queryWork_constant]
++
++theorem adaptive_run_lower_bound (input : Fin 1 → Int) (trace : Transcript 1 Int)
++    (value : Int) (run : Runs repeatNegative input [] trace value) :
++    1 ≤ queryWork (fun _ _ => 1) trace :=
++  run.work_lower_bound 0 repeatNegative_correct (fun i j _ => Subsingleton.elim i j)
++    (fun _ _ => 1) (by intro _ _; exact Nat.le_refl 1)
++
++/-- Reading both coordinates before returning their minimum is correct even
++when they are equal. The operation sees only its two recorded answers. -/
++def pairMinimum : Protocol 2 Int Int
++  | [] => Sum.inr 0
++  | [_] => Sum.inr 1
++  | (_, b) :: (_, a) :: _ => Sum.inl (min a b)
++
++theorem pairMinimum_run (input : Fin 2 → Int) :
++    Runs pairMinimum input [] [(0, input 0), (1, input 1)]
++      (min (input 0) (input 1)) :=
++  Runs.query rfl (Runs.query rfl (Runs.done rfl))
++
++theorem pairMinimum_total : Total pairMinimum :=
++  fun input => ⟨_, _, pairMinimum_run input⟩
++
++theorem pair_minimum_ranked (a b : Int) : RankedAt [a, b] 0 (min a b) := by
++  by_cases hab : a ≤ b
++  · rw [min_eq_left hab]
++    refine ⟨[], [b], List.Perm.refl _, rfl, by simp, ?_⟩
++    intro y hy
++    have he : y = b := List.mem_singleton.mp hy
++    subst y
++    exact hab
++  · have hba : b ≤ a := le_of_lt (lt_of_not_ge hab)
++    rw [min_eq_right hba]
++    refine ⟨[], [a], List.Perm.swap a b [], rfl, by simp, ?_⟩
++    intro y hy
++    have he : y = a := List.mem_singleton.mp hy
++    subst y
++    exact hba
++
++theorem pairMinimum_correct : Selects pairMinimum 0 := by
++  intro input trace value run
++  have hv := (run.deterministic (pairMinimum_run input)).2
++  rw [hv]
++  simpa only [List.ofFn_succ, List.ofFn_zero,
++    show ((0 : Fin 1).succ : Fin 2) = 1 by decide,
++    show (0 : Fin 2).val = 0 by decide] using
++    pair_minimum_ranked (input 0) (input 1)
++
++theorem pairMinimum_distinct_coverage :
++    ∀ i : Fin 2, i ∈ ([(0, (8 : Int)), (1, 1)] : Transcript 2 Int).map Prod.fst := by
++  have run : Runs pairMinimum (![8, 1] : Fin 2 → Int) [] [(0, 8), (1, 1)] 1 := by
++    simpa only [Matrix.cons_val_zero, Matrix.cons_val_one,
++      show min (8 : Int) 1 = 1 by decide] using
++      pairMinimum_run (![8, 1] : Fin 2 → Int)
++  exact run.queries_all 0 pairMinimum_correct (by decide +kernel)
++
++theorem pairMinimum_distinct_lower_bound :
++    2 ≤ ([(0, (8 : Int)), (1, 1)] : Transcript 2 Int).length := by
++  have run : Runs pairMinimum (![8, 1] : Fin 2 → Int) [] [(0, 8), (1, 1)] 1 := by
++    simpa only [Matrix.cons_val_zero, Matrix.cons_val_one,
++      show min (8 : Int) 1 = 1 by decide] using
++      pairMinimum_run (![8, 1] : Fin 2 → Int)
++  exact run.length_lower_bound 0 pairMinimum_correct (by decide +kernel)
++
++theorem pairMinimum_measured_contract (input : Fin 2 → Int)
++    (distinct : Function.Injective input) (trace : Transcript 2 Int) (value : Int)
++    (run : Runs pairMinimum input [] trace value) (resource : Nat)
++    (contract : 2 * trace.length ≤ resource) : 2 ≤ resource := by
++  apply run.resource_lower_bound 0 pairMinimum_correct distinct
++    (fun _ _ => 2) (by intro _ _; decide) resource
++  simpa only [queryWork_constant] using contract
++
++/-- Replay is useful before correctness is assumed: any unqueried coordinate
++can change while the completed observations stay the same. -/
++theorem unqueried_update_replays {n : Nat} (next : Protocol n Int Int)
++    (input : Fin n → Int) (trace : Transcript n Int) (value : Int)
++    (run : Runs next input [] trace value) (i : Fin n)
++    (missing : i ∉ trace.map Prod.fst) (z : Int) :
++    Runs next (Function.update input i z) [] trace value :=
++  run.replay_update_of_not_mem i z missing
++
++theorem total_correct_protocol_has_witness {n : Nat} (next : Protocol n Int Int)
++    (k : Fin n) (total : Total next) (correct : Selects next k) :
++    ∃ (input : Fin n → Int) (trace : Transcript n Int) (value : Int),
++      Function.Injective input ∧ Runs next input [] trace value ∧ n ≤ trace.length :=
++  exists_linear_run next k total correct
++
++theorem any_uniform_query_bound_is_linear
++    (next : (m : Nat) → Protocol (m + 1) Int Int) (k : (m : Nat) → Fin (m + 1))
++    (total : ∀ m, Total (next m)) (correct : ∀ m, Selects (next m) (k m))
++    (bound : Nat → Nat)
++    (upper : ∀ m input trace value,
++      Runs (next m) input [] trace value → trace.length ≤ bound (m + 1)) :
++    Asymptotics.IsBigO Filter.atTop (fun m : Nat => (m : ℝ))
++      (fun m => (bound m : ℝ)) :=
++  linear_isBigO_of_query_bound next k total correct bound upper
++
++end Examples.CoordinateQueries
+diff --git a/Examples/CoordinateReadAll.lean b/Examples/CoordinateReadAll.lean
+new file mode 100644
+index 0000000..b561b9f
+--- /dev/null
++++ b/Examples/CoordinateReadAll.lean
+@@ -0,0 +1,107 @@
++import Applications.Selection.CoordinateReadAll
++import Mathlib.Data.Fin.VecNotation
++
++/-! Actual full-coordinate executions and repeated-plan query charges. -/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.CoordinateReadAll
++open Applications.Selection.CoordinateQueries
++universe u v
++
++variable {n : Nat} {α : Type u} {β : Type v}
++
++/-- Even an empty payload type needs no fabricated answer when n=0. -/
++theorem empty_run (compute : List α → β) (input : Fin 0 → α) :
++    Runs (readAll compute) input [] [] (compute []) := by
++  simpa only [List.ofFn_zero] using readAll_run compute input
++
++theorem empty_every_run (compute : List α → β) (input : Fin 0 → α)
++    (trace : Transcript 0 α) (value : β)
++    (run : Runs (readAll compute) input [] trace value) (c : Nat) :
++    trace = [] ∧ value = compute [] ∧ queryWork (fun _ _ => c) trace = 0 := by
++  obtain ⟨ht, hv⟩ := run.deterministic (empty_run compute input)
++  exact ⟨ht, hv, by rw [ht]; rfl⟩
++
++/-- Totality supplies the run before the exact observation laws are applied. -/
++theorem full_read_exists (compute : List α → β) (input : Fin n → α) (c : Nat) :
++    ∃ (trace : Transcript n α) (value : β),
++      Runs (readAll compute) input [] trace value ∧
++      trace.map Prod.fst = List.finRange n ∧
++      value = compute (List.ofFn input) ∧ trace.length = n ∧
++      queryWork (fun _ _ => c) trace = c * n := by
++  obtain ⟨trace, value, run⟩ := readAll_total compute input
++  exact ⟨trace, value, run, readAll_coordinates compute input trace value run,
++    ((readAll_run_iff compute input trace value).mp run).2,
++    readAll_length compute input trace value run, readAll_work compute input trace value run c⟩
++
++/-- The same complete observation is forced for every terminating run. -/
++theorem full_read_every_run (compute : List α → β) (input : Fin n → α)
++    (trace : Transcript n α) (value : β)
++    (run : Runs (readAll compute) input [] trace value) (c : Nat) :
++    trace = List.ofFn (fun i => (i, input i)) ∧
++      value = compute (List.ofFn input) ∧ trace.length = n ∧
++      queryWork (fun _ _ => c) trace = c * n := by
++  obtain ⟨ht, hv⟩ := (readAll_run_iff compute input trace value).mp run
++  exact ⟨ht, hv, readAll_length compute input trace value run,
++    readAll_work compute input trace value run c⟩
++
++/-- A pure specification transfers through the observations actually obtained. -/
++theorem observed_sum (input : Fin n → Nat) (trace : Transcript n Nat) (value : Nat)
++    (run : Runs (readAll (fun xs : List Nat => xs.sum)) input [] trace value) :
++    value = (List.ofFn input).sum :=
++  readAll_correct (fun xs : List Nat => xs.sum) (fun xs a => a = xs.sum)
++    (by intro xs _; rfl) input trace value run
++
++/-- Coordinate order is 0,1,2; the observed values sum to 16. -/
++theorem concrete_full_read :
++    Runs (readAll (fun xs : List Nat => xs.sum)) (![8, 3, 5] : Fin 3 → Nat) []
++      [(0, 8), (1, 3), (2, 5)] 16 := by
++  have observations : List.ofFn (fun i : Fin 3 => (i, (![8, 3, 5] : Fin 3 → Nat) i)) =
++      [(0, 8), (1, 3), (2, 5)] := by decide +kernel
++  have result : (List.ofFn (![8, 3, 5] : Fin 3 → Nat)).sum = 16 := by decide +kernel
++  simpa only [observations, result] using
++    readAll_run (fun xs : List Nat => xs.sum) (![8, 3, 5] : Fin 3 → Nat)
++
++/-- Equal payload values still arise from three different charged coordinates. -/
++theorem duplicate_full_read :
++    Runs (readAll (fun xs : List Nat => xs.sum)) (![4, 4, 4] : Fin 3 → Nat) []
++      [(0, 4), (1, 4), (2, 4)] 12 := by
++  have observations : List.ofFn (fun i : Fin 3 => (i, (![4, 4, 4] : Fin 3 → Nat) i)) =
++      [(0, 4), (1, 4), (2, 4)] := by decide +kernel
++  have result : (List.ofFn (![4, 4, 4] : Fin 3 → Nat)).sum = 12 := by decide +kernel
++  simpa only [observations, result] using
++    readAll_run (fun xs : List Nat => xs.sum) (![4, 4, 4] : Fin 3 → Nat)
++
++theorem duplicate_every_charge (trace : Transcript 3 Nat) (value : Nat)
++    (run : Runs (readAll (fun xs : List Nat => xs.sum))
++      (![4, 4, 4] : Fin 3 → Nat) [] trace value) :
++    value = 12 ∧ trace.length = 3 ∧ queryWork (fun _ _ => 2) trace = 6 := by
++  exact ⟨(run.deterministic duplicate_full_read).2,
++    readAll_length _ _ trace value run, readAll_work _ _ trace value run 2⟩
++
++/-- The third read really repeats coordinate zero; no deduplication occurs. -/
++theorem repeated_plan_run (compute : List α → β) (input : Fin 2 → α) :
++    Runs (readPlan [0, 1, 0] compute) input []
++      [(0, input 0), (1, input 1), (0, input 0)]
++      (compute [input 0, input 1, input 0]) := by
++  simpa only [List.map_cons, List.map_nil] using
++    readPlan_run [0, 1, 0] compute input
++
++theorem repeated_plan_every_charge (compute : List α → β) (input : Fin 2 → α)
++    (trace : Transcript 2 α) (value : β)
++    (run : Runs (readPlan [0, 1, 0] compute) input [] trace value) (c : Nat) :
++    value = compute [input 0, input 1, input 0] ∧ trace.length = 3 ∧
++      queryWork (fun _ _ => c) trace = c * 3 := by
++  exact ⟨(run.deterministic (repeated_plan_run compute input)).2,
++    readPlan_length [0, 1, 0] compute input trace value run,
++    readPlan_work [0, 1, 0] compute input trace value run c⟩
++
++/-- This supplied history is not asserted to be reachable. The equation only
++shows that an exhausted plan computes from its recorded chronological answers. -/
++theorem supplied_history_values :
++    readPlan ([0, 1] : List (Fin 2)) (fun xs : List Nat => xs)
++      [(0, 99), (1, 7)] = Sum.inl [7, 99] :=
++  readPlan_done [0, 1] (fun xs : List Nat => xs) [(0, 99), (1, 7)] rfl
++
++end Examples.CoordinateReadAll
+diff --git a/Examples/CoordinateSelection.lean b/Examples/CoordinateSelection.lean
+new file mode 100644
+index 0000000..c7934e0
+--- /dev/null
++++ b/Examples/CoordinateSelection.lean
+@@ -0,0 +1,198 @@
++import Applications.Selection.CoordinateSelection
++import Examples.CoordinateQueries
++
++/-! Actual acquisition, selector calls, and coordinate-model comparison. -/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.CoordinateSelection
++open Applications.Selection
++open Applications.Selection.CoordinateQueries
++open Applications.Selection.CoordinateSelection
++universe u
++
++variable {n : Nat} {α : Type u}
++
++/-- Existence precedes the observation contract; the worker consumes exactly
++the chronological answers of this actual run. -/
++theorem acquired_worker_execution [LinearOrder α] (k : Nat) (input : Fin n → α)
++    (c : Nat) :
++    ∃ (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat),
++      Runs (observedSelect k) input [] trace observation ∧
++      trace.map Prod.snd = List.ofFn input ∧
++      observation = Resources.Selection.selectRun k (trace.map Prod.snd) ∧
++      work c trace observation = c * n + observation.2 := by
++  obtain ⟨trace, observation, run⟩ := observedSelect_total k input
++  exact ⟨trace, observation, run, observedSelect_acquired k input trace observation run,
++    observedSelect_on_acquired k input trace observation run,
++    work_acquisition k input trace observation run c⟩
++
++/-- The optional empty extension still pays its selector entry and length. -/
++theorem empty_run [LinearOrder α] (k : Nat) (input : Fin 0 → α) :
++    Runs (observedSelect k) input [] [] (none, 2) := by
++  simpa only [List.ofFn_zero, Resources.Selection.selectRun_nil] using
++    observedSelect_run k input
++
++theorem empty_every_work [LinearOrder α] (k : Nat) (input : Fin 0 → α)
++    (trace : Transcript 0 α) (observation : Resources.Measured (Option α) Nat)
++    (run : Runs (observedSelect k) input [] trace observation) (c : Nat) :
++    trace = [] ∧ observation = (none, 2) ∧ work c trace observation = 2 := by
++  obtain ⟨ht, ho⟩ := run.deterministic (empty_run k input)
++  exact ⟨ht, ho, by rw [ht, ho]; rfl⟩
++
++/-- One sort entry, insertion, empty sort and lookup cost4; selector entry and
++length cost3. The one acquired coordinate is charged separately. -/
++theorem singleton_run (a : Int) :
++    Runs (observedSelect 0) (fun _ : Fin 1 => a) [] [(0, a)] (some a, 7) := by
++  have selector : Resources.Selection.selectRun 0 [a] = (some a, 7) := by
++    rw [Resources.Selection.selectRun_small 0 [a] (by decide) (by decide)]
++    rfl
++  simpa only [List.ofFn_succ, List.ofFn_zero, selector] using
++    observedSelect_run 0 (fun _ : Fin 1 => a)
++
++theorem singleton_every_work (a : Int) (trace : Transcript 1 Int)
++    (observation : Resources.Measured (Option Int) Nat)
++    (run : Runs (observedSelect 0) (fun _ : Fin 1 => a) [] trace observation)
++    (c : Nat) : observation = (some a, 7) ∧ work c trace observation = c + 7 := by
++  obtain ⟨ht, ho⟩ := run.deterministic (singleton_run a)
++  exact ⟨ho, by rw [ht, ho]; rfl⟩
++
++/-- Sort9 + lookup2 + length4 + entry1 gives actual source count16. -/
++theorem concrete_run :
++    Runs (observedSelect 1) (![8, 3, 5] : Fin 3 → Int) []
++      [(0, 8), (1, 3), (2, 5)] (some 5, 16) := by
++  have values : List.ofFn (![8, 3, 5] : Fin 3 → Int) = [8, 3, 5] := by decide +kernel
++  have trace : List.ofFn (fun i : Fin 3 => (i, (![8, 3, 5] : Fin 3 → Int) i)) =
++      [(0, 8), (1, 3), (2, 5)] := by decide +kernel
++  have selector : Resources.Selection.selectRun 1 ([8, 3, 5] : List Int) =
++      (some 5, 16) := by
++    rw [Resources.Selection.selectRun_small 1 [8, 3, 5] (by decide) (by decide)]
++    decide +kernel
++  simpa only [values, trace, selector] using
++    observedSelect_run 1 (![8, 3, 5] : Fin 3 → Int)
++
++/-- The value view is the same measured execution, with the valid some result. -/
++theorem concrete_value_run :
++    Runs (selectedValue 1) (![8, 3, 5] : Fin 3 → Int) []
++      [(0, 8), (1, 3), (2, 5)] 5 :=
++  (selectedValue_run_iff 1 (![8, 3, 5] : Fin 3 → Int)
++    [(0, 8), (1, 3), (2, 5)] 5).mpr ⟨(some 5, 16), concrete_run, rfl⟩
++
++/-- Zero acquisition tariff does not make the deterministic selector free. -/
++theorem concrete_every_work (trace : Transcript 3 Int)
++    (observation : Resources.Measured (Option Int) Nat)
++    (run : Runs (observedSelect 1) (![8, 3, 5] : Fin 3 → Int) [] trace observation) :
++    observation = (some 5, 16) ∧ work 2 trace observation = 22 ∧
++      work 0 trace observation = 16 := by
++  obtain ⟨ht, ho⟩ := run.deterministic concrete_run
++  exact ⟨ho, by rw [ht, ho]; rfl, by rw [ht, ho]; rfl⟩
++
++/-- Sort7 + lookup2 + length4 + entry1 gives count14, despite repeated values. -/
++theorem duplicate_run :
++    Runs (observedSelect 1) (![4, 4, 4] : Fin 3 → Int) []
++      [(0, 4), (1, 4), (2, 4)] (some 4, 14) := by
++  have values : List.ofFn (![4, 4, 4] : Fin 3 → Int) = [4, 4, 4] := by decide +kernel
++  have trace : List.ofFn (fun i : Fin 3 => (i, (![4, 4, 4] : Fin 3 → Int) i)) =
++      [(0, 4), (1, 4), (2, 4)] := by decide +kernel
++  have selector : Resources.Selection.selectRun 1 ([4, 4, 4] : List Int) =
++      (some 4, 14) := by
++    rw [Resources.Selection.selectRun_small 1 [4, 4, 4] (by decide) (by decide)]
++    decide +kernel
++  simpa only [values, trace, selector] using
++    observedSelect_run 1 (![4, 4, 4] : Fin 3 → Int)
++
++theorem duplicate_every_work (trace : Transcript 3 Int)
++    (observation : Resources.Measured (Option Int) Nat)
++    (run : Runs (observedSelect 1) (![4, 4, 4] : Fin 3 → Int) [] trace observation) :
++    observation.1 = some 4 ∧ trace.length = 3 ∧ work 2 trace observation = 20 := by
++  obtain ⟨ht, ho⟩ := run.deterministic duplicate_run
++  exact ⟨by rw [ho], observedSelect_length 1 _ trace observation run,
++    by rw [ht, ho]; rfl⟩
++
++/-- Invalid rank is an optional extension, not a valid-rank selection claim. -/
++theorem invalid_every_work (input : Fin 3 → Int) (trace : Transcript 3 Int)
++    (observation : Resources.Measured (Option Int) Nat)
++    (run : Runs (observedSelect 3) input [] trace observation) :
++    observation = (none, 5) ∧ work 2 trace observation = 11 := by
++  have ho := observedSelect_of_invalid 3 input trace observation run (by decide)
++  refine ⟨ho, ?_⟩
++  rw [work_acquisition 3 input trace observation run 2, ho]
++
++/-- The size20 base uses the actual insertion helper: source count73 and
++twenty unit-price coordinate reads give combined work93. -/
++theorem cutoff_twenty_run :
++    ∃ trace : Transcript 20 Int,
++      Runs (observedSelect 9) (fun i : Fin 20 => (i.val : Int)) [] trace (some 9, 73) ∧
++      trace.length = 20 ∧ work 1 trace (some 9, 73) = 93 := by
++  have selector : Resources.Selection.selectRun 9
++      (List.ofFn (fun i : Fin 20 => (i.val : Int))) = (some 9, 73) := by
++    rw [Resources.Selection.selectRun_small 9 _
++      (by simpa only [List.length_ofFn] using (show 9 < 20 by decide))
++      (by simpa only [List.length_ofFn] using (Nat.le_refl 20))]
++    decide +kernel
++  have run : Runs (observedSelect 9) (fun i : Fin 20 => (i.val : Int)) []
++      (List.ofFn (fun i : Fin 20 => (i, (i.val : Int)))) (some 9, 73) := by
++    simpa only [selector] using
++      observedSelect_run 9 (fun i : Fin 20 => (i.val : Int))
++  refine ⟨_, run, observedSelect_length 9 _ _ _ run, ?_⟩
++  exact work_acquisition 9 _ _ _ run 1
++
++/-- At size21 the actual worker takes its nested branch. The scalar children
++have sizes5 and18, so F21=1419 and unit acquisition gives the budget1440. -/
++theorem first_recursive_run :
++    ∃ (trace : Transcript 21 Int) (observation : Resources.Measured (Option Int) Nat),
++      Runs (observedSelect 10) (fun i : Fin 21 => (i.val : Int)) [] trace observation ∧
++      observation.1 = some 10 ∧ trace.length = 21 ∧ work 1 trace observation ≤ 1440 := by
++  obtain ⟨trace, observation, run⟩ :=
++    observedSelect_total 10 (fun i : Fin 21 => (i.val : Int))
++  have ranked : RankedAt (List.ofFn (fun i : Fin 21 => (i.val : Int))) 10 10 := by
++    apply ranked_iff_index.mpr
++    decide +kernel
++  have scalar : Resources.SelectionRecurrence.F 21 = 1419 := by
++    calc
++      Resources.SelectionRecurrence.F 21 = Resources.SelectionRecurrence.F 5 +
++          Resources.SelectionRecurrence.F 18 + 19 * 21 + 54 :=
++        Resources.SelectionRecurrence.F_of_twenty_lt 21 (by decide)
++      _ = 1419 := by
++        rw [Resources.SelectionRecurrence.F_of_le_twenty 5 (by decide),
++          Resources.SelectionRecurrence.F_of_le_twenty 18 (by decide)]
++  refine ⟨trace, observation, run,
++    (observedSelect_some_iff 10 _ trace observation run 10).mpr ranked,
++    observedSelect_length 10 _ trace observation run, ?_⟩
++  simpa only [scalar] using work_le_F 10 _ trace observation run 1
++
++/-- All valid ranks provide an actual total correct member of the competitor
++class. Correctness has no distinctness premise. -/
++theorem total_correct_value_view (k : Fin n) :
++    Total (selectedValue k.val) ∧ Selects (selectedValue k.val) k :=
++  ⟨selectedValue_total k.val, selectedValue_correct k⟩
++
++theorem any_valid_input_contract (k : Fin n) (input : Fin n → Int)
++    (trace : Transcript n Int) (observation : Resources.Measured (Option Int) Nat)
++    (run : Runs (observedSelect k.val) input [] trace observation)
++    (c : Nat) (positive : 1 ≤ c) :
++    RankedAt (List.ofFn input) k.val (observation.1.getD 0) ∧
++      n ≤ work c trace observation ∧
++      work c trace observation ≤ c * n + Resources.SelectionRecurrence.F n :=
++  ⟨(observedSelect_valid k input trace observation run).2,
++    work_lower_input k.val input trace observation run c positive,
++    work_le_F k.val input trace observation run c⟩
++
++/-- Compare with the previously proved two-coordinate minimum protocol.
++Both executions and their equal answers are supplied, with a uniform factor. -/
++theorem pair_minimum_comparison :
++    ∃ K : Nat, ∀ input : Fin 2 → Int, (List.ofFn input).Nodup →
++      ∃ (trace : Transcript 2 Int) (observation : Resources.Measured (Option Int) Nat)
++        (otherTrace : Transcript 2 Int) (value : Int),
++        Runs (observedSelect 0) input [] trace observation ∧
++        Runs Examples.CoordinateQueries.pairMinimum input [] otherTrace value ∧
++        observation.1 = some value ∧ 2 ≤ otherTrace.length ∧
++        work 1 trace observation ≤ K * otherTrace.length := by
++  obtain ⟨K, bound⟩ := exists_uniform_optimality
++  refine ⟨K, ?_⟩
++  intro input distinct
++  simpa only [queryWork_unit] using bound 1 2 (0 : Fin 2) input distinct
++    Examples.CoordinateQueries.pairMinimum Examples.CoordinateQueries.pairMinimum_total
++    Examples.CoordinateQueries.pairMinimum_correct (by decide)
++
++end Examples.CoordinateSelection
+diff --git a/Examples/CoordinateSensitivity.lean b/Examples/CoordinateSensitivity.lean
+new file mode 100644
+index 0000000..83ae394
+--- /dev/null
++++ b/Examples/CoordinateSensitivity.lean
+@@ -0,0 +1,89 @@
++import Applications.Selection.CoordinateSensitivity
++import Mathlib.Data.Fin.VecNotation
++
++/-! Source sensitivity and the public one-based selection interface. -/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.CoordinateSensitivity
++open Applications.Selection
++open Applications.Selection.CoordinateSensitivity
++
++theorem middle_of_triple : (ordered ([8, 1, 5] : List Int))[1]? = some 5 := by
++  simp only [ordered, Applications.Sorting.sortOn_eq_insertionOn]
++  decide +kernel
++
++/-- This uses the universal theorem for each of the three different positions. -/
++theorem every_triple_coordinate (i : Fin 3) :
++    ∃ z : Int, (ordered (([8, 1, 5] : List Int).set i.val z))[1]? ≠ some 5 := by
++  obtain ⟨z, hz⟩ := exists_set_changes ([8, 1, 5] : List Int) 1 i.val
++    (by decide) (by decide) i.isLt
++  exact ⟨z, by simpa only [middle_of_triple] using hz⟩
++
++theorem triple_fresh_witness (i : Fin 3) :
++    ∃ z : Int, z ∉ ([8, 1, 5] : List Int) ∧
++      (ordered (([8, 1, 5] : List Int).set i.val z))[1]? ≠
++        (ordered ([8, 1, 5] : List Int))[1]? :=
++  exists_fresh_set_changes _ 1 i.val (by decide) (by decide) i.isLt
++
++-- Independently calculated witnesses exercise coordinates above, below and at
++-- the original selected value, respectively.
++theorem above_coordinate_replaced :
++    (ordered (([8, 1, 5] : List Int).set 0 (-1)))[1]? = some 1 := by
++  simp only [ordered, Applications.Sorting.sortOn_eq_insertionOn]
++  decide +kernel
++
++theorem below_coordinate_replaced :
++    (ordered (([8, 1, 5] : List Int).set 1 9))[1]? = some 8 := by
++  simp only [ordered, Applications.Sorting.sortOn_eq_insertionOn]
++  decide +kernel
++
++theorem selected_coordinate_replaced :
++    (ordered (([8, 1, 5] : List Int).set 2 9))[1]? = some 8 := by
++  simp only [ordered, Applications.Sorting.sortOn_eq_insertionOn]
++  decide +kernel
++
++theorem singleton_sensitive (a : Int) :
++    ∃ z : Int, (ordered ([a].set 0 z))[0]? ≠ some a := by
++  obtain ⟨z, hz⟩ := exists_set_changes [a] 0 0 (by simp) (by simp) (by simp)
++  have ha : (ordered [a])[0]? = some a :=
++    ranked_iff_index.mp ⟨[], [], List.Perm.refl _, rfl, by simp, by simp⟩
++  exact ⟨z, by simpa only [ha] using hz⟩
++
++theorem valid_ranks_are_injective :
++    Function.Injective
++      (fun k : Fin 3 => (ordered ([8, 1, 5] : List Int))[k.val]?) :=
++  ordered_index_injective ([8, 1, 5] : List Int) (by decide)
++
++/-- The preceding valid-index qualification is necessary. -/
++theorem invalid_ranks_agree :
++    (ordered ([8, 1, 5] : List Int))[3]? = none ∧
++      (ordered ([8, 1, 5] : List Int))[4]? = none := by
++  constructor <;> apply List.getElem?_eq_none_iff.mpr <;>
++    rw [(ordered_perm _).length_eq] <;> decide
++
++theorem one_based_middle_changes (i : Fin 3) :
++    ∃ z : Int, sortSelect 2 (([8, 1, 5] : List Int).set i.val z) ≠
++      sortSelect 2 ([8, 1, 5] : List Int) :=
++  sortSelect_set_changes _ 1 i.val (by decide) (by decide) i.isLt
++
++theorem last_pivot_middle_changes (i : Fin 3) :
++    ∃ z : Int, selectWith lastPivot 2 (([8, 1, 5] : List Int).set i.val z) ≠
++      selectWith lastPivot 2 ([8, 1, 5] : List Int) :=
++  selectWith_set_changes lastPivot last_pivot_valid _ 1 i.val
++    (by decide) (by decide) i.isLt
++
++theorem finite_coordinate_adapter :
++    List.ofFn (Function.update (![8, 1, 5] : Fin 3 → Int) 1 9) = [8, 9, 5] := by
++  rw [ofFn_update]
++  decide +kernel
++
++theorem increasing_input_sensitive (n : Nat) (k i : Fin n) :
++    ∃ z : Int,
++      (ordered (List.ofFn (Function.update (fun j : Fin n => (j.val : Int)) i z)))[k.val]? ≠
++        (ordered (List.ofFn (fun j : Fin n => (j.val : Int))))[k.val]? := by
++  apply exists_update_changes
++  intro j l he
++  exact Fin.ext (Int.ofNat.inj he)
++
++end Examples.CoordinateSensitivity

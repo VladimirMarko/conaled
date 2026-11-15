@@ -1,0 +1,144 @@
+{
+  "recorded_utc": "2026-11-04T21:59:29.418527+00:00",
+  "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+  "tree": "e0d90f6ba9b0864a65860983852dd8642e70070a",
+  "parent": "41f46040eeaf1b2c6d21b00dec4c20b9d44c5ce7",
+  "finding": "C03-HALVING-ELAB-002",
+  "source_diff": "diff --git a/Applications/Resources/MedianPolicy.lean b/Applications/Resources/MedianPolicy.lean\nindex 5bebc23..3ff974c 100644\n--- a/Applications/Resources/MedianPolicy.lean\n+++ b/Applications/Resources/MedianPolicy.lean\n@@ -51,7 +51,7 @@ theorem pivotRun_none (xs : List \u03b1) : (pivotRun xs).1 = none \u2194 xs = [] := by\n     exact List.length_eq_zero_iff.mp (by omega)\n   \u00b7 intro h\n     subst xs\n-    decide\n+    simp\n \n theorem pivot_valid : PivotValid (fun xs : List \u03b1 => (pivotRun xs).1) := by\n   intro xs hx\n@@ -86,7 +86,8 @@ theorem pivotRun_small (xs : List \u03b1) (hx : xs \u2260 []) (hs : xs.length \u2264 20) :\n \n theorem pivotRun_singleton (x : \u03b1) : pivotRun [x] = (some x, 10) := by\n   rw [pivotRun_small [x] (by simp) (by simp)]\n-  rfl\n+  simp [SelectionAuxiliary.slowSelectRun, InsertionSort.sortRun,\n+    InsertionSort.insertRun, ListCalls.lookupRun, bind, CallCount.tick]\n \n /-- One constant precedes the payload type and every intermediate input. -/\n theorem pivotRun_exists_uniform_linear_bound :\n",
+  "all60_headers_preserved": true,
+  "all3_definitions_preserved": true,
+  "all31_cases_preserved": true,
+  "other58_declaration_blocks_preserved": true,
+  "other29_sources_preserved": true,
+  "previous_lint_correction_and_v2_inventory_correction_preserved": true,
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exit": 0,
+      "stdout": " M Applications/Resources/MedianPolicy.lean\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--",
+        "Applications/Resources/MedianPolicy.lean"
+      ],
+      "exit": 0,
+      "stdout": "diff --git a/Applications/Resources/MedianPolicy.lean b/Applications/Resources/MedianPolicy.lean\nindex 5bebc23..3ff974c 100644\n--- a/Applications/Resources/MedianPolicy.lean\n+++ b/Applications/Resources/MedianPolicy.lean\n@@ -51,7 +51,7 @@ theorem pivotRun_none (xs : List \u03b1) : (pivotRun xs).1 = none \u2194 xs = [] := by\n     exact List.length_eq_zero_iff.mp (by omega)\n   \u00b7 intro h\n     subst xs\n-    decide\n+    simp\n \n theorem pivot_valid : PivotValid (fun xs : List \u03b1 => (pivotRun xs).1) := by\n   intro xs hx\n@@ -86,7 +86,8 @@ theorem pivotRun_small (xs : List \u03b1) (hx : xs \u2260 []) (hs : xs.length \u2264 20) :\n \n theorem pivotRun_singleton (x : \u03b1) : pivotRun [x] = (some x, 10) := by\n   rw [pivotRun_small [x] (by simp) (by simp)]\n-  rfl\n+  simp [SelectionAuxiliary.slowSelectRun, InsertionSort.sortRun,\n+    InsertionSort.insertRun, ListCalls.lookupRun, bind, CallCount.tick]\n \n /-- One constant precedes the payload type and every intermediate input. -/\n theorem pivotRun_exists_uniform_linear_bound :\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "add",
+        "--",
+        "Applications/Resources/MedianPolicy.lean"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "user.name=ChatGPT",
+        "-c",
+        "user.email=chatgpt@openai.com",
+        "commit",
+        "-m",
+        "fix(resources): normalize measured median base cases (#174)"
+      ],
+      "exit": 0,
+      "stdout": "[work/fdsa-ch03-values 2728191] fix(resources): normalize measured median base cases (#174)\n 1 file changed, 3 insertions(+), 2 deletions(-)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit": 0,
+      "stdout": "27281919b9edd31a53336cbb5583ebc17632247e\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD^{tree}"
+      ],
+      "exit": 0,
+      "stdout": "e0d90f6ba9b0864a65860983852dd8642e70070a\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD:Applications/Resources/HalvingSelection.lean"
+      ],
+      "exit": 0,
+      "stdout": "146545b7dad10e2b1bb247f282051ae0db9bc005\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD:Applications/Resources/MedianPolicy.lean"
+      ],
+      "exit": 0,
+      "stdout": "3ff974cfeb3df05338df4128b826a11d6abba593\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD:Examples/MedianPolicy.lean"
+      ],
+      "exit": 0,
+      "stdout": "f860dfadc7c4e1f4a8e3f0917636047249985b39\n",
+      "stderr": ""
+    }
+  ]
+}

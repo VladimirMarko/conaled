@@ -1,0 +1,530 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "recorded_utc": "2026-11-04T16:54:53.047999+00:00",
+  "status": "Bounded readiness assessment complete; no new concrete Standards finding; complete-C2 outcome Blocked pending receiving gates",
+  "same_loop_original_scope": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "Lean_paths": 72,
+    "declaration_bearing_Lean_paths": 71,
+    "public_root_paths": 1,
+    "document_paths": 9,
+    "public_names": 1763,
+    "private_named_declarations": 70,
+    "anonymous_instances": 19,
+    "no_scope_reset": true
+  },
+  "fixed_R": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "fixed_Z": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "accepted_L": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "receiving_candidate": null,
+  "receiving_credit": 0,
+  "independent_reconstruction": {
+    "actual_tool_chunk": "fa89ad",
+    "actual_exit": 0,
+    "result_sha256": "061e65b4b8d041c7d3d25c7e2a9c5b8699ce78d8a54a6655ce1b71b6cc00d3cc",
+    "all159_bound_bytes_and_hashes_match": true,
+    "all1763_mapping_rows_match": true,
+    "all_five_program_orders_match": true,
+    "all97_local_source_hashes_match": true,
+    "all71_root_closures_and86_external_names_match": true,
+    "all72_MergeCosts_names_match_exact_I314_and_Z815_positions": true,
+    "large_derived_JSON_is_mechanical_evidence_not_claimed_fresh_human_full_type_read": true
+  },
+  "partition": {
+    "F110_unchanged_closure_conditional": 110,
+    "I242_unchanged_closure_conditional": 242,
+    "J53_unchanged_closure_conditional": 53,
+    "Tail61_prepared_only_conditional": 61,
+    "I72_Growth_changed": 72,
+    "actual405_same_closure_conditional": 405,
+    "possible466_including_unexecuted_Tail61": 466,
+    "complete_predecessor538_name_union": 538,
+    "conditional1297_remainder_not_a_run": 1297,
+    "historical920": 920,
+    "actualZ815": 815,
+    "acceptedR28": 28
+  },
+  "historical_cross_partition": {
+    "historical920": {
+      "total": 920,
+      "in_predecessor538": 167,
+      "outside_predecessor538": 753,
+      "same_closure405": 167,
+      "conditional466": 167,
+      "conditional1297": 753
+    },
+    "actualZ815": {
+      "total": 815,
+      "in_predecessor538": 344,
+      "outside_predecessor538": 471,
+      "same_closure405": 211,
+      "conditional466": 272,
+      "conditional1297": 543
+    },
+    "acceptedR28": {
+      "total": 28,
+      "in_predecessor538": 27,
+      "outside_predecessor538": 1,
+      "same_closure405": 27,
+      "conditional466": 27,
+      "conditional1297": 1
+    }
+  },
+  "historical_actual_command_account": {
+    "all_commands": 944,
+    "check_commands": 941,
+    "additional_print_commands": 3,
+    "unique_selected_public_names": 941,
+    "original_profiles": {
+      "pp_explicit": 648,
+      "ordinary_or_universe_only": 293
+    },
+    "qualified920_profiles": {
+      "pp_explicit": 648,
+      "ordinary_or_universe_only": 272
+    }
+  },
+  "NaturalRuns": {
+    "program_sha256": "d56c25d992aa23e63c9bfa51cf4561f8ae2e6c1f186dda1493d0741673b372e4",
+    "actual_commands": 107,
+    "check_commands": 104,
+    "additional_print_commands": 3,
+    "print_source_lines": [
+      5,
+      6,
+      7
+    ],
+    "print_command_positions": [
+      1,
+      2,
+      3
+    ],
+    "same_names_check_positions": [
+      1,
+      5,
+      21
+    ],
+    "active_options": {
+      "autoImplicit": "false",
+      "warningAsError": "true"
+    },
+    "all_actual_commands_preserved_in_reconstruction": true,
+    "ordinary_profile_retained": true,
+    "program_edited_or_deduplicated": false
+  },
+  "preserved_failures": [
+    {
+      "chunk": "8c4dd0",
+      "exit": 1,
+      "boundary": "known invalid Foundation ENOSPC artifact:970LF versus971splitlines; bytes/hash exact; no receipt credit"
+    },
+    {
+      "chunk": "954cac",
+      "exit": 1,
+      "boundary": "NaturalRuns combined#print/#check ordinal mistakenly used for104check selection"
+    },
+    {
+      "chunk": "d0a0da",
+      "exit": 1,
+      "boundary": "sorted historical QuickSort14 list compared directly to actualZ815orderedpositions; exact14names/unique counts match; explicit mapping retained"
+    }
+  ],
+  "old_paused_and_failed_scripts_preserved": {
+    "reconcile.py": "c5576b4df8f2ea6ca0491867af59ebc06a5e4ea34ab88fa3afde58d168927b10",
+    "reconciliation-method-boundary.json": "bf24a23f3740c25ad31ca13f33024fb2ef0dc251bae01fe1984e74113904d8d8",
+    "paused-for-tail-final.json": "bbc18b25efcf9074d8655bd9c35d0db006a50f0d47596fe69359f261349c9833",
+    "reconcile_print_profiles.py": "974e7eaa31aa63234e229b156f8d1413a9272c8009ad314d455db46488bbc00d"
+  },
+  "historical_semantic_evidence": {
+    "original941_pp_explicit": 648,
+    "original941_ordinary_or_universe_only": 293,
+    "qualified920_pp_explicit": 648,
+    "qualified920_ordinary_or_universe_only": 272,
+    "old7_Growth_and14_terminal_gap_exclusions_retained": true,
+    "actual_Z815_reinspection_positions": [
+      794,
+      814
+    ],
+    "explicit_instance_position": 815,
+    "own_Z815_native_sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29",
+    "own_Z815_complete_read_chunks_rebound": 61,
+    "own_Z815_semantic_notes_rebound": 76,
+    "own_Z815_lines_rebound": 11650,
+    "fresh_full_type_reread_claimed": false
+  },
+  "source_and_Growth": {
+    "diff_bytes": 2879,
+    "diff_lines": 57,
+    "diff_sha256": "4341912ca89d4de15d9be1a5a3ad64c91704b78afb3c7dd3f4cecc380b90fb10",
+    "affected_root_counts": {
+      "Applications/Resources/BottomUpSorting.lean": 76,
+      "Applications/Resources/Growth.lean": 3,
+      "Applications/Resources/NaturalRunOperations.lean": 63,
+      "Applications/Resources/NaturalSorting.lean": 37,
+      "Applications/Resources/TopDownSorting.lean": 18,
+      "Examples/BottomUpCosts.lean": 29,
+      "Examples/MergeCosts.lean": 72,
+      "Examples/NaturalRunOperations.lean": 43,
+      "Examples/NaturalSortingCosts.lean": 30,
+      "Examples/TopDownCosts.lean": 17
+    },
+    "affected_names": 388,
+    "all72_I_MergeCosts_names_affected": true,
+    "all72_in_Z815": true
+  },
+  "saved_actual_producer_results": {
+    "F145": {
+      "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "actual_exit": 0,
+      "native_sha256": "bbf02ed2d02358a10d1ed670e28bc00e43beef3af20409d4dc926ad36ab193c2",
+      "pre_post_exact": true,
+      "counts": {
+        "roots": 6,
+        "sources": 29,
+        "objects_hashes_traces": 87,
+        "configs": 10,
+        "dependencies": 9,
+        "runtime_components": 12
+      },
+      "changed_source_inputs": [
+        "Applications/Sorting/Merge.lean"
+      ],
+      "affected_name_count": 35
+    },
+    "I314": {
+      "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+      "actual_exit": 0,
+      "native_sha256": "3bdb9dc0a92ec781a28b46de1a3eb843bda4efcd17c2292f091c19e52df7c50c",
+      "pre_post_exact": true,
+      "counts": {
+        "roots": 14,
+        "sources": 27,
+        "objects_hashes_traces": 81,
+        "configs": 10,
+        "dependencies": 9,
+        "runtime_components": 12
+      },
+      "changed_source_inputs": [
+        "Applications/Resources/Growth.lean"
+      ],
+      "affected_name_count": 72
+    },
+    "J53": {
+      "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+      "actual_exit": 0,
+      "native_sha256": "48466b063b338defe63e54b3eed7594095cd3036dd773443ef9649b2bc211b65",
+      "pre_post_exact": true,
+      "counts": {
+        "roots": 3,
+        "sources": 6,
+        "objects_hashes_traces": 18,
+        "configs": 10,
+        "dependencies": 9,
+        "runtime_components": 12
+      },
+      "changed_source_inputs": [],
+      "affected_name_count": 0
+    },
+    "Z815": {
+      "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "actual_exit": 0,
+      "native_sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29",
+      "pre_post_exact": true,
+      "counts": {
+        "roots": 36,
+        "sources": 84,
+        "objects_hashes_traces": 252,
+        "configs": 10,
+        "dependencies": 9,
+        "runtime_components": 12
+      },
+      "changed_source_inputs": [],
+      "affected_name_count": 0
+    }
+  },
+  "saved_comparison_summary": {
+    "F145": {
+      "common_sources": 29,
+      "source_differences": [
+        "Applications/Sorting/Merge.lean"
+      ],
+      "common_artifact_keys": 87,
+      "exact_artifact_keys": 56,
+      "different_dependency_paths": [
+        "Cli",
+        "LeanSearchClient",
+        "Qq",
+        "aesop",
+        "batteries",
+        "importGraph",
+        "mathlib",
+        "plausible",
+        "proofwidgets"
+      ],
+      "config_runtime_exact": true,
+      "path_or_trace_normalization": false
+    },
+    "I314": {
+      "common_sources": 23,
+      "source_differences": [
+        "Applications/Resources/Growth.lean"
+      ],
+      "common_artifact_keys": 69,
+      "exact_artifact_keys": 40,
+      "different_dependency_paths": [
+        "Cli",
+        "LeanSearchClient",
+        "Qq",
+        "aesop",
+        "batteries",
+        "importGraph",
+        "mathlib",
+        "plausible",
+        "proofwidgets"
+      ],
+      "config_runtime_exact": true,
+      "path_or_trace_normalization": false
+    },
+    "J53": {
+      "common_sources": 6,
+      "source_differences": [],
+      "common_artifact_keys": 18,
+      "exact_artifact_keys": 12,
+      "different_dependency_paths": [
+        "Cli",
+        "LeanSearchClient",
+        "Qq",
+        "aesop",
+        "batteries",
+        "importGraph",
+        "mathlib",
+        "plausible",
+        "proofwidgets"
+      ],
+      "config_runtime_exact": true,
+      "path_or_trace_normalization": false
+    }
+  },
+  "bounded_snapshot_gaps": {
+    "outside_Z815_local_sources": [
+      "Applications/Resources/ListBuildCosts.lean",
+      "Applications/Resources/Partition.lean",
+      "Applications/Selection/ThreeWay.lean",
+      "Applications/Sequences/Partition.lean",
+      "Applications/Sorting/Alternating.lean",
+      "Applications/Sorting/ThreeWayQuickSort.lean",
+      "Applications/Sorting/Uniqueness.lean",
+      "Examples/AlternatingSorting.lean",
+      "Examples/ListBuildCosts.lean",
+      "Examples/QuickSortCosts.lean",
+      "Examples/SortUniqueness.lean",
+      "Examples/ThreeWayPartition.lean",
+      "Examples/ThreeWayQuickSort.lean"
+    ],
+    "outside_all_four_recent_snapshot_local_sources": [
+      "Applications/Resources/ListBuildCosts.lean",
+      "Applications/Sorting/Alternating.lean",
+      "Applications/Sorting/ThreeWayQuickSort.lean",
+      "Applications/Sorting/Uniqueness.lean",
+      "Examples/AlternatingSorting.lean",
+      "Examples/ListBuildCosts.lean",
+      "Examples/QuickSortCosts.lean",
+      "Examples/SortUniqueness.lean",
+      "Examples/ThreeWayQuickSort.lean"
+    ],
+    "additional_external_imports_beyond_Z815": [
+      "Init.Data.List.Nat.Range",
+      "Mathlib.Data.List.Perm.Basic",
+      "Mathlib.Data.Multiset.Defs",
+      "Mathlib.Order.Defs.LinearOrder"
+    ],
+    "boundary": "Snapshot absence is bounded to these four saved producer captures; it is not a claim that no historical evidence exists anywhere. Old 12 run records are retained separately."
+  },
+  "retained_original_REUSE_conditions": {
+    "count": 10,
+    "exact_verbatim_match": true,
+    "original110_and_candidate_specificity_retained": true,
+    "not_automatic_application_to_ordinary_historical_profiles": true
+  },
+  "dated_Tail_advance": {
+    "accepted_candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+    "actual61_fully_reviewed": true,
+    "accepted_predecessor_distinct_names": 538,
+    "immediate_verification_actual_exit": 0,
+    "accepted_fast_forward_actual_exit": 0,
+    "acceptance_checkpoint": "0119",
+    "checkpoint_sha256": "16bc4b51dcc5808504491f8f25145fb1abf8a980e24ae25a4dba9201ed5e10e6",
+    "original_package_dated_Tail_labels_unchanged": true,
+    "future_C2_receiving_credit": 0
+  },
+  "meaningful_read_boundaries": [
+    {
+      "tool": "203581",
+      "scope": "complete101line readiness.md"
+    },
+    {
+      "tool": "aad591",
+      "scope": "complete acceptance.json and durability.json"
+    },
+    {
+      "tool": "2ed51f",
+      "scope": "all ten exact reuse conditions, full original scope, Growth roots, all groups/partitions/profiles/producer outcomes and snapshot gaps"
+    },
+    {
+      "tool": "5bca1c",
+      "scope": "all72 exact name/producer positions, complete saved difference keysets, all12 actual historical profiles and precise3print/104check mapping"
+    },
+    {
+      "tool": "c97997",
+      "scope": "original derivative1-160"
+    },
+    {
+      "tool": "3ba124",
+      "scope": "original derivative161-311"
+    },
+    {
+      "tool": "7908d9",
+      "scope": "corrected derivative210-364 source/method logic"
+    },
+    {
+      "tool": "938381",
+      "scope": "all14 actual versus sorted-name position mappings"
+    }
+  ],
+  "new_concrete_findings": [],
+  "existing_findings": "Prior complete source/type/final findings retained; Z and accepted predecessor dispositions remain historical; complete receiving-C2 review/TYPE001 disposition pending; DOC003 complete scope retained.",
+  "required_next_actions": [
+    "Freeze exact actual receiving source and reconcile complete R-based scope and all actual deltas.",
+    "Complete applicable guarded whole-candidate check/audit and matching verification under exact pins/profile.",
+    "Record exclusive stable receiving input observations and compare complete relevant source/import/artifact/config/dependency/runtime identities with actual producer evidence.",
+    "Both independent axes assign actual per-name receiving dispositions while preserving all original programs/profiles/read ledgers.",
+    "Derive a separately identified targeted remainder only after justified qualification; no preselected blanket1297/815/1763 run.",
+    "Complete final axes and immediate qualified verification before accepted fast-forward and durable checkpoint."
+  ],
+  "writes": "Only new own preparation artifacts and report; no source/ref/cache/compiler/process/runtime/output capture/global-control/old-report mutation",
+  "inputs": [
+    {
+      "path": "provenance/shared-chapter02-statement-evidence-readiness-20261104/readiness.md",
+      "bytes": 15986,
+      "lines": 101,
+      "sha256": "4171dd19b7c90294a9bea565de757305204acc51dd43ecf011042409ee3caeb0"
+    },
+    {
+      "path": "provenance/shared-chapter02-statement-evidence-readiness-20261104/inventory.json",
+      "bytes": 496079,
+      "lines": 15238,
+      "sha256": "80311e829c93fa2653616d9b5e85f237a17a6347cda79b69d1388d2cb8bb6b47"
+    },
+    {
+      "path": "provenance/shared-chapter02-statement-evidence-readiness-20261104/bound-inputs.json",
+      "bytes": 51774,
+      "lines": 1124,
+      "sha256": "2ce52d69ab4f69c3311b63c92994adf9d47f48532688f8fc72dde17e9d4faf7f"
+    },
+    {
+      "path": "provenance/shared-chapter02-statement-evidence-readiness-20261104/receipt.json",
+      "bytes": 4180,
+      "lines": 79,
+      "sha256": "6269925bfe4b8702cfe3e4b1c7f3708df2586056082436eecb3c87964850d9cc"
+    },
+    {
+      "path": "provenance/chapter02-standards-statement-readiness-20261104/reconcile.py",
+      "bytes": 19441,
+      "lines": 311,
+      "sha256": "c5576b4df8f2ea6ca0491867af59ebc06a5e4ea34ab88fa3afde58d168927b10"
+    },
+    {
+      "path": "provenance/chapter02-standards-statement-readiness-20261104/reconciliation-method-boundary.json",
+      "bytes": 1323,
+      "lines": 15,
+      "sha256": "bf24a23f3740c25ad31ca13f33024fb2ef0dc251bae01fe1984e74113904d8d8"
+    },
+    {
+      "path": "provenance/chapter02-standards-statement-readiness-20261104/paused-for-tail-final.json",
+      "bytes": 4771,
+      "lines": 118,
+      "sha256": "bbc18b25efcf9074d8655bd9c35d0db006a50f0d47596fe69359f261349c9833"
+    },
+    {
+      "path": "provenance/chapter02-standards-statement-readiness-20261104/reconcile_print_profiles.py",
+      "bytes": 23086,
+      "lines": 364,
+      "sha256": "974e7eaa31aa63234e229b156f8d1413a9272c8009ad314d455db46488bbc00d"
+    },
+    {
+      "path": "provenance/chapter02-standards-statement-readiness-20261104/reconciliation-command-order-boundary.json",
+      "bytes": 1503,
+      "lines": 27,
+      "sha256": "79aa03b91f42c217ea3c42e09ff1d0abdd96ab4dac0687afc30bef68813eb230"
+    },
+    {
+      "path": "provenance/chapter02-standards-statement-readiness-20261104/reconcile_print_profiles_ordered.py",
+      "bytes": 24134,
+      "lines": 371,
+      "sha256": "73b4041ccee1b4eb32d37b2ea633ab2468b5eaeb52389a36267df515190d1f11"
+    },
+    {
+      "path": "provenance/chapter02-standards-statement-readiness-20261104/independent-reconciliation-correction2.json",
+      "bytes": 62051,
+      "lines": 2023,
+      "sha256": "061e65b4b8d041c7d3d25c7e2a9c5b8699ce78d8a54a6655ce1b71b6cc00d3cc"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/public-type-accounting.json",
+      "bytes": 1070441,
+      "lines": 28039,
+      "sha256": "a67cdd001115164b268d0c8d2b2a2dc2c6d95d46970a02bb17a324edb146e556"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/historical-type-dependency-assessment-6b95185.json",
+      "bytes": 312652,
+      "lines": 6578,
+      "sha256": "4cf7c71ed470047083093dd8a5212d3eaa6013b9e2a7ed9e0ae9e15426d9f9ab"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+      "bytes": 23539,
+      "lines": 472,
+      "sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-type-review-progress.json",
+      "bytes": 123595,
+      "lines": 3562,
+      "sha256": "91b9df119e5b47cd94a7930001947eb2c14601d5d144149b796a8bb06f3f4d0b"
+    },
+    {
+      "path": "provenance/shared-tail-acceptance-20261104/acceptance.json",
+      "bytes": 8053,
+      "lines": 176,
+      "sha256": "8d6eda0bdc0319165aba3434c6f20ff0a6fe6fc2376dca35ebc295ce5cb8cb0d"
+    },
+    {
+      "path": "provenance/shared-tail-acceptance-20261104/durability.json",
+      "bytes": 1161,
+      "lines": 26,
+      "sha256": "dc1313d62c34db6b8ae7bc75acc759b61668dedfa2fd346dd10cb5b3819b12f5"
+    },
+    {
+      "path": "reviews/permutation-tail-standards-final-20261104.md",
+      "bytes": 15441,
+      "lines": 79,
+      "sha256": "c912730c717de8ca17595a068f27e360884ef84519c56e93236ac8658084f189"
+    },
+    {
+      "path": "provenance/shared-tail-standards-terminal-assessment-20261104/completion.json",
+      "bytes": 4734,
+      "lines": 129,
+      "sha256": "728d8681697efcef939bfe8791aaf9a193cbfec424d5430d1c23adc9b4a6ad80"
+    }
+  ],
+  "report": {
+    "path": "reviews/chapter02-standards-statement-readiness-20261104.md",
+    "bytes": 14199,
+    "lines": 70,
+    "sha256": "3207c2b72c68ff1d5bed3c94f9d0d08c7b0f64aa5e88da7013134ae1fa578d2f"
+  },
+  "saved_file_readback": "Pending separately recorded complete final report/compact receipt readback; no hold claimed by this creation record"
+}

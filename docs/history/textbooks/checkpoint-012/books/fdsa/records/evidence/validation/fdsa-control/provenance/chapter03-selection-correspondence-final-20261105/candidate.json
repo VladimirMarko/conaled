@@ -1,0 +1,63 @@
+{
+  "recorded_utc": "2026-11-05T01:11:28.043550+00:00",
+  "candidate": "18cde548c080b24d182e754db0e13b0df2d91c15",
+  "parent": "4f01a75bf4e29cd82b5da932885c22f533cbd7b5",
+  "tree": "c755afbd8334cd2373e41db6eace1fe02a3010e9",
+  "branch": "work/fdsa-ch03-values",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+  "status": "",
+  "commit_message": "docs(selection): map complete random endpoint results (#174)",
+  "actual_commit_exit": 0,
+  "actual_commit_tool": "2a11e8",
+  "prior_failed_commit_attempt": "commit-attempt1-identity-failure.json;128/6316a3, no commit made",
+  "per_invocation_identity_only": "ChatGPT <chatgpt@openai.com>, matches parent; no global/shared config mutation",
+  "changed_paths": [
+    "docs/research/fdsa-selection.md"
+  ],
+  "document": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort/docs/research/fdsa-selection.md",
+    "bytes": 86129,
+    "sha256": "c4e363a2e28a1120986571054535573042a06391a1e9277ae98ca8b87d56fa40",
+    "git_blob": "ce02e00bbca5fed86178dbd1a85bbc299dfc7515",
+    "lines": 849
+  },
+  "diff_stat": "docs/research/fdsa-selection.md | 229 ++++++++++++++++++++++++++++++----------\n 1 file changed, 171 insertions(+), 58 deletions(-)",
+  "final_committed_whitespace_check_exit": 0,
+  "fixed_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "accepted_XR": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "receiver_source": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+  "assembled_receiver": "6eb3b18f017cad485371546b5a7ab0d6f13eb604",
+  "all79_alias_sources_match_assembled_receiver": true,
+  "full_scope83_rows_preserved": true,
+  "source_references": {
+    "aliases": 79,
+    "keys": 12,
+    "alias_occurrences": 688,
+    "distinct_alias_references": 595,
+    "qualified_project_name_occurrences": 84
+  },
+  "source_bindings": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-correspondence-final-20261105/source-bindings.json",
+    "bytes": 174418,
+    "sha256": "65ee3df70a55447f69b32808033611137baff8c3ebcfd8b64a75a2b059634cec"
+  },
+  "mechanical_assessment": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-correspondence-final-20261105/mechanical-assessment.json",
+    "bytes": 2159,
+    "sha256": "39ae5575fe52b3dc84a3dd523020989af632a206a1319b4f5645df655318b28c"
+  },
+  "author_assessment": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-correspondence-final-20261105/author-assessment.json",
+    "bytes": 5046,
+    "sha256": "424d3003116f2331d32a35eb098e214a3de7db965d370a609cdbd86cba069f0f"
+  },
+  "complete_final_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-correspondence-final-20261105/final-author-parent.patch",
+    "bytes": 35703,
+    "sha256": "21f5d84c55deea5fbf20c910e71a6f54e80caedcc21b4ed2fd00dedcff137341"
+  },
+  "read_receipt": "542a23 actual0; complete8926token final parent diff, no truncation",
+  "compiler_runs_by_author": false,
+  "final_candidate_or_chapter_acceptance_credit": false,
+  "integration_instruction": "Receive exact docs/research/fdsa-selection.md blob from this candidate into assembled receiver; do not replace other receiver files or scope with the older author worktree."
+}

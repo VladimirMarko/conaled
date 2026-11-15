@@ -1,0 +1,247 @@
+{
+  "schema": "fdsa.shared-four.spec.final-disposition.v1",
+  "utc": "2026-11-04T15:01:09.447533+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "independent_nonauthor": true,
+  "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "accepted_base": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+  "original_full_scope": {
+    "units": [
+      "XM01",
+      "XD01",
+      "XQ01",
+      "XU01"
+    ],
+    "paths": 18,
+    "defining_Lean_files": 12,
+    "frozen_original_requirements_and_connected_cases": "Retained completely by exact source assessment; no reset or narrower review base.",
+    "public_names_in_defining_files": 279,
+    "retained_accepted_base_within279": 27,
+    "unit_or_changed_interface_within279": 252,
+    "compatibility_adapters": 8,
+    "private_minimum_lemmas": 6,
+    "anonymous_local_instances": 5,
+    "generated_declarations": "Complete source/build/audit coverage; authored public counts are not kernel totals."
+  },
+  "retained_finding": {
+    "id": "SH4-HIST-001",
+    "at_H": "Open; omitted required merge ancestry",
+    "at_I": "Resolved by independently checked four normal merges, all exact tips and parent pairs, unchanged complete source tree and full scope.",
+    "original_evidence_preserved": true
+  },
+  "new_unresolved_spec_findings": [],
+  "outcome": "PASS",
+  "qualified_full_gate": {
+    "outer_and_native_exit": 0,
+    "complete_outer_log_read_lines": 2495,
+    "complete_outer_bytes": 282816,
+    "checked_modules": 977,
+    "actual_Built": 44,
+    "Lake_jobs": 10022,
+    "audit_rows": 975,
+    "kernel_safe_logical_declarations": 45630,
+    "theorems": 25386,
+    "unsafe": 0,
+    "excluded_unsafe": 0,
+    "axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "all12defining_modules_built_and_audited": true,
+    "postguard_artifacts": 2928,
+    "postguard_inconsistencies": 0,
+    "acceptance_mode": "normal incremental; retained accepted C1 fresh baseline",
+    "warning_headers": 571,
+    "module_advisories": 470,
+    "other_headers": 101,
+    "added_since_F": "10 module-import advisories only; all561 F headers retained exactly",
+    "all101other_warning_sources_equal_accepted_R": true
+  },
+  "actual314": {
+    "outer_and_native_exit": 0,
+    "every_full_actual_type_read": true,
+    "names": 314,
+    "native_lines": 3438,
+    "native_bytes": 256987,
+    "bounded_chunks": 19,
+    "proof_only_ellipsis_lines": 37,
+    "quantifiers_premises_values_or_results_hidden": false,
+    "source_config_pin_runtime_and_object_qualification": "Actual full stock lineage, private output ownership and exact matching pre/post records; independently reconciled immutable sources and full supported key sets.",
+    "fresh_receiving_insertion_names": 35
+  },
+  "qualified110": {
+    "producer": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "actual_F145_positions": [
+      [
+        20,
+        83
+      ],
+      [
+        100,
+        145
+      ]
+    ],
+    "exact_names": 110,
+    "same_reviewer_actual_producer_type_read_retained": true,
+    "complete_four_way_projection_matches": true,
+    "source_files": 23,
+    "import_edges": 58,
+    "external_import_names": 32,
+    "supported_object_hash_trace_entries": 69,
+    "configs": 10,
+    "actual_clean_dependencies": 9,
+    "runtime_components": 12,
+    "all_retained_REUSE01_through10_Spec_obligations_assessed": true,
+    "old_F145_not_rerun_at_I": true,
+    "whole_environment_equivalence_claim": false
+  },
+  "current_explicit_statement_account": {
+    "receiving_actual": 314,
+    "producer_attributed": 110,
+    "total_distinct": 424,
+    "279_unit_defining_file_surface_plus145_Foundation": true,
+    "not_a_new_declaration_count": true,
+    "C2_historical_counts_changed": false
+  },
+  "source_and_historical_evidence": [
+    {
+      "path": "reviews/shared-four-spec-integration-20261104.md",
+      "bytes": 16133,
+      "lines": 75,
+      "sha256": "3ea59b8a1c62df7f19066c7200410e293d78cf4624d90a67ec148104a7fd9dc1"
+    },
+    {
+      "path": "provenance/shared-four-spec-integration-20261104/source-assessment.json",
+      "bytes": 42136,
+      "lines": 1207,
+      "sha256": "c4cb641895db5651683acd382df5d27d107b4ae137c415b62b5ab24872caf268"
+    },
+    {
+      "path": "reviews/shared-foundations-spec-final-20261104.md",
+      "bytes": 5066,
+      "lines": 30,
+      "sha256": "f8c8d934662192f4376ab7ae2897957647a890ea964fca18555c0d12dfc5a8dc"
+    },
+    {
+      "path": "provenance/foundation-spec-terminal-assessment-20261104/actual145-read-progress.json",
+      "bytes": 9380,
+      "lines": 245,
+      "sha256": "ab4ba79877f9d85d3fe4f08d271312ed2f37922e60886e67a653afaea1e62a23"
+    },
+    {
+      "path": "provenance/shared-four-full-attempt1-20261104/full.log",
+      "bytes": 282816,
+      "lines": 2495,
+      "sha256": "a990e35c10e7c8f664298a028467dcc537f1aa6ae6e150f0d0526abf763c76e5"
+    },
+    {
+      "path": "provenance/shared-four-full-attempt1-20261104/result.json",
+      "bytes": 1246,
+      "lines": 32,
+      "sha256": "c539bb6d162c9a3a79f01bf8a74a9f7d2a97c3b4ade567a599ea3890dcb74226"
+    },
+    {
+      "path": "provenance/shared-four-full-attempt1-20261104/owned-terminal.json",
+      "bytes": 249,
+      "lines": 8,
+      "sha256": "9bf10b205a8e273b6e3c81218e3765864ca8eb04b22b4a89ff2032ecd6a24496"
+    },
+    {
+      "path": "provenance/shared-four-full-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "lines": 19,
+      "sha256": "2974a2efaa56703448e96ddeec25947e84e91b7733b4e8b405fdcf6d69fe816d"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/output.log",
+      "bytes": 256987,
+      "lines": 3438,
+      "sha256": "3bdb9dc0a92ec781a28b46de1a3eb843bda4efcd17c2292f091c19e52df7c50c"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/result.json",
+      "bytes": 1412,
+      "lines": 33,
+      "sha256": "4e96d347b0303913359798dc0d58981c59f8d07d70eb946f263a6c68fda83f44"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/owned-terminal.json",
+      "bytes": 237,
+      "lines": 8,
+      "sha256": "290da6f6103fbbd295d650f5c86d5146399d5b56eb518b39c910738c3ac201a4"
+    },
+    {
+      "path": "provenance/shared-four-foundation110-receiving-qualification-20261104/comparison.json",
+      "bytes": 114579,
+      "lines": 3232,
+      "sha256": "bdb7aaaba90baaa748466d7c084e9dd7214c346cc2c0736b92c5d1a5b3d2d256"
+    },
+    {
+      "path": "provenance/shared-four-foundation110-reuse-preparation-20261104/plan.md",
+      "bytes": 8082,
+      "lines": 44,
+      "sha256": "da2bf87a897fe5d77e6598a3c30e421e23c2faa96d71e8bb81d729cf22dab620"
+    }
+  ],
+  "new_own_evidence": [
+    {
+      "path": "provenance/shared-four-spec-terminal-20261104/full-log-read-progress.json",
+      "bytes": 9973,
+      "lines": 248,
+      "sha256": "4cf5f37434efb952be52c92ce5b2174f932e62d77e224b2acf3ad90ffc54ed1c"
+    },
+    {
+      "path": "provenance/shared-four-spec-terminal-20261104/full-gate-assessment.json",
+      "bytes": 53669,
+      "lines": 1450,
+      "sha256": "e45882268d2bee1433811bfb9eac6b72eafcf925a7737c391c47d3c3cc879391"
+    },
+    {
+      "path": "provenance/shared-four-spec-terminal-20261104/actual314-input-qualification.json",
+      "bytes": 5095,
+      "lines": 114,
+      "sha256": "4aef04733f3bb99e597640ed201726207e44a0752fb4ee3b29869521e62b371f"
+    },
+    {
+      "path": "provenance/shared-four-spec-terminal-20261104/actual314-type-read-progress.json",
+      "bytes": 21128,
+      "lines": 675,
+      "sha256": "0dab0663b61eba1eaa6cd13b2c9480d75bafa4c63acd587ddc7d1a889f9e7012"
+    },
+    {
+      "path": "provenance/shared-four-spec-terminal-20261104/actual314-complete-type-assessment.json",
+      "bytes": 19153,
+      "lines": 412,
+      "sha256": "93755b8c310680acd71460ca5922362be2e77e3debbce140d2234f2f3bf7067a"
+    },
+    {
+      "path": "provenance/shared-four-spec-terminal-20261104/receiving110-independent-reconciliation.json",
+      "bytes": 9886,
+      "lines": 306,
+      "sha256": "e86a651827a13ebec8f67f602f45433b545fc8e4ed23730d8684bd9d12e4582d"
+    },
+    {
+      "path": "provenance/shared-four-spec-terminal-20261104/receiving110-semantic-disposition.json",
+      "bytes": 14461,
+      "lines": 202,
+      "sha256": "d14261b13840e8e5859880b3105dcc549c80b40f7c7aee45488504e59ebe0848"
+    }
+  ],
+  "final_report": {
+    "path": "reviews/shared-four-spec-final-20261104.md",
+    "bytes": 16201,
+    "lines": 112,
+    "sha256": "e7d6ae04d2cf2a06e482274a9e0ab9f23d5a38ef78952ad0bcd288660d0a0f6c"
+  },
+  "supersession": "This exact-I final Spec verdict supersedes prior own pending/Blocked conclusions for I only. All earlier source and dated intermediate records remain unchanged and retain their historical read boundaries.",
+  "subsequent_coordinator_requirements": [
+    "Independent Standards final/transfer pass on exact I",
+    "Qualified immediate ./check.sh --verify-candidate HEAD on exact I with matching verification",
+    "Authorized exact local fast-forward and acceptance checkpoint"
+  ],
+  "coordinator_acceptance_or_immediate_verification_claimed": false,
+  "earlier_held_reports_and_acceptance_unchanged": true,
+  "reviewer_actions": "Only assigned new own review/provenance writes; immutable Git and secured closed evidence reads. No compiler, process polling, runtime/output capture, source/ref/cache/pin/ticket/global-control change."
+}

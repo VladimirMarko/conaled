@@ -1,0 +1,118 @@
+{
+  "unit": "FDSA-XU04",
+  "reviewer": "/root/chapter02_spec",
+  "recorded_utc": "2026-11-04T12:46:21.339437+00:00",
+  "candidate": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+  "fixed_base": "a0597381f02eddd074ee96cabaa974f2062285f8",
+  "original_six_path_scope_retained": true,
+  "source_preparation_complete": true,
+  "new_concrete_spec_findings": 0,
+  "overall": "Blocked",
+  "actual_type_credit": 0,
+  "compiler_credit": 0,
+  "full_check_or_audit_credit": 0,
+  "report": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/permutation-expectation-spec-preparation-20261104.md",
+    "bytes": 23193,
+    "newline_lines": 130,
+    "sha256": "0c8ed987cea562d8cd783926c3e6fedf3bf82f0e74f673e275bb67b1ebc64d15"
+  },
+  "source_assessment": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-expectation-spec-preparation-20261104/source-assessment.json",
+    "bytes": 78939,
+    "newline_lines": 2229,
+    "sha256": "6d3a28e1f9bf153eafde6cd274bc065a2716730aa310b663ffa76a7c723991c0"
+  },
+  "readback": {
+    "report": {
+      "complete": true,
+      "original_full_read_ranges": [
+        [
+          1,
+          130
+        ]
+      ],
+      "original_read_sha256": "2d299519408558bf3526141fd8ecb492a7cdd9698dc9bf00a7ad0265ff9b8afe",
+      "sole_wording_correction_read_range": [
+        93,
+        93
+      ],
+      "correction": "Clarified that A is nonempty and B is fixed; no nonempty-B premise is required for the displayed cardinal inequality.",
+      "all_other_bytes_exactly_retained": true
+    },
+    "source_assessment": {
+      "complete": true,
+      "ranges": [
+        [
+          1,
+          440
+        ],
+        [
+          441,
+          880
+        ],
+        [
+          881,
+          1320
+        ],
+        [
+          1321,
+          1760
+        ],
+        [
+          1761,
+          2229
+        ]
+      ],
+      "truncated_outputs_credited": false
+    }
+  },
+  "declarations": {
+    "public": 81,
+    "public_theorems": 53,
+    "public_definitions": 26,
+    "named_local_instances": 2,
+    "private_named_theorems": 12,
+    "anonymous_local_instances": 10,
+    "anonymous_examples": 0,
+    "generated_kernel_declarations_counted": false
+  },
+  "inherited_inputs": "Old Minimum/Order/Tail sources and complete diffs fully read; source identities differ from C2. No later compiler/type credit transferred.",
+  "source_attribution_limit": "Pinned book/obligation ranges newly read; Blelloch source remains attributed prior preflight inspection, not a new full paper read.",
+  "protected_reports_after": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/shared-foundations-spec-continuation-20261104.md",
+      "sha256": "450409a89197f229e88e12ff477f7c3e6b60c067fde0eef297a431163a7249d6",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter02-spec-source-preparation-20261104.md",
+      "sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/potential-spec-development-20261104.md",
+      "sha256": "9bba3ac4ffa5a5dab1e8a32e3a990851f55846a16dd4a16a72605fd00e21a615",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/affine-recurrence-spec-preparation-20261104.md",
+      "sha256": "8ee3cac08c1cb0d4b4d8b29821b5de9b54e549530d081155130065c3bb8e8b32",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/accumulated-work-spec-preparation-20261104.md",
+      "sha256": "9934402d16c3ff5e5006b8ade3ab6995f50739185ed1e5d68a2d9b004ef3f1ba",
+      "unchanged": true
+    }
+  ],
+  "prior_dispositions_unchanged": {
+    "chapter02_public_names": 1763,
+    "chapter02_actual_qualified": 1735,
+    "chapter02_retained_base": 28,
+    "foundation_public_types_pending": 145,
+    "potential_foundation110_reuse_credited": false
+  },
+  "writes_complete_for_handoff": true,
+  "next_action": "Await parent assignment or priority Foundation actual terminal evidence. All existing reports remain unchanged; no compiler/process/cache/source/ref actions."
+}

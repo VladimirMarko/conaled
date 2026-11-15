@@ -1,0 +1,114 @@
+{
+  "schema": "fdsa-spec-actual314-input-qualification-v1",
+  "utc": "2026-11-04T14:50:10.404345+00:00",
+  "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "metadata_fully_read": [
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/request.json",
+      "bytes": 883,
+      "lines": 22,
+      "sha256": "ccc7ea448e9377605da9771905fbc740feb32902ae5cb9dd0da5d4f45c630bdf"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/launch.json",
+      "bytes": 174,
+      "lines": 6,
+      "sha256": "8a1c061be5719c83f823af613096344eb0ddc11053e6be2fe4f70dc178c77499"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/start.json",
+      "bytes": 1076,
+      "lines": 27,
+      "sha256": "582cef8e3b7a704fa0e1c2d8ce0c3b030514b5fa38e96382bb31b4276fe532b2"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/result.json",
+      "bytes": 1412,
+      "lines": 33,
+      "sha256": "4e96d347b0303913359798dc0d58981c59f8d07d70eb946f263a6c68fda83f44"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/owned-terminal.json",
+      "bytes": 237,
+      "lines": 8,
+      "sha256": "290da6f6103fbbd295d650f5c86d5146399d5b56eb518b39c910738c3ac201a4"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 1982,
+      "lines": 45,
+      "sha256": "0d4727148b932bc98dfcb6729a0349c13062cda9a8e745fdc515571e871ee0fa"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/start.json",
+      "bytes": 567,
+      "lines": 14,
+      "sha256": "146560a48376372f9d6bc12bde6e61edd3a3771e3d015b6b5b6cf2d9f5ec6da6"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/result.json",
+      "bytes": 719,
+      "lines": 19,
+      "sha256": "e7a21394c023d7915d9e633d9f9cefce17579fe39c30b613b02f999e80d4749e"
+    },
+    {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/output-parser-first-failure.json",
+      "bytes": 586,
+      "lines": 8,
+      "sha256": "7d25e7fc9b73d94d0def3cc1c8c2b03c97410e4e872edc8e070473de892bafd7"
+    }
+  ],
+  "pre_input_fully_read": {
+    "path": "provenance/shared-four314-input-observations-20261104-attempt1/pre-inputs.json",
+    "bytes": 45835,
+    "lines": 972,
+    "sha256": "c3dc93d12e645171b3df24d417cc36838f666233c09034bb751672f47081f3f9"
+  },
+  "post_input": {
+    "path": "provenance/shared-four314-input-observations-20261104-attempt1/post-inputs.json",
+    "bytes": 46143,
+    "lines": 978,
+    "sha256": "fb1b01c56f251f9ddc28ae17b301d312b09714e687b5b0803fbe8be32ff95307"
+  },
+  "post_nonidentity_read": true,
+  "post_identity_exact_pre": true,
+  "time_order_full_then_pre_then_actual_then_post": true,
+  "actual_stock_lineage": "Complete current normal I build and postguard succeeded before pre observation, exclusive project output ownership remained held, same qualified stock native runtime/configuration/dependency records as accepted F; no fingerprint-only qualification claim.",
+  "counts": {
+    "names": 314,
+    "sources": 27,
+    "objects_hashes_traces": 81,
+    "configs": 10,
+    "pins": 9,
+    "runtime": 12,
+    "roots": 14,
+    "external_imports": 22
+  },
+  "source_hashes_and_git_blobs_all_match_immutable_I": true,
+  "complete_supported_artifact_keyset_verified": true,
+  "all_dependency_status_clean": true,
+  "configuration_dependencies_runtime_exact_accepted_F_observation": true,
+  "actual_exit": 0,
+  "native_exit": 0,
+  "native_original_copies_equal": true,
+  "outer_native_offset": 209,
+  "outer_prefix_read": "[lock] project-81eeeef193c174f3d829\n[run] lake env lean /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean\n",
+  "outer_suffix_read": "[result] exit=0, 19.375s; /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T144502Z-project-run-0933976a/result.json\n",
+  "copied_verification": "Exact full I gate verification, not an additional audit or immediate candidate verification",
+  "program": {
+    "path": "provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+    "bytes": 16826,
+    "lines": 340,
+    "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754"
+  },
+  "all314names_once_exact_order": true,
+  "all314block_byte_ranges_and_hashes_independently_verified": true,
+  "printer_profile": [
+    "pp.universes=true",
+    "pp.explicit=true",
+    "pp.fullNames=true"
+  ],
+  "parser_failure": "Preserved coordinator-only multiline universe matcher failure; no compiler/output alteration",
+  "actual_type_read": "Pending complete full types; this input qualification gives no semantic approval",
+  "overall": "Blocked pending complete actual314 and110 assessment"
+}

@@ -1,0 +1,9 @@
+{
+  "command": [
+    "python3",
+    "session/validation/test-direct-validation.py"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": ".F.\n======================================================================\nFAIL: test_existing_record_is_refused_without_overwrite (__main__.RunnerGuards.test_existing_record_is_refused_without_overwrite) (flags=('--fresh',))\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/b566cace4ed6/pfds/session/validation/test-direct-validation.py\", line 44, in test_existing_record_is_refused_without_overwrite\n    self.assertIn(\"Evidence path already exists\", result.stderr)\nAssertionError: 'Evidence path already exists' not found in 'usage: run-direct-validation.py [-h] [--full-record FULL_RECORD]\\n                                {full,focus,verify} run_id\\nrun-direct-validation.py: error: unrecognized arguments: --fresh\\n'\n\n----------------------------------------------------------------------\nRan 3 tests in 0.210s\n\nFAILED (failures=1)\n"
+}

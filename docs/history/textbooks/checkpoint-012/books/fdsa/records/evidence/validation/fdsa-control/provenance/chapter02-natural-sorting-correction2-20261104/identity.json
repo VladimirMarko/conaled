@@ -1,0 +1,20 @@
+{
+  "recorded_utc": "2026-11-04T06:27:37.505911+00:00",
+  "before": "ce28f2f3248b334b17ec339a1cae0e2099cd887a",
+  "after": "6e332c5fe00bb1f4a62e8a98ecc2d877c8058212",
+  "findings": [
+    "C02-NAT-ELAB-005",
+    "C02-NAT-ELAB-006",
+    "C02-NAT-ELAB-007",
+    "C02-NAT-ELAB-008",
+    "C02-NAT-ELAB-009"
+  ],
+  "actual_failed_attempt": "chapter02-natural-sorting-focused-20261104-attempt2",
+  "failed_log_sha256": "362121b4f2e01802b5be3adcea81e753a2add8d693743fc854a47fed855faac6",
+  "file": "Examples/NaturalSortingCosts.lean",
+  "bytes": 10410,
+  "sha256": "84a84e49927d9267550bdf8f22c2cc250305a9e6dc410e046689310704fa520e",
+  "diff_sha256": "c6aad2618bb1bdfcf33ebb540fce5dd3fdbe4af67481b7778a3e770d57c306f3",
+  "statement_assessment": "All30 public headers identical. Only proof bodies: explicit definitionally equal comparator goals; narrow normalization retains integer-bound theorem applications; constructive arbitrary-payload Pairwise proof; actual singleton length normalization; correct implicit Pairwise.imp binders. Cases, values, costs, algorithms and hypotheses unchanged.",
+  "status": "uncompiled correction; no gate waived"
+}

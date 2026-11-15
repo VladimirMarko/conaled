@@ -1,0 +1,18 @@
+{
+  "observed_utc": "2026-11-04T13:55:35.779353+00:00",
+  "checkpoint_number": 119,
+  "attempted_output": "checkpoints/conaled-vfa-checkpoint-119-fresh-output-failure-preserved.tar.gz",
+  "actual_execution_api_result": {
+    "chunk_id": "46cdcb",
+    "wall_time_seconds": 5.571782355,
+    "exit_code": 1,
+    "original_token_count": 391,
+    "output": "Warning: truncated output (original token count: 391)\nTotal output lines: 21\n\nTraceback (most recent call last):\n  File \"/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/tools/checkpoint_compact.py\", line 497, in <module>\n    main()\n  File \"/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/tools/checkpoint_compact.py\", line 488, in main\n    result = capture(args)\n             ^^^^^^^^^^^^^\n  File \"/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/tools/checkpoint_compact.py\", line 450, in capture\n    restore(base_archive, packed, temp / \"restore-smoke\")\n  \u2026141 tokens truncated\u2026^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/tools/checkpoint_compact.py\", line 50, in run\n    raise RuntimeError(f\"Command failed ({result.returncode}): {argv!r}\\n\"\nRuntimeError: Command failed (1): ['git', '-c', 'core.fsmonitor=false', 'bundle', 'unbundle', '/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/compact-capture-inntjdfz/compact-read-2f6fmiif/b/base/conaled-base.bundle']\nfatal: write error: No space left on device\nerror: index-pack died\n\n"
+  },
+  "phase": "Checkpointpayload packed but actualrestore-smoke gitunbundle of fixedbase failed with fatal writeerror No spaceleftondevice and index-packdied.",
+  "archive_present_after_failure": false,
+  "restore_smoke_completed": false,
+  "uploaded": false,
+  "latest_completed_checkpoint": 117,
+  "formal_gate_credit": false
+}

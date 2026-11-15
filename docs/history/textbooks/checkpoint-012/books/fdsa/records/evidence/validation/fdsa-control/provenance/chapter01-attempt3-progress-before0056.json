@@ -1,0 +1,87 @@
+{
+  "observed_utc": "2026-11-02T23:02:32.024474+00:00",
+  "effective_uid": 0,
+  "free_block_bytes": 3018862592,
+  "unprivileged_available_bytes": 0,
+  "review_head": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "review_status": "",
+  "recorder_result": "running",
+  "log_bytes": 167009,
+  "log_sha256": "8a8a7c80f6994aa4e11dcab33e38403c2ac1659589bcabd5d6feaf67f5991f32",
+  "last_complete_line": "\u2714 [9559/9562] Built Applications.FRP.Finite (1929s)",
+  "processes": [
+    {
+      "pid": 600750,
+      "state": "S",
+      "ppid": 1,
+      "process_group": 600750,
+      "session": 600750,
+      "start_ticks": "9123853",
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "command_prefix": [
+        "python3",
+        "/workspace/scratch/845aa1048b05/fdsa-control/provenance/run-chapter01-repair-attempt3.py"
+      ],
+      "argument_count": 2,
+      "command_sha256": "c9c559897b9f1da54e00349fb9f0ff1a87cae203bc6dab2293b81b272d082aee"
+    },
+    {
+      "pid": 600779,
+      "state": "S",
+      "ppid": 600750,
+      "process_group": 600750,
+      "session": 600750,
+      "start_ticks": "9123889",
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "command_prefix": [
+        "python3",
+        "scripts/check.py",
+        "--candidate",
+        "HEAD"
+      ],
+      "argument_count": 4,
+      "command_sha256": "e75de9e2f717d0686040151688e9621fc015ebdaeddda06185c545738c2f460d"
+    },
+    {
+      "pid": 600956,
+      "state": "S",
+      "ppid": 600779,
+      "process_group": 600750,
+      "session": 600750,
+      "start_ticks": "9124698",
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "command_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake",
+        "--no-cache",
+        "--rehash",
+        "build",
+        "+Squares",
+        "+Applications.AD.Core"
+      ],
+      "argument_count": 964,
+      "command_sha256": "45f51fb4dd0ea56e5594b68c0d66b67b019d1718955c35f657b819c07613f17d"
+    },
+    {
+      "pid": 619348,
+      "state": "S",
+      "ppid": 600956,
+      "process_group": 600750,
+      "session": 600750,
+      "start_ticks": "9324229",
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "command_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/Examples/FRP.lean",
+        "-o",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/FRP.olean",
+        "-i",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/FRP.ilean"
+      ],
+      "argument_count": 11,
+      "command_sha256": "d38cd538ba8718a3bbf64db536943c2b554f84b35b81836923f068bfdefe9a01"
+    }
+  ],
+  "unreadable_cwd_count": 0,
+  "verification_copy_exists": false,
+  "qualification": "A current liveness observation, not a terminal outcome, successful audit or chapter acceptance. f_bavail zero is not evidence of a new ENOSPC exit."
+}

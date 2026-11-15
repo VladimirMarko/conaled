@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "time": "2026-11-03T23:53:52.123707+00:00",
+  "author": "root",
+  "kind": "complete-static-report-read-and-source-identity",
+  "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+  "tree": "d3dcf94916de5ccaf3df357e06192e69c4e0cf33",
+  "source_files_checked": 170,
+  "source_hash_blob_mode_match": true,
+  "clean_checkout": true,
+  "reports": {
+    "reviews/common-integration-standards-r1-045.md": {
+      "sha256": "0269b80ccc189e1f0368f8655204c539a77ca92ba0f6e01216af90a3ddd46645",
+      "bytes": 52001,
+      "root_read_complete": true
+    },
+    "reviews/common-integration-spec-r1-045.md": {
+      "sha256": "c79f3e166d48cb49fef92f81f37b7105ccc28101b97795182fc43d82f83a905c",
+      "bytes": 51573,
+      "root_read_complete": true
+    }
+  },
+  "new_static_findings": 0,
+  "scope_outcomes": "Blocked on genuine validation for all nine scopes",
+  "formal_acceptance": false,
+  "current_full_run": "integration-3cf-fresh-r1-045",
+  "observed_full_status": "running",
+  "terminal_result_observed": false,
+  "root_suite_wording_qualification": "The historical root check compared exact sets of 38 roots; it was not 38 separate tests."
+}

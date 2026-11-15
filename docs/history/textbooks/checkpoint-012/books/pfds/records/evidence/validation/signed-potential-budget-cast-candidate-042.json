@@ -1,0 +1,12 @@
+{
+  "recorded_at": "2026-11-03T17:01:17.940878+00:00",
+  "base": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+  "prior": "956c4b06abe8d54f78a6166690c12453115f8304",
+  "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+  "checkout": "signed-potential",
+  "failure_record": "validation/signed-956-native-r1.json",
+  "diagnosis": "Expected Real type on the whole budget let Lean infer Real for generalized budget D, coercing the Nat literal instead of the entire Nat sum. Explicit inner : Nat fixes the budget codomain before applying the outer Real coercion, so the existing budget_map bridge and Nat budget_constant rewrite apply to their intended terms.",
+  "statement_review": "The realBudget theorem statement, algorithm, charge2 and expected2*n remain unchanged. The proof now pins the intended existing natural budget before transport. No new axiom, admission, resource override or linter suppression.",
+  "validation": "diff --check passed; prior signed example names now genuinely compile at956; corrected transport and full gates pending",
+  "acceptance": false
+}

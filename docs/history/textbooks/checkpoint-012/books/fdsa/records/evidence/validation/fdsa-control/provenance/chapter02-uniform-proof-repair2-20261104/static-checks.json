@@ -1,0 +1,53 @@
+{
+  "recorded_utc": "2026-11-04T08:52:15.854656+00:00",
+  "source": [
+    {
+      "path": "conaled-ch02-uniform-input/Applications/Resources/UniformQuickSortMean.lean",
+      "bytes": 38157,
+      "lines": 789,
+      "sha256": "5e997076f474f1cfcc51cac11c31b870a1cd265cf121c6ae11519beab009ad67"
+    },
+    {
+      "path": "conaled-ch02-uniform-input/Examples/UniformQuickSortMean.lean",
+      "bytes": 16466,
+      "lines": 352,
+      "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5"
+    }
+  ],
+  "before": [
+    {
+      "path": "fdsa-control/provenance/chapter02-uniform-proof-repair2-20261104/before-core.lean",
+      "bytes": 37880,
+      "lines": 783,
+      "sha256": "135066a5f434ddd99981212a739b165ccdacadbff1448e5f7c358ff04e33883f"
+    },
+    {
+      "path": "fdsa-control/provenance/chapter02-uniform-proof-repair2-20261104/before-examples.lean",
+      "bytes": 16466,
+      "lines": 352,
+      "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5"
+    }
+  ],
+  "diff": {
+    "path": "fdsa-control/provenance/chapter02-uniform-proof-repair2-20261104/source.diff",
+    "bytes": 2027,
+    "lines": 36,
+    "sha256": "af37c072bda9cb2c1c420b9d52f6a3c4f049205051439258031670f26db26b9d"
+  },
+  "inventory": {
+    "path": "fdsa-control/provenance/chapter02-uniform-proof-repair2-20261104/source-inventory.json",
+    "bytes": 92630,
+    "lines": 1664,
+    "sha256": "fbe8d5e00e0e9aeeb921db1426e888da38d1d3184686bec974288cffd78d6812"
+  },
+  "git_diff_check_exit": 0,
+  "changed_files": [
+    "Applications/Resources/UniformQuickSortMean.lean"
+  ],
+  "two_proof_mask_comparison_exact": true,
+  "declaration_headers_count": 125,
+  "all_headers_unchanged": true,
+  "examples_byte_identical": true,
+  "compile_or_build_run": false,
+  "read_method": "Two changed theorem bodies, relevant prerequisites/consumers and the entire 352-line example file read in bounded untruncated output; complete 125-name summary read. An initial oversized prior-inventory object display was truncated and is not claimed as a new full raw inventory read. Previous complete 125-claim source assessment is retained for unchanged content."
+}

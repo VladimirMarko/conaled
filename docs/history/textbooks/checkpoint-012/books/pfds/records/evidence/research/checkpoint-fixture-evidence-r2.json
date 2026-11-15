@@ -1,0 +1,111 @@
+{
+  "assessed_script_sha256": "617c14ed63170ee39a8ac1df2eb4cc20b1b509ebd5f1d4c16ae4e469b7ed51ab",
+  "all_requested_scenarios_passed": true,
+  "note": "Each scenario used a disposable independent Git repository. Source script and live repository were not modified. Failed-capture scenarios report an expected rejection, not a process error.",
+  "results": [
+    {
+      "script_sha256": "617c14ed63170ee39a8ac1df2eb4cc20b1b509ebd5f1d4c16ae4e469b7ed51ab",
+      "scenario": "dirty",
+      "capture_exit": 0,
+      "stdout": "{\"path\": \"/workspace/scratch/ca9a61d0bf30/checkpoint-fixture-ljqn78xp/checkpoints/conaled-pfds-checkpoint-999.tar.gz\", \"bytes\": 7647, \"sha256\": \"13f28176bb40f1d8b789b4157f7d59450bc823e481ab7ac37299c96cbec92a8b\", \"head\": \"765164131074ee39c066b5b074534e242ccba37e\", \"restore_test\": \"passed\"}",
+      "archive_created": true,
+      "captured_status": "epoch 0",
+      "captured_tickets": {
+        "epoch": 0
+      },
+      "scratch_lean_included": false,
+      "fake_auth_json_included": false,
+      "refs": {
+        "refs/heads/pfds/local": {
+          "object": "765164131074ee39c066b5b074534e242ccba37e",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/upstream-task": {
+          "object": "69137b2f1608d78e396d596771409d76fc8abae3",
+          "symbolic": ""
+        },
+        "refs/reviews/candidate": {
+          "object": "69137b2f1608d78e396d596771409d76fc8abae3",
+          "symbolic": ""
+        },
+        "refs/reviews/current": {
+          "object": "69137b2f1608d78e396d596771409d76fc8abae3",
+          "symbolic": "refs/reviews/candidate"
+        },
+        "refs/tags/fixture-tag": {
+          "object": "453f5f513316ab75f61ecdc709a5b5b30bf93c24",
+          "symbolic": ""
+        }
+      },
+      "included_ignored_files": [],
+      "untracked_archive_files": [
+        "untracked.bin",
+        "untracked.txt"
+      ]
+    },
+    {
+      "script_sha256": "617c14ed63170ee39a8ac1df2eb4cc20b1b509ebd5f1d4c16ae4e469b7ed51ab",
+      "scenario": "race",
+      "capture_exit": "Task record changed during capture: tracker/tickets.json",
+      "stdout": "",
+      "archive_created": false
+    },
+    {
+      "script_sha256": "617c14ed63170ee39a8ac1df2eb4cc20b1b509ebd5f1d4c16ae4e469b7ed51ab",
+      "scenario": "selection",
+      "capture_exit": 0,
+      "stdout": "{\"path\": \"/workspace/scratch/ca9a61d0bf30/checkpoint-fixture-zzz6pmtb/checkpoints/conaled-pfds-checkpoint-999.tar.gz\", \"bytes\": 7991, \"sha256\": \"ed3e4ef554cc52c2291459637c1980a923d7a4f6d2d3f82abf36568b578a147f\", \"head\": \"d5528b3d2f4c48503dc888dc47a3a7c0667d6b86\", \"restore_test\": \"passed\"}",
+      "archive_created": true,
+      "captured_status": "epoch 0",
+      "captured_tickets": {
+        "epoch": 0
+      },
+      "scratch_lean_included": true,
+      "fake_auth_json_included": false,
+      "refs": {
+        "refs/heads/pfds/local": {
+          "object": "d5528b3d2f4c48503dc888dc47a3a7c0667d6b86",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/upstream-task": {
+          "object": "fee7891cc96a6eb708e7c81cd29936dbc33aa36a",
+          "symbolic": ""
+        },
+        "refs/reviews/candidate": {
+          "object": "fee7891cc96a6eb708e7c81cd29936dbc33aa36a",
+          "symbolic": ""
+        },
+        "refs/reviews/current": {
+          "object": "fee7891cc96a6eb708e7c81cd29936dbc33aa36a",
+          "symbolic": "refs/reviews/candidate"
+        },
+        "refs/tags/fixture-tag": {
+          "object": "a93ee615b6dd5cedf2c1f651e1f3923c1baf6549",
+          "symbolic": ""
+        }
+      },
+      "included_ignored_files": [
+        "ignored-proof.log"
+      ],
+      "untracked_archive_files": [
+        "untracked.bin",
+        "untracked.txt",
+        "ignored-proof.log"
+      ]
+    },
+    {
+      "script_sha256": "617c14ed63170ee39a8ac1df2eb4cc20b1b509ebd5f1d4c16ae4e469b7ed51ab",
+      "scenario": "credential",
+      "capture_exit": "Credential-like task record must not be archived: auth.json",
+      "stdout": "",
+      "archive_created": false
+    },
+    {
+      "script_sha256": "617c14ed63170ee39a8ac1df2eb4cc20b1b509ebd5f1d4c16ae4e469b7ed51ab",
+      "scenario": "symlink",
+      "capture_exit": "Task record symlink needs an explicit recovery policy: alias.md",
+      "stdout": "",
+      "archive_created": false
+    }
+  ]
+}

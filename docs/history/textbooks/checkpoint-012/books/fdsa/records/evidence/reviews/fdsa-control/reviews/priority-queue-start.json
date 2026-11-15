@@ -1,0 +1,107 @@
+{
+  "recorded_utc": "2026-11-02T19:40:09.794287+00:00",
+  "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "head": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "branch": "work/fdsa-priority-observations",
+  "worktree": "/workspace/scratch/845aa1048b05/conaled-priority-observations",
+  "index_and_worktree_status": "",
+  "new_paths_absent": [
+    "Applications/Search/PriorityMultiset.lean",
+    "Applications/Search/PriorityMerge.lean",
+    "Examples/PriorityModels.lean",
+    "docs/research/fdsa-priority-queues.md"
+  ],
+  "existing_paths": {
+    "SquareApplications.lean": {
+      "bytes": 8292,
+      "lines": 252,
+      "sha256": "b36e3743af5043667735caab1327fda8fc1b6eebc2d7842cdd926b329b2efd68"
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "bytes": 15963,
+      "lines": 262,
+      "sha256": "3283880ec3b0d55286be1b080c3b58e606577e9a522f21477b8499306c627668"
+    }
+  },
+  "preserved_existing_sources": {
+    "Applications/Search/PriorityInterface.lean": {
+      "bytes": 3992,
+      "lines": 85,
+      "sha256": "8c1b6d6a08c8d0be52efe211affa7032d02b52e383e8bbdd4a4af82b22ee18a6"
+    },
+    "Applications/Search/ExactPriority.lean": {
+      "bytes": 5912,
+      "lines": 139,
+      "sha256": "f2965206add281267f898b3c7e46261a5f4b8f87a43c83e97463bd296633c879"
+    },
+    "Applications/Search/LeftistQueue.lean": {
+      "bytes": 13036,
+      "lines": 350,
+      "sha256": "14a0d1130e04e2576dea2abb452823b5504cdbac9dbc1010f15a2f327c6bc378"
+    },
+    "Applications/Search/PrioritySearchQueue.lean": {
+      "bytes": 10913,
+      "lines": 308,
+      "sha256": "e1fce1ccb69db8f9b384584367f9a967fd9efb111a08a67554d82f230538c59f"
+    },
+    "Applications/Huffman/Priority.lean": {
+      "bytes": 9475,
+      "lines": 224,
+      "sha256": "c06cfbe28f488d5aed5ddc2cc2f8002244eb22818c875b3f752dfccc393048e1"
+    },
+    "Applications/Huffman/SourcePriority.lean": {
+      "bytes": 2142,
+      "lines": 58,
+      "sha256": "de80cc229d7854a18efcf6901cc166a41a258d7371ddfef54ac603884eb9af4c"
+    },
+    "Examples/Huffman.lean": {
+      "bytes": 8655,
+      "lines": 193,
+      "sha256": "2048293f7f37f1dd1b6ff8e3ded5c34c4a5be21d91a29fb8fa0dc382010a1a38"
+    }
+  },
+  "input_identities": {
+    "reviews/priority-queue-requirements.md": {
+      "bytes": 34360,
+      "lines": 581,
+      "sha256": "ea6e81e44065a8c0d7a719374cf377c1692b81672a96af71b7c92aeaf348d6ca"
+    },
+    "reviews/priority-queue-requirements-draft.md": {
+      "bytes": 31782,
+      "lines": 538,
+      "sha256": "ded238065a0e9e02202c162111e60d4cd262dae25a9bbd678fa84c079446123d"
+    },
+    "research/priority-queue-source-preflight.md": {
+      "bytes": 29031,
+      "lines": 416,
+      "sha256": "79fff00277221c6c5279841a5eb88517f57a2e52cf8b0f1ac393492a87bdec79"
+    },
+    "research/priority-queue-api-preflight.md": {
+      "bytes": 31737,
+      "lines": 257,
+      "sha256": "12927ddbc7198cd6d9e8f23587671fe42134373b699d8a99282930108a36b2f8"
+    },
+    "research/priority-queue-case-preflight.md": {
+      "bytes": 26693,
+      "lines": 424,
+      "sha256": "4b642e8382a65e4369bb9e84e0a141fa8ec29d2104651b4bc51c478c15445278"
+    },
+    "reviews/priority-queue-preflight-readback.md": {
+      "bytes": 9597,
+      "lines": 157,
+      "sha256": "1e6b23a0de04c306b646d9109401085796fd4bfce4762220d2178f1cf63d80f3"
+    },
+    "reviews/priority-queue-requirements-assessment.md": {
+      "bytes": 3982,
+      "lines": 66,
+      "sha256": "c2f3ca6265f51ab0b0112b83e8864a7cda3fa62e73ea8c7503da76288ce41a9f"
+    }
+  },
+  "packages_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+  "project_build_exists": false,
+  "source_authoring_released": false,
+  "prerequisite": "accepted repaired FDSA-001 before integration and acceptance; no other shared dependency",
+  "initial_chapter02_prefix": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "validation": "No XH01 compiler/checker/audit/review approval. Chapter1 session83124 remains the sole compiler/checker.",
+  "checkpoint_before_authoring": "conaled-fdsa-0050-priority-queue-start"
+}

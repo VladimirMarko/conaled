@@ -1,0 +1,25 @@
+{
+  "purpose": "Expected red: executable implementation does not yet exist",
+  "candidate": "49e0b0202b75dd8f477afa2bef32aeba5ea32821",
+  "cwd": "/workspace/scratch/0c54f2db1fdf/validation-recorder-validation",
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "environment": "Pinned conaled Nix development shell; no Lean commands",
+  "python_executable": "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+  "python_version": "3.13.15 (main, Aug  5 2026, 12:25:43) [GCC 15.3.0]",
+  "started_utc": "2026-11-02T21:13:27.694856+00:00",
+  "finished_utc": "2026-11-02T21:13:27.854288+00:00",
+  "elapsed_seconds": 0.15945009200368077,
+  "raw_returncode": 1,
+  "before_status": "",
+  "after_status": "",
+  "log_sha256": "edcbc55dd6a45ca9363c2da4149763db731b6e9198af4520444fa6a120eec5b7"
+}

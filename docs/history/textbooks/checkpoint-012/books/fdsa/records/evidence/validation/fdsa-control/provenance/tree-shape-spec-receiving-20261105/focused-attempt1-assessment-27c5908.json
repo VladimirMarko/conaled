@@ -1,0 +1,143 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-05T03:24:40.856882+00:00",
+  "unit": "FDSA-XT02",
+  "axis": "Spec",
+  "reviewer": "/root/tree_cache_spec",
+  "candidate": "27c5908b07c7a03feefc09472a8701ef940b7aaf",
+  "tree": "2833c54c80e93940eaea859737d6854fb2ce933e",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "incorporated_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "attempt": 1,
+  "actual_terminal_chunk": "749654",
+  "owned_session": 18509,
+  "actual_exit": 1,
+  "state": "CLOSED failed",
+  "actual_command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "build",
+    "Applications.Trees.Shape",
+    "Applications.Trees.ShapeLog",
+    "Examples.TreeShape"
+  ],
+  "native_command": [
+    "lake",
+    "build",
+    "Applications.Trees.Shape",
+    "Applications.Trees.ShapeLog",
+    "Examples.TreeShape"
+  ],
+  "lean_threads": 1,
+  "initial_final_candidate_clean": true,
+  "complete_closed_log": true,
+  "outer_prefix_native_suffix_exact": true,
+  "saved_native_origin_exact": true,
+  "all_terminal_recorder_native_exits_agree": true,
+  "source_core_built": true,
+  "real_bridge_failed": true,
+  "examples_built": false,
+  "diagnosis": "Two rewrite proof bodies do not match the Nat-cast base two in pinned Real.natFloor_logb_natCast / natCeil_logb_natCast against literal Real two in the target. The literal-base real statements and almost-complete hypotheses remain the required mathematics. A proof-only explicit conversion is pending implementation and a new immutable candidate.",
+  "error_locations": [
+    "Applications/Trees/ShapeLog.lean:60:6",
+    "Applications/Trees/ShapeLog.lean:66:6"
+  ],
+  "inherited_verification_candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "inherited_verification_supplies_XT02_credit": false,
+  "focused_result_not_full_check_or_audit": true,
+  "new_concrete_spec_findings": [],
+  "retained_finding": "XT02-SP01 source correction retained; final qualified actual-type/candidate confirmation pending",
+  "original_complete_source_scope_retained": true,
+  "overall": "Blocked pending correction and actual receiving-candidate type/full validation",
+  "complete_full_log_read": {
+    "receipt": "b64a89",
+    "actual_exit": 0,
+    "lines": [
+      1,
+      47
+    ],
+    "untruncated": true
+  },
+  "prior_source_hold_read_and_all9_bindings_verified": {
+    "receipt": "7c5283",
+    "actual_exit": 0
+  },
+  "no_compiler_or_process_polling": true,
+  "bound_evidence": {
+    "provenance/tree-shape-receiving-focused-attempt1-20261105/request.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt1-20261105/request.json",
+      "bytes": 806,
+      "sha256": "8da4a8ebc5f88b997007ce6b1505be5f9715195456b167db036263f7969dd6f4"
+    },
+    "provenance/tree-shape-receiving-focused-attempt1-20261105/start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt1-20261105/start.json",
+      "bytes": 999,
+      "sha256": "aa7bdea0fad3fe01392de4556b7e271205305eb4fb4baf8e9ec9775b8b9e6666"
+    },
+    "provenance/tree-shape-receiving-focused-attempt1-20261105/owned-terminal.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt1-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "4b413f6f06e9c583aab9490b989a6df6bdf0a468caef59abffccaf8e48b64c29"
+    },
+    "provenance/tree-shape-receiving-focused-attempt1-20261105/actual-tool-terminal.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt1-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "sha256": "57119c4c732ba0729ba7c2bbe845b6bf7649090c752a8f00f9ec8c2c69d2b284"
+    },
+    "provenance/tree-shape-receiving-focused-attempt1-20261105/result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt1-20261105/result.json",
+      "bytes": 1326,
+      "sha256": "ea25baa1651c787556abbf03f0ec5b92064af43ae995fc376142633a16da3bc3"
+    },
+    "provenance/tree-shape-receiving-focused-attempt1-20261105/closed-evidence-reconciliation.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt1-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2172,
+      "sha256": "35c6c033c1f1505f08b5d72ecf7c81d1fe8465a97958cd7e0d46e5be8f0b1f6f"
+    },
+    "provenance/tree-shape-receiving-focused-attempt1-20261105/native-records/start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt1-20261105/native-records/start.json",
+      "bytes": 490,
+      "sha256": "3258811a911dadf2d953b33f937655f0175b604edc0edd7774e36e14e6e771dd"
+    },
+    "provenance/tree-shape-receiving-focused-attempt1-20261105/native-records/result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt1-20261105/native-records/result.json",
+      "bytes": 644,
+      "sha256": "b4f166fd78e137b9c668cf1ce8e4fc4068ef4e8e0d48cb8158fcbd5ed4228c42"
+    },
+    "provenance/tree-shape-receiving-focused-attempt1-20261105/native-records/output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt1-20261105/native-records/output.log",
+      "bytes": 5963,
+      "sha256": "7c7d2ed76e49ee8bc532330c547aa571d138b34e6fc518087172480b37ff5260"
+    },
+    "provenance/tree-shape-receiving-focused-attempt1-20261105/full.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt1-20261105/full.log",
+      "bytes": 6245,
+      "sha256": "fe1efdfbe87df7cc20613b7733d3627e05ef4477c031db7a7c61303d05589578"
+    },
+    "provenance/tree-shape-receiving-focused-attempt1-20261105/outer-prefix.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt1-20261105/outer-prefix.log",
+      "bytes": 125,
+      "sha256": "999292cbebcbe57384f49b15a5708b8b34724cb93449571aa3b7744593533c37"
+    },
+    "provenance/tree-shape-receiving-focused-attempt1-20261105/outer-suffix.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt1-20261105/outer-suffix.log",
+      "bytes": 157,
+      "sha256": "8fa41a501ddb9cc3f80ff1bda0a97032b415ffa3ad5f7e6074957c1ac5c89406"
+    },
+    "provenance/tree-shape-receiving-focused-attempt1-20261105/verification.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-focused-attempt1-20261105/verification.json",
+      "bytes": 867,
+      "sha256": "329f0d0087adc21b3446d7f10b67c472cdf62238ccf578865eec20569c04da61"
+    }
+  }
+}

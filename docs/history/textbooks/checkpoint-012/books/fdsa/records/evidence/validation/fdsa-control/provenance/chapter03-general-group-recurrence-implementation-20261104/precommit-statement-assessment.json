@@ -1,0 +1,293 @@
+{
+  "recorded_utc": "2026-11-04T20:23:41.624080+00:00",
+  "author": "root implementation statement review, not independent Standards/Spec",
+  "starting_state": {
+    "bytes": 5273,
+    "sha256": "7c059a298b2caed58000c0150f94a5b81d461c9ff06aad132de85d8ce650cb6e"
+  },
+  "public_names": 43,
+  "definitions": 6,
+  "theorems": 37,
+  "private_or_anonymous_authored": 0,
+  "all_declarations": [
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "def",
+      "name": "Resources.GroupSelectionRecurrence.pivotFraction",
+      "header": "def pivotFraction (d : Nat) : \u211d"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "def",
+      "name": "Resources.GroupSelectionRecurrence.sideFraction",
+      "header": "def sideFraction (d : Nat) : \u211d"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.fractions_pos",
+      "header": "theorem fractions_pos (d : Nat) (hd : 0 < d) :\n    0 < pivotFraction d \u2227 0 < sideFraction d"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.fraction_sum_eq",
+      "header": "theorem fraction_sum_eq (d : Nat) (hd : 0 < d) :\n    pivotFraction d + sideFraction d =\n      ((d : \u211d) + ((d / 2 : Nat) : \u211d) + 2) / (2 * (d : \u211d))"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.contracts_iff_half_gap",
+      "header": "theorem contracts_iff_half_gap (d : Nat) (hd : 0 < d) :\n    pivotFraction d + sideFraction d < 1 \u2194 2 < d - d / 2"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.contracts_iff_five_le",
+      "header": "theorem contracts_iff_five_le (d : Nat) (hd : 0 < d) :\n    pivotFraction d + sideFraction d < 1 \u2194 5 \u2264 d"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.odd_contracts_iff",
+      "header": "theorem odd_contracts_iff (r : Nat) :\n    pivotFraction (2 * r + 1) + sideFraction (2 * r + 1) < 1 \u2194 2 \u2264 r"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.even_contracts_iff",
+      "header": "theorem even_contracts_iff (r : Nat) (hr : 0 < r) :\n    pivotFraction (2 * r) + sideFraction (2 * r) < 1 \u2194 3 \u2264 r"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "def",
+      "name": "Resources.GroupSelectionRecurrence.pivotChild",
+      "header": "def pivotChild (d n : Nat) : Nat"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "def",
+      "name": "Resources.GroupSelectionRecurrence.sideChild",
+      "header": "def sideChild (d n : Nat) : Nat"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.pivotChild_one",
+      "header": "theorem pivotChild_one (n : Nat) : pivotChild 1 n = n"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.pivotChild_monotone",
+      "header": "theorem pivotChild_monotone (d : Nat) : Monotone (pivotChild d)"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.sideChild_monotone",
+      "header": "theorem sideChild_monotone (d : Nat) : Monotone (sideChild d)"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.two_group_bound_le_child",
+      "header": "theorem two_group_bound_le_child (d n s : Nat) (hd : 0 < d)\n    (bound : s \u2264 (d / 2) * pivotChild d n +\n      (d - d / 2) * (pivotChild d n / 2)) : s \u2264 sideChild d n"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "def",
+      "name": "Resources.GroupSelectionRecurrence.cutoff",
+      "header": "def cutoff (d : Nat) : Nat"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.cutoff_threshold",
+      "header": "theorem cutoff_threshold (d : Nat) :\n    (max 0 (0 : \u211d) + max 0 (d : \u211d) + 2) /\n      (1 - pivotFraction d - sideFraction d) < (cutoff d : \u211d)"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.children_lt",
+      "header": "theorem children_lt (d n : Nat) (hd : 5 \u2264 d) (large : cutoff d < n) :\n    pivotChild d n < n \u2227 sideChild d n < n"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "def",
+      "name": "Resources.GroupSelectionRecurrence.majorant",
+      "header": "def majorant (d base slope constant : Nat) (hd : 5 \u2264 d) (n : Nat) : Nat"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.majorant_small",
+      "header": "theorem majorant_small (d base slope constant : Nat) (hd : 5 \u2264 d)\n    (n : Nat) (small : n \u2264 cutoff d) : majorant d base slope constant hd n = base"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.majorant_large",
+      "header": "theorem majorant_large (d base slope constant : Nat) (hd : 5 \u2264 d)\n    (n : Nat) (large : cutoff d < n) :\n    majorant d base slope constant hd n =\n      majorant d base slope constant hd (pivotChild d n) +\n        majorant d base slope constant hd (sideChild d n) + slope * n + constant"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.base_le_majorant",
+      "header": "theorem base_le_majorant (d base slope constant : Nat) (hd : 5 \u2264 d) (n : Nat) :\n    base \u2264 majorant d base slope constant hd n"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.majorant_monotone",
+      "header": "theorem majorant_monotone (d base slope constant : Nat) (hd : 5 \u2264 d) :\n    Monotone (majorant d base slope constant hd)"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.majorant_affine_bound",
+      "header": "theorem majorant_affine_bound (d base slope constant : Nat) (hd : 5 \u2264 d) :\n    \u2203 A B : Nat, \u2200 n : Nat, majorant d base slope constant hd n \u2264 A * n + B"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.majorant_isBigO",
+      "header": "theorem majorant_isBigO (d base slope constant : Nat) (hd : 5 \u2264 d) :\n    Asymptotics.IsBigO Filter.atTop\n      (fun n : Nat => (majorant d base slope constant hd n : \u211d)) (fun n => (n : \u211d))"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Resources.GroupSelectionRecurrence.rounded_group_affine_bound",
+      "header": "theorem rounded_group_affine_bound (f : Nat \u2192 Nat) (d : Nat) (hd : 5 \u2264 d)\n    (leftOffset rightOffset : \u211d) (slope constant n0 : Nat)\n    (recurrence : \u2200 n, n0 < n \u2192\n      f n = f \u2308pivotFraction d * (n : \u211d) + leftOffset\u2309\u208a +\n        f \u2308sideFraction d * (n : \u211d) + rightOffset\u2309\u208a + slope * n + constant) :\n    \u2203 A B : Nat, \u2200 n : Nat, f n \u2264 A * n + B"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Examples.GroupSelectionRecurrence.zero_requires_positive_domain",
+      "header": "theorem zero_requires_positive_domain : pivotFraction 0 + sideFraction 0 = 0"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Examples.GroupSelectionRecurrence.singleton_group",
+      "header": "theorem singleton_group : pivotFraction 1 + sideFraction 1 = (3 : \u211d) / 2 \u2227\n    \u2200 n : Nat, pivotChild 1 n = n"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Examples.GroupSelectionRecurrence.group_two",
+      "header": "theorem group_two : pivotFraction 2 + sideFraction 2 = (5 : \u211d) / 4"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Examples.GroupSelectionRecurrence.groups_three_four",
+      "header": "theorem groups_three_four :\n    pivotFraction 3 + sideFraction 3 = 1 \u2227 pivotFraction 4 + sideFraction 4 = 1"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Examples.GroupSelectionRecurrence.groups_five_six",
+      "header": "theorem groups_five_six :\n    pivotFraction 5 + sideFraction 5 = (9 : \u211d) / 10 \u2227\n      pivotFraction 6 + sideFraction 6 = (11 : \u211d) / 12"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Examples.GroupSelectionRecurrence.all_odd_even_thresholds",
+      "header": "theorem all_odd_even_thresholds (r : Nat) (hr : 0 < r) :\n    (pivotFraction (2 * r + 1) + sideFraction (2 * r + 1) < 1 \u2194 2 \u2264 r) \u2227\n      (pivotFraction (2 * r) + sideFraction (2 * r) < 1 \u2194 3 \u2264 r)"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Examples.GroupSelectionRecurrence.explicit_cutoffs",
+      "header": "theorem explicit_cutoffs : cutoff 5 = 71 \u2227 cutoff 6 = 97 \u2227\n    cutoff 7 = 64 \u2227 cutoff 8 = 81"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Examples.GroupSelectionRecurrence.first_five_children",
+      "header": "theorem first_five_children : pivotChild 5 72 = 15 \u2227 sideChild 5 72 = 56"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Examples.GroupSelectionRecurrence.first_six_children",
+      "header": "theorem first_six_children : pivotChild 6 98 = 17 \u2227 sideChild 6 98 = 80"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Examples.GroupSelectionRecurrence.zero_base_value",
+      "header": "theorem zero_base_value (d base slope constant : Nat) (hd : 5 \u2264 d) :\n    majorant d base slope constant hd 0 = base"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Examples.GroupSelectionRecurrence.last_five_base",
+      "header": "theorem last_five_base : majorant 5 1 2 3 (by decide) 71 = 1"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Examples.GroupSelectionRecurrence.first_five_recurrence",
+      "header": "theorem first_five_recurrence : majorant 5 1 2 3 (by decide) 72 = 149"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Examples.GroupSelectionRecurrence.first_six_recurrence",
+      "header": "theorem first_six_recurrence : majorant 6 1 2 3 (by decide) 98 = 201"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Examples.GroupSelectionRecurrence.short_final_group_bound",
+      "header": "theorem short_final_group_bound (s : Nat)\n    (h : s \u2264 (5 / 2) * pivotChild 5 7 + (5 - 5 / 2) * (pivotChild 5 7 / 2)) :\n    s \u2264 sideChild 5 7"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Examples.GroupSelectionRecurrence.zero_group_count_bound",
+      "header": "theorem zero_group_count_bound (d s : Nat) (hd : 0 < d)\n    (h : s \u2264 (d / 2) * pivotChild d 0 + (d - d / 2) * (pivotChild d 0 / 2)) :\n    s \u2264 sideChild d 0"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Examples.GroupSelectionRecurrence.uniform_resizing",
+      "header": "theorem uniform_resizing (d base slope constant : Nat) (hd : 5 \u2264 d) :\n    \u2203 A B : Nat, \u2200 m n : Nat, m \u2264 n \u2192\n      majorant d base slope constant hd m \u2264 A * n + B"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Examples.GroupSelectionRecurrence.positive_base_ne_all_input_linear",
+      "header": "theorem positive_base_ne_all_input_linear (d base slope constant : Nat)\n    (hd : 5 \u2264 d) (hb : 0 < base) :\n    \u00ac \u2203 C : Nat, \u2200 n : Nat, majorant d base slope constant hd n \u2264 C * n"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "kind": "theorem",
+      "name": "Examples.GroupSelectionRecurrence.exact_book_F_specialization",
+      "header": "theorem exact_book_F_specialization :\n    \u2203 A B : Nat, \u2200 n : Nat, Resources.SelectionRecurrence.F n \u2264 A * n + B"
+    }
+  ],
+  "whole_scope_assessment": {
+    "fractions": "All coefficient definitions cast the natural half-size. Positivity and fraction identity require positive d. contracts_iff_half_gap accounts for Nat subtraction with q<=d, then exact arithmetic yields d>=5; odd r includes0, even r explicitly positive. Zero coefficient example demonstrates why the positivity restriction matters. Sizes3/4 give equality only, not impossibility.",
+    "children": "Both children are exact natural ceilings with offsets0 andd. Monotone maps hold even atd0. pivotChild1 n=n is actual first-size self-recursion. two_group_bound_le_child assumes precisely the quantitative bound already proved by the pivot component; its ceil chunk count and explicit d allowance retain short chunks and n0. It is a scalar transport theorem, not a separately assumed desired linear bound.",
+    "recurrence": "cutoff_threshold holds by exact ceiling arithmetic; children_lt additionally requiresd>=5. The majorant definition uses that strict decrease before construction and has no desired growth premise. Base/toll are arbitrary Nat including0, with proof hd explicit. Small/large equations, base lower bound and monotonicity are properties of this constructed recurrence. Bounds quantify A B after fixed data but before alln; offsetB covers0 and entireprefix.",
+    "conditional_interface": "rounded_group_affine_bound permits signed left/right offsets, fixed natural tolls and startingcutoff, and assumes the exact already-total scalar recurrence. This is a reusable conditional interface. Concrete total majorant and already checked bookF examples witness its intended nonvacuous use. Actual generic measured-run dominance remains a separate obligation.",
+    "asymptotic": "majorant_isBigO follows the stronger alln affine bound by absorbingB only above n>=1. Positive-base counterexample retains the failure of an alln pure linear bound at0.",
+    "examples": "All18 connected cases match recorded independent arithmetic: coefficient0,1,2,3,4,5,6, odd/evenuniversal thresholds; cutoffs71/97/64/81; children15/56 and17/80; genericzero andlastbase; firstrecursive149/201; shortchunk andzero count transports; uniformsmallerinputs; noallnlinearpositivebase; originalFexactoffset3. No measured execution or wholechapter acceptance is claimed."
+  },
+  "exact_sources": {
+    "Applications/Resources/GroupSelectionRecurrence.lean": {
+      "bytes": 11555,
+      "sha256": "2982bfada001a2da0ff54359018121f8a31ad0b575b10beda15a82af1f0c3f97"
+    },
+    "Examples/GroupSelectionRecurrence.lean": {
+      "bytes": 5163,
+      "sha256": "9e37b5a369179295134f3de913c07c040401c5ca4938fe1b032fb55ff146e08a"
+    }
+  },
+  "all_six_prior_sources_and_F_records_frozen_inputs_unchanged": true,
+  "actual_new_compiler_or_type_credit": 0,
+  "pending": "Focused check, immutable fullChapter3 candidate/audit/alltypes and both independent axes/immediateverify; actualrun bridge not complete"
+}

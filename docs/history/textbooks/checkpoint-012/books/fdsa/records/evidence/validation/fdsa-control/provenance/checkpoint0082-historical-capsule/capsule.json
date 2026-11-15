@@ -1,0 +1,89 @@
+{
+  "created_utc": "2026-11-04T10:36:54.066514+00:00",
+  "purpose": "Preserve exact historical bytes before reclaiming only the completed task-created0082 roundtrip test copy. Historical drafts/control are not current integrated source or new acceptance.",
+  "files": [
+    {
+      "original": "/workspace/scratch/b4a17a285e23/recovery-validation-0082/extracted/conaled-fdsa-0082-recovered-native-and-sorting-drafts-compact/fdsa-control/CURRENT.md",
+      "preserved_path": "control/CURRENT.md",
+      "bytes": 6691,
+      "lines": 107,
+      "sha256": "1fb1dafe0017e118dbf0fe31f480d35cbe571cd77618eb4a3ebaaefbdf9db5d0"
+    },
+    {
+      "original": "/workspace/scratch/b4a17a285e23/recovery-validation-0082/extracted/conaled-fdsa-0082-recovered-native-and-sorting-drafts-compact/fdsa-control/reviews/chapter02-bottom-up-implementation.md",
+      "preserved_path": "control/reviews/chapter02-bottom-up-implementation.md",
+      "bytes": 9567,
+      "lines": 152,
+      "sha256": "9a1d1cf8eee4844b4f0001853e41f0ba9329d1aa51697f01c5c45c16ca0198c3"
+    },
+    {
+      "original": "/workspace/scratch/b4a17a285e23/recovery-validation-0082/extracted/conaled-fdsa-0082-recovered-native-and-sorting-drafts-compact/fdsa-control/reviews/chapter02-natural-runs-implementation.md",
+      "preserved_path": "control/reviews/chapter02-natural-runs-implementation.md",
+      "bytes": 7583,
+      "lines": 119,
+      "sha256": "6e7f746e28b2e4846e1eabc65be2ec5e65e577d927b63ff64e9d5317a856d000"
+    },
+    {
+      "original": "/workspace/scratch/b4a17a285e23/recovery-validation-0082/extracted/conaled-fdsa-0082-recovered-native-and-sorting-drafts-compact/fdsa-control/reviews/chapter02-quicksort-implementation.md",
+      "preserved_path": "control/reviews/chapter02-quicksort-implementation.md",
+      "bytes": 8954,
+      "lines": 133,
+      "sha256": "e81f2291f49bd02e4a74b3e87bff24f9e097ff29e0d5ac90554243d5071c34c1"
+    },
+    {
+      "original": "/workspace/scratch/b4a17a285e23/recovery-validation-0082/restored/conaled-ch02-natural-runs/Applications/Sorting/NaturalRuns.lean",
+      "preserved_path": "untracked-drafts/Applications/Sorting/NaturalRuns.lean",
+      "bytes": 22324,
+      "lines": 546,
+      "sha256": "9245b6738bda88701ce378f378a1aba6aa674a963da6fba0b7838cf062f337fd"
+    },
+    {
+      "original": "/workspace/scratch/b4a17a285e23/recovery-validation-0082/restored/conaled-ch02-natural-runs/Examples/NaturalRuns.lean",
+      "preserved_path": "untracked-drafts/Examples/NaturalRuns.lean",
+      "bytes": 1699,
+      "lines": 43,
+      "sha256": "6eb8f0e096b4a1291393b2ea4a9b9e2a37a85d5603063103d5a6c66e7f82fa86"
+    },
+    {
+      "original": "/workspace/scratch/b4a17a285e23/recovery-validation-0082/extracted/conaled-fdsa-0082-recovered-native-and-sorting-drafts-compact/MANIFEST.json",
+      "preserved_path": "context/MANIFEST.json",
+      "bytes": 14694,
+      "lines": 431,
+      "sha256": "72f13daf0a64cd630cb2228948b0c71b3bb6d8d352a9eefd38db0e1987152000"
+    },
+    {
+      "original": "/workspace/scratch/b4a17a285e23/recovery-validation-0082/extracted/conaled-fdsa-0082-recovered-native-and-sorting-drafts-compact/RECOVER.md",
+      "preserved_path": "context/RECOVER.md",
+      "bytes": 1833,
+      "lines": 27,
+      "sha256": "1558d20c38659709e54ec12dc19fb4fb96167ec434e45cdca5d14d04cb204034"
+    },
+    {
+      "original": "/workspace/scratch/b4a17a285e23/recovery-validation-0082/extracted/conaled-fdsa-0082-recovered-native-and-sorting-drafts-compact/SHA256SUMS",
+      "preserved_path": "context/SHA256SUMS",
+      "bytes": 197385,
+      "lines": 1391,
+      "sha256": "46f5636b8014136d1c1a9b6921545ee4c30f6f3b2a5f33cddb9d1ccde2f5df98"
+    }
+  ],
+  "payload_bytes": 270730,
+  "all52_historical_ref_targets_reachable_in_current_repository": true,
+  "active_restore_script_identical_to_historical": true,
+  "actual_roundtrip_evidence": "provenance/checkpoint0082-roundtrip/; retained actual exit0,52refs8worktrees and checked fsck path; no new fsck run",
+  "independent_read_only_inspector": "/root/shared_acceptance_sequence",
+  "inspector_findings": {
+    "allocated_test_bytes": 888549376,
+    "apparent_test_bytes": 845115250,
+    "no_symlinks_or_external_hardlinks_or_git_alternates": true,
+    "active_worktree_registrations_outside_test": true,
+    "all_test_heads_and_statuses_match_saved_state_with_recorded_exclusions": true,
+    "extracted_and_restored_control_files": 1364,
+    "same_path_exact_current_control_files": 1346,
+    "remaining_control_files": "18 accounted by retained current backups/complete text or these four historical snapshots",
+    "other_two_BottomUp_untracked_drafts": "Exact bytes occur in reachable current Git history"
+  },
+  "test_directory": "/workspace/scratch/b4a17a285e23/recovery-validation-0082",
+  "deletion_performed": false,
+  "deletion_condition": "Only after checkpoint0098 containing this capsule is fully verified, uploaded and exposed; preserve original0082 archive, active source/caches and unrelated baseline partials.",
+  "current_recovery_requires_no_earlier_checkpoint": true
+}

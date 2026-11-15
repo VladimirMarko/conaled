@@ -1,0 +1,22 @@
+{
+  "observed_at": "2026-11-02T20:06:57.927845+00:00",
+  "event": "live validation connections vanished without terminal records",
+  "affected": [
+    {
+      "command_scope": "full prerequisite candidate226ebae",
+      "functions_cell": "41",
+      "exec_session": 91604,
+      "connection_result": "cell not found; unknown process id",
+      "verification_record_exists": false
+    },
+    {
+      "command_scope": "focused relocation r4",
+      "exec_session": 32429,
+      "connection_result": "unknown process id"
+    }
+  ],
+  "process_observation": "No matching task Lean/Lake/Nix/Python compiler process remained; only the read-only observation shell matched this task path. No signal was sent.",
+  "cause": "unknown; no OOM or Lean failure attribution",
+  "result": "interrupted; no acceptance result",
+  "recovery": "Preserve old logs/metadata and resume unchanged commands from ordinary retained build outputs. Stock candidate integrity guard and audit remain mandatory."
+}

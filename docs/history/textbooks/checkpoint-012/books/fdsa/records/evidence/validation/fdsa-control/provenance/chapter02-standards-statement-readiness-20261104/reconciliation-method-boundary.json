@@ -1,0 +1,15 @@
+{
+  "actual_tool": "8c4dd0",
+  "actual_exit": 1,
+  "failure": "Own line-count assertion compared splitlines with recorded completed LF count on known truncated ENOSPC artifact.",
+  "original_script_sha256": "26cd7474ebf255383d5f8a18c7d44fe431fd2274b69f52b9261a0350676ebec1",
+  "file": "provenance/foundation-spec-terminal-assessment-20261104/actual145-complete-assessment.json",
+  "bytes": 32768,
+  "sha256": "3912a47bc707618a56c26f6f294938613cc104ac306345989a7337deaadf28b1",
+  "recorded_LF_lines": 970,
+  "actual_splitlines": 971,
+  "followup_tool": "ad6354",
+  "disposition": "File bytes and hash are unchanged; this is the already disclosed invalid historical artifact, never a receipt. Correct only the supplemental comparison convention for this file, preserving exact bytes/hash and all remaining checks. No compiler/source or validation result affected.",
+  "old_code": "    assert all(i[k] == row[k] for k in ('bytes', 'lines', 'sha256')), row['path']",
+  "new_code": "    assert all(i[k] == row[k] for k in ('bytes', 'sha256')), row['path']\n    if i['lines'] != row['lines']:\n        assert row['path'] == 'provenance/foundation-spec-terminal-assessment-20261104/actual145-complete-assessment.json'\n        assert row['lines'] == (CTRL / row['path']).read_bytes().count(b'\\n') == 970 and i['lines'] == 971"
+}

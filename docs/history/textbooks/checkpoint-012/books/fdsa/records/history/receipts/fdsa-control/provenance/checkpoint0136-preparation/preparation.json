@@ -1,0 +1,70 @@
+{
+  "recorded_utc": "2026-11-05T00:20:12.972807+00:00",
+  "scope": "Current/previous identifier and name substitutions only; no validation-gate or source/profile changes.",
+  "checkpoint": "conaled-fdsa-0136-selection-universal-path-progress",
+  "previous_checkpoint": "conaled-fdsa-0135-selection-trace-and-statement-progress",
+  "substitutions": [
+    [
+      "conaled-fdsa-0135-selection-trace-and-statement-progress",
+      "conaled-fdsa-0136-selection-universal-path-progress"
+    ],
+    [
+      "conaled-fdsa-0134-random-selection-path-progress",
+      "conaled-fdsa-0135-selection-trace-and-statement-progress"
+    ],
+    [
+      "checkpoint0135-preparation",
+      "checkpoint0136-preparation"
+    ],
+    [
+      "checkpoint0134-preparation",
+      "checkpoint0135-preparation"
+    ],
+    [
+      "previous-manifest-0134",
+      "previous-manifest-0135"
+    ],
+    [
+      "focused-progress-before0135",
+      "focused-progress-before0136"
+    ]
+  ],
+  "files": {
+    "README.md": {
+      "bytes": 2821,
+      "sha256": "ecacfa1ea437ac4675dd5aec14a1bf605b0731aa5e9cd6e6c30757088441261a"
+    },
+    "previous-manifest-0135.json": {
+      "bytes": 17333,
+      "sha256": "c9750cab152cd62ddba5a9dce798a9134439d349cf713f1d7ddddfac5dcd6528"
+    },
+    "previous-manifest-origin.json": {
+      "bytes": 722,
+      "sha256": "4ee3085a174f8692d2a76b35772e864fa882350655e2e3d0080096af2e9e5500"
+    },
+    "verify-checkpoint.py": {
+      "bytes": 17759,
+      "sha256": "03998161e0ea863b9a355db680a4eef3f85da3cc4a3f1041389db5f92e59e633"
+    },
+    "capture.py": {
+      "bytes": 4956,
+      "sha256": "df1e6f05a9195a8ef01713003ef6002d0651ba7c69feecb8e87219a89f2f93af"
+    },
+    "run-stage.py": {
+      "bytes": 2397,
+      "sha256": "46861a735d2af808ae58c72a333cf8fd6d62519ffc1c094f3782eab62b136ef8"
+    },
+    "verifier-scope-diff.patch": {
+      "bytes": 2379,
+      "sha256": "6c8c586a92e18e4b607e632e9491dcd40da38b0ee896616bcbbb8d02eb78fe78"
+    },
+    "helper-scope-diffs.patch": {
+      "bytes": 5463,
+      "sha256": "8409215b32382f9d19cb6e7d1c1a12cec1f2cb4473f355ed073fa3018a1fc623"
+    }
+  },
+  "python_syntax_checked": true,
+  "independent_inspection_pending": true,
+  "source_writers_still_active": true,
+  "capture_or_checkpoint_creation_selected": false
+}

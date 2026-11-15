@@ -1,0 +1,18 @@
+{
+  "prepared_utc": "2026-11-04T09:22:40.816810+00:00",
+  "author": "root, with read-only pinned API analysis from shared_acceptance_sequence",
+  "parent": "13fc137c67e1dc974c833e81cd46042d757fa546",
+  "source_path": "Examples/PermutationTailBoundary.lean",
+  "before_sha256": "03fbb29d9f458a7e76235e198b01ef3dd3b20dbe225d3d1edf3110b5628c437b",
+  "after_sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54",
+  "after_bytes": 12064,
+  "after_lines": 266,
+  "only_three_proof_bodies_changed": true,
+  "all_named_declaration_headers_unchanged": true,
+  "public_laws_cases_measures_support_and_values_unchanged": true,
+  "source_status": "Uncompiled isolated correction; probe2 is running at unchanged centralQ, not validation of this file.",
+  "actual_error_evidence": "chapter02-sorting-and-type-imports-focused-20261104-attempt8 closed exit1, three simp-no-progress diagnostics",
+  "failed_probe1": "chapter02-tail-arithmetic-probe-20261104-attempt1 closed exit1 and preserved",
+  "proof_method": "Prove the same three ground equalities in NNReal with explicit denominator nonzero proofs; map each equality through the ordinary coercion and simplify only forward pinned coercion laws. No new global helper or assumption.",
+  "no_change_to_imports_options_definitions_instances_or_other_files": true
+}

@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "review_id": "stock-regression-driver-independent-read-review-045",
+  "reviewer": "/root/thesis_bootstrapping_inventory",
+  "review_date_utc": "2026-11-04",
+  "kind": "Complete bounded independent static read of the frozen regression driver",
+  "outcome": "changes_requested",
+  "formal_acceptance": false,
+  "execution_authorized_by_this_report": false,
+  "reviewed_source": {
+    "path": "session/validation/run-integration-regressions-r1-045.py",
+    "sha256": "97614770b30dfc14abbd27583ca501aa0abca59ed6ac9c3fdc497c6e7b72b5a9",
+    "bytes": 36656,
+    "lines": 727,
+    "complete_text_read": true,
+    "identity_basis": "Native_setup froze this identity; reviewer independently read and hashed the bytes, then read every numbered line before the coordinator authorized the later fix."
+  },
+  "requirements": {
+    "root_contract": [
+      "Fixed candidate 3cf3de4fbc24c1a144353ae64b13b72f5ead54a5 in the private validation-pfds-integration checkout; no arbitrary candidate, checkout, mode or command selector.",
+      "Require approved runner.full_evidence(ROOT, integration-3cf-ordinary-r2-045, integration), actual incremental success, matching current snapshot and byte-identical live stock verification.",
+      "Hold both established full-build and focused-build locks nonblocking and exclusively through preflight, all commands, group cleanup, final identity checks and evidence recording.",
+      "Use the unchanged approved snapshot, require_frozen and unified_kit APIs with explicit integration scope.",
+      "Execute exactly the four fixed stock stages below, sequentially, with genuine Elan version/selection checks before and after and the prescribed environment additions.",
+      "Use one newly owned session/process group per direct command, protected startup and synchronous real wait/exit observation. On failure or cancellation, account for the whole current group even if its leader has exited; never act on a historical recorded PID.",
+      "Preserve the 3600-second command deadline, stock 45/15/60-second inner limits and stock jobs=2 fixtures; stop subsequent stock stages after failure.",
+      "Retain exclusive complete logs, selected environment fields, real executable/Elan identities, artifact and trace hashes, final input/live-record/log checks, and acceptance=false. Do not fabricate successful outcomes or copy fresh outputs.",
+      "Treat the fixed RUN_ID.cancel file as inert reason data; an existing request launches no regression command, and owned wait loops poll it.",
+      "Perform this review without executing or importing the driver, running compilers/tests/probes, modifying source/runtime/controller/requirements, or operating a process or lock."
+    ],
+    "four_stages": [
+      {
+        "name": "proof-audit-build",
+        "argv": ["lake", "--no-cache", "--rehash", "build", "+ProofAudit"],
+        "environment": "kit.environment(STATE, 1), plus LAKE_ARTIFACT_CACHE=false"
+      },
+      {
+        "name": "checker",
+        "argv": ["python3", "scripts/test-check.py"],
+        "environment": "kit.environment(STATE, 1), plus the fixed genuine Elan directory on PATH and the fixed ELAN_HOME/ELAN_TOOLCHAIN"
+      },
+      {
+        "name": "roots",
+        "argv": ["python3", "scripts/test-proof-audit-roots.py"],
+        "environment": "plain kit.environment(STATE, 1)"
+      },
+      {
+        "name": "negative-audit",
+        "argv": ["lake", "env", "python3", "scripts/test-proof-audit.py"],
+        "environment": "plain kit.environment(STATE, 1)"
+      }
+    ],
+    "controlling_files": {
+      "session/requirements/REQUEST-recovery-045.md": "dafc4b266e88c7644d35439ab8aba9a1d0e95a4ccab69e18b9cfb7150e4da44e",
+      "session/requirements/REQUEST-common-candidate-validation-044.md": "1a6b2a4b0d68b7a559e5d3d9c3fa7a90f0f1113f8d37539dedfb1df1579ca870",
+      "session/environment/RECOVER-INTEGRATION.md": "7f1a00a1e13c931dc2ba55c88e1f5180ab814c505587387ffff41166525a6157"
+    },
+    "gate_boundary": "Artifact preparation and regression evidence do not replace the genuine fresh baseline, required ordinary full/audit, independent formal reviews or immediate matching verification. The exact stock commands remain unchanged."
+  },
+  "supporting_read_scope": {
+    "driver": "Complete 727-line read, including every declaration, command, exception/finally path and top-level handler.",
+    "approved_controller": "Read unified_kit, unified_identity, snapshot, require_frozen, validate_stock_record, full_evidence, save_record, git/source identity helpers and their interface boundaries. Did not invoke them.",
+    "stock_sources": "Read the stock checker and output-integrity adapter in the preceding bounded investigation; read the full negative-audit and roots-suite implementations; inspected checker-suite setup, all 19 test declarations, relevant command/timeout/jobs/Elan branches and unittest entrypoint. This is not a complete independent review of every checker-test body.",
+    "elan": "Read the complete retained setup receipt and checked the driver's literal receipt/binary/selection/link/version expectations against it. No binary or runtime-selection probe was executed.",
+    "requirements": "Read the current root-assigned contract, prior task requirements and integration recovery instructions. Current file hashes were recorded by static file reads."
+  },
+  "supporting_source_hashes": {
+    "session/validation/run-native-validation.py": "4965f8b3eae19955cf43e2a46403fafd374cc5a27994f00507df0fae827fd55e",
+    "session/environment/unified-elan-setup-045.json": "ed4203d932713ffed62b61c5b0d9a4a7772e2d6b93e7940114dd712f47aba627",
+    "validation-pfds-integration/scripts/check.py": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+    "validation-pfds-integration/scripts/test-check.py": "a8a8a373f922c9cd9e68f7735d7959938644755c95f5223fb9a279f1182f6dff",
+    "validation-pfds-integration/scripts/test-proof-audit-roots.py": "906003c5eb3caf4f7150674ce42c404a82ea9dade536bca3286b1a620c5b9601",
+    "validation-pfds-integration/scripts/test-proof-audit.py": "72e8f1c06ad1ca427b6b2edb914cbf4c36b028a381a205be047f5792fcb1f839",
+    "validation-pfds-integration/scripts/lake_integrity.py": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f"
+  },
+  "findings": [
+    {
+      "id": "SRD-READ-001",
+      "severity": "Medium",
+      "status_for_reviewed_revision": "unresolved",
+      "title": "A final console-write exception can contradict the saved driver exit status",
+      "function": "run_locked, with propagation to the top-level exception handler",
+      "locations_in_reviewed_source": {
+        "terminal_record_update": 688,
+        "terminal_record_save": 692,
+        "unprotected_success_print": 693,
+        "outer_exception_handler": 724,
+        "outer_failure_exit": 727
+      },
+      "static_execution_path": [
+        "All actual child commands and final checks succeed; passed evaluates to true.",
+        "run_locked saves status=finished, result=passed and driver_exit_code=0.",
+        "The subsequent unprotected print raises BrokenPipeError or another output OSError.",
+        "The exception leaves run_locked without changing the saved record and reaches the top-level failure handler, which exits with code 1."
+      ],
+      "impact": "The durable overall driver result/exit annotation can say passed/0 while the actual driver exits 1. The previously observed inner command exits remain accurate; this finding concerns the overall evidence-finalization outcome.",
+      "required_correction": "Remove the final success print or make that presentation non-failing after the terminal record is committed. Preserve the exact stock commands, prerequisite, locks, identities and all acceptance limits.",
+      "validation_basis": "Static control-flow analysis only. No broken-pipe test or driver execution was performed."
+    }
+  ],
+  "other_concrete_defects_found": 0,
+  "review_checks": [
+    "The four stage argv values and ordering match the fixed contract; +ProofAudit uses normal Lake artifacts and the direct-olean alternative was not adopted.",
+    "The prerequisite is bound to the approved full-evidence reader, exact integration scope, ordinary-r2 run ID, incremental mode, equal current/final inputs and byte-identical live verification.",
+    "Both established locks surround run_locked. Each direct command starts its own session; real waits and group-absence checks precede success. Failure paths stop later stock stages and attempt current-group cleanup even after leader exit.",
+    "Cancellation contents are bounded inert text, never commands or paths. The preflight cancellation check precedes the prerequisite/runtime work, and command launch/wait boundaries check cancellation.",
+    "Elan receipt, genuine binary, selected custom link and real version/which outputs are checked; the checker receives the specified additions while the other stages use the prescribed kit environments.",
+    "The code records only whitelisted environment fields, exclusive logs, actual command exits and separate reported stock summaries; 19 checker tests, exact-root equality and the four negative-audit case names match the inspected stock sources.",
+    "Normal ProofAudit trace-described artifacts and present hash sidecars are retained by SHA256 and compared after the suites. This is explicitly not claimed to replace the stock native-hash guard or a full gate.",
+    "Final source/runtime/layout, ordinary evidence/live record, Elan/executable selections, retained logs and artifact identities all participate in the final pass predicate; acceptance remains false."
+  ],
+  "current_launch_limit": {
+    "ordinary_run": "integration-3cf-ordinary-r2-045",
+    "coordinator_report": "During review, root reported this run incomplete after terminal loss, with no genuine terminal success.",
+    "independent_runtime_observation": false,
+    "consequence": "The fixed driver must refuse this prerequisite. This is correct fail-closed behavior, not a defect. A future genuine successful full run and an explicitly reviewed prerequisite retarget would be needed before any later launch; this review performs neither."
+  },
+  "limits": [
+    "Static review does not establish real command success, timing behavior, signal delivery, lock behavior, group quiescence, Elan selection or compiler results.",
+    "The 3600-second command deadline initiates cleanup. If killpg(0) still observes a group, including possible zombies, cleanup can retain both locks indefinitely. The code declares this conservative incomplete state rather than claiming a finite cleanup deadline or quiescence from leader exit alone.",
+    "The free-space check refuses zero available bytes; it is not a capacity guarantee for the regression workload.",
+    "Before/after identities assume the existing stable trusted-checkout discipline; this review does not establish protection against transient hostile rewrites or a general process-enumeration capability.",
+    "The original reviewed revision remains the subject of this report even though a later candidate can address its finding. Any later source hash requires its own continuation."
+  ],
+  "actions": {
+    "driver_imported_or_executed": false,
+    "compiler_or_test_or_probe_run": false,
+    "process_or_lock_operation": false,
+    "runtime_source_controller_requirement_or_tracker_modified": false,
+    "new_agent_spawned": false,
+    "only_authored_file": "session/validation/stock-regression-driver-independent-read-review-045.json"
+  },
+  "freeze": {
+    "original_source_review_complete": true,
+    "report_immutable_after_identity_handoff": true,
+    "checkpoint_coordination": "Final report writing was paused for checkpoint052 capture and released by root after its reported successful restore and upload. Root owns subsequent checkpoint inclusion.",
+    "followup": "Root accepted the finding and requested a separate exact-diff continuation for the one-line final-print removal; this original report must remain preserved."
+  }
+}

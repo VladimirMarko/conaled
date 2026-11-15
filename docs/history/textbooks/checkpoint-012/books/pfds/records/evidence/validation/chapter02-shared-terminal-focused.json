@@ -1,0 +1,74 @@
+{
+  "recorded_utc": "2026-11-02T17:01:15.574428+00:00",
+  "kind": "focused-development-build",
+  "candidate": "4b0f0c0bc7c139480fb72407b93a2d9eb6874289",
+  "worktree": "/workspace/scratch/ca9a61d0bf30/chapter02-shared",
+  "git_status_porcelain": "",
+  "target": "Examples.SharedTreeTerminal",
+  "command": [
+    "/nix/store/8lza1b8nnci8lmm4q68p0l33pg975s0q-nix-2.35.4/bin/nix",
+    "--extra-experimental-features",
+    "nix-command flakes",
+    "--option",
+    "build-users-group",
+    "",
+    "--option",
+    "sandbox",
+    "false",
+    "--option",
+    "eval-cache",
+    "false",
+    "develop",
+    "--offline",
+    "--command",
+    "env",
+    "LEAN_NUM_THREADS=1",
+    "lake",
+    "build",
+    "Examples.SharedTreeTerminal"
+  ],
+  "execution_context": "Required escalated execution for Nix; serialized with active-validation/focused-build.lock; private project outputs, shared pinned external package checkouts.",
+  "toolchain_pin": "leanprover/lean4:v4.35.0",
+  "exit_code": 0,
+  "reported_jobs": 665,
+  "source_sha256": {
+    "Applications/Search/SharedTree/PathEndpoint.lean": "d090e01eff2536b90e2c3769d888a3b7f9f6aa0b08553b82eaf68495ee21e34a",
+    "Applications/Search/SharedTree/OrderedTerminal.lean": "4c1d293efaba164bf0ba9c170c9e09e41ca6a1f1f51df95df0d553b33c02ace3",
+    "Examples/SharedTreeTerminal.lean": "a543a14bbd97fe6063cf11dc6106f8c2d5d2c7d5541ebc86c4ab0870e0395661",
+    "Applications/Search/SharedTree/Path.lean": "a0912e3e46dc702773ac91327c5868c6ee8f5a44e4492a3197b0c0767f5c8f1f",
+    "Applications/Search/SharedTree/Ordered.lean": "c2b7a5f19ddcdf15e8eb5170148ff828579980569d457e0201e44a451dd946ab",
+    "Applications/Search/OrderedTree/Basic.lean": "6f1a3c8bf217ff609e3f08f65a1a20b52747723d5259ad671fb0e5aebaf44a6b"
+  },
+  "logs": [
+    {
+      "path": "validation/chapter02-shared-terminal-r1.log",
+      "sha256": "a37dda74681d98d8cfe547ea4481571d75741d4f2865839f7bdc6f778c975978"
+    },
+    {
+      "path": "validation/chapter02-shared-terminal-r1-retry.log",
+      "sha256": "9995cb302309347e8a6c8229df51021542dc47f0ad63d981308eb4dffdcba9bd"
+    },
+    {
+      "path": "validation/chapter02-shared-terminal-r2.log",
+      "sha256": "4bdf2662f405ce2a8aa6a284193ffcf98951133e16988db6479423634bc4a57a"
+    },
+    {
+      "path": "validation/chapter02-shared-terminal-r3.log",
+      "sha256": "67de5bcc9c84a29e258fff7c1c2858c9bbff94a7eb760938631edb1ab718deea"
+    }
+  ],
+  "attempt_notes": [
+    "Initial default-sandbox attempt failed in Nix startup at /proc/self/exe before Lean ran.",
+    "First Lean attempt compiled stable dependencies, PathEndpoint, and OrderedTerminal. Only the two concrete example path-normalization steps failed.",
+    "Second Lean attempt checked the retained nonempty-child case; the deeper failed-path case still needed explicit list-append normalization.",
+    "Third Lean attempt passed the complete focused target. Commits after checks preserve the exact checked source bytes."
+  ],
+  "implementation_commits": [
+    "dfd9411",
+    "d3f1e87",
+    "4b0f0c0"
+  ],
+  "dependency_copy_commit": "3385a48",
+  "acceptance": false,
+  "limitations": "Focused compilation only. No whole-chapter build/audit, candidate verification record, final verification, or independent Standards/Spec acceptance is asserted by this record."
+}

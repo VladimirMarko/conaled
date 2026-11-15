@@ -1,0 +1,440 @@
+{
+  "scope": "Ordinary development cache reuse only; not acceptance evidence",
+  "source_checkout": "suspension-foundation",
+  "target_checkout": "purity-foundation",
+  "modules": [
+    "Applications.Durability.Storage",
+    "Applications.Optimization.Basic",
+    "Applications.Optimization.Relations",
+    "Applications.Progress.Evaluation",
+    "Applications.Resources.Measured",
+    "Applications.Suspensions.Continuation",
+    "Applications.Suspensions.Machine",
+    "Applications.Suspensions.Store",
+    "Applications.Suspensions.Syntax",
+    "SquareKit.InteractionContracts",
+    "SquareKit.RelationTransport",
+    "SquareKit.Relations",
+    "Squares"
+  ],
+  "source_bytes_identical": true,
+  "files": [
+    {
+      "path": ".lake/build/lib/lean/Applications/Durability/Storage.ilean",
+      "sha256": "7d90bc7a0380748173ded971ee133bd53fb1c8d26d99036b678a943256562eab"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Durability/Storage.ilean.hash",
+      "sha256": "51f1bb8fb18cb1fa7358fb62a88f326951d0c458ad1c3e332511cc39dae5e6b3"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Durability/Storage.olean",
+      "sha256": "07ea77774584a19d7815faf7179f22c6d3c036630dca87d37bb1dbf9f78d8154"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Durability/Storage.olean.hash",
+      "sha256": "24b6cfc240f437bebece82af1c00a1f8234f6fc062b0eca186de8e866f79a583"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Durability/Storage.trace",
+      "sha256": "4146249ea7845fa1e7fc926a84904d95186413b8645b8d8ef71ca19b9b1d0b5e"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Durability/Storage.c",
+      "sha256": "97628841eb4b45539b3ccbac712395c0b84ebed4b651b297f6f6ed5b57416679"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Durability/Storage.c.hash",
+      "sha256": "2d2daf6b5d3e97ce91fda1295c8fa87cee4b62389eb0c5d827771b9ba1c94792"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Durability/Storage.setup.json",
+      "sha256": "95f6a4bb71c6668fb2aeae7b04a75808878ab8d8ef3d653c08b1606282e784e4"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Optimization/Basic.ilean",
+      "sha256": "87054e67660eda5488fac638351b693900dbd298099a7e78522aab55bcb1aaaf"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Optimization/Basic.ilean.hash",
+      "sha256": "f35c15058d2b6cf0d76f8f818c52302eadb59dab3bea5dcdd98937a42c520fd9"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Optimization/Basic.olean",
+      "sha256": "ff7f158d22a1e5cbc26b6ac1c776e037aed1c1a3dd4f91dd91f05e60aab475cf"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Optimization/Basic.olean.hash",
+      "sha256": "9652d96ca4b6a42264b156e968ea61f73420a5ef2de3f6339aa1d560e432896b"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Optimization/Basic.trace",
+      "sha256": "c9758f38187f7bb7a3481bcef38c66582e746cc0e16e530054c91248ebaef052"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Optimization/Basic.c",
+      "sha256": "d63c8005e68104ea3b4cdbd00710ece886c50e45793785d90f1c7870010694e1"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Optimization/Basic.c.hash",
+      "sha256": "348f05f596be6f72bf0e5ec04af66f0fb460c725a36775e03bb15b6da7617c74"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Optimization/Basic.setup.json",
+      "sha256": "467cff100c5a9756295a78774271b3c60e3c0db50e7f8aa36c21b2ee4e431ac5"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Optimization/Relations.ilean",
+      "sha256": "c87332278b0bcb0c4c92027fe4fb44c6bdb9778c149414a7c58ca96fc018a1fc"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Optimization/Relations.ilean.hash",
+      "sha256": "b486b975fd18ced2ebf0557a39e02996a0d698c607f25a6ad4ad9c44a1705140"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Optimization/Relations.olean",
+      "sha256": "ac11c47eb0273819a073a5c58c07d04275d9bd33d45dc25291bbe7a0e5b8de71"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Optimization/Relations.olean.hash",
+      "sha256": "04ea49514134c99bdade16f3bcdd6a9839f98ce4319b4aff216bcf75ffaec1dd"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Optimization/Relations.trace",
+      "sha256": "dd09abcd0f4922e4a1ad5d91d7f1b6caa89291a989318d126a4a62656db3cdcd"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Optimization/Relations.c",
+      "sha256": "42249fa9b469cbf09cc88833bf0265c67a773a6bf3719871ed01e18817f0fb0f"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Optimization/Relations.c.hash",
+      "sha256": "62d07175963135b3f3545e2d2150398dc94dc584212c73d280f4bbdc0e8479d9"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Optimization/Relations.setup.json",
+      "sha256": "39115a67aab0da849f5616f2160fb696291c51b5f2a13b45b5bb703dc3254b0d"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Progress/Evaluation.ilean",
+      "sha256": "58548a5a4fbdf0d5befb22f39e79a5467d49f78f2fa7d11e4edd0ace3447ea6c"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Progress/Evaluation.ilean.hash",
+      "sha256": "dd8c237322a6d9cacbd3c8978e212c3da454af798fb348871cc269075d207833"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Progress/Evaluation.olean",
+      "sha256": "855a7856e21d62a655c0f8b6cf9af11fdace9ae182753e9d8ad7912113ab8e31"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Progress/Evaluation.olean.hash",
+      "sha256": "6a4716dfa9e8fef411fa187258d3e5032ff41a935475c4c2b269ff00a33bb4ce"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Progress/Evaluation.trace",
+      "sha256": "ca33a5386feba5da90b21821ffdec75fee497cb18e8ea2c679ef791a5d7369f5"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Progress/Evaluation.c",
+      "sha256": "e7754468f93ec8f4c72f6ac48832b3138b428cf9d02b6676885515029d538732"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Progress/Evaluation.c.hash",
+      "sha256": "98d0d2087f1ec35509d14f50529416b3bd93a020b1b0257fbc7d900a43a25c40"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Progress/Evaluation.setup.json",
+      "sha256": "08bd9bbdd7a311c566cafd1d1089707b38bcf75b2f2482caab5e21daae585497"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Resources/Measured.ilean",
+      "sha256": "5c423c179d6bfa5675595f3611d1da920559bc7dfab6901fd421c9161d338812"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Resources/Measured.ilean.hash",
+      "sha256": "b40669eedd9fb604e72aa7abb7e0243bd2956420617022d70688f0310a6404b1"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Resources/Measured.olean",
+      "sha256": "e41e8c06de9b31a2553dfcc48097ea4d5bbcc0eba5162d67cc83024ed2b335a2"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Resources/Measured.olean.hash",
+      "sha256": "6c2e0bea73031ccb6a6e7b3cd8e41b2ab54e657dd01d6daf27cef5d13c526a76"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Resources/Measured.trace",
+      "sha256": "dfae83ea06ea54694e787a70bac39484aa3fe8887dc1d55bbf35c4623a5fbff8"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Resources/Measured.c",
+      "sha256": "dc631a96a28043669a53901a1cd11cfb50196b69f75a13ff88ccfa87671bcd32"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Resources/Measured.c.hash",
+      "sha256": "202cd0c2bea2f38cb3c46343470ca19f8574a8beb579cfde302a22e1f05d7a59"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Resources/Measured.setup.json",
+      "sha256": "52575560041ff29ba6f6f90b2e9ddbd2db4a7d5ed5e58de973d4843e36944134"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Continuation.ilean",
+      "sha256": "12eb88740bf3b60df16af5be26f5671e2728d33cc73927575e2a8a925e0b1867"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Continuation.ilean.hash",
+      "sha256": "1249b96e5a05674a45f7989c69489e10b6df157635acf97647a97f6bb44e2450"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Continuation.olean",
+      "sha256": "18eaca4984c8c703a2d9a14567eb9ce71a156daf2ef63061c846f277d3005d56"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Continuation.olean.hash",
+      "sha256": "cec32b0e786976d5bb6a7b6ace182293f2fad8143df1ae44cfd858657ecdee29"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Continuation.trace",
+      "sha256": "880618f684239fb5630cafc68182b9cccd16f8c612df39a7d983130386518757"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Suspensions/Continuation.c",
+      "sha256": "dba4a58e243d1e205a967c7b94c87c9d571829a090091ceaed33755975183a3f"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Suspensions/Continuation.c.hash",
+      "sha256": "818cb9aa5ef2ffac0a29818c73c5ba82e109df7c7ae74d024d9636062edc92c2"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Suspensions/Continuation.setup.json",
+      "sha256": "15c791121ec90ca3325391ef1106f47f943373088230752fdc31f5f17581b3ce"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Machine.ilean",
+      "sha256": "2fc4a4a0e12684836441d972461f6b46f3da0978f765e14645a807d80304f620"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Machine.ilean.hash",
+      "sha256": "3d03c45fb418855bd8c9f2a9878824b97c0e31ca38662a81d0bf234f826e7a98"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Machine.olean",
+      "sha256": "f9eab9d9169e50ee415775069c75a5f804d1f46d57686627a129df6e3ac353d7"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Machine.olean.hash",
+      "sha256": "0af70520594e2d6765896f8a5f7b4191ac85f1339ac667477832aee029403759"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Machine.trace",
+      "sha256": "6529e85aed625c961ceb254d3157443a7e55441aed2408eb0b3c4dc6aaa21f6e"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Suspensions/Machine.c",
+      "sha256": "10301b9d91e136c0aaa2e186969c32ba0a0308bba5a29726fbe93ca0dfeceb2a"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Suspensions/Machine.c.hash",
+      "sha256": "b07a2d5487091ea51b19597777b5431e84c024c82b4ab3782d18e0e2fb4a1576"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Suspensions/Machine.setup.json",
+      "sha256": "1f37ce37e0faea3779c5ba9ead7af70aeee395294e263ed56bf861cc5d7334c9"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Store.ilean",
+      "sha256": "0f1e3c3e887a47f8c0544ed6c5f6af0958e24559a0b94277005cad3d596efb1f"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Store.ilean.hash",
+      "sha256": "cdfcf4c967a63a59d092e2c1728e20a415e562b0c846e8fe05aa4ee628bf2ab1"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Store.olean",
+      "sha256": "fc7b408d5577fff4f16e9160d9d30cb36baaf01eef1ecd05d1866c5cd0a1efe2"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Store.olean.hash",
+      "sha256": "b32586bb21edfe74b44f0c247456ea4fb7e842eecc7b9b65570edfddf4684d39"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Store.trace",
+      "sha256": "8b9cb259e7378a499a04bd9c877038227edece0dfcf31a5706f2ef395f2d66ed"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Suspensions/Store.c",
+      "sha256": "d510fa4ea83d5be1de9652b414de6d7410e5445bca9e3a3882e09a0e3a6693bb"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Suspensions/Store.c.hash",
+      "sha256": "642db2ef6a68e623ca8dd413a3ef872992ae4e9334d36fadfd22810e9c9401ad"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Suspensions/Store.setup.json",
+      "sha256": "070c789c30b8887b2b0963d9137f5ef3cb989627ff4591419f0b488a52e241c0"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Syntax.ilean",
+      "sha256": "74bd189293fb2db62e02e041715cd94354cee7b21f08cf9264d1eaf6c99220bd"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Syntax.ilean.hash",
+      "sha256": "efe64b9f08f773205cfcc606e8251a7b3510ee72fb32ed8f4aca393d956fdf7b"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Syntax.olean",
+      "sha256": "23f27f333bac1954a8a4d17541defdc7f9f8c624548fce356ddaf6ed41afe3c4"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Syntax.olean.hash",
+      "sha256": "9ea727ec59a86697126d14b27550bfabe6abc1c524f8117a206b225569bef5fd"
+    },
+    {
+      "path": ".lake/build/lib/lean/Applications/Suspensions/Syntax.trace",
+      "sha256": "2d5b0cdc76806fce7287ae1b74478f8260d5dac4e2693aec0bda49b0b13fbd60"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Suspensions/Syntax.c",
+      "sha256": "e9e3943e734dfa67c50149653e5d146d80e08b12b91baec89087e29b4f99c8ad"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Suspensions/Syntax.c.hash",
+      "sha256": "6790247f12a511482d31c10612f4ac07946d26730efb0da32829661762386b8b"
+    },
+    {
+      "path": ".lake/build/ir/Applications/Suspensions/Syntax.setup.json",
+      "sha256": "afdb16e04ce488da949a23cd47b36deec17383d1af88fef871bc73a2f73899aa"
+    },
+    {
+      "path": ".lake/build/lib/lean/SquareKit/InteractionContracts.ilean",
+      "sha256": "f8282c5b5c74c2e75336e01007cd657b632b178cfe9f2f5f5cd632384fa9f674"
+    },
+    {
+      "path": ".lake/build/lib/lean/SquareKit/InteractionContracts.ilean.hash",
+      "sha256": "3d407dfeb07f2671022e0276b69c66beca2cd2d432ba43ab61413c5038f7620f"
+    },
+    {
+      "path": ".lake/build/lib/lean/SquareKit/InteractionContracts.olean",
+      "sha256": "6951d19b4203e72de28570ed4111ccbef6104088549490279f660cb7a8673b94"
+    },
+    {
+      "path": ".lake/build/lib/lean/SquareKit/InteractionContracts.olean.hash",
+      "sha256": "7a90a5c9b86075ed0cfb1502262c0738becbd8126403dca452e97ef97657c424"
+    },
+    {
+      "path": ".lake/build/lib/lean/SquareKit/InteractionContracts.trace",
+      "sha256": "c507bd0b1cc8a4039674020bca0ca3179d7ea84c824814cf70a95e18c1e90d0a"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/InteractionContracts.c",
+      "sha256": "7d9a8c8ab07f4df573b6b79e6d418aa38d7259ce0ab13aa991cb766605f6b7b5"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/InteractionContracts.c.hash",
+      "sha256": "3b3c059d7cf1094f19504af0459dbfe76714c154c61587ae755e9d4dc38dffd5"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/InteractionContracts.setup.json",
+      "sha256": "716fcd0b5b392507bc156742ef05c8dbbba03fad1564aa87b9fc2af716e56141"
+    },
+    {
+      "path": ".lake/build/lib/lean/SquareKit/RelationTransport.ilean",
+      "sha256": "ddc53db8aa05741dc5af9304423d5d786bd592a395586dcd02ecbd7ebabbf0d8"
+    },
+    {
+      "path": ".lake/build/lib/lean/SquareKit/RelationTransport.ilean.hash",
+      "sha256": "6c4b42480a8261aa2e30aae06274e7bbcf01b91d7c52945303217dd88883feb5"
+    },
+    {
+      "path": ".lake/build/lib/lean/SquareKit/RelationTransport.olean",
+      "sha256": "8bdc3e77a263d6324d636cbad21be54bfcd8041d874a57223f86f199126f5c50"
+    },
+    {
+      "path": ".lake/build/lib/lean/SquareKit/RelationTransport.olean.hash",
+      "sha256": "8df9b3b3d1e3d42a3e3bdbd894436872fddeedab9bc86fd80638f5d3f923de72"
+    },
+    {
+      "path": ".lake/build/lib/lean/SquareKit/RelationTransport.trace",
+      "sha256": "47b4078e0be73d26953d49f4520f60aa884dd630bb5fadff9d1084aca68d8af6"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/RelationTransport.c",
+      "sha256": "5c5c1fef98807d2a290a10556b3260128c9f8cb1aaebfb21d911be6dcf68cec9"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/RelationTransport.c.hash",
+      "sha256": "786e823103b208936057360be73bf497d36630f28be1d0264cd9bf6cb4a0e473"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/RelationTransport.setup.json",
+      "sha256": "a2392807895ee4c217235ed17a07c0740e5e16285fc5992d2e0152191631f788"
+    },
+    {
+      "path": ".lake/build/lib/lean/SquareKit/Relations.ilean",
+      "sha256": "4cb33be8c4d1a755f7ebb5e42939589d1544e6b6238f9d155f9bae9ed6a880da"
+    },
+    {
+      "path": ".lake/build/lib/lean/SquareKit/Relations.ilean.hash",
+      "sha256": "2332bf40e8b7b45f3578c2b5f7c21fa5a737f8c75ce8daa05add96be6742f7b6"
+    },
+    {
+      "path": ".lake/build/lib/lean/SquareKit/Relations.olean",
+      "sha256": "e537106f4b906073fca85478156ab7c9094cbccfb868850cd7f5b7fbbed3932e"
+    },
+    {
+      "path": ".lake/build/lib/lean/SquareKit/Relations.olean.hash",
+      "sha256": "21888fee8fa9128f11e20c1cfc7d649235a96717e27554407de28e4e9a8c0792"
+    },
+    {
+      "path": ".lake/build/lib/lean/SquareKit/Relations.trace",
+      "sha256": "105d22e53283d3ab7c3b344c6c6832aed09855716acd340c6a77825fa467205b"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/Relations.c",
+      "sha256": "9e064ca51bd842521b0d9c2d76275e4ca6ca6945641fcb000182ae8281b33b8a"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/Relations.c.hash",
+      "sha256": "1e4b6cf8fc94f7b6390540bace4d3d49a6b95be01652c48264cc2590cd63bad8"
+    },
+    {
+      "path": ".lake/build/ir/SquareKit/Relations.setup.json",
+      "sha256": "dfee97a34554de4a623253896241a23fb3df9a7575a45fdc43ae787e7c565ce2"
+    },
+    {
+      "path": ".lake/build/lib/lean/Squares.ilean",
+      "sha256": "0c2e0e3ee6b40a509f6f420854c8d6af1bca2ebabeeec653ce56fcac828a2e96"
+    },
+    {
+      "path": ".lake/build/lib/lean/Squares.ilean.hash",
+      "sha256": "cad5f53e3311ba39ca2e8bd51ddaea17ee96441e41c79bee17d0d32bfe56d4d3"
+    },
+    {
+      "path": ".lake/build/lib/lean/Squares.olean",
+      "sha256": "8f5981c72bfd62a0ec3a0ae74b5841269b10cb5dad2aedb8a269a9e229c21ffb"
+    },
+    {
+      "path": ".lake/build/lib/lean/Squares.olean.hash",
+      "sha256": "69362eb3e35c4fcb6fc213839d6d07af9195fb0919454223fb2b2bc876597f31"
+    },
+    {
+      "path": ".lake/build/lib/lean/Squares.trace",
+      "sha256": "12c3ee45edcf9511e13f9ea83f56433e2c718adb5db160da29b2100a5eb8d5c0"
+    },
+    {
+      "path": ".lake/build/ir/Squares.c",
+      "sha256": "46257d4f01b1971b13c9aed5497e534a9b96ab12337029aa2e1ff401b942d5b7"
+    },
+    {
+      "path": ".lake/build/ir/Squares.c.hash",
+      "sha256": "32e178d7b5337b5e1a467bee2d8d53a8e0a17a7ac02a54e50c0a79b8217470d8"
+    },
+    {
+      "path": ".lake/build/ir/Squares.setup.json",
+      "sha256": "b08d9980e323b5588f6d9f0bca2203d635c7a5b25cc1a268257ccbecfe9fdef6"
+    }
+  ],
+  "note": "Copied only the completed Continuation source closure; excluded actively checked Relocation/ForceObservation. Each checkout retains a private writable project build directory."
+}

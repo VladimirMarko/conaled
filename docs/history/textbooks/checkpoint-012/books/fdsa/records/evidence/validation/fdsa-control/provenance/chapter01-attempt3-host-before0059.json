@@ -1,0 +1,81 @@
+{
+  "observed_utc": "2026-11-03T00:41:30.631617+00:00",
+  "scope": "Task-local host process read outside the Nix command execution context; no compiler/checker/cache action.",
+  "earlier_observation": "provenance/chapter01-attempt3-progress-before0059.json",
+  "earlier_observation_sha256": "a799fab80a30a1a43edf6a0f3a2e9bc801652482aed4e48c7557db9572f019f8",
+  "reconciliation": "The earlier in-command process read did not find the wrapper. A subsequent host observation at 00:41:09 and this retained host observation find the original process identities, so the earlier negative visibility result is not evidence of process termination. No restart or terminal outcome is inferred. Exact observer-isolation cause was not diagnosed. Retain the earlier clean-source/log observation and this qualification together.",
+  "processes": [
+    {
+      "pid": 600750,
+      "state": "S",
+      "ppid": 1,
+      "start_ticks": "9123853",
+      "expected_start_matches": true,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "argv_prefix": [
+        "python3",
+        "/workspace/scratch/845aa1048b05/fdsa-control/provenance/run-chapter01-repair-attempt3.py"
+      ],
+      "argv_count": 2,
+      "cmdline_sha256": "c9c559897b9f1da54e00349fb9f0ff1a87cae203bc6dab2293b81b272d082aee"
+    },
+    {
+      "pid": 600779,
+      "state": "S",
+      "ppid": 600750,
+      "start_ticks": "9123889",
+      "expected_start_matches": true,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "argv_prefix": [
+        "python3",
+        "scripts/check.py",
+        "--candidate",
+        "HEAD"
+      ],
+      "argv_count": 4,
+      "cmdline_sha256": "e75de9e2f717d0686040151688e9621fc015ebdaeddda06185c545738c2f460d"
+    },
+    {
+      "pid": 600956,
+      "state": "S",
+      "ppid": 600779,
+      "start_ticks": "9124698",
+      "expected_start_matches": true,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "argv_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake",
+        "--no-cache",
+        "--rehash",
+        "build"
+      ],
+      "argv_count": 964,
+      "cmdline_sha256": "45f51fb4dd0ea56e5594b68c0d66b67b019d1718955c35f657b819c07613f17d"
+    },
+    {
+      "pid": 671823,
+      "state": "S",
+      "ppid": 600956,
+      "start_ticks": "9891377",
+      "expected_start_matches": true,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "argv_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/Applications/FRP/LifecycleSafety.lean",
+        "-o",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/LifecycleSafety.olean"
+      ],
+      "argv_count": 11,
+      "cmdline_sha256": "6351b2cbf0f576d85c66bff0bea1abd76a2c609e622d01334b8ad620c6d398da"
+    }
+  ],
+  "metadata_result": "running",
+  "metadata_sha256": "7b00a25b45c8ed51fcfd3cbbb4d986895dd670996aeaeba5f7e04500d8decf35",
+  "terminal_fields": {},
+  "log_size_bytes": 167163,
+  "log_sha256": "f192f74ac3dcf903cee2601b5fd2c69f0f42aaaf2c7c0735b47353df13fb9bee",
+  "actual_verification_present": false,
+  "retained_verification_present": false,
+  "euid": 0,
+  "free_block_bytes": 4609122304,
+  "available_unprivileged_bytes": 1156374528
+}

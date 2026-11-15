@@ -1,0 +1,260 @@
+{
+  "schema": 1,
+  "kind": "complete-independent-bounded-static-capsule-review",
+  "reviewer": "/root/thesis_bootstrapping_inventory",
+  "recorded_at": "2026-11-04T02:36:46.180770+00:00",
+  "source": {
+    "path": "/workspace/scratch/09cf0de22282/pfds/session/validation/capture-integration-ordinary-capsule-r1-045.py",
+    "sha256": "a34aea74698c79e7b01e7dec1247ec4d73d8a77924fea23327eb8531ef9939f6",
+    "bytes": 44837,
+    "lines": 816,
+    "complete_source_read": true,
+    "read_scope": "All lines1-816, including embedded hash worker and README; frozen identity rechecked immediately before report write."
+  },
+  "scope": "Only the unexecuted current-kit ordinary capsule driver. Supporting source/requirements read for contract comparison. This is neither implementation nor formal-candidate acceptance.",
+  "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+  "donor": "validation-pfds-integration",
+  "outcome": "changes_requested",
+  "concrete_finding_count": 2,
+  "findings": [
+    {
+      "id": "OCP-READ-001",
+      "severity": "Medium",
+      "status": "open",
+      "title": "Second donor-content hash is no longer bounded to the sized artifact",
+      "source_lines": [
+        170,
+        174,
+        516,
+        535
+      ],
+      "specific_location": "copy_fixed lines534-535 calls digest(source); digest lines170-174 reads until EOF.",
+      "required_by": "Retained ordinary-output-capture-design-review.json RECOVERY-COPY-001 explicitly preserved bounded copy and bounded second hash plus one extra-byte growth probe; old source_digest_fixed/bounded_chunks implements that bound.",
+      "concrete_behavior": "The first file_state(source)==expected check in the final condition can pass, then the source can grow during digest(source). That second pass reads beyond expected[2] before any later identity rejection and can continue indefinitely if growth continues. digest also has no cancellation poll. This is a static interleaving permitted by this code, not an observed workspace event.",
+      "impact": "Reintroduces the previously corrected unbounded donor validation pass and can retain the capsule locks in a non-child read despite a cancellation request. It does not establish false proof acceptance or incorrect archive publication: a completed changed read is rejected.",
+      "requested_correction": "Restore a source-only fixed-length hash: require opened identity, read at most the sized byte count with cancellation checks, perform exactly one extra-byte growth check, and recheck open/path identities. Keep source/destination failure distinctions and all stock commands, pins, ceilings and gate requirements unchanged.",
+      "verification_performed": "Static comparison of the complete new source with old bounded_chunks/source_digest_fixed and retained RECOVERY-COPY-001 only. No test, growth probe or execution."
+    },
+    {
+      "id": "OCP-READ-002",
+      "severity": "Low",
+      "status": "open",
+      "title": "Archive manifest omits the required capture interval",
+      "source_lines": [
+        351,
+        355,
+        699,
+        708
+      ],
+      "specific_location": "Capture.record has started_at at lines351-355, but manifest lines699-708 only includes captured_at and a relative receipt path.",
+      "required_by": "Current-kit-ordinary-capsule-preparation-045.json contents explicitly requires capture interval in the manifest. The old manifest preserved each candidate started_at/ended_at.",
+      "concrete_behavior": "The published archive manifest cannot identify capture start or a named end of artifact capture from its own fields. Per-batch hash start/end timestamps omit earlier private copying, and receipt is only an external path reference.",
+      "impact": "Missing declared recovery provenance in an otherwise transport-verifiable archive; no claim that this weakens the kernel or the actual validation gates.",
+      "requested_correction": "Include truthfully named interval endpoints in the manifest before serializing it, for example capture start and artifact-capture completion. Do not label that pre-transport endpoint as final driver/transport completion.",
+      "verification_performed": "Static comparison of complete new manifest construction and preparation/old-capture records only."
+    }
+  ],
+  "requirement_assessment": [
+    {
+      "id": "CAP-EXACT-SCOPE",
+      "requirement": "One fixed candidate 3cf3de4fbc24c1a144353ae64b13b72f5ead54a5 and sole donor validation-pfds-integration; no arbitrary CLI scope.",
+      "static_result": "satisfied",
+      "source_lines": "54-65, 783-787"
+    },
+    {
+      "id": "CAP-UNBOUND-REFUSAL",
+      "requirement": "Four originating evidence pins start null and must refuse before locks, evidence creation or capture until genuine evidence and reviewed binding-only edits.",
+      "static_result": "satisfied",
+      "source_lines": "68-73, 783-787"
+    },
+    {
+      "id": "CAP-ORDINARY",
+      "requirement": "Use approved full_evidence integration for genuine completed ordinary-r3, incremental mode, pinned record and current frozen input equality.",
+      "static_result": "satisfied",
+      "source_lines": "260-290, 552-555, 736-741"
+    },
+    {
+      "id": "CAP-REGRESSIONS",
+      "requirement": "Require genuine final success for exact +ProofAudit, checker, roots and negative-audit commands, four actual Elan probes, all final checks and unchanged complete logs/artifacts.",
+      "static_result": "satisfied",
+      "source_lines": "87-98, 270-320"
+    },
+    {
+      "id": "CAP-OUTER-WITNESS",
+      "requirement": "Read a separately created actual outer tool-session terminal receipt bound to exact regression source/record/argv/cwd, observed exit zero and honest chronology; never synthesize it.",
+      "static_result": "satisfied under explicit trusted-root-bookkeeping boundary",
+      "source_lines": "8-24, 321-340"
+    },
+    {
+      "id": "CAP-LIVE-INPUTS",
+      "requirement": "Compare actual live stock verification bytes with retained ordinary evidence; source/dependency/runtime/controller identity before/after; repeat originating evidence checks.",
+      "static_result": "satisfied",
+      "source_lines": "289-296, 310-343, 553-576, 736-743"
+    },
+    {
+      "id": "CAP-LOCKS",
+      "requirement": "Hold both established full/focused scheduler locks nonblocking through preflight, capture, child cleanup, transport verification and final record.",
+      "static_result": "satisfied",
+      "source_lines": "793-804; all capture_locked operations occur before ExitStack unwinds"
+    },
+    {
+      "id": "CAP-NORMAL-GROUPS",
+      "requirement": "Select only corresponding tracked project-module ordinary trace groups from the fixed donor; complete required artifacts plus optional present hash hints; preserve original trace bytes and explicit skipped accounting.",
+      "static_result": "satisfied for group selection; bounded second read has finding OCP-READ-001",
+      "source_lines": "641-695"
+    },
+    {
+      "id": "CAP-STOCK-INSPECTION",
+      "requirement": "Keep decisive unchanged guard.inspect_outputs and lake-output-hashes.lean checks on fixed private groups using approved kit.environment(state,1), without donor repair or changed expected hashes.",
+      "static_result": "satisfied",
+      "source_lines": "99-108, 567-594, 611-639, 687-689"
+    },
+    {
+      "id": "CAP-CHILD-LIFECYCLE",
+      "requirement": "Directly own each synchronous hash child and its group, retain real log/exit/wait evidence, account for descendants even after leader exit, and keep locks if quiescence is not observed.",
+      "static_result": "satisfied with documented indefinite-residual-group limit",
+      "source_lines": "376-513; stock guard subprocess.run inherits the hash-worker group"
+    },
+    {
+      "id": "CAP-CANCELLATION",
+      "requirement": "Fixed cancellation request contains inert data; signal handlers record requests; cancellation cannot bypass owned-group cleanup.",
+      "static_result": "satisfied",
+      "source_lines": "222-257, 393-441, 458-499, 788-807"
+    },
+    {
+      "id": "CAP-CAPACITY",
+      "requirement": "Preserve 64 MiB group/batch, 512 MiB headroom, 32 MiB metadata and 512 MiB compressed-archive limits under explicit UID-aware admission while retaining both raw space observations.",
+      "static_result": "numeric admission/publication limits satisfied; no future sufficiency guarantee",
+      "source_lines": "79-84, 211-219, 368-374, 601-605, 615-616, 634, 668-674, 715"
+    },
+    {
+      "id": "CAP-EXCLUSIVITY",
+      "requirement": "Exclusive attempt namespace, private stage, logs and partial archive; publish final archive without replacing an existing path.",
+      "static_result": "satisfied",
+      "source_lines": "459, 539-546, 579-581, 599, 749-755"
+    },
+    {
+      "id": "CAP-TRANSPORT",
+      "requirement": "Regular safe relative archive members, unique complete intended membership, exact sizes/SHA256, SHA256SUMS self-exclusion, completed external archive identity and streaming transport verification.",
+      "static_result": "satisfied",
+      "source_lines": "601-609, 618-629, 699-735, 745-756"
+    },
+    {
+      "id": "CAP-MANIFEST",
+      "requirement": "Manifest preserves candidate/tree/source/config/runtime/originating evidence, capture interval, selected/skipped groups and actual inspection evidence.",
+      "static_result": "capture interval omitted; finding OCP-READ-002; other listed fields present",
+      "source_lines": "699-708"
+    },
+    {
+      "id": "CAP-NONDESTRUCTIVE",
+      "requirement": "No donor deletion/repair/rename/hardlink; no fresh/dependency/runtime/source/history/verification/approval copying; no acceptance claim.",
+      "static_result": "satisfied",
+      "source_lines": "29-31, 110-148, 351-362, 583-591 (private config only), 618-629 (archive members), 636-637, 707, 747-757"
+    },
+    {
+      "id": "CAP-FAILURE-RECOVERY",
+      "requirement": "Preserve factual failure and surviving private stage/partial or published archive; publish no complete success until actual checks finish; retain mandatory future recovery gates.",
+      "static_result": "satisfied subject to normal evidence-I/O and forced-process-loss limits",
+      "source_lines": "110-148, 759-780"
+    }
+  ],
+  "supporting_evidence": [
+    {
+      "path": "session/validation/capture-ordinary-output-checkpoint.py",
+      "sha256": "cdc1f7af6dcbf1a219cd3ced7c5a832a3d90f24a874c4e771f0187a5e4648a75",
+      "read_scope": "all 380 lines read"
+    },
+    {
+      "path": "session/research/build-cache-recovery-assessment.md",
+      "sha256": "90fdc39a4f3abf33621e1d50997ef207ad71d021276fe441a8a7cf92546af541",
+      "read_scope": "complete assessment read"
+    },
+    {
+      "path": "session/validation/ordinary-output-capture-design-review.json",
+      "sha256": "4f94c03e34a291e012332585938f5d414a5febd968505083a1f4939f4cb9e91b",
+      "read_scope": "complete retained design review read"
+    },
+    {
+      "path": "session/research/current-kit-ordinary-capsule-preparation-045.json",
+      "sha256": "5d1c797a7c7304f76f8201418dc5520b94e16b118d69bbd01ddb8ab025aaf016",
+      "read_scope": "complete preparation record read"
+    },
+    {
+      "path": "session/validation/ordinary-capsule-evidence-design-045.json",
+      "sha256": "553bb8f6f7e3bf8e6373d36b373900b9497f46c9d7eb565baffc1331f91e537f",
+      "read_scope": "complete terminal-evidence contract read"
+    },
+    {
+      "path": "session/research/ordinary-output-handoff-design.md",
+      "sha256": "08d3cad5cc7cf01fd6ca35d699242ad74d6efa2370960f4dda80006e0ff9d197",
+      "read_scope": "complete historical handoff design read; its donor retirement is outside this scope"
+    },
+    {
+      "path": "session/validation/ordinary-output-checkpoint-001.json",
+      "sha256": "4f2b87d735298a785f87e168fc9598ae3108a897d44c422f223f401ed8de639b",
+      "read_scope": "top-level receipt fields/counts only; no claim to re-read its 6065-member table"
+    },
+    {
+      "path": "session/validation/run-native-validation.py",
+      "sha256": "4965f8b3eae19955cf43e2a46403fafd374cc5a27994f00507df0fae827fd55e",
+      "read_scope": "approved full_evidence, snapshot, unified_kit/unified_identity, require_frozen, source/input identity and save_record call paths read; not executed/imported"
+    },
+    {
+      "path": "session/validation/run-integration-regressions-r1-045.py",
+      "sha256": "b883ad8045a7e1886033005fa481f30103ac0baf97d8de335c9ad5de7dafe47a",
+      "read_scope": "previous complete independent review retained; current evidence schema, stage argv, final checks and artifact/provenance fields re-read"
+    },
+    {
+      "path": "validation-pfds-integration/scripts/lake_integrity.py",
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+      "read_scope": "complete unchanged stock guard read, including expected_artifacts and inspect_outputs subprocess path"
+    },
+    {
+      "path": "session/environment/RECOVER-INTEGRATION.md",
+      "sha256": "7f1a00a1e13c931dc2ba55c88e1f5180ab814c505587387ffff41166525a6157",
+      "read_scope": "current recovery/environment/full-gate portions read"
+    },
+    {
+      "path": "session/requirements/REQUEST-recovery-045.md",
+      "sha256": "dafc4b266e88c7644d35439ab8aba9a1d0e95a4ccab69e18b9cfb7150e4da44e",
+      "read_scope": "complete governing recovery requirement read"
+    }
+  ],
+  "initial_pins": {
+    "ordinary_record_sha256": null,
+    "regression_driver_sha256": null,
+    "regression_record_sha256": null,
+    "terminal_receipt_sha256": null
+  },
+  "execution_eligibility": {
+    "authorized_by_this_review": false,
+    "null_pins_are_correct_fail_closed_behavior": true,
+    "future_reviewed_binding_required": true,
+    "genuine_ordinary_r3_and_all_regression_and_outer_terminal_evidence_required": true,
+    "current_regression_driver_still_bound_to_ordinary_r2": "This is an independently known future prerequisite-retarget requirement, not a capsule-code defect; no retarget was made here."
+  },
+  "limits": [
+    "Static review only. Syntax parsing was reported by native_setup; this reviewer did not parse/import/execute the driver or run tests.",
+    "No successful ordinary/regression/capture result is inferred or newly authenticated by this review. Null pins deliberately prevent capture.",
+    "Outer-terminal witness remains trusted execution-owner bookkeeping; exact fields and pinned bytes are checked, not independently authenticated against an execution service.",
+    "The cooperative lock discipline does not exclude every external writer; the capsule must retain the existing source-change and bounded-read safeguards.",
+    "Effective UID0 selection of f_bfree is advisory admission; quotas/namespaces/filesystem enforcement and actual I/O failure remain authoritative.",
+    "Residual process groups including zombies deliberately retain locks/incomplete evidence until actual absence; the 3600-second command cap initiates cleanup, not a guaranteed whole-process finish deadline.",
+    "Stock private output consistency plus transport SHA256 does not prove hostile artifact derivation or universal relocation reuse; own stock full/fresh/audit/regression/review/immediate-verification gates remain mandatory.",
+    "Source/config/runtime/controller originals, donor outputs and historical evidence remain untouched. Only this new reserved review JSON was authored; root owns checkpoint inclusion."
+  ],
+  "actions": {
+    "driver_imported": false,
+    "driver_executed": false,
+    "compiler_or_hash_worker_run": false,
+    "tests_or_probes_run": false,
+    "locks_or_processes_operated": false,
+    "copy_or_archive_capture_performed": false,
+    "source_runtime_controller_requirements_tracker_modified": false,
+    "other_report_files_modified": false,
+    "new_report_only": "/workspace/scratch/09cf0de22282/pfds/session/validation/ordinary-capsule-independent-read-review-r1-045.json"
+  },
+  "acceptance": false,
+  "capture_approved": false,
+  "writes_frozen_after_report": true
+}

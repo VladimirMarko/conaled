@@ -1,0 +1,2203 @@
+{
+  "observed_utc": "2026-11-02T16:37:55.445567+00:00",
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "old_failed_candidate": "1aabd512284fe86254278ac631eda061d311050b",
+  "old_log_sha256": "9e94b0a04aa9a6981d7783fd1f556245cd631de9c8cd9e816644f322d469ee54",
+  "new_log": "fdsa-control/reviews/chapter01-repair-incremental.log",
+  "prebuild_invalidations": 547,
+  "all_reasons_missing_files": true,
+  "old_log_reported_built_or_replayed_modules": 398,
+  "previously_reported_successful_modules_invalidated": [],
+  "nonmissing_file_reasons": [],
+  "diagnostics": [
+    {
+      "module": "SquareKit.Internal.DependentFunctionSheafBase",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/DependentFunctionSheafBase.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.DependentFunctionSheafTerms",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/DependentFunctionSheafTerms.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.DependentFunctionSheafOperations",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/DependentFunctionSheafOperations.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.DependentFunctionSheafRenaming",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/DependentFunctionSheafRenaming.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.DependentFunctionSheafSubstitution",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/DependentFunctionSheafSubstitution.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.DependentFunctionSheafSoundness",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/DependentFunctionSheafSoundness.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.DependentFunctionSheafContext",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/DependentFunctionSheafContext.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.DependentFunctionEmbedding",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/DependentFunctionEmbedding.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.DependentFunctionSheafComparison",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/DependentFunctionSheafComparison.trace'"
+    },
+    {
+      "module": "Examples.DependentFunctionSource",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/DependentFunctionSource.trace'"
+    },
+    {
+      "module": "Examples.DependentFunctionSourceEdges",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/DependentFunctionSourceEdges.trace'"
+    },
+    {
+      "module": "Examples.SplitNative",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SplitNative.trace'"
+    },
+    {
+      "module": "Examples.DependentSourceNative",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/DependentSourceNative.trace'"
+    },
+    {
+      "module": "SquareKit.RelationTransport",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/RelationTransport.trace'"
+    },
+    {
+      "module": "SquareKit.InteractionContracts",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/InteractionContracts.trace'"
+    },
+    {
+      "module": "Applications.Durability.Storage",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/Storage.trace'"
+    },
+    {
+      "module": "Applications.Durability.Recovery",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/Recovery.trace'"
+    },
+    {
+      "module": "SquareKit.InteractionEvents",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/InteractionEvents.trace'"
+    },
+    {
+      "module": "Applications.Durability.Protocol",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/Protocol.trace'"
+    },
+    {
+      "module": "Applications.Durability.Simulation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/Simulation.trace'"
+    },
+    {
+      "module": "Applications.Durability.Clients",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/Clients.trace'"
+    },
+    {
+      "module": "Applications.Durability.Encoding",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/Encoding.trace'"
+    },
+    {
+      "module": "Applications.Durability.Executions",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/Executions.trace'"
+    },
+    {
+      "module": "Applications.Durability.ResourceEvents",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/ResourceEvents.trace'"
+    },
+    {
+      "module": "Applications.Durability.DiagnosticGraph",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/DiagnosticGraph.trace'"
+    },
+    {
+      "module": "Applications.Durability.DiagnosticProjection",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/DiagnosticProjection.trace'"
+    },
+    {
+      "module": "Applications.Durability.DiagnosticStorage",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/DiagnosticStorage.trace'"
+    },
+    {
+      "module": "Applications.Durability.DiagnosticRelational",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/DiagnosticRelational.trace'"
+    },
+    {
+      "module": "Applications.Interaction.Snapshot",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Interaction/Snapshot.trace'"
+    },
+    {
+      "module": "Examples.DiagnosticProjection",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/DiagnosticProjection.trace'"
+    },
+    {
+      "module": "Examples.DiagnosticStorage",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/DiagnosticStorage.trace'"
+    },
+    {
+      "module": "Applications.Dijkstra.Core",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Dijkstra/Core.trace'"
+    },
+    {
+      "module": "Applications.Dijkstra.Optimality",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Dijkstra/Optimality.trace'"
+    },
+    {
+      "module": "Applications.Dijkstra.Paths",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Dijkstra/Paths.trace'"
+    },
+    {
+      "module": "Applications.Search.LeftistQueue",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Search/LeftistQueue.trace'"
+    },
+    {
+      "module": "Applications.Search.PriorityInterface",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Search/PriorityInterface.trace'"
+    },
+    {
+      "module": "Applications.Search.HeuristicCore",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Search/HeuristicCore.trace'"
+    },
+    {
+      "module": "Applications.Search.HeuristicCoverage",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Search/HeuristicCoverage.trace'"
+    },
+    {
+      "module": "Applications.Search.HeuristicOptimality",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Search/HeuristicOptimality.trace'"
+    },
+    {
+      "module": "Applications.Search.HeuristicTermination",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Search/HeuristicTermination.trace'"
+    },
+    {
+      "module": "Applications.Search.Interpretation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Search/Interpretation.trace'"
+    },
+    {
+      "module": "Applications.Dijkstra.Semantics",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Dijkstra/Semantics.trace'"
+    },
+    {
+      "module": "Applications.Dijkstra.AllPaths",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Dijkstra/AllPaths.trace'"
+    },
+    {
+      "module": "Applications.Dijkstra.Target",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Dijkstra/Target.trace'"
+    },
+    {
+      "module": "Applications.Search.ExactPriority",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Search/ExactPriority.trace'"
+    },
+    {
+      "module": "Applications.Dijkstra.Observation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Dijkstra/Observation.trace'"
+    },
+    {
+      "module": "Examples.Dijkstra",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/Dijkstra.trace'"
+    },
+    {
+      "module": "Applications.Optimization.SelectionMap",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Optimization/SelectionMap.trace'"
+    },
+    {
+      "module": "Applications.Resources.Dijkstra.StoreCosts",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/Dijkstra/StoreCosts.trace'"
+    },
+    {
+      "module": "Applications.Resources.Dijkstra.Execution",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/Dijkstra/Execution.trace'"
+    },
+    {
+      "module": "Applications.Resources.Dijkstra.Observation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/Dijkstra/Observation.trace'"
+    },
+    {
+      "module": "Examples.DijkstraCosts",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/DijkstraCosts.trace'"
+    },
+    {
+      "module": "Applications.Dijkstra.Sentinel.Encoding",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Dijkstra/Sentinel/Encoding.trace'"
+    },
+    {
+      "module": "Applications.Dijkstra.Sentinel.Range",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Dijkstra/Sentinel/Range.trace'"
+    },
+    {
+      "module": "Applications.Dijkstra.Sentinel.Observation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Dijkstra/Sentinel/Observation.trace'"
+    },
+    {
+      "module": "Examples.DijkstraSentinel",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/DijkstraSentinel.trace'"
+    },
+    {
+      "module": "SquareKit.DiscreteSheaf",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/DiscreteSheaf.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothGeometricKL",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothGeometricKL.trace'"
+    },
+    {
+      "module": "SquareKit.SheafTorsor",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SheafTorsor.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothDualCover",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothDualCover.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothOpenMaps",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothOpenMaps.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothOpenDuality",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothOpenDuality.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothOpenEmbedding",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothOpenEmbedding.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothRealPointCovers",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothRealPointCovers.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothLocallyConstantGroup",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothLocallyConstantGroup.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothConstantRigidity",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothConstantRigidity.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothGeometricRepresentable",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothGeometricRepresentable.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothKL",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothKL.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothDerivative",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothDerivative.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothGeometricDerivative",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothGeometricDerivative.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothCoverCharacterization",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothCoverCharacterization.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothGeometricLocality",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothGeometricLocality.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothOpenKL",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothOpenKL.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothDualSheaf",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothDualSheaf.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothTorsorDual",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothTorsorDual.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothTorsorEquivalence",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothTorsorEquivalence.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothTorsorParameters",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothTorsorParameters.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothDiscreteMapping",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothDiscreteMapping.trace'"
+    },
+    {
+      "module": "Examples.DiscreteSmoothMapping",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/DiscreteSmoothMapping.trace'"
+    },
+    {
+      "module": "Applications.Orbifold.MatrixDisk",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Orbifold/MatrixDisk.trace'"
+    },
+    {
+      "module": "Applications.Orbifold.QuarterTurn",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Orbifold/QuarterTurn.trace'"
+    },
+    {
+      "module": "Examples.DiskRealizations",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/DiskRealizations.trace'"
+    },
+    {
+      "module": "Examples.Durability",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/Durability.trace'"
+    },
+    {
+      "module": "Applications.DynamicProgramming.SuffixRow",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/DynamicProgramming/SuffixRow.trace'"
+    },
+    {
+      "module": "Applications.EditAlignment.Semantics",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/EditAlignment/Semantics.trace'"
+    },
+    {
+      "module": "Applications.EditAlignment.Recursive",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/EditAlignment/Recursive.trace'"
+    },
+    {
+      "module": "Applications.EditAlignment.Rows",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/EditAlignment/Rows.trace'"
+    },
+    {
+      "module": "Applications.EditAlignment.Cached",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/EditAlignment/Cached.trace'"
+    },
+    {
+      "module": "Applications.EditAlignment.Observation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/EditAlignment/Observation.trace'"
+    },
+    {
+      "module": "Examples.EditAlignment",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/EditAlignment.trace'"
+    },
+    {
+      "module": "SquareKit.EquationTranspose",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/EquationTranspose.trace'"
+    },
+    {
+      "module": "Applications.Languages.Transposition",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Languages/Transposition.trace'"
+    },
+    {
+      "module": "Examples.EquationTranspose",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/EquationTranspose.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothOpenCoordinates",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothOpenCoordinates.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothOpenOperations",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothOpenOperations.trace'"
+    },
+    {
+      "module": "Examples.EuclideanOpenEmbedding",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/EuclideanOpenEmbedding.trace'"
+    },
+    {
+      "module": "Examples.ExpressiveWitnesses",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/ExpressiveWitnesses.trace'"
+    },
+    {
+      "module": "Applications.Interaction.Evidence",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Interaction/Evidence.trace'"
+    },
+    {
+      "module": "Examples.ExternalInteraction",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/ExternalInteraction.trace'"
+    },
+    {
+      "module": "Applications.Resources.FIFOContracts",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/FIFOContracts.trace'"
+    },
+    {
+      "module": "Examples.FIFOContracts",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/FIFOContracts.trace'"
+    },
+    {
+      "module": "Applications.FRP.Equivalence",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/Equivalence.trace'"
+    },
+    {
+      "module": "Applications.FRP.Finite",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/Finite.trace'"
+    },
+    {
+      "module": "Examples.FRP",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/FRP.trace'"
+    },
+    {
+      "module": "Applications.FRP.Engine",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/Engine.trace'"
+    },
+    {
+      "module": "Applications.FRP.Lifecycle",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/Lifecycle.trace'"
+    },
+    {
+      "module": "Applications.FRP.LifecycleSafety",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/LifecycleSafety.trace'"
+    },
+    {
+      "module": "Applications.FRP.LifecycleProgress",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/LifecycleProgress.trace'"
+    },
+    {
+      "module": "Applications.Progress.Feedback",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Progress/Feedback.trace'"
+    },
+    {
+      "module": "Applications.Progress.CoupledFeedback",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Progress/CoupledFeedback.trace'"
+    },
+    {
+      "module": "Applications.FRP.Feedback",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/Feedback.trace'"
+    },
+    {
+      "module": "Applications.Progress.Reactive",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Progress/Reactive.trace'"
+    },
+    {
+      "module": "SquareKit.ListFoldCompiler",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/ListFoldCompiler.trace'"
+    },
+    {
+      "module": "SquareKit.ReactiveCompiler",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/ReactiveCompiler.trace'"
+    },
+    {
+      "module": "Applications.FRP.ReactiveConsumers",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/ReactiveConsumers.trace'"
+    },
+    {
+      "module": "Applications.FRP.Pipeline",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/Pipeline.trace'"
+    },
+    {
+      "module": "Applications.FRP.LifecyclePipeline",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/LifecyclePipeline.trace'"
+    },
+    {
+      "module": "Applications.FRP.DriverProtocol",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/DriverProtocol.trace'"
+    },
+    {
+      "module": "Applications.FRP.DriverIO",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/DriverIO.trace'"
+    },
+    {
+      "module": "Examples.FRPDriver",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/FRPDriver.trace'"
+    },
+    {
+      "module": "Examples.FRPEngine",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/FRPEngine.trace'"
+    },
+    {
+      "module": "Examples.FamilyCoherence",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/FamilyCoherence.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.FiniteSetting",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/FiniteSetting.trace'"
+    },
+    {
+      "module": "Examples.FiniteSetting",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/FiniteSetting.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ComplementaryModel",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ComplementaryModel.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.MixedSetting",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/MixedSetting.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.PresheafSetting",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/PresheafSetting.trace'"
+    },
+    {
+      "module": "SquareKit.SubfunctorLattice",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SubfunctorLattice.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.FiniteModelCategory",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/FiniteModelCategory.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.PartitionSection",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/PartitionSection.trace'"
+    },
+    {
+      "module": "SquareKit.SliceExtensive",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SliceExtensive.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.FiniteClassifierComparison",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/FiniteClassifierComparison.trace'"
+    },
+    {
+      "module": "Examples.FiniteClassifier",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/FiniteClassifier.trace'"
+    },
+    {
+      "module": "SquareKit.GroupoidTransportRoutes",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/GroupoidTransportRoutes.trace'"
+    },
+    {
+      "module": "SquareKit.FiniteUniverse",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/FiniteUniverse.trace'"
+    },
+    {
+      "module": "Examples.FiniteUniverse",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/FiniteUniverse.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SyntheticScalar",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SyntheticScalar.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SyntheticScalarSoundness",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SyntheticScalarSoundness.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SyntheticScalarSheaf",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SyntheticScalarSheaf.trace'"
+    },
+    {
+      "module": "SquareKit.SyntheticProductRule",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SyntheticProductRule.trace'"
+    },
+    {
+      "module": "Examples.SyntheticProduct",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SyntheticProduct.trace'"
+    },
+    {
+      "module": "Examples.SmoothDual",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SmoothDual.trace'"
+    },
+    {
+      "module": "Examples.SecondStage",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SecondStage.trace'"
+    },
+    {
+      "module": "Examples.FreeSmoothAlgebra",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/FreeSmoothAlgebra.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.Substitution",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/Substitution.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.Frobenius",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/Frobenius.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ConditionedComposition",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ConditionedComposition.trace'"
+    },
+    {
+      "module": "SquareKit.ConditionedRelations",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/ConditionedRelations.trace'"
+    },
+    {
+      "module": "Applications.Intervals.ConditionedComposition",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Intervals/ConditionedComposition.trace'"
+    },
+    {
+      "module": "Examples.InternalAuthoring",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/InternalAuthoring.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.PresheafFrobenius",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/PresheafFrobenius.trace'"
+    },
+    {
+      "module": "Examples.Frobenius",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/Frobenius.trace'"
+    },
+    {
+      "module": "Applications.Arithmetic.EuclidInduction",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Arithmetic/EuclidInduction.trace'"
+    },
+    {
+      "module": "Examples.FunctionalBasics",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/FunctionalBasics.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothDescentDual",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothDescentDual.trace'"
+    },
+    {
+      "module": "Examples.SmoothPrincipalDescent",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SmoothPrincipalDescent.trace'"
+    },
+    {
+      "module": "Examples.SmoothGeometricSite",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SmoothGeometricSite.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SyntheticScalarGeometric",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SyntheticScalarGeometric.trace'"
+    },
+    {
+      "module": "SquareKit.GeometricProductRule",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/GeometricProductRule.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothGeometricComparison",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothGeometricComparison.trace'"
+    },
+    {
+      "module": "Examples.GeometricSyntheticProduct",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/GeometricSyntheticProduct.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.CoreSyntax",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/CoreSyntax.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GraphTarget",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GraphTarget.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GraphTargetComparison",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GraphTargetComparison.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GraphEmissionPure",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GraphEmissionPure.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GraphEmissionProof",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GraphEmissionProof.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GraphEmissionContract",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GraphEmissionContract.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.CoreTyping",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/CoreTyping.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GraphEmissionTyping",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GraphEmissionTyping.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GraphEmissionSquares",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GraphEmissionSquares.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GraphPrimitiveEnvironment",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GraphPrimitiveEnvironment.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GraphEmission",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GraphEmission.trace'"
+    },
+    {
+      "module": "Examples.GraphEmission",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/GraphEmission.trace'"
+    },
+    {
+      "module": "Examples.GraphTarget",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/GraphTarget.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GraphArtifactEquality",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GraphArtifactEquality.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GraphTranslationValidator",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GraphTranslationValidator.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GraphArtifactTransform",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GraphArtifactTransform.trace'"
+    },
+    {
+      "module": "Examples.GraphTranslationValidation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/GraphTranslationValidation.trace'"
+    },
+    {
+      "module": "Examples.GroupoidRoutes",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/GroupoidRoutes.trace'"
+    },
+    {
+      "module": "Applications.Search.HeuristicSemantics",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Search/HeuristicSemantics.trace'"
+    },
+    {
+      "module": "Applications.Search.PrioritySearchQueue",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Search/PrioritySearchQueue.trace'"
+    },
+    {
+      "module": "Examples.HeuristicSearch",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/HeuristicSearch.trace'"
+    },
+    {
+      "module": "Applications.Huffman.Basic",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Huffman/Basic.trace'"
+    },
+    {
+      "module": "Applications.Huffman.Exchange",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Huffman/Exchange.trace'"
+    },
+    {
+      "module": "Applications.Huffman.Priority",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Huffman/Priority.trace'"
+    },
+    {
+      "module": "Applications.Huffman.SourcePriority",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Huffman/SourcePriority.trace'"
+    },
+    {
+      "module": "Applications.Huffman.Observation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Huffman/Observation.trace'"
+    },
+    {
+      "module": "Examples.Huffman",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/Huffman.trace'"
+    },
+    {
+      "module": "Applications.Sorting.Stable",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Sorting/Stable.trace'"
+    },
+    {
+      "module": "Applications.Sorting.Merge",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Sorting/Merge.trace'"
+    },
+    {
+      "module": "Applications.Sorting.SourceMerge",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Sorting/SourceMerge.trace'"
+    },
+    {
+      "module": "Applications.Subsequences.Candidates",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Subsequences/Candidates.trace'"
+    },
+    {
+      "module": "Applications.Subsequences.Frontier",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Subsequences/Frontier.trace'"
+    },
+    {
+      "module": "Applications.Subsequences.Selection",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Subsequences/Selection.trace'"
+    },
+    {
+      "module": "Applications.Subsequences.Observation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Subsequences/Observation.trace'"
+    },
+    {
+      "module": "Examples.IncreasingSubsequences",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/IncreasingSubsequences.trace'"
+    },
+    {
+      "module": "Applications.Circuits.Execution",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Circuits/Execution.trace'"
+    },
+    {
+      "module": "SquareKit.PreservationBounds",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/PreservationBounds.trace'"
+    },
+    {
+      "module": "Applications.FRP.FiniteDelay",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/FiniteDelay.trace'"
+    },
+    {
+      "module": "Applications.FRP.Indefinite",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/Indefinite.trace'"
+    },
+    {
+      "module": "Applications.FRP.IndefiniteIO",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/IndefiniteIO.trace'"
+    },
+    {
+      "module": "Examples.IndefiniteService",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/IndefiniteService.trace'"
+    },
+    {
+      "module": "Applications.Progress.DependentFeedback",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Progress/DependentFeedback.trace'"
+    },
+    {
+      "module": "Applications.Progress.OccurrenceCursor",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Progress/OccurrenceCursor.trace'"
+    },
+    {
+      "module": "Examples.IndexedFeedback",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/IndexedFeedback.trace'"
+    },
+    {
+      "module": "Examples.InitializedFeedback",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/InitializedFeedback.trace'"
+    },
+    {
+      "module": "Applications.Interaction.Obligation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Interaction/Obligation.trace'"
+    },
+    {
+      "module": "Examples.InteractionInterfaces",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/InteractionInterfaces.trace'"
+    },
+    {
+      "module": "Examples.InteractionTransport",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/InteractionTransport.trace'"
+    },
+    {
+      "module": "Examples.JetScan",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/JetScan.trace'"
+    },
+    {
+      "module": "Applications.Optimization.KnapsackThinning",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Optimization/KnapsackThinning.trace'"
+    },
+    {
+      "module": "Applications.Resources.Knapsack",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/Knapsack.trace'"
+    },
+    {
+      "module": "Applications.Resources.KnapsackSemantics",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/KnapsackSemantics.trace'"
+    },
+    {
+      "module": "Applications.Resources.KnapsackSourceCosts",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/KnapsackSourceCosts.trace'"
+    },
+    {
+      "module": "Applications.Resources.KnapsackWorkload",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/KnapsackWorkload.trace'"
+    },
+    {
+      "module": "Examples.KnapsackWorkload",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/KnapsackWorkload.trace'"
+    },
+    {
+      "module": "Applications.Sorting.Sort",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Sorting/Sort.trace'"
+    },
+    {
+      "module": "Applications.Kruskal.Basic",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Kruskal/Basic.trace'"
+    },
+    {
+      "module": "Applications.Kruskal.Correctness",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Kruskal/Correctness.trace'"
+    },
+    {
+      "module": "Applications.Kruskal.Observation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Kruskal/Observation.trace'"
+    },
+    {
+      "module": "Examples.Kruskal",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/Kruskal.trace'"
+    },
+    {
+      "module": "SquareKit.STLCSignature",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/STLCSignature.trace'"
+    },
+    {
+      "module": "Applications.Sequences.FIFOExtension",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Sequences/FIFOExtension.trace'"
+    },
+    {
+      "module": "Examples.LanguageExtension",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/LanguageExtension.trace'"
+    },
+    {
+      "module": "Examples.ListReversal",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/ListReversal.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothOpenSubdomain",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothOpenSubdomain.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothOrdinaryCover",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothOrdinaryCover.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothOpenOverlap",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothOpenOverlap.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothOrdinaryGluing",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothOrdinaryGluing.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothOpenSheafDescent",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothOpenSheafDescent.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothOrdinaryPullbackCover",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothOrdinaryPullbackCover.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothChartRealization",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothChartRealization.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothChartMaps",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothChartMaps.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothLocalChartMaps",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothLocalChartMaps.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothChartRefinement",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothChartRefinement.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothChartSubdivision",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothChartSubdivision.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothChartOverlapRefinement",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothChartOverlapRefinement.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothChartOpenAtlas",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothChartOpenAtlas.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothAtlasSubdivision",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothAtlasSubdivision.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothLocalChartLaws",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothLocalChartLaws.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothManifoldCharts",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothManifoldCharts.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothManifoldInterpretation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothManifoldInterpretation.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothManifoldRefinement",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothManifoldRefinement.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothManifoldModel",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothManifoldModel.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothManifoldLocalSmoothness",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothManifoldLocalSmoothness.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothManifoldOpenComparison",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothManifoldOpenComparison.trace'"
+    },
+    {
+      "module": "Examples.MathlibManifoldRealization",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/MathlibManifoldRealization.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothOrdinaryCoverLifting",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothOrdinaryCoverLifting.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothChartLocalLifting",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothChartLocalLifting.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothOpenRealSections",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothOpenRealSections.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothChartRealSections",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothChartRealSections.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothChartRealMaps",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothChartRealMaps.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothChartReconstruction",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothChartReconstruction.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothManifoldPrincipalMaps",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothManifoldPrincipalMaps.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothManifoldFullFaithfulness",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothManifoldFullFaithfulness.trace'"
+    },
+    {
+      "module": "Examples.ManifoldFullFaithfulness",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/ManifoldFullFaithfulness.trace'"
+    },
+    {
+      "module": "SquareKit.MatrixDoubling",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/MatrixDoubling.trace'"
+    },
+    {
+      "module": "Examples.MatrixCompilerPreservation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/MatrixCompilerPreservation.trace'"
+    },
+    {
+      "module": "Examples.MatrixStack",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/MatrixStack.trace'"
+    },
+    {
+      "module": "Applications.Parallel.MeasuredScan",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Parallel/MeasuredScan.trace'"
+    },
+    {
+      "module": "Examples.MeasuredScan",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/MeasuredScan.trace'"
+    },
+    {
+      "module": "Applications.Interaction.Measurement",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Interaction/Measurement.trace'"
+    },
+    {
+      "module": "Examples.MeasurementAttempt",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/MeasurementAttempt.trace'"
+    },
+    {
+      "module": "Applications.Probability.AcceptReject",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Probability/AcceptReject.trace'"
+    },
+    {
+      "module": "Applications.Probability.FiniteMH",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Probability/FiniteMH.trace'"
+    },
+    {
+      "module": "Applications.Probability.FiniteKernel",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Probability/FiniteKernel.trace'"
+    },
+    {
+      "module": "Applications.Probability.MetropolisHastings",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Probability/MetropolisHastings.trace'"
+    },
+    {
+      "module": "Examples.MetropolisHastings",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/MetropolisHastings.trace'"
+    },
+    {
+      "module": "Examples.MixedSetting",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/MixedSetting.trace'"
+    },
+    {
+      "module": "Examples.NativeSliceProducts",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/NativeSliceProducts.trace'"
+    },
+    {
+      "module": "Applications.Kruskal.AllMinima",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Kruskal/AllMinima.trace'"
+    },
+    {
+      "module": "Applications.Kruskal.Nested",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Kruskal/Nested.trace'"
+    },
+    {
+      "module": "Applications.Kruskal.NestedPartition",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Kruskal/NestedPartition.trace'"
+    },
+    {
+      "module": "Applications.Kruskal.Forest",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Kruskal/Forest.trace'"
+    },
+    {
+      "module": "Applications.Kruskal.NestedClient",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Kruskal/NestedClient.trace'"
+    },
+    {
+      "module": "Applications.Kruskal.ForestObservation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Kruskal/ForestObservation.trace'"
+    },
+    {
+      "module": "Examples.NestedKruskal",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/NestedKruskal.trace'"
+    },
+    {
+      "module": "Applications.Geometry.ParallelTransport",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Geometry/ParallelTransport.trace'"
+    },
+    {
+      "module": "Applications.Orbifold.DiskConnection",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Orbifold/DiskConnection.trace'"
+    },
+    {
+      "module": "Applications.Orbifold.DiskTransport",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Orbifold/DiskTransport.trace'"
+    },
+    {
+      "module": "Applications.Orbifold.TransportSegments",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Orbifold/TransportSegments.trace'"
+    },
+    {
+      "module": "Applications.Orbifold.TransportComparison",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Orbifold/TransportComparison.trace'"
+    },
+    {
+      "module": "Applications.Orbifold.TransportFrames",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Orbifold/TransportFrames.trace'"
+    },
+    {
+      "module": "Applications.Orbifold.PoseConnection",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Orbifold/PoseConnection.trace'"
+    },
+    {
+      "module": "Applications.Orbifold.TimedMotion",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Orbifold/TimedMotion.trace'"
+    },
+    {
+      "module": "Applications.Orbifold.TimedCommands",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Orbifold/TimedCommands.trace'"
+    },
+    {
+      "module": "Applications.Orbifold.CommandComparison",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Orbifold/CommandComparison.trace'"
+    },
+    {
+      "module": "Applications.Orbifold.MotionUniqueness",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Orbifold/MotionUniqueness.trace'"
+    },
+    {
+      "module": "Applications.Orbifold.NumericalBounds",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Orbifold/NumericalBounds.trace'"
+    },
+    {
+      "module": "Applications.Orbifold.RationalMotion",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Orbifold/RationalMotion.trace'"
+    },
+    {
+      "module": "Applications.Orbifold.CheckedMotion",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Orbifold/CheckedMotion.trace'"
+    },
+    {
+      "module": "Applications.Orbifold.NumericalExecution",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Orbifold/NumericalExecution.trace'"
+    },
+    {
+      "module": "Applications.Orbifold.NumericalSymmetry",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Orbifold/NumericalSymmetry.trace'"
+    },
+    {
+      "module": "Examples.NumericalMotion",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/NumericalMotion.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothTopologyKLComparison",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothTopologyKLComparison.trace'"
+    },
+    {
+      "module": "Examples.OpenSyntheticProduct",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/OpenSyntheticProduct.trace'"
+    },
+    {
+      "module": "Examples.Optimization",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/Optimization.trace'"
+    },
+    {
+      "module": "SquareKit.OptionalMathlib",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/OptionalMathlib.trace'"
+    },
+    {
+      "module": "Examples.OptionalSquares",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/OptionalSquares.trace'"
+    },
+    {
+      "module": "Examples.OrbifoldComparison",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/OrbifoldComparison.trace'"
+    },
+    {
+      "module": "Applications.Checking.OrderCertificate",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Checking/OrderCertificate.trace'"
+    },
+    {
+      "module": "Examples.OrderCertificate",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/OrderCertificate.trace'"
+    },
+    {
+      "module": "Applications.OrderedPartitions.Left",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/OrderedPartitions/Left.trace'"
+    },
+    {
+      "module": "Applications.OrderedPartitions.Right",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/OrderedPartitions/Right.trace'"
+    },
+    {
+      "module": "Applications.OrderedPartitions.Enumeration",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/OrderedPartitions/Enumeration.trace'"
+    },
+    {
+      "module": "Examples.OrderedPartitions",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/OrderedPartitions.trace'"
+    },
+    {
+      "module": "Applications.Search.Ordered.Exact",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Search/Ordered/Exact.trace'"
+    },
+    {
+      "module": "Applications.Search.Ordered.Threshold",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Search/Ordered/Threshold.trace'"
+    },
+    {
+      "module": "Applications.Search.Ordered.Global",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Search/Ordered/Global.trace'"
+    },
+    {
+      "module": "Applications.Search.Ordered.Consumers",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Search/Ordered/Consumers.trace'"
+    },
+    {
+      "module": "Examples.OrderedSearch",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/OrderedSearch.trace'"
+    },
+    {
+      "module": "Examples.OrderedSummary",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/OrderedSummary.trace'"
+    },
+    {
+      "module": "Examples.OrderedSummaryPresheaf",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/OrderedSummaryPresheaf.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothOpenRestriction",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothOpenRestriction.trace'"
+    },
+    {
+      "module": "Examples.OrdinaryOpenDescent",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/OrdinaryOpenDescent.trace'"
+    },
+    {
+      "module": "Examples.OrdinaryChartRealization",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/OrdinaryChartRealization.trace'"
+    },
+    {
+      "module": "Applications.Paragraphs.Candidates",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Paragraphs/Candidates.trace'"
+    },
+    {
+      "module": "Applications.Paragraphs.Greedy",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Paragraphs/Greedy.trace'"
+    },
+    {
+      "module": "Applications.Paragraphs.Helper",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Paragraphs/Helper.trace'"
+    },
+    {
+      "module": "Applications.Paragraphs.Observation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Paragraphs/Observation.trace'"
+    },
+    {
+      "module": "Examples.ParagraphLayout",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/ParagraphLayout.trace'"
+    },
+    {
+      "module": "Applications.Geometry.ConformalConnection",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Geometry/ConformalConnection.trace'"
+    },
+    {
+      "module": "Applications.Geometry.VariableCurvature",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Geometry/VariableCurvature.trace'"
+    },
+    {
+      "module": "Applications.Orbifold.DiskCurvature",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Orbifold/DiskCurvature.trace'"
+    },
+    {
+      "module": "Examples.PathTransport",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/PathTransport.trace'"
+    },
+    {
+      "module": "Examples.PathTransportUniqueness",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/PathTransportUniqueness.trace'"
+    },
+    {
+      "module": "Applications.Resources.BinaryCounter",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/BinaryCounter.trace'"
+    },
+    {
+      "module": "Applications.Resources.SymmetricWorkload",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/SymmetricWorkload.trace'"
+    },
+    {
+      "module": "Examples.PotentialAccounting",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/PotentialAccounting.trace'"
+    },
+    {
+      "module": "Applications.Interaction.EvidenceBounds",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Interaction/EvidenceBounds.trace'"
+    },
+    {
+      "module": "Examples.PreservationAuthorA",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/PreservationAuthorA.trace'"
+    },
+    {
+      "module": "Examples.PreservationAuthorB",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/PreservationAuthorB.trace'"
+    },
+    {
+      "module": "Examples.PreservationBounds",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/PreservationBounds.trace'"
+    },
+    {
+      "module": "Examples.PresheafSetting",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/PresheafSetting.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.PresheafRepresentation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/PresheafRepresentation.trace'"
+    },
+    {
+      "module": "Examples.PresheafRepresentation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/PresheafRepresentation.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.PresheafClassifierComparison",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/PresheafClassifierComparison.trace'"
+    },
+    {
+      "module": "Examples.PresheafClassifier",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/PresheafClassifier.trace'"
+    },
+    {
+      "module": "Applications.Prim.Core",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Prim/Core.trace'"
+    },
+    {
+      "module": "Applications.Prim.Exchange",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Prim/Exchange.trace'"
+    },
+    {
+      "module": "Applications.Prim.Correctness",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Prim/Correctness.trace'"
+    },
+    {
+      "module": "Applications.Prim.Observation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Prim/Observation.trace'"
+    },
+    {
+      "module": "Examples.Prim",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/Prim.trace'"
+    },
+    {
+      "module": "Applications.Prim.Weights",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Prim/Weights.trace'"
+    },
+    {
+      "module": "Applications.Prim.Array",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Prim/Array.trace'"
+    },
+    {
+      "module": "Applications.Prim.ArrayOptimality",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Prim/ArrayOptimality.trace'"
+    },
+    {
+      "module": "Applications.Prim.ArrayObservation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Prim/ArrayObservation.trace'"
+    },
+    {
+      "module": "Examples.PrimArray",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/PrimArray.trace'"
+    },
+    {
+      "module": "Applications.Probability.Execution",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Probability/Execution.trace'"
+    },
+    {
+      "module": "Applications.Probability.SearchObservation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Probability/SearchObservation.trace'"
+    },
+    {
+      "module": "Applications.Probability.CoinPaths",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Probability/CoinPaths.trace'"
+    },
+    {
+      "module": "Applications.Probability.HeavyTail",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Probability/HeavyTail.trace'"
+    },
+    {
+      "module": "Applications.Probability.Productivity",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Probability/Productivity.trace'"
+    },
+    {
+      "module": "Applications.Probability.Results",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Probability/Results.trace'"
+    },
+    {
+      "module": "Applications.Probability.HittingTimes",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Probability/HittingTimes.trace'"
+    },
+    {
+      "module": "Examples.ProbabilisticProgress",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/ProbabilisticProgress.trace'"
+    },
+    {
+      "module": "Examples.ProbabilityCorrelation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/ProbabilityCorrelation.trace'"
+    },
+    {
+      "module": "SquareKit.SheafActionQuotient",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SheafActionQuotient.trace'"
+    },
+    {
+      "module": "SquareKit.QuotientPointedArcs",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/QuotientPointedArcs.trace'"
+    },
+    {
+      "module": "SquareKit.QuotientFixedArcs",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/QuotientFixedArcs.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothConstantAction",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothConstantAction.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothConstantOrdinary",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothConstantOrdinary.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothOpenArcs",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothOpenArcs.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothQuarterTurnArcs",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothQuarterTurnArcs.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothQuarterTurnQuotient",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothQuarterTurnQuotient.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothQuotientTransport",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothQuotientTransport.trace'"
+    },
+    {
+      "module": "Examples.QuarterTurnArcs",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/QuarterTurnArcs.trace'"
+    },
+    {
+      "module": "SquareKit.SheafTorsorLocal",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SheafTorsorLocal.trace'"
+    },
+    {
+      "module": "SquareKit.SheafTorsorDescent",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SheafTorsorDescent.trace'"
+    },
+    {
+      "module": "SquareKit.SheafActionQuotientDescent",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SheafActionQuotientDescent.trace'"
+    },
+    {
+      "module": "SquareKit.SheafPushoutLocal",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SheafPushoutLocal.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothClutchingTorsor",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothClutchingTorsor.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothClutchingPrincipal",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothClutchingPrincipal.trace'"
+    },
+    {
+      "module": "Examples.QuotientDescent",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/QuotientDescent.trace'"
+    },
+    {
+      "module": "Applications.Sequences.RandomAccess.Representation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Sequences/RandomAccess/Representation.trace'"
+    },
+    {
+      "module": "Applications.Resources.RandomAccess.Lookup",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/RandomAccess/Lookup.trace'"
+    },
+    {
+      "module": "Applications.Resources.RandomAccess.Bulk",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/RandomAccess/Bulk.trace'"
+    },
+    {
+      "module": "Applications.Resources.RandomAccess.Families",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/RandomAccess/Families.trace'"
+    },
+    {
+      "module": "Applications.Resources.RandomAccess.Observation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/RandomAccess/Observation.trace'"
+    },
+    {
+      "module": "Examples.RandomAccessCosts",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/RandomAccessCosts.trace'"
+    },
+    {
+      "module": "Applications.Resources.BinaryCounter.Decrement",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/BinaryCounter/Decrement.trace'"
+    },
+    {
+      "module": "Applications.Resources.RandomAccess.End",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/RandomAccess/End.trace'"
+    },
+    {
+      "module": "Applications.Resources.RandomAccess.Drain",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/RandomAccess/Drain.trace'"
+    },
+    {
+      "module": "Applications.Resources.RandomAccess.Cycles",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/RandomAccess/Cycles.trace'"
+    },
+    {
+      "module": "Applications.Resources.RandomAccess.EndCases",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/RandomAccess/EndCases.trace'"
+    },
+    {
+      "module": "Applications.Resources.RandomAccess.EndObservation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/RandomAccess/EndObservation.trace'"
+    },
+    {
+      "module": "Examples.RandomAccessEndCosts",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/RandomAccessEndCosts.trace'"
+    },
+    {
+      "module": "Examples.RandomAccessLists",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/RandomAccessLists.trace'"
+    },
+    {
+      "module": "Applications.Selection.Rank",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Selection/Rank.trace'"
+    },
+    {
+      "module": "Applications.Selection.ThreeWay",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Selection/ThreeWay.trace'"
+    },
+    {
+      "module": "Applications.Selection.Consumers",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Selection/Consumers.trace'"
+    },
+    {
+      "module": "Examples.RankSelection",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/RankSelection.trace'"
+    },
+    {
+      "module": "Applications.Search.RationalCost",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Search/RationalCost.trace'"
+    },
+    {
+      "module": "Examples.RationalSearch",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/RationalSearch.trace'"
+    },
+    {
+      "module": "Applications.FRP.ReactiveContracts",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/ReactiveContracts.trace'"
+    },
+    {
+      "module": "Examples.ReactiveContracts",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/ReactiveContracts.trace'"
+    },
+    {
+      "module": "Examples.ReactiveTarget",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/ReactiveTarget.trace'"
+    },
+    {
+      "module": "Examples.ReactivePipeline",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/ReactivePipeline.trace'"
+    },
+    {
+      "module": "Applications.Resources.FoldCompiler",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/FoldCompiler.trace'"
+    },
+    {
+      "module": "Examples.RecursiveCompilation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/RecursiveCompilation.trace'"
+    },
+    {
+      "module": "SquareKit.ListInitial.Fusion",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/ListInitial/Fusion.trace'"
+    },
+    {
+      "module": "SquareKit.ListInitial.Presheaves",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/ListInitial/Presheaves.trace'"
+    },
+    {
+      "module": "SquareKit.ListInitial.Types",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/ListInitial/Types.trace'"
+    },
+    {
+      "module": "Examples.RecursiveFusion",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/RecursiveFusion.trace'"
+    },
+    {
+      "module": "Examples.RelationalBridge",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/RelationalBridge.trace'"
+    },
+    {
+      "module": "Examples.RequestLifecycle",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/RequestLifecycle.trace'"
+    },
+    {
+      "module": "Applications.Resources.Thinning",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/Thinning.trace'"
+    },
+    {
+      "module": "Examples.Resources",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/Resources.trace'"
+    },
+    {
+      "module": "Applications.Durability.Retention",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/Retention.trace'"
+    },
+    {
+      "module": "Applications.Durability.RetentionBanks",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/RetentionBanks.trace'"
+    },
+    {
+      "module": "Applications.Durability.RetentionService",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/RetentionService.trace'"
+    },
+    {
+      "module": "Applications.Durability.RetentionMachine",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/RetentionMachine.trace'"
+    },
+    {
+      "module": "Applications.Durability.RetentionOwnership",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/RetentionOwnership.trace'"
+    },
+    {
+      "module": "Applications.Durability.RetentionResources",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/RetentionResources.trace'"
+    },
+    {
+      "module": "Applications.Durability.RetentionClients",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/RetentionClients.trace'"
+    },
+    {
+      "module": "Applications.Durability.RetentionSummary",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Durability/RetentionSummary.trace'"
+    },
+    {
+      "module": "Examples.RetainedHistory",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/RetainedHistory.trace'"
+    },
+    {
+      "module": "Examples.Run",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/Run.trace'"
+    },
+    {
+      "module": "Applications.Sequences.RunCompression",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Sequences/RunCompression.trace'"
+    },
+    {
+      "module": "Examples.RunCompression",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/RunCompression.trace'"
+    },
+    {
+      "module": "Applications.Parallel.InclusiveScan",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Parallel/InclusiveScan.trace'"
+    },
+    {
+      "module": "Examples.ScanFusion",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/ScanFusion.trace'"
+    },
+    {
+      "module": "Applications.Parallel.PrefixBounds",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Parallel/PrefixBounds.trace'"
+    },
+    {
+      "module": "Applications.Parallel.PrefixDAG",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Parallel/PrefixDAG.trace'"
+    },
+    {
+      "module": "Examples.ScanOptimality",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/ScanOptimality.trace'"
+    },
+    {
+      "module": "Applications.Parallel.ScanSearch",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Parallel/ScanSearch.trace'"
+    },
+    {
+      "module": "Examples.ScanSearch",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/ScanSearch.trace'"
+    },
+    {
+      "module": "SquareKit.DoubleDelooping",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/DoubleDelooping.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.TwoLoop",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/TwoLoop.trace'"
+    },
+    {
+      "module": "Examples.SecondIdentity",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SecondIdentity.trace'"
+    },
+    {
+      "module": "Examples.SelectionTies",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SelectionTies.trace'"
+    },
+    {
+      "module": "SquareKit.Session.Process",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Session/Process.trace'"
+    },
+    {
+      "module": "SquareKit.Session.Protocol",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Session/Protocol.trace'"
+    },
+    {
+      "module": "Examples.SessionProtocol",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SessionProtocol.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SheafFormula",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SheafFormula.trace'"
+    },
+    {
+      "module": "Examples.SheafFormula",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SheafFormula.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SheafSoundness",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SheafSoundness.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SheafAssociativity",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SheafAssociativity.trace'"
+    },
+    {
+      "module": "Examples.SheafRelations",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SheafRelations.trace'"
+    },
+    {
+      "module": "Examples.SheafSoundness",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SheafSoundness.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GeometricMorphism",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GeometricMorphism.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ArrowGeometry",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ArrowGeometry.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ArrowPresheaf",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ArrowPresheaf.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ArrowPushout",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ArrowPushout.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ArrowPresheafPushout",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ArrowPresheafPushout.trace'"
+    },
+    {
+      "module": "Examples.SierpinskiLocal",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SierpinskiLocal.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SierpinskiGeneric",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SierpinskiGeneric.trace'"
+    },
+    {
+      "module": "Examples.SierpinskiPoints",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SierpinskiPoints.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GeometricCone",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GeometricCone.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ArrowPresentation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ArrowPresentation.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ArrowPushoutModels",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ArrowPushoutModels.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ArrowReconstruction",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ArrowReconstruction.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ArrowTransformation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ArrowTransformation.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ArrowPushoutChange",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ArrowPushoutChange.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ArrowTransport",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ArrowTransport.trace'"
+    },
+    {
+      "module": "SquareKit.SheafCartesianClosed",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SheafCartesianClosed.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ArrowSheaf",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ArrowSheaf.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SierpinskiClassified",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SierpinskiClassified.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SierpinskiEquivalence",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SierpinskiEquivalence.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SierpinskiVaryingBase",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SierpinskiVaryingBase.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SierpinskiBaseChange",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SierpinskiBaseChange.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GeometricSlice",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GeometricSlice.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SliceSection",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SliceSection.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SliceGenericSection",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SliceGenericSection.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SliceUniversal",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SliceUniversal.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SliceRebase",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SliceRebase.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GeometricSections",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GeometricSections.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SliceSourceChange",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SliceSourceChange.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GeometricLiftCoherence",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GeometricLiftCoherence.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SubterminalChange",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SubterminalChange.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SierpinskiSourceChange",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SierpinskiSourceChange.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SierpinskiSourceCoherence",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SierpinskiSourceCoherence.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SierpinskiBaseCoherence",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SierpinskiBaseCoherence.trace'"
+    },
+    {
+      "module": "SquareKit.SierpinskiClassifier",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SierpinskiClassifier.trace'"
+    },
+    {
+      "module": "Examples.SierpinskiSheaf",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SierpinskiSheaf.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.PartitionSequents",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/PartitionSequents.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SheafSliceUniversal",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SheafSliceUniversal.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.FiniteClassifier",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/FiniteClassifier.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.PartitionPullback",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/PartitionPullback.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ClassifierComparison",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ClassifierComparison.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.PartitionParameter",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/PartitionParameter.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GenericModel",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GenericModel.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GenericModelPullback",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GenericModelPullback.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GeometricEquivalence",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GeometricEquivalence.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SliceVaryingBase",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SliceVaryingBase.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SliceBaseChange",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SliceBaseChange.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SlicePseudopullback",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SlicePseudopullback.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SheafPseudopullback",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SheafPseudopullback.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SliceIso",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SliceIso.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ClassifierBaseChange",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ClassifierBaseChange.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ClassifierRebase",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ClassifierRebase.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ClassifierSourceChange",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ClassifierSourceChange.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.PartitionTransform",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/PartitionTransform.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ClassifierSourceCoherence",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ClassifierSourceCoherence.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SliceSourceCoherence",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SliceSourceCoherence.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ClassifierPseudonaturality",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ClassifierPseudonaturality.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.PartitionMixedChange",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/PartitionMixedChange.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.PartitionCoherence",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/PartitionCoherence.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.TransformationCoherence",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/TransformationCoherence.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.ClassifierTransformation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/ClassifierTransformation.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.GeometricMixedChange",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/GeometricMixedChange.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.MixedClassifierModel",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/MixedClassifierModel.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.SheafFiniteClassifier",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/SheafFiniteClassifier.trace'"
+    },
+    {
+      "module": "SquareKit.Internal.RelativeSheafClassifier",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Internal/RelativeSheafClassifier.trace'"
+    },
+    {
+      "module": "SquareKit.ArbitrarySourceClassifier",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/ArbitrarySourceClassifier.trace'"
+    },
+    {
+      "module": "Examples.SliceUniversal",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SliceUniversal.trace'"
+    },
+    {
+      "module": "Examples.SmoothDualExtension",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SmoothDualExtension.trace'"
+    },
+    {
+      "module": "Examples.SmoothKL",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SmoothKL.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothLocalizationStage",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothLocalizationStage.trace'"
+    },
+    {
+      "module": "Examples.SmoothLocalization",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SmoothLocalization.trace'"
+    },
+    {
+      "module": "Examples.SmoothLocalizationOpen",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SmoothLocalizationOpen.trace'"
+    },
+    {
+      "module": "Examples.SmoothQuotient",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SmoothQuotient.trace'"
+    },
+    {
+      "module": "SquareKit.SmoothQuotientArcs",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothQuotientArcs.trace'"
+    },
+    {
+      "module": "Examples.SmoothQuotientArcs",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SmoothQuotientArcs.trace'"
+    },
+    {
+      "module": "Examples.SmoothSquareZero",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SmoothSquareZero.trace'"
+    },
+    {
+      "module": "Examples.SmoothTorsors",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SmoothTorsors.trace'"
+    },
+    {
+      "module": "Examples.SplitSheafFamilies",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SplitSheafFamilies.trace'"
+    },
+    {
+      "module": "Examples.StableSorting",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/StableSorting.trace'"
+    },
+    {
+      "module": "Applications.Incremental.Stateful",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Incremental/Stateful.trace'"
+    },
+    {
+      "module": "Applications.Incremental.VectorSum",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Incremental/VectorSum.trace'"
+    },
+    {
+      "module": "Applications.Incremental.PrefixSum",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Incremental/PrefixSum.trace'"
+    },
+    {
+      "module": "Applications.Incremental.VectorSumCost",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Incremental/VectorSumCost.trace'"
+    },
+    {
+      "module": "Examples.StatefulIncremental",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/StatefulIncremental.trace'"
+    },
+    {
+      "module": "Applications.Linear.Structured",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Linear/Structured.trace'"
+    },
+    {
+      "module": "Examples.StructuredLinear",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/StructuredLinear.trace'"
+    },
+    {
+      "module": "Applications.Linear.StructuredCosts",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Linear/StructuredCosts.trace'"
+    },
+    {
+      "module": "Applications.Linear.StructuredMeasured",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Linear/StructuredMeasured.trace'"
+    },
+    {
+      "module": "Examples.StructuredLinearCosts",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/StructuredLinearCosts.trace'"
+    },
+    {
+      "module": "SquareKit.Variance",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Variance.trace'"
+    },
+    {
+      "module": "Examples.SubtypeEvidence",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SubtypeEvidence.trace'"
+    },
+    {
+      "module": "Examples.SymmetricLists",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/SymmetricLists.trace'"
+    },
+    {
+      "module": "SquareKit.Temporal.Monitor",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/Temporal/Monitor.trace'"
+    },
+    {
+      "module": "Applications.FRP.Monitor",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/Monitor.trace'"
+    },
+    {
+      "module": "Examples.TemporalMonitor",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/TemporalMonitor.trace'"
+    },
+    {
+      "module": "Applications.Optimization.NetworkPaths",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Optimization/NetworkPaths.trace'"
+    },
+    {
+      "module": "Applications.Optimization.NetworkThinning",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Optimization/NetworkThinning.trace'"
+    },
+    {
+      "module": "Applications.Optimization.ThinningRelations",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Optimization/ThinningRelations.trace'"
+    },
+    {
+      "module": "Examples.Thinning",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/Thinning.trace'"
+    },
+    {
+      "module": "Examples.TimedMotion",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/TimedMotion.trace'"
+    },
+    {
+      "module": "Applications.Resources.TreeFlattening.Cached",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/TreeFlattening/Cached.trace'"
+    },
+    {
+      "module": "Applications.Resources.TreeFlattening.Growth",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/TreeFlattening/Growth.trace'"
+    },
+    {
+      "module": "Applications.Resources.TreeFlattening.Observation",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/TreeFlattening/Observation.trace'"
+    },
+    {
+      "module": "Examples.TreeFlatteningCosts",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/TreeFlatteningCosts.trace'"
+    },
+    {
+      "module": "Examples.TypedPathTransport",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/TypedPathTransport.trace'"
+    },
+    {
+      "module": "SquareKit.CommaLimits",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/CommaLimits.trace'"
+    },
+    {
+      "module": "Verification",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Verification.trace'"
+    },
+    {
+      "module": "SquareApplications",
+      "reason": "[Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareApplications.trace'"
+    }
+  ],
+  "interpretation": "Observed missing-output recovery is consistent with the recorded unsuccessful old build. No output mismatch or nonmissing-file integrity reason was reported by this pre-build pass. The truncated old log is incomplete evidence, not proof of every module history. The full build, post-build integrity and exhaustive audit remain pending; this record grants no acceptance or general cache-soundness claim."
+}

@@ -1,0 +1,22 @@
+diff --git a/Examples/RandomSelectionTrace.lean b/Examples/RandomSelectionTrace.lean
+index eaa952f..1b3318c 100644
+--- a/Examples/RandomSelectionTrace.lean
++++ b/Examples/RandomSelectionTrace.lean
+@@ -156,6 +156,17 @@ theorem different_initial_rank_boundary (x : α) :
+   have hs := Examples.RandomSelectionEqual.singleton_boundary x
+   exact ⟨hs.1, hs.2, by simp⟩
+ 
++/-- Support is essential even at a fixed initial state: replacing the actual
++empty source cost two by three preserves the trace but gives a zero atom. -/
++theorem unsupported_empty_trace_boundary (k : Nat) :
++    run k ([] : List Nat) (none, ([], 3)) = 0 ∧
++      traceLaw k ([] : List Nat) [] = 1 ∧
++      (none, ([], 3)) ∉ (run k ([] : List Nat)).support := by
++  have ha : run k ([] : List Nat) (none, ([], 3)) = 0 := by
++    rw [run_nil]
++    exact PMF.pure_apply_of_ne _ _ (by decide)
++  exact ⟨ha, empty_trace_atom k, (PMF.apply_eq_zero_iff _ _).mp ha⟩
++
+ theorem arbitrary_supported_trace (k : Nat) (xs : List α) (r s : Outcome α)
+     (hr : r ∈ (run k xs).support) (hs : s ∈ (run k xs).support)
+     (ht : r.2.1 = s.2.1) : r = s ∧ traceLaw k xs r.2.1 = run k xs r :=

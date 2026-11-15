@@ -1,0 +1,55 @@
+{
+  "captured_at": "2026-11-02T22:05:18.188066+00:00",
+  "candidate": "901f734161920a76f3b399a575805b9a1d31e971",
+  "previous_candidate": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+  "checkout": "import-correction-r3",
+  "branch": "pfds/import-footprint-r3",
+  "base_10013": "cbb1e27d18c69ce2e0c35ef1cb492483b5ca0833",
+  "base_10018": "70a1477d822efd4fdcec2007280f650bb4695eda",
+  "files": {
+    "Applications/FRP/Demand.lean": "4e92f97ac56aa684c27f3421cdf1890b64159b631fdd828c420af00d3d9c6ad6",
+    "Applications/FRP/Equivalence.lean": "71abc997d44acf7831a423f2b17559feed15e39517f20ab3dd22ae14c8733b83",
+    "Applications/FRP/Finite.lean": "f617d2f3db4fd162f43e53abd8271ebcf15bd242d79dd201a61b314afa90954c",
+    "Applications/FRP/Spec.lean": "c8b349b4a0919acfe55302b1c1998e942b0d8281f2244fec5606fa368f5c1db7",
+    "Applications/Resources/SharedList.lean": "ed5c78b79eb530bf76937da4036303304d96c902bb7a7130686773d74b62145b",
+    "Applications/Sequences/SharedList/Basic.lean": "ef62f66166b1934ebd52e68783ea7865c678dea792f66632bd5c5eb7c4bf674b",
+    "Applications/Sequences/SharedList/Copy.lean": "8604ffc06c4e03cae537e07af6efcccd7c78dda964126e72db0d6a9964c3124f",
+    "Applications/Sequences/SharedList/Observation.lean": "1f9f6360c0a02771445f5a88bbeea62488391a33309721b3ebc190e5889ae431",
+    "Applications/Sequences/SharedList/Suffixes.lean": "8af7f29bce9a719c2200128bf28eccd4e24de0e321c9db7c7fe93e3e0268e72b",
+    "Examples/FRP.lean": "a5bf0f5263b45514b4f9b88b09ef1abe2a6a1fb773a44493afd5a8198abeb22b",
+    "Examples/IndefiniteService.lean": "0daaf049128e56210c605cc5b2d5cf8b155aad1727eac6bad189615fc75fa7fd",
+    "Examples/SharedList.lean": "0e2847b8bcbfa522638ec1bddee15b47792effdfc4d607f0ffeb589fd4c2845a",
+    "SquareApplications.lean": "129d892f8a72abff2bf10c17f2d4d67b8aefb5eac4596cc7df57577d74b1e159",
+    "docs/research/pfds-shared-persistence.md": "e13e4986e4e7755b136951ab681cfce94f9ec24ff4c32affab3d878898a9cc34"
+  },
+  "narrow_files_10018": [
+    "Applications/FRP/Demand.lean",
+    "Applications/FRP/Equivalence.lean",
+    "Applications/FRP/Finite.lean",
+    "Applications/FRP/Spec.lean",
+    "Examples/FRP.lean",
+    "Examples/IndefiniteService.lean"
+  ],
+  "commits": [
+    "ad730010ab1929bbd7a16a035c7990a6f328b178",
+    "70a1477d822efd4fdcec2007280f650bb4695eda",
+    "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+    "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+    "901f734161920a76f3b399a575805b9a1d31e971"
+  ],
+  "narrow_commits_10018": [
+    "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+    "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+    "901f734161920a76f3b399a575805b9a1d31e971"
+  ],
+  "requirements_sha256": {
+    "REQUEST.md": "b847f23fcce44837f5b1ead01aae43ac5ed626ffd32aab84055dd664e339e499",
+    "REQUEST-union-v2.md": "3336bed1154438b3683aeb5a1c63fee44e87aff190f5ff69e34705a780b9d22c",
+    "shared-persistence.md": "177e80e0beda3ec144279c104d2fa3b968e916b0104db7f2e5d3c7c81a4bec76",
+    "import-footprint.md": "cf8fb3133b83ac59fdf6fd46b818d8b279d96385f5de50da843ef9b7fd62444d"
+  },
+  "exclusions": [],
+  "initial_status": "clean",
+  "validation": "Focused check active; full gate/audit/reviews/final verification pending",
+  "acceptance": false
+}

@@ -1,0 +1,32 @@
+{
+  "recorded_utc": "2026-11-04T20:26:32.807316+00:00",
+  "status": "Static precommit statement/proof review; no Lean execution or mathematical diagnostic.",
+  "findings": [
+    "A draft comment called the exact ratio bound a ceiling. This family does not refute ceil(0.7*n); its greater count equals that ceiling. Corrected the wording without changing any proposition.",
+    "Removed an unnecessary unformalized asymptotic-limit comment; the exact numerator excess8 remains the formal statement.",
+    "Used direct public theorem terms for definitionally concrete chop/median examples and removed trailing rfl after rewrites that already close by reflexivity.",
+    "The zero strict-lower count on Nat uses simplification directly; no unnecessary replicate rewrite is requested."
+  ],
+  "lookup_note": "a8e5a7 found in-repository Nat.not_le_of_gt uses; its followup compiler-source glob used the repository cwd and failed harmlessly. Correct pinned APIs fully read in 2f1ce5.",
+  "sources": [
+    {
+      "repository_path": "Applications/Selection/MedianCounterfamily.lean",
+      "old_bytes": 7421,
+      "old_sha256": "9d9c7d90da89749c5cebceb85cde9bcd0db27b0f48f70ede6e5f4390c9bc709f",
+      "new_bytes": 7287,
+      "new_sha256": "a5c0ded8b731f3304183db02529398fd6887ccc28195acab886aceb56ff79994"
+    },
+    {
+      "repository_path": "Examples/MedianCounterfamily.lean",
+      "old_bytes": 2968,
+      "old_sha256": "0c9ecc5393eb6539442bb1d6d52d6b29efd199404b06e4a12235fdd439347e33",
+      "new_bytes": 2917,
+      "new_sha256": "8ebe64ee7b3a819b67a4afc9d2d52b8e659ebcdd20ffea17fb9933c1be0f5083"
+    }
+  ],
+  "diff": {
+    "path": "counterfamily-precommit-review-corrections.diff",
+    "bytes": 2950,
+    "sha256": "d499f69598ca5303dfa31bfe94246df03aebee087aaae77568151f67473c517e"
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "schema": 1,
+  "observed_at": "2026-11-14T21:39:31.631297+00:00",
+  "scope": "One bounded read-only inspection of a running no-cap full check; source/candidate untouched; no process control, build, cap change or setup.",
+  "tool_session_id_supplied_by_coordinator": 91259,
+  "log_snapshot": {
+    "path": "/workspace/scratch/e1eab3b6b18e/integration-20261114/intake/full-validation-r5-unrestricted.log",
+    "bytes_at_open": 1004505,
+    "mtime_ns_at_open": 1794692371570206182,
+    "read_offset": 0,
+    "read_bytes": 1004505,
+    "sha256_of_observed_slice": "3550800d56c5a516b2fc56b5de361eac503118ddcef5777e5c5636263071948d",
+    "tail": [
+      "\u2714 [9878/9947] Built SquareKit.Internal.DependentJudgments.Memo (4.7s)",
+      "\u2714 [9879/9947] Built SquareKit.SmoothOpenSheafDescent (5.7s)",
+      "\u2714 [9880/9947] Built Applications.Connectivity.ParentComponents (889ms)",
+      "\u2714 [9881/9948] Built SquareKit.Internal.DependentJudgments.Sigma.Pairing (2.7s)"
+    ],
+    "failure_line": 4608,
+    "failure_excerpt": [
+      "\u2716 [9478/9590] Building Applications.FRP.Spec (189s)",
+      "warning: Applications/FRP/Spec.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "error: Lean exited with code 137"
+    ],
+    "trace_command_line": 4610,
+    "trace_command_note": "Full exact command remains in the canonical log covered by the observed-prefix SHA-256; no -j or --threads override occurs in that trace."
+  },
+  "resource_observation": {
+    "telemetry": {
+      "/proc/meminfo": {
+        "value": "MemTotal:       10206472 kB\nMemFree:         1545560 kB\nMemAvailable:    6612064 kB\nCached:          4840936 kB\nSwapCached:            0 kB\nActive:          4345076 kB\nInactive:        2715620 kB\nSwapTotal:             0 kB\nSwapFree:              0 kB\nAnonPages:       2229440 kB\nMapped:          4066108 kB\nPageTables:       453352 kB\nCommitLimit:     5103236 kB\nCommitted_AS:   81731184 kB"
+      },
+      "/proc/pressure/memory": {
+        "unavailable": "FileNotFoundError",
+        "errno": 2
+      },
+      "/proc/pressure/cpu": {
+        "unavailable": "FileNotFoundError",
+        "errno": 2
+      },
+      "/proc/self/cgroup": {
+        "value": "0::/"
+      },
+      "/sys/fs/cgroup/memory.max": {
+        "unavailable": "FileNotFoundError",
+        "errno": 2
+      },
+      "/sys/fs/cgroup/memory.current": {
+        "unavailable": "FileNotFoundError",
+        "errno": 2
+      },
+      "/sys/fs/cgroup/memory.peak": {
+        "unavailable": "FileNotFoundError",
+        "errno": 2
+      },
+      "/sys/fs/cgroup/memory.events": {
+        "unavailable": "FileNotFoundError",
+        "errno": 2
+      },
+      "/sys/fs/cgroup/memory.events.local": {
+        "unavailable": "FileNotFoundError",
+        "errno": 2
+      },
+      "/sys/fs/cgroup/cpu.max": {
+        "unavailable": "FileNotFoundError",
+        "errno": 2
+      },
+      "/sys/fs/cgroup/cpuset.cpus.effective": {
+        "unavailable": "FileNotFoundError",
+        "errno": 2
+      },
+      "/sys/fs/cgroup/memory/memory.limit_in_bytes": {
+        "unavailable": "FileNotFoundError",
+        "errno": 2
+      },
+      "/sys/fs/cgroup/memory/memory.usage_in_bytes": {
+        "unavailable": "FileNotFoundError",
+        "errno": 2
+      },
+      "/sys/fs/cgroup/memory/memory.max_usage_in_bytes": {
+        "unavailable": "FileNotFoundError",
+        "errno": 2
+      },
+      "/sys/fs/cgroup/memory/memory.oom_control": {
+        "unavailable": "FileNotFoundError",
+        "errno": 2
+      },
+      "/sys/fs/cgroup/cpu/cpu.cfs_quota_us": {
+        "unavailable": "FileNotFoundError",
+        "errno": 2
+      },
+      "/sys/fs/cgroup/cpu/cpu.cfs_period_us": {
+        "unavailable": "FileNotFoundError",
+        "errno": 2
+      }
+    },
+    "inspector_rlimits": {
+      "RLIMIT_AS": [
+        -1,
+        -1
+      ],
+      "RLIMIT_DATA": [
+        -1,
+        -1
+      ],
+      "RLIMIT_CPU": [
+        -1,
+        -1
+      ],
+      "RLIMIT_STACK": [
+        8388608,
+        -1
+      ],
+      "RLIMIT_NPROC": [
+        39792,
+        39792
+      ]
+    },
+    "inspector_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "visible_cpu_count": 9,
+    "limits": "Current observations after the reported kill; inspector RLIMITs are not a measured peak for the failed process. No matched before/after OOM counter was supplied.",
+    "memory_interpretation": {
+      "mem_available_kib": 6612064,
+      "mem_available_gib": 6.305755615234375,
+      "mem_total_kib": 10206472,
+      "mem_total_gib": 9.733650207519531,
+      "meaning": "6.31 GiB was MemAvailable, not memory used. Observation was after the failure; it is not the failed process peak and does not rule out an earlier or narrower-limit OOM."
+    }
+  },
+  "failing_module_identity": {
+    "delivered_candidate": {
+      "commit": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "bytes": 12007,
+      "sha256": "c0b5d8155c574329fac0b4aced18c69322b33f8e4e6bbb5278365a7fc57211f8",
+      "lines": 321
+    },
+    "pinned_master": {
+      "commit": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+      "bytes": 12007,
+      "sha256": "c0b5d8155c574329fac0b4aced18c69322b33f8e4e6bbb5278365a7fc57211f8",
+      "lines": 321
+    },
+    "previous_master": {
+      "commit": "983d0b6b602b71541f182737011621a8805be27b",
+      "bytes": 12007,
+      "sha256": "c0b5d8155c574329fac0b4aced18c69322b33f8e4e6bbb5278365a7fc57211f8",
+      "lines": 321
+    },
+    "live_candidate_file": {
+      "path": "/workspace/scratch/e1eab3b6b18e/integration-20261114/build-unrestricted/Applications/FRP/Spec.lean",
+      "bytes": 12007,
+      "sha256": "c0b5d8155c574329fac0b4aced18c69322b33f8e4e6bbb5278365a7fc57211f8",
+      "lines": 321
+    }
+  },
+  "module_unchanged_from_pinned_master": true,
+  "live_file_matches_delivered_candidate": true,
+  "frp_squarekit_changed_paths_vs_pinned_master": [],
+  "known_failure_interpretation": {
+    "lean_reported_exit137": true,
+    "overall_command_may_still_be_running": true,
+    "signal9_consistent": true,
+    "signal9_proven_by_exit137_alone": false,
+    "oom_cause_proven": false,
+    "need_terminal_result_for_overall_check": true
+  },
+  "memory_risk_reasoning": {
+    "established_runtime_behavior": "Removing LEAN_NUM_THREADS gives Lake the ordinary hardware-based pool default. Lean compiler CLI children independently already default to detected hardware concurrency unless -j overrides it. Task waits can expand runtime worker allowance.",
+    "inference": "More simultaneous compiler jobs can increase aggregate private heaps and active working sets. Some file-backed import pages can be shared, so aggregate memory cannot be calculated as process count times one RSS sample.",
+    "limits": "No process-count or peak-memory sample at the failure was captured. The observed exit137 does not establish an OOM kill or prove increased concurrency caused this failure."
+  },
+  "conditional_next_step": {
+    "action_taken": false,
+    "proposal": "At most one unchanged uncapped incremental retry after the actual overall terminal result, if only exit137 failures remain and substantial valid outputs completed.",
+    "rationale": "The unchanged integrity guard may reuse successful outputs, leaving fewer independent modules requiring simultaneous compilation; this can reduce aggregate memory demand without imposing a numeric cap.",
+    "preconditions": [
+      "Original command actually terminal and evidence retained",
+      "Same frozen candidate and exact inputs",
+      "No unresolved integrity mismatch, proof error or different failure requiring its own handling",
+      "Retain original unrestricted launch and full checker/audit"
+    ],
+    "caveats": [
+      "Runtime concurrency remains unrestricted; lower memory demand is not guaranteed",
+      "Failed prerequisites may release a large downstream dependency set in the retry",
+      "A repeated137 or lost execution state leaves receiving validation pending; no environment repair campaign follows automatically"
+    ]
+  }
+}

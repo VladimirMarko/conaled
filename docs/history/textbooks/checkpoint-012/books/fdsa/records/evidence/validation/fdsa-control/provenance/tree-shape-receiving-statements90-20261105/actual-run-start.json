@@ -1,0 +1,67 @@
+{
+  "recorded_utc": "2026-11-05T03:27:04.997139+00:00",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "expectedHead": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "acceptedHead": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "expectedPaths": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-shape.md"
+  ],
+  "name": "tree-shape-receiving-statements90-run-20261105",
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean"
+  ],
+  "recordDirectory": "tree-shape-receiving-statements90-20261105",
+  "recordName": "actual-run-start.json",
+  "validationPurpose": "Print the actual complete expanded types of all 90 original XT02 public names using the unchanged ten-option profile. Before/after input observations accompany the actual run. This is not full candidate validation or acceptance.",
+  "checkout_exit": 0,
+  "checkout_output": "Already at exact candidate; no checkout mutation.",
+  "sources": [
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "bytes": 11019,
+      "sha256": "2233e014900a48ebc239d676a1c8abdaee2046ef503e5219bff460a001b868f3"
+    },
+    {
+      "path": "Applications/Trees/ShapeLog.lean",
+      "bytes": 3070,
+      "sha256": "24ba63bd0a8bc04afdcc1f559ae398a7438f8fe9618cc3e29c8d790499bd5629"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "bytes": 12924,
+      "sha256": "d0f831e3aedca3571a77320485559dcb107664a21f34cd69c46be303a56ecb54"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 10769,
+      "sha256": "a9e0d07ced3385a26f4e1f0f4d45d796ebe4be5c12f03c7f219cce9dc9c9797d"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 51167,
+      "sha256": "1e58dd24c4b46319d5fdf0cf1e51d2ef42864495df08bba6890e4e02ed21fab9"
+    },
+    {
+      "path": "docs/research/fdsa-tree-shape.md",
+      "bytes": 13230,
+      "sha256": "804ae74a082ddd1a493c2d36a34f7ebc842c6951501b0aa4eef717eac8d366c6"
+    }
+  ],
+  "candidate_tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 428957696
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

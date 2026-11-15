@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-05T02:23:45.014415+00:00",
+  "candidate": "bd7e379b742103767ee4620b14057ee86da8845c",
+  "terminal": {
+    "recorded_utc": "2026-11-05T02:23:45.014110+00:00",
+    "owned_session": 13599,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "afb7a5",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "bd7e379b742103767ee4620b14057ee86da8845c"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt2-20261105/full.log",
+    "bytes": 6209,
+    "sha256": "56f4e3346fb7337b82f825afc71781d58bb25a45e582ef4a9c6913f32bdc59ec"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261105T022314Z-project-run-aa24b556",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt2-20261105/native-records/start.json",
+      "bytes": 535,
+      "sha256": "67468dcbb3036414adcd397807f602aa7c7420ac138e0c7575ae6b88e655e60c"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt2-20261105/native-records/result.json",
+      "bytes": 689,
+      "sha256": "1769b85ff20512930457012ccf0bcc6a755e66bd7c455e7cf9ec5a89ad856ab2"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt2-20261105/native-records/output.log",
+      "bytes": 5889,
+      "sha256": "b4e228ed964313f0614a9ae98914eaecb3cc3853dce6a65b93c3316876904cdf"
+    }
+  },
+  "native_body_exact_outer_offset": 163,
+  "complete_closed_log": true,
+  "scope": "Focused four-module proof-correction qualification; failed actual terminal retained, no full candidate/type/audit/acceptance credit.",
+  "verification_record_candidate": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

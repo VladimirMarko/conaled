@@ -1,0 +1,75 @@
+--- draft/Applications/Selection/MedianCounterfamily.lean
++++ candidate/Applications/Selection/MedianCounterfamily.lean
+@@ -33,9 +33,7 @@
+     ys.length = 5 := by
+   rcases List.mem_append.mp hy with hy | hy
+   · rw [List.eq_of_mem_replicate hy]
+-    rfl
+   · rw [List.eq_of_mem_replicate hy]
+-    rfl
+ 
+ theorem flatten_fullBlocks_length (i : Nat) :
+     (fullBlocks i).flatten.length = 5 * (2 * i + 1) := by
+@@ -122,8 +120,7 @@
+ 
+ theorem chunkMedians_family_count_lt (i : Nat) :
+     (chunkMedians 5 (family i)).countP (fun x => decide (x < 0)) = 0 := by
+-  rw [chunkMedians_family]
+-  simp [List.countP_replicate]
++  simp
+ 
+ theorem chunkMedians_family_count_gt (i : Nat) :
+     (chunkMedians 5 (family i)).countP (fun x => decide (0 < x)) = i + 1 := by
+@@ -145,8 +142,7 @@
+   change i * 2 + (i + 1) * 5 + 0 = 7 * i + 5
+   omega
+ 
+-/-- The integer comparison exceeds seventy percent by a fixed numerator of
+-eight; the corresponding proportion excess tends to zero as lengths grow. -/
++/-- The integer comparison exceeds seventy percent by a fixed numerator of eight. -/
+ theorem family_excess (i : Nat) :
+     10 * (family i).countP (fun x => decide (0 < x)) = 7 * (family i).length + 8 := by
+   rw [family_count_gt, family_length]
+--- draft/Examples/MedianCounterfamily.lean
++++ candidate/Examples/MedianCounterfamily.lean
+@@ -15,13 +15,9 @@
+ 
+ theorem first_input : family 0 = [1, 1, 1, 1, 1, 0] := by decide
+ 
+-theorem first_chops : chop 5 (family 0) = [[1, 1, 1, 1, 1], [0]] := by
+-  rw [chop_family]
+-  rfl
++theorem first_chops : chop 5 (family 0) = [[1, 1, 1, 1, 1], [0]] := chop_family 0
+ 
+-theorem first_medians : chunkMedians 5 (family 0) = [1, 0] := by
+-  rw [chunkMedians_family]
+-  rfl
++theorem first_medians : chunkMedians 5 (family 0) = [1, 0] := chunkMedians_family 0
+ 
+ theorem first_pivot : medianOfMedians 5 (family 0) = some 0 := family_pivot 0
+ 
+@@ -34,13 +30,9 @@
+   family_strict_seventy 0
+ 
+ theorem second_chops : chop 5 (family 1) =
+-    [[0, 0, 0, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [0]] := by
+-  rw [chop_family]
+-  rfl
++    [[0, 0, 0, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [0]] := chop_family 1
+ 
+-theorem second_medians : chunkMedians 5 (family 1) = [0, 1, 1, 0] := by
+-  rw [chunkMedians_family]
+-  rfl
++theorem second_medians : chunkMedians 5 (family 1) = [0, 1, 1, 0] := chunkMedians_family 1
+ 
+ theorem second_pivot : medianOfMedians 5 (family 1) = some 0 := family_pivot 1
+ 
+@@ -61,7 +53,7 @@
+ theorem positive_denominator_at_every_index (i : Nat) : (family i).length ≠ 0 :=
+   Nat.ne_of_gt (family_positive i)
+ 
+-/-- Strict failure of an exact seventy-percent ceiling does not contradict the
++/-- Strict failure of the exact seventy-percent ratio bound does not contradict the
+ book's proved additive allowance, which still bounds this entire family. -/
+ theorem book_ceiling_still_bounds (i : Nat) :
+     (family i).countP (fun x => decide (0 < x)) ≤ (7 * (family i).length + 30) ⌈/⌉ 10 :=

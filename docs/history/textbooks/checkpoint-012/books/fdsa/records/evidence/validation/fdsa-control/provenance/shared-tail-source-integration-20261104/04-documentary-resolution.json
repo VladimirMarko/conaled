@@ -1,0 +1,33 @@
+{
+  "utc": "2026-11-04T16:00:15.916298+00:00",
+  "applied_exact_prepared_transformations": [
+    {
+      "path": "SquareApplications.lean",
+      "before_working_sha256": "a30e93ebbdb80f40d751cc30a5185e5e96ce40861540c35fb439362d66d2678d",
+      "after_sha256": "a30e93ebbdb80f40d751cc30a5185e5e96ce40861540c35fb439362d66d2678d",
+      "bytes": 8609,
+      "lines": 262,
+      "changed_by_this_step": false
+    },
+    {
+      "path": "docs/research/fdsa-permutation-tail.md",
+      "before_working_sha256": "34162854a3bfabbec1e87bea6111b4939495cc27eb9ee811758dceaeb62dc96f",
+      "after_sha256": "bebf1822c26e94c35d1474a99687156ffe44d3c2f37bcb76ed7c930fdf37236d",
+      "bytes": 10871,
+      "lines": 205,
+      "changed_by_this_step": true
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "before_working_sha256": "1db72d385aa02a63596fae2d0c97b885b3fdeb2f6cede03abf4ba529a18fba18",
+      "after_sha256": "b5997a67ca8e23f4418b5428db17bedcf960f262f2e9a9e711255799970689d6",
+      "bytes": 41477,
+      "lines": 631,
+      "changed_by_this_step": true
+    }
+  ],
+  "formal_source_edits": false,
+  "conflict_resolution": "Preserve full accepted J reconstruction-map prefix including corrected Order status; append whole original T Tail section, changing only its specified historical validation sentence.",
+  "map_prefix_equals_J": true,
+  "held_note_proposal_unchanged": true
+}

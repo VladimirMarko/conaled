@@ -1,0 +1,276 @@
+{
+  "utc": "2026-11-04T15:10:25.328161+00:00",
+  "scope": "Saved producer Z815 and accepted predecessor I314 comparison only; no actual receiving Order candidate or output capture.",
+  "producer": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "accepted_predecessor": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "saved_observation_identities": {
+    "provenance/chapter02-statements815-input-observations-20261104-attempt1/post-inputs.json": "c8a015007775ff98a220c90c328dc10f505cca8ac9ac9c7c3b887e2c0089ab4a",
+    "provenance/shared-four314-input-observations-20261104-attempt1/post-inputs.json": "fb1b01c56f251f9ddc28ae17b301d312b09714e687b5b0803fbe8be32ff95307"
+  },
+  "common_Minimum_sources": {
+    "Applications/Probability/PermutationMinimum.lean": {
+      "Z": {
+        "bytes": 8241,
+        "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+        "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d"
+      },
+      "I": {
+        "bytes": 8241,
+        "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+        "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d"
+      },
+      "equal": true
+    },
+    "Examples/PermutationMinimum.lean": {
+      "Z": {
+        "bytes": 4994,
+        "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+        "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876"
+      },
+      "I": {
+        "bytes": 4994,
+        "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+        "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876"
+      },
+      "equal": true
+    },
+    "Examples/PermutationMinimumBoundary.lean": {
+      "Z": {
+        "bytes": 4211,
+        "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+        "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c"
+      },
+      "I": {
+        "bytes": 4211,
+        "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+        "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c"
+      },
+      "equal": true
+    }
+  },
+  "common_Minimum_artifacts": {
+    ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.olean": {
+      "Z": {
+        "bytes": 167152,
+        "sha256": "2e0187ad4fa62add7b64ebceb3c45b3481f341a0c6547bb1115b53b0f3bd3dd2"
+      },
+      "I": {
+        "bytes": 167152,
+        "sha256": "2e0187ad4fa62add7b64ebceb3c45b3481f341a0c6547bb1115b53b0f3bd3dd2"
+      },
+      "equal": true
+    },
+    ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.olean.hash": {
+      "Z": {
+        "bytes": 16,
+        "sha256": "885771b6aaeb40bacccc7d9b0947f773f035abc860702152133d3e2f77419073"
+      },
+      "I": {
+        "bytes": 16,
+        "sha256": "885771b6aaeb40bacccc7d9b0947f773f035abc860702152133d3e2f77419073"
+      },
+      "equal": true
+    },
+    ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.trace": {
+      "Z": {
+        "bytes": 3828,
+        "sha256": "3ddc2e03c348b01cbaa26249a8dd0d0ceeb0faf84cbd5de6c05d0cd12b474fdf"
+      },
+      "I": {
+        "bytes": 3796,
+        "sha256": "ed8db8501ff0a90329a7d1ed7165abbb3641c12126abd808405c0b8f06daf7bd"
+      },
+      "equal": false
+    },
+    ".lake/build/lib/lean/Examples/PermutationMinimum.olean": {
+      "Z": {
+        "bytes": 179968,
+        "sha256": "5c8a2c931db29f34097acd84cb8aff80871a2be6da96b9af10af36f10aca22ee"
+      },
+      "I": {
+        "bytes": 179968,
+        "sha256": "5c8a2c931db29f34097acd84cb8aff80871a2be6da96b9af10af36f10aca22ee"
+      },
+      "equal": true
+    },
+    ".lake/build/lib/lean/Examples/PermutationMinimum.olean.hash": {
+      "Z": {
+        "bytes": 16,
+        "sha256": "d6136436dbcfa1022e9365c4375c3ac6603b630bb7b2404eb808d91873c7b705"
+      },
+      "I": {
+        "bytes": 16,
+        "sha256": "d6136436dbcfa1022e9365c4375c3ac6603b630bb7b2404eb808d91873c7b705"
+      },
+      "equal": true
+    },
+    ".lake/build/lib/lean/Examples/PermutationMinimum.trace": {
+      "Z": {
+        "bytes": 3595,
+        "sha256": "130cb1e07070593f284304e324d7a22bde8b9b039a4c01431941b5c4d6ff0a3a"
+      },
+      "I": {
+        "bytes": 3563,
+        "sha256": "ee7c8b743acc926478334d4367f91206871164a37cf14703c89d70fffecb0d9a"
+      },
+      "equal": false
+    },
+    ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.olean": {
+      "Z": {
+        "bytes": 99896,
+        "sha256": "e12c3ec20f45b8397a74b65eadc9a05fd091360677e8ce66ef7201a41f011486"
+      },
+      "I": {
+        "bytes": 99896,
+        "sha256": "e12c3ec20f45b8397a74b65eadc9a05fd091360677e8ce66ef7201a41f011486"
+      },
+      "equal": true
+    },
+    ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.olean.hash": {
+      "Z": {
+        "bytes": 16,
+        "sha256": "2148d36a7bc7c7b7eac76d4585f7086cfce013f13b34350aa350b345e0e1ece8"
+      },
+      "I": {
+        "bytes": 16,
+        "sha256": "2148d36a7bc7c7b7eac76d4585f7086cfce013f13b34350aa350b345e0e1ece8"
+      },
+      "equal": true
+    },
+    ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.trace": {
+      "Z": {
+        "bytes": 3493,
+        "sha256": "37c4224bd92974603c2acb9e1f148e6a0c66af3cc3132b025879c83658c1141f"
+      },
+      "I": {
+        "bytes": 3461,
+        "sha256": "eb2ce4235692e3513927696128b46c4bb0a64e06eafe5ba9b6936cc1f04c4f2e"
+      },
+      "equal": false
+    }
+  },
+  "dependency_records": {
+    "mathlib": {
+      "Z": {
+        "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib"
+      },
+      "I": {
+        "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib"
+      },
+      "exact_record_equal": false
+    },
+    "plausible": {
+      "Z": {
+        "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/plausible"
+      },
+      "I": {
+        "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/plausible"
+      },
+      "exact_record_equal": false
+    },
+    "LeanSearchClient": {
+      "Z": {
+        "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/LeanSearchClient"
+      },
+      "I": {
+        "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/LeanSearchClient"
+      },
+      "exact_record_equal": false
+    },
+    "importGraph": {
+      "Z": {
+        "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/importGraph"
+      },
+      "I": {
+        "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/importGraph"
+      },
+      "exact_record_equal": false
+    },
+    "proofwidgets": {
+      "Z": {
+        "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/proofwidgets"
+      },
+      "I": {
+        "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/proofwidgets"
+      },
+      "exact_record_equal": false
+    },
+    "aesop": {
+      "Z": {
+        "head": "4a174c490d8707121c4a9290800489f105d85e07",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/aesop"
+      },
+      "I": {
+        "head": "4a174c490d8707121c4a9290800489f105d85e07",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/aesop"
+      },
+      "exact_record_equal": false
+    },
+    "Qq": {
+      "Z": {
+        "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/Qq"
+      },
+      "I": {
+        "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/Qq"
+      },
+      "exact_record_equal": false
+    },
+    "batteries": {
+      "Z": {
+        "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/batteries"
+      },
+      "I": {
+        "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/batteries"
+      },
+      "exact_record_equal": false
+    },
+    "Cli": {
+      "Z": {
+        "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/Cli"
+      },
+      "I": {
+        "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/Cli"
+      },
+      "exact_record_equal": false
+    }
+  },
+  "configuration_equal": true,
+  "runtime_equal": true,
+  "no_path_normalization": true,
+  "actual_receiving_type_credit": 0,
+  "next": "Bind actual receiving candidate and its full-gate lineage. Preserve any differences explicitly. A fresh qualified actual53 inspection is applicable if historical producer inputs cannot be qualified; do not substitute source equality or erased path differences."
+}

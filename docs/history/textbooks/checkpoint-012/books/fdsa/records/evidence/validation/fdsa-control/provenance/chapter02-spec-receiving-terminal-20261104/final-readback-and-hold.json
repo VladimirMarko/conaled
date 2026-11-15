@@ -1,0 +1,138 @@
+{
+  "schema": "fdsa-chapter02-spec-final-readback-and-hold-v1",
+  "recorded_utc": "2026-11-04T18:13:02.655219+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "outcome": "PASS",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "original_full_scope": {
+    "same_original_review_loop": true,
+    "original_R_to_Q_paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "defining_Lean_files": 71,
+    "public_root": 1,
+    "documents": 9,
+    "explicit_public_names": 1763,
+    "private_named_declarations": 70,
+    "anonymous_instances": 19,
+    "scope_narrowed_to_receiving_delta": false,
+    "all_connected_required_cases_retained": true
+  },
+  "unresolved_findings": [],
+  "final_record_input_fingerprints_reverified": 27,
+  "complete_readback": {
+    "final_report": {
+      "full_saved_readback_tool": "ee23f6",
+      "lines": 108,
+      "all_bytes_read": true
+    },
+    "final_disposition": {
+      "full_saved_readback_tool": "a76ec5",
+      "lines": 296,
+      "all_bytes_read": true
+    },
+    "semantic_disposition": {
+      "complete_nonmatrix_semantic_fields_tool": "a7c3cc",
+      "all1763_matrix_rows_mechanically_reconciled_tool": "f7ff77",
+      "complete_earlier_math_and_actual_type_readings_retained_by_exact_saved_identity": true
+    },
+    "actual_execution_and_block_reconciliation": {
+      "actual_independent_reproduction_tool": "84a246",
+      "full_global_and_all11_profile_fields_readback_tool": "fcb275",
+      "all1300_saved_blocks_reconciled_tool": "f7ff77",
+      "full_saved_reconciliation_script_readback_tool": "906766"
+    },
+    "final_saved_matrix_readback": {
+      "actual_complete_reconciliation_tool": "f7ff77",
+      "full_saved_receipt_readback_tool": "8bd401",
+      "bound_fingerprints": {
+        "actual": 243,
+        "semantic": 117,
+        "distinct_files": 337
+      }
+    },
+    "full_gate": {
+      "complete_native_line_range": [
+        1,
+        2678
+      ],
+      "complete_native_bytes": 314896,
+      "bounded_read_chunks": 23,
+      "full_previous_read_and_closed_evidence_receipts_retained": true,
+      "additive_completion_readback_tool": "d47d97"
+    },
+    "direct_new_type": {
+      "name": "Resources.isBigO_of_nat_bound",
+      "full_native_lines": [
+        1,
+        6
+      ],
+      "bytes": 463,
+      "tool": "0af7c1",
+      "all_binders_premise_conclusion_and_boundary_cases_assessed": true
+    },
+    "all_current_native_bytes_accounted": 1081225,
+    "no_truncated_tool_output_claimed_as_a_complete_read": true,
+    "no_third_author_runtime_comparison_required_or_executed": true
+  },
+  "final_counts": {
+    "qualified_public_names": 1763,
+    "actual_current_checks": 1297,
+    "exact_historical_current_checks": 1296,
+    "new_Growth": 1,
+    "additional_exact_NaturalRuns_prints": 3,
+    "qualified_F_I_J_L_transfers": 466,
+    "unqualified": 0
+  },
+  "supersession": "The final report, final-disposition.json and current-type-semantic-disposition-Q.json establish current complete PASS. Older pending labels and failure records remain unchanged as dated evidence.",
+  "write_hold": {
+    "state": "HELD",
+    "scope": "All reviewer report/provenance files, including this final receipt, are held byte-identically following successful saved-file readback. No further writes without a new root assignment.",
+    "source_refs_runtime_outputs_caches_global_controls_mutated": false
+  },
+  "integration_boundary": "This is the independent Spec final PASS at exact Q. Root must reconcile both independent final axes, run the required immediate qualified ./check.sh --verify-candidate HEAD on unchanged Q, then perform the authorized local fast-forward and acceptance checkpoint. The reviewer has not integrated or marked the accepted branch advanced.",
+  "held_primary_artifacts": [
+    {
+      "path": "reviews/chapter02-spec-final-20261104.md",
+      "bytes": 15377,
+      "lines": 108,
+      "sha256": "4852842a5ccae808bd0d96ba82339a2857eda445e5992a34ab8c2e4fd2a133c0"
+    },
+    {
+      "path": "provenance/chapter02-spec-receiving-terminal-20261104/final-disposition.json",
+      "bytes": 12999,
+      "lines": 296,
+      "sha256": "439db86ed31edcc2d6b58701cd01a5dde0f739d5d3e3cb82a84b4fa134bcbda4"
+    },
+    {
+      "path": "provenance/chapter02-spec-receiving-terminal-20261104/current-type-semantic-disposition-Q.json",
+      "bytes": 439749,
+      "lines": 1,
+      "sha256": "45d755a5e56e4ab50d6960a68205d4883422f50960aad6d877c3a5c089ad3721"
+    },
+    {
+      "path": "provenance/chapter02-spec-receiving-terminal-20261104/actual-receiving-evidence-reconciliation.json",
+      "bytes": 275994,
+      "lines": 1,
+      "sha256": "a214a047be901c223749e9e2b92366290710f17c9dbffdaf3ca351988f43c8eb"
+    },
+    {
+      "path": "provenance/chapter02-spec-receiving-terminal-20261104/final-saved-matrix-readback.json",
+      "bytes": 2519,
+      "lines": 46,
+      "sha256": "fa7b0da5dff62d7c1946b72b7d739d647e11d4fefca25caac2411576799f4e44"
+    },
+    {
+      "path": "provenance/chapter02-spec-receiving-terminal-20261104/reconcile-actual-receiving-evidence.py",
+      "bytes": 12605,
+      "lines": 190,
+      "sha256": "8db511cae93b1a9067fd5e0200dab32e2e250e2dbef34dad4997aa27d9352da0"
+    }
+  ],
+  "other_existing_own_artifacts": {
+    "count": 22,
+    "manifest_sha256": "9f36655666f49099253b71ac986a6143c11bb3eb9ed7efd5b8305b3106a4c8f6",
+    "all_unchanged": "This closure writes only the new final receipt; previous records remain byte-identical."
+  }
+}

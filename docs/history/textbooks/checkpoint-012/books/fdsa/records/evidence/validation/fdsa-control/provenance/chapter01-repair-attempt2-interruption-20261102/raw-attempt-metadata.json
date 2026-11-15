@@ -1,0 +1,32 @@
+{
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "review_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "started_utc": "2026-11-02T20:37:50.255518+00:00",
+  "checkout": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+  "initial_status": "",
+  "command": [
+    "env",
+    "LEAN_NUM_THREADS=1",
+    "./check.sh",
+    "--candidate",
+    "HEAD"
+  ],
+  "LEAN_NUM_THREADS": "1",
+  "result": "running",
+  "log": "/workspace/scratch/845aa1048b05/fdsa-control/reviews/chapter01-repair-incremental-attempt2.log",
+  "wrapper": {
+    "pid": 544345,
+    "start_ticks": "8579150",
+    "state": "R"
+  },
+  "available_bytes_at_start": 972165120,
+  "prior_attempt_outcome": "Unknown terminal outcome; INC02 evidence preserved without modification.",
+  "recovery_disposition": "reviews/chapter01-session-recovery-standards.md",
+  "recovery_disposition_sha256": "74b2250e84109ca4b524e64f7d9f18845527cd2650f810191e09bb145d229d14",
+  "scope": "Full unchanged ordinary guarded candidate check: source/coverage/compiler identity, both integrity passes, complete integrated build and exhaustive proof audit. Both retained final review axes and immediate verify-candidate remain required.",
+  "checker": {
+    "pid": 544365,
+    "start_ticks": "8579186",
+    "state": "R"
+  }
+}

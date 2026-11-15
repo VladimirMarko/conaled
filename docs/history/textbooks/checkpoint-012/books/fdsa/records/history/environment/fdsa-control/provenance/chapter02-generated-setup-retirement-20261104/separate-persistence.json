@@ -1,0 +1,27 @@
+{
+  "utc": "2026-11-04T17:43:28.006156+00:00",
+  "actual_action_terminal": {
+    "recorded_utc": "2026-11-04T17:43:27.569103+00:00",
+    "owned_session": 72237,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "835e1b",
+    "state": "CLOSED; do not poll this historical session again",
+    "scope": "Exact103 positive generated setup payload retirement; no compiler run"
+  },
+  "state": "103 generated setup payloads retired and separately verified; all1028 setup files now zero",
+  "target_count": 103,
+  "prior_zero_setups_preserved": 925,
+  "all_target_payloads_zero_bytes_zero_blocks": true,
+  "prior_target_allocated_bytes": 129765376,
+  "preserved_non_target_count": 8121,
+  "preserved_real_compiler_hash_trace_file_count": 7196,
+  "preserved_metadata_sha256": "7223d98bcfce5ad2536b255264ad13bed3e98f91942c1a5c2d1fb59cf526730d",
+  "refs_source_dependencies_verification_and_saved_receiver_evidence_unchanged": true,
+  "available_bytes": 0,
+  "raw_free_bytes": 292253696,
+  "net_host_reclaim_not_inferred": true,
+  "no_compiler_or_cache_command": true,
+  "space_guards_and_acceptance_requirements_unchanged": true,
+  "script_main_not_called_again": "Imported pure definitions with bytecode disabled only to reuse read-only descriptor/inventory/input guards; no mutation helper invoked.",
+  "no_fresh_trigger": "Only regenerated setup payloads cleared; real compiler/hash/trace files and checked source/profile remain unchanged. Stock Lake rewrites setup when needed; do not manually replay old lean --setup paths."
+}

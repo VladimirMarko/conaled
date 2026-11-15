@@ -1,0 +1,33 @@
+{
+  "started_at_utc": "2026-11-02T07:37:08.974794+00:00",
+  "working_directory": "/workspace/scratch/0c54f2db1fdf/conaled",
+  "argv": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "180s",
+    "nix",
+    "develop",
+    "--command",
+    "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/positive-keys/VFAStaging/PositiveKeys.lean",
+    "-o",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/positive-keys/out/PositiveKeys.olean",
+    "-i",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/positive-keys/out/PositiveKeys.ilean",
+    "-c",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/positive-keys/out/PositiveKeys.c",
+    "--setup",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/positive-keys/PositiveKeys.setup.json",
+    "--json"
+  ],
+  "environment_additions": {
+    "PATH": "/root/.nix-profile/bin:/root/.codex/tmp/arg0-linux/codex-arg0EDTsh1:/opt/codex/codex-path:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback",
+    "NIX_CONFIG": "build-users-group =\nexperimental-features = nix-command flakes",
+    "LEAN_NUM_THREADS": "1",
+    "LEAN_PATH": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean"
+  },
+  "whole_invocation_timeout_seconds": 180,
+  "termination_grace_seconds": 5,
+  "one_auxiliary_compiler_only": true
+}

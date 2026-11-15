@@ -1,0 +1,48 @@
+{
+  "observer": "reuse_survey independent read-only assessment",
+  "snapshot_utc": "2026-11-02T09:14:40+00:00",
+  "candidate": "39c3e2fd0c3a7b39e56373d453a1a17382bc3749",
+  "verified_process_group": 232108,
+  "compiler_pid": 249785,
+  "single_snapshot_only": true,
+  "cgroup": {
+    "memory_max_bytes": 8589934592,
+    "memory_current_bytes": 8589934592,
+    "anonymous_GiB_approx": 1.21,
+    "file_GiB_approx": 5.3,
+    "kernel_GiB_approx": 1.48,
+    "swap_bytes": 0,
+    "oom_events": 0,
+    "oom_kill_events": 0
+  },
+  "compiler": {
+    "rss_MiB_approx": 883.6,
+    "anonymous_MiB_approx": 64.8,
+    "file_proportional_share_MiB_approx": 790.4,
+    "private_clean_MiB_approx": 762.2,
+    "private_dirty_MiB_approx": 64.8,
+    "major_faults_cumulative": 13414,
+    "read_bytes_GiB_cumulative_approx": 3.15,
+    "user_plus_system_cpu_seconds_cumulative_approx": 4.48
+  },
+  "local_pinned_source_findings": [
+    "Lake/Build/Job/Monad.lean schedules build jobs through BaseIO.asTask; dependent jobs also use task machinery.",
+    "Lake/Build/Actions.lean launches compiler subprocesses overriding LEAN_PATH without a separate child thread-count setting.",
+    "Lake/Util/Proc.lean uses IO.Process.output.",
+    "Installed Lake launcher selects the C compiler and executes lake.orig without an independent scheduling limit."
+  ],
+  "limits": [
+    "Cumulative counters are not sampled rates. Historical cgroup reclaim/refault counts cannot be attributed wholly to this run.",
+    "Private clean pages are file-backed and can be shared; they are not necessarily duplicated anonymous heaps.",
+    "The installed C++ runtime source directory is empty; exact environment parsing, compensation and a hard subprocess/thread bound were not verified.",
+    "A full file cache alone does not prove thrashing; no controlled comparison was run. Disk capacity does not change the 8 GiB memory limit."
+  ],
+  "decision": "Retain LEAN_NUM_THREADS=1 on the ongoing gate and as the default for any future same-candidate run; no concrete evidence justifies additional concurrency.",
+  "actions_not_taken": [
+    "No compiler or benchmark",
+    "No network task",
+    "No process signal",
+    "No source/cache/configuration change",
+    "No unrelated workspace or process environment inspection"
+  ]
+}

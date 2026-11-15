@@ -1,0 +1,242 @@
+{
+  "recorded_utc": "2026-11-05T03:35:42.990082+00:00",
+  "unit": "FDSA-XT02",
+  "axis": "Standards",
+  "reviewer": "/root/tree_cache_standards",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "incorporated_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "requirements_ids": [
+    "XT02-01",
+    "XT02-02",
+    "XT02-03",
+    "XT02-04",
+    "XT02-05"
+  ],
+  "original_scope_paths": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-shape.md"
+  ],
+  "public_names": [
+    "Trees.minHeight",
+    "Trees.minHeight_nil",
+    "Trees.minHeight_node",
+    "Trees.minHeight_map",
+    "Trees.minHeight_le_height",
+    "Trees.Complete",
+    "Trees.complete_nil",
+    "Trees.complete_node",
+    "Trees.complete_iff_minHeight_eq_height",
+    "Trees.complete_map",
+    "Trees.AlmostComplete",
+    "Trees.almostComplete_nil",
+    "Trees.almostComplete_iff_sub",
+    "Trees.complete_almostComplete",
+    "Trees.almostComplete_children",
+    "Trees.almostComplete_map",
+    "Trees.pow_minHeight_le_numLeaves",
+    "Trees.numLeaves_le_pow_height",
+    "Trees.numLeaves_eq_pow_height",
+    "Trees.numLeaves_eq_pow_minHeight",
+    "Trees.numLeaves_lt_pow_height",
+    "Trees.pow_minHeight_lt_numLeaves",
+    "Trees.complete_iff_numLeaves_eq_pow_height",
+    "Trees.complete_iff_numLeaves_eq_pow_minHeight",
+    "Trees.minHeight_le_log_numLeaves",
+    "Trees.clog_numLeaves_le_height",
+    "Trees.minHeight_eq_log_numLeaves",
+    "Trees.height_eq_clog_numLeaves",
+    "Trees.height_optimal",
+    "Trees.minHeight_le_logb_numLeaves",
+    "Trees.logb_numLeaves_le_height",
+    "Trees.minHeight_lt_logb_numLeaves",
+    "Trees.logb_numLeaves_lt_height",
+    "Trees.height_eq_logb_numLeaves",
+    "Trees.minHeight_eq_floor_logb_numLeaves",
+    "Trees.height_eq_ceil_logb_numLeaves",
+    "TreeShapeExamples.single",
+    "TreeShapeExamples.single_complete",
+    "TreeShapeExamples.single_minHeight",
+    "TreeShapeExamples.single_almostComplete",
+    "TreeShapeExamples.empty_shapes",
+    "TreeShapeExamples.perfectThree",
+    "TreeShapeExamples.perfectThree_complete",
+    "TreeShapeExamples.perfectThree_leaves",
+    "TreeShapeExamples.perfectThree_minHeight",
+    "TreeShapeExamples.rightTwo",
+    "TreeShapeExamples.rightTwo_incomplete",
+    "TreeShapeExamples.rightTwo_almostComplete",
+    "TreeShapeExamples.rightTwo_strict_capacity",
+    "TreeShapeExamples.rightTwo_children",
+    "TreeShapeExamples.rightTwo_sub",
+    "TreeShapeExamples.chainThree_power_not_complete",
+    "TreeShapeExamples.rightTwo_rounded_equalities",
+    "TreeShapeExamples.rightTwo_rounded_strictness_fails",
+    "TreeShapeExamples.empty_logarithms",
+    "TreeShapeExamples.sample_almostComplete",
+    "TreeShapeExamples.sample_minHeight",
+    "TreeShapeExamples.sample_leaves",
+    "TreeShapeExamples.sample_logarithms",
+    "TreeShapeExamples.sample_height_nodes",
+    "TreeShapeExamples.sample_wrong_node_offset",
+    "TreeShapeExamples.perfectThree_real_height",
+    "TreeShapeExamples.rightTwo_strict_real",
+    "TreeShapeExamples.sample_real_rounding",
+    "TreeShapeExamples.empty_real_height",
+    "TreeShapeExamples.mapped_sample",
+    "TreeShapeExamples.relabelled_complete",
+    "TreeShapeExamples.minHeight_erase",
+    "TreeShapeExamples.almostComplete_erase",
+    "TreeShapeExamples.pairSample_shape",
+    "TreeShapeExamples.corrupt_shape_without_validity",
+    "TreeShapeExamples.minStep",
+    "TreeShapeExamples.min_reader",
+    "TreeShapeExamples.minSample",
+    "TreeShapeExamples.minSample_valid",
+    "TreeShapeExamples.minSample_erases",
+    "TreeShapeExamples.minSample_reads",
+    "TreeShapeExamples.heightOptimalCounter",
+    "TreeShapeExamples.heightOptimalCounter_numNodes",
+    "TreeShapeExamples.heightOptimalCounter_shape",
+    "TreeShapeExamples.optimum_across_labels",
+    "TreeShapeExamples.counter_not_almostComplete",
+    "TreeShapeExamples.counter_rounded_height",
+    "TreeShapeExamples.counter_height_optimal",
+    "TreeShapeExamples.almostFour",
+    "TreeShapeExamples.localBalanceCounter",
+    "TreeShapeExamples.localBalanceCounter_balanced",
+    "TreeShapeExamples.localBalanceCounter_shape",
+    "TreeShapeExamples.localBalanceCounter_not_almostComplete",
+    "TreeShapeExamples.chain_rounded_bounds"
+  ],
+  "public_name_count": 90,
+  "full_original_scope_complete": true,
+  "actual_public_types_complete": true,
+  "full_validation_accepted": false,
+  "review_complete": false,
+  "outcome": "Blocked",
+  "new_findings": [],
+  "unresolved_findings": [
+    {
+      "id": "XT02-SP01",
+      "source_correction_confirmed": true,
+      "actual_type_confirmed": true,
+      "status": "Final candidate full-validation confirmation pending"
+    }
+  ],
+  "state": "HELD",
+  "stage": "Completed source/actual-type assessment; await closed full validation evidence",
+  "report": {
+    "path": "reviews/tree-shape-standards-receiving-20261105.md",
+    "bytes": 20793,
+    "lines": 94,
+    "sha256": "87c566ebdd9cdb2eaad1a4c274c1a3361e58cc56ec2a21dbcc6ae868e505bc1c"
+  },
+  "held_provenance_files": [
+    {
+      "path": "provenance/tree-shape-standards-receiving-20261105/actual-types90-assessment-e61bb6f.json",
+      "bytes": 22930,
+      "lines": 524,
+      "sha256": "e21ed0245db7c20c19113b39e94108997d0d0a1f615f1dec92185ba9422a9b48"
+    },
+    {
+      "path": "provenance/tree-shape-standards-receiving-20261105/actual-types90-blocks-e61bb6f.json",
+      "bytes": 39417,
+      "lines": 1386,
+      "sha256": "fe7afd60fd784ff101f6ddc152639471aa112031e25deef5f47b1dc77a037da1"
+    },
+    {
+      "path": "provenance/tree-shape-standards-receiving-20261105/focused-failure-27c5908-assessment.json",
+      "bytes": 4622,
+      "lines": 121,
+      "sha256": "5be9d97ec77e0d90313bba20d53f6571e38dd515a4f341aa01f5df2c7d1cc3f9"
+    },
+    {
+      "path": "provenance/tree-shape-standards-receiving-20261105/focused-failure-5b3b9ab-assessment.json",
+      "bytes": 4870,
+      "lines": 131,
+      "sha256": "2498a79951af4e3bfe140aae3340f3c48b35d87d7582d140e8b16493dd060426"
+    },
+    {
+      "path": "provenance/tree-shape-standards-receiving-20261105/read-ledger-source-27c5908.json",
+      "bytes": 9412,
+      "lines": 258,
+      "sha256": "a23b77238facf5e9bb7327ca23c76ec3108f6b8c2fbc927f5b0f91c97c5ce201"
+    },
+    {
+      "path": "provenance/tree-shape-standards-receiving-20261105/source-assessment-27c5908.json",
+      "bytes": 71866,
+      "lines": 1623,
+      "sha256": "291aeb1e57b93456a9fcc63c46371f1485236ddabac2b2cdf8776ecf71939612"
+    },
+    {
+      "path": "provenance/tree-shape-standards-receiving-20261105/source-closure-27c5908.json",
+      "bytes": 23690,
+      "lines": 733,
+      "sha256": "bad89f2eccd7164be65429353d2ec08884f0bae398da9a21a16eb2e4db3de60d"
+    },
+    {
+      "path": "provenance/tree-shape-standards-receiving-20261105/source-corrections-e61bb6f.json",
+      "bytes": 40917,
+      "lines": 1173,
+      "sha256": "849e7e6bd7b36ef2f16fe112c607be4f04d62524bdc928f70fc06bfe3c84b78c"
+    },
+    {
+      "path": "provenance/tree-shape-standards-receiving-20261105/source-stage-readback-27c5908.json",
+      "bytes": 1468,
+      "lines": 44,
+      "sha256": "6068a67392a7e91e8c7f782849ba916fd50e6de0eacb346890db83c09b9002b0"
+    },
+    {
+      "path": "provenance/tree-shape-standards-receiving-20261105/source-stage-report-27c5908.md",
+      "bytes": 13948,
+      "lines": 67,
+      "sha256": "a5ab3ca3ce6afd961d125e0d38e0ee24328daaa2ac16c300a83be19f22265021"
+    },
+    {
+      "path": "provenance/tree-shape-standards-receiving-20261105/source-type-full-readback-results.json",
+      "bytes": 50615,
+      "lines": 29,
+      "sha256": "98e849c621744b3fcf35a84f6d2a0214acd56260775554e3e9e49a5b0b4d945b"
+    },
+    {
+      "path": "provenance/tree-shape-standards-receiving-20261105/source-type-stage-readback-e61bb6f.json",
+      "bytes": 7049,
+      "lines": 189,
+      "sha256": "749295bd182db6dd71e5add75e2b05699751c5b6e418814610e12250008bd5ac"
+    },
+    {
+      "path": "provenance/tree-shape-standards-receiving-20261105/source-type-stage-report-e61bb6f.md",
+      "bytes": 20793,
+      "lines": 94,
+      "sha256": "87c566ebdd9cdb2eaad1a4c274c1a3361e58cc56ec2a21dbcc6ae868e505bc1c"
+    }
+  ],
+  "source_type_readback": {
+    "path": "provenance/tree-shape-standards-receiving-20261105/source-type-stage-readback-e61bb6f.json",
+    "bytes": 7049,
+    "lines": 189,
+    "sha256": "749295bd182db6dd71e5add75e2b05699751c5b6e418814610e12250008bd5ac"
+  },
+  "program": {
+    "path": "provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean",
+    "bytes": 4199,
+    "lines": 105,
+    "sha256": "fab2460caafba1f3f28a09006c4e220b9c735857e02294091486cdf4e8461c33"
+  },
+  "scope_retained_on_resume": true,
+  "resume_condition": "Root supplies exact current candidate complete closed full-check/audit/verification and final input evidence. Continue this same original Standards axis. Preserve every source-stage snapshot and historical evidence; canonical report may then be updated with the final assessment.",
+  "remaining_actions_owned_by_root": [
+    "full normal candidate check and terminal preservation",
+    "post-full input observation",
+    "later immediate candidate verification and exact local fast-forward only after both passing ordinary reviews",
+    "durability"
+  ],
+  "reviewer_compiler_helper_poll_source_ref_cache_output_or_acceptance_actions": false
+}

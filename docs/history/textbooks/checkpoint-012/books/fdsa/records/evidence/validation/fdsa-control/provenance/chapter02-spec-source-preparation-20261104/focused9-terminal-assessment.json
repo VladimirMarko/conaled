@@ -1,0 +1,130 @@
+{
+  "recorded_utc": "2026-11-04T09:44:41.137050+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+  "full_scope": "Same complete81-path R-through-C2 scope,112 obligations and ten shared units; exact F full scope also retained without new evidence.",
+  "overall_outcome": "Blocked",
+  "approval_or_acceptance": false,
+  "actual_exit": 1,
+  "started_utc": "2026-11-04T09:27:53.275504+00:00",
+  "completed_utc": "2026-11-04T09:31:46.501639+00:00",
+  "outer_elapsed_seconds": 233.22575044800033,
+  "native_elapsed_seconds": 233.09965437600113,
+  "lean_threads": "1",
+  "timed_out": false,
+  "recorder_error": null,
+  "exact_clean_pre_post_candidate": true,
+  "all115_full_log_lines_read": true,
+  "complete_outer_start_result_secured_and_native_start_result_read": true,
+  "complete_native_output_exactly_embedded_in_read_full_log": true,
+  "all_closed_log_and_native_hashes_match": true,
+  "closed_session": 93298,
+  "session_not_polled": true,
+  "actual_individual_success": "Examples.PermutationTailBoundary Built128s; exact reviewed correction070e source in X.",
+  "actual_failed_target": "Examples.PermutationTail",
+  "main_error_count": 6,
+  "complete_diagnostics": [
+    {
+      "source_line": 102,
+      "kind": "decide cannot reduce List.permutations membership",
+      "statement": "tail_23_mass",
+      "case": "[2,3] belongs to orders positions (selected.erase0)"
+    },
+    {
+      "source_line": 114,
+      "kind": "decide cannot reduce List.permutations membership",
+      "statement": "tail_32_mass",
+      "case": "[3,2] belongs to orders positions remaining"
+    },
+    {
+      "source_line": 120,
+      "kind": "decide cannot reduce List.permutations nonmembership",
+      "statement": "repeated_tail_mass_zero",
+      "case": "[2,2] does not belong to orders positions (selected.erase0)"
+    },
+    {
+      "source_line": 146,
+      "kind": "decide cannot reduce List.permutations membership",
+      "statement": "filtered_tail_mass",
+      "case": "[3] belongs to orders positions {3}"
+    },
+    {
+      "source_line": 163,
+      "kind": "unsolved contradiction after norm_num",
+      "statement": "environment_changed",
+      "case": "hmass : 1 = 3⁻¹; goal False"
+    },
+    {
+      "source_line": 194,
+      "kind": "decide cannot reduce List.permutations membership",
+      "statement": "last_tail_mass",
+      "case": "[3] belongs to orders positions (remaining.erase2)"
+    }
+  ],
+  "dependent_Ran": "Examples.UniformQuickSortMean; not a successful module build.",
+  "immutable_main_source_read": {
+    "path": "Examples/PermutationTail.lean",
+    "bytes": 8786,
+    "lines": 197,
+    "sha256": "30e07aaede25b10d2484c2a4674bffa66d77094a545fd49f72bc000bd132ddb7",
+    "all197_lines_read_in_this_continuation": true
+  },
+  "mathematical_diagnostic_assessment": "The four membership cases and one nonmembership case concern the intended supports of the same selected/remaining orders; no change of law or sample is suggested. The environment inequality compares the same first event, whose conditional mass is1 and original mass1/3; the remaining equation1=3⁻¹ is a correct contradiction but the attempted ENNReal normalization did not close it. No mathematical statement discrepancy is identified. Actual compiler failures remain unresolved until a reviewed successor is successfully checked.",
+  "successor_boundary": "Root reports implementation of exactly six Main proof-body corrections in an isolated tree; no exact successor supplied or result inferred in this receipt.",
+  "not_full_candidate_check_or_audit": true,
+  "verification_record_present": false,
+  "type_counts_unchanged": {
+    "qualified_historical": 920,
+    "current_pending": 814,
+    "accepted_base": 28,
+    "foundation_pending": 145,
+    "potential110_credit": 0
+  },
+  "foundation_full_terminal": "Not supplied; no process polling or outcome inferred.",
+  "artifacts": [
+    {
+      "path": "provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/full.log",
+      "bytes": 17133,
+      "lines": 115,
+      "sha256": "8da63603aa28b114dc5f183bdc4a1be9abe470ebfef1c5bf3353628be979fd0f"
+    },
+    {
+      "path": "provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/start.json",
+      "bytes": 1029,
+      "lines": 28,
+      "sha256": "0aace8234e653440a30b9ddf6fa81a6a5bd706ade791e9a94fd500c30fa5fbcd"
+    },
+    {
+      "path": "provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/result.json",
+      "bytes": 1271,
+      "lines": 33,
+      "sha256": "f925a826447c43a82479d93c67200b82887840f9791d40879f9a5c763def2445"
+    },
+    {
+      "path": "provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/secured-terminal.json",
+      "bytes": 1498,
+      "lines": 35,
+      "sha256": "c5199e5f08c86e04116d5ee060ebf75f7661595ce2c14507000bb85b1a1e5e1c"
+    },
+    {
+      "path": "provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/native/start.json",
+      "bytes": 508,
+      "lines": 15,
+      "sha256": "9a9b9fd09b6e05e8a94d9e4b041e9598941e1db652117d298a0be342009e8587"
+    },
+    {
+      "path": "provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/native/output.log",
+      "bytes": 16834,
+      "lines": 112,
+      "sha256": "46b2a615413850c3324723da27e8dab051973080d0103e52a3eef42df20f5ca2"
+    },
+    {
+      "path": "provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/native/result.json",
+      "bytes": 662,
+      "lines": 20,
+      "sha256": "f55644c191f82176ab639713b62f308a49472a206c0c19d0f52f4dd53460c978"
+    }
+  ],
+  "no_compiler_source_ref_pin_cache_or_process_action": true
+}

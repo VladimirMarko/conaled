@@ -1,0 +1,79 @@
+{
+  "prepared_utc": "2026-11-04T12:11:26.162894+00:00",
+  "status": "PROPOSED ONLY; original tickets/index untouched",
+  "targets": [
+    {
+      "target": "tickets/FDSA-XU02.md",
+      "before": {
+        "path": "tickets/FDSA-XU02.md",
+        "bytes": 4814,
+        "lines": 76,
+        "sha256": "5bf24bbbbcb5009d0daeb0a266bc2f888544dbe3bc21264874739535215744c9"
+      },
+      "proposed_after_bytes": 6959,
+      "proposed_after_sha256": "03181edb9402031cf6e7515546858043db1c791ecf573d79206e206d953d83d7",
+      "state_before": "State: all three focused targets individually compiled; explicit53 types and complete independent acceptance gates pending. Triage: in-progress.",
+      "state_after": "State: corrected minimal source bdac9703; all three focused targets have individual successful results; all 53 explicit public types were fully assessed by both axes at C2 candidate 4b5dbfa0. Accepted prerequisite incorporation and full matching unit acceptance gates remain pending. Triage: in-progress.",
+      "focused_checkbox_remains_unchecked": true,
+      "history_preservation": "All original paragraphs retained; the original draft heading is explicitly labeled historical, and new dated evidence is appended.",
+      "applied": false
+    },
+    {
+      "target": "tickets/FDSA-XU03.md",
+      "before": {
+        "path": "tickets/FDSA-XU03.md",
+        "bytes": 9519,
+        "lines": 152,
+        "sha256": "1de416d476ae759628e6dcba6a37e532efc619d1143eb540ddf0ad90c783ccc1"
+      },
+      "proposed_after_bytes": 11715,
+      "proposed_after_sha256": "749a5b2791a9cac4e38a52724fdf2f0181103499cc20637e567ad72a747d8c40",
+      "state_before": "State: core and corrected boundary individually passed; focused9 main examples failed six diagnostics; correction planning only. Complete types/predecessor/full gates pending. Triage: in-progress.",
+      "state_after": "State: corrected minimal source 02fc3f3; all three focused targets have individual successful results, including Main in closed focused10; all 61 explicit public types were fully assessed by both axes at C2 candidate 4b5dbfa0. Accepted prerequisite incorporation and full matching unit acceptance gates remain pending. Triage: in-progress.",
+      "focused_checkbox_remains_unchecked": true,
+      "history_preservation": "All original paragraphs retained; the original draft heading is explicitly labeled historical, and new dated evidence is appended.",
+      "applied": false
+    },
+    {
+      "target": "tickets/INDEX.md",
+      "before": {
+        "path": "tickets/INDEX.md",
+        "bytes": 26028,
+        "lines": 312,
+        "sha256": "1954e6f919cd826e175dd1acfc8857073c2e4b53cbeb1ad877d0161e7623d914"
+      },
+      "proposed_after_bytes": 26099,
+      "proposed_after_sha256": "b5c7799b51a98e4a804cb0ddb6f30b5b32e87be8e29099afce7bac39e8620318",
+      "rows": [
+        {
+          "unit": "XU02",
+          "before": "| FDSA-XU02 | Shared uniform relative order on a fixed subset | all three targets individually passed;53 explicit types and complete independent gates pending | repaired FDSA-001 and FDSA-XU01 acceptance |",
+          "after": "| FDSA-XU02 | Shared uniform relative order on a fixed subset | all three targets individually passed; 53 types fully assessed at 4b5dbfa0; accepted prerequisite incorporation and full unit gates pending | repaired FDSA-001 and FDSA-XU01 acceptance |"
+        },
+        {
+          "unit": "XU03",
+          "before": "| FDSA-XU03 | Shared conditional remaining-order laws | core individually passed; exact ee2ea240 boundary repairs integrated under focused7; types and full gates pending | repaired FDSA-001 and preceding minimum/whole-order acceptance |",
+          "after": "| FDSA-XU03 | Shared conditional remaining-order laws | all three targets individually passed; 61 types fully assessed at 4b5dbfa0; accepted prerequisite incorporation and full unit gates pending | repaired FDSA-001 and preceding minimum/whole-order acceptance |"
+        }
+      ],
+      "all_other_lines_unchanged": true,
+      "applied": false,
+      "initial_observed_before": {
+        "path": "tickets/INDEX.md",
+        "bytes": 25989,
+        "lines": 312,
+        "sha256": "64674de8cda3df8803f0c4374f9220cd4f9490f021ae54b505913a5726b14ecc"
+      },
+      "rebind_reason": "Root concurrently updated the XR01 row after its completed source reviews. Rebound proposal to current INDEX; all lines except the two authorized XU02/XU03 state cells are preserved."
+    }
+  ],
+  "patch": {
+    "path": "provenance/shared-order-tail-acceptance-preparation-20261104/control-status-proposals.patch",
+    "bytes": 10180,
+    "lines": 138,
+    "sha256": "0d627bd16053b7b641bc8e4054f769d1bbfffdc0c6d5a0a0f01fd6cb3ee21ed8"
+  },
+  "no_checkbox_or_acceptance_closed": true,
+  "historical_type_statuses_in_old_program_inventories_not_modified": true,
+  "proposal_reconstruction_verified_in_memory": true
+}

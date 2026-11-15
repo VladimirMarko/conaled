@@ -1,0 +1,321 @@
+{
+  "observed_utc": "2026-11-05T00:12:48.511735+00:00",
+  "identity": {
+    "candidate": "2ff47bdad9f822727fb2d1ea86092c4b26ad0cb6",
+    "clean": true,
+    "project": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "program": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-count-rank-use-correction1-20261105/Statements1-count-rank-use.lean",
+      "bytes": 391,
+      "sha256": "743137fd15209d222f6431085e0d6d3f1814b9b59da00f0f4c536db4d58db949",
+      "names": [
+        "Examples.SelectionCountRank.duplicate_sorted_filter_sublists"
+      ]
+    },
+    "configuration": {
+      "lean-toolchain": {
+        "bytes": 25,
+        "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+      },
+      "lake-manifest.json": {
+        "bytes": 3138,
+        "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+      },
+      "lakefile.toml": {
+        "bytes": 444,
+        "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+      },
+      "flake.nix": {
+        "bytes": 637,
+        "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+      },
+      "flake.lock": {
+        "bytes": 564,
+        "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+      },
+      "check.sh": {
+        "bytes": 74,
+        "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd"
+      },
+      "scripts/check.py": {
+        "bytes": 16119,
+        "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+      },
+      "scripts/lake_integrity.py": {
+        "bytes": 5781,
+        "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f"
+      },
+      "scripts/lake-output-hashes.lean": {
+        "bytes": 618,
+        "sha256": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b"
+      },
+      "ProofAudit.lean": {
+        "bytes": 7925,
+        "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd"
+      }
+    },
+    "dependencies": {
+      "mathlib": {
+        "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib"
+      },
+      "plausible": {
+        "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/plausible"
+      },
+      "LeanSearchClient": {
+        "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/LeanSearchClient"
+      },
+      "importGraph": {
+        "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/importGraph"
+      },
+      "proofwidgets": {
+        "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/proofwidgets"
+      },
+      "aesop": {
+        "head": "4a174c490d8707121c4a9290800489f105d85e07",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/aesop"
+      },
+      "Qq": {
+        "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/Qq"
+      },
+      "batteries": {
+        "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/batteries"
+      },
+      "Cli": {
+        "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/Cli"
+      }
+    },
+    "runtime": {
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/lake": {
+        "bytes": 13416,
+        "sha256": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/lean": {
+        "bytes": 9024,
+        "sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/leanc": {
+        "bytes": 36168,
+        "sha256": "1e0b075573c5ea98e6b196e35d3b159b93e3226714e28cd8febb30a240ec735c"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/leanir": {
+        "bytes": 215864,
+        "sha256": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e"
+      },
+      "conaled-native-state/profile/bin/lake": {
+        "bytes": 122,
+        "sha256": "85df404efd17484b633376fe8d3705f416e059642133d8232ed555a8d3174e21"
+      },
+      "conaled-native-state/profile/bin/lean": {
+        "bytes": 122,
+        "sha256": "e290032a73b271084c56dfde6315062e1523492dc36b1bbde9cc5dea23d1c716"
+      },
+      "conaled-native-state/profile/bin/leanc": {
+        "bytes": 123,
+        "sha256": "0e5517cfaaa530d1e484e45314a8e4be9bf44ccbccb09f8610fa190f6e5443e6"
+      },
+      "conaled-native-state/profile/bin/leanir": {
+        "bytes": 124,
+        "sha256": "3a64f332683efbab0057235ec2b3c22d3ead19cb060e0830b76f1add4cf7c661"
+      },
+      "conaled-native-state/profile/runtime.py": {
+        "bytes": 6368,
+        "sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695"
+      },
+      "conaled-native-state/profile/app_path.c": {
+        "bytes": 3848,
+        "sha256": "fefc39d8645e4a938d6cc27574257d1a1e8e8f0790b75cc15bcf074272066fe0"
+      },
+      "conaled-native-state/profile/app_path.so": {
+        "bytes": 16056,
+        "sha256": "124bc3f19426ab6558b3ca134d0afb70435eaff82a659e6e62a05e8e373e337d"
+      },
+      "/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": {
+        "bytes": 236616,
+        "sha256": "6222a16be7f2d458d6870efe6e715fc0c8d45766fb79cf7dcc3125538d703e28"
+      }
+    },
+    "roots": [
+      "Examples.SelectionCountRank"
+    ],
+    "local_sources": {
+      "Examples/SelectionCountRank.lean": {
+        "bytes": 4992,
+        "sha256": "9e8f303e9e704378a6d82285d7fb72e91cb9b4a528b04f5b5d7ed4dd7e8edf78",
+        "git_blob": "bd2dd42d428b46b6a7ef846a8f252b5386a72916"
+      },
+      "Applications/Selection/CountRank.lean": {
+        "bytes": 12940,
+        "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d",
+        "git_blob": "5f6393df9fd804e4234eb16c8ecdcd93426952b3"
+      },
+      "Applications/Selection/Consumers.lean": {
+        "bytes": 5450,
+        "sha256": "7ddfe4da069279ac03b075088ce34e32a5ee8c1a251f6b035b45275bafa3167b",
+        "git_blob": "40ae5c7f08c8eac2c8a8577deac67975f6455c94"
+      },
+      "Applications/Selection/ThreeWay.lean": {
+        "bytes": 9718,
+        "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa",
+        "git_blob": "8627ad6d219f55a404dd96c4f4553594eaa71264"
+      },
+      "Applications/Sequences/Partition.lean": {
+        "bytes": 3786,
+        "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069",
+        "git_blob": "ff03bd349a39b3b77c49793175d4b474199e7c43"
+      },
+      "Applications/Selection/Rank.lean": {
+        "bytes": 3713,
+        "sha256": "4a82df75593d909e2968bf1e27cbfea52c9795abfe81250bb2385e7dfc16f965",
+        "git_blob": "3412cfa142e12d9a50c725661c6ce133609a3d0c"
+      },
+      "Applications/Sorting/Sort.lean": {
+        "bytes": 5922,
+        "sha256": "5acd7728aaaefdec121df797efafd7dae13476c820d4f85f4ada19868fa71218",
+        "git_blob": "fb7096ebfede6b6a1721c453295faaa851453049"
+      },
+      "Applications/Sorting/Merge.lean": {
+        "bytes": 7840,
+        "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+        "git_blob": "6595f901a9358398bee07333872125990ef8360c"
+      },
+      "Applications/Sorting/Stable.lean": {
+        "bytes": 3704,
+        "sha256": "288552150aa002c60ed06c74e69510112cf9b4e2f0045da3d98ca5c39264d881",
+        "git_blob": "614b0628261442bcbe2a3c97b4af8fc56084fc42"
+      }
+    },
+    "local_compiler_objects_and_traces": {
+      ".lake/build/lib/lean/Examples/SelectionCountRank.olean": {
+        "bytes": 75368,
+        "sha256": "50d289a4b5bc42cf3f98c65180954685a7b63d71b830770da1e8ab1027604d64"
+      },
+      ".lake/build/lib/lean/Examples/SelectionCountRank.olean.hash": {
+        "bytes": 16,
+        "sha256": "20f263185cd7ef447a2212390997cca2fdd7376c8053d63e3f59e664df3c572d"
+      },
+      ".lake/build/lib/lean/Examples/SelectionCountRank.trace": {
+        "bytes": 3224,
+        "sha256": "1fd6698cf38cd46fc920ccf85d6b2d6b8eba23d2f057be7b343d9c0567f786fa"
+      },
+      ".lake/build/lib/lean/Applications/Selection/CountRank.olean": {
+        "bytes": 631024,
+        "sha256": "f2ab37e7bb0d86621e349abb7d1b4566ea286044082409582fe0820cc4e934aa"
+      },
+      ".lake/build/lib/lean/Applications/Selection/CountRank.olean.hash": {
+        "bytes": 16,
+        "sha256": "92a8b7c47872aee2b94cf718971902c702fdbbedc9e53563c1efc3e586882b33"
+      },
+      ".lake/build/lib/lean/Applications/Selection/CountRank.trace": {
+        "bytes": 3259,
+        "sha256": "c77ca5cb03c8256c0e56fe337ab6c76daf6c7fe78c3532ab08f0737f1c0526ad"
+      },
+      ".lake/build/lib/lean/Applications/Selection/Consumers.olean": {
+        "bytes": 564280,
+        "sha256": "c6fbfc854aa0b1d89ae83c5f3bc95c39829e591cc1d0701b3169b176d4aebb2c"
+      },
+      ".lake/build/lib/lean/Applications/Selection/Consumers.olean.hash": {
+        "bytes": 16,
+        "sha256": "fa92a75c885e7e969f3a25dcab4daf169fbb770902c7971758e8241a943df8af"
+      },
+      ".lake/build/lib/lean/Applications/Selection/Consumers.trace": {
+        "bytes": 3250,
+        "sha256": "b3026d1f902434a82d0478e8f07a5c9cbc73205f06423ab07cdafa996f65b38e"
+      },
+      ".lake/build/lib/lean/Applications/Selection/ThreeWay.olean": {
+        "bytes": 463552,
+        "sha256": "5055844b7901204640336ffc927779963a6a23397c6adfbdc7498d0a71391b87"
+      },
+      ".lake/build/lib/lean/Applications/Selection/ThreeWay.olean.hash": {
+        "bytes": 16,
+        "sha256": "a62127572dac192bc9332aad6286aed595e355aef70d121c27b51189bf4a6ec9"
+      },
+      ".lake/build/lib/lean/Applications/Selection/ThreeWay.trace": {
+        "bytes": 3419,
+        "sha256": "0fec49f75496e978586f7e45eeacd748eab037a52e5db2e104ad4604cc0c26c5"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Partition.olean": {
+        "bytes": 177136,
+        "sha256": "19faf6ab0e92813ca9d47abd07ac0a1386b081ce292c17a6835d722e157fb20f"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Partition.olean.hash": {
+        "bytes": 16,
+        "sha256": "48fc64f02d36b8bc93e3499ba89ed1dffb6c47377a91392d634ac1316dada6ce"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Partition.trace": {
+        "bytes": 3417,
+        "sha256": "495924b2619362e56818380c8a8c33abcda8ddcff85af275bc74de1d2f2fb07a"
+      },
+      ".lake/build/lib/lean/Applications/Selection/Rank.olean": {
+        "bytes": 183640,
+        "sha256": "bfc4207d6437b4114b90da3164a9b0b91cbc75db9e3725851372012aadf3fd85"
+      },
+      ".lake/build/lib/lean/Applications/Selection/Rank.olean.hash": {
+        "bytes": 16,
+        "sha256": "dd9a6719ceb26d125320f35713d142df888665d2288343586cc83cfabf4eb824"
+      },
+      ".lake/build/lib/lean/Applications/Selection/Rank.trace": {
+        "bytes": 3203,
+        "sha256": "22f8df621947713a9d92490f65d4bd94e6b5d4fc4f2915fb51e91ba6301c606e"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Sort.olean": {
+        "bytes": 272768,
+        "sha256": "966642767ebe319010dfd4179f6ca5f88be1b9ff6af8f2ba219e5f9c885959b6"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Sort.olean.hash": {
+        "bytes": 16,
+        "sha256": "552d791129b22cdc418a9c7db94917344b329de3791801f4a89c0323141183da"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Sort.trace": {
+        "bytes": 3191,
+        "sha256": "51a66c0db8b5aac7b9fbdb3d8f3a5394ba5ebe4798b00de8ced5dec41434ad21"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Merge.olean": {
+        "bytes": 393368,
+        "sha256": "83b7eaa55a1cd25df709f2957bce1be04e84e2e4d4b2ece3cf3a25691123563d"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Merge.olean.hash": {
+        "bytes": 16,
+        "sha256": "8a19c7d6ae1871a046f6e9ac3311e8cb5c9f003dc91a40aa6c445e91548652f9"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Merge.trace": {
+        "bytes": 3200,
+        "sha256": "c502e39e794f70c8c2f2c191336b85d16b199c7ad18fc1bf66913e366c0ab3fc"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Stable.olean": {
+        "bytes": 129496,
+        "sha256": "0842f9b1bc736a483e38de996a9fb81f00127f3174f620e69bb44926018ee142"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Stable.olean.hash": {
+        "bytes": 16,
+        "sha256": "3dc7c5c3e03ada7495dbdcac8cf15acb3db77d68b02b73cb40dcccbe26791530"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Stable.trace": {
+        "bytes": 3197,
+        "sha256": "84214fef0469b8e98d06eaba8dcdbfa70c054aac71269a179b735083d1d64007"
+      }
+    },
+    "direct_external_imports_of_local_closure": [
+      "Mathlib.Data.List.Perm.Basic",
+      "Mathlib.Data.List.Sort",
+      "Mathlib.Order.Defs.LinearOrder"
+    ]
+  },
+  "boundary": "Read-only input observation; actual execution, loaded-object qualification, complete output review, and candidate acceptance remain separate evidence."
+}

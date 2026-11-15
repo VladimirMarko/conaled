@@ -1,0 +1,46 @@
+{
+  "recorded_utc": "2026-11-04T06:46:09.551022+00:00",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-permutation-order-validation",
+  "branch": "work/fdsa-permutation-order-validation",
+  "candidate": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+  "review_base": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+  "status": "clean source-only; no dependency cache or compiler",
+  "requirements": {
+    "bytes": 11430,
+    "sha256": "f473f593bf4a7ef75dcf2f3163440db6fe187b3b9983f87254d2ddfa8191982d"
+  },
+  "files": {
+    "Applications/Probability/PermutationOrder.lean": {
+      "bytes": 15172,
+      "sha256": "b427902814c19d269c850c97cb43728034d03df2539c5e357ce7ce715191298f"
+    },
+    "Examples/PermutationOrder.lean": {
+      "bytes": 6445,
+      "sha256": "251c0ee0ce7b96711ea57e1ff7496a784fe33137596e8f13b244fa9e44fd57e5"
+    },
+    "Examples/PermutationOrderBoundary.lean": {
+      "bytes": 5434,
+      "sha256": "35c9768d94fd12e553905244a69ffa375e01e469098856b311ac17ad88533fea"
+    },
+    "SquareApplications.lean": {
+      "bytes": 8360,
+      "sha256": "bfa905b56c3cfb7ed63b0c80b7680a0e93486cf32987739ef4d61ca94262dc21"
+    },
+    "docs/research/fdsa-permutation-order.md": {
+      "bytes": 8851,
+      "sha256": "39fd16835dccd39c9d34ebfcebbdbdd33f44ec1dad49fdfe582a8ac4801faea3"
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "bytes": 17824,
+      "sha256": "aa5ae498a2b23a5dee8dcbc0eac1eb5d8735cec4d97ebcdca7877d48ff9f52ce"
+    }
+  },
+  "read_scope": "Root fully read frozen requirements, original start and candidate/source assessments, all three new Lean modules including private proofs, complete source note and exact root/map delta. No new mathematical source finding. Proof-local letI syntax is a concrete compatibility concern from the current XU01 diagnostic and remains for correction/validation.",
+  "historical_context": "Old Chapter 1 unaccepted/resource wording remains historical. Accepted R is preserved; this setup is not acceptance.",
+  "acceptance_order": "Exact pending foundation F first, then required shared-unit gates with XU01 before XU02 before XU03. No later XU prefix or unrelated shared draft included.",
+  "protected_heads": {
+    "conaled": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "conaled-ch01-review": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761"
+  },
+  "available_bytes": 19603681280
+}

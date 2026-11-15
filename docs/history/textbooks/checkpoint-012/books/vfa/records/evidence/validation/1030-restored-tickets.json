@@ -1,0 +1,1683 @@
+{
+  "format_version": 1,
+  "tracker": "local only; numeric commit references >=1000 are local tickets",
+  "objective": "Whole VFA, in chapter order, with conaled compliance",
+  "tickets": [
+    {
+      "id": 1000,
+      "title": "Environment, provenance, local tracker, and recovery checkpoints",
+      "status": "in_progress",
+      "kind": "cross_cutting",
+      "requirements": [
+        "Pinned official source inventory",
+        "Required Nix/direnv + Lean/mathlib environment",
+        "Full-source/history/ticket recovery archive, verified and uploaded"
+      ],
+      "source_recovery": {
+        "preferred_url": "https://softwarefoundations.cis.upenn.edu/vfa-2.1/vfa.tgz",
+        "verified_utc": "2026-11-02T03:49:27+00:00",
+        "http_status": 200,
+        "redirects": 0,
+        "archive_sha256": "f03296c763d78aa5bc18a545d848d398292575e5c8af4b5aa94dc25709e169b8",
+        "evidence": "work-state/source/vfa-2.1-recovery-http.json",
+        "scope": "Verified exact versioned route; repeat hash verification on restore; no permanence guarantee."
+      },
+      "memory_investigation": {
+        "location": "work-state/validation/build-memory-investigation.md",
+        "sha256": "418b1d3cfecce6fbf17d18f972751b720d456f5499aca1dc651dd7c4be32a921",
+        "scope": "Read-only pinned-source investigation; no performance experiment or fresh-mode speedup claim."
+      },
+      "computational_assumptions": {
+        "location": "work-state/source/COMPUTATIONAL-ASSUMPTIONS.md",
+        "sha256": "eb4e8eb1cc4d04f6fe536e87622c4943d6af160b555e7ae4266979484f3eca30",
+        "scope": "Cross-cutting source/interface planning only; no later chapter algorithm or acceptance."
+      },
+      "positive_key_reuse": {
+        "location": "work-state/source/POSITIVE-KEY-REUSE.md",
+        "sha256": "ea930357c4547aebff68ae1a8464adb60af1dd336cb6e9669771dcf3db51df02",
+        "scope": "Read-only source and pinned-library reuse; constructor, shifted-Nat, numeric/bit-order, enumeration and deterministic choice obligations; no chapter implementation."
+      },
+      "frp_import_contingency": {
+        "location": "work-state/validation/frp-import-contingency.md",
+        "sha256": "23dcdbd2e8fe50ee252dd5f81071a3f790bebcdede821c878fd23cb99657e51f",
+        "scope": "Historical read-only proposal; its later bounded prototype and two-file integration are tracked by local #1021. No controlled performance comparison or acceptance is claimed."
+      },
+      "new_reuse_notes": {
+        "tree": {
+          "location": "work-state/source/TREE-INVARIANT-REUSE.md",
+          "sha256": "b7078b4a213b2a37035fa25531245749eeed411ff767aa8956a71678efe614db",
+          "scope": "Read-only cross-cutting planning; no chapter implementation or acceptance."
+        },
+        "priority": {
+          "location": "work-state/source/PRIORITY-QUEUE-REUSE.md",
+          "sha256": "1dc0ab40596354df759ca43ca0764809af9d60f222552b60ecdb05ced8ed5595",
+          "scope": "Read-only cross-cutting planning; no chapter implementation or acceptance."
+        },
+        "stability": {
+          "location": "work-state/source/SORTING-STABILITY-BOUNDARIES.md",
+          "sha256": "dba97ea118b343c779d9d11feed6ca4e65c2ebc665454c1642970db4aca83b81",
+          "scope": "Read-only cross-cutting planning; no chapter implementation or acceptance."
+        },
+        "external_lean": {
+          "location": "work-state/source/EXTERNAL-LEAN-REUSE.md",
+          "sha256": "48b4e176cb4141609cbfa0137f3f984157ce3f7414f9c7c1a047d9dfb8639ea1",
+          "scope": "Bounded advisory primary-source survey; small VFA-shaped sorting/accumulator proof-script lead only. No immutable dependency pin, compilation or axiom audit; no bulk reuse, new dependency, plan change, chapter implementation or acceptance.",
+          "root_followup": "Root read the full note and independently opened the waterfall tutorial source, toolchain and license. Remaining provenance/compatibility/axiom limits retained.",
+          "recorded_utc": "2026-11-02T22:27:07.284070+00:00"
+        }
+      }
+    },
+    {
+      "id": 1001,
+      "chapter": "Preface",
+      "title": "Formalize and harmonize VFA Preface",
+      "status": "validation_running_fresh_retry",
+      "blocked_by": [],
+      "requirements": [
+        "Pin edition, license, chapter order and language-adaptation policy",
+        "Record prerequisites, source hashes, and acceptance scope"
+      ],
+      "accepted_candidate": null,
+      "review": {
+        "standards": "Source round8 retained; ST-001 fixed, ST-002 open; Blocked on applicable validation.",
+        "spec": "Source round8 retained; SP-VAL-001 open and ST-002 corroborated; Blocked on applicable validation."
+      },
+      "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "validation_record": "work-state/validation/1002-candidate-3279bac-fresh2/run.json",
+      "regression_prerequisite": {
+        "location": "work-state/validation/1002-audit-regression-prerequisite.md",
+        "sha256": "047a35a2bf54eee4bcd6c58d196e369a9f5be4e5ec7a0f4e2c8d955bc08550b2",
+        "status": "required after primary success; not run"
+      },
+      "evidence": {
+        "integration_1026": "work-state/validation/1026-integration.json",
+        "superseded_39c3e2f": "work-state/validation/1002-39c3e2f-interruption.json",
+        "planned_run": "work-state/validation/1002-candidate-3279bac.launch.json",
+        "current_run": "work-state/validation/1002-candidate-3279bac-fresh2/run.json",
+        "round7_review": {
+          "location": "work-state/reviews/1002-Perm.md",
+          "sha256": "d8929a581764553fbe59d99d8aa19c0d7a703c164b733ef1a48264b5693a76ac"
+        },
+        "diagnostic_product_correction": "work-state/validation/1026-diagnostic-product-correction.json",
+        "superseded_1da24c7": "work-state/validation/1002-1da24c7-interruption.json",
+        "round8_review": {
+          "location": "work-state/reviews/1002-Perm.md",
+          "sha256": "a767f0195ec40170fc7d3770372ae00d6bacf80aa3e571778d6a387a29e74c63"
+        },
+        "actual_enospc_failure": "work-state/validation/1002-candidate-3279bac-enospc.json",
+        "integrity_reopening": "work-state/validation/1025-integrity-reopening-20261102.json",
+        "round8_validation_followup": {
+          "location": "work-state/reviews/1002-Perm.md",
+          "sha256": "5a355a072503bf914104ea506325237fce55e1cca4533b444696210e0c8f16af"
+        },
+        "previous_incremental_run": "work-state/validation/1002-candidate-3279bac.run.json",
+        "fresh_launch": "work-state/validation/1002-candidate-3279bac-fresh1.launch.json",
+        "prospective_acceptance_checklist": "work-state/validation/1002-acceptance-evidence-checklist.json",
+        "static_import_followup": "work-state/validation/1002-static-import-followup.json",
+        "fresh1_incomplete_outcome": "work-state/validation/1002-fresh1-interruption-assessment.json",
+        "fresh2_launch": "work-state/validation/1002-candidate-3279bac-fresh2/launch.json",
+        "fresh2_session": "work-state/validation/1002-candidate-3279bac-fresh2-session.json"
+      },
+      "source_review": "Both original independent round 8 full 23-file source assessments have zero new unresolved findings; actual corrected elaboration and full validation remain required. ST-001 fixed, SP-VAL-001 open; both overall outcomes Blocked.",
+      "validation_status": "Fresh2 launched21:34:09UTC through accepted recorder after uploaded checkpoint028. Source/coverage/compiler checks passed; full fresh compilation/audit and all later gates pending. Fresh1 actual return/cause remain unknown.",
+      "progress_checkpoint": {
+        "number": 34,
+        "sha256": "1408e77e0f8803f7c5a6116ac9275e330f5e9775b076250462d6916306b57e59",
+        "library_file_id": "libfile_fd1aadbc81288191ac3f5ac46476d128",
+        "upload_receipt": "work-state/validation/checkpoint034-upload.json",
+        "chapter_credit": false
+      },
+      "planned_pre_guard_preservation": "work-state/validation/1025-pre-guard-preservation-plan.json",
+      "validation_assessment": "work-state/validation/1002-fresh1-interruption-assessment.json"
+    },
+    {
+      "id": 1002,
+      "chapter": "Perm",
+      "title": "Formalize and harmonize VFA Perm",
+      "status": "validation_running_fresh_retry",
+      "blocked_by": [
+        1001
+      ],
+      "requirements": [
+        "Complete source obligation map including optional/advanced claims",
+        "Faithful algorithms or proved recurrence/observation adapters",
+        "Reuse existing conaled interfaces and document capability/resource boundaries",
+        "Checked applications and statement review",
+        "Clean isolated candidate integrated build and exhaustive proof audit",
+        "Independent Standards and Spec review passed",
+        "Final --verify-candidate and immediate uploaded recovery checkpoint"
+      ],
+      "accepted_candidate": null,
+      "review": {
+        "standards": "Source round8 retained; ST-001 fixed, ST-002 open; Blocked on applicable validation.",
+        "spec": "Source round8 retained; SP-VAL-001 open and ST-002 corroborated; Blocked on applicable validation."
+      },
+      "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "validation_record": "work-state/validation/1002-candidate-3279bac-fresh2/run.json",
+      "regression_prerequisite": {
+        "location": "work-state/validation/1002-audit-regression-prerequisite.md",
+        "sha256": "047a35a2bf54eee4bcd6c58d196e369a9f5be4e5ec7a0f4e2c8d955bc08550b2",
+        "status": "required after primary success; not run"
+      },
+      "evidence": {
+        "integration_1026": "work-state/validation/1026-integration.json",
+        "superseded_39c3e2f": "work-state/validation/1002-39c3e2f-interruption.json",
+        "planned_run": "work-state/validation/1002-candidate-3279bac.launch.json",
+        "current_run": "work-state/validation/1002-candidate-3279bac-fresh2/run.json",
+        "round7_review": {
+          "location": "work-state/reviews/1002-Perm.md",
+          "sha256": "d8929a581764553fbe59d99d8aa19c0d7a703c164b733ef1a48264b5693a76ac"
+        },
+        "diagnostic_product_correction": "work-state/validation/1026-diagnostic-product-correction.json",
+        "superseded_1da24c7": "work-state/validation/1002-1da24c7-interruption.json",
+        "round8_review": {
+          "location": "work-state/reviews/1002-Perm.md",
+          "sha256": "a767f0195ec40170fc7d3770372ae00d6bacf80aa3e571778d6a387a29e74c63"
+        },
+        "actual_enospc_failure": "work-state/validation/1002-candidate-3279bac-enospc.json",
+        "integrity_reopening": "work-state/validation/1025-integrity-reopening-20261102.json",
+        "round8_validation_followup": {
+          "location": "work-state/reviews/1002-Perm.md",
+          "sha256": "5a355a072503bf914104ea506325237fce55e1cca4533b444696210e0c8f16af"
+        },
+        "previous_incremental_run": "work-state/validation/1002-candidate-3279bac.run.json",
+        "fresh_launch": "work-state/validation/1002-candidate-3279bac-fresh1.launch.json",
+        "prospective_acceptance_checklist": "work-state/validation/1002-acceptance-evidence-checklist.json",
+        "static_import_followup": "work-state/validation/1002-static-import-followup.json",
+        "fresh1_incomplete_outcome": "work-state/validation/1002-fresh1-interruption-assessment.json",
+        "fresh2_launch": "work-state/validation/1002-candidate-3279bac-fresh2/launch.json",
+        "fresh2_session": "work-state/validation/1002-candidate-3279bac-fresh2-session.json"
+      },
+      "source_review": "Both original independent round 8 full 23-file source assessments have zero new unresolved findings; actual corrected elaboration and full validation remain required. ST-001 fixed, SP-VAL-001 open; both overall outcomes Blocked.",
+      "validation_status": "Fresh2 launched21:34:09UTC through accepted recorder after uploaded checkpoint028. Source/coverage/compiler checks passed; full fresh compilation/audit and all later gates pending. Fresh1 actual return/cause remain unknown.",
+      "progress_checkpoint": {
+        "number": 34,
+        "sha256": "1408e77e0f8803f7c5a6116ac9275e330f5e9775b076250462d6916306b57e59",
+        "library_file_id": "libfile_fd1aadbc81288191ac3f5ac46476d128",
+        "upload_receipt": "work-state/validation/checkpoint034-upload.json",
+        "chapter_credit": false
+      },
+      "planned_pre_guard_preservation": "work-state/validation/1025-pre-guard-preservation-plan.json",
+      "validation_assessment": "work-state/validation/1002-fresh1-interruption-assessment.json",
+      "fresh2_recorder_unavailable": "work-state/validation/1002-fresh2-recorder-unavailable-assessment.json",
+      "fresh2_record_protocol_clarification": {
+        "path": "work-state/reviews/1002-fresh2-record-protocol-clarification.md",
+        "sha256": "e795ae7f3babf657d899bb5f98dd40993d603916b2906d897d6d1407c169cfb7",
+        "root_record": "work-state/validation/1029-fresh2-record-protocol-adoption.json",
+        "prospective_only": true,
+        "original_raw_returncode_remains_unknown": true
+      },
+      "pre_guard_execution_handoff": {
+        "path": "work-state/validation/1025-pre-guard-execution-handoff.md",
+        "sha256": "33778d1191bb53ff3aad4f0f570a58ccadab1dc3a5ad48cb9f366e8f7fbb55ac",
+        "prospective_only": true
+      }
+    },
+    {
+      "id": 1003,
+      "chapter": "Sort",
+      "title": "Formalize and harmonize VFA Sort",
+      "status": "pending",
+      "blocked_by": [
+        1002
+      ],
+      "requirements": [
+        "Complete source obligation map including optional/advanced claims",
+        "Faithful algorithms or proved recurrence/observation adapters",
+        "Reuse existing conaled interfaces and document capability/resource boundaries",
+        "Checked applications and statement review",
+        "Clean isolated candidate integrated build and exhaustive proof audit",
+        "Independent Standards and Spec review passed",
+        "Final --verify-candidate and immediate uploaded recovery checkpoint"
+      ],
+      "accepted_candidate": null,
+      "review": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "planning": {
+        "path": "work-state/specs/1003-Sort.md",
+        "status": "complete; implementation blocked by Perm acceptance",
+        "sha256": "fcc06acf05245de79637600479006e3d4a98f8bdf85c2537f5e7451cf3042955"
+      },
+      "additional_cross_cutting_notes": [
+        {
+          "location": "work-state/source/SORTING-STABILITY-BOUNDARIES.md",
+          "sha256": "dba97ea118b343c779d9d11feed6ca4e65c2ebc665454c1642970db4aca83b81",
+          "scope": "Preparation only; retain existing chapter dependencies and all acceptance gates."
+        }
+      ],
+      "planning_review": {
+        "location": "work-state/reviews/1003-Sort-plan.md",
+        "sha256": "88bfe42d21ebaa883416491ad2f5d770df4978d2f5fca664a36d6b927a6a9fcf",
+        "outcome": "No concrete omissions or incorrect claims found in bounded independent planning review; not chapter acceptance."
+      }
+    },
+    {
+      "id": 1004,
+      "chapter": "Multiset",
+      "title": "Formalize and harmonize VFA Multiset",
+      "status": "pending",
+      "blocked_by": [
+        1003
+      ],
+      "requirements": [
+        "Complete source obligation map including optional/advanced claims",
+        "Faithful algorithms or proved recurrence/observation adapters",
+        "Reuse existing conaled interfaces and document capability/resource boundaries",
+        "Checked applications and statement review",
+        "Clean isolated candidate integrated build and exhaustive proof audit",
+        "Independent Standards and Spec review passed",
+        "Final --verify-candidate and immediate uploaded recovery checkpoint"
+      ],
+      "accepted_candidate": null,
+      "review": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "planning": {
+        "location": "work-state/specs/1004-1005-Multiplicity-plan.md",
+        "sha256": "39eb5bf01936bc326298de880d83b87912902fe693d5b83fb187a4d05e5e6487",
+        "scope": "Complete source/reuse planning only; independent bounded review has no unresolved findings; implementation still blocked by preceding chapter acceptance.",
+        "review": {
+          "location": "work-state/reviews/multiplicity-plan.md",
+          "sha256": "54158eef102717435f41be9d3458409115efcec5fa0d1661ad280dbf00a9947e",
+          "status": "no unresolved bounded planning findings; not chapter acceptance"
+        }
+      }
+    },
+    {
+      "id": 1005,
+      "chapter": "BagPerm",
+      "title": "Formalize and harmonize VFA BagPerm",
+      "status": "pending",
+      "blocked_by": [
+        1004
+      ],
+      "requirements": [
+        "Complete source obligation map including optional/advanced claims",
+        "Faithful algorithms or proved recurrence/observation adapters",
+        "Reuse existing conaled interfaces and document capability/resource boundaries",
+        "Checked applications and statement review",
+        "Clean isolated candidate integrated build and exhaustive proof audit",
+        "Independent Standards and Spec review passed",
+        "Final --verify-candidate and immediate uploaded recovery checkpoint"
+      ],
+      "accepted_candidate": null,
+      "review": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "planning": {
+        "location": "work-state/specs/1004-1005-Multiplicity-plan.md",
+        "sha256": "39eb5bf01936bc326298de880d83b87912902fe693d5b83fb187a4d05e5e6487",
+        "scope": "Complete source/reuse planning only; independent bounded review has no unresolved findings; implementation still blocked by preceding chapter acceptance.",
+        "review": {
+          "location": "work-state/reviews/multiplicity-plan.md",
+          "sha256": "54158eef102717435f41be9d3458409115efcec5fa0d1661ad280dbf00a9947e",
+          "status": "no unresolved bounded planning findings; not chapter acceptance"
+        }
+      }
+    },
+    {
+      "id": 1006,
+      "chapter": "Selection",
+      "title": "Formalize and harmonize VFA Selection",
+      "status": "pending",
+      "blocked_by": [
+        1005
+      ],
+      "requirements": [
+        "Complete source obligation map including optional/advanced claims",
+        "Faithful algorithms or proved recurrence/observation adapters",
+        "Reuse existing conaled interfaces and document capability/resource boundaries",
+        "Checked applications and statement review",
+        "Clean isolated candidate integrated build and exhaustive proof audit",
+        "Independent Standards and Spec review passed",
+        "Final --verify-candidate and immediate uploaded recovery checkpoint"
+      ],
+      "accepted_candidate": null,
+      "review": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "additional_cross_cutting_notes": [
+        {
+          "location": "work-state/source/SORTING-STABILITY-BOUNDARIES.md",
+          "sha256": "dba97ea118b343c779d9d11feed6ca4e65c2ebc665454c1642970db4aca83b81",
+          "scope": "Preparation only; retain existing chapter dependencies and all acceptance gates."
+        }
+      ],
+      "planning": {
+        "location": "work-state/specs/1006-Selection.md",
+        "sha256": "ebc4d57d34ff0a6abe26a208702ff14c8ff391de65b7ca5908ed9d960362c3f3",
+        "status": "source_reconnaissance_complete_and_independently_reviewed",
+        "inventory_records": 33,
+        "exercises": 20,
+        "independent_review": {
+          "location": "work-state/reviews/1006-1007-plans.md",
+          "sha256": "95cb2e3a7948337052d1cfafb6f02a763c70a39ba7cee31d911c11e37b8ea9a0",
+          "result": "No actionable findings in bounded source/inventory/API plan review; no implementation or acceptance."
+        },
+        "baseline_inspected": "1da24c77d10fe03296dbf117e4249283139f5021",
+        "implementation_started": false,
+        "predecessor_acceptance_required": true
+      }
+    },
+    {
+      "id": 1007,
+      "chapter": "Merge",
+      "title": "Formalize and harmonize VFA Merge",
+      "status": "pending",
+      "blocked_by": [
+        1006
+      ],
+      "requirements": [
+        "Complete source obligation map including optional/advanced claims",
+        "Faithful algorithms or proved recurrence/observation adapters",
+        "Reuse existing conaled interfaces and document capability/resource boundaries",
+        "Checked applications and statement review",
+        "Clean isolated candidate integrated build and exhaustive proof audit",
+        "Independent Standards and Spec review passed",
+        "Final --verify-candidate and immediate uploaded recovery checkpoint"
+      ],
+      "accepted_candidate": null,
+      "review": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "additional_cross_cutting_notes": [
+        {
+          "location": "work-state/source/SORTING-STABILITY-BOUNDARIES.md",
+          "sha256": "dba97ea118b343c779d9d11feed6ca4e65c2ebc665454c1642970db4aca83b81",
+          "scope": "Preparation only; retain existing chapter dependencies and all acceptance gates."
+        }
+      ],
+      "planning": {
+        "location": "work-state/specs/1007-Merge.md",
+        "sha256": "1597e3f9d7e1e7ab45dcfe9febff268a8f5e6bfc244ff2f9b0e26b1588ca19e5",
+        "status": "source_reconnaissance_complete_and_independently_reviewed",
+        "inventory_records": 17,
+        "exercises": 6,
+        "independent_review": {
+          "location": "work-state/reviews/1006-1007-plans.md",
+          "sha256": "95cb2e3a7948337052d1cfafb6f02a763c70a39ba7cee31d911c11e37b8ea9a0",
+          "result": "No actionable findings in bounded source/inventory/API plan review; no implementation or acceptance."
+        },
+        "baseline_inspected": "1da24c77d10fe03296dbf117e4249283139f5021",
+        "implementation_started": false,
+        "predecessor_acceptance_required": true
+      }
+    },
+    {
+      "id": 1008,
+      "chapter": "Maps",
+      "title": "Formalize and harmonize VFA Maps",
+      "status": "pending",
+      "blocked_by": [
+        1007
+      ],
+      "requirements": [
+        "Complete source obligation map including optional/advanced claims",
+        "Faithful algorithms or proved recurrence/observation adapters",
+        "Reuse existing conaled interfaces and document capability/resource boundaries",
+        "Checked applications and statement review",
+        "Clean isolated candidate integrated build and exhaustive proof audit",
+        "Independent Standards and Spec review passed",
+        "Final --verify-candidate and immediate uploaded recovery checkpoint"
+      ],
+      "accepted_candidate": null,
+      "review": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "planning": {
+        "path": "work-state/specs/1008-Maps.md",
+        "status": "complete; implementation blocked by Merge acceptance",
+        "sha256": "ec2664992b15240b54452ace437d12055ac1b0cc08e9b319b43e6bb211023f99"
+      },
+      "planning_review": {
+        "location": "work-state/reviews/1008-Maps-plan.md",
+        "sha256": "14d1ee97c72fbbbde7323267c76291bdd1f5538b908dd2b8c91d2671e162150a",
+        "outcome": "No actionable omission or incorrect proposed contract found in independent bounded source/reuse planning review; not chapter acceptance."
+      }
+    },
+    {
+      "id": 1009,
+      "chapter": "SearchTree",
+      "title": "Formalize and harmonize VFA SearchTree",
+      "status": "pending",
+      "blocked_by": [
+        1008
+      ],
+      "requirements": [
+        "Complete source obligation map including optional/advanced claims",
+        "Faithful algorithms or proved recurrence/observation adapters",
+        "Reuse existing conaled interfaces and document capability/resource boundaries",
+        "Checked applications and statement review",
+        "Clean isolated candidate integrated build and exhaustive proof audit",
+        "Independent Standards and Spec review passed",
+        "Final --verify-candidate and immediate uploaded recovery checkpoint"
+      ],
+      "accepted_candidate": null,
+      "review": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "additional_cross_cutting_notes": [
+        {
+          "location": "work-state/source/TREE-INVARIANT-REUSE.md",
+          "sha256": "b7078b4a213b2a37035fa25531245749eeed411ff767aa8956a71678efe614db",
+          "scope": "Preparation only; retain existing chapter dependencies and all acceptance gates."
+        }
+      ],
+      "planning": {
+        "path": "work-state/specs/1009-SearchTree.md",
+        "status": "complete; implementation blocked by Maps acceptance",
+        "sha256": "7bd10a9e771d38364bc806d28b38e6cca8f042a7701e3b852fe331d4cd0819e3"
+      },
+      "planning_review": {
+        "location": "work-state/reviews/1009-SearchTree-plan.md",
+        "sha256": "aa98c5944cc52c83d3623fd52c324654e0c59fe4b767779632affd2ad1bad995",
+        "outcome": "No actionable omission or incorrect proposed contract found in independent bounded source/reuse planning review; not chapter acceptance."
+      }
+    },
+    {
+      "id": 1010,
+      "chapter": "ADT",
+      "title": "Formalize and harmonize VFA ADT",
+      "status": "pending",
+      "blocked_by": [
+        1009
+      ],
+      "requirements": [
+        "Complete source obligation map including optional/advanced claims",
+        "Faithful algorithms or proved recurrence/observation adapters",
+        "Reuse existing conaled interfaces and document capability/resource boundaries",
+        "Checked applications and statement review",
+        "Clean isolated candidate integrated build and exhaustive proof audit",
+        "Independent Standards and Spec review passed",
+        "Final --verify-candidate and immediate uploaded recovery checkpoint"
+      ],
+      "accepted_candidate": null,
+      "review": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "planning": {
+        "path": "work-state/specs/1010-ADT.md",
+        "status": "complete; implementation blocked by SearchTree acceptance",
+        "sha256": "f53d2e54b8d587e27e486f5a08fb1746cc8e2ee16810d0c28c9e44c8e3bfa3e8"
+      },
+      "planning_review": {
+        "location": "work-state/reviews/1010-ADT-plan.md",
+        "sha256": "d87d4a0eec1d3075839c0a1c36c80c82272e85b29f11d1dc201ad36cf974f35e",
+        "outcome": "No actionable findings in independent bounded complete-source/API planning review; not chapter acceptance."
+      }
+    },
+    {
+      "id": 1011,
+      "chapter": "Extract",
+      "title": "Formalize and harmonize VFA Extract",
+      "status": "pending",
+      "blocked_by": [
+        1010
+      ],
+      "requirements": [
+        "Complete source obligation map including optional/advanced claims",
+        "Faithful algorithms or proved recurrence/observation adapters",
+        "Reuse existing conaled interfaces and document capability/resource boundaries",
+        "Checked applications and statement review",
+        "Clean isolated candidate integrated build and exhaustive proof audit",
+        "Independent Standards and Spec review passed",
+        "Final --verify-candidate and immediate uploaded recovery checkpoint"
+      ],
+      "accepted_candidate": null,
+      "review": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "positive_keys_preparation": {
+        "ticket": 1023,
+        "source": "work-state/staging/positive-keys/VFAStaging/PositiveKeys.lean",
+        "source_sha256": "98c890672ed3e91b16089eb82037af46f15061af572c838f436b5692f5182f79",
+        "review": "work-state/reviews/positive-key-draft.md",
+        "boundary": "Numeric and shifted representation laws only; no source algorithm, Color bit-order/choice, machine-integer/runtime/cost or chapter-acceptance claim."
+      },
+      "planning": {
+        "path": "work-state/specs/1011-Extract.md",
+        "status": "complete; implementation blocked by ADT acceptance",
+        "sha256": "eccc61e739b5a3ccc0e496ad13828a93b76ec925f3bd80047b799c833a9846ff"
+      },
+      "planning_review": {
+        "location": "work-state/reviews/1011-Extract-plan.md",
+        "sha256": "5defb994a890986f4ab3cc029466085d7f26c0932f9999c4656562f61d7569bc",
+        "outcome": "Clear for planning with no actionable findings; all 34 records, 4 exercises, 13 commands and 28 provider identities independently checked; not chapter acceptance."
+      }
+    },
+    {
+      "id": 1012,
+      "chapter": "Redblack",
+      "title": "Formalize and harmonize VFA Redblack",
+      "status": "pending",
+      "blocked_by": [
+        1011
+      ],
+      "requirements": [
+        "Complete source obligation map including optional/advanced claims",
+        "Faithful algorithms or proved recurrence/observation adapters",
+        "Reuse existing conaled interfaces and document capability/resource boundaries",
+        "Checked applications and statement review",
+        "Clean isolated candidate integrated build and exhaustive proof audit",
+        "Independent Standards and Spec review passed",
+        "Final --verify-candidate and immediate uploaded recovery checkpoint"
+      ],
+      "accepted_candidate": null,
+      "review": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "additional_cross_cutting_notes": [
+        {
+          "location": "work-state/source/TREE-INVARIANT-REUSE.md",
+          "sha256": "b7078b4a213b2a37035fa25531245749eeed411ff767aa8956a71678efe614db",
+          "scope": "Preparation only; retain existing chapter dependencies and all acceptance gates."
+        }
+      ],
+      "planning": {
+        "path": "work-state/specs/1012-Redblack.md",
+        "status": "complete; implementation blocked by Extract acceptance",
+        "sha256": "cf11fe2794f8c40814ab19228eb92f39c86cb9ee957065c8d54e3e6e59dfba10"
+      },
+      "planning_review": {
+        "location": "work-state/reviews/1012-Redblack-plan.md",
+        "sha256": "ae737b3da525edf166dc2685b6722047c8060b8426d073fd9bb3b28a09a5a4ad",
+        "outcome": "Clear for planning with no actionable findings; all 45 records, 13 exercises, 6 commands and 22 provider identities independently checked; not chapter acceptance."
+      }
+    },
+    {
+      "id": 1013,
+      "chapter": "Trie",
+      "title": "Formalize and harmonize VFA Trie",
+      "status": "pending",
+      "blocked_by": [
+        1012
+      ],
+      "requirements": [
+        "Complete source obligation map including optional/advanced claims",
+        "Faithful algorithms or proved recurrence/observation adapters",
+        "Reuse existing conaled interfaces and document capability/resource boundaries",
+        "Checked applications and statement review",
+        "Clean isolated candidate integrated build and exhaustive proof audit",
+        "Independent Standards and Spec review passed",
+        "Final --verify-candidate and immediate uploaded recovery checkpoint"
+      ],
+      "accepted_candidate": null,
+      "review": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "cross_cutting_reuse": {
+        "location": "work-state/source/POSITIVE-KEY-REUSE.md",
+        "sha256": "ea930357c4547aebff68ae1a8464adb60af1dd336cb6e9669771dcf3db51df02",
+        "scope": "Preparation only; preserve existing chapter dependency and acceptance gates."
+      },
+      "additional_cross_cutting_notes": [
+        {
+          "location": "work-state/source/TREE-INVARIANT-REUSE.md",
+          "sha256": "b7078b4a213b2a37035fa25531245749eeed411ff767aa8956a71678efe614db",
+          "scope": "Preparation only; retain existing chapter dependencies and all acceptance gates."
+        }
+      ],
+      "positive_keys_preparation": {
+        "ticket": 1023,
+        "source": "work-state/staging/positive-keys/VFAStaging/PositiveKeys.lean",
+        "source_sha256": "98c890672ed3e91b16089eb82037af46f15061af572c838f436b5692f5182f79",
+        "review": "work-state/reviews/positive-key-draft.md",
+        "boundary": "Numeric and shifted representation laws only; no source algorithm, Color bit-order/choice, machine-integer/runtime/cost or chapter-acceptance claim."
+      },
+      "planning": {
+        "path": "work-state/specs/1013-Trie.md",
+        "status": "complete; implementation blocked by Redblack acceptance",
+        "sha256": "ff3874effda4d56e22a84d16b685e723c72dc210d70a1aec0d38799b7ceaa56e"
+      },
+      "planning_review": {
+        "location": "work-state/reviews/1013-Trie-plan.md",
+        "sha256": "c590a17565b7209dd83924408c4665b0b2764ed8313bcba092d134f1f9ad2d6c",
+        "outcome": "Clear for planning with no actionable findings; all 55 records, 12 exercises, 11 commands, 4 modules and 34 provider identities independently checked; not chapter acceptance."
+      }
+    },
+    {
+      "id": 1014,
+      "chapter": "Priqueue",
+      "title": "Formalize and harmonize VFA Priqueue",
+      "status": "pending",
+      "blocked_by": [
+        1013
+      ],
+      "requirements": [
+        "Complete source obligation map including optional/advanced claims",
+        "Faithful algorithms or proved recurrence/observation adapters",
+        "Reuse existing conaled interfaces and document capability/resource boundaries",
+        "Checked applications and statement review",
+        "Clean isolated candidate integrated build and exhaustive proof audit",
+        "Independent Standards and Spec review passed",
+        "Final --verify-candidate and immediate uploaded recovery checkpoint"
+      ],
+      "accepted_candidate": null,
+      "review": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "additional_cross_cutting_notes": [
+        {
+          "location": "work-state/source/PRIORITY-QUEUE-REUSE.md",
+          "sha256": "1dc0ab40596354df759ca43ca0764809af9d60f222552b60ecdb05ced8ed5595",
+          "scope": "Preparation only; retain existing chapter dependencies and all acceptance gates."
+        }
+      ],
+      "planning": {
+        "path": "work-state/specs/1014-Priqueue.md",
+        "status": "complete; implementation blocked by Trie acceptance",
+        "sha256": "0028ed8013db98fb62e365eb31153ab5030d027bc9a3b9d06f7e8fbb43a42c7d"
+      },
+      "planning_review": {
+        "location": "work-state/reviews/1014-Priqueue-plan.md",
+        "sha256": "68202addee2c36ec9deece9ced8cc0b72c48e584e50d30cc3015032e50b15744",
+        "outcome": "Clear for planning; independently checked 43 records, 2 exercises, 2 modules and 27 provider identities; PQ-PLAN-1 fixed and verified; not chapter acceptance."
+      }
+    },
+    {
+      "id": 1015,
+      "chapter": "Binom",
+      "title": "Formalize and harmonize VFA Binom",
+      "status": "pending",
+      "blocked_by": [
+        1014
+      ],
+      "requirements": [
+        "Complete source obligation map including optional/advanced claims",
+        "Faithful algorithms or proved recurrence/observation adapters",
+        "Reuse existing conaled interfaces and document capability/resource boundaries",
+        "Checked applications and statement review",
+        "Clean isolated candidate integrated build and exhaustive proof audit",
+        "Independent Standards and Spec review passed",
+        "Final --verify-candidate and immediate uploaded recovery checkpoint"
+      ],
+      "accepted_candidate": null,
+      "review": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "additional_cross_cutting_notes": [
+        {
+          "location": "work-state/source/PRIORITY-QUEUE-REUSE.md",
+          "sha256": "1dc0ab40596354df759ca43ca0764809af9d60f222552b60ecdb05ced8ed5595",
+          "scope": "Preparation only; retain existing chapter dependencies and all acceptance gates."
+        }
+      ],
+      "planning": {
+        "path": "work-state/specs/1015-Binom.md",
+        "status": "complete; implementation blocked by Priqueue acceptance",
+        "sha256": "956eacc44542fc26fe5dee1b7a4cd119acb00f6f92ed82d46dc17ccdbdec77c7"
+      },
+      "planning_review": {
+        "location": "work-state/reviews/1015-Binom-plan.md",
+        "sha256": "aef4fd62c3529dcbc59814b04a8e12b30409218495633c5bfd9ac80674fa0bc5",
+        "outcome": "Clear for planning; independently checked 44 records, 21 exercises, one module, one command, 40 file identities and two required PDFs; BINOM-PLAN-001 fixed and verified; not chapter acceptance."
+      }
+    },
+    {
+      "id": 1016,
+      "chapter": "Decide",
+      "title": "Formalize and harmonize VFA Decide",
+      "status": "pending",
+      "blocked_by": [
+        1015
+      ],
+      "requirements": [
+        "Complete source obligation map including optional/advanced claims",
+        "Faithful algorithms or proved recurrence/observation adapters",
+        "Reuse existing conaled interfaces and document capability/resource boundaries",
+        "Checked applications and statement review",
+        "Clean isolated candidate integrated build and exhaustive proof audit",
+        "Independent Standards and Spec review passed",
+        "Final --verify-candidate and immediate uploaded recovery checkpoint"
+      ],
+      "accepted_candidate": null,
+      "review": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "planning": {
+        "path": "work-state/specs/1016-Decide.md",
+        "status": "complete; implementation blocked by Binom acceptance",
+        "sha256": "ca2a19ddf844a90d8647fe4209fe0ea4302de6578df90541b5a2b143ad9b94e0"
+      },
+      "planning_review": {
+        "location": "work-state/reviews/1016-Decide-plan.md",
+        "sha256": "dcbf3a4729b82f79d4452dedaf9b5329a4c6e7c0a0d4ccedcb4f4cc5b35d9d65",
+        "outcome": "Clear for planning; independently checked 32 records, 2 exercises, 15 commands, 2 modules and 19 provider identities; no findings; not chapter acceptance."
+      }
+    },
+    {
+      "id": 1017,
+      "chapter": "Color",
+      "title": "Formalize and harmonize VFA Color",
+      "status": "pending",
+      "blocked_by": [
+        1016
+      ],
+      "requirements": [
+        "Complete source obligation map including optional/advanced claims",
+        "Faithful algorithms or proved recurrence/observation adapters",
+        "Reuse existing conaled interfaces and document capability/resource boundaries",
+        "Checked applications and statement review",
+        "Clean isolated candidate integrated build and exhaustive proof audit",
+        "Independent Standards and Spec review passed",
+        "Final --verify-candidate and immediate uploaded recovery checkpoint"
+      ],
+      "accepted_candidate": null,
+      "review": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "cross_cutting_reuse": {
+        "location": "work-state/source/POSITIVE-KEY-REUSE.md",
+        "sha256": "ea930357c4547aebff68ae1a8464adb60af1dd336cb6e9669771dcf3db51df02",
+        "scope": "Preparation only; preserve existing chapter dependency and acceptance gates."
+      },
+      "positive_keys_preparation": {
+        "ticket": 1023,
+        "source": "work-state/staging/positive-keys/VFAStaging/PositiveKeys.lean",
+        "source_sha256": "98c890672ed3e91b16089eb82037af46f15061af572c838f436b5692f5182f79",
+        "review": "work-state/reviews/positive-key-draft.md",
+        "boundary": "Numeric and shifted representation laws only; no source algorithm, Color bit-order/choice, machine-integer/runtime/cost or chapter-acceptance claim."
+      },
+      "planning": {
+        "path": "work-state/specs/1017-Color.md",
+        "status": "complete; implementation blocked by Decide acceptance",
+        "sha256": "8b69472e3eb9a0157375d2e47292af07ba0eaf098b5a22d418ea0021cd0ceed7"
+      },
+      "planning_review": {
+        "location": "work-state/reviews/1017-Color-plan.md",
+        "sha256": "ed53ef3f823ddf9bfb8403d5d0e22db3ee185158ad05e52341ccef136eb18366",
+        "outcome": "Clear for planning; independently reconciled 53 records, 14 exercises, 35 commands, five aliases, 42 local/core identities and four external identities; COLOR-PLAN-001 fixed and verified; not chapter acceptance."
+      }
+    },
+    {
+      "id": 1018,
+      "title": "Shared sortedness and multiplicity specification bridges",
+      "kind": "cross_cutting",
+      "status": "draft_checked_not_integrated",
+      "requirements": [
+        "Preserve source adjacent/indexed sortedness and function-valued multiplicity semantics",
+        "Reuse Mathlib and existing conaled contracts",
+        "Checked examples and no admissions",
+        "Integrate/review with consuming chapters in order"
+      ],
+      "owner": "vfa_scope",
+      "location": "work-state/staging/sorting-specs",
+      "accepted_candidate": null,
+      "lean_sha256": "45546bba250cb8613ff0fa41143f63f1a3f81d271a0bdeafac1663343e15188c",
+      "validation": "read-only lean elaboration exit0; no diagnostics; SS-1 wording correction independently resolved; integrated audit/reviews pending"
+    },
+    {
+      "id": 1019,
+      "title": "Shared table observations and update laws",
+      "kind": "cross_cutting",
+      "status": "draft_checked_not_integrated",
+      "owner": "reuse_survey",
+      "location": "work-state/staging/table-specs",
+      "accepted_candidate": null,
+      "requirements": [
+        "Preserve total/default-valued vs explicit-binding observations",
+        "Reuse existing operations/laws/refinement patterns for a concrete shared client",
+        "No source tree/trie algorithms before chapter integration",
+        "Checked drafts; later chapter-order acceptance required"
+      ],
+      "lean_sha256": "0233781d210056e9a61ae9a355120429e55007e72713434d25a5338aa6489b57",
+      "validation": "read-only lean elaboration exit0; no diagnostics; integrated audit/reviews pending",
+      "staging_review": {
+        "location": "work-state/reviews/table-spec-draft.md",
+        "sha256": "fd773168f7c5372550e9c63f49c1191c364c915ddcec79453c4bf71a48cff548",
+        "scope": "Independent bounded formal-statement/client review has no unresolved findings; TS-1 historical wording correction verified; no integrated acceptance."
+      },
+      "readme_sha256": "696abdd37c463da1e010be9a1841bca12feed591100155f11294337fc741f58c"
+    },
+    {
+      "id": 1020,
+      "title": "Resource, extraction and execution source obligations",
+      "kind": "cross_cutting",
+      "status": "source_audit_complete; checked resource API adapters and independent staging review complete; chapter integration pending",
+      "owner": "environment",
+      "accepted_candidate": null,
+      "requirements": [
+        "Identify prose/open-ended obligations missed by declaration scan",
+        "State formal cost and execution boundaries precisely",
+        "Preserve source chapter/exercise pointers and required evidence"
+      ],
+      "location": "work-state/source/RESOURCE-AND-EXECUTION-OBLIGATIONS.md",
+      "preparations": [
+        {
+          "location": "work-state/staging/unary-costs",
+          "lean_sha256": "997aa73ce69fe65712ba97a1217909a6f7af8c2d00e7e2978a4ca03a18c01c13",
+          "validation": "focused Lean exit0; actual Measured/erasureSquare/bind clients; no unresolved independent staging findings; chapter integration pending"
+        },
+        {
+          "location": "work-state/staging/queue-costs",
+          "lean_sha256": "41486ba378124a2d459a74bd8199655e40a4c521e20abb75b9e5580671161df0",
+          "validation": "focused Lean exit0; actual Resources.run/potential/budget clients; no unresolved independent staging findings; chapter integration pending"
+        }
+      ],
+      "sharing_notes": "work-state/source/SHARING-AND-SPACE-MODELS.md (read-only proposed proof obligations; not compiler-checked claims)",
+      "evidence": {
+        "sorting_cost_lemma_reuse_note": {
+          "location": "work-state/source/SORTING-COST-LEMMA-REUSE.md",
+          "sha256": "58609ca1c010e164ef6b021930dca65658f237249b66e223b7af7101d0de9a5c",
+          "status": "Source/signature note independently checked; R1 wording correction verified; no actual algorithm implementation or acceptance.",
+          "independent_review": {
+            "location": "work-state/reviews/sorting-cost-lemma-reuse.md",
+            "sha256": "78570312654fede700938351ca29475c937a4fdd6b8f51b64f17001764fa1840",
+            "unresolved_findings": 0
+          }
+        }
+      }
+    },
+    {
+      "id": 1021,
+      "title": "Check narrow FRP imports for the required validation workload",
+      "kind": "cross_cutting",
+      "status": "candidate_validation",
+      "owner": "environment",
+      "accepted_candidate": null,
+      "location": "work-state/staging/frp-imports",
+      "motivation": "The existing integrated FRP modules import the whole Mathlib umbrella. During the mandatory candidate validation, the Spec compiler showed heavy paging (419266 major faults and 2.54s user CPU at 05:34 UTC). Test the conservative import-only proposal without changing the active candidate.",
+      "requirements": [
+        "Keep all existing FRP definitions, statements and proofs byte-for-byte unchanged below the import block",
+        "Use pinned toolchain settings and verify actual narrowed source-header semantics, including any setup metadata",
+        "At most one auxiliary compiler, 180-second timeout for the initial focused check, staging-only outputs and read-only use of completed candidate artifacts",
+        "No broad build, cache fetch, source change in main/candidate, or signal to active validation during prototype",
+        "Any eventual integrated change requires an explicit candidate, affected-client builds, full required build/audit, both independent review axes, and final candidate verification"
+      ],
+      "proposal": "work-state/validation/frp-import-contingency.md",
+      "scope": "Three FRP import-only changes in the unaccepted Preface/Perm candidate: two narrower roots plus an explicit successor-order dependency in Demand. All non-import bytes remain unchanged.",
+      "specification": {
+        "location": "work-state/specs/1021-FRP-imports.md",
+        "sha256": "00388a9ed73ffec5bd1e86c483aec120b3e91dbf73914647b34a150f3da2eda7"
+      },
+      "focused_results": {
+        "Applications.FRP.Spec": {
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 60.455,
+          "started_utc": "2026-11-02T05:39:07.643072+00:00",
+          "finished_utc": "2026-11-02T05:40:08.098483+00:00",
+          "diagnostic_bytes": 0
+        },
+        "Applications.FRP.Equivalence": {
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 109.961,
+          "started_utc": "2026-11-02T05:42:54.784855+00:00",
+          "finished_utc": "2026-11-02T05:44:44.745613+00:00",
+          "diagnostic_bytes": 1439
+        },
+        "Applications.FRP.Frontier": {
+          "status": "timeout",
+          "exit_code": 124,
+          "timed_out": true,
+          "elapsed_seconds": 180.062,
+          "started_utc": "2026-11-02T05:47:09.239954+00:00",
+          "finished_utc": "2026-11-02T05:50:09.302517+00:00",
+          "diagnostic_bytes": 0
+        },
+        "Applications.FRP.Finite": {
+          "status": "passed",
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 88.378,
+          "started_utc": "2026-11-02T05:50:37.245793+00:00",
+          "finished_utc": "2026-11-02T05:52:05.624250+00:00",
+          "diagnostic_bytes": 0
+        },
+        "Examples.FRP": {
+          "status": "timeout",
+          "exit_code": 124,
+          "timed_out": true,
+          "elapsed_seconds": 180.066,
+          "started_utc": "2026-11-02T05:52:35.797123+00:00",
+          "finished_utc": "2026-11-02T05:55:35.863775+00:00",
+          "diagnostic_bytes": 0
+        }
+      },
+      "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "implementation_owner": "root",
+      "prototype_scope": "Dependency-load prototype only; does not advance a book chapter or authorize restarting the current candidate.",
+      "focused_client_validation_remaining": [
+        "Applications.FRP.Frontier",
+        "Examples.FRP"
+      ],
+      "decision": "The two defining modules and Finite passed; Frontier and Examples.FRP timed out without diagnostics. Integrate the exact two import changes and resolve all clients through the unchanged full gate, after stopping the superseded run. No staged artifacts entered candidate caches.",
+      "evidence": {
+        "summary": "work-state/staging/frp-imports/SUMMARY.md",
+        "freeze_sha256": "6e15b8bc6b7fbf8aec5589cc4fca3c8ff20b666db0bde26d9a3a523be9d896ae",
+        "integration": "work-state/validation/1021-integration.json",
+        "superseded_attempt": "work-state/validation/1002-cba657b-interruption.json",
+        "current_run": "work-state/validation/1002-candidate-3279bac.run.json",
+        "demand_correction": "work-state/validation/1021-demand-correction.json",
+        "demand_staging": "work-state/staging/frp-demand-import/README.md",
+        "superseded_777": "work-state/validation/1002-777bab9-interruption.json",
+        "round4_review": "work-state/reviews/1002-Perm.md",
+        "superseded_bed44c1": "work-state/validation/1002-bed44c1-interruption.json",
+        "round5_review": "work-state/reviews/1002-Perm.md",
+        "superseded_de575a8": "work-state/validation/1002-de575a8-interruption.json",
+        "round6_review": "work-state/reviews/1002-Perm.md",
+        "integration_1026": "work-state/validation/1026-integration.json",
+        "superseded_39c3e2f": "work-state/validation/1002-39c3e2f-interruption.json",
+        "planned_run": "work-state/validation/1002-candidate-3279bac.launch.json",
+        "round7_review": {
+          "location": "work-state/reviews/1002-Perm.md",
+          "sha256": "d8929a581764553fbe59d99d8aa19c0d7a703c164b733ef1a48264b5693a76ac"
+        },
+        "diagnostic_product_correction": "work-state/validation/1026-diagnostic-product-correction.json",
+        "superseded_1da24c7": "work-state/validation/1002-1da24c7-interruption.json",
+        "round8_review": {
+          "location": "work-state/reviews/1002-Perm.md",
+          "sha256": "a767f0195ec40170fc7d3770372ae00d6bacf80aa3e571778d6a387a29e74c63"
+        }
+      },
+      "validation_finding": {
+        "candidate": "777bab9b2510deab54603c3df267e5c134a3e1e0",
+        "location": "Applications/FRP/Demand.lean:139:16",
+        "theorem": "pending_registered",
+        "diagnostic": "After simp_all [next], le_rfl is expected to prove n < n + 1.",
+        "proposed_fix": "Add explicit Mathlib.Order.SuccPred.Nat import to Demand, preserving all non-import bytes.",
+        "state": "The Demand correction passed focused and integrated module/client checks; its original full-build failure remains historical. Included unchanged in de575a8; complete integrated build/audit/regression, round 5 review and final verification remain pending.",
+        "evidence": "work-state/validation/1002-candidate-777bab9.log"
+      },
+      "source_review": "Both original independent round 8 full 23-file source assessments have zero new unresolved findings; actual corrected elaboration and full validation remain required. ST-001 fixed, SP-VAL-001 open; both overall outcomes Blocked."
+    },
+    {
+      "id": 1022,
+      "title": "Check narrow imports in the finite temporal foundation",
+      "kind": "cross_cutting",
+      "status": "candidate_validation",
+      "owner": "vfa_scope",
+      "accepted_candidate": null,
+      "baseline": "bed44c16cee3e1eff6a4175bad9a7ed50651b927",
+      "enclosing_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "scope": "Only import headers in SquareKit/Temporal/Finite.lean and Applications/Progress/Evaluation.lean; every non-import byte preserved. Active bed44c1 candidate unchanged during staging.",
+      "specification": {
+        "location": "work-state/specs/1022-Temporal-imports.md",
+        "sha256": "20197d0216a002f9b3729ebaa990b569f3b29ca798b6865b0c4817b6a9f3de96"
+      },
+      "proposal": "work-state/validation/temporal-import-proposal.md",
+      "recorded_utc": "2026-11-02T06:49:38.116571+00:00",
+      "requirements": [
+        "Bounded isolated check with actual pinned setup and no imports override",
+        "No active candidate, dependency cache or primary process mutation during prototype",
+        "Record actual focused result and emitted imports; no claimed controlled speedup",
+        "Full exact-candidate guarded build, exhaustive audit, required regression, both independent review axes and final verification if integrated",
+        "Immediate recovery checkpoint exposure/upload after integration and acceptance"
+      ],
+      "proposal_sha256": "d607092dfcad540df5cb53c619e092d490daee9d7bc843cb020db650ca96ffc7",
+      "location": [
+        "work-state/staging/temporal-finite-import",
+        "work-state/staging/progress-evaluation-import"
+      ],
+      "initial_finding": {
+        "exit_code": 1,
+        "elapsed_seconds": 11.066,
+        "location": "staged Finite line 103",
+        "diagnostic": "Unknown Sigma.mk.inj_iff; subsequent funext and unused-simp diagnostics.",
+        "correction": "Explicit Mathlib.Data.Sigma.Basic import; non-import bytes unchanged; separate bounded corrected attempt."
+      },
+      "impact_caveat": "FRP.Temporal and TemporalCausality also inherit Mathlib.Tactic through Applications.Progress.Evaluation; Finite alone cannot remove their umbrella dependency.",
+      "finite_result": {
+        "exit_code": 0,
+        "elapsed_seconds": 52.538727,
+        "diagnostic_bytes": 0,
+        "location": "work-state/staging/temporal-finite-import/correction/result.json",
+        "acceptance": false
+      },
+      "evaluation_original_sha256": "8882235188cd0e293f3433d220b677f160b539f4829f899ed2a911c655ca059f",
+      "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "implementation_owner": "root",
+      "evaluation_proposal": {
+        "location": "work-state/validation/progress-import-proposal.md",
+        "sha256": "98c094110789ab6d998106e8296a175d2f1a3a05b661160f0fc0db3c3be2cfb5"
+      },
+      "evaluation_result": {
+        "exit_code": 0,
+        "elapsed_seconds": 123.724885,
+        "diagnostic_bytes": 0,
+        "location": "work-state/staging/progress-evaluation-import/result.json",
+        "acceptance": false
+      },
+      "evidence": {
+        "integration": "work-state/validation/1022-integration.json",
+        "finite_manifest_sha256": "70132e96a93c7aeac1fb1caf48e4f59d3071c097efc15be90f56854be67540b7",
+        "evaluation_manifest_sha256": "fd53b2afc5ff7fd47e7a1d9ab6159a1d3748127e787d911d11d2ae7c81e60651",
+        "current_run": "work-state/validation/1002-candidate-3279bac.run.json",
+        "restart": "work-state/validation/1002-temporal-candidate-restart.md",
+        "round5_review": "work-state/reviews/1002-Perm.md",
+        "superseded_de575a8": "work-state/validation/1002-de575a8-interruption.json",
+        "round6_review": "work-state/reviews/1002-Perm.md",
+        "integration_1026": "work-state/validation/1026-integration.json",
+        "superseded_39c3e2f": "work-state/validation/1002-39c3e2f-interruption.json",
+        "planned_run": "work-state/validation/1002-candidate-3279bac.launch.json",
+        "round7_review": {
+          "location": "work-state/reviews/1002-Perm.md",
+          "sha256": "d8929a581764553fbe59d99d8aa19c0d7a703c164b733ef1a48264b5693a76ac"
+        },
+        "diagnostic_product_correction": "work-state/validation/1026-diagnostic-product-correction.json",
+        "superseded_1da24c7": "work-state/validation/1002-1da24c7-interruption.json",
+        "round8_review": {
+          "location": "work-state/reviews/1002-Perm.md",
+          "sha256": "a767f0195ec40170fc7d3770372ae00d6bacf80aa3e571778d6a387a29e74c63"
+        }
+      },
+      "decision": "Integrate both exact checked headers together, because Finite alone retains the Evaluation umbrella path in slow FRP clients. All full candidate gates and both independent review axes remain pending.",
+      "source_review": "Both original independent round 8 full 23-file source assessments have zero new unresolved findings; actual corrected elaboration and full validation remain required. ST-001 fixed, SP-VAL-001 open; both overall outcomes Blocked."
+    },
+    {
+      "id": 1023,
+      "title": "Shared positive binary key representation adapters",
+      "kind": "cross_cutting",
+      "status": "draft_checked_and_review_clear; not_integrated",
+      "owner": "vfa_scope",
+      "accepted_candidate": null,
+      "location": "work-state/staging/positive-keys",
+      "baseline": "de575a81266ac98194c7c5c83e91628098aac92e",
+      "specification": {
+        "location": "work-state/specs/1023-Positive-keys.md",
+        "sha256": "ce48f68b69f4c155ab96f7714d930c62806ab1362ee517256f2e39f95f854c5d"
+      },
+      "source_note": "work-state/source/POSITIVE-KEY-REUSE.md",
+      "scope": "Existing PosNum/PNat numeric and shifted-key observations, inverse/injectivity/comparison bridges and checked clients; no chapter algorithm or main/candidate change.",
+      "requirements": [
+        "Reuse existing types and functions; preserve shifted versus numeric meanings",
+        "Meaningful checked specializations and statement review",
+        "One bounded focused compiler initially; retain actual failures",
+        "No active candidate/cache/config mutation",
+        "Independent bounded draft review, later chapter integration/full audit, and recovery checkpoint"
+      ],
+      "source_sha256": "98c890672ed3e91b16089eb82037af46f15061af572c838f436b5692f5182f79",
+      "focused_validation": {
+        "result": "work-state/staging/positive-keys/result.json",
+        "exit_code": 0,
+        "elapsed_seconds": 59.974736,
+        "errors": 0,
+        "warnings": 0,
+        "information_messages": 8,
+        "protected_inputs_unchanged": 27,
+        "retries": 0,
+        "generated_outputs_removed": true,
+        "no_imports_override": true,
+        "declaration_counts": {
+          "theorems": 43,
+          "definitions_or_abbreviations": 9
+        }
+      },
+      "evidence": {
+        "readme": "work-state/staging/positive-keys/README.md",
+        "readme_sha256": "e6d9e8a3eeb56204d1e9ac72c51a0a0457956e726750af18795c74e418d0c956",
+        "manifest_sha256": "feb485c6a82167aa8b03758125b2b18eb050674f4c90a9b974d30215f8c17468",
+        "postcheck_sha256": "7ef166c19fc3a0710aa6956eec928647eccf6debb751cd7f3e1a0a6fe65eb194"
+      },
+      "independent_review": {
+        "location": "work-state/reviews/positive-key-draft.md",
+        "sha256": "21ea21d6247dd65e36ca5e51fc9934e3b9932c92e1353c8d7ad16e237d762c7a",
+        "outcome": "No findings in bounded source/spec and frozen-evidence review; full chapter integration/audit and dual-axis acceptance remain pending."
+      }
+    },
+    {
+      "id": 1024,
+      "title": "Make retention proof imports explicit",
+      "kind": "cross_cutting",
+      "status": "candidate_validation",
+      "owner": "vfa_scope",
+      "accepted_candidate": null,
+      "baseline": "de575a81266ac98194c7c5c83e91628098aac92e",
+      "enclosing_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "specification": {
+        "location": "work-state/specs/1024-Retention-imports.md",
+        "sha256": "a06c5512cb30a686693bff2828b6fe99d7b2fe206d0345b831baf0af0ad84bd5"
+      },
+      "proposal": "work-state/validation/remaining-import-proposals.md",
+      "scope": "Only Applications/Durability/Retention.lean import header; all other bytes preserved. Main and active isolated candidate remain unchanged during staging.",
+      "requirements": [
+        "At most three sequential bounded compilers: two actual unchanged-source prerequisites, then Retention; each one worker and 180+5 seconds; exact setup adaptations recorded, no imports override",
+        "Protect active source/cache/configuration and record actual focused result and emitted imports",
+        "No ProjectiveMotion edit or compiler authorized",
+        "Exact full candidate build/audit/regression, both independent reviews and final verification if integrated",
+        "Immediate recovery checkpoint exposure/upload after integration and acceptance"
+      ],
+      "preflight": {
+        "compiler_started": false,
+        "missing_project_prerequisites": [
+          "SquareKit.RelationTransport",
+          "SquareKit.InteractionContracts"
+        ],
+        "decision": "Exactly two unchanged-source staged prerequisites permitted sequentially before the original Retention check; one worker, 180+5 bound per compiler, stop on failure, no project cache writes."
+      },
+      "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "implementation_owner": "root",
+      "location": "work-state/staging/retention-import",
+      "source_sha256": "628bf59c4789148005c2304027e29020d2dcd62a63a3326170c03da89ab421b6",
+      "focused_validation": {
+        "compiler_invocations": 3,
+        "all_exit_codes": 0,
+        "all_diagnostics_bytes": 0,
+        "protected_identities_unchanged": 62,
+        "generated_outputs_removed": true,
+        "target_elapsed_seconds": 27.59511108299921,
+        "setup_used": false,
+        "imports_override": false
+      },
+      "evidence": {
+        "readme": "work-state/staging/retention-import/README.md",
+        "readme_sha256": "4c4dd3cdcd95943b3ab35abdfe7c9a30654cfd47e2b3144b7f9a5ccf2a43a93f",
+        "manifest_sha256": "97ac15d688260fdb5dd61be7bdf2f64746e524dc24c486ef42e8a4c35218cac1",
+        "result_sha256": "fae1781af31fd7a31055cbbb6ab9a740395180f01962b984dcd1fdb1b68a9a73",
+        "postcheck_sha256": "51a69b4c3b4cb14a899cf325751950f30e396b6740c1a4736ffa60412b668b60",
+        "integration": "work-state/validation/1024-integration.json",
+        "current_run": "work-state/validation/1002-candidate-3279bac.run.json",
+        "round6_review": "work-state/reviews/1002-Perm.md",
+        "integration_1026": "work-state/validation/1026-integration.json",
+        "superseded_39c3e2f": "work-state/validation/1002-39c3e2f-interruption.json",
+        "planned_run": "work-state/validation/1002-candidate-3279bac.launch.json",
+        "round7_review": {
+          "location": "work-state/reviews/1002-Perm.md",
+          "sha256": "d8929a581764553fbe59d99d8aa19c0d7a703c164b733ef1a48264b5693a76ac"
+        },
+        "diagnostic_product_correction": "work-state/validation/1026-diagnostic-product-correction.json",
+        "superseded_1da24c7": "work-state/validation/1002-1da24c7-interruption.json",
+        "round8_review": {
+          "location": "work-state/reviews/1002-Perm.md",
+          "sha256": "a767f0195ec40170fc7d3770372ae00d6bacf80aa3e571778d6a387a29e74c63"
+        }
+      },
+      "decision": "Integrate exact checked Retention header only; ProjectiveMotion remains deferred. Static closure reduction is not a controlled performance result. All full candidate gates and both independent review axes remain pending.",
+      "source_review": "Both original independent round 8 full 23-file source assessments have zero new unresolved findings; actual corrected elaboration and full validation remain required. ST-001 fixed, SP-VAL-001 open; both overall outcomes Blocked."
+    },
+    {
+      "id": 1025,
+      "title": "Identify unexpected recreation of cleaned workspace paths",
+      "kind": "cross_cutting",
+      "status": "blocking_integrity_assessment",
+      "owner": "root",
+      "accepted_candidate": null,
+      "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "recorded_utc": "2026-11-02T09:56:50.264771+00:00",
+      "scope": "Read-only provenance investigation of inactive main Mathlib cache and previously uploaded local checkpoint 000 after deliberate cleanup; do not alter source, active outputs, dependencies or primary process.",
+      "classification": "Four earlier unexplained project-output mismatches require fresh validation and separate guarded recovery. Inactive-path recreation remains separately unresolved; no causal relationship between these observations, ENOSPC, or the known upstream GraphEmission artifact is established.",
+      "observations": [
+        "Inactive main Mathlib build directory absent immediately after approved removal at 08:50:42 UTC; later present with directory mtime 08:50:49 and ctime 08:52:34.",
+        "Uploaded local checkpoint 000 returned with original mtime and later ctime after removal; durable uploads remain available.",
+        "A task-file holder identified rsync reading a main-cache artifact, but no writer, argv, source, destination or inclusion scope was captured.",
+        "The bounded sequential native/default deletion probe used the same device/inode and did not reproduce recreation.",
+        "A second bounded overlap probe also used the same device/inode: the native command removed the harmless file while a default command remained active for thirty seconds; it remained absent during and after completion. This did not reproduce recreation.",
+        "The reverse overlap (native command active, harmless file deleted through default execution) likewise used the same device/inode and remained absent during and after completion."
+      ],
+      "requirements": [
+        "Preserve evidence before any further cleanup; no repeated broad deletion.",
+        "Identify writer and source/destination scope where possible; distinguish a read handle from a writer.",
+        "Do not inspect unrelated workspace contents or process environments and do not signal unknown infrastructure.",
+        "Current primary continues under ordinary stable-checkout discipline; an inactive-path storage incident is not an additional acceptance gate without relevant evidence.",
+        "Use the repository incident runbook if actual stale-output or integrity evidence appears; fresh validation alone does not identify an unknown writer.",
+        "Local tracking replaces GitHub writes under explicit user instruction; expose/upload the next recovery checkpoint promptly after creation."
+      ],
+      "evidence": [
+        "work-state/validation/20261102-storage-cleanup.json",
+        "work-state/validation/20261102-cache-holder-observation.json",
+        "work-state/validation/20261102-cache-holder-command.json",
+        "work-state/validation/20261102-cache-holder-immediate.json",
+        "work-state/validation/workspace-sync-probe-20261102",
+        "work-state/validation/integrity272-issue-20261102.json",
+        "work-state/validation/integrity272-comments-20261102.json",
+        "work-state/validation/20261102-cache-provenance-capture.json"
+      ],
+      "user_alert": "Root commentary reported unexpected cache-file return and acceptance investigation; no claim of proof failure.",
+      "bounded_capture": {
+        "utc_interval": "2026-11-02T09:58:31.820/2026-11-02T09:59:11.820Z",
+        "seconds": 40,
+        "samples": 192,
+        "permission_skips": 0,
+        "sha256": "6be4ec03ee096a8f621b221d7ab4e53ea5aa087f7ccf10df237e0ef79650173a",
+        "result": "No rsync/recreating writer/source/destination identified; only active gate log had writable task descriptors; no active-input write observed; negative observation is not proof of absence."
+      },
+      "acceptance_disposition": {
+        "utc": "2026-11-02T10:05:49.566809+00:00",
+        "decision": "Remove the self-imposed global acceptance hold; continue ordinary guarded candidate gates.",
+        "basis": "Independent policy reassessment distinguishes observed inactive-path recreation from evidence of active-input instability, shared writable build outputs or artifact/trace inconsistency. Normal repository acceptance is trusted local bookkeeping, not certification against every possible transient writer.",
+        "remaining_uncertainty": "Recreating writer and transfer scope are unknown; neither negative probes nor guarded verification prove their absence.",
+        "reopen_blocking_if": "Actual active-input changes, unexpected active-cache replacement, integrity-guard mismatch/repeated invalidation, dependency/source identity drift, or other concrete evidence requiring incident recovery.",
+        "mandatory_gates_unchanged": true,
+        "independent_assessor": "reuse_survey",
+        "record": "work-state/validation/1025-proportional-disposition.md"
+      },
+      "additional_observations": [
+        {
+          "record": "work-state/validation/20261102-checkpoint-local-retention-round2.json",
+          "summary": "Previously removed inactive local checkpoint012 and013 are present again; observed while rotating new verified redundant015\u2013017 copies. No active-input/integrity failure observed; disposition unchanged."
+        }
+      ],
+      "latest_inactive_reappearance": "work-state/validation/20261102-inactive-aesop-reappearance.json",
+      "latest_active_project_incident": "work-state/validation/1025-integrity-reopening-20261102.json",
+      "current_disposition": "Earlier pre-build .olean output mismatches meet the recorded reopening condition; cause unresolved. Fresh candidate validation required, with guarded incremental recovery recorded separately.",
+      "initial_classification": "Unresolved recreation of inactive paths; no observed Lake artifact/trace inconsistency, active-input replacement or known GraphEmission recurrence.",
+      "origin_candidate": "39c3e2fd0c3a7b39e56373d453a1a17382bc3749",
+      "current_fresh_run": "work-state/validation/1002-candidate-3279bac-fresh2/run.json",
+      "prospective_acceptance_checklist": "work-state/validation/1002-acceptance-evidence-checklist.json",
+      "progress_checkpoint": {
+        "number": 34,
+        "sha256": "1408e77e0f8803f7c5a6116ac9275e330f5e9775b076250462d6916306b57e59",
+        "library_file_id": "libfile_fd1aadbc81288191ac3f5ac46476d128",
+        "upload_receipt": "work-state/validation/checkpoint034-upload.json",
+        "chapter_credit": false
+      },
+      "planned_pre_guard_preservation": "work-state/validation/1025-pre-guard-preservation-plan.json",
+      "fresh_recovery_status": "Fresh2 is running; no completed fresh mitigation yet. Separate guarded recovery and all later acceptance evidence remain required.",
+      "incident_evidence_archive": {
+        "number": 1,
+        "filename": "conaled-vfa-incident-001-enospc-evidence.tar.gz",
+        "bytes": 715268,
+        "sha256": "490921941ddf178563745ce0e9bf35b0de5ce538f7506499f4b0af944ae4b859",
+        "library_file_id": "libfile_a3a4694ca8648191af74f70b39d404a5",
+        "verification": "work-state/validation/1028-incident-archive001-upload-verification.json",
+        "scope": "54 surviving/regenerated files copied after ENOSPC; original mismatched artifacts remain unavailable; evidence only, not installable cache or acceptance"
+      },
+      "fresh2_record_protocol_clarification": {
+        "path": "work-state/reviews/1002-fresh2-record-protocol-clarification.md",
+        "sha256": "e795ae7f3babf657d899bb5f98dd40993d603916b2906d897d6d1407c169cfb7",
+        "root_record": "work-state/validation/1029-fresh2-record-protocol-adoption.json",
+        "prospective_only": true,
+        "original_raw_returncode_remains_unknown": true
+      },
+      "pre_guard_execution_handoff": {
+        "path": "work-state/validation/1025-pre-guard-execution-handoff.md",
+        "sha256": "33778d1191bb53ff3aad4f0f570a58ccadab1dc3a5ad48cb9f366e8f7fbb55ac",
+        "prospective_only": true
+      },
+      "returned_archive_evidence002": {
+        "assessment": "work-state/validation/1025-returned-archives000-012-013-assessment.json",
+        "assessment_sha256": "1ee05447323d1e71ba60eda98bcb1c0c128a0868ff2bc6111b8b4b7001d437d7",
+        "archive": "conaled-vfa-incident-002-returned-archives.tar",
+        "sha256": "a34d9162d2a050ae72f8915c358386805490d182b8d60e1e30e2253c75d1a697",
+        "bytes": 434339840,
+        "library_file_id": "libfile_d3edb2d0713081918ac070597465019a",
+        "file_id": "file_00000000c81c81f5acd2271e86f58fb1",
+        "verification": "work-state/validation/1025-incident-archive002-upload-verification.json",
+        "current_returned_payloads_durably_preserved": true,
+        "writer_and_mechanism_unknown": true,
+        "cleanup_not_yet_authorized": true,
+        "root_disposition": "work-state/validation/1025-returned-archives-preservation-disposition.json",
+        "decision": "No new removal of returned archives now; preserve historical exclusion."
+      }
+    },
+    {
+      "id": 1026,
+      "title": "Make remaining proof imports explicit",
+      "kind": "cross_cutting",
+      "status": "candidate_validation",
+      "owner": "root",
+      "accepted_candidate": null,
+      "baseline": "39c3e2fd0c3a7b39e56373d453a1a17382bc3749",
+      "enclosing_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "specification": {
+        "location": "work-state/specs/1026-Remaining-imports.md",
+        "sha256": "9c139927b290308ba45ce460d1892cab128b461b3005eb52376d5aaa49fda5b2"
+      },
+      "proposal": {
+        "location": "work-state/validation/remaining-import-survey-round2.md",
+        "sha256": "29a90c4156c9c3aadb20c2f78ff90fed093af4efb8bc51714c8694f23fb14ee3"
+      },
+      "plan": "work-state/validation/1026-import-plan.json",
+      "scope": "Exactly ten Mathlib.Tactic header replacements; every other byte preserved. No tooling, dependency, configuration, theorem-body or chapter-order change.",
+      "validation": "Full exact-candidate guarded build/audit and all existing post-build/review/final-verification gates; no separate focused compiler in this round.",
+      "recorded_utc": "2026-11-02T10:15:16.915057+00:00",
+      "acceptance": false,
+      "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "evidence": {
+        "integration_1026": "work-state/validation/1026-integration.json",
+        "superseded_39c3e2f": "work-state/validation/1002-39c3e2f-interruption.json",
+        "planned_run": "work-state/validation/1002-candidate-3279bac.launch.json",
+        "current_run": "work-state/validation/1002-candidate-3279bac.run.json",
+        "round7_review": {
+          "location": "work-state/reviews/1002-Perm.md",
+          "sha256": "d8929a581764553fbe59d99d8aa19c0d7a703c164b733ef1a48264b5693a76ac"
+        },
+        "diagnostic_product_correction": "work-state/validation/1026-diagnostic-product-correction.json",
+        "superseded_1da24c7": "work-state/validation/1002-1da24c7-interruption.json",
+        "round8_review": {
+          "location": "work-state/reviews/1002-Perm.md",
+          "sha256": "a767f0195ec40170fc7d3770372ae00d6bacf80aa3e571778d6a387a29e74c63"
+        }
+      },
+      "source_review": "Both original independent round 8 full 23-file source assessments have zero new unresolved findings; actual corrected elaboration and full validation remain required. ST-001 fixed, SP-VAL-001 open; both overall outcomes Blocked.",
+      "focused_compilers_this_round": 0,
+      "all_non_import_bytes_preserved": true,
+      "initial_specification": {
+        "location": "work-state/specs/1026-Remaining-imports-initial.md",
+        "sha256": "bbf45d89a81778876e1dbe1361a0850744e4f7e4c359a710d887b3b05dde2cf5"
+      },
+      "actual_import_failure": "Missing Fintype (Fin N \u00d7 Fin N) / Fintype (Edge N), cascading finite-quantification DecidablePred and proof errors at DiagnosticGraph lines 30, 38, 41, 44, 47.",
+      "correction": "Explicit Mathlib.Data.Fintype.Prod import; all other source bytes unchanged; exact full candidate validation pending."
+    },
+    {
+      "id": 1027,
+      "title": "Preserve completed compilation in an optional reviewed recovery companion",
+      "kind": "cross_cutting",
+      "status": "completed",
+      "owner": "root",
+      "accepted_candidate": "a43cef4881d4eb303a81ef25f5ccff0b801a12fe",
+      "recorded_utc": "2026-11-02T13:24:35.090466+00:00",
+      "repository": "work-state/cache-companion",
+      "baseline": "6f48c1ab7f1e96056c217ca025390aa58a7955b6",
+      "specification": {
+        "location": "work-state/specs/1027-cache-companion.md",
+        "sha256": "9d46adc3d69359b29196a615865ce7503a1a073da007cec34dd187da15807f86"
+      },
+      "scope": "Explicit durability amendment and separate cache capture/verification/idle-restore utility; existing source checkpoint generator and formal candidate remain unchanged.",
+      "requirements": [
+        "No real cache recovery capture until both independent review axes and exact candidate checks pass",
+        "Complete source checkpoints remain mandatory and cache-free; optional companions have an explicit source-checkpoint binding",
+        "Read active outputs only through stable complete-family copying; validate private copies with pinned Lake hashes",
+        "Immediate exposure/upload on finalization; all original chapter acceptance gates unchanged"
+      ],
+      "evidence": {
+        "baseline": "work-state/validation/1027-baseline.json",
+        "candidate_round1": "work-state/validation/1027-candidate-round1.json",
+        "validation_round1": "work-state/validation/1027-round1-validation.json",
+        "pinned_helper": "work-state/validation/1027-round1-pinned-helper.json",
+        "review": "work-state/reviews/1027-cache-companion.md",
+        "candidate_round2": "work-state/validation/1027-candidate-round2.json",
+        "validation_round2": "work-state/validation/1027-round2-validation.json",
+        "final_content_verification": "work-state/validation/1027-final-content-verification.json",
+        "acceptance": "work-state/validation/1027-acceptance.json",
+        "first_capture": "work-state/validation/cache-companion001-attempt1.json",
+        "first_capture_created": "work-state/validation/cache-companion001-created.json",
+        "first_capture_upload": "work-state/validation/cache-companion001-upload.json",
+        "first_capture_upload_verification": "work-state/validation/cache-companion001-upload-verification.json",
+        "first_capture_source_binding": "work-state/validation/cache-companion001-source-binding.json",
+        "operational_followup": "work-state/validation/1027-operational-followup001-acceptance.json",
+        "receipt_checkpoint_upload": "work-state/validation/checkpoint024-upload.json"
+      },
+      "candidate": "a43cef4881d4eb303a81ef25f5ccff0b801a12fe",
+      "validation_summary": "Approved operational round2 candidate passed 18 synthetic public-interface tests. The unchanged real pinned-Lake helper evidence was reused after exact relevant identity checks. First actual capture completed with exit 0, 504 retained complete families, checked extraction and successful persistent upload; no chapter credit.",
+      "accepted_utc": "2026-11-02T14:07:04.864935+00:00",
+      "implementation_repository": "work-state/cache-companion",
+      "chapter_credit": false,
+      "actual_capture": {
+        "status": "created_checked_uploaded",
+        "module_count": 504,
+        "omitted_count": 449,
+        "payload_bytes": 249142110,
+        "archive_bytes": 81938603,
+        "sha256": "d368761921b3919844fd3c964ded7fd42e2f5ff25ec5f13d24707d8fbd01dc1c",
+        "library_file_id": "libfile_92fa73b259e4819190db24b064241592",
+        "source_checkpoint": 23,
+        "receipt_checkpoint": {
+          "number": 24,
+          "library_file_id": "libfile_ff4a357449948191888af7e2c496430f",
+          "sha256": "5416f7bef652e9ea28e17db1d77664f232b6c23842ec8c7e455963af726f831b"
+        }
+      },
+      "operational_review": {
+        "guide_sha256": "be39ebe8d6217d375936ff13d5f73ee5112b6ee824dc3a8316022076f55460ae",
+        "review_sha256": "a76736358248df61c3f5b5d5c5b7403148bccefbcba54bdd74ab7378970b65d9",
+        "standards": "Passed",
+        "spec": "Passed",
+        "unresolved": 0
+      },
+      "operational_completed_utc": "2026-11-02T15:03:16.997808+00:00"
+    },
+    {
+      "id": 1028,
+      "title": "Recover actual ENOSPC validation failure and establish sufficient local build capacity",
+      "kind": "cross_cutting",
+      "status": "capacity_recovered_validation_incomplete",
+      "owner": "root",
+      "requirements": [
+        "Preserve exact failed command/raw return and available diagnostics, including any partial-log limitation",
+        "Establish owned build quiescence and preserve affected evidence before automatic invalidation",
+        "Identify capacity sources and retire only independently assessed disposable/generated or verified uploaded local copies",
+        "Run required fresh candidate validation and separately guarded incremental recovery with adequate capacity; all original audit/review/final verification gates remain",
+        "Expose and upload every new complete checkpoint immediately when created"
+      ],
+      "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "failure_record": "work-state/validation/1002-candidate-3279bac-enospc.json",
+      "chapter_credit": false,
+      "capacity_record": "work-state/validation/20261102-inactive-mathlib-retirement-after-enospc.json",
+      "affected_artifacts": "work-state/validation/1028-affected-artifacts.json",
+      "free_after_cleanup_bytes": 8097976320,
+      "recovery_plan_checkpoint": {
+        "number": 25,
+        "sha256": "b83eaf7cefdcde6fa104469a180065a992a4801dde7479e8e9509215b2aeb06e",
+        "library_file_id": "libfile_266926f2377481918b44d05a4a5f83b9",
+        "upload_receipt": "work-state/validation/checkpoint025-upload.json"
+      },
+      "current_fresh_run": "work-state/validation/1002-candidate-3279bac-fresh2/run.json",
+      "capacity_observation": "work-state/validation/20261102-fresh1-capacity-1721.json",
+      "progress_checkpoint": {
+        "number": 34,
+        "sha256": "1408e77e0f8803f7c5a6116ac9275e330f5e9775b076250462d6916306b57e59",
+        "library_file_id": "libfile_fd1aadbc81288191ac3f5ac46476d128",
+        "upload_receipt": "work-state/validation/checkpoint034-upload.json",
+        "chapter_credit": false
+      },
+      "planned_pre_guard_preservation": "work-state/validation/1025-pre-guard-preservation-plan.json",
+      "fresh1_incomplete_outcome": "work-state/validation/1002-fresh1-interruption-assessment.json",
+      "fresh2_capacity_assessment": {
+        "path": "work-state/validation/1029-fresh2-capacity-assessment.json",
+        "sha256": "ed1e22681d19a996140811f8fb2ea2a26ba63f48730fee98878196eae6c4ab52"
+      },
+      "fresh2_capacity_disposition": {
+        "recorded_utc": "2026-11-02T21:52:08.016056+00:00",
+        "decision": "No cleanup now. Continue the unchanged active fresh2 run and capacity observation.",
+        "basis": "Scoped allocation census is above the existing root-free launch floor; no complete-build shortage or causal growth rate has been established.",
+        "future_option": "If needed, separately assess exact one-time local025 retirement after current receipt, full hash, single-link identity and Library-binding checks. No recurring deletion or active-output cleanup authorised."
+      },
+      "incident_evidence_archive": {
+        "number": 1,
+        "filename": "conaled-vfa-incident-001-enospc-evidence.tar.gz",
+        "bytes": 715268,
+        "sha256": "490921941ddf178563745ce0e9bf35b0de5ce538f7506499f4b0af944ae4b859",
+        "library_file_id": "libfile_a3a4694ca8648191af74f70b39d404a5",
+        "verification": "work-state/validation/1028-incident-archive001-upload-verification.json",
+        "scope": "54 surviving/regenerated files copied after ENOSPC; original mismatched artifacts remain unavailable; evidence only, not installable cache or acceptance"
+      },
+      "fresh2_recorder_unavailable": "work-state/validation/1002-fresh2-recorder-unavailable-assessment.json",
+      "fresh2_record_protocol_clarification": {
+        "path": "work-state/reviews/1002-fresh2-record-protocol-clarification.md",
+        "sha256": "e795ae7f3babf657d899bb5f98dd40993d603916b2906d897d6d1407c169cfb7",
+        "root_record": "work-state/validation/1029-fresh2-record-protocol-adoption.json",
+        "prospective_only": true,
+        "original_raw_returncode_remains_unknown": true
+      },
+      "pre_guard_execution_handoff": {
+        "path": "work-state/validation/1025-pre-guard-execution-handoff.md",
+        "sha256": "33778d1191bb53ff3aad4f0f570a58ccadab1dc3a5ad48cb9f366e8f7fbb55ac",
+        "prospective_only": true
+      },
+      "checkpoint025_one_time_local_retirement": {
+        "record": "work-state/validation/20261102-checkpoint025-local-retirement.json",
+        "completed_utc": "2026-11-02T23:01:02.687843+00:00",
+        "library_copy_retained": true,
+        "no_recurring_deletion_authorized": true
+      },
+      "fresh2_capacity_assessment_2318": {
+        "path": "work-state/validation/1029-fresh2-capacity-assessment-2318.json",
+        "sha256": "be6a1077945030697d182ffd875c6172cd6807ee548b8307238bea5765e9ba39"
+      },
+      "checkpoints026_029_one_time_local_retirement": {
+        "record": "work-state/validation/20261102-checkpoints026-029-local-retirement.json",
+        "completed_utc": "2026-11-02T23:25:36.961012+00:00",
+        "completed_checkpoints": [
+          26,
+          27,
+          28,
+          29
+        ],
+        "saved_copies_retained": true,
+        "no_recurring_deletion_authorized": true
+      }
+    },
+    {
+      "id": 1029,
+      "title": "Recover unavailable fresh-validation execution handles and retain durable outcomes",
+      "kind": "cross_cutting",
+      "status": "fresh_retry_active_recorder_unavailable",
+      "owner": "root",
+      "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "accepted_candidate": null,
+      "chapter_credit": false,
+      "requirements": [
+        "Preserve the retained command/log/run record and unknown actual return without fabricating a terminal result",
+        "Establish scoped owned-run state before starting a replacement; do not signal unknown processes",
+        "Keep formal source, checker, compiler and dependency pins unchanged",
+        "Use durable exact-command, complete-output, heartbeat and actual-child-result recording for the retry; handle incomplete records honestly",
+        "Retain all required fresh, separate guarded, managed audit, regression, independent review and final candidate gates",
+        "Expose and upload every newly created complete recovery checkpoint promptly"
+      ],
+      "evidence": [
+        "work-state/validation/1002-fresh1-interruption-assessment.json",
+        "work-state/validation/1002-fresh1-handle-loss-scope-observation.json"
+      ],
+      "cause": "unresolved",
+      "progress_checkpoint": {
+        "number": 34,
+        "sha256": "1408e77e0f8803f7c5a6116ac9275e330f5e9775b076250462d6916306b57e59",
+        "library_file_id": "libfile_fd1aadbc81288191ac3f5ac46476d128",
+        "upload_receipt": "work-state/validation/checkpoint034-upload.json",
+        "chapter_credit": false
+      },
+      "requirements_record": {
+        "path": "work-state/specs/1029-validation-recorder.md",
+        "sha256": "a6b39abad520d7b1ed3dc7edb5134399d4f174b496f396798b124e4d17633b48"
+      },
+      "implementation_repository": "work-state/validation-recorder",
+      "planned_review_axes": {
+        "standards": "/root/cache_review",
+        "spec": "/root/reuse_survey"
+      },
+      "planned_retry": "Unchanged candidate3279bac, same pinned Nix invocation, --fresh --jobs1 and LEAN_NUM_THREADS1; root starts only after recorder review and uploaded checkpoint.",
+      "recorder_acceptance": {
+        "candidate": "f2dd147823effc78974d7b2e5363c993afb0f278",
+        "base": "e39c76640edbd242762cf41f341d35eae35ee786",
+        "record": "work-state/validation/1029-recorder-acceptance.json",
+        "review_record": "work-state/reviews/1029-validation-recorder.md",
+        "standards": "Passed",
+        "spec": "Passed",
+        "unresolved_findings": 0
+      },
+      "fresh2_preflight": "work-state/validation/1029-fresh2-preflight.json",
+      "recorder_acceptance_checkpoint": {
+        "number": 28,
+        "sha256": "964d18dcd9746c91a956d649805213ec386650dc6ce74d121c470e34473cde47",
+        "library_file_id": "libfile_f295cb2463d481918d85f5fc6d24384e",
+        "upload_receipt": "work-state/validation/checkpoint028-upload.json",
+        "chapter_credit": false
+      },
+      "fresh2_session_record": "work-state/validation/1002-candidate-3279bac-fresh2-session.json",
+      "fresh2_capacity_assessment": {
+        "path": "work-state/validation/1029-fresh2-capacity-assessment.json",
+        "sha256": "ed1e22681d19a996140811f8fb2ea2a26ba63f48730fee98878196eae6c4ab52"
+      },
+      "fresh2_capacity_disposition": {
+        "recorded_utc": "2026-11-02T21:52:08.016078+00:00",
+        "decision": "No cleanup now. Continue the unchanged active fresh2 run and capacity observation.",
+        "basis": "Scoped allocation census is above the existing root-free launch floor; no complete-build shortage or causal growth rate has been established.",
+        "future_option": "If needed, separately assess exact one-time local025 retirement after current receipt, full hash, single-link identity and Library-binding checks. No recurring deletion or active-output cleanup authorised."
+      },
+      "fresh2_recorder_unavailable": "work-state/validation/1002-fresh2-recorder-unavailable-assessment.json",
+      "fresh2_last_observed_owned_state": {
+        "observed_utc": "2026-11-02T22:43:58.175043+00:00",
+        "checker": "active, original PID/group/session578204, PPID1",
+        "recorder": "not observed in scoped native scan; tool handle unavailable",
+        "actual_returncode": null,
+        "cause": "unknown"
+      },
+      "fresh2_record_protocol_clarification": {
+        "path": "work-state/reviews/1002-fresh2-record-protocol-clarification.md",
+        "sha256": "e795ae7f3babf657d899bb5f98dd40993d603916b2906d897d6d1407c169cfb7",
+        "root_record": "work-state/validation/1029-fresh2-record-protocol-adoption.json",
+        "prospective_only": true,
+        "original_raw_returncode_remains_unknown": true
+      },
+      "subsequent_native_observations": "work-state/validation/1002-fresh2-native-observations.log",
+      "checkpoint025_one_time_local_retirement": {
+        "record": "work-state/validation/20261102-checkpoint025-local-retirement.json",
+        "completed_utc": "2026-11-02T23:01:02.687843+00:00",
+        "library_copy_retained": true,
+        "no_recurring_deletion_authorized": true
+      },
+      "fresh2_capacity_assessment_2318": {
+        "path": "work-state/validation/1029-fresh2-capacity-assessment-2318.json",
+        "sha256": "be6a1077945030697d182ffd875c6172cd6807ee548b8307238bea5765e9ba39"
+      },
+      "checkpoints026_029_one_time_local_retirement": {
+        "record": "work-state/validation/20261102-checkpoints026-029-local-retirement.json",
+        "completed_utc": "2026-11-02T23:25:36.961012+00:00",
+        "completed_checkpoints": [
+          26,
+          27,
+          28,
+          29
+        ],
+        "saved_copies_retained": true,
+        "no_recurring_deletion_authorized": true
+      },
+      "bounded_resource_assessment": {
+        "path": "work-state/validation/1029-fresh2-resource-assessment.json",
+        "sha256": "f87ac10a76b183b0d3357b438a57b7ed005d1fcaf6311c1ced74feafe3a8f003",
+        "root_disposition": "work-state/validation/1029-fresh2-resource-disposition.json",
+        "decision": "No process or setting change supported by this sample."
+      },
+      "checkpoints030_032_one_time_local_retirement": {
+        "record": "work-state/validation/20261103-checkpoints030-032-local-retirement.json",
+        "completed_utc": "2026-11-03T00:03:11.938481+00:00",
+        "completed_checkpoints": [
+          30,
+          31,
+          32
+        ],
+        "saved_copies_retained": true,
+        "no_recurring_deletion_authorized": true
+      },
+      "workspace_capacity_assessment_0003": {
+        "path": "work-state/validation/1029-workspace-capacity-assessment-0003.json",
+        "sha256": "50095461bf93c11677ddb99fd525fe61f90f8124c7966225f1bec68bb4789039",
+        "root_disposition": "work-state/validation/1029-workspace-capacity-disposition-0003.json",
+        "decision": "No newly eligible cleanup candidate established."
+      },
+      "checkpoint033_one_time_local_retirement": {
+        "record": "work-state/validation/20261103-checkpoint033-local-retirement.json",
+        "completed_utc": "2026-11-03T00:08:45.614724+00:00",
+        "saved_copy_retained": true,
+        "no_recurring_deletion_authorized": true
+      },
+      "returned_archive_evidence002": {
+        "assessment": "work-state/validation/1025-returned-archives000-012-013-assessment.json",
+        "assessment_sha256": "1ee05447323d1e71ba60eda98bcb1c0c128a0868ff2bc6111b8b4b7001d437d7",
+        "archive": "conaled-vfa-incident-002-returned-archives.tar",
+        "sha256": "a34d9162d2a050ae72f8915c358386805490d182b8d60e1e30e2253c75d1a697",
+        "bytes": 434339840,
+        "library_file_id": "libfile_d3edb2d0713081918ac070597465019a",
+        "file_id": "file_00000000c81c81f5acd2271e86f58fb1",
+        "verification": "work-state/validation/1025-incident-archive002-upload-verification.json",
+        "current_returned_payloads_durably_preserved": true,
+        "writer_and_mechanism_unknown": true,
+        "cleanup_not_yet_authorized": true,
+        "root_disposition": "work-state/validation/1025-returned-archives-preservation-disposition.json",
+        "decision": "No new removal of returned archives now; preserve historical exclusion."
+      }
+    }
+  ]
+}

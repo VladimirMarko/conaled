@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-03T14:38:27.354805+00:00",
+  "ticket": 1031,
+  "user_amendment": "work-state/specs/1031-direct-toolchain-amendment.md",
+  "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "provisioning": {
+    "official_release_url": "https://github.com/leanprover/lean4/releases/tag/v4.35.0",
+    "official_api_url": "https://api.github.com/repos/leanprover/lean4/releases/tags/v4.35.0",
+    "tag": "v4.35.0",
+    "release_published_at": "2026-10-12T18:13:12Z",
+    "asset_name": "lean-4.35.0-linux.tar.zst",
+    "asset_url": "https://github.com/leanprover/lean4/releases/download/v4.35.0/lean-4.35.0-linux.tar.zst",
+    "asset_id": 634574462,
+    "size_bytes": 594481375,
+    "official_digest": "sha256:7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d",
+    "downloaded_sha256": "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d",
+    "digest_verified_before_extraction": true,
+    "archive_extraction": "Python tarfile data-filtered extraction of unzstd output; completed with exit0",
+    "distribution_path": "/workspace/scratch/83865511e965/toolchains/lean-4.35.0-linux",
+    "distribution_modified": false,
+    "executables_and_runtime_files": {
+      "bin/lean": {
+        "size_bytes": 9024,
+        "sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38"
+      },
+      "bin/lake": {
+        "size_bytes": 13416,
+        "sha256": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1"
+      },
+      "lib/lean/libInit_shared.so": {
+        "size_bytes": 6264,
+        "sha256": "7831b707e868cee76c353d26649fbd8981b2f4d7e0329af55bbf4fa9e0c69350"
+      },
+      "lib/lean/libLake_shared.so": {
+        "size_bytes": 14070032,
+        "sha256": "d68867df340056b40726fde3939a9d2021901cc6944f971dd6a6a778bd9ea25b"
+      },
+      "lib/lean/libleanshared.so": {
+        "size_bytes": 231113560,
+        "sha256": "efef27df56f2197139afe12f1a2b63913a05f1aba81ce88824c44100431ed8c4"
+      },
+      "lib/lean/libleanshared_1.so": {
+        "size_bytes": 6264,
+        "sha256": "691bf49d9e542a15808fad9d1f8c5df45860166f77efa57961b5335e65a3a0ed"
+      },
+      "lib/lean/libleanshared_2.so": {
+        "size_bytes": 6264,
+        "sha256": "141cbfdb3bc2016cd68e0bebc2e5494818213b462ed985afa6d975d4872fb8ec"
+      }
+    }
+  },
+  "actual_toolchain_smokes": [
+    {
+      "environment": "Distribution bin first on PATH; no explicit LD_LIBRARY_PATH",
+      "argv": [
+        "lean",
+        "--version"
+      ],
+      "exit_status": null,
+      "stderr": "lean: error while loading shared libraries: libInit_shared.so: cannot open shared object file: No such file or directory\n",
+      "exit_status_basis": "Individual status was not separately captured in the first combined shell; the dynamic-loader error was observed. The later individual Lean statuses below were captured directly."
+    },
+    {
+      "environment": "Distribution bin first on PATH; no explicit LD_LIBRARY_PATH",
+      "argv": [
+        "lake",
+        "--version"
+      ],
+      "exit_status": 127,
+      "stderr": "lake: error while loading shared libraries: libLake_shared.so: cannot open shared object file: No such file or directory\n",
+      "exit_status_basis": "Final command in the first combined shell, whose actual exit status was127."
+    },
+    {
+      "environment": "LD_LIBRARY_PATH points to the distribution lib and lib/lean; LEAN_SYSROOT set to the same verified prefix",
+      "argv": [
+        "lean",
+        "--version"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "error: failed to locate application\n"
+    },
+    {
+      "environment": "LD_LIBRARY_PATH points to the distribution lib and lib/lean; LEAN_SYSROOT set to the same verified prefix",
+      "argv": [
+        "lean",
+        "--print-prefix"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "error: failed to locate application\n"
+    },
+    {
+      "environment": "LD_LIBRARY_PATH points to the distribution lib and lib/lean; LEAN_SYSROOT set to the same verified prefix",
+      "argv": [
+        "lake",
+        "--version"
+      ],
+      "exit_status": 0,
+      "stdout": "Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)\n",
+      "stderr": ""
+    }
+  ],
+  "smoke_scope": "The final three statuses were captured individually with subprocess.run. An earlier combined shell returned0 from its last Lake invocation despite preceding Lean errors; that shell result is not Lean success. No successful Lean version/startup check exists.",
+  "auxiliary_tools": {
+    "python": "3.12.14",
+    "python_requirement": "3.11 or later for standard-library tomllib",
+    "git": "2.51.1",
+    "curl": "8.5.0",
+    "nix_direnv_required_under_current_user_amendment": false,
+    "historical_nix_shell_bit_identity_claimed": false,
+    "separate_checker_regression_caveat": "scripts/test-check.py has an elan-specific case; the currently required formal acceptance sequence does not invoke elan."
+  },
+  "isolated_candidate": {
+    "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation",
+    "creation_command": [
+      "git",
+      "worktree",
+      "add",
+      "--detach",
+      "../vfa-validation",
+      "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec"
+    ],
+    "creation_exit_status": 0,
+    "head": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+    "status": "",
+    "dependency_cache_fetch_started": false,
+    "formal_validation_started": false
+  },
+  "platform_diagnosis": {
+    "observed_proc_exists": false,
+    "native_source_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "native_io_url": "https://github.com/leanprover/lean4/blob/eb6cafb7290e8bd5f2937522d8d804f58f02bafc/src/runtime/io.cpp",
+    "native_io_sha256": "c8ef5d102a706d2aae710eac1f2dc9a2b6a81e5245cf5ccb36500973b32aa77f",
+    "native_shell_url": "https://github.com/leanprover/lean4/blob/eb6cafb7290e8bd5f2937522d8d804f58f02bafc/src/util/shell.cpp",
+    "native_shell_sha256": "502eaa752396cdff5bb448833a63be54cbbcbb3d36881eb10e235c04c64c0832",
+    "source_finding": "Native startup initializes search paths before processing options. Internal getBuildDir uses IO.appDir. Linux lean_io_app_path reads /proc/<getpid()>/exe and errors on failure, with no environment/argv fallback. LEAN_SYSROOT is supported by external findSysroot/Lake detection but not this startup path.",
+    "supported_override_found": false,
+    "scope": "Explains the observed official Linux executable startup failure in this exposed sandbox; no claim about enclosing host capabilities."
+  },
+  "execution_escalation": {
+    "action": "Read-only --version invocation of the same checksum-verified Lean binary with explicit distribution library paths, outside the restricted sandbox",
+    "tool_result": "Rejected before execution: approval policy has sandbox_approval=false, rules=false, skill_approval=false, request_permissions=false; cannot ask for escalated permissions under this policy.",
+    "outside_sandbox_process_launched": false,
+    "subsequent_bypass_attempted": false
+  },
+  "disposition": "Direct toolchain acquired but unusable for validation in the current execution surface. Requires normal /proc/<pid>/exe access; Nix is no longer an acceptance requirement under the user exception.",
+  "unchanged_gates": [
+    "Fresh candidate build and exhaustive audit",
+    "Separate guarded incremental candidate build and exhaustive audit",
+    "Managed ProofAudit prerequisite",
+    "Audit regression",
+    "Both independent review axes",
+    "Immediate final candidate verification",
+    "Acceptance checkpoint before successor chapter"
+  ],
+  "chapter_acceptance": false,
+  "new_source_implementation": false
+}

@@ -1,0 +1,5422 @@
+{
+  "recorded_utc": "2026-11-04T17:23:57.646643+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "actual_exit": 0,
+  "checked_modules": 1029,
+  "audit_module_rows": 1027,
+  "kernel_safe_declarations": 47797,
+  "theorem_declarations": 27214,
+  "unsafe_excluded": 0,
+  "permitted_axiom_union": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "native_log": {
+    "bytes": 314896,
+    "sha256": "7f2c0853d96f00134c8e4d9e7c1014ed91a3b9ed9e6c8c048ab6ea5c02779693"
+  },
+  "outer_log": {
+    "bytes": 315124,
+    "sha256": "5559dfa557622a8e29e503502df3e5a77287d3ac1f6e2f285a0b5bf5e4af6f0f"
+  },
+  "total_seconds": 713.6,
+  "timings": {
+    "Source/coverage/version checks": 5.61,
+    "Incremental compilation": 510.53,
+    "Proof audit": 190.52
+  },
+  "integrity_phases": [
+    [
+      "2946",
+      "46",
+      "invalidated",
+      "1.90"
+    ],
+    [
+      "3084",
+      "0",
+      "inconsistent",
+      "2.06"
+    ]
+  ],
+  "actual_built_modules": [
+    [
+      "Applications.Sorting.Alternating",
+      "3.9s"
+    ],
+    [
+      "Examples.AlternatingSorting",
+      "1.2s"
+    ],
+    [
+      "Applications.Resources.Growth",
+      "4.4s"
+    ],
+    [
+      "Applications.Sorting.BottomUp",
+      "1.8s"
+    ],
+    [
+      "Applications.Resources.BottomUpSorting",
+      "4.9s"
+    ],
+    [
+      "Examples.BottomUpSorting",
+      "1.7s"
+    ],
+    [
+      "Examples.BottomUpCosts",
+      "2.8s"
+    ],
+    [
+      "Applications.Resources.CallComparison",
+      "2.0s"
+    ],
+    [
+      "Examples.CallModels",
+      "2.7s"
+    ],
+    [
+      "Applications.Sorting.InsertionObservations",
+      "1.2s"
+    ],
+    [
+      "Examples.InsertionObservations",
+      "1.4s"
+    ],
+    [
+      "Applications.Resources.ListBuildCosts",
+      "3.0s"
+    ],
+    [
+      "Examples.ListBuildCosts",
+      "1.0s"
+    ],
+    [
+      "Examples.MergeCosts",
+      "3.6s"
+    ],
+    [
+      "Applications.Sorting.NaturalRuns",
+      "2.9s"
+    ],
+    [
+      "Applications.Resources.NaturalRunComparisons",
+      "2.6s"
+    ],
+    [
+      "Examples.NaturalRuns",
+      "1.5s"
+    ],
+    [
+      "Examples.NaturalRunComparisons",
+      "1.8s"
+    ],
+    [
+      "Applications.Sorting.Natural",
+      "1.5s"
+    ],
+    [
+      "Applications.Resources.NaturalSorting",
+      "2.8s"
+    ],
+    [
+      "Applications.Resources.NaturalRunOperations",
+      "3.0s"
+    ],
+    [
+      "Examples.NaturalSorting",
+      "1.5s"
+    ],
+    [
+      "Examples.NaturalSortingCosts",
+      "3.2s"
+    ],
+    [
+      "Examples.NaturalRunOperations",
+      "3.3s"
+    ],
+    [
+      "Applications.Sorting.QuickSort",
+      "1.8s"
+    ],
+    [
+      "Examples.QuickSort",
+      "1.7s"
+    ],
+    [
+      "Applications.Resources.QuickSort",
+      "3.6s"
+    ],
+    [
+      "Examples.QuickSortCosts",
+      "2.4s"
+    ],
+    [
+      "Applications.Resources.QuickSortMean",
+      "4.5s"
+    ],
+    [
+      "Examples.QuickSortMean",
+      "2.6s"
+    ],
+    [
+      "Applications.Resources.QuickSortTransport",
+      "1.9s"
+    ],
+    [
+      "Examples.QuickSortTransport",
+      "2.4s"
+    ],
+    [
+      "Applications.Resources.RandomQuickSort",
+      "7.3s"
+    ],
+    [
+      "Examples.RandomQuickSort",
+      "3.3s"
+    ],
+    [
+      "Applications.Resources.RandomQuickSortMean",
+      "3.1s"
+    ],
+    [
+      "Applications.Resources.RandomQuickSortRank",
+      "2.0s"
+    ],
+    [
+      "Applications.Resources.RandomQuickSortGrowth",
+      "2.9s"
+    ],
+    [
+      "Examples.RandomQuickSortGrowth",
+      "3.5s"
+    ],
+    [
+      "Examples.RandomQuickSortMean",
+      "3.1s"
+    ],
+    [
+      "Examples.RandomQuickSortRank",
+      "3.9s"
+    ],
+    [
+      "Applications.Sorting.TopDown",
+      "1.5s"
+    ],
+    [
+      "Applications.Sorting.Uniqueness",
+      "1.3s"
+    ],
+    [
+      "Applications.Sorting.ThreeWayQuickSort",
+      "1.4s"
+    ],
+    [
+      "Examples.ThreeWayQuickSort",
+      "1.6s"
+    ],
+    [
+      "Examples.SortUniqueness",
+      "1.3s"
+    ],
+    [
+      "Applications.Incremental.VectorSumCost",
+      "3.3s"
+    ],
+    [
+      "Examples.StatefulIncremental",
+      "2.6s"
+    ],
+    [
+      "Applications.Resources.TopDownSorting",
+      "2.7s"
+    ],
+    [
+      "Examples.TopDownCosts",
+      "2.4s"
+    ],
+    [
+      "Examples.TopDownSorting",
+      "1.4s"
+    ],
+    [
+      "Applications.Resources.TreeFlattening.Growth",
+      "2.6s"
+    ],
+    [
+      "Examples.TreeFlatteningCosts",
+      "3.3s"
+    ],
+    [
+      "Applications.Resources.UniformQuickSortMean",
+      "4.4s"
+    ],
+    [
+      "Examples.UniformQuickSortMean",
+      "5.7s"
+    ],
+    [
+      "SquareApplications",
+      "321s"
+    ]
+  ],
+  "audit_rows": {
+    "Compiler": {
+      "logical": 504,
+      "theorems": 216,
+      "unsafe": 0
+    },
+    "Dependent": {
+      "logical": 214,
+      "theorems": 81,
+      "unsafe": 0
+    },
+    "FirstOrder": {
+      "logical": 370,
+      "theorems": 147,
+      "unsafe": 0
+    },
+    "SquareCompiler": {
+      "logical": 87,
+      "theorems": 31,
+      "unsafe": 0
+    },
+    "Squares": {
+      "logical": 95,
+      "theorems": 40,
+      "unsafe": 0
+    },
+    "Verification": {
+      "logical": 0,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "Examples.AbstractFIFO": {
+      "logical": 12,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "Examples.AgdaTransferCaller": {
+      "logical": 8,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "Examples.AgdaTransferDiagnostics": {
+      "logical": 0,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "Examples.AgdaTransferModels": {
+      "logical": 20,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "Examples.AlgebraicKL": {
+      "logical": 24,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "Examples.AlgebraicScalar": {
+      "logical": 5,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "Examples.AlternatingSorting": {
+      "logical": 18,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "Examples.ArbitrarySmoothCovers": {
+      "logical": 32,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "Examples.ArithmeticPipeline": {
+      "logical": 18,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "Examples.ArithmeticStaging": {
+      "logical": 15,
+      "theorems": 2,
+      "unsafe": 0
+    },
+    "Examples.BottomUpCosts": {
+      "logical": 37,
+      "theorems": 37,
+      "unsafe": 0
+    },
+    "Examples.BottomUpSorting": {
+      "logical": 33,
+      "theorems": 30,
+      "unsafe": 0
+    },
+    "Examples.BoundedSegments": {
+      "logical": 17,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "Examples.BoundedSummary": {
+      "logical": 18,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "Examples.Bracketing": {
+      "logical": 18,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "Examples.BranchingGraphTransport": {
+      "logical": 24,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "Examples.ByteBuffer": {
+      "logical": 19,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Examples.CallModels": {
+      "logical": 20,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Examples.CategoryInstances": {
+      "logical": 6,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Examples.CategoryMaps": {
+      "logical": 11,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "Examples.ClosedTransport": {
+      "logical": 49,
+      "theorems": 26,
+      "unsafe": 0
+    },
+    "Examples.CoinChoice": {
+      "logical": 23,
+      "theorems": 23,
+      "unsafe": 0
+    },
+    "Examples.CommaAgreement": {
+      "logical": 16,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "Examples.CommaSquares": {
+      "logical": 24,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "Examples.CompiledTemporalPayload": {
+      "logical": 19,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "Examples.CompositionalCoalgebra": {
+      "logical": 22,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "Examples.Connectivity": {
+      "logical": 18,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "Examples.ConstantSheafStreams": {
+      "logical": 39,
+      "theorems": 25,
+      "unsafe": 0
+    },
+    "Examples.CurryHoward": {
+      "logical": 17,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Examples.DependentBaseChange": {
+      "logical": 20,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "Examples.DependentCongruence": {
+      "logical": 14,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "Examples.DependentFunctionSource": {
+      "logical": 54,
+      "theorems": 26,
+      "unsafe": 0
+    },
+    "Examples.DependentFunctionSourceEdges": {
+      "logical": 24,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Examples.DependentProducts": {
+      "logical": 15,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "Examples.DependentSource": {
+      "logical": 40,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "Examples.DependentSourceNative": {
+      "logical": 3,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "Examples.DiagnosticProjection": {
+      "logical": 84,
+      "theorems": 54,
+      "unsafe": 0
+    },
+    "Examples.DiagnosticStorage": {
+      "logical": 143,
+      "theorems": 118,
+      "unsafe": 0
+    },
+    "Examples.DifferenceListCosts": {
+      "logical": 46,
+      "theorems": 33,
+      "unsafe": 0
+    },
+    "Examples.Dijkstra": {
+      "logical": 45,
+      "theorems": 33,
+      "unsafe": 0
+    },
+    "Examples.DijkstraCosts": {
+      "logical": 29,
+      "theorems": 26,
+      "unsafe": 0
+    },
+    "Examples.DijkstraSentinel": {
+      "logical": 33,
+      "theorems": 27,
+      "unsafe": 0
+    },
+    "Examples.DiscreteSmoothMapping": {
+      "logical": 6,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "Examples.DiskRealizations": {
+      "logical": 18,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Examples.Durability": {
+      "logical": 117,
+      "theorems": 61,
+      "unsafe": 0
+    },
+    "Examples.EditAlignment": {
+      "logical": 30,
+      "theorems": 26,
+      "unsafe": 0
+    },
+    "Examples.EquationTranspose": {
+      "logical": 84,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Examples.EuclideanOpenEmbedding": {
+      "logical": 29,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "Examples.ExpressiveWitnesses": {
+      "logical": 70,
+      "theorems": 38,
+      "unsafe": 0
+    },
+    "Examples.ExternalInteraction": {
+      "logical": 9,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Examples.FIFOContracts": {
+      "logical": 10,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Examples.FRP": {
+      "logical": 24,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "Examples.FRPDemand": {
+      "logical": 33,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "Examples.FRPDriver": {
+      "logical": 3,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "Examples.FRPEngine": {
+      "logical": 26,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "Examples.FRPFrontier": {
+      "logical": 18,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Examples.FRPTrace": {
+      "logical": 44,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "Examples.FalsePointBaseChange": {
+      "logical": 24,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "Examples.FalsePointProduct": {
+      "logical": 52,
+      "theorems": 35,
+      "unsafe": 0
+    },
+    "Examples.FamilyCoherence": {
+      "logical": 19,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Examples.FiniteClassifier": {
+      "logical": 6,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Examples.FiniteSetting": {
+      "logical": 30,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "Examples.FiniteUniverse": {
+      "logical": 51,
+      "theorems": 38,
+      "unsafe": 0
+    },
+    "Examples.FreeSmoothAlgebra": {
+      "logical": 12,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "Examples.Frobenius": {
+      "logical": 49,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Examples.FullSourceNaturality": {
+      "logical": 49,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "Examples.FunctionalBasics": {
+      "logical": 17,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "Examples.FunctionalNotation": {
+      "logical": 38,
+      "theorems": 36,
+      "unsafe": 0
+    },
+    "Examples.GeometricSyntheticProduct": {
+      "logical": 26,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "Examples.GraphEmission": {
+      "logical": 24,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Examples.GraphTarget": {
+      "logical": 7,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "Examples.GraphTranslationValidation": {
+      "logical": 67,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Examples.GroupoidRoutes": {
+      "logical": 48,
+      "theorems": 31,
+      "unsafe": 0
+    },
+    "Examples.GroupoidTransport": {
+      "logical": 10,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Examples.HeuristicSearch": {
+      "logical": 80,
+      "theorems": 51,
+      "unsafe": 0
+    },
+    "Examples.Huffman": {
+      "logical": 27,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "Examples.IncreasingSubsequences": {
+      "logical": 27,
+      "theorems": 27,
+      "unsafe": 0
+    },
+    "Examples.IndefiniteService": {
+      "logical": 8,
+      "theorems": 2,
+      "unsafe": 0
+    },
+    "Examples.IndexedFeedback": {
+      "logical": 17,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "Examples.InitializedFeedback": {
+      "logical": 14,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "Examples.InsertionCosts": {
+      "logical": 19,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "Examples.InsertionObservations": {
+      "logical": 33,
+      "theorems": 27,
+      "unsafe": 0
+    },
+    "Examples.InteractionInterfaces": {
+      "logical": 41,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "Examples.InteractionTransport": {
+      "logical": 15,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Examples.InternalAuthoring": {
+      "logical": 14,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "Examples.InternalGraphs": {
+      "logical": 5,
+      "theorems": 2,
+      "unsafe": 0
+    },
+    "Examples.InternalRelations": {
+      "logical": 18,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "Examples.JetScan": {
+      "logical": 55,
+      "theorems": 24,
+      "unsafe": 0
+    },
+    "Examples.KnapsackWorkload": {
+      "logical": 34,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "Examples.Kruskal": {
+      "logical": 39,
+      "theorems": 34,
+      "unsafe": 0
+    },
+    "Examples.LanguageCoalgebra": {
+      "logical": 16,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "Examples.LanguageExtension": {
+      "logical": 20,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "Examples.ListBuildCosts": {
+      "logical": 9,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "Examples.ListCalls": {
+      "logical": 18,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "Examples.ListLibrary": {
+      "logical": 32,
+      "theorems": 31,
+      "unsafe": 0
+    },
+    "Examples.ListReversal": {
+      "logical": 20,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "Examples.ManifoldFullFaithfulness": {
+      "logical": 15,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Examples.MathlibManifoldRealization": {
+      "logical": 33,
+      "theorems": 23,
+      "unsafe": 0
+    },
+    "Examples.MatrixCompilerPreservation": {
+      "logical": 16,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "Examples.MatrixStack": {
+      "logical": 7,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Examples.MeasuredScan": {
+      "logical": 14,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "Examples.MeasurementAttempt": {
+      "logical": 21,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "Examples.MergeCosts": {
+      "logical": 92,
+      "theorems": 77,
+      "unsafe": 0
+    },
+    "Examples.MetropolisHastings": {
+      "logical": 8,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "Examples.MixedSetting": {
+      "logical": 17,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "Examples.NativeSliceProducts": {
+      "logical": 18,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "Examples.NaturalRunComparisons": {
+      "logical": 14,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Examples.NaturalRunOperations": {
+      "logical": 51,
+      "theorems": 49,
+      "unsafe": 0
+    },
+    "Examples.NaturalRuns": {
+      "logical": 53,
+      "theorems": 43,
+      "unsafe": 0
+    },
+    "Examples.NaturalSorting": {
+      "logical": 27,
+      "theorems": 24,
+      "unsafe": 0
+    },
+    "Examples.NaturalSortingCosts": {
+      "logical": 32,
+      "theorems": 31,
+      "unsafe": 0
+    },
+    "Examples.NestedKruskal": {
+      "logical": 76,
+      "theorems": 57,
+      "unsafe": 0
+    },
+    "Examples.NumericalMotion": {
+      "logical": 60,
+      "theorems": 50,
+      "unsafe": 0
+    },
+    "Examples.OpenSyntheticProduct": {
+      "logical": 12,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "Examples.Optimization": {
+      "logical": 94,
+      "theorems": 48,
+      "unsafe": 0
+    },
+    "Examples.OptionalSquares": {
+      "logical": 6,
+      "theorems": 2,
+      "unsafe": 0
+    },
+    "Examples.OrbifoldComparison": {
+      "logical": 19,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Examples.OrderCertificate": {
+      "logical": 11,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "Examples.OrderedPartitions": {
+      "logical": 16,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "Examples.OrderedSearch": {
+      "logical": 7,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "Examples.OrderedSummary": {
+      "logical": 2,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "Examples.OrderedSummaryPresheaf": {
+      "logical": 73,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "Examples.OrdinaryChartRealization": {
+      "logical": 38,
+      "theorems": 25,
+      "unsafe": 0
+    },
+    "Examples.OrdinaryOpenDescent": {
+      "logical": 25,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "Examples.ParagraphLayout": {
+      "logical": 36,
+      "theorems": 25,
+      "unsafe": 0
+    },
+    "Examples.PathTransport": {
+      "logical": 14,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "Examples.PathTransportUniqueness": {
+      "logical": 8,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "Examples.PermutationMinimum": {
+      "logical": 25,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "Examples.PermutationMinimumBoundary": {
+      "logical": 18,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "Examples.PermutationOrder": {
+      "logical": 25,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "Examples.PermutationOrderBoundary": {
+      "logical": 23,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "Examples.PermutationTail": {
+      "logical": 29,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "Examples.PermutationTailBoundary": {
+      "logical": 49,
+      "theorems": 39,
+      "unsafe": 0
+    },
+    "Examples.PotentialAccounting": {
+      "logical": 2,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "Examples.PreservationAuthorA": {
+      "logical": 31,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Examples.PreservationAuthorB": {
+      "logical": 29,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Examples.PreservationBounds": {
+      "logical": 25,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Examples.PresheafClassifier": {
+      "logical": 5,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Examples.PresheafInternal": {
+      "logical": 104,
+      "theorems": 25,
+      "unsafe": 0
+    },
+    "Examples.PresheafRepresentation": {
+      "logical": 15,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Examples.PresheafSetting": {
+      "logical": 49,
+      "theorems": 32,
+      "unsafe": 0
+    },
+    "Examples.Prim": {
+      "logical": 49,
+      "theorems": 41,
+      "unsafe": 0
+    },
+    "Examples.PrimArray": {
+      "logical": 46,
+      "theorems": 33,
+      "unsafe": 0
+    },
+    "Examples.ProbabilisticProgress": {
+      "logical": 33,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "Examples.ProbabilityCorrelation": {
+      "logical": 38,
+      "theorems": 32,
+      "unsafe": 0
+    },
+    "Examples.ProjectionProducts": {
+      "logical": 21,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "Examples.QuarterTurnArcs": {
+      "logical": 9,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "Examples.QuickSort": {
+      "logical": 33,
+      "theorems": 32,
+      "unsafe": 0
+    },
+    "Examples.QuickSortCosts": {
+      "logical": 33,
+      "theorems": 33,
+      "unsafe": 0
+    },
+    "Examples.QuickSortMean": {
+      "logical": 9,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "Examples.QuickSortTransport": {
+      "logical": 7,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "Examples.QuotientDescent": {
+      "logical": 6,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "Examples.RandomAccessCosts": {
+      "logical": 8,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "Examples.RandomAccessEndCosts": {
+      "logical": 2,
+      "theorems": 1,
+      "unsafe": 0
+    },
+    "Examples.RandomAccessLists": {
+      "logical": 19,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Examples.RandomQuickSort": {
+      "logical": 31,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "Examples.RandomQuickSortGrowth": {
+      "logical": 17,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Examples.RandomQuickSortMean": {
+      "logical": 13,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "Examples.RandomQuickSortRank": {
+      "logical": 20,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "Examples.RankSelection": {
+      "logical": 12,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "Examples.RationalSearch": {
+      "logical": 92,
+      "theorems": 77,
+      "unsafe": 0
+    },
+    "Examples.ReactiveContracts": {
+      "logical": 12,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "Examples.ReactivePipeline": {
+      "logical": 7,
+      "theorems": 1,
+      "unsafe": 0
+    },
+    "Examples.ReactiveTarget": {
+      "logical": 8,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "Examples.RecursiveCompilation": {
+      "logical": 38,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "Examples.RecursiveFusion": {
+      "logical": 59,
+      "theorems": 35,
+      "unsafe": 0
+    },
+    "Examples.RelationalBridge": {
+      "logical": 6,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Examples.RequestLifecycle": {
+      "logical": 26,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Examples.Resources": {
+      "logical": 18,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Examples.RetainedHistory": {
+      "logical": 29,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "Examples.Run": {
+      "logical": 4,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "Examples.RunCompression": {
+      "logical": 49,
+      "theorems": 28,
+      "unsafe": 0
+    },
+    "Examples.ScanFusion": {
+      "logical": 25,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "Examples.ScanOptimality": {
+      "logical": 21,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "Examples.ScanSearch": {
+      "logical": 51,
+      "theorems": 38,
+      "unsafe": 0
+    },
+    "Examples.SecondIdentity": {
+      "logical": 47,
+      "theorems": 26,
+      "unsafe": 0
+    },
+    "Examples.SecondStage": {
+      "logical": 16,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Examples.SelectionTies": {
+      "logical": 4,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "Examples.SessionProtocol": {
+      "logical": 18,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "Examples.SharedDemand": {
+      "logical": 53,
+      "theorems": 38,
+      "unsafe": 0
+    },
+    "Examples.SheafBaseChange": {
+      "logical": 26,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "Examples.SheafContexts": {
+      "logical": 93,
+      "theorems": 44,
+      "unsafe": 0
+    },
+    "Examples.SheafFamilies": {
+      "logical": 24,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "Examples.SheafFormula": {
+      "logical": 40,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "Examples.SheafFunctions": {
+      "logical": 20,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "Examples.SheafImage": {
+      "logical": 142,
+      "theorems": 69,
+      "unsafe": 0
+    },
+    "Examples.SheafRelations": {
+      "logical": 16,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "Examples.SheafSections": {
+      "logical": 20,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Examples.SheafSliceFunctions": {
+      "logical": 38,
+      "theorems": 24,
+      "unsafe": 0
+    },
+    "Examples.SheafSlices": {
+      "logical": 25,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "Examples.SheafSoundness": {
+      "logical": 20,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "Examples.SheafSums": {
+      "logical": 37,
+      "theorems": 26,
+      "unsafe": 0
+    },
+    "Examples.SierpinskiLocal": {
+      "logical": 7,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "Examples.SierpinskiPoints": {
+      "logical": 14,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "Examples.SierpinskiSheaf": {
+      "logical": 8,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "Examples.SliceUniversal": {
+      "logical": 43,
+      "theorems": 26,
+      "unsafe": 0
+    },
+    "Examples.SmoothDual": {
+      "logical": 21,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "Examples.SmoothDualExtension": {
+      "logical": 16,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Examples.SmoothFormalLocalization": {
+      "logical": 38,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "Examples.SmoothGeometricSite": {
+      "logical": 22,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "Examples.SmoothKL": {
+      "logical": 25,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "Examples.SmoothLocalization": {
+      "logical": 18,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "Examples.SmoothLocalizationOpen": {
+      "logical": 14,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "Examples.SmoothPrincipalDescent": {
+      "logical": 40,
+      "theorems": 25,
+      "unsafe": 0
+    },
+    "Examples.SmoothQuotient": {
+      "logical": 20,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Examples.SmoothQuotientArcs": {
+      "logical": 10,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "Examples.SmoothSquareZero": {
+      "logical": 19,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Examples.SmoothTorsors": {
+      "logical": 26,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "Examples.SortUniqueness": {
+      "logical": 6,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "Examples.SplitDependentFunctionEdges": {
+      "logical": 23,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "Examples.SplitDependentFunctions": {
+      "logical": 31,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "Examples.SplitNative": {
+      "logical": 10,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "Examples.SplitSheafFamilies": {
+      "logical": 32,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "Examples.StableSorting": {
+      "logical": 30,
+      "theorems": 23,
+      "unsafe": 0
+    },
+    "Examples.StatefulIncremental": {
+      "logical": 13,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "Examples.StructuredLinear": {
+      "logical": 36,
+      "theorems": 31,
+      "unsafe": 0
+    },
+    "Examples.StructuredLinearCosts": {
+      "logical": 55,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "Examples.SubtypeEvidence": {
+      "logical": 23,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Examples.SymmetricLists": {
+      "logical": 0,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "Examples.SyntheticProduct": {
+      "logical": 17,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "Examples.TemporalFRP": {
+      "logical": 79,
+      "theorems": 66,
+      "unsafe": 0
+    },
+    "Examples.TemporalMonitor": {
+      "logical": 10,
+      "theorems": 1,
+      "unsafe": 0
+    },
+    "Examples.TerminalProducts": {
+      "logical": 22,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Examples.Thinning": {
+      "logical": 15,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "Examples.ThreeWayPartition": {
+      "logical": 23,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "Examples.ThreeWayQuickSort": {
+      "logical": 24,
+      "theorems": 24,
+      "unsafe": 0
+    },
+    "Examples.TimedMotion": {
+      "logical": 15,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "Examples.TopDownCosts": {
+      "logical": 19,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "Examples.TopDownSorting": {
+      "logical": 11,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "Examples.TreeFlatteningCosts": {
+      "logical": 3,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "Examples.TypeSums": {
+      "logical": 7,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Examples.TypedPathTransport": {
+      "logical": 6,
+      "theorems": 1,
+      "unsafe": 0
+    },
+    "Examples.UniformQuickSortMean": {
+      "logical": 101,
+      "theorems": 66,
+      "unsafe": 0
+    },
+    "SquareKit.AdjointComparison": {
+      "logical": 3,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.AffineExponential": {
+      "logical": 4,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.AlgebraicDerivative": {
+      "logical": 9,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "SquareKit.AlgebraicKL": {
+      "logical": 48,
+      "theorems": 33,
+      "unsafe": 0
+    },
+    "SquareKit.AlgebraicStage": {
+      "logical": 90,
+      "theorems": 45,
+      "unsafe": 0
+    },
+    "SquareKit.ArbitrarySourceClassifier": {
+      "logical": 0,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "SquareKit.Arithmetic": {
+      "logical": 36,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.ArithmeticStaging": {
+      "logical": 28,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "SquareKit.CartesianMap": {
+      "logical": 64,
+      "theorems": 23,
+      "unsafe": 0
+    },
+    "SquareKit.CartesianMapQuotient": {
+      "logical": 26,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "SquareKit.Category": {
+      "logical": 153,
+      "theorems": 42,
+      "unsafe": 0
+    },
+    "SquareKit.CategoryMap": {
+      "logical": 55,
+      "theorems": 28,
+      "unsafe": 0
+    },
+    "SquareKit.CategoryQuotient": {
+      "logical": 11,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.ClosedComparison": {
+      "logical": 1,
+      "theorems": 1,
+      "unsafe": 0
+    },
+    "SquareKit.ClosedMap": {
+      "logical": 15,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.CodeCategory": {
+      "logical": 30,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "SquareKit.Combinators": {
+      "logical": 13,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "SquareKit.Comma": {
+      "logical": 51,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "SquareKit.CommaAgreement": {
+      "logical": 12,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.CommaExact": {
+      "logical": 24,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "SquareKit.CommaLawful": {
+      "logical": 19,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "SquareKit.CommaLimits": {
+      "logical": 7,
+      "theorems": 1,
+      "unsafe": 0
+    },
+    "SquareKit.CommaOptionalExact": {
+      "logical": 23,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "SquareKit.CommaProducts": {
+      "logical": 20,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.CommaProductsExact": {
+      "logical": 19,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "SquareKit.CommaVertical": {
+      "logical": 5,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.CompositionalCoalgebra": {
+      "logical": 106,
+      "theorems": 43,
+      "unsafe": 0
+    },
+    "SquareKit.ConditionedRelations": {
+      "logical": 1,
+      "theorems": 1,
+      "unsafe": 0
+    },
+    "SquareKit.ConstantSheafProducts": {
+      "logical": 20,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "SquareKit.CurryHoward": {
+      "logical": 185,
+      "theorems": 52,
+      "unsafe": 0
+    },
+    "SquareKit.CurryHowardRelations": {
+      "logical": 11,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "SquareKit.DependentBaseChange": {
+      "logical": 54,
+      "theorems": 42,
+      "unsafe": 0
+    },
+    "SquareKit.DependentBaseChangeIdentity": {
+      "logical": 10,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "SquareKit.DiscreteSheaf": {
+      "logical": 23,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "SquareKit.DoubleDelooping": {
+      "logical": 35,
+      "theorems": 25,
+      "unsafe": 0
+    },
+    "SquareKit.ElementFamilies": {
+      "logical": 58,
+      "theorems": 40,
+      "unsafe": 0
+    },
+    "SquareKit.ElementSheaf": {
+      "logical": 9,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "SquareKit.ElementSite": {
+      "logical": 24,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "SquareKit.EquationTranspose": {
+      "logical": 166,
+      "theorems": 57,
+      "unsafe": 0
+    },
+    "SquareKit.ExponentiablePullback": {
+      "logical": 43,
+      "theorems": 32,
+      "unsafe": 0
+    },
+    "SquareKit.Family": {
+      "logical": 51,
+      "theorems": 42,
+      "unsafe": 0
+    },
+    "SquareKit.FamilyCoherence": {
+      "logical": 49,
+      "theorems": 44,
+      "unsafe": 0
+    },
+    "SquareKit.FamilySum": {
+      "logical": 49,
+      "theorems": 41,
+      "unsafe": 0
+    },
+    "SquareKit.FiniteUniverse": {
+      "logical": 126,
+      "theorems": 50,
+      "unsafe": 0
+    },
+    "SquareKit.FirstOrder": {
+      "logical": 58,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "SquareKit.FirstOrderCategory": {
+      "logical": 3,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "SquareKit.FirstOrderNaturality": {
+      "logical": 81,
+      "theorems": 30,
+      "unsafe": 0
+    },
+    "SquareKit.FirstOrderSubstitution": {
+      "logical": 56,
+      "theorems": 36,
+      "unsafe": 0
+    },
+    "SquareKit.FunctionCategory": {
+      "logical": 10,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "SquareKit.FunctionOptional": {
+      "logical": 7,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.GeometricProductRule": {
+      "logical": 19,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.GroupoidTransport": {
+      "logical": 1,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "SquareKit.GroupoidTransportRoutes": {
+      "logical": 30,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "SquareKit.InteractionContracts": {
+      "logical": 12,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.InteractionEvents": {
+      "logical": 15,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "SquareKit.Iteration": {
+      "logical": 13,
+      "theorems": 2,
+      "unsafe": 0
+    },
+    "SquareKit.ListFoldCompiler": {
+      "logical": 123,
+      "theorems": 41,
+      "unsafe": 0
+    },
+    "SquareKit.ListFusion": {
+      "logical": 5,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "SquareKit.LocallyConstantSheaf": {
+      "logical": 29,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "SquareKit.MatrixCategory": {
+      "logical": 57,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "SquareKit.MatrixDoubling": {
+      "logical": 106,
+      "theorems": 52,
+      "unsafe": 0
+    },
+    "SquareKit.Optional": {
+      "logical": 95,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "SquareKit.OptionalMap": {
+      "logical": 32,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "SquareKit.OptionalMathlib": {
+      "logical": 13,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "SquareKit.OptionalQuotient": {
+      "logical": 15,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.PreservationBounds": {
+      "logical": 3,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.ProductStreams": {
+      "logical": 41,
+      "theorems": 23,
+      "unsafe": 0
+    },
+    "SquareKit.QuotientFixedArcs": {
+      "logical": 34,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "SquareKit.QuotientPointedArcs": {
+      "logical": 19,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.ReactiveCompiler": {
+      "logical": 29,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.RelationComposition": {
+      "logical": 38,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "SquareKit.RelationTransport": {
+      "logical": 9,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "SquareKit.RelationalCategory": {
+      "logical": 51,
+      "theorems": 38,
+      "unsafe": 0
+    },
+    "SquareKit.Relations": {
+      "logical": 77,
+      "theorems": 31,
+      "unsafe": 0
+    },
+    "SquareKit.STLCCategory": {
+      "logical": 6,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "SquareKit.STLCExact": {
+      "logical": 10,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.STLCImage": {
+      "logical": 10,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.STLCNaturality": {
+      "logical": 82,
+      "theorems": 33,
+      "unsafe": 0
+    },
+    "SquareKit.STLCRelations": {
+      "logical": 75,
+      "theorems": 30,
+      "unsafe": 0
+    },
+    "SquareKit.STLCSignature": {
+      "logical": 69,
+      "theorems": 58,
+      "unsafe": 0
+    },
+    "SquareKit.STLCSubstitution": {
+      "logical": 108,
+      "theorems": 60,
+      "unsafe": 0
+    },
+    "SquareKit.SheafActionQuotient": {
+      "logical": 122,
+      "theorems": 60,
+      "unsafe": 0
+    },
+    "SquareKit.SheafActionQuotientDescent": {
+      "logical": 74,
+      "theorems": 30,
+      "unsafe": 0
+    },
+    "SquareKit.SheafBaseChange": {
+      "logical": 3,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.SheafCartesianClosed": {
+      "logical": 4,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.SheafDependentProduct": {
+      "logical": 33,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "SquareKit.SheafFamily": {
+      "logical": 16,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "SquareKit.SheafFunction": {
+      "logical": 25,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "SquareKit.SheafImage": {
+      "logical": 19,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "SquareKit.SheafIndexedProduct": {
+      "logical": 15,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "SquareKit.SheafProductBaseChange": {
+      "logical": 15,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "SquareKit.SheafProductBaseChangeConstant": {
+      "logical": 24,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "SquareKit.SheafProjectionConstant": {
+      "logical": 20,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "SquareKit.SheafProjectionProduct": {
+      "logical": 17,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "SquareKit.SheafPushoutLocal": {
+      "logical": 13,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.SheafRelation": {
+      "logical": 28,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "SquareKit.SheafSections": {
+      "logical": 59,
+      "theorems": 41,
+      "unsafe": 0
+    },
+    "SquareKit.SheafSectionsConstant": {
+      "logical": 12,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "SquareKit.SheafSlice": {
+      "logical": 35,
+      "theorems": 24,
+      "unsafe": 0
+    },
+    "SquareKit.SheafSliceFunction": {
+      "logical": 68,
+      "theorems": 53,
+      "unsafe": 0
+    },
+    "SquareKit.SheafTerminalProduct": {
+      "logical": 19,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.SheafTorsor": {
+      "logical": 142,
+      "theorems": 68,
+      "unsafe": 0
+    },
+    "SquareKit.SheafTorsorDescent": {
+      "logical": 142,
+      "theorems": 87,
+      "unsafe": 0
+    },
+    "SquareKit.SheafTorsorLocal": {
+      "logical": 16,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "SquareKit.SierpinskiClassifier": {
+      "logical": 0,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "SquareKit.SliceDependentProduct": {
+      "logical": 18,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "SquareKit.SliceExtensive": {
+      "logical": 1,
+      "theorems": 1,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothAlgebra": {
+      "logical": 92,
+      "theorems": 56,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothAtlasSubdivision": {
+      "logical": 7,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothChartLocalLifting": {
+      "logical": 34,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothChartMaps": {
+      "logical": 38,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothChartOpenAtlas": {
+      "logical": 24,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothChartOverlapRefinement": {
+      "logical": 11,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothChartRealMaps": {
+      "logical": 6,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothChartRealSections": {
+      "logical": 22,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothChartRealization": {
+      "logical": 78,
+      "theorems": 26,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothChartReconstruction": {
+      "logical": 4,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothChartRefinement": {
+      "logical": 38,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothChartSubdivision": {
+      "logical": 15,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothClutchingPrincipal": {
+      "logical": 7,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothClutchingTorsor": {
+      "logical": 112,
+      "theorems": 81,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothConstantAction": {
+      "logical": 40,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothConstantOrdinary": {
+      "logical": 16,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothConstantRigidity": {
+      "logical": 5,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothCoverCharacterization": {
+      "logical": 3,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothDerivative": {
+      "logical": 19,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothDescentDual": {
+      "logical": 2,
+      "theorems": 2,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothDescentHom": {
+      "logical": 7,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothDescentOperations": {
+      "logical": 18,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothDiscreteMapping": {
+      "logical": 16,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothDualCover": {
+      "logical": 27,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothDualExtension": {
+      "logical": 49,
+      "theorems": 40,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothDualPresentation": {
+      "logical": 18,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothDualSheaf": {
+      "logical": 21,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothElementDescent": {
+      "logical": 33,
+      "theorems": 24,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothFormalLocalizationStage": {
+      "logical": 13,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothGeometricComparison": {
+      "logical": 16,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothGeometricDerivative": {
+      "logical": 26,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothGeometricDual": {
+      "logical": 18,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothGeometricInfinitesimal": {
+      "logical": 13,
+      "theorems": 2,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothGeometricKL": {
+      "logical": 29,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothGeometricLocality": {
+      "logical": 7,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothGeometricRepresentable": {
+      "logical": 18,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothGeometricScalar": {
+      "logical": 40,
+      "theorems": 24,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothHadamard": {
+      "logical": 9,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothIdealArbitraryGluing": {
+      "logical": 3,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothIdealGluing": {
+      "logical": 4,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothIdealLocal": {
+      "logical": 11,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothInverseGraph": {
+      "logical": 25,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothKL": {
+      "logical": 51,
+      "theorems": 33,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothLocalChartLaws": {
+      "logical": 3,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothLocalChartMaps": {
+      "logical": 40,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothLocalGluing": {
+      "logical": 3,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothLocalization": {
+      "logical": 75,
+      "theorems": 50,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothLocalizationBaseChange": {
+      "logical": 27,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothLocalizationDual": {
+      "logical": 33,
+      "theorems": 27,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothLocalizationFreeComparison": {
+      "logical": 17,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothLocalizationLocalIdeal": {
+      "logical": 12,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothLocalizationOpen": {
+      "logical": 29,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothLocalizationPoints": {
+      "logical": 35,
+      "theorems": 28,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothLocalizationStage": {
+      "logical": 5,
+      "theorems": 1,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothLocallyConstantGroup": {
+      "logical": 14,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothManifoldCharts": {
+      "logical": 49,
+      "theorems": 23,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothManifoldFullFaithfulness": {
+      "logical": 23,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothManifoldInterpretation": {
+      "logical": 16,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothManifoldLocalSmoothness": {
+      "logical": 3,
+      "theorems": 2,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothManifoldModel": {
+      "logical": 7,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothManifoldOpenComparison": {
+      "logical": 25,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothManifoldPrincipalMaps": {
+      "logical": 24,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothManifoldRefinement": {
+      "logical": 19,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenArcs": {
+      "logical": 38,
+      "theorems": 31,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenCoordinates": {
+      "logical": 24,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenCover": {
+      "logical": 9,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenDescent": {
+      "logical": 1,
+      "theorems": 1,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenDescentHom": {
+      "logical": 4,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenDescentOperations": {
+      "logical": 22,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenDuality": {
+      "logical": 15,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenEmbedding": {
+      "logical": 39,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenFunctions": {
+      "logical": 31,
+      "theorems": 26,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenKL": {
+      "logical": 12,
+      "theorems": 1,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenMaps": {
+      "logical": 34,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenOperations": {
+      "logical": 9,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenOverlap": {
+      "logical": 11,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenRealSections": {
+      "logical": 5,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenRestriction": {
+      "logical": 7,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenScalar": {
+      "logical": 20,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenSheaf": {
+      "logical": 8,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenSheafDescent": {
+      "logical": 7,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenSubdomain": {
+      "logical": 18,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOpenTopology": {
+      "logical": 8,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOperations": {
+      "logical": 12,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOrdinaryCover": {
+      "logical": 9,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOrdinaryCoverLifting": {
+      "logical": 7,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOrdinaryGluing": {
+      "logical": 14,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOrdinaryPullbackCover": {
+      "logical": 16,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothOverlapRestriction": {
+      "logical": 10,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothPresentation": {
+      "logical": 24,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothPresentationCategory": {
+      "logical": 46,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothPresentationGeometry": {
+      "logical": 24,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothPresentationSheaf": {
+      "logical": 11,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothPresentedDual": {
+      "logical": 26,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothPresentedLocalization": {
+      "logical": 37,
+      "theorems": 26,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothPrincipalCover": {
+      "logical": 12,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothPrincipalDescent": {
+      "logical": 2,
+      "theorems": 1,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothPrincipalOverlap": {
+      "logical": 8,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothPrincipalTopology": {
+      "logical": 10,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothQuarterTurnArcs": {
+      "logical": 72,
+      "theorems": 59,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothQuarterTurnQuotient": {
+      "logical": 31,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothQuotient": {
+      "logical": 39,
+      "theorems": 31,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothQuotientArcs": {
+      "logical": 26,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothQuotientTransport": {
+      "logical": 28,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothRealPointCovers": {
+      "logical": 12,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothSitePullback": {
+      "logical": 3,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothStage": {
+      "logical": 114,
+      "theorems": 47,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothTaylor": {
+      "logical": 25,
+      "theorems": 23,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothTopologyKLComparison": {
+      "logical": 13,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothTorsorDual": {
+      "logical": 30,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothTorsorEquivalence": {
+      "logical": 52,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "SquareKit.SmoothTorsorParameters": {
+      "logical": 33,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "SquareKit.SplitFunctionDiagram": {
+      "logical": 50,
+      "theorems": 37,
+      "unsafe": 0
+    },
+    "SquareKit.SplitFunctionSheaf": {
+      "logical": 50,
+      "theorems": 30,
+      "unsafe": 0
+    },
+    "SquareKit.SplitFunctionTerms": {
+      "logical": 27,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "SquareKit.SplitPiBaseChange": {
+      "logical": 46,
+      "theorems": 39,
+      "unsafe": 0
+    },
+    "SquareKit.SplitPiComparison": {
+      "logical": 46,
+      "theorems": 37,
+      "unsafe": 0
+    },
+    "SquareKit.SplitPiPresentations": {
+      "logical": 10,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "SquareKit.SplitPresheaf": {
+      "logical": 47,
+      "theorems": 24,
+      "unsafe": 0
+    },
+    "SquareKit.SplitSheaf": {
+      "logical": 79,
+      "theorems": 49,
+      "unsafe": 0
+    },
+    "SquareKit.SplitSheafCoherence": {
+      "logical": 26,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "SquareKit.SplitSheafConstant": {
+      "logical": 19,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "SquareKit.SplitSheafPi": {
+      "logical": 24,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "SquareKit.SubfunctorLattice": {
+      "logical": 5,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "SquareKit.SyntheticProductRule": {
+      "logical": 13,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.TerminalProduct": {
+      "logical": 24,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "SquareKit.TypeFamily": {
+      "logical": 20,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "SquareKit.TypeFamilyCoherence": {
+      "logical": 9,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "SquareKit.TypeFamilySum": {
+      "logical": 35,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "SquareKit.TypeTerminalProduct": {
+      "logical": 34,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "SquareKit.Variance": {
+      "logical": 68,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "SquareKit.WordCoalgebra": {
+      "logical": 85,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "Applications.AD.Compiler": {
+      "logical": 57,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "Applications.AD.Core": {
+      "logical": 74,
+      "theorems": 42,
+      "unsafe": 0
+    },
+    "Applications.AD.Generalized": {
+      "logical": 122,
+      "theorems": 65,
+      "unsafe": 0
+    },
+    "Applications.AD.HigherOrder": {
+      "logical": 52,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "Applications.AD.Jets": {
+      "logical": 104,
+      "theorems": 52,
+      "unsafe": 0
+    },
+    "Applications.AD.Modes": {
+      "logical": 64,
+      "theorems": 55,
+      "unsafe": 0
+    },
+    "Applications.AD.SecondOrder": {
+      "logical": 23,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "Applications.AD.SecondStage": {
+      "logical": 52,
+      "theorems": 43,
+      "unsafe": 0
+    },
+    "Applications.AD.Smooth": {
+      "logical": 4,
+      "theorems": 2,
+      "unsafe": 0
+    },
+    "Applications.AD.SmoothAlgebras": {
+      "logical": 20,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Applications.AD.SmoothDual": {
+      "logical": 23,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "Applications.AD.SmoothSecondStage": {
+      "logical": 16,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Applications.AD.SmoothSquareZero": {
+      "logical": 24,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "Applications.AD.Verification": {
+      "logical": 0,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "Applications.Arithmetic.EuclidInduction": {
+      "logical": 2,
+      "theorems": 2,
+      "unsafe": 0
+    },
+    "Applications.Bracketing.Array": {
+      "logical": 137,
+      "theorems": 116,
+      "unsafe": 0
+    },
+    "Applications.Bracketing.Basic": {
+      "logical": 134,
+      "theorems": 69,
+      "unsafe": 0
+    },
+    "Applications.Bracketing.Cached": {
+      "logical": 54,
+      "theorems": 40,
+      "unsafe": 0
+    },
+    "Applications.Bracketing.Interpretation": {
+      "logical": 29,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "Applications.Bracketing.Recursive": {
+      "logical": 65,
+      "theorems": 48,
+      "unsafe": 0
+    },
+    "Applications.Bracketing.Selection": {
+      "logical": 2,
+      "theorems": 2,
+      "unsafe": 0
+    },
+    "Applications.Bracketing.TableSupport": {
+      "logical": 24,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "Applications.Checking.OrderCertificate": {
+      "logical": 36,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "Applications.Circuits.Correctness": {
+      "logical": 37,
+      "theorems": 30,
+      "unsafe": 0
+    },
+    "Applications.Circuits.Execution": {
+      "logical": 83,
+      "theorems": 34,
+      "unsafe": 0
+    },
+    "Applications.Circuits.Syntax": {
+      "logical": 107,
+      "theorems": 31,
+      "unsafe": 0
+    },
+    "Applications.CoinChoice.Basic": {
+      "logical": 100,
+      "theorems": 57,
+      "unsafe": 0
+    },
+    "Applications.CoinChoice.Descending": {
+      "logical": 38,
+      "theorems": 25,
+      "unsafe": 0
+    },
+    "Applications.CoinChoice.Presentation": {
+      "logical": 41,
+      "theorems": 30,
+      "unsafe": 0
+    },
+    "Applications.CoinChoice.Selection": {
+      "logical": 17,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Applications.Connectivity.ListPartition": {
+      "logical": 121,
+      "theorems": 75,
+      "unsafe": 0
+    },
+    "Applications.Connectivity.Observation": {
+      "logical": 13,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "Applications.Connectivity.ParentArray": {
+      "logical": 115,
+      "theorems": 69,
+      "unsafe": 0
+    },
+    "Applications.Connectivity.ParentComponents": {
+      "logical": 37,
+      "theorems": 32,
+      "unsafe": 0
+    },
+    "Applications.Connectivity.ParentConnectivity": {
+      "logical": 25,
+      "theorems": 25,
+      "unsafe": 0
+    },
+    "Applications.Connectivity.ParentCounts": {
+      "logical": 31,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "Applications.Connectivity.ParentForest": {
+      "logical": 70,
+      "theorems": 49,
+      "unsafe": 0
+    },
+    "Applications.Connectivity.ParentHistory": {
+      "logical": 41,
+      "theorems": 27,
+      "unsafe": 0
+    },
+    "Applications.Connectivity.ParentUnion": {
+      "logical": 67,
+      "theorems": 58,
+      "unsafe": 0
+    },
+    "Applications.Connectivity.Realizations": {
+      "logical": 26,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "Applications.Connectivity.Refinement": {
+      "logical": 39,
+      "theorems": 26,
+      "unsafe": 0
+    },
+    "Applications.Connectivity.Requests": {
+      "logical": 95,
+      "theorems": 42,
+      "unsafe": 0
+    },
+    "Applications.Convolution.Polynomial": {
+      "logical": 76,
+      "theorems": 40,
+      "unsafe": 0
+    },
+    "Applications.Convolution.Series": {
+      "logical": 115,
+      "theorems": 76,
+      "unsafe": 0
+    },
+    "Applications.Diffeology.Constructions": {
+      "logical": 39,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "Applications.Diffeology.Manifolds": {
+      "logical": 20,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "Applications.Dijkstra.AllPaths": {
+      "logical": 19,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "Applications.Dijkstra.Core": {
+      "logical": 116,
+      "theorems": 57,
+      "unsafe": 0
+    },
+    "Applications.Dijkstra.Observation": {
+      "logical": 56,
+      "theorems": 27,
+      "unsafe": 0
+    },
+    "Applications.Dijkstra.Optimality": {
+      "logical": 43,
+      "theorems": 32,
+      "unsafe": 0
+    },
+    "Applications.Dijkstra.Paths": {
+      "logical": 66,
+      "theorems": 27,
+      "unsafe": 0
+    },
+    "Applications.Dijkstra.Semantics": {
+      "logical": 17,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "Applications.Dijkstra.Store": {
+      "logical": 19,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Applications.Dijkstra.Target": {
+      "logical": 30,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "Applications.Durability.Clients": {
+      "logical": 15,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Applications.Durability.DiagnosticGraph": {
+      "logical": 65,
+      "theorems": 26,
+      "unsafe": 0
+    },
+    "Applications.Durability.DiagnosticProjection": {
+      "logical": 126,
+      "theorems": 38,
+      "unsafe": 0
+    },
+    "Applications.Durability.DiagnosticRelational": {
+      "logical": 40,
+      "theorems": 27,
+      "unsafe": 0
+    },
+    "Applications.Durability.DiagnosticStorage": {
+      "logical": 159,
+      "theorems": 56,
+      "unsafe": 0
+    },
+    "Applications.Durability.Encoding": {
+      "logical": 114,
+      "theorems": 47,
+      "unsafe": 0
+    },
+    "Applications.Durability.Executions": {
+      "logical": 11,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "Applications.Durability.Protocol": {
+      "logical": 228,
+      "theorems": 115,
+      "unsafe": 0
+    },
+    "Applications.Durability.Recovery": {
+      "logical": 73,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "Applications.Durability.ResourceEvents": {
+      "logical": 65,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "Applications.Durability.Retention": {
+      "logical": 194,
+      "theorems": 85,
+      "unsafe": 0
+    },
+    "Applications.Durability.RetentionBanks": {
+      "logical": 226,
+      "theorems": 121,
+      "unsafe": 0
+    },
+    "Applications.Durability.RetentionClients": {
+      "logical": 46,
+      "theorems": 37,
+      "unsafe": 0
+    },
+    "Applications.Durability.RetentionMachine": {
+      "logical": 186,
+      "theorems": 73,
+      "unsafe": 0
+    },
+    "Applications.Durability.RetentionOwnership": {
+      "logical": 120,
+      "theorems": 47,
+      "unsafe": 0
+    },
+    "Applications.Durability.RetentionResources": {
+      "logical": 85,
+      "theorems": 63,
+      "unsafe": 0
+    },
+    "Applications.Durability.RetentionService": {
+      "logical": 288,
+      "theorems": 129,
+      "unsafe": 0
+    },
+    "Applications.Durability.RetentionSummary": {
+      "logical": 188,
+      "theorems": 95,
+      "unsafe": 0
+    },
+    "Applications.Durability.Simulation": {
+      "logical": 2,
+      "theorems": 2,
+      "unsafe": 0
+    },
+    "Applications.Durability.Storage": {
+      "logical": 216,
+      "theorems": 81,
+      "unsafe": 0
+    },
+    "Applications.DynamicProgramming.Batch": {
+      "logical": 6,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "Applications.DynamicProgramming.Knapsack": {
+      "logical": 60,
+      "theorems": 26,
+      "unsafe": 0
+    },
+    "Applications.DynamicProgramming.SuffixRow": {
+      "logical": 5,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Applications.EditAlignment.Cached": {
+      "logical": 98,
+      "theorems": 73,
+      "unsafe": 0
+    },
+    "Applications.EditAlignment.Observation": {
+      "logical": 19,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "Applications.EditAlignment.Recursive": {
+      "logical": 46,
+      "theorems": 40,
+      "unsafe": 0
+    },
+    "Applications.EditAlignment.Rows": {
+      "logical": 46,
+      "theorems": 33,
+      "unsafe": 0
+    },
+    "Applications.EditAlignment.Semantics": {
+      "logical": 119,
+      "theorems": 66,
+      "unsafe": 0
+    },
+    "Applications.Elaboration.Constraints": {
+      "logical": 139,
+      "theorems": 79,
+      "unsafe": 0
+    },
+    "Applications.Elaboration.Elaborator": {
+      "logical": 163,
+      "theorems": 63,
+      "unsafe": 0
+    },
+    "Applications.Elaboration.Examples": {
+      "logical": 55,
+      "theorems": 38,
+      "unsafe": 0
+    },
+    "Applications.Elaboration.Strategies": {
+      "logical": 40,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "Applications.Elaboration.Syntax": {
+      "logical": 289,
+      "theorems": 136,
+      "unsafe": 0
+    },
+    "Applications.FRP.Demand": {
+      "logical": 152,
+      "theorems": 77,
+      "unsafe": 0
+    },
+    "Applications.FRP.DriverIO": {
+      "logical": 85,
+      "theorems": 24,
+      "unsafe": 0
+    },
+    "Applications.FRP.DriverProtocol": {
+      "logical": 164,
+      "theorems": 78,
+      "unsafe": 0
+    },
+    "Applications.FRP.Engine": {
+      "logical": 177,
+      "theorems": 86,
+      "unsafe": 0
+    },
+    "Applications.FRP.Equivalence": {
+      "logical": 243,
+      "theorems": 140,
+      "unsafe": 0
+    },
+    "Applications.FRP.Feedback": {
+      "logical": 32,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "Applications.FRP.Finite": {
+      "logical": 37,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "Applications.FRP.FiniteDelay": {
+      "logical": 38,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "Applications.FRP.Frontier": {
+      "logical": 56,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "Applications.FRP.Indefinite": {
+      "logical": 98,
+      "theorems": 45,
+      "unsafe": 0
+    },
+    "Applications.FRP.IndefiniteIO": {
+      "logical": 1,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "Applications.FRP.Lifecycle": {
+      "logical": 257,
+      "theorems": 110,
+      "unsafe": 0
+    },
+    "Applications.FRP.LifecyclePipeline": {
+      "logical": 51,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "Applications.FRP.LifecycleProgress": {
+      "logical": 13,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "Applications.FRP.LifecycleSafety": {
+      "logical": 37,
+      "theorems": 33,
+      "unsafe": 0
+    },
+    "Applications.FRP.Monitor": {
+      "logical": 7,
+      "theorems": 1,
+      "unsafe": 0
+    },
+    "Applications.FRP.Pipeline": {
+      "logical": 63,
+      "theorems": 30,
+      "unsafe": 0
+    },
+    "Applications.FRP.ReactiveConsumers": {
+      "logical": 80,
+      "theorems": 26,
+      "unsafe": 0
+    },
+    "Applications.FRP.ReactiveContracts": {
+      "logical": 34,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "Applications.FRP.Spec": {
+      "logical": 177,
+      "theorems": 54,
+      "unsafe": 0
+    },
+    "Applications.FRP.Temporal": {
+      "logical": 82,
+      "theorems": 46,
+      "unsafe": 0
+    },
+    "Applications.FRP.TemporalCausality": {
+      "logical": 19,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "Applications.FRP.TemporalPayload": {
+      "logical": 7,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "Applications.FRP.Trace": {
+      "logical": 122,
+      "theorems": 49,
+      "unsafe": 0
+    },
+    "Applications.Geometry.ConformalConnection": {
+      "logical": 5,
+      "theorems": 2,
+      "unsafe": 0
+    },
+    "Applications.Geometry.ParallelTransport": {
+      "logical": 44,
+      "theorems": 40,
+      "unsafe": 0
+    },
+    "Applications.Geometry.VariableCurvature": {
+      "logical": 25,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "Applications.Huffman.Basic": {
+      "logical": 89,
+      "theorems": 51,
+      "unsafe": 0
+    },
+    "Applications.Huffman.Exchange": {
+      "logical": 110,
+      "theorems": 82,
+      "unsafe": 0
+    },
+    "Applications.Huffman.Observation": {
+      "logical": 20,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "Applications.Huffman.Priority": {
+      "logical": 52,
+      "theorems": 35,
+      "unsafe": 0
+    },
+    "Applications.Huffman.SourcePriority": {
+      "logical": 29,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "Applications.Incremental.Arithmetic": {
+      "logical": 16,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "Applications.Incremental.Core": {
+      "logical": 133,
+      "theorems": 50,
+      "unsafe": 0
+    },
+    "Applications.Incremental.PrefixSum": {
+      "logical": 9,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "Applications.Incremental.Stateful": {
+      "logical": 39,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "Applications.Incremental.VectorSum": {
+      "logical": 48,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "Applications.Incremental.VectorSumCost": {
+      "logical": 108,
+      "theorems": 72,
+      "unsafe": 0
+    },
+    "Applications.Interaction.Evidence": {
+      "logical": 64,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "Applications.Interaction.EvidenceBounds": {
+      "logical": 12,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "Applications.Interaction.Measurement": {
+      "logical": 180,
+      "theorems": 60,
+      "unsafe": 0
+    },
+    "Applications.Interaction.Obligation": {
+      "logical": 105,
+      "theorems": 45,
+      "unsafe": 0
+    },
+    "Applications.Interaction.Snapshot": {
+      "logical": 35,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "Applications.Intervals.Arithmetic": {
+      "logical": 56,
+      "theorems": 23,
+      "unsafe": 0
+    },
+    "Applications.Intervals.ConditionedComposition": {
+      "logical": 1,
+      "theorems": 1,
+      "unsafe": 0
+    },
+    "Applications.Intervals.HigherOrder": {
+      "logical": 47,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Applications.Kruskal.AllMinima": {
+      "logical": 20,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Applications.Kruskal.Basic": {
+      "logical": 92,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Applications.Kruskal.Correctness": {
+      "logical": 131,
+      "theorems": 129,
+      "unsafe": 0
+    },
+    "Applications.Kruskal.Forest": {
+      "logical": 27,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "Applications.Kruskal.ForestObservation": {
+      "logical": 35,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "Applications.Kruskal.Nested": {
+      "logical": 163,
+      "theorems": 86,
+      "unsafe": 0
+    },
+    "Applications.Kruskal.NestedClient": {
+      "logical": 38,
+      "theorems": 35,
+      "unsafe": 0
+    },
+    "Applications.Kruskal.NestedPartition": {
+      "logical": 34,
+      "theorems": 28,
+      "unsafe": 0
+    },
+    "Applications.Kruskal.Observation": {
+      "logical": 19,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "Applications.Languages.Coalgebra": {
+      "logical": 211,
+      "theorems": 111,
+      "unsafe": 0
+    },
+    "Applications.Languages.Compositional": {
+      "logical": 116,
+      "theorems": 67,
+      "unsafe": 0
+    },
+    "Applications.Languages.ConvolutionBridge": {
+      "logical": 33,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "Applications.Languages.Machines": {
+      "logical": 84,
+      "theorems": 24,
+      "unsafe": 0
+    },
+    "Applications.Languages.Parser": {
+      "logical": 160,
+      "theorems": 54,
+      "unsafe": 0
+    },
+    "Applications.Languages.ParserBridge": {
+      "logical": 21,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "Applications.Languages.Regex": {
+      "logical": 119,
+      "theorems": 74,
+      "unsafe": 0
+    },
+    "Applications.Languages.Transposition": {
+      "logical": 133,
+      "theorems": 32,
+      "unsafe": 0
+    },
+    "Applications.Languages.WitnessTrie": {
+      "logical": 177,
+      "theorems": 104,
+      "unsafe": 0
+    },
+    "Applications.Languages.Witnesses": {
+      "logical": 126,
+      "theorems": 64,
+      "unsafe": 0
+    },
+    "Applications.Linear.Compiler": {
+      "logical": 14,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "Applications.Linear.FirstOrderNaturality": {
+      "logical": 11,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "Applications.Linear.Maps": {
+      "logical": 58,
+      "theorems": 33,
+      "unsafe": 0
+    },
+    "Applications.Linear.Matrix": {
+      "logical": 24,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Applications.Linear.Operations": {
+      "logical": 98,
+      "theorems": 40,
+      "unsafe": 0
+    },
+    "Applications.Linear.Similitude": {
+      "logical": 68,
+      "theorems": 46,
+      "unsafe": 0
+    },
+    "Applications.Linear.Structured": {
+      "logical": 145,
+      "theorems": 71,
+      "unsafe": 0
+    },
+    "Applications.Linear.StructuredCosts": {
+      "logical": 163,
+      "theorems": 56,
+      "unsafe": 0
+    },
+    "Applications.Linear.StructuredMeasured": {
+      "logical": 61,
+      "theorems": 37,
+      "unsafe": 0
+    },
+    "Applications.Optimization.Basic": {
+      "logical": 19,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "Applications.Optimization.KnapsackThinning": {
+      "logical": 99,
+      "theorems": 48,
+      "unsafe": 0
+    },
+    "Applications.Optimization.NetworkPaths": {
+      "logical": 123,
+      "theorems": 69,
+      "unsafe": 0
+    },
+    "Applications.Optimization.NetworkThinning": {
+      "logical": 47,
+      "theorems": 38,
+      "unsafe": 0
+    },
+    "Applications.Optimization.Relations": {
+      "logical": 12,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Applications.Optimization.SelectionMap": {
+      "logical": 4,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "Applications.Optimization.SelectionSpec": {
+      "logical": 2,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "Applications.Optimization.SelectionTies": {
+      "logical": 10,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "Applications.Optimization.Thinning": {
+      "logical": 48,
+      "theorems": 34,
+      "unsafe": 0
+    },
+    "Applications.Optimization.ThinningRelations": {
+      "logical": 4,
+      "theorems": 1,
+      "unsafe": 0
+    },
+    "Applications.Optimization.Transport": {
+      "logical": 5,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.CheckedMotion": {
+      "logical": 58,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.CommandComparison": {
+      "logical": 22,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.ConnectionAssessment": {
+      "logical": 21,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.Disk": {
+      "logical": 16,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.DiskConnection": {
+      "logical": 29,
+      "theorems": 25,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.DiskCurvature": {
+      "logical": 29,
+      "theorems": 26,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.DiskTransport": {
+      "logical": 133,
+      "theorems": 68,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.MatrixDisk": {
+      "logical": 19,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.MotionUniqueness": {
+      "logical": 7,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.NumericalBounds": {
+      "logical": 22,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.NumericalExecution": {
+      "logical": 70,
+      "theorems": 27,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.NumericalSymmetry": {
+      "logical": 44,
+      "theorems": 35,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.Pose": {
+      "logical": 86,
+      "theorems": 52,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.PoseConnection": {
+      "logical": 16,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.ProjectiveMotion": {
+      "logical": 57,
+      "theorems": 42,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.QuarterTurn": {
+      "logical": 44,
+      "theorems": 33,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.RationalMotion": {
+      "logical": 130,
+      "theorems": 64,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.StandardForm": {
+      "logical": 30,
+      "theorems": 23,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.TimedCommands": {
+      "logical": 128,
+      "theorems": 64,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.TimedMotion": {
+      "logical": 57,
+      "theorems": 52,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.TransportComparison": {
+      "logical": 42,
+      "theorems": 31,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.TransportFrames": {
+      "logical": 40,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "Applications.Orbifold.TransportSegments": {
+      "logical": 58,
+      "theorems": 51,
+      "unsafe": 0
+    },
+    "Applications.Orbifolds.Equivariant": {
+      "logical": 55,
+      "theorems": 32,
+      "unsafe": 0
+    },
+    "Applications.Orbifolds.QuarterTurn": {
+      "logical": 80,
+      "theorems": 65,
+      "unsafe": 0
+    },
+    "Applications.Orbifolds.SmoothComparison": {
+      "logical": 19,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Applications.OrderedPartitions.Enumeration": {
+      "logical": 71,
+      "theorems": 55,
+      "unsafe": 0
+    },
+    "Applications.OrderedPartitions.Left": {
+      "logical": 72,
+      "theorems": 54,
+      "unsafe": 0
+    },
+    "Applications.OrderedPartitions.Right": {
+      "logical": 55,
+      "theorems": 44,
+      "unsafe": 0
+    },
+    "Applications.Paragraphs.Candidates": {
+      "logical": 68,
+      "theorems": 43,
+      "unsafe": 0
+    },
+    "Applications.Paragraphs.Greedy": {
+      "logical": 61,
+      "theorems": 43,
+      "unsafe": 0
+    },
+    "Applications.Paragraphs.Helper": {
+      "logical": 30,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "Applications.Paragraphs.Observation": {
+      "logical": 10,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "Applications.Parallel.ComplexFFT": {
+      "logical": 8,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "Applications.Parallel.Examples": {
+      "logical": 30,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "Applications.Parallel.FFT": {
+      "logical": 204,
+      "theorems": 95,
+      "unsafe": 0
+    },
+    "Applications.Parallel.InclusiveScan": {
+      "logical": 4,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "Applications.Parallel.MeasuredScan": {
+      "logical": 209,
+      "theorems": 110,
+      "unsafe": 0
+    },
+    "Applications.Parallel.Polynomial": {
+      "logical": 12,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "Applications.Parallel.PrefixBounds": {
+      "logical": 73,
+      "theorems": 64,
+      "unsafe": 0
+    },
+    "Applications.Parallel.PrefixDAG": {
+      "logical": 143,
+      "theorems": 66,
+      "unsafe": 0
+    },
+    "Applications.Parallel.Scan": {
+      "logical": 46,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "Applications.Parallel.ScanPlan": {
+      "logical": 143,
+      "theorems": 57,
+      "unsafe": 0
+    },
+    "Applications.Parallel.ScanSearch": {
+      "logical": 230,
+      "theorems": 123,
+      "unsafe": 0
+    },
+    "Applications.Parallel.Shape": {
+      "logical": 169,
+      "theorems": 76,
+      "unsafe": 0
+    },
+    "Applications.Prim.Array": {
+      "logical": 122,
+      "theorems": 69,
+      "unsafe": 0
+    },
+    "Applications.Prim.ArrayObservation": {
+      "logical": 67,
+      "theorems": 30,
+      "unsafe": 0
+    },
+    "Applications.Prim.ArrayOptimality": {
+      "logical": 65,
+      "theorems": 53,
+      "unsafe": 0
+    },
+    "Applications.Prim.Core": {
+      "logical": 147,
+      "theorems": 85,
+      "unsafe": 0
+    },
+    "Applications.Prim.Correctness": {
+      "logical": 51,
+      "theorems": 39,
+      "unsafe": 0
+    },
+    "Applications.Prim.Exchange": {
+      "logical": 4,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "Applications.Prim.Observation": {
+      "logical": 15,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "Applications.Prim.Weights": {
+      "logical": 44,
+      "theorems": 32,
+      "unsafe": 0
+    },
+    "Applications.Probability.AcceptReject": {
+      "logical": 20,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "Applications.Probability.CoinPaths": {
+      "logical": 42,
+      "theorems": 37,
+      "unsafe": 0
+    },
+    "Applications.Probability.Execution": {
+      "logical": 42,
+      "theorems": 30,
+      "unsafe": 0
+    },
+    "Applications.Probability.FiniteKernel": {
+      "logical": 76,
+      "theorems": 40,
+      "unsafe": 0
+    },
+    "Applications.Probability.FiniteMH": {
+      "logical": 88,
+      "theorems": 53,
+      "unsafe": 0
+    },
+    "Applications.Probability.HeavyTail": {
+      "logical": 17,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Applications.Probability.HittingTimes": {
+      "logical": 9,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "Applications.Probability.MetropolisHastings": {
+      "logical": 18,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Applications.Probability.PermutationMinimum": {
+      "logical": 15,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "Applications.Probability.PermutationOrder": {
+      "logical": 29,
+      "theorems": 27,
+      "unsafe": 0
+    },
+    "Applications.Probability.PermutationTail": {
+      "logical": 24,
+      "theorems": 23,
+      "unsafe": 0
+    },
+    "Applications.Probability.Productivity": {
+      "logical": 14,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "Applications.Probability.Results": {
+      "logical": 23,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "Applications.Probability.SearchObservation": {
+      "logical": 7,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Applications.Progress.CoupledFeedback": {
+      "logical": 20,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "Applications.Progress.DependentFeedback": {
+      "logical": 10,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "Applications.Progress.Evaluation": {
+      "logical": 55,
+      "theorems": 24,
+      "unsafe": 0
+    },
+    "Applications.Progress.Examples": {
+      "logical": 7,
+      "theorems": 1,
+      "unsafe": 0
+    },
+    "Applications.Progress.Feedback": {
+      "logical": 60,
+      "theorems": 27,
+      "unsafe": 0
+    },
+    "Applications.Progress.OccurrenceCursor": {
+      "logical": 51,
+      "theorems": 32,
+      "unsafe": 0
+    },
+    "Applications.Progress.Processors": {
+      "logical": 96,
+      "theorems": 37,
+      "unsafe": 0
+    },
+    "Applications.Progress.Reactive": {
+      "logical": 16,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "Applications.Progress.Streams": {
+      "logical": 74,
+      "theorems": 33,
+      "unsafe": 0
+    },
+    "Applications.Resources.BinaryCounter": {
+      "logical": 152,
+      "theorems": 96,
+      "unsafe": 0
+    },
+    "Applications.Resources.BottomUpSorting": {
+      "logical": 123,
+      "theorems": 87,
+      "unsafe": 0
+    },
+    "Applications.Resources.BoundedSummary": {
+      "logical": 186,
+      "theorems": 91,
+      "unsafe": 0
+    },
+    "Applications.Resources.ByteBuffer": {
+      "logical": 136,
+      "theorems": 56,
+      "unsafe": 0
+    },
+    "Applications.Resources.CallComparison": {
+      "logical": 20,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "Applications.Resources.CallCount": {
+      "logical": 9,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "Applications.Resources.DifferenceListCosts": {
+      "logical": 50,
+      "theorems": 37,
+      "unsafe": 0
+    },
+    "Applications.Resources.FIFOContracts": {
+      "logical": 91,
+      "theorems": 51,
+      "unsafe": 0
+    },
+    "Applications.Resources.FoldCompiler": {
+      "logical": 49,
+      "theorems": 33,
+      "unsafe": 0
+    },
+    "Applications.Resources.Growth": {
+      "logical": 4,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "Applications.Resources.InsertionSort": {
+      "logical": 48,
+      "theorems": 37,
+      "unsafe": 0
+    },
+    "Applications.Resources.Knapsack": {
+      "logical": 52,
+      "theorems": 30,
+      "unsafe": 0
+    },
+    "Applications.Resources.KnapsackSemantics": {
+      "logical": 47,
+      "theorems": 38,
+      "unsafe": 0
+    },
+    "Applications.Resources.KnapsackSourceCosts": {
+      "logical": 38,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "Applications.Resources.KnapsackWorkload": {
+      "logical": 80,
+      "theorems": 55,
+      "unsafe": 0
+    },
+    "Applications.Resources.ListBuildCosts": {
+      "logical": 45,
+      "theorems": 35,
+      "unsafe": 0
+    },
+    "Applications.Resources.ListCalls": {
+      "logical": 65,
+      "theorems": 47,
+      "unsafe": 0
+    },
+    "Applications.Resources.ListMerge": {
+      "logical": 38,
+      "theorems": 31,
+      "unsafe": 0
+    },
+    "Applications.Resources.ListReversal": {
+      "logical": 31,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "Applications.Resources.Measured": {
+      "logical": 17,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "Applications.Resources.NaturalRunComparisons": {
+      "logical": 105,
+      "theorems": 84,
+      "unsafe": 0
+    },
+    "Applications.Resources.NaturalRunOperations": {
+      "logical": 139,
+      "theorems": 118,
+      "unsafe": 0
+    },
+    "Applications.Resources.NaturalSorting": {
+      "logical": 42,
+      "theorems": 40,
+      "unsafe": 0
+    },
+    "Applications.Resources.Partition": {
+      "logical": 11,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "Applications.Resources.Potential": {
+      "logical": 26,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "Applications.Resources.QuickSort": {
+      "logical": 124,
+      "theorems": 101,
+      "unsafe": 0
+    },
+    "Applications.Resources.QuickSortMean": {
+      "logical": 43,
+      "theorems": 42,
+      "unsafe": 0
+    },
+    "Applications.Resources.QuickSortTransport": {
+      "logical": 6,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Applications.Resources.RandomQuickSort": {
+      "logical": 88,
+      "theorems": 76,
+      "unsafe": 0
+    },
+    "Applications.Resources.RandomQuickSortGrowth": {
+      "logical": 21,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "Applications.Resources.RandomQuickSortMean": {
+      "logical": 42,
+      "theorems": 40,
+      "unsafe": 0
+    },
+    "Applications.Resources.RandomQuickSortRank": {
+      "logical": 27,
+      "theorems": 25,
+      "unsafe": 0
+    },
+    "Applications.Resources.SharedDemand": {
+      "logical": 37,
+      "theorems": 28,
+      "unsafe": 0
+    },
+    "Applications.Resources.SymmetricCosts": {
+      "logical": 192,
+      "theorems": 114,
+      "unsafe": 0
+    },
+    "Applications.Resources.SymmetricWorkload": {
+      "logical": 16,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "Applications.Resources.Thinning": {
+      "logical": 65,
+      "theorems": 48,
+      "unsafe": 0
+    },
+    "Applications.Resources.TopDownSorting": {
+      "logical": 33,
+      "theorems": 30,
+      "unsafe": 0
+    },
+    "Applications.Resources.UniformQuickSortMean": {
+      "logical": 102,
+      "theorems": 91,
+      "unsafe": 0
+    },
+    "Applications.Resources.Workload": {
+      "logical": 18,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "Applications.Search.ExactPriority": {
+      "logical": 48,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "Applications.Search.HeuristicCore": {
+      "logical": 166,
+      "theorems": 57,
+      "unsafe": 0
+    },
+    "Applications.Search.HeuristicCoverage": {
+      "logical": 44,
+      "theorems": 35,
+      "unsafe": 0
+    },
+    "Applications.Search.HeuristicOptimality": {
+      "logical": 21,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "Applications.Search.HeuristicSemantics": {
+      "logical": 21,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "Applications.Search.HeuristicTermination": {
+      "logical": 56,
+      "theorems": 44,
+      "unsafe": 0
+    },
+    "Applications.Search.Interpretation": {
+      "logical": 15,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "Applications.Search.LeftistQueue": {
+      "logical": 195,
+      "theorems": 114,
+      "unsafe": 0
+    },
+    "Applications.Search.PriorityInterface": {
+      "logical": 62,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "Applications.Search.PrioritySearchQueue": {
+      "logical": 68,
+      "theorems": 46,
+      "unsafe": 0
+    },
+    "Applications.Search.RationalCost": {
+      "logical": 100,
+      "theorems": 49,
+      "unsafe": 0
+    },
+    "Applications.Segments.Candidates": {
+      "logical": 83,
+      "theorems": 61,
+      "unsafe": 0
+    },
+    "Applications.Segments.Maximum": {
+      "logical": 29,
+      "theorems": 25,
+      "unsafe": 0
+    },
+    "Applications.Segments.Observation": {
+      "logical": 12,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "Applications.Segments.Prefixes": {
+      "logical": 109,
+      "theorems": 93,
+      "unsafe": 0
+    },
+    "Applications.Selection.Consumers": {
+      "logical": 20,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "Applications.Selection.Rank": {
+      "logical": 8,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "Applications.Selection.ThreeWay": {
+      "logical": 59,
+      "theorems": 45,
+      "unsafe": 0
+    },
+    "Applications.Sequences.AbstractFIFO": {
+      "logical": 91,
+      "theorems": 31,
+      "unsafe": 0
+    },
+    "Applications.Sequences.AbstractFIFOSyntax": {
+      "logical": 33,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "Applications.Sequences.BoundedSummary": {
+      "logical": 243,
+      "theorems": 115,
+      "unsafe": 0
+    },
+    "Applications.Sequences.ByteBuffer": {
+      "logical": 140,
+      "theorems": 74,
+      "unsafe": 0
+    },
+    "Applications.Sequences.FIFOExtension": {
+      "logical": 29,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "Applications.Sequences.OrderedSummary": {
+      "logical": 32,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "Applications.Sequences.Partition": {
+      "logical": 13,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "Applications.Sequences.RunCompression": {
+      "logical": 38,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "Applications.Sorting.Alternating": {
+      "logical": 50,
+      "theorems": 36,
+      "unsafe": 0
+    },
+    "Applications.Sorting.BottomUp": {
+      "logical": 110,
+      "theorems": 78,
+      "unsafe": 0
+    },
+    "Applications.Sorting.InsertionObservations": {
+      "logical": 5,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Applications.Sorting.Merge": {
+      "logical": 21,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "Applications.Sorting.Natural": {
+      "logical": 17,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Applications.Sorting.NaturalRuns": {
+      "logical": 118,
+      "theorems": 101,
+      "unsafe": 0
+    },
+    "Applications.Sorting.QuickSort": {
+      "logical": 56,
+      "theorems": 41,
+      "unsafe": 0
+    },
+    "Applications.Sorting.Sort": {
+      "logical": 25,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "Applications.Sorting.SourceMerge": {
+      "logical": 21,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "Applications.Sorting.Stable": {
+      "logical": 16,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "Applications.Sorting.ThreeWayQuickSort": {
+      "logical": 28,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "Applications.Sorting.TopDown": {
+      "logical": 27,
+      "theorems": 24,
+      "unsafe": 0
+    },
+    "Applications.Sorting.Uniqueness": {
+      "logical": 3,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "Applications.Stack.Machine": {
+      "logical": 148,
+      "theorems": 41,
+      "unsafe": 0
+    },
+    "Applications.Stack.Staging": {
+      "logical": 1,
+      "theorems": 1,
+      "unsafe": 0
+    },
+    "Applications.Subsequences.Candidates": {
+      "logical": 63,
+      "theorems": 52,
+      "unsafe": 0
+    },
+    "Applications.Subsequences.Frontier": {
+      "logical": 88,
+      "theorems": 73,
+      "unsafe": 0
+    },
+    "Applications.Subsequences.Observation": {
+      "logical": 9,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "Applications.Subsequences.Selection": {
+      "logical": 9,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "Applications.Timing.Adders": {
+      "logical": 67,
+      "theorems": 49,
+      "unsafe": 0
+    },
+    "Applications.Timing.Digital": {
+      "logical": 103,
+      "theorems": 52,
+      "unsafe": 0
+    },
+    "Applications.Timing.Examples": {
+      "logical": 8,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "Applications.Timing.Intervals": {
+      "logical": 35,
+      "theorems": 27,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ArrowGeometry": {
+      "logical": 72,
+      "theorems": 58,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ArrowPresentation": {
+      "logical": 28,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ArrowPresheaf": {
+      "logical": 32,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ArrowPresheafPushout": {
+      "logical": 41,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ArrowPushout": {
+      "logical": 45,
+      "theorems": 39,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ArrowPushoutChange": {
+      "logical": 19,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ArrowPushoutModels": {
+      "logical": 20,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ArrowReconstruction": {
+      "logical": 34,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ArrowSheaf": {
+      "logical": 15,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ArrowTransformation": {
+      "logical": 5,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ArrowTransport": {
+      "logical": 9,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.Associativity": {
+      "logical": 56,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ClassifierBaseChange": {
+      "logical": 51,
+      "theorems": 39,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ClassifierComparison": {
+      "logical": 4,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ClassifierPseudonaturality": {
+      "logical": 21,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ClassifierRebase": {
+      "logical": 9,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ClassifierSourceChange": {
+      "logical": 15,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ClassifierSourceCoherence": {
+      "logical": 24,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ClassifierTransformation": {
+      "logical": 12,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ComplementaryModel": {
+      "logical": 57,
+      "theorems": 31,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.ConditionedComposition": {
+      "logical": 33,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.CoreSyntax": {
+      "logical": 143,
+      "theorems": 80,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.CoreTyping": {
+      "logical": 62,
+      "theorems": 2,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentEquality": {
+      "logical": 51,
+      "theorems": 35,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentFunctionEmbedding": {
+      "logical": 50,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentFunctionEquality": {
+      "logical": 49,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentFunctionLaws": {
+      "logical": 17,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentFunctionSheafBase": {
+      "logical": 22,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentFunctionSheafComparison": {
+      "logical": 19,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentFunctionSheafContext": {
+      "logical": 33,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentFunctionSheafOperations": {
+      "logical": 9,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentFunctionSheafRenaming": {
+      "logical": 37,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentFunctionSheafSoundness": {
+      "logical": 11,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentFunctionSheafSubstitution": {
+      "logical": 41,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentFunctionSheafTerms": {
+      "logical": 46,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentFunctionTyping": {
+      "logical": 67,
+      "theorems": 24,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentFunctions": {
+      "logical": 316,
+      "theorems": 110,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentSheafComparison": {
+      "logical": 9,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentSheafContext": {
+      "logical": 92,
+      "theorems": 28,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentSheafSoundness": {
+      "logical": 13,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentSheafSubstitution": {
+      "logical": 48,
+      "theorems": 28,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.DependentStructural": {
+      "logical": 296,
+      "theorems": 99,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.FiniteClassifier": {
+      "logical": 19,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.FiniteClassifierComparison": {
+      "logical": 36,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.FiniteModelCategory": {
+      "logical": 54,
+      "theorems": 44,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.FiniteSetting": {
+      "logical": 226,
+      "theorems": 123,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.Frobenius": {
+      "logical": 4,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GenericModel": {
+      "logical": 18,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GenericModelPullback": {
+      "logical": 27,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GeometricCone": {
+      "logical": 72,
+      "theorems": 38,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GeometricEquivalence": {
+      "logical": 8,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GeometricLiftCoherence": {
+      "logical": 13,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GeometricMixedChange": {
+      "logical": 29,
+      "theorems": 24,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GeometricMorphism": {
+      "logical": 85,
+      "theorems": 36,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GeometricSections": {
+      "logical": 8,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GeometricSlice": {
+      "logical": 20,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.Graph": {
+      "logical": 49,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GraphArtifactEquality": {
+      "logical": 262,
+      "theorems": 194,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GraphArtifactTransform": {
+      "logical": 38,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GraphEmission": {
+      "logical": 86,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GraphEmissionContract": {
+      "logical": 32,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GraphEmissionProof": {
+      "logical": 100,
+      "theorems": 38,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GraphEmissionPure": {
+      "logical": 141,
+      "theorems": 53,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GraphEmissionSquares": {
+      "logical": 31,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GraphEmissionTyping": {
+      "logical": 40,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GraphPrimitiveEnvironment": {
+      "logical": 1,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GraphTarget": {
+      "logical": 241,
+      "theorems": 92,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GraphTargetComparison": {
+      "logical": 50,
+      "theorems": 27,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.GraphTranslationValidator": {
+      "logical": 106,
+      "theorems": 34,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.InterpretationRoutes": {
+      "logical": 26,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.Logic": {
+      "logical": 230,
+      "theorems": 79,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.MixedClassifierModel": {
+      "logical": 5,
+      "theorems": 2,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.MixedSetting": {
+      "logical": 51,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PartitionCoherence": {
+      "logical": 2,
+      "theorems": 2,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PartitionMixedChange": {
+      "logical": 11,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PartitionParameter": {
+      "logical": 44,
+      "theorems": 39,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PartitionPullback": {
+      "logical": 17,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PartitionSection": {
+      "logical": 97,
+      "theorems": 60,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PartitionSequents": {
+      "logical": 13,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PartitionTransform": {
+      "logical": 33,
+      "theorems": 29,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.Presheaf": {
+      "logical": 66,
+      "theorems": 34,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PresheafClassifierComparison": {
+      "logical": 36,
+      "theorems": 25,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PresheafFrobenius": {
+      "logical": 3,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PresheafGraphs": {
+      "logical": 30,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PresheafRepresentation": {
+      "logical": 44,
+      "theorems": 37,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PresheafSetting": {
+      "logical": 136,
+      "theorems": 77,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.RelativeSheafClassifier": {
+      "logical": 12,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SheafAssociativity": {
+      "logical": 20,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SheafContexts": {
+      "logical": 14,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SheafFamilies": {
+      "logical": 13,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SheafFiniteClassifier": {
+      "logical": 9,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SheafFormula": {
+      "logical": 23,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SheafPseudopullback": {
+      "logical": 5,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SheafSliceUniversal": {
+      "logical": 6,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SheafSoundness": {
+      "logical": 5,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SierpinskiBaseChange": {
+      "logical": 18,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SierpinskiBaseCoherence": {
+      "logical": 11,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SierpinskiClassified": {
+      "logical": 23,
+      "theorems": 18,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SierpinskiEquivalence": {
+      "logical": 19,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SierpinskiGeneric": {
+      "logical": 19,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SierpinskiSourceChange": {
+      "logical": 7,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SierpinskiSourceCoherence": {
+      "logical": 7,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SierpinskiVaryingBase": {
+      "logical": 25,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SliceBaseChange": {
+      "logical": 14,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SliceGenericSection": {
+      "logical": 25,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SliceIso": {
+      "logical": 7,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SlicePseudopullback": {
+      "logical": 11,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SliceRebase": {
+      "logical": 10,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SliceSection": {
+      "logical": 24,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SliceSourceChange": {
+      "logical": 9,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SliceSourceCoherence": {
+      "logical": 12,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SliceUniversal": {
+      "logical": 30,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SliceVaryingBase": {
+      "logical": 11,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.Squares": {
+      "logical": 5,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.Substitution": {
+      "logical": 12,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SubterminalChange": {
+      "logical": 21,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SyntheticScalar": {
+      "logical": 267,
+      "theorems": 124,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SyntheticScalarGeometric": {
+      "logical": 17,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SyntheticScalarSheaf": {
+      "logical": 11,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.SyntheticScalarSoundness": {
+      "logical": 1,
+      "theorems": 1,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.TransformationCoherence": {
+      "logical": 2,
+      "theorems": 2,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.TwoLoop": {
+      "logical": 115,
+      "theorems": 35,
+      "unsafe": 0
+    },
+    "SquareKit.ListInitial.Fusion": {
+      "logical": 41,
+      "theorems": 32,
+      "unsafe": 0
+    },
+    "SquareKit.ListInitial.Presheaves": {
+      "logical": 42,
+      "theorems": 27,
+      "unsafe": 0
+    },
+    "SquareKit.ListInitial.Types": {
+      "logical": 31,
+      "theorems": 20,
+      "unsafe": 0
+    },
+    "SquareKit.Session.Process": {
+      "logical": 325,
+      "theorems": 130,
+      "unsafe": 0
+    },
+    "SquareKit.Session.Protocol": {
+      "logical": 174,
+      "theorems": 53,
+      "unsafe": 0
+    },
+    "SquareKit.Temporal.BatchRelations": {
+      "logical": 9,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "SquareKit.Temporal.Finite": {
+      "logical": 88,
+      "theorems": 44,
+      "unsafe": 0
+    },
+    "SquareKit.Temporal.Monitor": {
+      "logical": 154,
+      "theorems": 82,
+      "unsafe": 0
+    },
+    "SquareKit.Temporal.Relations": {
+      "logical": 23,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "SquareKit.Temporal.Syntax": {
+      "logical": 184,
+      "theorems": 77,
+      "unsafe": 0
+    },
+    "Applications.Dijkstra.Sentinel.Encoding": {
+      "logical": 74,
+      "theorems": 32,
+      "unsafe": 0
+    },
+    "Applications.Dijkstra.Sentinel.Observation": {
+      "logical": 36,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Applications.Dijkstra.Sentinel.Range": {
+      "logical": 41,
+      "theorems": 39,
+      "unsafe": 0
+    },
+    "Applications.Resources.BinaryCounter.Decrement": {
+      "logical": 16,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "Applications.Resources.Dijkstra.Execution": {
+      "logical": 117,
+      "theorems": 81,
+      "unsafe": 0
+    },
+    "Applications.Resources.Dijkstra.Observation": {
+      "logical": 19,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Applications.Resources.Dijkstra.StoreCosts": {
+      "logical": 12,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "Applications.Resources.RandomAccess.Bulk": {
+      "logical": 20,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "Applications.Resources.RandomAccess.CacheCosts": {
+      "logical": 20,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "Applications.Resources.RandomAccess.Cycles": {
+      "logical": 40,
+      "theorems": 25,
+      "unsafe": 0
+    },
+    "Applications.Resources.RandomAccess.Drain": {
+      "logical": 33,
+      "theorems": 23,
+      "unsafe": 0
+    },
+    "Applications.Resources.RandomAccess.End": {
+      "logical": 135,
+      "theorems": 90,
+      "unsafe": 0
+    },
+    "Applications.Resources.RandomAccess.EndCases": {
+      "logical": 12,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "Applications.Resources.RandomAccess.EndObservation": {
+      "logical": 41,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "Applications.Resources.RandomAccess.Families": {
+      "logical": 37,
+      "theorems": 30,
+      "unsafe": 0
+    },
+    "Applications.Resources.RandomAccess.Lookup": {
+      "logical": 87,
+      "theorems": 61,
+      "unsafe": 0
+    },
+    "Applications.Resources.RandomAccess.Observation": {
+      "logical": 26,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "Applications.Resources.TreeFlattening.Cached": {
+      "logical": 31,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "Applications.Resources.TreeFlattening.Core": {
+      "logical": 72,
+      "theorems": 44,
+      "unsafe": 0
+    },
+    "Applications.Resources.TreeFlattening.Growth": {
+      "logical": 13,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Applications.Resources.TreeFlattening.Observation": {
+      "logical": 18,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "Applications.Search.Ordered.Consumers": {
+      "logical": 23,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "Applications.Search.Ordered.Exact": {
+      "logical": 75,
+      "theorems": 60,
+      "unsafe": 0
+    },
+    "Applications.Search.Ordered.Global": {
+      "logical": 89,
+      "theorems": 63,
+      "unsafe": 0
+    },
+    "Applications.Search.Ordered.Threshold": {
+      "logical": 32,
+      "theorems": 25,
+      "unsafe": 0
+    },
+    "Applications.Sequences.RandomAccess.Access": {
+      "logical": 57,
+      "theorems": 36,
+      "unsafe": 0
+    },
+    "Applications.Sequences.RandomAccess.Basic": {
+      "logical": 182,
+      "theorems": 72,
+      "unsafe": 0
+    },
+    "Applications.Sequences.RandomAccess.Borrow": {
+      "logical": 49,
+      "theorems": 31,
+      "unsafe": 0
+    },
+    "Applications.Sequences.RandomAccess.Representation": {
+      "logical": 31,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "Applications.Sequences.RandomAccess.TreeBuild": {
+      "logical": 40,
+      "theorems": 28,
+      "unsafe": 0
+    },
+    "Applications.Sequences.Symmetric.Core": {
+      "logical": 126,
+      "theorems": 92,
+      "unsafe": 0
+    },
+    "Applications.Sequences.Symmetric.Finite": {
+      "logical": 29,
+      "theorems": 22,
+      "unsafe": 0
+    },
+    "Applications.Sequences.Symmetric.Observation": {
+      "logical": 21,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "Applications.Sequences.Symmetric.Prefixes": {
+      "logical": 20,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.Authoring": {
+      "logical": 186,
+      "theorems": 42,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.BasedPath": {
+      "logical": 11,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.Binding": {
+      "logical": 16,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.CommandCongruence": {
+      "logical": 8,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.ConcatReindexBeta": {
+      "logical": 41,
+      "theorems": 32,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.ConcatSemantics": {
+      "logical": 41,
+      "theorems": 27,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.Concatenation": {
+      "logical": 55,
+      "theorems": 32,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.ConcatenationBeta": {
+      "logical": 28,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.ConcatenationCongr": {
+      "logical": 15,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.ContextualElimination": {
+      "logical": 22,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.ContextualModel": {
+      "logical": 116,
+      "theorems": 51,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.Derived": {
+      "logical": 23,
+      "theorems": 16,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.DerivedCoherence": {
+      "logical": 15,
+      "theorems": 13,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.DerivedSemantics": {
+      "logical": 24,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.EliminationUniqueness": {
+      "logical": 9,
+      "theorems": 9,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.Endpoints": {
+      "logical": 30,
+      "theorems": 19,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.GroupoidElimination": {
+      "logical": 5,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.GroupoidIdentity": {
+      "logical": 16,
+      "theorems": 12,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.GroupoidSoundness": {
+      "logical": 88,
+      "theorems": 52,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.JNaturality": {
+      "logical": 35,
+      "theorems": 27,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.Model": {
+      "logical": 46,
+      "theorems": 17,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.Named": {
+      "logical": 53,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.NativeNormalization": {
+      "logical": 14,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.PathContext": {
+      "logical": 30,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.RawContext": {
+      "logical": 28,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.RawReindex": {
+      "logical": 10,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.ReindexCoherence": {
+      "logical": 31,
+      "theorems": 25,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.SectionNormalization": {
+      "logical": 16,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.SourceReindex": {
+      "logical": 4,
+      "theorems": 4,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.SourceSemantics": {
+      "logical": 24,
+      "theorems": 11,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.SplitFamily": {
+      "logical": 92,
+      "theorems": 60,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.StructuralCongruence": {
+      "logical": 9,
+      "theorems": 7,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.Syntax": {
+      "logical": 127,
+      "theorems": 70,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.TelescopeElimination": {
+      "logical": 68,
+      "theorems": 27,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.Transfer": {
+      "logical": 9,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.TransferApplication": {
+      "logical": 38,
+      "theorems": 32,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.TransferAssembly": {
+      "logical": 6,
+      "theorems": 3,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.TransferBranch": {
+      "logical": 2,
+      "theorems": 0,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.TransferConsumer": {
+      "logical": 10,
+      "theorems": 6,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.TransferFrame": {
+      "logical": 26,
+      "theorems": 8,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.TransferRoot": {
+      "logical": 34,
+      "theorems": 32,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.TransferRootBranch": {
+      "logical": 24,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.TransferSoundness": {
+      "logical": 9,
+      "theorems": 5,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.TransportCongr": {
+      "logical": 16,
+      "theorems": 14,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.TransportNormalization": {
+      "logical": 19,
+      "theorems": 15,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.Typed": {
+      "logical": 883,
+      "theorems": 487,
+      "unsafe": 0
+    },
+    "SquareKit.Internal.PathTransport.UniversalTransfer": {
+      "logical": 31,
+      "theorems": 17,
+      "unsafe": 0
+    }
+  },
+  "verification": {
+    "format": 1,
+    "result": "passed",
+    "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+    "dependencies": {
+      "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "plausible": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "LeanSearchClient": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "importGraph": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "proofwidgets": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "aesop": "4a174c490d8707121c4a9290800489f105d85e07",
+      "Qq": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "batteries": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "Cli": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+    },
+    "compiler": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+    "mode": "incremental",
+    "completed_at": "2026-11-04T17:21:56.023898+00:00"
+  },
+  "boundary": "Actual whole-project full-check and audit totals; independent final reviews and statement qualification remain separate."
+}

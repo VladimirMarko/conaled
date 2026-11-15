@@ -1,0 +1,294 @@
+{
+  "authored_private_count": 19,
+  "new_private": 1,
+  "borrowed_private": 15,
+  "preserved_query_private": 3,
+  "helpers": [
+    {
+      "name": "Applications.Selection.CoordinateSensitivity.exists_above",
+      "source": "Applications/Selection/CoordinateSensitivity.lean",
+      "origin": "preserved query source",
+      "visibility": "private",
+      "kind": "theorem",
+      "line": 22,
+      "source_header": "private theorem exists_above (xs : List Int) :\n    ∃ z : Int, ∀ x ∈ xs, x < z",
+      "source_identity": {
+        "bytes": 6717,
+        "sha256": "224724056815f73aff552ead23b7dd83af4078ad61009169e1b474f4b94476e6",
+        "blob": "aa11abfc1bc0aba12c564b3f974f1b2dfed097b0"
+      },
+      "source_exact_to_start": true
+    },
+    {
+      "name": "Applications.Selection.CoordinateSensitivity.exists_below",
+      "source": "Applications/Selection/CoordinateSensitivity.lean",
+      "origin": "preserved query source",
+      "visibility": "private",
+      "kind": "theorem",
+      "line": 38,
+      "source_header": "private theorem exists_below (xs : List Int) :\n    ∃ z : Int, ∀ x ∈ xs, z < x",
+      "source_identity": {
+        "bytes": 6717,
+        "sha256": "224724056815f73aff552ead23b7dd83af4078ad61009169e1b474f4b94476e6",
+        "blob": "aa11abfc1bc0aba12c564b3f974f1b2dfed097b0"
+      },
+      "source_exact_to_start": true
+    },
+    {
+      "name": "Applications.Selection.CoordinateQueries.readPlan_run_from",
+      "source": "Applications/Selection/CoordinateReadAll.lean",
+      "origin": "preserved corrected query source",
+      "visibility": "private",
+      "kind": "theorem",
+      "line": 42,
+      "source_header": "private theorem readPlan_run_from (input : Fin n → α) (compute : List α → β)\n    (prior remaining : List (Fin n)) :\n    Runs (readPlan (prior ++ remaining) compute) input\n      (prior.map (fun i => (i, input i))).reverse\n      (remaining.map (fun i => (i, input i)))\n      (compute ((prior ++ remaining).map input))",
+      "source_identity": {
+        "bytes": 7611,
+        "sha256": "ab2fd8949fe4a73e909cac90f99329fcd3b508e1b221e4411449a535f48f41ff",
+        "blob": "e05374c65ff8dafaf6035ca6792271f70522c9ce"
+      },
+      "source_exact_to_start": true
+    },
+    {
+      "name": "Resources.Selection.length_value",
+      "visibility": "private",
+      "kind": "theorem",
+      "source": "Applications/Resources/Selection.lean",
+      "line": 31,
+      "source_header": "private theorem length_value (xs : List α) :\n    (SymmetricCosts.lengthRun xs).1 = xs.length",
+      "origin": "exact donor be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "source_identity": {
+        "bytes": 22435,
+        "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+        "blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3"
+      },
+      "source_exact_to_start": true
+    },
+    {
+      "name": "Resources.Selection.partition_value",
+      "visibility": "private",
+      "kind": "theorem",
+      "source": "Applications/Resources/Selection.lean",
+      "line": 35,
+      "source_header": "private theorem partition_value (p : α) (xs : List α) :\n    (Partition.partitionRun p xs).1 = partition3 p xs",
+      "origin": "exact donor be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "source_identity": {
+        "bytes": 22435,
+        "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+        "blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3"
+      },
+      "source_exact_to_start": true
+    },
+    {
+      "name": "Resources.Selection.left_member",
+      "visibility": "private",
+      "kind": "theorem",
+      "source": "Applications/Resources/Selection.lean",
+      "line": 39,
+      "source_header": "private theorem left_member (p : α) (xs : List α) (a : α)\n    (ha : a ∈ (Partition.partitionRun p xs).1.1) : a ∈ xs",
+      "origin": "exact donor be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "source_identity": {
+        "bytes": 22435,
+        "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+        "blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3"
+      },
+      "source_exact_to_start": true
+    },
+    {
+      "name": "Resources.Selection.right_member",
+      "visibility": "private",
+      "kind": "theorem",
+      "source": "Applications/Resources/Selection.lean",
+      "line": 44,
+      "source_header": "private theorem right_member (p : α) (xs : List α) (a : α)\n    (ha : a ∈ (Partition.partitionRun p xs).1.2.2) : a ∈ xs",
+      "origin": "exact donor be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "source_identity": {
+        "bytes": 22435,
+        "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+        "blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3"
+      },
+      "source_exact_to_start": true
+    },
+    {
+      "name": "Resources.Selection.strict_sizes",
+      "visibility": "private",
+      "kind": "theorem",
+      "source": "Applications/Resources/Selection.lean",
+      "line": 49,
+      "source_header": "private theorem strict_sizes (p : α) (xs : List α) (hp : p ∈ xs) :\n    (Partition.partitionRun p xs).1.1.length < xs.length ∧\n      (Partition.partitionRun p xs).1.2.2.length < xs.length",
+      "origin": "exact donor be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "source_identity": {
+        "bytes": 22435,
+        "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+        "blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3"
+      },
+      "source_exact_to_start": true
+    },
+    {
+      "name": "Resources.Selection.right_rank",
+      "visibility": "private",
+      "kind": "theorem",
+      "source": "Applications/Resources/Selection.lean",
+      "line": 55,
+      "source_header": "private theorem right_rank (p : α) (xs : List α) (k : Nat)\n    (hk : k < xs.length)\n    (he : ¬ k < (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.1).1 +\n      (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.2.1).1) :\n    k - (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.1).1 -\n        (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.2.1).1 <\n      (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.2.2).1",
+      "origin": "exact donor be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "source_identity": {
+        "bytes": 22435,
+        "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+        "blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3"
+      },
+      "source_exact_to_start": true
+    },
+    {
+      "name": "Resources.Selection.medians_positive",
+      "visibility": "private",
+      "kind": "theorem",
+      "source": "Applications/Resources/Selection.lean",
+      "line": 66,
+      "source_header": "private theorem medians_positive (d : Nat) (xs : List α)\n    (hd : 2 ≤ d) (hx : 0 < xs.length) :\n    0 < (chunkMediansRun d xs).1.length",
+      "origin": "exact donor be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "source_identity": {
+        "bytes": 22435,
+        "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+        "blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3"
+      },
+      "source_exact_to_start": true
+    },
+    {
+      "name": "Resources.Selection.medians_shorter",
+      "visibility": "private",
+      "kind": "theorem",
+      "source": "Applications/Resources/Selection.lean",
+      "line": 77,
+      "source_header": "private theorem medians_shorter (d : Nat) (xs : List α)\n    (hd : 2 ≤ d) (hx : 1 < xs.length) :\n    (chunkMediansRun d xs).1.length < xs.length",
+      "origin": "exact donor be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "source_identity": {
+        "bytes": 22435,
+        "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+        "blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3"
+      },
+      "source_exact_to_start": true
+    },
+    {
+      "name": "Resources.Selection.median_rank",
+      "visibility": "private",
+      "kind": "theorem",
+      "source": "Applications/Resources/Selection.lean",
+      "line": 88,
+      "source_header": "private theorem median_rank (d : Nat) (xs : List α)\n    (hd : 2 ≤ d) (hx : 0 < xs.length) :\n    ((xs.length ⌈/⌉ d) - 1) / 2 <\n      (SymmetricCosts.lengthRun (chunkMediansRun d xs).1).1",
+      "origin": "exact donor be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "source_identity": {
+        "bytes": 22435,
+        "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+        "blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3"
+      },
+      "source_exact_to_start": true
+    },
+    {
+      "name": "Resources.Selection.selectWorker",
+      "visibility": "private",
+      "kind": "def",
+      "source": "Applications/Resources/Selection.lean",
+      "line": 99,
+      "source_header": "private def selectWorker (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)\n    (k : Nat) (xs : List α) (nr : Measured Nat Nat)\n    (hn : nr = SymmetricCosts.lengthRun xs) (hk : k < nr.1) :\n    Measured {a // a ∈ xs} Nat",
+      "origin": "exact donor be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "source_identity": {
+        "bytes": 22435,
+        "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+        "blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3"
+      },
+      "source_exact_to_start": true
+    },
+    {
+      "name": "Resources.Selection.observe",
+      "visibility": "private",
+      "kind": "def",
+      "source": "Applications/Resources/Selection.lean",
+      "line": 148,
+      "source_header": "private def observe {xs : List α} (r : Measured {a // a ∈ xs} Nat) :\n    Measured (Option α) Nat",
+      "origin": "exact donor be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "source_identity": {
+        "bytes": 22435,
+        "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+        "blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3"
+      },
+      "source_exact_to_start": true
+    },
+    {
+      "name": "Resources.Selection.worker_observe",
+      "visibility": "private",
+      "kind": "theorem",
+      "source": "Applications/Resources/Selection.lean",
+      "line": 165,
+      "source_header": "private theorem worker_observe (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)\n    (k : Nat) (xs : List α) (nr : Measured Nat Nat)\n    (hn : nr = SymmetricCosts.lengthRun xs) (hk : k < nr.1) :\n    selectRunWith d cutoff hd hc k xs = observe (selectWorker d cutoff hd hc k xs nr hn hk)",
+      "origin": "exact donor be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "source_identity": {
+        "bytes": 22435,
+        "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+        "blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3"
+      },
+      "source_exact_to_start": true
+    },
+    {
+      "name": "Applications.Selection.sum_le_count_split",
+      "visibility": "private",
+      "kind": "theorem",
+      "source": "Applications/Selection/MedianOfMedians.lean",
+      "line": 177,
+      "source_header": "private theorem sum_le_count_split {β : Type v} (zs : List β)\n    (cost : β → Nat) (bad : β → Bool) (small big : Nat) (hs : small ≤ big)\n    (hc : ∀ z ∈ zs, cost z ≤ if bad z then big else small) :\n    (zs.map cost).sum ≤ small * zs.length + (big - small) * zs.countP bad",
+      "origin": "exact donor be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "source_identity": {
+        "bytes": 13797,
+        "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba",
+        "blob": "c348fd2b48ec0b40fa76aa30634406580f9063c0"
+      },
+      "source_exact_to_start": true
+    },
+    {
+      "name": "Applications.Selection.chunk_count_bound",
+      "visibility": "private",
+      "kind": "theorem",
+      "source": "Applications/Selection/MedianOfMedians.lean",
+      "line": 201,
+      "source_header": "private theorem chunk_count_bound (d : Nat) (xs : List α) (r bad : α → Bool)\n    (hd : 0 < d)\n    (hmed : (chunkMedians d xs).countP bad ≤ (xs.length ⌈/⌉ d) / 2)\n    (hgood : ∀ ys (hy : ys ∈ chop d xs),\n      bad (lowerMedianValue ys (chop_mem_ne_nil d xs ys hy)) = false →\n        ys.countP r ≤ d / 2) :\n    xs.countP r ≤ d / 2 * (xs.length ⌈/⌉ d) +\n      (d - d / 2) * ((xs.length ⌈/⌉ d) / 2)",
+      "origin": "exact donor be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "source_identity": {
+        "bytes": 13797,
+        "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba",
+        "blob": "c348fd2b48ec0b40fa76aa30634406580f9063c0"
+      },
+      "source_exact_to_start": true
+    },
+    {
+      "name": "Applications.Sequences.Chunks.ceilDiv_sub_add_one",
+      "visibility": "private",
+      "kind": "theorem",
+      "source": "Applications/Sequences/Chunks.lean",
+      "line": 34,
+      "source_header": "private theorem ceilDiv_sub_add_one (n d : Nat) (hn : 0 < n) (hd : 0 < d) :\n    n ⌈/⌉ d = (n - d) ⌈/⌉ d + 1",
+      "origin": "exact donor be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "source_identity": {
+        "bytes": 8802,
+        "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493",
+        "blob": "c45bcb6427c002d3bab7c728dd6743458c8010fc"
+      },
+      "source_exact_to_start": true
+    },
+    {
+      "name": "Applications.Selection.CoordinateSelection.input_injective_of_nodup",
+      "visibility": "private",
+      "kind": "theorem",
+      "source": "Applications/Selection/CoordinateSelection.lean",
+      "line": 269,
+      "source_header": "private theorem input_injective_of_nodup (input : Fin n → Int)\n    (distinct : (List.ofFn input).Nodup) : Function.Injective input",
+      "origin": "new implementation",
+      "source_identity": {
+        "bytes": 18612,
+        "sha256": "14b87898b02acb8f948ee68629331359652e920331e49d60bdeac62788a21abb",
+        "blob": "46e2dc5f47795ad9bd67429dafad87ac6ea7099e"
+      },
+      "source_exact_to_start": true
+    }
+  ],
+  "generated_private_kernel_names": "Not guessed; root actual elaborated/audit gate remains."
+}

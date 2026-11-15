@@ -1,0 +1,16 @@
+{
+  "action": "pause secondary focused compiler only",
+  "reason": "Observed 109006979072 read bytes and worker page-fault waits; prioritize existing full Chapter1 verification without restart.",
+  "pid": 109620,
+  "root_session": 66704,
+  "parent_lake_pid": 102354,
+  "time": 1793592922.343439,
+  "full_check_session_unchanged": 80227,
+  "cwd": "/workspace/scratch/845aa1048b05/conaled-insertion-costs",
+  "source": "/workspace/scratch/845aa1048b05/conaled-insertion-costs/Applications/Resources/SymmetricCosts.lean",
+  "argv0": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+  "start_ticks": "2642683",
+  "signal": "SIGSTOP",
+  "state_after": "T",
+  "result": "paused; resume only after rechecking PID, parent, cwd, source and start_ticks"
+}

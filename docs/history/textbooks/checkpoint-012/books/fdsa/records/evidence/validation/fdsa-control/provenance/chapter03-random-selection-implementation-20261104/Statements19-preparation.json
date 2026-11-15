@@ -1,0 +1,82 @@
+{
+  "recorded_utc": "2026-11-04T18:33:16.417299+00:00",
+  "candidate": "be1bf8de03554faea7beef0a25d01c40091d33b3",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "candidate_tree": "a2cb6ba0780b4903a80fac6b37e056bbbe908132",
+  "program": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/Statements19.lean",
+    "bytes": 1173,
+    "sha256": "8553847dcd54743316a7ad7693c1118f167c37c42e86552490d7a3bb450399db"
+  },
+  "public_names": [
+    "Resources.RandomSelection.pivotRun",
+    "Resources.RandomSelection.pivotRun_exact",
+    "Resources.RandomSelection.stepRun",
+    "Resources.RandomSelection.stepRun_eq",
+    "Resources.RandomSelection.stepRun_child",
+    "Resources.RandomSelection.stepRun_semantics",
+    "Resources.RandomSelection.stepRun_ranked",
+    "Resources.RandomSelection.stepRun_cost_bounds",
+    "Resources.RandomSelection.pivotLaw",
+    "Resources.RandomSelection.pivotLaw_support",
+    "Resources.RandomSelection.pivotLaw_event",
+    "Examples.RandomSelection.singleton_step",
+    "Examples.RandomSelection.duplicate_middle",
+    "Examples.RandomSelection.selected_side_is_not_larger_side",
+    "Examples.RandomSelection.selected_side_valid",
+    "Examples.RandomSelection.duplicate_ranked",
+    "Examples.RandomSelection.duplicate_source_bound",
+    "Examples.RandomSelection.duplicate_zero_probability",
+    "Examples.RandomSelection.duplicate_one_probability"
+  ],
+  "count": 19,
+  "source_bindings": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 7961,
+      "lines": 177,
+      "sha256": "1968275bcde9b2b61aedad3454fd073d4a4224f4ab1831cd0cb4b40ae653b533",
+      "named_declarations": [
+        "pivotRun",
+        "pivotRun_exact",
+        "stepRun",
+        "stepRun_eq",
+        "stepRun_child",
+        "equal_lookup",
+        "stepRun_semantics",
+        "stepRun_ranked",
+        "stepRun_cost_bounds",
+        "pivotLaw",
+        "pivotLaw_support",
+        "pivotLaw_event"
+      ]
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 2713,
+      "lines": 73,
+      "sha256": "e983ac3d2ea94247f343898bba36648d6a07c6d42860f7bf0b15e96d8373156a",
+      "named_declarations": [
+        "singleton_step",
+        "duplicate_middle",
+        "selected_side_is_not_larger_side",
+        "selected_side_valid",
+        "duplicate_ranked",
+        "duplicate_source_bound",
+        "duplicate_zero_probability",
+        "duplicate_one_probability"
+      ]
+    }
+  ],
+  "private_name": "Resources.RandomSelection.equal_lookup (source review; omitted from public #check program)",
+  "execution": "Prepared only; no Lean or type evidence claimed.",
+  "options": [
+    "set_option pp.universes true",
+    "set_option pp.explicit true",
+    "set_option pp.fullNames true",
+    "set_option pp.deepTerms true",
+    "set_option pp.proofs true",
+    "set_option pp.maxSteps 1000000"
+  ],
+  "pp_maxDepth": "Not used: unavailable at the pinned compiler."
+}

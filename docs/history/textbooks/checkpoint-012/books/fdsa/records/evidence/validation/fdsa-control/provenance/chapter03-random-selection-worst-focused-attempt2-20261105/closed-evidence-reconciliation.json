@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-05T00:58:39.049871+00:00",
+  "candidate": "96722600aa29636e028751242ce33d562c5a9255",
+  "terminal": {
+    "recorded_utc": "2026-11-05T00:58:39.049607+00:00",
+    "owned_session": 17575,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "04aebe",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "96722600aa29636e028751242ce33d562c5a9255"
+  },
+  "actual_recorder_and_native_exits": [
+    0,
+    0
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-worst-focused-attempt2-20261105/full.log",
+    "bytes": 11385,
+    "sha256": "5833490d1122e2cbe4955bc3dd4e30716690e59f4722d4948b285bdf6e4bef51"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261105T005759Z-project-run-021a8054",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-worst-focused-attempt2-20261105/native-records/start.json",
+      "bytes": 485,
+      "sha256": "82742fa1c390727a1239b6e494f9fdc534aa62d937e4243d2bc6414f8e9da385"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-worst-focused-attempt2-20261105/native-records/result.json",
+      "bytes": 637,
+      "sha256": "e5ca88b585d6415575f53b9e668d5e42aaffc17b0abdcea206a290b7df659cfd"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-worst-focused-attempt2-20261105/native-records/output.log",
+      "bytes": 11101,
+      "sha256": "64a107a5d3f5815484308dcb1a1bfc3a318eb9bba1fe0ce803d53657031c0ffe"
+    }
+  },
+  "native_body_exact_outer_offset": 127,
+  "complete_closed_log": true,
+  "scope": "Exact corrected universal endpoint pair focused PASS. Both core and examples built after one proof-local Fin constructor correction; source statements/domains/cases unchanged. This is development evidence, not complete candidate validation or exhaustive audit.",
+  "verification_record_candidate": null,
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

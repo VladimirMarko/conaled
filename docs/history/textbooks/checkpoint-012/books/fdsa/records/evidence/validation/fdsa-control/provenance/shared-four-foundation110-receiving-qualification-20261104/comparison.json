@@ -1,0 +1,3232 @@
+{
+  "utc": "2026-11-04T14:49:08.472423+00:00",
+  "producer": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "recipient": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "mechanical_relevant_input_comparison_passed": true,
+  "both_independent_transfer_dispositions": "Pending; this coordinator record gives no semantic/final acceptance approval",
+  "receiving_public_type_credit_pending_axes": 0,
+  "eligible_names": 110,
+  "F145_positions": {
+    "first": [
+      20,
+      83
+    ],
+    "second": [
+      100,
+      145
+    ]
+  },
+  "all110_exact_actual_producer_blocks_checked": true,
+  "source_files": 23,
+  "selected_object_hash_trace_files": 69,
+  "complete_supported_artifact_keysets_match": true,
+  "configs": 10,
+  "clean_dependency_revisions": 9,
+  "runtime_components": 12,
+  "external_import_names": 32,
+  "same_sources_including_import_instance_inputs": true,
+  "full_scope_environment_equality_claimed": false,
+  "all_four_projected_identities_equal": true,
+  "producer_program_unchanged": {
+    "bytes": 7518,
+    "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4"
+  },
+  "observation_files": {
+    "F_pre": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation145-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 38785,
+      "sha256": "482b005a6b020bc8fbc087ed746202caa89426382200d2aa37b4259ac0116d37",
+      "observed_utc": "2026-11-04T13:43:24.040493+00:00"
+    },
+    "F_post": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation145-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 39092,
+      "sha256": "3065efbace8dc8cff34d764d33fd29e81f09b5549407d72be5cdaa217d482d16",
+      "observed_utc": "2026-11-04T13:44:15.028031+00:00"
+    },
+    "I_pre": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-foundation110-receiving-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 38785,
+      "sha256": "8086173cd41da9d833701718a3963146ae0b87e54e8a3c7a2fe43dcf4b2124e3",
+      "observed_utc": "2026-11-04T14:44:44.360247+00:00"
+    },
+    "I_post": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-foundation110-receiving-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 39108,
+      "sha256": "c50094536c54d8bfc02d00c77295d2eb7a166f5277075872ca1118452eeb79ce",
+      "observed_utc": "2026-11-04T14:45:51.251835+00:00"
+    }
+  },
+  "full_gate_actual_result": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-full-attempt1-20261104/result.json",
+  "full_gate_owned_terminal": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-full-attempt1-20261104/owned-terminal.json",
+  "actual314_result": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-complete-public-statements314-20261104-attempt1/result.json",
+  "actual314_owned_terminal": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-complete-public-statements314-20261104-attempt1/owned-terminal.json",
+  "full_gate_verification_sha256": "2974a2efaa56703448e96ddeec25947e84e91b7733b4e8b405fdcf6d69fe816d",
+  "observations_surround_actual314_after_full_success": true,
+  "no_F145_compiler_rerun": true,
+  "source_closure_roots": [
+    "Applications.Resources.ListCalls",
+    "Examples.FunctionalNotation",
+    "Examples.ListCalls",
+    "Examples.ListLibrary"
+  ],
+  "source_import_edges": [
+    [
+      "Examples.ListLibrary",
+      "Mathlib.Data.List.Intervals"
+    ],
+    [
+      "Examples.ListLibrary",
+      "Mathlib.Data.List.MinMax"
+    ],
+    [
+      "Examples.ListLibrary",
+      "Mathlib.Data.List.Chain"
+    ],
+    [
+      "Examples.ListLibrary",
+      "Mathlib.Data.List.Sort"
+    ],
+    [
+      "Examples.ListCalls",
+      "Applications.Resources.ListCalls"
+    ],
+    [
+      "Examples.ListCalls",
+      "Applications.Resources.ListReversal"
+    ],
+    [
+      "Applications.Resources.ListReversal",
+      "Applications.Resources.CallCount"
+    ],
+    [
+      "Applications.Resources.ListReversal",
+      "Applications.Resources.SymmetricCosts"
+    ],
+    [
+      "Applications.Resources.ListReversal",
+      "Applications.Resources.TreeFlattening.Core"
+    ],
+    [
+      "Applications.Resources.ListReversal",
+      "Mathlib.Tactic.Linarith"
+    ],
+    [
+      "Applications.Resources.TreeFlattening.Core",
+      "Applications.Resources.RandomAccess.CacheCosts"
+    ],
+    [
+      "Applications.Resources.TreeFlattening.Core",
+      "Applications.Resources.Measured"
+    ],
+    [
+      "Applications.Resources.Measured",
+      "Mathlib.Algebra.Group.Prod"
+    ],
+    [
+      "Applications.Resources.Measured",
+      "Mathlib.Algebra.Order.Monoid.Unbundled.Basic"
+    ],
+    [
+      "Applications.Resources.Measured",
+      "Squares"
+    ],
+    [
+      "Squares",
+      "Lean"
+    ],
+    [
+      "Applications.Resources.RandomAccess.CacheCosts",
+      "Applications.Sequences.RandomAccess.TreeBuild"
+    ],
+    [
+      "Applications.Sequences.RandomAccess.TreeBuild",
+      "Applications.Sequences.RandomAccess.Borrow"
+    ],
+    [
+      "Applications.Sequences.RandomAccess.Borrow",
+      "Applications.Sequences.RandomAccess.Access"
+    ],
+    [
+      "Applications.Sequences.RandomAccess.Access",
+      "Applications.Sequences.RandomAccess.Basic"
+    ],
+    [
+      "Applications.Sequences.RandomAccess.Basic",
+      "Applications.Bracketing.Basic"
+    ],
+    [
+      "Applications.Bracketing.Basic",
+      "Applications.Optimization.SelectionSpec"
+    ],
+    [
+      "Applications.Optimization.SelectionSpec",
+      "Std"
+    ],
+    [
+      "Applications.Resources.SymmetricCosts",
+      "Applications.Resources.Potential"
+    ],
+    [
+      "Applications.Resources.SymmetricCosts",
+      "Applications.Sequences.Symmetric.Core"
+    ],
+    [
+      "Applications.Sequences.Symmetric.Core",
+      "SquareKit.ListFusion"
+    ],
+    [
+      "Applications.Sequences.Symmetric.Core",
+      "Mathlib.Data.List.Infix"
+    ],
+    [
+      "SquareKit.ListFusion",
+      "Mathlib.Data.List.Basic"
+    ],
+    [
+      "Applications.Resources.Potential",
+      "Applications.Resources.Workload"
+    ],
+    [
+      "Applications.Resources.Potential",
+      "Mathlib.Algebra.Group.Nat.Defs"
+    ],
+    [
+      "Applications.Resources.Workload",
+      "Applications.Resources.Measured"
+    ],
+    [
+      "Applications.Resources.Workload",
+      "SquareKit.ListFusion"
+    ],
+    [
+      "Applications.Resources.CallCount",
+      "Applications.Resources.Measured"
+    ],
+    [
+      "Applications.Resources.ListCalls",
+      "Applications.Resources.CallCount"
+    ],
+    [
+      "Applications.Resources.ListCalls",
+      "Applications.Resources.SymmetricCosts"
+    ],
+    [
+      "Applications.Resources.ListCalls",
+      "Mathlib.Algebra.BigOperators.Group.List.Basic"
+    ],
+    [
+      "Examples.FunctionalNotation",
+      "Examples.FunctionalBasics"
+    ],
+    [
+      "Examples.FunctionalNotation",
+      "Examples.ListLibrary"
+    ],
+    [
+      "Examples.FunctionalNotation",
+      "Mathlib.Algebra.BigOperators.Group.Finset.Basic"
+    ],
+    [
+      "Examples.FunctionalNotation",
+      "Mathlib.Algebra.Order.Archimedean.Real.Basic"
+    ],
+    [
+      "Examples.FunctionalNotation",
+      "Mathlib.Algebra.Order.Floor.Ring"
+    ],
+    [
+      "Examples.FunctionalNotation",
+      "Mathlib.Data.Int.DivMod"
+    ],
+    [
+      "Examples.FunctionalNotation",
+      "Mathlib.Data.Set.Lattice.Bounded"
+    ],
+    [
+      "Examples.FunctionalNotation",
+      "Mathlib.Data.Set.Lattice.Disjoint"
+    ],
+    [
+      "Examples.FunctionalNotation",
+      "Mathlib.Data.Set.Lattice.Image"
+    ],
+    [
+      "Examples.FunctionalNotation",
+      "Mathlib.Data.Set.Lattice.Indexed"
+    ],
+    [
+      "Examples.FunctionalNotation",
+      "Mathlib.Data.Set.Lattice.Order"
+    ],
+    [
+      "Examples.FunctionalNotation",
+      "Mathlib.Data.Set.Prod"
+    ],
+    [
+      "Examples.FunctionalNotation",
+      "Mathlib.Data.Set.Finite.Basic"
+    ],
+    [
+      "Examples.FunctionalNotation",
+      "Mathlib.Order.Interval.Finset.Nat"
+    ],
+    [
+      "Examples.FunctionalNotation",
+      "Mathlib.Order.Interval.Set.Defs"
+    ],
+    [
+      "Examples.FunctionalBasics",
+      "Applications.Arithmetic.EuclidInduction"
+    ],
+    [
+      "Examples.FunctionalBasics",
+      "Mathlib.Algebra.BigOperators.Group.Multiset.Basic"
+    ],
+    [
+      "Examples.FunctionalBasics",
+      "Mathlib.Data.Multiset.Filter"
+    ],
+    [
+      "Examples.FunctionalBasics",
+      "Mathlib.Basic.Real.Basic"
+    ],
+    [
+      "Examples.FunctionalBasics",
+      "Mathlib.Logic.Function.Basic"
+    ],
+    [
+      "Examples.FunctionalBasics",
+      "Mathlib.Tactic.NormNum"
+    ],
+    [
+      "Applications.Arithmetic.EuclidInduction",
+      "Mathlib.Data.Nat.GCD.Basic"
+    ]
+  ],
+  "conditions_retained_verbatim": [
+    {
+      "id": "REUSE-01",
+      "condition": "Identify one actually executed producer inspection at exact F or exact current Chapter2 candidate, with the executed program bytes/hash and complete selected-name inventory. Prepared files alone are not evidence. The producer program must contain every transferred name as a fully qualified #check @constant with the stated full-name, explicit and universe printing profile; any successor program must be separately identified."
+    },
+    {
+      "id": "REUSE-02",
+      "condition": "Secure actual exit0 and closed complete outer/native logs and terminal JSONs; match commands, cwd, start/end times, hashes and sizes, with no timeout, recorder error, truncated/missing output or inferred session result. Read the complete actual type output for every one of the110 names; printed-type blocks must expose all quantifiers and premises rather than relying on an occurrence count."
+    },
+    {
+      "id": "REUSE-03",
+      "condition": "Secure producer pre/post HEAD and clean relevant source/configuration state, unchanged executed program hash, and immutable-run ownership. Verify these six/four relevant root closures against the exact produced candidate and the receiving candidate, including the expected source blobs, direct external imports and all pinned configuration. Do not substitute present source equality or an earlier/later unrelated result for missing producer terminal identity."
+    },
+    {
+      "id": "REUSE-04",
+      "condition": "Match the actual Lean4.35.0/Lake/native-kit1.0.0 execution to the preserved qualified profile, official compiler archive and disclosed launcher adapter. Retain command/profile/runtime/loader identities and exact nine package revisions with clean actual dependency sources. Record actual threading (one in the qualified current setup). An incompatible profile, compiler, package revision or unqualified change is a gap requiring applicable qualification, not an assumed equivalent environment."
+    },
+    {
+      "id": "REUSE-05",
+      "condition": "Establish that the producer loaded compiler objects corresponding to the recorded immutable defining sources and pinned dependencies, using the qualified launcher plus retained build/input integrity evidence. Do not reuse stale or unverified outputs merely because the source files match. No concurrent builders may share writable project outputs, and no command may be launched against a project while its other builder owns those outputs."
+    },
+    {
+      "id": "REUSE-06",
+      "condition": "Both independent axes must assess the actual110 printed types and this exact dependency/configuration/profile mapping within their original full review scopes. Retain attribution to the actual producer run and to the source/type reviewers. No author summary, focused module count, selected older output or anticipated success substitutes for that assessment."
+    },
+    {
+      "id": "REUSE-07",
+      "condition": "Transfer only the110 eligible names. The35 InsertionSort/InsertionCosts names remain separate at both candidates because transitive Sorting.Merge differs, even though their root source bytes match and the Merge change appends plain theorems. No elaboration-equivalence proof is claimed for that changed environment."
+    },
+    {
+      "id": "REUSE-08",
+      "condition": "If either candidate advances, reconcile its relevant defining closures, exact names, pins and profile to this receipt before transfer. The current binding is only F and0a7ef078. A later unrelated source/doc delta may permit bounded identity extension, but it is not automatically covered."
+    },
+    {
+      "id": "REUSE-09",
+      "condition": "Record any actual reuse in a new explicit evidence disposition with producing run, receiving candidate, exact names and reviewed output positions, preserving both original pending programs and inventories. This preparation changes no pending count and removes no command. Any later targeted remainder must be a separately recorded derivative after the evidence conditions actually hold."
+    },
+    {
+      "id": "REUSE-10",
+      "condition": "Reuse supplies only public statement-inspection evidence. Each original immutable candidate still requires its applicable complete check, exhaustive kernel/axiom audit including private/generated declarations, new matching verification record, both final independent reviews and immediate qualified --verify-candidate before acceptance. Accepted Chapter1 remains accepted; no extra fresh check is implied without the README trigger."
+    }
+  ],
+  "actual_loaded_object_boundary": "Relevant fingerprints supplement successful guarded full I lineage, actual qualified314 execution, exact runtime/dependency pins and exclusive stable output ownership. Fingerprints alone neither prove hostile-input authenticity nor hash every external dependency artifact. Existing independent REUSE01\u201310 semantic conditions remain for both axes.",
+  "selected_projection": {
+    "local_sources": {
+      "Examples/ListLibrary.lean": {
+        "bytes": 6761,
+        "sha256": "036cf4c12ddf5d25ce433d9f7dbedfcbb96dfc3c7f602d10605388d2791e47ad",
+        "git_blob": "99ba369997885e176bbda192ee0feb5c7bf4d034"
+      },
+      "Examples/ListCalls.lean": {
+        "bytes": 4333,
+        "sha256": "24d0809f51d04b0a9cadb5a349141e7327a5f7721f63c1021113527917487d5d",
+        "git_blob": "b4c4683ee2bd16ff6f844ce757470515847a63dc"
+      },
+      "Applications/Resources/ListReversal.lean": {
+        "bytes": 4827,
+        "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+        "git_blob": "62ab85a7325d521bf925405f9abb053703f4d175"
+      },
+      "Applications/Resources/TreeFlattening/Core.lean": {
+        "bytes": 4225,
+        "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+        "git_blob": "d136193bd3823ee00431bc240d1e7a0168b4ddaf"
+      },
+      "Applications/Resources/Measured.lean": {
+        "bytes": 2906,
+        "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+        "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46"
+      },
+      "Squares.lean": {
+        "bytes": 11694,
+        "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+        "git_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a"
+      },
+      "Applications/Resources/RandomAccess/CacheCosts.lean": {
+        "bytes": 2227,
+        "sha256": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+        "git_blob": "e583ec5285ea887c38f4b369071408697f0574b2"
+      },
+      "Applications/Sequences/RandomAccess/TreeBuild.lean": {
+        "bytes": 5392,
+        "sha256": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+        "git_blob": "3b662705f001c2a4b8fbe12868d6c7e77316d95f"
+      },
+      "Applications/Sequences/RandomAccess/Borrow.lean": {
+        "bytes": 5680,
+        "sha256": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+        "git_blob": "81b95e8bd4a6e30f6a20a85828409d6d55437be0"
+      },
+      "Applications/Sequences/RandomAccess/Access.lean": {
+        "bytes": 5219,
+        "sha256": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+        "git_blob": "5354c146a0665cce90ffc996d1b522b8a59079ad"
+      },
+      "Applications/Sequences/RandomAccess/Basic.lean": {
+        "bytes": 5970,
+        "sha256": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+        "git_blob": "fe040b71615878a86d06b326b820e1d5cd5f0229"
+      },
+      "Applications/Bracketing/Basic.lean": {
+        "bytes": 8561,
+        "sha256": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+        "git_blob": "3f6604c226908ee807c7d5076bd1c027b48bbf90"
+      },
+      "Applications/Optimization/SelectionSpec.lean": {
+        "bytes": 738,
+        "sha256": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+        "git_blob": "2548b66575b5a453e8cec30ceb745234bb0ae2e6"
+      },
+      "Applications/Resources/SymmetricCosts.lean": {
+        "bytes": 10508,
+        "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+        "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233"
+      },
+      "Applications/Sequences/Symmetric/Core.lean": {
+        "bytes": 12059,
+        "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+        "git_blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4"
+      },
+      "SquareKit/ListFusion.lean": {
+        "bytes": 2939,
+        "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+        "git_blob": "33ec447acb6da7b884ae57d2a885707208201607"
+      },
+      "Applications/Resources/Potential.lean": {
+        "bytes": 4638,
+        "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe",
+        "git_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1"
+      },
+      "Applications/Resources/Workload.lean": {
+        "bytes": 2745,
+        "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+        "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05"
+      },
+      "Applications/Resources/CallCount.lean": {
+        "bytes": 2447,
+        "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+        "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195"
+      },
+      "Applications/Resources/ListCalls.lean": {
+        "bytes": 7939,
+        "sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+        "git_blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4"
+      },
+      "Examples/FunctionalNotation.lean": {
+        "bytes": 8277,
+        "sha256": "fe4b585a6753110dee67c1942ce68d16d9bf00feb5946f32791682c634c42eef",
+        "git_blob": "3e5db8677c94bd330779522f92bc39508540a17a"
+      },
+      "Examples/FunctionalBasics.lean": {
+        "bytes": 3381,
+        "sha256": "f9d141719675eaaf1a09bcfabf1a0e79cc2f68f89406a2229233b71a8d1bae3d",
+        "git_blob": "bdd58014ed1f3ca284e4ba44155da946c65de866"
+      },
+      "Applications/Arithmetic/EuclidInduction.lean": {
+        "bytes": 1069,
+        "sha256": "1195a850cc25d518c50f6f6133da87f5d4fcffd264ea3c687c67b5dcc34abe3e",
+        "git_blob": "0c4d03bcd60641cabb821ad5bfc1f6763656dc54"
+      }
+    },
+    "local_compiler_objects_and_traces": {
+      ".lake/build/lib/lean/Examples/ListLibrary.olean": {
+        "bytes": 142504,
+        "sha256": "265b39de282301e8033d75dcbab6234039f5f2241837db11fcb67d035820e285"
+      },
+      ".lake/build/lib/lean/Examples/ListLibrary.olean.hash": {
+        "bytes": 16,
+        "sha256": "8e5c4210f10e41264141d6737dc9fd7d9f205a72d89b8dc689edb5e2a97fe567"
+      },
+      ".lake/build/lib/lean/Examples/ListLibrary.trace": {
+        "bytes": 3635,
+        "sha256": "cde7b97e3d98ab0cfb968934d3a10ce72d4dfb2f5248e7d4cca6a69aac5d9662"
+      },
+      ".lake/build/lib/lean/Examples/ListCalls.olean": {
+        "bytes": 135256,
+        "sha256": "59fa71737f9455b81598ed40b26bd27296ab0d5b1d23293693d6fff0173b83e0"
+      },
+      ".lake/build/lib/lean/Examples/ListCalls.olean.hash": {
+        "bytes": 16,
+        "sha256": "f19650c579f3686aff3e9d02cac9fc7440aad201a616851384b9e4585465533c"
+      },
+      ".lake/build/lib/lean/Examples/ListCalls.trace": {
+        "bytes": 3344,
+        "sha256": "993dfd9db88eff885771840cd482248f2629abed08924258d74da3859e0f0d65"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListReversal.olean": {
+        "bytes": 356176,
+        "sha256": "c7028949e09b8ba16a425632e926e05d05d95e1269bf58ce94592789e91e784d"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListReversal.olean.hash": {
+        "bytes": 16,
+        "sha256": "e5d1d41628b6562ca131494c403a4d76cfcde25d99b317c9e2590a5742d5f06e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListReversal.trace": {
+        "bytes": 3830,
+        "sha256": "266ee3641a4c1dacaf27efb6a60f4df498eaeb14ff6d15485150e023238083bc"
+      },
+      ".lake/build/lib/lean/Applications/Resources/TreeFlattening/Core.olean": {
+        "bytes": 453376,
+        "sha256": "5428d250bfb434c546b1733053a6cc4463fce38bac8df519265ffd55e5227950"
+      },
+      ".lake/build/lib/lean/Applications/Resources/TreeFlattening/Core.olean.hash": {
+        "bytes": 16,
+        "sha256": "487c1b0638b3dbb7f09b91f484a9816d0da10f69bc71cd74c69fe06bd06c959a"
+      },
+      ".lake/build/lib/lean/Applications/Resources/TreeFlattening/Core.trace": {
+        "bytes": 3535,
+        "sha256": "6a31d8f4388b70da4ecfe2280c7b3dcd94b9e9bbb8f7abf63d851fec1d519ce7"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Measured.olean": {
+        "bytes": 89608,
+        "sha256": "e3bea04397592484406bb442881a4305dc230d2c1b908b1eef2613cb377d9bf7"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Measured.olean.hash": {
+        "bytes": 16,
+        "sha256": "f5b0f6171cb7ac85a0bdea0be7590639628917e6b37ee8ff2fad746de319cc29"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Measured.trace": {
+        "bytes": 3561,
+        "sha256": "aa3b9570cdaa61358eb405cfca2209abc845723b30351f945c58ca67724afaea"
+      },
+      ".lake/build/lib/lean/Squares.olean": {
+        "bytes": 397408,
+        "sha256": "8f5981c72bfd62a0ec3a0ae74b5841269b10cb5dad2aedb8a269a9e229c21ffb"
+      },
+      ".lake/build/lib/lean/Squares.olean.hash": {
+        "bytes": 16,
+        "sha256": "69362eb3e35c4fcb6fc213839d6d07af9195fb0919454223fb2b2bc876597f31"
+      },
+      ".lake/build/lib/lean/Squares.trace": {
+        "bytes": 2919,
+        "sha256": "dd69574ba99f8ada4db3ed1fc015ee620cfc694da3a83f828d4a58dac915c8dc"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomAccess/CacheCosts.olean": {
+        "bytes": 142136,
+        "sha256": "5eb3433fbca959b6ff97cacc95998aa57461441d0f31c6d016addd4983764eba"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomAccess/CacheCosts.olean.hash": {
+        "bytes": 16,
+        "sha256": "68022b3348a42cc10b28570d375e4b5a27ffb58aad83cd4021c1bf0afd1f39b9"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomAccess/CacheCosts.trace": {
+        "bytes": 3386,
+        "sha256": "3513c530493b0b4020b4435b6c413989fba538274004d08bd9bf7a8ad6cb5c2e"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/TreeBuild.olean": {
+        "bytes": 450880,
+        "sha256": "6cbafb5348fe73dd25021c36f6f295b942254c263fc5886f2bea2768e6aa1221"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/TreeBuild.olean.hash": {
+        "bytes": 16,
+        "sha256": "ed8ead5338a93838122ffb9c182ac1b1c74739c17b501a956d42e3e3fdcc85a4"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/TreeBuild.trace": {
+        "bytes": 3373,
+        "sha256": "f9ae6d68426cc0e4b49e6353875b7a3b5dc35df7444038d61e0ad5fa3da4eb5a"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Borrow.olean": {
+        "bytes": 480776,
+        "sha256": "29b12915afb9a03eebd186f1c2c7c79ffc020a13b0d672327722370547c8a221"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Borrow.olean.hash": {
+        "bytes": 16,
+        "sha256": "0d112d9019f3225dd629537e9e6a825bc25dfabbbaa1193dba6b80afbde33e2b"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Borrow.trace": {
+        "bytes": 3352,
+        "sha256": "9c3d9b43384ba8f870eefb1320a692de063097777bae72776cb6f4fa79effeb4"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Access.olean": {
+        "bytes": 418704,
+        "sha256": "caf60d8bcd8c840b24b69d3351acb866d4489701fe0c9cbdaab57ccbd55c5285"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Access.olean.hash": {
+        "bytes": 16,
+        "sha256": "6ee1f18f2da34f35519536efc90409cd721420853ef7c21c21ae272e85e01aa7"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Access.trace": {
+        "bytes": 3350,
+        "sha256": "460c4cc609a53d73240209fbc66490a84d86c043e1cd62a6ed7fca6e57fc0d2a"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Basic.olean": {
+        "bytes": 711720,
+        "sha256": "029b3eba80696e9e0ba2d41e0806cb91c988b586c025b3fd9060ad1307979ca8"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Basic.olean.hash": {
+        "bytes": 16,
+        "sha256": "1d83e8dc0bbbab8486209b38bb84c11a60c07546abba66413f203a1ed7521bd6"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Basic.trace": {
+        "bytes": 3312,
+        "sha256": "28de206fcceceb3a1a2a738fac80c8eb171f5504d69abfc3654498073fb49363"
+      },
+      ".lake/build/lib/lean/Applications/Bracketing/Basic.olean": {
+        "bytes": 797384,
+        "sha256": "a534f9d2ab28e81ae0e4b8fa19212e662904317bb541cee92686c8b1837f7c16"
+      },
+      ".lake/build/lib/lean/Applications/Bracketing/Basic.olean.hash": {
+        "bytes": 16,
+        "sha256": "2d12556530ab9648c318752e6ea5a2761d147f0c2c13403c0dafa93fa9aebb0a"
+      },
+      ".lake/build/lib/lean/Applications/Bracketing/Basic.trace": {
+        "bytes": 3252,
+        "sha256": "9a4dee2d5ba209fdc18caa86d664529d8b99138c643298e07e6fb2109f7fb4f9"
+      },
+      ".lake/build/lib/lean/Applications/Optimization/SelectionSpec.olean": {
+        "bytes": 12104,
+        "sha256": "4f560db127967d496643e5373024be3457d44272722cb779b7dc570ff58c3b77"
+      },
+      ".lake/build/lib/lean/Applications/Optimization/SelectionSpec.olean.hash": {
+        "bytes": 16,
+        "sha256": "664548325ab1f38739bd23bc5697ce7061b1ec803dc41b7987b89a1a8fa04a5e"
+      },
+      ".lake/build/lib/lean/Applications/Optimization/SelectionSpec.trace": {
+        "bytes": 3143,
+        "sha256": "a3cfc927db1b29e0e57dac0a9d1549acc15d53a7fc5bcb3f78247668a0059547"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SymmetricCosts.olean": {
+        "bytes": 1261488,
+        "sha256": "32c38c6a32129c5c00e08dc4dd706bed08a050cf7c1b04f6b73adebd6c893d79"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SymmetricCosts.olean.hash": {
+        "bytes": 16,
+        "sha256": "8c29ea5014a6f81ab4c26fa137697259959c272475f72d009b796ba427205cd5"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SymmetricCosts.trace": {
+        "bytes": 3481,
+        "sha256": "4d95bec08e112139e9bf714f46eb8401819a7f5483f4d9f5cdf5ab023650ee14"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Symmetric/Core.olean": {
+        "bytes": 738496,
+        "sha256": "9cc54bf89ee8cc6582227f83ab3b7103b0e62a85d6bf19b3861317aa79c92db1"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Symmetric/Core.olean.hash": {
+        "bytes": 16,
+        "sha256": "55c722abd8fd1d4ce8c8651e46fbdb4dfad5f0429f4a36e39b195cb32f7460fd"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Symmetric/Core.trace": {
+        "bytes": 3415,
+        "sha256": "b14dcf60ffaa21ddadafc9a7d3f0f18d19d9ce744d6ea59b80e7c9565b4262d6"
+      },
+      ".lake/build/lib/lean/SquareKit/ListFusion.olean": {
+        "bytes": 62664,
+        "sha256": "d3714fec42b77b43ad8428a8ecf043ece8450d989816932cfb0bcc9dae55ef8d"
+      },
+      ".lake/build/lib/lean/SquareKit/ListFusion.olean.hash": {
+        "bytes": 16,
+        "sha256": "ab045300c1f09b867b44dc041ec3139c14ee809f071e4d2da4a75d5ab6bde2d3"
+      },
+      ".lake/build/lib/lean/SquareKit/ListFusion.trace": {
+        "bytes": 3150,
+        "sha256": "7e42088c18ff5cb03581dabbc532a343db5c34b04be62c3519359b1b26dfed28"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Potential.olean": {
+        "bytes": 239624,
+        "sha256": "ebaf838b961a9f44618e4cee6855dfaae9c89c285280c1209a33fe13d3ae65c7"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Potential.olean.hash": {
+        "bytes": 16,
+        "sha256": "2f8cea79e78d26caa7642fba3baed0e4a116146e36e6267b3cf4cb999797ac3a"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Potential.trace": {
+        "bytes": 3423,
+        "sha256": "0e243a19ecfd761f56bf0b693b8683ae9a5661533f07ba3b74b4a2f0eb0b03f8"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Workload.olean": {
+        "bytes": 140248,
+        "sha256": "02cf7c619f5df5a9bd7a34b6a6e1d652d5ee0685f4dffd6b5cc2191a8b674529"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Workload.olean.hash": {
+        "bytes": 16,
+        "sha256": "e83a987c1a8c5be845f14583351ae9dc2691c283252942ed7a35144f6d0e1c37"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Workload.trace": {
+        "bytes": 3389,
+        "sha256": "a0cc3644c808f2695022c9e89bdc9844187b744bd8726760540b3c9b819ce488"
+      },
+      ".lake/build/lib/lean/Applications/Resources/CallCount.olean": {
+        "bytes": 70784,
+        "sha256": "213261bb3cc47a6b79696c7e55b4aba27ffe452d29a2ebe8b63c278d8c7d46ca"
+      },
+      ".lake/build/lib/lean/Applications/Resources/CallCount.olean.hash": {
+        "bytes": 16,
+        "sha256": "3e6f69de38b1477145ca9e62d340fc376d494ecdf2baf44ee7dbb8a3242ede14"
+      },
+      ".lake/build/lib/lean/Applications/Resources/CallCount.trace": {
+        "bytes": 3250,
+        "sha256": "263c2d3dd51b591f1e443b16cee36515f38b6ca5fce20f0d468ab5b478ec43b8"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListCalls.olean": {
+        "bytes": 363912,
+        "sha256": "bea00d4617c486b329004a582a0c410a5c62fbf49591187fa62a4b9d13d174f1"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListCalls.olean.hash": {
+        "bytes": 16,
+        "sha256": "e7c1616656c600615aeb82b815a116d4377753654f1db1f6ba3ffec9d6f7414f"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListCalls.trace": {
+        "bytes": 3656,
+        "sha256": "a5b6b3863534fcd988f3c1807bf8bc0cd7036de5e954eb62f1adfbb2fa3ea669"
+      },
+      ".lake/build/lib/lean/Examples/FunctionalNotation.olean": {
+        "bytes": 215032,
+        "sha256": "1219695788a785e8fd1d4b517aa2637c33d7c6ff6c0041beedcee12714ec62a8"
+      },
+      ".lake/build/lib/lean/Examples/FunctionalNotation.olean.hash": {
+        "bytes": 16,
+        "sha256": "e696bff0e78f528c9bb02a1727a70b3994a4dcbd2fabd8eeb99f918715548111"
+      },
+      ".lake/build/lib/lean/Examples/FunctionalNotation.trace": {
+        "bytes": 5659,
+        "sha256": "435994dafdacf8ac59425aa0e36739779ed79ee304ec37a2728ce9012af0426e"
+      },
+      ".lake/build/lib/lean/Examples/FunctionalBasics.olean": {
+        "bytes": 70632,
+        "sha256": "c7f7f93d4081675debe3393014060b13c56b19e6a0e59804f1d2638e2e08c249"
+      },
+      ".lake/build/lib/lean/Examples/FunctionalBasics.olean.hash": {
+        "bytes": 16,
+        "sha256": "ec729c99c1b8b6e280e9b88f6f0e2453833f9c6e4a960965f874c3a05d42172a"
+      },
+      ".lake/build/lib/lean/Examples/FunctionalBasics.trace": {
+        "bytes": 4098,
+        "sha256": "9c9dcee24e3530b0e1e42866ae36af258c6b5d115c0e3664c3c2e89b8d9b7d70"
+      },
+      ".lake/build/lib/lean/Applications/Arithmetic/EuclidInduction.olean": {
+        "bytes": 20968,
+        "sha256": "cbb360f506a212370c6eb76146fd550fee4db78aa88b7cd2f042d8e5df096df8"
+      },
+      ".lake/build/lib/lean/Applications/Arithmetic/EuclidInduction.olean.hash": {
+        "bytes": 16,
+        "sha256": "c7be69d8de0d19300595a6500949bf899b0530f5bd8760e6648fa6992f3fad93"
+      },
+      ".lake/build/lib/lean/Applications/Arithmetic/EuclidInduction.trace": {
+        "bytes": 3289,
+        "sha256": "4bcb6c042c65775a3df04f1be8c3a5fed21e624cf54bd864a225a3e1f816db1a"
+      }
+    },
+    "configuration": {
+      "lean-toolchain": {
+        "bytes": 25,
+        "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+      },
+      "lake-manifest.json": {
+        "bytes": 3138,
+        "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+      },
+      "lakefile.toml": {
+        "bytes": 444,
+        "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+      },
+      "flake.nix": {
+        "bytes": 637,
+        "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+      },
+      "flake.lock": {
+        "bytes": 564,
+        "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+      },
+      "check.sh": {
+        "bytes": 74,
+        "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd"
+      },
+      "scripts/check.py": {
+        "bytes": 16119,
+        "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+      },
+      "scripts/lake_integrity.py": {
+        "bytes": 5781,
+        "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f"
+      },
+      "scripts/lake-output-hashes.lean": {
+        "bytes": 618,
+        "sha256": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b"
+      },
+      "ProofAudit.lean": {
+        "bytes": 7925,
+        "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd"
+      }
+    },
+    "dependencies": {
+      "mathlib": {
+        "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib"
+      },
+      "plausible": {
+        "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/plausible"
+      },
+      "LeanSearchClient": {
+        "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/LeanSearchClient"
+      },
+      "importGraph": {
+        "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/importGraph"
+      },
+      "proofwidgets": {
+        "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/proofwidgets"
+      },
+      "aesop": {
+        "head": "4a174c490d8707121c4a9290800489f105d85e07",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/aesop"
+      },
+      "Qq": {
+        "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/Qq"
+      },
+      "batteries": {
+        "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/batteries"
+      },
+      "Cli": {
+        "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/Cli"
+      }
+    },
+    "runtime": {
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/lake": {
+        "bytes": 13416,
+        "sha256": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/lean": {
+        "bytes": 9024,
+        "sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/leanc": {
+        "bytes": 36168,
+        "sha256": "1e0b075573c5ea98e6b196e35d3b159b93e3226714e28cd8febb30a240ec735c"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/leanir": {
+        "bytes": 215864,
+        "sha256": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e"
+      },
+      "conaled-native-state/profile/bin/lake": {
+        "bytes": 122,
+        "sha256": "85df404efd17484b633376fe8d3705f416e059642133d8232ed555a8d3174e21"
+      },
+      "conaled-native-state/profile/bin/lean": {
+        "bytes": 122,
+        "sha256": "e290032a73b271084c56dfde6315062e1523492dc36b1bbde9cc5dea23d1c716"
+      },
+      "conaled-native-state/profile/bin/leanc": {
+        "bytes": 123,
+        "sha256": "0e5517cfaaa530d1e484e45314a8e4be9bf44ccbccb09f8610fa190f6e5443e6"
+      },
+      "conaled-native-state/profile/bin/leanir": {
+        "bytes": 124,
+        "sha256": "3a64f332683efbab0057235ec2b3c22d3ead19cb060e0830b76f1add4cf7c661"
+      },
+      "conaled-native-state/profile/runtime.py": {
+        "bytes": 6368,
+        "sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695"
+      },
+      "conaled-native-state/profile/app_path.c": {
+        "bytes": 3848,
+        "sha256": "fefc39d8645e4a938d6cc27574257d1a1e8e8f0790b75cc15bcf074272066fe0"
+      },
+      "conaled-native-state/profile/app_path.so": {
+        "bytes": 16056,
+        "sha256": "124bc3f19426ab6558b3ca134d0afb70435eaff82a659e6e62a05e8e373e337d"
+      },
+      "/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": {
+        "bytes": 236616,
+        "sha256": "6222a16be7f2d458d6870efe6e715fc0c8d45766fb79cf7dcc3125538d703e28"
+      }
+    },
+    "eligible_external_imports": [
+      "Lean",
+      "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+      "Mathlib.Algebra.BigOperators.Group.List.Basic",
+      "Mathlib.Algebra.BigOperators.Group.Multiset.Basic",
+      "Mathlib.Algebra.Group.Nat.Defs",
+      "Mathlib.Algebra.Group.Prod",
+      "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+      "Mathlib.Algebra.Order.Floor.Ring",
+      "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+      "Mathlib.Basic.Real.Basic",
+      "Mathlib.Data.Int.DivMod",
+      "Mathlib.Data.List.Basic",
+      "Mathlib.Data.List.Chain",
+      "Mathlib.Data.List.Infix",
+      "Mathlib.Data.List.Intervals",
+      "Mathlib.Data.List.MinMax",
+      "Mathlib.Data.List.Sort",
+      "Mathlib.Data.Multiset.Filter",
+      "Mathlib.Data.Nat.GCD.Basic",
+      "Mathlib.Data.Set.Finite.Basic",
+      "Mathlib.Data.Set.Lattice.Bounded",
+      "Mathlib.Data.Set.Lattice.Disjoint",
+      "Mathlib.Data.Set.Lattice.Image",
+      "Mathlib.Data.Set.Lattice.Indexed",
+      "Mathlib.Data.Set.Lattice.Order",
+      "Mathlib.Data.Set.Prod",
+      "Mathlib.Logic.Function.Basic",
+      "Mathlib.Order.Interval.Finset.Nat",
+      "Mathlib.Order.Interval.Set.Defs",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.NormNum",
+      "Std"
+    ]
+  },
+  "actual110_mapping": [
+    {
+      "name": "Resources.ListCalls.mapRun",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 20,
+      "declaration_kind": "def",
+      "foundation145": {
+        "check_index_1_based": 20,
+        "program_line_1_based": 31
+      },
+      "actual_F145_output": {
+        "ordinal": 20,
+        "name": "Resources.ListCalls.mapRun",
+        "start_line": 138,
+        "end_line": 141,
+        "byte_start": 10509,
+        "byte_end_exclusive": 10714,
+        "bytes": 205,
+        "sha256": "ef1a5176c5f949a27dee6f1c486b922148cbe0aca2275f2253c23d21eaa73935"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.mapRun_nil",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 25,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 21,
+        "program_line_1_based": 32
+      },
+      "actual_F145_output": {
+        "ordinal": 21,
+        "name": "Resources.ListCalls.mapRun_nil",
+        "start_line": 142,
+        "end_line": 147,
+        "byte_start": 10714,
+        "byte_end_exclusive": 11121,
+        "bytes": 407,
+        "sha256": "34aca5228dd9677c7f149eba51c72c724609c170afa63ed335396508c444dfe3"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.mapRun_cons",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 27,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 22,
+        "program_line_1_based": 33
+      },
+      "actual_F145_output": {
+        "ordinal": 22,
+        "name": "Resources.ListCalls.mapRun_cons",
+        "start_line": 148,
+        "end_line": 158,
+        "byte_start": 11121,
+        "byte_end_exclusive": 11992,
+        "bytes": 871,
+        "sha256": "58215a48a8969c6224fe50a8283765d61b1d8863f8047cfcd15e9e49279b087d"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.mapRun_value",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 32,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 23,
+        "program_line_1_based": 34
+      },
+      "actual_F145_output": {
+        "ordinal": 23,
+        "name": "Resources.ListCalls.mapRun_value",
+        "start_line": 159,
+        "end_line": 162,
+        "byte_start": 11992,
+        "byte_end_exclusive": 12353,
+        "bytes": 361,
+        "sha256": "02380f4b2ee087d0b5b7b3d4a90a50ff1e69eec78bd6fa2f2d1ec7734457c955"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.mapRun_cost",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 38,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 24,
+        "program_line_1_based": 35
+      },
+      "actual_F145_output": {
+        "ordinal": 24,
+        "name": "Resources.ListCalls.mapRun_cost",
+        "start_line": 163,
+        "end_line": 173,
+        "byte_start": 12353,
+        "byte_end_exclusive": 13120,
+        "bytes": 767,
+        "sha256": "c8128032ce0ceb325a89830ddd4a965d5e525eb44ab731f13b0a4cb98a528db5"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.mapRun_exact",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 44,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 25,
+        "program_line_1_based": 36
+      },
+      "actual_F145_output": {
+        "ordinal": 25,
+        "name": "Resources.ListCalls.mapRun_exact",
+        "start_line": 174,
+        "end_line": 185,
+        "byte_start": 13120,
+        "byte_end_exclusive": 14034,
+        "bytes": 914,
+        "sha256": "45a1fe882e2118018f84647e96187db833a1dc1240f9ec490be4fdeefb688181"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.mapRun_cost_of_constant",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 50,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 26,
+        "program_line_1_based": 37
+      },
+      "actual_F145_output": {
+        "ordinal": 26,
+        "name": "Resources.ListCalls.mapRun_cost_of_constant",
+        "start_line": 186,
+        "end_line": 197,
+        "byte_start": 14034,
+        "byte_end_exclusive": 14897,
+        "bytes": 863,
+        "sha256": "a277afe31cb71172fda39ef13f2bcfd0a4c3fe821acfcb445f433c3200bf4bf3"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.filterRun",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 62,
+      "declaration_kind": "def",
+      "foundation145": {
+        "check_index_1_based": 27,
+        "program_line_1_based": 38
+      },
+      "actual_F145_output": {
+        "ordinal": 27,
+        "name": "Resources.ListCalls.filterRun",
+        "start_line": 198,
+        "end_line": 199,
+        "byte_start": 14897,
+        "byte_end_exclusive": 15072,
+        "bytes": 175,
+        "sha256": "36e0b022a5e66e5c9541636d6101684236545f0359c21edd8c0fe954e8fc79af"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.filterRun_nil",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 67,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 28,
+        "program_line_1_based": 39
+      },
+      "actual_F145_output": {
+        "ordinal": 28,
+        "name": "Resources.ListCalls.filterRun_nil",
+        "start_line": 200,
+        "end_line": 204,
+        "byte_start": 15072,
+        "byte_end_exclusive": 15452,
+        "bytes": 380,
+        "sha256": "5f78fa5986c3733f4972a2fdae5fb48308a5ec477de583bc87b984dd16fe16cd"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.filterRun_cons",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 69,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 29,
+        "program_line_1_based": 40
+      },
+      "actual_F145_output": {
+        "ordinal": 29,
+        "name": "Resources.ListCalls.filterRun_cons",
+        "start_line": 205,
+        "end_line": 217,
+        "byte_start": 15452,
+        "byte_end_exclusive": 16518,
+        "bytes": 1066,
+        "sha256": "b26923599b30b20a2558738d9efee2fe94bdf3a5c43c7f12b3d75e647ee0d664"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.filterRun_value",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 75,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 30,
+        "program_line_1_based": 41
+      },
+      "actual_F145_output": {
+        "ordinal": 30,
+        "name": "Resources.ListCalls.filterRun_value",
+        "start_line": 218,
+        "end_line": 221,
+        "byte_start": 16518,
+        "byte_end_exclusive": 16849,
+        "bytes": 331,
+        "sha256": "8a7bdddb0f7b0abb1184567c7d66c160365f57dd2bd0e69f072645e8d4318796"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.filterRun_cost",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 81,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 31,
+        "program_line_1_based": 42
+      },
+      "actual_F145_output": {
+        "ordinal": 31,
+        "name": "Resources.ListCalls.filterRun_cost",
+        "start_line": 222,
+        "end_line": 232,
+        "byte_start": 16849,
+        "byte_end_exclusive": 17591,
+        "bytes": 742,
+        "sha256": "bcc6fd24d6beedfae90a8821b3b3eb35be91e39b6dc895dfeda383c014ed9576"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.filterRun_exact",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 87,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 32,
+        "program_line_1_based": 43
+      },
+      "actual_F145_output": {
+        "ordinal": 32,
+        "name": "Resources.ListCalls.filterRun_exact",
+        "start_line": 233,
+        "end_line": 244,
+        "byte_start": 17591,
+        "byte_end_exclusive": 18475,
+        "bytes": 884,
+        "sha256": "705d20fc8df0c9ab5809239072ba04cf088f28bfcb3a340310f4be6e02b98d78"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.filterRun_cost_eq_mapRun",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 93,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 33,
+        "program_line_1_based": 44
+      },
+      "actual_F145_output": {
+        "ordinal": 33,
+        "name": "Resources.ListCalls.filterRun_cost_eq_mapRun",
+        "start_line": 245,
+        "end_line": 248,
+        "byte_start": 18475,
+        "byte_end_exclusive": 18818,
+        "bytes": 343,
+        "sha256": "69d775cce00160b025d50ee210f88d29e7faff3aba2831ae685c7654460b4756"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.filterRun_cost_of_constant",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 97,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 34,
+        "program_line_1_based": 45
+      },
+      "actual_F145_output": {
+        "ordinal": 34,
+        "name": "Resources.ListCalls.filterRun_cost_of_constant",
+        "start_line": 249,
+        "end_line": 260,
+        "byte_start": 18818,
+        "byte_end_exclusive": 19656,
+        "bytes": 838,
+        "sha256": "60da2e1389213c201b0e35c8f399ec582759c925687fbf43f32eaa00882ffd01"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.takeRun",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 104,
+      "declaration_kind": "def",
+      "foundation145": {
+        "check_index_1_based": 35,
+        "program_line_1_based": 46
+      },
+      "actual_F145_output": {
+        "ordinal": 35,
+        "name": "Resources.ListCalls.takeRun",
+        "start_line": 261,
+        "end_line": 262,
+        "byte_start": 19656,
+        "byte_end_exclusive": 19789,
+        "bytes": 133,
+        "sha256": "d405f68b97ef78dd238cda3895b167c2916ade395fc8729fa312a3ddaef93884"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.dropRun",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 109,
+      "declaration_kind": "def",
+      "foundation145": {
+        "check_index_1_based": 36,
+        "program_line_1_based": 47
+      },
+      "actual_F145_output": {
+        "ordinal": 36,
+        "name": "Resources.ListCalls.dropRun",
+        "start_line": 263,
+        "end_line": 264,
+        "byte_start": 19789,
+        "byte_end_exclusive": 19922,
+        "bytes": 133,
+        "sha256": "9d20f6a4332bf06c79b18c4438cc13677d4d4f03400fedb4b2465981ae37c827"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.takeRun_nil",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 113,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 37,
+        "program_line_1_based": 48
+      },
+      "actual_F145_output": {
+        "ordinal": 37,
+        "name": "Resources.ListCalls.takeRun_nil",
+        "start_line": 265,
+        "end_line": 269,
+        "byte_start": 19922,
+        "byte_end_exclusive": 20260,
+        "bytes": 338,
+        "sha256": "1c12a4c69a35ac5890c7402b20a43710cfc94b745a08233794e187745e93f7ad"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.takeRun_zero",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 116,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 38,
+        "program_line_1_based": 49
+      },
+      "actual_F145_output": {
+        "ordinal": 38,
+        "name": "Resources.ListCalls.takeRun_zero",
+        "start_line": 270,
+        "end_line": 274,
+        "byte_start": 20260,
+        "byte_end_exclusive": 20652,
+        "bytes": 392,
+        "sha256": "d0d592a2593adbf8030fcc388b7d17c5d8937a87eed5627a9dfb904803635583"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.takeRun_succ_cons",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 118,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 39,
+        "program_line_1_based": 50
+      },
+      "actual_F145_output": {
+        "ordinal": 39,
+        "name": "Resources.ListCalls.takeRun_succ_cons",
+        "start_line": 275,
+        "end_line": 285,
+        "byte_start": 20652,
+        "byte_end_exclusive": 21443,
+        "bytes": 791,
+        "sha256": "763680260556575cf7795a58c49496c239f7285bb78a740b30d9edfd4f0c212b"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.dropRun_nil",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 122,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 40,
+        "program_line_1_based": 51
+      },
+      "actual_F145_output": {
+        "ordinal": 40,
+        "name": "Resources.ListCalls.dropRun_nil",
+        "start_line": 286,
+        "end_line": 290,
+        "byte_start": 21443,
+        "byte_end_exclusive": 21781,
+        "bytes": 338,
+        "sha256": "15724246225657cf43095a1b861a859618b2de0608b56343ad0fe68d83ec869f"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.dropRun_zero",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 125,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 41,
+        "program_line_1_based": 52
+      },
+      "actual_F145_output": {
+        "ordinal": 41,
+        "name": "Resources.ListCalls.dropRun_zero",
+        "start_line": 291,
+        "end_line": 294,
+        "byte_start": 21781,
+        "byte_end_exclusive": 22149,
+        "bytes": 368,
+        "sha256": "75adc69e0e7e10903b6a96c7b7953069fccc720e8d5dc94f3443789358778a28"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.dropRun_succ_cons",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 127,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 42,
+        "program_line_1_based": 53
+      },
+      "actual_F145_output": {
+        "ordinal": 42,
+        "name": "Resources.ListCalls.dropRun_succ_cons",
+        "start_line": 295,
+        "end_line": 305,
+        "byte_start": 22149,
+        "byte_end_exclusive": 22916,
+        "bytes": 767,
+        "sha256": "4e0bdfe94fd4cafe0546da94f9120ea0acdbd4f55ac10eb71168d1e63aea81e3"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.takeRun_exact",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 131,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 43,
+        "program_line_1_based": 54
+      },
+      "actual_F145_output": {
+        "ordinal": 43,
+        "name": "Resources.ListCalls.takeRun_exact",
+        "start_line": 306,
+        "end_line": 311,
+        "byte_start": 22916,
+        "byte_end_exclusive": 23402,
+        "bytes": 486,
+        "sha256": "86543076462bfbaa1c4570b0e703c3f37aa2bb038b258f6e7186dac012513ee5"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.dropRun_exact",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 135,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 44,
+        "program_line_1_based": 55
+      },
+      "actual_F145_output": {
+        "ordinal": 44,
+        "name": "Resources.ListCalls.dropRun_exact",
+        "start_line": 312,
+        "end_line": 317,
+        "byte_start": 23402,
+        "byte_end_exclusive": 23888,
+        "bytes": 486,
+        "sha256": "0ba7a97397d35b8f27ec711a1e51da70a08bf8fdfda59c6e63c6ff056ba16dbd"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.take_drop_separate",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 140,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 45,
+        "program_line_1_based": 56
+      },
+      "actual_F145_output": {
+        "ordinal": 45,
+        "name": "Resources.ListCalls.take_drop_separate",
+        "start_line": 318,
+        "end_line": 334,
+        "byte_start": 23888,
+        "byte_end_exclusive": 25259,
+        "bytes": 1371,
+        "sha256": "c0a0591cfaf79ec545e142c30615bfca40cca5007de0867a44ed7b0e86bdeaca"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.lookupRun",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 150,
+      "declaration_kind": "def",
+      "foundation145": {
+        "check_index_1_based": 46,
+        "program_line_1_based": 57
+      },
+      "actual_F145_output": {
+        "ordinal": 46,
+        "name": "Resources.ListCalls.lookupRun",
+        "start_line": 335,
+        "end_line": 336,
+        "byte_start": 25259,
+        "byte_end_exclusive": 25396,
+        "bytes": 137,
+        "sha256": "15e08285ead369ed7ff9b1cbfbe20454ef5b6cb6ab05d0ada9c82efc1aa7ad91"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.lookupRun_nil",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 155,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 47,
+        "program_line_1_based": 58
+      },
+      "actual_F145_output": {
+        "ordinal": 47,
+        "name": "Resources.ListCalls.lookupRun_nil",
+        "start_line": 337,
+        "end_line": 341,
+        "byte_start": 25396,
+        "byte_end_exclusive": 25745,
+        "bytes": 349,
+        "sha256": "1ba614785cf9638b3aa1bbe96cbf3445b011edfec0285e265445d344081f6b4a"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.lookupRun_zero_cons",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 157,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 48,
+        "program_line_1_based": 59
+      },
+      "actual_F145_output": {
+        "ordinal": 48,
+        "name": "Resources.ListCalls.lookupRun_zero_cons",
+        "start_line": 342,
+        "end_line": 347,
+        "byte_start": 25745,
+        "byte_end_exclusive": 26194,
+        "bytes": 449,
+        "sha256": "a93b18d2bac4397993bf9b74feb32bcf923b5236312caff4eeb08d81ba67e89e"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.lookupRun_succ_cons",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 160,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 49,
+        "program_line_1_based": 60
+      },
+      "actual_F145_output": {
+        "ordinal": 49,
+        "name": "Resources.ListCalls.lookupRun_succ_cons",
+        "start_line": 348,
+        "end_line": 357,
+        "byte_start": 26194,
+        "byte_end_exclusive": 26971,
+        "bytes": 777,
+        "sha256": "a215c45bbea9a8c62c0ddbf4683defd663910e7d6ef099bf370dc16a21ac52c6"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.lookupRun_value",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 164,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 50,
+        "program_line_1_based": 61
+      },
+      "actual_F145_output": {
+        "ordinal": 50,
+        "name": "Resources.ListCalls.lookupRun_value",
+        "start_line": 358,
+        "end_line": 361,
+        "byte_start": 26971,
+        "byte_end_exclusive": 27374,
+        "bytes": 403,
+        "sha256": "74d522584bc8d7514ae687f80bd4c435ac7fd1fa9f220c63e6616255c8b36beb"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.lookupRun_cost",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 173,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 51,
+        "program_line_1_based": 62
+      },
+      "actual_F145_output": {
+        "ordinal": 51,
+        "name": "Resources.ListCalls.lookupRun_cost",
+        "start_line": 362,
+        "end_line": 366,
+        "byte_start": 27374,
+        "byte_end_exclusive": 27777,
+        "bytes": 403,
+        "sha256": "6d95ce2ab679a30c91f0aebd3d0e6ce2033f8f4c278ac31402d7843be37b9d14"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.lookupRun_cost_of_lt",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 179,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 52,
+        "program_line_1_based": 63
+      },
+      "actual_F145_output": {
+        "ordinal": 52,
+        "name": "Resources.ListCalls.lookupRun_cost_of_lt",
+        "start_line": 367,
+        "end_line": 371,
+        "byte_start": 27777,
+        "byte_end_exclusive": 28189,
+        "bytes": 412,
+        "sha256": "cbd86c52f3dc33cbb179edacfcc7d49fd21dcf835a200728f11275376b99e877"
+      }
+    },
+    {
+      "name": "Resources.ListCalls.lookupRun_valid",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 184,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 53,
+        "program_line_1_based": 64
+      },
+      "actual_F145_output": {
+        "ordinal": 53,
+        "name": "Resources.ListCalls.lookupRun_valid",
+        "start_line": 372,
+        "end_line": 381,
+        "byte_start": 28189,
+        "byte_end_exclusive": 28884,
+        "bytes": 695,
+        "sha256": "34d276c7a03a84fe49749d232a9604e051fe4e3a50d1f966e96ac160a507b753"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.composition_and_eta",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 29,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 54,
+        "program_line_1_based": 65
+      },
+      "actual_F145_output": {
+        "ordinal": 54,
+        "name": "Examples.FunctionalNotation.composition_and_eta",
+        "start_line": 382,
+        "end_line": 385,
+        "byte_start": 28884,
+        "byte_end_exclusive": 29174,
+        "bytes": 290,
+        "sha256": "cd29300482fd032ef83c670f3bff52e9adf86e8cd7f9b5ae48fdc540f244aa87"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.boolean_truth",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 35,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 55,
+        "program_line_1_based": 66
+      },
+      "actual_F145_output": {
+        "ordinal": 55,
+        "name": "Examples.FunctionalNotation.boolean_truth",
+        "start_line": 386,
+        "end_line": 393,
+        "byte_start": 29174,
+        "byte_end_exclusive": 29710,
+        "bytes": 536,
+        "sha256": "4b352867110ad5ddc5e92afa78df762d85f764b036e438bdbf37a3c107458a3e"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.comprehension_order_and_repetition",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 41,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 56,
+        "program_line_1_based": 67
+      },
+      "actual_F145_output": {
+        "ordinal": 56,
+        "name": "Examples.FunctionalNotation.comprehension_order_and_repetition",
+        "start_line": 394,
+        "end_line": 407,
+        "byte_start": 29710,
+        "byte_end_exclusive": 30658,
+        "bytes": 948,
+        "sha256": "3e4ccca19badcbf77a63c1c35f21d4f6e11cb94f8fee725813395d05726fbba1"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.set_union_intersection",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 44,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 57,
+        "program_line_1_based": 68
+      },
+      "actual_F145_output": {
+        "ordinal": 57,
+        "name": "Examples.FunctionalNotation.set_union_intersection",
+        "start_line": 408,
+        "end_line": 419,
+        "byte_start": 30658,
+        "byte_end_exclusive": 31482,
+        "bytes": 824,
+        "sha256": "f1a6b8ebd5431cb4ee9ef2701e1bdf985029f90f7875466d59f9363fee4dd8af"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.proper_subset",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 48,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 58,
+        "program_line_1_based": 69
+      },
+      "actual_F145_output": {
+        "ordinal": 58,
+        "name": "Examples.FunctionalNotation.proper_subset",
+        "start_line": 420,
+        "end_line": 433,
+        "byte_start": 31482,
+        "byte_end_exclusive": 32464,
+        "bytes": 982,
+        "sha256": "9263749159c5948670574c8529ae0736e2e698c125dbeb2d73a02d452cf4cc44"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.direct_image",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 51,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 59,
+        "program_line_1_based": 70
+      },
+      "actual_F145_output": {
+        "ordinal": 59,
+        "name": "Examples.FunctionalNotation.direct_image",
+        "start_line": 434,
+        "end_line": 437,
+        "byte_start": 32464,
+        "byte_end_exclusive": 32850,
+        "bytes": 386,
+        "sha256": "4d012349b7262ba3caa85ef376039f4331723d2ea66e84089742b64b37e197db"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.restricted_comprehension",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 54,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 60,
+        "program_line_1_based": 71
+      },
+      "actual_F145_output": {
+        "ordinal": 60,
+        "name": "Examples.FunctionalNotation.restricted_comprehension",
+        "start_line": 438,
+        "end_line": 444,
+        "byte_start": 32850,
+        "byte_end_exclusive": 33311,
+        "bytes": 461,
+        "sha256": "4d8659b318f00d9f2131055e5db1c9bfab3624037c05573451c75f566ef14a7f"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.two_variable_comprehension",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 57,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 61,
+        "program_line_1_based": 72
+      },
+      "actual_F145_output": {
+        "ordinal": 61,
+        "name": "Examples.FunctionalNotation.two_variable_comprehension",
+        "start_line": 445,
+        "end_line": 450,
+        "byte_start": 33311,
+        "byte_end_exclusive": 33733,
+        "bytes": 422,
+        "sha256": "b22184bc52d61f7014481908e226f02fa063dafcffacdaef0e8de108a156ebb8"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.indexed_union",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 61,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 62,
+        "program_line_1_based": 73
+      },
+      "actual_F145_output": {
+        "ordinal": 62,
+        "name": "Examples.FunctionalNotation.indexed_union",
+        "start_line": 451,
+        "end_line": 454,
+        "byte_start": 33733,
+        "byte_end_exclusive": 34083,
+        "bytes": 350,
+        "sha256": "dcdebd0bb2ceb45083db5937e7948c75f8c2429cdcecef7894330ad7abee9909"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.set_of_sets_observations",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 66,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 63,
+        "program_line_1_based": 74
+      },
+      "actual_F145_output": {
+        "ordinal": 63,
+        "name": "Examples.FunctionalNotation.set_of_sets_observations",
+        "start_line": 455,
+        "end_line": 467,
+        "byte_start": 34083,
+        "byte_end_exclusive": 34963,
+        "bytes": 880,
+        "sha256": "78dd9f5a666fc08eabf8fd0bde2fa75a68fc5bd8a0291629250bad709483bc52"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.bounded_quantifiers",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 70,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 64,
+        "program_line_1_based": 75
+      },
+      "actual_F145_output": {
+        "ordinal": 64,
+        "name": "Examples.FunctionalNotation.bounded_quantifiers",
+        "start_line": 468,
+        "end_line": 473,
+        "byte_start": 34963,
+        "byte_end_exclusive": 35526,
+        "bytes": 563,
+        "sha256": "8a6bc17e66f23e05b28d57c67e78c104b77dbf897b7aa7eb088343e543daf7c5"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.product_membership",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 74,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 65,
+        "program_line_1_based": 76
+      },
+      "actual_F145_output": {
+        "ordinal": 65,
+        "name": "Examples.FunctionalNotation.product_membership",
+        "start_line": 474,
+        "end_line": 483,
+        "byte_start": 35526,
+        "byte_end_exclusive": 36256,
+        "bytes": 730,
+        "sha256": "f6f3b82412548dc89fe25c692d0b14486fc80f895d3e3c5e9abaa419c159be17"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.all_interval_memberships",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 77,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 66,
+        "program_line_1_based": 77
+      },
+      "actual_F145_output": {
+        "ordinal": 66,
+        "name": "Examples.FunctionalNotation.all_interval_memberships",
+        "start_line": 484,
+        "end_line": 505,
+        "byte_start": 36256,
+        "byte_end_exclusive": 37853,
+        "bytes": 1597,
+        "sha256": "57a8a30f683532ad0ec7eec43d16d4a5966e35dcb9bc137dc09a858b3d22c230"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.upper_interval_correction",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 86,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 67,
+        "program_line_1_based": 78
+      },
+      "actual_F145_output": {
+        "ordinal": 67,
+        "name": "Examples.FunctionalNotation.upper_interval_correction",
+        "start_line": 506,
+        "end_line": 518,
+        "byte_start": 37853,
+        "byte_end_exclusive": 38777,
+        "bytes": 924,
+        "sha256": "54044e29a860cb9a285664e9562b201a6dfa783dd1378a436c178ac79c92f62d"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.floor_division_nonnegative",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 94,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 68,
+        "program_line_1_based": 79
+      },
+      "actual_F145_output": {
+        "ordinal": 68,
+        "name": "Examples.FunctionalNotation.floor_division_nonnegative",
+        "start_line": 519,
+        "end_line": 521,
+        "byte_start": 38777,
+        "byte_end_exclusive": 39046,
+        "bytes": 269,
+        "sha256": "866ed36bd63bb5f37491c06c9ff727f811de48af1fee0827d97ac412392a7782"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.negative_divisor_distinguishes",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 97,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 69,
+        "program_line_1_based": 80
+      },
+      "actual_F145_output": {
+        "ordinal": 69,
+        "name": "Examples.FunctionalNotation.negative_divisor_distinguishes",
+        "start_line": 522,
+        "end_line": 531,
+        "byte_start": 39046,
+        "byte_end_exclusive": 39751,
+        "bytes": 705,
+        "sha256": "eeff75128d107626bd19eb446321530c79136c242c13314ef7a6f0a29c7076fc"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.floor_division_zero",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 101,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 70,
+        "program_line_1_based": 81
+      },
+      "actual_F145_output": {
+        "ordinal": 70,
+        "name": "Examples.FunctionalNotation.floor_division_zero",
+        "start_line": 532,
+        "end_line": 534,
+        "byte_start": 39751,
+        "byte_end_exclusive": 39963,
+        "bytes": 212,
+        "sha256": "e648f188771d2b93d48fea0f0c27ae7f28d64ad5f8707dbc2104d1a6abd91d21"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.typed_arithmetic",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 105,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 71,
+        "program_line_1_based": 82
+      },
+      "actual_F145_output": {
+        "ordinal": 71,
+        "name": "Examples.FunctionalNotation.typed_arithmetic",
+        "start_line": 535,
+        "end_line": 559,
+        "byte_start": 39963,
+        "byte_end_exclusive": 41599,
+        "bytes": 1636,
+        "sha256": "362919a31421c4f088d1ca657ef0a7c3c143e2067e3de7234c451c64e41492a6"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.floor_and_ceiling",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 111,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 72,
+        "program_line_1_based": 83
+      },
+      "actual_F145_output": {
+        "ordinal": 72,
+        "name": "Examples.FunctionalNotation.floor_and_ceiling",
+        "start_line": 560,
+        "end_line": 574,
+        "byte_start": 41599,
+        "byte_end_exclusive": 42788,
+        "bytes": 1189,
+        "sha256": "8f1260c722af7d73e60c36dcde35423de88c1f0cf644c02ff359156816254c3a"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.submultiset_is_not_support_subset",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 119,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 73,
+        "program_line_1_based": 84
+      },
+      "actual_F145_output": {
+        "ordinal": 73,
+        "name": "Examples.FunctionalNotation.submultiset_is_not_support_subset",
+        "start_line": 575,
+        "end_line": 590,
+        "byte_start": 42788,
+        "byte_end_exclusive": 43872,
+        "bytes": 1084,
+        "sha256": "0cfc1f48cf93758b9a39ddb595397472470ca95f433aa072dc6e0756f9b4ce86"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.repeated_sum_and_product",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 129,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 74,
+        "program_line_1_based": 85
+      },
+      "actual_F145_output": {
+        "ordinal": 74,
+        "name": "Examples.FunctionalNotation.repeated_sum_and_product",
+        "start_line": 591,
+        "end_line": 639,
+        "byte_start": 43872,
+        "byte_end_exclusive": 47008,
+        "bytes": 3136,
+        "sha256": "ecba7ac9baa365e07f704056a4cdcd9a04f1878164a7ed153254ce6c1c8407c4"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.closed_interval_fold",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 138,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 75,
+        "program_line_1_based": 86
+      },
+      "actual_F145_output": {
+        "ordinal": 75,
+        "name": "Examples.FunctionalNotation.closed_interval_fold",
+        "start_line": 640,
+        "end_line": 654,
+        "byte_start": 47008,
+        "byte_end_exclusive": 47801,
+        "bytes": 793,
+        "sha256": "cbe037de48e2583141c00753580cb75d3b40db3ea67179c02307640e950e7cd9"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.finiteIndexProduct",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 148,
+      "declaration_kind": "def",
+      "foundation145": {
+        "check_index_1_based": 76,
+        "program_line_1_based": 87
+      },
+      "actual_F145_output": {
+        "ordinal": 76,
+        "name": "Examples.FunctionalNotation.finiteIndexProduct",
+        "start_line": 655,
+        "end_line": 656,
+        "byte_start": 47801,
+        "byte_end_exclusive": 47968,
+        "bytes": 167,
+        "sha256": "8cea322b212507b9b016c9d3d935fd2a59744ea6b90b5be4e91a9ee9f0c8bf99"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.finiteIndexProduct_of_finite",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 153,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 77,
+        "program_line_1_based": 88
+      },
+      "actual_F145_output": {
+        "ordinal": 77,
+        "name": "Examples.FunctionalNotation.finiteIndexProduct_of_finite",
+        "start_line": 657,
+        "end_line": 661,
+        "byte_start": 47968,
+        "byte_end_exclusive": 48351,
+        "bytes": 383,
+        "sha256": "545368f35688e138f97d07465bcdced5539fc16166d0fb87385e02fc0b1f8b60"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.finiteIndexProduct_of_infinite",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 159,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 78,
+        "program_line_1_based": 89
+      },
+      "actual_F145_output": {
+        "ordinal": 78,
+        "name": "Examples.FunctionalNotation.finiteIndexProduct_of_infinite",
+        "start_line": 662,
+        "end_line": 669,
+        "byte_start": 48351,
+        "byte_end_exclusive": 48882,
+        "bytes": 531,
+        "sha256": "7249dc89192628c0406a0d5d51c3be31e04882fae56b61ab984fccfa12c58c7b"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.finiteIndexProduct_of_finset",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 165,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 79,
+        "program_line_1_based": 90
+      },
+      "actual_F145_output": {
+        "ordinal": 79,
+        "name": "Examples.FunctionalNotation.finiteIndexProduct_of_finset",
+        "start_line": 670,
+        "end_line": 675,
+        "byte_start": 48882,
+        "byte_end_exclusive": 49289,
+        "bytes": 407,
+        "sha256": "19abb90664ad41cc63dcd322bc3c99916eac04ba2532eb67b18f3ee2e1d85c91"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.finite_index_values",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 169,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 80,
+        "program_line_1_based": 91
+      },
+      "actual_F145_output": {
+        "ordinal": 80,
+        "name": "Examples.FunctionalNotation.finite_index_values",
+        "start_line": 676,
+        "end_line": 696,
+        "byte_start": 49289,
+        "byte_end_exclusive": 50684,
+        "bytes": 1395,
+        "sha256": "b1d11e92383713b79059942875f615d13b508d4d7fab5f0cab9fc4f62075cce0"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.infinite_index_values",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 181,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 81,
+        "program_line_1_based": 92
+      },
+      "actual_F145_output": {
+        "ordinal": 81,
+        "name": "Examples.FunctionalNotation.infinite_index_values",
+        "start_line": 697,
+        "end_line": 711,
+        "byte_start": 50684,
+        "byte_end_exclusive": 51797,
+        "bytes": 1113,
+        "sha256": "bf2946a0f4270ca772dbe21da4333716ac5223371007eb0482cd333479b50347"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.empty_index_type",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 187,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 82,
+        "program_line_1_based": 93
+      },
+      "actual_F145_output": {
+        "ordinal": 82,
+        "name": "Examples.FunctionalNotation.empty_index_type",
+        "start_line": 712,
+        "end_line": 720,
+        "byte_start": 51797,
+        "byte_end_exclusive": 52431,
+        "bytes": 634,
+        "sha256": "2ec6e49c6b934e77fb7b2ef941d9bec76d0ee4a3ef7b816886d4662ffd13f73e"
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.ordered_list_folds",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 197,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 83,
+        "program_line_1_based": 94
+      },
+      "actual_F145_output": {
+        "ordinal": 83,
+        "name": "Examples.FunctionalNotation.ordered_list_folds",
+        "start_line": 721,
+        "end_line": 746,
+        "byte_start": 52431,
+        "byte_end_exclusive": 54727,
+        "bytes": 2296,
+        "sha256": "3830267422e495176ae0cf9fd38c249d5674e2a1dd554d7a4e3eed619eff8ad6"
+      }
+    },
+    {
+      "name": "Examples.ListCalls.duplicate_map",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 15,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 100,
+        "program_line_1_based": 111
+      },
+      "actual_F145_output": {
+        "ordinal": 100,
+        "name": "Examples.ListCalls.duplicate_map",
+        "start_line": 914,
+        "end_line": 928,
+        "byte_start": 66868,
+        "byte_end_exclusive": 67897,
+        "bytes": 1029,
+        "sha256": "64a0f98caf55a0b249d81d6ffe1ab84ec35462c9e1fb5701b2410bd891a45d8a"
+      }
+    },
+    {
+      "name": "Examples.ListCalls.discarded_last",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 20,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 101,
+        "program_line_1_based": 112
+      },
+      "actual_F145_output": {
+        "ordinal": 101,
+        "name": "Examples.ListCalls.discarded_last",
+        "start_line": 929,
+        "end_line": 942,
+        "byte_start": 67897,
+        "byte_end_exclusive": 68878,
+        "bytes": 981,
+        "sha256": "04802277b730eec952e8a5192b6a642dda357a52064409de689a03aacab78e1e"
+      }
+    },
+    {
+      "name": "Examples.ListCalls.discarded_head",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 25,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 102,
+        "program_line_1_based": 113
+      },
+      "actual_F145_output": {
+        "ordinal": 102,
+        "name": "Examples.ListCalls.discarded_head",
+        "start_line": 943,
+        "end_line": 956,
+        "byte_start": 68878,
+        "byte_end_exclusive": 69859,
+        "bytes": 981,
+        "sha256": "a97a4730a47d22d379acf08aacb5c657d9ffa7bec8c9ecfc5a92b5e5ca18e4a5"
+      }
+    },
+    {
+      "name": "Examples.ListCalls.zero_and_unit_callbacks",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 30,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 103,
+        "program_line_1_based": 114
+      },
+      "actual_F145_output": {
+        "ordinal": 103,
+        "name": "Examples.ListCalls.zero_and_unit_callbacks",
+        "start_line": 957,
+        "end_line": 981,
+        "byte_start": 69859,
+        "byte_end_exclusive": 71426,
+        "bytes": 1567,
+        "sha256": "758ed13ae50ebdfbf1f16eda84866d4ea63567874b90e1054a69c1b9fc45e902"
+      }
+    },
+    {
+      "name": "Examples.ListCalls.discarded_values_still_pay",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 37,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 104,
+        "program_line_1_based": 115
+      },
+      "actual_F145_output": {
+        "ordinal": 104,
+        "name": "Examples.ListCalls.discarded_values_still_pay",
+        "start_line": 982,
+        "end_line": 989,
+        "byte_start": 71426,
+        "byte_end_exclusive": 72043,
+        "bytes": 617,
+        "sha256": "29275ae545e4fda54ea4fd4ff0f787d2c519418531ae6e94df076465b9f286bf"
+      }
+    },
+    {
+      "name": "Examples.ListCalls.map_then_length",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 44,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 105,
+        "program_line_1_based": 116
+      },
+      "actual_F145_output": {
+        "ordinal": 105,
+        "name": "Examples.ListCalls.map_then_length",
+        "start_line": 990,
+        "end_line": 1002,
+        "byte_start": 72043,
+        "byte_end_exclusive": 73051,
+        "bytes": 1008,
+        "sha256": "ddb784828b154eeda284c837ef167aeaba24b420bf211e211a0b92e37f207e1c"
+      }
+    },
+    {
+      "name": "Examples.ListCalls.composed_callback_count",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 53,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 106,
+        "program_line_1_based": 117
+      },
+      "actual_F145_output": {
+        "ordinal": 106,
+        "name": "Examples.ListCalls.composed_callback_count",
+        "start_line": 1003,
+        "end_line": 1016,
+        "byte_start": 73051,
+        "byte_end_exclusive": 73969,
+        "bytes": 918,
+        "sha256": "d4e1e62e853062ad347a3b0d10b305b916132380dd5c4c34d8a93e9684949811"
+      }
+    },
+    {
+      "name": "Examples.ListCalls.append_then_length",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 62,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 107,
+        "program_line_1_based": 118
+      },
+      "actual_F145_output": {
+        "ordinal": 107,
+        "name": "Examples.ListCalls.append_then_length",
+        "start_line": 1017,
+        "end_line": 1029,
+        "byte_start": 73969,
+        "byte_end_exclusive": 74874,
+        "bytes": 905,
+        "sha256": "5ea895ca38e8c57b4959ca7be42a51317802cbf0d3207ff137a73bb43cbabc3d"
+      }
+    },
+    {
+      "name": "Examples.ListCalls.valid_lookup",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 71,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 108,
+        "program_line_1_based": 119
+      },
+      "actual_F145_output": {
+        "ordinal": 108,
+        "name": "Examples.ListCalls.valid_lookup",
+        "start_line": 1030,
+        "end_line": 1038,
+        "byte_start": 74874,
+        "byte_end_exclusive": 75557,
+        "bytes": 683,
+        "sha256": "93d4f405a63742548f21bd64956279fd4ca0bdf1d3684452665c708223cba3a3"
+      }
+    },
+    {
+      "name": "Examples.ListCalls.first_invalid_lookup",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 75,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 109,
+        "program_line_1_based": 120
+      },
+      "actual_F145_output": {
+        "ordinal": 109,
+        "name": "Examples.ListCalls.first_invalid_lookup",
+        "start_line": 1039,
+        "end_line": 1046,
+        "byte_start": 75557,
+        "byte_end_exclusive": 76182,
+        "bytes": 625,
+        "sha256": "21d5bab946780de1375198afe92295442eb9970e6a57130e299aada38a84799f"
+      }
+    },
+    {
+      "name": "Examples.ListCalls.farther_invalid_lookup",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 82,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 110,
+        "program_line_1_based": 121
+      },
+      "actual_F145_output": {
+        "ordinal": 110,
+        "name": "Examples.ListCalls.farther_invalid_lookup",
+        "start_line": 1047,
+        "end_line": 1054,
+        "byte_start": 76182,
+        "byte_end_exclusive": 76811,
+        "bytes": 629,
+        "sha256": "2aa17ffa866df11f409b9b34d1eb0777ee11ea8792dffcd702de87980dde78d1"
+      }
+    },
+    {
+      "name": "Examples.ListCalls.empty_payload_lookup",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 89,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 111,
+        "program_line_1_based": 122
+      },
+      "actual_F145_output": {
+        "ordinal": 111,
+        "name": "Examples.ListCalls.empty_payload_lookup",
+        "start_line": 1055,
+        "end_line": 1059,
+        "byte_start": 76811,
+        "byte_end_exclusive": 77181,
+        "bytes": 370,
+        "sha256": "db4833761367eb2327ce29509b9827a253f0476511d7401afa533b55abb05541"
+      }
+    },
+    {
+      "name": "Examples.ListCalls.take_drop_values",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 92,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 112,
+        "program_line_1_based": 123
+      },
+      "actual_F145_output": {
+        "ordinal": 112,
+        "name": "Examples.ListCalls.take_drop_values",
+        "start_line": 1060,
+        "end_line": 1077,
+        "byte_start": 77181,
+        "byte_end_exclusive": 78664,
+        "bytes": 1483,
+        "sha256": "7c8ce53f5570373fdb60c4c611db8eb54bcd613acdab9f24c5fea4c25d706209"
+      }
+    },
+    {
+      "name": "Examples.ListCalls.separate_vs_fused",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 101,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 113,
+        "program_line_1_based": 124
+      },
+      "actual_F145_output": {
+        "ordinal": 113,
+        "name": "Examples.ListCalls.separate_vs_fused",
+        "start_line": 1078,
+        "end_line": 1111,
+        "byte_start": 78664,
+        "byte_end_exclusive": 81574,
+        "bytes": 2910,
+        "sha256": "aef4b72b95ac98b8f7ad62510e0356acafbf98c1cb2e15bee565732ff3809acf"
+      }
+    },
+    {
+      "name": "Examples.ListCalls.zero_and_overlarge",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 114,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 114,
+        "program_line_1_based": 125
+      },
+      "actual_F145_output": {
+        "ordinal": 114,
+        "name": "Examples.ListCalls.zero_and_overlarge",
+        "start_line": 1112,
+        "end_line": 1148,
+        "byte_start": 81574,
+        "byte_end_exclusive": 84618,
+        "bytes": 3044,
+        "sha256": "306efc8c77e044f824b134bd253e2e8c06db8ee6f58ec018ff34d86fdb1b9aa3"
+      }
+    },
+    {
+      "name": "Examples.ListCalls.empty_payload_split",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 119,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 115,
+        "program_line_1_based": 126
+      },
+      "actual_F145_output": {
+        "ordinal": 115,
+        "name": "Examples.ListCalls.empty_payload_split",
+        "start_line": 1149,
+        "end_line": 1158,
+        "byte_start": 84618,
+        "byte_end_exclusive": 85222,
+        "bytes": 604,
+        "sha256": "c15e9a43007f0b47ef62fada6cadd560da4df7b0e9a6754a0f58c74e5e8af271"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.empty_membership_set",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 19,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 116,
+        "program_line_1_based": 127
+      },
+      "actual_F145_output": {
+        "ordinal": 116,
+        "name": "Examples.ListLibrary.empty_membership_set",
+        "start_line": 1159,
+        "end_line": 1163,
+        "byte_start": 85222,
+        "byte_end_exclusive": 85564,
+        "bytes": 342,
+        "sha256": "51f07f199ce6b78b56aa4301c7fc2fd0792ab8b4b4bc457a8122aae5d1437577"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.cons_membership_set",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 24,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 117,
+        "program_line_1_based": 128
+      },
+      "actual_F145_output": {
+        "ordinal": 117,
+        "name": "Examples.ListLibrary.cons_membership_set",
+        "start_line": 1164,
+        "end_line": 1170,
+        "byte_start": 85564,
+        "byte_end_exclusive": 86125,
+        "bytes": 561,
+        "sha256": "c1589e4f64524c460c1222ce92ca38424cfbd5ff9a6b4fbc026bd64bb3615f9d"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.dropLast_cons_equation",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 31,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 118,
+        "program_line_1_based": 129
+      },
+      "actual_F145_output": {
+        "ordinal": 118,
+        "name": "Examples.ListLibrary.dropLast_cons_equation",
+        "start_line": 1171,
+        "end_line": 1175,
+        "byte_start": 86125,
+        "byte_end_exclusive": 86550,
+        "bytes": 425,
+        "sha256": "af942322ba0794afe502921be59577aea97a9219845e4ef8bf086a9320a54068"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.range_succ_equation",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 36,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 119,
+        "program_line_1_based": 130
+      },
+      "actual_F145_output": {
+        "ordinal": 119,
+        "name": "Examples.ListLibrary.range_succ_equation",
+        "start_line": 1176,
+        "end_line": 1185,
+        "byte_start": 86550,
+        "byte_end_exclusive": 87118,
+        "bytes": 568,
+        "sha256": "d8b2cf812d494eef5fde201a3c8b1cd09df9deab573a5c35e3c512f6b255dc90"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.range_zero_equation",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 43,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 120,
+        "program_line_1_based": 131
+      },
+      "actual_F145_output": {
+        "ordinal": 120,
+        "name": "Examples.ListLibrary.range_zero_equation",
+        "start_line": 1186,
+        "end_line": 1187,
+        "byte_start": 87118,
+        "byte_end_exclusive": 87296,
+        "bytes": 178,
+        "sha256": "407cb8acfe52c48990eedb9201ff500523fbdeb940c4b5e711ab3f95e5567279"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.range_boundaries",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 46,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 121,
+        "program_line_1_based": 132
+      },
+      "actual_F145_output": {
+        "ordinal": 121,
+        "name": "Examples.ListLibrary.range_boundaries",
+        "start_line": 1188,
+        "end_line": 1208,
+        "byte_start": 87296,
+        "byte_end_exclusive": 88528,
+        "bytes": 1232,
+        "sha256": "83c08cc56eeac8c324edc9eafb2438a342a4a615e162973c132b6574c2fe7cfe"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.range_membership",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 58,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 122,
+        "program_line_1_based": 133
+      },
+      "actual_F145_output": {
+        "ordinal": 122,
+        "name": "Examples.ListLibrary.range_membership",
+        "start_line": 1209,
+        "end_line": 1211,
+        "byte_start": 88528,
+        "byte_end_exclusive": 88757,
+        "bytes": 229,
+        "sha256": "2022cc1dcb315163cc41e8294f8095d9bd01b45c9767c63e0dc123c96cbbc288"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.head_valid",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 62,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 123,
+        "program_line_1_based": 134
+      },
+      "actual_F145_output": {
+        "ordinal": 123,
+        "name": "Examples.ListLibrary.head_valid",
+        "start_line": 1212,
+        "end_line": 1214,
+        "byte_start": 88757,
+        "byte_end_exclusive": 89013,
+        "bytes": 256,
+        "sha256": "2497a4118a13a090946cfc3214623214dafaea6db3684204533261c01183abb8"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.index_valid",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 65,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 124,
+        "program_line_1_based": 135
+      },
+      "actual_F145_output": {
+        "ordinal": 124,
+        "name": "Examples.ListLibrary.index_valid",
+        "start_line": 1215,
+        "end_line": 1223,
+        "byte_start": 89013,
+        "byte_end_exclusive": 89606,
+        "bytes": 593,
+        "sha256": "e10a7188f6ccf4e5a5828156d7cc413ad1311fb15f204a8027fb7dbc2d2a724f"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.invalid_index_and_update",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 69,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 125,
+        "program_line_1_based": 136
+      },
+      "actual_F145_output": {
+        "ordinal": 125,
+        "name": "Examples.ListLibrary.invalid_index_and_update",
+        "start_line": 1224,
+        "end_line": 1232,
+        "byte_start": 89606,
+        "byte_end_exclusive": 90131,
+        "bytes": 525,
+        "sha256": "622d07fbecfaa5ba023450a54781a9bf3cd6dea780aeabbe4d854f09fa17e687"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.update_observations",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 73,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 126,
+        "program_line_1_based": 137
+      },
+      "actual_F145_output": {
+        "ordinal": 126,
+        "name": "Examples.ListLibrary.update_observations",
+        "start_line": 1233,
+        "end_line": 1250,
+        "byte_start": 90131,
+        "byte_end_exclusive": 91284,
+        "bytes": 1153,
+        "sha256": "a014e6fe74f111742066338ba5829a05f42a1ef8e172106f3cfaef33fd4eac5f"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.update_repeated_value",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 80,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 127,
+        "program_line_1_based": 138
+      },
+      "actual_F145_output": {
+        "ordinal": 127,
+        "name": "Examples.ListLibrary.update_repeated_value",
+        "start_line": 1251,
+        "end_line": 1283,
+        "byte_start": 91284,
+        "byte_end_exclusive": 93603,
+        "bytes": 2319,
+        "sha256": "eec0f2541dc65edcc4978af78ef773266d954a82e7e9e55949b6a92c28d87e4a"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.invalid_boundary",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 86,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 128,
+        "program_line_1_based": 139
+      },
+      "actual_F145_output": {
+        "ordinal": 128,
+        "name": "Examples.ListLibrary.invalid_boundary",
+        "start_line": 1284,
+        "end_line": 1299,
+        "byte_start": 93603,
+        "byte_end_exclusive": 94725,
+        "bytes": 1122,
+        "sha256": "98e94b3cf3ffd425e7d8bb104470cae576bdd4a23a780a1983aef40c6ea48eb2"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.empty_payload_queries",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 90,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 129,
+        "program_line_1_based": 140
+      },
+      "actual_F145_output": {
+        "ordinal": 129,
+        "name": "Examples.ListLibrary.empty_payload_queries",
+        "start_line": 1300,
+        "end_line": 1309,
+        "byte_start": 94725,
+        "byte_end_exclusive": 95431,
+        "bytes": 706,
+        "sha256": "b834ecc5eddeff53e4f096b13ed15ac54d37b21b98ae74fb969364ad2064d2d1"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.split_reassembles",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 96,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 130,
+        "program_line_1_based": 141
+      },
+      "actual_F145_output": {
+        "ordinal": 130,
+        "name": "Examples.ListLibrary.split_reassembles",
+        "start_line": 1310,
+        "end_line": 1315,
+        "byte_start": 95431,
+        "byte_end_exclusive": 95796,
+        "bytes": 365,
+        "sha256": "d67ae7961006557d987ff0c289bbc9884b1304de01eb906b292cef32deb1abb4"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.overlarge_split",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 99,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 131,
+        "program_line_1_based": 142
+      },
+      "actual_F145_output": {
+        "ordinal": 131,
+        "name": "Examples.ListLibrary.overlarge_split",
+        "start_line": 1316,
+        "end_line": 1330,
+        "byte_start": 95796,
+        "byte_end_exclusive": 96964,
+        "bytes": 1168,
+        "sha256": "69ac9d2e20dd87ddaef3f98743c50e07d345d18b10bb17246ab1aceb13d40336"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.last_and_tail_boundaries",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 103,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 132,
+        "program_line_1_based": 143
+      },
+      "actual_F145_output": {
+        "ordinal": 132,
+        "name": "Examples.ListLibrary.last_and_tail_boundaries",
+        "start_line": 1331,
+        "end_line": 1349,
+        "byte_start": 96964,
+        "byte_end_exclusive": 98093,
+        "bytes": 1129,
+        "sha256": "7f9449f4a988d30dcb221fbadd7c394a8e89987d641dbfe2c265c7fba33a2769"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.duplicate_pipeline",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 109,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 133,
+        "program_line_1_based": 144
+      },
+      "actual_F145_output": {
+        "ordinal": 133,
+        "name": "Examples.ListLibrary.duplicate_pipeline",
+        "start_line": 1350,
+        "end_line": 1382,
+        "byte_start": 98093,
+        "byte_end_exclusive": 100304,
+        "bytes": 2211,
+        "sha256": "6835dc88f599a9ea7cf1cfd808103e8084840a8fb95d5d97007ed0a4c0c6d49f"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.replication_boundaries",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 116,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 134,
+        "program_line_1_based": 145
+      },
+      "actual_F145_output": {
+        "ordinal": 134,
+        "name": "Examples.ListLibrary.replication_boundaries",
+        "start_line": 1383,
+        "end_line": 1393,
+        "byte_start": 100304,
+        "byte_end_exclusive": 101039,
+        "bytes": 735,
+        "sha256": "d5b1db7ddf5bf48efe9bf6cdf36c2eb63c4ae13c5d32926544091e8e40120c59"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.duplicates_are_not_distinct",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 120,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 135,
+        "program_line_1_based": 146
+      },
+      "actual_F145_output": {
+        "ordinal": 135,
+        "name": "Examples.ListLibrary.duplicates_are_not_distinct",
+        "start_line": 1394,
+        "end_line": 1395,
+        "byte_start": 101039,
+        "byte_end_exclusive": 101228,
+        "bytes": 189,
+        "sha256": "f4026a6b4775c8859299e76aa4823e06017522e60addc04affde2daf39ba8985"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.sorted_wrt_cons",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 125,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 136,
+        "program_line_1_based": 147
+      },
+      "actual_F145_output": {
+        "ordinal": 136,
+        "name": "Examples.ListLibrary.sorted_wrt_cons",
+        "start_line": 1396,
+        "end_line": 1399,
+        "byte_start": 101228,
+        "byte_end_exclusive": 101567,
+        "bytes": 339,
+        "sha256": "c7166d8690bccc8fd95a02751421ab3c07ed0c0c56662a315e52fa8e94f9e7eb"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.adjacent_relation_is_insufficient",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 129,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 137,
+        "program_line_1_based": 148
+      },
+      "actual_F145_output": {
+        "ordinal": 137,
+        "name": "Examples.ListLibrary.adjacent_relation_is_insufficient",
+        "start_line": 1400,
+        "end_line": 1417,
+        "byte_start": 101567,
+        "byte_end_exclusive": 102649,
+        "bytes": 1082,
+        "sha256": "f80a88ed703be620ea968102d5fb70a9a7a429c01fa5ce977876227d7ed8d53f"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.sum_source_equations",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 135,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 138,
+        "program_line_1_based": 149
+      },
+      "actual_F145_output": {
+        "ordinal": 138,
+        "name": "Examples.ListLibrary.sum_source_equations",
+        "start_line": 1418,
+        "end_line": 1424,
+        "byte_start": 102649,
+        "byte_end_exclusive": 103149,
+        "bytes": 500,
+        "sha256": "06ceedd4f27a14c15f241dd48f19d96ffa803f31f402e404ef7d836946c9b92e"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.minimum_source_equation",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 139,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 139,
+        "program_line_1_based": 150
+      },
+      "actual_F145_output": {
+        "ordinal": 139,
+        "name": "Examples.ListLibrary.minimum_source_equation",
+        "start_line": 1425,
+        "end_line": 1428,
+        "byte_start": 103149,
+        "byte_end_exclusive": 103546,
+        "bytes": 397,
+        "sha256": "16c40c5b3ab2b20f9635fc105cca898ae03ed5b4c3eb5c02cc386e302f946f27"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.minimum_valid",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 143,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 140,
+        "program_line_1_based": 151
+      },
+      "actual_F145_output": {
+        "ordinal": 140,
+        "name": "Examples.ListLibrary.minimum_valid",
+        "start_line": 1429,
+        "end_line": 1431,
+        "byte_start": 103546,
+        "byte_end_exclusive": 103835,
+        "bytes": 289,
+        "sha256": "137b0387172045449d7cb560462ff9564b86cb5925600804b096e9b8f3c42fae"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.minimum_filter_spec",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 146,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 141,
+        "program_line_1_based": 152
+      },
+      "actual_F145_output": {
+        "ordinal": 141,
+        "name": "Examples.ListLibrary.minimum_filter_spec",
+        "start_line": 1432,
+        "end_line": 1452,
+        "byte_start": 103835,
+        "byte_end_exclusive": 104986,
+        "bytes": 1151,
+        "sha256": "96dca2e127efc6487ee7c967fea5cc873d46aa489fb13c4c1e822edee4554826"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.minimum_repeated_values",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 155,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 142,
+        "program_line_1_based": 153
+      },
+      "actual_F145_output": {
+        "ordinal": 142,
+        "name": "Examples.ListLibrary.minimum_repeated_values",
+        "start_line": 1453,
+        "end_line": 1458,
+        "byte_start": 104986,
+        "byte_end_exclusive": 105466,
+        "bytes": 480,
+        "sha256": "0341a68d6564bc4941014748deee874cece620bf11c85929a20a1fd760987a1c"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.minimum_empty",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 159,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 143,
+        "program_line_1_based": 154
+      },
+      "actual_F145_output": {
+        "ordinal": 143,
+        "name": "Examples.ListLibrary.minimum_empty",
+        "start_line": 1459,
+        "end_line": 1460,
+        "byte_start": 105466,
+        "byte_end_exclusive": 105605,
+        "bytes": 139,
+        "sha256": "1bc697241399fc2f3c3eab15968d131da3ca36decb82b0f8b7c019a7da04b32a"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.empty_payload_minimum",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 162,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 144,
+        "program_line_1_based": 155
+      },
+      "actual_F145_output": {
+        "ordinal": 144,
+        "name": "Examples.ListLibrary.empty_payload_minimum",
+        "start_line": 1461,
+        "end_line": 1465,
+        "byte_start": 105605,
+        "byte_end_exclusive": 105866,
+        "bytes": 261,
+        "sha256": "2f6aaee311c6632606e6f1dfc302fd1b6a4dccb25f4e4f7a9fc0829b6c46dba6"
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.filtered_minimum_example",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 165,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 145,
+        "program_line_1_based": 156
+      },
+      "actual_F145_output": {
+        "ordinal": 145,
+        "name": "Examples.ListLibrary.filtered_minimum_example",
+        "start_line": 1466,
+        "end_line": 1491,
+        "byte_start": 105866,
+        "byte_end_exclusive": 107530,
+        "bytes": 1664,
+        "sha256": "13278decdcbf13a71880b5cec7f481c970b63dd8744565a05f1993cf3803cd17"
+      }
+    }
+  ]
+}

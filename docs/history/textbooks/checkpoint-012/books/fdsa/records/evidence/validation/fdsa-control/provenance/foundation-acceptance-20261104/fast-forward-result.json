@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-04T13:55:30.843691+00:00",
+  "command": [
+    "git",
+    "merge",
+    "--ff-only",
+    "f17cc6b1a2bf44215b16202ed0fcee2b5c130761"
+  ],
+  "actual_exit": 0,
+  "stdout": "Updating 07e480f..f17cc6b\nFast-forward\n Applications/Resources/InsertionSort.lean | 178 +++++++++++++++++\n Applications/Resources/ListCalls.lean     | 190 ++++++++++++++++++\n Examples/FunctionalNotation.lean          | 202 +++++++++++++++++++\n Examples/InsertionCosts.lean              | 101 ++++++++++\n Examples/ListCalls.lean                   | 124 ++++++++++++\n Examples/ListLibrary.lean                 | 170 ++++++++++++++++\n SquareApplications.lean                   |   4 +\n docs/research/fdsa-notation-map.md        | 317 ++++++++++++++++++++++++++++++\n docs/research/fdsa-reconstruction-map.md  | 235 +++++++++++++++++++++-\n 9 files changed, 1515 insertions(+), 6 deletions(-)\n create mode 100644 Applications/Resources/InsertionSort.lean\n create mode 100644 Applications/Resources/ListCalls.lean\n create mode 100644 Examples/FunctionalNotation.lean\n create mode 100644 Examples/InsertionCosts.lean\n create mode 100644 Examples/ListCalls.lean\n create mode 100644 Examples/ListLibrary.lean\n create mode 100644 docs/research/fdsa-notation-map.md\n",
+  "stderr": "",
+  "accepted_head_after": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "accepted_branch_after": "refs/heads/work/fdsa-book",
+  "accepted_status_after": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.urOBCL\n"
+}

@@ -1,0 +1,108 @@
+{
+  "recorded_utc": "2026-11-05T04:22:40.440792+00:00",
+  "inspector": "/root",
+  "outcome": "Passed",
+  "unresolved_findings": [],
+  "scope": "Independent complete checkpoint proposal code inspection plus exact root-authored schema delta independently inspected by the other agent, and actual final evidence reconciliation. Operational readiness only; no third mathematical axis.",
+  "original_proposal_author": "/root/checkpoint0137_acceptance_inspection",
+  "original_complete_independent_code_inspection": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/checkpoint0139-independent-code-inspection-before-acceptance.json",
+    "bytes": 7414,
+    "sha256": "f2ff6613b23876ef18236914cd3df9bcb724bd529bbf2031485f9b431a85841c"
+  },
+  "root_authored_delta_independent_inspection": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/operational-complete-actual-schema-inspection.json",
+    "bytes": 10954,
+    "sha256": "514ab712194a92fc5a3e5cf9f0a56790a64a7e23c50e5a556417d3aa82a39895"
+  },
+  "root_complete_delta_note_readback": "a95b7a actual0",
+  "other_inspector_complete_saved_readback": "02e1ad actual0",
+  "root_complete_current_capture_stage_readbacks": [
+    "95dba2 actual0",
+    "222490 actual0"
+  ],
+  "root_complete_current_README_readback": "055ce7 actual0",
+  "root_actual_acceptance_binding_reconciliation": "5f3558 actual0 all103boundfiles and complete selected acceptance/axis fields; no claim of human rereading every binding row",
+  "helper_identities": {
+    "verify-checkpoint.py": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/verify-checkpoint.py",
+      "bytes": 59334,
+      "sha256": "bd779785034f20f77b3d9e490e00cdd1c8f85b775a0a02df8ccb64afe404991c"
+    },
+    "capture.py": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/capture.py",
+      "bytes": 9349,
+      "sha256": "886a58f7fe5866b7aaed071a86e7ac3d4dd1bd815722257c78264a7aa06d49f6"
+    },
+    "run-stage.py": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/run-stage.py",
+      "bytes": 3201,
+      "sha256": "143b21d296ae814c52f53e8f0a67f00cc321ec0aef514e3c6fbe5353386527bf"
+    },
+    "README.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/README.md",
+      "bytes": 8380,
+      "sha256": "79de0b83a0d2287fb235b86c15c4a5ba2fa89dbb86cbac6972807f6dd482ba23"
+    },
+    "verifier-scope-diff.patch": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/verifier-scope-diff.patch",
+      "bytes": 36755,
+      "sha256": "71790270213c15ff6f7c732a4e68ddc1ac44a3df9bb923e50dcc9a38131533d1"
+    },
+    "helper-scope-diffs.patch": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/helper-scope-diffs.patch",
+      "bytes": 13111,
+      "sha256": "7a84ae099a60d74be7e9eedf01cc1d78ad076faa87911dbef5af6d3a940e06e6"
+    }
+  },
+  "actual_acceptance": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/acceptance.json",
+    "bytes": 44993,
+    "sha256": "336e76c369ed37f3f3d874a523ceb219eba380f80661e2be6019fd9bc8453d1f"
+  },
+  "actual_gate": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/root-gate-reconciliation.json",
+    "bytes": 47567,
+    "sha256": "d617dcde773d1ba9cd05f5b4562fc614b1cdaa38e19f79cb75d2d2714c610b44"
+  },
+  "actual_configuration": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/acceptance-configuration.json",
+    "bytes": 2991,
+    "sha256": "610cf9738bdbf4e91b14941a11b486e619e613d82c30d0cf0a39f9f423245f62"
+  },
+  "actual_write_hold": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/write-hold.json",
+    "bytes": 12323,
+    "sha256": "61814cd9750e7921058b94045fe764c1dac370cab0161566bdd9b708178e1bb7"
+  },
+  "actual_counts": {
+    "acceptance_bindings": 103,
+    "root_gate_bindings": 88,
+    "independent_axes": 2,
+    "explicit_final_axis_binding_occurrences": 112,
+    "chapter04_author_holds": 3,
+    "chapter04_source_files": 16,
+    "chapter04_phase3_design_files_including_hold": 9,
+    "refs": 79,
+    "worktrees": 9,
+    "closed_runs": 119,
+    "prior_closed_rows_retained_exact": 113,
+    "new_closed_runs": 6,
+    "allowed_changed_prior_controls": 9
+  },
+  "new_run_outcomes": [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0
+  ],
+  "historical_exceptions_preserved": true,
+  "historical_initial_proposal_identities_preserved_in_named_snapshots": true,
+  "all_source_branches_held_uncompiled_unaccepted": true,
+  "configuration_resolved_from_actual_evidence": true,
+  "capture_creation_verification_upload_not_yet_run": true,
+  "resource_gate": "Capture and precreation must both pass the unchanged actual raw-space staging calculation; no compiler installation/hydration or speculative reclaim selected.",
+  "boundary": "No mathematical source, requirement, accepted evidence or validation gate was weakened. Exact initial code plus separately inspected delta accounts for the current helpers."
+}

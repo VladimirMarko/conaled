@@ -1,0 +1,41 @@
+✖ [3272/3281] Building Examples.NaturalRunOperations (88s)
+trace: .> LEAN_PATH=/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/lib/lean /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/profile/bin/lean /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/NaturalRunOperations.lean -o /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/lib/lean/Examples/NaturalRunOperations.olean -i /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/lib/lean/Examples/NaturalRunOperations.ilean -c /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/ir/Examples/NaturalRunOperations.c --setup /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/ir/Examples/NaturalRunOperations.setup.json --json
+error: Examples/NaturalRunOperations.lean:63:2: Type mismatch: After simplification, term
+  runsOpsBy_of_strictly_descending id [2, 1] (of_decide_eq_true (id (Eq.refl true)))
+    (of_eq_true
+      (Eq.trans (congrArg Not (eq_false' fun h => False.elim (noConfusion_of_Nat List.ctorIdx h))) not_false_eq_true))
+ has type
+  @Eq (Measured (List (List ℕ)) ℕ) (runsOpsBy (fun a b => decide (a < b)) [2, 1]) ([[1, 2]], 6)
+but is expected to have type
+  @Eq (Measured (List (List ℕ)) ℕ) (runsOpsBy natLT [2, 1]) ([[1, 2]], 6)
+error: Examples/NaturalRunOperations.lean:66:2: Type mismatch: After simplification, term
+  runsOpsBy_of_strictly_descending id [3, 2, 1] (of_decide_eq_true (id (Eq.refl true)))
+    (of_eq_true
+      (Eq.trans (congrArg Not (eq_false' fun h => False.elim (noConfusion_of_Nat List.ctorIdx h))) not_false_eq_true))
+ has type
+  @Eq (Measured (List (List ℕ)) ℕ) (runsOpsBy (fun a b => decide (a < b)) [3, 2, 1]) ([[1, 2, 3]], 9)
+but is expected to have type
+  @Eq (Measured (List (List ℕ)) ℕ) (runsOpsBy natLT [3, 2, 1]) ([[1, 2, 3]], 9)
+error: Examples/NaturalRunOperations.lean:71:2: Type mismatch: After simplification, term
+  singleRunOpsBy_of_strictly_descending id [2, 1] (of_decide_eq_true (id (Eq.refl true)))
+    (of_eq_true
+      (Eq.trans (congrArg Not (eq_false' fun h => False.elim (noConfusion_of_Nat List.ctorIdx h))) not_false_eq_true))
+ has type
+  @Eq (Measured (List ℕ) ℕ) (singleRunOpsBy (fun a b => decide (a < b)) [2, 1] ⋯) ([1, 2], 7)
+but is expected to have type
+  @Eq (Measured (List ℕ) ℕ) (singleRunOpsBy natLT [2, 1] ⋯) ([1, 2], 7)
+error: Examples/NaturalRunOperations.lean:77:2: Type mismatch: After simplification, term
+  singleRunOpsBy_of_strictly_descending id [3, 2, 1] (of_decide_eq_true (id (Eq.refl true)))
+    (of_eq_true
+      (Eq.trans (congrArg Not (eq_false' fun h => False.elim (noConfusion_of_Nat List.ctorIdx h))) not_false_eq_true))
+ has type
+  @Eq (Measured (List ℕ) ℕ) (singleRunOpsBy (fun a b => decide (a < b)) [3, 2, 1] ⋯) ([1, 2, 3], 10)
+but is expected to have type
+  @Eq (Measured (List ℕ) ℕ) (singleRunOpsBy natLT [3, 2, 1] ⋯) ([1, 2, 3], 10)
+error: Examples/NaturalRunOperations.lean:346:2: Type mismatch: After simplification, term
+  singleRunOpsBy_of_sorted id (List.range n) (List.Pairwise.imp (fun {a b} h => Nat.le_of_lt h) List.pairwise_lt_range)
+    (Eq.mpr (id (congrArg (LE.le 2) List.length_range)) hn)
+ has type
+  @Eq (Measured (List ℕ) ℕ) (singleRunOpsBy (fun a b => decide (a < b)) (List.range n) ⋯) (List.range n, 6 * n - 4)
+but is expected to have type
+  @Eq (Measured (List ℕ) ℕ) (singleRunOpsBy natLT (List.range n) ⋯) (List.range n, 6 * n - 4)

@@ -1,0 +1,36 @@
+{
+  "scope": "Existing full operational-helper review loop expanded by two requested recovery/comparison documents; no formal acceptance",
+  "base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "candidate": "6526e5cdcde2e58c8fb0839690c34f3f6c04787c",
+  "merge_base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "captured_at": "2026-11-03T16:06:24.588134+00:00",
+  "files": {
+    "session/environment/make-direct-toolchain-profile.py": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb",
+    "session/environment/run-direct-toolchain.py": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+    "session/environment/test-direct-toolchain.py": "028e625c2870bafa2668269f981202d76c6509256ca1822e4ab926b3f2526330",
+    "session/environment/test-direct-lake-build.py": "3e364791c25cfce02c15887b1ae040a1a18315ab5189ff393d5fb2ff9bd239cf",
+    "session/environment/README-direct-toolchain.md": "f3acb7ba89c954019e6288bffc80c37fbc2e4f90523b1172efdd85dc19ee6734",
+    "session/validation/run-direct-validation.py": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b",
+    "session/validation/test-direct-validation.py": "a77b7f3f962c45fbe8affe4999615b3721975cc3c858713c9ef027b6aecf5435",
+    "session/validation/direct-validation-runner-notes.md": "933745db696b993eda5bd8d5470a7b72b5738659658c709fa98705ceb35bdd4e",
+    "session/environment/RECOVER-ENVIRONMENT.md": "920b9eec5762d390e7d4387d8d5bb1fdb2d0cf24b5f1648d66dcc80fbe784fc8",
+    "session/environment/environment-route-comparison-042.md": "ae2cf2039f620a631187f66383a5f677324dbc0b1f7c798bfdb9a912705c0bb5"
+  },
+  "requirements": {
+    "session/requirements/REQUEST.md": "b847f23fcce44837f5b1ead01aae43ac5ed626ffd32aab84055dd664e339e499",
+    "session/requirements/REQUEST-union-v2.md": "3336bed1154438b3683aeb5a1c63fee44e87aff190f5ff69e34705a780b9d22c",
+    "session/requirements/REQUEST-direct-toolchain-041.md": "16845edec15c311e0cfd5ed5d4f5c4feb61e7ad96545653d5b872309d26464bc",
+    "session/environment/direct-toolchain-implementation-scope-041.md": "05c125ee129eafc8f45f9367be16259c3239c7b3945c32f62effba1f1b4c922c",
+    "session/requirements/REQUEST-environment-handoff-042.md": "200789123c60ae137967f881207194412eecea72ba2fc80247978075bd6a4602"
+  },
+  "attachment": {
+    "path": "session/references/conaled-environment-guide-from-user-042.md",
+    "sha256": "ef85039f6097a1a646bb2b980178a2285e23124e5881686f68020acfa2f5d4f1"
+  },
+  "checkout": "/workspace/scratch/b566cace4ed6/pfds/review-direct-toolchain-042-r3",
+  "ref": "refs/pfds-review/direct-toolchain-r3-042",
+  "previous_candidate": "822cb7adeed4943acaf10454e9facfc2e3ee8ceb",
+  "changes": "Two documentation files added; all eight approved operational helpers byte-identical. Existing runtime inputs untouched. Ubuntu acquisition is provenance only.",
+  "exclusions": "All formal candidate sources, prior evidence, runtime binaries/caches, tracker/status and review/provenance records are outside this authored-helper diff; their independent obligations persist. Main index/HEAD/working tree unchanged.",
+  "validation": "Pending isolated documentation checks and explicitly scoped reuse of unchanged helper evidence."
+}

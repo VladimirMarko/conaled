@@ -1,0 +1,46 @@
+{
+  "observer": "/root/runtime_observation",
+  "recorded_utc": "2026-11-04T11:12:13.242Z",
+  "observed_utc": "2026-11-04T11:10:48Z",
+  "scope": "read-only potential archive cleanup preparation; no cleanup or validation performed",
+  "reported_read_command_exit_codes": [
+    0
+  ],
+  "candidates": [
+    {
+      "path": "/workspace/scratch/60f07f0e98c8/native-state/downloads/lean-4.35.0-linux.tar.zst",
+      "logical_bytes": 594481375,
+      "allocated_bytes": 594489344,
+      "role": "official release download / local offline reinstall seed; installed compiler tree is separate",
+      "receipt_archive_sha256": "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d",
+      "archive_rehashed_in_observation": false
+    },
+    {
+      "path_pattern": "/workspace/scratch/60f07f0e98c8/native-state/cache/mathlib/*.ltar",
+      "regular_archives": 3932,
+      "logical_bytes": 236824946,
+      "allocated_bytes": 244805632,
+      "role": "compressed dependency-cache downloads used for offline unpacking; installed dependency repositories and artifacts are separate"
+    }
+  ],
+  "combined_allocated_bytes": 839294976,
+  "documented_distinction": {
+    "official_install_receipt_time_utc": "2026-11-04T03:45:53Z",
+    "active_profile_toolchain": "../toolchains/lean-4.35.0-linux",
+    "archive_classes_in_profile_watched_files_or_links": false,
+    "verified_installed_toolchain_reused_before_download_archives": true,
+    "sources": [
+      "native-kit/lib/acquire.py",
+      "native-kit/lib/runtime.py",
+      "native profile configuration",
+      "native-kit/docs/RECOVERY.md"
+    ]
+  },
+  "limits": [
+    "Actual released space not guaranteed by metadata.",
+    "No process-quiescence or absent-reader/writer conclusion.",
+    "Conditional planning candidates only; reassess capacity and known ownership coordination after current fresh completion before any removal.",
+    "No compiler/profile bytes, dependency repository/artifact, or .lake output proposed for removal.",
+    "No deletion or other mutation performed."
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T21:13:08.736067+00:00",
+  "candidate": "cd20a36f52b4ddd95be3cb9d85c0b95368ef1248",
+  "terminal": {
+    "recorded_utc": "2026-11-04T21:13:08.735974+00:00",
+    "owned_session": 52024,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "18ce07",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "cd20a36f52b4ddd95be3cb9d85c0b95368ef1248"
+  },
+  "actual_recorder_and_native_exits": [
+    0,
+    0
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-drift-focused-attempt4-20261104/full.log",
+    "bytes": 9730,
+    "sha256": "7692228411f3e0cdd61031bf1168cedcd41f44938c553c3cbfd51fdb162850ac"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T211208Z-project-run-dd2bf27e",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-drift-focused-attempt4-20261104/native-records/start.json",
+      "bytes": 485,
+      "sha256": "245e6f5a05b67646b81b772947f3203c7cefaa1276a20bbfd4efd464c8d3372e"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-drift-focused-attempt4-20261104/native-records/result.json",
+      "bytes": 638,
+      "sha256": "cfba726e1cd5a94d39c1fbf27041a51d0e27c30e040bb3232f7fd1bd53e7eabe"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-drift-focused-attempt4-20261104/native-records/output.log",
+      "bytes": 9446,
+      "sha256": "d4d54c34dcdaabe2a415e6cf51fdea8a7786c63942504c80205f8052118b5e80"
+    }
+  },
+  "native_body_exact_outer_offset": 127,
+  "complete_closed_log": true,
+  "scope": "Focused passing actual duplicate-safe drift and linear expectation core/examples;31 additional public source names. Exact tail, worst-case endpoints, actual types, complete candidate/audit and independent acceptance gates remain pending. Interrupted attempt2 remains unknown and receives no credit.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

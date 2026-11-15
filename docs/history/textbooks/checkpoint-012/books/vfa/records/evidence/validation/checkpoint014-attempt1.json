@@ -1,0 +1,29 @@
+{
+  "checkpoint": "conaled-vfa-checkpoint-014-source-reviews-clear",
+  "candidate": "39c3e2fd0c3a7b39e56373d453a1a17382bc3749",
+  "observed_utc": "2026-11-02T08:48:00.545367+00:00",
+  "generator_sha256": "deeb1cfc3255bff5d4f493d8906c821751006eadd0f1e88583f12f1ff0d4eece",
+  "command": [
+    "python3",
+    "work-state/tools/checkpoint.py",
+    "--workspace",
+    "/workspace/scratch/0c54f2db1fdf",
+    "--name",
+    "conaled-vfa-checkpoint-014-source-reviews-clear"
+  ],
+  "generator_exit_code": 1,
+  "failure_stage": "restore smoke subprocess, before final archive creation",
+  "child_command": [
+    "python3",
+    "/workspace/scratch/0c54f2db1fdf/checkpoint-stage-itrth61b/conaled-vfa-checkpoint-014-source-reviews-clear/restore.py"
+  ],
+  "child_exit_code": 1,
+  "captured_child_stdout_available": false,
+  "captured_child_stderr_available": false,
+  "diagnostic_limit": "The generator captured the failing child output but did not print it; its temporary stage was cleaned. The exact child diagnostic was not retained.",
+  "storage_observation": "Immediately following failure, df reported 63 GB used and zero available space. After removing 1,720,553,105 bytes of redundant uploaded local archives, native statvfs reported 1,862,180,864 free bytes but zero nonreserved available bytes. Storage exhaustion is observed; the child stderr did not directly confirm the exact failure cause.",
+  "final_archive_exists": false,
+  "primary_source_or_cache_changed": false,
+  "cleanup_record": "work-state/validation/20261102-storage-cleanup.json",
+  "next_attempt": "Preserve original generator; use a runpy exception wrapper to expose actual CalledProcessError stdout/stderr after safe space reclamation."
+}

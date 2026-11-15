@@ -1,0 +1,39 @@
+diff --git a/Examples/GroupSelectionRecurrence.lean b/Examples/GroupSelectionRecurrence.lean
+index 76b19ac..3682e00 100644
+--- a/Examples/GroupSelectionRecurrence.lean
++++ b/Examples/GroupSelectionRecurrence.lean
+@@ -43,10 +43,22 @@ theorem explicit_cutoffs : cutoff 5 = 71 ∧ cutoff 6 = 97 ∧
+   norm_num [cutoff, pivotFraction, sideFraction]
+ 
+ theorem first_five_children : pivotChild 5 72 = 15 ∧ sideChild 5 72 = 56 := by
+-  norm_num [pivotChild, sideChild, pivotFraction, sideFraction]
++  constructor
++  · unfold pivotChild
++    apply (Nat.ceil_eq_iff (by decide : (15 : Nat) ≠ 0)).mpr
++    norm_num [pivotFraction]
++  · unfold sideChild
++    apply (Nat.ceil_eq_iff (by decide : (56 : Nat) ≠ 0)).mpr
++    norm_num [sideFraction]
+ 
+ theorem first_six_children : pivotChild 6 98 = 17 ∧ sideChild 6 98 = 80 := by
+-  norm_num [pivotChild, sideChild, pivotFraction, sideFraction]
++  constructor
++  · unfold pivotChild
++    apply (Nat.ceil_eq_iff (by decide : (17 : Nat) ≠ 0)).mpr
++    norm_num [pivotFraction]
++  · unfold sideChild
++    apply (Nat.ceil_eq_iff (by decide : (80 : Nat) ≠ 0)).mpr
++    norm_num [sideFraction]
+ 
+ /-- Zero still uses the same finite base; an asymptotic conclusion need not
+ discard the base case from the stronger all-input affine bound. -/
+@@ -107,6 +119,8 @@ theorem exact_book_F_specialization :
+   apply rounded_group_affine_bound Resources.SelectionRecurrence.F 5 (by decide)
+     0 3 19 54 20
+   intro n large
+-  simpa [pivotFraction, sideFraction] using Resources.SelectionRecurrence.F_rounded n large
++  have left : pivotFraction 5 = (1 / 5 : ℝ) := rfl
++  have right : sideFraction 5 = (7 / 10 : ℝ) := by norm_num [sideFraction]
++  simpa only [left, right] using Resources.SelectionRecurrence.F_rounded n large
+ 
+ end Examples.GroupSelectionRecurrence

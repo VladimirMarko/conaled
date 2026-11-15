@@ -1,0 +1,19 @@
+{
+  "recorded_utc": "2026-11-04T07:32:54.518292+00:00",
+  "source_before": "fbc9a32a2a7cc333f632c88a27a5d7a977d67f72",
+  "diagnostic_source": "chapter02-focused-attempt4-partial-diagnostics-20261104/observed-prefix.log",
+  "diagnostic_state": "Actual observations from live attempt4; terminal outcome not yet secured",
+  "compiler_candidate_untouched": "e4965499954e2afe6bb6be0b8a4a61167a0ff2ce",
+  "findings": {
+    "XU02-ELAB-009": "Main example uses unavailable <+ parser notation; explicit List.Sublist preserves the intended proposition.",
+    "XU02-ELAB-010": "Two remaining deprecated if_pos/if_neg proof rewrites changed to exact current ite_eq_left/ite_eq_right.",
+    "XU02-ELAB-011": "Five positive support memberships cannot reduce permutations.dedup; rewrite by existing mem_orders then kernel-decide the finite List.Perm proposition.",
+    "XU02-ELAB-012": "Mapped singleton preimage and equality fiber require explicit definitional reflexivity after Measure.map_apply.",
+    "XU02-ELAB-013": "Finite cardinality cast remains after selected_orders_card; normalize the numeral cast explicitly.",
+    "XU02-ELAB-014": "Repeated-list nonmembership cannot reduce permutations.dedup; existing mem_orders and actual Perm.count_eq at0 refute multiplicity2 versus1."
+  },
+  "scope": "One example source only,18 public claims and one private helper preserved; selected_structure changes only equivalent Sublist notation. All exact value/mass targets unchanged.",
+  "before_sha256": "251c0ee0ce7b96711ea57e1ff7496a784fe33137596e8f13b244fa9e44fd57e5",
+  "after_sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084",
+  "validation": "Uncompiled successor; no validation claim or linter suppression."
+}

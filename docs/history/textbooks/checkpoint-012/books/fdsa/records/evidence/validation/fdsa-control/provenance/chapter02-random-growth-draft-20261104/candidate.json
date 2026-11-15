@@ -1,0 +1,163 @@
+{
+  "completed_utc": "2026-11-04T07:46:38.655454+00:00",
+  "candidate": "08a1e78d6becc713256d245206ef163f9eb55a0a",
+  "parent": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+  "branch": "work/fdsa-ch02-random-pivot",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot",
+  "final_status": "",
+  "source_identities": {
+    "Applications/Resources/RandomQuickSortGrowth.lean": {
+      "bytes": 9896,
+      "lines": 203,
+      "sha256": "2b8bf7b4820790edaaa5726efb8e8bd8bccd3a30cb30388148d95bba00e63674"
+    },
+    "Examples/RandomQuickSortGrowth.lean": {
+      "bytes": 9959,
+      "lines": 215,
+      "sha256": "2d173d7572ae76395c3779c216ea43d21719ff1774f6a7f21c68a5677b511a16"
+    }
+  },
+  "existing_dependency_and_pin_identities": {
+    "Applications/Resources/RandomQuickSortRank.lean": {
+      "bytes": 19615,
+      "lines": 393,
+      "sha256": "22960885c968620b957e7e2381baa8b887d9dc80a54fb72fe9644c3ace2890b4"
+    },
+    "Examples/RandomQuickSortRank.lean": {
+      "bytes": 6427,
+      "lines": 151,
+      "sha256": "a0f5fbd6b3d41cad08193a371228bede1b869a773608b21906e85f2848d747bf"
+    },
+    "Applications/Resources/RandomQuickSortMean.lean": {
+      "bytes": 16517,
+      "lines": 335,
+      "sha256": "2c7976bf52a2dbed2eb6eb959055acc7ae0df8319c167f0128b63e5c482bd5d3"
+    },
+    "Examples/RandomQuickSortMean.lean": {
+      "bytes": 5733,
+      "lines": 118,
+      "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670"
+    },
+    "Applications/Resources/QuickSortMean.lean": {
+      "bytes": 9714,
+      "lines": 215,
+      "sha256": "6ac46b57a39ad60eaae10d6b90ac4c46c9cbdc02d5caf214097b1e794d03794b"
+    },
+    "Examples/QuickSortMean.lean": {
+      "bytes": 2488,
+      "lines": 68,
+      "sha256": "924ce55ee6af374b55cea67ee6f2da25997b5a81ad098e2e3789622bd793b904"
+    },
+    "lean-toolchain": {
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    "lake-manifest.json": {
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    "AGENTS.md": {
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    }
+  },
+  "provenance_identities": {
+    "alignment-start.json": {
+      "bytes": 329,
+      "lines": 6,
+      "sha256": "f43fc2a5cb090596c8228aa93edbba20c727f7e882a3b16c81dcd5ca86e7563d"
+    },
+    "alignment-result.json": {
+      "bytes": 2048,
+      "lines": 41,
+      "sha256": "92af94b9fd75c1fbad4a153804e32fb43f68d090110aa6e12530a71d977a1c6a"
+    },
+    "author-start.json": {
+      "bytes": 2737,
+      "lines": 73,
+      "sha256": "7cc11d33c2c22ee3274b9de8c5efedccf4089ecb770f11360928799f0133da31"
+    },
+    "source-inventory.json": {
+      "bytes": 17064,
+      "lines": 254,
+      "sha256": "f54b542a67139a1d29cb4946d3d527c3ffc3967f083ea661bc41f7802e030d42"
+    },
+    "statement-assessment.md": {
+      "bytes": 12434,
+      "lines": 132,
+      "sha256": "1f182ac44aee21ec5ae66212d8cbd1fb956b3347c3d6f9934be486f1fe7d55dd"
+    },
+    "source.diff": {
+      "bytes": 20725,
+      "lines": 430,
+      "sha256": "541dfe228402f375705297f6046ddcd014c8e6ed76d68361ee296b7138a684e9"
+    },
+    "diff-check.log": {
+      "bytes": 0,
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "commit.json": {
+      "bytes": 768,
+      "lines": 15,
+      "sha256": "81e06d833ae7b193e12eb5b34d1c5de0b4a61945465be6e7f57d29d69c5ef06f"
+    },
+    "handoff.md": {
+      "bytes": 4729,
+      "lines": 84,
+      "sha256": "88e7f1082fe243e5a0e703fec099bc0a3aad67123aa6e4c17a5e08fd19140c64"
+    }
+  },
+  "approved_plan": {
+    "bytes": 23018,
+    "lines": 393,
+    "sha256": "8f9b2e960eda6e1563786f7941b412bd23f1390d40244b23c292cbed2ec83b96"
+  },
+  "root_plan_assessment": {
+    "bytes": 2372,
+    "lines": 22,
+    "sha256": "be04e151b6b993d4aca55b70919988c6a6c1d16001b93d3133743de0135df770"
+  },
+  "exactly_two_new_source_files": true,
+  "all_existing_source_and_pins_unchanged": true,
+  "public_resource_theorems": 17,
+  "public_example_theorems": 14,
+  "private_declarations": 0,
+  "all_418_source_lines_and_proof_bodies_read": true,
+  "all31_source_claims_assessed": true,
+  "complete_source_inventory_read": true,
+  "concrete_mathematical_source_findings": [],
+  "staged_whitespace_check_exit_code": 0,
+  "compiled": false,
+  "elaborated_types_inspected": false,
+  "full_candidate_check_or_audit_pass": false,
+  "independent_final_review_pass": false,
+  "acceptance_claimed": false,
+  "author_builds_started": 0,
+  "cache_writes": false,
+  "lake_directory_present": false,
+  "children_spawned": false,
+  "central_mutations": false,
+  "global_control_ticket_coverage_or_existing_handoff_edits": false,
+  "actual_execution_recurrence_assumed": false,
+  "payload_and_key_universes_independent": true,
+  "family_index_universe_independent": true,
+  "mapped_key_distinctness_preserved": true,
+  "genuine_actual_real_means_used": true,
+  "arbitrary_filter_bound_uses_actual_input_length": true,
+  "literal_bound_uses_same_run_comparison": true,
+  "pivot_selection_indexing_removal_random_bit_cost_added": false,
+  "dependency_validation": "SOURCE-assessed; central fixed c0440a99 attempt5 live at latest supplied coordinator report. No terminal/dependency compiler pass inferred.",
+  "prior_failure_records_preserved": true,
+  "mandatory_continuation": [
+    "Root exclusive focused compilation and complete31-name elaborated statement inspection",
+    "Every actual rank/mean/numerical/new-source diagnostic repaired under preserved contracts",
+    "Separate deterministic first-pivot uniform-input expectation",
+    "Full frozen Chapter2 and full-book scope",
+    "Applicable immutable full check/audit, independent Standards and Spec, immediate candidate verification"
+  ],
+  "next_action": "HOLD all source/ref/control/provenance writes pending coordinator release or actual diagnostics"
+}

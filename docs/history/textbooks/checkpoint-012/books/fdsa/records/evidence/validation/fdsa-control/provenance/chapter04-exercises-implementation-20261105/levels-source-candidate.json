@@ -1,0 +1,66 @@
+{
+  "status": "UNCOMPILED source candidate; no acceptance claimed",
+  "recorded_at_utc": "2026-11-05T02:42:40.695210+00:00",
+  "candidate": "3a9e02bd4e47282be0e55b71527016277e1d5ca4",
+  "parent": "5b17c8e4a962a8e79251eda1b5f94f97a3d4cc34",
+  "branch": "work/fdsa-ch04-exercises",
+  "clean_status": "",
+  "files": [
+    {
+      "path": "Applications/Trees/Levels.lean",
+      "size": 3596,
+      "sha256": "45a2c073f4cecb400b2af4bf49941558d65b7eb52ef667bbab19ed8c7984b023",
+      "public_declarations": [
+        "Trees.level",
+        "Trees.level_nil",
+        "Trees.level_node_zero",
+        "Trees.level_node_succ",
+        "Trees.mergeLevels",
+        "Trees.levels",
+        "Trees.levels_nil",
+        "Trees.levels_node",
+        "Trees.mergeLevels_length",
+        "Trees.mergeLevels_getD",
+        "Trees.levels_length",
+        "Trees.levels_getD",
+        "Trees.levels_getElem?"
+      ]
+    },
+    {
+      "path": "Examples/TreeLevels.lean",
+      "size": 1874,
+      "sha256": "8c70f590b88a4f7c329a72a114af12fc12965e79d94ce6fc794fc6853dd1dc7b",
+      "public_declarations": [
+        "TreeLevelsExamples.sample",
+        "TreeLevelsExamples.sample_levels",
+        "TreeLevelsExamples.sample_height",
+        "TreeLevelsExamples.sample_levels_length",
+        "TreeLevelsExamples.sample_level_two",
+        "TreeLevelsExamples.sample_index_two",
+        "TreeLevelsExamples.sample_level_four",
+        "TreeLevelsExamples.repeated",
+        "TreeLevelsExamples.repeated_levels",
+        "TreeLevelsExamples.repeated_level_one",
+        "TreeLevelsExamples.repeated_index_one",
+        "TreeLevelsExamples.empty_label_levels",
+        "TreeLevelsExamples.empty_label_length",
+        "TreeLevelsExamples.empty_label_level"
+      ]
+    }
+  ],
+  "frozen_contract_sha256": "3385c5051e121908262fde4bf69912f05877496022812ac227560fac5244aa98",
+  "actual_local_checks": [
+    "complete authored source inspection (dee094)",
+    "git diff --cached --check actual exit0 (dee094)",
+    "literal forbidden-token scan actual exit0 (dee094)"
+  ],
+  "not_run": [
+    "Lean",
+    "Lake",
+    "check.sh",
+    "audit",
+    "actual elaborated statement extraction"
+  ],
+  "compiler_owner": "root",
+  "handoff": "C04-023..026: ordered/repeated depth recurrences, one tree traversal/no Nat arithmetic in levels, maximum-length merge, length=height and actual bounded getElem? correspondence; independent asymmetric/repeated/Empty uses. Parent must qualify exact source and complete chapter review. No total-runtime claim."
+}

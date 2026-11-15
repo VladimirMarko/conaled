@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "prepared_utc": "2026-11-04T11:58:31.785534+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "status": "Complete PREPARED-ONLY handoff after bookkeeping correction1; author readback finished; write HOLD",
+  "candidate": null,
+  "source_assembly_performed": false,
+  "program_executed": false,
+  "new_type_credit": 0,
+  "new_acceptance": false,
+  "permitted_writes": "Only this new control provenance directory",
+  "written_files": [
+    {
+      "path": "provenance/shared-four-public-statements279-prepared-20261104/Statements.lean",
+      "bytes": 15990,
+      "lines": 332,
+      "sha256": "6fb956bd7423cdb8d04e94fa544920907bdb3df291822d5ab1dfbd8fa5cc2925"
+    },
+    {
+      "path": "provenance/shared-four-public-statements279-prepared-20261104/inventory.json",
+      "bytes": 218625,
+      "lines": 5605,
+      "sha256": "4c03ab11c546ce7e5950abe6af1ab636763a4fa0ffc195f8effd8767d5d8367b"
+    },
+    {
+      "path": "provenance/shared-four-public-statements279-prepared-20261104/source-and-evidence.json",
+      "bytes": 64448,
+      "lines": 1661,
+      "sha256": "af4bb9f50ec49d5b049ac96a5b2d26535f827b8ef8d703bb96ee75dd1826ff33"
+    },
+    {
+      "path": "provenance/shared-four-public-statements279-prepared-20261104/preparation.md",
+      "bytes": 9069,
+      "lines": 56,
+      "sha256": "2633d3a79e331f3958cba5cfd6631959adfd55371575c6f709db65acaca0e3c0"
+    },
+    {
+      "path": "provenance/shared-four-public-statements279-prepared-20261104/bookkeeping-correction1.json",
+      "bytes": 5027,
+      "lines": 92,
+      "sha256": "0e7d0d72f2db56909269f6265a66f190bf1f8ad4b87741208d2ea97f1feb4582"
+    }
+  ],
+  "helper_reuse": {
+    "identity": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/type_accounting.py",
+      "bytes": 16075,
+      "lines": 330,
+      "sha256": "e9dfa30bfb6b84146d05aeb9bcdb9f1a43df34f4332cb0b1c865670f6437aebd"
+    },
+    "executed_only_in_memory": [
+      "strip_comments_strings",
+      "declarations",
+      "DECL",
+      "NAME"
+    ],
+    "main_or_writing_path_executed": false,
+    "Lean_Lake_invoked": false
+  },
+  "completed_utc": "2026-11-04T12:02:07.613440+00:00",
+  "counts": {
+    "program_checks": 279,
+    "unit_or_changed": 252,
+    "retained_accepted_R": 27,
+    "changed_compatibility_names": 8,
+    "declaration_bearing_modules": 12,
+    "declared_scope_paths": 18,
+    "local_closure_modules": 25,
+    "external_imports": 21,
+    "private_named": 6,
+    "anonymous_instances": 5,
+    "anonymous_examples": 0
+  },
+  "mechanical_readback": {
+    "program_names_exactly_once_in_inventory_order": true,
+    "every_program_line_reconciled": true,
+    "all279_source_header_lines_and_hashes_rechecked_from_immutable_Git": true,
+    "current_and_historical_evidence_identity_files_still_match": true,
+    "four_frozen_requirement_hashes_still_match": true,
+    "future_candidate_remains_null": true,
+    "no_compiler_cache_source_ref_or_process_action": true,
+    "both_current_segment_dispositions_match_prepared279_inclusion": true
+  },
+  "author_readback": {
+    "complete_program_lines_read": 332,
+    "complete_preparation_prose_read": true,
+    "inventory_and_source_evidence": "Fully parsed; all279 name/source/header/program-line joins and all saved evidence identities rechecked. Full new program and prose read. Existing mathematical source/type reviews are retained, not repeated or claimed as this author review.",
+    "frozen_requirements_complete_read": [
+      "reviews/ordinary-merge-requirements.md",
+      "reviews/difference-list-cost-requirements.md",
+      "reviews/three-way-partition-requirements.md",
+      "reviews/permutation-minimum-requirements.md"
+    ],
+    "source_read_boundary": "All 12 defining source files processed for exact bytes, imports, namespace-aware declaration headers and full explicit-name inventory. Relevant dependency import/source identities checked through immutable Git. No new complete proof assessment claimed.",
+    "actual_type_read_boundary": "Existing closed output hashes and metadata checked; prior complete independent semantic assessments referenced. No new semantic reading of actual printed types or acceptance credit claimed.",
+    "other_record_boundary": "Scope parsed completely and relevant retained planning portions read; current STATUS complete, CURRENT330-end and INDEX255-end read in this continuation; prior full governing reads retained in the earlier shared-acceptance-sequence receipt.",
+    "bookkeeping_correction1": "Both inherited segment entries now preserve historical wording/origin separately from current future279 inclusion. Analogous copied status fields were inspected; no other present-tense conflict found."
+  },
+  "preparation_bookkeeping_note": {
+    "stage": "First metadata-generation attempt, before output-directory creation or any write",
+    "failure": "An overbroad assertion expected the actual815 program to import every path of the new combined program closure.",
+    "correction": "Bind actual815 observations only to the complete defining closure of the85 names that it actually printed; record other absent proposed paths explicitly.",
+    "missing_paths": [
+      "Applications/Resources/Partition.lean",
+      "Applications/Selection/ThreeWay.lean",
+      "Applications/Sequences/Partition.lean",
+      "Examples/ThreeWayPartition.lean"
+    ],
+    "compiler_or_evidence_changed": false
+  },
+  "hold": {
+    "source_writes": true,
+    "own_provenance_writes": true,
+    "until": "Root releases after checkpoint0102 capture/upload or assigns bounded follow-up"
+  },
+  "bookkeeping_correction1": {
+    "path": "provenance/shared-four-public-statements279-prepared-20261104/bookkeeping-correction1.json",
+    "bytes": 5027,
+    "lines": 92,
+    "sha256": "0e7d0d72f2db56909269f6265a66f190bf1f8ad4b87741208d2ea97f1feb4582"
+  }
+}

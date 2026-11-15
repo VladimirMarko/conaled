@@ -1,0 +1,365 @@
+{
+  "candidate": "7b1851cee7fe580a4fe235740b0c07e4ddd8fc58",
+  "kind": "source inventory, not elaborated types",
+  "full_source_readback_completed": true,
+  "compiled": false,
+  "files": {
+    "Applications/Resources/RandomQuickSortMean.lean": {
+      "bytes": 16480,
+      "lines": 334,
+      "sha256": "41d81697ef917d32f6946b05b7381882838e67e8f4be9408a1b218633cea04d2",
+      "declarations": [
+        {
+          "source_name": "Resources.RandomQuickSort.weighted_bind",
+          "private": true,
+          "kind": "theorem",
+          "line": 26
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.weighted_pure",
+          "private": true,
+          "kind": "theorem",
+          "line": 39
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.weighted_map",
+          "private": true,
+          "kind": "theorem",
+          "line": 44
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.weighted_add",
+          "private": true,
+          "kind": "theorem",
+          "line": 49
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.weighted_const",
+          "private": true,
+          "kind": "theorem",
+          "line": 53
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.weighted_mono_support",
+          "private": true,
+          "kind": "theorem",
+          "line": 57
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.lintegral_nat_eq",
+          "private": true,
+          "kind": "theorem",
+          "line": 66
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.lintegral_nat_le_of_support",
+          "private": true,
+          "kind": "theorem",
+          "line": 74
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.exerciseMean",
+          "private": false,
+          "kind": "def",
+          "line": 88
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.literalMean",
+          "private": false,
+          "kind": "def",
+          "line": 93
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.exerciseLaw_lintegral_le",
+          "private": false,
+          "kind": "theorem",
+          "line": 97
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.literalLaw_lintegral_le",
+          "private": false,
+          "kind": "theorem",
+          "line": 103
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.exerciseLaw_lintegral_ne_top",
+          "private": false,
+          "kind": "theorem",
+          "line": 108
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.literalLaw_lintegral_ne_top",
+          "private": false,
+          "kind": "theorem",
+          "line": 112
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.integrable_nat_of_lower_finite",
+          "private": true,
+          "kind": "theorem",
+          "line": 116
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.exerciseLaw_integrable",
+          "private": false,
+          "kind": "theorem",
+          "line": 125
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.literalLaw_integrable",
+          "private": false,
+          "kind": "theorem",
+          "line": 129
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.integral_nat_eq",
+          "private": true,
+          "kind": "theorem",
+          "line": 133
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.exerciseMean_eq_toReal_lintegral",
+          "private": false,
+          "kind": "theorem",
+          "line": 144
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.literalMean_eq_toReal_lintegral",
+          "private": false,
+          "kind": "theorem",
+          "line": 149
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.exerciseMean_nonneg",
+          "private": false,
+          "kind": "theorem",
+          "line": 154
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.literalMean_nonneg",
+          "private": false,
+          "kind": "theorem",
+          "line": 157
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.exerciseMean_le",
+          "private": false,
+          "kind": "theorem",
+          "line": 160
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.literalMean_le",
+          "private": false,
+          "kind": "theorem",
+          "line": 166
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.exerciseMean_nil",
+          "private": false,
+          "kind": "theorem",
+          "line": 172
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.literalMean_nil",
+          "private": false,
+          "kind": "theorem",
+          "line": 175
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.exerciseMean_singleton",
+          "private": false,
+          "kind": "theorem",
+          "line": 178
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.literalMean_singleton",
+          "private": false,
+          "kind": "theorem",
+          "line": 182
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.weighted_two_children",
+          "private": true,
+          "kind": "theorem",
+          "line": 186
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.exerciseLaw_lintegral_cons",
+          "private": true,
+          "kind": "theorem",
+          "line": 194
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.exerciseMean_cons",
+          "private": false,
+          "kind": "theorem",
+          "line": 220
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.exercise_lintegral_run",
+          "private": true,
+          "kind": "theorem",
+          "line": 265
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.literal_lintegral_run",
+          "private": true,
+          "kind": "theorem",
+          "line": 270
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.literalMean_comparison",
+          "private": false,
+          "kind": "theorem",
+          "line": 277
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.exerciseMean_of_all_false",
+          "private": false,
+          "kind": "theorem",
+          "line": 310
+        },
+        {
+          "source_name": "Resources.RandomQuickSort.literalMean_of_all_false",
+          "private": false,
+          "kind": "theorem",
+          "line": 320
+        }
+      ],
+      "imports": [
+        "Applications.Resources.RandomQuickSort",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+        "Mathlib.MeasureTheory.Function.L1Space.Integrable",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "Mathlib.Basic.ENNReal.BigOperators"
+      ],
+      "universe_declarations": [
+        "u v"
+      ],
+      "autoImplicit_false": true,
+      "warningAsError_true": true,
+      "prohibited_token_matches": []
+    },
+    "Examples/RandomQuickSortMean.lean": {
+      "bytes": 5733,
+      "lines": 118,
+      "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670",
+      "declarations": [
+        {
+          "source_name": "Examples.RandomQuickSortMean.empty_uninhabited_means",
+          "private": false,
+          "kind": "theorem",
+          "line": 25
+        },
+        {
+          "source_name": "Examples.RandomQuickSortMean.singleton_means",
+          "private": false,
+          "kind": "theorem",
+          "line": 30
+        },
+        {
+          "source_name": "Examples.RandomQuickSortMean.integral_nat_map_fin",
+          "private": true,
+          "kind": "theorem",
+          "line": 36
+        },
+        {
+          "source_name": "Examples.RandomQuickSortMean.two_key_exercise_mean",
+          "private": false,
+          "kind": "theorem",
+          "line": 44
+        },
+        {
+          "source_name": "Examples.RandomQuickSortMean.two_key_literal_mean",
+          "private": false,
+          "kind": "theorem",
+          "line": 49
+        },
+        {
+          "source_name": "Examples.RandomQuickSortMean.three_key_exercise_mean",
+          "private": false,
+          "kind": "theorem",
+          "line": 62
+        },
+        {
+          "source_name": "Examples.RandomQuickSortMean.constant_key_payload_means",
+          "private": false,
+          "kind": "theorem",
+          "line": 69
+        },
+        {
+          "source_name": "Examples.RandomQuickSortMean.two_equal_key_tag_means",
+          "private": false,
+          "kind": "theorem",
+          "line": 88
+        },
+        {
+          "source_name": "Examples.RandomQuickSortMean.all_equal_three_means",
+          "private": false,
+          "kind": "theorem",
+          "line": 95
+        },
+        {
+          "source_name": "Examples.RandomQuickSortMean.arbitrary_payload_integrable",
+          "private": false,
+          "kind": "theorem",
+          "line": 105
+        },
+        {
+          "source_name": "Examples.RandomQuickSortMean.arbitrary_payload_mean_comparison",
+          "private": false,
+          "kind": "theorem",
+          "line": 111
+        }
+      ],
+      "imports": [
+        "Applications.Resources.RandomQuickSortMean",
+        "Examples.RandomQuickSort",
+        "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "universe_declarations": [
+        "u"
+      ],
+      "autoImplicit_false": true,
+      "warningAsError_true": true,
+      "prohibited_token_matches": []
+    }
+  },
+  "public_names": [
+    "Resources.RandomQuickSort.exerciseMean",
+    "Resources.RandomQuickSort.literalMean",
+    "Resources.RandomQuickSort.exerciseLaw_lintegral_le",
+    "Resources.RandomQuickSort.literalLaw_lintegral_le",
+    "Resources.RandomQuickSort.exerciseLaw_lintegral_ne_top",
+    "Resources.RandomQuickSort.literalLaw_lintegral_ne_top",
+    "Resources.RandomQuickSort.exerciseLaw_integrable",
+    "Resources.RandomQuickSort.literalLaw_integrable",
+    "Resources.RandomQuickSort.exerciseMean_eq_toReal_lintegral",
+    "Resources.RandomQuickSort.literalMean_eq_toReal_lintegral",
+    "Resources.RandomQuickSort.exerciseMean_nonneg",
+    "Resources.RandomQuickSort.literalMean_nonneg",
+    "Resources.RandomQuickSort.exerciseMean_le",
+    "Resources.RandomQuickSort.literalMean_le",
+    "Resources.RandomQuickSort.exerciseMean_nil",
+    "Resources.RandomQuickSort.literalMean_nil",
+    "Resources.RandomQuickSort.exerciseMean_singleton",
+    "Resources.RandomQuickSort.literalMean_singleton",
+    "Resources.RandomQuickSort.exerciseMean_cons",
+    "Resources.RandomQuickSort.literalMean_comparison",
+    "Resources.RandomQuickSort.exerciseMean_of_all_false",
+    "Resources.RandomQuickSort.literalMean_of_all_false",
+    "Examples.RandomQuickSortMean.empty_uninhabited_means",
+    "Examples.RandomQuickSortMean.singleton_means",
+    "Examples.RandomQuickSortMean.two_key_exercise_mean",
+    "Examples.RandomQuickSortMean.two_key_literal_mean",
+    "Examples.RandomQuickSortMean.three_key_exercise_mean",
+    "Examples.RandomQuickSortMean.constant_key_payload_means",
+    "Examples.RandomQuickSortMean.two_equal_key_tag_means",
+    "Examples.RandomQuickSortMean.all_equal_three_means",
+    "Examples.RandomQuickSortMean.arbitrary_payload_integrable",
+    "Examples.RandomQuickSortMean.arbitrary_payload_mean_comparison"
+  ],
+  "public_declaration_count": 32,
+  "private_declaration_count": 15
+}

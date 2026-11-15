@@ -1,0 +1,97 @@
+{
+  "observed_utc": "2026-11-03T01:22:04.985214+00:00",
+  "status": "completed",
+  "checkpoint": 29,
+  "purpose": "Recover space occupied by inactive source materializations after verified durable source/ref preservation. Current and pending candidates, active outputs and shared dependencies remain untouched.",
+  "available_bytes_before": 370229248,
+  "items": [
+    {
+      "path": "/workspace/scratch/ca9a61d0bf30/validation-purity",
+      "head": "ea8afa12706d30cdc69ece1a172d5f21a3ea1809",
+      "branch": "pfds/pure-suspensions-review-r1",
+      "saved_ref": "refs/heads/pfds/pure-suspensions-review-r1",
+      "ignored": [
+        ".lake/packages",
+        "scripts/__pycache__/lake_integrity.cpython-313.pyc"
+      ],
+      "restore_argv": [
+        "git",
+        "worktree",
+        "add",
+        "/workspace/scratch/ca9a61d0bf30/validation-purity",
+        "pfds/pure-suspensions-review-r1"
+      ]
+    },
+    {
+      "path": "/workspace/scratch/ca9a61d0bf30/purity-foundation",
+      "head": "501a95463f455b52ea839eb8bbcf6ab9379862e4",
+      "branch": "pfds/pure-suspensions",
+      "saved_ref": "refs/heads/pfds/pure-suspensions",
+      "ignored": [
+        ".lake/config/1/lakefile.olean",
+        ".lake/config/1/lakefile.olean.trace",
+        ".lake/config/5/lakefile.olean",
+        ".lake/config/5/lakefile.olean.trace",
+        ".lake/packages"
+      ],
+      "restore_argv": [
+        "git",
+        "worktree",
+        "add",
+        "/workspace/scratch/ca9a61d0bf30/purity-foundation",
+        "pfds/pure-suspensions"
+      ]
+    },
+    {
+      "path": "/workspace/scratch/ca9a61d0bf30/suspension-foundation",
+      "head": "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+      "branch": "pfds/suspensions",
+      "saved_ref": "refs/heads/pfds/suspensions",
+      "ignored": [
+        ".lake/config/1/lakefile.olean",
+        ".lake/config/1/lakefile.olean.trace",
+        ".lake/config/5/lakefile.olean",
+        ".lake/config/5/lakefile.olean.trace",
+        ".lake/packages"
+      ],
+      "restore_argv": [
+        "git",
+        "worktree",
+        "add",
+        "/workspace/scratch/ca9a61d0bf30/suspension-foundation",
+        "pfds/suspensions"
+      ]
+    },
+    {
+      "path": "/workspace/scratch/ca9a61d0bf30/review-ch01-r3",
+      "head": "1ce161412a2cfb725f27525ff98d400209163316",
+      "branch": null,
+      "saved_ref": "refs/heads/pfds/ch01-union",
+      "ignored": [],
+      "restore_argv": [
+        "git",
+        "worktree",
+        "add",
+        "--detach",
+        "/workspace/scratch/ca9a61d0bf30/review-ch01-r3",
+        "1ce161412a2cfb725f27525ff98d400209163316"
+      ]
+    }
+  ],
+  "removed": [
+    "validation-purity",
+    "purity-foundation",
+    "suspension-foundation",
+    "review-ch01-r3"
+  ],
+  "owned_processes_observed": [
+    700729,
+    700737,
+    701049,
+    702915
+  ],
+  "proposed_path_users": [],
+  "refs_unchanged": true,
+  "available_bytes_after": 744689664,
+  "ended_utc": "2026-11-03T01:22:06.056249+00:00"
+}

@@ -1,0 +1,43 @@
+{
+  "observed_at": "2026-11-14T03:54:13.567929+00:00",
+  "locks": [
+    {
+      "path": "/workspace/scratch/e1eab3b6b18e/integration-20261113/checkpoint/.conaled-textbooks.lock",
+      "exists": true,
+      "available": true
+    },
+    {
+      "path": "/workspace/scratch/e1eab3b6b18e/integration-20261113/runtime/native/locks/project-a5e679185980dd76e7f0.lock",
+      "exists": true,
+      "available": true
+    }
+  ],
+  "full_run_terminal_observed": false,
+  "tool_handle_observations": {
+    "32113": "Unknown process id",
+    "32892": "Unknown process id"
+  },
+  "checkpoint_serial": 7,
+  "manifest_serial": 7,
+  "delivery": {
+    "archive_bytes": 106477912,
+    "archive_sha256": "ecc9c021e11b809e1dfc5772a661b2f531cff49b3bd2c3f8391f2dd9fb11642e",
+    "durable_uploaded": true,
+    "library_file_id": "libfile_fde3_f-0c4a15cc351c8191af8b5cc310d4521c_bcb09d6951dc8191bbb29f2ba3c27d9d",
+    "manifest_sha256": "c9f70ef2d6dbc5d54887666dc7c26c694a98fd2a1560fb41d663948b198bb3fc",
+    "method": "create_library_file",
+    "schema": 1,
+    "serial": 7,
+    "series": "conaled-textbooks"
+  },
+  "unpublished_pack_stage": {
+    "path": "/workspace/scratch/e1eab3b6b18e/integration-20261113/deliverables/.checkpoint-pack-sfls6e0k/release.tar.xz",
+    "bytes": 106339682,
+    "mtime": "2026-11-14T03:51:35.035825+00:00"
+  },
+  "conclusion": "No terminal status was returned for either process. Lock observations and metadata determine whether retry is safe; no exit code, cause, timeout or resource failure is inferred.",
+  "verification_record_present": false,
+  "compiler_head": "16440863ddb14d95c402ce65498e22497e246e72",
+  "compiler_worktree_status": "",
+  "status": "execution state lost; terminal outcomes unavailable; no successful full validation or released008 archive"
+}

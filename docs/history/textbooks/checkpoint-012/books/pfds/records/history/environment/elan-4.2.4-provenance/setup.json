@@ -1,0 +1,75 @@
+{
+  "started_at": "2026-11-03T17:29:16.155513+00:00",
+  "release_api": "https://api.github.com/repos/leanprover/elan/releases/tags/v4.2.4",
+  "release_metadata_sha256": "6aa4607308cfa7b576a317ad93bb56d84196e18eae665cf4e92058b3eae37f57",
+  "url": "https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz",
+  "expected_bytes": 4996571,
+  "expected_sha256": "42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63",
+  "status": "finished",
+  "commands": [
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/elan-4.2.4/elan",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/b566cace4ed6/pfds/import-correction-r3",
+      "elapsed_seconds": 0.005524349002371309,
+      "exit_code": 0,
+      "stdout": "elan 4.2.4 (227caca13 2026-08-25)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/elan-4.2.4/elan",
+        "toolchain",
+        "link",
+        "pfds-native-4.35.0",
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-native"
+      ],
+      "cwd": "/workspace/scratch/b566cace4ed6/pfds/import-correction-r3",
+      "elapsed_seconds": 0.0077487610033131205,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/elan-4.2.4/elan",
+        "which",
+        "lean"
+      ],
+      "cwd": "/workspace/scratch/b566cace4ed6/pfds/import-correction-r3",
+      "elapsed_seconds": 0.005529845999262761,
+      "exit_code": 0,
+      "stdout": "/workspace/scratch/b566cace4ed6/pfds/runtime-cache/elan-native-check-tests/toolchains/pfds-native-4.35.0/bin/lean\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-native-toolchain.py",
+        "--",
+        "/workspace/scratch/b566cace4ed6/pfds/runtime-cache/elan-native-check-tests/toolchains/pfds-native-4.35.0/bin/lean",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/b566cace4ed6/pfds/import-correction-r3",
+      "elapsed_seconds": 0.36626159500156064,
+      "exit_code": 0,
+      "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": ""
+    }
+  ],
+  "active_native_profile_modified": false,
+  "project_pins_modified": false,
+  "binary": {
+    "path": "/workspace/scratch/b566cace4ed6/pfds/toolchains/elan-4.2.4/elan-init",
+    "bytes": 13452832,
+    "sha256": "e0f4b30b29c565625189744847dfef5f132b6322c5e452dbebfeae780c9749e5"
+  },
+  "passed": true,
+  "ended_at": "2026-11-03T17:29:27.539880+00:00",
+  "elan_home": "/workspace/scratch/b566cace4ed6/pfds/runtime-cache/elan-native-check-tests",
+  "elan_toolchain": "pfds-native-4.35.0",
+  "selected_lean": "/workspace/scratch/b566cace4ed6/pfds/runtime-cache/elan-native-check-tests/toolchains/pfds-native-4.35.0/bin/lean",
+  "regression_suite_run": false
+}

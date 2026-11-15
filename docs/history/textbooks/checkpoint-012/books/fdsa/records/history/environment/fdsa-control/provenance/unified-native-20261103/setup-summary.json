@@ -1,0 +1,152 @@
+{
+  "completed_utc": "2026-11-03T20:05:14.124203+00:00",
+  "setup_exit_code": 0,
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate_status": "",
+  "kit": "conaled-native-kit-4.35.0",
+  "host_mode": "compat",
+  "profile": "/workspace/scratch/31d6377eca78/conaled-native-state/profile",
+  "official_release": "/workspace/scratch/31d6377eca78/conaled-native-state/toolchains/lean-4.35.0-linux",
+  "dependency_sources": [
+    {
+      "name": "mathlib",
+      "expected_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "actual_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "status": ""
+    },
+    {
+      "name": "plausible",
+      "expected_revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "actual_revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "status": ""
+    },
+    {
+      "name": "LeanSearchClient",
+      "expected_revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "actual_revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "status": ""
+    },
+    {
+      "name": "importGraph",
+      "expected_revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "actual_revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "status": ""
+    },
+    {
+      "name": "proofwidgets",
+      "expected_revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "actual_revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "status": ""
+    },
+    {
+      "name": "aesop",
+      "expected_revision": "4a174c490d8707121c4a9290800489f105d85e07",
+      "actual_revision": "4a174c490d8707121c4a9290800489f105d85e07",
+      "status": ""
+    },
+    {
+      "name": "Qq",
+      "expected_revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "actual_revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "status": ""
+    },
+    {
+      "name": "batteries",
+      "expected_revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "actual_revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "status": ""
+    },
+    {
+      "name": "Cli",
+      "expected_revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "actual_revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "status": ""
+    }
+  ],
+  "smoke_cases": [
+    {
+      "label": "smoke-lean-version",
+      "exit_code": 0,
+      "expected_outcome_met": true,
+      "seconds": 0.052522857999974804
+    },
+    {
+      "label": "smoke-lake-version",
+      "exit_code": 0,
+      "expected_outcome_met": true,
+      "seconds": 0.12305458700006966
+    },
+    {
+      "label": "smoke-bare-prefix",
+      "exit_code": 0,
+      "expected_outcome_met": true,
+      "seconds": 0.05656667799985371
+    },
+    {
+      "label": "smoke-child-prefix",
+      "exit_code": 0,
+      "expected_outcome_met": true,
+      "seconds": 0.1699649459999364
+    },
+    {
+      "label": "smoke-valid-proof",
+      "exit_code": 0,
+      "expected_outcome_met": true,
+      "seconds": 0.18515785399995366
+    },
+    {
+      "label": "smoke-false-proof",
+      "exit_code": 1,
+      "expected_outcome_met": true,
+      "seconds": 0.2512012270001378
+    },
+    {
+      "label": "smoke-child-proof",
+      "exit_code": 0,
+      "expected_outcome_met": true,
+      "seconds": 0.3148861489999035
+    },
+    {
+      "label": "smoke-native-build",
+      "exit_code": 0,
+      "expected_outcome_met": true,
+      "seconds": 0.5091543300000012
+    },
+    {
+      "label": "smoke-native-run",
+      "exit_code": 0,
+      "expected_outcome_met": true,
+      "seconds": 0.047061470000016925
+    },
+    {
+      "label": "smoke-mathlib-import",
+      "exit_code": 0,
+      "expected_outcome_met": true,
+      "seconds": 1.3369652890000907
+    }
+  ],
+  "disk_free_bytes": 50495741952,
+  "project_full_validation": false,
+  "chapter_acceptance": false,
+  "limitations": [
+    "These setup checks are not full project validation or chapter acceptance.",
+    "Mathlib import smoke emitted an unused-variable warning in the kit fixture; exit 0. Project warning policy and source remain unchanged.",
+    "Enclosing setup launched in owned tool session 72303; exit 0 observed. Per-command closed logs and receipts retained; download progress was not a file log."
+  ],
+  "cache": {
+    "label": "cache-get",
+    "exit_code": 0,
+    "seconds": 34.76751527800002,
+    "log": "/workspace/scratch/31d6377eca78/conaled-native-state/logs/20261103T200414Z-cache-get-f950535c/output.log"
+  },
+  "lean_proof_artifacts": {
+    "Valid.olean": {
+      "bytes": 1424,
+      "sha256": "f33e4427afff5ce29f2117dc9ab1b34ed4a20f0b7a1d749e740671044c53abfb"
+    },
+    "Child.olean": {
+      "bytes": 1424,
+      "sha256": "f33e4427afff5ce29f2117dc9ab1b34ed4a20f0b7a1d749e740671044c53abfb"
+    }
+  }
+}

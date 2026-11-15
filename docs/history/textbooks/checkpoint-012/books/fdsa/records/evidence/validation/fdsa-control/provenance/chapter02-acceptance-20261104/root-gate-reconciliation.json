@@ -1,0 +1,2564 @@
+{
+  "recorded_utc": "2026-11-04T18:15:49.133868+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "candidate_tree": "fe0bd9f17a5e1a09797be55fd79491e8c363cbd0",
+  "accepted_before": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "root_role": "Coordination and immutable artifact/read-ledger reconciliation only; no third semantic review",
+  "both_final_axes_passed_held": true,
+  "unresolved_findings": 0,
+  "original_scope": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "public_names": 1763,
+    "private_names": 70,
+    "anonymous_instances": 19
+  },
+  "full_audit_counts": [
+    1029,
+    1027,
+    47797,
+    27214,
+    0
+  ],
+  "axiom_union": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "current_statement_partition": {
+    "qualified_prior": 466,
+    "current_exact_historical_checks": 1296,
+    "direct_Growth": 1,
+    "distinct_total": 1763,
+    "extra_NaturalRuns_prints": 3
+  },
+  "independent_current_blocks_equal": 1300,
+  "native_bytes_accounted": 1081225,
+  "full_native_read_ranges_verified": 40,
+  "saved_Standards_assessment_read_ranges_verified": 5,
+  "verified_read_ranges": [
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/actual466-receiving-qualification.json",
+      "first": 1,
+      "last": 200,
+      "tool": "7a9ed7",
+      "bytes": 7176,
+      "sha256": "41095b992df8154976dc81cacbdf5492d826e3bfc5b19bf6fabcd0da588e944f"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/actual466-receiving-qualification.json",
+      "first": 201,
+      "last": 400,
+      "tool": "dca81f",
+      "bytes": 8708,
+      "sha256": "6bd6575832717c8841e51d9fee05249163bb213cb2f4f84b2d7472eeeeda9f15"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/actual466-receiving-qualification.json",
+      "first": 401,
+      "last": 543,
+      "tool": "1f190b",
+      "bytes": 6263,
+      "sha256": "50fd030cdb031e47d747a11a480792f16805a72ceb2e1c8b6645024c0c41604c"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/actual-targeted-execution-qualification.json",
+      "first": 1,
+      "last": 190,
+      "tool": "869ff2",
+      "bytes": 9781,
+      "sha256": "edd61f3bef6de0de7d962c8582bac66ffd21367cdd596791f49384c30715f7f6"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/actual-targeted-execution-qualification.json",
+      "first": 191,
+      "last": 382,
+      "tool": "ed29d1",
+      "bytes": 10078,
+      "sha256": "8da352999d238b681ecd971bc1f15622705e9842a0b75279edc52bd2604e8945"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "first": 1,
+      "last": 70,
+      "tool": "66d656",
+      "bytes": 13705,
+      "sha256": "a7aae44a6dc3aaa714f04db7543e2ad1048abda59d5b2f7ef3c231259e9cc4d0"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "first": 71,
+      "last": 200,
+      "tool": "d6b245",
+      "bytes": 13223,
+      "sha256": "bf5f4a53a395e200990282e14747e69d1e509e0dc647da22f5a3351856fc25dd"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "first": 201,
+      "last": 350,
+      "tool": "346460",
+      "bytes": 16078,
+      "sha256": "ea095584ce5165a4cb81fb3a8d7b3fa7206607fcb77ede2ae9f89852e2d2ee38"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "first": 351,
+      "last": 478,
+      "tool": "9ef445",
+      "bytes": 19141,
+      "sha256": "e9dcad3cf4e8d1ef0efc44610c357963697a2dc68fd6b85e113b92e058fd473d"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "first": 479,
+      "last": 630,
+      "tool": "19b481",
+      "bytes": 22820,
+      "sha256": "350c3b93f374a520bf142165121ce3ffe51380224e58ae19ebdb9485badbe404"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "first": 631,
+      "last": 800,
+      "tool": "9942fe",
+      "bytes": 21674,
+      "sha256": "8816ba424b5e473144e4a0a2f959aec98613e01ae19323bd8197fd067238ce48"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "first": 801,
+      "last": 950,
+      "tool": "e37d9e",
+      "bytes": 14380,
+      "sha256": "10c3465cf73a2277025394b3ddabce4b6a99062022bb6e6076621fab8319d180"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "first": 951,
+      "last": 1120,
+      "tool": "26303b",
+      "bytes": 19940,
+      "sha256": "9045e2d73eb547acffabd189d16875936f38d1dafd8597f8e4958346b49250ba"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "first": 1121,
+      "last": 1280,
+      "tool": "04d8b5",
+      "bytes": 24616,
+      "sha256": "e1685ce90fea0e98f40efa5a9ee4d386ba9e4b97cd0d43a1e2d3a3cbb815c5fb"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "first": 1281,
+      "last": 1450,
+      "tool": "5cf3bb",
+      "bytes": 13058,
+      "sha256": "271d2adf332c5cc463358139aded4975b58c85912c626fcfc7d3153a9a0369b4"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "first": 1451,
+      "last": 1600,
+      "tool": "fdb6de",
+      "bytes": 12408,
+      "sha256": "c55cbb250918342732694b76283ca909cde7aeb41951c60daa42d153594cf0fa"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "first": 1601,
+      "last": 1642,
+      "tool": "b5856b",
+      "bytes": 4888,
+      "sha256": "a1c59c7dfb431c3160ae3052de5d8d9043be8f21658b3cbce44aaf8e541068f7"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "first": 1643,
+      "last": 1860,
+      "tool": "7a9d3c",
+      "bytes": 23288,
+      "sha256": "d52d48c8e593c96b710affdcc5feee2dac992c6390d078fc5cc6bc0a138ade2d"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "first": 1861,
+      "last": 2070,
+      "tool": "535a06",
+      "bytes": 23308,
+      "sha256": "6980f6ebd9fd03da5d3cf48102b85018993e8c4b4819e1e572abd1300afa9bd3"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "first": 2071,
+      "last": 2280,
+      "tool": "09f1d3",
+      "bytes": 24283,
+      "sha256": "2b8f982299f5226d5239be6e13dae8d38449d1ac36e239b86656d39288ecf5ea"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "first": 2281,
+      "last": 2480,
+      "tool": "628123",
+      "bytes": 23691,
+      "sha256": "fa306b645294abf8f38025413becf36f3ee6794b6492db2e7152ade691468ef2"
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "first": 2481,
+      "last": 2681,
+      "tool": "a1ac00",
+      "bytes": 24623,
+      "sha256": "02418747d8dfa3f51608bc8fec180479d36ef7bc71a70532912b011ad936b087"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 1,
+      "last": 71,
+      "tool": "b8b749",
+      "bytes": 13946,
+      "sha256": "bd8ae1cd281438f8cb89dfc08a57485d942f772e346637726badeefb0023072a"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 72,
+      "last": 204,
+      "tool": "41ce18",
+      "bytes": 13944,
+      "sha256": "fb2da075349c3558c527ffb82848793d596b47f68dbb87e9564e3de95f7aa534"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 205,
+      "last": 342,
+      "tool": "174beb",
+      "bytes": 13955,
+      "sha256": "ad22bb1403330a46967cab1113725f27c4c4af47d793a994b60979c029406c89"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 343,
+      "last": 433,
+      "tool": "72a151",
+      "bytes": 13900,
+      "sha256": "52ba0883c2a7ad067a3dd358882dd47bac94e1ee903f8b285ccb206893184213"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 434,
+      "last": 531,
+      "tool": "47607b",
+      "bytes": 13858,
+      "sha256": "38e9793cd8f058bda3b135d6f341a645c73990bfafc026175daa859bc71ab093"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 532,
+      "last": 618,
+      "tool": "b31c60",
+      "bytes": 13999,
+      "sha256": "3a5e95531fe129167f158a1a1bc13f5d1a0d784c6a230ddc2519d1633f60bcca"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 619,
+      "last": 716,
+      "tool": "3088ef",
+      "bytes": 13881,
+      "sha256": "497388c29ec19debb0901dc556a3ae6f89da657f53ac3d430ad1f6d78339fcbc"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 717,
+      "last": 843,
+      "tool": "b53896",
+      "bytes": 13986,
+      "sha256": "40801e57b8c6472c36b9ae9351b2f9f6bc70144588de108d997f2fb226d6d82a"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 844,
+      "last": 1012,
+      "tool": "3f43b7",
+      "bytes": 13870,
+      "sha256": "451b264315cd00ded674af6ec4cf368c0d34c2ba951a0b32e9fe101d4d6fa3fa"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 1013,
+      "last": 1109,
+      "tool": "b9d4d4",
+      "bytes": 13923,
+      "sha256": "8bbd2ba21cbdf1d8cc3b5220b1601def6a1c9bb51d107809717b70d95b1c8fbf"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 1110,
+      "last": 1195,
+      "tool": "dfd98b",
+      "bytes": 13984,
+      "sha256": "d116ae863f5e9016f7ef10687c2d4a031d8d3afa081c190997c9091f017941d5"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 1196,
+      "last": 1289,
+      "tool": "d738cf",
+      "bytes": 13974,
+      "sha256": "30ed5ff3307ae3d79f5717754f1732dad9d91e4b212c475db7ce32f0d5c9d368"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 1290,
+      "last": 1481,
+      "tool": "22d6fb",
+      "bytes": 13953,
+      "sha256": "b4122afd5bd72a17cdd0b50a11a77c3fa0f8b0f70439001a00709808c5440a3e"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 1482,
+      "last": 1630,
+      "tool": "3f3aeb",
+      "bytes": 13908,
+      "sha256": "f1c0c138db348d363a02c7786f50b7ff27ae83ccafacf2c963c9cb1dbcb55e6c"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 1631,
+      "last": 1765,
+      "tool": "c13cb1",
+      "bytes": 13996,
+      "sha256": "95905c9430110e044b1ccb057d064906131f2df43cf75e340bd20532f3466730"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 1766,
+      "last": 1894,
+      "tool": "1ce7e3",
+      "bytes": 13977,
+      "sha256": "e7253f9044f223e97c0940c3da30d8e718304cbec4c41624bad7d8257929e795"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 1895,
+      "last": 2020,
+      "tool": "702893",
+      "bytes": 13901,
+      "sha256": "f72308b9b004bdde346d161f7ca759aaaa297e6605c5a06d1ba9b691e1025588"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 2021,
+      "last": 2143,
+      "tool": "eea2c6",
+      "bytes": 13920,
+      "sha256": "1681e3735a78c513a238c1094295ca6ab30569e337f66a8b1e7fec39c5fd4e1d"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 2144,
+      "last": 2262,
+      "tool": "e2a8f0",
+      "bytes": 13988,
+      "sha256": "88d982df2c02eec361513a9e43629a3de5f0d712d708487041eb5b68002cdd9a"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 2263,
+      "last": 2380,
+      "tool": "a94130",
+      "bytes": 13946,
+      "sha256": "15ab1f9bbfa8a59877c8adb4087520444d06f1da01aa95b85af766e3d1dc5122"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 2381,
+      "last": 2496,
+      "tool": "f1817b",
+      "bytes": 13904,
+      "sha256": "8336c7c246e50653cd16f7832a1e2675754d0c5c0150940fd679786826e567a9"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 2497,
+      "last": 2612,
+      "tool": "47505d",
+      "bytes": 13998,
+      "sha256": "e24a099b482a6bdbfb08d1db3f35ac76867b27dbd0d3d5f416e75b849f1f3c03"
+    },
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "first": 2613,
+      "last": 2678,
+      "tool": "9c079e",
+      "bytes": 8185,
+      "sha256": "f5078e1e75dd8d1d1ba2c1da140892d61e10c715ac3cbecd76adb062b2d7a4cf"
+    }
+  ],
+  "root_complete_final_report_reads": [
+    "03b905",
+    "394308",
+    "3d0857",
+    "e992b5"
+  ],
+  "root_complete_final_disposition_reads": [
+    "0daf08",
+    "e60288",
+    "f0dc2d",
+    "5a2cb4"
+  ],
+  "reviewer_final_hold_readbacks": {
+    "Standards": "e17d7f",
+    "Spec": "3f1f18"
+  },
+  "bound_files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/manifest.json",
+      "bytes": 75796,
+      "sha256": "a9f091706995fba21e40e4e6f0ab3f90c29c658f39f4bafd01c564644a744191"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/mapping.json",
+      "bytes": 432092,
+      "sha256": "eb127025be51d2f6ae9f85f0f3c01dcc0c748c86ca51ecf3967c685bf6b971d2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/preliminary-per-name-disposition.json",
+      "bytes": 801508,
+      "sha256": "dadb5c025932de3c7daa1848222f980f078ea87d048a807c4d40abfe74624639"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/preliminary-comparison-attempt2.json",
+      "bytes": 2419127,
+      "sha256": "1f98ccb397b0be943b8bf96dc0707e5f293e2d3af85491695cbbe94390e15632"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/stable-comparison.json",
+      "bytes": 2419315,
+      "sha256": "e4201e756490c1282d2a5dacbd4c3268f8c1b85961800cfec0dfdb66da27eec1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 90134,
+      "sha256": "6e915cd019a10381fb096fece62bdbd9964f189a446024825a71daabc808a2a3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 90456,
+      "sha256": "7dfa8f4fa803ad8a3d9c8c0b0c54ebbb7f3925b78a25a6d3d4ac02ba0ff29723"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/execution-release.json",
+      "bytes": 22844,
+      "sha256": "56dd427957595491d6036e0a9bad315ddafef737ced19c60ed63ae38fa04f3ae"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/GrowthRetained1.lean",
+      "bytes": 163,
+      "sha256": "bb4e5d94f5f349aaa4fb8e8ffa4a355b1fc3e7f5a1cb09486a358bbc417f285a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/ProjectedRandom62.lean",
+      "bytes": 3583,
+      "sha256": "501551af4f23759f01fd171b5865543a2c6bccfa58c78067c2c38c7b7cf6d542"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/ProjectedThreeWay36.lean",
+      "bytes": 2260,
+      "sha256": "5fff31be12fa4b35d4714b8a81934b44c9dd5b9377939f28131b1255eca4e7b2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/ProjectedZ815_543.lean",
+      "bytes": 31622,
+      "sha256": "b7f0ee4282f183131a58263659afd142b7d0c705bb7a982b32918ca488c835f1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/README.md",
+      "bytes": 11379,
+      "sha256": "36319228d07f0de909fd93ae101cc99051e9dfb65bb086a79d1fc2e8c3953b39"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/bound-inputs.json",
+      "bytes": 19595,
+      "sha256": "f9fb153cab9a1df9a5f436d50f05f7be843beeeab1f44ce8e57adf516ad50117"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/commands.txt",
+      "bytes": 8973,
+      "sha256": "44741bb2e24f46e9a825db4a3555d6b5fc2337d6d706015573d96eb31560bb6d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/receipt.json",
+      "bytes": 4574,
+      "sha256": "0830f4b28f6b4cdb0c1fb76e928700da1b80411c3ddf42b597a508e724b39cca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-type-qualification-preparation-20261104/schedule.json",
+      "bytes": 409593,
+      "sha256": "6216efb85427a6401e1263f34294141c82f2fe88c74dc2dd18eb464207d06c62"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-statement-evidence-readiness-20261104/inventory.json",
+      "bytes": 496079,
+      "sha256": "80311e829c93fa2653616d9b5e85f237a17a6347cda79b69d1388d2cb8bb6b47"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-type-qualification-preparation-20261104/bound-inputs.json",
+      "bytes": 43114,
+      "sha256": "2120c53da63d2ae57361900937a14b26d115e4a26a0a6c3f560e307df635a6d8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-generated-setup-retirement-20261104/separate-persistence.json",
+      "bytes": 1522,
+      "sha256": "1e96578fe3c5221f1db2909207cdd0826688803675f53a9e32a7dae3c50898f0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/result.json",
+      "bytes": 1263,
+      "sha256": "bcd067764dda97bb5c5b2c88860adcbc1def51abe3f771503eab4079b2d6eba6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "a503c7f1dcb006b6cf0573c7a09ebefc4bdf81b68cc487a71cf81b40f58d10c5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/record_command.py",
+      "bytes": 6224,
+      "sha256": "f84384210851b0fd1999a323aa693eab8d464fa82f344446bd04b9e61d78c686"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/capture_statement_inputs.py",
+      "bytes": 5812,
+      "sha256": "4df281f3f427ec462a6973b9177fcc3f825b57b19fa8e205780f17cfaa89b5b7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+      "bytes": 34020,
+      "sha256": "9d1b1e6f10ae574e5c1f388d8df069f43c9ca3e1a993c372293595abd2e5090a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-source-preparation-20261104/evidence.json",
+      "bytes": 62209,
+      "sha256": "26799815a0650f040739f876126301bf10b6850f8fa19316f839d7b20b641d32"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-source-preparation-20261104/read-ledger.json",
+      "bytes": 70213,
+      "sha256": "f1700e05066e097d87a37399256e7ffe2709e118575f41a022ab0ffa2d95b4ae"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/historical-types-readback.json",
+      "bytes": 53587,
+      "sha256": "8e9e377b31048e1258894755b92a63181293c7983fd09d53c64688a33a7519c2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+      "bytes": 23539,
+      "sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-complete-spec-assessment-4b5dbfa0.json",
+      "bytes": 23798,
+      "sha256": "116cf0a800841c3a18d338f446ce3a518455487de8e401dae1186a85c73ad878"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-public-statements815-20261104-attempt1/actual-type-ranges.json",
+      "bytes": 232026,
+      "sha256": "5f53332f2c9719fc6ce7fe15f6eab6f90a6d7baf9dd1b4cf0e2750d1932ffcef"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/Statements.lean",
+      "bytes": 46371,
+      "sha256": "d4d37d6ea2b48fc5c743b1db36fe904ca8623be6c03c05ea5addc99b307687bd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+      "bytes": 874568,
+      "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-public-statements815-20261104-attempt1/result.json",
+      "bytes": 1337,
+      "sha256": "408a2fc698c80f7f4527beb0045f21132c3dc544ad0d9054204e2619aff595ab"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-public-statements815-20261104-attempt1/full.log",
+      "bytes": 874944,
+      "sha256": "a5347095b4f93728b1b384c415189e1d934084eca4af8999028d0864fab9fc6b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-public-statements815-20261104-attempt1/native/result.json",
+      "bytes": 731,
+      "sha256": "2fde52dc025cc4db5b18940f872473232a7c3276665f78abb0b392f98e8782a2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-public-statements815-20261104-attempt1/secured-terminal.json",
+      "bytes": 2508,
+      "sha256": "c7c0b017ef12185fc8c5cfb4e82bc608dc19bec29bc34cee78fbf959a66c5252"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-measured-sorting-statement-source-20261104/Statements.lean",
+      "bytes": 9342,
+      "sha256": "904bd664fb385ef63fc1d6f2b8fd9fd2e3af2cadcbf6eb7f610a1e71ccbef20a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-measured-sorting-types-20261104/full.log",
+      "bytes": 136360,
+      "sha256": "607eba97643a8361295857fb0777248e018534e0a7a78ed7d49760834f3ae325"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-measured-sorting-types-20261104/result.json",
+      "bytes": 1307,
+      "sha256": "0239a13a5fd5ce2929ca4f949844c35336db81799410437749e5b686139240a2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-bottom-up-costs-statement-source-20261104/Statements.lean",
+      "bytes": 5757,
+      "sha256": "f9486a8f64d9786814f2ffc67dfb158ab13bf1d392585c27ca83b35cadd34c2e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-bottom-up-costs-types-20261104/full.log",
+      "bytes": 69695,
+      "sha256": "b77970fe06b930f34286bcdb0e9a9ce1bdfbffceb2cdaf7f213cdf501137493d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-bottom-up-costs-types-20261104/result.json",
+      "bytes": 1305,
+      "sha256": "f1d24ea0cc59994c61ac312cd5d96aa9d3d9ace6f7d9014b8d523d69266409ad"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-natural-sorting-statement-source-20261104/Statements.lean",
+      "bytes": 5922,
+      "sha256": "59d413591ef58c6569fcf39575669aaafcb21d4cf7783f05a88935de0a97b9ac"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-natural-sorting-types-20261104/full.log",
+      "bytes": 79992,
+      "sha256": "136335c62dbd1bd67c9f0ce77c69056b47f4e37b5b42e67ea91b233c1a71e50a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-natural-sorting-types-20261104/result.json",
+      "bytes": 1305,
+      "sha256": "f5615311995f5ceb9c6adf151f13ca00fad20fd061125f6c890e5e4267a4ca0c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-three-way-partition-statement-source-20261104/Statements.lean",
+      "bytes": 4571,
+      "sha256": "48019e7cc7c38382139b939a521527773e59b39f5b4b8ffff210d199babb7dbf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-three-way-partition-types-20261104/full.log",
+      "bytes": 91292,
+      "sha256": "c05a5e5a0098492721b81c689383d421a24ec3d6bf2b00a7629ae18be5ad8d99"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-three-way-partition-types-20261104/result.json",
+      "bytes": 1313,
+      "sha256": "96f5ed0f13dab18888343d9544fbec662d26914d1429b70591b55f9c2f9f24f8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-xd01-random-statement-source-20261104/Statements.lean",
+      "bytes": 7417,
+      "sha256": "5f6eb99c622137c19ff2f5fc35389e7d9a2000cf06e4f3d7a2a25a803a76584b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-xd01-random-types-20261104/full.log",
+      "bytes": 123793,
+      "sha256": "5027831298792411bde1622e6ad00aef816a0f0f41c97e372139eb8a47afe182"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-xd01-random-types-20261104/result.json",
+      "bytes": 1297,
+      "sha256": "9bda3c662f6a9b177bd9f4da465124a722e8017c43eea9eb970a455988f366c3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-bottom-up-alternating-statement-source-20261104/Statements.lean",
+      "bytes": 6776,
+      "sha256": "9ef7e05799ff059a262fc1cab1ffaae1ed269b1076931c44a6913bd6e2dda471"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-bottom-up-alternating-types-20261104/full.log",
+      "bytes": 41284,
+      "sha256": "3296e4ba5330af5a1e1d6897ea7acb9898452def68510df2e9c343e70c1180b8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-bottom-up-alternating-types-20261104/result.json",
+      "bytes": 1315,
+      "sha256": "e1aea6306fba49563ed8136678010ace5a10268274d56354d593baf1b1b35c57"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-top-down-costs-proof-corrections-20261104/TypeInspection.lean",
+      "bytes": 1663,
+      "sha256": "3f235ac70f6fa1b2234a5899f5ba25f7de7e9caee35c0b8f90b8de98e96ab5c8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-top-down-costs-types-20261104/full.log",
+      "bytes": 11545,
+      "sha256": "ad826e1d3c972acbb437e9bceb5403ba230275033c623dc5526649eb2e79e6c8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-top-down-costs-types-20261104/result.json",
+      "bytes": 1307,
+      "sha256": "d8b25ce6073928f25fbebca98ebe94cb30e7e3dca3d7d46d7310b17c3ca5eb2b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-uniqueness-statement-source-20261104/Statements.lean",
+      "bytes": 614,
+      "sha256": "5d5cb3cfd591633c6e0ef635094917f19f60f2db1e226df3782ba963f01fd5bf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-uniqueness-types-20261104/full.log",
+      "bytes": 6817,
+      "sha256": "11b58acd78c4f7b77bf4fbdb8bd7e4ca48378dcb2fab8c32d91fd0e4ccebda3f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-uniqueness-types-20261104/result.json",
+      "bytes": 1360,
+      "sha256": "edcdaf9dcb6432522c27b00cf50d79ec2ca672e3a1853a4b62668cef49400cab"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-natural-runs-statements-20261104/statements.lean",
+      "bytes": 5054,
+      "sha256": "d56c25d992aa23e63c9bfa51cf4561f8ae2e6c1f186dda1493d0741673b372e4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-natural-runs-statements-20261104/full.log",
+      "bytes": 22632,
+      "sha256": "bcde796041ddae8ec96f0e13e3231501cf9170f8cded41dc9565b54a8fc1af31"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-natural-runs-statements-20261104/result.json",
+      "bytes": 2157,
+      "sha256": "581563a848ae2d6dcbb995fbfa0fe9ea098193fd5940aece7b5b6dbd52dbaf41"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/prepared-input-mechanical-reconciliation.json",
+      "bytes": 23397,
+      "sha256": "4e8062f9d32e41f36b8c02ae98709b3acfc3f3f9c4af75da07bd131229f5866a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/run_serial_once.py",
+      "bytes": 9897,
+      "sha256": "f7d78147029cae18faaa066444c1f2013cd95c47708a9672d9045a60ab581279"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/targeted-input-preexecution-completion.json",
+      "bytes": 3956,
+      "sha256": "c2ab66ae4d6eabcf4294b0fc4717038165b25722383dec15019349b3ec0eeb49"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/targeted-input-standards-preexecution.md",
+      "bytes": 11087,
+      "sha256": "85a0afb58733ce1bd72e7edd866c3c4418dec868931120cc7031060b5aadfe09"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/targeted-input-independent-reconciliation.json",
+      "bytes": 28458,
+      "sha256": "8458f32708c83530bd16e99779b86adbf2b4d91aa8b882cc0470f5b112af3802"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/targeted-input-independent-reconcile.py",
+      "bytes": 14590,
+      "sha256": "65aee26b9db08c7d82d7dcb7202de6af1c19707a8fd6ebb66de1ef8dc8e1bd08"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/targeted-preparation-readback-and-hold.json",
+      "bytes": 4070,
+      "sha256": "93ae2f59239876d5261f08663065fb1faa99a64ec949886e923788d422639276"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/targeted-preparation-assessment.md",
+      "bytes": 8082,
+      "sha256": "a5cb5b8ba4704e04d7ae5f2ace7b357bfda349bf28153f8fdae8a31602702ca8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/targeted-preparation-reconciliation.json",
+      "bytes": 15467,
+      "sha256": "ec39a5b836eba21300435704671f48fe3943a4a63dbd92af5ddaed5ed32540a8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/reconcile-targeted-preparation.py",
+      "bytes": 14520,
+      "sha256": "178fb59378d03e65a29a8fd05704c8514ee3fb44ffa1c995c588f783306c4047"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/closed-evidence-reconciliation.json",
+      "bytes": 3135,
+      "sha256": "4fda5170bd26129f2d57bd5acf806b1eac7aa4b141af09c143ec6179db909d7d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/audit-and-build-summary.json",
+      "bytes": 117883,
+      "sha256": "eb21706903b588d1189e9c7f286ce71d5f834878277ff0c86665a84a936e5121"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/audit-row-and-warning-comparison.json",
+      "bytes": 18309,
+      "sha256": "779ae5d09f9cd88f2a5e883029015e4d1e6aeee8c789f2d7a5fdad1e31abeb0d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-source-coordinator-20261104/source-review-gate.json",
+      "bytes": 18869,
+      "sha256": "1c7a5295f7931de832231488a4c3fdc2b5232cbeaca9cd3d81b4c6c79bbd3bf4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-type-qualification-coordinator-20261104/preliminary-independent-disposition-reconciliation.json",
+      "bytes": 36629,
+      "sha256": "7e6f87cf560bc9da4ff6416d458ffd7be551f7d6f01b90c14356ece50526b4ac"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/execution-start.json",
+      "bytes": 848,
+      "sha256": "92598aae1c6860c09c9538cf2da30592b1e7ffb1f045c9f072b654a799bc45d3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/execution-result.json",
+      "bytes": 13862,
+      "sha256": "03f2e85aade3002429b926355284f31362d01e8f96c830b2c3edf7d274fe7a48"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/owned-terminal.json",
+      "bytes": 421,
+      "sha256": "f78307e9907e8e90b2d84fd0cef4f8866fff8c331cc2527e0eb6880b270cbcb0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-z815543-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 4992,
+      "sha256": "cbfed16cb40f525ff027b6823f20cd8fe8819486a7ce3a5966fb2f5522871ed9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-z815543-20261104-attempt1/request.json",
+      "bytes": 894,
+      "sha256": "a267e0d64b8235990df3f822e463c5229678885f46efa1aa029eda4534c3ff33"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-z815543-20261104-attempt1/start.json",
+      "bytes": 1088,
+      "sha256": "d347238f55f9e129750296d243c8c048b20bf2a309032ba8e993f5a695d0a64c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-z815543-20261104-attempt1/result.json",
+      "bytes": 1424,
+      "sha256": "a51456b05fca571bca604f1c8b863892a095f7681344ee23b740f82e8c0d54ed"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-z815543-20261104-attempt1/owned-subprocess-terminal.json",
+      "bytes": 1291,
+      "sha256": "6df35a01afcb450cc164cfa70ce6ad3164f675f49f1a48597b5fc14a2f7b30d0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/z815543-subprocess-terminal.json",
+      "bytes": 1291,
+      "sha256": "6df35a01afcb450cc164cfa70ce6ad3164f675f49f1a48597b5fc14a2f7b30d0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/z815543-program-before.json",
+      "bytes": 1329,
+      "sha256": "c0cbc9f660e09e49aff0d78c43bc530e58fbe220eed8fa064d02c4d9365f914f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-z815543-20261104-attempt1/native-records/start.json",
+      "bytes": 578,
+      "sha256": "87db203329024d555cc7ae499add7b7a67eba679ba2b27011ffc0cadfd5334cc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-z815543-20261104-attempt1/native-records/result.json",
+      "bytes": 729,
+      "sha256": "b6dde7f5d9022a7a5e1204b40ae63f9a372d164769c00dabe64c1dcfe5fd50e4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-z815543-20261104-attempt1/full.log",
+      "bytes": 585946,
+      "sha256": "5c8931badb1efff75235f1e9d21fb526fe41c89e2bd034efceef6474877b54d3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-z815543-20261104-attempt1/native-records/output.log",
+      "bytes": 585569,
+      "sha256": "849fa180d245be7f7546662b0bc4cd0ddcabc2027fb3d2f9e8f28e66b418b398"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-z815543-20261104-attempt1/outer-prefix.log",
+      "bytes": 220,
+      "sha256": "139ec2b0fe810fcb633d86b2257497f49e917e862b062d821f5df8f3e3024f58"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-z815543-20261104-attempt1/outer-suffix.log",
+      "bytes": 157,
+      "sha256": "26caca39f1d67274307b32be31c81253056b105c2d7cb8773c64ae6451afe3b8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-z815543-20261104-attempt1/verification.json",
+      "bytes": 867,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-measured174-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 4978,
+      "sha256": "f9aa4daad8c9bd80d804c070d27f912bf8ea57d679a34d27b16735fe41f38850"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-measured174-20261104-attempt1/request.json",
+      "bytes": 878,
+      "sha256": "b835efc3434b7bade827517946eb38329fa048dd5f737b5673750d5465fa68ca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-measured174-20261104-attempt1/start.json",
+      "bytes": 1073,
+      "sha256": "e5a3ec8b20665e1b44038e8751217d228281f6d7827b89e90137708052a727ad"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-measured174-20261104-attempt1/result.json",
+      "bytes": 1411,
+      "sha256": "058374ca2793f1e6c6fb20aa6689e2cc1baa1325a33e3dda1d93087980cf73e9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-measured174-20261104-attempt1/owned-subprocess-terminal.json",
+      "bytes": 1279,
+      "sha256": "22ee8e2c6902e0e2eab2a604b829a07860977359895a7cfb30953a0b5468b763"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/measured174-subprocess-terminal.json",
+      "bytes": 1279,
+      "sha256": "22ee8e2c6902e0e2eab2a604b829a07860977359895a7cfb30953a0b5468b763"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/measured174-program-before.json",
+      "bytes": 1300,
+      "sha256": "c291121d04a2d9b06dbaacd0000082bac900ba3f600600b568d894a0032c1d54"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-measured174-20261104-attempt1/native-records/start.json",
+      "bytes": 562,
+      "sha256": "fa98fd558ec0271c2593e5a8fbab4e361d01680b1a501a9581d6d43fd2e0452d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-measured174-20261104-attempt1/native-records/result.json",
+      "bytes": 715,
+      "sha256": "1cc0ebd593f39f5c4b1b06c0f3615e6add95e7c00806bcbb655aa9582d7ee979"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-measured174-20261104-attempt1/full.log",
+      "bytes": 136359,
+      "sha256": "296005e92c715d156a027cac4219c2126986824c3aee56fcbd1042f322d6c0c7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-measured174-20261104-attempt1/native-records/output.log",
+      "bytes": 135999,
+      "sha256": "30cc1592b72931cda4a9e73c4dc172d78bac885191a109c39ba86a9f81e2473b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-measured174-20261104-attempt1/outer-prefix.log",
+      "bytes": 204,
+      "sha256": "62546872c0fb4ea59e0ab6b2d5adac73a309f6e58c87809e196eed688c07b04d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-measured174-20261104-attempt1/outer-suffix.log",
+      "bytes": 156,
+      "sha256": "bdc10f6ec0f79985917cc662ade0fd8dc45d9679679c1c2c0c336f6a36dac487"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-measured174-20261104-attempt1/verification.json",
+      "bytes": 867,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupcost105-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 5009,
+      "sha256": "17917a06d7759bd82bfbb7767440241ee2ffef1cab0b37720932b1af6ad381a2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupcost105-20261104-attempt1/request.json",
+      "bytes": 877,
+      "sha256": "12437abadb5d105a32581e11eb0ddb441b730b416accca5b12e95ad199219f0c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupcost105-20261104-attempt1/start.json",
+      "bytes": 1072,
+      "sha256": "bad478c0523f6946e1b7405c006436408f597f1785057ed2428f2983d240dbc9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupcost105-20261104-attempt1/result.json",
+      "bytes": 1414,
+      "sha256": "7372d41898293ff084737d99cde20491e5ff9beab74f87cd200aaa28b4887fe7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupcost105-20261104-attempt1/owned-subprocess-terminal.json",
+      "bytes": 1282,
+      "sha256": "1693ad120928a7f63a3ef492e3f7126d6af9fd7d2ff2dda6e25862f5d1f6d5d9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/bottomupcost105-subprocess-terminal.json",
+      "bytes": 1282,
+      "sha256": "1693ad120928a7f63a3ef492e3f7126d6af9fd7d2ff2dda6e25862f5d1f6d5d9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/bottomupcost105-program-before.json",
+      "bytes": 1302,
+      "sha256": "8b136ec8fff14132a0e748cfd4552dbb065246fb993ff82b01bfe1f259ebd36b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupcost105-20261104-attempt1/native-records/start.json",
+      "bytes": 561,
+      "sha256": "df3e9efd3b9b0ffb2d4c9225050533fde23010acb45d22bc8840d0330d7159a4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupcost105-20261104-attempt1/native-records/result.json",
+      "bytes": 713,
+      "sha256": "a4b47a0cf151b3648413d08675c5d8595392798475a9f2c91ff1cea334cc9261"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupcost105-20261104-attempt1/full.log",
+      "bytes": 69693,
+      "sha256": "b445446608d3ece6d541a83c55058afc157d96859c80811b4b57c63fd5e0c48f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupcost105-20261104-attempt1/native-records/output.log",
+      "bytes": 69334,
+      "sha256": "c427246f5d1d7e63c52c6d87626d68168e6cdc0cc064fc49ff66a0a45486487e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupcost105-20261104-attempt1/outer-prefix.log",
+      "bytes": 203,
+      "sha256": "4ba958b3549726a9c1af78094e532c7582f3851cf8439ac9979ccac12c4ac82e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupcost105-20261104-attempt1/outer-suffix.log",
+      "bytes": 156,
+      "sha256": "b0972d38f3360772e92e6d2a4bd6d9023ecb3d545e7c22522f14e1005a16d220"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupcost105-20261104-attempt1/verification.json",
+      "bytes": 867,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 5027,
+      "sha256": "cf2e3a0f57daa83891de81a8d7242b79eb4274ad3f986b43d8e791c3ea58e690"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/request.json",
+      "bytes": 877,
+      "sha256": "b8b5c0c5f46abc149069b225dd09ac0effcd7115845215636ec7501c6923044b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/start.json",
+      "bytes": 1072,
+      "sha256": "e223eb6a57d44b080518ef65d32740476ff0a0445999913969593d4c6fd4c660"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/result.json",
+      "bytes": 1416,
+      "sha256": "3222aebc853228aebf62eccd52c2154afe60ca92f9d0dde29a4b67412d2974c8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/owned-subprocess-terminal.json",
+      "bytes": 1284,
+      "sha256": "8827a11b3eabe5d5a140f3a541fa5f73ef17984ff1205a1d3a71231c31ea0819"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/naturalsorting105-subprocess-terminal.json",
+      "bytes": 1284,
+      "sha256": "8827a11b3eabe5d5a140f3a541fa5f73ef17984ff1205a1d3a71231c31ea0819"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/naturalsorting105-program-before.json",
+      "bytes": 1304,
+      "sha256": "708f1b484b364a9414ef9b9bc61e07c5ece18fe40722ca4e904323e45492c984"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/native-records/start.json",
+      "bytes": 561,
+      "sha256": "c35dca6592265abd5d2ae81e659c578095a0b03d53a8cda3de86a3178f0aae14"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/native-records/result.json",
+      "bytes": 713,
+      "sha256": "d5988eb126f91518b26cf6e0b85014c7a3d9063b0bda969e423b1515b5ac2dcd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/full.log",
+      "bytes": 79990,
+      "sha256": "72671fcfcc61ec1e80f02b03c0ddb745dec2a7578a56f4f33c73cab8b2680308"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/native-records/output.log",
+      "bytes": 79631,
+      "sha256": "c0f895eaac6986af8283b81ad95f70ea4a024fac853169d3a17f6b0362d19db2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/outer-prefix.log",
+      "bytes": 203,
+      "sha256": "42e69c99390390e62c8360b4ffbc843be0d6ff636cfab9cf284cbb785c4c6420"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/outer-suffix.log",
+      "bytes": 156,
+      "sha256": "00dee71e8d1f58e8b49497c5bec4daa944575410cb7ac35739100b565c8871a9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/verification.json",
+      "bytes": 867,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-threeway36-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 5020,
+      "sha256": "76fdf6b4a791be4643e2f8390bc8cdfde90d2367c592346573c0474d04dffa1b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-threeway36-20261104-attempt1/request.json",
+      "bytes": 896,
+      "sha256": "a8c850537b680928faed655cea033e818a582ce8dec5076bd6df8e83d38c0419"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-threeway36-20261104-attempt1/start.json",
+      "bytes": 1091,
+      "sha256": "4c653642ef150ec5478068c8ffd5214a6cc3f36abf5d75eeba0d234751d3cf70"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-threeway36-20261104-attempt1/result.json",
+      "bytes": 1428,
+      "sha256": "94248abaf8437935fb12f5472963425797f6d433ae1209ff09b4d058523694cf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-threeway36-20261104-attempt1/owned-subprocess-terminal.json",
+      "bytes": 1295,
+      "sha256": "ae63059857d3bd07c9917eb7a6c31a25cd85398e033a84c146a8429b63a712ee"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/threeway36-subprocess-terminal.json",
+      "bytes": 1295,
+      "sha256": "ae63059857d3bd07c9917eb7a6c31a25cd85398e033a84c146a8429b63a712ee"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/threeway36-program-before.json",
+      "bytes": 1335,
+      "sha256": "ee3144a0b0635f5eb5b0d4b86a7eeabde8e9e5009c2f81d2dce36f192829219a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-threeway36-20261104-attempt1/native-records/start.json",
+      "bytes": 580,
+      "sha256": "b540bbe6ad30eaf94fba24d3db0b53c3ee72d32ad63a4c4327bbd69b107379c8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-threeway36-20261104-attempt1/native-records/result.json",
+      "bytes": 733,
+      "sha256": "99837490abdbcb389c159e123ef037af619d127e95ed107ab5f2e52751760b86"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-threeway36-20261104-attempt1/full.log",
+      "bytes": 42157,
+      "sha256": "c1d12016d460658661c2060ef8a53b715df72006faca817f51d4dec5fceff44c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-threeway36-20261104-attempt1/native-records/output.log",
+      "bytes": 41779,
+      "sha256": "0cfc0cbc9452e2b1dfd7eef5fe4f7022732d43cb41c1d84c308d9a145c99f70c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-threeway36-20261104-attempt1/outer-prefix.log",
+      "bytes": 222,
+      "sha256": "55cc1b0e98ed94fe2d7483bd7f5b6d27ec8d34bee97e62829ec792ace7b6e3a1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-threeway36-20261104-attempt1/outer-suffix.log",
+      "bytes": 156,
+      "sha256": "a9b75eccfe0c243953683ea551dc8d2d01c479a0c195a1d3126b9ed0667bf1bf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-threeway36-20261104-attempt1/verification.json",
+      "bytes": 867,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-random62-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 4996,
+      "sha256": "de7b7c17b7c5d14018fd3b4e8ad84da625cb7b131b95c9ac9a4850aa288471f6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-random62-20261104-attempt1/request.json",
+      "bytes": 894,
+      "sha256": "023a58ade465d618766942cb3cd47a9d7069767ef488e7a142a5422d0d6d1075"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-random62-20261104-attempt1/start.json",
+      "bytes": 1089,
+      "sha256": "c4858d65fffb2eab69234ffa8101a137a1595e38f28c2dad643f013c422706dc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-random62-20261104-attempt1/result.json",
+      "bytes": 1423,
+      "sha256": "bec3eae19d20c675c4972680c71f068d1ea9a64243232345ac7f707f96298320"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-random62-20261104-attempt1/owned-subprocess-terminal.json",
+      "bytes": 1291,
+      "sha256": "683e156a4e191aacb900b0281d8158377966466dd7bb53deb3edd29a7eeb9d0b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/random62-subprocess-terminal.json",
+      "bytes": 1291,
+      "sha256": "683e156a4e191aacb900b0281d8158377966466dd7bb53deb3edd29a7eeb9d0b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/random62-program-before.json",
+      "bytes": 1329,
+      "sha256": "91326a910cf929fa58f93660ffe8dade866407f53445c7433904840e439890a4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-random62-20261104-attempt1/native-records/start.json",
+      "bytes": 578,
+      "sha256": "a4269a7c303d6f7a35c90b6e3c3154606fa4702204d2bb67800ee289254d4367"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-random62-20261104-attempt1/native-records/result.json",
+      "bytes": 730,
+      "sha256": "53f385e4bcf36de4f3647d00fafcb5eeaaf499cc537f7f3be3bac70bed11233f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-random62-20261104-attempt1/full.log",
+      "bytes": 87633,
+      "sha256": "bcafdb0983788eb9dc2627dc800332350157235571e1ca55ebd02d25370080ef"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-random62-20261104-attempt1/native-records/output.log",
+      "bytes": 87257,
+      "sha256": "38119532e0476e3fa4870d924bed6484ed26267f1d6eae5707b41f99eb4728ac"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-random62-20261104-attempt1/outer-prefix.log",
+      "bytes": 220,
+      "sha256": "18d9a5f97dc2ef339fc193b7a7d15fdfa3014f87f5c44cc958e6fde6201e6092"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-random62-20261104-attempt1/outer-suffix.log",
+      "bytes": 156,
+      "sha256": "8670d55ec9d918a9f6dc707a3a5ef604d61c49aafb38a413216173e61ace7608"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-random62-20261104-attempt1/verification.json",
+      "bytes": 867,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupalternating126-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 5090,
+      "sha256": "ce79c3d3f9ac374cd257cb58b00e800bc2ccd29b5ed41530ae1afabff8838343"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupalternating126-20261104-attempt1/request.json",
+      "bytes": 883,
+      "sha256": "4a3da387b3db58d7e3f536202ef63edc8bfd8cf51237872303e00d739c0374f6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupalternating126-20261104-attempt1/start.json",
+      "bytes": 1078,
+      "sha256": "43be3f64bde00d8e64ba406d11602b5c1e11abd71c73e272fadd8a4835711683"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupalternating126-20261104-attempt1/result.json",
+      "bytes": 1426,
+      "sha256": "91c32fdc5427c32bf2206639a5e320b22b0f248612a96da5bf35e48a3e5b280a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupalternating126-20261104-attempt1/owned-subprocess-terminal.json",
+      "bytes": 1295,
+      "sha256": "92b12b7072eb4f6973708a70349c9f01a824fc9cbc75357ab4257a55ce591f77"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/bottomupalternating126-subprocess-terminal.json",
+      "bytes": 1295,
+      "sha256": "92b12b7072eb4f6973708a70349c9f01a824fc9cbc75357ab4257a55ce591f77"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/bottomupalternating126-program-before.json",
+      "bytes": 1321,
+      "sha256": "4b5db970b50b3237c347188e80cd00485c983a7f3af90f088f585c62fce912dc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupalternating126-20261104-attempt1/native-records/start.json",
+      "bytes": 567,
+      "sha256": "6308403beed0163c7c59c3e60bf8802dc1bddeed495ca74a9475cb41efff4224"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupalternating126-20261104-attempt1/native-records/result.json",
+      "bytes": 719,
+      "sha256": "6d463888f96577bd9773c602300bd64612f0eebf865a17c845e7db6ea05ea42c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupalternating126-20261104-attempt1/full.log",
+      "bytes": 41283,
+      "sha256": "34b02bc368d16d7f0d45417d10978005176bdf95e3229b1967a3d59d4d72fde0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupalternating126-20261104-attempt1/native-records/output.log",
+      "bytes": 40918,
+      "sha256": "b41661ec88260988f736086f33e52f1850583e6b3fcb8ed831912ac35dbd4a6e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupalternating126-20261104-attempt1/outer-prefix.log",
+      "bytes": 209,
+      "sha256": "efa92f68266216476a995d5c0797a62ee23ee452cc2361dcc0923edb8af98aaf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupalternating126-20261104-attempt1/outer-suffix.log",
+      "bytes": 156,
+      "sha256": "0533bf31bbcdac1e57b805334a241db42d692bced4c88ae1918c47512042abcf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-bottomupalternating126-20261104-attempt1/verification.json",
+      "bytes": 867,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-topdowncost32-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 5002,
+      "sha256": "cf06701a64b81c6cda3584ee3cbc680c437a734c061060e64f3e8c0905963fad"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-topdowncost32-20261104-attempt1/request.json",
+      "bytes": 881,
+      "sha256": "f4ebad9a769b08fd0a495adcc632ee0d2409e406f059e06392385f0620176fb8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-topdowncost32-20261104-attempt1/start.json",
+      "bytes": 1076,
+      "sha256": "35bc0104ef41e1436836b3d5ea173b211049056d0c0e46568ec57043b0751940"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-topdowncost32-20261104-attempt1/result.json",
+      "bytes": 1414,
+      "sha256": "63fd0207c41f92176f108231b1db7d3f2d8a85e9f460cb90f940120b10ca832d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-topdowncost32-20261104-attempt1/owned-subprocess-terminal.json",
+      "bytes": 1283,
+      "sha256": "800523af57791f1e93b088a7b679ef301946bf8822ac7e4b1f1e25106cc8f1c9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/topdowncost32-subprocess-terminal.json",
+      "bytes": 1283,
+      "sha256": "800523af57791f1e93b088a7b679ef301946bf8822ac7e4b1f1e25106cc8f1c9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/topdowncost32-program-before.json",
+      "bytes": 1308,
+      "sha256": "44bc5858b4f263913b21df09fa9c25d40feab52b5587f545717e134629d97d0d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-topdowncost32-20261104-attempt1/native-records/start.json",
+      "bytes": 565,
+      "sha256": "8aa4847f3ae92409b5ac074e09bce9d033e0e25d888e3333d42e69702644b919"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-topdowncost32-20261104-attempt1/native-records/result.json",
+      "bytes": 717,
+      "sha256": "b873053f9f2d311247c397ef750583bcf4d9cd35b6d06231cf05f00aea2d4b36"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-topdowncost32-20261104-attempt1/full.log",
+      "bytes": 11544,
+      "sha256": "4cae8475855cb6aa6b2e1aa3c16c5fd720aa4d9d930d3dc3bb497ed48983ed5a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-topdowncost32-20261104-attempt1/native-records/output.log",
+      "bytes": 11181,
+      "sha256": "9fe2f20bef762d1a19cc97214c834b3222bab2d7b1d2acb74dd197b63fbd0f0b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-topdowncost32-20261104-attempt1/outer-prefix.log",
+      "bytes": 207,
+      "sha256": "5d67f8f9a5836b886de123bca24768ab38c955b58b0cbb30d1baf3c72e27b51f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-topdowncost32-20261104-attempt1/outer-suffix.log",
+      "bytes": 156,
+      "sha256": "b9cccf43e34f9e80f5548867587cfec9c5b56f6aab352e0633613d4e87e50acd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-topdowncost32-20261104-attempt1/verification.json",
+      "bytes": 867,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-uniqueness9-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 4953,
+      "sha256": "c251959b17b36464cc0383dd316a49858a305e59b6b2eb9f3c864079b98dea17"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-uniqueness9-20261104-attempt1/request.json",
+      "bytes": 872,
+      "sha256": "e8f9b4e66b7a2a2f6f418a214270038f68a2109687dd7d3e55776b2f282bdb20"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-uniqueness9-20261104-attempt1/start.json",
+      "bytes": 1067,
+      "sha256": "9083ebb62bf4af74a6f5febd1322d24b90a061b8b4f81988ade463b277ba910a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-uniqueness9-20261104-attempt1/result.json",
+      "bytes": 1402,
+      "sha256": "897646b3dac76d3d93590061c8e646a3aaa45d1120700a931316a7dca28f7c6b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-uniqueness9-20261104-attempt1/owned-subprocess-terminal.json",
+      "bytes": 1272,
+      "sha256": "9e0cbabcddcf05f7d7293288043323b941379d4db9ba18b2dc4a6cd96f8c8c0f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/uniqueness9-subprocess-terminal.json",
+      "bytes": 1272,
+      "sha256": "9e0cbabcddcf05f7d7293288043323b941379d4db9ba18b2dc4a6cd96f8c8c0f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/uniqueness9-program-before.json",
+      "bytes": 1287,
+      "sha256": "cc3f14565138dc3918a89de624cd55fe6cf3639fbe4a25b276d38a1e516f7a12"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-uniqueness9-20261104-attempt1/native-records/start.json",
+      "bytes": 556,
+      "sha256": "05d03141b4f10d41c7a456ea30051780b7ba761e9aa210b27707b01db11ad0fe"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-uniqueness9-20261104-attempt1/native-records/result.json",
+      "bytes": 709,
+      "sha256": "6c159632c778c318e31ad66c361ba90f0efe94b09718a82f0919d04642e9d60a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-uniqueness9-20261104-attempt1/full.log",
+      "bytes": 6816,
+      "sha256": "addc16f59c5fbbe0d0969408d09ce8958bbbbd2ca8f65f857b4a8485aef45d82"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-uniqueness9-20261104-attempt1/native-records/output.log",
+      "bytes": 6462,
+      "sha256": "898e151c4e7c96cf1debe83f9cc66170bf7b746dbfaebf9397d2e26130a01259"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-uniqueness9-20261104-attempt1/outer-prefix.log",
+      "bytes": 198,
+      "sha256": "9e94a79c64009235e2af99912a41a17ba25ce82e1547c9b33462367d383141ca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-uniqueness9-20261104-attempt1/outer-suffix.log",
+      "bytes": 156,
+      "sha256": "e5e217fe5210e7c66d2f9b5774105f5fb0d4eb3eace6da902e94b5e094a30d72"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-uniqueness9-20261104-attempt1/verification.json",
+      "bytes": 867,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalruns104-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 4974,
+      "sha256": "e2d6ea5304cce4e2bcc2de55c85546645bbb926b3fedcb89166478d65b732007"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalruns104-20261104-attempt1/request.json",
+      "bytes": 868,
+      "sha256": "2ee33cc798ea45072160b86de8992ca5b9c9f7d81dba6fbe8f2447cd36e927e9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalruns104-20261104-attempt1/start.json",
+      "bytes": 1064,
+      "sha256": "f08b6fef79c93d812601379d27b6412fa450cb912d981204a4a75a9e9bc0307d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalruns104-20261104-attempt1/result.json",
+      "bytes": 1403,
+      "sha256": "21bd30321da827104c8920f94cbdd2b759ef68bff4e7d01603d1d77c34b3d4e8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalruns104-20261104-attempt1/owned-subprocess-terminal.json",
+      "bytes": 1272,
+      "sha256": "bb8ff5a417994801e49301a16b54058ada1d36bef7d66f846e2a58ca76029b2e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/naturalruns104-subprocess-terminal.json",
+      "bytes": 1272,
+      "sha256": "bb8ff5a417994801e49301a16b54058ada1d36bef7d66f846e2a58ca76029b2e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/naturalruns104-program-before.json",
+      "bytes": 1283,
+      "sha256": "88ce653c601ddd76353b7e798c3bc7269306de2c8d1b957bfc6a25260ab95098"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalruns104-20261104-attempt1/native-records/start.json",
+      "bytes": 552,
+      "sha256": "d7f491fd5c3f892faf01cc1837cd7594b3572165158e4f2cdad690f9b190565f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalruns104-20261104-attempt1/native-records/result.json",
+      "bytes": 704,
+      "sha256": "9832f6c430145f4d2cd18840acf0ce3aaf96646bb8be19fc603b212a9d6d03da"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalruns104-20261104-attempt1/full.log",
+      "bytes": 22982,
+      "sha256": "c933ae855ae5eca33a867d565819efecbf60d65a7d90c5dfd3045789d1e3b7b4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalruns104-20261104-attempt1/native-records/output.log",
+      "bytes": 22632,
+      "sha256": "bcde796041ddae8ec96f0e13e3231501cf9170f8cded41dc9565b54a8fc1af31"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalruns104-20261104-attempt1/outer-prefix.log",
+      "bytes": 194,
+      "sha256": "db4d7537008d42d400d7723748afe4c7ca41dd25e6b0b3c307443d3296a3f886"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalruns104-20261104-attempt1/outer-suffix.log",
+      "bytes": 156,
+      "sha256": "5014f7dd417cc380c70fb7e54cab19b7b27c395f9813ed16e83a3abef9d07f60"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalruns104-20261104-attempt1/verification.json",
+      "bytes": 867,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 4977,
+      "sha256": "6ec1c127320921a7b0ca8b9728cbfe07f0ca9648aa263201d26c5a1755d388af"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/request.json",
+      "bytes": 892,
+      "sha256": "4ffcface731ec38dccfef97c4b07b9b7d9e436ac39deb9b4e69a94547f56716a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/start.json",
+      "bytes": 1088,
+      "sha256": "6172941d1532b1c7653084e180bc1a410c48f59c2b1be92b98cec748e2d7f22b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/result.json",
+      "bytes": 1419,
+      "sha256": "98fbf083e08848cc238b9da719fc97c5b969f8ac6694113ed4a654dc750cbf8f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/owned-subprocess-terminal.json",
+      "bytes": 1289,
+      "sha256": "74374ad7551442f3617b76193816bada4e681babef58c308e533e7022be603a2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/growth1-subprocess-terminal.json",
+      "bytes": 1289,
+      "sha256": "74374ad7551442f3617b76193816bada4e681babef58c308e533e7022be603a2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/growth1-program-before.json",
+      "bytes": 1323,
+      "sha256": "3178c7f3dd6692ee3843fbee11b03f94d785eac25d0b5758d430dea6b2da7e70"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/native-records/start.json",
+      "bytes": 576,
+      "sha256": "6fa55f09c0674a6e06318019877660842b9cef9625a77e2ab1eab6c8a71f31a6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/native-records/result.json",
+      "bytes": 728,
+      "sha256": "42b9ea5d2bf84c433c1997ee9990821744f2344f3785ff48866b2fc9831130f6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/full.log",
+      "bytes": 837,
+      "sha256": "6e35adb1cd2844c1d925e7fd24bee0d8580b8c49ff5c7761e5d068ab53e169bb"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/native-records/output.log",
+      "bytes": 463,
+      "sha256": "b379b005e8e4d11753f31dac47127b24a8192444165b03469a61e8e2bab58c6f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/outer-prefix.log",
+      "bytes": 218,
+      "sha256": "e447456bf48849b226ed97d929ce63674b9232e7b70a5e5c2acd6bf5439f1b4e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/outer-suffix.log",
+      "bytes": 156,
+      "sha256": "301db2a6c53f7ed108038c8d413f8c14c42a1773a1142fd31e16afeca6646f64"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/verification.json",
+      "bytes": 867,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/post-observation-execution.json",
+      "bytes": 1698,
+      "sha256": "0f4c6347e74c1eb1e23d57497113b6dff71a7f7688b86c436cde53601c0bcb95"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/post-owned-terminal.json",
+      "bytes": 1062,
+      "sha256": "22fc29058a5adb67771f5bf047c2b9f4e903f10f83a2265750c6e501c6bfb82d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/post-sequence-result.json",
+      "bytes": 836,
+      "sha256": "5a58ccf7cf01d1a12bf62df886644d5b215210d19ee987dba350fe06c4d78f81"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/stable-comparison-execution.json",
+      "bytes": 1883,
+      "sha256": "9b96c1943f8db542974c3b4f3622dbb154d48ffdc59f3862bb1f57faf27c1272"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/post-observation.log",
+      "bytes": 316,
+      "sha256": "7ab3febb42cdf65f59a373cb2220fc07b1853f9aa40e15a4c5e5971a84e46d09"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/stable-comparison.log",
+      "bytes": 301,
+      "sha256": "bdc8d85d130a48b9390187a03040b516928300b114f3bbd4de63d0d976febd92"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/actual-receiving-evidence-reconciliation.json",
+      "bytes": 275994,
+      "sha256": "a214a047be901c223749e9e2b92366290710f17c9dbffdaf3ca351988f43c8eb"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks001-005.json",
+      "bytes": 13091,
+      "sha256": "c483a3e7e92f3aec1913451a914a3b60a0680be9b373bdb92a521fa4585cdb5d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunk006.json",
+      "bytes": 3111,
+      "sha256": "ac48c4e51172698488038a961f7e1c6ce4acde2d92f453a80d814ac9a67525be"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks007-008.json",
+      "bytes": 7201,
+      "sha256": "64c8f08b48e70c8e0ff34d1671342f50a60d23ac65964c486d706737a208f875"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks009-010.json",
+      "bytes": 6850,
+      "sha256": "ee3d416bcd21bad966aff49186ae694b62da37e91bea18c23f56e4e8554483c3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks011-012.json",
+      "bytes": 6652,
+      "sha256": "04158840fb732987cf608f11402707482d31ea2a33b18ee96798c14e4dcdfc22"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks013-014.json",
+      "bytes": 5751,
+      "sha256": "892463b342d79b6f704c17879bab8b873294f46e2aa1f31b8242dafe6c508a85"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks015-016.json",
+      "bytes": 5191,
+      "sha256": "e88bc799b0dff12647cd1d319a1c1dd301232b0bc1241ee2ff957177282702b2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks017-018.json",
+      "bytes": 5641,
+      "sha256": "f3c5fbc9b2f9f4e7acef75050f3bc428a13000d5c5d4358d59fec9863de0573a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks019-020.json",
+      "bytes": 4456,
+      "sha256": "d06ca00322508269d1e4dfc553cd4900e9f79960267e5deb9ea9138df98174d2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks021-022.json",
+      "bytes": 6041,
+      "sha256": "aa27522e879357a84f2328dbbc8a5f1353583048cb340aae91a394033e5c792f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks023-024.json",
+      "bytes": 7771,
+      "sha256": "26a2e4236b164a526592f63c12933638f6e4aae926dce38d596b61b5c45f92e1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks025-026.json",
+      "bytes": 6020,
+      "sha256": "f51d61de854c01d4214fad9fa1b4bcf031c232da580d095ad0bdf63bbc0aa3bd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks027-028.json",
+      "bytes": 4813,
+      "sha256": "197643c478c8c8019cfeb912c13c0bfa6fd8508eaf610dbaca7070bc036526bc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks029-030.json",
+      "bytes": 8216,
+      "sha256": "a9ecd9860e1c0bd62b0de05c9259a39c3a04e46b6133e30a6e3030f021f2321a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks031-032.json",
+      "bytes": 8083,
+      "sha256": "54127ab0814d981be2927378fc47d0002e2f597368d1aec7123c33c7ba6d2c56"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks033-034.json",
+      "bytes": 5261,
+      "sha256": "be8e8cbf03a5ffff642bac19142bc84d9d03e958d7ad1b4084e707916b338e9c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks035-036.json",
+      "bytes": 5566,
+      "sha256": "ec71a5428b8e7877586c930f25300087f9b8160b4730618a0c0bb92ce4e0ffd8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks037-038.json",
+      "bytes": 6619,
+      "sha256": "9c7deb4fcec2c5c355232d446d76fa7c52c975ebf2af3cbd67957e9b480e8d28"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks039-040.json",
+      "bytes": 5740,
+      "sha256": "0345af07612caa25a7d1e19a20e33fe8abd8245aeb97acb4de0898d28fe5b527"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks041-042.json",
+      "bytes": 6781,
+      "sha256": "b15564b99722ba567efe4ba5e5ba31c5218c2ae6a3d5e68eeb3aaa92dbb4ab3c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks043-044.json",
+      "bytes": 5158,
+      "sha256": "a75766083bbf9ee36e8e09479c668a54131b1e902cff9cbd84ae760897457147"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-spec-source-continuation-20261104/retained-full-scope-evidence.json",
+      "bytes": 13284,
+      "sha256": "534b668e4e4a696570688a953e988f118dabc927c4881eb9356704549a20fd8f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter02-requirements.md",
+      "bytes": 12034,
+      "sha256": "f0c9bc939fbfb6da02c1734b121456c35fd6b4c9ee43f1284003d0b8db087a36"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter02-active-scope.md",
+      "bytes": 9823,
+      "sha256": "07bf70884d0076b64dd29642165cbcc267e1f4b33da5e00ac25e7da919a86a6b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/chapter02-obligations.md",
+      "bytes": 42539,
+      "sha256": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/scope-reconciliation.md",
+      "bytes": 14441,
+      "sha256": "21de30d9c317dadc2cb8aee51ea84ca26f74c8208b754feea57d81140c1a3e87"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/coverage-scope-audit.md",
+      "bytes": 31626,
+      "sha256": "2ee191f35850404e0236dfe326581839d67396e52f37c05970d7a0553a12a69b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter02-standards-source-preparation-20261104.md",
+      "bytes": 104381,
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter02-spec-source-preparation-20261104.md",
+      "bytes": 109354,
+      "sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/insertion-requirements.md",
+      "bytes": 3257,
+      "sha256": "fbd77fa19c83df3e6d7d10d6e7bd6cddf2d5aa888b512d5af2a7322f222f1a68"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/list-library-requirements.md",
+      "bytes": 3123,
+      "sha256": "83cffa5aff717943d449f4380189a9e9a761252730f5a14f4e392f1e62d154d4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/list-calls-requirements.md",
+      "bytes": 4040,
+      "sha256": "0a2f7a2869c10276da2cc9a852e20936c6aba2d094d5232b96e94fbf47ecf78d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/notation-requirements.md",
+      "bytes": 3406,
+      "sha256": "21a4ad13752d4316817e97f655af9a768726aa682124a39a2aeac248460b5a48"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/difference-list-cost-requirements.md",
+      "bytes": 6965,
+      "sha256": "cb215a33cce3dd258cca37b9d703522d19caf2da76767c01e573d268b3e92c4e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/ordinary-merge-requirements.md",
+      "bytes": 19999,
+      "sha256": "b54e2b332cc31c04ac12fb5b19cc96fa494a80e1455fcfc173f59b6fe340d3d9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/three-way-partition-requirements.md",
+      "bytes": 12208,
+      "sha256": "b1f55911c44a11def3498484787fcb04972398ec040bf1bd65c75796c116d541"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/permutation-minimum-requirements.md",
+      "bytes": 8884,
+      "sha256": "59e2ff6ff66dd39b6151a42b501bcc22e86eb593a9b854b532f97bc45fdd7686"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/permutation-order-requirements.md",
+      "bytes": 11430,
+      "sha256": "f473f593bf4a7ef75dcf2f3163440db6fe187b3b9983f87254d2ddfa8191982d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/permutation-tail-requirements.md",
+      "bytes": 12866,
+      "sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-review-scope-20261104/scope.json",
+      "bytes": 21719,
+      "sha256": "6aa149a5b4f6a45f02ae3312ad67cd5b3fd16fa1655c8bf438e8a50a77d3b70f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-review-scope-20261104/successor-4b5dbfa0.json",
+      "bytes": 19541,
+      "sha256": "88b020f09bc76fe487a843f001b572b80156b524ac134b07e4945d4c5b12ffb6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-4b5dbfa0.json",
+      "bytes": 27181,
+      "sha256": "3ae1e9749b8633e64a0adc14bb9cc96f5ee6cd5ba338dd45d55ddeac3df161d7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/source-scope-successor-4b5dbfa0.json",
+      "bytes": 26429,
+      "sha256": "5bf3a45eab119bbd6b3d16547142282599ea2c26d5e1af986afc42d0ec544620"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/current-public-type-disposition-4b5dbfa0.json",
+      "bytes": 908317,
+      "sha256": "6a749dbb10bddc7f8293330cdb56a27bd68b5c6473bd0f2d03aad2722881dee5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-source-preparation-20261104/public-type-accounting.json",
+      "bytes": 1070441,
+      "sha256": "a67cdd001115164b268d0c8d2b2a2dc2c6d95d46970a02bb17a324edb146e556"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-source-preparation-20261104/historical-type-dependency-assessment-6b95185.json",
+      "bytes": 312652,
+      "sha256": "4cf7c71ed470047083093dd8a5212d3eaa6013b9e2a7ed9e0ae9e15426d9f9ab"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-source-preparation-20261104/actual815-execution-input-assessment-4b5dbfa0.json",
+      "bytes": 7434,
+      "sha256": "489ae557c9eef766ef9bf2e2e85d124fb71658c6546e707b494fe738c27d569a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-execution-input-qualification.json",
+      "bytes": 6690,
+      "sha256": "9bf1f1e098997b9f4f01944c59b5578a32a4768e00fc0e68d1726c342bb82abe"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/inventory.json",
+      "bytes": 58922,
+      "sha256": "7fe7ddfc3242dff5937ef1fba339bd62f0a2ce66401fe919d383237049bd70bf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-statements815-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 125408,
+      "sha256": "e4187960a469d194aeceed488d7e9bb45a450ae059bef46ba9645c5f9d6868ac"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-statements815-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 125726,
+      "sha256": "c8a015007775ff98a220c90c328dc10f505cca8ac9ac9c7c3b887e2c0089ab4a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0099-preparation/root-review-reconciliation.json",
+      "bytes": 7740,
+      "sha256": "2a3364906aba176499aaa6f5455fb08f3e32b3b2b08587998ae9626903399bc9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-acceptance-20261104/acceptance.json",
+      "bytes": 8228,
+      "sha256": "1d0e49de391af7f2c500d954e5e4bed4dea9094d0d24cdb57841e3ada5d33046"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-acceptance-20261104/durability.json",
+      "bytes": 984,
+      "sha256": "aa1076827c9a1e7f8f5fc190498bdf0f094501fd55375b870fec43059323222b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-acceptance-20261104/acceptance.json",
+      "bytes": 5234,
+      "sha256": "83c80450ccacba22c263f805670b2ee06dffc757447bb437f86875918c4e7fa0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-acceptance-20261104/durability.json",
+      "bytes": 986,
+      "sha256": "aa7495d8af0958d6e93d0a7618439eed42501a8fef326f9b232a57a7f0ff8a25"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter01-acceptance-20261103/acceptance.json",
+      "bytes": 2562,
+      "sha256": "ca68a978d5bfc4ca8164c2f88c160eebfc0a339e80f9270c16b916caf25e9d4b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-source-integration-20261104/handoff.md",
+      "bytes": 13787,
+      "sha256": "85ea9bcaaa8fb5f0fe32805ad3695e4b711e56a6ad9a4d7ec39d3d18d8dfc594"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-source-integration-20261104/result.json",
+      "bytes": 3922,
+      "sha256": "d09b2836192bf49fa57f4ecce046e571ed1a94cd6ada1e47b5ad7dcddbc09244"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-source-integration-20261104/receipt.json",
+      "bytes": 8385,
+      "sha256": "213e22f18a8dfa6e35529afc0b61fa40e91126dda95cb9a723242252a643dfb0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-integration-readiness-20261104/readiness.md",
+      "bytes": 26130,
+      "sha256": "8c78289e814157df89637bfc004092876ec1a26f25ac8354b3dea9cdfb73017f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-integration-readiness-20261104/inventory.json",
+      "bytes": 64400,
+      "sha256": "9ae15ac5cfc32f7ebe5b8dbe3ddf664774b4c7fff46c8c70fd2bf2d0b5550109"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-integration-readiness-20261104/receipt.json",
+      "bytes": 3583,
+      "sha256": "0acd1288355966bcfda05afb4f958e66bfd100ddc9cdaf637b60e95cbf9854d9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+      "bytes": 4105,
+      "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-shared-notes-status-correction1-20261104/proposed/fdsa-permutation-tail.md",
+      "bytes": 10927,
+      "sha256": "9740fdf8ff9761daebae4ec0be6c9388deffcb55fc567d695be27ca89ea86b87"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-shared-notes-status-correction1-20261104/receipt.json",
+      "bytes": 4599,
+      "sha256": "2eaa22b53108301a878171aefa854150b4122431fd83e2f30abb65b33da48d31"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-shared-notes-status-preparation-20261104/receipt.json",
+      "bytes": 7500,
+      "sha256": "faa70afc6fa62c47d9b1442f10a20ff9ad9a73b3576f7028e8ee7ead0594edbe"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter02-spec-source-continuation-20261104.md",
+      "bytes": 13724,
+      "sha256": "c43ac0ca5d5157c4f6729fa751b977f7c8b34197306868d999b1ad0c1c855b46"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-spec-source-continuation-20261104/source-assessment.json",
+      "bytes": 14310,
+      "sha256": "9f90a4418f2db2f88d255c3694d8e7585d0ccdad3d448f59563079d61d3b8eec"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-spec-source-continuation-20261104/readback-and-hold.json",
+      "bytes": 8234,
+      "sha256": "1f13f371722ce8223da7c31c168afb1324bb87e8cbfe5ed80c2b594f03029c24"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-spec-source-continuation-20261104/immutable-source-reconciliation.json",
+      "bytes": 36120,
+      "sha256": "90c9bf86798297a3105fc1f34e1ac2ca79e55a5b2d238cbd440b0ed4048681b6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/full-log-read-progress.json",
+      "bytes": 11723,
+      "sha256": "b840aa1ed9fb3c1f395241a3c986b4ccfc9d8995b50d896cf5ca54556d877ec6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/full-gate-reconciliation.json",
+      "bytes": 29592,
+      "sha256": "cafb886c02822cddb7da08413d2e2ff63da8581e0c015231f3f4832ba417c9b5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/full-gate-additive-completion.json",
+      "bytes": 5950,
+      "sha256": "e0b1f8bd788cb126a6c04e3eb45238a15280f5afcae22eeeab4d8e8a03535daa"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-spec-terminal-assessment-20261104/actual145-read-progress.json",
+      "bytes": 9380,
+      "sha256": "ab4ba79877f9d85d3fe4f08d271312ed2f37922e60886e67a653afaea1e62a23"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-spec-terminal-20261104/actual314-complete-type-assessment.json",
+      "bytes": 19153,
+      "sha256": "93755b8c310680acd71460ca5922362be2e77e3debbce140d2234f2f3bf7067a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-spec-terminal-20261104/actual53-complete-type-assessment.json",
+      "bytes": 14211,
+      "sha256": "48cf1d163b1c7e0bc064c2664df8a965a42a81d24105a57920a5adc0dfcd9b68"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-spec-terminal-20261104/actual61-complete-type-assessment.json",
+      "bytes": 63430,
+      "sha256": "f2314d66eccc99f3218046d1320134ba49891851c3d04394fc808c7d6972fa8e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-complete-public-statements145-20261104-attempt1/native-records/output.log",
+      "bytes": 107530,
+      "sha256": "bbf02ed2d02358a10d1ed670e28bc00e43beef3af20409d4dc926ad36ab193c2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/output.log",
+      "bytes": 256987,
+      "sha256": "3bdb9dc0a92ec781a28b46de1a3eb843bda4efcd17c2292f091c19e52df7c50c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-complete-public-statements53-20261104-attempt1/native-records/output.log",
+      "bytes": 91080,
+      "sha256": "48466b063b338defe63e54b3eed7594095cd3036dd773443ef9649b2bc211b65"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-complete-public-statements61-20261104-attempt1/native-records/output.log",
+      "bytes": 84784,
+      "sha256": "57747c4b4764ac5aea6885671ff66b5ff202da2c919a0e9bb38f5921738916cf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-spec-terminal-20261104/actual314-type-read-progress.json",
+      "bytes": 21128,
+      "sha256": "0dab0663b61eba1eaa6cd13b2c9480d75bafa4c63acd587ddc7d1a889f9e7012"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/shared-foundations-spec-final-20261104.md",
+      "bytes": 5066,
+      "sha256": "f8c8d934662192f4376ab7ae2897957647a890ea964fca18555c0d12dfc5a8dc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/shared-four-spec-final-20261104.md",
+      "bytes": 16201,
+      "sha256": "e7d6ae04d2cf2a06e482274a9e0ab9f23d5a38ef78952ad0bcd288660d0a0f6c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/permutation-order-spec-final-20261104.md",
+      "bytes": 12647,
+      "sha256": "8cd4b6c8854aaaa2cceff956bbce66821dbe6e22fc7585ff94fdfce6a2748970"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/permutation-tail-spec-final-20261104.md",
+      "bytes": 14391,
+      "sha256": "e1e97c2726b8aae3e5c12872fd4ebe0213fde92340a4969b1048242525fff485"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-spec-terminal-20261104/final-disposition.json",
+      "bytes": 9494,
+      "sha256": "5015445d0793f175ea0cc8e122a31bf3d9e440ad8f70dbb27f3ce36e431bded6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-spec-terminal-20261104/readback-and-hold.json",
+      "bytes": 4925,
+      "sha256": "0ea8cb65cdd451000cbf0aa85314f09e361df9f23637238c2172b16d251c984a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-spec-terminal-20261104/final-disposition.json",
+      "bytes": 11450,
+      "sha256": "b719dc1f9534bbebd1df670160bf33609fbcdc8609aec4b7c069c9f4362a45c1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-spec-terminal-20261104/readback-and-hold.json",
+      "bytes": 10277,
+      "sha256": "c59348e7d38dcd02ecf856f0bd5404a7761d91a298fdb2def113733c0d4eac08"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-spec-terminal-20261104/final-disposition.json",
+      "bytes": 15314,
+      "sha256": "08509d2ce431e04c950e2835ad70d28703e6c2a2c446c929ade121dfc281c64e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-spec-terminal-20261104/readback-and-hold.json",
+      "bytes": 11469,
+      "sha256": "0c996e795ca24f84d96fc0683d3f5a2bc18cf7924c12cf9fa5e21208d3fa9c59"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter02-spec-final-20261104.md",
+      "bytes": 15377,
+      "sha256": "4852842a5ccae808bd0d96ba82339a2857eda445e5992a34ab8c2e4fd2a133c0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/full-log-read-index.json",
+      "bytes": 5864,
+      "sha256": "697868e99da0e8bd993ea82ca4578b76e217bbd6afc88a16055cc8beda41711e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/observation-method-assessment.md",
+      "bytes": 7183,
+      "sha256": "eb4794d890ff9f97fbdc8ece84a6076685396b12a6b9e4ce6901c70c28c7193b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/observation-method-readback-and-hold.json",
+      "bytes": 7348,
+      "sha256": "f311ccf5983a88a353caf3d83d9d311f6e8860b037248d756df2c64ca6c6b491"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/method-correction-C02-PREP-CMD-001-assessment.json",
+      "bytes": 6318,
+      "sha256": "c9ab93271d07cae0562ae8e3ffbf525f6466ed67f44d3d0f47f5ac5ff4de840d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/preliminary-disposition-readback-and-completion.json",
+      "bytes": 6481,
+      "sha256": "8075effaf10e78b2ae614a7b3e7d274feb91349b9e06f26827655856900bf670"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/reconcile-actual-receiving-evidence.py",
+      "bytes": 12605,
+      "sha256": "8db511cae93b1a9067fd5e0200dab32e2e250e2dbef34dad4997aa27d9352da0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/current-type-semantic-disposition-Q.json",
+      "bytes": 439749,
+      "sha256": "45d755a5e56e4ab50d6960a68205d4883422f50960aad6d877c3a5c089ad3721"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/final-saved-matrix-readback.json",
+      "bytes": 2519,
+      "sha256": "fa7b0da5dff62d7c1946b72b7d739d647e11d4fefca25caac2411576799f4e44"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/final-disposition.json",
+      "bytes": 12999,
+      "sha256": "439db86ed31edcc2d6b58701cd01a5dde0f739d5d3e3cb82a84b4fa134bcbda4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/final-readback-and-hold.json",
+      "bytes": 5528,
+      "sha256": "b542c98aa7e8ddc268b1e61f7aef6cf1105d733a6226a876da7dd42c211f06ee"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-acceptance-20261104/spec-final-artifact-reconciliation.json",
+      "bytes": 101071,
+      "sha256": "fab89bec1a3d20ed77efcbc6dd0c4d4b5f415c3edc6f8893d655b87cca3d2a19"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/pre-observation-execution.json",
+      "bytes": 1543,
+      "sha256": "7877f2330ff802eba28c8552b9737af9eb72d247203cef00d3fb0307a7e33678"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/preliminary-receiving-assessment.json",
+      "bytes": 35472,
+      "sha256": "54e4cedd5177ec390782ca4774933e1a16bbb7559b7821504cf85c69aece0881"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation145-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 38785,
+      "sha256": "482b005a6b020bc8fbc087ed746202caa89426382200d2aa37b4259ac0116d37"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation145-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 39092,
+      "sha256": "3065efbace8dc8cff34d764d33fd29e81f09b5549407d72be5cdaa217d482d16"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-complete-public-statements145-20261104-attempt1/result.json",
+      "bytes": 1415,
+      "sha256": "f563b12f4b572f99531027ab920784a94b8b9118a6e17cb1e65669217b1a216b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four314-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 45835,
+      "sha256": "c3dc93d12e645171b3df24d417cc36838f666233c09034bb751672f47081f3f9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four314-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 46143,
+      "sha256": "fb1b01c56f251f9ddc28ae17b301d312b09714e687b5b0803fbe8be32ff95307"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-complete-public-statements314-20261104-attempt1/result.json",
+      "bytes": 1412,
+      "sha256": "4e96d347b0303913359798dc0d58981c59f8d07d70eb946f263a6c68fda83f44"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order53-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 15480,
+      "sha256": "eae1066844315be119551281752fcde15ba1f2cb2bf240d3f4186a9ca16ef8ec"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order53-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 15788,
+      "sha256": "40817d0282d0ef62c6dac960429f5f6b8521cc86739f2eb4a195d869b17de15a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-complete-public-statements53-20261104-attempt1/result.json",
+      "bytes": 1399,
+      "sha256": "db079a70c552f4871fc32b4235b96b385e28cef14263966f0208113d4dbf4cde"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail61-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 18465,
+      "sha256": "1829a1a48106a01e46d9994baaf4a01c0f13d29bc973239c6a0ee1a8ab25206e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail61-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 18772,
+      "sha256": "6a8c7067a0f78eae29982f34f38342253cf56bae1432050ee7e054b87996e986"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-complete-public-statements61-20261104-attempt1/result.json",
+      "bytes": 1414,
+      "sha256": "166535394036f2c652e6d324c17401eadfc1d0dac2ae0b48bc40b9e97e20dbc8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+      "bytes": 7518,
+      "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-complete-public-statements145-20261104-attempt1/output-blocks.json",
+      "bytes": 46564,
+      "sha256": "77705d6d4150af6d722114fd8836a2c67efdecd43d26e0019eb8fe5fa2f599d4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-foundations-standards-terminal-assessment-20261104/actual145-read-progress.json",
+      "bytes": 20912,
+      "sha256": "ef690b8f502c1ac4b70cd956cf682d2faa080b4b36151afc7cd05cd8a3a77a0b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+      "bytes": 16826,
+      "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-complete-public-statements314-20261104-attempt1/output-blocks.json",
+      "bytes": 112874,
+      "sha256": "2fe194e3f70287d3be4815f418f7ee898e46980145afc2761c469701b1073f12"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-standards-terminal-assessment-20261104/actual314-read-ledger.json",
+      "bytes": 14033,
+      "sha256": "5e61784905b0f5a6134b64808b84970bb4e5024b05ba2cf5aa836b16fd56fa01"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-xu02-statement-source-20261104/Statements.lean",
+      "bytes": 3522,
+      "sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-complete-public-statements53-20261104-attempt1/output-blocks.json",
+      "bytes": 22024,
+      "sha256": "5ac94d0bd7a5ae4b51b0aa35cf24bbd7b89cfa9be122d7cc1c8514d319d76269"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-standards-terminal-assessment-20261104/actual53-read-ledger.json",
+      "bytes": 5617,
+      "sha256": "801098585a98ff633f744e86513d037ed45fc1390f88bedcf80041a019d9fa08"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-complete-public-statements61-20261104-attempt1/output-blocks.json",
+      "bytes": 24176,
+      "sha256": "9e83cbfb18c911c3602c2e9fde71b727456bab93ad6bd76375f472142cadb748"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-standards-terminal-assessment-20261104/read-progress.json",
+      "bytes": 16362,
+      "sha256": "d563391d972d86efe1631f30e236956fba74f39d2d24e8e3bd3fe17baaecbc39"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/actual-targeted-block-comparison.json",
+      "bytes": 214789,
+      "sha256": "adb30d4b2b2f91f9ebff4ec58b05f4fef4e786715cc3fb82d98827706e5391a6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/actual466-receiving-qualification.json",
+      "bytes": 22147,
+      "sha256": "e418d2db7ba71dbe65eb2d5ba182a4bfec8ede17c5d22424c8fa2404a78620fa"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/actual-targeted-execution-qualification.json",
+      "bytes": 19859,
+      "sha256": "9a59d99b80ac835d62793eae3aedbe3a44e00d246c50b5373379315db738080d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/actual-receiving-evidence-inputs.json",
+      "bytes": 40296,
+      "sha256": "62850d249f6e67e6d7038bc999449f27cf79105c96396f1ae7d3daa35e57f1f2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/actual-output-and-stability-cross-reconciliation.json",
+      "bytes": 88698,
+      "sha256": "0a5347cb0578e667d9199e05013d54a0152861fabc7e04dd563e2f9b5ed42c00"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter02-standards-receiving-final-20261104.md",
+      "bytes": 12369,
+      "sha256": "32fa752ce964aa01c530d0d015a8eaf1f4fa7319b6cfe872bb54cd797b9c3b45"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter02-standards-receiving-source-continuation-20261104.md",
+      "bytes": 15610,
+      "sha256": "5477a580ece8c2129152a6996e29328ceef88a3f26dfc94fd8cbf12351723b5d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-standards-source-continuation-20261104/source-assessment.json",
+      "bytes": 14841,
+      "sha256": "30156b4058e2de3617b59cba13f9d784bc478f3597cb29865340ed8d795722d0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/full-gate-assessment.json",
+      "bytes": 11125,
+      "sha256": "0dd393894a8f877db50e191131b3582ffcca45769b0962b10f264c0dbb6d74cd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/closed-full-read-ledger.json",
+      "bytes": 7636,
+      "sha256": "9a12ba869ce8a35df25b46be98a531636e856115c131408f880ac9f1ca60f472"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/command-correction-and-full-gate-completion.json",
+      "bytes": 7114,
+      "sha256": "15ce77a023eb2050bf3d73c0ab041ab29cf8a51adfff077a33ced129158e7bd8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-source-preparation-20261104/actual815-type-review-progress.json",
+      "bytes": 123595,
+      "sha256": "91b9df119e5b47cd94a7930001947eb2c14601d5d144149b796a8bb06f3f4d0b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-resource-preflight-20261104/receipt.json",
+      "bytes": 3539,
+      "sha256": "0b92446dec3b50ac26544205b7380a62685997cf2fa4d01db40817a612d1ea54"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-statement-readiness-20261104/completion.json",
+      "bytes": 2754,
+      "sha256": "04b254a8ccb38b387949c57654695a51612e551abeb71fa6747f047a2b246702"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-source-integration-20261104/author-readback.json",
+      "bytes": 9959,
+      "sha256": "a58b2a2afbd549335a272575166a55d06217a748cf6a0456fcea50be18d3e616"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-source-integration-20261104/baseline.json",
+      "bytes": 45004,
+      "sha256": "7c85ca73c6f8d481425f394437908de1208f90c93ea2e9c07a2ce3305b0dcf7d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-source-integration-20261104/bound-inputs.json",
+      "bytes": 16203,
+      "sha256": "ab4de201566163067aa2ae6e703a2e279319ee6218d86fe273eb8b6cf6bf13de"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-source-integration-20261104/handoff.md",
+      "bytes": 14249,
+      "sha256": "583cc9b4cf1f3f00afe9ca9005099b9cf082108a8a39e4fea14476f1a2111d2d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-source-integration-20261104/merge-state.json",
+      "bytes": 6453,
+      "sha256": "1242e4c70e7207f9157fa4b3e80e8877af9f7b4efe6b56fe17c1f5668e915834"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-source-integration-20261104/receipt.json",
+      "bytes": 8132,
+      "sha256": "62db6b03f9da7a190115e1f595153f00550dd65051b04eae8777c7794000b7b3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-source-integration-20261104/resolution-plan.json",
+      "bytes": 17322,
+      "sha256": "3fae1c1287891e64ecc8c4bcac1b58d8bb1971fb12ae159b963632fd0bc29758"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-source-integration-20261104/result.json",
+      "bytes": 108380,
+      "sha256": "a0642a45b8580bdb9f0427bbe04c996ff6bc39058fd955117f33613178507f0d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-spec-integration-preparation-20261104/assessment.json",
+      "bytes": 7964,
+      "sha256": "6deb4bf5a4424d044e8a2029289d8eeb38c13b6b1403553d24e8f8677245835f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-spec-integration-preparation-20261104/readback-and-hold.json",
+      "bytes": 906,
+      "sha256": "4c29abe954b9c84926fd92cda7e78bbb4f867cb8306f537fd57dbbb61aa454d5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation-attempt1-failure.json",
+      "bytes": 854,
+      "sha256": "c2fa12900431d1f38e3c49056d95d769543dfe3d26165267fb0a2c7b31cfc7dd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation-attempt2-failure.json",
+      "bytes": 742,
+      "sha256": "3d9384decab2d2cc87973706ec15f5f16a9f064c6bca30db6da559b111fb6cd4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation.json",
+      "bytes": 41717,
+      "sha256": "bccfbb2d0aab35abdd42cc5e6af26bea81128dbaa363cd986c84df7ffbdd2b91"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation.py",
+      "bytes": 12582,
+      "sha256": "f533ee431b94fbf29d6e412d76f48103055822e17e2258c64f673c8a18dbba66"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-spec-source-continuation-20261104/immutable-source-reconciliation.py",
+      "bytes": 9083,
+      "sha256": "0cce01966528ca1fdeb85130115029063405175f3da98166917bdb6c239bf5f0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-standards-source-continuation-20261104/author-reconciliation-method-boundary.json",
+      "bytes": 1318,
+      "sha256": "6363068d6b971722463afa44a02be24ee29e8ed16ce159c4a065f5cd9d6fbd81"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-standards-source-continuation-20261104/completion.json",
+      "bytes": 2886,
+      "sha256": "25ee2bbff71d31882b0fc9a82e588639221bdd65dd12f5a119051495e8c609fb"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-standards-source-continuation-20261104/independent-author-package-reconciliation-correction1.json",
+      "bytes": 4683,
+      "sha256": "ad0b35ef7b5448d8aff908956d97ad1f115059ac77ba8d12891b91ff81528f90"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-standards-source-continuation-20261104/independent-source-reconciliation.json",
+      "bytes": 41642,
+      "sha256": "45beb6365e86ca9b507cc3bcf8633dcae37807d351de7288be363c89d55f000e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-standards-source-continuation-20261104/reconcile_author_package.py",
+      "bytes": 8643,
+      "sha256": "ff11830b5ea8cfc6a3a2b17c79c6f2e406fd4bb21cd8395a7f292de9436588c9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-standards-source-continuation-20261104/reconcile_author_package_correction1.py",
+      "bytes": 8683,
+      "sha256": "ed8eb2e398b7471b1581592e2c6448a952bf2af4aacb4881b96fdb405041d837"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-standards-source-continuation-20261104/reconcile_source.py",
+      "bytes": 11506,
+      "sha256": "92fe57212a1ace79c7c8c2d74619a2e1af5a9467d24dba104a1ba5df8cb5ea04"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter02-spec-statement-evidence-readiness-20261104.md",
+      "bytes": 9579,
+      "sha256": "c1e433c7255751ff3c54a13e59af2088c93d7935c7cc40f1d0a25a01069858ff"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter02-standards-statement-readiness-20261104.md",
+      "bytes": 14199,
+      "sha256": "3207c2b72c68ff1d5bed3c94f9d0d08c7b0f64aa5e88da7013134ae1fa578d2f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "bytes": 315124,
+      "sha256": "5559dfa557622a8e29e503502df3e5a77287d3ac1f6e2f285a0b5bf5e4af6f0f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "bytes": 314896,
+      "sha256": "7f2c0853d96f00134c8e4d9e7c1014ed91a3b9ed9e6c8c048ab6ea5c02779693"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/final-disposition-and-hold.json",
+      "bytes": 10278,
+      "sha256": "b189fcc3ddb8cf6de318b17c0462faa5df7d4222ee155ec64e0fabedb519fc30"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-acceptance-20261104/prepared-fast-forward-preflight.json",
+      "bytes": 11404,
+      "sha256": "3d26b78b50c38f7b389f2839d3232857d89efc510acadce9458b9dc34786ebc0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-acceptance-20261104/fast_forward_once.py",
+      "bytes": 5682,
+      "sha256": "a757f35a2b629ad8a7d13eb98dd1b355e8a8510ad382fc0b0e6a2fc80dba00b1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-acceptance-20261104/root-final-report-readback.json",
+      "bytes": 2183,
+      "sha256": "29c88961a76a19ecbb2c567b4477ffbe225bf30741c7882b84c97206ed917468"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/verification.json",
+      "bytes": 867,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    }
+  ],
+  "ready_for_immediate_verification": true,
+  "immediate_verification_not_yet_performed": true,
+  "accepted_branch_not_yet_advanced": true,
+  "required_next": "Run the exact qualified immediate verify-candidate HEAD now; secure actual complete outcome; then exact approved local FF via held method. No intervening source or ref change."
+}

@@ -1,0 +1,30 @@
+{
+  "original_path": "session/validation/obsolete-chapter01-source-cleanup.json",
+  "original_sha256": "b05c8b237aebc5810158164088f87ccd3eff45da328fe75b140bf3ad9edf3349",
+  "original_bytes": 1499472,
+  "removed_fields": [
+    {
+      "pointer": "/inventories",
+      "entries": 2,
+      "canonical_json_sha256": "f9016040bb4d206b5700c0b753fa45f16affb2f8cec64ce97ede1473f9d2d6c9"
+    }
+  ],
+  "record": {
+    "created_utc": "2026-11-03T02:58:17.474572+00:00",
+    "reason": "Exact redundant historical source copies with stale absent worktree administration; complete bytes and ancestor refs preserved in restore-tested saved033.",
+    "checkpoint": 33,
+    "library_file_id": "libfile_999447a77b148191bcf720d21fff021b",
+    "saved_ref": "refs/heads/pfds/ch01-union",
+    "saved_ref_head": "1ce161412a2cfb725f27525ff98d400209163316",
+    "status": "finished",
+    "available_bytes_before": 238297088,
+    "process_users": [],
+    "removed": [
+      "review-ch01",
+      "review-ch01-r2"
+    ],
+    "active_candidates_or_builds_changed": false,
+    "refs_unchanged": true,
+    "available_bytes_after": 419590144
+  }
+}

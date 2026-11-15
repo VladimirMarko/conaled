@@ -1,0 +1,118 @@
+{
+  "status": "Independent bounded arithmetic and pointwise examples only. No Lean validation, frozen scope or acceptance.",
+  "method": "Reuse the existing exact Fin3 count distribution; inspect only the two specified conditional orders and one nonidentity rank example. No repetition of the previous exhaustive permutation/subset campaign.",
+  "prior_calculation_file": "finite-ranking-calculations.json",
+  "prior_sha256": "36f853f68d0f0713581aea33e7c91187a003f99bb7386ff5ba509e52964c1949",
+  "conditional_placement": {
+    "universe_size": 3,
+    "fixed_subset": [
+      1
+    ],
+    "condition": "key 0 first globally under the original uniform ranking",
+    "event_mass": "1/3",
+    "samples": [
+      {
+        "global_order": [
+          0,
+          1,
+          2
+        ],
+        "key_to_label": [
+          0,
+          1,
+          2
+        ],
+        "original_mass": "1/6",
+        "conditional_mass": "1/2",
+        "restricted_singleton_order": [
+          1
+        ],
+        "preceding_keys": [
+          0
+        ],
+        "before_count": 1
+      },
+      {
+        "global_order": [
+          0,
+          2,
+          1
+        ],
+        "key_to_label": [
+          0,
+          2,
+          1
+        ],
+        "original_mass": "1/6",
+        "conditional_mass": "1/2",
+        "restricted_singleton_order": [
+          1
+        ],
+        "preceding_keys": [
+          0,
+          2
+        ],
+        "before_count": 2
+      }
+    ],
+    "mean_before_under_conditional_law": "3/2",
+    "unconditional_mean_before_from_saved_fixed_singleton_case": "1",
+    "relative_singleton_order_under_both_laws": [
+      1
+    ],
+    "limitation": "A law of the selected relative order alone does not determine placement among all global keys."
+  },
+  "saved_distribution_arithmetic": {
+    "universe_size": 3,
+    "fixed_subset": [
+      0,
+      1
+    ],
+    "before_count_distribution": {
+      "0": "2/3",
+      "1": "1/3"
+    },
+    "mean_before": "1/3",
+    "mean_one_based_ordinal": "4/3",
+    "shifted_priority_values": [
+      100,
+      110,
+      120
+    ],
+    "mean_shifted_actual_minimum_target": "310/3",
+    "required_value_bridge": "The actual finite-image minimum must be proved equal to 100+10*beforeCount before using this arithmetic as its expectation."
+  },
+  "nonidentity_rank_pointwise": {
+    "universe_size": 3,
+    "rank_equivalence_values": [
+      2,
+      1,
+      0
+    ],
+    "sample_key_to_label": [
+      0,
+      1,
+      2
+    ],
+    "fixed_subset": [
+      0,
+      1
+    ],
+    "preceding_keys": [
+      2
+    ],
+    "before_count": 1,
+    "actual_image_minimum_value": 1,
+    "one_based_position": 2
+  },
+  "tie_boundary": {
+    "universe_size": 2,
+    "fixed_subset": [
+      0
+    ],
+    "priority": "constant zero",
+    "actual_count_every_sample": 0,
+    "actual_mean": "0",
+    "formula_without_required_injectivity": "1/2"
+  }
+}

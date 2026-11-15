@@ -1,0 +1,49 @@
+{
+  "recorded_utc": "2026-11-02T23:41:13.637412+00:00",
+  "phase": "All three authors ready and stopped; no source release until successful checkpoint0057 and root final recheck.",
+  "requirements_sha256": "22fcd74bdfdc71085b690041f6dddc10407f188d11be83fe7ffdc084c31a5535",
+  "original_review_base": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+  "branch": "work/fdsa-tree-leftmost",
+  "authors": [
+    {
+      "agent": "/root/architecture",
+      "paths": [
+        "Applications/Resources/TreeLeftmost.lean"
+      ],
+      "complete_frozen_scope_read": true,
+      "complete_source_api_case_reports_read": true,
+      "concrete_issue_reported": false,
+      "ready": true,
+      "stopped": true,
+      "source_written": false
+    },
+    {
+      "agent": "/root/rotation_cases",
+      "paths": [
+        "Examples/TreeLeftmost.lean"
+      ],
+      "complete_frozen_scope_read": true,
+      "complete_source_api_case_reports_read": true,
+      "concrete_issue_reported": false,
+      "ready": true,
+      "stopped": true,
+      "source_written": false
+    },
+    {
+      "agent": "/root/book_inventory",
+      "paths": [
+        "docs/research/fdsa-tree-leftmost.md",
+        "docs/research/fdsa-reconstruction-map.md"
+      ],
+      "complete_frozen_scope_read": true,
+      "complete_source_api_case_reports_read": true,
+      "concrete_issue_reported": false,
+      "ready": true,
+      "stopped": true,
+      "source_written": false
+    }
+  ],
+  "root_path": "SquareApplications.lean",
+  "source_authoring_released": false,
+  "validation_released": false
+}

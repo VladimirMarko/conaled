@@ -1,0 +1,92 @@
+{
+  "module": "SquareKit.InteractionContracts",
+  "started_at_utc": "2026-11-02T08:16:52.636288+00:00",
+  "working_directory": "/workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import",
+  "argv": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "180s",
+    "nix",
+    "develop",
+    "/workspace/scratch/0c54f2db1fdf/conaled",
+    "--command",
+    "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+    "SquareKit/InteractionContracts.lean",
+    "-o",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import/generated/SquareKit/InteractionContracts.olean",
+    "-i",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import/generated/SquareKit/InteractionContracts.ilean",
+    "-c",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import/generated/SquareKit/InteractionContracts.c",
+    "--json"
+  ],
+  "shell_rendering_for_reference_only": "timeout --signal=TERM --kill-after=5s 180s nix develop /workspace/scratch/0c54f2db1fdf/conaled --command /root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean SquareKit/InteractionContracts.lean -o /workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import/generated/SquareKit/InteractionContracts.olean -i /workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import/generated/SquareKit/InteractionContracts.ilean -c /workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import/generated/SquareKit/InteractionContracts.c --json",
+  "environment_additions": {
+    "PATH": "/root/.nix-profile/bin:/root/.codex/tmp/arg0-linux/codex-arg0EDTsh1:/opt/codex/codex-path:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback",
+    "NIX_CONFIG": "build-users-group =\nexperimental-features = nix-command flakes",
+    "LEAN_NUM_THREADS": "1",
+    "LEAN_PATH": "/workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import/generated:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean"
+  },
+  "source": {
+    "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import/SquareKit/InteractionContracts.lean",
+    "bytes": 4214,
+    "sha256": "0ccc54b5aec0bd4e266e1345bea40cd4d97748781c3e7ed1b1257a440122e6c4"
+  },
+  "generated_dependencies_verified_before_consumer": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import/generated/SquareKit/RelationTransport.c",
+      "bytes": 1636,
+      "sha256": "a9e2f03e1124c2caf3a011363c3a31ce746811892744294ad6190cb9665612c6"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import/generated/SquareKit/RelationTransport.ilean",
+      "bytes": 5265,
+      "sha256": "ddc53db8aa05741dc5af9304423d5d786bd592a395586dcd02ecbd7ebabbf0d8"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import/generated/SquareKit/RelationTransport.olean",
+      "bytes": 59384,
+      "sha256": "3780598787ea247b999ef47c8e76dba004fb7b045a45ff6fc8924a5282c02233"
+    }
+  ],
+  "expected_direct_imports": [
+    "SquareKit.RelationTransport"
+  ],
+  "setup_used": false,
+  "imports_override_created": false,
+  "finished_at_utc": "2026-11-02T08:17:35.911369+00:00",
+  "elapsed_seconds": 43.274867709995306,
+  "exit_code": 0,
+  "timed_out": false,
+  "diagnostics": {
+    "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import/02-InteractionContracts/diagnostics.jsonl",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "outputs": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import/generated/SquareKit/InteractionContracts.c",
+      "bytes": 1384,
+      "sha256": "e8a76d41144aaaaaec96b0ff0079191f4c8826e44c2459f827235cd51ab5eaab"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import/generated/SquareKit/InteractionContracts.ilean",
+      "bytes": 6002,
+      "sha256": "f8282c5b5c74c2e75336e01007cd657b632b178cfe9f2f5f5cd632384fa9f674"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import/generated/SquareKit/InteractionContracts.olean",
+      "bytes": 56792,
+      "sha256": "58e5fb69c1e60125016549ef60f0f6391755c093915d7e3c3cadc0de8590bc9e"
+    }
+  ],
+  "metadata": {
+    "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import/02-InteractionContracts/module-metadata.json",
+    "bytes": 703,
+    "sha256": "6fd6b90460508a2acadbaec54df85a00731110833c2c98850ffba383fa49e9fb"
+  },
+  "module_name_matches": true,
+  "direct_imports_match": true,
+  "success": true
+}

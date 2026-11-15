@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-03T14:24:12.533311+00:00",
+  "authorization": "requirements/REQUEST-direct-toolchain-041.md",
+  "release_url": "https://github.com/leanprover/lean4/releases/tag/v4.35.0",
+  "release_api": "https://api.github.com/repos/leanprover/lean4/releases/tags/v4.35.0",
+  "release_tag": "v4.35.0",
+  "asset_name": "lean-4.35.0-linux.tar.zst",
+  "asset_url": "https://github.com/leanprover/lean4/releases/download/v4.35.0/lean-4.35.0-linux.tar.zst",
+  "bytes": 594481375,
+  "expected_digest": "sha256:7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d",
+  "actual_sha256": "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d",
+  "checksum_matches": true,
+  "installation": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux",
+  "smoke_results": [
+    {
+      "name": "lean-version",
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lean",
+        "--version"
+      ],
+      "exit_code": 127,
+      "stdout": "",
+      "stderr": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lean: error while loading shared libraries: libInit_shared.so: cannot open shared object file: No such file or directory\n"
+    },
+    {
+      "name": "lake-version",
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lake",
+        "--version"
+      ],
+      "exit_code": 127,
+      "stdout": "",
+      "stderr": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lake: error while loading shared libraries: libLake_shared.so: cannot open shared object file: No such file or directory\n"
+    },
+    {
+      "name": "lean-prefix",
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lean",
+        "--print-prefix"
+      ],
+      "exit_code": 127,
+      "stdout": "",
+      "stderr": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lean: error while loading shared libraries: libInit_shared.so: cannot open shared object file: No such file or directory\n"
+    }
+  ],
+  "repository_sources_or_pins_changed": false,
+  "formal_acceptance": false
+}

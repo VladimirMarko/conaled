@@ -1,0 +1,32 @@
+[
+  {
+    "argv": [
+      "diff",
+      "--check"
+    ],
+    "actual_exit": 0,
+    "output": ""
+  },
+  {
+    "argv": [
+      "add",
+      "--",
+      "Applications/Selection/CoordinateReadAll.lean"
+    ],
+    "actual_exit": 0,
+    "output": ""
+  },
+  {
+    "argv": [
+      "-c",
+      "user.name=ChatGPT",
+      "-c",
+      "user.email=chatgpt@openai.com",
+      "commit",
+      "-m",
+      "fix(selection): normalize read-plan induction (#174)"
+    ],
+    "actual_exit": 0,
+    "output": "[work/fdsa-ch03-query-lower-bounds 47f12b4] fix(selection): normalize read-plan induction (#174)\n 1 file changed, 2 insertions(+), 2 deletions(-)\n"
+  }
+]

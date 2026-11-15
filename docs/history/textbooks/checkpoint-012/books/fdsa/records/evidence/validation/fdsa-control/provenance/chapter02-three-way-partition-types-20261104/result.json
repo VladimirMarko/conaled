@@ -1,0 +1,32 @@
+{
+  "candidate": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-three-way-partition-statement-source-20261104/Statements.lean"
+  ],
+  "started_utc": "2026-11-04T06:15:09.254624+00:00",
+  "completed_utc": "2026-11-04T06:15:24.131055+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 14.876180347000627,
+  "state": "passed",
+  "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-three-way-partition-types-20261104/full.log",
+  "progress_bookkeeping_errors": [],
+  "final_head": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+  "final_status": "",
+  "log_size_bytes": 91292,
+  "log_sha256": "c05a5e5a0098492721b81c689383d421a24ec3d6bf2b00a7629ae18be5ad8d99",
+  "available_bytes_at_completion": 20642054144,
+  "verification_record_present": false
+}

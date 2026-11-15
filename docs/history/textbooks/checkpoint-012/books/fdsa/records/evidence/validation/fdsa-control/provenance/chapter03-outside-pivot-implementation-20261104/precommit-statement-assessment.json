@@ -1,0 +1,315 @@
+{
+  "recorded_utc": "2026-11-04T20:43:00.880454+00:00",
+  "state": "Prepared uncompiled; no actual type output or acceptance",
+  "original_obligation": "C03-079",
+  "public_declarations": 30,
+  "private_declarations": 0,
+  "source_files": [
+    {
+      "path": "Applications/Selection/OutsidePivot.lean",
+      "bytes": 6444,
+      "sha256": "22ceec39e94410200dda20d4224a87518aa001eb127605f02fe6961c01a97809",
+      "public_names": 14
+    },
+    {
+      "path": "Examples/OutsidePivot.lean",
+      "bytes": 3845,
+      "sha256": "0c2feb488fd784937c8888a3e48e31b32a307b96bcefb6178d7c75274afdb275",
+      "public_names": 16
+    }
+  ],
+  "declarations": [
+    {
+      "name": "Applications.Selection.OutsidePivot.partition3_below",
+      "source": "Applications/Selection/OutsidePivot.lean",
+      "header": "theorem partition3_below (p : \u03b1) (xs : List \u03b1)\n    (hout : \u2200 x \u2208 xs, p < x) : partition3 p xs = ([], [], xs)",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Applications.Selection.OutsidePivot.partition3_above",
+      "source": "Applications/Selection/OutsidePivot.lean",
+      "header": "theorem partition3_above (p : \u03b1) (xs : List \u03b1)\n    (hout : \u2200 x \u2208 xs, x < p) : partition3 p xs = (xs, [], [])",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Applications.Selection.OutsidePivot.dispatch_below",
+      "source": "Applications/Selection/OutsidePivot.lean",
+      "header": "theorem dispatch_below (recur : Nat \u2192 List \u03b1 \u2192 Option \u03b1) (p : \u03b1)\n    (k : Nat) (xs : List \u03b1) (hout : \u2200 x \u2208 xs, p < x) :\n    dispatch recur p k xs = recur k xs",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Applications.Selection.OutsidePivot.dispatch_above",
+      "source": "Applications/Selection/OutsidePivot.lean",
+      "header": "theorem dispatch_above (recur : Nat \u2192 List \u03b1 \u2192 Option \u03b1) (p : \u03b1)\n    (k : Nat) (xs : List \u03b1) (hk : k < xs.length)\n    (hout : \u2200 x \u2208 xs, x < p) : dispatch recur p k xs = recur k xs",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Applications.Selection.OutsidePivot.runWith_step_below",
+      "source": "Applications/Selection/OutsidePivot.lean",
+      "header": "theorem runWith_step_below (choose : List \u03b1 \u2192 Option \u03b1) (p : \u03b1)\n    (xs : List \u03b1) (k fuel : Nat) (hne : xs \u2260 [])\n    (hc : choose xs = some p) (hout : \u2200 x \u2208 xs, p < x) :\n    runWith choose (fuel + 1) k xs = runWith choose fuel k xs",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Applications.Selection.OutsidePivot.runWith_step_above",
+      "source": "Applications/Selection/OutsidePivot.lean",
+      "header": "theorem runWith_step_above (choose : List \u03b1 \u2192 Option \u03b1) (p : \u03b1)\n    (xs : List \u03b1) (k fuel : Nat) (hk : k < xs.length)\n    (hc : choose xs = some p) (hout : \u2200 x \u2208 xs, x < p) :\n    runWith choose (fuel + 1) k xs = runWith choose fuel k xs",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Applications.Selection.OutsidePivot.runWith_below_none",
+      "source": "Applications/Selection/OutsidePivot.lean",
+      "header": "theorem runWith_below_none (choose : List \u03b1 \u2192 Option \u03b1) (p : \u03b1)\n    (xs : List \u03b1) (k fuel : Nat) (hne : xs \u2260 [])\n    (hc : choose xs = some p) (hout : \u2200 x \u2208 xs, p < x) :\n    runWith choose fuel k xs = none",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Applications.Selection.OutsidePivot.runWith_above_none",
+      "source": "Applications/Selection/OutsidePivot.lean",
+      "header": "theorem runWith_above_none (choose : List \u03b1 \u2192 Option \u03b1) (p : \u03b1)\n    (xs : List \u03b1) (k fuel : Nat) (hk : k < xs.length)\n    (hc : choose xs = some p) (hout : \u2200 x \u2208 xs, x < p) :\n    runWith choose fuel k xs = none",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Applications.Selection.OutsidePivot.not_pivotValid_below",
+      "source": "Applications/Selection/OutsidePivot.lean",
+      "header": "theorem not_pivotValid_below (choose : List \u03b1 \u2192 Option \u03b1) (p : \u03b1)\n    (xs : List \u03b1) (hne : xs \u2260 []) (hc : choose xs = some p)\n    (hout : \u2200 x \u2208 xs, p < x) : \u00ac PivotValid choose",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Applications.Selection.OutsidePivot.not_pivotValid_above",
+      "source": "Applications/Selection/OutsidePivot.lean",
+      "header": "theorem not_pivotValid_above (choose : List \u03b1 \u2192 Option \u03b1) (p : \u03b1)\n    (xs : List \u03b1) (hne : xs \u2260 []) (hc : choose xs = some p)\n    (hout : \u2200 x \u2208 xs, x < p) : \u00ac PivotValid choose",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Applications.Selection.OutsidePivot.selectWith_below_none",
+      "source": "Applications/Selection/OutsidePivot.lean",
+      "header": "theorem selectWith_below_none (choose : List \u03b1 \u2192 Option \u03b1) (p : \u03b1)\n    (xs : List \u03b1) (k : Nat) (hne : xs \u2260 [])\n    (hc : choose xs = some p) (hout : \u2200 x \u2208 xs, p < x) :\n    selectWith choose (k + 1) xs = none",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Applications.Selection.OutsidePivot.selectWith_above_none",
+      "source": "Applications/Selection/OutsidePivot.lean",
+      "header": "theorem selectWith_above_none (choose : List \u03b1 \u2192 Option \u03b1) (p : \u03b1)\n    (xs : List \u03b1) (k : Nat) (hk : k < xs.length)\n    (hc : choose xs = some p) (hout : \u2200 x \u2208 xs, x < p) :\n    selectWith choose (k + 1) xs = none",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Applications.Selection.OutsidePivot.runWith_below_ne_spec",
+      "source": "Applications/Selection/OutsidePivot.lean",
+      "header": "theorem runWith_below_ne_spec (choose : List \u03b1 \u2192 Option \u03b1) (p : \u03b1)\n    (xs : List \u03b1) (k fuel : Nat) (hk : k < xs.length)\n    (hc : choose xs = some p) (hout : \u2200 x \u2208 xs, p < x) :\n    runWith choose fuel k xs \u2260 (ordered xs)[k]?",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Applications.Selection.OutsidePivot.runWith_above_ne_spec",
+      "source": "Applications/Selection/OutsidePivot.lean",
+      "header": "theorem runWith_above_ne_spec (choose : List \u03b1 \u2192 Option \u03b1) (p : \u03b1)\n    (xs : List \u03b1) (k fuel : Nat) (hk : k < xs.length)\n    (hc : choose xs = some p) (hout : \u2200 x \u2208 xs, x < p) :\n    runWith choose fuel k xs \u2260 (ordered xs)[k]?",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Examples.OutsidePivot.below_partition",
+      "source": "Examples/OutsidePivot.lean",
+      "header": "theorem below_partition :\n    partition3 0 ([1, 3, 1] : List Nat) = ([], [], [1, 3, 1])",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Examples.OutsidePivot.above_partition",
+      "source": "Examples/OutsidePivot.lean",
+      "header": "theorem above_partition :\n    partition3 4 ([1, 3, 1] : List Nat) = ([1, 3, 1], [], [])",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Examples.OutsidePivot.below_dispatch_same_state",
+      "source": "Examples/OutsidePivot.lean",
+      "header": "theorem below_dispatch_same_state (recur : Nat \u2192 List Nat \u2192 Option Nat) (k : Nat) :\n    dispatch recur 0 k [1, 3, 1] = recur k [1, 3, 1]",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Examples.OutsidePivot.above_dispatch_same_state",
+      "source": "Examples/OutsidePivot.lean",
+      "header": "theorem above_dispatch_same_state (recur : Nat \u2192 List Nat \u2192 Option Nat) :\n    dispatch recur 4 2 [1, 3, 1] = recur 2 [1, 3, 1]",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Examples.OutsidePivot.below_both_endpoints",
+      "source": "Examples/OutsidePivot.lean",
+      "header": "theorem below_both_endpoints (fuel : Nat) :\n    runWith (fun _ => some 0) fuel 0 ([1, 3, 1] : List Nat) = none \u2227\n    runWith (fun _ => some 0) fuel 2 ([1, 3, 1] : List Nat) = none",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Examples.OutsidePivot.above_both_endpoints",
+      "source": "Examples/OutsidePivot.lean",
+      "header": "theorem above_both_endpoints (fuel : Nat) :\n    runWith (fun _ => some 4) fuel 0 ([1, 3, 1] : List Nat) = none \u2227\n    runWith (fun _ => some 4) fuel 2 ([1, 3, 1] : List Nat) = none",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Examples.OutsidePivot.negative_duplicate_input",
+      "source": "Examples/OutsidePivot.lean",
+      "header": "theorem negative_duplicate_input (fuel : Nat) :\n    runWith (fun _ => some 0) fuel 2 ([-3, -1, -3] : List Int) = none",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Examples.OutsidePivot.singleton_never_answers",
+      "source": "Examples/OutsidePivot.lean",
+      "header": "theorem singleton_never_answers (fuel : Nat) :\n    runWith (fun _ => some 0) fuel 0 ([1] : List Nat) = none",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Examples.OutsidePivot.below_valid_answer_not_obtained",
+      "source": "Examples/OutsidePivot.lean",
+      "header": "theorem below_valid_answer_not_obtained (fuel : Nat) :\n    runWith (fun _ => some 0) fuel 0 ([1, 3, 1] : List Nat) \u2260\n      (ordered [1, 3, 1])[0]?",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Examples.OutsidePivot.above_valid_answer_not_obtained",
+      "source": "Examples/OutsidePivot.lean",
+      "header": "theorem above_valid_answer_not_obtained (fuel : Nat) :\n    runWith (fun _ => some 4) fuel 2 ([1, 3, 1] : List Nat) \u2260\n      (ordered [1, 3, 1])[2]?",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Examples.OutsidePivot.below_policy_rejected",
+      "source": "Examples/OutsidePivot.lean",
+      "header": "theorem below_policy_rejected (choose : List Nat \u2192 Option Nat)\n    (hc : choose [1, 3, 1] = some 0) : \u00ac PivotValid choose",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Examples.OutsidePivot.above_policy_rejected",
+      "source": "Examples/OutsidePivot.lean",
+      "header": "theorem above_policy_rejected (choose : List Int \u2192 Option Int)\n    (hc : choose [-3, -1, -3] = some 0) : \u00ac PivotValid choose",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Examples.OutsidePivot.public_positive_boundary",
+      "source": "Examples/OutsidePivot.lean",
+      "header": "theorem public_positive_boundary :\n    selectWith (fun _ => some 0) 1 ([1, 3, 1] : List Nat) = none \u2227\n    selectWith (fun _ => some 4) 3 ([1, 3, 1] : List Nat) = none",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Examples.OutsidePivot.empty_has_no_valid_rank",
+      "source": "Examples/OutsidePivot.lean",
+      "header": "theorem empty_has_no_valid_rank (fuel k : Nat) :\n    runWith (fun _ => some 0) fuel k ([] : List Nat) = none",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Examples.OutsidePivot.invalid_above_uses_empty_right",
+      "source": "Examples/OutsidePivot.lean",
+      "header": "theorem invalid_above_uses_empty_right (recur : Nat \u2192 List Nat \u2192 Option Nat) :\n    dispatch recur 4 3 [1, 3, 1] = recur 0 []",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "name": "Examples.OutsidePivot.in_range_policy_contrast",
+      "source": "Examples/OutsidePivot.lean",
+      "header": "theorem in_range_policy_contrast :\n    selectWith List.head? 3 ([1, 3, 1] : List Nat) = some 3",
+      "kind": "theorem",
+      "private": false
+    }
+  ],
+  "type_input": {
+    "bytes": 2061,
+    "sha256": "695b761e9cffd775fd075b6d64ca558976e44cfebda934c30bbc7bb05929857e"
+  },
+  "statement_review": [
+    {
+      "names": [
+        "Applications.Selection.OutsidePivot.partition3_below",
+        "Applications.Selection.OutsidePivot.partition3_above"
+      ],
+      "assessment": "Both orientations use actual accepted three filters, preserve input ordering and duplicates, and allow arbitrary linear-order payloads. Empty partitions are harmless algebraic cases; algorithmic nontermination conclusions separately require nonempty or valid rank."
+    },
+    {
+      "names": [
+        "Applications.Selection.OutsidePivot.dispatch_below",
+        "Applications.Selection.OutsidePivot.dispatch_above"
+      ],
+      "assessment": "Actual accepted dispatcher calls precisely the same rank and same list. Below works for every natural rank; above exposes k<length because invalid ranks can choose the empty right block. These equalities hold for arbitrary continuation, establishing the recursive branch structurally, not merely that one output happens to be none."
+    },
+    {
+      "names": [
+        "Applications.Selection.OutsidePivot.runWith_step_below",
+        "Applications.Selection.OutsidePivot.runWith_step_above",
+        "Applications.Selection.OutsidePivot.runWith_below_none",
+        "Applications.Selection.OutsidePivot.runWith_above_none"
+      ],
+      "assessment": "For any fixed deterministic choose operation having the indicated outside value at the specified state, actual runWith consumes one fuel and returns to identical state. Induction covers every finite fuel. The choose-some premise excludes an initial chooser failure; no valid answer or termination is assumed."
+    },
+    {
+      "names": [
+        "Applications.Selection.OutsidePivot.not_pivotValid_below",
+        "Applications.Selection.OutsidePivot.not_pivotValid_above"
+      ],
+      "assessment": "A bad choice at just one nonempty list contradicts the existing global membership interface. It does not postulate a global minimum/maximum on arbitrary payload types."
+    },
+    {
+      "names": [
+        "Applications.Selection.OutsidePivot.selectWith_below_none",
+        "Applications.Selection.OutsidePivot.selectWith_above_none",
+        "Applications.Selection.OutsidePivot.runWith_below_ne_spec",
+        "Applications.Selection.OutsidePivot.runWith_above_ne_spec"
+      ],
+      "assessment": "The public one-based boundary is preserved using k+1. Valid sorted-index specifications have a value by length/permutation, so universally exhausted fuel is proved unequal to that specification. Nontermination is the infinite self-recursive path/fuel property, not interpreting any isolated none as divergence."
+    },
+    {
+      "names": [
+        "Examples.OutsidePivot.below_partition",
+        "Examples.OutsidePivot.above_partition",
+        "Examples.OutsidePivot.below_dispatch_same_state",
+        "Examples.OutsidePivot.above_dispatch_same_state",
+        "Examples.OutsidePivot.below_both_endpoints",
+        "Examples.OutsidePivot.above_both_endpoints",
+        "Examples.OutsidePivot.negative_duplicate_input",
+        "Examples.OutsidePivot.singleton_never_answers",
+        "Examples.OutsidePivot.below_valid_answer_not_obtained",
+        "Examples.OutsidePivot.above_valid_answer_not_obtained",
+        "Examples.OutsidePivot.below_policy_rejected",
+        "Examples.OutsidePivot.above_policy_rejected",
+        "Examples.OutsidePivot.public_positive_boundary",
+        "Examples.OutsidePivot.empty_has_no_valid_rank",
+        "Examples.OutsidePivot.invalid_above_uses_empty_right",
+        "Examples.OutsidePivot.in_range_policy_contrast"
+      ],
+      "assessment": "All sixteen cases connect the new public partition/dispatch/fuel/interface theorems to independent expectations. They include repeated Nat values, negative duplicate Int values, both endpoint ranks, arbitrary fuel and continuation, singleton and empty boundaries, a local policy witness, one-based requests, an invalid above-rank countercase and a successful existing head-pivot contrast."
+    }
+  ],
+  "independent_expected_cases": [
+    "Below0 on repeated [1,3,1] preserves every zero-based rank and input; above4 preserves valid ranks0..2.",
+    "For every finite fuel, below0 and above4 cannot answer valid rank0 or2 on [1,3,1].",
+    "Above0 on negative duplicate integers [-3,-1,-3] behaves the same.",
+    "Below0 on singleton[1] is a self-recursive state, contrasting with empty-input failure.",
+    "A chosen outside pivot at one nonempty input refutes PivotValid; do not assume global below/above operation exists on every ordered type.",
+    "Public positive one-based requests fail under those bad policies.",
+    "Above-range preservation requires valid rank: rank3 on length3 instead recurses on empty right input with rank0.",
+    "Existing in-range head-pivot selection returns the correct largest value on repeated input."
+  ],
+  "all_eight_prior_sources_unchanged": true,
+  "all_frozen_requirements_unchanged": true,
+  "source_model_cost_claim": false,
+  "compiler_actions": false,
+  "type_program_executed": false,
+  "full_chapter_gates_pending": true
+}

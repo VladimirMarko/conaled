@@ -1,0 +1,238 @@
+{
+  "schema": 1,
+  "axis": "Spec",
+  "reviewer": "/root/integration_review/spec",
+  "round": 1,
+  "stage": "provisional-source-analysis",
+  "approval_requested": false,
+  "outcome": "Blocked",
+  "base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "merge_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "candidate": "337c29ff2e2b969e701a9deb84840d6b148dd175",
+  "tree": "70a8cab787ac1f5fb2b9bdda46ca4f4bb4e11f23",
+  "requirements": {
+    "path": "checkpoint/conaled-textbooks/books/common/REQUIREMENTS.md",
+    "version": "2026-11-13-user-clarifications",
+    "sha256": "9358100642aa0a6eef7793459666d39f14ce6edd4437520aff656366df9b97df"
+  },
+  "scope": {
+    "changed_paths": 356,
+    "changed_lean_paths": 326,
+    "insertions": 67134,
+    "deletions": 66,
+    "declared_manifest_paths": 465,
+    "projections": [],
+    "explicit_exclusions": [],
+    "scope_identity": "b89f794a76862c7dfe5768b5b52a12aa103a6c9c8cdf51d94ee2cd41156ab5d5",
+    "content_identity": "9b67027bf0242ca9e4d9dd72b696183bcc5517e53cc245025543a8824db540a5"
+  },
+  "source_analysis": {
+    "status": "complete",
+    "new_source_findings": [],
+    "worst_new_source_issue": null,
+    "method": "Immutable source/contract/executor/client review, all incoming changed-Lean byte comparison, relevant changed local import-context review, and identity-qualified reuse of detailed inherited source analysis; no claim of a new manual read of every inherited proof/type/log line."
+  },
+  "incoming_path_comparison": [
+    {
+      "book": "vfa",
+      "tip": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+      "changed_lean_paths": 22,
+      "exact_bytes": 2,
+      "differences": {
+        "import_only_receiving_master": 19,
+        "public_root_union": 1
+      },
+      "missing": 0
+    },
+    {
+      "book": "fdsa",
+      "tip": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "changed_lean_paths": 169,
+      "exact_bytes": 167,
+      "differences": {
+        "growth_union": 1,
+        "public_root_union": 1
+      },
+      "missing": 0
+    },
+    {
+      "book": "pfds",
+      "tip": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "changed_lean_paths": 159,
+      "exact_bytes": 150,
+      "differences": {
+        "import_only_receiving_master": 7,
+        "potential_reconciliation": 1,
+        "public_root_union": 1
+      },
+      "missing": 0
+    }
+  ],
+  "added_math_local_contexts": [
+    {
+      "book": "vfa",
+      "added_roots": 2,
+      "closure_paths": 11,
+      "changed_external_contexts": []
+    },
+    {
+      "book": "fdsa",
+      "added_roots": 164,
+      "closure_paths": 195,
+      "changed_external_contexts": [
+        "Applications/Resources/Potential.lean",
+        "Applications/Resources/TreeFlattening/Core.lean",
+        "Applications/Resources/Workload.lean",
+        "SquareKit/ListFusion.lean"
+      ]
+    },
+    {
+      "book": "pfds",
+      "added_roots": 150,
+      "closure_paths": 164,
+      "changed_external_contexts": [
+        "Applications/Resources/Growth.lean",
+        "Applications/Resources/Measured.lean",
+        "Applications/Resources/Workload.lean",
+        "SquareKit/ListFusion.lean"
+      ]
+    }
+  ],
+  "donor_identity_checks": {
+    "fdsa_selected_missing_paths": 65,
+    "fdsa_existing_path_variants": 81,
+    "vfa_exact_standalone_drafts": 5,
+    "selected_research_notes": 16,
+    "total": 167,
+    "mismatches": 0,
+    "map": "checkpoint/conaled-textbooks/books/common/analysis/donor-dispositions.json",
+    "pending_owners": [
+      "INT-020",
+      "INT-021"
+    ],
+    "is_compiler_validation": false
+  },
+  "legacy_pfds": {
+    "canonical_register": "checkpoint/conaled-textbooks/books/pfds/records/evidence/reviews/common-integration-coordinator-r1-045.md#5",
+    "spec_dispositions": "checkpoint/conaled-textbooks/books/pfds/records/evidence/reviews/common-integration-spec-r1-045.md",
+    "spec_report_sha256": "c79f3e166d48cb49fef92f81f37b7105ccc28101b97795182fc43d82f83a905c",
+    "total_ids": 39,
+    "repair_or_development_disposition_retained": [
+      "PERSIST-VAL-001",
+      "IMPORT-VAL-001",
+      "IMPORT-VAL-002",
+      "IMPORT-VAL-003",
+      "CH02-PRE-001",
+      "CH02-PRE-002",
+      "CH02-PRE-003",
+      "CH02-PRE-004",
+      "SUSP-DEV-001",
+      "SUSP-DEV-002",
+      "SUSP-DEV-003",
+      "SUSP-DEV-004",
+      "SUSP-DEV-005",
+      "SUSP-DEV-006",
+      "SUSP-DEV-007",
+      "SUSP-DEV-008",
+      "PURE-STD-DOC-001",
+      "PURE-STD-EVID-001",
+      "PURE-SPEC-DOC-001",
+      "PURE-SPEC-DOC-002",
+      "PREP-10019-01",
+      "SIGNED-POT-STD-CODE-001",
+      "SIGNED-POT-SPEC-001"
+    ],
+    "explicit_boundaries_retained": [
+      "SUSP-STAT-001",
+      "PREP-10019-02"
+    ],
+    "current_validation_pending": [
+      "IMPORT-VAL-004",
+      "CH02-PRE-005",
+      "SUSP-STD-VAL-001",
+      "SUSP-SPEC-VAL-001",
+      "PURE-STD-VAL-001",
+      "PURE-SPEC-VAL-001",
+      "COUNT-STD-VAL-001",
+      "COUNT-SPEC-VAL-001",
+      "PERSIST-ACC-STD-VAL-001",
+      "PERSIST-ACC-SPEC-VAL-001",
+      "BODY-COUNT-STD-VAL-001",
+      "BODY-COUNT-SPEC-VAL-001",
+      "SIGNED-POT-STD-VAL-001",
+      "SIGNED-POT-SPEC-VAL-001"
+    ],
+    "scopes_retained": [
+      "10013",
+      "10018",
+      "10002",
+      "10014",
+      "10019",
+      "10020",
+      "10021",
+      "10022",
+      "10023"
+    ],
+    "disposition": "Original meanings/severities retained at their documented static/focused scopes; no historical outcome reused for current candidate and no Standards finding closed by Spec."
+  },
+  "other_legacy": {
+    "vfa_validation_pending": [
+      "ST-002",
+      "SP-VAL-001"
+    ],
+    "vfa_correction_retained": [
+      "ST-006"
+    ],
+    "fdsa_deferred_findings": [
+      "XT03-CP01",
+      "XT03-DOC01"
+    ],
+    "fdsa_chapter4_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+    "fdsa_chapter4_obligations": 76,
+    "fdsa_chapter4_exercises": 11
+  },
+  "findings": [
+    {
+      "id": "INT-SP-001",
+      "severity": "Blocking",
+      "kind": "required-validation",
+      "status": "pending",
+      "requirement": "REQUIREMENTS.md governing workflow/completion; code-review sections3/5; review-loop candidate validation",
+      "evidence": "Root-authorized provisional review while full run remains pending; no terminal full-validation-r1.json/full-validation-r1-verification.json has been presented for final approval. Focused checks and partial logs are insufficient.",
+      "consequence": "Spec outcome remains Blocked; no candidate approval.",
+      "remedy": "Supply genuine successful exact-candidate full check/exhaustive audit and matching record/input evidence to this same reviewer; preserve original full scope through corrections. Root performs immediate verify-candidate and snapshot compare before acceptance.",
+      "related_local_issue": "INT-090",
+      "replaces_legacy_ids": false
+    }
+  ],
+  "external_axis_notice": {
+    "id": "INT-ST-001",
+    "owner": "Standards",
+    "subject": "duplicate S9 source labels",
+    "resolved_by_this_report": false
+  },
+  "validation": {
+    "full_exact_candidate": "pending-terminal-evidence",
+    "focused": "development evidence only",
+    "compilation_by_reviewer": false,
+    "old_approval_reused": false,
+    "final_verify_and_compare": "root-owned after final review"
+  },
+  "durability": {
+    "receipt": "intake/003-delivery.json",
+    "archive_sha256": "d25cd846e815c3185796cced6a14499be71343f0490a80a8d08372374794d49e",
+    "root_confirmed_observed_upload": true,
+    "upload_performed_or_authenticated_by_reviewer": false
+  },
+  "patch_reconstruction_receipt": "intake/patch-reconstruction.json",
+  "report": {
+    "path": "intake/review/spec-r1.md",
+    "bytes": 23626,
+    "sha256": "b44bce5a8db5f76c72b02e5f6473508d704a6011d9a4aa8c0cfdcff99836a739"
+  },
+  "limitations": [
+    "No fresh manuscript/page audit or whole-book certification.",
+    "No historical approval or focused build supplies current full-candidate acceptance.",
+    "No source/index/ref/compiler/checker/dependency mutation or process-control operation by reviewer."
+  ]
+}

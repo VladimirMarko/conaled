@@ -1,0 +1,434 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "unit": "FDSA-XU03",
+  "stage": "Bounded preparation for the same full-scope receiving review; no Tail receiver exists",
+  "accepted_base": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "prospective_base_J": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "prospective_J_accepted": false,
+  "corrected_tip": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+  "original_base": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+  "original_draft": "a0597381f02eddd074ee96cabaa974f2062285f8",
+  "historical_type_candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "original_scope": [
+    "Applications/Probability/PermutationTail.lean",
+    "Examples/PermutationTail.lean",
+    "Examples/PermutationTailBoundary.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-permutation-tail.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "full_scope_boundary": "All original Tail requirements/cases, private/anonymous/generated scope and same C2 R-through-final81 paths/112 obligations/ten shared scopes remain. This preparatory source correspondence neither restarts nor replaces that review.",
+  "source_reconciliation": {
+    "actual_tool": "7c473d",
+    "actual_exit": 0,
+    "receiving_candidate": null,
+    "prospective_J": "932438a765340d69fa6402f6abd17def6ec28d13",
+    "corrected_T": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+    "merge_base": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+    "all8history_rows_exact": true,
+    "all6original_source_identities_exact": true,
+    "all6older_predecessors_equal_merge_base": true,
+    "all6required_predecessors_equal_Z": true,
+    "both_older_notes_equal_merge_base_and_current_versions_preserved_as_obligation": true,
+    "public": 61,
+    "public_kinds": {
+      "def": 15,
+      "theorem": 46
+    },
+    "private_theorems": 19,
+    "anonymous_local_instances": 8,
+    "public_by_file": {
+      "Applications/Probability/PermutationTail.lean": 15,
+      "Examples/PermutationTail.lean": 24,
+      "Examples/PermutationTailBoundary.lean": 22
+    },
+    "program61_matches_full_source_order": true,
+    "historical84_projection_exact": true,
+    "historical815_positions": [
+      203,
+      263
+    ],
+    "same_reader_all61_previously_read": true,
+    "source_closure": {
+      "Applications/Probability/PermutationTail.lean": {
+        "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+        "path": "Applications/Probability/PermutationTail.lean",
+        "git_blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+        "bytes": 23521,
+        "lines": 487,
+        "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed"
+      },
+      "Applications/Probability/PermutationOrder.lean": {
+        "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+        "path": "Applications/Probability/PermutationOrder.lean",
+        "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+        "bytes": 15304,
+        "lines": 321,
+        "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2"
+      },
+      "Examples/PermutationTail.lean": {
+        "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+        "path": "Examples/PermutationTail.lean",
+        "git_blob": "baa3e26a3c72a4589765562167d1d85edc011e67",
+        "bytes": 9826,
+        "lines": 222,
+        "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e"
+      },
+      "Examples/PermutationOrder.lean": {
+        "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+        "path": "Examples/PermutationOrder.lean",
+        "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+        "bytes": 6706,
+        "lines": 152,
+        "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084"
+      },
+      "Examples/PermutationOrderBoundary.lean": {
+        "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+        "path": "Examples/PermutationOrderBoundary.lean",
+        "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+        "bytes": 5605,
+        "lines": 148,
+        "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121"
+      },
+      "Examples/PermutationMinimum.lean": {
+        "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+        "path": "Examples/PermutationMinimum.lean",
+        "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+        "bytes": 4994,
+        "lines": 127,
+        "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1"
+      },
+      "Applications/Probability/PermutationMinimum.lean": {
+        "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+        "path": "Applications/Probability/PermutationMinimum.lean",
+        "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+        "bytes": 8241,
+        "lines": 197,
+        "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64"
+      },
+      "Examples/PermutationMinimumBoundary.lean": {
+        "commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+        "path": "Examples/PermutationMinimumBoundary.lean",
+        "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+        "bytes": 4211,
+        "lines": 113,
+        "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b"
+      },
+      "Examples/PermutationTailBoundary.lean": {
+        "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+        "path": "Examples/PermutationTailBoundary.lean",
+        "git_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0",
+        "bytes": 12064,
+        "lines": 266,
+        "sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54"
+      }
+    },
+    "local_edges": [
+      [
+        "Applications/Probability/PermutationTail.lean",
+        "Applications/Probability/PermutationOrder.lean"
+      ],
+      [
+        "Examples/PermutationTail.lean",
+        "Applications/Probability/PermutationTail.lean"
+      ],
+      [
+        "Examples/PermutationTail.lean",
+        "Examples/PermutationOrder.lean"
+      ],
+      [
+        "Examples/PermutationOrder.lean",
+        "Applications/Probability/PermutationOrder.lean"
+      ],
+      [
+        "Examples/PermutationOrder.lean",
+        "Examples/PermutationOrderBoundary.lean"
+      ],
+      [
+        "Examples/PermutationOrderBoundary.lean",
+        "Applications/Probability/PermutationOrder.lean"
+      ],
+      [
+        "Examples/PermutationOrderBoundary.lean",
+        "Examples/PermutationMinimum.lean"
+      ],
+      [
+        "Examples/PermutationMinimum.lean",
+        "Applications/Probability/PermutationMinimum.lean"
+      ],
+      [
+        "Examples/PermutationMinimum.lean",
+        "Examples/PermutationMinimumBoundary.lean"
+      ],
+      [
+        "Examples/PermutationMinimumBoundary.lean",
+        "Applications/Probability/PermutationMinimum.lean"
+      ],
+      [
+        "Examples/PermutationTail.lean",
+        "Examples/PermutationTailBoundary.lean"
+      ],
+      [
+        "Examples/PermutationTailBoundary.lean",
+        "Applications/Probability/PermutationTail.lean"
+      ],
+      [
+        "Examples/PermutationTailBoundary.lean",
+        "Examples/PermutationOrder.lean"
+      ]
+    ],
+    "external_imports": [
+      "Mathlib.Basic.ENNReal.Inv",
+      "Mathlib.Data.Finset.Card",
+      "Mathlib.Data.Finset.Lattice.Lemmas",
+      "Mathlib.Data.Finset.Max",
+      "Mathlib.Data.Fintype.OfMap",
+      "Mathlib.Data.Fintype.Perm",
+      "Mathlib.Data.List.Basic",
+      "Mathlib.Data.List.Nodup",
+      "Mathlib.Data.List.Permutation",
+      "Mathlib.Data.Nat.Factorial.Basic",
+      "Mathlib.Data.Set.Card",
+      "Mathlib.Logic.Equiv.Fintype",
+      "Mathlib.Logic.Equiv.List",
+      "Mathlib.MeasureTheory.Measure.AEMeasurable",
+      "Mathlib.Probability.ConditionalProbability",
+      "Mathlib.Probability.HasLaw",
+      "Mathlib.Probability.UniformOn",
+      "Mathlib.Tactic",
+      "Mathlib.Tactic.FinCases"
+    ],
+    "external_edge_count": 26,
+    "local_edge_count": 13,
+    "all9_closure_sources_equal_Z": true,
+    "no_existing_J_Tail_importers": true,
+    "existing72_bound_files": {
+      "current_exact": 71,
+      "saved_prior_exact_with_current_append": [
+        {
+          "path": "reviews/chapter02-round1.md",
+          "saved_predecessor_sha256": "b1fe3a4fa32966b663e94db5e9c2456baec9abd0fa204f375a5d1a2fff43b1a4",
+          "current_sha256": "16da55e1de9ca2bdf21fd09d8e1bac42e2e8ff0688a31cddbdba514c7e467542",
+          "exact_prefix_retained": true,
+          "append_sha256": "6add501a80f8fa7e523f9117b07150c5ca0cc06511d7f61129bb25cc5079fc3a"
+        }
+      ]
+    },
+    "receiving_credit": 0,
+    "compiler_or_source_actions": false
+  },
+  "new_complete_reads": [
+    {
+      "path": "provenance/shared-tail-integration-readiness-20261104/readiness.md",
+      "bytes": 26130,
+      "lines": 193,
+      "sha256": "8c78289e814157df89637bfc004092876ec1a26f25ac8354b3dea9cdfb73017f",
+      "actual_tool": "bf91f5"
+    },
+    {
+      "path": "provenance/shared-tail-integration-readiness-20261104/receipt.json",
+      "bytes": 3583,
+      "lines": 56,
+      "sha256": "0acd1288355966bcfda05afb4f958e66bfd100ddc9cdaf637b60e95cbf9854d9",
+      "actual_tool": "bf91f5"
+    },
+    {
+      "path": "provenance/shared-tail-integration-readiness-20261104/inventory.json",
+      "bytes": 64400,
+      "lines": 1553,
+      "sha256": "9ae15ac5cfc32f7ebe5b8dbe3ddf664774b4c7fff46c8c70fd2bf2d0b5550109",
+      "ranges": [
+        {
+          "first": 1,
+          "last": 330,
+          "bytes": 14346,
+          "sha256": "089e184f577098cc75d3ecfe18d9b59fb17fda06209ef978a9df210ed5a058bf",
+          "actual_tool": "4eeafe"
+        },
+        {
+          "first": 331,
+          "last": 700,
+          "bytes": 14843,
+          "sha256": "a8061939a94d62c960507a9fdac434ae4f513e7d592b02b96a1641eaf7de5442",
+          "actual_tool": "fd3ec6"
+        },
+        {
+          "first": 701,
+          "last": 1100,
+          "bytes": 17170,
+          "sha256": "3a94608ee3428e4d78db70255940102f323a89d57694908f343c54f49a862061",
+          "actual_tool": "5d443a"
+        },
+        {
+          "first": 1101,
+          "last": 1553,
+          "bytes": 18041,
+          "sha256": "22be90dd5a6d67fc4091380623c81df528838e792f08b7ffa2c2fa061c2e1bd9",
+          "actual_tool": "d506fd"
+        }
+      ]
+    },
+    {
+      "path": "tickets/FDSA-XU03.md",
+      "bytes": 11715,
+      "lines": 184,
+      "sha256": "749a5b2791a9cac4e38a52724fdf2f0181103499cc20637e567ad72a747d8c40",
+      "actual_tool": "00de90"
+    },
+    {
+      "path": "reviews/permutation-tail-requirements.md",
+      "bytes": 12866,
+      "lines": 229,
+      "sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c",
+      "actual_tool": "00de90"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/proposed/fdsa-permutation-tail.md",
+      "bytes": 10927,
+      "lines": 213,
+      "sha256": "9740fdf8ff9761daebae4ec0be6c9388deffcb55fc567d695be27ca89ea86b87",
+      "actual_tool": "4ddb4e"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/patches/fdsa-permutation-tail-vs-original.patch",
+      "bytes": 2069,
+      "lines": 39,
+      "sha256": "b173be2d0bf04b001441c9da0702c9e5f49b983a937f2b17c572d7ac3886b963",
+      "actual_tool": "4ddb4e"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+      "bytes": 4105,
+      "lines": 75,
+      "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa",
+      "actual_tool": "4ddb4e"
+    }
+  ],
+  "bounded_immutable_new_read": {
+    "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+    "path": "docs/research/fdsa-reconstruction-map.md",
+    "first_line": 296,
+    "last_line": 312,
+    "bytes": 1068,
+    "sha256": "1d0428813fab44c6e1798b1fa6f338be3085dfda710168fff81a163c9b7d1256",
+    "actual_tool": "4ddb4e",
+    "meaning": "Complete original Tail section only; no new full map read claimed."
+  },
+  "retained_exact_same_reviewer_records": [
+    {
+      "path": "reviews/chapter02-standards-source-preparation-20261104.md",
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/tail-main-repair5-assessment.json",
+      "sha256": "1c006f41928dee82f996609b64d0d5ec37cc0c8734a71c46c5f7ee43679a1c3f"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/tail-boundary-repair4-assessment.json",
+      "sha256": "079a7c0b3f8f5edde18cf362730fc7af64dca9da5ab130035cb9f295acc1c22b"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-4b5dbfa0.json",
+      "sha256": "3ae1e9749b8633e64a0adc14bb9cc96f5ee6cd5ba338dd45d55ddeac3df161d7"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+      "sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-type-review-progress.json",
+      "sha256": "91b9df119e5b47cd94a7930001947eb2c14601d5d144149b796a8bb06f3f4d0b"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/shared-note-proposals-assessment-6b95185.json",
+      "sha256": "ce1ce7e51e89485294e7cdeb3ed3e5ca663e72e720ab434c3f6992a1022e0e16"
+    },
+    {
+      "path": "provenance/shared-order-standards-integration-20261104/completion.json",
+      "sha256": "61205dad86b359ff9830ab4d7cafc44769f4a240cf89334e6356e3f40a0d0af5"
+    }
+  ],
+  "historical_evidence_boundary": "All three exact Tail sources and all six required predecessor sources equal Z; the earlier same-reader complete source/type assessments are retained. No new whole Lean-source, all historical logs, full prior receipt or all815-type reread is claimed. No historical result is revoked or transferred.",
+  "interpretation": {
+    "law": "The entire observed-list HasLaw under arbitrary μ supplies the premise; the conditional law of the actual tail/filter is derived. The generic interface keeps a.e. measurability and support, no finite/uniform Ω, and no independent normalization or desired-tail premise.",
+    "conditioning": "Optional head, total tail, the on-event same-sample bridge, original complete positions, positive supported events and zero null-event conditioning remain distinct. The two-step client retains its changed environment and explicit nested conditional measure.",
+    "counterexample": "The original Fin3 actual projection of {1,2} conditioned on first0 in {0,1} retains masses1/3 and2/3; excluding the exposed key alone is insufficient. No adaptive-subset, joint-independence, history, coupling or cost theorem is added.",
+    "architecture": "Existing lists/finsets/permutations/HasLaw/cond/Measure.map remain the interface; eight anonymous instances are local. The source counts do not count generated kernel declarations."
+  },
+  "documentary_assessment": {
+    "root": "Proposed single Examples.PermutationTail import after Order preserves J and reaches existing core/boundary imports.",
+    "note": "The corrected old proposal remains unchanged. Replacing only its dated snapshot by the proposed development paragraph accurately records individual core/boundary/main successes in failed aggregates and all61 actual Z815 type assessments. Mathematical text, citations, cases, prerequisites and gates remain.",
+    "map": "Retain complete J prefix and complete original Tail section, changing only the obsolete uncompiled/unaccepted sentence to the proposed historical/normative one.",
+    "finding": "No new concrete documentary finding. Tail C02-DOC-003 remains Open until exact application and receiving-source assessment; the already confirmed Order portion remains separate."
+  },
+  "inherited_findings": [
+    "XU03-SRC-001",
+    "XU03-ELAB-001",
+    "XU03-ELAB-002",
+    "XU03-BND-ELAB-001",
+    "XU03-BND-ELAB-002-006",
+    "XU03-BND-ELAB-007-009",
+    "XU03-ELAB3-01",
+    "XU03-ELAB3-02",
+    "XU03-ELAB3-03",
+    "XU03-ELAB3-04",
+    "XU03-ELAB3-05",
+    "XU03-ELAB3-06",
+    "XU03-ELAB3-07",
+    "XU03-ELAB3-08",
+    "XU03-ELAB3-09",
+    "XU03-ELAB3-10",
+    "XU03-ELAB3-11",
+    "XU03-ELAB3-12",
+    "XU03-ELAB3-13",
+    "XU03-ELAB3-14",
+    "XU03-ELAB3-15",
+    "XU03-ELAB3-16",
+    "XU03-MAIN-ELAB-001",
+    "XU03-MAIN-ELAB-002",
+    "XU03-MAIN-ELAB-003",
+    "XU03-MAIN-ELAB-004",
+    "XU03-MAIN-ELAB-005",
+    "XU03-MAIN-ELAB-006",
+    "C02-DOC-003"
+  ],
+  "other_corrections": "Retain six ite API replacements, three NNReal/ENNReal transports, and failed/successful probe boundaries under their original records; invent no new original XU03-SP finding.",
+  "saved_observation_boundaries": {
+    "truncated_preview": "An initial combined presentation of readiness/receipt and ticket/requirements was truncated by the outer output budget. No complete-read credit is assigned to that preview; complete separate outputs bf91f5 and00de90 replace that gap.",
+    "initial_guard": {
+      "actual_tool": "856748",
+      "actual_exit": 1,
+      "output": "Traceback (most recent call last):\n  File \"<stdin>\", line 94, in <module>\nAssertionError: reviews/chapter02-round1.md\n",
+      "own_files_written_before_failure": false
+    },
+    "resolved_control_advance": {
+      "actual_tool": "cd57ba",
+      "actual_exit": 0,
+      "old_path": "provenance/shared-order-review-reconciliation-20261104/control-before-source-update/reviews/chapter02-round1.md",
+      "old_bytes": 19413,
+      "old_lines": 302,
+      "old_sha256": "b1fe3a4fa32966b663e94db5e9c2456baec9abd0fa204f375a5d1a2fff43b1a4",
+      "current_path": "reviews/chapter02-round1.md",
+      "current_bytes": 20907,
+      "current_lines": 308,
+      "current_sha256": "16da55e1de9ca2bdf21fd09d8e1bac42e2e8ff0688a31cddbdba514c7e467542",
+      "append_bytes": 1494,
+      "append_lines": 6,
+      "append_sha256": "6add501a80f8fa7e523f9117b07150c5ca0cc06511d7f61129bb25cc5079fc3a",
+      "complete_append_read": true,
+      "meaning": "Exact original prefix retained; root's recorded15:26:17 frozen-Order source continuation is the only append. All other71 frozen readiness inputs match. This is a dated control advance, not a source/requirements or mathematical finding."
+    }
+  },
+  "future_conditions": [
+    "Accept the exact Order predecessor or explicitly rebind an approved successor; expose its acceptance checkpoint before separately authorized Tail assembly.",
+    "Perform and verify the required normal history-preserving merge; preserve all corrected predecessor blobs/notes and all outside-scope paths, and bind an actual immutable Tail candidate.",
+    "Assess exact applied documentary/import changes under the same full source scope.",
+    "Obtain matching actual statement and inherited evidence qualification; source identity alone and existing fingerprints do not confer receiving credit.",
+    "Complete applicable guarded full check/audit/verification, both independent final axes, immediate qualified verification and exact accepted integration/durability."
+  ],
+  "new_findings": [],
+  "receiving_credit": 0,
+  "overall": "Blocked; preparatory correspondence only",
+  "prohibited_actions_performed": [],
+  "write_scope": "Only this new own preparation package and report; all original reports/controls/source/refs/caches remain unchanged."
+}

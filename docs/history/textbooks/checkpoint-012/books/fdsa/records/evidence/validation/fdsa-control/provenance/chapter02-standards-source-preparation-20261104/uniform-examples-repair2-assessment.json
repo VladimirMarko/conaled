@@ -1,0 +1,837 @@
+{
+  "reviewer": "chapter02_standards",
+  "recorded_utc": "2026-11-04T10:15:46.837895+00:00",
+  "status": "No concrete Standards source finding; source-only successor uncompiled, overall Blocked.",
+  "continuation": "Same existing complete Standards review; no restart or scope reduction.",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "full_scope": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10
+  },
+  "central_candidate_at_assessment": "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+  "isolated_candidate": "3b839319776238fe2a46f22db761058b44d68adc",
+  "parent": "c4355db67f6006f58496cc10c2eca1c75ef1aa95",
+  "source_before": {
+    "candidate": "c4355db67f6006f58496cc10c2eca1c75ef1aa95",
+    "path": "Examples/UniformQuickSortMean.lean",
+    "git_blob": "cc0432e8fc56f76380a1e48259954cd559937a1b",
+    "bytes": 16466,
+    "lines": 352,
+    "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5"
+  },
+  "source_after": {
+    "candidate": "3b839319776238fe2a46f22db761058b44d68adc",
+    "path": "Examples/UniformQuickSortMean.lean",
+    "git_blob": "cfb82beff57d8bf116b882c0c49850e4be629586",
+    "bytes": 16973,
+    "lines": 366,
+    "sha256": "744562a71000f1d4f2c82a57a681eaf0491dfd7065ad650f09c4403304d8c24b"
+  },
+  "only_changed_path": "Examples/UniformQuickSortMean.lean",
+  "completed_independent_reads": {
+    "successor_source_lines": 366,
+    "full_diff_lines": 103,
+    "actual_uniform_diagnostic_lines": 93,
+    "actual_diagnostic_headers": 23,
+    "actual_source_sites": 10,
+    "final_author_readback_lines": 135,
+    "final_author_receipt_lines": 231,
+    "pinned_deriving_handler_lines": 200,
+    "prior_full_source_assessments_retained": true,
+    "author_api_excerpts_602_lines_fully_read": false,
+    "pinned_apis_instead_read_directly": true
+  },
+  "integrity": {
+    "all_19_author_receipt_listed_artifacts_verified": true,
+    "all_saved_before_after_and_committed_source_bytes_equal_immutable_blobs": true,
+    "full_index_diff_equals_git_and_staged_saved_diff": true,
+    "actual_diagnostic_copy_equals_secured_focused10": true,
+    "original_example_equals_failed_central_Y": true,
+    "uniform_core_identical_at_parent_successor_and_Y": true,
+    "author_artifacts": {
+      "actual-diagnostics.txt": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/actual-diagnostics.txt",
+        "bytes": 6925,
+        "lines": 93,
+        "sha256": "284b94feb0773ef436d7de66658ea3932f29ff6234d5b3d01853de42fd211175"
+      },
+      "after-examples.lean": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/after-examples.lean",
+        "bytes": 16973,
+        "lines": 366,
+        "sha256": "744562a71000f1d4f2c82a57a681eaf0491dfd7065ad650f09c4403304d8c24b"
+      },
+      "api-excerpts.txt": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/api-excerpts.txt",
+        "bytes": 16391,
+        "lines": 602,
+        "sha256": "6b76b30aab0ddeff1b58ca2bbfe495bd379c82b7a15f8dd9af849f9843299ca7"
+      },
+      "author-readback.md": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/author-readback.md",
+        "bytes": 9044,
+        "lines": 135,
+        "sha256": "f5f1cd9415d758c676c0f334227de575115a355f59b3f7ea0cac5c604b79e9b9"
+      },
+      "before-examples.lean": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/before-examples.lean",
+        "bytes": 16466,
+        "lines": 352,
+        "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5"
+      },
+      "commit-hook-preflight.json": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/commit-hook-preflight.json",
+        "bytes": 799,
+        "lines": 27,
+        "sha256": "c8fac3de9a72444c2178c28b4e30821025738b11fe2cd2a8114846b02b377df6"
+      },
+      "commit-record.json": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/commit-record.json",
+        "bytes": 1313,
+        "lines": 35,
+        "sha256": "e6bc14e66f6aa12c421183a9735d73415451a10997d5574a5aa07b8864669e92"
+      },
+      "commit.log": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/commit.log",
+        "bytes": 145,
+        "lines": 2,
+        "sha256": "48ae74ac2d27db87c726413c68b3f6f1c3a641b73c9b0c1a18ea2062a33db990"
+      },
+      "committed-examples.lean": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/committed-examples.lean",
+        "bytes": 16973,
+        "lines": 366,
+        "sha256": "744562a71000f1d4f2c82a57a681eaf0491dfd7065ad650f09c4403304d8c24b"
+      },
+      "diagnostic-mapping.json": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/diagnostic-mapping.json",
+        "bytes": 6589,
+        "lines": 121,
+        "sha256": "36e3569d3ac31fd9e4af04dc1cd70fbfbfa22f6b0db1c0ff774b2535bed51729"
+      },
+      "diff-check.log": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/diff-check.log",
+        "bytes": 0,
+        "lines": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "generated-helper-search.json": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/generated-helper-search.json",
+        "bytes": 1216,
+        "lines": 44,
+        "sha256": "2a5c4424b284dcf93db355f39c9cee1da290d7a462385690734f859b5dda5517"
+      },
+      "read-ledger.json": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/read-ledger.json",
+        "bytes": 7284,
+        "lines": 228,
+        "sha256": "a1537d679d3aac32affc3834a684fd7944288f6576d02bddc2d86a0453b3b37b"
+      },
+      "receipt.json": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/receipt.json",
+        "bytes": 9230,
+        "lines": 231,
+        "sha256": "9449408b334350f63b7445713f08fd86693a30c6497e18b551983a8769c3f6e5"
+      },
+      "source-inventory.json": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/source-inventory.json",
+        "bytes": 19474,
+        "lines": 405,
+        "sha256": "d10245a4676b7040a1845ea8a5ba128c92310ccb779665e3641af4d21900e690"
+      },
+      "source-marker-scan.json": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/source-marker-scan.json",
+        "bytes": 220,
+        "lines": 5,
+        "sha256": "992fa4fa0e1bf6c8ce6bae73244e945f234ffbfa190e0489c3d3a6d12e274356"
+      },
+      "source.diff": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/source.diff",
+        "bytes": 5282,
+        "lines": 103,
+        "sha256": "4aacd466132a619fe9a1b1152a00a2b02b2827803139432691678ec27b80af16"
+      },
+      "staged-diff-check.log": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/staged-diff-check.log",
+        "bytes": 0,
+        "lines": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "staged-source.diff": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/staged-source.diff",
+        "bytes": 5282,
+        "lines": 103,
+        "sha256": "4aacd466132a619fe9a1b1152a00a2b02b2827803139432691678ec27b80af16"
+      },
+      "start.json": {
+        "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/start.json",
+        "bytes": 3289,
+        "lines": 67,
+        "sha256": "9d1c1ec82077b47df00c81915b7ac6b39835788c51aba82d9942930bfca3b544"
+      }
+    }
+  },
+  "existing_surface_preserved": {
+    "theorem_headers_byte_identical": 45,
+    "public_theorems": 42,
+    "private_theorems": 3,
+    "complete_definition_blocks_byte_identical": 7,
+    "complete_named_local_instance_blocks_byte_identical": 4,
+    "imports_byte_identical": 5,
+    "options_byte_identical": 2,
+    "namespace_open_universe_variable_commands_byte_identical": true,
+    "all_prior_public_names_in_same_order": true,
+    "other_source_paths_changed": []
+  },
+  "exact_existing_proof_changes": [
+    {
+      "name": "observed_card_one",
+      "visibility": "private",
+      "original_line": 71,
+      "new_line": 71,
+      "change": "Use pinned List.length_eq_one_iff.mp for the unchanged actual restricted-order length-one fact.",
+      "preserved": "Arbitrary I, positions/nodup/completeness, Boolean comparator, singleton selected set and actual observed cost 5."
+    },
+    {
+      "name": "selected_keys",
+      "visibility": "public",
+      "original_line": 117,
+      "new_line": 123,
+      "change": "Use simp_all after the same constructor cases.",
+      "preserved": "Selected-support key injectivity only; outside key collision remains."
+    },
+    {
+      "name": "extreme_first_mass",
+      "visibility": "public",
+      "original_line": 191,
+      "new_line": 197,
+      "change": "Transport the exact NNReal equation 1/3+1/3=2/3 with congrArg and forward ENNReal coe_add/coe_div/coe_one/coe_ofNat; denominator nonzero proved explicitly.",
+      "preserved": "Original disjoint head-event union and proved actual one-third masses; same law and result 2/3."
+    },
+    {
+      "name": "conditional_of_constant",
+      "visibility": "private",
+      "original_line": 204,
+      "new_line": 215,
+      "change": "Unfold the existing law alias only while proving the same local conditioned probability instance.",
+      "preserved": "Same firstEvent, uniform permutation measure, actual positive event mass and eventwise constant observed-cost hypothesis."
+    },
+    {
+      "name": "three_mean_from_closedForm",
+      "visibility": "public",
+      "original_line": 253,
+      "new_line": 265,
+      "change": "Unfold comparator before the same closed-form theorem specialization.",
+      "preserved": "Same selected-key hypothesis, positions, cardinality and actual mean 71/3."
+    },
+    {
+      "name": "low_empty_child_mean",
+      "visibility": "public",
+      "original_line": 266,
+      "new_line": 279,
+      "change": "Unfold law before the same child_integral_cond application.",
+      "preserved": "Same fixed sample, revealed low event, actual left-child containment and empty-child cost 1."
+    },
+    {
+      "name": "high_empty_child_mean",
+      "visibility": "public",
+      "original_line": 273,
+      "new_line": 287,
+      "change": "Unfold law before the same child_integral_cond application.",
+      "preserved": "Same fixed sample, revealed high event, actual right-child containment and empty-child cost 1."
+    },
+    {
+      "name": "taggedEqual_payloads_distinct",
+      "visibility": "public",
+      "original_line": 291,
+      "new_line": 305,
+      "change": "Specify the pinned implicit List.nodup_range parameter as (n := n).",
+      "preserved": "Same mapped range and projection-based payload injectivity."
+    },
+    {
+      "name": "taggedRange_keys",
+      "visibility": "public",
+      "original_line": 319,
+      "new_line": 333,
+      "change": "Specify the same implicit range theorem parameter.",
+      "preserved": "Arbitrary payload family, source range and distinct keys for all n."
+    }
+  ],
+  "finite_instance_and_generated_surface": {
+    "not_wholly_proof_body_only": true,
+    "authoritative_authorization": "Root explicitly authorized retaining four constructors and deriving DecidableEq, supplying named instFintypeLabel with these exact elements, and omitting three unused deriving-only helpers after source-client inspection.",
+    "inductive_and_constructor_lines_unchanged": true,
+    "inductive": "Examples.UniformQuickSortMean.Label",
+    "constructors": [
+      "high",
+      "low",
+      "middle",
+      "outside"
+    ],
+    "retained_deriving": "DecidableEq",
+    "new_instance": {
+      "source": "Examples/UniformQuickSortMean.lean",
+      "line": 91,
+      "kind": "instance",
+      "modifiers": [],
+      "source_header_line": "instance instFintypeLabel : Fintype Label where",
+      "name": "Examples.UniformQuickSortMean.instFintypeLabel"
+    },
+    "intended_type": "Fintype Examples.UniformQuickSortMean.Label",
+    "elements": [
+      "Label.high",
+      "Label.low",
+      "Label.middle",
+      "Label.outside"
+    ],
+    "completeness": "intro x; cases x <;> simp",
+    "new_order_default_or_mathematical_assumption": false,
+    "omitted_deriving_helpers": [
+      "Examples.UniformQuickSortMean.Label.enumList",
+      "Examples.UniformQuickSortMean.Label.enumList_getElem?_ctorIdx_eq",
+      "Examples.UniformQuickSortMean.Label.enumList_nodup"
+    ],
+    "independent_client_search": {
+      "tracked_scope": "*.lean",
+      "literal": "enumList",
+      "candidates": [
+        "c4355db67f6006f58496cc10c2eca1c75ef1aa95",
+        "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+        "3b839319776238fe2a46f22db761058b44d68adc"
+      ],
+      "all_exit_codes": 1,
+      "all_stdout_and_stderr_empty": true,
+      "limit": "Project literal source-client check, not a compiled environment or external-client scan."
+    },
+    "same_carrier_and_capability": "The source still describes exactly the same four-label carrier with decidable equality and a complete finite enumeration. No new source hypothesis is needed.",
+    "elaborated_type_or_old_instance_equivalence_inferred": false,
+    "kernel_count_delta_inferred": false,
+    "generated_and_private_final_audit_still_required": true
+  },
+  "explicit_public_inventory": {
+    "before_count": 58,
+    "after_count": 59,
+    "before_kind_counts": {
+      "constructor": 4,
+      "def": 7,
+      "inductive": 1,
+      "instance": 4,
+      "theorem": 42
+    },
+    "after_kind_counts": {
+      "constructor": 4,
+      "def": 7,
+      "inductive": 1,
+      "instance": 5,
+      "theorem": 42
+    },
+    "private_count_before_and_after": 3,
+    "anonymous_instances_in_this_file_before_and_after": 0,
+    "only_added_name": "Examples.UniformQuickSortMean.instFintypeLabel",
+    "removed_names": [],
+    "all_after_names": [
+      {
+        "name": "Examples.UniformQuickSortMean.emptyMeasurableSpace",
+        "kind": "instance",
+        "line": 35,
+        "modifiers": [
+          "local"
+        ]
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.emptyMeasurableSingletons",
+        "kind": "instance",
+        "line": 36,
+        "modifiers": [
+          "local"
+        ]
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.empty_labels_mean",
+        "kind": "theorem",
+        "line": 40,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.arbitrary_empty",
+        "kind": "theorem",
+        "line": 44,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.arbitrary_singleton",
+        "kind": "theorem",
+        "line": 46,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.actual_pair_cost",
+        "kind": "theorem",
+        "line": 50,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.two_orders",
+        "kind": "theorem",
+        "line": 55,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.two_input_means",
+        "kind": "theorem",
+        "line": 60,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.Label",
+        "kind": "inductive",
+        "line": 87,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.Label.high",
+        "kind": "constructor",
+        "line": 88,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.Label.low",
+        "kind": "constructor",
+        "line": 88,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.Label.middle",
+        "kind": "constructor",
+        "line": 88,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.Label.outside",
+        "kind": "constructor",
+        "line": 88,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.instFintypeLabel",
+        "kind": "instance",
+        "line": 91,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.positions",
+        "kind": "def",
+        "line": 99,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.selected",
+        "kind": "def",
+        "line": 100,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.key",
+        "kind": "def",
+        "line": 102,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.comparator",
+        "kind": "def",
+        "line": 108,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.labelMeasurableSpace",
+        "kind": "instance",
+        "line": 110,
+        "modifiers": [
+          "local"
+        ]
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.labelMeasurableSingletons",
+        "kind": "instance",
+        "line": 111,
+        "modifiers": [
+          "local"
+        ]
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.law",
+        "kind": "def",
+        "line": 114,
+        "modifiers": [
+          "noncomputable"
+        ]
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.positions_nodup",
+        "kind": "theorem",
+        "line": 116,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.positions_complete",
+        "kind": "theorem",
+        "line": 118,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.selected_keys",
+        "kind": "theorem",
+        "line": 121,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.selected_card",
+        "kind": "theorem",
+        "line": 125,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.outside_collision",
+        "kind": "theorem",
+        "line": 128,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.low_children",
+        "kind": "theorem",
+        "line": 135,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.middle_children",
+        "kind": "theorem",
+        "line": 139,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.high_children",
+        "kind": "theorem",
+        "line": 143,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.middle_actual_cost",
+        "kind": "theorem",
+        "line": 148,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.low_actual_cost",
+        "kind": "theorem",
+        "line": 159,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.high_actual_cost",
+        "kind": "theorem",
+        "line": 168,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.middle_first_mass",
+        "kind": "theorem",
+        "line": 177,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.low_first_mass",
+        "kind": "theorem",
+        "line": 183,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.high_first_mass",
+        "kind": "theorem",
+        "line": 189,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.extreme_first_mass",
+        "kind": "theorem",
+        "line": 195,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.middle_conditional_mean",
+        "kind": "theorem",
+        "line": 220,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.low_conditional_mean",
+        "kind": "theorem",
+        "line": 225,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.high_conditional_mean",
+        "kind": "theorem",
+        "line": 230,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.three_mean_from_heads",
+        "kind": "theorem",
+        "line": 237,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.three_mean_from_closedForm",
+        "kind": "theorem",
+        "line": 263,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.low_empty_actual_child",
+        "kind": "theorem",
+        "line": 269,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.low_empty_child_mean",
+        "kind": "theorem",
+        "line": 275,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.high_empty_child_mean",
+        "kind": "theorem",
+        "line": 283,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.arbitrary_payload_occurrences",
+        "kind": "theorem",
+        "line": 293,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.arbitrary_tagged_three",
+        "kind": "theorem",
+        "line": 297,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.taggedEqual",
+        "kind": "def",
+        "line": 302,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.taggedEqual_payloads_distinct",
+        "kind": "theorem",
+        "line": 304,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.taggedEqual_mean",
+        "kind": "theorem",
+        "line": 309,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.equal_key_counterexample",
+        "kind": "theorem",
+        "line": 318,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.taggedRange",
+        "kind": "def",
+        "line": 325,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.taggedRange_length",
+        "kind": "theorem",
+        "line": 328,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.taggedRange_keys",
+        "kind": "theorem",
+        "line": 331,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.taggedRange_mean",
+        "kind": "theorem",
+        "line": 335,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.arbitrary_payload_growth",
+        "kind": "theorem",
+        "line": 339,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.taggedRange_scalar_bound",
+        "kind": "theorem",
+        "line": 346,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.taggedRange_literal_bound",
+        "kind": "theorem",
+        "line": 354,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.actual_zero_log_boundary",
+        "kind": "theorem",
+        "line": 360,
+        "modifiers": []
+      },
+      {
+        "name": "Examples.UniformQuickSortMean.actual_one_log_boundary",
+        "kind": "theorem",
+        "line": 363,
+        "modifiers": []
+      }
+    ],
+    "private_names": [
+      "Examples.UniformQuickSortMean.observed_card_one",
+      "Examples.UniformQuickSortMean.observed_card_two",
+      "Examples.UniformQuickSortMean.conditional_of_constant"
+    ],
+    "author_source_named_count_reconciliation": "Author 57→58 includes the three private theorems and excludes four constructors. Public accounting is therefore 58→59; these are not kernel-audit counts.",
+    "required_new_check": "#check @Examples.UniformQuickSortMean.instFintypeLabel",
+    "original_inventories_preserved": true,
+    "full_central_successor_accounting_condition": "If the sole reviewed example delta is integrated while all other source identities remain Y, explicit public names become 1763 and pending current inspections become 815; exact integrated candidate and prepared program still require bounded reconciliation.",
+    "current_central_920_814_28_disposition_not_rewritten_in_this_receipt": true
+  },
+  "pinned_api_assessment": {
+    "mathlib_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "Mathlib/Tactic/DeriveFintype.lean": {
+      "sha256": "ccc5fecbe99adf96964457156d006c07af730e83ec7af678dc90e289745c2e4e",
+      "read_ranges": [
+        [
+          1,
+          108
+        ],
+        [
+          109,
+          200
+        ]
+      ],
+      "assessment": "Full enum generation, helper declarations, generated completeness proof and registration assessed."
+    },
+    "Mathlib/Basic/ENNReal/Basic.lean": {
+      "sha256": "f7fe64f0d1865209e4d2be2fd98e3bc5edf9af508dd665f0311e6396f8d513a2",
+      "read_ranges": [
+        [
+          269,
+          278
+        ],
+        [
+          335,
+          347
+        ],
+        [
+          397,
+          416
+        ]
+      ],
+      "assessment": "Forward coe_one, coe_add and coe_ofNat used on the same finite arithmetic."
+    },
+    "Mathlib/Basic/ENNReal/Inv.lean": {
+      "sha256": "f06e93ae82105c5c03585c2d11377b94aac119b7fdbcaf34a7a333aa27c53f36",
+      "read_ranges": [
+        [
+          39,
+          50
+        ],
+        [
+          70,
+          85
+        ]
+      ],
+      "assessment": "coe_div takes explicit nonzero NNReal denominator; source supplies h3."
+    },
+    "Mathlib/Probability/ConditionalProbability.lean": {
+      "sha256": "4245cc130e59294fadd87a6b011273c010bf3a21fd3395b8a3fe0f8a749f3f8c",
+      "read_ranges": [
+        [
+          135,
+          166
+        ]
+      ],
+      "assessment": "Same conditioned probability theorem requires finite original measure and nonzero event mass."
+    },
+    "Mathlib/Probability/UniformOn.lean": {
+      "sha256": "7f1aac5e8c78698289601133f5b9551eb772b90eab05338900c472270031f5c3",
+      "read_ranges": [
+        [
+          46,
+          76
+        ],
+        [
+          75,
+          100
+        ]
+      ],
+      "assessment": "Unfolding unchanged law exposes uniformOn Set.univ and its finite/nonempty probability instance, without changing measure or event."
+    },
+    "Init/Data/List/Lemmas.lean": {
+      "sha256": "9365fb1c6da0313a4c73e8cf096377e69c28ece28d38290a0423e5f8cc1fdfdb",
+      "read_ranges": [
+        [
+          140,
+          154
+        ]
+      ],
+      "qualified_compiler_source": "conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/List/Lemmas.lean",
+      "assessment": "length_eq_one_iff supplies the exact singleton decomposition from actual length."
+    },
+    "Init/Data/List/Nat/Range.lean": {
+      "sha256": "06325fdc2c100a4b20eff48e227419259e0749eb82b156b17a1c57b35a5649e3",
+      "read_ranges": [
+        [
+          257,
+          266
+        ]
+      ],
+      "qualified_compiler_source": "conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/List/Nat/Range.lean",
+      "assessment": "nodup_range has implicit {n : Nat}, now supplied by name."
+    }
+  },
+  "semantic_and_architecture_assessment": "No concrete finding. The concrete finite label example remains an example of the generic uniform-permutation development. Actual conditioned observed-cost proofs, two independent 71/3 calculations, outside collision, arbitrary payload/occurrence families, equal-key failure boundary and logarithmic bounds are retained. The instance replacement adds no order or default structure and leaves the seven data/measure definitions untouched. No option, pin, checker, dependency, law or theorem hypothesis is weakened.",
+  "validation_boundary": {
+    "source_stage_no_finding": true,
+    "compiled_successor": false,
+    "actual_new_instance_type_output": false,
+    "type_credit_added": 0,
+    "full_candidate_check_or_audit_credit": false,
+    "immediate_verification_credit": false,
+    "independent_final_acceptance": false
+  },
+  "open_findings_and_gates": [
+    "C02-TYPE-001",
+    "C02-DOC-003 exact application",
+    "Actual focused compilation of the corrected source",
+    "Complete qualified immutable type evidence including new named instance",
+    "Full immutable candidate check and exhaustive audit",
+    "Both independent final review outcomes",
+    "Immediate candidate verification before exact local acceptance"
+  ],
+  "foundation": "Exact F scope, pending F145 and uncredited potential110 remain unchanged; no terminal result inferred from root-owned ongoing full check. Accepted Chapter1 remains accepted.",
+  "write_boundary": {
+    "checkpoint0097_hold_honored": true,
+    "no_files_written_during_source_assessment_hold": true,
+    "checkpoint_verified_uploaded_exposed_before_this_write": true,
+    "this_write_only_own_existing_review_provenance": true
+  },
+  "reviewer_actions": {
+    "compiler_process_or_cache_actions": false,
+    "source_ref_index_pin_mutation": false,
+    "source_authorship": false,
+    "pure_text_inventory_and_git_blob_reads": true
+  }
+}

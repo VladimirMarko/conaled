@@ -1,0 +1,1084 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "unit": "FDSA-XU05",
+  "stage": "independent Standards source preparation in existing loop; not final approval",
+  "base": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+  "candidate": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+  "tree": "4b0ba3272e44a23f7a2c629097fdcacbc4406b9b",
+  "parents": [
+    "11923e9ffd17246b6f22c5594002a1ba0434e43c"
+  ],
+  "source_reads": [
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "bytes": 29717,
+      "lines": 590,
+      "sha256": "8a427831a044b3c2aac2b7272648ec702d8b04da2e11a1db57521dde28a0e50c",
+      "read_scope": "entire immutable file, including all proofs, private declarations and prose",
+      "ranges": [
+        {
+          "first": 1,
+          "last": 200,
+          "bytes": 9312,
+          "lines": 200,
+          "sha256": "b8e2e245593aa56741e53e7a1555cb505258e10ded47cbbd6e6d768371fab1ef"
+        },
+        {
+          "first": 201,
+          "last": 400,
+          "bytes": 10151,
+          "lines": 200,
+          "sha256": "50085614bb4cad27d150c2f6d091c8cc56958cf0885e8c3cc2bf3849c5cd01a4"
+        },
+        {
+          "first": 401,
+          "last": 590,
+          "bytes": 10254,
+          "lines": 190,
+          "sha256": "9f5c2c6a135ef848c89f86d3be62cf8d0d8569e9420bbf0d15077d52a46bf26e"
+        }
+      ]
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "bytes": 13379,
+      "lines": 290,
+      "sha256": "51e712d2b69ea8abb930597452988d4fb02ec57b48503f30a18cb97287de3c28",
+      "read_scope": "entire immutable file, including all proofs, private declarations and prose",
+      "ranges": [
+        {
+          "first": 1,
+          "last": 160,
+          "bytes": 7218,
+          "lines": 160,
+          "sha256": "2e63b4c37a225db865b75648d4e627c06d8be399c5cc465045218c13c277b0a1"
+        },
+        {
+          "first": 161,
+          "last": 290,
+          "bytes": 6161,
+          "lines": 130,
+          "sha256": "46ce7b3d54b71e6e3747cf253d1d694f788004063a8b415e8dd6347a4b094699"
+        }
+      ]
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "bytes": 11107,
+      "lines": 232,
+      "sha256": "2ed11acdb8615ae5fd9696ce9c843bf93cb59821a580229753d5b45396a7526f",
+      "read_scope": "entire immutable file, including all proofs, private declarations and prose",
+      "ranges": [
+        {
+          "first": 1,
+          "last": 135,
+          "bytes": 6448,
+          "lines": 135,
+          "sha256": "10e7b7b60e0c763004ec5bfe5ec2f7b82a8d9e67efae912896eb2cbedc448e10"
+        },
+        {
+          "first": 136,
+          "last": 232,
+          "bytes": 4659,
+          "lines": 97,
+          "sha256": "1bb7a5136e4b0f43906ff8c7f2d96e47a5291acec06499fa516df16e64d5f942"
+        }
+      ]
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 8464,
+      "lines": 257,
+      "sha256": "556524fdf37e4237c0e086af06c97d43561b19c35886913688568ad228bdb700",
+      "read_scope": "entire immutable file, including all proofs, private declarations and prose",
+      "ranges": [
+        {
+          "first": 1,
+          "last": 257,
+          "bytes": 8464,
+          "lines": 257,
+          "sha256": "556524fdf37e4237c0e086af06c97d43561b19c35886913688568ad228bdb700"
+        }
+      ]
+    },
+    {
+      "path": "docs/research/fdsa-permutation-joint.md",
+      "bytes": 10069,
+      "lines": 185,
+      "sha256": "cf80730065f60325297835548c98790b14778d7db61bde84da9429c0192b4b64",
+      "read_scope": "entire immutable file, including all proofs, private declarations and prose",
+      "ranges": [
+        {
+          "first": 1,
+          "last": 185,
+          "bytes": 10069,
+          "lines": 185,
+          "sha256": "cf80730065f60325297835548c98790b14778d7db61bde84da9429c0192b4b64"
+        }
+      ]
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 21507,
+      "lines": 356,
+      "sha256": "8583097adf4bb97611ddda8b276cd5d85d7d7c1dab5bfb31685f427daa3ac408",
+      "read_scope": "entire immutable file, including all proofs, private declarations and prose",
+      "ranges": [
+        {
+          "first": 1,
+          "last": 180,
+          "bytes": 11024,
+          "lines": 180,
+          "sha256": "ec3415c1f39146a2b8e084235910c5d56039f86b942e84c61e1d533e9b2cf542"
+        },
+        {
+          "first": 181,
+          "last": 356,
+          "bytes": 10483,
+          "lines": 176,
+          "sha256": "08dc451252d285727280af7216fd6373c5e77fcc14964e3741eb991cd0148743"
+        }
+      ]
+    }
+  ],
+  "source_totals": {
+    "files": 6,
+    "bytes": 94243,
+    "lines": 1910
+  },
+  "control_reads": [
+    {
+      "path": "tickets/FDSA-XU05.md",
+      "bytes": 3757,
+      "lines": 69,
+      "sha256": "05aac60e73ecc5d29abbaf6a3126a38bbf8fbd2186e2a5817327c892c2548aaf",
+      "ranges": [
+        {
+          "first": 1,
+          "last": 69,
+          "bytes": 3757,
+          "lines": 69,
+          "sha256": "05aac60e73ecc5d29abbaf6a3126a38bbf8fbd2186e2a5817327c892c2548aaf"
+        }
+      ],
+      "read_scope": "complete; author/preflight reports are evidence aids, not independent source review or execution"
+    },
+    {
+      "path": "reviews/permutation-joint-requirements.md",
+      "bytes": 14845,
+      "lines": 277,
+      "sha256": "a80952af26c830231070feb9305f7c678277349c95861b39826edc9297486325",
+      "ranges": [
+        {
+          "first": 1,
+          "last": 145,
+          "bytes": 7145,
+          "lines": 145,
+          "sha256": "94a60081c9bbc74f53d062d84b2362826ab888dc85cb1c093c740ec828b05174"
+        },
+        {
+          "first": 146,
+          "last": 277,
+          "bytes": 7700,
+          "lines": 132,
+          "sha256": "7c284c01953028b8c8e7e590f2b2f1d676a90ef54fb38c7086250d7b6fdb16a3"
+        }
+      ],
+      "read_scope": "complete; author/preflight reports are evidence aids, not independent source review or execution"
+    },
+    {
+      "path": "reviews/permutation-joint-start.md",
+      "bytes": 4026,
+      "lines": 77,
+      "sha256": "dfb23cda6e96a20b381380f49ad3e1225ff50030ae3885a3a4de0bbaf50d88df",
+      "ranges": [
+        {
+          "first": 1,
+          "last": 77,
+          "bytes": 4026,
+          "lines": 77,
+          "sha256": "dfb23cda6e96a20b381380f49ad3e1225ff50030ae3885a3a4de0bbaf50d88df"
+        }
+      ],
+      "read_scope": "complete; author/preflight reports are evidence aids, not independent source review or execution"
+    },
+    {
+      "path": "reviews/permutation-joint-candidate.md",
+      "bytes": 10565,
+      "lines": 176,
+      "sha256": "d899db54db55fd7cab50376ecf40cfc4894c0ac3dfc46fa8bc8f0bf80ab2eb3b",
+      "ranges": [
+        {
+          "first": 1,
+          "last": 176,
+          "bytes": 10565,
+          "lines": 176,
+          "sha256": "d899db54db55fd7cab50376ecf40cfc4894c0ac3dfc46fa8bc8f0bf80ab2eb3b"
+        }
+      ],
+      "read_scope": "complete; author/preflight reports are evidence aids, not independent source review or execution"
+    },
+    {
+      "path": "research/permutation-joint-api-preflight.md",
+      "bytes": 21815,
+      "lines": 295,
+      "sha256": "1de920cbde00e253d18bcdb98786559ea39005be05ba3a99d12e20b2c731feb4",
+      "ranges": [
+        {
+          "first": 1,
+          "last": 150,
+          "bytes": 10058,
+          "lines": 150,
+          "sha256": "de931565443c0e3c43f7048f863c70480c9f9b1352a6c755bede8769850f4df3"
+        },
+        {
+          "first": 151,
+          "last": 295,
+          "bytes": 11757,
+          "lines": 145,
+          "sha256": "511b29312143b4e4a5a4d23d48ef423fad917d29345dfdf3a035ef80fec61b78"
+        }
+      ],
+      "read_scope": "complete; author/preflight reports are evidence aids, not independent source review or execution"
+    },
+    {
+      "path": "research/permutation-joint-source-preflight.md",
+      "bytes": 17807,
+      "lines": 296,
+      "sha256": "83bbceb6a6f74434b80e3eec13d3bc59a8f21025ae3a93b1f387b3a8ccf86f64",
+      "ranges": [
+        {
+          "first": 1,
+          "last": 150,
+          "bytes": 9015,
+          "lines": 150,
+          "sha256": "fcc2e75ee02f432b76acb10a8a9ee3e5bab04b7511241d6f19f4d55718315b40"
+        },
+        {
+          "first": 151,
+          "last": 296,
+          "bytes": 8792,
+          "lines": 146,
+          "sha256": "f8bd89f35b02604ebbdf64a874d43988e7eebd599a6c80dd5aa84e3b438e588d"
+        }
+      ],
+      "read_scope": "complete; author/preflight reports are evidence aids, not independent source review or execution"
+    },
+    {
+      "path": "research/permutation-joint-draft-preflight.md",
+      "bytes": 18972,
+      "lines": 293,
+      "sha256": "402aee367682646edf07610d260763c3dfd5b7c498ca7d4faf0b9413ae26e726",
+      "ranges": [
+        {
+          "first": 1,
+          "last": 145,
+          "bytes": 8675,
+          "lines": 145,
+          "sha256": "c9fbb2cbd089e942fa4a0f29481177c1ba713b785ec992dae1028ee9db1f8a8b"
+        },
+        {
+          "first": 146,
+          "last": 293,
+          "bytes": 10297,
+          "lines": 148,
+          "sha256": "10d62614826c26876439589587a071ed937c6fe0f5d2a01ed86f653058d197d5"
+        }
+      ],
+      "read_scope": "complete; author/preflight reports are evidence aids, not independent source review or execution"
+    },
+    {
+      "path": "research/permutation-joint-calculations.json",
+      "bytes": 7281,
+      "lines": 437,
+      "sha256": "a7c8be932999da48c13c7291dbd68ee013d3ab1d7da65a978a2d7c8f9463bad4",
+      "ranges": [
+        {
+          "first": 1,
+          "last": 220,
+          "bytes": 3624,
+          "lines": 220,
+          "sha256": "edc5dc5db4b4765681d2b7ff2658e59b25f899abe4f9fc7fa5df552f99d50fe8"
+        },
+        {
+          "first": 221,
+          "last": 437,
+          "bytes": 3657,
+          "lines": 217,
+          "sha256": "88c52b513ab6e03a6bc2175d0d903df418297e03b2fc9adc586cab8ce21af1c8"
+        }
+      ],
+      "read_scope": "complete; author/preflight reports are evidence aids, not independent source review or execution"
+    }
+  ],
+  "instructions": [
+    {
+      "path": ".agents/skills/code-review/SKILL.md",
+      "bytes": 7466,
+      "lines": 133,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "same_as_complete_retained_XU04_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity"
+    },
+    {
+      "path": ".agents/skills/code-review/heuristics.md",
+      "bytes": 2232,
+      "lines": 32,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "same_as_complete_retained_XU04_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity"
+    },
+    {
+      "path": ".agents/skills/domain-modeling/SKILL.md",
+      "bytes": 3346,
+      "lines": 74,
+      "sha256": "7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3",
+      "same_as_complete_retained_XU04_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "bytes": 6991,
+      "lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "same_as_complete_retained_XU04_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/worked-example.md",
+      "bytes": 2356,
+      "lines": 55,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+      "same_as_complete_retained_XU04_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity"
+    },
+    {
+      "path": ".agents/skills/implement/SKILL.md",
+      "bytes": 4997,
+      "lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "same_as_complete_retained_XU04_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity"
+    },
+    {
+      "path": ".agents/skills/setup-matt-pocock-skills/domain.md",
+      "bytes": 2042,
+      "lines": 51,
+      "sha256": "593a7042218689f1d24df89df14eaf0a20e19e0d0a7d479a01947ac78f0784b9",
+      "same_as_complete_retained_XU04_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "same_as_complete_retained_XU04_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "bytes": 4824,
+      "lines": 106,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "same_as_complete_retained_XU04_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity"
+    },
+    {
+      "path": "README.md",
+      "bytes": 26239,
+      "lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "same_as_complete_retained_XU04_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity"
+    },
+    {
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "lines": 50,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "same_as_complete_retained_XU04_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity"
+    },
+    {
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "bytes": 7331,
+      "lines": 127,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "same_as_complete_retained_XU04_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity"
+    },
+    {
+      "path": "docs/language-direction.md",
+      "bytes": 19185,
+      "lines": 306,
+      "sha256": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+      "same_as_complete_retained_XU04_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity"
+    },
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "bytes": 3876,
+      "lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "same_as_complete_retained_XU04_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity"
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "bytes": 7113,
+      "lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "same_as_complete_retained_XU04_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity"
+    },
+    {
+      "path": "docs/agents/domain.md",
+      "bytes": 926,
+      "lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "same_as_complete_retained_XU04_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity"
+    },
+    {
+      "path": "docs/adr/README.md",
+      "bytes": 1547,
+      "lines": 17,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "same_as_complete_retained_XU04_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity"
+    }
+  ],
+  "local_dependency_reads": [
+    {
+      "path": "Applications/Probability/PermutationMinimum.lean",
+      "bytes": 8244,
+      "lines": 197,
+      "sha256": "648a2d799ea9905a27992ad4e8653ad21a0457c5301e8c0a026d08d9cd067bbb",
+      "same_as_base_and_complete_XU04_reading": true,
+      "retained_full_read_ranges": [
+        [
+          1,
+          197
+        ]
+      ],
+      "new_reread_ranges": [],
+      "C2_Z": {
+        "bytes": 8241,
+        "lines": 197,
+        "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64"
+      },
+      "credit": 0
+    },
+    {
+      "path": "Applications/Probability/PermutationTail.lean",
+      "bytes": 23402,
+      "lines": 485,
+      "sha256": "1093b94886936b4cb859a371a863bfcf0b388db90a3bc063018329a399fe6f33",
+      "same_as_base_and_complete_XU04_reading": true,
+      "retained_full_read_ranges": [
+        [
+          1,
+          165
+        ],
+        [
+          166,
+          330
+        ],
+        [
+          331,
+          485
+        ]
+      ],
+      "new_reread_ranges": [
+        {
+          "first": 20,
+          "last": 100,
+          "bytes": 3085,
+          "lines": 81,
+          "sha256": "b9aa256086f6d420f4f7e50cf2e3b971eeabf2907a1e4676e037d924ccc8a72e"
+        },
+        {
+          "first": 245,
+          "last": 342,
+          "bytes": 4854,
+          "lines": 98,
+          "sha256": "f581980f6db944ebee469b043cade70e2cf3e7566e83455c5e1027d91723e679"
+        },
+        {
+          "first": 380,
+          "last": 485,
+          "bytes": 5352,
+          "lines": 106,
+          "sha256": "2c25004331745e65cad8ae56cfaee4f0159b55d6f11e2ebc8761f07df5681fa7"
+        }
+      ],
+      "C2_Z": {
+        "bytes": 23521,
+        "lines": 487,
+        "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed"
+      },
+      "credit": 0
+    },
+    {
+      "path": "Examples/PermutationOrder.lean",
+      "bytes": 6445,
+      "lines": 146,
+      "sha256": "251c0ee0ce7b96711ea57e1ff7496a784fe33137596e8f13b244fa9e44fd57e5",
+      "same_as_base": true,
+      "full_read_ranges": [
+        {
+          "first": 1,
+          "last": 146,
+          "bytes": 6445,
+          "lines": 146,
+          "sha256": "251c0ee0ce7b96711ea57e1ff7496a784fe33137596e8f13b244fa9e44fd57e5"
+        }
+      ],
+      "C2_Z": {
+        "bytes": 6706,
+        "lines": 152,
+        "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084"
+      },
+      "credit": 0
+    },
+    {
+      "path": "Applications/Resources/Potential.lean",
+      "bytes": 4638,
+      "lines": 108,
+      "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe",
+      "same_as_base_and_c80_Nat_prefix": true,
+      "read_scope": "identity and previously fully assessed Nat source; no new Potential review",
+      "credit": 0
+    }
+  ],
+  "source_retention": {
+    "old_core_body": {
+      "bytes": 13576,
+      "lines": 283,
+      "sha256": "fe569a22a7ddf082b54834d4685e8bcdde1ba71051744ead5d9be2b06a78b178",
+      "unchanged_byte_for_byte": true,
+      "boundary": "from set_option autoImplicit through end of prior last proof, excluding final namespace end"
+    },
+    "old_map_prefix_unchanged": true,
+    "root_only_new_import": true
+  },
+  "complete_diffs_read": [
+    {
+      "label": "all three modified-existing-file deltas",
+      "from": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+      "to": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+      "bytes": 19020,
+      "lines": 355,
+      "sha256": "db83491871d86e458cce7da4a56d6ac2710b8e9221835f899351add4e77591d7",
+      "read_scope": "entire diff; three wholly new files read in full separately"
+    },
+    {
+      "label": "later Minimum/Order/Tail corrections",
+      "from": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+      "to": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "bytes": 13125,
+      "lines": 260,
+      "sha256": "05ddba02b21603f5d7b949bc388c22df749d8ec7d0748f55b87a2e6058955f81",
+      "read_scope": "entire diff; not applied and no validation transferred"
+    },
+    {
+      "label": "later imported Order example corrections",
+      "from": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+      "to": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "bytes": 5320,
+      "lines": 113,
+      "sha256": "f66e73e199bee72682dfb30830aead8593ad00d9a0a9d242423312ca422137d8",
+      "read_scope": "entire diff; not applied and no validation transferred"
+    }
+  ],
+  "mathlib_api_reads": [
+    {
+      "path": "Mathlib/Probability/HasLaw.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 12171,
+      "lines": 273,
+      "sha256": "7c8d6e2fc09e6d8a17148c1c32435a6826e6426f7127f16d76e1d964ad38ee2c",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 1,
+          "last": 150,
+          "bytes": 6636,
+          "lines": 150,
+          "sha256": "f61f360dcfb904e2545c444320591ea75b50a7e6aac502ff235b284ec59479bf"
+        },
+        {
+          "first": 230,
+          "last": 260,
+          "bytes": 1435,
+          "lines": 31,
+          "sha256": "6e54527f9f769df7ee4785ebb32bae5f19fbbbc5282c67f00516b3d64e8ecde4"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/MeasureTheory/Measure/Prod.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 64445,
+      "lines": 1299,
+      "sha256": "7862947cd5187f8314c0bc6abbd0a9b5a60b250bf8a852e4b5000804f9f8d0d7",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 38,
+          "last": 64,
+          "bytes": 883,
+          "lines": 27,
+          "sha256": "5299a03ffa3eab44f605e0cd7c06db0e03a6840d536db1e9a00816b39d6c5970"
+        },
+        {
+          "first": 154,
+          "last": 252,
+          "bytes": 4699,
+          "lines": 99,
+          "sha256": "e1d8de65818e55504186f6fd55aeed8b003f94a82df80b3db88b6002b147cc6b"
+        },
+        {
+          "first": 305,
+          "last": 334,
+          "bytes": 1507,
+          "lines": 30,
+          "sha256": "d4eff644b2de573449ea63e53b94a42a1b83077deff293aff70ccdecc78def7c"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Data/List/Nodup.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 16643,
+      "lines": 400,
+      "sha256": "dd189100bddbb41c32991672a727d0a3ebc41e7243f390cfa25c348eb0520432",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 150,
+          "last": 182,
+          "bytes": 1413,
+          "lines": 33,
+          "sha256": "eacfcccb61b0d67a8006b7a6de5d79ce7200db11852fc1fafd1a14f5540f1d62"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Probability/ConditionalProbability.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 13138,
+      "lines": 313,
+      "sha256": "4245cc130e59294fadd87a6b011273c010bf3a21fd3395b8a3fe0f8a749f3f8c",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 136,
+          "last": 225,
+          "bytes": 3962,
+          "lines": 90,
+          "sha256": "99f3ca7a3b63eaa250ea1ea0ca5f6d1af72e8337f5158b4562b2b479d7786d1b"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Probability/UniformOn.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 10493,
+      "lines": 230,
+      "sha256": "7f1aac5e8c78698289601133f5b9551eb772b90eab05338900c472270031f5c3",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 40,
+          "last": 118,
+          "bytes": 3213,
+          "lines": 79,
+          "sha256": "9412fe8e1672b74ce9917a97b7a571189aaf85e8d074bd3bb14b3bed27c8b536"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Basic/ENNReal/Inv.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 44273,
+      "lines": 982,
+      "sha256": "f06e93ae82105c5c03585c2d11377b94aac119b7fdbcaf34a7a333aa27c53f36",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 236,
+          "last": 255,
+          "bytes": 871,
+          "lines": 20,
+          "sha256": "909681e3cbc47bdc86eda1b0937c8a9ec8b758131c4915809bedd386e4eafff2"
+        },
+        {
+          "first": 465,
+          "last": 485,
+          "bytes": 980,
+          "lines": 21,
+          "sha256": "eaf198fef9abd02e1533f8d2f099bae4a9e39baf829626c48a108d05e5e1a97c"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Data/Finset/Prod.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 13709,
+      "lines": 378,
+      "sha256": "13c8756add2710072abee567b38e3447ddb798a2cdac3c9e67a72ac896feec92",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 25,
+          "last": 82,
+          "bytes": 1704,
+          "lines": 58,
+          "sha256": "0677987b0b76f29e0b9e7518e97a47472d334ceb68caa64dc4112c2d1ac9e4a1"
+        },
+        {
+          "first": 125,
+          "last": 150,
+          "bytes": 1191,
+          "lines": 26,
+          "sha256": "ad1c567610c0a1b8fa6d5b95c8dc7a2d8a409e827b077ae115cb0a684be13cec"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Logic/Equiv/Fintype.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 7924,
+      "lines": 177,
+      "sha256": "9d8935a7512d322698faca63f11905a376d6601077377ffe07577817e5ea3436",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 138,
+          "last": 176,
+          "bytes": 1995,
+          "lines": 39,
+          "sha256": "bd63a47cc12031c222811977812c916dde2139440c41ce5b78630fbad15e734e"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/MeasureTheory/Measure/Basic.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 25414,
+      "lines": 511,
+      "sha256": "7284bfd8c9c104b019e9880bbb9cf2645b68228a477460f7e4bb3941dd7301a0",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 171,
+          "last": 198,
+          "bytes": 1468,
+          "lines": 28,
+          "sha256": "7196f61740c778401f3a37b91d048f5ce5f86be3590e6d1b3b862bcd954a12b4"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/MeasureTheory/Measure/Dirac/Basic.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 15676,
+      "lines": 335,
+      "sha256": "0641a9328dbfb175c9124af3b2efbecb21f603269edcdbf1e5fbb119f44094ae",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 1,
+          "last": 40,
+          "bytes": 1222,
+          "lines": 40,
+          "sha256": "320b6d58cc760a87a71ac79cbede26f58e8114503753162ba62835077b05c720"
+        },
+        {
+          "first": 40,
+          "last": 68,
+          "bytes": 1385,
+          "lines": 29,
+          "sha256": "06dab84a2954312eae35f162b187e142f3c89ea579e05420dbbc340241cd228b"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Data/List/Permutation.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 23893,
+      "lines": 538,
+      "sha256": "ef2d1bddfbd1fd4368456709b8d44863bb733be3972f88db55d9de1ca1a8c35c",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 352,
+          "last": 389,
+          "bytes": 1690,
+          "lines": 38,
+          "sha256": "7085e4066c84d1b6748d6c9143a237aa83128325f89c7101d65963ddef304222"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/MeasureTheory/Measure/Map.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 14164,
+      "lines": 329,
+      "sha256": "7bae8f174146d4ef4055f79757c2a0a3af6a9090dda3d28ea17fbd54540e9593",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 193,
+          "last": 221,
+          "bytes": 1336,
+          "lines": 29,
+          "sha256": "6a06e606510306fea01c033ec7d4528d9a5020e6d12f007a1806407b8fc39e7f"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Data/Set/Card.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 70044,
+      "lines": 1486,
+      "sha256": "027e1840f884e6a6829c969cf66efd71acb201e4fced72a12b6a9f21b718d074",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 540,
+          "last": 565,
+          "bytes": 1233,
+          "lines": 26,
+          "sha256": "25574c624ef38d61afe50e80cf723de378004e0e67d86149e95fd92478b85650"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Data/Set/Prod.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 41777,
+      "lines": 1027,
+      "sha256": "fe9b74849ae37f087236a0c1cb53f17b851d7b7551c38070cff659605f437f07",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 103,
+          "last": 116,
+          "bytes": 422,
+          "lines": 14,
+          "sha256": "574f104bcdf1657af2e33bb21239d4f878213a4cfb259afef16bf48de7a7ef0a"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/MeasureTheory/MeasurableSpace/Constructions.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 49245,
+      "lines": 1179,
+      "sha256": "00f6755d9eddd2f79e8f986bfe044639fd3d2e31fe825b4f12131b303fbd08f1",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 462,
+          "last": 483,
+          "bytes": 1184,
+          "lines": 22,
+          "sha256": "1167334a46242fa559183129213c6d253cc5aadb671e2b33fb6fca9774aafd45"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Logic/Equiv/List.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 6118,
+      "lines": 189,
+      "sha256": "11496693bd39dd5e22aa2a62898d828e37b3f6261d25c531da0be293a3249efe",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 40,
+          "last": 75,
+          "bytes": 1151,
+          "lines": 36,
+          "sha256": "5954b6d6f12bd1166ffbab664e33af1e0a59943068e03f3de0dfbb8073750dbe"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Basic/Countable/Basic.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 5454,
+      "lines": 155,
+      "sha256": "cb76a047e3e6b3e1fd9f992c25f0278b6fe4439ad6424a365a544f35b22301d1",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 72,
+          "last": 98,
+          "bytes": 1300,
+          "lines": 27,
+          "sha256": "dfe088fd2cd864310a3d1b9f968d55a6355640b3b81d62e53eb02e780e9487d6"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/MeasureTheory/MeasurableSpace/Basic.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 15859,
+      "lines": 383,
+      "sha256": "8cafe2d83ca194225b37f331c01ed08219f58541b6de0aa0d20a6866fa048935",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 270,
+          "last": 299,
+          "bytes": 1071,
+          "lines": 30,
+          "sha256": "bca01ff8e8de1ea36a15099b0c28245992a8ee6e88acdb36c8cf23375a395c98"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Algebra/Group/Units/Equiv.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 7396,
+      "lines": 216,
+      "sha256": "445cfea1c54cac361598e9c312c30d567562683deed355c2d7d2e4b9c83c5c17",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 122,
+          "last": 143,
+          "bytes": 873,
+          "lines": 22,
+          "sha256": "4e506bbfdd99ba7507b1ae48f1b270e918420525154c301549b9dce0c18d8021"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Data/Finset/Disjoint.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 7200,
+      "lines": 212,
+      "sha256": "c8e070e0329aa6b0272013c6f89bc010ed6dd94ca18810837e7916688ad45bc0",
+      "working_source_matches_immutable_pin": true,
+      "read_scope": "only listed ranges, not the entire file",
+      "ranges": [
+        {
+          "first": 32,
+          "last": 53,
+          "bytes": 626,
+          "lines": 22,
+          "sha256": "cb55bdeac5c1bd786c6aab9ef93e5c57e984576b0ae660d86273b4de2faf828a"
+        }
+      ]
+    }
+  ],
+  "installed_Lean_source_read": {
+    "path": "conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/List/Lemmas.lean",
+    "bytes": 152724,
+    "lines": 3852,
+    "sha256": "9365fb1c6da0313a4c73e8cf096377e69c28ece28d38290a0423e5f8cc1fdfdb",
+    "read_scope": "installed official Lean 4.35.0 source; only listed range, no compiler invocation",
+    "ranges": [
+      {
+        "first": 1653,
+        "last": 1686,
+        "bytes": 1885,
+        "lines": 34,
+        "sha256": "7b47575d070bf6024d7b3580c4e8f74eaa8a1e6e9eb1ea18b8635d469cffc55a"
+      }
+    ],
+    "interpretation": "append_inj takes append equality then equality of first lengths; original preflight source reference is not silently substituted for installed source"
+  },
+  "primary_source_boundary": "All supplied source/API preflights and recorded AFP retrieval metadata were read. No new primary book/AFP retrieval or full-source recertification was performed; source assertions are limited accordingly. Named expectation enumeration was read, not rerun.",
+  "recording_boundary": "Own files first created after root released checkpoint0105. Prior read-only hold respected. No compiler, type program, audit, process, source/ref/index, output/cache or global-control action.",
+  "bookkeeping_note": "First metadata-command text had a Python SyntaxError (unclosed list at pins); parsing stopped before any statement executed or artifact was written. Corrected here; no source/compiler action.",
+  "protected_reports_before": {
+    "reviews/shared-foundations-standards-continuation-20261104.md": {
+      "bytes": 8391,
+      "lines": 129,
+      "sha256": "6e09c7114bbaa2a4d5a7eb538eaf6c2fc29f0bc64d5427afc0a52ceecd68e559"
+    },
+    "reviews/chapter02-standards-source-preparation-20261104.md": {
+      "bytes": 104381,
+      "lines": 421,
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    "reviews/potential-standards-development-20261104.md": {
+      "bytes": 40275,
+      "lines": 204,
+      "sha256": "a8c87f38de333a77ab03c82f7da1d3d1b3f122369dd9abb36c8d85acebf495f8"
+    },
+    "reviews/affine-recurrence-standards-preparation-20261104.md": {
+      "bytes": 15543,
+      "lines": 96,
+      "sha256": "bff3e140f1178b6f77ac2d12a42e544dbf2d7522bc27bcf793d1e7ef55b24e92"
+    },
+    "reviews/accumulated-work-standards-preparation-20261104.md": {
+      "bytes": 19038,
+      "lines": 129,
+      "sha256": "e7ea58583cd0c9eabd73e86e0137c874ea3f85b243e6b6d522387175c33ae1b3"
+    },
+    "reviews/permutation-expectation-standards-preparation-20261104.md": {
+      "bytes": 21944,
+      "lines": 107,
+      "sha256": "4e76fd0c52f06dbee8367db24af2c5da3ad4a1785849a5b0e0609d33f2a9881a"
+    },
+    "provenance/shared-four-statements314-standards-preparation-20261104/projection-and-closure.json": {
+      "bytes": 33096,
+      "lines": 856,
+      "sha256": "47e8b8d4b559f599ea154bcb85afe4ba3d2db0114b6266cb832f68e21ef5a759"
+    }
+  },
+  "final_readback": {
+    "report": {
+      "path": "reviews/permutation-joint-standards-preparation-20261104.md",
+      "bytes": 21469,
+      "lines": 91,
+      "sha256": "91aa0305006960edde631eec405f2d8e66461bd016ee21900a9831731ddc0c6d",
+      "complete_read_ranges": [
+        [
+          1,
+          66
+        ],
+        [
+          67,
+          91
+        ]
+      ],
+      "minor_spacing_changes_reread_lines": [
+        69,
+        91
+      ]
+    },
+    "all_125_inventory_rows_read_back": true,
+    "all_125_header_texts_and_hashes_reconciled_against_immutable_source": true,
+    "all_six_source_hashes_rechecked": true,
+    "all_seven_protected_prior_records_unchanged": true,
+    "actual_type_credit": 0,
+    "review_outcome": "Blocked; no new concrete source finding"
+  }
+}

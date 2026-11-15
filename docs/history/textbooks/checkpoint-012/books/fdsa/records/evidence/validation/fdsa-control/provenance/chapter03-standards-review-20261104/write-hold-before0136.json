@@ -1,0 +1,104 @@
+{
+  "axis": "Standards",
+  "recorded_utc": "2026-11-05T00:41:07.826865+00:00",
+  "state": "HELD for checkpoint0136",
+  "instruction": "Parent requested a complete current write hold until explicit release after verified uploaded0136. All own report/provenance writes stop after this record. No source or compiler work is authorized.",
+  "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "current_immutable_receiving_preparation": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+  "frozen_obligations": 83,
+  "overall_outcome": "Blocked; partial source review and final gates incomplete",
+  "truthful_completed_counts": {
+    "new_chapter_sources_source_and_type_assessed": 52,
+    "actual_type_blocks_semantically_read": 915,
+    "remaining_new_chapter_modules": 24,
+    "accepted_XR_modules_reused": 2
+  },
+  "canonical_report": {
+    "path": "reviews/chapter03-standards.md",
+    "bytes": 5178,
+    "sha256": "91f41545bf1b82d49984dd7e366c35bd54d1295ea6cada82404aec2c1cea5348"
+  },
+  "latest_progress": {
+    "path": "provenance/chapter03-standards-review-20261104/progress-before0136-selection-bounds-cutoffs-generic.json",
+    "bytes": 10439,
+    "sha256": "62631304a3dd15539f1f4c50432a04d64e098583403f3ebe33071e4331add235"
+  },
+  "all_current_own_provenance_files_except_this_hold": [
+    {
+      "path": "provenance/chapter03-standards-review-20261104/accepted-xr-reuse-reconciliation-4c96dc0b.json",
+      "bytes": 8847,
+      "sha256": "6e05cb5b63a2e0f00ed7b8f2a994a5490c01894982a8ccd31c0b8b2e4371e199"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/count-rank-use-resolution-2ff47bda.json",
+      "bytes": 4664,
+      "sha256": "acd005dd7d3bbb8979f251281b114830508414693b09d8fdab46dc303e1fb91f"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/minimum-pivot-comment-resolution-4c96dc0b.json",
+      "bytes": 2225,
+      "sha256": "398d5088b38b1ce34ced182b9ce0f54c63d0bf7018d7f59a6c66fe94e3b880ed"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/progress-after0135-fixed-reduction-counterfamily.json",
+      "bytes": 9077,
+      "sha256": "5108ff75aff24c0f9e7d1e637cc8c6ef6f9d3174ee2d8145643415a45d485ede"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/progress-after0135-measured-selection.json",
+      "bytes": 9496,
+      "sha256": "e99b8e5b9418814dec79de7f644329ffd9d8f9536068b8f809f2dd48b0e0d734"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/progress-after0135-median-values.json",
+      "bytes": 6053,
+      "sha256": "fc50d06be7bb22bebca0fac7a600e79ccf837d409167cd205b4111e470f7edcf"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/progress-after0135-minimum-halving-policy.json",
+      "bytes": 24935,
+      "sha256": "659dc289cfed95f9336d576435626dc3c64121bef8a05b3efcade93c86c696b7"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/progress-after0135-rounded-recurrence.json",
+      "bytes": 7359,
+      "sha256": "75f055a5bb6da2f1cb6d1c36bd06f5e3cd127e792e893f5624cdb6b0c919f780"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/progress-after0135-scalar-pivot-envelope.json",
+      "bytes": 8470,
+      "sha256": "8f2daf8361bdd629bbc6afd4e4fe46f1b1189bfc3043463a8cc1db6b47025dfe"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/progress-before0135.json",
+      "bytes": 7415,
+      "sha256": "7d8067663c5e50ce53b72986e8c630991cd86a085298acc2127a5c56ce3daf57"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/progress-before0136-selection-bounds-cutoffs-generic.json",
+      "bytes": 10439,
+      "sha256": "62631304a3dd15539f1f4c50432a04d64e098583403f3ebe33071e4331add235"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/progress-supplement-before0135.json",
+      "bytes": 11789,
+      "sha256": "52cab35241d55883191ce8315a8f9f801656a9188793aea0d06c932b149d3f9b"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/scalar-pivot-envelope-prose-correction.json",
+      "bytes": 1298,
+      "sha256": "2139ec328cb02ce1e5bac19a2450105924a03974ea3fefb617bb21e35924c748"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/write-hold-before0135.json",
+      "bytes": 826,
+      "sha256": "cb001abcb15fbd5b29f1c72af99223261dc8b97da0a5b9d7a1b4283f90b7c7ff"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/write-hold-supplement-before0135.json",
+      "bytes": 1238,
+      "sha256": "11289557ea211b533b1a46812eef07d07e530b0e30286c8d033db106c1f68b9d"
+    }
+  ],
+  "pending_root_report": "Separate Worst draft focused command reportedly closed1; no independent source or run assessment is claimed here."
+}

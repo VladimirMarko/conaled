@@ -1,0 +1,489 @@
+{
+  "reviewer": "independent Standards /root/chapter02_standards",
+  "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+  "base": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+  "requirements_sha256": "5873700a349c359d15873829f1399a20225fa80eaa980e7ad9f1e4c8f774dd02",
+  "source_reads": [
+    {
+      "path": "Applications/Resources/AffineRecurrence.lean",
+      "blob": "afba9e03f3d8178c6fcd469e064f07ddff53c32b",
+      "bytes": 5839,
+      "lines": 113,
+      "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 113,
+          "bytes": 5839,
+          "lines": 113,
+          "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d"
+        }
+      ]
+    },
+    {
+      "path": "Examples/AffineRecurrence.lean",
+      "blob": "e16bc2401027fdced90b86edd15d9eb8b79759b9",
+      "bytes": 5165,
+      "lines": 142,
+      "sha256": "eb9239f5810887ba988420c3fe8538eab21285c1e6173eb5467133baa63868d5",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 142,
+          "bytes": 5165,
+          "lines": 142,
+          "sha256": "eb9239f5810887ba988420c3fe8538eab21285c1e6173eb5467133baa63868d5"
+        }
+      ]
+    },
+    {
+      "path": "SquareApplications.lean",
+      "blob": "99c912978cbbc57837e5b9dc19995aaa13d71a53",
+      "bytes": 8431,
+      "lines": 256,
+      "sha256": "c7abc390617e80c42c2b604528748fcebe794f869d8abeae88a07a69864ea3ef",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 256,
+          "bytes": 8431,
+          "lines": 256,
+          "sha256": "c7abc390617e80c42c2b604528748fcebe794f869d8abeae88a07a69864ea3ef"
+        }
+      ]
+    },
+    {
+      "path": "docs/research/fdsa-affine-recurrence.md",
+      "blob": "8319a4470bd0dacaa518e6d149fee26e67a1a64a",
+      "bytes": 9975,
+      "lines": 233,
+      "sha256": "a07b086bc846c0898b2713a7b055b9cb451d0471c655eeaab9cc1077f32b87bf",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 233,
+          "bytes": 9975,
+          "lines": 233,
+          "sha256": "a07b086bc846c0898b2713a7b055b9cb451d0471c655eeaab9cc1077f32b87bf"
+        }
+      ]
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "blob": "c051f7fa4ebb314068396014d6b16ee61f8d82e4",
+      "bytes": 32550,
+      "lines": 500,
+      "sha256": "4e8acd033864e106e6881d8d5bb3d73993f9c6c65bee14d072553eadf392789b",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 160,
+          "bytes": 9722,
+          "lines": 160,
+          "sha256": "782626550b06b5ee28c0f0fc912303c126152a6492d3b76c061a96b9e7578f34"
+        },
+        {
+          "first_line": 161,
+          "last_line": 330,
+          "bytes": 12044,
+          "lines": 170,
+          "sha256": "44d306ec1c57db5c287a7ebbfe293d16e9253fb609c98dd8b260697e11fee0d0"
+        },
+        {
+          "first_line": 331,
+          "last_line": 500,
+          "bytes": 10784,
+          "lines": 170,
+          "sha256": "5ff105ef8790e730497e11e03cb06aa6bfc86949dfcb4fdec75b68d491229296"
+        }
+      ]
+    }
+  ],
+  "control_reads": [
+    {
+      "path": "reviews/affine-recurrence-requirements.md",
+      "bytes": 5540,
+      "lines": 96,
+      "sha256": "5873700a349c359d15873829f1399a20225fa80eaa980e7ad9f1e4c8f774dd02",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 96,
+          "bytes": 5540,
+          "lines": 96,
+          "sha256": "5873700a349c359d15873829f1399a20225fa80eaa980e7ad9f1e4c8f774dd02"
+        }
+      ]
+    },
+    {
+      "path": "reviews/affine-recurrence-candidate.md",
+      "bytes": 4774,
+      "lines": 80,
+      "sha256": "4c205b012b58219b0022427e32a12717dd46bd25a38ae68f53c62d16b8baeab4",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 80,
+          "bytes": 4774,
+          "lines": 80,
+          "sha256": "4c205b012b58219b0022427e32a12717dd46bd25a38ae68f53c62d16b8baeab4"
+        }
+      ]
+    },
+    {
+      "path": "research/affine-recurrence-preflight.md",
+      "bytes": 27327,
+      "lines": 464,
+      "sha256": "dc20f947d2ff84ece47299a2403c9166d28f8c6103697e3b4b6b28842979b273",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 232,
+          "bytes": 11584,
+          "lines": 232,
+          "sha256": "3034f4afe90169e29edb6c70b9a0c8327db9c048f1381584ff77ddb5721a6235"
+        },
+        {
+          "first_line": 233,
+          "last_line": 464,
+          "bytes": 15743,
+          "lines": 232,
+          "sha256": "e300ce43d7bae39af50d6d7a06b1419c57f40aa74b095ba12b7034dfd242112b"
+        }
+      ]
+    }
+  ],
+  "dependency_api_reads": [
+    {
+      "dependency": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/Order/Archimedean/Defs.lean",
+      "bytes": 3576,
+      "lines": 102,
+      "sha256": "792d8e81ef492132ffe4cbd31ad9cfa0cf4d2a215b47acb86f1240bba0a6525c",
+      "working_source_equal_to_pinned_blob": true,
+      "read_ranges": [
+        [
+          1,
+          102
+        ]
+      ],
+      "purpose": "Archimedean.arch, exists_nat_gt and their ring/order premises",
+      "whole_file_read": true
+    },
+    {
+      "dependency": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Data/Finset/Lattice/Fold.lean",
+      "bytes": 32716,
+      "lines": 820,
+      "sha256": "52a0ba5288cd672a09016061004b397d59fb9185c33f4f833a27082c7f0af863",
+      "working_source_equal_to_pinned_blob": true,
+      "read_ranges": [
+        [
+          491,
+          580
+        ]
+      ],
+      "purpose": "Nonempty finite supremum and le_sup' with proof-irrelevant nonempty witness",
+      "whole_file_read": false
+    },
+    {
+      "dependency": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Data/Nat/Cast/Order/Basic.lean",
+      "bytes": 4608,
+      "lines": 162,
+      "sha256": "6522497dba7222b8b2eee227c661bd774c302ee5fdd57c0d62e79633e8557876",
+      "working_source_equal_to_pinned_blob": true,
+      "read_ranges": [
+        [
+          1,
+          100
+        ]
+      ],
+      "purpose": "Natural cast monotonicity, strict reflection and one_le_cast",
+      "whole_file_read": false
+    },
+    {
+      "dependency": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Data/Nat/Cast/Order/Ring.lean",
+      "bytes": 3513,
+      "lines": 108,
+      "sha256": "005f95e3c0d18bc11034eff9c7f726e719d61cac7d8fafa1e739096d6d4da255",
+      "working_source_equal_to_pinned_blob": true,
+      "read_ranges": [
+        [
+          1,
+          100
+        ]
+      ],
+      "purpose": "Natural nonnegativity and ordered ring cast specialization",
+      "whole_file_read": false
+    },
+    {
+      "dependency": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/Order/Archimedean/Basic.lean",
+      "bytes": 22393,
+      "lines": 514,
+      "sha256": "0fef31980e08533e08d3bbc67747d1c702c0b9287fe38e4f7018657441340176",
+      "working_source_equal_to_pinned_blob": true,
+      "read_ranges": [
+        [
+          1,
+          41
+        ],
+        [
+          303,
+          355
+        ],
+        [
+          441,
+          458
+        ]
+      ],
+      "purpose": "Exact rational and integer Archimedean instances and client-only broad imports",
+      "whole_file_read": false
+    },
+    {
+      "dependency": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/Order/GroupWithZero/Defs.lean",
+      "bytes": 22559,
+      "lines": 471,
+      "sha256": "0f50ef5fbacb465cadd7a6bfa6eb88badc76751d8fb2ef47c9d520996874293f",
+      "working_source_equal_to_pinned_blob": true,
+      "read_ranges": [
+        [
+          166,
+          239
+        ]
+      ],
+      "purpose": "Left/right multiplication monotonicity orientations",
+      "whole_file_read": false
+    },
+    {
+      "dependency": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/Ring/Defs.lean",
+      "bytes": 23213,
+      "lines": 588,
+      "sha256": "d132472f8fb34b88fb8601b16d87cc44d77d64843cbe43bf179dcdad0887198a",
+      "working_source_equal_to_pinned_blob": true,
+      "read_ranges": [
+        [
+          164,
+          202
+        ]
+      ],
+      "purpose": "nsmul_eq_mul uses the natural cast on the left",
+      "whole_file_read": false
+    },
+    {
+      "dependency": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/Order/Monoid/Unbundled/Basic.lean",
+      "bytes": 48178,
+      "lines": 1221,
+      "sha256": "d0d17e30f7c74c20cf8e75f7f533133e59adfe596bcd561fcab67ee7e5423e6c",
+      "working_source_equal_to_pinned_blob": true,
+      "read_ranges": [
+        [
+          340,
+          393
+        ]
+      ],
+      "purpose": "Generated le_add_of_nonneg_left has the required B ≤ A*n+B orientation",
+      "whole_file_read": false
+    },
+    {
+      "dependency": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/Order/Ring/Defs.lean",
+      "bytes": 8190,
+      "lines": 191,
+      "sha256": "72b8bc8b498c9291b4be3e849ae0c40ff419ab8829f80c92cb187957f7d8b11b",
+      "working_source_equal_to_pinned_blob": true,
+      "read_ranges": [
+        [
+          1,
+          151
+        ]
+      ],
+      "purpose": "Strict ordered ring supplies monotonicity, nontriviality and characteristic zero",
+      "whole_file_read": false
+    },
+    {
+      "dependency": "official Lean 4.35.0 installation source",
+      "path": "conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/Nat/Div/Basic.lean",
+      "bytes": 17794,
+      "lines": 473,
+      "sha256": "0c8fc51180b0d4fb6319e8a44acd7999f3a1b3aad21d8da5c0ad575914f9d120",
+      "read_ranges": [
+        [
+          70,
+          103
+        ],
+        [
+          294,
+          326
+        ]
+      ],
+      "purpose": "div_lt_self requires positive dividend and divisor >1; div_mul_le_self gives the actual floor-division size bound",
+      "whole_file_read": false,
+      "qualification": "Source inspection only; does not certify an XR compiler execution or object lineage."
+    }
+  ],
+  "instructions": [
+    {
+      "path": ".agents/skills/code-review/SKILL.md",
+      "bytes": 7466,
+      "lines": 133,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "equal_to_previously_reviewed_xp01_T": true,
+      "read_status": "fully re-read for XR01"
+    },
+    {
+      "path": ".agents/skills/code-review/heuristics.md",
+      "bytes": 2232,
+      "lines": 32,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "equal_to_previously_reviewed_xp01_T": true,
+      "read_status": "prior complete applicable reading retained; exact byte identity to XP01 T verified"
+    },
+    {
+      "path": ".agents/skills/domain-modeling/SKILL.md",
+      "bytes": 3346,
+      "lines": 74,
+      "sha256": "7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3",
+      "equal_to_previously_reviewed_xp01_T": true,
+      "read_status": "prior complete applicable reading retained; exact byte identity to XP01 T verified"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "bytes": 6991,
+      "lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "equal_to_previously_reviewed_xp01_T": true,
+      "read_status": "fully re-read for XR01"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/worked-example.md",
+      "bytes": 2356,
+      "lines": 55,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+      "equal_to_previously_reviewed_xp01_T": true,
+      "read_status": "prior complete applicable reading retained; exact byte identity to XP01 T verified"
+    },
+    {
+      "path": ".agents/skills/implement/SKILL.md",
+      "bytes": 4997,
+      "lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "equal_to_previously_reviewed_xp01_T": true,
+      "read_status": "prior complete applicable reading retained; exact byte identity to XP01 T verified"
+    },
+    {
+      "path": ".agents/skills/setup-matt-pocock-skills/domain.md",
+      "bytes": 2042,
+      "lines": 51,
+      "sha256": "593a7042218689f1d24df89df14eaf0a20e19e0d0a7d479a01947ac78f0784b9",
+      "equal_to_previously_reviewed_xp01_T": true,
+      "read_status": "prior complete applicable reading retained; exact byte identity to XP01 T verified"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "equal_to_previously_reviewed_xp01_T": true,
+      "read_status": "fully re-read for XR01"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "bytes": 4824,
+      "lines": 106,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "equal_to_previously_reviewed_xp01_T": true,
+      "read_status": "prior complete applicable reading retained; exact byte identity to XP01 T verified"
+    },
+    {
+      "path": "README.md",
+      "bytes": 26239,
+      "lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "equal_to_previously_reviewed_xp01_T": true,
+      "read_status": "prior complete applicable reading retained; exact byte identity to XP01 T verified"
+    },
+    {
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "lines": 50,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "equal_to_previously_reviewed_xp01_T": true,
+      "read_status": "prior complete applicable reading retained; exact byte identity to XP01 T verified"
+    },
+    {
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "bytes": 7331,
+      "lines": 127,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "equal_to_previously_reviewed_xp01_T": true,
+      "read_status": "prior complete applicable reading retained; exact byte identity to XP01 T verified"
+    },
+    {
+      "path": "docs/language-direction.md",
+      "bytes": 19185,
+      "lines": 306,
+      "sha256": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+      "equal_to_previously_reviewed_xp01_T": true,
+      "read_status": "prior complete applicable reading retained; exact byte identity to XP01 T verified"
+    },
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "bytes": 3876,
+      "lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "equal_to_previously_reviewed_xp01_T": true,
+      "read_status": "prior complete applicable reading retained; exact byte identity to XP01 T verified"
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "bytes": 7113,
+      "lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "equal_to_previously_reviewed_xp01_T": true,
+      "read_status": "prior complete applicable reading retained; exact byte identity to XP01 T verified"
+    }
+  ],
+  "boundaries": "Only complete displayed bounded ranges are credited; full files whose first read preceded the current continuation retain their completed source-reading record. No author/root/Spec report substitutes for source or actual type reading.",
+  "related_source_reads": [
+    {
+      "path": "Applications/Resources/Growth.lean",
+      "candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "blob": "5453fc50cc172b409f12542921a97d82ca60e067",
+      "bytes": 724,
+      "lines": 17,
+      "sha256": "5e252788c2365d3f9140288a1d51f2ef38270798419af40df8505590a7d20dcc",
+      "read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "complete": true,
+      "unchanged_from_XR_base": true,
+      "purpose": "Related existing small Nat-bound to real Big-O adapter; not imported by new core"
+    }
+  ]
+}

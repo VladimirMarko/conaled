@@ -1,0 +1,63 @@
+{
+  "recorded_utc": "2026-11-03T16:22:02.705076+00:00",
+  "scope": "Native proof and cache-startup experiment; no full project validation.",
+  "source_sha256": "dd436c6017165807deb86eef190e6e44b2151c01369cce4bd4ec76fa9e69781a",
+  "reference_qemu_proof_sha256": "fbf279c5128799661a3f3087d27f139d4da4944e9061ae0c522fce3af38bb980",
+  "results": [
+    {
+      "name": "bare-proof",
+      "command": [
+        "/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/bin/lean",
+        "--root",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/qemu-environment-20261103/smoke",
+        "-o",
+        "/workspace/scratch/6bb268f9336f/bootstrap/native-probe/NativeBare.olean",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/qemu-environment-20261103/smoke/QemuKernelSmoke.lean"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 3.1276150030007557,
+      "stdout": "'FdsaEnvironmentSmoke.zero_add' does not depend on any axioms\n'FdsaEnvironmentSmoke.successor_addition' does not depend on any axioms\n",
+      "stderr": ""
+    },
+    {
+      "name": "lake-child-proof",
+      "command": [
+        "/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/bin/lake",
+        "env",
+        "lean",
+        "--root",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/qemu-environment-20261103/smoke",
+        "-o",
+        "/workspace/scratch/6bb268f9336f/bootstrap/native-probe/NativeLake.olean",
+        "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/qemu-environment-20261103/smoke/QemuKernelSmoke.lean"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 4.161003503999382,
+      "stdout": "'FdsaEnvironmentSmoke.zero_add' does not depend on any axioms\n'FdsaEnvironmentSmoke.successor_addition' does not depend on any axioms\n",
+      "stderr": ""
+    },
+    {
+      "name": "native-cache-help",
+      "command": [
+        "/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/bin/lake",
+        "env",
+        "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/mathlib/.lake/build/bin/cache",
+        "--help"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.506867489999422,
+      "stdout": "Mathlib4 caching CLI\nUsage: cache [OPTIONS] [COMMAND]\n\nCommands:\n  get  [ARGS]    Download linked files missing on the local cache and decompress\n  get! [ARGS]    Download all linked files and decompress\n  get- [ARGS]    Download linked files missing to the local cache, but do not decompress\n  pack           Compress non-compressed build files into the local cache\n  pack!          Compress build files into the local cache (no skipping)\n  unpack         Decompress linked already downloaded files\n  unpack!        Decompress linked already downloaded files (no skipping)\n  clean          Delete non-linked files\n  clean!         Delete everything on the local cache\n  lookup [ARGS]  Show information about cache files for the given Lean files\n  query [REF]    Without REF: find the most recent cached Mathlib commit.\n                 With REF (e.g. HEAD, a SHA): boolean probe; exit 0 if cached, 1 if not.\n\n  # Staging\n  stage        Move files not already 'pack'ed to an output directory\n  stage!       Move all linked cache files to an output directory\n  unstage      Copy *.ltar files from the staging directory to the local cache\n  unstage!     Copy *.ltar files from the staging directory to the local cache (overwrite existing files)\n\nThe upload commands (put, put!, put-staged) and their options and variables\nare internal to mathlib CI. To operate an external cache, 'stage' the\nartifacts, upload the staging directory under your endpoint's `f/` path with\nany storage client, and serve it to readers via MATHLIB_CACHE_GET_URL.\n\nOptions:\n  --repo=OWNER/REPO  Override the repository to fetch cache for\n  --staging-dir=<output-directory> Required for 'stage', 'stage!', 'unstage'\n                     and 'unstage!': staging directory.\n  --cache-from=LIST  Comma-separated, trust-ordered list of containers to read from\n                     (e.g. `--cache-from=master,forks`). Overrides the per-repo default.\n                     Known containers: master, forks.\n  --scope=REF        The per-commit namespace (any git ref `git rev-parse`\n                     accepts: HEAD, branch, tag, SHA). For reads: the fork\n                     SHA-scoped namespace to read instead of the default, the\n                     Mathlib checkout's HEAD. Refs resolve in that checkout.\n                     Use the SHA reported by `cache query`.\n                     Reading another commit's scope means trusting the\n                     artifacts produced at that commit; `cache get` prints a\n                     security notice when the scope differs from HEAD.\n  --unsafe           (get only) Instead of pinning one --scope, automatically walk\n                     Mathlib's history and try the most recent cached fork\n                     commits as scopes, in order, until the cache is satisfied.\n                     Trusts the artifacts of every commit it tries. Mutually\n                     exclusive with --scope; always prints a security notice.\n  --unsafe-window=N  Number of cached fork commits --unsafe will try (default\n                     1). Implies --unsafe.\n\n* Linked files refer to local cache files with corresponding Lean sources\n* Commands that end with '!' do not skip files: use them manually when a\n  hot-fix must force a re-download, a re-pack, or an overwrite\n\n# The arguments for 'get', 'get!', 'get-' and 'lookup'\n\n'get', 'get!', 'get-' and 'lookup' can process a list of module names or file names.\n\n'get [ARGS]' will only get the cache for the specified Lean files and all files imported by one.\n\nValid arguments are:\n\n* Module names like 'Mathlib.Init'\n* Module globs like 'Mathlib.Data.+' (find all Lean files inside `Mathlib/Data/`)\n* Module globs like 'Mathlib.Data.*' (both of the above)\n* File names like 'Mathlib/Init.lean'\n* Folder names like 'Mathlib/Data/' (find all Lean files inside `Mathlib/Data/`)\n* With bash's automatic glob expansion one can also write things like\n  'Mathlib/**/Order/*.lean'. However, one would need to write `Mathlib.Data.\\*`\n  to prevent glob expansion.\n\n# Environment variables\n\n* MATHLIB_CACHE_DIR       Local cache directory (default: ~/.cache/mathlib)\n* MATHLIB_CACHE_DEBUG_USE_LEGACY\n                          Set to 1 or true to read from the Azure storage\n                          account instead of https://cache.mathlib.org.\n                          For troubleshooting only.\n* MATHLIB_CACHE_GET_URL   Download from this single URL as a flat namespace.\n                          Allows third parties to use their own cache endpoint.\n                          An empty value means unset.\n\n",
+      "stderr": ""
+    }
+  ],
+  "artifacts": {
+    "NativeBare.olean": {
+      "bytes": 6824,
+      "sha256": "fbf279c5128799661a3f3087d27f139d4da4944e9061ae0c522fce3af38bb980"
+    },
+    "NativeLake.olean": {
+      "bytes": 6824,
+      "sha256": "fbf279c5128799661a3f3087d27f139d4da4944e9061ae0c522fce3af38bb980"
+    }
+  }
+}

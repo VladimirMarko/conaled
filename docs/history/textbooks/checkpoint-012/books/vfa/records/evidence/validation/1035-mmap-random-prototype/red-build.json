@@ -1,0 +1,27 @@
+{
+  "command": [
+    "/usr/bin/cc",
+    "-std=c11",
+    "-shared",
+    "-fPIC",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-Wl,-z,now",
+    "-Wl,-z,relro",
+    "-o",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1035-mmap-random-prototype/libred_snapshot.so",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1035-mmap-random-prototype/red_snapshot.c"
+  ],
+  "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1035-mmap-random-prototype",
+  "returncode": 0,
+  "wall_seconds": 0.04884058400057256,
+  "stdout": "",
+  "stderr": "",
+  "input_sha256": {
+    "red_snapshot.c": "2415d6ebd3b1a5d169aa866ed0d316e13617d1ac000bed777727d489b8cd84c1",
+    "mmap_random.h": "80911142ad8b8a6dd7836dfcbc8b8e25fdd7d2ec82486b922b41e72a5f613694"
+  },
+  "binary_sha256": "2426d26e91980b0331f196c655baae972c5fb5192779b08fb201874e30c128ab"
+}

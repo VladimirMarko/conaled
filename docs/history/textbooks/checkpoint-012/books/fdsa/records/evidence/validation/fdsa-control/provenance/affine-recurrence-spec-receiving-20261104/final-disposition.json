@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-11-04T19:16:51.774430+00:00",
+  "axis": "Spec; independent nonauthor",
+  "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "tree": "b62fe504a38948e61c6377a4e7661b639c28c08c",
+  "original_base": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+  "original_draft": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+  "receiving_integration_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "frozen_requirements_sha256": "5873700a349c359d15873829f1399a20225fa80eaa980e7ad9f1e4c8f774dd02",
+  "outcome": "PASS",
+  "unresolved_findings": [],
+  "scope": {
+    "original_paths": 5,
+    "authored_public_names": 21,
+    "authored_public_theorems": 19,
+    "authored_public_definitions": 2,
+    "authored_private_names": 0,
+    "authored_anonymous_examples": 0,
+    "authored_new_instances": 0,
+    "retained_complete_original_cases_and_later_chapter_limits": true,
+    "not_a_Chapter3_review_or_acceptance": true
+  },
+  "held_source_and_history": "All earlier original/receiving source reports and focused/full failure evidence remain unchanged. This current final outcome supersedes earlier pending dispositions only at the exact candidate and actual evidence.",
+  "findings": [
+    {
+      "id": "XP01-DOC-001",
+      "origin": "Inherited original-draft documentation wording",
+      "status": "Resolved for receiving XR candidate",
+      "basis": "Exact Chapter1 qualifier independently source-assessed; no XP01 implementation imported or accepted through XR."
+    },
+    {
+      "id": "XR01-ELAB-001",
+      "origin": "Actual focused attempt1 absolute-value parser error",
+      "status": "Resolved",
+      "basis": "Exact one-byte opening-bar syntax repair, current successful focused pair/full normal check and directly read actual type18. Prior header was unelaborated; no old-type equivalence assertion."
+    }
+  ],
+  "first_full_failure": {
+    "actual_outer_and_native_exit": 1,
+    "nested_Lean_exit": 137,
+    "cause": "Unestablished; historical failure remains intact",
+    "current_resolution": "Separate successful attempt2 at unchanged source/profile; not a rewrite of failed attempt1."
+  },
+  "full_gate": {
+    "attempt": "affine-recurrence-receiving-full-attempt2-20261104",
+    "owned_session": 66741,
+    "terminal_tool_chunk": "487100",
+    "actual_outer_and_native_exit": 0,
+    "checked_modules": 1031,
+    "audit_rows": 1029,
+    "kernel_safe_declarations": 47828,
+    "theorem_declarations": 27242,
+    "unsafe_runtime_declarations": 0,
+    "axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "complete_native_log_lines": 2617,
+    "complete_native_log_bytes": 304174,
+    "all_rows_and_warning_contexts_read": true,
+    "accepted_Q_rows_exact": 1027,
+    "new_XR_audit_rows": 2,
+    "whole_project_totals": true,
+    "matching_verification_sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9",
+    "normal_fresh_policy": "Qualified normal incremental check under unchanged exact pins/profile; no fresh trigger or weakened exception introduced."
+  },
+  "actual_statement_gate": {
+    "attempt": "affine-recurrence-receiving-statements21-attempt1-20261104",
+    "owned_session": 55717,
+    "terminal_tool_chunk": "bb0312",
+    "outer_and_native_exit": 0,
+    "complete_actual_names_and_blocks": 21,
+    "native_lines": 294,
+    "native_bytes": 17154,
+    "all_actual_types_directly_read": true,
+    "omission_or_diagnostic_markers": [],
+    "whole_pre_post_identity_exact": true,
+    "identity_counts": {
+      "local_sources": 2,
+      "local_compiler_hash_trace_files": 6,
+      "configuration": 10,
+      "dependencies": 9,
+      "runtime": 12,
+      "external_imports": 6
+    },
+    "exclusive_matching_actual_build_command_input_lineage_qualified": true,
+    "actual_type_run_is_not_a_new_audit": true
+  },
+  "evidence_records": {
+    "final_report": {
+      "path": "provenance/affine-recurrence-spec-receiving-20261104/final-spec-review.md",
+      "bytes": 14057,
+      "lines": 71,
+      "sha256": "5a40de0059860f911ce43d66e2f4d9871a77f3835d845c4b105fd6ef117e7c79"
+    },
+    "complete_bound_inputs": {
+      "path": "provenance/affine-recurrence-spec-receiving-20261104/final-bound-inputs.json",
+      "bytes": 11751,
+      "sha256": "0ef2a7f74ab4b4444925014af0f1684efd8fbb2e0633c3bc176959abb3f1a9a2"
+    },
+    "complete_actual21_assessment_sha256": "efeaacff43201cd24bb22497d26aa6847e08ce9bb589b6d0dc2eb2b825ac6e58",
+    "complete_full_log_ledger_sha256": "5f14b273e84ffb665f1584974581dd0f2aebb8a6344e5fbfe5f60ef8867defa9",
+    "complete_audit_warning_assessment_sha256": "841dd2ee16787e2111a22b6d77360137fba2f7f942a11e9fb995ee72a24cfb73"
+  },
+  "reviewer_action_boundary": "No source/ref/compiler/process polling/cache/runtime/output mutation. Final saved-artifact completion-and-hold receipt follows separately. Root retains immediate qualified verification, other final axis and exact acceptance/integration; those future root steps do not invalidate this completed Spec verdict."
+}

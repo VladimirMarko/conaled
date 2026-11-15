@@ -1,0 +1,7 @@
+{
+  "tool_chunk": "f03d4c",
+  "actual_exit": 1,
+  "operation": "Read-only metadata shape inspection; no writes or source/compiler action",
+  "reason": "Initial inspection assumed the old header JSON was an object; it is a27-element list. Output also truncated.",
+  "resolution": "cf4fef confirmed list/count; current inventory parses the list and compares all27 exact headers. No claim of full truncated JSON read."
+}

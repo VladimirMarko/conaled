@@ -1,0 +1,104 @@
+{
+  "recorded_at": "2026-11-14T20:24:30.362742+00:00",
+  "repository": "VladimirMarko/conaled",
+  "user_named_head": "04514fc1",
+  "observed_master_commit": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+  "previous_upstream_pin": "983d0b6b602b71541f182737011621a8805be27b",
+  "fixed_full_spec_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "pre_edit_candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+  "pinned_ref": "refs/checkpoint/integration/master-20261114-04514fc1",
+  "worktree_clean": true,
+  "commit_list": [
+    "04514fc144dcebdd2b6d4aea5faf2f9cbf229362 feat(probability): realize productive rational Markov streams (#542)",
+    "72da80957902b175b8df9f09ea06b683a25f31b2 docs: clarify suppression as derived reasoning representations (#550)",
+    "c64da5c9fe0410321d847d8419664680c9d927d4 docs: research mathematical suppression and its formal contracts"
+  ],
+  "diff_stat": "Applications/Probability/TableProducer.lean        | 198 +++++++++\n .../Probability/TableProducerStationarity.lean     | 110 +++++\n Examples/TableProducer.lean                        | 124 ++++++\n SquareApplications.lean                            |   1 +\n docs/probabilistic-progress.md                     |  31 +-\n docs/probability.md                                |  56 ++-\n docs/progress-contracts.md                         |  21 +\n docs/research/mathematical-suppression.md          | 470 +++++++++++++++++++++\n 8 files changed, 1004 insertions(+), 7 deletions(-)",
+  "changed_paths": [
+    "Applications/Probability/TableProducer.lean",
+    "Applications/Probability/TableProducerStationarity.lean",
+    "Examples/TableProducer.lean",
+    "SquareApplications.lean",
+    "docs/probabilistic-progress.md",
+    "docs/probability.md",
+    "docs/progress-contracts.md",
+    "docs/research/mathematical-suppression.md"
+  ],
+  "checked_instruction_and_pin_blobs": {
+    "AGENTS.md": {
+      "old_blob": "1b1e65502f0b0771b2475e3b1f37e39d7f18d0c2",
+      "new_blob": "1b1e65502f0b0771b2475e3b1f37e39d7f18d0c2",
+      "same": true
+    },
+    "README.md": {
+      "old_blob": "e2a059bf5bafd293d5b7743eb0157a4dd2e02649",
+      "new_blob": "e2a059bf5bafd293d5b7743eb0157a4dd2e02649",
+      "same": true
+    },
+    "docs/agents/review-loop.md": {
+      "old_blob": "9ce94085a4e2bbe81bbc19c1d49c416b67b8b32a",
+      "new_blob": "9ce94085a4e2bbe81bbc19c1d49c416b67b8b32a",
+      "same": true
+    },
+    "docs/agents/architectural-quality.md": {
+      "old_blob": "a82dfff52a1fd6593a36d50e04e180bf272a53d5",
+      "new_blob": "a82dfff52a1fd6593a36d50e04e180bf272a53d5",
+      "same": true
+    },
+    "docs/agents/domain.md": {
+      "old_blob": "c26859ec35e14a9051d84066b3b5315aad67ee8b",
+      "new_blob": "c26859ec35e14a9051d84066b3b5315aad67ee8b",
+      "same": true
+    },
+    ".agents/skills/implement/SKILL.md": {
+      "old_blob": "8d56e39daaea90e62e72e538ebbbee4173400752",
+      "new_blob": "8d56e39daaea90e62e72e538ebbbee4173400752",
+      "same": true
+    },
+    ".agents/skills/code-review/SKILL.md": {
+      "old_blob": "5525a4b3b7ed512c261f0179094a4b3c6d13a92c",
+      "new_blob": "5525a4b3b7ed512c261f0179094a4b3c6d13a92c",
+      "same": true
+    },
+    ".agents/skills/example-driven-development/SKILL.md": {
+      "old_blob": "eeea21cc4d6658ec7b4875066dfc53de893c7796",
+      "new_blob": "eeea21cc4d6658ec7b4875066dfc53de893c7796",
+      "same": true
+    },
+    "check.sh": {
+      "old_blob": "60c22e66b7188ef9bc8cc62ba93d7f78bb801682",
+      "new_blob": "60c22e66b7188ef9bc8cc62ba93d7f78bb801682",
+      "same": true
+    },
+    "scripts/check.py": {
+      "old_blob": "d007e5141e6e4fb1b7a9b7cba2b8c60f47b37913",
+      "new_blob": "d007e5141e6e4fb1b7a9b7cba2b8c60f47b37913",
+      "same": true
+    },
+    "scripts/review_snapshot.py": {
+      "old_blob": "c3a838a6406568dc47f77fe7264921db7a10fb88",
+      "new_blob": "c3a838a6406568dc47f77fe7264921db7a10fb88",
+      "same": true
+    },
+    "lean-toolchain": {
+      "old_blob": "a6aff065db2882c535684f8c5bcd4f16e9a23915",
+      "new_blob": "a6aff065db2882c535684f8c5bcd4f16e9a23915",
+      "same": true
+    },
+    "lake-manifest.json": {
+      "old_blob": "0452762ecb2bb5e0d0f7db0b128b0af581febb87",
+      "new_blob": "0452762ecb2bb5e0d0f7db0b128b0af581febb87",
+      "same": true
+    },
+    "flake.lock": {
+      "old_blob": "84c70958fc7b0e794b8b93e495ab85ecaf80a15d",
+      "new_blob": "84c70958fc7b0e794b8b93e495ab85ecaf80a15d",
+      "same": true
+    },
+    "lakefile.toml": {
+      "old_blob": "6c6da60ea34d0f4dbfb46fd68a02934368f66a82",
+      "new_blob": "6c6da60ea34d0f4dbfb46fd68a02934368f66a82",
+      "same": true
+    }
+  }
+}

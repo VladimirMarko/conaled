@@ -1,0 +1,874 @@
+{
+  "completed_utc": "2026-11-04T06:23:46.669107+00:00",
+  "scope": "All 105 source declaration headers compared; both modified files read completely; no actual elaborated type output generated.",
+  "total_declarations": 105,
+  "unchanged_source_statements": 104,
+  "explicit_Nat_index_repairs": 1,
+  "proof_only_edits": 3,
+  "modified_files_declaration_counts": {
+    "Examples/NaturalSorting.lean": 22,
+    "Applications/Resources/NaturalSorting.lean": 37
+  },
+  "entries": [
+    {
+      "name": "Applications.Sorting.sortNaturalBy",
+      "path": "Applications/Sorting/Natural.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "1b0ebbba5caa769f0bd9887ecda37fc2916d9359fb7ba5e0075b77e48367231c",
+      "after_statement_sha256": "1b0ebbba5caa769f0bd9887ecda37fc2916d9359fb7ba5e0075b77e48367231c",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Applications.Sorting.sortNaturalBy_eq_mergeAll",
+      "path": "Applications/Sorting/Natural.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "14a3f79f618ddedf69ebdc42dbff06e5b057398e8a585b8325caa779a25625a3",
+      "after_statement_sha256": "14a3f79f618ddedf69ebdc42dbff06e5b057398e8a585b8325caa779a25625a3",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Applications.Sorting.sortNaturalBy_nil",
+      "path": "Applications/Sorting/Natural.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "fb94a089c1b1c3846e59a4fff394fee82fc43be32cfcbb2efa2d1023cc8235fb",
+      "after_statement_sha256": "fb94a089c1b1c3846e59a4fff394fee82fc43be32cfcbb2efa2d1023cc8235fb",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Applications.Sorting.sortNaturalBy_singleton",
+      "path": "Applications/Sorting/Natural.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "d53e47bbd1ff7698bd5bd87ac5cfe25af759534fd9e76d22665129a3f78819f9",
+      "after_statement_sha256": "d53e47bbd1ff7698bd5bd87ac5cfe25af759534fd9e76d22665129a3f78819f9",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Applications.Sorting.sortNaturalBy_perm",
+      "path": "Applications/Sorting/Natural.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "0c6f3bd30457dd5543c554747ca9382e43519de232fe2782fab818dea7f46f3a",
+      "after_statement_sha256": "0c6f3bd30457dd5543c554747ca9382e43519de232fe2782fab818dea7f46f3a",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Applications.Sorting.sortNaturalBy_multiset",
+      "path": "Applications/Sorting/Natural.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "ce7ba687056e3cda66cd33c2c9d84cfc8c10edb36415c1f1d36bb2f959b78442",
+      "after_statement_sha256": "ce7ba687056e3cda66cd33c2c9d84cfc8c10edb36415c1f1d36bb2f959b78442",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Applications.Sorting.sortNaturalBy_length",
+      "path": "Applications/Sorting/Natural.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "e49661895747ffe6547fd643bae074fbcb3a9b003ccd4cfb24f315512ce4ca0c",
+      "after_statement_sha256": "e49661895747ffe6547fd643bae074fbcb3a9b003ccd4cfb24f315512ce4ca0c",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Applications.Sorting.mem_sortNaturalBy",
+      "path": "Applications/Sorting/Natural.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "6f6dccd782ce10dd7b8d76bb4707de532701c91a197955b3cba6ebff900becd5",
+      "after_statement_sha256": "6f6dccd782ce10dd7b8d76bb4707de532701c91a197955b3cba6ebff900becd5",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Applications.Sorting.sortNaturalBy_sorted_compatible_on",
+      "path": "Applications/Sorting/Natural.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "6610b3de2aaff9b9f9fd9609cdb1be4775ea672dc3b0b732350fa1c9f8d5474d",
+      "after_statement_sha256": "6610b3de2aaff9b9f9fd9609cdb1be4775ea672dc3b0b732350fa1c9f8d5474d",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Applications.Sorting.sortNaturalBy_of_runs_eq_singleton",
+      "path": "Applications/Sorting/Natural.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "a4077c1ef2b01bd079e4b63d18afdf209bd9d7518af17b69ed7ac00740ca6c45",
+      "after_statement_sha256": "a4077c1ef2b01bd079e4b63d18afdf209bd9d7518af17b69ed7ac00740ca6c45",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Applications.Sorting.sortNaturalBy_of_ascending_chain",
+      "path": "Applications/Sorting/Natural.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "fba9444471bcfdb41f7edaa3f4d37cfd4d78bf0570b28874d86952cc4953fdc2",
+      "after_statement_sha256": "fba9444471bcfdb41f7edaa3f4d37cfd4d78bf0570b28874d86952cc4953fdc2",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Applications.Sorting.sortNaturalBy_of_descending_chain",
+      "path": "Applications/Sorting/Natural.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "fb8f4e189b6d3a7504ce574fb6515718d803eb0546fd56244e431e80b0e6359b",
+      "after_statement_sha256": "fb8f4e189b6d3a7504ce574fb6515718d803eb0546fd56244e431e80b0e6359b",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Applications.Sorting.sortNaturalOn",
+      "path": "Applications/Sorting/Natural.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "2d8531e4a78ceb20f36965e23774fc4c27547d34b5593867993b3a6519da537e",
+      "after_statement_sha256": "2d8531e4a78ceb20f36965e23774fc4c27547d34b5593867993b3a6519da537e",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Applications.Sorting.sortNaturalOn_correct",
+      "path": "Applications/Sorting/Natural.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "8738eae198ba8f444d0d82eb68a9f843fe51078a41d815a0a13829fb9b181210",
+      "after_statement_sha256": "8738eae198ba8f444d0d82eb68a9f843fe51078a41d815a0a13829fb9b181210",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Applications.Sorting.sortNaturalOn_of_sorted",
+      "path": "Applications/Sorting/Natural.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "1fb0de025d9b6a49abb73c0aacc09e3049c32581c379f0c3bbf21c2a47c37dec",
+      "after_statement_sha256": "1fb0de025d9b6a49abb73c0aacc09e3049c32581c379f0c3bbf21c2a47c37dec",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Applications.Sorting.sortNaturalOn_of_strictly_descending",
+      "path": "Applications/Sorting/Natural.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "9b968cd909a51b164a7c6209ff36c8e97256ba5260f16820922c977970574008",
+      "after_statement_sha256": "9b968cd909a51b164a7c6209ff36c8e97256ba5260f16820922c977970574008",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.natCompare",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "1ac408afe71fb646db5b5ac6f88964203cbc354c1cf9d4af9044e88046422da3",
+      "after_statement_sha256": "1ac408afe71fb646db5b5ac6f88964203cbc354c1cf9d4af9044e88046422da3",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.empty_payload",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "c483e3d047e0b4de0f6e96cee945f3ccbf1804f362bd38628af05a775b593c52",
+      "after_statement_sha256": "c483e3d047e0b4de0f6e96cee945f3ccbf1804f362bd38628af05a775b593c52",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.singleton_payload",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "c887d5b3b24393b194ed33f495320c6df272a6ab47981571a533638fb4f14049",
+      "after_statement_sha256": "c887d5b3b24393b194ed33f495320c6df272a6ab47981571a533638fb4f14049",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.ascending",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "33b4ab76981610ee82e69670c73d7bd4088ade9bf71f1ddfc197b66734950077",
+      "after_statement_sha256": "33b4ab76981610ee82e69670c73d7bd4088ade9bf71f1ddfc197b66734950077",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.descending",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "a4590bc6a6cd753be81e68a17df1002f72adddf9802631f850782b50d4adeacd",
+      "after_statement_sha256": "a4590bc6a6cd753be81e68a17df1002f72adddf9802631f850782b50d4adeacd",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output.",
+      "finding": "C02-NAT-ELAB-001",
+      "before_statement": "theorem descending : sortNaturalBy natLT natCompare [2, 1, 0] = [0, 1, 2]",
+      "after_statement": "theorem descending : sortNaturalBy natLT natCompare [2, 1, 0] = [0, 1, 2]",
+      "prior_author_assessment": "Independent ordered and reversed outputs consume sorted/strict-descent laws with decidable concrete premises.",
+      "connected_cases": "sortNaturalOn_of_sorted/of_strictly_descending"
+    },
+    {
+      "name": "Examples.NaturalSorting.three_boundary_runs",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "50825ad8a0ca8f46dcbac6d4dc45d5dc6e69b297d3f56ae43cd044806dc16cd9",
+      "after_statement_sha256": "50825ad8a0ca8f46dcbac6d4dc45d5dc6e69b297d3f56ae43cd044806dc16cd9",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.three_boundary",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "8eaa123d0542d4ac27e9d92abc622452a0c1cbd23efa1ad5186b806a10d22a33",
+      "after_statement_sha256": "8eaa123d0542d4ac27e9d92abc622452a0c1cbd23efa1ad5186b806a10d22a33",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.restart_boundary",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "91f085415d954f98d6da144f65d82ef2f2c2ad6cf2382f120143582ca47af16c",
+      "after_statement_sha256": "91f085415d954f98d6da144f65d82ef2f2c2ad6cf2382f120143582ca47af16c",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.odd_runs",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "776a3f06d742ddd985612612c2ca0e3d80fc4b04f08bc092962964093a1966db",
+      "after_statement_sha256": "776a3f06d742ddd985612612c2ca0e3d80fc4b04f08bc092962964093a1966db",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.odd_runs_value",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "f6d09bf4654f83946ed8aa7d79ec12e4d2fe66e0c434c6fba8532179e1ae822c",
+      "after_statement_sha256": "f6d09bf4654f83946ed8aa7d79ec12e4d2fe66e0c434c6fba8532179e1ae822c",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.duplicate_occurrences",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "749a6ff5ee560af428821bc67225a47aca15d525455ce7421b43e4030481c53f",
+      "after_statement_sha256": "749a6ff5ee560af428821bc67225a47aca15d525455ce7421b43e4030481c53f",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.tagged_exact",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "80783414e8c319d0b7daf88c0d8aea0057446cfe7d70ff829e4fdf24356f05fe",
+      "after_statement_sha256": "80783414e8c319d0b7daf88c0d8aea0057446cfe7d70ff829e4fdf24356f05fe",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.tagged_correct",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "b05b226309c85b372ee74eb56cbe9d1b63c0addebc75e07e3f61361b97228d3d",
+      "after_statement_sha256": "b05b226309c85b372ee74eb56cbe9d1b63c0addebc75e07e3f61361b97228d3d",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.mixed_records",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "855b2edf50d9b35f143b89f71b74e0b256008209b1d092f0ae66285aac9af032",
+      "after_statement_sha256": "855b2edf50d9b35f143b89f71b74e0b256008209b1d092f0ae66285aac9af032",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.weak_descent_with_ties",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "c81809264042763e9e13fe8a56fedc17d0b596f53fadaf9fd99d6fc3d386d644",
+      "after_statement_sha256": "c81809264042763e9e13fe8a56fedc17d0b596f53fadaf9fd99d6fc3d386d644",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.weak_descent_is_not_reversal",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "8bdbe85f22e149d1158c1d62b3866c463ee6adfb8366ffb0456013a05a5c7b32",
+      "after_statement_sha256": "8bdbe85f22e149d1158c1d62b3866c463ee6adfb8366ffb0456013a05a5c7b32",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.nonnegativeCompare",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "d74a9d56a8d6b5ebb7239582c58e90de4363900f07b36cf353dce04d586ddd5d",
+      "after_statement_sha256": "d74a9d56a8d6b5ebb7239582c58e90de4363900f07b36cf353dce04d586ddd5d",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.nonnegative_merge_compatible",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "66d7da6061b0c0a18cf84b3c60db12df3135e62d0618f9133c317187d4520e29",
+      "after_statement_sha256": "66d7da6061b0c0a18cf84b3c60db12df3135e62d0618f9133c317187d4520e29",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.input_local_correct",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "8852e794b35d160e591b9444317dfb2eafad64f18c1648e56d7cc1471fa238f9",
+      "after_statement_sha256": "8852e794b35d160e591b9444317dfb2eafad64f18c1648e56d7cc1471fa238f9",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.arbitrary_operations_preserve_occurrences",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "4d0c898a7404d76c012e1e4c5e58fad85be6c40f0370b44b498e3decc64855d2",
+      "after_statement_sha256": "4d0c898a7404d76c012e1e4c5e58fad85be6c40f0370b44b498e3decc64855d2",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSorting.constant_key_fixed_point",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "7caca1ed02c357a6df63c054cb4d77033988af8db0cc51a65ca6c2454803a151",
+      "after_statement_sha256": "7caca1ed02c357a6df63c054cb4d77033988af8db0cc51a65ca6c2454803a151",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output.",
+      "finding": "C02-NAT-ELAB-002",
+      "before_statement": "theorem constant_key_fixed_point (xs : List \u03b1) :\n    sortNaturalOn (fun _ : \u03b1 => (0 : Nat)) xs = xs",
+      "after_statement": "theorem constant_key_fixed_point (xs : List \u03b1) :\n    sortNaturalOn (fun _ : \u03b1 => (0 : Nat)) xs = xs",
+      "prior_author_assessment": "Nonvacuous arbitrary-payload and every-length range families discharge sortedness, including empty input.",
+      "connected_cases": "sortNaturalOn_of_sorted; pairwise range/constant-key relation"
+    },
+    {
+      "name": "Examples.NaturalSorting.range_fixed_point",
+      "path": "Examples/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "cd6c3d0bd98cdbe9a4d19ae308a470c7dd14f2a69840ff19c7ea54ab86d10772",
+      "after_statement_sha256": "cd6c3d0bd98cdbe9a4d19ae308a470c7dd14f2a69840ff19c7ea54ab86d10772",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output.",
+      "finding": "C02-NAT-ELAB-003",
+      "before_statement": "theorem range_fixed_point (n : Nat) :\n    sortNaturalBy natLT natCompare (List.range n) = List.range n",
+      "after_statement": "theorem range_fixed_point (n : Nat) :\n    sortNaturalBy natLT natCompare (List.range n) = List.range n",
+      "prior_author_assessment": "Nonvacuous arbitrary-payload and every-length range families discharge sortedness, including empty input.",
+      "connected_cases": "sortNaturalOn_of_sorted; pairwise range/constant-key relation"
+    },
+    {
+      "name": "Resources.NaturalSorting.run",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "c7d3de0b7d1095d56d7ba4442e7990f1ef1ac8d9b9664712f1e458cf38d3f521",
+      "after_statement_sha256": "c7d3de0b7d1095d56d7ba4442e7990f1ef1ac8d9b9664712f1e458cf38d3f521",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.comparisons",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "50e50cd890300fbb97c922163294b6e493633605ba4f3d6b7df99d8c578881fa",
+      "after_statement_sha256": "50e50cd890300fbb97c922163294b6e493633605ba4f3d6b7df99d8c578881fa",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.run_nil",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "1989f5709caf5f2a9e5b600e56221df938fe3fe3a70eef968424dd994bb7b9c1",
+      "after_statement_sha256": "1989f5709caf5f2a9e5b600e56221df938fe3fe3a70eef968424dd994bb7b9c1",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.run_singleton",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "3f6b41edcf02bd617ce5ba9ff65b2451fe789a25c5a07aa18fcbf6462f447be7",
+      "after_statement_sha256": "3f6b41edcf02bd617ce5ba9ff65b2451fe789a25c5a07aa18fcbf6462f447be7",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.run_value",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "fea4ebed8ebe7669f3b879ad40ac122e801bd4176e71d4f2a932b6d5f038f179",
+      "after_statement_sha256": "fea4ebed8ebe7669f3b879ad40ac122e801bd4176e71d4f2a932b6d5f038f179",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.run_perm",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "d929d646afdbdd164788ab8440b9131639f9e8b1a5cea5f88eef7e76135b9d53",
+      "after_statement_sha256": "d929d646afdbdd164788ab8440b9131639f9e8b1a5cea5f88eef7e76135b9d53",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.run_length",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "48e507aeac7790b12c94646fbb44c88917f4c9c4313fe28f985c1eb3a707df67",
+      "after_statement_sha256": "48e507aeac7790b12c94646fbb44c88917f4c9c4313fe28f985c1eb3a707df67",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.run_multiset",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "fee8e5de87e16fbe863931758b72025561cb22a8713d1824e5f9245dfa0a9e7c",
+      "after_statement_sha256": "fee8e5de87e16fbe863931758b72025561cb22a8713d1824e5f9245dfa0a9e7c",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.run_correct",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "97ec3f7420d42acd61e3c756ac45083cb236d7ba89130af092ce81620a00b03c",
+      "after_statement_sha256": "97ec3f7420d42acd61e3c756ac45083cb236d7ba89130af092ce81620a00b03c",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.comparisons_nil",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "7419ec6eecd39f52f8512ab7efe1f7a66708ee96d6d70eaed0c4fecce6877da7",
+      "after_statement_sha256": "7419ec6eecd39f52f8512ab7efe1f7a66708ee96d6d70eaed0c4fecce6877da7",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.comparisons_singleton",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "3d385629ec74f25ffe522c57e961485743ab71457c96b8ff8296f268b5ca410a",
+      "after_statement_sha256": "3d385629ec74f25ffe522c57e961485743ab71457c96b8ff8296f268b5ca410a",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.comparisons_eq_scan_add_merge",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "b688a9d4323be0e34d251bcf70c6279c04b698bac2d8dcd78eefcd9d85849ea1",
+      "after_statement_sha256": "b688a9d4323be0e34d251bcf70c6279c04b698bac2d8dcd78eefcd9d85849ea1",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.comparisons_eq_length_add_merge",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "87de9ab17f8fb85bae639419e606da9bfd042a0574184aee8e3d0d041ca115e0",
+      "after_statement_sha256": "87de9ab17f8fb85bae639419e606da9bfd042a0574184aee8e3d0d041ca115e0",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.run_exact",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "351e2ede151b33e5d233f99b96e85ef3c2bc721d6217f2ba78ae0c3bf0eb86a5",
+      "after_statement_sha256": "351e2ede151b33e5d233f99b96e85ef3c2bc721d6217f2ba78ae0c3bf0eb86a5",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.comparisons_lower",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "b5635206ccc8d5571132f3b543b24036417e7fcf8aa489ec85245b478c4048e9",
+      "after_statement_sha256": "b5635206ccc8d5571132f3b543b24036417e7fcf8aa489ec85245b478c4048e9",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.comparisons_le_adaptive",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "19d50a29c144ea9e2394f8835ff107e7d97de7d7d63bb3f1c77dd5a8b419a4c1",
+      "after_statement_sha256": "19d50a29c144ea9e2394f8835ff107e7d97de7d7d63bb3f1c77dd5a8b419a4c1",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.comparisons_le_clog",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "835d6a0083300776254ab975b86b32b6a2d7ecf1a06dd311817812609cb26081",
+      "after_statement_sha256": "835d6a0083300776254ab975b86b32b6a2d7ecf1a06dd311817812609cb26081",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.comparisons_le_source",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "f335bd8c50c8f0e0cc2d6f29d85993a7c80d45a74019c0eaf4ad9731f82cfeda",
+      "after_statement_sha256": "f335bd8c50c8f0e0cc2d6f29d85993a7c80d45a74019c0eaf4ad9731f82cfeda",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.comparisons_le_of_length",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "a166e9438bbc77dfafdade3e5e9d8701990b0780a7fb6bee4f603874820bb918",
+      "after_statement_sha256": "a166e9438bbc77dfafdade3e5e9d8701990b0780a7fb6bee4f603874820bb918",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.comparisons_le_adaptive_int_ceil",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "4fe901011ccf584deb295d23b9fe118d0166a2b4ccce76ca2dc5ff60c08b1da6",
+      "after_statement_sha256": "4fe901011ccf584deb295d23b9fe118d0166a2b4ccce76ca2dc5ff60c08b1da6",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.comparisons_le_int_ceil",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "b2d54c6a8507003e034c85ad39870b628a50431cddbb5f3d738bd5a1f67526e7",
+      "after_statement_sha256": "b2d54c6a8507003e034c85ad39870b628a50431cddbb5f3d738bd5a1f67526e7",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.comparisons_le_int_ceil_of_length",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "1f81491e71f84c84c0ec6015547bcdf264139e762621bc50709900dff4f3a4aa",
+      "after_statement_sha256": "1f81491e71f84c84c0ec6015547bcdf264139e762621bc50709900dff4f3a4aa",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.run_of_runs_eq_singleton",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "d33d7ef44966a9a2559ecd5da8924980c19631cf3f107b464aa53924cb5087e7",
+      "after_statement_sha256": "d33d7ef44966a9a2559ecd5da8924980c19631cf3f107b464aa53924cb5087e7",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.run_of_ascending_chain",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "e1c96c6e30692d6248f6af745392fcb768380f7f31f8fd37ab096a0d4e4f48a5",
+      "after_statement_sha256": "e1c96c6e30692d6248f6af745392fcb768380f7f31f8fd37ab096a0d4e4f48a5",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.run_of_descending_chain",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "f385f1657d08d97f2a6e95066fd20957e991222f619ef35fc1e73db0475d7d7f",
+      "after_statement_sha256": "f385f1657d08d97f2a6e95066fd20957e991222f619ef35fc1e73db0475d7d7f",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.mergeComparisons_of_sorted",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "60a3972f17248a4e2d5d5fa53ef870ee12e41e1ff2549d7a1ce742a70dd873e2",
+      "after_statement_sha256": "60a3972f17248a4e2d5d5fa53ef870ee12e41e1ff2549d7a1ce742a70dd873e2",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.run_of_sorted",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "70a2ea7017447ec435e16e3a577dbea5b8180501dc69066f10106bfbd58ffc28",
+      "after_statement_sha256": "70a2ea7017447ec435e16e3a577dbea5b8180501dc69066f10106bfbd58ffc28",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.comparisons_of_sorted",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "7f720825f2b61e37313291e9df7d860add656c30edb5f2a1bcc6f8715525d7a8",
+      "after_statement_sha256": "7f720825f2b61e37313291e9df7d860add656c30edb5f2a1bcc6f8715525d7a8",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.mergeComparisons_of_strictly_descending",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "676413e6181ee61c377daaf4ae2dda9af4ffd282642ef09ac6039abe9363f71d",
+      "after_statement_sha256": "676413e6181ee61c377daaf4ae2dda9af4ffd282642ef09ac6039abe9363f71d",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.run_of_strictly_descending",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "8049b551016e66d0208b88ca5cd5a3dd028350e94656e5dd4e78e2fa013dd552",
+      "after_statement_sha256": "8049b551016e66d0208b88ca5cd5a3dd028350e94656e5dd4e78e2fa013dd552",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.length_le_twice_comparisons",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "88d5e3733fd31bd785b2c769ed687555a39449aacca326fe1a955ead0737ab4b",
+      "after_statement_sha256": "88d5e3733fd31bd785b2c769ed687555a39449aacca326fe1a955ead0737ab4b",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.comparisons_le_two_clog",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "7e807c43f53c18e4bc290f00cbbdc1ab1e52664814bad60a36fba7c0a66f527a",
+      "after_statement_sha256": "7e807c43f53c18e4bc290f00cbbdc1ab1e52664814bad60a36fba7c0a66f527a",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.comparisons_isBigO",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "8ee176020dcf889f1a6e9e07dd38b4d148ec34cf84ae69af8ebeedddd40fd891",
+      "after_statement_sha256": "8ee176020dcf889f1a6e9e07dd38b4d148ec34cf84ae69af8ebeedddd40fd891",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.comparisons_isBigO_of_bounded_runs",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "91057291bb715bd3abdced5c29985d7d29f2e814f0c5888dc53b311217082286",
+      "after_statement_sha256": "91057291bb715bd3abdced5c29985d7d29f2e814f0c5888dc53b311217082286",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.size_isBigO_comparisons",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": true,
+      "before_statement_sha256": "e0e9ddf5c33045a816b6894d24ea5649b28332a37f6b6d29f15c84872edf0aa8",
+      "after_statement_sha256": "dae7972492d8354b9634dbc62b3c410c7511aef4f5cc1ec87f17f4d3c294a986",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output.",
+      "finding": "C02-NAT-ELAB-004",
+      "before_statement": "theorem size_isBigO_comparisons (lt cmp : \u03b1 \u2192 \u03b1 \u2192 Bool) (inputs : Nat \u2192 List \u03b1)\n    (hlen : \u2200 n, (inputs n).length = n) :\n    Asymptotics.IsBigO Filter.atTop (fun n => (n : \u211d))\n      (fun n => (comparisons lt cmp (inputs n) : \u211d))",
+      "after_statement": "theorem size_isBigO_comparisons (lt cmp : \u03b1 \u2192 \u03b1 \u2192 Bool) (inputs : Nat \u2192 List \u03b1)\n    (hlen : \u2200 n, (inputs n).length = n) :\n    Asymptotics.IsBigO Filter.atTop (fun n : Nat => (n : \u211d))\n      (fun n => (comparisons lt cmp (inputs n) : \u211d))",
+      "prior_author_assessment": "Growth transport of eventual n<=2*C from the unconditional source scan lower bound.",
+      "connected_cases": "sorted_comparisons_isTheta; ascending_range_linear; repeated_payload_linear"
+    },
+    {
+      "name": "Resources.NaturalSorting.sorted_comparisons_isBigO",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "69f779e163f3ac3dc9b3b0f622dd288b58d42c9a8608b1fa74fc46826b35f69e",
+      "after_statement_sha256": "69f779e163f3ac3dc9b3b0f622dd288b58d42c9a8608b1fa74fc46826b35f69e",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Resources.NaturalSorting.sorted_comparisons_isTheta",
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "a673191d60559ed8f08ab42d28d40ce9f6693eac0a22efa0bf667707f9616950",
+      "after_statement_sha256": "a673191d60559ed8f08ab42d28d40ce9f6693eac0a22efa0bf667707f9616950",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.empty_payload",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "bf02380b141e5d3f780db7845bed6a73f9702b5b8d4e1abd028aa56bbe4055f9",
+      "after_statement_sha256": "bf02380b141e5d3f780db7845bed6a73f9702b5b8d4e1abd028aa56bbe4055f9",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.singleton_payload",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "0f18420e83addd11336d3ec231051403eba53f37e423f0efaee0b1f5168d9403",
+      "after_statement_sha256": "0f18420e83addd11336d3ec231051403eba53f37e423f0efaee0b1f5168d9403",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.ascending",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "6621297d43b38c9b63a533f6fc13827d1eed64478bf6b9b80a7f9b78046c4ffd",
+      "after_statement_sha256": "6621297d43b38c9b63a533f6fc13827d1eed64478bf6b9b80a7f9b78046c4ffd",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.ascending_zero_merge",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "b085f5453d69131c2c7bae06ba7cd423a731b59b700181b636b2b87b5be81878",
+      "after_statement_sha256": "b085f5453d69131c2c7bae06ba7cd423a731b59b700181b636b2b87b5be81878",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.descending",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "76cba0e67617a11b4bf6472e64ca1fe3e30f84be3fd33d4025883f0dba34d866",
+      "after_statement_sha256": "76cba0e67617a11b4bf6472e64ca1fe3e30f84be3fd33d4025883f0dba34d866",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.three_boundary_scan",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "2dee1179100e93e147b013edfdee211430359e8a7cf09b9c03d3ccb76e5e2f67",
+      "after_statement_sha256": "2dee1179100e93e147b013edfdee211430359e8a7cf09b9c03d3ccb76e5e2f67",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.three_boundary_merge",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "1fd301a5f4df71de8433dac43f14f63eeeb0ff5ee810fef7e848481b584006a1",
+      "after_statement_sha256": "1fd301a5f4df71de8433dac43f14f63eeeb0ff5ee810fef7e848481b584006a1",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.three_boundary",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "9c1c8088544803bbc44d0a404971be5bb353dcbfa101a7528c08a41a1e4b792e",
+      "after_statement_sha256": "9c1c8088544803bbc44d0a404971be5bb353dcbfa101a7528c08a41a1e4b792e",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.restart_merge",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "66bce6d32598c1b6d3278c7a12ff305a3f2222dbf87ad249557383eda35c39f6",
+      "after_statement_sha256": "66bce6d32598c1b6d3278c7a12ff305a3f2222dbf87ad249557383eda35c39f6",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.restart_boundary",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "89ffbb9108cb52c332c83416d5529b1f7d5ecefecafad26d6abce1574d7bcc39",
+      "after_statement_sha256": "89ffbb9108cb52c332c83416d5529b1f7d5ecefecafad26d6abce1574d7bcc39",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.odd_runs_scan",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "b40efb0c88f488ea8fcf9318e1ac1d857e28311e28828edaf9588c117ca68242",
+      "after_statement_sha256": "b40efb0c88f488ea8fcf9318e1ac1d857e28311e28828edaf9588c117ca68242",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.odd_runs_merge",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "e281172ea3e1ee18cce3b6e948717c9f92615692ef9b87b3cd0674af165264b9",
+      "after_statement_sha256": "e281172ea3e1ee18cce3b6e948717c9f92615692ef9b87b3cd0674af165264b9",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.odd_runs",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "f662a555a7198c4807f2acdc23b57e6fb806b494c8f4a28450d96ce3095f368f",
+      "after_statement_sha256": "f662a555a7198c4807f2acdc23b57e6fb806b494c8f4a28450d96ce3095f368f",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.odd_runs_adaptive_budget",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "6bc1884fb78e3f798efbca5ab72af293a3f0f2d8be64fb1919093c9b1b4f2e98",
+      "after_statement_sha256": "6bc1884fb78e3f798efbca5ab72af293a3f0f2d8be64fb1919093c9b1b4f2e98",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.mixed_records_merge",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "bc82676f3c32cf75c711d8cb36d63bb349be0a570898694666c928844318acc9",
+      "after_statement_sha256": "bc82676f3c32cf75c711d8cb36d63bb349be0a570898694666c928844318acc9",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.mixed_records",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "a501104201afe22ffce747ea8124d5068fc2338e0662d8524880cc01956a655e",
+      "after_statement_sha256": "a501104201afe22ffce747ea8124d5068fc2338e0662d8524880cc01956a655e",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.weak_descent_merge",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "6d00cdba38c6fb051f9661a9aa7122359dbc5b42d924d82c2889be2179825375",
+      "after_statement_sha256": "6d00cdba38c6fb051f9661a9aa7122359dbc5b42d924d82c2889be2179825375",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.weak_descent_with_ties",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "b06e970b29821827606d35da219c09ce80d9063dae59a9eda557193bdfa8d3ee",
+      "after_statement_sha256": "b06e970b29821827606d35da219c09ce80d9063dae59a9eda557193bdfa8d3ee",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.weak_descent_not_best_case",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "d45285de8298e62503c39dbfc49723dba18246b38371a82d673aad42116e5846",
+      "after_statement_sha256": "d45285de8298e62503c39dbfc49723dba18246b38371a82d673aad42116e5846",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.empty_inner_runs",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "241473c16a4da8c886e6408f4ba69bbd3d3f3618836f5deb65c812a7c3885825",
+      "after_statement_sha256": "241473c16a4da8c886e6408f4ba69bbd3d3f3618836f5deb65c812a7c3885825",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.arbitrary_payload_correct",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "9097ea3f3327584ec7ac3cbad37d70033c56976150c0c66932d9d6263c156dec",
+      "after_statement_sha256": "9097ea3f3327584ec7ac3cbad37d70033c56976150c0c66932d9d6263c156dec",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.arbitrary_operations_and_bounds",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "0d4a2ab6dc7531bd46f0c1d37d3aeacfcbab9ae4ff0714297f9cdf67272bb3b0",
+      "after_statement_sha256": "0d4a2ab6dc7531bd46f0c1d37d3aeacfcbab9ae4ff0714297f9cdf67272bb3b0",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.integer_zero_one_bound",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "8292461ddaf13ee2fc3994abe81080a33210070b4e227754df81991a58616e4d",
+      "after_statement_sha256": "8292461ddaf13ee2fc3994abe81080a33210070b4e227754df81991a58616e4d",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.repeated_payload_exact",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "e53cef2e959c9b915fde48831595d5de299af963dbc29d88d01f2598ccc1a8ff",
+      "after_statement_sha256": "e53cef2e959c9b915fde48831595d5de299af963dbc29d88d01f2598ccc1a8ff",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.constant_key_run_count",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "c29fd56620756fa31353df9a0d0d5267d29badac084a5aa3e1583d8e0f0007d1",
+      "after_statement_sha256": "c29fd56620756fa31353df9a0d0d5267d29badac084a5aa3e1583d8e0f0007d1",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.repeated_payload_bounded_runs",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "fe55e3ee056802d83497c360573b41bce51d3821a1026a3728e10cea7f647fad",
+      "after_statement_sha256": "fe55e3ee056802d83497c360573b41bce51d3821a1026a3728e10cea7f647fad",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.repeated_payload_linear",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "57b597f75f351fa97ef922ba7ce6de5005254fd11a12f51e9da97f78e0daefde",
+      "after_statement_sha256": "57b597f75f351fa97ef922ba7ce6de5005254fd11a12f51e9da97f78e0daefde",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.ascending_range_exact",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "ecb9a1b8797bdb5054ca06a04a5c43c8eea98e47b241d9d06b78bb5745510b9b",
+      "after_statement_sha256": "ecb9a1b8797bdb5054ca06a04a5c43c8eea98e47b241d9d06b78bb5745510b9b",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.ascending_range_linear",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "68410f6ebae1c3f999c1fc541d261b0a670601184e1d4774cc6722e429face8c",
+      "after_statement_sha256": "68410f6ebae1c3f999c1fc541d261b0a670601184e1d4774cc6722e429face8c",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    },
+    {
+      "name": "Examples.NaturalSortingCosts.periodic_family_isBigO",
+      "path": "Examples/NaturalSortingCosts.lean",
+      "source_statement_changed": false,
+      "before_statement_sha256": "1fe75229dc68a4e66bf83af984c750d193dff3b96404c2f671247d7a75a2127c",
+      "after_statement_sha256": "1fe75229dc68a4e66bf83af984c750d193dff3b96404c2f671247d7a75a2127c",
+      "readback": "Full changed-file source and complete diff read; unchanged contracts retain the prior per-claim static assessment. This is not compiler type output."
+    }
+  ]
+}

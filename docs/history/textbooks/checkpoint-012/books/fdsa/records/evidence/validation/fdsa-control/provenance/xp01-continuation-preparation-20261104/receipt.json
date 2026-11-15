@@ -1,0 +1,279 @@
+{
+  "recorded_utc": "2026-11-04T09:57:03.350028+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "status": "Completed bounded preparation; source uncompiled; no final review or acceptance; HOLD",
+  "write_scope": "Only this new provenance package; no existing file edited",
+  "report": {
+    "path": "report.md",
+    "bytes": 11937,
+    "lines": 188,
+    "sha256": "70081d52f40550c40831a31a3c411f058a81ead270f03c57468d74982617e1c7"
+  },
+  "preserved_sequence": [
+    "F foundation",
+    "combined XM01/XD01/XQ01/XU01, each full original scope",
+    "XU02",
+    "XU03",
+    "complete Chapter 2"
+  ],
+  "chapter3": "Queued until Chapter 2 acceptance and acceptance checkpoint",
+  "xp01_scheduling": "Already recorded shared exception; this preparation adds no current C2 prerequisite and activates no chapter",
+  "identities": {
+    "accepted_chapter1": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "exact_foundation": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "central_snapshot": "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+    "xp01_draft": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+    "xp01_parent": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+    "original_combined_base": "1aabd512284fe86254278ac631eda061d311050b",
+    "saved_branch": "work/fdsa-list-foundations",
+    "commit_subject": "feat(resources): generalize potential accounting (#174)"
+  },
+  "merge_bases": {
+    "07e480f6ec9958d4975bb90151005b84f2907614": "1aabd512284fe86254278ac631eda061d311050b",
+    "f17cc6b1a2bf44215b16202ed0fcee2b5c130761": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+    "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512": "c80eec92f5458eccfd1c34c8314d666c2a1e3847"
+  },
+  "original_control_records": [
+    {
+      "path": "tickets/FDSA-XP01.md",
+      "bytes": 2483,
+      "lines": 48,
+      "sha256": "8fca8643f217d732a615cee5252f945189bd31b2befd687e053832cd92c15884"
+    },
+    {
+      "path": "reviews/potential-requirements.md",
+      "bytes": 7148,
+      "lines": 116,
+      "sha256": "545b5d2ff4a93594f2b1ca245594233bdfcf461b8f4fe14b3bbe698e6ad1aa2f"
+    },
+    {
+      "path": "research/potential-generalization-preflight.md",
+      "bytes": 18738,
+      "lines": 321,
+      "sha256": "c47864985fc8c1c6baffa5601d2610268b7f5c2cd895073966eb214e365226ae"
+    },
+    {
+      "path": "research/potential-draft-preflight.md",
+      "bytes": 6519,
+      "lines": 90,
+      "sha256": "fba713681c8eb3a80720b10d9ed0d0a33b46d2dddd883b7bd2ca0bc263f254f2"
+    },
+    {
+      "path": "reviews/shared-foundations-round1.md",
+      "bytes": 13909,
+      "lines": 216,
+      "sha256": "21b930204907024a78e3c0adcca8ee0eb6a064e03c2587872b9379d8585b138d"
+    },
+    {
+      "path": "reviews/shared-foundations-validation.json",
+      "bytes": 2300,
+      "lines": 44,
+      "sha256": "9e0c0d2a9f90d4ecc9eabc0cd54e6fab0113fd7a728235c1fc843826a39f860b"
+    },
+    {
+      "path": "reviews/shared-integration-preflight.md",
+      "bytes": 24778,
+      "lines": 205,
+      "sha256": "e1d9c119e2bca35bbbd283eb47d05330f35d7e548f92e063eeebe7d4d53552eb"
+    }
+  ],
+  "xp01_changed_source_files": [
+    {
+      "path": "Applications/Resources/FIFOContracts.lean",
+      "blob": "01839707e852b3faff6ef1a49ad88a76fb5e5c18",
+      "bytes": 8308,
+      "lines": 168,
+      "sha256": "f0215c25e27380b170297c9cc010375da4ef263380088f4ae8fdbb7272373343"
+    },
+    {
+      "path": "Applications/Resources/Potential.lean",
+      "blob": "3ffc5e120f94f87c77a442728f654f3fa94d3aeb",
+      "bytes": 11523,
+      "lines": 238,
+      "sha256": "fa33b209a7c8cd700e7a33a6d3ee11ef9ad572c2d2e8406dfbabf6468ebf7d8c"
+    },
+    {
+      "path": "Examples/MappedPotentialAccounting.lean",
+      "blob": "0291c5979243b0d12332d3628d06aa910732dfa2",
+      "bytes": 6726,
+      "lines": 165,
+      "sha256": "aa57790203c7dbc800586464c46366fcd7e6da6965fdbc3c260285e9c8d693c3"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "blob": "000a52722e4be80ff8ec03a182ef754254db530a",
+      "bytes": 8398,
+      "lines": 255,
+      "sha256": "1d8fa606b206345d7b9c158c6faf9f7eefb88295d4ba75535715b012d5d2ad97"
+    },
+    {
+      "path": "docs/research/fdsa-potential-accounting.md",
+      "blob": "b9e70b3a5c15606de595f319ff5d11cdd9ff941e",
+      "bytes": 9877,
+      "lines": 163,
+      "sha256": "19c6dc50bc71b518c879cdd8a3f238a3fc5726e5d2486469e18a94a3f310d272"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "blob": "f4fad4bf564098927d5b7db002a17d8e524871b7",
+      "bytes": 31203,
+      "lines": 477,
+      "sha256": "1684db427737e32751d8f3a6066dc98d673fcded0ab78bfaa5c9e8b293b66e0d"
+    }
+  ],
+  "original_combined_scope_paths": [
+    "Applications/Resources/FIFOContracts.lean",
+    "Applications/Resources/InsertionSort.lean",
+    "Applications/Resources/ListCalls.lean",
+    "Applications/Resources/Potential.lean",
+    "Examples/FunctionalNotation.lean",
+    "Examples/InsertionCosts.lean",
+    "Examples/ListCalls.lean",
+    "Examples/ListLibrary.lean",
+    "Examples/MappedPotentialAccounting.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-notation-map.md",
+    "docs/research/fdsa-potential-accounting.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "compatibility": {
+    "common_source_identities_at_R_F_central_and_P": [
+      {
+        "path": "Applications/Resources/Potential.lean",
+        "blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+        "bytes": 4638,
+        "lines": 108,
+        "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe"
+      },
+      {
+        "path": "Applications/Resources/FIFOContracts.lean",
+        "blob": "51a45acf742f9e984188094bb72d3744e9f6e19b",
+        "bytes": 8300,
+        "lines": 168,
+        "sha256": "dff2940bacabe6b759b4ff1f6ebe361282fb0777192bafbb05911f9c13b6ecbb"
+      },
+      {
+        "path": "Applications/Resources/Measured.lean",
+        "blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+        "bytes": 2906,
+        "lines": 71,
+        "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46"
+      },
+      {
+        "path": "Applications/Resources/Workload.lean",
+        "blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+        "bytes": 2745,
+        "lines": 64,
+        "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5"
+      }
+    ],
+    "Measured_and_Workload_also_identical_at_XP01": true,
+    "eight_retained_Nat_statement_texts_equal": [
+      "run_potential",
+      "run_potential_exact",
+      "run_cost_le",
+      "run_zero_potential",
+      "run_constant_charge",
+      "budget_constant",
+      "budget_le_constant",
+      "charge_iff_signed"
+    ],
+    "statement_comparison_limit": "Source text equality only; no elaborated type output or future dependency compatibility established",
+    "accepted_SharedDemand_sources": [
+      {
+        "path": "Applications/Resources/SharedDemand.lean",
+        "blob": "449d7fce653a449be11209c4cb8cb23ae1240609",
+        "bytes": 12012,
+        "lines": 251,
+        "sha256": "c9740655b7afb51b28b044f1a72006d7a393b74a3e60e2f26464dc7eca7ee996"
+      },
+      {
+        "path": "Examples/SharedDemand.lean",
+        "blob": "937400b61230b59ad0889ec554305ce9b6b42800",
+        "bytes": 7844,
+        "lines": 188,
+        "sha256": "5b0e374c3d57a9a681d49b9ae0b1bff41a6f60490efadc79cd2d3432b7737fc9"
+      }
+    ],
+    "required_clients": [
+      "FIFOContracts abstractBudget annotation/refinement/append/sequential bounds",
+      "BinaryCounter actual local law and exact Nat telescope",
+      "SymmetricCosts source-charge and structural-work calls",
+      "RandomAccess.End exact potential and constant budget",
+      "existing natural potential/FIFO examples",
+      "accepted SharedDemand core and examples"
+    ],
+    "current_build_limit": "R/F/central use old Potential/FIFO blobs, not XP01 generalized source"
+  },
+  "existing_assessment": {
+    "source": "research/potential-draft-preflight.md",
+    "result": "No mathematical/public-contract blocker in prior bounded pass; no source correction requested",
+    "preserved_without_repeating_full_assessment": true,
+    "no_final_review_or_compile_credit": true
+  },
+  "absence_of_evidence_search": {
+    "root": "fdsa-control/provenance",
+    "tool": "rg -l",
+    "literal_commit": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+    "filename_globs": [
+      "result.json",
+      "native-result.json",
+      "acceptance.json",
+      "verification.json"
+    ],
+    "exit_code": 1,
+    "matching_paths": [],
+    "limit": "Only those named files searched; not arbitrary log/record names, external systems or other conversations; no process polling"
+  },
+  "remaining_gaps": [
+    "Reconcile immutable XP01 candidate with accepted R/foundation and all six source changes",
+    "Actual focused elaboration and Nat/FIFO/symmetric/counter/random-access/SharedDemand compatibility",
+    "Actual fully explicit public statement inspection",
+    "Applicable complete guarded check and exhaustive audit with closed evidence",
+    "Both independent full-scope Standards and Spec outcomes",
+    "Immediate qualified candidate verification, exact integration and acceptance checkpoint"
+  ],
+  "read_boundary": {
+    "fully_read_records": [
+      "48-line XP01 ticket",
+      "116-line frozen requirements",
+      "321-line design preflight",
+      "90-line draft preflight",
+      "216-line foundation round record",
+      "44-line historical validation JSON",
+      "163-line draft public potential note"
+    ],
+    "source_reads": [
+      "Complete XP01 diff for Potential/FIFOContracts/public import/reconstruction map",
+      "Immutable declaration inventories and eight retained Nat statement comparisons",
+      "Selected accepted SharedDemand call-site contexts",
+      "Selected compatibility imports/calls"
+    ],
+    "shared_integration_preflight": "Relevant sections reread; full 205-line record previously read in shared-acceptance preparation",
+    "truncation_resolution": "Both potential preflights reread fully in nontruncated outputs after initial truncation",
+    "not_claimed": [
+      "No new full mathematical preflight",
+      "No complete re-review of all new example proof bodies",
+      "No complete reading or XP01 reliance on unrelated truncated 110-type reuse report"
+    ]
+  },
+  "author_readback": {
+    "complete_report_lines_read": 188,
+    "report_sha256": "70081d52f40550c40831a31a3c411f058a81ead270f03c57468d74982617e1c7",
+    "identities_recomputed_from_immutable_Git_and_original_records": true,
+    "receipt_full_content_readback_completed": true
+  },
+  "actions": {
+    "new_files": [
+      "report.md",
+      "receipt.json"
+    ],
+    "source_ref_ticket_existing_control_or_review_writes": false,
+    "new_worktrees": false,
+    "compiler_or_build_invocations": 0,
+    "cache_or_project_output_mutations": false,
+    "process_polling": false,
+    "GitHub_mutations_or_push": false,
+    "acceptance_state_changes": false
+  }
+}

@@ -1,0 +1,332 @@
+/-
+PREPARED ONLY: no combined candidate exists and this file has not been executed.
+Exact F acceptance must precede assembly. Bind the eventual immutable candidate,
+qualified runtime/pins/source/object inputs and actual closed output before credit.
+One program covers 252 unit/changed names plus 27 retained accepted-R names.
+These are explicit source declarations, not kernel or new-theorem counts.
+-/
+
+import Applications.Probability.PermutationMinimum
+import Applications.Resources.DifferenceListCosts
+import Applications.Resources.ListMerge
+import Applications.Resources.Partition
+import Applications.Selection.ThreeWay
+import Applications.Sequences.Partition
+import Applications.Sorting.Merge
+import Examples.DifferenceListCosts
+import Examples.MergeCosts
+import Examples.PermutationMinimum
+import Examples.PermutationMinimumBoundary
+import Examples.ThreeWayPartition
+
+set_option pp.universes true
+set_option pp.explicit true
+set_option pp.fullNames true
+
+
+-- unit_or_changed_compatibility / XM01 / Applications/Resources/ListMerge.lean
+#check @Resources.ListMerge.run
+#check @Resources.ListMerge.comparisons
+#check @Resources.ListMerge.entries
+#check @Resources.ListMerge.run_nil_left
+#check @Resources.ListMerge.run_nil_right
+#check @Resources.ListMerge.run_cons_cons
+#check @Resources.ListMerge.run_value
+#check @Resources.ListMerge.comparisons_nil_left
+#check @Resources.ListMerge.comparisons_nil_right
+#check @Resources.ListMerge.comparisons_cons_cons
+#check @Resources.ListMerge.entries_nil_left
+#check @Resources.ListMerge.entries_nil_right
+#check @Resources.ListMerge.entries_cons_cons
+#check @Resources.ListMerge.run_entries_cons_cons
+#check @Resources.ListMerge.entries_eq_comparisons_add_one
+#check @Resources.ListMerge.comparisons_le
+#check @Resources.ListMerge.entries_le
+#check @Resources.ListMerge.comparisons_cons_pos
+#check @Resources.ListMerge.run_map
+
+-- unit_or_changed_compatibility / XM01 / Applications/Sorting/Merge.lean
+#check @Applications.Sorting.sublist_merge_left
+#check @Applications.Sorting.sublist_merge_right
+#check @Applications.Sorting.pairwise_of_merge
+#check @Applications.Sorting.merge_sorted_compatible_on_iff
+
+-- unit_or_changed_compatibility / XM01 / Examples/MergeCosts.lean
+#check @Examples.MergeCosts.natCompare
+#check @Examples.MergeCosts.byKey
+#check @Examples.MergeCosts.result_perm
+#check @Examples.MergeCosts.result_length
+#check @Examples.MergeCosts.result_multiset
+#check @Examples.MergeCosts.result_mem
+#check @Examples.MergeCosts.empty_sides
+#check @Examples.MergeCosts.empty_payload
+#check @Examples.MergeCosts.low_singleton
+#check @Examples.MergeCosts.high_singleton
+#check @Examples.MergeCosts.low_singleton_entry_model
+#check @Examples.MergeCosts.interleaving
+#check @Examples.MergeCosts.interleaving_observations
+#check @Examples.MergeCosts.always_true
+#check @Examples.MergeCosts.always_false
+#check @Examples.MergeCosts.tied_runs
+#check @Examples.MergeCosts.ties_do_not_determine_cost
+#check @Examples.MergeCosts.unsorted_run
+#check @Examples.MergeCosts.unsorted_cost_bounds
+#check @Examples.MergeCosts.unsorted_inputs_retained
+#check @Examples.MergeCosts.unsorted_for_every_comparator
+#check @Examples.MergeCosts.source_value
+#check @Examples.MergeCosts.key_value
+#check @Examples.MergeCosts.key_source_value
+#check @Examples.MergeCosts.key_sorted_iff
+#check @Examples.MergeCosts.source_key_sorted_iff
+#check @Examples.MergeCosts.measured_key_spec
+#check @Examples.MergeCosts.recordsLeft
+#check @Examples.MergeCosts.recordsRight
+#check @Examples.MergeCosts.records_value
+#check @Examples.MergeCosts.records_counts
+#check @Examples.MergeCosts.records_exact
+#check @Examples.MergeCosts.taggedLeft
+#check @Examples.MergeCosts.taggedRight
+#check @Examples.MergeCosts.tagged_key_transport
+#check @Examples.MergeCosts.tagged_counts
+#check @Examples.MergeCosts.tagged_values
+#check @Examples.MergeCosts.tagged_exact
+#check @Examples.MergeCosts.tagged_stable
+#check @Examples.MergeCosts.falseLeft
+#check @Examples.MergeCosts.falseRight
+#check @Examples.MergeCosts.false_compare_compatible
+#check @Examples.MergeCosts.false_record_run
+#check @Examples.MergeCosts.compatible_not_stable
+#check @Examples.MergeCosts.unsortedRecordsLeft
+#check @Examples.MergeCosts.unsortedRecordsRight
+#check @Examples.MergeCosts.unsorted_records_run
+#check @Examples.MergeCosts.unsorted_record_filters
+#check @Examples.MergeCosts.twoStage
+#check @Examples.MergeCosts.twoStage_value
+#check @Examples.MergeCosts.twoStage_observation
+#check @Examples.MergeCosts.twoStage_entries
+#check @Examples.MergeCosts.twoStage_bounds
+#check @Examples.MergeCosts.twoStage_comparisons_projection
+#check @Examples.MergeCosts.twoStage_entries_projection
+#check @Examples.MergeCosts.first_stage
+#check @Examples.MergeCosts.second_stage
+#check @Examples.MergeCosts.twoStage_example
+#check @Examples.MergeCosts.substituted_input_example
+#check @Examples.MergeCosts.actual_input_matters
+#check @Examples.MergeCosts.queueBody
+#check @Examples.MergeCosts.queueBody_value
+#check @Examples.MergeCosts.queueBody_observation
+#check @Examples.MergeCosts.queueBody_bounds
+#check @Examples.MergeCosts.rawLeft
+#check @Examples.MergeCosts.rawRight
+#check @Examples.MergeCosts.rawRoot
+#check @Examples.MergeCosts.raw_queue_body
+#check @Examples.MergeCosts.raw_queue_erasure_and_order
+#check @Examples.MergeCosts.nonempty_tariffs
+#check @Examples.MergeCosts.empty_tariff_not_multiplicative
+#check @Examples.MergeCosts.low_singleton_attains_factor_two
+
+-- unit_or_changed_compatibility / XD01 / Applications/Resources/DifferenceListCosts.lean
+#check @Resources.DifferenceListCosts.Builder
+#check @Resources.DifferenceListCosts.Rep
+#check @Resources.DifferenceListCosts.AppCost
+#check @Resources.DifferenceListCosts.empty
+#check @Resources.DifferenceListCosts.singleton
+#check @Resources.DifferenceListCosts.compose
+#check @Resources.DifferenceListCosts.empty_apply
+#check @Resources.DifferenceListCosts.singleton_apply
+#check @Resources.DifferenceListCosts.empty_rep
+#check @Resources.DifferenceListCosts.empty_appCost
+#check @Resources.DifferenceListCosts.singleton_rep
+#check @Resources.DifferenceListCosts.singleton_appCost
+#check @Resources.DifferenceListCosts.compose_value
+#check @Resources.DifferenceListCosts.compose_cost
+#check @Resources.DifferenceListCosts.compose_rep
+#check @Resources.DifferenceListCosts.compose_appCost
+#check @Resources.DifferenceListCosts.createEmpty
+#check @Resources.DifferenceListCosts.createSingleton
+#check @Resources.DifferenceListCosts.createCompose
+#check @Resources.DifferenceListCosts.createEmpty_eq
+#check @Resources.DifferenceListCosts.createSingleton_eq
+#check @Resources.DifferenceListCosts.createCompose_eq
+#check @Resources.DifferenceListCosts.pushRun
+#check @Resources.DifferenceListCosts.pushRun_eq
+#check @Resources.DifferenceListCosts.pushRun_rep
+#check @Resources.DifferenceListCosts.pushRun_appCost
+#check @Resources.DifferenceListCosts.buildFrom
+#check @Resources.DifferenceListCosts.buildFrom_nil
+#check @Resources.DifferenceListCosts.buildFrom_cons
+#check @Resources.DifferenceListCosts.buildFrom_cost
+#check @Resources.DifferenceListCosts.buildFrom_rep
+#check @Resources.DifferenceListCosts.buildFrom_appCost
+#check @Resources.DifferenceListCosts.build
+#check @Resources.DifferenceListCosts.build_cost
+#check @Resources.DifferenceListCosts.build_rep
+#check @Resources.DifferenceListCosts.build_appCost
+#check @Resources.DifferenceListCosts.toDList
+#check @Resources.DifferenceListCosts.toDList_apply
+#check @Resources.DifferenceListCosts.toList_toDList
+#check @Resources.DifferenceListCosts.toDList_eq_ofList
+#check @Resources.DifferenceListCosts.toDList_compose
+#check @Resources.DifferenceListCosts.toDList_pushRun
+
+-- unit_or_changed_compatibility / XD01 / Examples/DifferenceListCosts.lean
+#check @Examples.DifferenceListCosts.ordered_composition
+#check @Examples.DifferenceListCosts.standard_composition_value
+#check @Examples.DifferenceListCosts.expensive_capture
+#check @Examples.DifferenceListCosts.materialize
+#check @Examples.DifferenceListCosts.materialize_eq
+#check @Examples.DifferenceListCosts.construction_application_split
+#check @Examples.DifferenceListCosts.materializeTwice
+#check @Examples.DifferenceListCosts.materializeTwice_eq
+#check @Examples.DifferenceListCosts.duplicate_values
+#check @Examples.DifferenceListCosts.duplicate_values_twice
+#check @Examples.DifferenceListCosts.empty_payload_boundary
+#check @Examples.DifferenceListCosts.singleton_boundary
+#check @Examples.DifferenceListCosts.extendSingleton
+#check @Examples.DifferenceListCosts.extendSingleton_eq
+#check @Examples.DifferenceListCosts.fused_push_value
+#check @Examples.DifferenceListCosts.identity_value_cost
+#check @Examples.DifferenceListCosts.padded
+#check @Examples.DifferenceListCosts.padded_rep
+#check @Examples.DifferenceListCosts.padded_appCost
+#check @Examples.DifferenceListCosts.padded_empty_value
+#check @Examples.DifferenceListCosts.no_bound_from_output_length
+#check @Examples.DifferenceListCosts.doubled
+#check @Examples.DifferenceListCosts.doubled_creation
+#check @Examples.DifferenceListCosts.doubled_rep
+#check @Examples.DifferenceListCosts.doubled_application_add_one
+#check @Examples.DifferenceListCosts.doubled_appCost
+#check @Examples.DifferenceListCosts.materializeDoubled
+#check @Examples.DifferenceListCosts.materializeDoubled_eq
+#check @Examples.DifferenceListCosts.four_shared_closure_extensions
+#check @Examples.DifferenceListCosts.four_shared_closure_extensions_materialized
+
+-- unit_or_changed_compatibility / XQ01 / Applications/Resources/Partition.lean
+#check @Resources.Partition.partitionRun
+#check @Resources.Partition.partitionRun_nil
+#check @Resources.Partition.partitionRun_cons
+#check @Resources.Partition.partitionRun_value
+#check @Resources.Partition.partitionRun_nil_cost
+#check @Resources.Partition.partitionRun_cons_cost
+#check @Resources.Partition.partitionRun_cost
+
+-- unit_or_changed_compatibility / XQ01 / Applications/Selection/ThreeWay.lean
+#check @Applications.Selection.partition3
+#check @Applications.Selection.partition3_eq_filters
+#check @Applications.Selection.partition3_perm
+#check @Applications.Selection.partition_left_mem
+#check @Applications.Selection.partition_equal_mem
+#check @Applications.Selection.partition_right_mem
+#check @Applications.Selection.partition_lengths
+#check @Applications.Selection.partition_strict_sizes
+
+-- unit_or_changed_compatibility / XQ01 / Applications/Sequences/Partition.lean
+#check @Sequences.Partition.partition3
+#check @Sequences.Partition.partition3_eq_filters
+#check @Sequences.Partition.partition3_perm
+#check @Sequences.Partition.partition_left_mem
+#check @Sequences.Partition.partition_equal_mem
+#check @Sequences.Partition.partition_right_mem
+#check @Sequences.Partition.partition_lengths
+#check @Sequences.Partition.partition_strict_sizes
+#check @Sequences.Partition.partition3_nil
+#check @Sequences.Partition.partition3_cons
+
+-- unit_or_changed_compatibility / XQ01 / Examples/ThreeWayPartition.lean
+#check @ThreeWayPartitionExamples.replicate_partition
+#check @ThreeWayPartitionExamples.selection_partition
+#check @ThreeWayPartitionExamples.mixed
+#check @ThreeWayPartitionExamples.mixed_partition
+#check @ThreeWayPartitionExamples.outside_partition
+#check @ThreeWayPartitionExamples.interior_partition
+#check @ThreeWayPartitionExamples.lower_partition
+#check @ThreeWayPartitionExamples.empty_run
+#check @ThreeWayPartitionExamples.replicate_run
+#check @ThreeWayPartitionExamples.singleton_run
+#check @ThreeWayPartitionExamples.replicate_strict
+#check @ThreeWayPartitionExamples.measured_selection_value
+#check @ThreeWayPartitionExamples.mixed_run
+#check @ThreeWayPartitionExamples.mixed_value
+#check @ThreeWayPartitionExamples.mixed_cost
+#check @ThreeWayPartitionExamples.mixed_perm
+#check @ThreeWayPartitionExamples.mixed_lengths
+#check @ThreeWayPartitionExamples.mixed_strict
+#check @ThreeWayPartitionExamples.outside_run
+#check @ThreeWayPartitionExamples.outside_boundary
+#check @ThreeWayPartitionExamples.interior_run
+#check @ThreeWayPartitionExamples.interior_boundary
+#check @ThreeWayPartitionExamples.bind_returned_lower
+
+-- unit_or_changed_compatibility / XU01 / Applications/Probability/PermutationMinimum.lean
+#check @Applications.Probability.PermutationMinimum.minimumEvent
+#check @Applications.Probability.PermutationMinimum.mem_minimumEvent
+#check @Applications.Probability.PermutationMinimum.minimumEvent_empty
+#check @Applications.Probability.PermutationMinimum.minimumEvent_of_not_mem
+#check @Applications.Probability.PermutationMinimum.minimumEvent_singleton
+#check @Applications.Probability.PermutationMinimum.minimumEvent_inter
+#check @Applications.Probability.PermutationMinimum.uniformOn_minimumEvent
+
+-- unit_or_changed_compatibility / XU01 / Examples/PermutationMinimum.lean
+#check @Examples.PermutationMinimum.law
+#check @Examples.PermutationMinimum.firstSubset
+#check @Examples.PermutationMinimum.secondSubset
+#check @Examples.PermutationMinimum.first_minimum_mass
+#check @Examples.PermutationMinimum.second_minimum_mass
+#check @Examples.PermutationMinimum.overlap_event
+#check @Examples.PermutationMinimum.full_minimum_mass
+#check @Examples.PermutationMinimum.overlap_mass
+#check @Examples.PermutationMinimum.marginal_product
+#check @Examples.PermutationMinimum.overlap_mass_ne_product
+#check @Examples.PermutationMinimum.singleton_minimum_mass
+#check @Examples.PermutationMinimum.spacedPriority
+#check @Examples.PermutationMinimum.spacedPriority_values
+#check @Examples.PermutationMinimum.spacedPriority_injective
+#check @Examples.PermutationMinimum.spacedPriority_not_monotone
+#check @Examples.PermutationMinimum.spaced_minimum_mass
+
+-- unit_or_changed_compatibility / XU01 / Examples/PermutationMinimumBoundary.lean
+#check @Examples.PermutationMinimumBoundary.empty_index_normalized
+#check @Examples.PermutationMinimumBoundary.empty_subset_event
+#check @Examples.PermutationMinimumBoundary.empty_subset_mass
+#check @Examples.PermutationMinimumBoundary.outsider_event_empty
+#check @Examples.PermutationMinimumBoundary.outsider_mass
+#check @Examples.PermutationMinimumBoundary.outsiderComparison
+#check @Examples.PermutationMinimumBoundary.outsiderComparison_eq_full_minimum
+#check @Examples.PermutationMinimumBoundary.outsiderComparison_mass
+#check @Examples.PermutationMinimumBoundary.outsiderComparison_ne_singleton_inverse
+#check @Examples.PermutationMinimumBoundary.tiedPriority
+#check @Examples.PermutationMinimumBoundary.tiedPriority_not_injective
+#check @Examples.PermutationMinimumBoundary.tied_event_univ
+#check @Examples.PermutationMinimumBoundary.tied_mass
+#check @Examples.PermutationMinimumBoundary.tied_mass_ne_half
+
+-- retained_accepted_R / XM01 / Applications/Sorting/Merge.lean
+#check @Applications.Sorting.mergeBy
+#check @Applications.Sorting.mergeBy_perm
+#check @Applications.Sorting.merge_sorted_compatible_on
+#check @Applications.Sorting.merge_sorted_compatible
+#check @Applications.Sorting.mergeBy_sorted
+#check @Applications.Sorting.mergeBy_filter
+#check @Applications.Sorting.mergeBy_stable
+#check @Applications.Sorting.mergeBy_spec
+
+-- retained_accepted_R / XQ01 / Applications/Selection/ThreeWay.lean
+#check @Applications.Selection.sorted_partition
+#check @Applications.Selection.dispatch
+#check @Applications.Selection.dispatch_value
+#check @Applications.Selection.PivotValid
+#check @Applications.Selection.runWith
+#check @Applications.Selection.runWith_value
+#check @Applications.Selection.selectWith
+#check @Applications.Selection.selectWith_value
+#check @Applications.Selection.selectWith_ranked
+#check @Applications.Selection.selectWith_none
+#check @Applications.Selection.head_pivot_valid
+#check @Applications.Selection.lastPivot
+#check @Applications.Selection.last_pivot_valid
+#check @Applications.Selection.selectWith_some_iff
+#check @Applications.Selection.selectWith_policy
+#check @Applications.Selection.sortSelect
+#check @Applications.Selection.selectWith_eq_sortSelect
+#check @Applications.Selection.sortSelect_some_iff
+#check @Applications.Selection.sortSelect_none

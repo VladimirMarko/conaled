@@ -1,0 +1,50 @@
+diff --git a/Examples/RandomQuickSort.lean b/Examples/RandomQuickSort.lean
+index 54bb247..9c3608b 100644
+--- a/Examples/RandomQuickSort.lean
++++ b/Examples/RandomQuickSort.lean
+@@ -60,7 +60,7 @@ theorem two_key_execution :
+   rw [run_cons, PMF.map]
+   apply congrArg (PMF.bind _)
+   funext i
+-  fin_cases i <;> simp [Function.comp_def]
++  fin_cases i <;> simp
+ 
+ theorem two_key_append_mass (cost : Nat) :
+     PMF.map (fun result => result.2.2) (run natLt [0, 1]) cost =
+@@ -72,7 +72,7 @@ theorem two_key_append_mass (cost : Nat) :
+   · by_cases h7 : cost = 7
+     · subst cost
+       norm_num [uniformIndex_apply, Function.comp_def]
+-    · simp [uniformIndex_apply, Function.comp_def, h6, h7]
++    · simp [h6, h7]
+ 
+ /-- The midpoint pivot gives two singleton children; either endpoint gives a
+ size-two child. The right-hand finite law is proved equal to the actual law. -/
+@@ -82,7 +82,7 @@ theorem three_key_exercise_law :
+   rw [exerciseLaw_cons, PMF.map]
+   apply congrArg (PMF.bind _)
+   funext i
+-  fin_cases i <;> simp [pair_exercise, Function.comp_def]
++  fin_cases i <;> simp [pair_exercise]
+ 
+ theorem three_key_exercise_mass (cost : Nat) :
+     exerciseLaw natLt [0, 1, 2] cost =
+@@ -95,7 +95,8 @@ theorem three_key_exercise_mass (cost : Nat) :
+     · subst cost
+       norm_num [uniformIndex_apply, ← ENNReal.coe_inv, ← ENNReal.coe_add,
+         ← ENNReal.coe_div]
+-    · simp [uniformIndex_apply, h21, h25]
++      rw [← two_mul, div_eq_mul_inv]
++    · simp [h21, h25]
+ 
+ theorem three_key_balanced_mass :
+     exerciseLaw natLt [0, 1, 2] 21 = (1 : ℝ≥0∞) / 3 := by
+@@ -116,7 +117,7 @@ theorem equal_key_tag_execution :
+   rw [runOn, run_cons, PMF.map]
+   apply congrArg (PMF.bind _)
+   funext i
+-  fin_cases i <;> simp [Function.comp_def]
++  fin_cases i <;> simp
+ 
+ theorem equal_key_reversed_mass :
+     PMF.map Prod.fst (runOn (Prod.fst : Nat × Bool → Nat) [(7, false), (7, true)])

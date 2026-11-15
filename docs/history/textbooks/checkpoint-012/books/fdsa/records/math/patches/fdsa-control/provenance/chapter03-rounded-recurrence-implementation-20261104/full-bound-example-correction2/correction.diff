@@ -1,0 +1,22 @@
+diff --git a/Examples/RoundedRecurrenceBounds.lean b/Examples/RoundedRecurrenceBounds.lean
+index df10f88..0c12386 100644
+--- a/Examples/RoundedRecurrenceBounds.lean
++++ b/Examples/RoundedRecurrenceBounds.lean
+@@ -83,7 +83,7 @@ theorem roundedQuarter_five : roundedQuarter 5 = 6 :=
+ 
+ /-- The first recursive input uses ceiling 6/4=2, not floor 6/4=1. -/
+ theorem roundedQuarter_six : roundedQuarter 6 = 13 := by
+-  have child : ⌈(1 / 4 : ℝ) * (6 : ℝ)⌉₊ = 2 := by
++  have child : ⌈(1 / 4 : ℝ) * ((6 : Nat) : ℝ)⌉₊ = 2 := by
+     apply (Nat.ceil_eq_iff (by decide : (2 : Nat) ≠ 0)).mpr
+     norm_num
+   rw [roundedQuarter_of_five_lt 6 (by decide), child,
+@@ -91,7 +91,7 @@ theorem roundedQuarter_six : roundedQuarter 6 = 13 := by
+ 
+ /-- This value follows a genuinely recursive child: ceil(21/4)=6 and Q(6)=13. -/
+ theorem roundedQuarter_twenty_one : roundedQuarter 21 = 48 := by
+-  have child : ⌈(1 / 4 : ℝ) * (21 : ℝ)⌉₊ = 6 := by
++  have child : ⌈(1 / 4 : ℝ) * ((21 : Nat) : ℝ)⌉₊ = 6 := by
+     apply (Nat.ceil_eq_iff (by decide : (6 : Nat) ≠ 0)).mpr
+     norm_num
+   rw [roundedQuarter_of_five_lt 21 (by decide), child, roundedQuarter_six]

@@ -1,0 +1,12 @@
+diff --git a/Applications/Resources/MedianReduction.lean b/Applications/Resources/MedianReduction.lean
+index e7f52ee..723e7c8 100644
+--- a/Applications/Resources/MedianReduction.lean
++++ b/Applications/Resources/MedianReduction.lean
+@@ -75,6 +75,7 @@ theorem extremaRun_cost (x : α) (xs : List α) :
+     (extremaRun x xs).2 = 2 * xs.length + 3 := by
+   simp only [extremaRun, CallCount.tick_cost, bind, pure, FixedRank.minimumLoopRun_cost,
+     FixedRank.minimumLoopRun_cost (α := OrderDual α) x 0 xs]
++  change (0 + xs.length + 1 + (0 + xs.length + 1 + 0)) + 1 = 2 * xs.length + 3
+   omega
+ 
+ theorem extremaRun_exact (x : α) (xs : List α) :

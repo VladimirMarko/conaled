@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T21:57:56.437669+00:00",
+  "candidate": "41f46040eeaf1b2c6d21b00dec4c20b9d44c5ce7",
+  "terminal": {
+    "recorded_utc": "2026-11-04T21:57:56.437567+00:00",
+    "owned_session": 5042,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "df1d28",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "41f46040eeaf1b2c6d21b00dec4c20b9d44c5ce7"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-policy-focused-attempt2-20261104/full.log",
+    "bytes": 10645,
+    "sha256": "08275b041c1bb342808411ca68dc444c811b329eb8de30ba15fbaef0de6d2024"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T215714Z-project-run-463b1b08",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-policy-focused-attempt2-20261104/native-records/start.json",
+      "bytes": 516,
+      "sha256": "97feab474cd232243ee335aff057f24127f573e0a1a27cd9cfd037729f092a46"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-policy-focused-attempt2-20261104/native-records/result.json",
+      "bytes": 669,
+      "sha256": "b8e8eec09186281ac807a8450f28394b13207f85d64aa64cc9e61f5c27bbc549"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-halving-policy-focused-attempt2-20261104/native-records/output.log",
+      "bytes": 10338,
+      "sha256": "a0b72403f4133df8803017b0d91c47cc4bed819f6951e29982112eb2fb094b3d"
+    }
+  },
+  "native_body_exact_outer_offset": 151,
+  "complete_closed_log": true,
+  "scope": "Second focused immutable check of actual halving-policy and measured-median modules plus examples; no full validation or acceptance.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

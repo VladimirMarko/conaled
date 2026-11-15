@@ -1,0 +1,65 @@
+{
+  "recorded_utc": "2026-11-05T00:18:59.610071+00:00",
+  "original_whole_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "all_frozen_obligations": 83,
+  "heads": {
+    "conaled": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "conaled-ch01-review": "2ff47bdad9f822727fb2d1ea86092c4b26ad0cb6",
+    "conaled-ch02-natural-runs": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb"
+  },
+  "closed_run_inventory_before": {
+    "path": "provenance/chapter03-activation-20261104/focused-progress-before0135.json",
+    "bytes": 56262,
+    "sha256": "6f10b2d4ca3faae9e6ea6cd03d3e6839ec7e5f5d5a60ff98986e145c71311be1"
+  },
+  "new_closed_runs": [
+    {
+      "name": "chapter03-count-rank-use-focused-attempt1-20261105",
+      "candidate": "2ff47bdad9f822727fb2d1ea86092c4b26ad0cb6",
+      "exit": 0,
+      "owned_session": 36596,
+      "terminal_tool_chunk": "cc4e3c",
+      "full_log_bytes": 1100,
+      "full_log_sha256": "f45b35a2242a252538f6c5ca2450abcdd2c37aaeb844deb1660b56acc92ba330"
+    },
+    {
+      "name": "chapter03-count-rank-use-statements1-attempt1-20261105",
+      "candidate": "2ff47bdad9f822727fb2d1ea86092c4b26ad0cb6",
+      "exit": 0,
+      "owned_session": 10933,
+      "terminal_tool_chunk": "12dbf7",
+      "full_log_bytes": 1005,
+      "full_log_sha256": "f09d3132d19b7cfbf82894d5ff76eb6b97cedc71992629f2c7b66f82082e62da"
+    }
+  ],
+  "closed_run_total": 101,
+  "new_public_names": 1,
+  "focused_evidence_public_names": 1345,
+  "modules": 76,
+  "latest_receiver_comment_only_delta_not_compiled": true,
+  "complete_receiving_candidate_check_or_type_qualification": false,
+  "independent_resolutions": {
+    "provenance/chapter03-spec-review-20261104/finding-C03-SPEC-USE-001-resolution1.json": {
+      "bytes": 5432,
+      "sha256": "4529ac45f11eec4c0346f70a51f0526f2f41ec690d199f7175931a1ca8387d3c"
+    },
+    "provenance/chapter03-standards-review-20261104/count-rank-use-resolution-2ff47bda.json": {
+      "bytes": 4664,
+      "sha256": "acd005dd7d3bbb8979f251281b114830508414693b09d8fdab46dc303e1fb91f"
+    },
+    "provenance/chapter03-standards-review-20261104/minimum-pivot-comment-resolution-4c96dc0b.json": {
+      "bytes": 2225,
+      "sha256": "398d5088b38b1ce34ced182b9ce0f54c63d0bf7018d7f59a6c66fe94e3b880ed"
+    }
+  },
+  "resolution_readback": "d4ab73",
+  "C03_SPEC_USE_001": "Resolved by both independent axes at exact2ff; byte-identical repair retained in4c96.",
+  "C03_STD_DOC_001": "Resolved by originating Standards axis at exact4c96; complete Spec successor assessment remains part of full scope.",
+  "independent_axes_overall": "Blocked; incomplete full scope and final validation.",
+  "universal_endpoint_family": "Author actively implementing every-distinct-input/every-valid-rank structural endpoint trace, factorial probability, triangular W and unbounded actual source-cost family. No compiled result yet.",
+  "prior_full_audit_failure_unchanged": true,
+  "chapter03_accepted": false,
+  "compiler_currently_owned": false,
+  "durable_checkpoint": "0135",
+  "local_duplicate_cleanup": "provenance/checkpoint0135-local-archive-retirement-20261105/result.json"
+}

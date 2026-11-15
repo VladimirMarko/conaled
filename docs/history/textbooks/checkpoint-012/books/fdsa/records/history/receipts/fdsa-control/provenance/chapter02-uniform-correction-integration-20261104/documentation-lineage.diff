@@ -1,0 +1,18 @@
+diff --git a/docs/research/fdsa-sorting.md b/docs/research/fdsa-sorting.md
+index ad7be77..d2fc961 100644
+--- a/docs/research/fdsa-sorting.md
++++ b/docs/research/fdsa-sorting.md
+@@ -55,6 +55,13 @@ example corrections `b87e4e05d89d774a3e217d0fafd271bee4a9cd9a` and
+ `47f66dccc414d41bddf0dc6576a2338227ee221e`, and numerical mean correction
+ `e0df28b7bbfa722b25623606a5a1905620fac91e`, retain their stated observations.
+ 
++Uniform-input correction `aa89aeccf7e06cd046b4f3c5c430631d4ea73b5b` names
++the original measure and the rank/sum/cast applications explicitly. Twelve
++scoped omissions remove irrelevant section instances, and the intended pairwise
++disjoint-event relation is written explicitly. The actual algorithm, conditional
++mean route, occurrence transport and connected examples are retained; matching
++successor elaboration and statement inspection remain required.
++
+ Focused attempt 5 at `c0440a99c2a503b7816a44367f7e4168378dbbf1` (C) and
+ attempt 6 at M2 both closed with exit 1. Attempt 6 individually built the
+ conditional-tail core and numerical mean core/examples; its natural-operation

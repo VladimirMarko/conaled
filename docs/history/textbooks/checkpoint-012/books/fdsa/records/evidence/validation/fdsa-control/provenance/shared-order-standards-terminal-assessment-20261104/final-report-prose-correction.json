@@ -1,0 +1,24 @@
+{
+  "recorded_utc": "2026-11-04T15:49:51.893129+00:00",
+  "scope": "Final reviewer report prose only; preserves XU02-SP01 semantic distinction",
+  "root_readback_tool": "4c8c50",
+  "prior_report": {
+    "bytes": 15619,
+    "lines": 97,
+    "sha256": "cb39cc1846cc36069e4c58e85b339ba2db025cec7a35e06bf7a728e9b63e7ba0"
+  },
+  "corrected_report": {
+    "path": "reviews/permutation-order-standards-final-20261104.md",
+    "bytes": 15675,
+    "lines": 97,
+    "sha256": "27379408402ad18d6c5e401f2c4e3854263d0a386ee5161759875a7be21b8d10"
+  },
+  "old_phrase": "the spaced numeric-priority example retains the increasing and non-increasing cases.",
+  "new_phrase": "the spaced numeric-priority example retains the increasing numeric enumeration and the ordinary enumeration that is not strictly increasing.",
+  "exact_single_replacement_verified": true,
+  "reason": "Not strictly increasing is not the assertion non-increasing or descending. The actual source and full type establish the former.",
+  "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "Lean_source_or_actual_evidence_changed": false,
+  "compiler_rerun": false,
+  "previous_final_receipt_sha256": "f10fd0a7e5b617794c5006e6ff5905ecf0a53823adcc137bc4fc9f28a4bc33b2"
+}

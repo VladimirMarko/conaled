@@ -1,0 +1,67 @@
+{
+  "recorded_utc": "2026-11-04T20:29:11.335928+00:00",
+  "disposition": "HELD for root focused compilation; all own source/provenance writes stop until explicit release.",
+  "candidate": "cafc71bef2e2779407944cb04089b9b3b14a13dc",
+  "tree": "8ede72c00df8a44b50fcedb49c219d9090c7df26",
+  "status": "",
+  "scope": [
+    "C03-056"
+  ],
+  "targets": [
+    "Applications.Selection.MedianCounterfamily",
+    "Examples.MedianCounterfamily"
+  ],
+  "new_public_names": 42,
+  "new_private_helpers": 0,
+  "all14_current_source_identities_verified": true,
+  "prior12_source_files_byte_identical": true,
+  "combined_author_public_names": 323,
+  "combined_named_private_helpers": 6,
+  "artifacts": [
+    {
+      "path": "counterfamily-candidate1.json",
+      "bytes": 8277,
+      "sha256": "5e5c4cf6702497be3c0e196571ca08d870bfd32726df18c6baa5a24bf204cda9"
+    },
+    {
+      "path": "counterfamily-inventory.json",
+      "bytes": 25025,
+      "sha256": "b60bdac313f5242770b0c66834e283ed45bef16627e7c0d3b95b7e9351ea0955"
+    },
+    {
+      "path": "MedianCounterfamilyStatements.lean",
+      "bytes": 3108,
+      "sha256": "41fd267a3eee8197b61856c4a6ed0f588fabfcd07b3365b658c197de254d6c20"
+    },
+    {
+      "path": "counterfamily-review-note-v2.md",
+      "bytes": 10480,
+      "sha256": "65adb558f5a740edf780b6fdb68067dc25bfedd99cedb77925eb866add3e0e9f"
+    },
+    {
+      "path": "counterfamily-documentation-correction1.json",
+      "bytes": 1136,
+      "sha256": "c8f867f1acd8b91f096faf20a134eed67d40affaaf6d6deff1c5f1872bec3eae"
+    }
+  ],
+  "readbacks": {
+    "closed_previous_median_reduction_success": "50e471",
+    "source_complete_initial": "6104d7",
+    "source_precommit_correction_diff": "46957f",
+    "source_complete_final_and_clean_candidate": "b6e62a",
+    "all42_headers_and_type_program": "1806c0",
+    "complete_assessment_original": "908686",
+    "complete_candidate1": "cd39aa",
+    "single_hunk_corrected_reference": "43aa6f"
+  },
+  "validation": "No author compiler/type command. No counterfamily terminal result received; focused validation is pending. All actual-type/full-check/audit/independent-review/immediate-verification gates remain.",
+  "statement_review": "Complete42-name source/case assessment preserved in v2; only a clerical plan section reference changed from the original note, which remains preserved.",
+  "remaining_assigned": [
+    "C03-055 actual cutoff bridge",
+    "C03-057 connected generic pivot applications",
+    "C03-058 generalized algorithm termination/correctness bridges after authorized worker handoff"
+  ],
+  "root_owned_excluded": "C03-058 scalar group-coefficient and affine-majorant arithmetic",
+  "canonical_chapter_rows": 83,
+  "acceptance_claimed": false
+}

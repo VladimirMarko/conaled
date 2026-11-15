@@ -1,0 +1,21 @@
+{
+  "recorded_utc": "2026-11-04T07:58:51.146008+00:00",
+  "candidate": "a111774b7b393cf462029fec8d16e8b6ff1b0089",
+  "scope": [
+    "Applications/Resources/RandomQuickSortRank.lean"
+  ],
+  "read_complete": [
+    "all279 closed rank diagnostic lines",
+    "full169-line proof and parenthesis diff",
+    "complete94-line author findings",
+    "complete seven before/after headers",
+    "complete receipt"
+  ],
+  "all37_intended_contracts_preserved": true,
+  "syntactic_header_deltas": 7,
+  "compiled_type_equivalence_claimed": false,
+  "mathematical_findings": [],
+  "assessment": "Explicit indexed-value parentheses retain the selected occurrence/key/predicate/comparator; source universes, mapped-key Nodup, actual erased child filters and PMF law remain unchanged. Fully qualified Equiv.sum_comp selects all-Fintype reindexing for the same permutations. Fin-to-range rewrites remove dependent-domain simplification before the existing length equality. Only compiler-reported no-op change is removed. Source31-growth and18-rank examples remain byte-identical.",
+  "validation": "Uncompiled preserving correction; every actual next diagnostic and all full gates remain.",
+  "independent_acceptance_review": false
+}

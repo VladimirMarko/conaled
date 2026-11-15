@@ -1,0 +1,79 @@
+{
+  "created_utc": "2026-11-03T03:32:28.217078+00:00",
+  "ticket": 10022,
+  "base": "577be121e074ddb5de6727a7481c115cb61b3b27",
+  "original_integration_base": "577be121e074ddb5de6727a7481c115cb61b3b27",
+  "merge_base": "577be121e074ddb5de6727a7481c115cb61b3b27",
+  "candidate": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+  "candidate_ref": "refs/heads/pfds/body-counts-review-r1",
+  "checkout": "body-counts",
+  "checkout_branch": "pfds/body-counts",
+  "clean": true,
+  "isolation": "Existing dedicated local10022 worktree, separate from main and every other gate; all authors frozen. It now serves as the immutable candidate validation materialization. Reviews read captured Git bytes. No extra duplicate checkout is needed; no live task or unrelated edits are excluded.",
+  "commits": [
+    "2a33089d30fd2514b6fd601c275e438b41302f0b feat(suspensions): develop conditional body-entry accounting (#10022)",
+    "cf3a9750ded32e9f876556794518771a6e92e882 fix(suspensions): complete body-observation proof normalization (#10022)",
+    "6971fd2a9647d077594ad66f24b5d0f29641cc5b fix(suspensions): finish only remaining handler-prefix goals (#10022)",
+    "5e048f781aa04be9ce993f1e7455bdc82df22bff fix(suspensions): reuse explicit body-count and list-length laws (#10022)"
+  ],
+  "files": [
+    "Applications/Suspensions/BodyAccounting.lean",
+    "Applications/Suspensions/BodyRealization.lean",
+    "Applications/Suspensions/EventCounts.lean",
+    "Applications/Suspensions/PendingRetention.lean",
+    "Applications/Suspensions/Pure/BodyCounts.lean",
+    "Examples/SuspensionBodyRealization.lean",
+    "Examples/SuspensionEventCounts.lean",
+    "Examples/SuspensionPendingRetention.lean",
+    "Examples/SuspensionPureBodyCounts.lean",
+    "SquareApplications.lean",
+    "docs/research/pfds-body-counts.md"
+  ],
+  "file_sha256": {
+    "Applications/Suspensions/BodyAccounting.lean": "e068f898e5a01e96426dc4d9fae0acd9686e2d6acbd3ad3235c6417c8fc8a84d",
+    "Applications/Suspensions/BodyRealization.lean": "b0174e8fbb3631010d22b9431e2f8d1f46326730a4d8628d8ed3bdb7471db2bb",
+    "Applications/Suspensions/EventCounts.lean": "f4ba91c590f6482deffabbf67c88853960f2ae4ff60587079e89414ffba73332",
+    "Applications/Suspensions/PendingRetention.lean": "a0d1a2bf2d6d076098327255852cebf8d75a6a771b95202e87ae2a1f8a78097d",
+    "Applications/Suspensions/Pure/BodyCounts.lean": "bb02cc83b9dfa0ab797936df9d325f1300b4c077ad751577bf22ce211ea4040b",
+    "Examples/SuspensionBodyRealization.lean": "2aed95a1b467bb196578009e16cf02c429e0f153a3da1b7b22d796661b2a4abb",
+    "Examples/SuspensionEventCounts.lean": "77d8f182ba1b382cd9e1a5e7306b1b2942bd1096e428efbab137f871f3725ce0",
+    "Examples/SuspensionPendingRetention.lean": "84a6048b63a692d7c719863eb4ed385aeb290ee759363f73744a746773b8549d",
+    "Examples/SuspensionPureBodyCounts.lean": "a4ba47686f06e89bbe7d39554a486ed89fe6fe5b471b9472ba22405e436f1d8f",
+    "SquareApplications.lean": "c36098548928546247cdffaf3bc45c257b7b705da1e7b60863e75dfd1c0ddbbc",
+    "docs/research/pfds-body-counts.md": "43e9c42c868393fcb041c344e5f31f39bd47f67b168b5b430f35ca9b6b71e77c"
+  },
+  "exclusions": [],
+  "requirements": "requirements/body-entry-counts.md",
+  "requirements_version": 1,
+  "requirements_sha256": "1483d8bfc4470c4aa700c809209b3083db89fa713def40821e1968d9e3ce2a58",
+  "focused_validation": {
+    "record": "validation/body-entry-counts-r5.json",
+    "record_sha256": "f2964a36e01bbcff0f68b66fb8755b97faa8a29d3f2c6d6ce46c301936175671",
+    "log": "validation/body-entry-counts-r5.log",
+    "log_sha256": "0d07a51ee2fe2f4c720f16869c39d76918ba5870f73dd51fb6b77b5dce9ce39e",
+    "targets": [
+      "Applications.Suspensions.EventCounts",
+      "Applications.Suspensions.PendingRetention",
+      "Applications.Suspensions.BodyAccounting",
+      "Applications.Suspensions.Pure.BodyCounts",
+      "Applications.Suspensions.BodyRealization",
+      "Examples.SuspensionEventCounts",
+      "Examples.SuspensionPendingRetention",
+      "Examples.SuspensionPureBodyCounts",
+      "Examples.SuspensionBodyRealization"
+    ],
+    "inputs": 71,
+    "all_inputs_unchanged": true,
+    "exit_code": 0,
+    "ended_at": "2026-11-03T03:31:14.967932+00:00",
+    "coverage": "All five new cores and four connected clients,971 jobs; not full project source policy/integration build/audit or acceptance."
+  },
+  "prior_failed_rounds": [
+    "validation/body-entry-counts-r1.json",
+    "validation/body-entry-counts-r2.json",
+    "validation/body-entry-counts-r3.json",
+    "validation/body-entry-counts-r4.json"
+  ],
+  "own_full_gate": "pending accepted577 and recreated exact predecessor materialization",
+  "acceptance": false
+}

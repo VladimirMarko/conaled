@@ -1,0 +1,37 @@
+{
+  "utc": "2026-11-04T08:41:09.955717+00:00",
+  "accepted": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "source_writers": "All source/ref/report/control writers held; foundation Standards and Spec supplementary reads only. Two owned builder logs may grow.",
+  "live_runs": [
+    {
+      "name": "chapter02-foundation-full-attempt2-recovered-20261104",
+      "session_id": 71528,
+      "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "clean": true,
+      "result_exists": false,
+      "log_snapshot_bytes": 324697,
+      "log_snapshot_sha256": "acebdb1ba075d40b1319984dc5844be67df6e0b2a279315a4333f56f5de7303e",
+      "interpretation": "Growing prefix only. No terminal result inferred; saved execution IDs are historical after restore and cannot be resumed without actual live ownership."
+    },
+    {
+      "name": "chapter02-corrected-sorting-focused-20261104-attempt7",
+      "session_id": 27917,
+      "candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+      "clean": true,
+      "result_exists": false,
+      "log_snapshot_bytes": 22317,
+      "log_snapshot_sha256": "e0b3407835e54c267ae70f78f3e79b639c3c8c43dba0e6ee1d8c0c9fdfd36324",
+      "interpretation": "Growing prefix only. No terminal result inferred; saved execution IDs are historical after restore and cannot be resumed without actual live ownership."
+    }
+  ],
+  "closed6": {
+    "candidate": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+    "exit": 1,
+    "log_bytes": 48390,
+    "log_sha256": "4d18122cfbe8698979673c10b4bdf76b0fb7442d48f75882b95d89c6bae1aa95",
+    "secured_terminal_exists": true,
+    "session_1340_closed": true
+  },
+  "available_bytes": 18086146048,
+  "final_hold_utc": "2026-11-04T08:44:40.744094+00:00"
+}

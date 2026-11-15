@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T18:39:37.523589+00:00",
+  "candidate": "5433d48eeba0d3ac27460e4d7b23ad41e26c64d2",
+  "terminal": {
+    "recorded_utc": "2026-11-04T18:39:37.523501+00:00",
+    "owned_session": 13397,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "11309d",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "5433d48eeba0d3ac27460e4d7b23ad41e26c64d2"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-focused-attempt2-20261104/full.log",
+    "bytes": 7007,
+    "sha256": "bb812ede5f65ad3125eb61240c82382f771b7e1aaa842a34404e8e6ee64ef10d"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T183848Z-project-run-a09e99d2",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-focused-attempt2-20261104/native-records/start.json",
+      "bytes": 475,
+      "sha256": "018a3f7c0da83392aab385702d21fc50e5a4be9a2678f7433ad7790704e64b83"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-focused-attempt2-20261104/native-records/result.json",
+      "bytes": 629,
+      "sha256": "1aea762ebb725e117648d10857308dd9486af33fc31d1f914527b5c4db25ee5a"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-focused-attempt2-20261104/native-records/output.log",
+      "bytes": 6733,
+      "sha256": "ba0e9e917a597b29c7875cf121d471e65100edeba271377c398ff74942e7f23c"
+    }
+  },
+  "native_body_exact_outer_offset": 117,
+  "complete_closed_log": true,
+  "scope": "Focused RandomSelection development failed; no full C3 acceptance/audit/type qualification.",
+  "verification_record_candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

@@ -1,0 +1,46 @@
+{
+  "observed_utc": "2026-11-04T02:28:10.621715+00:00",
+  "last_heartbeat": {
+    "schema": 1,
+    "recorded_utc": "2026-11-04T02:22:14.246900+00:00",
+    "sequence": 116,
+    "elapsed_seconds": 3450.041462666999,
+    "child_poll_returncode": null
+  },
+  "last_completed_module": [
+    "191",
+    "SquareKit.SmoothPrincipalOverlap",
+    "60.81"
+  ],
+  "run": {
+    "schema": 1,
+    "state": "running",
+    "started_utc": "2026-11-04T01:24:44.205436+00:00",
+    "recorder_pid": 2,
+    "child": {
+      "pid": 4,
+      "process_group": 4,
+      "session": 4
+    },
+    "child_returncode": null,
+    "child_status": "unreaped",
+    "recorder_outcome": null,
+    "recorder_exit_code": null,
+    "interrupt_signal": null,
+    "descendant_quiescence_verified": false,
+    "errors": [],
+    "cleanup": null
+  },
+  "child_log_mtime_utc": "2026-11-04T02:21:58.968292+00:00",
+  "verification_record_exists": false,
+  "raw_evidence_sha256": {
+    "run.json": "fe347dc931d6717f4074c504f47f9d4130fd8dfa7209626b50e933bfb980db73",
+    "heartbeat.log": "f03f8088766b9421c5581cc33ea1f8dba998352dbf10d18c6767460f8ef649c2",
+    "child.log": "0b0cfa92ad83c4ca6bd1b46bc6477105a16736017ff301972d95216c7860f75b"
+  },
+  "control_probe": {
+    "started_utc": "2026-11-04T02:24:08.553185+00:00",
+    "signal_received": null,
+    "scope": "Bounded20-second test of documented write_stdin bytes on a new owned non-PTY session; no actual validation process is targeted."
+  }
+}

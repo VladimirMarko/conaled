@@ -1,0 +1,54 @@
+{
+  "recorded_utc": "2026-11-03T16:49:40.909176+00:00",
+  "reviewer": "recovery_environment",
+  "scope": "Independent focused technical assessment of native executable-path compatibility and launcher; not the Standards/Spec axes and not formal project acceptance.",
+  "snapshot_repository": "/workspace/scratch/6bb268f9336f/environment-review-0068",
+  "review_base": "900614e27f7d3dfffd9a29139884a8f1a4fce8d3",
+  "candidate": "9f673480206912d7df4a1dcc2b09ca7527bb0275",
+  "source_candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "outcome": "No concrete kernel-integrity or launcher-boundary blocker found within the documented stable absolute-ELF launch contract.",
+  "blocking_findings": [],
+  "live_snapshot_bindings": {
+    "tooling/native_toolchain.py": "23fc2cac34d82e882a164850ada16304f1dce66fb60675479814dc6e0e4881b2",
+    "tooling/native/app_path_compat.c": "80c1d0e92d7c5c258f32ce3709736bf969c6a24148287f99b238324d7bfbcfb6",
+    "tooling/native/libapp_path_compat.so": "65910335cb5a2a4359e9ebf7dae4de1da7a48cdbf9dee5eabe82c3e4b02d88a9"
+  },
+  "assessment": [
+    "The library first calls the actual SYS_readlink. It only synthesizes a result after ENOENT and exact matching of its own numeric-PID exe path or /proc/self/exe. Other paths and other errors return their actual syscall result; the prior errno is restored on fallback failure.",
+    "The fallback uses the process auxiliary vector AT_EXECFN, requires an absolute path, canonicalizes it, verifies readable ELF magic, and implements truncation without adding a NUL. It does not read another process, create proc entries, or alter host privileges or isolation.",
+    "The adapter checks exact source, compatibility-library, official Lean and official Lake digests; rejects unexpected preexisting LD_PRELOAD or LD_AUDIT; resolves its initial command to an absolute path; and applies the compatibility environment only to that command and descendants.",
+    "Recorded native Lake child-path and normal check.sh-entrypoint tests exercise the actual launch routes. Relative-ELF and interpreted-script probes correctly receive no synthetic result. Explicit dynamic-loader launches and replaced/deleted executables are outside the documented stable-path contract.",
+    "The additional loader library is a disclosed runtime trust component. Its sole exported global function is readlink; source and symbol evidence show no theorem-checking, axiom-audit, serialization, compiler-identity, or exit-result interception. Identical small-proof outputs support the setup but are not a proof of whole-program equivalence or chapter acceptance."
+  ],
+  "evidence_read": [
+    "reviews/environment-native-snapshot.json",
+    "provenance/native-environment-20261103/native-smoke-results.json",
+    "provenance/native-environment-20261103/readlink-results.json",
+    "provenance/native-environment-20261103/launch-boundaries.json",
+    "provenance/native-environment-20261103/native-library-build.json",
+    "provenance/native-cache-get-20261103/result.json"
+  ],
+  "validation_assessment": {
+    "recorded_final_smoke_commands": 10,
+    "all_recorded_final_smoke_exits": 0,
+    "both_proof_artifacts_sha256": "fbf279c5128799661a3f3087d27f139d4da4944e9061ae0c522fce3af38bb980",
+    "both_proof_artifacts_match_qemu": true,
+    "recorded_cache_exit_code": 0,
+    "recorded_cache_elapsed_seconds": 70.79089929800102,
+    "tests_rerun_by_assessor": false
+  },
+  "pinned_thread_behavior": {
+    "compiled_runtime": "runtime/object.cpp get_lean_num_threads reads LEAN_NUM_THREADS for lean_init_task_manager; this affects compiled tools such as Lake.",
+    "lean_cli": "Lean/Shell.lean defaultNumThreads uses hardware concurrency; mkShellOptions supplies that default; util/shell.cpp constructs scoped_task_manager from the parsed shell option. Lean CLI selects its task-manager worker count through supported -j/--threads, not this environment variable.",
+    "lake_spawn": "Lake.Build.Module.buildLean passes configured weakLeanArgs plus leanArgs; compileLeanModule adds outputs/setup/JSON arguments and overrides LEAN_PATH. No automatic -j argument or independent Lake --jobs option is present in the pinned path.",
+    "qualification": "LEAN_NUM_THREADS is not a hard global child-process cap. The r1/r2 cache result compares differing Lake runtime settings and does not establish four compiler workers versus one, or prove the cause of the QEMU stall.",
+    "primary_thread_header": "https://raw.githubusercontent.com/leanprover/lean4/eb6cafb7290e8bd5f2937522d8d804f58f02bafc/src/runtime/thread.h"
+  },
+  "operational_observation": {
+    "observed_utc": "2026-11-03T16:48:50.533743+00:00",
+    "workspace_free_bytes": 1426087936,
+    "note": "Concrete remaining disk-space consideration before large project output generation, especially given retained ENOSPC history. This is not a native compatibility correctness finding."
+  },
+  "formal_acceptance_credit": false,
+  "mutations_during_assessment": "Only this assessment record was created. No environment/source/cache/adapter edits, compiler invocation, or repeated tests."
+}

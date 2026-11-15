@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-03T20:04:53.910165+00:00",
+  "scope": "Read-only source recovery and continuation orientation; no formal acceptance or chapter activation.",
+  "book": {
+    "title": "Functional Data Structures and Algorithms: A Proof Assistant Approach",
+    "edition": "Version of July 27, 2026",
+    "url": "https://fdsa-book.net/functional_data_structures_algorithms.pdf",
+    "workspace_pdf": "/workspace/scratch/31d6377eca78/research-source/functional_data_structures_algorithms.pdf",
+    "retrieval_command": [
+      "curl",
+      "--fail",
+      "--location",
+      "--max-time",
+      "90",
+      "--output",
+      "/workspace/scratch/31d6377eca78/research-source/functional_data_structures_algorithms.pdf",
+      "https://fdsa-book.net/functional_data_structures_algorithms.pdf"
+    ],
+    "retrieval_exit_code": 0,
+    "bytes": 1742029,
+    "expected_sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645",
+    "actual_sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645",
+    "sha256_matches": true,
+    "pdf_pages": 382,
+    "version_page_text_checked": true,
+    "reading_copies": [
+      {
+        "path": "/workspace/scratch/31d6377eca78/research-source/chapter01.txt",
+        "printed_pages": "1-10",
+        "pdf_pages_one_based": "7-16"
+      },
+      {
+        "path": "/workspace/scratch/31d6377eca78/research-source/chapter02.txt",
+        "printed_pages": "13-29",
+        "pdf_pages_one_based": "19-35"
+      }
+    ],
+    "checkpoint_policy": "Exclude the PDF and all extracted book text; recover from the official URL and require this exact SHA-256 before use."
+  },
+  "chapter01": {
+    "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "review_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+    "requirements": [
+      "reviews/chapter01-requirements.md",
+      "reviews/chapter01-cost-model-requirements.md"
+    ],
+    "pending": "Root-owned full matching candidate validation/audit, existing independent Standards and Spec final reviews, immediate verify-candidate and acceptance checkpoint. No substantive requirement added here.",
+    "source_blocker": null
+  },
+  "chapter02": {
+    "state": "queued until Chapter 1 acceptance",
+    "exact_initial_prefix": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+    "common_base_with_repair": "1aabd512284fe86254278ac631eda061d311050b",
+    "prefix_files": [
+      "Applications/Resources/InsertionSort.lean",
+      "Applications/Resources/ListCalls.lean",
+      "Examples/FunctionalNotation.lean",
+      "Examples/InsertionCosts.lean",
+      "Examples/ListCalls.lean",
+      "Examples/ListLibrary.lean",
+      "SquareApplications.lean",
+      "docs/research/fdsa-notation-map.md",
+      "docs/research/fdsa-reconstruction-map.md"
+    ],
+    "shared_paths_with_repair": [
+      "SquareApplications.lean",
+      "docs/research/fdsa-reconstruction-map.md"
+    ],
+    "current_obligation_count": 112,
+    "original_frozen_obligation_count": 107,
+    "scope_reconciliation": "Retain C02-001 through C02-107 and the explicit C02-088 clarification C02-108 through C02-112. Frozen original requirements are not overwritten.",
+    "initial_integration": "After Chapter 1 acceptance, preserve both histories and merge exact prefix P onto the accepted repair, resolving the two recorded shared files. If accepted repair differs from R, reassess the actual delta. Do not substitute a later shared branch tip.",
+    "prioritized_next_obligations": [
+      "Accept the minimal shared insertion/list-call/list-library/notation foundation prefix under the retained combined-foundation requirements and gates.",
+      "Connect standard sortedness/permutation/multiset contracts and insertion observations; retain the source tie branch and sortedness converse.",
+      "Establish merge input sublists/converse and measured comparisons, then the floor-left top-down source sorter and connected odd-length counterexamples to transferring library counts.",
+      "Implement source two-way quicksort and the specified call tariff, then accumulator and three-way exercises with their own source/value bridges.",
+      "Implement ordinary and tail bottom-up passes, natural runs using DList, explicit logarithm/resource bridges and the selected stable keyed solution.",
+      "Discharge average-input and randomized-pivot claims through distinct-key finite occurrence/permutation distributions and actual costs; retain the all-equal quadratic boundary.",
+      "Discharge C02-108 through C02-112: exact scan best case and separate append/cons/reverse, closure construction/materialization, and actual scanner operational bounds."
+    ],
+    "no_scope_reduction": true
+  },
+  "control_record_identities": {
+    "REQUEST.md": {
+      "bytes": 7061,
+      "sha256": "020aad6df71bafb45b4e6624c03e52383ed0a6dbe152b2e574246b1747af91c0"
+    },
+    "reviews/chapter01-requirements.md": {
+      "bytes": 2672,
+      "sha256": "7b7ce18bcfe9bb888ac9e99810a1095a823f9a67dbb54717c5bf673017a890ba"
+    },
+    "reviews/chapter01-cost-model-requirements.md": {
+      "bytes": 9471,
+      "sha256": "1b88c327e465db8d1575d0af086e0b954fb0a21b393f145ae89f630d361914a1"
+    },
+    "research/chapter01-obligations.md": {
+      "bytes": 7643,
+      "sha256": "bff50cca69043edf08e8941745b70af62296f0e492d735c006f959010950671e"
+    },
+    "reviews/chapter02-requirements.md": {
+      "bytes": 12034,
+      "sha256": "f0c9bc939fbfb6da02c1734b121456c35fd6b4c9ee43f1284003d0b8db087a36"
+    },
+    "research/chapter02-obligations.md": {
+      "bytes": 42539,
+      "sha256": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2"
+    },
+    "research/chapter02-reuse-plan.md": {
+      "bytes": 31586,
+      "sha256": "ad652aa94f5cb4e0d00db58ffc8a7411c41deb582f35979a860a25c7d3c3454a"
+    },
+    "research/scope-reconciliation.md": {
+      "bytes": 14441,
+      "sha256": "21de30d9c317dadc2cb8aee51ea84ca26f74c8208b754feea57d81140c1a3e87"
+    },
+    "reviews/shared-integration-preflight.md": {
+      "bytes": 24778,
+      "sha256": "e1d9c119e2bca35bbbd283eb47d05330f35d7e548f92e063eeebe7d4d53552eb"
+    },
+    "reviews/chapter02-prefix-source-reconciliation.md": {
+      "bytes": 19719,
+      "sha256": "a563f8001a86326ed124ad0097aab0ea6b652e21ddfbc9e7203a3c934158dd1a"
+    },
+    "reviews/chapter02-prefix-source-compatibility.md": {
+      "bytes": 24435,
+      "sha256": "0c1945c23f9d3374cda1a4f98083fc2c31309e1310486e2fb8ea9ae150fd1577"
+    },
+    "reviews/chapter02-prefix-preparation-assessment.md": {
+      "bytes": 2789,
+      "sha256": "4a3203f984faf7280cc7b5f5f90591f39cffcdd943b9f2490aa1a205d173481c"
+    }
+  },
+  "limitations": [
+    "This is provenance and orientation only, not final statement review of all proofs.",
+    "Only the official book PDF was re-fetched. Isabelle/AFP source revisions and licenses remain recorded in retained manifests and must be reverified if needed for later source translation.",
+    "No repository source/index/ref, dependency cache, build, toolchain, ticket state or external artifact was changed by this subtask."
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "recorded_utc": "2026-11-04T10:45:35.561701+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete81-path review scope, all112 obligations and ten shared scopes.",
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "chunks": [
+    {
+      "chunk": 21,
+      "type_numbers": [
+        323,
+        340
+      ],
+      "native_lines": [
+        5282,
+        5539
+      ],
+      "bytes": 19967,
+      "names": [
+        "Resources.UniformQuickSortMean.children_disjoint",
+        "Resources.UniformQuickSortMean.children_union",
+        "Resources.UniformQuickSortMean.children_card",
+        "Resources.UniformQuickSortMean.leftChild_card_lt",
+        "Resources.UniformQuickSortMean.rightChild_card_lt",
+        "Resources.UniformQuickSortMean.observedCost",
+        "Resources.UniformQuickSortMean.left_filter_on_first",
+        "Resources.UniformQuickSortMean.right_filter_on_first",
+        "Resources.UniformQuickSortMean.observedCost_on_first",
+        "Resources.UniformQuickSortMean.meanBy",
+        "Resources.UniformQuickSortMean.integrable_observedCost",
+        "Resources.UniformQuickSortMean.firstEvent_positive_finite",
+        "Resources.UniformQuickSortMean.integrable_observedCost_cond",
+        "Resources.UniformQuickSortMean.meanBy_empty",
+        "Resources.UniformQuickSortMean.meanBy_singleton",
+        "Resources.UniformQuickSortMean.observedCost_of_all_false",
+        "Resources.UniformQuickSortMean.meanBy_of_all_false",
+        "Resources.UniformQuickSortMean.child_integral_cond"
+      ],
+      "sha256": "7e86e27a7546d441a46ca91b6edc3c6e440cdac8f194f7771749066ab3241326",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "Complementary children are disjoint and union to S.erase a for arbitrary comparator; their cardinal sum is card(S)-1 and each is smaller only under a in S.",
+        "Observed cost is a real-valued function of the actual restricted order and original permutation. Both actual child filters agree pathwise on the first event with restrictions of that same permutation. Cost splits as the two child costs plus Nat-cast toll4*(card(S)-1)+3 under complete Nodup positions.",
+        "Integrability under the original uniform permutation law requires completeness and measurable singleton structure. Conditional integrability retains positive finite first-event mass and holds for any observed subset T; the stronger conditional expectation identity explicitly requires T subset of S.erase a.",
+        "The empty/singleton means are1/5 with the intended enumeration conditions; all-false comparator statements are local to pairs inside S and preserve exact quadratic2*card(S)^2+2*card(S)+1, both pathwise and in expectation.",
+        "child_integral_cond equates the actual integral under the original head-conditioned measure to meanBy(T); no independence premise or independently chosen child sample is present."
+      ]
+    },
+    {
+      "chunk": 22,
+      "type_numbers": [
+        341,
+        352
+      ],
+      "native_lines": [
+        5540,
+        5815
+      ],
+      "bytes": 19541,
+      "names": [
+        "Resources.UniformQuickSortMean.conditional_mean",
+        "Resources.UniformQuickSortMean.firstEvents_disjoint",
+        "Resources.UniformQuickSortMean.firstEvents_cover",
+        "Resources.UniformQuickSortMean.first_integral",
+        "Resources.UniformQuickSortMean.meanBy_recurrence",
+        "Resources.UniformQuickSortMean.injOn_leftChild",
+        "Resources.UniformQuickSortMean.injOn_rightChild",
+        "Resources.UniformQuickSortMean.restrictedOrder_keys_nodup",
+        "Resources.UniformQuickSortMean.mem_rightChild_key",
+        "Resources.UniformQuickSortMean.rankEquiv",
+        "Resources.UniformQuickSortMean.rankEquiv_key",
+        "Resources.UniformQuickSortMean.leftChild_key_image"
+      ],
+      "sha256": "37401f92e97b2a224d3716d7ce30246a544b6296c2b3b28da76b4288d6932c02",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The conditional mean is the integral of the original observed cost under the actual first-event-conditioned law, equal to both child means plus the operational toll. It relies on the separately established integrability and marginal-law results, not a joint-independence assumption.",
+        "firstEvents_disjoint is the intended Set.Pairwise relation on S of disjoint head events. firstEvents_cover requires nonempty S and complete Nodup positions. The restricted first-event integral includes the correct real weight1/card(S), while the conditional mean does not.",
+        "The full meanBy recurrence averages over every a in S and retains each actual child set and toll4*(card(S)-1)+3. This is a probability-connected recurrence, not a standalone numerical definition.",
+        "Key injectivity is local InjOn S and is inherited by either child. The observed key list is Nodup from local injectivity and Nodup positions, without requiring a global key injection.",
+        "For ordered keys, right-child membership becomes b in S and key(a)<key(b), under a in S and local injectivity. rankEquiv maps Fin(card S) to the actual subtype S and its key agrees with orderEmbOfFin of key image; the left-child key image is the corresponding mapped strict-lower rank interval."
+      ]
+    }
+  ],
+  "prior_progress_sha256": "a2209b1ec638461bf90a62155198bd70df6966e8c1d6209442916efd930c599b",
+  "overall_outcome": "Blocked",
+  "new_type_credit": 0,
+  "possible110_credit": 0
+}

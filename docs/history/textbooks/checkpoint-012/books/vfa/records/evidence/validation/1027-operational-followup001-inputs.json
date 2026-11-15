@@ -1,0 +1,131 @@
+{
+  "recorded_utc": "2026-11-02T14:52:57.798974+00:00",
+  "scope": "Bounded recorded-evidence and concrete recovery-guide follow-up within accepted #1027 loop; no source implementation change or new acceptance gate",
+  "approved_candidate": "a43cef4881d4eb303a81ef25f5ccff0b801a12fe",
+  "approved_tree": "27b06c3e118792cc5a27820540ce22d820ad3ca0",
+  "source_deltas": [],
+  "verified_unchanged_source_files": {
+    ".gitignore": {
+      "size_bytes": 19,
+      "sha256": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793"
+    },
+    "AMENDMENT.md": {
+      "size_bytes": 2924,
+      "sha256": "f66b1aa410d3476128c3bcfe2731034cb84505ca68d1fe304505e34a054c7651"
+    },
+    "README.md": {
+      "size_bytes": 9691,
+      "sha256": "69fc868da5fdb95d76a921f9376489aa5380e6c941bbacd0d25fb40dd32d1b18"
+    },
+    "cache_companion.py": {
+      "size_bytes": 31390,
+      "sha256": "2a4d913952c63670a8d350cded23ec18b4c764a4c658fb1567fcb7f33c11cd42"
+    },
+    "check_pinned_runtime.py": {
+      "size_bytes": 2123,
+      "sha256": "7d6843d33cc1a549cfa88974f84f5934c8d971efcacffa08a863d952671564e3"
+    },
+    "test_cache_companion.py": {
+      "size_bytes": 20543,
+      "sha256": "e891f9cc98279124d2cab95b1429f64090d245729cac0344efae1286fa467846"
+    },
+    "vendor/lake-output-hashes.lean": {
+      "size_bytes": 618,
+      "sha256": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b"
+    },
+    "vendor/lake_integrity.py": {
+      "size_bytes": 5781,
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f"
+    }
+  },
+  "inputs": {
+    "work-state/CACHE-RECOVERY.md": {
+      "size_bytes": 4392,
+      "sha256": "be39ebe8d6217d375936ff13d5f73ee5112b6ee824dc3a8316022076f55460ae"
+    },
+    "work-state/cache-companions.json": {
+      "size_bytes": 1044,
+      "sha256": "5a6049c6ad4f589e641cc541bf64a2e743ebda295aa6ddfaa92df54410157f74"
+    },
+    "work-state/validation/cache-companion001-source-binding.json": {
+      "size_bytes": 313,
+      "sha256": "933ef95c7660bc5c7cb3bbe3314d7f242714e92bcaf36bc37bc5e524b5e7b907"
+    },
+    "work-state/validation/cache-companion001-launch.json": {
+      "size_bytes": 1460,
+      "sha256": "0f8e5d497205f7461b53932b092786709109ad2606736141ada39bf8560c2818"
+    },
+    "work-state/validation/cache-companion001-attempt1.json": {
+      "size_bytes": 1460,
+      "sha256": "0f8e5d497205f7461b53932b092786709109ad2606736141ada39bf8560c2818"
+    },
+    "work-state/validation/cache-companion001-created.json": {
+      "size_bytes": 726,
+      "sha256": "6cf83fd69dc5072a84a2f3227337afb1dc60df9bf9543b793c1efb0c761d8212"
+    },
+    "work-state/validation/cache-companion001-upload.json": {
+      "size_bytes": 680,
+      "sha256": "93c84e6f49c7478af58d74447ee50af7f84f1951fe192db4078152a14b4d623d"
+    },
+    "work-state/validation/cache-companion001-upload-verification.json": {
+      "size_bytes": 815,
+      "sha256": "6e04efc60da9859292c15f0bbf7824574a8350ed73f6295f8107fd0e246bb5ac"
+    },
+    "work-state/validation/cache-companion001-capture.log": {
+      "size_bytes": 319,
+      "sha256": "07591a20ca6d2609b83bdfbb70ebff1067cfa8060ce5ce0903bc6cea84c9a52b"
+    },
+    "work-state/validation/checkpoint023-created.json": {
+      "size_bytes": 437,
+      "sha256": "d3680c5be553413eb4f34e8a5a0bea024774d0abb82a714f80968dad620524ef"
+    },
+    "work-state/validation/checkpoint023-upload.json": {
+      "size_bytes": 703,
+      "sha256": "90aeeecd8d273d3f8673859f74713b0f49256354d9f7889c85e07148ba702963"
+    },
+    "work-state/validation/1027-acceptance.json": {
+      "size_bytes": 2051,
+      "sha256": "736bf500005e21ac5072fa207f07b97cd59dc5d720afd84279cd1bb5e6996585"
+    },
+    "work-state/validation/1027-final-content-verification.json": {
+      "size_bytes": 2405,
+      "sha256": "66e8722e26c8846d3f2eb34dc5cfe48aeabe714220122bf4560a669495d691b9"
+    },
+    "work-state/specs/1027-cache-companion.md": {
+      "size_bytes": 9198,
+      "sha256": "9d46adc3d69359b29196a615865ce7503a1a073da007cec34dd187da15807f86"
+    },
+    "work-state/cache-companion/README.md": {
+      "size_bytes": 9691,
+      "sha256": "69fc868da5fdb95d76a921f9376489aa5380e6c941bbacd0d25fb40dd32d1b18"
+    },
+    "work-state/cache-companion/AMENDMENT.md": {
+      "size_bytes": 2924,
+      "sha256": "f66b1aa410d3476128c3bcfe2731034cb84505ca68d1fe304505e34a054c7651"
+    },
+    "work-state/reviews/1027-cache-companion-approved-a43cef4.md": {
+      "size_bytes": 22206,
+      "sha256": "f547a6c27fed94ee9275ca93f039371bc01cf4e99a0331053b3a8ff013ab29ef"
+    },
+    "work-state/validation/1027-operational-guide-before-order-fix.md": {
+      "size_bytes": 4392,
+      "sha256": "1688c27e7e79e8b8302d494a83717f8609e881823cb5460e378d056efa25eba1"
+    },
+    "work-state/tickets.json": {
+      "size_bytes": 70078,
+      "sha256": "7deb4317f71b28f4f1fdba609381855b36fc6523fbba5a74dd2eb68bb4887f52"
+    },
+    "work-state/STATUS.md": {
+      "size_bytes": 41935,
+      "sha256": "6b3eda18e53f1728f4bfdab2c70b8b1490a4ff15b356f9c66ce081b0e70c8099"
+    }
+  },
+  "observed_ordering_correction": {
+    "id": "OP-CACHE-001",
+    "initial_guide_sha256": "1688c27e7e79e8b8302d494a83717f8609e881823cb5460e378d056efa25eba1",
+    "corrected_guide_sha256": "be39ebe8d6217d375936ff13d5f73ee5112b6ee824dc3a8316022076f55460ae",
+    "verification": "Reversing only the swap of numbered steps3/4 and their numbering reproduces the exact initial guide digest. All other bytes unchanged.",
+    "meaning": "Reconstruct source023-alone binding before the instruction that consumes that binding for verify/restore."
+  },
+  "limitations": "No archive/cache contents, helper/compiler, tests, remote storage or process/storage survey inspected; observed capture/upload records are reused as evidence. No chapter acceptance."
+}

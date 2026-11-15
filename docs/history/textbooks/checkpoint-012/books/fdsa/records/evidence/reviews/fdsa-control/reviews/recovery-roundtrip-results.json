@@ -1,0 +1,26 @@
+{
+  "trial_directory": "/workspace/scratch/845aa1048b05/fdsa-recovery-roundtrip-wz9s0bbm",
+  "script_sha256": {
+    "checkpoint.py": "8dc344a611d95014079544c47d0cfaddd401e4b6e4bfee76ebee00850fbebbaa",
+    "restore.py": "d7e4d48cbf605e1fa5408f92fc3e3827f68af6c279a9cd47f325b064fbf34714"
+  },
+  "base": "e047b59241f9c5ce1939a226249540aaf281a169",
+  "head": "9e1bbc615971e0cb33295b87db25472711df4164",
+  "extra_history": "6477b106b8f4262ef41df4b5a0ed9f9777a11209",
+  "status": "MM blob.bin\nMM state.txt\n?? new sources/\n?? untracked.bin\n",
+  "refs": "refs/heads/master e047b59241f9c5ce1939a226249540aaf281a169\nrefs/heads/work/fdsa-book 9e1bbc615971e0cb33295b87db25472711df4164\nrefs/remotes/origin/preserved-other 6477b106b8f4262ef41df4b5a0ed9f9777a11209\nrefs/review/preserved-candidate 6477b106b8f4262ef41df4b5a0ed9f9777a11209\nrefs/tags/preserved-baseline f111eb349f89c69286c22e1b0d24f3073fae7e4c\n",
+  "checkpoint": {
+    "file": "/workspace/scratch/845aa1048b05/fdsa-recovery-roundtrip-wz9s0bbm/source/checkpoints/roundtrip-fixture.tar.gz",
+    "sha256": "411855b76999cf9effdb2dfe10943951e724f60c279588b3b8758d8cee750c29",
+    "size_bytes": 7110,
+    "head": "9e1bbc615971e0cb33295b87db25472711df4164",
+    "branch": "work/fdsa-book"
+  },
+  "checksums_ok": "MANIFEST.json: OK\nRECOVER.md: OK\nconaled.bundle: OK\nfdsa-control/REQUEST.md: OK\nfdsa-control/STATUS.md: OK\nfdsa-control/checkpoint.py: OK\nfdsa-control/restore.py: OK\nfdsa-control/tickets/INDEX.md: OK\nfdsa-control/tickets/RECOVERY-TEST.md: OK\nstaged.patch: OK\nunstaged.patch: OK\nuntracked.tar: OK\n",
+  "restore_stdout": "Recovered 9e1bbc615971e0cb33295b87db25472711df4164 into /workspace/scratch/845aa1048b05/fdsa-recovery-roundtrip-wz9s0bbm/restored\nRead fdsa-control/STATUS.md before continuing; completion is not implied by recovery.\n",
+  "fsck_exit": 0,
+  "corruption_exit": 1,
+  "corruption_stderr": "Checksum mismatch: staged.patch\n",
+  "corruption_destination_exists": false,
+  "assertions": "HEAD, branch, status, staged binary/text patch, unstaged binary/text patch, index entries, all file bytes, exact refs and all control files match; full bundle/fsck passed; corruption rejected before target writes"
+}

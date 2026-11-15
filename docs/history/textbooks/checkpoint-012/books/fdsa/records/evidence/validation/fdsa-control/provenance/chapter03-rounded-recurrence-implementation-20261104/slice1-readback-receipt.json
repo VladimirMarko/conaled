@@ -1,0 +1,136 @@
+{
+  "recorded_utc": "2026-11-04T19:09:57.626642+00:00",
+  "candidate": "a4cd1b6b53fdab38eab40433c3fd60293fdc054f",
+  "tree": "cdf8f8ffb0ea2a4afb1188b489491064a89c0a49",
+  "parent": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "state": "HELD_SOURCE_AND_PROVENANCE",
+  "source_clean": true,
+  "source_paths": [
+    {
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "blob": "0f78fd302b88aba9596036a63b79195007e502a8",
+      "bytes": 7723,
+      "lines": 140,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758"
+    },
+    {
+      "path": "Examples/RoundedRecurrence.lean",
+      "blob": "79e2f5c019122b42b55d1073e0f7e73fec06e94a",
+      "bytes": 3782,
+      "lines": 79,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d"
+    }
+  ],
+  "public_theorems": 16,
+  "private_declarations": 0,
+  "anonymous_examples": 0,
+  "instances": 0,
+  "prepared_statement_checks": 16,
+  "actual_type_credit": 0,
+  "compiler_invoked": false,
+  "scope": [
+    "C03-039",
+    "C03-040",
+    "C03-041",
+    "C03-042",
+    "C03-043",
+    "C03-044"
+  ],
+  "readback": {
+    "complete_author_source_lines": 219,
+    "complete_author_source_calls": [
+      "a2718f",
+      "dfc83f"
+    ],
+    "complete_handoff_and_program_readback": "d1701b",
+    "complete_requirements_readback": "076923",
+    "complete_inventory_readback": "daf656",
+    "complete_input_bindings_readback": "2cd1d6",
+    "all_payload_bytes_read_and_JSON_parsed": true,
+    "all_16_headers_reconciled_against_candidate_source": true,
+    "all_16_prepared_checks_in_exact_inventory_order": true,
+    "saved_full_source_diff_equals_actual_Git_diff": true,
+    "root_allocation_record_hashes_unchanged": true,
+    "current_source_and_protected_refs_rechecked": true
+  },
+  "limitations": [
+    "The two focused modules and prepared16 statement program have not been executed by the author.",
+    "Sharp strong induction, witness construction, all-real existence and natural-valued corollary remain pending under the full assigned scope.",
+    "C03-045 scalar F instantiation and C03-046 actual selector resource bridge remain required future consumers.",
+    "This author handoff is not either independent final review or any acceptance gate."
+  ],
+  "payloads": [
+    {
+      "file": "Statements16.lean",
+      "bytes": 1418,
+      "lines": 30,
+      "sha256": "a3cb2079d5dbdd6ddcf41067be0209e6a6b18b3aa85d390c82bcfd83c2bf446f"
+    },
+    {
+      "file": "allocation-result.json",
+      "bytes": 373,
+      "lines": 11,
+      "sha256": "7c30f8398954f38fdd2315a96f2210a26e1fb64ebcf3ac14b6c600e258c45968"
+    },
+    {
+      "file": "slice1-candidate.json",
+      "bytes": 7405,
+      "lines": 106,
+      "sha256": "c719c7b75ab799825fa101f196a75c4aaf88b38fd7626f0df163034b27041e42"
+    },
+    {
+      "file": "slice1-git-commands.json",
+      "bytes": 8425,
+      "lines": 124,
+      "sha256": "d73e24605c40dba8ee7eb05443401872d20fbe5d19e2c4c81735f2b067196131"
+    },
+    {
+      "file": "slice1-handoff.md",
+      "bytes": 8190,
+      "lines": 56,
+      "sha256": "458e4aed24e3d39c460d88f459c9711c8c96211bec0cf3d142fe3a92f2b6fe1d"
+    },
+    {
+      "file": "slice1-input-bindings.json",
+      "bytes": 8543,
+      "lines": 162,
+      "sha256": "7f86179e6da646dc250a9bfbe996fdad7d38f513820b18a520e31f7c9cf242ab"
+    },
+    {
+      "file": "slice1-preservation.json",
+      "bytes": 2270,
+      "lines": 65,
+      "sha256": "55caad6618ce56e8ada565647b6e0caa996385f483a2fc0816e443b09e95aec9"
+    },
+    {
+      "file": "slice1-requirements.json",
+      "bytes": 3856,
+      "lines": 62,
+      "sha256": "7b3cbffdaa40dc2a8da0879a65e068f3e1b1535bc835fe4be0f0ea93f4f27c8f"
+    },
+    {
+      "file": "slice1-source-baseline.json",
+      "bytes": 7653,
+      "lines": 102,
+      "sha256": "4d49a88c6455b601c9108ff3a2aa4e1fa82fa24c2006fa0142a125004d2fcf56"
+    },
+    {
+      "file": "slice1-source.diff",
+      "bytes": 12151,
+      "lines": 231,
+      "sha256": "638e4438b20c6fb0162310c80463494d81d91b9d19f1370c6aa48ee4b6810fb9"
+    },
+    {
+      "file": "slice1-statements-inventory.json",
+      "bytes": 13235,
+      "lines": 226,
+      "sha256": "0b2814d5f6aed1792bed6a4e621bb57af905bc2883719cccaf389523c203e802"
+    },
+    {
+      "file": "starting-state.json",
+      "bytes": 7034,
+      "lines": 85,
+      "sha256": "d6f72d5309bb1b47de6c3d21c3a52a4f67e6dc2c9edd4a62ba1e5335d26aca84"
+    }
+  ]
+}

@@ -1,0 +1,1103 @@
+{
+  "schema": "fdsa-author-source-inventory-v1",
+  "candidate": "e40d1f7fa71e51946b29bf1415067240e7cc369a",
+  "tree": "dee64caf8a031169777f42eb51ee8014dbb82fe8",
+  "whole_chapter_review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "source_stage_base": "d0479dd03371f1c1f0b41dff5f1882a36206f40a",
+  "dependency_receiving_commit": "0f66bcf85ead843e1d6cf69c17f8e23fa6b84292",
+  "source_inventory_only": true,
+  "actual_types_run": false,
+  "method": "Every anchored public/named-private declaration in the three reviewed sources. In these complete sources, theorem bodies begin := by, := rfl, or := followed by newline, and definitions use the newline form. Those actual body separators preserve the named argument (α := α). No internal let body separator occurs in these headers. This bounded textual inventory is not an elaborated-type parser; raw contexts remain lexical.",
+  "source_files": [
+    {
+      "repository_path": "Applications/Resources/HalvingSelection.lean",
+      "module": "Applications.Resources.HalvingSelection",
+      "bytes": 8477,
+      "sha256": "70b94c9b0a262cc15b8df6a30fe4fdbaaac293231553625b6336a64185b5f204",
+      "git_blob": "3822b7d9b9c20e81953d155b84f9a4adab431dd7",
+      "imports": [
+        "Applications.Resources.SelectionPolicy",
+        "Applications.Resources.HalvingTrace"
+      ],
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.HalvingSelection",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "public_count": 8,
+      "named_private_count": 0
+    },
+    {
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "module": "Applications.Resources.MedianPolicy",
+      "bytes": 7520,
+      "sha256": "14f4ca4978c8c5bab5410ce48d425a5cc520e56a7e7a24826d13dd92e8fd73ef",
+      "git_blob": "5bebc234bffe8da9eacd4e22cce27ce0792ff554",
+      "imports": [
+        "Applications.Resources.HalvingSelection",
+        "Applications.Resources.SelectionBounds"
+      ],
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "public_count": 21,
+      "named_private_count": 0
+    },
+    {
+      "repository_path": "Examples/MedianPolicy.lean",
+      "module": "Examples.MedianPolicy",
+      "bytes": 7410,
+      "sha256": "fd6259f1b699adc9f7f98f7a90ccb1c34bbb2c7fe4d80ab7196c6a65635c31d4",
+      "git_blob": "f860dfadc7c4e1f4a8e3f0917636047249985b39",
+      "imports": [
+        "Applications.Resources.MedianPolicy"
+      ],
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "public_count": 31,
+      "named_private_count": 0
+    }
+  ],
+  "declarations": [
+    {
+      "name": "Resources.HalvingSelection.HalvingPolicy",
+      "kind": "def",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/HalvingSelection.lean",
+      "raw_header": "def HalvingPolicy (choose : List α → Measured (Option α) Nat) : Prop",
+      "header_sha256": "69f6790a7a6578407ea15ab1abb07828657472418ca5a99edb1dd344efa03f62",
+      "declaration_source_sha256": "8efa6ac59e720bd203aaaa4553057c6957b43994d7650738f065bd6f8a953fcf",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.HalvingSelection",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.HalvingSelection.runWith_trace",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/HalvingSelection.lean",
+      "raw_header": "theorem runWith_trace (choose : List α → Measured (Option α) Nat)\n    (hv : PivotValid (fun xs => (choose xs).1)) (hh : HalvingPolicy choose)\n    (fuel k : Nat) (xs : List α) (hk : k < xs.length) (hf : xs.length ≤ fuel) :\n    HalvingTrace.Halves xs.length (SelectionPolicy.runWith choose fuel k xs).1.2",
+      "header_sha256": "97acdf8e4e6552e7729172f50daef000710e87e6f0c800461ee999dffc017077",
+      "declaration_source_sha256": "5fc19d5fa033ff6f9e58391230135db49c38cff02ce3327fc8d5af5927f90387",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.HalvingSelection",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.HalvingSelection.runWith_scan_bounds",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/HalvingSelection.lean",
+      "raw_header": "theorem runWith_scan_bounds (choose : List α → Measured (Option α) Nat)\n    (hv : PivotValid (fun xs => (choose xs).1)) (hh : HalvingPolicy choose)\n    (fuel k : Nat) (xs : List α) (hk : k < xs.length) (hf : xs.length ≤ fuel) :\n    xs.length ≤ (SelectionPolicy.runWith choose fuel k xs).1.2.sum ∧\n      (SelectionPolicy.runWith choose fuel k xs).1.2.sum ≤ 2 * xs.length",
+      "header_sha256": "ac6524d0f7a9ae5c4a28b0442d53d720b2e596894e5f4b05a1dbf5f9f90bd30f",
+      "declaration_source_sha256": "7e9585f32ac7231eeea4aaffc8869de9d8bd5031c48784538c66f7c9cdd49ed0",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.HalvingSelection",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.HalvingSelection.runWith_edges_log",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/HalvingSelection.lean",
+      "raw_header": "theorem runWith_edges_log (choose : List α → Measured (Option α) Nat)\n    (hv : PivotValid (fun xs => (choose xs).1)) (hh : HalvingPolicy choose)\n    (fuel k : Nat) (xs : List α) (hk : k < xs.length) (hf : xs.length ≤ fuel) :\n    (SelectionPolicy.runWith choose fuel k xs).1.2.length - 1 ≤ Nat.log 2 xs.length",
+      "header_sha256": "6faed1624d3d25e18d292d98c8ff9117e2e458c11e25668df7bcf1f911fb1f58",
+      "declaration_source_sha256": "396a166b2501e6231799c9619ef822a911f11f7e25e606ade7df58cbd0ed6c8f",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.HalvingSelection",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.HalvingSelection.runWith_edges_clog",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/HalvingSelection.lean",
+      "raw_header": "theorem runWith_edges_clog (choose : List α → Measured (Option α) Nat)\n    (hv : PivotValid (fun xs => (choose xs).1)) (hh : HalvingPolicy choose)\n    (fuel k : Nat) (xs : List α) (hk : k < xs.length) (hf : xs.length ≤ fuel) :\n    (SelectionPolicy.runWith choose fuel k xs).1.2.length - 1 ≤ Nat.clog 2 xs.length",
+      "header_sha256": "32ee23365ffa78345a65296b06dad02ba5cd5e55b244bc77fdd479aab836f026",
+      "declaration_source_sha256": "f2c63c7911b991478580a09cefdb7d3082f5c8c4ddee2d6dbb99ff10449c8cd9",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.HalvingSelection",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.HalvingSelection.runWith_singleton_trace",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/HalvingSelection.lean",
+      "raw_header": "theorem runWith_singleton_trace (choose : List α → Measured (Option α) Nat)\n    (hv : PivotValid (fun xs => (choose xs).1)) (hh : HalvingPolicy choose)\n    (fuel : Nat) (x : α) :\n    (SelectionPolicy.runWith choose (fuel + 1) 0 [x]).1.2 = [1]",
+      "header_sha256": "094835d08a2d3a3bf0d2be138ad271e50642075323f8d18cf5f2ae05209ef182",
+      "declaration_source_sha256": "61839351205fd9fe055e30a90c4da35a014cb362c48955d05ddf1ba17b64d7bb",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.HalvingSelection",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.HalvingSelection.runWith_tariff",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/HalvingSelection.lean",
+      "raw_header": "theorem runWith_tariff (choose : List α → Measured (Option α) Nat)\n    (hv : PivotValid (fun xs => (choose xs).1)) (A B : Nat)\n    (hc : ∀ ys, ys ≠ [] → (choose ys).2 ≤ A * ys.length + B)\n    (fuel k : Nat) (xs : List α) (hk : k < xs.length) (hf : xs.length ≤ fuel) :\n    (SelectionPolicy.runWith choose fuel k xs).1.2.sum ≤\n        (SelectionPolicy.runWith choose fuel k xs).2 ∧\n      (SelectionPolicy.runWith choose fuel k xs).2 ≤\n        (A + 4) * (SelectionPolicy.runWith choose fuel k xs).1.2.sum +\n          (B + 5) * (SelectionPolicy.runWith choose fuel k xs).1.2.length",
+      "header_sha256": "f44792d2e41526e4b1ae5943a33ed7ccfa318c642c60abcbe47cc6157e9e7fcf",
+      "declaration_source_sha256": "42a83691f250a14759a60c03704c1441d348c295f06d24462313b7e6beccbb84",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.HalvingSelection",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.HalvingSelection.runWith_linear_cost",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/HalvingSelection.lean",
+      "raw_header": "theorem runWith_linear_cost (choose : List α → Measured (Option α) Nat)\n    (hv : PivotValid (fun xs => (choose xs).1)) (hh : HalvingPolicy choose)\n    (A B : Nat) (hc : ∀ ys, ys ≠ [] → (choose ys).2 ≤ A * ys.length + B)\n    (fuel k : Nat) (xs : List α) (hk : k < xs.length) (hf : xs.length ≤ fuel) :\n    xs.length ≤ (SelectionPolicy.runWith choose fuel k xs).2 ∧\n      (SelectionPolicy.runWith choose fuel k xs).2 ≤\n        (2 * (A + 4) + 2 * (B + 5)) * xs.length",
+      "header_sha256": "70cd82b46165c3c8e69686253c0932c29cd944f1ab4f599d2186a44a0bfb35d1",
+      "declaration_source_sha256": "3a98a6a9fce058d4d44025d170cb52f90717aa2ffb3b78401bfc12f254440f53",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.HalvingSelection",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.pivotRun",
+      "kind": "def",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "def pivotRun (xs : List α) : Measured (Option α) Nat",
+      "header_sha256": "eca0e690090e9558a48be5e1ce98e8e0c85cff0e4f07c67bb6b0a01e0a775ee4",
+      "declaration_source_sha256": "7f0480a99019cc6b6be1f643cfd83fe5394a6f4abe225cce2abe597d489fc46a",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.pivotRun_value",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem pivotRun_value (xs : List α) :\n    (pivotRun xs).1 = (ordered xs)[(xs.length - 1) / 2]?",
+      "header_sha256": "1304f3bfcef769a7120807e38ee48ae50b2f18952ec3d753598740b1f5f3846d",
+      "declaration_source_sha256": "e0449272fe78bb97654576f92dda9b08d62b84bd09b448da6230ca2c719f1207",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.pivotRun_cost",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem pivotRun_cost (xs : List α) :\n    (pivotRun xs).2 = xs.length + 2 +\n      (Selection.selectRun ((xs.length - 1) / 2) xs).2",
+      "header_sha256": "cccab3825a1a7bb85d9e6d5ab8923cbd5db9cb7d290f1e2d9b7ec8eea98bb703",
+      "declaration_source_sha256": "c3beb7c6483b79c791c00ca869c3b8c8e4422598910500bf217cad9a1a2d8524",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.pivotRun_some_iff",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem pivotRun_some_iff (xs : List α) (p : α) :\n    (pivotRun xs).1 = some p ↔ RankedAt xs ((xs.length - 1) / 2) p",
+      "header_sha256": "f5f69f77a1151362249f0bd0b0dc0c0db7a506c8b8f85116f064b66804900207",
+      "declaration_source_sha256": "518e7148d3ec48c6467796c20ccd8332436f8121724e91a32c5c991dc13036d3",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.pivotRun_none",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem pivotRun_none (xs : List α) : (pivotRun xs).1 = none ↔ xs = []",
+      "header_sha256": "0bf110ffcde2220a5ab4df3276603d912c1dc70386502fc3908a8bc4cc9e4650",
+      "declaration_source_sha256": "53050897f6cb8836cf49b91ad396febcef2b64005df014fb4fdb44c3a5d16938",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.pivot_valid",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem pivot_valid : PivotValid (fun xs : List α => (pivotRun xs).1)",
+      "header_sha256": "01208e3caa9f0607f993403fa196221b03e0da7384e3541b2ffcc41749eaf8f6",
+      "declaration_source_sha256": "618b8d8e4acebf56e53889d42b336beed9883227d9e8cde75f8c6f5c9c1ebf36",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.pivot_halving",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem pivot_halving : HalvingSelection.HalvingPolicy (pivotRun (α := α))",
+      "header_sha256": "e0403a23bbf205096d5055ee4a5ca9fd097fb1995b0cd5f4290d91e6e7b9c106",
+      "declaration_source_sha256": "548f712ba513f303e031697328c0040b7cf1b98c5be27c12e4ee90b5c249a6a9",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.pivotRun_small",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem pivotRun_small (xs : List α) (hx : xs ≠ []) (hs : xs.length ≤ 20) :\n    pivotRun xs =\n      ((SelectionAuxiliary.slowSelectRun ((xs.length - 1) / 2) xs).1,\n        2 * xs.length + 4 +\n          (SelectionAuxiliary.slowSelectRun ((xs.length - 1) / 2) xs).2)",
+      "header_sha256": "92b42a50bf038e41b1cf1dfa03bed8d562951df2950acd880eb54437913824fa",
+      "declaration_source_sha256": "0992de612e807f9ceca546ee0764c234e019af928d9321414320a6cdb3589d79",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.pivotRun_singleton",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem pivotRun_singleton (x : α) : pivotRun [x] = (some x, 10)",
+      "header_sha256": "131f4d152159e1b7cfa9cb5c28724baf9771ee6cccb1be1fbbadec23e2957780",
+      "declaration_source_sha256": "cee68bdab7de4dbc3e7cf90f41f94e14a93836d95fdef18aaccfc91b3cf137cf",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.pivotRun_exists_uniform_linear_bound",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem pivotRun_exists_uniform_linear_bound :\n    ∃ C : Nat, ∀ (β : Type u) [LinearOrder β] (xs : List β),\n      0 < xs.length → (pivotRun xs).2 ≤ C * xs.length",
+      "header_sha256": "15837f90bcd64b59110841a018fdd07a5c0bca602c3c956d030fcbd0b72ed78e",
+      "declaration_source_sha256": "6c974b7ede6cf126ab0628fa88e7943b905919690cc0d6fe9ac9ab7c1ae93b07",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.run",
+      "kind": "def",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "def run (fuel k : Nat) (xs : List α) : SelectionPolicy.Observed α",
+      "header_sha256": "9e62adb5f7a10aad40cdaeba9ab3669f79edd57ab6f35f33889321d3b46a23de",
+      "declaration_source_sha256": "6f62c880b5ce084fab9d2c19ca6b7825e964a31979545a96fd55a714b99ab111",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.run_value",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem run_value (fuel k : Nat) (xs : List α) (hf : xs.length ≤ fuel) :\n    (run fuel k xs).1.1 = (ordered xs)[k]?",
+      "header_sha256": "5bdf99fbd9d295bee4039fc590184e1700aecd5147c1bde803f6d87161690c55",
+      "declaration_source_sha256": "3fcdad224c3dadc9f02c3ea8f4a150888fd8cf095c30619ef10dc5d6ba6c8f1d",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.run_some_iff",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem run_some_iff (fuel k : Nat) (xs : List α) (hf : xs.length ≤ fuel) (p : α) :\n    (run fuel k xs).1.1 = some p ↔ RankedAt xs k p",
+      "header_sha256": "624b14dae31fba9ade0bb71a40ca09bffe293931c2b9a7b700f8253f8a03f1f2",
+      "declaration_source_sha256": "b9160e35e6a7fbaabf3e752ced98e802f9dbe7d2500f98fcc1346ada51ff083d",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.run_none",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem run_none (fuel k : Nat) (xs : List α) (hf : xs.length ≤ fuel) :\n    (run fuel k xs).1.1 = none ↔ xs.length ≤ k",
+      "header_sha256": "dbaa8b2df32e8ed524605bb28ad3c7a76aa996160abec2a1a7b052096e632fd1",
+      "declaration_source_sha256": "33bbd24488293cbb9bca147505553ab7c9cf9258f4d84f1ecf148e6c8c3162b1",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.run_trace",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem run_trace (fuel k : Nat) (xs : List α) (hk : k < xs.length)\n    (hf : xs.length ≤ fuel) : HalvingTrace.Halves xs.length (run fuel k xs).1.2",
+      "header_sha256": "86d066905b475f170148e14362b4ca0652aa385d09557acd28fa5773b958c0ac",
+      "declaration_source_sha256": "0377ef72cc937de880926268fa8b884e62427c3ffe862a87f1c7d684aec738ed",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.run_scan_bounds",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem run_scan_bounds (fuel k : Nat) (xs : List α) (hk : k < xs.length)\n    (hf : xs.length ≤ fuel) :\n    xs.length ≤ (run fuel k xs).1.2.sum ∧ (run fuel k xs).1.2.sum ≤ 2 * xs.length",
+      "header_sha256": "73619495afd9227905538c161d91bb2f166a23175832525980600c1e6c07501a",
+      "declaration_source_sha256": "10c9760691028b1441dd9cc722a573225e47f02a31d835600bf7b22827b1f0cf",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.run_edges_log",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem run_edges_log (fuel k : Nat) (xs : List α) (hk : k < xs.length)\n    (hf : xs.length ≤ fuel) : (run fuel k xs).1.2.length - 1 ≤ Nat.log 2 xs.length",
+      "header_sha256": "b520c796487d34a8509c4a8609935cb405134a0ddd1ab2c4a5e5d96e6dbdbc48",
+      "declaration_source_sha256": "36d227e373c232fb7db2effc52f89ee8997f55401a4263e0b0fda553aeb93c67",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.run_edges_clog",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem run_edges_clog (fuel k : Nat) (xs : List α) (hk : k < xs.length)\n    (hf : xs.length ≤ fuel) : (run fuel k xs).1.2.length - 1 ≤ Nat.clog 2 xs.length",
+      "header_sha256": "770b2c154e03b6af76faa781fa25e1be687205d61a2f017c30b6a7f846569280",
+      "declaration_source_sha256": "b17c955764212ad91cd53e1a82411148c0d72df06491db0c34f8483acad8ea1a",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.run_singleton_trace",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem run_singleton_trace (fuel : Nat) (x : α) :\n    (run (fuel + 1) 0 [x]).1.2 = [1]",
+      "header_sha256": "4f8bea3eadf6538c0da310208ccaebc6e216b74f91d50c194583ce58e8aaaefc",
+      "declaration_source_sha256": "432fc759c9edc7ab11120537ab6e40aa26aa32424e19b3e00478930d5fe70a21",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.run_singleton",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem run_singleton (fuel : Nat) (x : α) :\n    run (fuel + 1) 0 [x] = ((some x, [1]), 19)",
+      "header_sha256": "ef28e3350711a0aa886447e92ed6822fd81d1a66734ed48db51366166b53c618",
+      "declaration_source_sha256": "f4d221cdc7b45058ed7648997690dc35354f71a99630096c87e682ff089ce3bf",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Resources.MedianPolicy.run_exists_uniform_linear_bound",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "raw_header": "theorem run_exists_uniform_linear_bound :\n    ∃ D : Nat, 0 < D ∧ ∀ (β : Type u) [LinearOrder β] (fuel k : Nat) (xs : List β),\n      k < xs.length → xs.length ≤ fuel →\n        xs.length ≤ (run fuel k xs).2 ∧ (run fuel k xs).2 ≤ D * xs.length",
+      "header_sha256": "5adfa2d1ea71af15f3f9c96c0670d0a524ffa33879b8cc8f612b663ddcf8f913",
+      "declaration_source_sha256": "0bcf3595d926dbd5ee3bd11cdea73119a1e76712410c598e68a1603c9747eaad",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.pivot_two",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem pivot_two : pivotRun ([6, 7] : List Nat) = (some 6, 14)",
+      "header_sha256": "7cff1840f0977879edad4d5aaee19e6f2ecc9fd9a87db0bd6825519fef6b4169",
+      "declaration_source_sha256": "f7d298ba39aa1fea17896f35af3d6f2b0ccd02f580467d8dd76333eaa1a54e0c",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.pivot_four",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem pivot_four : pivotRun ([4, 5, 6, 7] : List Nat) = (some 5, 23)",
+      "header_sha256": "d603fb43a8ab40f8e299815495b0bbca1279b0fb00a92e99ce5576a99e0860cf",
+      "declaration_source_sha256": "c288242b9786ebcd7fa06a239eedae4324b7b74fbf021533f0a3e91c9e31ba84",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.pivot_eight",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem pivot_eight : pivotRun (List.range 8) = (some 3, 41)",
+      "header_sha256": "57ce55be91e653ed3d3b7ed154fa0cad713b8740a005e41a7c3008d35620eebb",
+      "declaration_source_sha256": "7f696bd88eb5acddcf104030bae92fe377c9902804f467ac2484d098b5570a48",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.pivot_three",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem pivot_three : pivotRun ([4, 5, 6] : List Nat) = (some 5, 19)",
+      "header_sha256": "c66f0e157bb7d776a4f2eaf6ec6bb9650bfb3bedeb389928e5dfa21f35d5c6b6",
+      "declaration_source_sha256": "4a101f0567d5bd7d024e155c35263f8861fe3e4bbf896a5449e940d52e58fc28",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.pivot_seven",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem pivot_seven : pivotRun (List.range 7) = (some 3, 37)",
+      "header_sha256": "33581e5bf874bad21ef4c6637ec7ea01a44a99747f82df26d2347747161704ea",
+      "declaration_source_sha256": "b63db1bb3c40d4918c407863c3c92a8744da766281f3058d92977f1c3ff95f2a",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.pivot_four_initial",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem pivot_four_initial : pivotRun (List.range 4) = (some 1, 23)",
+      "header_sha256": "fc0cac4ffbb6ac8226e3fc4fc66a034903ac32f58931d45ee4e80bcd78752db8",
+      "declaration_source_sha256": "001a5c11ddc00450da06cf944c702e652e1cea141d31e97ae6a1a0d2032332a3",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.pivot_duplicates",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem pivot_duplicates : pivotRun ([4, 4, 4, 4] : List Nat) = (some 4, 23)",
+      "header_sha256": "3e19e0f644a363c8d36e7903c649b4777baad125aa4d105978a629546be628f5",
+      "declaration_source_sha256": "07d90655ad558cce0aa8c08bc66e2ccfeb1782fd8a9e61916eaa77a303d2ec90",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.two_execution",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem two_execution (fuel : Nat) :\n    run (fuel + 2) 1 ([6, 7] : List Nat) = ((some 7, [2, 1]), 43)",
+      "header_sha256": "c52d183d0f4053e25fce32449219def6ad270ccbf061713572dba3db8fce706c",
+      "declaration_source_sha256": "3d023e8cfe1118c94a599b5b43c12ff2311e1cbaa540fe0fe9ff2a8eb149c396",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.four_tail_execution",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem four_tail_execution (fuel : Nat) :\n    run (fuel + 3) 3 ([4, 5, 6, 7] : List Nat) = ((some 7, [4, 2, 1]), 81)",
+      "header_sha256": "37e9ba573159f0cc3a52e36c9b4a2b6bb83a7d8d078007a4117a78ce20d697aa",
+      "declaration_source_sha256": "ca699ccf5029cc03e6db1c0ddd6e56527ffd32a804cd73061b778fb3e90ca470",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.eight_execution",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem eight_execution : run 8 7 (List.range 8) = ((some 7, [8, 4, 2, 1]), 147)",
+      "header_sha256": "3506760dd3b209e923f28f9df8de480ac81051e6bec0f7a58261eda9cc347817",
+      "declaration_source_sha256": "25a262c55e42b2b7620d1979dab47390210b8820f9d7d344ebc5a0d416fb4dc6",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.eight_trace_connected",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem eight_trace_connected :\n    Resources.HalvingTrace.Halves 8 (run 8 7 (List.range 8)).1.2",
+      "header_sha256": "623235833166e8229a58a7c77a9956d4759ffa0e375e503ae166753ee7a7ecbe",
+      "declaration_source_sha256": "995df195fe173494d3dd497888777a58bf607c57770cfcdd621673ad20708b29",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.eight_scan",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem eight_scan : (run 8 7 (List.range 8)).1.2.sum = 15",
+      "header_sha256": "e7891c828c78d0c307f15b35856b6098f20ab1965b55cde447439da549fed10b",
+      "declaration_source_sha256": "938e25a5f15703bcc5c98338ed87e3b66b79d32057a8e44264ccfa81edc8768b",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.eight_edges",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem eight_edges : (run 8 7 (List.range 8)).1.2.length - 1 = 3",
+      "header_sha256": "bcb4572ac6deff3151ff474c11c4892db142595101eddd6d24be6ce01690eda6",
+      "declaration_source_sha256": "fc486f5b379233a250d0396298656e8e9b020788ffeda265f71c3deecc2233f1",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.eight_edges_bound",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem eight_edges_bound : (run 8 7 (List.range 8)).1.2.length - 1 ≤ Nat.log 2 8",
+      "header_sha256": "30dbc46d96549c04287a37778ac18041d70989d3e755a5647ac31fda67f7a802",
+      "declaration_source_sha256": "1f2ae0a9127a20024ef699181dabefc2b5d573405cf6e8d32c96c995fa456c92",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.three_tail_execution",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem three_tail_execution (fuel : Nat) :\n    run (fuel + 2) 2 ([4, 5, 6] : List Nat) = ((some 6, [3, 1]), 51)",
+      "header_sha256": "4bfca0b7545234f2397a447d004b90415969d4ffaaf92ea16f0b186e300d1217",
+      "declaration_source_sha256": "8508d03d897bbeccde88973aa8724f0fa720373f7fcffd0201b4ae9cb557dab4",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.seven_execution",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem seven_execution : run 7 6 (List.range 7) = ((some 6, [7, 3, 1]), 111)",
+      "header_sha256": "25ce36605e23aa1961cf9c101ec88ea57ff051fa837b85db4c5d0e4b4f1b492d",
+      "declaration_source_sha256": "e1bf3a35fb2978db2d12678cc951f9d26aa10acb1ce43ce9cd5d64066c151b49",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.seven_scan_bounds",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem seven_scan_bounds :\n    7 ≤ (run 7 6 (List.range 7)).1.2.sum ∧ (run 7 6 (List.range 7)).1.2.sum ≤ 14",
+      "header_sha256": "a7b2164902703a6697c935e35de8ad9f2bd10e3beab6fa2343f6678c9968313e",
+      "declaration_source_sha256": "06a52ce30c63c9b96c4ba1ef342f611f8bda0bf68d756b38bb4d6a1321718423",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.seven_edges_strict_clog",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem seven_edges_strict_clog :\n    (run 7 6 (List.range 7)).1.2.length - 1 < Nat.clog 2 7",
+      "header_sha256": "d0de45616e07d9d06d103c71ebbdd8b506ee154f2c4efe39b434074405f1760d",
+      "declaration_source_sha256": "9913825ba7a3fc3bcb123373217b35284f125b9a269533dc5d7719684da4e707",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.early_equal_execution",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem early_equal_execution : run 4 1 (List.range 4) = ((some 1, [4]), 39)",
+      "header_sha256": "9dc433c0c59f35579734ac1740ca3e7dfd40ea21a4fb633b8e49627d518e23a9",
+      "declaration_source_sha256": "81f74d489c6aa339b1ad88ffa210b1da783d276cf8607ecaece35f90a5debc0b",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.early_equal_edges",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem early_equal_edges : (run 4 1 (List.range 4)).1.2.length - 1 = 0",
+      "header_sha256": "a2b7a84fdf67e873c59b0ce430f56afe16ac88562455f0c69235936945a3b9c7",
+      "declaration_source_sha256": "d220f7bd333eb29d57fe8ea81f23a82109dbb1f3f1872584340f8fd17c698a44",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.lower_branch_execution",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem lower_branch_execution : run 4 0 (List.range 4) = ((some 0, [4, 1]), 57)",
+      "header_sha256": "0d3b5bcf8978922244f26dfd1a43fa1823767795f954ce5ea3314126097d1181",
+      "declaration_source_sha256": "9c0908f5e0c4b6679bda541c0edcb28abcea0990d5f8038326317b5bffee25a0",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.duplicate_execution",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem duplicate_execution :\n    run 4 3 ([4, 4, 4, 4] : List Nat) = ((some 4, [4]), 44)",
+      "header_sha256": "5f2e5c260aaff26e7e569f0db258c8da74b3bac0033b18a8334d151e33c2a16c",
+      "declaration_source_sha256": "94359e723a50db73e10a37fbe24ad34d1fe6128d999a79d54924fe9ea6e13b3f",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.duplicate_trace_connected",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem duplicate_trace_connected :\n    Resources.HalvingTrace.Halves 4 (run 4 3 ([4, 4, 4, 4] : List Nat)).1.2",
+      "header_sha256": "10c57f34073666b343de565afdd093bfcc8490ce4438cf1ade538dc1ac700ef7",
+      "declaration_source_sha256": "02a9b7d32a0ede764176ace7a16d5d5a520284950b440fff388a02ea2d924bac",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.singleton_execution",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem singleton_execution : run 1 0 ([-4] : List Int) = ((some (-4), [1]), 19)",
+      "header_sha256": "e96504619ee17076055d3697ceb9e83d2e2720ef6a0d1c1febacc9ac86c92053",
+      "declaration_source_sha256": "ba376b93b728cf083567b985adbc9fc8ab308d2ce87fb35abe6c4c3210c9de22",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.singleton_trace_connected",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem singleton_trace_connected : (run 1 0 ([-4] : List Int)).1.2 = [1]",
+      "header_sha256": "73e8dcf2dc33b09956640745384bac4c7a49748556080dcb0c2af55ed14983b1",
+      "declaration_source_sha256": "abceaa05e26b0d20e773ee398c474f2f33753fd759c8c0fb9c0670c771d30c86",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.singleton_active_and_edges",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem singleton_active_and_edges :\n    (run 1 0 ([-4] : List Int)).1.2.length = 1 ∧\n      (run 1 0 ([-4] : List Int)).1.2.length - 1 = 0",
+      "header_sha256": "92df836e799a73021ead37c9c289f926a6d63823ce4d65f5df7c9ddc70411d8e",
+      "declaration_source_sha256": "150aa2452d0d33130cb0763a2a37066994af2a1e1a055742c50277a15be5a253",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.empty_execution",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem empty_execution : run 3 0 ([] : List Nat) = ((none, []), 1)",
+      "header_sha256": "35f9c74104c375eefaccbde463d8219fa3b369e5397d8e77d4a58066c0d5d0af",
+      "declaration_source_sha256": "a0c4f31168c1136b87f6233921227424517fc747bb5634d1e98b4ff662c285fc",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.invalid_value",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem invalid_value : (run 4 4 (List.range 4)).1.1 = none",
+      "header_sha256": "23ac3f19728722fe4011b2457bdcb4d524d353f855f2a2256bf882c927401ca7",
+      "declaration_source_sha256": "01ff7f527226b6f56633d3e83d82137277d561a5d43fc683c4d589723e4da18a",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.range_scan_bound",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem range_scan_bound (n k : Nat) (hk : k < n + 1) :\n    n + 1 ≤ (run (n + 1) k (List.range (n + 1))).1.2.sum ∧\n      (run (n + 1) k (List.range (n + 1))).1.2.sum ≤ 2 * (n + 1)",
+      "header_sha256": "5a5e307c9bacb596b04a2f99fc3e7f84a14466440d03f8a1c634b0e1cc641e44",
+      "declaration_source_sha256": "d78282ee013153a2e685241f19f68c30fad797316e16fb545fd197f56c27dc27",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.range_edge_bound",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem range_edge_bound (n k : Nat) (hk : k < n + 1) :\n    (run (n + 1) k (List.range (n + 1))).1.2.length - 1 ≤ Nat.clog 2 (n + 1)",
+      "header_sha256": "cc8efcc6adc66c4829b88944391e41d20e2f8ae8913d418b95f57a6e5a6dc7c7",
+      "declaration_source_sha256": "7b7d3a4f694324123ead045c9d72639c0f539f2981ab335af4bdf8d310023662",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    },
+    {
+      "name": "Examples.MedianPolicy.all_integer_inputs_linear",
+      "kind": "theorem",
+      "visibility": "public",
+      "repository_path": "Examples/MedianPolicy.lean",
+      "raw_header": "theorem all_integer_inputs_linear :\n    ∃ D : Nat, 0 < D ∧ ∀ (xs : List Int) (k : Nat), k < xs.length →\n      xs.length ≤ (run xs.length k xs).2 ∧ (run xs.length k xs).2 ≤ D * xs.length",
+      "header_sha256": "bdd9864b360ca5bc66eafbdc789a371dbb093348e268ce240a3942a1f859e177",
+      "declaration_source_sha256": "5ce923dac7b579c5689b31f69b91b25ca99a03dedaa3397988da1ed4fed84d2a",
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "elaborated_type": "NOT EMITTED; exact explicit-argument capture pending root."
+    }
+  ],
+  "public_count": 60,
+  "definition_count": 3,
+  "theorem_count": 57,
+  "new_named_private_count": 0,
+  "prior_authored_public_count": 402,
+  "cumulative_authored_public_count": 462,
+  "cumulative_authored_named_private_count": 7,
+  "received_dependency_files_counted_as_new_authorship": false,
+  "audit_scope": "All local kernel-safe declarations, including generated/private helpers and exact dependency sources, remain mandatory at full candidate audit.",
+  "preparation_correction": "C03-HALVING-PREP-001: additive correction of one truncated raw header; original source, declarations, cases and statement-capture input unchanged."
+}

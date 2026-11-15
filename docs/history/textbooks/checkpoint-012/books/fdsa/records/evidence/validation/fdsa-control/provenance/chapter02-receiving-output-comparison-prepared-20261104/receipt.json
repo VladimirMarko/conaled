@@ -1,0 +1,108 @@
+{
+  "schema": "fdsa.chapter02.output-comparator-preparation-held.v1",
+  "recorded_utc": "2026-11-04T18:07:26.814952+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "candidate_tree": "fe0bd9f17a5e1a09797be55fd79491e8c363cbd0",
+  "accepted_predecessor": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "status": "HELD unused preparation; current comparator unexecuted; coordinator cancelled need for third runtime comparison",
+  "current_compare_executed": false,
+  "current_output_bodies_read_by_author": false,
+  "compiler_or_capture_invoked_by_author": false,
+  "receiving_type_or_acceptance_credit": 0,
+  "coordinator_reported_supersession": {
+    "source": "Parent /root message received after both actual independent comparisons; no independent reproduction by this author",
+    "spec_reference": "84a246",
+    "standards_reference": "edbea6",
+    "reported_current_blocks": 1300,
+    "reported_exact_historical_comparisons": 1299,
+    "reported_Growth": "direct read; no findings",
+    "root_retains_responsibility": "Read and bind both saved actual products, final input qualification and acceptance gates"
+  },
+  "intended_scope": {
+    "current_commands": 1300,
+    "selected_checks": 1297,
+    "original_prints": 3,
+    "historical_blocks": 1299,
+    "new_Growth_direct_only": 1,
+    "conditional466_outside_comparator": 466
+  },
+  "bound_preparation_inputs": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/manifest.json",
+      "bytes": 75796,
+      "lines": 2249,
+      "sha256": "a9f091706995fba21e40e4e6f0ab3f90c29c658f39f4bafd01c564644a744191"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/mapping.json",
+      "bytes": 432092,
+      "lines": 1,
+      "sha256": "eb127025be51d2f6ae9f85f0f3c01dcc0c748c86ca51ecf3967c685bf6b971d2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/bound-inputs.json",
+      "bytes": 19595,
+      "lines": 424,
+      "sha256": "f9fb153cab9a1df9a5f436d50f05f7be843beeeab1f44ce8e57adf516ad50117"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/receipt.json",
+      "bytes": 4574,
+      "lines": 113,
+      "sha256": "0830f4b28f6b4cdb0c1fb76e928700da1b80411c3ddf42b597a508e724b39cca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-type-qualification-preparation-20261104/schedule.json",
+      "bytes": 409593,
+      "lines": 1,
+      "sha256": "6216efb85427a6401e1263f34294141c82f2fe88c74dc2dd18eb464207d06c62"
+    }
+  ],
+  "package_files_excluding_this_receipt": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-output-comparison-prepared-20261104/compare_native_outputs.py",
+      "bytes": 19659,
+      "lines": 289,
+      "sha256": "b12476350de16489f4bd90caf6e8f915cb906f2f631e806bd4f5cbe94ec68965"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-output-comparison-prepared-20261104/historical-fixture-attempt1.json",
+      "bytes": 655,
+      "lines": 12,
+      "sha256": "f1a131f30537ed2b8f00d68751c4702b4548dc6ab59e4553f12484e0ac9383e1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-output-comparison-prepared-20261104/historical-fixture-only.json",
+      "bytes": 8731,
+      "lines": 197,
+      "sha256": "a94b8990d667f473fa3c33a4a9a762f7b8b3e9474506c5f142a0035b097b6fe8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-output-comparison-prepared-20261104/README.md",
+      "bytes": 6221,
+      "lines": 35,
+      "sha256": "480ab97ad5903ea85a6a5768aa1bfd94668918fec04f5669efc90496290ec5d7"
+    }
+  ],
+  "historical_fixture_boundary": {
+    "only_function_invoked": "partition_native on historical original logs/commands",
+    "profiles": 10,
+    "blocks": 1691,
+    "current_receiving_data_used": false,
+    "first_failure_retained": "historical-fixture-attempt1.json; actual historical tool a44c8b exit 1",
+    "completed_saved_report": "historical-fixture-only.json",
+    "final_console_terminal": "Not claimed: console output unavailable after compaction; full saved artifact readback 2a80dd retained",
+    "no_extra_fixture_after_coordinator_supersession": true
+  },
+  "author_readback": {
+    "helper_all_289_lines_and_failed_fixture_all_12_lines": "9d541b actual read exit 0",
+    "completed_historical_fixture_all_197_lines_and_three_identities": "2a80dd actual read exit 0",
+    "README_and_receipt": "Complete saved-file readback immediately follows this exclusive write; final handoff gives its tool reference"
+  },
+  "preservation": {
+    "original_helper_and_two_fixture_records_preserved_in_finalization": true,
+    "all_targeted_preparation_and_older_packages_unchanged": true,
+    "source_refs_runtime_cache_outputs_global_controls_untouched": true,
+    "no_new_gate_or_pending_runtime_action": true
+  }
+}

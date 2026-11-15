@@ -1,0 +1,81 @@
+{
+  "recorded_utc": "2026-11-05T02:21:19.770663+00:00",
+  "candidate": "f0fd3faa84d57ab7583f877039da2c703431f0ce",
+  "expectedHead": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "acceptedHead": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "expectedPaths": [
+    "Applications/Resources/TreeCache.lean",
+    "Applications/Trees/Cached.lean",
+    "Applications/Trees/Observations.lean",
+    "Examples/TreeCache.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-cache.md"
+  ],
+  "name": "binary-tree-cache-receiving-focused-attempt1-20261105",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Trees.Observations",
+    "Applications.Trees.Cached",
+    "Applications.Resources.TreeCache",
+    "Examples.TreeCache"
+  ],
+  "recordDirectory": "binary-tree-cache-receiving-20261105",
+  "recordName": "focused-attempt1-preflight.json",
+  "validationPurpose": "First actual focused qualification of all four original XT01 modules on accepted Chapter3; no acceptance claim.",
+  "metadata": {
+    "original_unit_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+    "original_donor": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+    "original_scope_retained": "seven paths; XT01-01 through XT01-07; 115 public names",
+    "receiving_scope": "full original unit, incorporating accepted Chapter3 base; no reset"
+  },
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was 298fb23 docs(selection): integrate complete chapter correspondence (#174)\nHEAD is now at f0fd3fa feat(trees): receive shared cached folds on accepted base (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "bytes": 3877,
+      "sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6"
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "bytes": 5668,
+      "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6"
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "bytes": 4119,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752"
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "bytes": 16307,
+      "sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 10743,
+      "sha256": "ae0e85d4cc8b4d77b8880279b3632631428bbf4ed68ef2656f3bae80112cbd0a"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 49195,
+      "sha256": "6f6985eebac08df0e2123c0aa2d1a905cf55c51523e78038a8fc1d7a12ae61f1"
+    },
+    {
+      "path": "docs/research/fdsa-tree-cache.md",
+      "bytes": 12896,
+      "sha256": "6fc7261df6c2955337f6d4b4df016d04c646e25c90940558d14df4059cfd84d6"
+    }
+  ],
+  "candidate_tree": "7bd41281d55362e7e14e53b7b06610f01cf4a151",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 449142784
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

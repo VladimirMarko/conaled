@@ -1,0 +1,57 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "recorded_utc": "2026-11-04T08:51:01.153973+00:00",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "current_integrated_candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+  "isolated_parent": "6f3e010eb3b0a55fe8005c26deefacf2eed10cfc",
+  "isolated_candidate": "a07d27634786220294038c0eb1e1c42428adccdf",
+  "source": "Examples/RandomQuickSortRank.lean",
+  "source_bytes": 6356,
+  "source_lines": 149,
+  "source_sha256": "419e02b0865e4ed64041f0afe465271127599a475d3edff658224c9c8fd5d9d6",
+  "source_git_blob": "239b28e8d564edc0e8ae54ebaa06872060c8fd1b",
+  "fully_read_corrected_source": true,
+  "actual_diagnostics": {
+    "headers": 2,
+    "lines": 14,
+    "bytes": 451,
+    "sha256": "d6eb9764e124dda030dc4f2a3b5ff2c57919d31b226918a40dfd42d93bd83553",
+    "fully_read": true,
+    "aggregate_terminal": false
+  },
+  "full_diff_forms_read": true,
+  "exact_git_diff_sha256": "5d1997a69073df9847b82cf41caea00dbfb1ad06a0470c25bc8c0d25a1acd0f4",
+  "saved_before_equals_parent_and_current_central": true,
+  "only_changed_path": "Examples/RandomQuickSortRank.lean",
+  "all_18_example_headers_byte_identical": true,
+  "rank_core_byte_identical_to_parent_and_central": true,
+  "rank_core_sha256": "11a3eab707a445f1a205567845485c023e1eddf99358a06bfcd3a19a0a2c66ed",
+  "counts": {
+    "core_named_headers": 19,
+    "core_public": 12,
+    "core_private": 7,
+    "example_public": 18,
+    "combined_public": 30
+  },
+  "pinned_API": {
+    "toolchain_pin": "leanprover/lean4:v4.35.0",
+    "path": "conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/Fin/Lemmas.lean",
+    "file_bytes": 49759,
+    "file_sha256": "f00755157b6915ad4ff73f0ff86143576dcf9d89a0d0a31a8f0d9401b0a45bd0",
+    "inspected_definition_line": 344,
+    "inspected_context": "Fin 1 Subsingleton instance and fin_one_eq_zero definition; namespace Fin confirmed. Entire library file not claimed as read.",
+    "type": "(a : Fin 1) : a = 0",
+    "proof": "Subsingleton.elim a 0"
+  },
+  "source_assessment": {
+    "singleton_rank": "The actual occurrenceRank result has index type Fin ([x].length), definitionally Fin 1. The existing theorem proves its equality with the same zero index. Arbitrary payload/key universes and the existing key order remain; no payload equality or inhabitance is added.",
+    "repeated_key_rank_is_not_left_size": "After the already proved tuple-sort equality to Equiv.refl, rfl closes exactly the displayed inverse-identity value equality. The distinct-tag/repeated-key input, second tie position1 and actual strict-left length0 remain unchanged.",
+    "other_contracts": "All other means, ranks, original child orders, duplicate-key limitations and unrelated-universe transport are unchanged. No definition, instance, import, linter, pin, audit or validation-gate change."
+  },
+  "new_source_findings": [],
+  "actual_successor_compile_or_types_assessed": false,
+  "current_run_status_source": "Parent reports focused7 at exact central5398 still live, with rank core individually built130s and natural examples built154s; no aggregate terminal result or acceptance inferred. Foundation check is also reported live. No execution session was polled.",
+  "compiler_findings": "Remain open pending actual successor compilation/type evidence and full candidate gates.",
+  "overall": "Blocked; original full R scope and all112 obligations retained.",
+  "reviewer_executed_compiler_build_check_audit_or_verify": false
+}

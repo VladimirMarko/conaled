@@ -1,0 +1,60 @@
+diff --git a/Applications/Probability/PermutationTail.lean b/Applications/Probability/PermutationTail.lean
+index 264877b..1085b40 100644
+--- a/Applications/Probability/PermutationTail.lean
++++ b/Applications/Probability/PermutationTail.lean
+@@ -209,7 +209,7 @@ theorem uniformOn_firstEvent
+         intro ys hys
+         obtain ⟨xs, hxs, rfl⟩ := Finset.mem_image.mp hys
+         rw [uniformOn_restrictedOrder_eq positions hnd hcomplete S (a :: xs),
+-          if_pos ((cons_mem_orders positions hnd S a (hcomplete a) ha xs).mpr hxs)]
++          ite_eq_left ((cons_mem_orders positions hnd S a (hcomplete a) ha xs).mpr hxs)]
+       _ = _ := by rw [Finset.sum_const, nsmul_eq_mul]
+   have hcard : C.card = (orders positions (S.erase a)).card :=
+     Finset.card_image_of_injective _ (fun _xs _ys h => (List.cons.inj h).2)
+@@ -262,9 +262,9 @@ theorem cond_tail_eq
+     uniformOn_restrictedOrder_eq positions hnd hcomplete S (a :: xs),
+     inv_inv, cons_mem_orders positions hnd S a (hcomplete a) ha xs]
+   by_cases hxs : xs ∈ orders positions (S.erase a)
+-  · simp only [if_pos hxs]
++  · simp only [ite_eq_left hxs]
+     exact factorial_ratio_tail S a ha
+-  · simp only [if_neg hxs, mul_zero]
++  · simp only [ite_eq_right hxs, mul_zero]
+ 
+ /-- The actual tail's pushforward under the original law conditioned on its
+ first selected key is the existing uniform remaining-order measure. -/
+diff --git a/Examples/PermutationTail.lean b/Examples/PermutationTail.lean
+index 39e9e5a..f118b08 100644
+--- a/Examples/PermutationTail.lean
++++ b/Examples/PermutationTail.lean
+@@ -105,7 +105,7 @@ theorem tail_23_mass : afterFirst {π | tailOrder π = [2, 3]} = 1 / 2 := by
+         then (Nat.factorial (selected.erase 0).card : ℝ≥0∞)⁻¹ else 0 :=
+       cond_tail_eq positions positions_nodup positions_complete
+         selected 0 (by decide) [2, 3]
+-    _ = 1 / 2 := by rw [if_pos hmem]; norm_num [selected, one_div]
++    _ = 1 / 2 := by rw [ite_eq_left hmem]; norm_num [selected, one_div]
+ 
+ /-- The other tail mass is obtained through the generic conditional HasLaw. -/
+ theorem tail_32_mass : afterFirst {π | tailOrder π = [3, 2]} = 1 / 2 := by
+@@ -123,7 +123,7 @@ theorem repeated_tail_mass_zero : afterFirst {π | tailOrder π = [2, 2]} = 0 :=
+         then (Nat.factorial (selected.erase 0).card : ℝ≥0∞)⁻¹ else 0 :=
+       cond_tail_eq positions positions_nodup positions_complete
+         selected 0 (by decide) [2, 2]
+-    _ = 0 := if_neg hbad
++    _ = 0 := ite_eq_right hbad
+ 
+ def filteredTail (π : Equiv.Perm (Fin 4)) : List (Fin 4) :=
+   (tailOrder π).filter (fun b => decide (b ∈ ({3} : Finset (Fin 4))))
+diff --git a/Examples/PermutationTailBoundary.lean b/Examples/PermutationTailBoundary.lean
+index c494fca..f15c34f 100644
+--- a/Examples/PermutationTailBoundary.lean
++++ b/Examples/PermutationTailBoundary.lean
+@@ -127,7 +127,7 @@ private theorem counter_full_mass (xs : List (Fin 3))
+     counterLaw {π | restrictedOrder counterPositions Finset.univ π = xs} = 1 / 6 := by
+   unfold counterLaw
+   rw [uniformOn_restrictedOrder_eq counterPositions counterPositions_nodup
+-    counterPositions_complete Finset.univ xs, if_pos hxs]
++    counterPositions_complete Finset.univ xs, ite_eq_left hxs]
+   norm_num [one_div]
+ 
+ /-- Finite value calculation over the six supported full lists, not over a new law. -/

@@ -1,0 +1,31 @@
+{
+  "module": "Applications.FRP.Finite",
+  "source_path": "Applications/FRP/Finite.lean",
+  "source_sha256": "2230666713793ad16889ac8d1a7f707011c316c13284f0387d276c15b4f232ed",
+  "source_change": "None; exact main/candidate source bytes",
+  "source_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "original_setup_available": false,
+  "setup_base_path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-imports/Spec.setup.json",
+  "setup_base_sha256": "6b4af7891d8b68f01d431a82dd1a707b7e0d446479daf8935cc8f08f68ca787b",
+  "setup_sha256": "bc8bfcd7cfe1b2d709e18bbfbe85ee1bb8cf3b3b8b4e6f71ee9a05735caed896",
+  "setup_options": {},
+  "setup_imports_override_absent": true,
+  "setup_artifact_count": 9037,
+  "explicit_dependency_mappings": {
+    "Applications.FRP.Spec": [
+      [
+        "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-imports/out/Spec.olean"
+      ]
+    ],
+    "Applications.FRP.Equivalence": [
+      [
+        "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-imports/out/Equivalence.olean"
+      ]
+    ]
+  },
+  "dependency_hashes": {
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-imports/out/Spec.olean": "2f1ffeeea9fbc32009d76976bcbba5153dab74edbee1f603bd6403f1b4a167e9",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-imports/out/Equivalence.olean": "3350f1bf5b32e77ce58a0be612545c2a869a47f8fa01043e94b608f068193142"
+  },
+  "setup_construction": "Retain the base configuration and all non-overridden artifact mappings; set the exact client name and add/override only the listed completed dependency mappings"
+}

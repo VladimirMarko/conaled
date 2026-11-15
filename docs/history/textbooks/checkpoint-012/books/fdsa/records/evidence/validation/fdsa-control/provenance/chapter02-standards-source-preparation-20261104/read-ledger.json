@@ -1,0 +1,1558 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "initial_candidate": "10cbb38f421ccc77a6ccd2f48d8124f2e0af4ec4",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "status": "Complete full-scope source and public-type assessment at exact4b5dbfa0; C02-TYPE-001 resolved on Standards axis; whole-candidate outcome Blocked.",
+  "updated_utc": "2026-11-04T10:54:51.931936+00:00",
+  "fully_read_current_changed_source": [
+    {
+      "path": "Applications/Resources/DifferenceListCosts.lean",
+      "bytes": 10061,
+      "lines": 222,
+      "sha256": "f99420b831dff2d0f5fcc3dac1001937942b87c78b710b79f94fa941ab972b01",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/DifferenceListCosts.lean",
+      "bytes": 9299,
+      "lines": 234,
+      "sha256": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sequences/Partition.lean",
+      "bytes": 3786,
+      "lines": 87,
+      "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/Partition.lean",
+      "bytes": 2678,
+      "lines": 61,
+      "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Selection/ThreeWay.lean",
+      "bytes": 9718,
+      "lines": 211,
+      "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/ThreeWayPartition.lean",
+      "bytes": 8109,
+      "lines": 172,
+      "sha256": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/InsertionObservations.lean",
+      "bytes": 3325,
+      "lines": 69,
+      "sha256": "e537e85fa7d06db4e3030fbac3ad2123dfa295158ee87480ece9c47a56ee5add",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/InsertionObservations.lean",
+      "bytes": 10998,
+      "lines": 224,
+      "sha256": "29ba454b380ab837133863318611b059bc0af385008667d60c410ddedb7ba0f1",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/TopDown.lean",
+      "bytes": 5978,
+      "lines": 145,
+      "sha256": "5a953ff534311e1686112273f7c95db6813c8a06ecee0af8fcc191f1c7d9586f",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/TopDownSorting.lean",
+      "bytes": 3620,
+      "lines": 82,
+      "sha256": "0689ac22c8cc716efec24b4744ed606b79f734542101b28fc4f78af40ef089c5",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/QuickSort.lean",
+      "bytes": 9994,
+      "lines": 208,
+      "sha256": "696ae63c3f5c23940ac0f05c8ac6b48bff74b65e4c66faf319283efedea73802",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/QuickSort.lean",
+      "bytes": 7164,
+      "lines": 162,
+      "sha256": "2e5e4952bae8edf1fd5985f0cfd40993363a2f642717d61161a2e5ee6835a162",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/ThreeWayQuickSort.lean",
+      "bytes": 6597,
+      "lines": 150,
+      "sha256": "7ef1adb48a9211c010c84c20c64bd01690eba11683002d8a16cc820eefaf1f0e",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/ThreeWayQuickSort.lean",
+      "bytes": 6360,
+      "lines": 142,
+      "sha256": "0951a0f474638250912d4b6ee3084bbbf129c67c0f1527785778003ee1331d86",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/BottomUp.lean",
+      "bytes": 19856,
+      "lines": 445,
+      "sha256": "4df83022174bc4e5becfb441617624d57695158d69dc7241209ca077dc2c7791",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/BottomUpSorting.lean",
+      "bytes": 8304,
+      "lines": 188,
+      "sha256": "1d4a312363af87926c085f790ca7279273df050f40234c449e0e0fa9e5b5592b",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/Alternating.lean",
+      "bytes": 8597,
+      "lines": 194,
+      "sha256": "eb927e5978ea410f360441dfa8d4843b5e93de10aae8a5eac5c2f603f4e233e9",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/AlternatingSorting.lean",
+      "bytes": 5254,
+      "lines": 111,
+      "sha256": "5798ed2ce20dab0ce4b9618fea1e8ea36a7be9b2f60fa7090a85522bfb464c04",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/Uniqueness.lean",
+      "bytes": 1999,
+      "lines": 44,
+      "sha256": "e0df544f59be358a3e40ad48f25115ae2ba3b4507a30cdeb3425907bf94c8744",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/SortUniqueness.lean",
+      "bytes": 3903,
+      "lines": 87,
+      "sha256": "ce63cd0d8a953f9441b9b6b1597f9a3604ef736131290cba8c0430c36cd177b7",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/Growth.lean",
+      "bytes": 2906,
+      "lines": 59,
+      "sha256": "99be17f2d45ac30de1e912c2181460dac046c8b98e40ea3209abfec342107786",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/TopDownSorting.lean",
+      "bytes": 9144,
+      "lines": 200,
+      "sha256": "26531f25e57c0d198fc90d0a10652051ac6159098f493629af3283b54ab687bc",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/TopDownCosts.lean",
+      "bytes": 5403,
+      "lines": 117,
+      "sha256": "8f5f6969049712a5a5d37f7beb78c09017a2835b5f1208e54d0c9912dff425a4",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Probability/PermutationMinimum.lean",
+      "bytes": 8241,
+      "lines": 197,
+      "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/PermutationMinimum.lean",
+      "bytes": 4994,
+      "lines": 127,
+      "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/PermutationMinimumBoundary.lean",
+      "bytes": 4211,
+      "lines": 113,
+      "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "bytes": 15304,
+      "lines": 321,
+      "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/PermutationOrder.lean",
+      "bytes": 6706,
+      "lines": 152,
+      "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/PermutationOrderBoundary.lean",
+      "bytes": 5605,
+      "lines": 148,
+      "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Probability/PermutationTail.lean",
+      "bytes": 23521,
+      "lines": 487,
+      "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/PermutationTail.lean",
+      "bytes": 9826,
+      "lines": 222,
+      "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e",
+      "coverage": "Complete222-line source read at02fc; exact integrated source verified at8ba7ae11. Original full R scope retained."
+    },
+    {
+      "path": "Examples/PermutationTailBoundary.lean",
+      "bytes": 12064,
+      "lines": 266,
+      "sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54",
+      "coverage": "All266lines independently read at exact070e; verified identical at successor0a7ef078. Full original R scope retained."
+    },
+    {
+      "path": "Applications/Resources/QuickSort.lean",
+      "bytes": 21782,
+      "lines": 474,
+      "sha256": "e98024f6b741e1aba1fb1e38b419eee2e1acad76a8a40e669752f54775783263",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/QuickSortCosts.lean",
+      "bytes": 8828,
+      "lines": 193,
+      "sha256": "9d61ea34342e2f5d961c3d2962630f2ed853939802057dbfc2aca65ee1e9f999",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/BottomUpSorting.lean",
+      "bytes": 23175,
+      "lines": 512,
+      "sha256": "74cc812fb1f1706621daeb1c51512a9ddb3d85dc57a36589aafe96e8514a6826",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/BottomUpCosts.lean",
+      "bytes": 11973,
+      "lines": 243,
+      "sha256": "12572e3395c681b18f266374732eb63b059a13eb0f76aef25400aefa8d54a136",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/NaturalRuns.lean",
+      "bytes": 25272,
+      "lines": 613,
+      "sha256": "123c711b5f0cf05074155f3a0d9ae076aa80a8be482e7e6fc77626aa9db6fb1d",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/NaturalRuns.lean",
+      "bytes": 8415,
+      "lines": 209,
+      "sha256": "ef0ed6bbc5beb40815f977e80c0b99b0633e8503b0b1634747d41275cb3f6041",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/Natural.lean",
+      "bytes": 5528,
+      "lines": 121,
+      "sha256": "e4b27eb275e9509b205da7ae25dd7829e664eb47617cb1602e6114eb5d264493",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/NaturalSorting.lean",
+      "bytes": 5928,
+      "lines": 141,
+      "sha256": "69cc14a5f40421076a3af3f8066c0bf2b20678d11f4cbc5e3eefab8454fdbf57",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/NaturalRunComparisons.lean",
+      "bytes": 13562,
+      "lines": 330,
+      "sha256": "920e1832416afcdc47a0c2301c2e27c7cd5f0c614a209c8dea21fc2561d809b0",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/NaturalRunComparisons.lean",
+      "bytes": 4753,
+      "lines": 112,
+      "sha256": "9d4dfe317e1af9ee894385ba3478c0ede17de1e713cc7090b120a4d2ab708f8a",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "bytes": 13059,
+      "lines": 262,
+      "sha256": "bfca759cd0f1014d39824bdcb124a3a0b33d1459be2cc4635739965382a50e7a",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/NaturalSortingCosts.lean",
+      "bytes": 10506,
+      "lines": 231,
+      "sha256": "4b6c3fd9c359b31b01f13c5bdeee6b9fc7ccd82ab172f7d6bb5491410379441a",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/ListBuildCosts.lean",
+      "bytes": 7232,
+      "lines": 169,
+      "sha256": "6c2450b98fcb2677fddeea1116519e968223bc0872353d9e34979fc38607547f",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/ListBuildCosts.lean",
+      "bytes": 3608,
+      "lines": 83,
+      "sha256": "eba2961e501f545323e5403e7874ce3ddb256bad8f4046398acc55ca6ec230a1",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/NaturalRunOperations.lean",
+      "bytes": 29855,
+      "lines": 690,
+      "sha256": "ccbe8f58dd53cbfaa4600780d5d8a2a78da994ba33c3d6edaa3098446d1f09eb",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/NaturalRunOperations.lean",
+      "bytes": 16095,
+      "lines": 366,
+      "sha256": "7db50231ecbcdf3e63ff20475b0def2af0e855b70c367cc49235edb730b44f90",
+      "coverage": "Complete prior M2 source assessment plus complete independently assessed preserving corrective delta; exact integrated file verified."
+    },
+    {
+      "path": "Applications/Resources/RandomQuickSort.lean",
+      "bytes": 23601,
+      "lines": 509,
+      "sha256": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/RandomQuickSort.lean",
+      "bytes": 8255,
+      "lines": 203,
+      "sha256": "4f5a21d1656423ac1307b1ca8fe651cd794d70da576ecd14f65d68cc290c424d",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/RandomQuickSortMean.lean",
+      "bytes": 16517,
+      "lines": 335,
+      "sha256": "2c7976bf52a2dbed2eb6eb959055acc7ae0df8319c167f0128b63e5c482bd5d3",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/RandomQuickSortMean.lean",
+      "bytes": 5733,
+      "lines": 118,
+      "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/QuickSortMean.lean",
+      "bytes": 9673,
+      "lines": 216,
+      "sha256": "888bae2d149f2664f41e37f702ce5352718ac2d008f13fa51952239d85e5d09a",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/QuickSortMean.lean",
+      "bytes": 2488,
+      "lines": 68,
+      "sha256": "924ce55ee6af374b55cea67ee6f2da25997b5a81ad098e2e3789622bd793b904",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/QuickSortTransport.lean",
+      "bytes": 2232,
+      "lines": 56,
+      "sha256": "4093b8aa3b1bf884760926a4c866453f8ffa47d40304b8746f8083d2a3f54eff",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/QuickSortTransport.lean",
+      "bytes": 3084,
+      "lines": 72,
+      "sha256": "57dc49986edb9c8f990781c980177a513a9e9e2020c6218ce4f4d88daac4c6b2",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/RandomQuickSortRank.lean",
+      "bytes": 19646,
+      "lines": 396,
+      "sha256": "11a3eab707a445f1a205567845485c023e1eddf99358a06bfcd3a19a0a2c66ed",
+      "coverage": "Complete prior M2 source assessment plus complete independently assessed preserving corrective delta; exact integrated file verified."
+    },
+    {
+      "path": "Examples/RandomQuickSortRank.lean",
+      "bytes": 6356,
+      "lines": 149,
+      "sha256": "419e02b0865e4ed64041f0afe465271127599a475d3edff658224c9c8fd5d9d6",
+      "coverage": "Full predecessor independent source read plus full exact corrective delta/current examples; integrated byte identity verified at6b95185."
+    },
+    {
+      "path": "Applications/Resources/RandomQuickSortGrowth.lean",
+      "bytes": 9896,
+      "lines": 203,
+      "sha256": "2b8bf7b4820790edaaa5726efb8e8bd8bccd3a30cb30388148d95bba00e63674",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/RandomQuickSortGrowth.lean",
+      "bytes": 10033,
+      "lines": 216,
+      "sha256": "372d0fad2f5a77f0c9c97e6b2004036ab1b922a2a80f623784011381905ab3a1",
+      "coverage": "Full predecessor independent source read plus full exact corrective delta/current examples; integrated byte identity verified at6b95185."
+    },
+    {
+      "path": "Applications/Resources/UniformQuickSortMean.lean",
+      "bytes": 38157,
+      "lines": 789,
+      "sha256": "5e997076f474f1cfcc51cac11c31b870a1cd265cf121c6ae11519beab009ad67",
+      "coverage": "Full predecessor independent source read plus full exact corrective delta/current examples; integrated byte identity verified at6b95185."
+    },
+    {
+      "path": "Examples/UniformQuickSortMean.lean",
+      "bytes": 16973,
+      "lines": 366,
+      "sha256": "744562a71000f1d4f2c82a57a681eaf0491dfd7065ad650f09c4403304d8c24b",
+      "coverage": "Complete366-line source independently read at exact isolated3b; integrated4b5 blob equality verified; all prior full-scope assessments retained."
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 9371,
+      "lines": 285,
+      "sha256": "31fb256fe70c28b42b85b0221c37ffe60ab60248ebf7babecc410326c1f96d15",
+      "coverage": "Complete prior M2 file read plus complete actual applied public integration diff; exact committed source identity verified."
+    },
+    {
+      "path": "docs/research/fdsa-permutation-minimum.md",
+      "bytes": 7608,
+      "lines": 138,
+      "sha256": "9b0ac9218e6a82f40e61faf97447af33adcccfafb60498a4f33acbfce91f5a31",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "docs/research/fdsa-permutation-order.md",
+      "bytes": 8851,
+      "lines": 166,
+      "sha256": "39fd16835dccd39c9d34ebfcebbdbdd33f44ec1dad49fdfe582a8ac4801faea3",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "docs/research/fdsa-permutation-tail.md",
+      "bytes": 10367,
+      "lines": 203,
+      "sha256": "34162854a3bfabbec1e87bea6111b4939495cc27eb9ee811758dceaeb62dc96f",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "docs/research/fdsa-three-way-partition.md",
+      "bytes": 13444,
+      "lines": 250,
+      "sha256": "5e58b195a53e32369dd31a7d6452c73f595419757faeaae0173c0fd659c0858b",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 44132,
+      "lines": 671,
+      "sha256": "dd4ce52d2cec15815dd18788e027808b072af75f4759b6fd9d6520682e6a27c2",
+      "coverage": "Complete prior M2 file read plus complete actual applied public integration diff; exact committed source identity verified."
+    },
+    {
+      "path": "docs/research/fdsa-sorting.md",
+      "bytes": 78811,
+      "lines": 502,
+      "sha256": "4b8776fd7c5ecd3e877addf9f271d2134a63e6a012486be892efc47cbaf476f2",
+      "coverage": "Complete earlier public note and adjustment read, then complete seven-line lineage addition assessed and exact committed identity verified."
+    }
+  ],
+  "fully_read_unchanged_interface_source": [
+    {
+      "path": "Applications/Resources/Measured.lean",
+      "bytes": 2906,
+      "lines": 71,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/CallCount.lean",
+      "bytes": 2447,
+      "lines": 58,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/Workload.lean",
+      "bytes": 2745,
+      "lines": 64,
+      "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/Stable.lean",
+      "bytes": 3704,
+      "lines": 87,
+      "sha256": "288552150aa002c60ed06c74e69510112cf9b4e2f0045da3d98ca5c39264d881",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/Sort.lean",
+      "bytes": 5922,
+      "lines": 128,
+      "sha256": "5acd7728aaaefdec121df797efafd7dae13476c820d4f85f4ada19868fa71218",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/SourceMerge.lean",
+      "bytes": 1537,
+      "lines": 37,
+      "sha256": "bebd8eb2f06d92cc10e6f319c96b7965cdee36ff14c4a8b0b19e1351e8ebeaf2",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    }
+  ],
+  "retained_independent_analysis": {
+    "foundation": {
+      "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "report": "reviews/shared-foundations-standards.md",
+      "report_read": "complete",
+      "whole_file_identity_verified": [
+        {
+          "path": "Applications/Resources/InsertionSort.lean",
+          "bytes": 7257,
+          "lines": 178,
+          "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+          "coverage": "exact identity to independently reviewed source; retained prior independent analysis, not a new full source read by this reviewer"
+        },
+        {
+          "path": "Applications/Resources/ListCalls.lean",
+          "bytes": 7939,
+          "lines": 190,
+          "sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+          "coverage": "exact identity to independently reviewed source; retained prior independent analysis, not a new full source read by this reviewer"
+        },
+        {
+          "path": "Examples/FunctionalNotation.lean",
+          "bytes": 8277,
+          "lines": 202,
+          "sha256": "fe4b585a6753110dee67c1942ce68d16d9bf00feb5946f32791682c634c42eef",
+          "coverage": "exact identity to independently reviewed source; retained prior independent analysis, not a new full source read by this reviewer"
+        },
+        {
+          "path": "Examples/InsertionCosts.lean",
+          "bytes": 3862,
+          "lines": 101,
+          "sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37",
+          "coverage": "exact identity to independently reviewed source; retained prior independent analysis, not a new full source read by this reviewer"
+        },
+        {
+          "path": "Examples/ListCalls.lean",
+          "bytes": 4333,
+          "lines": 124,
+          "sha256": "24d0809f51d04b0a9cadb5a349141e7327a5f7721f63c1021113527917487d5d",
+          "coverage": "exact identity to independently reviewed source; retained prior independent analysis, not a new full source read by this reviewer"
+        },
+        {
+          "path": "Examples/ListLibrary.lean",
+          "bytes": 6761,
+          "lines": 170,
+          "sha256": "036cf4c12ddf5d25ce433d9f7dbedfcbb96dfc3c7f602d10605388d2791e47ad",
+          "coverage": "exact identity to independently reviewed source; retained prior independent analysis, not a new full source read by this reviewer"
+        },
+        {
+          "path": "docs/research/fdsa-notation-map.md",
+          "bytes": 24280,
+          "lines": 317,
+          "sha256": "cff778380868755fa7e7018797bf3d5e8c7b0cc55b5e3cd37bc64b3f32658d5b",
+          "coverage": "exact identity to independently reviewed source; retained prior independent analysis, not a new full source read by this reviewer"
+        }
+      ],
+      "still_pending": "Current F-to-M2 root/map additions inspected and prior text preserved. Final successor affected-input/terminal validation checks remain pending."
+    },
+    "XM01": {
+      "candidate": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "report": "reviews/ordinary-merge-standards.md",
+      "report_read": "complete",
+      "whole_file_identity_verified": [
+        {
+          "path": "Applications/Resources/ListMerge.lean",
+          "bytes": 8629,
+          "lines": 201,
+          "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975",
+          "coverage": "exact identity to independently reviewed source; retained prior independent analysis, not a new full source read by this reviewer"
+        },
+        {
+          "path": "Applications/Sorting/Merge.lean",
+          "bytes": 7840,
+          "lines": 172,
+          "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+          "coverage": "exact identity to independently reviewed source; retained prior independent analysis, not a new full source read by this reviewer"
+        },
+        {
+          "path": "Examples/MergeCosts.lean",
+          "bytes": 23410,
+          "lines": 476,
+          "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466",
+          "coverage": "exact identity to independently reviewed source; retained prior independent analysis, not a new full source read by this reviewer"
+        },
+        {
+          "path": "docs/research/fdsa-list-merge.md",
+          "bytes": 14955,
+          "lines": 250,
+          "sha256": "25f1982d56183111c112d3e38f4473000668685d126677935dcecc3d1a5cf5b3",
+          "coverage": "exact identity to independently reviewed source; retained prior independent analysis, not a new full source read by this reviewer"
+        }
+      ],
+      "still_pending": "Current root/map read and retained XM01 section/imports present. Exact final successor integration, affected-input and terminal checks remain pending."
+    },
+    "XD01": {
+      "candidate": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+      "report": "reviews/difference-list-costs-standards.md",
+      "report_read": "complete",
+      "current_core_examples_and_full_delta_read": true,
+      "documentation_identity_verified": {
+        "path": "docs/research/fdsa-difference-list-costs.md",
+        "bytes": 10679,
+        "lines": 213,
+        "sha256": "fd01432541c9b27ad83def6192e4a3b75d6b77ae7490ec11a2bf665324f1246e",
+        "coverage": "exact identity to independently reviewed source note; prior independent report read in full"
+      },
+      "still_pending": "Current core/examples and complete delta read; all 72 current public expanded types inspected via exact historical source identity. Final successor root/map/terminal checks remain pending."
+    }
+  },
+  "explicit_type_evidence": "provenance/chapter02-standards-source-preparation-20261104/evidence.json",
+  "completed_expanded_type_declarations": 648,
+  "completed_other_profile_type_declarations": 293,
+  "completed_unique_printed_type_declarations": 941,
+  "full_public_type_accounting": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/public-type-accounting.json",
+    "bytes": 1070441,
+    "sha256": "a67cdd001115164b268d0c8d2b2a2dc2c6d95d46970a02bb17a324edb146e556",
+    "public_named_count": 1762,
+    "actual_printed_types": 941,
+    "prepared_only": 468,
+    "additional_missing_current": 325,
+    "retained_accepted_base": 28,
+    "anonymous_instances": 19,
+    "private_named": 70,
+    "additional_missing_names_sha256": "9b9d7bd4945035e456c88fddb3372a57b2f72c6d59e5dffb1eb095d8c620c715"
+  },
+  "corrective_continuation": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/corrective-continuation.json",
+    "sha256": "7ffa1f05198a17bdbe0c37e70be1b25a3e77ce1e0843113bf7912bc1c44af472"
+  },
+  "public_documentation_proposal_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/public-documentation-assessment.json",
+    "sha256": "dd073774ca90db7fb9ab3c6a8f50fd94a1479b6d05bcb86650c3afd6ebcae885"
+  },
+  "ordinary_profile_type_assessment": {
+    "count": 293,
+    "fully_read": true,
+    "families": {
+      "bottom_up_alternating_126": "Actual signatures retain arbitrary raw comparisons, arbitrary piles/accumulators and explicit local sortedness conditions; boundaries expose absent evenness/stability premises.",
+      "natural_runs_104": "Actual signatures retain all prefix/current/tail arguments and order invariants; three printed definitions additionally expose DListLaw all-suffix quantification and its raw source builder.",
+      "top_down_costs_32": "Actual types retain all-length bounds, explicit power-of-two and positive-log domains, actual comparator/list inputs, and defined comparison projections.",
+      "first_pivot_values_14": "Explicit @ applications display payload universe and raw comparator/suffix quantification; local sortedness and complementary-filter assumptions are visible.",
+      "ordinary_merge_17": "Explicit @ applications expose independent map universes, raw comparator laws, actual cost projections and local key/compatibility hypotheses without added payload requirements."
+    },
+    "concrete_hidden_quantifier_or_premise_gap": null,
+    "blanket_repeat_requested": false,
+    "note": "Printing profiles are retained exactly. No claim that these293 have pp.explicit enabled; source definitions and fully displayed binder lists disambiguate the actual inspected contracts."
+  },
+  "historical_M2_fully_read_current_changed_source": [
+    {
+      "path": "Applications/Resources/DifferenceListCosts.lean",
+      "bytes": 10061,
+      "lines": 222,
+      "sha256": "f99420b831dff2d0f5fcc3dac1001937942b87c78b710b79f94fa941ab972b01",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/DifferenceListCosts.lean",
+      "bytes": 9299,
+      "lines": 234,
+      "sha256": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sequences/Partition.lean",
+      "bytes": 3786,
+      "lines": 87,
+      "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/Partition.lean",
+      "bytes": 2678,
+      "lines": 61,
+      "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Selection/ThreeWay.lean",
+      "bytes": 9718,
+      "lines": 211,
+      "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/ThreeWayPartition.lean",
+      "bytes": 8109,
+      "lines": 172,
+      "sha256": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/InsertionObservations.lean",
+      "bytes": 3325,
+      "lines": 69,
+      "sha256": "e537e85fa7d06db4e3030fbac3ad2123dfa295158ee87480ece9c47a56ee5add",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/InsertionObservations.lean",
+      "bytes": 10998,
+      "lines": 224,
+      "sha256": "29ba454b380ab837133863318611b059bc0af385008667d60c410ddedb7ba0f1",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/TopDown.lean",
+      "bytes": 5978,
+      "lines": 145,
+      "sha256": "5a953ff534311e1686112273f7c95db6813c8a06ecee0af8fcc191f1c7d9586f",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/TopDownSorting.lean",
+      "bytes": 3620,
+      "lines": 82,
+      "sha256": "0689ac22c8cc716efec24b4744ed606b79f734542101b28fc4f78af40ef089c5",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/QuickSort.lean",
+      "bytes": 9994,
+      "lines": 208,
+      "sha256": "696ae63c3f5c23940ac0f05c8ac6b48bff74b65e4c66faf319283efedea73802",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/QuickSort.lean",
+      "bytes": 7164,
+      "lines": 162,
+      "sha256": "2e5e4952bae8edf1fd5985f0cfd40993363a2f642717d61161a2e5ee6835a162",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/ThreeWayQuickSort.lean",
+      "bytes": 6597,
+      "lines": 150,
+      "sha256": "7ef1adb48a9211c010c84c20c64bd01690eba11683002d8a16cc820eefaf1f0e",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/ThreeWayQuickSort.lean",
+      "bytes": 6360,
+      "lines": 142,
+      "sha256": "0951a0f474638250912d4b6ee3084bbbf129c67c0f1527785778003ee1331d86",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/BottomUp.lean",
+      "bytes": 19856,
+      "lines": 445,
+      "sha256": "4df83022174bc4e5becfb441617624d57695158d69dc7241209ca077dc2c7791",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/BottomUpSorting.lean",
+      "bytes": 8304,
+      "lines": 188,
+      "sha256": "1d4a312363af87926c085f790ca7279273df050f40234c449e0e0fa9e5b5592b",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/Alternating.lean",
+      "bytes": 8597,
+      "lines": 194,
+      "sha256": "eb927e5978ea410f360441dfa8d4843b5e93de10aae8a5eac5c2f603f4e233e9",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/AlternatingSorting.lean",
+      "bytes": 5254,
+      "lines": 111,
+      "sha256": "5798ed2ce20dab0ce4b9618fea1e8ea36a7be9b2f60fa7090a85522bfb464c04",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/Uniqueness.lean",
+      "bytes": 1999,
+      "lines": 44,
+      "sha256": "e0df544f59be358a3e40ad48f25115ae2ba3b4507a30cdeb3425907bf94c8744",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/SortUniqueness.lean",
+      "bytes": 3903,
+      "lines": 87,
+      "sha256": "ce63cd0d8a953f9441b9b6b1597f9a3604ef736131290cba8c0430c36cd177b7",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/Growth.lean",
+      "bytes": 2906,
+      "lines": 59,
+      "sha256": "99be17f2d45ac30de1e912c2181460dac046c8b98e40ea3209abfec342107786",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/TopDownSorting.lean",
+      "bytes": 9144,
+      "lines": 200,
+      "sha256": "26531f25e57c0d198fc90d0a10652051ac6159098f493629af3283b54ab687bc",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/TopDownCosts.lean",
+      "bytes": 5403,
+      "lines": 117,
+      "sha256": "8f5f6969049712a5a5d37f7beb78c09017a2835b5f1208e54d0c9912dff425a4",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Probability/PermutationMinimum.lean",
+      "bytes": 8241,
+      "lines": 197,
+      "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/PermutationMinimum.lean",
+      "bytes": 4994,
+      "lines": 127,
+      "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/PermutationMinimumBoundary.lean",
+      "bytes": 4211,
+      "lines": 113,
+      "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "bytes": 15304,
+      "lines": 321,
+      "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/PermutationOrder.lean",
+      "bytes": 6706,
+      "lines": 152,
+      "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/PermutationOrderBoundary.lean",
+      "bytes": 5605,
+      "lines": 148,
+      "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Probability/PermutationTail.lean",
+      "bytes": 23521,
+      "lines": 487,
+      "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/PermutationTail.lean",
+      "bytes": 8786,
+      "lines": 197,
+      "sha256": "30e07aaede25b10d2484c2a4674bffa66d77094a545fd49f72bc000bd132ddb7",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/PermutationTailBoundary.lean",
+      "bytes": 10178,
+      "lines": 230,
+      "sha256": "fe6e365ff0f324e1f9b143b6203589f36b89e4b789baa79a11317163d21494c0",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/QuickSort.lean",
+      "bytes": 21782,
+      "lines": 474,
+      "sha256": "e98024f6b741e1aba1fb1e38b419eee2e1acad76a8a40e669752f54775783263",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/QuickSortCosts.lean",
+      "bytes": 8828,
+      "lines": 193,
+      "sha256": "9d61ea34342e2f5d961c3d2962630f2ed853939802057dbfc2aca65ee1e9f999",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/BottomUpSorting.lean",
+      "bytes": 23175,
+      "lines": 512,
+      "sha256": "74cc812fb1f1706621daeb1c51512a9ddb3d85dc57a36589aafe96e8514a6826",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/BottomUpCosts.lean",
+      "bytes": 11973,
+      "lines": 243,
+      "sha256": "12572e3395c681b18f266374732eb63b059a13eb0f76aef25400aefa8d54a136",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/NaturalRuns.lean",
+      "bytes": 25272,
+      "lines": 613,
+      "sha256": "123c711b5f0cf05074155f3a0d9ae076aa80a8be482e7e6fc77626aa9db6fb1d",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/NaturalRuns.lean",
+      "bytes": 8415,
+      "lines": 209,
+      "sha256": "ef0ed6bbc5beb40815f977e80c0b99b0633e8503b0b1634747d41275cb3f6041",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Sorting/Natural.lean",
+      "bytes": 5528,
+      "lines": 121,
+      "sha256": "e4b27eb275e9509b205da7ae25dd7829e664eb47617cb1602e6114eb5d264493",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/NaturalSorting.lean",
+      "bytes": 5928,
+      "lines": 141,
+      "sha256": "69cc14a5f40421076a3af3f8066c0bf2b20678d11f4cbc5e3eefab8454fdbf57",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/NaturalRunComparisons.lean",
+      "bytes": 13562,
+      "lines": 330,
+      "sha256": "920e1832416afcdc47a0c2301c2e27c7cd5f0c614a209c8dea21fc2561d809b0",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/NaturalRunComparisons.lean",
+      "bytes": 4753,
+      "lines": 112,
+      "sha256": "9d4dfe317e1af9ee894385ba3478c0ede17de1e713cc7090b120a4d2ab708f8a",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "bytes": 13059,
+      "lines": 262,
+      "sha256": "bfca759cd0f1014d39824bdcb124a3a0b33d1459be2cc4635739965382a50e7a",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/NaturalSortingCosts.lean",
+      "bytes": 10506,
+      "lines": 231,
+      "sha256": "4b6c3fd9c359b31b01f13c5bdeee6b9fc7ccd82ab172f7d6bb5491410379441a",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/ListBuildCosts.lean",
+      "bytes": 7232,
+      "lines": 169,
+      "sha256": "6c2450b98fcb2677fddeea1116519e968223bc0872353d9e34979fc38607547f",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/ListBuildCosts.lean",
+      "bytes": 3608,
+      "lines": 83,
+      "sha256": "eba2961e501f545323e5403e7874ce3ddb256bad8f4046398acc55ca6ec230a1",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/NaturalRunOperations.lean",
+      "bytes": 29855,
+      "lines": 690,
+      "sha256": "ccbe8f58dd53cbfaa4600780d5d8a2a78da994ba33c3d6edaa3098446d1f09eb",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/NaturalRunOperations.lean",
+      "bytes": 16153,
+      "lines": 365,
+      "sha256": "8bbd6c17eadd48a3af7a7f4c5f8ee3c2e9a97f03317bf373032314cdc835ebbc",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/RandomQuickSort.lean",
+      "bytes": 23601,
+      "lines": 509,
+      "sha256": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/RandomQuickSort.lean",
+      "bytes": 8255,
+      "lines": 203,
+      "sha256": "4f5a21d1656423ac1307b1ca8fe651cd794d70da576ecd14f65d68cc290c424d",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/RandomQuickSortMean.lean",
+      "bytes": 16517,
+      "lines": 335,
+      "sha256": "2c7976bf52a2dbed2eb6eb959055acc7ae0df8319c167f0128b63e5c482bd5d3",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/RandomQuickSortMean.lean",
+      "bytes": 5733,
+      "lines": 118,
+      "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/QuickSortMean.lean",
+      "bytes": 9673,
+      "lines": 216,
+      "sha256": "888bae2d149f2664f41e37f702ce5352718ac2d008f13fa51952239d85e5d09a",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/QuickSortMean.lean",
+      "bytes": 2488,
+      "lines": 68,
+      "sha256": "924ce55ee6af374b55cea67ee6f2da25997b5a81ad098e2e3789622bd793b904",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/QuickSortTransport.lean",
+      "bytes": 2232,
+      "lines": 56,
+      "sha256": "4093b8aa3b1bf884760926a4c866453f8ffa47d40304b8746f8083d2a3f54eff",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/QuickSortTransport.lean",
+      "bytes": 3084,
+      "lines": 72,
+      "sha256": "57dc49986edb9c8f990781c980177a513a9e9e2020c6218ce4f4d88daac4c6b2",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/RandomQuickSortRank.lean",
+      "bytes": 19590,
+      "lines": 392,
+      "sha256": "8acee8fadda0c94081cc0da43a07c864e54368eaa7ff23ab5cf73c06c2f43108",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/RandomQuickSortRank.lean",
+      "bytes": 6427,
+      "lines": 151,
+      "sha256": "a0f5fbd6b3d41cad08193a371228bede1b869a773608b21906e85f2848d747bf",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/RandomQuickSortGrowth.lean",
+      "bytes": 9896,
+      "lines": 203,
+      "sha256": "2b8bf7b4820790edaaa5726efb8e8bd8bccd3a30cb30388148d95bba00e63674",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/RandomQuickSortGrowth.lean",
+      "bytes": 9959,
+      "lines": 215,
+      "sha256": "2d173d7572ae76395c3779c216ea43d21719ff1774f6a7f21c68a5677b511a16",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/UniformQuickSortMean.lean",
+      "bytes": 36958,
+      "lines": 764,
+      "sha256": "ff977270b5ba80869dd3bdcf309cfcc06dee8f80422d37ff5fb6a9916ef38a72",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/UniformQuickSortMean.lean",
+      "bytes": 16466,
+      "lines": 352,
+      "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 8609,
+      "lines": 262,
+      "sha256": "da5b592d4b4a6a55307375434d816f0f7fe196ed5ef9c7e485af87948ac13035",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "docs/research/fdsa-permutation-minimum.md",
+      "bytes": 7608,
+      "lines": 138,
+      "sha256": "9b0ac9218e6a82f40e61faf97447af33adcccfafb60498a4f33acbfce91f5a31",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "docs/research/fdsa-permutation-order.md",
+      "bytes": 8851,
+      "lines": 166,
+      "sha256": "39fd16835dccd39c9d34ebfcebbdbdd33f44ec1dad49fdfe582a8ac4801faea3",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "docs/research/fdsa-permutation-tail.md",
+      "bytes": 10367,
+      "lines": 203,
+      "sha256": "34162854a3bfabbec1e87bea6111b4939495cc27eb9ee811758dceaeb62dc96f",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "docs/research/fdsa-three-way-partition.md",
+      "bytes": 13444,
+      "lines": 250,
+      "sha256": "5e58b195a53e32369dd31a7d6452c73f595419757faeaae0173c0fd659c0858b",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 40461,
+      "lines": 617,
+      "sha256": "0981ce90f2a8491125c921e120d536ad3576d551d8b1606f8de3cb16a34df63b",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    }
+  ],
+  "successor_source_reconciliation": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-9409826.json",
+    "sha256": "c6a6f1b57af57755f7f109ab1b2d0143a80df1608a678be4c68f515cda674b57"
+  },
+  "uniform_repair1_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/uniform-repair1-assessment.json",
+    "sha256": "eebde100f1e56e4c83ff874344031bcb94a7e8ac504a450c22209f851dc13d74"
+  },
+  "latest_successor_source_reconciliation": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-4b5dbfa0.json",
+    "bytes": 27181,
+    "lines": 505,
+    "sha256": "3ae1e9749b8633e64a0adc14bb9cc96f5ee6cd5ba338dd45d55ddeac3df161d7"
+  },
+  "historical_9409826_changed_entries": [
+    {
+      "path": "Applications/Resources/UniformQuickSortMean.lean",
+      "bytes": 37880,
+      "lines": 783,
+      "sha256": "135066a5f434ddd99981212a739b165ccdacadbff1448e5f7c358ff04e33883f",
+      "coverage": "Complete corrected Uniform core read"
+    },
+    {
+      "path": "docs/research/fdsa-sorting.md",
+      "bytes": 78811,
+      "lines": 502,
+      "sha256": "4b8776fd7c5ecd3e877addf9f271d2134a63e6a012486be892efc47cbaf476f2",
+      "coverage": "Complete earlier public note and adjustment read, then complete seven-line lineage addition assessed and exact committed identity verified."
+    }
+  ],
+  "isolated_rank_examples_repair1": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/rank-examples-repair1-assessment.json",
+    "sha256": "e870eb960ceaf63a15d1fd0bf3cd31df01c5b666a33217a73ff0eff13ee0dce9"
+  },
+  "prepared_type_program_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/prepared-type-program-assessment-5398db7.json",
+    "sha256": "b037204ffbeb70b59cd5968761c1e2a43acee5a053e5a967a3abcd15bd4ea645"
+  },
+  "isolated_tail_boundary_repair3": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/tail-boundary-repair3-assessment.json",
+    "bytes": 5713,
+    "sha256": "f9d3b7a84261511e6b93d6aaf363c9e538fae80786939608e7a09eb6def605c8"
+  },
+  "focused7_terminal_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/focused7-terminal-assessment.json",
+    "bytes": 4083,
+    "sha256": "6d325a753f0fef61c846b13553d74b9cb973480745b2119a8dde8664fc9e8ab3"
+  },
+  "historical_type_dependency_reuse_audit": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/historical-type-dependency-assessment-6b95185.json",
+    "bytes": 312652,
+    "lines": 6578,
+    "sha256": "4cf7c71ed470047083093dd8a5212d3eaa6013b9e2a7ed9e0ae9e15426d9f9ab"
+  },
+  "isolated_uniform_repair2": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/uniform-repair2-assessment.json",
+    "bytes": 4006,
+    "sha256": "155b3552cf6d6c292670f488299a8b353d043c13f723c8611dcc1423578e0512"
+  },
+  "isolated_growth_examples_repair1": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/growth-examples-repair1-assessment.json",
+    "bytes": 2804,
+    "sha256": "86d7a5011b935cd54abaaef50b52809fc8ce99fb4ae4e0f093fa10413f6acab9"
+  },
+  "current_type_evidence_disposition": {
+    "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "historical_outputs_actually_read": 941,
+    "historical_expanded": 648,
+    "historical_ordinary": 293,
+    "qualified_historical_current_type_evidence": 920,
+    "qualified_historical_expanded": 648,
+    "qualified_historical_ordinary": 272,
+    "actual_current_outputs_independently_read_and_qualified": 815,
+    "current_expanded": 815,
+    "changed_dependency_reinspection_resolved": 7,
+    "missing_final_identity_reinspection_resolved": 14,
+    "distinct_qualified_actual_names": 1735,
+    "accepted_base_retained": 28,
+    "current_pending": 0,
+    "public_inventory": 1763,
+    "reconciliation": "920 +815 +28 =1763;1735 distinct public names have qualified actual type evidence;28 retained accepted-base names are separate.",
+    "no_foundation110_subset_credit": true,
+    "finding": "C02-TYPE-001 resolved on Standards axis at exact4b5; whole-candidate Blocked."
+  },
+  "historical_5398db_changed_entries": [
+    {
+      "path": "Examples/PermutationTailBoundary.lean",
+      "bytes": 11027,
+      "lines": 247,
+      "sha256": "a1c623289b2a2059aac08e9d98183fd17ab3985c628fe9dc70b9c006e527943e",
+      "coverage": "Complete prior M2 source assessment plus complete independently assessed preserving corrective delta; exact integrated file verified."
+    },
+    {
+      "path": "Examples/RandomQuickSortRank.lean",
+      "bytes": 6427,
+      "lines": 151,
+      "sha256": "a0f5fbd6b3d41cad08193a371228bede1b869a773608b21906e85f2848d747bf",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Examples/RandomQuickSortGrowth.lean",
+      "bytes": 9959,
+      "lines": 215,
+      "sha256": "2d173d7572ae76395c3779c216ea43d21719ff1774f6a7f21c68a5677b511a16",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    },
+    {
+      "path": "Applications/Resources/UniformQuickSortMean.lean",
+      "bytes": 37880,
+      "lines": 783,
+      "sha256": "135066a5f434ddd99981212a739b165ccdacadbff1448e5f7c358ff04e33883f",
+      "coverage": "Complete corrected Uniform core read"
+    }
+  ],
+  "dependency_audit_additional_full_reads": [
+    {
+      "path": "Applications/Resources/Growth.lean",
+      "git_blob": "65cfdecea6a600b9ed80a9784637e9811c4bd425",
+      "bytes": 2906,
+      "lines": 59,
+      "sha256": "99be17f2d45ac30de1e912c2181460dac046c8b98e40ea3209abfec342107786",
+      "coverage": "Complete current source plus exact old-to-current diff."
+    },
+    {
+      "path": "Examples/MergeCosts.lean",
+      "git_blob": "b5f652cf5258c99f5a615b12987c664ed8be3d76",
+      "bytes": 23410,
+      "lines": 476,
+      "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466",
+      "coverage": "Complete476-line current source; prior independent XM01 assessment retained."
+    }
+  ],
+  "prepared_type_program814_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/prepared-type-program814-assessment-6b95185.json",
+    "bytes": 18259,
+    "lines": 434,
+    "sha256": "74b1758b81ce5d1b727028bd8e075f224500c77647f2683e09f53fc265a6bb32"
+  },
+  "shared_note_proposals_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/shared-note-proposals-assessment-6b95185.json",
+    "bytes": 69126,
+    "lines": 1616,
+    "sha256": "ce1ce7e51e89485294e7cdeb3ed3e5ca663e72e720ab434c3f6992a1022e0e16"
+  },
+  "focused8_terminal_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/focused8-terminal-assessment.json",
+    "bytes": 5911,
+    "lines": 160,
+    "sha256": "52d6b1c6d79056fb0a5958655bc00caa013f7d4cb141508665a7a4950345bcd5"
+  },
+  "foundation_standards_continuation": {
+    "report": {
+      "path": "reviews/shared-foundations-standards-continuation-20261104.md",
+      "bytes": 8391,
+      "lines": 129,
+      "sha256": "6e09c7114bbaa2a4d5a7eb538eaf6c2fc29f0bc64d5427afc0a52ceecd68e559"
+    },
+    "receipt": {
+      "path": "provenance/shared-foundations-standards-continuation-20261104/identity-and-preparation.json",
+      "bytes": 18508,
+      "lines": 437,
+      "sha256": "6302153f8f1efde64ed4066ce41d84e4eafa64ef971ca081745f2a0dd8767762"
+    },
+    "scope_separate_from_Chapter2_acceptance": true,
+    "outcome": "Blocked pending exactF actual terminal validation and145 output; original full foundation source assessment retained."
+  },
+  "post0095_read_boundaries": {
+    "shared_notes": "All six complete status patches and both complete Tail correction1 patches read; old Tail213-line proposal fully read; exact proposal text composed from matching immutable originals and verified complete patches. No raw all4947-line evidence JSON read claimed.",
+    "focused8": "All162 closed log lines, complete result/secured-terminal/native start/result records read; output truncation was repaired by bounded rereading missing middle lines and full trace. Actual hashes and outer/native records independently verified.",
+    "prepared814": "All program commands parsed and matched to exact ordered inventory; all36 immutable Q sources independently verified. Program not executed.",
+    "foundation": "Original full-scope source assessment retained against exact9-path identity; full round, recovery preflight, environment and natural_runs408-line preparation/prefix/addendum read. Actual foundation terminal and145 output not supplied for this preparation."
+  },
+  "isolated_tail_boundary_repair4": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/tail-boundary-repair4-assessment.json",
+    "bytes": 9371,
+    "lines": 239,
+    "sha256": "079a7c0b3f8f5edde18cf362730fc7af64dca9da5ab130035cb9f295acc1c22b"
+  },
+  "focused9_terminal_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/focused9-terminal-assessment.json",
+    "bytes": 8421,
+    "lines": 131,
+    "sha256": "bc6db19f7c7bb0b24ee7c79cf91b619ff86d12e07ecb3cda0db0a182dc177c82"
+  },
+  "successor_source_binding_0a7ef078": {
+    "receipt": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/foundation110-potential-type-reuse-0a7ef078.json",
+      "bytes": 122392,
+      "lines": 3445,
+      "sha256": "23ec745628fc15a330a492bc70f4a22d9fb452faaf9ba482006cebf7d3546bc0"
+    },
+    "section": "full_source_scope_binding",
+    "candidate": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+    "full_scope_paths": 81,
+    "only_changed_path": "Examples/PermutationTailBoundary.lean",
+    "independent_exact_delta_receipt": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/tail-boundary-repair4-assessment.json",
+      "bytes": 9371,
+      "lines": 239,
+      "sha256": "079a7c0b3f8f5edde18cf362730fc7af64dca9da5ab130035cb9f295acc1c22b"
+    }
+  },
+  "potential_foundation110_reuse_preparation": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/foundation110-potential-type-reuse-0a7ef078.json",
+    "bytes": 122392,
+    "lines": 3445,
+    "sha256": "23ec745628fc15a330a492bc70f4a22d9fb452faaf9ba482006cebf7d3546bc0"
+  },
+  "historical_6b95185_changed_entries": [
+    {
+      "path": "Examples/PermutationTailBoundary.lean",
+      "bytes": 11709,
+      "lines": 261,
+      "sha256": "03fbb29d9f458a7e76235e198b01ef3dd3b20dbe225d3d1edf3110b5628c437b",
+      "coverage": "Full predecessor independent source read plus full exact corrective delta/current examples; integrated byte identity verified at6b95185."
+    }
+  ],
+  "focused9_additional_full_source_read": {
+    "path": "Examples/PermutationTail.lean",
+    "candidate": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+    "git_blob": "f118b08cd9d2006ceac0f4c24004e1ed09c1fb93",
+    "bytes": 8786,
+    "lines": 197,
+    "sha256": "30e07aaede25b10d2484c2a4674bffa66d77094a545fd49f72bc000bd132ddb7",
+    "complete_source_read": true
+  },
+  "isolated_tail_main_repair5": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/tail-main-repair5-assessment.json",
+    "bytes": 19227,
+    "lines": 500,
+    "sha256": "1c006f41928dee82f996609b64d0d5ec37cc0c8734a71c46c5f7ee43679a1c3f"
+  },
+  "successor_source_reconciliation_8ba7ae11": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-8ba7ae11.json",
+    "bytes": 6016,
+    "lines": 151,
+    "sha256": "c4a55f3a097dd95c7b977e7ff9dd0a5ef706705325447cf17ec182f5b8da7764"
+  },
+  "historical_0a7ef078_changed_entries": [
+    {
+      "path": "Examples/PermutationTail.lean",
+      "bytes": 8786,
+      "lines": 197,
+      "sha256": "30e07aaede25b10d2484c2a4674bffa66d77094a545fd49f72bc000bd132ddb7",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    }
+  ],
+  "focused10_terminal_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/focused10-terminal-assessment.json",
+    "bytes": 14055,
+    "lines": 322,
+    "sha256": "4d8de7d8caedc9e15a287913793d27e024cd2a32adc2634223cd7ab11a293fc1"
+  },
+  "isolated_uniform_examples_repair2": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/uniform-examples-repair2-assessment.json",
+    "bytes": 29243,
+    "lines": 837,
+    "sha256": "d3a5cf2e5351b6a9953b96018cea53bda349079e42af63954538505206c3b62f"
+  },
+  "historical_8ba7ae11_type_evidence_disposition": {
+    "historical_outputs_actually_read": 941,
+    "historical_expanded": 648,
+    "historical_ordinary": 293,
+    "dependency_config_matching_historical": 934,
+    "qualified_historical_current_type_evidence": 920,
+    "qualified_expanded": 648,
+    "qualified_ordinary": 272,
+    "changed_dependency_reinspection": 7,
+    "missing_type_run_final_identity_reinspection": 14,
+    "previous_pending_original": 793,
+    "current_pending": 814,
+    "accepted_base_retained": 28,
+    "public_inventory": 1762,
+    "reconciliation": "920 + 814 + 28 = 1762",
+    "no_future_foundation110_subset_credit": true
+  },
+  "current_explicit_public_inventory": {
+    "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "count": 1763,
+    "private_named": 70,
+    "anonymous_instances": 19,
+    "added_name": "Examples.UniformQuickSortMean.instFintypeLabel",
+    "original1762_inventory_retained": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/public-type-accounting.json",
+      "bytes": 1070441,
+      "sha256": "a67cdd001115164b268d0c8d2b2a2dc2c6d95d46970a02bb17a324edb146e556",
+      "public_named_count": 1762,
+      "actual_printed_types": 941,
+      "prepared_only": 468,
+      "additional_missing_current": 325,
+      "retained_accepted_base": 28,
+      "anonymous_instances": 19,
+      "private_named": 70,
+      "additional_missing_names_sha256": "9b9d7bd4945035e456c88fddb3372a57b2f72c6d59e5dffb1eb095d8c620c715"
+    },
+    "source_of_current_delta": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/uniform-examples-repair2-assessment.json",
+      "bytes": 29243,
+      "lines": 837,
+      "sha256": "d3a5cf2e5351b6a9953b96018cea53bda349079e42af63954538505206c3b62f"
+    },
+    "complete_current_binding": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-4b5dbfa0.json",
+      "bytes": 27181,
+      "lines": 505,
+      "sha256": "3ae1e9749b8633e64a0adc14bb9cc96f5ee6cd5ba338dd45d55ddeac3df161d7"
+    },
+    "actual_new_type_credit": 815,
+    "actual_new_type_credit_boundary": "Qualified actual815 statement-inspection evidence; no candidate acceptance or separate Foundation reuse credit."
+  },
+  "successor_source_reconciliation_4b5dbfa0": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-4b5dbfa0.json",
+    "bytes": 27181,
+    "lines": 505,
+    "sha256": "3ae1e9749b8633e64a0adc14bb9cc96f5ee6cd5ba338dd45d55ddeac3df161d7"
+  },
+  "historical_8ba7ae11_changed_entries": [
+    {
+      "path": "Examples/UniformQuickSortMean.lean",
+      "bytes": 16466,
+      "lines": 352,
+      "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5",
+      "coverage": "complete current source read, including statements, proofs, and examples where present"
+    }
+  ],
+  "focused11_terminal_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/focused11-terminal-assessment.json",
+    "bytes": 8996,
+    "lines": 201,
+    "sha256": "13260e1035f549ddf42d63b16f1b4b2533d6f462272e0f0044043700bc23133c"
+  },
+  "actual815_execution_input_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-execution-input-assessment-4b5dbfa0.json",
+    "bytes": 7434,
+    "lines": 156,
+    "sha256": "489ae557c9eef766ef9bf2e2e85d124fb71658c6546e707b494fe738c27d569a"
+  },
+  "actual815_type_read_progress": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-type-review-progress.json",
+    "bytes": 123595,
+    "lines": 3562,
+    "sha256": "91b9df119e5b47cd94a7930001947eb2c14601d5d144149b796a8bb06f3f4d0b"
+  },
+  "historical_pre_actual815_complete_type_evidence_disposition": {
+    "historical_outputs_actually_read": 941,
+    "historical_expanded": 648,
+    "historical_ordinary": 293,
+    "dependency_config_matching_historical": 934,
+    "qualified_historical_current_type_evidence": 920,
+    "qualified_expanded": 648,
+    "qualified_ordinary": 272,
+    "changed_dependency_reinspection": 7,
+    "missing_type_run_final_identity_reinspection": 14,
+    "previous_pending_original": 793,
+    "previous_prepared814_preserved": true,
+    "new_explicit_instance_pending": 1,
+    "current_pending": 815,
+    "accepted_base_retained": 28,
+    "public_inventory": 1763,
+    "reconciliation": "920 + 815 + 28 = 1763",
+    "no_future_foundation110_subset_credit": true
+  },
+  "historical_actual815_partial_semantic_review": {
+    "fully_read_and_assessed_type_count": 706,
+    "completed_type_number_ranges_inclusive": [
+      [
+        1,
+        705
+      ],
+      [
+        815,
+        815
+      ]
+    ],
+    "native_ranges_actually_read_inclusive": [
+      [
+        1,
+        10218
+      ],
+      [
+        11648,
+        11650
+      ]
+    ],
+    "next_contiguous_native_line": 10219,
+    "remaining_complete_types": 109,
+    "type_credit_or_foundation_reuse_granted": 0,
+    "status": "In progress; no acceptance."
+  },
+  "actual815_complete_semantic_review": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+    "bytes": 23539,
+    "lines": 472,
+    "sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510"
+  }
+}

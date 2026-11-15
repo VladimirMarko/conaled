@@ -1,0 +1,55 @@
+{
+  "recorded_utc": "2026-11-04T08:11:14.823950+00:00",
+  "source_before": "b87e4e05d89d774a3e217d0fafd271bee4a9cd9a",
+  "observed_candidate": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+  "observed_attempt": "chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6",
+  "partial_observation": {
+    "observed_utc": "2026-11-04T08:09:48.551641+00:00",
+    "candidate": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+    "attempt": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6",
+    "terminal_result_present": false,
+    "bytes": 14334,
+    "sha256": "4c41c51dd4404fc7b667651833434de775e8844aacc11538004eceb3e91d2665",
+    "observation": "Immutable prefix only. No aggregate terminal result inferred. Tail core individual build90s observed; natural examples emitted five comparator-specialization errors."
+  },
+  "actual_diagnostics_read": "All five full type mismatch diagnostics and the complete affected source proof contexts were read. Imported Examples.NaturalRuns.natLT definition and actual source theorem statements/proofs were read.",
+  "findings": [
+    {
+      "id": "NOPS-C03-01",
+      "case": "descending_two",
+      "correction": "Use the actual source theorem directly with exact, preserving transparent comparator and concrete list/numeral conversion."
+    },
+    {
+      "id": "NOPS-C03-02",
+      "case": "descending_three",
+      "correction": "Use the actual source theorem directly with exact, preserving transparent comparator and concrete list/numeral conversion."
+    },
+    {
+      "id": "NOPS-C03-03",
+      "case": "descending_two_execution",
+      "correction": "Use the actual source theorem directly with exact, preserving transparent comparator and concrete list/numeral conversion."
+    },
+    {
+      "id": "NOPS-C03-04",
+      "case": "descending_three_execution",
+      "correction": "Use the actual source theorem directly with exact, preserving transparent comparator and concrete list/numeral conversion."
+    },
+    {
+      "id": "NOPS-C03-05",
+      "case": "ascending_range_exact",
+      "correction": "Obtain the same source theorem as h, simplify only length_range in h, then exact h; preserve the target comparator rather than using simpa to compare differently represented functions."
+    }
+  ],
+  "scope": "Five proof bodies only. All43 theorem headers/propositions/costs/domains byte-identical; all63 core declarations unchanged.",
+  "before_sha256": "8bbd6c17eadd48a3af7a7f4c5f8ee3c2e9a97f03317bf373032314cdc835ebbc",
+  "after_sha256": "7db50231ecbcdf3e63ff20475b0def2af0e855b70c367cc49235edb730b44f90",
+  "unchanged_core_sha256": "ccbe8f58dd53cbfaa4600780d5d8a2a78da994ba33c3d6edaa3098446d1f09eb",
+  "all43_headers_identical": true,
+  "mathematical_findings": [],
+  "validation": "Uncompiled source correction only. Current central check is still live; no aggregate or example module success inferred.",
+  "independent_acceptance_review": false,
+  "completed_utc": "2026-11-04T08:11:23.172130+00:00",
+  "source_after": "47f66dccc414d41bddf0dc6576a2338227ee221e",
+  "commit_exit": 0,
+  "final_status": ""
+}

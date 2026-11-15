@@ -1,0 +1,265 @@
+{
+  "recorded_utc": "2026-11-05T02:54:21.162526+00:00",
+  "reviewer": "/root/tree_cache_standards",
+  "axis": "Standards",
+  "unit": "FDSA-XT01",
+  "outcome": "Passed",
+  "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "tree": "18bf4bc9df979d4ee6ac76182f58faed235a0714",
+  "original_unit_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "original_donor": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "incorporated_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "requirements_ids": [
+    "XT01-01",
+    "XT01-02",
+    "XT01-03",
+    "XT01-04",
+    "XT01-05",
+    "XT01-06",
+    "XT01-07"
+  ],
+  "original_scope_paths": [
+    "Applications/Resources/TreeCache.lean",
+    "Applications/Trees/Cached.lean",
+    "Applications/Trees/Observations.lean",
+    "Examples/TreeCache.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-cache.md"
+  ],
+  "public_names": 115,
+  "public_name_count": 115,
+  "authored_definitions": 25,
+  "authored_theorems": 90,
+  "ordered_public_names_sha256_lf": "1b3459408687c6090f25ff71a11f3fdb886fddea29c6c4421f690261cf8bf4fe",
+  "public_names_reconciled_to_program_and_all115_actual_blocks": true,
+  "full_original_scope_complete": true,
+  "actual_public_types_complete": true,
+  "full_validation_accepted": true,
+  "review_complete": true,
+  "findings": [],
+  "unresolved_findings": [],
+  "unresolved_finding_count": 0,
+  "no_original_scope_requirement_dropped": true,
+  "same_existing_review_axis": true,
+  "source_and_type_assessment_retained": true,
+  "exact_actual_type_program": {
+    "path": "provenance/binary-tree-cache-receiving-statements115-20261105/Statements115-complete.lean",
+    "bytes": 4721,
+    "sha256": "eea207cce83ce453b3625076041ff1262235771a8b92add322a149a044c98738"
+  },
+  "evidence_bindings": {
+    "requirements": {
+      "path": "reviews/binary-tree-cache-requirements.md",
+      "bytes": 14576,
+      "sha256": "81260794bec3767bb9eaa2d2fcaa8337da015220df60bf4dda147590c8ed23ce"
+    },
+    "original_standards_report": {
+      "path": "reviews/binary-tree-cache-standards-preparation-20261104.md",
+      "bytes": 22912,
+      "sha256": "a24df99f02fd70300f25b982b53293d2f0d8485f053b8891829fe81c37043c97"
+    },
+    "final_standards_report": {
+      "path": "reviews/binary-tree-cache-standards-receiving-20261105.md",
+      "bytes": 19188,
+      "sha256": "fa6cfd8df66d56788f842b21ec60d932157b24255499f7e30b8996a4da9c8bd2"
+    },
+    "source_stage_report_snapshot": {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/source-type-report.md",
+      "bytes": 12933,
+      "sha256": "63001c5b5bd8f57c4b712efea5883efc656e83c409a8ae413365b76f63409bde"
+    },
+    "source_stage_assessment": {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/source-and-type-assessment.json",
+      "bytes": 32508,
+      "sha256": "e230cd3ad4c109b5f0e27f1f8a7e3ea9da21e4b3c2819dca370584d10d48c070"
+    },
+    "source_stage_actual115_assessment": {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/actual115-assessment.json",
+      "bytes": 54521,
+      "sha256": "74a345559dce391c7a21d016fa6cd1a712c8265e212c47b43a7b9e45d5e6d784"
+    },
+    "source_stage_read_ledger": {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/read-ledger.json",
+      "bytes": 10203,
+      "sha256": "f20adfb278a53c6870a0cabbf373fb92a53f9ad6df2bf44b1616df2ef75482ba"
+    },
+    "source_stage_hold": {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/write-hold-source-types.json",
+      "bytes": 3128,
+      "sha256": "388003aaddafc023a5f32dd8321ca8b579a5cdb0ab7a8ad86f01c20319a8c48b"
+    },
+    "independent_final_reconciliation": {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/final-evidence-reconciliation.json",
+      "bytes": 12445,
+      "sha256": "02fb4af57b44a57bf3108812456e9e6ebac0e1edef33937faa8d6c4a838f56fd"
+    },
+    "actual_type_block_index": {
+      "path": "provenance/binary-tree-cache-receiving-statements115-20261105/actual-type-block-index.json",
+      "bytes": 34482,
+      "sha256": "1a44bd06217f4d6ef66c1fb3effd5e06427a627f023adcb97017cb9a3b517bbb"
+    },
+    "actual_type_native_output": {
+      "path": "provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/native-records/output.log",
+      "bytes": 46032,
+      "sha256": "ea8ebef082abef7de66e7ce3f269771290073bc96a287ff864d49813c90d052b"
+    },
+    "final_input_observation": {
+      "path": "provenance/binary-tree-cache-receiving-statements115-20261105/final-inputs-after-full.json",
+      "bytes": 33026,
+      "sha256": "77d1486a596f4ea372a4d15f961323aa3dad3dd7339396ea5eba884968860fcf"
+    },
+    "full_outer_log": {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/full.log",
+      "bytes": 325963,
+      "sha256": "dbd8ba410b64f7ee2eedc9389c4dceb907549dabbada6fee358277b760141dd8"
+    },
+    "full_native_output": {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/native-records/output.log",
+      "bytes": 325734,
+      "sha256": "df724e47d431fd2f8aff4bab7c1097862a1dd9a92f527ce24957c9c1b9eceb09"
+    },
+    "full_actual_terminal": {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/actual-tool-terminal.json",
+      "bytes": 126,
+      "sha256": "d71744a9ed34114d5d3d3d64228f2ee8bbda37856222ecf87e557454299b35d2"
+    },
+    "full_owned_terminal": {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "0479ba7ee369bd6c7626e0a65c214430b638d52bc2191fd49356f3dbfc4ce21a"
+    },
+    "full_process_result": {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/result.json",
+      "bytes": 1263,
+      "sha256": "b3801e77b70d719dd62a656b2c37da7c198125f2484e42491e343ea7b22c95bd"
+    },
+    "full_native_result": {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/native-records/result.json",
+      "bytes": 574,
+      "sha256": "9ecfa1178b4c532e5d562ae9318ce10f0ef35e074d775e3538830cf72abd8347"
+    },
+    "full_closed_reconciliation": {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2314,
+      "sha256": "0c0fdda7fa5811d449ee54b5d950376b0bab7f6e16d538f47684549a354a6c3a"
+    },
+    "full_candidate_verification": {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/verification.json",
+      "bytes": 867,
+      "sha256": "329f0d0087adc21b3446d7f10b67c472cdf62238ccf578865eec20569c04da61"
+    }
+  },
+  "full_validation": {
+    "mode": "incremental",
+    "command": [
+      "./check.sh",
+      "--candidate",
+      "HEAD"
+    ],
+    "actual_terminal_chunk": "4e4f6d",
+    "owned_session": 58948,
+    "session_state": "CLOSED",
+    "actual_exit": 0,
+    "native_exit": 0,
+    "recorder_exit": 0,
+    "threads": 1,
+    "success_record_completed_at": "2026-11-05T02:46:41.104505+00:00",
+    "compiler": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+    "dependencies": {
+      "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "plausible": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "LeanSearchClient": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "importGraph": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "proofwidgets": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "aesop": "4a174c490d8707121c4a9290800489f105d85e07",
+      "Qq": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "batteries": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "Cli": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+    },
+    "integrity_artifacts_each": 3336,
+    "invalidated": 0,
+    "inconsistent": 0,
+    "built_module_targets": 1112,
+    "checked_modules": 1113,
+    "audit_rows": 1111,
+    "kernel_safe_declarations": 50288,
+    "theorem_declarations": 29430,
+    "unsafe_declarations": 0,
+    "axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "every_audit_row_computationally_reconciled": true,
+    "unchanged_accepted_chapter03_audit_rows": 1107,
+    "added_unit_audit_rows": {
+      "Applications.Resources.TreeCache": {
+        "module": "Applications.Resources.TreeCache",
+        "logical": 12,
+        "theorems": 10,
+        "unsafe": 0
+      },
+      "Applications.Trees.Cached": {
+        "module": "Applications.Trees.Cached",
+        "logical": 30,
+        "theorems": 21,
+        "unsafe": 0
+      },
+      "Applications.Trees.Observations": {
+        "module": "Applications.Trees.Observations",
+        "logical": 19,
+        "theorems": 13,
+        "unsafe": 0
+      },
+      "Examples.TreeCache": {
+        "module": "Examples.TreeCache",
+        "logical": 92,
+        "theorems": 70,
+        "unsafe": 0
+      }
+    }
+  },
+  "input_qualification": {
+    "pre_post_final_observations_equal": true,
+    "current_rehashes_match": true,
+    "local_sources": 26,
+    "local_objects_hashes_traces": 78,
+    "configuration": 10,
+    "dependencies": 9,
+    "runtime_profile": 12,
+    "same_accepted_chapter03_pins_configuration_and_profile": true,
+    "fresh_trigger_introduced": false,
+    "limits": [
+      "Every audit row was parsed computationally; selected meaningful log ranges and summary lines were read semantically. This does not claim a human read of all build warnings.",
+      "Pre/post/final byte identity and current rehashes do not prove loaded-object origin, absence of transient edits or absence of undeclared inputs.",
+      "No compiler, supplied helper, checker, audit, session polling, source/ref/cache mutation, acceptance or upload was performed by this reviewer."
+    ]
+  },
+  "history_retained": {
+    "focused_attempt1": {
+      "candidate": "f0fd3faa84d57ab7583f877039da2c703431f0ce",
+      "actual_exit": 1
+    },
+    "focused_attempt2": {
+      "candidate": "bd7e379b742103767ee4620b14057ee86da8845c",
+      "actual_exit": 1
+    },
+    "focused_attempt3": {
+      "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "actual_exit": 0
+    },
+    "actual115": {
+      "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "actual_exit": 0
+    },
+    "prior_blocked_source_stage_hold_unchanged": true
+  },
+  "caller_duties_after_both_axes_pass": [
+    "immediate ./check.sh --verify-candidate HEAD in qualified environment",
+    "exact local fast-forward of accepted integration branch",
+    "accurate local tickets/coverage and durable acceptance checkpoint"
+  ],
+  "caller_acceptance_duties_are_not_review_outcome_prerequisites": true,
+  "reviewer_compiler_helper_poll_source_ref_cache_upload_or_acceptance_action": false
+}

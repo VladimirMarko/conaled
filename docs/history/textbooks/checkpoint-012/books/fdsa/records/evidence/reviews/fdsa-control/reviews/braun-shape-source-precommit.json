@@ -1,0 +1,207 @@
+{
+  "recorded_utc": "2026-11-03T01:21:41.949512+00:00",
+  "ticket": "FDSA-XT09",
+  "original_review_base": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "branch": "work/fdsa-braun-shape",
+  "precommit_head": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "precommit_status": " M Applications/Trees/Shape.lean\n M Applications/Trees/ShapeLog.lean\n M SquareApplications.lean\n M docs/research/fdsa-reconstruction-map.md\n?? Applications/Trees/Braun.lean\n?? Examples/BraunShape.lean\n?? docs/research/fdsa-braun-shape.md\n",
+  "requirements": {
+    "bytes": 14161,
+    "lines": 252,
+    "sha256": "b7d1797e80ca2c732fd29632fea1ee5df0b296329bf1648d8ee714018a8f53f5"
+  },
+  "files": {
+    "Applications/Trees/Braun.lean": {
+      "bytes": 4076,
+      "lines": 104,
+      "sha256": "16c27173a806e162f5bbd802519809a143948eafb90fedb4cb199f925bc2657b"
+    },
+    "Applications/Trees/Shape.lean": {
+      "bytes": 15407,
+      "lines": 349,
+      "sha256": "e1226aa4793c70e8374536f4e842420df81aa36a427e761f15d23746b24da0d6"
+    },
+    "Applications/Trees/ShapeLog.lean": {
+      "bytes": 3946,
+      "lines": 90,
+      "sha256": "33a7fada40d31c4d9382762bd274a3349aeee8b96225fa40f08a761ff35708a8"
+    },
+    "Examples/BraunShape.lean": {
+      "bytes": 14310,
+      "lines": 317,
+      "sha256": "f93d8911636d7771ba37e36fc8229ba63a19937d785d019dc25d7025ca65a347"
+    },
+    "docs/research/fdsa-braun-shape.md": {
+      "bytes": 33056,
+      "lines": 507,
+      "sha256": "6e2c0c57e0e17ca0ad235bf4eeb36989202d07b44a67c2b8278e1f0e160454fb"
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "bytes": 24059,
+      "lines": 355,
+      "sha256": "e3fd2d2a7901eabd85263da526ed31ab5b762bbe4117ab0d64d4e60e2be15369"
+    },
+    "SquareApplications.lean": {
+      "bytes": 8371,
+      "lines": 255,
+      "sha256": "90eb59cb607e3e4520a208cb810757f3530155aaab39b8982f8df7028f46eeb7"
+    }
+  },
+  "unchanged_baselines": {
+    "Applications/Trees/Observations.lean": {
+      "bytes": 4119,
+      "lines": 107,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752"
+    },
+    "Applications/Trees/Cached.lean": {
+      "bytes": 5668,
+      "lines": 135,
+      "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6"
+    },
+    "Examples/TreeCache.lean": {
+      "bytes": 16307,
+      "lines": 363,
+      "sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754"
+    },
+    "Examples/TreeShape.lean": {
+      "bytes": 12648,
+      "lines": 297,
+      "sha256": "2bcf2b65fa7a0eccc043c3bc7ba66d1bfdcd469489eab52d9085fdfb3db0b516"
+    },
+    "docs/SOURCES.md": {
+      "bytes": 7841,
+      "lines": 126,
+      "sha256": "ea7e9c276f7ea729ca1a17b4efa76bb724ccf3ba26df95a2535f7560f4d41766"
+    },
+    "AGENTS.md": {
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    },
+    "README.md": {
+      "bytes": 26239,
+      "lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216"
+    },
+    "lean-toolchain": {
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    "lakefile.toml": {
+      "bytes": 444,
+      "lines": 13,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+    },
+    "lake-manifest.json": {
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    "flake.nix": {
+      "bytes": 637,
+      "lines": 28,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+    },
+    "flake.lock": {
+      "bytes": 564,
+      "lines": 27,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+    },
+    "check.sh": {
+      "bytes": 74,
+      "lines": 4,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd"
+    },
+    "scripts/check.py": {
+      "bytes": 16119,
+      "lines": 348,
+      "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+    },
+    "scripts/lake_integrity.py": {
+      "bytes": 5781,
+      "lines": 117,
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f"
+    },
+    ".agents/skills/implement/SKILL.md": {
+      "bytes": 4997,
+      "lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df"
+    },
+    ".agents/skills/example-driven-development/SKILL.md": {
+      "bytes": 6991,
+      "lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a"
+    },
+    "docs/agents/architectural-quality.md": {
+      "bytes": 3876,
+      "lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6"
+    },
+    "docs/agents/domain.md": {
+      "bytes": 926,
+      "lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d"
+    },
+    "docs/agents/lake-integrity-incidents.md": {
+      "bytes": 5037,
+      "lines": 75,
+      "sha256": "af2791fe85d0f559356a73899c02a61dd4012599e3ae70b203c14e27483d4b11"
+    }
+  },
+  "preserved_prefixes": {
+    "Applications/Trees/Shape.lean": {
+      "preserved_prefix": {
+        "bytes": 11009,
+        "lines": 266,
+        "sha256": "794a2c12121469070aed4488c14e71e8f0fc1df84dc99c4fedb3c086fdb3d29f"
+      },
+      "original_namespace_end_preserved": true,
+      "added_bytes": 4388
+    },
+    "Applications/Trees/ShapeLog.lean": {
+      "preserved_prefix": {
+        "bytes": 2786,
+        "lines": 68,
+        "sha256": "23b4ebc4abe621732f9c0145a62c2c04963f2b3f0176f3ed20e3b3729e35df7c"
+      },
+      "original_namespace_end_preserved": true,
+      "added_bytes": 1150
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "preserved_complete_base": {
+        "bytes": 20055,
+        "lines": 311,
+        "sha256": "a9425275ce38e4a0c49b5bca9219bb38c6afcc36b65e6e7874e5c4e88a1fdc3b"
+      },
+      "appended_bytes": 4004
+    },
+    "SquareApplications.lean": {
+      "preserved_complete_base": {
+        "bytes": 8344,
+        "lines": 254,
+        "sha256": "3ce2c9953286d48d62aa8c354af5d1a1e07c483dbe57974f0beb97124db5effb"
+      },
+      "appended_bytes": 27
+    }
+  },
+  "all_24_baselines_accounted_for": true,
+  "sole_root_import": "import Examples.BraunShape",
+  "complete_notice": {
+    "bytes": 1673,
+    "lines": 36,
+    "sha256": "44176a9195f0d6110302ca58c302437b2d6685049d4b8a7c1117121883d4b64d"
+  },
+  "all_three_authors_stopped": true,
+  "source_assessment_record": "reviews/braun-shape-source-assessments.md",
+  "source_assessment_identity": {
+    "bytes": 7331,
+    "lines": 117,
+    "sha256": "95dd5af02ade2f94c36b2b6a08ee08c7df3deffeed5512c22f5de823f1d1dc13"
+  },
+  "root_complete_source_readback_and_final_deltas": true,
+  "main_and_c1_source_unchanged": true,
+  "project_build_absent": true,
+  "checkpoint0060_receipt": "provenance/checkpoint0060-save-receipt.json",
+  "validation": "None for XT09; C1 attempt3 remains the sole gate. No acceptance."
+}

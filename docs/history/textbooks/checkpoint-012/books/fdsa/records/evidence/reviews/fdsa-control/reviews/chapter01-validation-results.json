@@ -1,0 +1,34 @@
+{
+  "candidate": "1aabd512284fe86254278ac631eda061d311050b",
+  "worktree": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+  "gates": [],
+  "result": "Old candidate not accepted. Attempt3 failed with ENOSPC; evidence preserved. Proceeding to repaired candidate after space recovery; all final gates and findings remain pending.",
+  "attempts": [
+    {
+      "command": "./check.sh --fresh --jobs 4 --candidate HEAD",
+      "result": "superseded before audit; not passed",
+      "process_exit_code": 143,
+      "log": "chapter01-fresh-attempt1.log",
+      "reason_record": "../provenance/validation-performance.md"
+    },
+    {
+      "command": "./check.sh --fresh --jobs 1 --candidate HEAD",
+      "result": "superseded before audit; not passed",
+      "log": "chapter01-fresh-attempt2.log",
+      "exit_status_owner": "root execution session 47028",
+      "process_exit_code": 143,
+      "reason_record": "../provenance/lake-concurrency.md"
+    },
+    {
+      "command": "env LEAN_NUM_THREADS=1 ./check.sh --candidate HEAD",
+      "result": "failed during output generation with disk exhaustion; truncated log; no audit or verification record",
+      "log": "chapter01-incremental.log",
+      "exit_status_owner": "root execution session 80227",
+      "process_exit_code": 120,
+      "exit_observed_utc": "2026-11-02T15:44:10Z",
+      "reason_record": "../provenance/chapter01-enospc-20261102/manifest.json",
+      "recovery_disposition": "chapter01-enospc-recovery-standards.md"
+    }
+  ],
+  "updated_at": "2026-11-02T15:59:36.771923+00:00"
+}

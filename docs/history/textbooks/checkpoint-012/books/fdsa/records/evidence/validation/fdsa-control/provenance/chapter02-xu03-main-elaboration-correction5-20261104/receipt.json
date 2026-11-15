@@ -1,0 +1,189 @@
+{
+  "completed_utc": "2026-11-04T09:47:57.646354+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "state": "COMPLETE COMMITTED SOURCE-ONLY CORRECTION5 — UNCOMPILED — HOLD",
+  "parent": "070e3608c439aec23404d23e90de47c6cf835216",
+  "candidate": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+  "branch": "work/fdsa-permutation-tail-validation",
+  "commit_message": "fix(fdsa): elaborate conditional-tail main examples (#174)",
+  "changed_paths": [
+    "Examples/PermutationTail.lean"
+  ],
+  "final_status": "",
+  "before": {
+    "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/before-examples.lean",
+    "bytes": 8786,
+    "lines": 197,
+    "sha256": "30e07aaede25b10d2484c2a4674bffa66d77094a545fd49f72bc000bd132ddb7"
+  },
+  "before_git_blob": "f118b08cd9d2006ceac0f4c24004e1ed09c1fb93",
+  "after_git_blob": "baa3e26a3c72a4589765562167d1d85edc011e67",
+  "source_bytes": 9826,
+  "source_lines": 222,
+  "source_sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e",
+  "committed_working_and_saved_after_bytes_exact": true,
+  "source_matches_focused9_input_before_correction": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+  "frozen_requirements": {
+    "path": "reviews/permutation-tail-requirements.md",
+    "bytes": 12866,
+    "lines": 229,
+    "sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c"
+  },
+  "all_18_theorem_headers_byte_identical": true,
+  "all_7_definitions_byte_identical": true,
+  "all_2_local_instances_4_imports_2_options_comments_and_namespace_commands_unchanged": true,
+  "changed_proof_blocks": [
+    "tail_23_mass",
+    "tail_32_mass",
+    "repeated_tail_mass_zero",
+    "filtered_tail_mass",
+    "environment_changed",
+    "last_tail_mass"
+  ],
+  "original_support_sets_public_law_applications_and_case_conclusions_retained": true,
+  "actual_error_headers_retained": 6,
+  "closed_focused9_exit": 1,
+  "closed_focused9_log": {
+    "path": "provenance/chapter02-tail-and-uniform-examples-focused-20261104-attempt9/full.log",
+    "bytes": 17133,
+    "lines": 115,
+    "sha256": "8da63603aa28b114dc5f183bdc4a1be9abe470ebfef1c5bf3353628be979fd0f"
+  },
+  "whole_original_source_read_lines": 197,
+  "whole_changed_source_read_lines": 222,
+  "full_diff_and_all_six_diagnostics_read": true,
+  "author_statement_review": "No mathematical contract, expected value, domain, probability connection or scope change found in this six-proof-body source repair. It has no elaboration/type/audit/final-review credit.",
+  "diff_check_exit": 0,
+  "staged_diff_check_exit": 0,
+  "source_marker_search": "No listed markers; not an axiom audit.",
+  "commit_attempt1": "Missing Git author identity; original HEAD retained; complete log preserved. Retry used established ChatGPT identity with command-local configuration only.",
+  "persistent_git_configuration_changed": false,
+  "compiler_lake_build_cache_check_audit_verify_executed": false,
+  "central_foundation_other_source_trees_or_existing_controls_changed": false,
+  "live_sessions_polled": false,
+  "independent_axes_or_unit_acceptance_claimed": false,
+  "scope_note": "Original XU03 six-path review and all minimum→order→tail predecessor acceptance/full/type/review/immediate gates remain. No global tracker, GitHub mutation or push.",
+  "artifacts": [
+    {
+      "path": "actual-diagnostics.txt",
+      "bytes": 4562,
+      "lines": 38,
+      "sha256": "aae52fd32b109afe9662d085a4ba80200afa3c311d80eca734155d5c4fc75c24"
+    },
+    {
+      "path": "after-examples.lean",
+      "bytes": 9826,
+      "lines": 222,
+      "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e"
+    },
+    {
+      "path": "api-excerpts.txt",
+      "bytes": 3946,
+      "lines": 64,
+      "sha256": "41ffe33482496b630977af10b7958bf877c4da73946cef1decbb47ae6c0f6482"
+    },
+    {
+      "path": "author-readback.md",
+      "bytes": 8379,
+      "lines": 126,
+      "sha256": "c954804129647e2809d7dfbfad65c559ae99f5bf037843e258208a101b6cc548"
+    },
+    {
+      "path": "before-examples.lean",
+      "bytes": 8786,
+      "lines": 197,
+      "sha256": "30e07aaede25b10d2484c2a4674bffa66d77094a545fd49f72bc000bd132ddb7"
+    },
+    {
+      "path": "commit-attempt1.json",
+      "bytes": 491,
+      "lines": 8,
+      "sha256": "3f9d5b2dd5271f62c6ff72c7c0fb37e175de42622421f5e1eef0ffdadbbad5df"
+    },
+    {
+      "path": "commit-attempt1.log",
+      "bytes": 335,
+      "lines": 13,
+      "sha256": "79434e3473195d8be7b37e67f909ae2944aa4dd6c8fe616fefb46ca3c89a5f4a"
+    },
+    {
+      "path": "commit-hook-preflight.json",
+      "bytes": 932,
+      "lines": 31,
+      "sha256": "8e0622a24bee939050540c8f97543542cd42107cfd60d3aaa738106b09e8d2ca"
+    },
+    {
+      "path": "commit-record.json",
+      "bytes": 1056,
+      "lines": 24,
+      "sha256": "30a21a988bdf3751b1d65aa1f1bf15da29a540de76bb4f5116e0e1a9dc0fc664"
+    },
+    {
+      "path": "commit.log",
+      "bytes": 157,
+      "lines": 2,
+      "sha256": "0aec15e1a25ab23fb7353730d6286a1bf523b9e86c2182e47333e1fd7f5fe60d"
+    },
+    {
+      "path": "committed-examples.lean",
+      "bytes": 9826,
+      "lines": 222,
+      "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e"
+    },
+    {
+      "path": "diagnostic-mapping.json",
+      "bytes": 4638,
+      "lines": 78,
+      "sha256": "ea0e20ef216f657bc119d943ab709b32725811a5fcd973ea047b1b32cf0e314b"
+    },
+    {
+      "path": "diff-check.log",
+      "bytes": 0,
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "read-ledger.json",
+      "bytes": 6414,
+      "lines": 168,
+      "sha256": "a29cc91456abec2b1ff6ead93cf83cb23589fb61c59c303fdf625c831ef01dba"
+    },
+    {
+      "path": "source-inventory.json",
+      "bytes": 12824,
+      "lines": 309,
+      "sha256": "a43a6b0b6cc788a34512c4857c0e855221cf5d5c19479c642d15f48a9e1bdf39"
+    },
+    {
+      "path": "source-marker-scan.json",
+      "bytes": 206,
+      "lines": 5,
+      "sha256": "dec8d29da18fd477a55c05d4d107965d7d46e5bdd14b6c13edbd6c84a10974ab"
+    },
+    {
+      "path": "source.diff",
+      "bytes": 3757,
+      "lines": 77,
+      "sha256": "524bb4581be3924e3dcb28ba949c69799a786083f342d56f76ae618c48a68959"
+    },
+    {
+      "path": "staged-diff-check.log",
+      "bytes": 0,
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "staged-source.diff",
+      "bytes": 3757,
+      "lines": 77,
+      "sha256": "524bb4581be3924e3dcb28ba949c69799a786083f342d56f76ae618c48a68959"
+    },
+    {
+      "path": "start.json",
+      "bytes": 2241,
+      "lines": 44,
+      "sha256": "e3ed0930f5e78bb24649e14bd0a88dd1d1637cafb7429c0aca8b1e3889382335"
+    }
+  ],
+  "hold": true
+}

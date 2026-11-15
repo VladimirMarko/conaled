@@ -1,0 +1,14 @@
+{
+  "recorded_utc": "2026-11-04T22:55:40.102554+00:00",
+  "owned_session": 24701,
+  "actual_exit": 0,
+  "terminal_tool_chunk": "40c9f4",
+  "state": "CLOSED; never poll this historical session again",
+  "tool_result": {
+    "chunk_id": "40c9f4",
+    "wall_time_seconds": 2.1302e-05,
+    "exit_code": 0,
+    "original_token_count": 534,
+    "output": "{\n  \"started_utc\": \"2026-11-04T22:55:23.892146+00:00\",\n  \"completed_utc\": \"2026-11-04T22:55:26.093152+00:00\",\n  \"actual_exit\": 0,\n  \"elapsed_seconds\": 2.20102229200711,\n  \"argv\": [\n    \"python3\",\n    \"/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0133-preparation/verify-checkpoint.py\"\n  ],\n  \"log\": {\n    \"path\": \"/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0133-preparation/verify.log\",\n    \"bytes\": 1526,\n    \"sha256\": \"9a2ce28d6c92a9887f269bcd401fddda3231b982aa92d96f7c144923c6d25a06\"\n  }\n}\nCOMPLETE_VERIFICATION_LOG\n{\n  \"verified_utc\": \"2026-11-04T22:55:26.068185+00:00\",\n  \"file\": \"/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0133-selection-integration-and-endpoint-progress.tar.gz\",\n  \"bytes\": 37279344,\n  \"sha256\": \"aa77f4c286be99530cad300b38109e0a40ca06f8ad8d0b59d59eeb3cc4d687e0\",\n  \"payload_hashes_verified\": 7472,\n  \"refs_verified\": 74,\n  \"all73_prior_refs_retained\": true,\n  \"authorized_ref_advances\": [\n    \"refs/heads/work/fdsa-ch03-random-selection\",\n    \"refs/heads/work/fdsa-ch03-values\"\n  ],\n  \"authorized_new_refs\": [\n    \"refs/heads/work/fdsa-ch03-integration\"\n  ],\n  \"integration_origin\": \"660f974640fb89a766b26a4d786ae7ed197cecf2\",\n  \"retired_clean_worktrees_reconstructible\": 6,\n  \"worktrees_verified\": 9,\n  \"held_control_hashes_verified\": 7435,\n  \"prior_control_changes_explicit\": [\n    \"CURRENT.md\",\n    \"STATUS.md\",\n    \"checkpoints.json\",\n    \"reviews/chapter03-round1.md\",\n    \"tickets/FDSA-003.md\",\n    \"tickets/INDEX.md\"\n  ],\n  \"accepted_head\": \"c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5\",\n  \"qualified_candidate\": \"7950275f345d1077e23730e1975b6dac7460be87\",\n  \"chapter02_acceptance_preserved\": true,\n  \"chapter03_obligations\": 83,\n  \"closed_development_runs_verified\": 94,\n  \"interrupted_runs_preserved_without_terminal_or_credit\": 1,\n  \"complete_native_kit_manifest_entries\": 298,\n  \"XR_accepted_with_complete_evidence\": true,\n  \"chapter03_acceptance_claimed\": false,\n  \"no_compiler_restore_fsck_or_acceptance_execution\": true,\n  \"format2_creator_and_restorer_preserved\": true\n}\n\n"
+  }
+}

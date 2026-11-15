@@ -1,0 +1,41 @@
+{
+  "earlier_read_only_preparation_failure": {
+    "chunk": "a0954a",
+    "actual_exit": 1,
+    "reason": "Overbroad suffix lookup also matched two preserved historical manifests; assertion occurred before any preparation-file write. Corrected to the observed exact current archive-root member."
+  },
+  "recorded_utc": "2026-11-04T22:19:13.198160+00:00",
+  "prior_archive": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0131-checked-cutoffs-and-selection-bounds.tar.gz",
+  "verified_archive_bytes": 35462405,
+  "verified_archive_sha256": "d175862b1469230d0549833dc20f9e1d9d175f23279fe1a8852fdd2ce5fa6294",
+  "member": "conaled-fdsa-0131-checked-cutoffs-and-selection-bounds/MANIFEST.json",
+  "manifest_bytes": 17195,
+  "manifest_sha256": "118eefa346283ca2297ee68c77024698a00a0738c3e2fe9450d51adadab2be9b",
+  "verifier_previous_sha256": "986de5f8c0f60cb27f022d1fed9ceb10aa7e2c0591f94b7feb6a1d58af0534fc",
+  "verifier_current_sha256": "8c0f5f7aab6c70b50ed0a782d12c143ca0ced8ed0648b3b888f66de12df27dfb",
+  "exact_identifier_substitutions": [
+    [
+      "\"conaled-fdsa-0131-checked-cutoffs-and-selection-bounds\"",
+      "\"conaled-fdsa-0132-selection-composition-and-random-boundaries\""
+    ],
+    [
+      "\"fdsa-control/provenance/checkpoint0131-preparation/capture.json\"",
+      "\"fdsa-control/provenance/checkpoint0132-preparation/capture.json\""
+    ],
+    [
+      "\"previous-manifest-0130.json\"",
+      "\"previous-manifest-0131.json\""
+    ],
+    [
+      "\"conaled-fdsa-0130-measured-selection-bounds-and-tail-progress\"",
+      "\"conaled-fdsa-0131-checked-cutoffs-and-selection-bounds\""
+    ],
+    [
+      "\"provenance/checkpoint0130-preparation/capture.json\"",
+      "\"provenance/checkpoint0131-preparation/capture.json\""
+    ]
+  ],
+  "all_nonidentifier_verifier_bytes_unchanged": true,
+  "source_references_and_worktrees_still_73_and9_required": true,
+  "capture_or_creation_selected": false
+}

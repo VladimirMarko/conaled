@@ -1,0 +1,945 @@
+{
+  "recorded_utc": "2026-11-04T20:49:39.384106+00:00",
+  "agent": "/root/chapter03_rounded_continue",
+  "baseline": "3f42358dec92315ac847dc7e1f0c58c2ab26cd40",
+  "tree": "e04483f1337ddc10f09280335f4bc7428f872f53",
+  "branch": "work/fdsa-ch03-rounded-recurrence",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs",
+  "status": "",
+  "index_diff": "",
+  "tracked_diff": "",
+  "existing_ten_sources": [
+    {
+      "relative": "Applications/Resources/RoundedRecurrence.lean",
+      "blob": "0f78fd302b88aba9596036a63b79195007e502a8",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Applications/Resources/RoundedRecurrence.lean",
+      "bytes": 7723,
+      "LF_lines": 140,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758"
+    },
+    {
+      "relative": "Applications/Resources/SelectionRecurrence.lean",
+      "blob": "ff3350e7cc566e62466e056166c8af6f781e32df",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Applications/Resources/SelectionRecurrence.lean",
+      "bytes": 6560,
+      "LF_lines": 165,
+      "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e"
+    },
+    {
+      "relative": "Applications/Resources/RoundedRecurrenceBounds.lean",
+      "blob": "45b5c20045c45919eb1f368ae0d9c9629b32a27b",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Applications/Resources/RoundedRecurrenceBounds.lean",
+      "bytes": 6951,
+      "LF_lines": 135,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135"
+    },
+    {
+      "relative": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "blob": "afa3500a13705fe4d49cffd91131b47dbdf81701",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Applications/Resources/GroupSelectionRecurrence.lean",
+      "bytes": 11646,
+      "LF_lines": 259,
+      "sha256": "0dc225b3009a612bea521813fda96789629fc486201cd9998bd6a72d6fdb9eed"
+    },
+    {
+      "relative": "Applications/Selection/OutsidePivot.lean",
+      "blob": "e3f8fe0d2fa0dfd02735b45dd298263ee18080c0",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Applications/Selection/OutsidePivot.lean",
+      "bytes": 6444,
+      "LF_lines": 143,
+      "sha256": "22ceec39e94410200dda20d4224a87518aa001eb127605f02fe6961c01a97809"
+    },
+    {
+      "relative": "Examples/RoundedRecurrence.lean",
+      "blob": "79e2f5c019122b42b55d1073e0f7e73fec06e94a",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Examples/RoundedRecurrence.lean",
+      "bytes": 3782,
+      "LF_lines": 79,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d"
+    },
+    {
+      "relative": "Examples/SelectionRecurrence.lean",
+      "blob": "e0de045d678cb0ac25ca9ce5b98b4dc70dc5e7fb",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Examples/SelectionRecurrence.lean",
+      "bytes": 2272,
+      "LF_lines": 61,
+      "sha256": "6599e51e8d6ea0197d74d2ca43076a355a9c131ce453f4a25c6c3bf086d99971"
+    },
+    {
+      "relative": "Examples/OutsidePivot.lean",
+      "blob": "5fc3cf82ffba018307925d0dec1b57726821bd05",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Examples/OutsidePivot.lean",
+      "bytes": 3845,
+      "LF_lines": 90,
+      "sha256": "0c2feb488fd784937c8888a3e48e31b32a307b96bcefb6178d7c75274afdb275"
+    },
+    {
+      "relative": "Examples/RoundedRecurrenceBounds.lean",
+      "blob": "0c123861745e060ea6926f6c41423fd5cd832e75",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Examples/RoundedRecurrenceBounds.lean",
+      "bytes": 7295,
+      "LF_lines": 162,
+      "sha256": "18275f597cf579edf0db6785d0910e76dcc9cff084566ced73cd0da8828c0135"
+    },
+    {
+      "relative": "Examples/GroupSelectionRecurrence.lean",
+      "blob": "3682e00b8f41da11acea2a1e4dee83952cff7085",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Examples/GroupSelectionRecurrence.lean",
+      "bytes": 5638,
+      "LF_lines": 126,
+      "sha256": "bfcb81cf7de89516487aedf12fc223df534fa9ca2a4a964edb872023c45beba3"
+    }
+  ],
+  "prior_related_record_payloads": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-focused-attempt1-20261104/closed-evidence-reconciliation.json",
+      "bytes": 2397,
+      "LF_lines": 44,
+      "sha256": "b2af2b6c2c756537a40626aac9ac028433cf9ea3d72f6d1bcec7bb3c9a8d475f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-focused-attempt1-20261104/full.log",
+      "bytes": 1155,
+      "LF_lines": 11,
+      "sha256": "a8671b0a3941881fab220d00403a130347ba220ea15208eb28dbfa97a6d34b61"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-focused-attempt1-20261104/launch.json",
+      "bytes": 174,
+      "LF_lines": 6,
+      "sha256": "56995d129245645d0ad2652eed7b96215c9ae607a25a7b68dd6dc944bb7120b7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 887,
+      "LF_lines": 8,
+      "sha256": "62415ddeea40f66ca09b1fb44f1970bab8b56ada65b693f812406587195de7fd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 622,
+      "LF_lines": 19,
+      "sha256": "973412a0acf54441b21c1f3291483421e308510e5756cf13a3a1fca2db50eaca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 469,
+      "LF_lines": 14,
+      "sha256": "8e2b6569ddf65571dc2d2b53ef42e363f0d912546a239e0520ddabf3231ab1ed"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-focused-attempt1-20261104/outer-prefix.log",
+      "bytes": 111,
+      "LF_lines": 2,
+      "sha256": "f42488a56b761439da9766920b70209b66094a0f74bb1864c62c8aed3375623e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-focused-attempt1-20261104/outer-suffix.log",
+      "bytes": 157,
+      "LF_lines": 1,
+      "sha256": "021278f8877fe65a22fc237ba039f978e924a59948470c1de6921699a90424d1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-focused-attempt1-20261104/owned-terminal.json",
+      "bytes": 260,
+      "LF_lines": 8,
+      "sha256": "de8b848516e04d945241ede889c4c64412a8a1fe74f74527f4f7c1894841756f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-focused-attempt1-20261104/progress.json",
+      "bytes": 262,
+      "LF_lines": 8,
+      "sha256": "cc6b5791697ca7698af6417d5ad19bd879acd6269f97e15ba0d4384c8dcbb601"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-focused-attempt1-20261104/request.json",
+      "bytes": 785,
+      "LF_lines": 22,
+      "sha256": "853e5b0260eec3d9d8ac5117725b43ecec0b553610b5171e4266ce19fc93aea8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-focused-attempt1-20261104/result.json",
+      "bytes": 1308,
+      "LF_lines": 33,
+      "sha256": "92ddcadbdcf6f2c1caeccb2ad20c52401d929c1186c1c907b65eeb6d944c1986"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-focused-attempt1-20261104/start.json",
+      "bytes": 978,
+      "LF_lines": 27,
+      "sha256": "96bd8650e28bb016ce0f8a2e3d8b408fefe801162dc15b48b11b8f3a5dc6f97a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-focused-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "LF_lines": 19,
+      "sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-implementation-20261104/Statements30-candidate1.lean",
+      "bytes": 2061,
+      "LF_lines": 42,
+      "sha256": "695b761e9cffd775fd075b6d64ca558976e44cfebda934c30bbc7bb05929857e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-implementation-20261104/candidate1.json",
+      "bytes": 693,
+      "LF_lines": 18,
+      "sha256": "0f7d40027017546a989c0faa185021d0147e5947d238ff4d8f5515e3553d352b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-implementation-20261104/git-commands.json",
+      "bytes": 897,
+      "LF_lines": 40,
+      "sha256": "9f391e893c6ccd262aa29d7a81871a3c5bd64d999e14446fdf783bc65c5ef04a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-implementation-20261104/precommit-statement-assessment.json",
+      "bytes": 17237,
+      "LF_lines": 315,
+      "sha256": "4c545dfae718478a21d059f1a55a55477345698d88c550b1c50271c15610174a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-outside-pivot-implementation-20261104/starting-state-and-cases.json",
+      "bytes": 3837,
+      "LF_lines": 75,
+      "sha256": "7b5df0f3916474216df17152e793b643db5d70271b901340b4d61fd2c9d0ad8d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt1-20261104/closed-evidence-reconciliation.json",
+      "bytes": 2299,
+      "LF_lines": 44,
+      "sha256": "3b41201a4053e96894d3dc7cc74f42c81f19d04c371853bc83cc34ee5340b230"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt1-20261104/full.log",
+      "bytes": 4679,
+      "LF_lines": 22,
+      "sha256": "36545e27c51cdac86455459c410a53309a1325199c8a9351fc115e0325b79a9a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt1-20261104/launch.json",
+      "bytes": 174,
+      "LF_lines": 6,
+      "sha256": "27e627a90b01dc15bda44c6a8e860a10931f7e5710af5e213220a3e5b0f88b98"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 4389,
+      "LF_lines": 19,
+      "sha256": "c0163c2cdd88f68fe7f5e0ee78962394e27c05a3753e1a6e60a5688a7dfd5959"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 645,
+      "LF_lines": 19,
+      "sha256": "3db35eb1387499c10228e94a7538bbd606d6a46bc0102275b7adfea7abfd6187"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 491,
+      "LF_lines": 14,
+      "sha256": "3653fd0eb5460261119e38e06d9e56c72f1c88c810bce32c280d17a9cb71fb58"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt1-20261104/outer-prefix.log",
+      "bytes": 133,
+      "LF_lines": 2,
+      "sha256": "924dab3001924efc6639acf14437005131db16671d311cb82c89d3ce6e34a64e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt1-20261104/outer-suffix.log",
+      "bytes": 157,
+      "LF_lines": 1,
+      "sha256": "570601e0775f7b638e76220a944343a98e50fb6abaafbc882db46b8e2518d4f8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt1-20261104/owned-terminal.json",
+      "bytes": 260,
+      "LF_lines": 8,
+      "sha256": "81a70b11d7107b50d5a22f0b296040227c75773c5a0c77b41824f7e939419897"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt1-20261104/progress.json",
+      "bytes": 263,
+      "LF_lines": 8,
+      "sha256": "9fc7de5d4fa5ac63bb1ff0b5704784a76c470a3869a50b79a285590732c98070"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt1-20261104/request.json",
+      "bytes": 807,
+      "LF_lines": 22,
+      "sha256": "990f1f708dcf8a194a50270b5fd966108e4c0eb3c9bc0b3ce4c9a85aeeefe749"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt1-20261104/result.json",
+      "bytes": 1341,
+      "LF_lines": 33,
+      "sha256": "b10c2da12551161149b0beb016424584c98fcff7aeaf189465078d37f50b3e69"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt1-20261104/start.json",
+      "bytes": 1000,
+      "LF_lines": 27,
+      "sha256": "b804365a5d5ad462f365d3d966b782dce93f0887864044758adcf1fea2ae9af2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "LF_lines": 19,
+      "sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/closed-evidence-reconciliation.json",
+      "bytes": 2191,
+      "LF_lines": 44,
+      "sha256": "72b4fc43c223be77def12e5505a5c31bbc4bb4df6aa7d928a81cde6c7b48bd0c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/full.log",
+      "bytes": 4852,
+      "LF_lines": 31,
+      "sha256": "7af587c501e7335609c07b1c755ed62c72cbd459e78b5a047264a854c5cbc3b9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/launch.json",
+      "bytes": 174,
+      "LF_lines": 6,
+      "sha256": "1a826d54d8d6485b8456d05490e6d25c3273aa6cc586ef26a7a38c70194622c3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/native-records/output.log",
+      "bytes": 4563,
+      "LF_lines": 28,
+      "sha256": "11d20e3b76eb92d14a2e890c50f16ccab2a24acd9c7d74092fc529f6a6caabd0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/native-records/result.json",
+      "bytes": 644,
+      "LF_lines": 19,
+      "sha256": "b393c32c8c75ca072462d5c3d95b44473f64903dc05f94b492c9907eb866570b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/native-records/start.json",
+      "bytes": 491,
+      "LF_lines": 14,
+      "sha256": "1f9c6e8ce2c617a4ebccd3dfbbf596056744189931a64d4367778821fc5b7764"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/outer-prefix.log",
+      "bytes": 133,
+      "LF_lines": 2,
+      "sha256": "924dab3001924efc6639acf14437005131db16671d311cb82c89d3ce6e34a64e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/outer-suffix.log",
+      "bytes": 156,
+      "LF_lines": 1,
+      "sha256": "fcafc2735bed7527bb173cd5558c336b68c98edf4e5fd5602924a9a94ae3778b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/owned-terminal.json",
+      "bytes": 260,
+      "LF_lines": 8,
+      "sha256": "f14fb7bec90b521803d77c9edabc5adc0cb1f82b61d96135955dec4212815fb2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/progress.json",
+      "bytes": 263,
+      "LF_lines": 8,
+      "sha256": "b91bb5bbfc907e169171dd519915c55640f59068ae9a451b6277d9576fbc8e3e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/request.json",
+      "bytes": 807,
+      "LF_lines": 22,
+      "sha256": "85ae74e042243753a1760ef3103a42b7f6b6ed698930d74a1b873e86064a8387"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/result.json",
+      "bytes": 1341,
+      "LF_lines": 33,
+      "sha256": "9a8106caba5945803f74232668ac6c5e9f5731410f8f43b644a11f90ef6c1554"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/start.json",
+      "bytes": 1000,
+      "LF_lines": 27,
+      "sha256": "a0cfd4d8451f45068629f5d2dcbd31682ce78b5512161272daee353656a491cd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/verification.json",
+      "bytes": 867,
+      "LF_lines": 19,
+      "sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt3-20261104/closed-evidence-reconciliation.json",
+      "bytes": 2191,
+      "LF_lines": 44,
+      "sha256": "9ca7832dc412444f6dec7993cd6bb9cbbf780f46c68c6fdb306a68a1a15d4509"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt3-20261104/full.log",
+      "bytes": 2065,
+      "LF_lines": 14,
+      "sha256": "bbd749fe1f415ef0ae8e5de988be621811e798cc3b05f5d656fad7679586128f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt3-20261104/launch.json",
+      "bytes": 174,
+      "LF_lines": 6,
+      "sha256": "64b926d2aa6fcc67398bea82e2927cb8056054305c1281af948ff9a6c6e552a5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt3-20261104/native-records/output.log",
+      "bytes": 1776,
+      "LF_lines": 11,
+      "sha256": "b2431c8279058507d42cd91cfe096e02dda08066587e895673972674e1b31b0b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt3-20261104/native-records/result.json",
+      "bytes": 643,
+      "LF_lines": 19,
+      "sha256": "5d5a1692eeb11900e7ef83f18aae3065a85081ad2eb10a4bac52b1a23ec48c97"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt3-20261104/native-records/start.json",
+      "bytes": 491,
+      "LF_lines": 14,
+      "sha256": "fa0649bc940d0739fcfaa8fb0e4026b4004444ebc452db67d407259408816006"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt3-20261104/outer-prefix.log",
+      "bytes": 133,
+      "LF_lines": 2,
+      "sha256": "924dab3001924efc6639acf14437005131db16671d311cb82c89d3ce6e34a64e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt3-20261104/outer-suffix.log",
+      "bytes": 156,
+      "LF_lines": 1,
+      "sha256": "9fd17d5a79c1cfbf74f8aa508baa86b48bad017e7e542dd9f7eae2eba1df5fea"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt3-20261104/owned-terminal.json",
+      "bytes": 260,
+      "LF_lines": 8,
+      "sha256": "3e6809ae9f363c226a133eb4f92bdf410689b3afecfc96b8a756d68aca7fad5f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt3-20261104/progress.json",
+      "bytes": 262,
+      "LF_lines": 8,
+      "sha256": "d866f6833413f4d6c5b8bfab9dc5bde5ec8677a3193c79f81eca3f22bc819a9f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt3-20261104/request.json",
+      "bytes": 807,
+      "LF_lines": 22,
+      "sha256": "5ee002e31c512b55eb8708c79b85ed9f024306a5be15fc78a2605aba60908df4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt3-20261104/result.json",
+      "bytes": 1341,
+      "LF_lines": 33,
+      "sha256": "f6444b1fb84dce86a41dd529cfb55b961eccc17a87dff5b1850f4550e565721a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt3-20261104/start.json",
+      "bytes": 1000,
+      "LF_lines": 27,
+      "sha256": "57eab9bfff7f1cc18330a7a73b40693774ed9cc8c97da476b444fca6293b8107"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt3-20261104/verification.json",
+      "bytes": 867,
+      "LF_lines": 19,
+      "sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-focused-attempt1-20261104/closed-evidence-reconciliation.json",
+      "bytes": 2261,
+      "LF_lines": 44,
+      "sha256": "730f467fabb0316b40d9490e7761eac228b08908ceec427232a0a21e6d711ac3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-focused-attempt1-20261104/full.log",
+      "bytes": 1319,
+      "LF_lines": 10,
+      "sha256": "98f6a19dba123ee588b5b97135f7b9bb335d3da67d18fd75f6332232928cea14"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-focused-attempt1-20261104/launch.json",
+      "bytes": 174,
+      "LF_lines": 6,
+      "sha256": "cf6f6542887a0dbd9c5d96b3cc8112667f4adb28fa734e0ac587c9973563244b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 1042,
+      "LF_lines": 7,
+      "sha256": "72d835d0985156de3991b4063836627779aac6081eeaa0cf70bdd8cd69df9ea4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 631,
+      "LF_lines": 19,
+      "sha256": "1f927699ce1f3afcc9814d22ac42cabbaf6070afc4188c611048c58404a1ef6a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 479,
+      "LF_lines": 14,
+      "sha256": "1ce813b9da7f30ba1effce4896a4c936aaa69fdcc61dc37b82e1de42fdd6e6f8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-focused-attempt1-20261104/outer-prefix.log",
+      "bytes": 121,
+      "LF_lines": 2,
+      "sha256": "54c2404e77b87169e19120001ab3e440c065225379f2e6c2a7787e4ebb15e5a2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-focused-attempt1-20261104/outer-suffix.log",
+      "bytes": 156,
+      "LF_lines": 1,
+      "sha256": "743f44f97729769269c3776c8c12db01b914311df16e08e5da8fe8585ada51ae"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-focused-attempt1-20261104/owned-terminal.json",
+      "bytes": 260,
+      "LF_lines": 8,
+      "sha256": "30c407c59688f8cf58a1a389423df634b64233b7ca1bb7aa9f1605ea8e888163"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-focused-attempt1-20261104/progress.json",
+      "bytes": 262,
+      "LF_lines": 8,
+      "sha256": "e88d3b20f86fca0ae7780c1eb6f0e215aec13249b23849641f7c1c1094efe653"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-focused-attempt1-20261104/request.json",
+      "bytes": 795,
+      "LF_lines": 22,
+      "sha256": "39f70ed1935f75b1b5dfb82685de348992fdea15de0f532d2ecdd3c8bc6daea8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-focused-attempt1-20261104/result.json",
+      "bytes": 1322,
+      "LF_lines": 33,
+      "sha256": "79d52cbb39cd8ab2c16ac3f22721af43704beed6fcc76946712598b0151e45f1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-focused-attempt1-20261104/start.json",
+      "bytes": 988,
+      "LF_lines": 27,
+      "sha256": "b5fbcaf39ef5332da67aa3068bcb0fbf067c9a5c40163fc1e0b2c18e3384167e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-focused-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "LF_lines": 19,
+      "sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/Statements16.lean",
+      "bytes": 1418,
+      "LF_lines": 30,
+      "sha256": "a3cb2079d5dbdd6ddcf41067be0209e6a6b18b3aa85d390c82bcfd83c2bf446f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/allocation-result.json",
+      "bytes": 373,
+      "LF_lines": 11,
+      "sha256": "7c30f8398954f38fdd2315a96f2210a26e1fb64ebcf3ac14b6c600e258c45968"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-continuation1/Statements35-candidate1.lean",
+      "bytes": 2756,
+      "LF_lines": 51,
+      "sha256": "95b7f41a250f0c4238763dc6e5bf2c9f4da9808755b44fe407d514dcd398684b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-continuation1/baseline.json",
+      "bytes": 5437,
+      "LF_lines": 108,
+      "sha256": "14ab9b6c96f2d5fc7118dc4398ac44f1fa1acb3779c2bba21b75b914680e6c2e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-continuation1/candidate1.json",
+      "bytes": 1629,
+      "LF_lines": 36,
+      "sha256": "3803b47a57d61b427e514d1757a77d742db878fa1447d9f1dd8d9d7bae03eeb0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-continuation1/design.md",
+      "bytes": 4227,
+      "LF_lines": 69,
+      "sha256": "449d70475df87860f3dbfb3bc6241a2a09a0a0692601ee0c2852d1def355a0d7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-continuation1/final-preservation.json",
+      "bytes": 1095,
+      "LF_lines": 26,
+      "sha256": "6a3d871d903676199f46068cc1abf8aadcba74326ffca0e7b623c793e029ffc5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-continuation1/git-commands-progress.json",
+      "bytes": 1259,
+      "LF_lines": 46,
+      "sha256": "77445a526da119b2a4f905b5bd0cc5e98d865831fea51433eafc26413cd88c19"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-continuation1/git-commands.json",
+      "bytes": 1259,
+      "LF_lines": 46,
+      "sha256": "77445a526da119b2a4f905b5bd0cc5e98d865831fea51433eafc26413cd88c19"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-continuation1/handoff.md",
+      "bytes": 8754,
+      "LF_lines": 155,
+      "sha256": "e1758055a618b6710330627f0861e5bf09ecd5a1bf4fac526f86f4a6f9fabdd2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-continuation1/input-bindings.json",
+      "bytes": 9834,
+      "LF_lines": 191,
+      "sha256": "9cd6fc5250d082cc5b8902e1d7bb03d748a1c000422fd740a0209b73f6371dac"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-continuation1/readback-and-hold.json",
+      "bytes": 5817,
+      "LF_lines": 151,
+      "sha256": "827bf2267c2b9f6e129b0b34eb83a50b376772befb0c0e533823afdbf2e58880"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-continuation1/root-slice1-focused-feedback.json",
+      "bytes": 1038,
+      "LF_lines": 24,
+      "sha256": "0e9ed9471f2f598acbbd6aaf51ed6820060342064b0bd080dde7ff03f6cb1da7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-continuation1/source.diff",
+      "bytes": 14989,
+      "LF_lines": 309,
+      "sha256": "70059f33add6fb40f9721a2c1100188c278789c04efdabc541f683e55ed251ad"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-continuation1/statement-review.json",
+      "bytes": 4150,
+      "LF_lines": 74,
+      "sha256": "d129dfbe5361432d1783a8398114d5a8e66a428c1e10dde85f5cd72ff7d9b63b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-continuation1/statements35-inventory.json",
+      "bytes": 30328,
+      "LF_lines": 549,
+      "sha256": "2c2189ef47596252a71e02c1a5ca54578794b15ed70fcbf8513c18da1dfdff97"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-example-correction2/Statements35-candidate3.lean",
+      "bytes": 2756,
+      "LF_lines": 51,
+      "sha256": "835b572ba2f6e18d8ceeec53d7efe977d0eed3347ab223280e289d4e2bc346f3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-example-correction2/baseline.json",
+      "bytes": 13258,
+      "LF_lines": 257,
+      "sha256": "7e70a571cba3fbf8c821c44a28f91649dc933515cb535a0a16ab400504e31ee9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-example-correction2/candidate.json",
+      "bytes": 1426,
+      "LF_lines": 29,
+      "sha256": "f0de7b89a3de3c21790f9139232c1d9f46e0742114ad131432a013d1c112d648"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-example-correction2/correction.diff",
+      "bytes": 1184,
+      "LF_lines": 22,
+      "sha256": "d6a7f096aea59789eea645cff6c6f22fec12a75c4752eaa52c7509d206b8019a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-example-correction2/git-commands-progress.json",
+      "bytes": 1071,
+      "LF_lines": 45,
+      "sha256": "f1940bcb69bac252d8df1166ee8b1654b581ed510d09a177f440d66c6fdf64b0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-example-correction2/git-commands.json",
+      "bytes": 1071,
+      "LF_lines": 45,
+      "sha256": "f1940bcb69bac252d8df1166ee8b1654b581ed510d09a177f440d66c6fdf64b0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-example-correction2/handoff.md",
+      "bytes": 5597,
+      "LF_lines": 96,
+      "sha256": "74a114476ceeb737f186a86db4c2ba20cc028b44295f559d899abd9a249bd2b1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-example-correction2/input-bindings.json",
+      "bytes": 5007,
+      "LF_lines": 105,
+      "sha256": "b2bc43a4d4b1ab1a2c7b71cb05fa5bcea658f26634e7491d05f6a1eaa6276507"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-example-correction2/readback-and-hold.json",
+      "bytes": 7628,
+      "LF_lines": 156,
+      "sha256": "b339a2530ce4594171c247bcd8db190f3f0530c23c9069706f3c0e63bd0efca8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-example-correction2/root-attempt2-feedback.json",
+      "bytes": 6440,
+      "LF_lines": 129,
+      "sha256": "a5013842a8a5c86115d4a51651abcdc98c92f42f94155c8ba1961b1e18d63ee0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-example-correction2/root-attempt3-feedback.json",
+      "bytes": 6335,
+      "LF_lines": 126,
+      "sha256": "b3713fc0c67b1e2e86380ce4d316305a1c07d2c85ac484ad131506f4ed148d37"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-example-correction2/statement-review.json",
+      "bytes": 2225,
+      "LF_lines": 42,
+      "sha256": "0982ac943aad634425fa204193063eacddb6286f0d54b4f0757b67162e85a0f6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-example-correction2/statements35-inventory.json",
+      "bytes": 46603,
+      "LF_lines": 716,
+      "sha256": "5a5ca5128cad08d9e07f756de6ef7059a1249422479852dc42339ec142bd2ee7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-root-correction1/candidate.json",
+      "bytes": 3417,
+      "LF_lines": 35,
+      "sha256": "95e54b14d3a79213b03300772f74ddd61f8d25021eaf140029dabb20cffb1795"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-root-correction1/commit-result.json",
+      "bytes": 197,
+      "LF_lines": 4,
+      "sha256": "31ea59cabf3e1029510e6d87e0d1b923713f23240028bbf64485de33396a07f5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-root-correction1/correction.diff",
+      "bytes": 1199,
+      "LF_lines": 22,
+      "sha256": "3f1c613e5812938ae9534dca486799fdf5d2b056e2358f329160823c5e598a23"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-root-correction1/diff-check.json",
+      "bytes": 39,
+      "LF_lines": 4,
+      "sha256": "4555466a11b51d337471bdac80f509baf403e0d276b2f256372bd1d99f3252b4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/full-bound-root-correction1/starting-state.json",
+      "bytes": 5488,
+      "LF_lines": 143,
+      "sha256": "a71dd4eb1c8a66e559ed407c1e425f484b96eae5fe597a56e9f42e3fa0013b7c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-candidate.json",
+      "bytes": 7405,
+      "LF_lines": 106,
+      "sha256": "c719c7b75ab799825fa101f196a75c4aaf88b38fd7626f0df163034b27041e42"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-git-commands.json",
+      "bytes": 8425,
+      "LF_lines": 124,
+      "sha256": "d73e24605c40dba8ee7eb05443401872d20fbe5d19e2c4c81735f2b067196131"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-handoff.md",
+      "bytes": 8190,
+      "LF_lines": 56,
+      "sha256": "458e4aed24e3d39c460d88f459c9711c8c96211bec0cf3d142fe3a92f2b6fe1d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-input-bindings.json",
+      "bytes": 8543,
+      "LF_lines": 162,
+      "sha256": "7f86179e6da646dc250a9bfbe996fdad7d38f513820b18a520e31f7c9cf242ab"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-preservation.json",
+      "bytes": 2270,
+      "LF_lines": 65,
+      "sha256": "55caad6618ce56e8ada565647b6e0caa996385f483a2fc0816e443b09e95aec9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-readback-receipt.json",
+      "bytes": 4418,
+      "LF_lines": 136,
+      "sha256": "c4b816c1cf60b8d9aee0f26c55464cecd05ff8f099ff6d39d9e6a70b592a761e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-requirements.json",
+      "bytes": 3856,
+      "LF_lines": 62,
+      "sha256": "7b3cbffdaa40dc2a8da0879a65e068f3e1b1535bc835fe4be0f0ea93f4f27c8f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-source-baseline.json",
+      "bytes": 7653,
+      "LF_lines": 102,
+      "sha256": "4d49a88c6455b601c9108ff3a2aa4e1fa82fa24c2006fa0142a125004d2fcf56"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-source.diff",
+      "bytes": 12151,
+      "LF_lines": 231,
+      "sha256": "638e4438b20c6fb0162310c80463494d81d91b9d19f1370c6aa48ee4b6810fb9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-statements-inventory.json",
+      "bytes": 13235,
+      "LF_lines": 226,
+      "sha256": "0b2814d5f6aed1792bed6a4e621bb57af905bc2883719cccaf389523c203e802"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/starting-state.json",
+      "bytes": 7034,
+      "LF_lines": 85,
+      "sha256": "d6f72d5309bb1b47de6c3d21c3a52a4f67e6dc2c9edd4a62ba1e5335d26aca84"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-focused-attempt1-20261104/closed-evidence-reconciliation.json",
+      "bytes": 2250,
+      "LF_lines": 44,
+      "sha256": "7825d653f3247d98dabe86cc2733e7647a33a50f86a62b9e95b434108f8be495"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-focused-attempt1-20261104/full.log",
+      "bytes": 2835,
+      "LF_lines": 19,
+      "sha256": "27f3ab3e2128398df4ce98bcaa64369948e4902868f76da9c7256ff8e8e1a795"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-focused-attempt1-20261104/launch.json",
+      "bytes": 174,
+      "LF_lines": 6,
+      "sha256": "b5a99a2d16b61cab8a37ada4139ebc2f20dd6211e8e1f5a54373e77d5fa4f19e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 2553,
+      "LF_lines": 16,
+      "sha256": "3323ce64702ed211edd06aa20ae2df8bf8cc7912e5c268c7dbeccbf344732b08"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 636,
+      "LF_lines": 19,
+      "sha256": "cc7c7640ce9ffe20f307f7db529debea37c21c9adbbdb4ffdd402a2e2c3c4331"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 483,
+      "LF_lines": 14,
+      "sha256": "c78cfaebbf045f43173a089ac62cbe67950d75dd30661f45f3478c9dc46cf7a5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-focused-attempt1-20261104/outer-prefix.log",
+      "bytes": 125,
+      "LF_lines": 2,
+      "sha256": "4bdb6c8d0c5249f5d83eac5088779a825f71b49881056ea6638e0b27e0581920"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-focused-attempt1-20261104/outer-suffix.log",
+      "bytes": 157,
+      "LF_lines": 1,
+      "sha256": "324dad02c23ca4b9acd23987095d7f6cc4a6c3960e3dd96b8a264abb42ad7a3c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-focused-attempt1-20261104/owned-terminal.json",
+      "bytes": 260,
+      "LF_lines": 8,
+      "sha256": "db52c5b032357ea827f68f3870299075bd9d4dbf2d199c294da2acbc8ddcbb93"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-focused-attempt1-20261104/progress.json",
+      "bytes": 262,
+      "LF_lines": 8,
+      "sha256": "f05d98366717b44deba100481328e5c5416cf9011f7fc03cd87d50df9fd82f79"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-focused-attempt1-20261104/request.json",
+      "bytes": 799,
+      "LF_lines": 22,
+      "sha256": "69522510f80119b01a046317a67fa5b5514ee78c72657e13e007721352d38a97"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-focused-attempt1-20261104/result.json",
+      "bytes": 1328,
+      "LF_lines": 33,
+      "sha256": "ec428d385794c9070b7c7ade9ae5dd64c7cb70648b8c66a7f7420cf86682f19a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-focused-attempt1-20261104/start.json",
+      "bytes": 992,
+      "LF_lines": 27,
+      "sha256": "9e69e5c94d0239775f6407b1335e1172b0e9d5b11e9d7cb53a1b6dd7c36a3aaf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-focused-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "LF_lines": 19,
+      "sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-implementation-20261104/Statements28-candidate1.lean",
+      "bytes": 1930,
+      "LF_lines": 42,
+      "sha256": "8e1ea7e7c77c2c13e201567f4269d312c829f94919bc652eae2964150edd31c6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-implementation-20261104/candidate1.json",
+      "bytes": 1907,
+      "LF_lines": 42,
+      "sha256": "3cc24e779dbd7b7dd1b67054ba69c24dee0390f9d1dedbd6cc746ae6c9a60da0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-implementation-20261104/focused-pass-and-hold.json",
+      "bytes": 2032,
+      "LF_lines": 41,
+      "sha256": "a2c2de7dc2c853d5dfd8a0c400768ff8853705ab8e165f64a329c8a909995e68"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-implementation-20261104/git-commands.json",
+      "bytes": 836,
+      "LF_lines": 34,
+      "sha256": "5879b4e1f1a3ce95cc7f039a839907b0fa70aa4418184fffadfcaace0b9eb49b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-implementation-20261104/precommit-statement-review.json",
+      "bytes": 9304,
+      "LF_lines": 204,
+      "sha256": "7064aeb0bc772ab918ce6de2536ccf4283a4fc02f30e350058a68e5310174ae4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-implementation-20261104/starting-state-and-cases.json",
+      "bytes": 17062,
+      "LF_lines": 301,
+      "sha256": "47cab1d42982d550dee5f38d76260cd065a52f86ed448e0131fc5e208935db61"
+    }
+  ],
+  "accepted_XR": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "scope": "Generic finite positive halving-trace arithmetic and explicit aligned tariff transport supporting C03-080. Actual selector/policy/tariff correspondence belongs to values author; row closure is not claimed.",
+  "full_chapter_obligations": 83,
+  "source_ownership": [
+    "Applications/Resources/HalvingTrace.lean",
+    "Examples/HalvingTrace.lean"
+  ],
+  "compiler_owner": "root serial one-thread qualified environment exclusively",
+  "author_compiler_permitted": false,
+  "recorded_expectations_before_source": true
+}

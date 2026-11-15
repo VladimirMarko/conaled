@@ -1,0 +1,36 @@
+[
+  {
+    "argv": [
+      "add",
+      "--",
+      "Applications/Selection/FixedRank.lean"
+    ],
+    "actual_exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "actual_exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "-c",
+      "user.name=ChatGPT",
+      "-c",
+      "user.email=chatgpt@openai.com",
+      "commit",
+      "-m",
+      "fix(selection): normalize fixed-rank sort proofs (#174)"
+    ],
+    "actual_exit": 0,
+    "stdout": "[work/fdsa-ch03-values 979c4fc] fix(selection): normalize fixed-rank sort proofs (#174)\n 1 file changed, 6 insertions(+), 3 deletions(-)\n",
+    "stderr": ""
+  }
+]

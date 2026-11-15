@@ -1,0 +1,27 @@
+{
+  "started_utc": "2026-11-04T06:07:05.224646+00:00",
+  "before": "6d91b822d0f3cf1aeeda333a9e1d47ebb26e709b",
+  "purpose": "Cumulative development only; integrate bounded variant corrections and exact original XD01 history, without accepting any unit.",
+  "merges": [
+    {
+      "source": "d4208023c1c30f5f15773b1f50a4d11db0a29e2c",
+      "exit_code": 0,
+      "after": "51f71a1c00d732cdfc690cc92c2bf2ac8f8030e5"
+    },
+    {
+      "source": "254a4162fa6aeeb7ab2a1ceea5139e5772a5865b",
+      "exit_code": 0,
+      "after": "677be024748ad5db01bad955cb2a1e8206f4e26d"
+    }
+  ],
+  "xd01_merge": {
+    "source": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+    "exit_code": 1,
+    "pre_merge_head": "677be024748ad5db01bad955cb2a1e8206f4e26d",
+    "status": "A  Applications/Resources/DifferenceListCosts.lean\nA  Examples/DifferenceListCosts.lean\nUU SquareApplications.lean\nA  docs/research/fdsa-difference-list-costs.md\nUU docs/research/fdsa-reconstruction-map.md\n",
+    "unmerged": [
+      "SquareApplications.lean",
+      "docs/research/fdsa-reconstruction-map.md"
+    ]
+  }
+}

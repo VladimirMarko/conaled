@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T19:31:10.066755+00:00",
+  "candidate": "9ff4d92e20eeabde29fd91b78c37786019e9613b",
+  "terminal": {
+    "recorded_utc": "2026-11-04T19:31:10.066591+00:00",
+    "owned_session": 9461,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "9f945e",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "9ff4d92e20eeabde29fd91b78c37786019e9613b"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-median-of-medians-focused-attempt1-20261104/full.log",
+    "bytes": 5939,
+    "sha256": "0493742f653e8f58b5f4e418eb1e25c46c5fc10ae294c8ff36bda09cd6146a41"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T193043Z-project-run-bf4d0ae5",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-median-of-medians-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 475,
+      "sha256": "f0f4cc1a5226e95cf4cdf0b8198f8ebafff8b66c1c4afb8a268f8775fe5aec53"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-median-of-medians-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 629,
+      "sha256": "0b9aa8d4b3e093b277cfcc451d6a87654028257191157989c3b4e816df1b25b6"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-median-of-medians-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 5665,
+      "sha256": "c204581de1678885c6a1c6c92175231b9239f6a4c5fecde0de756bac8addfa0e"
+    }
+  },
+  "native_body_exact_outer_offset": 117,
+  "complete_closed_log": true,
+  "scope": "Focused development check of Applications.Selection.MedianOfMedians and Examples.MedianOfMedians only; no full Chapter 3 candidate check, proof audit, actual public type or acceptance credit.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

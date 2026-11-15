@@ -1,0 +1,91 @@
+{
+  "recorded_utc": "2026-11-05T02:11:44.437010+00:00",
+  "catalog_before": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/checkpoints.json",
+    "bytes": 361037,
+    "sha256": "d589dee6034c1c64cc0efc635b4ad8f8ffe2464db4f306306700d26767f199e7"
+  },
+  "controls_before": {
+    "CURRENT.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/CURRENT.md",
+      "bytes": 100260,
+      "sha256": "3a96295c6ad33c741d154dc0e170289504142011a1f2e4ccad17bbdc02b4401e"
+    },
+    "STATUS.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/STATUS.md",
+      "bytes": 93692,
+      "sha256": "860a14b2589c1886a94e32eb33e6b080f96392c73be3dd236cc472ef9b59c923"
+    },
+    "tickets/FDSA-003.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tickets/FDSA-003.md",
+      "bytes": 57092,
+      "sha256": "a5ee5bb79e4674718021508ca5bf2f646a7ca6163a1332339579bbbdfcbdc4c4"
+    },
+    "tickets/INDEX.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tickets/INDEX.md",
+      "bytes": 109381,
+      "sha256": "218e09ed0cd53cab8d1e53006c7b9fce5eac9a1a8a228086a05af0a4677f9889"
+    },
+    "reviews/chapter03-round1.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter03-round1.md",
+      "bytes": 43071,
+      "sha256": "595baf98a9f0a11cf646443ba272bad023498121db913108c68a1a7b35a32a48"
+    }
+  },
+  "durability": {
+    "name": "conaled-fdsa-0137-chapter03-accepted",
+    "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0137-chapter03-accepted.tar.gz",
+    "recorded_utc": "2026-11-05T02:11:44.437010+00:00",
+    "file_id": "file_000000006a788210bcd1c4366681615c",
+    "library_file_id": "libfile_5fb1243eebdc81919e722050466ba44d",
+    "current_version_number": 0,
+    "status": "succeeded",
+    "file_size_bytes": 41551502,
+    "size_bytes": 41551502,
+    "sha256": "3203d7abb9a8f46c1d1e1cc29f0114ab3b58b2abed0c21fdbd8c9af0d972ee0b",
+    "url": "https://chatgpt.com/library?file_id=libfile_5fb1243eebdc81919e722050466ba44d&account_id=personal",
+    "metadata_exit": 0,
+    "metadata_chunk": "ca136a",
+    "post_upload_hash_matched": true,
+    "post_upload_hash_tool_chunk": "ca136a",
+    "capture_owned_session": 66736,
+    "capture_terminal_chunk": "632b37",
+    "creation_owned_session": 6823,
+    "creation_terminal_chunk": "2df294",
+    "verification_owned_session": 81873,
+    "verification_terminal_chunk": "6eaebf",
+    "payload_hashes_verified": 8147,
+    "refs_verified": 74,
+    "worktrees_verified": 9,
+    "held_control_files_verified": 8098,
+    "accepted_head": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+    "qualified_candidate": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+    "chapter03_obligations": 83,
+    "C2_accepted": true,
+    "XR_accepted": true,
+    "chapter03_accepted": true,
+    "C3_acceptance_durability_complete": true,
+    "closed_development_runs": 107,
+    "interrupted_runs_without_terminal_credit": 1,
+    "known_recorded_failures_without_transport_terminal": 1,
+    "checkpoint_exposed": true,
+    "chapter03_public_names": 1370,
+    "chapter03_formal_modules": 78,
+    "actual_public_names": 1391,
+    "accepted_XR_public_names": 21,
+    "original_whole_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+    "independent_axes": {
+      "Standards": "Passed",
+      "Spec": "PASS"
+    },
+    "open_independent_findings": [],
+    "current_candidate_full_check_passed": true,
+    "prior_full_audit_SIGKILL_history": "Actual failed preparation remains preserved; cause unknown. Current298 has its own complete successful audit.",
+    "acceptance": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-acceptance-20261105/acceptance.json",
+      "bytes": 52490,
+      "sha256": "b0a6cdf9341b2386010f428b7b16d595895eaa8b24f3dd3c47d5d95dd8287c6d"
+    },
+    "no_GitHub_mutation_or_push": true
+  }
+}

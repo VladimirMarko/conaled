@@ -1,0 +1,74 @@
+error: Examples/CoordinateSelection.lean:48:54: Expected type must not contain free variables
+  0 < [a].length
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+error: Examples/CoordinateSelection.lean:48:66: Expected type must not contain free variables
+  [a].length ≤ 20
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+error: Examples/CoordinateSelection.lean:116:63: unsolved goals
+input : Fin 3 → ℤ
+trace : Transcript 3 ℤ
+observation : Resources.Measured (Option ℤ) ℕ
+run : Runs (observedSelect 3) input [] trace observation
+ho : observation = (none, 3 + 2)
+⊢ 2 * 3 + (none, 3 + 2).2 = 11
+error: Examples/CoordinateSelection.lean:150:4: Tactic `decide` failed to reduce
+  @decide ((ordered (List.ofFn fun i => ↑↑i))[10]? = some 10)
+    ((ordered (List.ofFn fun i => ↑↑i))[10]?.instDecidableEq (some 10))
+to `true` or `false`.
+
+Reduction got stuck at
+  match (ordered (List.ofFn fun i => ↑↑i))[10]? with
+  | none =>
+    match some 10 with
+    | none => isTrue ⋯
+    | some val => isFalse ⋯
+  | some a =>
+    match some 10 with
+    | none => isFalse ⋯
+    | some b =>
+      match a.instDecidableEq b with
+      | { decide := true, reflects_decide := h } => isTrue ⋯
+      | { decide := false, reflects_decide := n } => isFalse ⋯
+error: Examples/CoordinateSelection.lean:167:4: don't know how to synthesize implicit argument `n`
+  @Total (?m.9 k) ℤ ℤ (selectedValue ↑k)
+context:
+n : ℕ
+α : Type u
+k : Fin n
+⊢ ℕ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+error: Examples/CoordinateSelection.lean:167:11: don't know how to synthesize implicit argument `n`
+  @selectedValue (?m.9 k) ↑k
+context:
+n : ℕ
+α : Type u
+k : Fin n
+⊢ ℕ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+error: Examples/CoordinateSelection.lean:168:2: Type mismatch
+  ⟨selectedValue_total ↑k, selectedValue_correct k⟩
+has type
+  Total (@selectedValue ?m.12 ↑k) ∧ Selects (selectedValue ↑k) k
+but is expected to have type
+  Total (@selectedValue (?m.9 k) ↑k) ∧ Selects (selectedValue ↑k) k
+error: Examples/CoordinateSelection.lean:194:2: Type mismatch: After simplification, term
+  bound 1 2 0 input distinct CoordinateQueries.pairMinimum CoordinateQueries.pairMinimum_total
+    CoordinateQueries.pairMinimum_correct (of_decide_eq_true (id (Eq.refl true)))
+ has type
+  ∃ trace observation otherTrace value,
+    Runs (observedSelect ↑0) input [] trace observation ∧
+      Runs CoordinateQueries.pairMinimum input [] otherTrace value ∧
+        observation.1 = some value ∧ 2 ≤ List.length otherTrace ∧ work 1 trace observation ≤ K * List.length otherTrace
+but is expected to have type
+  ∃ trace observation otherTrace value,
+    Runs (observedSelect 0) input [] trace observation ∧
+      Runs CoordinateQueries.pairMinimum input [] otherTrace value ∧
+        observation.1 = some value ∧ 2 ≤ List.length otherTrace ∧ work 1 trace observation ≤ K * List.length otherTrace
+Some required targets logged failures:
+- Examples.CoordinateSelection
+error: build failed
+[result] exit=1, 10.649s; /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T221613Z-project-run-b5517560/result.json

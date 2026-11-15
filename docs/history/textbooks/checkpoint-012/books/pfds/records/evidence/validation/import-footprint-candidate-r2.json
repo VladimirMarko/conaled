@@ -1,0 +1,49 @@
+{
+  "candidate": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+  "checkout": "import-correction",
+  "branch": "pfds/import-footprint-r2",
+  "captured_at": "2026-11-02T21:08:25.412047+00:00",
+  "clean": true,
+  "exclusions": [],
+  "bases": {
+    "10013": "cbb1e27d18c69ce2e0c35ef1cb492483b5ca0833",
+    "10018": "70a1477d822efd4fdcec2007280f650bb4695eda"
+  },
+  "files_10013": [
+    "Applications/FRP/Demand.lean",
+    "Applications/FRP/Equivalence.lean",
+    "Applications/FRP/Finite.lean",
+    "Applications/FRP/Spec.lean",
+    "Applications/Resources/SharedList.lean",
+    "Applications/Sequences/SharedList/Basic.lean",
+    "Applications/Sequences/SharedList/Copy.lean",
+    "Applications/Sequences/SharedList/Observation.lean",
+    "Applications/Sequences/SharedList/Suffixes.lean",
+    "Examples/FRP.lean",
+    "Examples/SharedList.lean",
+    "SquareApplications.lean",
+    "docs/research/pfds-shared-persistence.md"
+  ],
+  "files_10018": [
+    "Applications/FRP/Demand.lean",
+    "Applications/FRP/Equivalence.lean",
+    "Applications/FRP/Finite.lean",
+    "Applications/FRP/Spec.lean",
+    "Examples/FRP.lean"
+  ],
+  "commits_10013": [
+    "ad730010ab1929bbd7a16a035c7990a6f328b178",
+    "70a1477d822efd4fdcec2007280f650bb4695eda",
+    "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+    "324962e733886e66d6cd92af6cb68627ed4c8f1d"
+  ],
+  "requirements_10018": {
+    "path": "requirements/import-footprint.md",
+    "version": 1,
+    "sha256": "cf8fb3133b83ac59fdf6fd46b818d8b279d96385f5de50da843ef9b7fd62444d"
+  },
+  "scope": "three additional direct consumer imports; all non-import bytes unchanged",
+  "focused_evidence": "validation/import-footprint-r2-focused-r2.json",
+  "full_validation": "not started; wait for original frozen226ebae run to end before reusing completed ordinary outputs",
+  "acceptance": false
+}

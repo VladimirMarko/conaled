@@ -1,0 +1,152 @@
+diff --git a/Applications/Resources/DifferenceListCosts.lean b/Applications/Resources/DifferenceListCosts.lean
+index 16d2f1c..19f16f4 100644
+--- a/Applications/Resources/DifferenceListCosts.lean
++++ b/Applications/Resources/DifferenceListCosts.lean
+@@ -26,8 +26,8 @@ variable {α : Type u}
+ abbrev Builder (α : Type u) := List α → Measured (List α) Nat
+ 
+ /-- The represented prefix is independent of the supplied suffix. -/
+-def Rep (f : Builder α) (prefix : List α) : Prop :=
+-  ∀ suffix, (f suffix).1 = prefix ++ suffix
++def Rep (f : Builder α) (pref : List α) : Prop :=
++  ∀ suffix, (f suffix).1 = pref ++ suffix
+ 
+ /-- An application-cost contract covers every suffix, not only materialization at []. -/
+ def AppCost (f : Builder α) (k : Nat) : Prop :=
+@@ -110,9 +110,9 @@ def pushRun (a : α) (f : Builder α) : Measured (Builder α) Nat :=
+ theorem pushRun_eq (a : α) (f : Builder α) :
+     pushRun a f = (compose f (singleton a), 2) := rfl
+ 
+-theorem pushRun_rep (a : α) (f : Builder α) (prefix : List α) (rep : Rep f prefix) :
+-    Rep (pushRun a f).1 (prefix ++ [a]) := by
+-  simpa only [pushRun_eq] using compose_rep f (singleton a) prefix [a] rep (singleton_rep a)
++theorem pushRun_rep (a : α) (f : Builder α) (pref : List α) (rep : Rep f pref) :
++    Rep (pushRun a f).1 (pref ++ [a]) := by
++  simpa only [pushRun_eq] using compose_rep f (singleton a) pref [a] rep (singleton_rep a)
+ 
+ theorem pushRun_appCost (a : α) (f : Builder α) (k : Nat) (cost : AppCost f k) :
+     AppCost (pushRun a f).1 (k + 2) := by
+@@ -139,13 +139,13 @@ theorem buildFrom_cost (items : List α) (f : Builder α) :
+       simp only [buildFrom_cons, ih, List.length_cons, Nat.mul_add, Nat.mul_one]
+       omega
+ 
+-theorem buildFrom_rep (items : List α) (f : Builder α) (prefix : List α)
+-    (rep : Rep f prefix) : Rep (buildFrom items f).1 (prefix ++ items) := by
+-  induction items generalizing f prefix with
++theorem buildFrom_rep (items : List α) (f : Builder α) (pref : List α)
++    (rep : Rep f pref) : Rep (buildFrom items f).1 (pref ++ items) := by
++  induction items generalizing f pref with
+   | nil => simpa only [buildFrom_nil, List.append_nil] using rep
+   | cons a items ih =>
+-      have next := compose_rep f (singleton a) prefix [a] rep (singleton_rep a)
+-      have rest := ih (compose f (singleton a)) (prefix ++ [a]) next
++      have next := compose_rep f (singleton a) pref [a] rep (singleton_rep a)
++      have rest := ih (compose f (singleton a)) (pref ++ [a]) next
+       simpa only [buildFrom_cons, List.append_assoc, List.cons_append, List.nil_append] using rest
+ 
+ theorem buildFrom_appCost (items : List α) (f : Builder α) (k : Nat)
+@@ -155,8 +155,9 @@ theorem buildFrom_appCost (items : List α) (f : Builder α) (k : Nat)
+   | cons a items ih =>
+       have next := compose_appCost f (singleton a) k 1 cost (singleton_appCost a)
+       have rest := ih (compose f (singleton a)) (k + 1 + 1) next
+-      simpa only [buildFrom_cons, List.length_cons, Nat.mul_add, Nat.mul_one,
+-        Nat.add_assoc, Nat.add_left_comm, Nat.add_comm] using rest
++      have hcount : k + 1 + 1 + 2 * items.length = k + 2 * (items.length + 1) := by omega
++      rw [hcount] at rest
++      simpa only [buildFrom_cons, List.length_cons] using rest
+ 
+ /-- Include the initial identity's creation, then execute the same push sequence. -/
+ def build (items : List α) : Measured (Builder α) Nat :=
+@@ -175,25 +176,25 @@ theorem build_appCost (items : List α) : AppCost (build items).1 (2 * items.len
+     buildFrom_appCost items (empty : Builder α) 1 empty_appCost
+ 
+ /-- Erase only the observation, using the existing difference-list representation. -/
+-def toDList (f : Builder α) (prefix : List α) (rep : Rep f prefix) : Batteries.DList α where
++def toDList (f : Builder α) (pref : List α) (rep : Rep f pref) : Batteries.DList α where
+   apply := fun suffix => (f suffix).1
+   invariant := by
+     intro suffix
+     rw [rep suffix, rep [], List.append_nil]
+ 
+-@[simp] theorem toDList_apply (f : Builder α) (prefix : List α) (rep : Rep f prefix)
+-    (suffix : List α) : (toDList f prefix rep).apply suffix = (f suffix).1 := rfl
++@[simp] theorem toDList_apply (f : Builder α) (pref : List α) (rep : Rep f pref)
++    (suffix : List α) : (toDList f pref rep).apply suffix = (f suffix).1 := rfl
+ 
+-@[simp] theorem toList_toDList (f : Builder α) (prefix : List α) (rep : Rep f prefix) :
+-    (toDList f prefix rep).toList = prefix := by
+-  change (f []).1 = prefix
++@[simp] theorem toList_toDList (f : Builder α) (pref : List α) (rep : Rep f pref) :
++    (toDList f pref rep).toList = pref := by
++  change (f []).1 = pref
+   simpa only [List.append_nil] using rep []
+ 
+ /-- The DList value forgets the closure's construction and application history. -/
+-theorem toDList_eq_ofList (f : Builder α) (prefix : List α) (rep : Rep f prefix) :
+-    toDList f prefix rep = Batteries.DList.ofList prefix := by
++theorem toDList_eq_ofList (f : Builder α) (pref : List α) (rep : Rep f pref) :
++    toDList f pref rep = Batteries.DList.ofList pref := by
+   simpa only [toList_toDList] using
+-    (Batteries.DList.ofList_toList (toDList f prefix rep)).symm
++    (Batteries.DList.ofList_toList (toDList f pref rep)).symm
+ 
+ theorem toDList_compose (f g : Builder α) (prefixF prefixG : List α)
+     (repF : Rep f prefixF) (repG : Rep g prefixG) :
+@@ -208,14 +209,14 @@ theorem toDList_compose (f g : Builder α) (prefixF prefixG : List α)
+     _ = toDList f prefixF repF ++ toDList g prefixG repG := Batteries.DList.ofList_toList _
+ 
+ /-- Correspondence with Batteries' fused push is a value theorem only. -/
+-theorem toDList_pushRun (a : α) (f : Builder α) (prefix : List α) (rep : Rep f prefix) :
+-    toDList (pushRun a f).1 (prefix ++ [a]) (pushRun_rep a f prefix rep) =
+-      Batteries.DList.push (toDList f prefix rep) a := by
++theorem toDList_pushRun (a : α) (f : Builder α) (pref : List α) (rep : Rep f pref) :
++    toDList (pushRun a f).1 (pref ++ [a]) (pushRun_rep a f pref rep) =
++      Batteries.DList.push (toDList f pref rep) a := by
+   calc
+-    toDList (pushRun a f).1 (prefix ++ [a]) (pushRun_rep a f prefix rep) =
+-        Batteries.DList.ofList (prefix ++ [a]) := toDList_eq_ofList _ _ _
+-    _ = Batteries.DList.ofList ((Batteries.DList.push (toDList f prefix rep) a).toList) := by
++    toDList (pushRun a f).1 (pref ++ [a]) (pushRun_rep a f pref rep) =
++        Batteries.DList.ofList (pref ++ [a]) := toDList_eq_ofList _ _ _
++    _ = Batteries.DList.ofList ((Batteries.DList.push (toDList f pref rep) a).toList) := by
+       rw [Batteries.DList.toList_push, toList_toDList]
+-    _ = Batteries.DList.push (toDList f prefix rep) a := Batteries.DList.ofList_toList _
++    _ = Batteries.DList.push (toDList f pref rep) a := Batteries.DList.ofList_toList _
+ 
+ end Resources.DifferenceListCosts
+diff --git a/Examples/DifferenceListCosts.lean b/Examples/DifferenceListCosts.lean
+index ecbcd9e..33fd3be 100644
+--- a/Examples/DifferenceListCosts.lean
++++ b/Examples/DifferenceListCosts.lean
+@@ -28,12 +28,12 @@ theorem ordered_composition :
+ 
+ /-- Standard DList append supplies the same ordered observation, separately
+ from the callback's charged application law. -/
+-theorem standard_composition_value (f g : Builder α) (prefix more : List α)
+-    (hf : Rep f prefix) (hg : Rep g more) :
++theorem standard_composition_value (f g : Builder α) (pref more : List α)
++    (hf : Rep f pref) (hg : Rep g more) :
+     Batteries.DList.toList
+-        (toDList (compose f g) (prefix ++ more)
+-          (compose_rep f g prefix more hf hg)) =
+-      Batteries.DList.toList ((toDList f prefix hf) ++ (toDList g more hg)) := by
++        (toDList (compose f g) (pref ++ more)
++          (compose_rep f g pref more hf hg)) =
++      Batteries.DList.toList ((toDList f pref hf) ++ (toDList g more hg)) := by
+   rw [toList_toDList, Batteries.DList.toList_append, toList_toDList, toList_toDList]
+ 
+ /-- Capturing supplied callbacks charges neither of their application counts. -/
+@@ -122,10 +122,10 @@ theorem extendSingleton_eq (a : α) (items suffix : List α) :
+ 
+ /-- The existing fused push supplies this value, but the chosen explicit
+ composition model has its own application and construction observations. -/
+-theorem fused_push_value (a : α) (f : Builder α) (prefix suffix : List α)
+-    (rep : Rep f prefix) :
++theorem fused_push_value (a : α) (f : Builder α) (pref suffix : List α)
++    (rep : Rep f pref) :
+     ((pushRun a f).1 suffix).1 =
+-      (Batteries.DList.push (toDList f prefix rep) a).apply suffix := by
++      (Batteries.DList.push (toDList f pref rep) a).apply suffix := by
+   rfl
+ 
+ /-- Charged identity preserves values but adds two invocation occurrences. -/

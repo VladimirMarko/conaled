@@ -1,0 +1,93 @@
+{
+  "recorded_utc": "2026-11-02T16:03:00.200796+00:00",
+  "ticket": 1025,
+  "status": "blocking_integrity_assessment_reopened",
+  "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "affected_modules": [
+    "Applications.Resources.BoundedSummary",
+    "Examples.BoundedSummary",
+    "Applications.Sequences.ByteBuffer",
+    "Examples.ByteBuffer"
+  ],
+  "diagnostic": "Pre-build integrity guard reported output mismatch for the .olean of each listed previously built module.",
+  "temporal_distinction": "These four mismatches preceded compilation and the later ENOSPC failure; that later failure alone does not explain them.",
+  "prior_built_evidence": {
+    "log": "work-state/validation/1002-candidate-1da24c7.log",
+    "sha256": "3765ce2d87b83718b1e961dde4ce5d6c132db882abbf197dfb553cf47b959a55",
+    "reported_seconds": [
+      7.0,
+      9.2,
+      14.0,
+      9.3
+    ]
+  },
+  "current_failed_log": {
+    "path": "work-state/validation/1002-candidate-3279bac-enospc.log",
+    "sha256": "548f385395415043c8532c688603e70313db3057d52e34ad13e6abc6980f13a5"
+  },
+  "review": {
+    "path": "work-state/reviews/1002-Perm.md",
+    "sha256": "5a355a072503bf914104ea506325237fce55e1cca4533b444696210e0c8f16af",
+    "standards": "Blocked; ST-001 fixed; ST-002 open",
+    "spec": "Blocked; SP-VAL-001 open; ST-002 independently corroborated"
+  },
+  "classification": "Unresolved incident involving a newly observed set of affected modules. Available evidence does not identify the writer/cause or establish recurrence of the known GraphEmission artifact mechanism.",
+  "upstream_guidance": {
+    "url": "https://github.com/VladimirMarko/conaled/issues/272",
+    "state": "open",
+    "comments": 0,
+    "updated_at": "2026-10-30T19:45:18Z",
+    "saved_api_response": "work-state/validation/1028-upstream-272-issue.json",
+    "sha256": "1257fce92fce0949fe2fe7d70047b90448053e06844511cda5905fb851df4893",
+    "access": "Public read-only GitHub API after the web open tool returned DisabledError; no GitHub writes."
+  },
+  "evidence_limitations": [
+    "The original four mismatched output/trace bytes were removed by the automatic pre-build invalidation and are unavailable; their exact old digests cannot be reconstructed from this log.",
+    "Current regenerated families and surviving ENOSPC files are separately preserved locally under incident-evidence/1028-enospc; manifest/digests are validation/1028-affected-artifacts.json. These are not the original mismatched bytes.",
+    "The terminal ENOSPC log may have lost/truncated output.",
+    "No observed inactive-directory recreation or transient FD sample establishes the cause of these active-project mismatches."
+  ],
+  "writer_probe": {
+    "utc_start": "2026-11-02T15:55:01.829+00:00",
+    "utc_end": "2026-11-02T15:55:01.832+00:00",
+    "scope": "One pass over FD symlink metadata, reporting only exact owned checkpoint/inactive main dependency-build paths; no argv/env/payloads/signals.",
+    "visible_processes": 30,
+    "fd_entries": 224,
+    "matches": 0,
+    "reported_failures": 0,
+    "limit": "No matching visible descriptor in this transient sample is not proof of no writer."
+  },
+  "decision": {
+    "fresh_required": true,
+    "reason": "Earlier mixed/stale-output suspicion is unresolved; README requires a fresh candidate check. Reclaimed capacity alone does not justify incremental-only recovery.",
+    "planned_fresh_command": [
+      "nix",
+      "develop",
+      "--command",
+      "./check.sh",
+      "--fresh",
+      "--jobs",
+      "1",
+      "--candidate",
+      "HEAD"
+    ],
+    "planned_guarded_command": [
+      "nix",
+      "develop",
+      "--command",
+      "./check.sh",
+      "--candidate",
+      "HEAD"
+    ],
+    "explicit_environment": {
+      "LEAN_NUM_THREADS": "1"
+    },
+    "both_outcomes_separate": true,
+    "fresh_result": "not_started",
+    "incremental_recovery_result": "not_started",
+    "formal_source_changes_required_by_current_evidence": false
+  },
+  "capacity_recovery": "work-state/validation/20261102-inactive-mathlib-retirement-after-enospc.json",
+  "owner_alert": "Root alerted the user in the active conversation to the four earlier mismatches, separate ENOSPC failure, unresolved assessment and required fresh validation. Local tracking replaces GitHub comments under the explicit user exception.",
+  "acceptance": "No chapter accepted; no successful candidate record or full audit established. Required regression, independent evidence assessments and final record verification remain pending."
+}

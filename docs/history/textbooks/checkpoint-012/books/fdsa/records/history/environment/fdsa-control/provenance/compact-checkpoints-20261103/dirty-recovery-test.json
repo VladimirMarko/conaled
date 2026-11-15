@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "conaled/tracked.txt": true,
+    "conaled/binary.dat": true,
+    "conaled/untracked.bin": true,
+    "review/review-only.txt": true,
+    "conaled diff --binary": true,
+    "conaled diff --cached --binary": true,
+    "review diff --binary": true,
+    "review diff --cached --binary": true,
+    "intent_to_add_fails_closed": true
+  },
+  "passed": true,
+  "restore_stdout": "{\"restored\": \"/workspace/scratch/31d6377eca78/compact-recovery-fixture/restored\", \"checkpoint\": \"fixture\", \"refs\": 2, \"worktrees\": 2, \"acceptance\": \"Read fdsa-control/STATUS.md; recovery does not imply acceptance.\"}\n",
+  "restore_stderr": "Preparing worktree (detached HEAD 0f6a49f)\n",
+  "intent_rejection": "Stage or unstage intent-to-add entries before checkpointing\n"
+}

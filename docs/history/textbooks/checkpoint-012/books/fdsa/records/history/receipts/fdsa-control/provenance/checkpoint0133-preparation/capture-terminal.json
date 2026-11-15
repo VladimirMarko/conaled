@@ -1,0 +1,14 @@
+{
+  "recorded_utc": "2026-11-04T22:55:13.201462+00:00",
+  "owned_session": 43176,
+  "actual_exit": 0,
+  "terminal_tool_chunk": "cde5a8",
+  "state": "CLOSED; never poll this historical session again",
+  "tool_result": {
+    "chunk_id": "cde5a8",
+    "wall_time_seconds": 0.00269257,
+    "exit_code": 0,
+    "original_token_count": 352,
+    "output": "{\n  \"capture\": {\n    \"bytes\": 1512655,\n    \"sha256\": \"e08808d3a2c5415e5922fd92bc834ecb316871e2fb9c83385425c0b13750d847\"\n  },\n  \"held_controls\": 7435,\n  \"refs\": 74,\n  \"worktrees\": 9,\n  \"closed_runs\": 94,\n  \"actual_prior_control_updates\": [\n    \"CURRENT.md\",\n    \"STATUS.md\",\n    \"checkpoints.json\",\n    \"reviews/chapter03-round1.md\",\n    \"tickets/FDSA-003.md\",\n    \"tickets/INDEX.md\"\n  ],\n  \"space_preflight\": {\n    \"recorded_utc\": \"2026-11-04T22:55:10.298485+00:00\",\n    \"ordinary_available_bytes\": 0,\n    \"raw_free_bytes\": 567365632,\n    \"total_filesystem_bytes\": 67586535424,\n    \"held_control_logical_bytes\": 140214879,\n    \"held_control_rounded_copy_bytes\": 159694848,\n    \"source_pack_archive_metadata_allowance_bytes\": 100663296,\n    \"checkpoint_staging_scenario_bytes\": 260358144,\n    \"scenario_is_not_a_formal_upper_bound\": true,\n    \"unchanged_installation_hydration_guards\": true,\n    \"compiler_install_or_dependency_hydration_selected\": false,\n    \"capture\": {\n      \"bytes\": 1512655,\n      \"sha256\": \"e08808d3a2c5415e5922fd92bc834ecb316871e2fb9c83385425c0b13750d847\"\n    },\n    \"creator\": {\n      \"bytes\": 10520,\n      \"sha256\": \"5e72098a4b07a80c6861cdaf14f4d2234e33cd7b6a0a79170bae762599cbe078\"\n    },\n    \"verifier\": {\n      \"bytes\": 14528,\n      \"sha256\": \"46e9a1171fcdd63741ee6b55238f496b2dc6ab861d40a9365285725546c6065e\"\n    },\n    \"all_writers_held\": true,\n    \"compiler_live\": false\n  }\n}\n"
+  }
+}

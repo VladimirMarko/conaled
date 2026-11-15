@@ -1,0 +1,28 @@
+{
+  "captured_at": "2026-11-02T22:02:59.027973+00:00",
+  "acceptance": false,
+  "records": [
+    {
+      "source": "active-validation/import-footprint-324962e-full-r1.log",
+      "snapshot": "import-footprint-324962e-full-r1.log",
+      "bytes": 174956,
+      "sha256": "1f5bf03f7ca4b03fe6049797970cd665bde9ef51f57ba55ec99eada4de502dbe",
+      "status": "partial live snapshot; no terminal success inferred"
+    },
+    {
+      "source": "active-validation/import-footprint-r3-focused-r1.log",
+      "snapshot": "import-footprint-r3-focused-r1.log",
+      "bytes": 770,
+      "sha256": "16bad3e504671ce582bbc388d47706895792c0791347c21103fc3c83507a03a4",
+      "status": "partial live snapshot; no terminal success inferred"
+    },
+    {
+      "source": "active-validation/import-footprint-r3-focused-r1.json",
+      "snapshot": "import-footprint-r3-focused-r1.json",
+      "bytes": 13724,
+      "sha256": "d7b41244ca43e0af0ab96a088fb97bd8b4c19eeea223a0f87187637b59bde711",
+      "status": "partial live snapshot; no terminal success inferred"
+    }
+  ],
+  "note": "Full324 has known IMPORT-VAL-004 source failure while continuing. Focused901 remains an active development check at capture. Session/report writers held."
+}

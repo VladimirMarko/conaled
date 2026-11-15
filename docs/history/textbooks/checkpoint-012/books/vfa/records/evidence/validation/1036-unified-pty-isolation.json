@@ -1,0 +1,85 @@
+{
+  "recorded_utc": "2026-11-04T02:33:23.808709+00:00",
+  "candidate": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+  "root": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-unified-pty-validation",
+  "layout": "Clean detached Git worktree; private real .lake/packages parent with nine individual links to exact real dependency store; no copied project outputs",
+  "source_clean": true,
+  "git_file": true,
+  "dependencies": [
+    {
+      "name": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "link": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-unified-pty-validation/.lake/packages/mathlib",
+      "target": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/mathlib",
+      "clean": true
+    },
+    {
+      "name": "plausible",
+      "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "link": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-unified-pty-validation/.lake/packages/plausible",
+      "target": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/plausible",
+      "clean": true
+    },
+    {
+      "name": "LeanSearchClient",
+      "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "link": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-unified-pty-validation/.lake/packages/LeanSearchClient",
+      "target": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/LeanSearchClient",
+      "clean": true
+    },
+    {
+      "name": "importGraph",
+      "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "link": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-unified-pty-validation/.lake/packages/importGraph",
+      "target": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/importGraph",
+      "clean": true
+    },
+    {
+      "name": "proofwidgets",
+      "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "link": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-unified-pty-validation/.lake/packages/proofwidgets",
+      "target": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/proofwidgets",
+      "clean": true
+    },
+    {
+      "name": "aesop",
+      "revision": "4a174c490d8707121c4a9290800489f105d85e07",
+      "link": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-unified-pty-validation/.lake/packages/aesop",
+      "target": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/aesop",
+      "clean": true
+    },
+    {
+      "name": "Qq",
+      "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "link": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-unified-pty-validation/.lake/packages/Qq",
+      "target": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/Qq",
+      "clean": true
+    },
+    {
+      "name": "batteries",
+      "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "link": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-unified-pty-validation/.lake/packages/batteries",
+      "target": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/batteries",
+      "clean": true
+    },
+    {
+      "name": "Cli",
+      "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "link": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-unified-pty-validation/.lake/packages/Cli",
+      "target": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-validation/.lake/packages/Cli",
+      "clean": true
+    }
+  ],
+  "project_build_outputs_exist": false,
+  "verification_record_exists": false,
+  "git_creation_stdout": "HEAD is now at c988f18 perf: narrow foundational imports for native validation (#1034)\n",
+  "git_creation_stderr": "Preparing worktree (detached HEAD c988f18)\n",
+  "pin_hashes": {
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+  },
+  "old_attempts_preserved": true,
+  "old_process_quiescence_claimed": false,
+  "ownership": "Root owns new writers. No setup/cache/dependency writer launched. Old fresh-only attempts can only read shared dependency content and write their separate old private outputs; their terminal outcomes remain unknown."
+}

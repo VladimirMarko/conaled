@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-03T14:08:09.640563+00:00",
+  "base": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+  "candidate": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+  "root_read_complete": [
+    "reviews/signed-potential-standards-r1.md",
+    "reviews/signed-potential-spec-r1.md",
+    "reviews/signed-potential-coordinator-r1.md",
+    "reviews/signed-potential-standards-r2.md",
+    "reviews/signed-potential-spec-r2.md",
+    "reviews/signed-potential-coordinator-r2.md",
+    "reviews/signed-potential.md",
+    "research/signed-potential-noncomputable-correction-r1.md",
+    "validation/signed-potential-recovery-review-r1.json",
+    "validation/signed-potential-recovery-review-r2.json"
+  ],
+  "files": {
+    "reviews/signed-potential-standards-r1.md": "a629a56cd96e248d070c655881a5fd2fc95b5f263e4abf7c5dfa299bf577dd61",
+    "reviews/signed-potential-spec-r1.md": "63de2736975bbf679e6b4c70fc33b3e5acb45e6466780fc580daefa25329efbd",
+    "reviews/signed-potential-coordinator-r1.md": "34f95a71ef5f0f3c68b273605ab8a805ab59ad11d93a6d07a4998be777b6655b",
+    "reviews/signed-potential-standards-r2.md": "b37e8559278160c113914806eb9b6426daf4130521e7afb98438c5860cee9deb",
+    "reviews/signed-potential-spec-r2.md": "ba71260458cbb3d6fbe358112f47e696018852c7ee3fe947f440fbf3f702b463",
+    "reviews/signed-potential-coordinator-r2.md": "009aa206bbf655582e0f4e1632e25ced8c8ac7b2be62c624ca5bc80f2ae0e94f",
+    "reviews/signed-potential.md": "232205de6e10a23a8bfa83cccefc59200fc2ae116f820c489baabc3268c0a009",
+    "research/signed-potential-noncomputable-correction-r1.md": "1fd635d712f8e3e8c6cbf001626d66688cb8a60930740cdb387a56ae147846eb",
+    "validation/signed-potential-recovery-review-r1.json": "2761072198640bbe8411b20d9ce5030242c6ed9494e8c9f211110224543bc2be",
+    "validation/signed-potential-recovery-review-r2.json": "1e98a1ea46e5c28bb90a1f4de52111eeddd34a17a55cd5498c402fffa699c8e7"
+  },
+  "source_findings_closed": [
+    "SIGNED-POT-STD-CODE-001",
+    "SIGNED-POT-SPEC-001"
+  ],
+  "unresolved_findings": [
+    "SIGNED-POT-STD-VAL-001",
+    "SIGNED-POT-SPEC-VAL-001"
+  ],
+  "standards_outcome": "Blocked",
+  "spec_outcome": "Blocked",
+  "compiler_or_formal_gate_run": false,
+  "acceptance": false,
+  "chapter_frontier_advanced": false,
+  "clean_candidate": true,
+  "source_scope_files": 6,
+  "source_scope_commits": 3,
+  "coordinator": "/root/signed_potential_review",
+  "independent_reviewers": [
+    "/root/signed_potential_review/standards",
+    "/root/signed_potential_review/spec"
+  ],
+  "root_role": "implementer; reviewed correction against source/provider and reconciled complete reports; no third independent review"
+}

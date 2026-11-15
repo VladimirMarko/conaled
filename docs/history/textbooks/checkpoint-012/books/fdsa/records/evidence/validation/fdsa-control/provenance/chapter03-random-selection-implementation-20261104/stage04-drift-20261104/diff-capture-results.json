@@ -1,0 +1,32 @@
+[
+  {
+    "command": [
+      "git",
+      "diff",
+      "--no-index",
+      "--",
+      "/dev/null",
+      "Applications/Resources/RandomSelectionDrift.lean"
+    ],
+    "actual_exit": 1,
+    "meaning": "Expected difference exit for a new file; not a build or validation failure.",
+    "stderr": "",
+    "diff_bytes": 15669,
+    "diff_sha256": "62793af53b73af27290a63a0344cb9308284808cb8ac9ad4499246b528206f85"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--no-index",
+      "--",
+      "/dev/null",
+      "Examples/RandomSelectionDrift.lean"
+    ],
+    "actual_exit": 1,
+    "meaning": "Expected difference exit for a new file; not a build or validation failure.",
+    "stderr": "",
+    "diff_bytes": 6088,
+    "diff_sha256": "0ac0de3e2607ef39492ceba4df7325d2127def74c803b8b9168ae09b4fb0a8a4"
+  }
+]

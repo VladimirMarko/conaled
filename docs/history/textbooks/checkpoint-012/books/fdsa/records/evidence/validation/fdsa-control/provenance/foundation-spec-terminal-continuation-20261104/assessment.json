@@ -1,0 +1,90 @@
+{
+  "recorded_utc": "2026-11-04T07:58:46.979Z",
+  "review_axis": "Spec",
+  "phase": "recovered terminal continuation preparation",
+  "base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "scope": [
+    "X002 insertion costs",
+    "Appendix A list-library correspondence",
+    "XB01 / Appendix B.1 list call counts",
+    "Appendix C notation correspondence"
+  ],
+  "reviewer": "/root/chapter02_quicksort",
+  "independence": {
+    "foundation_author": false,
+    "chapter02_author": true,
+    "disclosure": "Chapter 2 quicksort, measured quicksort, three-way quicksort, uniqueness and numerical development authorship is outside the exact foundation diff. Reusing or merging F in development did not modify its source. This continuation approves no Chapter 2 source."
+  },
+  "retained_source_assessment": {
+    "report": "reviews/shared-foundations-spec.md",
+    "bytes": 32927,
+    "lines": 510,
+    "sha256": "06880532472d17d6f9d254165b61d41a437d0a79857323deac231025fd38f599",
+    "complete_report_read": true,
+    "source_identity_matches": true,
+    "concrete_findings": 0
+  },
+  "carried_findings": [
+    {
+      "id": "FDN-ELAB-001",
+      "disposition": "Source adequate and exact-candidate focused confirmation retained; complete-candidate confirmation pending."
+    },
+    {
+      "id": "FDN-ELAB-002",
+      "disposition": "Source adequate and exact-candidate focused confirmation retained; complete-candidate confirmation pending."
+    }
+  ],
+  "new_concrete_findings": [],
+  "worst_source_issue": null,
+  "outcome": "Blocked",
+  "blocker": "Root-owned full attempt2 is still live by explicit coordinator report; no actual terminal result, closed audit success or matching F verification is established.",
+  "full_attempt": "provenance/chapter02-foundation-full-attempt2-recovered-20261104/",
+  "fresh_trigger_identified": false,
+  "accepted_chapter01_preserved": true,
+  "builds_started": 0,
+  "source_ref_cache_control_or_existing_review_changes": false,
+  "terminal_assessment": [
+    {
+      "id": "T1",
+      "artifact": "chapter02-foundation-full-attempt2-recovered-20261104/result.json",
+      "assessment": "Actual terminal exit, start/end/elapsed, exact command, unchanged F before/after, clean candidate status, closed log size/hash; no timeout, interruption or recorder uncertainty."
+    },
+    {
+      "id": "T2",
+      "artifact": "Complete closed full.log for the same attempt",
+      "assessment": "Read all output in bounded chunks; inspect actual source-policy, public coverage, guarded full build, integrity and audit results. Retain diagnostics and failed prior attempts. A successful subset cannot establish aggregate success."
+    },
+    {
+      "id": "T3",
+      "artifact": "Secured native command start.json, output.log and result.json",
+      "assessment": "Match qualified kit/profile, project, one Lean thread, exact check.sh --candidate HEAD invocation, child termination/exit and complete output to the outer recorder. Preserve actual exit disagreement or recorder failures."
+    },
+    {
+      "id": "T4",
+      "artifact": "Exhaustive audit result in the actual closed output and any emitted audit artifact",
+      "assessment": "Confirm complete project-root coverage, all required kernel-safe declarations including private/generated declarations, actual declaration/theorem/module counts and only the permitted axiom union propext, Classical.choice, Quot.sound. Do not substitute Chapter 1 counts or a sample."
+    },
+    {
+      "id": "T5",
+      "artifact": "New matching .lake/verification.json and secured copy",
+      "assessment": "Read actual passed record for F, exact Lean version and nine dependencies, applicable ordinary mode, completion time and unchanged candidate inputs. A historical R record cannot verify F."
+    },
+    {
+      "id": "T6",
+      "artifact": "Post-completion immutable identity and integrity evidence",
+      "assessment": "Reconcile exact HEAD/tree, clean status, nine scoped paths, pins and runtime with preparation and the check's own guards. If source or required inputs changed, continue the whole scope on the new immutable candidate and applicable validation."
+    },
+    {
+      "id": "T7",
+      "artifact": "Actual diagnostics and retained FDN-ELAB-001/002 dispositions",
+      "assessment": "Confirm their full-candidate elaboration resolution and assess new warnings/failures against all four frozen requirement scopes. Preserve previous source/focused assessments; no issue is silently erased."
+    },
+    {
+      "id": "T8",
+      "artifact": "Independent axis outcomes and immediate verification before integration",
+      "assessment": "Root obtains both complete axes on the same approved candidate, then runs qualified ./check.sh --verify-candidate HEAD immediately before local fast-forward and acceptance checkpoint. This is subsequent acceptance work, not a prerequisite to this preparation or a claimed result."
+    }
+  ],
+  "hold": "All further writes stop after report readback and receipt; await root-supplied terminal evidence."
+}

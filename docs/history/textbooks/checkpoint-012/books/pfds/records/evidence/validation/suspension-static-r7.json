@@ -1,0 +1,65 @@
+{
+  "scope": "focused development only",
+  "status": "finished",
+  "queued_at": "2026-11-02T19:27:10.832031+00:00",
+  "command_prefix": [
+    "/nix/store/8lza1b8nnci8lmm4q68p0l33pg975s0q-nix-2.35.4/bin/nix",
+    "--extra-experimental-features",
+    "nix-command flakes",
+    "--option",
+    "build-users-group",
+    "",
+    "--option",
+    "sandbox",
+    "false",
+    "--option",
+    "eval-cache",
+    "false",
+    "develop",
+    "--offline",
+    "--command",
+    "env",
+    "LEAN_NUM_THREADS=1",
+    "lake",
+    "build"
+  ],
+  "log": "/workspace/scratch/ca9a61d0bf30/active-validation/suspension-static-r7.log",
+  "acceptance": false,
+  "started_at": "2026-11-02T19:37:49.497401+00:00",
+  "tracked_input_sha256": {
+    "Applications/Suspensions/Static.lean": "bf876df55c0686f49e3cc16fdee3912ce2faac238e0e0ca2ba42af42fc365659",
+    "Applications/Suspensions/Names.lean": "267803f09543b11acc9d1c305be76fb675351e001d0588dd8d290b17d590b31c",
+    "Applications/Suspensions/Grammar.lean": "258f4248a4bd5235b5e2a5c0e82e6c274794910abc5e7934974424e71fc10939",
+    "Examples/SuspensionStatic.lean": "10be8a84a2cb7f654fe8fa8491579d99b6b2ffe1326e7a0a57fbc77a0003503b",
+    "Examples/SuspensionGrammar.lean": "3d5f484433881aa91ed27cfa58c191f8da040cd8afd40047b8b3ff08fcdf2920",
+    "Examples/SuspensionMachine.lean": "5fda6288957ee90259ecb76b25c063c6d0b5f86b84e280183c9d262acc926ca9",
+    "Applications/Suspensions/Machine.lean": "921f9b17fa4e78bcda22d4b2059d49471af529b6aa7e31cd760a364d8bda7204",
+    "Applications/Suspensions/Syntax.lean": "f45ebe0708025c0f431b079caedb310487f7d7758f4c550dda215a61c0a82bd7",
+    "Applications/Suspensions/Store.lean": "4dd30845a11b7ef9a5d32cd3793f7269acabaa2b70a60939b0ba4506b9b16036",
+    "Applications/Progress/Evaluation.lean": "27d93c2ebfa3c88e4a8c31e7665aa9a7b4d259ffc73d0f8c020b5102e7cdf564",
+    "Applications/Resources/Measured.lean": "b5f76c8dfdb3cc9dd28a356bebd12787b3a7add61abba1022d474604a6979667"
+  },
+  "targets": [
+    {
+      "target": "Applications.Suspensions.Static",
+      "started_at": "2026-11-02T19:37:49.504878+00:00",
+      "exit_code": 0,
+      "ended_at": "2026-11-02T19:38:49.980867+00:00"
+    },
+    {
+      "target": "Examples.SuspensionStatic",
+      "started_at": "2026-11-02T19:38:49.981189+00:00",
+      "exit_code": 1,
+      "ended_at": "2026-11-02T19:39:58.375539+00:00"
+    },
+    {
+      "target": "Examples.SuspensionGrammar",
+      "started_at": "2026-11-02T19:39:58.376356+00:00",
+      "exit_code": 0,
+      "ended_at": "2026-11-02T19:40:59.340192+00:00"
+    }
+  ],
+  "ended_at": "2026-11-02T19:40:59.340820+00:00",
+  "exit_code": 1,
+  "tracked_inputs_unchanged": true
+}

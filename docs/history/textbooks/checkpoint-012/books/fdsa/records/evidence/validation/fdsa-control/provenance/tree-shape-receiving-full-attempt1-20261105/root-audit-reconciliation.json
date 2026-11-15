@@ -1,0 +1,139 @@
+{
+  "recorded_utc": "2026-11-05T03:58:43.829959+00:00",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "owned_session": 25113,
+  "actual_terminal_chunk": "911909",
+  "closure_actual_chunk": "0d933c",
+  "summary_read_chunk": "5265b7",
+  "complete_outer_records_read_chunk": "32fe54",
+  "post_full_input_observation_chunk": "b2da80",
+  "actual_exit": 0,
+  "compiled_project_modules": 1115,
+  "checked_modules": 1116,
+  "audit_rows": 1114,
+  "logical_declarations": 50422,
+  "theorem_declarations": 29543,
+  "unsafe_runtime_declarations": 0,
+  "axiom_union": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "all3_scope_modules_in_audit_rows": true,
+  "scope_module_counts": {
+    "Applications.Trees.Shape": {
+      "logical_declarations": 56,
+      "theorem_declarations": 49,
+      "unsafe_runtime_declarations": 0
+    },
+    "Applications.Trees.ShapeLog": {
+      "logical_declarations": 7,
+      "theorem_declarations": 7,
+      "unsafe_runtime_declarations": 0
+    },
+    "Examples.TreeShape": {
+      "logical_declarations": 71,
+      "theorem_declarations": 57,
+      "unsafe_runtime_declarations": 0
+    }
+  },
+  "prior_accepted_audit_rows_unchanged": 1111,
+  "added_audit_rows": 3,
+  "all_audit_rows_unique_and_totals_reconciled": true,
+  "pre_integrity_artifacts": 3345,
+  "pre_invalidated_modules": 0,
+  "post_integrity_artifacts": 3345,
+  "post_inconsistent_modules": 0,
+  "source_policy_passed": true,
+  "mode": "incremental; no new fresh trigger",
+  "audit_seconds": 739.07,
+  "total_check_seconds": 1495.42,
+  "compiler_and9dependencies_exact_accepted_XT01": true,
+  "matching_live_verification": true,
+  "statement_input_identities_unchanged_after_full": true,
+  "input_identity_counts": {
+    "local_sources": 29,
+    "objects_and_traces": 87,
+    "configuration": 10,
+    "dependencies": 9,
+    "runtime": 12
+  },
+  "bindings": {
+    "full.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/full.log",
+      "bytes": 326815,
+      "sha256": "47b4f52f06b9610b6d0c54c7f02daf0feb6cf56783fca555927e164ed9fd358b"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/result.json",
+      "bytes": 1256,
+      "sha256": "4bec18d19e16579555633111050e54bd4e443add13efa8d348fac2cbbcfcdb61"
+    },
+    "owned-terminal.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "f36bce46608672c9b43b8cd206b6faf914ff2fa1211fa7e4b740e4d97401cedd"
+    },
+    "actual-tool-terminal.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "sha256": "36dfc8ae9b902c8dc8e0232cac699ab94dc95c6b9ac78d62809e417562ced583"
+    },
+    "native-records/start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/native-records/start.json",
+      "bytes": 421,
+      "sha256": "9046d202eae67d88712a9199312367c8b14d3e912a3faa2e22e072566ee0fe77"
+    },
+    "native-records/result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/native-records/result.json",
+      "bytes": 574,
+      "sha256": "d40ba095e94d66f8505db69a99fd8e9e321713d0e43e53cf1804d7485ebdec3b"
+    },
+    "native-records/output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/native-records/output.log",
+      "bytes": 326586,
+      "sha256": "24a3e9d664836b1c39cbe7725ef623a030615cd67efaecadfe338e2111d8b078"
+    },
+    "verification.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/verification.json",
+      "bytes": 867,
+      "sha256": "379dcc3142a4ea4b207f7e1c952ef4ca08c1b80c39168816d168cac5f6023503"
+    },
+    "outer-prefix.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/outer-prefix.log",
+      "bytes": 70,
+      "sha256": "85b1c84dcee195655562afb91455f0d9c98388a8be8845b8eb9306ffa317cfab"
+    },
+    "outer-suffix.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/outer-suffix.log",
+      "bytes": 159,
+      "sha256": "e22fe7c8d23ba3bc77adbdf767d6c9fa286936973d62f5fd70afb4470fd20fc2"
+    },
+    "closed-evidence-reconciliation.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2377,
+      "sha256": "e8f6a27379b5d3fbaead75a7081970976ac042ff2a4884f2e5bc072f527e148b"
+    }
+  },
+  "prior_accepted_audit": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/root-audit-reconciliation.json",
+    "bytes": 5540,
+    "sha256": "cfff2ca557f9a22a8681dc2e0e3b37a927a15c68a9055fdd6fca2ad612cac4dc"
+  },
+  "prior_accepted_full_native_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/native-records/output.log",
+    "bytes": 325734,
+    "sha256": "df724e47d431fd2f8aff4bab7c1097862a1dd9a92f527ce24957c9c1b9eceb09"
+  },
+  "final_input_observation": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/final-inputs-after-full.json",
+    "bytes": 34785,
+    "sha256": "c44a0f8632b982d3080329c074fe17b1642eb7fcc5b8e193fcae0a3c034a063f"
+  },
+  "whole_project_counts_not_new_book_result_counts": true,
+  "root_full_native_human_read_claimed": false,
+  "root_read_scope": "Complete initial18 and final12 native lines, audit summary and all3 scope rows, complete verification/native start/result and outer/owned/actual/closure records plus outer prefix/suffix; every1114 unique audit row parsed, sums reconciled, all1111 old rows unchanged and exactly3 added. Full independent terminal-evidence assessments remain separate.",
+  "XT02_accepted": false,
+  "chapter04_accepted": false
+}

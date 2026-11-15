@@ -1,0 +1,33 @@
+{
+  "candidate": "57a7d338dedb53a5526bbbc05f7be5fd83443d03",
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "build",
+    "Applications.Sorting.Merge",
+    "Applications.Resources.ListMerge",
+    "Examples.MergeCosts"
+  ],
+  "started_utc": "2026-11-04T04:08:17.329630+00:00",
+  "completed_utc": "2026-11-04T04:09:23.075679+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 65.74583990700012,
+  "state": "failed",
+  "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/ordinary-merge-focused-20261104-attempt2/full.log",
+  "progress_bookkeeping_errors": [],
+  "final_head": "57a7d338dedb53a5526bbbc05f7be5fd83443d03",
+  "final_status": "",
+  "log_size_bytes": 8515,
+  "log_sha256": "63d5e45b2f66e38bb40110abe8de1ad6fbeaf2ca0d256ef7c40dbbcc540e70cd",
+  "available_bytes_at_completion": 22153048064,
+  "verification_record_present": false
+}

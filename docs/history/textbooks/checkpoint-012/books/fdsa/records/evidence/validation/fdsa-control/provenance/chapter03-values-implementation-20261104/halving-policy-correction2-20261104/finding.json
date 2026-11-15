@@ -1,0 +1,26 @@
+{
+  "finding": "C03-HALVING-ELAB-002",
+  "recorded_utc": "2026-11-04T21:58:57.670191+00:00",
+  "failed_candidate": "41f46040eeaf1b2c6d21b00dec4c20b9d44c5ce7",
+  "failed_tree": "5a6ec07b60e37e7c87749a0b79d372a0b169310d",
+  "actual_exit": 1,
+  "owned_session": 5042,
+  "terminal": "df1d28",
+  "root_full_closure": "6b4517",
+  "author_full_log_closure_terminal_result_read": "74ccb3",
+  "author_actual_source_and_primitive_API_read": "5eaa10",
+  "outer_bytes": 10645,
+  "outer_sha256": "08275b041c1bb342808411ca68dc444c811b329eb8de30ba15fbaef0de6d2024",
+  "native_bytes": 10338,
+  "native_sha256": "a0b72403f4133df8803017b0d91c47cc4bed819f6951e29982112eb2fb094b3d",
+  "native_exact_outer_offset": 151,
+  "actual_success_scope": "HalvingSelection BUILT at41f460; MedianPolicy failed, Examples not yet established passed.",
+  "errors": [
+    "pivotRun_none: kernel decide expected type contains free payload variables despite empty-list length arithmetic.",
+    "pivotRun_singleton: rfl does not normalize the actual slowSelectRun singleton expression."
+  ],
+  "correction": "Normalize empty length with simp; use public pivotRun_small and explicit actual measured slowSelect/sort/insert/lookup equations for singleton. Preserve exact pivot10 and outer19 charges.",
+  "prior_provenance_file_count": 140,
+  "prior_provenance_digest_sha256": "6ce4a963fc08f22cb4e4965b321bdb4d4bdbf494106398c9e199b24b7a4e8058",
+  "scope": "Only two proof bodies; all60headers/3definitions/31cases/previouscorrection/dependencies retained. No author compiler."
+}

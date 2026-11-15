@@ -1,0 +1,89 @@
+/- PREPARED ONLY. Original XW01 explicit public names; no execution or final candidate binding.
+The two private helpers and one anonymous probability instance remain full review/audit scope.
+Discover the anonymous instance actual identity/type after compilation; do not guess it. -/
+import Applications.Probability.AccumulatedWork
+import Examples.AccumulatedWork
+import Examples.AccumulatedWorkBoundary
+
+set_option pp.universes true
+set_option pp.explicit true
+set_option pp.fullNames true
+
+#check @Applications.Probability.AccumulatedWork.lintegral_le_geometric
+#check @Applications.Probability.AccumulatedWork.lintegral_tsum_shift_le
+#check @Applications.Probability.AccumulatedWork.lintegral_tsum_le
+#check @Applications.Probability.AccumulatedWork.lintegral_tsum_lt_top
+#check @Applications.Probability.AccumulatedWork.measure_tsum_ge_le
+#check @Applications.Probability.AccumulatedWork.measure_tsum_ge_le_of_stage_le
+#check @Examples.AccumulatedWork.law
+#check @Examples.AccumulatedWork.charge
+#check @Examples.AccumulatedWork.charge_le_one
+#check @Examples.AccumulatedWork.charge_late
+#check @Examples.AccumulatedWork.step
+#check @Examples.AccumulatedWork.step_cost
+#check @Examples.AccumulatedWork.program
+#check @Examples.AccumulatedWork.program_value
+#check @Examples.AccumulatedWork.program_cost
+#check @Examples.AccumulatedWork.observation
+#check @Examples.AccumulatedWork.observation_measurable
+#check @Examples.AccumulatedWork.observation_le_one
+#check @Examples.AccumulatedWork.accumulated_eq_cost
+#check @Examples.AccumulatedWork.stage_means
+#check @Examples.AccumulatedWork.initial_mean
+#check @Examples.AccumulatedWork.integrated_drift
+#check @Examples.AccumulatedWork.expected_cost_exact
+#check @Examples.AccumulatedWork.expected_cost_le
+#check @Examples.AccumulatedWork.expected_cost_finite
+#check @Examples.AccumulatedWork.remaining_eq_cost
+#check @Examples.AccumulatedWork.expected_remaining_exact
+#check @Examples.AccumulatedWork.expected_remaining_le
+#check @Examples.AccumulatedWork.tail_event
+#check @Examples.AccumulatedWork.tail_mass
+#check @Examples.AccumulatedWork.tail_le
+#check @Examples.AccumulatedWork.shared_stage_masses
+#check @Examples.AccumulatedWork.shared_stages_not_independent
+#check @Examples.AccumulatedWork.affineProgram
+#check @Examples.AccumulatedWork.affineProgram_value
+#check @Examples.AccumulatedWork.affineProgram_cost
+#check @Examples.AccumulatedWork.affine_expected_exact
+#check @Examples.AccumulatedWork.affine_expected_le
+#check @Examples.AccumulatedWork.affine_tail_event
+#check @Examples.AccumulatedWork.affine_tail_mass
+#check @Examples.AccumulatedWork.affine_tail_le
+#check @Examples.AccumulatedWorkBoundary.oneStageRun
+#check @Examples.AccumulatedWorkBoundary.oneStageRun_value
+#check @Examples.AccumulatedWorkBoundary.oneStageRun_cost
+#check @Examples.AccumulatedWorkBoundary.singleWork
+#check @Examples.AccumulatedWorkBoundary.singleWork_measurable
+#check @Examples.AccumulatedWorkBoundary.singleWork_total
+#check @Examples.AccumulatedWorkBoundary.oneStageRun_observed
+#check @Examples.AccumulatedWorkBoundary.singleWork_initial
+#check @Examples.AccumulatedWorkBoundary.singleWork_drift
+#check @Examples.AccumulatedWorkBoundary.singleWork_stage_le
+#check @Examples.AccumulatedWorkBoundary.singleWork_integral_le
+#check @Examples.AccumulatedWorkBoundary.singleWork_integral_finite
+#check @Examples.AccumulatedWorkBoundary.singleWork_tail
+#check @Examples.AccumulatedWorkBoundary.singleWork_tail_zero
+#check @Examples.AccumulatedWorkBoundary.singleWork_tail_pos
+#check @Examples.AccumulatedWorkBoundary.zeroWork
+#check @Examples.AccumulatedWorkBoundary.zeroWork_integral
+#check @Examples.AccumulatedWorkBoundary.zeroWork_non_strict_tail_fails
+#check @Examples.AccumulatedWorkBoundary.rareWork
+#check @Examples.AccumulatedWorkBoundary.uniform_three_singleton
+#check @Examples.AccumulatedWorkBoundary.rareWork_measurable
+#check @Examples.AccumulatedWorkBoundary.rareWork_initial
+#check @Examples.AccumulatedWorkBoundary.rareWork_drift
+#check @Examples.AccumulatedWorkBoundary.rareWork_total
+#check @Examples.AccumulatedWorkBoundary.rareWork_integral
+#check @Examples.AccumulatedWorkBoundary.rareWork_integral_le
+#check @Examples.AccumulatedWorkBoundary.rareWork_tail_event
+#check @Examples.AccumulatedWorkBoundary.rareWork_tail_mass
+#check @Examples.AccumulatedWorkBoundary.rareWork_tail_positive
+#check @Examples.AccumulatedWorkBoundary.rareWork_tail_without_prefix_fails
+#check @Examples.AccumulatedWorkBoundary.rareWork_prefix_fails
+#check @Examples.AccumulatedWorkBoundary.constantWork
+#check @Examples.AccumulatedWorkBoundary.constantWork_initial
+#check @Examples.AccumulatedWorkBoundary.constantWork_drift
+#check @Examples.AccumulatedWorkBoundary.constantWork_total
+#check @Examples.AccumulatedWorkBoundary.constantWork_integral
+#check @Examples.AccumulatedWorkBoundary.constantWork_extended_bound

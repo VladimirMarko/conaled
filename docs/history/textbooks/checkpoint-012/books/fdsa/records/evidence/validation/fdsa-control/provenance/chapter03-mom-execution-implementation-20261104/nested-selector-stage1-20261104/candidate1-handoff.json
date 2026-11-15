@@ -1,0 +1,140 @@
+{
+  "recorded_utc": "2026-11-04T20:44:20.615109+00:00",
+  "candidate": "4de8b315a06089b1a715b56332f667ef1587e635",
+  "tree": "ee4df47a36c610bc83b1667787d49c0156d363b4",
+  "parent": "d1a2299440c6cb327887e5d60f08ce08b046a8ab",
+  "branch": "work/fdsa-ch03-mom-execution",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+  "status": "clean",
+  "actual_commit_terminal": "68f5d7 exit0",
+  "precommit_terminal": "eb3992 exit0 including meaningful staged diff --check",
+  "targets": [
+    "Applications.Resources.Selection",
+    "Examples.SelectionCosts"
+  ],
+  "source_files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/Selection.lean",
+      "bytes": 20262,
+      "sha256": "edf5257473fc51bf6db3dd7d3a5bfe492d5171665f7756495db1c16da93209fd",
+      "relative_path": "Applications/Resources/Selection.lean",
+      "source_lines": 423,
+      "public_count": 21,
+      "private_count": 12
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionCosts.lean",
+      "bytes": 13466,
+      "sha256": "fc9ab165cac2cd05246592bddbcc63632b4c363e4c478dea02e1aeb0d77e8122",
+      "relative_path": "Examples/SelectionCosts.lean",
+      "source_lines": 286,
+      "public_count": 18,
+      "private_count": 17
+    }
+  ],
+  "counts": {
+    "public_declarations": 39,
+    "public_definitions": 2,
+    "public_theorems": 37,
+    "private_declarations": 29,
+    "private_definitions": 2,
+    "private_theorems": 27,
+    "total_declarations": 68,
+    "anonymous_examples": 0
+  },
+  "inventory": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/source-inventory-statement-and-case-review-candidate1.json",
+    "bytes": 135083,
+    "sha256": "df621b9ac48082c0ced368c07a1e4bebaae4902bfc4c9e3db92d0e1b4091e511"
+  },
+  "explicit_public_types": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/NestedSelectorStatements39-candidate1.lean",
+    "bytes": 2461,
+    "sha256": "8d1fabab9fa3a5d349b0d6573563ee2f5c2bba8e2c9f5ae1f335830b4c259396"
+  },
+  "patch": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/candidate1-source.patch",
+    "bytes": 34832,
+    "sha256": "7d3df4fdf8f7154872564d3a5615a3300d90f7c073f5be4dddf5f4f57bf65544"
+  },
+  "expected_pairs": [
+    {
+      "name": "empty",
+      "expected_value": null,
+      "expected_cost": 2,
+      "public_case": "Examples.SelectionCosts.empty_payload"
+    },
+    {
+      "name": "singleton",
+      "expected_value": 7,
+      "expected_cost": 7,
+      "public_case": "Examples.SelectionCosts.singleton"
+    },
+    {
+      "name": "singleton-invalid",
+      "expected_value": null,
+      "expected_cost": 3,
+      "public_case": "Examples.SelectionCosts.singleton_invalid"
+    },
+    {
+      "name": "cutoff-ascending",
+      "expected_value": 19,
+      "expected_cost": 83,
+      "public_case": "Examples.SelectionCosts.cutoff_ascending"
+    },
+    {
+      "name": "cutoff-descending",
+      "expected_value": 19,
+      "expected_cost": 273,
+      "public_case": "Examples.SelectionCosts.cutoff_descending"
+    },
+    {
+      "name": "recursive-left",
+      "expected_value": 0,
+      "expected_cost": 269,
+      "public_case": "Examples.SelectionCosts.first_recursive_left"
+    },
+    {
+      "name": "recursive-equal",
+      "expected_value": 12,
+      "expected_cost": 231,
+      "public_case": "Examples.SelectionCosts.first_recursive_equal"
+    },
+    {
+      "name": "recursive-right",
+      "expected_value": 20,
+      "expected_cost": 266,
+      "public_case": "Examples.SelectionCosts.first_recursive_right"
+    },
+    {
+      "name": "recursive-invalid",
+      "expected_value": null,
+      "expected_cost": 23,
+      "public_case": "Examples.SelectionCosts.first_recursive_invalid"
+    },
+    {
+      "name": "all-equal-first",
+      "expected_value": 4,
+      "expected_cost": 239,
+      "public_case": "Examples.SelectionCosts.all_equal_first"
+    },
+    {
+      "name": "all-equal-last",
+      "expected_value": 4,
+      "expected_cost": 239,
+      "public_case": "Examples.SelectionCosts.all_equal_last"
+    },
+    {
+      "name": "generic-two-one",
+      "expected_value": 2,
+      "expected_cost": 169,
+      "public_case": "Examples.SelectionCosts.group_two_cutoff_one"
+    }
+  ],
+  "claims": "Actual generic/book nested execution, noncircular membership-supported well-founded construction, optional failure extension, exact full pair and cost branch recurrences, all-rank occurrence correctness, public one-based connection, and monotone noninjective semantic transport.",
+  "preservation": "All23 protected preexisting files, including12 previous Chapter3 source files and11 authorized recurrence/XR imports, and57 preexisting own records match their saved bytes. No group-scalar import or accepted-XR change.",
+  "compiler_boundary": "All new source UNCOMPILED.39 explicit public type queries PREPARED ONLY. Private29 source claims inventoried, actual generated private kernel names not guessed. No full check, audit, independent review or immediate verification performed by source author; no acceptance credit.",
+  "pending_after_this_slice": "Mandatory actual book run<=F and uniform input/rank affine constants; then generalized actual-source comparison and scoped exercise/query integrations. Frozen83 obligations remain the full Chapter3 scope.",
+  "review_loop": "Continue root existing full-book implementation/review loop, preserving all prior findings/evidence. Do not start another review loop.",
+  "write_hold": "All assigned source and own provenance writes stop after companion author-hold record; await root actual focused terminal and explicit correction/release."
+}

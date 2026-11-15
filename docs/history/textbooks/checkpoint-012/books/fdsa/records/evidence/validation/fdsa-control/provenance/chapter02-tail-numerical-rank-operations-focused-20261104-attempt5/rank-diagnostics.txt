@@ -1,0 +1,279 @@
+✖ [3754/3755] Building Applications.Resources.RandomQuickSortRank (545s)
+warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Data.Fin.Tuple.Sort` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Data.Fin.Rev` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Data.List.OfFn` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Data.List.FinRange` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Order.Interval.Finset.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Data.Fintype.BigOperators` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+trace: .> LEAN_PATH=/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/lib/lean /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/profile/bin/lean /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/RandomQuickSortRank.lean -o /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/lib/lean/Applications/Resources/RandomQuickSortRank.olean -i /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/lib/lean/Applications/Resources/RandomQuickSortRank.ilean -c /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/ir/Applications/Resources/RandomQuickSortRank.c --setup /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/ir/Applications/Resources/RandomQuickSortRank.setup.json --json
+error: Applications/Resources/RandomQuickSortRank.lean:37:52: unexpected token ']''; expected ':' or ']'
+error: Applications/Resources/RandomQuickSortRank.lean:43:18: unexpected token ']''; expected ':' or ']'
+error: Applications/Resources/RandomQuickSortRank.lean:56:62: unexpected token ']''; expected ':' or ']'
+error: Applications/Resources/RandomQuickSortRank.lean:73:53: unexpected token ']''; expected ':' or ']'
+error: Applications/Resources/RandomQuickSortRank.lean:99:44: unexpected token ']''; expected ':' or ']'
+error: Applications/Resources/RandomQuickSortRank.lean:112:46: unexpected token ']''; expected ':' or ']'
+error: Applications/Resources/RandomQuickSortRank.lean:131:44: unexpected token ']''; expected ':' or ']'
+error: Applications/Resources/RandomQuickSortRank.lean:165:58: unexpected token ']''; expected ':' or ']'
+error: Applications/Resources/RandomQuickSortRank.lean:216:82: unexpected token ']''; expected ':' or ']'
+error: Applications/Resources/RandomQuickSortRank.lean:216:65: Invalid field `size`: The environment does not contain `List.size`, so it is not possible to project the field `size` from an expression
+  a✝
+of type `List α`
+error: Applications/Resources/RandomQuickSortRank.lean:216:65: Application type mismatch: The argument
+  a✝
+has type
+  List α
+but is expected to have type
+  Array ?m.294
+in the application
+  @Array.toSubarray ?m.294 a✝
+error: Applications/Resources/RandomQuickSortRank.lean:187:63: unsolved goals
+α : Type u
+κ : Type v
+β : Type w
+ν : Type z
+inst✝¹ : LinearOrder κ
+inst✝ : LinearOrder ν
+key₁ : α → κ
+key₂ : β → ν
+xs : List α
+ys : List β
+hx : (List.map key₁ xs).Nodup
+hy : (List.map key₂ ys).Nodup
+hlen : xs.length = ys.length
+cmp₁ : α → α → Bool := fun a b => decide (key₁ a < key₁ b)
+cmp₂ : β → β → Bool := fun a b => decide (key₂ a < key₂ b)
+aux :
+  ∀ (n : ℕ) (us : List α) (vs : List β),
+    us.length = n →
+      (List.map key₁ us).Nodup →
+        (List.map key₂ vs).Nodup → us.length = vs.length → exerciseMean cmp₁ us = exerciseMean cmp₂ vs
+⊢ exerciseMean (fun a b => decide (key₁ a < key₁ b)) xs = exerciseMean (fun a b => decide (key₂ a < key₂ b)) ys
+error: Applications/Resources/RandomQuickSortRank.lean:305:65: Application type mismatch: The argument
+  fun i => A ?m.121
+has type
+  ?m.120 → ℝ
+but is expected to have type
+  Finset (Fin (m + 1))
+in the application
+  Equiv.Perm.sum_comp Fin.revPerm fun i => A ?m.121
+error: Applications/Resources/RandomQuickSortRank.lean:305:77: Invalid field notation: Type of
+  i
+is not known; cannot resolve field `val`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `AddUnits.val`
+  • `Char.val`
+  • `DerivedWanted.val`
+  • `Fin.val`
+  • `Finset.val`
+  • `IntermediateField.val`
+  • `IterateAddAct.val`
+  • `IterateMulAct.val`
+  • `NonScalar.val`
+  • `PNat.val`
+  • `PreQuasiregular.val`
+  • `Subalgebra.val`
+  • `SubalgebraClass.val`
+  • `Subtype.val`
+  • `Units.val`
+  • `ZMod.val`
+  • `Array.Mem.val`
+  • `Lake.Hash.val`
+  • `Lean.ExprStructEq.val`
+  • `OrderHom.Subtype.val`
+  • `ST.Out.val`
+  • `Vector.Mem.val`
+  • `Lean.Doc.Parser.val`
+  • `Lean.Doc.WithSyntax.val`
+  • `Lean.Elab.FieldInfo.val`
+  • `Lean.LLVM.AttributeIndex.val`
+  • `Lean.LLVM.CodegenFileType.val`
+  • `Lean.LLVM.DLLStorageClass.val`
+  • `Lean.LLVM.IntPredicate.val`
+  • `Lean.LLVM.Linkage.val`
+  • `Lean.LLVM.Visibility.val`
+  • `Lean.Language.DynamicSnapshot.val`
+  • `Lean.Language.SyntaxGuarded.val`
+  • `Lean.Meta.InstanceEntry.val`
+  • `Lean.Meta.UnificationHintEntry.val`
+  • `Lean.Server.WithRpcRef.val`
+  • `Module.End.Eigenvalues.val`
+  • `Module.End.UnifEigenvalues.val`
+  • `Std.Time.Timestamp.val`
+  • `Std.Time.WallTime.val`
+  • `Batteries.BinomialHeap.Imp.FindMin.val`
+  • `Lean.Elab.ComputedFields.Context.val`
+  • `Lean.Elab.Term.LetRecToLift.val`
+  • `Lean.Elab.Term.NamedArg.val`
+  • `Lean.Meta.Match.Example.val`
+  • `Lean.Meta.Match.Pattern.val`
+  • `Lean.Meta.Sym.BitVecValue.val`
+  • `Lean.Meta.Sym.FinValue.val`
+  • `Lean.Meta.SynthInstance.Instance.val`
+  • `Std.Sat.AIG.Fanin.val`
+  • `Std.Time.Internal.UnitVal.val`
+  • `Lean.Compiler.LCNF.FixedParams.AbsValue.val`
+  • `Lean.Elab.Term.StructInst.FieldView.val`
+  • `Lean.Meta.Try.Collector.InductionCandidate.val`
+  • `Mathlib.Tactic.Ring.Common.Result.val`
+  • `Std.Tactic.BVDecide.BVExpr.WithCache.val`
+error: Applications/Resources/RandomQuickSortRank.lean:308:17: Application type mismatch: The argument
+  fun i => A ?m.202 + A (m - ?m.204)
+has type
+  ?m.201 → ℝ
+but is expected to have type
+  Finset (Fin (m + 1))
+in the application
+  Equiv.Perm.sum_comp ρ fun i => A ?m.202 + A (m - ?m.204)
+error: Applications/Resources/RandomQuickSortRank.lean:308:29: Invalid field notation: Type of
+  i
+is not known; cannot resolve field `val`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `AddUnits.val`
+  • `Char.val`
+  • `DerivedWanted.val`
+  • `Fin.val`
+  • `Finset.val`
+  • `IntermediateField.val`
+  • `IterateAddAct.val`
+  • `IterateMulAct.val`
+  • `NonScalar.val`
+  • `PNat.val`
+  • `PreQuasiregular.val`
+  • `Subalgebra.val`
+  • `SubalgebraClass.val`
+  • `Subtype.val`
+  • `Units.val`
+  • `ZMod.val`
+  • `Array.Mem.val`
+  • `Lake.Hash.val`
+  • `Lean.ExprStructEq.val`
+  • `OrderHom.Subtype.val`
+  • `ST.Out.val`
+  • `Vector.Mem.val`
+  • `Lean.Doc.Parser.val`
+  • `Lean.Doc.WithSyntax.val`
+  • `Lean.Elab.FieldInfo.val`
+  • `Lean.LLVM.AttributeIndex.val`
+  • `Lean.LLVM.CodegenFileType.val`
+  • `Lean.LLVM.DLLStorageClass.val`
+  • `Lean.LLVM.IntPredicate.val`
+  • `Lean.LLVM.Linkage.val`
+  • `Lean.LLVM.Visibility.val`
+  • `Lean.Language.DynamicSnapshot.val`
+  • `Lean.Language.SyntaxGuarded.val`
+  • `Lean.Meta.InstanceEntry.val`
+  • `Lean.Meta.UnificationHintEntry.val`
+  • `Lean.Server.WithRpcRef.val`
+  • `Module.End.Eigenvalues.val`
+  • `Module.End.UnifEigenvalues.val`
+  • `Std.Time.Timestamp.val`
+  • `Std.Time.WallTime.val`
+  • `Batteries.BinomialHeap.Imp.FindMin.val`
+  • `Lean.Elab.ComputedFields.Context.val`
+  • `Lean.Elab.Term.LetRecToLift.val`
+  • `Lean.Elab.Term.NamedArg.val`
+  • `Lean.Meta.Match.Example.val`
+  • `Lean.Meta.Match.Pattern.val`
+  • `Lean.Meta.Sym.BitVecValue.val`
+  • `Lean.Meta.Sym.FinValue.val`
+  • `Lean.Meta.SynthInstance.Instance.val`
+  • `Std.Sat.AIG.Fanin.val`
+  • `Std.Time.Internal.UnitVal.val`
+  • `Lean.Compiler.LCNF.FixedParams.AbsValue.val`
+  • `Lean.Elab.Term.StructInst.FieldView.val`
+  • `Lean.Meta.Try.Collector.InductionCandidate.val`
+  • `Mathlib.Tactic.Ring.Common.Result.val`
+  • `Std.Tactic.BVDecide.BVExpr.WithCache.val`
+error: Applications/Resources/RandomQuickSortRank.lean:308:44: Invalid field notation: Type of
+  i
+is not known; cannot resolve field `val`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `AddUnits.val`
+  • `Char.val`
+  • `DerivedWanted.val`
+  • `Fin.val`
+  • `Finset.val`
+  • `IntermediateField.val`
+  • `IterateAddAct.val`
+  • `IterateMulAct.val`
+  • `NonScalar.val`
+  • `PNat.val`
+  • `PreQuasiregular.val`
+  • `Subalgebra.val`
+  • `SubalgebraClass.val`
+  • `Subtype.val`
+  • `Units.val`
+  • `ZMod.val`
+  • `Array.Mem.val`
+  • `Lake.Hash.val`
+  • `Lean.ExprStructEq.val`
+  • `OrderHom.Subtype.val`
+  • `ST.Out.val`
+  • `Vector.Mem.val`
+  • `Lean.Doc.Parser.val`
+  • `Lean.Doc.WithSyntax.val`
+  • `Lean.Elab.FieldInfo.val`
+  • `Lean.LLVM.AttributeIndex.val`
+  • `Lean.LLVM.CodegenFileType.val`
+  • `Lean.LLVM.DLLStorageClass.val`
+  • `Lean.LLVM.IntPredicate.val`
+  • `Lean.LLVM.Linkage.val`
+  • `Lean.LLVM.Visibility.val`
+  • `Lean.Language.DynamicSnapshot.val`
+  • `Lean.Language.SyntaxGuarded.val`
+  • `Lean.Meta.InstanceEntry.val`
+  • `Lean.Meta.UnificationHintEntry.val`
+  • `Lean.Server.WithRpcRef.val`
+  • `Module.End.Eigenvalues.val`
+  • `Module.End.UnifEigenvalues.val`
+  • `Std.Time.Timestamp.val`
+  • `Std.Time.WallTime.val`
+  • `Batteries.BinomialHeap.Imp.FindMin.val`
+  • `Lean.Elab.ComputedFields.Context.val`
+  • `Lean.Elab.Term.LetRecToLift.val`
+  • `Lean.Elab.Term.NamedArg.val`
+  • `Lean.Meta.Match.Example.val`
+  • `Lean.Meta.Match.Pattern.val`
+  • `Lean.Meta.Sym.BitVecValue.val`
+  • `Lean.Meta.Sym.FinValue.val`
+  • `Lean.Meta.SynthInstance.Instance.val`
+  • `Std.Sat.AIG.Fanin.val`
+  • `Std.Time.Internal.UnitVal.val`
+  • `Lean.Compiler.LCNF.FixedParams.AbsValue.val`
+  • `Lean.Elab.Term.StructInst.FieldView.val`
+  • `Lean.Meta.Try.Collector.InductionCandidate.val`
+  • `Mathlib.Tactic.Ring.Common.Result.val`
+  • `Std.Tactic.BVDecide.BVExpr.WithCache.val`
+error: Applications/Resources/RandomQuickSortRank.lean:323:79: unexpected token ']''; expected ':' or ']'
+error: Applications/Resources/RandomQuickSortRank.lean:323:59: Invalid field `size`: The environment does not contain `List.size`, so it is not possible to project the field `size` from an expression
+  a✝
+of type `List α`
+error: Applications/Resources/RandomQuickSortRank.lean:374:8: Type mismatch: After simplification, term
+  exerciseMean_cons_size_formula id head tail hd
+ has type
+  exerciseMean (fun a b => decide (id a < id b)) (head :: tail) =
+    2 / ↑(m + 1) * ∑ i ∈ @Finset.univ (Fin (tail.length + 1)) (Fin.fintype (tail.length + 1)), sizeMean ↑i +
+      ↑(4 * m + 3)
+but is expected to have type
+  exerciseMean (fun a b => decide (a < b)) (head :: tail) =
+    2 / ↑(m + 1) * ∑ i ∈ @Finset.univ (Fin (m + 1)) (Fin.fintype (m + 1)), sizeMean ↑i + ↑(4 * m + 3)
+error: Applications/Resources/RandomQuickSortRank.lean:385:4: Unused tactic linter: `change
+  sizeMean (m + 1) =
+    (2 / ((m + 1 : Nat) : ℝ)) * (∑ k ∈ Finset.range (m + 1), sizeMean k) + 4 * ((m + 1 : Nat) : ℝ) - 1` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [3755/3755] Ran Examples.RandomQuickSortRank
+warning: Examples/RandomQuickSortRank.lean: imports `Mathlib.Tactic.FinCases` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Examples/RandomQuickSortRank.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+Some required targets logged failures:
+- Examples.NaturalRunOperations
+- Applications.Probability.PermutationTail
+- Applications.Resources.QuickSortMean
+- Applications.Resources.RandomQuickSortRank
+error: build failed
+[result] exit=1, 1086.150s; /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T073427Z-project-run-6af28015/result.json

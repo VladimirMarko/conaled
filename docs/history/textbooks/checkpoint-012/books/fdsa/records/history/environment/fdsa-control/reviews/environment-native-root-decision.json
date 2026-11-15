@@ -1,0 +1,34 @@
+{
+  "recorded_utc": "2026-11-03T16:56:04.136189+00:00",
+  "environment_candidate": "9f673480206912d7df4a1dcc2b09ca7527bb0275",
+  "review_base": "900614e27f7d3dfffd9a29139884a8f1a4fce8d3",
+  "scope": [
+    "ENVIRONMENT.md",
+    "REQUEST.md",
+    "checkpoint.py",
+    "tooling/pinned_toolchain.py",
+    "tooling/record_command.py",
+    "tooling/native_toolchain.py",
+    "tooling/native/app_path_compat.c",
+    "tooling/native/libapp_path_compat.so",
+    "provenance/native-environment-20261103/check_readlink.py",
+    "provenance/native-environment-20261103/path_probe.c",
+    "provenance/native-environment-20261103/run_native_smoke.py"
+  ],
+  "files_match": true,
+  "review_reports": {
+    "reviews/environment-native-standards.md": "05695c42dec7a60a93df032818eb779fc52f4997ec08667d5c781a1b7934f4a4",
+    "reviews/environment0068-spec.md": "23da57348583157670faad7729a273cc88ff24370ddeba9afcfaab6501ec5a4a",
+    "reviews/environment-native-review.md": "22ca3e057b4f14e7315e521504d01a13089d535595d417eaee8480ad8b6a96c6"
+  },
+  "standards": "Passed; zero unresolved findings",
+  "spec": "Passed; zero unresolved findings",
+  "mode": "Complete ordinary guarded candidate check on cold project outputs is applicable; retain every source/coverage/identity/integrity/build/audit gate.",
+  "source_candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "formal_acceptance_credit": false,
+  "disk_at_capture": {
+    "total": 67586535424,
+    "used": 62257037312,
+    "free": 1876750336
+  }
+}

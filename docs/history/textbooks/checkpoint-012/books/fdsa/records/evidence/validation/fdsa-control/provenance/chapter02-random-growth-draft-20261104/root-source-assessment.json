@@ -1,0 +1,71 @@
+{
+  "recorded_utc": "2026-11-04T07:51:25.417546+00:00",
+  "candidate": "08a1e78d6becc713256d245206ef163f9eb55a0a",
+  "base": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+  "complete_source_read": {
+    "core_lines": 203,
+    "example_lines": 215,
+    "all_proof_bodies": true,
+    "all_31_source_contracts": true
+  },
+  "author_assessment": {
+    "bytes": 12434,
+    "sha256": "1f182ac44aee21ec5ae66212d8cbd1fb956b3347c3d6f9934be486f1fe7d55dd",
+    "read_in_full": true
+  },
+  "inventory_all_31_headers_read": true,
+  "source_files": [
+    {
+      "module": "Applications.Resources.RandomQuickSortGrowth",
+      "source": "Applications/Resources/RandomQuickSortGrowth.lean",
+      "bytes": 9896,
+      "sha256": "2b8bf7b4820790edaaa5726efb8e8bd8bccd3a30cb30388148d95bba00e63674",
+      "names": [
+        "Resources.RandomQuickSort.sizeMean_eq_closedForm",
+        "Resources.RandomQuickSort.sizeMean_eq_harmonic",
+        "Resources.RandomQuickSort.exerciseMean_eq_closedForm",
+        "Resources.RandomQuickSort.exerciseMean_eq_harmonic",
+        "Resources.RandomQuickSort.literalMean_harmonic_comparison",
+        "Resources.RandomQuickSort.exerciseMean_le_log",
+        "Resources.RandomQuickSort.literalMean_le_log",
+        "Resources.RandomQuickSort.exerciseMean_le_nlog",
+        "Resources.RandomQuickSort.literalMean_le_nlog",
+        "Resources.RandomQuickSort.exerciseMean_le_nlogb",
+        "Resources.RandomQuickSort.literalMean_le_nlogb",
+        "Resources.RandomQuickSort.sizeMean_isBigO_log",
+        "Resources.RandomQuickSort.sizeMean_isBigO_logb",
+        "Resources.RandomQuickSort.exerciseMean_family_isBigO_log",
+        "Resources.RandomQuickSort.literalMean_family_isBigO_log",
+        "Resources.RandomQuickSort.exerciseMean_family_isBigO_logb",
+        "Resources.RandomQuickSort.literalMean_family_isBigO_logb"
+      ]
+    },
+    {
+      "module": "Examples.RandomQuickSortGrowth",
+      "source": "Examples/RandomQuickSortGrowth.lean",
+      "bytes": 9959,
+      "sha256": "2d173d7572ae76395c3779c216ea43d21719ff1774f6a7f21c68a5677b511a16",
+      "names": [
+        "Examples.RandomQuickSortGrowth.empty_payload_means",
+        "Examples.RandomQuickSortGrowth.singleton_payload_means",
+        "Examples.RandomQuickSortGrowth.empty_log_boundary",
+        "Examples.RandomQuickSortGrowth.singleton_log_boundary",
+        "Examples.RandomQuickSortGrowth.two_distinct_harmonic",
+        "Examples.RandomQuickSortGrowth.three_reordered_harmonic",
+        "Examples.RandomQuickSortGrowth.four_tagged_harmonic",
+        "Examples.RandomQuickSortGrowth.five_sizeMean",
+        "Examples.RandomQuickSortGrowth.arbitrary_length_indexed_growth",
+        "Examples.RandomQuickSortGrowth.function_tagged_family_growth",
+        "Examples.RandomQuickSortGrowth.shifted_range_family_growth",
+        "Examples.RandomQuickSortGrowth.equal_key_three_not_harmonic",
+        "Examples.RandomQuickSortGrowth.equal_key_family_means",
+        "Examples.RandomQuickSortGrowth.equal_key_binary_bounds_fail"
+      ]
+    }
+  ],
+  "mathematical_findings": [],
+  "assessment": "Actual sizeMean zero/recurrence discharge numerical solver premises. Arbitrary mapped-key-distinct inputs retain independent universes; literal means only compared through same-run observation. Log domains n>=1 and n>=2 are explicit. Four standard IsBigO family bounds use eventual mapped-key distinctness and Tendsto actual length; actual length remains the growth variable. All14 boundary/example contracts match independent arithmetic, including zero/one positive costs, 13,71/3,109/3,253/5, arbitrary/function-valued payloads and duplicate quadratic means. The size256 fixed-bound failures do not claim non-BigO from one example. All proof bodies read; no new sampling/index/removal/runtime tariff.",
+  "scope_check": "Exactly two new files; pins and AGENTS byte-identical to parent.",
+  "validation": "Uncompiled source assessment only; rank/numerical dependency first-check still live; explicit31 types and complete gates pending.",
+  "independent_acceptance_review": false
+}

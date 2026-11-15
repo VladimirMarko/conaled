@@ -1,0 +1,62 @@
+{
+  "recorded_utc": "2026-11-04T21:25:20.091537+00:00",
+  "state": "HELD: all own source and provenance writes stopped until explicit root release",
+  "candidate": "d0479dd03371f1c1f0b41dff5f1882a36206f40a",
+  "tree": "4f7cc77eb1a7d270117ea33065727084c552a630",
+  "git_status": "",
+  "candidate_manifest": {
+    "name": "candidate3.json",
+    "bytes": 4699,
+    "sha256": "d6915f5350ce69d9f9b3bffb3c8e2804b04819b904bc67dad6a6b9fd787798c6"
+  },
+  "held_artifacts": [
+    {
+      "name": "MinimumPivotStatements-candidate3.lean",
+      "bytes": 2849,
+      "sha256": "4790e5204d7e4b90202ee4b4913e8f32046adfec1092bf1f2a6303f9099c8177"
+    },
+    {
+      "name": "correction-assessment.md",
+      "bytes": 3426,
+      "sha256": "597e8fe8efa3455d503a7ff9df7500e1bede12b9feb94b1fe266c00ad605a403"
+    },
+    {
+      "name": "git-commands.json",
+      "bytes": 2294,
+      "sha256": "5e0850072601efab733309fcc63d8b40fe48a82c781c4411c2a7109be9b3c356"
+    },
+    {
+      "name": "preservation-assessment.json",
+      "bytes": 4396,
+      "sha256": "886a82d7bff946a538337f7139f402a491abcf9ac12d7e4250f2032fc05cdbc7"
+    },
+    {
+      "name": "source.diff",
+      "bytes": 511,
+      "sha256": "045426b37069dd6f72a05527fc8dcea079ee9279b7dac9fe3e63172e0915316b"
+    },
+    {
+      "name": "starting-state.json",
+      "bytes": 6865,
+      "sha256": "8877bcc43dfa0ecf0170bc7fc2924b5af3c0622161f6d26c22e1b716e89be0a9"
+    },
+    {
+      "name": "statements-inventory.json",
+      "bytes": 33417,
+      "sha256": "d7591d2c8a04a9199fbf0bb6f6e86f523e156433d9632beb32822d04a3d7d48c"
+    },
+    {
+      "name": "candidate3.json",
+      "bytes": 4699,
+      "sha256": "d6915f5350ce69d9f9b3bffb3c8e2804b04819b904bc67dad6a6b9fd787798c6"
+    }
+  ],
+  "requested_next_action": "Root focused check of the same three targets at this exact successor. The owned attempt2 session is CLOSED and historical.",
+  "validation": "Attempt2 actual core builds preserved, overall exit1. New successor uncompiled; no whole Chapter3 gate credit.",
+  "readbacks": {
+    "actual_attempt2_log_result_terminal_closure": "cb90a2",
+    "starting_state": "f981b8",
+    "source_exact_diff_commit_preservation_all52input": "03af64",
+    "correction_full_scope_assessment": "80976d"
+  }
+}

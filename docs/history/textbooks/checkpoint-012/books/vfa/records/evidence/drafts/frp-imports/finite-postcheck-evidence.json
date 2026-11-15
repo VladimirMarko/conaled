@@ -1,0 +1,59 @@
+{
+  "module": "Applications.FRP.Finite",
+  "result_status": "passed",
+  "exit_code": 0,
+  "source_unchanged": true,
+  "expected_source_imports": [
+    "Applications.FRP.Spec",
+    "Applications.FRP.Equivalence"
+  ],
+  "emitted_module": "Applications.FRP.Finite",
+  "emitted_direct_imports": [
+    [
+      "Applications.FRP.Spec",
+      false,
+      false,
+      false
+    ],
+    [
+      "Applications.FRP.Equivalence",
+      false,
+      false,
+      false
+    ]
+  ],
+  "c_imported_initializer_declarations": [
+    "initialize_Init",
+    "initialize_Init",
+    "initialize_compilingWithSquares_Applications_FRP_Spec",
+    "initialize_compilingWithSquares_Applications_FRP_Equivalence"
+  ],
+  "output_hashes": {
+    "Finite.c": {
+      "size": 5124,
+      "sha256": "c4ae405a7c7cd6af261ed9a925832f0b06a57c1799374505c142ff30c55881d4"
+    },
+    "Finite.ilean": {
+      "size": 25284,
+      "sha256": "c389271d445bd87c5d49fda75fe006c12ec0c297d57af6ed06f6e27a7314913b"
+    },
+    "Finite.olean": {
+      "size": 233760,
+      "sha256": "5b7bf4b26aa2172ea39145af71c0df757a3c556faa7179fd625ec3a738c6f591"
+    }
+  },
+  "dependency_hashes_rechecked": true,
+  "verification_hashes": {
+    "work-state/staging/frp-imports/Applications/FRP/Finite.lean": "2230666713793ad16889ac8d1a7f707011c316c13284f0387d276c15b4f232ed",
+    "conaled/Applications/FRP/Finite.lean": "2230666713793ad16889ac8d1a7f707011c316c13284f0387d276c15b4f232ed",
+    "vfa-validation/Applications/FRP/Finite.lean": "2230666713793ad16889ac8d1a7f707011c316c13284f0387d276c15b4f232ed",
+    "work-state/staging/frp-imports/Finite.original.lean": "2230666713793ad16889ac8d1a7f707011c316c13284f0387d276c15b4f232ed",
+    "work-state/staging/frp-imports/finite-source.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "work-state/staging/frp-imports/Finite.setup.json": "bc8bfcd7cfe1b2d709e18bbfbe85ee1bb8cf3b3b8b4e6f71ee9a05735caed896",
+    "work-state/staging/frp-imports/finite-identity.json": "5d8ef3784e56b3d02602e40106ab36fafdb4cf73860f96ac83020abe63aa8e77",
+    "work-state/staging/frp-imports/run-finite.py": "1466a27f04477e16569cdcc04ed048a51bb22636133fbda075a5904e2e8ea2f4",
+    "work-state/staging/frp-imports/finite-result.json": "2a41645f2aaaf2567efc4b6a2643309a55a040f1157ea16468b1c73ee061c63a",
+    "work-state/staging/frp-imports/finite-diagnostics.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "qualification": "No emitted artifact or success claim for timeout; a passing focused check is not integrated acceptance."
+}

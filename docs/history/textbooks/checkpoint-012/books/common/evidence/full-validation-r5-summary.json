@@ -1,0 +1,111 @@
+{
+  "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+  "started_at": "2026-11-14T21:27:30.162016+00:00",
+  "finished_at": "2026-11-14T23:07:48.922060+00:00",
+  "elapsed_seconds": 6018.760040774999,
+  "checker_exit_code": 1,
+  "terminal_observed": true,
+  "verification_record_present": false,
+  "audit": "not reached after failed build",
+  "built_completion_lines": 3174,
+  "failed_jobs": [
+    {
+      "module": "Applications.FRP.Spec",
+      "duration": "189s",
+      "path": "Applications/FRP/Spec.lean",
+      "candidate_sha256": "c0b5d8155c574329fac0b4aced18c69322b33f8e4e6bbb5278365a7fc57211f8",
+      "unchanged_from_pinned_upstream": true,
+      "live_matches_candidate": true
+    },
+    {
+      "module": "SquareKit.Internal.Cubical.IdentityEliminationSubstitution",
+      "duration": "180s",
+      "path": "SquareKit/Internal/Cubical/IdentityEliminationSubstitution.lean",
+      "candidate_sha256": "313090d67519d6c012d6b389a3b233c92e3b2b9ea164615f0966584a304ca947",
+      "unchanged_from_pinned_upstream": true,
+      "live_matches_candidate": true
+    },
+    {
+      "module": "Examples.CubicalSourceContraction",
+      "duration": "142s",
+      "path": "Examples/CubicalSourceContraction.lean",
+      "candidate_sha256": "d858a261a8878dce7a495f24bc154072de60921d87fceb60ee6bf8d534f5eae1",
+      "unchanged_from_pinned_upstream": true,
+      "live_matches_candidate": true
+    },
+    {
+      "module": "Examples.DependentFunctionConversionSemantics",
+      "duration": "300s",
+      "path": "Examples/DependentFunctionConversionSemantics.lean",
+      "candidate_sha256": "f40997841de46ef00e0422b1b2b7752b5e5599bd567ad7bce322f11c8f01d982",
+      "unchanged_from_pinned_upstream": true,
+      "live_matches_candidate": true
+    },
+    {
+      "module": "SquareKit.Internal.DependentJudgments.ReferenceApd",
+      "duration": "96s",
+      "path": "SquareKit/Internal/DependentJudgments/ReferenceApd.lean",
+      "candidate_sha256": "f82212fc5fa9bb05be53c596ffd3b3e4aaa46c46b7c7ca61b021165d24e32020",
+      "unchanged_from_pinned_upstream": true,
+      "live_matches_candidate": true
+    },
+    {
+      "module": "SquareKit.SmoothQuotientGeneratedBaseMatching",
+      "duration": "126s",
+      "path": "SquareKit/SmoothQuotientGeneratedBaseMatching.lean",
+      "candidate_sha256": "d3dba5d97b2cb76272c44a01d1d9313d3266145bfbc9df151c3d7d81dc503f19",
+      "unchanged_from_pinned_upstream": true,
+      "live_matches_candidate": true
+    },
+    {
+      "module": "Examples.FFTScalarCosts",
+      "duration": "273s",
+      "path": "Examples/FFTScalarCosts.lean",
+      "candidate_sha256": "e9c8f11d0c902d8fc324c3c404a331eb5b36ba822c4e075ce7eb26dca27f05f5",
+      "unchanged_from_pinned_upstream": true,
+      "live_matches_candidate": true
+    },
+    {
+      "module": "Examples.TwoFamilyModelRooted",
+      "duration": "190s",
+      "path": "Examples/TwoFamilyModelRooted.lean",
+      "candidate_sha256": "20844e939f7181ac554f24b6f63b3d36912f086c2ae48f760c34cb161d2618f8",
+      "unchanged_from_pinned_upstream": true,
+      "live_matches_candidate": true
+    }
+  ],
+  "compiler_exit_codes": [
+    "137",
+    "137",
+    "137",
+    "137",
+    "137",
+    "137",
+    "137",
+    "137"
+  ],
+  "other_error_lines": [
+    "error: build failed"
+  ],
+  "integration_client_compile_lines": {
+    "Examples.MappedPotentialAccounting": [
+      "\u26a0 [11309/11361] Built Examples.MappedPotentialAccounting (77s)"
+    ],
+    "Examples.TextbookMaps": [
+      "\u2714 [12113/12164] Built Examples.TextbookMaps (2.7s)"
+    ],
+    "Examples.TextbookSequences": [
+      "\u2714 [12111/12163] Built Examples.TextbookSequences (3.0s)"
+    ],
+    "Examples.TextbookSorting": [
+      "\u2714 [12112/12163] Built Examples.TextbookSorting (2.4s)"
+    ]
+  },
+  "source_checks": "Source/coverage/version checks: 29.13s",
+  "initial_integrity_guard": "Integrity guard: hashed 0 artifacts; 3363 modules invalidated (0.46s).",
+  "log_bytes": 1624681,
+  "log_sha256": "4745a20204e25c44b88bce4f4cb4f661359dfad379dc722a5e4fc690e60b5445",
+  "source_clean_at_end": true,
+  "cause": "unknown; signal9-style termination, not a diagnosed OOM or supervisor cause",
+  "retry_eligibility": "Only compiler job137 failures observed; unchanged incremental guard can reuse per-module outputs that validate. Root will save this terminal result before at most one unchanged uncapped retry."
+}

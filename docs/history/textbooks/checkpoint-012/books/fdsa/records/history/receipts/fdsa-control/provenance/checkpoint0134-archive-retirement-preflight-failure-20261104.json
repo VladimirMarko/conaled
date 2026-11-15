@@ -1,0 +1,16 @@
+{
+  "recorded_utc": "2026-11-04T23:53:44.196265+00:00",
+  "actual_tool_result": {
+    "chunk_id": "64ecb8",
+    "wall_time_seconds": 3.6926e-05,
+    "exit_code": 1,
+    "original_token_count": 33,
+    "output": "Traceback (most recent call last):\n  File \"<stdin>\", line 23, in <module>\n  File \"<stdin>\", line 23, in <genexpr>\nKeyError: 'name'\n"
+  },
+  "failed_before_any_preflight_directory_or_deletion": true,
+  "reason": "An unrelated historical catalog row has no name key. Direct key access failed while selecting the target named record.",
+  "correction": "Use get(name) only for selecting the named matching row; all exact selected archive/upload/hash/metadata and deletion guards remain unchanged.",
+  "source": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0134-archive-retirement-preflight-attempt1.py",
+  "source_sha256": "47320f43aafb2410f915059580644f8bea8a7d95bcddcefc7cac5ba879339349",
+  "no_files_deleted": true
+}

@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T04:56:15.096393+00:00",
+  "phase_base": "ff9749d1ccbcb0949486f67d6273e28c262280e0",
+  "candidate": "3d5238737299cd365f36e39e5e8a61d34138cba5",
+  "parent": "ff9749d1ccbcb0949486f67d6273e28c262280e0",
+  "status": "",
+  "owned_source_sha256": {
+    "Applications/Resources/NaturalRunComparisons.lean": "f2908d65ab7e59ec54bd591e8e6127e9f89aa6dbdc1f0dbd1b1cd39f4f996635",
+    "Examples/NaturalRunComparisons.lean": "9d4dfe317e1af9ee894385ba3478c0ede17de1e713cc7090b120a4d2ab708f8a",
+    "Applications/Resources/ListBuildCosts.lean": "dc4c51a6aab663bd36d0796ac571cf90f489e2e4810521d80f8d32327c559901",
+    "Examples/ListBuildCosts.lean": "99c7affb272fb0f7f1f190cf422484b2b40c76b08e1d9297f182d7106c8ccffb"
+  },
+  "preserved_value_source_sha256": {
+    "Applications/Sorting/NaturalRuns.lean": "123c711b5f0cf05074155f3a0d9ae076aa80a8be482e7e6fc77626aa9db6fb1d",
+    "Examples/NaturalRuns.lean": "ef0ed6bbc5beb40815f977e80c0b99b0633e8503b0b1634747d41275cb3f6041"
+  },
+  "changed_paths_from_phase_base": [
+    "Applications/Resources/ListBuildCosts.lean",
+    "Applications/Resources/NaturalRunComparisons.lean",
+    "Examples/ListBuildCosts.lean",
+    "Examples/NaturalRunComparisons.lean"
+  ],
+  "static_source_keyword_scan": {
+    "result": "no forbidden proof/declaration keywords found in the four new source files",
+    "not_an_axiom_audit": true
+  },
+  "git_staged_diff_check": {
+    "exit_code": 0,
+    "performed_before_commit": true
+  },
+  "build_attempts": [],
+  "focused_build_targets": [
+    "Applications.Resources.NaturalRunComparisons",
+    "Examples.NaturalRunComparisons",
+    "Applications.Resources.ListBuildCosts",
+    "Examples.ListBuildCosts"
+  ],
+  "validation_state": "UNCOMPILED DRAFT: awaiting qualified immutable root-owned focused build and elaborated statement inspection. No full audit, independent review or acceptance claimed.",
+  "pending_dependencies": {
+    "XD01": "62809ced86c561c7a6cce8b71e727177a3f17fb8 requires validation/integration; not imported",
+    "BottomUp": "common measured ordinary BottomUp reconciliation/integration; not imported"
+  },
+  "handoff": "reviews/chapter02-natural-run-costs-implementation.md"
+}

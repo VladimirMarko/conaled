@@ -1,0 +1,212 @@
+{
+  "recorded_utc": "2026-11-04T09:51:12.944772+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "central_source_at_review": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+  "isolated_parent": "070e3608c439aec23404d23e90de47c6cf835216",
+  "isolated_successor": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+  "full_scope": "Existing complete81-path R-through-eventual-C2 review, all112 obligations and ten shared units, including the full original XU03 six-path scope. No scope reset or isolated-branch acceptance.",
+  "overall_outcome": "Blocked",
+  "approval_or_acceptance": false,
+  "source": {
+    "path": "Examples/PermutationTail.lean",
+    "before_bytes": 8786,
+    "before_lines": 197,
+    "before_sha256": "30e07aaede25b10d2484c2a4674bffa66d77094a545fd49f72bc000bd132ddb7",
+    "before_blob": "f118b08cd9d2006ceac0f4c24004e1ed09c1fb93",
+    "after_bytes": 9826,
+    "after_lines": 222,
+    "after_sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e",
+    "after_blob": "baa3e26a3c72a4589765562167d1d85edc011e67",
+    "only_changed_path": true,
+    "exact_parent_verified": true,
+    "base_matches_actual_focused9_source_at_X": true,
+    "all197_before_and222_after_lines_read": true,
+    "complete77_line_diff_read": true,
+    "actual_full_index_diff_matches_saved_source_and_staged_diff": true
+  },
+  "preservation": {
+    "theorem_headers": 18,
+    "public_theorems": 17,
+    "private_theorems": 1,
+    "whole_definitions": 7,
+    "total_public_names": 24,
+    "anonymous_local_instances": 2,
+    "imports": 4,
+    "options": 2,
+    "all_headers_whole_definitions_other_declaration_blocks_and_preamble_byte_identical": true,
+    "private_mass_of_law_statement_and_proof_unchanged": true,
+    "same_support_values_measures_nested_conditioning_and_public_law_connections": true,
+    "no_added_or_removed_declaration": true
+  },
+  "changed_proofs": [
+    {
+      "diagnostic_id": "XU03-MAIN-ELAB-001",
+      "theorem": "tail_23_mass",
+      "independent_assessment": "The original filtered positions for selected.erase0 retain support[2,3]; cond_tail_eq still proves conditional mass1/2.",
+      "disposition": "Adequate source correction; actual successor compilation and all final gates pending."
+    },
+    {
+      "diagnostic_id": "XU03-MAIN-ELAB-002",
+      "theorem": "tail_32_mass",
+      "independent_assessment": "The original remaining-set support contains[3,2]; mass_of_law tail_hasLaw still gives1/2.",
+      "disposition": "Adequate source correction; actual successor compilation and all final gates pending."
+    },
+    {
+      "diagnostic_id": "XU03-MAIN-ELAB-003",
+      "theorem": "repeated_tail_mass_zero",
+      "independent_assessment": "The same support excludes repeated[2,2]; cond_tail_eq retains the exact zero off-support branch.",
+      "disposition": "Adequate source correction; actual successor compilation and all final gates pending."
+    },
+    {
+      "diagnostic_id": "XU03-MAIN-ELAB-004",
+      "theorem": "filtered_tail_mass",
+      "independent_assessment": "The same singleton-subset support contains[3]; the actual filtered-tail HasLaw and on-event same-sample projection bridge remain untouched, giving mass1.",
+      "disposition": "Adequate source correction; actual successor compilation and all final gates pending."
+    },
+    {
+      "diagnostic_id": "XU03-MAIN-ELAB-005",
+      "theorem": "environment_changed",
+      "independent_assessment": "The same-event measure comparison still yields1=1/3 under the contradiction assumption. Applying inverse and the pinned involution yields1=3, without field cancellation or new hypotheses.",
+      "disposition": "Adequate source correction; actual successor compilation and all final gates pending."
+    },
+    {
+      "diagnostic_id": "XU03-MAIN-ELAB-006",
+      "theorem": "last_tail_mass",
+      "independent_assessment": "The same remaining.erase2 support contains[3]; the actual afterSecond nested conditioning and last_tail_hasLaw still yield mass1.",
+      "disposition": "Adequate source correction; actual successor compilation and all final gates pending."
+    }
+  ],
+  "enumeration_assessment": "Each of the four membership cases and one nonmembership case applies List.permutations_perm_permutations' to exactly the original filtered positions, converts that list permutation to exact finset equality with List.toFinset_eq_of_perm, then uses ordinary decide. The DecidableEq requirement is satisfied by the unchanged concrete List(Fin4) observation. No support, law, sample, order value or generic premise is substituted.",
+  "inverse_assessment": "ENNReal supplies DivInvOneMonoid and InvolutiveInv. congrArg inverse is valid on the derived equality; one_div, inv_one and inv_inv reduce to the contradictory finite numeral equality. Zero/infinity inversion conventions are respected; no ENNReal field instance or extra nonzero/finiteness hypothesis is assumed.",
+  "pinned_api_records": [
+    {
+      "path": "Mathlib/Data/List/Permutation.lean",
+      "dependency_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 23893,
+      "lines": 538,
+      "sha256": "ef2d1bddfbd1fd4368456709b8d44863bb733be3972f88db55d9de1ca1a8c35c",
+      "complete_read_ranges": [
+        [
+          354,
+          386
+        ]
+      ],
+      "whole_file_human_read_claimed": false
+    },
+    {
+      "path": "Mathlib/Data/Finset/Dedup.lean",
+      "dependency_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 6049,
+      "lines": 206,
+      "sha256": "613c90e8726039f6f8a65f530b6e0eba4f092ba31561a6f40d658f76f0d6e3fe",
+      "complete_read_ranges": [
+        [
+          1,
+          42
+        ],
+        [
+          78,
+          112
+        ],
+        [
+          137,
+          157
+        ]
+      ],
+      "whole_file_human_read_claimed": false
+    },
+    {
+      "path": "Mathlib/Basic/ENNReal/Inv.lean",
+      "dependency_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 44273,
+      "lines": 982,
+      "sha256": "f06e93ae82105c5c03585c2d11377b94aac119b7fdbcaf34a7a333aa27c53f36",
+      "complete_read_ranges": [
+        [
+          20,
+          40
+        ],
+        [
+          88,
+          98
+        ],
+        [
+          187,
+          204
+        ]
+      ],
+      "whole_file_human_read_claimed": false
+    }
+  ],
+  "frozen_requirements": {
+    "path": "reviews/permutation-tail-requirements.md",
+    "bytes": 12866,
+    "lines": 229,
+    "sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c"
+  },
+  "frozen_requirement_read_basis": "Complete original requirement/source assessment retained at exact hash; this correction changes no requirement or mathematical contract.",
+  "actual_diagnostic_basis": {
+    "path": "provenance/chapter02-spec-source-preparation-20261104/focused9-terminal-assessment.json",
+    "bytes": 5750,
+    "lines": 130,
+    "sha256": "d51db9fea4aa78224a57ebf754196de34b604179f47addf5d23fcba43706d57f"
+  },
+  "diagnostic_excerpt_exactly_matches_closed_log_lines36_through73": true,
+  "author_evidence": {
+    "complete126_line_readback_read": true,
+    "complete189_line_final_receipt_read": true,
+    "complete78_line_diagnostic_map_read": true,
+    "complete38_line_actual_diagnostic_excerpt_read": true,
+    "complete64_line_API_excerpt_read_and_actual_pinned_context_checked": true,
+    "all_final_receipt_artifacts_hash_checked": true,
+    "final_receipt": {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/receipt.json",
+      "bytes": 6754,
+      "lines": 189,
+      "sha256": "c5b16c9c3b8dbbae37aebb35e122f98f923fe04236734cdf1768e70ec8d2b252"
+    },
+    "readback": {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/author-readback.md",
+      "bytes": 8379,
+      "lines": 126,
+      "sha256": "c954804129647e2809d7dfbfad65c559ae99f5bf037843e258208a101b6cc548"
+    },
+    "diff": {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/source.diff",
+      "bytes": 3757,
+      "lines": 77,
+      "sha256": "524bb4581be3924e3dcb28ba949c69799a786083f342d56f76ae618c48a68959"
+    },
+    "diagnostic_map": {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/diagnostic-mapping.json",
+      "bytes": 4638,
+      "lines": 78,
+      "sha256": "ea0e20ef216f657bc119d943ab709b32725811a5fcd973ea047b1b32cf0e314b"
+    },
+    "api_excerpts": {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/api-excerpts.txt",
+      "bytes": 3946,
+      "lines": 64,
+      "sha256": "41ffe33482496b630977af10b7958bf877c4da73946cef1decbb47ae6c0f6482"
+    }
+  },
+  "commit_provenance": "The actual first commit identity failure and command-local retry records were read. No persistent configuration or executable hook was changed according to the retained evidence. This has no mathematical validation credit.",
+  "source_stage_outcome": "No new mathematical Spec finding and no weakening; adequate proof-body corrections by source assessment only. Explicitly uncompiled.",
+  "pending_gates": [
+    "Actual focused Main and Uniform example validation",
+    "All current public types and complete semantic assessment at exact relevant inputs",
+    "All required shared predecessor acceptances",
+    "Applicable complete immutable candidate check and exhaustive kernel/axiom audit",
+    "Both full independent axes and immediate candidate verification"
+  ],
+  "type_accounting_unchanged": {
+    "qualified_historical": 920,
+    "current_pending": 814,
+    "accepted_base": 28,
+    "foundation_pending": 145,
+    "potential110_credit": 0
+  },
+  "foundation_full_terminal": "Not supplied; exact F scope retained without inference.",
+  "no_compiler_source_ref_pin_cache_or_process_action": true
+}

@@ -1,0 +1,54 @@
+{
+  "recorded_utc": "2026-11-04T20:15:27.514592+00:00",
+  "accepted_head": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "qualified_candidate": "67f4add7bf99a20829cee1f7ec2265121546c879",
+  "all_writers_held": true,
+  "compiler_live": false,
+  "all40_recorded_execution_sessions_closed": true,
+  "author_hold_bindings": [
+    {
+      "path": "provenance/chapter03-values-implementation-20261104/checkpoint-0126-write-hold.json",
+      "bytes": 2965,
+      "sha256": "e37826aff8ef010b275d6d8584507a8af68e2c73c0669c4b41ab9346c30b551d"
+    },
+    {
+      "path": "provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/checkpoint0126-author-hold.json",
+      "bytes": 2675,
+      "sha256": "0fe517ae80b4fce4194cbb92091f1ccc6d2320a3e53330600e30d9d140a354c2"
+    },
+    {
+      "path": "provenance/chapter03-random-selection-implementation-20261104/stage03-means-20261104/author-hold.json",
+      "bytes": 5513,
+      "sha256": "4e1cc3c170bd08bb155d75be3baeb8995b31680ed18c7d1b88643a1fcab912ae"
+    },
+    {
+      "path": "provenance/chapter03-query-bridge-implementation-20261104/HANDOFF.md",
+      "bytes": 2981,
+      "sha256": "cb1c57c988d44d5dc68f5cbbd4c26e10c4ecc9997aed3794c6b69ecac00dd05c"
+    },
+    {
+      "path": "provenance/chapter03-selection-recurrence-implementation-20261104/focused-pass-and-hold.json",
+      "bytes": 2032,
+      "sha256": "a2c2de7dc2c853d5dfd8a0c400768ff8853705ab8e165f64a329c8a909995e68"
+    }
+  ],
+  "query_root_successor_held": "67f4add7; attempt2 actual1, no source writes until release",
+  "independent_reviewers_and_operations_inspector_held": true,
+  "held_heads": {
+    "conaled": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "conaled-ch01-review": "67f4add7bf99a20829cee1f7ec2265121546c879",
+    "conaled-ch02-quicksort": "24b74c65e2b907f1a4cd8b8c72e22bba8f315eea",
+    "conaled-ch02-random-pivot": "f76bc53339e172a179560654b181040a7313506d",
+    "conaled-ch02-top-down": "18279b690e789a60a5e78b40e3977d4064dc3b59",
+    "conaled-ch02-natural-runs": "9d4b622ff74ec012d49733ccc0c4c0849b57ade4",
+    "conaled-ordinary-merge": "67f4add7bf99a20829cee1f7ec2265121546c879"
+  },
+  "refs": 73,
+  "current_worktrees": 9,
+  "source_progress": {
+    "path": "provenance/chapter03-activation-20261104/focused-progress-before0126.json",
+    "bytes": 18041,
+    "sha256": "002e1a48c62cd1e8270f0fc142dc71da14c189ee6278238ad877473c9c46d4d0"
+  },
+  "no_compiler_until_verified_uploaded_exposed": true
+}

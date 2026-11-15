@@ -1,0 +1,55 @@
+{
+  "observed_utc": "2026-11-02T12:46:23.206094+00:00",
+  "run_record": {
+    "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+    "command": [
+      "/root/.nix-profile/bin/nix",
+      "develop",
+      "--command",
+      "./check.sh",
+      "--candidate",
+      "HEAD"
+    ],
+    "working_directory": "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+    "log": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-3279bac.log",
+    "explicit_environment": {
+      "PATH_prefix": "/root/.nix-profile/bin:",
+      "NIX_CONFIG": "build-users-group =\nexperimental-features = nix-command flakes",
+      "LEAN_NUM_THREADS": "1"
+    },
+    "started_utc": "2026-11-02T10:59:38.190453+00:00",
+    "status": "running",
+    "returncode": null,
+    "note": "Exact subprocess return code is recorded independently of interactive session. Required check.sh command unchanged. Checkpoint017 upload completed before launch.",
+    "pid": 283393,
+    "process_group": 283393
+  },
+  "heads": {
+    "conaled": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+    "vfa-validation": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec"
+  },
+  "working_tree_status": {
+    "conaled": "",
+    "vfa-validation": ""
+  },
+  "log_snapshot_bytes": 179387,
+  "log_snapshot_sha256": "86fc4880c83c97ed05023c1d2ceae5816d6a947287d8f0f58d227d9c1fd66893",
+  "last_completed_entries": [
+    "\u26a0 [3909/3918] Built SquareKit.DiscreteSheaf (73s)",
+    "\u26a0 [3914/3918] Built SquareKit.SmoothDualCover (219s)",
+    "\u2714 [3916/3919] Built SquareKit.SmoothOpenMaps (252s)",
+    "\u26a0 [3917/3920] Built SquareKit.SheafTorsor (92s)",
+    "\u2714 [3918/3920] Built SquareKit.SmoothOpenDuality (579s)",
+    "\u2714 [3919/3924] Built SquareKit.SmoothOpenEmbedding (450s)",
+    "\u2714 [3976/3984] Built SquareKit.SmoothGeometricRepresentable (291s)",
+    "\u2714 [3978/3986] Built SquareKit.SmoothKL (217s)",
+    "\u2714 [3979/3987] Built SquareKit.SmoothDerivative (427s)",
+    "\u2714 [3981/3988] Built SquareKit.SmoothCoverCharacterization (560s)",
+    "\u2714 [3982/3988] Built SquareKit.SmoothGeometricDerivative (358s)",
+    "\u26a0 [3983/3989] Built SquareKit.SmoothRealPointCovers (402s)",
+    "\u2714 [3984/3990] Built SquareKit.SmoothGeometricLocality (519s)",
+    "\u26a0 [3985/3991] Built SquareKit.SmoothLocallyConstantGroup (468s)"
+  ],
+  "errors_observed": [],
+  "scope": "Bounded current-gate and exact clean-source observation; not validation success or chapter acceptance. The running log may append after this snapshot."
+}

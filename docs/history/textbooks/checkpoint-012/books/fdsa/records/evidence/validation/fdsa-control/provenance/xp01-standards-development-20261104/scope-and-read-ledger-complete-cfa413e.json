@@ -1,0 +1,382 @@
+{
+  "recorded_utc": "2026-11-04T11:20:35.270921+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "retained_initial_ledger": {
+    "path": "provenance/xp01-standards-development-20261104/scope-and-read-ledger.json",
+    "bytes": 10481,
+    "lines": 261,
+    "sha256": "e6a618c51ddf634cb25aeee751eee719b45e7fc4f473bc92a1023fbb926a9c12"
+  },
+  "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+  "initial_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+  "original_base": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "original_draft": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+  "historical_combined_review_base": "1aabd512284fe86254278ac631eda061d311050b",
+  "development_base": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "development_base_accepted": false,
+  "status": "Complete original XP01 source preparation plus correction1 and actual focused1/2; overall Blocked.",
+  "full_six_path_original_read_retained": true,
+  "current_six_path_identity": [
+    {
+      "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+      "path": "Applications/Resources/FIFOContracts.lean",
+      "blob": "01839707e852b3faff6ef1a49ad88a76fb5e5c18",
+      "bytes": 8308,
+      "lines": 168,
+      "sha256": "f0215c25e27380b170297c9cc010375da4ef263380088f4ae8fdbb7272373343"
+    },
+    {
+      "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+      "path": "Applications/Resources/Potential.lean",
+      "blob": "dcf7ae78d76c1440c2d89711e6939a00ff24cc90",
+      "bytes": 11606,
+      "lines": 239,
+      "sha256": "c921f5a18f9c508c338d49eed9d3bd2a2193f968cfc3e9efb4208f8917efa33c"
+    },
+    {
+      "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+      "path": "Examples/MappedPotentialAccounting.lean",
+      "blob": "0291c5979243b0d12332d3628d06aa910732dfa2",
+      "bytes": 6726,
+      "lines": 165,
+      "sha256": "aa57790203c7dbc800586464c46366fcd7e6da6965fdbc3c260285e9c8d693c3"
+    },
+    {
+      "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+      "path": "SquareApplications.lean",
+      "blob": "77116918bf2466ff362c7c2357470cd413a43ec3",
+      "bytes": 9413,
+      "lines": 286,
+      "sha256": "f435dd0a16590472f21a9b25d7ae48e21bccf6a74ff4c54539b091529ed574b9"
+    },
+    {
+      "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+      "path": "docs/research/fdsa-potential-accounting.md",
+      "blob": "b9e70b3a5c15606de595f319ff5d11cdd9ff941e",
+      "bytes": 9877,
+      "lines": 163,
+      "sha256": "19c6dc50bc71b518c879cdd8a3f238a3fc5726e5d2486469e18a94a3f310d272"
+    },
+    {
+      "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "blob": "db598df8a4fe01d368cd0c791040dee22b5d7311",
+      "bytes": 44533,
+      "lines": 677,
+      "sha256": "c617f951a84072835c80945c8093a2096272d97f9e21981d865a263a19eb186b"
+    }
+  ],
+  "additional_successor_reads": {
+    "Potential": "All239 lines; bounded1-160 and161-239",
+    "map": "Full original677 lines retained plus complete43-line two-file diff and successor512-541; precise replacement equality accounts for all unchanged content."
+  },
+  "complete_required_core_and_example_compatibility_reads": [
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Applications/Resources/Measured.lean",
+      "blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+      "bytes": 2906,
+      "lines": 71,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "same_at_current_C": true,
+      "same_at_development_Z": true,
+      "same_at_accepted_R": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Applications/Resources/Workload.lean",
+      "blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+      "bytes": 2745,
+      "lines": 64,
+      "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+      "same_at_current_C": true,
+      "same_at_development_Z": true,
+      "same_at_accepted_R": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Applications/Resources/BinaryCounter.lean",
+      "blob": "ed65ac31a2674df62fe26c0ff69a2d6b9bb2101d",
+      "bytes": 11446,
+      "lines": 304,
+      "sha256": "d990e0e8d9b09fff3f774180fa2396558f2d1abcf7e6231be648f5bd66f6f9c0",
+      "same_at_current_C": true,
+      "same_at_development_Z": true,
+      "same_at_accepted_R": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Applications/Resources/SymmetricCosts.lean",
+      "blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+      "bytes": 10508,
+      "lines": 281,
+      "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+      "same_at_current_C": true,
+      "same_at_development_Z": true,
+      "same_at_accepted_R": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Applications/Resources/SymmetricWorkload.lean",
+      "blob": "700684fb07e2385b48a82cdee8d725da2fdcfed5",
+      "bytes": 3550,
+      "lines": 82,
+      "sha256": "c3d5d35f5144d0a9cb7a723c059329ce267cb88cec07fc8f128ca1dd4f8b96a0",
+      "same_at_current_C": true,
+      "same_at_development_Z": true,
+      "same_at_accepted_R": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Applications/Resources/RandomAccess/End.lean",
+      "blob": "74cd8d740e2ed2d45638466faf8eec1c6913ee0e",
+      "bytes": 11480,
+      "lines": 307,
+      "sha256": "ded4129df132c7fd87a40899cea6f483db02f3f95332bd9ec7c8c57dd868f099",
+      "same_at_current_C": true,
+      "same_at_development_Z": true,
+      "same_at_accepted_R": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Applications/Resources/SharedDemand.lean",
+      "blob": "449d7fce653a449be11209c4cb8cb23ae1240609",
+      "bytes": 12012,
+      "lines": 251,
+      "sha256": "c9740655b7afb51b28b044f1a72006d7a393b74a3e60e2f26464dc7eca7ee996",
+      "same_at_current_C": true,
+      "same_at_development_Z": true,
+      "same_at_accepted_R": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Examples/PotentialAccounting.lean",
+      "blob": "eb0cdb80a1d8728e4b1e4eb827fa24c947092a8a",
+      "bytes": 6221,
+      "lines": 126,
+      "sha256": "ee3fbee1b7e8be75226ac912e3cbb2b82c322d843b3231bdb6ac94908c7b1871",
+      "same_at_current_C": true,
+      "same_at_development_Z": true,
+      "same_at_accepted_R": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Examples/FIFOContracts.lean",
+      "blob": "f67c5167345d8809dcc6677c162c85e9621fd0ca",
+      "bytes": 4627,
+      "lines": 92,
+      "sha256": "de9e455109ecb5cca0f5e30b7dc993f81149ab7a6145750cc2b62bcb9f83831b",
+      "same_at_current_C": true,
+      "same_at_development_Z": true,
+      "same_at_accepted_R": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Examples/RandomAccessEndCosts.lean",
+      "blob": "61fe0b5fba72b692f493a80b779a11437b42c4ad",
+      "bytes": 7737,
+      "lines": 130,
+      "sha256": "ea68d8773ae7fea32d43e9b0eb01d3ca9111a0d41eac28079adafa5a719fa600",
+      "same_at_current_C": true,
+      "same_at_development_Z": true,
+      "same_at_accepted_R": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Examples/SharedDemand.lean",
+      "blob": "937400b61230b59ad0889ec554305ce9b6b42800",
+      "bytes": 7844,
+      "lines": 188,
+      "sha256": "5b0e374c3d57a9a681d49b9ae0b1bff41a6f60490efadc79cd2d3432b7737fc9",
+      "same_at_current_C": true,
+      "same_at_development_Z": true,
+      "same_at_accepted_R": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Examples/SymmetricLists.lean",
+      "blob": "da14a29c827e67dc21eb8997af66510ecc341d84",
+      "bytes": 5370,
+      "lines": 103,
+      "sha256": "e6a0121d5afc79d19b607ad0bb6c4574894e6152475687e265958d5c028022be",
+      "same_at_current_C": true,
+      "same_at_development_Z": true,
+      "same_at_accepted_R": true
+    }
+  ],
+  "additional_fully_read_control_records": [
+    {
+      "path": "provenance/xp01-continuation-preparation-20261104/development-order-plan-before-foundation-20261104.md",
+      "bytes": 13565,
+      "lines": 206,
+      "sha256": "19d47a174bde80a99e9489dc3578f7511d047dd5a359556da4236c20237b18a4"
+    }
+  ],
+  "pinned_APIs_independently_read": [
+    {
+      "path": "Mathlib/Algebra/Order/Monoid/Unbundled/Basic.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 48178,
+      "lines": 1221,
+      "sha256": "d0d17e30f7c74c20cf8e75f7f533133e59adfe596bcd561fcab67ee7e5423e6c",
+      "fully_read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 145,
+          "bytes": 4820,
+          "lines": 145,
+          "sha256": "d6dfcdf811922ab38cbb28f33fefca7746a13e6a43a7f9b9413ca52fc6560f40"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Algebra/Order/Monoid/Unbundled/Defs.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 24958,
+      "lines": 581,
+      "sha256": "3ffec259f3ceff4c07ce572d133d76ac052acb034402f2ff672562dec5f2ed5a",
+      "fully_read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 175,
+          "bytes": 7694,
+          "lines": 175,
+          "sha256": "5944c951f880fc3689a1fd1645eff52dff184862ce1b7874100783f4555491e6"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Algebra/Group/Monoid.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 31274,
+      "lines": 697,
+      "sha256": "20508b506beff9b559f941de9cc44b1e263fc01bf70ec138ed1a5a6e3404f379",
+      "fully_read_ranges": [
+        {
+          "first_line": 20,
+          "last_line": 90,
+          "bytes": 2997,
+          "lines": 71,
+          "sha256": "9bd66a271f5134251f46d01bb4bec2438624fadaa8ec180770d8b04953970593"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Algebra/Group/Hom/Defs.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 45332,
+      "lines": 1129,
+      "sha256": "01aa5f4c424688f5ef7ca46a65442f1d88ae7148990b6d9a4e85269ed7921c64",
+      "fully_read_ranges": [
+        {
+          "first_line": 110,
+          "last_line": 166,
+          "bytes": 2113,
+          "lines": 57,
+          "sha256": "06cf0c031ee92008a9b4947e4e8c89aa4154e58327d05d1c62e8f9c016e1f1d5"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Data/Nat/Cast/Basic.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 6448,
+      "lines": 202,
+      "sha256": "f3031ed5191c17ed213bbb5731159ed70b600b17224f486cf9c98de39a3b9f64",
+      "fully_read_ranges": [
+        {
+          "first_line": 25,
+          "last_line": 55,
+          "bytes": 875,
+          "lines": 31,
+          "sha256": "be6443f46ab733e6e3e8c56ecc4187c5c2f436f14a68d7a480dfd0b990219ae2"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Algebra/FreeMonoid/Basic.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 19259,
+      "lines": 499,
+      "sha256": "82573d5b6f5968524f3c9c84ed91fd6a3f5eb222434789e6a2de7145c870e2a9",
+      "fully_read_ranges": [
+        {
+          "first_line": 30,
+          "last_line": 150,
+          "bytes": 5016,
+          "lines": 121,
+          "sha256": "3cda4f5d8f6dbf205ee71c28f3a3e966439130ca8f19c475676c275d44b1bb70"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Algebra/Group/TypeTags/Basic.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 18812,
+      "lines": 530,
+      "sha256": "eacdf256d38ddbe5c16b7fc7611613ce7b29f7d8b9320facccc46517bf88f31c",
+      "fully_read_ranges": [
+        {
+          "first_line": 34,
+          "last_line": 77,
+          "bytes": 1390,
+          "lines": 44,
+          "sha256": "68b6746e2df4f74aaf13a95bd34dba2f1c4ccf4c43f36b147ab899b0bfb19866"
+        },
+        {
+          "first_line": 155,
+          "last_line": 175,
+          "bytes": 722,
+          "lines": 21,
+          "sha256": "446c897fd59593c2d4ae2195cdfcebd64d519fde4351c971047624bd2f9e5b98"
+        },
+        {
+          "first_line": 221,
+          "last_line": 270,
+          "bytes": 1353,
+          "lines": 50,
+          "sha256": "cd54106c7c94edaa70f1f9d42be68e04cdc091ccac90c2c0c16d327408271e1c"
+        }
+      ]
+    }
+  ],
+  "mathlib_current_source_pin_matches": true,
+  "bounded_textual_caller_search": {
+    "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+    "search": "git grep -l/-n -E for budget, budget_append, budget_constant, budget_le_constant, run_potential, run_potential_exact, run_zero_potential, run_constant_charge under Applications Examples SquareKit",
+    "31_matching_files": "Actual relevant callers fully read; remaining complete matching lines independently read and identified as comments/local variables or unrelated names. No whole-file review credited for those unrelated match-only contexts.",
+    "explicit_positional_search": "No matches (actual exit1) for @(Resources.)?(budget|budget_append|run_potential_exact|run_constant_charge) over tracked *.lean",
+    "limit": "Textual aid only; does not replace compiler compatibility or full audit."
+  },
+  "source_assessment": "See independent report; no additional mathematical/architectural finding beyond recorded source documentation and actual elaboration failures.",
+  "current_finding_disposition": [
+    {
+      "id": "XP01-DOC-001",
+      "status": "Resolved source cfa413e"
+    },
+    {
+      "id": "XP01-ELAB-001",
+      "status": "Resolved concrete core error cfa413e with actual focused2 core pass"
+    },
+    {
+      "id": "XP01-ELAB-002",
+      "status": "Open actual mapped-example elaboration errors"
+    }
+  ],
+  "actual_full_type_count": 0,
+  "actual_successful_whole_unit_focused_check": false,
+  "full_check_audit_acceptance": false,
+  "read_integrity": "Initial truncated displays are never credited. Earlier FreeMonoid whole-file attempt was truncated; only subsequently read bounded30-150 is credited. Exact proof-header extraction includes the inner let assignment of initial_potential_matters. All claimed complete actual logs and source modules were displayed without truncation.",
+  "separate_C2_and_F_reports_unchanged": true,
+  "actions": "Read immutable Git/source and closed evidence; wrote only own new XP01 provenance. No compiler, live-output snapshot, process polling, source/ref/cache/index/pin/global-control action.",
+  "additional_fully_read_standards": [
+    {
+      "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+      "path": ".agents/skills/code-review/heuristics.md",
+      "bytes": 2232,
+      "lines": 32,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060"
+    }
+  ],
+  "report_readback": "Full149-line report read; a batched readback display was truncated after the original source assessment, so report100-149 and focused1 receipt were subsequently read in a separate bounded output. This readback truncation yields no extra source/type credit."
+}

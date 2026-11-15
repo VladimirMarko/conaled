@@ -1,0 +1,113 @@
+{
+  "recorded_utc": "2026-11-04T10:42:53.581441+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete81-path review scope, all112 obligations and ten shared scopes.",
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "chunks": [
+    {
+      "chunk": 9,
+      "type_numbers": [
+        138,
+        161
+      ],
+      "native_lines": [
+        2041,
+        2332
+      ],
+      "bytes": 20584,
+      "sha256": "d1d90c74c50fb8eba7812c5761b403b55ca0a5040173484ba86adb70a32555fd",
+      "names": [
+        "Resources.NaturalRunOperations.singleRunOpsBy_correct",
+        "Resources.NaturalRunOperations.singleRunOpsBy_nil",
+        "Resources.NaturalRunOperations.singleRunOpsBy_singleton",
+        "Resources.NaturalRunOperations.runsBy_length_le_one_of_ascending_chain",
+        "Resources.NaturalRunOperations.runsBy_length_le_one_of_descending_chain",
+        "Resources.NaturalRunOperations.singleRunOpsBy_of_ascending_chain",
+        "Resources.NaturalRunOperations.singleRunOpsBy_of_descending_chain",
+        "Resources.NaturalRunOperations.runsOn_length_le_one_of_sorted",
+        "Resources.NaturalRunOperations.runsOn_length_le_one_of_strictly_descending",
+        "Resources.NaturalRunOperations.singleRunOpsBy_of_sorted",
+        "Resources.NaturalRunOperations.singleRunOpsBy_of_strictly_descending",
+        "Examples.NaturalRunOperations.empty_payload",
+        "Examples.NaturalRunOperations.empty_payload_execution",
+        "Examples.NaturalRunOperations.singleton_payload",
+        "Examples.NaturalRunOperations.singleton_payload_execution",
+        "Examples.NaturalRunOperations.ascending_two",
+        "Examples.NaturalRunOperations.ascending_three",
+        "Examples.NaturalRunOperations.ascending_two_execution",
+        "Examples.NaturalRunOperations.ascending_three_execution",
+        "Examples.NaturalRunOperations.descending_two",
+        "Examples.NaturalRunOperations.descending_three",
+        "Examples.NaturalRunOperations.descending_two_execution",
+        "Examples.NaturalRunOperations.descending_three_execution",
+        "Examples.NaturalRunOperations.ascending_ties"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The single-run correctness theorem combines key sortedness and payload permutation under LinearOrder keys and the actual runsOn length<=1 premise. Its empty and singleton executions cost2 and4 respectively, retaining scan and dispatch.",
+        "Ascending and descending chain premises establish at most one run, including empty inputs. Exact execution formulas separately retain n>=2 for ascending cost6*n-4 and nonempty for descending cost3*n+1.",
+        "Key-sorted and strictly descending specializations preserve their intended assumptions: LinearOrder for sorted-key reasoning, only LT/DecidableLT and the explicit Pairwise descending premise for operational reversal.",
+        "The Empty payload example compiles an eliminator comparator without introducing an inhabitant. Generic singleton examples remain law-free in arbitrary payload/comparator.",
+        "The concrete two/three-element ascending scan costs7/13 and full execution costs8/14; descending scan costs6/9 and execution7/10. The ascending ties input[1,1,2,3] is retained as one run at cost19."
+      ]
+    },
+    {
+      "chunk": 10,
+      "type_numbers": [
+        162,
+        179
+      ],
+      "native_lines": [
+        2333,
+        2609
+      ],
+      "bytes": 20250,
+      "sha256": "de4b0362477ba53bea3b8a2699967e11e9efea40bec806667cf5d7cf9a1ba709",
+      "names": [
+        "Examples.NaturalRunOperations.ascending_ties_execution",
+        "Examples.NaturalRunOperations.three_boundary_worker",
+        "Examples.NaturalRunOperations.three_boundary",
+        "Examples.NaturalRunOperations.restart_worker",
+        "Examples.NaturalRunOperations.restart_boundary",
+        "Examples.NaturalRunOperations.odd_runs",
+        "Examples.NaturalRunOperations.weak_descent_with_ties",
+        "Examples.NaturalRunOperations.multiple_runs_outside_dispatch",
+        "Examples.NaturalRunOperations.weak_descent_outside_dispatch",
+        "Examples.NaturalRunOperations.arbitrary_builder_restart",
+        "Examples.NaturalRunOperations.unsorted_builder_value_and_work",
+        "Examples.NaturalRunOperations.unsorted_builder_remains_unsorted",
+        "Examples.NaturalRunOperations.arbitrary_descending_accumulator",
+        "Examples.NaturalRunOperations.arbitrary_cost_without_rep",
+        "Examples.NaturalRunOperations.arbitrary_callback_continuation",
+        "Examples.NaturalRunOperations.expensive_capture_worker",
+        "Examples.NaturalRunOperations.empty_outer_dispatch",
+        "Examples.NaturalRunOperations.empty_inner_dispatch"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The ties execution costs20. Boundary and restart examples retain actual worker and scanner outputs/costs: [3,1,2] gives[[1,3],[2]] at10; [1,3,2,4] gives[[1,3],[2,4]] at15; the odd-run extension[1,3,2,4,0] gives three runs at19.",
+        "Tagged weak descent[(3,A),(3,B),(2,C)] produces the stable tied ascending run followed by the singleton, cost11. Explicit negated length<=1 conclusions prevent applying the zero/single-run dispatcher to this or the other multiple-run cases.",
+        "Arbitrary builder restart returns the represented prefix and new run at14; a deliberately unsorted builder yields[2,1,3] at6 and is explicitly not KeySorted. Worker correctness is not overgeneralized to arbitrary unsorted accumulators.",
+        "The arbitrary descending accumulator base returns a::acc at3 without an unstated sortedness premise. A reversing callback with uniform cost k still satisfies the cost bound without Rep; the concrete continuation returns[3,2] at26.",
+        "Capturing composition is cost1 while evaluating the captured callbacks in the worker costs p+q+4, so capture cost is not confused with application cost. Both empty outer runs and singleton empty inner run dispatch to[] at1 and equal tick of the corresponding existing allRun."
+      ]
+    }
+  ],
+  "prior_progress_sha256": "dc28ed2d02a6e4bef61cc561adcad7e5a4d14e43b00c2b06bc92581d6be13b4e",
+  "overall_outcome": "Blocked",
+  "new_type_credit": 0,
+  "possible110_credit": 0
+}

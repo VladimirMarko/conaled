@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "assessment_kind": "author per-claim source and elaborated-statement readback",
+  "created_utc": "2026-11-04T07:07:25.302987+00:00",
+  "author": "/root/chapter02_quicksort",
+  "author_head": "3b727e83fcf9f00ad7d0c95d07305b036ebecbca",
+  "inspected_head": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+  "author_commit_is_ancestor_of_inspected_head": true,
+  "accepted_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "held_worktree_clean": true,
+  "sources": [
+    {
+      "repository_path": "Applications/Sorting/Uniqueness.lean",
+      "author_commit": "3b727e83fcf9f00ad7d0c95d07305b036ebecbca",
+      "inspected_commit": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+      "bytes": 1999,
+      "lines": 44,
+      "sha256": "e0df544f59be358a3e40ad48f25115ae2ba3b4507a30cdeb3425907bf94c8744",
+      "author_git_blob": "5a0e68e51d521b6ab216e2487aa523b9b6844fcb",
+      "central_git_blob": "5a0e68e51d521b6ab216e2487aa523b9b6844fcb",
+      "byte_identical": true
+    },
+    {
+      "repository_path": "Examples/SortUniqueness.lean",
+      "author_commit": "3b727e83fcf9f00ad7d0c95d07305b036ebecbca",
+      "inspected_commit": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+      "bytes": 3903,
+      "lines": 87,
+      "sha256": "ce63cd0d8a953f9441b9b6b1597f9a3604ef736131290cba8c0430c36cd177b7",
+      "author_git_blob": "c4960ecd07a3ed7eb40a7e3eb5240d9efaed0891",
+      "central_git_blob": "c4960ecd07a3ed7eb40a7e3eb5240d9efaed0891",
+      "byte_identical": true
+    }
+  ],
+  "type_inspection": {
+    "result": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-uniqueness-types-20261104/result.json",
+      "bytes": 1360,
+      "sha256": "edcdaf9dcb6432522c27b00cf50d79ec2ca672e3a1853a4b62668cef49400cab"
+    },
+    "log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-uniqueness-types-20261104/full.log",
+      "bytes": 6817,
+      "sha256": "11b58acd78c4f7b77bf4fbdb8bd7e4ca48378dcb2fab8c32d91fd0e4ccebda3f"
+    },
+    "integrity": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-uniqueness-types-20261104/inspection-integrity.json",
+      "bytes": 697,
+      "sha256": "5d2d8058eff5617299000115b0b7b8bf6eca26d8bf8e55c0f2cf273e4bf26b84"
+    },
+    "harness": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-uniqueness-statement-source-20261104/Statements.lean",
+      "bytes": 614,
+      "sha256": "5d5cb3cfd591633c6e0ef635094917f19f60f2db1e226df3782ba963f01fd5bf"
+    },
+    "inventory": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-uniqueness-statement-source-20261104/inventory.json",
+      "bytes": 815,
+      "sha256": "a6ce35fec805294121aecc4beb1a0ed0d334ad68ba41c860e1c779d9f537d553"
+    },
+    "exit_code": 0,
+    "elapsed_seconds": 16.487604625999666,
+    "clean_unchanged_head": true
+  },
+  "enclosing_focused_attempt": {
+    "result": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-mean-uniqueness-xu02-focused-20261104-attempt1/result.json",
+      "bytes": 1436,
+      "sha256": "136152f3ab742992ca046eb67ef9b40b96b8f5b926f7a4ef406924a33aec70a1"
+    },
+    "log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-mean-uniqueness-xu02-focused-20261104-attempt1/full.log",
+      "bytes": 17412,
+      "sha256": "48063b4acf544e1cd977f2ffc039a37024bd01e30bfd42357041d4704de22d84"
+    },
+    "aggregate_exit_code": 1,
+    "clean_unchanged_head": true,
+    "owned_modules_built": [
+      "Applications.Sorting.Uniqueness",
+      "Examples.SortUniqueness"
+    ],
+    "unrelated_failed_targets": [
+      "Applications.Resources.RandomQuickSortMean",
+      "Applications.Probability.PermutationOrder"
+    ],
+    "notes": "Both owned targets passed individually. Two module-system advisory import warnings were emitted for the library. No whole-candidate success is inferred."
+  },
+  "declaration_count": 9,
+  "library_declaration_count": 3,
+  "example_declaration_count": 6,
+  "rows": [
+    {
+      "index": 1,
+      "name": "Applications.Sorting.sorters_eq_at",
+      "source_file": "Applications/Sorting/Uniqueness.lean",
+      "source_line": 19,
+      "intended_statement": "For an arbitrary Type u, relation r with Std.Antisymm r, functions f and g, and one input xs, Pairwise r plus occurrence permutation for each output implies f xs = g xs.",
+      "quantifier_and_hypothesis_checks": [
+        "Arbitrary universe and payload type; no equality decision or inhabitant",
+        "Std.Antisymm r is the only relation class",
+        "Correctness is local to the given input, not universally quantified over all inputs"
+      ],
+      "proof_connection": "Reuses List.Perm.eq_of_pairwise' after composing hf.2 : f xs ~ xs with hg.2.symm : xs ~ g xs.",
+      "domain_and_nonweakening_assessment": "No new sorting carrier or list uniqueness proof. Pairwise plus Perm preserves multiplicities. The relation need not be total, reflexive, or transitive.",
+      "elaborated_type_exact": "@Applications.Sorting.sorters_eq_at.{u_1} : ∀ {α : Type u_1} (r : α → α → Prop) [@Std.Antisymm.{u_1 + 1} α r]\n  (f g : List.{u_1} α → List.{u_1} α) (xs : List.{u_1} α),\n  And (@List.Pairwise.{u_1} α r (f xs)) (@List.Perm.{u_1} α (f xs) xs) →\n    And (@List.Pairwise.{u_1} α r (g xs)) (@List.Perm.{u_1} α (g xs) xs) → @Eq.{u_1 + 1} (List.{u_1} α) (f xs) (g xs)",
+      "elaborated_type_sha256": "1320a8f911ec8d23514525a1e98605b6e3e4d19f203fbcd8b8545d1be36308c4",
+      "assessment": "matches intended statement; no concrete finding",
+      "findings": []
+    },
+    {
+      "index": 2,
+      "name": "Applications.Sorting.sorters_eq",
+      "source_file": "Applications/Sorting/Uniqueness.lean",
+      "source_line": 27,
+      "intended_statement": "The same arbitrary domain and antisymmetry assumption, with each correctness observation quantified over every list, imply f = g as functions.",
+      "quantifier_and_hypothesis_checks": [
+        "Both correctness premises quantify over every xs : List α",
+        "Conclusion is equality in List α → List α, not only an equality at a chosen example",
+        "No stability, costs, Nodup or existence assertion is added"
+      ],
+      "proof_connection": "Uses funext and sorters_eq_at pointwise.",
+      "domain_and_nonweakening_assessment": "The statement does not assert that arbitrary relations admit global sorters. No hidden totality premise was elaborated.",
+      "elaborated_type_exact": "@Applications.Sorting.sorters_eq.{u_1} : ∀ {α : Type u_1} (r : α → α → Prop) [@Std.Antisymm.{u_1 + 1} α r]\n  (f g : List.{u_1} α → List.{u_1} α),\n  (∀ (xs : List.{u_1} α), And (@List.Pairwise.{u_1} α r (f xs)) (@List.Perm.{u_1} α (f xs) xs)) →\n    (∀ (xs : List.{u_1} α), And (@List.Pairwise.{u_1} α r (g xs)) (@List.Perm.{u_1} α (g xs) xs)) →\n      @Eq.{u_1 + 1} (List.{u_1} α → List.{u_1} α) f g",
+      "elaborated_type_sha256": "f6268ab42a650e0f8f73455c8fcd3548e2c85bcf0e5a70a56baf8d37bcd0d1f5",
+      "assessment": "matches intended statement; no concrete finding",
+      "findings": []
+    },
+    {
+      "index": 3,
+      "name": "Applications.Sorting.sorters_eq_of_multiset",
+      "source_file": "Applications/Sorting/Uniqueness.lean",
+      "source_line": 35,
+      "intended_statement": "Source-style Pairwise order plus equality of the output/input Multiset.ofList values for both functions gives f = g.",
+      "quantifier_and_hypothesis_checks": [
+        "Same arbitrary universe, payload and Std.Antisymm relation",
+        "Multiset occurrence equality, not support equality",
+        "No DecidableEq α is required"
+      ],
+      "proof_connection": "Converts each multiset equality with Multiset.coe_eq_coe.mp and applies sorters_eq.",
+      "domain_and_nonweakening_assessment": "The elaborated casts are precisely Multiset.ofList (f xs) and Multiset.ofList xs. There is no replacement observation or weakened multiplicity claim.",
+      "elaborated_type_exact": "@Applications.Sorting.sorters_eq_of_multiset.{u_1} : ∀ {α : Type u_1} (r : α → α → Prop) [@Std.Antisymm.{u_1 + 1} α r]\n  (f g : List.{u_1} α → List.{u_1} α),\n  (∀ (xs : List.{u_1} α),\n      And (@List.Pairwise.{u_1} α r (f xs))\n        (@Eq.{u_1 + 1} (Multiset.{u_1} α) (@Multiset.ofList.{u_1} α (f xs)) (@Multiset.ofList.{u_1} α xs))) →\n    (∀ (xs : List.{u_1} α),\n        And (@List.Pairwise.{u_1} α r (g xs))\n          (@Eq.{u_1 + 1} (Multiset.{u_1} α) (@Multiset.ofList.{u_1} α (g xs)) (@Multiset.ofList.{u_1} α xs))) →\n      @Eq.{u_1 + 1} (List.{u_1} α → List.{u_1} α) f g",
+      "elaborated_type_sha256": "25875b0f674df92fcba9dc8a757ce47d86dbc86570fb034fabd7474e295c5a86",
+      "assessment": "matches intended statement; no concrete finding",
+      "findings": []
+    },
+    {
+      "index": 4,
+      "name": "Examples.SortUniqueness.first_pivot_eq_floor",
+      "source_file": "Examples/SortUniqueness.lean",
+      "source_line": 20,
+      "intended_statement": "For every arbitrary-universe LinearOrder α, quickSortOn id = sortFloorOn id as actual list functions.",
+      "quantifier_and_hypothesis_checks": [
+        "LinearOrder supplies the existing algorithms' ordinary comparator instances",
+        "Both key functions are the identity on the same payload type",
+        "No duplicate exclusion, length or inhabitance premise"
+      ],
+      "proof_connection": "Applies sorters_eq to quickSortOn_correct id and sortFloorOn_correct id.",
+      "domain_and_nonweakening_assessment": "Connected generic example exercises the new public function-equality theorem on existing independently correct algorithms; no execution-cost equality follows.",
+      "elaborated_type_exact": "@Examples.SortUniqueness.first_pivot_eq_floor.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α],\n  @Eq.{u_1 + 1} (List.{u_1} α → List.{u_1} α)\n    (@Applications.Sorting.quickSortOn.{u_1, u_1} α α\n      (@Preorder.toLT.{u_1} α\n        (@PartialOrder.toPreorder.{u_1} α\n          (@SemilatticeInf.toPartialOrder.{u_1} α\n            (@Lattice.toSemilatticeInf.{u_1} α\n              (@DistribLattice.toLattice.{u_1} α (@instDistribLatticeOfLinearOrder.{u_1} α inst))))))\n      (@LinearOrder.toDecidableLT.{u_1} α inst) (@id.{u_1 + 1} α))\n    (@Applications.Sorting.sortFloorOn.{u_1, u_1} α α\n      (@Preorder.toLE.{u_1} α\n        (@PartialOrder.toPreorder.{u_1} α\n          (@SemilatticeInf.toPartialOrder.{u_1} α\n            (@Lattice.toSemilatticeInf.{u_1} α\n              (@DistribLattice.toLattice.{u_1} α (@instDistribLatticeOfLinearOrder.{u_1} α inst))))))\n      (@LinearOrder.toDecidableLE.{u_1} α inst) (@id.{u_1 + 1} α))",
+      "elaborated_type_sha256": "2f989c3a98e1bd5eb10ec567e469685facbc242d0782aca03b32560c4782382b",
+      "assessment": "matches intended statement; no concrete finding",
+      "findings": []
+    },
+    {
+      "index": 5,
+      "name": "Examples.SortUniqueness.three_way_eq_floor",
+      "source_file": "Examples/SortUniqueness.lean",
+      "source_line": 27,
+      "intended_statement": "For every arbitrary-universe LinearOrder α, threeWayQuickSort = sortFloorOn id.",
+      "quantifier_and_hypothesis_checks": [
+        "Actual three-way public function, not a replacement model",
+        "All lists and all duplicate configurations are included",
+        "No stability premise or conclusion"
+      ],
+      "proof_connection": "Uses sorters_eq_of_multiset, threeWayQuickSort_sorted, threeWayQuickSort_multiset, and the floor sorter's correctness with Quot.sound.",
+      "domain_and_nonweakening_assessment": "Exercises the source multiset interface and retains the existing three-way equal block. Only the permitted existing quotient principle is used.",
+      "elaborated_type_exact": "@Examples.SortUniqueness.three_way_eq_floor.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α],\n  @Eq.{u_1 + 1} (List.{u_1} α → List.{u_1} α) (@Applications.Sorting.threeWayQuickSort.{u_1} α inst)\n    (@Applications.Sorting.sortFloorOn.{u_1, u_1} α α\n      (@Preorder.toLE.{u_1} α\n        (@PartialOrder.toPreorder.{u_1} α\n          (@SemilatticeInf.toPartialOrder.{u_1} α\n            (@Lattice.toSemilatticeInf.{u_1} α\n              (@DistribLattice.toLattice.{u_1} α (@instDistribLatticeOfLinearOrder.{u_1} α inst))))))\n      (@LinearOrder.toDecidableLE.{u_1} α inst) (@id.{u_1 + 1} α))",
+      "elaborated_type_sha256": "c8b556c0977db407b3bb990db0326827fb88ae91ceb4702f0b5f6276b05265a4",
+      "assessment": "matches intended statement; no concrete finding",
+      "findings": []
+    },
+    {
+      "index": 6,
+      "name": "Examples.SortUniqueness.floor_mixed_duplicates",
+      "source_file": "Examples/SortUniqueness.lean",
+      "source_line": 38,
+      "intended_statement": "Actual sortFloorOn id on [2,3,1,2,0,3,2,1] equals [0,1,1,2,2,2,3,3].",
+      "quantifier_and_hypothesis_checks": [
+        "Closed Nat case with no premise",
+        "Input and output each contain eight occurrences",
+        "Duplicate counts are 0:1, 1:2, 2:3, 3:2"
+      ],
+      "proof_connection": "Transfers the pre-existing ThreeWayQuickSort.mixed_value expectation through congrFun of three_way_eq_floor.",
+      "domain_and_nonweakening_assessment": "Expected list and actual public algorithm match the frozen case; the result is not a newly invented formula or a duplicated implementation test.",
+      "elaborated_type_exact": "Examples.SortUniqueness.floor_mixed_duplicates : @Eq.{1} (List.{0} Nat)\n  (@Applications.Sorting.sortFloorOn.{0, 0} Nat Nat instLENat Nat.decLe (@id.{1} Nat)\n    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))\n      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))\n        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))\n          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))\n            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))\n              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))\n                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))\n                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))\n                    (@List.nil.{0} Nat))))))))))\n  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))\n    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))\n      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))\n        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))\n          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))\n            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))\n              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))\n                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))\n                  (@List.nil.{0} Nat)))))))))",
+      "elaborated_type_sha256": "a9cef0a814de0995c5f1efd6eafb18a62ddaad81b75d8550736bc039dfb92329",
+      "assessment": "matches intended statement; no concrete finding",
+      "findings": []
+    },
+    {
+      "index": 7,
+      "name": "Examples.SortUniqueness.reverse_eq_of_equal",
+      "source_file": "Examples/SortUniqueness.lean",
+      "source_line": 49,
+      "intended_statement": "For any Type u and list xs, Pairwise equality on xs implies xs.reverse = xs.",
+      "quantifier_and_hypothesis_checks": [
+        "No typeclass assumptions on α",
+        "Only input-local Pairwise equality is required",
+        "Covers empty, singleton and nonempty constant lists"
+      ],
+      "proof_connection": "Uses an ordinary local let for Std.Antisymm Eq, derives Pairwise equality on the reversal, and applies sorters_eq_at to List.reverse and id with reverse_perm.",
+      "domain_and_nonweakening_assessment": "The elaborated theorem has no leaked local instance or hidden total-order assumption. The current style rule against letI in proposition proofs is respected.",
+      "elaborated_type_exact": "@Examples.SortUniqueness.reverse_eq_of_equal.{u_1} : ∀ {α : Type u_1} (xs : List.{u_1} α),\n  @List.Pairwise.{u_1} α (fun a b => @Eq.{u_1 + 1} α a b) xs →\n    @Eq.{u_1 + 1} (List.{u_1} α) (@List.reverse.{u_1} α xs) xs",
+      "elaborated_type_sha256": "b6cec02d4022867557f385003c33c15edb2eb29345fb4522980b319959dfee54",
+      "assessment": "matches intended statement; no concrete finding",
+      "findings": []
+    },
+    {
+      "index": 8,
+      "name": "Examples.SortUniqueness.equality_order_boundary",
+      "source_file": "Examples/SortUniqueness.lean",
+      "source_line": 58,
+      "intended_statement": "Equality on Bool is antisymmetric and not total, and reversing the nonempty list [false,false] returns that list.",
+      "quantifier_and_hypothesis_checks": [
+        "Closed conjunction includes an explicit negation of totality",
+        "The displayed nonempty input satisfies Pairwise equality",
+        "Does not claim that equality sorts lists containing both Bool values"
+      ],
+      "proof_connection": "Two finite facts use ordinary decide; the reverse equation invokes reverse_eq_of_equal with a checked satisfiable premise.",
+      "domain_and_nonweakening_assessment": "Guards against erroneously requiring totality for the local uniqueness theorem. Antisymmetry, rather than totality alone, is the relevant sufficient condition.",
+      "elaborated_type_exact": "Examples.SortUniqueness.equality_order_boundary : And\n  (∀ (a b : Bool), @Eq.{1} Bool a b → @Eq.{1} Bool b a → @Eq.{1} Bool a b)\n  (And (Not (∀ (a b : Bool), Or (@Eq.{1} Bool a b) (@Eq.{1} Bool b a)))\n    (@Eq.{1} (List.{0} Bool)\n      (@List.reverse.{0} Bool (@List.cons.{0} Bool Bool.false (@List.cons.{0} Bool Bool.false (@List.nil.{0} Bool))))\n      (@List.cons.{0} Bool Bool.false (@List.cons.{0} Bool Bool.false (@List.nil.{0} Bool)))))",
+      "elaborated_type_sha256": "bad6d1a0ff4090fc679e65a1ad69bf6d4d620faed82f9b1e08ff83280f049c29",
+      "assessment": "matches intended statement; no concrete finding",
+      "findings": []
+    },
+    {
+      "index": 9,
+      "name": "Examples.SortUniqueness.constant_key_boundary",
+      "source_file": "Examples/SortUniqueness.lean",
+      "source_line": 70,
+      "intended_statement": "Identity and reversal both satisfy KeySorted constant-zero plus Perm on every Bool list; their functions differ, and reversal of [false,true] is not Stable for the constant key.",
+      "quantifier_and_hypothesis_checks": [
+        "Both ordinary key-correctness statements quantify over every list",
+        "Function inequality has an actual two-element witness",
+        "Stability failure names the same constant key, input and reversed output"
+      ],
+      "proof_connection": "Uses canonical KeySorted/Stable observations, pairwise_of_forall and reverse_perm; witnesses functional inequality at [false,true] and stability failure at key 0.",
+      "domain_and_nonweakening_assessment": "An antisymmetric key order does not make its lifted payload relation antisymmetric. The theorem correctly blocks applying ordinary payload uniqueness to tied distinct payloads; no global absence of stable sorting is claimed.",
+      "elaborated_type_exact": "Examples.SortUniqueness.constant_key_boundary : And\n  (∀ (xs : List.{0} Bool),\n    And\n      (@Applications.Sorting.KeySorted.{0, 0} Bool Nat instLENat\n        (fun x => @OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) xs)\n      (@List.Perm.{0} Bool xs xs))\n  (And\n    (∀ (xs : List.{0} Bool),\n      And\n        (@Applications.Sorting.KeySorted.{0, 0} Bool Nat instLENat\n          (fun x => @OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.reverse.{0} Bool xs))\n        (@List.Perm.{0} Bool (@List.reverse.{0} Bool xs) xs))\n    (And (@Ne.{1} (List.{0} Bool → List.{0} Bool) (@id.{1} (List.{0} Bool)) (@List.reverse.{0} Bool))\n      (Not\n        (@Applications.Sorting.Stable.{0, 0} Bool Nat instDecidableEqNat\n          (fun x => @OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))\n          (@List.cons.{0} Bool Bool.false (@List.cons.{0} Bool Bool.true (@List.nil.{0} Bool)))\n          (@List.reverse.{0} Bool\n            (@List.cons.{0} Bool Bool.false (@List.cons.{0} Bool Bool.true (@List.nil.{0} Bool))))))))",
+      "elaborated_type_sha256": "075b1d5255c1114dd428ca96eb97099c6cfc3ac1b3d8c10b9c9bcdb8e574bc7c",
+      "assessment": "matches intended statement; no concrete finding",
+      "findings": []
+    }
+  ],
+  "findings": [],
+  "outcome": "author source/type readback passes for all 9 declarations",
+  "not_independent_review": true,
+  "not_full_candidate_validation": true,
+  "not_acceptance": true,
+  "writes": "this readback JSON and report only; no source, reference, cache, build, public-root or coverage mutation",
+  "source_hold": true
+}

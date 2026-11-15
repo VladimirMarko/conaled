@@ -1,0 +1,304 @@
+{
+  "title": "Functional Data Structures and Algorithms: A Proof Assistant Approach",
+  "editor": "Tobias Nipkow",
+  "edition": "Version of July 27, 2026",
+  "original_publication": "ACM Books, September 2025",
+  "retrieved_on": "2026-11-02",
+  "official_site": "https://fdsa-book.net/",
+  "pdf_url": "https://fdsa-book.net/functional_data_structures_algorithms.pdf",
+  "pdf_sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645",
+  "pdf_pages": 382,
+  "numbered_pages": 376,
+  "isabelle_mirror": "https://github.com/isabelle-prover/mirror-isabelle",
+  "isabelle_source_revision": "f86f290225eebcc52c1ae7dba2e098f405f51c21",
+  "isabelle_license": "BSD-3-Clause (COPYRIGHT at pinned revision)",
+  "notes": [
+    "Pin coverage to this edition; later source changes do not automatically expand scope.",
+    "PDF text is a research download, not a project source file. Preserve this manifest and URLs in code checkpoints; do not copy the full book or large extracts into repository deliverables.",
+    "Source links are exact PDF annotations. An empty array means the chapter has no direct source hyperlink, not that its mathematics is absent from Isabelle.",
+    "AFP entries have their own explicit licenses and dependencies; check each before source reuse.",
+    "The PDF chapter starts exclude intervening Part title pages."
+  ],
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "Basics",
+      "start_page": 1,
+      "source_links": []
+    },
+    {
+      "chapter": 2,
+      "title": "Sorting",
+      "start_page": 13,
+      "source_links": [
+        "https://isa-afp.org/entries/Efficient-Mergesort.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Sorting.html"
+      ]
+    },
+    {
+      "chapter": 3,
+      "title": "Selection",
+      "start_page": 31,
+      "source_links": [
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Selection.html"
+      ]
+    },
+    {
+      "chapter": 4,
+      "title": "Binary Trees",
+      "start_page": 47,
+      "source_links": [
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Tree2.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Library/Tree.html"
+      ]
+    },
+    {
+      "chapter": 5,
+      "title": "Binary Search Trees",
+      "start_page": 59,
+      "source_links": [
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Interval_Tree.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Tree_Rotations.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Tree_Set.html"
+      ]
+    },
+    {
+      "chapter": 6,
+      "title": "Abstract Data Types",
+      "start_page": 77,
+      "source_links": [
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Map_Specs.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Set_Specs.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Tree_Map.html"
+      ]
+    },
+    {
+      "chapter": 7,
+      "title": "2-3 Trees",
+      "start_page": 85,
+      "source_links": [
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Tree23_Set.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Tree23_of_List.html"
+      ]
+    },
+    {
+      "chapter": 8,
+      "title": "Red-Black Trees",
+      "start_page": 95,
+      "source_links": [
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/RBT_Map.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/RBT_Set.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/RBT_Set2.html"
+      ]
+    },
+    {
+      "chapter": 9,
+      "title": "AVL Trees",
+      "start_page": 105,
+      "source_links": [
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/AVL_Bal_Set.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/AVL_Set.html"
+      ]
+    },
+    {
+      "chapter": 10,
+      "title": "Beyond Insert and Delete: Union, Intersection and Difference",
+      "start_page": 117,
+      "source_links": [
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Set2_Join.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Set2_Join_RBT.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Set_Specs.html"
+      ]
+    },
+    {
+      "chapter": 11,
+      "title": "Arrays via Braun Trees",
+      "start_page": 127,
+      "source_links": [
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Array_Braun.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Array_Specs.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Braun_Tree.html"
+      ]
+    },
+    {
+      "chapter": 12,
+      "title": "Tries",
+      "start_page": 149,
+      "source_links": [
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Trie_Fun.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Trie_Ternary.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Tries_Binary.html"
+      ]
+    },
+    {
+      "chapter": 13,
+      "title": "Region Quadtrees",
+      "start_page": 161,
+      "source_links": [
+        "https://isa-afp.org/browser_info/current/AFP/Region_Quadtrees/KD_Region_Tree.html",
+        "https://isa-afp.org/browser_info/current/AFP/Region_Quadtrees/Quad_Matrix.html",
+        "https://isa-afp.org/browser_info/current/AFP/Region_Quadtrees/Quad_Tree.html",
+        "https://isa-afp.org/entries/Region_Quadtrees.html"
+      ]
+    },
+    {
+      "chapter": 14,
+      "title": "Priority Queues",
+      "start_page": 179,
+      "source_links": [
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Heaps.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Priority_Queue_Specs.html"
+      ]
+    },
+    {
+      "chapter": 15,
+      "title": "Leftist Heaps",
+      "start_page": 183,
+      "source_links": [
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Leftist_Heap.html"
+      ]
+    },
+    {
+      "chapter": 16,
+      "title": "Priority Queues via Braun Trees",
+      "start_page": 191,
+      "source_links": [
+        "https://isa-afp.org/browser_info/current/AFP/Priority_Queue_Braun/Priority_Queue_Braun.html"
+      ]
+    },
+    {
+      "chapter": 17,
+      "title": "Binomial Priority Queues",
+      "start_page": 195,
+      "source_links": [
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Binomial_Heap.html"
+      ]
+    },
+    {
+      "chapter": 18,
+      "title": "Dynamic Programming",
+      "start_page": 205,
+      "source_links": [
+        "https://isa-afp.org/browser_info/current/AFP/Monad_Memo_DP/Bellman_Ford.html",
+        "https://isa-afp.org/browser_info/current/AFP/Optimal_BST/Optimal_BST2.html",
+        "https://isa-afp.org/entries/Monad_Memo_DP.html"
+      ]
+    },
+    {
+      "chapter": 19,
+      "title": "Amortized Analysis",
+      "start_page": 227,
+      "source_links": [
+        "https://isa-afp.org/entries/Amortized_Complexity.html"
+      ]
+    },
+    {
+      "chapter": 20,
+      "title": "Queues",
+      "start_page": 233,
+      "source_links": [
+        "https://isa-afp.org/entries/Hood_Melville_Queue.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Queue_2Lists.html",
+        "https://isabelle.in.tum.de/dist/library/HOL/HOL-Data_Structures/Queue_Spec.html"
+      ]
+    },
+    {
+      "chapter": 21,
+      "title": "Splay Trees",
+      "start_page": 245,
+      "source_links": [
+        "https://isa-afp.org/browser_info/current/AFP/Amortized_Complexity/Splay_Tree_Analysis.html",
+        "https://isa-afp.org/browser_info/current/AFP/Splay_Tree/Splay_Tree.html",
+        "https://isa-afp.org/entries/Splay_Tree.html"
+      ]
+    },
+    {
+      "chapter": 22,
+      "title": "Skew Heaps",
+      "start_page": 253,
+      "source_links": [
+        "https://isa-afp.org/browser_info/current/AFP/Amortized_Complexity/Skew_Heap_Analysis.html",
+        "https://isa-afp.org/browser_info/current/AFP/Skew_Heap/Skew_Heap.html",
+        "https://isa-afp.org/entries/Skew_Heap.html"
+      ]
+    },
+    {
+      "chapter": 23,
+      "title": "Pairing Heaps",
+      "start_page": 257,
+      "source_links": [
+        "https://isa-afp.org/browser_info/current/AFP/Amortized_Complexity/Pairing_Heap_List2_Analysis.html",
+        "https://isa-afp.org/browser_info/current/AFP/Amortized_Complexity/Pairing_Heap_Tree_Analysis.html",
+        "https://isa-afp.org/browser_info/current/AFP/Pairing_Heap/Pairing_Heap_List2.html",
+        "https://isa-afp.org/entries/Pairing_Heap.html"
+      ]
+    },
+    {
+      "chapter": 24,
+      "title": "Graph Algorithms",
+      "start_page": 267,
+      "source_links": [
+        "https://isa-afp.org/entries/Graph_Algorithms.html"
+      ]
+    },
+    {
+      "chapter": 25,
+      "title": "Knuth-Morris-Pratt String Search",
+      "start_page": 293,
+      "source_links": [
+        "https://isa-afp.org/entries/KnuthMorrisPratt.html"
+      ]
+    },
+    {
+      "chapter": 26,
+      "title": "Huffman's Algorithm",
+      "start_page": 305,
+      "source_links": [
+        "https://isa-afp.org/browser_info/current/AFP/Huffman/Huffman.html"
+      ]
+    },
+    {
+      "chapter": 27,
+      "title": "Alpha-Beta Pruning",
+      "start_page": 319,
+      "source_links": [
+        "https://isa-afp.org/browser_info/current/AFP/Alpha_Beta_Pruning/Alpha_Beta_Lattice.html"
+      ]
+    },
+    {
+      "chapter": "A",
+      "title": "List Library",
+      "start_page": 343,
+      "source_links": []
+    },
+    {
+      "chapter": "B",
+      "title": "Time Functions",
+      "start_page": 347,
+      "source_links": []
+    },
+    {
+      "chapter": "C",
+      "title": "Notation",
+      "start_page": 355,
+      "source_links": []
+    }
+  ],
+  "local_source_files": [
+    {
+      "filename": "Sorting.thy",
+      "url": "https://raw.githubusercontent.com/isabelle-prover/mirror-isabelle/f86f290225eebcc52c1ae7dba2e098f405f51c21/src/HOL/Data_Structures/Sorting.thy",
+      "sha256": "dfa60eae99cd6fa31e4fdd45f488282f913619a204061960e43ddceba4cadfca"
+    },
+    {
+      "filename": "Base_FDS.thy",
+      "url": "https://raw.githubusercontent.com/isabelle-prover/mirror-isabelle/f86f290225eebcc52c1ae7dba2e098f405f51c21/src/HOL/Data_Structures/Base_FDS.thy",
+      "sha256": "49c72bdae00f62b356bf15008beddb8162e478590b7237fa4efa283b1edf618b"
+    },
+    {
+      "filename": "ISABELLE-COPYRIGHT",
+      "url": "https://raw.githubusercontent.com/isabelle-prover/mirror-isabelle/f86f290225eebcc52c1ae7dba2e098f405f51c21/COPYRIGHT",
+      "sha256": "44176a9195f0d6110302ca58c302437b2d6685049d4b8a7c1117121883d4b64d"
+    }
+  ]
+}

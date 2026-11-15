@@ -1,0 +1,312 @@
+{
+  "recorded_utc": "2026-11-04T19:03:24.480679+00:00",
+  "base": "9ff4d92e20eeabde29fd91b78c37786019e9613b",
+  "source_readback": "5c6561 complete277source-lines",
+  "source_files": [
+    {
+      "path": "Applications/Resources/SelectionAuxiliary.lean",
+      "bytes": 6215,
+      "lines": 132,
+      "sha256": "eeba4ac85dd4e07b8b42f38499748cae69cb6dcaaa01fdc8400a3cf5b947a925",
+      "public_declarations": [
+        {
+          "name": "Resources.SelectionAuxiliary.slowSelectRun",
+          "kind": "def",
+          "line": 22,
+          "header": "def slowSelectRun (k : Nat) (xs : List \u03b1) : Measured (Option \u03b1) Nat",
+          "header_sha256": "df92124aa4209787418883b35994ec6731dfaacd4b6cf4e954d810fcd73b8c0a"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowSelectRun_value",
+          "kind": "theorem",
+          "line": 25,
+          "header": "theorem slowSelectRun_value (k : Nat) (xs : List \u03b1) :\n    (slowSelectRun k xs).1 = (ordered xs)[k]?",
+          "header_sha256": "0c88b06b77ef5a5b6bcd92c9d92f4fa88f26f434ce5d82377d7876c30381391d"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowSelectRun_cost",
+          "kind": "theorem",
+          "line": 32,
+          "header": "theorem slowSelectRun_cost (k : Nat) (xs : List \u03b1) :\n    (slowSelectRun k xs).2 =\n      (InsertionSort.sortRun (\u00b7 \u2264 \u00b7) xs).2 + min k xs.length + 1",
+          "header_sha256": "0d5042731b4410321d2d1b7efdd611da3a3e9704bfe72809d2c71b33daf94bbf"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowSelectRun_cost_of_lt",
+          "kind": "theorem",
+          "line": 38,
+          "header": "theorem slowSelectRun_cost_of_lt (k : Nat) (xs : List \u03b1) (hk : k < xs.length) :\n    (slowSelectRun k xs).2 = (InsertionSort.sortRun (\u00b7 \u2264 \u00b7) xs).2 + k + 1",
+          "header_sha256": "ee0ca7fbf69b7ce7d7865a61983475f95c6713acc20ccc413033255d0d6c7be5"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowSelectRun_some_iff",
+          "kind": "theorem",
+          "line": 42,
+          "header": "theorem slowSelectRun_some_iff (k : Nat) (xs : List \u03b1) (a : \u03b1) :\n    (slowSelectRun k xs).1 = some a \u2194 RankedAt xs k a",
+          "header_sha256": "b34e5d8dd2e9a8e95acb3b70357b0763c035faa2b87339ec0e5918f099c3eaef"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowSelectRun_none",
+          "kind": "theorem",
+          "line": 46,
+          "header": "theorem slowSelectRun_none (k : Nat) (xs : List \u03b1) :\n    (slowSelectRun k xs).1 = none \u2194 xs.length \u2264 k",
+          "header_sha256": "7a7445dc14c1a6994a008b36a7f2204aad90ec1d56dd0e2a70a35394650878e6"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowSelectRun_public",
+          "kind": "theorem",
+          "line": 51,
+          "header": "theorem slowSelectRun_public (k : Nat) (xs : List \u03b1) :\n    (slowSelectRun k xs).1 = sortSelect (k + 1) xs",
+          "header_sha256": "8924ce20a2b425541db78a7e4b364f489fb1050c6a0216186acf72bc7d3ee2e8"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowSelectRun_cost_bound",
+          "kind": "theorem",
+          "line": 57,
+          "header": "theorem slowSelectRun_cost_bound (k : Nat) (xs : List \u03b1) (hk : k < xs.length) :\n    (slowSelectRun k xs).2 \u2264 xs.length ^ 2 + 3 * xs.length + 1",
+          "header_sha256": "b232ac5d928337698fffa0d17d283c244697cea1b93b015586bee9eadeffd44a"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowSelectRun_cost_of_pairwise",
+          "kind": "theorem",
+          "line": 63,
+          "header": "theorem slowSelectRun_cost_of_pairwise (k : Nat) (xs : List \u03b1)\n    (hk : k < xs.length) (hs : xs.Pairwise (\u00b7 \u2264 \u00b7)) :\n    (slowSelectRun k xs).2 = 2 * xs.length + k + 2",
+          "header_sha256": "61d7314e44e94aa403a60477ef0c7dd714601c463f126a2a46d37c5b209f9707"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowSelectRun_cost_reverse_range",
+          "kind": "theorem",
+          "line": 69,
+          "header": "theorem slowSelectRun_cost_reverse_range (n k : Nat) (hk : k < n) :\n    (slowSelectRun k (List.range n).reverse).2 =\n      (n + 1) * (n + 2) / 2 + k + 1",
+          "header_sha256": "f87540edfe3256224730dd52a287eb49e304ee62f6a2d8f720468b2072aeeeed"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowSelectRun_entry_bound",
+          "kind": "theorem",
+          "line": 77,
+          "header": "theorem slowSelectRun_entry_bound (k : Nat) (xs : List \u03b1) (hk : k < xs.length) :\n    1 + (SymmetricCosts.lengthRun xs).2 + (slowSelectRun k xs).2 \u2264\n      xs.length ^ 2 + 4 * xs.length + 3",
+          "header_sha256": "c68286c45a7c6ba9c3ce861fcf14750f452342dc3d8d8bbbbe909ac664dbe6cd"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowSelectRun_cutoff_bound",
+          "kind": "theorem",
+          "line": 84,
+          "header": "theorem slowSelectRun_cutoff_bound (k : Nat) (xs : List \u03b1)\n    (hk : k < xs.length) (hn : xs.length \u2264 20) :\n    1 + (SymmetricCosts.lengthRun xs).2 + (slowSelectRun k xs).2 \u2264 483",
+          "header_sha256": "9ad6c6f5ffd55c4ce4813f0458d4a1c93c7f412a86ce41add8f752f0f28449c0"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowMedianRun",
+          "kind": "def",
+          "line": 92,
+          "header": "def slowMedianRun (xs : List \u03b1) : Measured (Option \u03b1) Nat",
+          "header_sha256": "fe0e3b488f9094295008c769e51f2fa87df1cdb41b38e9248d7ed9da0c4ca9c9"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowMedianRun_value",
+          "kind": "theorem",
+          "line": 95,
+          "header": "theorem slowMedianRun_value (xs : List \u03b1) :\n    (slowMedianRun xs).1 = lowerMedianWith List.head? xs",
+          "header_sha256": "31f9d24ceacae7a2c8cc0bf98da517ef657948a83e88faf45d38fa050cebc754"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowMedianRun_cost",
+          "kind": "theorem",
+          "line": 100,
+          "header": "theorem slowMedianRun_cost (xs : List \u03b1) :\n    (slowMedianRun xs).2 = (SymmetricCosts.lengthRun xs).2 +\n      (slowSelectRun ((xs.length - 1) / 2) xs).2",
+          "header_sha256": "420ca221fbd0e6380fef59708a7393c1a612fd23906b73b4fae035c3b068c807"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowMedianRun_some_iff",
+          "kind": "theorem",
+          "line": 105,
+          "header": "theorem slowMedianRun_some_iff (xs : List \u03b1) (a : \u03b1) :\n    (slowMedianRun xs).1 = some a \u2194 RankedAt xs ((xs.length - 1) / 2) a",
+          "header_sha256": "2d23f0b46e716970bb1af25f5b5a5f0342296a16007aa79aa4104f61a48421af"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowMedianRun_none",
+          "kind": "theorem",
+          "line": 109,
+          "header": "theorem slowMedianRun_none (xs : List \u03b1) :\n    (slowMedianRun xs).1 = none \u2194 xs = []",
+          "header_sha256": "1788e3e12bd24fe68781a90ccfd3d05e4827b52c1a714b77999b9876f50fd2b9"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowMedianRun_mem",
+          "kind": "theorem",
+          "line": 113,
+          "header": "theorem slowMedianRun_mem (xs : List \u03b1) (a : \u03b1)\n    (ha : (slowMedianRun xs).1 = some a) : a \u2208 xs",
+          "header_sha256": "3adc4c20f91026742f8fb2c84518b04f08c5a460e3cb09c597e5c4cc9e7afcac"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowMedianRun_cost_bound",
+          "kind": "theorem",
+          "line": 117,
+          "header": "theorem slowMedianRun_cost_bound (xs : List \u03b1) (hx : xs \u2260 []) :\n    (slowMedianRun xs).2 \u2264 xs.length ^ 2 + 4 * xs.length + 2",
+          "header_sha256": "d1dd705ecf91850ee546c3f366d274ce1f69f23e1223f274c48864bdd1a091f6"
+        },
+        {
+          "name": "Resources.SelectionAuxiliary.slowMedianRun_small_bound",
+          "kind": "theorem",
+          "line": 126,
+          "header": "theorem slowMedianRun_small_bound (xs : List \u03b1) (hx : xs \u2260 [])\n    (hn : xs.length \u2264 5) : (slowMedianRun xs).2 \u2264 47",
+          "header_sha256": "c6d4a8ba863fd5e4da961cf1045b50ea3aa8a8e18198ed6ef8d729ee4715cc8d"
+        }
+      ],
+      "private_named_declarations": [],
+      "anonymous_declarations": []
+    },
+    {
+      "path": "Examples/SelectionAuxiliary.lean",
+      "bytes": 5533,
+      "lines": 145,
+      "sha256": "f972055a3af3428e02705c7e5a9abe7ccce022c42c6752664bf15f6867626b77",
+      "public_declarations": [
+        {
+          "name": "Examples.SelectionAuxiliary.empty_payload_selection",
+          "kind": "theorem",
+          "line": 15,
+          "header": "theorem empty_payload_selection : slowSelectRun 17 ([] : List (Fin 0)) = (none, 2)",
+          "header_sha256": "d6b1eafad395db5807596f107c03293b65f1b82202f97303d5036b9abc45246d"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.singleton_selection",
+          "kind": "theorem",
+          "line": 22,
+          "header": "theorem singleton_selection : slowSelectRun 0 [7] = (some 7, 4)",
+          "header_sha256": "7804fe9c9ffb556407a4a0b6ca7df7efd35cc539cd0f46cf3787ff554fc1be3d"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.singleton_invalid",
+          "kind": "theorem",
+          "line": 29,
+          "header": "theorem singleton_invalid : slowSelectRun 1 [7] = (none, 5) \u2227\n    slowSelectRun 17 [7] = (none, 5)",
+          "header_sha256": "48695be76aa3a6634ecb92294957bf322719a38f03f9c1b4c715d47482fb6720"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.public_rank_bridge",
+          "kind": "theorem",
+          "line": 41,
+          "header": "theorem public_rank_bridge {\u03b1 : Type u} [LinearOrder \u03b1] (k : Nat) (xs : List \u03b1) :\n    (slowSelectRun k xs).1 = sortSelect (k + 1) xs",
+          "header_sha256": "879f078099e94bc00f0569c764f03491b222694a1443b0fda1309da7f1b87f24"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.duplicate_occurrence_rank",
+          "kind": "theorem",
+          "line": 44,
+          "header": "theorem duplicate_occurrence_rank : RankedAt [3, 1, 3, 2] 2 3",
+          "header_sha256": "f778044bccf7a48df3af02ee031d53ab78a0fe8248493bd151c84af1f4da6752"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.collapsed_occurrence_rank",
+          "kind": "theorem",
+          "line": 50,
+          "header": "theorem collapsed_occurrence_rank : RankedAt [0, 0, 0, 0] 2 0",
+          "header_sha256": "739d2fe1b1f36821256468d0cc52fd3ba141164ba815451c1fe271275ee723e0"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.valid_selection_budget",
+          "kind": "theorem",
+          "line": 53,
+          "header": "theorem valid_selection_budget {\u03b1 : Type u} [LinearOrder \u03b1]\n    (xs : List \u03b1) (k : Nat) (hk : k < xs.length) :\n    (slowSelectRun k xs).2 \u2264 xs.length ^ 2 + 3 * xs.length + 1",
+          "header_sha256": "5cf12e2b44b7972bb1bcc21c0a1db7f4e7f9f2694d5afea192ee6e1c31c3a656"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.empty_payload_median",
+          "kind": "theorem",
+          "line": 58,
+          "header": "theorem empty_payload_median : slowMedianRun ([] : List (Fin 0)) = (none, 3)",
+          "header_sha256": "1407455f89ab05667bd0bfa4695788027caec567f6a2932049272a2489a3e757"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.singleton_median",
+          "kind": "theorem",
+          "line": 64,
+          "header": "theorem singleton_median : slowMedianRun [7] = (some 7, 6)",
+          "header_sha256": "f5199d8a224536acc1da9c4608e3cc466938eef290e35437dc80a35023e9d7c4"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.lower_even_median",
+          "kind": "theorem",
+          "line": 71,
+          "header": "theorem lower_even_median : slowMedianRun [7, 2] = (some 2, 10)",
+          "header_sha256": "51223ee9d90312cd316e00ed84ce7d8cd6cd9995b04652a2daa5c58d6db5796e"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.repeated_central_values",
+          "kind": "theorem",
+          "line": 78,
+          "header": "theorem repeated_central_values : slowMedianRun [4, 4] = (some 4, 9)",
+          "header_sha256": "8d346882e2f7ca9a77ff311c0e7ce1c29946d63e98aa1be208105619a4eae184"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.ascending_five_median",
+          "kind": "theorem",
+          "line": 85,
+          "header": "theorem ascending_five_median : slowMedianRun (List.range 5) = (some 2, 20)",
+          "header_sha256": "1645671b2b8874908472a0cff1ebdde0097a7337c5ec6076db3defdf03eb0acf"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.descending_five_median",
+          "kind": "theorem",
+          "line": 93,
+          "header": "theorem descending_five_median : slowMedianRun (List.range 5).reverse = (some 2, 30)",
+          "header_sha256": "d44d0a52484743e66725f52dd13f674cce006322894ec7273d1d68adf440f810"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.same_median_different_work",
+          "kind": "theorem",
+          "line": 101,
+          "header": "theorem same_median_different_work :\n    (slowMedianRun (List.range 5)).1 = (slowMedianRun (List.range 5).reverse).1 \u2227\n      (slowMedianRun (List.range 5)).2 < (slowMedianRun (List.range 5).reverse).2",
+          "header_sha256": "82d2487b7e36d93239ce280156ebc80064396020e69c76e52508a60345ed6af3"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.arbitrary_short_chunk",
+          "kind": "theorem",
+          "line": 107,
+          "header": "theorem arbitrary_short_chunk {\u03b1 : Type u} [LinearOrder \u03b1]\n    (xs : List \u03b1) (hx : xs \u2260 []) (hn : xs.length \u2264 5) :\n    (slowMedianRun xs).2 \u2264 47",
+          "header_sha256": "6f495eee95903a5bb86642288278efa634d7032f8509c2ef7a9def40577dc9a5"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.singleton_short_chunk",
+          "kind": "theorem",
+          "line": 111,
+          "header": "theorem singleton_short_chunk : (slowMedianRun [9]).2 \u2264 47",
+          "header_sha256": "56341ce7c5d632633191a486e7bcb66fbc74d765da08df51f8029344856ad559"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.median_value_and_budget",
+          "kind": "theorem",
+          "line": 114,
+          "header": "theorem median_value_and_budget {\u03b1 : Type u} [LinearOrder \u03b1]\n    (xs : List \u03b1) (a : \u03b1) (ha : (slowMedianRun xs).1 = some a) :\n    RankedAt xs ((xs.length - 1) / 2) a \u2227 a \u2208 xs \u2227\n      (slowMedianRun xs).2 \u2264 xs.length ^ 2 + 4 * xs.length + 2",
+          "header_sha256": "905ef8174979532a6cfa74877f7bc99a1bc8b09074a40116977061a20d792468"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.cutoff_sorted_last",
+          "kind": "theorem",
+          "line": 126,
+          "header": "theorem cutoff_sorted_last :\n    1 + (Resources.SymmetricCosts.lengthRun (List.range 20)).2 +\n      (slowSelectRun 19 (List.range 20)).2 = 83",
+          "header_sha256": "13ef76767e42eaaeff4de68ca1dde94be39259a633a31d025eb3a686ab90dbc3"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.cutoff_descending_last",
+          "kind": "theorem",
+          "line": 133,
+          "header": "theorem cutoff_descending_last :\n    1 + (Resources.SymmetricCosts.lengthRun (List.range 20).reverse).2 +\n      (slowSelectRun 19 (List.range 20).reverse).2 = 273",
+          "header_sha256": "0226038bd45a2353aaee40b649635171281cde260cbb310a72e771985b90f01b"
+        },
+        {
+          "name": "Examples.SelectionAuxiliary.cutoff_uniform_budget",
+          "kind": "theorem",
+          "line": 140,
+          "header": "theorem cutoff_uniform_budget {\u03b1 : Type u} [LinearOrder \u03b1]\n    (xs : List \u03b1) (k : Nat) (hk : k < xs.length) (hn : xs.length \u2264 20) :\n    1 + (Resources.SymmetricCosts.lengthRun xs).2 + (slowSelectRun k xs).2 \u2264 483",
+          "header_sha256": "c02bdcbac82e20453d7630e25c0109134962d6cff090c05127b56a3dff360434"
+        }
+      ],
+      "private_named_declarations": [],
+      "anonymous_declarations": []
+    }
+  ],
+  "total_public": 40,
+  "total_private": 0,
+  "total_anonymous": 0,
+  "compiler_actions": false,
+  "scope": "Auxiliary slice only; fullC03 remains open. All40headers reviewed as written source; actual expanded types pending."
+}

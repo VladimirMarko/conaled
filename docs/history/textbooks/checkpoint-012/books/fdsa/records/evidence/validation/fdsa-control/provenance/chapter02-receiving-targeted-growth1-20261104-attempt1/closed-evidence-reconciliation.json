@@ -1,0 +1,94 @@
+{
+  "recorded_utc": "2026-11-04T18:02:42.034517+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "profile_number": 11,
+  "label": "growth1",
+  "terminal": {
+    "started_utc": "2026-11-04T18:02:39.055626+00:00",
+    "completed_utc": "2026-11-04T18:02:42.014390+00:00",
+    "actual_exit": 0,
+    "elapsed_seconds": 2.9587719539995305,
+    "owner": "/root serial driver",
+    "observation": "subprocess.run returned after actual recorder termination; not a tool-session terminal claim",
+    "argv": [
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/record_command.py",
+      "--name",
+      "chapter02-receiving-targeted-growth1-20261104-attempt1",
+      "--cwd",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "--candidate",
+      "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+      "--",
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+      "--state",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+      "run",
+      "--project",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "--threads",
+      "1",
+      "--",
+      "lake",
+      "env",
+      "lean",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/GrowthRetained1.lean"
+    ]
+  },
+  "program_before": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/GrowthRetained1.lean",
+    "bytes": 163,
+    "sha256": "bb4e5d94f5f349aaa4fb8e8ffa4a355b1fc3e7f5a1cb09486a358bbc417f285a"
+  },
+  "program_after": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/GrowthRetained1.lean",
+    "bytes": 163,
+    "sha256": "bb4e5d94f5f349aaa4fb8e8ffa4a355b1fc3e7f5a1cb09486a358bbc417f285a"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T180239Z-project-run-ab16d90d",
+  "native_records": [
+    {
+      "origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T180239Z-project-run-ab16d90d/start.json",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/native-records/start.json",
+      "bytes": 576,
+      "sha256": "6fa55f09c0674a6e06318019877660842b9cef9625a77e2ab1eab6c8a71f31a6"
+    },
+    {
+      "origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T180239Z-project-run-ab16d90d/result.json",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/native-records/result.json",
+      "bytes": 728,
+      "sha256": "42b9ea5d2bf84c433c1997ee9990821744f2344f3785ff48866b2fc9831130f6"
+    },
+    {
+      "origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T180239Z-project-run-ab16d90d/output.log",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/native-records/output.log",
+      "bytes": 463,
+      "sha256": "b379b005e8e4d11753f31dac47127b24a8192444165b03469a61e8e2bab58c6f"
+    }
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/full.log",
+    "bytes": 837,
+    "sha256": "6e35adb1cd2844c1d925e7fd24bee0d8580b8c49ff5c7761e5d068ab53e169bb"
+  },
+  "native_output_exact_outer_offset": 218,
+  "outer_prefix": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/outer-prefix.log",
+    "bytes": 218,
+    "sha256": "e447456bf48849b226ed97d929ce63674b9232e7b70a5e5c2acd6bf5439f1b4e"
+  },
+  "outer_suffix": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/outer-suffix.log",
+    "bytes": 156,
+    "sha256": "301db2a6c53f7ed108038c8d413f8c14c42a1773a1142fd31e16afeca6646f64"
+  },
+  "complete_closed_log": true,
+  "inherited_full_verification": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/verification.json",
+    "bytes": 867,
+    "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+  },
+  "inherited_verification_is_not_a_new_full_check": true,
+  "mathematical_or_type_qualification_credit": 0
+}

@@ -1,0 +1,37 @@
+{
+  "recorded_utc": "2026-11-04T08:19:20.286047+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "source_snapshot": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+  "complete_changed_paths_independently_read": 80,
+  "source_preparation": "complete",
+  "concrete_mathematical_spec_findings": 0,
+  "overall_outcome": "Blocked",
+  "approval_or_acceptance": false,
+  "artifacts": [
+    {
+      "path": "reviews/chapter02-spec-source-preparation-20261104.md",
+      "bytes": 31994,
+      "lines": 143,
+      "sha256": "218a064b448f8266a31d08ac67870304a77a6dc547c552efde95fa4ca08c6050"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/read-ledger.json",
+      "bytes": 7233,
+      "lines": 149,
+      "sha256": "ded29441bfbecfb35aa6f08c62385d449241dbc3ce84b2bd7d2be1380ac6ae84"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/source-scope-receipt.json",
+      "bytes": 35903,
+      "lines": 960,
+      "sha256": "64ed64bf62781b62ce65fa472105cdff41befcb8ce38af4e621c6f81200a316b"
+    }
+  ],
+  "pending_corrective_deltas": [
+    "47f66dccc414d41bddf0dc6576a2338227ee221e",
+    "ee2ea2406a014e43c355f93317455f27b90dd680"
+  ],
+  "reviewer_builds_or_source_mutations": false,
+  "checkpoint_hold": "Own writes stop after this coherent receipt; read-only continuation until parent releases."
+}

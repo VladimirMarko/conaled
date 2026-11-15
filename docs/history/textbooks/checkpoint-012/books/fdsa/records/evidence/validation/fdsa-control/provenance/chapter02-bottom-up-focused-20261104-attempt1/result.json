@@ -1,0 +1,32 @@
+{
+  "candidate": "101aaa6f94f75af35d339746bff44305840373fe",
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "build",
+    "Applications.Sorting.BottomUp",
+    "Examples.BottomUpSorting"
+  ],
+  "started_utc": "2026-11-04T04:48:11.380348+00:00",
+  "completed_utc": "2026-11-04T04:48:33.515837+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 22.135141776000637,
+  "state": "failed",
+  "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-bottom-up-focused-20261104-attempt1/full.log",
+  "progress_bookkeeping_errors": [],
+  "final_head": "101aaa6f94f75af35d339746bff44305840373fe",
+  "final_status": "?? Applications/Sorting/InsertionObservations.lean\n?? Applications/Sorting/TopDown.lean\n?? Examples/InsertionObservations.lean\n?? Examples/TopDownSorting.lean",
+  "log_size_bytes": 4463,
+  "log_sha256": "380e22d418718907ed7fde6d8d7b1a7bcef707a09815cf3d4ca79ba0fba0087a",
+  "available_bytes_at_completion": 23838973952,
+  "verification_record_present": false
+}

@@ -1,0 +1,112 @@
+{
+  "record_type": "bounded_primary_source_recovery",
+  "retrieved_utc": "2026-11-02T06:14:22.251669+00:00",
+  "title": "Generalisation of alpha-beta search for AND-OR graphs with partially ordered values",
+  "authors": [
+    "Junkang Li",
+    "Bruno Zanuttini",
+    "Tristan Cazenave",
+    "Véronique Ventos"
+  ],
+  "ijcai_doi": "10.24963/ijcai.2022/661",
+  "ijcai_short_paper_url": "https://www.ijcai.org/proceedings/2022/0661.pdf",
+  "hal_footnote_url": "https://hal.archives-ouvertes.fr/hal-03656224",
+  "hal_metadata": {
+    "api_url": "https://api.archives-ouvertes.fr/search/?q=halId_s%3Ahal-03656224&fl=*&wt=json",
+    "snapshot": {
+      "path": "book-source/Li-2022-HAL-api-full.json",
+      "bytes": 79461,
+      "sha256": "f8114bcb910507193dc236f1899d79c121004df86525fc8921fb02eb1791b249"
+    },
+    "docid": "3676696",
+    "uri": "https://hal.science/hal-03656224v2",
+    "version": 2,
+    "document_type": "REPORT",
+    "produced_date": "2022-05-02T00:00:00Z",
+    "submitted_date": "2022-05-24T11:07:06Z",
+    "released_date": "2022-06-10T11:09:04Z",
+    "metadata_modified_date": "2026-02-07T05:23:15Z",
+    "last_indexed_date": "2026-10-22T11:36:04.990Z",
+    "file_main_url": "https://hal.science/hal-03656224/document",
+    "files": [
+      "https://hal.science/hal-03656224/file/hal.pdf"
+    ],
+    "license": "https://about.hal.science/hal-authorisation-v1/",
+    "file_licenses": [
+      "https://about.hal.science/hal-authorisation-v1/"
+    ],
+    "qualification": "The 2026 metadata modification timestamp is not evidence of a new manuscript content revision. API returned the current v2 record; earlier version history was not recovered."
+  },
+  "hal_pdf_access": {
+    "attempted_url": "https://hal.science/hal-03656224v2/document",
+    "outcome": "HTTP 403; no HAL PDF recovered or hashed; no bypass attempted",
+    "response_headers": {
+      "path": "book-source/Li-2022-HAL-v2-download.headers",
+      "bytes": 244,
+      "sha256": "6009c356a61b191ebcc65b301bd4b2e40c62e219b4c59521912c6448db3fbfec"
+    }
+  },
+  "alternate_long_version": {
+    "venue": "Journées d’Intelligence Artificielle Fondamentale (JIAF), PFIA 2022",
+    "venue_dates": "2022-06-30 through 2022-07-01",
+    "url": "https://ci.mines-stetienne.fr/pfia2022/conferences/jiaf/actes/actes_jiaf_2022.pdf",
+    "proceedings": {
+      "path": "book-source/Li-2022-HAL-alternative-JIAF-proceedings.pdf",
+      "bytes": 6746419,
+      "sha256": "18642d76394aea5264da7194d57f2ced0da8577fcd57bd5fd044493be839fa3a"
+    },
+    "proceedings_pdf_pages": 147,
+    "article_source_pdf_pages": [
+      101,
+      111
+    ],
+    "article_printed_pages": [
+      101,
+      111
+    ],
+    "article_reading_excerpt": {
+      "path": "book-source/Li-2022-HAL-alternative-JIAF-article.pdf",
+      "bytes": 620265,
+      "sha256": "2be7c3f0971be768fd40f9b8332d53eff3a013451003a74611b0ca34ad15c92e"
+    },
+    "article_text": {
+      "path": "book-source/Li-2022-HAL-alternative-JIAF-article.txt",
+      "bytes": 82801,
+      "sha256": "f53231db6abc56421b95baa4aa6becd37e9dae18e3e3e91e3bc65254cae03a67"
+    },
+    "excerpt_method": "pypdf copied original PDF pages 101–111 into a separate 11-page reading PDF; pdftotext -layout produced the text.",
+    "identity_evidence": "Title-page footnote explicitly identifies this article as a long version with full proofs of the IJCAI 2022 article.",
+    "identity_limit": "This distinct official JIAF publication has not been established byte-identical or content-identical to HAL hal-03656224v2.",
+    "proof_locations": {
+      "Proposition 1": "printed 104–105",
+      "Corollary 1": "printed 105",
+      "Proposition 2": "printed 106–107",
+      "Proposition 3": "printed 107–108",
+      "Corollary 2": "printed 108"
+    },
+    "license_observation": "No article-specific Creative Commons or software license found in the inspected article; do not infer one from public availability or from the separate HAL record."
+  },
+  "rights_sources": [
+    {
+      "url": "https://about.hal.science/en/hal-authorisation-v1/",
+      "observation": "HAL authorisation retains author rights and licenses HAL distribution; reading, consultation and attributed quotation are permitted, but this is not a general open adaptation/software license. The CC-BY-4.0 footer belongs to the HAL explanatory webpage, not automatically to this deposited paper."
+    },
+    {
+      "url": "https://ijcai.org/past_conferences/",
+      "observation": "Publisher states that any version of an IJCAI paper may be published if a reference and link to copyright holder IJCAI Organization are clearly visible. This is publisher-specific republication permission, not an identified CC or source-code license."
+    }
+  ],
+  "code_link_scope": {
+    "inspected": [
+      "HAL v2 metadata file list",
+      "official IJCAI short paper text and URLs",
+      "JIAF long article text and URLs"
+    ],
+    "result": "No source-code repository or code-license link identified. HAL metadata lists one PDF file and no code attachment. Experimental implementation mentions alone do not establish code availability or its license."
+  },
+  "identifier_cautions": [
+    "hal-03658915 and hal-03658925 are separately listed conference deposits, not the footnoted report hal-03656224; they were not retrieved or used as aliases.",
+    "arXiv:2109.05799, associated in one retrieved ORCID/HAL-derived conference metadata view, resolves to a different Neumann–Witt paper. It was rejected as an alpha-beta source."
+  ],
+  "scope": "Reading-source recovery only. No Lean implementation, correctness validation, chapter acceptance, ticket edit, Git operation, Library upload, or other remote write."
+}

@@ -1,0 +1,35 @@
+{
+  "observed_utc": "2026-11-02T21:42:17.381970+00:00",
+  "proc_available": true,
+  "pid_namespace": "pid:[4026532200]",
+  "known_task_processes": [
+    {
+      "role": "wrapper",
+      "expected": {
+        "pid": 544345,
+        "start_ticks": "8579150",
+        "state": "R"
+      },
+      "exists": false
+    },
+    {
+      "role": "checker",
+      "expected": {
+        "pid": 544365,
+        "start_ticks": "8579186",
+        "state": "R"
+      },
+      "exists": false
+    }
+  ],
+  "checkout_cwd_match_scope": "exact review checkout or a path beneath it; no unrelated command lines collected",
+  "matching_checkout_processes": [],
+  "cwd_unreadable_count": 0,
+  "cwd_vanished_count": 0,
+  "head": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "git_status": "",
+  "verification_record_exists": false,
+  "wrapper_success_copy_exists": false,
+  "available_bytes": 1436819456,
+  "limits": "Task-local host process observations at this instant, not an exit-status/cause report, cache-health proof, or acceptance."
+}

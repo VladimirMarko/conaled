@@ -1,0 +1,89 @@
+{
+  "recorded_utc": "2026-11-04T09:00:37.536018+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "retained_complete_central_source": "5398db774ed5ca9938d0562e379d757323e7a355",
+  "full_scope_retained": "All 112 obligations, all ten shared scopes and the complete fixed R-to-eventual-final Chapter 2 scope. Isolated corrections are not complete replacement candidates.",
+  "overall_outcome": "Blocked",
+  "compiler_or_build_invoked_by_reviewer": false,
+  "approval_or_acceptance": false,
+  "candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+  "actual_exit_code": 1,
+  "started_utc": "2026-11-04T08:37:42.387059+00:00",
+  "completed_utc": "2026-11-04T08:52:00.569204+00:00",
+  "elapsed_seconds": 858.181662326002,
+  "source_clean_unchanged_at_terminal": true,
+  "owned_historical_exec_session": 27917,
+  "session_closed_do_not_poll": true,
+  "full_log_read_ranges": [
+    [
+      1,
+      162
+    ],
+    [
+      163,
+      324
+    ]
+  ],
+  "full_log_complete_independent_read": true,
+  "readback_note": "An initial combined tool output was truncated; neither missing passage was counted. Both full ranges were then reread with sufficient output budget, without truncation.",
+  "terminal_records_read_in_full": [
+    "result.json",
+    "secured-terminal.json",
+    "native/result.json"
+  ],
+  "independent_hashes_verified": true,
+  "individual_new_passes": [
+    "✔ [2104/2124] Built Examples.NaturalRunOperations (154s)",
+    "⚠ [3665/3667] Built Applications.Resources.RandomQuickSortRank (130s)",
+    "⚠ [3759/3761] Built Applications.Resources.RandomQuickSortGrowth (126s)"
+  ],
+  "actual_failed_targets": [
+    "Examples.PermutationTailBoundary",
+    "Examples.RandomQuickSortRank",
+    "Applications.Resources.UniformQuickSortMean",
+    "Examples.RandomQuickSortGrowth"
+  ],
+  "dependent_ran_is_not_success": true,
+  "verification_record_present": false,
+  "full_candidate_audit_or_acceptance": false,
+  "foundation_status": "No terminal supplied to this reviewer for the separate exact-F full check. No foundation process polled.",
+  "artifacts": [
+    {
+      "path": "provenance/chapter02-corrected-sorting-focused-20261104-attempt7/full.log",
+      "bytes": 39048,
+      "lines": 324,
+      "sha256": "ad4eaff147d21d5fe4cf1f9ba4c6089db4cb10c01645f37ffc83f9003c28addc"
+    },
+    {
+      "path": "provenance/chapter02-corrected-sorting-focused-20261104-attempt7/result.json",
+      "bytes": 1525,
+      "lines": 39,
+      "sha256": "117a43c280e6a01064899fd7c4453a5f887ce9cc02fb02332ca6f176e58c50f4"
+    },
+    {
+      "path": "provenance/chapter02-corrected-sorting-focused-20261104-attempt7/secured-terminal.json",
+      "bytes": 3590,
+      "lines": 80,
+      "sha256": "c8566ddec451da7cdcc2a796750debaf98233c85f3ce7a22580b27b6247007ae"
+    },
+    {
+      "path": "provenance/chapter02-corrected-sorting-focused-20261104-attempt7/native/output.log",
+      "bytes": 38527,
+      "lines": 321,
+      "sha256": "42c933e153447ec112182945090a174e3fd1de34ae05e5c1c7789882cc3802ad"
+    },
+    {
+      "path": "provenance/chapter02-corrected-sorting-focused-20261104-attempt7/native/result.json",
+      "bytes": 925,
+      "lines": 26,
+      "sha256": "d556b2d0cc368e5a44d4db801168b4efbd4a22f7ab4c4b9df93aa411e7d02eea"
+    },
+    {
+      "path": "provenance/chapter02-corrected-sorting-focused-20261104-attempt7/native/start.json",
+      "bytes": 772,
+      "lines": 21,
+      "sha256": "84892e1dd38ac3d0dc387e460f7416fc425d4646b606eff1afc047036a4de2b7"
+    }
+  ]
+}

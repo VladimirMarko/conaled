@@ -1,0 +1,547 @@
+{
+  "schema": 2,
+  "head": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "symbolic_head": "refs/heads/pfds/local",
+  "source_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "original_refs_verified": [
+    [
+      "refs/heads/master",
+      "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      ""
+    ],
+    [
+      "refs/heads/pfds/body-counts",
+      "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+      ""
+    ],
+    [
+      "refs/heads/pfds/body-counts-review-r1",
+      "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+      ""
+    ],
+    [
+      "refs/heads/pfds/cache-counts-review-r1",
+      "3dd930c3e3989f3e5530463f3ac937a629551335",
+      ""
+    ],
+    [
+      "refs/heads/pfds/ch01-union",
+      "1ce161412a2cfb725f27525ff98d400209163316",
+      ""
+    ],
+    [
+      "refs/heads/pfds/ch02-map",
+      "fcf086ddc271d4b20d4714e36238e47a325316bd",
+      ""
+    ],
+    [
+      "refs/heads/pfds/ch02-ordered",
+      "26975a435a38ea89512c68a9d87f9efd7c971113",
+      ""
+    ],
+    [
+      "refs/heads/pfds/ch02-review-r1",
+      "69f6f00de204617fdd7feefd5b9ee5b80fc0d9f4",
+      ""
+    ],
+    [
+      "refs/heads/pfds/ch02-review-r2",
+      "c372c470008cdda3043040683451662f61131f81",
+      ""
+    ],
+    [
+      "refs/heads/pfds/ch02-review-r3",
+      "99a29dcd02eb529fbefbb675e244a8c47b78cdef",
+      ""
+    ],
+    [
+      "refs/heads/pfds/ch02-shared",
+      "4b0f0c0bc7c139480fb72407b93a2d9eb6874289",
+      ""
+    ],
+    [
+      "refs/heads/pfds/import-footprint",
+      "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+      ""
+    ],
+    [
+      "refs/heads/pfds/import-footprint-r2",
+      "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+      ""
+    ],
+    [
+      "refs/heads/pfds/import-footprint-r3",
+      "901f734161920a76f3b399a575805b9a1d31e971",
+      ""
+    ],
+    [
+      "refs/heads/pfds/local",
+      "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+      ""
+    ],
+    [
+      "refs/heads/pfds/output-migration-review-base",
+      "27a2b897983eb0e60b6ebe1ffa2b0b6c4ece6405",
+      ""
+    ],
+    [
+      "refs/heads/pfds/output-migration-review-r1",
+      "2748089840723943ddc8ae58acd82f5728b2098b",
+      ""
+    ],
+    [
+      "refs/heads/pfds/persistent-accounting",
+      "577be121e074ddb5de6727a7481c115cb61b3b27",
+      ""
+    ],
+    [
+      "refs/heads/pfds/persistent-accounting-review-r1",
+      "eedaeca6fc2fcc3f73cb92630dc8d8acf2bd50f8",
+      ""
+    ],
+    [
+      "refs/heads/pfds/persistent-accounting-review-r2",
+      "eb61c35f911ad0fac36758c878559eaf5f795cfa",
+      ""
+    ],
+    [
+      "refs/heads/pfds/persistent-accounting-review-r3",
+      "577be121e074ddb5de6727a7481c115cb61b3b27",
+      ""
+    ],
+    [
+      "refs/heads/pfds/pure-cache-counts",
+      "3dd930c3e3989f3e5530463f3ac937a629551335",
+      ""
+    ],
+    [
+      "refs/heads/pfds/pure-suspensions",
+      "501a95463f455b52ea839eb8bbcf6ab9379862e4",
+      ""
+    ],
+    [
+      "refs/heads/pfds/pure-suspensions-review-r1",
+      "ea8afa12706d30cdc69ece1a172d5f21a3ea1809",
+      ""
+    ],
+    [
+      "refs/heads/pfds/pure-suspensions-review-r2",
+      "361f5f3f6bb3de1974510ce355883dac2bf25333",
+      ""
+    ],
+    [
+      "refs/heads/pfds/signed-potential",
+      "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      ""
+    ],
+    [
+      "refs/heads/pfds/suspensions",
+      "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+      ""
+    ],
+    [
+      "refs/heads/pfds/suspensions-review-r1",
+      "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+      ""
+    ],
+    [
+      "refs/heads/pfds/suspensions-review-r2",
+      "1286e3d6357785d9c787562b95a5019afeefee40",
+      ""
+    ],
+    [
+      "refs/heads/pfds/suspensions-review-r3",
+      "a3feaff319ad5fad912fb8bdc113f33fea4e2a60",
+      ""
+    ],
+    [
+      "refs/pfds-review/direct-toolchain-base-041",
+      "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+      ""
+    ],
+    [
+      "refs/pfds-review/direct-toolchain-r1-041",
+      "f010b5d0fdbef9c9f007c56531c326e738557f9d",
+      ""
+    ],
+    [
+      "refs/pfds-review/direct-toolchain-r2-041",
+      "822cb7adeed4943acaf10454e9facfc2e3ee8ceb",
+      ""
+    ],
+    [
+      "refs/pfds-review/direct-toolchain-r3-042",
+      "6526e5cdcde2e58c8fb0839690c34f3f6c04787c",
+      ""
+    ],
+    [
+      "refs/pfds-review/direct-toolchain-r4-042",
+      "120458c4fd40626d93e568f3387d8f5cb1dce69d",
+      ""
+    ],
+    [
+      "refs/pfds-review/native-toolchain-r10-043",
+      "060e6b877b8db57a30f947b996b7dfe34a5401a1",
+      ""
+    ],
+    [
+      "refs/pfds-review/native-toolchain-r11-045",
+      "4f15ff6f5bc8091104a3572ca8ce3716ed8e78f0",
+      ""
+    ],
+    [
+      "refs/pfds-review/native-toolchain-r5-042",
+      "f3bac5372edc14ff898ead8b38fa58812d6d2713",
+      ""
+    ],
+    [
+      "refs/pfds-review/native-toolchain-r6-042",
+      "fa87cd3483de75f24039836f8d4357be3a133176",
+      ""
+    ],
+    [
+      "refs/pfds-review/native-toolchain-r7-042",
+      "af2c53dce68ebb122c81175312d6bb30df9aac05",
+      ""
+    ],
+    [
+      "refs/pfds-review/native-toolchain-r8-043",
+      "d95518fde8cfc877da9d2bfc720ed4fd1f4698ba",
+      ""
+    ],
+    [
+      "refs/pfds-review/native-toolchain-r9-043",
+      "ff3f709723e5c49e5ba40798abbed7d36141a6fb",
+      ""
+    ],
+    [
+      "refs/pfds-review/signed-d24-before-native-fix-042",
+      "d24c443ba22019613b1ce646d6eed7279c791ad6",
+      ""
+    ],
+    [
+      "refs/remotes/origin/HEAD",
+      "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "refs/remotes/origin/master"
+    ],
+    [
+      "refs/remotes/origin/master",
+      "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      ""
+    ]
+  ],
+  "ref_count": 45,
+  "source_files": 1612,
+  "lean_files": 1046,
+  "index_sha256": "17047f8899c4ff369a7e5c0bff32b4a30d4aaaec8307b7c015700f55147b7deb",
+  "git_status": "",
+  "git_fsck_exit": 0,
+  "git_fsck_output": "dangling commit c988f183887896c00b09aaff9077a6ea7fb8d68f\n",
+  "all_bundle_advertisements": [
+    {
+      "bundle": "base",
+      "advertised_ref": "refs/heads/local/vfa",
+      "object": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "base",
+      "advertised_ref": "refs/heads/local/vfa-recovery",
+      "object": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "base",
+      "advertised_ref": "refs/remotes/origin/HEAD",
+      "object": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "base",
+      "advertised_ref": "refs/remotes/origin/local/vfa",
+      "object": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "base",
+      "advertised_ref": "refs/remotes/origin/master",
+      "object": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "ancestor_of_main_head": true
+    },
+    {
+      "bundle": "base",
+      "advertised_ref": "HEAD",
+      "object": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "base",
+      "advertised_ref": "worktrees/vfa-native-validation/HEAD",
+      "object": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "base",
+      "advertised_ref": "worktrees/vfa-validation/HEAD",
+      "object": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/body-counts",
+      "object": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/body-counts-review-r1",
+      "object": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/cache-counts-review-r1",
+      "object": "3dd930c3e3989f3e5530463f3ac937a629551335",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/ch01-union",
+      "object": "1ce161412a2cfb725f27525ff98d400209163316",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/ch02-map",
+      "object": "fcf086ddc271d4b20d4714e36238e47a325316bd",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/ch02-ordered",
+      "object": "26975a435a38ea89512c68a9d87f9efd7c971113",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/ch02-review-r1",
+      "object": "69f6f00de204617fdd7feefd5b9ee5b80fc0d9f4",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/ch02-review-r2",
+      "object": "c372c470008cdda3043040683451662f61131f81",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/ch02-review-r3",
+      "object": "99a29dcd02eb529fbefbb675e244a8c47b78cdef",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/ch02-shared",
+      "object": "4b0f0c0bc7c139480fb72407b93a2d9eb6874289",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/import-footprint",
+      "object": "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/import-footprint-r2",
+      "object": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/import-footprint-r3",
+      "object": "901f734161920a76f3b399a575805b9a1d31e971",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/local",
+      "object": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+      "ancestor_of_main_head": true
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/output-migration-review-base",
+      "object": "27a2b897983eb0e60b6ebe1ffa2b0b6c4ece6405",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/output-migration-review-r1",
+      "object": "2748089840723943ddc8ae58acd82f5728b2098b",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/persistent-accounting",
+      "object": "577be121e074ddb5de6727a7481c115cb61b3b27",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/persistent-accounting-review-r1",
+      "object": "eedaeca6fc2fcc3f73cb92630dc8d8acf2bd50f8",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/persistent-accounting-review-r2",
+      "object": "eb61c35f911ad0fac36758c878559eaf5f795cfa",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/persistent-accounting-review-r3",
+      "object": "577be121e074ddb5de6727a7481c115cb61b3b27",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/pure-cache-counts",
+      "object": "3dd930c3e3989f3e5530463f3ac937a629551335",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/pure-suspensions",
+      "object": "501a95463f455b52ea839eb8bbcf6ab9379862e4",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/pure-suspensions-review-r1",
+      "object": "ea8afa12706d30cdc69ece1a172d5f21a3ea1809",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/pure-suspensions-review-r2",
+      "object": "361f5f3f6bb3de1974510ce355883dac2bf25333",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/signed-potential",
+      "object": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/suspensions",
+      "object": "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/suspensions-review-r1",
+      "object": "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/suspensions-review-r2",
+      "object": "1286e3d6357785d9c787562b95a5019afeefee40",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/pfds/suspensions-review-r3",
+      "object": "a3feaff319ad5fad912fb8bdc113f33fea4e2a60",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/pfds-review/direct-toolchain-base-041",
+      "object": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+      "ancestor_of_main_head": true
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/pfds-review/direct-toolchain-r1-041",
+      "object": "f010b5d0fdbef9c9f007c56531c326e738557f9d",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/pfds-review/direct-toolchain-r2-041",
+      "object": "822cb7adeed4943acaf10454e9facfc2e3ee8ceb",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/pfds-review/direct-toolchain-r3-042",
+      "object": "6526e5cdcde2e58c8fb0839690c34f3f6c04787c",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/pfds-review/direct-toolchain-r4-042",
+      "object": "120458c4fd40626d93e568f3387d8f5cb1dce69d",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/pfds-review/native-toolchain-r10-043",
+      "object": "060e6b877b8db57a30f947b996b7dfe34a5401a1",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/pfds-review/native-toolchain-r11-045",
+      "object": "4f15ff6f5bc8091104a3572ca8ce3716ed8e78f0",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/pfds-review/native-toolchain-r5-042",
+      "object": "f3bac5372edc14ff898ead8b38fa58812d6d2713",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/pfds-review/native-toolchain-r6-042",
+      "object": "fa87cd3483de75f24039836f8d4357be3a133176",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/pfds-review/native-toolchain-r7-042",
+      "object": "af2c53dce68ebb122c81175312d6bb30df9aac05",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/pfds-review/native-toolchain-r8-043",
+      "object": "d95518fde8cfc877da9d2bfc720ed4fd1f4698ba",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/pfds-review/native-toolchain-r9-043",
+      "object": "ff3f709723e5c49e5ba40798abbed7d36141a6fb",
+      "ancestor_of_main_head": false
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/pfds-review/signed-d24-before-native-fix-042",
+      "object": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+      "ancestor_of_main_head": false
+    }
+  ],
+  "no_lean_build_or_source_change": true,
+  "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+  "candidate_ref": "refs/heads/pfds/signed-potential",
+  "main_is_not_latest_mathematical_candidate": true,
+  "session_snapshot_verified": 1340
+}

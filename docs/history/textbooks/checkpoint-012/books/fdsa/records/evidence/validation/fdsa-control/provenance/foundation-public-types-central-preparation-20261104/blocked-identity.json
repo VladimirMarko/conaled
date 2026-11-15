@@ -1,0 +1,41 @@
+{
+  "recorded_utc": "2026-11-04T08:55:23.657241+00:00",
+  "foundation": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "central": "5398db774ed5ca9938d0562e379d757323e7a355",
+  "status": "Cross-candidate reuse NOT established. No compiler/build/type command launched by this preflight.",
+  "first_attempt_exit": 1,
+  "first_attempt_error": "AssertionError: ('dependency differs', 'Applications/Sorting/Merge.lean')",
+  "reason": "The six root files are identical, but at least one complete transitive local source closure differs through the Chapter2 ordinary-merge extension. Exact root equality alone does not establish reusable qualified type evidence.",
+  "per_root_local_counts": {
+    "Applications.Resources.InsertionSort": 7,
+    "Applications.Resources.ListCalls": 9,
+    "Examples.FunctionalNotation": 4,
+    "Examples.InsertionCosts": 9,
+    "Examples.ListCalls": 19,
+    "Examples.ListLibrary": 1
+  },
+  "per_root_mismatches": {
+    "Applications.Resources.InsertionSort": [
+      {
+        "path": "Applications/Sorting/Merge.lean",
+        "identical": false,
+        "foundation_sha256": "79b35252d0f551b381ef63974497311336ea92a5d118691647825cade12a1338",
+        "central_sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7"
+      }
+    ],
+    "Applications.Resources.ListCalls": [],
+    "Examples.FunctionalNotation": [],
+    "Examples.InsertionCosts": [
+      {
+        "path": "Applications/Sorting/Merge.lean",
+        "identical": false,
+        "foundation_sha256": "79b35252d0f551b381ef63974497311336ea92a5d118691647825cade12a1338",
+        "central_sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7"
+      }
+    ],
+    "Examples.ListCalls": [],
+    "Examples.ListLibrary": []
+  },
+  "planned_disposition": "Keep exactF145 inspection after liveF check closes, and keep central793 current-candidate program complete. Any subset reuse requires separate exact relevant dependency/configuration evidence; no subtraction is justified by six root hashes alone. The actual dependency difference justifies distinct required evidence where needed.",
+  "no_candidate_source_ref_outputs_changed": true
+}

@@ -1,0 +1,76 @@
+{
+  "utc": "2026-11-04T15:11:26.762273+00:00",
+  "merge_exit": 0,
+  "conflicts": [],
+  "unmerged_index": "",
+  "automatic_root_result_equals_I_plus_exact_one_import": true,
+  "automatic_map_result_equals_complete_I_plus_complete_original_Order_section": true,
+  "actual_resolutions": [
+    {
+      "path": "SquareApplications.lean",
+      "action": "No manual edit; verified stock ort result is exactly I plus one Order import."
+    },
+    {
+      "path": "docs/research/fdsa-permutation-order.md",
+      "action": "Applied preserved earlier two obsolete-status removals and replaced only its dated paragraph with the exact newly proposed historical validation text; all other proposed-note bytes unchanged.",
+      "canonical_paragraph": "**Development validation — 4 November 2026.** The whole-order core and both example modules had individual compilation successes in development checks that failed overall. All 53 explicit public declarations from the corrected source were subsequently included in the successful 815-declaration type inspection at `4b5dbfa07288acc73f25c27838d3fb2f78e77d71`; both independent reviewers assessed their complete printed types. These are historical results for that development candidate. Reuse requires matching integration-candidate evidence. The full acceptance gates below remain required.",
+      "line_wrapped_paragraph": "**Development validation — 4 November 2026.** The whole-order core and both\nexample modules had individual compilation successes in development checks\nthat failed overall. All 53 explicit public declarations from the corrected\nsource were subsequently included in the successful 815-declaration type\ninspection at `4b5dbfa07288acc73f25c27838d3fb2f78e77d71`; both independent\nreviewers assessed their complete printed types. These are historical results\nfor that development candidate. Reuse requires matching integration-candidate\nevidence. The full acceptance gates below remain required."
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "action": "Retained complete I prefix and complete original Order section; replaced only its obsolete final status sentence with exact prepared wording.",
+      "canonical_sentence": "The source note retains the 4 November 2026 development validation history; the local FDSA-XU02 record retains the frozen exact scope and subsequent candidate/review evidence. Full immutable-candidate acceptance gates remain required."
+    }
+  ],
+  "before_documentary_source": [
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 8577,
+      "lines": 261,
+      "sha256": "63edc6ab268c318e6788a6ef46cd14aa3a6b021b65971c591b0c9023adb1b2a9"
+    },
+    {
+      "path": "docs/research/fdsa-permutation-order.md",
+      "bytes": 8851,
+      "lines": 166,
+      "sha256": "39fd16835dccd39c9d34ebfcebbdbdd33f44ec1dad49fdfe582a8ac4801faea3"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 40223,
+      "lines": 613,
+      "sha256": "75c28efa5ca561e4a9ce34fecb637a71e480f574b3993ef44692ba4c5aee35ac"
+    }
+  ],
+  "after_documentary_source": [
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 8577,
+      "lines": 261,
+      "sha256": "63edc6ab268c318e6788a6ef46cd14aa3a6b021b65971c591b0c9023adb1b2a9"
+    },
+    {
+      "path": "docs/research/fdsa-permutation-order.md",
+      "bytes": 9343,
+      "lines": 175,
+      "sha256": "5368374d61ac214c5609fbaedd3c5449a737a114947978631d1de7893a00d35f"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 40314,
+      "lines": 614,
+      "sha256": "a39ec672e120fe7761e950f59acfc1ab4cbee282ad69b22934b1e24cdc5f56e7"
+    }
+  ],
+  "three_defining_Lean_blobs_unchanged_O": true,
+  "three_corrected_Minimum_blobs_unchanged_I": true,
+  "mathematical_content_changes": false,
+  "source_options_imports_definitions_theorems_instances_changed_in_defining_modules": false,
+  "historical_proposal_preserved": true,
+  "compiler_or_cache_action": false,
+  "automatic_merge_diff": {
+    "bytes": 40117,
+    "lines": 848,
+    "sha256": "4569b501b6f81046abfb762d00d88adaba1070cbcc2788b5c64c4241f6641261"
+  }
+}

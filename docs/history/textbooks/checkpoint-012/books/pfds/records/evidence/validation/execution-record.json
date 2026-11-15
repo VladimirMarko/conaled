@@ -1,0 +1,39 @@
+{
+  "persistence-ad73001-check": {
+    "candidate": "ad730010ab1929bbd7a16a035c7990a6f328b178",
+    "outcome": "intentionally interrupted with Ctrl-C to sequence memory-constrained checks",
+    "exit_code": 1,
+    "acceptance": false
+  },
+  "persistence-ad73001-focused": {
+    "candidate": "ad730010ab1929bbd7a16a035c7990a6f328b178",
+    "outcome": "failed unused tactic linter in Observation success branch; no semantic failure inferred",
+    "acceptance": false
+  },
+  "persistence-focused-r2": {
+    "source_commit_after_validation": "70a1477d822efd4fdcec2007280f650bb4695eda",
+    "command": "env LEAN_NUM_THREADS=1 lake build Examples.SharedList",
+    "environment": "pinned Nix flake shell",
+    "exit_code": 0,
+    "result": "Build completed successfully (664 jobs)",
+    "scope": "Focused compilation, not full candidate acceptance"
+  },
+  "persistence-70a1477-check": {
+    "candidate": "70a1477d822efd4fdcec2007280f650bb4695eda",
+    "command": "env LEAN_NUM_THREADS=1 ./check.sh --candidate HEAD",
+    "checkout": "isolated validation-persistence",
+    "status": "intentionally interrupted with Ctrl-C to raise supported worker-pool setting from1 to2; outputs retained",
+    "exit_code": 1,
+    "acceptance": false
+  },
+  "persistence-70a1477-check-t2": {
+    "candidate": "70a1477d822efd4fdcec2007280f650bb4695eda",
+    "command": "env LEAN_NUM_THREADS=2 ./check.sh --candidate HEAD",
+    "checkout": "same isolated validation-persistence; own prior outputs retained",
+    "status": "running at snapshot; no terminal outcome or success record yet",
+    "live_log": "active-validation/persistence-70a1477-check-t2.log",
+    "checkpoint_log": "session/validation/persistence-70a1477-check-t2.log",
+    "snapshot_at": "2026-11-02T03:23:54.846595+00:00",
+    "log_note": "Checkpoint copy is frozen partial output; live process continues writing to renamed live log. Neither is a success record."
+  }
+}

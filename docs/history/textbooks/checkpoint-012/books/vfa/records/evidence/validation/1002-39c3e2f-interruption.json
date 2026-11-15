@@ -1,0 +1,44 @@
+{
+  "candidate": "39c3e2fd0c3a7b39e56373d453a1a17382bc3749",
+  "superseding_ticket": 1026,
+  "reason": "Root selected the exact ten-header proposal to reduce avoidable import load across remaining modules and later audits. Every other source byte will remain unchanged; no separate focused experiment. The old run is incomplete, with no observed Lean error. Full validation remains required on the new candidate.",
+  "checked_utc": "2026-11-02T10:15:49.885293+00:00",
+  "primary_record": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-39c3e2f.run.json",
+  "signal_sent": true,
+  "verified_leader_command": [
+    "python3",
+    "scripts/check.py",
+    "--candidate",
+    "HEAD"
+  ],
+  "verified_start_delta_seconds": -0.39307594299316406,
+  "verified_group_members": [
+    {
+      "pid": 232108,
+      "state": "S",
+      "cwd": "/workspace/scratch/0c54f2db1fdf/vfa-validation"
+    },
+    {
+      "pid": 232276,
+      "state": "S",
+      "cwd": "/workspace/scratch/0c54f2db1fdf/vfa-validation"
+    },
+    {
+      "pid": 264912,
+      "state": "S",
+      "cwd": "/workspace/scratch/0c54f2db1fdf/vfa-validation"
+    }
+  ],
+  "process_group": 232108,
+  "signal": "SIGINT",
+  "proposal_sha256": "29a90c4156c9c3aadb20c2f78ff90fed093af4efb8bc51714c8694f23fb14ee3",
+  "signal_utc": "2026-11-02T10:15:49.885630+00:00",
+  "raw_returncode": -2,
+  "interactive_wrapper_exit_code": 130,
+  "finished_utc": "2026-11-02T10:15:49.951542+00:00",
+  "all_group_members_inactive_verified_utc": "2026-11-02T10:16:04.741661+00:00",
+  "remaining_active_group_members": [],
+  "retained_project_olean_count": 429,
+  "artifact_count_caveat": "Existence only; outputs remain subject to the normal guard and Lake input tracking, not acceptance evidence.",
+  "superseding_candidate": "1da24c77d10fe03296dbf117e4249283139f5021"
+}

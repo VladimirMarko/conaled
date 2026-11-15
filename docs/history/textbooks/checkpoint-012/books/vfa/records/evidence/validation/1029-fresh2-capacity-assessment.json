@@ -1,0 +1,2593 @@
+{
+  "schema": 1,
+  "task": "local1029 active fresh2 capacity assessment",
+  "started_utc": "2026-11-02T21:49:41.866785+00:00",
+  "finished_utc": "2026-11-02T21:49:45.740314+00:00",
+  "capacity_before": {
+    "observed_utc": "2026-11-02T21:49:41.866835+00:00",
+    "effective_uid": 0,
+    "free_bytes_including_reserved": 4074516480,
+    "available_bytes_excluding_reserved": 621768704,
+    "reserved_free_difference_bytes": 3452747776,
+    "free_inodes": 3169884,
+    "available_inodes": 3169884
+  },
+  "capacity_after": {
+    "observed_utc": "2026-11-02T21:49:45.734159+00:00",
+    "effective_uid": 0,
+    "free_bytes_including_reserved": 4074127360,
+    "available_bytes_excluding_reserved": 621379584,
+    "reserved_free_difference_bytes": 3452747776,
+    "free_inodes": 3169883,
+    "available_inodes": 3169883
+  },
+  "root_free_delta_during_census": -389120,
+  "prior_root_observations_supplied_by_root": [
+    {
+      "utc": "2026-11-02T21:26:54.716515+00:00",
+      "root_free_bytes": 5092044800
+    },
+    {
+      "utc": "2026-11-02T21:40:44.407250+00:00",
+      "root_free_bytes": 4904300544
+    },
+    {
+      "utc": "2026-11-02T21:44:59+00:00",
+      "root_free_bytes": 4540510208
+    },
+    {
+      "utc": "2026-11-02T21:46:08+00:00",
+      "root_free_bytes": 4347174912
+    },
+    {
+      "utc": "2026-11-02T21:46:53+00:00",
+      "root_free_bytes": 4006612992
+    },
+    {
+      "utc": "2026-11-02T21:48:07+00:00",
+      "root_free_bytes": 4170592256
+    },
+    {
+      "utc": "2026-11-02T21:48:48+00:00",
+      "root_free_bytes": 4160352256
+    },
+    {
+      "utc": "2026-11-02T21:49:56+00:00",
+      "root_free_bytes": 4073906176
+    }
+  ],
+  "inventories": [
+    {
+      "label": "checkpoints",
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints",
+      "observed_started_utc": "2026-11-02T21:49:41.867124+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 1274318848,
+      "regular_logical_bytes": 1274241061,
+      "counts": {
+        "directory": 1,
+        "regular": 10,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".IpMeI5": {
+          "files": 1,
+          "allocated_bytes": 60817408,
+          "logical_bytes": 60817408
+        },
+        ".ssR50N": {
+          "files": 1,
+          "allocated_bytes": 49545216,
+          "logical_bytes": 49545216
+        },
+        ".tar.gz": {
+          "files": 8,
+          "allocated_bytes": 1163952128,
+          "logical_bytes": 1163878437
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-029-fresh-retry-progress.tar.gz",
+          "logical_bytes": 146144577,
+          "allocated_bytes": 146153472,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-028-validation-recorder.tar.gz",
+          "logical_bytes": 146139418,
+          "allocated_bytes": 146149376,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-027-fresh-run-recovery.tar.gz",
+          "logical_bytes": 146040188,
+          "allocated_bytes": 146051072,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-026-fresh-validation-progress.tar.gz",
+          "logical_bytes": 146023732,
+          "allocated_bytes": 146034688,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-025-storage-integrity-recovery.tar.gz",
+          "logical_bytes": 146014033,
+          "allocated_bytes": 146022400,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 2398969,
+        "nlink": 2,
+        "mode": "0o755",
+        "ctime_ns": 1793656066998845200,
+        "mtime_ns": 1793656055085180400
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/checkpoints",
+      "direct_entries": [
+        {
+          "name": ".conaled-vfa-checkpoint-000-bootstrap.tar.gz.IpMeI5",
+          "type": "regular",
+          "logical_bytes": 60817408,
+          "allocated_bytes": 60817408,
+          "device": 27,
+          "inode": 2400252,
+          "nlink": 1,
+          "ctime_ns": 1793586025043655200,
+          "mtime_ns": 1793586023222524200
+        },
+        {
+          "name": ".conaled-vfa-checkpoint-000-bootstrap.tar.gz.IpMeI5.ssR50N",
+          "type": "regular",
+          "logical_bytes": 49545216,
+          "allocated_bytes": 49545216,
+          "device": 27,
+          "inode": 2398933,
+          "nlink": 1,
+          "ctime_ns": 1793586029845275000,
+          "mtime_ns": 1793586028162404900
+        },
+        {
+          "name": "conaled-vfa-checkpoint-000-bootstrap.tar.gz",
+          "type": "regular",
+          "logical_bytes": 142659672,
+          "allocated_bytes": 142667776,
+          "device": 27,
+          "inode": 2399921,
+          "nlink": 1,
+          "ctime_ns": 1793609049154806500,
+          "mtime_ns": 1793586022140344000
+        },
+        {
+          "name": "conaled-vfa-checkpoint-012-positive-key-adapters.tar.gz",
+          "type": "regular",
+          "logical_bytes": 145397542,
+          "allocated_bytes": 145403904,
+          "device": 27,
+          "inode": 2403650,
+          "nlink": 1,
+          "ctime_ns": 1793615468619405600,
+          "mtime_ns": 1793605650309045500
+        },
+        {
+          "name": "conaled-vfa-checkpoint-013-retention-imports-candidate.tar.gz",
+          "type": "regular",
+          "logical_bytes": 145459275,
+          "allocated_bytes": 145469440,
+          "device": 27,
+          "inode": 2403651,
+          "nlink": 1,
+          "ctime_ns": 1793615468619405600,
+          "mtime_ns": 1793607851670962700
+        },
+        {
+          "name": "conaled-vfa-checkpoint-025-storage-integrity-recovery.tar.gz",
+          "type": "regular",
+          "logical_bytes": 146014033,
+          "allocated_bytes": 146022400,
+          "device": 27,
+          "inode": 2405225,
+          "nlink": 1,
+          "ctime_ns": 1793635578494814000,
+          "mtime_ns": 1793635477587724800
+        },
+        {
+          "name": "conaled-vfa-checkpoint-026-fresh-validation-progress.tar.gz",
+          "type": "regular",
+          "logical_bytes": 146023732,
+          "allocated_bytes": 146034688,
+          "device": 27,
+          "inode": 2405456,
+          "nlink": 1,
+          "ctime_ns": 1793642530347074000,
+          "mtime_ns": 1793642464827682000
+        },
+        {
+          "name": "conaled-vfa-checkpoint-027-fresh-run-recovery.tar.gz",
+          "type": "regular",
+          "logical_bytes": 146040188,
+          "allocated_bytes": 146051072,
+          "device": 27,
+          "inode": 2405666,
+          "nlink": 1,
+          "ctime_ns": 1793653469123057200,
+          "mtime_ns": 1793653446991332400
+        },
+        {
+          "name": "conaled-vfa-checkpoint-028-validation-recorder.tar.gz",
+          "type": "regular",
+          "logical_bytes": 146139418,
+          "allocated_bytes": 146149376,
+          "device": 27,
+          "inode": 2405733,
+          "nlink": 1,
+          "ctime_ns": 1793655187300649500,
+          "mtime_ns": 1793655164004887000
+        },
+        {
+          "name": "conaled-vfa-checkpoint-029-fresh-retry-progress.tar.gz",
+          "type": "regular",
+          "logical_bytes": 146144577,
+          "allocated_bytes": 146153472,
+          "device": 27,
+          "inode": 2405751,
+          "nlink": 1,
+          "ctime_ns": 1793655949855879000,
+          "mtime_ns": 1793655927160238000
+        }
+      ],
+      "observed_finished_utc": "2026-11-02T21:49:41.869032+00:00"
+    },
+    {
+      "label": "conaled/project-build",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:41.869055+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 9601024,
+      "regular_logical_bytes": 9202430,
+      "counts": {
+        "directory": 16,
+        "regular": 120,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 15,
+          "allocated_bytes": 303104,
+          "logical_bytes": 274687
+        },
+        ".hash": {
+          "files": 45,
+          "allocated_bytes": 184320,
+          "logical_bytes": 720
+        },
+        ".ilean": {
+          "files": 15,
+          "allocated_bytes": 249856,
+          "logical_bytes": 216241
+        },
+        ".olean": {
+          "files": 15,
+          "allocated_bytes": 3145728,
+          "logical_bytes": 3111976
+        },
+        ".setup.json": {
+          "files": 15,
+          "allocated_bytes": 5591040,
+          "logical_bytes": 5558183
+        },
+        ".trace": {
+          "files": 15,
+          "allocated_bytes": 61440,
+          "logical_bytes": 40623
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/build/lib/lean/SquareKit/Comma.olean",
+          "logical_bytes": 547592,
+          "allocated_bytes": 548864,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/build/lib/lean/SquareKit/Category.olean",
+          "logical_bytes": 445648,
+          "allocated_bytes": 446464,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/build/ir/Examples/ComparisonPermutations.setup.json",
+          "logical_bytes": 440117,
+          "allocated_bytes": 442368,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/build/ir/Applications/Checking/OrderCertificate.setup.json",
+          "logical_bytes": 433908,
+          "allocated_bytes": 434176,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/build/ir/SquareKit/Combinators.setup.json",
+          "logical_bytes": 430360,
+          "allocated_bytes": 434176,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 2399260,
+        "nlink": 4,
+        "mode": "0o755",
+        "ctime_ns": 1793586548226609000,
+        "mtime_ns": 1793586311181950000
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/build",
+      "observed_finished_utc": "2026-11-02T21:49:41.872362+00:00"
+    },
+    {
+      "label": "conaled/mathlib",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:41.872392+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 51875840,
+      "regular_logical_bytes": 38556284,
+      "counts": {
+        "directory": 1794,
+        "regular": 2024,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 974,
+          "allocated_bytes": 38367232,
+          "logical_bytes": 36600316
+        },
+        ".export": {
+          "files": 18,
+          "allocated_bytes": 1908736,
+          "logical_bytes": 1858032
+        },
+        ".hash": {
+          "files": 994,
+          "allocated_bytes": 4071424,
+          "logical_bytes": 15904
+        },
+        ".rsp": {
+          "files": 1,
+          "allocated_bytes": 4096,
+          "logical_bytes": 2419
+        },
+        ".setup.json": {
+          "files": 18,
+          "allocated_bytes": 98304,
+          "logical_bytes": 55647
+        },
+        ".trace": {
+          "files": 19,
+          "allocated_bytes": 77824,
+          "logical_bytes": 23966
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build/ir/Mathlib.c",
+          "logical_bytes": 4600748,
+          "allocated_bytes": 4603904,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build/ir/Cache/Requests.c",
+          "logical_bytes": 822870,
+          "allocated_bytes": 823296,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build/ir/Cache/Requests.c.o.export",
+          "logical_bytes": 585792,
+          "allocated_bytes": 589824,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build/ir/Cache/IO.c",
+          "logical_bytes": 546397,
+          "allocated_bytes": 548864,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build/ir/Mathlib/Algebra/Homology/DerivedCategory/Ext/ExtClass.c",
+          "logical_bytes": 527291,
+          "allocated_bytes": 528384,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 3278009,
+        "nlink": 5,
+        "mode": "0o755",
+        "ctime_ns": 1793635157954724000,
+        "mtime_ns": 1793609449478482200
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build",
+      "observed_finished_utc": "2026-11-02T21:49:42.314984+00:00"
+    },
+    {
+      "label": "conaled/aesop",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/aesop/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:42.315017+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 138121216,
+      "regular_logical_bytes": 131022471,
+      "counts": {
+        "directory": 52,
+        "regular": 1983,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 132,
+          "allocated_bytes": 33562624,
+          "logical_bytes": 33200417
+        },
+        ".hash": {
+          "files": 924,
+          "allocated_bytes": 3784704,
+          "logical_bytes": 14784
+        },
+        ".ilean": {
+          "files": 132,
+          "allocated_bytes": 2281472,
+          "logical_bytes": 1985895
+        },
+        ".ir": {
+          "files": 132,
+          "allocated_bytes": 22560768,
+          "logical_bytes": 22206128
+        },
+        ".olean": {
+          "files": 132,
+          "allocated_bytes": 17588224,
+          "logical_bytes": 17245288
+        },
+        ".olean.private": {
+          "files": 132,
+          "allocated_bytes": 55988224,
+          "logical_bytes": 55565536
+        },
+        ".olean.server": {
+          "files": 132,
+          "allocated_bytes": 1007616,
+          "logical_bytes": 715088
+        },
+        ".setup.json": {
+          "files": 3,
+          "allocated_bytes": 28672,
+          "logical_bytes": 20780
+        },
+        ".sig": {
+          "files": 132,
+          "allocated_bytes": 540672,
+          "logical_bytes": 23232
+        },
+        ".trace": {
+          "files": 132,
+          "allocated_bytes": 540672,
+          "logical_bytes": 45323
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/aesop/.lake/build/lib/lean/Aesop/Forward/State.olean.private",
+          "logical_bytes": 3849760,
+          "allocated_bytes": 3854336,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/aesop/.lake/build/lib/lean/Aesop/RuleSet.olean.private",
+          "logical_bytes": 3230216,
+          "allocated_bytes": 3235840,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/aesop/.lake/build/ir/Aesop/Forward/State.c",
+          "logical_bytes": 2593795,
+          "allocated_bytes": 2600960,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/aesop/.lake/build/ir/Aesop/RuleSet.c",
+          "logical_bytes": 2195227,
+          "allocated_bytes": 2199552,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/aesop/.lake/build/lib/lean/Aesop/Search/Expansion/Norm.olean.private",
+          "logical_bytes": 2016280,
+          "allocated_bytes": 2019328,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 2912692,
+        "nlink": 4,
+        "mode": "0o755",
+        "ctime_ns": 1793630749735260200,
+        "mtime_ns": 1793586191098779400
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/aesop/.lake/build",
+      "observed_finished_utc": "2026-11-02T21:49:42.366859+00:00"
+    },
+    {
+      "label": "conaled/batteries",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/batteries/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:42.366890+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 151138304,
+      "regular_logical_bytes": 140887254,
+      "counts": {
+        "directory": 88,
+        "regular": 2904,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 193,
+          "allocated_bytes": 21024768,
+          "logical_bytes": 20652939
+        },
+        ".export": {
+          "files": 1,
+          "allocated_bytes": 380928,
+          "logical_bytes": 379464
+        },
+        ".hash": {
+          "files": 1352,
+          "allocated_bytes": 5537792,
+          "logical_bytes": 21632
+        },
+        ".ilean": {
+          "files": 193,
+          "allocated_bytes": 3727360,
+          "logical_bytes": 3240812
+        },
+        ".ir": {
+          "files": 193,
+          "allocated_bytes": 13500416,
+          "logical_bytes": 13044792
+        },
+        ".olean": {
+          "files": 193,
+          "allocated_bytes": 28770304,
+          "logical_bytes": 28336224
+        },
+        ".olean.private": {
+          "files": 193,
+          "allocated_bytes": 74260480,
+          "logical_bytes": 73663608
+        },
+        ".olean.server": {
+          "files": 193,
+          "allocated_bytes": 1925120,
+          "logical_bytes": 1439352
+        },
+        ".setup.json": {
+          "files": 6,
+          "allocated_bytes": 24576,
+          "logical_bytes": 2675
+        },
+        ".sig": {
+          "files": 193,
+          "allocated_bytes": 790528,
+          "logical_bytes": 33968
+        },
+        ".trace": {
+          "files": 194,
+          "allocated_bytes": 794624,
+          "logical_bytes": 71788
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/batteries/.lake/build/lib/lean/Batteries/Data/List/Lemmas.olean.private",
+          "logical_bytes": 5423840,
+          "allocated_bytes": 5431296,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/batteries/.lake/build/lib/lean/Batteries/Recycling/RBTree/WF.olean.private",
+          "logical_bytes": 3659208,
+          "allocated_bytes": 3665920,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/batteries/.lake/build/lib/lean/Batteries/Recycling/RBTree/Lemmas.olean.private",
+          "logical_bytes": 2897288,
+          "allocated_bytes": 2904064,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/batteries/.lake/build/lib/lean/Batteries/Data/String/Lemmas.olean.private",
+          "logical_bytes": 2654672,
+          "allocated_bytes": 2662400,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/batteries/.lake/build/lib/lean/Batteries/Data/BinaryHeap/WF.olean.private",
+          "logical_bytes": 2519848,
+          "allocated_bytes": 2523136,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 2814767,
+        "nlink": 4,
+        "mode": "0o755",
+        "ctime_ns": 1793631742506009000,
+        "mtime_ns": 1793586134964865000
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/batteries/.lake/build",
+      "observed_finished_utc": "2026-11-02T21:49:42.425363+00:00"
+    },
+    {
+      "label": "conaled/Qq",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/Qq/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:42.425403+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 21716992,
+      "regular_logical_bytes": 21008898,
+      "counts": {
+        "directory": 8,
+        "regular": 210,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 14,
+          "allocated_bytes": 5017600,
+          "logical_bytes": 4990146
+        },
+        ".hash": {
+          "files": 98,
+          "allocated_bytes": 401408,
+          "logical_bytes": 1568
+        },
+        ".ilean": {
+          "files": 14,
+          "allocated_bytes": 282624,
+          "logical_bytes": 247822
+        },
+        ".ir": {
+          "files": 14,
+          "allocated_bytes": 3162112,
+          "logical_bytes": 3142784
+        },
+        ".olean": {
+          "files": 14,
+          "allocated_bytes": 4263936,
+          "logical_bytes": 4233424
+        },
+        ".olean.private": {
+          "files": 14,
+          "allocated_bytes": 8323072,
+          "logical_bytes": 8299040
+        },
+        ".olean.server": {
+          "files": 14,
+          "allocated_bytes": 118784,
+          "logical_bytes": 87632
+        },
+        ".sig": {
+          "files": 14,
+          "allocated_bytes": 57344,
+          "logical_bytes": 2464
+        },
+        ".trace": {
+          "files": 14,
+          "allocated_bytes": 57344,
+          "logical_bytes": 4018
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/Qq/.lake/build/lib/lean/Qq/Macro.olean.private",
+          "logical_bytes": 3377024,
+          "allocated_bytes": 3379200,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/Qq/.lake/build/lib/lean/Qq/Match.olean.private",
+          "logical_bytes": 2320800,
+          "allocated_bytes": 2322432,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/Qq/.lake/build/ir/Qq/Macro.c",
+          "logical_bytes": 2238373,
+          "allocated_bytes": 2240512,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/Qq/.lake/build/lib/lean/Qq/Macro.olean",
+          "logical_bytes": 2016392,
+          "allocated_bytes": 2019328,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/Qq/.lake/build/lib/lean/Qq/Macro.ir",
+          "logical_bytes": 1351488,
+          "allocated_bytes": 1351680,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 3285911,
+        "nlink": 4,
+        "mode": "0o755",
+        "ctime_ns": 1793586389581953500,
+        "mtime_ns": 1793586191094974700
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/Qq/.lake/build",
+      "observed_finished_utc": "2026-11-02T21:49:42.429442+00:00"
+    },
+    {
+      "label": "conaled/proofwidgets",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/proofwidgets/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:42.429561+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 20107264,
+      "regular_logical_bytes": 19485406,
+      "counts": {
+        "directory": 14,
+        "regular": 180,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 12,
+          "allocated_bytes": 5165056,
+          "logical_bytes": 5144638
+        },
+        ".hash": {
+          "files": 84,
+          "allocated_bytes": 344064,
+          "logical_bytes": 1344
+        },
+        ".ilean": {
+          "files": 12,
+          "allocated_bytes": 159744,
+          "logical_bytes": 137956
+        },
+        ".ir": {
+          "files": 12,
+          "allocated_bytes": 4321280,
+          "logical_bytes": 4298720
+        },
+        ".olean": {
+          "files": 12,
+          "allocated_bytes": 5787648,
+          "logical_bytes": 5764336
+        },
+        ".olean.private": {
+          "files": 12,
+          "allocated_bytes": 4067328,
+          "logical_bytes": 4045992
+        },
+        ".olean.server": {
+          "files": 12,
+          "allocated_bytes": 106496,
+          "logical_bytes": 86864
+        },
+        ".sig": {
+          "files": 12,
+          "allocated_bytes": 49152,
+          "logical_bytes": 2112
+        },
+        ".trace": {
+          "files": 12,
+          "allocated_bytes": 49152,
+          "logical_bytes": 3444
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean/ProofWidgets/Component/PenroseDiagram.olean",
+          "logical_bytes": 2899816,
+          "allocated_bytes": 2899968,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/proofwidgets/.lake/build/ir/ProofWidgets/Component/PenroseDiagram.c",
+          "logical_bytes": 2869177,
+          "allocated_bytes": 2871296,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean/ProofWidgets/Component/PenroseDiagram.ir",
+          "logical_bytes": 2791072,
+          "allocated_bytes": 2793472,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean/ProofWidgets/Data/Html.olean.private",
+          "logical_bytes": 1226672,
+          "allocated_bytes": 1228800,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean/ProofWidgets/Data/Html.olean",
+          "logical_bytes": 729456,
+          "allocated_bytes": 733184,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 2783567,
+        "nlink": 4,
+        "mode": "0o755",
+        "ctime_ns": 1793586437731748900,
+        "mtime_ns": 1793586220087933700
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/proofwidgets/.lake/build",
+      "observed_finished_utc": "2026-11-02T21:49:42.433124+00:00"
+    },
+    {
+      "label": "conaled/importGraph",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/importGraph/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:42.433140+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 35180544,
+      "regular_logical_bytes": 33368996,
+      "counts": {
+        "directory": 24,
+        "regular": 526,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 35,
+          "allocated_bytes": 7897088,
+          "logical_bytes": 7828637
+        },
+        ".hash": {
+          "files": 245,
+          "allocated_bytes": 1003520,
+          "logical_bytes": 3920
+        },
+        ".ilean": {
+          "files": 35,
+          "allocated_bytes": 634880,
+          "logical_bytes": 557597
+        },
+        ".ir": {
+          "files": 35,
+          "allocated_bytes": 5443584,
+          "logical_bytes": 5368840
+        },
+        ".olean": {
+          "files": 35,
+          "allocated_bytes": 4661248,
+          "logical_bytes": 4594312
+        },
+        ".olean.private": {
+          "files": 35,
+          "allocated_bytes": 14782464,
+          "logical_bytes": 14707688
+        },
+        ".olean.server": {
+          "files": 35,
+          "allocated_bytes": 368640,
+          "logical_bytes": 289240
+        },
+        ".setup.json": {
+          "files": 1,
+          "allocated_bytes": 4096,
+          "logical_bytes": 147
+        },
+        ".sig": {
+          "files": 35,
+          "allocated_bytes": 143360,
+          "logical_bytes": 6160
+        },
+        ".trace": {
+          "files": 35,
+          "allocated_bytes": 143360,
+          "logical_bytes": 12455
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/importGraph/.lake/build/lib/lean/ImportGraph/Shake/DeclNeeds.olean.private",
+          "logical_bytes": 2641408,
+          "allocated_bytes": 2641920,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/importGraph/.lake/build/lib/lean/ImportGraph/Tools/FindHome.olean.private",
+          "logical_bytes": 1556360,
+          "allocated_bytes": 1556480,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/importGraph/.lake/build/ir/ImportGraph/Shake/DeclNeeds.c",
+          "logical_bytes": 1397167,
+          "allocated_bytes": 1400832,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/importGraph/.lake/build/lib/lean/ImportGraph/Imports/Pretty.olean.private",
+          "logical_bytes": 1219440,
+          "allocated_bytes": 1220608,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/importGraph/.lake/build/lib/lean/ImportGraph/Shake/Workspace.olean.private",
+          "logical_bytes": 1051664,
+          "allocated_bytes": 1052672,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 3408023,
+        "nlink": 4,
+        "mode": "0o755",
+        "ctime_ns": 1793586389597651500,
+        "mtime_ns": 1793586191128446700
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/importGraph/.lake/build",
+      "observed_finished_utc": "2026-11-02T21:49:42.445056+00:00"
+    },
+    {
+      "label": "conaled/LeanSearchClient",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/LeanSearchClient/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:42.445084+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 5132288,
+      "regular_logical_bytes": 4912859,
+      "counts": {
+        "directory": 6,
+        "regular": 60,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 4,
+          "allocated_bytes": 1155072,
+          "logical_bytes": 1144946
+        },
+        ".hash": {
+          "files": 28,
+          "allocated_bytes": 114688,
+          "logical_bytes": 448
+        },
+        ".ilean": {
+          "files": 4,
+          "allocated_bytes": 90112,
+          "logical_bytes": 81733
+        },
+        ".ir": {
+          "files": 4,
+          "allocated_bytes": 765952,
+          "logical_bytes": 760896
+        },
+        ".olean": {
+          "files": 4,
+          "allocated_bytes": 958464,
+          "logical_bytes": 951640
+        },
+        ".olean.private": {
+          "files": 4,
+          "allocated_bytes": 1945600,
+          "logical_bytes": 1936688
+        },
+        ".olean.server": {
+          "files": 4,
+          "allocated_bytes": 45056,
+          "logical_bytes": 34656
+        },
+        ".sig": {
+          "files": 4,
+          "allocated_bytes": 16384,
+          "logical_bytes": 704
+        },
+        ".trace": {
+          "files": 4,
+          "allocated_bytes": 16384,
+          "logical_bytes": 1148
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean/LeanSearchClient/Syntax.olean.private",
+          "logical_bytes": 1092472,
+          "allocated_bytes": 1093632,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean/LeanSearchClient/LoogleSyntax.olean.private",
+          "logical_bytes": 803720,
+          "allocated_bytes": 806912,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/LeanSearchClient/.lake/build/ir/LeanSearchClient/Syntax.c",
+          "logical_bytes": 647250,
+          "allocated_bytes": 651264,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean/LeanSearchClient/Syntax.olean",
+          "logical_bytes": 523048,
+          "allocated_bytes": 524288,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/LeanSearchClient/.lake/build/ir/LeanSearchClient/LoogleSyntax.c",
+          "logical_bytes": 443925,
+          "allocated_bytes": 446464,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 3418619,
+        "nlink": 4,
+        "mode": "0o755",
+        "ctime_ns": 1793586389581953500,
+        "mtime_ns": 1793586191094193200
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/LeanSearchClient/.lake/build",
+      "observed_finished_utc": "2026-11-02T21:49:42.447314+00:00"
+    },
+    {
+      "label": "conaled/plausible",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/plausible/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:42.447340+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 13737984,
+      "regular_logical_bytes": 13066131,
+      "counts": {
+        "directory": 6,
+        "regular": 195,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 13,
+          "allocated_bytes": 3276800,
+          "logical_bytes": 3255785
+        },
+        ".hash": {
+          "files": 91,
+          "allocated_bytes": 372736,
+          "logical_bytes": 1456
+        },
+        ".ilean": {
+          "files": 13,
+          "allocated_bytes": 249856,
+          "logical_bytes": 218751
+        },
+        ".ir": {
+          "files": 13,
+          "allocated_bytes": 2002944,
+          "logical_bytes": 1975224
+        },
+        ".olean": {
+          "files": 13,
+          "allocated_bytes": 2367488,
+          "logical_bytes": 2339576
+        },
+        ".olean.private": {
+          "files": 13,
+          "allocated_bytes": 5181440,
+          "logical_bytes": 5147848
+        },
+        ".olean.server": {
+          "files": 13,
+          "allocated_bytes": 147456,
+          "logical_bytes": 121472
+        },
+        ".sig": {
+          "files": 13,
+          "allocated_bytes": 53248,
+          "logical_bytes": 2288
+        },
+        ".trace": {
+          "files": 13,
+          "allocated_bytes": 53248,
+          "logical_bytes": 3731
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/plausible/.lake/build/lib/lean/Plausible/Testable.olean.private",
+          "logical_bytes": 1276040,
+          "allocated_bytes": 1277952,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/plausible/.lake/build/lib/lean/Plausible/DeriveArbitrary.olean.private",
+          "logical_bytes": 1168040,
+          "allocated_bytes": 1171456,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/plausible/.lake/build/lib/lean/Plausible/DeriveShrinkable.olean.private",
+          "logical_bytes": 1011944,
+          "allocated_bytes": 1015808,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/plausible/.lake/build/ir/Plausible/Testable.c",
+          "logical_bytes": 964807,
+          "allocated_bytes": 966656,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/plausible/.lake/build/lib/lean/Plausible/Testable.olean",
+          "logical_bytes": 899608,
+          "allocated_bytes": 901120,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 3279304,
+        "nlink": 4,
+        "mode": "0o755",
+        "ctime_ns": 1793586437731748900,
+        "mtime_ns": 1793586220085612800
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/plausible/.lake/build",
+      "observed_finished_utc": "2026-11-02T21:49:42.453359+00:00"
+    },
+    {
+      "label": "conaled/Cli",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/Cli/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:42.453384+00:00",
+      "present": false,
+      "complete": true,
+      "allocated_bytes": 0,
+      "regular_logical_bytes": 0,
+      "counts": {
+        "directory": 0,
+        "regular": 0,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {},
+      "largest_regular_files": [],
+      "observed_finished_utc": "2026-11-02T21:49:42.453415+00:00"
+    },
+    {
+      "label": "vfa-validation/project-build",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:42.453427+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 802684928,
+      "regular_logical_bytes": 788366001,
+      "counts": {
+        "directory": 94,
+        "regular": 4832,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 595,
+          "allocated_bytes": 27271168,
+          "logical_bytes": 25958312
+        },
+        ".hash": {
+          "files": 1785,
+          "allocated_bytes": 7311360,
+          "logical_bytes": 28560
+        },
+        ".ilean": {
+          "files": 595,
+          "allocated_bytes": 17883136,
+          "logical_bytes": 16582077
+        },
+        ".olean": {
+          "files": 595,
+          "allocated_bytes": 257056768,
+          "logical_bytes": 255438016
+        },
+        ".setup.json": {
+          "files": 667,
+          "allocated_bytes": 490139648,
+          "logical_bytes": 488586315
+        },
+        ".trace": {
+          "files": 595,
+          "allocated_bytes": 2465792,
+          "logical_bytes": 1772721
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/SquareKit/Internal/PathTransport/Typed.olean",
+          "logical_bytes": 21874776,
+          "allocated_bytes": 21876736,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/SquareKit/Internal/PathTransport/ContextualModel.olean",
+          "logical_bytes": 3873704,
+          "allocated_bytes": 3874816,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Compiler.olean",
+          "logical_bytes": 3425560,
+          "allocated_bytes": 3428352,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/SquareKit/Internal/DependentFunctions.olean",
+          "logical_bytes": 2512296,
+          "allocated_bytes": 2514944,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/SquareKit/Internal/GraphArtifactEquality.olean",
+          "logical_bytes": 2494144,
+          "allocated_bytes": 2498560,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 4113202,
+        "nlink": 4,
+        "mode": "0o755",
+        "ctime_ns": 1793609915598471200,
+        "mtime_ns": 1793609529437768200
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build",
+      "observed_finished_utc": "2026-11-02T21:49:42.579335+00:00"
+    },
+    {
+      "label": "vfa-validation/mathlib",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:42.579382+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 7479304192,
+      "regular_logical_bytes": 7047695471,
+      "counts": {
+        "directory": 2439,
+        "regular": 130054,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        "(none)": {
+          "files": 1,
+          "allocated_bytes": 115613696,
+          "logical_bytes": 115612976
+        },
+        ".c": {
+          "files": 8643,
+          "allocated_bytes": 450273280,
+          "logical_bytes": 435045294
+        },
+        ".export": {
+          "files": 18,
+          "allocated_bytes": 1908736,
+          "logical_bytes": 1858032
+        },
+        ".hash": {
+          "files": 60520,
+          "allocated_bytes": 247885824,
+          "logical_bytes": 968304
+        },
+        ".ilean": {
+          "files": 8643,
+          "allocated_bytes": 307933184,
+          "logical_bytes": 289918473
+        },
+        ".ir": {
+          "files": 8643,
+          "allocated_bytes": 256446464,
+          "logical_bytes": 238156368
+        },
+        ".mNtPkU": {
+          "files": 1,
+          "allocated_bytes": 90705920,
+          "logical_bytes": 90701824
+        },
+        ".olean": {
+          "files": 8643,
+          "allocated_bytes": 1835507712,
+          "logical_bytes": 1817687448
+        },
+        ".olean.private": {
+          "files": 8643,
+          "allocated_bytes": 3722252288,
+          "logical_bytes": 3704266040
+        },
+        ".olean.server": {
+          "files": 8643,
+          "allocated_bytes": 122814464,
+          "logical_bytes": 105001920
+        },
+        ".rsp": {
+          "files": 1,
+          "allocated_bytes": 4096,
+          "logical_bytes": 2419
+        },
+        ".setup.json": {
+          "files": 350,
+          "allocated_bytes": 243896320,
+          "logical_bytes": 243181239
+        },
+        ".sig": {
+          "files": 8643,
+          "allocated_bytes": 35401728,
+          "logical_bytes": 1521168
+        },
+        ".trace": {
+          "files": 8662,
+          "allocated_bytes": 35852288,
+          "logical_bytes": 3773966
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/bin/cache",
+          "logical_bytes": 115612976,
+          "allocated_bytes": 115613696,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/bin/.cache.mNtPkU",
+          "logical_bytes": 90701824,
+          "allocated_bytes": 90705920,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/AlgebraicGeometry/EllipticCurve/Projective/Formula.olean.private",
+          "logical_bytes": 9338376,
+          "allocated_bytes": 9338880,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Etale/QuasiFinite.olean.private",
+          "logical_bytes": 8226832,
+          "allocated_bytes": 8228864,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/AlgebraicGeometry/AffineTransitionLimit.olean.private",
+          "logical_bytes": 7607936,
+          "allocated_bytes": 7610368,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 4083818,
+        "nlink": 5,
+        "mode": "0o700",
+        "ctime_ns": 1793586652233516500,
+        "mtime_ns": 1793586599804860700
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build",
+      "observed_finished_utc": "2026-11-02T21:49:45.547527+00:00"
+    },
+    {
+      "label": "vfa-validation/aesop",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/aesop/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:45.547566+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 137715712,
+      "regular_logical_bytes": 131022471,
+      "counts": {
+        "directory": 52,
+        "regular": 1983,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 132,
+          "allocated_bytes": 33476608,
+          "logical_bytes": 33200417
+        },
+        ".hash": {
+          "files": 924,
+          "allocated_bytes": 3784704,
+          "logical_bytes": 14784
+        },
+        ".ilean": {
+          "files": 132,
+          "allocated_bytes": 2277376,
+          "logical_bytes": 1985895
+        },
+        ".ir": {
+          "files": 132,
+          "allocated_bytes": 22454272,
+          "logical_bytes": 22206128
+        },
+        ".olean": {
+          "files": 132,
+          "allocated_bytes": 17526784,
+          "logical_bytes": 17245288
+        },
+        ".olean.private": {
+          "files": 132,
+          "allocated_bytes": 55840768,
+          "logical_bytes": 55565536
+        },
+        ".olean.server": {
+          "files": 132,
+          "allocated_bytes": 1007616,
+          "logical_bytes": 715088
+        },
+        ".setup.json": {
+          "files": 3,
+          "allocated_bytes": 28672,
+          "logical_bytes": 20780
+        },
+        ".sig": {
+          "files": 132,
+          "allocated_bytes": 540672,
+          "logical_bytes": 23232
+        },
+        ".trace": {
+          "files": 132,
+          "allocated_bytes": 540672,
+          "logical_bytes": 45323
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/aesop/.lake/build/lib/lean/Aesop/Forward/State.olean.private",
+          "logical_bytes": 3849760,
+          "allocated_bytes": 3850240,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/aesop/.lake/build/lib/lean/Aesop/RuleSet.olean.private",
+          "logical_bytes": 3230216,
+          "allocated_bytes": 3231744,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/aesop/.lake/build/ir/Aesop/Forward/State.c",
+          "logical_bytes": 2593795,
+          "allocated_bytes": 2596864,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/aesop/.lake/build/ir/Aesop/RuleSet.c",
+          "logical_bytes": 2195227,
+          "allocated_bytes": 2195456,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/aesop/.lake/build/lib/lean/Aesop/Search/Expansion/Norm.olean.private",
+          "logical_bytes": 2016280,
+          "allocated_bytes": 2019328,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 2355,
+        "nlink": 4,
+        "mode": "0o755",
+        "ctime_ns": 1793609915718470400,
+        "mtime_ns": 1793609529488511700
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/aesop/.lake/build",
+      "observed_finished_utc": "2026-11-02T21:49:45.590319+00:00"
+    },
+    {
+      "label": "vfa-validation/batteries",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/batteries/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:45.590358+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 151117824,
+      "regular_logical_bytes": 140919470,
+      "counts": {
+        "directory": 88,
+        "regular": 2936,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 195,
+          "allocated_bytes": 21032960,
+          "logical_bytes": 20661481
+        },
+        ".export": {
+          "files": 1,
+          "allocated_bytes": 380928,
+          "logical_bytes": 379464
+        },
+        ".hash": {
+          "files": 1366,
+          "allocated_bytes": 5595136,
+          "logical_bytes": 21856
+        },
+        ".ilean": {
+          "files": 195,
+          "allocated_bytes": 3731456,
+          "logical_bytes": 3241392
+        },
+        ".ir": {
+          "files": 195,
+          "allocated_bytes": 13492224,
+          "logical_bytes": 13048528
+        },
+        ".olean": {
+          "files": 195,
+          "allocated_bytes": 28749824,
+          "logical_bytes": 28339720
+        },
+        ".olean.private": {
+          "files": 195,
+          "allocated_bytes": 74166272,
+          "logical_bytes": 73663800
+        },
+        ".olean.server": {
+          "files": 195,
+          "allocated_bytes": 1933312,
+          "logical_bytes": 1439544
+        },
+        ".setup.json": {
+          "files": 8,
+          "allocated_bytes": 36864,
+          "logical_bytes": 10692
+        },
+        ".sig": {
+          "files": 195,
+          "allocated_bytes": 798720,
+          "logical_bytes": 34320
+        },
+        ".trace": {
+          "files": 196,
+          "allocated_bytes": 802816,
+          "logical_bytes": 78673
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/batteries/.lake/build/lib/lean/Batteries/Data/List/Lemmas.olean.private",
+          "logical_bytes": 5423840,
+          "allocated_bytes": 5427200,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/batteries/.lake/build/lib/lean/Batteries/Recycling/RBTree/WF.olean.private",
+          "logical_bytes": 3659208,
+          "allocated_bytes": 3661824,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/batteries/.lake/build/lib/lean/Batteries/Recycling/RBTree/Lemmas.olean.private",
+          "logical_bytes": 2897288,
+          "allocated_bytes": 2899968,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/batteries/.lake/build/lib/lean/Batteries/Data/String/Lemmas.olean.private",
+          "logical_bytes": 2654672,
+          "allocated_bytes": 2658304,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/batteries/.lake/build/lib/lean/Batteries/Data/BinaryHeap/WF.olean.private",
+          "logical_bytes": 2519848,
+          "allocated_bytes": 2523136,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 4392,
+        "nlink": 4,
+        "mode": "0o755",
+        "ctime_ns": 1793609915798469600,
+        "mtime_ns": 1793609529561878800
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/batteries/.lake/build",
+      "observed_finished_utc": "2026-11-02T21:49:45.674592+00:00"
+    },
+    {
+      "label": "vfa-validation/Qq",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Qq/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:45.674624+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 21716992,
+      "regular_logical_bytes": 21008898,
+      "counts": {
+        "directory": 8,
+        "regular": 210,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 14,
+          "allocated_bytes": 5017600,
+          "logical_bytes": 4990146
+        },
+        ".hash": {
+          "files": 98,
+          "allocated_bytes": 401408,
+          "logical_bytes": 1568
+        },
+        ".ilean": {
+          "files": 14,
+          "allocated_bytes": 282624,
+          "logical_bytes": 247822
+        },
+        ".ir": {
+          "files": 14,
+          "allocated_bytes": 3162112,
+          "logical_bytes": 3142784
+        },
+        ".olean": {
+          "files": 14,
+          "allocated_bytes": 4263936,
+          "logical_bytes": 4233424
+        },
+        ".olean.private": {
+          "files": 14,
+          "allocated_bytes": 8323072,
+          "logical_bytes": 8299040
+        },
+        ".olean.server": {
+          "files": 14,
+          "allocated_bytes": 118784,
+          "logical_bytes": 87632
+        },
+        ".sig": {
+          "files": 14,
+          "allocated_bytes": 57344,
+          "logical_bytes": 2464
+        },
+        ".trace": {
+          "files": 14,
+          "allocated_bytes": 57344,
+          "logical_bytes": 4018
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Qq/.lake/build/lib/lean/Qq/Macro.olean.private",
+          "logical_bytes": 3377024,
+          "allocated_bytes": 3379200,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Qq/.lake/build/lib/lean/Qq/Match.olean.private",
+          "logical_bytes": 2320800,
+          "allocated_bytes": 2322432,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Qq/.lake/build/ir/Qq/Macro.c",
+          "logical_bytes": 2238373,
+          "allocated_bytes": 2240512,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Qq/.lake/build/lib/lean/Qq/Macro.olean",
+          "logical_bytes": 2016392,
+          "allocated_bytes": 2019328,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Qq/.lake/build/lib/lean/Qq/Macro.ir",
+          "logical_bytes": 1351488,
+          "allocated_bytes": 1351680,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 7872,
+        "nlink": 4,
+        "mode": "0o755",
+        "ctime_ns": 1793609915702470400,
+        "mtime_ns": 1793609529472980000
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Qq/.lake/build",
+      "observed_finished_utc": "2026-11-02T21:49:45.684863+00:00"
+    },
+    {
+      "label": "vfa-validation/proofwidgets",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/proofwidgets/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:45.684890+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 20779008,
+      "regular_logical_bytes": 20107467,
+      "counts": {
+        "directory": 14,
+        "regular": 196,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 13,
+          "allocated_bytes": 5296128,
+          "logical_bytes": 5272222
+        },
+        ".hash": {
+          "files": 91,
+          "allocated_bytes": 372736,
+          "logical_bytes": 1456
+        },
+        ".ilean": {
+          "files": 13,
+          "allocated_bytes": 172032,
+          "logical_bytes": 147499
+        },
+        ".ir": {
+          "files": 13,
+          "allocated_bytes": 4411392,
+          "logical_bytes": 4388536
+        },
+        ".olean": {
+          "files": 13,
+          "allocated_bytes": 5976064,
+          "logical_bytes": 5948888
+        },
+        ".olean.private": {
+          "files": 13,
+          "allocated_bytes": 4268032,
+          "logical_bytes": 4245568
+        },
+        ".olean.server": {
+          "files": 13,
+          "allocated_bytes": 114688,
+          "logical_bytes": 92088
+        },
+        ".setup.json": {
+          "files": 1,
+          "allocated_bytes": 4096,
+          "logical_bytes": 2403
+        },
+        ".sig": {
+          "files": 13,
+          "allocated_bytes": 53248,
+          "logical_bytes": 2288
+        },
+        ".trace": {
+          "files": 13,
+          "allocated_bytes": 53248,
+          "logical_bytes": 6519
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/proofwidgets/.lake/build/lib/lean/ProofWidgets/Component/PenroseDiagram.olean",
+          "logical_bytes": 2899816,
+          "allocated_bytes": 2899968,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/proofwidgets/.lake/build/ir/ProofWidgets/Component/PenroseDiagram.c",
+          "logical_bytes": 2869177,
+          "allocated_bytes": 2871296,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/proofwidgets/.lake/build/lib/lean/ProofWidgets/Component/PenroseDiagram.ir",
+          "logical_bytes": 2791072,
+          "allocated_bytes": 2793472,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/proofwidgets/.lake/build/lib/lean/ProofWidgets/Data/Html.olean.private",
+          "logical_bytes": 1226672,
+          "allocated_bytes": 1228800,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/proofwidgets/.lake/build/lib/lean/ProofWidgets/Data/Html.olean",
+          "logical_bytes": 729456,
+          "allocated_bytes": 733184,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 1827,
+        "nlink": 4,
+        "mode": "0o755",
+        "ctime_ns": 1793609945534128600,
+        "mtime_ns": 1793609552082231300
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/proofwidgets/.lake/build",
+      "observed_finished_utc": "2026-11-02T21:49:45.699060+00:00"
+    },
+    {
+      "label": "vfa-validation/importGraph",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/importGraph/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:45.699088+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 35180544,
+      "regular_logical_bytes": 33368996,
+      "counts": {
+        "directory": 24,
+        "regular": 526,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 35,
+          "allocated_bytes": 7897088,
+          "logical_bytes": 7828637
+        },
+        ".hash": {
+          "files": 245,
+          "allocated_bytes": 1003520,
+          "logical_bytes": 3920
+        },
+        ".ilean": {
+          "files": 35,
+          "allocated_bytes": 634880,
+          "logical_bytes": 557597
+        },
+        ".ir": {
+          "files": 35,
+          "allocated_bytes": 5443584,
+          "logical_bytes": 5368840
+        },
+        ".olean": {
+          "files": 35,
+          "allocated_bytes": 4661248,
+          "logical_bytes": 4594312
+        },
+        ".olean.private": {
+          "files": 35,
+          "allocated_bytes": 14782464,
+          "logical_bytes": 14707688
+        },
+        ".olean.server": {
+          "files": 35,
+          "allocated_bytes": 368640,
+          "logical_bytes": 289240
+        },
+        ".setup.json": {
+          "files": 1,
+          "allocated_bytes": 4096,
+          "logical_bytes": 147
+        },
+        ".sig": {
+          "files": 35,
+          "allocated_bytes": 143360,
+          "logical_bytes": 6160
+        },
+        ".trace": {
+          "files": 35,
+          "allocated_bytes": 143360,
+          "logical_bytes": 12455
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/importGraph/.lake/build/lib/lean/ImportGraph/Shake/DeclNeeds.olean.private",
+          "logical_bytes": 2641408,
+          "allocated_bytes": 2641920,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/importGraph/.lake/build/lib/lean/ImportGraph/Tools/FindHome.olean.private",
+          "logical_bytes": 1556360,
+          "allocated_bytes": 1556480,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/importGraph/.lake/build/ir/ImportGraph/Shake/DeclNeeds.c",
+          "logical_bytes": 1397167,
+          "allocated_bytes": 1400832,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/importGraph/.lake/build/lib/lean/ImportGraph/Imports/Pretty.olean.private",
+          "logical_bytes": 1219440,
+          "allocated_bytes": 1220608,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/importGraph/.lake/build/lib/lean/ImportGraph/Shake/Workspace.olean.private",
+          "logical_bytes": 1051664,
+          "allocated_bytes": 1052672,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 1099,
+        "nlink": 4,
+        "mode": "0o755",
+        "ctime_ns": 1793609915926468900,
+        "mtime_ns": 1793609529642094800
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/importGraph/.lake/build",
+      "observed_finished_utc": "2026-11-02T21:49:45.709435+00:00"
+    },
+    {
+      "label": "vfa-validation/LeanSearchClient",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/LeanSearchClient/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:45.709465+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 5132288,
+      "regular_logical_bytes": 4912859,
+      "counts": {
+        "directory": 6,
+        "regular": 60,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 4,
+          "allocated_bytes": 1155072,
+          "logical_bytes": 1144946
+        },
+        ".hash": {
+          "files": 28,
+          "allocated_bytes": 114688,
+          "logical_bytes": 448
+        },
+        ".ilean": {
+          "files": 4,
+          "allocated_bytes": 90112,
+          "logical_bytes": 81733
+        },
+        ".ir": {
+          "files": 4,
+          "allocated_bytes": 765952,
+          "logical_bytes": 760896
+        },
+        ".olean": {
+          "files": 4,
+          "allocated_bytes": 958464,
+          "logical_bytes": 951640
+        },
+        ".olean.private": {
+          "files": 4,
+          "allocated_bytes": 1945600,
+          "logical_bytes": 1936688
+        },
+        ".olean.server": {
+          "files": 4,
+          "allocated_bytes": 45056,
+          "logical_bytes": 34656
+        },
+        ".sig": {
+          "files": 4,
+          "allocated_bytes": 16384,
+          "logical_bytes": 704
+        },
+        ".trace": {
+          "files": 4,
+          "allocated_bytes": 16384,
+          "logical_bytes": 1148
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/LeanSearchClient/.lake/build/lib/lean/LeanSearchClient/Syntax.olean.private",
+          "logical_bytes": 1092472,
+          "allocated_bytes": 1093632,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/LeanSearchClient/.lake/build/lib/lean/LeanSearchClient/LoogleSyntax.olean.private",
+          "logical_bytes": 803720,
+          "allocated_bytes": 806912,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/LeanSearchClient/.lake/build/ir/LeanSearchClient/Syntax.c",
+          "logical_bytes": 647250,
+          "allocated_bytes": 651264,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/LeanSearchClient/.lake/build/lib/lean/LeanSearchClient/Syntax.olean",
+          "logical_bytes": 523048,
+          "allocated_bytes": 524288,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/LeanSearchClient/.lake/build/ir/LeanSearchClient/LoogleSyntax.c",
+          "logical_bytes": 443925,
+          "allocated_bytes": 446464,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 793,
+        "nlink": 4,
+        "mode": "0o755",
+        "ctime_ns": 1793609915698470400,
+        "mtime_ns": 1793609529470632000
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/LeanSearchClient/.lake/build",
+      "observed_finished_utc": "2026-11-02T21:49:45.711839+00:00"
+    },
+    {
+      "label": "vfa-validation/plausible",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/plausible/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:45.711862+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 13737984,
+      "regular_logical_bytes": 13066131,
+      "counts": {
+        "directory": 6,
+        "regular": 195,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 13,
+          "allocated_bytes": 3276800,
+          "logical_bytes": 3255785
+        },
+        ".hash": {
+          "files": 91,
+          "allocated_bytes": 372736,
+          "logical_bytes": 1456
+        },
+        ".ilean": {
+          "files": 13,
+          "allocated_bytes": 249856,
+          "logical_bytes": 218751
+        },
+        ".ir": {
+          "files": 13,
+          "allocated_bytes": 2002944,
+          "logical_bytes": 1975224
+        },
+        ".olean": {
+          "files": 13,
+          "allocated_bytes": 2367488,
+          "logical_bytes": 2339576
+        },
+        ".olean.private": {
+          "files": 13,
+          "allocated_bytes": 5181440,
+          "logical_bytes": 5147848
+        },
+        ".olean.server": {
+          "files": 13,
+          "allocated_bytes": 147456,
+          "logical_bytes": 121472
+        },
+        ".sig": {
+          "files": 13,
+          "allocated_bytes": 53248,
+          "logical_bytes": 2288
+        },
+        ".trace": {
+          "files": 13,
+          "allocated_bytes": 53248,
+          "logical_bytes": 3731
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/plausible/.lake/build/lib/lean/Plausible/Testable.olean.private",
+          "logical_bytes": 1276040,
+          "allocated_bytes": 1277952,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/plausible/.lake/build/lib/lean/Plausible/DeriveArbitrary.olean.private",
+          "logical_bytes": 1168040,
+          "allocated_bytes": 1171456,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/plausible/.lake/build/lib/lean/Plausible/DeriveShrinkable.olean.private",
+          "logical_bytes": 1011944,
+          "allocated_bytes": 1015808,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/plausible/.lake/build/ir/Plausible/Testable.c",
+          "logical_bytes": 964807,
+          "allocated_bytes": 966656,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/plausible/.lake/build/lib/lean/Plausible/Testable.olean",
+          "logical_bytes": 899608,
+          "allocated_bytes": 901120,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 513,
+        "nlink": 4,
+        "mode": "0o755",
+        "ctime_ns": 1793609945534128600,
+        "mtime_ns": 1793609552077430800
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/plausible/.lake/build",
+      "observed_finished_utc": "2026-11-02T21:49:45.717436+00:00"
+    },
+    {
+      "label": "vfa-validation/Cli",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Cli/.lake/build",
+      "observed_started_utc": "2026-11-02T21:49:45.717463+00:00",
+      "present": false,
+      "complete": true,
+      "allocated_bytes": 0,
+      "regular_logical_bytes": 0,
+      "counts": {
+        "directory": 0,
+        "regular": 0,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {},
+      "largest_regular_files": [],
+      "observed_finished_utc": "2026-11-02T21:49:45.717495+00:00"
+    },
+    {
+      "label": "vfa-validation/private/fresh-check-4fhvnocs",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/fresh-check-4fhvnocs",
+      "observed_started_utc": "2026-11-02T21:49:45.717507+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 91836416,
+      "regular_logical_bytes": 91399640,
+      "counts": {
+        "directory": 24,
+        "regular": 155,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".olean": {
+          "files": 155,
+          "allocated_bytes": 91738112,
+          "logical_bytes": 91399640
+        }
+      },
+      "largest_regular_files": [
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/fresh-check-4fhvnocs/SquareKit/Internal/PathTransport/Typed.olean",
+          "logical_bytes": 21874672,
+          "allocated_bytes": 21876736,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/fresh-check-4fhvnocs/SquareKit/Internal/PathTransport/ContextualModel.olean",
+          "logical_bytes": 3873600,
+          "allocated_bytes": 3874816,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/fresh-check-4fhvnocs/Compiler.olean",
+          "logical_bytes": 3425456,
+          "allocated_bytes": 3428352,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/fresh-check-4fhvnocs/FirstOrder.olean",
+          "logical_bytes": 1898200,
+          "allocated_bytes": 1900544,
+          "nlink": 1
+        },
+        {
+          "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/fresh-check-4fhvnocs/SquareKit/Internal/PathTransport/GroupoidSoundness.olean",
+          "logical_bytes": 1736376,
+          "allocated_bytes": 1736704,
+          "nlink": 1
+        }
+      ],
+      "root_identity": {
+        "device": 27,
+        "inode": 3279337,
+        "nlink": 5,
+        "mode": "0o700",
+        "ctime_ns": 1793655875192712700,
+        "mtime_ns": 1793655875192712700
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/fresh-check-4fhvnocs",
+      "observed_finished_utc": "2026-11-02T21:49:45.734128+00:00"
+    }
+  ],
+  "private_output_enumeration_errors": [],
+  "retired_root_comparisons": [
+    {
+      "retirement_record": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-inactive-mathlib-retirement-after-enospc.json",
+      "retirement_finished_utc": "2026-11-02T15:59:12.624643+00:00",
+      "retired_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build",
+      "retired_identity": [
+        27,
+        3278033
+      ],
+      "retired_allocated_bytes": 3797491712,
+      "currently_present": true,
+      "current_identity": {
+        "device": 27,
+        "inode": 3278009,
+        "nlink": 5,
+        "mode": "0o755",
+        "ctime_ns": 1793635157954724000,
+        "mtime_ns": 1793609449478482200
+      },
+      "current_allocated_bytes": 51875840,
+      "disposition": "Previously retired path: no automatic or repeating deletion authorised; presence does not identify its writer or explain free-space changes."
+    },
+    {
+      "retirement_record": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-inactive-aesop-retirement.json",
+      "retirement_finished_utc": "2026-11-02T14:45:26.953962+00:00",
+      "retired_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/aesop/.lake/build",
+      "retired_identity": [
+        27,
+        2782880
+      ],
+      "retired_allocated_bytes": 137715712,
+      "currently_present": true,
+      "current_identity": {
+        "device": 27,
+        "inode": 2912692,
+        "nlink": 4,
+        "mode": "0o755",
+        "ctime_ns": 1793630749735260200,
+        "mtime_ns": 1793586191098779400
+      },
+      "current_allocated_bytes": 138121216,
+      "disposition": "Previously retired path: no automatic or repeating deletion authorised; presence does not identify its writer or explain free-space changes."
+    },
+    {
+      "retirement_record": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-inactive-batteries-retirement.json",
+      "retirement_finished_utc": "2026-11-02T15:01:40.300387+00:00",
+      "retired_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/batteries/.lake/build",
+      "retired_identity": [
+        27,
+        2491984
+      ],
+      "retired_allocated_bytes": 150978560,
+      "currently_present": true,
+      "current_identity": {
+        "device": 27,
+        "inode": 2814767,
+        "nlink": 4,
+        "mode": "0o755",
+        "ctime_ns": 1793631742506009000,
+        "mtime_ns": 1793586134964865000
+      },
+      "current_allocated_bytes": 151138304,
+      "disposition": "Previously retired path: no automatic or repeating deletion authorised; presence does not identify its writer or explain free-space changes."
+    }
+  ],
+  "source_checkpoint_receipt_comparisons": [
+    {
+      "number": 25,
+      "verification_record": "/workspace/scratch/0c54f2db1fdf/work-state/validation/checkpoint025-upload-verification.json",
+      "verified_utc": "2026-11-02T16:06:59.961119+00:00",
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-025-storage-integrity-recovery.tar.gz",
+      "recorded_bytes": 146014033,
+      "recorded_sha256": "b83eaf7cefdcde6fa104469a180065a992a4801dde7479e8e9509215b2aeb06e",
+      "library_file_id": "libfile_266926f2377481918b44d05a4a5f83b9",
+      "current_metadata": {
+        "name": "conaled-vfa-checkpoint-025-storage-integrity-recovery.tar.gz",
+        "type": "regular",
+        "logical_bytes": 146014033,
+        "allocated_bytes": 146022400,
+        "device": 27,
+        "inode": 2405225,
+        "nlink": 1,
+        "ctime_ns": 1793635578494814000,
+        "mtime_ns": 1793635477587724800
+      },
+      "current_size_matches_recorded": true,
+      "current_payload_hash_rechecked": false,
+      "current_library_binding_rechecked": false
+    },
+    {
+      "number": 26,
+      "verification_record": "/workspace/scratch/0c54f2db1fdf/work-state/validation/checkpoint026-upload-verification.json",
+      "verified_utc": "2026-11-02T18:03:05.846035+00:00",
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-026-fresh-validation-progress.tar.gz",
+      "recorded_bytes": 146023732,
+      "recorded_sha256": "0068b157b143a50bce71590a083bf4f3bad1e56498c2a8ea81b355b66c5c3c70",
+      "library_file_id": "libfile_68c9ebaea698819196afd2b02009130a",
+      "current_metadata": {
+        "name": "conaled-vfa-checkpoint-026-fresh-validation-progress.tar.gz",
+        "type": "regular",
+        "logical_bytes": 146023732,
+        "allocated_bytes": 146034688,
+        "device": 27,
+        "inode": 2405456,
+        "nlink": 1,
+        "ctime_ns": 1793642530347074000,
+        "mtime_ns": 1793642464827682000
+      },
+      "current_size_matches_recorded": true,
+      "current_payload_hash_rechecked": false,
+      "current_library_binding_rechecked": false
+    },
+    {
+      "number": 27,
+      "verification_record": "/workspace/scratch/0c54f2db1fdf/work-state/validation/checkpoint027-upload-verification.json",
+      "verified_utc": "2026-11-02T21:05:07.380559+00:00",
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-027-fresh-run-recovery.tar.gz",
+      "recorded_bytes": 146040188,
+      "recorded_sha256": "89e61d6402de4eae481278fe137973d1a7b376670bb3cf3ba4046dc384e87ee5",
+      "library_file_id": "libfile_f21d90f7aea88191a43bd31bfccf5a1e",
+      "current_metadata": {
+        "name": "conaled-vfa-checkpoint-027-fresh-run-recovery.tar.gz",
+        "type": "regular",
+        "logical_bytes": 146040188,
+        "allocated_bytes": 146051072,
+        "device": 27,
+        "inode": 2405666,
+        "nlink": 1,
+        "ctime_ns": 1793653469123057200,
+        "mtime_ns": 1793653446991332400
+      },
+      "current_size_matches_recorded": true,
+      "current_payload_hash_rechecked": false,
+      "current_library_binding_rechecked": false
+    },
+    {
+      "number": 28,
+      "verification_record": "/workspace/scratch/0c54f2db1fdf/work-state/validation/checkpoint028-upload-verification.json",
+      "verified_utc": "2026-11-02T21:33:29.039783+00:00",
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-028-validation-recorder.tar.gz",
+      "recorded_bytes": 146139418,
+      "recorded_sha256": "964d18dcd9746c91a956d649805213ec386650dc6ce74d121c470e34473cde47",
+      "library_file_id": "libfile_f295cb2463d481918d85f5fc6d24384e",
+      "current_metadata": {
+        "name": "conaled-vfa-checkpoint-028-validation-recorder.tar.gz",
+        "type": "regular",
+        "logical_bytes": 146139418,
+        "allocated_bytes": 146149376,
+        "device": 27,
+        "inode": 2405733,
+        "nlink": 1,
+        "ctime_ns": 1793655187300649500,
+        "mtime_ns": 1793655164004887000
+      },
+      "current_size_matches_recorded": true,
+      "current_payload_hash_rechecked": false,
+      "current_library_binding_rechecked": false
+    },
+    {
+      "number": 29,
+      "verification_record": "/workspace/scratch/0c54f2db1fdf/work-state/validation/checkpoint029-upload-verification.json",
+      "verified_utc": "2026-11-02T21:46:03.102099+00:00",
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-029-fresh-retry-progress.tar.gz",
+      "recorded_bytes": 146144577,
+      "recorded_sha256": "0f92e7441e1470fae170317bbcbd0e4761eb0a8b6c5ee2ee41915a27e898695c",
+      "library_file_id": "libfile_0399b6313f9c8191ba9facf929341e0e",
+      "current_metadata": {
+        "name": "conaled-vfa-checkpoint-029-fresh-retry-progress.tar.gz",
+        "type": "regular",
+        "logical_bytes": 146144577,
+        "allocated_bytes": 146153472,
+        "device": 27,
+        "inode": 2405751,
+        "nlink": 1,
+        "ctime_ns": 1793655949855879000,
+        "mtime_ns": 1793655927160238000
+      },
+      "current_size_matches_recorded": true,
+      "current_payload_hash_rechecked": false,
+      "current_library_binding_rechecked": false
+    }
+  ],
+  "main_validation_root_separation": [
+    {
+      "cohort": "project-build",
+      "main_present": true,
+      "validation_present": true,
+      "different_canonical_roots": true,
+      "different_root_device_inode": true
+    },
+    {
+      "cohort": "mathlib",
+      "main_present": true,
+      "validation_present": true,
+      "different_canonical_roots": true,
+      "different_root_device_inode": true
+    },
+    {
+      "cohort": "aesop",
+      "main_present": true,
+      "validation_present": true,
+      "different_canonical_roots": true,
+      "different_root_device_inode": true
+    },
+    {
+      "cohort": "batteries",
+      "main_present": true,
+      "validation_present": true,
+      "different_canonical_roots": true,
+      "different_root_device_inode": true
+    },
+    {
+      "cohort": "Qq",
+      "main_present": true,
+      "validation_present": true,
+      "different_canonical_roots": true,
+      "different_root_device_inode": true
+    },
+    {
+      "cohort": "proofwidgets",
+      "main_present": true,
+      "validation_present": true,
+      "different_canonical_roots": true,
+      "different_root_device_inode": true
+    },
+    {
+      "cohort": "importGraph",
+      "main_present": true,
+      "validation_present": true,
+      "different_canonical_roots": true,
+      "different_root_device_inode": true
+    },
+    {
+      "cohort": "LeanSearchClient",
+      "main_present": true,
+      "validation_present": true,
+      "different_canonical_roots": true,
+      "different_root_device_inode": true
+    },
+    {
+      "cohort": "plausible",
+      "main_present": true,
+      "validation_present": true,
+      "different_canonical_roots": true,
+      "different_root_device_inode": true
+    },
+    {
+      "cohort": "Cli",
+      "main_present": false,
+      "validation_present": false,
+      "different_canonical_roots": null,
+      "different_root_device_inode": null
+    }
+  ],
+  "scope": "Metadata/allocated sizes only for checkpoints, main and validation project/dependency generated build roots, and validation fresh-check-* private roots. No payload/archive reads or hashes, compiler, process inspection, signals, cache/source changes or deletion. Existing small evidence JSON records were read for comparisons.",
+  "observation_limits": "Non-atomic: fresh2 remains active and filesystem allocation can change while the census runs. Negative deltas/inode identity changes do not identify a writer. Selected-root totals do not cover the whole filesystem; no full-build peak or growth-rate forecast is inferred. Root-inode/canonical separation is not a proof of absence of cross-tree links or active references. Allocated sums count paths and can overcount hard links; such links are counted explicitly.",
+  "assessment": {
+    "existing_root_free_launch_floor_bytes": 2000000000,
+    "root_free_margin_after_census": 2074127360,
+    "free_space_series_not_monotonic": true,
+    "total_main_generated_allocated_bytes": 446611456,
+    "main_generated_without_previously_retired_mathlib_aesop_batteries": 105476096,
+    "validation_project_allocated_bytes": 802684928,
+    "validation_dependency_allocated_bytes": 7864684544,
+    "private_fresh_allocated_bytes": 91836416,
+    "checkpoints_allocated_bytes": 1274318848,
+    "concrete_added_allocations_since_preflight": {
+      "checkpoint028_and029_allocated_bytes": 292302848,
+      "current_private_output_allocated_bytes": 91836416,
+      "sum": 384139264,
+      "limitation": "The preflight found no fresh-check-* roots. Checkpoint028/029 verification records date after that preflight. These observed additions do not balance or attribute the whole filesystem free-space movement; other selected roots lack a simultaneous earlier baseline, and locations outside the requested scope were not inspected."
+    },
+    "smallest_useful_next_capacity_option": {
+      "recommendation": "If more headroom is needed, first verify and consider one one-time retirement of the oldest local source checkpoint025 copy, preserving its durable upload and the later local checkpoints. Checkpoint026 offers a second similarly sized option only if needed. Neither retirement is performed or authorised by this assessment.",
+      "candidates": [
+        {
+          "checkpoint": 25,
+          "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-025-storage-integrity-recovery.tar.gz",
+          "observed_allocated_bytes": 146022400,
+          "recorded_upload_verification": "/workspace/scratch/0c54f2db1fdf/work-state/validation/checkpoint025-upload-verification.json",
+          "metadata_size_matches": true
+        },
+        {
+          "checkpoint": 26,
+          "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-026-fresh-validation-progress.tar.gz",
+          "observed_allocated_bytes": 146034688,
+          "recorded_upload_verification": "/workspace/scratch/0c54f2db1fdf/work-state/validation/checkpoint026-upload-verification.json",
+          "metadata_size_matches": true
+        }
+      ],
+      "combined_observed_allocated_bytes": 292057088,
+      "remaining_checks": "Root must confirm no earlier retirement disposition forbids reuse, recheck the exact current file identity/payload SHA/upload receipt/Library binding as required by the existing retirement workflow, and explicitly choose the single action. This metadata-only assessment did not rehash payloads or recheck Library attributes."
+    },
+    "excluded_cleanup_candidates": {
+      "active_validation_outputs": "Preserve all validation dependency, ordinary project and current private fresh outputs. This assessment does not authorize altering active inputs or retained integrity evidence.",
+      "previously_retired_main_roots": "Returned Mathlib/Aesop/Batteries roots were observed at distinct identities from their originally retired roots. Do not automatically or repeatedly delete them. Returned main Mathlib currently allocates only 51,875,840 bytes, so it is not a multi-gigabyte capacity option in this census.",
+      "other_main_generated_roots": "The never-retired-looking main project plus Qq/proofwidgets/importGraph/LeanSearchClient/plausible cohorts total only 105,476,096 bytes. Their canonical/root inode separation and observed single-link regular files do not substitute for an active-reference/ownership assessment; a single verified older source archive offers more capacity with less cache disruption.",
+      "old_checkpoint_and_temporary_files": "Do not automatically remove returned checkpoint000 or the old bootstrap temporary files. Their presence does not establish a current writer or supply a fresh cleanup authorisation."
+    },
+    "fit_and_causality_limits": "The observed root-free space exceeds the existing launch floor, while nonreserved available space is substantially smaller. This census does not establish the complete fresh-build peak plus future checkpoint operations, predict a growth rate, explain the nonmonotonic free-space series, identify a writer, or establish a new formal integrity incident. No emergency cleanup or threshold reduction follows solely from this sample.",
+    "observations_complete": true,
+    "record_frozen_after_single_metadata_census": true,
+    "mutations": "Only this assessment JSON is created; recorder repositories remain frozen. No compiler/hash helper, process inspection/signals, payload hashes, cleanup, or source/cache changes."
+  }
+}

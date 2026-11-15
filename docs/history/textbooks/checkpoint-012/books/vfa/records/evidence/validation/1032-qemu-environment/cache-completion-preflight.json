@@ -1,0 +1,106 @@
+{
+  "recorded_utc": "2026-11-03T15:58:51.394262+00:00",
+  "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "primary_clean": true,
+  "isolated_candidate_clean": true,
+  "dependencies": [
+    {
+      "name": "mathlib",
+      "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "clean": true
+    },
+    {
+      "name": "plausible",
+      "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "clean": true
+    },
+    {
+      "name": "LeanSearchClient",
+      "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "clean": true
+    },
+    {
+      "name": "importGraph",
+      "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "clean": true
+    },
+    {
+      "name": "proofwidgets",
+      "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "clean": true
+    },
+    {
+      "name": "aesop",
+      "head": "4a174c490d8707121c4a9290800489f105d85e07",
+      "clean": true
+    },
+    {
+      "name": "Qq",
+      "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "clean": true
+    },
+    {
+      "name": "batteries",
+      "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "clean": true
+    },
+    {
+      "name": "Cli",
+      "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "clean": true
+    }
+  ],
+  "cache_build": {
+    "schema": 1,
+    "state": "finished",
+    "started_utc": "2026-11-03T15:48:58.492781+00:00",
+    "recorder_pid": 2,
+    "child": {
+      "pid": 4,
+      "process_group": 4,
+      "session": 4
+    },
+    "child_returncode": 0,
+    "child_status": "reaped",
+    "recorder_outcome": "completed",
+    "recorder_exit_code": 0,
+    "interrupt_signal": null,
+    "descendant_quiescence_verified": false,
+    "errors": [],
+    "cleanup": null,
+    "finished_utc": "2026-11-03T15:54:44.787345+00:00",
+    "elapsed_seconds": 346.2945805399995
+  },
+  "cache_get": {
+    "schema": 1,
+    "state": "finished",
+    "started_utc": "2026-11-03T15:55:29.925005+00:00",
+    "recorder_pid": 2,
+    "child": {
+      "pid": 4,
+      "process_group": 4,
+      "session": 4
+    },
+    "child_returncode": 0,
+    "child_status": "reaped",
+    "recorder_outcome": "completed",
+    "recorder_exit_code": 0,
+    "interrupt_signal": null,
+    "descendant_quiescence_verified": false,
+    "errors": [],
+    "cleanup": null,
+    "finished_utc": "2026-11-03T15:57:37.725107+00:00",
+    "elapsed_seconds": 127.80014111200035
+  },
+  "actual_tool_exit_codes": {
+    "build_session80719": 0,
+    "get_session13167": 0
+  },
+  "downloaded_and_decompressed_files": 9031,
+  "cache_log": "work-state/validation/1032-cache-get/child.log",
+  "free_bytes": 10737917952,
+  "formal_success": false,
+  "fresh_jobs": 1,
+  "lean_threads": 1,
+  "next_attempt": "1002-candidate-3279bac-fresh3"
+}

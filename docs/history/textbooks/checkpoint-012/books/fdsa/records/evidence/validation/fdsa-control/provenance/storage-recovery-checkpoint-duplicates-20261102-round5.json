@@ -1,0 +1,32 @@
+{
+  "recorded_utc": "2026-11-02T20:41:37.972870+00:00",
+  "reason": "Increase headroom for the active full Chapter 1 gate after prior ENOSPC. Remove only byte-verified, successfully saved redundant local checkpoint copies; keep newest 0051 and all receipts.",
+  "available_bytes_before": 946638848,
+  "removed": [
+    {
+      "path": "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0049-adt-refinement-draft.tar.gz",
+      "bytes": 73865192,
+      "allocated_bytes": 73875456,
+      "sha256": "8fbdc7da130dcd7ec3e58ddde01bd748b27fad10cd32ab53cfbc2a0b66b764e8",
+      "library_file_id": "libfile_3b2429b5a1c0819184a04e41a9006245",
+      "file_id": "file_00000000e4048211804e4a687dc6e9f5",
+      "successful_receipt": "/workspace/scratch/845aa1048b05/library-helpers/upload-0049/result.json"
+    },
+    {
+      "path": "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0050-priority-queue-start.tar.gz",
+      "bytes": 73931253,
+      "allocated_bytes": 73940992,
+      "sha256": "d22834ecc97c548c614c0104370c51adb374b6ed2f65749eabcbe0615d1d1e35",
+      "library_file_id": "libfile_ec93a29cb2b48191ba4c3d0d5f042a9e",
+      "file_id": "file_0000000058cc81f48bace662d7868640",
+      "successful_receipt": "/workspace/scratch/845aa1048b05/library-helpers/upload-0050/result.json"
+    }
+  ],
+  "protected": [
+    "reappeared checkpoint 0001",
+    "latest checkpoint 0051",
+    "conaled/docs/history/algorithm-design-haskell/.checkpoint-233.zip.n7UlkJ",
+    "all source and build/dependency caches"
+  ],
+  "available_bytes_after": 1094463488
+}

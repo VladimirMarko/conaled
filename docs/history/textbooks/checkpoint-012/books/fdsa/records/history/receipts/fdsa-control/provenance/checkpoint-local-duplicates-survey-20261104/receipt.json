@@ -1,0 +1,941 @@
+{
+  "kind": "read_only_local_uploaded_checkpoint_duplicate_inventory",
+  "created_utc": "2026-11-04T13:13:08.311961+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "report_only_release": "Parent released new resource-survey report writes after verified/uploaded/exposed0106; no payload mutation authorized.",
+  "catalog": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/checkpoints.json",
+    "bytes": 313408,
+    "lines": 3885,
+    "sha256": "95b132eb3b76604e41e2c608478ff726cd6761caa7f910dac69c605a26f0dd84"
+  },
+  "eligible_count": 22,
+  "eligible_allocated_bytes": 373370880,
+  "eligible_apparent_bytes": 373218849,
+  "eligible_archives": [
+    {
+      "checkpoint": 83,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0083-checked-quicksort-and-measured-merge.tar.gz",
+      "bytes": 14496673,
+      "allocated_bytes": 14503936,
+      "sha256": "7e31e4759fa9c9ae52d67e3417ddba10bf80134921e21fb98b832daa05cb2d91",
+      "library_file_id": "libfile_26f0729612908191a204b7a2b6ceaa3f",
+      "catalog_entry_sha256": "069254dab4d6a96d90dfd5c661dc009c53cfebf3f2ced9160da9d2498cab232b",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0083-preparation/upload.json",
+          "bytes": 361,
+          "lines": 11,
+          "sha256": "33e552205b9b758eb66073d703f14509ee6f56a0ad8b4cd4f26f0c7755ce0135"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0083-preparation/integrity.json",
+          "bytes": 384,
+          "lines": 10,
+          "sha256": "e1db9901f9ef9d4e427055708626aaa17c5dbd8e0f58837283641b6d78039c54"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0083-checked-quicksort-and-measured-merge.json",
+        "bytes": 6257,
+        "lines": 149,
+        "sha256": "4fe188e98620f89e5f23099e9ac85ae2b763906b9b8ffbc517256d1802ba6193"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 435195,
+        "nlink": 1,
+        "mtime_ns": 1793765900132009456,
+        "ctime_ns": 1793765922304437636,
+        "blocks": 28328
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 84,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0084-checked-natural-runs-and-top-down-costs.tar.gz",
+      "bytes": 14587450,
+      "allocated_bytes": 14594048,
+      "sha256": "98bcc5699fb04b461d307da01ef761c964cba4665ff12b23ef087dddd5abed0c",
+      "library_file_id": "libfile_5613c52391a481918808bd3cb3d934bc",
+      "catalog_entry_sha256": "ed167987df22b9232c576c5c2667eb639b47224872c3f589380d554da46054c2",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0084-preparation/upload.json",
+          "bytes": 531,
+          "lines": 9,
+          "sha256": "d2b0a16eebb3d67a8801f62a1a854c509ec45348069556f834074e1191ff60c1"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0084-preparation/integrity.json",
+          "bytes": 692,
+          "lines": 24,
+          "sha256": "d4eca312cc539e0a91fa9abaa2820be73e9cfbe7ca4a13e69583cb2b9f884c8e"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0084-checked-natural-runs-and-top-down-costs.json",
+        "bytes": 5133,
+        "lines": 121,
+        "sha256": "7e64b88a04397582a5e6a7bad4b0c991b517596befa5394a6c7bf5c5a8c8323c"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 435291,
+        "nlink": 1,
+        "mtime_ns": 1793767546247762709,
+        "ctime_ns": 1793767631797405344,
+        "blocks": 28504
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 85,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0085-checked-sorting-values-and-measured-drafts.tar.gz",
+      "bytes": 14730363,
+      "allocated_bytes": 14737408,
+      "sha256": "25b1e8a9af70cf070d21add0386563f74591534cb56ac0bcfd8863ae01895104",
+      "library_file_id": "libfile_b49c8f1372088191a32454596e76a451",
+      "catalog_entry_sha256": "efff2687acf8f150625b2f2cc13af203f232cf81bd1e738edcbccfe48d7916a3",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0085-preparation/upload.json",
+          "bytes": 391,
+          "lines": 8,
+          "sha256": "cc183b6b2af0499224cb81d7e63480fd0a547e4c36e50000d0d23c223c6d7427"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0085-preparation/integrity.json",
+          "bytes": 515,
+          "lines": 11,
+          "sha256": "775065da90f802cd20f8741c7f3235cb6f334f1d55eb27e40af38a53aa1a0ae9"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0085-checked-sorting-values-and-measured-drafts.json",
+        "bytes": 5720,
+        "lines": 135,
+        "sha256": "96db45dbcdd4c690fe07246a17f83810d1610230947ee4e13cf3e00ee3e8515c"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 434923,
+        "nlink": 1,
+        "mtime_ns": 1793769809059260923,
+        "ctime_ns": 1793769834527749606,
+        "blocks": 28784
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 86,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0086-measured-sorting-and-random-pivot-draft.tar.gz",
+      "bytes": 14911150,
+      "allocated_bytes": 14917632,
+      "sha256": "4ad5b7fdf31db10cf2b1306004190dbe00894f58aa5967ee81224f994455d20c",
+      "library_file_id": "libfile_a78ad30fe71c8191be466133b0c269d1",
+      "catalog_entry_sha256": "5f87488bda14238749527c53ecd32ca1f501c56f179b5cb52648cdaffe5243d0",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0086-preparation/upload.json",
+          "bytes": 388,
+          "lines": 8,
+          "sha256": "cf8be8392ce1251a5f7c9b46eadde33e79ec575de506527a5f124350f170e428"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0086-preparation/integrity.json",
+          "bytes": 490,
+          "lines": 11,
+          "sha256": "0a98f8d6cb0553e5a197848a30a58bf74a9b947cf969f1e25f2304c8f8d31ff8"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0086-measured-sorting-and-random-pivot-draft.json",
+        "bytes": 6295,
+        "lines": 149,
+        "sha256": "efbe69f15ab14f0c475a0887273ee654402444daaa09c2022ce5d998c12cc599"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 435279,
+        "nlink": 1,
+        "mtime_ns": 1793771139296822640,
+        "ctime_ns": 1793771191825847131,
+        "blocks": 29136
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 87,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0087-bottom-up-costs-and-natural-sort-draft.tar.gz",
+      "bytes": 15152259,
+      "allocated_bytes": 15159296,
+      "sha256": "1b7188c8fc6fc48e56d0e166b77ff1d616e8ef9dae8a23add2c917eed2fa9edf",
+      "library_file_id": "libfile_dadf77f6581c81919e370ba7eef1610f",
+      "catalog_entry_sha256": "61d9b5bace7a2c65516f578692658e2cade0e61fa991a5b127cb0d6288b53f6e",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0087-preparation/upload.json",
+          "bytes": 626,
+          "lines": 15,
+          "sha256": "9eca96202a44f9a4fd737cf4b16ccf05e150f5a1a8bf6dfb16acc716b5b430b6"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0087-preparation/integrity.json",
+          "bytes": 484,
+          "lines": 12,
+          "sha256": "78de1a8ea207b612561526c9bac497cf8a9da51075110c8b637cbabd11f2f8cd"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0087-bottom-up-costs-and-natural-sort-draft.json",
+        "bytes": 6885,
+        "lines": 163,
+        "sha256": "72c34e45cfca70a49d6464bda743f3bcdc5b4c01dffa84c74fb73c94dd457986"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 435504,
+        "nlink": 1,
+        "mtime_ns": 1793772714027227795,
+        "ctime_ns": 1793772758172075976,
+        "blocks": 29608
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 88,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0088-checked-builders-and-random-pivot-laws.tar.gz",
+      "bytes": 15360635,
+      "allocated_bytes": 15368192,
+      "sha256": "df9ae8de4a774d8f9a89079960e742113cbca141aff22e8b2d7d5fd50a3e7ad2",
+      "library_file_id": "libfile_0389262391788191875ce0befc54e296",
+      "catalog_entry_sha256": "1e477f58d34aa8c30d5c201701dca7ec0339d41c966fe8a9ea980822f055c0e7",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0088-preparation/upload.json",
+          "bytes": 561,
+          "lines": 13,
+          "sha256": "03094f32aefe2c4cd8b44f108d7b8ae73a352c1e801785478c9a6b9e027359e0"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0088-preparation/integrity.json",
+          "bytes": 574,
+          "lines": 12,
+          "sha256": "222e9d332a50b9d5a79e241b17e41b46f357739a4095a7187c000efc0ce5c4d1"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0088-checked-builders-and-random-pivot-laws.json",
+        "bytes": 6885,
+        "lines": 163,
+        "sha256": "58957938910655797c4d7ca6dff750038de37ce8d2d84827e9971918e64cf6a6"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 435168,
+        "nlink": 1,
+        "mtime_ns": 1793773985583752187,
+        "ctime_ns": 1793774017064355712,
+        "blocks": 30016
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 89,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0089-probability-minima-and-mean-uniqueness-drafts.tar.gz",
+      "bytes": 15613232,
+      "allocated_bytes": 15618048,
+      "sha256": "1e9085261216fea0120b53ef71584dab07706d9d6e435ed30d6a9c0905df43ea",
+      "library_file_id": "libfile_803aa6e868288191a2998c09ce648cc3",
+      "catalog_entry_sha256": "fde886a034de65a9b8caa5dff7ae52d30ebba11b35427c62833791ad25dcccde",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0089-preparation/upload.json",
+          "bytes": 932,
+          "lines": 17,
+          "sha256": "002e427a8411c0766bf014138edaa62245e74ef5fa75c2887244099f4e768353"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0089-preparation/integrity.json",
+          "bytes": 685,
+          "lines": 12,
+          "sha256": "f65669204d7d5955db850815c3fc44f4a205fd4cb8b8961640c87c7b6d543ea4"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0089-probability-minima-and-mean-uniqueness-drafts.json",
+        "bytes": 8733,
+        "lines": 205,
+        "sha256": "64a1f70f74ed8cdff10535dd6c013f0c9ee088740940d83dcdd5ffbd55e3036e"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 435164,
+        "nlink": 1,
+        "mtime_ns": 1793775334949760162,
+        "ctime_ns": 1793775388962796986,
+        "blocks": 30504
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 90,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0090-checked-uniqueness-and-operational-mean-continuation.tar.gz",
+      "bytes": 15885481,
+      "allocated_bytes": 15892480,
+      "sha256": "4ca014bfb21d2a70db58bcf29292915d016f9e0610550ca9274c69e8305836a5",
+      "library_file_id": "libfile_6afddb8aa11881918ee27eebd8114a5d",
+      "catalog_entry_sha256": "ffc5e4e08a0c0a1611e0a11d3ab09fd1c6a1ffb23c9eac7a334d68ade47f7cae",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0090-preparation/upload.json",
+          "bytes": 2028,
+          "lines": 42,
+          "sha256": "9bf72f9a54fadec3bda99b504e2803d75fca9ad30a075143738141a576b187f0"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0090-preparation/integrity.json",
+          "bytes": 1864,
+          "lines": 38,
+          "sha256": "2099a9845f9500a47abacfaf9d974efb630a4110e103a72916e1d867be558e8b"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0090-checked-uniqueness-and-operational-mean-continuation.json",
+        "bytes": 9324,
+        "lines": 219,
+        "sha256": "9cb16c6cd5e56bc16d5006c6fb650446e5b793e1a3a953d7ee39ccab09d668cf"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 435104,
+        "nlink": 1,
+        "mtime_ns": 1793776655907180573,
+        "ctime_ns": 1793776724956531659,
+        "blocks": 31040
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 91,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0091-mean-builds-and-rank-numerical-drafts.tar.gz",
+      "bytes": 16074055,
+      "allocated_bytes": 16080896,
+      "sha256": "efb295da50b54a7cc0bf66cb77b1c2a90a38b5c8bef1546ec2ed5b1f39d42927",
+      "library_file_id": "libfile_657f2ec0c0948191aac1ec00ad2b1db4",
+      "catalog_entry_sha256": "f9a240697f0cc70cf9cfeaa021d692632c0904c9993b1da5e09f4b9c5a44dbfb",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0091-preparation/upload.json",
+          "bytes": 784,
+          "lines": 16,
+          "sha256": "0d6d27bcceb1884db8708a43798826b66d80a1c83cdd06d6f996ce700fbaa0d5"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0091-preparation/integrity.json",
+          "bytes": 1260,
+          "lines": 25,
+          "sha256": "97628a359c39a2c167c958a2e8b63f5cdefd856754c2bd9055513f314bddede9"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0091-mean-builds-and-rank-numerical-drafts.json",
+        "bytes": 9941,
+        "lines": 233,
+        "sha256": "40979bec19ebfaae46e7562ab45abf367c41f7d879d4429504766a6e9c214f74"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 434904,
+        "nlink": 1,
+        "mtime_ns": 1793777930343732451,
+        "ctime_ns": 1793777979324671292,
+        "blocks": 31408
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 92,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0092-actual-mean-drafts-and-preserved-compiler-findings.tar.gz",
+      "bytes": 16287527,
+      "allocated_bytes": 16293888,
+      "sha256": "77835b10ee67a93d7a9d55d0ddbf71ddaafa36404a320e7ba79f902c7d811cf8",
+      "library_file_id": "libfile_7f37063997d88191ae8c48feccff8f9d",
+      "catalog_entry_sha256": "a6bfb0edb99b8ae09bca1651ba7ab39ed0af5867383cb9172f6b9c030bf55bc0",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0092-preparation/upload.json",
+          "bytes": 810,
+          "lines": 16,
+          "sha256": "5bacccfda4973edf70e3a23f06ea19a87d7e94ca0eb7bcf3ef5f25bc56120dd1"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0092-preparation/integrity.json",
+          "bytes": 1293,
+          "lines": 22,
+          "sha256": "e3129fdced91a4dc31acadd4eda4cd1ec4c5affeaa49bd8ea841051708592ec7"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0092-actual-mean-drafts-and-preserved-compiler-findings.json",
+        "bytes": 9328,
+        "lines": 219,
+        "sha256": "fc6b33c741ab4fa1bff9eac9a557a1077749fe4dfc878eca5b7ba2e2b81c701e"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 434925,
+        "nlink": 1,
+        "mtime_ns": 1793779311198296300,
+        "ctime_ns": 1793779373167477818,
+        "blocks": 31824
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 93,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0093-complete-sorting-correspondence-and-independent-source-reviews.tar.gz",
+      "bytes": 16489527,
+      "allocated_bytes": 16494592,
+      "sha256": "d18ffce2496d0ed59affb357d7af0df7ab8072754355882331bc9344bb6ff0a4",
+      "library_file_id": "libfile_a3c1f7caeac8819187aa094826854bf8",
+      "catalog_entry_sha256": "f5e5c74871c6c39fca28dce8da01af7d3ea4f31a475d7dcd542af0c4d834f0b6",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0093-preparation/upload.json",
+          "bytes": 911,
+          "lines": 16,
+          "sha256": "02e87550ecb79a71e296aaac921f3fa70b8483beae111817bdbe3798d86d11b9"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0093-preparation/integrity.json",
+          "bytes": 1453,
+          "lines": 25,
+          "sha256": "a060e39955597eeecf94a3ddccebe05bd6795da33d6c1ed8ea2cd113cef58b3c"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0093-complete-sorting-correspondence-and-independent-source-reviews.json",
+        "bytes": 9340,
+        "lines": 219,
+        "sha256": "2b0e0bc6364f975e248207bb4fba480267452fb403199b17486ebfee3055de09"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 435182,
+        "nlink": 1,
+        "mtime_ns": 1793780513681580387,
+        "ctime_ns": 1793780570334675832,
+        "blocks": 32216
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 94,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0094-integrated-sorting-source-and-complete-type-inventory.tar.gz",
+      "bytes": 16942843,
+      "allocated_bytes": 16949248,
+      "sha256": "257832f5c0abe0bf4e60c18cff8eb4bfe2f093caa3d903984ff32b7beaad6651",
+      "library_file_id": "libfile_bae5bec01ea4819189f2d98ae3916d4f",
+      "catalog_entry_sha256": "cc566ca00ce8d25d5011a36208cb194bf367d6e4e21819ad6c0154ae907fd1b3",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0094-preparation/upload.json",
+          "bytes": 628,
+          "lines": 14,
+          "sha256": "6ba6847cd469ae04407d9a21c575fdec7a547cd46533a284b739f5daef0e7650"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0094-preparation/integrity.json",
+          "bytes": 1680,
+          "lines": 28,
+          "sha256": "cde70d2fb8e777f1efb7c56ee4673b8876abe3c6d6fdc006f20085bf7b1d7244"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0094-integrated-sorting-source-and-complete-type-inventory.json",
+        "bytes": 9331,
+        "lines": 219,
+        "sha256": "50adb243c0836b9184efedde5590539d1af88b745d4cbcce03cb27e3b4bcb380"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 435087,
+        "nlink": 1,
+        "mtime_ns": 1793781918896757148,
+        "ctime_ns": 1793781967833697268,
+        "blocks": 33104
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 95,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0095-reviewed-sorting-repairs-and-qualified-type-inventory.tar.gz",
+      "bytes": 17398476,
+      "allocated_bytes": 17403904,
+      "sha256": "320c2dbb136f0ece035ae88cbfb39a2fc8f8c53b2f37a29910aecf14cb1978d4",
+      "library_file_id": "libfile_1421056db17881918e1dc62cd36e95bf",
+      "catalog_entry_sha256": "06283d83e91fb99f4b7ede2985ff75021febfdd27ecc8e3118f8ae68c9fc658c",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0095-preparation/upload.json",
+          "bytes": 550,
+          "lines": 10,
+          "sha256": "33dde0dc958ddf2e3d625f9c6df696b6e769edf71effaddbad8082535a7d8726"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0095-preparation/integrity.json",
+          "bytes": 1997,
+          "lines": 32,
+          "sha256": "6d90adbeb58275c9fe41cb790a62b1188df9d17303dfcaa572fcc1b37aa09a64"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0095-reviewed-sorting-repairs-and-qualified-type-inventory.json",
+        "bytes": 9331,
+        "lines": 219,
+        "sha256": "454ebfb4a8ce66e69ced9bda8527216d533adbce0ba624d14ae614b91a5be302"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 435166,
+        "nlink": 1,
+        "mtime_ns": 1793783505951423027,
+        "ctime_ns": 1793783601433252449,
+        "blocks": 33992
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 96,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0096-checked-tail-boundary-and-preserved-review-continuations.tar.gz",
+      "bytes": 17690980,
+      "allocated_bytes": 17698816,
+      "sha256": "f0e50ed755cdf7a127f84b74224a8db0938882454e453044ef3ef1df4c050131",
+      "library_file_id": "libfile_1f49363d04c08191a19c46fcc9197790",
+      "catalog_entry_sha256": "75356d7e02f0288c4621a824b7e81e3738e4de6079a10bc581d1358c8cd6918b",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0096-preparation/upload.json",
+          "bytes": 788,
+          "lines": 15,
+          "sha256": "2ca8c2f018863491bdee8ccbbcadb6aec6c834d5523e24ecab279025ff31ebe3"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0096-preparation/integrity.json",
+          "bytes": 1720,
+          "lines": 40,
+          "sha256": "c94cd7fe66cd21b94aa33b04dea20383c5c88606731bc02f65f3dead4f6bb33d"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0096-checked-tail-boundary-and-preserved-review-continuations.json",
+        "bytes": 9334,
+        "lines": 219,
+        "sha256": "6493957c0cc7c8f49bc13c762667f599397f7f1d3a9a4da77df91483746304e4"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 435162,
+        "nlink": 1,
+        "mtime_ns": 1793785211000375586,
+        "ctime_ns": 1793785395720027142,
+        "blocks": 34568
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 97,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0097-checked-tail-examples-and-uniform-repair-handoff.tar.gz",
+      "bytes": 17908832,
+      "allocated_bytes": 17915904,
+      "sha256": "1e8b98de43644d0b1843efe4c58099eb686c68214012526cd818537dadb656d4",
+      "library_file_id": "libfile_0094c01620bc81918e17ad4a2268733a",
+      "catalog_entry_sha256": "11b5ce822a94ac42df39f9837b58b4f5f7a7800834854acfee424ef18c8f1de2",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0097-preparation/upload.json",
+          "bytes": 656,
+          "lines": 12,
+          "sha256": "8428ada8f4656d5d7587628f0cfdf5fcb834e8e8694d38654b670eba67d29af4"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0097-preparation/integrity.json",
+          "bytes": 894,
+          "lines": 18,
+          "sha256": "72da270cce82952680b391d8f8f57a83f847fd10e1778b959b6fa8a0dda2030c"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0097-checked-tail-examples-and-uniform-repair-handoff.json",
+        "bytes": 9326,
+        "lines": 219,
+        "sha256": "85255a6be8f9bb6ffb54eee620f8ad7d369310f6b13eece51ff4ee2cf4ef05f0"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 435180,
+        "nlink": 1,
+        "mtime_ns": 1793787230851501622,
+        "ctime_ns": 1793787283624512968,
+        "blocks": 34992
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 98,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0098-checked-uniform-examples-and-secured-type-output.tar.gz",
+      "bytes": 18347314,
+      "allocated_bytes": 18354176,
+      "sha256": "601ba68e5f109a439c9f81eaa0e9f75aae8bf5edb8ced544fab46770a296d0a1",
+      "library_file_id": "libfile_aa079ee96fc0819196b2faec9d2af058",
+      "catalog_entry_sha256": "9e75e5d0981032c08f24f0d66972e4b236c83612df960440a88a6ad9fe5105f4",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0098-preparation/upload.json",
+          "bytes": 656,
+          "lines": 12,
+          "sha256": "71dd007d6991628ded316b1dcc50c4e6babbd3e5b6d83b4cee7d93c02cf7ee29"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0098-preparation/integrity.json",
+          "bytes": 1325,
+          "lines": 35,
+          "sha256": "f319fe9866ee9d017654ce80c8adb61e8940b80cd5918ad14ab7db22c541a597"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0098-checked-uniform-examples-and-secured-type-output.json",
+        "bytes": 9326,
+        "lines": 219,
+        "sha256": "9b61d32e81240b4c36e50a8f99bb2de9ac22412a4328113eb18fd35ef99bae18"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 435183,
+        "nlink": 1,
+        "mtime_ns": 1793788634070586534,
+        "ctime_ns": 1793788706439978706,
+        "blocks": 35848
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 99,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0099-complete-sorting-type-reviews.tar.gz",
+      "bytes": 18584282,
+      "allocated_bytes": 18595840,
+      "sha256": "3a7478bb8f95de5fd04a22fe0f9017068ad9257ab434e946fe80e69382b296e9",
+      "library_file_id": "libfile_3c20007d01dc819199efa7d1f0ebeaab",
+      "catalog_entry_sha256": "721449b073c763478a0ff427db88a737969517cb5b95f135b90f96ce342a3e4f",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0099-preparation/upload.json",
+          "bytes": 761,
+          "lines": 15,
+          "sha256": "5a8b7c6c55256c1915753859110cb4c416abe151841dbd9b4887373f2eac801c"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0099-preparation/integrity.json",
+          "bytes": 1386,
+          "lines": 36,
+          "sha256": "391041053808fe5e6790d27a630c51f47c40559e4d3b5a628b2f1b215c8121fa"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0099-complete-sorting-type-reviews.json",
+        "bytes": 9307,
+        "lines": 219,
+        "sha256": "4e41074dc168dc32f1b79896d6e9bfdd87b2715aff1881aed432b4ee121cb314"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 440834,
+        "nlink": 1,
+        "mtime_ns": 1793790211581175145,
+        "ctime_ns": 1793790302090936172,
+        "blocks": 36320
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 100,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0100-checked-potential-accounting.tar.gz",
+      "bytes": 19063731,
+      "allocated_bytes": 19070976,
+      "sha256": "3b947dc12e784f609d640fa6da0a3c0d5a600a767f8926d6395a032774320d03",
+      "library_file_id": "libfile_0a5e380a3e60819196dabe8351e8c7dc",
+      "catalog_entry_sha256": "23d5473f02f7ef8789b4bbdbf6b645841e64652f88d0e434a0ee672225e0a4e6",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0100-preparation/upload.json",
+          "bytes": 834,
+          "lines": 16,
+          "sha256": "821a0df9c6fbac24a2b6fe0f26ebc10d2638bb7a28e8c286db7ab9543abeb8a8"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0100-preparation/integrity.json",
+          "bytes": 2054,
+          "lines": 58,
+          "sha256": "64ddee7e5fe70145afafd187768c51e9cf3c167bf85285bfb1daa0754a9a2c69"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0100-checked-potential-accounting.json",
+        "bytes": 9311,
+        "lines": 219,
+        "sha256": "8afafac535f61f5358438db8151f577b219410e9116a1ea9470da5dd2fa47cea"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 435775,
+        "nlink": 1,
+        "mtime_ns": 1793792150378196612,
+        "ctime_ns": 1793792313417323742,
+        "blocks": 37248
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 101,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0101-verified-output-retirement-preparation.tar.gz",
+      "bytes": 19179938,
+      "allocated_bytes": 19185664,
+      "sha256": "7780a80cae21b977fd2a44bf201b8699a3904163ffed4c8a84cc6d5a70554f51",
+      "library_file_id": "libfile_8c0c6ea161048191b69713a6387fb155",
+      "catalog_entry_sha256": "5268e768f13836096629d8b1b96efbbe1918a88ae69acd6f21d1e92052030fbb",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0101-preparation/upload.json",
+          "bytes": 928,
+          "lines": 17,
+          "sha256": "f442d8cc5de1cb4f98ac0c42df48d2554f83f0a51f9c2cee108db0a4a9c735d6"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0101-preparation/integrity.json",
+          "bytes": 910,
+          "lines": 21,
+          "sha256": "7993b357e35dc8f342c893ac4146c4c69d843ad05e442495641462a7b416b176"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0101-verified-output-retirement-preparation.json",
+        "bytes": 9321,
+        "lines": 219,
+        "sha256": "c1f095b0be2c96dce0faf2103e0c47c08ef5a47baf45781e318260016f0e0219"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 435194,
+        "nlink": 1,
+        "mtime_ns": 1793792796834601989,
+        "ctime_ns": 1793792838071394716,
+        "blocks": 37472
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 102,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0102-retired-cache-and-shared-acceptance-preparation.tar.gz",
+      "bytes": 19310918,
+      "allocated_bytes": 19320832,
+      "sha256": "382e4c27db51ed259d748ae8e404fdbf3f30465bcc10d62b5fdd6d2164168106",
+      "library_file_id": "libfile_ae099a8df6d88191bef03da09eaa7186",
+      "catalog_entry_sha256": "07d91aa15be4b3ff07414737bb03f3f5ff13dbf74ae9546bae4470fef7242274",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0102-preparation/upload.json",
+          "bytes": 964,
+          "lines": 17,
+          "sha256": "d1545f12db6d00a43fea1b6ecb74de469f95f42f3078f69e31684b0b8fa3d67b"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0102-preparation/integrity.json",
+          "bytes": 924,
+          "lines": 21,
+          "sha256": "439ddf4f30dcbed119a0d7f6bcf77a743abe230c980912e0284cbcf223d3bca9"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0102-retired-cache-and-shared-acceptance-preparation.json",
+        "bytes": 9330,
+        "lines": 219,
+        "sha256": "667f90b4a865d1edb0269b2c70bb2b7fe7bdc32a32d2860930ecde8662cdc511"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 435294,
+        "nlink": 1,
+        "mtime_ns": 1793793773881608250,
+        "ctime_ns": 1793793832294729619,
+        "blocks": 37736
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 103,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0103-reviewed-shared-source-and-idle-cache-plan.tar.gz",
+      "bytes": 19546898,
+      "allocated_bytes": 19554304,
+      "sha256": "6daddc133311fd0114081e557664ac3ddb47b951fcdda4cb0afac799b249d2df",
+      "library_file_id": "libfile_61ce2e59a53c8191994c93d4d319c8e1",
+      "catalog_entry_sha256": "805b2bd80c63bd080d59efd4e2427a1dd0295c2a7373517acf73a7f1c7159286",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0103-preparation/upload.json",
+          "bytes": 944,
+          "lines": 17,
+          "sha256": "6700a9df2218a2b3bf0ef2df4b915fcd8b40de558873e500f76c1e20702b1336"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0103-preparation/integrity.json",
+          "bytes": 1029,
+          "lines": 23,
+          "sha256": "eab7d1eb42f82db21370a46eb22bf9a8af77081174491e28341be6721c77c51b"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0103-reviewed-shared-source-and-idle-cache-plan.json",
+        "bytes": 9325,
+        "lines": 219,
+        "sha256": "4ce20d17e4438004f08113e2669f65e2e3864f53ff99fab1575a42d9fa24f22a"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 394402,
+        "nlink": 1,
+        "mtime_ns": 1793795164168439654,
+        "ctime_ns": 1793795271602517398,
+        "blocks": 38192
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    },
+    {
+      "checkpoint": 104,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0104-persistent-idle-retirement-and-foundation-closure.tar.gz",
+      "bytes": 19656285,
+      "allocated_bytes": 19660800,
+      "sha256": "5f2ca129a4cba365947b0636e1093ac2268f8a04bf45294ebc9394e2826e65a2",
+      "library_file_id": "libfile_55697d61f13081919360e2923cd6b2f0",
+      "catalog_entry_sha256": "455bb24bc9c1725f187ca9fed43444e835203ab6afa3dd069d3b0dfaca453f07",
+      "records": {
+        "upload": {
+          "path": "provenance/checkpoint0104-preparation/upload.json",
+          "bytes": 972,
+          "lines": 17,
+          "sha256": "fd48211b9c24d39b83718689a1143ad8984a94f80b9f971372e494005582b5ad"
+        },
+        "integrity": {
+          "path": "provenance/checkpoint0104-preparation/integrity.json",
+          "bytes": 914,
+          "lines": 21,
+          "sha256": "142665d330889b7c3d2c714a6e7d95b0201f5c3c147eb677228ab66860dcfbdc"
+        }
+      },
+      "sidecar": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0104-persistent-idle-retirement-and-foundation-closure.json",
+        "bytes": 9332,
+        "lines": 219,
+        "sha256": "4bb22736f157f11bf2bbe76130a6b4a3bc62808f6e045ae3749c4ae4b0d2bb24"
+      },
+      "leaf_metadata": {
+        "mode": 33188,
+        "dev": 27,
+        "ino": 393985,
+        "nlink": 1,
+        "mtime_ns": 1793795904726728354,
+        "ctime_ns": 1793795967379927761,
+        "blocks": 38400
+      },
+      "fresh_local_hash_matches_catalog_upload_integrity_sidecar": true
+    }
+  ],
+  "retained": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0082-recovered-native-and-sorting-drafts-compact.tar.gz",
+      "bytes": 14394106,
+      "allocated_bytes": 14401536,
+      "recorded_sha256": "34a29e372df2fea47b57d08500703b0c118086e3dd8ebb8e53fe220cf8f57e40",
+      "reason": "Both 0082 originals remain explicitly preserved; not eligible."
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0082-recovered-native-and-sorting-drafts.tar.gz",
+      "bytes": 95124855,
+      "allocated_bytes": 95129600,
+      "recorded_sha256": "f01eadc0cacae8d818fe56f36a7019eb1988c400faca0c41ab077937f3b0d461",
+      "reason": "Both 0082 originals remain explicitly preserved; not eligible."
+    },
+    {
+      "checkpoint": 105,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0105-shared-expectation-source-and-statement-preparation.tar.gz",
+      "library_file_id": "libfile_99fe47bb93d8819186a05eece1b227e4",
+      "recorded_sha256": "fc728788b9c04b5003d2bd49ae13230613df39a6acc6ab32965cbdd9a198c1da",
+      "reason": "Latest current checkpoints retained; 0106 payload/staging not inspected."
+    },
+    {
+      "checkpoint": 106,
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0106-joint-source-and-preserved-predecessor-preparation.tar.gz",
+      "library_file_id": "libfile_4fd483c04ff88191ba380ef761d5b0ff",
+      "recorded_sha256": "3c4d5b528ea54ddca31dda6f35d42d1227265f6c71d77333b79d613bafd3406d",
+      "reason": "Latest current checkpoints retained; 0106 payload/staging not inspected."
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/upload/conaled-fdsa-0081-resource-blocked-recovery.tar(1).gz",
+      "bytes": 13951243,
+      "allocated_bytes": 13955072,
+      "reason": "Original supplied recovery input, not proposed for removal."
+    }
+  ],
+  "latest0105_recovery_note": {
+    "member": "conaled-fdsa-0105-shared-expectation-source-and-statement-preparation/RECOVER.md",
+    "bytes": 1833,
+    "sha256": "1558d20c38659709e54ec12dc19fb4fb96167ec434e45cdca5d14d04cb204034",
+    "complete_read": true,
+    "requires_previous_checkpoints": false,
+    "nested_archive": "fdsa-control/provenance/xd01-primary-source-20261104/afp-Efficient-Mergesort-2026-10-26.tar.gz"
+  },
+  "prior_package_hashes_verified_unchanged": {
+    "plan.md": "949e21514e1c1ff29c408c505b4f3b746abf5eff9b3a0fa854d307d8c5481cbb",
+    "receipt.json": "6c2d6af7db01ab5e3ddca2cbfa2947ca1144f7dbbf009ce1a4c2b6e1560d2fa4",
+    "compressed-cache-survey.md": "893a981bc083226a7d09084a507e29c90f722139f845cb3120ef456e036af421",
+    "compressed-cache-survey.json": "8873b8baec5f38585e2d188c57f7d3a65edca4147582239bcbe27a43247e361f"
+  },
+  "read_boundary": "Complete selected catalog/upload/integrity JSON records and0105 RECOVER.md; full22 eligible archive hashes; leaf metadata; bounded top-level names. No0106 output/staging, F/project-cache traversal or process action. No remote read/download.",
+  "mutations": "Only new report.md and receipt.json. No archive/cache/source/ref/history mutation.",
+  "report": {
+    "path": "report.md",
+    "bytes": 6058,
+    "lines": 42,
+    "sha256": "c27e37a70d02bd0eb829a3b7e9c2fd527746e1bca9cc042b4056d8aeea43be49"
+  },
+  "author_readback": "Complete final report read from disk, including contingency disposition and parent-reported rebound; all22 archive identities and associated evidence/sidecar bindings mechanically verified. No cleanup action selected.",
+  "disposition": "Contingency evidence only; root selected no cleanup action. All payloads retained.",
+  "root_reported_resource_observation": {
+    "time_utc": "2026-11-04T13:12:29Z",
+    "available_bytes": 3509891072,
+    "origin": "parent message, not an independent filesystem measurement by this author",
+    "cleanup_cause_claim": false
+  }
+}

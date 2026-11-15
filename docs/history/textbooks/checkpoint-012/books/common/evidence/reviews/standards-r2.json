@@ -1,0 +1,74 @@
+{
+  "schema": "textbook-integration-standards-review/v1",
+  "reviewer": "/root/integration_review/standards",
+  "date": "2026-11-14",
+  "phase": "provisional-correction-source-analysis",
+  "outcome": "Blocked",
+  "approval_requested": false,
+  "source_analysis_complete": true,
+  "base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "merge_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "candidate": "f52a47b9e240b3937533f48befb8622527b7f6db",
+  "candidate_tree": "39a6bca727f6b874fc65d5aa1ef661c6e36f952c",
+  "parent_candidate": "337c29ff2e2b969e701a9deb84840d6b148dd175",
+  "snapshot_receipt": "intake/integration-candidate-r2.json",
+  "snapshot_status": "ok",
+  "scope_identity": "b89f794a76862c7dfe5768b5b52a12aa103a6c9c8cdf51d94ee2cd41156ab5d5",
+  "content_identity": "2f138674f695fc3d547e62d1e0379208ee996c5ac9b8f1aaa0f7e481c0392e9d",
+  "scope": {
+    "changed_paths": 356,
+    "lean_paths": 326,
+    "added_lines": 67133,
+    "deleted_lines": 66,
+    "manifest_paths": 465,
+    "manifest_equal_to_r1": true,
+    "explicit_exclusions": [],
+    "projections": [],
+    "original_full_spec_base_retained": true
+  },
+  "retained_analysis": ["intake/review/standards-r1.md", "intake/review/standards-r1.json"],
+  "correction_delta": {
+    "paths": ["Applications/Search/AbstractSet.lean", "docs/SOURCES.md"],
+    "insertions": 2,
+    "deletions": 3,
+    "abstract_set_exact_single_final_newline_removed": true,
+    "abstract_set_still_ends_newline": true,
+    "mathematical_changes": false,
+    "standards_pins_checker_or_public_import_changes": false
+  },
+  "findings": [
+    {
+      "id": "INT-ST-001",
+      "severity": "Low",
+      "status": "Fixed",
+      "introduced_review_candidate": "337c29ff2e2b969e701a9deb84840d6b148dd175",
+      "fixed_candidate": "f52a47b9e240b3937533f48befb8622527b7f6db",
+      "location": "docs/SOURCES.md",
+      "evidence": "PFDS remains S9, VFA is S10, FDSA is S11. Existing PFDS union-coverage S9 link still matches; immutable candidate Markdown search found no remaining references to changed old VFA/FDSA numbered anchors.",
+      "independently_verified": true,
+      "historical_r1_report_unchanged": true
+    }
+  ],
+  "new_source_findings": [],
+  "unresolved_new_integration_source_findings": 0,
+  "inherited_findings": {
+    "dispositions_retained_from_r1": true,
+    "historical_outcomes_changed": false,
+    "validation_closures_claimed": false
+  },
+  "validation": {
+    "status": "pending",
+    "terminal_r2_full_check_presented": false,
+    "r1_running_check_reused_as_r2_validation": false,
+    "compiler_owner": "/root",
+    "reviewer_ran_compiler_or_audit": false,
+    "source_or_index_changes_by_reviewer": false,
+    "remaining": [
+      "Matching successful R2 full build and exhaustive audit evidence",
+      "Final independent Standards and Spec assessment on the same candidate",
+      "Immediate final candidate verification and snapshot comparison",
+      "Required durable correction/review milestone and delivery"
+    ]
+  },
+  "complete_report": "intake/review/standards-r2.md"
+}

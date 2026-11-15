@@ -1,0 +1,83 @@
+{
+  "original_shared_diffs": {
+    "XM01": "diff --git a/SquareApplications.lean b/SquareApplications.lean\nindex a64e012..6bda681 100644\n--- a/SquareApplications.lean\n+++ b/SquareApplications.lean\n@@ -250,3 +250,4 @@ import Examples.SharedDemand\n \n /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/\n \n+import Examples.MergeCosts\ndiff --git a/docs/research/fdsa-reconstruction-map.md b/docs/research/fdsa-reconstruction-map.md\nindex 7935ddd..c06b0ee 100644\n--- a/docs/research/fdsa-reconstruction-map.md\n+++ b/docs/research/fdsa-reconstruction-map.md\n@@ -260,3 +260,31 @@ requires the project's immutable-candidate verification and exhaustive proof\n audit, both independent review axes, and final candidate-identity verification.\n Their exact outcomes are kept in the local checkpoint's review record rather\n than inferred from this narrative.\n+\n+## Shared ordinary list merge observations — FDSA-XM01\n+\n+`Applications.Sorting.Merge` adds the two order-free input sublists, arbitrary-\n+relation pairwise converse and the input-local keyed sortedness iff, preserving\n+its existing operation/forward/stability contracts. `Resources.ListMerge.run`\n+is one actual selected-branch execution with comparison/invocation observations.\n+Its first cost coordinate (`run.2.1`) has the handwritten C_merge equations;\n+its second cost coordinate (`run.2.2`) counts all merge entries, including the\n+terminal base. Exact erasure, E=C+1, loose length bounds and input-local exact\n+map/key transport retain arbitrary payload universes and require no sorting,\n+equality or inhabitant on the raw domain.\n+\n+This supports C02-025, the merge portion of C02-027, and C02-028/029/031/033/035/037.\n+`Examples.MergeCosts` connects actual bind/reweight, the second merge's real\n+first value, source/key adapters, stable and unsorted cases, noninjective key\n+erasure, Empty, the qualified C1 positive/zero comparison, and an actual raw\n+LeftistQueue.toListQ node body. That body's counts concern only its one merge\n+of already obtained child lists. Full child/traversal work is not included.\n+\n+The prescribed C2 merge/comparison model and chosen C14 exercise components\n+are distinguished in [the source note](fdsa-list-merge.md), with pinned sources,\n+license and full observation boundaries. All whole-sort/logarithmic, run/builder,\n+exercise and stability obligations remain; the original 107/current 112 C2\n+requirements are unchanged. All concrete C14 queue/whole-enumeration/carrier\n+and quadratic claims remain queued, and binomial carry is a different operation.\n+The initial C2 integration prefix remains c80eec9, without this later component.\n+This is a source draft with no compilation, final-review or acceptance claim.\n",
+    "XD01": "diff --git a/SquareApplications.lean b/SquareApplications.lean\nindex a64e012..ffff6aa 100644\n--- a/SquareApplications.lean\n+++ b/SquareApplications.lean\n@@ -247,6 +247,7 @@ import Examples.FunctionalBasics\n import Examples.ListReversal\n import Examples.CallModels\n import Examples.SharedDemand\n+import Examples.DifferenceListCosts\n \n /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/\n \ndiff --git a/docs/research/fdsa-reconstruction-map.md b/docs/research/fdsa-reconstruction-map.md\nindex 7935ddd..6a4183a 100644\n--- a/docs/research/fdsa-reconstruction-map.md\n+++ b/docs/research/fdsa-reconstruction-map.md\n@@ -216,6 +216,28 @@ independent final review; their presence does not close the chapter. Section\n 1.5.3's preference for explicit bounds remains explanatory. Higher-order time\n conventions refer forward to Appendix B.1 and stay on that appendix's list.\n \n+## Shared difference-list closure groundwork\n+\n+`Resources.DifferenceListCosts` adds ordinary measured suffix callbacks with\n+separate ordered-prefix and application-cost predicates. Identity, singleton\n+and composition callbacks have a declared invocation tariff; their creation\n+operations carry a separate fixed-size capture tariff. Existing `run` executes\n+compositional pushes. The seed-general construction laws imply `2*n+1` for\n+creation and one application of the identity-seeded builder.\n+\n+The value representation remains Batteries.DList. Its fused push and the\n+explicit compositional model have value correspondence, with no transfer of\n+exact costs. Connected cases retain nonempty suffixes, duplicate/order\n+preservation, empty payloads, repeated materialization, charged identity and\n+empty-prefix histories with unbounded application work. Shared self-composition\n+distinguishes distinct creation events from unfolded invocation occurrences.\n+\n+This is an uncompiled cross-cutting draft. The\n+[source and statement notes](fdsa-difference-list-costs.md) retain the actual\n+singleton-seeded asc/scanner and repeated ordinary append/reverse obligations\n+for Chapter 2. It makes no compiler or machine-runtime claim and does not\n+activate or accept that chapter.\n+\n ## Architecture and statement review\n \n Operations, returned values and observations remain separate. Exact agreement\n",
+    "XQ01": "diff --git a/SquareApplications.lean b/SquareApplications.lean\nindex a64e012..20036b7 100644\n--- a/SquareApplications.lean\n+++ b/SquareApplications.lean\n@@ -247,6 +247,7 @@ import Examples.FunctionalBasics\n import Examples.ListReversal\n import Examples.CallModels\n import Examples.SharedDemand\n+import Examples.ThreeWayPartition\n \n /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/\n \ndiff --git a/docs/research/fdsa-reconstruction-map.md b/docs/research/fdsa-reconstruction-map.md\nindex 7935ddd..e7c8559 100644\n--- a/docs/research/fdsa-reconstruction-map.md\n+++ b/docs/research/fdsa-reconstruction-map.md\n@@ -260,3 +260,35 @@ requires the project's immutable-candidate verification and exhaustive proof\n audit, both independent review axes, and final candidate-identity verification.\n Their exact outcomes are kept in the local checkpoint's review record rather\n than inferred from this narrative.\n+\n+## Shared three-way partition values and source execution (FDSA-XQ01)\n+\n+This bounded cross-cutting **uncompiled draft** exposes the existing independent\n+partition semantics to Sorting and Selection, with a separately measured\n+one-pass realization for Appendix B.2. It activates or accepts neither chapter\n+and does not widen the initial Chapter 2 foundation prefix. Exact provenance,\n+source/model distinctions, interface compatibility and cases are in\n+[fdsa-three-way-partition.md](fdsa-three-way-partition.md).\n+\n+| Common source obligation | Draft declarations / intended connection |\n+| --- | --- |\n+| Three ordered filters and occurrence semantics, partition component of C02-102 and C03-011 | `Sequences.Partition.partition3` retains the existing two-stage value body, exact filter/perm/membership/length laws and standard nested tuple. |\n+| Qualified strict-side decrease, C03-013 | Existing `partition_strict_sizes` retains pivot membership as a sufficient premise. Arbitrary-pivot correctness remains unconditional. |\n+| Existing Selection compatibility | The old same-signature operation and seven theorem names remain wrappers/adapters. The selection-specific remainder, Rank, Consumers and RankSelection examples are unchanged. |\n+| Companion source value equations | Shared nil/cons theorems expose one-tail reconstruction with tests `y<p` then `p=y`, without defining another pure operation or assigning a cost to the old implementation. |\n+| Actual source count, C03-031 and B-018/019 | `Resources.Partition.partitionRun` uses one recursive tail call and its actual returned triple; separate value and count laws give the shared value and work `length+1`, including nil. |\n+| Consequential clients | Generic equal-block/empty cases; mixed ordered duplicates; absent outside/interior pivots; old-name compatibility; same-program bind on the actual returned lower bucket with expected total thirteen. |\n+\n+The manuscript prints the three-filter specification and time recurrence;\n+the pinned companion supplies the explicit single-pass code equation. The\n+old two-pass value implementation, new actual source program and Exercise\n+2.4's two-filter quicksort metric remain distinct. No physical runtime,\n+tail-recursion, constant stack or arbitrary monotone bucket-transport claim\n+is introduced.\n+\n+Complete quicksort3, selection rank/middle-index bridges, actual selector\n+recursion and termination, median-of-medians, random policies and their total\n+costs remain mandatory in the original chapters. Accepted repaired Chapter 1,\n+focused compatibility checks, the full candidate build/audit, both independent\n+review axes and immediate candidate verification remain required. No source\n+preflight or authored draft supplies acceptance evidence.\n",
+    "XU01": "diff --git a/SquareApplications.lean b/SquareApplications.lean\nindex a64e012..33a8fbb 100644\n--- a/SquareApplications.lean\n+++ b/SquareApplications.lean\n@@ -15,6 +15,7 @@ import Examples.CurryHoward\n import Examples.ProbabilisticProgress\n import Examples.MetropolisHastings\n import Examples.ProbabilityCorrelation\n+import Examples.PermutationMinimum\n import Examples.StatefulIncremental\n import Examples.ExternalInteraction\n import Examples.InteractionTransport\ndiff --git a/docs/research/fdsa-reconstruction-map.md b/docs/research/fdsa-reconstruction-map.md\nindex 7935ddd..02055ea 100644\n--- a/docs/research/fdsa-reconstruction-map.md\n+++ b/docs/research/fdsa-reconstruction-map.md\n@@ -260,3 +260,18 @@ requires the project's immutable-candidate verification and exhaustive proof\n audit, both independent review axes, and final candidate-identity verification.\n Their exact outcomes are kept in the local checkpoint's review record rather\n than inferred from this narrative.\n+\n+## Shared fixed-subset minimum probability (draft)\n+\n+The [uniform-permutation minimum unit](fdsa-permutation-minimum.md) supplies a\n+source draft of the probability that a member of a fixed finite subset is\n+first under one global uniform permutation of injective priorities. It uses\n+ordinary permutations, finsets and Mathlib measures, with no new probability\n+carrier. Its examples connect the general theorem to overlapping subsets,\n+infinite-target integer priorities, empty indices, outsiders and ties.\n+\n+This groundwork supports Chapters 2 and 10. It does not supply conditional\n+pivot/subproblem laws, full relative-order restrictions, the expected first\n+position, treap construction/ancestor/charging proofs or algorithm cost\n+correspondences. Its source and examples remain uncompiled and unaccepted;\n+the local FDSA-XU01 record retains the frozen scope and subsequent gate results.\n"
+  },
+  "replacements": [
+    {
+      "part": "accepted-base table",
+      "before": "| 1 | Basics | Detailed witnesses below; acceptance is tracked separately |",
+      "after": "| 1 | Basics | Accepted at `07e480f`; detailed witnesses below |"
+    },
+    {
+      "part": "accepted-base table",
+      "before": "| 2 | Sorting | Active; shared insertion costs below; acceptance tracked separately |",
+      "after": "| 2 | Sorting | Active; shared insertion, merge, builder, partition and minimum-law groundwork below; acceptance tracked separately |"
+    },
+    {
+      "part": "accepted-base table",
+      "before": "| 3 | Selection | Queued; shared insertion costs below |",
+      "after": "| 3 | Selection | Queued; shared insertion and partition groundwork below |"
+    },
+    {
+      "part": "accepted-base table",
+      "before": "| A | List Library | Shared standard interfaces and checked adapters below; acceptance tracked separately |",
+      "after": "| A | List Library | Accepted at `f17cc6b`; all twenty entries mapped below |"
+    },
+    {
+      "part": "accepted-base table",
+      "before": "| B | Time Functions | Matched as used; final complete inventory pending |",
+      "after": "| B | Time Functions | B.1 accepted at `f17cc6b`; remaining subsections and whole-appendix acceptance pending |"
+    },
+    {
+      "part": "accepted-base table",
+      "before": "| C | Notation | Matched as used; final complete inventory pending |",
+      "after": "| C | Notation | Accepted at `f17cc6b`; complete notation correspondence linked below |"
+    },
+    {
+      "part": "accepted-base snapshot",
+      "before": "does not by itself mean that its chapter has passed all gates.\n",
+      "after": "does not by itself mean that its chapter has passed all gates.\n\n**Accepted-base snapshot — 4 November 2026.** Chapter 1 was accepted at\n`07e480f6ec9958d4975bb90151005b84f2907614`. The shared foundation was accepted at\n`f17cc6b1a2bf44215b16202ed0fcee2b5c130761`, covering insertion costs, all twenty\nAppendix A entries, Appendix B.1 and all ninety Appendix C notation rows.\nThe local tracker retains their complete validation and independent review\nevidence. Later shared-unit and chapter acceptance requires its own matching\nimmutable-candidate gates; whole Appendix B remains open.\n"
+    },
+    {
+      "part": "XM01",
+      "before": "The initial C2 integration prefix remains c80eec9, without this later component.\nThis is a source draft with no compilation, final-review or acceptance claim.\n",
+      "after": "The original foundation prefix c80eec9 excludes this later component.\nThe source note retains a dated validation snapshot; acceptance requires the\ncomplete immutable-candidate gates recorded in the local FDSA-XM01 record.\n"
+    },
+    {
+      "part": "XD01",
+      "before": "This is an uncompiled cross-cutting draft. The\n",
+      "after": "The\n"
+    },
+    {
+      "part": "XD01",
+      "before": "activate or accept that chapter.\n",
+      "after": "activate or accept that chapter.\n\nThe source note retains a dated validation snapshot; full immutable-candidate\nacceptance gates remain required.\n"
+    },
+    {
+      "part": "XQ01",
+      "before": "This bounded cross-cutting **uncompiled draft** exposes the existing independent\n",
+      "after": "This bounded cross-cutting unit exposes the existing independent\n"
+    },
+    {
+      "part": "XQ01",
+      "before": "[fdsa-three-way-partition.md](fdsa-three-way-partition.md).\n",
+      "after": "[fdsa-three-way-partition.md](fdsa-three-way-partition.md).\nThe source note retains the dated validation history; it does not substitute\nfor this unit's full candidate gates.\n"
+    },
+    {
+      "part": "XU01",
+      "before": "correspondences. Its source and examples remain uncompiled and unaccepted;\n",
+      "after": "correspondences. Its source note retains a dated validation snapshot;\n"
+    }
+  ],
+  "root_import_additions": [
+    "Examples.MergeCosts",
+    "Examples.DifferenceListCosts",
+    "Examples.ThreeWayPartition",
+    "Examples.PermutationMinimum"
+  ],
+  "original_F_root_all_imports_preserved": true,
+  "F_mathematical_map_content_preserved": true
+}

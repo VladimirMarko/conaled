@@ -1,0 +1,16 @@
+--- adapter-guide-original.py
++++ pinned_toolchain.py
+@@ -17,9 +17,10 @@
+ import sys
+ 
+ 
+-WORKSPACE = Path(__file__).resolve().parents[2]
+-TOOLCHAINS = WORKSPACE / "toolchains"
+-OFFICIAL = TOOLCHAINS / "lean-4.35.0-linux"
++# FDSA layout: <workspace>/work/fdsa-control/tooling/pinned_toolchain.py
++WORKSPACE = Path(__file__).resolve().parents[3]
++TOOLCHAINS = WORKSPACE / "bootstrap"
++OFFICIAL = TOOLCHAINS / "direct-lean/lean-4.35.0-linux"
+ OVERLAY = TOOLCHAINS / "lean-4.35.0-host"
+ QEMU = TOOLCHAINS / "qemu-user/bin/qemu-x86_64-static"
+ EXPECTED = {

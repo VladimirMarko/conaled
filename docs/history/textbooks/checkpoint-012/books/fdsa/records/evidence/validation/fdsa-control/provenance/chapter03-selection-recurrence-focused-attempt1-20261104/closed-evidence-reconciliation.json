@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T19:59:51.429007+00:00",
+  "candidate": "9d4b622ff74ec012d49733ccc0c4c0849b57ade4",
+  "terminal": {
+    "recorded_utc": "2026-11-04T19:59:51.428872+00:00",
+    "owned_session": 80105,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "4ef837",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "9d4b622ff74ec012d49733ccc0c4c0849b57ade4"
+  },
+  "actual_recorder_and_native_exits": [
+    0,
+    0
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-focused-attempt1-20261104/full.log",
+    "bytes": 2835,
+    "sha256": "27f3ab3e2128398df4ce98bcaa64369948e4902868f76da9c7256ff8e8e1a795"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T195855Z-project-run-df10e222",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 483,
+      "sha256": "c78cfaebbf045f43173a089ac62cbe67950d75dd30661f45f3478c9dc46cf7a5"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 636,
+      "sha256": "cc7c7640ce9ffe20f307f7db529debea37c21c9adbbdb4ffdd402a2e2c3c4331"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-recurrence-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 2553,
+      "sha256": "3323ce64702ed211edd06aa20ae2df8bf8cc7912e5c268c7dbeccbf344732b08"
+    }
+  },
+  "native_body_exact_outer_offset": 125,
+  "complete_closed_log": true,
+  "scope": "Focused exact source selection recurrence F, monotonicity, rounded specialization, growth and connected examples only; not actual selector cost proof or full candidate acceptance.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

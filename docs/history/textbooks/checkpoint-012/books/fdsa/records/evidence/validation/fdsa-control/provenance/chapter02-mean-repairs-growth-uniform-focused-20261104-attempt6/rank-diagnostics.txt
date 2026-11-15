@@ -1,0 +1,33 @@
+error: Applications/Resources/RandomQuickSortRank.lean:68:13: unsolved goals
+α : Type u
+xs : List α
+p : α → Bool
+f : Fin xs.length → α := fun i => xs[↑i]
+hxs : List.map f (List.finRange xs.length) = xs
+⊢ {x | (p ∘ f) x = true}.card = {i | p xs[↑i] = true}.card
+error: Applications/Resources/RandomQuickSortRank.lean:89:6: Type mismatch: After simplification, term
+  Finset.mem_Iio.mp hr
+ has type
+  r < ρ i
+but is expected to have type
+  (occurrenceRank key xs) ((Equiv.symm ρ) r) < (occurrenceRank key xs) i
+error: Applications/Resources/RandomQuickSortRank.lean:167:87: unsolved goals
+α : Type u
+κ : Type v
+inst✝ : LinearOrder κ
+key : α → κ
+head : α
+tail : List α
+hd : (List.map key (head :: tail)).Nodup
+hfun :
+  (fun i => (List.filter (fun x => decide (key x < key (head :: tail)[↑i])) ((head :: tail).eraseIdx ↑i)).length) =
+    fun i => ↑((occurrenceRank key (head :: tail)) i)
+⊢ PMF.map Fin.val (uniformIndex tail.length) = PMF.map (fun i => ↑i) (uniformIndex tail.length)
+error: Applications/Resources/RandomQuickSortRank.lean:376:8: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ℝ (exerciseMean (fun a b => decide (id a < id b)) (head :: tail))
+    (2 / ↑(m + 1) * ∑ x ∈ Finset.range (m + 1), sizeMean x + ↑(4 * m + 3))
+but is expected to have type
+  @Eq ℝ (exerciseMean (fun a b => decide (a < b)) (head :: tail))
+    (2 / ↑(m + 1) * ∑ i ∈ Finset.range (m + 1), sizeMean i + ↑(4 * m + 3))

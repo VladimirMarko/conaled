@@ -1,0 +1,818 @@
+{
+  "recorded_utc": "2026-11-04T10:59:46.036687+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete81-path R-through-eventual-Chapter2 scope, all112 obligations and ten shared scopes.",
+  "overall_outcome": "Blocked",
+  "approval_or_acceptance": false,
+  "C02_TYPE_001": "Resolved for independent Spec at this exact candidate; not whole-candidate acceptance.",
+  "counts": {
+    "qualified_historical_actual_types": 920,
+    "current_actual_types_fully_read_and_qualified": 815,
+    "actual_qualified_total": 1735,
+    "retained_accepted_base_names": 28,
+    "explicit_public_named_total": 1763,
+    "historical_actual_types_read_total": 941,
+    "historical_qualified_profiles": {
+      "expanded_pp_explicit": 648,
+      "ordinary_or_universe_profile": 272
+    },
+    "current_expanded_profile": 815,
+    "current_qualified_combined_profiles": {
+      "expanded_pp_explicit": 1463,
+      "ordinary_or_universe_profile": 272
+    },
+    "current_unreviewed_actual_types": 0,
+    "original_public_named_total": 1762,
+    "sole_explicit_public_addition": "Examples.UniformQuickSortMean.instFintypeLabel",
+    "separately_accounted_private_named_source_declarations": 70,
+    "separately_accounted_anonymous_source_instances": 19,
+    "foundation145_actual_credit": 0,
+    "potential110_receiving_credit": 0
+  },
+  "disposition_receipt": {
+    "path": "provenance/chapter02-spec-source-preparation-20261104/current-public-type-disposition-4b5dbfa0.json",
+    "bytes": 908317,
+    "lines": 24266,
+    "sha256": "6a749dbb10bddc7f8293330cdb56a27bd68b5c6473bd0f2d03aad2722881dee5"
+  },
+  "execution_input_qualification": {
+    "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-execution-input-qualification.json",
+    "bytes": 6690,
+    "lines": 150,
+    "sha256": "9bf1f1e098997b9f4f01944c59b5578a32a4768e00fc0e68d1726c342bb82abe"
+  },
+  "complete_read_snapshot": {
+    "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-read-progress-complete-before-disposition.json",
+    "bytes": 25943,
+    "lines": 1584,
+    "sha256": "a1f4a8504313bb62b46a577a0e3fd96cc3ebeb6aa3b41d08afe833c27df61275"
+  },
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "full_log": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/full.log",
+    "bytes": 874944,
+    "lines": 11653,
+    "sha256": "a5347095b4f93728b1b384c415189e1d934084eca4af8999028d0864fab9fc6b"
+  },
+  "navigation_index": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/actual-type-ranges.json",
+    "bytes": 232026,
+    "lines": 7349,
+    "sha256": "5f53332f2c9719fc6ce7fe15f6eab6f90a6d7baf9dd1b4cf0e2750d1932ffcef"
+  },
+  "complete_output_read": {
+    "types": 815,
+    "native_lines": [
+      1,
+      11650
+    ],
+    "native_bytes": 874568,
+    "bounded_contiguous_chunks": 44,
+    "all_types_once_in_program_order": true,
+    "all_bytes_without_filtering_or_truncation": true,
+    "largest_type638": "All528lines/46151bytes read in three176-line contiguous subreads before credit.",
+    "semantic_record_files": [
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks001-005.json",
+        "bytes": 13091,
+        "lines": 248,
+        "sha256": "c483a3e7e92f3aec1913451a914a3b60a0680be9b373bdb92a521fa4585cdb5d"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunk006.json",
+        "bytes": 3111,
+        "lines": 54,
+        "sha256": "ac48c4e51172698488038a961f7e1c6ce4acde2d92f453a80d814ac9a67525be"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks007-008.json",
+        "bytes": 7201,
+        "lines": 118,
+        "sha256": "64c8f08b48e70c8e0ff34d1671342f50a60d23ac65964c486d706737a208f875"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks009-010.json",
+        "bytes": 6850,
+        "lines": 113,
+        "sha256": "ee3d416bcd21bad966aff49186ae694b62da37e91bea18c23f56e4e8554483c3"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks011-012.json",
+        "bytes": 6652,
+        "lines": 104,
+        "sha256": "04158840fb732987cf608f11402707482d31ea2a33b18ee96798c14e4dcdfc22"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks013-014.json",
+        "bytes": 5751,
+        "lines": 101,
+        "sha256": "892463b342d79b6f704c17879bab8b873294f46e2aa1f31b8242dafe6c508a85"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks015-016.json",
+        "bytes": 5191,
+        "lines": 96,
+        "sha256": "e88bc799b0dff12647cd1d319a1c1dd301232b0bc1241ee2ff957177282702b2"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks017-018.json",
+        "bytes": 5641,
+        "lines": 106,
+        "sha256": "f3c5fbc9b2f9f4e7acef75050f3bc428a13000d5c5d4358d59fec9863de0573a"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks019-020.json",
+        "bytes": 4456,
+        "lines": 86,
+        "sha256": "d06ca00322508269d1e4dfc553cd4900e9f79960267e5deb9ea9138df98174d2"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks021-022.json",
+        "bytes": 6041,
+        "lines": 101,
+        "sha256": "aa27522e879357a84f2328dbbc8a5f1353583048cb340aae91a394033e5c792f"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks023-024.json",
+        "bytes": 7771,
+        "lines": 131,
+        "sha256": "26a2e4236b164a526592f63c12933638f6e4aae926dce38d596b61b5c45f92e1"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks025-026.json",
+        "bytes": 6020,
+        "lines": 106,
+        "sha256": "f51d61de854c01d4214fad9fa1b4bcf031c232da580d095ad0bdf63bbc0aa3bd"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks027-028.json",
+        "bytes": 4813,
+        "lines": 88,
+        "sha256": "197643c478c8c8019cfeb912c13c0bfa6fd8508eaf610dbaca7070bc036526bc"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks029-030.json",
+        "bytes": 8216,
+        "lines": 148,
+        "sha256": "a9ecd9860e1c0bd62b0de05c9259a39c3a04e46b6133e30a6e3030f021f2321a"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks031-032.json",
+        "bytes": 8083,
+        "lines": 135,
+        "sha256": "54127ab0814d981be2927378fc47d0002e2f597368d1aec7123c33c7ba6d2c56"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks033-034.json",
+        "bytes": 5261,
+        "lines": 96,
+        "sha256": "be8e8cbf03a5ffff642bac19142bc84d9d03e958d7ad1b4084e707916b338e9c"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks035-036.json",
+        "bytes": 5566,
+        "lines": 121,
+        "sha256": "ec71a5428b8e7877586c930f25300087f9b8160b4730618a0c0bb92ce4e0ffd8"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks037-038.json",
+        "bytes": 6619,
+        "lines": 119,
+        "sha256": "9c7deb4fcec2c5c355232d446d76fa7c52c975ebf2af3cbd67957e9b480e8d28"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks039-040.json",
+        "bytes": 5740,
+        "lines": 109,
+        "sha256": "0345af07612caa25a7d1e19a20e33fe8abd8245aeb97acb4de0898d28fe5b527"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks041-042.json",
+        "bytes": 6781,
+        "lines": 122,
+        "sha256": "b15564b99722ba567efe4ba5e5ba31c5218c2ae6a3d5e68eeb3aaa92dbb4ab3c"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks043-044.json",
+        "bytes": 5158,
+        "lines": 88,
+        "sha256": "a75766083bbf9ee36e8e09479c668a54131b1e902cff9cbd84ae760897457147"
+      }
+    ],
+    "chunk_partition": [
+      {
+        "chunk": 1,
+        "type_numbers": [
+          1,
+          27
+        ],
+        "native_lines": [
+          1,
+          267
+        ],
+        "bytes": 20449,
+        "sha256": "c7f36c5194b6b88926472bea04f7b7b511efdabee6f3e28eb340f5d76fdc3917"
+      },
+      {
+        "chunk": 2,
+        "type_numbers": [
+          28,
+          52
+        ],
+        "native_lines": [
+          268,
+          560
+        ],
+        "bytes": 20990,
+        "sha256": "f141b13122483e8b7a38d8ef00c527da6a3dd1bb489260fa397d361f8197fb45"
+      },
+      {
+        "chunk": 3,
+        "type_numbers": [
+          53,
+          66
+        ],
+        "native_lines": [
+          561,
+          817
+        ],
+        "bytes": 20787,
+        "sha256": "323779e88952936dd3da782be3e85885c5b86828b4ed44b19e7d12b2ec53a51a"
+      },
+      {
+        "chunk": 4,
+        "type_numbers": [
+          67,
+          74
+        ],
+        "native_lines": [
+          818,
+          1034
+        ],
+        "bytes": 18506,
+        "sha256": "c260fd87b02bdc449035723f53f6309b41d6c5d5b06f40c737d77b6881d0ae89"
+      },
+      {
+        "chunk": 5,
+        "type_numbers": [
+          75,
+          79
+        ],
+        "native_lines": [
+          1035,
+          1258
+        ],
+        "bytes": 20711,
+        "sha256": "28e6cb3d035e93494043a268aa4ea619401829ace6e4725d409d9f741a4e0414"
+      },
+      {
+        "chunk": 6,
+        "type_numbers": [
+          80,
+          90
+        ],
+        "native_lines": [
+          1259,
+          1474
+        ],
+        "bytes": 19986,
+        "sha256": "674927fabcd4db6fa57485c0d08cda7f4cd3d7469e54af15c218e96cc9693dc2"
+      },
+      {
+        "chunk": 7,
+        "type_numbers": [
+          91,
+          114
+        ],
+        "native_lines": [
+          1475,
+          1750
+        ],
+        "bytes": 20046,
+        "sha256": "f4bd5a07541dc4e7a590796326d59e60b4d95d2e83f553a5a1fe8bcc95d59097"
+      },
+      {
+        "chunk": 8,
+        "type_numbers": [
+          115,
+          137
+        ],
+        "native_lines": [
+          1751,
+          2040
+        ],
+        "bytes": 20572,
+        "sha256": "e080e84fd72bbb2195ed06300c9841864171ffa3a14032529de4890817f93a2f"
+      },
+      {
+        "chunk": 9,
+        "type_numbers": [
+          138,
+          161
+        ],
+        "native_lines": [
+          2041,
+          2332
+        ],
+        "bytes": 20584,
+        "sha256": "d1d90c74c50fb8eba7812c5761b403b55ca0a5040173484ba86adb70a32555fd"
+      },
+      {
+        "chunk": 10,
+        "type_numbers": [
+          162,
+          179
+        ],
+        "native_lines": [
+          2333,
+          2609
+        ],
+        "bytes": 20250,
+        "sha256": "de4b0362477ba53bea3b8a2699967e11e9efea40bec806667cf5d7cf9a1ba709"
+      },
+      {
+        "chunk": 11,
+        "type_numbers": [
+          180,
+          197
+        ],
+        "native_lines": [
+          2610,
+          2909
+        ],
+        "bytes": 20846,
+        "sha256": "25c267f8ffe52d8f88ef0d106aad9ac3b5e5936e4d9760f0e0b85e416e88478c"
+      },
+      {
+        "chunk": 12,
+        "type_numbers": [
+          198,
+          212
+        ],
+        "native_lines": [
+          2910,
+          3205
+        ],
+        "bytes": 20757,
+        "sha256": "be2eed6dc65b0c6aaa6f6a59c800f2a847400f7767230628896beb6b611e99d8"
+      },
+      {
+        "chunk": 13,
+        "type_numbers": [
+          213,
+          227
+        ],
+        "native_lines": [
+          3206,
+          3460
+        ],
+        "bytes": 19642,
+        "sha256": "781064eaee64679ce2af9931fa6336764a0af54eccae1415be9b65506abdf625"
+      },
+      {
+        "chunk": 14,
+        "type_numbers": [
+          228,
+          242
+        ],
+        "native_lines": [
+          3461,
+          3690
+        ],
+        "bytes": 18640,
+        "sha256": "93168cfcb1af9b1b536bc5f8daf54ea85dbfcaf0bce9418aec56b496af0a6520"
+      },
+      {
+        "chunk": 15,
+        "type_numbers": [
+          243,
+          250
+        ],
+        "native_lines": [
+          3691,
+          3934
+        ],
+        "bytes": 20363,
+        "sha256": "de78edb953ddaffc49ce10cf834f9469b50d5ce05e49e970d78f7172fea2dbaf"
+      },
+      {
+        "chunk": 16,
+        "type_numbers": [
+          251,
+          269
+        ],
+        "native_lines": [
+          3935,
+          4206
+        ],
+        "bytes": 20989,
+        "sha256": "f34bbfbf2311ea997c2eaf4527cde3a8b9e67565026b4c2c10cc57b5d664a347"
+      },
+      {
+        "chunk": 17,
+        "type_numbers": [
+          270,
+          289
+        ],
+        "native_lines": [
+          4207,
+          4453
+        ],
+        "bytes": 18842,
+        "sha256": "527af3118a601a5d413eebd90899118a8a1bfae624588fcd22439775fc7eda38"
+      },
+      {
+        "chunk": 18,
+        "type_numbers": [
+          290,
+          304
+        ],
+        "native_lines": [
+          4454,
+          4721
+        ],
+        "bytes": 17605,
+        "sha256": "e16f7fb1cdaaf7e075361263575c456efb5432f29ea59695fec2fd67c1cca688"
+      },
+      {
+        "chunk": 19,
+        "type_numbers": [
+          305,
+          310
+        ],
+        "native_lines": [
+          4722,
+          4982
+        ],
+        "bytes": 18340,
+        "sha256": "c681d6f046f738fa93563a59e8a42ea3aefbcf87968092694e70382edd0b94de"
+      },
+      {
+        "chunk": 20,
+        "type_numbers": [
+          311,
+          322
+        ],
+        "native_lines": [
+          4983,
+          5281
+        ],
+        "bytes": 20873,
+        "sha256": "d929898914c722d4c6fda4b1d6e1c50399e65cb9a7199e3a323ad0d19f52618d"
+      },
+      {
+        "chunk": 21,
+        "type_numbers": [
+          323,
+          340
+        ],
+        "native_lines": [
+          5282,
+          5539
+        ],
+        "bytes": 19967,
+        "sha256": "7e86e27a7546d441a46ca91b6edc3c6e440cdac8f194f7771749066ab3241326"
+      },
+      {
+        "chunk": 22,
+        "type_numbers": [
+          341,
+          352
+        ],
+        "native_lines": [
+          5540,
+          5815
+        ],
+        "bytes": 19541,
+        "sha256": "37401f92e97b2a224d3716d7ce30246a544b6296c2b3b28da76b4288d6932c02"
+      },
+      {
+        "chunk": 23,
+        "type_numbers": [
+          353,
+          378
+        ],
+        "native_lines": [
+          5816,
+          6102
+        ],
+        "bytes": 20381,
+        "sha256": "79d02addc2c0e6ac0dd5745e942d21be9ea1a22758652514b8c4c1964460b520"
+      },
+      {
+        "chunk": 24,
+        "type_numbers": [
+          379,
+          412
+        ],
+        "native_lines": [
+          6103,
+          6354
+        ],
+        "bytes": 20311,
+        "sha256": "4e7f16ced79edb39ea67f61bc0b10216783fa109a01385912e09df3ffa93df9d"
+      },
+      {
+        "chunk": 25,
+        "type_numbers": [
+          413,
+          433
+        ],
+        "native_lines": [
+          6355,
+          6629
+        ],
+        "bytes": 20620,
+        "sha256": "b6dc25d07e135b1c996374de1f77491421b9e2c690688c2ba8a16f4eda6a420e"
+      },
+      {
+        "chunk": 26,
+        "type_numbers": [
+          434,
+          447
+        ],
+        "native_lines": [
+          6630,
+          6926
+        ],
+        "bytes": 20834,
+        "sha256": "3f3b31e7de77baa541419de456b59a73eea95cd4bcbc653cb74a2f6437506ee3"
+      },
+      {
+        "chunk": 27,
+        "type_numbers": [
+          448,
+          459
+        ],
+        "native_lines": [
+          6927,
+          7232
+        ],
+        "bytes": 19792,
+        "sha256": "7e6bc7a83945290c60742f6b165766b2b2591a519c37f9dca42856579fc084ac"
+      },
+      {
+        "chunk": 28,
+        "type_numbers": [
+          460,
+          467
+        ],
+        "native_lines": [
+          7233,
+          7489
+        ],
+        "bytes": 18971,
+        "sha256": "dd0faa5318933f4f8fc6298032fea4c21d04055c312604d64577e82c289739e5"
+      },
+      {
+        "chunk": 29,
+        "type_numbers": [
+          468,
+          499
+        ],
+        "native_lines": [
+          7490,
+          7758
+        ],
+        "bytes": 20272,
+        "sha256": "4a31b65ab3575b434cc7e8c10def65e27c1dd5eaecd6bfceaeea4307baa33851"
+      },
+      {
+        "chunk": 30,
+        "type_numbers": [
+          500,
+          544
+        ],
+        "native_lines": [
+          7759,
+          8015
+        ],
+        "bytes": 20784,
+        "sha256": "cdd6426f1667482de43873110e130dfa47b3461319bbdf9bf92b61c3fa33e2c9"
+      },
+      {
+        "chunk": 31,
+        "type_numbers": [
+          545,
+          585
+        ],
+        "native_lines": [
+          8016,
+          8296
+        ],
+        "bytes": 20851,
+        "sha256": "f96d2cccd6d74487f91bb7fa2bceada2457d060e9ad6bc10a7eb28a75c5f30fb"
+      },
+      {
+        "chunk": 32,
+        "type_numbers": [
+          586,
+          608
+        ],
+        "native_lines": [
+          8297,
+          8575
+        ],
+        "bytes": 20253,
+        "sha256": "f130974d34ae6bc5cf5c033a0a11919250bf0600770a0ef6f02d438e4ac92ccb"
+      },
+      {
+        "chunk": 33,
+        "type_numbers": [
+          609,
+          635
+        ],
+        "native_lines": [
+          8576,
+          8878
+        ],
+        "bytes": 20805,
+        "sha256": "276f33859b2e69aa18f210baec3d25a95b020dcf5f76b870c1c8be389ebc7286"
+      },
+      {
+        "chunk": 34,
+        "type_numbers": [
+          636,
+          637
+        ],
+        "native_lines": [
+          8879,
+          8885
+        ],
+        "bytes": 501,
+        "sha256": "27e9c3e9a81768b0f04cd2e057ac82fd230f548e8b00a0bbcd2857dbae0eb1e2"
+      },
+      {
+        "chunk": 35,
+        "type_numbers": [
+          638,
+          638
+        ],
+        "native_lines": [
+          8886,
+          9413
+        ],
+        "bytes": 46151,
+        "sha256": "c1530989aa5d5721f980ee0ca9b48f56a2602f47cb259f348ec25212850e13e8"
+      },
+      {
+        "chunk": 36,
+        "type_numbers": [
+          639,
+          658
+        ],
+        "native_lines": [
+          9414,
+          9684
+        ],
+        "bytes": 20162,
+        "sha256": "2460948866347b654f76b2b8f28f40dfccb9ca17e473af81fd1ea0c5f7fdb653"
+      },
+      {
+        "chunk": 37,
+        "type_numbers": [
+          659,
+          681
+        ],
+        "native_lines": [
+          9685,
+          9972
+        ],
+        "bytes": 19993,
+        "sha256": "eafcbe2bff3a345a79dcdedd9832f8ff8e03e6b21dfd00846f962a68b4bb660d"
+      },
+      {
+        "chunk": 38,
+        "type_numbers": [
+          682,
+          706
+        ],
+        "native_lines": [
+          9973,
+          10241
+        ],
+        "bytes": 20447,
+        "sha256": "ba6f8cbe5e7f51340d1b006686ce9af7303000ddc3b5354c8f60550de702a8e6"
+      },
+      {
+        "chunk": 39,
+        "type_numbers": [
+          707,
+          729
+        ],
+        "native_lines": [
+          10242,
+          10514
+        ],
+        "bytes": 20833,
+        "sha256": "58c8229b6386851fcd33cc0851a5607abad7969755da32c03415f571195ba2e6"
+      },
+      {
+        "chunk": 40,
+        "type_numbers": [
+          730,
+          744
+        ],
+        "native_lines": [
+          10515,
+          10793
+        ],
+        "bytes": 20947,
+        "sha256": "7d5462f322444cd4c4f2a7e67fe83a3d45567e311d99d2798c3295c1adb795c1"
+      },
+      {
+        "chunk": 41,
+        "type_numbers": [
+          745,
+          766
+        ],
+        "native_lines": [
+          10794,
+          11060
+        ],
+        "bytes": 20763,
+        "sha256": "9490eac2e27aabff2223418705127621100a33008b105e6fe9b6edf460d16ba9"
+      },
+      {
+        "chunk": 42,
+        "type_numbers": [
+          767,
+          796
+        ],
+        "native_lines": [
+          11061,
+          11328
+        ],
+        "bytes": 20434,
+        "sha256": "a7e243e072fa13fb6c18816402665157d094ab85c632caf35053725551795465"
+      },
+      {
+        "chunk": 43,
+        "type_numbers": [
+          797,
+          813
+        ],
+        "native_lines": [
+          11329,
+          11625
+        ],
+        "bytes": 19415,
+        "sha256": "6bb5b42024a3b43efd1f31de3e1125883288e497833195d977960b96eeb35287"
+      },
+      {
+        "chunk": 44,
+        "type_numbers": [
+          814,
+          815
+        ],
+        "native_lines": [
+          11626,
+          11650
+        ],
+        "bytes": 1762,
+        "sha256": "9e8cbe909ee56e9dda4ac759f77d28f8f10499670d487c678e31d71f669c850d"
+      }
+    ],
+    "printed_ellipses": "Lean proof-argument elisions are native output, not tool truncation or a claim of proof-body expansion."
+  },
+  "semantic_findings": [],
+  "semantic_assessment": [
+    "Every actual binder,typeclass hypothesis,measure,cost,cast,bound and boundary value assessed against the full112-obligation source scope; no concrete Spec mismatch.",
+    "Fresh-pivot PMF expectation and uniformly permuted distinct-key input expectation remain separate actual models. Conditional children retain the same original permutation and measure, without resampling or independence.",
+    "Rank/local injectivity,duplicate-key quadratic counterexamples,zero/singleton logarithmic boundaries and actual growing input families retain their premises.",
+    "Natural-sort scanner/builder operations connect to actual returned runs and merge dispatch, preserving strict descending/tie-ascending behavior and comparison-versus-operation distinctions.",
+    "Insertion/list calls/library/notation retain callback charges,Nat versus real division,no-default Option boundaries,generic payloads,lookup/update domains,finite-index-set conventions and minimal algebra.",
+    "Merge/quicksort/top-down retain raw comparator/local order premises,actual intermediate values,empty-entry costs,arbitrary payload transport,stability distinctions and negative examples.",
+    "Exact7+14 targeted reinspections now have full current expanded types; the added instance is exactly Fintype Examples.UniformQuickSortMean.Label with no hidden parameter."
+  ],
+  "historical_profiles": {
+    "all941": {
+      "expanded": 648,
+      "ordinary_or_universe": 293
+    },
+    "qualified920": {
+      "expanded": 648,
+      "ordinary_or_universe": 272
+    },
+    "earlier934_and800": "Preserved history, superseded by terminal-identity qualification.",
+    "all_prepared_and_partial_records": "Unchanged; current disposition supersedes pending status only."
+  },
+  "foundation_boundary": {
+    "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "full_terminal_supplied": false,
+    "F145_credit": 0,
+    "potential110_receiving_credit": 0
+  },
+  "C02_DOC_003": "Open pending exact application.",
+  "full_candidate_validation": "Pending; no new exhaustive-audit or acceptance credit.",
+  "other_axis": "Standards separately reports full815 completion and matching1735+28. This receipt records independent Spec work and does not replace final full-scope reviews.",
+  "reviewer_actions": "No compiler/source/ref/pin/cache/build/process-poll/ticket/global-control action.",
+  "accounting_preparation_note": "An initial machine join expected plural chunks for the singular chunk006 receipt and stopped before any writes; the actual singular schema is now handled. No read or mathematical result changed."
+}

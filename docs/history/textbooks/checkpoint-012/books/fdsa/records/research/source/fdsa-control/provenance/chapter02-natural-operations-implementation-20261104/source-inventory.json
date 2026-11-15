@@ -1,0 +1,667 @@
+{
+  "recorded_utc": "2026-11-04T07:03:21.169063+00:00",
+  "author_head_before_commit": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+  "status": "?? Applications/Resources/NaturalRunOperations.lean\n?? Examples/NaturalRunOperations.lean\n",
+  "inspection_kind": "Static source inventory; no Lean elaboration or build performed",
+  "files": [
+    {
+      "file": "Applications/Resources/NaturalRunOperations.lean",
+      "sha256": "c5742c0b6e1617b9646aaf9b92d8c5f4dfd02457735c1eb6d4a561fede258e24",
+      "bytes": 29861,
+      "lines": 690,
+      "declaration_count": 63,
+      "definitions": 6,
+      "theorems": 57,
+      "declarations": [
+        {
+          "kind": "def",
+          "name": "Resources.NaturalRunOperations.runsOpsBy",
+          "line": 36,
+          "source_header": "def runsOpsBy (lt : α → α → Bool) : List α → Measured (List (List α)) Nat"
+        },
+        {
+          "kind": "def",
+          "name": "Resources.NaturalRunOperations.ascOpsBy",
+          "line": 51,
+          "source_header": "def ascOpsBy (lt : α → α → Bool) (a : α) (f : Builder α) :\n      List α → Measured (List (List α)) Nat"
+        },
+        {
+          "kind": "def",
+          "name": "Resources.NaturalRunOperations.descOpsBy",
+          "line": 69,
+          "source_header": "def descOpsBy (lt : α → α → Bool) (a : α) (acc : List α) :\n      List α → Measured (List (List α)) Nat"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOpsBy_nil",
+          "line": 86,
+          "source_header": "@[simp] theorem runsOpsBy_nil (lt : α → α → Bool) : runsOpsBy lt [] = ([], 1)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOpsBy_singleton",
+          "line": 90,
+          "source_header": "@[simp] theorem runsOpsBy_singleton (lt : α → α → Bool) (a : α) :\n    runsOpsBy lt [a] = ([[a]], 3)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOpsBy_cons_cons",
+          "line": 95,
+          "source_header": "theorem runsOpsBy_cons_cons (lt : α → α → Bool) (a b : α) (xs : List α) :\n    runsOpsBy lt (a :: b :: xs) =\n      if lt b a then\n        ((descOpsBy lt b [a] xs).1, 3 + (descOpsBy lt b [a] xs).2)\n      else\n        ((ascOpsBy lt b (singleton a) xs).1,\n          3 + (ascOpsBy lt b (singleton a) xs).2)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.ascOpsBy_nil",
+          "line": 117,
+          "source_header": "@[simp] theorem ascOpsBy_nil (lt : α → α → Bool) (a : α) (f : Builder α) :\n    ascOpsBy lt a f [] = ([(f [a]).1], (f [a]).2 + 3)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.ascOpsBy_cons",
+          "line": 125,
+          "source_header": "theorem ascOpsBy_cons (lt : α → α → Bool) (a b : α) (f : Builder α) (bs : List α) :\n    ascOpsBy lt a f (b :: bs) =\n      if lt b a then\n        ((f [a]).1 :: (runsOpsBy lt (b :: bs)).1,\n          (f [a]).2 + 4 + (runsOpsBy lt (b :: bs)).2)\n      else\n        ((ascOpsBy lt b (pushRun a f).1 bs).1,\n          4 + (ascOpsBy lt b (pushRun a f).1 bs).2)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.descOpsBy_nil",
+          "line": 148,
+          "source_header": "@[simp] theorem descOpsBy_nil (lt : α → α → Bool) (a : α) (acc : List α) :\n    descOpsBy lt a acc [] = ([a :: acc], 3)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.descOpsBy_cons",
+          "line": 153,
+          "source_header": "theorem descOpsBy_cons (lt : α → α → Bool) (a b : α) (acc bs : List α) :\n    descOpsBy lt a acc (b :: bs) =\n      if lt b a then\n        ((descOpsBy lt b (a :: acc) bs).1, 3 + (descOpsBy lt b (a :: acc) bs).2)\n      else\n        ((a :: acc) :: (runsOpsBy lt (b :: bs)).1,\n          4 + (runsOpsBy lt (b :: bs)).2)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.singleton_toDList",
+          "line": 175,
+          "source_header": "theorem singleton_toDList (a : α) :\n    toDList (singleton a) [a] (singleton_rep a) = Batteries.DList.singleton a"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOpsBy_value",
+          "line": 182,
+          "source_header": "theorem runsOpsBy_value (lt : α → α → Bool) (xs : List α) :\n      (runsOpsBy lt xs).1 = runsBy lt xs"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.ascOpsBy_value",
+          "line": 202,
+          "source_header": "theorem ascOpsBy_value (lt : α → α → Bool) (a : α) (f : Builder α)\n      (pref : List α) (rep : Rep f pref) (ys : List α) :\n      (ascOpsBy lt a f ys).1 = ascBy lt a (toDList f pref rep) ys"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.descOpsBy_value",
+          "line": 221,
+          "source_header": "theorem descOpsBy_value (lt : α → α → Bool) (a : α) (acc ys : List α) :\n      (descOpsBy lt a acc ys).1 = descBy lt a acc ys"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOpsBy_perm",
+          "line": 239,
+          "source_header": "theorem runsOpsBy_perm (lt : α → α → Bool) (xs : List α) :\n    (runsOpsBy lt xs).1.flatten.Perm xs"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOpsBy_flatten_length",
+          "line": 244,
+          "source_header": "theorem runsOpsBy_flatten_length (lt : α → α → Bool) (xs : List α) :\n    (runsOpsBy lt xs).1.flatten.length = xs.length"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOpsBy_length_le",
+          "line": 247,
+          "source_header": "theorem runsOpsBy_length_le (lt : α → α → Bool) (xs : List α) :\n    (runsOpsBy lt xs).1.length ≤ xs.length"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOpsBy_sorted",
+          "line": 252,
+          "source_header": "theorem runsOpsBy_sorted [LinearOrder κ] (key : α → κ) (xs : List α) :\n    ∀ run ∈ (runsOpsBy (fun a b => decide (key a < key b)) xs).1, KeySorted key run"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOpsBy_work_le",
+          "line": 260,
+          "source_header": "theorem runsOpsBy_work_le (lt : α → α → Bool) (xs : List α) :\n      (runsOpsBy lt xs).2 ≤ 6 * xs.length + 1"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.ascOpsBy_work_le",
+          "line": 282,
+          "source_header": "theorem ascOpsBy_work_le (lt : α → α → Bool) (a : α) (f : Builder α)\n      (ys : List α) (k : Nat) (cost : AppCost f k) :\n      (ascOpsBy lt a f ys).2 ≤ k + 6 * ys.length + 5"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.descOpsBy_work_le",
+          "line": 309,
+          "source_header": "theorem descOpsBy_work_le (lt : α → α → Bool) (a : α) (acc ys : List α) :\n      (descOpsBy lt a acc ys).2 ≤ 6 * ys.length + 5"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.ascOpsBy_buildFrom",
+          "line": 331,
+          "source_header": "theorem ascOpsBy_buildFrom (lt : α → α → Bool) (a last : α) (f : Builder α)\n    (middle : List α)\n    (chain : (a :: (middle ++ [last])).IsChain (fun x y => lt y x = false)) :\n    ascOpsBy lt a f (middle ++ [last]) =\n      ([((buildFrom (a :: middle) f).1 [last]).1],\n        (buildFrom (a :: middle) f).2 + ((buildFrom (a :: middle) f).1 [last]).2 +\n          2 * (middle.length + 1) + 3)"
+        },
+        {
+          "kind": "def",
+          "name": "Resources.NaturalRunOperations.buildAscending",
+          "line": 367,
+          "source_header": "def buildAscending (first : α) (middle : List α) : Measured (Builder α) Nat"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.buildAscending_eq",
+          "line": 369,
+          "source_header": "theorem buildAscending_eq (first : α) (middle : List α) :\n    buildAscending first middle =\n      ((buildFrom middle (singleton first)).1,\n        1 + (buildFrom middle (singleton first)).2)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.buildAscending_cost",
+          "line": 374,
+          "source_header": "theorem buildAscending_cost (first : α) (middle : List α) :\n    (buildAscending first middle).2 = 1 + 2 * middle.length"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.buildAscending_rep",
+          "line": 379,
+          "source_header": "theorem buildAscending_rep (first : α) (middle : List α) :\n    Rep (buildAscending first middle).1 (first :: middle)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.buildAscending_appCost",
+          "line": 383,
+          "source_header": "theorem buildAscending_appCost (first : α) (middle : List α) :\n    AppCost (buildAscending first middle).1 (1 + 2 * middle.length)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.buildAscending_apply",
+          "line": 387,
+          "source_header": "theorem buildAscending_apply (first : α) (middle suffix : List α) :\n    (buildAscending first middle).1 suffix =\n      ((first :: middle) ++ suffix, 1 + 2 * middle.length)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.buildAscending_weight",
+          "line": 394,
+          "source_header": "theorem buildAscending_weight (first : α) (middle suffix : List α) :\n    (buildAscending first middle).2 + 1 = 2 * (first :: middle).length ∧\n      ((buildAscending first middle).1 suffix).2 + 1 = 2 * (first :: middle).length"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.buildAscending_counts_add_three",
+          "line": 402,
+          "source_header": "theorem buildAscending_counts_add_three (first : α) (middle : List α) (last : α) :\n    (buildAscending first middle).2 + 3 = 2 * (first :: (middle ++ [last])).length ∧\n      ((buildAscending first middle).1 [last]).2 + 3 =\n        2 * (first :: (middle ++ [last])).length"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.buildAscending_counts",
+          "line": 409,
+          "source_header": "theorem buildAscending_counts (first : α) (middle : List α) (last : α) :\n    (buildAscending first middle).2 = 2 * (first :: (middle ++ [last])).length - 3 ∧\n      ((buildAscending first middle).1 [last]).2 =\n        2 * (first :: (middle ++ [last])).length - 3"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOpsBy_buildAscending",
+          "line": 419,
+          "source_header": "theorem runsOpsBy_buildAscending (lt : α → α → Bool) (first last : α)\n    (middle : List α)\n    (chain : (first :: (middle ++ [last])).IsChain (fun x y => lt y x = false)) :\n    runsOpsBy lt (first :: (middle ++ [last])) =\n      ([((buildAscending first middle).1 [last]).1],\n        (buildAscending first middle).2 + ((buildAscending first middle).1 [last]).2 +\n          2 * middle.length + 5)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.ascOpsBy_work_of_chain",
+          "line": 451,
+          "source_header": "theorem ascOpsBy_work_of_chain (lt : α → α → Bool) (a : α) (f : Builder α)\n    (ys : List α) (k : Nat) (cost : AppCost f k)\n    (chain : (a :: ys).IsChain (fun x y => lt y x = false)) :\n    (ascOpsBy lt a f ys).2 = k + 6 * ys.length + 3"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.descOpsBy_work_of_chain",
+          "line": 467,
+          "source_header": "theorem descOpsBy_work_of_chain (lt : α → α → Bool) (a : α) (acc ys : List α)\n    (chain : (a :: ys).IsChain (fun x y => lt y x = true)) :\n    (descOpsBy lt a acc ys).2 = 3 * ys.length + 3"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOpsBy_work_ascending_add_five",
+          "line": 482,
+          "source_header": "theorem runsOpsBy_work_ascending_add_five (lt : α → α → Bool) (xs : List α)\n    (hlen : 2 ≤ xs.length) (chain : xs.IsChain (fun x y => lt y x = false)) :\n    (runsOpsBy lt xs).2 + 5 = 6 * xs.length"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOpsBy_work_ascending",
+          "line": 495,
+          "source_header": "theorem runsOpsBy_work_ascending (lt : α → α → Bool) (xs : List α)\n    (hlen : 2 ≤ xs.length) (chain : xs.IsChain (fun x y => lt y x = false)) :\n    (runsOpsBy lt xs).2 = 6 * xs.length - 5"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOpsBy_of_ascending_chain",
+          "line": 501,
+          "source_header": "theorem runsOpsBy_of_ascending_chain (lt : α → α → Bool) (xs : List α)\n    (hlen : 2 ≤ xs.length) (chain : xs.IsChain (fun x y => lt y x = false)) :\n    runsOpsBy lt xs = ([xs], 6 * xs.length - 5)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOpsBy_work_descending",
+          "line": 511,
+          "source_header": "theorem runsOpsBy_work_descending (lt : α → α → Bool) (xs : List α)\n    (hne : xs ≠ []) (chain : xs.IsChain (fun x y => lt y x = true)) :\n    (runsOpsBy lt xs).2 = 3 * xs.length"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOpsBy_of_descending_chain",
+          "line": 523,
+          "source_header": "theorem runsOpsBy_of_descending_chain (lt : α → α → Bool) (xs : List α)\n    (hne : xs ≠ []) (chain : xs.IsChain (fun x y => lt y x = true)) :\n    runsOpsBy lt xs = ([xs.reverse], 3 * xs.length)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOpsBy_of_sorted",
+          "line": 531,
+          "source_header": "theorem runsOpsBy_of_sorted [LinearOrder κ] (key : α → κ) (xs : List α)\n    (sorted : KeySorted key xs) (hlen : 2 ≤ xs.length) :\n    runsOpsBy (fun a b => decide (key a < key b)) xs = ([xs], 6 * xs.length - 5)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOpsBy_of_strictly_descending",
+          "line": 537,
+          "source_header": "theorem runsOpsBy_of_strictly_descending [LT κ] [DecidableLT κ]\n    (key : α → κ) (xs : List α) (descending : xs.Pairwise (fun x y => key y < key x))\n    (hne : xs ≠ []) :\n    runsOpsBy (fun a b => decide (key a < key b)) xs = ([xs.reverse], 3 * xs.length)"
+        },
+        {
+          "kind": "def",
+          "name": "Resources.NaturalRunOperations.baseMergeOps",
+          "line": 546,
+          "source_header": "def baseMergeOps : (xss : List (List α)) → xss.length ≤ 1 → Measured (List α) Nat"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.baseMergeOps_nil",
+          "line": 550,
+          "source_header": "@[simp] theorem baseMergeOps_nil (h : ([] : List (List α)).length ≤ 1) :\n    baseMergeOps [] h = ([], 1)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.baseMergeOps_singleton",
+          "line": 553,
+          "source_header": "@[simp] theorem baseMergeOps_singleton (xs : List α) (h : [xs].length ≤ 1) :\n    baseMergeOps [xs] h = (xs, 1)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.baseMergeOps_spec",
+          "line": 556,
+          "source_header": "theorem baseMergeOps_spec (cmp : α → α → Bool) (xss : List (List α))\n    (h : xss.length ≤ 1) : baseMergeOps xss h = (mergeAllBy cmp xss, 1)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.baseMergeOps_eq_tick_allRun",
+          "line": 565,
+          "source_header": "theorem baseMergeOps_eq_tick_allRun (cmp : α → α → Bool) (xss : List (List α))\n    (h : xss.length ≤ 1) :\n    baseMergeOps xss h = CallCount.tick (BottomUpSorting.allRun cmp xss)"
+        },
+        {
+          "kind": "def",
+          "name": "Resources.NaturalRunOperations.singleRunOpsBy",
+          "line": 575,
+          "source_header": "def singleRunOpsBy (lt : α → α → Bool) (xs : List α)\n    (h : (runsBy lt xs).length ≤ 1) : Measured (List α) Nat"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.singleRunOpsBy_spec",
+          "line": 583,
+          "source_header": "theorem singleRunOpsBy_spec (lt cmp : α → α → Bool) (xs : List α)\n    (h : (runsBy lt xs).length ≤ 1) :\n    singleRunOpsBy lt xs h = (sortNaturalBy lt cmp xs, (runsOpsBy lt xs).2 + 1)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.singleRunOpsBy_value",
+          "line": 588,
+          "source_header": "theorem singleRunOpsBy_value (lt cmp : α → α → Bool) (xs : List α)\n    (h : (runsBy lt xs).length ≤ 1) :\n    (singleRunOpsBy lt xs h).1 = sortNaturalBy lt cmp xs"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.singleRunOpsBy_work",
+          "line": 593,
+          "source_header": "theorem singleRunOpsBy_work (lt : α → α → Bool) (xs : List α)\n    (h : (runsBy lt xs).length ≤ 1) :\n    (singleRunOpsBy lt xs h).2 = (runsOpsBy lt xs).2 + 1"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.singleRunOpsBy_work_le",
+          "line": 598,
+          "source_header": "theorem singleRunOpsBy_work_le (lt : α → α → Bool) (xs : List α)\n    (h : (runsBy lt xs).length ≤ 1) :\n    (singleRunOpsBy lt xs h).2 ≤ 6 * xs.length + 2"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.singleRunOpsBy_perm",
+          "line": 605,
+          "source_header": "theorem singleRunOpsBy_perm (lt : α → α → Bool) (xs : List α)\n    (h : (runsBy lt xs).length ≤ 1) :\n    (singleRunOpsBy lt xs h).1.Perm xs"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.singleRunOpsBy_correct",
+          "line": 611,
+          "source_header": "theorem singleRunOpsBy_correct [LinearOrder κ] (key : α → κ) (xs : List α)\n    (h : (runsOn key xs).length ≤ 1) :\n    KeySorted key (singleRunOpsBy (fun a b => decide (key a < key b)) xs h).1 ∧\n      (singleRunOpsBy (fun a b => decide (key a < key b)) xs h).1.Perm xs"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.singleRunOpsBy_nil",
+          "line": 618,
+          "source_header": "@[simp] theorem singleRunOpsBy_nil (lt : α → α → Bool)\n    (h : (runsBy lt []).length ≤ 1) : singleRunOpsBy lt [] h = ([], 2)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.singleRunOpsBy_singleton",
+          "line": 622,
+          "source_header": "@[simp] theorem singleRunOpsBy_singleton (lt : α → α → Bool) (a : α)\n    (h : (runsBy lt [a]).length ≤ 1) : singleRunOpsBy lt [a] h = ([a], 4)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsBy_length_le_one_of_ascending_chain",
+          "line": 626,
+          "source_header": "theorem runsBy_length_le_one_of_ascending_chain (lt : α → α → Bool) (xs : List α)\n    (chain : xs.IsChain (fun x y => lt y x = false)) : (runsBy lt xs).length ≤ 1"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsBy_length_le_one_of_descending_chain",
+          "line": 634,
+          "source_header": "theorem runsBy_length_le_one_of_descending_chain (lt : α → α → Bool) (xs : List α)\n    (chain : xs.IsChain (fun x y => lt y x = true)) : (runsBy lt xs).length ≤ 1"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.singleRunOpsBy_of_ascending_chain",
+          "line": 642,
+          "source_header": "theorem singleRunOpsBy_of_ascending_chain (lt : α → α → Bool) (xs : List α)\n    (h : (runsBy lt xs).length ≤ 1) (hlen : 2 ≤ xs.length)\n    (chain : xs.IsChain (fun x y => lt y x = false)) :\n    singleRunOpsBy lt xs h = (xs, 6 * xs.length - 4)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.singleRunOpsBy_of_descending_chain",
+          "line": 654,
+          "source_header": "theorem singleRunOpsBy_of_descending_chain (lt : α → α → Bool) (xs : List α)\n    (h : (runsBy lt xs).length ≤ 1) (hne : xs ≠ [])\n    (chain : xs.IsChain (fun x y => lt y x = true)) :\n    singleRunOpsBy lt xs h = (xs.reverse, 3 * xs.length + 1)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOn_length_le_one_of_sorted",
+          "line": 662,
+          "source_header": "theorem runsOn_length_le_one_of_sorted [LinearOrder κ] (key : α → κ) (xs : List α)\n    (sorted : KeySorted key xs) : (runsOn key xs).length ≤ 1"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.runsOn_length_le_one_of_strictly_descending",
+          "line": 667,
+          "source_header": "theorem runsOn_length_le_one_of_strictly_descending [LT κ] [DecidableLT κ]\n    (key : α → κ) (xs : List α) (descending : xs.Pairwise (fun x y => key y < key x)) :\n    (runsOn key xs).length ≤ 1"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.singleRunOpsBy_of_sorted",
+          "line": 673,
+          "source_header": "theorem singleRunOpsBy_of_sorted [LinearOrder κ] (key : α → κ) (xs : List α)\n    (sorted : KeySorted key xs) (hlen : 2 ≤ xs.length) :\n    singleRunOpsBy (fun a b => decide (key a < key b)) xs\n      (runsOn_length_le_one_of_sorted key xs sorted) = (xs, 6 * xs.length - 4)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Resources.NaturalRunOperations.singleRunOpsBy_of_strictly_descending",
+          "line": 680,
+          "source_header": "theorem singleRunOpsBy_of_strictly_descending [LT κ] [DecidableLT κ]\n    (key : α → κ) (xs : List α) (descending : xs.Pairwise (fun x y => key y < key x))\n    (hne : xs ≠ []) :\n    singleRunOpsBy (fun a b => decide (key a < key b)) xs\n      (runsOn_length_le_one_of_strictly_descending key xs descending) =\n        (xs.reverse, 3 * xs.length + 1)"
+        }
+      ]
+    },
+    {
+      "file": "Examples/NaturalRunOperations.lean",
+      "sha256": "fe08adbd075edbed29bd094e3c3a4d5ef156b31cf84463f5b1957c5f019dff9a",
+      "bytes": 15966,
+      "lines": 352,
+      "declaration_count": 43,
+      "definitions": 0,
+      "theorems": 43,
+      "declarations": [
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.empty_payload",
+          "line": 32,
+          "source_header": "theorem empty_payload :\n    runsOpsBy (fun a _ : Empty => nomatch a) [] = ([], 1)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.empty_payload_execution",
+          "line": 35,
+          "source_header": "theorem empty_payload_execution :\n    singleRunOpsBy (fun a _ : Empty => nomatch a) [] (by simp) = ([], 2)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.singleton_payload",
+          "line": 39,
+          "source_header": "theorem singleton_payload (lt : α → α → Bool) (a : α) :\n    runsOpsBy lt [a] = ([[a]], 3)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.singleton_payload_execution",
+          "line": 42,
+          "source_header": "theorem singleton_payload_execution (lt : α → α → Bool) (a : α) :\n    singleRunOpsBy lt [a] (by simp) = ([a], 4)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.ascending_two",
+          "line": 45,
+          "source_header": "theorem ascending_two : runsOpsBy natLT [1, 2] = ([[1, 2]], 7)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.ascending_three",
+          "line": 48,
+          "source_header": "theorem ascending_three : runsOpsBy natLT [1, 2, 3] = ([[1, 2, 3]], 13)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.ascending_two_execution",
+          "line": 51,
+          "source_header": "theorem ascending_two_execution :\n    singleRunOpsBy natLT [1, 2]\n      (runsOn_length_le_one_of_sorted id [1, 2] (by decide)) = ([1, 2], 8)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.ascending_three_execution",
+          "line": 56,
+          "source_header": "theorem ascending_three_execution :\n    singleRunOpsBy natLT [1, 2, 3]\n      (runsOn_length_le_one_of_sorted id [1, 2, 3] (by decide)) = ([1, 2, 3], 14)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.descending_two",
+          "line": 61,
+          "source_header": "theorem descending_two : runsOpsBy natLT [2, 1] = ([[1, 2]], 6)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.descending_three",
+          "line": 64,
+          "source_header": "theorem descending_three : runsOpsBy natLT [3, 2, 1] = ([[1, 2, 3]], 9)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.descending_two_execution",
+          "line": 67,
+          "source_header": "theorem descending_two_execution :\n    singleRunOpsBy natLT [2, 1]\n      (runsOn_length_le_one_of_strictly_descending id [2, 1] (by decide)) = ([1, 2], 7)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.descending_three_execution",
+          "line": 72,
+          "source_header": "theorem descending_three_execution :\n    singleRunOpsBy natLT [3, 2, 1]\n      (runsOn_length_le_one_of_strictly_descending id [3, 2, 1] (by decide)) =\n        ([1, 2, 3], 10)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.ascending_ties",
+          "line": 78,
+          "source_header": "theorem ascending_ties : runsOpsBy natLT [1, 1, 2, 3] = ([[1, 1, 2, 3]], 19)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.ascending_ties_execution",
+          "line": 83,
+          "source_header": "theorem ascending_ties_execution :\n    singleRunOpsBy natLT [1, 1, 2, 3]\n      (runsOn_length_le_one_of_sorted id [1, 1, 2, 3] (by decide)) =\n        ([1, 1, 2, 3], 20)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.three_boundary_worker",
+          "line": 91,
+          "source_header": "theorem three_boundary_worker : descOpsBy natLT 1 [3] [2] = ([[1, 3], [2]], 7)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.three_boundary",
+          "line": 95,
+          "source_header": "theorem three_boundary : runsOpsBy natLT [3, 1, 2] = ([[1, 3], [2]], 10)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.restart_worker",
+          "line": 100,
+          "source_header": "theorem restart_worker :\n    ascOpsBy natLT 3 (singleton 1) [2, 4] = ([[1, 3], [2, 4]], 12)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.restart_boundary",
+          "line": 109,
+          "source_header": "theorem restart_boundary : runsOpsBy natLT [1, 3, 2, 4] = ([[1, 3], [2, 4]], 15)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.odd_runs",
+          "line": 117,
+          "source_header": "theorem odd_runs :\n    runsOpsBy natLT [1, 3, 2, 4, 0] = ([[1, 3], [2, 4], [0]], 19)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.weak_descent_with_ties",
+          "line": 140,
+          "source_header": "theorem weak_descent_with_ties :\n    runsOpsBy (fun a b : Record => decide (a.1 < b.1))\n      [(3, \"A\"), (3, \"B\"), (2, \"C\")] =\n        ([[(3, \"A\"), (3, \"B\")], [(2, \"C\")]], 11)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.multiple_runs_outside_dispatch",
+          "line": 159,
+          "source_header": "theorem multiple_runs_outside_dispatch :\n    ¬(runsBy natLT [3, 1, 2]).length ≤ 1 ∧\n      ¬(runsBy natLT [1, 3, 2, 4]).length ≤ 1 ∧\n      ¬(runsBy natLT [1, 3, 2, 4, 0]).length ≤ 1"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.weak_descent_outside_dispatch",
+          "line": 167,
+          "source_header": "theorem weak_descent_outside_dispatch :\n    ¬(runsOn Prod.fst ([(3, \"A\"), (3, \"B\"), (2, \"C\")] : List Record)).length ≤ 1"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.arbitrary_builder_restart",
+          "line": 174,
+          "source_header": "theorem arbitrary_builder_restart :\n    ascOpsBy natLT 5 (compose (singleton 1) (singleton 3)) [4, 6] =\n      ([[1, 3, 5], [4, 6]], 14)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.unsorted_builder_value_and_work",
+          "line": 183,
+          "source_header": "theorem unsorted_builder_value_and_work :\n    ascOpsBy natLT 3 (compose (singleton 2) (singleton 1)) [] = ([[2, 1, 3]], 6)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.unsorted_builder_remains_unsorted",
+          "line": 188,
+          "source_header": "theorem unsorted_builder_remains_unsorted :\n    ¬KeySorted id (ascOpsBy natLT 3 (compose (singleton 2) (singleton 1)) []).1.flatten"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.arbitrary_descending_accumulator",
+          "line": 193,
+          "source_header": "theorem arbitrary_descending_accumulator (lt : α → α → Bool) (a : α) (acc : List α) :\n    descOpsBy lt a acc [] = ([a :: acc], 3)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.arbitrary_cost_without_rep",
+          "line": 196,
+          "source_header": "theorem arbitrary_cost_without_rep (lt : α → α → Bool) (a : α) (ys : List α) (k : Nat) :\n    (ascOpsBy lt a (fun suffix => (suffix.reverse, k)) ys).2 ≤ k + 6 * ys.length + 5"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.arbitrary_callback_continuation",
+          "line": 203,
+          "source_header": "theorem arbitrary_callback_continuation :\n    ascOpsBy natLT 2 (fun suffix : List Nat => (suffix.reverse, 17)) [3] = ([[3, 2]], 26)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.expensive_capture_worker",
+          "line": 211,
+          "source_header": "theorem expensive_capture_worker (lt : α → α → Bool) (a : α) (p q : Nat) :\n    let f : Builder α"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.empty_outer_dispatch",
+          "line": 224,
+          "source_header": "theorem empty_outer_dispatch (cmp : α → α → Bool) :\n    baseMergeOps ([] : List (List α)) (by simp) = ([], 1) ∧\n      baseMergeOps ([] : List (List α)) (by simp) =\n        CallCount.tick (BottomUpSorting.allRun cmp [])"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.empty_inner_dispatch",
+          "line": 230,
+          "source_header": "theorem empty_inner_dispatch (cmp : α → α → Bool) :\n    baseMergeOps ([[]] : List (List α)) (by simp) = ([], 1) ∧\n      baseMergeOps ([[]] : List (List α)) (by simp) =\n        CallCount.tick (BottomUpSorting.allRun cmp [[]])"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.source_builder_with_suffix",
+          "line": 236,
+          "source_header": "theorem source_builder_with_suffix :\n    (buildAscending (1 : Nat) [1, 2]).2 = 5 ∧\n      (buildAscending (1 : Nat) [1, 2]).1 [9, 8] = ([1, 1, 2, 9, 8], 5)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.source_builder_two_applications",
+          "line": 244,
+          "source_header": "theorem source_builder_two_applications (first : α) (middle leftSuffix rightSuffix : List α) :\n    bind (buildAscending first middle) (fun f =>\n      bind (f leftSuffix) (fun left =>\n        bind (f rightSuffix) (fun right => pure (left, right)))) =\n      (((first :: middle) ++ leftSuffix, (first :: middle) ++ rightSuffix),\n        3 + 6 * middle.length)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.charged_identity_changes_worker_work",
+          "line": 261,
+          "source_header": "theorem charged_identity_changes_worker_work (lt : α → α → Bool) (a : α) (f : Builder α) :\n    (ascOpsBy lt a (compose f empty) []).1 = (ascOpsBy lt a f []).1 ∧\n      (ascOpsBy lt a (compose f empty) []).2 = (ascOpsBy lt a f []).2 + 2"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.padded_worker",
+          "line": 273,
+          "source_header": "theorem padded_worker (lt : α → α → Bool) (a : α) (n : Nat) :\n    ascOpsBy lt a (DifferenceListCosts.padded n) [] = ([[a]], 2 * n + 4)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.no_worker_bound_from_empty_prefix",
+          "line": 282,
+          "source_header": "theorem no_worker_bound_from_empty_prefix (lt : α → α → Bool) (a : α) (B : Nat) :\n    ∃ n : Nat, Rep (DifferenceListCosts.padded n) ([] : List α) ∧\n      B < (ascOpsBy lt a (DifferenceListCosts.padded n) []).2"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.shared_closure_counts_retained",
+          "line": 292,
+          "source_header": "theorem shared_closure_counts_retained :\n    (DifferenceListCosts.doubled (α"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.generic_scanner_contracts",
+          "line": 299,
+          "source_header": "theorem generic_scanner_contracts (lt : α → α → Bool) (xs : List α) :\n    (runsOpsBy lt xs).1.flatten.Perm xs ∧\n      (runsOpsBy lt xs).1.flatten.length = xs.length ∧\n      (runsOpsBy lt xs).1.length ≤ xs.length ∧\n      (runsOpsBy lt xs).2 ≤ 6 * xs.length + 1"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.arbitrary_payload_correct",
+          "line": 307,
+          "source_header": "theorem arbitrary_payload_correct (xs : List (Nat × α))\n    (h : (runsOn Prod.fst xs).length ≤ 1) :\n    KeySorted Prod.fst (singleRunOpsBy (fun a b => decide (a.1 < b.1)) xs h).1 ∧\n      (singleRunOpsBy (fun a b => decide (a.1 < b.1)) xs h).1.Perm xs"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.constant_key_domain",
+          "line": 313,
+          "source_header": "theorem constant_key_domain (xs : List α) :\n    (runsBy (fun _ _ => false) xs).length ≤ 1"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.repeated_payload_exact",
+          "line": 320,
+          "source_header": "theorem repeated_payload_exact (a : α) (n : Nat) (hn : 2 ≤ n) :\n    singleRunOpsBy (fun _ _ => false) (List.replicate n a)\n      (constant_key_domain _) = (List.replicate n a, 6 * n - 4)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.ascending_range_exact",
+          "line": 327,
+          "source_header": "theorem ascending_range_exact (n : Nat) (hn : 2 ≤ n) :\n    singleRunOpsBy natLT (List.range n)\n      (runsOn_length_le_one_of_sorted id (List.range n)\n        (List.pairwise_lt_range.imp (fun h => Nat.le_of_lt h))) =\n      (List.range n, 6 * n - 4)"
+        },
+        {
+          "kind": "theorem",
+          "name": "Examples.NaturalRunOperations.comparison_counter_is_separate",
+          "line": 339,
+          "source_header": "theorem comparison_counter_is_separate :\n    _root_.Resources.NaturalRunComparisons.runsRunBy natLT [1, 2, 3] = ([[1, 2, 3]], 2) ∧\n      _root_.Resources.NaturalSorting.run natLT natCompare [1, 2, 3] = ([1, 2, 3], 2) ∧\n      singleRunOpsBy natLT [1, 2, 3]\n        (runsOn_length_le_one_of_sorted id [1, 2, 3] (by decide)) = ([1, 2, 3], 14)"
+        }
+      ]
+    }
+  ],
+  "total_declarations": 106
+}

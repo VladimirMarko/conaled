@@ -1,0 +1,43 @@
+{
+  "recorded_utc": "2026-11-02T22:18:44.761768+00:00",
+  "name": "conaled-vfa-checkpoint-030-fresh-retry-evidence",
+  "formal_candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "recorder_candidate": "f2dd147823effc78974d7b2e5363c993afb0f278",
+  "writers": "Formal source and tracker writers paused; accepted recorder runs with append-only logs and stable running-state JSON. Existing checkpoint stability checks remain enabled.",
+  "fresh2_observation": {
+    "run_state": {
+      "schema": 1,
+      "state": "running",
+      "started_utc": "2026-11-02T21:34:09.497595+00:00",
+      "recorder_pid": 578140,
+      "child": {
+        "pid": 578204,
+        "process_group": 578204,
+        "session": 578204
+      },
+      "child_returncode": null,
+      "child_status": "unreaped",
+      "recorder_outcome": null,
+      "recorder_exit_code": null,
+      "interrupt_signal": null,
+      "descendant_quiescence_verified": false,
+      "errors": [],
+      "cleanup": null
+    },
+    "last_complete_heartbeat": {
+      "schema": 1,
+      "recorded_utc": "2026-11-02T22:18:39.536938+00:00",
+      "sequence": 90,
+      "elapsed_seconds": 2670.033177367004,
+      "child_poll_returncode": null
+    },
+    "last_completed_module": "[185/953] SquareKit.SmoothLocalizationFreeComparison (207.16s)",
+    "tool_session_id": 98080,
+    "scope": "Historical active observation; archive logs may extend this prefix and may end in a partial record. No completed validation result."
+  },
+  "free_bytes_including_reserved": 4418813952,
+  "available_bytes_excluding_reserved": 966066176,
+  "effective_uid": 0,
+  "existing_launch_floor_bytes": 2000000000,
+  "scope": "Complete source/history/local tracking, accepted recorder evidence, fresh2 launch and longer active logs/heartbeats, scoped capacity assessment and no-cleanup disposition, checkpoint029 receipt. Formal gates remain pending."
+}

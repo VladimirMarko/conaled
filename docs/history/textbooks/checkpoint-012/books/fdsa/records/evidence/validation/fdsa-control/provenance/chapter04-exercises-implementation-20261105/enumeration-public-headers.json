@@ -1,0 +1,169 @@
+{
+  "status": "AUTHORED PUBLIC HEADERS; NOT elaborated Lean types; UNCOMPILED",
+  "files": [
+    {
+      "path": "Applications/Trees/Enumeration.lean",
+      "namespace": "Trees",
+      "context": [
+        "universe u",
+        "variable {α : Type u}"
+      ],
+      "sha256": "c5e91cbaf276843941d31eec5b5cf1693cfe885f43c8831fd9246559712249c3",
+      "bytes": 6707,
+      "declarations": [
+        {
+          "name": "Trees.insertFirst",
+          "kind": "def",
+          "header": "def insertFirst (x : α) : BinaryTree α → List (BinaryTree α)"
+        },
+        {
+          "name": "Trees.insertFirst_nil",
+          "kind": "theorem",
+          "header": "@[simp] theorem insertFirst_nil (x : α) :\n    insertFirst x .nil = [.node x .nil .nil]"
+        },
+        {
+          "name": "Trees.insertFirst_node",
+          "kind": "theorem",
+          "header": "@[simp] theorem insertFirst_node (x a : α) (l r : BinaryTree α) :\n    insertFirst x (.node a l r) = .node x .nil (.node a l r) ::\n      (insertFirst x l).map (fun l' => .node a l' r)"
+        },
+        {
+          "name": "Trees.removeFirst",
+          "kind": "def",
+          "header": "def removeFirst : BinaryTree α → BinaryTree α"
+        },
+        {
+          "name": "Trees.removeFirst_node_of_ne_nil",
+          "kind": "theorem",
+          "header": "theorem removeFirst_node_of_ne_nil (a : α) (l r : BinaryTree α) (hl : l ≠ .nil) :\n    removeFirst (.node a l r) = .node a (removeFirst l) r"
+        },
+        {
+          "name": "Trees.nil_not_mem_insertFirst",
+          "kind": "theorem",
+          "header": "@[simp] theorem nil_not_mem_insertFirst (x : α) (t : BinaryTree α) :\n    (.nil : BinaryTree α) ∉ insertFirst x t"
+        },
+        {
+          "name": "Trees.inorder_of_mem_insertFirst",
+          "kind": "theorem",
+          "header": "theorem inorder_of_mem_insertFirst (x : α) {s t : BinaryTree α}\n    (ht : t ∈ insertFirst x s) : inorder t = x :: inorder s"
+        },
+        {
+          "name": "Trees.removeFirst_of_mem_insertFirst",
+          "kind": "theorem",
+          "header": "theorem removeFirst_of_mem_insertFirst (x : α) {s t : BinaryTree α}\n    (ht : t ∈ insertFirst x s) : removeFirst t = s"
+        },
+        {
+          "name": "Trees.nodup_insertFirst",
+          "kind": "theorem",
+          "header": "theorem nodup_insertFirst (x : α) (t : BinaryTree α) :\n    (insertFirst x t).Nodup"
+        },
+        {
+          "name": "Trees.exists_insertFirst_of_inorder_cons",
+          "kind": "theorem",
+          "header": "theorem exists_insertFirst_of_inorder_cons (x : α) (xs : List α) (t : BinaryTree α)\n    (ht : inorder t = x :: xs) :\n    ∃ s, inorder s = xs ∧ t ∈ insertFirst x s"
+        },
+        {
+          "name": "Trees.insertFirst_flatMap_nodup",
+          "kind": "theorem",
+          "header": "theorem insertFirst_flatMap_nodup (x : α) (ts : List (BinaryTree α))\n    (hts : ts.Nodup) : (ts.flatMap (insertFirst x)).Nodup"
+        },
+        {
+          "name": "Trees.enumTree",
+          "kind": "def",
+          "header": "def enumTree : List α → List (BinaryTree α)"
+        },
+        {
+          "name": "Trees.enumTree_nil",
+          "kind": "theorem",
+          "header": "@[simp] theorem enumTree_nil : enumTree ([] : List α) = [.nil]"
+        },
+        {
+          "name": "Trees.enumTree_cons",
+          "kind": "theorem",
+          "header": "@[simp] theorem enumTree_cons (x : α) (xs : List α) :\n    enumTree (x :: xs) = (enumTree xs).flatMap (insertFirst x)"
+        },
+        {
+          "name": "Trees.mem_enumTree_iff",
+          "kind": "theorem",
+          "header": "theorem mem_enumTree_iff (xs : List α) (t : BinaryTree α) :\n    t ∈ enumTree xs ↔ inorder t = xs"
+        },
+        {
+          "name": "Trees.set_enumTree",
+          "kind": "theorem",
+          "header": "theorem set_enumTree (xs : List α) :\n    {t | t ∈ enumTree xs} = {t : BinaryTree α | inorder t = xs}"
+        },
+        {
+          "name": "Trees.enumTree_nodup",
+          "kind": "theorem",
+          "header": "theorem enumTree_nodup (xs : List α) : (enumTree xs).Nodup"
+        }
+      ]
+    },
+    {
+      "path": "Examples/TreeEnumeration.lean",
+      "namespace": "TreeEnumerationExamples",
+      "context": [
+        "universe u",
+        "variable {α : Type u}"
+      ],
+      "sha256": "54d112abab423482045370339e5f9bb5144adb599d39baedc6e22a18cb3247de",
+      "bytes": 2078,
+      "declarations": [
+        {
+          "name": "TreeEnumerationExamples.empty_label_enum",
+          "kind": "theorem",
+          "header": "theorem empty_label_enum : enumTree ([] : List Empty) = [.nil]"
+        },
+        {
+          "name": "TreeEnumerationExamples.empty_label_nodup",
+          "kind": "theorem",
+          "header": "theorem empty_label_nodup : (enumTree ([] : List Empty)).Nodup"
+        },
+        {
+          "name": "TreeEnumerationExamples.singleton_enum",
+          "kind": "theorem",
+          "header": "theorem singleton_enum (a : α) : enumTree [a] = [.node a .nil .nil]"
+        },
+        {
+          "name": "TreeEnumerationExamples.pair_enum",
+          "kind": "theorem",
+          "header": "theorem pair_enum (a b : α) :\n    enumTree [a, b] =\n      [.node a .nil (.node b .nil .nil), .node b (.node a .nil .nil) .nil]"
+        },
+        {
+          "name": "TreeEnumerationExamples.repeated_shapes_nodup",
+          "kind": "theorem",
+          "header": "theorem repeated_shapes_nodup (a : α) :\n    ([.node a .nil (.node a .nil .nil), .node a (.node a .nil .nil) .nil] :\n      List (BinaryTree α)).Nodup"
+        },
+        {
+          "name": "TreeEnumerationExamples.repeated_shapes_distinct",
+          "kind": "theorem",
+          "header": "theorem repeated_shapes_distinct (a : α) :\n    (.node a .nil (.node a .nil .nil) : BinaryTree α) ≠\n      .node a (.node a .nil .nil) .nil"
+        },
+        {
+          "name": "TreeEnumerationExamples.three_enum",
+          "kind": "theorem",
+          "header": "theorem three_enum :\n    enumTree ([1, 2, 3] : List Nat) =\n      [.node 1 .nil (.node 2 .nil (.node 3 .nil .nil)),\n        .node 2 (.node 1 .nil .nil) (.node 3 .nil .nil),\n        .node 1 .nil (.node 3 (.node 2 .nil .nil) .nil),\n        .node 3 (.node 1 .nil (.node 2 .nil .nil)) .nil,\n        .node 3 (.node 2 (.node 1 .nil .nil) .nil) .nil]"
+        },
+        {
+          "name": "TreeEnumerationExamples.three_nodup",
+          "kind": "theorem",
+          "header": "theorem three_nodup : (enumTree ([1, 2, 3] : List Nat)).Nodup"
+        },
+        {
+          "name": "TreeEnumerationExamples.sample",
+          "kind": "def",
+          "header": "def sample : BinaryTree Nat"
+        },
+        {
+          "name": "TreeEnumerationExamples.sample_member",
+          "kind": "theorem",
+          "header": "theorem sample_member : sample ∈ enumTree [3, 9, 7]"
+        },
+        {
+          "name": "TreeEnumerationExamples.sample_not_wrong_order",
+          "kind": "theorem",
+          "header": "theorem sample_not_wrong_order : sample ∉ enumTree [9, 3, 7]"
+        }
+      ]
+    }
+  ]
+}

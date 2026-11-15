@@ -1,0 +1,261 @@
+{
+  "recorded_utc": "2026-11-04T11:12:59.653093+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "status": "Source preparation in progress; overall Blocked",
+  "original_XP01_base": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "original_XP01_draft": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+  "historical_combined_review_base": "1aabd512284fe86254278ac631eda061d311050b",
+  "development_base": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "development_base_is_accepted": false,
+  "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+  "candidate_parents": [
+    "fa17cf8e0362be37ea6eff169db9f2f3233fab9d",
+    "4b5dbfa07288acc73f25c27838d3fb2f78e77d71"
+  ],
+  "same_original_six_path_set": true,
+  "full_changed_sources_independently_read": [
+    {
+      "path": "Applications/Resources/FIFOContracts.lean",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 8308,
+      "lines": 168,
+      "sha256": "f0215c25e27380b170297c9cc010375da4ef263380088f4ae8fdbb7272373343",
+      "blob": "01839707e852b3faff6ef1a49ad88a76fb5e5c18"
+    },
+    {
+      "path": "Applications/Resources/Potential.lean",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 11523,
+      "lines": 238,
+      "sha256": "fa33b209a7c8cd700e7a33a6d3ee11ef9ad572c2d2e8406dfbabf6468ebf7d8c",
+      "blob": "3ffc5e120f94f87c77a442728f654f3fa94d3aeb"
+    },
+    {
+      "path": "Examples/MappedPotentialAccounting.lean",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 6726,
+      "lines": 165,
+      "sha256": "aa57790203c7dbc800586464c46366fcd7e6da6965fdbc3c260285e9c8d693c3",
+      "blob": "0291c5979243b0d12332d3628d06aa910732dfa2"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 9413,
+      "lines": 286,
+      "sha256": "f435dd0a16590472f21a9b25d7ae48e21bccf6a74ff4c54539b091529ed574b9",
+      "blob": "77116918bf2466ff362c7c2357470cd413a43ec3"
+    },
+    {
+      "path": "docs/research/fdsa-potential-accounting.md",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 9877,
+      "lines": 163,
+      "sha256": "19c6dc50bc71b518c879cdd8a3f238a3fc5726e5d2486469e18a94a3f310d272",
+      "blob": "b9e70b3a5c15606de595f319ff5d11cdd9ff941e"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 44518,
+      "lines": 677,
+      "sha256": "9124fe8ac99901d2e5658c215d936889d6de8ff4ded6dfd8264ddc0ed66ef896",
+      "blob": "5ae3836703d0d105f6c08a742b5070a62b159ad1"
+    }
+  ],
+  "all_other_development_base_paths_unchanged": true,
+  "four_original_source_and_note_bytes_exact": [
+    "Applications/Resources/FIFOContracts.lean",
+    "Applications/Resources/Potential.lean",
+    "Examples/MappedPotentialAccounting.lean",
+    "docs/research/fdsa-potential-accounting.md"
+  ],
+  "fully_read_unchanged_dependencies_and_required_examples": [
+    {
+      "path": "Applications/Resources/Workload.lean",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 2745,
+      "lines": 64,
+      "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+      "blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05"
+    },
+    {
+      "path": "Applications/Resources/Measured.lean",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 2906,
+      "lines": 71,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46"
+    },
+    {
+      "path": "Examples/PotentialAccounting.lean",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 6221,
+      "lines": 126,
+      "sha256": "ee3fbee1b7e8be75226ac912e3cbb2b82c322d843b3231bdb6ac94908c7b1871",
+      "blob": "eb0cdb80a1d8728e4b1e4eb827fa24c947092a8a"
+    },
+    {
+      "path": "Examples/FIFOContracts.lean",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 4627,
+      "lines": 92,
+      "sha256": "de9e455109ecb5cca0f5e30b7dc993f81149ab7a6145750cc2b62bcb9f83831b",
+      "blob": "f67c5167345d8809dcc6677c162c85e9621fd0ca"
+    },
+    {
+      "path": "Examples/RandomAccessEndCosts.lean",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 7737,
+      "lines": 130,
+      "sha256": "ea68d8773ae7fea32d43e9b0eb01d3ca9111a0d41eac28079adafa5a719fa600",
+      "blob": "61fe0b5fba72b692f493a80b779a11437b42c4ad"
+    },
+    {
+      "path": "Examples/SharedDemand.lean",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 7844,
+      "lines": 188,
+      "sha256": "5b0e374c3d57a9a681d49b9ae0b1bff41a6f60490efadc79cd2d3432b7737fc9",
+      "blob": "937400b61230b59ad0889ec554305ce9b6b42800"
+    },
+    {
+      "path": "Examples/SymmetricLists.lean",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 5370,
+      "lines": 103,
+      "sha256": "e6a0121d5afc79d19b607ad0bb6c4574894e6152475687e265958d5c028022be",
+      "blob": "da14a29c827e67dc21eb8997af66510ecc341d84"
+    }
+  ],
+  "fully_read_standards": [
+    {
+      "path": "AGENTS.md",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "blob": "1b1e65502f0b0771b2475e3b1f37e39d7f18d0c2"
+    },
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 3876,
+      "lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "blob": "bfcdb4a22899e11ba61b67d068d380ef5ea69f9f"
+    },
+    {
+      "path": "docs/agents/domain.md",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 926,
+      "lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "blob": "c26859ec35e14a9051d84066b3b5315aad67ee8b"
+    },
+    {
+      "path": ".agents/skills/implement/SKILL.md",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 4997,
+      "lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "blob": "45b885f90c1ce212e45fbb30727322e4eb34bcd8"
+    },
+    {
+      "path": ".agents/skills/code-review/SKILL.md",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 7466,
+      "lines": 133,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "blob": "8b79f5e9db43d028f2b9a252d907b9b9b02feb01"
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 7113,
+      "lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "blob": "6c4724d8b5dde60c55543e73414873a5f355d165"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "bytes": 6991,
+      "lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "blob": "8f279691ee250a713f7cd70f7c37c5d581ead152"
+    }
+  ],
+  "tracked_AGENTS_paths": [
+    "AGENTS.md",
+    "experiments/toolkit-authoring/author-b/public-exposed/AGENTS.md"
+  ],
+  "fully_read_control_requirements_and_retained_preflights": [
+    {
+      "path": "reviews/potential-round1.md",
+      "bytes": 3787,
+      "lines": 61,
+      "sha256": "e9c16ff16474d334c82178080cfdf7a8c5a5fc59fbbc6c4224abe5633dd93424"
+    },
+    {
+      "path": "reviews/potential-requirements.md",
+      "bytes": 7148,
+      "lines": 116,
+      "sha256": "545b5d2ff4a93594f2b1ca245594233bdfcf461b8f4fe14b3bbe698e6ad1aa2f"
+    },
+    {
+      "path": "provenance/xp01-development-integration-20261104/declared-review-scope.json",
+      "bytes": 2767,
+      "lines": 69,
+      "sha256": "5225a0b0a53d9a87cdd2e6cb9c194ec0cb59b1bad5bc98819905cdc1e1ef2786"
+    },
+    {
+      "path": "research/potential-generalization-preflight.md",
+      "bytes": 18738,
+      "lines": 321,
+      "sha256": "c47864985fc8c1c6baffa5601d2610268b7f5c2cd895073966eb214e365226ae"
+    },
+    {
+      "path": "research/potential-draft-preflight.md",
+      "bytes": 6519,
+      "lines": 90,
+      "sha256": "fba713681c8eb3a80720b10d9ed0d0a33b46d2dddd883b7bd2ca0bc263f254f2"
+    },
+    {
+      "path": "provenance/xp01-continuation-preparation-20261104/report.md",
+      "bytes": 11937,
+      "lines": 188,
+      "sha256": "70081d52f40550c40831a31a3c411f058a81ead270f03c57468d74982617e1c7"
+    },
+    {
+      "path": "provenance/xp01-continuation-preparation-20261104/compatibility-continuation-4b5dbfa0.md",
+      "bytes": 7208,
+      "lines": 121,
+      "sha256": "3482a4016bc6ca58a0d56596cb2c04d234547174fcffac1a094f17b0856836fa"
+    }
+  ],
+  "bounded_reads_pending": [
+    "Additional Nat core caller implementations and relevant pinned API definitions",
+    "Remaining retained ordering/preparation evidence and explicit source compatibility accounting"
+  ],
+  "findings": [
+    {
+      "id": "XP01-DOC-001",
+      "severity": "minor",
+      "axis": "Standards",
+      "status": "Open",
+      "source": "docs/research/fdsa-reconstruction-map.md",
+      "lines": [
+        524,
+        529
+      ],
+      "summary": "The top-level Architecture and statement review section still calls erasureSquare the only existing public-interface adjustment, but XP01 generalizes budget/budget_append.",
+      "remedy": "Explicitly scope the preserved sentence to Chapter1 or acknowledge the shared budget generalization. Preserve prior mathematical explanation.",
+      "mathematical_weakening_asserted": false
+    }
+  ],
+  "truncation_record": "An initial batched standards/preflight display was truncated. Architecture/domain/implementation/code-review and the complete compatibility continuation were subsequently read in separate untruncated outputs; no truncated unread section is credited.",
+  "compiler_or_type_or_audit_credit": 0,
+  "separate_reviews": "Existing C2 and exactF reports/provenance are untouched. Foundation terminal continuation takes priority when supplied.",
+  "reviewer_actions": "Immutable Git/source and closed-record reads; writes only to new own XP01 review/provenance. No compiler/process/cache/source/ref/index/pin/global-control actions."
+}

@@ -1,0 +1,21 @@
+{
+  "recorded_utc": "2026-11-02T14:20:44.774495+00:00",
+  "scope": "One unchanged-shape complete source checkpoint023 only; no cache companion",
+  "independent_assessor": "environment",
+  "failed_preflight": {
+    "record": "work-state/validation/checkpoint023-preflight-capacity-failure.json",
+    "sha256": "3084e7e2b2be4ffda65eec8fefbd9928ef7cb202376de9f84f1e4eda2c52eec1",
+    "free_bytes": 1545531392,
+    "floor_bytes": 1600000000,
+    "archive_created": false
+  },
+  "estimate_basis": "Checkpoint021 stage allocation about209MB; restored source allowance100MB; cloned Git allowance80MB. Restored checkout is removed before final146MB archive phase. Main source/history shape unchanged; only modest operational code/history/tests/reviews/receipts added.",
+  "estimated_peak_bytes": 389000000,
+  "revised_operation_allowance_bytes": 450000000,
+  "operation_margin_bytes": 61000000,
+  "continuing_build_reserve_bytes": 1073741824,
+  "combined_allowance_bytes": 1523741824,
+  "one_capture_floor_bytes": 1530000000,
+  "disposition": "Independently reassessed as defensible for this one source capture, approximately16 percent above the estimated operation peak. Evaluate actual free bytes again immediately before launch. All original generator, bundle, restore, source/index/workflow and upload checks stay unchanged.",
+  "limitations": "An engineering allowance, not a hard bound on arbitrary future payload growth or concurrent consumption; not applicable to cache-companion staging/extraction."
+}

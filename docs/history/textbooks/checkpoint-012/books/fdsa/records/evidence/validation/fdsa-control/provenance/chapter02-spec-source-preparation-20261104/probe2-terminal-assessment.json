@@ -1,0 +1,87 @@
+{
+  "recorded_utc": "2026-11-04T09:30:56.675344+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+  "previous_candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+  "full_scope": "Complete fixed R through eventual Chapter2 acceptance: all 81 paths, 112 obligations and ten shared units retained.",
+  "overall_outcome": "Blocked",
+  "approval_or_acceptance": false,
+  "no_compiler_source_ref_cache_or_process_action": true,
+  "probe_candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+  "actual_exit": 0,
+  "started_utc": "2026-11-04T09:21:48.960277+00:00",
+  "completed_utc": "2026-11-04T09:26:31.596250+00:00",
+  "outer_seconds": 282.6355952160011,
+  "native_seconds": 282.52696089299934,
+  "lean_threads": "1",
+  "timed_out": false,
+  "recorder_error": null,
+  "exact_clean_project_before_after": true,
+  "complete_closed_log_and_outer_native_records_read": true,
+  "all_closed_hashes_verified": true,
+  "historical_closed_session": 28290,
+  "session_not_polled": true,
+  "probe_program": {
+    "path": "provenance/chapter02-tail-arithmetic-probe-source-20261104/Probe2.lean",
+    "bytes": 1333,
+    "lines": 31,
+    "sha256": "21af8b3745cc8ee80e673a9a2cbba7d98657841dbbf01085177087024d918d7d"
+  },
+  "prelaunch_input_record": {
+    "path": "provenance/chapter02-tail-arithmetic-probe-source-20261104/input2.json",
+    "bytes": 580,
+    "lines": 10,
+    "sha256": "f53d787a0ac6e0a1db7863e30014fe68b375e366cd15345505c6ccafe90fedd6"
+  },
+  "all31_program_lines_read": true,
+  "prelaunch_hash_matches_current_postrun_read": true,
+  "postrun_source_observation_utc": "2026-11-04T09:30:56.675344+00:00",
+  "scope": "Three original ENNReal ground arithmetic equalities only, using the exact reviewed NNReal forward-transport blocks. No probability statement, full boundary module, type inventory, complete candidate check, audit or acceptance is established by this probe.",
+  "source_properties": "Imports and autoImplicit false retained; the full boundary module separately retains warningAsError true. No broader linter/environment equivalence is inferred from this bounded program.",
+  "matching_verification_record": false,
+  "artifacts": [
+    {
+      "path": "provenance/chapter02-tail-arithmetic-probe-20261104-attempt2/full.log",
+      "bytes": 353,
+      "lines": 3,
+      "sha256": "5547bfe8df9db91509d2c7da98d651068e98a916d0d50ec96a81cfe6bed7bb14"
+    },
+    {
+      "path": "provenance/chapter02-tail-arithmetic-probe-20261104-attempt2/result.json",
+      "bytes": 1303,
+      "lines": 32,
+      "sha256": "f29bcce65258e70d1514349dbc5f49a403288a8f4406b883d509ee99bddec804"
+    },
+    {
+      "path": "provenance/chapter02-tail-arithmetic-probe-20261104-attempt2/secured-terminal.json",
+      "bytes": 1396,
+      "lines": 29,
+      "sha256": "c76da6638519488d27865e305b8c8ef251238698a5a95d0a922f961c4ce0edc9"
+    },
+    {
+      "path": "provenance/chapter02-tail-arithmetic-probe-20261104-attempt2/start.json",
+      "bytes": 1076,
+      "lines": 27,
+      "sha256": "6f5b8654975a11035aed3e6bb67ea72e0484a0f9a39ca7360c155057bacaec11"
+    },
+    {
+      "path": "provenance/chapter02-tail-arithmetic-probe-20261104-attempt2/native/start.json",
+      "bytes": 555,
+      "lines": 14,
+      "sha256": "2e99266500f5f34669540223b3ac2b31553e221520b90a953e376c4594df76a1"
+    },
+    {
+      "path": "provenance/chapter02-tail-arithmetic-probe-20261104-attempt2/native/result.json",
+      "bytes": 708,
+      "lines": 19,
+      "sha256": "e4814e52080e920dad5047d1b9ac342437376d6897a188d83f5c2925124ae7b5"
+    },
+    {
+      "path": "provenance/chapter02-tail-arithmetic-probe-20261104-attempt2/native/output.log",
+      "bytes": 0,
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

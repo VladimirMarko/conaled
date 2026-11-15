@@ -1,0 +1,46 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "recorded_utc": "2026-11-04T08:51:01.153973+00:00",
+  "observation_window": "Read-only assessment completed during checkpoint0094 write hold and communicated to root; written after explicit release.",
+  "programs": [
+    {
+      "path": "provenance/chapter02-complete-public-statements793-5398db7-prepared-20261104",
+      "candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+      "declared_names": 793,
+      "program_bytes": 45044,
+      "program_sha256": "6e211efdaaeb3fd160d5f39fcbaf724a567f8af83aa5161017e7bbc948b2e8db",
+      "inventory_bytes": 54981,
+      "inventory_sha256": "b8316fbac07ee45a2f08b6736f91874c7c7270b714539db60c27c9c5cec5d831",
+      "sources": 36,
+      "explicit_options": [
+        "pp.universes true",
+        "pp.explicit true",
+        "pp.fullNames true"
+      ],
+      "independent_exact_name_set_and_source_blob_comparison": "Completed read-only during checkpoint0094 hold; exact expected names and all source bytes/blob IDs/hash entries matched.",
+      "other_commands": [],
+      "actual_execution": false
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements-prepared-20261104",
+      "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "declared_names": 145,
+      "program_bytes": 7518,
+      "program_sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4",
+      "inventory_bytes": 9630,
+      "inventory_sha256": "d39aa500144f7893088e8e69cb32514d75191d100e7b9fc1405e14055a94fefa",
+      "sources": 6,
+      "explicit_options": [
+        "pp.universes true",
+        "pp.explicit true",
+        "pp.fullNames true"
+      ],
+      "independent_exact_name_set_and_source_blob_comparison": "Completed read-only during checkpoint0094 hold; exact expected names and all source bytes/blob IDs/hash entries matched.",
+      "other_commands": [],
+      "actual_execution": false
+    }
+  ],
+  "original_source_name_receipt": "public-type-accounting.json",
+  "status": "Preparation only. C02-TYPE-001 stays open. A later integrated rank-example successor must update that source identity before actual execution.",
+  "reviewer_executed_compiler": false
+}

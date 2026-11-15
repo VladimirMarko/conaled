@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-02T23:02:17.997109+00:00",
+  "root_free_bytes": 3289886720,
+  "existing_floor_bytes": 2000000000,
+  "command": [
+    "python3",
+    "/workspace/scratch/0c54f2db1fdf/work-state/tools/checkpoint.py",
+    "--workspace",
+    "/workspace/scratch/0c54f2db1fdf",
+    "--name",
+    "conaled-vfa-checkpoint-032-record-protocol-recovery"
+  ],
+  "formal_candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "writers": "Root tracking updates complete; environment and original reviewers frozen. Original checker may append direct log; stale recorder JSON unchanged.",
+  "purpose": "Complete recovery including original-axis native-record clarification and root reconciliation, static pre-guard execution handoff, later native observations, exact one-time local025 retirement and checkpoint031 receipt. No completed fresh result or chapter acceptance."
+}

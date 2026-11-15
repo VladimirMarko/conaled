@@ -1,0 +1,28 @@
+{
+  "candidate": "a43cef4881d4eb303a81ef25f5ccff0b801a12fe",
+  "tree": "27b06c3e118792cc5a27820540ce22d820ad3ca0",
+  "isolated_checkout": "/workspace/scratch/0c54f2db1fdf/cache-companion-validation",
+  "command": [
+    "/root/.nix-profile/bin/nix",
+    "develop",
+    "/workspace/scratch/0c54f2db1fdf/conaled",
+    "--command",
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "/workspace/scratch/0c54f2db1fdf/cache-companion-validation",
+    "-v"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 6.941961492004339,
+  "log": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1027-round2-tests.log",
+  "log_sha256": "8eea00a17b7b2498b87f50b2fb5899d76e21009b43977f6b9cfbf55340944811",
+  "finished_utc": "2026-11-02T14:01:49.579517+00:00",
+  "final_status": "",
+  "actual_helper_evidence": "Reused unchanged round1 actual helper evidence under the identity checks in 1027-candidate-round2.json; no extra helper/compiler invocation.",
+  "source_cache_capture_performed": false,
+  "status": "passed"
+}

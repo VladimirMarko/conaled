@@ -1,0 +1,29 @@
+diff --git a/Examples/SelectionCutoff.lean b/Examples/SelectionCutoff.lean
+index b118155..83ad3ce 100644
+--- a/Examples/SelectionCutoff.lean
++++ b/Examples/SelectionCutoff.lean
+@@ -58,7 +58,8 @@ theorem singleton_group_recipe_not_wellFounded (cutoff : Nat) :
+ 
+ theorem two_groups_cutoff_one_value :
+     (selectRunWith 2 1 (by decide) (by decide) 2 [3, 1, 2, 2]).1 = some 2 := by
+-  rw [cutoff_one_value]
++  rw [cutoff_one_value, ← Applications.Selection.ranked_iff_index,
++    Applications.Selection.ranked_iff_count_bounds]
+   decide
+ 
+ theorem two_group_actual_children :
+@@ -67,9 +68,11 @@ theorem two_group_actual_children :
+       (chunkMediansRun 2 [3, 1, 2, 2]).1.length < 4 ∧
+       (Applications.Selection.partition3 p [3, 1, 2, 2]).1.length < 4 ∧
+       (Applications.Selection.partition3 p [3, 1, 2, 2]).2.2.length < 4 := by
+-  simpa only [List.length_cons, List.length_nil] using
+-    recursive_children_decrease 2 1 (by decide) (by decide)
+-      ([3, 1, 2, 2] : List Nat) (by decide)
++  have h := recursive_children_decrease 2 1 (by decide) (by decide)
++    ([3, 1, 2, 2] : List Nat) (by decide)
++  have hi : ((([3, 1, 2, 2] : List Nat).length ⌈/⌉ 2 - 1) / 2) = 0 := by decide
++  rw [hi] at h
++  exact h
+ 
+ /-- The actual algorithm can use cutoff1 although the scalar side bound is5. -/
+ theorem actual_and_scalar_sizes_differ :

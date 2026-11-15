@@ -1,0 +1,50 @@
+{
+  "created_utc": "2026-11-02T06:22:59.194534+00:00",
+  "prior_candidate": "777bab9b2510deab54603c3df267e5c134a3e1e0",
+  "candidate": "bed44c16cee3e1eff6a4175bad9a7ed50651b927",
+  "enclosing_review_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "changed_file": "Applications/FRP/Demand.lean",
+  "change": "One explicit Mathlib.Order.SuccPred.Nat import; all other source bytes unchanged.",
+  "original_sha256": "516ebcd62d8f03157d96ac176829d23ac6687f8b21b8ff6337050f0e489b92ff",
+  "source_sha256": "4e92f97ac56aa684c27f3421cdf1890b64159b631fdd828c420af00d3d9c6ad6",
+  "exact_staging_match": true,
+  "focused_result": {
+    "started_at_utc": "2026-11-02T06:18:16.204625+00:00",
+    "working_directory": "/workspace/scratch/0c54f2db1fdf/conaled",
+    "argv": [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=5s",
+      "180s",
+      "nix",
+      "develop",
+      "--command",
+      "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-demand-import/Applications/FRP/Demand.lean",
+      "-o",
+      "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-demand-import/out/Demand.olean",
+      "-i",
+      "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-demand-import/out/Demand.ilean",
+      "-c",
+      "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-demand-import/out/Demand.c",
+      "--setup",
+      "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-demand-import/Demand.setup.json",
+      "--json"
+    ],
+    "environment_additions": {
+      "PATH": "/root/.nix-profile/bin:/root/.codex/tmp/arg0-linux/codex-arg0EDTsh1:/opt/codex/codex-path:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback",
+      "NIX_CONFIG": "build-users-group =\nexperimental-features = nix-command flakes",
+      "LEAN_NUM_THREADS": "1",
+      "LEAN_PATH": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean"
+    },
+    "whole_invocation_timeout_seconds": 180,
+    "termination_grace_seconds": 5,
+    "one_auxiliary_compiler_only": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "finished_at_utc": "2026-11-02T06:20:26.191242+00:00",
+    "elapsed_seconds": 129.98513352699956
+  },
+  "integrated_validation": "pending",
+  "chapter_accepted": false
+}

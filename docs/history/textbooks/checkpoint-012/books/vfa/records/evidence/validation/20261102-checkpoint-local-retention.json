@@ -1,0 +1,47 @@
+{
+  "recorded_utc": "2026-11-02T10:30:36.359471+00:00",
+  "scope": "One-time retirement of exact redundant local checkpoint copies 012, 013, 014 after checkpoint016 saved. Full hash/size/Library binding verified before deletion. No durable copies, source, cache or validation outputs removed. Unexpectedly returned checkpoint000 is untouched; this is not repeated cleanup of the unexplained paths.",
+  "removed": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-012-positive-key-adapters.tar.gz",
+      "size_bytes": 145397542,
+      "sha256": "8d5104119ae3b1d2c9da470b1a2fc5785ea45ac432581f0944672e91fb9d312a",
+      "library_file_id": "libfile_074cd0555bc0819193ffbbafe514d37c",
+      "absent_immediately_after": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-013-retention-imports-candidate.tar.gz",
+      "size_bytes": 145459275,
+      "sha256": "1292dcf0a2fde6b32578278be0def82442e95380ed290c8f7eab2951225f46a5",
+      "library_file_id": "libfile_0106ad7c0dc881918baec4e91a29c769",
+      "absent_immediately_after": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-014-source-reviews-clear.tar.gz",
+      "size_bytes": 145464664,
+      "sha256": "d1505207a3ff1fe57789325db8f277fa5aba203965e5d8042697975350d2f0ef",
+      "library_file_id": "libfile_616da0953ed081919025b15707b81e2a",
+      "absent_immediately_after": true
+    }
+  ],
+  "kept_newest_local_numbers": [
+    15,
+    16
+  ],
+  "durable_copies_removed": false,
+  "advisory_archive_cache_hints": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-015-remaining-imports-candidate.tar.gz",
+      "content_modified": false,
+      "hint": "POSIX_FADV_DONTNEED on this completed uploaded archive only; advisory, no claim of reclaimed bytes."
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-016-import-source-reviews-clear.tar.gz",
+      "content_modified": false,
+      "hint": "POSIX_FADV_DONTNEED on this completed uploaded archive only; advisory, no claim of reclaimed bytes."
+    }
+  ],
+  "removed_total_bytes": 436321481,
+  "free_bytes_after": 3775340544,
+  "available_bytes_after": 322592768
+}

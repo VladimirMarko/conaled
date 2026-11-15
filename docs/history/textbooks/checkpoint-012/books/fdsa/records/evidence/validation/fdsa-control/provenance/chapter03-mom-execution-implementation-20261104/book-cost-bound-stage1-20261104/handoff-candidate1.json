@@ -1,0 +1,76 @@
+{
+  "recorded_utc": "2026-11-04T21:23:08.459499+00:00",
+  "candidate": "788d6abe12d7dbbfcdf3970c055b38f3167c8b06",
+  "tree": "a7d0dba471c735dedd070939a8390904248d14f7",
+  "parent": "a9ac654c5dc3454709adc3a519ea82794f42f427",
+  "branch": "work/fdsa-ch03-mom-execution",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+  "status": "clean",
+  "actual_commit_terminal": "e6080c exit0",
+  "precommit_assessment_and_diff_check": "06dbd7 exit0",
+  "held_draft_identity_read": "fee36c exit0",
+  "targets": [
+    "Applications.Resources.SelectionBounds",
+    "Examples.SelectionBounds"
+  ],
+  "new_scope_counts": {
+    "public_declarations": 22,
+    "public_theorems": 22,
+    "public_definitions": 0,
+    "private_declarations": 0,
+    "anonymous_examples": 0
+  },
+  "files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionBounds.lean",
+      "bytes": 10051,
+      "sha256": "acbd5d979dc645cf48d74193185d91d94b6603538dd97b001763425ed6562ae6",
+      "relative_path": "Applications/Resources/SelectionBounds.lean",
+      "source_lines": 205,
+      "public_count": 10,
+      "private_count": 0
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionBounds.lean",
+      "bytes": 5546,
+      "sha256": "d18c19c5e69e3f77029d498e66716bf7fc45ff303294ee1a78d3ca1eb435ce11",
+      "relative_path": "Examples/SelectionBounds.lean",
+      "source_lines": 122,
+      "public_count": 12,
+      "private_count": 0
+    }
+  ],
+  "inventory": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/source-inventory-and-case-assessment-candidate1.json",
+    "bytes": 53235,
+    "sha256": "faf0db078b8e8987aab72f422e8217feebeb9d9e675e033e7b03c95012c58af1"
+  },
+  "new_public_explicit_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/SelectionBoundsStatements22-candidate1.lean",
+    "bytes": 1725,
+    "sha256": "fc1f0f292b5c2615bb41e24ed2f73401d8d7781d2e78bb9a9d94211042856e5b",
+    "public_count": 22
+  },
+  "combined_worker_and_bound_explicit_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/NestedSelectionCombinedStatements61-candidate1.lean",
+    "bytes": 3648,
+    "sha256": "9cde0df66d798c4556af4a864c624dfa6b597ff6a6fc6c17d2e61b72f4d2fc2b",
+    "public_count": 61
+  },
+  "source_patch": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/candidate1-source.patch",
+    "bytes": 16340,
+    "sha256": "e996140fe77c157f74f8b9333392a1e2bacdee9effe5fbe45b76bc91f43a62ae"
+  },
+  "intended_main_claims": [
+    "Actual valid-rank selection cost\u2264F by noncircular size induction through actual recursive pivot value, both strict sides, exact selected branch and actual local tariff\u226419n+54.",
+    "Exact invalid extensionn+2\u2264F yields all-rank cost\u2264F, including empty/uninhabited payload types.",
+    "Natural affine constants are quantified before payload types, order instances, inputs and ranks.",
+    "Uniform positive-size linear constants and an ordinaryIsBigO theorem for actual size-indexed execution families."
+  ],
+  "connected_cases": "Existing exactcosts2/273/269/231/266/23/239 compose withbudgets483/1419;F25=2431 andallrank actualrange25 bound;observedpivot12 givesstrictsides\u226418;actuallocaltariff\u2264453;symbolicduplicatesanddescendingfamilies.",
+  "preservation": "All25 protected existing source paths,95 prior own records andboth exact checkpoint0129 drafts retain their identities. Existing worker68 source declarations and12 exact pairs remain unchanged. No compiler/source profile/gate changes.",
+  "validation": "UNCOMPILED. Neither new module, explicit type input nor full check/audit/reviews has run. No acceptance credit.",
+  "next_scope": "Root focused check of this exact candidate. Generic actual cost/envelope/G and cutoff results remain separate pending scope after book-bound pass.",
+  "write_hold": "After companion author-hold record all assigned source/provenance writes stop until root actual terminal and explicit release."
+}

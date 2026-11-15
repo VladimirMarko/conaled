@@ -1,0 +1,14 @@
+{
+  "started_utc": "2026-11-04T08:31:26.281266+00:00",
+  "parent": "b95e43e3dbb504a556fe6c143b4d68748dbc29dc",
+  "scope": [
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-sorting.md"
+  ],
+  "original_complete_draft_sha256": "93ef5e7e1c159663fa5e450b7c12b33d56a8edc0e91de17062511e2fcaaf3fc3",
+  "ProofAudit_before_sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd",
+  "C02-DOC-001": "Apply23imports only to SquareApplications, the existing complete public entrypoint already imported by ProofAudit. Original redundant two-file proposal preserved. No audit implementation change.",
+  "C02-DOC-002": "Update recorded closed attempt6 status, subsequent correction lineage and actual public-exposure wording; explicitly retain each included shared unit acceptance gate.",
+  "no_live_central_command": true
+}

@@ -1,0 +1,208 @@
+{
+  "recorded_utc": "2026-11-05T02:55:35.920929+00:00",
+  "reviewer": "/root/tree_cache_standards",
+  "unit": "FDSA-XT01",
+  "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "tree": "18bf4bc9df979d4ee6ac76182f58faed235a0714",
+  "outcome": "Passed",
+  "input_and_save_receipts": [
+    {
+      "tool_chunk": "8c556a",
+      "actual_exit": 0,
+      "original_token_count": 2227,
+      "untruncated": true,
+      "scope": "Complete initial full-run start/result/native/actual/owned/closure/verification records; unchanged source-stage holds; both exact candidate worktrees and accepted branch."
+    },
+    {
+      "tool_chunk": "4f6050",
+      "actual_exit": 0,
+      "original_token_count": 2133,
+      "untruncated": true,
+      "scope": "Full-log lines 1\u201324 and 2752\u20132775 plus matched guard/candidate/build/XT01 module lines; complete-byte hash; final-input record schema and counts."
+    },
+    {
+      "tool_chunk": "f58c36",
+      "actual_exit": 0,
+      "original_token_count": 2431,
+      "untruncated": true,
+      "scope": "Full-log lines 1645\u20131678; every 1111 audit row computationally parsed; complete root audit comparison record read; accepted C3 rows independently compared."
+    },
+    {
+      "tool_chunk": "2cd713",
+      "actual_exit": 0,
+      "original_token_count": 8759,
+      "untruncated": false,
+      "scope": "Schema display was truncated; only displayed portions credited; no complete-read claim. Recovered by bounded 68016a and complete final report readbacks."
+    },
+    {
+      "tool_chunk": "68016a",
+      "actual_exit": 0,
+      "original_token_count": 3776,
+      "untruncated": true,
+      "scope": "Complete request/launch/progress/prefix/suffix/verification; exact seven source identities, evidence and protected record identities, bounded schemas."
+    },
+    {
+      "tool_chunk": "dfaf2f",
+      "actual_exit": 0,
+      "original_token_count": 1531,
+      "untruncated": true,
+      "scope": "Complete full-run start/result/actual/owned/native-start/native-result/closed-reconciliation records."
+    },
+    {
+      "tool_chunk": "833852",
+      "actual_exit": 0,
+      "original_token_count": 942,
+      "untruncated": true,
+      "scope": "Independent all-input/source/program/actual115/terminal/log/audit/current-verification reconciliation; saved final-evidence-reconciliation.json."
+    },
+    {
+      "tool_chunk": "33aa65",
+      "actual_exit": 0,
+      "original_token_count": 193,
+      "untruncated": true,
+      "scope": "Final report and explicit full-scope validation record saved; immutable source-stage snapshot preserved."
+    }
+  ],
+  "complete_final_readbacks": [
+    {
+      "file": {
+        "path": "reviews/binary-tree-cache-standards-receiving-20261105.md",
+        "bytes": 19188,
+        "sha256": "fa6cfd8df66d56788f842b21ec60d932157b24255499f7e30b8996a4da9c8bd2"
+      },
+      "total_lines": 98,
+      "reads": [
+        {
+          "tool_chunk": "5b99af",
+          "actual_exit": 0,
+          "lines": [
+            1,
+            55
+          ],
+          "untruncated": true
+        },
+        {
+          "tool_chunk": "6a1828",
+          "actual_exit": 0,
+          "lines": [
+            56,
+            98
+          ],
+          "untruncated": true
+        }
+      ],
+      "all_file_lines_covered": true
+    },
+    {
+      "file": {
+        "path": "provenance/binary-tree-cache-standards-receiving-20261105/final-validation-90469ce.json",
+        "bytes": 10775,
+        "sha256": "ab6834468bc984e886006bfbc47fcedb1f1fe0718ef5a728c3a51f1c815fdf5b"
+      },
+      "total_lines": 265,
+      "reads": [
+        {
+          "tool_chunk": "d13155",
+          "actual_exit": 0,
+          "lines": [
+            1,
+            265
+          ],
+          "untruncated": true
+        }
+      ],
+      "all_file_lines_covered": true
+    },
+    {
+      "file": {
+        "path": "provenance/binary-tree-cache-standards-receiving-20261105/final-evidence-reconciliation.json",
+        "bytes": 12445,
+        "sha256": "02fb4af57b44a57bf3108812456e9e6ebac0e1edef33937faa8d6c4a838f56fd"
+      },
+      "total_lines": 323,
+      "reads": [
+        {
+          "tool_chunk": "df88f4",
+          "actual_exit": 0,
+          "lines": [
+            1,
+            323
+          ],
+          "untruncated": true
+        }
+      ],
+      "all_file_lines_covered": true
+    }
+  ],
+  "raw_full_readbacks": {
+    "path": "provenance/binary-tree-cache-standards-receiving-20261105/final-readback-receipts.json",
+    "bytes": 46126,
+    "sha256": "bf8c29dcdd05c7ee9bf8e8964943a52dfca8bf04946f0793c11e9d2f35968c3a"
+  },
+  "binding_recheck": {
+    "tool_chunk": "df88f4",
+    "actual_exit": 0,
+    "all_final_evidence_bindings_match": true,
+    "all59_source_stage_evidence_and9_protected_records_match": true,
+    "original_source_stage_report_snapshot_and_hold_unchanged": true,
+    "full_scope115names_and_true_fields_reconciled": true
+  },
+  "source_type_prior_read_ledger": {
+    "path": "provenance/binary-tree-cache-standards-receiving-20261105/read-ledger.json",
+    "bytes": 10203,
+    "sha256": "f20adfb278a53c6870a0cabbf373fb92a53f9ad6df2bf44b1616df2ef75482ba"
+  },
+  "retained_actual115_complete_reads": [
+    {
+      "tool_chunk": "0e4158",
+      "ordinals": [
+        1,
+        39
+      ],
+      "lines": [
+        1,
+        172
+      ]
+    },
+    {
+      "tool_chunk": "25a597",
+      "ordinals": [
+        40,
+        70
+      ],
+      "lines": [
+        173,
+        330
+      ]
+    },
+    {
+      "tool_chunk": "b528f0",
+      "ordinals": [
+        71,
+        95
+      ],
+      "lines": [
+        331,
+        516
+      ]
+    },
+    {
+      "tool_chunk": "0f5ef6",
+      "ordinals": [
+        96,
+        115
+      ],
+      "lines": [
+        517,
+        656
+      ]
+    }
+  ],
+  "read_limits": [
+    "All 1111 audit rows were independently parsed and summed; this is computational review, not a claim to human reading of every build-warning line.",
+    "Full final report, validation JSON and independent reconciliation JSON were each read back completely without truncation.",
+    "Initial final-stage schema output 2cd713 was truncated; it is not credited as a complete textual read.",
+    "Immediate caller verification, exact fast-forward and durability remain later caller duties."
+  ],
+  "unresolved_findings": []
+}

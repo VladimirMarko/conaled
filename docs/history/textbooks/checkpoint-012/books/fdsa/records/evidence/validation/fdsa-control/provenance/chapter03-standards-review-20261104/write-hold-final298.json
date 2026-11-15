@@ -1,0 +1,244 @@
+{
+  "recorded_utc": "2026-11-05T01:49:19.986613+00:00",
+  "state": "HELD: all own review writes stopped after this record; resume only after explicit root release.",
+  "axis": "Independent Standards, same existing whole-chapter review loop",
+  "outcome": "Passed",
+  "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "candidate": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "tree": "ecb69c3918715cbe0682028cd8697dfcf3e463f9",
+  "frozen_obligations": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/chapter03-obligations.md",
+    "bytes": 52581,
+    "sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed"
+  },
+  "scope": "Original Q to exact final candidate, all 83 obligations, 78 Chapter 3 source modules plus accepted XR pair; all 1391 current public statements qualified.",
+  "unresolved_findings": [],
+  "resolved_findings": [
+    "C03-SPEC-USE-001",
+    "C03-STD-DOC-001"
+  ],
+  "complete_saved_artifact_readbacks": {
+    "canonical_report": {
+      "tool": "60a383",
+      "range_bytes_half_open": [
+        0,
+        14701
+      ],
+      "complete": true
+    },
+    "final1391_qualification": {
+      "complete": true,
+      "file_bytes": 43281,
+      "segments": [
+        {
+          "tool": "10e174",
+          "range_bytes_half_open": [
+            0,
+            12000
+          ],
+          "segment_sha256": "1b89b43b49135ce462269c75757d2375e64d8b07f1edeb3424897c2aa40fea2a"
+        },
+        {
+          "tool": "db312d",
+          "range_bytes_half_open": [
+            12000,
+            24000
+          ],
+          "segment_sha256": "c6a120d7f2dbe09fb3dc922924b0c410defd232b10065718bbd0060c4436d0a8"
+        },
+        {
+          "tool": "30c7cd",
+          "range_bytes_half_open": [
+            24000,
+            36000
+          ],
+          "segment_sha256": "67f47ef5f0f76a125c6578b53e2f064a77eeea1999d0cd24299f4ead135f0f67"
+        },
+        {
+          "tool": "0babfe",
+          "range_bytes_half_open": [
+            36000,
+            43281
+          ],
+          "segment_sha256": "d876ef347baaaebeb8e193314ba5eeed6b6a1040968f9faa1a2562353ad76887"
+        }
+      ]
+    },
+    "normal_check_audit_assessment": {
+      "complete": true,
+      "file_bytes": 23315,
+      "segments": [
+        {
+          "tool": "566490",
+          "range_bytes_half_open": [
+            0,
+            12000
+          ],
+          "segment_sha256": "4cd32f63676082b29daf72531aaa869ad40cd779a0211db6d36e255db1f31ee2"
+        },
+        {
+          "tool": "2eeb59",
+          "range_bytes_half_open": [
+            12000,
+            23315
+          ],
+          "segment_sha256": "1048bd67305da522f139d561c9f8b556dbfaac092fd6f3e5aa7ebc9feaf565fb"
+        }
+      ]
+    }
+  },
+  "current_binding_verification": {
+    "tool": "496379",
+    "actual_exit": 0,
+    "current_bound_file_identities_verified": 69,
+    "ordered_identity_list_sha256": "e7346356d0194671b84c4935c032dec8c60bbc4d5a1ce9b57b496afe02b265b2",
+    "scope": "Recursive path/bytes/sha256 bindings in final statement and normal-audit assessments, both assessment files and the current canonical report. The superseded previous_canonical_report binding is historical and explicitly excluded from current verification.",
+    "receiver_and_qualified_checkout_HEAD": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+    "receiver_and_qualified_checkout_clean": true,
+    "own_existing_files_before_hold": 27
+  },
+  "held_canonical_report": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter03-standards.md",
+    "bytes": 14701,
+    "sha256": "64d568bb79ff6205191a8b8f74ab02fac915f9e0e4f2e0ceb586378619a8980d"
+  },
+  "held_provenance_files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/accepted-xr-reuse-reconciliation-4c96dc0b.json",
+      "bytes": 8847,
+      "sha256": "6e05cb5b63a2e0f00ed7b8f2a994a5490c01894982a8ccd31c0b8b2e4371e199"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/count-rank-use-resolution-2ff47bda.json",
+      "bytes": 4664,
+      "sha256": "acd005dd7d3bbb8979f251281b114830508414693b09d8fdab46dc303e1fb91f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/final1391-program-prepared-assessment-298.json",
+      "bytes": 5474,
+      "sha256": "b2bb61db565370d3ac74f8815150fb0eddee97d2dd5bfaf69611b741985c9c97"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/final1391-qualification-298.json",
+      "bytes": 43281,
+      "sha256": "49f3669546ff70125c4c3737a5f64457538b29fba0383bb66c738cf1b12eebf9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/final298-normal-check-audit-assessment.json",
+      "bytes": 23315,
+      "sha256": "dd58f38a2eac26321eecf2cbf1a50d48b822abb381e4a566cd5c3793f63e4964"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/minimum-pivot-comment-resolution-4c96dc0b.json",
+      "bytes": 2225,
+      "sha256": "398d5088b38b1ce34ced182b9ce0f54c63d0bf7018d7f59a6c66fe94e3b880ed"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0135-fixed-reduction-counterfamily.json",
+      "bytes": 9077,
+      "sha256": "5108ff75aff24c0f9e7d1e637cc8c6ef6f9d3174ee2d8145643415a45d485ede"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0135-measured-selection.json",
+      "bytes": 9496,
+      "sha256": "e99b8e5b9418814dec79de7f644329ffd9d8f9536068b8f809f2dd48b0e0d734"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0135-median-values.json",
+      "bytes": 6053,
+      "sha256": "fc50d06be7bb22bebca0fac7a600e79ccf837d409167cd205b4111e470f7edcf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0135-minimum-halving-policy.json",
+      "bytes": 24935,
+      "sha256": "659dc289cfed95f9336d576435626dc3c64121bef8a05b3efcade93c86c696b7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0135-rounded-recurrence.json",
+      "bytes": 7359,
+      "sha256": "75f055a5bb6da2f1cb6d1c36bd06f5e3cd127e792e893f5624cdb6b0c919f780"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0135-scalar-pivot-envelope.json",
+      "bytes": 8470,
+      "sha256": "8f2daf8361bdd629bbc6afd4e4fe46f1b1189bfc3043463a8cc1db6b47025dfe"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0136-complete-formal-source-types.json",
+      "bytes": 12090,
+      "sha256": "324081c0c3b0f39c6397e433f53b0e8a05210b6f7c86512d73c9a349fee0581e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0136-coordinate-queries-readall.json",
+      "bytes": 7997,
+      "sha256": "218dbf5af5df19a1aafca8266b402a871c82af77779772801a8bd1bf68470999"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0136-random-equal-endpoints.json",
+      "bytes": 8078,
+      "sha256": "b7d906ff32f00a1a3cd234ca91e60199ba3d8e7269422a4b0636dc8ae12bc216"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0136-random-execution.json",
+      "bytes": 8393,
+      "sha256": "e5eca2c755c47348075cd17f29bf1e7dbb7e0d6daac7e526416c0380ec72dc58"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0136-random-expectation-drift.json",
+      "bytes": 8279,
+      "sha256": "d90a18db115e9bb7c5d474c92fe245b54253e79ee0528a08ed1f135015f8f84e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0136-random-tail.json",
+      "bytes": 7321,
+      "sha256": "9836c6dfe119c47e496d5449d15f8499956d662531f0268d707e476340cbf92f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-after0136-trace-sensitivity-assembly4.json",
+      "bytes": 9538,
+      "sha256": "ef9c12ccced83c120d79255b0a53d4c8cbe4014e81649123539297b235f656be"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-before0135.json",
+      "bytes": 7415,
+      "sha256": "7d8067663c5e50ce53b72986e8c630991cd86a085298acc2127a5c56ce3daf57"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-before0136-selection-bounds-cutoffs-generic.json",
+      "bytes": 10439,
+      "sha256": "62631304a3dd15539f1f4c50432a04d64e098583403f3ebe33071e4331add235"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-final298-source-document-complete.json",
+      "bytes": 57345,
+      "sha256": "ac3d796b93a22284a771718650749c23d54e12ba54384dbbbe48f2e66a472f80"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/progress-supplement-before0135.json",
+      "bytes": 11789,
+      "sha256": "52cab35241d55883191ce8315a8f9f801656a9188793aea0d06c932b149d3f9b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/scalar-pivot-envelope-prose-correction.json",
+      "bytes": 1298,
+      "sha256": "2139ec328cb02ce1e5bac19a2450105924a03974ea3fefb617bb21e35924c748"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/write-hold-before0135.json",
+      "bytes": 826,
+      "sha256": "cb001abcb15fbd5b29f1c72af99223261dc8b97da0a5b9d7a1b4283f90b7c7ff"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/write-hold-before0136.json",
+      "bytes": 4800,
+      "sha256": "5d0890444c5dd0d177e6c5833bd507ed7ffadd792606b735ffa648e05644f3b7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-standards-review-20261104/write-hold-supplement-before0135.json",
+      "bytes": 1238,
+      "sha256": "11289557ea211b533b1a46812eef07d07e530b0e30286c8d033db106c1f68b9d"
+    }
+  ],
+  "held_binding_count_excluding_this_record": 28,
+  "acceptance_boundary": "This holds the final independent Standards outcome and supporting records. It neither supplies the independent Spec outcome nor executes immediate candidate verification or the accepted-ref fast-forward. Root may proceed with those separately authorized acceptance gates; no further review writes by this reviewer until explicit release. Historical intermediate Blocked outcomes and failure records remain unchanged and are superseded only by the current exact-candidate Standards disposition."
+}

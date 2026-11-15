@@ -1,0 +1,42 @@
+{
+  "scope": "Existing full operational-helper review loop expanded by two requested recovery/comparison documents; no formal acceptance",
+  "base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "candidate": "120458c4fd40626d93e568f3387d8f5cb1dce69d",
+  "merge_base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "captured_at": "2026-11-03T16:11:35.292060+00:00",
+  "files": {
+    "session/environment/make-direct-toolchain-profile.py": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb",
+    "session/environment/run-direct-toolchain.py": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+    "session/environment/test-direct-toolchain.py": "028e625c2870bafa2668269f981202d76c6509256ca1822e4ab926b3f2526330",
+    "session/environment/test-direct-lake-build.py": "3e364791c25cfce02c15887b1ae040a1a18315ab5189ff393d5fb2ff9bd239cf",
+    "session/environment/README-direct-toolchain.md": "f3acb7ba89c954019e6288bffc80c37fbc2e4f90523b1172efdd85dc19ee6734",
+    "session/validation/run-direct-validation.py": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b",
+    "session/validation/test-direct-validation.py": "a77b7f3f962c45fbe8affe4999615b3721975cc3c858713c9ef027b6aecf5435",
+    "session/validation/direct-validation-runner-notes.md": "933745db696b993eda5bd8d5470a7b72b5738659658c709fa98705ceb35bdd4e",
+    "session/environment/RECOVER-ENVIRONMENT.md": "21f2c79a56c043a68e90e1f0b4d05b1729cc9941a52e70ddc18eb5c1e0743561",
+    "session/environment/environment-route-comparison-042.md": "55c585790569bf15e0e37e95b89a7a951d56ad9fe2431500dc0528583d7edf7e",
+    "session/checkpoint.py": "22928db23012fb28c9dee74b3af4998d18587ec91e728d0b2afcf647c6ac47ad"
+  },
+  "requirements": {
+    "session/requirements/REQUEST.md": "b847f23fcce44837f5b1ead01aae43ac5ed626ffd32aab84055dd664e339e499",
+    "session/requirements/REQUEST-union-v2.md": "3336bed1154438b3683aeb5a1c63fee44e87aff190f5ff69e34705a780b9d22c",
+    "session/requirements/REQUEST-direct-toolchain-041.md": "16845edec15c311e0cfd5ed5d4f5c4feb61e7ad96545653d5b872309d26464bc",
+    "session/environment/direct-toolchain-implementation-scope-041.md": "05c125ee129eafc8f45f9367be16259c3239c7b3945c32f62effba1f1b4c922c",
+    "session/requirements/REQUEST-environment-handoff-042.md": "200789123c60ae137967f881207194412eecea72ba2fc80247978075bd6a4602"
+  },
+  "attachment": {
+    "path": "session/references/conaled-environment-guide-from-user-042.md",
+    "sha256": "ef85039f6097a1a646bb2b980178a2285e23124e5881686f68020acfa2f5d4f1"
+  },
+  "checkout": "/workspace/scratch/b566cace4ed6/pfds/review-direct-toolchain-042-r4",
+  "ref": "refs/pfds-review/direct-toolchain-r4-042",
+  "previous_candidate": "6526e5cdcde2e58c8fb0839690c34f3f6c04787c",
+  "changes": "Prior eight operational helpers unchanged; two requested recovery/comparison documents; checkpoint generator changes only generated README and restore-success pointer. Python requirement aligned to archive Python3.12+.",
+  "exclusions": "All formal candidate sources, prior evidence, runtime binaries/caches, tracker/status and review/provenance records are outside this authored-helper diff; their independent obligations persist. Main index/HEAD/working tree unchanged.",
+  "validation": "Pending isolated documentation/template checks; reuse unchanged operational tests.",
+  "checkpoint_generator_baseline": {
+    "path": "session/validation/checkpoint-generator-before-042.py",
+    "sha256": "617c14ed63170ee39a8ac1df2eb4cc20b1b509ebd5f1d4c16ae4e469b7ed51ab",
+    "scope": "Pre-existing previously approved generator did not exist in fixed repository base. Full source included for review; exact task delta is documentation only, with complete original retained."
+  }
+}

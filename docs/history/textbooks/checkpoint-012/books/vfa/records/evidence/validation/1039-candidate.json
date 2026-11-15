@@ -1,0 +1,48 @@
+{
+  "recorded_utc": "2026-11-04T06:25:33.032567+00:00",
+  "candidate": "cf0a687265c1929ffd3ff6f15fa18febe0fb61b5",
+  "base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "previous_candidate": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+  "merge_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "scope": "Full task diff; no exclusions; existing Preface/Perm loop",
+  "checkouts": {
+    "conaled": {
+      "head": "cf0a687265c1929ffd3ff6f15fa18febe0fb61b5",
+      "status": "",
+      "status_read_without_optional_git_locks": true
+    },
+    "vfa-summation-validation": {
+      "head": "cf0a687265c1929ffd3ff6f15fa18febe0fb61b5",
+      "status": "",
+      "status_read_without_optional_git_locks": true
+    },
+    "vfa-unified-pty-validation": {
+      "head": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+      "status": "",
+      "status_read_without_optional_git_locks": true
+    },
+    "vfa-validation": {
+      "head": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+      "status": "",
+      "status_read_without_optional_git_locks": true
+    }
+  },
+  "changed_files": {
+    "Applications/Probability/FiniteMH.lean": {
+      "added_prefix": "import Mathlib.Algebra.Order.BigOperators.Group.Finset\n",
+      "existing_file_body_preserved": true,
+      "before_sha256": "5f6d8470d79da75a05655a10543f999b7558bf97abbfa235bd351050a145bad9",
+      "after_sha256": "5dc2a4361e8053fe27e0355dbeea9c646a00a7718b11f9d60d984eabd2e0247d"
+    },
+    "Applications/Linear/StructuredCosts.lean": {
+      "added_prefix": "import Mathlib.Algebra.BigOperators.Group.List.Defs\nimport Mathlib.Algebra.Ring.Defs\n",
+      "existing_file_body_preserved": true,
+      "before_sha256": "328e462f214b45754ab7197d869742ffd3c398c82512867931d3ffa6aebef911",
+      "after_sha256": "a0f543a47b9a9205dd171f5e170bb88c628fbd203cbd1afd4cd0ed541ed57056"
+    }
+  },
+  "full_diff_stat": "Applications/Durability/DiagnosticGraph.lean |   4 +-\n Applications/Durability/Retention.lean       |   3 +-\n Applications/FRP/Demand.lean                 |   1 +\n Applications/FRP/Equivalence.lean            |  14 +-\n Applications/FRP/Spec.lean                   |   6 +-\n Applications/Interaction/Obligation.lean     |   2 +-\n Applications/Linear/Structured.lean          |   1 -\n Applications/Linear/StructuredCosts.lean     |   4 +-\n Applications/Orbifold/ProjectiveMotion.lean  |   3 +-\n Applications/Probability/CoinPaths.lean      |   3 +-\n Applications/Probability/FiniteMH.lean       |   5 +-\n Applications/Progress/Evaluation.lean        |   2 +-\n Applications/Sequences/BoundedSummary.lean   |   3 +-\n Applications/Sorting/FirstPair.lean          | 110 ++++++++++++++++\n Dependent.lean                               |   2 +-\n Examples/ComparisonPermutations.lean         | 189 +++++++++++++++++++++++++++\n Examples/IndefiniteService.lean              |   1 +\n Examples/ProbabilityCorrelation.lean         |   3 +-\n README.md                                    |   1 +\n SquareApplications.lean                      |   1 +\n SquareKit/Temporal/Finite.lean               |   4 +-\n SquareKit/Temporal/Monitor.lean              |   3 +-\n Squares.lean                                 |   2 +-\n docs/SOURCES.md                              |  14 ++\n docs/licenses/vfa-MIT.txt                    |  19 +++\n docs/research/vfa-coverage.md                | 117 +++++++++++++++++\n 26 files changed, 500 insertions(+), 17 deletions(-)",
+  "delta": "diff --git a/Applications/Linear/StructuredCosts.lean b/Applications/Linear/StructuredCosts.lean\nindex 6db1ded..d1bfdb0 100644\n--- a/Applications/Linear/StructuredCosts.lean\n+++ b/Applications/Linear/StructuredCosts.lean\n@@ -1,3 +1,5 @@\n+import Mathlib.Algebra.BigOperators.Group.List.Defs\n+import Mathlib.Algebra.Ring.Defs\n import Applications.Resources.Measured\n import Applications.Optimization.Transport\n import Lean.Elab.Tactic.Omega\ndiff --git a/Applications/Probability/FiniteMH.lean b/Applications/Probability/FiniteMH.lean\nindex 6aebbe1..1025cd3 100644\n--- a/Applications/Probability/FiniteMH.lean\n+++ b/Applications/Probability/FiniteMH.lean\n@@ -1,3 +1,4 @@\n+import Mathlib.Algebra.Order.BigOperators.Group.Finset\n import Mathlib.Data.Rat.Lemmas\n import Mathlib.Algebra.BigOperators.Field\n import Mathlib.Algebra.BigOperators.Fin",
+  "dependency_store_policy": "Existing provisioning checkout remains at4adc, frozen; only its unchanged real nine package directories are shared. Its root project source is not imported by candidate validation. No cache/setup/dependency writer.",
+  "quarantined_old_child_status": "unknown; source/output isolation, no quiescence claim"
+}

@@ -1,0 +1,95 @@
+{
+  "schema": "fdsa.checkpoint0122.schema-correction.v2",
+  "recorded_utc": "2026-11-04T18:16:13.784934+00:00",
+  "status": "PREPARED ONLY; v2 unexecuted; originals retained; held after full saved-file readback",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "old_preparation_preserved": [
+    {
+      "path": "provenance/checkpoint0122-preparation/verify-checkpoint.py",
+      "bytes": 23352,
+      "lines": 343,
+      "sha256": "40cf654886c88d70059caf41274d4ba06b089405cb76da9ac799614a900e5428"
+    },
+    {
+      "path": "provenance/checkpoint0122-preparation/final-bindings.template.json",
+      "bytes": 2215,
+      "lines": 79,
+      "sha256": "0ff80537e8cd86e49cf47b854f5afe26f88d7288550161f7c3089d774abb4be2"
+    },
+    {
+      "path": "provenance/checkpoint0122-preparation/resource-observation.json",
+      "bytes": 2382,
+      "lines": 41,
+      "sha256": "cb0a65fb9d201a9ecd4f8e1a135c9903f818c163face791ef44f76618d7e4226"
+    },
+    {
+      "path": "provenance/checkpoint0122-preparation/README.md",
+      "bytes": 7611,
+      "lines": 38,
+      "sha256": "0ec59f6f951e578ab3841afba72ddeecca1160cd3eb37929d9a0603941979192"
+    },
+    {
+      "path": "provenance/checkpoint0122-preparation/receipt.json",
+      "bytes": 7067,
+      "lines": 171,
+      "sha256": "9205dd2abb3500ffacbb72c4007fa5276754878ec4fb45ef23701d4e4966da8a"
+    }
+  ],
+  "actual_schema_inputs": [
+    {
+      "path": "provenance/chapter02-acceptance-20261104/fast_forward_once.py",
+      "bytes": 5682,
+      "lines": 92,
+      "sha256": "a757f35a2b629ad8a7d13eb98dd1b355e8a8510ad382fc0b0e6a2fc80dba00b1"
+    },
+    {
+      "path": "provenance/chapter02-acceptance-20261104/prepared-fast-forward-preflight.json",
+      "bytes": 11404,
+      "lines": 189,
+      "sha256": "3d26b78b50c38f7b389f2839d3232857d89efc510acadce9458b9dc34786ebc0"
+    }
+  ],
+  "new_files_excluding_this_receipt": [
+    {
+      "path": "provenance/checkpoint0122-preparation/verify-checkpoint-v2.py",
+      "bytes": 28253,
+      "lines": 409,
+      "sha256": "2f426038d335edcbe9179bccb4b7dcb7ce8ee105112a7c26c5bf117b225ab72a"
+    },
+    {
+      "path": "provenance/checkpoint0122-preparation/verify-checkpoint-v2.diff",
+      "bytes": 9210,
+      "lines": 120,
+      "sha256": "9a235f89a5d2b112685c598be886f1a575895986298579cc3c2a8e397a536da0"
+    },
+    {
+      "path": "provenance/checkpoint0122-preparation/schema-correction.md",
+      "bytes": 5251,
+      "lines": 38,
+      "sha256": "cc13cf4e6ba45becf21f8ef6b382fd1926189efac940f1a6849487c991dae29b"
+    }
+  ],
+  "corrections": [
+    "Raw-string before/after refs matched exactly with only accepted-book L-to-Q transition; separate explicit bridge to manifest dictionaries",
+    "Use actual held FF method field names and preserve exact method/start/actual-exit/result/log bindings",
+    "Compare all15 before-worktree HEAD/status/branch rows and exact unrelated baseline bytes",
+    "Immediate closure uses complete_closed_log; existing full closure spelling unchanged; native records explicitly preserved",
+    "Explicitly include all10 fixed preparation/binding files in held control identities despite excluding changing own-preparation execution products"
+  ],
+  "readback": {
+    "actual_method_all92_and_preflight_all189": "bc2f2a exit0",
+    "v2_and_complete_diff": "88970e; truncated output is partial evidence only",
+    "explicit_source_gap_coverage_254_310": "340bed exit0; together source all409 lines covered",
+    "syntax": "ast.parse only; no import or execution",
+    "note_and_receipt": "Complete saved-file readback follows this exclusive write; handoff records its actual reference"
+  },
+  "not_performed": [
+    "Verifier or FF execution",
+    "Optional fixture test",
+    "New checkpoint or restore/fsck",
+    "Compilation, source/ref/cache/runtime changes",
+    "New final bindings or root-owned acceptance/global controls"
+  ],
+  "original_files_rehashed_unchanged": true,
+  "future_runtime_boundaries": "Root supplies actual final records/bindings and owns capture, execution and terminal evidence. No result is inferred from the prepared method."
+}

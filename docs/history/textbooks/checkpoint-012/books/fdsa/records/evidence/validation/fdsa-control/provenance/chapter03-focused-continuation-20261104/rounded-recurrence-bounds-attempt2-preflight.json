@@ -1,0 +1,54 @@
+{
+  "recorded_utc": "2026-11-04T19:46:37.815254+00:00",
+  "candidate": "4badcd5a7cab38aed7ff6c178c0649ae8ec63228",
+  "expectedHead": "4e022bf16e793fd5a1f830b14ba30fb4a2dd0525",
+  "base": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "acceptedHead": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "name": "chapter03-rounded-recurrence-bounds-focused-attempt2-20261104",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Resources.RoundedRecurrenceBounds",
+    "Examples.RoundedRecurrenceBounds"
+  ],
+  "expectedPaths": [
+    "Applications/Resources/RoundedRecurrence.lean",
+    "Applications/Resources/RoundedRecurrenceBounds.lean",
+    "Examples/RoundedRecurrence.lean",
+    "Examples/RoundedRecurrenceBounds.lean"
+  ],
+  "recordDirectory": "chapter03-focused-continuation-20261104",
+  "recordName": "rounded-recurrence-bounds-attempt2-preflight.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was 4e022bf feat(resources): complete sharp rounded recurrence bounds (#174)\nHEAD is now at 4badcd5 fix(resources): rename reserved recurrence proof binder (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758"
+    },
+    {
+      "path": "Applications/Resources/RoundedRecurrenceBounds.lean",
+      "bytes": 6951,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135"
+    },
+    {
+      "path": "Examples/RoundedRecurrence.lean",
+      "bytes": 3782,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d"
+    },
+    {
+      "path": "Examples/RoundedRecurrenceBounds.lean",
+      "bytes": 7279,
+      "sha256": "549561d415dc3a97080c5a3df431a2beb583df32cde9c89798a411b4068e1683"
+    }
+  ],
+  "candidate_tree": "75f5b4734571af07883d7d0669fdba3c2561fe90",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 777797632
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

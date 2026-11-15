@@ -1,0 +1,35 @@
+{
+  "command": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "180s",
+    "nix",
+    "develop",
+    "--command",
+    "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-imports/Applications/FRP/Spec.lean",
+    "-o",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-imports/out/Spec.olean",
+    "-i",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-imports/out/Spec.ilean",
+    "-c",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-imports/out/Spec.c",
+    "--setup",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-imports/Spec.setup.json",
+    "--json"
+  ],
+  "working_directory": "/workspace/scratch/0c54f2db1fdf/conaled",
+  "explicit_environment": {
+    "PATH_prefix": "/root/.nix-profile/bin:",
+    "NIX_CONFIG": "build-users-group =\nexperimental-features = nix-command flakes",
+    "LEAN_NUM_THREADS": "1"
+  },
+  "started_utc": "2026-11-02T05:39:07.643072+00:00",
+  "timeout_seconds": 180,
+  "status": "passed",
+  "finished_utc": "2026-11-02T05:40:08.098483+00:00",
+  "elapsed_seconds": 60.455,
+  "exit_code": 0,
+  "timed_out": false
+}

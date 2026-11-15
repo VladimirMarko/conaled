@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T21:52:44.643760+00:00",
+  "candidate": "bc4490d57d1b65849fb0903f7f3e417f3b0879b6",
+  "terminal": {
+    "recorded_utc": "2026-11-04T21:52:44.643631+00:00",
+    "owned_session": 21894,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "b961da",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "bc4490d57d1b65849fb0903f7f3e417f3b0879b6"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/full.log",
+    "bytes": 10622,
+    "sha256": "5789f4d1dc3c654e92ed8631bb300616b8c6955376577b0f2c3f7a63c212a89b"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T214922Z-project-run-6a5aa134",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/native-records/start.json",
+      "bytes": 475,
+      "sha256": "7536f6a7c0a5ce7d1b2b7544931d84c735f35f0f79f83025185e208d0b1ec175"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/native-records/result.json",
+      "bytes": 629,
+      "sha256": "e4d60d57d865e89f01db9afe56ed5b5e93174cf1dc50c3b7c79d88d54da2e676"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/native-records/output.log",
+      "bytes": 10348,
+      "sha256": "00122bcf1fc679db961aca11bb81d5b9faef7a2bb97333a960d374a80934163f"
+    }
+  },
+  "native_body_exact_outer_offset": 117,
+  "complete_closed_log": true,
+  "scope": "Focused two-module cutoff proof correction check only; not a complete candidate check, audit, independent review, acceptance, or integration.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

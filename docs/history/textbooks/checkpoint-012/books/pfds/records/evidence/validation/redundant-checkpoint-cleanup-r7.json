@@ -1,0 +1,24 @@
+{
+  "observed_utc": "2026-11-03T03:09:48.931681+00:00",
+  "reason": "Both033 and034 restore-tested and saved/exposed. Reclaim only exact verified task-generated archive duplicates to preserve measured disk headroom for full compilation, future checkpoints and reviewed bounded handoff. Persistent originals and incoming user files remain.",
+  "removed": [
+    {
+      "number": 33,
+      "filename": "conaled-pfds-checkpoint-033.tar.gz",
+      "library_file_id": "libfile_999447a77b148191bcf720d21fff021b",
+      "bytes": 75301086,
+      "sha256": "de33a7ee3a26fae5fae96a9301551f38a992b42f5a6a4622924962755a86a55a"
+    },
+    {
+      "number": 34,
+      "filename": "conaled-pfds-checkpoint-034.tar.gz",
+      "library_file_id": "libfile_2f46479608248191aecc24bc5734e606",
+      "bytes": 75644086,
+      "sha256": "c4231531348f274b9998e64e393c906a179d1dd38de0e41de23293f7069a9b55"
+    }
+  ],
+  "remote_deleted": false,
+  "source_or_build_changed": false,
+  "available_bytes_before": 214564864,
+  "available_bytes_after": 365531136
+}

@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-04T04:40:32.932571+00:00",
+  "from": "fc54ed5dc9514a7f8b04f4f3a00670b0ecc21f9d",
+  "to": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+  "finding": "C02-TOP-ELAB-002",
+  "actual_exit": 1,
+  "diagnostic": "decide rejects a length proposition with free payload variables; one tagged-case simp argument is unused.",
+  "correction": "Use simp for the two literal list lengths and remove the unused run_nil_right argument. Every algorithm, theorem type, premise, numerical expectation and cost model is unchanged.",
+  "patch_sha256": "7dacb2637dd015eb4a388fb90f14129c22da959bedf9402f4b58d923a4d97138"
+}

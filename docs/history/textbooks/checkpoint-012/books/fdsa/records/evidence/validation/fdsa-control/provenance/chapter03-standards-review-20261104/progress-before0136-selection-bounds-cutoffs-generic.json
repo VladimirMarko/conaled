@@ -1,0 +1,161 @@
+{
+  "axis": "Standards",
+  "recorded_utc": "2026-11-05T00:41:07.820399+00:00",
+  "outcome": "Blocked; whole source review and final validation incomplete",
+  "current_immutable_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+  "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "frozen_obligations": 83,
+  "scope": "Same original Q-to-final whole-task review; accepted XR reuse retained; no reduction of scope",
+  "previous_progress": {
+    "path": "provenance/chapter03-standards-review-20261104/progress-after0135-measured-selection.json",
+    "bytes": 9496,
+    "sha256": "e99b8e5b9418814dec79de7f644329ffd9d8f9536068b8f809f2dd48b0e0d734"
+  },
+  "newly_assessed_sources": [
+    {
+      "path": "Applications/Resources/SelectionBounds.lean",
+      "bytes": 10073,
+      "sha256": "0f9181b569d24b2615c08be5c6a305a75e67679f14338e877fced10113d61edc",
+      "lines": 205,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Examples/SelectionBounds.lean",
+      "bytes": 5546,
+      "sha256": "d18c19c5e69e3f77029d498e66716bf7fc45ff303294ee1a78d3ca1eb435ce11",
+      "lines": 122,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Applications/Resources/SelectionCutoff.lean",
+      "bytes": 10228,
+      "sha256": "12980a69d01206eb2e5e9d45149d7336ff762f0c406ad345d36f1cbdada36218",
+      "lines": 233,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Examples/SelectionCutoff.lean",
+      "bytes": 4470,
+      "sha256": "cdde5d4630a888b2ca50f25af8e876bae83cea3bef9d8b8a3de0380b477999a4",
+      "lines": 107,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Applications/Resources/SelectionGenericEnvelope.lean",
+      "bytes": 9448,
+      "sha256": "946dc54375989de8413ada388e0672d5f862a1c5da5e62efa9522865911db0e3",
+      "lines": 183,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Examples/SelectionGenericEnvelope.lean",
+      "bytes": 5925,
+      "sha256": "3a1748e2f27a77cbf0daf183b6c52c76eedabdfe641cb77865f5364fec6582ca",
+      "lines": 112,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "bytes": 14543,
+      "sha256": "1b2b629177c96244d377261f12b45034c3c2107f0ef5c78bb512c947e7f12524",
+      "lines": 260,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Examples/SelectionGenericBounds.lean",
+      "bytes": 11429,
+      "sha256": "181cef244870d4f8aa61dfc99a0cb142ad8b7cbb0c7f3a15835e697d759f8bee",
+      "lines": 209,
+      "equal_to_38_prefix": true,
+      "full_source_and_actual_type_assessment": true
+    }
+  ],
+  "source_identity_recheck_receipt": "4e9f60",
+  "source_read_receipts": {
+    "SelectionBounds/core": "88bf43",
+    "SelectionBounds/examples": "3e4114",
+    "SelectionCutoff/core": "bf3091",
+    "SelectionCutoff/examples": "39c4f9",
+    "SelectionGenericEnvelope/core": "151e6c",
+    "SelectionGenericEnvelope/examples": "ab1162",
+    "SelectionGenericBounds/core": "97e067",
+    "SelectionGenericBounds/examples": "925386"
+  },
+  "actual_types": {
+    "index": {
+      "path": "provenance/chapter03-assembly2-statement-inputs-20261104/actual-type-block-index.json",
+      "bytes": 382223,
+      "sha256": "b89adf0160b2a887c5046917d6ac04131e826e3d6dd4d7e31b0edc0ab62961a2"
+    },
+    "assessed_inclusive_ranges": [
+      [
+        657,
+        696
+      ],
+      [
+        847,
+        913
+      ]
+    ],
+    "count": 107,
+    "bytes": 180998,
+    "concatenated_sha256": "a4be017d22f6d65f70de153662188afa8fa5502039823ed50c636d7cb6204e15",
+    "full_block_read_receipts": {
+      "657-679": "81df31",
+      "680-696": "bc00cc",
+      "847-856": "d04808",
+      "857-868": "e47c03",
+      "869-876": "a85fb2",
+      "877-880": "7390ba",
+      "881-885": "3b6122",
+      "886-900": "db1835",
+      "901-903": "ae85e4",
+      "904-906": "e1ad1c",
+      "907-909": "02c347",
+      "910-913": "2e9d63"
+    },
+    "cumulative_semantic_actual_blocks": 915,
+    "cumulative_original_index_ranges": [
+      [
+        0,
+        913
+      ]
+    ],
+    "additional_actual_blocks": "One new CountRank checked client at2ff47bda",
+    "boundary": "Secured prefix38 observations plus exact unchanged source correspondence; no final-candidate or exhaustive-audit credit"
+  },
+  "assessment": {
+    "selection_bounds": "The actual recursive pivot value equals the mathematical median of chunk medians by the proved worker value theorem. Derived median/count bounds and the actual partition bridge give both strict bucket sizes <=sideSize, retaining duplicate and short-final-chunk cases. The local tariff <=19*n+54 safely includes both length traversals and excludes recursive costs. Strong size induction proves child-rank validity and strict size descent, applies F to actual pivot and selected-child executions, and then uses already proved scalar monotonicity and size balance. The equal branch performs no strict child. The actual base is bounded by constant483 through size20; invalid n+2 also fits F at every size including0. Uniform natural A,B are quantified before payload types/orders/input/rank; no payload finiteness, assumed cost, balance oracle or inhabitedness. Examples consume exact actual costs for empty, cutoff20, each21 branch, invalid and duplicate cases; F25=2431 is a majorant, not an actual execution claim. This completes the main selector-bound dependency of the previously read SelectionComposition and paid MedianPolicy modules.",
+    "cutoff": "FirstPivotCall records actual chunk-median input and reset lower central rank with valid-rank and cutoff guards. For d>=2, ceil(n/d)<n exactly when n>1. The least sufficient actual cutoff is1; the converse carries an explicit payload witness to avoid a vacuous empty-type argument. At cutoff0 every positive d has a singleton self-call, proving the relation is not well-founded. Group1 preserves the whole list and gives a median-rank self-call above every finite cutoff. These are relation obstructions, not an invalid definition of a recursive worker. For d>=2/cutoff>=1, actual pivot existence/member and strict child decreases precede correctness and do not assume balance. The separate conservative book scalar right child has least cutoff13; cutoff20 safely bounds the actual quadratic base budget by483. Examples check negative singleton, duplicate group1 lists, absent invalid/small edges, actual group2/cutoff1 execution, the distinction between actual n2 descent and scalar sideSize2=5, cutoff12/13 and20/21. No historical author-intent claim is used.",
+    "generic_envelope": "The generic actual pivot is linked to the mathematical median and its input shrinks for d>=2 above cutoff1. Actual local work is bounded by (d^2+4*d+12)*n+7. Strong induction gives the finite previous-size envelope for every terminating d>=2/cutoff>=1, with valid actual strict-child ranks and no child in the equal branch. Invalid n+2 is covered. The finite-prefix bound depends only on d and N, uniformly before arbitrary ordered payload types and ranks; it does not maximize over payload values. No linearity is asserted for this coarse envelope. Examples consume actual group2 cost169<=793, groups3/4/5/6, invalid results, different cutoffs, both endpoint ranks, empty Fin0 and arbitrary Int prefixes. The private repeated-value helper was read.",
+    "generic_bounds": "Both actual partition sides are bounded from the established generic lower-median count bounds, with the Nat floor-half expression and short final chunk retained. The scalar base uses envelope(d,max(actualCutoff,scalarCutoff)), so the proof covers either cutoff order and every finite prefix before type/input/rank. Above both cutoffs, strong induction on the actual worker, actual valid child ranks and the derived balance feeds the already proved contracting scalar recurrence. Majorant monotonicity/base domination are proved, invalid ranks are covered, and d>=5 yields uniform A,B or positive-input C before payload type/order/input/rank. Noncomputability is confined to scalar real-ceiling definitions and proofs; the actual selector is unchanged. Examples cover the actual21 branch inside the larger scalar71 prefix, first d5/d6 recursive scalar sizes72/98 and children15/56 or17/80, actual cutoff100 above scalar71, invalid rank72, empty Fin0, arbitrary duplicate/rank families, odd/even group parameter families and descending input BigO. Group3/4 examples state failure of strict scalar contraction with correct selection, not an impossibility theorem. All private example helpers were read. No cost/balance assumption was hidden by inference.",
+    "preimplementation_evidence": {
+      "path": "provenance/chapter03-selection-cutoff-implementation-20261104/requirements-and-independent-cases.json",
+      "bytes": 2307,
+      "sha256": "781c06c3d68a9c7c2f6e4040df22e989b3aab7404d1bbb82f580b0f96372462f",
+      "read_receipt": "ff03d4",
+      "boundary": "Read as recorded earlier independent cases; no new build credit."
+    },
+    "new_findings": []
+  },
+  "cumulative_coverage": {
+    "new_chapter_source_files_read_fully": 52,
+    "new_chapter_source_files_source_and_type_assessed": 52,
+    "accepted_XR_formal_modules_reused": 2,
+    "new_chapter_source_files_not_yet_complete": 24,
+    "full_read_but_pending_actual_type_assessment": []
+  },
+  "findings": {
+    "C03-SPEC-USE-001": "Resolved",
+    "C03-STD-DOC-001": "Resolved",
+    "new_findings": []
+  },
+  "remaining": "24 current new Chapter3 source modules in random/query/trace scope and their actual statements, checked clients, helpers and chapter correspondence; universal actual endpoint/factorial/triangular/source-family obligations; full command-evidence reconciliation and exact final candidate qualification; successful complete normal check and exhaustive audit, both independent outcomes and immediate verification. Prefix38 SIGKILL audit is not success. The parent reports a newer separate Worst focused attempt failed1 and is being corrected; that draft/run is not included or independently assessed here. No compiler command was run by this reviewer."
+}

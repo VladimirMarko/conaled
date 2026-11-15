@@ -1,0 +1,186 @@
+{
+  "schema": "fdsa.standards.XR01.full-attempt1-failure-boundary.v1",
+  "recorded_utc": "2026-11-04T19:06:55.645310+00:00",
+  "axis": "Standards",
+  "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "original_scope": "Unchanged original XR five paths and21 public names, frozen requirements SHA5873700a349c359d15873829f1399a20225fa80eaa980e7ad9f1e4c8f774dd02.",
+  "outcome": "Blocked; failed full gate supplies no acceptance/audit/type credit.",
+  "actual_result": {
+    "owned_session_historical_only": 18625,
+    "owned_terminal_chunk": "9556b9",
+    "owned_outer_native_exits": [
+      1,
+      1,
+      1
+    ],
+    "normal_command": [
+      "./check.sh",
+      "--candidate",
+      "HEAD"
+    ],
+    "native_one_thread": "1",
+    "clean_initial_and_final_exact_candidate": true,
+    "native_seconds": 167.76376338800037,
+    "native_timed_out": false,
+    "native_recorder_error": null,
+    "progress_bookkeeping_errors": [],
+    "source_guard_passed_before_build": true,
+    "pre_integrity_hashed_artifacts": 3090,
+    "pre_integrity_invalidated_modules": 0,
+    "requested_project_targets": 1030,
+    "failed_build_target": "SquareApplications",
+    "nested_Lean_exit": 137,
+    "target_reported_seconds": 114,
+    "matching_verification_present": false,
+    "audit_success": false
+  },
+  "evidence_integrity": {
+    "outer_bytes": 224766,
+    "outer_LF_lines": 1586,
+    "outer_sha256": "dab74fdcc00093150c36f7cae8fc7c65304e774a1556f7fa64a372d170ff0cc5",
+    "native_bytes": 224538,
+    "native_LF_lines": 1583,
+    "native_sha256": "c8b26b6d5752c2044ad0574c501539c06744efa312f7305b73586b4c09751ff7",
+    "complete_native_exact_outer_offset": 70,
+    "complete_saved_framing_matches": true
+  },
+  "read_boundary": {
+    "complete_process_records": "Request/start/result/native start/result/owned terminal/closed reconciliation fully read in61e8d8; diagnosis boundary fully read2a2311.",
+    "manual_native_ranges": [
+      {
+        "first_native_line": 1,
+        "last_native_line": 5,
+        "bytes": 392,
+        "sha256": "78f6a6892106a0cb7e9f7b2f67bdb2edebab1de1d5804ea33209d44311b86e69",
+        "complete_manual_read_tool": "2a2311"
+      },
+      {
+        "first_native_line": 1577,
+        "last_native_line": 1582,
+        "bytes": 2053,
+        "sha256": "18fbef6c2f4c4e1958298f66b4439801318f7657289e7db726a19c3b57c52c93",
+        "complete_manual_read_tool": "2a2311"
+      }
+    ],
+    "whole_failed_log_manual_read": false,
+    "whole_failed_log_bytes_hashed_and_standard_error_headers_scanned": true,
+    "all_standard_error_headers": [
+      [
+        1579,
+        "error: Lean exited with code 137"
+      ],
+      [
+        1582,
+        "error: build failed"
+      ]
+    ],
+    "positioned_Lean_error_headers": 0,
+    "warning_header_count_mechanical_only": 653,
+    "all_warnings_semantically_reread": false,
+    "long_terminal_line": {
+      "native_line": 1583,
+      "bytes": 37663,
+      "sha256": "0a01848fc172765c441b6c544e92f80569afac9bbeb193c7bc5fbcb1a3be8b8b",
+      "method": "Mechanically parsed the exact complete Python argv list and terminal suffix;1030 targets and nonzero1. No manual reading of all target names claimed."
+    },
+    "truncation_preserved": "Initial display7eb597 requested a range containing the37663-byte final command line and truncated. No completeness credit was taken; the concise prefix/failure ranges and diagnosis were reread untruncated2a2311. The complete file bytes remain unchanged."
+  },
+  "assessment": "This is an actual normal-check failure during compilation, before any successful audit or matching verification. Exit137 and the two standard error headers do not establish a specific resource cause or a mathematical source defect. No source, pin, runtime/profile or acceptance-gate change is justified by this evidence alone. The earlier successful focused result and held source assessment remain accurately bounded.",
+  "retry_boundary": "Root reports one unchanged normal retry, attempt2/session66741, with compilation complete and audit live. Reviewer has not polled, read live logs, captured runtime/outputs or assigned any retry success credit. Actual closed terminal and complete evidence are required. Root-reported retirement of inactive worktrees is not a new reviewed validation input or fresh-trigger finding here.",
+  "prior_held_records": [
+    [
+      "reviews/affine-recurrence-standards-receiving-20261104.md",
+      "95cbe38f9b78f3ee8e13b747d5600ab6882092444919a168ef6c744da5431f39"
+    ],
+    [
+      "provenance/affine-recurrence-standards-receiving-20261104/source-preparation.json",
+      "1cafd836c05e0b01a719064d2280cc3ebe72e662ed11bbdf2df824f68a4898d2"
+    ],
+    [
+      "provenance/affine-recurrence-standards-receiving-20261104/completion-and-hold.json",
+      "43456a13a107ec6586de137ada4ea52b3693db17fb94b691f2a3f2b00d2254b4"
+    ]
+  ],
+  "prior_records_unchanged": true,
+  "new_concrete_source_findings": [],
+  "actual_public_type_credit": 0,
+  "bound_failure_files": [
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt1-20261104/closed-evidence-reconciliation.json",
+      "bytes": 2157,
+      "sha256": "b12b22d27518ccc8d7c07a420156b6a976b1e937403b8d48d2e0dc1e5fba27ff"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt1-20261104/diagnosis-boundary.json",
+      "bytes": 1212,
+      "sha256": "13278c16c748c5b41657049d305d79c68341d631a2a7dcf3801add0883229e95"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt1-20261104/full.log",
+      "bytes": 224766,
+      "sha256": "dab74fdcc00093150c36f7cae8fc7c65304e774a1556f7fa64a372d170ff0cc5"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt1-20261104/launch.json",
+      "bytes": 174,
+      "sha256": "842fa523b45d9954394ee0ae2ffcea413288fc4c97a1777f8484de7c1e4ac4c4"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt1-20261104/native-records/output.log",
+      "bytes": 224538,
+      "sha256": "c8b26b6d5752c2044ad0574c501539c06744efa312f7305b73586b4c09751ff7"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt1-20261104/native-records/result.json",
+      "bytes": 575,
+      "sha256": "6fb278b81850cdd604f6aa5095d46ff1337a0cb730767a993a0989428ad4bb90"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt1-20261104/native-records/start.json",
+      "bytes": 421,
+      "sha256": "59fa87bd18f7b16ac137f071e3f321cf74dd522343e4d13f9d61de70a98bae12"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt1-20261104/outer-prefix.log",
+      "bytes": 70,
+      "sha256": "85b1c84dcee195655562afb91455f0d9c98388a8be8845b8eb9306ffa317cfab"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt1-20261104/outer-suffix.log",
+      "bytes": 158,
+      "sha256": "a8a8b44c1b815b0c277158dbb8e6f3abdd1ec0089e5e6eb374b6731538ff9604"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt1-20261104/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "109eb60c727af9d287931e33bed38fb0f8b7093b3d26fceee8dbe1150e041d3c"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt1-20261104/progress.json",
+      "bytes": 265,
+      "sha256": "43176561c0cf417a8d21f6f8f800e73b2ee89272620b9fe8aaa17e0c694b6794"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt1-20261104/request.json",
+      "bytes": 737,
+      "sha256": "30cdf91d71789c4c3ea33fc389d072a4a7f6b2f724aa4dccfb6bc023ed53ab6c"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt1-20261104/resource-observation-after-failure.json",
+      "bytes": 1337,
+      "sha256": "b861ffc0009013434e1b9b34d2b63dd436d58fd7fc76575a0fe1c7ce20d35c60"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt1-20261104/result.json",
+      "bytes": 1164,
+      "sha256": "d7031fb542ec8e1580081d6969ccf9b78c358e981ae86e080eb042b71f4d18fd"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt1-20261104/start.json",
+      "bytes": 930,
+      "sha256": "95187e67350fcb8116a35769f4882c95fef69867c42a129d7f784173af1a2d29"
+    }
+  ],
+  "reviewer_actions": "Only secured attempt1 evidence and prior own held controls read; this new additive receipt is the sole write. No source/ref/compiler/cache/global-control or live-output action.",
+  "hold": "All own writes HELD after this receipt is saved. Immediate full receipt readback is read-only; root receives its tool and hash."
+}

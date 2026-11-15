@@ -1,0 +1,187 @@
+{
+  "status": "AUTHORED PUBLIC HEADERS; NOT elaborated Lean types; UNCOMPILED",
+  "files": [
+    {
+      "path": "Applications/Trees/Reconstruction.lean",
+      "context_lines_in_source": [
+        "universe u",
+        "variable {α : Type u}"
+      ],
+      "bytes": 4278,
+      "sha256": "19750df3d7e88204bfdbbb6322d14403faa7dae64794a3fdb833d0dd54da4943",
+      "declarations": [
+        {
+          "name": "Trees.reconstruct?",
+          "kind": "def",
+          "header": "def reconstruct? [DecidableEq α] : List α → List α → Option (BinaryTree α)"
+        },
+        {
+          "name": "Trees.reconstruct?_nil_nil",
+          "kind": "theorem",
+          "header": "@[simp] theorem reconstruct?_nil_nil [DecidableEq α] :\n    reconstruct? ([] : List α) [] = some .nil"
+        },
+        {
+          "name": "Trees.reconstruct?_nil_cons",
+          "kind": "theorem",
+          "header": "@[simp] theorem reconstruct?_nil_cons [DecidableEq α] (a : α) (ino : List α) :\n    reconstruct? [] (a :: ino) = none"
+        },
+        {
+          "name": "Trees.reconstruct?_cons",
+          "kind": "theorem",
+          "header": "theorem reconstruct?_cons [DecidableEq α] (a : α) (pre ino : List α) :\n    reconstruct? (a :: pre) ino =\n      if a ∈ ino then\n        match reconstruct? (pre.take (ino.idxOf a)) (ino.take (ino.idxOf a)),\n          reconstruct? (pre.drop (ino.idxOf a)) (ino.drop (ino.idxOf a + 1)) with\n        | some l, some r => some (.node a l r)\n        | _, _ => none\n      else none"
+        },
+        {
+          "name": "Trees.reconstruct?_cons_of_not_mem",
+          "kind": "theorem",
+          "header": "theorem reconstruct?_cons_of_not_mem [DecidableEq α] (a : α) (pre ino : List α)\n    (ha : a ∉ ino) : reconstruct? (a :: pre) ino = none"
+        },
+        {
+          "name": "Trees.reconstruct",
+          "kind": "def",
+          "header": "def reconstruct [DecidableEq α] (pre ino : List α) : BinaryTree α"
+        },
+        {
+          "name": "Trees.reconstruct_nil_nil",
+          "kind": "theorem",
+          "header": "@[simp] theorem reconstruct_nil_nil [DecidableEq α] :\n    reconstruct ([] : List α) [] = .nil"
+        },
+        {
+          "name": "Trees.reconstruct_of_none",
+          "kind": "theorem",
+          "header": "theorem reconstruct_of_none [DecidableEq α] {pre ino : List α}\n    (h : reconstruct? pre ino = none) : reconstruct pre ino = .nil"
+        },
+        {
+          "name": "Trees.reconstruct?_traversals",
+          "kind": "theorem",
+          "header": "theorem reconstruct?_traversals [DecidableEq α] (t : BinaryTree α)\n    (hn : (preorder t).Nodup) : reconstruct? (preorder t) (inorder t) = some t"
+        },
+        {
+          "name": "Trees.reconstruct_traversals",
+          "kind": "theorem",
+          "header": "theorem reconstruct_traversals [DecidableEq α] (t : BinaryTree α)\n    (hn : (preorder t).Nodup) : reconstruct (preorder t) (inorder t) = t"
+        }
+      ]
+    },
+    {
+      "path": "Examples/TreeReconstruction.lean",
+      "context_lines_in_source": [
+        "universe u",
+        "variable {α : Type u}"
+      ],
+      "bytes": 4034,
+      "sha256": "c5ca06a87724097c9dbe03e0f87e0105182738316b473b55b3ac336b216c2de1",
+      "declarations": [
+        {
+          "name": "TreeReconstructionExamples.sample",
+          "kind": "def",
+          "header": "def sample : BinaryTree Nat"
+        },
+        {
+          "name": "TreeReconstructionExamples.sample_preorder",
+          "kind": "theorem",
+          "header": "theorem sample_preorder : preorder sample = [9, 3, 5, 7, 6]"
+        },
+        {
+          "name": "TreeReconstructionExamples.sample_inorder",
+          "kind": "theorem",
+          "header": "theorem sample_inorder : inorder sample = [3, 5, 9, 6, 7]"
+        },
+        {
+          "name": "TreeReconstructionExamples.sample_preorder_nodup",
+          "kind": "theorem",
+          "header": "theorem sample_preorder_nodup : (preorder sample).Nodup"
+        },
+        {
+          "name": "TreeReconstructionExamples.sample_reconstruct?",
+          "kind": "theorem",
+          "header": "theorem sample_reconstruct? :\n    reconstruct? [9, 3, 5, 7, 6] [3, 5, 9, 6, 7] = some sample"
+        },
+        {
+          "name": "TreeReconstructionExamples.sample_reconstruct",
+          "kind": "theorem",
+          "header": "theorem sample_reconstruct :\n    reconstruct [9, 3, 5, 7, 6] [3, 5, 9, 6, 7] = sample"
+        },
+        {
+          "name": "TreeReconstructionExamples.singleton_reconstruct",
+          "kind": "theorem",
+          "header": "theorem singleton_reconstruct [DecidableEq α] (a : α) :\n    reconstruct [a] [a] = .node a .nil .nil"
+        },
+        {
+          "name": "TreeReconstructionExamples.empty_labels",
+          "kind": "theorem",
+          "header": "theorem empty_labels : reconstruct ([] : List Empty) [] = .nil"
+        },
+        {
+          "name": "TreeReconstructionExamples.empty_mismatch",
+          "kind": "theorem",
+          "header": "theorem empty_mismatch : reconstruct? ([] : List Nat) [1] = none"
+        },
+        {
+          "name": "TreeReconstructionExamples.empty_mismatch_fallback",
+          "kind": "theorem",
+          "header": "theorem empty_mismatch_fallback : reconstruct ([] : List Nat) [1] = .nil"
+        },
+        {
+          "name": "TreeReconstructionExamples.missing_root",
+          "kind": "theorem",
+          "header": "theorem missing_root : reconstruct? ([9] : List Nat) [3] = none"
+        },
+        {
+          "name": "TreeReconstructionExamples.surplus_preorder",
+          "kind": "theorem",
+          "header": "theorem surplus_preorder : reconstruct? ([1, 2] : List Nat) [1] = none"
+        },
+        {
+          "name": "TreeReconstructionExamples.surplus_inorder",
+          "kind": "theorem",
+          "header": "theorem surplus_inorder : reconstruct? ([1] : List Nat) [1, 2] = none"
+        },
+        {
+          "name": "TreeReconstructionExamples.same_labels_do_not_suffice",
+          "kind": "theorem",
+          "header": "theorem same_labels_do_not_suffice :\n    ([1, 2, 3] : List Nat).Perm [3, 1, 2] ∧\n      reconstruct? ([1, 2, 3] : List Nat) [3, 1, 2] = none"
+        },
+        {
+          "name": "TreeReconstructionExamples.same_labels_not_joint_traversals",
+          "kind": "theorem",
+          "header": "theorem same_labels_not_joint_traversals :\n    ¬ ∃ t : BinaryTree Nat, preorder t = [1, 2, 3] ∧ inorder t = [3, 1, 2]"
+        },
+        {
+          "name": "TreeReconstructionExamples.leftRepeated",
+          "kind": "def",
+          "header": "def leftRepeated (a : α) : BinaryTree α"
+        },
+        {
+          "name": "TreeReconstructionExamples.rightRepeated",
+          "kind": "def",
+          "header": "def rightRepeated (a : α) : BinaryTree α"
+        },
+        {
+          "name": "TreeReconstructionExamples.repeated_traversals",
+          "kind": "theorem",
+          "header": "theorem repeated_traversals (a : α) :\n    preorder (leftRepeated a) = [a, a] ∧ preorder (rightRepeated a) = [a, a] ∧\n      inorder (leftRepeated a) = [a, a] ∧ inorder (rightRepeated a) = [a, a]"
+        },
+        {
+          "name": "TreeReconstructionExamples.repeated_trees_distinct",
+          "kind": "theorem",
+          "header": "theorem repeated_trees_distinct (a : α) : leftRepeated a ≠ rightRepeated a"
+        },
+        {
+          "name": "TreeReconstructionExamples.repeated_preorder_not_nodup",
+          "kind": "theorem",
+          "header": "theorem repeated_preorder_not_nodup (a : α) : ¬ (preorder (leftRepeated a)).Nodup"
+        },
+        {
+          "name": "TreeReconstructionExamples.repeated_parser_choice",
+          "kind": "theorem",
+          "header": "theorem repeated_parser_choice [DecidableEq α] (a : α) :\n    reconstruct [a, a] [a, a] = rightRepeated a"
+        },
+        {
+          "name": "TreeReconstructionExamples.repeated_left_not_recovered",
+          "kind": "theorem",
+          "header": "theorem repeated_left_not_recovered [DecidableEq α] (a : α) :\n    reconstruct (preorder (leftRepeated a)) (inorder (leftRepeated a)) ≠ leftRepeated a"
+        }
+      ]
+    }
+  ]
+}

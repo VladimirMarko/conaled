@@ -1,0 +1,330 @@
+{
+  "ticket": 1022,
+  "candidate": "bed44c16cee3e1eff6a4175bad9a7ed50651b927",
+  "heads_before": {
+    "/workspace/scratch/0c54f2db1fdf/conaled": "bed44c16cee3e1eff6a4175bad9a7ed50651b927",
+    "/workspace/scratch/0c54f2db1fdf/vfa-validation": "bed44c16cee3e1eff6a4175bad9a7ed50651b927"
+  },
+  "scope": "One Evaluation import-line replacement; every other byte preserved",
+  "attempt": 1,
+  "spec": {
+    "path": "/workspace/scratch/0c54f2db1fdf/work-state/specs/1022-Temporal-imports.md",
+    "bytes": 8798,
+    "sha256": "20197d0216a002f9b3729ebaa990b569f3b29ca798b6865b0c4817b6a9f3de96"
+  },
+  "proposal": {
+    "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/progress-import-proposal.md",
+    "bytes": 6275,
+    "sha256": "98c094110789ab6d998106e8296a175d2f1a3a05b661160f0fc0db3c3be2cfb5"
+  },
+  "original_source": {
+    "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/Applications/Progress/Evaluation.lean",
+    "bytes": 5871,
+    "sha256": "8882235188cd0e293f3433d220b677f160b539f4829f899ed2a911c655ca059f"
+  },
+  "staged_source": {
+    "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/progress-evaluation-import/Applications/Progress/Evaluation.lean",
+    "bytes": 5879,
+    "sha256": "3be90be15e37dd6f0fc12ef43e60ea2d4a1caf85b6de7471c4aeeb0a7696233d"
+  },
+  "all_other_bytes_identical": true,
+  "actual_setup": {
+    "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/ir/Applications/Progress/Evaluation.setup.json",
+    "bytes": 2330064,
+    "sha256": "146742d662b389d4c9721e06500e45e7bdc8a6fb039bd03af19298ef7986bdc3"
+  },
+  "staged_setup": {
+    "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/progress-evaluation-import/Evaluation.setup.json",
+    "bytes": 2330064,
+    "sha256": "146742d662b389d4c9721e06500e45e7bdc8a6fb039bd03af19298ef7986bdc3"
+  },
+  "setup_byte_identical": true,
+  "artifact_mapping_count": 3125,
+  "non_map_fields": {
+    "plugins": [],
+    "package": "compilingWithSquares",
+    "options": {},
+    "name": "Applications.Progress.Evaluation",
+    "isModule": false,
+    "dynlibs": []
+  },
+  "no_imports_override": true,
+  "no_omega_mapping_added": true,
+  "actual_trace": {
+    "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/Progress/Evaluation.trace",
+    "bytes": 2911,
+    "sha256": "ee3b498458cc23cec6db957bba066dfb2822b39325834213e297c1058b630d61"
+  },
+  "original_trace_message": ".> LEAN_PATH=/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean /root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /workspace/scratch/0c54f2db1fdf/vfa-validation/Applications/Progress/Evaluation.lean -o /workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/Progress/Evaluation.olean -i /workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/Progress/Evaluation.ilean -c /workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/ir/Applications/Progress/Evaluation.c --setup /workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/ir/Applications/Progress/Evaluation.setup.json --json",
+  "original_lean_argv": [
+    "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+    "/workspace/scratch/0c54f2db1fdf/vfa-validation/Applications/Progress/Evaluation.lean",
+    "-o",
+    "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/Progress/Evaluation.olean",
+    "-i",
+    "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/Progress/Evaluation.ilean",
+    "-c",
+    "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/ir/Applications/Progress/Evaluation.c",
+    "--setup",
+    "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/ir/Applications/Progress/Evaluation.setup.json",
+    "--json"
+  ],
+  "staged_lean_argv": [
+    "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/progress-evaluation-import/Applications/Progress/Evaluation.lean",
+    "-o",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/progress-evaluation-import/out/Evaluation.olean",
+    "-i",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/progress-evaluation-import/out/Evaluation.ilean",
+    "-c",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/progress-evaluation-import/out/Evaluation.c",
+    "--setup",
+    "/workspace/scratch/0c54f2db1fdf/work-state/staging/progress-evaluation-import/Evaluation.setup.json",
+    "--json"
+  ],
+  "original_lean_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean",
+  "expected_module": "Applications.Progress.Evaluation",
+  "expected_direct_imports": [
+    "Applications.Optimization.Relations",
+    "Lean.Elab.Tactic.Omega"
+  ],
+  "selected_artifacts": {
+    "Applications.Optimization.Relations": [
+      "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/Optimization/Relations.olean"
+    ]
+  },
+  "pinned_omega_artifacts": [
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega.ilean",
+      "bytes": 146,
+      "sha256": "8234ec3aab7bc93ffeb5886093efa731226ff676e1d086aa048402d5be182416"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega.ir",
+      "bytes": 1376,
+      "sha256": "a7b68be8a7588b222d84b39a0b6054be4aadde9418040891bc5b9b75db7b4266"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega.ir.sig",
+      "bytes": 176,
+      "sha256": "23381d2e915ebcc69e6366fd2c1f375d7417d9879426b2654fa316ec1d124a2a"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega.olean",
+      "bytes": 1224,
+      "sha256": "b61ae5aec1e482cdf5decdc5019abe9f1df3217a63d8c8fb7d5555196d7f9f4c"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega.olean.private",
+      "bytes": 96,
+      "sha256": "d364234ee7ffd50b454f629d70aaa0e26177380fad22720c2f3608a5e8298923"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega.olean.server",
+      "bytes": 9920,
+      "sha256": "81f69337b4b788f5a2194284c89737fd342ff3507dc57daeca567f5078a284d7"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega/Frontend.ilean",
+      "bytes": 117928,
+      "sha256": "a1738b285890f844b8049bbac35000ae907ed5082be6352ecbae7ae3d71c4cb9"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega/Frontend.ir",
+      "bytes": 1084512,
+      "sha256": "388a330d0b0a45de5343e632955851fd09993b3d5d5146f12386f289c2fa2aef"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega/Frontend.ir.sig",
+      "bytes": 176,
+      "sha256": "0641848ab7c42e2618057b8c45347dc548a315184d190633a69845797141b375"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega/Frontend.olean",
+      "bytes": 245240,
+      "sha256": "cb6b1bc754fdbf00da1665d5aec64421e7c026099aeee8b408ae22f79462f350"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega/Frontend.olean.private",
+      "bytes": 3146296,
+      "sha256": "c17c0734d9dffa704c141500ebb06feb6304be446a73905bbd489dde92cc7853"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega/Frontend.olean.server",
+      "bytes": 15928,
+      "sha256": "6653197c4ce5f8b624bca681fe915ff5dbe6a28e4c4776bd85c445e10635c0f8"
+    }
+  ],
+  "protected_inputs_before": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/Applications/Progress/Evaluation.lean",
+      "bytes": 5871,
+      "sha256": "8882235188cd0e293f3433d220b677f160b539f4829f899ed2a911c655ca059f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/Applications/Progress/Evaluation.lean",
+      "bytes": 5871,
+      "sha256": "8882235188cd0e293f3433d220b677f160b539f4829f899ed2a911c655ca059f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/ir/Applications/Progress/Evaluation.setup.json",
+      "bytes": 2330064,
+      "sha256": "146742d662b389d4c9721e06500e45e7bdc8a6fb039bd03af19298ef7986bdc3"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/Progress/Evaluation.trace",
+      "bytes": 2911,
+      "sha256": "ee3b498458cc23cec6db957bba066dfb2822b39325834213e297c1058b630d61"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/Optimization/Relations.olean",
+      "bytes": 89024,
+      "sha256": "ac11c47eb0273819a073a5c58c07d04275d9bd33d45dc25291bbe7a0e5b8de71"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega.ilean",
+      "bytes": 146,
+      "sha256": "8234ec3aab7bc93ffeb5886093efa731226ff676e1d086aa048402d5be182416"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega.ir",
+      "bytes": 1376,
+      "sha256": "a7b68be8a7588b222d84b39a0b6054be4aadde9418040891bc5b9b75db7b4266"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega.ir.sig",
+      "bytes": 176,
+      "sha256": "23381d2e915ebcc69e6366fd2c1f375d7417d9879426b2654fa316ec1d124a2a"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega.olean",
+      "bytes": 1224,
+      "sha256": "b61ae5aec1e482cdf5decdc5019abe9f1df3217a63d8c8fb7d5555196d7f9f4c"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega.olean.private",
+      "bytes": 96,
+      "sha256": "d364234ee7ffd50b454f629d70aaa0e26177380fad22720c2f3608a5e8298923"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega.olean.server",
+      "bytes": 9920,
+      "sha256": "81f69337b4b788f5a2194284c89737fd342ff3507dc57daeca567f5078a284d7"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega/Frontend.ilean",
+      "bytes": 117928,
+      "sha256": "a1738b285890f844b8049bbac35000ae907ed5082be6352ecbae7ae3d71c4cb9"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega/Frontend.ir",
+      "bytes": 1084512,
+      "sha256": "388a330d0b0a45de5343e632955851fd09993b3d5d5146f12386f289c2fa2aef"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega/Frontend.ir.sig",
+      "bytes": 176,
+      "sha256": "0641848ab7c42e2618057b8c45347dc548a315184d190633a69845797141b375"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega/Frontend.olean",
+      "bytes": 245240,
+      "sha256": "cb6b1bc754fdbf00da1665d5aec64421e7c026099aeee8b408ae22f79462f350"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega/Frontend.olean.private",
+      "bytes": 3146296,
+      "sha256": "c17c0734d9dffa704c141500ebb06feb6304be446a73905bbd489dde92cc7853"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega/Frontend.olean.server",
+      "bytes": 15928,
+      "sha256": "6653197c4ce5f8b624bca681fe915ff5dbe6a28e4c4776bd85c445e10635c0f8"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/flake.nix",
+      "bytes": 637,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/flake.lock",
+      "bytes": 564,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/flake.nix",
+      "bytes": 637,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/flake.lock",
+      "bytes": 564,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/Applications/Optimization/Relations.lean",
+      "bytes": 3097,
+      "sha256": "b7927580cfe5b9ba783d1d072d6d0f6859d06ab7c694ddb71ce4e835bed02319"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/Optimization/Relations.ilean",
+      "bytes": 7251,
+      "sha256": "c87332278b0bcb0c4c92027fe4fb44c6bdb9778c149414a7c58ca96fc018a1fc"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/ir/Applications/Optimization/Relations.c",
+      "bytes": 17129,
+      "sha256": "42249fa9b469cbf09cc88833bf0265c67a773a6bf3719871ed01e18817f0fb0f"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/src/lean/Lean/Elab/Tactic/Omega.lean",
+      "bytes": 9449,
+      "sha256": "7a81cef2ff724f9f690993d01aef906b200ca11c36f72fb57f9e6e5eaf4ec45e"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/src/lean/Lean/Elab/Tactic/Omega/Frontend.lean",
+      "bytes": 30256,
+      "sha256": "835fe8c15d9ec38157c3ead0b1c68b0f0ee498049918fa4120cd2c7727bced53"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/correction/SHA256SUMS",
+      "bytes": 1248,
+      "sha256": "70132e96a93c7aeac1fb1caf48e4f59d3071c097efc15be90f56854be67540b7"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/Progress/Evaluation.olean",
+      "bytes": 383992,
+      "sha256": "f790af224f4e3d700d3c55358991d04cf512a4b9885c52088eca03dcfe36fad9"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/Progress/Evaluation.ilean",
+      "bytes": 13342,
+      "sha256": "0c2fd2d6fa88ee3a9e1e2387c348c557d8a5bdabf7a5f53c3ecb771204e512e4"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/ir/Applications/Progress/Evaluation.c",
+      "bytes": 30459,
+      "sha256": "14dfd5df2c0af01dd47db6031d5acc601a33bc05a640b0c90376926a12ccc751"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "recorded_utc": "2026-11-05T03:37:47.223017+00:00",
+  "inspector": "/root/checkpoint0137_acceptance_inspection",
+  "scope": "Independent operational source inspection of prepared exact XT02 fast-forward helper only; not a Standards/Spec axis or an acceptance action.",
+  "outcome": "Passed: prepared helper preserves all reviewed predecessor gates with only the exact authorized scope substitutions.",
+  "unresolved_findings": [],
+  "helper": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/fast_forward_once.py",
+    "bytes": 7269,
+    "sha256": "d84afcb02590a4c89f26af8b231e773a23af0af4410d9468edeab54112b1c6b8"
+  },
+  "exact_scope_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/fast-forward-scope-diff.patch",
+    "bytes": 4220,
+    "sha256": "3a95aacc17cbfa72dec9e9ace4b63acb9c3096a11f983319b52a8319cb00a021"
+  },
+  "reviewed_predecessor": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-acceptance-20261105/fast_forward_once.py",
+    "bytes": 7330,
+    "sha256": "45f2ff0bc5b04a5da8a394f1329a48efb0f29a8e8c2230c51b49a61bd4c94c92"
+  },
+  "preparation": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/fast-forward-preparation.json",
+    "bytes": 1810,
+    "sha256": "5b4a0f3f1a035dbf0147662c489fffae8b42cf8526a4dcfb1f886a843127fe1a"
+  },
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "candidate_tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "accepted_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "requirements_ids": [
+    "XT02-01",
+    "XT02-02",
+    "XT02-03",
+    "XT02-04",
+    "XT02-05"
+  ],
+  "original_scope_paths": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-shape.md"
+  ],
+  "public_names": 90,
+  "refs": 79,
+  "worktrees": 9,
+  "inspection": {
+    "complete_helper_read_lines": 113,
+    "complete_patch_read_lines": 58,
+    "complete_preparation_read": true,
+    "saved_unified_diff_independently_recomputed_exactly": true,
+    "only13_intended_line_substitutions": true,
+    "both_helpers_AST_parse": true,
+    "root_gate_requires_exact_unit_scope_and_both_axes": true,
+    "bound_evidence_rehashed_before_action": true,
+    "full_candidate_record_and_qualified_verification_must_match": true,
+    "closed_immediate_requires_exact_verify_candidate_HEAD_one_thread_exit0": true,
+    "actual_main_branch_and_OLD_and_clean_qualified_NEW_TREE_required": true,
+    "integration_ref_and_ancestry_required": true,
+    "all79_refs_and_ordered9_four_field_worktree_rows_equal_root_gate": true,
+    "exclusive_output_creation_keeps_one_use_semantics": true,
+    "only_git_mutation_is_merge_ff_only_exact_NEW": true,
+    "all78_other_refs_and8_other_heads_and_every_status_preserved": true,
+    "qualified_verification_unchanged_after_action": true,
+    "no_remote_or_push_command": true
+  },
+  "pending_actual_evidence": [
+    "The actual full closed terminal, complete log, exhaustive audit and matching verification for e61bb6f must pass and be reconciled.",
+    "Both original independent axes must finalize their complete original-scope assessments against actual full/type evidence, pass with no unresolved findings, and hold their final reports and bindings.",
+    "The actual root-gate recorder/schema and its bound files must be independently reconciled; this helper-source inspection does not establish those future inputs.",
+    "The actual immediate verification must close successfully on this exact candidate and be reconciled before root invokes this one-use helper.",
+    "The current exact refs/worktrees/source holds and resource state must still satisfy the applicable gates at execution."
+  ],
+  "read_receipts": [
+    {
+      "tool_chunk": "6f7d41",
+      "actual_exit": 1,
+      "scope": "Complete helper113 lines and complete diff58 lines were printed; then a read of the incorrectly assumed preparation.json basename failed. No helper was executed and no filesystem write occurred."
+    },
+    {
+      "tool_chunk": "f9e18b",
+      "actual_exit": 0,
+      "scope": "Correct actual filename inventory and complete fast-forward-preparation.json read."
+    },
+    {
+      "tool_chunk": "283fa7",
+      "actual_exit": 0,
+      "scope": "Full predecessor/current hashes, exact recomputed unified diff, exact13 line substitutions, both AST parses and subprocess-call inspection; no execution."
+    },
+    {
+      "tool_chunk": "5ca5e4",
+      "actual_exit": 0,
+      "scope": "Read-only current79-ref/nine-worktree metadata supports expected prospective scope; book still904 at that observation."
+    }
+  ],
+  "prior_preparation_failure_boundary": "The root preparation record preserves23a878 as an assertion failure before helper writes; this operational inspection does not reinterpret that event as a compiler or acceptance failure.",
+  "limits": {
+    "helper_executed": false,
+    "compiler_or_setup_or_hydration_run": false,
+    "historical_or_live_session_polled": false,
+    "live_project_output_hashed": false,
+    "source_ref_profile_dependency_or_output_mutation": false,
+    "unit_accepted_by_this_inspection": false,
+    "formal_review_axis": false,
+    "only_new_file_written_by_this_call": "operational-helper-inspection.json"
+  }
+}

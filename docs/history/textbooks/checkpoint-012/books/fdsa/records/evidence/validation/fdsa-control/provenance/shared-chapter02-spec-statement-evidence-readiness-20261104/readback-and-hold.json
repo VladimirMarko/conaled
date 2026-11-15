@@ -1,0 +1,79 @@
+{
+  "recorded_utc": "2026-11-04T16:31:40.031980+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "scope": "Same complete81-path/112-obligation/ten-shared-scope C2 review; preparation only",
+  "checkpoint": "0118 capture held the four original artifacts; this completion receipt follows the explicit write release and is not claimed in0118",
+  "files_fully_read": [
+    {
+      "path": "reviews/chapter02-spec-statement-evidence-readiness-20261104.md",
+      "bytes": 9579,
+      "lines": 63,
+      "sha256": "c1e433c7255751ff3c54a13e59af2088c93d7935c7cc40f1d0a25a01069858ff"
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-statement-evidence-readiness-20261104/assessment.json",
+      "bytes": 7590,
+      "lines": 103,
+      "sha256": "eaff93b7e27af4e4bace975922830ca786ff19e2755c3d9d16ad72adc2bb5625"
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-statement-evidence-readiness-20261104/reconcile.py",
+      "bytes": 15577,
+      "lines": 203,
+      "sha256": "d288735f56eabe0310ac3c193d2fa32d935a86548f536ca1b5f57cec54d35c0c"
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-statement-evidence-readiness-20261104/reconciliation.json",
+      "bytes": 76933,
+      "lines": 2268,
+      "sha256": "efb8709642bfddae5356da5c50c77346e31064c282febd65552e7bcf7f6d1b09"
+    }
+  ],
+  "complete_read_tools": {
+    "report_and_assessment": "e9d77e",
+    "complete203_line_script": "03310c",
+    "complete2268_line_result": [
+      {
+        "lines": [
+          1,
+          600
+        ],
+        "bytes": 24039,
+        "sha256": "71000b7205569696edef0a441a9d44effce79f3ca8bf3e2c12fcdbaa8f7229f7",
+        "actual_read_tool_chunk": "045f8e"
+      },
+      {
+        "lines": [
+          601,
+          1200
+        ],
+        "bytes": 21144,
+        "sha256": "bb424cd01e802719772e29c929a163dd9ee224cb69d44deca4f51fab4ba198a2",
+        "actual_read_tool_chunk": "d2be77"
+      },
+      {
+        "lines": [
+          1201,
+          1800
+        ],
+        "bytes": 14065,
+        "sha256": "c2a163df3a8d30afe0c4e963ec72bfa6d2b961047d8bf11fb0e9b1457cf2bb1b",
+        "actual_read_tool_chunk": "f5477d"
+      },
+      {
+        "lines": [
+          1801,
+          2268
+        ],
+        "bytes": 17685,
+        "sha256": "35920933e4f817ff4510ea3cfe3dd60891a85c775c289283d3d5f55a7fe0af63",
+        "actual_read_tool_chunk": "6cb755"
+      }
+    ]
+  },
+  "all_bytes_fully_read": 109679,
+  "no_tool_truncation_in_credited_readback": true,
+  "findings": [],
+  "receiving_credit": 0,
+  "hold": "All four original artifacts and this completion receipt held unchanged after this write/readback; Tail final continuation may write only its separate new records."
+}

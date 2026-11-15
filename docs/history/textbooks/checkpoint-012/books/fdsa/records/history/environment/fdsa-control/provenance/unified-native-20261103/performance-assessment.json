@@ -1,0 +1,115 @@
+{
+  "recorded_utc": "2026-11-03T20:11:48.176943+00:00",
+  "scope": "Read-only resource and current-log observations; no compiler, tuning experiment, source mutation, or active-gate change.",
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "active_gate": "chapter01-unified-fresh-attempt4",
+  "active_configuration": {
+    "threads": 1,
+    "fresh_jobs": 1,
+    "owned_by": "root",
+    "session_id": 66093
+  },
+  "resource_observation": {
+    "observed_utc": "2026-11-03T20:10:10.761887+00:00",
+    "cpu_count": 9,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "loadavg": [
+      1.03369140625,
+      0.7490234375,
+      0.40283203125
+    ],
+    "sysconf": {
+      "SC_PAGE_SIZE": 4096,
+      "SC_PHYS_PAGES": 2551618,
+      "SC_AVPHYS_PAGES": 378862,
+      "SC_NPROCESSORS_CONF": 9,
+      "SC_NPROCESSORS_ONLN": 9
+    },
+    "rlimits": {
+      "RLIMIT_AS": [
+        -1,
+        -1
+      ],
+      "RLIMIT_RSS": [
+        -1,
+        -1
+      ],
+      "RLIMIT_DATA": [
+        -1,
+        -1
+      ],
+      "RLIMIT_CPU": [
+        -1,
+        -1
+      ],
+      "RLIMIT_NPROC": [
+        39792,
+        39792
+      ],
+      "RLIMIT_NOFILE": [
+        16384,
+        16384
+      ]
+    },
+    "absent_views": {
+      "error": "ENOENT for every listed path",
+      "paths": [
+        "/proc/self/cgroup",
+        "/proc/meminfo",
+        "/proc/loadavg",
+        "/sys/fs/cgroup/memory.max",
+        "/sys/fs/cgroup/memory.high",
+        "/sys/fs/cgroup/memory.current",
+        "/sys/fs/cgroup/memory.events",
+        "/sys/fs/cgroup/memory.swap.max",
+        "/sys/fs/cgroup/cpu.max",
+        "/sys/fs/cgroup/cpu.stat",
+        "/sys/fs/cgroup/cpuset.cpus.effective"
+      ]
+    }
+  },
+  "kernel_sysinfo_observation": {
+    "observed_utc": "2026-11-03T20:10:37.067658+00:00",
+    "return_code": 0,
+    "total_ram_bytes": 10451427328,
+    "free_ram_bytes": 1576652800,
+    "buffer_ram_bytes": 86790144,
+    "shared_ram_bytes": 12288,
+    "swap_total_bytes": 0,
+    "swap_free_bytes": 0,
+    "qualification": "Kernel aggregate sysinfo. Free RAM is not MemAvailable and excludes reclaimable cache. No cgroup memory limit/current view, CPU quota view, or compiler peak RSS was available. Unlimited rlimits do not establish absence of a cgroup limit."
+  },
+  "gate_log_observation": {
+    "observed_utc": "2026-11-03T20:10:58.925691+00:00",
+    "source": "../chapter01-unified-fresh-attempt4/full.log",
+    "completed_modules": 66,
+    "total_modules": 960,
+    "reported_module_seconds_sum": 116.55,
+    "median_module_seconds": 1.415,
+    "slowest_observed_module": {
+      "name": "Compiler",
+      "seconds": 6.49
+    },
+    "last_observed_module": {
+      "name": "Applications.Orbifolds.Equivariant",
+      "seconds": 1.99
+    },
+    "qualification": "Early modules are not representative of dependency-heavy modules or the final audit. These progress observations imply neither terminal success nor future liveness."
+  },
+  "assessment": {
+    "cpu_parallelism": "CPU count, affinity, and low aggregate load make parallel compilation plausible.",
+    "jobs4": "Not recommended from available evidence: peak compiler memory, available/reclaimable RAM, and effective memory quota are unqualified; zero swap increases the consequence of memory pressure.",
+    "jobs2": "A conservative future measured configuration, keeping --threads 1. Potential speedup is plausible but neither size nor safety is established by these read-only observations.",
+    "current_action": "Preserve the running serial gate. Root agreed. No optional tuning tests or active-setting changes."
+  }
+}

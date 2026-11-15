@@ -1,0 +1,139 @@
+{
+  "recorded_utc": "2026-11-05T00:38:24.218270+00:00",
+  "candidate": "3c04405d207a7b8c6f7452598da88fa3a7a05ac3",
+  "expectedHead": "2ff47bdad9f822727fb2d1ea86092c4b26ad0cb6",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "acceptedHead": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "expectedPaths": [
+    "Applications/Resources/RandomSelection.lean",
+    "Applications/Resources/RandomSelectionDrift.lean",
+    "Applications/Resources/RandomSelectionEndpoints.lean",
+    "Applications/Resources/RandomSelectionEqual.lean",
+    "Applications/Resources/RandomSelectionMean.lean",
+    "Applications/Resources/RandomSelectionRun.lean",
+    "Applications/Resources/RandomSelectionTail.lean",
+    "Applications/Resources/RandomSelectionTrace.lean",
+    "Applications/Resources/RandomSelectionWorst.lean",
+    "Examples/RandomSelection.lean",
+    "Examples/RandomSelectionDrift.lean",
+    "Examples/RandomSelectionEndpoints.lean",
+    "Examples/RandomSelectionEqual.lean",
+    "Examples/RandomSelectionMean.lean",
+    "Examples/RandomSelectionRun.lean",
+    "Examples/RandomSelectionTail.lean",
+    "Examples/RandomSelectionTrace.lean",
+    "Examples/RandomSelectionWorst.lean"
+  ],
+  "name": "chapter03-random-selection-worst-focused-attempt1-20261105",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Resources.RandomSelectionWorst",
+    "Examples.RandomSelectionWorst"
+  ],
+  "recordDirectory": "chapter03-focused-continuation-20261104",
+  "recordName": "random-worst-attempt1-preflight.json",
+  "validationPurpose": "First exact universal-endpoint pair after complete source/header/private/case assessment. Unchanged qualified serial one-thread environment; no install/hydration, whole-candidate validation/audit or acceptance credit.",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was 2ff47bd fix(selection): exercise sorted duplicate sublist bounds (#174)\nHEAD is now at 3c04405 feat(selection): derive universal endpoint worst paths (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionDrift.lean",
+      "bytes": 15121,
+      "sha256": "cdb869dc4a7816eb76ab462bd8e6b62df9e9bb7799434903afa9ec67bed59ef4"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionEndpoints.lean",
+      "bytes": 8643,
+      "sha256": "1621c8f16d8c5a4621268ec115ac2cee6eb18fe1b936116cb50f6b641bd3be8e"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionEqual.lean",
+      "bytes": 11702,
+      "sha256": "05abf888d8ef2ab6934a1ad90034ac12e07dd7c79f558828fc719bf3973e1dd2"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionMean.lean",
+      "bytes": 16493,
+      "sha256": "5a7d396ed0d451c0b0ec51493c004b721c804c69263ad7c659f023cab3ddda8f"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionRun.lean",
+      "bytes": 12714,
+      "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionTail.lean",
+      "bytes": 24400,
+      "sha256": "76ea201bc310b816f844e45422ecaf75d2d060202d1e391681affd558db99725"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionTrace.lean",
+      "bytes": 7823,
+      "sha256": "146f81f9db7782fd30f54848bee87038a2f9a1edcb4c2c776e854494bc80729e"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionWorst.lean",
+      "bytes": 10712,
+      "sha256": "b766d2f5a5e44cad32c35c709ec2f5b878a54b81d3fd5b17ac90e25e1b2f2b49"
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e"
+    },
+    {
+      "path": "Examples/RandomSelectionDrift.lean",
+      "bytes": 5797,
+      "sha256": "fade4d637a2c50672d6f792326a22264bb4b348cb608bac58c0cf834a914af48"
+    },
+    {
+      "path": "Examples/RandomSelectionEndpoints.lean",
+      "bytes": 2944,
+      "sha256": "a8daeae4626353eb82b613d081a88737a26b556942cdd456ecc73a0af3f45c1a"
+    },
+    {
+      "path": "Examples/RandomSelectionEqual.lean",
+      "bytes": 4114,
+      "sha256": "e1896b17dafc623d26b37168153505faa48ad93968acb51c15032e58dfe3c150"
+    },
+    {
+      "path": "Examples/RandomSelectionMean.lean",
+      "bytes": 5962,
+      "sha256": "b9c83ac6e4dda31c6c70d6ccbf021cfcad5ca8317f5a3bf1133788fc559bb7af"
+    },
+    {
+      "path": "Examples/RandomSelectionRun.lean",
+      "bytes": 3770,
+      "sha256": "76504fe5fa77c581b8a7e3c9f3e0247c8a927adee8b308f84be6167e0ea20e0f"
+    },
+    {
+      "path": "Examples/RandomSelectionTail.lean",
+      "bytes": 8697,
+      "sha256": "2678c1f6fd6cab99353562b050d641427c9b04b7648a30e751051d4f0f0d771e"
+    },
+    {
+      "path": "Examples/RandomSelectionTrace.lean",
+      "bytes": 8686,
+      "sha256": "5abb356eeecb3d6a046cd529db4701f88056a4ef95bb4cbff294a86747b11f9d"
+    },
+    {
+      "path": "Examples/RandomSelectionWorst.lean",
+      "bytes": 12775,
+      "sha256": "ea06643849f8d958d17659d26886e132fc92d471008d1fa7c1455af808ddf0cb"
+    }
+  ],
+  "candidate_tree": "d8daeb1fd680f7b1b22391517391d3aebcafa458",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 478466048
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

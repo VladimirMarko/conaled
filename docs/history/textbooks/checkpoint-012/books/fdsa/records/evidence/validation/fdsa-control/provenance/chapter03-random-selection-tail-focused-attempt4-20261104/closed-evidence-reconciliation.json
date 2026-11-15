@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T21:59:03.128537+00:00",
+  "candidate": "0b8006f150cdb1aa9c76f5cf80eededca4417e81",
+  "terminal": {
+    "recorded_utc": "2026-11-04T21:59:03.128411+00:00",
+    "owned_session": 30827,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "21cdf7",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "0b8006f150cdb1aa9c76f5cf80eededca4417e81"
+  },
+  "actual_recorder_and_native_exits": [
+    0,
+    0
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-tail-focused-attempt4-20261104/full.log",
+    "bytes": 10297,
+    "sha256": "361a427be37b3470e5ce9298afaa46e716aca35ca0d8e11ecea8ea9194d79614"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T215824Z-project-run-55f6703c",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-tail-focused-attempt4-20261104/native-records/start.json",
+      "bytes": 483,
+      "sha256": "d7797cc0049d97296098418c6091d945e62f44796451dfb524c5cda474bea44e"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-tail-focused-attempt4-20261104/native-records/result.json",
+      "bytes": 636,
+      "sha256": "eae3ff40cbecdd00db8cfe8ff3d6c05046f3dd30f6ba55c9fe2622b9799d477e"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-tail-focused-attempt4-20261104/native-records/output.log",
+      "bytes": 10015,
+      "sha256": "d97ab34b4eb4205a7491bf27351fe4bd61dfd47862d33e3f88c777d8563fd6f5"
+    }
+  },
+  "native_body_exact_outer_offset": 125,
+  "complete_closed_log": true,
+  "scope": "Successful focused actual randomized-selection tail pair, including all original tail cases and unchanged earlier imports. Source-inventory scope only: no complete candidate check, full type capture, kernel audit, independent review or acceptance.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

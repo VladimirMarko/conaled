@@ -1,0 +1,705 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-05T04:01:53.350137+00:00",
+  "unit": "FDSA-XT02",
+  "axis": "Spec",
+  "reviewer": "/root/tree_cache_spec",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "incorporated_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "requirements_ids": [
+    "XT02-01",
+    "XT02-02",
+    "XT02-03",
+    "XT02-04",
+    "XT02-05"
+  ],
+  "original_scope_paths": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-shape.md"
+  ],
+  "public_names": 90,
+  "outcome": "Passed",
+  "unresolved_findings": [],
+  "full_original_scope_complete": true,
+  "actual_public_types_complete": true,
+  "full_validation_accepted": true,
+  "review_complete": true,
+  "review_method": "Independent read of actual closed terminal/commands/results/verification and relevant complete bounded native-log ranges, complete computational parsing and reconciliation of every audit row, source inventory and all saved input identities. Retains the full original independent source/type assessment; does not claim human reading of every warning or audit row.",
+  "actual_full_execution": {
+    "command": [
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+      "--state",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+      "run",
+      "--project",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "--threads",
+      "1",
+      "--",
+      "./check.sh",
+      "--candidate",
+      "HEAD"
+    ],
+    "qualified_project": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "actual_terminal_receipt": "911909",
+    "closure_receipt": "0d933c",
+    "owned_session": 25113,
+    "session_state": "CLOSED; never polled by this reviewer",
+    "actual_exit": 0,
+    "recorder_exit": 0,
+    "native_exit": 0,
+    "timed_out": false,
+    "recorder_error": null,
+    "initial_head": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+    "final_head": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+    "initial_status": "",
+    "final_status": "",
+    "native_started_utc": "2026-11-05T03:29:12.940390+00:00",
+    "native_completed_utc": "2026-11-05T03:54:08.674661+00:00",
+    "one_lean_thread": true,
+    "outer_is_exact_prefix_native_suffix": true,
+    "native_body_offset": 70,
+    "native_lines": 2779,
+    "prefix_bytes": 70,
+    "suffix_bytes": 159
+  },
+  "audit": {
+    "parsed_rows": 1114,
+    "unique_names": 1114,
+    "native_row_range": [
+      1660,
+      2773
+    ],
+    "all_rows_contiguous": true,
+    "logical_declarations": 50422,
+    "theorem_declarations": 29543,
+    "unsafe_runtime_declarations": 0,
+    "axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "scope_module_counts": {
+      "Examples.TreeShape": {
+        "logical_declarations": 71,
+        "theorem_declarations": 57,
+        "unsafe_runtime_declarations": 0
+      },
+      "Applications.Trees.Shape": {
+        "logical_declarations": 56,
+        "theorem_declarations": 49,
+        "unsafe_runtime_declarations": 0
+      },
+      "Applications.Trees.ShapeLog": {
+        "logical_declarations": 7,
+        "theorem_declarations": 7,
+        "unsafe_runtime_declarations": 0
+      }
+    },
+    "prior_accepted_rows_unchanged": 1111,
+    "new_rows": 3,
+    "new_logical_declarations": 134,
+    "new_theorem_declarations": 113,
+    "new_unsafe_runtime_declarations": 0,
+    "project_sources_in_immutable_candidate": 1116,
+    "built_project_modules": 1115,
+    "checked_modules": 1116,
+    "checked_but_not_audit_rows": [
+      "ProofAudit",
+      "SquareApplications"
+    ],
+    "source_inventory_matches_audit_module_boundary": true,
+    "canonical_row_summary_encoding": "UTF-8 json.dumps(all parsed row dictionaries, sort_keys=True, separators=(comma,colon))",
+    "canonical_row_summary_sha256": "443d1b036b919fa1451c29416c5602d700828ded819d8c50ae72c47cae7fbb0f",
+    "prior_log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/native-records/output.log",
+      "bytes": 325734,
+      "sha256": "df724e47d431fd2f8aff4bab7c1097862a1dd9a92f527ce24957c9c1b9eceb09"
+    },
+    "private_and_generated_declarations_in_scope": true,
+    "audit_implementation_unchanged": true,
+    "whole_project_counts_not_authored_book_result_counts": true
+  },
+  "guards": {
+    "source_guard_passed": true,
+    "pre_integrity_artifacts": 3345,
+    "pre_invalidated_modules": 0,
+    "post_integrity_artifacts": 3345,
+    "post_inconsistent_modules": 0,
+    "error_prefix_matches": 0,
+    "warning_lines": 703,
+    "module_system_warning_lines": 602,
+    "other_warning_lines": [
+      "warning: Applications/Timing/Digital.lean:186:70: This simp argument is unused:",
+      "warning: Applications/Convolution/Series.lean:178:62: This simp argument is unused:",
+      "warning: Applications/Convolution/Polynomial.lean:56:30: This simp argument is unused:",
+      "warning: Applications/Convolution/Polynomial.lean:57:21: This simp argument is unused:",
+      "warning: Applications/Languages/Regex.lean:98:64: This simp argument is unused:",
+      "warning: Applications/Languages/Regex.lean:99:40: This simp argument is unused:",
+      "warning: Applications/Languages/ConvolutionBridge.lean:42:30: This simp argument is unused:",
+      "warning: Applications/Languages/ConvolutionBridge.lean:42:47: This simp argument is unused:",
+      "warning: Applications/Orbifold/Pose.lean:167:40: `simp` already closes the goal",
+      "warning: Applications/Orbifold/ConnectionAssessment.lean:72:28: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+      "warning: Applications/Orbifold/ConnectionAssessment.lean:72:28: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+      "warning: Applications/Parallel/Scan.lean:145:31: This simp argument is unused:",
+      "warning: Applications/Parallel/Scan.lean:155:17: This simp argument is unused:",
+      "warning: Applications/Parallel/Scan.lean:159:58: This simp argument is unused:",
+      "warning: Applications/Parallel/Polynomial.lean:15:18: This simp argument is unused:",
+      "warning: Applications/Timing/Adders.lean:121:44: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+      "warning: Applications/Timing/Adders.lean:131:15: This simp argument is unused:",
+      "warning: Applications/Timing/Adders.lean:131:28: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+      "warning: Applications/Timing/Examples.lean:52:39: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+      "warning: Applications/Timing/Examples.lean:52:39: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+      "warning: Examples/CategoryMaps.lean:43:0: Definition `Examples.CategoryMaps.evaluationPreservesProducts` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this",
+      "warning: Examples/CategoryMaps.lean:43:0: Definition `evaluationPreservesProducts` is a proposition; use `theorem` instead of `def`",
+      "warning: Examples/CategoryMaps.lean:52:0: Definition `Examples.CategoryMaps.evaluationPreservesTerminal` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this",
+      "warning: Examples/CategoryMaps.lean:52:0: Definition `evaluationPreservesTerminal` is a proposition; use `theorem` instead of `def`",
+      "warning: SquareKit/ConstantSheafProducts.lean:60:27: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+      "warning: SquareKit/ConstantSheafProducts.lean:60:27: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+      "warning: SquareKit/Internal/PartitionSection.lean:44:7: automatically included section variable(s) unused in theorem `SquareKit.Internal.PartitionSection.Model.Hom.ext`:",
+      "warning: SquareKit/Internal/PartitionSection.lean:65:26: automatically included section variable(s) unused in theorem `SquareKit.Internal.PartitionSection.Model.p_section`:",
+      "warning: SquareKit/Internal/PartitionSection.lean:69:26: automatically included section variable(s) unused in theorem `SquareKit.Internal.PartitionSection.Model.q_section`:",
+      "warning: SquareKit/Internal/PartitionSection.lean:125:0: automatically included section variable(s) unused in theorem `SquareKit.Internal.PartitionSection.ofSection_section`:",
+      "warning: Applications/Geometry/ParallelTransport.lean:18:30: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+      "warning: Applications/Geometry/ParallelTransport.lean:18:34: Unused tactic linter: `ring` does nothing.",
+      "warning: Applications/Geometry/ParallelTransport.lean:19:31: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+      "warning: Applications/Geometry/ParallelTransport.lean:19:35: Unused tactic linter: `ring` does nothing.",
+      "warning: Applications/Geometry/ParallelTransport.lean:18:34: this tactic is never executed",
+      "warning: Applications/Geometry/ParallelTransport.lean:19:35: this tactic is never executed",
+      "warning: Applications/Geometry/ParallelTransport.lean:42:51: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+      "warning: Applications/Geometry/ParallelTransport.lean:42:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+      "warning: Applications/Geometry/ParallelTransport.lean:53:54: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+      "warning: Applications/Geometry/ParallelTransport.lean:53:54: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+      "warning: Applications/Geometry/ParallelTransport.lean:81:13: This simp argument is unused:",
+      "warning: Applications/Orbifold/DiskConnection.lean:58:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+      "warning: Applications/Orbifold/DiskConnection.lean:58:4: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+      "warning: Applications/Orbifold/DiskTransport.lean:215:34: This simp argument is unused:",
+      "warning: Applications/Orbifold/TransportSegments.lean:45:82: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+      "warning: Applications/Orbifold/TransportSegments.lean:45:82: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+      "warning: Applications/Orbifold/TransportSegments.lean:63:31: This simp argument is unused:",
+      "warning: Applications/Orbifold/TransportSegments.lean:67:42: This simp argument is unused:",
+      "warning: Applications/Orbifold/TransportSegments.lean:70:2: `simp` already closes the goal",
+      "warning: Applications/Orbifold/TransportSegments.lean:80:4: `simp` already closes the goal",
+      "warning: Applications/Geometry/VariableCurvature.lean:49:4: This simp argument is unused:",
+      "warning: Applications/Orbifold/DiskCurvature.lean:27:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+      "warning: Applications/Orbifold/DiskCurvature.lean:27:4: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+      "warning: Applications/Orbifold/DiskCurvature.lean:62:8: this tactic is never executed",
+      "warning: Applications/Orbifold/DiskCurvature.lean:62:4: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+      "warning: Applications/Orbifold/DiskCurvature.lean:62:8: Unused tactic linter: `ring` does nothing.",
+      "warning: Applications/Orbifold/DiskCurvature.lean:79:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+      "warning: Applications/Orbifold/DiskCurvature.lean:79:4: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+      "warning: Examples/PathTransport.lean:47:50: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+      "warning: Examples/PathTransport.lean:47:50: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+      "warning: Examples/PathTransport.lean:55:50: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+      "warning: Examples/PathTransport.lean:55:50: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+      "warning: Examples/PathTransport.lean:113:47: This simp argument is unused:",
+      "warning: Examples/PathTransport.lean:142:45: This simp argument is unused:",
+      "warning: Applications/Probability/Execution.lean:84:0: automatically included section variable(s) unused in theorem `ProbabilityProgress.divergence_eq_all_timeouts`:",
+      "warning: Applications/Probability/Results.lean:22:0: automatically included section variable(s) unused in theorem `ProbabilityProgress.outcome_some_iff`:",
+      "warning: Applications/Probability/Results.lean:40:0: automatically included section variable(s) unused in theorem `ProbabilityProgress.outcome_none_iff`:",
+      "warning: SquareKit/Internal/SliceGenericSection.lean:100:0: automatically included section variable(s) unused in theorem `SquareKit.Internal.GeometricMorphism.Lift.value_natural`:",
+      "warning: SquareKit/Internal/SliceGenericSection.lean:147:0: automatically included section variable(s) unused in theorem `SquareKit.Internal.GeometricMorphism.Lift.Hom.value`:",
+      "warning: SquareKit/Internal/SliceGenericSection.lean:165:0: automatically included section variable(s) unused in theorem `SquareKit.Internal.GeometricMorphism.Lift.value_star_snd`:",
+      "warning: SquareKit/Internal/SliceUniversal.lean:21:8: automatically included section variable(s) unused in theorem `_private.SquareKit.Internal.SliceUniversal.0.SquareKit.Internal.GeometricMorphism.sectionInverse_eq_fst`:",
+      "warning: SquareKit/Internal/PartitionSequents.lean:30:0: automatically included section variable(s) unused in theorem `SquareKit.Internal.PartitionSection.Model.exclusion`:",
+      "warning: SquareKit/Internal/PartitionSequents.lean:43:35: This simp argument is unused:",
+      "warning: SquareKit/Internal/PartitionSequents.lean:79:4: Try this: ",
+      "warning: SquareKit/Internal/FiniteClassifier.lean:63:26: automatically included section variable(s) unused in theorem `SquareKit.Internal.GeometricMorphism.classifierObjectComparison_inl`:",
+      "warning: SquareKit/Internal/FiniteClassifier.lean:73:26: automatically included section variable(s) unused in theorem `SquareKit.Internal.GeometricMorphism.classifierObjectComparison_inr`:",
+      "warning: SquareKit/Internal/GenericModel.lean:30:0: automatically included section variable(s) unused in theorem `SquareKit.Internal.GeometricMorphism.Lift.model_section`:",
+      "warning: SquareKit/Internal/SliceVaryingBase.lean:69:0: automatically included section variable(s) unused in theorem `SquareKit.Internal.GeometricMorphism.Lift.value_over`:",
+      "warning: SquareKit/Internal/SheafPseudopullback.lean:18:6: Variable name `h` is not explicitly referenced.",
+      "warning: SquareKit/Internal/ClassifierSourceChange.lean:28:0: automatically included section variable(s) unused in theorem `SquareKit.Internal.GeometricMorphism.sourceModelFunctor_section`:",
+      "warning: SquareKit/Internal/ClassifierSourceCoherence.lean:54:0: automatically included section variable(s) unused in theorem `SquareKit.Internal.GeometricMorphism.sourceModel_associativity`:",
+      "warning: SquareKit/Internal/ClassifierSourceCoherence.lean:66:0: automatically included section variable(s) unused in theorem `SquareKit.Internal.GeometricMorphism.sourceModel_right_unit`:",
+      "warning: SquareKit/Internal/ClassifierSourceCoherence.lean:75:0: automatically included section variable(s) unused in theorem `SquareKit.Internal.GeometricMorphism.sourceModel_left_unit`:",
+      "warning: SquareKit/Internal/PartitionMixedChange.lean:26:0: automatically included section variable(s) unused in theorem `SquareKit.Internal.GeometricMorphism.parameterPullbackIso_left`:",
+      "warning: SquareKit/Internal/PartitionMixedChange.lean:30:0: automatically included section variable(s) unused in theorem `SquareKit.Internal.GeometricMorphism.parameterPullbackIso_right`:",
+      "warning: SquareKit/Internal/PartitionCoherence.lean:19:0: automatically included section variable(s) unused in theorem `SquareKit.Internal.GeometricMorphism.parameterPullback_identity`:",
+      "warning: SquareKit/Internal/PartitionCoherence.lean:28:0: automatically included section variable(s) unused in theorem `SquareKit.Internal.GeometricMorphism.parameterPullback_composition`:",
+      "warning: SquareKit/Internal/TransformationCoherence.lean:17:0: automatically included section variable(s) unused in theorem `SquareKit.Internal.GeometricMorphism.pullModelTransformation_identity`:",
+      "warning: SquareKit/Internal/TransformationCoherence.lean:26:0: automatically included section variable(s) unused in theorem `SquareKit.Internal.GeometricMorphism.pullModelTransformation_composition`:",
+      "warning: Applications/Linear/StructuredCosts.lean:43:56: This simp argument is unused:",
+      "warning: Applications/Linear/StructuredCosts.lean:70:39: This simp argument is unused:",
+      "warning: Applications/Linear/StructuredCosts.lean:109:39: This simp argument is unused:",
+      "warning: Applications/Linear/StructuredMeasured.lean:48:8: automatically included section variable(s) unused in theorem `StructuredLinear.denseStage_erases`:",
+      "warning: Applications/Linear/StructuredMeasured.lean:52:8: automatically included section variable(s) unused in theorem `StructuredLinear.diagonalStage_erases`:",
+      "warning: Applications/Linear/StructuredMeasured.lean:58:2: `simp` already closes the goal",
+      "warning: Applications/Linear/StructuredMeasured.lean:56:0: automatically included section variable(s) unused in theorem `StructuredLinear.diagonalStage_cost`:",
+      "warning: Applications/Linear/StructuredMeasured.lean:69:4: `simp` already closes the goal",
+      "warning: Applications/Linear/StructuredMeasured.lean:72:2: `simp` already closes the goal",
+      "warning: Applications/Linear/StructuredMeasured.lean:61:0: automatically included section variable(s) unused in theorem `StructuredLinear.denseStage_cost`:",
+      "warning: Applications/Linear/StructuredMeasured.lean:170:8: automatically included section variable(s) unused in theorem `StructuredLinear.materializeMeasured_erases`:",
+      "warning: Applications/Linear/StructuredMeasured.lean:175:0: automatically included section variable(s) unused in theorem `StructuredLinear.materializeMeasured_cost`:"
+    ],
+    "all_warning_lines_human_read": false
+  },
+  "verification": {
+    "record": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/verification.json",
+      "bytes": 867,
+      "sha256": "379dcc3142a4ea4b207f7e1c952ef4ca08c1b80c39168816d168cac5f6023503"
+    },
+    "matches_current_qualified_copy": true,
+    "result": "passed",
+    "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+    "mode": "incremental",
+    "completed_at": "2026-11-05T03:54:08.410454+00:00",
+    "compiler": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+    "dependencies": {
+      "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "plausible": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "LeanSearchClient": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "importGraph": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "proofwidgets": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "aesop": "4a174c490d8707121c4a9290800489f105d85e07",
+      "Qq": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "batteries": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "Cli": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+    },
+    "compiler_and_pins_equal_accepted_XT01": true,
+    "fresh_trigger": false,
+    "fresh_basis": "Unchanged validation configuration, exact compiler/Lake, all nine pins and execution profile; applicable normal acceptance rules and already accepted Chapter 1 full fresh baseline. Nix only is waived."
+  },
+  "input_reconciliation": {
+    "counts": {
+      "local_sources": 29,
+      "local_compiler_objects_and_traces": 87,
+      "configuration": 10,
+      "dependencies": 9,
+      "runtime": 12
+    },
+    "before_types_after_types_after_full_exact_identity_equality": true,
+    "all29_sources_match_immutable_Git_bytes_and_blob_ids": true,
+    "all10_configs_match_accepted_base": true,
+    "all9_pins_clean_and_match_new_verification": true,
+    "all12_runtime_items_match_prior_type_observations": true,
+    "actual_program": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean",
+      "bytes": 4199,
+      "sha256": "fab2460caafba1f3f28a09006c4e220b9c735857e02294091486cdf4e8461c33"
+    },
+    "all90_names_original_order": true,
+    "three_roots": [
+      "Applications.Trees.Shape",
+      "Applications.Trees.ShapeLog",
+      "Examples.TreeShape"
+    ],
+    "external_imports": [
+      "Batteries.Data.DList.Lemmas",
+      "Lean",
+      "Mathlib.Algebra.FreeMonoid.Basic",
+      "Mathlib.Algebra.Group.Nat.Defs",
+      "Mathlib.Algebra.Group.Prod",
+      "Mathlib.Algebra.Group.TypeTags.Basic",
+      "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+      "Mathlib.Analysis.SpecialFunctions.Log.Base",
+      "Mathlib.Data.List.Basic",
+      "Mathlib.Data.List.Infix",
+      "Mathlib.Data.Nat.Log",
+      "Mathlib.Data.Tree.Basic",
+      "Mathlib.Tactic.Linarith",
+      "Std"
+    ],
+    "source_identities": {
+      "Examples/TreeShape.lean": {
+        "bytes": 12924,
+        "sha256": "d0f831e3aedca3571a77320485559dcb107664a21f34cd69c46be303a56ecb54",
+        "git_blob": "70f8fa17f515be7a419c1ca7ad8b7903b86c3524"
+      },
+      "Examples/TreeCache.lean": {
+        "bytes": 16571,
+        "sha256": "d92dfcbb139395af13a5939daed2739c10f08ec52d5eaef4165d3962bc76b955",
+        "git_blob": "e0f09b851bb4ce6d1093faaf3cbbcb3b3d873f24"
+      },
+      "Applications/Sequences/OrderedSummary.lean": {
+        "bytes": 8765,
+        "sha256": "d484e6c34f4ebace4ba121f931eba53a86f34a3c4b69e06d9d0b24ae8c8c7261",
+        "git_blob": "93509e2e97acd47dcd68a109ea8d18ef1d612b57"
+      },
+      "Applications/Sequences/Symmetric/Observation.lean": {
+        "bytes": 3425,
+        "sha256": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557",
+        "git_blob": "846aba846bfcfa04867cc221043609f9198b0ec0"
+      },
+      "SquareKit/Relations.lean": {
+        "bytes": 5615,
+        "sha256": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03",
+        "git_blob": "cdfa81e8f94728272a5c72da21ae2e4f5a5febc4"
+      },
+      "Squares.lean": {
+        "bytes": 11694,
+        "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+        "git_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a"
+      },
+      "Applications/Sequences/Symmetric/Finite.lean": {
+        "bytes": 4923,
+        "sha256": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490",
+        "git_blob": "fedbcc0dfa4c7865ef2ee73f395155d45e33dbe5"
+      },
+      "Applications/Sequences/Symmetric/Prefixes.lean": {
+        "bytes": 4345,
+        "sha256": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308",
+        "git_blob": "b73854f69696abe7cf827372ad070b6e9dc19991"
+      },
+      "Applications/Sequences/Symmetric/Core.lean": {
+        "bytes": 12059,
+        "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+        "git_blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4"
+      },
+      "SquareKit/ListFusion.lean": {
+        "bytes": 2939,
+        "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+        "git_blob": "33ec447acb6da7b884ae57d2a885707208201607"
+      },
+      "Applications/Resources/ListReversal.lean": {
+        "bytes": 4827,
+        "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+        "git_blob": "62ab85a7325d521bf925405f9abb053703f4d175"
+      },
+      "Applications/Resources/TreeFlattening/Core.lean": {
+        "bytes": 4225,
+        "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+        "git_blob": "d136193bd3823ee00431bc240d1e7a0168b4ddaf"
+      },
+      "Applications/Resources/Measured.lean": {
+        "bytes": 2906,
+        "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+        "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46"
+      },
+      "Applications/Resources/RandomAccess/CacheCosts.lean": {
+        "bytes": 2227,
+        "sha256": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+        "git_blob": "e583ec5285ea887c38f4b369071408697f0574b2"
+      },
+      "Applications/Sequences/RandomAccess/TreeBuild.lean": {
+        "bytes": 5392,
+        "sha256": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+        "git_blob": "3b662705f001c2a4b8fbe12868d6c7e77316d95f"
+      },
+      "Applications/Sequences/RandomAccess/Borrow.lean": {
+        "bytes": 5680,
+        "sha256": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+        "git_blob": "81b95e8bd4a6e30f6a20a85828409d6d55437be0"
+      },
+      "Applications/Sequences/RandomAccess/Access.lean": {
+        "bytes": 5219,
+        "sha256": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+        "git_blob": "5354c146a0665cce90ffc996d1b522b8a59079ad"
+      },
+      "Applications/Sequences/RandomAccess/Basic.lean": {
+        "bytes": 5970,
+        "sha256": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+        "git_blob": "fe040b71615878a86d06b326b820e1d5cd5f0229"
+      },
+      "Applications/Bracketing/Basic.lean": {
+        "bytes": 8561,
+        "sha256": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+        "git_blob": "3f6604c226908ee807c7d5076bd1c027b48bbf90"
+      },
+      "Applications/Optimization/SelectionSpec.lean": {
+        "bytes": 738,
+        "sha256": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+        "git_blob": "2548b66575b5a453e8cec30ceb745234bb0ae2e6"
+      },
+      "Applications/Resources/SymmetricCosts.lean": {
+        "bytes": 10508,
+        "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+        "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233"
+      },
+      "Applications/Resources/Potential.lean": {
+        "bytes": 4638,
+        "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe",
+        "git_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1"
+      },
+      "Applications/Resources/Workload.lean": {
+        "bytes": 2745,
+        "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+        "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05"
+      },
+      "Applications/Resources/CallCount.lean": {
+        "bytes": 2447,
+        "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+        "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195"
+      },
+      "Applications/Resources/TreeCache.lean": {
+        "bytes": 3862,
+        "sha256": "c03a102b43bb5f04edf8b5ab6f0685bd82f80d55a67af680dfa8c0ff0c149abc",
+        "git_blob": "445e49be7535e17640c7c4ca81251dd7c4119117"
+      },
+      "Applications/Trees/Cached.lean": {
+        "bytes": 5668,
+        "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+        "git_blob": "c301ca85e555a8c5bb3c9db10459446121bc6613"
+      },
+      "Applications/Trees/Observations.lean": {
+        "bytes": 4119,
+        "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+        "git_blob": "f90fbe8c85b9c88f760236d48129bd2b4c4d7e71"
+      },
+      "Applications/Trees/ShapeLog.lean": {
+        "bytes": 3070,
+        "sha256": "24ba63bd0a8bc04afdcc1f559ae398a7438f8fe9618cc3e29c8d790499bd5629",
+        "git_blob": "13544a17fd22b734e750044e94d1a4d39d5d1c22"
+      },
+      "Applications/Trees/Shape.lean": {
+        "bytes": 11019,
+        "sha256": "2233e014900a48ebc239d676a1c8abdaee2046ef503e5219bff460a001b868f3",
+        "git_blob": "52c589e228d4c3a8726f7010ec1de7700ba5eca2"
+      }
+    },
+    "saved_observation_boundary": "Read-only input observation; actual execution, loaded-object qualification, complete output review, and candidate acceptance remain separate evidence.",
+    "limitation": "Saved observations alone do not prove every loaded-object origin or exclude transient inputs. The actual matching full check, source/coverage/version checks and both integrity guards provide the required candidate qualification. Reviewer did not hash current compiler objects or runtime/dependency files."
+  },
+  "retained_finding": {
+    "id": "XT02-SP01",
+    "severity": "minor",
+    "status": "Closed on fully validated receiving candidate",
+    "source_correction_confirmed": true,
+    "actual_type_direction_confirmed": true,
+    "full_candidate_validation_confirmed": true,
+    "reason": "Recursive validity is sufficient for the minimum-cache reader law. The corrected comment no longer asserts necessity; all hypotheses, actual returned observation and the retained malformed-child counterexample remain as originally assessed."
+  },
+  "failed_focused_attempts_retained": [
+    {
+      "candidate": "27c5908b07c7a03feefc09472a8701ef940b7aaf",
+      "actual_terminal": "749654",
+      "exit": 1
+    },
+    {
+      "candidate": "5b3b9ab1d72a70ca454abe68790327bcbb352d3c",
+      "actual_terminal": "303ee9",
+      "exit": 1
+    }
+  ],
+  "human_read_receipts": [
+    {
+      "receipt": "6a20b7",
+      "actual_exit": 0,
+      "scope": "Complete request/start/launch/actual launch/progress/actual terminal/owned terminal/native start/native result/outer result/closed reconciliation/verification/prefix/suffix; no claim of current liveness from historical progress."
+    },
+    {
+      "receipt": "f3948a",
+      "actual_exit": 0,
+      "scope": "Complete native ranges 1-12,1603-1668,1932-1939,2556-2563,2770-2779; independent full computational audit-row parsing."
+    },
+    {
+      "receipt": "afdcf6",
+      "actual_exit": 0,
+      "scope": "Historical current source/type report lines1-60 complete; complete check.sh."
+    },
+    {
+      "receipt": "2fb589",
+      "actual_exit": 0,
+      "scope": "Historical current source/type report lines61-117 complete; bounded driver/audit search."
+    },
+    {
+      "receipt": "a77f43",
+      "actual_exit": 0,
+      "scope": "Complete ProofAudit.lean1-154; scripts/check.py1-45 and199-348, immutable candidate."
+    },
+    {
+      "receipt": "43254a",
+      "actual_exit": 1,
+      "scope": "Root audit reconciliation1-139 fully displayed with exact identity; subsequent separate guessed-path read failed before content. No failed compiler or mathematical finding."
+    },
+    {
+      "receipt": "a6f02f",
+      "actual_exit": 0,
+      "scope": "Correct final-evidence-expectations1-18 complete; all final-input top-level identity fields except source/object maps displayed completely; those maps reconciled computationally."
+    },
+    {
+      "receipt": "34fd8b",
+      "actual_exit": 0,
+      "scope": "Actual90 program1-105 complete and exact leading-@ program-name normalization."
+    }
+  ],
+  "reviewer_bookkeeping_history": [
+    {
+      "receipt": "cc3c46",
+      "actual_exit": 1,
+      "meaning": "Read-only reconciliation stopped at comparing raw #check @ names against unprefixed inventory names. Explicit leading @ normalization verified by34fd8b; this record is produced only after corrected complete assertions succeed. No project/helper/compiler execution and no writes occurred in failed attempt."
+    },
+    {
+      "receipts": [
+        "6a20b7",
+        "19bc1f"
+      ],
+      "meaning": "Combined earlier tool output exceeded aggregate display budget; no fresh complete read credit for truncated previous hold/log portions. Relevant native ranges were reread untruncated in f3948a; historical hold complete readback remains preserved."
+    }
+  ],
+  "subsequent_caller_actions": [
+    "Immediate qualified ./check.sh --verify-candidate HEAD",
+    "Exact local acceptance after both independent axes pass",
+    "Local ticket/coverage update and durable checkpoint"
+  ],
+  "no_caller_acceptance_action_claimed": true,
+  "no_chapter04_or_later_acceptance_claimed": true,
+  "no_compiler_helper_check_audit_or_process_poll_by_reviewer": true,
+  "writes_only_authorized_review_provenance": true,
+  "bound_evidence": {
+    "provenance/tree-shape-receiving-full-attempt1-20261105/request.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/request.json",
+      "bytes": 737,
+      "sha256": "f899730f860180d9a41a062846b95e4a1d973e04dd20a85780e351d5b36f8331"
+    },
+    "provenance/tree-shape-receiving-full-attempt1-20261105/start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/start.json",
+      "bytes": 930,
+      "sha256": "d90418969674da2f213dce278b7165f323aaa7bbc74509a9b8086fcdba5ce17c"
+    },
+    "provenance/tree-shape-receiving-full-attempt1-20261105/launch.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/launch.json",
+      "bytes": 174,
+      "sha256": "6defdd366866df0ae82c0c8e2426359423720a2741d2189f84f318dd9fed8143"
+    },
+    "provenance/tree-shape-receiving-full-attempt1-20261105/actual-launch-result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/actual-launch-result.json",
+      "bytes": 298,
+      "sha256": "5cde899352a9f54c65ba4fa826d5e02a94d47e65171c169c10fa30f090f62f26"
+    },
+    "provenance/tree-shape-receiving-full-attempt1-20261105/actual-tool-terminal.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "sha256": "36dfc8ae9b902c8dc8e0232cac699ab94dc95c6b9ac78d62809e417562ced583"
+    },
+    "provenance/tree-shape-receiving-full-attempt1-20261105/owned-terminal.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "f36bce46608672c9b43b8cd206b6faf914ff2fa1211fa7e4b740e4d97401cedd"
+    },
+    "provenance/tree-shape-receiving-full-attempt1-20261105/native-records/start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/native-records/start.json",
+      "bytes": 421,
+      "sha256": "9046d202eae67d88712a9199312367c8b14d3e912a3faa2e22e072566ee0fe77"
+    },
+    "provenance/tree-shape-receiving-full-attempt1-20261105/native-records/result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/native-records/result.json",
+      "bytes": 574,
+      "sha256": "d40ba095e94d66f8505db69a99fd8e9e321713d0e43e53cf1804d7485ebdec3b"
+    },
+    "provenance/tree-shape-receiving-full-attempt1-20261105/result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/result.json",
+      "bytes": 1256,
+      "sha256": "4bec18d19e16579555633111050e54bd4e443add13efa8d348fac2cbbcfcdb61"
+    },
+    "provenance/tree-shape-receiving-full-attempt1-20261105/closed-evidence-reconciliation.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2377,
+      "sha256": "e8f6a27379b5d3fbaead75a7081970976ac042ff2a4884f2e5bc072f527e148b"
+    },
+    "provenance/tree-shape-receiving-full-attempt1-20261105/full.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/full.log",
+      "bytes": 326815,
+      "sha256": "47b4f52f06b9610b6d0c54c7f02daf0feb6cf56783fca555927e164ed9fd358b"
+    },
+    "provenance/tree-shape-receiving-full-attempt1-20261105/native-records/output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/native-records/output.log",
+      "bytes": 326586,
+      "sha256": "24a3e9d664836b1c39cbe7725ef623a030615cd67efaecadfe338e2111d8b078"
+    },
+    "provenance/tree-shape-receiving-full-attempt1-20261105/outer-prefix.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/outer-prefix.log",
+      "bytes": 70,
+      "sha256": "85b1c84dcee195655562afb91455f0d9c98388a8be8845b8eb9306ffa317cfab"
+    },
+    "provenance/tree-shape-receiving-full-attempt1-20261105/outer-suffix.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/outer-suffix.log",
+      "bytes": 159,
+      "sha256": "e22fe7c8d23ba3bc77adbdf767d6c9fa286936973d62f5fd70afb4470fd20fc2"
+    },
+    "provenance/tree-shape-receiving-full-attempt1-20261105/verification.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/verification.json",
+      "bytes": 867,
+      "sha256": "379dcc3142a4ea4b207f7e1c952ef4ca08c1b80c39168816d168cac5f6023503"
+    },
+    "provenance/tree-shape-receiving-full-attempt1-20261105/root-audit-reconciliation.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/root-audit-reconciliation.json",
+      "bytes": 6725,
+      "sha256": "85dd530168d74c6f631a723154f613804a9777b2ceb3b394eee71becc982cd52"
+    },
+    "provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean",
+      "bytes": 4199,
+      "sha256": "fab2460caafba1f3f28a09006c4e220b9c735857e02294091486cdf4e8461c33"
+    },
+    "provenance/tree-shape-receiving-statements90-20261105/inputs-before.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/inputs-before.json",
+      "bytes": 34483,
+      "sha256": "1ee3406ca37aeaa9b62485d8719d1085fc7803f41c01229526619f48e2c2a963"
+    },
+    "provenance/tree-shape-receiving-statements90-20261105/inputs-after.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/inputs-after.json",
+      "bytes": 34785,
+      "sha256": "e099ff7584144fe5d9c3294dea7d19139009622808de2ab65b4a437dbc0353ee"
+    },
+    "provenance/tree-shape-receiving-statements90-20261105/final-inputs-after-full.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/final-inputs-after-full.json",
+      "bytes": 34785,
+      "sha256": "c44a0f8632b982d3080329c074fe17b1642eb7fcc5b8e193fcae0a3c034a063f"
+    },
+    "provenance/tree-shape-acceptance-20261105/final-evidence-expectations.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/final-evidence-expectations.json",
+      "bytes": 965,
+      "sha256": "d9b1badac43cf7f6961b98545593d8d519e4730e5467754d3d392ce4a5188c15"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/source-type-stage-e61bb6f.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-type-stage-e61bb6f.json",
+      "bytes": 6750,
+      "sha256": "0f891ca128de6237ee87faa27add0f07d881962e2264eec53745daf95da7c99a"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/source-type-stage-report-e61bb6f.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-type-stage-report-e61bb6f.md",
+      "bytes": 23134,
+      "sha256": "24d3040036ac3ba50614365cc564f0844d6466082a93d1cc29bf8d2e78f51a96"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/source-type-write-hold-e61bb6f.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-type-write-hold-e61bb6f.json",
+      "bytes": 8859,
+      "sha256": "742f51266e05424d93ab78dbb697dd4b639fe629f7e2f97f529a8c59d283cc07"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/source-reconciliation-27c5908.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-reconciliation-27c5908.json",
+      "bytes": 76893,
+      "sha256": "29978ad7f74dc89ab0818fc3db780dd907b0c07eb33271f2efce954a6f2287c9"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/source-corrections-e61bb6f.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-corrections-e61bb6f.json",
+      "bytes": 51320,
+      "sha256": "3e0eec71c60f4a515dabf05e6b373bfa149a4a777c3c1d1dfe1a6b25396aa912"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/actual-types90-assessment-e61bb6f.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/actual-types90-assessment-e61bb6f.json",
+      "bytes": 69498,
+      "sha256": "e30648cdaea94fbf5eddb97f917bbe3299323e8a97eaacd9ebaa2194e13882ac"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/focused-attempt1-assessment-27c5908.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/focused-attempt1-assessment-27c5908.json",
+      "bytes": 7553,
+      "sha256": "7644eaace1355a7aa3c845ea4394bf9eaaf06f3f83d55a5fa2d5fea20ab63590"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/focused-attempt2-assessment-5b3b9ab.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/focused-attempt2-assessment-5b3b9ab.json",
+      "bytes": 8054,
+      "sha256": "ec2d58d5215bb152fb4071e2648d5f8f80b26190c3cdb0e4734bcf69357c3066"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/focused-attempt3-assessment-e61bb6f.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/focused-attempt3-assessment-e61bb6f.json",
+      "bytes": 7659,
+      "sha256": "c9654a8d57c50eb06cc2964aa3a7a3631433ae33c9838dcca99fc5e299a8afb4"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/read-ledger-source-types-e61bb6f.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/read-ledger-source-types-e61bb6f.json",
+      "bytes": 9472,
+      "sha256": "1d2c36380b5df0be05fee309c42de442bb17f78af9b4dd00b5cd6121433d82c4"
+    }
+  }
+}

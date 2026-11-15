@@ -1,0 +1,158 @@
+{
+  "axis": "Standards",
+  "recorded_utc": "2026-11-05T01:09:59.788255+00:00",
+  "outcome": "Blocked; whole source review and final validation incomplete",
+  "current_immutable_candidate": "6eb3b18f017cad485371546b5a7ab0d6f13eb604",
+  "tree": "be3c73dd4c77f38e8646e54f7d33e6ce3056c0fd",
+  "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "frozen_obligations": 83,
+  "previous_progress": {
+    "path": "provenance/chapter03-standards-review-20261104/progress-after0136-random-equal-endpoints.json",
+    "bytes": 8078,
+    "sha256": "b7d906ff32f00a1a3cd234ca91e60199ba3d8e7269422a4b0636dc8ae12bc216"
+  },
+  "candidate_continuation": {
+    "parent": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+    "changed_paths": [
+      "Applications/Resources/RandomSelectionWorst.lean",
+      "Examples/RandomSelectionWorst.lean",
+      "SquareApplications.lean"
+    ],
+    "read_receipt": "72f6f1 final delta/entrypoint output; independently asserted again at this save",
+    "unchanged_prior_scope": "All prior76 Chapter3 sources, both corrected findings, both correspondence documents and other repository paths are unchanged. Only the added Worst pair and its entrypoint import are new; Worst remains unassessed. Original Q-to-final/all83 scope and accepted XR remain unchanged."
+  },
+  "newly_assessed_sources": [
+    {
+      "path": "Applications/Resources/RandomSelectionTrace.lean",
+      "bytes": 7823,
+      "sha256": "146f81f9db7782fd30f54848bee87038a2f9a1edcb4c2c776e854494bc80729e",
+      "lines": 185,
+      "equal_to_4c96": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Examples/RandomSelectionTrace.lean",
+      "bytes": 8686,
+      "sha256": "5abb356eeecb3d6a046cd529db4701f88056a4ef95bb4cbff294a86747b11f9d",
+      "lines": 186,
+      "equal_to_4c96": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Applications/Selection/CoordinateSensitivity.lean",
+      "bytes": 6717,
+      "sha256": "224724056815f73aff552ead23b7dd83af4078ad61009169e1b474f4b94476e6",
+      "lines": 159,
+      "equal_to_4c96": true,
+      "full_source_and_actual_type_assessment": true
+    },
+    {
+      "path": "Examples/CoordinateSensitivity.lean",
+      "bytes": 3726,
+      "sha256": "ed3d3d7cd41c97169893fdb5cf95e336a560f6f042ee70cea0a24ad7a6691828",
+      "lines": 89,
+      "equal_to_4c96": true,
+      "full_source_and_actual_type_assessment": true
+    }
+  ],
+  "source_receipts": {
+    "Trace/both_complete": "38cb46",
+    "Sensitivity/both_complete": "ee2081"
+  },
+  "trace_types": {
+    "index": {
+      "path": "provenance/chapter03-trace-statement-inputs-20261104/actual-type-block-index.json",
+      "bytes": 6304,
+      "sha256": "61ef57f91219feb2e3686ee93debe25224061426d44d6ea05e981c735763c496"
+    },
+    "native_log": {
+      "path": "provenance/chapter03-random-selection-trace-statements23-attempt1-20261104/native-records/output.log",
+      "bytes": 35549,
+      "sha256": "31b3ef8b1af81e05f295a75f24e0051f0c24033a40f3384e54de7c1f9f70677e"
+    },
+    "blocks": 23,
+    "complete_raw_read_receipts": {
+      "0-13": "713105",
+      "14-22": "f52c62"
+    },
+    "index_validation": "713105 verifies every byte/hash/name and one exact complete35549-byte482-line partition",
+    "program": {
+      "path": "provenance/chapter03-trace-statement-inputs-20261104/Statements23-trace-delta.lean",
+      "bytes": 1734,
+      "sha256": "7e8648e6581eccd868a7e56e748ba7381c28b9ff5109dcc03174282d1e494e07"
+    },
+    "program_full_read": "5e8091",
+    "pre_inputs": {
+      "path": "provenance/chapter03-trace-statement-inputs-20261104/pre-inputs.json",
+      "bytes": 46716,
+      "sha256": "7baa903f739922bbe8b57c0494abaa2a78d11dc615583ce3abce5b549abc0108"
+    },
+    "post_inputs": {
+      "path": "provenance/chapter03-trace-statement-inputs-20261104/post-inputs.json",
+      "bytes": 47014,
+      "sha256": "b2d9a746357c069cd11caa3cf44d2c0437a55aeddbe98d334ae3f7a79563ba5b"
+    },
+    "stable_observation": "ec5f23 independently confirms equal identities,46 sources138 compiler objects/traces10 configuration files9 dependencies12 runtime components. All46 source and10 config byte/hash identities match immutable6eb3. Historical object identity only; no current object or final qualification inferred. Earlier72f6f1 helper compared extra git_blob fields and emitted false structural differences; normalized byte/hash comparison inec5f23 corrects that reviewer inspection without source findings.",
+    "closed_type_evidence": "537c68 andec5f23 read actual terminal5525da/owned72126/outer/nativeexit0 at exact2b5ff205, complete log outer35913/c7052a16b3d3759151ff46d0a1672a8f4a8e68c8c14322e49c173b2d2d0f7095 and native35549/31b3ef8b1af81e05f295a75f24e0051f0c24033a40f3384e54de7c1f9f70677e. Exact native body occurs once at offset207; wrapper fully read. Program names/order match indexed output.",
+    "closed_focused_evidence": "ec5f23 reads full closed focused output and actual owned43908/df8dde exit0, nativeexit0 and no recorder error; exact2b5ff205. Outer10940/1c033c4b4c1f001812a83705a8ce92d8addd82c04b8141f131faab4876660ee1; native10656/972f5b1e6a71a8160936ca265c07a7193c9203d0d4221eb3a63965bc18d13c35, exact body offset127. Replayed existing module-system warnings are shown; both Trace modules built. No full candidate audit or verification credit."
+  },
+  "sensitivity_types": {
+    "index": {
+      "path": "provenance/chapter03-assembly2-statement-inputs-20261104/actual-type-block-index.json",
+      "bytes": 382223,
+      "sha256": "b89adf0160b2a887c5046917d6ac04131e826e3d6dd4d7e31b0edc0ab62961a2"
+    },
+    "inclusive_ranges": [
+      [
+        1153,
+        1159
+      ],
+      [
+        1184,
+        1196
+      ]
+    ],
+    "count": 20,
+    "bytes": 20647,
+    "concatenated_sha256": "a12ad88121c9a0a44bb6b63cdd5b1e09024dd6315506cde7c6aeb5b1fd66ec84",
+    "complete_raw_read_receipts": {
+      "1153-1159_and1184-1189": "92fb35",
+      "1190-1196": "52470e"
+    }
+  },
+  "assessment": {
+    "trace": "Full source and all23 actual types confirm prepend injectivity through retained value/trace/cost; exact recursive atom factorization follows the fresh uniform actual occurrence and excludes every other sampled index through the recorded first trace tag. Supported trace injectivity is fixed to one initial input/rank and inducts on the actually selected strict child, retaining invalid ranks and duplicates. Its trace-law pushforward atom has exactly the supported complete outcome mass. Private inverse-product arithmetic and every concrete path step were read. Unsorted interior and signed paths, singleton, duplicate, empty and invalid cases consume the actual run. Separate countercases expose why initial state and support are necessary. No new executor, assumed child mass, unsupported uniqueness or inferred value-to-cost transfer appears.",
+    "sensitivity": "All seven public core statements and thirteen example statements were read with their bodies and relevant private helpers. Constructive finite Int witnesses above/below every input value change any valid rank at every valid coordinate of any Nodup input. Exact strict rank counts and countP_set distinguish whether the replaced occurrence is at/below or above the selected value; freshness preserves Nodup for that stronger witness but the public existential does not require the caller to assume a witness. Valid occurrence-index injectivity is explicitly restricted to Fin length. Fin-function updates commute with List.ofFn and set, connecting the result to the later query model. Public one-based sortSelect and valid pivot-policy bridges transport values without attaching cost. Examples check all three above/below/selected coordinates, fresh witnesses, singleton, out-of-range equality countercase, last-pivot interface and unbounded increasing Int family. No fresh-witness, endpoint, inhabited, hidden order or execution premise weakens the public sensitivity theorem.",
+    "queries_source_only": "Both complete CoordinateQueries sources were additionally read in779402. The history-only deterministic protocol, inductive actual query execution, replay and distinct-input lower bounds, positive tariff transfer and total-correct worst-case family are semantically assessed at source level. All48 actual blocks remain unread here, so these two files are not counted complete yet.",
+    "new_findings": []
+  },
+  "coverage": {
+    "complete_source_and_type_modules": 70,
+    "source_modules_fully_read": 72,
+    "current_total_chapter_modules": 78,
+    "actual_blocks_read": 1224,
+    "original_index_inclusive_ranges": [
+      [
+        0,
+        1159
+      ],
+      [
+        1184,
+        1196
+      ],
+      [
+        1294,
+        1320
+      ]
+    ],
+    "additional_blocks": "23 Trace and1 CountRank client",
+    "accepted_XR_formal_modules_reused": 2,
+    "incomplete_modules": "Six remaining coordinate-query modules (Queries pair source-read only) plus two new Worst modules"
+  },
+  "findings": {
+    "C03-SPEC-USE-001": "Resolved and unchanged",
+    "C03-STD-DOC-001": "Resolved and unchanged",
+    "new_findings": []
+  },
+  "remaining": "Six query modules/121 actual statements, new universal Worst pair/25 actual statements, final correspondence update and coverage, full development1321 command reconciliation and final1391 qualification including accepted XR. Full normal audit and both independent final reviews, then immediate candidate verification, remain mandatory. No compiler command or session poll was run by this reviewer."
+}

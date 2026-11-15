@@ -1,0 +1,126 @@
+{
+  "observed_utc": "2026-11-02T22:08:55.971500+00:00",
+  "available_bytes": 1272963072,
+  "launch": {
+    "requested_utc": "2026-11-02T22:08:36.921181+00:00",
+    "result": "launched",
+    "command": [
+      "/root/.nix-profile/bin/nix",
+      "--extra-experimental-features",
+      "nix-command flakes",
+      "--option",
+      "build-users-group",
+      "",
+      "develop",
+      "--command",
+      "python3",
+      "/workspace/scratch/845aa1048b05/fdsa-control/provenance/run-chapter01-repair-attempt3.py"
+    ],
+    "cwd": "/workspace/scratch/845aa1048b05/conaled",
+    "output": "/workspace/scratch/845aa1048b05/fdsa-control/reviews/chapter01-repair-attempt3-launcher.log",
+    "checkpoint": "conaled-fdsa-0054-chapter01-session-recovery",
+    "checkpoint_sha256": "a8ebb8440a86730053538746e732d14febb63d661bd024376eba393a6294f0b2",
+    "checkpoint_library_file_id": "libfile_ec03fe0e3c68819181acaad8bbc6e184",
+    "separate_session": true,
+    "scope": "Process lifecycle only. No checker, candidate, pin, mode, guard, audit, or cache-policy change.",
+    "launcher_process": {
+      "pid": 600750,
+      "start_ticks": "9123853",
+      "state": "R",
+      "process_group": 600750,
+      "session": 600750
+    },
+    "launched_utc": "2026-11-02T22:08:36.923047+00:00"
+  },
+  "recorder": {
+    "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "review_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+    "started_utc": "2026-11-02T22:08:37.284385+00:00",
+    "checkout": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+    "initial_status": "",
+    "command": [
+      "env",
+      "LEAN_NUM_THREADS=1",
+      "./check.sh",
+      "--candidate",
+      "HEAD"
+    ],
+    "LEAN_NUM_THREADS": "1",
+    "result": "running",
+    "log": "/workspace/scratch/845aa1048b05/fdsa-control/reviews/chapter01-repair-incremental-attempt3.log",
+    "wrapper": {
+      "pid": 600750,
+      "start_ticks": "9123853",
+      "state": "R",
+      "process_group": 600750,
+      "session": 600750
+    },
+    "available_bytes_at_start": 1277620224,
+    "prior_attempt_outcome": "Attempts1 and2 both have unknown terminal outcomes; both INC02 evidence sets remain preserved without modification.",
+    "recovery_disposition": "reviews/chapter01-session2-recovery-standards.md",
+    "recovery_disposition_sha256": "2f2d829897074900896b69cfb8b2edde0f30cddb6f5a525eb9f31e3b9f323293",
+    "launcher_mode": "External pinned-Nix launch in a separate session; checker command and verification policy unchanged.",
+    "scope": "Full unchanged ordinary guarded candidate check: source/coverage/compiler identity, both integrity passes, complete integrated build and exhaustive proof audit. Both retained final review axes and immediate verify-candidate remain required.",
+    "checker": {
+      "pid": 600779,
+      "start_ticks": "9123889",
+      "state": "R",
+      "process_group": 600750,
+      "session": 600750
+    }
+  },
+  "task_processes": [
+    {
+      "pid": 600750,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "start_ticks": "9123853",
+      "state": "S",
+      "parent_pid": 1,
+      "process_group": 600750,
+      "session": 600750
+    },
+    {
+      "pid": 600779,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "start_ticks": "9123889",
+      "state": "S",
+      "parent_pid": 600750,
+      "process_group": 600750,
+      "session": 600750
+    },
+    {
+      "pid": 600956,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "start_ticks": "9124698",
+      "state": "S",
+      "parent_pid": 600779,
+      "process_group": 600750,
+      "session": 600750
+    }
+  ],
+  "launcher_log": {
+    "exists": true,
+    "size": 438,
+    "tail": [
+      "{\"started_utc\": \"2026-11-02T22:08:37.284385+00:00\", \"candidate\": \"07e480f6ec9958d4975bb90151005b84f2907614\", \"wrapper\": {\"pid\": 600750, \"start_ticks\": \"9123853\", \"state\": \"R\", \"process_group\": 600750, \"session\": 600750}, \"checker\": {\"pid\": 600779, \"start_ticks\": \"9123889\", \"state\": \"R\", \"process_group\": 600750, \"session\": 600750}, \"log\": \"/workspace/scratch/845aa1048b05/fdsa-control/reviews/chapter01-repair-incremental-attempt3.log\"}"
+    ]
+  },
+  "gate_log": {
+    "exists": true,
+    "size": 95327,
+    "tail": [
+      "Integrity guard: rebuilding Examples.Thinning ([Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/Thinning.trace')",
+      "Integrity guard: rebuilding Examples.TimedMotion ([Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/TimedMotion.trace')",
+      "Integrity guard: rebuilding Applications.Resources.TreeFlattening.Cached ([Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/TreeFlattening/Cached.trace')",
+      "Integrity guard: rebuilding Applications.Resources.TreeFlattening.Growth ([Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/TreeFlattening/Growth.trace')",
+      "Integrity guard: rebuilding Applications.Resources.TreeFlattening.Observation ([Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Resources/TreeFlattening/Observation.trace')",
+      "Integrity guard: rebuilding Examples.TreeFlatteningCosts ([Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/TreeFlatteningCosts.trace')",
+      "Integrity guard: rebuilding Examples.TypedPathTransport ([Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Examples/TypedPathTransport.trace')",
+      "Integrity guard: rebuilding SquareKit.CommaLimits ([Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/CommaLimits.trace')",
+      "Integrity guard: rebuilding Verification ([Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Verification.trace')",
+      "Integrity guard: rebuilding SquareApplications ([Errno 2] No such file or directory: '/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareApplications.trace')",
+      "Integrity guard: hashed 1545 artifacts; 445 modules invalidated (2.04s).",
+      "Building 960 project modules with Lake (incremental)."
+    ]
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "recorded_utc": "2026-11-04T10:26:15.097987+00:00",
+  "reviewer": "chapter02_standards",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete81-path R-through-candidate Standards scope, all112 obligations and ten shared scopes; exact F retained separately.",
+  "outcome": "Focused Uniform example compilation confirmed; overall Standards remains Blocked.",
+  "terminal": {
+    "started_utc": "2026-11-04T10:15:23.085712+00:00",
+    "completed_utc": "2026-11-04T10:24:27.783147+00:00",
+    "outer_exit": 0,
+    "native_exit": 0,
+    "elapsed_outer_seconds": 544.6971439419976,
+    "elapsed_native_seconds": 544.5767924059983,
+    "command": [
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+      "--state",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+      "run",
+      "--project",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+      "--threads",
+      "1",
+      "--",
+      "lake",
+      "build",
+      "Examples.UniformQuickSortMean"
+    ],
+    "native_command": [
+      "lake",
+      "build",
+      "Examples.UniformQuickSortMean"
+    ],
+    "lean_threads": "1",
+    "initial_and_final_head": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "initial_and_final_status": "",
+    "native_timed_out": false,
+    "native_recorder_error": null,
+    "verification_record_present": false,
+    "session_closed_record_read": true,
+    "reviewer_polled_process": false
+  },
+  "artifacts": {
+    "full.log": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/full.log",
+      "bytes": 12714,
+      "lines": 77,
+      "sha256": "0401a87f1b037417a2af9c4ff28bb09871d824f9e44dba9a3515749fa143a38d"
+    },
+    "launch.json": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/launch.json",
+      "bytes": 174,
+      "lines": 6,
+      "sha256": "ca233df8e777ab85af2ad49584b75dc87389f36b40405521a20888746d15a3e2"
+    },
+    "native/output.log": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/native/output.log",
+      "bytes": 12473,
+      "lines": 74,
+      "sha256": "18170c635aad54d9644d56a9532761fb5c2cc695c3184348a46a728b3b449b1e"
+    },
+    "native/result.json": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/native/result.json",
+      "bytes": 588,
+      "lines": 18,
+      "sha256": "dc5ab64a311fa15735007196aaa15a439754b3c6bf429683e6888b24557a3450"
+    },
+    "native/start.json": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/native/start.json",
+      "bytes": 436,
+      "lines": 13,
+      "sha256": "428aa78164a4e573b5e890f0efca11eb9bb47f60c681580757c0bb5e609aa5cb"
+    },
+    "progress.json": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/progress.json",
+      "bytes": 262,
+      "lines": 8,
+      "sha256": "e1168ae1f4a5d5be375b010470dd51da56912fef7151fe78362227bde148b47e"
+    },
+    "request.json": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/request.json",
+      "bytes": 754,
+      "lines": 21,
+      "sha256": "50447e79147fd27bcc59d93bf8d42ea48261c9cdecb01a5a0fc1cd14526c90e5"
+    },
+    "result.json": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/result.json",
+      "bytes": 1189,
+      "lines": 31,
+      "sha256": "03be18f596bf303f6ebe8cf3faf50e9b02acfb5e073bd63f43c3b74fc3613be2"
+    },
+    "secured-terminal.json": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/secured-terminal.json",
+      "bytes": 13132,
+      "lines": 88,
+      "sha256": "00783c88ff13f7fcfe59bf7853be7b400ca83328e7c80c4f112e391401fa52a9"
+    },
+    "start.json": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/start.json",
+      "bytes": 956,
+      "lines": 26,
+      "sha256": "3e504db28b6aa80007a7cad18d393ac0b4499edb377df7e18e749cd251aa4aca"
+    },
+    "terminal-securement-parser-note.json": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/terminal-securement-parser-note.json",
+      "bytes": 440,
+      "lines": 8,
+      "sha256": "702afd9b4b537540e497fd833de04c0ca8f8058cfabf5b272d3051c44a30ff60"
+    }
+  },
+  "independent_reads": {
+    "all77_full_log_lines": true,
+    "all88_secured_terminal_lines": true,
+    "complete_request_start_result_native_start_native_result": true,
+    "complete_launch_progress_and_parser_note": true,
+    "full_native_output_read_through_exact_full_log_inner_identity": true
+  },
+  "integrity_checks": {
+    "all_three_native_copies_equal_original_closed_records": true,
+    "full_log_inner_lines_equal_native_output": true,
+    "actual_bytes_and_hashes_match_all_terminal_metadata": true,
+    "commands_candidate_cleanliness_times_and_exits_reconcile": true,
+    "initial_native_passed_false_and_historical_pending_launch_progress_are_start_states_not_terminal_results": true
+  },
+  "actual_module_build": {
+    "module": "Examples.UniformQuickSortMean",
+    "seconds": 524,
+    "full_log_line": 74,
+    "source_bytes": 16973,
+    "source_lines": 366,
+    "source_sha256": "744562a71000f1d4f2c82a57a681eaf0491dfd7065ad650f09c4403304d8c24b",
+    "source_blob": "cfb82beff57d8bf116b882c0c49850e4be629586",
+    "reviewed_source_receipt": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/uniform-examples-repair2-assessment.json",
+      "bytes": 29243,
+      "lines": 837,
+      "sha256": "d3a5cf2e5351b6a9953b96018cea53bda349079e42af63954538505206c3b62f"
+    },
+    "integrated_binding_receipt": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-4b5dbfa0.json",
+      "bytes": 27181,
+      "lines": 505,
+      "sha256": "3ae1e9749b8633e64a0adc14bb9cc96f5ee6cd5ba338dd45d55ddeac3df161d7"
+    },
+    "scope": "Actual successful focused build of the independently reviewed nine proof corrections and explicit Fintype replacement at exact central candidate.",
+    "lake_3719_jobs_is_not_whole_project_audit_or_new_book_result_count": true
+  },
+  "warnings": {
+    "count": 52,
+    "all_module_system_import_advisories": true,
+    "exact_multiset_equal_to_closed_focused10": true,
+    "no_new_warning_text_relative_to_focused10": true,
+    "not_all_classified_as_accepted_baseline": true,
+    "warning_policy_changed": false,
+    "errors": []
+  },
+  "secondary_securement_parser_note": {
+    "record": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/terminal-securement-parser-note.json",
+      "bytes": 440,
+      "lines": 8,
+      "sha256": "702afd9b4b537540e497fd833de04c0ca8f8058cfabf5b272d3051c44a30ff60"
+    },
+    "initial_helper_exit": 1,
+    "reason": "The helper expected exit=0; but the actual native summary includes its elapsed time before the semicolon. Assertion stopped before any native copying.",
+    "resolution": "Read actual closed summary, include its optional elapsed field, then verified and copied exact native records.",
+    "actual_compiler_exit_unchanged": 0,
+    "compiler_rerun": false,
+    "assessment": "The helper rejected its overly narrow native-summary regex before copying; the actual elapsed field was then read and matching closed native records were copied. This bookkeeping failure is retained and is not a compiler failure or rerun. Independent current equality checks secure the same actual exit0."
+  },
+  "statement_consumption_boundary": {
+    "prior_concrete_focused11_success_prerequisite_satisfied": true,
+    "exclusive_actual_pre_and_post_input_observations_still_separate": true,
+    "qualified_actual_statement_command_and_complete_output_still_required": true,
+    "recorder_fingerprints_do_not_certify_artifact_authenticity": true,
+    "root_reports_pre_input_and815_execution_next_no_outcome_inferred": true,
+    "type_credit_added": 0
+  },
+  "counts_and_gates": {
+    "explicit_public_inventory": 1763,
+    "qualified_historical_types": 920,
+    "pending_current_types": 815,
+    "retained_base": 28,
+    "foundation_pending_types": 145,
+    "potential110_reuse_credit": 0,
+    "C02-TYPE-001": "Open",
+    "C02-DOC-003": "Open pending exact application",
+    "full_candidate_integrity_guard_check_and_audit": "Pending",
+    "both_final_review_axes": "Pending",
+    "immediate_verification": "Pending",
+    "overall": "Blocked"
+  },
+  "foundation": "Root-owned exact F full check remains without terminal evidence supplied to this assessment. No polling, outcome or type credit inferred; accepted Chapter1 remains accepted.",
+  "reviewer_actions": {
+    "compiler_or_process_actions": false,
+    "source_ref_index_pin_cache_mutations": false,
+    "live_runtime_or_build_output_snapshots": false,
+    "writes": "Own review/provenance only."
+  }
+}

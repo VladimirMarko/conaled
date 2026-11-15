@@ -1,0 +1,231 @@
+{
+  "passed": true,
+  "executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+  "shim": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/toolchains/native-compat/libconaled_app_path.so",
+  "results": {
+    "baseline": {
+      "self": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      },
+      "pid": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      },
+      "truncated": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      },
+      "zero_size": {
+        "return": -1,
+        "errno": 22,
+        "bytes": "",
+        "next_byte": null
+      },
+      "null_buffer": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      },
+      "null_path": {
+        "return": -1,
+        "errno": 14,
+        "bytes": "",
+        "next_byte": null
+      },
+      "ordinary": {
+        "return": 15,
+        "errno": 123,
+        "bytes": "6f7264696e6172792d746172676574",
+        "next_byte": 33
+      },
+      "near_match": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      },
+      "nonexistent_pid": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      }
+    },
+    "matched": {
+      "self": {
+        "return": 76,
+        "errno": 123,
+        "bytes": "2f6f70742f636f6465782f72756e74696d65732f636f6465782d7072696d6172792d72756e74696d652f646570656e64656e636965732f707974686f6e2f62696e2f707974686f6e332e3132",
+        "next_byte": 33
+      },
+      "pid": {
+        "return": 76,
+        "errno": 123,
+        "bytes": "2f6f70742f636f6465782f72756e74696d65732f636f6465782d7072696d6172792d72756e74696d652f646570656e64656e636965732f707974686f6e2f62696e2f707974686f6e332e3132",
+        "next_byte": 33
+      },
+      "truncated": {
+        "return": 3,
+        "errno": 123,
+        "bytes": "2f6f70",
+        "next_byte": 33
+      },
+      "zero_size": {
+        "return": -1,
+        "errno": 22,
+        "bytes": "",
+        "next_byte": null
+      },
+      "null_buffer": {
+        "return": -1,
+        "errno": 14,
+        "bytes": "",
+        "next_byte": null
+      },
+      "null_path": {
+        "return": -1,
+        "errno": 14,
+        "bytes": "",
+        "next_byte": null
+      },
+      "ordinary": {
+        "return": 15,
+        "errno": 123,
+        "bytes": "6f7264696e6172792d746172676574",
+        "next_byte": 33
+      },
+      "near_match": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      },
+      "nonexistent_pid": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      }
+    },
+    "mismatched": {
+      "self": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      },
+      "pid": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      },
+      "truncated": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      },
+      "zero_size": {
+        "return": -1,
+        "errno": 22,
+        "bytes": "",
+        "next_byte": null
+      },
+      "null_buffer": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      },
+      "null_path": {
+        "return": -1,
+        "errno": 14,
+        "bytes": "",
+        "next_byte": null
+      },
+      "ordinary": {
+        "return": 15,
+        "errno": 123,
+        "bytes": "6f7264696e6172792d746172676574",
+        "next_byte": 33
+      },
+      "near_match": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      },
+      "nonexistent_pid": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      }
+    },
+    "unset": {
+      "self": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      },
+      "pid": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      },
+      "truncated": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      },
+      "zero_size": {
+        "return": -1,
+        "errno": 22,
+        "bytes": "",
+        "next_byte": null
+      },
+      "null_buffer": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      },
+      "null_path": {
+        "return": -1,
+        "errno": 14,
+        "bytes": "",
+        "next_byte": null
+      },
+      "ordinary": {
+        "return": 15,
+        "errno": 123,
+        "bytes": "6f7264696e6172792d746172676574",
+        "next_byte": 33
+      },
+      "near_match": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      },
+      "nonexistent_pid": {
+        "return": -1,
+        "errno": 2,
+        "bytes": "",
+        "next_byte": null
+      }
+    }
+  }
+}

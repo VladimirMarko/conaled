@@ -1,0 +1,321 @@
+{
+  "recorded_utc": "2026-11-04T08:53:05.110110+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "immutable_source": "5398db774ed5ca9938d0562e379d757323e7a355",
+  "origin": "Read-only supplementary assignment during checkpoint0094 write hold; findings sent to parent before hold release. This receipt preserves that assessment after release.",
+  "source_notes": [
+    {
+      "path": "docs/research/fdsa-permutation-minimum.md",
+      "git_blob": "47f66cf564187d8326cdd880f0c8a36e51aa9101",
+      "bytes": 7608,
+      "lines": 138,
+      "sha256": "9b0ac9218e6a82f40e61faf97447af33adcccfafb60498a4f33acbfce91f5a31",
+      "context_ranges_read": [
+        [
+          1,
+          9
+        ],
+        [
+          91,
+          99
+        ],
+        [
+          133,
+          138
+        ]
+      ],
+      "contexts": [
+        {
+          "from": 1,
+          "to": 9,
+          "text": "# Uniform minima under one global ranking\n\nStatus: **source draft, not yet compiled or accepted**. This bounded shared\nunit supports the FDSA reconstruction. It closes no chapter or randomized\nalgorithm obligation. Its immutable candidate, exact requirements, independent\ncalculations and eventual validation/review results are retained in the local\ndurability checkpoint's FDSA-XU01 record.\n\n## Mathematical interface"
+        },
+        {
+          "from": 91,
+          "to": 99,
+          "text": "  non-strict minimum on every sample, with mass one. Dropping injectivity\n  would therefore make the one-half formula false.\n\nIndependent exact enumeration checked every permutation and fixed subset\nfor universe sizes zero through six, including these overlap and empty\nboundaries. That arithmetic is preparation evidence only. None of these\nsource-written examples is called checked until the required Lean gates pass.\n\n## Source use and remaining chapter work"
+        },
+        {
+          "from": 133,
+          "to": 138,
+          "text": "  a subtype; it does not automatically produce the induced order of an\n  arbitrary subset under a global ranking.\n\nThe frozen requirements preserve these later obligations. Compilation,\nwhole-candidate guarded verification, exhaustive axiom audit, both independent\nreview axes and immediate final candidate verification remain pending."
+        }
+      ],
+      "assessment": "Opening not-yet-compiled and closing compilation-pending language is present status, not dated history; record exact focused and selected-type evidence while preserving all acceptance gates."
+    },
+    {
+      "path": "docs/research/fdsa-permutation-order.md",
+      "git_blob": "d3a16fc8713c5dda2797a07ad14f3174ea97f841",
+      "bytes": 8851,
+      "lines": 166,
+      "sha256": "39fd16835dccd39c9d34ebfcebbdbdd33f44ec1dad49fdfe582a8ac4801faea3",
+      "context_ranges_read": [
+        [
+          1,
+          9
+        ],
+        [
+          133,
+          141
+        ],
+        [
+          161,
+          166
+        ]
+      ],
+      "contexts": [
+        {
+          "from": 1,
+          "to": 9,
+          "text": "# Whole orders induced by a shared random ranking\n\nStatus: **source draft, not compiled or accepted**. This bounded shared unit\ncontinues the [minimum-law work](fdsa-permutation-minimum.md). It supplies no\nchapter acceptance, recursive sampling theorem or algorithm cost bound.\nThe exact frozen requirements, source/API preflights, candidate identity and\neventual gate results are retained in the local FDSA-XU02 checkpoint record.\n\n## Actual list observation"
+        },
+        {
+          "from": 133,
+          "to": 141,
+          "text": "  missing distinctness condition.\n\nThe inverse-orientation check cannot be replaced by marginal distribution\nchecks: inversion permutes the uniform sample space, so both orientations\ncan have the same distribution despite different pointwise meanings.\nThe independent finite calculations and source statement assessments are\npreparation evidence. These source-written examples remain uncompiled.\n\n## Source use and remaining obligations"
+        },
+        {
+          "from": 161,
+          "to": 166,
+          "text": "\nAdaptive subsets, arbitrary conditional histories, expected preceding counts\nand first-position means are separate scope. Completeness of this shared\nunit requires its immutable-candidate compilation, guarded full check,\nexhaustive axiom audit, both independent final axes and immediate candidate\nverification. Its source and checkpoint presence alone close no such gate."
+        }
+      ],
+      "assessment": "Opening not-compiled and examples-remain-uncompiled language is present status. Record individual exact-source module passes, preserving failed aggregate exits and pending full types/acceptance."
+    },
+    {
+      "path": "docs/research/fdsa-three-way-partition.md",
+      "git_blob": "254bc877d2d896c7e9761498518ae72c4b7b858a",
+      "bytes": 13444,
+      "lines": 250,
+      "sha256": "5e58b195a53e32369dd31a7d6452c73f595419757faeaae0173c0fd659c0858b",
+      "context_ranges_read": [
+        [
+          1,
+          9
+        ],
+        [
+          185,
+          207
+        ]
+      ],
+      "contexts": [
+        {
+          "from": 1,
+          "to": 9,
+          "text": "# Shared three-way partition values and source execution\n\nThis cross-cutting draft makes the existing ordered partition interface\navailable to both sorting and selection, then supplies a separately measured\none-pass source realization. The shared value operation retains its existing\ntwo-stage implementation and Selection-facing compatibility. The draft is\nuncompiled and unaccepted; its source statements and connected clients still\nrequire the complete immutable-candidate validation and review workflow.\n"
+        },
+        {
+          "from": 185,
+          "to": 207,
+          "text": "\nThis unit supplies shared partition semantics behind C02-102 and C03-011/013,\nand the new one-pass realization required by C03-031 and B-018/019, subject\nto its validation gates. Complete quicksort3 correctness, rank/dispatch\nbridges, actual selection and median-of-medians recursion, random policies,\nwhole-algorithm costs and all other book obligations remain in their original\nchapters. No whole chapter or appendix is accepted by this shared draft.\n\n## Statement assessment and validation status\n\nThe source review keeps exact tuple order and multiplicity, arbitrary-pivot\ncorrectness, qualified strict decrease, actual returned-tail sequencing,\nindependent work and value laws, and the unchanged old interface separate.\nThe API/source/case preflights and original byte identities are retained in\nthe local review evidence. They are preparation rather than compiler results.\n\nThe draft starts from the focused-pass but unaccepted Chapter 1 repair.\nAccepted repaired Chapter 1 remains required before integration or acceptance;\nthe initial Chapter 2 foundation prefix is unchanged. New and existing affected\nmodules require focused compilation, the full applicable candidate build and\nexhaustive audit, both independent review axes and immediate candidate-record\nverification. Source authoring and independent expected calculations do not\nsupply those results."
+        }
+      ],
+      "assessment": "Opening uncompiled language needs exact current evidence. The original unaccepted C1 development-base history may be retained as history; present prerequisite wording must acknowledge the now-preserved accepted C1. Retain separate partition semantics, tariff and later-chapter obligations."
+    },
+    {
+      "path": "docs/research/fdsa-difference-list-costs.md",
+      "git_blob": "c383bd71d80daefe587e9fbdcd80e7e11267c2ca",
+      "bytes": 10679,
+      "lines": 213,
+      "sha256": "fd01432541c9b27ad83def6192e4a3b75d6b77ae7490ec11a2bf665324f1246e",
+      "context_ranges_read": [
+        [
+          1,
+          9
+        ],
+        [
+          195,
+          213
+        ]
+      ],
+      "contexts": [
+        {
+          "from": 1,
+          "to": 9,
+          "text": "# Difference-list closure observations\n\nThis shared unit gives an explicit closure model for the constant composition\nand deferred application claims used by FDSA's natural mergesort discussion.\nIt remains a source draft until elaboration, whole-candidate verification and\nthe retained independent reviews are recorded. It does not activate or accept\nChapter 2, and it does not implement the source scanner.\n\n## Sources and existing interfaces"
+        },
+        {
+          "from": 195,
+          "to": 213,
+          "text": "## Statement review and pending validation\n\nThe meaningful premises are the ordered-prefix value relation and a uniform\ncost contract for an already supplied callback. The base constructors satisfy\nboth, and composition/build laws preserve them without payload restrictions.\nNo final workload bound or physical execution theorem is postulated.\n\nSource review retains the two phase boundaries, actual intermediate values,\narbitrary suffixes, supplied-seed scope, duplicate/order preservation, empty\npayload case, repeated materialization and the two distinct history examples.\nThe architecture preflight identified and corrected the shared-allocation,\nfused-push and singleton-seed distinctions before implementation.\n\nNo additional compiler was run for this draft while the frozen old Chapter 1\ngate remained active. These\nsource proofs and examples still need elaboration, public-entrypoint coverage,\nthe complete guarded candidate build and exhaustive audit, both retained\nindependent review axes, and immediate candidate identity verification before\nacceptance."
+        }
+      ],
+      "assessment": "The no-additional-compiler sentence tied to the old frozen C1 gate is already an identifiable historical statement; do not treat it as false. The following current still-need-elaboration/public-exposure wording needs current focused/type/root evidence. The abstract unit does not implement the scanner or claim full acceptance."
+    },
+    {
+      "path": "docs/research/fdsa-permutation-tail.md",
+      "git_blob": "233136b41f38efafa0d5e1d8f22d8c2864340335",
+      "bytes": 10367,
+      "lines": 203,
+      "sha256": "34162854a3bfabbec1e87bea6111b4939495cc27eb9ee811758dceaeb62dc96f",
+      "context_ranges_read": [
+        [
+          1,
+          9
+        ],
+        [
+          162,
+          169
+        ],
+        [
+          198,
+          203
+        ]
+      ],
+      "contexts": [
+        {
+          "from": 1,
+          "to": 9,
+          "text": "# Conditional laws of an observed remaining order\n\nStatus: **source draft, not compiled or accepted**. This bounded shared unit\ncontinues the [whole-order draft](fdsa-permutation-order.md). Its frozen\nrequirements, preflights, exact finite expectations, candidate identity and\neventual gates are retained in the local FDSA-XU03 checkpoint record. No\nchapter or algorithm obligation is accepted by this source draft.\n\n## The observation and conditioning event"
+        },
+        {
+          "from": 162,
+          "to": 169,
+          "text": "  the exposed key, but is not a subset of S.erase0. This shows why the\n  containment hypothesis cannot be replaced by nonmembership of a alone.\n\nThese mathematical expectations and source-written proofs remain uncompiled.\nExact finite enumeration and statement assessments do not supply kernel\nvalidation or final review approval.\n\n## Source scope and remaining obligations"
+        },
+        {
+          "from": 198,
+          "to": 203,
+          "text": "Full histories, selection value/rank/termination, fresh-choice coupling,\ndrift and tail-cost bounds, arbitrary adaptive subsets, joint independence,\nexpected positions and treap charging remain queued. Completion of this\nshared unit still requires its immutable-candidate compilation, guarded full\ncheck, exhaustive audit, both independent final review axes and immediate\ncandidate verification. All predecessor drafts retain their own pending gates."
+        }
+      ],
+      "assessment": "Split blanket uncompiled language into current partial evidence: exact core individually built at M2; old boundary failed; dependent main only Ran; ee2ea24 boundary correction has no terminal success supplied at this assessment. Preserve complete-unit and predecessor gates."
+    }
+  ],
+  "exact_focused_evidence": [
+    {
+      "run": "chapter02-xu01-focused-20261104-attempt4",
+      "candidate": "3fa2b59d6dcab007627af98a2f05c3a016a4c4c4",
+      "exit_code": 0,
+      "final_head": "3fa2b59d6dcab007627af98a2f05c3a016a4c4c4",
+      "final_status": "",
+      "result_sha256": "75494b61b84cc6be41a1d322b9140d35c4f54f73032746753c84fd911430dffd",
+      "recorded_log_sha256": "13a97628489251f92bcd75a7deb5a1d047b57fbbf2fe4744bfeb376aa3f8caf6",
+      "assessment": "Closed focused exit0; exact core and both example modules.",
+      "matching_files": [
+        {
+          "path": "Applications/Probability/PermutationMinimum.lean",
+          "current_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+          "exact_historical_bytes": true
+        },
+        {
+          "path": "Examples/PermutationMinimumBoundary.lean",
+          "current_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+          "exact_historical_bytes": true
+        },
+        {
+          "path": "Examples/PermutationMinimum.lean",
+          "current_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+          "exact_historical_bytes": true
+        }
+      ],
+      "read_boundary": "Complete result record plus relevant module-status excerpts; no new claim of complete focused-log diagnostic reading."
+    },
+    {
+      "run": "chapter02-xd01-random-focused-20261104-attempt4",
+      "candidate": "dfaf68114d1dda4e15628c94c3d988c3f5457c49",
+      "exit_code": 0,
+      "final_head": "dfaf68114d1dda4e15628c94c3d988c3f5457c49",
+      "final_status": "",
+      "result_sha256": "30ba6a2171879cc349ee6ebd21ad63d837561d02af14aa0d40f1f0f92cc6598a",
+      "recorded_log_sha256": "514c8e71be97d10be7bb0c181e2dc3605423186b0adbfc085c122f63bee0896a",
+      "assessment": "Closed focused exit0; exact DList core/example pair.",
+      "matching_files": [
+        {
+          "path": "Applications/Resources/DifferenceListCosts.lean",
+          "current_blob": "b87222f7c0eb0aafc60031864ca815c2e65fc457",
+          "exact_historical_bytes": true
+        },
+        {
+          "path": "Examples/DifferenceListCosts.lean",
+          "current_blob": "33fd3bec15f8c9b7c3078b45d90c24d7df0c1df2",
+          "exact_historical_bytes": true
+        }
+      ],
+      "read_boundary": "Complete result record plus relevant module-status excerpts; no new claim of complete focused-log diagnostic reading."
+    },
+    {
+      "run": "chapter02-tail-numerical-rank-operations-focused-20261104-attempt5",
+      "candidate": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+      "exit_code": 1,
+      "final_head": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+      "final_status": "",
+      "result_sha256": "345aeaedd562f9ffb6e71be546346a8883d8538a0ee647df0f54febfa203ccf4",
+      "recorded_log_sha256": "d367cd2e1054973cac7d1e1c6fa7d9a278eea9cccfa038b2436c377367b6160e",
+      "assessment": "Aggregate exited1; exact Order core/boundary replayed and main example Built241s.",
+      "matching_files": [
+        {
+          "path": "Applications/Probability/PermutationOrder.lean",
+          "current_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+          "exact_historical_bytes": true
+        },
+        {
+          "path": "Examples/PermutationOrderBoundary.lean",
+          "current_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+          "exact_historical_bytes": true
+        },
+        {
+          "path": "Examples/PermutationOrder.lean",
+          "current_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+          "exact_historical_bytes": true
+        }
+      ],
+      "read_boundary": "Complete result record plus relevant module-status excerpts; no new claim of complete focused-log diagnostic reading."
+    },
+    {
+      "run": "chapter02-extended-sorting-focused-20261104-attempt1",
+      "candidate": "5d7a479549f5acd64a9e5adb418ab48780c238ef",
+      "exit_code": 1,
+      "final_head": "5d7a479549f5acd64a9e5adb418ab48780c238ef",
+      "final_status": "",
+      "result_sha256": "d03094d4a4981dbb4f2e2415e4a4466dcc7b3c41e1473c61325f06ef313b879c",
+      "recorded_log_sha256": "6ff459c43eade60da3fc4a15edd26da81c71ae5767be9b1a73253f0a29faad76",
+      "assessment": "Aggregate exited1; exact resource partition Built26s and main shared example Built10s.",
+      "matching_files": [
+        {
+          "path": "Applications/Sequences/Partition.lean",
+          "current_blob": "ff03bd349a39b3b77c49793175d4b474199e7c43",
+          "exact_historical_bytes": true
+        },
+        {
+          "path": "Applications/Resources/Partition.lean",
+          "current_blob": "e9d3682a4d3a499aaffd41f73c7fc39965fa0d30",
+          "exact_historical_bytes": true
+        },
+        {
+          "path": "Examples/ThreeWayPartition.lean",
+          "current_blob": "a1f29b6310bc8623df2725b0d40f3949513199c5",
+          "exact_historical_bytes": true
+        }
+      ],
+      "read_boundary": "Complete result record plus relevant module-status excerpts; no new claim of complete focused-log diagnostic reading."
+    },
+    {
+      "run": "chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6",
+      "candidate": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+      "exit_code": 1,
+      "final_head": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+      "final_status": "",
+      "result_sha256": "1e40ac4caff1953928a946f37c850f9673d98472628517318cf510630d5e5233",
+      "recorded_log_sha256": "4d18122cfbe8698979673c10b4bdf76b0fb7442d48f75882b95d89c6bae1aa95",
+      "assessment": "Aggregate exited1; exact Tail core Built90s, old boundary failed, dependent main only Ran.",
+      "matching_files": [
+        {
+          "path": "Applications/Probability/PermutationTail.lean",
+          "current_blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+          "exact_historical_bytes": true
+        }
+      ],
+      "read_boundary": "Complete result record plus relevant module-status excerpts; no new claim of complete focused-log diagnostic reading."
+    }
+  ],
+  "type_evidence": "Selected Minimum37, shared-partition84 and combined DList/random134 printed-name logs independently read in full earlier and source-matched in historical-types-readback.json. No selected log is whole-file coverage.",
+  "public_exposure": "The complete SquareApplications root and existing ProofAudit dependency were independently assessed at5398; source-graph closure is not compiler/audit evidence.",
+  "finding_category": "Documentary present-status inaccuracies and missing historical/current distinction; no mathematical-scope defect.",
+  "historical_sentence_to_preserve": "DList lines208-209 explicitly describe the interval while the old frozen C1 gate was active and must not be called false.",
+  "correct_existing_gate_language": "Unaccepted status and requirements for full immutable check/audit, both independent axes, complete type evidence and immediate verification remain correct.",
+  "required_action": "Root may author narrow isolated dated/current-evidence corrections and supply exact successor for both axes; do not edit live central source or infer aggregate passes.",
+  "during_hold_file_mutations": false,
+  "overall_outcome": "Blocked"
+}

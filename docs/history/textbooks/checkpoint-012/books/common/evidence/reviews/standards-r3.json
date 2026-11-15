@@ -1,0 +1,230 @@
+{
+  "schema": 1,
+  "axis": "Standards",
+  "round": 3,
+  "review_kind": "source-analysis-only-continuation",
+  "observed_at": "2026-11-14T03:34:47.824088+00:00",
+  "outcome": "Blocked",
+  "source_analysis": "complete",
+  "base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "merge_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "original_full_spec_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "prior_candidate": "f52a47b9e240b3937533f48befb8622527b7f6db",
+  "candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+  "tree": "33d087744fc2435c29d60981ca0d79af629b8c8d",
+  "upstream_pin": "983d0b6b602b71541f182737011621a8805be27b",
+  "requirements_version": "2026-11-14-upstream-recovery-and-coverage",
+  "requirements_sha256": "5d48738af724152b67daf993fa0f3d2abd7c2eeb7a47b7e080aa7740de1e07ac",
+  "scope": {
+    "declared_paths": 483,
+    "changed_paths": 374,
+    "changed_lean_paths": 344,
+    "commits": 318,
+    "projections": {},
+    "explicit_exclusions": [],
+    "undeclared_changed_paths": [],
+    "scope_identity": "2af6c974c630c10dd6d32dd3fc585dfcd5f9b9fc54ce85a349289296cf92030a",
+    "content_identity": "77e32c504c74e498c9a013c7fb269944dfcbb0c1f8c96cd8eb15e6e531755854",
+    "candidate_receipt": "intake/integration-candidate-r3.json",
+    "candidate_receipt_sha256": "9735a260a6d1ab62b5d0b132f87c226f053052526a877fc7047266ec18fca47c",
+    "full_scope_unchanged_from_C2": 352,
+    "paths_changed_since_C2": [
+      "Applications/Probability/BinaryBlock.lean",
+      "Applications/Probability/BoundedUniform.lean",
+      "Applications/Probability/BoundedUniformLaw.lean",
+      "Applications/Probability/CoinSuffix.lean",
+      "Applications/Probability/FiniteMHSampler.lean",
+      "Applications/Probability/RationalRow.lean",
+      "Applications/Probability/SamplerWork.lean",
+      "Applications/Probability/TableSampler.lean",
+      "Applications/Probability/TableSamplerComposition.lean",
+      "Applications/Probability/TableSamplerIteration.lean",
+      "Applications/Probability/UniformThreeLaw.lean",
+      "Applications/Progress/Sequential.lean",
+      "Applications/Search/OrderedMap/AssociationList.lean",
+      "Applications/Search/OrderedMap/Basic.lean",
+      "Applications/Search/OrderedMap/Interface.lean",
+      "Applications/Search/OrderedMap/Invariant.lean",
+      "Applications/Search/OrderedMap/Observations.lean",
+      "Examples/BoundedUniform.lean",
+      "Examples/TableSampler.lean",
+      "Examples/TextbookMaps.lean",
+      "SquareApplications.lean",
+      "docs/research/textbook-integration.md"
+    ],
+    "diff_command": [
+      "git",
+      "diff",
+      "9175737c2b14ef738cfb6c2cdc68d885c0805ddd...16440863ddb14d95c402ce65498e22497e246e72"
+    ]
+  },
+  "new_findings": [],
+  "new_source_findings_count": 0,
+  "unresolved_new_integration_source_findings_count": 0,
+  "findings": [
+    {
+      "id": "INT-ST-001",
+      "axis": "Standards",
+      "severity": "Low",
+      "status": "Fixed",
+      "retained_from_round": 2,
+      "evidence": "docs/SOURCES.md: PFDS S9, VFA S10, FDSA S11; source bytes retain reviewed correction."
+    }
+  ],
+  "inherited_findings": {
+    "process_register": "checkpoint/conaled-textbooks/books/common/analysis/process.md",
+    "pfds_canonical_register": "checkpoint/conaled-textbooks/books/pfds/records/evidence/reviews/common-integration-coordinator-r1-045.md#section-5",
+    "pfds_canonical_ids": 39,
+    "pfds_aliases": 8,
+    "pfds_retained_closures": 23,
+    "pfds_retained_boundaries": [
+      "SUSP-STAT-001",
+      "PREP-10019-02"
+    ],
+    "pfds_distinct_open_validation_ids": 14,
+    "pfds_standards_shared_open_validation": [
+      "IMPORT-VAL-004",
+      "CH02-PRE-005",
+      "SUSP-STD-VAL-001",
+      "PURE-STD-VAL-001",
+      "COUNT-STD-VAL-001",
+      "PERSIST-ACC-STD-VAL-001",
+      "BODY-COUNT-STD-VAL-001",
+      "SIGNED-POT-STD-VAL-001"
+    ],
+    "vfa_open": [
+      "ST-002",
+      "SP-VAL-001"
+    ],
+    "vfa_source_fix_retained": [
+      "ST-006"
+    ],
+    "fdsa_source_recheck_and_receiving_gate_retained": [
+      "XT03-CP01",
+      "XT03-DOC01"
+    ],
+    "integration_spec_blocker_preserved": "INT-SP-001",
+    "disposition": "Preserve every canonical ID, original severity, source boundary, alias and validation obligation by the fingerprinted registers; no historical approval transfers."
+  },
+  "validation": {
+    "focused": {
+      "receipt": "intake/maps-focused-r3.json",
+      "exit_code": 0,
+      "jobs": 732,
+      "seconds": 7.578451014000166,
+      "log_sha256": "8dc2b3ac56841e6043f27fb2254d15ee2d4302952368d05d18bcd818c556a8cd",
+      "scope": "Examples.TextbookMaps, Examples.OrderedMap, Examples.SharedTreeMap only; development evidence"
+    },
+    "full": {
+      "receipt": "intake/full-validation-r3.json",
+      "receipt_sha256_at_cut": "33951558afb5c06a6d3c33141d6279470eed3263bc5d74dcd87e0c5c92a6c28b",
+      "candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+      "started_at": "2026-11-14T03:29:12.689406+00:00",
+      "status": "running; no terminal outcome yet",
+      "terminal_observed": false,
+      "success_record_presented": false
+    },
+    "prior_interruption": "intake/validation-interruption-20261114.json",
+    "blocking_reason": "No terminal successful exact-current-candidate full check/exhaustive audit and matching success record presented.",
+    "acceptance_remaining": [
+      "Successful exact-candidate full check and exhaustive audit",
+      "Matching .lake/verification.json",
+      "Both independent review outcomes on this candidate",
+      "Immediate ./check.sh --verify-candidate HEAD",
+      "Final review_snapshot.py compare",
+      "Coordinator records and durable checkpoint"
+    ]
+  },
+  "outside_git_evidence": {
+    "checkpoint/conaled-textbooks/books/common/REQUIREMENTS.md": {
+      "sha256": "5d48738af724152b67daf993fa0f3d2abd7c2eeb7a47b7e080aa7740de1e07ac",
+      "bytes": 8452
+    },
+    "checkpoint/conaled-textbooks/books/common/COVERAGE.md": {
+      "sha256": "3a643997082f7db88d92395e1239cbbc1c86af78dbe7d21c3a8adffaeb53cafa",
+      "bytes": 37543
+    },
+    "checkpoint/conaled-textbooks/books/common/analysis/donor-dispositions.json": {
+      "sha256": "3437ebcd64d5a4f1b9564698a79bd83ee6116f2073b47a2d4619b14115641e6b",
+      "bytes": 86393
+    },
+    "checkpoint/conaled-textbooks/books/common/ISSUES.json": {
+      "sha256": "1bc33b69ec1bee3868adcb049b31b99a9e7da4563c0a88ca2e0614ff30acdf13",
+      "bytes": 8145
+    },
+    "checkpoint/conaled-textbooks/books/common/analysis/process.md": {
+      "sha256": "664faf609487139931459ee2b9d6cf9b72a39b0b6390ee87eded5a012b6635a3",
+      "bytes": 18928
+    },
+    "checkpoint/conaled-textbooks/books/pfds/records/evidence/reviews/common-integration-coordinator-r1-045.md": {
+      "sha256": "07fb1b0ea46e06a721ea603dbb99865597d844824f21d01b144659eb3ae1c6d6",
+      "bytes": 28777
+    },
+    "intake/review/standards-r1.md": {
+      "sha256": "614928110c89288ab7296496dd65b46d16a4dd18817edc2d81a2274af0902b1b",
+      "bytes": 18782
+    },
+    "intake/review/standards-r2.md": {
+      "sha256": "0757de767d72f39de79a029f33908f17db13c459717c24a21bb530440de04863",
+      "bytes": 4798
+    },
+    "intake/map-recovery-handoff-20261114.md": {
+      "sha256": "cde82596e493d3d4dd13e2b570022226b0446843dc3e219d4c9eed13215eb688",
+      "bytes": 8676
+    },
+    "intake/map-recovery-correction-r1.md": {
+      "sha256": "45ba98425dc533860c22875b4b828a61962a655d14c563fd399a871b913647c9",
+      "bytes": 1370
+    },
+    "intake/map-recovery-correction-r2.md": {
+      "sha256": "9c532acee16bfb552a0ff91ea2abcd0dfb6488a38255c0298195e9d92074aaef",
+      "bytes": 1306
+    },
+    "checkpoint/conaled-textbooks/books/common/evidence/map-public-types-20261114.log": {
+      "sha256": "98070df4a9c4b8cbf1b992ff3d5eebc7388974766ee632289fb98a5c35e0dd0a",
+      "bytes": 3992
+    },
+    "intake/maps-focused-r3.json": {
+      "sha256": "eb10b219e860dc3cf8248a7e303446a372038d0d8bb011ed7be91fd7d56feb42",
+      "bytes": 2012
+    },
+    "intake/validation-interruption-20261114.json": {
+      "sha256": "ac0649ae1ee7f69a0507a28a2b2fe00cd1a1329b2224385e8423d4d16727ac41",
+      "bytes": 1511
+    },
+    "intake/full-validation-r3.json": {
+      "sha256": "33951558afb5c06a6d3c33141d6279470eed3263bc5d74dcd87e0c5c92a6c28b",
+      "bytes": 1426
+    },
+    "intake/integration-candidate-r3.json": {
+      "sha256": "9735a260a6d1ab62b5d0b132f87c226f053052526a877fc7047266ec18fca47c",
+      "bytes": 4039719
+    }
+  },
+  "coverage_review_limit": "Assessed scope/evidence distinctions and current map delta; not a new manuscript reading or exhaustive remapping of every source row.",
+  "prior_analysis_reused": [
+    "intake/review/standards-r1.md",
+    "intake/review/standards-r2.md"
+  ],
+  "upstream_source_checks": {
+    "non_entrypoint_paths_exact_to_pin": 14,
+    "dropped_prior_public_imports": [],
+    "dropped_upstream_public_imports": [],
+    "instructions_pins_checker_changed": false,
+    "readme_difference": "Only previously reviewed textbook-workstream link; environment/build/audit instructions unchanged."
+  },
+  "activity": {
+    "compiler_runs": 0,
+    "setup_operations": 0,
+    "source_edits": 0,
+    "intentional_index_or_ref_mutations": 0,
+    "checkpoint_edits": 0,
+    "remote_operations": 0,
+    "reports_written": [
+      "intake/review-20261114/standards-r3.md",
+      "intake/review-20261114/standards-r3.json"
+    ]
+  },
+  "report": "intake/review-20261114/standards-r3.md",
+  "report_sha256": "5b8d9fe977a842135b0282922195b2c0c87a864c84896c09e59fc5ab040726e6"
+}

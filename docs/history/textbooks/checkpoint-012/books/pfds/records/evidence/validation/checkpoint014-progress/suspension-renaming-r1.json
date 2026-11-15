@@ -1,0 +1,29 @@
+{
+  "scope": "focused development only",
+  "status": "queued",
+  "queued_at": "2026-11-02T18:45:57.548857+00:00",
+  "command": [
+    "/nix/store/8lza1b8nnci8lmm4q68p0l33pg975s0q-nix-2.35.4/bin/nix",
+    "--extra-experimental-features",
+    "nix-command flakes",
+    "--option",
+    "build-users-group",
+    "",
+    "--option",
+    "sandbox",
+    "false",
+    "--option",
+    "eval-cache",
+    "false",
+    "develop",
+    "--offline",
+    "--command",
+    "env",
+    "LEAN_NUM_THREADS=1",
+    "lake",
+    "build",
+    "Examples.SuspensionRenaming"
+  ],
+  "log": "/workspace/scratch/ca9a61d0bf30/active-validation/suspension-renaming-r1.log",
+  "acceptance": false
+}

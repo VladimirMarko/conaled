@@ -1,0 +1,314 @@
+{
+  "recorded_utc": "2026-11-05T00:58:49.281894+00:00",
+  "reviewer": "/root/chapter03_spec",
+  "outcome": "Blocked",
+  "review_complete": false,
+  "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "accepted_receiving_comparison_point": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "current_immutable_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+  "current_tree": "5d5bc50e567c66d4875b5ed0ed52121de912a953",
+  "scope_obligations": 83,
+  "scope_sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed",
+  "previous_progress": {
+    "path": "provenance/chapter03-spec-review-20261104/continuation-0136-007.json",
+    "bytes": 65085,
+    "sha256": "7dd44fbca8dcb81c46d1346aabbd3de6546fd0970963b86df6f29a0877339cdf"
+  },
+  "explicit_release": {
+    "source": "parent NEW_TASK after checkpoint0136 verified/uploaded/exposed",
+    "parent_reported_record": "actual38f420 at checkpoint0136-preparation",
+    "held_record": {
+      "path": "provenance/chapter03-spec-review-20261104/write-hold-0136.json",
+      "bytes": 3391,
+      "sha256": "b5ae0baf4b1042baeaf5707151611697f6f8d6103616da0b3bd934f4009d8df6"
+    },
+    "effective": "Writes to existing own review paths released; original scope and all restrictions retained."
+  },
+  "record_style": "Incremental source assessment with cumulative counts; earlier contained ledgers retain exact prior evidence.",
+  "new_complete_sources": {
+    "Applications/Selection/CoordinateQueries.lean": {
+      "source_read_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+      "current_identity_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+      "bytes": 11106,
+      "lines": 239,
+      "sha256": "ca1c0d339500e77aa14ca47420b9f7a11f213bbcd8ac113c3281c7f9690e6409",
+      "complete_body_read": true,
+      "read_tool_chunks": [
+        "d3c7f1"
+      ],
+      "byte_equal_to_qualified_prefix38": true,
+      "read_after_saved0136hold_before_explicit_release": true
+    },
+    "Examples/CoordinateQueries.lean": {
+      "source_read_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+      "current_identity_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+      "bytes": 8079,
+      "lines": 181,
+      "sha256": "d90bd28ec4496105d9c5da80171a4c96a5ace119c0e178ded48f4f84ca8ad16d",
+      "complete_body_read": true,
+      "read_tool_chunks": [
+        "d3c7f1"
+      ],
+      "byte_equal_to_qualified_prefix38": true,
+      "read_after_saved0136hold_before_explicit_release": true
+    },
+    "Applications/Selection/CoordinateReadAll.lean": {
+      "source_read_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+      "current_identity_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+      "bytes": 7611,
+      "lines": 156,
+      "sha256": "ab2fd8949fe4a73e909cac90f99329fcd3b508e1b221e4411449a535f48f41ff",
+      "complete_body_read": true,
+      "read_tool_chunks": [
+        "cb790d"
+      ],
+      "byte_equal_to_qualified_prefix38": true,
+      "read_after_saved0136hold_before_explicit_release": true
+    },
+    "Examples/CoordinateReadAll.lean": {
+      "source_read_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+      "current_identity_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+      "bytes": 5626,
+      "lines": 107,
+      "sha256": "8290a02bee2fb078439842c26a6cb46ec231aeb092b30659c8a3b674cc54b603",
+      "complete_body_read": true,
+      "read_tool_chunks": [
+        "cb790d"
+      ],
+      "byte_equal_to_qualified_prefix38": true,
+      "read_after_saved0136hold_before_explicit_release": true
+    },
+    "Applications/Selection/CoordinateSelection.lean": {
+      "source_read_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+      "current_identity_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+      "bytes": 18612,
+      "lines": 352,
+      "sha256": "14b87898b02acb8f948ee68629331359652e920331e49d60bdeac62788a21abb",
+      "complete_body_read": true,
+      "read_tool_chunks": [
+        "a17a07",
+        "c5ca1a"
+      ],
+      "byte_equal_to_qualified_prefix38": true,
+      "read_after_saved0136hold_before_explicit_release": true
+    },
+    "Examples/CoordinateSelection.lean": {
+      "source_read_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+      "current_identity_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+      "bytes": 10593,
+      "lines": 200,
+      "sha256": "880f4de41c96ef5076cb16375b8f718992ee0170b305e370bc9dac1e01308189",
+      "complete_body_read": true,
+      "read_tool_chunks": [
+        "c5ca1a"
+      ],
+      "byte_equal_to_qualified_prefix38": true,
+      "read_after_saved0136hold_before_explicit_release": true
+    }
+  },
+  "changed_module_count": 76,
+  "baseline_dependency_module_count": 6,
+  "baseline_dependency_bounded_read_count": 5,
+  "new_public_source_claims_substantively_assessed": {
+    "count": 1345,
+    "prefix_count": 1321,
+    "new_prefix_names": [
+      "Applications.Selection.CoordinateQueries.Transcript",
+      "Applications.Selection.CoordinateQueries.Protocol",
+      "Applications.Selection.CoordinateQueries.Runs",
+      "Applications.Selection.CoordinateQueries.Runs.done",
+      "Applications.Selection.CoordinateQueries.Runs.query",
+      "Applications.Selection.CoordinateQueries.Total",
+      "Applications.Selection.CoordinateQueries.Runs.answers",
+      "Applications.Selection.CoordinateQueries.Runs.replay",
+      "Applications.Selection.CoordinateQueries.Runs.replay_update_of_not_mem",
+      "Applications.Selection.CoordinateQueries.Runs.deterministic",
+      "Applications.Selection.CoordinateQueries.Selects",
+      "Applications.Selection.CoordinateQueries.Runs.queries_all",
+      "Applications.Selection.CoordinateQueries.Runs.length_lower_bound",
+      "Applications.Selection.CoordinateQueries.queryWork",
+      "Applications.Selection.CoordinateQueries.queryWork_nil",
+      "Applications.Selection.CoordinateQueries.queryWork_cons",
+      "Applications.Selection.CoordinateQueries.queryWork_unit",
+      "Applications.Selection.CoordinateQueries.queryWork_constant",
+      "Applications.Selection.CoordinateQueries.length_le_queryWork",
+      "Applications.Selection.CoordinateQueries.Runs.work_lower_bound",
+      "Applications.Selection.CoordinateQueries.Runs.resource_lower_bound",
+      "Applications.Selection.CoordinateQueries.exists_linear_run",
+      "Applications.Selection.CoordinateQueries.linear_worst_case_bound",
+      "Applications.Selection.CoordinateQueries.linear_isBigO_of_query_bound",
+      "Examples.CoordinateQueries.oneQuery",
+      "Examples.CoordinateQueries.oneQuery_run",
+      "Examples.CoordinateQueries.oneQuery_total",
+      "Examples.CoordinateQueries.oneQuery_correct",
+      "Examples.CoordinateQueries.oneQuery_every_run",
+      "Examples.CoordinateQueries.repeatNegative",
+      "Examples.CoordinateQueries.repeatNegative_negative_run",
+      "Examples.CoordinateQueries.repeatNegative_nonnegative_run",
+      "Examples.CoordinateQueries.repeatNegative_total",
+      "Examples.CoordinateQueries.repeatNegative_correct",
+      "Examples.CoordinateQueries.repeated_negative_charges",
+      "Examples.CoordinateQueries.nonnegative_single_charge",
+      "Examples.CoordinateQueries.adaptive_run_lower_bound",
+      "Examples.CoordinateQueries.pairMinimum",
+      "Examples.CoordinateQueries.pairMinimum_run",
+      "Examples.CoordinateQueries.pairMinimum_total",
+      "Examples.CoordinateQueries.pair_minimum_ranked",
+      "Examples.CoordinateQueries.pairMinimum_correct",
+      "Examples.CoordinateQueries.pairMinimum_distinct_coverage",
+      "Examples.CoordinateQueries.pairMinimum_distinct_lower_bound",
+      "Examples.CoordinateQueries.pairMinimum_measured_contract",
+      "Examples.CoordinateQueries.unqueried_update_replays",
+      "Examples.CoordinateQueries.total_correct_protocol_has_witness",
+      "Examples.CoordinateQueries.any_uniform_query_bound_is_linear",
+      "Applications.Selection.CoordinateQueries.readPlan",
+      "Applications.Selection.CoordinateQueries.readPlan_query",
+      "Applications.Selection.CoordinateQueries.readPlan_done",
+      "Applications.Selection.CoordinateQueries.readPlan_run",
+      "Applications.Selection.CoordinateQueries.readPlan_total",
+      "Applications.Selection.CoordinateQueries.readPlan_run_iff",
+      "Applications.Selection.CoordinateQueries.readPlan_length",
+      "Applications.Selection.CoordinateQueries.readPlan_work",
+      "Applications.Selection.CoordinateQueries.readAll",
+      "Applications.Selection.CoordinateQueries.readAll_run",
+      "Applications.Selection.CoordinateQueries.readAll_total",
+      "Applications.Selection.CoordinateQueries.readAll_run_iff",
+      "Applications.Selection.CoordinateQueries.readAll_coordinates",
+      "Applications.Selection.CoordinateQueries.readAll_length",
+      "Applications.Selection.CoordinateQueries.readAll_work",
+      "Applications.Selection.CoordinateQueries.readAll_correct",
+      "Examples.CoordinateReadAll.empty_run",
+      "Examples.CoordinateReadAll.empty_every_run",
+      "Examples.CoordinateReadAll.full_read_exists",
+      "Examples.CoordinateReadAll.full_read_every_run",
+      "Examples.CoordinateReadAll.observed_sum",
+      "Examples.CoordinateReadAll.concrete_full_read",
+      "Examples.CoordinateReadAll.duplicate_full_read",
+      "Examples.CoordinateReadAll.duplicate_every_charge",
+      "Examples.CoordinateReadAll.repeated_plan_run",
+      "Examples.CoordinateReadAll.repeated_plan_every_charge",
+      "Examples.CoordinateReadAll.supplied_history_values",
+      "Applications.Selection.CoordinateSelection.observedSelect",
+      "Applications.Selection.CoordinateSelection.observedSelect_run",
+      "Applications.Selection.CoordinateSelection.observedSelect_total",
+      "Applications.Selection.CoordinateSelection.observedSelect_run_iff",
+      "Applications.Selection.CoordinateSelection.observedSelect_acquired",
+      "Applications.Selection.CoordinateSelection.observedSelect_on_acquired",
+      "Applications.Selection.CoordinateSelection.observedSelect_some_iff",
+      "Applications.Selection.CoordinateSelection.observedSelect_of_invalid",
+      "Applications.Selection.CoordinateSelection.observedSelect_length",
+      "Applications.Selection.CoordinateSelection.observedSelect_query_work",
+      "Applications.Selection.CoordinateSelection.work",
+      "Applications.Selection.CoordinateSelection.work_acquisition",
+      "Applications.Selection.CoordinateSelection.work_exact",
+      "Applications.Selection.CoordinateSelection.work_covers_queries",
+      "Applications.Selection.CoordinateSelection.source_cost_le_F",
+      "Applications.Selection.CoordinateSelection.work_le_F",
+      "Applications.Selection.CoordinateSelection.work_exists_uniform_affine_bound",
+      "Applications.Selection.CoordinateSelection.work_exists_uniform_linear_bound",
+      "Applications.Selection.CoordinateSelection.work_lower_acquisition",
+      "Applications.Selection.CoordinateSelection.work_lower_input",
+      "Applications.Selection.CoordinateSelection.work_family_isBigO",
+      "Applications.Selection.CoordinateSelection.observedSelect_valid",
+      "Applications.Selection.CoordinateSelection.selectedValue",
+      "Applications.Selection.CoordinateSelection.selectedValue_eq_readAll",
+      "Applications.Selection.CoordinateSelection.selectedValue_run_iff",
+      "Applications.Selection.CoordinateSelection.selectedValue_total",
+      "Applications.Selection.CoordinateSelection.selectedValue_correct",
+      "Applications.Selection.CoordinateSelection.competitor_query_work_lower_bound",
+      "Applications.Selection.CoordinateSelection.exists_uniform_competitor_bound",
+      "Applications.Selection.CoordinateSelection.exists_uniform_optimality",
+      "Examples.CoordinateSelection.acquired_worker_execution",
+      "Examples.CoordinateSelection.empty_run",
+      "Examples.CoordinateSelection.empty_every_work",
+      "Examples.CoordinateSelection.singleton_run",
+      "Examples.CoordinateSelection.singleton_every_work",
+      "Examples.CoordinateSelection.concrete_run",
+      "Examples.CoordinateSelection.concrete_value_run",
+      "Examples.CoordinateSelection.concrete_every_work",
+      "Examples.CoordinateSelection.duplicate_run",
+      "Examples.CoordinateSelection.duplicate_every_work",
+      "Examples.CoordinateSelection.invalid_every_work",
+      "Examples.CoordinateSelection.cutoff_twenty_run",
+      "Examples.CoordinateSelection.first_recursive_run",
+      "Examples.CoordinateSelection.total_correct_value_view",
+      "Examples.CoordinateSelection.any_valid_input_contract",
+      "Examples.CoordinateSelection.pair_minimum_comparison"
+    ],
+    "trace_count": 23,
+    "trace_names_record": "continuation-0136-007.json",
+    "corrective_count": 1,
+    "corrective_name": "Examples.SelectionCountRank.duplicate_sorted_filter_sublists",
+    "limitation": "Distinct public declarations including definitions and checked clients; not count of83obligations closed. All76 current receiver chapter source modules read, but exact shared-XR source reuse, document composition and future additions remain separate."
+  },
+  "actual_type_blocks_substantively_assessed": {
+    "count": 1201,
+    "prefix_count": 1200,
+    "prefix_ranges_inclusive": [
+      [
+        1,
+        1160
+      ],
+      [
+        1185,
+        1197
+      ],
+      [
+        1295,
+        1321
+      ]
+    ],
+    "corrective_count": 1,
+    "trace_count": 0,
+    "unchanged_since_previous_progress": true,
+    "unread_prefix_ranges_inclusive": [
+      [
+        1161,
+        1184
+      ],
+      [
+        1198,
+        1294
+      ]
+    ],
+    "unread_prefix_count": 121,
+    "unread_trace_count": 23,
+    "limitation": "No semantic actual-type credit is inferred from source bodies or index metadata."
+  },
+  "source_assessment_notes": [
+    "CoordinateQueries: protocol is a fixed function of prior index/value history, with valid coordinate requests the only hidden-input access. Runs records actual answers, deterministic finite executions and replay under agreement on queried indices. Empty-history replay plus coordinate sensitivity forces every coordinate for each distinct integer input and valid rank when correctness holds for every integer input, including duplicates. Totality is separate and supplies a real witness. Repeated queries count repeatedly; positive tariff and explicit resource-coverage bridge are retained. Big-O lower-bound consequence is limited to uniform query bounds, without assuming an unproved finite supremum.",
+    "CoordinateQueries clients: total/correct singleton, observed-sign-adaptive repeated singleton and two-coordinate minimum protocols; concrete distinct coverage and actual repeated charges; replay, total witness and uniform bound consumers. Actual source proof bodies do not make correctness or termination vacuous.",
+    "CoordinateReadAll: private readPlan induction starts from actual answer-generated history. Fixed plans include repetitions; full read returns chronological acquired values and exact n queries. Arbitrary supplied histories are not presumed reachable. Query count explicitly excludes final pure computation, reversal and plan lookup. Zero tariff is allowed in the identity, distinct from positive-tariff lower bounds. Empty payload/size, full-read existence, duplicate values, concrete sums and repeated plans are checked consumers.",
+    "CoordinateSelection: actual Resources.Selection.selectRun executes on acquired answers, retaining value and source-call observation. Combined work is query acquisition plus those actual calls, with exact bridge and query coverage proved. The model explicitly excludes frontend bookkeeping, plan lookup and projections and makes no physical-runtime claim. Uniform affine/linear constants precede type, tariff, size, rank and input. Integer valid-rank value projection first proves some actual answer, and a fixed default is not used to establish correctness. All-input totality/correctness yields a nonvacuous member of the competitor class. A single factor compares concrete combined work with every correct competitor query work on distinct valid-rank inputs with positive tariff; both actual executions and equal values are supplied in optimality theorem.",
+    "CoordinateSelection clients consume actual source costs for empty2, singleton7, unsorted3-input16 and duplicate3-input14, zero versus positive acquisition tariffs, invalid rank n+2, cutoff20 source73/combined93 and firstrecursive21 actual execution under proven scalar bound1440. Pair-minimum comparison uses a separately established total/correct protocol. No concrete Spec finding in these six complete source modules."
+  ],
+  "trace_evidence_read_after_hold": {
+    "terminal_and_closure_read_tool": "4ab23f",
+    "metadata_program_and_outer_wrapper_read_tool": "4f9006",
+    "qualification_candidate": "2b5ff20504d8811587859e6eb3351cb1598a4504",
+    "owned_terminal_actual_exit": 0,
+    "original_terminal_chunk": "5525da",
+    "recorded_input_identity_equal": true,
+    "captured_sources": 46,
+    "captured_objects": 138,
+    "raw_actual_types_read": 0,
+    "reconciliation_complete": false,
+    "truncation_boundary": "4f9006 truncated an oversized object-path metadata list. No unseen metadata is credited; complete source/config/log/index reconciliation remains pending. No theorem-type bodies were requested in that call."
+  },
+  "resolved_findings": [
+    {
+      "id": "C03-SPEC-USE-001",
+      "resolution_candidate": "2ff47bdad9f822727fb2d1ea86092c4b26ad0cb6",
+      "preserved_in": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+      "record": "finding-C03-SPEC-USE-001-resolution1.json"
+    }
+  ],
+  "new_findings": [],
+  "remaining_scope": [
+    "121 prefix query raw actual-type blocks and23 trace raw actual-type blocks; complete stable-input/native/terminal reconciliation for trace type run.",
+    "Accepted shared-XR theorem/example/document source and input-identity reuse; remaining correspondence and entrypoint composition across originalQ-to-final/all83 obligations.",
+    "Universal actual endpoint trace/exact1/n!/triangular scan and unbounded actual source-cost family, new source/client/type assessment and final candidate changes.",
+    "Successful closed final normal whole-project check, exhaustive audit, matching verification, both independent axes and immediate candidate verification."
+  ],
+  "no_compiler_or_source_or_ref_mutations": true
+}

@@ -1,0 +1,36 @@
+{
+  "original_path": "session/validation/persistent-accounting-focused-output-copy.json",
+  "original_sha256": "3ba273b1cdd64e9e30398c2ab3304e7ba71b84cf6445c61dae40e30c5f649164",
+  "original_bytes": 163499,
+  "removed_fields": [
+    {
+      "pointer": "/copied",
+      "entries": 812,
+      "canonical_json_sha256": "9d49759c58dca0fd44ea04f60f5a70520c2d1892381e462256d5fd3243064552"
+    },
+    {
+      "pointer": "/selected_modules",
+      "entries": 116,
+      "canonical_json_sha256": "5e0afc0143a58a7cd416462774f19ee62ba025c3da2789f542e6499f691c8760"
+    }
+  ],
+  "record": {
+    "started_at": "2026-11-03T00:56:31.277119+00:00",
+    "status": "completed",
+    "source": "/workspace/scratch/ca9a61d0bf30/validation-cache-counts",
+    "target": "/workspace/scratch/ca9a61d0bf30/persistent-accounting",
+    "source_head": "3dd930c3e3989f3e5530463f3ac937a629551335",
+    "target_head": "3dd930c3e3989f3e5530463f3ac937a629551335",
+    "approval_copied": false,
+    "source_validation": "focused development outputs only; not accepted",
+    "selection": "identical source bytes; no destination module artifacts; complete saved outputs",
+    "skipped": {},
+    "acceptance": false,
+    "hashed_artifacts": 348,
+    "source_inconsistencies": {},
+    "ended_at": "2026-11-03T00:56:36.957773+00:00",
+    "copied_modules": 116,
+    "copied_files": 812,
+    "copied_bytes": 87102765
+  }
+}

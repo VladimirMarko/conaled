@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-05T04:21:04.857889+00:00",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "terminal": {
+    "recorded_utc": "2026-11-05T04:21:04.857733+00:00",
+    "owned_session": 69618,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "06a9d6",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe"
+  },
+  "actual_recorder_and_native_exits": [
+    0,
+    0
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-immediate-verification-20261105/full.log",
+    "bytes": 317,
+    "sha256": "6d6e5a77d85cca3e8f4ce8bb2382c0e2212db856c40c23ce976c2e5efb79736f"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261105T042055Z-project-run-1b828b5d",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-immediate-verification-20261105/native-records/start.json",
+      "bytes": 428,
+      "sha256": "853c8e3ef9b3b4e6c306c33fae3310ce45c116a6fe843d02a4bf274e3bdfc111"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-immediate-verification-20261105/native-records/result.json",
+      "bytes": 580,
+      "sha256": "4b93c9819b43d7985ba94b43144f1f06bbd6e3bfedb38dc207544340016bdfe1"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-immediate-verification-20261105/native-records/output.log",
+      "bytes": 84,
+      "sha256": "8f8c3b93b60ab35c62e7f58528858236d151f6787a66ab38a7536a286cbd272e"
+    }
+  },
+  "native_body_exact_outer_offset": 77,
+  "complete_closed_log": true,
+  "scope": "Mandatory immediate qualified verification after actual passed original Standards/Spec axes and root gate. This exact closed success precedes the guarded local fast-forward; no full check or source change occurs between them.",
+  "verification_record_candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

@@ -1,0 +1,16 @@
+{
+  "recorded_utc": "2026-11-04T21:04:56.138637+00:00",
+  "finding": "C03-ENVELOPE-ELAB-001",
+  "failed_candidate": "d872afb3b8bccf01e74f4dc8826915179836dbe0",
+  "actual_failed_closure": "ee7f9b",
+  "complete_closed_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-envelope-focused-attempt1-20261104/full.log",
+    "bytes": 2890,
+    "sha256": "3c3b359a7612323ee9b88e9c5057c295a5c8262be4abe6b9523a9d9cb772b0b0"
+  },
+  "diagnostic": "small_budget_le zero case decide rejects free d even though the goal reduces to closed3<=4",
+  "proposed_correction": "Explicitly change the definitionally identical zero-case goal to (3:Nat)<=4, then kernel decide. All definitions,20headers,8cases and all other proofs remain exact.",
+  "execution_profiles_unchanged": true,
+  "no_gate_weakening": true,
+  "tool_dispatch_reconciliation": "Previous combined exec was explicitly aborted before dispatch;328cc5 verified both closure files absent before the actual close at ee7f9b. No duplicate closure or earlier executed mutation."
+}

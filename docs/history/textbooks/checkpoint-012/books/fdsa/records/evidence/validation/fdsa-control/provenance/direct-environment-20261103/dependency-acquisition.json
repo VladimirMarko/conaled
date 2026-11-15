@@ -1,0 +1,943 @@
+{
+  "started_utc": "2026-11-03T14:29:16.070887+00:00",
+  "completed_utc": "2026-11-03T14:29:38.177056+00:00",
+  "scope": "Acquire exact Git dependency source checkouts only. No manifest/source edit, compiler, build, cache download, permission escalation, security change, or GitHub mutation.",
+  "manifest_sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+  "manifest_unchanged": true,
+  "initial_candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "final_candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "initial_candidate_status": "",
+  "final_candidate_status": "",
+  "maximum_parallel_fetches": 3,
+  "results": [
+    {
+      "name": "mathlib",
+      "url": "https://github.com/leanprover-community/mathlib4.git",
+      "expected_rev": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/mathlib",
+      "commands": [
+        {
+          "started_utc": "2026-11-03T14:29:16.097829+00:00",
+          "command": [
+            "git",
+            "init",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/mathlib"
+          ],
+          "exit_code": 0,
+          "output": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: is subject to change. To configure the initial branch name to use in all\nhint: of your new repositories, which will suppress this warning, call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\nInitialized empty Git repository in /workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/mathlib/.git/\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:16.104156+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/mathlib",
+            "remote",
+            "add",
+            "origin",
+            "https://github.com/leanprover-community/mathlib4.git"
+          ],
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "started_utc": "2026-11-03T14:29:16.111358+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/mathlib",
+            "-c",
+            "credential.helper=",
+            "fetch",
+            "--depth",
+            "1",
+            "origin",
+            "56a005855ea17e0b0958f73ec801ae140b0a1679"
+          ],
+          "exit_code": 0,
+          "output": "From https://github.com/leanprover-community/mathlib4\n * branch            56a005855ea17e0b0958f73ec801ae140b0a1679 -> FETCH_HEAD\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:30.140925+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/mathlib",
+            "checkout",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "exit_code": 0,
+          "output": "HEAD is now at 56a0058 chore: bump toolchain to v4.35.0 (#44806)\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:32.344812+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/mathlib",
+            "rev-parse",
+            "HEAD"
+          ],
+          "exit_code": 0,
+          "output": "56a005855ea17e0b0958f73ec801ae140b0a1679\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:32.348438+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/mathlib",
+            "status",
+            "--porcelain",
+            "--untracked-files=all"
+          ],
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "started_utc": "2026-11-03T14:29:32.471397+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/mathlib",
+            "rev-parse",
+            "--show-toplevel"
+          ],
+          "exit_code": 0,
+          "output": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/mathlib\n"
+        }
+      ],
+      "status": "passed",
+      "actual_rev": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "porcelain": "",
+      "top_level": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/mathlib"
+    },
+    {
+      "name": "plausible",
+      "url": "https://github.com/leanprover-community/plausible",
+      "expected_rev": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "path": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/plausible",
+      "commands": [
+        {
+          "started_utc": "2026-11-03T14:29:16.099781+00:00",
+          "command": [
+            "git",
+            "init",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/plausible"
+          ],
+          "exit_code": 0,
+          "output": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: is subject to change. To configure the initial branch name to use in all\nhint: of your new repositories, which will suppress this warning, call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\nInitialized empty Git repository in /workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/plausible/.git/\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:16.112564+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/plausible",
+            "remote",
+            "add",
+            "origin",
+            "https://github.com/leanprover-community/plausible"
+          ],
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "started_utc": "2026-11-03T14:29:16.121666+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/plausible",
+            "-c",
+            "credential.helper=",
+            "fetch",
+            "--depth",
+            "1",
+            "origin",
+            "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+          ],
+          "exit_code": 0,
+          "output": "From https://github.com/leanprover-community/plausible\n * branch            dfa4f38190d07c37e315953e08b90fe2d95b3c24 -> FETCH_HEAD\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:20.537059+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/plausible",
+            "checkout",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "exit_code": 0,
+          "output": "HEAD is now at dfa4f38 chore: bump toolchain to v4.35.0 (#107)\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:20.547280+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/plausible",
+            "rev-parse",
+            "HEAD"
+          ],
+          "exit_code": 0,
+          "output": "dfa4f38190d07c37e315953e08b90fe2d95b3c24\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:20.551947+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/plausible",
+            "status",
+            "--porcelain",
+            "--untracked-files=all"
+          ],
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "started_utc": "2026-11-03T14:29:20.556575+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/plausible",
+            "rev-parse",
+            "--show-toplevel"
+          ],
+          "exit_code": 0,
+          "output": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/plausible\n"
+        }
+      ],
+      "status": "passed",
+      "actual_rev": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "porcelain": "",
+      "top_level": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/plausible"
+    },
+    {
+      "name": "LeanSearchClient",
+      "url": "https://github.com/leanprover-community/LeanSearchClient",
+      "expected_rev": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "path": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/LeanSearchClient",
+      "commands": [
+        {
+          "started_utc": "2026-11-03T14:29:16.100225+00:00",
+          "command": [
+            "git",
+            "init",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/LeanSearchClient"
+          ],
+          "exit_code": 0,
+          "output": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: is subject to change. To configure the initial branch name to use in all\nhint: of your new repositories, which will suppress this warning, call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\nInitialized empty Git repository in /workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/LeanSearchClient/.git/\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:16.113156+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/LeanSearchClient",
+            "remote",
+            "add",
+            "origin",
+            "https://github.com/leanprover-community/LeanSearchClient"
+          ],
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "started_utc": "2026-11-03T14:29:16.117568+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/LeanSearchClient",
+            "-c",
+            "credential.helper=",
+            "fetch",
+            "--depth",
+            "1",
+            "origin",
+            "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+          ],
+          "exit_code": 0,
+          "output": "From https://github.com/leanprover-community/LeanSearchClient\n * branch            d6b4c7be5be75ec4917c873ac50c756dc1436372 -> FETCH_HEAD\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:20.837546+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/LeanSearchClient",
+            "checkout",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "exit_code": 0,
+          "output": "HEAD is now at d6b4c7b chore: bump toolchain to v4.35.0 (#46)\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:20.843796+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/LeanSearchClient",
+            "rev-parse",
+            "HEAD"
+          ],
+          "exit_code": 0,
+          "output": "d6b4c7be5be75ec4917c873ac50c756dc1436372\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:20.846768+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/LeanSearchClient",
+            "status",
+            "--porcelain",
+            "--untracked-files=all"
+          ],
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "started_utc": "2026-11-03T14:29:20.851477+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/LeanSearchClient",
+            "rev-parse",
+            "--show-toplevel"
+          ],
+          "exit_code": 0,
+          "output": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/LeanSearchClient\n"
+        }
+      ],
+      "status": "passed",
+      "actual_rev": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "porcelain": "",
+      "top_level": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/LeanSearchClient"
+    },
+    {
+      "name": "importGraph",
+      "url": "https://github.com/leanprover-community/import-graph",
+      "expected_rev": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "path": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/importGraph",
+      "commands": [
+        {
+          "started_utc": "2026-11-03T14:29:20.559867+00:00",
+          "command": [
+            "git",
+            "init",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/importGraph"
+          ],
+          "exit_code": 0,
+          "output": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: is subject to change. To configure the initial branch name to use in all\nhint: of your new repositories, which will suppress this warning, call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\nInitialized empty Git repository in /workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/importGraph/.git/\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:20.567908+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/importGraph",
+            "remote",
+            "add",
+            "origin",
+            "https://github.com/leanprover-community/import-graph"
+          ],
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "started_utc": "2026-11-03T14:29:20.574133+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/importGraph",
+            "-c",
+            "credential.helper=",
+            "fetch",
+            "--depth",
+            "1",
+            "origin",
+            "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+          ],
+          "exit_code": 0,
+          "output": "From https://github.com/leanprover-community/import-graph\n * branch            a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93 -> FETCH_HEAD\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:27.545021+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/importGraph",
+            "checkout",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "exit_code": 0,
+          "output": "HEAD is now at a41f0e9 chore: bump toolchain to v4.35.0 (#175)\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:27.561305+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/importGraph",
+            "rev-parse",
+            "HEAD"
+          ],
+          "exit_code": 0,
+          "output": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:27.566392+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/importGraph",
+            "status",
+            "--porcelain",
+            "--untracked-files=all"
+          ],
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "started_utc": "2026-11-03T14:29:27.573958+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/importGraph",
+            "rev-parse",
+            "--show-toplevel"
+          ],
+          "exit_code": 0,
+          "output": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/importGraph\n"
+        }
+      ],
+      "status": "passed",
+      "actual_rev": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "porcelain": "",
+      "top_level": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/importGraph"
+    },
+    {
+      "name": "proofwidgets",
+      "url": "https://github.com/leanprover-community/ProofWidgets4",
+      "expected_rev": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "path": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/proofwidgets",
+      "commands": [
+        {
+          "started_utc": "2026-11-03T14:29:20.855156+00:00",
+          "command": [
+            "git",
+            "init",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/proofwidgets"
+          ],
+          "exit_code": 0,
+          "output": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: is subject to change. To configure the initial branch name to use in all\nhint: of your new repositories, which will suppress this warning, call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\nInitialized empty Git repository in /workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/proofwidgets/.git/\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:20.861317+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/proofwidgets",
+            "remote",
+            "add",
+            "origin",
+            "https://github.com/leanprover-community/ProofWidgets4"
+          ],
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "started_utc": "2026-11-03T14:29:20.869530+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/proofwidgets",
+            "-c",
+            "credential.helper=",
+            "fetch",
+            "--depth",
+            "1",
+            "origin",
+            "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+          ],
+          "exit_code": 0,
+          "output": "From https://github.com/leanprover-community/ProofWidgets4\n * branch            df72b022e558978a1c50264cfc4d7fec86fa8e04 -> FETCH_HEAD\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:27.767729+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/proofwidgets",
+            "checkout",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "exit_code": 0,
+          "output": "HEAD is now at df72b02 chore: bump toolchain to v4.35.0 (#202)\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:27.815413+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/proofwidgets",
+            "rev-parse",
+            "HEAD"
+          ],
+          "exit_code": 0,
+          "output": "df72b022e558978a1c50264cfc4d7fec86fa8e04\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:27.820648+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/proofwidgets",
+            "status",
+            "--porcelain",
+            "--untracked-files=all"
+          ],
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "started_utc": "2026-11-03T14:29:27.859803+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/proofwidgets",
+            "rev-parse",
+            "--show-toplevel"
+          ],
+          "exit_code": 0,
+          "output": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/proofwidgets\n"
+        }
+      ],
+      "status": "passed",
+      "actual_rev": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "porcelain": "",
+      "top_level": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/proofwidgets"
+    },
+    {
+      "name": "aesop",
+      "url": "https://github.com/leanprover-community/aesop",
+      "expected_rev": "4a174c490d8707121c4a9290800489f105d85e07",
+      "path": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/aesop",
+      "commands": [
+        {
+          "started_utc": "2026-11-03T14:29:27.577433+00:00",
+          "command": [
+            "git",
+            "init",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/aesop"
+          ],
+          "exit_code": 0,
+          "output": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: is subject to change. To configure the initial branch name to use in all\nhint: of your new repositories, which will suppress this warning, call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\nInitialized empty Git repository in /workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/aesop/.git/\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:27.584098+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/aesop",
+            "remote",
+            "add",
+            "origin",
+            "https://github.com/leanprover-community/aesop"
+          ],
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "started_utc": "2026-11-03T14:29:27.595795+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/aesop",
+            "-c",
+            "credential.helper=",
+            "fetch",
+            "--depth",
+            "1",
+            "origin",
+            "4a174c490d8707121c4a9290800489f105d85e07"
+          ],
+          "exit_code": 0,
+          "output": "From https://github.com/leanprover-community/aesop\n * branch            4a174c490d8707121c4a9290800489f105d85e07 -> FETCH_HEAD\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:32.391426+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/aesop",
+            "checkout",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "exit_code": 0,
+          "output": "HEAD is now at 4a174c4 chore: bump toolchain to v4.35.0 (#359)\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:32.411303+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/aesop",
+            "rev-parse",
+            "HEAD"
+          ],
+          "exit_code": 0,
+          "output": "4a174c490d8707121c4a9290800489f105d85e07\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:32.419324+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/aesop",
+            "status",
+            "--porcelain",
+            "--untracked-files=all"
+          ],
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "started_utc": "2026-11-03T14:29:32.431742+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/aesop",
+            "rev-parse",
+            "--show-toplevel"
+          ],
+          "exit_code": 0,
+          "output": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/aesop\n"
+        }
+      ],
+      "status": "passed",
+      "actual_rev": "4a174c490d8707121c4a9290800489f105d85e07",
+      "porcelain": "",
+      "top_level": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/aesop"
+    },
+    {
+      "name": "Qq",
+      "url": "https://github.com/leanprover-community/quote4",
+      "expected_rev": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "path": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Qq",
+      "commands": [
+        {
+          "started_utc": "2026-11-03T14:29:27.864678+00:00",
+          "command": [
+            "git",
+            "init",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Qq"
+          ],
+          "exit_code": 0,
+          "output": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: is subject to change. To configure the initial branch name to use in all\nhint: of your new repositories, which will suppress this warning, call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\nInitialized empty Git repository in /workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Qq/.git/\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:27.872422+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Qq",
+            "remote",
+            "add",
+            "origin",
+            "https://github.com/leanprover-community/quote4"
+          ],
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "started_utc": "2026-11-03T14:29:27.876705+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Qq",
+            "-c",
+            "credential.helper=",
+            "fetch",
+            "--depth",
+            "1",
+            "origin",
+            "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+          ],
+          "exit_code": 0,
+          "output": "From https://github.com/leanprover-community/quote4\n * branch            dce0ad79c486cb1fb504af04f953c3466b0c6db8 -> FETCH_HEAD\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:32.519274+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Qq",
+            "checkout",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "exit_code": 0,
+          "output": "HEAD is now at dce0ad7 chore: bump toolchain to v4.35.0 (#166)\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:32.529722+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Qq",
+            "rev-parse",
+            "HEAD"
+          ],
+          "exit_code": 0,
+          "output": "dce0ad79c486cb1fb504af04f953c3466b0c6db8\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:32.535236+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Qq",
+            "status",
+            "--porcelain",
+            "--untracked-files=all"
+          ],
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "started_utc": "2026-11-03T14:29:32.541340+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Qq",
+            "rev-parse",
+            "--show-toplevel"
+          ],
+          "exit_code": 0,
+          "output": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Qq\n"
+        }
+      ],
+      "status": "passed",
+      "actual_rev": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "porcelain": "",
+      "top_level": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Qq"
+    },
+    {
+      "name": "batteries",
+      "url": "https://github.com/leanprover-community/batteries",
+      "expected_rev": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "path": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/batteries",
+      "commands": [
+        {
+          "started_utc": "2026-11-03T14:29:32.435943+00:00",
+          "command": [
+            "git",
+            "init",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/batteries"
+          ],
+          "exit_code": 0,
+          "output": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: is subject to change. To configure the initial branch name to use in all\nhint: of your new repositories, which will suppress this warning, call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\nInitialized empty Git repository in /workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/batteries/.git/\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:32.441584+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/batteries",
+            "remote",
+            "add",
+            "origin",
+            "https://github.com/leanprover-community/batteries"
+          ],
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "started_utc": "2026-11-03T14:29:32.446986+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/batteries",
+            "-c",
+            "credential.helper=",
+            "fetch",
+            "--depth",
+            "1",
+            "origin",
+            "66e469188fe07963e5cf666c7d4433f45b8131c5"
+          ],
+          "exit_code": 0,
+          "output": "From https://github.com/leanprover-community/batteries\n * branch            66e469188fe07963e5cf666c7d4433f45b8131c5 -> FETCH_HEAD\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:38.105880+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/batteries",
+            "checkout",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "exit_code": 0,
+          "output": "HEAD is now at 66e4691 chore: bump toolchain to v4.35.0 (#2024)\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:38.136505+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/batteries",
+            "rev-parse",
+            "HEAD"
+          ],
+          "exit_code": 0,
+          "output": "66e469188fe07963e5cf666c7d4433f45b8131c5\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:38.140987+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/batteries",
+            "status",
+            "--porcelain",
+            "--untracked-files=all"
+          ],
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "started_utc": "2026-11-03T14:29:38.152402+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/batteries",
+            "rev-parse",
+            "--show-toplevel"
+          ],
+          "exit_code": 0,
+          "output": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/batteries\n"
+        }
+      ],
+      "status": "passed",
+      "actual_rev": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "porcelain": "",
+      "top_level": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/batteries"
+    },
+    {
+      "name": "Cli",
+      "url": "https://github.com/leanprover/lean4-cli",
+      "expected_rev": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "path": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Cli",
+      "commands": [
+        {
+          "started_utc": "2026-11-03T14:29:32.475419+00:00",
+          "command": [
+            "git",
+            "init",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Cli"
+          ],
+          "exit_code": 0,
+          "output": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: is subject to change. To configure the initial branch name to use in all\nhint: of your new repositories, which will suppress this warning, call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\nInitialized empty Git repository in /workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Cli/.git/\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:32.485648+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Cli",
+            "remote",
+            "add",
+            "origin",
+            "https://github.com/leanprover/lean4-cli"
+          ],
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "started_utc": "2026-11-03T14:29:32.492135+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Cli",
+            "-c",
+            "credential.helper=",
+            "fetch",
+            "--depth",
+            "1",
+            "origin",
+            "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+          ],
+          "exit_code": 0,
+          "output": "From https://github.com/leanprover/lean4-cli\n * branch            c24fe6078c630e89b489bffe59b3e20ac30d12c8 -> FETCH_HEAD\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:37.746617+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Cli",
+            "checkout",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "exit_code": 0,
+          "output": "HEAD is now at c24fe60 chore: bump toolchain to v4.35.0 (#102)\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:37.753838+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Cli",
+            "rev-parse",
+            "HEAD"
+          ],
+          "exit_code": 0,
+          "output": "c24fe6078c630e89b489bffe59b3e20ac30d12c8\n"
+        },
+        {
+          "started_utc": "2026-11-03T14:29:37.759088+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Cli",
+            "status",
+            "--porcelain",
+            "--untracked-files=all"
+          ],
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "started_utc": "2026-11-03T14:29:37.765911+00:00",
+          "command": [
+            "git",
+            "-C",
+            "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Cli",
+            "rev-parse",
+            "--show-toplevel"
+          ],
+          "exit_code": 0,
+          "output": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Cli\n"
+        }
+      ],
+      "status": "passed",
+      "actual_rev": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "porcelain": "",
+      "top_level": "/workspace/scratch/6bb268f9336f/work/conaled-ch01-review/.lake/packages/Cli"
+    }
+  ],
+  "all_passed": true,
+  "log": "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/direct-environment-20261103/dependency-acquisition.log"
+}

@@ -1,0 +1,27 @@
+{
+  "recorded_utc": "2026-11-03T18:19:41.012950+00:00",
+  "decision": "Do not adopt mmap/MADV_RANDOM interposition. Evaluate a separate explicit -j1 native overlay using the already accepted readlink shim and unchanged official payloads.",
+  "reason": "Both probes completed0 with matching known output. The simpler -j1-only control completed in2.44493s, so the observed practical benefit does not require adding the mmap component. Cache/order/concurrency confound causal comparison.",
+  "measurements": {
+    "original-squares-random-run1": {
+      "wall_seconds": 6.9524744500013185,
+      "child_returncode": 0,
+      "output_sha256": "133589a2adff7fcb278b1bc79fd1fd8f2bcf9315cfae28d6d801a5efa099ac4c",
+      "max_rss_kib": 1477064,
+      "major_faults": 27233,
+      "input_blocks": 279176
+    },
+    "original-squares-j1-control-run1": {
+      "wall_seconds": 2.444932679998601,
+      "child_returncode": 0,
+      "output_sha256": "133589a2adff7fcb278b1bc79fd1fd8f2bcf9315cfae28d6d801a5efa099ac4c",
+      "max_rss_kib": 1625588,
+      "major_faults": 994,
+      "input_blocks": 799056
+    }
+  },
+  "memory_limit": "RSS was higher in both fast observations; no reduced memory requirement or safe increased process concurrency follows.",
+  "experiment_scope_closed": true,
+  "current_native_helper_and_fresh4_unchanged": true,
+  "formal_credit": false
+}

@@ -1,0 +1,52 @@
+{
+  "observed_utc": "2026-11-03T16:34:44.931783+00:00",
+  "command": [
+    "python3",
+    "work/fdsa-control/tooling/native_toolchain.py",
+    "--",
+    "python3",
+    "work/fdsa-control/provenance/native-environment-20261103/check_readlink.py"
+  ],
+  "working_directory": "/workspace/scratch/6bb268f9336f",
+  "exit_code": 0,
+  "observed_outcome": "passed",
+  "harness_sha256": "9a16c8ef864b6ae5e60bb6c7ca4018d365bcfede7aa1ecfa37ee8d070b6014aa",
+  "shim_sha256": "65910335cb5a2a4359e9ebf7dae4de1da7a48cdbf9dee5eabe82c3e4b02d88a9",
+  "cases": [
+    {
+      "kind": "own executable",
+      "forms": [
+        "/proc/<own pid>/exe",
+        "/proc/self/exe"
+      ],
+      "raw_errno": 2,
+      "fallback_path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+      "fallback_count": 76,
+      "three_byte_truncation": "/op",
+      "zero_capacity_errno": 22,
+      "guard_bytes_preserved": true
+    },
+    {
+      "kind": "ordinary symlink",
+      "raw_and_shim_value": "target.txt",
+      "count": 10
+    },
+    {
+      "kind": "ordinary regular file",
+      "raw_and_shim_errno": 22
+    },
+    {
+      "kind": "missing ordinary path",
+      "raw_and_shim_errno": 2
+    },
+    {
+      "kind": "different process executable path",
+      "raw_and_shim_errno": 2
+    },
+    {
+      "kind": "own cwd path",
+      "raw_and_shim_errno": 2
+    }
+  ],
+  "evidence_note": "Summary transcribed from the actual successful tool output. Harness and command are retained; no repeat was run merely to save the output."
+}

@@ -1,0 +1,13 @@
+{
+  "recorded_utc": "2026-11-04T07:10:40.247055+00:00",
+  "finding": "RQT-SRC-001",
+  "source_before": "e71092c38cf68cae5b984fd9cea85c9f5b34a570",
+  "source_after": "5a3af21cb4ff56896f1a7d249736c4804c229873",
+  "description": "Match neighboring formal modules explicit autoImplicit false and warningAsError true settings before first compilation. This strengthens elaboration safeguards; no declaration or proof body changed.",
+  "source_hashes": {
+    "Applications/Resources/QuickSortTransport.lean": "4093b8aa3b1bf884760926a4c866453f8ffa47d40304b8746f8083d2a3f54eff",
+    "Examples/QuickSortTransport.lean": "57dc49986edb9c8f990781c980177a513a9e9e2020c6218ce4f4d88daac4c6b2"
+  },
+  "commit_output": "[work/fdsa-ch02-quicksort 5a3af21] style(fdsa): enforce local transport elaboration safeguards (#174)\n 2 files changed, 6 insertions(+)\n",
+  "status": "Uncompiled successor; original static assessment retained and exact options-only diff read."
+}

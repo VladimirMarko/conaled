@@ -1,0 +1,45 @@
+{
+  "recorded_at": "2026-11-14T21:27:30.241234+00:00",
+  "pid": 27,
+  "cwd": "/workspace/scratch/e1eab3b6b18e/integration-20261114/build-unrestricted",
+  "cpu_count": 9,
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "priority": 0,
+  "thread_controls": {
+    "LEAN_NUM_THREADS": null,
+    "LAKE_JOBS": null,
+    "OMP_NUM_THREADS": null,
+    "OMP_THREAD_LIMIT": null,
+    "OPENBLAS_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "NUMEXPR_NUM_THREADS": null,
+    "RAYON_NUM_THREADS": null,
+    "MAKEFLAGS": null,
+    "CMAKE_BUILD_PARALLEL_LEVEL": null
+  },
+  "resource_limits": {
+    "RLIMIT_CPU": [
+      -1,
+      -1
+    ],
+    "RLIMIT_AS": [
+      -1,
+      -1
+    ],
+    "RLIMIT_DATA": [
+      -1,
+      -1
+    ]
+  },
+  "meaning": "Observed after the launcher and env -u, immediately before exec of the original checker. No resource limits are changed by this observer."
+}

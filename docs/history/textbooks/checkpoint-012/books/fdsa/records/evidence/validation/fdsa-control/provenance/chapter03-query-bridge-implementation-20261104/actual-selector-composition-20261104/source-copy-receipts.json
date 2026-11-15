@@ -1,0 +1,137 @@
+{
+  "recorded_utc": "2026-11-04T21:46:18.809323+00:00",
+  "source": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+  "copied_count": 11,
+  "copies": [
+    {
+      "path": "Applications/Resources/Chunks.lean",
+      "bytes": 4591,
+      "sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc",
+      "blob": "25c7db2d5358bf2087657a8987963ba31dff09eb",
+      "project_imports": [
+        "Applications/Resources/ListCalls.lean",
+        "Applications/Sequences/Chunks.lean"
+      ],
+      "initial_state": "absent",
+      "receipt": "created previously absent source; exact Git blob bytes from authorized donor"
+    },
+    {
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758",
+      "blob": "0f78fd302b88aba9596036a63b79195007e502a8",
+      "project_imports": [],
+      "initial_state": "absent",
+      "receipt": "created previously absent source; exact Git blob bytes from authorized donor"
+    },
+    {
+      "path": "Applications/Resources/RoundedRecurrenceBounds.lean",
+      "bytes": 6951,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135",
+      "blob": "45b5c20045c45919eb1f368ae0d9c9629b32a27b",
+      "project_imports": [
+        "Applications/Resources/RoundedRecurrence.lean"
+      ],
+      "initial_state": "absent",
+      "receipt": "created previously absent source; exact Git blob bytes from authorized donor"
+    },
+    {
+      "path": "Applications/Resources/Selection.lean",
+      "bytes": 22435,
+      "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+      "blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3",
+      "project_imports": [
+        "Applications/Resources/SelectionMedians.lean",
+        "Applications/Resources/Partition.lean"
+      ],
+      "initial_state": "absent",
+      "receipt": "created previously absent source; exact Git blob bytes from authorized donor"
+    },
+    {
+      "path": "Applications/Resources/SelectionAuxiliary.lean",
+      "bytes": 6215,
+      "sha256": "eeba4ac85dd4e07b8b42f38499748cae69cb6dcaaa01fdc8400a3cf5b947a925",
+      "blob": "2bc892fee38610f0866e0cc3cd3529b7693f7c03",
+      "project_imports": [
+        "Applications/Resources/InsertionSort.lean",
+        "Applications/Resources/ListCalls.lean",
+        "Applications/Selection/CountRank.lean"
+      ],
+      "initial_state": "absent",
+      "receipt": "created previously absent source; exact Git blob bytes from authorized donor"
+    },
+    {
+      "path": "Applications/Resources/SelectionBounds.lean",
+      "bytes": 10073,
+      "sha256": "0f9181b569d24b2615c08be5c6a305a75e67679f14338e877fced10113d61edc",
+      "blob": "b68014cfc729990255e6883ac5d874af30bbb058",
+      "project_imports": [
+        "Applications/Resources/Selection.lean",
+        "Applications/Resources/SelectionRecurrence.lean"
+      ],
+      "initial_state": "absent",
+      "receipt": "created previously absent source; exact Git blob bytes from authorized donor"
+    },
+    {
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "bytes": 9755,
+      "sha256": "e64e998edc9353e5fd52544177fadd32f6398e3260b27ca54195cd8917e5d098",
+      "blob": "cd6bd74d71c43fc76d32555521d612dfb7cc5ee8",
+      "project_imports": [
+        "Applications/Resources/Chunks.lean",
+        "Applications/Resources/SelectionAuxiliary.lean",
+        "Applications/Selection/MedianOfMedians.lean"
+      ],
+      "initial_state": "absent",
+      "receipt": "created previously absent source; exact Git blob bytes from authorized donor"
+    },
+    {
+      "path": "Applications/Resources/SelectionRecurrence.lean",
+      "bytes": 6560,
+      "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e",
+      "blob": "ff3350e7cc566e62466e056166c8af6f781e32df",
+      "project_imports": [
+        "Applications/Resources/RoundedRecurrenceBounds.lean",
+        "Applications/Resources/Growth.lean"
+      ],
+      "initial_state": "absent",
+      "receipt": "created previously absent source; exact Git blob bytes from authorized donor"
+    },
+    {
+      "path": "Applications/Selection/CountRank.lean",
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d",
+      "blob": "5f6393df9fd804e4234eb16c8ecdcd93426952b3",
+      "project_imports": [
+        "Applications/Selection/Consumers.lean"
+      ],
+      "initial_state": "absent",
+      "receipt": "created previously absent source; exact Git blob bytes from authorized donor"
+    },
+    {
+      "path": "Applications/Selection/MedianOfMedians.lean",
+      "bytes": 13797,
+      "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba",
+      "blob": "c348fd2b48ec0b40fa76aa30634406580f9063c0",
+      "project_imports": [
+        "Applications/Selection/CountRank.lean",
+        "Applications/Sequences/Chunks.lean"
+      ],
+      "initial_state": "absent",
+      "receipt": "created previously absent source; exact Git blob bytes from authorized donor"
+    },
+    {
+      "path": "Applications/Sequences/Chunks.lean",
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493",
+      "blob": "c45bcb6427c002d3bab7c728dd6743458c8010fc",
+      "project_imports": [],
+      "initial_state": "absent",
+      "receipt": "created previously absent source; exact Git blob bytes from authorized donor"
+    }
+  ],
+  "existing_identical_count": 19,
+  "existing_files_overwritten": 0,
+  "compiler_outputs_copied": 0,
+  "package_or_environment_mutations": 0
+}

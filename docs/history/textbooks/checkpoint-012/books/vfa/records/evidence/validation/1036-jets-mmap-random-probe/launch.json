@@ -1,0 +1,34 @@
+{
+  "started_utc": "2026-11-04T01:45:56.689214+00:00",
+  "candidate": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+  "argv": [
+    "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/toolchains/lean-4.35.0-native-j1/libexec/lean",
+    "-j1",
+    "-o",
+    "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/runtime-tmp/jets-mmap-random-probe/Jets.olean",
+    "Applications/AD/Jets.lean"
+  ],
+  "cwd": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation",
+  "execution_input_sha256": {
+    "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/work-state/tooling/pinned_native_j1_toolchain.py": "575ea992adfa874e2f680b2c9e85120057f21a9e7ebbd8cb1005e1122845c1d5",
+    "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/toolchains/lean-4.35.0-native-j1/libexec/lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+    "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/toolchains/native-compat/libconaled_app_path.so": "8bb82334a2888e37a18b657a16f498cba239aaf3935bf24cc5b59728f6df5a18",
+    "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/runtime-tmp/jets-mmap-random-probe/libconaled_mmap_random.so": "5927638bd66ec29be8ea496f3a8fe9e13b3d17fd2b7dc7bcf9567d105009799b",
+    "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/Applications/AD/Jets.lean": "5be99dfe1ad767283f1908e475f9907324ec30898a9f739c226607859a479133",
+    "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/fresh-check-iw8iuais/Applications/AD/Jets.olean": "852574083fe8d02b145550afb2255615c8eaf902d51d936fead6622d74fa23a6"
+  },
+  "selected_environment": {
+    "LD_PRELOAD": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/runtime-tmp/jets-mmap-random-probe/libconaled_mmap_random.so:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/toolchains/native-compat/libconaled_app_path.so",
+    "CONALED_SELF_EXE": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/toolchains/lean-4.35.0-native-j1/libexec/lean",
+    "CONALED_MMAP_RANDOM": "1",
+    "CONALED_MMAP_RANDOM_EXE": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/toolchains/lean-4.35.0-native-j1/libexec/lean",
+    "CONALED_MMAP_RANDOM_REPORT": "1",
+    "LEAN_PATH": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/fresh-check-iw8iuais:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation/.lake/packages/proofwidgets/.lake/build/lib/lean",
+    "LEAN_SYSROOT": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/toolchains/lean-4.35.0-native-j1",
+    "LEAN_NUM_THREADS": "1"
+  },
+  "timeout_seconds": 90,
+  "cleanup_grace_seconds": 5,
+  "expected_output_sha256": "852574083fe8d02b145550afb2255615c8eaf902d51d936fead6622d74fa23a6",
+  "scope": "One renewed bounded probe of the unchanged retained experimental MADV_RANDOM prototype for observed high-I/O AD.Jets, matching j1 control threads. Concurrent full fresh and cache/load uncontrolled. No production adoption, formal gate substitution, causal speed claim, or chapter credit."
+}

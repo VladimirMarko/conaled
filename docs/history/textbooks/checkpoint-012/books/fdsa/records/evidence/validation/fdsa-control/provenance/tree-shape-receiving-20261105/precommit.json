@@ -1,0 +1,62 @@
+{
+  "recorded_utc": "2026-11-05T03:15:38.233432+00:00",
+  "base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "branch": "work/fdsa-tree-shape-integration",
+  "source_rows": [
+    {
+      "relative_path": "Applications/Trees/Shape.lean",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Applications/Trees/Shape.lean",
+      "bytes": 11019,
+      "sha256": "2233e014900a48ebc239d676a1c8abdaee2046ef503e5219bff460a001b868f3",
+      "donor_exact": true
+    },
+    {
+      "relative_path": "Applications/Trees/ShapeLog.lean",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Applications/Trees/ShapeLog.lean",
+      "bytes": 2796,
+      "sha256": "35c0555383fc3d03bcac4f368d41b2c8f744a49e18ef72b192c3753b7ef4497b",
+      "donor_exact": true
+    },
+    {
+      "relative_path": "Examples/TreeShape.lean",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Examples/TreeShape.lean",
+      "bytes": 12648,
+      "sha256": "2bcf2b65fa7a0eccc043c3bc7ba66d1bfdcd469489eab52d9085fdfb3db0b516",
+      "donor_exact": true
+    },
+    {
+      "relative_path": "SquareApplications.lean",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/SquareApplications.lean",
+      "bytes": 10769,
+      "sha256": "a9e0d07ced3385a26f4e1f0f4d45d796ebe4be5c12f03c7f219cce9dc9c9797d",
+      "donor_exact": false
+    },
+    {
+      "relative_path": "docs/research/fdsa-reconstruction-map.md",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/docs/research/fdsa-reconstruction-map.md",
+      "bytes": 51167,
+      "sha256": "470574c0d8ffd68b68264b97d04fd4d293c339b4a5189c3a65715e29156e435f",
+      "donor_exact": false
+    },
+    {
+      "relative_path": "docs/research/fdsa-tree-shape.md",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/docs/research/fdsa-tree-shape.md",
+      "bytes": 13230,
+      "sha256": "804ae74a082ddd1a493c2d36a34f7ebc842c6951501b0aa4eef717eac8d366c6",
+      "donor_exact": false
+    }
+  ],
+  "all3_formal_blobs_exact_donor": true,
+  "accepted_map_prefix_unchanged": true,
+  "single_new_public_import": true,
+  "staged_check_exit": 0,
+  "staged_diff_stat": " Applications/Trees/Shape.lean            | 267 +++++++++++++++++++++++++++\n Applications/Trees/ShapeLog.lean         |  69 +++++++\n Examples/TreeShape.lean                  | 297 +++++++++++++++++++++++++++++++\n SquareApplications.lean                  |   1 +\n docs/research/fdsa-reconstruction-map.md |  24 +++\n docs/research/fdsa-tree-shape.md         | 196 ++++++++++++++++++++\n 6 files changed, 854 insertions(+)\n",
+  "staged_delta": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-20261105/receiving-delta.patch",
+    "bytes": 44662,
+    "sha256": "f1464cb3f978dbd275d27e950c6fc718c57e368321fd1ee9dcffbe18759bd7f5"
+  },
+  "compiler_or_acceptance_credit": false
+}

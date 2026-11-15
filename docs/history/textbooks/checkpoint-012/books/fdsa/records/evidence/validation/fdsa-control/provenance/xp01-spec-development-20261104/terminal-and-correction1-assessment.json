@@ -1,0 +1,295 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-04T11:22:39.358418+00:00",
+  "review_axis": "Spec",
+  "same_original_scope": true,
+  "full_unit_current_candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+  "overall": "Blocked",
+  "terminal_assessments": [
+    {
+      "attempt": 1,
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "closed_exit": 1,
+      "full_log_read_complete": true,
+      "all_outer_native_secured_records_read": true,
+      "native_original_and_copy_equal": true,
+      "native_log_exact_contiguous_in_outer": true,
+      "pre_post_source_clean_unchanged": true,
+      "qualified_native_threads": "1",
+      "outer_started": "2026-11-04T11:11:09.130899+00:00",
+      "outer_completed": "2026-11-04T11:11:47.331351+00:00",
+      "outer_elapsed_seconds": 38.200258970002324,
+      "files": [
+        {
+          "path": "provenance/xp01-focused-development-20261104-attempt1/start.json",
+          "bytes": 1124,
+          "newline_lines": 31,
+          "sha256": "ac5863d68c4a4202cb8ad2225a4d4bf1268e7b52a8b3a940d4b94c07fcbe309b"
+        },
+        {
+          "path": "provenance/xp01-focused-development-20261104-attempt1/result.json",
+          "bytes": 1346,
+          "newline_lines": 36,
+          "sha256": "b887a613be2ef9bbf6d92295cc57824cafd91262db3d8e2f7a8942d6391ad8fb"
+        },
+        {
+          "path": "provenance/xp01-focused-development-20261104-attempt1/full.log",
+          "bytes": 8001,
+          "newline_lines": 56,
+          "sha256": "c6c10d379ced0abb312ea08e533135705d2edb1864d6d08076875cbc517337c2"
+        },
+        {
+          "path": "provenance/xp01-focused-development-20261104-attempt1/native/start.json",
+          "bytes": 604,
+          "newline_lines": 18,
+          "sha256": "4e0169f7681f121ea89502f3a6d8c0967a175966cbcdd9acf8f30e7bdb0d2b33"
+        },
+        {
+          "path": "provenance/xp01-focused-development-20261104-attempt1/native/result.json",
+          "bytes": 758,
+          "newline_lines": 23,
+          "sha256": "3f46508adf4eac8b7c585114d93a202798c78244d528aaea980c005f4edac807"
+        },
+        {
+          "path": "provenance/xp01-focused-development-20261104-attempt1/native/output.log",
+          "bytes": 7628,
+          "newline_lines": 53,
+          "sha256": "42af6d271264121b4a3f41276b6a3341365de9d170c68154200693e5a0fd8419"
+        },
+        {
+          "path": "provenance/xp01-focused-development-20261104-attempt1/secured-terminal.json",
+          "bytes": 1802,
+          "newline_lines": 47,
+          "sha256": "2612a8b72bc48bc4ae08b4ee23a9903efd082b4a0758831952f2c4ae9e57562d"
+        }
+      ],
+      "error_header_count": 2,
+      "built_requested_target_lines": [
+        "✔ [984/984] Built Examples.SymmetricLists (6.7s)"
+      ],
+      "module_advisory_warning_count": 17,
+      "full_candidate_check_or_audit": false
+    },
+    {
+      "attempt": 2,
+      "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+      "closed_exit": 1,
+      "full_log_read_complete": true,
+      "all_outer_native_secured_records_read": true,
+      "native_original_and_copy_equal": true,
+      "native_log_exact_contiguous_in_outer": true,
+      "pre_post_source_clean_unchanged": true,
+      "qualified_native_threads": "1",
+      "outer_started": "2026-11-04T11:16:49.321591+00:00",
+      "outer_completed": "2026-11-04T11:17:33.417162+00:00",
+      "outer_elapsed_seconds": 44.09538643700216,
+      "files": [
+        {
+          "path": "provenance/xp01-focused-development-20261104-attempt2/start.json",
+          "bytes": 1124,
+          "newline_lines": 31,
+          "sha256": "cb4cf8e067ad77b6b4ca4d662edfe5d6f080e984f45e72ef9fb9466f2ea2bcad"
+        },
+        {
+          "path": "provenance/xp01-focused-development-20261104-attempt2/result.json",
+          "bytes": 1346,
+          "newline_lines": 36,
+          "sha256": "2b6e38b8592a0f6e069d010cfd983cb52f57b88d301f9a1200fdcf41f7123486"
+        },
+        {
+          "path": "provenance/xp01-focused-development-20261104-attempt2/full.log",
+          "bytes": 12511,
+          "newline_lines": 152,
+          "sha256": "8fbbdc6d017240e7984585a02ae04afa3d8ed3ca5a46f3767144c5d7558c84a4"
+        },
+        {
+          "path": "provenance/xp01-focused-development-20261104-attempt2/native/start.json",
+          "bytes": 604,
+          "newline_lines": 18,
+          "sha256": "c9cb65a0848d27dbc9bbe3672021651e255815166883603fe74fd10ae40d1bfb"
+        },
+        {
+          "path": "provenance/xp01-focused-development-20261104-attempt2/native/result.json",
+          "bytes": 757,
+          "newline_lines": 23,
+          "sha256": "6163ccb231e4e4aeef38154147353d270fef8bb7a22ae693aac4842b1f3c538b"
+        },
+        {
+          "path": "provenance/xp01-focused-development-20261104-attempt2/native/output.log",
+          "bytes": 12138,
+          "newline_lines": 149,
+          "sha256": "49ab4f56fea1a3523fef441cdf1ec80dd9ace13dc735ec9970237e6befd3ae54"
+        },
+        {
+          "path": "provenance/xp01-focused-development-20261104-attempt2/secured-terminal.json",
+          "bytes": 1565,
+          "newline_lines": 42,
+          "sha256": "abefcf885453ac893d947b996e017e1631cb68c0ef1619ece39a980a0bdca47c"
+        }
+      ],
+      "error_header_count": 20,
+      "built_requested_target_lines": [
+        "⚠ [889/892] Built Examples.PotentialAccounting (2.2s)",
+        "✔ [891/904] Built Examples.FIFOContracts (1.0s)",
+        "✔ [912/913] Built Examples.RandomAccessEndCosts (3.4s)",
+        "✔ [984/984] Built Examples.SharedDemand (2.3s)"
+      ],
+      "module_advisory_warning_count": 17,
+      "full_candidate_check_or_audit": false
+    }
+  ],
+  "correction_source": {
+    "parent": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+    "successor": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+    "complete_diff": {
+      "path": "provenance/xp01-elaboration-correction1-20261104/source.diff",
+      "bytes": 2631,
+      "newline_lines": 43,
+      "sha256": "1fe0ed30e48e96602805a019fd8bf7de7f9d56164ccb3220069e545f8cb9b99a"
+    },
+    "root_receipt": {
+      "path": "provenance/xp01-development-integration-20261104/correction1-successor.json",
+      "bytes": 2368,
+      "newline_lines": 57,
+      "sha256": "56670cd1da92a46d1c4db90d3489fa1a516000524fcd89ccb47448373d8cf423"
+    },
+    "author_readback": {
+      "path": "provenance/xp01-elaboration-correction1-20261104/author-readback.md",
+      "bytes": 9945,
+      "newline_lines": 58,
+      "sha256": "cd82340af83eb4a1345ac9eb342eb5b2844557675e9e8b721055a249612f448b"
+    },
+    "author_receipt": {
+      "path": "provenance/xp01-elaboration-correction1-20261104/receipt.json",
+      "bytes": 8865,
+      "newline_lines": 230,
+      "sha256": "e9f9ff7bc4c7968ab5d3cd17e54f793e4437bd45df711f2dbc64bc2927ed9868"
+    },
+    "author_readback_and_receipt_complete_read": true,
+    "all_package_hashes_verified": [
+      {
+        "path": "author-readback.md",
+        "sha256": "cd82340af83eb4a1345ac9eb342eb5b2844557675e9e8b721055a249612f448b",
+        "matches_receipt": true
+      },
+      {
+        "path": "before-identity.json",
+        "sha256": "20cd816dbb5e951f271a60dda49494be2dee15c5cd437676c63428846fe2fa62",
+        "matches_receipt": true
+      },
+      {
+        "path": "diagnostic-map.json",
+        "sha256": "cd36210d95a09448d616e94e112dab1594f3d8ef25e6fc090e986742c9bb220c",
+        "matches_receipt": true
+      },
+      {
+        "path": "evidence/frozen-requirements.md",
+        "sha256": "545b5d2ff4a93594f2b1ca245594233bdfcf461b8f4fe14b3bbe698e6ad1aa2f",
+        "matches_receipt": true
+      },
+      {
+        "path": "evidence/input-full.log",
+        "sha256": "c6c10d379ced0abb312ea08e533135705d2edb1864d6d08076875cbc517337c2",
+        "matches_receipt": true
+      },
+      {
+        "path": "evidence/input-native-result.json",
+        "sha256": "3f46508adf4eac8b7c585114d93a202798c78244d528aaea980c005f4edac807",
+        "matches_receipt": true
+      },
+      {
+        "path": "evidence/input-result.json",
+        "sha256": "b887a613be2ef9bbf6d92295cc57824cafd91262db3d8e2f7a8942d6391ad8fb",
+        "matches_receipt": true
+      },
+      {
+        "path": "evidence/input-secured-terminal.json",
+        "sha256": "2612a8b72bc48bc4ae08b4ee23a9903efd082b4a0758831952f2c4ae9e57562d",
+        "matches_receipt": true
+      },
+      {
+        "path": "evidence/pinned-additive-monotonicity-api.txt",
+        "sha256": "2910f2a91696234c4e264592855b3732f068715da8f49bb2e417ca9313e31264",
+        "matches_receipt": true
+      },
+      {
+        "path": "evidence/pinned-api-identities.json",
+        "sha256": "c8c96459d6b68ea193b9d8ebdded413e9586a6058adbeeb84e3b8a383c24c878",
+        "matches_receipt": true
+      },
+      {
+        "path": "evidence/standards-finding-context.json",
+        "sha256": "00fed1e8674e38158004da1295fc81e72b71a5dd53f18abae2cd8272fbb12bb5",
+        "matches_receipt": true
+      },
+      {
+        "path": "source-after/Applications/Resources/Potential.lean",
+        "sha256": "c921f5a18f9c508c338d49eed9d3bd2a2193f968cfc3e9efb4208f8917efa33c",
+        "matches_receipt": true
+      },
+      {
+        "path": "source-after/docs/research/fdsa-reconstruction-map.md",
+        "sha256": "c617f951a84072835c80945c8093a2096272d97f9e21981d865a263a19eb186b",
+        "matches_receipt": true
+      },
+      {
+        "path": "source-before/Applications/Resources/Potential.lean",
+        "sha256": "fa33b209a7c8cd700e7a33a6d3ee11ef9ad572c2d2e8406dfbabf6468ebf7d8c",
+        "matches_receipt": true
+      },
+      {
+        "path": "source-before/docs/research/fdsa-reconstruction-map.md",
+        "sha256": "9124fe8ac99901d2e5658c215d936889d6de8ff4ded6dfd8264ddc0ed66ef896",
+        "matches_receipt": true
+      },
+      {
+        "path": "source.diff",
+        "sha256": "1fe0ed30e48e96602805a019fd8bf7de7f9d56164ccb3220069e545f8cb9b99a",
+        "matches_receipt": true
+      },
+      {
+        "path": "static-readback.json",
+        "sha256": "7c6f879d8d0b885a8540fed788fddd848e4486c65d47fa3c868edbdb84116cd4",
+        "matches_receipt": true
+      }
+    ],
+    "before_after_copies_exact_immutable_blobs": true,
+    "only_three_proof_term_replacements_and_one_map_qualifier": true,
+    "all18_complete_headers_exact": true,
+    "pinned_covariance_assessment": "AddLeftMono.elim fixes the left operand; AddRightMono.elim fixes the right operand through Function.swap. Existing assumptions are used directly; all associations, local/invariant hypotheses and nonnegative-final argument remain exact.",
+    "new_source_finding": null
+  },
+  "findings": [
+    {
+      "id": "XP01-DOC-001",
+      "severity": "minor",
+      "current_disposition": "Resolved for Spec at cfa413e",
+      "original_problem": "Map524–529 described the Chapter1 erasureSquare universe change as the only public-interface adjustment despite XP01 budget generalization.",
+      "resolution": "Explicit For Chapter1 qualifier, all following mathematical explanation unchanged."
+    },
+    {
+      "id": "XP01-ELAB-001",
+      "severity": "blocking elaboration",
+      "current_disposition": "Resolved for Spec at cfa413e by complete source review plus actual focused2 Potential Built3.2s",
+      "original_diagnostics": [
+        "Potential.lean:71:10",
+        "Potential.lean:148:4"
+      ],
+      "qualification": "No aggregate focused success, explicit-type, full-audit or acceptance inference."
+    },
+    {
+      "id": "XP01-ELAB-002",
+      "severity": "blocking elaboration",
+      "current_disposition": "Open",
+      "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+      "actual_diagnostic_headers": 20,
+      "existing_proof_sites": 8,
+      "issue": "New mapped example boundary cannot simplify charge; unqualified bind/pure are ambiguous; Valid0 needs explicit unfolding/decidability; residual arithmetic depends on those reductions.",
+      "source_contract": "Retain all public/private/anonymous statements, definitions, cases, actual-run/budget connections, initial credit and invariant counterexamples. No mathematical weakening is needed or authorized.",
+      "successor": "Await exact immutable proof-only handoff and actual successful validation."
+    }
+  ],
+  "actual_public_type_credit": 0,
+  "full_acceptance_credit": false,
+  "preserved_other_loops": "C2 and exact F reports/provenance left unchanged; no F terminal or F145/possible110 credit inferred."
+}

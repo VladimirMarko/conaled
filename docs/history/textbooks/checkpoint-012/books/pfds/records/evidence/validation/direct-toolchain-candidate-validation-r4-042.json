@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "candidate": "120458c4fd40626d93e568f3387d8f5cb1dce69d",
+  "base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "scope": "Documentation/template validation and matching reuse; no new formal build",
+  "checks": [
+    {
+      "source": "session/environment/RECOVER-ENVIRONMENT.md",
+      "all_code_blocks_unchanged_from_r3": true,
+      "count": 13,
+      "reuse": "r3 actual syntax and existing-state verification-only commands"
+    },
+    {
+      "source": "session/environment/environment-route-comparison-042.md",
+      "all_code_blocks_unchanged_from_r3": true,
+      "count": 0,
+      "reuse": "r3 actual syntax and existing-state verification-only commands"
+    },
+    {
+      "source": "session/checkpoint.py",
+      "python_compile": "passed",
+      "rendered_restore_python_compile": "passed",
+      "generated_readme_preview": "session/validation/checkpoint042-readme-preview.md",
+      "generated_readme_sha256": "299c398cc688bd367f1a49f4886c14b7e5c5d8706e7648eb58763a14ad80b995",
+      "method": "Evaluate only the captured static f-string with known archive number/head/branch; no archive or process side effects."
+    }
+  ],
+  "prior_actual_document_validation": {
+    "path": "session/validation/direct-toolchain-candidate-validation-r3-042.json",
+    "sha256": "61b5c1f93265e382177803849ced64f7b6bd5a3fd2d977ff76c76cdaa83ef56d",
+    "all_12_results_reused": true
+  },
+  "reused_evidence": {
+    "session/validation/direct-toolchain-candidate-validation-r2-reconciled-041.json": "998a2fb578d337f92174c0d4343fa8bd593f32c91f7cf753d8a033e3981c9916",
+    "session/validation/direct-toolchain-candidate-cli-r2-041.json": "4b9b52f5c63e5d59e6e025b050ca4ea92d4221efcc8b161ab883337a2fe1ca22",
+    "session/validation/direct-toolchain-candidate-lake-r2-041.json": "69eb08b9cfa19c683ffbb0197f38418b5e664fc45a2672214150326a7404e44b",
+    "session/validation/direct-toolchain-final-verification-041.json": "a441a4555b1b5ed05ef42ef81e5fc82525b4e506f2aae68d062a0f962260435d",
+    "session/environment/direct-dependencies-after-cache-041.json": "12054d8a6fd75348ccba9d454c3807a6268d0f6bc29375b2dd80b2f22fd212f8",
+    "session/validation/direct-cache-bootstrap-041.json": "ba61cace36d2c602f2f4f1c93c4e977771f0e6a8e4ae5dbed8572749510a979e",
+    "session/validation/direct-cache-get-041.json": "fb2dafe96aaee4133356aaca8ccf406457fd0de5e20b43d00244f39dc44ddf73"
+  },
+  "reuse_basis": "All eight runtime/helper sources remain byte-identical; only two prose documentation files were added. Existing approved operational tests and runtime acquisition are reused for those unchanged inputs. Formal source failures are not relabeled.",
+  "checkpoint_generator": {
+    "prior_sha256": "617c14ed63170ee39a8ac1df2eb4cc20b1b509ebd5f1d4c16ae4e469b7ed51ab",
+    "current_sha256": "22928db23012fb28c9dee74b3af4998d18587ec91e728d0b2afcf647c6ac47ad",
+    "delta": "Only generated README text and restore-success informational print; capture, verification, restoration and archive logic unchanged. Actual checkpoint creation will still perform real restoration before output.",
+    "diff": "session/validation/checkpoint-generator-documentation-042.patch"
+  },
+  "new_observations": {
+    "ubuntu_acquisition": {
+      "path": "session/environment/qemu-ubuntu-042/acquisition.json",
+      "sha256": "b98fd7647b12efec8706a9001de50ad169c1044f49f5c174d613ab1fbf827e42"
+    },
+    "signed_focus": {
+      "path": "session/validation/signed-d24-direct-r1.json",
+      "sha256": "1793a0aa7342cdd198925a0ce1d81edc00c81ac978b4eff61ae362ce7aa4904e",
+      "exit_code": 1,
+      "formal_acceptance": false
+    }
+  },
+  "not_repeated": [
+    "600 MB Lean download/extraction",
+    "selected Debian QEMU download/extraction",
+    "new dependency clone/fetch",
+    "new profile construction or cold smoke tests",
+    "cache build/get",
+    "formal full check",
+    "Ubuntu runtime execution"
+  ],
+  "status": "",
+  "delivered_identities": {
+    "session/environment/make-direct-toolchain-profile.py": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb",
+    "session/environment/run-direct-toolchain.py": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+    "session/environment/test-direct-toolchain.py": "028e625c2870bafa2668269f981202d76c6509256ca1822e4ab926b3f2526330",
+    "session/environment/test-direct-lake-build.py": "3e364791c25cfce02c15887b1ae040a1a18315ab5189ff393d5fb2ff9bd239cf",
+    "session/environment/README-direct-toolchain.md": "f3acb7ba89c954019e6288bffc80c37fbc2e4f90523b1172efdd85dc19ee6734",
+    "session/validation/run-direct-validation.py": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b",
+    "session/validation/test-direct-validation.py": "a77b7f3f962c45fbe8affe4999615b3721975cc3c858713c9ef027b6aecf5435",
+    "session/validation/direct-validation-runner-notes.md": "933745db696b993eda5bd8d5470a7b72b5738659658c709fa98705ceb35bdd4e",
+    "session/environment/RECOVER-ENVIRONMENT.md": "21f2c79a56c043a68e90e1f0b4d05b1729cc9941a52e70ddc18eb5c1e0743561",
+    "session/environment/environment-route-comparison-042.md": "55c585790569bf15e0e37e95b89a7a951d56ad9fe2431500dc0528583d7edf7e",
+    "session/checkpoint.py": "22928db23012fb28c9dee74b3af4998d18587ec91e728d0b2afcf647c6ac47ad"
+  },
+  "completed_at": "2026-11-03T16:12:15.726080+00:00",
+  "passed": true,
+  "formal_acceptance": false
+}

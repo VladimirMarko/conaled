@@ -1,0 +1,11 @@
+{
+  "recorded_utc": "2026-11-04T22:21:07.359760+00:00",
+  "actual_tool_chunk": "a0ee07",
+  "actual_exit": 1,
+  "actual_output": "Traceback (most recent call last):\n  File \"<stdin>\", line 97, in <module>\nIndexError: list index out of range\n",
+  "cause": "Provenance-only case description parser used split(\" | \")[2], but these Markdown rows have two such components.",
+  "partial_result": "statement-assessment.md was successfully written before the error; case-inventory.json had not been written.",
+  "source_effect": "No source files modified by the failing Python command. Subsequent explicitly authorized git add and git diff --cached --check completed: chunks52f884/876909 exit0, stat9ed8dc exit0.",
+  "reconciliation": "Use the exact known table prefix and suffix to extract the description. Preserve the completed statement assessment; write only the previously absent case inventory.",
+  "lean_lake_or_compiler_involvement": false
+}

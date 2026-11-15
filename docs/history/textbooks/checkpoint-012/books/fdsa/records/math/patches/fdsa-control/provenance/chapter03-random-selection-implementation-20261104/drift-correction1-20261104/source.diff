@@ -1,0 +1,50 @@
+diff --git a/Applications/Resources/RandomSelectionDrift.lean b/Applications/Resources/RandomSelectionDrift.lean
+index dbe1f40..19b9648 100644
+--- a/Applications/Resources/RandomSelectionDrift.lean
++++ b/Applications/Resources/RandomSelectionDrift.lean
+@@ -142,6 +142,7 @@ theorem occurrenceRank_uniform (head : α) (tail : List α) :
+       rw [h, Equiv.apply_symm_apply]
+   simp only [heq, tsum_ite_eq, RandomQuickSort.uniformIndex_apply]
+ 
++omit [LinearOrder α] in
+ private theorem filter_length_eq_card_indices (xs : List α) (p : α → Bool) :
+     (xs.filter p).length =
+       (Finset.univ.filter (fun i : Fin xs.length => p (xs[i.val]'i.isLt))).card := by
+@@ -237,7 +238,7 @@ theorem nextSize_drift (k : Nat) (head : α) (tail : List α) :
+   calc
+     _ ≤ (((tail.length + 1 : Nat) : ℝ≥0∞)⁻¹) *
+         (rankSideSum (tail.length + 1) : ℝ≥0∞) := by
+-      apply mul_le_mul_left'
++      apply mul_le_mul_right
+       rw [← Nat.cast_sum]
+       exact_mod_cast hs
+     _ ≤ _ := rankSideSum_mean_le (tail.length + 1) (Nat.succ_pos _)
+@@ -264,8 +265,8 @@ theorem scanExpectation_linear_le (k : Nat) (xs : List α) :
+             (((tail.length + 1 : Nat) : ℝ≥0∞)⁻¹) *
+               ∑ i : Fin (tail.length + 1),
+                 4 * (nextSize k (head :: tail) i : ℝ≥0∞) := by
+-          apply add_le_add_left
+-          apply mul_le_mul_left'
++          apply add_le_add_right
++          apply mul_le_mul_right
+           exact Finset.sum_le_sum (fun i _ => hc i)
+         _ = ((tail.length + 1 : Nat) : ℝ≥0∞) +
+             4 * (∑ i : Fin (tail.length + 1),
+@@ -275,7 +276,7 @@ theorem scanExpectation_linear_le (k : Nat) (xs : List α) :
+           ac_rfl
+         _ ≤ ((tail.length + 1 : Nat) : ℝ≥0∞) +
+             4 * ((3 / 4 : ℝ≥0∞) * (tail.length + 1 : Nat)) :=
+-          add_le_add_left (mul_le_mul_left' (nextSize_drift k head tail) 4) _
++          add_le_add_right (mul_le_mul_right (nextSize_drift k head tail) 4) _
+         _ = _ := by
+           simp only [List.length_cons]
+           rw [← mul_assoc, four_mul_three_quarters]
+@@ -313,7 +314,7 @@ theorem sourceExpectation_linear_bounds (k : Nat) (xs : List α) :
+   · calc
+       _ ≤ 9 * scanExpectation k xs + 2 := (sourceExpectation_comparison k xs).2
+       _ ≤ 9 * (4 * (xs.length : ℝ≥0∞)) + 2 :=
+-        add_le_add_right (mul_le_mul_left' (scanExpectation_linear_le k xs) 9) 2
++        add_le_add_left (mul_le_mul_right (scanExpectation_linear_le k xs) 9) 2
+       _ = _ := by ring
+ 
+ theorem sourceMean_linear_bounds (k : Nat) (xs : List α) :

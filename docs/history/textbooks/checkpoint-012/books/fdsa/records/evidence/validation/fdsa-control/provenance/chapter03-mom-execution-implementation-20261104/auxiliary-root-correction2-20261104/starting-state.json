@@ -1,0 +1,123 @@
+{
+  "recorded_utc": "2026-11-04T19:37:19.045641+00:00",
+  "candidate": "d204aa2c64937cb1f151bd52759bfcfa50e4248f",
+  "tree": "6dd89b07000257bb72fa79a76aa5371cc94c2098",
+  "status": "",
+  "branch": "work/fdsa-ch03-mom-execution",
+  "sources": {
+    "Applications/Resources/SelectionAuxiliary.lean": {
+      "bytes": 6215,
+      "sha256": "eeba4ac85dd4e07b8b42f38499748cae69cb6dcaaa01fdc8400a3cf5b947a925"
+    },
+    "Applications/Selection/CountRank.lean": {
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d"
+    },
+    "Applications/Selection/MedianOfMedians.lean": {
+      "bytes": 13715,
+      "sha256": "bc67a91a75dcff12a800039ea781be097dc0907c6dbebab3e1d281d1d1a06645"
+    },
+    "Applications/Sequences/Chunks.lean": {
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493"
+    },
+    "Examples/ListChunks.lean": {
+      "bytes": 2683,
+      "sha256": "161e240f9c07db5b13f9abf5bf09782064adce4862e60fbe35f0eba483c76c78"
+    },
+    "Examples/MedianOfMedians.lean": {
+      "bytes": 6480,
+      "sha256": "9f3d2f87a119db761f1d94de74e431950201043b083c3d83b9bf4a0726357a40"
+    },
+    "Examples/SelectionAuxiliary.lean": {
+      "bytes": 6832,
+      "sha256": "802a160cd634556d717f9ba6ebdbac3e3157fb40b7b439b3b6648e19a5a29953"
+    },
+    "Examples/SelectionCountRank.lean": {
+      "bytes": 4423,
+      "sha256": "cc73980788882d39abe44672d89e6a3ce37dfe3b5f5788375255248e8b4a66d2"
+    }
+  },
+  "prior_provenance": {
+    "auxiliary-candidate1-author-hold.json": {
+      "bytes": 3651,
+      "sha256": "ca6bc455c522289c880afbca02933d3198cd72b3c283d089a7b7500e2db10150"
+    },
+    "auxiliary-whitespace-check.json": {
+      "bytes": 312,
+      "sha256": "93b7bceb843b8e2dd70e6365c410c87341fff195f6833631594bded4a3a44c26"
+    },
+    "starting-state.json": {
+      "bytes": 6935,
+      "sha256": "ffa3143d09aaf84868c847f7e0f1d6457171c48ae34728c8cb2513a64729eb67"
+    },
+    "allocation-result.json": {
+      "bytes": 349,
+      "sha256": "a3fc90e796dec995ff50bafa87362673ffc88b66e2a831797f0156828fa825f6"
+    },
+    "AuxiliaryStatements40-candidate1-preparation.json": {
+      "bytes": 6096,
+      "sha256": "5c6366e3afa741fc955bb27addb7775657eb216ba3cd7b0da9fbdc9567f34931"
+    },
+    "AuxiliaryStatements40-candidate1.lean": {
+      "bytes": 2783,
+      "sha256": "e3910f89e19232f125eca8c166556f2852ba9d171fe6317d066c9a5ab0a371ae"
+    },
+    "auxiliary-candidate1.json": {
+      "bytes": 5670,
+      "sha256": "b209da15c8be35977c90d35b36a613ed943366922f530fc830418300093e5431"
+    },
+    "auxiliary-commit-result.json": {
+      "bytes": 352,
+      "sha256": "e52bf42db6a46387367aec86c238fccba16ce963432b7dca27240978af44052a"
+    },
+    "auxiliary-preparation.json": {
+      "bytes": 3554,
+      "sha256": "2b19d1eb746b0710128900764f0ea721ecaa65331ad28a1d9452281932a9933e"
+    },
+    "auxiliary-source-inventory-precommit.json": {
+      "bytes": 16654,
+      "sha256": "d636bf579286ce0aa6617b96e1ee1e70bdc7f9dfbb7ff322a8cf455afb518a3c"
+    },
+    "auxiliary-candidate1-handoff.md": {
+      "bytes": 7506,
+      "sha256": "746e0955345ff9bcad5d313e4078cff55d7a0e411954683bb9fb92c4650c79ef"
+    },
+    "auxiliary-correction1-20261104/author-hold.json": {
+      "bytes": 2583,
+      "sha256": "7a9b0eec80da4e444440890ef3b9210d3c3fe27a144929f51881807b76cd92df"
+    },
+    "auxiliary-correction1-20261104/source-assessment.json": {
+      "bytes": 1509,
+      "sha256": "211613fb630a84e4ce2fb72733c83c655568386fac028386ec29f0de720c7dff"
+    },
+    "auxiliary-correction1-20261104/handoff.md": {
+      "bytes": 3924,
+      "sha256": "e154233fae8eaae8b0498fb882ed86c115fa16498535e371eb6b109a86408da8"
+    },
+    "auxiliary-correction1-20261104/commit-result.json": {
+      "bytes": 612,
+      "sha256": "a5c69567a51deceb48c86a6536fe44ac600588cc8d26d604df6b401e21cb230f"
+    },
+    "auxiliary-correction1-20261104/candidate.json": {
+      "bytes": 1929,
+      "sha256": "6caad294442648b06b82b993eda0d5f076f57c1fceb2d90291cf5dbf78eeecf3"
+    },
+    "auxiliary-correction1-20261104/preparation.json": {
+      "bytes": 7581,
+      "sha256": "985f5863a2d0f2643eb7a83736224c47a4519d77a218ea2272285eb76fcfe93e"
+    },
+    "auxiliary-correction1-20261104/correction.diff": {
+      "bytes": 4517,
+      "sha256": "0de9f322729d6e1f1fd7fe9e3ee80e0819b6127947ea92daec5ea02b58f8aee7"
+    }
+  },
+  "finding": "C03-AUX-ELAB-002",
+  "failed_run": "provenance/chapter03-selection-auxiliary-focused-attempt2-20261104",
+  "actual_exit": 1,
+  "owned_session": 61135,
+  "actual_terminal": "24a559",
+  "complete_log_read_and_closure": "21e3b3",
+  "first_correction_full_diff_read": "6791ef",
+  "original_scope": "40 public names in core and examples; all C3 obligations retained"
+}

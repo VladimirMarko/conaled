@@ -1,0 +1,62 @@
+{
+  "recorded_utc": "2026-11-04T22:39:40.817669+00:00",
+  "previous_archive": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0132-selection-composition-and-random-boundaries.tar.gz",
+    "bytes": 36475630,
+    "sha256": "ca7309e95b12e2efc5561b689a439814d86b7e172730caa7de0575509ae8164b"
+  },
+  "exact_root_manifest_member": "conaled-fdsa-0132-selection-composition-and-random-boundaries/MANIFEST.json",
+  "extracted_manifest": {
+    "bytes": 17492,
+    "sha256": "e5e6476b84a5242fcf4d0c8bf1ae0344645eb5bdf4f585e5694232c91157a79d"
+  },
+  "previous_verified_receipt": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0132-preparation/integrity.json",
+    "bytes": 1493,
+    "sha256": "a5185aa6315f5c3aeed7ca13571a23ecaa2c6243fb23362ab6aa9e7103b8b9a2"
+  },
+  "previous_capture": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0132-preparation/capture.json",
+    "bytes": 1488113,
+    "sha256": "12fc1838e38ee478a569ce11a0ce72b3b0ba4fe902545a4f344c32cce3666ef9"
+  },
+  "preparation_files": {
+    "verify-checkpoint.py": {
+      "bytes": 14528,
+      "sha256": "46e9a1171fcdd63741ee6b55238f496b2dc6ab861d40a9365285725546c6065e"
+    },
+    "capture.py": {
+      "bytes": 4819,
+      "sha256": "c7cb110a59c00a23b53144091c993fd4c73e49031e37ad2a42b88ed7c2b7610c"
+    },
+    "run-stage.py": {
+      "bytes": 2407,
+      "sha256": "acb676d227df270f5442119f7e13931b1cee521e3b6d778b6d8e9f9731fd62aa"
+    },
+    "verifier-scope-diff.patch": {
+      "bytes": 4242,
+      "sha256": "f1e14846f5a4c179ebda0aef413e5b3ca4334b075dc4c71c764b1486454eb71e"
+    },
+    "helper-scope-diffs.patch": {
+      "bytes": 5755,
+      "sha256": "e82e9a440aad10fef99defbd34aaa48a21ddbdb40a3948dfad4439eb9e786afe"
+    },
+    "README.md": {
+      "bytes": 2019,
+      "sha256": "471c91e777372743a8a41879d24635c85f5906e4eb2d722b76a34c5b51de2210"
+    }
+  },
+  "original_creator": {
+    "bytes": 10520,
+    "sha256": "5e72098a4b07a80c6861cdaf14f4d2234e33cd7b6a0a79170bae762599cbe078"
+  },
+  "original_restorer": null,
+  "changes": "Five verifier identifiers plus exactly one explicit XR-descendant integration receiver ref and its worktree binding;74ref capture count, both scope diffs included; stage identifiers only.",
+  "full_parent_verifier_read": [
+    "d6058e",
+    "3659f0"
+  ],
+  "full_parent_helpers_read": "dd45f3",
+  "capture_not_started": true,
+  "independent_inspection_pending": true
+}

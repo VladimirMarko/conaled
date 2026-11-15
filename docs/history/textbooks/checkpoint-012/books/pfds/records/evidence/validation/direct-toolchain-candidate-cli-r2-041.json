@@ -1,0 +1,74 @@
+{
+  "test": "public Lean/Lake command-line interfaces",
+  "workspace": "/workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041",
+  "runner": "/workspace/scratch/b566cace4ed6/pfds/review-direct-toolchain-041-r2/session/environment/run-direct-toolchain.py",
+  "checks": {
+    "exact_lean_version": true,
+    "exact_lake_version": true,
+    "valid_theorem_accepted": true,
+    "false_theorem_rejected": true
+  },
+  "probes": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-direct-toolchain-041-r2/session/environment/run-direct-toolchain.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041",
+        "--",
+        "lean",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": "",
+      "elapsed_seconds": 2.2510577450011624
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-direct-toolchain-041-r2/session/environment/run-direct-toolchain.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041",
+        "--",
+        "lake",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)\n",
+      "stderr": "",
+      "elapsed_seconds": 1.9125389629989513
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-direct-toolchain-041-r2/session/environment/run-direct-toolchain.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041",
+        "--",
+        "lean",
+        "Valid.lean"
+      ],
+      "returncode": 0,
+      "stdout": "'launcher_add_zero' does not depend on any axioms\n",
+      "stderr": "",
+      "elapsed_seconds": 22.21501037499911
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-direct-toolchain-041-r2/session/environment/run-direct-toolchain.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041",
+        "--",
+        "lean",
+        "Invalid.lean"
+      ],
+      "returncode": 1,
+      "stdout": "Invalid.lean:2:22: error: Type mismatch\n  True.intro\nhas type\n  True\nbut is expected to have type\n  False\n",
+      "stderr": "",
+      "elapsed_seconds": 18.369422367999505
+    }
+  ],
+  "passed": true
+}

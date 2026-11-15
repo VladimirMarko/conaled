@@ -1,0 +1,23 @@
+{
+  "completed_utc": "2026-11-04T06:14:47.800220+00:00",
+  "parent": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+  "candidate": "66e480cf6db359ebf97d761b804ebe5d6d946eca",
+  "status": "",
+  "findings": {
+    "XD01-ELAB-001": "The pinned Lean parser reserves prefix; rename only bare code binders/references to pref in core and examples. Comments/strings, public declaration names, domains and mathematical statements unchanged modulo bound-variable naming.",
+    "XD01-ELAB-002": "Normalize the buildFrom_appCost successor arithmetic with an explicit natural equality before applying the same induction hypothesis."
+  },
+  "code_identifier_replacements": {
+    "Applications/Resources/DifferenceListCosts.lean": 37,
+    "Examples/DifferenceListCosts.lean": 8
+  },
+  "before_sha256": {
+    "Applications/Resources/DifferenceListCosts.lean": "567683626b9a46d07c465ceb44faaafc941e2dc1c83491b093599ca7f8c698a5",
+    "Examples/DifferenceListCosts.lean": "09165e6a1ccb0b0e45b7ddc6083883aa5bf67bc931c59ff44707d1726ffbe102"
+  },
+  "after_sha256": {
+    "Applications/Resources/DifferenceListCosts.lean": "1853d98cd37b7c1de4bc4928a419b69e1eaf9f59530221b060b98bc8afbf235d",
+    "Examples/DifferenceListCosts.lean": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1"
+  },
+  "scope": "Exactly two Lean files; no algorithms, expected cases, options, pins or validation gate changed. Compilation pending."
+}

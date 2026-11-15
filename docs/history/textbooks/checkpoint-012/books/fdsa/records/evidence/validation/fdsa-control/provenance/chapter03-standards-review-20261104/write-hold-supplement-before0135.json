@@ -1,0 +1,30 @@
+{
+  "recorded_utc": "2026-11-05T00:01:17.339647+00:00",
+  "reviewer": "/root/chapter03_standards",
+  "state": "HELD: all own writes and further review work paused until explicit root release for checkpoint0135",
+  "artifacts": {
+    "progress-before0135.json": {
+      "bytes": 7415,
+      "sha256": "7d8067663c5e50ce53b72986e8c630991cd86a085298acc2127a5c56ce3daf57"
+    },
+    "write-hold-before0135.json": {
+      "bytes": 826,
+      "sha256": "cb001abcb15fbd5b29f1c72af99223261dc8b97da0a5b9d7a1b4283f90b7c7ff"
+    },
+    "progress-supplement-before0135.json": {
+      "bytes": 11789,
+      "sha256": "52cab35241d55883191ce8315a8f9f801656a9188793aea0d06c932b149d3f9b"
+    }
+  },
+  "actual_source_read_candidate": "38ae31902682ff6e3f4b28cea519a3bfeb4f96c7",
+  "parent_reported_new_receiving_preparation": "690ab476f4685e5a795d53d18465b067655a34dd",
+  "original_full_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "full_frozen_obligation_count": 83,
+  "complete_source_files_read": 9,
+  "source_files_with_completed_source_and_type_assessment": 6,
+  "actual_type_blocks_semantically_assessed": 99,
+  "source_review_complete": false,
+  "outcome": "Blocked",
+  "no_acceptance_credit": true,
+  "prior_artifacts_unchanged": true
+}

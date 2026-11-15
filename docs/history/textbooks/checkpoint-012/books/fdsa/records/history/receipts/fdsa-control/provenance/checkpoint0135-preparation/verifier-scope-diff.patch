@@ -1,0 +1,106 @@
+--- checkpoint0134/verify-checkpoint.py
++++ checkpoint0135/verify-checkpoint.py
+@@ -13,7 +13,7 @@
+ prep = Path(__file__).resolve().parent
+ control = prep.parents[1]
+ base = control.parent
+-name = "conaled-fdsa-0134-random-selection-path-progress"
++name = "conaled-fdsa-0135-selection-trace-and-statement-progress"
+ accepted = "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5"
+ accepted_tree = "b62fe504a38948e61c6377a4e7661b639c28c08c"
+ 
+@@ -75,7 +75,7 @@
+ for relative, digest in expected.items():
+     assert actual[relative]["sha256"] == digest, relative
+ assert manifest["format"] == 2 and manifest["checkpoint"] == name
+-assert actual["fdsa-control/provenance/checkpoint0134-preparation/capture.json"] == identity(prep / "capture.json")
++assert actual["fdsa-control/provenance/checkpoint0135-preparation/capture.json"] == identity(prep / "capture.json")
+ 
+ spec = importlib.util.spec_from_file_location("compact_reader", control / "checkpoint_compact.py")
+ module = importlib.util.module_from_spec(spec)
+@@ -86,8 +86,8 @@
+          "--format=%(objectname) %(refname) %(symref)").splitlines())]
+ assert refs == manifest["refs"] == capture["refs"]
+ current_refs = {row["ref"]: row for row in refs}
+-previous_manifest = read(prep / "previous-manifest-0133.json")
+-assert previous_manifest["checkpoint"] == "conaled-fdsa-0133-selection-integration-and-endpoint-progress"
++previous_manifest = read(prep / "previous-manifest-0134.json")
++assert previous_manifest["checkpoint"] == "conaled-fdsa-0134-random-selection-path-progress"
+ assert len(previous_manifest["refs"]) == 74
+ previous_refs = {row["ref"]: row for row in previous_manifest["refs"]}
+ allowed_advances = {"refs/heads/work/fdsa-ch03-values",
+@@ -147,12 +147,13 @@
+ for relative, expected_identity in capture["held_control"].items():
+     assert identity(control / relative) == expected_identity, relative
+     assert actual["fdsa-control/" + relative] == expected_identity, relative
+-previous_controls = read(control / "provenance/checkpoint0133-preparation/capture.json")["held_control"]
++previous_controls = read(control / "provenance/checkpoint0134-preparation/capture.json")["held_control"]
+ allowed = set(capture["declared_prior_control_updates"])
+ assert allowed <= {"CURRENT.md", "STATUS.md", "ENVIRONMENT.md", "checkpoints.json",
+                    "tickets/FDSA-002.md", "tickets/FDSA-003.md", "tickets/FDSA-XR01.md", "tickets/INDEX.md",
+                    "reviews/chapter02-round1.md", "reviews/affine-recurrence-round1.md",
+-                   "reviews/chapter03-round1.md"}
++                   "reviews/chapter03-round1.md", "reviews/chapter03-standards.md",
++                   "reviews/chapter03-spec.md"}
+ changed = []
+ for relative, old in previous_controls.items():
+     assert relative in capture["held_control"], relative
+@@ -225,6 +226,50 @@
+         assert identity(saved) == expected_identity
+         assert actual["fdsa-control/" + str(saved.relative_to(control))] == expected_identity
+ 
++# Keep the completed failed command distinct from its missing transport terminal.
++transport = capture["transport_terminal_unavailable_runs"]
++assert len(transport) == 1
++for item in transport:
++    assert item["name"] == "chapter03-random-selection-trace-focused-attempt1-20261104"
++    directory = control / "provenance" / item["name"]
++    reconciliation_path = control / item["reconciliation"]
++    expected_reconciliation = {key: item[key] for key in ("bytes", "sha256")}
++    assert identity(reconciliation_path) == expected_reconciliation
++    assert actual["fdsa-control/" + item["reconciliation"]] == expected_reconciliation
++    reconciliation = read(reconciliation_path)
++    assert reconciliation["candidate"] == item["candidate"] == "0fa717b8c150e0ae6edb9d538dd2b86d73f02b2d"
++    assert reconciliation["owned_session"] == item["original_exec_session_id"] == 81642
++    assert reconciliation["transport_terminal_exit"] is None
++    assert reconciliation["transport_terminal_tool_chunk"] is None
++    assert item["transport_terminal_exit"] is None
++    assert reconciliation["actual_qualified_command_exit_from_completed_native_recorder"] == 1
++    assert reconciliation["outer_recorder_recorded_child_exit"] == 1
++    assert not reconciliation["owned_terminal_credit"]
++    assert not reconciliation["focused_pair_pass"] and not reconciliation["chapter_acceptance_credit"]
++    assert reconciliation["complete_native_and_outer_logs_preserved"]
++    assert reconciliation["project_lock_observation"]["exclusive_nonblocking_acquired_and_released"]
++    assert reconciliation["project_lock_observation"]["global_process_absence_not_claimed"]
++    assert not (directory / "owned-terminal.json").exists()
++    assert item["name"] not in {row["name"] for row in capture["closed_development_runs"]}
++    assert item["name"] not in {row["name"] for row in interrupted}
++    result = read(directory / "result.json")
++    native = read(directory / "native-records/result.json")
++    assert result["candidate"] == result["final_head"] == item["candidate"] and not result["final_status"]
++    assert result["exit_code"] == native["exit_code"] == item["recorded_native_exit"] == 1
++    assert native["lean_threads"] == "1" and not native["timed_out"] and native["recorder_error"] is None
++    assert native["command"] == result["command"][result["command"].index("--") + 1:]
++    for relative, row in reconciliation["records"].items():
++        expected_identity = {key: row[key] for key in ("bytes", "sha256")}
++        assert identity(control / relative) == expected_identity
++        assert actual["fdsa-control/" + relative] == expected_identity
++    outer_bytes = (directory / "full.log").read_bytes()
++    body = (directory / "native-records/output.log").read_bytes()
++    prefix = (directory / "outer-prefix.log").read_bytes()
++    suffix = (directory / "outer-suffix.log").read_bytes()
++    assert [len(prefix), len(body), len(suffix)] == [127, 12920, 157]
++    assert outer_bytes == prefix + body + suffix
++    assert identity(directory / "full.log") == {"bytes": result["log_size_bytes"], "sha256": result["log_sha256"]}
++
+ kit = control / "tooling/unified-native-kit-4.35.0"
+ kit_rows = (kit / "SHA256SUMS").read_text().splitlines()
+ assert len(kit_rows) == 298
+@@ -244,6 +289,7 @@
+           "chapter02_acceptance_preserved": True, "chapter03_obligations": 83,
+           "closed_development_runs_verified": len(capture["closed_development_runs"]),
+           "interrupted_runs_preserved_without_terminal_or_credit": len(interrupted),
++          "known_recorded_failures_without_transport_terminal": len(transport),
+           "complete_native_kit_manifest_entries": 298,
+           "XR_accepted_with_complete_evidence": True, "chapter03_acceptance_claimed": False,
+           "no_compiler_restore_fsck_or_acceptance_execution": True,

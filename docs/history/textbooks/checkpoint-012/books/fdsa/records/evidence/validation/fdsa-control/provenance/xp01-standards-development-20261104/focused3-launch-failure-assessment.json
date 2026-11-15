@@ -1,0 +1,43 @@
+{
+  "recorded_utc": "2026-11-04T11:25:40.551160+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+  "actual_exit": 2,
+  "full_log_independently_read": true,
+  "all_outer_start_result_secured_records_fully_read": true,
+  "files": [
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt3/full.log",
+      "bytes": 327,
+      "lines": 4,
+      "sha256": "f036d60c526f7886bc2b50149feba30de545d64aeaf86d65bf544c5b2947931b"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt3/start.json",
+      "bytes": 1013,
+      "lines": 28,
+      "sha256": "b2d02ed5121448a30662090024151872d0744a18852af94b4761bb43371e04cc"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt3/result.json",
+      "bytes": 1235,
+      "lines": 33,
+      "sha256": "e17fba1e501f59d564b4323ac90809a3d47fdb6a22f2a8a227395fffc42b8634"
+    },
+    {
+      "path": "provenance/xp01-focused-development-20261104-attempt3/secured-terminal.json",
+      "bytes": 686,
+      "lines": 13,
+      "sha256": "eb9396216b3b77852aa31adb657db0591d5c1a5c2572241a01ddc7ce16ebd549"
+    }
+  ],
+  "clean_unchanged_pre_post": true,
+  "classification": "Root command assembly error: --state contains the project directory, and run/--project are absent. Native argparse rejects positional1 before Lean/Lake execution.",
+  "native_record_created": false,
+  "actual_compiler_or_source_error": false,
+  "source_validation_or_type_or_audit_credit": false,
+  "failed_record_retained": true,
+  "new_named_attempt_required": "Root plans attempt4 at the same exact source; no live or future outcome inferred.",
+  "XP01_ELAB_002": "Remains open; no corrected compilation was attempted by this launch.",
+  "reviewer_process_compiler_cache_actions": false
+}

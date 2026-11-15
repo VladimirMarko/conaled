@@ -1,0 +1,106 @@
+{
+  "recorded_utc": "2026-11-04T21:11:29.653189+00:00",
+  "candidate": "cd20a36f52b4ddd95be3cb9d85c0b95368ef1248",
+  "tree": "702b4b3eaabb318828de9e0b56fa7cb27d1ecf63",
+  "status": "clean",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot",
+  "finding": "C03-RANDOM-DRIFT-ELAB-002",
+  "state": "All eight sources and own provenance writes HELD pending root actual result or explicit release.",
+  "bound_files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/drift-correction2-20261104/Statements139-correction2-preparation.json",
+      "bytes": 21525,
+      "sha256": "fdb28e14286ffd95c0bda83414d8482e06e534787a44901ba8a8e68e68e431be"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/drift-correction2-20261104/Statements139-correction2.lean",
+      "bytes": 7759,
+      "sha256": "11642119a2fafb69c23bc1e16d41fe82a34cc8d0319d7256eb6717bcaba35084"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/drift-correction2-20261104/candidate.json",
+      "bytes": 17891,
+      "sha256": "f77180a94d97750f2ce0b5b3c5e99dd2e926644e93947ba3fa6ab7b793171a29"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/drift-correction2-20261104/commit-result.json",
+      "bytes": 472,
+      "sha256": "65eafd3b4a5f240e9440c6daa1d9e8c072cc144e0af3db794b0452789ca336ab"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/drift-correction2-20261104/handoff.md",
+      "bytes": 3592,
+      "sha256": "6bfd55ba1326bb8697a484635d7200e03af3010a7d33c5ab6770aff25570d779"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/drift-correction2-20261104/precommit-assessment.json",
+      "bytes": 32224,
+      "sha256": "4aafc3a515d4b24a71617c3d8b2301e9fae7180de1c348f59e5e3d4ceddbdb87"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/drift-correction2-20261104/source.diff",
+      "bytes": 693,
+      "sha256": "b4c1614ec3dcb3e1575415cebe7bcd6c50b47c18b673046862dcf866d26e4527"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/drift-correction2-20261104/stage-result.json",
+      "bytes": 202,
+      "sha256": "b18206eb89da907dfc52019f0340f4e55bb2594f3db44b4eb1accacd6858855f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/drift-correction2-20261104/staged-check-result.json",
+      "bytes": 182,
+      "sha256": "d79853796a996378ac3440a5099a977ea0fd9568720c781ded33efec03fb9266"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/drift-correction2-20261104/starting-state.json",
+      "bytes": 63433,
+      "sha256": "4eb35135c4f99948bc3afa2e5f93966c1f24e474487112f76394c55881b6c99f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Applications/Resources/RandomSelectionRun.lean",
+      "bytes": 12714,
+      "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Examples/RandomSelectionRun.lean",
+      "bytes": 3770,
+      "sha256": "76504fe5fa77c581b8a7e3c9f3e0247c8a927adee8b308f84be6167e0ea20e0f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Applications/Resources/RandomSelectionMean.lean",
+      "bytes": 16493,
+      "sha256": "5a7d396ed0d451c0b0ec51493c004b721c804c69263ad7c659f023cab3ddda8f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Examples/RandomSelectionMean.lean",
+      "bytes": 5962,
+      "sha256": "b9c83ac6e4dda31c6c70d6ccbf021cfcad5ca8317f5a3bf1133788fc559bb7af"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Applications/Resources/RandomSelectionDrift.lean",
+      "bytes": 15121,
+      "sha256": "cdb869dc4a7816eb76ab462bd8e6b62df9e9bb7799434903afa9ec67bed59ef4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Examples/RandomSelectionDrift.lean",
+      "bytes": 5797,
+      "sha256": "fade4d637a2c50672d6f792326a22264bb4b348cb608bac58c0cf834a914af48"
+    }
+  ],
+  "public_targets": 139,
+  "private_helpers": 15,
+  "author_compiler_actions": false,
+  "successor_compiled": false,
+  "no_probability_extension": true
+}

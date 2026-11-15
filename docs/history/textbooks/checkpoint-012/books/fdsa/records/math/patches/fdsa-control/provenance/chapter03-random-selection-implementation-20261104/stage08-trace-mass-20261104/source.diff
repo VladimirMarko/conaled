@@ -1,0 +1,362 @@
+diff --git a/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Applications/Resources/RandomSelectionTrace.lean b/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Applications/Resources/RandomSelectionTrace.lean
+new file mode 100644
+index 0000000..0e32f59
+--- /dev/null
++++ b/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Applications/Resources/RandomSelectionTrace.lean
+@@ -0,0 +1,184 @@
++import Applications.Resources.RandomSelectionEndpoints
++
++/-! Exact atoms of the existing fresh-occurrence execution and its trace.
++
++The recorded first index separates different sampled branches. Within a fixed
++initial state, the complete recorded trace determines the supported returned
++value and measured source calls. Consequently the actual trace pushforward has
++the same atom mass as its unique supported complete outcome. This statement
++includes duplicates, empty inputs and invalid worker ranks; it does not assert
++uniqueness across different initial states or for unsupported outcomes.
++
++These are observation and factorization laws for `run`, not a second executor.
++They provide the probability interface needed for the full endpoint path.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.RandomSelection
++open scoped ENNReal
++universe u
++variable {α : Type u}
++
++noncomputable section
++
++/-- An executed prefix retains the child's value, trace and source calls. -/
++theorem prepend_injective (n i calls : Nat) :
++    Function.Injective (prepend (α := α) n i calls) := by
++  intro r s h
++  apply Prod.ext
++  · exact congrArg (fun z : Outcome α => z.1) h
++  · apply Prod.ext
++    · exact congrArg (fun z : Outcome α => z.2.1.tail) h
++    · exact Nat.add_left_cancel (congrArg (fun z : Outcome α => z.2.2) h)
++
++/-- Adding a fixed executed prefix does not merge complete child outcomes. -/
++theorem map_prepend_apply (n i calls : Nat) (p : PMF (Outcome α)) (r : Outcome α) :
++    PMF.map (prepend n i calls) p (prepend n i calls r) = p r := by
++  classical
++  simp only [PMF.map_apply, (prepend_injective n i calls).eq_iff, tsum_ite_eq']
++
++section Ordered
++variable [LinearOrder α]
++
++/-- Exact fresh-choice factorization for any actual recursive step. No child
++support, distinctness or valid-rank premise is needed for this atom equality. -/
++theorem run_child_atom (k : Nat) (head : α) (tail : List α)
++    (i : Fin (tail.length + 1)) (j : Nat) (ys : List α)
++    (hi : (stepRun k (head :: tail) i).1 = Sum.inl (j, ys)) (r : Outcome α) :
++    run k (head :: tail)
++        (prepend (head :: tail).length i.val (stepRun k (head :: tail) i).2 r) =
++      (((tail.length + 1 : Nat) : ℝ≥0∞)⁻¹) * run j ys r := by
++  classical
++  rw [run_cons, PMF.bind_apply]
++  refine (tsum_eq_single i ?_).trans ?_
++  · intro q hqi
++    apply mul_eq_zero_of_right
++    apply (PMF.apply_eq_zero_iff _ _).mpr
++    intro hmem
++    dsimp only at hmem
++    cases hq : (stepRun k (head :: tail) q).1 with
++    | inl state =>
++        rcases state with ⟨j', ys'⟩
++        rw [hq] at hmem
++        obtain ⟨r', _, he⟩ := (PMF.mem_support_map_iff _ _ _).mp hmem
++        have hh := congrArg (fun z : Outcome α => z.2.1.head?.map Prod.snd) he
++        change some q.val = some i.val at hh
++        exact hqi (Fin.ext (Option.some.inj hh))
++    | inr p =>
++        rw [hq] at hmem
++        have he := (PMF.mem_support_pure_iff _ _).mp hmem
++        have hh := congrArg (fun z : Outcome α => z.2.1.head?.map Prod.snd) he
++        change some i.val = some q.val at hh
++        exact hqi (Fin.ext (Option.some.inj hh).symm)
++  · dsimp only
++    rw [hi, map_prepend_apply, RandomQuickSort.uniformIndex_apply]
++
++/-- For a fixed input and rank, a supported trace determines the entire actual
++outcome, including its measured cost. The rank may be invalid and values may
++repeat. The proof follows the one actual strict child selected by each index. -/
++theorem run_trace_injective (k : Nat) (xs : List α) (r s : Outcome α)
++    (hr : r ∈ (run k xs).support) (hs : s ∈ (run k xs).support)
++    (ht : r.2.1 = s.2.1) : r = s := by
++  match xs with
++  | [] =>
++      have er : r = (none, ([], 2)) := by
++        simpa only [run_nil, PMF.mem_support_pure_iff] using hr
++      have es : s = (none, ([], 2)) := by
++        simpa only [run_nil, PMF.mem_support_pure_iff] using hs
++      exact er.trans es.symm
++  | head :: tail =>
++      let branch : Fin (tail.length + 1) → PMF (Outcome α) := fun i =>
++        let action := stepRun k (head :: tail) i
++        match action.1 with
++        | Sum.inl (j, ys) =>
++            PMF.map (prepend (head :: tail).length i.val action.2) (run j ys)
++        | Sum.inr p =>
++            PMF.pure (some p, ([((head :: tail).length, i.val)], action.2))
++      have hrun : run k (head :: tail) =
++          PMF.bind (RandomQuickSort.uniformIndex tail.length) branch :=
++        run_cons k head tail
++      have tag (q : Fin (tail.length + 1)) (z : Outcome α)
++          (hz : z ∈ (branch q).support) :
++          z.2.1.head?.map Prod.snd = some q.val := by
++        dsimp only [branch] at hz
++        cases hq : (stepRun k (head :: tail) q).1 with
++        | inl state =>
++            rcases state with ⟨j, ys⟩
++            rw [hq] at hz
++            obtain ⟨child, _, he⟩ := (PMF.mem_support_map_iff _ _ _).mp hz
++            rw [← he]
++            rfl
++        | inr p =>
++            rw [hq] at hz
++            have he := (PMF.mem_support_pure_iff _ _).mp hz
++            rw [he]
++            rfl
++      rw [hrun] at hr hs
++      obtain ⟨i, _, hri⟩ := (PMF.mem_support_bind_iff _ _ _).mp hr
++      obtain ⟨j, _, hsj⟩ := (PMF.mem_support_bind_iff _ _ _).mp hs
++      have ti := tag i r hri
++      have tj := tag j s hsj
++      have te := congrArg (fun trace : Trace => trace.head?.map Prod.snd) ht
++      have hij : i = j := Fin.ext (Option.some.inj (ti.symm.trans (te.trans tj)))
++      subst j
++      dsimp only [branch] at hri hsj
++      cases hstep : (stepRun k (head :: tail) i).1 with
++      | inl state =>
++          rcases state with ⟨j, ys⟩
++          rw [hstep] at hri hsj
++          obtain ⟨r', hr', er⟩ := (PMF.mem_support_map_iff _ _ _).mp hri
++          obtain ⟨s', hs', es⟩ := (PMF.mem_support_map_iff _ _ _).mp hsj
++          have ht' := ht
++          rw [← er, ← es] at ht'
++          have hc : r'.2.1 = s'.2.1 := congrArg List.tail ht'
++          have he := run_trace_injective j ys r' s' hr' hs' hc
++          exact er.symm.trans
++            ((congrArg (prepend (head :: tail).length i.val
++              (stepRun k (head :: tail) i).2) he).trans es)
++      | inr p =>
++          rw [hstep] at hri hsj
++          have er := (PMF.mem_support_pure_iff _ _).mp hri
++          have es := (PMF.mem_support_pure_iff _ _).mp hsj
++          exact er.trans es.symm
++termination_by xs.length
++decreasing_by
++  exact (stepRun_child k (head :: tail) i j ys hstep).1
++
++/-- The trace observation is a pushforward of the existing actual execution. -/
++def traceLaw (k : Nat) (xs : List α) : PMF Trace :=
++  PMF.map (fun r : Outcome α => r.2.1) (run k xs)
++
++theorem traceLaw_support (k : Nat) (xs : List α) (trace : Trace) :
++    trace ∈ (traceLaw k xs).support ↔
++      ∃ r ∈ (run k xs).support, r.2.1 = trace :=
++  PMF.mem_support_map_iff _ _ _
++
++/-- An actual supported outcome is the unique contributor to its trace atom.
++This connects complete-outcome probability to the exact projected trace event. -/
++theorem traceLaw_atom (k : Nat) (xs : List α) (r : Outcome α)
++    (hr : r ∈ (run k xs).support) : traceLaw k xs r.2.1 = run k xs r := by
++  classical
++  rw [traceLaw, PMF.map_apply]
++  refine (tsum_eq_single r ?_).trans ?_
++  · intro s hsr
++    by_cases ht : r.2.1 = s.2.1
++    · simp only [ht, ↓reduceIte]
++      apply (PMF.apply_eq_zero_iff _ _).mpr
++      intro hs
++      exact hsr (run_trace_injective k xs s r hs hr ht.symm)
++    · exact ite_eq_right ht
++  · exact ite_eq_left rfl
++
++@[simp] theorem traceLaw_nil (k : Nat) :
++    traceLaw k ([] : List α) = PMF.pure [] := by
++  simp only [traceLaw, run_nil, PMF.pure_map]
++
++/-- The valid singleton is the actual endpoint path's unit-mass base case. -/
++theorem run_singleton_atom (x : α) :
++    run 0 [x] (some x, ([(1, 0)], 9)) = 1 := by
++  simpa using run_replicate_valid_atom 0 0 x (by decide) 0
++
++end Ordered
++end
++end Resources.RandomSelection
+diff --git a/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Examples/RandomSelectionTrace.lean b/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Examples/RandomSelectionTrace.lean
+new file mode 100644
+index 0000000..eaa952f
+--- /dev/null
++++ b/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Examples/RandomSelectionTrace.lean
+@@ -0,0 +1,166 @@
++import Applications.Resources.RandomSelectionTrace
++import Examples.RandomSelectionEndpoints
++
++/-! Exact trace atoms calculated before the trace factorization proofs.
++
++The unsorted interior-rank path switches from a minimum to a maximum and has
++sizes 3,2,1, value 2, scan volume 6, source cost 33 and probability 1/6. The signed
++five-element case has value 5, scan volume 15, source cost 67 and probability
++1/120. Both complete-outcome atoms are derived through actual recursive-step
++factorization; their trace atoms use the supported-trace uniqueness bridge.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.RandomSelectionTrace
++open Resources.RandomSelection Applications.Selection
++open scoped ENNReal
++universe u
++variable {α : Type u}
++
++noncomputable section
++
++private theorem inverse_nat_product (m n : Nat) :
++    ((m : ℝ≥0∞)⁻¹) * ((n : ℝ≥0∞)⁻¹) = (((m * n : Nat) : ℝ≥0∞)⁻¹) := by
++  rw [Nat.cast_mul]
++  exact (ENNReal.mul_inv (Or.inr (ENNReal.natCast_ne_top n))
++    (Or.inl (ENNReal.natCast_ne_top m))).symm
++
++section Ordered
++variable [LinearOrder α]
++
++theorem singleton_trace_atom (x : α) : traceLaw 0 [x] [(1, 0)] = 1 := by
++  have hr : (some x, ([(1, 0)], 9)) ∈ (run 0 [x]).support := by
++    rw [PMF.mem_support_iff, run_singleton_atom]
++    exact one_ne_zero
++  exact (traceLaw_atom 0 [x] _ hr).trans (run_singleton_atom x)
++
++theorem middle_child_atom :
++    run 0 ([3, 2] : List Int) (some 2, ([(2, 0), (1, 0)], 19)) =
++      (2 : ℝ≥0∞)⁻¹ := by
++  have hs := Examples.RandomSelectionEndpoints.middle_rank_switch.2.2
++  simpa [hs, prepend, run_singleton_atom] using
++    run_child_atom 0 (3 : Int) [2] 0 0 [2] (congrArg Prod.fst hs)
++      (some 2, ([(1, 0)], 9))
++
++theorem middle_path_atom :
++    run 1 ([3, 1, 2] : List Int) (some 2, ([(3, 1), (2, 0), (1, 0)], 33)) =
++      (6 : ℝ≥0∞)⁻¹ := by
++  have hs := Examples.RandomSelectionEndpoints.unsorted_minimum_step
++  calc
++    _ = (3 : ℝ≥0∞)⁻¹ * (2 : ℝ≥0∞)⁻¹ := by
++      simpa [hs, prepend, middle_child_atom] using
++        run_child_atom 1 (3 : Int) [1, 2] 1 0 [3, 2] (congrArg Prod.fst hs)
++          (some 2, ([(2, 0), (1, 0)], 19))
++    _ = (6 : ℝ≥0∞)⁻¹ := inverse_nat_product 3 2
++
++theorem middle_path_trace :
++    traceLaw 1 ([3, 1, 2] : List Int) [(3, 1), (2, 0), (1, 0)] =
++      (6 : ℝ≥0∞)⁻¹ := by
++  have hr : (some 2, ([(3, 1), (2, 0), (1, 0)], 33)) ∈
++      (run 1 ([3, 1, 2] : List Int)).support := by
++    rw [PMF.mem_support_iff, middle_path_atom]
++    exact ENNReal.inv_ne_zero.mpr (ENNReal.natCast_ne_top 6)
++  exact (traceLaw_atom 1 ([3, 1, 2] : List Int) _ hr).trans middle_path_atom
++
++/-- The exact trace still identifies the actual value and source cost. -/
++theorem middle_path_observations (r : Outcome Int)
++    (hr : r ∈ (run 1 [3, 1, 2]).support)
++    (ht : r.2.1 = [(3, 1), (2, 0), (1, 0)]) :
++    r.1 = some 2 ∧ scanVolume r.2.1 = 6 ∧ r.2.2 = 33 := by
++  have hs : (some 2, ([(3, 1), (2, 0), (1, 0)], 33)) ∈
++      (run 1 ([3, 1, 2] : List Int)).support := by
++    rw [PMF.mem_support_iff, middle_path_atom]
++    exact ENNReal.inv_ne_zero.mpr (ENNReal.natCast_ne_top 6)
++  have he := run_trace_injective 1 [3, 1, 2] r _ hr hs ht
++  rw [he]
++  decide
++
++theorem negative_path_atom :
++    run 3 ([3, -2, 8, 0, 5] : List Int)
++      (some 5, ([(5, 1), (4, 2), (3, 0), (2, 0), (1, 0)], 67)) =
++      (120 : ℝ≥0∞)⁻¹ := by
++  have h2 : run 0 ([8, 5] : List Int) (some 5, ([(2, 0), (1, 0)], 19)) =
++      (2 : ℝ≥0∞)⁻¹ := by
++    have hs : stepRun 0 ([8, 5] : List Int) 0 = (Sum.inl (0, [5]), 10) := by
++      norm_num [stepRun_eq, partition3_eq_filters]
++    simpa [hs, prepend, run_singleton_atom] using
++      run_child_atom 0 (8 : Int) [5] 0 0 [5] (congrArg Prod.fst hs)
++        (some 5, ([(1, 0)], 9))
++  have h3 : run 1 ([3, 8, 5] : List Int)
++      (some 5, ([(3, 0), (2, 0), (1, 0)], 32)) = (6 : ℝ≥0∞)⁻¹ := by
++    have hs : stepRun 1 ([3, 8, 5] : List Int) 0 = (Sum.inl (0, [8, 5]), 13) := by
++      norm_num [stepRun_eq, partition3_eq_filters]
++    calc
++      _ = (3 : ℝ≥0∞)⁻¹ * (2 : ℝ≥0∞)⁻¹ := by
++        simpa [hs, prepend, h2] using
++          run_child_atom 1 (3 : Int) [8, 5] 0 0 [8, 5] (congrArg Prod.fst hs)
++            (some 5, ([(2, 0), (1, 0)], 19))
++      _ = (6 : ℝ≥0∞)⁻¹ := inverse_nat_product 3 2
++  have h4 : run 2 ([3, 8, 0, 5] : List Int)
++      (some 5, ([(4, 2), (3, 0), (2, 0), (1, 0)], 49)) = (24 : ℝ≥0∞)⁻¹ := by
++    have hs : stepRun 2 ([3, 8, 0, 5] : List Int) 2 =
++        (Sum.inl (1, [3, 8, 5]), 17) := by
++      norm_num [stepRun_eq, partition3_eq_filters]
++    calc
++      _ = (4 : ℝ≥0∞)⁻¹ * (6 : ℝ≥0∞)⁻¹ := by
++        simpa [hs, prepend, h3] using
++          run_child_atom 2 (3 : Int) [8, 0, 5] 2 1 [3, 8, 5] (congrArg Prod.fst hs)
++            (some 5, ([(3, 0), (2, 0), (1, 0)], 32))
++      _ = (24 : ℝ≥0∞)⁻¹ := inverse_nat_product 4 6
++  have hs := Examples.RandomSelectionEndpoints.negative_minimum_step
++  calc
++    _ = (5 : ℝ≥0∞)⁻¹ * (24 : ℝ≥0∞)⁻¹ := by
++      simpa [hs, prepend, h4] using
++        run_child_atom 3 (3 : Int) [-2, 8, 0, 5] 1 2 [3, 8, 0, 5]
++          (congrArg Prod.fst hs) (some 5, ([(4, 2), (3, 0), (2, 0), (1, 0)], 49))
++    _ = (120 : ℝ≥0∞)⁻¹ := inverse_nat_product 5 24
++
++theorem negative_path_trace :
++    traceLaw 3 ([3, -2, 8, 0, 5] : List Int)
++      [(5, 1), (4, 2), (3, 0), (2, 0), (1, 0)] = (120 : ℝ≥0∞)⁻¹ := by
++  have hr : (some 5, ([(5, 1), (4, 2), (3, 0), (2, 0), (1, 0)], 67)) ∈
++      (run 3 ([3, -2, 8, 0, 5] : List Int)).support := by
++    rw [PMF.mem_support_iff, negative_path_atom]
++    exact ENNReal.inv_ne_zero.mpr (ENNReal.natCast_ne_top 120)
++  exact (traceLaw_atom 3 ([3, -2, 8, 0, 5] : List Int) _ hr).trans negative_path_atom
++
++theorem duplicate_trace_atom :
++    traceLaw 1 ([4, 4, 4] : List Nat) [(3, 0)] = (3 : ℝ≥0∞)⁻¹ := by
++  have ha : run 1 ([4, 4, 4] : List Nat) (some 4, ([(3, 0)], 15)) =
++      (3 : ℝ≥0∞)⁻¹ := run_replicate_valid_atom 2 1 4 (by decide) 0
++  have hr : (some 4, ([(3, 0)], 15)) ∈ (run 1 ([4, 4, 4] : List Nat)).support := by
++    rw [PMF.mem_support_iff, ha]
++    exact ENNReal.inv_ne_zero.mpr (ENNReal.natCast_ne_top 3)
++  exact (traceLaw_atom 1 ([4, 4, 4] : List Nat) _ hr).trans ha
++
++theorem empty_trace_atom (k : Nat) : traceLaw k ([] : List α) [] = 1 := by
++  rw [traceLaw_nil]
++  exact PMF.pure_apply_self []
++
++theorem invalid_singleton_trace_atom :
++    traceLaw 1 ([7] : List Nat) [(1, 0)] = 1 := by
++  have ha : run 1 ([7] : List Nat) (none, ([(1, 0)], 11)) = 1 := by
++    simpa using run_replicate_invalid_atom 0 1 (7 : Nat) (by decide) 0
++  have hr : (none, ([(1, 0)], 11)) ∈ (run 1 ([7] : List Nat)).support := by
++    rw [PMF.mem_support_iff, ha]
++    exact one_ne_zero
++  exact (traceLaw_atom 1 ([7] : List Nat) _ hr).trans ha
++
++/-- Fixed initial state is essential: the same trace occurs at valid and
++invalid singleton ranks, with different values and measured source costs. -/
++theorem different_initial_rank_boundary (x : α) :
++    run 0 [x] = PMF.pure (some x, ([(1, 0)], 9)) ∧
++      run 1 [x] = PMF.pure (none, ([(1, 0)], 11)) ∧
++      (some x, ([(1, 0)], 9)) ≠ (none, ([(1, 0)], 11)) := by
++  have hs := Examples.RandomSelectionEqual.singleton_boundary x
++  exact ⟨hs.1, hs.2, by simp⟩
++
++theorem arbitrary_supported_trace (k : Nat) (xs : List α) (r s : Outcome α)
++    (hr : r ∈ (run k xs).support) (hs : s ∈ (run k xs).support)
++    (ht : r.2.1 = s.2.1) : r = s ∧ traceLaw k xs r.2.1 = run k xs r :=
++  ⟨run_trace_injective k xs r s hr hs ht, traceLaw_atom k xs r hr⟩
++
++end Ordered
++end
++end Examples.RandomSelectionTrace

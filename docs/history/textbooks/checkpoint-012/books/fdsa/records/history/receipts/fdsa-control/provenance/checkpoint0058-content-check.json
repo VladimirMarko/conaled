@@ -1,0 +1,567 @@
+{
+  "observed_utc": "2026-11-03T00:11:38.335018+00:00",
+  "status": "bounded archive-content inspection; no discrepancy",
+  "archive": {
+    "file_name": "conaled-fdsa-0058-leftmost-draft.tar.gz",
+    "path": "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0058-leftmost-draft.tar.gz",
+    "bytes": 74800311,
+    "sha256": "018f8340d00d5fb79f2ea21f71955506eaebe9147bf76047525f472d98ea14ad",
+    "expected_bytes": 74800311,
+    "expected_sha256": "018f8340d00d5fb79f2ea21f71955506eaebe9147bf76047525f472d98ea14ad",
+    "library_file_id_from_supplied_saved_receipt": "libfile_78ea82f15b5c819193387ff716e24906",
+    "identity_matches": true
+  },
+  "expected_root": "conaled-fdsa-0058-leftmost-draft",
+  "archive_created_utc": "2026-11-03T00:06:33.575013+00:00",
+  "method": "Python tarfile r|gz streaming reads and in-memory member inspection; ordinary SHA-256 hashing. No extraction to disk, new checkout, Git command, compiler/checker/project hash helper, cache action, Library lookup or upload. No Git pack object decoding or fresh bundle verify was performed; advertised refs and recorded source identities are checked, not newly accepted Lean proofs.",
+  "checks": {
+    "archive_identity": true,
+    "single_expected_root": true,
+    "safe_member_names": true,
+    "regular_or_directory_members_only": true,
+    "payload_checksum_manifest_matches": true,
+    "bundle_v2_header": true,
+    "bundle_no_prerequisites": true,
+    "bundle_pack_prefix": true,
+    "all_recorded_current_ref_heads_match": true,
+    "manifest_checkpoint_name": true,
+    "manifest_main_branch_and_head": true,
+    "archive_patch_payloads_empty": true,
+    "no_task_untracked_payload": true,
+    "frozen_requirements_identity": true,
+    "stable_controls_match_current_recorded_bytes": true,
+    "all_five_precommit_final_source_identities": true,
+    "core_identity_matches_author_handoff": true,
+    "source_record_original_base_preserved": true,
+    "source_record_clean_candidate": true,
+    "assessment_retains_final_source_hashes": true,
+    "assessment_and_ticket_retain_candidate_and_requirements": true,
+    "archived_ledger_57_entries": true,
+    "ledger_last_is_prior0057": true,
+    "no_0058_ledger_entry": true,
+    "prior_receipt_success_and_identity": true,
+    "prior_receipt_matches_last_ledger": true,
+    "release_matches_prior_receipt": true,
+    "own0058_receipt_absent_from_archive": true,
+    "own0058_receipt_postdates_archive": true,
+    "own0058_saved_receipt_matches_supplied_identity": true,
+    "c1_partial_evidence_preserved": true,
+    "c1_observed_log_prefix_preserved": true,
+    "earlier_unknown_c1_outcomes_retained": true,
+    "no_xt08_validation_claim": true,
+    "initial_chapter02_prefix_retained": true,
+    "insertion_draft_ref_matches_retained_ledger": true,
+    "all_advertised_work_branches_checked": true
+  },
+  "discrepancies": [],
+  "archive_structure": {
+    "member_count": 633,
+    "regular_file_count": 578,
+    "roots": [
+      "conaled-fdsa-0058-leftmost-draft"
+    ],
+    "unsafe_paths": [],
+    "special_members": [],
+    "sha256sums_entries": 577,
+    "checksum_errors": [],
+    "unlisted_regular_files_except_SHA256SUMS": [],
+    "missing_checksum_members": [],
+    "untracked_tar_member_count": 0
+  },
+  "manifest": {
+    "checkpoint": "conaled-fdsa-0058-leftmost-draft",
+    "created_utc": "2026-11-03T00:06:33.575013+00:00",
+    "repository": "https://github.com/VladimirMarko/conaled.git",
+    "head": "1aabd512284fe86254278ac631eda061d311050b",
+    "branch": "work/fdsa-book",
+    "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.n7UlkJ\n",
+    "included_untracked": [],
+    "excluded_unrelated_untracked": [
+      "docs/history/algorithm-design-haskell/.checkpoint-233.zip.n7UlkJ"
+    ],
+    "scope": "Complete FDSA formalization; consult fdsa-control/STATUS.md for actual acceptance",
+    "excluded_regenerable": [
+      "Lean/Nix binaries",
+      "Lake dependency and compilation caches",
+      "upstream book PDF and extracted copyrighted text"
+    ]
+  },
+  "bundle": {
+    "member": {
+      "member": "conaled-fdsa-0058-leftmost-draft/conaled.bundle",
+      "bytes": 72266466,
+      "sha256": "77b0551d641e0330a1c833dce74b5caf6225ebaabde5177d99bd090c42f9036e"
+    },
+    "header_sha256": "629b759372581e8a611f522667bd9c68ab994566e167aecf7a7f28b950e3ab1c",
+    "format": "v2",
+    "prerequisites": [],
+    "pack_prefix": "PACK",
+    "all_advertised_refs": {
+      "refs/heads/master": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "refs/heads/work/fdsa-accumulated-work": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "refs/heads/work/fdsa-adt-refinement": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+      "refs/heads/work/fdsa-affine-recurrence": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "refs/heads/work/fdsa-basics-cost-models": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "refs/heads/work/fdsa-book": "1aabd512284fe86254278ac631eda061d311050b",
+      "refs/heads/work/fdsa-builder-costs": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+      "refs/heads/work/fdsa-insertion-costs": "697bcf242ce65d74815b5639bddb1c6e754dd10f",
+      "refs/heads/work/fdsa-list-foundations": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+      "refs/heads/work/fdsa-ordered-search": "863aedb924e922ac40747c0ef299701a7785488e",
+      "refs/heads/work/fdsa-ordinary-merge": "5f409e71bb068e3b8cc133226046ce8bbe29d982",
+      "refs/heads/work/fdsa-permutation-expectation": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+      "refs/heads/work/fdsa-permutation-joint": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+      "refs/heads/work/fdsa-permutation-minimum": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+      "refs/heads/work/fdsa-permutation-order": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+      "refs/heads/work/fdsa-permutation-placement": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "refs/heads/work/fdsa-permutation-tail": "a0597381f02eddd074ee96cabaa974f2062285f8",
+      "refs/heads/work/fdsa-priority-observations": "c088beeb89aa18df45a56f6f1d6b6ff4ad374905",
+      "refs/heads/work/fdsa-three-way-partition": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+      "refs/heads/work/fdsa-tree-accumulator": "b035f1151ab4f0c7d7380818576cfe97dae434c4",
+      "refs/heads/work/fdsa-tree-cache": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "refs/heads/work/fdsa-tree-fold": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+      "refs/heads/work/fdsa-tree-leftmost": "7b8ab2bee299c937256bf9ce7e82977333d07134",
+      "refs/heads/work/fdsa-tree-order": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+      "refs/heads/work/fdsa-tree-rotations": "28ba79d8d425400cb87d2daf3ecf1cc5a63a7aa2",
+      "refs/heads/work/fdsa-tree-shape": "974a97321a8ec174b56104c7e6efaaca881b6639",
+      "refs/heads/work/fdsa-tree-traversal-work": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "refs/remotes/origin/HEAD": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "refs/remotes/origin/integrate/frp": "5be3ce96dbeb60365002414409c9421450e39cf0",
+      "refs/remotes/origin/integration/spec-15": "47b556e83229ce11b27b5b7b4444c089a1e96ac3",
+      "refs/remotes/origin/master": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "refs/remotes/origin/reconstruction/adwh-154": "c12296f63c656737d07325e9d8e8e16d6976d099",
+      "refs/remotes/origin/reconstruction/adwh-155": "3efc9d926333c19f697a21afe7dd08af53e3a8cd",
+      "refs/remotes/origin/reconstruction/adwh-180": "e0d76c86040f38728289977c355b848cd6c7d8e3",
+      "refs/remotes/origin/reconstruction/adwh-181": "f68c79000bdb1ce223c403d38f8dd06e20cfbf29",
+      "refs/remotes/origin/reconstruction/adwh-182": "9c0a2649f9601c6294850f2b057698650360da9a",
+      "refs/remotes/origin/reconstruction/adwh-183": "16db707769c322fa17f2c48e24208f81292008da",
+      "refs/remotes/origin/reconstruction/adwh-184": "48b7655155950c4452bebf1268de1866d0f6129f",
+      "refs/remotes/origin/reconstruction/adwh-186": "30bbde79d154d1e8d942561c023a5e44d12ca420",
+      "refs/remotes/origin/reconstruction/adwh-187": "6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e",
+      "refs/remotes/origin/reconstruction/adwh-190": "855ce1f29ae0b7c7a7aec8321ead07be39c6ff32",
+      "refs/remotes/origin/reconstruction/adwh-array-cost-integration": "34c85983f601247fb62aea631c4212b7cb994b5b",
+      "refs/remotes/origin/research/27-frp-runtime": "f4d3e2f36d5547f2236a601c837280bd0c23a774",
+      "HEAD": "1aabd512284fe86254278ac631eda061d311050b",
+      "worktrees/conaled-ordered-search/HEAD": "863aedb924e922ac40747c0ef299701a7785488e",
+      "worktrees/conaled-insertion-costs/HEAD": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+      "worktrees/conaled-ch01-review/HEAD": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "worktrees/conaled-ch01-cost-models/HEAD": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "worktrees/conaled-tree-leftmost/HEAD": "7b8ab2bee299c937256bf9ce7e82977333d07134"
+    },
+    "recorded_current_head_checks": {
+      "refs/heads/work/fdsa-book": {
+        "expected_from": "archived checkpoints.json last entry: main_candidate",
+        "expected": "1aabd512284fe86254278ac631eda061d311050b",
+        "advertised": "1aabd512284fe86254278ac631eda061d311050b",
+        "match": true
+      },
+      "refs/heads/work/fdsa-basics-cost-models": {
+        "expected_from": "archived checkpoints.json last entry: repair_candidate",
+        "expected": "07e480f6ec9958d4975bb90151005b84f2907614",
+        "advertised": "07e480f6ec9958d4975bb90151005b84f2907614",
+        "match": true
+      },
+      "refs/heads/work/fdsa-list-foundations": {
+        "expected_from": "archived checkpoints.json last entry: shared_candidate",
+        "expected": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+        "advertised": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+        "match": true
+      },
+      "refs/heads/work/fdsa-affine-recurrence": {
+        "expected_from": "archived checkpoints.json last entry: affine_candidate",
+        "expected": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+        "advertised": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+        "match": true
+      },
+      "refs/heads/work/fdsa-builder-costs": {
+        "expected_from": "archived checkpoints.json last entry: builder_candidate",
+        "expected": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+        "advertised": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+        "match": true
+      },
+      "refs/heads/work/fdsa-accumulated-work": {
+        "expected_from": "archived checkpoints.json last entry: accumulated_work_candidate",
+        "expected": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+        "advertised": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+        "match": true
+      },
+      "refs/heads/work/fdsa-permutation-minimum": {
+        "expected_from": "archived checkpoints.json last entry: permutation_minimum_candidate",
+        "expected": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+        "advertised": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+        "match": true
+      },
+      "refs/heads/work/fdsa-permutation-order": {
+        "expected_from": "archived checkpoints.json last entry: permutation_order_candidate",
+        "expected": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+        "advertised": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+        "match": true
+      },
+      "refs/heads/work/fdsa-permutation-tail": {
+        "expected_from": "archived checkpoints.json last entry: permutation_tail_candidate",
+        "expected": "a0597381f02eddd074ee96cabaa974f2062285f8",
+        "advertised": "a0597381f02eddd074ee96cabaa974f2062285f8",
+        "match": true
+      },
+      "refs/heads/work/fdsa-permutation-expectation": {
+        "expected_from": "archived checkpoints.json last entry: permutation_expectation_candidate",
+        "expected": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+        "advertised": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+        "match": true
+      },
+      "refs/heads/work/fdsa-permutation-joint": {
+        "expected_from": "archived checkpoints.json last entry: permutation_joint_candidate",
+        "expected": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+        "advertised": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+        "match": true
+      },
+      "refs/heads/work/fdsa-permutation-placement": {
+        "expected_from": "archived checkpoints.json last entry: permutation_placement_candidate",
+        "expected": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+        "advertised": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+        "match": true
+      },
+      "refs/heads/work/fdsa-tree-cache": {
+        "expected_from": "archived checkpoints.json last entry: tree_cache_candidate",
+        "expected": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "advertised": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "match": true
+      },
+      "refs/heads/work/fdsa-tree-shape": {
+        "expected_from": "archived checkpoints.json last entry: tree_shape_candidate",
+        "expected": "974a97321a8ec174b56104c7e6efaaca881b6639",
+        "advertised": "974a97321a8ec174b56104c7e6efaaca881b6639",
+        "match": true
+      },
+      "refs/heads/work/fdsa-tree-fold": {
+        "expected_from": "archived checkpoints.json last entry: tree_fold_candidate",
+        "expected": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+        "advertised": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+        "match": true
+      },
+      "refs/heads/work/fdsa-tree-accumulator": {
+        "expected_from": "archived checkpoints.json last entry: tree_accumulator_candidate",
+        "expected": "b035f1151ab4f0c7d7380818576cfe97dae434c4",
+        "advertised": "b035f1151ab4f0c7d7380818576cfe97dae434c4",
+        "match": true
+      },
+      "refs/heads/work/fdsa-tree-traversal-work": {
+        "expected_from": "archived checkpoints.json last entry: tree_traversal_work_candidate",
+        "expected": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+        "advertised": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+        "match": true
+      },
+      "refs/heads/work/fdsa-tree-rotations": {
+        "expected_from": "archived checkpoints.json last entry: tree_rotation_candidate",
+        "expected": "28ba79d8d425400cb87d2daf3ecf1cc5a63a7aa2",
+        "advertised": "28ba79d8d425400cb87d2daf3ecf1cc5a63a7aa2",
+        "match": true
+      },
+      "refs/heads/work/fdsa-three-way-partition": {
+        "expected_from": "archived checkpoints.json last entry: three_way_partition_candidate",
+        "expected": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+        "advertised": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+        "match": true
+      },
+      "refs/heads/work/fdsa-tree-order": {
+        "expected_from": "archived checkpoints.json last entry: tree_order_candidate",
+        "expected": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+        "advertised": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+        "match": true
+      },
+      "refs/heads/work/fdsa-adt-refinement": {
+        "expected_from": "archived checkpoints.json last entry: adt_refinement_candidate",
+        "expected": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+        "advertised": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+        "match": true
+      },
+      "refs/heads/work/fdsa-priority-observations": {
+        "expected_from": "archived checkpoints.json last entry: priority_observations_candidate",
+        "expected": "c088beeb89aa18df45a56f6f1d6b6ff4ad374905",
+        "advertised": "c088beeb89aa18df45a56f6f1d6b6ff4ad374905",
+        "match": true
+      },
+      "refs/heads/work/fdsa-ordinary-merge": {
+        "expected_from": "archived checkpoints.json last entry: ordinary_merge_candidate",
+        "expected": "5f409e71bb068e3b8cc133226046ce8bbe29d982",
+        "advertised": "5f409e71bb068e3b8cc133226046ce8bbe29d982",
+        "match": true
+      },
+      "refs/heads/work/fdsa-ordered-search": {
+        "expected_from": "archived checkpoints.json last entry: ordered_search_candidate",
+        "expected": "863aedb924e922ac40747c0ef299701a7785488e",
+        "advertised": "863aedb924e922ac40747c0ef299701a7785488e",
+        "match": true
+      },
+      "refs/heads/work/fdsa-tree-leftmost": {
+        "expected_from": "root assignment and archived tree-leftmost-source-final.json candidate",
+        "expected": "7b8ab2bee299c937256bf9ce7e82977333d07134",
+        "advertised": "7b8ab2bee299c937256bf9ce7e82977333d07134",
+        "match": true
+      },
+      "refs/heads/work/fdsa-insertion-costs": {
+        "expected_from": "archived checkpoints.json earlier additional_branch record",
+        "expected": "697bcf242ce65d74815b5639bddb1c6e754dd10f",
+        "advertised": "697bcf242ce65d74815b5639bddb1c6e754dd10f",
+        "match": true
+      }
+    },
+    "insertion_reference_records": [
+      {
+        "field": "additional_branch",
+        "value": {
+          "name": "work/fdsa-insertion-costs",
+          "head": "697bcf242ce65d74815b5639bddb1c6e754dd10f"
+        }
+      }
+    ]
+  },
+  "archived_controls": {
+    "REQUEST.md": {
+      "member": "conaled-fdsa-0058-leftmost-draft/fdsa-control/REQUEST.md",
+      "bytes": 4606,
+      "sha256": "b8968174e0f49888d519ae0069ac75ceb8b6b0916d69aa99c5033ef31a3b7c2c"
+    },
+    "STATUS.md": {
+      "member": "conaled-fdsa-0058-leftmost-draft/fdsa-control/STATUS.md",
+      "bytes": 90615,
+      "sha256": "6135ee1a2436ba4a2eba0e1f140bdc851a9e823845ee4f522d4e62c18620ded7"
+    },
+    "checkpoints.json": {
+      "member": "conaled-fdsa-0058-leftmost-draft/fdsa-control/checkpoints.json",
+      "bytes": 183146,
+      "sha256": "ace2c619b2a519f397ce007f6ab40ea400deeedd1d450c612ce890030517b99e"
+    },
+    "provenance/chapter01-attempt3-progress-before0058.json": {
+      "member": "conaled-fdsa-0058-leftmost-draft/fdsa-control/provenance/chapter01-attempt3-progress-before0058.json",
+      "bytes": 3509,
+      "sha256": "965a74e5fa107de70f471948b74c35c42f0e634ea496c5be79a3486475f7c1d7"
+    },
+    "provenance/checkpoint0057-save-receipt.json": {
+      "member": "conaled-fdsa-0058-leftmost-draft/fdsa-control/provenance/checkpoint0057-save-receipt.json",
+      "bytes": 928,
+      "sha256": "7bc7e506e8a1f3f7fc89fa8952a28ed87c47b77880676a5c6cce5cbc74abd5f1"
+    },
+    "restore.py": {
+      "member": "conaled-fdsa-0058-leftmost-draft/fdsa-control/restore.py",
+      "bytes": 2899,
+      "sha256": "d7e4d48cbf605e1fa5408f92fc3e3827f68af6c279a9cd47f325b064fbf34714"
+    },
+    "reviews/chapter01-repair-incremental-attempt3.log": {
+      "member": "conaled-fdsa-0058-leftmost-draft/fdsa-control/reviews/chapter01-repair-incremental-attempt3.log",
+      "bytes": 167106,
+      "sha256": "d2726a6a6a54ee51c0073ff6ffac5ec2051dab4ca7803d1cc94060f37b64b3aa"
+    },
+    "reviews/tree-leftmost-author-release.json": {
+      "member": "conaled-fdsa-0058-leftmost-draft/fdsa-control/reviews/tree-leftmost-author-release.json",
+      "bytes": 2330,
+      "sha256": "0a076aa64812209fdccef976ef4814ff52f9ae15a62d5d1501c7a15c6fd4ece0"
+    },
+    "reviews/tree-leftmost-requirements.md": {
+      "member": "conaled-fdsa-0058-leftmost-draft/fdsa-control/reviews/tree-leftmost-requirements.md",
+      "bytes": 22861,
+      "sha256": "22fcd74bdfdc71085b690041f6dddc10407f188d11be83fe7ffdc084c31a5535"
+    },
+    "reviews/tree-leftmost-source-assessments.md": {
+      "member": "conaled-fdsa-0058-leftmost-draft/fdsa-control/reviews/tree-leftmost-source-assessments.md",
+      "bytes": 8419,
+      "sha256": "fcfa3110ff4598edaca9def9fc3b0a544cca8c9cf1275559d0dab16e9cce5392"
+    },
+    "reviews/tree-leftmost-source-final.json": {
+      "member": "conaled-fdsa-0058-leftmost-draft/fdsa-control/reviews/tree-leftmost-source-final.json",
+      "bytes": 7883,
+      "sha256": "96dd26cc33c23800e034709af9d333109761ae7e3bf27339cca32da42909d47e"
+    },
+    "reviews/tree-leftmost-source-precommit.json": {
+      "member": "conaled-fdsa-0058-leftmost-draft/fdsa-control/reviews/tree-leftmost-source-precommit.json",
+      "bytes": 5877,
+      "sha256": "4ee9eccaaae462ffd145402f6d96f0318dc80585900676c79a2b45efbaefc4cd"
+    },
+    "tickets/FDSA-XT08.md": {
+      "member": "conaled-fdsa-0058-leftmost-draft/fdsa-control/tickets/FDSA-XT08.md",
+      "bytes": 6638,
+      "sha256": "18f4fd68b0c7879033095fc62eed938df5bc6d6a9fd173cbe5412073935224cb"
+    }
+  },
+  "stable_control_comparisons": {
+    "reviews/tree-leftmost-requirements.md": {
+      "local_bytes": 22861,
+      "local_sha256": "22fcd74bdfdc71085b690041f6dddc10407f188d11be83fe7ffdc084c31a5535",
+      "same_bytes_as_archived": true
+    },
+    "reviews/tree-leftmost-source-precommit.json": {
+      "local_bytes": 5877,
+      "local_sha256": "4ee9eccaaae462ffd145402f6d96f0318dc80585900676c79a2b45efbaefc4cd",
+      "same_bytes_as_archived": true
+    },
+    "reviews/tree-leftmost-source-final.json": {
+      "local_bytes": 7883,
+      "local_sha256": "96dd26cc33c23800e034709af9d333109761ae7e3bf27339cca32da42909d47e",
+      "same_bytes_as_archived": true
+    },
+    "reviews/tree-leftmost-source-assessments.md": {
+      "local_bytes": 8419,
+      "local_sha256": "fcfa3110ff4598edaca9def9fc3b0a544cca8c9cf1275559d0dab16e9cce5392",
+      "same_bytes_as_archived": true
+    },
+    "reviews/tree-leftmost-author-release.json": {
+      "local_bytes": 2330,
+      "local_sha256": "0a076aa64812209fdccef976ef4814ff52f9ae15a62d5d1501c7a15c6fd4ece0",
+      "same_bytes_as_archived": true
+    },
+    "provenance/checkpoint0057-save-receipt.json": {
+      "local_bytes": 928,
+      "local_sha256": "7bc7e506e8a1f3f7fc89fa8952a28ed87c47b77880676a5c6cce5cbc74abd5f1",
+      "same_bytes_as_archived": true
+    }
+  },
+  "xt08_source_identity_checks": {
+    "Applications/Resources/TreeLeftmost.lean": {
+      "expected": {
+        "bytes": 16112,
+        "lines": 388,
+        "sha256": "c8a2cd47ce515330d36f16810add1af2401ff39f36bd7e74a83610d27e5c7cd0"
+      },
+      "precommit_match": true,
+      "final_match": true
+    },
+    "Examples/TreeLeftmost.lean": {
+      "expected": {
+        "bytes": 26744,
+        "lines": 609,
+        "sha256": "35df93b81d199b91fadcea90597409b154132cb161552f92d084f741f499b1e6"
+      },
+      "precommit_match": true,
+      "final_match": true
+    },
+    "docs/research/fdsa-tree-leftmost.md": {
+      "expected": {
+        "bytes": 31269,
+        "lines": 434,
+        "sha256": "b8f2ca0448a960a409aca5e02281723b8dd4585db2cee67e78f835a7f57d1ba8"
+      },
+      "precommit_match": true,
+      "final_match": true
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "expected": {
+        "bytes": 28971,
+        "lines": 423,
+        "sha256": "1c9bc81e8c55e34d31149245470e21fb61a2c3f550fc7884eeef35ba4c6cb2a7"
+      },
+      "precommit_match": true,
+      "final_match": true
+    },
+    "SquareApplications.lean": {
+      "expected": {
+        "bytes": 8440,
+        "lines": 257,
+        "sha256": "f70d063115111d693ee5705102e846732a0188916040fb7f5afffe53f270ecb1"
+      },
+      "precommit_match": true,
+      "final_match": true
+    }
+  },
+  "xt08_source_identity_qualification": "The complete archived precommit and final tables agree with the exact author/root handoff identities. The stable source-control records are byte-identical to their current local copies. The advertised candidate ref is checked; committed file blobs were not decoded from the pack in this bounded streaming task.",
+  "ledger": {
+    "entries": 57,
+    "last_checkpoint": "conaled-fdsa-0057-leftmost-scope",
+    "last_receipt_uploaded_utc": "2026-11-02T23:43:04.470312+00:00",
+    "own_checkpoint_entry_present": false,
+    "initial_chapter02_prefix": "c80eec92f5458eccfd1c34c8314d666c2a1e3847"
+  },
+  "prior0057_receipt": {
+    "checkpoint": "conaled-fdsa-0057-leftmost-scope",
+    "file_name": "conaled-fdsa-0057-leftmost-scope.tar.gz",
+    "local_path": "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0057-leftmost-scope.tar.gz",
+    "size_bytes": 74762072,
+    "sha256": "eec6e37103daf26d9cd63bb8a2384e752b354ed2b2c1a187de665bba3c78bf68",
+    "status": "succeeded",
+    "file_id": "file_00000000cb9881f4b7957b03526fee04",
+    "library_file_id": "libfile_d5eea545d7348191b38dbafe89f28c27",
+    "local_metadata_applied": true,
+    "uploaded_utc": "2026-11-02T23:43:04.470312+00:00",
+    "tree_leftmost_original_base": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+    "tree_leftmost_requirements_sha256": "22fcd74bdfdc71085b690041f6dddc10407f188d11be83fe7ffdc084c31a5535",
+    "qualification": "Own save receipt is recorded after archive creation and must enter the next checkpoint. The saved archive is the held pre-code state, not source release or acceptance."
+  },
+  "own0058_receipt": {
+    "local_path": "/workspace/scratch/845aa1048b05/fdsa-control/provenance/checkpoint0058-save-receipt.json",
+    "bytes": 1020,
+    "sha256": "6c5263eabcb6fa511656a705efb72afbfe810ec4bfaafbd95548338977625ead",
+    "uploaded_utc": "2026-11-03T00:08:13.536546+00:00",
+    "library_file_id": "libfile_78ea82f15b5c819193387ff716e24906",
+    "qualification": "Postdates this archive by design; this receipt and this new content record are for the next checkpoint."
+  },
+  "c1_partial_evidence": {
+    "progress_member": {
+      "member": "conaled-fdsa-0058-leftmost-draft/fdsa-control/provenance/chapter01-attempt3-progress-before0058.json",
+      "bytes": 3509,
+      "sha256": "965a74e5fa107de70f471948b74c35c42f0e634ea496c5be79a3486475f7c1d7"
+    },
+    "observed_utc": "2026-11-02T23:59:29.014339+00:00",
+    "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "recorded_clean_status": "",
+    "recorder_result": "running",
+    "terminal_fields": {},
+    "verification_copy_present": false,
+    "checkout_verification_present": false,
+    "recorded_active_module": "Applications/FRP/Lifecycle.lean",
+    "latest_completed_modules_in_observed_log_tail": [
+      "✔ [9559/9562] Built Applications.FRP.Finite (1929s)",
+      "✔ [9560/9563] Built Examples.FRP (1519s)",
+      "✔ [9561/9564] Built Applications.FRP.Engine (2169s)"
+    ],
+    "partial_log": {
+      "member": {
+        "member": "conaled-fdsa-0058-leftmost-draft/fdsa-control/reviews/chapter01-repair-incremental-attempt3.log",
+        "bytes": 167106,
+        "sha256": "d2726a6a6a54ee51c0073ff6ffac5ec2051dab4ca7803d1cc94060f37b64b3aa"
+      },
+      "observed_prefix_bytes": 167106,
+      "observed_prefix_sha256": "d2726a6a6a54ee51c0073ff6ffac5ec2051dab4ca7803d1cc94060f37b64b3aa",
+      "prefix_present": true,
+      "prefix_hash_matches": true
+    },
+    "attempt1_outcome": "unknown; no success record",
+    "attempt2_outcome": "unknown; no terminal exit or success record; full bounded evidence and Finite setup input preserved",
+    "qualification": "Historical partial observations retained as data, not present liveness checks or acceptance. No terminal success, integrated build completion, exhaustive audit result, matching verification record or final independent review is inferred."
+  },
+  "scope_limitations": [
+    "No source, Git history/refs/index, protected C1 evidence, running process or cache was altered.",
+    "No restore.py execution or end-to-end recovery test was performed.",
+    "This is a recovery-content record only; XT08, inherited drafts and all chapters remain unaccepted.",
+    "The archive intentionally contains only the 57 preceding receipt entries; its own 0058 save receipt necessarily postdates creation."
+  ],
+  "top_level_members": {
+    "MANIFEST.json": {
+      "member": "conaled-fdsa-0058-leftmost-draft/MANIFEST.json",
+      "bytes": 736,
+      "sha256": "9ec7b1c2746cba1a06e95a883e72a14499ce92e65c559467fb2c373797fe74ec"
+    },
+    "RECOVER.md": {
+      "member": "conaled-fdsa-0058-leftmost-draft/RECOVER.md",
+      "bytes": 1793,
+      "sha256": "cb8ed3befa01e10d3c12eee4bcd1716cc662cfddfefd33fd1443c0af8d035696"
+    },
+    "SHA256SUMS": {
+      "member": "conaled-fdsa-0058-leftmost-draft/SHA256SUMS",
+      "bytes": 72917,
+      "sha256": "be1052147078063e5ce6991d9edf2bcc2e873aa27cf5c036e2f4c4ad6f75dc37"
+    },
+    "staged.patch": {
+      "member": "conaled-fdsa-0058-leftmost-draft/staged.patch",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "unstaged.patch": {
+      "member": "conaled-fdsa-0058-leftmost-draft/unstaged.patch",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "untracked.tar": {
+      "member": "conaled-fdsa-0058-leftmost-draft/untracked.tar",
+      "bytes": 10240,
+      "sha256": "84ff92691f909a05b224e1c56abb4864f01b4f8e3c854e4bb4c7baf1d3f6d652"
+    }
+  }
+}

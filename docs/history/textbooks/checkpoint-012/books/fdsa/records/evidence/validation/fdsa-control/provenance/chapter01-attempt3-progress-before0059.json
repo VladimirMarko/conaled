@@ -1,0 +1,37 @@
+{
+  "observed_utc": "2026-11-03T00:40:46.713262+00:00",
+  "scope": "Read-only source/process/log observation before checkpoint0059; partial progress, not terminal validation or acceptance.",
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "source_status": "",
+  "metadata_result": "running",
+  "metadata_sha256": "7b00a25b45c8ed51fcfd3cbbb4d986895dd670996aeaeba5f7e04500d8decf35",
+  "metadata_size_bytes": 1552,
+  "terminal_fields": {},
+  "processes": [
+    {
+      "pid": 600750,
+      "present": false
+    }
+  ],
+  "log_path": "/workspace/scratch/845aa1048b05/fdsa-control/reviews/chapter01-repair-incremental-attempt3.log",
+  "log_size_bytes": 167163,
+  "log_sha256": "f192f74ac3dcf903cee2601b5fd2c69f0f42aaaf2c7c0735b47353df13fb9bee",
+  "log_tail": [
+    "\u26a0 [9558/9561] Replayed Applications.FRP.Equivalence",
+    "warning: Applications/FRP/Equivalence.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+    "info: Applications/FRP/Equivalence.lean:1146:0: 'FRP.eventEquiv' depends on axioms: [propext, choice, Quot.sound]",
+    "info: Applications/FRP/Equivalence.lean:1147:0: 'FRP.totalEventEquiv' depends on axioms: [propext, choice, Quot.sound]",
+    "info: Applications/FRP/Equivalence.lean:1148:0: 'FRP.Realization.switcher_eq' depends on axioms: [propext, choice, Quot.sound]",
+    "info: Applications/FRP/Equivalence.lean:1149:0: 'FRP.Examples.zeno_not_finiteHistory' depends on axioms: [propext, choice, Quot.sound]",
+    "\u2714 [9559/9562] Built Applications.FRP.Finite (1929s)",
+    "\u2714 [9560/9563] Built Examples.FRP (1519s)",
+    "\u2714 [9561/9564] Built Applications.FRP.Engine (2169s)",
+    "\u2714 [9562/9565] Built Applications.FRP.Lifecycle (1982s)"
+  ],
+  "actual_verification_present": false,
+  "retained_verification_present": false,
+  "euid": 0,
+  "free_block_bytes": 4614201344,
+  "available_unprivileged_bytes": 1161453568,
+  "no_additional_validation_or_cache_action": true
+}

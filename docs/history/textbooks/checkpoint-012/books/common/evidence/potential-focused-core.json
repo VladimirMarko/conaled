@@ -1,0 +1,33 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/e1eab3b6b18e/integration-20261113/checkpoint/conaled-textbooks/support/native-kit/conaled_native.py",
+    "--state",
+    "/workspace/scratch/e1eab3b6b18e/integration-20261113/runtime/native",
+    "run",
+    "--project",
+    "/workspace/scratch/e1eab3b6b18e/integration-20261113/master",
+    "--threads",
+    "2",
+    "--",
+    "lake",
+    "build",
+    "Applications.Resources.Potential",
+    "Examples.MappedPotentialAccounting",
+    "Examples.PotentialTransport",
+    "Examples.SignedPotential"
+  ],
+  "scope": "focused live development only; not candidate acceptance",
+  "started_utc": "2026-11-14T00:06:34.621474+00:00",
+  "inputs": {
+    "Applications/Resources/Potential.lean": "c7dac5fcb51e02a688e39b60a3a3c5f6777a3d2c4e7222fce8e1c81cdf3f504d",
+    "Applications/Resources/SignedPotential.lean": "c839b1e32b3182c5789d05934ea253139d91c338917c1207616fe0043b0ce222",
+    "Examples/MappedPotentialAccounting.lean": "2c83479daec51deb21ec95e26af816bc0dfaa682fdb5ee76ee28cdf1e681386a",
+    "Examples/PotentialTransport.lean": "d56fcf0f72cd4aac8615427391fc9e1a807485753ffd185a22e77df9f2db0056",
+    "Examples/SignedPotential.lean": "6d72c5e1ee5f64ce258f6496389434a9bdd0944fe576773cb41bd828ba9ba9b3"
+  },
+  "exit_code": 0,
+  "elapsed_seconds": 34.2,
+  "finished_utc": "2026-11-14T00:07:08.822584+00:00"
+}

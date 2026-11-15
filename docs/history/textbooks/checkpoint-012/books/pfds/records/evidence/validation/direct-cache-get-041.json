@@ -1,0 +1,20 @@
+{
+  "command": [
+    "python3",
+    "/workspace/scratch/b566cace4ed6/pfds/session/environment/run-direct-toolchain.py",
+    "--",
+    "lake",
+    "env",
+    "/workspace/scratch/b566cace4ed6/pfds/toolchains/qemu-7.2-deb12u18/qemu-x86_64-static",
+    "/workspace/scratch/b566cace4ed6/pfds/dependency-store-041/mathlib/.lake/build/bin/cache",
+    "get"
+  ],
+  "cwd": "/workspace/scratch/b566cace4ed6/pfds/import-correction-r3",
+  "state": "completed",
+  "started_at": "2026-11-03T14:53:14.969241+00:00",
+  "scope": "ordinary pinned dependency cache get; no formal acceptance",
+  "returncode": 0,
+  "elapsed_seconds": 81.40920827600075,
+  "finished_at": "2026-11-03T14:54:36.378604+00:00",
+  "log": "/workspace/scratch/b566cace4ed6/pfds/session/validation/direct-cache-get-041.log"
+}

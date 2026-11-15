@@ -1,0 +1,74 @@
+{
+  "recorded_utc": "2026-11-04T23:02:33.619753+00:00",
+  "parent": "844a8e115e2d2eba480f6c052202eefeb3af40d9",
+  "fixed_review_base": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "passed_donor": "56b46dc955c44057afc366359e4f6f28cfad6330",
+  "actual_terminal": {
+    "recorded_utc": "2026-11-04T23:00:50.177487+00:00",
+    "owned_session": 25672,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "7d0960",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "56b46dc955c44057afc366359e4f6f28cfad6330"
+  },
+  "complete_closed_log_read": "840b5d",
+  "root_changed_claim_and_binding": "9bf098",
+  "new_source_bindings": {
+    "Applications/Resources/RandomSelectionEndpoints.lean": {
+      "donor": "56b46dc955c44057afc366359e4f6f28cfad6330",
+      "git_blob": "e17dbcbdd83a20de00ed5c02dda7a3e7f5fe9e39",
+      "bytes": 8643,
+      "sha256": "1621c8f16d8c5a4621268ec115ac2cee6eb18fe1b936116cb50f6b641bd3be8e"
+    },
+    "Examples/RandomSelectionEndpoints.lean": {
+      "donor": "56b46dc955c44057afc366359e4f6f28cfad6330",
+      "git_blob": "da1f616656f8f99be43f967fb79308842b3b1d83",
+      "bytes": 2944,
+      "sha256": "a8daeae4626353eb82b613d081a88737a26b556942cdd456ecc73a0af3f45c1a"
+    }
+  },
+  "entrypoint_before": {
+    "bytes": 10602,
+    "sha256": "fc4956ddf099ad65ef4395a266f753fe1a7b044738f354cf92dd32b29b120670"
+  },
+  "new_public_names": [
+    "Examples.RandomSelectionEndpoints.arbitrary_distinct_target",
+    "Examples.RandomSelectionEndpoints.arbitrary_endpoint_occurrence",
+    "Examples.RandomSelectionEndpoints.duplicate_countercase",
+    "Examples.RandomSelectionEndpoints.empty_has_no_valid_rank",
+    "Examples.RandomSelectionEndpoints.endpoint_occurrence_is_unique",
+    "Examples.RandomSelectionEndpoints.invalid_singleton_step",
+    "Examples.RandomSelectionEndpoints.middle_rank_switch",
+    "Examples.RandomSelectionEndpoints.negative_maximum_step",
+    "Examples.RandomSelectionEndpoints.negative_minimum_step",
+    "Examples.RandomSelectionEndpoints.singleton_terminal",
+    "Examples.RandomSelectionEndpoints.unsorted_maximum_step",
+    "Examples.RandomSelectionEndpoints.unsorted_minimum_step",
+    "Resources.RandomSelection.EndpointPivot",
+    "Resources.RandomSelection.endpointPivot_unique",
+    "Resources.RandomSelection.exists_endpointPivot",
+    "Resources.RandomSelection.exists_endpoint_child",
+    "Resources.RandomSelection.exists_maximum_occurrence",
+    "Resources.RandomSelection.exists_minimum_occurrence",
+    "Resources.RandomSelection.maximum_strict_child_length",
+    "Resources.RandomSelection.minimum_strict_child_length",
+    "Resources.RandomSelection.partition_equal_singleton_of_nodup",
+    "Resources.RandomSelection.partition_left_eq_nil_of_minimum",
+    "Resources.RandomSelection.partition_left_nodup",
+    "Resources.RandomSelection.partition_right_eq_nil_of_maximum",
+    "Resources.RandomSelection.partition_right_nodup",
+    "Resources.RandomSelection.stepRun_maximum_zero",
+    "Resources.RandomSelection.stepRun_minimum_positive"
+  ],
+  "resulting_public_source_inventory": 1321,
+  "resulting_Lean_modules": 74,
+  "changed_paths": [
+    "Applications/Resources/RandomSelectionEndpoints.lean",
+    "Examples/RandomSelectionEndpoints.lean",
+    "SquareApplications.lean"
+  ],
+  "purpose": "Only integration preparation. Full actual endpoint path/factorial/triangular/unboundedfamily and documentation update plus all final gates remain pending.",
+  "actual_combined_check": false,
+  "actual_types": false,
+  "whole_audit": false
+}

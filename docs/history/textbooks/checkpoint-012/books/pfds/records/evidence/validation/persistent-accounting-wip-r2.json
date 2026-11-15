@@ -1,0 +1,50 @@
+{
+  "ticket": 10021,
+  "created_utc": "2026-11-03T01:40:56.162742+00:00",
+  "status": "WIP recovery snapshot; combined focused check still pending; not an acceptance candidate",
+  "acceptance": false,
+  "base": "3dd930c3e3989f3e5530463f3ac937a629551335",
+  "original_integration_base": "3dd930c3e3989f3e5530463f3ac937a629551335",
+  "head": "c6f96cfc6d3ef6f715e72206c1b69359af4928fc",
+  "branch": "pfds/persistent-accounting",
+  "checkout": "persistent-accounting",
+  "full_scope": [
+    "Applications/Resources/Persistent/Debits.lean",
+    "Applications/Resources/Persistent/History.lean",
+    "Applications/Resources/Persistent/Observation.lean",
+    "Applications/Resources/Persistent/Realization.lean",
+    "Examples/PersistentDebits.lean",
+    "Examples/PersistentHistory.lean",
+    "Examples/PersistentObservation.lean",
+    "Examples/PersistentRealization.lean",
+    "Examples/PersistentSourceBoundary.lean",
+    "SquareApplications.lean",
+    "docs/research/pfds-persistent-accounting.md"
+  ],
+  "file_sha256": {
+    "Applications/Resources/Persistent/Debits.lean": "528f2dfa589b82ed46c0e21684d8a2e77be60acf37df8ea36e799b7884f55254",
+    "Applications/Resources/Persistent/History.lean": "f0f33917f728ef5e1999e58514f816ab7ba2386c5d66e69b315b4bc5079399d9",
+    "Applications/Resources/Persistent/Observation.lean": "aad9f38524f3af29697ae2e935d5e374da24ae01592220a975f9d22b40700e3a",
+    "Applications/Resources/Persistent/Realization.lean": "529c001b0016f7faac0f63fbf49ee65a58570e91854ebf2698669f6a3342d955",
+    "Examples/PersistentDebits.lean": "ea391f67f3082ea44ec91bff213f5b1b59d30b18467bc13b12637b2cdec8f090",
+    "Examples/PersistentHistory.lean": "ce16376024cd71f447ef722119287abb8384af8b59f99c0b1a100b379bd020e1",
+    "Examples/PersistentObservation.lean": "222805b18a9c259fa8a6b8dd773064b776e0c032d585e4e1e81ad8392ef98b91",
+    "Examples/PersistentRealization.lean": "34ee36b21b1bb1208cbd51b49164adde68ffbea9298e0c1c8583c934dc70f30e",
+    "Examples/PersistentSourceBoundary.lean": "f36ea2bf6446e10aae8fc88f982f08373d0332833bd84a6b83544d4d4d0a12f8",
+    "SquareApplications.lean": "f66df362e26041769e364c17d486fa1f6603b96a72513299cd6474edf6b91be4",
+    "docs/research/pfds-persistent-accounting.md": "5e6ad3d53bd01b344863af122eaa90bb3fe9ff87bfab7ae34eb68f5cce0af1d6"
+  },
+  "requirements": "requirements/persistent-debit-foundation.md",
+  "requirements_sha256": "2a89d7818d73e0b1b118ebf7d902a75afb2b6e25afaae6b9c7842d229964922f",
+  "focused_status": {
+    "History": "r2 passed; core/client unchanged",
+    "Debits": "core passed r2; corrected client compiled99s in current combined run",
+    "Realization": "core passed r2; corrected client compiled153s in current combined run",
+    "Observation": "core r1 passed116s; client currently checking",
+    "SourceBoundary": "passed within Realization r2; source unchanged"
+  },
+  "combined_run": "active-validation/persistent-accounting-r1.json",
+  "combined_terminal_result_claimed": false,
+  "review_status": "Both independent axes pending complete focused result and immutable candidate capture",
+  "remaining": "Own exact full build/audit/verification record, complete independent reviews and immediate final verify; chapter frontier unchanged."
+}

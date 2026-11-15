@@ -1,0 +1,518 @@
+{
+  "completed_utc": "2026-11-04T14:15:53.726474+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "state": "COMMITTED SOURCE-ONLY / UNCOMPILED / UNACCEPTED / SOURCE AND PACKAGE HOLD",
+  "base": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "candidate": "97505ca8a1e714601e6d68137f0659b36a569988",
+  "candidate_tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+  "parents": [
+    "f17cc6b1a2bf44215b16202ed0fcee2b5c130761"
+  ],
+  "branch": "work/fdsa-shared-four-integration",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+  "commit": "commit 97505ca8a1e714601e6d68137f0659b36a569988\nAuthor:     ChatGPT <chatgpt@openai.com>\nAuthorDate: Wed Nov 4 14:14:20 2026 +0000\nCommit:     ChatGPT <chatgpt@openai.com>\nCommitDate: Wed Nov 4 14:14:20 2026 +0000\n\n    feat(fdsa): prepare four shared units on accepted foundation (#174)\n    \n    Prepare the complete XM01, XD01, XQ01 and XU01 source scopes on accepted f17cc6b. Retain the twelve corrected defining blobs, four dated source-note proposals, accepted predecessor content and compatibility clients.\n    \n    This source-only candidate has not been compiled or accepted. It retains the original full scopes and findings, the prepared314 statement obligation, and all independent review/full-check/audit/immediate-verification gates.\n",
+  "status_porcelain": "",
+  "scope_paths": 18,
+  "new_paths": 14,
+  "modified_paths": 4,
+  "lines_added": 2955,
+  "lines_removed": 37,
+  "source_identities": [
+    {
+      "path": "Applications/Probability/PermutationMinimum.lean",
+      "before_at_F": null,
+      "candidate_git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+      "bytes": 8241,
+      "lines": 197,
+      "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+      "mode": "100644"
+    },
+    {
+      "path": "Applications/Resources/DifferenceListCosts.lean",
+      "before_at_F": null,
+      "candidate_git_blob": "b87222f7c0eb0aafc60031864ca815c2e65fc457",
+      "bytes": 10061,
+      "lines": 222,
+      "sha256": "f99420b831dff2d0f5fcc3dac1001937942b87c78b710b79f94fa941ab972b01",
+      "mode": "100644"
+    },
+    {
+      "path": "Applications/Resources/ListMerge.lean",
+      "before_at_F": null,
+      "candidate_git_blob": "b658809bc2ba424807e326c3ee7cb64712865a46",
+      "bytes": 8629,
+      "lines": 201,
+      "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975",
+      "mode": "100644"
+    },
+    {
+      "path": "Applications/Resources/Partition.lean",
+      "before_at_F": null,
+      "candidate_git_blob": "e9d3682a4d3a499aaffd41f73c7fc39965fa0d30",
+      "bytes": 2678,
+      "lines": 61,
+      "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14",
+      "mode": "100644"
+    },
+    {
+      "path": "Applications/Selection/ThreeWay.lean",
+      "before_at_F": {
+        "git_blob": "278070fc5ac4ea674adb47be8ebb2048c4273aa0",
+        "bytes": 10489,
+        "lines": 226,
+        "sha256": "bd72ca5f11d028cde9420ae42f9a9f1f84d6cfc00bf02bd528a61fd00f586d52"
+      },
+      "candidate_git_blob": "8627ad6d219f55a404dd96c4f4553594eaa71264",
+      "bytes": 9718,
+      "lines": 211,
+      "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa",
+      "mode": "100644"
+    },
+    {
+      "path": "Applications/Sequences/Partition.lean",
+      "before_at_F": null,
+      "candidate_git_blob": "ff03bd349a39b3b77c49793175d4b474199e7c43",
+      "bytes": 3786,
+      "lines": 87,
+      "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069",
+      "mode": "100644"
+    },
+    {
+      "path": "Applications/Sorting/Merge.lean",
+      "before_at_F": {
+        "git_blob": "15708d975dc76472da0c10990e805e2d4dfbdcbb",
+        "bytes": 5604,
+        "lines": 126,
+        "sha256": "79b35252d0f551b381ef63974497311336ea92a5d118691647825cade12a1338"
+      },
+      "candidate_git_blob": "6595f901a9358398bee07333872125990ef8360c",
+      "bytes": 7840,
+      "lines": 172,
+      "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+      "mode": "100644"
+    },
+    {
+      "path": "Examples/DifferenceListCosts.lean",
+      "before_at_F": null,
+      "candidate_git_blob": "33fd3bec15f8c9b7c3078b45d90c24d7df0c1df2",
+      "bytes": 9299,
+      "lines": 234,
+      "sha256": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1",
+      "mode": "100644"
+    },
+    {
+      "path": "Examples/MergeCosts.lean",
+      "before_at_F": null,
+      "candidate_git_blob": "b5f652cf5258c99f5a615b12987c664ed8be3d76",
+      "bytes": 23410,
+      "lines": 476,
+      "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466",
+      "mode": "100644"
+    },
+    {
+      "path": "Examples/PermutationMinimum.lean",
+      "before_at_F": null,
+      "candidate_git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+      "bytes": 4994,
+      "lines": 127,
+      "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+      "mode": "100644"
+    },
+    {
+      "path": "Examples/PermutationMinimumBoundary.lean",
+      "before_at_F": null,
+      "candidate_git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+      "bytes": 4211,
+      "lines": 113,
+      "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+      "mode": "100644"
+    },
+    {
+      "path": "Examples/ThreeWayPartition.lean",
+      "before_at_F": null,
+      "candidate_git_blob": "a1f29b6310bc8623df2725b0d40f3949513199c5",
+      "bytes": 8109,
+      "lines": 172,
+      "sha256": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526",
+      "mode": "100644"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "before_at_F": {
+        "git_blob": "1f7e4544b1eb77614a1c6fb2311e0d3290a3b1a5",
+        "bytes": 8412,
+        "lines": 256,
+        "sha256": "7f00379973161019217585a5ed32d0374247300544ae448b2a4b86aa11c6bf64"
+      },
+      "candidate_git_blob": "a36fa607584d77618858b5f1707b1df913a22cca",
+      "bytes": 8544,
+      "lines": 260,
+      "sha256": "6197b3a27ee1fd07305a506314caeaa3b3534ab166eaea00e5e169ba4c82956d",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/research/fdsa-difference-list-costs.md",
+      "before_at_F": null,
+      "candidate_git_blob": "52b789bb484ca9aceedb584f521c8bab974c0f5f",
+      "bytes": 10923,
+      "lines": 219,
+      "sha256": "bd450660076b5addbd6b64d7a591f71fc60b68e6bfbf5f9cc36fa09fac4eb735",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/research/fdsa-list-merge.md",
+      "before_at_F": null,
+      "candidate_git_blob": "90ff9f07f9b2a2dbad7233dddb6f091fa5f9d89d",
+      "bytes": 15491,
+      "lines": 258,
+      "sha256": "9661cc22e3600c0963c37b0f145f7396a1b7677ae2e8f2d240ecd1cf13b88729",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/research/fdsa-permutation-minimum.md",
+      "before_at_F": null,
+      "candidate_git_blob": "052101180ceaf79f81e0873f24160fc73ae52f33",
+      "bytes": 7970,
+      "lines": 146,
+      "sha256": "2054bf4d6cd371b8570fca003f0fe704793377d261cb8e5f10306022e5b2dcc8",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "before_at_F": {
+        "git_blob": "327f797c0cfbef722d85bfe9143c32f4415c2680",
+        "bytes": 31701,
+        "lines": 485,
+        "sha256": "c3059fc931180a6c0e6ec07ea7b92953aac451677a3939b0daaeb433e042bbe9"
+      },
+      "candidate_git_blob": "e753d5325fcd4f576b091d795ffced6d625c2aaf",
+      "bytes": 39246,
+      "lines": 596,
+      "sha256": "f479b3b05b2fdfd99683e15cfc1e0d0b9542c58f56a3013872be6df8469cebfe",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/research/fdsa-three-way-partition.md",
+      "before_at_F": null,
+      "candidate_git_blob": "ee83f49a9c536f22f0340434795e117ea5766484",
+      "bytes": 13959,
+      "lines": 259,
+      "sha256": "f79bfd4f9691f56019696c8ea0ac0b63045f7bb1ac5f5d790adf8a425345f136",
+      "mode": "100644"
+    }
+  ],
+  "full_original_scope_retained": true,
+  "original_scoped_histories_and_findings_retained": true,
+  "all_original_refs_unchanged": 63,
+  "new_ref_count": 1,
+  "reference_count_now": 64,
+  "accepted_and_foundation_refs": {
+    "work/fdsa-book": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "work/fdsa-foundation-integration": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761"
+  },
+  "unrelated_cumulative_old_sources_not_copied": true,
+  "excluded_scopes": [
+    "XU02",
+    "XU03",
+    "XP01",
+    "later unrelated shared drafts",
+    "remaining Chapter2 development changes"
+  ],
+  "no_Git_merge_or_conflict_resolution": true,
+  "assembly_method": "Exact immutable defining blobs, exact four preserved note proposals, and recorded bounded root/map reconciliation; sole Git parent F. Original histories remain reachable through original refs.",
+  "source_guards": {
+    "exact_defining_blobs": 12,
+    "exact_note_proposals": 4,
+    "all_F_tracked_paths_outside_allowlist_unchanged": true,
+    "old_Merge_prefix_exact": true,
+    "Selection_specific_remainder_exact": true,
+    "all_F_root_bytes_except_four_additions_exact": true,
+    "entire_F_mathematical_map_body_exact": true,
+    "original_map_math_and_all_later_scope_preserved": true,
+    "all_full_file_bytes_and_committed_diff_readback_exact": true
+  },
+  "prepared_statement_input": {
+    "path": "provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+    "bytes": 16826,
+    "lines": 340,
+    "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754",
+    "checks": 314,
+    "unique_names": 314,
+    "declaring_imports": 14,
+    "candidate_paths_exist": true,
+    "actual_run": false,
+    "actual_output_credit": 0,
+    "inherited_insertion_names": 35,
+    "other_F110_reuse_qualification": "not granted; receiving inputs must be qualified"
+  },
+  "retained_verification_record": {
+    "bytes": 867,
+    "lines": 19,
+    "sha256": "9634e5a5318b7ac15cc67871655469838a061340ce719939ddfc5dcc16bc2164",
+    "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "successor_evidence": false
+  },
+  "actual_actions": [
+    "new branch from F",
+    "exact18path source preparation",
+    "source-only equality and preservation checks",
+    "git diff --cached --check exit0",
+    "local Conventional Commit actualexit0",
+    "postcommit clean status and original63ref preservation checks"
+  ],
+  "actions_not_run": [
+    "Lean",
+    "Lake",
+    "check.sh",
+    "cache hydration",
+    "artifact/output mutation",
+    "new worktree",
+    "cache copy",
+    "printed type command",
+    "candidate verification",
+    "accepted-branch fast-forward",
+    "ticket/CURRENT/INDEX update",
+    "GitHub mutation or push"
+  ],
+  "source_math_review_boundary": "Exact retained source assessments, not a new mathematical approval; complete newly authored root/map/status diff read and full byte identities verified. No compiler or historical type semantic reread claimed.",
+  "applicable_acceptance_gates": "All original focused/type/full-check/audit/independent/immediate/FF/durability gates remain; source candidate withheld from acceptance.",
+  "sequence": [
+    "AcceptedF",
+    "Combined XM01/XD01/XQ01/XU01 acceptance",
+    "XU02 acceptance",
+    "XU03 acceptance",
+    "New fullC2 acceptance",
+    "Queued C3 and remaining book"
+  ],
+  "retained_external_records": [
+    {
+      "path": "provenance/shared-acceptance-sequence-20261104/plan.md",
+      "bytes": 23398,
+      "lines": 369,
+      "sha256": "de57733ffbe19af6cd3617baa875dabbc74ec10ef6b8941419c356ec8ae764e1"
+    },
+    {
+      "path": "provenance/shared-acceptance-sequence-20261104/receipt.json",
+      "bytes": 48744,
+      "lines": 848,
+      "sha256": "c79bdb7c1bb7c8d3579f9b364f742b8ccd5282f233d8bcd885a3eb718d970ae4"
+    },
+    {
+      "path": "provenance/shared-independent-units-scope-20261104/scope.md",
+      "bytes": 2467,
+      "lines": 38,
+      "sha256": "a7fda87cae0c137d2d93893bb2992330cf2b7544ab689a8985fb786c330b5444"
+    },
+    {
+      "path": "provenance/shared-independent-units-scope-20261104/declared-scope.json",
+      "bytes": 17160,
+      "lines": 401,
+      "sha256": "773ce242c586cf7ba381f18218648461ef7b487391d0bb8c4ab5123722ca8fd1"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-preparation-20261104/receipt.json",
+      "bytes": 7500,
+      "lines": 211,
+      "sha256": "faa70afc6fa62c47d9b1442f10a20ff9ad9a73b3576f7028e8ee7ead0594edbe"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposal-scope.json",
+      "bytes": 20185,
+      "lines": 519,
+      "sha256": "13845839a85c664c345e4b3d95bd434bd599248ce0271454a47a20190bbb5de1"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposal-verification.json",
+      "bytes": 2668,
+      "lines": 62,
+      "sha256": "fc652bf7fb41f46eb83301899f42095ffb26ac0c90a18979baea2d4dd53707c5"
+    },
+    {
+      "path": "provenance/shared-four-public-statements279-prepared-20261104/Statements.lean",
+      "bytes": 15990,
+      "lines": 332,
+      "sha256": "6fb956bd7423cdb8d04e94fa544920907bdb3df291822d5ab1dfbd8fa5cc2925"
+    },
+    {
+      "path": "provenance/shared-four-public-statements279-prepared-20261104/receipt.json",
+      "bytes": 5841,
+      "lines": 122,
+      "sha256": "cbddf1a7bb46a51676c9ea4c2eb3bc20bc88b90f4aacf578189bde9a4d50cd79"
+    },
+    {
+      "path": "provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+      "bytes": 16826,
+      "lines": 340,
+      "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754"
+    },
+    {
+      "path": "provenance/shared-four-and-insertion-statements314-prepared-20261104/inventory.json",
+      "bytes": 53097,
+      "lines": 1988,
+      "sha256": "052ea733c0e83e8af852b177ba9e350fe62b911ae1d83f430f98a2047b7601a9"
+    },
+    {
+      "path": "provenance/shared-four-and-insertion-statements314-prepared-20261104/root-reconciliation.json",
+      "bytes": 1308,
+      "lines": 27,
+      "sha256": "7553a006af2e0ddae512d5b1ecf5f9c8123b93f3f1e5d2474423c1ed84c82657"
+    },
+    {
+      "path": "reviews/ordinary-merge-requirements.md",
+      "bytes": 19999,
+      "lines": 346,
+      "sha256": "b54e2b332cc31c04ac12fb5b19cc96fa494a80e1455fcfc173f59b6fe340d3d9"
+    },
+    {
+      "path": "reviews/ordinary-merge-round1.md",
+      "bytes": 5076,
+      "lines": 87,
+      "sha256": "c354d9c13e7660a9b445e4fe9904e5335da6294ee6aa49cce18ae8ff0610fd36"
+    },
+    {
+      "path": "reviews/ordinary-merge-standards.md",
+      "bytes": 30495,
+      "lines": 429,
+      "sha256": "c5dded3c7b52fc1b0978b2ec8b13abcb17d2b7c047c5c83981f8a9c7d56e7992"
+    },
+    {
+      "path": "reviews/ordinary-merge-spec.md",
+      "bytes": 28222,
+      "lines": 430,
+      "sha256": "bc4999120b89f330b57641543070cf34a34f8bc207fd004b09aa14ef4125fe09"
+    },
+    {
+      "path": "reviews/difference-list-cost-requirements.md",
+      "bytes": 6965,
+      "lines": 129,
+      "sha256": "cb215a33cce3dd258cca37b9d703522d19caf2da76767c01e573d268b3e92c4e"
+    },
+    {
+      "path": "reviews/difference-list-cost-candidate.md",
+      "bytes": 10279,
+      "lines": 133,
+      "sha256": "ffc96fe166e2408d11203eba730f23053bf90cced91efe41a6150d71ce0cea2c"
+    },
+    {
+      "path": "reviews/difference-list-costs-standards.md",
+      "bytes": 25832,
+      "lines": 333,
+      "sha256": "724285ba7202417014e832b5833bf5268552e24bd0b1a5c22b53110f281a3b9f"
+    },
+    {
+      "path": "reviews/difference-list-costs-spec.md",
+      "bytes": 22203,
+      "lines": 262,
+      "sha256": "850aa3a8fd0ce1d7774c1e447a4dd9282366d5353eeb750e2804c5fd52d22dbb"
+    },
+    {
+      "path": "reviews/three-way-partition-requirements.md",
+      "bytes": 12208,
+      "lines": 209,
+      "sha256": "b1f55911c44a11def3498484787fcb04972398ec040bf1bd65c75796c116d541"
+    },
+    {
+      "path": "reviews/three-way-partition-candidate.md",
+      "bytes": 9373,
+      "lines": 139,
+      "sha256": "e3c73fdc2ff8b4ff17e8381ad39eb15ebf591c97cefe20e5d2e0dd346514d82e"
+    },
+    {
+      "path": "reviews/three-way-partition-source-assessments.md",
+      "bytes": 8189,
+      "lines": 141,
+      "sha256": "394043d0c7ea3967084a61e70e66f4c612dd376049d19a7a9f14c095a2240bc5"
+    },
+    {
+      "path": "reviews/partition-shared-integration-addendum.md",
+      "bytes": 3380,
+      "lines": 55,
+      "sha256": "99a64a6db17c7114e98cca6087e440af4b4e9872962c6df6885ba0b8e1e4f3e2"
+    },
+    {
+      "path": "reviews/permutation-minimum-requirements.md",
+      "bytes": 8884,
+      "lines": 154,
+      "sha256": "59e2ff6ff66dd39b6151a42b501bcc22e86eb593a9b854b532f97bc45fdd7686"
+    },
+    {
+      "path": "reviews/permutation-minimum-candidate.md",
+      "bytes": 8828,
+      "lines": 156,
+      "sha256": "25ff05852154297f1a85771b0e07f13a380cd901ef71d77ae476f1800021dd8c"
+    },
+    {
+      "path": "reviews/chapter02-round1.md",
+      "bytes": 19413,
+      "lines": 302,
+      "sha256": "b1fe3a4fa32966b663e94db5e9c2456baec9abd0fa204f375a5d1a2fff43b1a4"
+    },
+    {
+      "path": "reviews/chapter02-standards-source-preparation-20261104.md",
+      "bytes": 104381,
+      "lines": 421,
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    {
+      "path": "reviews/chapter02-spec-source-preparation-20261104.md",
+      "bytes": 109354,
+      "lines": 473,
+      "sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007"
+    }
+  ],
+  "available_bytes": 0,
+  "raw_free_bytes": 1487458304,
+  "write_failures": [],
+  "mutation_retries": 0,
+  "package_artifacts": [
+    {
+      "path": "candidate.patch",
+      "bytes": 156119,
+      "lines": 3165,
+      "sha256": "2bf1efe257125803f027a13cc2acc683ae01dff846c5a0b9e462c0c6fcb7d01c"
+    },
+    {
+      "path": "commit-result.json",
+      "bytes": 1807,
+      "lines": 19,
+      "sha256": "559b8751492c3a60148adfae148ece664f0b2f13de36fd45d8e08033f1d3d5a4"
+    },
+    {
+      "path": "documentary-reconciliation.json",
+      "bytes": 15054,
+      "lines": 83,
+      "sha256": "c9c563f17a54b4110e30b63302e798be5fdc694d590e3eb997d6aa12ccc00a56"
+    },
+    {
+      "path": "handoff.md",
+      "bytes": 7991,
+      "lines": 134,
+      "sha256": "134236557a7e9f92f638b48128fa638c24769f067c5c0abaafaef2cc6d760613"
+    },
+    {
+      "path": "precommit-source-verification.json",
+      "bytes": 13272,
+      "lines": 334,
+      "sha256": "0653ed348ae7874f7af3c5705764b341a43d13b6d7a9573ac7e71d16a10ac82b"
+    },
+    {
+      "path": "source-write-result.json",
+      "bytes": 4435,
+      "lines": 140,
+      "sha256": "25bfc22092a25392336ba62d18af406abc434f9635580c0c797d8da171249660"
+    },
+    {
+      "path": "staging-result.json",
+      "bytes": 1492,
+      "lines": 52,
+      "sha256": "71f27b7d2afb9bf9186a1a3304f601415c4d8119c18b7d3fadf384baaca76640"
+    },
+    {
+      "path": "start.json",
+      "bytes": 20829,
+      "lines": 406,
+      "sha256": "78ad1637d7a2c2017598f63a9261c9e2ba965d3b4e0ec6ef7179f506601944a1"
+    }
+  ],
+  "hold": true
+}

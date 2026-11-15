@@ -1,0 +1,23 @@
+{
+  "time": "2026-11-04T00:52:15.951157+00:00",
+  "reviewer": "/root/operational_review",
+  "kind": "read-only-reappearance-code-path-advisory",
+  "controller_and_profile_still_approved": true,
+  "installed_runtime_matches_kit": true,
+  "conclusion": "No recreation path found in approved snapshot, runtime-only doctor/environment, installed launchers or recovery restore. Cause unknown.",
+  "details": [
+    "state_root ensures ordinary state dirs only, not downloads/toolchains",
+    "doctor and verification inspect installed inputs; no startup acquisition",
+    "explicit setup acquisition returns existingverifiedinstallation beforearchivefetch/extract",
+    "downloader uses.part thenrename, never.6EkHuc; extractionstage isnewrandomdirectory",
+    "restore refuses existingdestination and restoresconaled/session, notnative-state"
+  ],
+  "reappeared_allocation_bytes": 1020801024,
+  "three_file_ctime_utc": "2026-11-04T00:39:11.444809332+00:00",
+  "returned_download_hashes_equal_retired": true,
+  "scaffold_directories": 604,
+  "scaffold_files": 0,
+  "scaffold_symlinks": 0,
+  "future_regression_space_recheck_required": true,
+  "formal_acceptance": false
+}

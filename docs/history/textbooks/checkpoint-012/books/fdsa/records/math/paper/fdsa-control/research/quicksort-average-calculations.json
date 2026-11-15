@@ -1,0 +1,70 @@
+{
+  "status": "independent exact rational calculations, not Lean verification",
+  "source_model": "Exercise2.4, two filter traversals with unit callback cost and no append charge",
+  "rows": [
+    {
+      "n": 0,
+      "permutations": 1,
+      "mean": "1",
+      "closed_form": "1",
+      "worst": 1,
+      "all_equal_cost": 1
+    },
+    {
+      "n": 1,
+      "permutations": 1,
+      "mean": "5",
+      "closed_form": "5",
+      "worst": 5,
+      "all_equal_cost": 5
+    },
+    {
+      "n": 2,
+      "permutations": 2,
+      "mean": "13",
+      "closed_form": "13",
+      "worst": 13,
+      "all_equal_cost": 13
+    },
+    {
+      "n": 3,
+      "permutations": 6,
+      "mean": "71/3",
+      "closed_form": "71/3",
+      "worst": 25,
+      "all_equal_cost": 25
+    },
+    {
+      "n": 4,
+      "permutations": 24,
+      "mean": "109/3",
+      "closed_form": "109/3",
+      "worst": 41,
+      "all_equal_cost": 41
+    },
+    {
+      "n": 5,
+      "permutations": 120,
+      "mean": "253/5",
+      "closed_form": "253/5",
+      "worst": 61,
+      "all_equal_cost": 61
+    },
+    {
+      "n": 6,
+      "permutations": 720,
+      "mean": "331/5",
+      "closed_form": "331/5",
+      "worst": 85,
+      "all_equal_cost": 85
+    },
+    {
+      "n": 7,
+      "permutations": 5040,
+      "mean": "2903/35",
+      "closed_form": "2903/35",
+      "worst": 113,
+      "all_equal_cost": 113
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "recorded_utc": "2026-11-04T11:32:44.485238+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+  "native_output": {
+    "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/native/output.log",
+    "bytes": 33371,
+    "lines": 532,
+    "sha256": "e1b29bcf05bd9841e7213b71f024f22153a4eb644d6df2ba659800eb5fd83f76"
+  },
+  "actual_full_types_read": 20,
+  "native_lines_read": 532,
+  "complete": true,
+  "chunks": [
+    {
+      "first_line": 1,
+      "last_line": 137,
+      "bytes": 9215,
+      "sha256": "a69fb034b329eaedbf88f3ae6af52cb194e4fa348f3fa047715edaaee49e2e7b",
+      "first_type": 1,
+      "last_type": 5,
+      "names": [
+        "Resources.budget",
+        "Resources.budget_append",
+        "Resources.budget_map",
+        "Resources.run_potential_map_of_invariant",
+        "Resources.run_potential_map_exact_of_invariant"
+      ],
+      "semantic_assessments": [
+        "budget: four independent carrier universes; only Zero/Add on D, no raw-C capability; four original explicit arguments and D result.",
+        "budget_append: raw Zero/Add C only, AddMonoid D; ordered target addition, second budget at actual run state, independent universes.",
+        "budget_map: D/E AddZero and additive-zero homomorphism, no raw-C algebra; actual charge map along the same trajectory, no inequality/monotonicity claim.",
+        "invariant mapped inequality: AddZero C, AddMonoid D, Preorder D and both exact covariance instances; actual P-preservation/local boundary/initial P and both ordered boundary potentials.",
+        "invariant mapped exact equality: AddZero C and AddMonoid D only, no hidden order/commutativity; same actual P/local equality and both boundary potentials."
+      ],
+      "concrete_findings": []
+    },
+    {
+      "first_line": 138,
+      "last_line": 280,
+      "bytes": 9168,
+      "sha256": "5536666e54446c077d9d75c58949bf5c3c89c5b66cc0b882f41b49fedfce6e15",
+      "first_type": 6,
+      "last_type": 8,
+      "names": [
+        "Resources.run_potential_map",
+        "Resources.run_potential_map_exact",
+        "Resources.run_cost_le_map_of_invariant"
+      ],
+      "semantic_assessments": [
+        "Global mapped inequality: same raw/target algebra and preorder with both exact covariance instances; local law applies to all actual states, no extra invariant or map-monotonicity premise; both ordered boundary potentials retained.",
+        "Global mapped exact: raw AddZero and target AddMonoid only; arbitrary request/state universes, all-state local equality, actual mapped run plus final potential equals initial plus trajectory budget.",
+        "Invariant mapped work bound: same P/closed/local inequality; nonnegative potential required only on valid states; initial P supplied; conclusion discards final potential but retains initial potential. No nonnegative-charge or raw-order premise."
+      ],
+      "concrete_findings": []
+    },
+    {
+      "first_line": 281,
+      "last_line": 438,
+      "bytes": 8933,
+      "sha256": "29a0b01f44fcb82c8c2c121f3ee67281e442d8cf98b5e05eeca5f2383ac29070",
+      "first_type": 9,
+      "last_type": 13,
+      "names": [
+        "Resources.budget_amortized",
+        "Resources.charge_iff_signed",
+        "Resources.run_potential",
+        "Resources.run_potential_exact",
+        "Resources.run_cost_le"
+      ],
+      "semantic_assessments": [
+        "Signed budget: exactly AddZero C and AddCommGroup D, explicit additive map and independent four universes. Charge is mapped step work plus next potential minus current, sum is mapped actual total plus final minus initial. All zero/add/sub structures derive from the single supplied group; no sign/order premise.",
+        "charge_iff_signed: all four values Nat; equivalent integer inequality uses Int subtraction of after from before, then plus amortized. No truncated natural subtraction or reversed potential sign.",
+        "Nat run_potential: arbitrary request/state universes; unchanged Nat step/charge/potential and local inequality, actual total+final <= initial+budget.",
+        "Nat run_potential_exact: same Nat arguments and local equality; actual total+final = initial+budget, no new domain premise.",
+        "Nat run_cost_le: same local boundary; final nonnegative Nat potential omitted while initial potential is retained; no zero-initial or additional capability premise."
+      ],
+      "concrete_findings": []
+    },
+    {
+      "first_line": 439,
+      "last_line": 532,
+      "bytes": 6055,
+      "sha256": "f5184445b232bb2700ad62cae525fb9b09701e498fb4dbfbeb9eb2f41c21f326",
+      "first_type": 14,
+      "last_type": 20,
+      "names": [
+        "Resources.run_zero_potential",
+        "Resources.budget_constant",
+        "Resources.budget_le_constant",
+        "Resources.run_constant_charge",
+        "Resources.initial_potential_matters",
+        "Resources.FIFOContracts.abstractBudget",
+        "Examples.MappedPotentialAccounting.Counter.real_boundary"
+      ],
+      "semantic_assessments": [
+        "Nat zero-initial specialization: same local law and arbitrary requests/state; explicit potential(initial)=0 premise exactly justifies work<=budget.",
+        "Nat constant budget: every step and start; charge constant k gives k*request length, with original argument order and request/state universes.",
+        "Nat bounded budget: universal per-step/state charge<=k, then actual trajectory budget<=k*length; no new invariant or fixed-state substitution.",
+        "Nat constant-charge run: local work+next potential<=current potential+k, conclusion retains both total+final and initial+k*length.",
+        "Initial-potential boundary: exact let step Unit/Nat->(0,s), conjunction of valid local law and actual singleton run from1 exceeding zero budget. No inconsistent assumption or dropped initial credit.",
+        "FIFO abstractBudget: arbitrary Type-universe payload, charge on actual command/list state, command list and initial list to Nat; no extra raw-cost carrier or equality/inhabitance constraint.",
+        "Counter Real boundary: all n and all Bits, actual totalCost plus ones(advance)=ones(initial)+2*n; no canonicality or zero-initial restriction. Final numeral instance proof is printer-elided, while all statement binders and premises are explicit."
+      ],
+      "concrete_findings": []
+    }
+  ],
+  "current_statement_credit": "Complete independent semantic reading of all20 actual full types; terminal/input qualification is separately reconciled in final assessment. No full candidate/audit/acceptance credit.",
+  "native_bytes_read": 33371
+}

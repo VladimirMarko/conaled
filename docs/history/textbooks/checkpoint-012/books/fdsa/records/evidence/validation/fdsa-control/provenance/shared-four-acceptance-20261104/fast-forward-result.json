@@ -1,0 +1,22 @@
+{
+  "started_utc": "2026-11-04T15:04:28.509326+00:00",
+  "completed_utc": "2026-11-04T15:04:28.557095+00:00",
+  "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled",
+  "command": [
+    "git",
+    "merge",
+    "--ff-only",
+    "312aafb4446b995ff5542041b4e2e074f776db1e"
+  ],
+  "exit_code": 0,
+  "stdout": "Updating f17cc6b..312aafb\nFast-forward\n Applications/Probability/PermutationMinimum.lean | 197 ++++++++++\n Applications/Resources/DifferenceListCosts.lean  | 222 +++++++++++\n Applications/Resources/ListMerge.lean            | 201 ++++++++++\n Applications/Resources/Partition.lean            |  61 +++\n Applications/Selection/ThreeWay.lean             |  47 +--\n Applications/Sequences/Partition.lean            |  87 +++++\n Applications/Sorting/Merge.lean                  |  46 +++\n Examples/DifferenceListCosts.lean                | 234 +++++++++++\n Examples/MergeCosts.lean                         | 476 +++++++++++++++++++++++\n Examples/PermutationMinimum.lean                 | 127 ++++++\n Examples/PermutationMinimumBoundary.lean         | 113 ++++++\n Examples/ThreeWayPartition.lean                  | 172 ++++++++\n SquareApplications.lean                          |   4 +\n docs/research/fdsa-difference-list-costs.md      | 219 +++++++++++\n docs/research/fdsa-list-merge.md                 | 258 ++++++++++++\n docs/research/fdsa-permutation-minimum.md        | 146 +++++++\n docs/research/fdsa-reconstruction-map.md         | 123 +++++-\n docs/research/fdsa-three-way-partition.md        | 259 ++++++++++++\n 18 files changed, 2955 insertions(+), 37 deletions(-)\n create mode 100644 Applications/Probability/PermutationMinimum.lean\n create mode 100644 Applications/Resources/DifferenceListCosts.lean\n create mode 100644 Applications/Resources/ListMerge.lean\n create mode 100644 Applications/Resources/Partition.lean\n create mode 100644 Applications/Sequences/Partition.lean\n create mode 100644 Examples/DifferenceListCosts.lean\n create mode 100644 Examples/MergeCosts.lean\n create mode 100644 Examples/PermutationMinimum.lean\n create mode 100644 Examples/PermutationMinimumBoundary.lean\n create mode 100644 Examples/ThreeWayPartition.lean\n create mode 100644 docs/research/fdsa-difference-list-costs.md\n create mode 100644 docs/research/fdsa-list-merge.md\n create mode 100644 docs/research/fdsa-permutation-minimum.md\n create mode 100644 docs/research/fdsa-three-way-partition.md\n",
+  "stderr": "",
+  "before": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "approved_candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "accepted_head": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "refs_total": 64,
+  "only_accepted_ref_changed": true,
+  "unrelated_file_unchanged": true,
+  "tracked_and_index_clean": true,
+  "no_push_or_GitHub_mutation": true
+}

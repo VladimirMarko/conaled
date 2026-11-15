@@ -1,0 +1,45 @@
+{
+  "recorded_utc": "2026-11-04T11:23:56.260271+00:00",
+  "own_report_complete_readback_lines": [
+    1,
+    111
+  ],
+  "report": {
+    "path": "reviews/potential-spec-development-20261104.md",
+    "bytes": 20429,
+    "sha256": "4e72c913df57271525cf2fbc8ecc6b8978f9e2c50ec30e0a748b5301b5ceb9aa",
+    "lines": 111
+  },
+  "source_ledger": {
+    "path": "provenance/xp01-spec-development-20261104/source-and-read-ledger.json",
+    "bytes": 48123,
+    "sha256": "647ced252ed6efe229147e1af53e36cab199733ddab054abd1204a6798bf6396",
+    "lines": 1108
+  },
+  "terminal_and_correction1": {
+    "path": "provenance/xp01-spec-development-20261104/terminal-and-correction1-assessment.json",
+    "bytes": 12385,
+    "sha256": "78ee2d3912089c80548db90fe2df1ab2b80b40e281bcd790628b40e289667e80",
+    "lines": 295
+  },
+  "prepared20": {
+    "path": "provenance/xp01-spec-development-20261104/prepared20-surface-assessment.json",
+    "bytes": 2528,
+    "sha256": "0708086026c456d97864f9b269bb6579f83bbfc985ed4c53bcf3c42bc68c899e",
+    "lines": 57
+  },
+  "invariants_checked": {
+    "requirements": 8,
+    "original_unit_paths": 6,
+    "unchanged_client_files": 11,
+    "Potential_public_named_headers": 18,
+    "mapped_public_named": 1,
+    "mapped_private_named": 14,
+    "mapped_anonymous_examples": 16,
+    "prepared_public_types": 20,
+    "actual_public_types_read": 0
+  },
+  "existing_C2_report_unchanged_sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007",
+  "existing_F_report_unchanged_sha256": "450409a89197f229e88e12ff477f7c3e6b60c067fde0eef297a431163a7249d6",
+  "status": "Coherent completed source-preparation boundary, overall Blocked; await exact example correction/actual evidence."
+}

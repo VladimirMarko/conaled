@@ -1,0 +1,54 @@
+{
+  "recorded_utc": "2026-11-04T08:30:39.558694+00:00",
+  "git_diff_check": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "changed_paths": [
+    "Applications/Resources/UniformQuickSortMean.lean"
+  ],
+  "source_diff": {
+    "bytes": 9935,
+    "sha256": "ff7b2240d6a6db2eff639eeb967480a7d12cbcd188c5b9e7b598f378058284ad"
+  },
+  "source_files": [
+    {
+      "path": "Applications/Resources/UniformQuickSortMean.lean",
+      "bytes": 37880,
+      "lines": 783,
+      "sha256": "135066a5f434ddd99981212a739b165ccdacadbff1448e5f7c358ff04e33883f",
+      "namespace": "Resources.UniformQuickSortMean"
+    },
+    {
+      "path": "Examples/UniformQuickSortMean.lean",
+      "bytes": 16466,
+      "lines": 352,
+      "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5",
+      "namespace": "Examples.UniformQuickSortMean"
+    }
+  ],
+  "authored_declarations": 125,
+  "header_text_changed": [
+    "firstEvents_disjoint"
+  ],
+  "scoped_omit_declarations": 12,
+  "proof_body_changed_declarations": 9,
+  "admission_and_linter_suppression_text_check": "No matches; this is a static check and not a proof audit.",
+  "build_or_compiler_commands_run": false,
+  "examples_unchanged": true,
+  "definitions_unchanged": true,
+  "source_only": true,
+  "recording_attempts": [
+    {
+      "attempt": 1,
+      "exit_code": 1,
+      "reason": "Header recorder expected only the inductive name, but the retained inventory includes the constructors/deriving body; assertion caught that recorder mismatch. No Lean/source changes resulted."
+    },
+    {
+      "attempt": 2,
+      "exit_code": 0,
+      "reason": "Inductive header extraction corrected to retain its complete declaration block; all identities and inventory assertions passed."
+    }
+  ]
+}

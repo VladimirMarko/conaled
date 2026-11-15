@@ -1,0 +1,56 @@
+{
+  "schema": "fdsa.standards.XR01.receiving-source-completion.v1",
+  "recorded_utc": "2026-11-04T18:43:19.704819+00:00",
+  "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "tree": "b62fe504a38948e61c6377a4e7661b639c28c08c",
+  "scope": "Same original five-path XR01 requirements and all21 explicit public names; no C3 or reduced-delta review.",
+  "source_preparation_complete": true,
+  "prepared21_input_adequate": true,
+  "unresolved_source_or_input_findings": [],
+  "overall_outcome": "Blocked pending actual full check/audit, complete21 types, both final axes and immediate verification.",
+  "focused_receiving_exit": 0,
+  "actual_type_credit": 0,
+  "new_full_audit_credit": false,
+  "held_files": [
+    {
+      "path": "reviews/affine-recurrence-standards-receiving-20261104.md",
+      "bytes": 11114,
+      "LF_lines": 63,
+      "sha256": "95cbe38f9b78f3ee8e13b747d5600ab6882092444919a168ef6c744da5431f39"
+    },
+    {
+      "path": "provenance/affine-recurrence-standards-receiving-20261104/source-preparation.json",
+      "bytes": 29390,
+      "LF_lines": 716,
+      "sha256": "1cafd836c05e0b01a719064d2280cc3ebe72e662ed11bbdf2df824f68a4898d2"
+    }
+  ],
+  "report_full_readback_tool": "a70610",
+  "source_receipt_complete_readback": [
+    {
+      "first_line": 1,
+      "last_line": 240,
+      "bytes": 9938,
+      "sha256": "95eccc1b6b9e616312a3f96bc0ac711e31e103d67b984fa6aaad379c791d4bf5",
+      "complete_read_tool": "0f52c9"
+    },
+    {
+      "first_line": 241,
+      "last_line": 480,
+      "bytes": 9918,
+      "sha256": "c1f6e506a220ee454b22912fb59de76ea2dd6a8d9cfe710ec38f5e9f0803efc5",
+      "complete_read_tool": "bbd616"
+    },
+    {
+      "first_line": 481,
+      "last_line": 716,
+      "bytes": 9534,
+      "sha256": "71376687885edca4830414d350c70780b62b554e71c4088e2cbbd118d37db647",
+      "complete_read_tool": "987313"
+    }
+  ],
+  "all41_bound_control_input_hashes_unchanged": true,
+  "old_XR_C2_and_other_held_records_modified": false,
+  "reviewer_compiler_process_capture_source_ref_cache_actions": false,
+  "own_write_hold": "All own new and earlier records are HELD after this write. Immediate readback of this completion receipt is read-only; its tool identity is returned to root."
+}

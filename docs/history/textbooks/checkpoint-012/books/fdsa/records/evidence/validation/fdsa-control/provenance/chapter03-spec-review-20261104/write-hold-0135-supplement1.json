@@ -1,0 +1,31 @@
+{
+  "recorded_utc": "2026-11-05T00:02:17.959696+00:00",
+  "reviewer": "/root/chapter03_spec",
+  "state": "HELD: all own writes and review activity paused for checkpoint0135 until explicit root release",
+  "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "source_assessment_candidate": "38ae31902682ff6e3f4b28cea519a3bfeb4f96c7",
+  "current_receiving_preparation": "690ab476f4685e5a795d53d18465b067655a34dd",
+  "scope_obligations": 83,
+  "outcome": "Blocked; incomplete",
+  "new_public_source_claims_substantively_assessed": 40,
+  "actual_type_blocks_substantively_assessed": 16,
+  "open_findings": [
+    "C03-SPEC-USE-001"
+  ],
+  "artifacts": {
+    "partial-progress-0135.json": {
+      "bytes": 13778,
+      "sha256": "9c7f6bf67544b36298040b566d79381f7e5867412989626706da12828c950448"
+    },
+    "write-hold-0135.json": {
+      "bytes": 681,
+      "sha256": "c86167a36961db31655265537bc6394f863f69e49c8461305aeaee8194379f6a"
+    },
+    "partial-progress-0135-supplement1.json": {
+      "bytes": 19493,
+      "sha256": "d4df6fe73d3c287b3524c32d18f460dbf7087a3a75a7c16c0feaaa2c7ef90b26"
+    }
+  },
+  "prior_records_unmodified": true,
+  "no_compiler_or_source_or_ref_mutations": true
+}

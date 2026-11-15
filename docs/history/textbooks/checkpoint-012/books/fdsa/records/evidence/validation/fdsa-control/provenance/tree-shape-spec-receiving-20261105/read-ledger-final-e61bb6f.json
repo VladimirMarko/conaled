@@ -1,0 +1,333 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-05T04:04:32.556942+00:00",
+  "unit": "FDSA-XT02",
+  "axis": "Spec",
+  "reviewer": "/root/tree_cache_spec",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "incorporated_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "requirements_ids": [
+    "XT02-01",
+    "XT02-02",
+    "XT02-03",
+    "XT02-04",
+    "XT02-05"
+  ],
+  "original_scope_paths": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-shape.md"
+  ],
+  "public_names": 90,
+  "outcome": "Passed",
+  "unresolved_findings": [],
+  "full_original_scope_complete": true,
+  "actual_public_types_complete": true,
+  "full_validation_accepted": true,
+  "review_complete": true,
+  "method": "Complete bounded human readbacks are listed separately from full computational identity/audit reconciliation. No truncated display is credited as a complete read. Original complete source/type receipts continue at their unchanged identities.",
+  "source_type_receipts_preserved": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/read-ledger-source-types-e61bb6f.json",
+    "bytes": 9472,
+    "sha256": "1d2c36380b5df0be05fee309c42de442bb17f78af9b4dd00b5cd6121433d82c4"
+  },
+  "new_human_readbacks": [
+    {
+      "evidence": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-shape-spec-receiving-20261105.md",
+        "bytes": 29550,
+        "sha256": "250945adeaa836c381d7366fd62c29388aefcf2a26dc3996115923aaa2b3b138"
+      },
+      "total_lines": 143,
+      "complete": true,
+      "ranges": [
+        {
+          "lines": [
+            1,
+            72
+          ],
+          "actual_receipt": "d62303",
+          "actual_exit": 0,
+          "untruncated": true
+        },
+        {
+          "lines": [
+            73,
+            143
+          ],
+          "actual_receipt": "ecf7d7",
+          "actual_exit": 0,
+          "untruncated": true
+        }
+      ]
+    },
+    {
+      "evidence": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/full-validation-assessment-e61bb6f.json",
+        "bytes": 44303,
+        "sha256": "ce9256abde55152ed9c6652d0ac51a23916f175b2e5be65564ba36b0253bf0f5"
+      },
+      "total_lines": 705,
+      "complete": true,
+      "ranges": [
+        {
+          "lines": [
+            1,
+            230
+          ],
+          "actual_receipt": "f58280",
+          "actual_exit": 0,
+          "untruncated": true
+        },
+        {
+          "lines": [
+            231,
+            470
+          ],
+          "actual_receipt": "d5f047",
+          "actual_exit": 0,
+          "untruncated": true
+        },
+        {
+          "lines": [
+            471,
+            705
+          ],
+          "actual_receipt": "177159",
+          "actual_exit": 0,
+          "untruncated": true
+        }
+      ]
+    },
+    {
+      "evidence": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/final-validation-e61bb6f.json",
+        "bytes": 19386,
+        "sha256": "1bdf15001c1346b58e8199ff56af2c4a8e4de2dc14e351406fe5fd954cd15f6e"
+      },
+      "total_lines": 415,
+      "complete": true,
+      "ranges": [
+        {
+          "lines": [
+            1,
+            415
+          ],
+          "actual_receipt": "8703d7",
+          "actual_exit": 0,
+          "untruncated": true
+        }
+      ]
+    },
+    {
+      "evidence": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean",
+        "bytes": 4199,
+        "sha256": "fab2460caafba1f3f28a09006c4e220b9c735857e02294091486cdf4e8461c33"
+      },
+      "total_lines": 105,
+      "complete": true,
+      "ranges": [
+        {
+          "lines": [
+            1,
+            105
+          ],
+          "actual_receipt": "34fd8b",
+          "actual_exit": 0,
+          "untruncated": true
+        }
+      ]
+    },
+    {
+      "evidence": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/final-evidence-expectations.json",
+        "bytes": 965,
+        "sha256": "d9b1badac43cf7f6961b98545593d8d519e4730e5467754d3d392ce4a5188c15"
+      },
+      "total_lines": 18,
+      "complete": true,
+      "ranges": [
+        {
+          "lines": [
+            1,
+            18
+          ],
+          "actual_receipt": "a6f02f",
+          "actual_exit": 0,
+          "untruncated": true
+        }
+      ]
+    }
+  ],
+  "computational_reconciliation": [
+    {
+      "receipt": "3d103d",
+      "actual_exit": 0,
+      "record": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/full-validation-assessment-e61bb6f.json",
+        "bytes": 44303,
+        "sha256": "ce9256abde55152ed9c6652d0ac51a23916f175b2e5be65564ba36b0253bf0f5"
+      },
+      "scope": "Every actual terminal/recorder/native candidate/exit/command boundary; exact closed-log composition; all1114 unique contiguous rows and sums; all1111 prior rows unchanged and exactly3 added; exact1116-source inventory; verification and all31 evidence bindings; full equality of three saved input identities; all29 immutable source Git hashes/blobs, ten unchanged configs, nine clean pins, twelve saved runtime identities and90 program names. The printed summary was truncated in warning headlines and is not credited as full readback; the complete saved record was subsequently read in three bounded ranges."
+    },
+    {
+      "receipt": "177159",
+      "actual_exit": 0,
+      "scope": "All31 full-validation record bindings rehashed and verified."
+    },
+    {
+      "receipt": "8703d7",
+      "actual_exit": 0,
+      "scope": "All11 final-contract bindings rehashed and verified."
+    },
+    {
+      "receipt": "d62303",
+      "actual_exit": 0,
+      "scope": "All101 non-module-system warning headlines match accepted XT01 in exact order. This does not claim a new human reading of all original warning blocks."
+    }
+  ],
+  "bound_evidence": {
+    "reviews/tree-shape-spec-receiving-20261105.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-shape-spec-receiving-20261105.md",
+      "bytes": 29550,
+      "sha256": "250945adeaa836c381d7366fd62c29388aefcf2a26dc3996115923aaa2b3b138"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/full-validation-assessment-e61bb6f.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/full-validation-assessment-e61bb6f.json",
+      "bytes": 44303,
+      "sha256": "ce9256abde55152ed9c6652d0ac51a23916f175b2e5be65564ba36b0253bf0f5"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/final-validation-e61bb6f.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/final-validation-e61bb6f.json",
+      "bytes": 19386,
+      "sha256": "1bdf15001c1346b58e8199ff56af2c4a8e4de2dc14e351406fe5fd954cd15f6e"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/read-ledger-source-types-e61bb6f.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/read-ledger-source-types-e61bb6f.json",
+      "bytes": 9472,
+      "sha256": "1d2c36380b5df0be05fee309c42de442bb17f78af9b4dd00b5cd6121433d82c4"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/source-type-stage-report-e61bb6f.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-type-stage-report-e61bb6f.md",
+      "bytes": 23134,
+      "sha256": "24d3040036ac3ba50614365cc564f0844d6466082a93d1cc29bf8d2e78f51a96"
+    }
+  },
+  "complete_external_record_reads": [
+    {
+      "receipt": "6a20b7",
+      "actual_exit": 0,
+      "records": "Complete full-run request, start, launch, actual launch, historical progress, actual terminal, owned terminal, native start/result, outer result, closed reconciliation, verification and prefix/suffix. The control portion was fully displayed before aggregate truncation affected later unrelated outputs."
+    },
+    {
+      "receipt": "43254a",
+      "actual_exit": 1,
+      "evidence": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/root-audit-reconciliation.json",
+        "bytes": 6725,
+        "sha256": "85dd530168d74c6f631a723154f613804a9777b2ceb3b394eee71becc982cd52"
+      },
+      "complete_displayed_lines": [
+        1,
+        139
+      ],
+      "untruncated": true,
+      "subsequent_failure": "The following guessed-path expectations-file read failed. Exact path was found in7b62be and complete actual expectations read succeeded in a6f02f. The audit record was already fully read; no compiler or source failure occurred."
+    }
+  ],
+  "bounded_log_read": {
+    "evidence": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/native-records/output.log",
+      "bytes": 326586,
+      "sha256": "24a3e9d664836b1c39cbe7725ef623a030615cd67efaecadfe338e2111d8b078"
+    },
+    "receipt": "f3948a",
+    "actual_exit": 0,
+    "untruncated": true,
+    "ranges": [
+      [
+        1,
+        12
+      ],
+      [
+        1603,
+        1668
+      ],
+      [
+        1932,
+        1939
+      ],
+      [
+        2556,
+        2563
+      ],
+      [
+        2770,
+        2779
+      ]
+    ],
+    "full_log_human_read_claimed": false,
+    "all1114_audit_rows_computationally_parsed": true,
+    "all_warning_blocks_human_read_claimed": false
+  },
+  "immutable_validation_source_read": {
+    "receipt": "a77f43",
+    "actual_exit": 0,
+    "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+    "ProofAudit.lean": {
+      "ranges": [
+        [
+          1,
+          154
+        ]
+      ],
+      "complete": true,
+      "bytes": 7925,
+      "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd"
+    },
+    "scripts/check.py": {
+      "ranges": [
+        [
+          1,
+          45
+        ],
+        [
+          199,
+          348
+        ]
+      ],
+      "complete": false,
+      "bytes": 16119,
+      "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+    },
+    "untruncated": true
+  },
+  "bookkeeping_history_retained": [
+    {
+      "receipt": "cc3c46",
+      "actual_exit": 1,
+      "resolution": "Raw #check @ names were compared to unprefixed inventory names; complete program read34fd8b established explicit @ syntax and corrected full reconciliation3d103d passed. No writes in failed attempt."
+    },
+    {
+      "receipt": "43254a",
+      "actual_exit": 1,
+      "resolution": "Only the subsequent guessed expectations path failed; actual path found7b62be and full read a6f02f."
+    },
+    {
+      "affected_aggregate_receipts": [
+        "6a20b7",
+        "19bc1f"
+      ],
+      "resolution": "No complete human credit for truncated old-hold/log portions; old hold prior complete receipts preserved, new relevant log ranges untruncated in f3948a."
+    }
+  ],
+  "source_and_type_stage_still_immutable": true,
+  "no_compiler_helper_process_polling_source_ref_cache_output_mutation": true
+}

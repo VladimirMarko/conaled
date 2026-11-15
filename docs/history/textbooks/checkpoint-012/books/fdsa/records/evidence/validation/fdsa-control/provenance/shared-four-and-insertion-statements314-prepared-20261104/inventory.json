@@ -1,0 +1,1988 @@
+{
+  "schema": 1,
+  "prepared_utc": "2026-11-04T12:46:09.782108+00:00",
+  "candidate": null,
+  "status": "PREPARED ONLY; NOT EXECUTED",
+  "required_first_acceptance": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "unit_scope_unchanged": 18,
+  "original_unit_public_scope": 279,
+  "added_inherited_changed_closure_public_names": 35,
+  "total_explicit_names": 314,
+  "imports": [
+    "Applications.Probability.PermutationMinimum",
+    "Applications.Resources.DifferenceListCosts",
+    "Applications.Resources.ListMerge",
+    "Applications.Resources.Partition",
+    "Applications.Selection.ThreeWay",
+    "Applications.Sequences.Partition",
+    "Applications.Sorting.Merge",
+    "Examples.DifferenceListCosts",
+    "Examples.MergeCosts",
+    "Examples.PermutationMinimum",
+    "Examples.PermutationMinimumBoundary",
+    "Examples.ThreeWayPartition",
+    "Applications.Resources.InsertionSort",
+    "Examples.InsertionCosts"
+  ],
+  "declarations": [
+    {
+      "index": 1,
+      "name": "Resources.ListMerge.run",
+      "origin": "original279",
+      "origin_index": 1
+    },
+    {
+      "index": 2,
+      "name": "Resources.ListMerge.comparisons",
+      "origin": "original279",
+      "origin_index": 2
+    },
+    {
+      "index": 3,
+      "name": "Resources.ListMerge.entries",
+      "origin": "original279",
+      "origin_index": 3
+    },
+    {
+      "index": 4,
+      "name": "Resources.ListMerge.run_nil_left",
+      "origin": "original279",
+      "origin_index": 4
+    },
+    {
+      "index": 5,
+      "name": "Resources.ListMerge.run_nil_right",
+      "origin": "original279",
+      "origin_index": 5
+    },
+    {
+      "index": 6,
+      "name": "Resources.ListMerge.run_cons_cons",
+      "origin": "original279",
+      "origin_index": 6
+    },
+    {
+      "index": 7,
+      "name": "Resources.ListMerge.run_value",
+      "origin": "original279",
+      "origin_index": 7
+    },
+    {
+      "index": 8,
+      "name": "Resources.ListMerge.comparisons_nil_left",
+      "origin": "original279",
+      "origin_index": 8
+    },
+    {
+      "index": 9,
+      "name": "Resources.ListMerge.comparisons_nil_right",
+      "origin": "original279",
+      "origin_index": 9
+    },
+    {
+      "index": 10,
+      "name": "Resources.ListMerge.comparisons_cons_cons",
+      "origin": "original279",
+      "origin_index": 10
+    },
+    {
+      "index": 11,
+      "name": "Resources.ListMerge.entries_nil_left",
+      "origin": "original279",
+      "origin_index": 11
+    },
+    {
+      "index": 12,
+      "name": "Resources.ListMerge.entries_nil_right",
+      "origin": "original279",
+      "origin_index": 12
+    },
+    {
+      "index": 13,
+      "name": "Resources.ListMerge.entries_cons_cons",
+      "origin": "original279",
+      "origin_index": 13
+    },
+    {
+      "index": 14,
+      "name": "Resources.ListMerge.run_entries_cons_cons",
+      "origin": "original279",
+      "origin_index": 14
+    },
+    {
+      "index": 15,
+      "name": "Resources.ListMerge.entries_eq_comparisons_add_one",
+      "origin": "original279",
+      "origin_index": 15
+    },
+    {
+      "index": 16,
+      "name": "Resources.ListMerge.comparisons_le",
+      "origin": "original279",
+      "origin_index": 16
+    },
+    {
+      "index": 17,
+      "name": "Resources.ListMerge.entries_le",
+      "origin": "original279",
+      "origin_index": 17
+    },
+    {
+      "index": 18,
+      "name": "Resources.ListMerge.comparisons_cons_pos",
+      "origin": "original279",
+      "origin_index": 18
+    },
+    {
+      "index": 19,
+      "name": "Resources.ListMerge.run_map",
+      "origin": "original279",
+      "origin_index": 19
+    },
+    {
+      "index": 20,
+      "name": "Applications.Sorting.sublist_merge_left",
+      "origin": "original279",
+      "origin_index": 20
+    },
+    {
+      "index": 21,
+      "name": "Applications.Sorting.sublist_merge_right",
+      "origin": "original279",
+      "origin_index": 21
+    },
+    {
+      "index": 22,
+      "name": "Applications.Sorting.pairwise_of_merge",
+      "origin": "original279",
+      "origin_index": 22
+    },
+    {
+      "index": 23,
+      "name": "Applications.Sorting.merge_sorted_compatible_on_iff",
+      "origin": "original279",
+      "origin_index": 23
+    },
+    {
+      "index": 24,
+      "name": "Examples.MergeCosts.natCompare",
+      "origin": "original279",
+      "origin_index": 24
+    },
+    {
+      "index": 25,
+      "name": "Examples.MergeCosts.byKey",
+      "origin": "original279",
+      "origin_index": 25
+    },
+    {
+      "index": 26,
+      "name": "Examples.MergeCosts.result_perm",
+      "origin": "original279",
+      "origin_index": 26
+    },
+    {
+      "index": 27,
+      "name": "Examples.MergeCosts.result_length",
+      "origin": "original279",
+      "origin_index": 27
+    },
+    {
+      "index": 28,
+      "name": "Examples.MergeCosts.result_multiset",
+      "origin": "original279",
+      "origin_index": 28
+    },
+    {
+      "index": 29,
+      "name": "Examples.MergeCosts.result_mem",
+      "origin": "original279",
+      "origin_index": 29
+    },
+    {
+      "index": 30,
+      "name": "Examples.MergeCosts.empty_sides",
+      "origin": "original279",
+      "origin_index": 30
+    },
+    {
+      "index": 31,
+      "name": "Examples.MergeCosts.empty_payload",
+      "origin": "original279",
+      "origin_index": 31
+    },
+    {
+      "index": 32,
+      "name": "Examples.MergeCosts.low_singleton",
+      "origin": "original279",
+      "origin_index": 32
+    },
+    {
+      "index": 33,
+      "name": "Examples.MergeCosts.high_singleton",
+      "origin": "original279",
+      "origin_index": 33
+    },
+    {
+      "index": 34,
+      "name": "Examples.MergeCosts.low_singleton_entry_model",
+      "origin": "original279",
+      "origin_index": 34
+    },
+    {
+      "index": 35,
+      "name": "Examples.MergeCosts.interleaving",
+      "origin": "original279",
+      "origin_index": 35
+    },
+    {
+      "index": 36,
+      "name": "Examples.MergeCosts.interleaving_observations",
+      "origin": "original279",
+      "origin_index": 36
+    },
+    {
+      "index": 37,
+      "name": "Examples.MergeCosts.always_true",
+      "origin": "original279",
+      "origin_index": 37
+    },
+    {
+      "index": 38,
+      "name": "Examples.MergeCosts.always_false",
+      "origin": "original279",
+      "origin_index": 38
+    },
+    {
+      "index": 39,
+      "name": "Examples.MergeCosts.tied_runs",
+      "origin": "original279",
+      "origin_index": 39
+    },
+    {
+      "index": 40,
+      "name": "Examples.MergeCosts.ties_do_not_determine_cost",
+      "origin": "original279",
+      "origin_index": 40
+    },
+    {
+      "index": 41,
+      "name": "Examples.MergeCosts.unsorted_run",
+      "origin": "original279",
+      "origin_index": 41
+    },
+    {
+      "index": 42,
+      "name": "Examples.MergeCosts.unsorted_cost_bounds",
+      "origin": "original279",
+      "origin_index": 42
+    },
+    {
+      "index": 43,
+      "name": "Examples.MergeCosts.unsorted_inputs_retained",
+      "origin": "original279",
+      "origin_index": 43
+    },
+    {
+      "index": 44,
+      "name": "Examples.MergeCosts.unsorted_for_every_comparator",
+      "origin": "original279",
+      "origin_index": 44
+    },
+    {
+      "index": 45,
+      "name": "Examples.MergeCosts.source_value",
+      "origin": "original279",
+      "origin_index": 45
+    },
+    {
+      "index": 46,
+      "name": "Examples.MergeCosts.key_value",
+      "origin": "original279",
+      "origin_index": 46
+    },
+    {
+      "index": 47,
+      "name": "Examples.MergeCosts.key_source_value",
+      "origin": "original279",
+      "origin_index": 47
+    },
+    {
+      "index": 48,
+      "name": "Examples.MergeCosts.key_sorted_iff",
+      "origin": "original279",
+      "origin_index": 48
+    },
+    {
+      "index": 49,
+      "name": "Examples.MergeCosts.source_key_sorted_iff",
+      "origin": "original279",
+      "origin_index": 49
+    },
+    {
+      "index": 50,
+      "name": "Examples.MergeCosts.measured_key_spec",
+      "origin": "original279",
+      "origin_index": 50
+    },
+    {
+      "index": 51,
+      "name": "Examples.MergeCosts.recordsLeft",
+      "origin": "original279",
+      "origin_index": 51
+    },
+    {
+      "index": 52,
+      "name": "Examples.MergeCosts.recordsRight",
+      "origin": "original279",
+      "origin_index": 52
+    },
+    {
+      "index": 53,
+      "name": "Examples.MergeCosts.records_value",
+      "origin": "original279",
+      "origin_index": 53
+    },
+    {
+      "index": 54,
+      "name": "Examples.MergeCosts.records_counts",
+      "origin": "original279",
+      "origin_index": 54
+    },
+    {
+      "index": 55,
+      "name": "Examples.MergeCosts.records_exact",
+      "origin": "original279",
+      "origin_index": 55
+    },
+    {
+      "index": 56,
+      "name": "Examples.MergeCosts.taggedLeft",
+      "origin": "original279",
+      "origin_index": 56
+    },
+    {
+      "index": 57,
+      "name": "Examples.MergeCosts.taggedRight",
+      "origin": "original279",
+      "origin_index": 57
+    },
+    {
+      "index": 58,
+      "name": "Examples.MergeCosts.tagged_key_transport",
+      "origin": "original279",
+      "origin_index": 58
+    },
+    {
+      "index": 59,
+      "name": "Examples.MergeCosts.tagged_counts",
+      "origin": "original279",
+      "origin_index": 59
+    },
+    {
+      "index": 60,
+      "name": "Examples.MergeCosts.tagged_values",
+      "origin": "original279",
+      "origin_index": 60
+    },
+    {
+      "index": 61,
+      "name": "Examples.MergeCosts.tagged_exact",
+      "origin": "original279",
+      "origin_index": 61
+    },
+    {
+      "index": 62,
+      "name": "Examples.MergeCosts.tagged_stable",
+      "origin": "original279",
+      "origin_index": 62
+    },
+    {
+      "index": 63,
+      "name": "Examples.MergeCosts.falseLeft",
+      "origin": "original279",
+      "origin_index": 63
+    },
+    {
+      "index": 64,
+      "name": "Examples.MergeCosts.falseRight",
+      "origin": "original279",
+      "origin_index": 64
+    },
+    {
+      "index": 65,
+      "name": "Examples.MergeCosts.false_compare_compatible",
+      "origin": "original279",
+      "origin_index": 65
+    },
+    {
+      "index": 66,
+      "name": "Examples.MergeCosts.false_record_run",
+      "origin": "original279",
+      "origin_index": 66
+    },
+    {
+      "index": 67,
+      "name": "Examples.MergeCosts.compatible_not_stable",
+      "origin": "original279",
+      "origin_index": 67
+    },
+    {
+      "index": 68,
+      "name": "Examples.MergeCosts.unsortedRecordsLeft",
+      "origin": "original279",
+      "origin_index": 68
+    },
+    {
+      "index": 69,
+      "name": "Examples.MergeCosts.unsortedRecordsRight",
+      "origin": "original279",
+      "origin_index": 69
+    },
+    {
+      "index": 70,
+      "name": "Examples.MergeCosts.unsorted_records_run",
+      "origin": "original279",
+      "origin_index": 70
+    },
+    {
+      "index": 71,
+      "name": "Examples.MergeCosts.unsorted_record_filters",
+      "origin": "original279",
+      "origin_index": 71
+    },
+    {
+      "index": 72,
+      "name": "Examples.MergeCosts.twoStage",
+      "origin": "original279",
+      "origin_index": 72
+    },
+    {
+      "index": 73,
+      "name": "Examples.MergeCosts.twoStage_value",
+      "origin": "original279",
+      "origin_index": 73
+    },
+    {
+      "index": 74,
+      "name": "Examples.MergeCosts.twoStage_observation",
+      "origin": "original279",
+      "origin_index": 74
+    },
+    {
+      "index": 75,
+      "name": "Examples.MergeCosts.twoStage_entries",
+      "origin": "original279",
+      "origin_index": 75
+    },
+    {
+      "index": 76,
+      "name": "Examples.MergeCosts.twoStage_bounds",
+      "origin": "original279",
+      "origin_index": 76
+    },
+    {
+      "index": 77,
+      "name": "Examples.MergeCosts.twoStage_comparisons_projection",
+      "origin": "original279",
+      "origin_index": 77
+    },
+    {
+      "index": 78,
+      "name": "Examples.MergeCosts.twoStage_entries_projection",
+      "origin": "original279",
+      "origin_index": 78
+    },
+    {
+      "index": 79,
+      "name": "Examples.MergeCosts.first_stage",
+      "origin": "original279",
+      "origin_index": 79
+    },
+    {
+      "index": 80,
+      "name": "Examples.MergeCosts.second_stage",
+      "origin": "original279",
+      "origin_index": 80
+    },
+    {
+      "index": 81,
+      "name": "Examples.MergeCosts.twoStage_example",
+      "origin": "original279",
+      "origin_index": 81
+    },
+    {
+      "index": 82,
+      "name": "Examples.MergeCosts.substituted_input_example",
+      "origin": "original279",
+      "origin_index": 82
+    },
+    {
+      "index": 83,
+      "name": "Examples.MergeCosts.actual_input_matters",
+      "origin": "original279",
+      "origin_index": 83
+    },
+    {
+      "index": 84,
+      "name": "Examples.MergeCosts.queueBody",
+      "origin": "original279",
+      "origin_index": 84
+    },
+    {
+      "index": 85,
+      "name": "Examples.MergeCosts.queueBody_value",
+      "origin": "original279",
+      "origin_index": 85
+    },
+    {
+      "index": 86,
+      "name": "Examples.MergeCosts.queueBody_observation",
+      "origin": "original279",
+      "origin_index": 86
+    },
+    {
+      "index": 87,
+      "name": "Examples.MergeCosts.queueBody_bounds",
+      "origin": "original279",
+      "origin_index": 87
+    },
+    {
+      "index": 88,
+      "name": "Examples.MergeCosts.rawLeft",
+      "origin": "original279",
+      "origin_index": 88
+    },
+    {
+      "index": 89,
+      "name": "Examples.MergeCosts.rawRight",
+      "origin": "original279",
+      "origin_index": 89
+    },
+    {
+      "index": 90,
+      "name": "Examples.MergeCosts.rawRoot",
+      "origin": "original279",
+      "origin_index": 90
+    },
+    {
+      "index": 91,
+      "name": "Examples.MergeCosts.raw_queue_body",
+      "origin": "original279",
+      "origin_index": 91
+    },
+    {
+      "index": 92,
+      "name": "Examples.MergeCosts.raw_queue_erasure_and_order",
+      "origin": "original279",
+      "origin_index": 92
+    },
+    {
+      "index": 93,
+      "name": "Examples.MergeCosts.nonempty_tariffs",
+      "origin": "original279",
+      "origin_index": 93
+    },
+    {
+      "index": 94,
+      "name": "Examples.MergeCosts.empty_tariff_not_multiplicative",
+      "origin": "original279",
+      "origin_index": 94
+    },
+    {
+      "index": 95,
+      "name": "Examples.MergeCosts.low_singleton_attains_factor_two",
+      "origin": "original279",
+      "origin_index": 95
+    },
+    {
+      "index": 96,
+      "name": "Resources.DifferenceListCosts.Builder",
+      "origin": "original279",
+      "origin_index": 96
+    },
+    {
+      "index": 97,
+      "name": "Resources.DifferenceListCosts.Rep",
+      "origin": "original279",
+      "origin_index": 97
+    },
+    {
+      "index": 98,
+      "name": "Resources.DifferenceListCosts.AppCost",
+      "origin": "original279",
+      "origin_index": 98
+    },
+    {
+      "index": 99,
+      "name": "Resources.DifferenceListCosts.empty",
+      "origin": "original279",
+      "origin_index": 99
+    },
+    {
+      "index": 100,
+      "name": "Resources.DifferenceListCosts.singleton",
+      "origin": "original279",
+      "origin_index": 100
+    },
+    {
+      "index": 101,
+      "name": "Resources.DifferenceListCosts.compose",
+      "origin": "original279",
+      "origin_index": 101
+    },
+    {
+      "index": 102,
+      "name": "Resources.DifferenceListCosts.empty_apply",
+      "origin": "original279",
+      "origin_index": 102
+    },
+    {
+      "index": 103,
+      "name": "Resources.DifferenceListCosts.singleton_apply",
+      "origin": "original279",
+      "origin_index": 103
+    },
+    {
+      "index": 104,
+      "name": "Resources.DifferenceListCosts.empty_rep",
+      "origin": "original279",
+      "origin_index": 104
+    },
+    {
+      "index": 105,
+      "name": "Resources.DifferenceListCosts.empty_appCost",
+      "origin": "original279",
+      "origin_index": 105
+    },
+    {
+      "index": 106,
+      "name": "Resources.DifferenceListCosts.singleton_rep",
+      "origin": "original279",
+      "origin_index": 106
+    },
+    {
+      "index": 107,
+      "name": "Resources.DifferenceListCosts.singleton_appCost",
+      "origin": "original279",
+      "origin_index": 107
+    },
+    {
+      "index": 108,
+      "name": "Resources.DifferenceListCosts.compose_value",
+      "origin": "original279",
+      "origin_index": 108
+    },
+    {
+      "index": 109,
+      "name": "Resources.DifferenceListCosts.compose_cost",
+      "origin": "original279",
+      "origin_index": 109
+    },
+    {
+      "index": 110,
+      "name": "Resources.DifferenceListCosts.compose_rep",
+      "origin": "original279",
+      "origin_index": 110
+    },
+    {
+      "index": 111,
+      "name": "Resources.DifferenceListCosts.compose_appCost",
+      "origin": "original279",
+      "origin_index": 111
+    },
+    {
+      "index": 112,
+      "name": "Resources.DifferenceListCosts.createEmpty",
+      "origin": "original279",
+      "origin_index": 112
+    },
+    {
+      "index": 113,
+      "name": "Resources.DifferenceListCosts.createSingleton",
+      "origin": "original279",
+      "origin_index": 113
+    },
+    {
+      "index": 114,
+      "name": "Resources.DifferenceListCosts.createCompose",
+      "origin": "original279",
+      "origin_index": 114
+    },
+    {
+      "index": 115,
+      "name": "Resources.DifferenceListCosts.createEmpty_eq",
+      "origin": "original279",
+      "origin_index": 115
+    },
+    {
+      "index": 116,
+      "name": "Resources.DifferenceListCosts.createSingleton_eq",
+      "origin": "original279",
+      "origin_index": 116
+    },
+    {
+      "index": 117,
+      "name": "Resources.DifferenceListCosts.createCompose_eq",
+      "origin": "original279",
+      "origin_index": 117
+    },
+    {
+      "index": 118,
+      "name": "Resources.DifferenceListCosts.pushRun",
+      "origin": "original279",
+      "origin_index": 118
+    },
+    {
+      "index": 119,
+      "name": "Resources.DifferenceListCosts.pushRun_eq",
+      "origin": "original279",
+      "origin_index": 119
+    },
+    {
+      "index": 120,
+      "name": "Resources.DifferenceListCosts.pushRun_rep",
+      "origin": "original279",
+      "origin_index": 120
+    },
+    {
+      "index": 121,
+      "name": "Resources.DifferenceListCosts.pushRun_appCost",
+      "origin": "original279",
+      "origin_index": 121
+    },
+    {
+      "index": 122,
+      "name": "Resources.DifferenceListCosts.buildFrom",
+      "origin": "original279",
+      "origin_index": 122
+    },
+    {
+      "index": 123,
+      "name": "Resources.DifferenceListCosts.buildFrom_nil",
+      "origin": "original279",
+      "origin_index": 123
+    },
+    {
+      "index": 124,
+      "name": "Resources.DifferenceListCosts.buildFrom_cons",
+      "origin": "original279",
+      "origin_index": 124
+    },
+    {
+      "index": 125,
+      "name": "Resources.DifferenceListCosts.buildFrom_cost",
+      "origin": "original279",
+      "origin_index": 125
+    },
+    {
+      "index": 126,
+      "name": "Resources.DifferenceListCosts.buildFrom_rep",
+      "origin": "original279",
+      "origin_index": 126
+    },
+    {
+      "index": 127,
+      "name": "Resources.DifferenceListCosts.buildFrom_appCost",
+      "origin": "original279",
+      "origin_index": 127
+    },
+    {
+      "index": 128,
+      "name": "Resources.DifferenceListCosts.build",
+      "origin": "original279",
+      "origin_index": 128
+    },
+    {
+      "index": 129,
+      "name": "Resources.DifferenceListCosts.build_cost",
+      "origin": "original279",
+      "origin_index": 129
+    },
+    {
+      "index": 130,
+      "name": "Resources.DifferenceListCosts.build_rep",
+      "origin": "original279",
+      "origin_index": 130
+    },
+    {
+      "index": 131,
+      "name": "Resources.DifferenceListCosts.build_appCost",
+      "origin": "original279",
+      "origin_index": 131
+    },
+    {
+      "index": 132,
+      "name": "Resources.DifferenceListCosts.toDList",
+      "origin": "original279",
+      "origin_index": 132
+    },
+    {
+      "index": 133,
+      "name": "Resources.DifferenceListCosts.toDList_apply",
+      "origin": "original279",
+      "origin_index": 133
+    },
+    {
+      "index": 134,
+      "name": "Resources.DifferenceListCosts.toList_toDList",
+      "origin": "original279",
+      "origin_index": 134
+    },
+    {
+      "index": 135,
+      "name": "Resources.DifferenceListCosts.toDList_eq_ofList",
+      "origin": "original279",
+      "origin_index": 135
+    },
+    {
+      "index": 136,
+      "name": "Resources.DifferenceListCosts.toDList_compose",
+      "origin": "original279",
+      "origin_index": 136
+    },
+    {
+      "index": 137,
+      "name": "Resources.DifferenceListCosts.toDList_pushRun",
+      "origin": "original279",
+      "origin_index": 137
+    },
+    {
+      "index": 138,
+      "name": "Examples.DifferenceListCosts.ordered_composition",
+      "origin": "original279",
+      "origin_index": 138
+    },
+    {
+      "index": 139,
+      "name": "Examples.DifferenceListCosts.standard_composition_value",
+      "origin": "original279",
+      "origin_index": 139
+    },
+    {
+      "index": 140,
+      "name": "Examples.DifferenceListCosts.expensive_capture",
+      "origin": "original279",
+      "origin_index": 140
+    },
+    {
+      "index": 141,
+      "name": "Examples.DifferenceListCosts.materialize",
+      "origin": "original279",
+      "origin_index": 141
+    },
+    {
+      "index": 142,
+      "name": "Examples.DifferenceListCosts.materialize_eq",
+      "origin": "original279",
+      "origin_index": 142
+    },
+    {
+      "index": 143,
+      "name": "Examples.DifferenceListCosts.construction_application_split",
+      "origin": "original279",
+      "origin_index": 143
+    },
+    {
+      "index": 144,
+      "name": "Examples.DifferenceListCosts.materializeTwice",
+      "origin": "original279",
+      "origin_index": 144
+    },
+    {
+      "index": 145,
+      "name": "Examples.DifferenceListCosts.materializeTwice_eq",
+      "origin": "original279",
+      "origin_index": 145
+    },
+    {
+      "index": 146,
+      "name": "Examples.DifferenceListCosts.duplicate_values",
+      "origin": "original279",
+      "origin_index": 146
+    },
+    {
+      "index": 147,
+      "name": "Examples.DifferenceListCosts.duplicate_values_twice",
+      "origin": "original279",
+      "origin_index": 147
+    },
+    {
+      "index": 148,
+      "name": "Examples.DifferenceListCosts.empty_payload_boundary",
+      "origin": "original279",
+      "origin_index": 148
+    },
+    {
+      "index": 149,
+      "name": "Examples.DifferenceListCosts.singleton_boundary",
+      "origin": "original279",
+      "origin_index": 149
+    },
+    {
+      "index": 150,
+      "name": "Examples.DifferenceListCosts.extendSingleton",
+      "origin": "original279",
+      "origin_index": 150
+    },
+    {
+      "index": 151,
+      "name": "Examples.DifferenceListCosts.extendSingleton_eq",
+      "origin": "original279",
+      "origin_index": 151
+    },
+    {
+      "index": 152,
+      "name": "Examples.DifferenceListCosts.fused_push_value",
+      "origin": "original279",
+      "origin_index": 152
+    },
+    {
+      "index": 153,
+      "name": "Examples.DifferenceListCosts.identity_value_cost",
+      "origin": "original279",
+      "origin_index": 153
+    },
+    {
+      "index": 154,
+      "name": "Examples.DifferenceListCosts.padded",
+      "origin": "original279",
+      "origin_index": 154
+    },
+    {
+      "index": 155,
+      "name": "Examples.DifferenceListCosts.padded_rep",
+      "origin": "original279",
+      "origin_index": 155
+    },
+    {
+      "index": 156,
+      "name": "Examples.DifferenceListCosts.padded_appCost",
+      "origin": "original279",
+      "origin_index": 156
+    },
+    {
+      "index": 157,
+      "name": "Examples.DifferenceListCosts.padded_empty_value",
+      "origin": "original279",
+      "origin_index": 157
+    },
+    {
+      "index": 158,
+      "name": "Examples.DifferenceListCosts.no_bound_from_output_length",
+      "origin": "original279",
+      "origin_index": 158
+    },
+    {
+      "index": 159,
+      "name": "Examples.DifferenceListCosts.doubled",
+      "origin": "original279",
+      "origin_index": 159
+    },
+    {
+      "index": 160,
+      "name": "Examples.DifferenceListCosts.doubled_creation",
+      "origin": "original279",
+      "origin_index": 160
+    },
+    {
+      "index": 161,
+      "name": "Examples.DifferenceListCosts.doubled_rep",
+      "origin": "original279",
+      "origin_index": 161
+    },
+    {
+      "index": 162,
+      "name": "Examples.DifferenceListCosts.doubled_application_add_one",
+      "origin": "original279",
+      "origin_index": 162
+    },
+    {
+      "index": 163,
+      "name": "Examples.DifferenceListCosts.doubled_appCost",
+      "origin": "original279",
+      "origin_index": 163
+    },
+    {
+      "index": 164,
+      "name": "Examples.DifferenceListCosts.materializeDoubled",
+      "origin": "original279",
+      "origin_index": 164
+    },
+    {
+      "index": 165,
+      "name": "Examples.DifferenceListCosts.materializeDoubled_eq",
+      "origin": "original279",
+      "origin_index": 165
+    },
+    {
+      "index": 166,
+      "name": "Examples.DifferenceListCosts.four_shared_closure_extensions",
+      "origin": "original279",
+      "origin_index": 166
+    },
+    {
+      "index": 167,
+      "name": "Examples.DifferenceListCosts.four_shared_closure_extensions_materialized",
+      "origin": "original279",
+      "origin_index": 167
+    },
+    {
+      "index": 168,
+      "name": "Resources.Partition.partitionRun",
+      "origin": "original279",
+      "origin_index": 168
+    },
+    {
+      "index": 169,
+      "name": "Resources.Partition.partitionRun_nil",
+      "origin": "original279",
+      "origin_index": 169
+    },
+    {
+      "index": 170,
+      "name": "Resources.Partition.partitionRun_cons",
+      "origin": "original279",
+      "origin_index": 170
+    },
+    {
+      "index": 171,
+      "name": "Resources.Partition.partitionRun_value",
+      "origin": "original279",
+      "origin_index": 171
+    },
+    {
+      "index": 172,
+      "name": "Resources.Partition.partitionRun_nil_cost",
+      "origin": "original279",
+      "origin_index": 172
+    },
+    {
+      "index": 173,
+      "name": "Resources.Partition.partitionRun_cons_cost",
+      "origin": "original279",
+      "origin_index": 173
+    },
+    {
+      "index": 174,
+      "name": "Resources.Partition.partitionRun_cost",
+      "origin": "original279",
+      "origin_index": 174
+    },
+    {
+      "index": 175,
+      "name": "Applications.Selection.partition3",
+      "origin": "original279",
+      "origin_index": 175
+    },
+    {
+      "index": 176,
+      "name": "Applications.Selection.partition3_eq_filters",
+      "origin": "original279",
+      "origin_index": 176
+    },
+    {
+      "index": 177,
+      "name": "Applications.Selection.partition3_perm",
+      "origin": "original279",
+      "origin_index": 177
+    },
+    {
+      "index": 178,
+      "name": "Applications.Selection.partition_left_mem",
+      "origin": "original279",
+      "origin_index": 178
+    },
+    {
+      "index": 179,
+      "name": "Applications.Selection.partition_equal_mem",
+      "origin": "original279",
+      "origin_index": 179
+    },
+    {
+      "index": 180,
+      "name": "Applications.Selection.partition_right_mem",
+      "origin": "original279",
+      "origin_index": 180
+    },
+    {
+      "index": 181,
+      "name": "Applications.Selection.partition_lengths",
+      "origin": "original279",
+      "origin_index": 181
+    },
+    {
+      "index": 182,
+      "name": "Applications.Selection.partition_strict_sizes",
+      "origin": "original279",
+      "origin_index": 182
+    },
+    {
+      "index": 183,
+      "name": "Sequences.Partition.partition3",
+      "origin": "original279",
+      "origin_index": 183
+    },
+    {
+      "index": 184,
+      "name": "Sequences.Partition.partition3_eq_filters",
+      "origin": "original279",
+      "origin_index": 184
+    },
+    {
+      "index": 185,
+      "name": "Sequences.Partition.partition3_perm",
+      "origin": "original279",
+      "origin_index": 185
+    },
+    {
+      "index": 186,
+      "name": "Sequences.Partition.partition_left_mem",
+      "origin": "original279",
+      "origin_index": 186
+    },
+    {
+      "index": 187,
+      "name": "Sequences.Partition.partition_equal_mem",
+      "origin": "original279",
+      "origin_index": 187
+    },
+    {
+      "index": 188,
+      "name": "Sequences.Partition.partition_right_mem",
+      "origin": "original279",
+      "origin_index": 188
+    },
+    {
+      "index": 189,
+      "name": "Sequences.Partition.partition_lengths",
+      "origin": "original279",
+      "origin_index": 189
+    },
+    {
+      "index": 190,
+      "name": "Sequences.Partition.partition_strict_sizes",
+      "origin": "original279",
+      "origin_index": 190
+    },
+    {
+      "index": 191,
+      "name": "Sequences.Partition.partition3_nil",
+      "origin": "original279",
+      "origin_index": 191
+    },
+    {
+      "index": 192,
+      "name": "Sequences.Partition.partition3_cons",
+      "origin": "original279",
+      "origin_index": 192
+    },
+    {
+      "index": 193,
+      "name": "ThreeWayPartitionExamples.replicate_partition",
+      "origin": "original279",
+      "origin_index": 193
+    },
+    {
+      "index": 194,
+      "name": "ThreeWayPartitionExamples.selection_partition",
+      "origin": "original279",
+      "origin_index": 194
+    },
+    {
+      "index": 195,
+      "name": "ThreeWayPartitionExamples.mixed",
+      "origin": "original279",
+      "origin_index": 195
+    },
+    {
+      "index": 196,
+      "name": "ThreeWayPartitionExamples.mixed_partition",
+      "origin": "original279",
+      "origin_index": 196
+    },
+    {
+      "index": 197,
+      "name": "ThreeWayPartitionExamples.outside_partition",
+      "origin": "original279",
+      "origin_index": 197
+    },
+    {
+      "index": 198,
+      "name": "ThreeWayPartitionExamples.interior_partition",
+      "origin": "original279",
+      "origin_index": 198
+    },
+    {
+      "index": 199,
+      "name": "ThreeWayPartitionExamples.lower_partition",
+      "origin": "original279",
+      "origin_index": 199
+    },
+    {
+      "index": 200,
+      "name": "ThreeWayPartitionExamples.empty_run",
+      "origin": "original279",
+      "origin_index": 200
+    },
+    {
+      "index": 201,
+      "name": "ThreeWayPartitionExamples.replicate_run",
+      "origin": "original279",
+      "origin_index": 201
+    },
+    {
+      "index": 202,
+      "name": "ThreeWayPartitionExamples.singleton_run",
+      "origin": "original279",
+      "origin_index": 202
+    },
+    {
+      "index": 203,
+      "name": "ThreeWayPartitionExamples.replicate_strict",
+      "origin": "original279",
+      "origin_index": 203
+    },
+    {
+      "index": 204,
+      "name": "ThreeWayPartitionExamples.measured_selection_value",
+      "origin": "original279",
+      "origin_index": 204
+    },
+    {
+      "index": 205,
+      "name": "ThreeWayPartitionExamples.mixed_run",
+      "origin": "original279",
+      "origin_index": 205
+    },
+    {
+      "index": 206,
+      "name": "ThreeWayPartitionExamples.mixed_value",
+      "origin": "original279",
+      "origin_index": 206
+    },
+    {
+      "index": 207,
+      "name": "ThreeWayPartitionExamples.mixed_cost",
+      "origin": "original279",
+      "origin_index": 207
+    },
+    {
+      "index": 208,
+      "name": "ThreeWayPartitionExamples.mixed_perm",
+      "origin": "original279",
+      "origin_index": 208
+    },
+    {
+      "index": 209,
+      "name": "ThreeWayPartitionExamples.mixed_lengths",
+      "origin": "original279",
+      "origin_index": 209
+    },
+    {
+      "index": 210,
+      "name": "ThreeWayPartitionExamples.mixed_strict",
+      "origin": "original279",
+      "origin_index": 210
+    },
+    {
+      "index": 211,
+      "name": "ThreeWayPartitionExamples.outside_run",
+      "origin": "original279",
+      "origin_index": 211
+    },
+    {
+      "index": 212,
+      "name": "ThreeWayPartitionExamples.outside_boundary",
+      "origin": "original279",
+      "origin_index": 212
+    },
+    {
+      "index": 213,
+      "name": "ThreeWayPartitionExamples.interior_run",
+      "origin": "original279",
+      "origin_index": 213
+    },
+    {
+      "index": 214,
+      "name": "ThreeWayPartitionExamples.interior_boundary",
+      "origin": "original279",
+      "origin_index": 214
+    },
+    {
+      "index": 215,
+      "name": "ThreeWayPartitionExamples.bind_returned_lower",
+      "origin": "original279",
+      "origin_index": 215
+    },
+    {
+      "index": 216,
+      "name": "Applications.Probability.PermutationMinimum.minimumEvent",
+      "origin": "original279",
+      "origin_index": 216
+    },
+    {
+      "index": 217,
+      "name": "Applications.Probability.PermutationMinimum.mem_minimumEvent",
+      "origin": "original279",
+      "origin_index": 217
+    },
+    {
+      "index": 218,
+      "name": "Applications.Probability.PermutationMinimum.minimumEvent_empty",
+      "origin": "original279",
+      "origin_index": 218
+    },
+    {
+      "index": 219,
+      "name": "Applications.Probability.PermutationMinimum.minimumEvent_of_not_mem",
+      "origin": "original279",
+      "origin_index": 219
+    },
+    {
+      "index": 220,
+      "name": "Applications.Probability.PermutationMinimum.minimumEvent_singleton",
+      "origin": "original279",
+      "origin_index": 220
+    },
+    {
+      "index": 221,
+      "name": "Applications.Probability.PermutationMinimum.minimumEvent_inter",
+      "origin": "original279",
+      "origin_index": 221
+    },
+    {
+      "index": 222,
+      "name": "Applications.Probability.PermutationMinimum.uniformOn_minimumEvent",
+      "origin": "original279",
+      "origin_index": 222
+    },
+    {
+      "index": 223,
+      "name": "Examples.PermutationMinimum.law",
+      "origin": "original279",
+      "origin_index": 223
+    },
+    {
+      "index": 224,
+      "name": "Examples.PermutationMinimum.firstSubset",
+      "origin": "original279",
+      "origin_index": 224
+    },
+    {
+      "index": 225,
+      "name": "Examples.PermutationMinimum.secondSubset",
+      "origin": "original279",
+      "origin_index": 225
+    },
+    {
+      "index": 226,
+      "name": "Examples.PermutationMinimum.first_minimum_mass",
+      "origin": "original279",
+      "origin_index": 226
+    },
+    {
+      "index": 227,
+      "name": "Examples.PermutationMinimum.second_minimum_mass",
+      "origin": "original279",
+      "origin_index": 227
+    },
+    {
+      "index": 228,
+      "name": "Examples.PermutationMinimum.overlap_event",
+      "origin": "original279",
+      "origin_index": 228
+    },
+    {
+      "index": 229,
+      "name": "Examples.PermutationMinimum.full_minimum_mass",
+      "origin": "original279",
+      "origin_index": 229
+    },
+    {
+      "index": 230,
+      "name": "Examples.PermutationMinimum.overlap_mass",
+      "origin": "original279",
+      "origin_index": 230
+    },
+    {
+      "index": 231,
+      "name": "Examples.PermutationMinimum.marginal_product",
+      "origin": "original279",
+      "origin_index": 231
+    },
+    {
+      "index": 232,
+      "name": "Examples.PermutationMinimum.overlap_mass_ne_product",
+      "origin": "original279",
+      "origin_index": 232
+    },
+    {
+      "index": 233,
+      "name": "Examples.PermutationMinimum.singleton_minimum_mass",
+      "origin": "original279",
+      "origin_index": 233
+    },
+    {
+      "index": 234,
+      "name": "Examples.PermutationMinimum.spacedPriority",
+      "origin": "original279",
+      "origin_index": 234
+    },
+    {
+      "index": 235,
+      "name": "Examples.PermutationMinimum.spacedPriority_values",
+      "origin": "original279",
+      "origin_index": 235
+    },
+    {
+      "index": 236,
+      "name": "Examples.PermutationMinimum.spacedPriority_injective",
+      "origin": "original279",
+      "origin_index": 236
+    },
+    {
+      "index": 237,
+      "name": "Examples.PermutationMinimum.spacedPriority_not_monotone",
+      "origin": "original279",
+      "origin_index": 237
+    },
+    {
+      "index": 238,
+      "name": "Examples.PermutationMinimum.spaced_minimum_mass",
+      "origin": "original279",
+      "origin_index": 238
+    },
+    {
+      "index": 239,
+      "name": "Examples.PermutationMinimumBoundary.empty_index_normalized",
+      "origin": "original279",
+      "origin_index": 239
+    },
+    {
+      "index": 240,
+      "name": "Examples.PermutationMinimumBoundary.empty_subset_event",
+      "origin": "original279",
+      "origin_index": 240
+    },
+    {
+      "index": 241,
+      "name": "Examples.PermutationMinimumBoundary.empty_subset_mass",
+      "origin": "original279",
+      "origin_index": 241
+    },
+    {
+      "index": 242,
+      "name": "Examples.PermutationMinimumBoundary.outsider_event_empty",
+      "origin": "original279",
+      "origin_index": 242
+    },
+    {
+      "index": 243,
+      "name": "Examples.PermutationMinimumBoundary.outsider_mass",
+      "origin": "original279",
+      "origin_index": 243
+    },
+    {
+      "index": 244,
+      "name": "Examples.PermutationMinimumBoundary.outsiderComparison",
+      "origin": "original279",
+      "origin_index": 244
+    },
+    {
+      "index": 245,
+      "name": "Examples.PermutationMinimumBoundary.outsiderComparison_eq_full_minimum",
+      "origin": "original279",
+      "origin_index": 245
+    },
+    {
+      "index": 246,
+      "name": "Examples.PermutationMinimumBoundary.outsiderComparison_mass",
+      "origin": "original279",
+      "origin_index": 246
+    },
+    {
+      "index": 247,
+      "name": "Examples.PermutationMinimumBoundary.outsiderComparison_ne_singleton_inverse",
+      "origin": "original279",
+      "origin_index": 247
+    },
+    {
+      "index": 248,
+      "name": "Examples.PermutationMinimumBoundary.tiedPriority",
+      "origin": "original279",
+      "origin_index": 248
+    },
+    {
+      "index": 249,
+      "name": "Examples.PermutationMinimumBoundary.tiedPriority_not_injective",
+      "origin": "original279",
+      "origin_index": 249
+    },
+    {
+      "index": 250,
+      "name": "Examples.PermutationMinimumBoundary.tied_event_univ",
+      "origin": "original279",
+      "origin_index": 250
+    },
+    {
+      "index": 251,
+      "name": "Examples.PermutationMinimumBoundary.tied_mass",
+      "origin": "original279",
+      "origin_index": 251
+    },
+    {
+      "index": 252,
+      "name": "Examples.PermutationMinimumBoundary.tied_mass_ne_half",
+      "origin": "original279",
+      "origin_index": 252
+    },
+    {
+      "index": 253,
+      "name": "Applications.Sorting.mergeBy",
+      "origin": "original279",
+      "origin_index": 253
+    },
+    {
+      "index": 254,
+      "name": "Applications.Sorting.mergeBy_perm",
+      "origin": "original279",
+      "origin_index": 254
+    },
+    {
+      "index": 255,
+      "name": "Applications.Sorting.merge_sorted_compatible_on",
+      "origin": "original279",
+      "origin_index": 255
+    },
+    {
+      "index": 256,
+      "name": "Applications.Sorting.merge_sorted_compatible",
+      "origin": "original279",
+      "origin_index": 256
+    },
+    {
+      "index": 257,
+      "name": "Applications.Sorting.mergeBy_sorted",
+      "origin": "original279",
+      "origin_index": 257
+    },
+    {
+      "index": 258,
+      "name": "Applications.Sorting.mergeBy_filter",
+      "origin": "original279",
+      "origin_index": 258
+    },
+    {
+      "index": 259,
+      "name": "Applications.Sorting.mergeBy_stable",
+      "origin": "original279",
+      "origin_index": 259
+    },
+    {
+      "index": 260,
+      "name": "Applications.Sorting.mergeBy_spec",
+      "origin": "original279",
+      "origin_index": 260
+    },
+    {
+      "index": 261,
+      "name": "Applications.Selection.sorted_partition",
+      "origin": "original279",
+      "origin_index": 261
+    },
+    {
+      "index": 262,
+      "name": "Applications.Selection.dispatch",
+      "origin": "original279",
+      "origin_index": 262
+    },
+    {
+      "index": 263,
+      "name": "Applications.Selection.dispatch_value",
+      "origin": "original279",
+      "origin_index": 263
+    },
+    {
+      "index": 264,
+      "name": "Applications.Selection.PivotValid",
+      "origin": "original279",
+      "origin_index": 264
+    },
+    {
+      "index": 265,
+      "name": "Applications.Selection.runWith",
+      "origin": "original279",
+      "origin_index": 265
+    },
+    {
+      "index": 266,
+      "name": "Applications.Selection.runWith_value",
+      "origin": "original279",
+      "origin_index": 266
+    },
+    {
+      "index": 267,
+      "name": "Applications.Selection.selectWith",
+      "origin": "original279",
+      "origin_index": 267
+    },
+    {
+      "index": 268,
+      "name": "Applications.Selection.selectWith_value",
+      "origin": "original279",
+      "origin_index": 268
+    },
+    {
+      "index": 269,
+      "name": "Applications.Selection.selectWith_ranked",
+      "origin": "original279",
+      "origin_index": 269
+    },
+    {
+      "index": 270,
+      "name": "Applications.Selection.selectWith_none",
+      "origin": "original279",
+      "origin_index": 270
+    },
+    {
+      "index": 271,
+      "name": "Applications.Selection.head_pivot_valid",
+      "origin": "original279",
+      "origin_index": 271
+    },
+    {
+      "index": 272,
+      "name": "Applications.Selection.lastPivot",
+      "origin": "original279",
+      "origin_index": 272
+    },
+    {
+      "index": 273,
+      "name": "Applications.Selection.last_pivot_valid",
+      "origin": "original279",
+      "origin_index": 273
+    },
+    {
+      "index": 274,
+      "name": "Applications.Selection.selectWith_some_iff",
+      "origin": "original279",
+      "origin_index": 274
+    },
+    {
+      "index": 275,
+      "name": "Applications.Selection.selectWith_policy",
+      "origin": "original279",
+      "origin_index": 275
+    },
+    {
+      "index": 276,
+      "name": "Applications.Selection.sortSelect",
+      "origin": "original279",
+      "origin_index": 276
+    },
+    {
+      "index": 277,
+      "name": "Applications.Selection.selectWith_eq_sortSelect",
+      "origin": "original279",
+      "origin_index": 277
+    },
+    {
+      "index": 278,
+      "name": "Applications.Selection.sortSelect_some_iff",
+      "origin": "original279",
+      "origin_index": 278
+    },
+    {
+      "index": 279,
+      "name": "Applications.Selection.sortSelect_none",
+      "origin": "original279",
+      "origin_index": 279
+    },
+    {
+      "index": 280,
+      "name": "Resources.InsertionSort.insertRun",
+      "origin": "exactF145",
+      "origin_index": 1,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 281,
+      "name": "Resources.InsertionSort.insertRun_value",
+      "origin": "exactF145",
+      "origin_index": 2,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 282,
+      "name": "Resources.InsertionSort.insertRun_cost_bounds",
+      "origin": "exactF145",
+      "origin_index": 3,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 283,
+      "name": "Resources.InsertionSort.insertRun_cost_of_head",
+      "origin": "exactF145",
+      "origin_index": 4,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 284,
+      "name": "Resources.InsertionSort.insertRun_cost_of_all",
+      "origin": "exactF145",
+      "origin_index": 5,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 285,
+      "name": "Resources.InsertionSort.insertRun_cost_of_all_not",
+      "origin": "exactF145",
+      "origin_index": 6,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 286,
+      "name": "Resources.InsertionSort.sortRun",
+      "origin": "exactF145",
+      "origin_index": 7,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 287,
+      "name": "Resources.InsertionSort.sortRun_value",
+      "origin": "exactF145",
+      "origin_index": 8,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 288,
+      "name": "Resources.InsertionSort.sortRun_length",
+      "origin": "exactF145",
+      "origin_index": 9,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 289,
+      "name": "Resources.InsertionSort.sortRun_cons_cost",
+      "origin": "exactF145",
+      "origin_index": 10,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 290,
+      "name": "Resources.InsertionSort.sortRun_cost_lower",
+      "origin": "exactF145",
+      "origin_index": 11,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 291,
+      "name": "Resources.InsertionSort.sortRun_double_cost_le",
+      "origin": "exactF145",
+      "origin_index": 12,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 292,
+      "name": "Resources.InsertionSort.sortRun_cost_le",
+      "origin": "exactF145",
+      "origin_index": 13,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 293,
+      "name": "Resources.InsertionSort.sortRun_quadratic",
+      "origin": "exactF145",
+      "origin_index": 14,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 294,
+      "name": "Resources.InsertionSort.sortRun_cost_of_pairwise",
+      "origin": "exactF145",
+      "origin_index": 15,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 295,
+      "name": "Resources.InsertionSort.sortRun_double_cost_of_opposite",
+      "origin": "exactF145",
+      "origin_index": 16,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 296,
+      "name": "Resources.InsertionSort.reverse_range_opposite",
+      "origin": "exactF145",
+      "origin_index": 17,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 297,
+      "name": "Resources.InsertionSort.sortRun_cost_reverse_range",
+      "origin": "exactF145",
+      "origin_index": 18,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 298,
+      "name": "Resources.InsertionSort.sortRun_stable",
+      "origin": "exactF145",
+      "origin_index": 19,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 299,
+      "name": "Examples.InsertionCosts.empty_cost",
+      "origin": "exactF145",
+      "origin_index": 84,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 300,
+      "name": "Examples.InsertionCosts.singleton_cost",
+      "origin": "exactF145",
+      "origin_index": 85,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 301,
+      "name": "Examples.InsertionCosts.sorted_with_duplicates",
+      "origin": "exactF145",
+      "origin_index": 86,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 302,
+      "name": "Examples.InsertionCosts.descending_worst",
+      "origin": "exactF145",
+      "origin_index": 87,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 303,
+      "name": "Examples.InsertionCosts.best_is_global",
+      "origin": "exactF145",
+      "origin_index": 88,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 304,
+      "name": "Examples.InsertionCosts.worst_is_global",
+      "origin": "exactF145",
+      "origin_index": 89,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 305,
+      "name": "Examples.InsertionCosts.source_quadratic",
+      "origin": "exactF145",
+      "origin_index": 90,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 306,
+      "name": "Examples.InsertionCosts.immediate_insertion",
+      "origin": "exactF145",
+      "origin_index": 91,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 307,
+      "name": "Examples.InsertionCosts.full_traversal",
+      "origin": "exactF145",
+      "origin_index": 92,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 308,
+      "name": "Examples.InsertionCosts.tied_head_ignores_tail",
+      "origin": "exactF145",
+      "origin_index": 93,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 309,
+      "name": "Examples.InsertionCosts.key_contract",
+      "origin": "exactF145",
+      "origin_index": 94,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 310,
+      "name": "Examples.InsertionCosts.key_tie_observation",
+      "origin": "exactF145",
+      "origin_index": 95,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 311,
+      "name": "Examples.InsertionCosts.sorted_result_has_rank",
+      "origin": "exactF145",
+      "origin_index": 96,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 312,
+      "name": "Examples.InsertionCosts.repeated_value_rank",
+      "origin": "exactF145",
+      "origin_index": 97,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 313,
+      "name": "Examples.InsertionCosts.small_sort_budget",
+      "origin": "exactF145",
+      "origin_index": 98,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    },
+    {
+      "index": 314,
+      "name": "Examples.InsertionCosts.small_rank_with_sort_budget",
+      "origin": "exactF145",
+      "origin_index": 99,
+      "reason": "Inherited declaration: combined Merge extension changes its local source import closure"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "provenance/shared-four-public-statements279-prepared-20261104/Statements.lean",
+      "bytes": 15990,
+      "sha256": "6fb956bd7423cdb8d04e94fa544920907bdb3df291822d5ab1dfbd8fa5cc2925"
+    },
+    {
+      "path": "provenance/shared-four-public-statements279-prepared-20261104/inventory.json",
+      "bytes": 218625,
+      "sha256": "4c03ab11c546ce7e5950abe6af1ab636763a4fa0ffc195f8effd8767d5d8367b"
+    },
+    {
+      "path": "provenance/shared-four-public-statements279-prepared-20261104/preparation.md",
+      "bytes": 9069,
+      "sha256": "2633d3a79e331f3958cba5cfd6631959adfd55371575c6f709db65acaca0e3c0"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+      "bytes": 7518,
+      "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements-prepared-20261104/inventory.json",
+      "bytes": 9630,
+      "sha256": "d39aa500144f7893088e8e69cb32514d75191d100e7b9fc1405e14055a94fefa"
+    }
+  ],
+  "program": {
+    "path": "provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+    "bytes": 16826,
+    "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754"
+  },
+  "original_programs_unchanged": true,
+  "replaces_only_future279_execution_plan": true,
+  "does_not_replace_exact_F145_gate": true,
+  "does_not_reopen_accepted_Chapter1": true,
+  "other110_foundation_names": "Unchanged local closures per existing preparation; existing qualified F evidence remains subject to exact future-input reconciliation. This input makes no reuse approval.",
+  "private_anonymous_generated_scope": "Retain all original source and exhaustive audit scope, including inherited affected code; no generated identity guessed.",
+  "actual_compiler_type_or_reuse_credit": 0,
+  "new_acceptance": false
+}

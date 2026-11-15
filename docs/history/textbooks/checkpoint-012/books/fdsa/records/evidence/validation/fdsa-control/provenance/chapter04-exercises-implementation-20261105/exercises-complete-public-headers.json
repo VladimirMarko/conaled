@@ -1,0 +1,585 @@
+{
+  "status": "AUTHORED PUBLIC HEADERS ONLY; all eight author modules UNCOMPILED by this author; generated declarations excluded",
+  "files": [
+    {
+      "path": "Applications/Trees/Levels.lean",
+      "context_lines_in_source": [
+        "universe u",
+        "variable {α : Type u}"
+      ],
+      "bytes": 3596,
+      "sha256": "45a2c073f4cecb400b2af4bf49941558d65b7eb52ef667bbab19ed8c7984b023",
+      "declarations": [
+        {
+          "name": "Trees.level",
+          "kind": "def",
+          "header": "def level : BinaryTree α → Nat → List α"
+        },
+        {
+          "name": "Trees.level_nil",
+          "kind": "theorem",
+          "header": "@[simp] theorem level_nil (k : Nat) : level (.nil : BinaryTree α) k = []"
+        },
+        {
+          "name": "Trees.level_node_zero",
+          "kind": "theorem",
+          "header": "@[simp] theorem level_node_zero (a : α) (l r : BinaryTree α) :\n    level (.node a l r) 0 = [a]"
+        },
+        {
+          "name": "Trees.level_node_succ",
+          "kind": "theorem",
+          "header": "@[simp] theorem level_node_succ (a : α) (l r : BinaryTree α) (k : Nat) :\n    level (.node a l r) (k + 1) = level l k ++ level r k"
+        },
+        {
+          "name": "Trees.mergeLevels",
+          "kind": "def",
+          "header": "def mergeLevels : List (List α) → List (List α) → List (List α)"
+        },
+        {
+          "name": "Trees.levels",
+          "kind": "def",
+          "header": "def levels : BinaryTree α → List (List α)"
+        },
+        {
+          "name": "Trees.levels_nil",
+          "kind": "theorem",
+          "header": "@[simp] theorem levels_nil : levels (.nil : BinaryTree α) = []"
+        },
+        {
+          "name": "Trees.levels_node",
+          "kind": "theorem",
+          "header": "@[simp] theorem levels_node (a : α) (l r : BinaryTree α) :\n    levels (.node a l r) = [a] :: mergeLevels (levels l) (levels r)"
+        },
+        {
+          "name": "Trees.mergeLevels_length",
+          "kind": "theorem",
+          "header": "theorem mergeLevels_length (xs ys : List (List α)) :\n    (mergeLevels xs ys).length = max xs.length ys.length"
+        },
+        {
+          "name": "Trees.mergeLevels_getD",
+          "kind": "theorem",
+          "header": "theorem mergeLevels_getD (xs ys : List (List α)) (k : Nat) :\n    (mergeLevels xs ys).getD k [] = xs.getD k [] ++ ys.getD k []"
+        },
+        {
+          "name": "Trees.levels_length",
+          "kind": "theorem",
+          "header": "theorem levels_length (t : BinaryTree α) : (levels t).length = t.height"
+        },
+        {
+          "name": "Trees.levels_getD",
+          "kind": "theorem",
+          "header": "theorem levels_getD (t : BinaryTree α) (k : Nat) :\n    (levels t).getD k [] = level t k"
+        },
+        {
+          "name": "Trees.levels_getElem?",
+          "kind": "theorem",
+          "header": "theorem levels_getElem? (t : BinaryTree α) (k : Nat) (hk : k < t.height) :\n    (levels t)[k]? = some (level t k)"
+        }
+      ]
+    },
+    {
+      "path": "Examples/TreeLevels.lean",
+      "context_lines_in_source": [],
+      "bytes": 1874,
+      "sha256": "8c70f590b88a4f7c329a72a114af12fc12965e79d94ce6fc794fc6853dd1dc7b",
+      "declarations": [
+        {
+          "name": "TreeLevelsExamples.sample",
+          "kind": "def",
+          "header": "def sample : BinaryTree Nat"
+        },
+        {
+          "name": "TreeLevelsExamples.sample_levels",
+          "kind": "theorem",
+          "header": "theorem sample_levels : levels sample = [[9], [3, 7], [8, 4, 5], [6]]"
+        },
+        {
+          "name": "TreeLevelsExamples.sample_height",
+          "kind": "theorem",
+          "header": "theorem sample_height : sample.height = 4"
+        },
+        {
+          "name": "TreeLevelsExamples.sample_levels_length",
+          "kind": "theorem",
+          "header": "theorem sample_levels_length : (levels sample).length = 4"
+        },
+        {
+          "name": "TreeLevelsExamples.sample_level_two",
+          "kind": "theorem",
+          "header": "theorem sample_level_two : level sample 2 = [8, 4, 5]"
+        },
+        {
+          "name": "TreeLevelsExamples.sample_index_two",
+          "kind": "theorem",
+          "header": "theorem sample_index_two : (levels sample)[2]? = some [8, 4, 5]"
+        },
+        {
+          "name": "TreeLevelsExamples.sample_level_four",
+          "kind": "theorem",
+          "header": "theorem sample_level_four : level sample 4 = []"
+        },
+        {
+          "name": "TreeLevelsExamples.repeated",
+          "kind": "def",
+          "header": "def repeated : BinaryTree Nat"
+        },
+        {
+          "name": "TreeLevelsExamples.repeated_levels",
+          "kind": "theorem",
+          "header": "theorem repeated_levels : levels repeated = [[5], [5, 5]]"
+        },
+        {
+          "name": "TreeLevelsExamples.repeated_level_one",
+          "kind": "theorem",
+          "header": "theorem repeated_level_one : level repeated 1 = [5, 5]"
+        },
+        {
+          "name": "TreeLevelsExamples.repeated_index_one",
+          "kind": "theorem",
+          "header": "theorem repeated_index_one : (levels repeated)[1]? = some [5, 5]"
+        },
+        {
+          "name": "TreeLevelsExamples.empty_label_levels",
+          "kind": "theorem",
+          "header": "theorem empty_label_levels : levels (.nil : BinaryTree Empty) = []"
+        },
+        {
+          "name": "TreeLevelsExamples.empty_label_length",
+          "kind": "theorem",
+          "header": "theorem empty_label_length : (levels (.nil : BinaryTree Empty)).length = 0"
+        },
+        {
+          "name": "TreeLevelsExamples.empty_label_level",
+          "kind": "theorem",
+          "header": "theorem empty_label_level (k : Nat) : level (.nil : BinaryTree Empty) k = []"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Trees/Rose.lean",
+      "context_lines_in_source": [
+        "universe u",
+        "variable {α : Type u}"
+      ],
+      "bytes": 1849,
+      "sha256": "0a56ff6221c1f177c5127a43af32f4cb1c0d624d91f16ec661d916900ce89f71",
+      "declarations": [
+        {
+          "name": "Trees.Rose",
+          "kind": "inductive",
+          "header": "inductive Rose (α : Type u)"
+        },
+        {
+          "name": "Trees.Rose.node",
+          "kind": "constructor",
+          "header": "| node (label : α) (children : List (Rose α))",
+          "carrier": "Trees.Rose"
+        },
+        {
+          "name": "Trees.Rose.mirror",
+          "kind": "def",
+          "header": "def mirror (t : Rose α) : Rose α"
+        },
+        {
+          "name": "Trees.Rose.mirror_node",
+          "kind": "theorem",
+          "header": "@[simp] theorem mirror_node (a : α) (children : List (Rose α)) :\n    mirror (.node a children) = .node a ((children.map mirror).reverse)"
+        },
+        {
+          "name": "Trees.Rose.mirror_mirror",
+          "kind": "theorem",
+          "header": "theorem mirror_mirror (t : Rose α) : mirror (mirror t) = t"
+        }
+      ]
+    },
+    {
+      "path": "Examples/TreeRose.lean",
+      "context_lines_in_source": [],
+      "bytes": 1065,
+      "sha256": "7bf335b8acde9dcbab004179daa16a8e0671a18c50fcbc17b4377ec831d34f02",
+      "declarations": [
+        {
+          "name": "TreeRoseExamples.sample",
+          "kind": "def",
+          "header": "def sample : Rose Nat"
+        },
+        {
+          "name": "TreeRoseExamples.sample_mirror",
+          "kind": "theorem",
+          "header": "theorem sample_mirror :\n    Rose.mirror sample =\n      .node 9 [.node 8 [], .node 7 [.node 6 [.node 5 []]],\n        .node 3 [.node 2 [], .node 1 []]]"
+        },
+        {
+          "name": "TreeRoseExamples.sample_mirror_mirror",
+          "kind": "theorem",
+          "header": "theorem sample_mirror_mirror : Rose.mirror (Rose.mirror sample) = sample"
+        },
+        {
+          "name": "TreeRoseExamples.repeated",
+          "kind": "def",
+          "header": "def repeated : Rose Nat"
+        },
+        {
+          "name": "TreeRoseExamples.repeated_mirror",
+          "kind": "theorem",
+          "header": "theorem repeated_mirror : Rose.mirror repeated = .node 5 [.node 5 [], .node 5 []]"
+        },
+        {
+          "name": "TreeRoseExamples.repeated_mirror_mirror",
+          "kind": "theorem",
+          "header": "theorem repeated_mirror_mirror : Rose.mirror (Rose.mirror repeated) = repeated"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Trees/Enumeration.lean",
+      "context_lines_in_source": [
+        "universe u",
+        "variable {α : Type u}"
+      ],
+      "bytes": 6707,
+      "sha256": "c5e91cbaf276843941d31eec5b5cf1693cfe885f43c8831fd9246559712249c3",
+      "declarations": [
+        {
+          "name": "Trees.insertFirst",
+          "kind": "def",
+          "header": "def insertFirst (x : α) : BinaryTree α → List (BinaryTree α)"
+        },
+        {
+          "name": "Trees.insertFirst_nil",
+          "kind": "theorem",
+          "header": "@[simp] theorem insertFirst_nil (x : α) :\n    insertFirst x .nil = [.node x .nil .nil]"
+        },
+        {
+          "name": "Trees.insertFirst_node",
+          "kind": "theorem",
+          "header": "@[simp] theorem insertFirst_node (x a : α) (l r : BinaryTree α) :\n    insertFirst x (.node a l r) = .node x .nil (.node a l r) ::\n      (insertFirst x l).map (fun l' => .node a l' r)"
+        },
+        {
+          "name": "Trees.removeFirst",
+          "kind": "def",
+          "header": "def removeFirst : BinaryTree α → BinaryTree α"
+        },
+        {
+          "name": "Trees.removeFirst_node_of_ne_nil",
+          "kind": "theorem",
+          "header": "theorem removeFirst_node_of_ne_nil (a : α) (l r : BinaryTree α) (hl : l ≠ .nil) :\n    removeFirst (.node a l r) = .node a (removeFirst l) r"
+        },
+        {
+          "name": "Trees.nil_not_mem_insertFirst",
+          "kind": "theorem",
+          "header": "@[simp] theorem nil_not_mem_insertFirst (x : α) (t : BinaryTree α) :\n    (.nil : BinaryTree α) ∉ insertFirst x t"
+        },
+        {
+          "name": "Trees.inorder_of_mem_insertFirst",
+          "kind": "theorem",
+          "header": "theorem inorder_of_mem_insertFirst (x : α) {s t : BinaryTree α}\n    (ht : t ∈ insertFirst x s) : inorder t = x :: inorder s"
+        },
+        {
+          "name": "Trees.removeFirst_of_mem_insertFirst",
+          "kind": "theorem",
+          "header": "theorem removeFirst_of_mem_insertFirst (x : α) {s t : BinaryTree α}\n    (ht : t ∈ insertFirst x s) : removeFirst t = s"
+        },
+        {
+          "name": "Trees.nodup_insertFirst",
+          "kind": "theorem",
+          "header": "theorem nodup_insertFirst (x : α) (t : BinaryTree α) :\n    (insertFirst x t).Nodup"
+        },
+        {
+          "name": "Trees.exists_insertFirst_of_inorder_cons",
+          "kind": "theorem",
+          "header": "theorem exists_insertFirst_of_inorder_cons (x : α) (xs : List α) (t : BinaryTree α)\n    (ht : inorder t = x :: xs) :\n    ∃ s, inorder s = xs ∧ t ∈ insertFirst x s"
+        },
+        {
+          "name": "Trees.insertFirst_flatMap_nodup",
+          "kind": "theorem",
+          "header": "theorem insertFirst_flatMap_nodup (x : α) (ts : List (BinaryTree α))\n    (hts : ts.Nodup) : (ts.flatMap (insertFirst x)).Nodup"
+        },
+        {
+          "name": "Trees.enumTree",
+          "kind": "def",
+          "header": "def enumTree : List α → List (BinaryTree α)"
+        },
+        {
+          "name": "Trees.enumTree_nil",
+          "kind": "theorem",
+          "header": "@[simp] theorem enumTree_nil : enumTree ([] : List α) = [.nil]"
+        },
+        {
+          "name": "Trees.enumTree_cons",
+          "kind": "theorem",
+          "header": "@[simp] theorem enumTree_cons (x : α) (xs : List α) :\n    enumTree (x :: xs) = (enumTree xs).flatMap (insertFirst x)"
+        },
+        {
+          "name": "Trees.mem_enumTree_iff",
+          "kind": "theorem",
+          "header": "theorem mem_enumTree_iff (xs : List α) (t : BinaryTree α) :\n    t ∈ enumTree xs ↔ inorder t = xs"
+        },
+        {
+          "name": "Trees.set_enumTree",
+          "kind": "theorem",
+          "header": "theorem set_enumTree (xs : List α) :\n    {t | t ∈ enumTree xs} = {t : BinaryTree α | inorder t = xs}"
+        },
+        {
+          "name": "Trees.enumTree_nodup",
+          "kind": "theorem",
+          "header": "theorem enumTree_nodup (xs : List α) : (enumTree xs).Nodup"
+        }
+      ]
+    },
+    {
+      "path": "Examples/TreeEnumeration.lean",
+      "context_lines_in_source": [
+        "universe u",
+        "variable {α : Type u}"
+      ],
+      "bytes": 2078,
+      "sha256": "54d112abab423482045370339e5f9bb5144adb599d39baedc6e22a18cb3247de",
+      "declarations": [
+        {
+          "name": "TreeEnumerationExamples.empty_label_enum",
+          "kind": "theorem",
+          "header": "theorem empty_label_enum : enumTree ([] : List Empty) = [.nil]"
+        },
+        {
+          "name": "TreeEnumerationExamples.empty_label_nodup",
+          "kind": "theorem",
+          "header": "theorem empty_label_nodup : (enumTree ([] : List Empty)).Nodup"
+        },
+        {
+          "name": "TreeEnumerationExamples.singleton_enum",
+          "kind": "theorem",
+          "header": "theorem singleton_enum (a : α) : enumTree [a] = [.node a .nil .nil]"
+        },
+        {
+          "name": "TreeEnumerationExamples.pair_enum",
+          "kind": "theorem",
+          "header": "theorem pair_enum (a b : α) :\n    enumTree [a, b] =\n      [.node a .nil (.node b .nil .nil), .node b (.node a .nil .nil) .nil]"
+        },
+        {
+          "name": "TreeEnumerationExamples.repeated_shapes_nodup",
+          "kind": "theorem",
+          "header": "theorem repeated_shapes_nodup (a : α) :\n    ([.node a .nil (.node a .nil .nil), .node a (.node a .nil .nil) .nil] :\n      List (BinaryTree α)).Nodup"
+        },
+        {
+          "name": "TreeEnumerationExamples.repeated_shapes_distinct",
+          "kind": "theorem",
+          "header": "theorem repeated_shapes_distinct (a : α) :\n    (.node a .nil (.node a .nil .nil) : BinaryTree α) ≠\n      .node a (.node a .nil .nil) .nil"
+        },
+        {
+          "name": "TreeEnumerationExamples.three_enum",
+          "kind": "theorem",
+          "header": "theorem three_enum :\n    enumTree ([1, 2, 3] : List Nat) =\n      [.node 1 .nil (.node 2 .nil (.node 3 .nil .nil)),\n        .node 2 (.node 1 .nil .nil) (.node 3 .nil .nil),\n        .node 1 .nil (.node 3 (.node 2 .nil .nil) .nil),\n        .node 3 (.node 1 .nil (.node 2 .nil .nil)) .nil,\n        .node 3 (.node 2 (.node 1 .nil .nil) .nil) .nil]"
+        },
+        {
+          "name": "TreeEnumerationExamples.three_nodup",
+          "kind": "theorem",
+          "header": "theorem three_nodup : (enumTree ([1, 2, 3] : List Nat)).Nodup"
+        },
+        {
+          "name": "TreeEnumerationExamples.sample",
+          "kind": "def",
+          "header": "def sample : BinaryTree Nat"
+        },
+        {
+          "name": "TreeEnumerationExamples.sample_member",
+          "kind": "theorem",
+          "header": "theorem sample_member : sample ∈ enumTree [3, 9, 7]"
+        },
+        {
+          "name": "TreeEnumerationExamples.sample_not_wrong_order",
+          "kind": "theorem",
+          "header": "theorem sample_not_wrong_order : sample ∉ enumTree [9, 3, 7]"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Trees/Reconstruction.lean",
+      "context_lines_in_source": [
+        "universe u",
+        "variable {α : Type u}"
+      ],
+      "bytes": 4278,
+      "sha256": "19750df3d7e88204bfdbbb6322d14403faa7dae64794a3fdb833d0dd54da4943",
+      "declarations": [
+        {
+          "name": "Trees.reconstruct?",
+          "kind": "def",
+          "header": "def reconstruct? [DecidableEq α] : List α → List α → Option (BinaryTree α)"
+        },
+        {
+          "name": "Trees.reconstruct?_nil_nil",
+          "kind": "theorem",
+          "header": "@[simp] theorem reconstruct?_nil_nil [DecidableEq α] :\n    reconstruct? ([] : List α) [] = some .nil"
+        },
+        {
+          "name": "Trees.reconstruct?_nil_cons",
+          "kind": "theorem",
+          "header": "@[simp] theorem reconstruct?_nil_cons [DecidableEq α] (a : α) (ino : List α) :\n    reconstruct? [] (a :: ino) = none"
+        },
+        {
+          "name": "Trees.reconstruct?_cons",
+          "kind": "theorem",
+          "header": "theorem reconstruct?_cons [DecidableEq α] (a : α) (pre ino : List α) :\n    reconstruct? (a :: pre) ino =\n      if a ∈ ino then\n        match reconstruct? (pre.take (ino.idxOf a)) (ino.take (ino.idxOf a)),\n          reconstruct? (pre.drop (ino.idxOf a)) (ino.drop (ino.idxOf a + 1)) with\n        | some l, some r => some (.node a l r)\n        | _, _ => none\n      else none"
+        },
+        {
+          "name": "Trees.reconstruct?_cons_of_not_mem",
+          "kind": "theorem",
+          "header": "theorem reconstruct?_cons_of_not_mem [DecidableEq α] (a : α) (pre ino : List α)\n    (ha : a ∉ ino) : reconstruct? (a :: pre) ino = none"
+        },
+        {
+          "name": "Trees.reconstruct",
+          "kind": "def",
+          "header": "def reconstruct [DecidableEq α] (pre ino : List α) : BinaryTree α"
+        },
+        {
+          "name": "Trees.reconstruct_nil_nil",
+          "kind": "theorem",
+          "header": "@[simp] theorem reconstruct_nil_nil [DecidableEq α] :\n    reconstruct ([] : List α) [] = .nil"
+        },
+        {
+          "name": "Trees.reconstruct_of_none",
+          "kind": "theorem",
+          "header": "theorem reconstruct_of_none [DecidableEq α] {pre ino : List α}\n    (h : reconstruct? pre ino = none) : reconstruct pre ino = .nil"
+        },
+        {
+          "name": "Trees.reconstruct?_traversals",
+          "kind": "theorem",
+          "header": "theorem reconstruct?_traversals [DecidableEq α] (t : BinaryTree α)\n    (hn : (preorder t).Nodup) : reconstruct? (preorder t) (inorder t) = some t"
+        },
+        {
+          "name": "Trees.reconstruct_traversals",
+          "kind": "theorem",
+          "header": "theorem reconstruct_traversals [DecidableEq α] (t : BinaryTree α)\n    (hn : (preorder t).Nodup) : reconstruct (preorder t) (inorder t) = t"
+        }
+      ]
+    },
+    {
+      "path": "Examples/TreeReconstruction.lean",
+      "context_lines_in_source": [
+        "universe u",
+        "variable {α : Type u}"
+      ],
+      "bytes": 4034,
+      "sha256": "c5ca06a87724097c9dbe03e0f87e0105182738316b473b55b3ac336b216c2de1",
+      "declarations": [
+        {
+          "name": "TreeReconstructionExamples.sample",
+          "kind": "def",
+          "header": "def sample : BinaryTree Nat"
+        },
+        {
+          "name": "TreeReconstructionExamples.sample_preorder",
+          "kind": "theorem",
+          "header": "theorem sample_preorder : preorder sample = [9, 3, 5, 7, 6]"
+        },
+        {
+          "name": "TreeReconstructionExamples.sample_inorder",
+          "kind": "theorem",
+          "header": "theorem sample_inorder : inorder sample = [3, 5, 9, 6, 7]"
+        },
+        {
+          "name": "TreeReconstructionExamples.sample_preorder_nodup",
+          "kind": "theorem",
+          "header": "theorem sample_preorder_nodup : (preorder sample).Nodup"
+        },
+        {
+          "name": "TreeReconstructionExamples.sample_reconstruct?",
+          "kind": "theorem",
+          "header": "theorem sample_reconstruct? :\n    reconstruct? [9, 3, 5, 7, 6] [3, 5, 9, 6, 7] = some sample"
+        },
+        {
+          "name": "TreeReconstructionExamples.sample_reconstruct",
+          "kind": "theorem",
+          "header": "theorem sample_reconstruct :\n    reconstruct [9, 3, 5, 7, 6] [3, 5, 9, 6, 7] = sample"
+        },
+        {
+          "name": "TreeReconstructionExamples.singleton_reconstruct",
+          "kind": "theorem",
+          "header": "theorem singleton_reconstruct [DecidableEq α] (a : α) :\n    reconstruct [a] [a] = .node a .nil .nil"
+        },
+        {
+          "name": "TreeReconstructionExamples.empty_labels",
+          "kind": "theorem",
+          "header": "theorem empty_labels : reconstruct ([] : List Empty) [] = .nil"
+        },
+        {
+          "name": "TreeReconstructionExamples.empty_mismatch",
+          "kind": "theorem",
+          "header": "theorem empty_mismatch : reconstruct? ([] : List Nat) [1] = none"
+        },
+        {
+          "name": "TreeReconstructionExamples.empty_mismatch_fallback",
+          "kind": "theorem",
+          "header": "theorem empty_mismatch_fallback : reconstruct ([] : List Nat) [1] = .nil"
+        },
+        {
+          "name": "TreeReconstructionExamples.missing_root",
+          "kind": "theorem",
+          "header": "theorem missing_root : reconstruct? ([9] : List Nat) [3] = none"
+        },
+        {
+          "name": "TreeReconstructionExamples.surplus_preorder",
+          "kind": "theorem",
+          "header": "theorem surplus_preorder : reconstruct? ([1, 2] : List Nat) [1] = none"
+        },
+        {
+          "name": "TreeReconstructionExamples.surplus_inorder",
+          "kind": "theorem",
+          "header": "theorem surplus_inorder : reconstruct? ([1] : List Nat) [1, 2] = none"
+        },
+        {
+          "name": "TreeReconstructionExamples.same_labels_do_not_suffice",
+          "kind": "theorem",
+          "header": "theorem same_labels_do_not_suffice :\n    ([1, 2, 3] : List Nat).Perm [3, 1, 2] ∧\n      reconstruct? ([1, 2, 3] : List Nat) [3, 1, 2] = none"
+        },
+        {
+          "name": "TreeReconstructionExamples.same_labels_not_joint_traversals",
+          "kind": "theorem",
+          "header": "theorem same_labels_not_joint_traversals :\n    ¬ ∃ t : BinaryTree Nat, preorder t = [1, 2, 3] ∧ inorder t = [3, 1, 2]"
+        },
+        {
+          "name": "TreeReconstructionExamples.leftRepeated",
+          "kind": "def",
+          "header": "def leftRepeated (a : α) : BinaryTree α"
+        },
+        {
+          "name": "TreeReconstructionExamples.rightRepeated",
+          "kind": "def",
+          "header": "def rightRepeated (a : α) : BinaryTree α"
+        },
+        {
+          "name": "TreeReconstructionExamples.repeated_traversals",
+          "kind": "theorem",
+          "header": "theorem repeated_traversals (a : α) :\n    preorder (leftRepeated a) = [a, a] ∧ preorder (rightRepeated a) = [a, a] ∧\n      inorder (leftRepeated a) = [a, a] ∧ inorder (rightRepeated a) = [a, a]"
+        },
+        {
+          "name": "TreeReconstructionExamples.repeated_trees_distinct",
+          "kind": "theorem",
+          "header": "theorem repeated_trees_distinct (a : α) : leftRepeated a ≠ rightRepeated a"
+        },
+        {
+          "name": "TreeReconstructionExamples.repeated_preorder_not_nodup",
+          "kind": "theorem",
+          "header": "theorem repeated_preorder_not_nodup (a : α) : ¬ (preorder (leftRepeated a)).Nodup"
+        },
+        {
+          "name": "TreeReconstructionExamples.repeated_parser_choice",
+          "kind": "theorem",
+          "header": "theorem repeated_parser_choice [DecidableEq α] (a : α) :\n    reconstruct [a, a] [a, a] = rightRepeated a"
+        },
+        {
+          "name": "TreeReconstructionExamples.repeated_left_not_recovered",
+          "kind": "theorem",
+          "header": "theorem repeated_left_not_recovered [DecidableEq α] (a : α) :\n    reconstruct (preorder (leftRepeated a)) (inorder (leftRepeated a)) ≠ leftRepeated a"
+        }
+      ]
+    }
+  ],
+  "total_authored_declarations": 98,
+  "kinds": {
+    "def": 17,
+    "theorem": 79,
+    "inductive": 1,
+    "constructor": 1
+  }
+}

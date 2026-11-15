@@ -1,0 +1,82 @@
+{
+  "recorded_utc": "2026-11-05T00:16:33.290906+00:00",
+  "reviewer": "/root/chapter03_standards",
+  "axis": "Standards",
+  "finding": "C03-SPEC-USE-001",
+  "disposition": "Resolved in this independent axis at exact2ff47bda; whole chapter remains Blocked",
+  "candidate": "2ff47bdad9f822727fb2d1ea86092c4b26ad0cb6",
+  "tree": "bbfc8bb8fdda491f978c8de76b0077e5f34d4f89",
+  "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "full_scope_retained": "Original Q-to-final and all83 frozen obligations; no nested loop or scope reset.",
+  "source_diff_receipt": "a3faca",
+  "expected_case_program_candidate_records_receipt": "04dda9",
+  "actual_full_log_and_type_read_receipt": "a36baf",
+  "independent_assessment": [
+    "The exact diff adds one closed checked application and the matching C03-005 mapping; no core theorem, old example body, instance or simp registration changes.",
+    "The source instantiates both advertised sorted-filter helpers at the sorted duplicate list[1,2,2,3], zero-based index2, selected value2. Sortedness and optional index equality are proved by kernel decide and rfl.",
+    "The smaller filter is[1], while take2 retains[1,2]; the greater filter is[3], equal to drop3. This is a meaningful tie-sensitive client of both interfaces, not a restatement or disconnected arithmetic proof.",
+    "The actual fully explicit 636-byte type is precisely the closed conjunction List.Sublist at Nat:[1]<+[1,2] and[3]<+[3]. There are no additional parameters, conditional hypotheses or unintended instances.",
+    "Both actual terminal exits are0, the complete closed logs and preserved native-body construction agree with their recorded hashes, and the focused run built the changed example.",
+    "Independent pre/post reconciliation at a36baf confirms identical capture identities for9local sources/27objects, and all9source plus10configuration hashes match exact2ff. This addresses the changed client; final whole-candidate validation remains mandatory."
+  ],
+  "runs": {
+    "chapter03-count-rank-use-focused-attempt1-20261105": {
+      "candidate": "2ff47bdad9f822727fb2d1ea86092c4b26ad0cb6",
+      "outer": {
+        "bytes": 1100,
+        "sha256": "f45b35a2242a252538f6c5ca2450abcdd2c37aaeb844deb1660b56acc92ba330"
+      },
+      "native": {
+        "bytes": 830,
+        "sha256": "68b6c2404ccde3f4e877849dcf367b74dd537282b735831f84dc58986fe6e87b"
+      },
+      "actual_exit": 0,
+      "actual_terminal": "cc4e3c",
+      "closed_record": {
+        "bytes": 2216,
+        "sha256": "f37b63b1cba5e59b2aa42ffe513507df56caf23e4d3f8daf5176f6b8a62962f7"
+      },
+      "scope": "Focused development evidence only; not full candidate validation."
+    },
+    "chapter03-count-rank-use-statements1-attempt1-20261105": {
+      "candidate": "2ff47bdad9f822727fb2d1ea86092c4b26ad0cb6",
+      "outer": {
+        "bytes": 1005,
+        "sha256": "f09d3132d19b7cfbf82894d5ff76eb6b97cedc71992629f2c7b66f82082e62da"
+      },
+      "native": {
+        "bytes": 636,
+        "sha256": "35f4982aa1ea24b00d7ffa72c987fb0e42d370d5c0f758116b35b584ae13ba00"
+      },
+      "actual_exit": 0,
+      "actual_terminal": "12dbf7",
+      "closed_record": {
+        "bytes": 2187,
+        "sha256": "04c953a78c2b61a5a8e960b54bbe5ab957e05214aa8be8849cb0023fd762af33"
+      },
+      "scope": "Focused development evidence only; not full candidate validation."
+    }
+  },
+  "stable_input_capture": {
+    "pre": {
+      "bytes": 13868,
+      "sha256": "3770e36a7166ab1e8ade7039000457950e5b996f5d619dd92fdfb5393644d91d"
+    },
+    "post": {
+      "bytes": 14170,
+      "sha256": "e06d6aef6c75093618330b592c77cd30b22afe881af1bed27f683a859a550d0c"
+    },
+    "independent_reconciliation_receipt": "a36baf"
+  },
+  "prefix1321_reconciliation": {
+    "receipt": "f9da0b",
+    "result": "Saved pre/post identity exactly equal; all107local source and10configuration bytes match38 and690; program hash and1321names match index; all9dependency pins match tracked manifest.",
+    "limit": "Saved input-record reconciliation, not live output qualification, final2ff fullcandidate assessment or semantic review of all1321types."
+  },
+  "cumulative_actual_type_blocks_assessed": 375,
+  "type_coverage": "374 earlier prefix blocks plus this one added declaration; separate23trace types remain unread.",
+  "whole_chapter_outcome": "Blocked",
+  "remaining_finding": "C03-STD-DOC-001 remains open until its exact source correction is assessed.",
+  "final_gates": "Unread source/types/docs, source universal witness stage, final normal check/exhaustive audit, complete independent outcomes and immediate verification remain pending.",
+  "compiler_launched_by_reviewer": false
+}

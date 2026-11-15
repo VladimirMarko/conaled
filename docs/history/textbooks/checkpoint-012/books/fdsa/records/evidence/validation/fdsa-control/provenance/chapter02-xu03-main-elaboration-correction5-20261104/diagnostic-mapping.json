@@ -1,0 +1,78 @@
+{
+  "author": "/root/shared_acceptance_sequence",
+  "kind": "Author diagnostic mapping and proposed proof repair; not independent finding closure or compiler result.",
+  "source_diagnostics": {
+    "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/actual-diagnostics.txt",
+    "bytes": 4562,
+    "lines": 38,
+    "sha256": "aae52fd32b109afe9662d085a4ba80200afa3c311d80eca734155d5c4fc75c24"
+  },
+  "items": [
+    {
+      "id": "XU03-MAIN-ELAB-001",
+      "reported_original_line": 102,
+      "declaration": "tail_23_mass",
+      "new_declaration_line": 100,
+      "original_obligation": "Membership of [2,3] in orders positions (selected.erase 0)",
+      "actual_failure": "Closed decide reduction stopped in List.permutations.dedup.",
+      "repair": "Unfold orders; use exact toFinset equality induced by permutations_perm_permutations' of the identical filtered positions; ordinary decide.",
+      "preserved_connection": "cond_tail_eq positions positions_nodup positions_complete selected 0 ... [2,3] remains the mass connection; conclusion1/2.",
+      "status": "Source repair prepared; uncompiled; independent assessment and actual validation pending."
+    },
+    {
+      "id": "XU03-MAIN-ELAB-002",
+      "reported_original_line": 114,
+      "declaration": "tail_32_mass",
+      "new_declaration_line": 115,
+      "original_obligation": "Membership of [3,2] in orders positions remaining",
+      "actual_failure": "Closed decide reduction stopped in List.permutations.dedup.",
+      "repair": "Same exact support-finset equality, with unchanged remaining set.",
+      "preserved_connection": "mass_of_law tail_hasLaw [3,2] remains the mass connection; conclusion1/2.",
+      "status": "Source repair prepared; uncompiled; independent assessment and actual validation pending."
+    },
+    {
+      "id": "XU03-MAIN-ELAB-003",
+      "reported_original_line": 120,
+      "declaration": "repeated_tail_mass_zero",
+      "new_declaration_line": 127,
+      "original_obligation": "Nonmembership of [2,2] in orders positions (selected.erase 0)",
+      "actual_failure": "Closed decide reduction stopped in List.permutations.dedup.",
+      "repair": "Same exact support-finset equality, under nonmembership; ordinary decide retains the unsupported-output case.",
+      "preserved_connection": "cond_tail_eq and its off-support ite branch remain; conclusion0.",
+      "status": "Source repair prepared; uncompiled; independent assessment and actual validation pending."
+    },
+    {
+      "id": "XU03-MAIN-ELAB-004",
+      "reported_original_line": 146,
+      "declaration": "filtered_tail_mass",
+      "new_declaration_line": 158,
+      "original_obligation": "Membership of [3] in orders positions {3}",
+      "actual_failure": "Closed decide reduction stopped in List.permutations.dedup.",
+      "repair": "Same exact support-finset equality for the singleton Fin4 set {3}.",
+      "preserved_connection": "mass_of_law filtered_tail_hasLaw [3] remains; actual filtered-tail law and projection bridge are unchanged; conclusion1.",
+      "status": "Source repair prepared; uncompiled; independent assessment and actual validation pending."
+    },
+    {
+      "id": "XU03-MAIN-ELAB-005",
+      "reported_original_line": 163,
+      "declaration": "environment_changed",
+      "new_declaration_line": 181,
+      "original_obligation": "afterFirst ≠ law from the same first-event evaluation",
+      "actual_failure": "After existing rewrites/norm_num, hmass:1=3⁻¹ remained with goal False.",
+      "repair": "Apply inverse to the original hmass; one_div, inv_one and inv_inv yield1=3; norm_num supplies the numeral contradiction.",
+      "preserved_connection": "The actual measure equality assumption and congrArg evaluation at firstEvent observedOrder0 are unchanged; no field structure or extra hypothesis.",
+      "status": "Source repair prepared; uncompiled; independent assessment and actual validation pending."
+    },
+    {
+      "id": "XU03-MAIN-ELAB-006",
+      "reported_original_line": 194,
+      "declaration": "last_tail_mass",
+      "new_declaration_line": 211,
+      "original_obligation": "Membership of [3] in orders positions (remaining.erase 2)",
+      "actual_failure": "Closed decide reduction stopped in List.permutations.dedup.",
+      "repair": "Same exact support-finset equality for the unchanged remaining.erase2 set.",
+      "preserved_connection": "mass_of_law last_tail_hasLaw [3] remains; actual afterSecond nested conditional environment retained; conclusion1.",
+      "status": "Source repair prepared; uncompiled; independent assessment and actual validation pending."
+    }
+  ]
+}

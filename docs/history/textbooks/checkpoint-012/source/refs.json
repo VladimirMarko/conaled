@@ -1,0 +1,829 @@
+{
+  "base_commit": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "baseline_refs": [
+    {
+      "object": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "original_ref": "refs/heads/local/vfa",
+      "stored_ref": "refs/checkpoint/base/heads/local/vfa"
+    },
+    {
+      "object": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+      "original_ref": "refs/heads/local/vfa-recovery",
+      "stored_ref": "refs/checkpoint/base/heads/local/vfa-recovery"
+    },
+    {
+      "object": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+      "observed_date": "2026-11-13",
+      "original_ref": "refs/heads/master",
+      "stored_ref": "refs/checkpoint/integration/master-20261113"
+    }
+  ],
+  "books": {
+    "fdsa": {
+      "original_head_commit": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "original_head_ref": "refs/heads/work/fdsa-book",
+      "original_index_worktree_changes": "none",
+      "refs": [
+        {
+          "object": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "original_ref": "refs/heads/master",
+          "stored_ref": "refs/checkpoint/fdsa/heads/master"
+        },
+        {
+          "object": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+          "original_ref": "refs/heads/work/fdsa-accumulated-work",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-accumulated-work"
+        },
+        {
+          "object": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+          "original_ref": "refs/heads/work/fdsa-adt-refinement",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-adt-refinement"
+        },
+        {
+          "object": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+          "original_ref": "refs/heads/work/fdsa-affine-integration",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-affine-integration"
+        },
+        {
+          "object": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+          "original_ref": "refs/heads/work/fdsa-affine-recurrence",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-affine-recurrence"
+        },
+        {
+          "object": "07e480f6ec9958d4975bb90151005b84f2907614",
+          "original_ref": "refs/heads/work/fdsa-basics-cost-models",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-basics-cost-models"
+        },
+        {
+          "object": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+          "original_ref": "refs/heads/work/fdsa-book",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-book"
+        },
+        {
+          "object": "156ba8170852f8e7f0b8c09315e35b837ce77ff9",
+          "original_ref": "refs/heads/work/fdsa-braun-shape",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-braun-shape"
+        },
+        {
+          "object": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+          "original_ref": "refs/heads/work/fdsa-builder-costs",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-builder-costs"
+        },
+        {
+          "object": "43242f43cba0f2c90c17356d44d71e5765d8ba93",
+          "original_ref": "refs/heads/work/fdsa-ch02-alternating",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch02-alternating"
+        },
+        {
+          "object": "a6f950d7d5dc4aef521445250f9bfbd59166291d",
+          "original_ref": "refs/heads/work/fdsa-ch02-bottom-up",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch02-bottom-up"
+        },
+        {
+          "object": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+          "original_ref": "refs/heads/work/fdsa-ch02-development",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch02-development"
+        },
+        {
+          "object": "95cfce304b9b63057286acc7d5b20b53d95d8eaa",
+          "original_ref": "refs/heads/work/fdsa-ch02-insertion-observations",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch02-insertion-observations"
+        },
+        {
+          "object": "47f66dccc414d41bddf0dc6576a2338227ee221e",
+          "original_ref": "refs/heads/work/fdsa-ch02-natural-runs",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch02-natural-runs"
+        },
+        {
+          "object": "5a3af21cb4ff56896f1a7d249736c4804c229873",
+          "original_ref": "refs/heads/work/fdsa-ch02-quicksort",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch02-quicksort"
+        },
+        {
+          "object": "15a113b075c2ceb4d44c27a06fa9a69e019b57fc",
+          "original_ref": "refs/heads/work/fdsa-ch02-random-pivot",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch02-random-pivot"
+        },
+        {
+          "object": "e0df28b7bbfa722b25623606a5a1905620fac91e",
+          "original_ref": "refs/heads/work/fdsa-ch02-three-way",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch02-three-way"
+        },
+        {
+          "object": "66cd1cca539cb667a7bae17d91d51c0ffeb718dc",
+          "original_ref": "refs/heads/work/fdsa-ch02-top-down",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch02-top-down"
+        },
+        {
+          "object": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+          "original_ref": "refs/heads/work/fdsa-ch02-top-down-costs",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch02-top-down-costs"
+        },
+        {
+          "object": "3b839319776238fe2a46f22db761058b44d68adc",
+          "original_ref": "refs/heads/work/fdsa-ch02-uniform-input",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch02-uniform-input"
+        },
+        {
+          "object": "b1677172ef85e40865fe8f292660c1bcfd6e5a0c",
+          "original_ref": "refs/heads/work/fdsa-ch02-values",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch02-values"
+        },
+        {
+          "object": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+          "original_ref": "refs/heads/work/fdsa-ch03-integration",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch03-integration"
+        },
+        {
+          "object": "1249f39968a44a25bfe3932d84a2cb44c6a83515",
+          "original_ref": "refs/heads/work/fdsa-ch03-mom-execution",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch03-mom-execution"
+        },
+        {
+          "object": "569545102ff70697066de429eb02f9f47dffa07f",
+          "original_ref": "refs/heads/work/fdsa-ch03-query-lower-bounds",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch03-query-lower-bounds"
+        },
+        {
+          "object": "96722600aa29636e028751242ce33d562c5a9255",
+          "original_ref": "refs/heads/work/fdsa-ch03-random-selection",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch03-random-selection"
+        },
+        {
+          "object": "660f974640fb89a766b26a4d786ae7ed197cecf2",
+          "original_ref": "refs/heads/work/fdsa-ch03-rounded-recurrence",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch03-rounded-recurrence"
+        },
+        {
+          "object": "18cde548c080b24d182e754db0e13b0df2d91c15",
+          "original_ref": "refs/heads/work/fdsa-ch03-values",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch03-values"
+        },
+        {
+          "object": "a8f57dbf153c19e3bad2c8136a90b566eeb35374",
+          "original_ref": "refs/heads/work/fdsa-ch04-balancing",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-balancing"
+        },
+        {
+          "object": "d02419738a9e16963727b25acf2e18f374dd16de",
+          "original_ref": "refs/heads/work/fdsa-ch04-exercises",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-exercises"
+        },
+        {
+          "object": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1",
+          "original_ref": "refs/heads/work/fdsa-ch04-structural",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-structural"
+        },
+        {
+          "object": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+          "original_ref": "refs/heads/work/fdsa-chapter02-integration",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-chapter02-integration"
+        },
+        {
+          "object": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+          "original_ref": "refs/heads/work/fdsa-foundation-integration",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-foundation-integration"
+        },
+        {
+          "object": "697bcf242ce65d74815b5639bddb1c6e754dd10f",
+          "original_ref": "refs/heads/work/fdsa-insertion-costs",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-insertion-costs"
+        },
+        {
+          "object": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+          "original_ref": "refs/heads/work/fdsa-list-foundations",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-list-foundations"
+        },
+        {
+          "object": "a601ad713368daf8e18d5a5537a83d47138491fa",
+          "original_ref": "refs/heads/work/fdsa-logarithm-bounds",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-logarithm-bounds"
+        },
+        {
+          "object": "932438a765340d69fa6402f6abd17def6ec28d13",
+          "original_ref": "refs/heads/work/fdsa-order-integration",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-order-integration"
+        },
+        {
+          "object": "863aedb924e922ac40747c0ef299701a7785488e",
+          "original_ref": "refs/heads/work/fdsa-ordered-search",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ordered-search"
+        },
+        {
+          "object": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+          "original_ref": "refs/heads/work/fdsa-ordinary-merge",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ordinary-merge"
+        },
+        {
+          "object": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+          "original_ref": "refs/heads/work/fdsa-partition-proof-fixes",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-partition-proof-fixes"
+        },
+        {
+          "object": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+          "original_ref": "refs/heads/work/fdsa-permutation-expectation",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-permutation-expectation"
+        },
+        {
+          "object": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+          "original_ref": "refs/heads/work/fdsa-permutation-joint",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-permutation-joint"
+        },
+        {
+          "object": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+          "original_ref": "refs/heads/work/fdsa-permutation-minimum",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-permutation-minimum"
+        },
+        {
+          "object": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+          "original_ref": "refs/heads/work/fdsa-permutation-minimum-validation",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-permutation-minimum-validation"
+        },
+        {
+          "object": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+          "original_ref": "refs/heads/work/fdsa-permutation-order",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-permutation-order"
+        },
+        {
+          "object": "bdac9703aab4b383fa775568d36bf685af329389",
+          "original_ref": "refs/heads/work/fdsa-permutation-order-validation",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-permutation-order-validation"
+        },
+        {
+          "object": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+          "original_ref": "refs/heads/work/fdsa-permutation-placement",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-permutation-placement"
+        },
+        {
+          "object": "a0597381f02eddd074ee96cabaa974f2062285f8",
+          "original_ref": "refs/heads/work/fdsa-permutation-tail",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-permutation-tail"
+        },
+        {
+          "object": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+          "original_ref": "refs/heads/work/fdsa-permutation-tail-validation",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-permutation-tail-validation"
+        },
+        {
+          "object": "12cb14fc98b8617b3b625620da8e60936daba340",
+          "original_ref": "refs/heads/work/fdsa-potential-development",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-potential-development"
+        },
+        {
+          "object": "c088beeb89aa18df45a56f6f1d6b6ff4ad374905",
+          "original_ref": "refs/heads/work/fdsa-priority-observations",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-priority-observations"
+        },
+        {
+          "object": "312aafb4446b995ff5542041b4e2e074f776db1e",
+          "original_ref": "refs/heads/work/fdsa-shared-four-integration",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-shared-four-integration"
+        },
+        {
+          "object": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+          "original_ref": "refs/heads/work/fdsa-tail-integration",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tail-integration"
+        },
+        {
+          "object": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+          "original_ref": "refs/heads/work/fdsa-three-way-partition",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-three-way-partition"
+        },
+        {
+          "object": "b035f1151ab4f0c7d7380818576cfe97dae434c4",
+          "original_ref": "refs/heads/work/fdsa-tree-accumulator",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-accumulator"
+        },
+        {
+          "object": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+          "original_ref": "refs/heads/work/fdsa-tree-cache",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-cache"
+        },
+        {
+          "object": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+          "original_ref": "refs/heads/work/fdsa-tree-cache-integration",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-cache-integration"
+        },
+        {
+          "object": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+          "original_ref": "refs/heads/work/fdsa-tree-fold",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-fold"
+        },
+        {
+          "object": "7b8ab2bee299c937256bf9ce7e82977333d07134",
+          "original_ref": "refs/heads/work/fdsa-tree-leftmost",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-leftmost"
+        },
+        {
+          "object": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+          "original_ref": "refs/heads/work/fdsa-tree-order",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-order"
+        },
+        {
+          "object": "28ba79d8d425400cb87d2daf3ecf1cc5a63a7aa2",
+          "original_ref": "refs/heads/work/fdsa-tree-rotations",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-rotations"
+        },
+        {
+          "object": "974a97321a8ec174b56104c7e6efaaca881b6639",
+          "original_ref": "refs/heads/work/fdsa-tree-shape",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-shape"
+        },
+        {
+          "object": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+          "original_ref": "refs/heads/work/fdsa-tree-shape-integration",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-shape-integration"
+        },
+        {
+          "object": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+          "original_ref": "refs/heads/work/fdsa-tree-traversal-work",
+          "stored_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-traversal-work"
+        },
+        {
+          "object": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "original_ref": "refs/remotes/origin/HEAD",
+          "stored_ref": "refs/checkpoint/fdsa/remotes/origin/HEAD"
+        },
+        {
+          "object": "5be3ce96dbeb60365002414409c9421450e39cf0",
+          "original_ref": "refs/remotes/origin/integrate/frp",
+          "stored_ref": "refs/checkpoint/fdsa/remotes/origin/integrate/frp"
+        },
+        {
+          "object": "47b556e83229ce11b27b5b7b4444c089a1e96ac3",
+          "original_ref": "refs/remotes/origin/integration/spec-15",
+          "stored_ref": "refs/checkpoint/fdsa/remotes/origin/integration/spec-15"
+        },
+        {
+          "object": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "original_ref": "refs/remotes/origin/master",
+          "stored_ref": "refs/checkpoint/fdsa/remotes/origin/master"
+        },
+        {
+          "object": "c12296f63c656737d07325e9d8e8e16d6976d099",
+          "original_ref": "refs/remotes/origin/reconstruction/adwh-154",
+          "stored_ref": "refs/checkpoint/fdsa/remotes/origin/reconstruction/adwh-154"
+        },
+        {
+          "object": "3efc9d926333c19f697a21afe7dd08af53e3a8cd",
+          "original_ref": "refs/remotes/origin/reconstruction/adwh-155",
+          "stored_ref": "refs/checkpoint/fdsa/remotes/origin/reconstruction/adwh-155"
+        },
+        {
+          "object": "e0d76c86040f38728289977c355b848cd6c7d8e3",
+          "original_ref": "refs/remotes/origin/reconstruction/adwh-180",
+          "stored_ref": "refs/checkpoint/fdsa/remotes/origin/reconstruction/adwh-180"
+        },
+        {
+          "object": "f68c79000bdb1ce223c403d38f8dd06e20cfbf29",
+          "original_ref": "refs/remotes/origin/reconstruction/adwh-181",
+          "stored_ref": "refs/checkpoint/fdsa/remotes/origin/reconstruction/adwh-181"
+        },
+        {
+          "object": "9c0a2649f9601c6294850f2b057698650360da9a",
+          "original_ref": "refs/remotes/origin/reconstruction/adwh-182",
+          "stored_ref": "refs/checkpoint/fdsa/remotes/origin/reconstruction/adwh-182"
+        },
+        {
+          "object": "16db707769c322fa17f2c48e24208f81292008da",
+          "original_ref": "refs/remotes/origin/reconstruction/adwh-183",
+          "stored_ref": "refs/checkpoint/fdsa/remotes/origin/reconstruction/adwh-183"
+        },
+        {
+          "object": "48b7655155950c4452bebf1268de1866d0f6129f",
+          "original_ref": "refs/remotes/origin/reconstruction/adwh-184",
+          "stored_ref": "refs/checkpoint/fdsa/remotes/origin/reconstruction/adwh-184"
+        },
+        {
+          "object": "30bbde79d154d1e8d942561c023a5e44d12ca420",
+          "original_ref": "refs/remotes/origin/reconstruction/adwh-186",
+          "stored_ref": "refs/checkpoint/fdsa/remotes/origin/reconstruction/adwh-186"
+        },
+        {
+          "object": "6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e",
+          "original_ref": "refs/remotes/origin/reconstruction/adwh-187",
+          "stored_ref": "refs/checkpoint/fdsa/remotes/origin/reconstruction/adwh-187"
+        },
+        {
+          "object": "855ce1f29ae0b7c7a7aec8321ead07be39c6ff32",
+          "original_ref": "refs/remotes/origin/reconstruction/adwh-190",
+          "stored_ref": "refs/checkpoint/fdsa/remotes/origin/reconstruction/adwh-190"
+        },
+        {
+          "object": "34c85983f601247fb62aea631c4212b7cb994b5b",
+          "original_ref": "refs/remotes/origin/reconstruction/adwh-array-cost-integration",
+          "stored_ref": "refs/checkpoint/fdsa/remotes/origin/reconstruction/adwh-array-cost-integration"
+        },
+        {
+          "object": "f4d3e2f36d5547f2236a601c837280bd0c23a774",
+          "original_ref": "refs/remotes/origin/research/27-frp-runtime",
+          "stored_ref": "refs/checkpoint/fdsa/remotes/origin/research/27-frp-runtime"
+        }
+      ],
+      "roles": {
+        "candidate": "refs/checkpoint/fdsa/heads/work/fdsa-book",
+        "main": "refs/checkpoint/fdsa/heads/work/fdsa-book"
+      }
+    },
+    "pfds": {
+      "original_head_commit": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+      "original_head_ref": "refs/heads/pfds/local",
+      "original_index_worktree_changes": "none",
+      "refs": [
+        {
+          "object": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "original_ref": "refs/heads/master",
+          "stored_ref": "refs/checkpoint/pfds/heads/master"
+        },
+        {
+          "object": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+          "original_ref": "refs/heads/pfds/body-counts",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/body-counts"
+        },
+        {
+          "object": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+          "original_ref": "refs/heads/pfds/body-counts-review-r1",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/body-counts-review-r1"
+        },
+        {
+          "object": "3dd930c3e3989f3e5530463f3ac937a629551335",
+          "original_ref": "refs/heads/pfds/cache-counts-review-r1",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/cache-counts-review-r1"
+        },
+        {
+          "object": "1ce161412a2cfb725f27525ff98d400209163316",
+          "original_ref": "refs/heads/pfds/ch01-union",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/ch01-union"
+        },
+        {
+          "object": "fcf086ddc271d4b20d4714e36238e47a325316bd",
+          "original_ref": "refs/heads/pfds/ch02-map",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/ch02-map"
+        },
+        {
+          "object": "26975a435a38ea89512c68a9d87f9efd7c971113",
+          "original_ref": "refs/heads/pfds/ch02-ordered",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/ch02-ordered"
+        },
+        {
+          "object": "69f6f00de204617fdd7feefd5b9ee5b80fc0d9f4",
+          "original_ref": "refs/heads/pfds/ch02-review-r1",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/ch02-review-r1"
+        },
+        {
+          "object": "c372c470008cdda3043040683451662f61131f81",
+          "original_ref": "refs/heads/pfds/ch02-review-r2",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/ch02-review-r2"
+        },
+        {
+          "object": "99a29dcd02eb529fbefbb675e244a8c47b78cdef",
+          "original_ref": "refs/heads/pfds/ch02-review-r3",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/ch02-review-r3"
+        },
+        {
+          "object": "4b0f0c0bc7c139480fb72407b93a2d9eb6874289",
+          "original_ref": "refs/heads/pfds/ch02-shared",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/ch02-shared"
+        },
+        {
+          "object": "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+          "original_ref": "refs/heads/pfds/import-footprint",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/import-footprint"
+        },
+        {
+          "object": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+          "original_ref": "refs/heads/pfds/import-footprint-r2",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/import-footprint-r2"
+        },
+        {
+          "object": "901f734161920a76f3b399a575805b9a1d31e971",
+          "original_ref": "refs/heads/pfds/import-footprint-r3",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/import-footprint-r3"
+        },
+        {
+          "object": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+          "original_ref": "refs/heads/pfds/local",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/local"
+        },
+        {
+          "object": "27a2b897983eb0e60b6ebe1ffa2b0b6c4ece6405",
+          "original_ref": "refs/heads/pfds/output-migration-review-base",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/output-migration-review-base"
+        },
+        {
+          "object": "2748089840723943ddc8ae58acd82f5728b2098b",
+          "original_ref": "refs/heads/pfds/output-migration-review-r1",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/output-migration-review-r1"
+        },
+        {
+          "object": "577be121e074ddb5de6727a7481c115cb61b3b27",
+          "original_ref": "refs/heads/pfds/persistent-accounting",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/persistent-accounting"
+        },
+        {
+          "object": "eedaeca6fc2fcc3f73cb92630dc8d8acf2bd50f8",
+          "original_ref": "refs/heads/pfds/persistent-accounting-review-r1",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/persistent-accounting-review-r1"
+        },
+        {
+          "object": "eb61c35f911ad0fac36758c878559eaf5f795cfa",
+          "original_ref": "refs/heads/pfds/persistent-accounting-review-r2",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/persistent-accounting-review-r2"
+        },
+        {
+          "object": "577be121e074ddb5de6727a7481c115cb61b3b27",
+          "original_ref": "refs/heads/pfds/persistent-accounting-review-r3",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/persistent-accounting-review-r3"
+        },
+        {
+          "object": "3dd930c3e3989f3e5530463f3ac937a629551335",
+          "original_ref": "refs/heads/pfds/pure-cache-counts",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/pure-cache-counts"
+        },
+        {
+          "object": "501a95463f455b52ea839eb8bbcf6ab9379862e4",
+          "original_ref": "refs/heads/pfds/pure-suspensions",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/pure-suspensions"
+        },
+        {
+          "object": "ea8afa12706d30cdc69ece1a172d5f21a3ea1809",
+          "original_ref": "refs/heads/pfds/pure-suspensions-review-r1",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/pure-suspensions-review-r1"
+        },
+        {
+          "object": "361f5f3f6bb3de1974510ce355883dac2bf25333",
+          "original_ref": "refs/heads/pfds/pure-suspensions-review-r2",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/pure-suspensions-review-r2"
+        },
+        {
+          "object": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+          "original_ref": "refs/heads/pfds/signed-potential",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/signed-potential"
+        },
+        {
+          "object": "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+          "original_ref": "refs/heads/pfds/suspensions",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/suspensions"
+        },
+        {
+          "object": "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+          "original_ref": "refs/heads/pfds/suspensions-review-r1",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/suspensions-review-r1"
+        },
+        {
+          "object": "1286e3d6357785d9c787562b95a5019afeefee40",
+          "original_ref": "refs/heads/pfds/suspensions-review-r2",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/suspensions-review-r2"
+        },
+        {
+          "object": "a3feaff319ad5fad912fb8bdc113f33fea4e2a60",
+          "original_ref": "refs/heads/pfds/suspensions-review-r3",
+          "stored_ref": "refs/checkpoint/pfds/heads/pfds/suspensions-review-r3"
+        },
+        {
+          "object": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+          "original_ref": "refs/pfds-review/direct-toolchain-base-041",
+          "stored_ref": "refs/checkpoint/pfds/pfds-review/direct-toolchain-base-041"
+        },
+        {
+          "object": "f010b5d0fdbef9c9f007c56531c326e738557f9d",
+          "original_ref": "refs/pfds-review/direct-toolchain-r1-041",
+          "stored_ref": "refs/checkpoint/pfds/pfds-review/direct-toolchain-r1-041"
+        },
+        {
+          "object": "822cb7adeed4943acaf10454e9facfc2e3ee8ceb",
+          "original_ref": "refs/pfds-review/direct-toolchain-r2-041",
+          "stored_ref": "refs/checkpoint/pfds/pfds-review/direct-toolchain-r2-041"
+        },
+        {
+          "object": "6526e5cdcde2e58c8fb0839690c34f3f6c04787c",
+          "original_ref": "refs/pfds-review/direct-toolchain-r3-042",
+          "stored_ref": "refs/checkpoint/pfds/pfds-review/direct-toolchain-r3-042"
+        },
+        {
+          "object": "120458c4fd40626d93e568f3387d8f5cb1dce69d",
+          "original_ref": "refs/pfds-review/direct-toolchain-r4-042",
+          "stored_ref": "refs/checkpoint/pfds/pfds-review/direct-toolchain-r4-042"
+        },
+        {
+          "object": "060e6b877b8db57a30f947b996b7dfe34a5401a1",
+          "original_ref": "refs/pfds-review/native-toolchain-r10-043",
+          "stored_ref": "refs/checkpoint/pfds/pfds-review/native-toolchain-r10-043"
+        },
+        {
+          "object": "4f15ff6f5bc8091104a3572ca8ce3716ed8e78f0",
+          "original_ref": "refs/pfds-review/native-toolchain-r11-045",
+          "stored_ref": "refs/checkpoint/pfds/pfds-review/native-toolchain-r11-045"
+        },
+        {
+          "object": "f3bac5372edc14ff898ead8b38fa58812d6d2713",
+          "original_ref": "refs/pfds-review/native-toolchain-r5-042",
+          "stored_ref": "refs/checkpoint/pfds/pfds-review/native-toolchain-r5-042"
+        },
+        {
+          "object": "fa87cd3483de75f24039836f8d4357be3a133176",
+          "original_ref": "refs/pfds-review/native-toolchain-r6-042",
+          "stored_ref": "refs/checkpoint/pfds/pfds-review/native-toolchain-r6-042"
+        },
+        {
+          "object": "af2c53dce68ebb122c81175312d6bb30df9aac05",
+          "original_ref": "refs/pfds-review/native-toolchain-r7-042",
+          "stored_ref": "refs/checkpoint/pfds/pfds-review/native-toolchain-r7-042"
+        },
+        {
+          "object": "d95518fde8cfc877da9d2bfc720ed4fd1f4698ba",
+          "original_ref": "refs/pfds-review/native-toolchain-r8-043",
+          "stored_ref": "refs/checkpoint/pfds/pfds-review/native-toolchain-r8-043"
+        },
+        {
+          "object": "ff3f709723e5c49e5ba40798abbed7d36141a6fb",
+          "original_ref": "refs/pfds-review/native-toolchain-r9-043",
+          "stored_ref": "refs/checkpoint/pfds/pfds-review/native-toolchain-r9-043"
+        },
+        {
+          "object": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+          "original_ref": "refs/pfds-review/signed-d24-before-native-fix-042",
+          "stored_ref": "refs/checkpoint/pfds/pfds-review/signed-d24-before-native-fix-042"
+        },
+        {
+          "object": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "original_ref": "refs/remotes/origin/HEAD",
+          "original_symbolic_target": "refs/remotes/origin/master",
+          "stored_ref": "refs/checkpoint/pfds/remotes/origin/HEAD"
+        },
+        {
+          "object": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "original_ref": "refs/remotes/origin/master",
+          "stored_ref": "refs/checkpoint/pfds/remotes/origin/master"
+        }
+      ],
+      "roles": {
+        "candidate": "refs/checkpoint/pfds/heads/pfds/signed-potential",
+        "main": "refs/checkpoint/pfds/heads/pfds/local"
+      }
+    },
+    "vfa": {
+      "original_head_commit": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+      "original_head_ref": "refs/heads/local/vfa-recovery-1",
+      "original_index_worktree_changes": "none",
+      "refs": [
+        {
+          "object": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+          "original_ref": "refs/heads/local/vfa-recovery",
+          "stored_ref": "refs/checkpoint/vfa/heads/local/vfa-recovery"
+        },
+        {
+          "object": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+          "original_ref": "refs/heads/local/vfa-recovery-1",
+          "stored_ref": "refs/checkpoint/vfa/heads/local/vfa-recovery-1"
+        },
+        {
+          "object": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+          "original_ref": "refs/remotes/origin/HEAD",
+          "original_symbolic_target": "refs/remotes/origin/local/vfa-recovery",
+          "stored_ref": "refs/checkpoint/vfa/remotes/origin/HEAD"
+        },
+        {
+          "object": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+          "original_ref": "refs/remotes/origin/local/vfa",
+          "stored_ref": "refs/checkpoint/vfa/remotes/origin/local/vfa"
+        },
+        {
+          "object": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+          "original_ref": "refs/remotes/origin/local/vfa-recovery",
+          "stored_ref": "refs/checkpoint/vfa/remotes/origin/local/vfa-recovery"
+        },
+        {
+          "object": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+          "original_ref": "refs/conaled/review-snapshots/b102d83813de4d058e00da1a5ead919d/base",
+          "stored_ref": "refs/checkpoint/vfa/captures/001/conaled/review-snapshots/b102d83813de4d058e00da1a5ead919d/base"
+        },
+        {
+          "object": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+          "original_ref": "refs/conaled/review-snapshots/b102d83813de4d058e00da1a5ead919d/candidate",
+          "stored_ref": "refs/checkpoint/vfa/captures/001/conaled/review-snapshots/b102d83813de4d058e00da1a5ead919d/candidate"
+        },
+        {
+          "object": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+          "original_ref": "refs/conaled/review-snapshots/f5e18c2b36d84441a782a8320292cb9a/base",
+          "stored_ref": "refs/checkpoint/vfa/captures/001/conaled/review-snapshots/f5e18c2b36d84441a782a8320292cb9a/base"
+        },
+        {
+          "object": "337c29ff2e2b969e701a9deb84840d6b148dd175",
+          "original_ref": "refs/conaled/review-snapshots/f5e18c2b36d84441a782a8320292cb9a/candidate",
+          "stored_ref": "refs/checkpoint/vfa/captures/001/conaled/review-snapshots/f5e18c2b36d84441a782a8320292cb9a/candidate"
+        },
+        {
+          "object": "337c29ff2e2b969e701a9deb84840d6b148dd175",
+          "original_ref": "refs/heads/integration/textbooks-20261113",
+          "stored_ref": "refs/checkpoint/vfa/captures/001/heads/integration/textbooks-20261113"
+        },
+        {
+          "object": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+          "original_ref": "refs/integration/master-20261113",
+          "stored_ref": "refs/checkpoint/vfa/captures/001/integration/master-20261113"
+        },
+        {
+          "object": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+          "original_ref": "refs/conaled/review-snapshots/4cb2f611e44740c2b4d5f2e488ab48fa/base",
+          "stored_ref": "refs/checkpoint/vfa/captures/002/conaled/review-snapshots/4cb2f611e44740c2b4d5f2e488ab48fa/base"
+        },
+        {
+          "object": "f52a47b9e240b3937533f48befb8622527b7f6db",
+          "original_ref": "refs/conaled/review-snapshots/4cb2f611e44740c2b4d5f2e488ab48fa/candidate",
+          "stored_ref": "refs/checkpoint/vfa/captures/002/conaled/review-snapshots/4cb2f611e44740c2b4d5f2e488ab48fa/candidate"
+        },
+        {
+          "object": "f52a47b9e240b3937533f48befb8622527b7f6db",
+          "original_ref": "refs/heads/integration/textbooks-review-fixes",
+          "stored_ref": "refs/checkpoint/vfa/captures/002/heads/integration/textbooks-review-fixes"
+        },
+        {
+          "object": "983d0b6b602b71541f182737011621a8805be27b",
+          "original_ref": "refs/checkpoint/integration/master-20261114",
+          "stored_ref": "refs/checkpoint/vfa/captures/003/checkpoint/integration/master-20261114"
+        },
+        {
+          "object": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+          "original_ref": "refs/conaled/review-snapshots/8ec26d7f3ea84e9b9e6686b248a01542/base",
+          "stored_ref": "refs/checkpoint/vfa/captures/003/conaled/review-snapshots/8ec26d7f3ea84e9b9e6686b248a01542/base"
+        },
+        {
+          "object": "f52a47b9e240b3937533f48befb8622527b7f6db",
+          "original_ref": "refs/conaled/review-snapshots/8ec26d7f3ea84e9b9e6686b248a01542/candidate",
+          "stored_ref": "refs/checkpoint/vfa/captures/003/conaled/review-snapshots/8ec26d7f3ea84e9b9e6686b248a01542/candidate"
+        },
+        {
+          "object": "6a4fb245642e31dea42e3bc56c413000caa3ce45",
+          "original_ref": "refs/heads/integration/textbooks-20261114",
+          "stored_ref": "refs/checkpoint/vfa/captures/003/heads/integration/textbooks-20261114"
+        },
+        {
+          "object": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+          "original_ref": "refs/conaled/review-snapshots/49065d8551e44a9fb09804973c991481/base",
+          "stored_ref": "refs/checkpoint/vfa/captures/004/conaled/review-snapshots/49065d8551e44a9fb09804973c991481/base"
+        },
+        {
+          "object": "16440863ddb14d95c402ce65498e22497e246e72",
+          "original_ref": "refs/conaled/review-snapshots/49065d8551e44a9fb09804973c991481/candidate",
+          "stored_ref": "refs/checkpoint/vfa/captures/004/conaled/review-snapshots/49065d8551e44a9fb09804973c991481/candidate"
+        },
+        {
+          "object": "16440863ddb14d95c402ce65498e22497e246e72",
+          "original_ref": "refs/heads/integration/textbooks-20261113",
+          "stored_ref": "refs/checkpoint/vfa/captures/004/heads/integration/textbooks-20261113"
+        },
+        {
+          "object": "16440863ddb14d95c402ce65498e22497e246e72",
+          "original_ref": "refs/heads/integration/textbooks-20261114",
+          "stored_ref": "refs/checkpoint/vfa/captures/004/heads/integration/textbooks-20261114"
+        },
+        {
+          "object": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+          "original_ref": "refs/checkpoint/integration/master-20261114-04514fc1",
+          "stored_ref": "refs/checkpoint/vfa/captures/005/checkpoint/integration/master-20261114-04514fc1"
+        },
+        {
+          "object": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+          "original_ref": "refs/conaled/review-snapshots/a9218219e92243a6be78e1be0daa2b44/base",
+          "stored_ref": "refs/checkpoint/vfa/captures/005/conaled/review-snapshots/a9218219e92243a6be78e1be0daa2b44/base"
+        },
+        {
+          "object": "18235331da1fe343d09080ca4c41173f9b4d9963",
+          "original_ref": "refs/conaled/review-snapshots/a9218219e92243a6be78e1be0daa2b44/candidate",
+          "stored_ref": "refs/checkpoint/vfa/captures/005/conaled/review-snapshots/a9218219e92243a6be78e1be0daa2b44/candidate"
+        },
+        {
+          "object": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+          "original_ref": "refs/conaled/review-snapshots/ddd794a2402945a0bafc7fd3f989d549/base",
+          "stored_ref": "refs/checkpoint/vfa/captures/005/conaled/review-snapshots/ddd794a2402945a0bafc7fd3f989d549/base"
+        },
+        {
+          "object": "16440863ddb14d95c402ce65498e22497e246e72",
+          "original_ref": "refs/conaled/review-snapshots/ddd794a2402945a0bafc7fd3f989d549/candidate",
+          "stored_ref": "refs/checkpoint/vfa/captures/005/conaled/review-snapshots/ddd794a2402945a0bafc7fd3f989d549/candidate"
+        },
+        {
+          "object": "18235331da1fe343d09080ca4c41173f9b4d9963",
+          "original_ref": "refs/heads/integration/textbooks-20261114-evening",
+          "stored_ref": "refs/checkpoint/vfa/captures/005/heads/integration/textbooks-20261114-evening"
+        }
+      ],
+      "roles": {
+        "candidate": "refs/checkpoint/vfa/captures/005/heads/integration/textbooks-20261114-evening",
+        "main": "refs/checkpoint/vfa/heads/local/vfa-recovery-1"
+      }
+    }
+  },
+  "capture_count": 5,
+  "external_archive_dependencies": [],
+  "integration": {
+    "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+    "original_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+    "pinned_master_ref": "refs/checkpoint/vfa/captures/005/checkpoint/integration/master-20261114-04514fc1",
+    "record": "source/integration.json"
+  },
+  "objects": "repository.bundle",
+  "repository_url": "https://github.com/VladimirMarko/conaled.git",
+  "schema": 1
+}

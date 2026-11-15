@@ -1,0 +1,146 @@
+{
+  "accepted_utc": "2026-11-04T13:55:30.843691+00:00",
+  "recorded_utc": "2026-11-04T13:56:46.665883+00:00",
+  "accepted_branch": "work/fdsa-book",
+  "base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "original_foundation_prefix": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "scope": [
+    "FDSA-X002",
+    "FDSA-APP-A",
+    "FDSA-XB01 / Appendix B.1",
+    "FDSA-APP-C"
+  ],
+  "source_paths": [
+    "Applications/Resources/InsertionSort.lean",
+    "Applications/Resources/ListCalls.lean",
+    "Examples/FunctionalNotation.lean",
+    "Examples/InsertionCosts.lean",
+    "Examples/ListCalls.lean",
+    "Examples/ListLibrary.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-notation-map.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "full_check": {
+    "mode": "incremental",
+    "actual_exit": 0,
+    "owned_terminal_chunk": "65b588",
+    "checked_project_modules": 967,
+    "audit_defining_modules": 965,
+    "kernel_safe_declarations": 45294,
+    "theorems": 25117,
+    "unsafe_runtime_exclusions": 0,
+    "transitive_axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "counts_scope": "whole project, not new book results"
+  },
+  "actual_public_statements": {
+    "count": 145,
+    "actual_exit": 0,
+    "owned_terminal_chunk": "abfa7e",
+    "inputs_unchanged": true,
+    "local_sources": 29,
+    "objects_and_traces": 87,
+    "configurations": 10,
+    "dependency_pins": 9,
+    "runtime_components": 12
+  },
+  "standards": "passed",
+  "spec": "passed",
+  "unresolved_findings": [],
+  "closed_findings": [
+    "FDN-ELAB-001",
+    "FDN-ELAB-002"
+  ],
+  "immediate_verification": {
+    "actual_exit": 0,
+    "owned_terminal_chunk": "79497e",
+    "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "mode": "incremental"
+  },
+  "integration": {
+    "actual_fast_forward_exit": 0,
+    "owned_root_chunk": "8db44c",
+    "accepted_head": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "unrelated_baseline_bytes_unchanged": true,
+    "no_push_or_GitHub_mutation": true
+  },
+  "covered_inventory": {
+    "Appendix A": "A-001 through A-020",
+    "Appendix B.1": "B-002 through B-015",
+    "Appendix C": "AC-001 through AC-090",
+    "Chapter2_insertion_cost_results": [
+      "C02-011",
+      "C02-012",
+      "C02-013",
+      "C02-016",
+      "C02-099",
+      "C02-100"
+    ]
+  },
+  "not_closed": [
+    "Chapter 2",
+    "Chapter 3",
+    "whole Appendix B / B-016 through B-060",
+    "other shared units",
+    "remaining book"
+  ],
+  "prior_Chapter1_acceptance_preserved": true,
+  "old_full_attempt1_terminal": "unknown, not reclassified",
+  "spec_failed_json_receipt": "preserved invalid32768-byte ENOSPC artifact; successful complete final Markdown report is authoritative",
+  "acceptance_checkpoint": "pending creation and successful upload",
+  "evidence": {
+    "provenance/chapter02-foundation-full-attempt2-recovered-20261104/result.json": {
+      "bytes": 1266,
+      "sha256": "1b186efcb11b0f66f870e7ef0e0adb03baa30845137626d17eea27fede6d756c"
+    },
+    "provenance/chapter02-foundation-full-attempt2-recovered-20261104/full.log": {
+      "bytes": 545786,
+      "sha256": "43920a4c5d717bb2d1b2d173148daa78c9acf57f88b33d5658fa776ca3e760a2"
+    },
+    "provenance/chapter02-foundation-full-attempt2-recovered-20261104/verification.json": {
+      "bytes": 867,
+      "sha256": "9634e5a5318b7ac15cc67871655469838a061340ce719939ddfc5dcc16bc2164"
+    },
+    "provenance/foundation-complete-public-statements145-20261104-attempt1/result.json": {
+      "bytes": 1415,
+      "sha256": "f563b12f4b572f99531027ab920784a94b8b9118a6e17cb1e65669217b1a216b"
+    },
+    "provenance/foundation-complete-public-statements145-20261104-attempt1/output-blocks.json": {
+      "bytes": 46564,
+      "sha256": "77705d6d4150af6d722114fd8836a2c67efdecd43d26e0019eb8fe5fa2f599d4"
+    },
+    "provenance/foundation145-input-observations-20261104-attempt1/pre-inputs.json": {
+      "bytes": 38785,
+      "sha256": "482b005a6b020bc8fbc087ed746202caa89426382200d2aa37b4259ac0116d37"
+    },
+    "provenance/foundation145-input-observations-20261104-attempt1/post-inputs.json": {
+      "bytes": 39092,
+      "sha256": "3065efbace8dc8cff34d764d33fd29e81f09b5549407d72be5cdaa217d482d16"
+    },
+    "reviews/shared-foundations-standards-terminal-assessment-20261104.md": {
+      "bytes": 9830,
+      "sha256": "5931dafe30f68151d81621ded0274643fb8145c5c57e644b6cca284fc634e141"
+    },
+    "reviews/shared-foundations-spec-final-20261104.md": {
+      "bytes": 5066,
+      "sha256": "f8c8d934662192f4376ab7ae2897957647a890ea964fca18555c0d12dfc5a8dc"
+    },
+    "provenance/foundation-immediate-verification-20261104-attempt1/result.json": {
+      "bytes": 1267,
+      "sha256": "56b700d211940a67b21f722c27bdb1b717188f489a0b26fd6bf19f0e54d342eb"
+    },
+    "provenance/foundation-immediate-verification-20261104-attempt1/full.log": {
+      "bytes": 317,
+      "sha256": "7c807328909b0981b877c4dfdd893ffeb007745a91ac82d350382ecdc546f541"
+    },
+    "provenance/foundation-acceptance-20261104/fast-forward-result.json": {
+      "bytes": 1506,
+      "sha256": "610ebbdabb2c915be44d5c443b17572fb709e1a1f094c56a017144116b2bbed5"
+    }
+  }
+}

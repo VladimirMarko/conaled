@@ -1,0 +1,32 @@
+{
+  "recorded_utc": "2026-11-04T22:14:16.265118+00:00",
+  "scope": "selection proof-plan lines502-506 symbolic monotone/noninjective consumer; no new algorithm or asymptotic premise",
+  "source_file": "Examples/SelectionComposition.lean",
+  "source_sha256": "b70545e72b5826ae94bb2810065684e5d5cb324c4b5c86140609987d20a4d691",
+  "new_public_count": 3,
+  "private_count": 0,
+  "definitions": 0,
+  "claims": [
+    {
+      "name": "monotone_ranked_costs",
+      "quantifiers": "One A,B in Nat precedes both arbitrary payload universe/type/order choices, monotone map, list, rank and value. RankedAt specifies a valid input occurrence; no Nodup, injectivity, inhabitedness, assumed runtime or assumed transported conclusion.",
+      "conclusion": "Original measured result, transported RankedAt and measured result, and both actual work counts bounded by identical A*original length+B. Map length proved unchanged. No equal cost assertion.",
+      "construction": "RankedAt.map, selectRun_some_iff for each worker, actual selectRun_cost_le_F and existing scalar exists_affine_bound. No recursion or private structure re-proved."
+    },
+    {
+      "name": "constant_ranked_costs",
+      "quantifiers": "Same uniform order and arbitrary two payload universes, target value before input/list/rank certificate. Constant function is monotone by reflexivity.",
+      "conclusion": "RankedAt and actual mapped result plus shared affine bounds, directly extracted from monotone_ranked_costs."
+    },
+    {
+      "name": "collapsed_actual_work",
+      "quantifiers": "Closed Nat range21, rank20, constant target4; source rank certificate derived from existing checked actual right-branch result.",
+      "conclusion": "Constant map not injective (0 and1), exact source266/mapped239, and existence of common affine constants together with mapped RankedAt.",
+      "construction": "Existing first_recursive_right and all_equal_last via map-to-replicate, plus the symbolic constant_ranked_costs consumer.",
+      "independent_expectation": "Existing source execution law: right branch on range21 costs266; all-equal21 rank20 costs239; merging keys can change selected branch work while preserving occurrence rank."
+    }
+  ],
+  "connected_cases": "Symbolic arbitrary monotone and constant map plus concrete actual cost-changing map. Existing public claims suffice; no manufactured failed obligation.",
+  "all_previous_sources": "Exact except five absent-only copied donor files, all verified against1249f399; no overwrite.",
+  "validation": "Uncompiled; root serial qualified focused build then actual type/full/audit/independent axes at final Chapter3 candidate."
+}

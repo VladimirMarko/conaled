@@ -1,0 +1,430 @@
+diff --git a/Applications/Resources/RandomQuickSortGrowth.lean b/Applications/Resources/RandomQuickSortGrowth.lean
+new file mode 100644
+index 0000000..ecad03e
+--- /dev/null
++++ b/Applications/Resources/RandomQuickSortGrowth.lean
+@@ -0,0 +1,203 @@
++import Applications.Resources.RandomQuickSortRank
++import Applications.Resources.QuickSortMean
++import Mathlib.Order.Filter.AtTopBot.Tendsto
++
++/-! Harmonic and logarithmic bounds for the actual fresh-occurrence execution.
++The numerical solver receives the proved recurrence of the actual `sizeMean`.
++Mapped-key distinctness transports its solution to arbitrary fixed inputs.
++The append-inclusive mean uses the comparison of two observations of the same
++run. Neither observation charges sampler implementation, indexing, removal,
++random bits or physical runtime beyond its specified call-count tariff.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.RandomQuickSort
++universe u v w
++variable {α : Type u} {κ : Type v}
++
++noncomputable section
++
++/-- The numerical premises are discharged by the actual execution recurrence. -/
++theorem sizeMean_eq_closedForm (n : Nat) :
++    sizeMean n = Resources.QuickSortMean.closedForm n :=
++  Resources.QuickSortMean.eq_closedForm sizeMean sizeMean_zero sizeMean_recurrence n
++
++/-- An exact identity for the actual canonical exercise mean, including zero. -/
++theorem sizeMean_eq_harmonic (n : Nat) :
++    sizeMean n =
++      8 * ((n : ℝ) + 1) * (harmonic n : ℝ) - 12 * (n : ℝ) + 1 :=
++  sizeMean_eq_closedForm n
++
++theorem exerciseMean_eq_closedForm [LinearOrder κ] (key : α → κ) (xs : List α)
++    (hd : (xs.map key).Nodup) :
++    exerciseMean (fun a b => decide (key a < key b)) xs =
++      Resources.QuickSortMean.closedForm xs.length :=
++  (exerciseMean_eq_sizeMean key xs hd).trans (sizeMean_eq_closedForm xs.length)
++
++/-- Input order and payload representation do not change this distinct-key mean. -/
++theorem exerciseMean_eq_harmonic [LinearOrder κ] (key : α → κ) (xs : List α)
++    (hd : (xs.map key).Nodup) :
++    exerciseMean (fun a b => decide (key a < key b)) xs =
++      8 * ((xs.length : ℝ) + 1) * (harmonic xs.length : ℝ) -
++        12 * (xs.length : ℝ) + 1 :=
++  exerciseMean_eq_closedForm key xs hd
++
++/-- Bounds for the actual append-inclusive observation on the same run. -/
++theorem literalMean_harmonic_comparison [LinearOrder κ] (key : α → κ) (xs : List α)
++    (hd : (xs.map key).Nodup) :
++    8 * ((xs.length : ℝ) + 1) * (harmonic xs.length : ℝ) -
++        12 * (xs.length : ℝ) + 1 ≤
++      literalMean (fun a b => decide (key a < key b)) xs ∧
++    literalMean (fun a b => decide (key a < key b)) xs ≤
++      2 * (8 * ((xs.length : ℝ) + 1) * (harmonic xs.length : ℝ) -
++        12 * (xs.length : ℝ) + 1) := by
++  have h := literalMean_comparison (fun a b => decide (key a < key b)) xs
++  rw [exerciseMean_eq_harmonic key xs hd] at h
++  exact h
++
++theorem exerciseMean_le_log [LinearOrder κ] (key : α → κ) (xs : List α)
++    (hd : (xs.map key).Nodup) (hn : 1 ≤ xs.length) :
++    exerciseMean (fun a b => decide (key a < key b)) xs ≤
++      16 * (xs.length : ℝ) * (1 + Real.log (xs.length : ℝ)) := by
++  rw [exerciseMean_eq_closedForm key xs hd]
++  exact Resources.QuickSortMean.closedForm_le_log xs.length hn
++
++theorem literalMean_le_log [LinearOrder κ] (key : α → κ) (xs : List α)
++    (hd : (xs.map key).Nodup) (hn : 1 ≤ xs.length) :
++    literalMean (fun a b => decide (key a < key b)) xs ≤
++      32 * (xs.length : ℝ) * (1 + Real.log (xs.length : ℝ)) := by
++  calc
++    _ ≤ 2 * exerciseMean (fun a b => decide (key a < key b)) xs :=
++      (literalMean_comparison _ xs).2
++    _ ≤ 2 * (16 * (xs.length : ℝ) * (1 + Real.log (xs.length : ℝ))) :=
++      mul_le_mul_of_nonneg_left (exerciseMean_le_log key xs hd hn) (by norm_num)
++    _ = _ := by ring
++
++theorem exerciseMean_le_nlog [LinearOrder κ] (key : α → κ) (xs : List α)
++    (hd : (xs.map key).Nodup) (hn : 2 ≤ xs.length) :
++    exerciseMean (fun a b => decide (key a < key b)) xs ≤
++      (16 * (1 + 1 / Real.log 2)) *
++        ((xs.length : ℝ) * Real.log (xs.length : ℝ)) := by
++  rw [exerciseMean_eq_closedForm key xs hd]
++  exact Resources.QuickSortMean.closedForm_le_nlog xs.length hn
++
++theorem literalMean_le_nlog [LinearOrder κ] (key : α → κ) (xs : List α)
++    (hd : (xs.map key).Nodup) (hn : 2 ≤ xs.length) :
++    literalMean (fun a b => decide (key a < key b)) xs ≤
++      (32 * (1 + 1 / Real.log 2)) *
++        ((xs.length : ℝ) * Real.log (xs.length : ℝ)) := by
++  calc
++    _ ≤ 2 * exerciseMean (fun a b => decide (key a < key b)) xs :=
++      (literalMean_comparison _ xs).2
++    _ ≤ 2 * ((16 * (1 + 1 / Real.log 2)) *
++        ((xs.length : ℝ) * Real.log (xs.length : ℝ))) :=
++      mul_le_mul_of_nonneg_left (exerciseMean_le_nlog key xs hd hn) (by norm_num)
++    _ = _ := by ring
++
++/-- The real binary-log bound begins at two, after both positive base tariffs. -/
++theorem exerciseMean_le_nlogb [LinearOrder κ] (key : α → κ) (xs : List α)
++    (hd : (xs.map key).Nodup) (hn : 2 ≤ xs.length) :
++    exerciseMean (fun a b => decide (key a < key b)) xs ≤
++      32 * ((xs.length : ℝ) * Real.logb 2 (xs.length : ℝ)) := by
++  rw [exerciseMean_eq_closedForm key xs hd]
++  exact Resources.QuickSortMean.closedForm_le_nlogb xs.length hn
++
++theorem literalMean_le_nlogb [LinearOrder κ] (key : α → κ) (xs : List α)
++    (hd : (xs.map key).Nodup) (hn : 2 ≤ xs.length) :
++    literalMean (fun a b => decide (key a < key b)) xs ≤
++      64 * ((xs.length : ℝ) * Real.logb 2 (xs.length : ℝ)) := by
++  calc
++    _ ≤ 2 * exerciseMean (fun a b => decide (key a < key b)) xs :=
++      (literalMean_comparison _ xs).2
++    _ ≤ 2 * (32 * ((xs.length : ℝ) * Real.logb 2 (xs.length : ℝ))) :=
++      mul_le_mul_of_nonneg_left (exerciseMean_le_nlogb key xs hd hn) (by norm_num)
++    _ = _ := by ring
++
++theorem sizeMean_isBigO_log :
++    Asymptotics.IsBigO Filter.atTop sizeMean
++      (fun n : Nat => (n : ℝ) * Real.log (n : ℝ)) := by
++  have h : sizeMean = Resources.QuickSortMean.closedForm := funext sizeMean_eq_closedForm
++  rw [h]
++  exact Resources.QuickSortMean.closedForm_isBigO_log
++
++theorem sizeMean_isBigO_logb :
++    Asymptotics.IsBigO Filter.atTop sizeMean
++      (fun n : Nat => (n : ℝ) * Real.logb 2 (n : ℝ)) := by
++  have h : sizeMean = Resources.QuickSortMean.closedForm := funext sizeMean_eq_closedForm
++  rw [h]
++  exact Resources.QuickSortMean.closedForm_isBigO_logb
++
++/-- The growth variable is actual input length; key distinctness is only eventual. -/
++theorem exerciseMean_family_isBigO_log {ι : Type w} [LinearOrder κ] (key : α → κ)
++    (l : Filter ι) (xs : ι → List α)
++    (hd : ∀ᶠ i in l, ((xs i).map key).Nodup)
++    (hlen : Filter.Tendsto (fun i => (xs i).length) l Filter.atTop) :
++    Asymptotics.IsBigO l
++      (fun i => exerciseMean (fun a b => decide (key a < key b)) (xs i))
++      (fun i => ((xs i).length : ℝ) * Real.log ((xs i).length : ℝ)) := by
++  apply Asymptotics.isBigO_iff.mpr
++  refine ⟨16 * (1 + 1 / Real.log 2), ?_⟩
++  filter_upwards [hd, Filter.tendsto_atTop.mp hlen 2] with i hdi hi
++  have hlog : 0 ≤ Real.log ((xs i).length : ℝ) :=
++    Real.log_nonneg (by exact_mod_cast (show 1 ≤ (xs i).length by omega))
++  rw [Real.norm_eq_abs, Real.norm_eq_abs,
++    abs_of_nonneg (exerciseMean_nonneg _ _),
++    abs_of_nonneg (mul_nonneg (Nat.cast_nonneg _) hlog)]
++  exact exerciseMean_le_nlog key (xs i) hdi hi
++
++theorem literalMean_family_isBigO_log {ι : Type w} [LinearOrder κ] (key : α → κ)
++    (l : Filter ι) (xs : ι → List α)
++    (hd : ∀ᶠ i in l, ((xs i).map key).Nodup)
++    (hlen : Filter.Tendsto (fun i => (xs i).length) l Filter.atTop) :
++    Asymptotics.IsBigO l
++      (fun i => literalMean (fun a b => decide (key a < key b)) (xs i))
++      (fun i => ((xs i).length : ℝ) * Real.log ((xs i).length : ℝ)) := by
++  apply Asymptotics.isBigO_iff.mpr
++  refine ⟨32 * (1 + 1 / Real.log 2), ?_⟩
++  filter_upwards [hd, Filter.tendsto_atTop.mp hlen 2] with i hdi hi
++  have hlog : 0 ≤ Real.log ((xs i).length : ℝ) :=
++    Real.log_nonneg (by exact_mod_cast (show 1 ≤ (xs i).length by omega))
++  rw [Real.norm_eq_abs, Real.norm_eq_abs,
++    abs_of_nonneg (literalMean_nonneg _ _),
++    abs_of_nonneg (mul_nonneg (Nat.cast_nonneg _) hlog)]
++  exact literalMean_le_nlog key (xs i) hdi hi
++
++theorem exerciseMean_family_isBigO_logb {ι : Type w} [LinearOrder κ] (key : α → κ)
++    (l : Filter ι) (xs : ι → List α)
++    (hd : ∀ᶠ i in l, ((xs i).map key).Nodup)
++    (hlen : Filter.Tendsto (fun i => (xs i).length) l Filter.atTop) :
++    Asymptotics.IsBigO l
++      (fun i => exerciseMean (fun a b => decide (key a < key b)) (xs i))
++      (fun i => ((xs i).length : ℝ) * Real.logb 2 ((xs i).length : ℝ)) := by
++  apply Asymptotics.isBigO_iff.mpr
++  refine ⟨32, ?_⟩
++  filter_upwards [hd, Filter.tendsto_atTop.mp hlen 2] with i hdi hi
++  have hlog : 0 ≤ Real.logb 2 ((xs i).length : ℝ) :=
++    Real.logb_nonneg (by norm_num)
++      (by exact_mod_cast (show 1 ≤ (xs i).length by omega))
++  rw [Real.norm_eq_abs, Real.norm_eq_abs,
++    abs_of_nonneg (exerciseMean_nonneg _ _),
++    abs_of_nonneg (mul_nonneg (Nat.cast_nonneg _) hlog)]
++  exact exerciseMean_le_nlogb key (xs i) hdi hi
++
++theorem literalMean_family_isBigO_logb {ι : Type w} [LinearOrder κ] (key : α → κ)
++    (l : Filter ι) (xs : ι → List α)
++    (hd : ∀ᶠ i in l, ((xs i).map key).Nodup)
++    (hlen : Filter.Tendsto (fun i => (xs i).length) l Filter.atTop) :
++    Asymptotics.IsBigO l
++      (fun i => literalMean (fun a b => decide (key a < key b)) (xs i))
++      (fun i => ((xs i).length : ℝ) * Real.logb 2 ((xs i).length : ℝ)) := by
++  apply Asymptotics.isBigO_iff.mpr
++  refine ⟨64, ?_⟩
++  filter_upwards [hd, Filter.tendsto_atTop.mp hlen 2] with i hdi hi
++  have hlog : 0 ≤ Real.logb 2 ((xs i).length : ℝ) :=
++    Real.logb_nonneg (by norm_num)
++      (by exact_mod_cast (show 1 ≤ (xs i).length by omega))
++  rw [Real.norm_eq_abs, Real.norm_eq_abs,
++    abs_of_nonneg (literalMean_nonneg _ _),
++    abs_of_nonneg (mul_nonneg (Nat.cast_nonneg _) hlog)]
++  exact literalMean_le_nlogb key (xs i) hdi hi
++
++end
++end Resources.RandomQuickSort
+diff --git a/Examples/RandomQuickSortGrowth.lean b/Examples/RandomQuickSortGrowth.lean
+new file mode 100644
+index 0000000..5c9d1fd
+--- /dev/null
++++ b/Examples/RandomQuickSortGrowth.lean
+@@ -0,0 +1,215 @@
++import Applications.Resources.RandomQuickSortGrowth
++
++/-! Actual-execution clients of the harmonic and growth bounds.
++Small means and the duplicate counterexamples were fixed independently before
++the proofs. Arbitrary function-valued tags exercise the absence of payload
++equality, enumeration and measurability assumptions. Family bounds use actual
++length; neither the sampler nor pivot indexing/removal receives a new tariff.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.RandomQuickSortGrowth
++open Resources.RandomQuickSort
++universe u v
++
++noncomputable section
++
++local notation "natLt" => (fun a b : Nat => decide (a < b))
++
++/-- An uninhabited payload still has the positive empty-run mean. -/
++theorem empty_payload_means :
++    exerciseMean (fun _ _ : Empty => false) [] =
++        8 * ((0 : ℝ) + 1) * (harmonic 0 : ℝ) - 12 * (0 : ℝ) + 1 ∧
++      exerciseMean (fun _ _ : Empty => false) [] = 1 ∧
++      literalMean (fun _ _ : Empty => false) [] = 1 := by
++  constructor
++  · exact exerciseMean_eq_harmonic (fun _ : Empty => (0 : Nat)) [] (by simp)
++  · simp
++
++theorem singleton_payload_means {α : Type u} {κ : Type v} [LinearOrder κ]
++    (key : α → κ) (x : α) :
++    exerciseMean (fun a b => decide (key a < key b)) [x] = 5 ∧
++      literalMean (fun a b => decide (key a < key b)) [x] = 8 ∧
++      5 ≤ literalMean (fun a b => decide (key a < key b)) [x] ∧
++      literalMean (fun a b => decide (key a < key b)) [x] ≤ 10 := by
++  norm_num
++
++theorem empty_log_boundary (C : ℝ) :
++    ¬ exerciseMean (fun _ _ : Empty => false) [] ≤
++        C * ((0 : ℝ) * Real.logb 2 0) ∧
++      ¬ literalMean (fun _ _ : Empty => false) [] ≤
++        C * ((0 : ℝ) * Real.logb 2 0) := by
++  simp
++
++theorem singleton_log_boundary {α : Type u} {κ : Type v} [LinearOrder κ]
++    (key : α → κ) (x : α) (C : ℝ) :
++    ¬ exerciseMean (fun a b => decide (key a < key b)) [x] ≤
++        C * ((1 : ℝ) * Real.logb 2 1) ∧
++      ¬ literalMean (fun a b => decide (key a < key b)) [x] ≤
++        C * ((1 : ℝ) * Real.logb 2 1) := by
++  simp
++
++/-- The loose scalar bounds at the first admissible size are not exact means. -/
++theorem two_distinct_harmonic :
++    exerciseMean natLt [1, 0] = 13 ∧
++      13 ≤ literalMean natLt [1, 0] ∧
++      literalMean natLt [1, 0] ≤ 26 ∧
++      exerciseMean natLt [1, 0] ≤ 64 ∧
++      literalMean natLt [1, 0] ≤ 128 := by
++  have he := exerciseMean_eq_harmonic (id : Nat → Nat) [1, 0] (by decide)
++  have hc := literalMean_harmonic_comparison (id : Nat → Nat) [1, 0] (by decide)
++  norm_num [harmonic_succ] at he hc
++  have hbE := exerciseMean_le_nlogb (id : Nat → Nat) [1, 0] (by decide) (by decide)
++  have hbF := literalMean_le_nlogb (id : Nat → Nat) [1, 0] (by decide) (by decide)
++  have hlog : Real.logb 2 (2 : ℝ) = 1 := Real.logb_self_eq_one (by norm_num)
++  norm_num [hlog] at hbE hbF
++  exact ⟨he, hc.1, hc.2, hbE, hbF⟩
++
++/-- The independently calculated actual masses 1/3 at 21 and 2/3 at 25 agree. -/
++theorem three_reordered_harmonic :
++    exerciseMean natLt [2, 0, 1] = (71 : ℝ) / 3 ∧
++      (71 : ℝ) / 3 ≤ literalMean natLt [2, 0, 1] ∧
++      literalMean natLt [2, 0, 1] ≤ (142 : ℝ) / 3 := by
++  have he := exerciseMean_eq_harmonic (id : Nat → Nat) [2, 0, 1] (by decide)
++  have hc := literalMean_harmonic_comparison (id : Nat → Nat) [2, 0, 1] (by decide)
++  norm_num [harmonic_succ] at he hc
++  exact ⟨he, hc⟩
++
++theorem four_tagged_harmonic {α : Type u} (a b c d : α) :
++    exerciseMean (fun x y : Nat × α => decide (x.1 < y.1))
++        [(3, a), (1, b), (0, c), (2, d)] = (109 : ℝ) / 3 ∧
++      (109 : ℝ) / 3 ≤
++        literalMean (fun x y : Nat × α => decide (x.1 < y.1))
++          [(3, a), (1, b), (0, c), (2, d)] ∧
++      literalMean (fun x y : Nat × α => decide (x.1 < y.1))
++          [(3, a), (1, b), (0, c), (2, d)] ≤ (218 : ℝ) / 3 := by
++  have hd :
++      (([(3, a), (1, b), (0, c), (2, d)] : List (Nat × α)).map Prod.fst).Nodup := by
++    change ([3, 1, 0, 2] : List Nat).Nodup
++    decide
++  have he := exerciseMean_eq_harmonic (Prod.fst : Nat × α → Nat)
++    [(3, a), (1, b), (0, c), (2, d)] hd
++  have hc := literalMean_harmonic_comparison (Prod.fst : Nat × α → Nat)
++    [(3, a), (1, b), (0, c), (2, d)] hd
++  norm_num [harmonic_succ] at he hc
++  exact ⟨he, hc⟩
++
++theorem five_sizeMean : sizeMean 5 = (253 : ℝ) / 5 := by
++  rw [sizeMean_eq_harmonic]
++  norm_num [harmonic_succ]
++
++/-- Arbitrary distinct-key lists of each size, with no order law on payloads. -/
++theorem arbitrary_length_indexed_growth {α : Type u} {κ : Type v} [LinearOrder κ]
++    (key : α → κ) (xs : Nat → List α)
++    (hd : ∀ n, ((xs n).map key).Nodup) (hlen : ∀ n, (xs n).length = n) :
++    Asymptotics.IsBigO Filter.atTop
++        (fun n => exerciseMean (fun a b => decide (key a < key b)) (xs n))
++        (fun n : Nat => (n : ℝ) * Real.logb 2 (n : ℝ)) ∧
++      Asymptotics.IsBigO Filter.atTop
++        (fun n => literalMean (fun a b => decide (key a < key b)) (xs n))
++        (fun n : Nat => (n : ℝ) * Real.logb 2 (n : ℝ)) := by
++  have ht : Filter.Tendsto (fun n => (xs n).length) Filter.atTop Filter.atTop := by
++    have heq : (fun n => (xs n).length) = id := funext hlen
++    rw [heq]
++    exact Filter.tendsto_id
++  have he := exerciseMean_family_isBigO_logb key Filter.atTop xs
++    (Filter.Eventually.of_forall hd) ht
++  have hf := literalMean_family_isBigO_logb key Filter.atTop xs
++    (Filter.Eventually.of_forall hd) ht
++  simpa only [hlen] using And.intro he hf
++
++/-- Full payloads contain arbitrary functions; only their Nat keys are ordered. -/
++theorem function_tagged_family_growth (tags : Nat → Nat → (Nat → Nat)) :
++    Asymptotics.IsBigO Filter.atTop
++        (fun n => exerciseMean (fun a b : Nat × (Nat → Nat) => decide (a.1 < b.1))
++          ((List.range n).map (fun k => (k, tags n k))))
++        (fun n : Nat => (n : ℝ) * Real.logb 2 (n : ℝ)) ∧
++      Asymptotics.IsBigO Filter.atTop
++        (fun n => literalMean (fun a b : Nat × (Nat → Nat) => decide (a.1 < b.1))
++          ((List.range n).map (fun k => (k, tags n k))))
++        (fun n : Nat => (n : ℝ) * Real.logb 2 (n : ℝ)) := by
++  apply arbitrary_length_indexed_growth (Prod.fst : Nat × (Nat → Nat) → Nat)
++    (fun n => (List.range n).map (fun k => (k, tags n k)))
++  · intro n
++    rw [List.map_map]
++    change ((List.range n).map id).Nodup
++    rw [List.map_id]
++    exact List.nodup_range
++  · intro n
++    simp only [List.length_map, List.length_range]
++
++/-- The family's index differs from the size used in its growth function. -/
++theorem shifted_range_family_growth :
++    Asymptotics.IsBigO Filter.atTop
++        (fun n : Nat => exerciseMean natLt (List.range (n + 2)))
++        (fun n : Nat => ((n + 2 : Nat) : ℝ) * Real.logb 2 ((n + 2 : Nat) : ℝ)) ∧
++      Asymptotics.IsBigO Filter.atTop
++        (fun n : Nat => literalMean natLt (List.range (n + 2)))
++        (fun n : Nat => ((n + 2 : Nat) : ℝ) * Real.logb 2 ((n + 2 : Nat) : ℝ)) := by
++  have hd : ∀ᶠ n : Nat in Filter.atTop,
++      ((List.range (n + 2)).map (id : Nat → Nat)).Nodup :=
++    Filter.Eventually.of_forall (fun n => by
++      simpa only [List.map_id] using (List.nodup_range (n := n + 2)))
++  have ht : Filter.Tendsto (fun n : Nat => (List.range (n + 2)).length)
++      Filter.atTop Filter.atTop := by
++    apply Filter.tendsto_atTop.mpr
++    intro b
++    filter_upwards [Filter.eventually_ge_atTop b] with n hn
++    simp only [List.length_range]
++    omega
++  have he := exerciseMean_family_isBigO_logb (id : Nat → Nat) Filter.atTop
++    (fun n => List.range (n + 2)) hd ht
++  have hf := literalMean_family_isBigO_logb (id : Nat → Nat) Filter.atTop
++    (fun n => List.range (n + 2)) hd ht
++  simpa only [List.length_range] using And.intro he hf
++
++/-- Constant key 7 gives the all-false comparator despite distinct payloads. -/
++theorem equal_key_three_not_harmonic :
++    ([0, 1, 2] : List Nat).Nodup ∧
++      ¬ (([0, 1, 2] : List Nat).map (fun _ => (7 : Nat))).Nodup ∧
++      exerciseMean (fun _ _ : Nat => false) [0, 1, 2] = 25 ∧
++      exerciseMean (fun _ _ : Nat => false) [0, 1, 2] ≠
++        8 * ((3 : ℝ) + 1) * (harmonic 3 : ℝ) - 12 * (3 : ℝ) + 1 := by
++  have he := exerciseMean_of_all_false (fun _ _ : Nat => false) [0, 1, 2]
++    (by intro _ _ _ _; rfl)
++  norm_num at he
++  refine ⟨by decide, by decide, he, ?_⟩
++  rw [he]
++  norm_num [harmonic_succ]
++
++/-- The exact infinite-family boundary retains both actual quadratic tariffs. -/
++theorem equal_key_family_means {α : Type u} (tags : List α) :
++    exerciseMean (fun _ _ : α => false) tags =
++        ((2 * tags.length ^ 2 + 2 * tags.length + 1 : Nat) : ℝ) ∧
++      literalMean (fun _ _ : α => false) tags =
++        ((2 * tags.length ^ 2 + 5 * tags.length + 1 : Nat) : ℝ) :=
++  ⟨exerciseMean_of_all_false _ tags (by intro _ _ _ _; rfl),
++    literalMean_of_all_false _ tags (by intro _ _ _ _; rfl)⟩
++
++/-- Both fixed constants fail without key distinctness. This finite example is
++not itself a claim that no Big-O constant exists for an entire family. -/
++theorem equal_key_binary_bounds_fail :
++    (List.range 256).Nodup ∧
++      exerciseMean (fun _ _ : Nat => false) (List.range 256) = 131585 ∧
++      literalMean (fun _ _ : Nat => false) (List.range 256) = 132353 ∧
++      ¬ exerciseMean (fun _ _ : Nat => false) (List.range 256) ≤
++        32 * ((256 : ℝ) * Real.logb 2 (256 : ℝ)) ∧
++      ¬ literalMean (fun _ _ : Nat => false) (List.range 256) ≤
++        64 * ((256 : ℝ) * Real.logb 2 (256 : ℝ)) := by
++  have h := equal_key_family_means (List.range 256)
++  norm_num at h
++  have hlog : Real.logb 2 (256 : ℝ) = 8 := by
++    have hp := Real.logb_pow (2 : ℝ) (2 : ℝ) 8
++    have hs : Real.logb 2 (2 : ℝ) = 1 := Real.logb_self_eq_one (by norm_num)
++    rw [hs] at hp
++    norm_num at hp
++    exact hp
++  refine ⟨List.nodup_range, h.1, h.2, ?_, ?_⟩
++  · rw [h.1, hlog]
++    norm_num
++  · rw [h.2, hlog]
++    norm_num
++
++end
++end Examples.RandomQuickSortGrowth

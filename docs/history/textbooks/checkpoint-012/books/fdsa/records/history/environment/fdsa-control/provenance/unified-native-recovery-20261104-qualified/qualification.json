@@ -1,0 +1,96 @@
+{
+  "recorded_utc": "2026-11-04T03:54:20.369502+00:00",
+  "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "attempts": [
+    {
+      "directory": "provenance/unified-native-recovery-20261104-attempt1",
+      "exit_code": 1,
+      "started_utc": "2026-11-04T03:40:43.835768+00:00",
+      "completed_utc": "2026-11-04T03:43:44.108418+00:00",
+      "full_log_sha256": "b7118999b8fcc1bf17f2e431bb6d93c6d52ec5241d89eeffefc1dac8ac817784"
+    },
+    {
+      "directory": "provenance/unified-native-recovery-20261104-attempt2-low-parallel",
+      "exit_code": 1,
+      "started_utc": "2026-11-04T03:45:00.738540+00:00",
+      "completed_utc": "2026-11-04T03:50:48.275451+00:00",
+      "full_log_sha256": "32af2a36554a406dfdf4001248f60a76829c236f438b9f2492eaacb15b5c56ab"
+    },
+    {
+      "directory": "provenance/unified-native-recovery-20261104-attempt3-serial",
+      "exit_code": 1,
+      "started_utc": "2026-11-04T03:51:37.331817+00:00",
+      "completed_utc": "2026-11-04T03:52:44.429232+00:00",
+      "full_log_sha256": "9f74b5f24d9156336f4aeb7638a2585c8b953d4b9c1fef9ecb6ec55da1416db2"
+    },
+    {
+      "directory": "provenance/unified-native-recovery-20261104-attempt4-serial",
+      "exit_code": 0,
+      "started_utc": "2026-11-04T03:52:56.845733+00:00",
+      "completed_utc": "2026-11-04T03:53:20.340644+00:00",
+      "full_log_sha256": "00d21c992d76227360f40022f705938a91b89639a7285d3e7d8762a5da9dcc77"
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "mathlib",
+      "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "status": "",
+      "private_real_directory": true
+    },
+    {
+      "name": "plausible",
+      "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "status": "",
+      "private_real_directory": true
+    },
+    {
+      "name": "LeanSearchClient",
+      "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "status": "",
+      "private_real_directory": true
+    },
+    {
+      "name": "importGraph",
+      "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "status": "",
+      "private_real_directory": true
+    },
+    {
+      "name": "proofwidgets",
+      "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "status": "",
+      "private_real_directory": true
+    },
+    {
+      "name": "aesop",
+      "head": "4a174c490d8707121c4a9290800489f105d85e07",
+      "status": "",
+      "private_real_directory": true
+    },
+    {
+      "name": "Qq",
+      "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "status": "",
+      "private_real_directory": true
+    },
+    {
+      "name": "batteries",
+      "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "status": "",
+      "private_real_directory": true
+    },
+    {
+      "name": "Cli",
+      "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "status": "",
+      "private_real_directory": true
+    }
+  ],
+  "qualified_setup": true,
+  "full_candidate_validation": false,
+  "native_profile_comparison": "../recovery-20261104-restored/runtime-content-comparison.json",
+  "available_bytes": 37042696192,
+  "acceptance_route": "Ordinary candidate check. Exact compiler/runtime/adapter/loader/dependency inputs match the accepted Chapter1 native fresh baseline; recovery of regenerable outputs is not a README fresh trigger.",
+  "threads": 1
+}

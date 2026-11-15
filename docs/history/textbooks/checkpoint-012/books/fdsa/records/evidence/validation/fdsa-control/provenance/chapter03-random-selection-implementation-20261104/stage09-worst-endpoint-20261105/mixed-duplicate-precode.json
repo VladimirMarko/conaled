@@ -1,0 +1,69 @@
+{
+  "scope": "Additional expected case saved before the new EndpointTrace source; no Lean validation.",
+  "reason": "A structural singleton-ending endpoint path can exist on mixed duplicates. Structure alone does not imply Nodup, one-element decrements, triangular work, or factorial mass.",
+  "model": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/stage07-endpoints-20261104/expected_case_model.py",
+  "model_sha256": "7edb978daacc882721553f8a5f0a2b094f36b8571988e405e28703be5fdaa2c7",
+  "case": {
+    "input": [
+      1,
+      1,
+      2
+    ],
+    "rank": 2,
+    "choices": [
+      {
+        "input": [
+          1,
+          1,
+          2
+        ],
+        "rank": 2,
+        "index": 0,
+        "child": [
+          0,
+          [
+            2
+          ]
+        ],
+        "calls": 14,
+        "pivot": 1
+      },
+      {
+        "input": [
+          2
+        ],
+        "rank": 0,
+        "index": 0,
+        "value": 2,
+        "calls": 9,
+        "pivot": 2
+      }
+    ],
+    "outcome": [
+      2,
+      [
+        [
+          3,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      23
+    ],
+    "scan": 4,
+    "path_mass": "1/3",
+    "actual_uniform_run_atom": "1/3"
+  },
+  "expected_structural_endpoint_trace": true,
+  "expected_nodup": false,
+  "distinct_size3_triangular_comparison": {
+    "actual_scan": 4,
+    "triangular": 6,
+    "actual_trace_mass": "1/3",
+    "inverse_factorial": "1/6"
+  },
+  "source_cost": "Actual source calls14+9=23; W4 is a separate observation."
+}

@@ -1,0 +1,72 @@
+{
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "machine": "x86_64",
+  "os_cpu_count": 9,
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "rlimits": {
+    "RLIMIT_AS": [
+      -1,
+      -1
+    ],
+    "RLIMIT_DATA": [
+      -1,
+      -1
+    ],
+    "RLIMIT_CPU": [
+      -1,
+      -1
+    ],
+    "RLIMIT_NPROC": [
+      39792,
+      39792
+    ],
+    "RLIMIT_STACK": [
+      8388608,
+      -1
+    ],
+    "RLIMIT_NOFILE": [
+      16384,
+      16384
+    ]
+  },
+  "cgroup_files": {
+    "/sys/fs/cgroup/cpu.max": {
+      "unavailable": "FileNotFoundError"
+    },
+    "/sys/fs/cgroup/memory.max": {
+      "unavailable": "FileNotFoundError"
+    },
+    "/sys/fs/cgroup/memory.current": {
+      "unavailable": "FileNotFoundError"
+    },
+    "/sys/fs/cgroup/cpuset.cpus.effective": {
+      "unavailable": "FileNotFoundError"
+    },
+    "/sys/fs/cgroup/cpu/cpu.cfs_quota_us": {
+      "unavailable": "FileNotFoundError"
+    },
+    "/sys/fs/cgroup/cpu/cpu.cfs_period_us": {
+      "unavailable": "FileNotFoundError"
+    },
+    "/sys/fs/cgroup/memory/memory.limit_in_bytes": {
+      "unavailable": "FileNotFoundError"
+    }
+  },
+  "meminfo": {
+    "MemTotal": "10206472 kB",
+    "MemAvailable": "9427756 kB",
+    "SwapTotal": "0 kB",
+    "SwapFree": "0 kB"
+  },
+  "available_workspace_disk_bytes": 62078525440
+}

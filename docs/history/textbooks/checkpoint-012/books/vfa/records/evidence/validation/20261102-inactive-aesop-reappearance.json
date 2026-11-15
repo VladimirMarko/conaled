@@ -1,0 +1,18 @@
+{
+  "observed_utc": "2026-11-02T14:59:42.811131+00:00",
+  "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/aesop/.lake/build",
+  "current_metadata": {
+    "device": 27,
+    "inode": 2912692,
+    "ctime_ns": 1793630749735260076,
+    "size": 4096
+  },
+  "prior_one_time_retirement": "work-state/validation/20261102-inactive-aesop-retirement.json",
+  "prior_root_identity": [
+    27,
+    2782880
+  ],
+  "root_free_bytes": 1105985536,
+  "finding": "Previously retired inactive generated root is present again with a different inode. Its writer and cause are not established.",
+  "disposition": "Record under existing local1025, nonblocking absent concrete active-input or artifact-integrity evidence. No repeated deletion, process survey or inference of active proof-cache corruption."
+}

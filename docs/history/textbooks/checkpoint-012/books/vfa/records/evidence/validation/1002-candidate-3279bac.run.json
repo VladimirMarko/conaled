@@ -1,0 +1,25 @@
+{
+  "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "command": [
+    "/root/.nix-profile/bin/nix",
+    "develop",
+    "--command",
+    "./check.sh",
+    "--candidate",
+    "HEAD"
+  ],
+  "working_directory": "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+  "log": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-3279bac.log",
+  "explicit_environment": {
+    "PATH_prefix": "/root/.nix-profile/bin:",
+    "NIX_CONFIG": "build-users-group =\nexperimental-features = nix-command flakes",
+    "LEAN_NUM_THREADS": "1"
+  },
+  "started_utc": "2026-11-02T10:59:38.190453+00:00",
+  "status": "failed_or_interrupted",
+  "returncode": 120,
+  "note": "Exact subprocess return code is recorded independently of interactive session. Required check.sh command unchanged. Checkpoint017 upload completed before launch.",
+  "pid": 283393,
+  "process_group": 283393,
+  "finished_utc": "2026-11-02T15:44:02.923453+00:00"
+}

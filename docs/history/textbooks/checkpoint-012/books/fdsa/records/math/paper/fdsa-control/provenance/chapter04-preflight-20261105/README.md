@@ -1,0 +1,11 @@
+# Chapter 4 implementation preparation, 5 November 2026
+
+This directory preserves the complete two preparation reports returned by /root/chapter04_preflight, their exact source identities and read receipts, and the later authorized Figure 4.3 visual supplement. It is implementation support, not an independent Standards or Spec review. No compiler, project source, reference, acceptance or upload action was performed by this preparation agent.
+
+The two Markdown reports preserve their original temporal statements. At the first report the chapter ticket was queued and the figure had only been read in extracted text. At the second report source writing remained paused. Root subsequently confirmed checkpoint0137 verified, uploaded, exposed and closed at actual970a0e, and authorized saving this new directory plus a temporary visual render outside BASE. That later authorization is bound to post-upload-hold-release.json, SHA2565789d0f1b76947bc134c3a7e203528d8ac7edc92a75277fc1ba1a4385f98a50b. The reports' historical no-write statements concern those original read-only tasks; the present save is the explicitly authorized subsequent action.
+
+The source and report files already present before this directory remain unchanged. The immutable Chapter 4 starting candidate is298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2, with all76 frozen obligations. Exact original XT01 source is64c6b777d828ecfe83234fc2aed94600a1f24297, preserving its seven-path scope and115 public names. XT01/XT02/XT03 original acceptance prerequisites, source assessments, findings and independent final gates remain mandatory. Proposed author paths/names are recommendations requiring root's separate explicit assignment.
+
+The full source PDF and its temporary rendered page are deliberately excluded from this directory and project deliverables. figure4-3-visual-assessment.json records the bounded observation and exact input/render identities. Poppler's initial loader failure and the successful installed PyMuPDF fallback are preserved as actual tool results. No toolchain, kernel, dependency or Lean execution profile changed.
+
+The final readback-and-hold.json will record complete bounded readback of the saved artifacts and the end of this agent's write authorization. Until that record exists, saving/readback is still in progress.

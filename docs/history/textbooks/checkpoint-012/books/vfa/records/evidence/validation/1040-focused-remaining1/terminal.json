@@ -1,0 +1,28 @@
+{
+  "observed_utc": "2026-11-04T11:20:10.327761+00:00",
+  "actual_terminal_exit_code": 1,
+  "kit_log_directory": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T111947Z-project-run-aaabdbf7",
+  "kit_exit_code": 1,
+  "timed_out": false,
+  "recorder_error": null,
+  "candidate": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+  "classification": "diagnostic-helper preflight assumption failure before any compiler invocation",
+  "failure": "assert len(dependencies) == 9 incorrectly equated pinned repository count with installed artifact-directory count",
+  "actual_dependency_output_directories": [
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/LeanSearchClient/.lake/build/lib/lean",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/Qq/.lake/build/lib/lean",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/aesop/.lake/build/lib/lean",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/batteries/.lake/build/lib/lean",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/importGraph/.lake/build/lib/lean",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/mathlib/.lake/build/lib/lean",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/plausible/.lake/build/lib/lean",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/proofwidgets/.lake/build/lib/lean"
+  ],
+  "actual_dependency_output_directory_count": 8,
+  "compiler_invocations": 0,
+  "private_output_directory_created": false,
+  "source_result": null,
+  "gate_credit": false,
+  "output_bytes": 241,
+  "output_sha256": "6deb94eeb91741cc6c3693b7ba24f4bb2495183c4b27e71c20beb5fece4db2f5"
+}

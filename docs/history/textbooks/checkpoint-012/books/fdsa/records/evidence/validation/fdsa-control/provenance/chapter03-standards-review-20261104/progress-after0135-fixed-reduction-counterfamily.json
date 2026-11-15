@@ -1,0 +1,181 @@
+{
+  "recorded_utc": "2026-11-05T00:15:07.293528+00:00",
+  "reviewer": "/root/chapter03_standards",
+  "axis": "Standards",
+  "outcome": "Blocked",
+  "source_review_complete": false,
+  "original_full_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "full_frozen_obligations": 83,
+  "source_candidate": "690ab476f4685e5a795d53d18465b067655a34dd",
+  "accepted_XR": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "successor_announced": "2ff47bdad9f822727fb2d1ea86092c4b26ad0cb6",
+  "successor_assessment": "Not yet independently assessed in this record; exact CountRank repair and closed evidence are next.",
+  "new_completed_source_files": [
+    {
+      "path": "Applications/Selection/FixedRank.lean",
+      "bytes": 11391,
+      "sha256": "463e00dfd9eaac03dd2bec858eb64454d6c79abf03c80c8011019fb8af527395",
+      "complete_source_receipt": "fcca89"
+    },
+    {
+      "path": "Applications/Resources/FixedRank.lean",
+      "bytes": 7633,
+      "sha256": "831a78121a2ee7d7db773dd335febb938d8dfc8e7dbe944bb4cb7d71ec202c94",
+      "complete_source_receipt": "fd34a4"
+    },
+    {
+      "path": "Examples/FixedRankSelection.lean",
+      "bytes": 7246,
+      "sha256": "c1ba9819d89af6a1d7f3c1678f10bed4b0614c63b385eb856144d315ebd955da",
+      "complete_source_receipt": "fd34a4"
+    },
+    {
+      "path": "Applications/Selection/MedianReduction.lean",
+      "bytes": 8269,
+      "sha256": "902329504401dfb5ae2dbd2a62c6c7fa8d3dc9eec22d29d99b350282e57d608a",
+      "complete_source_receipt": "c023fa"
+    },
+    {
+      "path": "Applications/Resources/MedianReduction.lean",
+      "bytes": 5846,
+      "sha256": "e3bb494b94ed6829ad080b9120a69af16cb12c66cb7f7892598db988e3de354c",
+      "complete_source_receipt": "c023fa"
+    },
+    {
+      "path": "Examples/MedianReduction.lean",
+      "bytes": 7589,
+      "sha256": "d08959ce8687e1bc6db9dff78fb581c53b072e9db0436da465d9e42fdf652506",
+      "complete_source_receipt": "c023fa"
+    },
+    {
+      "path": "Applications/Selection/MedianCounterfamily.lean",
+      "bytes": 7414,
+      "sha256": "8fc4a388b50bd363587b8d8fbdc742d2e9d45426b58af75d9b83f471d1e4e0f6",
+      "complete_source_receipt": "2f0f90"
+    },
+    {
+      "path": "Examples/MedianCounterfamily.lean",
+      "bytes": 2917,
+      "sha256": "8ebe64ee7b3a819b67a4afc9d2d52b8e659ebcdd20ffea17fb9933c1be0f5083",
+      "complete_source_receipt": "2f0f90"
+    }
+  ],
+  "new_actual_type_assessment": [
+    {
+      "area": "Fixed-rank value, measured implementation, checked applications",
+      "indices": [
+        130,
+        215
+      ],
+      "count": 86,
+      "bytes": 52103,
+      "receipts": [
+        "77ab49 complete130-165",
+        "5242ae complete166-188",
+        "3ed8e0 complete189-196 and213-215; middle truncated",
+        "1176ce complete197-212"
+      ]
+    },
+    {
+      "area": "Rank-to-median value, preparation costs, checked applications",
+      "indices": [
+        216,
+        280
+      ],
+      "count": 65,
+      "bytes": 57570,
+      "receipts": [
+        "b0940e complete216-232",
+        "217e93 complete233-256",
+        "90f99d complete257-269",
+        "5007a9 complete270-280"
+      ]
+    },
+    {
+      "area": "Infinite median counterfamily and checked applications",
+      "indices": [
+        281,
+        322
+      ],
+      "count": 42,
+      "bytes": 25810,
+      "receipts": [
+        "efdf64 complete281-309",
+        "23ad44 complete310-322"
+      ]
+    }
+  ],
+  "assessments": {
+    "fixed_rank": [
+      "The actual minimum and second-occurrence loops consume the input tail once. The general prefix loop inserts into and truncates an accumulator of width k+1. The reversed history is only a proof invariant; no algorithmic input reversal occurs.",
+      "The private take_orderedInsert_take proof and the width-two update/loop identities were read. The specialized select1 correctness follows the exact width-two loop relation, preserving equal occurrences.",
+      "Value/none/rank/count correspondences apply to arbitrary linear orders, with no hidden Nodup or Inhabited restriction. The public selector bridge remains zero-based k to one-based k+1.",
+      "Measured implementations accumulate spent source-call cost during the actual loop and separately pay insertion, take and final lookup. minimum costs n+1; the general uniform bound uses explicit constants2,6,1,4 and includes k=0 and invalid indices in the stronger theorem.",
+      "Meaningful checked uses cover duplicate minima/second occurrences, nonempty prior history, zero width, valid/invalid ranks, head/tail accumulator insertion and differing costs for extensionally equal minimum/fixed-zero algorithms. All86 actual types read; no new finding."
+    ],
+    "median_reduction": [
+      "The construction uses actual input extrema, including a second minimum loop in OrderDual, and natural-subtraction padding counts. No global sentinel or inhabitant is assumed.",
+      "The count proof allows padding ties with the selected value; it uses upper bounds on strict contributions rather than falsely equating them to padding lengths. The valid occurrence shifts to the exact central rank in an odd nonempty result.",
+      "Correctness is proved for every valid target and valid median policy. Invalid ranks are explicitly excluded where required; examples show both value and cost claims fail outside their valid-rank domain.",
+      "Actual preparation costs include length, both extrema traversals, both replications, and both association-specific append traversals. The exact4*n+2*low+high+8 and uniform6*n+6 bounds concern preparation before the median call. Rank-zero inputs attain the affine bound.",
+      "Checked cases cover both pad orientations, central/no-padding, tied extrema, Int extrema, empty/singleton boundaries and the measured full contract. All65 actual types read; no new finding."
+    ],
+    "median_counterfamily": [
+      "The explicit family contains i low blocks, i+1 high blocks, and the retained final singleton0. Full chopped-input correspondence is proved before replacing each actual median by its known shape value. headD0 is only used after proving the three nonempty shape equalities.",
+      "For every natural index, length is10*i+6, the actual lower median of the2*i+2 chunk medians is0, and the strict upper count is7*i+5. Thus10*count=7*length+8 with positive lengths and strictly increasing lengths.",
+      "The existential family theorem quantifies over every index, and connected cases use its component theorems to show concrete and all-index properties. The legitimate additive ceiling bound is retained and consumed for this same family.",
+      "All42 actual types read; the strictness, quantifier order, actual pivot and lack of unintended distinctness premise match the source. No new finding."
+    ]
+  },
+  "additional_full_source_reads_pending_complete_assessment": [
+    {
+      "path": "Applications/Resources/MinimumPivot.lean",
+      "receipt": "005246",
+      "sha256": "c4e4ee7b0ef4413684fc13069d2f7f1200ac6387df2aa81565db0aa45bebaabe"
+    },
+    {
+      "path": "Examples/MinimumPivot.lean",
+      "receipt": "005246",
+      "sha256": "08a54aec03e507b1c8dc87dcf521f96984c6a6cff4988294a60ddb1db6a9cdc8"
+    }
+  ],
+  "cumulative": {
+    "complete_source_files_read": 19,
+    "source_files_with_complete_source_and_actual_type_assessment": 17,
+    "actual_type_blocks_semantically_assessed": 374,
+    "type_zero_based_ranges": [
+      [
+        0,
+        349
+      ],
+      [
+        740,
+        752
+      ],
+      [
+        781,
+        791
+      ]
+    ],
+    "whole_scope_complete": false
+  },
+  "findings": [
+    {
+      "id": "C03-SPEC-USE-001",
+      "severity": "medium",
+      "status": "Open at690; independently confirmed45fe5e; announced successor2ff repair not yet assessed."
+    },
+    {
+      "id": "C03-STD-DOC-001",
+      "severity": "low",
+      "status": "Open",
+      "path": "Applications/Resources/MinimumPivot.lean:10",
+      "receipt": "005246",
+      "statement": "Only the largest-rank specialization is uniformly quadratic.",
+      "consequence": "The word Only incorrectly suggests that other rank families cannot have uniform quadratic cost. The exact scan formula already gives a quadratic family for n=2*m,k=m,m>0. The formal largest-rank and fixed-rank theorems themselves retain their correct domains.",
+      "requested_fix": "Remove Only or explicitly describe only the theorem specialization supplied, without claiming exclusivity of quadratic families."
+    }
+  ],
+  "observation_metadata_read": "d3cbac exposed configuration, all9 dependency pins, runtime hashes and sample capture schemas. Its program-name listing was truncated; no additional semantic type coverage or complete input reconciliation is claimed from that read.",
+  "remaining": "All unread chapter source/types/docs and relevant dependencies, originalQ-to-XR source/evidence reuse, stable input/run qualification, new trace modules and final universal witness stage, final successful full check/audit, both complete independent outcomes and immediate final verification remain pending."
+}

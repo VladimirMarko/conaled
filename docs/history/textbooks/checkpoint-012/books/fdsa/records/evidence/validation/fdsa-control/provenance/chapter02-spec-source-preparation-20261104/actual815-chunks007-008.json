@@ -1,0 +1,118 @@
+{
+  "recorded_utc": "2026-11-04T10:42:25.644403+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete81-path review scope, all112 obligations and ten shared scopes.",
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "chunks": [
+    {
+      "chunk": 7,
+      "type_numbers": [
+        91,
+        114
+      ],
+      "native_lines": [
+        1475,
+        1750
+      ],
+      "bytes": 20046,
+      "sha256": "f4bd5a07541dc4e7a590796326d59e60b4d95d2e83f553a5a1fe8bcc95d59097",
+      "names": [
+        "Resources.NaturalRunOperations.runsOpsBy_cons_cons",
+        "Resources.NaturalRunOperations.ascOpsBy_nil",
+        "Resources.NaturalRunOperations.ascOpsBy_cons",
+        "Resources.NaturalRunOperations.descOpsBy_nil",
+        "Resources.NaturalRunOperations.descOpsBy_cons",
+        "Resources.NaturalRunOperations.singleton_toDList",
+        "Resources.NaturalRunOperations.runsOpsBy_value",
+        "Resources.NaturalRunOperations.ascOpsBy_value",
+        "Resources.NaturalRunOperations.descOpsBy_value",
+        "Resources.NaturalRunOperations.runsOpsBy_perm",
+        "Resources.NaturalRunOperations.runsOpsBy_flatten_length",
+        "Resources.NaturalRunOperations.runsOpsBy_length_le",
+        "Resources.NaturalRunOperations.runsOpsBy_sorted",
+        "Resources.NaturalRunOperations.runsOpsBy_work_le",
+        "Resources.NaturalRunOperations.ascOpsBy_work_le",
+        "Resources.NaturalRunOperations.descOpsBy_work_le",
+        "Resources.NaturalRunOperations.ascOpsBy_buildFrom",
+        "Resources.NaturalRunOperations.buildAscending",
+        "Resources.NaturalRunOperations.buildAscending_eq",
+        "Resources.NaturalRunOperations.buildAscending_cost",
+        "Resources.NaturalRunOperations.buildAscending_rep",
+        "Resources.NaturalRunOperations.buildAscending_appCost",
+        "Resources.NaturalRunOperations.buildAscending_apply",
+        "Resources.NaturalRunOperations.buildAscending_weight"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The actual scanner equations branch on lt b a=true: strict descents accumulate by cons, while a false comparison extends the ascending difference-list builder. Initial dispatch costs3; ascending materialization and split costs, push-run work4, descending continuation3 and split4 are retained in complete measured equalities.",
+        "Value correspondences connect actual runs/ascending/descending operations to Applications.Sorting. The ascending correspondence requires Rep, while its work bound independently requires uniform AppCost; representation alone is not treated as a cost guarantee.",
+        "Permutation, flattened length and number-of-runs bounds are comparator-law-free. Sortedness specializes to key comparison on a LinearOrder key type without adding payload equality/default assumptions.",
+        "The global scanner work bound is6*n+1; ascending helper costs at most k+6*length(ys)+5 under AppCost f k; descending helper costs at most6*length(ys)+5. All are Nat costs.",
+        "Ascending-chain execution is explicitly connected to buildFrom. buildAscending creates and applies a representation of first::middle with separate creation and uniform application costs1+2*length(middle); both weight identities add1 to obtain2*prefix.length."
+      ]
+    },
+    {
+      "chunk": 8,
+      "type_numbers": [
+        115,
+        137
+      ],
+      "native_lines": [
+        1751,
+        2040
+      ],
+      "bytes": 20572,
+      "sha256": "e080e84fd72bbb2195ed06300c9841864171ffa3a14032529de4890817f93a2f",
+      "names": [
+        "Resources.NaturalRunOperations.buildAscending_counts_add_three",
+        "Resources.NaturalRunOperations.buildAscending_counts",
+        "Resources.NaturalRunOperations.runsOpsBy_buildAscending",
+        "Resources.NaturalRunOperations.ascOpsBy_work_of_chain",
+        "Resources.NaturalRunOperations.descOpsBy_work_of_chain",
+        "Resources.NaturalRunOperations.runsOpsBy_work_ascending_add_five",
+        "Resources.NaturalRunOperations.runsOpsBy_work_ascending",
+        "Resources.NaturalRunOperations.runsOpsBy_of_ascending_chain",
+        "Resources.NaturalRunOperations.runsOpsBy_work_descending",
+        "Resources.NaturalRunOperations.runsOpsBy_of_descending_chain",
+        "Resources.NaturalRunOperations.runsOpsBy_of_sorted",
+        "Resources.NaturalRunOperations.runsOpsBy_of_strictly_descending",
+        "Resources.NaturalRunOperations.baseMergeOps",
+        "Resources.NaturalRunOperations.baseMergeOps_nil",
+        "Resources.NaturalRunOperations.baseMergeOps_singleton",
+        "Resources.NaturalRunOperations.baseMergeOps_spec",
+        "Resources.NaturalRunOperations.baseMergeOps_eq_tick_allRun",
+        "Resources.NaturalRunOperations.singleRunOpsBy",
+        "Resources.NaturalRunOperations.singleRunOpsBy_spec",
+        "Resources.NaturalRunOperations.singleRunOpsBy_value",
+        "Resources.NaturalRunOperations.singleRunOpsBy_work",
+        "Resources.NaturalRunOperations.singleRunOpsBy_work_le",
+        "Resources.NaturalRunOperations.singleRunOpsBy_perm"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "For an actual first/middle/last input of length at least2 by construction, builder creation and application each satisfy cost+3=2*n and cost=2*n-3. The scanner decomposition includes both costs,2*middle.length and5; it is an operational equality, not only a numerical recurrence.",
+        "Ascending-chain exact work is6*n-5 only with2<=n, with a subtraction-free cost+5=6*n companion. Empty/singleton boundaries are not silently subsumed. Nonempty descending chains cost3*n and produce exactly the reversed singleton run.",
+        "Sorted-key specialization uses LinearOrder only for the intended key order. The strictly descending operational specialization needs only LT and DecidableLT plus the explicit Pairwise premise; it does not claim unproved sortedness from an arbitrary LT.",
+        "baseMergeOps requires at most one run, returns the actual mergeAllBy value at dispatch cost1, and equals CallCount.tick of the existing BottomUpSorting.allRun. Empty and singleton base cases both retain the dispatch work.",
+        "singleRunOpsBy carries the actual runsBy length<=1 premise, connects to sortNaturalBy for any merge comparator, and charges actual runsOpsBy work+1. Its bound6*n+2 and permutation result preserve the scanner-to-merge connection."
+      ]
+    }
+  ],
+  "prior_progress_sha256": "26a406d35fea7cf78dd0edae7cf9ba54add413da29c8f85e98d32035fa8b2207",
+  "overall_outcome": "Blocked",
+  "new_type_credit": 0,
+  "possible110_credit": 0
+}

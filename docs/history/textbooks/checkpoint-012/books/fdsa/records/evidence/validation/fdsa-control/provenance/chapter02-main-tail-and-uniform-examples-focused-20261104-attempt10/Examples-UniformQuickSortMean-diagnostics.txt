@@ -1,0 +1,93 @@
+✖ [3719/3719] Building Examples.UniformQuickSortMean (220s)
+warning: Examples/UniformQuickSortMean.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+trace: .> LEAN_PATH=/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/lib/lean /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/profile/bin/lean /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/UniformQuickSortMean.lean -o /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/lib/lean/Examples/UniformQuickSortMean.olean -i /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/lib/lean/Examples/UniformQuickSortMean.ilean -c /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/ir/Examples/UniformQuickSortMean.c --setup /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/ir/Examples/UniformQuickSortMean.setup.json --json
+error: Examples/UniformQuickSortMean.lean:71:20: Unknown constant `List.length_eq_one.mp`
+error: Examples/UniformQuickSortMean.lean:71:9: Tactic `rcases` failed: `x✝ : ?m.30` is not an inductive datatype
+error: Examples/UniformQuickSortMean.lean:89:24: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  @Membership.mem ?m.6 (Finset ?m.6) SetLike.instMembership { val := ?m.8, nodup := ?m.9 } ?m.7
+in the target expression
+  @Membership.mem Label (Finset Label) SetLike.instMembership { val := ↑Label.enumList, nodup := Label.enumList_nodup }
+    x✝
+
+α : Type u
+κ : Type v
+x✝ : Label
+⊢ x✝ ∈ { val := ↑Label.enumList, nodup := Label.enumList_nodup }
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Label.enumList_nodup
+  has type
+    Label.enumList.Nodup
+  but is expected to have type
+    (↑Label.enumList).Nodup
+  in the application
+    { val := ↑Label.enumList, nodup := Label.enumList_nodup }
+error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved
+error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved
+error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved
+error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved
+error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved
+error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved
+error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved
+error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved
+error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved
+error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved
+error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved
+error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved
+error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved
+error: Examples/UniformQuickSortMean.lean:191:71: unsolved goals
+⊢ 3⁻¹ + 3⁻¹ = 2 / 3
+error: Examples/UniformQuickSortMean.lean:204:4: failed to synthesize instance of type class
+  IsFiniteMeasure law
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+error: Examples/UniformQuickSortMean.lean:253:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  meanBy positions (fun x y => decide (key x < key y)) selected
+in the target expression
+  meanBy positions comparator selected = 71 / 3
+
+⊢ meanBy positions comparator selected = 71 / 3
+error: Examples/UniformQuickSortMean.lean:266:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (π : Equiv.Perm Label),
+    observedCost positions comparator (leftChild comparator selected low)
+      π ∂(uniformOn Set.univ)[|firstEvent (restrictedOrder positions selected) low]
+in the target expression
+  ∫ (π : Equiv.Perm Label),
+      observedCost positions comparator (leftChild comparator selected low)
+        π ∂law[|firstEvent (restrictedOrder positions selected) low] =
+    1
+
+⊢ ∫ (π : Equiv.Perm Label),
+      observedCost positions comparator (leftChild comparator selected low)
+        π ∂law[|firstEvent (restrictedOrder positions selected) low] =
+    1
+error: Examples/UniformQuickSortMean.lean:273:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (π : Equiv.Perm Label),
+    observedCost positions comparator (rightChild comparator selected high)
+      π ∂(uniformOn Set.univ)[|firstEvent (restrictedOrder positions selected) high]
+in the target expression
+  ∫ (π : Equiv.Perm Label),
+      observedCost positions comparator (rightChild comparator selected high)
+        π ∂law[|firstEvent (restrictedOrder positions selected) high] =
+    1
+
+⊢ ∫ (π : Equiv.Perm Label),
+      observedCost positions comparator (rightChild comparator selected high)
+        π ∂law[|firstEvent (restrictedOrder positions selected) high] =
+    1
+error: Examples/UniformQuickSortMean.lean:291:26: Function expected at
+  List.nodup_range
+but this term has type
+  (List.range ?m.8).Nodup
+
+Note: Expected a function because this term is being applied to the argument
+  n
+error: Examples/UniformQuickSortMean.lean:319:61: Function expected at
+  List.nodup_range
+but this term has type
+  (List.range ?m.9).Nodup
+
+Note: Expected a function because this term is being applied to the argument
+  n

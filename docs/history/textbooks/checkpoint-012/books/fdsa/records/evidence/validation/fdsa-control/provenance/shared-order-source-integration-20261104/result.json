@@ -1,0 +1,99 @@
+{
+  "completed_utc": "2026-11-04T15:12:37.792628+00:00",
+  "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "tree": "fc0af937b0b323d5216b3d7533af52edc70ea411",
+  "branch": "work/fdsa-order-integration",
+  "parents": [
+    "312aafb4446b995ff5542041b4e2e074f776db1e",
+    "bdac9703aab4b383fa775568d36bf685af329389"
+  ],
+  "review_base": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "original_unit_base": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+  "original_unit_candidate": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+  "incoming_corrected_tip": "bdac9703aab4b383fa775568d36bf685af329389",
+  "status_after": "",
+  "commit_actual_exit": 0,
+  "merge_actual_exit": 0,
+  "conflicts": [],
+  "source_scope": [
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+      "bytes": 15304,
+      "lines": 321,
+      "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2"
+    },
+    {
+      "path": "Examples/PermutationOrder.lean",
+      "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+      "bytes": 6706,
+      "lines": 152,
+      "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084"
+    },
+    {
+      "path": "Examples/PermutationOrderBoundary.lean",
+      "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+      "bytes": 5605,
+      "lines": 148,
+      "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "git_blob": "2bc1fad47c4993199eccd91ee4b249726619d3dc",
+      "bytes": 8577,
+      "lines": 261,
+      "sha256": "63edc6ab268c318e6788a6ef46cd14aa3a6b021b65971c591b0c9023adb1b2a9"
+    },
+    {
+      "path": "docs/research/fdsa-permutation-order.md",
+      "git_blob": "8d8f68c95185bd787ce26bb5ba6cf3a6f652862a",
+      "bytes": 9343,
+      "lines": 175,
+      "sha256": "5368374d61ac214c5609fbaedd3c5449a737a114947978631d1de7893a00d35f"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "d25451ccf02cde119a880d063aa7c0ade5e81cd2",
+      "bytes": 40314,
+      "lines": 614,
+      "sha256": "a39ec672e120fe7761e950f59acfc1ab4cbee282ad69b22934b1e24cdc5f56e7"
+    }
+  ],
+  "declared_diff_names": [
+    "A\tApplications/Probability/PermutationOrder.lean",
+    "A\tExamples/PermutationOrder.lean",
+    "A\tExamples/PermutationOrderBoundary.lean",
+    "M\tSquareApplications.lean",
+    "A\tdocs/research/fdsa-permutation-order.md",
+    "M\tdocs/research/fdsa-reconstruction-map.md"
+  ],
+  "all_I_paths_outside_six_unchanged": true,
+  "three_defining_blobs_exact_corrected_tip": true,
+  "three_Minimum_blobs_exact_accepted_I": true,
+  "original_refs_unchanged": true,
+  "only_new_ref": "refs/heads/work/fdsa-order-integration",
+  "refs_before_count": 64,
+  "refs_after_count": 65,
+  "ancestry_checks_exit_codes": {
+    "312aafb4446b995ff5542041b4e2e074f776db1e": 0,
+    "bdac9703aab4b383fa775568d36bf685af329389": 0,
+    "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8": 0,
+    "f17cc6b1a2bf44215b16202ed0fcee2b5c130761": 0,
+    "07e480f6ec9958d4975bb90151005b84f2907614": 0
+  },
+  "installed_verification_after": {
+    "bytes": 867,
+    "lines": 19,
+    "sha256": "2974a2efaa56703448e96ddeec25947e84e91b7733b4e8b405fdcf6d69fe816d"
+  },
+  "installed_verification_credit": "Unchanged historical accepted I record, not new-candidate evidence. No candidate check or immediate verification has run for this successor.",
+  "source_diff": {
+    "bytes": 40710,
+    "lines": 858,
+    "sha256": "eb219a1f61489fafe7cf3615bac5f27274d8aab9410b9d117c9516f56d3d2353"
+  },
+  "compiler_cache_runtime_pin_mutations": false,
+  "GitHub_or_push": false,
+  "source_hold": true,
+  "validation_status": "UNCOMPILED RECEIVING CANDIDATE; full scope final reviews, matching type/input qualification, full check/audit and immediate verification remain mandatory; no acceptance claimed."
+}

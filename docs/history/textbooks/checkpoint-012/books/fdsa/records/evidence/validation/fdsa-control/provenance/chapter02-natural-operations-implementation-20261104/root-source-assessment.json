@@ -1,0 +1,26 @@
+{
+  "recorded_utc": "2026-11-04T07:09:31.734604+00:00",
+  "candidate": "e1f3b5c43ba3b0f4aca5964f2b4568e06b47700c",
+  "all_source_lines_read": {
+    "core": 690,
+    "examples": 352
+  },
+  "all_author_report_lines_read": 299,
+  "all_declarations_assessed": 106,
+  "source_hashes": {
+    "Applications/Resources/NaturalRunOperations.lean": "c5742c0b6e1617b9646aaf9b92d8c5f4dfd02457735c1eb6d4a561fede258e24",
+    "Examples/NaturalRunOperations.lean": "fe08adbd075edbed29bd094e3c3a4d5ef156b31cf84463f5b1957c5f019dff9a"
+  },
+  "unresolved_findings": [],
+  "boundaries": [
+    "fixed source tariff and actual mutually recursive branch paths",
+    "Rep and AppCost distinct, arbitrary-callback path has neither premise",
+    "actual singleton seed and builder construction/application counts",
+    "unsaturated identities before natural subtraction",
+    "simultaneous scanner/worker bounds including restarts",
+    "outer run count at most1 domain, distinct empty outer and empty inner",
+    "full payload occurrences, arbitrary callback/accumulator and universes",
+    "counterexamples to deriving worker cost from Rep or compiler sharing"
+  ],
+  "status": "Source assessed for central focused validation. No compile or elaborated-type pass yet; not an independent review or acceptance."
+}

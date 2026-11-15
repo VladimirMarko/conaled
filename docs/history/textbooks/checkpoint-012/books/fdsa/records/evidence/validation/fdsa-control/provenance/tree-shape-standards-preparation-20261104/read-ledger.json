@@ -1,0 +1,882 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "unit": "FDSA-XT02",
+  "stage": "independent Standards source preparation; no actual types or acceptance",
+  "recorded_utc": "2026-11-04T14:37:12.757665+00:00",
+  "base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "candidate": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "tree": "d1de22c57acd461f509f30f27f6e468d25f913da",
+  "parent": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "merge_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "full_scope_paths": 6,
+  "full_diff_insertions": 838,
+  "full_diff_deletions": 0,
+  "source_reads": [
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "commit": "974a97321a8ec174b56104c7e6efaaca881b6639",
+      "bytes": 11019,
+      "lines": 267,
+      "sha256": "2233e014900a48ebc239d676a1c8abdaee2046ef503e5219bff460a001b868f3",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 150,
+          "bytes": 6076,
+          "lines": 150,
+          "sha256": "548d76f4b1a94b316a409377b795f517dae4e6fa665904c8c4884c17431c2c1a"
+        },
+        {
+          "start": 151,
+          "end": 267,
+          "bytes": 4943,
+          "lines": 117,
+          "sha256": "598cd20eeee2d77320daad208b719010a772bd6e15b615ca0e8321406b14ed34"
+        }
+      ],
+      "whole_file_read": true
+    },
+    {
+      "path": "Applications/Trees/ShapeLog.lean",
+      "commit": "974a97321a8ec174b56104c7e6efaaca881b6639",
+      "bytes": 2796,
+      "lines": 69,
+      "sha256": "35c0555383fc3d03bcac4f368d41b2c8f744a49e18ef72b192c3753b7ef4497b",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 69,
+          "bytes": 2796,
+          "lines": 69,
+          "sha256": "35c0555383fc3d03bcac4f368d41b2c8f744a49e18ef72b192c3753b7ef4497b"
+        }
+      ],
+      "whole_file_read": true
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "commit": "974a97321a8ec174b56104c7e6efaaca881b6639",
+      "bytes": 12648,
+      "lines": 297,
+      "sha256": "2bcf2b65fa7a0eccc043c3bc7ba66d1bfdcd469489eab52d9085fdfb3db0b516",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 150,
+          "bytes": 6078,
+          "lines": 150,
+          "sha256": "e02a754df64944adeb74b712b428203eabf52701d436f5e5f26bd61744f6d07a"
+        },
+        {
+          "start": 151,
+          "end": 297,
+          "bytes": 6570,
+          "lines": 147,
+          "sha256": "532cfe625a847b192ee9a0c95238b769b5918e1444d1fd98159c8d21906f8628"
+        }
+      ],
+      "whole_file_read": true
+    },
+    {
+      "path": "SquareApplications.lean",
+      "commit": "974a97321a8ec174b56104c7e6efaaca881b6639",
+      "bytes": 8344,
+      "lines": 254,
+      "sha256": "3ce2c9953286d48d62aa8c354af5d1a1e07c483dbe57974f0beb97124db5effb",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 254,
+          "bytes": 8344,
+          "lines": 254,
+          "sha256": "3ce2c9953286d48d62aa8c354af5d1a1e07c483dbe57974f0beb97124db5effb"
+        }
+      ],
+      "whole_file_read": true
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "commit": "974a97321a8ec174b56104c7e6efaaca881b6639",
+      "bytes": 20055,
+      "lines": 311,
+      "sha256": "a9425275ce38e4a0c49b5bca9219bb38c6afcc36b65e6e7874e5c4e88a1fdc3b",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 155,
+          "bytes": 9300,
+          "lines": 155,
+          "sha256": "be651e8f69af15add3c377527defb797ec2abfbdf00df7fd5679d8aa361c2994"
+        },
+        {
+          "start": 156,
+          "end": 311,
+          "bytes": 10755,
+          "lines": 156,
+          "sha256": "1aab3e57669ecc014695297d75bfa62dd7e15b91b5a001321fbbb2aca723db8c"
+        }
+      ],
+      "whole_file_read": true
+    },
+    {
+      "path": "docs/research/fdsa-tree-shape.md",
+      "commit": "974a97321a8ec174b56104c7e6efaaca881b6639",
+      "bytes": 12279,
+      "lines": 180,
+      "sha256": "9645f569674f6245d6eea53b40e409ae8fa69bd4b74955cccbf3a92a837a4228",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 180,
+          "bytes": 12279,
+          "lines": 180,
+          "sha256": "9645f569674f6245d6eea53b40e409ae8fa69bd4b74955cccbf3a92a837a4228"
+        }
+      ],
+      "whole_file_read": true
+    }
+  ],
+  "source_totals": {
+    "bytes": 67141,
+    "lines": 1378
+  },
+  "control_reads": [
+    {
+      "path": "tickets/FDSA-XT02.md",
+      "bytes": 3399,
+      "lines": 63,
+      "sha256": "a14e0a25829235c6e42f664158b515195796cfe0225884bfb297803b0fd2b36d",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 63,
+          "bytes": 3399,
+          "lines": 63,
+          "sha256": "a14e0a25829235c6e42f664158b515195796cfe0225884bfb297803b0fd2b36d"
+        }
+      ],
+      "whole_file_read": true
+    },
+    {
+      "path": "reviews/tree-shape-requirements.md",
+      "bytes": 11890,
+      "lines": 233,
+      "sha256": "50d11472d8380fb3458a3ea71aba3d1104886f676a7b1cec578c0557a6979e91",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 150,
+          "bytes": 6784,
+          "lines": 150,
+          "sha256": "33c61175ba744396f852da1c2c42c1b56b40acb341efec5565fc4a53580dc3a5"
+        },
+        {
+          "start": 151,
+          "end": 233,
+          "bytes": 5106,
+          "lines": 83,
+          "sha256": "da963e81224dc5bdcaa728ed89860177ab12b48e71ec6b17725d44a9914e55f3"
+        }
+      ],
+      "whole_file_read": true
+    },
+    {
+      "path": "reviews/tree-shape-start.md",
+      "bytes": 2139,
+      "lines": 36,
+      "sha256": "16acb6d70351d474078d94c8b74797234122a9fcc5a0a5d20268328cbf084c35",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 36,
+          "bytes": 2139,
+          "lines": 36,
+          "sha256": "16acb6d70351d474078d94c8b74797234122a9fcc5a0a5d20268328cbf084c35"
+        }
+      ],
+      "whole_file_read": true
+    },
+    {
+      "path": "reviews/tree-shape-start.json",
+      "bytes": 392,
+      "lines": 9,
+      "sha256": "6142499c69e23d64dcff87e9682c68556d7634c181a6b6077eccc63103797218",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 9,
+          "bytes": 392,
+          "lines": 9,
+          "sha256": "6142499c69e23d64dcff87e9682c68556d7634c181a6b6077eccc63103797218"
+        }
+      ],
+      "whole_file_read": true
+    },
+    {
+      "path": "reviews/tree-shape-source-identities.json",
+      "bytes": 1604,
+      "lines": 47,
+      "sha256": "0cfb26d36033b47be19b22a021f3c085bc68e55f3ac64ccb44fd7708038e1acf",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 47,
+          "bytes": 1604,
+          "lines": 47,
+          "sha256": "0cfb26d36033b47be19b22a021f3c085bc68e55f3ac64ccb44fd7708038e1acf"
+        }
+      ],
+      "whole_file_read": true
+    },
+    {
+      "path": "reviews/tree-shape-candidate.md",
+      "bytes": 6044,
+      "lines": 104,
+      "sha256": "8bab0b254f4c0be331988be140521b4b1219c5060efc9f6d97ca7a1c43da7268",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 104,
+          "bytes": 6044,
+          "lines": 104,
+          "sha256": "8bab0b254f4c0be331988be140521b4b1219c5060efc9f6d97ca7a1c43da7268"
+        }
+      ],
+      "whole_file_read": true
+    },
+    {
+      "path": "reviews/tree-shape-source-preflight.md",
+      "bytes": 8617,
+      "lines": 145,
+      "sha256": "17e96c889f7fcd3f64d6eb29e68c2cc9f675ed1d3bfbf4fb49bcb28a5cb35554",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 145,
+          "bytes": 8617,
+          "lines": 145,
+          "sha256": "17e96c889f7fcd3f64d6eb29e68c2cc9f675ed1d3bfbf4fb49bcb28a5cb35554"
+        }
+      ],
+      "whole_file_read": true
+    },
+    {
+      "path": "research/tree-shape-api-preflight.md",
+      "bytes": 23223,
+      "lines": 263,
+      "sha256": "1ef2501b2b4aa448122fa859cabe3fb7459f8b5c07e2db6be20e4a93564bbf2c",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 263,
+          "bytes": 23223,
+          "lines": 263,
+          "sha256": "1ef2501b2b4aa448122fa859cabe3fb7459f8b5c07e2db6be20e4a93564bbf2c"
+        }
+      ],
+      "whole_file_read": true
+    },
+    {
+      "path": "research/tree-shape-source-preflight.md",
+      "bytes": 17795,
+      "lines": 319,
+      "sha256": "c7a69ed3220d94ea333af4974aabf7ed4531368b9323c12867d5d4987a6a47f8",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 160,
+          "bytes": 8900,
+          "lines": 160,
+          "sha256": "7ae1885e5552283dff889ec695af8073b93f195096b552d96f417b44ccbb809f"
+        },
+        {
+          "start": 161,
+          "end": 319,
+          "bytes": 8895,
+          "lines": 159,
+          "sha256": "b99fed9e2e273af8a6a6f880100bc01ea5f1e3354341852f0dd3eab150a6dc2b"
+        }
+      ],
+      "whole_file_read": true
+    },
+    {
+      "path": "research/tree-shape-case-preflight.md",
+      "bytes": 7704,
+      "lines": 177,
+      "sha256": "02078565b2276940d272d6b0f1ed74ca38bc01e2c83ddcbb9f0d9fe6c7b888b6",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 177,
+          "bytes": 7704,
+          "lines": 177,
+          "sha256": "02078565b2276940d272d6b0f1ed74ca38bc01e2c83ddcbb9f0d9fe6c7b888b6"
+        }
+      ],
+      "whole_file_read": true
+    }
+  ],
+  "instructions": [
+    {
+      "path": ".agents/skills/code-review/SKILL.md",
+      "bytes": 7466,
+      "lines": 133,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": ".agents/skills/code-review/heuristics.md",
+      "bytes": 2232,
+      "lines": 32,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": ".agents/skills/domain-modeling/SKILL.md",
+      "bytes": 3346,
+      "lines": 74,
+      "sha256": "7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "bytes": 6991,
+      "lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": ".agents/skills/example-driven-development/worked-example.md",
+      "bytes": 2356,
+      "lines": 55,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": ".agents/skills/implement/SKILL.md",
+      "bytes": 4997,
+      "lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": ".agents/skills/setup-matt-pocock-skills/domain.md",
+      "bytes": 2042,
+      "lines": 51,
+      "sha256": "593a7042218689f1d24df89df14eaf0a20e19e0d0a7d479a01947ac78f0784b9",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "GLOSSARY.md",
+      "bytes": 4824,
+      "lines": 106,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "README.md",
+      "bytes": 26239,
+      "lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "lines": 50,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "bytes": 7331,
+      "lines": 127,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "docs/language-direction.md",
+      "bytes": 19185,
+      "lines": 306,
+      "sha256": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "bytes": 3876,
+      "lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "bytes": 7113,
+      "lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "docs/agents/domain.md",
+      "bytes": 926,
+      "lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "docs/adr/README.md",
+      "bytes": 1547,
+      "lines": 17,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    }
+  ],
+  "retained_complete_XT01_source_reads": [
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "bytes": 3877,
+      "lines": 80,
+      "sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6",
+      "whole_source_reading_retained_from": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "source_equal": true
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "bytes": 5668,
+      "lines": 135,
+      "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "whole_source_reading_retained_from": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "source_equal": true
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "bytes": 4119,
+      "lines": 107,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "whole_source_reading_retained_from": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "source_equal": true
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "bytes": 16307,
+      "lines": 363,
+      "sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "whole_source_reading_retained_from": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "source_equal": true
+    }
+  ],
+  "retained_local_context_reads": [
+    {
+      "path": "Applications/Resources/Measured.lean",
+      "bytes": 2906,
+      "lines": 71,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "retained_ranges": [
+        [
+          1,
+          71
+        ]
+      ],
+      "whole_file_prior_read": true,
+      "prior_ledger": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": "Applications/Resources/CallCount.lean",
+      "bytes": 2447,
+      "lines": 58,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+      "retained_ranges": [
+        [
+          1,
+          58
+        ]
+      ],
+      "whole_file_prior_read": true,
+      "prior_ledger": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": "Applications/Resources/ListReversal.lean",
+      "bytes": 4827,
+      "lines": 116,
+      "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+      "retained_ranges": [
+        [
+          1,
+          116
+        ]
+      ],
+      "whole_file_prior_read": true,
+      "prior_ledger": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": "Applications/Resources/TreeFlattening/Core.lean",
+      "bytes": 4225,
+      "lines": 116,
+      "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+      "retained_ranges": [
+        [
+          1,
+          116
+        ]
+      ],
+      "whole_file_prior_read": true,
+      "prior_ledger": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": "Applications/Sequences/OrderedSummary.lean",
+      "bytes": 8765,
+      "lines": 190,
+      "sha256": "d484e6c34f4ebace4ba121f931eba53a86f34a3c4b69e06d9d0b24ae8c8c7261",
+      "retained_ranges": [
+        [
+          1,
+          190
+        ]
+      ],
+      "whole_file_prior_read": true,
+      "prior_ledger": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": "Applications/Resources/SymmetricCosts.lean",
+      "bytes": 10508,
+      "lines": 281,
+      "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+      "retained_ranges": [
+        [
+          1,
+          80
+        ]
+      ],
+      "whole_file_prior_read": false,
+      "prior_ledger": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json"
+    }
+  ],
+  "pinned_API_reads": [
+    {
+      "path": "Mathlib/Data/Tree/Basic.lean",
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 6679,
+      "lines": 188,
+      "sha256": "43f201537013e2824d18f6b66f6d329f15bc52289c1ae734fa8acd4bd2a9945d",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 188,
+          "bytes": 6679,
+          "lines": 188,
+          "sha256": "43f201537013e2824d18f6b66f6d329f15bc52289c1ae734fa8acd4bd2a9945d"
+        }
+      ],
+      "whole_file_read": true
+    },
+    {
+      "path": "Mathlib/Data/Nat/Log.lean",
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 20607,
+      "lines": 511,
+      "sha256": "66bb65d1a1cabeb2ee3d8c88c55fd3cf6e48e910ea40322173d79e5ed66a0c3e",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 70,
+          "bytes": 2350,
+          "lines": 70,
+          "sha256": "e0fa66f5a58d2ff383567475644fb05b211ec770d191ddaab3f04c3d74d99285"
+        },
+        {
+          "start": 71,
+          "end": 90,
+          "bytes": 833,
+          "lines": 20,
+          "sha256": "3697eaf9f1254f637ece5b4c679529400c2cfd3c8d9ce919eec54f2ca64da5fd"
+        },
+        {
+          "start": 145,
+          "end": 225,
+          "bytes": 3529,
+          "lines": 81,
+          "sha256": "4341ac68b777d458497ae73e677585e219edd6cd3bb6e648903191c6a791fe5f"
+        },
+        {
+          "start": 320,
+          "end": 339,
+          "bytes": 811,
+          "lines": 20,
+          "sha256": "1f19975c2730f68607f080c9737416a2887bff1994c2c3af7dec230357f27362"
+        },
+        {
+          "start": 340,
+          "end": 440,
+          "bytes": 4168,
+          "lines": 101,
+          "sha256": "0834db1834da7b3f4807baa0d0c67a701a683b4a2a7937187b7eec94c7284e93"
+        }
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "Mathlib/Analysis/SpecialFunctions/Log/Base.lean",
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 25117,
+      "lines": 632,
+      "sha256": "85a4b68a9ec0f6cf2fbb706f42a9136d23c4b11f1092b2e88c820c9e26421bbf",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 52,
+          "bytes": 1296,
+          "lines": 52,
+          "sha256": "a83b79f333f293e3b28623971083615226083c25390d71b8308214fc1e42a225"
+        },
+        {
+          "start": 167,
+          "end": 220,
+          "bytes": 1911,
+          "lines": 54,
+          "sha256": "a3de02eb9daf2aec83f252ae25f132e9129c13b3958a8e5ecf10a302368b9a36"
+        },
+        {
+          "start": 371,
+          "end": 425,
+          "bytes": 2525,
+          "lines": 55,
+          "sha256": "65ad024c42b3c2af256c059acb2bbc29211427eeacb8c4cebdaa54450f2d511a"
+        }
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 50402,
+      "lines": 1155,
+      "sha256": "f8a26d662fb7966fa5b45aef95c8d7cf0383c9921fa3e9ee1cd2c41561e9fbfd",
+      "read_ranges": [
+        {
+          "start": 1,
+          "end": 68,
+          "bytes": 2423,
+          "lines": 68,
+          "sha256": "521e34f9243bc574f74b34a8db2d8c6434e23a4c8abf29a6c487d7e80ba5be84"
+        }
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/Nat/Basic.lean",
+      "source_profile": "retained official Lean 4.35.0 installation source, not a new executable fingerprint",
+      "bytes": 47176,
+      "lines": 1234,
+      "sha256": "e26b5a54eab922f6b650cfe9032fe23172fa8cc0b63c75cff0c8bf99f6175289",
+      "read_ranges": [
+        {
+          "start": 795,
+          "end": 824,
+          "bytes": 996,
+          "lines": 30,
+          "sha256": "bceb240f09695868bec8785355bcfa8d46821f89a1d89c8d8b8c23cdc34d571a"
+        }
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/Nat/Lemmas.lean",
+      "source_profile": "retained official Lean 4.35.0 installation source, not a new executable fingerprint",
+      "bytes": 84641,
+      "lines": 1952,
+      "sha256": "c4530be5c96b507c13823378db43912a3ba577a2a23944ce222aaa7d193d2581",
+      "read_ranges": [
+        {
+          "start": 1229,
+          "end": 1258,
+          "bytes": 1255,
+          "lines": 30,
+          "sha256": "e62c330333ff745a6f660fa59ec18a093fdbd317aaac75f000c25fa8f88db166"
+        }
+      ],
+      "whole_file_read": false
+    }
+  ],
+  "complete_existing_path_diff_read": {
+    "paths": [
+      "SquareApplications.lean",
+      "docs/research/fdsa-reconstruction-map.md"
+    ],
+    "bytes": 3077,
+    "lines": 44,
+    "sha256": "cc7f73f95edbe468dc87364b9b821a7e21d6361c6f31be28a42382ec7fb4cc36"
+  },
+  "full_diff_identity": {
+    "bytes": 43643,
+    "lines": 881,
+    "sha256": "0e85b5703fb3bca8d1ee1d779ba64410d81e6a57f79359995ccecb0b80b09224",
+    "reading_boundary": "All new files and both complete modified files read; the full 838-line added surface is covered. Root/map 44-line complete diff read separately. No claim of an additional whole-patch reread."
+  },
+  "primary_book_source_boundary": "Book and Isabelle identities/source correspondence retained from the completely read frozen requirements and research source/API/case preflights. No fresh PDF/theory fetch or fresh primary book-text reading is claimed. All changed Lean source and specified pinned Lean/Mathlib API contexts were independently assessed.",
+  "protected_records_before": {
+    "reviews/shared-foundations-standards-terminal-assessment-20261104.md": {
+      "bytes": 9830,
+      "lines": 51,
+      "sha256": "5931dafe30f68151d81621ded0274643fb8145c5c57e644b6cca284fc634e141"
+    },
+    "reviews/chapter02-standards-source-preparation-20261104.md": {
+      "bytes": 104381,
+      "lines": 421,
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    "reviews/potential-standards-development-20261104.md": {
+      "bytes": 40275,
+      "lines": 204,
+      "sha256": "a8c87f38de333a77ab03c82f7da1d3d1b3f122369dd9abb36c8d85acebf495f8"
+    },
+    "reviews/affine-recurrence-standards-preparation-20261104.md": {
+      "bytes": 15543,
+      "lines": 96,
+      "sha256": "bff3e140f1178b6f77ac2d12a42e544dbf2d7522bc27bcf793d1e7ef55b24e92"
+    },
+    "reviews/accumulated-work-standards-preparation-20261104.md": {
+      "bytes": 19038,
+      "lines": 129,
+      "sha256": "e7ea58583cd0c9eabd73e86e0137c874ea3f85b243e6b6d522387175c33ae1b3"
+    },
+    "reviews/permutation-expectation-standards-preparation-20261104.md": {
+      "bytes": 21944,
+      "lines": 107,
+      "sha256": "4e76fd0c52f06dbee8367db24af2c5da3ad4a1785849a5b0e0609d33f2a9881a"
+    },
+    "reviews/permutation-joint-standards-preparation-20261104.md": {
+      "bytes": 21469,
+      "lines": 91,
+      "sha256": "91aa0305006960edde631eec405f2d8e66461bd016ee21900a9831731ddc0c6d"
+    },
+    "reviews/permutation-placement-standards-preparation-20261104.md": {
+      "bytes": 23981,
+      "lines": 94,
+      "sha256": "120b53767cb488f53c50bfb6f70ed39d825b8e6d1236087da68b8884ae0782a2"
+    },
+    "reviews/binary-tree-cache-standards-preparation-20261104.md": {
+      "bytes": 22912,
+      "lines": 89,
+      "sha256": "a24df99f02fd70300f25b982b53293d2f0d8485f053b8891829fe81c37043c97"
+    },
+    "reviews/shared-four-standards-source-continuation-20261104.md": {
+      "bytes": 15312,
+      "lines": 89,
+      "sha256": "a38e53b82326657788f91b49499727a761638e65c519b4c7f54b0fe6b916f520"
+    },
+    "provenance/shared-four-standards-source-continuation-20261104/source-assessment.json": {
+      "bytes": 46548,
+      "lines": 1177,
+      "sha256": "a01a38ca67cdc23d952dfb030674df00aca270c16c0236d463f8e3d54a24b883"
+    },
+    "provenance/shared-four-standards-source-continuation-20261104/completion.json": {
+      "bytes": 1691,
+      "lines": 54,
+      "sha256": "eb6d714e47b422c989e0c42af8fc7406eb47d442d4f1eff3f4876c0475a42704"
+    }
+  },
+  "protected_records_after": {
+    "reviews/shared-foundations-standards-terminal-assessment-20261104.md": {
+      "bytes": 9830,
+      "lines": 51,
+      "sha256": "5931dafe30f68151d81621ded0274643fb8145c5c57e644b6cca284fc634e141"
+    },
+    "reviews/chapter02-standards-source-preparation-20261104.md": {
+      "bytes": 104381,
+      "lines": 421,
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    "reviews/potential-standards-development-20261104.md": {
+      "bytes": 40275,
+      "lines": 204,
+      "sha256": "a8c87f38de333a77ab03c82f7da1d3d1b3f122369dd9abb36c8d85acebf495f8"
+    },
+    "reviews/affine-recurrence-standards-preparation-20261104.md": {
+      "bytes": 15543,
+      "lines": 96,
+      "sha256": "bff3e140f1178b6f77ac2d12a42e544dbf2d7522bc27bcf793d1e7ef55b24e92"
+    },
+    "reviews/accumulated-work-standards-preparation-20261104.md": {
+      "bytes": 19038,
+      "lines": 129,
+      "sha256": "e7ea58583cd0c9eabd73e86e0137c874ea3f85b243e6b6d522387175c33ae1b3"
+    },
+    "reviews/permutation-expectation-standards-preparation-20261104.md": {
+      "bytes": 21944,
+      "lines": 107,
+      "sha256": "4e76fd0c52f06dbee8367db24af2c5da3ad4a1785849a5b0e0609d33f2a9881a"
+    },
+    "reviews/permutation-joint-standards-preparation-20261104.md": {
+      "bytes": 21469,
+      "lines": 91,
+      "sha256": "91aa0305006960edde631eec405f2d8e66461bd016ee21900a9831731ddc0c6d"
+    },
+    "reviews/permutation-placement-standards-preparation-20261104.md": {
+      "bytes": 23981,
+      "lines": 94,
+      "sha256": "120b53767cb488f53c50bfb6f70ed39d825b8e6d1236087da68b8884ae0782a2"
+    },
+    "reviews/binary-tree-cache-standards-preparation-20261104.md": {
+      "bytes": 22912,
+      "lines": 89,
+      "sha256": "a24df99f02fd70300f25b982b53293d2f0d8485f053b8891829fe81c37043c97"
+    },
+    "reviews/shared-four-standards-source-continuation-20261104.md": {
+      "bytes": 15312,
+      "lines": 89,
+      "sha256": "a38e53b82326657788f91b49499727a761638e65c519b4c7f54b0fe6b916f520"
+    },
+    "provenance/shared-four-standards-source-continuation-20261104/source-assessment.json": {
+      "bytes": 46548,
+      "lines": 1177,
+      "sha256": "a01a38ca67cdc23d952dfb030674df00aca270c16c0236d463f8e3d54a24b883"
+    },
+    "provenance/shared-four-standards-source-continuation-20261104/completion.json": {
+      "bytes": 1691,
+      "lines": 54,
+      "sha256": "eb6d714e47b422c989e0c42af8fc7406eb47d442d4f1eff3f4876c0475a42704"
+    }
+  },
+  "protected_records_unchanged": true,
+  "recording_boundary": "Read-only immutable Git/source inspection until checkpoint0110 released own report writes. No source, ref, cache, runtime/output capture, process, compiler or control mutation. No existing report edited."
+}

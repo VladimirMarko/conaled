@@ -1,0 +1,163 @@
+{
+  "utc": "2026-11-04T16:01:31.662995+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "role": "implementation author; not independent final Standards or Spec reviewer",
+  "readback_stage": "complete staged source before ordinary merge commit",
+  "readback": [
+    {
+      "path": "Applications/Probability/PermutationTail.lean",
+      "blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+      "bytes": 23521,
+      "lines": 487,
+      "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed",
+      "complete_author_read": true,
+      "actual_displayed_line_ranges_and_owned_chunks": [
+        [
+          1,
+          250,
+          "8dd9fd"
+        ],
+        [
+          251,
+          487,
+          "e9e73f"
+        ]
+      ]
+    },
+    {
+      "path": "Examples/PermutationTail.lean",
+      "blob": "baa3e26a3c72a4589765562167d1d85edc011e67",
+      "bytes": 9826,
+      "lines": 222,
+      "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e",
+      "complete_author_read": true,
+      "actual_displayed_line_ranges_and_owned_chunks": [
+        [
+          1,
+          222,
+          "7d30de"
+        ]
+      ]
+    },
+    {
+      "path": "Examples/PermutationTailBoundary.lean",
+      "blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0",
+      "bytes": 12064,
+      "lines": 266,
+      "sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54",
+      "complete_author_read": true,
+      "actual_displayed_line_ranges_and_owned_chunks": [
+        [
+          1,
+          266,
+          "da2443"
+        ]
+      ]
+    },
+    {
+      "path": "SquareApplications.lean",
+      "blob": "623b77c69d1ff2cf09a9429eefbd69641370b9cc",
+      "bytes": 8609,
+      "lines": 262,
+      "sha256": "a30e93ebbdb80f40d751cc30a5185e5e96ce40861540c35fb439362d66d2678d",
+      "complete_author_read": true,
+      "actual_displayed_line_ranges_and_owned_chunks": [
+        [
+          1,
+          262,
+          "bc00ff"
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/fdsa-permutation-tail.md",
+      "blob": "8cb9419840e7f6d2c553765d05d8aa39fe58c389",
+      "bytes": 10871,
+      "lines": 205,
+      "sha256": "bebf1822c26e94c35d1474a99687156ffe44d3c2f37bcb76ed7c930fdf37236d",
+      "complete_author_read": true,
+      "actual_displayed_line_ranges_and_owned_chunks": [
+        [
+          1,
+          205,
+          "222fc3"
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "blob": "0944dfd5fde6895f2c4cc0db9bd015f3e71ffed1",
+      "bytes": 41477,
+      "lines": 631,
+      "sha256": "b5997a67ca8e23f4418b5428db17bedcf960f262f2e9a9e711255799970689d6",
+      "complete_author_read": true,
+      "actual_displayed_line_ranges_and_owned_chunks": [
+        [
+          1,
+          220,
+          "f1fc57"
+        ],
+        [
+          221,
+          440,
+          "2618b7"
+        ],
+        [
+          441,
+          631,
+          "c9ce59"
+        ]
+      ]
+    }
+  ],
+  "complete_lines": 2073,
+  "formal_defining_lines": 975,
+  "full_diff_content_read_boundary": "All four newly added paths read completely; complete root/map diff and note-versus-T diff displayed in c9ce59. Combined coverage includes every line of the six-path source.diff; no abbreviated proof or truncated source output was used.",
+  "frozen_requirements_complete_read": {
+    "path": "reviews/permutation-tail-requirements.md",
+    "owned_chunk": "b1d40f",
+    "lines": 229
+  },
+  "prepared_note_complete_read": {
+    "path": "provenance/chapter02-shared-notes-status-correction1-20261104/proposed/fdsa-permutation-tail.md",
+    "owned_chunk": "7f020b",
+    "lines": 213
+  },
+  "actual_conflict_complete_combined_diff_read": "db4b8c",
+  "retained_mathematical_scope": {
+    "core": "Original optional-head event and cons support, pointwise same-sample tail/filter bridges, generic arbitrary-environment HasLaw conditional laws, a.e. measurability, null-conditioning and finite factorial normalization all unchanged from T.",
+    "main": "Original actual Fin4 global observation, both 1/2 tails through distinct public connections, unsupported repeated tail, filtered projection, environment change 1 versus 1/3, next head 1/2 and nested final singleton retained exactly.",
+    "boundary": "Original selected-vs-global swap, singleton/empty/outsider/empty-index cases, same-source Fin3 outside-subset 1/3 and 2/3 counterexample retained exactly.",
+    "private_and_anonymous": "All 19 private theorem bodies and 8 local anonymous instances remain in the exact three defining blobs. No generated-declaration or kernel count inferred from these source counts.",
+    "later_obligations": "Full adaptive histories, joint independence/partition, algorithm recursion/coupling/cost, treap and Chapter3 remain outside this bounded unit and queued."
+  },
+  "documentary_assessment": "Root import is the one prepared addition; reconstruction map preserves all 614 J lines verbatim and appends the prepared Tail section; source note changes only the held historical status/prerequisite wording. Historical focused and Z815 evidence is dated and explicitly not receiving-candidate credit.",
+  "unchanged_counts": {
+    "public": 61,
+    "private_named": 19,
+    "anonymous_instances": 8,
+    "anonymous_examples": 0,
+    "by_module": {
+      "Applications/Probability/PermutationTail.lean": {
+        "public_count": 15,
+        "private_count": 8,
+        "anonymous_instances": 0
+      },
+      "Examples/PermutationTail.lean": {
+        "public_count": 24,
+        "private_count": 1,
+        "anonymous_instances": 2
+      },
+      "Examples/PermutationTailBoundary.lean": {
+        "public_count": 22,
+        "private_count": 10,
+        "anonymous_instances": 6
+      }
+    }
+  },
+  "source_changes_relative_T_formal": [],
+  "formal_statement_or_proof_changes_during_integration": false,
+  "compiler_or_actual_type_execution": false,
+  "acceptance_claim": false,
+  "final_axes_still_required": true
+}

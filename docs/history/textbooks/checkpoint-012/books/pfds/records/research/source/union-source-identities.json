@@ -1,0 +1,16 @@
+{
+  "book": {
+    "source": "user attachment in this conversation",
+    "local_research_path": "research-pfds/source-assets/okasaki-book-2003.pdf",
+    "library_file_id": "libfile_330c4ca848c881919fd79d1f521ddd08",
+    "sha256": "b9dbf4f6ade4c24da438fd5415fc3abdd3af0aa8459d7e41e4a27de844c7ad41",
+    "bytes": 9356709
+  },
+  "thesis": {
+    "source": "https://www.cs.tufts.edu/~nr/cs257/archive/chris-okasaki/dissertation.pdf",
+    "local_research_path": "research-pfds/source-assets/okasaki-thesis-1996.pdf",
+    "sha256": "f4b92ed7ea425f6f1019f20a4ef40df505327fbc5f1346ed6b7a2e28ab56d072",
+    "bytes": 628877
+  },
+  "checkpoint_policy": "Manuscripts remain research inputs outside repo and checkpoint payloads under ADR0001. Checkpoints retain exact identities, source/page inventories and all formalization work. After workspace loss reattach the user-supplied book if not provided as an approved live reference; the thesis can be downloaded again from its recorded URL. No Library search is authorized by this metadata alone."
+}

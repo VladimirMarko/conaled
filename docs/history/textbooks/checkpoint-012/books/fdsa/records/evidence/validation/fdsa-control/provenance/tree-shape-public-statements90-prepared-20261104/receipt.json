@@ -1,0 +1,64 @@
+{
+  "recorded_utc": "2026-11-04T14:38:10.411689+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "status": "COMPLETE PREPARED-ONLY PACKAGE; HELD",
+  "source_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "source_candidate": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "execution_candidate": null,
+  "compiled_or_type_credit": 0,
+  "files": [
+    {
+      "path": "provenance/tree-shape-public-statements90-prepared-20261104/Statements.lean",
+      "bytes": 4230,
+      "lines": 106,
+      "sha256": "28622fb1c6417798d4d4c476e9e3d307792c62e881f0158446ca2938434b83ca"
+    },
+    {
+      "path": "provenance/tree-shape-public-statements90-prepared-20261104/inventory.json",
+      "bytes": 119121,
+      "lines": 2843,
+      "sha256": "c866fc795b7aa77b6f7a85e19cd699a685ed97522c774f53c6742f69faa07b5e"
+    },
+    {
+      "path": "provenance/tree-shape-public-statements90-prepared-20261104/preparation.md",
+      "bytes": 5716,
+      "lines": 32,
+      "sha256": "304b23221702d2b599391e97aa928604d15e645c76a285b69a5c04c64010c0e9"
+    }
+  ],
+  "complete_author_readback": {
+    "program": "All106 saved program lines read back; one final comment wording refinement avoids adding a development prerequisite. All90 names/order/program lines then reconciled mechanically.",
+    "prose": "All32 saved preparation lines read back; final wording refinements distinguish acceptance prerequisites from authorized development and scope from review approval.",
+    "inventory": "All91 raw headers checked against exact immutable source byte slices; all90 public mappings checked against program. All6 source identities and11 historical-control identities rechecked. The full2843-line JSON was not separately reread as prose.",
+    "source_boundaries": "All633 declaration-bearing source lines,180-line public note,177-line case report and full frozen requirements/ticket/original handoffs/findings read. Complete root/map delta read; older unchanged root/map bodies fingerprinted only.",
+    "no_semantic_reapproval": "This author supplies source/type-program preparation, not an independent mathematical review or actual type assessment."
+  },
+  "reconciliation": {
+    "authored_declarations": 91,
+    "public_names": 90,
+    "public_theorems": 79,
+    "public_definitions": 11,
+    "private_definitions": 1,
+    "instances": 0,
+    "anonymous_examples": 0,
+    "per_file_public": [
+      29,
+      7,
+      54
+    ],
+    "source_closure_local": 29,
+    "source_closure_direct_external": 14,
+    "XT02_SP01": "Original historical wording correction, snapshot and eventual formal confirmation retained; no new closure."
+  },
+  "original_scope_preserved": true,
+  "new_gates_or_acceptance_order_changes": false,
+  "source_ref_cache_output_compiler_process_actions": false,
+  "mutation_scope": [
+    "Only this new preparation package"
+  ],
+  "prior110_package_unchanged": {
+    "plan.md": "da2bf87a897fe5d77e6598a3c30e421e23c2faa96d71e8bb81d729cf22dab620",
+    "inventory.json": "daeea1d0142de847cb105989e32a4fa78fa1281bdfc30a1a6d1e6fefebc6fb32",
+    "receipt.json": "b9e55962fbfe30d412f19aa3ca5c5b3fb4ea8bd69a08109f89b2c8ff00cfcd21"
+  }
+}

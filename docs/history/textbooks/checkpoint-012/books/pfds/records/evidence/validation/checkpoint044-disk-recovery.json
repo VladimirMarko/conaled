@@ -1,0 +1,23 @@
+{
+  "time": "2026-11-03T18:59:48.014466+00:00",
+  "reason": "ENOSPC observed during checkpoint044 decision write; recover capacity using verified saved local archive duplicates only",
+  "latest_preserved": "checkpoints/conaled-pfds-checkpoint-043.tar.gz",
+  "latest_library_file_id": "libfile_a798bf7d663481918d59c5a3a6dfe25a",
+  "removed": [
+    {
+      "checkpoint": 41,
+      "path": "checkpoints/conaled-pfds-checkpoint-041.tar.gz",
+      "bytes": 76796513,
+      "sha256": "42886cbe040211571e9dba330e67e08dcfc1c3d6a962b40fb54cf987cf4f0301",
+      "saved_library_file_id": "libfile_e5a8e0445df081918d892f49e57cbd6d"
+    },
+    {
+      "checkpoint": 42,
+      "path": "checkpoints/conaled-pfds-checkpoint-042.tar.gz",
+      "bytes": 78935007,
+      "sha256": "d256cc3c0fd1f0bedcedbb5c74dd4c44f4d53d3c3533fc429a16ecac54896192",
+      "saved_library_file_id": "libfile_b729cb34fd608191a7a0a4d4e539db74"
+    }
+  ],
+  "source_history_and_user_input_039_preserved": true
+}

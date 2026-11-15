@@ -1,0 +1,15 @@
+{
+  "recorded_utc": "2026-11-04T11:28:46.145429+00:00",
+  "initial_securing_command_exits": [
+    1,
+    1
+  ],
+  "actual_compiler_command_exit": 0,
+  "failures": [
+    "Initial header locator omitted leading @ and failed on Resources.budget.",
+    "Second locator required leading @ and failed on Resources.charge_iff_signed, whose fully explicit output has no leading @."
+  ],
+  "correction": "Read actual header lines and use exact ^@?name boundary, with text-based line offsets. Verify existing native copies byte-identically and locate each of20 headers exactly once.",
+  "compiler_rerun": false,
+  "original_closed_evidence_changed": false
+}

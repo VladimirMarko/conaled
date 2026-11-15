@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-11-04T17:01:40.820290+00:00",
+  "scope": "own supplemental source/history metadata reconstruction only",
+  "preserved_original_script": {
+    "path": "reconcile_author_package.py",
+    "bytes": 8643,
+    "sha256": "ff11830b5ea8cfc6a3a2b17c79c6f2e406fd4bb21cd8395a7f292de9436588c9"
+  },
+  "actual_failed_tool": "269f07",
+  "actual_exit": 1,
+  "error": "KeyError: 'exit' at the saved staged diff-check result; actual field is actual_exit=0",
+  "schema_diagnosis_tool": "522d10",
+  "alias_preflight_diagnosis": {
+    "tool": "a252e4",
+    "whole_backtick_spans": 38,
+    "expected_all_alias_tokens": 448,
+    "meaning": "The document also has multiple qualified names inside one code span; selecting only entire quoted spans does not enumerate every reference."
+  },
+  "correct_actual_token_reconstruction": {
+    "tool": "713041",
+    "tokens": 448,
+    "sorted_LF_sha256": "9885a2b82212dc8e55737a7dcb01ad31dc61aee0febbb1b8572cf2f1d829bffa",
+    "matches_existing_author_receipt": true
+  },
+  "new_derivative": {
+    "path": "reconcile_author_package_correction1.py",
+    "bytes": 8683,
+    "sha256": "ed8eb2e398b7471b1581592e2c6448a952bf2af4aacb4881b96fdb405041d837"
+  },
+  "source_or_author_package_modifications": false,
+  "compiler_invoked": false,
+  "no_actual_run_result_changed": true
+}

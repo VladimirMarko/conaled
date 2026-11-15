@@ -1,0 +1,64 @@
+{
+  "observed_utc": "2026-11-02T19:18:30.185414+00:00",
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "session": 83124,
+  "scope": "Read-only process metadata, exclusively processes whose current working directory equals the current task validation checkout. No unrelated command lines, process actions, compiler/checker launch, performance experiment or settings change. A liveness observation is not validation success.",
+  "checkout": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+  "ticks_per_second": 100,
+  "processes": [
+    {
+      "pid": 441574,
+      "ppid": 232,
+      "state": "S",
+      "program": "bash",
+      "source_arguments": [],
+      "cpu_ticks": 1
+    },
+    {
+      "pid": 441577,
+      "ppid": 441574,
+      "state": "S",
+      "program": "python3",
+      "source_arguments": [],
+      "cpu_ticks": 416
+    },
+    {
+      "pid": 441717,
+      "ppid": 441577,
+      "state": "S",
+      "program": "python3",
+      "source_arguments": [],
+      "cpu_ticks": 240
+    },
+    {
+      "pid": 441957,
+      "ppid": 441717,
+      "state": "S",
+      "program": "lake",
+      "source_arguments": [],
+      "cpu_ticks": 5398
+    },
+    {
+      "pid": 493357,
+      "ppid": 441957,
+      "state": "S",
+      "program": "lean",
+      "source_arguments": [
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/Examples/DiagnosticProjection.lean"
+      ],
+      "cpu_ticks": 79158
+    }
+  ],
+  "followup_observations": [
+    {
+      "observed_utc": "2026-11-02T19:20:28.847147+00:00",
+      "pid": 493357,
+      "result": "Same scoped Lean source process remains present.",
+      "state": "S",
+      "cpu_ticks": 83032,
+      "cpu_ticks_increased": true,
+      "previous_cpu_ticks": 79158,
+      "source": "/workspace/scratch/845aa1048b05/conaled-ch01-review/Examples/DiagnosticProjection.lean"
+    }
+  ]
+}

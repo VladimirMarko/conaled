@@ -1,0 +1,204 @@
+{
+  "recorded_utc": "2026-11-04T19:58:49.475581+00:00",
+  "formal_claims": [
+    {
+      "name": "Resources.SelectionRecurrence.pivotSize",
+      "kind": "def",
+      "source": "Applications/Resources/SelectionRecurrence.lean",
+      "raw_header": "def pivotSize (n : Nat) : Nat"
+    },
+    {
+      "name": "Resources.SelectionRecurrence.sideSize",
+      "kind": "def",
+      "source": "Applications/Resources/SelectionRecurrence.lean",
+      "raw_header": "def sideSize (n : Nat) : Nat"
+    },
+    {
+      "name": "Resources.SelectionRecurrence.pivotSize_lt_iff",
+      "kind": "theorem",
+      "source": "Applications/Resources/SelectionRecurrence.lean",
+      "raw_header": "theorem pivotSize_lt_iff (n : Nat) : pivotSize n < n \u2194 1 < n"
+    },
+    {
+      "name": "Resources.SelectionRecurrence.sideSize_lt_iff",
+      "kind": "theorem",
+      "source": "Applications/Resources/SelectionRecurrence.lean",
+      "raw_header": "theorem sideSize_lt_iff (n : Nat) : sideSize n < n \u2194 13 < n"
+    },
+    {
+      "name": "Resources.SelectionRecurrence.pivotSize_monotone",
+      "kind": "theorem",
+      "source": "Applications/Resources/SelectionRecurrence.lean",
+      "raw_header": "theorem pivotSize_monotone : Monotone pivotSize"
+    },
+    {
+      "name": "Resources.SelectionRecurrence.sideSize_monotone",
+      "kind": "theorem",
+      "source": "Applications/Resources/SelectionRecurrence.lean",
+      "raw_header": "theorem sideSize_monotone : Monotone sideSize"
+    },
+    {
+      "name": "Resources.SelectionRecurrence.F",
+      "kind": "def",
+      "source": "Applications/Resources/SelectionRecurrence.lean",
+      "raw_header": "def F (n : Nat) : Nat"
+    },
+    {
+      "name": "Resources.SelectionRecurrence.F_of_le_twenty",
+      "kind": "theorem",
+      "source": "Applications/Resources/SelectionRecurrence.lean",
+      "raw_header": "theorem F_of_le_twenty (n : Nat) (small : n \u2264 20) : F n = 483"
+    },
+    {
+      "name": "Resources.SelectionRecurrence.F_of_twenty_lt",
+      "kind": "theorem",
+      "source": "Applications/Resources/SelectionRecurrence.lean",
+      "raw_header": "theorem F_of_twenty_lt (n : Nat) (large : 20 < n) :\n    F n = F (pivotSize n) + F (sideSize n) + 19 * n + 54"
+    },
+    {
+      "name": "Resources.SelectionRecurrence.base_le_F",
+      "kind": "theorem",
+      "source": "Applications/Resources/SelectionRecurrence.lean",
+      "raw_header": "theorem base_le_F (n : Nat) : 483 \u2264 F n"
+    },
+    {
+      "name": "Resources.SelectionRecurrence.F_monotone",
+      "kind": "theorem",
+      "source": "Applications/Resources/SelectionRecurrence.lean",
+      "raw_header": "theorem F_monotone : Monotone F"
+    },
+    {
+      "name": "Resources.SelectionRecurrence.pivotSize_eq_ceil",
+      "kind": "theorem",
+      "source": "Applications/Resources/SelectionRecurrence.lean",
+      "raw_header": "theorem pivotSize_eq_ceil (n : Nat) :\n    pivotSize n = \u2308(1 / 5 : \u211d) * (n : \u211d)\u2309\u208a"
+    },
+    {
+      "name": "Resources.SelectionRecurrence.sideSize_eq_ceil",
+      "kind": "theorem",
+      "source": "Applications/Resources/SelectionRecurrence.lean",
+      "raw_header": "theorem sideSize_eq_ceil (n : Nat) :\n    sideSize n = \u2308(7 / 10 : \u211d) * (n : \u211d) + 3\u2309\u208a"
+    },
+    {
+      "name": "Resources.SelectionRecurrence.F_rounded",
+      "kind": "theorem",
+      "source": "Applications/Resources/SelectionRecurrence.lean",
+      "raw_header": "theorem F_rounded (n : Nat) (large : 20 < n) :\n    F n = F \u2308(1 / 5 : \u211d) * (n : \u211d) + 0\u2309\u208a +\n      F \u2308(7 / 10 : \u211d) * (n : \u211d) + 3\u2309\u208a + 19 * n + 54"
+    },
+    {
+      "name": "Resources.SelectionRecurrence.exists_affine_bound",
+      "kind": "theorem",
+      "source": "Applications/Resources/SelectionRecurrence.lean",
+      "raw_header": "theorem exists_affine_bound : \u2203 A B : Nat, \u2200 n : Nat, F n \u2264 A * n + B"
+    },
+    {
+      "name": "Resources.SelectionRecurrence.F_isBigO",
+      "kind": "theorem",
+      "source": "Applications/Resources/SelectionRecurrence.lean",
+      "raw_header": "theorem F_isBigO :\n    Asymptotics.IsBigO Filter.atTop (fun n : Nat => (F n : \u211d)) (fun n => (n : \u211d))"
+    },
+    {
+      "name": "Examples.SelectionRecurrence.zero_children",
+      "kind": "theorem",
+      "source": "Examples/SelectionRecurrence.lean",
+      "raw_header": "theorem zero_children : pivotSize 0 = 0 \u2227 sideSize 0 = 3"
+    },
+    {
+      "name": "Examples.SelectionRecurrence.scalar_cutoff_obstruction",
+      "kind": "theorem",
+      "source": "Examples/SelectionRecurrence.lean",
+      "raw_header": "theorem scalar_cutoff_obstruction : sideSize 13 = 13 \u2227 \u00ac sideSize 13 < 13"
+    },
+    {
+      "name": "Examples.SelectionRecurrence.scalar_cutoff_fourteen",
+      "kind": "theorem",
+      "source": "Examples/SelectionRecurrence.lean",
+      "raw_header": "theorem scalar_cutoff_fourteen : pivotSize 14 < 14 \u2227 sideSize 14 < 14"
+    },
+    {
+      "name": "Examples.SelectionRecurrence.first_recursive_children",
+      "kind": "theorem",
+      "source": "Examples/SelectionRecurrence.lean",
+      "raw_header": "theorem first_recursive_children : pivotSize 21 = 5 \u2227 sideSize 21 = 18"
+    },
+    {
+      "name": "Examples.SelectionRecurrence.F_zero",
+      "kind": "theorem",
+      "source": "Examples/SelectionRecurrence.lean",
+      "raw_header": "theorem F_zero : F 0 = 483"
+    },
+    {
+      "name": "Examples.SelectionRecurrence.F_twenty",
+      "kind": "theorem",
+      "source": "Examples/SelectionRecurrence.lean",
+      "raw_header": "theorem F_twenty : F 20 = 483"
+    },
+    {
+      "name": "Examples.SelectionRecurrence.F_twenty_one",
+      "kind": "theorem",
+      "source": "Examples/SelectionRecurrence.lean",
+      "raw_header": "theorem F_twenty_one : F 21 = 1419"
+    },
+    {
+      "name": "Examples.SelectionRecurrence.F_twenty_two",
+      "kind": "theorem",
+      "source": "Examples/SelectionRecurrence.lean",
+      "raw_header": "theorem F_twenty_two : F 22 = 1438"
+    },
+    {
+      "name": "Examples.SelectionRecurrence.first_recursive_is_not_base",
+      "kind": "theorem",
+      "source": "Examples/SelectionRecurrence.lean",
+      "raw_header": "theorem first_recursive_is_not_base : F 21 \u2260 483"
+    },
+    {
+      "name": "Examples.SelectionRecurrence.resize_across_cutoff",
+      "kind": "theorem",
+      "source": "Examples/SelectionRecurrence.lean",
+      "raw_header": "theorem resize_across_cutoff : F 17 \u2264 F 29"
+    },
+    {
+      "name": "Examples.SelectionRecurrence.all_smaller_children_uniform",
+      "kind": "theorem",
+      "source": "Examples/SelectionRecurrence.lean",
+      "raw_header": "theorem all_smaller_children_uniform :\n    \u2203 A B : Nat, \u2200 n m : Nat, m \u2264 n \u2192 F m \u2264 A * n + B"
+    },
+    {
+      "name": "Examples.SelectionRecurrence.zero_requires_intercept",
+      "kind": "theorem",
+      "source": "Examples/SelectionRecurrence.lean",
+      "raw_header": "theorem zero_requires_intercept (A : Nat) : \u00ac \u2200 n : Nat, F n \u2264 A * n"
+    }
+  ],
+  "source_semantics": {
+    "pivotSize": "Natural ceiling quotient (n+4)/5; exact decrease iff1<n, monotone, equals real ceil(n/5) for alln.",
+    "sideSize": "Natural quotient(7n+39)/10; exact decrease iff13<n, monotone, equals real ceil(7n/10+3) for alln. Offset retained at zero.",
+    "F": "Actual total well-founded Nat recurrence, base483 on n<=20; exact two recursive calls with positive natural toll19n+54. Termination does not assume a bound.",
+    "base_le_F": "All input lower bound483 via proper recursive child; used to compare across cutoff.",
+    "F_monotone": "Two-size strong induction on larger argument; hypotheses only m<=n; actual child inequalities and monotone maps proved independently.",
+    "F_rounded": "Exact child ceiling substitution, not an inequality or changed offsets.",
+    "exists_affine_bound": "Exists natural constants before foralln including0, from full checked rounded theorem with data1/5,0,7/10,3,19,54,20; no growth/monotonicity premise assumed.",
+    "F_isBigO": "Real-cast ordinary atTop bigO of n; affine intercept absorbed only for n>=1."
+  },
+  "examples_expected": {
+    "F0": 483,
+    "F20": 483,
+    "F21": "483+483+19*21+54=1419",
+    "F22": "483+483+19*22+54=1438",
+    "pivotSize0": 0,
+    "sideSize0": 3,
+    "sideSize13": 13,
+    "pivotSize14": 3,
+    "sideSize14": 13
+  },
+  "examples_connections": {
+    "boundary_cases": "Consume source branch equations; values1419/1438 retain stated constants.",
+    "sharp_cutoff": "The iff child-decrease laws establish both strict decreases at14, while explicit13 is a counterexample for the coarse side scalar. No assertion that actual selector needs this cutoff.",
+    "all_smaller_children_uniform": "One pairA,B works for foralln,m with m<=n; combines F_monotone with full uniform bound.",
+    "zero_requires_intercept": "For everyA an all-natural purely linear bound fails at0, where F0=483."
+  },
+  "vacuity": "All definitions total on Nat, quantified order explicit; actual examples establish satisfiable recursive/base inputs. No selector cost equality or bound claimed.",
+  "old_source_and_records_preserved": true,
+  "prepared_not_elaborated_types": true,
+  "no_acceptance_credit": true
+}

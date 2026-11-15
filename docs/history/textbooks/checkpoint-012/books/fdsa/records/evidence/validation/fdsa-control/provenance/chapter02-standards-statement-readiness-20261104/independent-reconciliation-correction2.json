@@ -1,0 +1,2023 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "recorded_utc": "2026-11-04T16:52:53.172935+00:00",
+  "status": "Independent bounded readiness reconstruction completed; no receiving credit",
+  "candidate_receiver": null,
+  "original_scope": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "Lean_paths": 72,
+    "declaration_bearing_Lean_paths": 71,
+    "public_root_paths": 1,
+    "document_paths": 9,
+    "public_names": 1763,
+    "private_named_declarations": 70,
+    "anonymous_instances": 19,
+    "no_scope_reset": true
+  },
+  "package_files": [
+    {
+      "path": "provenance/shared-chapter02-statement-evidence-readiness-20261104/readiness.md",
+      "bytes": 15986,
+      "lines": 101,
+      "sha256": "4171dd19b7c90294a9bea565de757305204acc51dd43ecf011042409ee3caeb0"
+    },
+    {
+      "path": "provenance/shared-chapter02-statement-evidence-readiness-20261104/inventory.json",
+      "bytes": 496079,
+      "lines": 15238,
+      "sha256": "80311e829c93fa2653616d9b5e85f237a17a6347cda79b69d1388d2cb8bb6b47"
+    },
+    {
+      "path": "provenance/shared-chapter02-statement-evidence-readiness-20261104/bound-inputs.json",
+      "bytes": 51774,
+      "lines": 1124,
+      "sha256": "2ce52d69ab4f69c3311b63c92994adf9d47f48532688f8fc72dde17e9d4faf7f"
+    },
+    {
+      "path": "provenance/shared-chapter02-statement-evidence-readiness-20261104/receipt.json",
+      "bytes": 4180,
+      "lines": 79,
+      "sha256": "6269925bfe4b8702cfe3e4b1c7f3708df2586056082436eecb3c87964850d9cc"
+    }
+  ],
+  "all_bound_existing_inputs_match": 159,
+  "all_public_source_kind_names_reconciled_to_own_original_inventory_plus_explicit_instance": 1763,
+  "all_five_program_order_positions_reproduced": {
+    "F145": 145,
+    "I314": 314,
+    "J53": 53,
+    "Tail61": 61,
+    "Z815": 815
+  },
+  "group_counts": {
+    "F110_unchanged_closure_conditional": 110,
+    "I242_unchanged_closure_conditional": 242,
+    "J53_unchanged_closure_conditional": 53,
+    "Tail61_prepared_only_conditional": 61,
+    "I72_Growth_changed": 72,
+    "actual405_same_closure_conditional": 405,
+    "possible466_including_unexecuted_Tail61": 466,
+    "complete_predecessor538_name_union": 538,
+    "conditional1297_remainder_not_a_run": 1297,
+    "historical920": 920,
+    "actualZ815": 815,
+    "acceptedR28": 28
+  },
+  "partitions": {
+    "historical920": {
+      "total": 920,
+      "in_predecessor538": 167,
+      "outside_predecessor538": 753,
+      "same_closure405": 167,
+      "conditional466": 167,
+      "conditional1297": 753
+    },
+    "actualZ815": {
+      "total": 815,
+      "in_predecessor538": 344,
+      "outside_predecessor538": 471,
+      "same_closure405": 211,
+      "conditional466": 272,
+      "conditional1297": 543
+    },
+    "acceptedR28": {
+      "total": 28,
+      "in_predecessor538": 27,
+      "outside_predecessor538": 1,
+      "same_closure405": 27,
+      "conditional466": 27,
+      "conditional1297": 1
+    }
+  },
+  "historical_runs": [
+    {
+      "run": "chapter02-measured-sorting-types-20261104",
+      "names": 174,
+      "qualified": 174,
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ]
+      ],
+      "final_head": "1ffb61fceaf7c893e25a35339f6e1fce8531021d",
+      "actual_command_count": 174,
+      "check_count": 174,
+      "additional_print_count": 0,
+      "all_NaturalRuns_commands_preserved_in_order": null
+    },
+    {
+      "run": "chapter02-xu01-types-20261104",
+      "names": 37,
+      "qualified": 37,
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ],
+        [
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "final_head": "3fa2b59d6dcab007627af98a2f05c3a016a4c4c4",
+      "actual_command_count": 37,
+      "check_count": 37,
+      "additional_print_count": 0,
+      "all_NaturalRuns_commands_preserved_in_order": null
+    },
+    {
+      "run": "chapter02-bottom-up-costs-types-20261104",
+      "names": 105,
+      "qualified": 105,
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ]
+      ],
+      "final_head": "6d91b822d0f3cf1aeeda333a9e1d47ebb26e709b",
+      "actual_command_count": 105,
+      "check_count": 105,
+      "additional_print_count": 0,
+      "all_NaturalRuns_commands_preserved_in_order": null
+    },
+    {
+      "run": "chapter02-natural-sorting-types-20261104",
+      "names": 105,
+      "qualified": 105,
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ],
+        [
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "final_head": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+      "actual_command_count": 105,
+      "check_count": 105,
+      "additional_print_count": 0,
+      "all_NaturalRuns_commands_preserved_in_order": null
+    },
+    {
+      "run": "chapter02-three-way-partition-types-20261104",
+      "names": 84,
+      "qualified": 84,
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ]
+      ],
+      "final_head": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+      "actual_command_count": 84,
+      "check_count": 84,
+      "additional_print_count": 0,
+      "all_NaturalRuns_commands_preserved_in_order": null
+    },
+    {
+      "run": "chapter02-xd01-random-types-20261104",
+      "names": 134,
+      "qualified": 134,
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ],
+        [
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "final_head": "dfaf68114d1dda4e15628c94c3d988c3f5457c49",
+      "actual_command_count": 134,
+      "check_count": 134,
+      "additional_print_count": 0,
+      "all_NaturalRuns_commands_preserved_in_order": null
+    },
+    {
+      "run": "chapter02-bottom-up-alternating-types-20261104",
+      "names": 126,
+      "qualified": 126,
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "final_head": "98696d86162bd93c1cba46719eeb65bf6cabe65a",
+      "actual_command_count": 126,
+      "check_count": 126,
+      "additional_print_count": 0,
+      "all_NaturalRuns_commands_preserved_in_order": null
+    },
+    {
+      "run": "chapter02-top-down-costs-types-20261104",
+      "names": 32,
+      "qualified": 32,
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "final_head": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+      "actual_command_count": 32,
+      "check_count": 32,
+      "additional_print_count": 0,
+      "all_NaturalRuns_commands_preserved_in_order": null
+    },
+    {
+      "run": "chapter02-uniqueness-types-20261104",
+      "names": 9,
+      "qualified": 9,
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ],
+        [
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "final_head": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+      "actual_command_count": 9,
+      "check_count": 9,
+      "additional_print_count": 0,
+      "all_NaturalRuns_commands_preserved_in_order": null
+    },
+    {
+      "run": "chapter02-natural-runs-statements-20261104",
+      "names": 104,
+      "qualified": 104,
+      "printing_options": [],
+      "final_head": "ff9749d1ccbcb0949486f67d6273e28c262280e0",
+      "actual_command_count": 107,
+      "check_count": 104,
+      "additional_print_count": 3,
+      "all_NaturalRuns_commands_preserved_in_order": [
+        {
+          "command_position": 1,
+          "source_line": 5,
+          "kind": "print",
+          "name": "Applications.Sorting.DListLaw",
+          "explicit_at": false,
+          "check_position": null,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 2,
+          "source_line": 6,
+          "kind": "print",
+          "name": "Applications.Sorting.dListOfLaw",
+          "explicit_at": false,
+          "check_position": null,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 3,
+          "source_line": 7,
+          "kind": "print",
+          "name": "Applications.Sorting.ascSourceBy",
+          "explicit_at": false,
+          "check_position": null,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 4,
+          "source_line": 8,
+          "kind": "check",
+          "name": "Applications.Sorting.DListLaw",
+          "explicit_at": false,
+          "check_position": 1,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 5,
+          "source_line": 9,
+          "kind": "check",
+          "name": "Applications.Sorting.dListLaw_iff",
+          "explicit_at": false,
+          "check_position": 2,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 6,
+          "source_line": 10,
+          "kind": "check",
+          "name": "Applications.Sorting.dListLaw_cons",
+          "explicit_at": false,
+          "check_position": 3,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 7,
+          "source_line": 11,
+          "kind": "check",
+          "name": "Applications.Sorting.DListLaw.push",
+          "explicit_at": false,
+          "check_position": 4,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 8,
+          "source_line": 12,
+          "kind": "check",
+          "name": "Applications.Sorting.dListOfLaw",
+          "explicit_at": false,
+          "check_position": 5,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 9,
+          "source_line": 13,
+          "kind": "check",
+          "name": "Applications.Sorting.dListOfLaw_apply",
+          "explicit_at": false,
+          "check_position": 6,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 10,
+          "source_line": 14,
+          "kind": "check",
+          "name": "Applications.Sorting.dListOfLaw_toList",
+          "explicit_at": false,
+          "check_position": 7,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 11,
+          "source_line": 15,
+          "kind": "check",
+          "name": "Applications.Sorting.dListOfLaw_push",
+          "explicit_at": false,
+          "check_position": 8,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 12,
+          "source_line": 16,
+          "kind": "check",
+          "name": "Applications.Sorting.dList_apply_eq",
+          "explicit_at": false,
+          "check_position": 9,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 13,
+          "source_line": 17,
+          "kind": "check",
+          "name": "Applications.Sorting.dList_push_apply",
+          "explicit_at": false,
+          "check_position": 10,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 14,
+          "source_line": 18,
+          "kind": "check",
+          "name": "Applications.Sorting.runsBy",
+          "explicit_at": false,
+          "check_position": 11,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 15,
+          "source_line": 19,
+          "kind": "check",
+          "name": "Applications.Sorting.ascBy",
+          "explicit_at": false,
+          "check_position": 12,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 16,
+          "source_line": 20,
+          "kind": "check",
+          "name": "Applications.Sorting.descBy",
+          "explicit_at": false,
+          "check_position": 13,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 17,
+          "source_line": 21,
+          "kind": "check",
+          "name": "Applications.Sorting.runsBy_nil",
+          "explicit_at": false,
+          "check_position": 14,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 18,
+          "source_line": 22,
+          "kind": "check",
+          "name": "Applications.Sorting.runsBy_singleton",
+          "explicit_at": false,
+          "check_position": 15,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 19,
+          "source_line": 23,
+          "kind": "check",
+          "name": "Applications.Sorting.runsBy_cons_cons",
+          "explicit_at": false,
+          "check_position": 16,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 20,
+          "source_line": 24,
+          "kind": "check",
+          "name": "Applications.Sorting.ascBy_nil",
+          "explicit_at": false,
+          "check_position": 17,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 21,
+          "source_line": 25,
+          "kind": "check",
+          "name": "Applications.Sorting.ascBy_cons",
+          "explicit_at": false,
+          "check_position": 18,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 22,
+          "source_line": 26,
+          "kind": "check",
+          "name": "Applications.Sorting.descBy_nil",
+          "explicit_at": false,
+          "check_position": 19,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 23,
+          "source_line": 27,
+          "kind": "check",
+          "name": "Applications.Sorting.descBy_cons",
+          "explicit_at": false,
+          "check_position": 20,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 24,
+          "source_line": 28,
+          "kind": "check",
+          "name": "Applications.Sorting.ascSourceBy",
+          "explicit_at": false,
+          "check_position": 21,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 25,
+          "source_line": 29,
+          "kind": "check",
+          "name": "Applications.Sorting.ascSourceBy_nil",
+          "explicit_at": false,
+          "check_position": 22,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 26,
+          "source_line": 30,
+          "kind": "check",
+          "name": "Applications.Sorting.ascSourceBy_cons",
+          "explicit_at": false,
+          "check_position": 23,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 27,
+          "source_line": 31,
+          "kind": "check",
+          "name": "Applications.Sorting.runsBy_perm",
+          "explicit_at": false,
+          "check_position": 24,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 28,
+          "source_line": 32,
+          "kind": "check",
+          "name": "Applications.Sorting.ascBy_perm",
+          "explicit_at": false,
+          "check_position": 25,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 29,
+          "source_line": 33,
+          "kind": "check",
+          "name": "Applications.Sorting.descBy_perm",
+          "explicit_at": false,
+          "check_position": 26,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 30,
+          "source_line": 34,
+          "kind": "check",
+          "name": "Applications.Sorting.runsBy_multiset",
+          "explicit_at": false,
+          "check_position": 27,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 31,
+          "source_line": 35,
+          "kind": "check",
+          "name": "Applications.Sorting.ascBy_multiset",
+          "explicit_at": false,
+          "check_position": 28,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 32,
+          "source_line": 36,
+          "kind": "check",
+          "name": "Applications.Sorting.descBy_multiset",
+          "explicit_at": false,
+          "check_position": 29,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 33,
+          "source_line": 37,
+          "kind": "check",
+          "name": "Applications.Sorting.runsBy_flatten_length",
+          "explicit_at": false,
+          "check_position": 30,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 34,
+          "source_line": 38,
+          "kind": "check",
+          "name": "Applications.Sorting.ascBy_flatten_length",
+          "explicit_at": false,
+          "check_position": 31,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 35,
+          "source_line": 39,
+          "kind": "check",
+          "name": "Applications.Sorting.descBy_flatten_length",
+          "explicit_at": false,
+          "check_position": 32,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 36,
+          "source_line": 40,
+          "kind": "check",
+          "name": "Applications.Sorting.mem_runsBy_flatten",
+          "explicit_at": false,
+          "check_position": 33,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 37,
+          "source_line": 41,
+          "kind": "check",
+          "name": "Applications.Sorting.runsBy_nonempty",
+          "explicit_at": false,
+          "check_position": 34,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 38,
+          "source_line": 42,
+          "kind": "check",
+          "name": "Applications.Sorting.ascBy_nonempty",
+          "explicit_at": false,
+          "check_position": 35,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 39,
+          "source_line": 43,
+          "kind": "check",
+          "name": "Applications.Sorting.descBy_nonempty",
+          "explicit_at": false,
+          "check_position": 36,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 40,
+          "source_line": 44,
+          "kind": "check",
+          "name": "Applications.Sorting.runsBy_length_le",
+          "explicit_at": false,
+          "check_position": 37,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 41,
+          "source_line": 45,
+          "kind": "check",
+          "name": "Applications.Sorting.ascBy_length_le",
+          "explicit_at": false,
+          "check_position": 38,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 42,
+          "source_line": 46,
+          "kind": "check",
+          "name": "Applications.Sorting.descBy_length_le",
+          "explicit_at": false,
+          "check_position": 39,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 43,
+          "source_line": 47,
+          "kind": "check",
+          "name": "Applications.Sorting.ascBy_ne_nil",
+          "explicit_at": false,
+          "check_position": 40,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 44,
+          "source_line": 48,
+          "kind": "check",
+          "name": "Applications.Sorting.descBy_ne_nil",
+          "explicit_at": false,
+          "check_position": 41,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 45,
+          "source_line": 49,
+          "kind": "check",
+          "name": "Applications.Sorting.runsBy_eq_nil_iff",
+          "explicit_at": false,
+          "check_position": 42,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 46,
+          "source_line": 50,
+          "kind": "check",
+          "name": "Applications.Sorting.ascSourceBy_perm",
+          "explicit_at": false,
+          "check_position": 43,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 47,
+          "source_line": 51,
+          "kind": "check",
+          "name": "Applications.Sorting.ascSourceBy_flatten_length",
+          "explicit_at": false,
+          "check_position": 44,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 48,
+          "source_line": 52,
+          "kind": "check",
+          "name": "Applications.Sorting.runsBy_pairwise_on",
+          "explicit_at": false,
+          "check_position": 45,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 49,
+          "source_line": 53,
+          "kind": "check",
+          "name": "Applications.Sorting.ascBy_pairwise_on",
+          "explicit_at": false,
+          "check_position": 46,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 50,
+          "source_line": 54,
+          "kind": "check",
+          "name": "Applications.Sorting.descBy_pairwise_on",
+          "explicit_at": false,
+          "check_position": 47,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 51,
+          "source_line": 55,
+          "kind": "check",
+          "name": "Applications.Sorting.ascSourceBy_pairwise_on",
+          "explicit_at": false,
+          "check_position": 48,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 52,
+          "source_line": 56,
+          "kind": "check",
+          "name": "Applications.Sorting.runsBy_sorted_compatible_on",
+          "explicit_at": false,
+          "check_position": 49,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 53,
+          "source_line": 57,
+          "kind": "check",
+          "name": "Applications.Sorting.ascBy_sorted_compatible_on",
+          "explicit_at": false,
+          "check_position": 50,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 54,
+          "source_line": 58,
+          "kind": "check",
+          "name": "Applications.Sorting.descBy_sorted_compatible_on",
+          "explicit_at": false,
+          "check_position": 51,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 55,
+          "source_line": 59,
+          "kind": "check",
+          "name": "Applications.Sorting.ascBy_of_chain",
+          "explicit_at": false,
+          "check_position": 52,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 56,
+          "source_line": 60,
+          "kind": "check",
+          "name": "Applications.Sorting.descBy_of_chain",
+          "explicit_at": false,
+          "check_position": 53,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 57,
+          "source_line": 61,
+          "kind": "check",
+          "name": "Applications.Sorting.runsBy_of_ascending_chain",
+          "explicit_at": false,
+          "check_position": 54,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 58,
+          "source_line": 62,
+          "kind": "check",
+          "name": "Applications.Sorting.runsBy_of_descending_chain",
+          "explicit_at": false,
+          "check_position": 55,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 59,
+          "source_line": 63,
+          "kind": "check",
+          "name": "Applications.Sorting.runsOn",
+          "explicit_at": false,
+          "check_position": 56,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 60,
+          "source_line": 64,
+          "kind": "check",
+          "name": "Applications.Sorting.runsOn_sorted",
+          "explicit_at": false,
+          "check_position": 57,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 61,
+          "source_line": 65,
+          "kind": "check",
+          "name": "Applications.Sorting.ascBy_sorted",
+          "explicit_at": false,
+          "check_position": 58,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 62,
+          "source_line": 66,
+          "kind": "check",
+          "name": "Applications.Sorting.descBy_sorted",
+          "explicit_at": false,
+          "check_position": 59,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 63,
+          "source_line": 67,
+          "kind": "check",
+          "name": "Applications.Sorting.ascSourceBy_sorted",
+          "explicit_at": false,
+          "check_position": 60,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 64,
+          "source_line": 68,
+          "kind": "check",
+          "name": "Applications.Sorting.runsOn_of_sorted",
+          "explicit_at": false,
+          "check_position": 61,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 65,
+          "source_line": 69,
+          "kind": "check",
+          "name": "Applications.Sorting.runsOn_of_strictly_descending",
+          "explicit_at": false,
+          "check_position": 62,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 66,
+          "source_line": 70,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.natLT",
+          "explicit_at": false,
+          "check_position": 63,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 67,
+          "source_line": 71,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.empty_payload",
+          "explicit_at": false,
+          "check_position": 64,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 68,
+          "source_line": 72,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.singleton",
+          "explicit_at": false,
+          "check_position": 65,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 69,
+          "source_line": 73,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.restart_boundary",
+          "explicit_at": false,
+          "check_position": 66,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 70,
+          "source_line": 74,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.ascending_ties",
+          "explicit_at": false,
+          "check_position": 67,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 71,
+          "source_line": 75,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.descending_reversal",
+          "explicit_at": false,
+          "check_position": 68,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 72,
+          "source_line": 76,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.empty_is_not_one_run",
+          "explicit_at": false,
+          "check_position": 69,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 73,
+          "source_line": 77,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.payloads_need_no_structure",
+          "explicit_at": false,
+          "check_position": 70,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 74,
+          "source_line": 78,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.restart_blocks_sorted",
+          "explicit_at": false,
+          "check_position": 71,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 75,
+          "source_line": 79,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.restart_flatten_not_sorted",
+          "explicit_at": false,
+          "check_position": 72,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 76,
+          "source_line": 80,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.Record",
+          "explicit_at": false,
+          "check_position": 73,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 77,
+          "source_line": 81,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.mixedRecords",
+          "explicit_at": false,
+          "check_position": 74,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 78,
+          "source_line": 82,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.mixedRuns",
+          "explicit_at": false,
+          "check_position": 75,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 79,
+          "source_line": 83,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.mixed_records",
+          "explicit_at": false,
+          "check_position": 76,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 80,
+          "source_line": 84,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.mixed_occurrences",
+          "explicit_at": false,
+          "check_position": 77,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 81,
+          "source_line": 85,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.mixed_expected_blocks_sorted",
+          "explicit_at": false,
+          "check_position": 78,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 82,
+          "source_line": 86,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.mixed_shape",
+          "explicit_at": false,
+          "check_position": 79,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 83,
+          "source_line": 87,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.mixed_equal_key_order",
+          "explicit_at": false,
+          "check_position": 80,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 84,
+          "source_line": 88,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.weak_descent_with_ties",
+          "explicit_at": false,
+          "check_position": 81,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 85,
+          "source_line": 89,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.weak_descent_not_one_reversal",
+          "explicit_at": false,
+          "check_position": 82,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 86,
+          "source_line": 90,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.nonnegativeLT",
+          "explicit_at": false,
+          "check_position": 83,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 87,
+          "source_line": 91,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.nonnegative_compatible",
+          "explicit_at": false,
+          "check_position": 84,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 88,
+          "source_line": 92,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.local_comparator_sorted",
+          "explicit_at": false,
+          "check_position": 85,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 89,
+          "source_line": 93,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.local_comparator_is_not_globally_compatible",
+          "explicit_at": false,
+          "check_position": 86,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 90,
+          "source_line": 94,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.seededBuilder",
+          "explicit_at": false,
+          "check_position": 87,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 91,
+          "source_line": 95,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.seededBuilder_law",
+          "explicit_at": false,
+          "check_position": 88,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 92,
+          "source_line": 96,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.arbitrary_builder_restart",
+          "explicit_at": false,
+          "check_position": 89,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 93,
+          "source_line": 97,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.arbitrary_builder_occurrences",
+          "explicit_at": false,
+          "check_position": 90,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 94,
+          "source_line": 98,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.arbitrary_builder_length",
+          "explicit_at": false,
+          "check_position": 91,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 95,
+          "source_line": 99,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.arbitrary_builder_run_bound",
+          "explicit_at": false,
+          "check_position": 92,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 96,
+          "source_line": 100,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.arbitrary_builder_sorted",
+          "explicit_at": false,
+          "check_position": 93,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 97,
+          "source_line": 101,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.unsortedBuilder",
+          "explicit_at": false,
+          "check_position": 94,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 98,
+          "source_line": 102,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.unsortedBuilder_law",
+          "explicit_at": false,
+          "check_position": 95,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 99,
+          "source_line": 103,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.unsorted_builder_value",
+          "explicit_at": false,
+          "check_position": 96,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 100,
+          "source_line": 104,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.lawful_builder_does_not_imply_sorted",
+          "explicit_at": false,
+          "check_position": 97,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 101,
+          "source_line": 105,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.sorted_prefix_needs_upper_bound",
+          "explicit_at": false,
+          "check_position": 98,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 102,
+          "source_line": 106,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.equalAccumulator",
+          "explicit_at": false,
+          "check_position": 99,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 103,
+          "source_line": 107,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.equalCurrent",
+          "explicit_at": false,
+          "check_position": 100,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 104,
+          "source_line": 108,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.weak_descending_value",
+          "explicit_at": false,
+          "check_position": 101,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 105,
+          "source_line": 109,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.weak_descending_sorted",
+          "explicit_at": false,
+          "check_position": 102,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 106,
+          "source_line": 110,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.weak_descending_occurrences",
+          "explicit_at": false,
+          "check_position": 103,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        },
+        {
+          "command_position": 107,
+          "source_line": 111,
+          "kind": "check",
+          "name": "Examples.NaturalRuns.weak_descending_not_stable",
+          "explicit_at": false,
+          "check_position": 104,
+          "active_options": {
+            "autoImplicit": "false",
+            "warningAsError": "true"
+          }
+        }
+      ]
+    },
+    {
+      "run": "chapter02-quicksort-statements-20261104",
+      "names": 14,
+      "qualified": 0,
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "final_head": null,
+      "actual_command_count": 14,
+      "check_count": 14,
+      "additional_print_count": 0,
+      "all_NaturalRuns_commands_preserved_in_order": null
+    },
+    {
+      "run": "ordinary-merge-type-inspection-20261104",
+      "names": 17,
+      "qualified": 10,
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "final_head": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "actual_command_count": 17,
+      "check_count": 17,
+      "additional_print_count": 0,
+      "all_NaturalRuns_commands_preserved_in_order": null
+    }
+  ],
+  "historical_941_to920_disposition_retained": true,
+  "actual_Z815_identity14_position_mapping": [
+    {
+      "actual_Z815_position": 801,
+      "name": "Applications.Sorting.quickSortBy",
+      "historical_sorted_list_position": 6
+    },
+    {
+      "actual_Z815_position": 802,
+      "name": "Applications.Sorting.quickSortBy_perm",
+      "historical_sorted_list_position": 7
+    },
+    {
+      "actual_Z815_position": 803,
+      "name": "Applications.Sorting.quickSortBy_sorted_compatible_on",
+      "historical_sorted_list_position": 8
+    },
+    {
+      "actual_Z815_position": 804,
+      "name": "Applications.Sorting.quickSortOn_cons",
+      "historical_sorted_list_position": 9
+    },
+    {
+      "actual_Z815_position": 805,
+      "name": "Applications.Sorting.quickSortOn_correct",
+      "historical_sorted_list_position": 10
+    },
+    {
+      "actual_Z815_position": 806,
+      "name": "Applications.Sorting.quickSortAccBy",
+      "historical_sorted_list_position": 1
+    },
+    {
+      "actual_Z815_position": 807,
+      "name": "Applications.Sorting.quickSortAccBy_eq_append",
+      "historical_sorted_list_position": 2
+    },
+    {
+      "actual_Z815_position": 808,
+      "name": "Applications.Sorting.quickSortAccOn_cons",
+      "historical_sorted_list_position": 3
+    },
+    {
+      "actual_Z815_position": 809,
+      "name": "Applications.Sorting.quickSortAccOn_eq_append",
+      "historical_sorted_list_position": 5
+    },
+    {
+      "actual_Z815_position": 810,
+      "name": "Applications.Sorting.quickSortAccOn_correct",
+      "historical_sorted_list_position": 4
+    },
+    {
+      "actual_Z815_position": 811,
+      "name": "Examples.QuickSort.source_filter_multiset",
+      "historical_sorted_list_position": 13
+    },
+    {
+      "actual_Z815_position": 812,
+      "name": "Examples.QuickSort.source_complementary_multiset",
+      "historical_sorted_list_position": 12
+    },
+    {
+      "actual_Z815_position": 813,
+      "name": "Examples.QuickSort.source_sorted_append",
+      "historical_sorted_list_position": 14
+    },
+    {
+      "actual_Z815_position": 814,
+      "name": "Examples.QuickSort.arbitrary_payload_suffix",
+      "historical_sorted_list_position": 11
+    }
+  ],
+  "historical_command_account": {
+    "all_commands": 944,
+    "check_commands": 941,
+    "additional_print_commands": 3,
+    "unique_selected_public_names": 941,
+    "original_profiles": {
+      "pp_explicit": 648,
+      "ordinary_or_universe_only": 293
+    },
+    "qualified920_profiles": {
+      "pp_explicit": 648,
+      "ordinary_or_universe_only": 272
+    }
+  },
+  "five_producer_command_counts": {
+    "F145": {
+      "all_commands": 145,
+      "checks": 145,
+      "prints": 0
+    },
+    "I314": {
+      "all_commands": 314,
+      "checks": 314,
+      "prints": 0
+    },
+    "J53": {
+      "all_commands": 53,
+      "checks": 53,
+      "prints": 0
+    },
+    "Tail61": {
+      "all_commands": 61,
+      "checks": 61,
+      "prints": 0
+    },
+    "Z815": {
+      "all_commands": 815,
+      "checks": 815,
+      "prints": 0
+    }
+  },
+  "ordered_list_correction": {
+    "preserved_failed_script_sha256": "974e7eaa31aa63234e229b156f8d1413a9272c8009ad314d455db46488bbc00d",
+    "actual_failed_tool_chunk": "d0a0da",
+    "actual_exit": 1,
+    "cause": "The old historical QuickSort14 list is sorted; Z815 positions801-814 retain program order. The exact set and unique count match. Actual program order remains independently matched to all815 recorded inventory positions; per-name old/new indices are explicitly retained. No actual program or output was changed."
+  },
+  "method_correction": {
+    "original_script_sha256": "c5576b4df8f2ea6ca0491867af59ebc06a5e4ea34ab88fa3afde58d168927b10",
+    "original_script_and_failures_preserved": true,
+    "correction": "Use exact #check positions for selected-name inventories and separately retain every actual #print command and its source line, ordinal and active options. NaturalRuns107 commands are preserved; no actual program or printing profile is edited or deduplicated."
+  },
+  "all_97_Z_source_hashes_and_L_R_blobs_match": true,
+  "source_relations_L_to_Z": {
+    "exact_same_blob": 50,
+    "new_in_Z": 46,
+    "changed_blob": 1
+  },
+  "independent_closures": {
+    "defining_roots": 71,
+    "local_sources": 97,
+    "external_import_names": 86,
+    "per_root_source_sets_external_sets_and_edge_counts_match": true
+  },
+  "growth": {
+    "diff_bytes": 2879,
+    "diff_lines": 57,
+    "diff_sha256": "4341912ca89d4de15d9be1a5a3ad64c91704b78afb3c7dd3f4cecc380b90fb10",
+    "affected_root_counts": {
+      "Applications/Resources/BottomUpSorting.lean": 76,
+      "Applications/Resources/Growth.lean": 3,
+      "Applications/Resources/NaturalRunOperations.lean": 63,
+      "Applications/Resources/NaturalSorting.lean": 37,
+      "Applications/Resources/TopDownSorting.lean": 18,
+      "Examples/BottomUpCosts.lean": 29,
+      "Examples/MergeCosts.lean": 72,
+      "Examples/NaturalRunOperations.lean": 43,
+      "Examples/NaturalSortingCosts.lean": 30,
+      "Examples/TopDownCosts.lean": 17
+    },
+    "affected_names": 388,
+    "all72_I_MergeCosts_names_affected": true,
+    "all72_in_Z815": true
+  },
+  "actual_producers": {
+    "F145": {
+      "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "actual_exit": 0,
+      "native_sha256": "bbf02ed2d02358a10d1ed670e28bc00e43beef3af20409d4dc926ad36ab193c2",
+      "pre_post_exact": true,
+      "counts": {
+        "roots": 6,
+        "sources": 29,
+        "objects_hashes_traces": 87,
+        "configs": 10,
+        "dependencies": 9,
+        "runtime_components": 12
+      },
+      "changed_source_inputs": [
+        "Applications/Sorting/Merge.lean"
+      ],
+      "affected_name_count": 35
+    },
+    "I314": {
+      "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+      "actual_exit": 0,
+      "native_sha256": "3bdb9dc0a92ec781a28b46de1a3eb843bda4efcd17c2292f091c19e52df7c50c",
+      "pre_post_exact": true,
+      "counts": {
+        "roots": 14,
+        "sources": 27,
+        "objects_hashes_traces": 81,
+        "configs": 10,
+        "dependencies": 9,
+        "runtime_components": 12
+      },
+      "changed_source_inputs": [
+        "Applications/Resources/Growth.lean"
+      ],
+      "affected_name_count": 72
+    },
+    "J53": {
+      "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+      "actual_exit": 0,
+      "native_sha256": "48466b063b338defe63e54b3eed7594095cd3036dd773443ef9649b2bc211b65",
+      "pre_post_exact": true,
+      "counts": {
+        "roots": 3,
+        "sources": 6,
+        "objects_hashes_traces": 18,
+        "configs": 10,
+        "dependencies": 9,
+        "runtime_components": 12
+      },
+      "changed_source_inputs": [],
+      "affected_name_count": 0
+    },
+    "Z815": {
+      "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "actual_exit": 0,
+      "native_sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29",
+      "pre_post_exact": true,
+      "counts": {
+        "roots": 36,
+        "sources": 84,
+        "objects_hashes_traces": 252,
+        "configs": 10,
+        "dependencies": 9,
+        "runtime_components": 12
+      },
+      "changed_source_inputs": [],
+      "affected_name_count": 0
+    }
+  },
+  "saved_comparisons": {
+    "F145": {
+      "common_sources": 29,
+      "source_differences": [
+        "Applications/Sorting/Merge.lean"
+      ],
+      "common_artifact_keys": 87,
+      "exact_artifact_keys": 56,
+      "different_artifact_keys": [
+        ".lake/build/lib/lean/Applications/Arithmetic/EuclidInduction.trace",
+        ".lake/build/lib/lean/Applications/Bracketing/Basic.trace",
+        ".lake/build/lib/lean/Applications/Optimization/SelectionSpec.trace",
+        ".lake/build/lib/lean/Applications/Resources/CallCount.trace",
+        ".lake/build/lib/lean/Applications/Resources/InsertionSort.trace",
+        ".lake/build/lib/lean/Applications/Resources/ListCalls.trace",
+        ".lake/build/lib/lean/Applications/Resources/ListReversal.trace",
+        ".lake/build/lib/lean/Applications/Resources/Measured.trace",
+        ".lake/build/lib/lean/Applications/Resources/Potential.trace",
+        ".lake/build/lib/lean/Applications/Resources/RandomAccess/CacheCosts.trace",
+        ".lake/build/lib/lean/Applications/Resources/SymmetricCosts.trace",
+        ".lake/build/lib/lean/Applications/Resources/TreeFlattening/Core.trace",
+        ".lake/build/lib/lean/Applications/Resources/Workload.trace",
+        ".lake/build/lib/lean/Applications/Selection/Rank.trace",
+        ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Access.trace",
+        ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Basic.trace",
+        ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Borrow.trace",
+        ".lake/build/lib/lean/Applications/Sequences/RandomAccess/TreeBuild.trace",
+        ".lake/build/lib/lean/Applications/Sequences/Symmetric/Core.trace",
+        ".lake/build/lib/lean/Applications/Sorting/Merge.olean",
+        ".lake/build/lib/lean/Applications/Sorting/Merge.olean.hash",
+        ".lake/build/lib/lean/Applications/Sorting/Merge.trace",
+        ".lake/build/lib/lean/Applications/Sorting/Sort.trace",
+        ".lake/build/lib/lean/Applications/Sorting/Stable.trace",
+        ".lake/build/lib/lean/Examples/FunctionalBasics.trace",
+        ".lake/build/lib/lean/Examples/FunctionalNotation.trace",
+        ".lake/build/lib/lean/Examples/InsertionCosts.trace",
+        ".lake/build/lib/lean/Examples/ListCalls.trace",
+        ".lake/build/lib/lean/Examples/ListLibrary.trace",
+        ".lake/build/lib/lean/SquareKit/ListFusion.trace",
+        ".lake/build/lib/lean/Squares.trace"
+      ],
+      "different_dependency_paths": [
+        "Cli",
+        "LeanSearchClient",
+        "Qq",
+        "aesop",
+        "batteries",
+        "importGraph",
+        "mathlib",
+        "plausible",
+        "proofwidgets"
+      ],
+      "config_runtime_exact": true,
+      "path_or_trace_normalization": false
+    },
+    "I314": {
+      "common_sources": 23,
+      "source_differences": [
+        "Applications/Resources/Growth.lean"
+      ],
+      "common_artifact_keys": 69,
+      "exact_artifact_keys": 40,
+      "different_artifact_keys": [
+        ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.trace",
+        ".lake/build/lib/lean/Applications/Resources/CallComparison.olean",
+        ".lake/build/lib/lean/Applications/Resources/CallComparison.olean.hash",
+        ".lake/build/lib/lean/Applications/Resources/CallComparison.trace",
+        ".lake/build/lib/lean/Applications/Resources/CallCount.trace",
+        ".lake/build/lib/lean/Applications/Resources/DifferenceListCosts.trace",
+        ".lake/build/lib/lean/Applications/Resources/Growth.olean",
+        ".lake/build/lib/lean/Applications/Resources/Growth.olean.hash",
+        ".lake/build/lib/lean/Applications/Resources/Growth.trace",
+        ".lake/build/lib/lean/Applications/Resources/InsertionSort.trace",
+        ".lake/build/lib/lean/Applications/Resources/ListMerge.trace",
+        ".lake/build/lib/lean/Applications/Resources/Measured.trace",
+        ".lake/build/lib/lean/Applications/Resources/Workload.trace",
+        ".lake/build/lib/lean/Applications/Search/LeftistQueue.trace",
+        ".lake/build/lib/lean/Applications/Selection/Rank.trace",
+        ".lake/build/lib/lean/Applications/Sorting/Merge.trace",
+        ".lake/build/lib/lean/Applications/Sorting/Sort.trace",
+        ".lake/build/lib/lean/Applications/Sorting/SourceMerge.trace",
+        ".lake/build/lib/lean/Applications/Sorting/Stable.trace",
+        ".lake/build/lib/lean/Examples/DifferenceListCosts.trace",
+        ".lake/build/lib/lean/Examples/InsertionCosts.trace",
+        ".lake/build/lib/lean/Examples/MergeCosts.olean",
+        ".lake/build/lib/lean/Examples/MergeCosts.olean.hash",
+        ".lake/build/lib/lean/Examples/MergeCosts.trace",
+        ".lake/build/lib/lean/Examples/PermutationMinimum.trace",
+        ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.trace",
+        ".lake/build/lib/lean/Examples/StableSorting.trace",
+        ".lake/build/lib/lean/SquareKit/ListFusion.trace",
+        ".lake/build/lib/lean/Squares.trace"
+      ],
+      "different_dependency_paths": [
+        "Cli",
+        "LeanSearchClient",
+        "Qq",
+        "aesop",
+        "batteries",
+        "importGraph",
+        "mathlib",
+        "plausible",
+        "proofwidgets"
+      ],
+      "config_runtime_exact": true,
+      "path_or_trace_normalization": false
+    },
+    "J53": {
+      "common_sources": 6,
+      "source_differences": [],
+      "common_artifact_keys": 18,
+      "exact_artifact_keys": 12,
+      "different_artifact_keys": [
+        ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.trace",
+        ".lake/build/lib/lean/Applications/Probability/PermutationOrder.trace",
+        ".lake/build/lib/lean/Examples/PermutationMinimum.trace",
+        ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.trace",
+        ".lake/build/lib/lean/Examples/PermutationOrder.trace",
+        ".lake/build/lib/lean/Examples/PermutationOrderBoundary.trace"
+      ],
+      "different_dependency_paths": [
+        "Cli",
+        "LeanSearchClient",
+        "Qq",
+        "aesop",
+        "batteries",
+        "importGraph",
+        "mathlib",
+        "plausible",
+        "proofwidgets"
+      ],
+      "config_runtime_exact": true,
+      "path_or_trace_normalization": false
+    }
+  },
+  "snapshot_coverage_gaps": {
+    "outside_Z815_local_sources": [
+      "Applications/Resources/ListBuildCosts.lean",
+      "Applications/Resources/Partition.lean",
+      "Applications/Selection/ThreeWay.lean",
+      "Applications/Sequences/Partition.lean",
+      "Applications/Sorting/Alternating.lean",
+      "Applications/Sorting/ThreeWayQuickSort.lean",
+      "Applications/Sorting/Uniqueness.lean",
+      "Examples/AlternatingSorting.lean",
+      "Examples/ListBuildCosts.lean",
+      "Examples/QuickSortCosts.lean",
+      "Examples/SortUniqueness.lean",
+      "Examples/ThreeWayPartition.lean",
+      "Examples/ThreeWayQuickSort.lean"
+    ],
+    "outside_all_four_recent_snapshot_local_sources": [
+      "Applications/Resources/ListBuildCosts.lean",
+      "Applications/Sorting/Alternating.lean",
+      "Applications/Sorting/ThreeWayQuickSort.lean",
+      "Applications/Sorting/Uniqueness.lean",
+      "Examples/AlternatingSorting.lean",
+      "Examples/ListBuildCosts.lean",
+      "Examples/QuickSortCosts.lean",
+      "Examples/SortUniqueness.lean",
+      "Examples/ThreeWayQuickSort.lean"
+    ],
+    "additional_external_imports_beyond_Z815": [
+      "Init.Data.List.Nat.Range",
+      "Mathlib.Data.List.Perm.Basic",
+      "Mathlib.Data.Multiset.Defs",
+      "Mathlib.Order.Defs.LinearOrder"
+    ],
+    "boundary": "Snapshot absence is bounded to these four saved producer captures; it is not a claim that no historical evidence exists anywhere. Old 12 run records are retained separately."
+  },
+  "original_reuse_conditions_exact": 10,
+  "own_Z815_complete_semantic_read_ledger_rebound": {
+    "native_bytes": 874568,
+    "native_lines": 11650,
+    "native_sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29",
+    "chunks": 61,
+    "semantic_notes": 76,
+    "types": 815,
+    "all_bytes_and_names": true,
+    "fresh_full_type_read_claimed": false
+  },
+  "read_boundary": "All plan prose and meaningful conditions assessed; full 1763 mapping and source/producer closures mechanically reproduced against own retained inventory and actual immutable/saved inputs. Previous complete source/type semantic assessments retained; no fresh reading of every old type or all source bodies is claimed.",
+  "receiving_credit": 0,
+  "compiler_cache_runtime_output_process_ref_source_actions": false
+}

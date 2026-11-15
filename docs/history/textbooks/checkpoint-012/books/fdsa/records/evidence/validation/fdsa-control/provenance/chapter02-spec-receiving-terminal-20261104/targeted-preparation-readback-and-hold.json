@@ -1,0 +1,114 @@
+{
+  "schema": "fdsa-spec-targeted-preparation-completion-v1",
+  "recorded_utc": "2026-11-04T17:58:08.475648+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "full_scope": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "explicit_public": 1763,
+    "private_named": 70,
+    "anonymous_instances": 19
+  },
+  "outcome": "Suitable prepared inputs, no concrete Spec finding; all final receiving validation still pending.",
+  "files": [
+    {
+      "path": "provenance/chapter02-spec-receiving-terminal-20261104/targeted-preparation-assessment.md",
+      "bytes": 8082,
+      "lines": 45,
+      "sha256": "a5cb5b8ba4704e04d7ae5f2ace7b357bfda349bf28153f8fdae8a31602702ca8"
+    },
+    {
+      "path": "provenance/chapter02-spec-receiving-terminal-20261104/targeted-preparation-reconciliation.json",
+      "bytes": 15467,
+      "lines": 384,
+      "sha256": "ec39a5b836eba21300435704671f48fe3943a4a63dbd92af5ddaed5ed32540a8"
+    },
+    {
+      "path": "provenance/chapter02-spec-receiving-terminal-20261104/reconcile-targeted-preparation.py",
+      "bytes": 14520,
+      "lines": 223,
+      "sha256": "178fb59378d03e65a29a8fd05704c8514ee3fb44ffa1c995c588f783306c4047"
+    }
+  ],
+  "saved_file_readback": {
+    "report": {
+      "complete_lines": 45,
+      "tool": "0471db"
+    },
+    "reconciliation": {
+      "complete_lines": 384,
+      "tool": "50c8e4"
+    },
+    "script": {
+      "complete_lines": 223,
+      "tool": "58ad7c"
+    }
+  },
+  "author_read_boundaries": {
+    "README": {
+      "tool": "d99fc0",
+      "complete_lines": 57
+    },
+    "receipt_and_all_recipes": {
+      "tool": "945af2",
+      "receipt_lines": 113,
+      "recipe_lines": 14
+    },
+    "four_new_programs": {
+      "Growth7_ThreeWay46_Random71": "945af2",
+      "Z543_lines1_200": "88d146",
+      "Z543_lines201_400": "f36909",
+      "Z543_lines401_590": "638705"
+    },
+    "seven_referenced_original_programs": {
+      "Measured183_BottomUpCosts111_NaturalSorting114": "a6e0dc",
+      "BottomUpAlternating133_TopDown38_Uniqueness16_NaturalRuns111": "9be926"
+    },
+    "manifest": {
+      "global_fields": "672229",
+      "profiles1_3": "d2d980",
+      "profiles4_6": "cc28ac",
+      "profiles7_11": "dd758a",
+      "repetitive_removed_arrays_and_large_mapping": "Independently parsed and reconciled in full; not claimed as new mathematical output reading."
+    },
+    "recorder": {
+      "tool": "39c9ee",
+      "complete": true,
+      "fingerprint": {
+        "path": "tooling/record_command.py",
+        "bytes": 6224,
+        "lines": 139,
+        "sha256": "f84384210851b0fd1999a323aa693eab8d464fa82f344446bd04b9e61d78c686"
+      }
+    },
+    "actual_historical_framing_and_print_header_contexts": {
+      "tool": "fa6040",
+      "complete_selected_framing": true
+    }
+  },
+  "independent_reconciliation": {
+    "tool": "b22e04",
+    "actual_exit": 0,
+    "all1763_ids": true,
+    "conditional466": true,
+    "targeted1297": true,
+    "all1300_commands": true,
+    "all1299_old_selected_full_block_bounds": true,
+    "all815_old_native_ranges": true,
+    "all51_bound_inputs": true,
+    "all11_actual_recipes": true,
+    "all72_MergeCosts_names": true,
+    "no_path_trace_type_block_or_profile_normalization": true
+  },
+  "held_package_rehash_at_completion": true,
+  "NaturalRuns_condition": "Exact original file and all104 checks/3 prints; standard filename transport explicitly differs from historical --stdin. Actual107 outputs mandatory.",
+  "current_block_condition": "Retain earlier same-reader semantics only for complete exact current block/name/profile/import/context correspondence; direct review of every difference and new Growth.",
+  "actual_receiving_credit": 0,
+  "post_observation_pending": true,
+  "overall": "Blocked",
+  "all_old_held_records_unchanged": true,
+  "reviewer_compiler_capture_source_ref_cache_actions": false,
+  "hold": "All files completed by this preparation are now HELD byte-identically; no further writes until new evidence or explicit release."
+}

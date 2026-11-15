@@ -1,0 +1,213 @@
+{
+  "schema": 1,
+  "kind": "actual R5 review preparation receipt; no approval",
+  "recorded_at": "2026-11-14T22:00:31.623200+00:00",
+  "coordinator": "/root/recovery_review",
+  "round": 5,
+  "source": {
+    "base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+    "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+    "tree": "63205d8a3ff27deb3680c613b70085163f289b83",
+    "upstream": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+    "unchanged_from_r4": true,
+    "source_receipt_reused": {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/integration-candidate-r4.json",
+      "bytes": 3597146,
+      "sha256": "01e15d6d360c81e2d5e06187b35cb7a7fd8f1b2efcdec90b8b4f94a38e73e667"
+    },
+    "declared_paths": 490,
+    "original_base_changed_paths": 381,
+    "changed_lean_paths": 347,
+    "commits": 322,
+    "scope_identity": "04aaeba64ef993665ce417ac3441139f22ca88b53f8865ca6423525f21f2c309",
+    "new_source_inventory_created": false
+  },
+  "requirements": {
+    "version": "2026-11-14-unrestricted-full-attempt-and-consolidation",
+    "path": "checkpoint/conaled-textbooks/books/common/REQUIREMENTS.md",
+    "bytes": 12036,
+    "sha256": "7b4217dd89508c2863304880e2e99c8776d220bdfe6ff710aaae3bf82670159d"
+  },
+  "operational_documents": {
+    "handoff": {
+      "path": "checkpoint/conaled-textbooks/books/common/VALIDATION-HANDOFF.md",
+      "bytes": 8608,
+      "sha256": "d57eca51d8d9da43b14ea4b5fe33271fff3948f33ae865764902fd4e6ab13035"
+    },
+    "resume": {
+      "path": "checkpoint/conaled-textbooks/docs/RESUME.md",
+      "bytes": 8290,
+      "sha256": "b67187f259ba3a4c425c94df46c738792379858c78e936338cc5721902c6e43a"
+    },
+    "command_owner": "checkpoint/conaled-textbooks/docs/RESUME.md#native-route",
+    "handoff_duplicate_recipe_removed": true,
+    "prior_handoff_reviewed_during_initial_prep_sha256": "a5d1a0e1dd141984dd3264f0e5f827eddebe0cd068287b0adc14a53dd7f9676d",
+    "current_handoff_rechecked_by_both_axes": true
+  },
+  "axes": {
+    "Standards": {
+      "agent": "/root/recovery_review/standards_r5",
+      "preparation_status": "Ready; inline preparation reports received",
+      "retained_source_basis": "books/common/evidence/reviews/standards-r4.json",
+      "changed_requirements_and_operational_docs_read": true,
+      "revised_single_owner_handoff_independently_read": true,
+      "handoff_sha256": "d57eca51d8d9da43b14ea4b5fe33271fff3948f33ae865764902fd4e6ab13035",
+      "corrected_resume_independently_verified": true,
+      "resume_sha256": "b67187f259ba3a4c425c94df46c738792379858c78e936338cc5721902c6e43a",
+      "actual_start_and_effective_child_evidence_inspected": true,
+      "full_source_or_donor_audit_repeated": false,
+      "final_report_written": false,
+      "source_handoff_approval_granted": false,
+      "final_approval_granted": false,
+      "ready_for_same_loop_terminal_followup": true
+    },
+    "Spec": {
+      "agent": "/root/recovery_review/spec_r5",
+      "preparation_status": "Ready; inline preparation reports received",
+      "retained_source_basis": "books/common/evidence/reviews/spec-r4.json",
+      "changed_requirements_and_operational_docs_read": true,
+      "revised_single_owner_handoff_independently_read": true,
+      "handoff_sha256": "d57eca51d8d9da43b14ea4b5fe33271fff3948f33ae865764902fd4e6ab13035",
+      "corrected_resume_independently_verified": true,
+      "resume_sha256": "b67187f259ba3a4c425c94df46c738792379858c78e936338cc5721902c6e43a",
+      "actual_start_and_effective_child_evidence_inspected": true,
+      "full_source_or_donor_audit_repeated": false,
+      "final_report_written": false,
+      "source_handoff_approval_granted": false,
+      "final_approval_granted": false,
+      "ready_for_same_loop_terminal_followup": true
+    }
+  },
+  "findings": [
+    {
+      "id": "INT-ST-003",
+      "axis": "Standards",
+      "severity": "Low",
+      "status": "Fixed; independently verified during preparation",
+      "issue": "Current RESUME acceptance examples could reintroduce superseded fixed thread controls.",
+      "discovery": "Coordinator read the old current page containing explicit --threads 1 setup and acceptance commands; root acknowledged and corrected. Replacement reviewers did not claim to have personally read the old bytes. The pre-correction page belongs to the dated checkpoint 010 cut.",
+      "resolution": "Current build/verification/focused prefixes remove LEAN_NUM_THREADS after the immutable launcher; no numeric build replacement. Setup-only positive argument derives detected CPU count. Handoff delegates launcher examples to one current RESUME owner.",
+      "verified_resolution_sha256": "b67187f259ba3a4c425c94df46c738792379858c78e936338cc5721902c6e43a",
+      "verified_handoff_sha256": "d57eca51d8d9da43b14ea4b5fe33271fff3948f33ae865764902fd4e6ab13035"
+    },
+    {
+      "id": "INT-SP-001",
+      "axis": "Spec",
+      "severity": "Blocking",
+      "status": "open-delegated-receiving-gate",
+      "owner": "receiving-integrator fallback; root owns current local attempt",
+      "resolved": false,
+      "waived": false,
+      "meaning": "Final acceptance requires real whole-candidate full build/audit and remaining final gates; source/handoff permission and prior R4 assessments remain separate."
+    }
+  ],
+  "history": {
+    "INT-ST-001": "Fixed, retained",
+    "INT-ST-002": "Fixed, retained",
+    "R4": "Source/handoff Passed under its retained version; no final approval; not relabeled by this preparation",
+    "R1_R3": "Historical Blocked outcomes unchanged",
+    "inherited": "All VFA/FDSA/PFDS stable IDs and boundaries retained, including canonical PFDS 39-ID register"
+  },
+  "run_input_evidence": {
+    "start": {
+      "path": "intake/full-validation-r5-start.json",
+      "bytes": 2689,
+      "sha256": "140f3ec4b6c403a3a2c993bfc889f0da18c4865317c7c561accf7d0ab2e0f971"
+    },
+    "effective_child": {
+      "path": "intake/full-validation-r5-effective-environment.json",
+      "bytes": 919,
+      "sha256": "844e835ff7ea97f1240cdf547b041bb14b8c53e6b1c5bc3f49817a3a7d412086"
+    },
+    "started_at": "2026-11-14T21:27:30.162016+00:00",
+    "effective_lean_num_threads_absent": true,
+    "selected_other_thread_controls_absent": true,
+    "observed_priority": 0,
+    "observed_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "observed_resource_limits": {
+      "RLIMIT_CPU": [
+        -1,
+        -1
+      ],
+      "RLIMIT_AS": [
+        -1,
+        -1
+      ],
+      "RLIMIT_DATA": [
+        -1,
+        -1
+      ]
+    },
+    "launcher_metadata_note": "Its pre-child lean_threads 1 is preserved as historical launcher metadata, not the post-env-u child setting.",
+    "evidence_limit": "Run-input observations only; no terminal result or successful audit inferred."
+  },
+  "nonterminal_status_at_preparation": {
+    "basis": "Latest root message requesting this receipt; no process probe by coordinator or either reviewer",
+    "overall_terminal_observed_or_supplied": false,
+    "root_reports_run_still_active": true,
+    "reported_successful_built_lines": 1620,
+    "reported_duration_description": "after 30 minutes; not a deadline or ETA",
+    "reported_exit137_modules": [
+      "Applications.FRP.Spec",
+      "SquareKit.Internal.Cubical.IdentityEliminationSubstitution",
+      "Examples.CubicalSourceContraction"
+    ],
+    "diagnosed_cause": null,
+    "theorem_error_diagnostics_reported": false,
+    "limitations": [
+      "Module exit 137 does not determine overall checker outcome or prove an OOM, timeout or source defect.",
+      "Built-line count is a reported progress measure, not complete project coverage or final proof acceptance.",
+      "Earlier canonical prepared-not-started wording is the dated prelaunch 010 cut; final canonical reconciliation awaits actual outcome."
+    ]
+  },
+  "bounded_exit137_evidence": [
+    {
+      "path": "intake/full-validation-r5-exit137-assessment.md",
+      "bytes": 3994,
+      "sha256": "18ecf854f18042b6d7f21e373bc1f3ccba1d2429ca801141b9e6de26f55180f5"
+    },
+    {
+      "path": "intake/full-validation-r5-exit137-observation.json",
+      "bytes": 8148,
+      "sha256": "137eefd992d5558c61ca4d195e3046f351f35c7349c358f2be4cbba4990335e5"
+    }
+  ],
+  "consolidation_preparation": "Both axes found the bounded consolidation proposal consistent with current requirements: present contracts unchanged, useful unfinished mathematics owned, no external publication authorized.",
+  "approval": {
+    "source_handoff_outcome": "Pending R5 final evidence review",
+    "source_handoff_approval": false,
+    "final_acceptance_status": "Pending actual terminal evidence and remaining final gates",
+    "final_approval": false,
+    "retry_executed_or_approved_by_this_record": false
+  },
+  "next_steps": [
+    "Root preserves first actual terminal attempt evidence and records its genuine outcome.",
+    "Root can include this fixed preparation record and navigation fix in a verified durable checkpoint before any unchanged uncapped retry.",
+    "Same Standards and Spec agents inspect terminal receipt/log/input bindings and revised canonical cut, then write separate R5 final reports.",
+    "Keep INT-SP-001 open unless actual successful full build/audit, both final reviews, immediate candidate verification and final comparison are obtained."
+  ],
+  "durability": {
+    "owner": "root",
+    "upload_asserted_by_this_receipt": false,
+    "record_is_immutable_preparation_cut": true
+  },
+  "operations": {
+    "compiler_or_checker_runs": 0,
+    "setup": 0,
+    "process_controls_or_probes": 0,
+    "source_or_git_mutations": 0,
+    "canonical_checkpoint_mutations": 0,
+    "remote_operations": 0,
+    "written_file": "intake/review-preparation-r5.json"
+  }
+}

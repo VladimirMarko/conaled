@@ -1,0 +1,53 @@
+{
+  "candidate": "f010b5d0fdbef9c9f007c56531c326e738557f9d",
+  "base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "finished_at": "2026-11-03T14:58:07.112243+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-direct-toolchain-041/session/environment/test-direct-toolchain.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds",
+        "--runner",
+        "/workspace/scratch/b566cace4ed6/pfds/review-direct-toolchain-041/session/environment/run-direct-toolchain.py",
+        "--report",
+        "/workspace/scratch/b566cace4ed6/pfds/session/validation/direct-toolchain-candidate-cli-r1-041.json"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"report\": \"/workspace/scratch/b566cace4ed6/pfds/session/validation/direct-toolchain-candidate-cli-r1-041.json\",\n  \"passed\": true,\n  \"checks\": {\n    \"exact_lean_version\": true,\n    \"exact_lake_version\": true,\n    \"valid_theorem_accepted\": true,\n    \"false_theorem_rejected\": true\n  }\n}\n",
+      "stderr": "",
+      "seconds": 25.49815539699921
+    },
+    {
+      "command": [
+        "python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-direct-toolchain-041/session/environment/test-direct-lake-build.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds",
+        "--runner",
+        "/workspace/scratch/b566cace4ed6/pfds/review-direct-toolchain-041/session/environment/run-direct-toolchain.py",
+        "--report",
+        "/workspace/scratch/b566cace4ed6/pfds/session/validation/direct-toolchain-candidate-lake-r1-041.json"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"report\": \"/workspace/scratch/b566cace4ed6/pfds/session/validation/direct-toolchain-candidate-lake-r1-041.json\",\n  \"passed\": true,\n  \"checks\": {\n    \"lake_uses_exact_lean\": true,\n    \"lake_builds_executable\": true,\n    \"compiled_executable_runs\": true\n  }\n}\n",
+      "stderr": "",
+      "seconds": 10.58167338200019
+    },
+    {
+      "command": [
+        "python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-direct-toolchain-041/session/validation/test-direct-validation.py"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.163s\n\nOK\n",
+      "seconds": 0.22661221999987902
+    }
+  ],
+  "snapshot_and_delivered_sources_match": true,
+  "snapshot_status": "",
+  "passed": true,
+  "scope": "artifact-appropriate checks only; no integrated formal candidate acceptance"
+}

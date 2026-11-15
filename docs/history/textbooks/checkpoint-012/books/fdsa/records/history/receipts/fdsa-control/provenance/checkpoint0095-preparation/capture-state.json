@@ -1,0 +1,44 @@
+{
+  "utc": "2026-11-04T09:08:39.556462+00:00",
+  "accepted": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "source_writers": "All source/ref/report/control writers held after complete boundaries. Only two owned builder log prefixes may grow.",
+  "live_runs": [
+    {
+      "name": "chapter02-foundation-full-attempt2-recovered-20261104",
+      "session_id": 71528,
+      "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "clean": true,
+      "result_exists": false,
+      "log_snapshot_bytes": 324822,
+      "log_snapshot_sha256": "a88e901663330f809020b47451df04ecd440bdbeb7f82de973752d3fa1d91b94",
+      "interpretation": "Growing prefix only unless actual terminal record exists. Saved execution IDs are historical after restore, never poll without actual live ownership."
+    },
+    {
+      "name": "chapter02-sorting-and-type-imports-focused-20261104-attempt8",
+      "session_id": 56413,
+      "candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+      "clean": true,
+      "result_exists": false,
+      "log_snapshot_bytes": 28331,
+      "log_snapshot_sha256": "27412f177890500563c2ee020d6f1ca126c20822a50fb4d12a63cc93e6b6544c",
+      "interpretation": "Growing prefix only unless actual terminal record exists. Saved execution IDs are historical after restore, never poll without actual live ownership."
+    }
+  ],
+  "closed7": {
+    "candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+    "exit": 1,
+    "log_bytes": 39048,
+    "log_sha256": "ad4eaff147d21d5fe4cf1f9ba4c6089db4cb10c01645f37ffc83f9003c28addc",
+    "secured_terminal_exists": true,
+    "session_27917_closed": true
+  },
+  "types": {
+    "historical_actually_read": 941,
+    "qualified_historical": 920,
+    "pending_current": 814,
+    "accepted_R": 28,
+    "program_prepared_only": true
+  },
+  "available_bytes": 17761288192,
+  "final_hold_utc": "2026-11-04T09:11:34.813531+00:00"
+}

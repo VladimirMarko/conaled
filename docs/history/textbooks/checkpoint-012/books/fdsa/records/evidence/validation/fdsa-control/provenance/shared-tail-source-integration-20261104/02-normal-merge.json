@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "git",
+    "-C",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "-c",
+    "user.name=ChatGPT",
+    "-c",
+    "user.email=chatgpt@openai.com",
+    "merge",
+    "--no-ff",
+    "--no-commit",
+    "-s",
+    "ort",
+    "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9"
+  ],
+  "started_utc": "2026-11-04T15:59:41.559239+00:00",
+  "closed_utc": "2026-11-04T15:59:41.582040+00:00",
+  "exit_code": 1,
+  "stdout": "Auto-merging SquareApplications.lean\nAuto-merging docs/research/fdsa-reconstruction-map.md\nCONFLICT (content): Merge conflict in docs/research/fdsa-reconstruction-map.md\nAutomatic merge failed; fix conflicts and then commit the result.\n",
+  "stderr": "",
+  "HEAD_after": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "branch_after": "work/fdsa-tail-integration",
+  "porcelain_after": "A  Applications/Probability/PermutationTail.lean\nA  Examples/PermutationTail.lean\nA  Examples/PermutationTailBoundary.lean\nM  SquareApplications.lean\nA  docs/research/fdsa-permutation-tail.md\nUU docs/research/fdsa-reconstruction-map.md\n"
+}

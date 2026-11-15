@@ -1,0 +1,231 @@
+{
+  "kind": "read_only_compressed_dependency_archive_survey",
+  "record_created_utc": "2026-11-04T13:07:29.714771+00:00",
+  "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/cache/mathlib",
+  "scope_excludes": [
+    "live F outputs",
+    "all project/dependency build outputs",
+    "compiler/runtime",
+    "source/Git",
+    "checkpoints",
+    "baseline partials"
+  ],
+  "stable_identity_chain": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23",
+      "dev": 27,
+      "ino": 2889817
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104",
+      "dev": 27,
+      "ino": 2892498
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+      "dev": 27,
+      "ino": 2903083
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/cache",
+      "dev": 27,
+      "ino": 2903088
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/cache/mathlib",
+      "dev": 27,
+      "ino": 2903089
+    }
+  ],
+  "classes": {
+    "ltar": {
+      "count": 9031,
+      "apparent_bytes": 455355304,
+      "allocated_bytes": 473616384
+    },
+    "part": {
+      "count": 1511,
+      "apparent_bytes": 288898,
+      "allocated_bytes": 299008
+    },
+    "cfg": {
+      "count": 2,
+      "apparent_bytes": 1878822,
+      "allocated_bytes": 1884160
+    }
+  },
+  "totals": {
+    "count": 10544,
+    "apparent_bytes": 457523024,
+    "allocated_bytes": 475799552
+  },
+  "leaf_shape": "All regular, single-link; no subdirectories/symlinks/specials/multiple links observed. Absolute prefix O_NOFOLLOW directory opens and per-open file fstat checked.",
+  "archive_headers": {
+    "count": 9031,
+    "bytes_read_each": 12,
+    "magic": "LTR3",
+    "complete_payload_validation": false,
+    "digest_sha256": "bc8c1c7014756b11654a84239865da653b1ea2af4310a25ab4d418a3cdfda974",
+    "digest_recipe": "Sorted Python os.listdir names ending .ltar; update SHA256 with UTF-8 json.dumps([name, header12.hex()], separators=(comma,colon)) + LF for each name."
+  },
+  "metadata_digest": {
+    "sha256": "b518235eb63296d0bc8ddeda6b135400befda03a316d9ba5dcd9215180b7d558",
+    "recipe": "Sorted Python os.listdir names; regular single-link rows [name,st_mode,st_dev,st_ino,st_nlink,st_size,st_mtime_ns,st_ctime_ns,st_blocks]; UTF-8 json.dumps(row,separators=(comma,colon)) + LF, concatenated to SHA256. No directory timestamps included.",
+    "not_a_future_mutation_guard": "Any future action requires its own fresh matching evidence and ownership boundary; this survey is no execution authorization."
+  },
+  "configs": [
+    {
+      "name": "curl-371.cfg",
+      "bytes": 90684,
+      "lines": 916,
+      "sha256": "3f5ad9cc7d7b8936412ef0f0edd499125fea4c2845fc59f3842b39ffd39e2942",
+      "url_pairs": 458,
+      "url_hosts": [
+        "cache.mathlib.org"
+      ]
+    },
+    {
+      "name": "curl-513.cfg",
+      "bytes": 1788138,
+      "lines": 18062,
+      "sha256": "6072540346c908f5daac69daf63336202e7a7e6bcf3c64fda7088a102a38f44c",
+      "url_pairs": 9031,
+      "url_hosts": [
+        "cache.mathlib.org"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "path": "ENVIRONMENT.md",
+      "bytes": 6789,
+      "lines": 122,
+      "sha256": "c0e7eafa942e2bdcca436eeae06ed49616ad9021e9ab4ebb633635e30963e85e"
+    },
+    {
+      "path": "tooling/unified-native-kit-4.35.0/README.md",
+      "bytes": 12744,
+      "lines": 144,
+      "sha256": "fa1b4482615a39394754688c85d36d6d5dd2ddf30b1cd194cef99561906b2365"
+    },
+    {
+      "path": "tooling/unified-native-kit-4.35.0/docs/RECOVERY.md",
+      "bytes": 6745,
+      "lines": 53,
+      "sha256": "a831215f53ae5380c36c4a4c9fcf6cc239fff3f020d5a951dc14402d0ef5eba4"
+    },
+    {
+      "path": "tooling/unified-native-kit-4.35.0/conaled_native.py",
+      "bytes": 34020,
+      "lines": 605,
+      "sha256": "9d1b1e6f10ae574e5c1f388d8df069f43c9ca3e1a993c372293595abd2e5090a"
+    },
+    {
+      "path": "tooling/unified-native-kit-4.35.0/lib/runtime.py",
+      "bytes": 6368,
+      "lines": 150,
+      "sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695"
+    },
+    {
+      "path": "provenance/unified-native-recovery-20261104-attempt4-serial/request.json",
+      "bytes": 781,
+      "lines": 17,
+      "sha256": "c7899906bd6cbe4ca5b6defcb4dc7cb83256cfc6fe7483fb71e10c3ded784b65"
+    },
+    {
+      "path": "provenance/unified-native-recovery-20261104-attempt4-serial/result.json",
+      "bytes": 1214,
+      "lines": 27,
+      "sha256": "86a99a7346413678147bf89b717509d0072d6398b1535054f4bf53ed4d08856c"
+    },
+    {
+      "path": "provenance/unified-native-recovery-20261104-attempt4-serial/full.log",
+      "bytes": 6173,
+      "lines": 68,
+      "sha256": "00d21c992d76227360f40022f705938a91b89639a7285d3e7d8762a5da9dcc77"
+    },
+    {
+      "path": "provenance/unified-native-recovery-20261104-qualified/qualification.json",
+      "bytes": 3279,
+      "lines": 96,
+      "sha256": "37a60985201cda9ac852adbc972483c32e59ee6ee82119b866dbaa4625301629"
+    }
+  ],
+  "pinned_cache_sources": [
+    {
+      "repository": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Cache/IO.lean",
+      "blob": "5565fd2c223bf23a5a89eea4c3d457d6c3cb8626",
+      "bytes": 28275,
+      "lines": 677,
+      "sha256": "3f7ee518fef40145242bb0415d21e11a3cb5f25720fe7e87321cf741692217a5",
+      "read_boundary": [
+        [
+          46,
+          112
+        ],
+        [
+          308,
+          316
+        ],
+        [
+          425,
+          470
+        ]
+      ]
+    },
+    {
+      "repository": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Cache/Requests.lean",
+      "blob": "ac33168239ac5edc84dd5ac3c47af6e7ba11263c",
+      "bytes": 56009,
+      "lines": 1161,
+      "sha256": "e10ab3332fbe21f8295fe7bec8dded3ab3aba7cced1cea41d60e16c2c3162381",
+      "read_boundary": [
+        [
+          888,
+          925
+        ],
+        [
+          1054,
+          1103
+        ]
+      ]
+    },
+    {
+      "repository": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Cache/Main.lean",
+      "blob": "b6828cacbc3924d4a26da4ef79cbf953adbcb12a",
+      "bytes": 14873,
+      "lines": 318,
+      "sha256": "763940131f48ecf1c945f868f8bad5103ce14a5ce4fe2b2ba33dac68d3895b8e",
+      "read_boundary": "bounded force/get grep, not full file"
+    }
+  ],
+  "F_normal_check": {
+    "ref": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "path": "scripts/check.py",
+    "blob": "02e970efc55ff62906afb11eb48176b0834c10c8",
+    "bytes": 16119,
+    "lines": 348,
+    "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+    "read_boundary": [
+      [
+        268,
+        325
+      ]
+    ]
+  },
+  "regeneration_condition": "Ordinary get filters on existence; unchanged kit forbids get!. Affected retired/corrupt archive names must be absent, with separately verified persistence, before supported online kit cache regeneration. Truncated .ltar names are unusable. No re-download tested now.",
+  "process_claim": "No independent process inventory; no process polling. Known parent-owned F command path inspected from immutable source only.",
+  "report": {
+    "path": "compressed-cache-survey.md",
+    "bytes": 6319,
+    "lines": 28,
+    "sha256": "893a981bc083226a7d09084a507e29c90f722139f845cb3120ef456e036af421"
+  },
+  "author_readback": "All visible metadata/header counts and configuration summaries inspected; source read boundaries stated in report. No payload mutation."
+}

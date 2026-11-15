@@ -1,0 +1,3 @@
+# Preserved PFDS state
+
+Follow the combined checkpoint entrypoint and current STATE. math/ holds exact formal/paper drafts; research/ holds source obligations and coverage; evidence/ holds historical reviews/results; history/ holds inactive control/setup records and provenance. Historical instructions, environment exceptions, receipts and process identifiers are not active authority. No new proof acceptance is conferred by packaging. Complete Git source/history is preserved separately once in the shared repository. No predecessor checkpoint archive is required. Exact/prefix aliases and any chapter-view recipes are in history/provenance/.

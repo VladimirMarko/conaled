@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T21:23:47.405094+00:00",
+  "candidate": "b150953544438985ce979cc30b9a2f9237091fe8",
+  "terminal": {
+    "recorded_utc": "2026-11-04T21:23:47.404984+00:00",
+    "owned_session": 6299,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "2f30c7",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "b150953544438985ce979cc30b9a2f9237091fe8"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-minimum-pivot-focused-attempt2-20261104/full.log",
+    "bytes": 5115,
+    "sha256": "d3ccba1b17f60768073ae7e394f3d50c4727c5c891b107fae3eb7e35b95d4340"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T212323Z-project-run-30764e66",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-minimum-pivot-focused-attempt2-20261104/native-records/start.json",
+      "bytes": 515,
+      "sha256": "f972004d30ab619cd679a2dc77f97c04afc9dcd17c0f07fd137169c9d3432f79"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-minimum-pivot-focused-attempt2-20261104/native-records/result.json",
+      "bytes": 669,
+      "sha256": "f08882c3726d0d66e5e1f2e4885242c405ea32934c85439d0a7b363608b25f31"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-minimum-pivot-focused-attempt2-20261104/native-records/output.log",
+      "bytes": 4808,
+      "sha256": "77fc9f51d4949c1400a15440d35fd11e219a1ecc043f6bd9e31c82905168ef0a"
+    }
+  },
+  "native_body_exact_outer_offset": 150,
+  "complete_closed_log": true,
+  "scope": "Focused successor of SelectionPolicy, MinimumPivot and connected examples; no complete Chapter3 gates or actual type execution.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

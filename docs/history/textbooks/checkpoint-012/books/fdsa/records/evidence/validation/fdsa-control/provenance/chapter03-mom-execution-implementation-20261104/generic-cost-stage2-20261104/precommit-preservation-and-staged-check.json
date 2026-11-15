@@ -1,0 +1,50 @@
+{
+  "recorded_utc": "2026-11-04T21:53:12.304804+00:00",
+  "baseline": "42885f0d87f795252ee50dd01dc9220cfeb20a35",
+  "assessment": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage2-20261104/full-source-statement-and-case-assessment-before-candidate1.json",
+    "bytes": 127060,
+    "sha256": "d565381cd64417f6114811ecebfee2b9c7ad3acbdb4ee5e431071ddff0a8a0ef"
+  },
+  "source_patch": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage2-20261104/candidate1-source.patch",
+    "bytes": 26899,
+    "sha256": "6b920a250f79628f54f117fcdfd7dcaf68473662eafabf512a5fee22b55bff3c"
+  },
+  "source_paths": [
+    "Applications/Resources/SelectionGenericBounds.lean",
+    "Examples/SelectionGenericBounds.lean"
+  ],
+  "files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionGenericBounds.lean",
+      "bytes": 14539,
+      "sha256": "6fa26052f629f881318f2c24f39342e0f9f4ae7fadb9f6c6cdfa08ce930dfacf",
+      "relative_path": "Applications/Resources/SelectionGenericBounds.lean",
+      "source_lines": 260,
+      "public_count": 15,
+      "private_count": 0
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionGenericBounds.lean",
+      "bytes": 11433,
+      "sha256": "d6aecf9b57ca6c4e7d939c5e21d57516949713b6a20924071d2a8da66d01b546",
+      "relative_path": "Examples/SelectionGenericBounds.lean",
+      "source_lines": 209,
+      "public_count": 13,
+      "private_count": 3
+    }
+  ],
+  "git_add_exit": 0,
+  "staged_diff_check": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "staged_name_status": "A\tApplications/Resources/SelectionGenericBounds.lean\nA\tExamples/SelectionGenericBounds.lean\n",
+  "all_33_previous_sources_unchanged": true,
+  "all_125_prior_own_records_unchanged": true,
+  "prior_record_count": 125,
+  "source_uncompiled": true,
+  "compiler_commands": 0
+}

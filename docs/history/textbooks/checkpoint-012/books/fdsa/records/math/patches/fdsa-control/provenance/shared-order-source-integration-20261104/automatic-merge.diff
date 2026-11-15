@@ -1,0 +1,848 @@
+diff --git a/Applications/Probability/PermutationOrder.lean b/Applications/Probability/PermutationOrder.lean
+new file mode 100644
+index 0000000..b039038
+--- /dev/null
++++ b/Applications/Probability/PermutationOrder.lean
+@@ -0,0 +1,321 @@
++import Mathlib.Data.Finset.Card
++import Mathlib.Data.Finset.Lattice.Lemmas
++import Mathlib.Data.Fintype.OfMap
++import Mathlib.Data.Fintype.Perm
++import Mathlib.Data.List.Basic
++import Mathlib.Data.List.Nodup
++import Mathlib.Data.List.Permutation
++import Mathlib.Data.Set.Card
++import Mathlib.Logic.Equiv.Fintype
++import Mathlib.Logic.Equiv.List
++import Mathlib.Probability.UniformOn
++
++/-!
++# Relative order induced on a fixed subset
++
++The list `positions` gives a chosen order of priority labels. A permutation
++maps keys to their assigned labels, so its inverse maps this label list to
++the ordered keys. Filtering that list observes the relative order of one
++fixed subset. The observation is an ordinary list operation and uses the
++same sampled permutation for every subset.
++
++The value laws retain membership, distinctness, ordering and composition
++of restrictions. Completeness of the label list supplies finite enumeration
++locally in the probability proofs. No public finite-type enumeration, index
++order, inhabited index type or index measurable space is required.
++
++For a complete label list with no duplicates, every whole output order has
++reciprocal-factorial mass under the uniform global permutation. The source
++fiber formula needs measurable structure only on that permutation space.
++Its pushforward corollary uses the caller's measurable structure on lists.
++Neither law asserts independence or a conditional law after observing a
++history. Matching this label order to numeric priorities and algorithmic
++work remains a separate source correspondence.
++-/
++
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Applications.Probability.PermutationOrder
++
++open MeasureTheory ProbabilityTheory
++open scoped ENNReal BigOperators
++
++universe u
++
++variable {I : Type u} [DecidableEq I]
++
++/-- Read the keys in label order, then retain exactly those in the subset. -/
++def restrictedOrder (positions : List I) (S : Finset I) (π : Equiv.Perm I) : List I :=
++  (positions.map π.symm).filter (fun a => decide (a ∈ S))
++
++/-- The existing finite set of permutations of the subset's base list. -/
++def orders (positions : List I) (S : Finset I) : Finset (List I) :=
++  (positions.filter (fun a => decide (a ∈ S))).permutations.toFinset
++
++/-- Without completeness, an included key must have its assigned label listed. -/
++@[simp] theorem mem_restrictedOrder (positions : List I) (S : Finset I)
++    (π : Equiv.Perm I) (a : I) :
++    a ∈ restrictedOrder positions S π ↔ π a ∈ positions ∧ a ∈ S := by
++  simp [restrictedOrder, List.mem_map, Equiv.symm_apply_eq]
++
++theorem mem_restrictedOrder_of_complete (positions : List I)
++    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) (a : I) :
++    a ∈ restrictedOrder positions S π ↔ a ∈ S := by
++  simp only [mem_restrictedOrder, hcomplete, true_and]
++
++theorem restrictedOrder_nodup (positions : List I) (hnd : positions.Nodup)
++    (S : Finset I) (π : Equiv.Perm I) :
++    (restrictedOrder positions S π).Nodup := by
++  unfold restrictedOrder
++  exact (hnd.map π.symm.injective).filter _
++
++theorem restrictedOrder_toFinset (positions : List I)
++    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :
++    (restrictedOrder positions S π).toFinset = S := by
++  apply Finset.ext
++  intro a
++  simp only [List.mem_toFinset,
++    mem_restrictedOrder_of_complete positions hcomplete S π a]
++
++theorem restrictedOrder_length (positions : List I) (hnd : positions.Nodup)
++    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :
++    (restrictedOrder positions S π).length = S.card := by
++  rw [← List.toFinset_card_of_nodup (restrictedOrder_nodup positions hnd S π),
++    restrictedOrder_toFinset positions hcomplete S π]
++
++theorem restrictedOrder_perm (positions : List I) (hnd : positions.Nodup)
++    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :
++    (restrictedOrder positions S π).Perm
++      (positions.filter (fun a => decide (a ∈ S))) := by
++  apply (List.perm_ext_iff_of_nodup
++    (restrictedOrder_nodup positions hnd S π) (hnd.filter _)).mpr
++  intro a
++  rw [mem_restrictedOrder_of_complete positions hcomplete S π a]
++  simp [hcomplete a]
++
++/-- Mapping the observed keys back to labels preserves their positions' order. -/
++theorem map_restrictedOrder_sublist (positions : List I) (S : Finset I)
++    (π : Equiv.Perm I) :
++    ((restrictedOrder positions S π).map π).Sublist positions := by
++  have h := List.Sublist.map π
++    (List.filter_sublist (p := fun a => decide (a ∈ S))
++      (l := positions.map π.symm))
++  simpa [restrictedOrder, List.map_map, Function.comp_def] using h
++
++/-- Restricting twice retains the intersection, in the same sampled order. -/
++theorem filter_restrictedOrder (positions : List I) (S T : Finset I)
++    (π : Equiv.Perm I) :
++    (restrictedOrder positions S π).filter (fun a => decide (a ∈ T)) =
++      restrictedOrder positions (S ∩ T) π := by
++  unfold restrictedOrder
++  rw [List.filter_filter]
++  apply List.filter_congr
++  intro a _
++  by_cases hS : a ∈ S <;> by_cases hT : a ∈ T <;> simp [hS, hT]
++
++theorem filter_restrictedOrder_of_subset (positions : List I) (S T : Finset I)
++    (π : Equiv.Perm I) (hTS : T ⊆ S) :
++    (restrictedOrder positions S π).filter (fun a => decide (a ∈ T)) =
++      restrictedOrder positions T π := by
++  rw [filter_restrictedOrder, Finset.inter_eq_right.mpr hTS]
++
++@[simp] theorem mem_orders (positions : List I) (S : Finset I) (xs : List I) :
++    xs ∈ orders positions S ↔
++      xs.Perm (positions.filter (fun a => decide (a ∈ S))) := by
++  simp [orders, List.mem_permutations]
++
++/-- Even the empty base list has its one empty permutation. -/
++theorem orders_nonempty (positions : List I) (S : Finset I) :
++    (orders positions S).Nonempty := by
++  refine ⟨positions.filter (fun a => decide (a ∈ S)), ?_⟩
++  exact (mem_orders positions S _).2 (List.Perm.refl _)
++
++theorem restrictedOrder_mem_orders (positions : List I) (hnd : positions.Nodup)
++    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :
++    restrictedOrder positions S π ∈ orders positions S :=
++  (mem_orders positions S _).2 (restrictedOrder_perm positions hnd hcomplete S π)
++
++theorem orders_card (positions : List I) (hnd : positions.Nodup)
++    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) :
++    (orders positions S).card = Nat.factorial S.card := by
++  let base := positions.filter (fun a => decide (a ∈ S))
++  have hbase : base.Nodup := hnd.filter _
++  have hlength : base.length = S.card := by
++    simpa [base, restrictedOrder] using
++      restrictedOrder_length positions hnd hcomplete S (Equiv.refl I)
++  change base.permutations.toFinset.card = Nat.factorial S.card
++  rw [List.toFinset_card_of_nodup (List.nodup_permutations base hbase),
++    List.length_permutations, hlength]
++
++omit [DecidableEq I] in
++private theorem exists_map_eq_of_nodup (xs ys : List I)
++    (hxs : xs.Nodup) (hys : ys.Nodup) (hlength : xs.length = ys.length) :
++    ∃ σ : Equiv.Perm I, xs.map σ = ys := by
++  let g : Fin xs.length → I := fun i => ys.get ⟨i.val, hlength ▸ i.isLt⟩
++  have hg : Function.Injective g := by
++    intro i j hij
++    apply Fin.ext
++    exact congrArg (fun k : Fin ys.length => k.val) (hys.injective_get hij)
++  obtain ⟨σ, hσ⟩ :=
++    Equiv.Perm.exists_extending_pair xs.get g hxs.injective_get hg
++  refine ⟨σ, List.ext_getElem (by simpa only [List.length_map] using hlength) ?_⟩
++  intro n hnmap _hnys
++  rw [List.getElem_map]
++  exact hσ ⟨n, by simpa only [List.length_map] using hnmap⟩
++
++private theorem exists_relabel_orders (positions : List I) (hnd : positions.Nodup)
++    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (xs ys : List I)
++    (hxs : xs ∈ orders positions S) (hys : ys ∈ orders positions S) :
++    ∃ σ : Equiv.Perm I, xs.map σ = ys ∧ ∀ a, σ a ∈ S ↔ a ∈ S := by
++  have hxsPerm := (mem_orders positions S xs).1 hxs
++  have hysPerm := (mem_orders positions S ys).1 hys
++  have hbase : (positions.filter (fun a => decide (a ∈ S))).Nodup := hnd.filter _
++  have hxsMem (a : I) : a ∈ xs ↔ a ∈ S :=
++    hxsPerm.mem_iff.trans (by simp [hcomplete a])
++  have hysMem (a : I) : a ∈ ys ↔ a ∈ S :=
++    hysPerm.mem_iff.trans (by simp [hcomplete a])
++  obtain ⟨σ, hmap⟩ := exists_map_eq_of_nodup xs ys
++    (hxsPerm.nodup_iff.mpr hbase) (hysPerm.nodup_iff.mpr hbase)
++    (hxsPerm.length_eq.trans hysPerm.length_eq.symm)
++  refine ⟨σ, hmap, ?_⟩
++  intro a
++  have hmem : σ a ∈ ys ↔ a ∈ xs := by
++    rw [← hmap, List.mem_map_of_injective σ.injective]
++  exact (hysMem (σ a)).symm.trans (hmem.trans (hxsMem a))
++
++private theorem restrictedOrder_relabel (positions : List I) (S : Finset I)
++    (π σ : Equiv.Perm I) (hS : ∀ a, σ a ∈ S ↔ a ∈ S) :
++    restrictedOrder positions S (π * σ.symm) =
++      (restrictedOrder positions S π).map σ := by
++  have hglobal : positions.map (π * σ.symm).symm =
++      (positions.map π.symm).map σ := by
++    change positions.map (σ ∘ π.symm) = (positions.map π.symm).map σ
++    rw [List.map_map]
++  unfold restrictedOrder
++  rw [hglobal, List.filter_map]
++  apply congrArg (List.map σ)
++  apply List.filter_congr
++  intro a _
++  simp only [Function.comp_apply, hS a]
++
++private theorem fiber_mass_eq
++    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
++    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)
++    (S : Finset I) (xs ys : List I)
++    (hxs : xs ∈ orders positions S) (hys : ys ∈ orders positions S) :
++    uniformOn Set.univ {π | restrictedOrder positions S π = xs} =
++      uniformOn Set.univ {π | restrictedOrder positions S π = ys} := by
++  classical
++  let := Fintype.ofList positions hcomplete
++  obtain ⟨σ, hmap, hS⟩ := exists_relabel_orders positions hnd hcomplete S xs ys hxs hys
++  have hpre : (fun π : Equiv.Perm I => π * σ.symm) ⁻¹'
++      {π | restrictedOrder positions S π = ys} =
++      {π | restrictedOrder positions S π = xs} := by
++    apply Set.ext
++    intro π
++    change restrictedOrder positions S (π * σ.symm) = ys ↔
++      restrictedOrder positions S π = xs
++    rw [restrictedOrder_relabel positions S π σ hS, ← hmap]
++    exact (List.map_injective_iff.mpr σ.injective).eq_iff
++  have hcard : ({π : Equiv.Perm I | restrictedOrder positions S π = xs}).encard =
++      ({π : Equiv.Perm I | restrictedOrder positions S π = ys}).encard := by
++    rw [← hpre]
++    exact Set.encard_preimage_of_bijective (Group.mulRight_bijective σ.symm) _
++  have hmeasx : MeasurableSet {π : Equiv.Perm I | restrictedOrder positions S π = xs} :=
++    (Set.toFinite _).measurableSet
++  have hmeasy : MeasurableSet {π : Equiv.Perm I | restrictedOrder positions S π = ys} :=
++    (Set.toFinite _).measurableSet
++  rw [uniformOn_univ, uniformOn_univ, Measure.count_apply hmeasx,
++    Measure.count_apply hmeasy, hcard]
++
++/-- Every supported whole order has reciprocal-factorial mass under the
++actual global uniform law; every unsupported list has mass zero. -/
++theorem uniformOn_restrictedOrder_eq
++    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
++    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)
++    (S : Finset I) (xs : List I) :
++    uniformOn (Set.univ : Set (Equiv.Perm I))
++        {π | restrictedOrder positions S π = xs} =
++      if xs ∈ orders positions S
++      then (Nat.factorial S.card : ℝ≥0∞)⁻¹
++      else 0 := by
++  classical
++  let := Fintype.ofList positions hcomplete
++  by_cases hxs : xs ∈ orders positions S
++  · rw [ite_eq_left hxs]
++    have hpre : (restrictedOrder positions S) ⁻¹'
++        (orders positions S : Set (List I)) = Set.univ := by
++      apply Set.eq_univ_of_forall
++      intro π
++      exact restrictedOrder_mem_orders positions hnd hcomplete S π
++    have hpartition := sum_measure_preimage_singleton
++      (μ := uniformOn (Set.univ : Set (Equiv.Perm I)))
++      (f := restrictedOrder positions S) (orders positions S)
++      (fun ys _ => (Set.toFinite _).measurableSet)
++    rw [hpre, measure_univ] at hpartition
++    change (∑ ys ∈ orders positions S,
++      uniformOn Set.univ {π | restrictedOrder positions S π = ys}) = 1 at hpartition
++    have hsum :
++        (∑ ys ∈ orders positions S,
++          uniformOn Set.univ {π | restrictedOrder positions S π = ys}) =
++        ((orders positions S).card : ℝ≥0∞) *
++          uniformOn Set.univ {π | restrictedOrder positions S π = xs} := by
++      calc
++        _ = ∑ _ys ∈ orders positions S,
++            uniformOn Set.univ {π | restrictedOrder positions S π = xs} := by
++          apply Finset.sum_congr rfl
++          intro ys hys
++          exact fiber_mass_eq positions hnd hcomplete S ys xs hys hxs
++        _ = _ := by rw [Finset.sum_const, nsmul_eq_mul]
++    have hmass : uniformOn Set.univ {π | restrictedOrder positions S π = xs} =
++        ((orders positions S).card : ℝ≥0∞)⁻¹ := by
++      apply ENNReal.eq_inv_of_mul_eq_one_left
++      calc
++        uniformOn Set.univ {π | restrictedOrder positions S π = xs} *
++            ((orders positions S).card : ℝ≥0∞) =
++            ((orders positions S).card : ℝ≥0∞) *
++              uniformOn Set.univ {π | restrictedOrder positions S π = xs} := mul_comm _ _
++        _ = ∑ ys ∈ orders positions S,
++            uniformOn Set.univ {π | restrictedOrder positions S π = ys} := hsum.symm
++        _ = 1 := hpartition
++    simpa only [orders_card positions hnd hcomplete S] using hmass
++  · rw [ite_eq_right hxs]
++    have hempty : ({π : Equiv.Perm I | restrictedOrder positions S π = xs}) = ∅ := by
++      apply Set.ext
++      intro π
++      change (restrictedOrder positions S π = xs) ↔ False
++      constructor
++      · intro hπ
++        exact hxs (hπ ▸ restrictedOrder_mem_orders positions hnd hcomplete S π)
++      · exact False.elim
++    rw [hempty]
++    exact measure_empty
++
++/-- The actual restriction map has the existing uniform law on whole target
++orders. Output measurability is separate from the source-fiber formula. -/
++theorem map_restrictedOrder_uniformOn
++    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
++    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]
++    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)
++    (S : Finset I) :
++    (uniformOn (Set.univ : Set (Equiv.Perm I))).map (restrictedOrder positions S) =
++      uniformOn (orders positions S : Set (List I)) := by
++  classical
++  let := Fintype.ofList positions hcomplete
++  apply Measure.ext_of_singleton
++  intro xs
++  rw [Measure.map_apply (measurable_of_finite _) (measurableSet_singleton xs)]
++  change uniformOn Set.univ {π | restrictedOrder positions S π = xs} =
++    uniformOn (orders positions S : Set (List I)) {xs}
++  have htarget : uniformOn (orders positions S : Set (List I)) {xs} =
++      (((orders positions S) ∩ {xs}).card : ℝ≥0∞) /
++        ((orders positions S).card : ℝ≥0∞) := by
++    simpa only [Finset.coe_singleton] using
++      (uniformOn_apply_finset (s := orders positions S) (t := ({xs} : Finset (List I))))
++  rw [uniformOn_restrictedOrder_eq positions hnd hcomplete S xs, htarget]
++  by_cases hxs : xs ∈ orders positions S
++  · simp [hxs, orders_card positions hnd hcomplete S, one_div]
++  · simp [hxs]
++
++end Applications.Probability.PermutationOrder
+diff --git a/Examples/PermutationOrder.lean b/Examples/PermutationOrder.lean
+new file mode 100644
+index 0000000..e99c5a1
+--- /dev/null
++++ b/Examples/PermutationOrder.lean
+@@ -0,0 +1,152 @@
++import Applications.Probability.PermutationOrder
++import Examples.PermutationOrderBoundary
++import Mathlib.Tactic
++
++/-!
++# Whole output orders and composed restrictions
++
++One uniformly sampled key-to-label permutation on four indices supplies all
++observations below. Restricting its inverse list to `{0, 2, 3}` gives six
++complete three-element orders, each with mass `1/6`. Two different orders
++with the same first member exercise information beyond a minimum event.
++
++One mass is obtained from the public fiber formula, and another through the
++public equality of the mapped measure. Filtering this actual output again
++to `{0, 3}` uses the deterministic composition law and the same sample.
++It does not condition the law or replace the shared environment by a new draw.
++
++These are list observations and probability laws. No sorting/treap execution,
++sampling implementation, resource tariff or conditional-history law is supplied.
++-/
++
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.PermutationOrder
++
++open MeasureTheory ProbabilityTheory
++open Applications.Probability.PermutationOrder
++open scoped ENNReal
++
++local instance : MeasurableSpace (Equiv.Perm (Fin 4)) := ⊤
++local instance : MeasurableSpace (List (Fin 4)) := ⊤
++
++def positions : List (Fin 4) := [0, 1, 2, 3]
++def selected : Finset (Fin 4) := {0, 2, 3}
++def smaller : Finset (Fin 4) := {0, 3}
++
++theorem positions_nodup : positions.Nodup := by decide
++
++theorem positions_complete (a : Fin 4) : a ∈ positions := by
++  fin_cases a <;> decide
++
++noncomputable def law : Measure (Equiv.Perm (Fin 4)) := uniformOn Set.univ
++
++/-- Value, support and order contracts concern the actual returned list. -/
++theorem selected_structure (π : Equiv.Perm (Fin 4)) :
++    (restrictedOrder positions selected π).Nodup ∧
++      (restrictedOrder positions selected π).toFinset = selected ∧
++      (restrictedOrder positions selected π).length = 3 ∧
++      ((restrictedOrder positions selected π).map π).Sublist positions := by
++  refine ⟨restrictedOrder_nodup positions positions_nodup selected π,
++    restrictedOrder_toFinset positions positions_complete selected π, ?_,
++    map_restrictedOrder_sublist positions selected π⟩
++  calc
++    _ = selected.card :=
++      restrictedOrder_length positions positions_nodup positions_complete selected π
++    _ = 3 := by decide
++
++theorem selected_permutation (π : Equiv.Perm (Fin 4)) :
++    (restrictedOrder positions selected π).Perm [0, 2, 3] := by
++  have hbase : positions.filter (fun a => decide (a ∈ selected)) = [0, 2, 3] := by
++    decide
++  simpa only [hbase] using
++    restrictedOrder_perm positions positions_nodup positions_complete selected π
++
++theorem selected_orders_card : (orders positions selected).card = 6 := by
++  calc
++    _ = Nat.factorial selected.card :=
++      orders_card positions positions_nodup positions_complete selected
++    _ = 6 := by decide
++
++private theorem fiber_mass_of_mem (S : Finset (Fin 4)) (xs : List (Fin 4))
++    (hxs : xs ∈ orders positions S) :
++    law {π | restrictedOrder positions S π = xs} =
++      (Nat.factorial S.card : ℝ≥0∞)⁻¹ := by
++  unfold law
++  rw [uniformOn_restrictedOrder_eq positions positions_nodup positions_complete S xs,
++    ite_eq_left hxs]
++
++/-- This first complete-list mass uses the public output-fiber formula. -/
++theorem order_023_mass :
++    law {π | restrictedOrder positions selected π = [0, 2, 3]} = 1 / 6 := by
++  calc
++    _ = (Nat.factorial selected.card : ℝ≥0∞)⁻¹ :=
++      fiber_mass_of_mem selected [0, 2, 3] (by rw [mem_orders]; decide)
++    _ = 1 / 6 := by norm_num [selected, one_div]
++
++/-- The actual list observation has the existing finite uniform measure. -/
++theorem observed_law :
++    law.map (restrictedOrder positions selected) =
++      uniformOn (orders positions selected : Set (List (Fin 4))) := by
++  unfold law
++  exact map_restrictedOrder_uniformOn positions positions_nodup positions_complete selected
++
++/-- A different order with the same first key, derived through mapped meaning. -/
++theorem order_032_mass_via_map :
++    law {π | restrictedOrder positions selected π = [0, 3, 2]} = 1 / 6 := by
++  have hmem : ([0, 3, 2] : List (Fin 4)) ∈ orders positions selected := by
++    rw [mem_orders]
++    decide
++  calc
++    _ = law.map (restrictedOrder positions selected) {([0, 3, 2] : List (Fin 4))} := by
++      rw [Measure.map_apply (measurable_of_finite _) (measurableSet_singleton _)]
++      rfl
++    _ = uniformOn (orders positions selected : Set (List (Fin 4)))
++        {([0, 3, 2] : List (Fin 4))} := by rw [observed_law]
++    _ = 1 / (orders positions selected).card := by
++      simpa [Finset.inter_singleton_of_mem hmem] using
++        (uniformOn_apply_finset (s := orders positions selected)
++          (t := {([0, 3, 2] : List (Fin 4))}))
++    _ = 1 / 6 := by rw [selected_orders_card]; norm_num
++
++/-- A repeated output is outside the support, even though its length is three. -/
++theorem repeated_order_mass_zero :
++    law {π | restrictedOrder positions selected π = [0, 0, 2]} = 0 := by
++  have hbad : ([0, 0, 2] : List (Fin 4)) ∉ orders positions selected := by
++    intro h
++    have hcount := ((mem_orders positions selected _).mp h).count_eq (0 : Fin 4)
++    norm_num [positions, selected] at hcount
++  unfold law
++  rw [uniformOn_restrictedOrder_eq positions positions_nodup positions_complete
++    selected [0, 0, 2], ite_eq_right hbad]
++
++/-- The second observation filters the first result under the same permutation. -/
++def nestedObservation (π : Equiv.Perm (Fin 4)) : List (Fin 4) :=
++  (restrictedOrder positions selected π).filter (fun a => decide (a ∈ smaller))
++
++theorem nestedObservation_eq (π : Equiv.Perm (Fin 4)) :
++    nestedObservation π = restrictedOrder positions smaller π := by
++  exact filter_restrictedOrder_of_subset positions selected smaller π (by decide)
++
++/-- Composing restrictions preserves the ordered-pair law through its value bridge. -/
++theorem nested_order_30_mass :
++    law {π | nestedObservation π = [3, 0]} = 1 / 2 := by
++  simp_rw [nestedObservation_eq]
++  calc
++    _ = (Nat.factorial smaller.card : ℝ≥0∞)⁻¹ :=
++      fiber_mass_of_mem smaller [3, 0] (by rw [mem_orders]; decide)
++    _ = 1 / 2 := by norm_num [smaller, one_div]
++
++theorem singleton_order_mass :
++    law {π | restrictedOrder positions {2} π = [2]} = 1 := by
++  simpa using fiber_mass_of_mem {2} [2] (by rw [mem_orders]; decide)
++
++theorem full_order_mass :
++    law {π | restrictedOrder positions Finset.univ π = [3, 1, 0, 2]} = 1 / 24 := by
++  calc
++    _ = (Nat.factorial (Finset.univ : Finset (Fin 4)).card : ℝ≥0∞)⁻¹ :=
++      fiber_mass_of_mem Finset.univ [3, 1, 0, 2] (by rw [mem_orders]; decide)
++    _ = 1 / 24 := by norm_num [one_div]
++
++end Examples.PermutationOrder
+diff --git a/Examples/PermutationOrderBoundary.lean b/Examples/PermutationOrderBoundary.lean
+new file mode 100644
+index 0000000..7465d57
+--- /dev/null
++++ b/Examples/PermutationOrderBoundary.lean
+@@ -0,0 +1,148 @@
++import Applications.Probability.PermutationOrder
++import Examples.PermutationMinimum
++import Mathlib.Tactic
++
++/-!
++# Empty and enumeration boundaries for restricted permutation orders
++
++The empty-subset and empty-index probabilities instantiate the public whole-output
++law. The remaining cases inspect the actual inverse-map/filter observation:
++its orientation, its relation to numeric priorities, and the distinct roles of
++completeness and absence of repeated labels in its support theorem.
++-/
++
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.PermutationOrderBoundary
++
++open MeasureTheory ProbabilityTheory
++open Applications.Probability.PermutationOrder
++open Examples.PermutationMinimum (spacedPriority)
++open scoped ENNReal
++
++local instance : MeasurableSpace (Equiv.Perm Empty) := ⊤
++local instance : MeasurableSingletonClass (Equiv.Perm Empty) :=
++  ⟨fun _ => trivial⟩
++local instance : MeasurableSpace (Equiv.Perm (Fin 3)) := ⊤
++local instance : MeasurableSingletonClass (Equiv.Perm (Fin 3)) :=
++  ⟨fun _ => trivial⟩
++
++/-- An empty subset always produces the empty list. -/
++theorem empty_subset_output (π : Equiv.Perm (Fin 3)) :
++    restrictedOrder [0, 1, 2] ∅ π = [] := by
++  simp [restrictedOrder]
++
++/-- Its target is a singleton, rather than an empty probability support. -/
++theorem empty_subset_orders :
++    orders ([0, 1, 2] : List (Fin 3)) ∅ = {[]} := by
++  simp [orders]
++
++/-- The new generic fiber law supplies the empty subset's mass one. -/
++theorem empty_subset_mass :
++    uniformOn Set.univ
++      {π : Equiv.Perm (Fin 3) | restrictedOrder [0, 1, 2] ∅ π = []} = 1 := by
++  simpa [orders] using
++    (uniformOn_restrictedOrder_eq ([0, 1, 2] : List (Fin 3))
++      (by decide) (by intro a; fin_cases a <;> simp)
++      (∅ : Finset (Fin 3)) [])
++
++/-- The same generic law applies to an empty index universe with its one permutation. -/
++theorem empty_index_mass :
++    uniformOn (Set.univ : Set (Equiv.Perm Empty))
++      {π | restrictedOrder ([] : List Empty) ∅ π = []} = 1 := by
++  simpa [orders] using
++    (uniformOn_restrictedOrder_eq ([] : List Empty)
++      (by simp) (by intro a; cases a) (∅ : Finset Empty) [])
++
++/-- Key-to-label cycle: 0 maps to 1, 1 to 2, and 2 to 0. -/
++def cycle : Equiv.Perm (Fin 3) :=
++  Equiv.swap 0 1 * Equiv.swap 1 2
++
++theorem cycle_values : cycle 0 = 1 ∧ cycle 1 = 2 ∧ cycle 2 = 0 := by
++  decide
++
++/-- Reading labels in order requires the inverse permutation. -/
++theorem cycle_inverse_order :
++    ([0, 1, 2] : List (Fin 3)).map cycle.symm = [2, 0, 1] := by
++  decide
++
++theorem cycle_restricted_order :
++    restrictedOrder ([0, 1, 2] : List (Fin 3)) {0, 1} cycle = [0, 1] := by
++  decide
++
++/-- The mistaken direct-map expression has the opposite order on this subset. -/
++theorem cycle_direct_order :
++    (([0, 1, 2] : List (Fin 3)).map cycle).filter
++      (fun a => decide (a ∈ ({0, 1} : Finset (Fin 3)))) = [1, 0] := by
++  decide
++
++theorem inverse_and_direct_orders_differ :
++    restrictedOrder ([0, 1, 2] : List (Fin 3)) {0, 1} cycle ≠
++      (([0, 1, 2] : List (Fin 3)).map cycle).filter
++        (fun a => decide (a ∈ ({0, 1} : Finset (Fin 3)))) := by
++  rw [cycle_restricted_order, cycle_direct_order]
++  decide
++
++/-- The enumeration 0, 2, 1 matches the existing priorities -7, 4, 100. -/
++theorem numeric_enumeration_values :
++    (restrictedOrder ([0, 2, 1] : List (Fin 3)) Finset.univ
++      (Equiv.refl (Fin 3))).map spacedPriority = [-7, 4, 100] := by
++  decide
++
++theorem numeric_enumeration_increasing :
++    List.Pairwise (fun a b : Int => a < b)
++      ((restrictedOrder ([0, 2, 1] : List (Fin 3)) Finset.univ
++        (Equiv.refl (Fin 3))).map spacedPriority) := by
++  rw [numeric_enumeration_values]
++  decide
++
++/-- Ordinary label order need not agree with increasing numeric priority. -/
++theorem ordinary_enumeration_not_increasing :
++    ¬ List.Pairwise (fun a b : Int => a < b)
++      ((restrictedOrder ([0, 1, 2] : List (Fin 3)) Finset.univ
++        (Equiv.refl (Fin 3))).map spacedPriority) := by
++  decide
++
++theorem numeric_and_ordinary_orders_differ :
++    restrictedOrder ([0, 2, 1] : List (Fin 3)) Finset.univ (Equiv.refl (Fin 3)) ≠
++      restrictedOrder ([0, 1, 2] : List (Fin 3)) Finset.univ (Equiv.refl (Fin 3)) := by
++  decide
++
++/-- An incomplete label enumeration can miss the selected key after relabeling. -/
++theorem incomplete_output :
++    restrictedOrder ([0] : List (Fin 2)) {0} (Equiv.swap 0 1) = [] := by
++  decide
++
++/-- Nodup alone does not ensure that the projection belongs to the claimed support. -/
++theorem incomplete_support_counterexample :
++    ([0] : List (Fin 2)).Nodup ∧
++      restrictedOrder ([0] : List (Fin 2)) {0} (Equiv.swap 0 1) ∉
++        orders ([0] : List (Fin 2)) {0} := by
++  constructor
++  · decide
++  · rw [incomplete_output]
++    intro h
++    have hlength := ((mem_orders _ _ _).mp h).length_eq
++    norm_num at hlength
++
++/-- Repeated labels change key multiplicities under the inverse permutation. -/
++theorem repeated_output :
++    restrictedOrder ([0, 0, 1] : List (Fin 2)) Finset.univ (Equiv.swap 0 1) =
++      [1, 1, 0] := by
++  decide
++
++/-- Completeness alone does not ensure that the output is a permutation of the base list. -/
++theorem repeated_support_counterexample :
++    (∀ a : Fin 2, a ∈ ([0, 0, 1] : List (Fin 2))) ∧
++      restrictedOrder ([0, 0, 1] : List (Fin 2)) Finset.univ (Equiv.swap 0 1) ∉
++        orders ([0, 0, 1] : List (Fin 2)) Finset.univ := by
++  constructor
++  · intro a
++    fin_cases a <;> simp
++  · rw [repeated_output]
++    intro h
++    have hcount := ((mem_orders _ _ _).mp h).count_eq (0 : Fin 2)
++    norm_num at hcount
++
++end Examples.PermutationOrderBoundary
+diff --git a/SquareApplications.lean b/SquareApplications.lean
+index a36fa60..2bc1fad 100644
+--- a/SquareApplications.lean
++++ b/SquareApplications.lean
+@@ -16,6 +16,7 @@ import Examples.ProbabilisticProgress
+ import Examples.MetropolisHastings
+ import Examples.ProbabilityCorrelation
+ import Examples.PermutationMinimum
++import Examples.PermutationOrder
+ import Examples.StatefulIncremental
+ import Examples.ExternalInteraction
+ import Examples.InteractionTransport
+diff --git a/docs/research/fdsa-permutation-order.md b/docs/research/fdsa-permutation-order.md
+new file mode 100644
+index 0000000..d3a16fc
+--- /dev/null
++++ b/docs/research/fdsa-permutation-order.md
+@@ -0,0 +1,166 @@
++# Whole orders induced by a shared random ranking
++
++Status: **source draft, not compiled or accepted**. This bounded shared unit
++continues the [minimum-law work](fdsa-permutation-minimum.md). It supplies no
++chapter acceptance, recursive sampling theorem or algorithm cost bound.
++The exact frozen requirements, source/API preflights, candidate identity and
++eventual gate results are retained in the local FDSA-XU02 checkpoint record.
++
++## Actual list observation
++
++`Applications.Probability.PermutationOrder.restrictedOrder positions S π`
++is the ordinary expression
++
++```lean
++(positions.map π.symm).filter (fun a => decide (a ∈ S))
++```
++
++The permutation π assigns a key index to a priority-label index. The list
++`positions` enumerates the labels in a chosen order. Therefore the key
++belonging at a label is obtained through the inverse permutation. Filtering
++retains the same relative order for the members of the fixed finset S.
++
++This operation needs only decidable equality on the index type. Completeness,
++absence of duplicates, finiteness, a key order, inhabitance and measurability
++are not part of its definition. The finite target `orders positions S` is
++the existing finset of all list permutations of
++`positions.filter (fun a => decide (a ∈ S))`.
++
++The value contracts expose the assumptions at the point where they matter:
++
++| Contract | Hypotheses beyond the operation |
++|---|---|
++| Output membership iff the key's label occurs in positions and the key is in S | None |
++| Output membership iff membership in S; output `toFinset` equals S | Every index occurs in positions |
++| The output has no duplicates | Positions has no duplicates |
++| Output length is S.card; output is a permutation of the filtered base list | Completeness and no duplicates |
++| Mapping output keys back through π gives a sublist of positions | None |
++| Filtering again to T equals restriction to S∩T | None |
++| Filtering again to T equals restriction to T | T⊆S |
++
++The mapped-sublist theorem checks the actual order correspondence. A law
++about output membership alone would not distinguish different orderings.
++The nested-filter theorem is a deterministic composition statement about
++one sampled π; it does not condition the random experiment.
++
++## Complete output distribution
++
++For complete, Nodup positions, `uniformOn_restrictedOrder_eq` gives the mass
++of every output list xs under the original uniform global permutation:
++
++- If xs is in `orders positions S`, its mass is the ENNReal reciprocal of
++  `S.card!`.
++- Otherwise its mass is zero, including lists with repeated members, the
++  wrong support or the wrong length.
++
++The proof's local enumeration comes from the complete list. There is no
++additional public Finite/Fintype I or nonempty-I premise, and no order or
++measurable structure on I. The discrete fiber theorem requires only the
++permutation sample space's existing measurable structure and measurable
++singletons. It does not require an output measurable space.
++
++With an existing measurable space and measurable singletons on List I,
++`map_restrictedOrder_uniformOn` states the actual semantic equality
++
++```lean
++(uniformOn Set.univ).map (restrictedOrder positions S) =
++  uniformOn (orders positions S : Set (List I))
++```
++
++The output support is finite. List I itself is countable when I is finite,
++and is generally infinite when I is inhabited. The proof must not replace
++that distinction by a false finite-list-space assumption. No new global
++measurable-space instance is installed.
++
++### Connection to the supplied random experiment
++
++Two supported lists have the same finite support and length, with no
++duplicates. Existing permutation-extension machinery maps corresponding
++positions in one list to those in the other. The resulting permutation σ
++preserves S because both lists have support S.
++
++Right composition sends π to `π * σ.symm`. Its inverse list is the previous
++inverse list mapped by σ; preservation of S makes filtering commute with
++that map. Thus this bijection on the global permutation sample space
++transports one entire output fiber to the other. Their uniform masses are
++equal. The finite output fibers are disjoint and cover every sample, so
++normalization gives reciprocal target cardinality. Existing list-permutation
++cardinality results identify that cardinality with S.card factorial.
++
++The Measure.map result follows from these actual fiber masses and the
++existing finite/countable measure interfaces. It does not substitute a fresh
++uniform subset draw without proving its connection. No new probability
++carrier, ranking record, action hierarchy, selector or executor is introduced.
++The Table, kernel and measured-execution interfaces keep their semantics.
++
++## Connected examples and boundaries
++
++`Examples.PermutationOrder` uses positions `[0,1,2,3]` on Fin 4 and subset
++`{0,2,3}`. The selected output is Nodup, has exactly that support and length
++three, and maps back to a sublist of the original labels. Its six whole
++orders each have mass one-sixth.
++
++`order_023_mass` derives the mass of `[0,2,3]` through the generic fiber
++formula. `order_032_mass_via_map` derives the mass of `[0,3,2]` through the
++mapped-measure theorem and the finite target measure. These lists share
++their first key but differ as complete outputs. The repeated list `[0,0,2]`
++has mass zero through the generic off-support formula.
++
++`nestedObservation` filters the actual three-key result again to `{0,3}`.
++Its pointwise equality with the direct two-key projection uses the public
++composition law. The mass of the ordered result `[3,0]` is then one-half
++through the new generic probability law. A singleton has its sole list
++with mass one; a full Fin 4 order has mass one-twenty-fourth.
++
++`Examples.PermutationOrderBoundary` records these consequential cases:
++
++- Empty S has the singleton target `{[]}` and mass one at `[]`. The new
++  generic theorem also applies to an empty index type with positions `[]`;
++  the permutation space still contains its identity.
++- For the cycle sending keys 0,1,2 to labels 1,2,0, the inverse global list
++  is `[2,0,1]`. Restricting to `{0,1}` gives `[0,1]`; directly mapping the
++  cycle instead gives `[1,0]`. This checks the pointwise orientation.
++- Reusing the earlier integer priorities `-7,100,4`, enumeration `[0,2,1]`
++  gives the strictly increasing priority list `[-7,4,100]` at the identity
++  sample. Ordinary label enumeration has a different numeric order that is
++  not strictly increasing. An arbitrary label order is not automatically a
++  numeric-priority order.
++- Incomplete positions `[0]` on Fin 2, under the swap and subset `{0}`,
++  produce `[]`, outside the base list's permutation support. This example
++  retains Nodup, isolating the missing completeness condition.
++- Repeated but complete positions `[0,0,1]`, under the swap and full subset,
++  produce `[1,1,0]`, outside the base list's support. This isolates the
++  missing distinctness condition.
++
++The inverse-orientation check cannot be replaced by marginal distribution
++checks: inversion permutes the uniform sample space, so both orientations
++can have the same distribution despite different pointwise meanings.
++The independent finite calculations and source statement assessments are
++preparation evidence. These source-written examples remain uncompiled.
++
++## Source use and remaining obligations
++
++The source edition, primary treap paper and exact pins are retained in the
++[minimum-law source record](fdsa-permutation-minimum.md#source-use-and-remaining-chapter-work)
++and the checkpoint's probability preflights. This unit supports the fixed
++filtered-order component of Chapter 2's average/randomized quicksort and
++Chapter 10's shared-priority treaps. It does not change those source models.
++
++For Chapter 2, a revealed pivot or comparison history introduces a particular
++conditioning event. Its normalized subproblem law needs its own proof.
++Equivalence to fresh occurrence choices, duplicate payloads, both recursive
++branches and the source tariff also remain. The recovered AFP quicksort
++development has additional partition and joint-law results beyond this
++single fixed-subset projection.
++
++For Chapter 10, all operands continue to observe the same global ranking.
++The separate minimum-law examples already retain a shared-law dependence
++case. This unit asserts no independence of overlapping restrictions and no
++joint law for disjoint restrictions. Canonical treap/root/ancestor semantics,
++conditional depth, weighted charging and actual work remain later obligations.
++
++Adaptive subsets, arbitrary conditional histories, expected preceding counts
++and first-position means are separate scope. Completeness of this shared
++unit requires its immutable-candidate compilation, guarded full check,
++exhaustive axiom audit, both independent final axes and immediate candidate
++verification. Its source and checkpoint presence alone close no such gate.
+diff --git a/docs/research/fdsa-reconstruction-map.md b/docs/research/fdsa-reconstruction-map.md
+index e753d53..c61c9c1 100644
+--- a/docs/research/fdsa-reconstruction-map.md
++++ b/docs/research/fdsa-reconstruction-map.md
+@@ -594,3 +594,20 @@ pivot/subproblem laws, full relative-order restrictions, the expected first
+ position, treap construction/ancestor/charging proofs or algorithm cost
+ correspondences. Its source note retains a dated validation snapshot;
+ the local FDSA-XU01 record retains the frozen scope and subsequent gate results.
++
++## Shared whole-subset ordering (draft)
++
++The [relative-order unit](fdsa-permutation-order.md) connects the actual
++inverse-permutation/list-filter observation to the uniform law on every
++order of a fixed subset. Its value contracts retain exact membership,
++distinctness, support, a mapped-sublist order bridge and repeated-filter
++composition. The source-event probability and Measure.map semantics have
++separate measurable hypotheses; a complete position list supplies finiteness
++locally. The connected examples use complete triple outputs, mapped meaning,
++nested filtering and empty/orientation/invalid-enumeration boundaries.
++
++This is further shared groundwork for Chapters 2 and 10. Conditional
++histories, adaptive subsets, joint independence, expected positions, algorithm
++semantics and actual costs remain separate obligations. The source draft is
++uncompiled and unaccepted; the local FDSA-XU02 record owns its frozen exact
++scope and subsequent candidate/review evidence.

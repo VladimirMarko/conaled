@@ -1,0 +1,24 @@
+{
+  "observed_at": "2026-11-02T23:50:00.337075+00:00",
+  "scope": "Read-only exact-owned-checkout liveness; no signals or inferred cause",
+  "processes": [
+    {
+      "pid": 655845,
+      "checkout": "/workspace/scratch/ca9a61d0bf30/import-correction-r3",
+      "cpu_seconds": 58.72,
+      "modules": [
+        "/workspace/scratch/ca9a61d0bf30/import-correction-r3/Examples/NumericalMotion.lean"
+      ],
+      "state": "S"
+    },
+    {
+      "pid": 657578,
+      "checkout": "/workspace/scratch/ca9a61d0bf30/cache-counts",
+      "cpu_seconds": 24.13,
+      "modules": [
+        "/workspace/scratch/ca9a61d0bf30/cache-counts/Applications/Suspensions/TraceObservation.lean"
+      ],
+      "state": "S"
+    }
+  ]
+}

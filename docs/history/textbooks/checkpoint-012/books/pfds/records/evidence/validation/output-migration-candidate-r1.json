@@ -1,0 +1,25 @@
+{
+  "created_utc": "2026-11-03T02:53:24.520804+00:00",
+  "scope": "Outside-repository operational10000 helper; never merge synthetic root-layout snapshot into a formal branch",
+  "main_head_unchanged": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "base": "27a2b897983eb0e60b6ebe1ffa2b0b6c4ece6405",
+  "original_integration_base": "27a2b897983eb0e60b6ebe1ffa2b0b6c4ece6405",
+  "candidate": "2748089840723943ddc8ae58acd82f5728b2098b",
+  "merge_base": "27a2b897983eb0e60b6ebe1ffa2b0b6c4ece6405",
+  "diff_command": [
+    "git",
+    "diff",
+    "27a2b897983eb0e60b6ebe1ffa2b0b6c4ece6405...2748089840723943ddc8ae58acd82f5728b2098b"
+  ],
+  "files": {
+    "session/validation/migrate-accepted-outputs.py": "6b6f17ec3f4001965eb8a27055e50770f9124676f2d1084f7488a2453cf5b60c",
+    "session/validation/test-output-migration.py": "34e38d23006a05b7687b22c029fde3298d71422e3a085591a14a2851e1db401f",
+    "session/research/output-migration-implementation.md": "3a9bb1730fed711af1fdb337e8f201c2b979f2a21e8e9e7db6535bb9bfe27f6f"
+  },
+  "exclusions": [],
+  "layout": "Synthetic baseline nests unchanged main repository under conaled, matching actual workspace paths; the helper paths were absent at baseline. Candidate adds exactly the three assigned operational deliverables. Both snapshots are reachable local refs. Live main index, HEAD and worktree remain unchanged.",
+  "requirements": "requirements/output-migration.md",
+  "requirements_sha256": "ae064e2c3b4e528e5988cc9ed2a63ba0e90bff3b90893998dd01ef73c2b5d323",
+  "design_sha256": "08d3cad5cc7cf01fd6ca35d699242ad74d6efa2370960f4dda80006e0ff9d197",
+  "acceptance": false
+}

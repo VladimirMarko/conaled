@@ -1,0 +1,154 @@
+{
+  "recorded_utc": "2026-11-04T21:48:11.027682+00:00",
+  "candidate": "e40d1f7fa71e51946b29bf1415067240e7cc369a",
+  "tree": "dee64caf8a031169777f42eb51ee8014dbb82fe8",
+  "branch": "work/fdsa-ch03-values",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+  "status": "",
+  "stage_base": "d0479dd03371f1c1f0b41dff5f1882a36206f40a",
+  "dependency_receiving_commit": "0f66bcf85ead843e1d6cf69c17f8e23fa6b84292",
+  "whole_chapter_review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "scope": "C03-080 actual measured halving-policy trace, source tariff and concrete paid median construction; original complete 83-row Chapter3 scope retained.",
+  "focused_targets": [
+    "Applications.Resources.HalvingSelection",
+    "Applications.Resources.MedianPolicy",
+    "Examples.MedianPolicy"
+  ],
+  "sources": [
+    {
+      "repository_path": "Applications/Resources/HalvingSelection.lean",
+      "module": "Applications.Resources.HalvingSelection",
+      "bytes": 8477,
+      "sha256": "70b94c9b0a262cc15b8df6a30fe4fdbaaac293231553625b6336a64185b5f204",
+      "git_blob": "3822b7d9b9c20e81953d155b84f9a4adab431dd7",
+      "imports": [
+        "Applications.Resources.SelectionPolicy",
+        "Applications.Resources.HalvingTrace"
+      ],
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.HalvingSelection",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "public_count": 8,
+      "named_private_count": 0
+    },
+    {
+      "repository_path": "Applications/Resources/MedianPolicy.lean",
+      "module": "Applications.Resources.MedianPolicy",
+      "bytes": 7520,
+      "sha256": "14f4ca4978c8c5bab5410ce48d425a5cc520e56a7e7a24826d13dd92e8fd73ef",
+      "git_blob": "5bebc234bffe8da9eacd4e22cce27ce0792ff554",
+      "imports": [
+        "Applications.Resources.HalvingSelection",
+        "Applications.Resources.SelectionBounds"
+      ],
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Resources.MedianPolicy",
+        "open Applications.Selection",
+        "universe u",
+        "variable {α : Type u} [LinearOrder α]"
+      ],
+      "public_count": 21,
+      "named_private_count": 0
+    },
+    {
+      "repository_path": "Examples/MedianPolicy.lean",
+      "module": "Examples.MedianPolicy",
+      "bytes": 7410,
+      "sha256": "fd6259f1b699adc9f7f98f7a90ccb1c34bbb2c7fe4d80ab7196c6a65635c31d4",
+      "git_blob": "f860dfadc7c4e1f4a8e3f0917636047249985b39",
+      "imports": [
+        "Applications.Resources.MedianPolicy"
+      ],
+      "raw_lexical_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "namespace Examples.MedianPolicy",
+        "open Resources.MedianPolicy"
+      ],
+      "public_count": 31,
+      "named_private_count": 0
+    }
+  ],
+  "inventory_counts": {
+    "public": 60,
+    "definitions": 3,
+    "theorems": 57,
+    "named_private_new": 0,
+    "authored_cumulative_public": 462,
+    "authored_cumulative_named_private": 7
+  },
+  "preservation": {
+    "prior_authored18_byte_identical": true,
+    "received9_byte_identical": true,
+    "new3_byte_identical_to_checkpoint0130_drafts": true,
+    "old_evidence_retained": true
+  },
+  "source_findings": [],
+  "preparation_findings": [
+    "C03-HALVING-PREP-001 corrected additively: named argument preserved in full pivot_halving raw header; v2 is authoritative."
+  ],
+  "artifacts": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/halving-policy-starting-state.json",
+      "bytes": 12398,
+      "sha256": "818bcd650f92aa462b31fb5fdbdd042c683f3f4e790fffa381a54b35084a5bbe"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/halving-policy-dependency-receipt.json",
+      "bytes": 6987,
+      "sha256": "ae01bee0f4cf7c7938398a761fdf2696f1d9571fb5c79f1bdebb0a54b80b0449"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/halving-policy-source-commit.json",
+      "bytes": 3430,
+      "sha256": "d83ed86c76650d9be0444a7cf0deb2f12900eb67dafa99862db3c3776c852dcd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/halving-policy-review-note.md",
+      "bytes": 23605,
+      "sha256": "21f3f0645dc9ed503295921e5c525d9d630a425b67f8059166d9347b4e84f055"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/halving-policy-review-addendum.md",
+      "bytes": 1217,
+      "sha256": "0f34a13b262512d69948445710e51687e8e3a3f66b8c7ab4430d4264b1df5f3b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/halving-policy-statements-inventory.json",
+      "bytes": 55673,
+      "sha256": "82e249c2c901c6f3db05eac044d84b2c7dfd528f4452d60a0a77ae07097e761a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/halving-policy-statements-inventory-v2.json",
+      "bytes": 55916,
+      "sha256": "f3af2cfe8ff0251959c1d2088d4d06adb839e6d7e38793fed9921d24c4d80503"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/halving-policy-preparation-correction.json",
+      "bytes": 2667,
+      "sha256": "2fa2dd7101e66449d1b959e9caadf7edf3ccaa53e5a027282f066623179d0207"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/HalvingPolicyStatements.lean",
+      "bytes": 3375,
+      "sha256": "9c72a420729e1f96aae77a976ff1f153a572d80a47b54e1c1f804755f4c9627b"
+    }
+  ],
+  "actual_readbacks": {
+    "complete_source": "100591",
+    "root_complete_source": "780ff9",
+    "commit_and_static_git_checks": "390772",
+    "complete_assessment_and_input": "19e60a",
+    "corrected_all60_headers_and_complete_correction_addendum": "10f80e",
+    "inventory_original_metadata_contexts": "f065e1 and prior bounded reads; truncated sections re-read at2f029b, then all60 corrected headers at10f80e"
+  },
+  "validation_disposition": "No author Lean/Lake. No actual type capture, focused terminal, whole-candidate check, audit, independent axes or Chapter3 acceptance for this new slice. Root serial focused check requested.",
+  "integration_requirement": "Root owns shared entrypoint/reconstruction updates: include all3new modules and retain exact9received dependencies under their original owner inventories. No shared source/control/review edits made."
+}

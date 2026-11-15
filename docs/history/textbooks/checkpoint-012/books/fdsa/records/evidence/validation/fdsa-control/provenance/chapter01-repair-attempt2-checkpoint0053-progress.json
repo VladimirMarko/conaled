@@ -1,0 +1,18 @@
+{
+  "observed_utc": "2026-11-02T21:25:54.081871+00:00",
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "attempt_result_as_observed": "running",
+  "tool_session": 61365,
+  "log": "reviews/chapter01-repair-incremental-attempt2.log",
+  "observed_log_prefix_bytes": 185444,
+  "observed_log_prefix_sha256": "42fe5ae44a6a03fc6d6dded3f2331b15b191436a950a1c5f1fbb6b68607c78bd",
+  "last_completed_lines": [
+    "\u26a0 [9553/9556] Built Examples.ExpressiveWitnesses (7.2s)",
+    "\u2714 [9554/9556] Built Applications.Interaction.Evidence (3.3s)",
+    "\u2714 [9555/9558] Built Examples.ExternalInteraction (2.4s)",
+    "\u2714 [9556/9559] Built Applications.Resources.FIFOContracts (2.5s)",
+    "\u2714 [9557/9560] Built Examples.FIFOContracts (3.2s)",
+    "\u26a0 [9558/9561] Built Applications.FRP.Equivalence (769s)"
+  ],
+  "limit": "A bounded progress prefix only. If the archived active log is longer, this hash applies only to the first observed_log_prefix_bytes. No terminal outcome, full-cache health, complete build/audit, final review or acceptance is inferred."
+}

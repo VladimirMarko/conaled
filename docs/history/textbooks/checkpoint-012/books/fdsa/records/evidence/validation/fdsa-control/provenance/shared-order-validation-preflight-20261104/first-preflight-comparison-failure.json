@@ -1,0 +1,105 @@
+{
+  "utc": "2026-11-04T15:16:41.211583+00:00",
+  "failed_root_tool_chunk": "58b3d9",
+  "actual_exit": 1,
+  "failure": "Assertion of complete saved source.diff equality against --binary --full-index representation; no compiler/source mutation.",
+  "saved_bytes": 40710,
+  "saved_sha256": "eb219a1f61489fafe7cf3615bac5f27274d8aab9410b9d117c9516f56d3d2353",
+  "saved_first10lines": [
+    "diff --git a/Applications/Probability/PermutationOrder.lean b/Applications/Probability/PermutationOrder.lean",
+    "new file mode 100644",
+    "index 0000000..b039038",
+    "--- /dev/null",
+    "+++ b/Applications/Probability/PermutationOrder.lean",
+    "@@ -0,0 +1,321 @@",
+    "+import Mathlib.Data.Finset.Card",
+    "+import Mathlib.Data.Finset.Lattice.Lemmas",
+    "+import Mathlib.Data.Fintype.OfMap",
+    "+import Mathlib.Data.Fintype.Perm"
+  ],
+  "diagnostics": [
+    {
+      "flags": [],
+      "exit": 0,
+      "bytes": 40710,
+      "sha256": "eb219a1f61489fafe7cf3615bac5f27274d8aab9410b9d117c9516f56d3d2353",
+      "equals_saved": true,
+      "first10lines": [
+        "diff --git a/Applications/Probability/PermutationOrder.lean b/Applications/Probability/PermutationOrder.lean",
+        "new file mode 100644",
+        "index 0000000..b039038",
+        "--- /dev/null",
+        "+++ b/Applications/Probability/PermutationOrder.lean",
+        "@@ -0,0 +1,321 @@",
+        "+import Mathlib.Data.Finset.Card",
+        "+import Mathlib.Data.Finset.Lattice.Lemmas",
+        "+import Mathlib.Data.Fintype.OfMap",
+        "+import Mathlib.Data.Fintype.Perm"
+      ]
+    },
+    {
+      "flags": [
+        "--binary"
+      ],
+      "exit": 0,
+      "bytes": 40710,
+      "sha256": "eb219a1f61489fafe7cf3615bac5f27274d8aab9410b9d117c9516f56d3d2353",
+      "equals_saved": true,
+      "first10lines": [
+        "diff --git a/Applications/Probability/PermutationOrder.lean b/Applications/Probability/PermutationOrder.lean",
+        "new file mode 100644",
+        "index 0000000..b039038",
+        "--- /dev/null",
+        "+++ b/Applications/Probability/PermutationOrder.lean",
+        "@@ -0,0 +1,321 @@",
+        "+import Mathlib.Data.Finset.Card",
+        "+import Mathlib.Data.Finset.Lattice.Lemmas",
+        "+import Mathlib.Data.Fintype.OfMap",
+        "+import Mathlib.Data.Fintype.Perm"
+      ]
+    },
+    {
+      "flags": [
+        "--full-index"
+      ],
+      "exit": 0,
+      "bytes": 41106,
+      "sha256": "20682e4862c322e8495fe170ab03e38d8bf3e274f5932c2a402326dffa254455",
+      "equals_saved": false,
+      "first10lines": [
+        "diff --git a/Applications/Probability/PermutationOrder.lean b/Applications/Probability/PermutationOrder.lean",
+        "new file mode 100644",
+        "index 0000000000000000000000000000000000000000..b039038772d2ecdb17864678021ffa9aff4efa63",
+        "--- /dev/null",
+        "+++ b/Applications/Probability/PermutationOrder.lean",
+        "@@ -0,0 +1,321 @@",
+        "+import Mathlib.Data.Finset.Card",
+        "+import Mathlib.Data.Finset.Lattice.Lemmas",
+        "+import Mathlib.Data.Fintype.OfMap",
+        "+import Mathlib.Data.Fintype.Perm"
+      ]
+    },
+    {
+      "flags": [
+        "--binary",
+        "--full-index"
+      ],
+      "exit": 0,
+      "bytes": 41106,
+      "sha256": "20682e4862c322e8495fe170ab03e38d8bf3e274f5932c2a402326dffa254455",
+      "equals_saved": false,
+      "first10lines": [
+        "diff --git a/Applications/Probability/PermutationOrder.lean b/Applications/Probability/PermutationOrder.lean",
+        "new file mode 100644",
+        "index 0000000000000000000000000000000000000000..b039038772d2ecdb17864678021ffa9aff4efa63",
+        "--- /dev/null",
+        "+++ b/Applications/Probability/PermutationOrder.lean",
+        "@@ -0,0 +1,321 @@",
+        "+import Mathlib.Data.Finset.Card",
+        "+import Mathlib.Data.Finset.Lattice.Lemmas",
+        "+import Mathlib.Data.Fintype.OfMap",
+        "+import Mathlib.Data.Fintype.Perm"
+      ]
+    }
+  ]
+}

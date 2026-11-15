@@ -1,0 +1,27 @@
+{
+  "recorded_utc": "2026-11-04T21:21:39.268764+00:00",
+  "stage": "stage05-tail",
+  "candidate_base": "cd20a36f52b4ddd95be3cb9d85c0b95368ef1248",
+  "draft_before_resume": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Applications/Resources/RandomSelectionTail.lean",
+      "bytes": 3339,
+      "sha256": "2fb716a7940c1b2630b37b60ddea2ceec2355fd8dd3a6fe232c7df2eb02e86d9"
+    }
+  ],
+  "all_eight_prior_sources_exact": true,
+  "durability": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0129-preparation/durability.json",
+    "bytes": 1625,
+    "sha256": "65b16adc49dd1d9cb9ff24d89a31848d22bed9a3d6d0d2aa78590696eb5e87cf"
+  },
+  "release": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0129-preparation/post-upload-hold-release.json",
+    "bytes": 2467,
+    "sha256": "ade0b2d6545a1a42639277f8f3c36a743d96bdbf576f1ac89a2f089388491bea"
+  },
+  "complete_durability_release_read_tool_chunk": "9ef8ec",
+  "root_release": "Resume same actual tail stage after checkpoint0129 durable and exposed; root sole compiler.",
+  "author_compiler_actions": false,
+  "old_checkpoint_draft_is_historical_snapshot": "The checkpoint0129 draft hash will differ after authorized continued source development; its historical record is preserved unchanged."
+}

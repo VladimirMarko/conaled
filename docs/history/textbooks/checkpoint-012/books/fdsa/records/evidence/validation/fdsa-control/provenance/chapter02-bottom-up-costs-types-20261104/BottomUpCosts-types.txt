@@ -1,0 +1,450 @@
+@Examples.BottomUpCosts.empty_and_single_run.{u_1} : ∀ {α : Type u_1} (cmp : α → α → Bool) (xs : List.{u_1} α),
+  And
+    (@Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat)
+      (@Resources.BottomUpSorting.allRun.{u_1} α cmp (@List.nil.{u_1} (List.{u_1} α)))
+      (@Prod.mk.{u_1, 0} (List.{u_1} α) Nat (@List.nil.{u_1} α)
+        (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+    (And
+      (@Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat)
+        (@Resources.BottomUpSorting.allRun.{u_1} α cmp
+          (@List.cons.{u_1} (List.{u_1} α) xs (@List.nil.{u_1} (List.{u_1} α))))
+        (@Prod.mk.{u_1, 0} (List.{u_1} α) Nat xs (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+      (And
+        (@Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat)
+          (@Resources.BottomUpSorting.allRevRun.{u_1} α cmp (@List.nil.{u_1} (List.{u_1} α)))
+          (@Prod.mk.{u_1, 0} (List.{u_1} α) Nat (@List.nil.{u_1} α)
+            (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+        (@Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat)
+          (@Resources.BottomUpSorting.allRevRun.{u_1} α cmp
+            (@List.cons.{u_1} (List.{u_1} α) xs (@List.nil.{u_1} (List.{u_1} α))))
+          (@Prod.mk.{u_1, 0} (List.{u_1} α) Nat xs (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))
+Examples.BottomUpCosts.unsorted_single_run : And
+  (@Eq.{1} (Resources.Measured.{0, 0} (List.{0} Nat) Nat)
+    (@Resources.BottomUpSorting.allRun.{0} Nat Examples.BottomUpSorting.natCompare
+      (@List.cons.{0} (List.{0} Nat)
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))
+        (@List.nil.{0} (List.{0} Nat))))
+    (@Prod.mk.{0, 0} (List.{0} Nat) Nat
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))
+      (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+  (Not
+    (@Applications.Sorting.KeySorted.{0, 0} Nat Nat instLENat (@id.{1} Nat)
+      (@Prod.fst.{0, 0} (List.{0} Nat) Nat
+        (@Resources.BottomUpSorting.allRun.{0} Nat Examples.BottomUpSorting.natCompare
+          (@List.cons.{0} (List.{0} Nat)
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))
+            (@List.nil.{0} (List.{0} Nat)))))))
+Examples.BottomUpCosts.ragged_observation : @Eq.{1} (Resources.Measured.{0, 0} (List.{0} (List.{0} Nat)) Nat)
+  (@Resources.BottomUpSorting.pairsRun.{0} Nat Examples.BottomUpSorting.natCompare Examples.BottomUpSorting.raggedRuns)
+  (@Prod.mk.{0, 0} (List.{0} (List.{0} Nat)) Nat
+    (@List.cons.{0} (List.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat))))
+      (@List.cons.{0} (List.{0} Nat)
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) (@List.nil.{0} Nat)))
+        (@List.cons.{0} (List.{0} Nat)
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) (@List.nil.{0} Nat)))
+          (@List.nil.{0} (List.{0} Nat)))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+Examples.BottomUpCosts.nonempty_accumulator_observation : @Eq.{1}
+  (Resources.Measured.{0, 0} (List.{0} (List.{0} Nat)) Nat)
+  (@Resources.BottomUpSorting.pairsRevRun.{0} Nat Examples.BottomUpSorting.natCompare
+    (@List.cons.{0} (List.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 99) (instOfNatNat (nat_lit 99))) (@List.nil.{0} Nat))
+      (@List.cons.{0} (List.{0} Nat) (@List.nil.{0} Nat)
+        (@List.cons.{0} (List.{0} Nat)
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 42) (instOfNatNat (nat_lit 42)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 43) (instOfNatNat (nat_lit 43))) (@List.nil.{0} Nat)))
+          (@List.nil.{0} (List.{0} Nat)))))
+    Examples.BottomUpSorting.raggedRuns)
+  (@Prod.mk.{0, 0} (List.{0} (List.{0} Nat)) Nat
+    (@List.cons.{0} (List.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) (@List.nil.{0} Nat)))
+      (@List.cons.{0} (List.{0} Nat)
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) (@List.nil.{0} Nat)))
+        (@List.cons.{0} (List.{0} Nat)
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat))))
+          (@List.cons.{0} (List.{0} Nat)
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 99) (instOfNatNat (nat_lit 99))) (@List.nil.{0} Nat))
+            (@List.cons.{0} (List.{0} Nat) (@List.nil.{0} Nat)
+              (@List.cons.{0} (List.{0} Nat)
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 42) (instOfNatNat (nat_lit 42)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 43) (instOfNatNat (nat_lit 43)))
+                    (@List.nil.{0} Nat)))
+                (@List.nil.{0} (List.{0} Nat))))))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+@Examples.BottomUpCosts.accumulator_cost_independent.{u_1} : ∀ {α : Type u_1} (cmp : α → α → Bool)
+  (acc₁ acc₂ xss : List.{u_1} (List.{u_1} α)),
+  @Eq.{1} Nat (@Resources.BottomUpSorting.pairsRevComparisons.{u_1} α cmp acc₁ xss)
+    (@Resources.BottomUpSorting.pairsRevComparisons.{u_1} α cmp acc₂ xss)
+Examples.BottomUpCosts.three_equal_first_pass : @Eq.{1} (Resources.Measured.{0, 0} (List.{0} (List.{0} Nat)) Nat)
+  (@Resources.BottomUpSorting.pairsRun.{0} Nat Examples.BottomUpSorting.natCompare
+    (@List.cons.{0} (List.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))
+      (@List.cons.{0} (List.{0} Nat)
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))
+        (@List.cons.{0} (List.{0} Nat)
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))
+          (@List.nil.{0} (List.{0} Nat))))))
+  (@Prod.mk.{0, 0} (List.{0} (List.{0} Nat)) Nat
+    (@List.cons.{0} (List.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat)))
+      (@List.cons.{0} (List.{0} Nat)
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))
+        (@List.nil.{0} (List.{0} Nat))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+Examples.BottomUpCosts.three_equal_reversed_first_pass : @Eq.{1}
+  (Resources.Measured.{0, 0} (List.{0} (List.{0} Nat)) Nat)
+  (@Resources.BottomUpSorting.pairsRevRun.{0} Nat Examples.BottomUpSorting.natCompare (@List.nil.{0} (List.{0} Nat))
+    (@List.cons.{0} (List.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))
+      (@List.cons.{0} (List.{0} Nat)
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))
+        (@List.cons.{0} (List.{0} Nat)
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))
+          (@List.nil.{0} (List.{0} Nat))))))
+  (@Prod.mk.{0, 0} (List.{0} (List.{0} Nat)) Nat
+    (@List.cons.{0} (List.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))
+      (@List.cons.{0} (List.{0} Nat)
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat)))
+        (@List.nil.{0} (List.{0} Nat))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Examples.BottomUpCosts.all_two_runs.{u_1} : ∀ {α : Type u_1} (cmp : α → α → Bool) (xs ys : List.{u_1} α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat)
+    (@Resources.BottomUpSorting.allRun.{u_1} α cmp
+      (@List.cons.{u_1} (List.{u_1} α) xs (@List.cons.{u_1} (List.{u_1} α) ys (@List.nil.{u_1} (List.{u_1} α)))))
+    (@Resources.reweight.{u_1, 0, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) Nat (@Prod.fst.{0, 0} Nat Nat)
+      (@Resources.ListMerge.run.{u_1} α cmp xs ys))
+@Examples.BottomUpCosts.all_reversed_two_runs.{u_1} : ∀ {α : Type u_1} (cmp : α → α → Bool) (xs ys : List.{u_1} α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat)
+    (@Resources.BottomUpSorting.allRevRun.{u_1} α cmp
+      (@List.cons.{u_1} (List.{u_1} α) xs (@List.cons.{u_1} (List.{u_1} α) ys (@List.nil.{u_1} (List.{u_1} α)))))
+    (@Resources.reweight.{u_1, 0, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) Nat (@Prod.fst.{0, 0} Nat Nat)
+      (@Resources.ListMerge.run.{u_1} α cmp xs ys))
+@Examples.BottomUpCosts.ordinary_three_run.{u_1} : ∀ {α : Type u_1} (cmp : α → α → Bool) (a b c : α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat)
+    (@Resources.BottomUpSorting.run.{u_1} α cmp
+      (@List.cons.{u_1} α a (@List.cons.{u_1} α b (@List.cons.{u_1} α c (@List.nil.{u_1} α)))))
+    (@Resources.bind.{u_1, 0, u_1} (List.{u_1} α) (List.{u_1} α) Nat instAddNat
+      (@Resources.reweight.{u_1, 0, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) Nat (@Prod.fst.{0, 0} Nat Nat)
+        (@Resources.ListMerge.run.{u_1} α cmp (@List.cons.{u_1} α a (@List.nil.{u_1} α))
+          (@List.cons.{u_1} α b (@List.nil.{u_1} α))))
+      fun merged =>
+      @Resources.reweight.{u_1, 0, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) Nat (@Prod.fst.{0, 0} Nat Nat)
+        (@Resources.ListMerge.run.{u_1} α cmp merged (@List.cons.{u_1} α c (@List.nil.{u_1} α))))
+@Examples.BottomUpCosts.reversed_three_run.{u_1} : ∀ {α : Type u_1} (cmp : α → α → Bool) (a b c : α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat)
+    (@Resources.BottomUpSorting.revRun.{u_1} α cmp
+      (@List.cons.{u_1} α a (@List.cons.{u_1} α b (@List.cons.{u_1} α c (@List.nil.{u_1} α)))))
+    (@Resources.bind.{u_1, 0, u_1} (List.{u_1} α) (List.{u_1} α) Nat instAddNat
+      (@Resources.reweight.{u_1, 0, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) Nat (@Prod.fst.{0, 0} Nat Nat)
+        (@Resources.ListMerge.run.{u_1} α cmp (@List.cons.{u_1} α a (@List.nil.{u_1} α))
+          (@List.cons.{u_1} α b (@List.nil.{u_1} α))))
+      fun merged =>
+      @Resources.reweight.{u_1, 0, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) Nat (@Prod.fst.{0, 0} Nat Nat)
+        (@Resources.ListMerge.run.{u_1} α cmp (@List.cons.{u_1} α c (@List.nil.{u_1} α)) merged))
+Examples.BottomUpCosts.ordinary_three_equal : @Eq.{1} (Resources.Measured.{0, 0} (List.{0} Nat) Nat)
+  (@Resources.BottomUpSorting.run.{0} Nat Examples.BottomUpSorting.natCompare
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat)))))
+  (@Prod.mk.{0, 0} (List.{0} Nat) Nat
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+Examples.BottomUpCosts.reversed_three_equal : @Eq.{1} (Resources.Measured.{0, 0} (List.{0} Nat) Nat)
+  (@Resources.BottomUpSorting.revRun.{0} Nat Examples.BottomUpSorting.natCompare
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat)))))
+  (@Prod.mk.{0, 0} (List.{0} Nat) Nat
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+Examples.BottomUpCosts.same_pass_costs_different_totals : And
+  (@Eq.{1} Nat
+    (@Resources.BottomUpSorting.pairsComparisons.{0} Nat Examples.BottomUpSorting.natCompare
+      (@List.cons.{0} (List.{0} Nat)
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))
+        (@List.cons.{0} (List.{0} Nat)
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))
+          (@List.cons.{0} (List.{0} Nat)
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))
+            (@List.nil.{0} (List.{0} Nat))))))
+    (@Resources.BottomUpSorting.pairsRevComparisons.{0} Nat Examples.BottomUpSorting.natCompare
+      (@List.nil.{0} (List.{0} Nat))
+      (@List.cons.{0} (List.{0} Nat)
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))
+        (@List.cons.{0} (List.{0} Nat)
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))
+          (@List.cons.{0} (List.{0} Nat)
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))
+            (@List.nil.{0} (List.{0} Nat)))))))
+  (And
+    (@Eq.{1} (List.{0} Nat)
+      (@Prod.fst.{0, 0} (List.{0} Nat) Nat
+        (@Resources.BottomUpSorting.run.{0} Nat Examples.BottomUpSorting.natCompare
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))))))
+      (@Prod.fst.{0, 0} (List.{0} Nat) Nat
+        (@Resources.BottomUpSorting.revRun.{0} Nat Examples.BottomUpSorting.natCompare
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                (@List.nil.{0} Nat)))))))
+    (@Ne.{1} Nat
+      (@Resources.BottomUpSorting.comparisons.{0} Nat Examples.BottomUpSorting.natCompare
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat)))))
+      (@Resources.BottomUpSorting.revComparisons.{0} Nat Examples.BottomUpSorting.natCompare
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat)))))))
+@Examples.BottomUpCosts.ordinary_tagged_equal.{u_1} : ∀ {α : Type u_1} (first middle last : α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) Nat)
+    (@Resources.BottomUpSorting.run.{u_1} (Prod.{0, u_1} Nat α)
+      (fun a b =>
+        @decide (@LE.le.{0} Nat instLENat (@Prod.fst.{0, u_1} Nat α a) (@Prod.fst.{0, u_1} Nat α b))
+          ((@Prod.fst.{0, u_1} Nat α a).decLe (@Prod.fst.{0, u_1} Nat α b)))
+      (@List.cons.{u_1} (Prod.{0, u_1} Nat α)
+        (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) first)
+        (@List.cons.{u_1} (Prod.{0, u_1} Nat α)
+          (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) middle)
+          (@List.cons.{u_1} (Prod.{0, u_1} Nat α)
+            (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) last)
+            (@List.nil.{u_1} (Prod.{0, u_1} Nat α))))))
+    (@Prod.mk.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) Nat
+      (@List.cons.{u_1} (Prod.{0, u_1} Nat α)
+        (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) first)
+        (@List.cons.{u_1} (Prod.{0, u_1} Nat α)
+          (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) middle)
+          (@List.cons.{u_1} (Prod.{0, u_1} Nat α)
+            (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) last)
+            (@List.nil.{u_1} (Prod.{0, u_1} Nat α)))))
+      (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+@Examples.BottomUpCosts.reversed_tagged_equal.{u_1} : ∀ {α : Type u_1} (first middle last : α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) Nat)
+    (@Resources.BottomUpSorting.revRun.{u_1} (Prod.{0, u_1} Nat α)
+      (fun a b =>
+        @decide (@LE.le.{0} Nat instLENat (@Prod.fst.{0, u_1} Nat α a) (@Prod.fst.{0, u_1} Nat α b))
+          ((@Prod.fst.{0, u_1} Nat α a).decLe (@Prod.fst.{0, u_1} Nat α b)))
+      (@List.cons.{u_1} (Prod.{0, u_1} Nat α)
+        (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) first)
+        (@List.cons.{u_1} (Prod.{0, u_1} Nat α)
+          (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) middle)
+          (@List.cons.{u_1} (Prod.{0, u_1} Nat α)
+            (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) last)
+            (@List.nil.{u_1} (Prod.{0, u_1} Nat α))))))
+    (@Prod.mk.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) Nat
+      (@List.cons.{u_1} (Prod.{0, u_1} Nat α)
+        (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) last)
+        (@List.cons.{u_1} (Prod.{0, u_1} Nat α)
+          (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) first)
+          (@List.cons.{u_1} (Prod.{0, u_1} Nat α)
+            (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) middle)
+            (@List.nil.{u_1} (Prod.{0, u_1} Nat α)))))
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+Examples.BottomUpCosts.measured_tail_not_stable : Not
+  (@Applications.Sorting.Stable.{0, 0} (Prod.{0, 0} Nat String) Nat instDecidableEqNat (@Prod.fst.{0, 0} Nat String)
+    (@List.cons.{0} (Prod.{0, 0} Nat String)
+      (@Prod.mk.{0, 0} Nat String (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) "first")
+      (@List.cons.{0} (Prod.{0, 0} Nat String)
+        (@Prod.mk.{0, 0} Nat String (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) "middle")
+        (@List.cons.{0} (Prod.{0, 0} Nat String)
+          (@Prod.mk.{0, 0} Nat String (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) "last")
+          (@List.nil.{0} (Prod.{0, 0} Nat String)))))
+    (@Prod.fst.{0, 0} (List.{0} (Prod.{0, 0} Nat String)) Nat
+      (@Resources.BottomUpSorting.revRun.{0} (Prod.{0, 0} Nat String)
+        (fun a b =>
+          @decide (@LE.le.{0} Nat instLENat (@Prod.fst.{0, 0} Nat String a) (@Prod.fst.{0, 0} Nat String b))
+            ((@Prod.fst.{0, 0} Nat String a).decLe (@Prod.fst.{0, 0} Nat String b)))
+        (@List.cons.{0} (Prod.{0, 0} Nat String)
+          (@Prod.mk.{0, 0} Nat String (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) "first")
+          (@List.cons.{0} (Prod.{0, 0} Nat String)
+            (@Prod.mk.{0, 0} Nat String (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) "middle")
+            (@List.cons.{0} (Prod.{0, 0} Nat String)
+              (@Prod.mk.{0, 0} Nat String (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) "last")
+              (@List.nil.{0} (Prod.{0, 0} Nat String))))))))
+@Examples.BottomUpCosts.raw_occurrences_and_bounds.{u_1} : ∀ {α : Type u_1} (cmp : α → α → Bool) (xs : List.{u_1} α),
+  And (@List.Perm.{u_1} α (@Prod.fst.{u_1, 0} (List.{u_1} α) Nat (@Resources.BottomUpSorting.run.{u_1} α cmp xs)) xs)
+    (And
+      (@LE.le.{0} Nat instLENat (@Resources.BottomUpSorting.comparisons.{u_1} α cmp xs)
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) (@List.length.{u_1} α xs)
+          (Nat.clog (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α xs))))
+      (And
+        (@List.Perm.{u_1} α (@Prod.fst.{u_1, 0} (List.{u_1} α) Nat (@Resources.BottomUpSorting.revRun.{u_1} α cmp xs))
+          xs)
+        (@LE.le.{0} Nat instLENat (@Resources.BottomUpSorting.revComparisons.{u_1} α cmp xs)
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) (@List.length.{u_1} α xs)
+            (Nat.clog (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α xs))))))
+Examples.BottomUpCosts.local_comparator_values : And
+  (@Applications.Sorting.KeySorted.{0, 0} (Prod.{0, 0} Int String) Int Int.instLEInt (@Prod.fst.{0, 0} Int String)
+    (@Prod.fst.{0, 0} (List.{0} Examples.StableSorting.Record) Nat
+      (@Resources.BottomUpSorting.run.{0} Examples.StableSorting.Record Examples.StableSorting.nonnegativeCompare
+        Examples.StableSorting.nonnegativeInput)))
+  (@Applications.Sorting.KeySorted.{0, 0} (Prod.{0, 0} Int String) Int Int.instLEInt (@Prod.fst.{0, 0} Int String)
+    (@Prod.fst.{0, 0} (List.{0} Examples.StableSorting.Record) Nat
+      (@Resources.BottomUpSorting.revRun.{0} Examples.StableSorting.Record Examples.StableSorting.nonnegativeCompare
+        Examples.StableSorting.nonnegativeInput)))
+Examples.BottomUpCosts.odd_uniform_budget_and_leftover : And
+  (@LE.le.{0} Nat instLENat
+    (@Resources.BottomUpSorting.pairsComparisons.{0} Nat Examples.BottomUpSorting.natCompare
+      (@List.cons.{0} (List.{0} Nat)
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat))
+        (@List.cons.{0} (List.{0} Nat)
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat))
+          (@List.cons.{0} (List.{0} Nat)
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat))
+            (@List.nil.{0} (List.{0} Nat))))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+  (Not
+    (∀ (xs : List.{0} Nat),
+      @Membership.mem.{0, 0} (List.{0} Nat) (List.{0} (List.{0} Nat)) (@List.instMembership.{0} (List.{0} Nat))
+          (@Applications.Sorting.mergePairsBy.{0} Nat Examples.BottomUpSorting.natCompare
+            (@List.cons.{0} (List.{0} Nat)
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat))
+              (@List.cons.{0} (List.{0} Nat)
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat))
+                (@List.cons.{0} (List.{0} Nat)
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat))
+                  (@List.nil.{0} (List.{0} Nat))))))
+          xs →
+        @Eq.{1} Nat (@List.length.{0} Nat xs) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+@Examples.BottomUpCosts.four_empty_runs_zero.{u_1} : ∀ {α : Type u_1} (cmp : α → α → Bool),
+  And
+    (@Eq.{1} Nat
+      (@Resources.BottomUpSorting.allComparisons.{u_1} α cmp
+        (@List.cons.{u_1} (List.{u_1} α) (@List.nil.{u_1} α)
+          (@List.cons.{u_1} (List.{u_1} α) (@List.nil.{u_1} α)
+            (@List.cons.{u_1} (List.{u_1} α) (@List.nil.{u_1} α)
+              (@List.cons.{u_1} (List.{u_1} α) (@List.nil.{u_1} α) (@List.nil.{u_1} (List.{u_1} α)))))))
+      (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+    (@Eq.{1} Nat
+      (@Resources.BottomUpSorting.allRevComparisons.{u_1} α cmp
+        (@List.cons.{u_1} (List.{u_1} α) (@List.nil.{u_1} α)
+          (@List.cons.{u_1} (List.{u_1} α) (@List.nil.{u_1} α)
+            (@List.cons.{u_1} (List.{u_1} α) (@List.nil.{u_1} α)
+              (@List.cons.{u_1} (List.{u_1} α) (@List.nil.{u_1} α) (@List.nil.{u_1} (List.{u_1} α)))))))
+      (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+@Examples.BottomUpCosts.single_run_power_zero.{u_1} : ∀ {α : Type u_1} (cmp : α → α → Bool) (xs : List.{u_1} α),
+  And
+    (@LE.le.{0} Nat instLENat
+      (@Resources.BottomUpSorting.allComparisons.{u_1} α cmp
+        (@List.cons.{u_1} (List.{u_1} α) xs (@List.nil.{u_1} (List.{u_1} α))))
+      (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+    (@LE.le.{0} Nat instLENat
+      (@Resources.BottomUpSorting.allRevComparisons.{u_1} α cmp
+        (@List.cons.{u_1} (List.{u_1} α) xs (@List.nil.{u_1} (List.{u_1} α))))
+      (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+Examples.BottomUpCosts.uniform_four_runs_bound : And
+  (@LE.le.{0} Nat instLENat
+    (@Resources.BottomUpSorting.allComparisons.{0} Nat Examples.BottomUpSorting.natCompare
+      (@List.cons.{0} (List.{0} Nat)
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) (@List.nil.{0} Nat)))
+        (@List.cons.{0} (List.{0} Nat)
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) (@List.nil.{0} Nat)))
+          (@List.cons.{0} (List.{0} Nat)
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 6) (instOfNatNat (nat_lit 6))) (@List.nil.{0} Nat)))
+            (@List.cons.{0} (List.{0} Nat)
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) (@List.nil.{0} Nat)))
+              (@List.nil.{0} (List.{0} Nat)))))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 16) (instOfNatNat (nat_lit 16))))
+  (@LE.le.{0} Nat instLENat
+    (@Resources.BottomUpSorting.allRevComparisons.{0} Nat Examples.BottomUpSorting.natCompare
+      (@List.cons.{0} (List.{0} Nat)
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) (@List.nil.{0} Nat)))
+        (@List.cons.{0} (List.{0} Nat)
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) (@List.nil.{0} Nat)))
+          (@List.cons.{0} (List.{0} Nat)
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 6) (instOfNatNat (nat_lit 6))) (@List.nil.{0} Nat)))
+            (@List.cons.{0} (List.{0} Nat)
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) (@List.nil.{0} Nat)))
+              (@List.nil.{0} (List.{0} Nat)))))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 16) (instOfNatNat (nat_lit 16))))
+Examples.BottomUpCosts.ragged_general_bound : ∀ (cmp : Nat → Nat → Bool),
+  And
+    (@LE.le.{0} Nat instLENat
+      (@Resources.BottomUpSorting.allComparisons.{0} Nat cmp Examples.BottomUpSorting.raggedRuns)
+      (@OfNat.ofNat.{0} Nat (nat_lit 21) (instOfNatNat (nat_lit 21))))
+    (@LE.le.{0} Nat instLENat
+      (@Resources.BottomUpSorting.allRevComparisons.{0} Nat cmp Examples.BottomUpSorting.raggedRuns)
+      (@OfNat.ofNat.{0} Nat (nat_lit 21) (instOfNatNat (nat_lit 21))))
+Examples.BottomUpCosts.source_ceiling_zero_one : And
+  (@Eq.{1} Int
+    (@Int.ceil.{0} Real Real.instRing Real.linearOrder Real.instFloorRing
+      (Real.logb (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+        (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))))
+    (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+  (@Eq.{1} Int
+    (@Int.ceil.{0} Real Real.instRing Real.linearOrder Real.instFloorRing
+      (Real.logb (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+    (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+Examples.BottomUpCosts.source_half_at_five : @Eq.{1} Nat
+  (Nat.clog (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+    (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+    (Nat.clog (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+Examples.BottomUpCosts.sorter_power_zero : And
+  (@LE.le.{0} Nat instLENat
+    (@Resources.BottomUpSorting.comparisons.{0} Nat Examples.BottomUpSorting.natCompare
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9))) (@List.nil.{0} Nat)))
+    (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+  (@LE.le.{0} Nat instLENat
+    (@Resources.BottomUpSorting.revComparisons.{0} Nat Examples.BottomUpSorting.natCompare
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9))) (@List.nil.{0} Nat)))
+    (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+Examples.BottomUpCosts.empty_payload : ∀ (cmp : Empty → Empty → Bool) (xs : List.{0} Empty),
+  And
+    (@Eq.{1} (Resources.Measured.{0, 0} (List.{0} Empty) Nat) (@Resources.BottomUpSorting.run.{0} Empty cmp xs)
+      (@Prod.mk.{0, 0} (List.{0} Empty) Nat (@List.nil.{0} Empty)
+        (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+    (@Eq.{1} (Resources.Measured.{0, 0} (List.{0} Empty) Nat) (@Resources.BottomUpSorting.revRun.{0} Empty cmp xs)
+      (@Prod.mk.{0, 0} (List.{0} Empty) Nat (@List.nil.{0} Empty)
+        (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+Examples.BottomUpCosts.descending_families_isBigO : And
+  (@Asymptotics.IsBigO.{0, 0, 0} Nat Real Real Real.norm Real.norm (@Filter.atTop.{0} Nat Nat.instPreorder)
+    (fun n =>
+      @Nat.cast.{0} Real Real.instNatCast
+        (@Resources.BottomUpSorting.comparisons.{0} Nat Examples.BottomUpSorting.natCompare
+          (@List.reverse.{0} Nat (List.range n))))
+    fun n =>
+    @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Nat.cast.{0} Real Real.instNatCast n)
+      (Real.logb (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+        (@Nat.cast.{0} Real Real.instNatCast n)))
+  (@Asymptotics.IsBigO.{0, 0, 0} Nat Real Real Real.norm Real.norm (@Filter.atTop.{0} Nat Nat.instPreorder)
+    (fun n =>
+      @Nat.cast.{0} Real Real.instNatCast
+        (@Resources.BottomUpSorting.revComparisons.{0} Nat Examples.BottomUpSorting.natCompare
+          (@List.reverse.{0} Nat (List.range n))))
+    fun n =>
+    @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Nat.cast.{0} Real Real.instNatCast n)
+      (Real.logb (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+        (@Nat.cast.{0} Real Real.instNatCast n)))

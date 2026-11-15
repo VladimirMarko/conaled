@@ -1,0 +1,381 @@
+{
+  "prepared_utc": "2026-11-04T06:36:54.669223+00:00",
+  "status": "plan-only preparation complete; source implementation not released",
+  "owner": "/root/chapter02_random_pivot",
+  "checkpoint_barrier": "0088 saved/exposed; root released plan-only writes after full author readback capture",
+  "author_worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot",
+  "author_branch": "work/fdsa-ch02-random-pivot",
+  "author_candidate": "bb4fb243bb7b16ae8bef921fec479a86f2b01c90",
+  "author_status_before": "",
+  "central_checked_candidate": "dfaf68114d1dda4e15628c94c3d988c3f5457c49",
+  "accepted_chapter1_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "foundation_dependency": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "foundation_accepted_by_this_work": false,
+  "source_identities": {
+    "Applications/Resources/RandomQuickSort.lean": {
+      "bytes": 23601,
+      "lines": 509,
+      "sha256": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2",
+      "author_blob_equals_checked_central_blob": true,
+      "author_working_copy_equals_blob": true
+    },
+    "Examples/RandomQuickSort.lean": {
+      "bytes": 8255,
+      "lines": 203,
+      "sha256": "4f5a21d1656423ac1307b1ca8fe651cd794d70da576ecd14f65d68cc290c424d",
+      "author_blob_equals_checked_central_blob": true,
+      "author_working_copy_equals_blob": true
+    },
+    "Applications/Resources/QuickSort.lean": {
+      "bytes": 21782,
+      "lines": 474,
+      "sha256": "e98024f6b741e1aba1fb1e38b419eee2e1acad76a8a40e669752f54775783263",
+      "author_blob_equals_checked_central_blob": true,
+      "author_working_copy_equals_blob": true
+    }
+  },
+  "governing_documents": {
+    "reviews/chapter02-requirements.md": {
+      "bytes": 12034,
+      "lines": 189,
+      "sha256": "f0c9bc939fbfb6da02c1734b121456c35fd6b4c9ee43f1284003d0b8db087a36"
+    },
+    "research/chapter02-obligations.md": {
+      "bytes": 42539,
+      "lines": 391,
+      "sha256": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2"
+    },
+    "research/quicksort-average-proof-plan.md": {
+      "bytes": 18013,
+      "lines": 308,
+      "sha256": "ca2090accf91ac662f2738486f7590e8b29968be524794e9356257d5f918dc46"
+    },
+    "research/random-pivot-api-preflight.md": {
+      "bytes": 26357,
+      "lines": 314,
+      "sha256": "91d34b4c86d315935f0df98023cf382fe3d141e8ab7d748baf9fdc64738a0ed0"
+    },
+    "research/chapter02-probability-dependency-handoff-20261104.md": {
+      "bytes": 15304,
+      "lines": 250,
+      "sha256": "1a19f73a1628d0016c3b76dd6a6d7ea0426fd6f6184f6589bbe15d098efa8d4f"
+    }
+  },
+  "validation_evidence": {
+    "chapter02-xd01-random-focused-20261104-attempt4/result.json": {
+      "bytes": 1310,
+      "lines": 34,
+      "sha256": "30ba6a2171879cc349ee6ebd21ad63d837561d02af14aa0d40f1f0f92cc6598a"
+    },
+    "chapter02-xd01-random-focused-20261104-attempt4/native/result.json": {
+      "bytes": 715,
+      "lines": 21,
+      "sha256": "7109ce2c0480a163b4d33db88c0c1d7ce2c39abbca0ebae95ee0759f758e76ad"
+    },
+    "chapter02-xd01-random-types-20261104/result.json": {
+      "bytes": 1297,
+      "lines": 32,
+      "sha256": "9bda3c662f6a9b177bd9f4da465124a722e8017c43eea9eb970a455988f366c3"
+    },
+    "chapter02-xd01-random-types-20261104/native/result.json": {
+      "bytes": 712,
+      "lines": 19,
+      "sha256": "300f7c5f5cfe6b36c82106258fefc0d94787c22d90e9510be76704e0812ce55f"
+    },
+    "chapter02-xd01-random-types-20261104/random-types.txt": {
+      "bytes": 87257,
+      "lines": 1188,
+      "sha256": "38119532e0476e3fa4870d924bed6484ed26267f1d6eae5707b41f99eb4728ac"
+    },
+    "chapter02-xd01-random-types-20261104/random-author-readback.md": {
+      "bytes": 9957,
+      "lines": 161,
+      "sha256": "e968ce00a177c90ee70674062a75403dac454967487871c31bbd17ec9bbada02"
+    }
+  },
+  "focused_initial_pair_pass": true,
+  "complete_candidate_check_or_audit_performed_by_author": false,
+  "independent_final_reviews_claimed": false,
+  "acceptance_claimed": false,
+  "environment": {
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "lean_toolchain_file": {
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    "lake_manifest_file": {
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    "dependency_pins": [
+      {
+        "name": "mathlib",
+        "rev": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "rev": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "rev": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "rev": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "rev": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "rev": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "rev": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "rev": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "rev": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "qualified_mathlib_source": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib",
+    "mathlib_head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "nix_waived_only": true,
+    "native_adapter_and_qualified_launcher_retained": true,
+    "author_builds_started": 0,
+    "author_cache_writes": false
+  },
+  "source_inspected_api_files": {
+    "Mathlib/Probability/ProbabilityMassFunction/Basic.lean": {
+      "bytes": 14717,
+      "lines": 351,
+      "sha256": "42d8ba19dead746276936fe3907b73cf02bf68ae44d49f3041b3ae8dbf35615c",
+      "inspection_scope": [
+        "1-115",
+        "213-284",
+        "318-351"
+      ]
+    },
+    "Mathlib/Probability/ProbabilityMassFunction/Monad.lean": {
+      "bytes": 11910,
+      "lines": 309,
+      "sha256": "fa8edb0c9feb17a79e9119179fbb08178ebca32fa6d126232287866bb7a5088e",
+      "inspection_scope": [
+        "bind/support/monad laws and toMeasure_bind_apply, inspected in this continuing task"
+      ]
+    },
+    "Mathlib/Probability/ProbabilityMassFunction/Constructions.lean": {
+      "bytes": 11757,
+      "lines": 335,
+      "sha256": "188136d13b18f6ce0018e1483b36a669e880990cf51a7073ebb1e01c99779cca",
+      "inspection_scope": [
+        "map, map/bind and finite construction APIs; measure map section 80-107"
+      ]
+    },
+    "Mathlib/Probability/ProbabilityMassFunction/Integrals.lean": {
+      "bytes": 2263,
+      "lines": 60,
+      "sha256": "04484c3ede88e8e0029000c3fc95b44eaaf19e3e4ccc09243a7cb9fe3034d6d5",
+      "inspection_scope": [
+        "full file"
+      ]
+    },
+    "Mathlib/Topology/Algebra/InfiniteSum/ENNReal.lean": {
+      "bytes": 31623,
+      "lines": 654,
+      "sha256": "88ef56c969006630d0066b7af2c74e75dd060608f3c42f0ef288ad1c6da908cc",
+      "inspection_scope": [
+        "95-118",
+        "176-194"
+      ]
+    },
+    "Mathlib/MeasureTheory/Integral/Lebesgue/Countable.lean": {
+      "bytes": 19365,
+      "lines": 356,
+      "sha256": "456f4ba959eee9fbb1ba4e741917457e4e199220b18d654d9fd68c9d1ef43216",
+      "inspection_scope": [
+        "112-158"
+      ]
+    },
+    "Mathlib/MeasureTheory/Function/L1Space/Integrable.lean": {
+      "bytes": 57662,
+      "lines": 1257,
+      "sha256": "eb58a9036c9d7d38ad8b0f8b12b757bf598fcd056a5dd0f2ee2d6a0c4d619500",
+      "inspection_scope": [
+        "912-934"
+      ]
+    },
+    "Mathlib/MeasureTheory/Integral/Bochner/Basic.lean": {
+      "bytes": 72737,
+      "lines": 1425,
+      "sha256": "7e46dfb89df86399622c463d2ac657ab679eb2c0151266c82e896634be6d5965",
+      "inspection_scope": [
+        "738-773"
+      ]
+    },
+    "Mathlib/MeasureTheory/MeasurableSpace/Basic.lean": {
+      "bytes": 15859,
+      "lines": 383,
+      "sha256": "8cafe2d83ca194225b37f331c01ed08219f58541b6de0aa0d20a6866fa048935",
+      "inspection_scope": [
+        "280-294"
+      ]
+    },
+    "Mathlib/MeasureTheory/Integral/Average.lean": {
+      "bytes": 45855,
+      "lines": 908,
+      "sha256": "5cf142f700bade03ca6b46e726c0c474a59f5ff63577ef8245a22492723386e9",
+      "inspection_scope": [
+        "101-121",
+        "377-393"
+      ]
+    },
+    "Mathlib/Basic/ENNReal/Real.lean": {
+      "bytes": 15950,
+      "lines": 405,
+      "sha256": "da5573e6bb7b196bd109724302c3db8eda3a3efab72c8db958ce2ddbf643cecf",
+      "inspection_scope": [
+        "34-72",
+        "toReal_mul source declaration"
+      ]
+    },
+    "Mathlib/Basic/ENNReal/BigOperators.lean": {
+      "bytes": 8290,
+      "lines": 192,
+      "sha256": "b1ecd4c55a43cd80fe633a9fc4efbcdea057457a4af39a6066727fb1f9d30e0d",
+      "inspection_scope": [
+        "90-125"
+      ]
+    },
+    "Mathlib/Basic/ENNReal/Inv.lean": {
+      "bytes": 44273,
+      "lines": 982,
+      "sha256": "f06e93ae82105c5c03585c2d11377b94aac119b7fdbcaf34a7a333aa27c53f36",
+      "inspection_scope": [
+        "974-983"
+      ]
+    }
+  },
+  "other_interfaces_assessed": [
+    {
+      "source": "Applications/Probability/FiniteKernel.lean",
+      "candidate": "dfaf68114d1dda4e15628c94c3d988c3f5457c49",
+      "scope": "Table, mass, kernel, lintegral_kernel and finite-space interfaces; no import planned"
+    },
+    {
+      "source": "Applications/Probability/Execution.lean; Results.lean; HittingTimes.lean; HeavyTail.lean",
+      "candidate": "dfaf68114d1dda4e15628c94c3d988c3f5457c49",
+      "scope": "read existing execution/termination interfaces; no replacement executor planned"
+    },
+    {
+      "source": "Applications/Probability/AccumulatedWork.lean",
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "scope": "integrated-drift premise is not this actual PMF mean bridge; no import planned"
+    },
+    {
+      "source": "Applications/Probability/PermutationExpectation.lean",
+      "candidate": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+      "scope": "full exact source read, finite global-permutation observation means; no import planned"
+    }
+  ],
+  "proposed_source_files": [
+    "Applications/Resources/RandomQuickSortMean.lean",
+    "Examples/RandomQuickSortMean.lean"
+  ],
+  "proposed_public_mean_definitions": [
+    "exerciseMean lt xs = integral Nat.cast over (exerciseLaw lt xs).toMeasure",
+    "literalMean lt xs = integral Nat.cast over (literalLaw lt xs).toMeasure"
+  ],
+  "required_next_slice": [
+    "actual lower-integral bounds",
+    "explicit lower-integral finiteness",
+    "genuine real Integrable contracts",
+    "actual lower-to-real mean transport",
+    "actual indexed-occurrence exerciseMean_cons equation",
+    "same-run exerciseMean <= literalMean <= 2*exerciseMean",
+    "connected base/two/three-key and constant-key family mean examples"
+  ],
+  "mandatory_later_work": [
+    "distinct-key occurrence/rank bijection and inherited key distinctness",
+    "execution-derived length-indexed recurrence",
+    "connected harmonic formula",
+    "logarithmic and Big-O results",
+    "separate uniform-input first-pivot mean",
+    "selection/removal and random-bit scope qualifications",
+    "full candidate gates, independent reviews and immediate verification"
+  ],
+  "independent_calculations": {
+    "status": "preimplementation exact arithmetic, not kernel proof",
+    "empty": {
+      "exercise": "1",
+      "literal": "1"
+    },
+    "singleton": {
+      "exercise": "5",
+      "literal": "8"
+    },
+    "two_distinct": {
+      "exercise": "13",
+      "literal": "39/2",
+      "literal_actual_outcomes": [
+        {
+          "cost": 19,
+          "mass": "1/2"
+        },
+        {
+          "cost": 20,
+          "mass": "1/2"
+        }
+      ]
+    },
+    "three_distinct": {
+      "exercise": "71/3",
+      "exercise_actual_outcomes": [
+        {
+          "cost": 21,
+          "mass": "1/3"
+        },
+        {
+          "cost": 25,
+          "mass": "2/3"
+        }
+      ]
+    },
+    "two_equal_key_tags": {
+      "exercise": "13",
+      "literal": "19"
+    },
+    "three_equal_keys": {
+      "exercise": "25",
+      "literal": "34"
+    },
+    "constant_key_family": {
+      "exercise": "2*n^2+2*n+1",
+      "literal": "2*n^2+5*n+1"
+    }
+  },
+  "writes_authorized": [
+    "PLAN.md",
+    "identity.json"
+  ],
+  "lean_source_changed": false,
+  "git_refs_changed": false,
+  "global_control_or_prior_evidence_changed": false,
+  "tickets_or_coverage_changed": false,
+  "next_action": "HOLD all writes for root plan review; no Lean/ref/build/cache work before explicit release",
+  "plan": {
+    "bytes": 21825,
+    "lines": 389,
+    "sha256": "b8b24f667412ae6360bf2b36fb35c416d20feab853bbb68a8cc5727ba939f6d1"
+  },
+  "author_status_after": ""
+}

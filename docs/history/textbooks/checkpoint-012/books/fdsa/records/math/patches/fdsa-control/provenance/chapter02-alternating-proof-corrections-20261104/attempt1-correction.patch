@@ -1,0 +1,22 @@
+diff --git a/Applications/Sorting/Alternating.lean b/Applications/Sorting/Alternating.lean
+index be660ce..919942a 100644
+--- a/Applications/Sorting/Alternating.lean
++++ b/Applications/Sorting/Alternating.lean
+@@ -43,13 +43,15 @@ theorem halve_perm (xs left right : List α) :
+       _ ~ x :: (rest ++ (left ++ y :: right)) := List.perm_middle
+       _ ~ x :: (rest ++ y :: (left ++ right)) :=
+         ((List.Perm.refl rest).append List.perm_middle).cons x
+-      _ ~ (x :: y :: rest) ++ left ++ right := List.perm_middle.cons x
++      _ ~ (x :: y :: rest) ++ left ++ right := by
++        simpa only [List.cons_append, List.append_assoc] using
++          (List.perm_middle (a := y) (l₁ := rest) (l₂ := left ++ right)).cons x
+ termination_by xs.length
+ 
+ theorem mem_halve (xs left right : List α) (x : α) :
+     x ∈ (halve xs (left, right)).1 ∨ x ∈ (halve xs (left, right)).2 ↔
+       x ∈ xs ∨ x ∈ left ∨ x ∈ right := by
+-  simpa only [List.mem_append] using (halve_perm xs left right).mem_iff (a := x)
++  simpa only [List.mem_append, or_assoc] using (halve_perm xs left right).mem_iff (a := x)
+ 
+ /-- The left pile receives the extra occurrence on odd input lengths. -/
+ theorem halve_lengths (xs left right : List α) :

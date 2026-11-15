@@ -1,0 +1,33 @@
+{
+  "candidate": "ef7def9a5a18d2cfc68111bf65d2e036be55c26e",
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "build",
+    "Applications.Resources.SelectionGenericBounds",
+    "Examples.SelectionGenericBounds"
+  ],
+  "started_utc": "2026-11-04T21:56:16.017891+00:00",
+  "completed_utc": "2026-11-04T21:56:25.069903+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 9.051688292005565,
+  "state": "failed",
+  "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-generic-bounds-focused-attempt1-20261104/full.log",
+  "progress_bookkeeping_errors": [],
+  "final_head": "ef7def9a5a18d2cfc68111bf65d2e036be55c26e",
+  "final_status": "",
+  "log_size_bytes": 10985,
+  "log_sha256": "808b2724d2379d3134b529b9c220484917ede05ab6bf6ad4a65da1665f16c704",
+  "available_bytes_at_completion": 0,
+  "verification_record_present": true,
+  "verification_record_sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9"
+}

@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-03T14:25:24.902364+00:00",
+  "authorization": "requirements/REQUEST-direct-toolchain-041.md",
+  "environment": {
+    "LD_LIBRARY_PATH": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/lib/lean:/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/lib",
+    "LEAN_SYSROOT": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux",
+    "LAKE_CACHE_DIR": "/workspace/scratch/b566cace4ed6/pfds/runtime-cache/lake",
+    "MATHLIB_CACHE_DIR": "/workspace/scratch/b566cace4ed6/pfds/runtime-cache/mathlib",
+    "LEAN_NUM_THREADS": "1"
+  },
+  "path_prepend": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin",
+  "smoke_results": [
+    {
+      "argv": [
+        "lean",
+        "--version"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "error: failed to locate application\n"
+    },
+    {
+      "argv": [
+        "lake",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "lean",
+        "--print-prefix"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "error: failed to locate application\n"
+    }
+  ],
+  "initial_failures": "environment/direct-toolchain-041.json",
+  "compiler_binary_modified": false,
+  "formal_acceptance": false
+}

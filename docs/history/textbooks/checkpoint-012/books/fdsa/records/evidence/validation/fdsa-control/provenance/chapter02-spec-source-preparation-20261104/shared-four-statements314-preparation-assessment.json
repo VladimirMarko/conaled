@@ -1,0 +1,602 @@
+{
+  "kind": "Bounded independent Spec preparation check within existing four-unit review loop",
+  "reviewer": "/root/chapter02_spec",
+  "recorded_utc": "2026-11-04T12:48:47.113806+00:00",
+  "candidate": null,
+  "overall_acceptance": "Blocked",
+  "preparation_finding": null,
+  "new_compiler_type_reuse_or_acceptance_credit": 0,
+  "prepared314": {
+    "Statements.lean": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+      "bytes": 16826,
+      "newline_lines": 340,
+      "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754"
+    },
+    "inventory.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-and-insertion-statements314-prepared-20261104/inventory.json",
+      "bytes": 53097,
+      "newline_lines": 1988,
+      "sha256": "052ea733c0e83e8af852b177ba9e350fe62b911ae1d83f430f98a2047b7601a9"
+    },
+    "preparation.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-and-insertion-statements314-prepared-20261104/preparation.md",
+      "bytes": 2325,
+      "newline_lines": 11,
+      "sha256": "b046cc019a4214f3969ed7cc438e81922e11bf1a9874004b4196e53f786959d6"
+    }
+  },
+  "original279": {
+    "Statements.lean": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-public-statements279-prepared-20261104/Statements.lean",
+      "bytes": 15990,
+      "newline_lines": 332,
+      "sha256": "6fb956bd7423cdb8d04e94fa544920907bdb3df291822d5ab1dfbd8fa5cc2925"
+    },
+    "bookkeeping-correction1.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-public-statements279-prepared-20261104/bookkeeping-correction1.json",
+      "bytes": 5027,
+      "newline_lines": 92,
+      "sha256": "0e7d0d72f2db56909269f6265a66f190bf1f8ad4b87741208d2ea97f1feb4582"
+    },
+    "inventory.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-public-statements279-prepared-20261104/inventory.json",
+      "bytes": 218625,
+      "newline_lines": 5605,
+      "sha256": "4c03ab11c546ce7e5950abe6af1ab636763a4fa0ffc195f8effd8767d5d8367b"
+    },
+    "preparation.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-public-statements279-prepared-20261104/preparation.md",
+      "bytes": 9069,
+      "newline_lines": 56,
+      "sha256": "2633d3a79e331f3958cba5cfd6631959adfd55371575c6f709db65acaca0e3c0"
+    },
+    "receipt.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-public-statements279-prepared-20261104/receipt.json",
+      "bytes": 5841,
+      "newline_lines": 122,
+      "sha256": "cbddf1a7bb46a51676c9ea4c2eb3bc20bc88b90f4aacf578189bde9a4d50cd79"
+    },
+    "source-and-evidence.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-public-statements279-prepared-20261104/source-and-evidence.json",
+      "bytes": 64448,
+      "newline_lines": 1661,
+      "sha256": "af4bb9f50ec49d5b049ac96a5b2d26535f827b8ef8d703bb96ee75dd1826ff33"
+    }
+  },
+  "exactF145": {
+    "Statements.lean": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+      "bytes": 7518,
+      "newline_lines": 156,
+      "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4"
+    },
+    "inventory.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-complete-public-statements-prepared-20261104/inventory.json",
+      "bytes": 9630,
+      "newline_lines": 205,
+      "sha256": "d39aa500144f7893088e8e69cb32514d75191d100e7b9fc1405e14055a94fefa"
+    }
+  },
+  "full_read_boundary": {
+    "new_program_lines": [
+      [
+        1,
+        340
+      ]
+    ],
+    "new_preparation_lines": [
+      [
+        1,
+        11
+      ]
+    ],
+    "new_inventory": "Entire JSON parsed; all314 name/index/origin joins mechanically reconciled against the exact original279 and exactF145 inputs. Every nondeclaration field read in a separate complete bounded output. No claim to a new full mathematical or actual-type review.",
+    "old_preparation_lines": [
+      [
+        1,
+        56
+      ]
+    ],
+    "old_receipt_lines": [
+      [
+        1,
+        122
+      ]
+    ],
+    "old_bookkeeping_correction_lines": [
+      [
+        1,
+        92
+      ]
+    ],
+    "old_inventory_and_evidence": "Entire JSON parsed; relevant foundation145 trigger rows and source-closure model fields assessed. Does not claim a fresh full read of all historical mathematical/type evidence.",
+    "bookkeeping": "One batched output exceeded the wrapper limit; no obscured metadata was credited. Complete314 program reread alone and all relevant metadata separately read. One read-only metadata printer treated an integer declarations count as a list; corrected to the actual names field before reconciliation. Neither incident launched a compiler or wrote a source/output."
+  },
+  "projection": {
+    "total_names": 314,
+    "distinct_names": 314,
+    "original_prefix_count": 279,
+    "prefix_names_and_order_exact": true,
+    "appended_count": 35,
+    "F_positions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99
+    ],
+    "new_positions": [
+      280,
+      314
+    ],
+    "all314_inventory_entries_reconciled": true,
+    "two_added_imports": [
+      "Applications.Resources.InsertionSort",
+      "Examples.InsertionCosts"
+    ],
+    "original12_import_order_preserved": true,
+    "printing_options": {
+      "pp.universes": true,
+      "pp.explicit": true,
+      "pp.fullNames": true
+    },
+    "options_unchanged": true,
+    "all_five_declared_input_hashes_match": true,
+    "appended_name_mapping": [
+      {
+        "new_index": 280,
+        "F_index": 1,
+        "name": "Resources.InsertionSort.insertRun"
+      },
+      {
+        "new_index": 281,
+        "F_index": 2,
+        "name": "Resources.InsertionSort.insertRun_value"
+      },
+      {
+        "new_index": 282,
+        "F_index": 3,
+        "name": "Resources.InsertionSort.insertRun_cost_bounds"
+      },
+      {
+        "new_index": 283,
+        "F_index": 4,
+        "name": "Resources.InsertionSort.insertRun_cost_of_head"
+      },
+      {
+        "new_index": 284,
+        "F_index": 5,
+        "name": "Resources.InsertionSort.insertRun_cost_of_all"
+      },
+      {
+        "new_index": 285,
+        "F_index": 6,
+        "name": "Resources.InsertionSort.insertRun_cost_of_all_not"
+      },
+      {
+        "new_index": 286,
+        "F_index": 7,
+        "name": "Resources.InsertionSort.sortRun"
+      },
+      {
+        "new_index": 287,
+        "F_index": 8,
+        "name": "Resources.InsertionSort.sortRun_value"
+      },
+      {
+        "new_index": 288,
+        "F_index": 9,
+        "name": "Resources.InsertionSort.sortRun_length"
+      },
+      {
+        "new_index": 289,
+        "F_index": 10,
+        "name": "Resources.InsertionSort.sortRun_cons_cost"
+      },
+      {
+        "new_index": 290,
+        "F_index": 11,
+        "name": "Resources.InsertionSort.sortRun_cost_lower"
+      },
+      {
+        "new_index": 291,
+        "F_index": 12,
+        "name": "Resources.InsertionSort.sortRun_double_cost_le"
+      },
+      {
+        "new_index": 292,
+        "F_index": 13,
+        "name": "Resources.InsertionSort.sortRun_cost_le"
+      },
+      {
+        "new_index": 293,
+        "F_index": 14,
+        "name": "Resources.InsertionSort.sortRun_quadratic"
+      },
+      {
+        "new_index": 294,
+        "F_index": 15,
+        "name": "Resources.InsertionSort.sortRun_cost_of_pairwise"
+      },
+      {
+        "new_index": 295,
+        "F_index": 16,
+        "name": "Resources.InsertionSort.sortRun_double_cost_of_opposite"
+      },
+      {
+        "new_index": 296,
+        "F_index": 17,
+        "name": "Resources.InsertionSort.reverse_range_opposite"
+      },
+      {
+        "new_index": 297,
+        "F_index": 18,
+        "name": "Resources.InsertionSort.sortRun_cost_reverse_range"
+      },
+      {
+        "new_index": 298,
+        "F_index": 19,
+        "name": "Resources.InsertionSort.sortRun_stable"
+      },
+      {
+        "new_index": 299,
+        "F_index": 84,
+        "name": "Examples.InsertionCosts.empty_cost"
+      },
+      {
+        "new_index": 300,
+        "F_index": 85,
+        "name": "Examples.InsertionCosts.singleton_cost"
+      },
+      {
+        "new_index": 301,
+        "F_index": 86,
+        "name": "Examples.InsertionCosts.sorted_with_duplicates"
+      },
+      {
+        "new_index": 302,
+        "F_index": 87,
+        "name": "Examples.InsertionCosts.descending_worst"
+      },
+      {
+        "new_index": 303,
+        "F_index": 88,
+        "name": "Examples.InsertionCosts.best_is_global"
+      },
+      {
+        "new_index": 304,
+        "F_index": 89,
+        "name": "Examples.InsertionCosts.worst_is_global"
+      },
+      {
+        "new_index": 305,
+        "F_index": 90,
+        "name": "Examples.InsertionCosts.source_quadratic"
+      },
+      {
+        "new_index": 306,
+        "F_index": 91,
+        "name": "Examples.InsertionCosts.immediate_insertion"
+      },
+      {
+        "new_index": 307,
+        "F_index": 92,
+        "name": "Examples.InsertionCosts.full_traversal"
+      },
+      {
+        "new_index": 308,
+        "F_index": 93,
+        "name": "Examples.InsertionCosts.tied_head_ignores_tail"
+      },
+      {
+        "new_index": 309,
+        "F_index": 94,
+        "name": "Examples.InsertionCosts.key_contract"
+      },
+      {
+        "new_index": 310,
+        "F_index": 95,
+        "name": "Examples.InsertionCosts.key_tie_observation"
+      },
+      {
+        "new_index": 311,
+        "F_index": 96,
+        "name": "Examples.InsertionCosts.sorted_result_has_rank"
+      },
+      {
+        "new_index": 312,
+        "F_index": 97,
+        "name": "Examples.InsertionCosts.repeated_value_rank"
+      },
+      {
+        "new_index": 313,
+        "F_index": 98,
+        "name": "Examples.InsertionCosts.small_sort_budget"
+      },
+      {
+        "new_index": 314,
+        "F_index": 99,
+        "name": "Examples.InsertionCosts.small_rank_with_sort_budget"
+      }
+    ]
+  },
+  "concrete_dependency_trigger": {
+    "F": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "model": "Exact source assignments in the original279 source-and-evidence.json local_import_closure, with all other local inputs from F; this is not an assembled candidate.",
+    "model_record": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-public-statements279-prepared-20261104/source-and-evidence.json",
+      "bytes": 64448,
+      "newline_lines": 1661,
+      "sha256": "af4bb9f50ec49d5b049ac96a5b2d26535f827b8ef8d703bb96ee75dd1826ff33"
+    },
+    "method": "Independently resolve local imports from immutable Git blobs for every foundation defining root, compare each relevant local source SHA-256 and external import set. No current project output or runtime input snapshot.",
+    "roots": [
+      {
+        "root": "Applications/Resources/InsertionSort.lean",
+        "public_names": 19,
+        "root_source_sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+        "root_source_unchanged": true,
+        "local_paths": [
+          "Applications/Resources/CallCount.lean",
+          "Applications/Resources/InsertionSort.lean",
+          "Applications/Resources/Measured.lean",
+          "Applications/Sorting/Merge.lean",
+          "Applications/Sorting/Sort.lean",
+          "Applications/Sorting/Stable.lean",
+          "Squares.lean"
+        ],
+        "local_paths_unchanged": true,
+        "changed_paths": [
+          "Applications/Sorting/Merge.lean"
+        ],
+        "change_identities": {
+          "Applications/Sorting/Merge.lean": {
+            "F_sha256": "79b35252d0f551b381ef63974497311336ea92a5d118691647825cade12a1338",
+            "expected_model_sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7"
+          }
+        },
+        "external_imports": [
+          "Lean",
+          "Mathlib.Algebra.Group.Prod",
+          "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+          "Mathlib.Data.List.Sort",
+          "Mathlib.Tactic.Linarith"
+        ],
+        "external_imports_unchanged": true,
+        "F_closure_source_hashes_digest": "8094cd38122f0db36e54d5f168500e1b2bcdad127a0d78e70d0925bf736dc541",
+        "model_closure_source_hashes_digest": "b816e246ffeba8ddfea5b93784a8edcb8ee9985e63845cc3df24bf45571f2f99"
+      },
+      {
+        "root": "Applications/Resources/ListCalls.lean",
+        "public_names": 34,
+        "root_source_sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+        "root_source_unchanged": true,
+        "local_paths": [
+          "Applications/Resources/CallCount.lean",
+          "Applications/Resources/ListCalls.lean",
+          "Applications/Resources/Measured.lean",
+          "Applications/Resources/Potential.lean",
+          "Applications/Resources/SymmetricCosts.lean",
+          "Applications/Resources/Workload.lean",
+          "Applications/Sequences/Symmetric/Core.lean",
+          "SquareKit/ListFusion.lean",
+          "Squares.lean"
+        ],
+        "local_paths_unchanged": true,
+        "changed_paths": [],
+        "change_identities": {},
+        "external_imports": [
+          "Lean",
+          "Mathlib.Algebra.BigOperators.Group.List.Basic",
+          "Mathlib.Algebra.Group.Nat.Defs",
+          "Mathlib.Algebra.Group.Prod",
+          "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+          "Mathlib.Data.List.Basic",
+          "Mathlib.Data.List.Infix"
+        ],
+        "external_imports_unchanged": true,
+        "F_closure_source_hashes_digest": "7176bdcaa89e94a28ee22eb07b1697718ff4636637650039525c17da90043c9b",
+        "model_closure_source_hashes_digest": "7176bdcaa89e94a28ee22eb07b1697718ff4636637650039525c17da90043c9b"
+      },
+      {
+        "root": "Examples/FunctionalNotation.lean",
+        "public_names": 30,
+        "root_source_sha256": "fe4b585a6753110dee67c1942ce68d16d9bf00feb5946f32791682c634c42eef",
+        "root_source_unchanged": true,
+        "local_paths": [
+          "Applications/Arithmetic/EuclidInduction.lean",
+          "Examples/FunctionalBasics.lean",
+          "Examples/FunctionalNotation.lean",
+          "Examples/ListLibrary.lean"
+        ],
+        "local_paths_unchanged": true,
+        "changed_paths": [],
+        "change_identities": {},
+        "external_imports": [
+          "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+          "Mathlib.Algebra.BigOperators.Group.Multiset.Basic",
+          "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+          "Mathlib.Algebra.Order.Floor.Ring",
+          "Mathlib.Basic.Real.Basic",
+          "Mathlib.Data.Int.DivMod",
+          "Mathlib.Data.List.Chain",
+          "Mathlib.Data.List.Intervals",
+          "Mathlib.Data.List.MinMax",
+          "Mathlib.Data.List.Sort",
+          "Mathlib.Data.Multiset.Filter",
+          "Mathlib.Data.Nat.GCD.Basic",
+          "Mathlib.Data.Set.Finite.Basic",
+          "Mathlib.Data.Set.Lattice.Bounded",
+          "Mathlib.Data.Set.Lattice.Disjoint",
+          "Mathlib.Data.Set.Lattice.Image",
+          "Mathlib.Data.Set.Lattice.Indexed",
+          "Mathlib.Data.Set.Lattice.Order",
+          "Mathlib.Data.Set.Prod",
+          "Mathlib.Logic.Function.Basic",
+          "Mathlib.Order.Interval.Finset.Nat",
+          "Mathlib.Order.Interval.Set.Defs",
+          "Mathlib.Tactic.NormNum"
+        ],
+        "external_imports_unchanged": true,
+        "F_closure_source_hashes_digest": "118cbf95dee8d8e459c74a40307dffaaf4deeec33b1abb82f013575c6f912cbc",
+        "model_closure_source_hashes_digest": "118cbf95dee8d8e459c74a40307dffaaf4deeec33b1abb82f013575c6f912cbc"
+      },
+      {
+        "root": "Examples/InsertionCosts.lean",
+        "public_names": 16,
+        "root_source_sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37",
+        "root_source_unchanged": true,
+        "local_paths": [
+          "Applications/Resources/CallCount.lean",
+          "Applications/Resources/InsertionSort.lean",
+          "Applications/Resources/Measured.lean",
+          "Applications/Selection/Rank.lean",
+          "Applications/Sorting/Merge.lean",
+          "Applications/Sorting/Sort.lean",
+          "Applications/Sorting/Stable.lean",
+          "Examples/InsertionCosts.lean",
+          "Squares.lean"
+        ],
+        "local_paths_unchanged": true,
+        "changed_paths": [
+          "Applications/Sorting/Merge.lean"
+        ],
+        "change_identities": {
+          "Applications/Sorting/Merge.lean": {
+            "F_sha256": "79b35252d0f551b381ef63974497311336ea92a5d118691647825cade12a1338",
+            "expected_model_sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7"
+          }
+        },
+        "external_imports": [
+          "Lean",
+          "Mathlib.Algebra.Group.Prod",
+          "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+          "Mathlib.Data.List.Sort",
+          "Mathlib.Tactic.Linarith"
+        ],
+        "external_imports_unchanged": true,
+        "F_closure_source_hashes_digest": "fc1f38ecafb56153ce4854379f2a278ff0584bd9fe69cd05e67c0b77ab3d0c10",
+        "model_closure_source_hashes_digest": "1b23ba6019c4d8c8b7daaa7e9ac537d3a13a61feda1c5a7ad9b9fb5df6256f14"
+      },
+      {
+        "root": "Examples/ListCalls.lean",
+        "public_names": 16,
+        "root_source_sha256": "24d0809f51d04b0a9cadb5a349141e7327a5f7721f63c1021113527917487d5d",
+        "root_source_unchanged": true,
+        "local_paths": [
+          "Applications/Bracketing/Basic.lean",
+          "Applications/Optimization/SelectionSpec.lean",
+          "Applications/Resources/CallCount.lean",
+          "Applications/Resources/ListCalls.lean",
+          "Applications/Resources/ListReversal.lean",
+          "Applications/Resources/Measured.lean",
+          "Applications/Resources/Potential.lean",
+          "Applications/Resources/RandomAccess/CacheCosts.lean",
+          "Applications/Resources/SymmetricCosts.lean",
+          "Applications/Resources/TreeFlattening/Core.lean",
+          "Applications/Resources/Workload.lean",
+          "Applications/Sequences/RandomAccess/Access.lean",
+          "Applications/Sequences/RandomAccess/Basic.lean",
+          "Applications/Sequences/RandomAccess/Borrow.lean",
+          "Applications/Sequences/RandomAccess/TreeBuild.lean",
+          "Applications/Sequences/Symmetric/Core.lean",
+          "Examples/ListCalls.lean",
+          "SquareKit/ListFusion.lean",
+          "Squares.lean"
+        ],
+        "local_paths_unchanged": true,
+        "changed_paths": [],
+        "change_identities": {},
+        "external_imports": [
+          "Lean",
+          "Mathlib.Algebra.BigOperators.Group.List.Basic",
+          "Mathlib.Algebra.Group.Nat.Defs",
+          "Mathlib.Algebra.Group.Prod",
+          "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+          "Mathlib.Data.List.Basic",
+          "Mathlib.Data.List.Infix",
+          "Mathlib.Tactic.Linarith",
+          "Std"
+        ],
+        "external_imports_unchanged": true,
+        "F_closure_source_hashes_digest": "7a24eb3618513247eaa4525c5f363e1afe49ea3696afdfeb218fc47ef16675c5",
+        "model_closure_source_hashes_digest": "7a24eb3618513247eaa4525c5f363e1afe49ea3696afdfeb218fc47ef16675c5"
+      },
+      {
+        "root": "Examples/ListLibrary.lean",
+        "public_names": 30,
+        "root_source_sha256": "036cf4c12ddf5d25ce433d9f7dbedfcbb96dfc3c7f602d10605388d2791e47ad",
+        "root_source_unchanged": true,
+        "local_paths": [
+          "Examples/ListLibrary.lean"
+        ],
+        "local_paths_unchanged": true,
+        "changed_paths": [],
+        "change_identities": {},
+        "external_imports": [
+          "Mathlib.Data.List.Chain",
+          "Mathlib.Data.List.Intervals",
+          "Mathlib.Data.List.MinMax",
+          "Mathlib.Data.List.Sort"
+        ],
+        "external_imports_unchanged": true,
+        "F_closure_source_hashes_digest": "564a28834883ab1442c537efdca3a441a686e5c8c18b974e0f4b48a38a6ef611",
+        "model_closure_source_hashes_digest": "564a28834883ab1442c537efdca3a441a686e5c8c18b974e0f4b48a38a6ef611"
+      }
+    ],
+    "changed_inherited_names": 35,
+    "unchanged_closure_names": 110
+  },
+  "scope_and_execution_conditions": [
+    "Only future standalone279 execution is superseded by the prepared314 command; both original programs and all old records are preserved.",
+    "The original four-unit18-path source scope and frozen mathematical/case requirements remain; the35 additions are inherited insertion statements, not new book claims.",
+    "ExactF145 remains a distinct prerequisite at exactF; actual full terminal, actual145 types, both full-scope review outcomes, immediate verification and accepted fast-forward remain required first.",
+    "The other110 names receive no advance reuse credit. Future retention requires actual qualifying F evidence and exact receiving-candidate input/closure/runtime reconciliation.",
+    "Bind the eventual clean immutable candidate and actual source/import closure, stock qualified objects, pins/configuration/runtime and exclusive pre/post observations. This preparation grants no source assembly or generated-output qualification.",
+    "Qualified focused/type evidence and the separate full candidate check/audit gates remain distinct; no new full-fresh-before-type gate or acceptance shortcut is introduced.",
+    "Complete actual output must be independently assessed by both axes; private, anonymous, generated declarations and affected inherited code remain in complete source/build/audit scope.",
+    "Accepted Chapter1 and existing C2/F/XP/XR/XW/XU04 report dispositions are not reopened or changed."
+  ],
+  "writes": "Only this new own provenance receipt; all existing reports/programs/source/refs/pins/cache/outputs/tickets/global controls unchanged.",
+  "no_compiler_or_process_poll": true,
+  "source_preparation_not_new_review_loop": true,
+  "protected_report_hashes": {
+    "reviews/shared-foundations-spec-continuation-20261104.md": "450409a89197f229e88e12ff477f7c3e6b60c067fde0eef297a431163a7249d6",
+    "reviews/chapter02-spec-source-preparation-20261104.md": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007",
+    "reviews/potential-spec-development-20261104.md": "9bba3ac4ffa5a5dab1e8a32e3a990851f55846a16dd4a16a72605fd00e21a615",
+    "reviews/affine-recurrence-spec-preparation-20261104.md": "8ee3cac08c1cb0d4b4d8b29821b5de9b54e549530d081155130065c3bb8e8b32",
+    "reviews/accumulated-work-spec-preparation-20261104.md": "9934402d16c3ff5e5006b8ade3ab6995f50739185ed1e5d68a2d9b004ef3f1ba",
+    "reviews/permutation-expectation-spec-preparation-20261104.md": "0c8ed987cea562d8cd783926c3e6fedf3bf82f0e74f673e275bb67b1ebc64d15"
+  }
+}

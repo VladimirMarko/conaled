@@ -1,0 +1,66 @@
+{
+  "recorded_utc": "2026-11-04T20:34:25.544813+00:00",
+  "candidate": "bf6e86970ea873d8b890cdceedcfd262bbacbb80",
+  "expectedHead": "36dba1d37672e0e09f838b229240b94fd567fb2c",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "acceptedHead": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "name": "chapter03-random-selection-mean-focused-attempt4-20261104",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Resources.RandomSelectionMean",
+    "Examples.RandomSelectionMean"
+  ],
+  "expectedPaths": [
+    "Applications/Resources/RandomSelection.lean",
+    "Applications/Resources/RandomSelectionMean.lean",
+    "Applications/Resources/RandomSelectionRun.lean",
+    "Examples/RandomSelection.lean",
+    "Examples/RandomSelectionMean.lean",
+    "Examples/RandomSelectionRun.lean"
+  ],
+  "recordDirectory": "chapter03-focused-continuation-20261104",
+  "recordName": "random-selection-mean-attempt4-preflight.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was 36dba1d fix(examples): normalize group recurrence ceilings (#174)\nHEAD is now at bf6e869 fix(selection): normalize connected mean examples (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionMean.lean",
+      "bytes": 16493,
+      "sha256": "5a7d396ed0d451c0b0ec51493c004b721c804c69263ad7c659f023cab3ddda8f"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionRun.lean",
+      "bytes": 12714,
+      "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718"
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e"
+    },
+    {
+      "path": "Examples/RandomSelectionMean.lean",
+      "bytes": 5962,
+      "sha256": "b9c83ac6e4dda31c6c70d6ccbf021cfcad5ca8317f5a3bf1133788fc559bb7af"
+    },
+    {
+      "path": "Examples/RandomSelectionRun.lean",
+      "bytes": 3770,
+      "sha256": "76504fe5fa77c581b8a7e3c9f3e0247c8a927adee8b308f84be6167e0ea20e0f"
+    }
+  ],
+  "candidate_tree": "3fff7fa2cac77072c9a7f325e655667ecbe0779d",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 669974528
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

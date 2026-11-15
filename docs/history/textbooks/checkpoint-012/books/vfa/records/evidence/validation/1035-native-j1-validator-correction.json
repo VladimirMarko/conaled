@@ -1,0 +1,10 @@
+{
+  "recorded_utc": "2026-11-03T18:31:02.898447+00:00",
+  "candidate": "c1121c5b99e8714a0d91eab0db6bb60f7c650f2c",
+  "attempt1": "work-state/validation/1035-native-j1-isolated/result.json",
+  "failure": "Validator substring assertion rejected -j1 present in the overlay pathname within Lake wrapper; this did not establish an added Lake argument. No Lean compiler invocation occurred before the assertion.",
+  "correction": "Parse final exec lines with shlex and compare exact argv vectors for Lean and Lake. Run the same untouched production candidate in a new isolated checkout/evidence directory.",
+  "attempt1_runner_sha256": "e6988f6a3b07592bcefc6a14172ffa96ee930b401ea87afde7bdabfa0725b51d",
+  "corrected_runner_sha256": "5037cd63453e2321579beae74720cd6f2fa5c6619d13edcfe1f45a9383b37122",
+  "production_source_changed": false
+}

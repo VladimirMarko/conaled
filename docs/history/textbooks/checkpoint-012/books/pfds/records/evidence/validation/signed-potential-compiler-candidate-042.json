@@ -1,0 +1,23 @@
+{
+  "recorded_at": "2026-11-03T16:46:58.839767+00:00",
+  "base": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+  "prior": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+  "candidate": "956c4b06abe8d54f78a6166690c12453115f8304",
+  "checkout": "signed-potential",
+  "scope_files": [
+    "Applications/Resources/Potential.lean",
+    "Applications/Resources/SignedPotential.lean",
+    "Examples/PotentialTransport.lean",
+    "Examples/SignedPotential.lean",
+    "SquareApplications.lean",
+    "docs/research/pfds-signed-potential.md"
+  ],
+  "correction_files": [
+    "Examples/SignedPotential.lean",
+    "Examples/PotentialTransport.lean"
+  ],
+  "correction_only_proofs": true,
+  "validation": "git diff --check passed; focused/full Lean validation pending; prior d24 exit1 remains failed.",
+  "statement_review": "All theorem statements, definitions, hypotheses, numerical expectations and connections through the public telescope/transport lemmas are unchanged. Only existing proof name resolution and rewrite order were corrected.",
+  "acceptance": false
+}

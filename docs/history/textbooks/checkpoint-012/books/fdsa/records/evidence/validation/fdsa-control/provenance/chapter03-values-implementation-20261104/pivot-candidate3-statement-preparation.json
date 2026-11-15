@@ -1,0 +1,118 @@
+{
+  "recorded_utc": "2026-11-04T19:41:12.724367+00:00",
+  "candidate": "bc26994a828eb958fe930c0e46039f9c5addc864",
+  "tree": "a04fe3e8309bdf8ec6c0f9fba9c78c24fe9fe02a",
+  "working_tree_clean": true,
+  "program": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/MedianOfMediansStatements-v2.lean",
+    "bytes": 3289,
+    "sha256": "51167fa99bb3da9bdbba996a7ba21972b49a0a16f7cc5367201477b8a46064cd",
+    "names": [
+      "Applications.Selection.lowerMedianValue",
+      "Applications.Selection.lowerMedianValue_ranked",
+      "Applications.Selection.lowerMedianValue_mem",
+      "Applications.Selection.lowerMedianWith_eq_some_value",
+      "Applications.Selection.lowerMedianValue_count_bounds",
+      "Applications.Selection.chunkMedians",
+      "Applications.Selection.length_chunkMedians",
+      "Applications.Selection.chunkMedians_eq_nil_iff",
+      "Applications.Selection.mem_chunkMedians",
+      "Applications.Selection.medianOfMedians",
+      "Applications.Selection.medianOfMedians_some_iff_ranked",
+      "Applications.Selection.medianOfMedians_none",
+      "Applications.Selection.medianOfMedians_mem",
+      "Applications.Selection.medianOfMedians_pivot_valid",
+      "Applications.Selection.medianOfMedians_median_counts",
+      "Applications.Selection.chunkMedianGroups",
+      "Applications.Selection.chunkMedianGroups_perm",
+      "Applications.Selection.chunkMedianGroups_multiset",
+      "Applications.Selection.chunkMedianGroups_lengths",
+      "Applications.Selection.chunkMedianGroups_related_length",
+      "Applications.Selection.chunk_count_lt_of_median_ge",
+      "Applications.Selection.chunk_count_gt_of_median_le",
+      "Applications.Selection.medianOfMedians_count_bounds",
+      "Applications.Selection.size_five_count_arithmetic",
+      "Applications.Selection.medianOfMedians_five_count_bounds",
+      "Applications.Selection.ceil_nat_div",
+      "Applications.Selection.size_five_ceiling",
+      "Applications.Selection.medianOfMedians_five_ceil_bounds",
+      "Examples.MedianOfMedians.lower_even_value",
+      "Examples.MedianOfMedians.lower_even_adapter",
+      "Examples.MedianOfMedians.two_full_chunk_medians",
+      "Examples.MedianOfMedians.two_full_chunk_pivot",
+      "Examples.MedianOfMedians.two_full_chunk_pivot_mem",
+      "Examples.MedianOfMedians.strict_half_is_false",
+      "Examples.MedianOfMedians.corrected_non_strict_half",
+      "Examples.MedianOfMedians.greater_median_group_is_one",
+      "Examples.MedianOfMedians.complementary_group_is_one",
+      "Examples.MedianOfMedians.short_final_chunk_medians",
+      "Examples.MedianOfMedians.short_final_chunk_pivot",
+      "Examples.MedianOfMedians.short_final_chunk_balance",
+      "Examples.MedianOfMedians.duplicate_chunk_medians",
+      "Examples.MedianOfMedians.duplicate_pivot",
+      "Examples.MedianOfMedians.duplicate_strict_sides",
+      "Examples.MedianOfMedians.duplicate_groups",
+      "Examples.MedianOfMedians.duplicate_groups_multiset",
+      "Examples.MedianOfMedians.five_chunk_lower_contribution",
+      "Examples.MedianOfMedians.five_chunk_upper_contribution",
+      "Examples.MedianOfMedians.five_chunk_total_contribution",
+      "Examples.MedianOfMedians.singleton_group_balance",
+      "Examples.MedianOfMedians.source_real_ceiling",
+      "Examples.MedianOfMedians.source_real_balance",
+      "Examples.MedianOfMedians.empty_pivot",
+      "Examples.MedianOfMedians.zero_size_pivot",
+      "Examples.MedianOfMedians.empty_strict_counts",
+      "Examples.MedianOfMedians.mathematical_policy_is_valid"
+    ],
+    "ordered_names_match_current_public_source": true,
+    "change_needed": false
+  },
+  "author_source_identities": [
+    {
+      "repository_path": "Applications/Selection/CountRank.lean",
+      "git_blob": "5f6393df9fd804e4234eb16c8ecdcd93426952b3",
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d"
+    },
+    {
+      "repository_path": "Examples/SelectionCountRank.lean",
+      "git_blob": "b43d7c7eeb5f2cc3134166a00100edf26e91d2a9",
+      "bytes": 4423,
+      "sha256": "cc73980788882d39abe44672d89e6a3ce37dfe3b5f5788375255248e8b4a66d2"
+    },
+    {
+      "repository_path": "Applications/Sequences/Chunks.lean",
+      "git_blob": "c45bcb6427c002d3bab7c728dd6743458c8010fc",
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493"
+    },
+    {
+      "repository_path": "Examples/ListChunks.lean",
+      "git_blob": "adb9da5b16f1bef2e1e8fe7cbeee0698ea1b0859",
+      "bytes": 2683,
+      "sha256": "161e240f9c07db5b13f9abf5bf09782064adce4862e60fbe35f0eba483c76c78"
+    },
+    {
+      "repository_path": "Applications/Selection/MedianOfMedians.lean",
+      "git_blob": "c348fd2b48ec0b40fa76aa30634406580f9063c0",
+      "bytes": 13797,
+      "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba"
+    },
+    {
+      "repository_path": "Examples/MedianOfMedians.lean",
+      "git_blob": "4803b5ce143a7501608810059c80bc263027c6a5",
+      "bytes": 9092,
+      "sha256": "0bbbbdab0f2f41f42fd615231d04d29ebeb8f7ffd5cc83e2a6b832cbfcc25f0c"
+    }
+  ],
+  "source_scope": {
+    "public_pivot_names": 55,
+    "private_core_helpers": 2,
+    "private_example_helpers": [
+      "lowerMedianValue_eq_insertionLookup",
+      "chunkMedians_eq_insertionLookups"
+    ]
+  },
+  "prior_program_preserved": true,
+  "boundary": "Additive source/program binding only. No type run, loaded-object input capture, runtime/profile/dependency change or audit performed. Root owns qualified serial execution and final source/type review."
+}

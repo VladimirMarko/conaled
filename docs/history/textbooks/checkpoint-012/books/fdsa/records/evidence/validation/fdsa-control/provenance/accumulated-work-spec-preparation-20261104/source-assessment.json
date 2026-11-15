@@ -1,0 +1,1624 @@
+{
+  "schema": "fdsa-independent-spec-source-preparation-v1",
+  "recorded_utc": "2026-11-04T12:18:55.362167+00:00",
+  "review_axis": "Spec",
+  "reviewer": "/root/chapter02_spec",
+  "independent_nonauthor": true,
+  "unit": "FDSA-XW01",
+  "kind": "Original complete source preparation, not final approval",
+  "overall": "Blocked pending actual types and full validation",
+  "new_source_findings": [],
+  "identities": {
+    "original_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+    "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+    "sole_parent_verified": true,
+    "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+  },
+  "original_scope": {
+    "exact_paths": [
+      "Applications/Probability/AccumulatedWork.lean",
+      "Examples/AccumulatedWork.lean",
+      "Examples/AccumulatedWorkBoundary.lean",
+      "SquareApplications.lean",
+      "docs/research/fdsa-accumulated-work.md",
+      "docs/research/fdsa-reconstruction-map.md"
+    ],
+    "added_lines": 837,
+    "deleted_lines": 0,
+    "same_original_frozen_scope": true,
+    "Boundary_included_despite_old_author_preflight_exclusion": true
+  },
+  "source_reads": [
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "Applications/Probability/AccumulatedWork.lean",
+      "git_blob": "364a3ae346feaed7205b24dfef27895a9853a3e2",
+      "bytes": 8062,
+      "newline_lines": 157,
+      "sha256": "7731f8a6c5222810ba11a056fc620c68a152dce0024ff3e2544d17fff70a80ba",
+      "complete_immutable_source_read": true,
+      "read_ranges": [
+        [
+          1,
+          157
+        ]
+      ],
+      "complete_original_diff_read": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "Examples/AccumulatedWork.lean",
+      "git_blob": "51f43ab3698fe97b8db83084b1876851388e3738",
+      "bytes": 11953,
+      "newline_lines": 299,
+      "sha256": "7ef773d2ce87ce1b119838e083ee4a4cff072f5d96f4a8887f8494a80d04c20c",
+      "complete_immutable_source_read": true,
+      "read_ranges": [
+        [
+          1,
+          299
+        ]
+      ],
+      "complete_original_diff_read": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "Examples/AccumulatedWorkBoundary.lean",
+      "git_blob": "8b7bc778099db7f2de680addb54e53da58cb1f86",
+      "bytes": 9507,
+      "newline_lines": 219,
+      "sha256": "68ba8fd9571ad860d7f5aabd7093f35c0220ff12ead1e283e903b5bdc90a6927",
+      "complete_immutable_source_read": true,
+      "read_ranges": [
+        [
+          1,
+          219
+        ]
+      ],
+      "complete_original_diff_read": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "SquareApplications.lean",
+      "git_blob": "e83c99ff4bc06123a1ae38097f86ad375e5fecbb",
+      "bytes": 8324,
+      "newline_lines": 253,
+      "sha256": "40d97b7972ba8085c076c6482cc99f130f8e92beeea3f5c0b5fc8e040e4727dd",
+      "complete_immutable_source_read": true,
+      "read_ranges": [
+        [
+          1,
+          253
+        ]
+      ],
+      "complete_original_diff_read": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "docs/research/fdsa-accumulated-work.md",
+      "git_blob": "316cf9cc197bbe618f7da7b9efc645b39ed1b46d",
+      "bytes": 8600,
+      "newline_lines": 145,
+      "sha256": "191a7c449f936b84c17f3f5d33a935dd4440a199fc7287e576dfd38f4fbaca8e",
+      "complete_immutable_source_read": true,
+      "read_ranges": [
+        [
+          1,
+          145
+        ]
+      ],
+      "complete_original_diff_read": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "6666717e6909a1ece9491d3bca58a31ed0f1be2f",
+      "bytes": 16899,
+      "newline_lines": 278,
+      "sha256": "35c5cf425168b21900c84735020df5b6a6b9ba86c099ad4d2c555821858a7024",
+      "complete_immutable_source_read": true,
+      "read_ranges": [
+        [
+          1,
+          278
+        ]
+      ],
+      "complete_original_diff_read": true
+    }
+  ],
+  "full_control_reads": [
+    {
+      "path": "tickets/FDSA-XW01.md",
+      "bytes": 3878,
+      "newline_lines": 69,
+      "sha256": "0e7bc4c43ba273138f0b2ebafe8dc45480f4f3754c317be55152f568d45d74e1",
+      "complete_read": true,
+      "read_ranges": [
+        [
+          1,
+          69
+        ]
+      ]
+    },
+    {
+      "path": "reviews/accumulated-work-requirements.md",
+      "bytes": 9206,
+      "newline_lines": 160,
+      "sha256": "85c651891cf8c8ee016706bf8baad7711dbd9965eb20ad5c6e96d2ab112728e1",
+      "complete_read": true,
+      "read_ranges": [
+        [
+          1,
+          160
+        ]
+      ]
+    },
+    {
+      "path": "reviews/accumulated-work-candidate.md",
+      "bytes": 7034,
+      "newline_lines": 122,
+      "sha256": "fedc0f458838911cec5e1f8e94c4e60b494afc40d7142ee041cdf65fdad51343",
+      "complete_read": true,
+      "read_ranges": [
+        [
+          1,
+          122
+        ]
+      ]
+    },
+    {
+      "path": "research/accumulated-work-draft-preflight.md",
+      "bytes": 11605,
+      "newline_lines": 264,
+      "sha256": "b6d974317c97a4d97c32b2dd0f18b27edd08b2647cf680d40bdb7732468b5ab7",
+      "complete_read": true,
+      "read_ranges": [
+        [
+          1,
+          264
+        ]
+      ]
+    },
+    {
+      "path": "research/probability-api-preflight.md",
+      "bytes": 29123,
+      "newline_lines": 380,
+      "sha256": "eacc4181f3cb9e49598521be8149c65fab306a5c288ddd04e5bfeff6cccfe396",
+      "complete_read": true,
+      "read_ranges": [
+        [
+          1,
+          190
+        ],
+        [
+          191,
+          380
+        ]
+      ]
+    },
+    {
+      "path": "research/probability-source-preflight.md",
+      "bytes": 29169,
+      "newline_lines": 578,
+      "sha256": "4efb4e40a06be65705a5b9a020a24faff04f9acef313f630fed261e39182158c",
+      "complete_read": true,
+      "read_ranges": [
+        [
+          1,
+          200
+        ],
+        [
+          201,
+          400
+        ],
+        [
+          401,
+          578
+        ]
+      ]
+    },
+    {
+      "path": "research/probability-work-calculations.json",
+      "bytes": 2857,
+      "newline_lines": 167,
+      "sha256": "5eae4c4c905978d1866d9a950971cd0591c54471ad5e67282aabf2f725e4a600",
+      "complete_read": true,
+      "read_ranges": [
+        [
+          1,
+          167
+        ]
+      ]
+    }
+  ],
+  "guidance_retained_exact_reads": [
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "AGENTS.md",
+      "git_blob": "1b1e65502f0b0771b2475e3b1f37e39d7f18d0c2",
+      "bytes": 3118,
+      "newline_lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          76
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": ".agents/skills/implement/SKILL.md",
+      "git_blob": "45b885f90c1ce212e45fbb30727322e4eb34bcd8",
+      "bytes": 4997,
+      "newline_lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          83
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": ".agents/skills/code-review/SKILL.md",
+      "git_blob": "8b79f5e9db43d028f2b9a252d907b9b9b02feb01",
+      "bytes": 7466,
+      "newline_lines": 133,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          133
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": ".agents/skills/code-review/heuristics.md",
+      "git_blob": "9c5666ca66022e0322ebb9687c69182d6d63e553",
+      "bytes": 2232,
+      "newline_lines": 32,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          32
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "git_blob": "8f279691ee250a713f7cd70f7c37c5d581ead152",
+      "bytes": 6991,
+      "newline_lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          116
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": ".agents/skills/example-driven-development/worked-example.md",
+      "git_blob": "255389dab7b86dae37bf06f477f42c5a77fcbec9",
+      "bytes": 2356,
+      "newline_lines": 55,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          55
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "docs/agents/review-loop.md",
+      "git_blob": "6c4724d8b5dde60c55543e73414873a5f355d165",
+      "bytes": 7113,
+      "newline_lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          115
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "docs/agents/architectural-quality.md",
+      "git_blob": "bfcdb4a22899e11ba61b67d068d380ef5ea69f9f",
+      "bytes": 3876,
+      "newline_lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          66
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "docs/agents/domain.md",
+      "git_blob": "c26859ec35e14a9051d84066b3b5315aad67ee8b",
+      "bytes": 926,
+      "newline_lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "GLOSSARY.md",
+      "git_blob": "58735721568c19cbdc0bfd691280fd24b98e65c9",
+      "bytes": 4824,
+      "newline_lines": 106,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          106
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "docs/adr/README.md",
+      "git_blob": "d8cced6079e8bc98d3ddd9f655a3e1d78bf29107",
+      "bytes": 1547,
+      "newline_lines": 17,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "git_blob": "c997496c5aa49412715630f853419d3a6b10c825",
+      "bytes": 2561,
+      "newline_lines": 50,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          50
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "git_blob": "a864fb47055dc03ffad69dfea236f9e1c1f860f4",
+      "bytes": 7331,
+      "newline_lines": 127,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          127
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "docs/language-direction.md",
+      "git_blob": "1ff46ed93a8c9b34cd7cb30c631b4e427b7d8a6d",
+      "bytes": 19185,
+      "newline_lines": 306,
+      "sha256": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          1,
+          306
+        ]
+      ],
+      "retained_complete_read": true,
+      "exact_prior_source_identity": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "README.md",
+      "git_blob": "b2d38cbfc770f0ecb3d653dc819a67a9dd3dfa3b",
+      "bytes": 26239,
+      "newline_lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "retained_read_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "retained_read_ranges": [
+        [
+          161,
+          248
+        ]
+      ],
+      "retained_complete_read": true,
+      "qualification": "XP independently reread normal/fresh rules 161-248 and retained the previous complete C2 read; all bytes match this XR candidate.",
+      "exact_prior_source_identity": true
+    }
+  ],
+  "pinned_API_reads": [
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/MeasureTheory/Integral/Lebesgue/Markov.lean",
+      "git_blob": "5fda7757f930eca525d6885e4890d4c57ac576a1",
+      "bytes": 8634,
+      "newline_lines": 163,
+      "sha256": "41d852f6c850f8b2a6e726065a970d5aa840dbd4db0ec8b8a5a42faf460edfa7",
+      "read_ranges": [
+        [
+          1,
+          120
+        ]
+      ],
+      "complete_file_read": false,
+      "source_contract_assessment": "meas_ge_le_lintegral_div: arbitrary measure, AE measurable nonnegative observable, positive finite threshold; no probability/finite-measure assumption.",
+      "actual_expanded_type_inspection": false
+    },
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/MeasureTheory/Integral/Lebesgue/Add.lean",
+      "git_blob": "311cfe9b514f840dad89db550579037aec227f71",
+      "bytes": 24586,
+      "newline_lines": 504,
+      "sha256": "3da8d17447de38c759359878227ca2ddedb046d0c233ea82ab630d5f5114e3b6",
+      "read_ranges": [
+        [
+          1,
+          55
+        ],
+        [
+          310,
+          407
+        ]
+      ],
+      "complete_file_read": false,
+      "source_contract_assessment": "lintegral_tsum uses Countable stage index and AE measurability; addition requires only one measurable summand; constant scaling is valid for measurable/AE measurable functions.",
+      "actual_expanded_type_inspection": false
+    },
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Analysis/SpecificLimits/Basic.lean",
+      "git_blob": "10f0d97c9257bfe67c6b1d1320e748fd726fafdd",
+      "bytes": 37207,
+      "newline_lines": 760,
+      "sha256": "7a5d61c23552efa7618812a47172581188948b067b59ec581f18e517b819c969",
+      "read_ranges": [
+        [
+          390,
+          432
+        ]
+      ],
+      "complete_file_read": false,
+      "source_contract_assessment": "ENNReal.tsum_geometric handles all ratios with extended infinity, not just strict contraction.",
+      "actual_expanded_type_inspection": false
+    },
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Topology/Algebra/InfiniteSum/NatInt.lean",
+      "git_blob": "e5465d85a7655db95138cd0a0cea5cf173c81551",
+      "bytes": 26039,
+      "newline_lines": 597,
+      "sha256": "4dc1dffbdb6a0b0157e8810b20dfc0051bedf7f449b6d1fa5b8a9a47fa47f645",
+      "read_ranges": [
+        [
+          1,
+          244
+        ]
+      ],
+      "complete_file_read": false,
+      "source_contract_assessment": "to_additive on Multipliable.prod_mul_tprod_nat_mul' supplies the used Summable prefix-plus-shifted-tail identity; ENNReal summability does not assert finite total.",
+      "actual_expanded_type_inspection": false
+    },
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/MeasureTheory/Constructions/Polish/Basic.lean",
+      "git_blob": "9df356d5d822a45686b5adc9d91791e0251ef3f8",
+      "bytes": 57538,
+      "newline_lines": 1157,
+      "sha256": "b7fc33697dac435da299a5cdbac6e93f5f671fd64af0e909081fc4cee6fe7f99",
+      "read_ranges": [
+        [
+          1000,
+          1064
+        ]
+      ],
+      "complete_file_read": false,
+      "source_contract_assessment": "AE measurable countable sums via the to_additive tprod theorem; countability belongs to index, not sample space.",
+      "actual_expanded_type_inspection": false
+    },
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Topology/Algebra/InfiniteSum/ENNReal.lean",
+      "git_blob": "0c568369df1f74282f0ec4cc40d38c33bc12012b",
+      "bytes": 31623,
+      "newline_lines": 654,
+      "sha256": "88ef56c969006630d0066b7af2c74e75dd060608f3c42f0ef288ad1c6da908cc",
+      "read_ranges": [
+        [
+          20,
+          190
+        ]
+      ],
+      "complete_file_read": false,
+      "source_contract_assessment": "Every ENNReal family summable in extended topology; monotone tsum, constant multiplication including zero/infinity, positive constant sum infinity.",
+      "actual_expanded_type_inspection": false
+    },
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Basic/ENNReal/Operations.lean",
+      "git_blob": "86a4ae9a44f028c43cf21b07889ffaadb8920f9d",
+      "bytes": 31529,
+      "newline_lines": 725,
+      "sha256": "9c5ae45fe78f42b7b3c6336c49cd4f837ebf083f64677b4cddd91f609bb3bf7e",
+      "read_ranges": [
+        [
+          1,
+          42
+        ],
+        [
+          91,
+          115
+        ],
+        [
+          192,
+          209
+        ],
+        [
+          290,
+          310
+        ]
+      ],
+      "complete_file_read": false,
+      "source_contract_assessment": "Finite additive cancellation, finite product, truncated subtraction finiteness.",
+      "actual_expanded_type_inspection": false
+    },
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Basic/ENNReal/Inv.lean",
+      "git_blob": "fd51b663656c80c2e47a7a694662fd1c379bdca8",
+      "bytes": 44273,
+      "newline_lines": 982,
+      "sha256": "f06e93ae82105c5c03585c2d11377b94aac119b7fdbcaf34a7a333aa27c53f36",
+      "read_ranges": [
+        [
+          1,
+          44
+        ],
+        [
+          145,
+          172
+        ],
+        [
+          195,
+          235
+        ],
+        [
+          460,
+          485
+        ]
+      ],
+      "complete_file_read": false,
+      "source_contract_assessment": "Positive and finite quotient premises, denominator cancellation at nonzero finite threshold, monotone division.",
+      "actual_expanded_type_inspection": false
+    },
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/MeasureTheory/OuterMeasure/AE.lean",
+      "git_blob": "cea85fb52e985c4fcd030b8d06676b75f57dc080",
+      "bytes": 13526,
+      "newline_lines": 333,
+      "sha256": "d595093574d46d09420feee799ae77012518f51483db1e92744cce91c9e0166d",
+      "read_ranges": [
+        [
+          1,
+          65
+        ],
+        [
+          130,
+          162
+        ],
+        [
+          285,
+          318
+        ]
+      ],
+      "complete_file_read": false,
+      "source_contract_assessment": "Outer-measure AE event inclusion and countable-index ae_all_iff, without event-measurability/probability restrictions.",
+      "actual_expanded_type_inspection": false
+    },
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Probability/UniformOn.lean",
+      "git_blob": "535fdcd91956a1f3a09ec1008da345fc04420373",
+      "bytes": 10493,
+      "newline_lines": 230,
+      "sha256": "7f1aac5e8c78698289601133f5b9551eb772b90eab05338900c472270031f5c3",
+      "read_ranges": [
+        [
+          1,
+          140
+        ]
+      ],
+      "complete_file_read": false,
+      "source_contract_assessment": "Actual conditioned counting measure, univ/card formula, finite nonempty normalization, finite-event intersections; Fin0 is not a probability instance.",
+      "actual_expanded_type_inspection": false
+    },
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/MeasureTheory/Integral/Lebesgue/Countable.lean",
+      "git_blob": "206d5aeec2e2e236f760848795942bde43af4993",
+      "bytes": 19365,
+      "newline_lines": 356,
+      "sha256": "456f4ba959eee9fbb1ba4e741917457e4e199220b18d654d9fd68c9d1ef43216",
+      "read_ranges": [
+        [
+          1,
+          45
+        ],
+        [
+          100,
+          175
+        ]
+      ],
+      "complete_file_read": false,
+      "source_contract_assessment": "Finite integral as sum of value times singleton mass; singleton-measurable and Fintype hypotheses local to concrete clients.",
+      "actual_expanded_type_inspection": false
+    }
+  ],
+  "complete_local_operational_source_reads": [
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "Applications/Resources/Measured.lean",
+      "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+      "bytes": 2906,
+      "newline_lines": 71,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "read_ranges": [
+        [
+          1,
+          71
+        ]
+      ],
+      "complete_read": true,
+      "unchanged_from_original_base": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "Applications/Resources/Workload.lean",
+      "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+      "bytes": 2745,
+      "newline_lines": 64,
+      "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+      "read_ranges": [
+        [
+          1,
+          64
+        ]
+      ],
+      "complete_read": true,
+      "unchanged_from_original_base": true
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "Applications/Resources/CallCount.lean",
+      "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+      "bytes": 2447,
+      "newline_lines": 58,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+      "read_ranges": [
+        [
+          1,
+          58
+        ]
+      ],
+      "complete_read": true,
+      "unchanged_from_original_base": true
+    }
+  ],
+  "primary_book": {
+    "path": "/workspace/scratch/b4a17a285e23/research-source/book.txt",
+    "text_sha256": "7e5c0b4e157d28d303cc6248746aa63e1415445fa79f3556ff95ac1bf6b17333",
+    "pdf_sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645",
+    "literal_newline_ranges_read": [
+      [
+        1471,
+        1547
+      ]
+    ],
+    "printed_page_context": [
+      34,
+      35
+    ],
+    "new_renders": false,
+    "assessment": "Direct pinned book selection/high-probability context read; Karp citation does not imply direct Karp reading."
+  },
+  "external_source_boundary": {
+    "complete_preflight_read": true,
+    "fresh_original_AFP_or_other_paper_read": false,
+    "fresh_external_theory_rebuild": false,
+    "Karp_source_unavailable": true,
+    "no_external_proof_is_Lean_dependency": true,
+    "preserved_attributed_references": "Full probability-source-preflight retains pinned AFP/newer quickselect/joinable-treap source identities and inspection boundaries; this review makes no new full-source reading claim."
+  },
+  "public_surface": {
+    "public_named_count": 78,
+    "public_theorems": 67,
+    "public_definitions": 11,
+    "public_names": [
+      {
+        "path": "Applications/Probability/AccumulatedWork.lean",
+        "line": 39,
+        "kind": "theorem",
+        "source_first_line": "theorem lintegral_le_geometric (μ : Measure Ω) (X : Nat → Ω → ℝ≥0∞)",
+        "authored_name": "Applications.Probability.AccumulatedWork.lintegral_le_geometric",
+        "private": false
+      },
+      {
+        "path": "Applications/Probability/AccumulatedWork.lean",
+        "line": 54,
+        "kind": "theorem",
+        "source_first_line": "theorem lintegral_tsum_shift_le (μ : Measure Ω) (X : Nat → Ω → ℝ≥0∞)",
+        "authored_name": "Applications.Probability.AccumulatedWork.lintegral_tsum_shift_le",
+        "private": false
+      },
+      {
+        "path": "Applications/Probability/AccumulatedWork.lean",
+        "line": 74,
+        "kind": "theorem",
+        "source_first_line": "theorem lintegral_tsum_le (μ : Measure Ω) (X : Nat → Ω → ℝ≥0∞)",
+        "authored_name": "Applications.Probability.AccumulatedWork.lintegral_tsum_le",
+        "private": false
+      },
+      {
+        "path": "Applications/Probability/AccumulatedWork.lean",
+        "line": 85,
+        "kind": "theorem",
+        "source_first_line": "theorem lintegral_tsum_lt_top (μ : Measure Ω) (X : Nat → Ω → ℝ≥0∞)",
+        "authored_name": "Applications.Probability.AccumulatedWork.lintegral_tsum_lt_top",
+        "private": false
+      },
+      {
+        "path": "Applications/Probability/AccumulatedWork.lean",
+        "line": 99,
+        "kind": "theorem",
+        "source_first_line": "theorem measure_tsum_ge_le (μ : Measure Ω) (X : Nat → Ω → ℝ≥0∞)",
+        "authored_name": "Applications.Probability.AccumulatedWork.measure_tsum_ge_le",
+        "private": false
+      },
+      {
+        "path": "Applications/Probability/AccumulatedWork.lean",
+        "line": 141,
+        "kind": "theorem",
+        "source_first_line": "theorem measure_tsum_ge_le_of_stage_le (μ : Measure Ω) (X : Nat → Ω → ℝ≥0∞)",
+        "authored_name": "Applications.Probability.AccumulatedWork.measure_tsum_ge_le_of_stage_le",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 54,
+        "kind": "def",
+        "source_first_line": "noncomputable def law : Measure (Fin 8) := uniformOn Set.univ",
+        "authored_name": "Examples.AccumulatedWork.law",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 61,
+        "kind": "def",
+        "source_first_line": "def charge : Nat → Fin 8 → Nat",
+        "authored_name": "Examples.AccumulatedWork.charge",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 68,
+        "kind": "theorem",
+        "source_first_line": "theorem charge_le_one (t : Nat) (ω : Fin 8) : charge t ω ≤ 1 := by",
+        "authored_name": "Examples.AccumulatedWork.charge_le_one",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 72,
+        "kind": "theorem",
+        "source_first_line": "theorem charge_late (t : Nat) (ω : Fin 8) (ht : 4 ≤ t) : charge t ω = 0 := by",
+        "authored_name": "Examples.AccumulatedWork.charge_late",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 78,
+        "kind": "def",
+        "source_first_line": "def step (ω : Fin 8) (t : Nat) (seen : List Nat) : Measured (List Nat) Nat :=",
+        "authored_name": "Examples.AccumulatedWork.step",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 81,
+        "kind": "theorem",
+        "source_first_line": "theorem step_cost (ω : Fin 8) (t : Nat) (seen : List Nat) :",
+        "authored_name": "Examples.AccumulatedWork.step_cost",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 89,
+        "kind": "def",
+        "source_first_line": "def program (ω : Fin 8) : Measured (List Nat) Nat :=",
+        "authored_name": "Examples.AccumulatedWork.program",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 93,
+        "kind": "theorem",
+        "source_first_line": "theorem program_value (ω : Fin 8) :",
+        "authored_name": "Examples.AccumulatedWork.program_value",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 101,
+        "kind": "theorem",
+        "source_first_line": "theorem program_cost (ω : Fin 8) :",
+        "authored_name": "Examples.AccumulatedWork.program_cost",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 106,
+        "kind": "def",
+        "source_first_line": "def observation (t : Nat) (ω : Fin 8) : ℝ≥0∞ := charge t ω",
+        "authored_name": "Examples.AccumulatedWork.observation",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 108,
+        "kind": "theorem",
+        "source_first_line": "theorem observation_measurable (t : Nat) : AEMeasurable (observation t) law :=",
+        "authored_name": "Examples.AccumulatedWork.observation_measurable",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 111,
+        "kind": "theorem",
+        "source_first_line": "theorem observation_le_one (t : Nat) :",
+        "authored_name": "Examples.AccumulatedWork.observation_le_one",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 119,
+        "kind": "theorem",
+        "source_first_line": "theorem accumulated_eq_cost (ω : Fin 8) :",
+        "authored_name": "Examples.AccumulatedWork.accumulated_eq_cost",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 131,
+        "kind": "theorem",
+        "source_first_line": "theorem stage_means (t : Nat) : (∫⁻ ω, observation t ω ∂law) =",
+        "authored_name": "Examples.AccumulatedWork.stage_means",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 144,
+        "kind": "theorem",
+        "source_first_line": "theorem initial_mean : (∫⁻ ω, observation 0 ω ∂law) ≤ 1 := by",
+        "authored_name": "Examples.AccumulatedWork.initial_mean",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 147,
+        "kind": "theorem",
+        "source_first_line": "theorem integrated_drift (t : Nat) :",
+        "authored_name": "Examples.AccumulatedWork.integrated_drift",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 155,
+        "kind": "theorem",
+        "source_first_line": "theorem expected_cost_exact :",
+        "authored_name": "Examples.AccumulatedWork.expected_cost_exact",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 163,
+        "kind": "theorem",
+        "source_first_line": "theorem expected_cost_le :",
+        "authored_name": "Examples.AccumulatedWork.expected_cost_le",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 169,
+        "kind": "theorem",
+        "source_first_line": "theorem expected_cost_finite :",
+        "authored_name": "Examples.AccumulatedWork.expected_cost_finite",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 176,
+        "kind": "theorem",
+        "source_first_line": "theorem remaining_eq_cost (ω : Fin 8) :",
+        "authored_name": "Examples.AccumulatedWork.remaining_eq_cost",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 190,
+        "kind": "theorem",
+        "source_first_line": "theorem expected_remaining_exact :",
+        "authored_name": "Examples.AccumulatedWork.expected_remaining_exact",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 199,
+        "kind": "theorem",
+        "source_first_line": "theorem expected_remaining_le :",
+        "authored_name": "Examples.AccumulatedWork.expected_remaining_le",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 209,
+        "kind": "theorem",
+        "source_first_line": "theorem tail_event : {ω : Fin 8 | (3 : ℝ≥0∞) ≤ (program ω).2} =",
+        "authored_name": "Examples.AccumulatedWork.tail_event",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 214,
+        "kind": "theorem",
+        "source_first_line": "theorem tail_mass : law {ω | (3 : ℝ≥0∞) ≤ (program ω).2} = 1 / 4 := by",
+        "authored_name": "Examples.AccumulatedWork.tail_mass",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 223,
+        "kind": "theorem",
+        "source_first_line": "theorem tail_le : law {ω | (3 : ℝ≥0∞) ≤ (program ω).2} ≤ 1 / 2 := by",
+        "authored_name": "Examples.AccumulatedWork.tail_le",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 231,
+        "kind": "theorem",
+        "source_first_line": "theorem shared_stage_masses :",
+        "authored_name": "Examples.AccumulatedWork.shared_stage_masses",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 249,
+        "kind": "theorem",
+        "source_first_line": "theorem shared_stages_not_independent :",
+        "authored_name": "Examples.AccumulatedWork.shared_stages_not_independent",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 256,
+        "kind": "def",
+        "source_first_line": "def affineProgram (ω : Fin 8) : Measured (List Nat) Nat :=",
+        "authored_name": "Examples.AccumulatedWork.affineProgram",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 259,
+        "kind": "theorem",
+        "source_first_line": "theorem affineProgram_value (ω : Fin 8) : (affineProgram ω).1 = (program ω).1 := rfl",
+        "authored_name": "Examples.AccumulatedWork.affineProgram_value",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 261,
+        "kind": "theorem",
+        "source_first_line": "theorem affineProgram_cost (ω : Fin 8) :",
+        "authored_name": "Examples.AccumulatedWork.affineProgram_cost",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 264,
+        "kind": "theorem",
+        "source_first_line": "theorem affine_expected_exact :",
+        "authored_name": "Examples.AccumulatedWork.affine_expected_exact",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 272,
+        "kind": "theorem",
+        "source_first_line": "theorem affine_expected_le :",
+        "authored_name": "Examples.AccumulatedWork.affine_expected_le",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 286,
+        "kind": "theorem",
+        "source_first_line": "theorem affine_tail_event : {ω : Fin 8 | (9 : ℝ≥0∞) ≤ (affineProgram ω).2} =",
+        "authored_name": "Examples.AccumulatedWork.affine_tail_event",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 291,
+        "kind": "theorem",
+        "source_first_line": "theorem affine_tail_mass : law {ω | (9 : ℝ≥0∞) ≤ (affineProgram ω).2} = 1 / 4 := by",
+        "authored_name": "Examples.AccumulatedWork.affine_tail_mass",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 295,
+        "kind": "theorem",
+        "source_first_line": "theorem affine_tail_le : law {ω | (9 : ℝ≥0∞) ≤ (affineProgram ω).2} ≤ 1 / 2 := by",
+        "authored_name": "Examples.AccumulatedWork.affine_tail_le",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 34,
+        "kind": "def",
+        "source_first_line": "def oneStageRun : Resources.Measured Nat Nat :=",
+        "authored_name": "Examples.AccumulatedWorkBoundary.oneStageRun",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 39,
+        "kind": "theorem",
+        "source_first_line": "theorem oneStageRun_value : oneStageRun.1 = 7 := rfl",
+        "authored_name": "Examples.AccumulatedWorkBoundary.oneStageRun_value",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 41,
+        "kind": "theorem",
+        "source_first_line": "theorem oneStageRun_cost : oneStageRun.2 = 3 := rfl",
+        "authored_name": "Examples.AccumulatedWorkBoundary.oneStageRun_cost",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 44,
+        "kind": "def",
+        "source_first_line": "def singleWork (t : Nat) (_ : Unit) : ℝ≥0∞ :=",
+        "authored_name": "Examples.AccumulatedWorkBoundary.singleWork",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 47,
+        "kind": "theorem",
+        "source_first_line": "theorem singleWork_measurable (t : Nat) : AEMeasurable (singleWork t) μ₁ :=",
+        "authored_name": "Examples.AccumulatedWorkBoundary.singleWork_measurable",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 50,
+        "kind": "theorem",
+        "source_first_line": "theorem singleWork_total (ω : Unit) : (∑' t : Nat, singleWork t ω) = 3 := by",
+        "authored_name": "Examples.AccumulatedWorkBoundary.singleWork_total",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 53,
+        "kind": "theorem",
+        "source_first_line": "theorem oneStageRun_observed (ω : Unit) :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.oneStageRun_observed",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 57,
+        "kind": "theorem",
+        "source_first_line": "theorem singleWork_initial : (∫⁻ ω, singleWork 0 ω ∂μ₁) = 3 := by",
+        "authored_name": "Examples.AccumulatedWorkBoundary.singleWork_initial",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 60,
+        "kind": "theorem",
+        "source_first_line": "theorem singleWork_drift (t : Nat) :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.singleWork_drift",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 64,
+        "kind": "theorem",
+        "source_first_line": "theorem singleWork_stage_le (t : Nat) :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.singleWork_stage_le",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 71,
+        "kind": "theorem",
+        "source_first_line": "theorem singleWork_integral_le :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.singleWork_integral_le",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 76,
+        "kind": "theorem",
+        "source_first_line": "theorem singleWork_integral_finite :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.singleWork_integral_finite",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 82,
+        "kind": "theorem",
+        "source_first_line": "theorem singleWork_tail (w : Nat) :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.singleWork_tail",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 89,
+        "kind": "theorem",
+        "source_first_line": "theorem singleWork_tail_zero :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.singleWork_tail_zero",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 97,
+        "kind": "theorem",
+        "source_first_line": "theorem singleWork_tail_pos (w : Nat) (hw : 0 < w) :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.singleWork_tail_pos",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 102,
+        "kind": "def",
+        "source_first_line": "def zeroWork : Nat → Unit → ℝ≥0∞ := fun _ _ => 0",
+        "authored_name": "Examples.AccumulatedWorkBoundary.zeroWork",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 105,
+        "kind": "theorem",
+        "source_first_line": "theorem zeroWork_integral :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.zeroWork_integral",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 114,
+        "kind": "theorem",
+        "source_first_line": "theorem zeroWork_non_strict_tail_fails :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.zeroWork_non_strict_tail_fails",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 122,
+        "kind": "def",
+        "source_first_line": "def rareWork (t : Nat) (ω : Fin 3) : ℝ≥0∞ :=",
+        "authored_name": "Examples.AccumulatedWorkBoundary.rareWork",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 125,
+        "kind": "theorem",
+        "source_first_line": "theorem uniform_three_singleton (ω : Fin 3) : μ₃ {ω} = (1 : ℝ≥0∞) / 3 := by",
+        "authored_name": "Examples.AccumulatedWorkBoundary.uniform_three_singleton",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 128,
+        "kind": "theorem",
+        "source_first_line": "theorem rareWork_measurable (t : Nat) : AEMeasurable (rareWork t) μ₃ :=",
+        "authored_name": "Examples.AccumulatedWorkBoundary.rareWork_measurable",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 131,
+        "kind": "theorem",
+        "source_first_line": "theorem rareWork_initial : (∫⁻ ω, rareWork 0 ω ∂μ₃) = 1 := by",
+        "authored_name": "Examples.AccumulatedWorkBoundary.rareWork_initial",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 142,
+        "kind": "theorem",
+        "source_first_line": "theorem rareWork_drift (t : Nat) :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.rareWork_drift",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 146,
+        "kind": "theorem",
+        "source_first_line": "theorem rareWork_total (ω : Fin 3) :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.rareWork_total",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 150,
+        "kind": "theorem",
+        "source_first_line": "theorem rareWork_integral :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.rareWork_integral",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 157,
+        "kind": "theorem",
+        "source_first_line": "theorem rareWork_integral_le :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.rareWork_integral_le",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 162,
+        "kind": "theorem",
+        "source_first_line": "theorem rareWork_tail_event :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.rareWork_tail_event",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 168,
+        "kind": "theorem",
+        "source_first_line": "theorem rareWork_tail_mass :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.rareWork_tail_mass",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 172,
+        "kind": "theorem",
+        "source_first_line": "theorem rareWork_tail_positive :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.rareWork_tail_positive",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 178,
+        "kind": "theorem",
+        "source_first_line": "theorem rareWork_tail_without_prefix_fails :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.rareWork_tail_without_prefix_fails",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 184,
+        "kind": "theorem",
+        "source_first_line": "theorem rareWork_prefix_fails :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.rareWork_prefix_fails",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 193,
+        "kind": "def",
+        "source_first_line": "def constantWork : Nat → Unit → ℝ≥0∞ := fun _ _ => 1",
+        "authored_name": "Examples.AccumulatedWorkBoundary.constantWork",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 195,
+        "kind": "theorem",
+        "source_first_line": "theorem constantWork_initial : (∫⁻ ω, constantWork 0 ω ∂μ₁) = 1 := by",
+        "authored_name": "Examples.AccumulatedWorkBoundary.constantWork_initial",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 198,
+        "kind": "theorem",
+        "source_first_line": "theorem constantWork_drift (t : Nat) :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.constantWork_drift",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 203,
+        "kind": "theorem",
+        "source_first_line": "theorem constantWork_total (ω : Unit) : (∑' t : Nat, constantWork t ω) = ∞ :=",
+        "authored_name": "Examples.AccumulatedWorkBoundary.constantWork_total",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 207,
+        "kind": "theorem",
+        "source_first_line": "theorem constantWork_integral :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.constantWork_integral",
+        "private": false
+      },
+      {
+        "path": "Examples/AccumulatedWorkBoundary.lean",
+        "line": 213,
+        "kind": "theorem",
+        "source_first_line": "theorem constantWork_extended_bound :",
+        "authored_name": "Examples.AccumulatedWorkBoundary.constantWork_extended_bound",
+        "private": false
+      }
+    ],
+    "private_named_count": 2,
+    "private_named": [
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 35,
+        "kind": "theorem",
+        "source_first_line": "private theorem uniformFin_integral (n : Nat) (f : Fin n → ℝ≥0∞) :",
+        "authored_name": "Examples.AccumulatedWork.uniformFin_integral",
+        "private": true
+      },
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 44,
+        "kind": "theorem",
+        "source_first_line": "private theorem uniformFin_event (n : Nat) (p : Fin n → Prop) [DecidablePred p] :",
+        "authored_name": "Examples.AccumulatedWork.uniformFin_event",
+        "private": true
+      }
+    ],
+    "anonymous_instance_count": 1,
+    "anonymous_instances": [
+      {
+        "path": "Examples/AccumulatedWork.lean",
+        "line": 56,
+        "kind": "instance",
+        "source_first_line": "instance : IsProbabilityMeasure law := by",
+        "authored_name": null,
+        "generated_name_uninspected": true
+      }
+    ],
+    "anonymous_examples": 0,
+    "generated_declarations_not_counted_as_authored": true,
+    "actual_types_read": 0,
+    "kernel_audit_count_claimed": false
+  },
+  "requirement_mapping": {
+    "1_geometric_means": {
+      "source": [
+        "Applications/Probability/AccumulatedWork.lean:39-50"
+      ],
+      "assessment": "All initial/drift/quantifier requirements met at source; no unnecessary measurability, contraction, finite/probability law or independence."
+    },
+    "2_shifted_and_total": {
+      "source": [
+        "Applications/Probability/AccumulatedWork.lean:54-81"
+      ],
+      "assessment": "AE measurable Nat stages, genuine lintegral/tsum interchange and proved geometric means; all natural shifts and extended infinity retained."
+    },
+    "3_finite_expected_work": {
+      "source": [
+        "Applications/Probability/AccumulatedWork.lean:85-94"
+      ],
+      "assessment": "q<1 and finite N suffice; zero drift and zero N kept; no termination claim."
+    },
+    "4_single_prefix_tail": {
+      "source": [
+        "Applications/Probability/AccumulatedWork.lean:99-137"
+      ],
+      "assessment": "Actual chosen AE prefix cap; finite prefix cancellation; positive finite threshold; AE event inclusion; Markov and shifted bound; no division by q."
+    },
+    "4_stage_cap_corollary": {
+      "source": [
+        "Applications/Probability/AccumulatedWork.lean:141-155"
+      ],
+      "assessment": "Derives chosen prefix from AE per-stage caps on the same law; retains more general single-prefix theorem."
+    },
+    "dependent_stage_measured_run": {
+      "source": [
+        "Examples/AccumulatedWork.lean:54-253"
+      ],
+      "assessment": "One Fin8 law, actual run/value/cost, exact stage means and dependence, generic expectation/positive-shift/tail uses all connected."
+    },
+    "affine_actual_cost": {
+      "source": [
+        "Examples/AccumulatedWork.lean:256-297"
+      ],
+      "assessment": "Actual reweight plus bind retains output; cost2W+3, mean27/4<=7, threshold9 mass1/4<=1/2; original law normalization is local."
+    },
+    "boundaries": {
+      "source": [
+        "Examples/AccumulatedWorkBoundary.lean:34-217"
+      ],
+      "assessment": "Actual3-tick q0 work; w0/positivew distinction; N0 non-strict-tail failure; Fin3 rare work disproves prefix-free tail; q1 infinity."
+    },
+    "later_algorithm_obligations": {
+      "assessment": "Conditional sampling/drift and actual scan tariff, duplicates/ranks, both quicksort branches/distinct laws, shared/weighted treap conditioning retained; no chapter activation."
+    }
+  },
+  "case_assessments": {
+    "Fin8_costs": [
+      4,
+      3,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "stage_means": [
+      "1",
+      "1/2",
+      "1/4",
+      "1/8",
+      "0 thereafter"
+    ],
+    "expected_cost": "15/8",
+    "generic_expected_bound": "2",
+    "positive_shift": 1,
+    "remaining_mean": "7/8",
+    "generic_remaining_bound": "1",
+    "threshold3_mass": "1/4",
+    "generic_tail_bound": "1/2",
+    "stage_A_mass": "1/2",
+    "stage_B_mass": "1/4",
+    "intersection_mass": "1/4",
+    "product_mass": "1/8",
+    "affine_cost": "2*W+3",
+    "affine_exact_mean": "27/4",
+    "affine_generic_bound": "7",
+    "affine_threshold9_mass": "1/4",
+    "rare_work_mean": "1",
+    "rare_threshold2_mass": "1/3",
+    "N0_tail_counterexample": "mass1 > bound1/2",
+    "q1_constant_work": "total and integral infinity",
+    "assessment_method": "Complete immutable source contracts/proof bodies plus independent mathematical arithmetic; no Lean execution by reviewer."
+  },
+  "pin_source_identity": [
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "lean-toolchain",
+      "git_blob": "a6aff065db2882c535684f8c5bcd4f16e9a23915",
+      "bytes": 25,
+      "newline_lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "path": "lake-manifest.json",
+      "git_blob": "0452762ecb2bb5e0d0f7db0b128b0af581febb87",
+      "bytes": 3138,
+      "newline_lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    }
+  ],
+  "gate_disposition": {
+    "source_assessment": "Complete within all six frozen paths; zero concrete findings",
+    "actual_public_types": "Pending, zero inspected for XW01",
+    "focused_compilation": "No result credited",
+    "whole_project_check_and_exhaustive_axiom_audit": "Pending",
+    "complete_independent_final_axes": "Pending",
+    "immediate_candidate_verification": "Pending",
+    "accepted_incorporation": "None",
+    "F_C2_XP_counts_reuse_unchanged": true
+  },
+  "preserved_earlier_reports": [
+    {
+      "path": "reviews/shared-foundations-spec-continuation-20261104.md",
+      "bytes": 8862,
+      "newline_lines": 57,
+      "sha256": "450409a89197f229e88e12ff477f7c3e6b60c067fde0eef297a431163a7249d6"
+    },
+    {
+      "path": "reviews/chapter02-spec-source-preparation-20261104.md",
+      "bytes": 109354,
+      "newline_lines": 473,
+      "sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007"
+    },
+    {
+      "path": "reviews/potential-spec-development-20261104.md",
+      "bytes": 30193,
+      "newline_lines": 150,
+      "sha256": "9bba3ac4ffa5a5dab1e8a32e3a990851f55846a16dd4a16a72605fd00e21a615"
+    }
+  ],
+  "XR_packaging_followup": "Parent separately authorized relocating three existing primary-source page renders outside CTRL and updating XR packaging metadata only after this XW save; no mathematical reassessment or F/C2/XP write.",
+  "output_read_integrity": {
+    "full_original_source_and_frozen_controls_read": true,
+    "bounded_API_ranges_recorded": true,
+    "one_combined_navigation_output_truncated": true,
+    "truncated_public_inventory_recovered": "Complete compact all-three-file inventory reread in a separate bounded output; no truncated interval is counted as a read."
+  },
+  "actions": {
+    "compiler": false,
+    "process_polling": false,
+    "cache_or_output_mutation": false,
+    "source_ref_pin_mutation": false,
+    "ticket_or_global_control_mutation": false,
+    "external_messages": false,
+    "new_renders": false,
+    "writes": "Only own small dedicated Spec report/provenance"
+  },
+  "report": {
+    "path": "reviews/accumulated-work-spec-preparation-20261104.md",
+    "bytes": 16845,
+    "newline_lines": 92,
+    "sha256": "9934402d16c3ff5e5006b8ade3ab6995f50739185ed1e5d68a2d9b004ef3f1ba"
+  }
+}

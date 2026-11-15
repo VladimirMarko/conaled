@@ -1,0 +1,91 @@
+{
+  "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "full_scope": "Original XR01 five paths/21 public declarations; no Chapter3 review or acceptance performed.",
+  "same_reader_full_log_ledger": {
+    "path": "provenance/affine-recurrence-spec-receiving-20261104/full-attempt2-read-progress.json",
+    "bytes": 4922,
+    "sha256": "5f14b273e84ffb665f1584974581dd0f2aebb8a6344e5fbfe5f60ef8867defa9"
+  },
+  "complete_native_read": {
+    "bytes": 304174,
+    "lines": 2617,
+    "sha256": "877aca4200b45501e2ae0a92d94a2a04355e58fa6de12bc0920353b8ba35a66f"
+  },
+  "outer_exact_prefix_native_suffix": {
+    "bytes": 304402,
+    "sha256": "cada5fe7ec2fed03ef1eb9295359e9b894cfcdf21b1d2f66e06730bf926b9a24",
+    "prefix_bytes": 70,
+    "suffix_bytes": 158
+  },
+  "audit": {
+    "rows": 1029,
+    "logical_declarations": 47828,
+    "theorem_declarations": 27242,
+    "unsafe_runtime_declarations": 0,
+    "every_row_unsafe_zero": true,
+    "checked_modules": 1031,
+    "axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "predecessor_rows_exact": 1027,
+    "added_rows": {
+      "Applications.Resources.AffineRecurrence": [
+        1,
+        1,
+        0
+      ],
+      "Examples.AffineRecurrence": [
+        30,
+        27,
+        0
+      ]
+    },
+    "removed_rows": [],
+    "changed_rows": {},
+    "whole_project_totals_not_authored_name_counts": true,
+    "authored_scope_count": 21
+  },
+  "warnings": {
+    "current_headers": 653,
+    "accepted_Q_headers": 647,
+    "new_headers": [
+      "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Algebra.Order.Archimedean.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Data.Finset.Lattice.Fold` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Data.Finset.Range` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Data.Nat.Cast.Order.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Tactic.Linarith` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Examples/AffineRecurrence.lean: imports `Mathlib.Algebra.Order.Archimedean.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file"
+    ],
+    "removed_headers": [],
+    "current_module_advisories": 552,
+    "current_other_warning_headers": 101,
+    "assessment": "All current warning contexts manually read; only six XR module-import advisories are new versus Q, and they match the already reviewed focused pair. No suppression or new mathematical/source diagnostic."
+  },
+  "verification": {
+    "sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9",
+    "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "result": "passed",
+    "mode": "incremental",
+    "nine_dependency_pins_exact_accepted_Q": true,
+    "compiler_exact_accepted_Q": true
+  },
+  "build_integrity": {
+    "pre_artifacts": 3087,
+    "pre_invalidated_modules": [
+      "SquareApplications"
+    ],
+    "reason": "missing olean after secured failed attempt1",
+    "compiled_target": "SquareApplications",
+    "reported_target_seconds": 415,
+    "Lake_jobs": 10076,
+    "compilation_seconds": 458.73,
+    "post_artifacts": 3090,
+    "post_inconsistent_modules": 0,
+    "audit_seconds": 316.94,
+    "total_check_seconds": 788.79
+  },
+  "prior_failure": "Attempt1 is preserved as an actual nonzero result with nested Lean137 and unestablished cause; attempt2 supplies the separate successful evidence without retroactively changing attempt1.",
+  "remaining_at_this_boundary": "All21 actual full types and stable input qualification plus final axis reconciliation remain to be assessed. Root alone performs later immediate verification/integration."
+}

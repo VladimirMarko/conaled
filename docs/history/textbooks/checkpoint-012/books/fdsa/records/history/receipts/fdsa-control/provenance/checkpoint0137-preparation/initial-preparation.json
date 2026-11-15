@@ -1,0 +1,58 @@
+{
+  "recorded_utc": "2026-11-05T01:16:16.307026+00:00",
+  "checkpoint": "conaled-fdsa-0137-selection-complete-candidate-progress",
+  "helpers": [
+    {
+      "name": "verify-checkpoint.py",
+      "predecessor": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0136-preparation/verify-checkpoint.py",
+        "bytes": 17759,
+        "sha256": "03998161e0ea863b9a355db680a4eef3f85da3cc4a3f1041389db5f92e59e633"
+      },
+      "current": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0137-preparation/verify-checkpoint.py",
+        "bytes": 17758,
+        "sha256": "731023143f7b9d29f388ff14ce72f1575b53bd05c11a405e66f8d0a4a76389d4"
+      },
+      "identifier_substitutions": 5
+    },
+    {
+      "name": "capture.py",
+      "predecessor": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0136-preparation/capture.py",
+        "bytes": 4956,
+        "sha256": "df1e6f05a9195a8ef01713003ef6002d0651ba7c69feecb8e87219a89f2f93af"
+      },
+      "current": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0137-preparation/capture.py",
+        "bytes": 4960,
+        "sha256": "503601e76db853bf2497b1e5884b6bcec8cde3fa2e0d17ccadfbfe84e9a85cc6"
+      },
+      "identifier_substitutions": 5
+    },
+    {
+      "name": "run-stage.py",
+      "predecessor": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0136-preparation/run-stage.py",
+        "bytes": 2397,
+        "sha256": "46861a735d2af808ae58c72a333cf8fd6d62519ffc1c094f3782eab62b136ef8"
+      },
+      "current": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0137-preparation/run-stage.py",
+        "bytes": 2401,
+        "sha256": "f8d246e446ad77ccde350ad7b0d6043a2b754b7a4463c64a93ab0edf9131eb74"
+      },
+      "identifier_substitutions": 2
+    }
+  ],
+  "predecessor_manifest": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0137-preparation/previous-manifest-0136.json",
+    "bytes": 17328,
+    "sha256": "cb93fe9180acb29170d154ea0a73100ecf7cd650aaeb3626cb5dee38214b5fbb"
+  },
+  "helper_scope": "Identifier and checkpoint-name substitutions only; all gates retained.",
+  "compiler_live": true,
+  "live_run": "chapter03-final-complete-full-attempt1-20261105",
+  "no_future_outcome_predicted": true,
+  "final_progress_and_holds_pending": true
+}

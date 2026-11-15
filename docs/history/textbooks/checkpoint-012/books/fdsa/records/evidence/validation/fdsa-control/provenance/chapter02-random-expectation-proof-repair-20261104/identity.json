@@ -1,0 +1,142 @@
+{
+  "recorded_utc": "2026-11-04T07:04:43.007049+00:00",
+  "candidate": "19879f244a81b03b7ccaabbcf53fc0b355e9985b",
+  "parent": "7b1851cee7fe580a4fe235740b0c07e4ddd8fc58",
+  "branch": "work/fdsa-ch02-random-pivot",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot",
+  "final_status": "",
+  "failed_central_candidate": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+  "failed_central_result": {
+    "candidate": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+    "command": [
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+      "--state",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+      "run",
+      "--project",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+      "--threads",
+      "1",
+      "--",
+      "lake",
+      "build",
+      "Applications.Resources.RandomQuickSortMean",
+      "Examples.RandomQuickSortMean",
+      "Applications.Sorting.Uniqueness",
+      "Examples.SortUniqueness",
+      "Applications.Probability.PermutationOrder",
+      "Examples.PermutationOrderBoundary",
+      "Examples.PermutationOrder"
+    ],
+    "started_utc": "2026-11-04T06:57:46.025735+00:00",
+    "completed_utc": "2026-11-04T06:59:27.673295+00:00",
+    "exit_code": 1,
+    "elapsed_seconds": 101.64727630000016,
+    "state": "failed",
+    "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-mean-uniqueness-xu02-focused-20261104-attempt1/full.log",
+    "progress_bookkeeping_errors": [],
+    "final_head": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+    "final_status": "",
+    "log_size_bytes": 17412,
+    "log_sha256": "48063b4acf544e1cd977f2ffc039a37024bd01e30bfd42357041d4704de22d84",
+    "available_bytes_at_completion": 19403857920,
+    "verification_record_present": false
+  },
+  "failed_central_mean_blobs_match_parent": true,
+  "failed_log_read_completely": true,
+  "owned_diagnostics": 5,
+  "changed_source_files": [
+    "Applications/Resources/RandomQuickSortMean.lean"
+  ],
+  "changed_lines": {
+    "insertions": 5,
+    "deletions": 5
+  },
+  "public_source_contracts_unchanged": 32,
+  "private_source_contracts_unchanged": 15,
+  "all_five_changed_sites_and_surrounding_proofs_read": true,
+  "mean_examples_unchanged": true,
+  "initial_random_pair_unchanged": true,
+  "pins_unchanged": true,
+  "source_identities": {
+    "Applications/Resources/RandomQuickSortMean.lean": {
+      "bytes": 16488,
+      "lines": 334,
+      "sha256": "135af328490993bc48ff9c8a0ccfd847768fca22329292bd2ee0ff4db21662c0"
+    },
+    "Examples/RandomQuickSortMean.lean": {
+      "bytes": 5733,
+      "lines": 118,
+      "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670"
+    },
+    "Applications/Resources/RandomQuickSort.lean": {
+      "bytes": 23601,
+      "lines": 509,
+      "sha256": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2"
+    },
+    "Examples/RandomQuickSort.lean": {
+      "bytes": 8255,
+      "lines": 203,
+      "sha256": "4f5a21d1656423ac1307b1ca8fe651cd794d70da576ecd14f65d68cc290c424d"
+    },
+    "Applications/Resources/QuickSort.lean": {
+      "bytes": 21782,
+      "lines": 474,
+      "sha256": "e98024f6b741e1aba1fb1e38b419eee2e1acad76a8a40e669752f54775783263"
+    },
+    "lean-toolchain": {
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    "lake-manifest.json": {
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    }
+  },
+  "pinned_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "inspected_api_sources": {
+    "Mathlib/Algebra/Order/Monoid/Unbundled/Basic.lean": {
+      "bytes": 48178,
+      "lines": 1221,
+      "sha256": "d0d17e30f7c74c20cf8e75f7f533133e59adfe596bcd561fcab67ee7e5423e6c"
+    },
+    "Mathlib/Basic/ENNReal/Basic.lean": {
+      "bytes": 32272,
+      "lines": 789,
+      "sha256": "f7fe64f0d1865209e4d2be2fd98e3bc5edf9af508dd665f0311e6396f8d513a2"
+    }
+  },
+  "findings": {
+    "bytes": 6525,
+    "lines": 101,
+    "sha256": "d109f9fc8621ac43780a0f89e77db4526dd3e14f9c713efebfd8efea2b3649eb"
+  },
+  "source_statements": {
+    "bytes": 1483,
+    "lines": 47,
+    "sha256": "7b8c0c2389650ac1227dbd29420c462be48a6e4370d5601a978accbc1aeb2cff"
+  },
+  "source_diff": {
+    "bytes": 2724,
+    "lines": 45,
+    "sha256": "e6da49e0857f7aa4c6f5512e5a41c8a42dcb5a35ae534ca4809c15c738952908"
+  },
+  "diff_check": {
+    "exit_code": 0,
+    "bytes": 0,
+    "lines": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "successor_compiled": false,
+  "successor_elaborated_types_inspected": false,
+  "full_candidate_check_or_audit_pass": false,
+  "acceptance_claimed": false,
+  "author_builds_started": 0,
+  "cache_writes": false,
+  "lake_directory_present": false,
+  "other_worktree_or_global_control_or_ticket_or_coverage_writes": false,
+  "next_action": "HOLD source/ref writes for root exclusive central validation; close authorized report and read-only rank-plan artifacts, then HOLD all writes"
+}

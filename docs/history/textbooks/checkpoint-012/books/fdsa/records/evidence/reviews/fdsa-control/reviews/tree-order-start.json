@@ -1,0 +1,45 @@
+{
+  "recorded_utc": "2026-11-02T18:07:15.247361+00:00",
+  "ticket": "FDSA-XT07",
+  "original_review_base": "28ba79d8d425400cb87d2daf3ecf1cc5a63a7aa2",
+  "immediate_parent": "28ba79d8d425400cb87d2daf3ecf1cc5a63a7aa2",
+  "branch": "work/fdsa-tree-order",
+  "worktree": "/workspace/scratch/845aa1048b05/conaled-tree-order",
+  "initial_head": "28ba79d8d425400cb87d2daf3ecf1cc5a63a7aa2",
+  "initial_status": "",
+  "requirements": {
+    "path": "reviews/tree-order-requirements.md",
+    "sha256": "309bd487fbe1a49ddd1348af0e517327ebf22614b9e5adcf92d1254a9aeca7a1",
+    "bytes": 19009,
+    "lines": 327
+  },
+  "preflights": {
+    "research/tree-order-source-preflight.md": {
+      "sha256": "e7b019f6e3102b081b1c42a446ae36ac709e6cf7e6370ec034a4d744e9a2a880",
+      "bytes": 26305,
+      "lines": 343
+    },
+    "research/tree-order-api-preflight.md": {
+      "sha256": "a6bea839b095ea453bbd83ec4c19f67aa6766b905e83654faacec60adea61ca3",
+      "bytes": 24262,
+      "lines": 351
+    },
+    "research/tree-order-case-preflight.md": {
+      "sha256": "e5c680ecdd0430f71e96f7149ebc64bdd4d834f7b0272129f0976bac4c537ffe",
+      "bytes": 12227,
+      "lines": 210
+    }
+  },
+  "new_paths_verified_absent": [
+    "Applications/Trees/Ordered.lean",
+    "Applications/Trees/OrderedRotations.lean",
+    "Examples/OrderedTrees.lean",
+    "docs/research/fdsa-tree-order.md"
+  ],
+  "dependencies": "Accepted repaired FDSA-001, XT01 and XT06 required for integration/acceptance. Source-only drafting from committed XT06 permitted.",
+  "initial_chapter02_prefix": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "shared_packages_only": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+  "project_build_directory_exists": false,
+  "validation": "No XT07 compiler/checker/project hash helper or final review started. Sole current full gate is Chapter 1 session 83124 at 07e480f.",
+  "state": "Clean frozen pre-code baseline; source edits await checkpoint 0046 successful upload."
+}

@@ -1,0 +1,74 @@
+{
+  "observed_utc": "2026-11-04T04:45:42.881187+00:00",
+  "checkpoint": "conaled-fdsa-0084-checked-natural-runs-and-top-down-costs",
+  "authors_held": [
+    "root source changes",
+    "chapter02_natural_runs",
+    "chapter02_quicksort",
+    "chapter02_bottom_up",
+    "foundation_continuation report writes"
+  ],
+  "foundation_terminal_result_at_inspection": null,
+  "foundation_caveat": "Any running/process record is historical after recovery; no acceptance follows from a partial log.",
+  "available_bytes": 24024461312,
+  "worktrees": [
+    {
+      "worktree": "conaled",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled",
+      "head": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "branch": "work/fdsa-book",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.urOBCL\n"
+    },
+    {
+      "worktree": "conaled-ch01-review",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "head": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "branch": "work/fdsa-foundation-integration",
+      "status": ""
+    },
+    {
+      "worktree": "conaled-ch02-bottom-up",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-bottom-up",
+      "head": "101aaa6f94f75af35d339746bff44305840373fe",
+      "branch": "work/fdsa-ch02-bottom-up",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.EA8xCS\n"
+    },
+    {
+      "worktree": "conaled-ch02-insertion",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-insertion",
+      "head": "43242f43cba0f2c90c17356d44d71e5765d8ba93",
+      "branch": "work/fdsa-ch02-alternating",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.C0d1bT\n"
+    },
+    {
+      "worktree": "conaled-ch02-natural-runs",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs",
+      "head": "ff9749d1ccbcb0949486f67d6273e28c262280e0",
+      "branch": "work/fdsa-ch02-natural-runs",
+      "status": ""
+    },
+    {
+      "worktree": "conaled-ch02-quicksort",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+      "head": "fdd4d4796fe8201cecfa8a53930a391b6e50f401",
+      "branch": "work/fdsa-ch02-quicksort",
+      "status": ""
+    },
+    {
+      "worktree": "conaled-ch02-top-down",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+      "head": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+      "branch": "work/fdsa-ch02-top-down-costs",
+      "status": ""
+    },
+    {
+      "worktree": "conaled-ordinary-merge",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge",
+      "head": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "branch": "work/fdsa-ordinary-merge",
+      "status": ""
+    }
+  ],
+  "focused_development_commands": "All top-down focused/type commands are closed; only the isolated foundation full builder remains active.",
+  "next": "Reuse the private compiler checkout at detached bottom-up commit 101aaa6 after capture; preserve author branches and all exact gates."
+}

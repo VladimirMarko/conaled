@@ -1,0 +1,12 @@
+diff --git a/Applications/Resources/ListBuildCosts.lean b/Applications/Resources/ListBuildCosts.lean
+index fa16e2e..6f3c157 100644
+--- a/Applications/Resources/ListBuildCosts.lean
++++ b/Applications/Resources/ListBuildCosts.lean
+@@ -106,7 +106,6 @@ theorem appendBuildRun_value (items : List α) : (appendBuildRun items).1 = item
+ theorem appendBuildRun_cost (items : List α) :
+     (appendBuildRun items).2 = items.length * (items.length + 1) / 2 + items.length + 2 := by
+   rw [appendBuildRun, CallCount.tick_cost, appendLoopRun_cost, appendSubRun_empty_cost]
+-  omega
+ 
+ theorem appendBuildRun_double_cost (items : List α) :
+     2 * (appendBuildRun items).2 = items.length * items.length + 3 * items.length + 4 := by

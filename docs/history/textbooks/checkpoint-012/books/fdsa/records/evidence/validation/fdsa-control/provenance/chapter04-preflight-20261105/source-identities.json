@@ -1,0 +1,788 @@
+{
+  "recorded_utc": "2026-11-05T02:19:46.298200+00:00",
+  "kind": "implementation preparation identity bindings; no new mathematical review or formal acceptance",
+  "accepted_chapter_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "accepted_chapter_tree": "ecb69c3918715cbe0682028cd8697dfcf3e463f9",
+  "chapter_obligations": [
+    "C04-001",
+    "C04-002",
+    "C04-003",
+    "C04-004",
+    "C04-005",
+    "C04-006",
+    "C04-007",
+    "C04-008",
+    "C04-009",
+    "C04-010",
+    "C04-011",
+    "C04-012",
+    "C04-013",
+    "C04-014",
+    "C04-015",
+    "C04-016",
+    "C04-017",
+    "C04-018",
+    "C04-019",
+    "C04-020",
+    "C04-021",
+    "C04-022",
+    "C04-023",
+    "C04-024",
+    "C04-025",
+    "C04-026",
+    "C04-027",
+    "C04-028",
+    "C04-029",
+    "C04-030",
+    "C04-031",
+    "C04-032",
+    "C04-033",
+    "C04-034",
+    "C04-035",
+    "C04-036",
+    "C04-037",
+    "C04-038",
+    "C04-039",
+    "C04-040",
+    "C04-041",
+    "C04-042",
+    "C04-043",
+    "C04-044",
+    "C04-045",
+    "C04-046",
+    "C04-047",
+    "C04-048",
+    "C04-049",
+    "C04-050",
+    "C04-051",
+    "C04-052",
+    "C04-053",
+    "C04-054",
+    "C04-055",
+    "C04-056",
+    "C04-057",
+    "C04-058",
+    "C04-059",
+    "C04-060",
+    "C04-061",
+    "C04-062",
+    "C04-063",
+    "C04-064",
+    "C04-065",
+    "C04-066",
+    "C04-067",
+    "C04-068",
+    "C04-069",
+    "C04-070",
+    "C04-071",
+    "C04-072",
+    "C04-073",
+    "C04-074",
+    "C04-075",
+    "C04-076"
+  ],
+  "frozen_requirements": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/chapter04-obligations.md",
+      "bytes": 39471,
+      "sha256": "e7e282df7f553cbe8a960d1e20818e09a04f63c2cf47a069284223ee3a8595e4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/binary-tree-cache-requirements.md",
+      "bytes": 14576,
+      "sha256": "81260794bec3767bb9eaa2d2fcaa8337da015220df60bf4dda147590c8ed23ce"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-shape-requirements.md",
+      "bytes": 11890,
+      "sha256": "50d11472d8380fb3458a3ea71aba3d1104886f676a7b1cec578c0557a6979e91"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-fold-resource-requirements.md",
+      "bytes": 15461,
+      "sha256": "0a83c0b87873c33f2d5bf5aeef655ae4ab2957bb4100202164b217363ed8fcf8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-accumulator-invocation-requirements.md",
+      "bytes": 13766,
+      "sha256": "1c97ae18eb32c4ea582e8ee38162fe7963f3ba54394c919e91b7bd92c1b90477"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-traversal-work-requirements.md",
+      "bytes": 14602,
+      "sha256": "454ccd268e41986bcff6abd6d48fd97fee68baad637ec1840b3cd4b39925e9f0"
+    }
+  ],
+  "primary_inputs": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/research-source/functional_data_structures_algorithms.pdf",
+      "bytes": 1742029,
+      "sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645",
+      "copied_into_deliverable": false
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/research-source/book.txt",
+      "bytes": 719122,
+      "sha256": "7e5c0b4e157d28d303cc6248746aa63e1415445fa79f3556ff95ac1bf6b17333",
+      "copied_into_deliverable": false
+    }
+  ],
+  "companion_recovery": {
+    "revision": "f86f290225eebcc52c1ae7dba2e098f405f51c21",
+    "raw_url_prefix": "https://raw.githubusercontent.com/isabelle-prover/mirror-isabelle/f86f290225eebcc52c1ae7dba2e098f405f51c21/",
+    "local_exact_name_search": "5ba801 exit1, no matches, read-only",
+    "network_recovery_attempted": false,
+    "files": {
+      "src/HOL/Library/Tree.thy": "1060e49bbc11b2e974d3a25668a09eff441180f8aad8b67f2444ba33a8a61af9",
+      "src/HOL/Library/Tree_Real.thy": "e9a87ce2a0f0aee3f7747f9f662848f65bbb94921942611c12cca0d163e526c6",
+      "src/HOL/Data_Structures/Balance.thy": "6d14341de140a4cf5d811798aa1796c143a9127aedfeae0b600f8d174e6bb3fc",
+      "src/HOL/Data_Structures/Tree2.thy": "c63da5dc95f98c1c6d1eac889e9c798f3a53ef5b21658791dc914b34b5ea904e",
+      "COPYRIGHT": "44176a9195f0d6110302ca58c302437b2d6685049d4b8a7c1117121883d4b64d"
+    }
+  },
+  "shared_units": [
+    {
+      "unit": "XT01",
+      "original_branch": "work/fdsa-tree-cache",
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "parent": "a14977b9e316cc484ffad8a470d26b15615956c0",
+      "tree": "1e7b8d55d44b4302b70cec5b38411b5529247556",
+      "added_formal_sources": [
+        {
+          "commit": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+          "path": "Applications/Resources/TreeCache.lean",
+          "git_blob": "d97a2c738960b893b733687c4f3d713f5edb0dc6",
+          "bytes": 3877,
+          "sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6"
+        },
+        {
+          "commit": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+          "path": "Applications/Trees/Cached.lean",
+          "git_blob": "c301ca85e555a8c5bb3c9db10459446121bc6613",
+          "bytes": 5668,
+          "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6"
+        },
+        {
+          "commit": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+          "path": "Applications/Trees/Observations.lean",
+          "git_blob": "f90fbe8c85b9c88f760236d48129bd2b4c4d7e71",
+          "bytes": 4119,
+          "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752"
+        },
+        {
+          "commit": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+          "path": "Examples/TreeCache.lean",
+          "git_blob": "d142e853381de3b7d294d3c023c32d53e2756d5c",
+          "bytes": 16307,
+          "sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754"
+        }
+      ],
+      "acceptance_credit_from_this_preflight": false
+    },
+    {
+      "unit": "XT02",
+      "original_branch": "work/fdsa-tree-shape",
+      "candidate": "974a97321a8ec174b56104c7e6efaaca881b6639",
+      "parent": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "tree": "d1de22c57acd461f509f30f27f6e468d25f913da",
+      "added_formal_sources": [
+        {
+          "commit": "974a97321a8ec174b56104c7e6efaaca881b6639",
+          "path": "Applications/Trees/Shape.lean",
+          "git_blob": "52c589e228d4c3a8726f7010ec1de7700ba5eca2",
+          "bytes": 11019,
+          "sha256": "2233e014900a48ebc239d676a1c8abdaee2046ef503e5219bff460a001b868f3"
+        },
+        {
+          "commit": "974a97321a8ec174b56104c7e6efaaca881b6639",
+          "path": "Applications/Trees/ShapeLog.lean",
+          "git_blob": "2b9d3e3ce0adef033ecba262cd5b1126591c390b",
+          "bytes": 2796,
+          "sha256": "35c0555383fc3d03bcac4f368d41b2c8f744a49e18ef72b192c3753b7ef4497b"
+        },
+        {
+          "commit": "974a97321a8ec174b56104c7e6efaaca881b6639",
+          "path": "Examples/TreeShape.lean",
+          "git_blob": "ad88549bad45b77c33f039d3e465cd074f038b01",
+          "bytes": 12648,
+          "sha256": "2bcf2b65fa7a0eccc043c3bc7ba66d1bfdcd469489eab52d9085fdfb3db0b516"
+        }
+      ],
+      "acceptance_credit_from_this_preflight": false
+    },
+    {
+      "unit": "XT03",
+      "original_branch": "work/fdsa-tree-fold",
+      "candidate": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+      "parent": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "tree": "b66d05bc7733290057c6104bcc5a74c43b4037a4",
+      "added_formal_sources": [
+        {
+          "commit": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+          "path": "Applications/Resources/TreeFold.lean",
+          "git_blob": "442f0b1e3bc3c8919cb7cfd3476f9e76182a880c",
+          "bytes": 8347,
+          "sha256": "bf2acc856e73949ce09434abffbd952fb6cc583ca2342b11b8dd4230bd259dcc"
+        },
+        {
+          "commit": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+          "path": "Examples/TreeFold.lean",
+          "git_blob": "44cc3195f016a1a8e74d6bc09db2f9ac0d0d2985",
+          "bytes": 7437,
+          "sha256": "45e193ade4f0a98d8aed86b812c8ee22c5cd9e1e74a5a41e832bf7d87bc48d9c"
+        },
+        {
+          "commit": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+          "path": "Examples/TreeFoldCache.lean",
+          "git_blob": "ed6f64ed9d6a33ac6182057aa9fca8af9169ff9a",
+          "bytes": 7743,
+          "sha256": "9a98b200ab681ca7fa0cdf791a21f364654dc43dfa386911fb9ad4cf515123f7"
+        },
+        {
+          "commit": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+          "path": "Examples/TreeFoldObservations.lean",
+          "git_blob": "cc70b9d0db6c9c54f4c2446093765bb007d35217",
+          "bytes": 8654,
+          "sha256": "3aeb7f02113c8e858c433a61981d9cea7b4cf8a332d23dac136ce309f33a86be"
+        }
+      ],
+      "acceptance_credit_from_this_preflight": false
+    },
+    {
+      "unit": "XT04",
+      "original_branch": "work/fdsa-tree-accumulator",
+      "candidate": "b035f1151ab4f0c7d7380818576cfe97dae434c4",
+      "parent": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+      "tree": "d053401460ecec428c69943947e5c6fc974d51a1",
+      "added_formal_sources": [
+        {
+          "commit": "b035f1151ab4f0c7d7380818576cfe97dae434c4",
+          "path": "Applications/Resources/TreeAccumulator.lean",
+          "git_blob": "37738e80b49d9a64f98232d345f9219ff2a18613",
+          "bytes": 5873,
+          "sha256": "f2ce655372b4352abfd7b0b4fdbb58660c2589de6aa2932678f8b4967cd90b43"
+        },
+        {
+          "commit": "b035f1151ab4f0c7d7380818576cfe97dae434c4",
+          "path": "Examples/TreeAccumulator.lean",
+          "git_blob": "f1cdcce5f3d2969cd9c70ae4fa7c53587cd39354",
+          "bytes": 9493,
+          "sha256": "ebc7beedacbc5dfa2fa57612c8fac810b38a77e3c02915fdd600d720df298744"
+        },
+        {
+          "commit": "b035f1151ab4f0c7d7380818576cfe97dae434c4",
+          "path": "Examples/TreeAccumulatorObservations.lean",
+          "git_blob": "93b2ee14105aedde1e8ac6b3a7de4a28c4d65896",
+          "bytes": 3959,
+          "sha256": "858036eeaafe33aee78fc3c09e942dc70d44b7a15230be3240286e4b7aa11bd6"
+        }
+      ],
+      "acceptance_credit_from_this_preflight": false
+    },
+    {
+      "unit": "XT05",
+      "original_branch": "work/fdsa-tree-traversal-work",
+      "candidate": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "parent": "b035f1151ab4f0c7d7380818576cfe97dae434c4",
+      "tree": "a6fba53d30c1b431184422b894e70f85290cf016",
+      "added_formal_sources": [
+        {
+          "commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+          "path": "Applications/Resources/TreeTraversalWork.lean",
+          "git_blob": "177f0805bb614a8bab3d244c3d1bb63665f83cb7",
+          "bytes": 1412,
+          "sha256": "090f9107b0bdd0628a14e62cfbb610da17da5d582fcd64ecf319361284a28588"
+        },
+        {
+          "commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+          "path": "Applications/Trees/TraversalWork.lean",
+          "git_blob": "c12095778d0e268028b1f6e0a52648417c022644",
+          "bytes": 5427,
+          "sha256": "49762c33454e1cc90db706ebd2e16bf7dc395c0a74116bc21b3a63d0a282b85e"
+        },
+        {
+          "commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+          "path": "Examples/TreeTraversalWork.lean",
+          "git_blob": "4161a30538e972e2ba6b30bc49cbf1a55c89664a",
+          "bytes": 20871,
+          "sha256": "46df5bc27b9f761b7f10e4ee2876250955ee012eb02748e31de79f7f9405f0ab"
+        }
+      ],
+      "acceptance_credit_from_this_preflight": false
+    }
+  ],
+  "XT01": {
+    "original_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+    "original_candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+    "seven_paths": [
+      {
+        "commit": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Resources/TreeCache.lean",
+        "git_blob": "d97a2c738960b893b733687c4f3d713f5edb0dc6",
+        "bytes": 3877,
+        "sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6"
+      },
+      {
+        "commit": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Trees/Cached.lean",
+        "git_blob": "c301ca85e555a8c5bb3c9db10459446121bc6613",
+        "bytes": 5668,
+        "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6"
+      },
+      {
+        "commit": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Trees/Observations.lean",
+        "git_blob": "f90fbe8c85b9c88f760236d48129bd2b4c4d7e71",
+        "bytes": 4119,
+        "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752"
+      },
+      {
+        "commit": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Examples/TreeCache.lean",
+        "git_blob": "d142e853381de3b7d294d3c023c32d53e2756d5c",
+        "bytes": 16307,
+        "sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754"
+      },
+      {
+        "commit": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "SquareApplications.lean",
+        "git_blob": "dbc847cd816f0d6a2101d3873b0d9b389695247b",
+        "bytes": 8318,
+        "sha256": "f6c0e7e43ffdd4f50d7b9a2402d3135d3cd104285c4e539c426ef6cd544b196b"
+      },
+      {
+        "commit": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "docs/research/fdsa-reconstruction-map.md",
+        "git_blob": "91b4dc61828170699a85d1e1fa771e8dbaff6ea4",
+        "bytes": 18101,
+        "sha256": "b7e4fd17a6b2b76974a39caa55de6d5231c813b13c8e873a024167f36126d9f1"
+      },
+      {
+        "commit": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "docs/research/fdsa-tree-cache.md",
+        "git_blob": "5f5b8833fc422addb9eabaa8a97b0b482662924f",
+        "bytes": 11655,
+        "sha256": "4d8bfd13aece8fe9c3eeb563ee3908bd443d523c75fcdaa0658fa7b0639d4bed"
+      }
+    ],
+    "original_local_closure_record": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-coordinator-preparation-20261104/closure-reconciliation.json",
+      "bytes": 3976,
+      "sha256": "8aa9650ddfed9f76dfc09f0bd8e00b809e50786b69d64fe4b780a4113989d5d2"
+    },
+    "original_all26_hashes_verified": true,
+    "accepted_preexisting22_sources": [
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Bracketing/Basic.lean",
+        "git_blob": "3f6604c226908ee807c7d5076bd1c027b48bbf90",
+        "bytes": 8561,
+        "sha256": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Optimization/SelectionSpec.lean",
+        "git_blob": "2548b66575b5a453e8cec30ceb745234bb0ae2e6",
+        "bytes": 738,
+        "sha256": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Resources/CallCount.lean",
+        "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+        "bytes": 2447,
+        "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Resources/ListReversal.lean",
+        "git_blob": "62ab85a7325d521bf925405f9abb053703f4d175",
+        "bytes": 4827,
+        "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Resources/Measured.lean",
+        "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+        "bytes": 2906,
+        "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Resources/Potential.lean",
+        "git_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+        "bytes": 4638,
+        "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Resources/RandomAccess/CacheCosts.lean",
+        "git_blob": "e583ec5285ea887c38f4b369071408697f0574b2",
+        "bytes": 2227,
+        "sha256": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Resources/SymmetricCosts.lean",
+        "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+        "bytes": 10508,
+        "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Resources/TreeFlattening/Core.lean",
+        "git_blob": "d136193bd3823ee00431bc240d1e7a0168b4ddaf",
+        "bytes": 4225,
+        "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Resources/Workload.lean",
+        "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+        "bytes": 2745,
+        "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Sequences/OrderedSummary.lean",
+        "git_blob": "93509e2e97acd47dcd68a109ea8d18ef1d612b57",
+        "bytes": 8765,
+        "sha256": "d484e6c34f4ebace4ba121f931eba53a86f34a3c4b69e06d9d0b24ae8c8c7261"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Sequences/RandomAccess/Access.lean",
+        "git_blob": "5354c146a0665cce90ffc996d1b522b8a59079ad",
+        "bytes": 5219,
+        "sha256": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Sequences/RandomAccess/Basic.lean",
+        "git_blob": "fe040b71615878a86d06b326b820e1d5cd5f0229",
+        "bytes": 5970,
+        "sha256": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Sequences/RandomAccess/Borrow.lean",
+        "git_blob": "81b95e8bd4a6e30f6a20a85828409d6d55437be0",
+        "bytes": 5680,
+        "sha256": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Sequences/RandomAccess/TreeBuild.lean",
+        "git_blob": "3b662705f001c2a4b8fbe12868d6c7e77316d95f",
+        "bytes": 5392,
+        "sha256": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Sequences/Symmetric/Core.lean",
+        "git_blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4",
+        "bytes": 12059,
+        "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Sequences/Symmetric/Finite.lean",
+        "git_blob": "fedbcc0dfa4c7865ef2ee73f395155d45e33dbe5",
+        "bytes": 4923,
+        "sha256": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Sequences/Symmetric/Observation.lean",
+        "git_blob": "846aba846bfcfa04867cc221043609f9198b0ec0",
+        "bytes": 3425,
+        "sha256": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Applications/Sequences/Symmetric/Prefixes.lean",
+        "git_blob": "b73854f69696abe7cf827372ad070b6e9dc19991",
+        "bytes": 4345,
+        "sha256": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "SquareKit/ListFusion.lean",
+        "git_blob": "33ec447acb6da7b884ae57d2a885707208201607",
+        "bytes": 2939,
+        "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "SquareKit/Relations.lean",
+        "git_blob": "cdfa81e8f94728272a5c72da21ae2e4f5a5febc4",
+        "bytes": 5615,
+        "sha256": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "Squares.lean",
+        "git_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+        "bytes": 11694,
+        "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7"
+      }
+    ],
+    "all22_byte_identical": true,
+    "current_entrypoint_and_map": [
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "SquareApplications.lean",
+        "git_blob": "cbc9230ac39af7621a7eacef6cb9a88beb2b50a4",
+        "bytes": 10717,
+        "sha256": "66f9a33157409cf12c5044b3f3b338d7da83e720f22e724989e2184e66bf4211"
+      },
+      {
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "path": "docs/research/fdsa-reconstruction-map.md",
+        "git_blob": "7008f74e15916ceabdc7902a5fce3a2bcde3ce34",
+        "bytes": 46755,
+        "sha256": "dca421107e141c97e48ae28225b26e308816e0b5bae201dca39a2a3d5cc8e741"
+      }
+    ],
+    "public_inventory": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-public-statements115-prepared-20261104/inventory.json",
+      "bytes": 29136,
+      "sha256": "630a879b3922b298f0f641e9d8fec222d07911ad40378afcfe050d724479f9d1"
+    },
+    "preferred_unexecuted_input": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-public-statements115-prepared-20261104/StatementsExplicit.lean",
+      "bytes": 4522,
+      "sha256": "6c5e005fc23b5c9c3441c47da709de201df77c5b773fb8950964143280ab6df2"
+    },
+    "original_unexecuted_input": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-public-statements115-prepared-20261104/Statements.lean",
+      "bytes": 4407,
+      "sha256": "d02a1852e9873a8b19c32d426584db8671ac4d4344e346cc84450c33cc22431d"
+    },
+    "ordered_public_names": [
+      "Trees.fold",
+      "Trees.fold_nil",
+      "Trees.fold_node",
+      "Trees.fold_map",
+      "Trees.fold_fusion",
+      "Trees.fold_numNodes",
+      "Trees.fold_height",
+      "Trees.inorder",
+      "Trees.inorder_nil",
+      "Trees.inorder_node",
+      "Trees.inorder_length",
+      "Trees.inorder_map",
+      "Trees.numNodes_map",
+      "Trees.numLeaves_map",
+      "Trees.height_map",
+      "Trees.Cached.erase",
+      "Trees.Cached.erase_nil",
+      "Trees.Cached.erase_node",
+      "Trees.Cached.read",
+      "Trees.Cached.read_nil",
+      "Trees.Cached.read_node",
+      "Trees.Cached.smartNode",
+      "Trees.Cached.read_smartNode",
+      "Trees.Cached.erase_smartNode",
+      "Trees.Cached.Valid",
+      "Trees.Cached.valid_nil",
+      "Trees.Cached.valid_node",
+      "Trees.Cached.smartNode_valid_iff",
+      "Trees.Cached.read_eq_fold",
+      "Trees.Cached.inorder_erase",
+      "Trees.Cached.numNodes_erase",
+      "Trees.Cached.numLeaves_erase",
+      "Trees.Cached.height_erase",
+      "Trees.Cached.annotate",
+      "Trees.Cached.annotate_nil",
+      "Trees.Cached.annotate_node",
+      "Trees.Cached.annotate_valid",
+      "Trees.Cached.erase_annotate",
+      "Trees.Cached.read_annotate",
+      "Resources.TreeCache.readRun",
+      "Resources.TreeCache.readRun_value",
+      "Resources.TreeCache.readRun_cost",
+      "Resources.TreeCache.nodeRun",
+      "Resources.TreeCache.nodeRun_value",
+      "Resources.TreeCache.nodeRun_cost",
+      "Resources.TreeCache.nodeRun_le",
+      "Resources.TreeCache.nodeRun_valid",
+      "TreeCacheExamples.sizeStep",
+      "TreeCacheExamples.heightStep",
+      "TreeCacheExamples.size_reader",
+      "TreeCacheExamples.height_reader",
+      "TreeCacheExamples.sample",
+      "TreeCacheExamples.sample_size",
+      "TreeCacheExamples.sample_height",
+      "TreeCacheExamples.sample_inorder",
+      "TreeCacheExamples.sizeSample",
+      "TreeCacheExamples.sizeSample_valid",
+      "TreeCacheExamples.sizeSample_erases",
+      "TreeCacheExamples.sizeSample_read",
+      "TreeCacheExamples.heightSample",
+      "TreeCacheExamples.heightSample_valid",
+      "TreeCacheExamples.heightSample_read",
+      "TreeCacheExamples.pairStep",
+      "TreeCacheExamples.pair_fold_size",
+      "TreeCacheExamples.pair_fold_height",
+      "TreeCacheExamples.pair_reader",
+      "TreeCacheExamples.pairSample",
+      "TreeCacheExamples.pairSample_valid",
+      "TreeCacheExamples.pairSample_erases",
+      "TreeCacheExamples.pairSample_read",
+      "TreeCacheExamples.ordered_summary_fold",
+      "TreeCacheExamples.sample_word",
+      "TreeCacheExamples.balancedThree",
+      "TreeCacheExamples.leftThree",
+      "TreeCacheExamples.same_inorder_different_height",
+      "TreeCacheExamples.repeated_sample",
+      "TreeCacheExamples.empty_tree",
+      "TreeCacheExamples.empty_fold",
+      "TreeCacheExamples.empty_observations",
+      "TreeCacheExamples.empty_annotation",
+      "TreeCacheExamples.corrupt",
+      "TreeCacheExamples.corrupt_root_checks",
+      "TreeCacheExamples.corrupt_not_valid",
+      "TreeCacheExamples.corrupt_erases",
+      "TreeCacheExamples.corrupt_inorder",
+      "TreeCacheExamples.corrupt_smart_not_valid",
+      "TreeCacheExamples.corrupt_smart_same_tree",
+      "TreeCacheExamples.erased_fold",
+      "TreeCacheExamples.sizeRun",
+      "TreeCacheExamples.heightRun",
+      "TreeCacheExamples.size_node_value",
+      "TreeCacheExamples.height_node_value",
+      "TreeCacheExamples.size_node_cost",
+      "TreeCacheExamples.height_node_cost",
+      "TreeCacheExamples.size_node_bound",
+      "TreeCacheExamples.size_node_valid",
+      "TreeCacheExamples.height_node_valid",
+      "TreeCacheExamples.measured_size_reader",
+      "TreeCacheExamples.measured_height_reader",
+      "TreeCacheExamples.listStep",
+      "TreeCacheExamples.appendStepRun",
+      "TreeCacheExamples.append_node_value",
+      "TreeCacheExamples.append_node_cost",
+      "TreeCacheExamples.append_node_valid",
+      "TreeCacheExamples.chain",
+      "TreeCacheExamples.chain_numNodes",
+      "TreeCacheExamples.chainCache",
+      "TreeCacheExamples.chainCache_valid",
+      "TreeCacheExamples.chainCache_read",
+      "TreeCacheExamples.chainCache_length",
+      "TreeCacheExamples.chain_node_cost",
+      "TreeCacheExamples.chain_node_value",
+      "TreeCacheExamples.chain_node_valid",
+      "TreeCacheExamples.chain_node_exceeds",
+      "TreeCacheExamples.empty_read"
+    ],
+    "ordered_public_names_sha256": "1b3459408687c6090f25ff71a11f3fdb886fddea29c6c4421f690261cf8bf4fe",
+    "counts": {
+      "public": 115,
+      "definitions": 25,
+      "theorems": 90,
+      "private": 0,
+      "anonymous_examples": 0,
+      "new_instances": 0
+    },
+    "explicit_input_correction": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-coordinator-preparation-20261104/explicit-input-correction.json",
+      "bytes": 757,
+      "sha256": "22b4e485f5cf7e545e30388e98f541ae73a985f3831688fa65b90c70bc17bed2"
+    }
+  },
+  "other_reuse": [
+    {
+      "commit": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+      "path": "Applications/Trees/Ordered.lean",
+      "git_blob": "4bad941eb245dd3ab305d7eb626f4195c041f3bb",
+      "bytes": 5817,
+      "sha256": "26549e623acdce3ac29e3fdd30858eb068c1bf7cd5f223468bbcbb30ecffbe66"
+    },
+    {
+      "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+      "path": "Applications/Resources/BottomUpSorting.lean",
+      "git_blob": "f141f4393d52e1061feaa2e57149cdea02085555",
+      "bytes": 23175,
+      "sha256": "74cc812fb1f1706621daeb1c51512a9ddb3d85dc57a36589aafe96e8514a6826"
+    }
+  ],
+  "pinned_mathlib_sources": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Data/Tree/Basic.lean",
+      "bytes": 6679,
+      "sha256": "43f201537013e2824d18f6b66f6d329f15bc52289c1ae734fa8acd4bd2a9945d",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "repository_path": "Mathlib/Data/Tree/Basic.lean"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Algebra/FreeMonoid/Basic.lean",
+      "bytes": 19259,
+      "sha256": "82573d5b6f5968524f3c9c84ed91fd6a3f5eb222434789e6a2de7145c870e2a9",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "repository_path": "Mathlib/Algebra/FreeMonoid/Basic.lean"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Combinatorics/Enumerative/Catalan/Tree.lean",
+      "bytes": 2821,
+      "sha256": "af2828b5c37209c5a1512d1dc1a79080550fd0e7a6d1beb36f344aceccdb3b59",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "repository_path": "Mathlib/Combinatorics/Enumerative/Catalan/Tree.lean"
+    }
+  ],
+  "unchanged_configuration": [
+    {
+      "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+      "path": "lean-toolchain",
+      "git_blob": "a6aff065db2882c535684f8c5bcd4f16e9a23915",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+      "path": "lakefile.toml",
+      "git_blob": "6c6da60ea34d0f4dbfb46fd68a02934368f66a82",
+      "bytes": 444,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+    },
+    {
+      "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+      "path": "lake-manifest.json",
+      "git_blob": "0452762ecb2bb5e0d0f7db0b128b0af581febb87",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    }
+  ],
+  "original_review_continuations": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/binary-tree-cache-round1.md",
+      "bytes": 1767,
+      "sha256": "88cf0071c94c2631c26aa36b7e00f3da34c7892d04ca45bd062cb0996c82683c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-shape-round1.md",
+      "bytes": 2687,
+      "sha256": "545dec78024a35b25f5a5d5112c6324bc1ce3ce9246844bedeb3d8540644bbb3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-fold-resource-round1.md",
+      "bytes": 970,
+      "sha256": "645a854cfef048475071044ab6cba8be2e322b630b3d9e84e6ff481d8ebf802e"
+    }
+  ],
+  "historical_XT01_independent_source_reports_at_preflight": [
+    {
+      "path": "reviews/binary-tree-cache-standards-preparation-20261104.md",
+      "bytes": 22912,
+      "sha256": "a24df99f02fd70300f25b982b53293d2f0d8485f053b8891829fe81c37043c97",
+      "outcome": "Blocked; source assessment complete; zero concrete findings"
+    },
+    {
+      "path": "reviews/binary-tree-cache-spec-preparation-20261104.md",
+      "bytes": 21429,
+      "sha256": "c54206bcb23cf96bc0968c2bc4f84ed2166ee6f257c4a1d952f5c578418d3432",
+      "outcome": "Blocked; source assessment complete; zero concrete findings"
+    }
+  ],
+  "boundary": "Identity comparisons and source preparation only. No current loaded-object, compiler, actual-type, proof audit, final review or acceptance credit."
+}

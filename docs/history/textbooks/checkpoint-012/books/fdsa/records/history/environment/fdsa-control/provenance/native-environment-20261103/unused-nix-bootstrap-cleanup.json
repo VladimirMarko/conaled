@@ -1,0 +1,20 @@
+{
+  "started_utc": "2026-11-03T16:48:40.878847+00:00",
+  "reason": "Unused failed Nix bootstrap; exact native release and cache setup succeeded. All source and diagnostics retained. Prior cleanup tool session72896 unavailable with no terminal record; inventorying remaining regenerable own-workspace files only.",
+  "archive_sha256": "b409c55904c909ac3aeda3fb1253319f86a89ddd1ba31a5dec33d4a06414c72a",
+  "reacquire_url": "https://github.com/DavHau/nix-portable/releases/latest/download/nix-portable-x86_64",
+  "disk_before": {
+    "total": 67586535424,
+    "used": 62707654656,
+    "free": 1426132992
+  },
+  "completed_utc": "2026-11-03T16:49:27.053286+00:00",
+  "remaining_tree_files": 54615,
+  "remaining_tree_logical_bytes": 306070783,
+  "disk_after": {
+    "total": 67586535424,
+    "used": 62008545280,
+    "free": 2125242368
+  },
+  "outcome": "removed verified regenerable Nix archive and unused bootstrap tree; all other paths untouched"
+}

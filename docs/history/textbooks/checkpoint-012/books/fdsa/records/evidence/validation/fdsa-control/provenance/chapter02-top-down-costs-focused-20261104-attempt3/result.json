@@ -1,0 +1,33 @@
+{
+  "candidate": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "build",
+    "Applications.Resources.Growth",
+    "Applications.Resources.TopDownSorting",
+    "Examples.TopDownCosts"
+  ],
+  "started_utc": "2026-11-04T04:40:32.995394+00:00",
+  "completed_utc": "2026-11-04T04:41:24.546177+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 51.550620785999854,
+  "state": "passed",
+  "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-top-down-costs-focused-20261104-attempt3/full.log",
+  "progress_bookkeeping_errors": [],
+  "final_head": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+  "final_status": "",
+  "log_size_bytes": 2526,
+  "log_sha256": "c2e18c5ccdac8983e39d96cc66094803bf6083f344ec96095b81433b6f1935d3",
+  "available_bytes_at_completion": 24055001088,
+  "verification_record_present": false
+}

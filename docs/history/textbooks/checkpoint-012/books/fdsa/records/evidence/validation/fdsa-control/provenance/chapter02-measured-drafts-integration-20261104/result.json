@@ -1,0 +1,88 @@
+{
+  "utc": "2026-11-04T05:12:15.256986+00:00",
+  "quicksort_merge": "2fc20fee582645c6601a681d640ea6ce3fbcdf56",
+  "natural_merge_candidate": "8ec1d9cb93e4c38168dc357e8b6f254f8fe83668",
+  "quicksort_original": "e4c152e62271725abe6e71ac52e4756316208b24",
+  "quicksort_corrected": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+  "natural_original": "3d5238737299cd365f36e39e5e8a61d34138cba5",
+  "source_status": "",
+  "preserved_sources": {
+    "Applications/Resources/Growth.lean": {
+      "from": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+      "sha256": "99be17f2d45ac30de1e912c2181460dac046c8b98e40ea3209abfec342107786"
+    },
+    "Applications/Resources/TopDownSorting.lean": {
+      "from": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+      "sha256": "26531f25e57c0d198fc90d0a10652051ac6159098f493629af3283b54ab687bc"
+    },
+    "Examples/TopDownCosts.lean": {
+      "from": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+      "sha256": "8f5f6969049712a5a5d37f7beb78c09017a2835b5f1208e54d0c9912dff425a4"
+    },
+    "Applications/Sorting/BottomUp.lean": {
+      "from": "98696d86162bd93c1cba46719eeb65bf6cabe65a",
+      "sha256": "4df83022174bc4e5becfb441617624d57695158d69dc7241209ca077dc2c7791"
+    },
+    "Examples/BottomUpSorting.lean": {
+      "from": "98696d86162bd93c1cba46719eeb65bf6cabe65a",
+      "sha256": "1d4a312363af87926c085f790ca7279273df050f40234c449e0e0fa9e5b5592b"
+    },
+    "Applications/Sorting/Alternating.lean": {
+      "from": "98696d86162bd93c1cba46719eeb65bf6cabe65a",
+      "sha256": "eb927e5978ea410f360441dfa8d4843b5e93de10aae8a5eac5c2f603f4e233e9"
+    },
+    "Examples/AlternatingSorting.lean": {
+      "from": "98696d86162bd93c1cba46719eeb65bf6cabe65a",
+      "sha256": "5798ed2ce20dab0ce4b9618fea1e8ea36a7be9b2f60fa7090a85522bfb464c04"
+    },
+    "Applications/Sorting/QuickSort.lean": {
+      "from": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "sha256": "696ae63c3f5c23940ac0f05c8ac6b48bff74b65e4c66faf319283efedea73802"
+    },
+    "Examples/QuickSort.lean": {
+      "from": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "sha256": "2e5e4952bae8edf1fd5985f0cfd40993363a2f642717d61161a2e5ee6835a162"
+    },
+    "Applications/Resources/QuickSort.lean": {
+      "from": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "sha256": "e98024f6b741e1aba1fb1e38b419eee2e1acad76a8a40e669752f54775783263"
+    },
+    "Examples/QuickSortCosts.lean": {
+      "from": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "sha256": "8ef4641517938d5004a172badce122ec5f69ad0749558431c060bea94f5b064b"
+    },
+    "Applications/Sorting/NaturalRuns.lean": {
+      "from": "3d5238737299cd365f36e39e5e8a61d34138cba5",
+      "sha256": "123c711b5f0cf05074155f3a0d9ae076aa80a8be482e7e6fc77626aa9db6fb1d"
+    },
+    "Examples/NaturalRuns.lean": {
+      "from": "3d5238737299cd365f36e39e5e8a61d34138cba5",
+      "sha256": "ef0ed6bbc5beb40815f977e80c0b99b0633e8503b0b1634747d41275cb3f6041"
+    },
+    "Applications/Resources/NaturalRunComparisons.lean": {
+      "from": "3d5238737299cd365f36e39e5e8a61d34138cba5",
+      "sha256": "f2908d65ab7e59ec54bd591e8e6127e9f89aa6dbdc1f0dbd1b1cd39f4f996635"
+    },
+    "Examples/NaturalRunComparisons.lean": {
+      "from": "3d5238737299cd365f36e39e5e8a61d34138cba5",
+      "sha256": "9d4dfe317e1af9ee894385ba3478c0ede17de1e713cc7090b120a4d2ab708f8a"
+    },
+    "Applications/Resources/ListBuildCosts.lean": {
+      "from": "3d5238737299cd365f36e39e5e8a61d34138cba5",
+      "sha256": "dc4c51a6aab663bd36d0796ac571cf90f489e2e4810521d80f8d32327c559901"
+    },
+    "Examples/ListBuildCosts.lean": {
+      "from": "3d5238737299cd365f36e39e5e8a61d34138cba5",
+      "sha256": "99c7affb272fb0f7f1f190cf422484b2b40c76b08e1d9297f182d7106c8ccffb"
+    }
+  },
+  "foundation_nonoverlap_paths_preserved": 7,
+  "auto_merged_public_paths": [
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "manual_conflict_resolutions": [],
+  "accepted_branch_unchanged": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "isolated_foundation_unchanged": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "scope": "Development integration for focused checking only; all complete acceptance and review gates remain outstanding."
+}

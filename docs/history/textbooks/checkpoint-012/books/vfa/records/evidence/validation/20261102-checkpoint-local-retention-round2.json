@@ -1,0 +1,79 @@
+{
+  "observed_utc": "2026-11-02T11:38:17.076287+00:00",
+  "operation": "One-time local rotation of three verified uploaded redundant checkpoint copies; no remote deletion, source/cache change, or process signal.",
+  "retained_complete_checkpoints": [
+    {
+      "name": "conaled-vfa-checkpoint-018-product-source-reviews-clear.tar.gz",
+      "bytes": 145578388,
+      "sha256": "47fa64f3e00fcf40ee76befa84b60761a71072e8675f87125867aba4c91ba740",
+      "library_file_id": "libfile_493c5ddf0cf0819185ee27d6f29c1499",
+      "device": 27,
+      "inode": 2403780,
+      "mtime_ns": 1793617402824414345,
+      "nlink": 1
+    },
+    {
+      "name": "conaled-vfa-checkpoint-019-maps-trees-adt-plans.tar.gz",
+      "bytes": 145630521,
+      "sha256": "bae31fa2e06c53242c846e8fa18840b6c2a158087c63441ca3c6baa02c71d262",
+      "library_file_id": "libfile_9e838ae558908191b6c70ad5f756f379",
+      "device": 27,
+      "inode": 2404050,
+      "mtime_ns": 1793618970737300332,
+      "nlink": 1
+    }
+  ],
+  "removed_local_copies": [
+    {
+      "name": "conaled-vfa-checkpoint-015-remaining-imports-candidate.tar.gz",
+      "bytes": 145491033,
+      "sha256": "8d9275a4023df584249ffbd184bb39f07ec058e81696903b56d5906e0c872c0f",
+      "library_file_id": "libfile_02429b8a5ecc8191a80e0287ece52521",
+      "device": 27,
+      "inode": 2403574,
+      "mtime_ns": 1793614741526899265,
+      "nlink": 1
+    },
+    {
+      "name": "conaled-vfa-checkpoint-016-import-source-reviews-clear.tar.gz",
+      "bytes": 145502875,
+      "sha256": "6509e60129260389137df2fdd2f1f755869598c7df4704334e5ee72c2341fbf8",
+      "library_file_id": "libfile_2b331bd7a030819198d3f9e6ac910148",
+      "device": 27,
+      "inode": 2403640,
+      "mtime_ns": 1793615243605654717,
+      "nlink": 1
+    },
+    {
+      "name": "conaled-vfa-checkpoint-017-diagnostic-product-correction.tar.gz",
+      "bytes": 145563132,
+      "sha256": "6a80b9689dcecd9e2a104a2e1523923a5b616830313ff98db73d3a3d7f7487fa",
+      "library_file_id": "libfile_643b17479af081918ead8cccc577ab7e",
+      "device": 27,
+      "inode": 2403766,
+      "mtime_ns": 1793617074851490852,
+      "nlink": 1
+    }
+  ],
+  "removed_bytes": 436557040,
+  "reappeared_previously_removed_archives": [
+    {
+      "name": "conaled-vfa-checkpoint-012-positive-key-adapters.tar.gz",
+      "bytes": 145397542,
+      "device": 27,
+      "inode": 2403650,
+      "observation": "Previously recorded removed local archive is present again; writer and restoration time not identified; not deleted again."
+    },
+    {
+      "name": "conaled-vfa-checkpoint-013-retention-imports-candidate.tar.gz",
+      "bytes": 145459275,
+      "device": 27,
+      "inode": 2403651,
+      "observation": "Previously recorded removed local archive is present again; writer and restoration time not identified; not deleted again."
+    }
+  ],
+  "incident_disposition": "Additional inactive-path recreation observation under existing #1025 open/nonblocking disposition. No active-input write, active-artifact replacement, identity drift or guard mismatch established by this observation. Do not repeatedly delete these reappeared paths.",
+  "free_bytes_before": 2554740736,
+  "free_bytes_after": 2845855744,
+  "available_bytes_after": 0
+}

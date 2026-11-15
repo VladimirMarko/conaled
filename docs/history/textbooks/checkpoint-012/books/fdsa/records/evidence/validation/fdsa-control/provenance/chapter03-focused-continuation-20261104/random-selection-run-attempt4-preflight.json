@@ -1,0 +1,54 @@
+{
+  "recorded_utc": "2026-11-04T19:58:14.630410+00:00",
+  "candidate": "93ddb900a9ae01e721883c5b8a409eb37129a3f8",
+  "expectedHead": "95406b83968e5b438e206c06f9797804664e0170",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "acceptedHead": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "name": "chapter03-random-selection-run-focused-attempt4-20261104",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Resources.RandomSelectionRun",
+    "Examples.RandomSelectionRun"
+  ],
+  "expectedPaths": [
+    "Applications/Resources/RandomSelection.lean",
+    "Applications/Resources/RandomSelectionRun.lean",
+    "Examples/RandomSelection.lean",
+    "Examples/RandomSelectionRun.lean"
+  ],
+  "recordDirectory": "chapter03-focused-continuation-20261104",
+  "recordName": "random-selection-run-attempt4-preflight.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was 95406b8 fix(examples): match rounded recurrence numeral casts (#174)\nHEAD is now at 93ddb90 fix(selection): reduce finite random execution examples (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionRun.lean",
+      "bytes": 12714,
+      "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718"
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e"
+    },
+    {
+      "path": "Examples/RandomSelectionRun.lean",
+      "bytes": 3770,
+      "sha256": "76504fe5fa77c581b8a7e3c9f3e0247c8a927adee8b308f84be6167e0ea20e0f"
+    }
+  ],
+  "candidate_tree": "c27494e7b86079be43a9051c780231c09a3bd779",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 739586048
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

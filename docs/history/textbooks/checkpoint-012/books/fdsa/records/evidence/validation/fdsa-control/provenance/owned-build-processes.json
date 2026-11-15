@@ -1,0 +1,67 @@
+{
+  "time": 1793595087.82835,
+  "scope": "Only Lean/Lake processes whose cwd is one of this task's three exact checkouts; no other process arguments collected.",
+  "processes": [
+    {
+      "pid": 83003,
+      "parent": 82650,
+      "start_ticks": "2382085",
+      "state": "S",
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "source": null,
+      "outputs": [],
+      "memory": [
+        "VmRSS:\t  128904 kB",
+        "RssAnon:\t  128728 kB",
+        "RssFile:\t     176 kB"
+      ]
+    },
+    {
+      "pid": 102354,
+      "parent": 102351,
+      "start_ticks": "2564528",
+      "state": "S",
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-insertion-costs",
+      "source": null,
+      "outputs": [],
+      "memory": [
+        "VmRSS:\t   78500 kB",
+        "RssAnon:\t   78324 kB",
+        "RssFile:\t     176 kB"
+      ]
+    },
+    {
+      "pid": 109620,
+      "parent": 102354,
+      "start_ticks": "2642683",
+      "state": "T",
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-insertion-costs",
+      "source": "/workspace/scratch/845aa1048b05/conaled-insertion-costs/Applications/Resources/SymmetricCosts.lean",
+      "outputs": [
+        "/workspace/scratch/845aa1048b05/conaled-insertion-costs/.lake/build/lib/lean/Applications/Resources/SymmetricCosts.olean"
+      ],
+      "memory": [
+        "VmRSS:\t   90028 kB",
+        "RssAnon:\t   89880 kB",
+        "RssFile:\t     148 kB"
+      ]
+    },
+    {
+      "pid": 133215,
+      "parent": 83003,
+      "start_ticks": "2875690",
+      "state": "S",
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "source": "/workspace/scratch/845aa1048b05/conaled-ch01-review/SquareKit/SmoothQuotient.lean",
+      "outputs": [
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/SmoothQuotient.olean"
+      ],
+      "memory": [
+        "VmRSS:\t  401436 kB",
+        "RssAnon:\t  211988 kB",
+        "RssFile:\t  189448 kB"
+      ]
+    }
+  ],
+  "note": "Read-only check for leftover workers from superseded checks; current primary and paused secondary remain untouched."
+}

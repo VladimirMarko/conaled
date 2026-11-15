@@ -1,0 +1,731 @@
+diff --git a/Applications/Resources/DifferenceListCosts.lean b/Applications/Resources/DifferenceListCosts.lean
+new file mode 100644
+index 0000000..16d2f1c
+--- /dev/null
++++ b/Applications/Resources/DifferenceListCosts.lean
+@@ -0,0 +1,221 @@
++import Applications.Resources.CallCount
++import Applications.Resources.Workload
++import Batteries.Data.DList.Lemmas
++
++/-! Separate closure-creation and application observations for difference lists.
++
++Creation captures already supplied callback values at a fixed unit tariff;
++it does not invoke them or charge their earlier construction again. Application
++charges one entry for identity, singleton and composition, using the existing
++measured bind. The observation counts unfolded invocation occurrences, which
++can exceed the number of creation events when callbacks are shared.
++
++This is an explicit model, not a compiler-allocation or machine-time theorem.
++The push operation uses composition with a singleton; its Batteries.DList.push
++bridge preserves values, not the costs of Batteries' fused implementation.
++Source scanner/control work is outside this observation. Provenance: FDSA
++chapter 2, pp. 21–22; `docs/research/fdsa-reconstruction-map.md`.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.DifferenceListCosts
++universe u
++variable {α : Type u}
++
++abbrev Builder (α : Type u) := List α → Measured (List α) Nat
++
++/-- The represented prefix is independent of the supplied suffix. -/
++def Rep (f : Builder α) (prefix : List α) : Prop :=
++  ∀ suffix, (f suffix).1 = prefix ++ suffix
++
++/-- An application-cost contract covers every suffix, not only materialization at []. -/
++def AppCost (f : Builder α) (k : Nat) : Prop :=
++  ∀ suffix, (f suffix).2 = k
++
++/-- Charged identity is a value identity, with one application entry. -/
++def empty : Builder α := fun suffix => CallCount.tick (pure suffix)
++
++def singleton (a : α) : Builder α := fun suffix => CallCount.tick (pure (a :: suffix))
++
++/-- Apply g first and then f; the represented prefixes occur in f-then-g order. -/
++def compose (f g : Builder α) : Builder α :=
++  fun suffix => CallCount.tick (bind (g suffix) f)
++
++@[simp] theorem empty_apply (suffix : List α) : empty suffix = (suffix, 1) := rfl
++
++@[simp] theorem singleton_apply (a : α) (suffix : List α) :
++    singleton a suffix = (a :: suffix, 1) := rfl
++
++theorem empty_rep : Rep (empty : Builder α) [] := by
++  intro suffix
++  rfl
++
++theorem empty_appCost : AppCost (empty : Builder α) 1 := by
++  intro suffix
++  rfl
++
++theorem singleton_rep (a : α) : Rep (singleton a) [a] := by
++  intro suffix
++  rfl
++
++theorem singleton_appCost (a : α) : AppCost (singleton a) 1 := by
++  intro suffix
++  rfl
++
++theorem compose_value (f g : Builder α) (suffix : List α) :
++    (compose f g suffix).1 = (f (g suffix).1).1 := by
++  simp only [compose, CallCount.tick_value, bind_value]
++
++/-- The second callback receives the actual value returned by the first. -/
++theorem compose_cost (f g : Builder α) (suffix : List α) :
++    (compose f g suffix).2 = (g suffix).2 + (f (g suffix).1).2 + 1 := rfl
++
++theorem compose_rep (f g : Builder α) (prefixF prefixG : List α)
++    (repF : Rep f prefixF) (repG : Rep g prefixG) :
++    Rep (compose f g) (prefixF ++ prefixG) := by
++  intro suffix
++  simp only [compose_value, repF, repG, List.append_assoc]
++
++theorem compose_appCost (f g : Builder α) (k l : Nat)
++    (costF : AppCost f k) (costG : AppCost g l) :
++    AppCost (compose f g) (k + l + 1) := by
++  intro suffix
++  rw [compose_cost, costG, costF]
++  omega
++
++/-- Create the empty callback without applying it. -/
++def createEmpty : Measured (Builder α) Nat := CallCount.tick (pure empty)
++
++/-- Capture one payload reference without traversing a suffix. -/
++def createSingleton (a : α) : Measured (Builder α) Nat :=
++  CallCount.tick (pure (singleton a))
++
++/-- Capture two existing callback references without invoking either callback. -/
++def createCompose (f g : Builder α) : Measured (Builder α) Nat :=
++  CallCount.tick (pure (compose f g))
++
++@[simp] theorem createEmpty_eq :
++    (createEmpty : Measured (Builder α) Nat) = (empty, 1) := rfl
++
++@[simp] theorem createSingleton_eq (a : α) : createSingleton a = (singleton a, 1) := rfl
++
++@[simp] theorem createCompose_eq (f g : Builder α) :
++    createCompose f g = (compose f g, 1) := rfl
++
++/-- One singleton creation followed by one composition creation. -/
++def pushRun (a : α) (f : Builder α) : Measured (Builder α) Nat :=
++  bind (createSingleton a) (fun g => createCompose f g)
++
++theorem pushRun_eq (a : α) (f : Builder α) :
++    pushRun a f = (compose f (singleton a), 2) := rfl
++
++theorem pushRun_rep (a : α) (f : Builder α) (prefix : List α) (rep : Rep f prefix) :
++    Rep (pushRun a f).1 (prefix ++ [a]) := by
++  simpa only [pushRun_eq] using compose_rep f (singleton a) prefix [a] rep (singleton_rep a)
++
++theorem pushRun_appCost (a : α) (f : Builder α) (k : Nat) (cost : AppCost f k) :
++    AppCost (pushRun a f).1 (k + 2) := by
++  simpa only [pushRun_eq] using compose_appCost f (singleton a) k 1 cost (singleton_appCost a)
++
++/-- Execute creation steps from an already supplied seed. Its earlier creation
++and the executor's list traversal are outside this observation. -/
++def buildFrom (items : List α) (f : Builder α) : Measured (Builder α) Nat :=
++  run pushRun items f
++
++@[simp] theorem buildFrom_nil (f : Builder α) : buildFrom [] f = (f, 0) := rfl
++
++theorem buildFrom_cons (a : α) (items : List α) (f : Builder α) :
++    buildFrom (a :: items) f =
++      ((buildFrom items (compose f (singleton a))).1,
++        2 + (buildFrom items (compose f (singleton a))).2) := by
++  simp only [buildFrom, run_cons, pushRun_eq]
++
++theorem buildFrom_cost (items : List α) (f : Builder α) :
++    (buildFrom items f).2 = 2 * items.length := by
++  induction items generalizing f with
++  | nil => rfl
++  | cons a items ih =>
++      simp only [buildFrom_cons, ih, List.length_cons, Nat.mul_add, Nat.mul_one]
++      omega
++
++theorem buildFrom_rep (items : List α) (f : Builder α) (prefix : List α)
++    (rep : Rep f prefix) : Rep (buildFrom items f).1 (prefix ++ items) := by
++  induction items generalizing f prefix with
++  | nil => simpa only [buildFrom_nil, List.append_nil] using rep
++  | cons a items ih =>
++      have next := compose_rep f (singleton a) prefix [a] rep (singleton_rep a)
++      have rest := ih (compose f (singleton a)) (prefix ++ [a]) next
++      simpa only [buildFrom_cons, List.append_assoc, List.cons_append, List.nil_append] using rest
++
++theorem buildFrom_appCost (items : List α) (f : Builder α) (k : Nat)
++    (cost : AppCost f k) : AppCost (buildFrom items f).1 (k + 2 * items.length) := by
++  induction items generalizing f k with
++  | nil => simpa only [buildFrom_nil, List.length_nil, Nat.mul_zero, Nat.add_zero] using cost
++  | cons a items ih =>
++      have next := compose_appCost f (singleton a) k 1 cost (singleton_appCost a)
++      have rest := ih (compose f (singleton a)) (k + 1 + 1) next
++      simpa only [buildFrom_cons, List.length_cons, Nat.mul_add, Nat.mul_one,
++        Nat.add_assoc, Nat.add_left_comm, Nat.add_comm] using rest
++
++/-- Include the initial identity's creation, then execute the same push sequence. -/
++def build (items : List α) : Measured (Builder α) Nat :=
++  bind createEmpty (buildFrom items)
++
++theorem build_cost (items : List α) : (build items).2 = 2 * items.length + 1 := by
++  change 1 + (buildFrom items (empty : Builder α)).2 = 2 * items.length + 1
++  rw [buildFrom_cost, Nat.add_comm]
++
++theorem build_rep (items : List α) : Rep (build items).1 items := by
++  simpa only [build, createEmpty_eq, bind, List.nil_append] using
++    buildFrom_rep items (empty : Builder α) [] empty_rep
++
++theorem build_appCost (items : List α) : AppCost (build items).1 (2 * items.length + 1) := by
++  simpa only [build, createEmpty_eq, bind, Nat.add_comm] using
++    buildFrom_appCost items (empty : Builder α) 1 empty_appCost
++
++/-- Erase only the observation, using the existing difference-list representation. -/
++def toDList (f : Builder α) (prefix : List α) (rep : Rep f prefix) : Batteries.DList α where
++  apply := fun suffix => (f suffix).1
++  invariant := by
++    intro suffix
++    rw [rep suffix, rep [], List.append_nil]
++
++@[simp] theorem toDList_apply (f : Builder α) (prefix : List α) (rep : Rep f prefix)
++    (suffix : List α) : (toDList f prefix rep).apply suffix = (f suffix).1 := rfl
++
++@[simp] theorem toList_toDList (f : Builder α) (prefix : List α) (rep : Rep f prefix) :
++    (toDList f prefix rep).toList = prefix := by
++  change (f []).1 = prefix
++  simpa only [List.append_nil] using rep []
++
++/-- The DList value forgets the closure's construction and application history. -/
++theorem toDList_eq_ofList (f : Builder α) (prefix : List α) (rep : Rep f prefix) :
++    toDList f prefix rep = Batteries.DList.ofList prefix := by
++  simpa only [toList_toDList] using
++    (Batteries.DList.ofList_toList (toDList f prefix rep)).symm
++
++theorem toDList_compose (f g : Builder α) (prefixF prefixG : List α)
++    (repF : Rep f prefixF) (repG : Rep g prefixG) :
++    toDList (compose f g) (prefixF ++ prefixG) (compose_rep f g prefixF prefixG repF repG) =
++      toDList f prefixF repF ++ toDList g prefixG repG := by
++  calc
++    toDList (compose f g) (prefixF ++ prefixG) (compose_rep f g prefixF prefixG repF repG) =
++        Batteries.DList.ofList (prefixF ++ prefixG) := toDList_eq_ofList _ _ _
++    _ = Batteries.DList.ofList
++        ((toDList f prefixF repF ++ toDList g prefixG repG).toList) := by
++      rw [Batteries.DList.toList_append, toList_toDList, toList_toDList]
++    _ = toDList f prefixF repF ++ toDList g prefixG repG := Batteries.DList.ofList_toList _
++
++/-- Correspondence with Batteries' fused push is a value theorem only. -/
++theorem toDList_pushRun (a : α) (f : Builder α) (prefix : List α) (rep : Rep f prefix) :
++    toDList (pushRun a f).1 (prefix ++ [a]) (pushRun_rep a f prefix rep) =
++      Batteries.DList.push (toDList f prefix rep) a := by
++  calc
++    toDList (pushRun a f).1 (prefix ++ [a]) (pushRun_rep a f prefix rep) =
++        Batteries.DList.ofList (prefix ++ [a]) := toDList_eq_ofList _ _ _
++    _ = Batteries.DList.ofList ((Batteries.DList.push (toDList f prefix rep) a).toList) := by
++      rw [Batteries.DList.toList_push, toList_toDList]
++    _ = Batteries.DList.push (toDList f prefix rep) a := Batteries.DList.ofList_toList _
++
++end Resources.DifferenceListCosts
+diff --git a/Examples/DifferenceListCosts.lean b/Examples/DifferenceListCosts.lean
+new file mode 100644
+index 0000000..ecbcd9e
+--- /dev/null
++++ b/Examples/DifferenceListCosts.lean
+@@ -0,0 +1,234 @@
++import Applications.Resources.DifferenceListCosts
++import Mathlib.Tactic.NormNum
++
++/-! Connected closure-creation and application observations.
++
++Independent expected counts: composing two singleton-prefix callbacks applies
++three closures. Building three items from identity creates seven closures and
++one application costs seven; construction plus two applications costs 21.
++Four self-composition extensions create five closures but later application
++costs 31. These are observations of the explicit model, not compiler timings.
++See `docs/research/fdsa-difference-list-costs.md`.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.DifferenceListCosts
++open Resources Resources.DifferenceListCosts
++universe u
++variable {α : Type u}
++
++theorem ordered_composition :
++    compose (singleton 1) (singleton 2) [9] = ([1, 2, 9], 3) := by
++  apply Prod.ext
++  · exact compose_rep (singleton 1) (singleton 2) [1] [2]
++      (singleton_rep 1) (singleton_rep 2) [9]
++  · exact compose_appCost (singleton 1) (singleton 2) 1 1
++      (singleton_appCost 1) (singleton_appCost 2) [9]
++
++/-- Standard DList append supplies the same ordered observation, separately
++from the callback's charged application law. -/
++theorem standard_composition_value (f g : Builder α) (prefix more : List α)
++    (hf : Rep f prefix) (hg : Rep g more) :
++    Batteries.DList.toList
++        (toDList (compose f g) (prefix ++ more)
++          (compose_rep f g prefix more hf hg)) =
++      Batteries.DList.toList ((toDList f prefix hf) ++ (toDList g more hg)) := by
++  rw [toList_toDList, Batteries.DList.toList_append, toList_toDList, toList_toDList]
++
++/-- Capturing supplied callbacks charges neither of their application counts. -/
++theorem expensive_capture (p q : Nat) (suffix : List α) :
++    let f : Builder α := fun xs => (xs, p)
++    let g : Builder α := fun xs => (xs, q)
++    (createCompose f g).2 = 1 ∧
++      ((createCompose f g).1 suffix).2 = p + q + 1 := by
++  dsimp only
++  constructor
++  · rfl
++  · change (compose (fun xs : List α => (xs, p)) (fun xs => (xs, q)) suffix).2 = _
++    rw [compose_cost]
++    change q + p + 1 = p + q + 1
++    omega
++
++/-- This client includes one construction followed by one actual application. -/
++def materialize (items suffix : List α) : Measured (List α) Nat :=
++  bind (build items) (fun f => f suffix)
++
++theorem materialize_eq (items suffix : List α) :
++    materialize items suffix = (items ++ suffix, 4 * items.length + 2) := by
++  apply Prod.ext
++  · change ((build items).1 suffix).1 = items ++ suffix
++    exact build_rep items suffix
++  · change (build items).2 + ((build items).1 suffix).2 = 4 * items.length + 2
++    rw [build_cost, build_appCost items suffix]
++    omega
++
++theorem construction_application_split (items suffix : List α) :
++    (build items).2 = 2 * items.length + 1 ∧
++      ((build items).1 suffix).2 = 2 * items.length + 1 :=
++  ⟨build_cost items, build_appCost items suffix⟩
++
++/-- Both applications run after one construction; their returned lists are
++retained independently and no materialized result is cached. -/
++def materializeTwice (items firstSuffix secondSuffix : List α) :
++    Measured (List α × List α) Nat :=
++  bind (build items) fun f =>
++    bind (f firstSuffix) fun first =>
++      bind (f secondSuffix) fun second =>
++        pure (first, second)
++
++theorem materializeTwice_eq (items firstSuffix secondSuffix : List α) :
++    materializeTwice items firstSuffix secondSuffix =
++      ((items ++ firstSuffix, items ++ secondSuffix), 6 * items.length + 3) := by
++  apply Prod.ext
++  · change (((build items).1 firstSuffix).1, ((build items).1 secondSuffix).1) = _
++    exact Prod.ext (build_rep items firstSuffix) (build_rep items secondSuffix)
++  · change (build items).2 +
++      (((build items).1 firstSuffix).2 + (((build items).1 secondSuffix).2 + 0)) = _
++    rw [build_cost, build_appCost items firstSuffix, build_appCost items secondSuffix]
++    omega
++
++theorem duplicate_values :
++    materialize ([3, 1, 3] : List Nat) [9] = ([3, 1, 3, 9], 14) :=
++  materialize_eq _ _
++
++theorem duplicate_values_twice :
++    materializeTwice ([3, 1, 3] : List Nat) [9] [8, 8] =
++      (([3, 1, 3, 9], [3, 1, 3, 8, 8]), 21) :=
++  materializeTwice_eq _ _ _
++
++theorem empty_payload_boundary :
++    materialize ([] : List Empty) [] = ([], 2) ∧
++      materializeTwice ([] : List Empty) [] [] = (([], []), 3) :=
++  ⟨materialize_eq _ _, materializeTwice_eq _ _ _⟩
++
++theorem singleton_boundary (a : α) (suffix : List α) :
++    materialize [a] suffix = (a :: suffix, 6) := materialize_eq _ _
++
++/-- The supplied singleton seed already exists at this program boundary. -/
++def extendSingleton (a : α) (items suffix : List α) : Measured (List α) Nat :=
++  bind (buildFrom items (singleton a)) (fun f => f suffix)
++
++theorem extendSingleton_eq (a : α) (items suffix : List α) :
++    extendSingleton a items suffix = ((a :: items) ++ suffix, 4 * items.length + 1) := by
++  apply Prod.ext
++  · change ((buildFrom items (singleton a)).1 suffix).1 = _
++    exact buildFrom_rep items (singleton a) [a] (singleton_rep a) suffix
++  · change (buildFrom items (singleton a)).2 +
++      ((buildFrom items (singleton a)).1 suffix).2 = _
++    rw [buildFrom_cost,
++      buildFrom_appCost items (singleton a) 1 (singleton_appCost a) suffix]
++    omega
++
++/-- The existing fused push supplies this value, but the chosen explicit
++composition model has its own application and construction observations. -/
++theorem fused_push_value (a : α) (f : Builder α) (prefix suffix : List α)
++    (rep : Rep f prefix) :
++    ((pushRun a f).1 suffix).1 =
++      (Batteries.DList.push (toDList f prefix rep) a).apply suffix := by
++  rfl
++
++/-- Charged identity preserves values but adds two invocation occurrences. -/
++theorem identity_value_cost (f : Builder α) (suffix : List α) :
++    (compose f empty suffix).1 = (f suffix).1 ∧
++      (compose f empty suffix).2 = (f suffix).2 + 2 := by
++  constructor
++  · rfl
++  · rw [compose_cost]
++    change 1 + (f suffix).2 + 1 = (f suffix).2 + 2
++    omega
++
++/-- A growing composition history whose represented prefix remains empty. -/
++def padded : Nat → Builder α
++  | 0 => empty
++  | n + 1 => compose (padded n) empty
++
++theorem padded_rep (n : Nat) : Rep (padded (α := α) n) [] := by
++  induction n with
++  | zero => exact empty_rep
++  | succ n ih =>
++      exact compose_rep (padded n) empty [] [] ih empty_rep
++
++theorem padded_appCost (n : Nat) : AppCost (padded (α := α) n) (2 * n + 1) := by
++  induction n with
++  | zero => exact empty_appCost
++  | succ n ih =>
++      intro suffix
++      have count := compose_appCost (padded n) empty (2 * n + 1) 1 ih empty_appCost suffix
++      change (compose (padded n) empty suffix).2 = 2 * (n + 1) + 1
++      omega
++
++theorem padded_empty_value (n : Nat) :
++    Batteries.DList.toList (toDList (padded (α := α) n) [] (padded_rep n)) = [] :=
++  toList_toDList _ _ _
++
++/-- No affine expression in the common output length controls these histories. -/
++theorem no_bound_from_output_length (K B : Nat) :
++    ∃ n : Nat, K * ([] : List α).length + B < (padded (α := α) n []).2 := by
++  refine ⟨B + 1, ?_⟩
++  have count := padded_appCost (α := α) (B + 1) []
++  simp only [List.length_nil, Nat.mul_zero, Nat.zero_add]
++  omega
++
++/-- A supplied closure is captured twice by one newly created composition.
++Sharing its description does not memoize either later invocation. -/
++def doubled : Nat → Measured (Builder α) Nat
++  | 0 => createEmpty
++  | n + 1 => bind (doubled n) (fun f => createCompose f f)
++
++theorem doubled_creation (n : Nat) : (doubled (α := α) n).2 = n + 1 := by
++  induction n with
++  | zero => rfl
++  | succ n ih =>
++      change (doubled (α := α) n).2 + 1 = (n + 1) + 1
++      rw [ih]
++
++theorem doubled_rep (n : Nat) : Rep (doubled (α := α) n).1 [] := by
++  induction n with
++  | zero => exact empty_rep
++  | succ n ih =>
++      exact compose_rep (doubled n).1 (doubled n).1 [] [] ih ih
++
++theorem doubled_application_add_one (n : Nat) (suffix : List α) :
++    ((doubled n).1 suffix).2 + 1 = 2 ^ (n + 1) := by
++  induction n generalizing suffix with
++  | zero => rfl
++  | succ n ih =>
++      change (compose (doubled n).1 (doubled n).1 suffix).2 + 1 =
++        2 ^ ((n + 1) + 1)
++      rw [compose_cost, Nat.pow_succ]
++      have inner := ih suffix
++      have outer := ih (((doubled n).1 suffix).1)
++      omega
++
++theorem doubled_appCost (n : Nat) :
++    AppCost (doubled (α := α) n).1 (2 ^ (n + 1) - 1) := by
++  intro suffix
++  have count := doubled_application_add_one n suffix
++  omega
++
++def materializeDoubled (n : Nat) (suffix : List α) : Measured (List α) Nat :=
++  bind (doubled n) (fun f => f suffix)
++
++theorem materializeDoubled_eq (n : Nat) (suffix : List α) :
++    materializeDoubled n suffix = (suffix, n + 2 ^ (n + 1)) := by
++  apply Prod.ext
++  · exact doubled_rep n suffix
++  · change (doubled n).2 + ((doubled n).1 suffix).2 = _
++    rw [doubled_creation]
++    have applied := doubled_application_add_one n suffix
++    omega
++
++theorem four_shared_closure_extensions :
++    (doubled (α := Nat) 4).2 = 5 ∧
++      (doubled 4).1 [9] = ([9], 31) := by
++  refine ⟨doubled_creation 4, ?_⟩
++  apply Prod.ext
++  · exact doubled_rep 4 [9]
++  · exact doubled_appCost 4 [9]
++
++theorem four_shared_closure_extensions_materialized :
++    materializeDoubled 4 ([9] : List Nat) = ([9], 36) :=
++  materializeDoubled_eq _ _
++
++end Examples.DifferenceListCosts
+diff --git a/SquareApplications.lean b/SquareApplications.lean
+index a64e012..ffff6aa 100644
+--- a/SquareApplications.lean
++++ b/SquareApplications.lean
+@@ -247,6 +247,7 @@ import Examples.FunctionalBasics
+ import Examples.ListReversal
+ import Examples.CallModels
+ import Examples.SharedDemand
++import Examples.DifferenceListCosts
+ 
+ /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
+ 
+diff --git a/docs/research/fdsa-difference-list-costs.md b/docs/research/fdsa-difference-list-costs.md
+new file mode 100644
+index 0000000..c383bd7
+--- /dev/null
++++ b/docs/research/fdsa-difference-list-costs.md
+@@ -0,0 +1,213 @@
++# Difference-list closure observations
++
++This shared unit gives an explicit closure model for the constant composition
++and deferred application claims used by FDSA's natural mergesort discussion.
++It remains a source draft until elaboration, whole-candidate verification and
++the retained independent reviews are recorded. It does not activate or accept
++Chapter 2, and it does not implement the source scanner.
++
++## Sources and existing interfaces
++
++The source is the July 27, 2026 [FDSA book](https://fdsa-book.net/), printed
++pp.21–22, PDF SHA-256
++`9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645`.
++The companion `Natural_Mergesort.thy` comes from the dated
++[AFP Efficient-Mergesort archive](https://isa-afp.org/release/afp-Efficient-Mergesort-2026-10-26.tar.gz),
++whose SHA-256 is
++`148ba9c80cf876a77219b1209dfa5df9bafe1aef1388bc84fc7088ff9c550708`.
++The theory's SHA-256 is
++`2fd5d686d7702385cc76f84e153034fe9b460ec94c0f751a56e5bd5ea017fe51`.
++It supplies the actual ascending-run builder recurrence used for later
++correspondence and imports `HOL-Data_Structures.Sorting`. The separately
++inspected `Sorting.thy` is pinned to Isabelle revision
++`f86f290225eebcc52c1ae7dba2e098f405f51c21`; that revision does not identify
++the AFP theory. The dated archive postdates the book edition, so this is
++provenance for the compared source, not a claim of identical July source.
++The exact unit requirements, bounded design preflight and its provenance
++correction are preserved in the external `fdsa-control` checkpoint directory.
++
++The value representation is existing `Batteries.DList`, at pinned revision
++`66e469188fe07963e5cf666c7d4433f45b8131c5`. Its `apply` function and invariant
++say that application appends a fixed prefix to the supplied suffix. Its
++`toList`, append, singleton and push laws already supply the relevant value
++semantics. The timing comments in the library are not themselves formal
++resource proofs.
++
++The unit reuses `Resources.Measured`, `bind`, `CallCount.tick` and `run`.
++There is no alternative DList datatype, expression tree, executor or compiler
++model. Existing ordered-summary and fusion clients retain their value laws;
++they acquire no cost claim merely by using an equivalent representation.
++
++## Two phases and their observations
++
++`Resources.DifferenceListCosts.Builder α` is an ordinary function:
++
++```lean
++List α → Resources.Measured (List α) Nat
++```
++
++The separate contracts are:
++
++```text
++Rep f prefix: for every suffix, value(f suffix) = prefix ++ suffix
++AppCost f k:  for every suffix, cost(f suffix) = k.
++```
++
++Rep says nothing about cost. AppCost is uniform over suffixes because a
++composition applies its first callback to the list produced by its second.
++Neither contract needs equality, order or an inhabitant of the payload type.
++
++The charged identity `empty` returns the suffix with one application entry.
++`singleton a` returns `a :: suffix`, also with one entry. `compose f g` first
++applies g, then applies f to that returned list, and adds one composition
++entry. Its exact general application observation is
++
++```text
++cost(g suffix) + cost(f(value(g suffix))) + 1.
++```
++
++Thus f representing p and g representing q give a callback representing
++`p ++ q`. Their application order is g then f; their output prefix order is
++p then q. If their uniform application costs are k and l, the resulting cost
++is `k+l+1` over natural observations. The proof retains the actual intermediate
++value before specializing those two cost contracts.
++
++`createEmpty`, `createSingleton` and `createCompose` are different operations:
++they return the corresponding callback and charge one construction event.
++They capture their fixed number of supplied references without applying the
++callbacks. A supplied callback has already been constructed at this boundary;
++capturing it does not repeat its construction or application work.
++
++This is a declared fixed-size closure-capture tariff and a unit invocation
++tariff. It is not a measurement of compiler allocation, processor instructions,
++memory retention or Lean's runtime evaluation. Scanner/control traversal costs
++remain a separate observation to be supplied by each source algorithm.
++
++## Compositional construction
++
++`pushRun a f` creates a singleton callback and composes f with it through the
++existing measured bind. The two construction events cost two. `buildFrom`
++executes these pushes through existing `Resources.run`; it does not recreate
++or recharge its supplied seed.
++
++For n items and a seed with prefix p and application cost k, the public laws
++separately establish:
++
++| Observation | Result |
++| --- | --- |
++| Construction during `buildFrom` | `2*n` |
++| Represented prefix afterward | `p ++ items` |
++| One application afterward | `k+2*n` |
++
++`build` first creates charged identity, then runs that construction. Both
++construction and one later application therefore cost `2*n+1`. The bound
++follows from the primitive callbacks and actual push recurrence; the final
++builder's cost is not supplied as an assumption.
++
++The examples define actual measured programs for construction followed by
++one application and by two applications. Both returned values are retained in
++the two-application program; it does not silently reuse the first materialized
++list. Their exact counts are:
++
++| Input length | Construction | Each application | Construct, apply once | Construct, apply twice |
++| ---: | ---: | ---: | ---: | ---: |
++| 0 | 1 | 1 | 2 | 3 |
++| 1 | 3 | 3 | 6 | 9 |
++| 3 | 7 | 7 | 14 | 21 |
++| n | `2*n+1` | `2*n+1` | `4*n+2` | `6*n+3` |
++
++The retained length-three input is `[3,1,3]`; nonempty suffixes and duplicate
++values remain in their original order. Empty construction/application is also
++instantiated at payload type `Empty`. The singleton-seed example charges only
++subsequent construction, giving `4*n+1` when that already supplied seed is
++extended by n items and then applied once.
++
++## Existing DList values and different cost histories
++
++`toDList f prefix rep` uses the existing DList record with application function
++`fun suffix => (f suffix).1`. Rep supplies its invariant and toList value.
++The semantic bridge reuses the standard append/push laws and equality to
++`Batteries.DList.ofList prefix`. It carries no construction history or cost
++information into the DList value.
++
++The pinned `Batteries.DList.push` implementation is the fused function
++`fun suffix => f (a :: suffix)`. The measured push in this unit explicitly
++composes f with a singleton callback. Their values agree, as exercised by
++`fused_push_value`; their exact construction/application decompositions are
++not identified. The two-singleton example independently expects `[1,2,9]`
++from prefixes `[1]`, `[2]` and suffix `[9]`, with three application entries.
++
++Charged identity is also only a value identity. Composing an arbitrary callback
++with it retains the returned list but adds two application entries: the
++identity invocation and the composition invocation. `identity_value_cost`
++retains this equation. No builder Monoid instance asserts a false identity
++law for the full measured observation.
++
++## Empty output does not bound application work
++
++The `padded` family repeatedly composes with charged identity. Every member
++represents the empty prefix and decodes to the same empty DList value, but
++its application count is `2*n+1`. `no_bound_from_output_length` supplies a
++member exceeding any proposed affine expression in that common zero output
++length. Extensional DList validity alone cannot justify a materialization
++bound in output length.
++
++The `doubled` family makes a second distinction. Each extension creates one
++new composition that captures the previously built callback twice. The
++description is shared, while the actual composition invokes that callback
++twice. After n extensions:
++
++```text
++construction cost = n+1
++application cost + 1 = 2^(n+1)
++represented prefix = [].
++```
++
++The successor equation is proved first, before deriving the natural-subtraction
++form `2^(n+1)-1`. Four extensions create five closures; applying the result
++to `[9]` returns `[9]` with application count 31. The actual measured program
++that constructs and applies it costs 36. These examples separate distinct
++creation events from unfolded invocation occurrences.
++
++Consequently, a statement about application work being linear in representation
++size must identify that size. Unfolded occurrence weight or an explicit
++application contract is appropriate here; the number of distinct shared
++closure-creation events is not a bound on arbitrary later application work.
++The push chain has a linear application weight because each extension captures
++its prior builder once and a fresh singleton once, as its recurrence proves.
++
++## Source correspondence still required
++
++The source ascending-run builder starts from singleton-prefix `(#) a`, then
++extends through explicit composition and ultimately applies to `[last]`.
++It does not start from identity. For a run of length r>=2 it has r-2 extensions
++after its singleton seed, so the later correspondence target in this tariff
++is application weight `1+2*(r-2)=2*r-3`. Empty and singleton runs bypass that
++path. The source-to-model branch equations and actual run-size invariant remain
++Chapter 2 obligations; the generic seed theorem merely provides the shared law.
++
++C02-112 additionally needs actual scanner/control, descending cons construction,
++emitted-run construction and merge-dispatch observations. Its comparison
++counters remain unchanged by the separate closure tariff. C02-109's ordinary
++repeated append versus prepend/reverse construction also remains chapter work.
++No chapter completeness claim follows from this shared interface.
++
++## Statement review and pending validation
++
++The meaningful premises are the ordered-prefix value relation and a uniform
++cost contract for an already supplied callback. The base constructors satisfy
++both, and composition/build laws preserve them without payload restrictions.
++No final workload bound or physical execution theorem is postulated.
++
++Source review retains the two phase boundaries, actual intermediate values,
++arbitrary suffixes, supplied-seed scope, duplicate/order preservation, empty
++payload case, repeated materialization and the two distinct history examples.
++The architecture preflight identified and corrected the shared-allocation,
++fused-push and singleton-seed distinctions before implementation.
++
++No additional compiler was run for this draft while the frozen old Chapter 1
++gate remained active. These
++source proofs and examples still need elaboration, public-entrypoint coverage,
++the complete guarded candidate build and exhaustive audit, both retained
++independent review axes, and immediate candidate identity verification before
++acceptance.
+diff --git a/docs/research/fdsa-reconstruction-map.md b/docs/research/fdsa-reconstruction-map.md
+index 7935ddd..6a4183a 100644
+--- a/docs/research/fdsa-reconstruction-map.md
++++ b/docs/research/fdsa-reconstruction-map.md
+@@ -216,6 +216,28 @@ independent final review; their presence does not close the chapter. Section
+ 1.5.3's preference for explicit bounds remains explanatory. Higher-order time
+ conventions refer forward to Appendix B.1 and stay on that appendix's list.
+ 
++## Shared difference-list closure groundwork
++
++`Resources.DifferenceListCosts` adds ordinary measured suffix callbacks with
++separate ordered-prefix and application-cost predicates. Identity, singleton
++and composition callbacks have a declared invocation tariff; their creation
++operations carry a separate fixed-size capture tariff. Existing `run` executes
++compositional pushes. The seed-general construction laws imply `2*n+1` for
++creation and one application of the identity-seeded builder.
++
++The value representation remains Batteries.DList. Its fused push and the
++explicit compositional model have value correspondence, with no transfer of
++exact costs. Connected cases retain nonempty suffixes, duplicate/order
++preservation, empty payloads, repeated materialization, charged identity and
++empty-prefix histories with unbounded application work. Shared self-composition
++distinguishes distinct creation events from unfolded invocation occurrences.
++
++This is an uncompiled cross-cutting draft. The
++[source and statement notes](fdsa-difference-list-costs.md) retain the actual
++singleton-seeded asc/scanner and repeated ordinary append/reverse obligations
++for Chapter 2. It makes no compiler or machine-runtime claim and does not
++activate or accept that chapter.
++
+ ## Architecture and statement review
+ 
+ Operations, returned values and observations remain separate. Exact agreement

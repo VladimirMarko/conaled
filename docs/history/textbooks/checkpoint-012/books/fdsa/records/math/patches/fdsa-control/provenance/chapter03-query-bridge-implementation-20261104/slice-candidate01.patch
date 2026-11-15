@@ -1,0 +1,275 @@
+diff --git a/Applications/Selection/CoordinateReadAll.lean b/Applications/Selection/CoordinateReadAll.lean
+new file mode 100644
+index 0000000..a847649
+--- /dev/null
++++ b/Applications/Selection/CoordinateReadAll.lean
+@@ -0,0 +1,156 @@
++import Applications.Selection.CoordinateQueries
++
++/-!
++A fixed coordinate-reading frontend for a computation on observed values.
++
++`readPlan` sees only the fixed plan, the pure final computation, and the prior
++transcript. Its input values are acquired by the existing charged `Runs.query`
++transitions. `readAll` reads every coordinate in increasing index order before
++applying the computation to those values. These query counts do not charge the
++computation itself, transcript reversal, or plan lookup. Connecting a measured
++selection implementation and its source-call tariff is a separate obligation.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Applications.Selection.CoordinateQueries
++universe u v
++
++variable {n : Nat} {α : Type u} {β : Type v}
++
++/-- Query the next planned coordinate, then compute using the chronological
++observed answers. The hidden input is not an argument to the operation. -/
++def readPlan (indices : List (Fin n)) (compute : List α → β) : Protocol n α β :=
++  fun history =>
++    match indices[history.length]? with
++    | some i => Sum.inr i
++    | none => Sum.inl (compute (history.reverse.map Prod.snd))
++
++theorem readPlan_query (indices : List (Fin n)) (compute : List α → β)
++    (history : Transcript n α) (i : Fin n)
++    (query : indices[history.length]? = some i) :
++    readPlan indices compute history = Sum.inr i := by
++  simp only [readPlan, query]
++
++theorem readPlan_done (indices : List (Fin n)) (compute : List α → β)
++    (history : Transcript n α) (done : indices[history.length]? = none) :
++    readPlan indices compute history = Sum.inl (compute (history.reverse.map Prod.snd)) := by
++  simp only [readPlan, done]
++
++/-- The prefix history is generated from actual answers. An arbitrary supplied
++history is not presumed to satisfy this execution invariant. -/
++private theorem readPlan_run_from (input : Fin n → α) (compute : List α → β)
++    (prefix remaining : List (Fin n)) :
++    Runs (readPlan (prefix ++ remaining) compute) input
++      (prefix.map (fun i => (i, input i))).reverse
++      (remaining.map (fun i => (i, input i)))
++      (compute ((prefix ++ remaining).map input)) := by
++  induction remaining generalizing prefix with
++  | nil =>
++    apply Runs.done
++    simp [readPlan]
++  | cons i remaining ih =>
++    apply Runs.query
++    · have query : (prefix ++ i :: remaining)[prefix.length]? = some i := by
++        rw [List.getElem?_append_right (Nat.le_refl prefix.length)]
++        simp
++      simpa only [readPlan, List.length_reverse, List.length_map, query]
++    · simpa only [List.append_assoc, List.singleton_append, List.map_append,
++        List.map_cons, List.map_nil, List.reverse_append, List.reverse_cons,
++        List.reverse_nil, List.nil_append] using ih (prefix ++ [i])
++
++/-- Every finite plan has this actual execution, including repeated indices. -/
++theorem readPlan_run (indices : List (Fin n)) (compute : List α → β)
++    (input : Fin n → α) :
++    Runs (readPlan indices compute) input []
++      (indices.map (fun i => (i, input i))) (compute (indices.map input)) := by
++  simpa only [List.nil_append, List.map_nil, List.reverse_nil] using
++    readPlan_run_from input compute [] indices
++
++theorem readPlan_total (indices : List (Fin n)) (compute : List α → β) :
++    Total (readPlan indices compute) :=
++  fun input => ⟨_, _, readPlan_run indices compute input⟩
++
++/-- Determinism identifies every terminating execution from an empty history;
++the reverse implication supplies existence rather than assuming it. -/
++theorem readPlan_run_iff (indices : List (Fin n)) (compute : List α → β)
++    (input : Fin n → α) (trace : Transcript n α) (value : β) :
++    Runs (readPlan indices compute) input [] trace value ↔
++      trace = indices.map (fun i => (i, input i)) ∧
++        value = compute (indices.map input) := by
++  constructor
++  · intro run
++    exact run.deterministic (readPlan_run indices compute input)
++  · rintro ⟨rfl, rfl⟩
++    exact readPlan_run indices compute input
++
++/-- Repeated plan entries remain separate charged queries. -/
++theorem readPlan_length (indices : List (Fin n)) (compute : List α → β)
++    (input : Fin n → α) (trace : Transcript n α) (value : β)
++    (run : Runs (readPlan indices compute) input [] trace value) :
++    trace.length = indices.length := by
++  rw [((readPlan_run_iff indices compute input trace value).mp run).1]
++  exact List.length_map _
++
++theorem readPlan_work (indices : List (Fin n)) (compute : List α → β)
++    (input : Fin n → α) (trace : Transcript n α) (value : β)
++    (run : Runs (readPlan indices compute) input [] trace value) (c : Nat) :
++    queryWork (fun _ _ => c) trace = c * indices.length := by
++  rw [queryWork_constant, readPlan_length indices compute input trace value run]
++
++/-- Read each of the n coordinates once, in increasing index order. -/
++def readAll (compute : List α → β) : Protocol n α β :=
++  readPlan (List.finRange n) compute
++
++/-- The final computation consumes precisely the values actually read. -/
++theorem readAll_run (compute : List α → β) (input : Fin n → α) :
++    Runs (readAll compute) input [] (List.ofFn (fun i => (i, input i)))
++      (compute (List.ofFn input)) := by
++  simpa only [readAll, List.finRange, List.map_ofFn, Function.comp_def] using
++    readPlan_run (List.finRange n) compute input
++
++theorem readAll_total (compute : List α → β) : Total (readAll (n := n) compute) :=
++  fun input => ⟨_, _, readAll_run compute input⟩
++
++theorem readAll_run_iff (compute : List α → β) (input : Fin n → α)
++    (trace : Transcript n α) (value : β) :
++    Runs (readAll compute) input [] trace value ↔
++      trace = List.ofFn (fun i => (i, input i)) ∧ value = compute (List.ofFn input) := by
++  constructor
++  · intro run
++    exact run.deterministic (readAll_run compute input)
++  · rintro ⟨rfl, rfl⟩
++    exact readAll_run compute input
++
++theorem readAll_coordinates (compute : List α → β) (input : Fin n → α)
++    (trace : Transcript n α) (value : β)
++    (run : Runs (readAll compute) input [] trace value) :
++    trace.map Prod.fst = List.finRange n := by
++  rw [((readAll_run_iff compute input trace value).mp run).1]
++  simp only [List.map_ofFn, Function.comp_def, List.finRange]
++
++theorem readAll_length (compute : List α → β) (input : Fin n → α)
++    (trace : Transcript n α) (value : β)
++    (run : Runs (readAll compute) input [] trace value) : trace.length = n := by
++  rw [((readAll_run_iff compute input trace value).mp run).1]
++  exact List.length_ofFn
++
++/-- Exact acquisition tariff. This includes c=0; a positive-tariff lower bound
++must separately assume positivity, as in `Runs.work_lower_bound`. -/
++theorem readAll_work (compute : List α → β) (input : Fin n → α)
++    (trace : Transcript n α) (value : β)
++    (run : Runs (readAll compute) input [] trace value) (c : Nat) :
++    queryWork (fun _ _ => c) trace = c * n := by
++  rw [queryWork_constant, readAll_length compute input trace value run]
++
++/-- Transfer a length-n value specification of the pure computation. This
++conditional theorem supplies no selection algorithm or computation-cost bound. -/
++theorem readAll_correct (compute : List α → β) (spec : List α → β → Prop)
++    (correct : ∀ xs : List α, xs.length = n → spec xs (compute xs))
++    (input : Fin n → α) (trace : Transcript n α) (value : β)
++    (run : Runs (readAll compute) input [] trace value) :
++    spec (List.ofFn input) value := by
++  rw [((readAll_run_iff compute input trace value).mp run).2]
++  exact correct (List.ofFn input) List.length_ofFn
++
++end Applications.Selection.CoordinateQueries
+diff --git a/Examples/CoordinateReadAll.lean b/Examples/CoordinateReadAll.lean
+new file mode 100644
+index 0000000..b561b9f
+--- /dev/null
++++ b/Examples/CoordinateReadAll.lean
+@@ -0,0 +1,107 @@
++import Applications.Selection.CoordinateReadAll
++import Mathlib.Data.Fin.VecNotation
++
++/-! Actual full-coordinate executions and repeated-plan query charges. -/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.CoordinateReadAll
++open Applications.Selection.CoordinateQueries
++universe u v
++
++variable {n : Nat} {α : Type u} {β : Type v}
++
++/-- Even an empty payload type needs no fabricated answer when n=0. -/
++theorem empty_run (compute : List α → β) (input : Fin 0 → α) :
++    Runs (readAll compute) input [] [] (compute []) := by
++  simpa only [List.ofFn_zero] using readAll_run compute input
++
++theorem empty_every_run (compute : List α → β) (input : Fin 0 → α)
++    (trace : Transcript 0 α) (value : β)
++    (run : Runs (readAll compute) input [] trace value) (c : Nat) :
++    trace = [] ∧ value = compute [] ∧ queryWork (fun _ _ => c) trace = 0 := by
++  obtain ⟨ht, hv⟩ := run.deterministic (empty_run compute input)
++  exact ⟨ht, hv, by rw [ht]; rfl⟩
++
++/-- Totality supplies the run before the exact observation laws are applied. -/
++theorem full_read_exists (compute : List α → β) (input : Fin n → α) (c : Nat) :
++    ∃ (trace : Transcript n α) (value : β),
++      Runs (readAll compute) input [] trace value ∧
++      trace.map Prod.fst = List.finRange n ∧
++      value = compute (List.ofFn input) ∧ trace.length = n ∧
++      queryWork (fun _ _ => c) trace = c * n := by
++  obtain ⟨trace, value, run⟩ := readAll_total compute input
++  exact ⟨trace, value, run, readAll_coordinates compute input trace value run,
++    ((readAll_run_iff compute input trace value).mp run).2,
++    readAll_length compute input trace value run, readAll_work compute input trace value run c⟩
++
++/-- The same complete observation is forced for every terminating run. -/
++theorem full_read_every_run (compute : List α → β) (input : Fin n → α)
++    (trace : Transcript n α) (value : β)
++    (run : Runs (readAll compute) input [] trace value) (c : Nat) :
++    trace = List.ofFn (fun i => (i, input i)) ∧
++      value = compute (List.ofFn input) ∧ trace.length = n ∧
++      queryWork (fun _ _ => c) trace = c * n := by
++  obtain ⟨ht, hv⟩ := (readAll_run_iff compute input trace value).mp run
++  exact ⟨ht, hv, readAll_length compute input trace value run,
++    readAll_work compute input trace value run c⟩
++
++/-- A pure specification transfers through the observations actually obtained. -/
++theorem observed_sum (input : Fin n → Nat) (trace : Transcript n Nat) (value : Nat)
++    (run : Runs (readAll (fun xs : List Nat => xs.sum)) input [] trace value) :
++    value = (List.ofFn input).sum :=
++  readAll_correct (fun xs : List Nat => xs.sum) (fun xs a => a = xs.sum)
++    (by intro xs _; rfl) input trace value run
++
++/-- Coordinate order is 0,1,2; the observed values sum to 16. -/
++theorem concrete_full_read :
++    Runs (readAll (fun xs : List Nat => xs.sum)) (![8, 3, 5] : Fin 3 → Nat) []
++      [(0, 8), (1, 3), (2, 5)] 16 := by
++  have observations : List.ofFn (fun i : Fin 3 => (i, (![8, 3, 5] : Fin 3 → Nat) i)) =
++      [(0, 8), (1, 3), (2, 5)] := by decide +kernel
++  have result : (List.ofFn (![8, 3, 5] : Fin 3 → Nat)).sum = 16 := by decide +kernel
++  simpa only [observations, result] using
++    readAll_run (fun xs : List Nat => xs.sum) (![8, 3, 5] : Fin 3 → Nat)
++
++/-- Equal payload values still arise from three different charged coordinates. -/
++theorem duplicate_full_read :
++    Runs (readAll (fun xs : List Nat => xs.sum)) (![4, 4, 4] : Fin 3 → Nat) []
++      [(0, 4), (1, 4), (2, 4)] 12 := by
++  have observations : List.ofFn (fun i : Fin 3 => (i, (![4, 4, 4] : Fin 3 → Nat) i)) =
++      [(0, 4), (1, 4), (2, 4)] := by decide +kernel
++  have result : (List.ofFn (![4, 4, 4] : Fin 3 → Nat)).sum = 12 := by decide +kernel
++  simpa only [observations, result] using
++    readAll_run (fun xs : List Nat => xs.sum) (![4, 4, 4] : Fin 3 → Nat)
++
++theorem duplicate_every_charge (trace : Transcript 3 Nat) (value : Nat)
++    (run : Runs (readAll (fun xs : List Nat => xs.sum))
++      (![4, 4, 4] : Fin 3 → Nat) [] trace value) :
++    value = 12 ∧ trace.length = 3 ∧ queryWork (fun _ _ => 2) trace = 6 := by
++  exact ⟨(run.deterministic duplicate_full_read).2,
++    readAll_length _ _ trace value run, readAll_work _ _ trace value run 2⟩
++
++/-- The third read really repeats coordinate zero; no deduplication occurs. -/
++theorem repeated_plan_run (compute : List α → β) (input : Fin 2 → α) :
++    Runs (readPlan [0, 1, 0] compute) input []
++      [(0, input 0), (1, input 1), (0, input 0)]
++      (compute [input 0, input 1, input 0]) := by
++  simpa only [List.map_cons, List.map_nil] using
++    readPlan_run [0, 1, 0] compute input
++
++theorem repeated_plan_every_charge (compute : List α → β) (input : Fin 2 → α)
++    (trace : Transcript 2 α) (value : β)
++    (run : Runs (readPlan [0, 1, 0] compute) input [] trace value) (c : Nat) :
++    value = compute [input 0, input 1, input 0] ∧ trace.length = 3 ∧
++      queryWork (fun _ _ => c) trace = c * 3 := by
++  exact ⟨(run.deterministic (repeated_plan_run compute input)).2,
++    readPlan_length [0, 1, 0] compute input trace value run,
++    readPlan_work [0, 1, 0] compute input trace value run c⟩
++
++/-- This supplied history is not asserted to be reachable. The equation only
++shows that an exhausted plan computes from its recorded chronological answers. -/
++theorem supplied_history_values :
++    readPlan ([0, 1] : List (Fin 2)) (fun xs : List Nat => xs)
++      [(0, 99), (1, 7)] = Sum.inl [7, 99] :=
++  readPlan_done [0, 1] (fun xs : List Nat => xs) [(0, 99), (1, 7)] rfl
++
++end Examples.CoordinateReadAll

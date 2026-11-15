@@ -1,0 +1,84 @@
+{
+  "status": "COMPLETE AND HELD; uncompiled syntax successor and prepared21 input",
+  "completed_readback_utc": "2026-11-04T18:36:16.660241+00:00",
+  "finding": "XR01-ELAB-001",
+  "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "tree": "b62fe504a38948e61c6377a4e7661b639c28c08c",
+  "parent": "4df3bc95b96342250c9b3ff946773449e308e11b",
+  "accepted_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "source_delta": "Exactly one ASCII space removed after the absolute-value opening bar in existing Examples.AffineRecurrence.negative_square_absolute_value; statement text syntax, no proof-body change.",
+  "full_original_scope_paths": 5,
+  "all_21_public_names_preserved": true,
+  "all_other_source_bytes_preserved": true,
+  "author_worktree_clean": true,
+  "all_67_checkpoint0122_refs_preserved": true,
+  "all_initial_19_payloads_plus_receipt_unchanged": true,
+  "original_1474_byte_program_and_prior_1651_byte_program_preserved": true,
+  "corrected_program_is_unexecuted": true,
+  "compiler_calls_by_author": 0,
+  "current_type_credit": 0,
+  "source_review_readback": "Complete corrected 142-line example, full exact one-line diff, handoff, program and 435-line inventory read. Original full five-file source/case requirements and prior complete axes retained from the held preparation. Actual full failed outer log and closed/native/owned-terminal evidence read; pinned Abs syntax lines29\u201348 read, full file hash recorded.",
+  "readback_clarifications": {
+    "handoff_current_line": "at line 108",
+    "inventory_historical_boundary": "The original draft inventory embeds an earlier Spec report identity and remains unchanged. Current completed report identities are bound in the held chapter03-affine-receiving-preparation-20261104/baseline.json and handoff.md; this correction preserves those bindings."
+  },
+  "actual_evidence_limit": "Parent focused aggregate failed1 with core individually Built; successor has no author execution. All subsequent receiving/final gates remain root-owned.",
+  "payload_count": 9,
+  "payload_bytes": 46771,
+  "payloads": [
+    {
+      "path": "Statements21.lean",
+      "bytes": 1651,
+      "lines": 34,
+      "sha256": "1e048fe6242d26aca2a1afad7451d048072536ce4f2f5abea2cec9da839519a7"
+    },
+    {
+      "path": "before-and-diagnosis.json",
+      "bytes": 10749,
+      "lines": 162,
+      "sha256": "d7c4baf4fbffcf621b5d3c3955070756e53c1d4819d1e2ce1f6602105b0eea33"
+    },
+    {
+      "path": "candidate.json",
+      "bytes": 6937,
+      "lines": 93,
+      "sha256": "5a830b6231a1bad18a95ab1891a3fc51895bc841d830180cee7b772d2de43d04"
+    },
+    {
+      "path": "commit-message.txt",
+      "bytes": 330,
+      "lines": 7,
+      "sha256": "df5cceda00f205e345de21b91aecce845b61d797f4f923f82c107beb76879a90"
+    },
+    {
+      "path": "commit-result.json",
+      "bytes": 739,
+      "lines": 19,
+      "sha256": "7b27dbd85976668b2337e402907681803ff533e2586c2701303a4d1ab23da1ed"
+    },
+    {
+      "path": "handoff.md",
+      "bytes": 4856,
+      "lines": 42,
+      "sha256": "f9ac1641fc180f86e2d273389bb88b177caccb373d279ee1876a7f86f0424791"
+    },
+    {
+      "path": "precommit-actions.json",
+      "bytes": 297,
+      "lines": 23,
+      "sha256": "2b645cd2deb4939f23601451bf24321e8900a58fc6ac7ed7e2ca77647f26d7c5"
+    },
+    {
+      "path": "source.diff",
+      "bytes": 573,
+      "lines": 13,
+      "sha256": "5904713742bfe8af0fd5b8320f62f7008f4aa496320939fbfd7bbc74e0aa6a6f"
+    },
+    {
+      "path": "statements21-inventory.json",
+      "bytes": 20639,
+      "lines": 435,
+      "sha256": "cd667523b4bfec43ee8b8fe52203400245e69f6206a63465a9f44689dc061f6a"
+    }
+  ]
+}

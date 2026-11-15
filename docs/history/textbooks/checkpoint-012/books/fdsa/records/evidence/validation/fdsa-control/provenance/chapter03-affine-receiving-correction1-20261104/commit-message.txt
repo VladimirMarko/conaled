@@ -1,0 +1,7 @@
+fix(examples): correct affine absolute-value spacing (#174)
+
+Remove the single space rejected by the pinned Mathlib absolute-value
+notation in negative_square_absolute_value. Preserve its integer argument,
+expected value, proof and all other XR declarations.
+
+Addresses XR01-ELAB-001 from the actual closed receiving focused run.

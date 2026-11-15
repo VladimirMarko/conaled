@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-11-03T21:19:52.996078+00:00",
+  "accepted_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "prefix": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "fork": "1aabd512284fe86254278ac631eda061d311050b",
+  "conflict_paths": [
+    "SquareApplications.lean"
+  ],
+  "resolution": "Retain both Chapter 1 imports and all four foundation imports. Automatic map merge read completely; all Chapter 1 repairs and all prefix coverage retained.",
+  "merged_hashes": {
+    "SquareApplications.lean": "7f00379973161019217585a5ed32d0374247300544ae448b2a4b86aa11c6bf64",
+    "docs/research/fdsa-reconstruction-map.md": "5abe715bf852908d8d3f2269be9c94565a516d7fdca8330a6975ed42c4de44e1"
+  },
+  "one_sided_exact_inputs": {
+    "07e480f6ec9958d4975bb90151005b84f2907614": [
+      "Applications/Resources/CallComparison.lean",
+      "Applications/Resources/SharedDemand.lean",
+      "Examples/CallModels.lean",
+      "Examples/SharedDemand.lean",
+      "docs/research/fdsa-call-models.md"
+    ],
+    "c80eec92f5458eccfd1c34c8314d666c2a1e3847": [
+      "Applications/Resources/InsertionSort.lean",
+      "Applications/Resources/ListCalls.lean",
+      "Examples/InsertionCosts.lean",
+      "Examples/ListLibrary.lean",
+      "Examples/ListCalls.lean",
+      "Examples/FunctionalNotation.lean",
+      "docs/research/fdsa-notation-map.md"
+    ]
+  },
+  "scope": "X002, XB01, APP-A, APP-C only; no XP01"
+}

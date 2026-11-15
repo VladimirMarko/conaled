@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T20:06:03.413697+00:00",
+  "candidate": "bd4e273f82de2c2bab2a69d84c2f8daea310eeec",
+  "terminal": {
+    "recorded_utc": "2026-11-04T20:06:03.413561+00:00",
+    "owned_session": 28621,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "430248",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "bd4e273f82de2c2bab2a69d84c2f8daea310eeec"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-chop-map-focused-attempt2-20261104/full.log",
+    "bytes": 7009,
+    "sha256": "69c66fa55a3c56cc6e3f84791c99c87a2020d66de549a6cedebeae211f1b5e8c"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T200503Z-project-run-9265fe5f",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-chop-map-focused-attempt2-20261104/native-records/start.json",
+      "bytes": 541,
+      "sha256": "137bef026483191ffe1f06805f918ecd732521b4980e8ec98e8bc39e4f2c1b5f"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-chop-map-focused-attempt2-20261104/native-records/result.json",
+      "bytes": 695,
+      "sha256": "9e6a0a913dd7ba7f1ee4ec24a26e9cea21942154e0b84a1f5e27651debad0128"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-chop-map-focused-attempt2-20261104/native-records/output.log",
+      "bytes": 6684,
+      "sha256": "7a31c794dd227b28ad8346970c2bf55a02edf2aaa4c635ed9381fd65e73487a5"
+    }
+  },
+  "native_body_exact_outer_offset": 169,
+  "complete_closed_log": true,
+  "scope": "Focused actual measured chop, chunk median payload/map and connected examples only; not complete selector or full candidate acceptance.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

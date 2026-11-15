@@ -1,0 +1,9 @@
+{
+  "observed_utc": "2026-11-04T21:22:27.468507+00:00",
+  "tool_chunk": "b4d9b2",
+  "actual_exit": 1,
+  "cause": "Preflight expected recent upload wrapper structuredContent, but0122/0123 use earlier result wrapper. KeyError before preflight record or any unlink.",
+  "subsequent_readback": "155ccf confirms empty preparation directory and all six exact archive paths present;79736c reads all six wrapper/integrity schemas.",
+  "correction": "Select exact observed wrapper by checkpoint number; retain all successful-upload/hash/integrity/metadata/path checks.",
+  "no_files_deleted_by_first_attempt": true
+}

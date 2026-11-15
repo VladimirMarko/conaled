@@ -1,0 +1,480 @@
+{
+  "reviewer": "Spec",
+  "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "scope": "Original complete XU02 receiving scope; prior whole-C2 assessment preserved.",
+  "full_log_plan": {
+    "outer": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-full-attempt1-20261104/full.log",
+      "bytes": 282530,
+      "lines": 2474,
+      "sha256": "6ec0d7cd82b578f426b667a8be0f783ef73132fd5266d69098083093c7bc0e58"
+    },
+    "native": {
+      "bytes": 282302,
+      "lines": 2471,
+      "sha256": "3910b2bd1613b6f4b7473549bee3fdc4c5bdf1cd6230f40cb3a3904ccf03e16a"
+    },
+    "native_origin_copies_exact": true,
+    "native_outer_offset": 70,
+    "full_closed_control_records_read": [
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-full-attempt1-20261104/request.json",
+        "bytes": 737,
+        "lines": 21,
+        "sha256": "e900d4b5414729b37f70d13a71b77284c0eaa24e0c6426837996ac7e069ee4c3",
+        "complete_read": true
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-full-attempt1-20261104/launch.json",
+        "bytes": 174,
+        "lines": 6,
+        "sha256": "43e7422642701a315a36d4f4baa04d78e27ba457b8ff70ad41b6896f5fedfab3",
+        "complete_read": true
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-full-attempt1-20261104/start.json",
+        "bytes": 930,
+        "lines": 26,
+        "sha256": "972796b499fd24e5e92538002459d1a9eb7784b1e338c85754eddeaf741596a4",
+        "complete_read": true
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-full-attempt1-20261104/owned-session.json",
+        "bytes": 247,
+        "lines": 9,
+        "sha256": "6143e3e106e599bcdd17159dca99a3f14c93c9e30af0730d55163d361573242c",
+        "complete_read": true
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-full-attempt1-20261104/result.json",
+        "bytes": 1247,
+        "lines": 32,
+        "sha256": "3ddcc182f42aed93f57621a74326a12035135d919d99fd3345efc444769892ac",
+        "complete_read": true
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-full-attempt1-20261104/owned-terminal.json",
+        "bytes": 260,
+        "lines": 8,
+        "sha256": "d7c9128758c9c426a53ea900cc677639bd9f5446aea2f8be6754e38c73745cd0",
+        "complete_read": true
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-full-attempt1-20261104/native-records/start.json",
+        "bytes": 421,
+        "lines": 13,
+        "sha256": "32adb5c50b3c345b55e727727852313dd57f08d4312b26e173b11ff673e460cd",
+        "complete_read": true
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-full-attempt1-20261104/native-records/result.json",
+        "bytes": 573,
+        "lines": 18,
+        "sha256": "15299705000623fdd8d0db4a8bb3f726bc0a5cf1df63eae74023cdb36f0f9a48",
+        "complete_read": true
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-full-attempt1-20261104/closed-evidence-reconciliation.json",
+        "bytes": 3119,
+        "lines": 72,
+        "sha256": "2ba751475b1c958fe77e4ae646654a3dab1a42497c47021ee77b970e8217655e",
+        "complete_read": true
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-full-attempt1-20261104/verification.json",
+        "bytes": 867,
+        "lines": 19,
+        "sha256": "dc97fa649fd0b18c30d530a4720b95ee0b1a002d031e6b80094d5b08a9e27124",
+        "complete_read": true
+      }
+    ],
+    "chunks": [
+      {
+        "from": 1,
+        "to": 106,
+        "bytes": 11980,
+        "sha256": "4515dd4b4b49db0ffa2f7d2d03b8897f92dc4c2e710d7aa6610ac97096fad22c"
+      },
+      {
+        "from": 107,
+        "to": 230,
+        "bytes": 11892,
+        "sha256": "3eac9e1ecec76cdd0652dee1989319fdf00fac913e4f336828170855d6269343"
+      },
+      {
+        "from": 231,
+        "to": 324,
+        "bytes": 11865,
+        "sha256": "0075204c08963d91e5629a746efdd3a83b72f04529eeb41cc42423a5acee6f66"
+      },
+      {
+        "from": 325,
+        "to": 406,
+        "bytes": 11999,
+        "sha256": "63c3c3fc0726cb0b442a8a01425a0fb565ab6ccfc2134f8eadf0e0d627b3ca8c"
+      },
+      {
+        "from": 407,
+        "to": 490,
+        "bytes": 11934,
+        "sha256": "cacf118e3c0048b6e10a6b11a57a297632b5f23d6f0e117111d660e7425006d6"
+      },
+      {
+        "from": 491,
+        "to": 563,
+        "bytes": 11902,
+        "sha256": "68a2e9f17a1847c11c8a0d37d2f009031a5b04875d97c706e8da6824136fa858"
+      },
+      {
+        "from": 564,
+        "to": 651,
+        "bytes": 11940,
+        "sha256": "78e8f8005d3d9bf7da38a1b7da1132b7cfe4a7b4c0baecb3f00c45f2520783f8"
+      },
+      {
+        "from": 652,
+        "to": 746,
+        "bytes": 11796,
+        "sha256": "b851207babff4eeda07b62295564955a0ebb8f25c412025d1dd766d0036abc2f"
+      },
+      {
+        "from": 747,
+        "to": 875,
+        "bytes": 11981,
+        "sha256": "74b25061594b3163d793b90bf30197707c52de3fb0d2971eb6b40a15022b4a6d"
+      },
+      {
+        "from": 876,
+        "to": 988,
+        "bytes": 11938,
+        "sha256": "a2a21573658ce69d58508df927ba22ca0b0333ccb00a1c9cfff1c01fcc06429b"
+      },
+      {
+        "from": 989,
+        "to": 1072,
+        "bytes": 11906,
+        "sha256": "804b585e4dc9d5170984dab09a0ab34a7ab5489b453a5eb7f8a4096ebd0b5977"
+      },
+      {
+        "from": 1073,
+        "to": 1153,
+        "bytes": 11843,
+        "sha256": "31ad630b24dcf9562828ed70af7a3fbc9bebc1da36514ea7504f71995c3f92d3"
+      },
+      {
+        "from": 1154,
+        "to": 1315,
+        "bytes": 11932,
+        "sha256": "6d60f1b644f85d4f62e2cb1696ea0da7aa3ff262b1bcbb36ec464aed57f32b59"
+      },
+      {
+        "from": 1316,
+        "to": 1461,
+        "bytes": 11992,
+        "sha256": "7e4a2acfbf8aa192735089e33b0110243bb7bc100af38cb88c0e64e73b156132"
+      },
+      {
+        "from": 1462,
+        "to": 1578,
+        "bytes": 11927,
+        "sha256": "a7c33a393db82c4f4cb134ba0d39272e7eed01a110e6ecc24758181650d73b47"
+      },
+      {
+        "from": 1579,
+        "to": 1688,
+        "bytes": 11906,
+        "sha256": "5fa5b9f7b053320f7f29e2c31976a396ffc3dee275624204771a88718660e49c"
+      },
+      {
+        "from": 1689,
+        "to": 1798,
+        "bytes": 11974,
+        "sha256": "b324d76ceda6b65ca8ef59d0c6f8ce0666ccab95c3457ac7caa02ccf11b3b4c2"
+      },
+      {
+        "from": 1799,
+        "to": 1903,
+        "bytes": 11956,
+        "sha256": "54938eb4f23636d88905886bb5d621d864c3e8b99010f0992073bfc26c59e07b"
+      },
+      {
+        "from": 1904,
+        "to": 2007,
+        "bytes": 11942,
+        "sha256": "4230aa6b6b02e47fbfce853d39cbe3a147cfd40504cb62195317726b21930be1"
+      },
+      {
+        "from": 2008,
+        "to": 2109,
+        "bytes": 11938,
+        "sha256": "fc3c9496c1821ba56fd12ed21bdc68aa71ef331d01611d54d20a64bdeb8225e4"
+      },
+      {
+        "from": 2110,
+        "to": 2210,
+        "bytes": 11935,
+        "sha256": "834dc85324687127b2d9e7f10d2ccddf3f93554eab2290cbcea5a86f0543ec33"
+      },
+      {
+        "from": 2211,
+        "to": 2309,
+        "bytes": 11898,
+        "sha256": "dd54ab1c9cf9bd91584253c5b98151b46917ccb9efc5f5f93ddc2999e042d5fd"
+      },
+      {
+        "from": 2310,
+        "to": 2408,
+        "bytes": 11933,
+        "sha256": "aae5cbb7eae314203e4386ee2445a4f7f80ac14829d8943e9209dcba9d7c94b8"
+      },
+      {
+        "from": 2409,
+        "to": 2474,
+        "bytes": 8221,
+        "sha256": "2569e3c333d4e36a49d1ffdf83de47bfad930afb32e28781e6824a4f2695b2a4"
+      }
+    ]
+  },
+  "complete_actual_read_chunks": [
+    {
+      "from": 1,
+      "to": 106,
+      "bytes": 11980,
+      "sha256": "4515dd4b4b49db0ffa2f7d2d03b8897f92dc4c2e710d7aa6610ac97096fad22c",
+      "index": 0,
+      "assessment": "Read complete launch/source guard and expected three cold Order-module invalidations; replayed baseline warnings/axiom info contain no new failure. Warning classification awaits full exact comparison."
+    },
+    {
+      "from": 107,
+      "to": 230,
+      "bytes": 11892,
+      "sha256": "3eac9e1ecec76cdd0652dee1989319fdf00fac913e4f336828170855d6269343",
+      "index": 1,
+      "assessment": "Read complete launch/source guard and expected three cold Order-module invalidations; replayed baseline warnings/axiom info contain no new failure. Warning classification awaits full exact comparison."
+    },
+    {
+      "from": 231,
+      "to": 324,
+      "bytes": 11865,
+      "sha256": "0075204c08963d91e5629a746efdd3a83b72f04529eeb41cc42423a5acee6f66",
+      "index": 2,
+      "assessment": "Complete replayed examples, permitted-axiom reports and module/linter advisory continuations read. No compilation failure or new mathematical claim is inferred from example output."
+    },
+    {
+      "from": 325,
+      "to": 406,
+      "bytes": 11999,
+      "sha256": "63c3c3fc0726cb0b442a8a01425a0fb565ab6ccfc2134f8eadf0e0d627b3ca8c",
+      "index": 3,
+      "assessment": "Complete replayed examples, permitted-axiom reports and module/linter advisory continuations read. No compilation failure or new mathematical claim is inferred from example output."
+    },
+    {
+      "from": 407,
+      "to": 490,
+      "bytes": 11934,
+      "sha256": "cacf118e3c0048b6e10a6b11a57a297632b5f23d6f0e117111d660e7425006d6",
+      "index": 4,
+      "assessment": "Complete replayed resource/category/durability module advisories and existing linter diagnostics read. No new source/compilation failure; later whole-log comparison will bind warning provenance."
+    },
+    {
+      "from": 491,
+      "to": 563,
+      "bytes": 11902,
+      "sha256": "68a2e9f17a1847c11c8a0d37d2f009031a5b04875d97c706e8da6824136fa858",
+      "index": 5,
+      "assessment": "Complete replayed resource/category/durability module advisories and existing linter diagnostics read. No new source/compilation failure; later whole-log comparison will bind warning provenance."
+    },
+    {
+      "from": 564,
+      "to": 651,
+      "bytes": 11940,
+      "sha256": "78e8f8005d3d9bf7da38a1b7da1132b7cfe4a7b4c0baecb3f00c45f2520783f8",
+      "index": 6,
+      "assessment": "Complete replayed foundation/functional examples and probability-module prelude read. The local 'choice' pretty-printing is historical axiom display, to be reconciled with the exhaustive qualified-name audit; no current finding."
+    },
+    {
+      "from": 652,
+      "to": 746,
+      "bytes": 11796,
+      "sha256": "b851207babff4eeda07b62295564955a0ebb8f25c412025d1dd766d0036abc2f",
+      "index": 7,
+      "assessment": "Complete replayed foundation/functional examples and probability-module prelude read. The local 'choice' pretty-printing is historical axiom display, to be reconciled with the exhaustive qualified-name audit; no current finding."
+    },
+    {
+      "from": 747,
+      "to": 875,
+      "bytes": 11981,
+      "sha256": "74b25061594b3163d793b90bf30197707c52de3fb0d2971eb6b40a15022b4a6d",
+      "index": 8,
+      "assessment": "Complete existing geometry/probability warning continuations read; no new compilation failure."
+    },
+    {
+      "from": 876,
+      "to": 988,
+      "bytes": 11938,
+      "sha256": "a2a21573658ce69d58508df927ba22ca0b0333ccb00a1c9cfff1c01fcc06429b",
+      "index": 9,
+      "assessment": "Read actual Built results for all three Order targets: core11s, Boundary8.4s, Main4.5s. Their thirteen warning headers are module-system import advisories, not proof failures. Replayed predecessor warnings remain separate."
+    },
+    {
+      "from": 989,
+      "to": 1072,
+      "bytes": 11906,
+      "sha256": "804b585e4dc9d5170984dab09a0ab34a7ab5489b453a5eb7f8a4096ebd0b5977",
+      "index": 10,
+      "assessment": "Complete replayed probabilistic/resource/reactive/category modules and all associated advisory/linter continuations read; no failure or new scope change."
+    },
+    {
+      "from": 1073,
+      "to": 1153,
+      "bytes": 11843,
+      "sha256": "31ad630b24dcf9562828ed70af7a3fbc9bebc1da36514ea7504f71995c3f92d3",
+      "index": 11,
+      "assessment": "Complete replayed probabilistic/resource/reactive/category modules and all associated advisory/linter continuations read; no failure or new scope change."
+    },
+    {
+      "from": 1154,
+      "to": 1315,
+      "bytes": 11932,
+      "sha256": "6d60f1b644f85d4f62e2cb1696ea0da7aa3ff262b1bcbb36ec464aed57f32b59",
+      "index": 12,
+      "assessment": "Read complete remaining category/structured-resource linter advisories and transition into Verification output. No current Order proof warning or compiler failure appears."
+    },
+    {
+      "from": 1316,
+      "to": 1461,
+      "bytes": 11992,
+      "sha256": "7e4a2acfbf8aa192735089e33b0110243bb7bc100af38cb88c0e64e73b156132",
+      "index": 13,
+      "assessment": "Read complete remaining category/structured-resource linter advisories and transition into Verification output. No current Order proof warning or compiler failure appears."
+    },
+    {
+      "from": 1462,
+      "to": 1578,
+      "bytes": 11927,
+      "sha256": "a7c33a393db82c4f4cb134ba0d39272e7eed01a110e6ecc24758181650d73b47",
+      "index": 14,
+      "assessment": "Read successful whole-project build10025 Lake jobs/267.86s, actual SquareApplications Built197s, postguard2937 artifacts/zero inconsistent, and exhaustive audit header45707/25451/978. This is the current full gate, not a focused or type-only result."
+    },
+    {
+      "from": 1579,
+      "to": 1688,
+      "bytes": 11906,
+      "sha256": "5fa5b9f7b053320f7f29e2c31976a396ffc3dee275624204771a88718660e49c",
+      "index": 15,
+      "assessment": "Read complete example-module audit rows including both new Order example rows; every displayed unsafe count is zero. Audit totals are separate from authored public counts."
+    },
+    {
+      "from": 1689,
+      "to": 1798,
+      "bytes": 11974,
+      "sha256": "b324d76ceda6b65ca8ef59d0c6f8ce0666ccab95c3457ac7caa02ccf11b3b4c2",
+      "index": 16,
+      "assessment": "Complete remaining example/SquareKit category, sheaf and smooth audit rows read; every displayed unsafe-runtime count is zero. No anomaly. Authored source counts remain distinct from audit counts."
+    },
+    {
+      "from": 1799,
+      "to": 1903,
+      "bytes": 11956,
+      "sha256": "54938eb4f23636d88905886bb5d621d864c3e8b99010f0992073bfc26c59e07b",
+      "index": 17,
+      "assessment": "Complete remaining example/SquareKit category, sheaf and smooth audit rows read; every displayed unsafe-runtime count is zero. No anomaly. Authored source counts remain distinct from audit counts."
+    },
+    {
+      "from": 1904,
+      "to": 2007,
+      "bytes": 11942,
+      "sha256": "4230aa6b6b02e47fbfce853d39cbe3a147cfd40504cb62195317726b21930be1",
+      "index": 18,
+      "assessment": "Read complete SquareKit and Applications module audit rows in this interval. All per-module unsafe runtime counts are zero; no discrepancy from the exhaustive-audit contract."
+    },
+    {
+      "from": 2008,
+      "to": 2109,
+      "bytes": 11938,
+      "sha256": "fc3c9496c1821ba56fd12ed21bdc68aa71ef331d01611d54d20a64bdeb8225e4",
+      "index": 19,
+      "assessment": "Read complete SquareKit and Applications module audit rows in this interval. All per-module unsafe runtime counts are zero; no discrepancy from the exhaustive-audit contract."
+    },
+    {
+      "from": 2110,
+      "to": 2210,
+      "bytes": 11935,
+      "sha256": "834dc85324687127b2d9e7f10d2ccddf3f93554eab2290cbcea5a86f0543ec33",
+      "index": 20,
+      "assessment": "Complete Applications and initial Internal audit rows read. PermutationOrder core has 29 logical declarations and 27 theorem declarations, zero unsafe. All other displayed unsafe counts zero; scope/authored inventory not conflated with kernel declaration counts."
+    },
+    {
+      "from": 2211,
+      "to": 2309,
+      "bytes": 11898,
+      "sha256": "dd54ab1c9cf9bd91584253c5b98151b46917ccb9efc5f5f93ddc2999e042d5fd",
+      "index": 21,
+      "assessment": "Complete Applications and initial Internal audit rows read. PermutationOrder core has 29 logical declarations and 27 theorem declarations, zero unsafe. All other displayed unsafe counts zero; scope/authored inventory not conflated with kernel declaration counts."
+    },
+    {
+      "from": 2310,
+      "to": 2408,
+      "bytes": 11933,
+      "sha256": "aae5cbb7eae314203e4386ee2445a4f7f80ac14829d8943e9209dcba9d7c94b8",
+      "index": 22,
+      "assessment": "Read complete final Internal/resource audit rows and terminal. Every row has zero unsafe declarations. Final exhaustive union exactly propext, Classical.choice, Quot.sound; audit passed; exact J verification recorded; PASS 980 checked modules, outer/native exit0."
+    },
+    {
+      "from": 2409,
+      "to": 2474,
+      "bytes": 8221,
+      "sha256": "2569e3c333d4e36a49d1ffdf83de47bfad930afb32e28781e6824a4f2695b2a4",
+      "index": 23,
+      "assessment": "Read complete final Internal/resource audit rows and terminal. Every row has zero unsafe declarations. Final exhaustive union exactly propext, Classical.choice, Quot.sound; audit passed; exact J verification recorded; PASS 980 checked modules, outer/native exit0."
+    }
+  ],
+  "complete_full_log_read": true,
+  "warning_and_audit_reconciliation": {
+    "warning_headers_I": 571,
+    "warning_headers_J": 584,
+    "new_warning_headers": [
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Data.Finset.Lattice.Lemmas` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Data.Fintype.OfMap` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Data.Fintype.Perm` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Data.List.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Data.List.Nodup` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Data.List.Permutation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Data.Set.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Logic.Equiv.Fintype` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Logic.Equiv.List` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Probability/PermutationOrder.lean: imports `Mathlib.Probability.UniformOn` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Examples/PermutationOrderBoundary.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Examples/PermutationOrder.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file"
+    ],
+    "removed_warning_headers": [],
+    "audit_module_rows_I": 975,
+    "audit_module_rows_J": 978,
+    "audit_totals_J": [
+      45707,
+      25451,
+      0
+    ],
+    "audit_added_rows": {
+      "Examples.PermutationOrder": [
+        25,
+        18,
+        0
+      ],
+      "Examples.PermutationOrderBoundary": [
+        23,
+        20,
+        0
+      ],
+      "Applications.Probability.PermutationOrder": [
+        29,
+        27,
+        0
+      ]
+    },
+    "audit_changed_existing_rows": {},
+    "audit_removed_rows": []
+  },
+  "disposition": "Full current normal candidate log and actual terminal assessed; final axis still pending every actual53 type and independent inherited314/110 qualification."
+}

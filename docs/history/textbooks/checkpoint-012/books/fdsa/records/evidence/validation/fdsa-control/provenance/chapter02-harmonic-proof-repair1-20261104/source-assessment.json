@@ -1,0 +1,224 @@
+{
+  "recorded_utc": "2026-11-04T07:49:14.252594+00:00",
+  "parent": "012ff45e3bd34a36b67e62a8cc2ee00125613e53",
+  "changed_paths": [
+    "Applications/Resources/QuickSortMean.lean"
+  ],
+  "source_after": {
+    "Applications/Resources/QuickSortMean.lean": {
+      "bytes": 9673,
+      "lines": 216,
+      "sha256": "888bae2d149f2664f41e37f702ce5352718ac2d008f13fa51952239d85e5d09a"
+    },
+    "Examples/QuickSortMean.lean": {
+      "bytes": 2488,
+      "lines": 68,
+      "sha256": "924ce55ee6af374b55cea67ee6f2da25997b5a81ad098e2e3789622bd793b904"
+    }
+  },
+  "source_contracts": [
+    {
+      "file": "Applications/Resources/QuickSortMean.lean",
+      "name": "closedForm",
+      "private": false,
+      "source_header_sha256": "410c097a4f029a6f5153c5100406a17583dc9bc4d72f9f01f3877d9d9b6b6138",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Applications/Resources/QuickSortMean.lean",
+      "name": "closedForm_zero",
+      "private": false,
+      "source_header_sha256": "31880f50a52dfc20c04edeb334820902c314a217a8b9fdb33944b7ca4201814f",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Applications/Resources/QuickSortMean.lean",
+      "name": "closedForm_succ",
+      "private": false,
+      "source_header_sha256": "65747996d969b486ebba078714d076c053937c0f589fcbbee5114d61ded2eaff",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Applications/Resources/QuickSortMean.lean",
+      "name": "closedForm_scaled_sum",
+      "private": false,
+      "source_header_sha256": "85006eeec0174a1857d988682757c932d3cfbe9c672e2dd5be108b7db974ed4f",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Applications/Resources/QuickSortMean.lean",
+      "name": "closedForm_recurrence",
+      "private": false,
+      "source_header_sha256": "e74b91a784abeaaf3a7b24450156625d211c391509633f903b81687ed23a52a9",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Applications/Resources/QuickSortMean.lean",
+      "name": "scaled_of_recurrence",
+      "private": true,
+      "source_header_sha256": "d3361c0237b305bff00cf364114df129c63a402d784cf66b66903d5e67558812",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Applications/Resources/QuickSortMean.lean",
+      "name": "step_of_recurrence",
+      "private": false,
+      "source_header_sha256": "247c1b118c7688eaedba46b3c4c6e0927903287ade52134a634a2ee40d84b51c",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Applications/Resources/QuickSortMean.lean",
+      "name": "difference_of_recurrence",
+      "private": false,
+      "source_header_sha256": "3486124c676d73bdc2ba6096a4dad83a6a109c0504ff93c2fd612234237ebad0",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Applications/Resources/QuickSortMean.lean",
+      "name": "eq_closedForm",
+      "private": false,
+      "source_header_sha256": "7b4839c757e7561e1ce893d769c8025b76ce0ee901b0500eb2af02439a76396c",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Applications/Resources/QuickSortMean.lean",
+      "name": "closedForm_nonneg",
+      "private": false,
+      "source_header_sha256": "fdd162e3ef9ddbeedfbff5565c7346dd8236dd1d9c57709d49eb176544728a08",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Applications/Resources/QuickSortMean.lean",
+      "name": "closedForm_le_log",
+      "private": false,
+      "source_header_sha256": "ee8d45bb60482af05388da582868438389c123b40bcfcfb5f9e641e7f19508fe",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Applications/Resources/QuickSortMean.lean",
+      "name": "closedForm_le_nlog",
+      "private": false,
+      "source_header_sha256": "6671278680fc38aecc4eb6e4d0593c259e99297fce81e74cd3785af74151b230",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Applications/Resources/QuickSortMean.lean",
+      "name": "closedForm_le_nlogb",
+      "private": false,
+      "source_header_sha256": "35ec6afff80632a1c2146d1b3a8a7e5ce8975f7292413251b97d500d03e9f5e4",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Applications/Resources/QuickSortMean.lean",
+      "name": "closedForm_isBigO_log",
+      "private": false,
+      "source_header_sha256": "267bc5748dbe1e3900aabd49c9bb8ee0a93f57cbc64e15ce1f3dab629af16fb1",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Applications/Resources/QuickSortMean.lean",
+      "name": "closedForm_isBigO_logb",
+      "private": false,
+      "source_header_sha256": "d252d7413aa08891d775dad42da32dc05e2a98a1eb1814823a8f47b964907c4a",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Examples/QuickSortMean.lean",
+      "name": "empty_mean",
+      "private": false,
+      "source_header_sha256": "af281016a4a31353343954a6dee9027f75dbab86c93c1d4d27d7f39c7fc38a46",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Examples/QuickSortMean.lean",
+      "name": "singleton_mean",
+      "private": false,
+      "source_header_sha256": "8a128d3d20e870dc944b20cd97d7e82b20b304b94e44a0d9bf29a1cafd003480",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Examples/QuickSortMean.lean",
+      "name": "two_mean",
+      "private": false,
+      "source_header_sha256": "78616a2d041ff21a98b3518c0b2699faae87e83f30c2d59be4bf45e57ad1b7c9",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Examples/QuickSortMean.lean",
+      "name": "three_mean",
+      "private": false,
+      "source_header_sha256": "23adecb28898a7379cf27bcacfd5e9382720c9f68fbc594fe4a0831911302afd",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Examples/QuickSortMean.lean",
+      "name": "sequence_three",
+      "private": false,
+      "source_header_sha256": "692f03ee14bcd97084e6042a8603e22ad7219d07aa6aa0009ef741af147f2ba3",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Examples/QuickSortMean.lean",
+      "name": "zero_log_boundary",
+      "private": false,
+      "source_header_sha256": "60872b0c31dfeed27c3a90d58335fb840ad141d3207685ce59fd6b62a5355820",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Examples/QuickSortMean.lean",
+      "name": "one_log_boundary",
+      "private": false,
+      "source_header_sha256": "763bcd6af92bc8b5ddfcfed4b5c5e8f3c17c1480a8f36c27a0fa909401ab9d63",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Examples/QuickSortMean.lean",
+      "name": "two_log_bound",
+      "private": false,
+      "source_header_sha256": "cf66a472c175673c1158a6f8dc8177340a318ad6d86235fb4f8860e0d1f2b610",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    },
+    {
+      "file": "Examples/QuickSortMean.lean",
+      "name": "sequence_binary_growth",
+      "private": false,
+      "source_header_sha256": "d39ae416ae6b7bfda66602245f100c501c832fdbae5299c61a7d9547649d8e27",
+      "source_contract_unchanged": true,
+      "assessment": "Proof-only repair; no new elaborated type or compiler success claimed."
+    }
+  ],
+  "all_24_source_contracts_unchanged": true,
+  "public_contracts": 23,
+  "unchanged_definition": "closedForm expression and all imported setup/options preserved by exact five-hunk proof diff",
+  "source_diff_sha256": "45bf3eba8742389691509a8be2893d2d8f0cf60868726439476f389838d4d188",
+  "source_diff_bytes": 2349,
+  "source_readback": "Original complete core and exact five-hunk diff read; repairs match the actual emitted goals/lints.",
+  "compiler_status": "Attempt5 still live at observed evidence boundary. Core emitted errors on original bytes; successor is uncompiled.",
+  "builds_run": false,
+  "cache_changes": false,
+  "independent_review": false,
+  "acceptance": false
+}

@@ -1,0 +1,155 @@
+{
+  "original_sha256": "397192c7375639eda6298d4be07f44e9435abe8a4690d30ab9fbe59763e733ec",
+  "original_bytes": 2953243,
+  "original_path": "validation/1040-compressed-download-reappearance.json",
+  "record": {
+    "format": 1,
+    "recorded_utc": "2026-11-04T13:39:30.535836+00:00",
+    "assessment_started_utc": "2026-11-04T13:39:28.111926+00:00",
+    "candidate": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+    "owned_session": 30015,
+    "incident": "Previously unlinked compressed download archives were subsequently observed present; cause and writer identity are unestablished.",
+    "historical_deletion": {
+      "receipt": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1040-compressed-download-reclamation.json",
+      "sha256": "66ffec96c609d772159b4e4535f2951ed2537412db7e3df8266e4c3d89a3af35",
+      "completed_utc": "2026-11-04T11:44:37.214073+00:00",
+      "deleted_count": 3933,
+      "all_listed_archives_absent_at_deletion_observation": true
+    },
+    "first_root_reappearance_observation": {
+      "observed_utc": "2026-11-04T13:29:55Z",
+      "time_precision": "second; preserved from actual root executor observation in session context",
+      "compiler_archive_present": true,
+      "ltar_count": 3931,
+      "cause_established": false
+    },
+    "current_read_only_comparison": {
+      "observed_files": {
+        "omitted_operational_collection": true,
+        "pointer": "/current_read_only_comparison/observed_files",
+        "entries": 3932,
+        "canonical_json_sha256": "3703242ed109667aa08cea355e70ab39084dcbe65aa53c5823fc043d7bbf88a2"
+      },
+      "present_count": 3932,
+      "missing_paths": [
+        "cache/mathlib/3da121ab553f465d.ltar"
+      ],
+      "extra_ltar_paths": [],
+      "changed_or_unstable_files": [],
+      "all_present_files_match_deleted_bytes_and_sha256_and_stable_read": true
+    },
+    "generated_cache_executable_separate_removal": {
+      "receipt": "1040-generated-cache-executable-reclamation.json",
+      "current_path_observation": {
+        "present": true,
+        "device": 27,
+        "inode": 3309593,
+        "bytes": 119669648,
+        "allocated_bytes": 119676928,
+        "mtime_ns": 1793764308069124766,
+        "ctime_ns": 1793799124373920485
+      },
+      "ordinary_capacity_recovery_claimed": false,
+      "reappearance_followup": {
+        "observed_utc": "2026-11-04T13:40:01.352371+00:00",
+        "sha256": "a8b0bf258ad991ba40561bffcbcadc88ad429eef6e4ac2cd8ae99b229590d624",
+        "matches_removed_sha256": true,
+        "matches_removed_size": true,
+        "metadata_stable_during_hash": true,
+        "different_inode_from_removed_executable": true,
+        "device": 27,
+        "inode": 3309593,
+        "no_redeletion": true,
+        "cause_or_writer_established": false
+      }
+    },
+    "separate_local_checkpoint_reclamation": {
+      "receipt": "1040-checkpoint-copy-reclamation2.json",
+      "current_path_presence": [
+        {
+          "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-104-monitor-correction-and-consumer-checks.tar.gz",
+          "present": false
+        },
+        {
+          "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-105-monitor-consumer-progress.tar.gz",
+          "present": false
+        },
+        {
+          "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-106-reviewed-monitor-consumer-success.tar.gz",
+          "present": false
+        },
+        {
+          "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-107-monitor-corrected-full-fresh-progress.tar.gz",
+          "present": false
+        },
+        {
+          "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-108-monitor-corrected-full-fresh-progress.tar.gz",
+          "present": false
+        },
+        {
+          "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-109-monitor-corrected-full-fresh-progress.tar.gz",
+          "present": false
+        },
+        {
+          "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-110-monitor-corrected-full-fresh-progress.tar.gz",
+          "present": false
+        },
+        {
+          "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-111-monitor-corrected-full-fresh-progress.tar.gz",
+          "present": false
+        },
+        {
+          "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-112-monitor-corrected-full-fresh-progress.tar.gz",
+          "present": false
+        },
+        {
+          "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-113-monitor-corrected-full-fresh-progress.tar.gz",
+          "present": false
+        },
+        {
+          "file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/checkpoints/conaled-vfa-checkpoint-114-monitor-corrected-full-fresh-progress.tar.gz",
+          "present": false
+        }
+      ]
+    },
+    "current_filesystem_measurement": {
+      "ordinary_available_bytes": 0,
+      "all_free_blocks_bytes": 2007977984,
+      "all_free_blocks_are_not_a_substitute_for_required_ordinary_capacity": true
+    },
+    "current_fresh_observation": {
+      "raw_directory": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T114805Z-project-run-0faa8e6a",
+      "printed_ordinary_module_records": 545,
+      "last_printed_ordinary_module": [
+        "545",
+        "Examples.SmoothDual",
+        "3.31s"
+      ],
+      "result_present": false,
+      "terminal_outcome_established": false
+    },
+    "actions_and_uncertainties": [
+      "No returned archive was re-deleted or truncated.",
+      "No new setup/cache/acquisition command was authorized in this task after the original deletion; this does not establish the absence of another writer.",
+      "The archive cause is not assigned to the historical ST-002 artifact mismatch incident.",
+      "No relevant installed-input change or global quiescence is established by archive presence, HEAD, file metadata, before/after equality or the available-space figure.",
+      "Existing source and focused-diagnostic conclusions remain historical; this live prefix gives no full fresh gate credit."
+    ],
+    "retained_original_review_guidance": {
+      "coordinator": "/root/formal_review",
+      "retained_axis": "/root/formal_review/standards",
+      "scope": "Reasoning from supplied facts only; neither reviewer performed executor/filesystem/compiler/cache/process-control/write actions for this assessment.",
+      "decision": "Retain current fresh attempt. Archive anomaly alone does not require discard/restart; acceptance remains Blocked until relevant input stability and existing gates are substantiated.",
+      "required_evidence": [
+        "Preserve separate deletion/reappearance/helper-removal observations and uncertainty.",
+        "Actual command/profile/path evidence that compressed downloads and setup-only executable are outside formal runtime inputs.",
+        "Reconcile candidate/checker/compiler/profile/installed-dependency identities through existing records and checks; HEAD does not cover ignored artifacts or installed bytes.",
+        "Supported controlled input/output boundary for assessment interval; equality alone is not proof of no transient writes."
+      ],
+      "rule": "If relevant inputs changed, preserve/classify and reestablish affected gates; if stability remains unsubstantiated, acceptance stays Blocked. Writer identification is not independently mandatory if relevant input boundary is substantiated.",
+      "gate_order_unchanged": true
+    },
+    "runtime_boundary_assessment_pending": true,
+    "formal_gate_credit": false
+  }
+}

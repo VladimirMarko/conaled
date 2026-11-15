@@ -1,0 +1,65 @@
+{
+  "recorded_utc": "2026-11-04T21:08:04.080933+00:00",
+  "base": "17901d09d155b93de6490dfa40ca17f988107b94",
+  "scope": [
+    "Applications/Resources/SelectionPolicy.lean",
+    "Applications/Resources/MinimumPivot.lean",
+    "Examples/MinimumPivot.lean"
+  ],
+  "prior15_source_identities_preserved": true,
+  "compiler": "NOT RUN; root sole qualified compiler",
+  "static_preparation": "Staged diff whitespace check passed; no prohibited source tokens; three new modules only. These checks do not establish elaboration or proof correctness.",
+  "precommit_proof_refinements": [
+    "Explicit source-value branch proof and split trace/cost induction, preserving all intended statements.",
+    "Pinned Lean source shows List.nodup_range has implicit n; removed invalid explicit placeholder before first compile.",
+    "Pinned Nat source uses zero_min rather than guessed min_zero_left; zero-rank normalization now uses an explicit definitional arithmetic goal instead of the nonexistent name.",
+    "Explicit natural multiplication monotonicity and multiplied predecessor identity support linear/quadratic bounds. No compiler failure is claimed for these read-only preparation findings."
+  ],
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit": 0,
+      "stdout": "17901d09d155b93de6490dfa40ca17f988107b94\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "add",
+        "--",
+        "Applications/Resources/SelectionPolicy.lean",
+        "Applications/Resources/MinimumPivot.lean",
+        "Examples/MinimumPivot.lean"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--name-only"
+      ],
+      "exit": 0,
+      "stdout": "Applications/Resources/MinimumPivot.lean\nApplications/Resources/SelectionPolicy.lean\nExamples/MinimumPivot.lean\n",
+      "stderr": ""
+    }
+  ]
+}

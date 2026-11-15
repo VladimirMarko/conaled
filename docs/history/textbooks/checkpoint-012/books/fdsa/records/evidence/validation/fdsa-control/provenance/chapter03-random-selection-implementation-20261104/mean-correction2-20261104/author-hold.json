@@ -1,0 +1,97 @@
+{
+  "recorded_utc": "2026-11-04T20:25:43.848550+00:00",
+  "finding": "C03-RANDOM-MEAN-ELAB-002",
+  "candidate": "35d02bac718a7fdc84161dfa802fbc757c62b648",
+  "tree": "7bbe5251363e6a40e7b15e7b059313db44c41fc4",
+  "status": "clean",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot",
+  "state": "All source and own provenance writes held pending root actual terminal or explicit release.",
+  "bound_files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/mean-correction2-20261104/Statements108-mean-correction2-preparation.json",
+      "bytes": 15884,
+      "sha256": "6759b247ba5152e67ef4581257c365dbbfe57d91c39df12b16f92075970566d4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/mean-correction2-20261104/Statements108-mean-correction2.lean",
+      "bytes": 5939,
+      "sha256": "a323a5014823dfdacd05249b5829b83d51eb2741cd8964601d02ba6aecb9f46e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/mean-correction2-20261104/candidate.json",
+      "bytes": 17797,
+      "sha256": "4d5f4baa2192dc124e994d245d2befabb917c7ffd646de1fc847b4958e5de170"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/mean-correction2-20261104/commit-result.json",
+      "bytes": 458,
+      "sha256": "ee1dedf45894194838363c1d52933bfec4d5d472afd9516aa6d8e9f8a72e1b19"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/mean-correction2-20261104/handoff.md",
+      "bytes": 3736,
+      "sha256": "771052c116b3e23c7d95658b2e5276d470d1006e33ff4c5fcd54b5c9a980ddcc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/mean-correction2-20261104/precommit-assessment.json",
+      "bytes": 42714,
+      "sha256": "16f8845d44e8e118314760c790d48b284129d4ecd3b575843aacc240d6d677c3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/mean-correction2-20261104/source.diff",
+      "bytes": 802,
+      "sha256": "6111d0c76aa40b20e93578ab1cce088059a15b047fcb56dc25a21256c6be1b08"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/mean-correction2-20261104/stage-result.json",
+      "bytes": 215,
+      "sha256": "12f0cb7ef768f45e484e2d2c674b5dbd28a6971fe01e73a78e7eebdd515685ab"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/mean-correction2-20261104/staged-check-result.json",
+      "bytes": 182,
+      "sha256": "3f1bfc7d9ffef43957374243467aef6a75e442cfbd9bf18cc8a14f3eca0b2dc8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/mean-correction2-20261104/starting-state.json",
+      "bytes": 39011,
+      "sha256": "b3100f9f17ea393c2aeff6a4c5d132334793b26e316e8ba8b49a7bd3cba4d224"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Applications/Resources/RandomSelectionRun.lean",
+      "bytes": 12714,
+      "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Examples/RandomSelectionRun.lean",
+      "bytes": 3770,
+      "sha256": "76504fe5fa77c581b8a7e3c9f3e0247c8a927adee8b308f84be6167e0ea20e0f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Applications/Resources/RandomSelectionMean.lean",
+      "bytes": 16493,
+      "sha256": "5a7d396ed0d451c0b0ec51493c004b721c804c69263ad7c659f023cab3ddda8f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Examples/RandomSelectionMean.lean",
+      "bytes": 5764,
+      "sha256": "56b9d86c1a11329c04f1c325c99938035c01d6e52e60ffb806dace361249dcf8"
+    }
+  ],
+  "public_targets": 108,
+  "authored_private_helpers": 13,
+  "root_only_compiler": true,
+  "author_compiler_actions": false,
+  "correction_compiled": false,
+  "new_probability_source": false
+}

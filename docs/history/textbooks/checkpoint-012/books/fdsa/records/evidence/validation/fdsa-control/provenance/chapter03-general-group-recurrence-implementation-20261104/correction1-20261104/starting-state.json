@@ -1,0 +1,53 @@
+{
+  "recorded_utc": "2026-11-04T20:25:28.129113+00:00",
+  "parent": "451766483f401f737f63184f730a7561deb7ccb3",
+  "tree": "9bea2d392cc95e7873baab1ae61df95b36cafc37",
+  "sources": {
+    "Applications/Resources/GroupSelectionRecurrence.lean": {
+      "bytes": 11555,
+      "sha256": "2982bfada001a2da0ff54359018121f8a31ad0b575b10beda15a82af1f0c3f97"
+    },
+    "Applications/Resources/RoundedRecurrence.lean": {
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758"
+    },
+    "Applications/Resources/RoundedRecurrenceBounds.lean": {
+      "bytes": 6951,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135"
+    },
+    "Applications/Resources/SelectionRecurrence.lean": {
+      "bytes": 6560,
+      "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e"
+    },
+    "Examples/GroupSelectionRecurrence.lean": {
+      "bytes": 5163,
+      "sha256": "9e37b5a369179295134f3de913c07c040401c5ca4938fe1b032fb55ff146e08a"
+    },
+    "Examples/RoundedRecurrence.lean": {
+      "bytes": 3782,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d"
+    },
+    "Examples/RoundedRecurrenceBounds.lean": {
+      "bytes": 7295,
+      "sha256": "18275f597cf579edf0db6785d0910e76dcc9cff084566ced73cd0da8828c0135"
+    },
+    "Examples/SelectionRecurrence.lean": {
+      "bytes": 2272,
+      "sha256": "6599e51e8d6ea0197d74d2ca43076a355a9c131ce453f4a25c6c3bf086d99971"
+    }
+  },
+  "finding": "C03-GROUP-RECURRENCE-ELAB-001",
+  "actual_failed_run": "chapter03-group-recurrence-focused-attempt1-20261104",
+  "actual_terminal": {
+    "session": 63317,
+    "exit": 1,
+    "terminal": "5cb484",
+    "closure": "c14a08"
+  },
+  "correction_scope": [
+    "Remove unused combinators/tactic after field_simp in two arithmetic proofs.",
+    "Annotate both nonnegative coefficients explicitly to resolve metavariable elaboration in monotonicity proofs.",
+    "Alpha-rename dependent-if proof binder to _h, including termination proof references; same branch condition/body/recursion."
+  ],
+  "all43_public_headers_and_cases_preserved": true
+}

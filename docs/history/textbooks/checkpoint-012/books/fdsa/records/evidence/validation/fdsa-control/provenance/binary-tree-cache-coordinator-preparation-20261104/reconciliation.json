@@ -1,0 +1,81 @@
+{
+  "utc": "2026-11-04T13:50:56.703098+00:00",
+  "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "fixed_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "source_only": true,
+  "review_reports_complete_root_read": {
+    "Standards": "Prior root tool5a893c,89lines",
+    "Spec": "db3728 lines1-68 plusf22c05 lines69-127"
+  },
+  "all115_rows_headers_and_raw_hashes_match": true,
+  "source_paths_checked": [
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "git_blob": "d97a2c738960b893b733687c4f3d713f5edb0dc6",
+      "bytes": 3877,
+      "sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6"
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "git_blob": "c301ca85e555a8c5bb3c9db10459446121bc6613",
+      "bytes": 5668,
+      "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6"
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "git_blob": "f90fbe8c85b9c88f760236d48129bd2b4c4d7e71",
+      "bytes": 4119,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752"
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "git_blob": "d142e853381de3b7d294d3c023c32d53e2756d5c",
+      "bytes": 16307,
+      "sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "git_blob": "dbc847cd816f0d6a2101d3873b0d9b389695247b",
+      "bytes": 8318,
+      "sha256": "f6c0e7e43ffdd4f50d7b9a2402d3135d3cd104285c4e539c426ef6cd544b196b"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "91b4dc61828170699a85d1e1fa771e8dbaff6ea4",
+      "bytes": 18101,
+      "sha256": "b7e4fd17a6b2b76974a39caa55de6d5231c813b13c8e873a024167f36126d9f1"
+    },
+    {
+      "path": "docs/research/fdsa-tree-cache.md",
+      "git_blob": "5f5b8833fc422addb9eabaa8a97b0b482662924f",
+      "bytes": 11655,
+      "sha256": "4d8bfd13aece8fe9c3eeb563ee3908bd443d523c75fcdaa0658fa7b0639d4bed"
+    }
+  ],
+  "counts": {
+    "public": 115,
+    "definitions": 25,
+    "theorems": 90,
+    "private": 0,
+    "anonymous": 0,
+    "named_instances": 0
+  },
+  "standards_source_receipt_sha256": "a7ac84609e2cdfca8187357e4e6d379d097c70bf0a2744a4f2aa72f70c43a5de",
+  "spec_source_receipt_sha256": "e29d75b66949c9bbaabe9ae34e8305057af6015cde693695ee8085d73c811995",
+  "prepared_program": {
+    "path": "provenance/binary-tree-cache-public-statements115-prepared-20261104/Statements.lean",
+    "bytes": 4407,
+    "sha256": "d02a1852e9873a8b19c32d426584db8671ac4d4344e346cc84450c33cc22431d"
+  },
+  "actual_types_read": 0,
+  "compiler_credit": 0,
+  "acceptance_credit": false,
+  "future_integration_candidate": null,
+  "equation_header_names": [
+    "Trees.fold",
+    "Trees.Cached.read",
+    "Trees.Cached.Valid",
+    "TreeCacheExamples.chain"
+  ],
+  "dependency_edge_boundary": "Spec reports48total edges; Standards34local edges; coordinate edge sets separately before claiming a mismatch or complete closure reconciliation."
+}

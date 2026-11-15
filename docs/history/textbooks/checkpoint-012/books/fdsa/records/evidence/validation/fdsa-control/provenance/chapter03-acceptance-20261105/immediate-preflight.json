@@ -1,0 +1,543 @@
+{
+  "recorded_utc": "2026-11-05T01:57:00.374193+00:00",
+  "candidate": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "expectedHead": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "acceptedHead": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "expectedPaths": [
+    "Applications/Resources/AffineRecurrence.lean",
+    "Applications/Resources/Chunks.lean",
+    "Applications/Resources/FixedRank.lean",
+    "Applications/Resources/GroupSelectionRecurrence.lean",
+    "Applications/Resources/HalvingSelection.lean",
+    "Applications/Resources/HalvingTrace.lean",
+    "Applications/Resources/MedianPolicy.lean",
+    "Applications/Resources/MedianReduction.lean",
+    "Applications/Resources/MinimumPivot.lean",
+    "Applications/Resources/RandomSelection.lean",
+    "Applications/Resources/RandomSelectionDrift.lean",
+    "Applications/Resources/RandomSelectionEndpoints.lean",
+    "Applications/Resources/RandomSelectionEqual.lean",
+    "Applications/Resources/RandomSelectionMean.lean",
+    "Applications/Resources/RandomSelectionRun.lean",
+    "Applications/Resources/RandomSelectionTail.lean",
+    "Applications/Resources/RandomSelectionTrace.lean",
+    "Applications/Resources/RandomSelectionWorst.lean",
+    "Applications/Resources/RoundedRecurrence.lean",
+    "Applications/Resources/RoundedRecurrenceBounds.lean",
+    "Applications/Resources/Selection.lean",
+    "Applications/Resources/SelectionAuxiliary.lean",
+    "Applications/Resources/SelectionBounds.lean",
+    "Applications/Resources/SelectionCutoff.lean",
+    "Applications/Resources/SelectionEnvelope.lean",
+    "Applications/Resources/SelectionGenericBounds.lean",
+    "Applications/Resources/SelectionGenericEnvelope.lean",
+    "Applications/Resources/SelectionMedians.lean",
+    "Applications/Resources/SelectionPolicy.lean",
+    "Applications/Resources/SelectionRecurrence.lean",
+    "Applications/Selection/CoordinateQueries.lean",
+    "Applications/Selection/CoordinateReadAll.lean",
+    "Applications/Selection/CoordinateSelection.lean",
+    "Applications/Selection/CoordinateSensitivity.lean",
+    "Applications/Selection/CountRank.lean",
+    "Applications/Selection/FixedRank.lean",
+    "Applications/Selection/MedianCounterfamily.lean",
+    "Applications/Selection/MedianOfMedians.lean",
+    "Applications/Selection/MedianReduction.lean",
+    "Applications/Selection/OutsidePivot.lean",
+    "Applications/Sequences/Chunks.lean",
+    "Examples/AffineRecurrence.lean",
+    "Examples/ChunkCalls.lean",
+    "Examples/CoordinateQueries.lean",
+    "Examples/CoordinateReadAll.lean",
+    "Examples/CoordinateSelection.lean",
+    "Examples/CoordinateSensitivity.lean",
+    "Examples/FixedRankSelection.lean",
+    "Examples/GeneralMedianBounds.lean",
+    "Examples/GroupSelectionRecurrence.lean",
+    "Examples/HalvingTrace.lean",
+    "Examples/ListChunks.lean",
+    "Examples/MedianCounterfamily.lean",
+    "Examples/MedianOfMedians.lean",
+    "Examples/MedianPolicy.lean",
+    "Examples/MedianReduction.lean",
+    "Examples/MinimumPivot.lean",
+    "Examples/OutsidePivot.lean",
+    "Examples/RandomSelection.lean",
+    "Examples/RandomSelectionDrift.lean",
+    "Examples/RandomSelectionEndpoints.lean",
+    "Examples/RandomSelectionEqual.lean",
+    "Examples/RandomSelectionMean.lean",
+    "Examples/RandomSelectionRun.lean",
+    "Examples/RandomSelectionTail.lean",
+    "Examples/RandomSelectionTrace.lean",
+    "Examples/RandomSelectionWorst.lean",
+    "Examples/RoundedRecurrence.lean",
+    "Examples/RoundedRecurrenceBounds.lean",
+    "Examples/SelectionAuxiliary.lean",
+    "Examples/SelectionBounds.lean",
+    "Examples/SelectionComposition.lean",
+    "Examples/SelectionCosts.lean",
+    "Examples/SelectionCountRank.lean",
+    "Examples/SelectionCutoff.lean",
+    "Examples/SelectionEnvelope.lean",
+    "Examples/SelectionGenericBounds.lean",
+    "Examples/SelectionGenericEnvelope.lean",
+    "Examples/SelectionMedians.lean",
+    "Examples/SelectionRecurrence.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-affine-recurrence.md",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-selection.md"
+  ],
+  "name": "chapter03-immediate-verification-20261105",
+  "command": [
+    "./check.sh",
+    "--verify-candidate",
+    "HEAD"
+  ],
+  "recordDirectory": "chapter03-acceptance-20261105",
+  "recordName": "immediate-preflight.json",
+  "validationPurpose": "Mandatory immediate verification of exact approved Chapter3 candidate after complete full normal check, all1391 statement qualification, and passing held independent Standards and Spec assessments; immediately precedes sole local accepted-ref fast-forward.",
+  "metadata": {
+    "original_whole_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+    "all83_obligations": true,
+    "scope_paths": 84,
+    "actual_public_names": 1391,
+    "chapter03_public_names": 1370,
+    "accepted_XR_public_names": 21,
+    "root_gate": "provenance/chapter03-acceptance-20261105/root-gate-reconciliation.json"
+  },
+  "checkout_exit": 0,
+  "checkout_output": "Already at exact candidate; no checkout mutation.",
+  "sources": [
+    {
+      "path": "Applications/Resources/AffineRecurrence.lean",
+      "bytes": 5839,
+      "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d"
+    },
+    {
+      "path": "Applications/Resources/Chunks.lean",
+      "bytes": 4591,
+      "sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc"
+    },
+    {
+      "path": "Applications/Resources/FixedRank.lean",
+      "bytes": 7633,
+      "sha256": "831a78121a2ee7d7db773dd335febb938d8dfc8e7dbe944bb4cb7d71ec202c94"
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "bytes": 11646,
+      "sha256": "0dc225b3009a612bea521813fda96789629fc486201cd9998bd6a72d6fdb9eed"
+    },
+    {
+      "path": "Applications/Resources/HalvingSelection.lean",
+      "bytes": 8464,
+      "sha256": "7a3f78c70011dca48546cba30ae2c6e3d90ed3208a69b35aaca2a78f52da17a1"
+    },
+    {
+      "path": "Applications/Resources/HalvingTrace.lean",
+      "bytes": 6430,
+      "sha256": "89f15ae8a7e222a5c046e91582c38c61283350b27acacfd0c1278d2da4f7aaa6"
+    },
+    {
+      "path": "Applications/Resources/MedianPolicy.lean",
+      "bytes": 7649,
+      "sha256": "d16093224bc2eac70efc27094ccbc6506418e6b98aac73d0ebe309ad13887f00"
+    },
+    {
+      "path": "Applications/Resources/MedianReduction.lean",
+      "bytes": 5846,
+      "sha256": "e3bb494b94ed6829ad080b9120a69af16cb12c66cb7f7892598db988e3de354c"
+    },
+    {
+      "path": "Applications/Resources/MinimumPivot.lean",
+      "bytes": 10605,
+      "sha256": "b670f66c810111f625ebfc514c81dd7890298904f996b16dab6a2cb04341cdf3"
+    },
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionDrift.lean",
+      "bytes": 15121,
+      "sha256": "cdb869dc4a7816eb76ab462bd8e6b62df9e9bb7799434903afa9ec67bed59ef4"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionEndpoints.lean",
+      "bytes": 8643,
+      "sha256": "1621c8f16d8c5a4621268ec115ac2cee6eb18fe1b936116cb50f6b641bd3be8e"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionEqual.lean",
+      "bytes": 11702,
+      "sha256": "05abf888d8ef2ab6934a1ad90034ac12e07dd7c79f558828fc719bf3973e1dd2"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionMean.lean",
+      "bytes": 16493,
+      "sha256": "5a7d396ed0d451c0b0ec51493c004b721c804c69263ad7c659f023cab3ddda8f"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionRun.lean",
+      "bytes": 12714,
+      "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionTail.lean",
+      "bytes": 24400,
+      "sha256": "76ea201bc310b816f844e45422ecaf75d2d060202d1e391681affd558db99725"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionTrace.lean",
+      "bytes": 7823,
+      "sha256": "146f81f9db7782fd30f54848bee87038a2f9a1edcb4c2c776e854494bc80729e"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionWorst.lean",
+      "bytes": 10727,
+      "sha256": "0e83e44d4e1b2af6b56e09345d248d9af878e8a7d1108458ed8dcee446ec6541"
+    },
+    {
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "bytes": 7749,
+      "sha256": "a2a223d9e9710faee234c99fccbb85fdb66e414fedfc27a32380538b2c6b5af2"
+    },
+    {
+      "path": "Applications/Resources/RoundedRecurrenceBounds.lean",
+      "bytes": 6951,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135"
+    },
+    {
+      "path": "Applications/Resources/Selection.lean",
+      "bytes": 22435,
+      "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065"
+    },
+    {
+      "path": "Applications/Resources/SelectionAuxiliary.lean",
+      "bytes": 6215,
+      "sha256": "eeba4ac85dd4e07b8b42f38499748cae69cb6dcaaa01fdc8400a3cf5b947a925"
+    },
+    {
+      "path": "Applications/Resources/SelectionBounds.lean",
+      "bytes": 10073,
+      "sha256": "0f9181b569d24b2615c08be5c6a305a75e67679f14338e877fced10113d61edc"
+    },
+    {
+      "path": "Applications/Resources/SelectionCutoff.lean",
+      "bytes": 10228,
+      "sha256": "12980a69d01206eb2e5e9d45149d7336ff762f0c406ad345d36f1cbdada36218"
+    },
+    {
+      "path": "Applications/Resources/SelectionEnvelope.lean",
+      "bytes": 3159,
+      "sha256": "e4d1ca2054a7509a082340448b77f95a56380c8abab41da46b3b817fb8dab754"
+    },
+    {
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "bytes": 14543,
+      "sha256": "1b2b629177c96244d377261f12b45034c3c2107f0ef5c78bb512c947e7f12524"
+    },
+    {
+      "path": "Applications/Resources/SelectionGenericEnvelope.lean",
+      "bytes": 9448,
+      "sha256": "946dc54375989de8413ada388e0672d5f862a1c5da5e62efa9522865911db0e3"
+    },
+    {
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "bytes": 9755,
+      "sha256": "e64e998edc9353e5fd52544177fadd32f6398e3260b27ca54195cd8917e5d098"
+    },
+    {
+      "path": "Applications/Resources/SelectionPolicy.lean",
+      "bytes": 5986,
+      "sha256": "c906415dff6fc59694629f3d17977e55d2aa2ea2d989610f222bb781056a3112"
+    },
+    {
+      "path": "Applications/Resources/SelectionRecurrence.lean",
+      "bytes": 6560,
+      "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e"
+    },
+    {
+      "path": "Applications/Selection/CoordinateQueries.lean",
+      "bytes": 11106,
+      "sha256": "ca1c0d339500e77aa14ca47420b9f7a11f213bbcd8ac113c3281c7f9690e6409"
+    },
+    {
+      "path": "Applications/Selection/CoordinateReadAll.lean",
+      "bytes": 7611,
+      "sha256": "ab2fd8949fe4a73e909cac90f99329fcd3b508e1b221e4411449a535f48f41ff"
+    },
+    {
+      "path": "Applications/Selection/CoordinateSelection.lean",
+      "bytes": 18612,
+      "sha256": "14b87898b02acb8f948ee68629331359652e920331e49d60bdeac62788a21abb"
+    },
+    {
+      "path": "Applications/Selection/CoordinateSensitivity.lean",
+      "bytes": 6717,
+      "sha256": "224724056815f73aff552ead23b7dd83af4078ad61009169e1b474f4b94476e6"
+    },
+    {
+      "path": "Applications/Selection/CountRank.lean",
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d"
+    },
+    {
+      "path": "Applications/Selection/FixedRank.lean",
+      "bytes": 11391,
+      "sha256": "463e00dfd9eaac03dd2bec858eb64454d6c79abf03c80c8011019fb8af527395"
+    },
+    {
+      "path": "Applications/Selection/MedianCounterfamily.lean",
+      "bytes": 7414,
+      "sha256": "8fc4a388b50bd363587b8d8fbdc742d2e9d45426b58af75d9b83f471d1e4e0f6"
+    },
+    {
+      "path": "Applications/Selection/MedianOfMedians.lean",
+      "bytes": 13797,
+      "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba"
+    },
+    {
+      "path": "Applications/Selection/MedianReduction.lean",
+      "bytes": 8269,
+      "sha256": "902329504401dfb5ae2dbd2a62c6c7fa8d3dc9eec22d29d99b350282e57d608a"
+    },
+    {
+      "path": "Applications/Selection/OutsidePivot.lean",
+      "bytes": 6444,
+      "sha256": "22ceec39e94410200dda20d4224a87518aa001eb127605f02fe6961c01a97809"
+    },
+    {
+      "path": "Applications/Sequences/Chunks.lean",
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493"
+    },
+    {
+      "path": "Examples/AffineRecurrence.lean",
+      "bytes": 5164,
+      "sha256": "6734b0a54ffdcf81de3c3ec2520618011aa8bab357690c6cca6117174ec4abcf"
+    },
+    {
+      "path": "Examples/ChunkCalls.lean",
+      "bytes": 2730,
+      "sha256": "ca79f35fe846399bcb180d9b8fbd63fa453108c59c4503adb8a5731182fdc5e3"
+    },
+    {
+      "path": "Examples/CoordinateQueries.lean",
+      "bytes": 8079,
+      "sha256": "d90bd28ec4496105d9c5da80171a4c96a5ace119c0e178ded48f4f84ca8ad16d"
+    },
+    {
+      "path": "Examples/CoordinateReadAll.lean",
+      "bytes": 5626,
+      "sha256": "8290a02bee2fb078439842c26a6cb46ec231aeb092b30659c8a3b674cc54b603"
+    },
+    {
+      "path": "Examples/CoordinateSelection.lean",
+      "bytes": 10593,
+      "sha256": "880f4de41c96ef5076cb16375b8f718992ee0170b305e370bc9dac1e01308189"
+    },
+    {
+      "path": "Examples/CoordinateSensitivity.lean",
+      "bytes": 3726,
+      "sha256": "ed3d3d7cd41c97169893fdb5cf95e336a560f6f042ee70cea0a24ad7a6691828"
+    },
+    {
+      "path": "Examples/FixedRankSelection.lean",
+      "bytes": 7246,
+      "sha256": "c1ba9819d89af6a1d7f3c1678f10bed4b0614c63b385eb856144d315ebd955da"
+    },
+    {
+      "path": "Examples/GeneralMedianBounds.lean",
+      "bytes": 9001,
+      "sha256": "dfc1bb996f97104c2925bd6b7d2577272cf5a3e674bb756785cfdcdd234ffd9d"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "bytes": 5638,
+      "sha256": "bfcb81cf7de89516487aedf12fc223df534fa9ca2a4a964edb872023c45beba3"
+    },
+    {
+      "path": "Examples/HalvingTrace.lean",
+      "bytes": 3077,
+      "sha256": "9dc932bb8163746914fa5db351db632864a28a7f0648a1b285dba366689cd6e4"
+    },
+    {
+      "path": "Examples/ListChunks.lean",
+      "bytes": 2683,
+      "sha256": "161e240f9c07db5b13f9abf5bf09782064adce4862e60fbe35f0eba483c76c78"
+    },
+    {
+      "path": "Examples/MedianCounterfamily.lean",
+      "bytes": 2917,
+      "sha256": "8ebe64ee7b3a819b67a4afc9d2d52b8e659ebcdd20ffea17fb9933c1be0f5083"
+    },
+    {
+      "path": "Examples/MedianOfMedians.lean",
+      "bytes": 9092,
+      "sha256": "0bbbbdab0f2f41f42fd615231d04d29ebeb8f7ffd5cc83e2a6b832cbfcc25f0c"
+    },
+    {
+      "path": "Examples/MedianPolicy.lean",
+      "bytes": 7410,
+      "sha256": "fd6259f1b699adc9f7f98f7a90ccb1c34bbb2c7fe4d80ab7196c6a65635c31d4"
+    },
+    {
+      "path": "Examples/MedianReduction.lean",
+      "bytes": 7589,
+      "sha256": "d08959ce8687e1bc6db9dff78fb581c53b072e9db0436da465d9e42fdf652506"
+    },
+    {
+      "path": "Examples/MinimumPivot.lean",
+      "bytes": 3770,
+      "sha256": "08a54aec03e507b1c8dc87dcf521f96984c6a6cff4988294a60ddb1db6a9cdc8"
+    },
+    {
+      "path": "Examples/OutsidePivot.lean",
+      "bytes": 3845,
+      "sha256": "0c2feb488fd784937c8888a3e48e31b32a307b96bcefb6178d7c75274afdb275"
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e"
+    },
+    {
+      "path": "Examples/RandomSelectionDrift.lean",
+      "bytes": 5797,
+      "sha256": "fade4d637a2c50672d6f792326a22264bb4b348cb608bac58c0cf834a914af48"
+    },
+    {
+      "path": "Examples/RandomSelectionEndpoints.lean",
+      "bytes": 2944,
+      "sha256": "a8daeae4626353eb82b613d081a88737a26b556942cdd456ecc73a0af3f45c1a"
+    },
+    {
+      "path": "Examples/RandomSelectionEqual.lean",
+      "bytes": 4114,
+      "sha256": "e1896b17dafc623d26b37168153505faa48ad93968acb51c15032e58dfe3c150"
+    },
+    {
+      "path": "Examples/RandomSelectionMean.lean",
+      "bytes": 5962,
+      "sha256": "b9c83ac6e4dda31c6c70d6ccbf021cfcad5ca8317f5a3bf1133788fc559bb7af"
+    },
+    {
+      "path": "Examples/RandomSelectionRun.lean",
+      "bytes": 3770,
+      "sha256": "76504fe5fa77c581b8a7e3c9f3e0247c8a927adee8b308f84be6167e0ea20e0f"
+    },
+    {
+      "path": "Examples/RandomSelectionTail.lean",
+      "bytes": 8697,
+      "sha256": "2678c1f6fd6cab99353562b050d641427c9b04b7648a30e751051d4f0f0d771e"
+    },
+    {
+      "path": "Examples/RandomSelectionTrace.lean",
+      "bytes": 8686,
+      "sha256": "5abb356eeecb3d6a046cd529db4701f88056a4ef95bb4cbff294a86747b11f9d"
+    },
+    {
+      "path": "Examples/RandomSelectionWorst.lean",
+      "bytes": 12775,
+      "sha256": "ea06643849f8d958d17659d26886e132fc92d471008d1fa7c1455af808ddf0cb"
+    },
+    {
+      "path": "Examples/RoundedRecurrence.lean",
+      "bytes": 3782,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d"
+    },
+    {
+      "path": "Examples/RoundedRecurrenceBounds.lean",
+      "bytes": 7295,
+      "sha256": "18275f597cf579edf0db6785d0910e76dcc9cff084566ced73cd0da8828c0135"
+    },
+    {
+      "path": "Examples/SelectionAuxiliary.lean",
+      "bytes": 7302,
+      "sha256": "d5e495d5a9f6824d9b61fd41ce570059ab5aad3e93f4449f3b712e7d41a4b41e"
+    },
+    {
+      "path": "Examples/SelectionBounds.lean",
+      "bytes": 5546,
+      "sha256": "d18c19c5e69e3f77029d498e66716bf7fc45ff303294ee1a78d3ca1eb435ce11"
+    },
+    {
+      "path": "Examples/SelectionComposition.lean",
+      "bytes": 4056,
+      "sha256": "b70545e72b5826ae94bb2810065684e5d5cb324c4b5c86140609987d20a4d691"
+    },
+    {
+      "path": "Examples/SelectionCosts.lean",
+      "bytes": 13604,
+      "sha256": "d1f2c2e2e5ea3180d7fb1f736b0b3c1a98b3280e0a2902c2bfc712f409044a4e"
+    },
+    {
+      "path": "Examples/SelectionCountRank.lean",
+      "bytes": 4992,
+      "sha256": "9e8f303e9e704378a6d82285d7fb72e91cb9b4a528b04f5b5d7ed4dd7e8edf78"
+    },
+    {
+      "path": "Examples/SelectionCutoff.lean",
+      "bytes": 4470,
+      "sha256": "cdde5d4630a888b2ca50f25af8e876bae83cea3bef9d8b8a3de0380b477999a4"
+    },
+    {
+      "path": "Examples/SelectionEnvelope.lean",
+      "bytes": 1856,
+      "sha256": "02fedd2ffe6def3a5f6794fa90c01cdd90d982276b089aa488247b116c4eb3dd"
+    },
+    {
+      "path": "Examples/SelectionGenericBounds.lean",
+      "bytes": 11429,
+      "sha256": "181cef244870d4f8aa61dfc99a0cb142ad8b7cbb0c7f3a15835e697d759f8bee"
+    },
+    {
+      "path": "Examples/SelectionGenericEnvelope.lean",
+      "bytes": 5925,
+      "sha256": "3a1748e2f27a77cbf0daf183b6c52c76eedabdfe641cb77865f5364fec6582ca"
+    },
+    {
+      "path": "Examples/SelectionMedians.lean",
+      "bytes": 5142,
+      "sha256": "4563c04666fdfb6073c8213328a2f868022cf2ed17538cd1671aaea68811c9d8"
+    },
+    {
+      "path": "Examples/SelectionRecurrence.lean",
+      "bytes": 2272,
+      "sha256": "6599e51e8d6ea0197d74d2ca43076a355a9c131ce453f4a25c6c3bf086d99971"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 10717,
+      "sha256": "66f9a33157409cf12c5044b3f3b338d7da83e720f22e724989e2184e66bf4211"
+    },
+    {
+      "path": "docs/research/fdsa-affine-recurrence.md",
+      "bytes": 10290,
+      "sha256": "8996a9212bd8cf05ec26519cf51ca9ce69f560170512df647fa3fdb9869032f6"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 46755,
+      "sha256": "dca421107e141c97e48ae28225b26e308816e0b5bae201dca39a2a3d5cc8e741"
+    },
+    {
+      "path": "docs/research/fdsa-selection.md",
+      "bytes": 86129,
+      "sha256": "c4e363a2e28a1120986571054535573042a06391a1e9277ae98ca8b87d56fa40"
+    }
+  ],
+  "candidate_tree": "ecb69c3918715cbe0682028cd8697dfcf3e463f9",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 455479296
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

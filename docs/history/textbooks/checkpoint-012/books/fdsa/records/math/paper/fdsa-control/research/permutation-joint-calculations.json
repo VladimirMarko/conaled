@@ -1,0 +1,437 @@
+{
+  "created_utc": "2026-11-02T09:53:27.846399+00:00",
+  "status": "Bounded independent mathematical expectations only; not Lean compilation, proof audit or acceptance.",
+  "method": {
+    "sample": "All key-to-label bijection tuples pi of each named small population; global order reads pi inverse in positions=[0,...,n-1].",
+    "observation": "Actual global inverse order filtered to each fixed subset; conditional observation filters the actual global tail on the first-key-2 event.",
+    "campaign": "Only the named n=0,3,4,5 joint cases; each sample population generated once. No preceding exhaustive permutation/subset campaign was repeated.",
+    "total_sample_tuples": 151
+  },
+  "disjoint_pairs_fin4": {
+    "positions": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "A": [
+      0,
+      2
+    ],
+    "B": [
+      1,
+      3
+    ],
+    "sample_count": 24,
+    "left_marginal_mass": "1/2",
+    "right_marginal_mass": "1/2",
+    "joint_distribution": [
+      {
+        "left": [
+          0,
+          2
+        ],
+        "right": [
+          1,
+          3
+        ],
+        "count": 6,
+        "mass": "1/4"
+      },
+      {
+        "left": [
+          0,
+          2
+        ],
+        "right": [
+          3,
+          1
+        ],
+        "count": 6,
+        "mass": "1/4"
+      },
+      {
+        "left": [
+          2,
+          0
+        ],
+        "right": [
+          1,
+          3
+        ],
+        "count": 6,
+        "mass": "1/4"
+      },
+      {
+        "left": [
+          2,
+          0
+        ],
+        "right": [
+          3,
+          1
+        ],
+        "count": 6,
+        "mass": "1/4"
+      }
+    ],
+    "unsupported_left": {
+      "left": [
+        0,
+        0
+      ],
+      "right": [
+        1,
+        3
+      ],
+      "count": 0,
+      "mass": "0"
+    },
+    "unsupported_right": {
+      "left": [
+        0,
+        2
+      ],
+      "right": [
+        1,
+        1
+      ],
+      "count": 0,
+      "mass": "0"
+    }
+  },
+  "unequal_proper_union_fin5": {
+    "positions": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "A": [
+      0
+    ],
+    "B": [
+      1,
+      2,
+      3
+    ],
+    "outside": [
+      4
+    ],
+    "sample_count": 120,
+    "left_marginal_mass": "1",
+    "right_marginal_mass": "1/6",
+    "joint_distribution": [
+      {
+        "left": [
+          0
+        ],
+        "right": [
+          1,
+          2,
+          3
+        ],
+        "count": 20,
+        "mass": "1/6"
+      },
+      {
+        "left": [
+          0
+        ],
+        "right": [
+          1,
+          3,
+          2
+        ],
+        "count": 20,
+        "mass": "1/6"
+      },
+      {
+        "left": [
+          0
+        ],
+        "right": [
+          2,
+          1,
+          3
+        ],
+        "count": 20,
+        "mass": "1/6"
+      },
+      {
+        "left": [
+          0
+        ],
+        "right": [
+          2,
+          3,
+          1
+        ],
+        "count": 20,
+        "mass": "1/6"
+      },
+      {
+        "left": [
+          0
+        ],
+        "right": [
+          3,
+          1,
+          2
+        ],
+        "count": 20,
+        "mass": "1/6"
+      },
+      {
+        "left": [
+          0
+        ],
+        "right": [
+          3,
+          2,
+          1
+        ],
+        "count": 20,
+        "mass": "1/6"
+      }
+    ]
+  },
+  "empty_full_fin4": {
+    "A": [],
+    "B": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "sample_count": 24,
+    "distinct_joint_outputs": 24,
+    "all_joint_fiber_counts": [
+      1
+    ],
+    "selected_output": {
+      "left": [],
+      "right": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "count": 1,
+      "mass": "1/24"
+    },
+    "empty_restriction_value": []
+  },
+  "empty_indices": {
+    "sample_count": 1,
+    "global_order": [],
+    "A": [],
+    "B": [],
+    "joint_distribution": [
+      {
+        "left": [],
+        "right": [],
+        "count": 1,
+        "mass": "1"
+      }
+    ],
+    "normalization": "1"
+  },
+  "conditional_fin5_first2": {
+    "positions": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "S": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "revealed_key": 2,
+    "A": [
+      0,
+      1
+    ],
+    "B": [
+      3,
+      4
+    ],
+    "original_sample_count": 120,
+    "event_sample_count": 24,
+    "event_mass": "1/5",
+    "same_sample_tail_filter_equals_original_pair_on_event": true,
+    "conditional_distribution": [
+      {
+        "left": [
+          0,
+          1
+        ],
+        "right": [
+          3,
+          4
+        ],
+        "count": 6,
+        "mass": "1/4"
+      },
+      {
+        "left": [
+          0,
+          1
+        ],
+        "right": [
+          4,
+          3
+        ],
+        "count": 6,
+        "mass": "1/4"
+      },
+      {
+        "left": [
+          1,
+          0
+        ],
+        "right": [
+          3,
+          4
+        ],
+        "count": 6,
+        "mass": "1/4"
+      },
+      {
+        "left": [
+          1,
+          0
+        ],
+        "right": [
+          4,
+          3
+        ],
+        "count": 6,
+        "mass": "1/4"
+      }
+    ],
+    "selected_joint_with_event": {
+      "left": [
+        0,
+        1
+      ],
+      "right": [
+        3,
+        4
+      ],
+      "count": 6,
+      "original_mass": "1/20",
+      "conditional_mass": "1/4"
+    },
+    "environment_event_mass_after_conditioning": "1"
+  },
+  "overlap_counter_fin3": {
+    "positions": [
+      0,
+      1,
+      2
+    ],
+    "A": [
+      0,
+      1
+    ],
+    "B": [
+      1,
+      2
+    ],
+    "intersection": [
+      1
+    ],
+    "sample_count": 6,
+    "joint_distribution": [
+      {
+        "left": [
+          0,
+          1
+        ],
+        "right": [
+          1,
+          2
+        ],
+        "count": 1,
+        "mass": "1/6"
+      },
+      {
+        "left": [
+          0,
+          1
+        ],
+        "right": [
+          2,
+          1
+        ],
+        "count": 2,
+        "mass": "1/3"
+      },
+      {
+        "left": [
+          1,
+          0
+        ],
+        "right": [
+          1,
+          2
+        ],
+        "count": 2,
+        "mass": "1/3"
+      },
+      {
+        "left": [
+          1,
+          0
+        ],
+        "right": [
+          2,
+          1
+        ],
+        "count": 1,
+        "mass": "1/6"
+      }
+    ],
+    "selected": {
+      "left": [
+        1,
+        0
+      ],
+      "right": [
+        1,
+        2
+      ],
+      "global_orders": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          2,
+          0
+        ]
+      ],
+      "count": 2,
+      "joint_mass": "1/3",
+      "left_marginal_mass": "1/2",
+      "right_marginal_mass": "1/2",
+      "product_of_marginals": "1/4",
+      "joint_event_equals_actual_full_order_first1": true
+    }
+  },
+  "limits": [
+    "Uniformity here is on one global permutation; the product-law conclusion for fixed disjoint restrictions is not an independent-redraw definition.",
+    "The conditional case changes the actual environment measure and reuses its actual tail.",
+    "Equal payloads need distinct occurrence indices in an algorithm application.",
+    "No arbitrary adaptive-set, complete history, fresh-choice coupling, cost distribution, expectation recurrence or source tariff is proved by these calculations."
+  ]
+}

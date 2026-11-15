@@ -1,0 +1,243 @@
+{
+  "status": "Independent exact finite calculations only; no Lean implementation, kernel validation, frozen scope or acceptance.",
+  "method": "Enumerate key-to-label permutations, invert them to obtain the ordered key list, then filter each fixed subset. Exact Fraction arithmetic verifies all complete output-order masses.",
+  "exhaustive_checks": [
+    {
+      "universe_size": 0,
+      "global_samples": 1,
+      "fixed_subsets": 1,
+      "uniform_whole_order_verified": true,
+      "permutation_subset_pairs": 1
+    },
+    {
+      "universe_size": 1,
+      "global_samples": 1,
+      "fixed_subsets": 2,
+      "uniform_whole_order_verified": true,
+      "permutation_subset_pairs": 2
+    },
+    {
+      "universe_size": 2,
+      "global_samples": 2,
+      "fixed_subsets": 4,
+      "uniform_whole_order_verified": true,
+      "permutation_subset_pairs": 8
+    },
+    {
+      "universe_size": 3,
+      "global_samples": 6,
+      "fixed_subsets": 8,
+      "uniform_whole_order_verified": true,
+      "permutation_subset_pairs": 48
+    },
+    {
+      "universe_size": 4,
+      "global_samples": 24,
+      "fixed_subsets": 16,
+      "uniform_whole_order_verified": true,
+      "permutation_subset_pairs": 384
+    },
+    {
+      "universe_size": 5,
+      "global_samples": 120,
+      "fixed_subsets": 32,
+      "uniform_whole_order_verified": true,
+      "permutation_subset_pairs": 3840
+    },
+    {
+      "universe_size": 6,
+      "global_samples": 720,
+      "fixed_subsets": 64,
+      "uniform_whole_order_verified": true,
+      "permutation_subset_pairs": 46080
+    }
+  ],
+  "whole_three_key_orders": {
+    "universe_size": 4,
+    "subset": [
+      0,
+      2,
+      3
+    ],
+    "outcomes": [
+      {
+        "order": [
+          0,
+          2,
+          3
+        ],
+        "mass": "1/6",
+        "sample_count": 4
+      },
+      {
+        "order": [
+          0,
+          3,
+          2
+        ],
+        "mass": "1/6",
+        "sample_count": 4
+      },
+      {
+        "order": [
+          2,
+          0,
+          3
+        ],
+        "mass": "1/6",
+        "sample_count": 4
+      },
+      {
+        "order": [
+          2,
+          3,
+          0
+        ],
+        "mass": "1/6",
+        "sample_count": 4
+      },
+      {
+        "order": [
+          3,
+          0,
+          2
+        ],
+        "mass": "1/6",
+        "sample_count": 4
+      },
+      {
+        "order": [
+          3,
+          2,
+          0
+        ],
+        "mass": "1/6",
+        "sample_count": 4
+      }
+    ]
+  },
+  "overlapping_restrictions": {
+    "universe_size": 3,
+    "first_subset": [
+      0,
+      1
+    ],
+    "second_subset": [
+      1,
+      2
+    ],
+    "outcomes": [
+      {
+        "first": [
+          0,
+          1
+        ],
+        "second": [
+          1,
+          2
+        ],
+        "mass": "1/6"
+      },
+      {
+        "first": [
+          0,
+          1
+        ],
+        "second": [
+          2,
+          1
+        ],
+        "mass": "1/3"
+      },
+      {
+        "first": [
+          1,
+          0
+        ],
+        "second": [
+          1,
+          2
+        ],
+        "mass": "1/3"
+      },
+      {
+        "first": [
+          1,
+          0
+        ],
+        "second": [
+          2,
+          1
+        ],
+        "mass": "1/6"
+      }
+    ],
+    "each_marginal_order_mass": "1/2",
+    "independent_product_mass_per_pair": "1/4"
+  },
+  "orientation_boundary": {
+    "key_to_label_permutation": [
+      1,
+      2,
+      0
+    ],
+    "ordered_keys_via_inverse": [
+      2,
+      0,
+      1
+    ],
+    "subset": [
+      0,
+      1
+    ],
+    "correct_restricted_order": [
+      0,
+      1
+    ],
+    "incorrect_direct_permutation_order": [
+      1,
+      0
+    ],
+    "warning": "Both direct and inverse permutations are uniformly distributed under the full uniform experiment; that marginal equality does not establish the intended pointwise source orientation."
+  },
+  "conditional_boundary": {
+    "fixed_subset": [
+      0,
+      1
+    ],
+    "conditioning_event": "key 1 precedes key 2",
+    "conditioning_mass": "1/2",
+    "conditional_order_masses": [
+      {
+        "order": [
+          0,
+          1
+        ],
+        "mass": "1/3"
+      },
+      {
+        "order": [
+          1,
+          0
+        ],
+        "mass": "2/3"
+      }
+    ],
+    "unconditional_each_order_mass": "1/2"
+  },
+  "adaptive_subset_boundary": {
+    "rule": "Always include key 0, plus the earlier of keys 1 and 2 under the sampled order.",
+    "subset_cardinality": 2,
+    "probability_key0_first": "1/3",
+    "would_be_fixed_subset_mass": "1/2"
+  },
+  "minimum_marginals_do_not_determine_whole_order": {
+    "universe_size": 4,
+    "law": "uniform over the twelve even key-to-label permutations",
+    "every_member_of_every_nonempty_fixed_subset_has_inverse_cardinality_minimum_mass": true,
+    "even_full_order_mass": "1/12",
+    "odd_full_order_mass": "0",
+    "uniform_full_permutation_order_mass": "1/24",
+    "warning": "This is a different law and not a counterexample to the theorem under the full uniform-permutation assumption; it shows why minimum marginals alone do not specify the whole order law."
+  }
+}

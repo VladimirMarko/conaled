@@ -1,0 +1,56 @@
+{
+  "recorded_utc": "2026-11-04T11:20:47.090547+00:00",
+  "source_matches_only_explicit_proof_body_replacements": true,
+  "declaration_headers_exactly_retained": true,
+  "all_definition_bodies_exactly_retained": true,
+  "declaration_counts": {
+    "def": 8,
+    "theorem": 7,
+    "example": 16
+  },
+  "changed_proof_bodies": [
+    {
+      "kind": "theorem",
+      "header": "private theorem boundary (is : List Unit) (s : Nat) :\n    budget clearStep charge is s =\n      ((run clearStep is s).2 : Int) + potential (run clearStep is s).1 - potential s"
+    },
+    {
+      "kind": "example",
+      "header": "example : budget clearStep charge [(), ()] 1 = 0"
+    },
+    {
+      "kind": "example",
+      "header": "example : \u00ac ((run clearStep [(), ()] 1).2 : Int) \u2264\n    budget clearStep charge [(), ()] 1"
+    },
+    {
+      "kind": "example",
+      "header": "example : budget clearStep charge [(), ()] 1 \u2260 charge () 1 + charge () 1"
+    },
+    {
+      "kind": "example",
+      "header": "example : Valid 0"
+    },
+    {
+      "kind": "example",
+      "header": "example : budget step charge [()] 0 = (3 / 2 : \u211d)"
+    },
+    {
+      "kind": "example",
+      "header": "example : budget step charge [(), ()] 0 = (2 : \u211d)"
+    },
+    {
+      "kind": "example",
+      "header": "example (is : List Unit) : ((run step is 0).2 : \u211d) \u2264 budget step charge is 0"
+    }
+  ],
+  "extra_source_paths": [],
+  "index_before_commit": "clean",
+  "nonignored_untracked_before_commit": [],
+  "git_diff_check": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "correction1_package_unchanged": true,
+  "correction1_manifested_payloads_verified": 17,
+  "limit": "Source/diff identity check only; no compiler, elaborated types, audit or candidate verification."
+}

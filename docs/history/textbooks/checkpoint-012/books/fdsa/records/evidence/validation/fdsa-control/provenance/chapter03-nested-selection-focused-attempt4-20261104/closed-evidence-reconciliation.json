@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T21:11:33.756943+00:00",
+  "candidate": "a9ac654c5dc3454709adc3a519ea82794f42f427",
+  "terminal": {
+    "recorded_utc": "2026-11-04T21:11:33.756731+00:00",
+    "owned_session": 95239,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "e469e3",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "a9ac654c5dc3454709adc3a519ea82794f42f427"
+  },
+  "actual_recorder_and_native_exits": [
+    0,
+    0
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-nested-selection-focused-attempt4-20261104/full.log",
+    "bytes": 4468,
+    "sha256": "549884b56b16a956fd00a364183fae40e35895fb1dcce10157dfd7e7bea4ee07"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T211043Z-project-run-d7a7cfb7",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-nested-selection-focused-attempt4-20261104/native-records/start.json",
+      "bytes": 468,
+      "sha256": "fff8c1d13d879cc05ac585cf3c025dd2d6f076bb5bbff7df76364289771ce710"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-nested-selection-focused-attempt4-20261104/native-records/result.json",
+      "bytes": 620,
+      "sha256": "2651b085509e02ee4f686e3852d5f14e703ef057bf1ad929aab9349f20492523"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-nested-selection-focused-attempt4-20261104/native-records/output.log",
+      "bytes": 4202,
+      "sha256": "47a4befd65a1df137cd367f9b063fb572c9a4608b86622a707b98a3a5f363e12"
+    }
+  },
+  "native_body_exact_outer_offset": 110,
+  "complete_closed_log": true,
+  "scope": "Focused passing actual nested measured-selector core and examples,39 public and29 private claims with12 expected value/count cases; actual run<=F, actual type inspection, full candidate/audit and independent acceptance gates still pending.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

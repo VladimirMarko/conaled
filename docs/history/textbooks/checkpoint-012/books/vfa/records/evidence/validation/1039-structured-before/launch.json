@@ -1,0 +1,37 @@
+{
+  "prepared_utc": "2026-11-04T06:23:57.548290+00:00",
+  "candidate": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+  "argv": [
+    "python3",
+    "-B",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/native-kit/conaled_native.py",
+    "--state",
+    "/workspace/scratch/60f07f0e98c8/native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation",
+    "--threads",
+    "1",
+    "--",
+    "python3",
+    "-B",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-focused-structured.py",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/diagnostic1039/structured-before",
+    "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1039-structured-before/focused-result.json"
+  ],
+  "tty": true,
+  "script_sha256": "f0714d4a66b542bbb160efa6c4829e1d23b4a85286f6f3c02fcbc19703ee579b",
+  "scope": "Five actual local sources, direct Lean with private outputs; diagnostic only",
+  "status": "completed_with_import_and_summation_failures",
+  "preexisting_project_run_log_directories": [
+    "20261104T040241Z-project-run-2354e0e9",
+    "20261104T055729Z-project-run-78f1cb44",
+    "20261104T060025Z-project-run-a7ddd994",
+    "20261104T062141Z-project-run-b728350b"
+  ],
+  "session": 40403,
+  "actual_terminal_exit_code": 1,
+  "kit_log_directory": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T062357Z-project-run-255d9f07"
+}

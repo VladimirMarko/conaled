@@ -1,0 +1,67 @@
+{
+  "declaration_count": 48,
+  "groups": {
+    "Applications/Sequences/Partition.lean": [
+      "Sequences.Partition.partition3",
+      "Sequences.Partition.partition3_eq_filters",
+      "Sequences.Partition.partition3_perm",
+      "Sequences.Partition.partition_left_mem",
+      "Sequences.Partition.partition_equal_mem",
+      "Sequences.Partition.partition_right_mem",
+      "Sequences.Partition.partition_lengths",
+      "Sequences.Partition.partition_strict_sizes",
+      "Sequences.Partition.partition3_nil",
+      "Sequences.Partition.partition3_cons"
+    ],
+    "Applications/Resources/Partition.lean": [
+      "Resources.Partition.partitionRun",
+      "Resources.Partition.partitionRun_nil",
+      "Resources.Partition.partitionRun_cons",
+      "Resources.Partition.partitionRun_value",
+      "Resources.Partition.partitionRun_nil_cost",
+      "Resources.Partition.partitionRun_cons_cost",
+      "Resources.Partition.partitionRun_cost"
+    ],
+    "Examples/ThreeWayPartition.lean": [
+      "ThreeWayPartitionExamples.replicate_partition",
+      "ThreeWayPartitionExamples.selection_partition",
+      "ThreeWayPartitionExamples.mixed",
+      "ThreeWayPartitionExamples.mixed_partition",
+      "ThreeWayPartitionExamples.outside_partition",
+      "ThreeWayPartitionExamples.interior_partition",
+      "ThreeWayPartitionExamples.lower_partition",
+      "ThreeWayPartitionExamples.empty_run",
+      "ThreeWayPartitionExamples.replicate_run",
+      "ThreeWayPartitionExamples.singleton_run",
+      "ThreeWayPartitionExamples.replicate_strict",
+      "ThreeWayPartitionExamples.measured_selection_value",
+      "ThreeWayPartitionExamples.mixed_run",
+      "ThreeWayPartitionExamples.mixed_value",
+      "ThreeWayPartitionExamples.mixed_cost",
+      "ThreeWayPartitionExamples.mixed_perm",
+      "ThreeWayPartitionExamples.mixed_lengths",
+      "ThreeWayPartitionExamples.mixed_strict",
+      "ThreeWayPartitionExamples.outside_run",
+      "ThreeWayPartitionExamples.outside_boundary",
+      "ThreeWayPartitionExamples.interior_run",
+      "ThreeWayPartitionExamples.interior_boundary",
+      "ThreeWayPartitionExamples.bind_returned_lower"
+    ],
+    "Applications/Selection/ThreeWay.lean legacy wrappers": [
+      "Applications.Selection.partition3",
+      "Applications.Selection.partition3_eq_filters",
+      "Applications.Selection.partition3_perm",
+      "Applications.Selection.partition_left_mem",
+      "Applications.Selection.partition_equal_mem",
+      "Applications.Selection.partition_right_mem",
+      "Applications.Selection.partition_lengths",
+      "Applications.Selection.partition_strict_sizes"
+    ]
+  },
+  "source_sha256": {
+    "Applications/Sequences/Partition.lean": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069",
+    "Applications/Resources/Partition.lean": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14",
+    "Examples/ThreeWayPartition.lean": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526"
+  },
+  "state": "prepared only, no compiler invocation yet"
+}

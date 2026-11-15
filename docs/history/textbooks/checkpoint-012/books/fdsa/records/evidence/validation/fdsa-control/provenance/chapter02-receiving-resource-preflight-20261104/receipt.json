@@ -1,0 +1,69 @@
+{
+  "schema": "fdsa.chapter02.receiving-resource-preflight.receipt.v1",
+  "recorded_utc": "2026-11-04T17:05:53.737131+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "status": "Complete bounded read-only resource preparation; own writes HELD",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "source_clean": true,
+  "actual_observation_tool": "9b3955",
+  "report_full_readback_tool": "e37b2c",
+  "payloads": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-resource-preflight-20261104/report.md",
+      "bytes": 7584,
+      "lines": 58,
+      "sha256": "92cf9f2b6723f3f8bc20122fdba8b393419fd6ca5916beed7cacb984d96b1bd6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-resource-preflight-20261104/observation.json",
+      "bytes": 84673,
+      "lines": 1,
+      "sha256": "1fb9c68568ebdc77793cf5ec61e90c174d9964d7552fd569234b72f291b7e588"
+    }
+  ],
+  "readback": {
+    "report_all58_lines_read": true,
+    "observation_full_JSON_read_and_parsed": true,
+    "all418_leaf_records_exact_to_prior8_fields": true,
+    "all91_prefix_records_compared": true,
+    "only2_external_device_ID_differences": true,
+    "all55_source_target_bindings_and10config_bindings_read": true,
+    "all12_runtime_component_presence_size_records_read": true,
+    "historical_checkpoint_scale_and_comparison_arithmetic_checked": true,
+    "prior_protected_package_identities_rehashed_unchanged": [
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-resource-readiness-20261104/report.md",
+        "bytes": 12089,
+        "lines": 96,
+        "sha256": "a994fba93cd43be5a8f72e7e4ac94fe69045ac9b99e32fe078811961d2d62324"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-resource-readiness-20261104/receipts.json",
+        "bytes": 202421,
+        "lines": 7122,
+        "sha256": "c980af88babd74251a4896eded792edea81ba7db83876130f7173ec4e2e848cb"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-chapter02-source-integration-20261104/receipt.json",
+        "bytes": 8132,
+        "lines": 259,
+        "sha256": "62db6b03f9da7a190115e1f595153f00550dd65051b04eae8777c7794000b7b3"
+      }
+    ]
+  },
+  "actual_failure_boundaries": [
+    "baca60 read-only JSON-shape error",
+    "6a5b63 oversized read display, no unread suffix credited",
+    "dd1917 absent /proc before package creation; no secured memory/process result"
+  ],
+  "process_and_memory_limit": "No OS live-process or memory-headroom assertion; root-owned closed0 evidence and explicit coordinator statement retained. No further broad probing.",
+  "last_space_observation": {
+    "observed_utc": "2026-11-04T17:05:53.737111+00:00",
+    "total_bytes": 67586535424,
+    "ordinary_available_bytes": 0,
+    "raw_free_bytes": 1071837184
+  },
+  "decisions": "No launch, installation, hydration, new threshold, concurrency change, compiler/type/acceptance credit or C3 activation. Root owns launch after0120 and source gates.",
+  "actions": "Only this new provenance directory written; no source/ref/index/runtime/cache/project-output/global-control/old-record mutations; zero artifact payload bytes read or hashed.",
+  "hold": "All source and prior packages remain held; this package is now held for0120 capture."
+}

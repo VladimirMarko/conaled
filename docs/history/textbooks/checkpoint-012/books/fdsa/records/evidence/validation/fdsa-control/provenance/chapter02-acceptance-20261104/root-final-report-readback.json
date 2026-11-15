@@ -1,0 +1,61 @@
+{
+  "recorded_utc": "2026-11-04T18:12:08.094863+00:00",
+  "role": "Root coordination; complete final-report reading, not a third mathematical review",
+  "reports": [
+    {
+      "axis": "Spec",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter02-spec-final-20261104.md",
+      "bytes": 15377,
+      "lines": 108,
+      "sha256": "4852842a5ccae808bd0d96ba82339a2857eda445e5992a34ab8c2e4fd2a133c0",
+      "complete_untruncated_root_report_read": true,
+      "chunks": [
+        {
+          "first_line": 1,
+          "last_line": 60,
+          "bytes": 7446,
+          "sha256": "76382aabb7721f1524bd259937525156878b1a2a9f29658377423cb0fd41d106",
+          "actual_root_read_tool": "03b905"
+        },
+        {
+          "first_line": 61,
+          "last_line": 108,
+          "bytes": 7931,
+          "sha256": "c288b022af90a5bd0c4f7a09c25d988bd52ec95ed935b7dd04f446b19d16315e",
+          "actual_root_read_tool": "394308"
+        }
+      ],
+      "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+      "reported_pass": true,
+      "reported_unresolved": 0
+    },
+    {
+      "axis": "Standards",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter02-standards-receiving-final-20261104.md",
+      "bytes": 12369,
+      "lines": 69,
+      "sha256": "32fa752ce964aa01c530d0d015a8eaf1f4fa7319b6cfe872bb54cd797b9c3b45",
+      "complete_untruncated_root_report_read": true,
+      "chunks": [
+        {
+          "first_line": 1,
+          "last_line": 38,
+          "bytes": 7381,
+          "sha256": "5202f78dc7fa962e3b9cf362f9ad835ef53bcec22408f17a0ef8afa6c1d57e8d",
+          "actual_root_read_tool": "3d0857"
+        },
+        {
+          "first_line": 39,
+          "last_line": 69,
+          "bytes": 4988,
+          "sha256": "7d56ebb58388b9c1690fe0a1b77233af83179f2798940b0f0c0ebb7f03c847fd",
+          "actual_root_read_tool": "e992b5"
+        }
+      ],
+      "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+      "reported_pass": true,
+      "reported_unresolved": 0
+    }
+  ],
+  "independent_completion_and_hold_receipts_still_required_before_root_gate": true
+}

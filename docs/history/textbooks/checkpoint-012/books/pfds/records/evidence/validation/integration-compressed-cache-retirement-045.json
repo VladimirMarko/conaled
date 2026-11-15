@@ -1,0 +1,42 @@
+{
+  "original_path": "session/validation/integration-compressed-cache-retirement-045.json",
+  "original_sha256": "4ac7f85c74236f28c98e491c7d7bd1b17011dceb99850bd807aa3e632c8e117d",
+  "original_bytes": 2349367,
+  "removed_fields": [
+    {
+      "pointer": "/files",
+      "entries": 9031,
+      "canonical_json_sha256": "5e145de08df5a02c4891023185fec1c4aa7976d41b27959830092821ab40632e"
+    }
+  ],
+  "record": {
+    "schema": 1,
+    "kind": "retirement-of-reproducible-compressed-dependency-downloads",
+    "started_at": "2026-11-04T01:27:15.695772+00:00",
+    "status": "finished",
+    "acceptance": false,
+    "compiler_workload": "integration-3cf-ordinary-r2-045",
+    "locks": [
+      "native-state/locks/setup.lock",
+      "native-state/locks/cache-writer.lock"
+    ],
+    "active_compiler_locks_not_acquired_or_overridden": true,
+    "reason": "Current unchanged stock ordinary checker sets LAKE_ARTIFACT_CACHE=false and --no-cache. Compilers use unpacked .lake/packages outputs, not these compressed .ltar archives. No cache or setup writer owns either native lock. Space needed for build and recovery checkpoints.",
+    "retained": "All installed compiler/profile, pinned dependency sources and unpacked outputs, current project outputs, original user attachments, and evidence.",
+    "inputs_equal_active_run_before": true,
+    "inputs_digest": "3bbd16a69296b18137b0d6b7bf53964b9bd4bee071a264bd1b9679533cb5b7c7",
+    "space_before": {
+      "free_bytes": 293097472,
+      "available_bytes": 0
+    },
+    "total_allocated_bytes": 473616384,
+    "finished_at": "2026-11-04T01:27:25.447537+00:00",
+    "inputs_unchanged": true,
+    "inputs_equal_active_run_after": true,
+    "all_target_files_absent": true,
+    "space_after": {
+      "free_bytes": 764092416,
+      "available_bytes": 0
+    }
+  }
+}

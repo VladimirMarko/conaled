@@ -1,0 +1,77 @@
+{
+  "recorded_utc": "2026-11-04T22:02:22.526150+00:00",
+  "checkpoint": "conaled-fdsa-0131-checked-cutoffs-and-selection-bounds",
+  "all_writers_held": true,
+  "compiler_live": false,
+  "accepted_head": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "qualified_candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+  "closed_runs": 85,
+  "interrupted_runs_without_terminal": [
+    {
+      "name": "chapter03-random-selection-drift-focused-attempt2-20261104",
+      "candidate": "f535b1ef557795c4e09c97ce0daf599961c9b268",
+      "actual_exit": null,
+      "original_exec_session_id": null,
+      "no_success_or_failure_credit": true,
+      "reconciliation": "provenance/chapter03-drift-attempt2-interruption-20261104/reconciliation.json",
+      "bytes": 4308,
+      "sha256": "cac4122a94fd253af81ac8ed07c27fdf9fb5521f0f1e50287411120b97470a33"
+    }
+  ],
+  "held_heads": {
+    "conaled": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "conaled-ch01-review": "27281919b9edd31a53336cbb5583ebc17632247e",
+    "conaled-ch02-quicksort": "27281919b9edd31a53336cbb5583ebc17632247e",
+    "conaled-ch02-random-pivot": "0b8006f150cdb1aa9c76f5cf80eededca4417e81",
+    "conaled-ch02-top-down": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330",
+    "conaled-ch02-natural-runs": "96c99a18a1f4ad28bbb8d13a17cbefb1899d8ab9",
+    "conaled-ordinary-merge": "2d20573cc5d3373a4746a5ebf16314369e7d7e3e"
+  },
+  "held_statuses": {
+    "conaled": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.urOBCL\n",
+    "conaled-ch01-review": "",
+    "conaled-ch02-quicksort": "",
+    "conaled-ch02-random-pivot": "",
+    "conaled-ch02-top-down": "",
+    "conaled-ch02-natural-runs": "",
+    "conaled-ordinary-merge": ""
+  },
+  "drafts": [],
+  "author_hold_records": {
+    "provenance/chapter03-values-implementation-20261104/halving-policy-correction2-20261104/hold.json": {
+      "bytes": 2070,
+      "sha256": "cf743d340d5666bbd8b222219598739cbd23e42208323be097ba6dd10d992b69"
+    },
+    "provenance/chapter03-random-selection-implementation-20261104/tail-correction3-20261104/author-hold.json": {
+      "bytes": 6289,
+      "sha256": "549648997d80791cda2a14a70470606a20a89c40741d9ae1a90b2d3d6bbc8d6e"
+    },
+    "provenance/chapter03-mom-execution-implementation-20261104/generic-cost-bound-correction1-20261104/author-hold-candidate2.json": {
+      "bytes": 864,
+      "sha256": "9b3c5e73c32db5d0367048cd607ef115eff821a5056e9d4394206fadaa368c61"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/actual-selector-composition-20261104/final-preservation.json": {
+      "bytes": 960,
+      "sha256": "85299f1ea0a0f7c63728d3ff0d8c0be10949febbe587ead738e6018f644cc507"
+    },
+    "provenance/chapter03-selection-cutoff-implementation-20261104/correction2-20261104/handoff-candidate3.json": {
+      "bytes": 1387,
+      "sha256": "255648279264ab8ab5a234145c000b68721c563c1ac63bdbe395e1d9901f0fc1"
+    }
+  },
+  "author_holds": {
+    "values": "Final held272819 at21:59:45; focused attempt3 now CLOSED0; remain held.",
+    "random": "Final held0b8006; focused attempt4 CLOSED0; explicit keep-held message before future worst-case scope.",
+    "mom": "Final held9e1c7fc; attempt2 CLOSED1 only example lints; explicit keep-held message.",
+    "query": "Final held2d20573 at21:59:18; fully inventoried uncompiled composition.",
+    "root_cutoff": "Root96c99a clean held; focused pair CLOSED0."
+  },
+  "project_lock_observation": {
+    "utc": "2026-11-04T22:02:22.526023+00:00",
+    "exclusive_nonblocking_acquired_and_released": true,
+    "global_process_absence_not_claimed": true
+  },
+  "operations_inspector": "Read-only existing inspector; final receipt pending before capture.",
+  "reviewers": "Previous accepted axes remain held; independent Chapter3 acceptance axes not begun.",
+  "root_remaining_capture_writes_only": true
+}

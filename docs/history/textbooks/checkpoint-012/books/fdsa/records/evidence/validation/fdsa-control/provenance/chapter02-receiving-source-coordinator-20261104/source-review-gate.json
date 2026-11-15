@@ -1,0 +1,499 @@
+{
+  "recorded_utc": "2026-11-04T17:07:12.376354+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "tree": "fe0bd9f17a5e1a09797be55fd79491e8c363cbd0",
+  "accepted_head": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "both_source_assessments_complete": true,
+  "both_reports_fully_read_back_and_held": true,
+  "unresolved_source_findings": 0,
+  "overall_outcomes": {
+    "Standards": "Blocked pending receiving full/type/final gates",
+    "Spec": "Blocked pending receiving full/type/final gates"
+  },
+  "finding_dispositions": {
+    "C02-DOC-001": "Source resolved; final receiving confirmation pending",
+    "C02-DOC-002": "Source resolved; final receiving confirmation pending",
+    "C02-DOC-003": "All six notes source resolved; final receiving confirmation pending",
+    "C02-TYPE-001": "Historical Z and predecessor resolutions retained; current receiving qualification pending"
+  },
+  "original_scope": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "Lean_paths": 72,
+    "declaration_bearing_Lean_paths": 71,
+    "public_root_paths": 1,
+    "document_paths": 9,
+    "public_names": 1763,
+    "private_named_declarations": 70,
+    "anonymous_instances": 19,
+    "no_scope_reset": true
+  },
+  "root_semantic_review_added": false,
+  "root_complete_review_reads": {
+    "Standards": [
+      "629d28",
+      "6e4e06"
+    ],
+    "Spec": [
+      "badef9",
+      "df681a",
+      "91d844"
+    ]
+  },
+  "root_incomplete_combined_Std_read": "7f8a52 truncated by aggregate output; fully reread6e4e06",
+  "bound_review_files": [
+    {
+      "path": "provenance/chapter02-receiving-resource-preflight-20261104/receipt.json",
+      "bytes": 3539,
+      "sha256": "0b92446dec3b50ac26544205b7380a62685997cf2fa4d01db40817a612d1ea54"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-complete-spec-assessment-4b5dbfa0.json",
+      "bytes": 23798,
+      "sha256": "116cf0a800841c3a18d338f446ce3a518455487de8e401dae1186a85c73ad878"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-execution-input-qualification.json",
+      "bytes": 6690,
+      "sha256": "9bf1f1e098997b9f4f01944c59b5578a32a4768e00fc0e68d1726c342bb82abe"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/current-public-type-disposition-4b5dbfa0.json",
+      "bytes": 908317,
+      "sha256": "6a749dbb10bddc7f8293330cdb56a27bd68b5c6473bd0f2d03aad2722881dee5"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/source-scope-successor-4b5dbfa0.json",
+      "bytes": 26429,
+      "sha256": "5bf3a45eab119bbd6b3d16547142282599ea2c26d5e1af986afc42d0ec544620"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+      "bytes": 23539,
+      "sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/read-ledger.json",
+      "bytes": 70213,
+      "sha256": "f1700e05066e097d87a37399256e7ffe2709e118575f41a022ab0ffa2d95b4ae"
+    },
+    {
+      "path": "provenance/chapter02-standards-statement-readiness-20261104/completion.json",
+      "bytes": 2754,
+      "sha256": "04b254a8ccb38b387949c57654695a51612e551abeb71fa6747f047a2b246702"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/author-readback.json",
+      "bytes": 9959,
+      "sha256": "a58b2a2afbd549335a272575166a55d06217a748cf6a0456fcea50be18d3e616"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/baseline.json",
+      "bytes": 45004,
+      "sha256": "7c85ca73c6f8d481425f394437908de1208f90c93ea2e9c07a2ce3305b0dcf7d"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/bound-inputs.json",
+      "bytes": 16203,
+      "sha256": "ab4de201566163067aa2ae6e703a2e279319ee6218d86fe273eb8b6cf6bf13de"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/handoff.md",
+      "bytes": 14249,
+      "sha256": "583cc9b4cf1f3f00afe9ca9005099b9cf082108a8a39e4fea14476f1a2111d2d"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/merge-state.json",
+      "bytes": 6453,
+      "sha256": "1242e4c70e7207f9157fa4b3e80e8877af9f7b4efe6b56fe17c1f5668e915834"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/receipt.json",
+      "bytes": 8132,
+      "sha256": "62db6b03f9da7a190115e1f595153f00550dd65051b04eae8777c7794000b7b3"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/resolution-plan.json",
+      "bytes": 17322,
+      "sha256": "3fae1c1287891e64ecc8c4bcac1b58d8bb1971fb12ae159b963632fd0bc29758"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/result.json",
+      "bytes": 108380,
+      "sha256": "a0642a45b8580bdb9f0427bbe04c996ff6bc39058fd955117f33613178507f0d"
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-integration-preparation-20261104/assessment.json",
+      "bytes": 7964,
+      "sha256": "6deb4bf5a4424d044e8a2029289d8eeb38c13b6b1403553d24e8f8677245835f"
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-integration-preparation-20261104/readback-and-hold.json",
+      "bytes": 906,
+      "sha256": "4c29abe954b9c84926fd92cda7e78bbb4f867cb8306f537fd57dbbb61aa454d5"
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation-attempt1-failure.json",
+      "bytes": 854,
+      "sha256": "c2fa12900431d1f38e3c49056d95d769543dfe3d26165267fb0a2c7b31cfc7dd"
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation-attempt2-failure.json",
+      "bytes": 742,
+      "sha256": "3d9384decab2d2cc87973706ec15f5f16a9f064c6bca30db6da559b111fb6cd4"
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation.json",
+      "bytes": 41717,
+      "sha256": "bccfbb2d0aab35abdd42cc5e6af26bea81128dbaa363cd986c84df7ffbdd2b91"
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation.py",
+      "bytes": 12582,
+      "sha256": "f533ee431b94fbf29d6e412d76f48103055822e17e2258c64f673c8a18dbba66"
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/immutable-source-reconciliation.json",
+      "bytes": 36120,
+      "sha256": "90c9bf86798297a3105fc1f34e1ac2ca79e55a5b2d238cbd440b0ed4048681b6"
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/immutable-source-reconciliation.py",
+      "bytes": 9083,
+      "sha256": "0cce01966528ca1fdeb85130115029063405175f3da98166917bdb6c239bf5f0"
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/readback-and-hold.json",
+      "bytes": 8234,
+      "sha256": "1f13f371722ce8223da7c31c168afb1324bb87e8cbfe5ed80c2b594f03029c24"
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/retained-full-scope-evidence.json",
+      "bytes": 13284,
+      "sha256": "534b668e4e4a696570688a953e988f118dabc927c4881eb9356704549a20fd8f"
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/source-assessment.json",
+      "bytes": 14310,
+      "sha256": "9f90a4418f2db2f88d255c3694d8e7585d0ccdad3d448f59563079d61d3b8eec"
+    },
+    {
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/author-reconciliation-method-boundary.json",
+      "bytes": 1318,
+      "sha256": "6363068d6b971722463afa44a02be24ee29e8ed16ce159c4a065f5cd9d6fbd81"
+    },
+    {
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/completion.json",
+      "bytes": 2886,
+      "sha256": "25ee2bbff71d31882b0fc9a82e588639221bdd65dd12f5a119051495e8c609fb"
+    },
+    {
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/independent-author-package-reconciliation-correction1.json",
+      "bytes": 4683,
+      "sha256": "ad0b35ef7b5448d8aff908956d97ad1f115059ac77ba8d12891b91ff81528f90"
+    },
+    {
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/independent-source-reconciliation.json",
+      "bytes": 41642,
+      "sha256": "45beb6365e86ca9b507cc3bcf8633dcae37807d351de7288be363c89d55f000e"
+    },
+    {
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/reconcile_author_package.py",
+      "bytes": 8643,
+      "sha256": "ff11830b5ea8cfc6a3a2b17c79c6f2e406fd4bb21cd8395a7f292de9436588c9"
+    },
+    {
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/reconcile_author_package_correction1.py",
+      "bytes": 8683,
+      "sha256": "ed8eb2e398b7471b1581592e2c6448a952bf2af4aacb4881b96fdb405041d837"
+    },
+    {
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/reconcile_source.py",
+      "bytes": 11506,
+      "sha256": "92fe57212a1ace79c7c8c2d74619a2e1af5a9467d24dba104a1ba5df8cb5ea04"
+    },
+    {
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/source-assessment.json",
+      "bytes": 14841,
+      "sha256": "30156b4058e2de3617b59cba13f9d784bc478f3597cb29865340ed8d795722d0"
+    },
+    {
+      "path": "research/chapter02-obligations.md",
+      "bytes": 42539,
+      "sha256": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2"
+    },
+    {
+      "path": "research/coverage-scope-audit.md",
+      "bytes": 31626,
+      "sha256": "2ee191f35850404e0236dfe326581839d67396e52f37c05970d7a0553a12a69b"
+    },
+    {
+      "path": "reviews/chapter02-active-scope.md",
+      "bytes": 9823,
+      "sha256": "07bf70884d0076b64dd29642165cbcc267e1f4b33da5e00ac25e7da919a86a6b"
+    },
+    {
+      "path": "reviews/chapter02-requirements.md",
+      "bytes": 12034,
+      "sha256": "f0c9bc939fbfb6da02c1734b121456c35fd6b4c9ee43f1284003d0b8db087a36"
+    },
+    {
+      "path": "reviews/chapter02-spec-source-continuation-20261104.md",
+      "bytes": 13724,
+      "sha256": "c43ac0ca5d5157c4f6729fa751b977f7c8b34197306868d999b1ad0c1c855b46"
+    },
+    {
+      "path": "reviews/chapter02-spec-source-preparation-20261104.md",
+      "bytes": 109354,
+      "sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007"
+    },
+    {
+      "path": "reviews/chapter02-spec-statement-evidence-readiness-20261104.md",
+      "bytes": 9579,
+      "sha256": "c1e433c7255751ff3c54a13e59af2088c93d7935c7cc40f1d0a25a01069858ff"
+    },
+    {
+      "path": "reviews/chapter02-standards-receiving-source-continuation-20261104.md",
+      "bytes": 15610,
+      "sha256": "5477a580ece8c2129152a6996e29328ceef88a3f26dfc94fd8cbf12351723b5d"
+    },
+    {
+      "path": "reviews/chapter02-standards-source-preparation-20261104.md",
+      "bytes": 104381,
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    {
+      "path": "reviews/chapter02-standards-statement-readiness-20261104.md",
+      "bytes": 14199,
+      "sha256": "3207c2b72c68ff1d5bed3c94f9d0d08c7b0f64aa5e88da7013134ae1fa578d2f"
+    },
+    {
+      "path": "reviews/permutation-order-spec-final-20261104.md",
+      "bytes": 12647,
+      "sha256": "8cd4b6c8854aaaa2cceff956bbce66821dbe6e22fc7585ff94fdfce6a2748970"
+    },
+    {
+      "path": "reviews/permutation-tail-spec-final-20261104.md",
+      "bytes": 14391,
+      "sha256": "e1e97c2726b8aae3e5c12872fd4ebe0213fde92340a4969b1048242525fff485"
+    },
+    {
+      "path": "reviews/shared-foundations-spec-final-20261104.md",
+      "bytes": 5066,
+      "sha256": "f8c8d934662192f4376ab7ae2897957647a890ea964fca18555c0d12dfc5a8dc"
+    },
+    {
+      "path": "reviews/shared-four-spec-final-20261104.md",
+      "bytes": 16201,
+      "sha256": "e7d6ae04d2cf2a06e482274a9e0ab9f23d5a38ef78952ad0bcd288660d0a0f6c"
+    }
+  ],
+  "saved_read_ranges_verified": [
+    {
+      "axis": "Standards",
+      "path": "reviews/chapter02-standards-receiving-source-continuation-20261104.md",
+      "first_line": 1,
+      "last_line": 69,
+      "bytes": 15610,
+      "sha256": "5477a580ece8c2129152a6996e29328ceef88a3f26dfc94fd8cbf12351723b5d",
+      "actual_read_tool_chunk": "46a5dc",
+      "actual_exit": 0,
+      "nontruncated_complete_read": true
+    },
+    {
+      "axis": "Standards",
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/source-assessment.json",
+      "first_line": 1,
+      "last_line": 175,
+      "bytes": 8357,
+      "sha256": "ba9c894ab3c924176a624ec3ab0024637fa752dfdaa4677c219548e638fbd9a3",
+      "actual_read_tool_chunk": "dcc339",
+      "actual_exit": 0,
+      "nontruncated_complete_read": true
+    },
+    {
+      "axis": "Standards",
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/source-assessment.json",
+      "first_line": 176,
+      "last_line": 343,
+      "bytes": 6484,
+      "sha256": "09dab592ed29ed7dbdfbb4a8e67f79892de665770d8d1fc0f8af5ad06df0fc83",
+      "actual_read_tool_chunk": "fea35f",
+      "actual_exit": 0,
+      "nontruncated_complete_read": true
+    },
+    {
+      "axis": "Spec",
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/immutable-source-reconciliation.py",
+      "lines": [
+        1,
+        88
+      ],
+      "bytes": 9083,
+      "sha256": "0cce01966528ca1fdeb85130115029063405175f3da98166917bdb6c239bf5f0",
+      "complete_readback_tool_chunk": "43a2dd",
+      "actual_tool_exit": 0
+    },
+    {
+      "axis": "Spec",
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/immutable-source-reconciliation.json",
+      "lines": [
+        1,
+        506
+      ],
+      "bytes": 17956,
+      "sha256": "b56eabbe89742964f7d93a177e99dfd8ef70e6ebd8672acf1bf7e58d2e5d5db9",
+      "complete_readback_tool_chunk": "e9505f",
+      "actual_tool_exit": 0
+    },
+    {
+      "axis": "Spec",
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/immutable-source-reconciliation.json",
+      "lines": [
+        507,
+        979
+      ],
+      "bytes": 17940,
+      "sha256": "4708ef4af84b4c1d72d1415eec22c12da972bf3e20a0028ea07d709444f8d647",
+      "complete_readback_tool_chunk": "d0df35",
+      "actual_tool_exit": 0
+    },
+    {
+      "axis": "Spec",
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/immutable-source-reconciliation.json",
+      "lines": [
+        980,
+        982
+      ],
+      "bytes": 224,
+      "sha256": "94450f28a20cc2b674b3777ca00a1e03f4ea2fa8499f9404144600d776dfb7fc",
+      "complete_readback_tool_chunk": "d0df35",
+      "actual_tool_exit": 0
+    },
+    {
+      "axis": "Spec",
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/retained-full-scope-evidence.json",
+      "lines": [
+        1,
+        339
+      ],
+      "bytes": 13284,
+      "sha256": "534b668e4e4a696570688a953e988f118dabc927c4881eb9356704549a20fd8f",
+      "complete_readback_tool_chunk": "75c4af",
+      "actual_tool_exit": 0
+    },
+    {
+      "axis": "Spec",
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation.py",
+      "lines": [
+        1,
+        217
+      ],
+      "bytes": 12582,
+      "sha256": "f533ee431b94fbf29d6e412d76f48103055822e17e2258c64f673c8a18dbba66",
+      "complete_readback_tool_chunk": "31e704",
+      "actual_tool_exit": 0
+    },
+    {
+      "axis": "Spec",
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation-attempt1-failure.json",
+      "lines": [
+        1,
+        12
+      ],
+      "bytes": 854,
+      "sha256": "c2fa12900431d1f38e3c49056d95d769543dfe3d26165267fb0a2c7b31cfc7dd",
+      "complete_readback_tool_chunk": "19ac07",
+      "actual_tool_exit": 0
+    },
+    {
+      "axis": "Spec",
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation-attempt2-failure.json",
+      "lines": [
+        1,
+        12
+      ],
+      "bytes": 742,
+      "sha256": "3d9384decab2d2cc87973706ec15f5f16a9f064c6bca30db6da559b111fb6cd4",
+      "complete_readback_tool_chunk": "19ac07",
+      "actual_tool_exit": 0
+    },
+    {
+      "axis": "Spec",
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation.json",
+      "lines": [
+        1,
+        240
+      ],
+      "bytes": 9527,
+      "sha256": "afb68938723e93b6a585bfa52ee37a1058331a14098b88b260397dd57a362539",
+      "complete_readback_tool_chunk": "8901fe",
+      "actual_tool_exit": 0
+    },
+    {
+      "axis": "Spec",
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation.json",
+      "lines": [
+        241,
+        480
+      ],
+      "bytes": 12326,
+      "sha256": "9c5779bd3b1c82cb6b05661a2ac14f1c5cd0a618f478d0e73bd0f6a91ba78ad1",
+      "complete_readback_tool_chunk": "eb1e6f",
+      "actual_tool_exit": 0
+    },
+    {
+      "axis": "Spec",
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation.json",
+      "lines": [
+        481,
+        720
+      ],
+      "bytes": 11180,
+      "sha256": "5067d2190dc1e0c5fddc101250210cd278f27f5d27e7e9aeafc57b641627d31b",
+      "complete_readback_tool_chunk": "cc56d9",
+      "actual_tool_exit": 0
+    },
+    {
+      "axis": "Spec",
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/author-evidence-reconciliation.json",
+      "lines": [
+        721,
+        950
+      ],
+      "bytes": 8684,
+      "sha256": "23fbd45d876b96d840a36b204942bcc160ceda805ac22a63721fedc53a708188",
+      "complete_readback_tool_chunk": "c8608b",
+      "actual_tool_exit": 0
+    },
+    {
+      "axis": "Spec",
+      "path": "provenance/shared-chapter02-spec-source-continuation-20261104/source-assessment.json",
+      "lines": [
+        1,
+        380
+      ],
+      "bytes": 14310,
+      "sha256": "9f90a4418f2db2f88d255c3694d8e7585d0ccdad3d448f59563079d61d3b8eec",
+      "complete_readback_tool_chunk": "925158",
+      "actual_tool_exit": 0
+    },
+    {
+      "axis": "Spec",
+      "path": "reviews/chapter02-spec-source-continuation-20261104.md",
+      "lines": [
+        1,
+        78
+      ],
+      "bytes": 13724,
+      "sha256": "c43ac0ca5d5157c4f6729fa751b977f7c8b34197306868d999b1ad0c1c855b46",
+      "complete_readback_tool_chunk": "19ac07",
+      "actual_tool_exit": 0
+    }
+  ],
+  "receiving_validation_credit": 0,
+  "actual_compiler_calls_for_current_candidate": 0,
+  "next_gate": "Checkpoint0120 then root-owned qualified one-thread normal full candidate check; retain exact pins/profile and all applicable guards"
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "fdsa.spec.local-record-shape-correction.v1",
+  "attempt_tool_chunk": "ba9176",
+  "actual_exit": 1,
+  "script_before_sha256": "a6d7dd96f6e8de4419c3714bbe0af9d3c54735bd111b83c2fe31b07683e83fbb",
+  "error": "KeyError: 'started_utc'",
+  "location": "author-evidence-reconciliation.py:115",
+  "cause": "Reviewer bookkeeping assumed every command record had start/finish timestamps. The actual add record has its closed exit0 and completed_utc, without a separate start record.",
+  "actual_shape_read_tool_chunk": "a45ee9",
+  "correction": "Retain the actual command result fields as recorded; do not invent absent timestamps.",
+  "scope_effect": "None. No source/compiler/runtime mutation or success receipt before this failure."
+}

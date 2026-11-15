@@ -1,0 +1,53 @@
+{
+  "recorded_utc": "2026-11-04T04:04:20.144454+00:00",
+  "accepted_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "initial_draft": "edbfeb7d810befefd6a3698bd226face6f3de926",
+  "current_candidate": "840252e63026bba5eab109f2b16468deef7670ec",
+  "branch": "work/fdsa-ch02-quicksort",
+  "targets": [
+    "Applications.Sorting.QuickSort",
+    "Examples.QuickSort"
+  ],
+  "source_sha256": {
+    "Applications/Sorting/QuickSort.lean": "696ae63c3f5c23940ac0f05c8ac6b48bff74b65e4c66faf319283efedea73802",
+    "Examples/QuickSort.lean": "2e5e4952bae8edf1fd5985f0cfd40993363a2f642717d61161a2e5ee6835a162",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+  },
+  "checks": [
+    {
+      "attempt": 1,
+      "candidate": "edbfeb7d810befefd6a3698bd226face6f3de926",
+      "exit_code": 1,
+      "seconds": 8.770959307999874,
+      "log_sha256": "1f5c960d20bd0f9862bdb159a06bcf82fe192acc4a16464108b4f55251d99b89",
+      "source_unchanged": true,
+      "final_status": "",
+      "record": "chapter02-quicksort-focused-20261104-attempt1/result.json"
+    },
+    {
+      "attempt": 2,
+      "candidate": "3ae06ae79da8db468c0fe619addc7cc40d960c78",
+      "exit_code": 1,
+      "seconds": 7.302762754000014,
+      "log_sha256": "e373a08e78b6325ac0dd1da4dba6e43cdcb99601cc0c7d160164c0a1d17a35af",
+      "source_unchanged": true,
+      "final_status": "",
+      "record": "chapter02-quicksort-focused-20261104-attempt2/result.json"
+    },
+    {
+      "attempt": 3,
+      "candidate": "840252e63026bba5eab109f2b16468deef7670ec",
+      "exit_code": 0,
+      "seconds": 6.647785278000356,
+      "log_sha256": "180c8d88e0df68f41ef5941dcb78f99d9ddd97097e7469f0842d4cbd8e610538",
+      "source_unchanged": true,
+      "final_status": "",
+      "record": "chapter02-quicksort-focused-20261104-attempt3/result.json"
+    }
+  ],
+  "statement_types_record": "chapter02-quicksort-statements-20261104/result.json",
+  "source_contracts_unchanged_from_initial_draft": true,
+  "state": "Both focused modules passed; complete Chapter 2, public integration, full candidate check/audit, independent reviews and immediate verification remain pending."
+}

@@ -1,0 +1,35 @@
+{
+  "prepared_utc": "2026-11-04T06:26:21.857967+00:00",
+  "candidate": "cf0a687265c1929ffd3ff6f15fa18febe0fb61b5",
+  "argv": [
+    "python3",
+    "-B",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/native-kit/conaled_native.py",
+    "--state",
+    "/workspace/scratch/60f07f0e98c8/native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation",
+    "--threads",
+    "1",
+    "--",
+    "/usr/bin/env",
+    "LEAN_PATH=/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/diagnostic1039/finite-after:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/proofwidgets/.lake/build/lib/lean",
+    "lean",
+    "Applications/Probability/FiniteMH.lean"
+  ],
+  "tty": true,
+  "source_sha256": "5dc2a4361e8053fe27e0355dbeea9c646a00a7718b11f9d60d984eabd2e0247d",
+  "scope": "Entire actual corrected FiniteMH source; direct Lean; no integrated gate credit",
+  "status": "completed_successfully",
+  "preexisting_project_run_log_directories": [
+    "20261104T040241Z-project-run-2354e0e9",
+    "20261104T055729Z-project-run-78f1cb44",
+    "20261104T060025Z-project-run-a7ddd994",
+    "20261104T062141Z-project-run-b728350b",
+    "20261104T062357Z-project-run-255d9f07"
+  ],
+  "session": 54189,
+  "actual_terminal_exit_code": 0,
+  "kit_log_directory": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T062622Z-project-run-382efb4c"
+}

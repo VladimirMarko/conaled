@@ -1,0 +1,24 @@
+{
+  "kind": "read-only-log-progress-relay",
+  "started_at": "2026-11-04T01:08:57.905725+00:00",
+  "run_id": "integration-3cf-ordinary-r2-045",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-u",
+    "/workspace/scratch/09cf0de22282/pfds/session/validation/run-native-validation.py",
+    "full",
+    "integration-3cf-ordinary-r2-045",
+    "--scope",
+    "integration"
+  ],
+  "cwd": "/workspace/scratch/09cf0de22282/pfds",
+  "pty": false,
+  "controller_start_new_session": true,
+  "child_environment": "inherited without modification",
+  "resource_limits_changed": false,
+  "status": "observing",
+  "terminal_result_observed": false,
+  "acceptance": false,
+  "cancellation_request_path": "/workspace/scratch/09cf0de22282/pfds/session/validation/integration-3cf-ordinary-r2-045.cancel",
+  "controller_pid_this_invocation_only": 4
+}

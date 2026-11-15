@@ -1,0 +1,480 @@
+{
+  "schema_version": 1,
+  "kind": "bounded read-only numerical and pinned-API preparation",
+  "created_utc": "2026-11-04T07:05:37.756470+00:00",
+  "author": "/root/chapter02_quicksort",
+  "held_source": {
+    "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-three-way",
+    "branch": "work/fdsa-ch02-three-way",
+    "head": "3b727e83fcf9f00ad7d0c95d07305b036ebecbca",
+    "porcelain_v1": "",
+    "clean": true
+  },
+  "accepted_chapter_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "lean_toolchain": "leanprover/lean4:v4.35.0",
+  "mathlib": {
+    "source_root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib",
+    "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "tracked_porcelain_v1": "",
+    "tracked_clean": true,
+    "pins_were_not_changed": true,
+    "new_compilation_performed": false
+  },
+  "source_inputs": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/quicksort-average-proof-plan.md",
+      "bytes": 18013,
+      "sha256": "ca2090accf91ac662f2738486f7590e8b29968be524794e9356257d5f918dc46"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/quicksort-average-calculations.json",
+      "bytes": 1392,
+      "sha256": "18aab950672ac8b92c05204e43f717f096bdd30417cec38b0734792e0d451304"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/quicksort-conditional-mean-preflight.md",
+      "bytes": 10877,
+      "sha256": "464af5974d485823b7ecb76b7546ad793ed860fbf947afdb03ef11d91b25b66c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/research-source/functional_data_structures_algorithms.pdf",
+      "bytes": 1742029,
+      "sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/research-source/chapter02.txt",
+      "bytes": 34713,
+      "sha256": "6ce61b4bd1af76ec56bf4007be27f41c4c2bda12853292cc8d48cf3f1bd22cd4"
+    }
+  ],
+  "project_sources": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-three-way/lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "repository_path": "lean-toolchain",
+      "git_commit": "3b727e83fcf9f00ad7d0c95d07305b036ebecbca",
+      "git_blob": "a6aff065db2882c535684f8c5bcd4f16e9a23915",
+      "matches_git_snapshot": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-three-way/lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "repository_path": "lake-manifest.json",
+      "git_commit": "3b727e83fcf9f00ad7d0c95d07305b036ebecbca",
+      "git_blob": "0452762ecb2bb5e0d0f7db0b128b0af581febb87",
+      "matches_git_snapshot": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-three-way/Applications/Resources/Growth.lean",
+      "bytes": 2906,
+      "sha256": "99be17f2d45ac30de1e912c2181460dac046c8b98e40ea3209abfec342107786",
+      "repository_path": "Applications/Resources/Growth.lean",
+      "git_commit": "3b727e83fcf9f00ad7d0c95d07305b036ebecbca",
+      "git_blob": "65cfdecea6a600b9ed80a9784637e9811c4bd425",
+      "matches_git_snapshot": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-three-way/Applications/Resources/QuickSort.lean",
+      "bytes": 21782,
+      "sha256": "e98024f6b741e1aba1fb1e38b419eee2e1acad76a8a40e669752f54775783263",
+      "repository_path": "Applications/Resources/QuickSort.lean",
+      "git_commit": "3b727e83fcf9f00ad7d0c95d07305b036ebecbca",
+      "git_blob": "66bcbb7075aadfe3e1070ee532b5839091c6ab5d",
+      "matches_git_snapshot": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-three-way/Applications/Resources/RandomQuickSort.lean",
+      "bytes": 23601,
+      "sha256": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2",
+      "repository_path": "Applications/Resources/RandomQuickSort.lean",
+      "git_commit": "3b727e83fcf9f00ad7d0c95d07305b036ebecbca",
+      "git_blob": "99b1b19cbfb6e6dc875e46cdc338bf4a518674fc",
+      "matches_git_snapshot": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-three-way/Examples/RandomQuickSort.lean",
+      "bytes": 8255,
+      "sha256": "4f5a21d1656423ac1307b1ca8fe651cd794d70da576ecd14f65d68cc290c424d",
+      "repository_path": "Examples/RandomQuickSort.lean",
+      "git_commit": "3b727e83fcf9f00ad7d0c95d07305b036ebecbca",
+      "git_blob": "9c3608babafebadb470c9e1254fa8bbd15c5ad76",
+      "matches_git_snapshot": true
+    }
+  ],
+  "api_sources": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/NumberTheory/Harmonic/Defs.lean",
+      "bytes": 874,
+      "sha256": "0fa361ed6bb6b40fd24d0d1c347e49405a4e3f83c7735fd3158a070e899f1c33",
+      "repository_path": "Mathlib/NumberTheory/Harmonic/Defs.lean",
+      "git_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "267d1131ad5acbe3805bf6252f9983fb4a1164fd",
+      "matches_git_snapshot": true,
+      "declarations": [
+        "harmonic",
+        "harmonic_zero",
+        "harmonic_succ"
+      ],
+      "inspection_kind": "pinned source readback, not new elaboration",
+      "notes": "Global namespace; harmonic has codomain Rat.",
+      "excerpts": [
+        {
+          "first_line": 20,
+          "last_line": 31,
+          "text": "@[expose] public section\n\n/-- The nth-harmonic number defined as a finset sum of consecutive reciprocals. -/\ndef harmonic : \u2115 \u2192 \u211a := fun n => \u2211 i \u2208 Finset.range n, (\u2191(i + 1))\u207b\u00b9\n\n@[simp]\nlemma harmonic_zero : harmonic 0 = 0 :=\n  rfl\n\n@[simp]\nlemma harmonic_succ (n : \u2115) : harmonic (n + 1) = harmonic n + (\u2191(n + 1))\u207b\u00b9 :=\n  Finset.sum_range_succ .."
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/NumberTheory/Harmonic/Bounds.lean",
+      "bytes": 2954,
+      "sha256": "e224a6906515987a5c19d7e5301e88e1b88834099169e4ec6a3acc6840a54629",
+      "repository_path": "Mathlib/NumberTheory/Harmonic/Bounds.lean",
+      "git_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "a0601407c714e1464fea87716d293c763b053c17",
+      "matches_git_snapshot": true,
+      "declarations": [
+        "harmonic_eq_sum_Icc",
+        "log_add_one_le_harmonic",
+        "harmonic_le_one_add_log",
+        "log_le_harmonic_floor",
+        "harmonic_floor_le_one_add_log"
+      ],
+      "inspection_kind": "pinned source readback, not new elaboration",
+      "notes": "Real inequalities coerce the rational harmonic value; floor lemmas read but not needed for this plan.",
+      "excerpts": [
+        {
+          "first_line": 20,
+          "last_line": 44,
+          "text": "\nlemma harmonic_eq_sum_Icc {n : \u2115} : harmonic n = \u2211 i \u2208 Finset.Icc 1 n, (\u2191i)\u207b\u00b9 := by\n  rw [harmonic, Finset.range_eq_Ico, Finset.sum_Ico_add' (fun (i : \u2115) \u21a6 (i : \u211a)\u207b\u00b9) 0 n (c := 1)]\n  simp only [Finset.Ico_add_one_right_eq_Icc]\n\ntheorem log_add_one_le_harmonic (n : \u2115) :\n    Real.log \u2191(n + 1) \u2264 harmonic n := by\n  calc _ = \u222b x in (1 : \u2115)..\u2191(n + 1), x\u207b\u00b9 := ?_\n       _ \u2264 \u2211 d \u2208 Finset.Icc 1 n, (d : \u211d)\u207b\u00b9 := ?_\n       _ = harmonic n := ?_\n  \u00b7 rw [Nat.cast_one, integral_inv (by simp [(show \u00ac (1 : \u211d) \u2264 0 by simp)]), div_one]\n  \u00b7 exact (inv_antitoneOn_Icc_right <| by simp).integral_le_sum_Ico (Nat.le_add_left 1 n)\n  \u00b7 simp only [harmonic_eq_sum_Icc, Rat.cast_sum, Rat.cast_inv, Rat.cast_natCast]\n\ntheorem harmonic_le_one_add_log (n : \u2115) :\n    harmonic n \u2264 1 + Real.log n := by\n  by_cases hn0 : n = 0\n  \u00b7 simp [hn0]\n  have hn : 1 \u2264 n := Nat.one_le_iff_ne_zero.mpr hn0\n  simp_rw [harmonic_eq_sum_Icc, Rat.cast_sum, Rat.cast_inv, Rat.cast_natCast]\n  rw [\u2190 Finset.sum_erase_add (Finset.Icc 1 n) _ (Finset.left_mem_Icc.mpr hn), add_comm,\n    Nat.cast_one, inv_one]\n  gcongr\n  simp only [Finset.Icc_erase_left]\n  calc \u2211 d \u2208 .Ico 2 (n + 1), (d : \u211d)\u207b\u00b9"
+        },
+        {
+          "first_line": 66,
+          "last_line": 77,
+          "text": "      _ \u2264 _ := log_add_one_le_harmonic _\n    gcongr\n    apply (Nat.le_ceil y).trans\n    norm_cast\n    exact Nat.ceil_le_floor_add_one y\n\ntheorem harmonic_floor_le_one_add_log (y : \u211d) (hy : 1 \u2264 y) :\n    harmonic \u230ay\u230b\u208a \u2264 1 + Real.log y := by\n  refine (harmonic_le_one_add_log _).trans ?_\n  gcongr\n  \u00b7 exact_mod_cast Nat.floor_pos.mpr hy\n  \u00b7 exact Nat.floor_le <| zero_le_one.trans hy"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Data/Rat/Cast/CharZero.lean",
+      "bytes": 4541,
+      "sha256": "c53b1d2d9d8ec68226699c589f5104d3ddf152f8b9c0df1d59b79efb5a50cf72",
+      "repository_path": "Mathlib/Data/Rat/Cast/CharZero.lean",
+      "git_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "e10cdb5a4102d366ec21c4d360d17ed70af7484a",
+      "matches_git_snapshot": true,
+      "declarations": [
+        "Rat.cast_add",
+        "Rat.cast_inv"
+      ],
+      "inspection_kind": "pinned source readback, not new elaboration",
+      "notes": "DivisionRing and CharZero context; specializes to Real.",
+      "excerpts": [
+        {
+          "first_line": 18,
+          "last_line": 23,
+          "text": "variable {\u03b1 : Type*}\n\nnamespace Rat\nvariable [DivisionRing \u03b1] [CharZero \u03b1] {p q : \u211a}\n\n@[stacks 09FR \"Characteristic zero case.\"]"
+        },
+        {
+          "first_line": 41,
+          "last_line": 46,
+          "text": "@[simp, norm_cast] lemma cast_add (p q : \u211a) : \u2191(p + q) = (p + q : \u03b1) :=\n  cast_add_of_ne_zero (Nat.cast_ne_zero.2 p.pos.ne') (Nat.cast_ne_zero.2 q.pos.ne')\n\n@[simp, norm_cast] lemma cast_sub (p q : \u211a) : \u2191(p - q) = (p - q : \u03b1) :=\n  cast_sub_of_ne_zero (Nat.cast_ne_zero.2 p.pos.ne') (Nat.cast_ne_zero.2 q.pos.ne')\n"
+        },
+        {
+          "first_line": 62,
+          "last_line": 63,
+          "text": "@[simp, norm_cast] lemma cast_inv (p : \u211a) : \u2191(p\u207b\u00b9) = (p\u207b\u00b9 : \u03b1) := map_inv\u2080 (castHom \u03b1) _\n@[simp, norm_cast] lemma cast_div (p q : \u211a) : \u2191(p / q) = (p / q : \u03b1) := map_div\u2080 (castHom \u03b1) .."
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Data/Rat/Cast/Defs.lean",
+      "bytes": 11208,
+      "sha256": "d2ce741d5632be182b6d821de7a4ecf424d7fd0dd17d979dca1646dc067cf33e",
+      "repository_path": "Mathlib/Data/Rat/Cast/Defs.lean",
+      "git_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "f257fc303e29d4b37ac539fcc55a50fc110bad73",
+      "matches_git_snapshot": true,
+      "declarations": [
+        "Rat.cast_natCast"
+      ],
+      "inspection_kind": "pinned source readback, not new elaboration",
+      "notes": "Rat namespace and DivisionRing context.",
+      "excerpts": [
+        {
+          "first_line": 108,
+          "last_line": 120,
+          "text": "\nnamespace Rat\n\nvariable [DivisionRing \u03b1] {p q : \u211a}\n\n@[simp, norm_cast]\ntheorem cast_intCast (n : \u2124) : ((n : \u211a) : \u03b1) = n :=\n  (cast_def _).trans <| show (n / (1 : \u2115) : \u03b1) = n by rw [Nat.cast_one, div_one]\n\n@[simp, norm_cast]\ntheorem cast_natCast (n : \u2115) : ((n : \u211a) : \u03b1) = n := by\n  rw [\u2190 Int.cast_natCast, cast_intCast, Int.cast_natCast]\n"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+      "bytes": 53127,
+      "sha256": "45b548e8d8491da4820c71eb29b0a2c92786f98e300d947e677f6fbe16e6f78a",
+      "repository_path": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+      "git_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "1cdf5007c7c49a68a86da30d136b76c791e29a57",
+      "matches_git_snapshot": true,
+      "declarations": [
+        "Finset.sum_range_succ"
+      ],
+      "inspection_kind": "pinned source readback, not new elaboration",
+      "notes": "Additive API generated from prod_range_succ by to_additive; no new #check executed.",
+      "excerpts": [
+        {
+          "first_line": 554,
+          "last_line": 568,
+          "text": "@[to_additive]\ntheorem prod_range_succ_comm (f : \u2115 \u2192 M) (n : \u2115) :\n    (\u220f x \u2208 range (n + 1), f x) = f n * \u220f x \u2208 range n, f x := by\n  rw [range_add_one, prod_insert notMem_range_self]\n\n@[to_additive]\ntheorem prod_range_succ (f : \u2115 \u2192 M) (n : \u2115) :\n    (\u220f x \u2208 range (n + 1), f x) = (\u220f x \u2208 range n, f x) * f n := by\n  simp only [mul_comm, prod_range_succ_comm]\n\n@[to_additive]\ntheorem prod_range_succ' (f : \u2115 \u2192 M) :\n    \u2200 n : \u2115, (\u220f k \u2208 range (n + 1), f k) = (\u220f k \u2208 range n, f (k + 1)) * f 0\n  | 0 => prod_range_succ _ _\n  | n + 1 => by rw [prod_range_succ _ n, mul_right_comm, \u2190 prod_range_succ' _ n, prod_range_succ]"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Algebra/BigOperators/Intervals.lean",
+      "bytes": 11314,
+      "sha256": "01e871093ddfe48538ad95497747fe522f2debe51e99dc9bb6e72bfa462a711b",
+      "repository_path": "Mathlib/Algebra/BigOperators/Intervals.lean",
+      "git_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "9b26ce30f4e31fd752f474d0eb290ea2c706ced0",
+      "matches_git_snapshot": true,
+      "declarations": [
+        "Finset.sum_range_reflect"
+      ],
+      "inspection_kind": "pinned source readback, not new elaboration",
+      "notes": "Additive API generated from prod_range_reflect by to_additive.",
+      "excerpts": [
+        {
+          "first_line": 153,
+          "last_line": 161,
+          "text": "@[to_additive]\ntheorem prod_range_reflect (f : \u2115 \u2192 M) (n : \u2115) :\n    (\u220f j \u2208 range n, f (n - 1 - j)) = \u220f j \u2208 range n, f j := by\n  cases n\n  \u00b7 simp\n  \u00b7 simp only [\u2190 Nat.Ico_zero_eq_range, Nat.succ_sub_succ_eq_sub, tsub_zero]\n    rw [prod_Ico_reflect _ _ le_rfl]\n    simp\n"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Data/Fintype/BigOperators.lean",
+      "bytes": 12334,
+      "sha256": "d0201051dfa54e8b67710ff484c34dc57e75da0e0bced663d798f6df333da638",
+      "repository_path": "Mathlib/Data/Fintype/BigOperators.lean",
+      "git_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "0c7ba7853f7a395c46ce4aa3a72ae28a88d2b9a5",
+      "matches_git_snapshot": true,
+      "declarations": [
+        "Fin.sum_univ_eq_sum_range"
+      ],
+      "inspection_kind": "pinned source readback, not new elaboration",
+      "notes": "Additive API generated from Fin.prod_univ_eq_prod_range by to_additive.",
+      "excerpts": [
+        {
+          "first_line": 224,
+          "last_line": 232,
+          "text": "/-- It is equivalent to compute the product of a function over `Fin n` or `Finset.range n`. -/\n@[to_additive /-- It is equivalent to sum a function over `fin n` or `finset.range n`. -/]\ntheorem Fin.prod_univ_eq_prod_range [CommMonoid \u03b1] (f : \u2115 \u2192 \u03b1) (n : \u2115) :\n    \u220f i : Fin n, f i = \u220f i \u2208 range n, f i :=\n  calc\n    \u220f i : Fin n, f i = \u220f i : { x // x \u2208 range n }, f i :=\n      Fintype.prod_equiv (Fin.equivSubtype.trans (Equiv.subtypeEquivRight (by simp))) _ _ (by simp)\n    _ = \u220f i \u2208 range n, f i := by rw [\u2190 attach_eq_univ, prod_attach]\n"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Algebra/BigOperators/Fin.lean",
+      "bytes": 31632,
+      "sha256": "2d1513845663c2e6882699e51e8c5cba62700c27c6d2ef1f28d3bf35577e3d6a",
+      "repository_path": "Mathlib/Algebra/BigOperators/Fin.lean",
+      "git_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "cb9f75c5eb919b137e857eb3405aa67628cfd7b3",
+      "matches_git_snapshot": true,
+      "declarations": [
+        "Finset.sum_range"
+      ],
+      "inspection_kind": "pinned source readback, not new elaboration",
+      "notes": "Additive API generated from prod_range; reverse direction of Fin.sum_univ_eq_sum_range.",
+      "excerpts": [
+        {
+          "first_line": 35,
+          "last_line": 41,
+          "text": "\nnamespace Finset\n\n@[to_additive]\ntheorem prod_range [CommMonoid M] {n : \u2115} (f : \u2115 \u2192 M) :\n    \u220f i \u2208 Finset.range n, f i = \u220f i : Fin n, f i :=\n  (Fin.prod_univ_eq_prod_range _ _).symm"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+      "bytes": 28165,
+      "sha256": "11c6334aeb0f1a4919fce9e9b4b3a4cc65d53e3f19e65b02ae79d215f07aee4d",
+      "repository_path": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+      "git_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "67716c52d3de8a9c4cbbc8560fcfd369f3c80cf4",
+      "matches_git_snapshot": true,
+      "declarations": [
+        "Real.log_le_log",
+        "Real.log_pos",
+        "Real.log_nonneg",
+        "Real.log_le_sub_one_of_pos"
+      ],
+      "inspection_kind": "pinned source readback, not new elaboration",
+      "notes": "Arguments have explicit positive or at-least-one hypotheses.",
+      "excerpts": [
+        {
+          "first_line": 147,
+          "last_line": 153,
+          "text": "theorem log_le_log_iff (h : 0 < x) (h\u2081 : 0 < y) : log x \u2264 log y \u2194 x \u2264 y := by\n  rw [\u2190 exp_le_exp, exp_log h, exp_log h\u2081]\n\n@[gcongr, bound]\nlemma log_le_log (hx : 0 < x) (hxy : x \u2264 y) : log x \u2264 log y :=\n  (log_le_log_iff hx (hx.trans_le hxy)).2 hxy\n"
+        },
+        {
+          "first_line": 181,
+          "last_line": 189,
+          "text": "theorem log_pos_iff (hx : 0 \u2264 x) : 0 < log x \u2194 1 < x := by\n  rcases hx.eq_or_lt with (rfl | hx)\n  \u00b7 simp [zero_le_one]\n  rw [\u2190 log_one]\n  exact log_lt_log_iff zero_lt_one hx\n\n@[bound]\ntheorem log_pos (hx : 1 < x) : 0 < log x :=\n  (log_pos_iff (lt_trans zero_lt_one hx).le).2 hx"
+        },
+        {
+          "first_line": 210,
+          "last_line": 214,
+          "text": "theorem log_nonneg_iff (hx : 0 < x) : 0 \u2264 log x \u2194 1 \u2264 x := by rw [\u2190 not_lt, log_neg_iff hx, not_lt]\n\n@[bound]\ntheorem log_nonneg (hx : 1 \u2264 x) : 0 \u2264 log x :=\n  (log_nonneg_iff (zero_lt_one.trans_le hx)).2 hx"
+        },
+        {
+          "first_line": 307,
+          "last_line": 314,
+          "text": "theorem log_le_sub_one_of_pos {x : \u211d} (hx : 0 < x) : log x \u2264 x - 1 := by\n  rw [le_sub_iff_add_le]\n  convert add_one_le_exp (log x)\n  rw [exp_log hx]\n\nlemma one_sub_inv_le_log_of_pos (hx : 0 < x) : 1 - x\u207b\u00b9 \u2264 log x := by\n  simpa [add_comm] using log_le_sub_one_of_pos (inv_pos.2 hx)\n"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Log/Base.lean",
+      "bytes": 25117,
+      "sha256": "85a4b68a9ec0f6cf2fbb706f42a9136d23c4b11f1092b2e88c820c9e26421bbf",
+      "repository_path": "Mathlib/Analysis/SpecialFunctions/Log/Base.lean",
+      "git_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "9e0a371eee3e1e395331e55d6de718f63cb23033",
+      "matches_git_snapshot": true,
+      "declarations": [
+        "Real.logb",
+        "Real.log_div_log",
+        "Real.logb_self_eq_one",
+        "Real.logb_le_logb_of_le",
+        "Real.logb_nonneg"
+      ],
+      "inspection_kind": "pinned source readback, not new elaboration",
+      "notes": "OneLtB section includes explicit parameter hb : 1 < b; do not omit it when using the public API.",
+      "excerpts": [
+        {
+          "first_line": 41,
+          "last_line": 50,
+          "text": "/-- The real logarithm in a given base. As with the natural logarithm, we define `logb b x` to\nbe `logb b |x|` for `x < 0`, and `0` for `x = 0`. -/\n@[pp_nodot]\nnoncomputable def logb (b x : \u211d) : \u211d :=\n  log x / log b\n\ntheorem log_div_log : log x / log b = logb b x :=\n  rfl\n\n@[simp]"
+        },
+        {
+          "first_line": 66,
+          "last_line": 70,
+          "text": "  div_self (log_pos hb).ne'\n\nlemma logb_self_eq_one_iff : logb b b = 1 \u2194 b \u2260 0 \u2227 b \u2260 1 \u2227 b \u2260 -1 :=\n  Iff.trans \u27e8fun h h' => by simp [logb, h'] at h, div_self\u27e9 log_ne_zero\n"
+        },
+        {
+          "first_line": 180,
+          "last_line": 195,
+          "text": "\nvariable (hb : 1 < b)\ninclude hb\n\nprivate theorem b_pos : 0 < b := by linarith\n\n-- Name has a prime added to avoid clashing with `b_ne_one` further down the file\nprivate theorem b_ne_one' : b \u2260 1 := by linarith\n\n@[simp]\ntheorem logb_le_logb (h : 0 < x) (h\u2081 : 0 < y) : logb b x \u2264 logb b y \u2194 x \u2264 y := by\n  rw [logb, logb, div_le_div_iff_of_pos_right (log_pos hb), log_le_log_iff h h\u2081]\n\n@[gcongr]\ntheorem logb_le_logb_of_le (h : 0 < x) (hxy : x \u2264 y) : logb b x \u2264 logb b y :=\n  (logb_le_logb hb h (by linarith)).mpr hxy"
+        },
+        {
+          "first_line": 234,
+          "last_line": 238,
+          "text": "theorem logb_nonneg_iff (hx : 0 < x) : 0 \u2264 logb b x \u2194 1 \u2264 x := by\n  rw [\u2190 not_lt, logb_neg_iff hb hx, not_lt]\n\ntheorem logb_nonneg (hx : 1 \u2264 x) : 0 \u2264 logb b x :=\n  (logb_nonneg_iff hb (zero_lt_one.trans_le hx)).2 hx"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Analysis/Asymptotics/Defs.lean",
+      "bytes": 8474,
+      "sha256": "68ef9c1b2d13f99770bcd0c679a23f078f634ea344ff914d7d634ba1682104ed",
+      "repository_path": "Mathlib/Analysis/Asymptotics/Defs.lean",
+      "git_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "ba527424152cc972de5d8d2030d47288fb530d25",
+      "matches_git_snapshot": true,
+      "declarations": [
+        "Asymptotics.IsBigOWith",
+        "Asymptotics.IsBigO",
+        "Asymptotics.isBigO_iff",
+        "Asymptotics.isBigOWith_iff"
+      ],
+      "inspection_kind": "pinned source readback, not new elaboration",
+      "notes": "Standard norm-based eventual-bound interface.",
+      "excerpts": [
+        {
+          "first_line": 68,
+          "last_line": 99,
+          "text": "\n/-- This version of the Landau notation `IsBigOWith C l f g` where `f` and `g` are two functions on\na type `\u03b1` and `l` is a filter on `\u03b1`, means that eventually for `l`, `\u2016f\u2016` is bounded by `C * \u2016g\u2016`.\nIn other words, `\u2016f\u2016 / \u2016g\u2016` is eventually bounded by `C`, modulo division by zero issues that are\navoided by this definition. Probably you want to use `IsBigO` instead of this relation. -/\nirreducible_def IsBigOWith (c : \u211d) (l : Filter \u03b1) (f : \u03b1 \u2192 E) (g : \u03b1 \u2192 F) : Prop :=\n  \u2200\u1da0 x in l, \u2016f x\u2016 \u2264 c * \u2016g x\u2016\n\n/-- Definition of `IsBigOWith`. We record it in a lemma as `IsBigOWith` is irreducible. -/\ntheorem isBigOWith_iff : IsBigOWith c l f g \u2194 \u2200\u1da0 x in l, \u2016f x\u2016 \u2264 c * \u2016g x\u2016 := by rw [IsBigOWith_def]\n\nalias \u27e8IsBigOWith.bound, IsBigOWith.of_bound\u27e9 := isBigOWith_iff\n\n/-- The Landau notation `f =O[l] g` where `f` and `g` are two functions on a type `\u03b1` and `l` is\na filter on `\u03b1`, means that eventually for `l`, `\u2016f\u2016` is bounded by a constant multiple of `\u2016g\u2016`.\nIn other words, `\u2016f\u2016 / \u2016g\u2016` is eventually bounded, modulo division by zero issues that are avoided\nby this definition. -/\nirreducible_def IsBigO (l : Filter \u03b1) (f : \u03b1 \u2192 E) (g : \u03b1 \u2192 F) : Prop :=\n  \u2203 c : \u211d, IsBigOWith c l f g\n\n@[inherit_doc]\nnotation:100 f \" =O[\" l \"] \" g:100 => IsBigO l f g\n\n/-- Definition of `IsBigO` in terms of `IsBigOWith`. We record it in a lemma as `IsBigO` is\nirreducible. -/\ntheorem isBigO_iff_isBigOWith : f =O[l] g \u2194 \u2203 c : \u211d, IsBigOWith c l f g := by rw [IsBigO_def]\n\n/-- Definition of `IsBigO` in terms of filters. -/\ntheorem isBigO_iff : f =O[l] g \u2194 \u2203 c : \u211d, \u2200\u1da0 x in l, \u2016f x\u2016 \u2264 c * \u2016g x\u2016 := by\n  simp only [IsBigO_def, IsBigOWith_def]\n\n/-- Definition of `IsBigO` in terms of filters, with a positive constant. -/"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Order/Filter/AtTopBot/Basic.lean",
+      "bytes": 18068,
+      "sha256": "936dd41357a7cf62d95006ec15d8b38d259a3f9df3214d108ee4b856b005260e",
+      "repository_path": "Mathlib/Order/Filter/AtTopBot/Basic.lean",
+      "git_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "309bb22bb7b3ade8e3829a61c1a0f3deb7ececab",
+      "matches_git_snapshot": true,
+      "declarations": [
+        "Filter.eventually_atTop"
+      ],
+      "inspection_kind": "pinned source readback, not new elaboration",
+      "notes": "Specialize index to Nat and threshold 2.",
+      "excerpts": [
+        {
+          "first_line": 76,
+          "last_line": 80,
+          "text": "lemma mem_atTop_sets {s : Set \u03b1} : s \u2208 (atTop : Filter \u03b1) \u2194 \u2203 a : \u03b1, \u2200 b, a \u2264 b \u2192 b \u2208 s :=\n  atTop_basis.mem_iff.trans <| exists_congr fun _ => iff_of_eq (true_and _)\n\n@[to_dual (attr := simp)]\nlemma eventually_atTop : (\u2200\u1da0 x in atTop, p x) \u2194 \u2203 a, \u2200 b, a \u2264 b \u2192 p b := mem_atTop_sets"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Analysis/Normed/Group/Real.lean",
+      "bytes": 4373,
+      "sha256": "235dd178401b9964e081ab97d238fd440807adc0f82e8d2cf46015278a13bd51",
+      "repository_path": "Mathlib/Analysis/Normed/Group/Real.lean",
+      "git_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "4a3d9a4b33ff546dc64382598a61d4ec4dd59a31",
+      "matches_git_snapshot": true,
+      "declarations": [
+        "Real.norm_eq_abs"
+      ],
+      "inspection_kind": "pinned source readback, not new elaboration",
+      "notes": "Norm is absolute value; nonnegativity is separately required.",
+      "excerpts": [
+        {
+          "first_line": 51,
+          "last_line": 59,
+          "text": "\nvariable {r : \u211d}\n\ninstance norm : Norm \u211d where\n  norm r := |r|\n\n@[simp]\ntheorem norm_eq_abs (r : \u211d) : \u2016r\u2016 = |r| :=\n  rfl"
+        }
+      ]
+    }
+  ],
+  "source_api_file_count": 13,
+  "plan": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-harmonic-preparation-20261104/plan.md",
+    "bytes": 19157,
+    "sha256": "277ca36ffdc0a0681f84ad7d9c7360e5a78498bf0da6f019584cb78fa58d50ac"
+  },
+  "coordinated_actual_sequence": {
+    "owner": "/root/chapter02_random_pivot",
+    "definition": "Resources.RandomQuickSort.sizeMean n := exerciseMean (fun a b : Nat => decide (a < b)) (List.range n)",
+    "pending_interfaces": [
+      "sizeMean_zero",
+      "sizeMean_succ",
+      "positive-size range-sum recurrence",
+      "exerciseMean_eq_sizeMean"
+    ],
+    "status": "agreed planned interface; actual execution/rank proofs remain with probability author"
+  },
+  "numeric_results_status": "derived mathematical plan; not implemented or Lean checked",
+  "explicit_bounds": {
+    "positive_size": "A n <= 16*n*(1+Real.log n) for 1 <= n",
+    "natural_log": "A n <= 16*(1+1/Real.log 2)*n*Real.log n for 2 <= n",
+    "binary_log": "A n <= 32*n*Real.logb 2 n for 2 <= n",
+    "norm_requirement": "derive all-size nonnegativity before IsBigO"
+  },
+  "restrictions": {
+    "compiler_invocations": 0,
+    "source_edits": false,
+    "reference_mutations": false,
+    "cache_changes": false,
+    "child_agents_spawned": false,
+    "probability_recurrences_assumed_as_execution_facts": false,
+    "new_coverage_or_acceptance_claim": false
+  },
+  "outputs": [
+    "plan.md",
+    "api-identities.json"
+  ]
+}

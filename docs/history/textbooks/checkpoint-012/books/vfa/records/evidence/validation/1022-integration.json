@@ -1,0 +1,60 @@
+{
+  "ticket": 1022,
+  "recorded_utc": "2026-11-02T07:09:25.285310+00:00",
+  "baseline": "bed44c16cee3e1eff6a4175bad9a7ed50651b927",
+  "candidate": "de575a81266ac98194c7c5c83e91628098aac92e",
+  "enclosing_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "full_diff": {
+    "files": 12,
+    "insertions": 474,
+    "deletions": 4,
+    "exclusions": []
+  },
+  "changes": [
+    {
+      "path": "SquareKit/Temporal/Finite.lean",
+      "before_sha256": "a5250768a66bb6103b3edb188f4ec370f2e9f9f8937ea066c914b3f6056b90a9",
+      "after_sha256": "7b0e5af17f860c92c7a8ae5923ff77da493c9bf4562f24d4fd90d5a2ab2fa14b",
+      "staging_source": "work-state/staging/temporal-finite-import/correction/SquareKit/Temporal/Finite.lean",
+      "all_non_import_bytes_unchanged": true
+    },
+    {
+      "path": "Applications/Progress/Evaluation.lean",
+      "before_sha256": "8882235188cd0e293f3433d220b677f160b539f4829f899ed2a911c655ca059f",
+      "after_sha256": "3be90be15e37dd6f0fc12ef43e60ea2d4a1caf85b6de7471c4aeeb0a7696233d",
+      "staging_source": "work-state/staging/progress-evaluation-import/Applications/Progress/Evaluation.lean",
+      "all_non_import_bytes_unchanged": true
+    }
+  ],
+  "focused_results": {
+    "Finite_initial": {
+      "exit_code": 1,
+      "elapsed_seconds": 11.066,
+      "reason": "Missing Sigma.mk.inj_iff; preserved initial failure."
+    },
+    "Finite_corrected": {
+      "exit_code": 0,
+      "elapsed_seconds": 52.538727,
+      "diagnostic_bytes": 0,
+      "protected_inputs_unchanged": 45
+    },
+    "Evaluation": {
+      "exit_code": 0,
+      "elapsed_seconds": 123.724885,
+      "diagnostic_bytes": 0,
+      "protected_inputs_unchanged": 34
+    }
+  },
+  "affected_project_reverse_closure_including_roots": 52,
+  "dependent_project_modules": 50,
+  "generated_staging_artifacts_installed": false,
+  "generated_staging_artifacts_removed": true,
+  "old_attempt": "work-state/validation/1002-bed44c1-interruption.json",
+  "new_run": "work-state/validation/1002-candidate-de575a8.run.json",
+  "performance_comparison_claimed": false,
+  "chapter_accepted": false,
+  "notes": [
+    "Initial commit command lacked an author identity and wrote no commit; retry used the same explicit ChatGPT <chatgpt@openai.com> identity as prior task commits, without changing Git configuration.",
+    "Only the two checked import headers changed. No tooling, dependency pins, guard, audit policy, definitions, statements, proofs, or public entrypoint changed in #1022."
+  ]
+}

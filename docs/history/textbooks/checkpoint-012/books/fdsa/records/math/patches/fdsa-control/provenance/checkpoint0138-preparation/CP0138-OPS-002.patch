@@ -1,0 +1,76 @@
+--- before-OPS-002-verify-checkpoint.py
++++ verify-checkpoint.py
+@@ -346,17 +346,60 @@
+ assert xt["requirements"]["sha256"] == "81260794bec3767bb9eaa2d2fcaa8337da015220df60bf4dda147590c8ed23ce"
+ for row in xt["bound_files"]:
+     checked_binding(row)
++xt_scope_paths = ["Applications/Resources/TreeCache.lean", "Applications/Trees/Cached.lean",
++                  "Applications/Trees/Observations.lean", "Examples/TreeCache.lean",
++                  "SquareApplications.lean", "docs/research/fdsa-reconstruction-map.md",
++                  "docs/research/fdsa-tree-cache.md"]
++assert xt["original_scope_paths"] == xt_scope_paths
++
++def require_xt_axis_scope(value, axis_name):
++    assert value["unit"] == "FDSA-XT01" and value["axis"] == axis_name
++    assert value["candidate"] == accepted and value["tree"] == accepted_tree
++    assert value["original_unit_base"] == xt["original_unit_base"]
++    assert value["original_donor"] == xt["original_donor"]
++    assert value["incorporated_base"] == chapter3_accepted
++    assert value["requirements_ids"] == xt["requirements_ids"]
++    assert value["original_scope_paths"] == xt_scope_paths and value["public_names"] == 115
++    assert value["outcome"].upper() in {"PASS", "PASSED"} and not value["unresolved_findings"]
++    for flag in ("full_original_scope_complete", "actual_public_types_complete", "full_validation_accepted", "review_complete"):
++        assert value[flag] is True, (axis_name, flag)
++
+ assert set(xt["independent_axes"]) == {"Standards", "Spec"}
+-for axis in xt["independent_axes"].values():
++for axis_name, axis in xt["independent_axes"].items():
+     assert axis["outcome"].upper() in {"PASS", "PASSED"} and axis["unresolved"] == 0
+     assert axis["candidate"] == accepted and axis["full_saved_readback_and_hold"]
+     for key in ("report", "final_record", "hold", "completion_readback_receipt"):
+         checked_binding(axis[key])
++    assessment = read(checked_binding(axis["final_record"]))
++    hold = read(checked_binding(axis["hold"]))
++    require_xt_axis_scope(assessment, axis_name)
++    require_xt_axis_scope(hold, axis_name)
++    assert "HELD" in hold["state"]
+ xt_gate = read(checked_binding(xt["root_gate"]))
++assert xt_gate["unit"] == "FDSA-XT01"
+ assert xt_gate["candidate"] == accepted and xt_gate["candidate_tree"] == accepted_tree
+-assert xt_gate["accepted_base"] == chapter3_accepted
++assert xt_gate["accepted_base"] == xt_gate["incorporated_base"] == chapter3_accepted
++assert xt_gate["original_unit_base"] == xt["original_unit_base"]
++assert xt_gate["original_donor"] == xt["original_donor"]
++assert xt_gate["requirements_ids"] == xt["requirements_ids"]
++assert xt_gate["original_scope_paths"] == xt_scope_paths and xt_gate["actual_public_names"] == 115
++assert xt_gate["full_original_scope_complete"] and xt_gate["original_formal_source_modules"] == 4
+ assert xt_gate["all_required_preacceptance_gates_passed"]
+ assert xt_gate["all_source_writers_held"] and not xt_gate["compiler_live"]
++assert set(xt_gate["axes"]) == {"Standards", "Spec"}
++for axis_name, axis in xt_gate["axes"].items():
++    assert axis["outcome"].upper() in {"PASS", "PASSED"} and axis["unresolved"] == 0
++    assert axis["complete_readback_and_hold"] and axis["unit"] == "FDSA-XT01"
++    assert axis["candidate"] == accepted and axis["tree"] == accepted_tree
++    assert axis["original_unit_base"] == xt["original_unit_base"] and axis["original_donor"] == xt["original_donor"]
++    assert axis["incorporated_base"] == chapter3_accepted
++    assert axis["requirements_ids"] == xt["requirements_ids"] and axis["original_scope_paths"] == xt_scope_paths
++    assert axis["public_names"] == 115
++    for flag in ("full_original_scope_complete", "actual_public_types_complete", "full_validation_accepted", "review_complete"):
++        assert axis[flag] is True, (axis_name, flag)
++    for key in ("final_record", "hold", "report"):
++        assert axis[key] == xt["independent_axes"][axis_name][key]
++    assert axis["receipt"] == xt["independent_axes"][axis_name]["completion_readback_receipt"]
+ for row in xt_gate["bound_files"]:
+     checked_binding(row)
+ xt_full = control / "provenance/binary-tree-cache-receiving-full-attempt1-20261105"
+@@ -400,6 +443,10 @@
+ assert len(xt_pre["program"]["names"]) == 115
+ assert [len(xt_pre[k]) for k in ("local_sources", "local_compiler_objects_and_traces", "configuration", "dependencies", "runtime")] == [26, 78, 10, 9, 12]
+ assert xt["actual_public_types"]["actual_exit"] == 0 and xt["actual_public_types"]["count"] == 115
++xt_program = checked_binding(xt["actual_public_types"]["program"])
++assert xt_program == xt_statements / "Statements115-complete.lean"
++assert identity(xt_program) == {"bytes": 4721, "sha256": "eea207cce83ce453b3625076041ff1262235771a8b92add322a149a044c98738"}
++assert xt_gate["actual_statement_qualification"]["program"] == xt["actual_public_types"]["program"]
+ assert xt["actual_public_types"]["stable_pre_post_identity"]
+ xt_observation = read(checked_binding(xt["actual_public_types"]["observation_reconciliation"]))
+ assert xt_observation["candidate"] == accepted and xt_observation["same_inputs"]

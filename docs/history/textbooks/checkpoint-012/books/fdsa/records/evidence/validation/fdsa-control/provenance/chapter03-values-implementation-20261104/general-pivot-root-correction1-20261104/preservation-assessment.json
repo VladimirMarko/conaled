@@ -1,0 +1,16 @@
+{
+  "finding": "C03-GENERAL-PIVOT-ELAB-001",
+  "all27public_and_oneprivate_raw_headers_unchanged": true,
+  "changed_declaration_blocks": [
+    "odd_medians",
+    "even_medians"
+  ],
+  "other26_declaration_blocks_unchanged": true,
+  "all14_other_sources_unchanged": true,
+  "prior_author_records_preserved": 87,
+  "imports_options_algorithms_cases_unchanged": true,
+  "namespace_context_change": "Removed only Sequences.Partition from open. Unqualified partition3 and partition3_eq_filters now resolve to the intended Applications.Selection alias, which is definitionally its shared Sequences.Partition operation. Prior failed candidate had no elaborated ambiguous statements; no claimed printed-type identity. All raw headers retain the same intended partition mathematics.",
+  "proof_change": "The odd/even chunk membership proofs now simplify the final ys in [] disjunct using List.not_mem_nil and or_false. No chunk, pivot, side count, upper bound, premise or median policy changes.",
+  "compiler_credit": false,
+  "type_input_rebound_origin": "Original GeneralMedianBoundsStatements.lean remains byte-identical, with original preparation comment; the successor binding below supplies its current candidate."
+}

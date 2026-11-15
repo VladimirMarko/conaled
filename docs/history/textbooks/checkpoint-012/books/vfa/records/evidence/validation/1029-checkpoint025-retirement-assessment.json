@@ -1,0 +1,289 @@
+{
+  "schema": 1,
+  "task": "local1029 exact local checkpoint025 retirement eligibility assessment",
+  "started_utc": "2026-11-02T22:59:43.230579+00:00",
+  "finished_utc": "2026-11-02T22:59:43.421274+00:00",
+  "elapsed_seconds": 0.19069766301254276,
+  "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-025-storage-integrity-recovery.tar.gz",
+  "ledger_entry": {
+    "name": "conaled-vfa-checkpoint-025-storage-integrity-recovery.tar.gz",
+    "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-025-storage-integrity-recovery.tar.gz",
+    "created_utc": "2026-11-02T16:04:37.959035+00:00",
+    "head": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+    "size_bytes": 146014033,
+    "sha256": "b83eaf7cefdcde6fa104469a180065a992a4801dde7479e8e9509215b2aeb06e",
+    "bundle_verify": "passed",
+    "restore_smoke": "passed",
+    "source_index_workflow_stability": "passed",
+    "saved": true,
+    "file_id": "file_00000000ce8c82439f881b10333a7147",
+    "library_file_id": "libfile_266926f2377481918b44d05a4a5f83b9",
+    "scope": "Complete source/history/local tracking and prior receipts; exact actual ENOSPC failure, both reopened integrity assessments, current affected-evidence manifest and original-byte limitations, read-only upstream incident guidance, verified inactive-cache capacity recovery, and required fresh/guarded validation plan. Formal source unchanged; no chapter accepted."
+  },
+  "checkpoint_ledger_identity": {
+    "path": "/workspace/scratch/0c54f2db1fdf/work-state/checkpoints.json",
+    "sha256": "8a6de5b215b74ab8eb3ee3a9c61e1047164466a9bd46f7c548fae33dbdaf5ef2",
+    "bytes": 24851
+  },
+  "actual_upload_receipt_identity": {
+    "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/checkpoint025-upload.json",
+    "sha256": "5662db29c763b780d0ae26089f60c0a15b02e7d7a6e3d73f1f0689c90d8e6c48",
+    "bytes": 709
+  },
+  "actual_upload_receipt": {
+    "operation": "create_library_file",
+    "status": "succeeded",
+    "path": "/conaled-vfa-checkpoint-025-storage-integrity-recovery.tar.gz",
+    "file_id": "file_00000000ce8c82439f881b10333a7147",
+    "library_file_id": "libfile_266926f2377481918b44d05a4a5f83b9",
+    "file_name": "conaled-vfa-checkpoint-025-storage-integrity-recovery.tar.gz",
+    "current_version_number": 0,
+    "restored_from_version_number": null,
+    "xattrs": [
+      {
+        "name": "user.library-file-version",
+        "value": "0"
+      }
+    ],
+    "directory_id": "libdir_43c8b42e635c8191b48cb45c45019d19",
+    "mime_type": "application/x-tar",
+    "library_artifact_type": "other",
+    "file_size_bytes": 146014033,
+    "external_connectors_accessed": false
+  },
+  "prior_verification_record": {
+    "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/checkpoint025-upload-verification.json",
+    "sha256": "62736ae9fa20cfaa0bdf99618cf109341d36f679ad7e6e931f691668ee9b4e4e",
+    "bytes": 442
+  },
+  "observations": {
+    "path_before": {
+      "device": 27,
+      "inode": 2405225,
+      "mode": 420,
+      "regular": true,
+      "nlink": 1,
+      "size_bytes": 146014033,
+      "allocated_bytes": 146022400,
+      "mtime_ns": 1793635477587724844,
+      "ctime_ns": 1793635578494813995,
+      "uid": 0,
+      "gid": 0
+    },
+    "descriptor_before": {
+      "device": 27,
+      "inode": 2405225,
+      "mode": 420,
+      "regular": true,
+      "nlink": 1,
+      "size_bytes": 146014033,
+      "allocated_bytes": 146022400,
+      "mtime_ns": 1793635477587724844,
+      "ctime_ns": 1793635578494813995,
+      "uid": 0,
+      "gid": 0
+    },
+    "library_binding_before": "libfile_266926f2377481918b44d05a4a5f83b9",
+    "bytes_read": 146014033,
+    "archive_sha256": "b83eaf7cefdcde6fa104469a180065a992a4801dde7479e8e9509215b2aeb06e",
+    "descriptor_after": {
+      "device": 27,
+      "inode": 2405225,
+      "mode": 420,
+      "regular": true,
+      "nlink": 1,
+      "size_bytes": 146014033,
+      "allocated_bytes": 146022400,
+      "mtime_ns": 1793635477587724844,
+      "ctime_ns": 1793635578494813995,
+      "uid": 0,
+      "gid": 0
+    },
+    "library_binding_after": "libfile_266926f2377481918b44d05a4a5f83b9",
+    "path_after": {
+      "device": 27,
+      "inode": 2405225,
+      "mode": 420,
+      "regular": true,
+      "nlink": 1,
+      "size_bytes": 146014033,
+      "allocated_bytes": 146022400,
+      "mtime_ns": 1793635477587724844,
+      "ctime_ns": 1793635578494813995,
+      "uid": 0,
+      "gid": 0
+    }
+  },
+  "checks": {
+    "stable_pre_post_path_and_descriptor_identity": true,
+    "stable_exact_library_binding": true,
+    "complete_payload_read": true,
+    "size_matches_ledger_receipt_and_prior_verification": true,
+    "sha256_matches_ledger_and_prior_verification": true,
+    "regular_single_link": true,
+    "one_exact_ledger_entry": true,
+    "ledger_records_saved": true,
+    "actual_receipt_succeeded": true,
+    "receipt_name_and_ids_match_ledger": true,
+    "no_prior_retirement_in_reviewed_ledger_records": true,
+    "evidence_records_stable": true
+  },
+  "retirement_history_review": {
+    "records_checked": [
+      {
+        "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-cache-companion001-local-retirement.json",
+        "sha256": "814b297a35cd55fe22b3053ca36dee01153670105815b00ec8ea2adae1a3b645",
+        "bytes": 965
+      },
+      {
+        "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-checkpoint-local-retention-round2.json",
+        "sha256": "44c62eba36bf2c6acd8486d6dba99fe13edf87cd0b397838862955216a2945fb",
+        "bytes": 3223
+      },
+      {
+        "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-checkpoint-local-retention-round3-preflight1.json",
+        "sha256": "a0277a95bc365f3fd15a690716ad1997861028ad700d2464e15b244dd45ca82d",
+        "bytes": 443
+      },
+      {
+        "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-checkpoint-local-retention-round3.json",
+        "sha256": "855d58db0905317d032d2187629ab6d0e4f5f78c5613e93e563c8af1857a69cb",
+        "bytes": 3327
+      },
+      {
+        "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-checkpoint-local-retention-round4.json",
+        "sha256": "e4f988e38098635fef2839b8f4737f4da60ffced8c7b78d264d0aeaff2d6a523",
+        "bytes": 2617
+      },
+      {
+        "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-checkpoint-local-retention.json",
+        "sha256": "c9ddfb2d2266fb248eb9ebc672e2829397b86d9715c20f44a6768db2b6814edd",
+        "bytes": 2290
+      },
+      {
+        "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-checkpoint022-local-retirement.json",
+        "sha256": "2246048b95a3ce2710020008361585ae17772aa759ba6e22519a731b68846aba",
+        "bytes": 1089
+      },
+      {
+        "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-checkpoint023-local-retirement.json",
+        "sha256": "17b927d0b34834a057cdc6435fa922888047cbaf6dd834f7651988ed8e7213b8",
+        "bytes": 999
+      },
+      {
+        "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-checkpoint024-local-retirement.json",
+        "sha256": "cf80140545a9a96a2023a53730aa72b2eb4fbbe5233128503c75df08402d2f7b",
+        "bytes": 959
+      },
+      {
+        "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-inactive-aesop-retirement.json",
+        "sha256": "236283c2c5d1f0759da2b7317f2a58abcc93232de6f003eb40cc04eb52a4132b",
+        "bytes": 825
+      },
+      {
+        "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-inactive-batteries-retirement.json",
+        "sha256": "c4a71b2930e8da19474a25f2f2c3e2fb920bb36c7c3c18b2775e720e42ae476a",
+        "bytes": 828
+      },
+      {
+        "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-inactive-mathlib-retirement-after-enospc.json",
+        "sha256": "ab35f766b606e36a018a3e5d439d076593d2b21104cbb88a70c75ef8721a41e2",
+        "bytes": 2136
+      },
+      {
+        "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-setup-and-checkpoint-retirement.json",
+        "sha256": "04acbcab3734e42a10dab89d2aeca7eee12aa6d3868cad91991e0abc40880369",
+        "bytes": 3541
+      },
+      {
+        "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-storage-cleanup.json",
+        "sha256": "3939c4dc008f8a1572f929420e464d6984a91c5c7a72dd174da3098f1b387a56",
+        "bytes": 5409
+      }
+    ],
+    "prior_matches": [],
+    "checkpoint_entry_retirement_fields": {},
+    "scope": "Exact checkpoint025 path/name and current inode were searched only in the checkpoint ledger and existing retirement/retention/cleanup JSON evidence records. No other archive was inspected.",
+    "limit": "Absence is a statement about these preserved ledger records, not proof that an unrecorded historical operation could not have occurred."
+  },
+  "evidence_record_stability": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/checkpoints.json",
+      "unchanged_during_assessment": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/checkpoint025-upload.json",
+      "unchanged_during_assessment": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/checkpoint025-upload-verification.json",
+      "unchanged_during_assessment": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-cache-companion001-local-retirement.json",
+      "unchanged_during_assessment": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-checkpoint-local-retention-round2.json",
+      "unchanged_during_assessment": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-checkpoint-local-retention-round3-preflight1.json",
+      "unchanged_during_assessment": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-checkpoint-local-retention-round3.json",
+      "unchanged_during_assessment": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-checkpoint-local-retention-round4.json",
+      "unchanged_during_assessment": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-checkpoint-local-retention.json",
+      "unchanged_during_assessment": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-checkpoint022-local-retirement.json",
+      "unchanged_during_assessment": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-checkpoint023-local-retirement.json",
+      "unchanged_during_assessment": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-checkpoint024-local-retirement.json",
+      "unchanged_during_assessment": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-inactive-aesop-retirement.json",
+      "unchanged_during_assessment": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-inactive-batteries-retirement.json",
+      "unchanged_during_assessment": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-inactive-mathlib-retirement-after-enospc.json",
+      "unchanged_during_assessment": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-setup-and-checkpoint-retirement.json",
+      "unchanged_during_assessment": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/20261102-storage-cleanup.json",
+      "unchanged_during_assessment": true
+    }
+  ],
+  "errors": [],
+  "conclusion": "eligible_for_separate_root_decision",
+  "decision_scope": "Eligibility applies only to a one-time retirement of this exact local025 file identity after root separately decides and rechecks it. No deletion is performed or authorised by this assessment. Durable Library copy and receipts remain preserved.",
+  "limits": [
+    "The successful upload receipt and exact local binding are checked; no new remote Library read or availability test was performed.",
+    "A full current local SHA256/size and stable pre/post identity were checked; this is not an atomic filesystem snapshot or a guarantee against later changes.",
+    "Potential released allocation is the observed local allocated bytes, not a guaranteed immediate free-space increment if other filesystem references exist.",
+    "No complete-build shortage, growth cause, process liveness or formal acceptance conclusion follows.",
+    "No active outputs or process data were read; no compiler/hash helper, new census, cleanup or other source/cache/file change occurred. Only this assessment record is written."
+  ]
+}

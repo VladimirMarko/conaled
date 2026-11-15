@@ -1,0 +1,60 @@
+{
+  "recorded_utc": "2026-11-02T21:32:07.382032+00:00",
+  "decision": "Accepted operational recorder candidate only",
+  "base": "e39c76640edbd242762cf41f341d35eae35ee786",
+  "candidate": "f2dd147823effc78974d7b2e5363c993afb0f278",
+  "candidate_tree": "48d91899c4b9696a4f5f6ecee67addcadc209572",
+  "requirements": {
+    "path": "work-state/specs/1029-validation-recorder.md",
+    "sha256": "a6b39abad520d7b1ed3dc7edb5134399d4f174b496f396798b124e4d17633b48"
+  },
+  "review_axes": {
+    "standards": {
+      "reviewer": "/root/cache_review",
+      "path": "work-state/reviews/1029-recorder-standards.md",
+      "sha256": "919fe2f8df67935cf84d419d962aaf17fea7b0e24b6219072ddc260b0c2cd481",
+      "outcome": "Passed",
+      "unresolved_findings": 0
+    },
+    "spec": {
+      "reviewer": "/root/reuse_survey",
+      "path": "work-state/reviews/1029-recorder-spec.md",
+      "sha256": "072ce1070ef01e2542d636354005595af84f77225bd80fe4bbcfd1ace5a56611",
+      "outcome": "Passed",
+      "unresolved_findings": 0
+    }
+  },
+  "root_reconciliation": "Both complete independent reports read; no unresolved findings or conflicting dispositions. No third Standards/Spec review or duplicate tests.",
+  "delivered_content_verification": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation-recorder",
+      "head": "f2dd147823effc78974d7b2e5363c993afb0f278",
+      "status": "",
+      "all_four_files_match_candidate": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/validation-recorder-validation",
+      "head": "f2dd147823effc78974d7b2e5363c993afb0f278",
+      "status": "",
+      "all_four_files_match_candidate": true
+    }
+  ],
+  "validation": {
+    "record": "work-state/validation/1029-tests-final.json",
+    "record_sha256": "af3810480d76696a7a4457fef4fe89e38be2356dbc9765355a85a30aa78fe08e",
+    "log": "work-state/validation/1029-tests-final.log",
+    "log_sha256": "ba2654353226241b24e0682c2e2a73b810c49ddab63bea107d786f83314a78a0",
+    "candidate_matched": true,
+    "raw_test_returncode": 0,
+    "tests_passed": 7
+  },
+  "fresh2_preflight": {
+    "path": "work-state/validation/1029-fresh2-preflight.json",
+    "sha256": "f0f82db87988ed1a8f189117a3a324c4c6df7ac83b233a32026c22aa26436375"
+  },
+  "formal_candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "formal_retry_started": false,
+  "required_before_retry": "Complete source/history/tracking checkpoint containing this accepted recorder, requirements, tests, both reports and root disposition must be uploaded. Root owns launch.",
+  "chapter_credit": false,
+  "limits": "Recorder does not guarantee process/workspace survival, complete child/descendant quiescence or formal success. Fresh1 actual return/cause remain unknown. All existing formal gates stay required."
+}

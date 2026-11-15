@@ -1,0 +1,31 @@
+# FDSA-XT01 original-scope source review coordination
+
+## XT01 acceptance checkpoint 0138 durable — 2026-11-05T03:11:40.501791+00:00
++
++Checkpoint 0138 is verified, uploaded and exposed: 42,533,649 bytes, SHA-256 `834ad98e65ccec97d57096e5f7954c7ce7960716ec547e5d2ef3764927328206`, file `libfile_231e6c742bbc8191af2152086ecfff3b`. Shared XT01 is accepted at `90469ce4ba3fc49397d369a5db7d58aec7014f58`; its seven requirements and all validation/review/immediate-verification/integration/durability gates are complete. Immutable acceptance evidence and the separate actual durability record are in `provenance/binary-tree-cache-acceptance-20261105/`.
++
++The checkpoint preserves 78 references, nine worktrees, 113 closed owned executions and all historical outcome boundaries. The snapshot hold is released for continued Chapter 4 and its recorded shared prerequisites. All 76 Chapter 4 obligations and 11 exercises remain; its three author streams contain uncompiled drafts and supply no chapter acceptance. Root remains sole serial one-thread compiler owner. Next receive XT02 shape bounds against accepted904, retaining the original donor, requirements, full source assessments and SP01 finding history. No GitHub mutation or push.
++
++## XT01 accepted; checkpoint 0138 preparation — 2026-11-05T03:01:34.146896+00:00
+
+Shared tree-cache unit XT01 is accepted on `work/fdsa-book` at `90469ce4ba3fc49397d369a5db7d58aec7014f58` after the full normal check, exhaustive audit, all 115 actual public types, both independent Passed reviews with zero unresolved findings, and immediate verification followed by the exact local fast-forward. The original seven requirements, seven paths, four formal modules, base a14977 and donor64c6b7 history remain intact. Acceptance and item-level coverage: `provenance/binary-tree-cache-acceptance-20261105/`.
+
+The full check established 1,113 checked modules, 1,111 audit rows, 50,288 kernel-safe declarations including 29,430 theorems, zero unsafe declarations and exactly the three permitted axioms. These are whole-project counts. All 113 owned runs are closed; both XT01 failed attempts and older unknown/transport-loss histories retain their actual outcomes. Only the book reference advanced; the other 77 references and all nine worktree statuses were preserved.
+
+Checkpoint 0138 creation, verification, upload and exposure remain pending. All source/review writers are held. Chapter 4 retains its original base `298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2`, all 76 obligations and 11 exercises; none is accepted. Three clean source branches hold uncompiled basic/weighted tree observations, sequential balancing/call counts, and levels/rose-tree mirroring. Enumeration and reconstruction implementations remain pending. Continue with the recorded shared shape and measured-tree prerequisites after durability. No installation, hydration, GitHub mutation or push occurred. Earlier dated sections retain historical status.
+
+## XT01 focused and actual statements passed; full validation running — 2026-11-05T02:28:59.714724+00:00
+
+Accepted Chapter3 remains `298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2`, durable in checkpoint0137. The full original XT01 scope is received on clean `90469ce4ba3fc49397d369a5db7d58aec7014f58`, with original donor64c6b777 and basea14977 history retained. Two actual failed focused attempts are preserved; proof-only corrections changed no definitions, statements, hypotheses or tariff. All four modules then passed focused compilation. The actual115-name expanded type run passed with identical before/after observations of26 sources,78 compiler objects/traces,10 configuration files,9 exact dependencies and12 runtime inputs. This is distinct from final acceptance.
+
+The applicable full normal candidate check is running as `binary-tree-cache-receiving-full-attempt1-20261105`; no terminal outcome is claimed. Both independent axes continue the original complete unit scope and actual types; final outcomes remain pending. Root owns the sole serial one-thread compiler. There are111 closed owned executions and this one newly owned active run; old unknown/transport-loss histories are unchanged.
+
+Chapter4 retains original base298 and all76 obligations. A separate source-only author branch `work/fdsa-ch04-structural` is released for new basic observations and weighted-path modules; it does not edit the qualified candidate or its outputs. Its drafts receive no compilation or acceptance credit. See `provenance/binary-tree-cache-receiving-20261105/` and `provenance/chapter04-structural-implementation-20261105/`. No installation, hydration, GitHub mutation or push.
+
+Both independent source assessments are complete with zero new concrete findings; overall Blocked pending actual compilation/type/full/final gates. Fixed basea14977b9e316cc484ffad8a470d26b15615956c0; original candidate64c6b777d828ecfe83234fc2aed94600a1f24297. All seven original paths and frozen requirements remain.
+
+Root read complete Standards and Spec reports, reconciled115 exact authored header/name/source rows, all seven immutable source identities and both26-file closure inventories. Counts25defs+90theorems; no private, anonymous or new-instance entries. The34local edges and14external edges account for the reported48total edges with12distinct external imports. This is coordinator evidence reconciliation, not a third mathematical review.
+
+Use provenance/binary-tree-cache-public-statements115-prepared-20261104/StatementsExplicit.lean for future full actual signature inspection. It has four imports, the three explicit/full-name/universe printer options and all115 unchanged names/order, with @ added before each name. The original unexecuted preparation remains preserved; exact input correction and identities are in binary-tree-cache-coordinator-preparation-20261104/. Neither input has run. No loaded-object, compiler, audit or acceptance credit exists.
+
+Retain all-node validity versus root-only agreement, local callback cost c+3, valid unbounded append-cost family n+4, Empty/noncommutative/invalid-descendant cases, and all later chapter/algorithm boundaries. Incorporation must preserve the actual accepted base and documentary corrections; old source wording is historical. Future integrated candidate and full scopes require both axes and every mandatory gate. Chapter4 remains queued.

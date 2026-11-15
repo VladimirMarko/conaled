@@ -1,0 +1,433 @@
+{
+  "recorded_utc": "2026-11-04T20:04:07.433592+00:00",
+  "finding": "C03-CHOP-MAP-ELAB-001",
+  "baseline": "557d00df979d95788f093e55551abd02f17dd049",
+  "changed_paths": [
+    "Applications/Resources/SelectionMedians.lean"
+  ],
+  "changed_proof_bodies": [
+    "Resources.SelectionMedians.slowMedianValueRun_of_some",
+    "Resources.SelectionMedians.mapSlowMedianRun_cost",
+    "Resources.SelectionMedians.mapSlowMedianRun_bound"
+  ],
+  "public_names": 68,
+  "definitions": 4,
+  "theorems": 64,
+  "private_named": 0,
+  "anonymous_instances": 0,
+  "all_68_source_headers_exactly_preserved": true,
+  "all_four_execution_definitions_exactly_preserved": true,
+  "all_eleven_other_sources_exactly_preserved": true,
+  "all_36_old_records_exactly_preserved": true,
+  "all_example_statements_and_proofs_exactly_preserved": true,
+  "public_header_inventory": [
+    {
+      "name": "Resources.Chunks.chopRun",
+      "kind": "def",
+      "header_sha256": "8e97abf59d9abc37b638caf1dbf5186c6aad26d5ea1f27cbcbf62691d45f2147"
+    },
+    {
+      "name": "Resources.Chunks.chopRun_zero",
+      "kind": "theorem",
+      "header_sha256": "093564d38d11ba7f283f11601dc06d3c12123adfa0cb0c62a8fd034867e9e1b1"
+    },
+    {
+      "name": "Resources.Chunks.chopRun_nil",
+      "kind": "theorem",
+      "header_sha256": "617ccb3152c146667f2cd3a1cfe825a7834b5388bb80d2e1a05cbf7b763f25f7"
+    },
+    {
+      "name": "Resources.Chunks.chopRun_eq_cons",
+      "kind": "theorem",
+      "header_sha256": "4479245e779427bd886c9f5f9a4839926dee67700c2d0938020fda747cf1ba84"
+    },
+    {
+      "name": "Resources.Chunks.chopRun_value",
+      "kind": "theorem",
+      "header_sha256": "51d89049ae49f947ae75729189069fcf266478829432fe93d4daa61468160dd4"
+    },
+    {
+      "name": "Resources.Chunks.chopRun_cost",
+      "kind": "theorem",
+      "header_sha256": "473a7376ca2552acee45deb43410ce38791afff2e4b3d387723fb56e2c9c13a0"
+    },
+    {
+      "name": "Resources.Chunks.chopRun_exact",
+      "kind": "theorem",
+      "header_sha256": "797ed0c6efacd6d52b1884cf06a6e908d97ef7297ae10a055e31fe31c04a6184"
+    },
+    {
+      "name": "Resources.Chunks.chopRun_cost_bound",
+      "kind": "theorem",
+      "header_sha256": "47311792ae5365c241cc010b385ac6f335bc4ff07aeb6f7df26049dda8f7438d"
+    },
+    {
+      "name": "Resources.Chunks.chopRun_one_cost",
+      "kind": "theorem",
+      "header_sha256": "d843c277e39e8f087f2f990db4ce08501c7743ac92afc59501bb945e6a8e75c9"
+    },
+    {
+      "name": "Resources.Chunks.chopRun_length",
+      "kind": "theorem",
+      "header_sha256": "deda7f30fb3ea95d0e5ca4d019553290584e449c8ed3a33f7d03d2aea305d851"
+    },
+    {
+      "name": "Resources.Chunks.chopRun_mem_ne_nil",
+      "kind": "theorem",
+      "header_sha256": "ca408a209717b601f3f02e9cb44a138ad34562d9fe8c50b0df0b8d5bcf633e08"
+    },
+    {
+      "name": "Resources.Chunks.chopRun_mem_length",
+      "kind": "theorem",
+      "header_sha256": "fe0b6984453428eab35022e3ddaa91cb65d6313d14cda90bb1abfb0a2f194b36"
+    },
+    {
+      "name": "Resources.Chunks.chopRun_flatten",
+      "kind": "theorem",
+      "header_sha256": "d4b6478251a9d76c97636ad081ee170d55e8426ff7f6b04b9322dbc421729c36"
+    },
+    {
+      "name": "Resources.SelectionMedians.slowMedianValueRun",
+      "kind": "def",
+      "header_sha256": "3a8c2f218739d016e524d94cd0780be705eb0482c41b143f2971f0bb032b2dd1"
+    },
+    {
+      "name": "Resources.SelectionMedians.slowMedianValueRun_of_some",
+      "kind": "theorem",
+      "header_sha256": "1492e4cc9437121154a72af34bc50479c5c805faaea43ec16dfcce2370863c1a"
+    },
+    {
+      "name": "Resources.SelectionMedians.slowMedianValueRun_of_run",
+      "kind": "theorem",
+      "header_sha256": "1f9c682adcdc17e8e0198980c2ad6b0e363af0022d8705368397a2f071b87417"
+    },
+    {
+      "name": "Resources.SelectionMedians.slowMedianValueRun_some",
+      "kind": "theorem",
+      "header_sha256": "8d97570d2bb00a417fbcd09ac64c9062cc3113948f674ee150cdace5c3cfdfc2"
+    },
+    {
+      "name": "Resources.SelectionMedians.slowMedianValueRun_cost",
+      "kind": "theorem",
+      "header_sha256": "028c0505bdc6a77670c904f561ab8f9806a730dfce5d3a0d9f82c07b33948318"
+    },
+    {
+      "name": "Resources.SelectionMedians.slowMedianValueRun_ranked",
+      "kind": "theorem",
+      "header_sha256": "303fc507662936fc76c70fa102420fa10cb786d7924cf4f126fbfe4ad7a415a1"
+    },
+    {
+      "name": "Resources.SelectionMedians.slowMedianValueRun_mem",
+      "kind": "theorem",
+      "header_sha256": "f367a2c15c49a09743d92b8f0699d12763032f37ffd86e1ea28c704194bc944d"
+    },
+    {
+      "name": "Resources.SelectionMedians.slowMedianValueRun_value",
+      "kind": "theorem",
+      "header_sha256": "88f87d5892c5401e20c71c963ebc2ac2c83d59812446bcd31abda7bbc97b44cf"
+    },
+    {
+      "name": "Resources.SelectionMedians.slowMedianValueRun_small_bound",
+      "kind": "theorem",
+      "header_sha256": "96feb9bee6cb432b5d576576f843da8d0a1205029fda89a9d7225f4e19ef0706"
+    },
+    {
+      "name": "Resources.SelectionMedians.mapSlowMedianRun",
+      "kind": "def",
+      "header_sha256": "222e0742902db16ed14c97f69e6b82569aaf7f123deb5a2e5de21e3baac33232"
+    },
+    {
+      "name": "Resources.SelectionMedians.mapSlowMedianRun_value",
+      "kind": "theorem",
+      "header_sha256": "2ab32fc4674a3c8e410c05fc9b05bd9c48ff1f49efa8c8bcd85029694109a8f7"
+    },
+    {
+      "name": "Resources.SelectionMedians.mapSlowMedianRun_some_values",
+      "kind": "theorem",
+      "header_sha256": "f636c625f86be31f333d05a82b6101e22a50e9b88c8b47acb4005909bfc6d0c3"
+    },
+    {
+      "name": "Resources.SelectionMedians.mapSlowMedianRun_length",
+      "kind": "theorem",
+      "header_sha256": "b72a8b78dfa24f92ed1db2a828543721025ac09238c88d49a30538c94f519abb"
+    },
+    {
+      "name": "Resources.SelectionMedians.mapSlowMedianRun_cost",
+      "kind": "theorem",
+      "header_sha256": "6892092769657d9f556df3851dc4a3a0984a61d4a16981b180ef38a829a4211e"
+    },
+    {
+      "name": "Resources.SelectionMedians.mapSlowMedianRun_bound",
+      "kind": "theorem",
+      "header_sha256": "7f58a117d42e34d4410539c2d4fa6f06fe4487d5b2e1dc7c6a7713b9cba6a5a7"
+    },
+    {
+      "name": "Resources.SelectionMedians.mapSlowMedianRun_small_bound",
+      "kind": "theorem",
+      "header_sha256": "45491002f248e2642e2eb5db1fa3cda25522652fb516b771e019742ff96a90df"
+    },
+    {
+      "name": "Resources.SelectionMedians.mapSlowMedianRun_chop_five_bound",
+      "kind": "theorem",
+      "header_sha256": "c963982445969b0261dade5c2f1e37251943869abae2f8fbcd663a07cd95442e"
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun",
+      "kind": "def",
+      "header_sha256": "60aca33e9b9cb5720923ac21c7b411c2af0e73df338fc92c2c1d84f2623c2ba0"
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_value",
+      "kind": "theorem",
+      "header_sha256": "30829e37ce092bc3ad0d6ae434ac491f042887ab999a740ddba0cc7625a222ac"
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_some_values",
+      "kind": "theorem",
+      "header_sha256": "577b0266bbc548c83b67647dd7a81eda30015e3442706dce305530ea4a7442d0"
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_cost_split",
+      "kind": "theorem",
+      "header_sha256": "085c8d00a2cd33fb85d2e3c3e51b06752496e3a2506f5e799834be58475e791b"
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_cost",
+      "kind": "theorem",
+      "header_sha256": "6f1509047a92c24f5127cd6258dd1014dd196edd92d6f27f821e704310ab0f54"
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_cost_positive",
+      "kind": "theorem",
+      "header_sha256": "e360f119fa95b890e60bb37781e01d004ead5585cfbf0ad81ee857bf4544ef09"
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_length",
+      "kind": "theorem",
+      "header_sha256": "07a06662f9425f4ce8452da806f29e5c3ffcd62d3cd14f459a5de699004e1aab"
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_eq_nil_iff",
+      "kind": "theorem",
+      "header_sha256": "4725643acd4f0cc59c1ef80b543cb648e1ee8d859ebafd79385634eff7dc603d"
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_mem",
+      "kind": "theorem",
+      "header_sha256": "5864417a0ec4ccfc25ae73eb550ad22ec173c0a203514ac16fb6eaf4ae2f6128"
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_bound",
+      "kind": "theorem",
+      "header_sha256": "ba9166ba3aaf484633332877aca58766c09058f2bc58c0137623bbc2e0a3a155"
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_five_bound",
+      "kind": "theorem",
+      "header_sha256": "56e80de5252c332db6c5cab3899c5419e8cc6059baa4702e7f756cd5cb82ece4"
+    },
+    {
+      "name": "Examples.ChunkCalls.empty_payload",
+      "kind": "theorem",
+      "header_sha256": "6a6c6fd99d67c115f4f90c4f76c42aca1ddbcbd052d320bf42715d54e3e4cbac"
+    },
+    {
+      "name": "Examples.ChunkCalls.zero_size",
+      "kind": "theorem",
+      "header_sha256": "1361e381d6a45fefa508e1763a79e03da7e2f4a93b564690d3665c6c4c49f904"
+    },
+    {
+      "name": "Examples.ChunkCalls.singleton_chunks",
+      "kind": "theorem",
+      "header_sha256": "ac6c2924a223b52b2225ae0e9bec04c8fbacb04312ceb54043867f4079540c54"
+    },
+    {
+      "name": "Examples.ChunkCalls.short_final_chunk",
+      "kind": "theorem",
+      "header_sha256": "51bd28ceaba3bf2384ec64663c402959813b3e5d0def535db101437a3a132135"
+    },
+    {
+      "name": "Examples.ChunkCalls.oversized_group",
+      "kind": "theorem",
+      "header_sha256": "7111d9302b55da87a6b3284a030e7a3c4c1c2c3cee33bece057dc8d3dfc966ef"
+    },
+    {
+      "name": "Examples.ChunkCalls.first_recursive_size",
+      "kind": "theorem",
+      "header_sha256": "ec93b5989efc5375cacde60a7f8f11f41c3fe6dd673aa56c21a937c58d886aa1"
+    },
+    {
+      "name": "Examples.ChunkCalls.both_traversals_are_charged",
+      "kind": "theorem",
+      "header_sha256": "500c17f40db9fe9cb1e9947d097706150a08b48bda0a5497391229f893d1bd23"
+    },
+    {
+      "name": "Examples.ChunkCalls.fused_first_step_is_not_source_count",
+      "kind": "theorem",
+      "header_sha256": "2de9375714333ba3718dcaca721c385f2d7b7a8b0763842112fdabb6a0a9310b"
+    },
+    {
+      "name": "Examples.ChunkCalls.no_occurrence_is_lost",
+      "kind": "theorem",
+      "header_sha256": "b7ca73d66a07af3e3b7dcd40190113ad720054f79a41a3366c6d02225ef5d60f"
+    },
+    {
+      "name": "Examples.ChunkCalls.reached_chunks_are_valid",
+      "kind": "theorem",
+      "header_sha256": "ca27be5baa07dc7ea45eda4d8cb7300c1965bd79cb7d214a3e9d3438e5f522de"
+    },
+    {
+      "name": "Examples.ChunkCalls.arbitrary_group_budget",
+      "kind": "theorem",
+      "header_sha256": "b7fa6acdcb0ae7b27fb8345da32bdd8afe8caee5e47094eb844fe376f8f2f1b7"
+    },
+    {
+      "name": "Examples.SelectionMedians.lower_even_payload",
+      "kind": "theorem",
+      "header_sha256": "d4bed608b47cbe18b9f510ddeac8e54ca0a5eef8de91629f00099766e8fe1f45"
+    },
+    {
+      "name": "Examples.SelectionMedians.duplicate_payload",
+      "kind": "theorem",
+      "header_sha256": "c7f4b11551f56ac5b48f857767eb5cf92204f9089e38bdcd8d78755c10184d76"
+    },
+    {
+      "name": "Examples.SelectionMedians.payload_rank_and_budget",
+      "kind": "theorem",
+      "header_sha256": "923cc0b0c9fc3671e88e354cc9469debc50ae0b7e5bb3201330ed38a714c511b"
+    },
+    {
+      "name": "Examples.SelectionMedians.empty_payload_map",
+      "kind": "theorem",
+      "header_sha256": "84fa5e9135ab9aac427b72c5eadf6af8204929cdc0db06741d769248d4afd6e1"
+    },
+    {
+      "name": "Examples.SelectionMedians.two_chunk_map",
+      "kind": "theorem",
+      "header_sha256": "0746bc374b50fc846d667e8b2bbb297983cac5e47ff7534fb07936578b3e9d45"
+    },
+    {
+      "name": "Examples.SelectionMedians.empty_chunk_preparation",
+      "kind": "theorem",
+      "header_sha256": "59174f152c96f83c426ed917a3dfc64acb3e77b8909f7a5dd7eb8e94f96e7e2f"
+    },
+    {
+      "name": "Examples.SelectionMedians.zero_size_preparation",
+      "kind": "theorem",
+      "header_sha256": "616d10290017fb8d6ad00f2e753294081f1e71ebae7c8dc5f39edf207172de29"
+    },
+    {
+      "name": "Examples.SelectionMedians.two_full_chunks",
+      "kind": "theorem",
+      "header_sha256": "239e5da836288b5818be7f1241d91c2a018b99d2a97f3cb55518d0c0b7c766d6"
+    },
+    {
+      "name": "Examples.SelectionMedians.short_final_chunk",
+      "kind": "theorem",
+      "header_sha256": "da6118de6ebaab3bd773ff1473d7cc805ea44ba57564e1672b4dcd4b4c6c61be"
+    },
+    {
+      "name": "Examples.SelectionMedians.duplicate_occurrences",
+      "kind": "theorem",
+      "header_sha256": "056b298320d176398da595c1162da1f2b99e41b04d99c9d10b2e048ab3731359"
+    },
+    {
+      "name": "Examples.SelectionMedians.first_recursive_size",
+      "kind": "theorem",
+      "header_sha256": "f49e721b37fd6b8d924a9dc4c0bdeb583de78bb887023b99878dc2cf23aade89"
+    },
+    {
+      "name": "Examples.SelectionMedians.first_recursive_map_count",
+      "kind": "theorem",
+      "header_sha256": "dd339170a9e747e218b3c816379d7469a4eed615c1e5ccd0cbf47a0fffcfdca8"
+    },
+    {
+      "name": "Examples.SelectionMedians.prepared_pivot_membership",
+      "kind": "theorem",
+      "header_sha256": "2c4803c27d131e1d93b9f3dba8e0544a1017fd847c5035f97590cff5554e15c6"
+    },
+    {
+      "name": "Examples.SelectionMedians.general_group_preparation",
+      "kind": "theorem",
+      "header_sha256": "bec84fd0b1cf4b88c7ecedb6034d997a1a2b0055aaac9e07e3bdbda9f0c6f7bb"
+    },
+    {
+      "name": "Examples.SelectionMedians.book_map_budget",
+      "kind": "theorem",
+      "header_sha256": "6029e600f7b2030340fbf171dcf3ffaab6b3ce106f299376eea22b2757abb749"
+    },
+    {
+      "name": "Examples.SelectionMedians.book_preparation_budget",
+      "kind": "theorem",
+      "header_sha256": "9ccc7eda10914fe20f601eb544dc86aaa841689e62984561cf97e1241a003614"
+    }
+  ],
+  "sources": [
+    {
+      "path": "Applications/Resources/Chunks.lean",
+      "bytes": 4591,
+      "sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc",
+      "namespace": "Resources.Chunks",
+      "public_names": 13,
+      "definitions": 1,
+      "theorems": 12,
+      "private_named": 0,
+      "anonymous_instances": 0,
+      "anonymous_examples": 0
+    },
+    {
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "bytes": 9742,
+      "sha256": "ced1fd6c1cc1cec690535da55ce82bd49010836b49e5bb2a4ee399bf5b327bac",
+      "namespace": "Resources.SelectionMedians",
+      "public_names": 28,
+      "definitions": 3,
+      "theorems": 25,
+      "private_named": 0,
+      "anonymous_instances": 0,
+      "anonymous_examples": 0
+    },
+    {
+      "path": "Examples/ChunkCalls.lean",
+      "bytes": 2730,
+      "sha256": "ca79f35fe846399bcb180d9b8fbd63fa453108c59c4503adb8a5731182fdc5e3",
+      "namespace": "Examples.ChunkCalls",
+      "public_names": 11,
+      "definitions": 0,
+      "theorems": 11,
+      "private_named": 0,
+      "anonymous_instances": 0,
+      "anonymous_examples": 0
+    },
+    {
+      "path": "Examples/SelectionMedians.lean",
+      "bytes": 5134,
+      "sha256": "50220acbaa05668898e5a412a86dc13099d0987ede7d3a45120058cd59a18dd0",
+      "namespace": "Examples.SelectionMedians",
+      "public_names": 16,
+      "definitions": 0,
+      "theorems": 16,
+      "private_named": 0,
+      "anonymous_instances": 0,
+      "anonymous_examples": 0
+    }
+  ],
+  "statement_assessment": "The three proof corrections normalize existing facts only. Explicit match splitting retains the same actual result; attach_map_val transports the same list of actual costs under sum; Nat.nsmul_eq_mul removes only the redundant Nat cast in the standard finite-sum bound. Domains, counts, coefficients, optional behavior, values, generic d and all finite targets are unchanged. No conclusion is added as a premise. The original full68 source assessment remains applicable; actual elaborated types and terminal success remain pending.",
+  "complete_diff_read": "e7416e",
+  "complete_corrected_source_read": "309c0c",
+  "pinned_specialized_lemma_read": "fb3087",
+  "reused_explicit_at_preparation": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/ChopMapStatements68-candidate1.lean",
+    "bytes": 4076,
+    "sha256": "3e1de6e46c407771794f4b315b2c8836e35d5c9cc141d4ca167a554d5a2fd4ac"
+  },
+  "new_preparation_not_duplicated": "All68 source headers and names are exact; reuse the bound unexecuted input.",
+  "patch": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/correction.diff",
+    "bytes": 1917,
+    "sha256": "1805efb2bce45a334eaaf1e8c868c399c47dd988d949c1ffc13adb2b65db29c9"
+  },
+  "author_compiler_calls": 0,
+  "current_candidate_checked": false,
+  "finding_resolved_by_actual_terminal": false
+}

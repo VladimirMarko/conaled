@@ -1,0 +1,35 @@
+{
+  "time": "2026-11-04T20:11:50.874685+00:00",
+  "candidate": "edd0132b491858feda3307da70817e157dcad151",
+  "tree": "54fd241a366cd77d73b2254ce6f29c5fae7c09ba",
+  "parent": "591ecdd855bc2fab3f788e6b134cc18aa80a3b6a",
+  "whole_query_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "branch": "work/fdsa-ch03-query-lower-bounds",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge",
+  "clean": true,
+  "source_files": {
+    "Applications/Selection/CoordinateReadAll.lean": {
+      "sha256": "5ebd75b797b26fb591f3951a68a3cec9d46d4f0bfeedab8c22b1b010e96d8f25",
+      "git_blob": "a8476492850b88856be013f35e789cc1c7546f3a",
+      "bytes": 7602
+    },
+    "Examples/CoordinateReadAll.lean": {
+      "sha256": "8290a02bee2fb078439842c26a6cb46ec231aeb092b30659c8a3b674cc54b603",
+      "git_blob": "b561b9fa3a67d6962e997659955d0c29eb846526",
+      "bytes": 5626
+    }
+  },
+  "inherited_four_sources_unchanged": true,
+  "slice_diff_sha256": "56d35db0dc955de01f87c430ae5f8b21b11496fd0f42127ece34804b762628e4",
+  "whole_query_diff_sha256": "699b10cd1ffc2c795d1f8fd68d2749d023e8b7a54f323086549aad89eb879723",
+  "new_public": 27,
+  "new_private": 1,
+  "combined_public_inspection": 95,
+  "combined_authored_private": 3,
+  "compile_status": "NOT RUN: root is sole serial compiler owner",
+  "verification_status": "source-only assessment and git diff --check; no formal acceptance",
+  "acceptance": "Chapter 3 remains wholly unaccepted; C03-083 actual-selector bridge remains open",
+  "profile_input": "Statements27-candidate01.lean and Statements95-candidate01.lean; prepared, not run",
+  "holds": "All own source/provenance writes stop after this handoff; await root focused check and explicit resume",
+  "no_other_author_commits_or_imports": true
+}

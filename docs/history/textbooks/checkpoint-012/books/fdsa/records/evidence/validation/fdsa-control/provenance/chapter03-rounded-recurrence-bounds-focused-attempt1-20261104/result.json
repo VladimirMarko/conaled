@@ -1,0 +1,33 @@
+{
+  "candidate": "4e022bf16e793fd5a1f830b14ba30fb4a2dd0525",
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "build",
+    "Applications.Resources.RoundedRecurrenceBounds",
+    "Examples.RoundedRecurrenceBounds"
+  ],
+  "started_utc": "2026-11-04T19:44:32.194015+00:00",
+  "completed_utc": "2026-11-04T19:44:43.317093+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 11.12287660700531,
+  "state": "failed",
+  "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-bounds-focused-attempt1-20261104/full.log",
+  "progress_bookkeeping_errors": [],
+  "final_head": "4e022bf16e793fd5a1f830b14ba30fb4a2dd0525",
+  "final_status": "",
+  "log_size_bytes": 4679,
+  "log_sha256": "36545e27c51cdac86455459c410a53309a1325199c8a9351fc115e0325b79a9a",
+  "available_bytes_at_completion": 0,
+  "verification_record_present": true,
+  "verification_record_sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9"
+}

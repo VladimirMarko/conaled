@@ -1,0 +1,217 @@
+{
+  "started_utc": "2026-11-04T03:53:16.409657+00:00",
+  "host_mode": "compat",
+  "fixture": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/tmp/smoke-nayqx9y7",
+  "project": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+  "scope": "Environment validation only; project gates are separate.",
+  "passed": true,
+  "completed_utc": "2026-11-04T03:53:20.287515+00:00",
+  "cases": [
+    {
+      "started_utc": "2026-11-04T03:53:16.409744+00:00",
+      "command": [
+        "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/profile/bin/lean",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/tmp/smoke-nayqx9y7",
+      "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T035316Z-smoke-lean-version-6603fa59/output.log",
+      "label": "smoke-lean-version",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-04T03:53:16.473604+00:00",
+      "seconds": 0.06240798699991501,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-04T03:53:16.475171+00:00",
+      "command": [
+        "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/profile/bin/lake",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/tmp/smoke-nayqx9y7",
+      "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T035316Z-smoke-lake-version-a2aa17ca/output.log",
+      "label": "smoke-lake-version",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-04T03:53:16.594090+00:00",
+      "seconds": 0.11792495700001382,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-04T03:53:16.595446+00:00",
+      "command": [
+        "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/profile/bin/lean",
+        "--print-prefix"
+      ],
+      "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/tmp/smoke-nayqx9y7",
+      "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T035316Z-smoke-bare-prefix-3c083562/output.log",
+      "label": "smoke-bare-prefix",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-04T03:53:16.684690+00:00",
+      "seconds": 0.08804264900027192,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-04T03:53:16.686165+00:00",
+      "command": [
+        "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/profile/bin/lake",
+        "env",
+        "lean",
+        "--print-prefix"
+      ],
+      "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/tmp/smoke-nayqx9y7",
+      "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T035316Z-smoke-child-prefix-9239a703/output.log",
+      "label": "smoke-child-prefix",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-04T03:53:16.891726+00:00",
+      "seconds": 0.20416132499985906,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-04T03:53:16.893263+00:00",
+      "command": [
+        "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/profile/bin/lean",
+        "-o",
+        "Valid.olean",
+        "Valid.lean"
+      ],
+      "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/tmp/smoke-nayqx9y7",
+      "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T035316Z-smoke-valid-proof-731a9d16/output.log",
+      "label": "smoke-valid-proof",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-04T03:53:17.108194+00:00",
+      "seconds": 0.21362421899993933,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-04T03:53:17.109601+00:00",
+      "command": [
+        "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/profile/bin/lean",
+        "Invalid.lean"
+      ],
+      "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/tmp/smoke-nayqx9y7",
+      "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T035317Z-smoke-false-proof-04cdf642/output.log",
+      "label": "smoke-false-proof",
+      "lean_threads": "1",
+      "passed": false,
+      "completed_utc": "2026-11-04T03:53:17.333350+00:00",
+      "seconds": 0.22272064999970098,
+      "exit_code": 1,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": true
+    },
+    {
+      "started_utc": "2026-11-04T03:53:17.335089+00:00",
+      "command": [
+        "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/profile/bin/lake",
+        "env",
+        "lean",
+        "-o",
+        "Child.olean",
+        "Valid.lean"
+      ],
+      "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/tmp/smoke-nayqx9y7",
+      "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T035317Z-smoke-child-proof-d5c6c444/output.log",
+      "label": "smoke-child-proof",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-04T03:53:17.713403+00:00",
+      "seconds": 0.37713503899976786,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-04T03:53:17.714865+00:00",
+      "command": [
+        "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/profile/bin/lake",
+        "build",
+        "smoke"
+      ],
+      "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/tmp/smoke-nayqx9y7",
+      "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T035317Z-smoke-native-build-2b6cfac2/output.log",
+      "label": "smoke-native-build",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-04T03:53:18.375422+00:00",
+      "seconds": 0.659568003000004,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-04T03:53:18.380026+00:00",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+        "--state",
+        "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+        "_exec",
+        "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/tmp/smoke-nayqx9y7/.lake/build/bin/smoke",
+        "576101c3448a3d0eb0456507cb41d961e54f7f2af00240fcbd8d754f717cc7e1"
+      ],
+      "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/tmp/smoke-nayqx9y7",
+      "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T035318Z-smoke-native-run-c50f0464/output.log",
+      "label": "smoke-native-run",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-04T03:53:18.427801+00:00",
+      "seconds": 0.046264271000381996,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-04T03:53:18.429346+00:00",
+      "command": [
+        "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/profile/bin/lake",
+        "env",
+        "lean",
+        "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/tmp/smoke-nayqx9y7/MathlibSmoke.lean"
+      ],
+      "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T035318Z-smoke-mathlib-import-12521238/output.log",
+      "label": "smoke-mathlib-import",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-04T03:53:20.190426+00:00",
+      "seconds": 1.7600484350000443,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    }
+  ]
+}

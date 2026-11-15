@@ -1,0 +1,62 @@
+{
+  "recorded_utc": "2026-11-04T09:30:56.675344+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+  "previous_candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+  "full_scope": "Complete fixed R through eventual Chapter2 acceptance: all 81 paths, 112 obligations and ten shared units retained.",
+  "overall_outcome": "Blocked",
+  "approval_or_acceptance": false,
+  "no_compiler_source_ref_cache_or_process_action": true,
+  "program": {
+    "path": "provenance/chapter02-complete-public-statements814-0a7ef078-prepared-20261104/Statements.lean",
+    "bytes": 46242,
+    "lines": 859,
+    "sha256": "ec9fb2b9a141630d0d4acb527bc28cf5fb6b5c2032f3f9951ce1d53cd1578577"
+  },
+  "inventory": {
+    "path": "provenance/chapter02-complete-public-statements814-0a7ef078-prepared-20261104/inventory.json",
+    "bytes": 58153,
+    "lines": 1134,
+    "sha256": "0846a6703028b9c94397f5996f3e612a4fb09a970aadb3c744988af7e8b4052d"
+  },
+  "previous_program": {
+    "path": "provenance/chapter02-complete-public-statements814-6b95185-prepared-20261104/Statements.lean",
+    "bytes": 46242,
+    "lines": 859,
+    "sha256": "ec9fb2b9a141630d0d4acb527bc28cf5fb6b5c2032f3f9951ce1d53cd1578577"
+  },
+  "previous_inventory": {
+    "path": "provenance/chapter02-complete-public-statements814-6b95185-prepared-20261104/inventory.json",
+    "bytes": 60157,
+    "lines": 1185,
+    "sha256": "3d4fe66aa858d5e7e00a23c792b1f0ac72b5f7f09b72cf83ad44465f28c280b6"
+  },
+  "all859_lines_previous_complete_read_retained_by_byte_identity": true,
+  "all814_unique_ordered_names_identical": true,
+  "all36_source_rows_match_exact_successor": true,
+  "only_changed_source_identity": "Examples/PermutationTailBoundary.lean",
+  "prepared_only_not_executed": true,
+  "public_accounting": {
+    "qualified_historical": 920,
+    "pending_current": 814,
+    "accepted_base": 28,
+    "total": 1762,
+    "all_historical_actually_read": 941
+  },
+  "historical_target_closure_recheck": {
+    "prior_receipt": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/historical-type-dependency-audit-preparation-6b95185.json",
+      "bytes": 207685,
+      "lines": 4016,
+      "sha256": "293e9dfca4b47047e90d727b346ffa4d7139254b4980494f26d645e28ab36687"
+    },
+    "defining_roots": 41,
+    "relevant_local_paths": 67,
+    "all_paths_Q_to_current_byte_identical": true,
+    "sole_changed_example_not_in_any_historical_root_closure_or_program_import": true,
+    "all_recorded_configurations_unchanged": true
+  },
+  "no_prospective_F110_credit_or_program_subtraction": true,
+  "C02_TYPE_001": "Open; actual output and complete semantic assessment remain required."
+}

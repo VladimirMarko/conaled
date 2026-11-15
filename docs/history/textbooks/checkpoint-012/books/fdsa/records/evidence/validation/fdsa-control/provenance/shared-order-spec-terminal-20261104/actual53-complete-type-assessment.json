@@ -1,0 +1,428 @@
+{
+  "schema": "fdsa-spec-receiving-actual-types-v1",
+  "reviewer": "Independent nonauthor Spec",
+  "candidate": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "status": "PASS for actual53 statement inspection within original full source scope",
+  "native_output": {
+    "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/native-records/output.log",
+    "bytes": 91080,
+    "lines": 1075,
+    "sha256": "48466b063b338defe63e54b3eed7594095cd3036dd773443ef9649b2bc211b65"
+  },
+  "outer_output": {
+    "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/full.log",
+    "bytes": 91428,
+    "lines": 1078,
+    "sha256": "54821ffa5bf5340248ed33971ff353c1335ff8a4988e23df048fe0892a7b2584"
+  },
+  "program": {
+    "path": "provenance/chapter02-xu02-statement-source-20261104/Statements.lean",
+    "bytes": 3522,
+    "lines": 61,
+    "sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3"
+  },
+  "closed_metadata_records_read": [
+    {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/request.json",
+      "bytes": 866,
+      "lines": 22,
+      "sha256": "b218b9da5a67a67a6b7bfa4608bdb99b1b6c3e04584a0ef368cc4ce8eddff537"
+    },
+    {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/launch.json",
+      "bytes": 174,
+      "lines": 6,
+      "sha256": "10ec9bead09c19a524d78b8dae3633e4543abd5b468cda95d36f238445ac56b6"
+    },
+    {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/start.json",
+      "bytes": 1059,
+      "lines": 27,
+      "sha256": "6bba9996b8ca320da3e80e28600cb9fe88aa5cd5a8129e4b621c1c7839786529"
+    },
+    {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/result.json",
+      "bytes": 1399,
+      "lines": 33,
+      "sha256": "db079a70c552f4871fc32b4235b96b385e28cef14263966f0208113d4dbf4cde"
+    },
+    {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/owned-terminal.json",
+      "bytes": 236,
+      "lines": 8,
+      "sha256": "5516c8198145c691dfd79a20e77b71a95dc0dbc64d71531e500c6357a648786a"
+    },
+    {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/native-records/start.json",
+      "bytes": 550,
+      "lines": 14,
+      "sha256": "0d8130bfa11b453c9cd0d2138181caa81f6a71c923da2155de79bbe47ba6332d"
+    },
+    {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/native-records/result.json",
+      "bytes": 702,
+      "lines": 19,
+      "sha256": "221966b7f590b03a50a0c8ae2cb1c8b06e756af0d050b82c181e950f77ecf57b"
+    },
+    {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 1983,
+      "lines": 45,
+      "sha256": "eeb8c60439f029f5657ab9f52cfe5297c7b525defc93b762a600b8043b9570e5"
+    },
+    {
+      "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/verification.json",
+      "bytes": 867,
+      "lines": 19,
+      "sha256": "dc97fa649fd0b18c30d530a4720b95ee0b1a002d031e6b80094d5b08a9e27124"
+    }
+  ],
+  "block_index_mechanically_reconciled": {
+    "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/output-blocks.json",
+    "bytes": 22024,
+    "lines": 670,
+    "sha256": "5ac94d0bd7a5ae4b51b0aa35cf24bbd7b89cfa9be122d7cc1c8514d319d76269"
+  },
+  "read_progress": {
+    "path": "provenance/shared-order-spec-terminal-20261104/actual53-read-progress.json",
+    "bytes": 27369,
+    "lines": 853,
+    "sha256": "5da455393e8f02b05619efa9d595bae896bce6033bb3ee3527a5fe3da8da8f00"
+  },
+  "all53_complete_types_read": true,
+  "all1075_native_lines_read": true,
+  "every118_ellipsis_line_context_read": true,
+  "semantic_groups": [
+    {
+      "ordinals": [
+        1,
+        2
+      ],
+      "assessment": "The unrestricted definitions need only DecidableEq, take an explicit positions list, fixed subset and permutation, and return concrete lists/finite supports. The source definitions retain inverse-permutation observation; no numeric ordering is silently supplied."
+    },
+    {
+      "ordinals": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "assessment": "Membership is exactly π a ∈ positions together with a ∈ S; complete coverage removes only the first conjunct. Nodup alone suffices for output Nodup; completeness for toFinset; both for cardinal length and the concrete List.Perm relation. All intended hypotheses and arbitrary universes remain explicit."
+    },
+    {
+      "ordinals": [
+        9,
+        10,
+        11
+      ],
+      "assessment": "Mapping the returned order through the same π gives a sublist of positions. Further filtering produces intersection, and subset filtering produces the same restricted order for the smaller fixed subset. No independent resampling or sortedness assertion is introduced."
+    },
+    {
+      "ordinals": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "assessment": "Supported order membership is exactly permutation of the filtered source list. Nonempty order support is unconditional, including empty subset/carrier. Membership and factorial-cardinality laws retain both complete coverage and Nodup."
+    },
+    {
+      "ordinals": [
+        16,
+        17
+      ],
+      "assessment": "Actual uniform source law on all permutations is evaluated at the restricted-order equality event: supported lists have inverse |S|! mass and others zero. The map theorem gives equality of measures to uniformOn the order support, with measurable-space/singleton hypotheses for both actual domains. Complete finite enumeration supplies finiteness; no unnecessary Fintype or S.Nonempty binder appears."
+    },
+    {
+      "ordinals": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "assessment": "Fin4 source positions, selected/smaller subsets and actual measure are retained. Universally quantified structural contract gives Nodup, support, length3 and mapped sublist; concrete output permutation of[0,2,3] and six supported orders connect examples to the public results."
+    },
+    {
+      "ordinals": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "assessment": "Concrete actual source events[0,2,3] and[0,3,2] have mass1/6; repeated[0,0,2] has zero. Nested restriction is the same permutation observation with[3,0] mass1/2. Singleton mass1 and full Fin4 order[3,1,0,2] mass1/24 are explicit ENNReal equalities. All actual law/map/event connections are preserved."
+    },
+    {
+      "ordinals": [
+        36,
+        37,
+        38,
+        39
+      ],
+      "assessment": "Empty subset output is universally[], supported orders form singleton[], mass is1; Empty index type likewise yields actual source event mass1. These are concrete nonvacuous boundary checks of the normalization and do not impose a false nonempty-index premise."
+    },
+    {
+      "ordinals": [
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "assessment": "The Fin3 cycle0→1→2→0 gives inverse enumeration[2,0,1]; restricting inverse observation to{0,1} gives[0,1], while direct map/filter gives[1,0]. The explicit inequality confirms the original orientation requirement."
+    },
+    {
+      "ordinals": [
+        46,
+        47,
+        48,
+        49
+      ],
+      "assessment": "Enumeration[0,2,1] under the same inherited spacedPriority produces[-7,4,100] and is pairwise strictly increasing. Ordinary enumeration[0,1,2] is explicitly not pairwise increasing and the two output orders differ. The corrected SP01 distinction is exactly reflected in actual types."
+    },
+    {
+      "ordinals": [
+        50,
+        51,
+        52,
+        53
+      ],
+      "assessment": "Nodup incomplete positions[0] under Fin2 swap give[] outside supported orders; complete repeated positions[0,0,1] under the swap give[1,1,0] outside supported orders. Actual conjunctions retain respectively Nodup and full coverage, isolating the distinct missing premise. No weakened support conclusion."
+    }
+  ],
+  "source_name_and_ellipsis_account": {
+    "public_names_exact": 53,
+    "private_names": 5,
+    "anonymous_instances": 6,
+    "ellipsis_lines_Fin": [
+      246,
+      249,
+      252,
+      278,
+      281,
+      284,
+      333,
+      336,
+      339,
+      366,
+      369,
+      372,
+      400,
+      403,
+      432,
+      436,
+      459,
+      462,
+      465,
+      468,
+      486,
+      489,
+      492,
+      506,
+      509,
+      512,
+      540,
+      543,
+      546,
+      584,
+      586,
+      600,
+      602,
+      615,
+      617,
+      638,
+      641,
+      644,
+      648,
+      651,
+      654,
+      663,
+      666,
+      669,
+      676,
+      681,
+      685,
+      688,
+      706,
+      711,
+      720,
+      725,
+      740,
+      743,
+      746,
+      750,
+      753,
+      762,
+      765,
+      768,
+      775,
+      780,
+      796,
+      801,
+      810,
+      815,
+      830,
+      833,
+      836,
+      846,
+      849,
+      852,
+      869,
+      872,
+      875,
+      889,
+      892,
+      895,
+      907,
+      910,
+      913,
+      923,
+      926,
+      929,
+      941,
+      947,
+      951,
+      953,
+      959,
+      966,
+      972,
+      976,
+      978,
+      984,
+      990,
+      998,
+      1001,
+      1004,
+      1011,
+      1013,
+      1016,
+      1019,
+      1022,
+      1031,
+      1034,
+      1037,
+      1045,
+      1048,
+      1051,
+      1058,
+      1060,
+      1066,
+      1069,
+      1072
+    ],
+    "ellipsis_lines_numeral": [
+      293,
+      348,
+      412,
+      477
+    ],
+    "actual_type_header_and_source_correspondence": "Every current explicit public name occurs once in original source/program/output order; five private theorems and six anonymous local instances retained in source and complete audit scope.",
+    "scope": {
+      "paths": [
+        "Applications/Probability/PermutationOrder.lean",
+        "Examples/PermutationOrder.lean",
+        "Examples/PermutationOrderBoundary.lean",
+        "SquareApplications.lean",
+        "docs/research/fdsa-permutation-order.md",
+        "docs/research/fdsa-reconstruction-map.md"
+      ],
+      "additions": 4,
+      "modifications": 2,
+      "insertions": 815,
+      "deletions": 0,
+      "all_original_paths_and_cases_retained": true
+    },
+    "requirements": {
+      "path": "reviews/permutation-order-requirements.md",
+      "bytes": 11430,
+      "lines": 209,
+      "sha256": "f473f593bf4a7ef75dcf2f3163440db6fe187b3b9983f87254d2ddfa8191982d",
+      "read_scope": "Complete content read in this continuation; no truncated spans credited."
+    }
+  },
+  "pinned_API_reads": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/Fin/Basic.lean",
+      "bytes": 12956,
+      "lines": 423,
+      "sha256": "bb3d4e46cb40a24f5a09e6e003c76f2b84140a598df81233f0bffe3afe08cbf4",
+      "read_range": [
+        239,
+        250
+      ],
+      "read_range_sha256": "03e737f17c154004e0f7232b87521ba587947af059adc8201c06a12a8fb1883b",
+      "assessment": "Fin.instOfNat accepts [NeZero n] and returns OfNat (Fin n) i.",
+      "read_scope": "These exact bounded source ranges only; no new full-file read is claimed."
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/NeZero.lean",
+      "bytes": 1591,
+      "lines": 64,
+      "sha256": "94e1883fd4fd9c5612da4a24a0cbc9bd6a656d31ce9a0123b9833175c5964df3",
+      "read_range": [
+        20,
+        36
+      ],
+      "read_range_sha256": "d1f65bd50f6c59fabe68418e772624c1861af7026d9714961a9e220e089b92d0",
+      "assessment": "NeZero is a Prop class with n ≠ 0.",
+      "read_scope": "These exact bounded source ranges only; no new full-file read is claimed."
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Data/Nat/Init.lean",
+      "bytes": 19480,
+      "lines": 441,
+      "sha256": "ded24773f40d2499826e1fe3d245cfa10f84b31b326be122ef7a8562fb1c4d9b",
+      "read_range": [
+        409,
+        432
+      ],
+      "read_range_sha256": "cf00784afa71b9961abe582e318481b7a3575a1294eae08cd4b371bc6dbfae6c",
+      "assessment": "Nat.AtLeastTwo is a Prop class with 2 ≤ n.",
+      "read_scope": "These exact bounded source ranges only; no new full-file read is claimed."
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Data/Nat/Cast/Defs.lean",
+      "bytes": 6965,
+      "lines": 190,
+      "sha256": "5656ed14933f402c33cbe3f1cc3eb7b26e4df670c573187fb7d0972eef4e3118",
+      "read_range": [
+        26,
+        48
+      ],
+      "read_range_sha256": "692c82c07ed126485c4727be07f9f932c947d8e80e3c1b4091077332b18c44e1",
+      "assessment": "instOfNatAtLeastTwo takes [NatCast R] and [Nat.AtLeastTwo n]; the hidden slot is the latter proof class.",
+      "read_scope": "These exact bounded source ranges only; no new full-file read is claimed."
+    }
+  ],
+  "loaded_input_qualification": {
+    "basis": "Actual guarded full J stock lineage and private exclusive stable outputs; exact current observation pair around actual53",
+    "sources": 6,
+    "supported_object_hash_trace_entries": 18,
+    "configs": 10,
+    "clean_dependency_records": 9,
+    "runtime_components": 12,
+    "full_pre_post_identity_equality": true,
+    "native_one_thread_exit0_clean_J": true,
+    "receipt": {
+      "path": "provenance/shared-order-spec-terminal-20261104/independent-input-reconciliation.json",
+      "bytes": 100817,
+      "lines": 2689,
+      "sha256": "cab7b1231d86e780e64f89c55a291a6b7bdb7ba2c2db8387e7ad69d61fed4c85"
+    }
+  },
+  "quantifier_premise_event_value_or_conclusion_hidden": false,
+  "new_findings": [],
+  "boundary": "Actual statement evidence only; full candidate audit and independent final axes remain distinct gates."
+}

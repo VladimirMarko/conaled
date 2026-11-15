@@ -1,0 +1,16 @@
+{
+  "observed_utc": "2026-11-04T09:02:22.747239+00:00",
+  "scope": "Metadata-only observation of current fresh output directories while validation remains active",
+  "current_fresh_output_directory": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/fresh-check-fun0gzcf",
+  "regular_files_observed": 463,
+  "logical_bytes_observed": 201391472,
+  "allocated_bytes_observed": 202358784,
+  "observation_errors": [],
+  "filesystem_ordinary_available_bytes": 17151283200,
+  "limitations": [
+    "Live metadata observation, not a stable inventory or a content-integrity check",
+    "No liveness, quiescence, source provenance or formal validation credit",
+    "Only the current fresh output directories were inventoried; other filesystem allocation remains unattributed",
+    "No source, cache, profile or output was changed or removed"
+  ]
+}

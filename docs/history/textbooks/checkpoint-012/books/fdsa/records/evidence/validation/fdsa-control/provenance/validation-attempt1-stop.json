@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-11-02T03:08:06.606133+00:00",
+  "candidate": "1aabd512284fe86254278ac631eda061d311050b",
+  "outcome": "superseded before completion; not successful validation",
+  "reason": "documented memory reclaim; restart unchanged fresh check with one worker",
+  "checker": {
+    "pid": 46434,
+    "start_ticks": 2069560,
+    "ppid": 46431,
+    "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+    "exe": "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3.13",
+    "args": [
+      "python3",
+      "scripts/check.py",
+      "--fresh",
+      "--jobs",
+      "4",
+      "--candidate",
+      "HEAD"
+    ]
+  },
+  "children": [],
+  "remaining_worker_cleanup": [],
+  "root_exit_code": 143,
+  "cleanup_utc": "2026-11-02T03:08:46.633717+00:00"
+}

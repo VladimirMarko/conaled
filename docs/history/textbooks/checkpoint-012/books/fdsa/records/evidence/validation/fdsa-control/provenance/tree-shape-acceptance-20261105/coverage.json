@@ -1,0 +1,61 @@
+{
+  "recorded_utc": "2026-11-05T04:21:26.096700+00:00",
+  "unit": "FDSA-XT02",
+  "accepted_commit": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "requirements": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-shape-requirements.md",
+    "bytes": 11890,
+    "sha256": "50d11472d8380fb3458a3ea71aba3d1104886f676a7b1cec578c0557a6979e91"
+  },
+  "acceptance": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/acceptance.json",
+    "bytes": 44993,
+    "sha256": "336e76c369ed37f3f3d874a523ceb219eba380f80661e2be6019fd9bc8453d1f"
+  },
+  "rows": [
+    {
+      "id": "XT02-01",
+      "scope": "Ordinary minimum height and source predicates",
+      "status": "accepted",
+      "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "Standards": "Passed",
+      "Spec": "Passed"
+    },
+    {
+      "id": "XT02-02",
+      "scope": "Sharp leaf bounds and completeness",
+      "status": "accepted",
+      "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "Standards": "Passed",
+      "Spec": "Passed"
+    },
+    {
+      "id": "XT02-03",
+      "scope": "Rounded logarithms and height optimum",
+      "status": "accepted",
+      "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "Standards": "Passed",
+      "Spec": "Passed"
+    },
+    {
+      "id": "XT02-04",
+      "scope": "Separate real-log source correspondence",
+      "status": "accepted",
+      "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "Standards": "Passed",
+      "Spec": "Passed"
+    },
+    {
+      "id": "XT02-05",
+      "scope": "Connected uses and consequential boundaries",
+      "status": "accepted",
+      "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "Standards": "Passed",
+      "Spec": "Passed"
+    }
+  ],
+  "complete_chapter04_rows_accepted": 0,
+  "boundary": "Shared XT02 only. Every original Chapter4 algorithm, exercise, representation bridge and cost obligation remains in the original complete chapter scope."
+}

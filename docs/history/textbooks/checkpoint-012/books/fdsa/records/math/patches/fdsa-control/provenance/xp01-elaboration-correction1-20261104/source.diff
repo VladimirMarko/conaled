@@ -1,0 +1,43 @@
+diff --git a/Applications/Resources/Potential.lean b/Applications/Resources/Potential.lean
+index 3ffc5e120f94f87c77a442728f654f3fa94d3aeb..dcf7ae78d76c1440c2d89711e6939a00ff24cc90 100644
+--- a/Applications/Resources/Potential.lean
++++ b/Applications/Resources/Potential.lean
+@@ -64,11 +64,11 @@ theorem run_potential_map_of_invariant [AddZero C] [AddMonoid D] [Preorder D]
+           add_assoc _ _ _
+         _ ≤ h (step i s).2 +
+             (potential (step i s).1 + budget step charge is (step i s).1) :=
+-          add_le_add_left tail _
++          ‹AddLeftMono D›.elim (h (step i s).2) tail
+         _ = (h (step i s).2 + potential (step i s).1) +
+             budget step charge is (step i s).1 := (add_assoc _ _ _).symm
+         _ ≤ (potential s + charge i s) + budget step charge is (step i s).1 :=
+-          add_le_add_right localLaw _
++          ‹AddRightMono D›.elim (budget step charge is (step i s).1) localLaw
+         _ = potential s + (charge i s + budget step charge is (step i s).1) :=
+           add_assoc _ _ _
+ 
+@@ -145,7 +145,8 @@ theorem run_cost_le_map_of_invariant [AddZero C] [AddMonoid D] [Preorder D]
+     closed hstep is s hs
+   have lower : h (run step is s).2 ≤
+       h (run step is s).2 + potential (run step is s).1 := by
+-    simpa only [add_zero] using add_le_add_left final (h (run step is s).2)
++    simpa only [add_zero] using
++      ‹AddLeftMono D›.elim (h (run step is s).2) final
+   exact lower.trans boundary
+ 
+ /-- The signed source amortized expression, summed along the actual trajectory.
+diff --git a/docs/research/fdsa-reconstruction-map.md b/docs/research/fdsa-reconstruction-map.md
+index 5ae3836703d0d105f6c08a742b5070a62b159ad1..db598df8a4fe01d368cd0c791040dee22b5d7311 100644
+--- a/docs/research/fdsa-reconstruction-map.md
++++ b/docs/research/fdsa-reconstruction-map.md
+@@ -521,8 +521,8 @@ realizations are optional and do not impose an allocation or storage capability
+ on other targets. These are ordinary Lean/Type results; no cross-setting
+ interpretation of these new induction proofs is claimed.
+ 
+-The only existing public-interface adjustment is the universe signature of
+-`Resources.erasureSquare`. Its value carriers may now live above the cost type;
++For Chapter 1, the only existing public-interface adjustment is the universe
++signature of `Resources.erasureSquare`. Its value carriers may now live above the cost type;
+ this permits natural costs for lists of arbitrary-universe payloads. Its
+ implementation, semantic contract, old equal-universe specializations and
+ assumptions are unchanged. The new squares and universal composition example

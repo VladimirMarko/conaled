@@ -1,0 +1,191 @@
+{
+  "schema": 1,
+  "requirements_version": "2026-11-15-ready-for-conaled-handoff",
+  "original_integration_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "remote_tracking": false,
+  "priority_order": [
+    "library coherence",
+    "preserve useful mathematics"
+  ],
+  "issues": [
+    {
+      "id": "INT-001",
+      "title": "Cohesive textbook integration",
+      "status": "integration-continuing; source-handoff-with-delegated-final-gate",
+      "owner": "root",
+      "acceptance": [
+        "Library coherence first; preserve useful mathematics second.",
+        "All integrated components use actual pinned owners and explicit contracts.",
+        "Same-candidate full validation and independent Standards/Spec; deferred drafts explicitly owned."
+      ],
+      "progress": "Three tips and shared mathematical connections retained; probability producer pin received. Further donor recovery remains owned; full acceptance delegated."
+    },
+    {
+      "id": "INT-002",
+      "title": "Restore source, pin master, correct setup and save milestone",
+      "status": "closed",
+      "owner": "root",
+      "acceptance": [
+        "Exact001 restored; master pinned9175737c before code edits.",
+        "Native route verified and current user exceptions persisted.",
+        "Self-contained002 saved to owner root with observed receipt."
+      ],
+      "evidence": "evidence/delivery-history.json, serial 2"
+    },
+    {
+      "id": "INT-010",
+      "title": "Combine coherent current VFA/FDSA/PFDS components",
+      "status": "implemented-awaiting-full-validation-and-review",
+      "owner": "root",
+      "acceptance": [
+        "Resolve source conflicts against pinned master; retain current architecture and public audit coverage.",
+        "Preserve original source refs and classify dropped/replaced/changed interfaces."
+      ]
+    },
+    {
+      "id": "INT-011",
+      "title": "Unify shared potential accounting",
+      "status": "implemented-awaiting-full-validation-and-review",
+      "owner": "root",
+      "acceptance": [
+        "Reconcile PFDS generic/signed laws with FDSA mapped invariant XP01.",
+        "Retain minimal assumptions, ordered exact balances, Nat clients and connected examples."
+      ]
+    },
+    {
+      "id": "INT-012",
+      "title": "Connect sorting specifications and implementations",
+      "status": "implemented-awaiting-full-validation-and-review",
+      "owner": "root",
+      "acceptance": [
+        "Use existing StableSort and ordinary uniqueness contracts.",
+        "Cross-book consumer uses VFA permutation preservation and FDSA sorter correctness.",
+        "Retain duplicate/equal-key stability/cost distinctions."
+      ]
+    },
+    {
+      "id": "INT-013",
+      "title": "Reconcile collection and sequence clients",
+      "status": "implemented-awaiting-full-validation-and-review",
+      "owner": "root",
+      "acceptance": [
+        "Use actual Ops/Laws/Simulation/RelSquare/OrderedSummary owners as applicable.",
+        "Preserve full sequence and absence/presence/invariant observations.",
+        "Keep charges and costs explicit; no inference from value equality."
+      ]
+    },
+    {
+      "id": "INT-020",
+      "title": "Finish or integrate additional FDSA draft families",
+      "status": "partially-recovered; remaining capabilities preserved-pending",
+      "owner": "root",
+      "acceptance": [
+        "Use analysis/preservation.md donor groups and exact preserved refs.",
+        "Treat65missingpaths and36existingpath variants as scope needing capability dispositions, not mandatory parallel public interfaces.",
+        "Keep Chapter4 original review base and full76obligations/11exercises."
+      ],
+      "progress": "Potential XP01 and selected XA01 binding/validity/AList capabilities recovered through existing owners. Deletion, Modify round trips, set deletion, generic valid-graph composition and other draft families remain explicitly pending; see analysis/donor-dispositions.json."
+    },
+    {
+      "id": "INT-021",
+      "title": "Resolve five VFA standalone mathematical drafts",
+      "status": "partially-recovered; remaining capabilities preserved-pending",
+      "owner": "root",
+      "acceptance": [
+        "Sorting specifications, table observations, positive keys, unary costs and queue-peek counterexample retained in frozen records.",
+        "Integrate via appropriate current owners or explicit proved correspondence; no silent loss."
+      ],
+      "progress": "The table draft partial/default/presence and list capabilities are recovered and focused-checked. Its weaker generic total-table contract and the four other staging drafts remain pending. Historical focused success remains preserved for all five drafts."
+    },
+    {
+      "id": "INT-090",
+      "title": "Validate exact coherent candidate",
+      "status": "receiving-gate-open; local-experiment-closed-for-handoff",
+      "owner": "receiving-integrator",
+      "acceptance": [
+        "Pinned Lean/dependencies; full current checker and exhaustive audit.",
+        "Immediate --verify-candidate and review_snapshot compare at acceptance.",
+        "Focused/native smoke/cache success does not close this issue."
+      ],
+      "evidence": "evidence/full-validation-r5-summary.json; evidence/retry-r5-reported-observations.json; STATUS.md; VALIDATION-HANDOFF.md",
+      "progress": "First full attempt: observed checker exit 1, eight 137 jobs, 3,174 Built lines including four integration clients; no audit/verification. Retry started after durable 011, last reported 74 Built/five repeated 137, but raw files lost and terminal outcome unknown. No further local retry is assigned. Receiving full build/audit and final review gates remain required.",
+      "local_attempt_owner": "root; local execution closed for this handoff"
+    },
+    {
+      "id": "INT-091",
+      "title": "Independent whole-scope review",
+      "status": "handoff-review-outcome-owned-by-REVIEW; final-acceptance-blocked-receiving-gate",
+      "owner": "review-coordinator",
+      "acceptance": [
+        "Standards and Spec cover same candidate and full versioned requirements.",
+        "Preserve initial master base and stable unresolved finding history across corrections."
+      ],
+      "progress": "REVIEW.json owns the current handoff review outcome. R4 source-handoff assessment remains historical. Both R5 axes verified preparation and first-terminal evidence, but no final or R5 source/handoff approval was issued. The retry raw files were lost and terminal outcome is unknown; no further local attempt is assigned. R6 reviews the current receiving handoff in the same loop. INT-SP-001 remains open before final acceptance.",
+      "evidence": "evidence/reviews/preparation-r5-overlay.json; REVIEW.json"
+    },
+    {
+      "id": "INT-030",
+      "title": "Update pinned upstream master and assess relevance",
+      "status": "new-pin-incorporated; combined-full-validation-delegated",
+      "owner": "root",
+      "evidence": "evidence/master-pin-04514fc1.json; evidence/upstream-merge-04514fc1.json; analysis/upstream-probability-04514fc1.md",
+      "acceptance": [
+        "Observed latest master pin before new code edits.",
+        "Original full-spec review base and all findings retained.",
+        "Current instructions and pins compared; both import sets preserved."
+      ]
+    },
+    {
+      "id": "INT-031",
+      "title": "Account for all three books with honest coverage boundaries",
+      "status": "accounting-updated; formalization-distinguished-from-acceptance",
+      "owner": "root",
+      "evidence": "COVERAGE.md; evidence/coverage-20261114.json; evidence/integration-account-20261114-evening.json",
+      "acceptance": [
+        "Distinguish source inventories, formal implementation, focused checking, historical chapter acceptance and current validation.",
+        "Use exact denominators only; no invented whole-book percentage.",
+        "Retain the five VFA drafts historical focused-success evidence."
+      ],
+      "progress": "Formalized FDSA1\u20133, VFA Perm plus five checked staged developments, PFDS2 plus eight formal scopes are reported with exact boundaries; new probability intake changes no book count."
+    },
+    {
+      "id": "INT-032",
+      "title": "Recover map observations and lawful realizations through OrderedMap",
+      "status": "implemented-focused-pass; independent-source-assessments-complete; final-gates-pending",
+      "owner": "math-recovery",
+      "acceptance": [
+        "Use existing Ops/Laws, retain independent universes and existing Square specialization.",
+        "Recover VFA default/presence and shadowing-list laws and FDSA AList/valid-state capabilities with real clients.",
+        "Preserve invalid-state, repeated-key, absent/stored-default and empty-payload boundaries.",
+        "Keep generic total-table and deletion/Modify capabilities explicitly pending where this slice does not establish correspondence."
+      ],
+      "progress": "Existing OrderedMap owns the recovered contracts, validity adapter, AList/list/function realizations and connected tree/default clients. Boundary cases and actual public-type inspection pass. See evidence/maps-focused-r3.json and map-public-types-20261114.json."
+    },
+    {
+      "id": "INT-033",
+      "title": "Relate FDSA probabilistic runs to actual tape sampling",
+      "status": "planned; no new bridge theorem claimed",
+      "owner": "math-recovery",
+      "acceptance": [
+        "Prefer existing finite-row and stopped-suffix owners where sufficient.",
+        "Preserve fresh occurrence-index choices, shrinking domains, ranks, duplicates and returned-cursor freshness.",
+        "Prove the relationship of actual PMF/run observations; sampling costs remain a separate explicit observation.",
+        "Do not impose stationarity or an infinite producer where finite terminating algorithms need neither."
+      ],
+      "evidence": "analysis/upstream-probability-04514fc1.md"
+    },
+    {
+      "id": "INT-040",
+      "title": "Consolidate current coherent patch for near-term integration",
+      "status": "recommended; not externally published",
+      "owner": "root/receiving-integrator",
+      "acceptance": [
+        "Keep current candidate scope bounded; preserve unfinished mathematics with existing owners.",
+        "Resolve actual source or forbidden-axiom defects if found.",
+        "Require exact receiving-candidate full validation, both final approvals and immediate verification/comparison before merge acceptance.",
+        "No whole-book completion prerequisite and no new GitHub writes without authorization."
+      ],
+      "evidence": "analysis/consolidation-next-20261114.md"
+    }
+  ]
+}

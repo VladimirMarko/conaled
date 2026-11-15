@@ -1,0 +1,114 @@
+{
+  "time": "2026-11-03T23:39:54.381765+00:00",
+  "role": "Final existing-loop coordinator reconciliation and read-only identity, not root acceptance",
+  "base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "candidate": "4f15ff6f5bc8091104a3572ca8ce3716ed8e78f0",
+  "merge_base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "ref": "refs/pfds-review/native-toolchain-r11-045",
+  "isolated_checkout": "/workspace/scratch/09cf0de22282/pfds/review-native-toolchain-045-r11",
+  "isolated_checkout_clean": true,
+  "full_source_files": {
+    "session/environment/make-direct-toolchain-profile.py": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb",
+    "session/environment/run-direct-toolchain.py": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+    "session/environment/test-direct-toolchain.py": "028e625c2870bafa2668269f981202d76c6509256ca1822e4ab926b3f2526330",
+    "session/environment/test-direct-lake-build.py": "3e364791c25cfce02c15887b1ae040a1a18315ab5189ff393d5fb2ff9bd239cf",
+    "session/environment/README-direct-toolchain.md": "f3acb7ba89c954019e6288bffc80c37fbc2e4f90523b1172efdd85dc19ee6734",
+    "session/validation/run-direct-validation.py": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b",
+    "session/validation/test-direct-validation.py": "a77b7f3f962c45fbe8affe4999615b3721975cc3c858713c9ef027b6aecf5435",
+    "session/validation/direct-validation-runner-notes.md": "933745db696b993eda5bd8d5470a7b72b5738659658c709fa98705ceb35bdd4e",
+    "session/environment/RECOVER-ENVIRONMENT.md": "77f1707ac7ff61b4f3ad176d242c63997180be225549859a821b408ce0a9f68f",
+    "session/environment/environment-route-comparison-042.md": "0cf565cd251662aa239a991e905c63b14f4c6de6ffc4808a9bbc96147fe7ba92",
+    "session/checkpoint.py": "acd6c007661ea3894543df4896a6bfe285cbd675a45a1a8682a676b19d247756",
+    "session/environment/native-own-exe.c": "479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842",
+    "session/environment/run-native-toolchain.py": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073",
+    "session/environment/test-native-own-exe.c": "f26208e4ea0b08349bc99fcb60b15f693fa413c3fbdfcf3649d649de8c748c0b",
+    "session/environment/test-native-own-exe.py": "da5856cb97b1e5a9b86303ee576f3f9dc889e5e5fcf0377d7c6d95e22a872c10",
+    "session/environment/native-readlink-fixture.c": "b5ee1645a2bd1ce54e3130560b759253d12c9f915ef7b252397c3db9230328ae",
+    "session/validation/run-native-validation.py": "4965f8b3eae19955cf43e2a46403fafd374cc5a27994f00507df0fae827fd55e",
+    "session/validation/test-native-validation.py": "8981c0ede5f79ec79eabeba2b5b17789d6f1c024aaea66c2a6f96564397262e1",
+    "session/environment/RECOVER-ELAN-REGRESSIONS.md": "39184174a0a2cdff195caf2515ab871584e14d67b35b19da3ee3a8c1c1b7d633",
+    "session/environment/RECOVER-INTEGRATION.md": "7f1a00a1e13c931dc2ba55c88e1f5180ab814c505587387ffff41166525a6157"
+  },
+  "modes": {
+    "session/environment/make-direct-toolchain-profile.py": "100644",
+    "session/environment/run-direct-toolchain.py": "100644",
+    "session/environment/test-direct-toolchain.py": "100644",
+    "session/environment/test-direct-lake-build.py": "100644",
+    "session/environment/README-direct-toolchain.md": "100644",
+    "session/validation/run-direct-validation.py": "100644",
+    "session/validation/test-direct-validation.py": "100644",
+    "session/validation/direct-validation-runner-notes.md": "100644",
+    "session/environment/RECOVER-ENVIRONMENT.md": "100644",
+    "session/environment/environment-route-comparison-042.md": "100644",
+    "session/checkpoint.py": "100644",
+    "session/environment/native-own-exe.c": "100644",
+    "session/environment/run-native-toolchain.py": "100644",
+    "session/environment/test-native-own-exe.c": "100644",
+    "session/environment/test-native-own-exe.py": "100644",
+    "session/environment/native-readlink-fixture.c": "100644",
+    "session/validation/run-native-validation.py": "100755",
+    "session/validation/test-native-validation.py": "100755",
+    "session/environment/RECOVER-ELAN-REGRESSIONS.md": "100644",
+    "session/environment/RECOVER-INTEGRATION.md": "100644"
+  },
+  "requirements": {
+    "session/requirements/REQUEST.md": "b847f23fcce44837f5b1ead01aae43ac5ed626ffd32aab84055dd664e339e499",
+    "session/requirements/REQUEST-union-v2.md": "3336bed1154438b3683aeb5a1c63fee44e87aff190f5ff69e34705a780b9d22c",
+    "session/requirements/REQUEST-direct-toolchain-041.md": "16845edec15c311e0cfd5ed5d4f5c4feb61e7ad96545653d5b872309d26464bc",
+    "session/environment/direct-toolchain-implementation-scope-041.md": "05c125ee129eafc8f45f9367be16259c3239c7b3945c32f62effba1f1b4c922c",
+    "session/requirements/REQUEST-environment-handoff-042.md": "200789123c60ae137967f881207194412eecea72ba2fc80247978075bd6a4602",
+    "session/requirements/REQUEST-native-toolchain-042.md": "d76dc8dcf771a227779628de91e75c4b63a2898b95e7b30035de83537dae5195",
+    "session/requirements/REQUEST-common-candidate-validation-044.md": "1a6b2a4b0d68b7a559e5d3d9c3fa7a90f0f1113f8d37539dedfb1df1579ca870",
+    "session/requirements/REQUEST-recovery-045.md": "dafc4b266e88c7644d35439ab8aba9a1d0e95a4ccab69e18b9cfb7150e4da44e"
+  },
+  "complete_reports_read_by_coordinator": true,
+  "independent_reports": {
+    "Standards": {
+      "path": "reviews/direct-toolchain-standards-r11-045.md",
+      "sha256": "bc3cebe8df62096442fe8a333901a0c94bc04ffe220563ffd14a4f605b875e4b",
+      "outcome": "Passed",
+      "new_findings": 0,
+      "unresolved_findings": 0,
+      "retained": [
+        "DTS-001 Medium fixed",
+        "DTS-002 Medium fixed",
+        "DTS-003 Medium fixed for the matching legacy recipe"
+      ],
+      "bytes": 15116
+    },
+    "Spec": {
+      "path": "reviews/direct-toolchain-spec-r11-045.md",
+      "sha256": "2afa41d9f27c9ea821e3ae2c92c9151e5909da15161639d8fd5e3eeb60ca3903",
+      "outcome": "Passed",
+      "new_findings": 0,
+      "unresolved_findings": 0,
+      "retained": [
+        "DTP-001 High fixed",
+        "DTP-002 Medium fixed",
+        "DTP-003 Medium fixed for the matching legacy recipe"
+      ],
+      "bytes": 16940
+    }
+  },
+  "reconciliation": {
+    "path": "reviews/direct-toolchain-coordinator-r11-045.md",
+    "sha256": "2ddde3b10b660db290a69e12de9d083110a578363945dc1f3647b92e531de871"
+  },
+  "final_validation_aggregate": {
+    "path": "validation/native-toolchain-candidate-validation-r11-045.json",
+    "sha256": "13a3a8ed9731235fa6c10cdc3692f2fd2ba7b478c70c66476ed6c0be60ad1b25"
+  },
+  "initial_dispatch_receipt": {
+    "path": "validation/native-toolchain-coordinator-dispatch-r11-045.json",
+    "sha256": "e52f6055b16c14de563a9ed9a808bda10bf8127a47be86c6ad16822d712df966"
+  },
+  "native_profile_configuration_sha256": "ef95106ffdf6b594235bfd88284b1ef5450e392d04bbcc3f62a4a7b685dc7573",
+  "kit_manifest_sha256": "72ba31d697b09e71cd21edbf6a46340f1fef6380585df86eb0320e1b05b737b6",
+  "kit_archive_sha256": "45edfb844068f93b26ea5469572473f8c07e5a63e2bc294eed6de543cb3d5bf2",
+  "fixture_log_sha256": "8881c4c4e861231743eef0925acf5f500f4f03de5a3ede9c7e1efabbfc65e2ec",
+  "checkpoint_creation_log_sha256": "07a8b1e74c002e9dcb228c3cbbc0a5f0571485f604454a355d8ac61a7ef3edbe",
+  "outcome": "Both independent operational axes Passed; root final delivery identity remains separate",
+  "new_findings": 0,
+  "unresolved_findings": 0,
+  "formal_acceptance": false
+}

@@ -1,0 +1,368 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-04T12:37:54.230679+00:00",
+  "status": "Complete prepared operational note; not executed; own writes HOLD for0104",
+  "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "accepted_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "original_prefix": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "recipe": {
+    "path": "provenance/foundation145-run-closure-preparation-20261104/recipe.md",
+    "bytes": 13900,
+    "lines": 113,
+    "sha256": "1bda10ffb367e05b24b1a675f9041d51b76b12c33bc50e5b2a1ccb3b2ee6b0d5"
+  },
+  "root_mapping": [
+    {
+      "module": "Applications.Resources.InsertionSort",
+      "checks": 19,
+      "positions": [
+        1,
+        19
+      ],
+      "local_closure_size": 7
+    },
+    {
+      "module": "Applications.Resources.ListCalls",
+      "checks": 34,
+      "positions": [
+        20,
+        53
+      ],
+      "local_closure_size": 9
+    },
+    {
+      "module": "Examples.FunctionalNotation",
+      "checks": 30,
+      "positions": [
+        54,
+        83
+      ],
+      "local_closure_size": 4
+    },
+    {
+      "module": "Examples.InsertionCosts",
+      "checks": 16,
+      "positions": [
+        84,
+        99
+      ],
+      "local_closure_size": 9
+    },
+    {
+      "module": "Examples.ListCalls",
+      "checks": 16,
+      "positions": [
+        100,
+        115
+      ],
+      "local_closure_size": 19
+    },
+    {
+      "module": "Examples.ListLibrary",
+      "checks": 30,
+      "positions": [
+        116,
+        145
+      ],
+      "local_closure_size": 1
+    }
+  ],
+  "static_F_local_source_blobs": {
+    "Applications/Arithmetic/EuclidInduction.lean": "0c4d03bcd60641cabb821ad5bfc1f6763656dc54",
+    "Applications/Bracketing/Basic.lean": "3f6604c226908ee807c7d5076bd1c027b48bbf90",
+    "Applications/Optimization/SelectionSpec.lean": "2548b66575b5a453e8cec30ceb745234bb0ae2e6",
+    "Applications/Resources/CallCount.lean": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+    "Applications/Resources/InsertionSort.lean": "d51ea6e9845378d3f7667adee189f8a210b477ed",
+    "Applications/Resources/ListCalls.lean": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4",
+    "Applications/Resources/ListReversal.lean": "62ab85a7325d521bf925405f9abb053703f4d175",
+    "Applications/Resources/Measured.lean": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+    "Applications/Resources/Potential.lean": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+    "Applications/Resources/RandomAccess/CacheCosts.lean": "e583ec5285ea887c38f4b369071408697f0574b2",
+    "Applications/Resources/SymmetricCosts.lean": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+    "Applications/Resources/TreeFlattening/Core.lean": "d136193bd3823ee00431bc240d1e7a0168b4ddaf",
+    "Applications/Resources/Workload.lean": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+    "Applications/Selection/Rank.lean": "3412cfa142e12d9a50c725661c6ce133609a3d0c",
+    "Applications/Sequences/RandomAccess/Access.lean": "5354c146a0665cce90ffc996d1b522b8a59079ad",
+    "Applications/Sequences/RandomAccess/Basic.lean": "fe040b71615878a86d06b326b820e1d5cd5f0229",
+    "Applications/Sequences/RandomAccess/Borrow.lean": "81b95e8bd4a6e30f6a20a85828409d6d55437be0",
+    "Applications/Sequences/RandomAccess/TreeBuild.lean": "3b662705f001c2a4b8fbe12868d6c7e77316d95f",
+    "Applications/Sequences/Symmetric/Core.lean": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4",
+    "Applications/Sorting/Merge.lean": "15708d975dc76472da0c10990e805e2d4dfbdcbb",
+    "Applications/Sorting/Sort.lean": "fb7096ebfede6b6a1721c453295faaa851453049",
+    "Applications/Sorting/Stable.lean": "614b0628261442bcbe2a3c97b4af8fc56084fc42",
+    "Examples/FunctionalBasics.lean": "bdd58014ed1f3ca284e4ba44155da946c65de866",
+    "Examples/FunctionalNotation.lean": "3e5db8677c94bd330779522f92bc39508540a17a",
+    "Examples/InsertionCosts.lean": "1c3de9b0a0a5f27f108de09f28f6ac55f4cddb36",
+    "Examples/ListCalls.lean": "b4c4683ee2bd16ff6f844ce757470515847a63dc",
+    "Examples/ListLibrary.lean": "99ba369997885e176bbda192ee0feb5c7bf4d034",
+    "SquareKit/ListFusion.lean": "33ec447acb6da7b884ae57d2a885707208201607",
+    "Squares.lean": "f8b190ece8e801f14aec99e3092c3389bbf6d85a"
+  },
+  "static_F_local_source_count": 29,
+  "direct_external_imports": [
+    "Lean",
+    "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+    "Mathlib.Algebra.BigOperators.Group.List.Basic",
+    "Mathlib.Algebra.BigOperators.Group.Multiset.Basic",
+    "Mathlib.Algebra.Group.Nat.Defs",
+    "Mathlib.Algebra.Group.Prod",
+    "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+    "Mathlib.Algebra.Order.Floor.Ring",
+    "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+    "Mathlib.Basic.Real.Basic",
+    "Mathlib.Data.Int.DivMod",
+    "Mathlib.Data.List.Basic",
+    "Mathlib.Data.List.Chain",
+    "Mathlib.Data.List.Infix",
+    "Mathlib.Data.List.Intervals",
+    "Mathlib.Data.List.MinMax",
+    "Mathlib.Data.List.Sort",
+    "Mathlib.Data.Multiset.Filter",
+    "Mathlib.Data.Nat.GCD.Basic",
+    "Mathlib.Data.Set.Finite.Basic",
+    "Mathlib.Data.Set.Lattice.Bounded",
+    "Mathlib.Data.Set.Lattice.Disjoint",
+    "Mathlib.Data.Set.Lattice.Image",
+    "Mathlib.Data.Set.Lattice.Indexed",
+    "Mathlib.Data.Set.Lattice.Order",
+    "Mathlib.Data.Set.Prod",
+    "Mathlib.Logic.Function.Basic",
+    "Mathlib.Order.Interval.Finset.Nat",
+    "Mathlib.Order.Interval.Set.Defs",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.NormNum",
+    "Std"
+  ],
+  "static_closure_basis": "Retained independently assessed closure record; all29 exactF Git blobs reverified with immutable Git reads. No live output capture or repeated mathematical review.",
+  "helper_contract": {
+    "required": [
+      "--project",
+      "--candidate",
+      "--program",
+      "--output"
+    ],
+    "optional": [
+      "--compare"
+    ],
+    "configuration_count": 10,
+    "runtime_reference_count": 12,
+    "dependency_pin_count": 9,
+    "local_olean_required": true,
+    "optional_existing_fingerprints": [
+      ".olean",
+      ".olean.hash",
+      ".olean.private",
+      ".olean.server",
+      ".trace"
+    ],
+    "object_file_count_not_predeclared": true,
+    "compare_writes_observation_before_nonzero_mismatch_exit": true
+  },
+  "original_records": [
+    {
+      "path": "REQUEST.md",
+      "bytes": 8549,
+      "lines": 148,
+      "sha256": "670038db71064a643014c952161666544cf37a4c9e17f14ddc7c4478e78dc6d8"
+    },
+    {
+      "path": "tooling/capture_statement_inputs.py",
+      "bytes": 5812,
+      "lines": 119,
+      "sha256": "4df281f3f427ec462a6973b9177fcc3f825b57b19fa8e205780f17cfaa89b5b7"
+    },
+    {
+      "path": "tooling/record_command.py",
+      "bytes": 6224,
+      "lines": 139,
+      "sha256": "f84384210851b0fd1999a323aa693eab8d464fa82f344446bd04b9e61d78c686"
+    },
+    {
+      "path": "tooling/unified-native-kit-4.35.0/conaled_native.py",
+      "bytes": 34020,
+      "lines": 605,
+      "sha256": "9d1b1e6f10ae574e5c1f388d8df069f43c9ca3e1a993c372293595abd2e5090a"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+      "bytes": 7518,
+      "lines": 156,
+      "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4"
+    },
+    {
+      "path": "provenance/foundation-complete-public-statements-prepared-20261104/inventory.json",
+      "bytes": 9630,
+      "lines": 205,
+      "sha256": "d39aa500144f7893088e8e69cb32514d75191d100e7b9fc1405e14055a94fefa"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/foundation110-potential-type-reuse-0a7ef078.json",
+      "bytes": 122392,
+      "lines": 3445,
+      "sha256": "23ec745628fc15a330a492bc70f4a22d9fb452faaf9ba482006cebf7d3546bc0"
+    },
+    {
+      "path": "reviews/shared-foundations-round1.md",
+      "bytes": 13909,
+      "lines": 216,
+      "sha256": "21b930204907024a78e3c0adcca8ee0eb6a064e03c2587872b9379d8585b138d"
+    },
+    {
+      "path": "reviews/shared-foundations-standards.md",
+      "bytes": 24375,
+      "lines": 377,
+      "sha256": "3f56c01fe4a53f50a2051108a95fa41584d7037a41af3afbd2346f9b25f5c497"
+    },
+    {
+      "path": "reviews/shared-foundations-spec.md",
+      "bytes": 32927,
+      "lines": 510,
+      "sha256": "06880532472d17d6f9d254165b61d41a437d0a79857323deac231025fd38f599"
+    },
+    {
+      "path": "reviews/shared-foundations-standards-recovery-preflight-20261104.md",
+      "bytes": 13002,
+      "lines": 234,
+      "sha256": "61b6a175e5b75e141e6c705551c378e8b6db34de835910554c7a28c618fd0d3f"
+    },
+    {
+      "path": "reviews/shared-foundations-spec-recovery-preflight-20261104.md",
+      "bytes": 11133,
+      "lines": 191,
+      "sha256": "9fedd69337033c636e638df20136575a73d5f0af42121dc80bb7c5edcbf33805"
+    },
+    {
+      "path": "reviews/shared-foundations-spec-recovered-terminal.md",
+      "bytes": 16745,
+      "lines": 115,
+      "sha256": "fc82f2dceed8b6c826de91b83ac0118486eb9b20d7a5e0e3501d3ed943efdd4b"
+    },
+    {
+      "path": "reviews/shared-foundations-standards-continuation-20261104.md",
+      "bytes": 8391,
+      "lines": 129,
+      "sha256": "6e09c7114bbaa2a4d5a7eb538eaf6c2fc29f0bc64d5427afc0a52ceecd68e559"
+    },
+    {
+      "path": "reviews/shared-foundations-spec-continuation-20261104.md",
+      "bytes": 8862,
+      "lines": 57,
+      "sha256": "450409a89197f229e88e12ff477f7c3e6b60c067fde0eef297a431163a7249d6"
+    },
+    {
+      "path": "provenance/shared-foundations-standards-continuation-20261104/identity-and-preparation.json",
+      "bytes": 18508,
+      "lines": 437,
+      "sha256": "6302153f8f1efde64ed4066ce41d84e4eafa64ef971ca081745f2a0dd8767762"
+    },
+    {
+      "path": "provenance/foundation-spec-current-continuation-20261104/preparation.json",
+      "bytes": 8310,
+      "lines": 180,
+      "sha256": "a6b4ca64a6d410cfaf1dc0d483e65b4991b6c03f4cbed07913fd7d57016306cf"
+    },
+    {
+      "path": "reviews/insertion-requirements.md",
+      "bytes": 3257,
+      "lines": 60,
+      "sha256": "fbd77fa19c83df3e6d7d10d6e7bd6cddf2d5aa888b512d5af2a7322f222f1a68"
+    },
+    {
+      "path": "reviews/list-library-requirements.md",
+      "bytes": 3123,
+      "lines": 58,
+      "sha256": "83cffa5aff717943d449f4380189a9e9a761252730f5a14f4e392f1e62d154d4"
+    },
+    {
+      "path": "reviews/list-calls-requirements.md",
+      "bytes": 4040,
+      "lines": 70,
+      "sha256": "0a2f7a2869c10276da2cc9a852e20936c6aba2d094d5232b96e94fbf47ecf78d"
+    },
+    {
+      "path": "reviews/notation-requirements.md",
+      "bytes": 3406,
+      "lines": 66,
+      "sha256": "21a4ad13752d4316817e97f655af9a768726aa682124a39a2aeac248460b5a48"
+    },
+    {
+      "path": "provenance/chapter02-foundation-full-attempt2-recovered-20261104/request.json",
+      "bytes": 737,
+      "lines": 21,
+      "sha256": "819a2014af5b15af3eb6079dd118d7e643ef5967a14646b7dda59a7ea5f1653f"
+    },
+    {
+      "path": "provenance/chapter02-foundation-full-attempt2-recovered-20261104/start.json",
+      "bytes": 940,
+      "lines": 26,
+      "sha256": "d07131fa32edfba3e35c5794c5e074481c7aa48ddcb154ab9d62f7dd3515d89c"
+    },
+    {
+      "path": "provenance/chapter02-foundation-full-attempt2-recovered-20261104/launch.json",
+      "bytes": 174,
+      "lines": 6,
+      "sha256": "a7895eb183e9e8101c54384b2c3f7ad8c44150aa0ad1602f31d2b0638c4b2cb6"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/request.json",
+      "bytes": 896,
+      "lines": 22,
+      "sha256": "5b36a770f08ba2a4245429e5e790c7afda085dda0839715c28f2282b98fa1c1b"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/secured-terminal.json",
+      "bytes": 2508,
+      "lines": 47,
+      "sha256": "c7c0b017ef12185fc8c5cfb4e82bc608dc19bec29bc34cee78fbf959a66c5252"
+    },
+    {
+      "path": "provenance/xp01-complete-public-statements20-20261104-attempt1/request.json",
+      "bytes": 872,
+      "lines": 22,
+      "sha256": "47f190262dbe4f0dda12e9cff36c2810304270ff3f8894c6ab54a9d7be2b2b4c"
+    }
+  ],
+  "immutable_readme": {
+    "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "path": "README.md",
+    "git_blob": "b2d38cbfc770f0ecb3d653dc819a67a9dd3dfa3b",
+    "bytes": 26239,
+    "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+    "bounded_read": "normal/candidate/verify/fresh and integrity contexts at lines157\u2013218, with adjacent relevant README contexts"
+  },
+  "accepted_worktree_exclusion_correction": {
+    "requested_by": "/root before final hold",
+    "source": "REQUEST.md lines70\u201377",
+    "preserved_unrelated_untracked_path": "docs/history/algorithm-design-haskell/.checkpoint-233.zip.n7UlkJ",
+    "rule": "Accepted tracked tree/index match R; preserve recorded unrelated untracked exclusions/status/fingerprints unchanged and nonconflicting. Exact isolated F must remain fully clean. --ff-only must not overwrite unrelated files.",
+    "not_a_new_candidate_cleanliness_waiver": true
+  },
+  "critical_execution_distinctions": [
+    "Actual F full terminal first; no new full or fresh run authorized by this note.",
+    "Existing capture helper is not executed in preparation.",
+    "Native CLI has no stdin-file option; use existing absolute-file invocation pattern.",
+    "Recorder creates its run directory; observations use separate new directory.",
+    "Copy exact native result referenced by actual closed outer log, not newest log directory.",
+    "Verification copies after F145/final-verify are inherited full-gate evidence, not new audits.",
+    "Both original independent full scopes must pass before immediate qualified verify and exact local fast-forward."
+  ],
+  "author_readback": {
+    "complete_recipe_read_before_exclusion_correction": true,
+    "complete_two_paragraph_exclusion_correction_read_after_change": true,
+    "complete_capture_helper_outer_recorder_F145_input_inventory_and_current_continuations_read": true,
+    "native_source_read_ranges": [
+      "105\u2013195",
+      "468\u2013557",
+      "586\u2013606"
+    ],
+    "program_hash_names_and_six_imports_verified": true,
+    "all29_static_F_blob_identities_verified": true,
+    "new_independent_review_credit": false
+  },
+  "compiler_or_cache_execution": false,
+  "live_F_output_capture_or_log_progress_inspection": false,
+  "process_polling": false,
+  "source_ref_or_old_report_mutation": false,
+  "new_acceptance_type_or_reuse_credit": false,
+  "own_write_hold": true
+}

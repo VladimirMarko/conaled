@@ -1,0 +1,197 @@
+{
+  "schema": "fdsa.output-comparator.historical-fixture-only.v1",
+  "utc": "2026-11-04T18:05:18.504522+00:00",
+  "boundary": "Only partition_native was invoked against immutable original historical bodies and original command lists. main/compare/closed_profile were never called. No current receiving body, compiler, capture or current comparator was accessed or executed.",
+  "helper": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-output-comparison-prepared-20261104/compare_native_outputs.py",
+    "bytes": 19659,
+    "sha256": "b12476350de16489f4bd90caf6e8f915cb906f2f631e806bd4f5cbe94ec68965"
+  },
+  "fixtures": [
+    {
+      "label": "HELD_HISTORICAL_FIXTURE_ONLY__Z815",
+      "original_log": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+        "bytes": 874568,
+        "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+      },
+      "body_start_line": 1,
+      "body_end_line": 11650,
+      "body_sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29",
+      "original_commands": 815,
+      "parsed_blocks": 815,
+      "diagnostics": 0,
+      "prefix_bytes": 0,
+      "exposed_unindented_term_continuations": 0,
+      "exact_byte_accounting": true,
+      "current_receiving_output": false
+    },
+    {
+      "label": "HELD_HISTORICAL_FIXTURE_ONLY__chapter02-measured-sorting-types-20261104",
+      "original_log": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-measured-sorting-types-20261104/full.log",
+        "bytes": 136360,
+        "sha256": "607eba97643a8361295857fb0777248e018534e0a7a78ed7d49760834f3ae325"
+      },
+      "body_start_line": 3,
+      "body_end_line": 1804,
+      "body_sha256": "30cc1592b72931cda4a9e73c4dc172d78bac885191a109c39ba86a9f81e2473b",
+      "original_commands": 174,
+      "parsed_blocks": 174,
+      "diagnostics": 0,
+      "prefix_bytes": 0,
+      "exposed_unindented_term_continuations": 0,
+      "exact_byte_accounting": true,
+      "current_receiving_output": false
+    },
+    {
+      "label": "HELD_HISTORICAL_FIXTURE_ONLY__chapter02-bottom-up-costs-types-20261104",
+      "original_log": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-bottom-up-costs-types-20261104/full.log",
+        "bytes": 69695,
+        "sha256": "b77970fe06b930f34286bcdb0e9a9ce1bdfbffceb2cdaf7f213cdf501137493d"
+      },
+      "body_start_line": 3,
+      "body_end_line": 914,
+      "body_sha256": "c427246f5d1d7e63c52c6d87626d68168e6cdc0cc064fc49ff66a0a45486487e",
+      "original_commands": 105,
+      "parsed_blocks": 105,
+      "diagnostics": 0,
+      "prefix_bytes": 0,
+      "exposed_unindented_term_continuations": 0,
+      "exact_byte_accounting": true,
+      "current_receiving_output": false
+    },
+    {
+      "label": "HELD_HISTORICAL_FIXTURE_ONLY__chapter02-natural-sorting-types-20261104",
+      "original_log": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-natural-sorting-types-20261104/full.log",
+        "bytes": 79992,
+        "sha256": "136335c62dbd1bd67c9f0ce77c69056b47f4e37b5b42e67ea91b233c1a71e50a"
+      },
+      "body_start_line": 3,
+      "body_end_line": 1105,
+      "body_sha256": "c0f895eaac6986af8283b81ad95f70ea4a024fac853169d3a17f6b0362d19db2",
+      "original_commands": 105,
+      "parsed_blocks": 105,
+      "diagnostics": 0,
+      "prefix_bytes": 0,
+      "exposed_unindented_term_continuations": 0,
+      "exact_byte_accounting": true,
+      "current_receiving_output": false
+    },
+    {
+      "label": "HELD_HISTORICAL_FIXTURE_ONLY__chapter02-three-way-partition-types-20261104",
+      "original_log": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-three-way-partition-types-20261104/full.log",
+        "bytes": 91292,
+        "sha256": "c05a5e5a0098492721b81c689383d421a24ec3d6bf2b00a7629ae18be5ad8d99"
+      },
+      "body_start_line": 3,
+      "body_end_line": 1219,
+      "body_sha256": "bf13e979c8d9f93ec9f2e05fc4cf5787b3560431cd55cad7750ba330a058c595",
+      "original_commands": 84,
+      "parsed_blocks": 84,
+      "diagnostics": 0,
+      "prefix_bytes": 0,
+      "exposed_unindented_term_continuations": 1,
+      "exact_byte_accounting": true,
+      "current_receiving_output": false
+    },
+    {
+      "label": "HELD_HISTORICAL_FIXTURE_ONLY__chapter02-xd01-random-types-20261104",
+      "original_log": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-xd01-random-types-20261104/full.log",
+        "bytes": 123793,
+        "sha256": "5027831298792411bde1622e6ad00aef816a0f0f41c97e372139eb8a47afe182"
+      },
+      "body_start_line": 3,
+      "body_end_line": 1674,
+      "body_sha256": "2f1953c0e06b7f5b7ce1829dbad49f7d3da94e0ddfc459aee8285ec9b8655204",
+      "original_commands": 134,
+      "parsed_blocks": 134,
+      "diagnostics": 0,
+      "prefix_bytes": 0,
+      "exposed_unindented_term_continuations": 0,
+      "exact_byte_accounting": true,
+      "current_receiving_output": false
+    },
+    {
+      "label": "HELD_HISTORICAL_FIXTURE_ONLY__chapter02-bottom-up-alternating-types-20261104",
+      "original_log": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-bottom-up-alternating-types-20261104/full.log",
+        "bytes": 41284,
+        "sha256": "3296e4ba5330af5a1e1d6897ea7acb9898452def68510df2e9c343e70c1180b8"
+      },
+      "body_start_line": 3,
+      "body_end_line": 583,
+      "body_sha256": "b41661ec88260988f736086f33e52f1850583e6b3fcb8ed831912ac35dbd4a6e",
+      "original_commands": 126,
+      "parsed_blocks": 126,
+      "diagnostics": 0,
+      "prefix_bytes": 0,
+      "exposed_unindented_term_continuations": 0,
+      "exact_byte_accounting": true,
+      "current_receiving_output": false
+    },
+    {
+      "label": "HELD_HISTORICAL_FIXTURE_ONLY__chapter02-top-down-costs-types-20261104",
+      "original_log": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-top-down-costs-types-20261104/full.log",
+        "bytes": 11545,
+        "sha256": "ad826e1d3c972acbb437e9bceb5403ba230275033c623dc5526649eb2e79e6c8"
+      },
+      "body_start_line": 3,
+      "body_end_line": 149,
+      "body_sha256": "9fe2f20bef762d1a19cc97214c834b3222bab2d7b1d2acb74dd197b63fbd0f0b",
+      "original_commands": 32,
+      "parsed_blocks": 32,
+      "diagnostics": 0,
+      "prefix_bytes": 0,
+      "exposed_unindented_term_continuations": 0,
+      "exact_byte_accounting": true,
+      "current_receiving_output": false
+    },
+    {
+      "label": "HELD_HISTORICAL_FIXTURE_ONLY__chapter02-uniqueness-types-20261104",
+      "original_log": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-uniqueness-types-20261104/full.log",
+        "bytes": 6817,
+        "sha256": "11b58acd78c4f7b77bf4fbdb8bd7e4ca48378dcb2fab8c32d91fd0e4ccebda3f"
+      },
+      "body_start_line": 3,
+      "body_end_line": 93,
+      "body_sha256": "898e151c4e7c96cf1debe83f9cc66170bf7b746dbfaebf9397d2e26130a01259",
+      "original_commands": 9,
+      "parsed_blocks": 9,
+      "diagnostics": 0,
+      "prefix_bytes": 0,
+      "exposed_unindented_term_continuations": 0,
+      "exact_byte_accounting": true,
+      "current_receiving_output": false
+    },
+    {
+      "label": "HELD_HISTORICAL_FIXTURE_ONLY__chapter02-natural-runs-statements-20261104",
+      "original_log": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-natural-runs-statements-20261104/full.log",
+        "bytes": 22632,
+        "sha256": "bcde796041ddae8ec96f0e13e3231501cf9170f8cded41dc9565b54a8fc1af31"
+      },
+      "body_start_line": 1,
+      "body_end_line": 279,
+      "body_sha256": "bcde796041ddae8ec96f0e13e3231501cf9170f8cded41dc9565b54a8fc1af31",
+      "original_commands": 107,
+      "parsed_blocks": 107,
+      "diagnostics": 0,
+      "prefix_bytes": 0,
+      "exposed_unindented_term_continuations": 0,
+      "exact_byte_accounting": true,
+      "current_receiving_output": false
+    }
+  ],
+  "profiles": 10,
+  "blocks": 1691,
+  "current_type_credit": 0,
+  "current_output_comparison_performed": false,
+  "prior_failed_fixture": "historical-fixture-attempt1.json retained; an unindented @List.Perm term is now exposed and kept in the exact raw block, not classified solely by its qualified-name shape."
+}

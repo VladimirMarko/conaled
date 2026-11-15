@@ -1,0 +1,48 @@
+{
+  "random_candidate": "96722600aa29636e028751242ce33d562c5a9255",
+  "random_hold": "provenance/chapter03-random-selection-implementation-20261104/worst-correction1-20261105/author-hold.json",
+  "random_hold_identity": {
+    "bytes": 165475,
+    "sha256": "8cb5ecf5862e717537dfb5ee6dae6fb2c91bd0d9c52306f2c71e82484059ad0b"
+  },
+  "reviewer_holds": [
+    {
+      "path": "provenance/chapter03-standards-review-20261104/write-hold-before0136.json",
+      "bytes": 4800,
+      "sha256": "5d0890444c5dd0d177e6c5833bd507ed7ffadd792606b735ffa648e05644f3b7"
+    },
+    {
+      "path": "provenance/chapter03-spec-review-20261104/write-hold-0136.json",
+      "bytes": 3391,
+      "sha256": "b5ae0baf4b1042baeaf5707151611697f6f8d6103616da0b3bd934f4009d8df6"
+    }
+  ],
+  "reviewer_summary": {
+    "Standards": {
+      "outcome": "Blocked; incomplete",
+      "source_and_actual_type_assessed_modules": 52,
+      "actual_type_blocks": 915,
+      "remaining_current_receiver_modules": 24,
+      "canonical_report": {
+        "bytes": 5178,
+        "sha256": "91f41545bf1b82d49984dd7e366c35bd54d1295ea6cada82404aec2c1cea5348"
+      }
+    },
+    "Spec": {
+      "outcome": "Blocked; incomplete",
+      "source_assessed_modules": 70,
+      "source_public_claims": 1224,
+      "actual_type_blocks": 1201,
+      "remaining_current_receiver_source_modules": 6,
+      "trace23_actual_types_unread": true,
+      "canonical_report": {
+        "bytes": 10063,
+        "sha256": "b2843904bff70956ae8847168b03947f82c7bfed023c91536839ea335d314f4e"
+      }
+    },
+    "post_hold_readonly_progress": "Both reviewers reported additional read-only work; those unsaved increments are not credited to this held checkpoint count and will be persisted only after release.",
+    "same_original_Q_all83_scope": true,
+    "both_reported_findings_resolved": true,
+    "final_candidate_gates_pending": true
+  }
+}

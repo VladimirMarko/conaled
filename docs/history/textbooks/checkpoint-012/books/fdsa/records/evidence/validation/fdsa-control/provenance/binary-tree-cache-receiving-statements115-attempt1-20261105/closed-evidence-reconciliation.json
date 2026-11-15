@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-05T02:25:40.587928+00:00",
+  "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "terminal": {
+    "recorded_utc": "2026-11-05T02:25:40.587158+00:00",
+    "owned_session": 99599,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "44cda7",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58"
+  },
+  "actual_recorder_and_native_exits": [
+    0,
+    0
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/full.log",
+    "bytes": 46402,
+    "sha256": "f9e84cce01411532b374c731d7cf2142a0d7dadaa6ca1adda79a6df10465513c"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261105T022520Z-project-run-22dca96f",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/native-records/start.json",
+      "bytes": 572,
+      "sha256": "1116cdf62cd1c25186d5edd9d823a0af12c069fbe06b50173f7b3cb97ac41a01"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/native-records/result.json",
+      "bytes": 724,
+      "sha256": "54992ed030ac71bbeabae90c6850111a9985c2958be04e873201b784ceb01446"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/native-records/output.log",
+      "bytes": 46032,
+      "sha256": "ea8ebef082abef7de66e7ce3f269771290073bc96a287ff864d49813c90d052b"
+    }
+  },
+  "native_body_exact_outer_offset": 214,
+  "complete_closed_log": true,
+  "scope": "Actual expanded public statement output for all 115 original XT01 names on exact receiving candidate. Full candidate check/audit and semantic review remain separate.",
+  "verification_record_candidate": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

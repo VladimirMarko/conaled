@@ -1,0 +1,16 @@
+{
+  "time_recorded": "2026-11-03T19:10:00.231881+00:00",
+  "observed_problem": "ENOSPC during prior decision-record write; file remained zero bytes",
+  "failed_decision_file": "validation/common-integration-decision-044.failed-empty.json",
+  "failed_file_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "initial_checkpoint_log": "validation/checkpoint044-initial-creation-empty.log",
+  "initial_log_bytes": 0,
+  "previous_execution_reported_exit": 120,
+  "checkpoint044_archive_exists": false,
+  "staging_correction": "pfds-checkpoint-enu_6j5q has checkpoint040 manifest matching saved040; it is not failed044 staging. Its archive members were verified. Restored/conaled is not a usable Git repository; cleanup attempt stopped without deleting it.",
+  "causal_limit": "Later observed disk exhaustion does not establish the cause of import-901-native-fresh-r2 execution disconnection.",
+  "retirement_evidence": [
+    "validation/checkpoint044-partial-download-retirement.json",
+    "validation/checkpoint044-review-materialization-retirement.json"
+  ]
+}

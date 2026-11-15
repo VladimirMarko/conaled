@@ -1,0 +1,181 @@
+{
+  "recorded_utc": "2026-11-04T21:31:44.112679+00:00",
+  "dependency_receiving_commit": "0f66bcf85ead843e1d6cf69c17f8e23fa6b84292",
+  "tree": "b4dc5e553997865cd0debde6fabe7f152da909f0",
+  "parent": "d0479dd03371f1c1f0b41dff5f1882a36206f40a",
+  "source_authorization": "Root explicitly authorized exact minimal dependency copies from be8a5ab and needed HalvingTrace files from45d120ce; no unrelated branch merged.",
+  "copied_sources": [
+    {
+      "repository_path": "Applications/Resources/Chunks.lean",
+      "origin_candidate": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "bytes": 4591,
+      "sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc",
+      "git_blob": "25c7db2d5358bf2087657a8987963ba31dff09eb",
+      "status_before": "absent"
+    },
+    {
+      "repository_path": "Applications/Resources/SelectionAuxiliary.lean",
+      "origin_candidate": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "bytes": 6215,
+      "sha256": "eeba4ac85dd4e07b8b42f38499748cae69cb6dcaaa01fdc8400a3cf5b947a925",
+      "git_blob": "2bc892fee38610f0866e0cc3cd3529b7693f7c03",
+      "status_before": "absent"
+    },
+    {
+      "repository_path": "Applications/Resources/SelectionMedians.lean",
+      "origin_candidate": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "bytes": 9755,
+      "sha256": "e64e998edc9353e5fd52544177fadd32f6398e3260b27ca54195cd8917e5d098",
+      "git_blob": "cd6bd74d71c43fc76d32555521d612dfb7cc5ee8",
+      "status_before": "absent"
+    },
+    {
+      "repository_path": "Applications/Resources/Selection.lean",
+      "origin_candidate": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "bytes": 22435,
+      "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+      "git_blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3",
+      "status_before": "absent"
+    },
+    {
+      "repository_path": "Applications/Resources/RoundedRecurrence.lean",
+      "origin_candidate": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758",
+      "git_blob": "0f78fd302b88aba9596036a63b79195007e502a8",
+      "status_before": "absent"
+    },
+    {
+      "repository_path": "Applications/Resources/RoundedRecurrenceBounds.lean",
+      "origin_candidate": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "bytes": 6951,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135",
+      "git_blob": "45b5c20045c45919eb1f368ae0d9c9629b32a27b",
+      "status_before": "absent"
+    },
+    {
+      "repository_path": "Applications/Resources/SelectionRecurrence.lean",
+      "origin_candidate": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "bytes": 6560,
+      "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e",
+      "git_blob": "ff3350e7cc566e62466e056166c8af6f781e32df",
+      "status_before": "absent"
+    },
+    {
+      "repository_path": "Applications/Resources/SelectionBounds.lean",
+      "origin_candidate": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "bytes": 10073,
+      "sha256": "0f9181b569d24b2615c08be5c6a305a75e67679f14338e877fced10113d61edc",
+      "git_blob": "b68014cfc729990255e6883ac5d874af30bbb058",
+      "status_before": "absent"
+    },
+    {
+      "repository_path": "Applications/Resources/HalvingTrace.lean",
+      "origin_candidate": "45d120ce0f5bacbaac76cbceeca13ee3ff494dff",
+      "bytes": 6430,
+      "sha256": "89f15ae8a7e222a5c046e91582c38c61283350b27acacfd0c1278d2da4f7aaa6",
+      "git_blob": "bf85acd26b4d35526ec25a6e6c3009b5589e4949",
+      "status_before": "absent"
+    }
+  ],
+  "prior18_preserved": true,
+  "scope": "Exact source copies only. Not newly authored mathematics; owner provenance/reviews retained. Focused success at donor candidates is attributed and does not constitute Chapter3 acceptance.",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "add",
+        "--",
+        "Applications/Resources/Chunks.lean",
+        "Applications/Resources/SelectionAuxiliary.lean",
+        "Applications/Resources/SelectionMedians.lean",
+        "Applications/Resources/Selection.lean",
+        "Applications/Resources/RoundedRecurrence.lean",
+        "Applications/Resources/RoundedRecurrenceBounds.lean",
+        "Applications/Resources/SelectionRecurrence.lean",
+        "Applications/Resources/SelectionBounds.lean",
+        "Applications/Resources/HalvingTrace.lean"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--name-only"
+      ],
+      "exit": 0,
+      "stdout": "Applications/Resources/Chunks.lean\nApplications/Resources/HalvingTrace.lean\nApplications/Resources/RoundedRecurrence.lean\nApplications/Resources/RoundedRecurrenceBounds.lean\nApplications/Resources/Selection.lean\nApplications/Resources/SelectionAuxiliary.lean\nApplications/Resources/SelectionBounds.lean\nApplications/Resources/SelectionMedians.lean\nApplications/Resources/SelectionRecurrence.lean\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "user.name=ChatGPT",
+        "-c",
+        "user.email=chatgpt@openai.com",
+        "commit",
+        "-m",
+        "chore(resources): stage checked dependencies for halving selection (#174)"
+      ],
+      "exit": 0,
+      "stdout": "[work/fdsa-ch03-values 0f66bcf] chore(resources): stage checked dependencies for halving selection (#174)\n 9 files changed, 1732 insertions(+)\n create mode 100644 Applications/Resources/Chunks.lean\n create mode 100644 Applications/Resources/HalvingTrace.lean\n create mode 100644 Applications/Resources/RoundedRecurrence.lean\n create mode 100644 Applications/Resources/RoundedRecurrenceBounds.lean\n create mode 100644 Applications/Resources/Selection.lean\n create mode 100644 Applications/Resources/SelectionAuxiliary.lean\n create mode 100644 Applications/Resources/SelectionBounds.lean\n create mode 100644 Applications/Resources/SelectionMedians.lean\n create mode 100644 Applications/Resources/SelectionRecurrence.lean\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit": 0,
+      "stdout": "0f66bcf85ead843e1d6cf69c17f8e23fa6b84292\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD^{tree}"
+      ],
+      "exit": 0,
+      "stdout": "b4dc5e553997865cd0debde6fabe7f152da909f0\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

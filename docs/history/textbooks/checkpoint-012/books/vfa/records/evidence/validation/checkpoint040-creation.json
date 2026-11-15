@@ -1,0 +1,14 @@
+{
+  "file": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/checkpoints/conaled-vfa-checkpoint-040-native-foundations-validation.tar.gz",
+  "size_bytes": 148778193,
+  "sha256": "f36118bc211f0067b4984e5ab89903a65b1eae4a2d224411cacf43292589b2be",
+  "head": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+  "manifest_check": "passed",
+  "manifest_files_checked": 936,
+  "bundle_verify": "passed before archive creation",
+  "restore_smoke": "passed before archive creation",
+  "source_index_workflow_stability": "passed before archive creation",
+  "creation_exit_status": null,
+  "creation_exit_status_note": "Original tool terminal output was not retained across context compaction and the process handle had closed. The complete final archive exists and its manifest has been independently rechecked. Checkpoint script creates this archive only after bundle verification, restored-source comparison, fsck, and stability gates pass; this is code-order evidence, not a reconstructed process exit.",
+  "recorded_utc": "2026-11-03T17:06:07.328324+00:00"
+}

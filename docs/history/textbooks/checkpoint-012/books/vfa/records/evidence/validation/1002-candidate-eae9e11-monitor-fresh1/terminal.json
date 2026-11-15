@@ -1,0 +1,12 @@
+{
+  "observed_utc": "2026-11-04T13:50:23.048536+00:00",
+  "owned_session": 30015,
+  "actual_execution_api_result": {
+    "chunk_id": "d94a35",
+    "wall_time_seconds": 2.927956197,
+    "exit_code": 1,
+    "original_token_count": 406,
+    "output": "[749/953] Applications.Probability.SearchObservation (3.45s)\r\n[750/953] Applications.Probability.CoinPaths (3.73s)\r\n[751/953] Applications.Probability.HeavyTail (3.11s)\r\n[752/953] Applications.Probability.Productivity (2.76s)\r\n[753/953] Applications.Probability.Results (3.47s)\r\nApplications/Probability/Results.lean:22:0: warning: automatically included section variable(s) unused in theorem `ProbabilityProgress.outcome_some_iff`:\r\n  [MeasurableSpace \u03a9]\r\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\r\n  omit [MeasurableSpace \u03a9] in theorem ...\r\n\r\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\r\nApplications/Probability/Results.lean:40:0: warning: automatically included section variable(s) unused in theorem `ProbabilityProgress.outcome_none_iff`:\r\n  [MeasurableSpace \u03a9]\r\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\r\n  omit [MeasurableSpace \u03a9] in theorem ...\r\n\r\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\r\n[754/953] Applications.Probability.HittingTimes (3.34s)\r\n[755/953] Examples.ProbabilisticProgress (3.78s)\r\nfailed to write '/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/fresh-check-ksjalupb/Examples/ProbabilisticProgress.olean': failed to create file\r\nVerification failed: Compilation failed: Examples.ProbabilisticProgress (exit 1)\r\n[result] exit=1, 7282.222s; /workspace/scratch/60f07f0e98c8/native-state/logs/20261104T114805Z-project-run-0faa8e6a/result.json\r\n"
+  },
+  "source": "Actual write_stdin terminal response; not inferred from log presence."
+}

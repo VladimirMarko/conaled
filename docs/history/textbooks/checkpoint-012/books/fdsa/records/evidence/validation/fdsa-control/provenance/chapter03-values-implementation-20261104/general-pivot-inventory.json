@@ -1,0 +1,416 @@
+{
+  "candidate": "9cf01df8f01eb73ec5a2020995d90bb6b6eaba84",
+  "tree": "4a04531393a50206cb1fe73cfbcc77511172ceeb",
+  "stage_base": "7758fdcd1d46cee392eee155d74311aeb45322a5",
+  "whole_chapter_review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "status": "Exhaustive source-header inventory, not emitted types. Lexical source_context may include variables not retained as parameters. Public explicit-@ type capture remains pending; the named private helper stays in source/full module/audit review scope.",
+  "public_count": 27,
+  "private_count": 1,
+  "modules": [
+    {
+      "module": "Examples.GeneralMedianBounds",
+      "repository_path": "Examples/GeneralMedianBounds.lean",
+      "namespace": "Examples.GeneralMedianBounds",
+      "imports": [
+        "Applications.Selection.MedianOfMedians"
+      ],
+      "bytes": 8965,
+      "sha256": "a4f3bf0e5a27c2762b705a19854e5f0a848e5b9c051c74e23e674c71222e9e20",
+      "git_blob": "975ab58fe7a99eac6e62aace65dbe31170095307",
+      "declarations": [
+        {
+          "name": "Examples.GeneralMedianBounds.partition_bounds",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem partition_bounds (d : Nat) (xs : List \u03b1) (p : \u03b1)\n    (hd : 0 < d) (hp : medianOfMedians d xs = some p) :\n    (partition3 p xs).1.length \u2264\n        d / 2 * (xs.length \u2308/\u2309 d) + (d - d / 2) * ((xs.length \u2308/\u2309 d) / 2) \u2227\n      (partition3 p xs).2.2.length \u2264\n        d / 2 * (xs.length \u2308/\u2309 d) + (d - d / 2) * ((xs.length \u2308/\u2309 d) / 2)",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.nonempty_input_has_bounded_pivot",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem nonempty_input_has_bounded_pivot (d : Nat) (xs : List \u03b1)\n    (hd : 0 < d) (hx : xs \u2260 []) :\n    \u2203 p : \u03b1, medianOfMedians d xs = some p \u2227 p \u2208 xs \u2227\n      (partition3 p xs).1.length \u2264\n          d / 2 * (xs.length \u2308/\u2309 d) + (d - d / 2) * ((xs.length \u2308/\u2309 d) / 2) \u2227\n        (partition3 p xs).2.2.length \u2264\n          d / 2 * (xs.length \u2308/\u2309 d) + (d - d / 2) * ((xs.length \u2308/\u2309 d) / 2)",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.three_group_bounds",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem three_group_bounds (xs : List \u03b1) (p : \u03b1)\n    (hp : medianOfMedians 3 xs = some p) :\n    xs.countP (fun x => decide (x < p)) \u2264\n        (xs.length \u2308/\u2309 3) + 2 * ((xs.length \u2308/\u2309 3) / 2) \u2227\n      xs.countP (fun x => decide (p < x)) \u2264\n        (xs.length \u2308/\u2309 3) + 2 * ((xs.length \u2308/\u2309 3) / 2)",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.four_group_bounds",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem four_group_bounds (xs : List \u03b1) (p : \u03b1)\n    (hp : medianOfMedians 4 xs = some p) :\n    xs.countP (fun x => decide (x < p)) \u2264\n        2 * (xs.length \u2308/\u2309 4) + 2 * ((xs.length \u2308/\u2309 4) / 2) \u2227\n      xs.countP (fun x => decide (p < x)) \u2264\n        2 * (xs.length \u2308/\u2309 4) + 2 * ((xs.length \u2308/\u2309 4) / 2)",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.six_group_bounds",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem six_group_bounds (xs : List \u03b1) (p : \u03b1)\n    (hp : medianOfMedians 6 xs = some p) :\n    xs.countP (fun x => decide (x < p)) \u2264\n        3 * (xs.length \u2308/\u2309 6) + 3 * ((xs.length \u2308/\u2309 6) / 2) \u2227\n      xs.countP (fun x => decide (p < x)) \u2264\n        3 * (xs.length \u2308/\u2309 6) + 3 * ((xs.length \u2308/\u2309 6) / 2)",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.constant_input_pivot",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem constant_input_pivot (d n : Nat) (a : \u03b1) (hd : 0 < d) (hn : 0 < n) :\n    medianOfMedians d (List.replicate n a) = some a",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.constant_input_strict_counts",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem constant_input_strict_counts (n : Nat) (a : \u03b1) :\n    (List.replicate n a).countP (fun x => decide (x < a)) = 0 \u2227\n      (List.replicate n a).countP (fun x => decide (a < x)) = 0",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.chunkMedians_eq_heads",
+          "visibility": "private",
+          "kind": "theorem",
+          "source_header": "private theorem chunkMedians_eq_heads (d : Nat) (xs : List Nat)\n    (h : \u2200 ys (hy : ys \u2208 chop d xs),\n      lowerMedianValue ys (chop_mem_ne_nil d xs ys hy) = ys.headD 0) :\n    chunkMedians d xs = (chop d xs).map (fun ys : List Nat => ys.headD 0)",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.oddInput",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def oddInput : List Nat",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.odd_chops",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem odd_chops : chop 3 oddInput = [[0, 0, 1], [2, 2, 3], [9]]",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.odd_chunk_count",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem odd_chunk_count : oddInput.length \u2308/\u2309 3 = 3",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.odd_medians",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem odd_medians : chunkMedians 3 oddInput = [0, 2, 9]",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.odd_pivot",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem odd_pivot : medianOfMedians 3 oddInput = some 2",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.odd_strict_counts",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem odd_strict_counts : oddInput.countP (fun x => decide (x < 2)) = 3 \u2227\n    oddInput.countP (fun x => decide (2 < x)) = 2",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.odd_bound_from_general",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem odd_bound_from_general : oddInput.countP (fun x => decide (x < 2)) \u2264 5 \u2227\n    oddInput.countP (fun x => decide (2 < x)) \u2264 5",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.odd_partition_values",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem odd_partition_values : partition3 2 oddInput = ([0, 0, 1], [2, 2], [3, 9])",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.odd_partition_bounds",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem odd_partition_bounds : (partition3 2 oddInput).1.length \u2264 5 \u2227\n    (partition3 2 oddInput).2.2.length \u2264 5",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.evenInput",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def evenInput : List Nat",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.even_chops",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem even_chops : chop 4 evenInput = [[0, 0, 1, 2], [3, 3, 4, 5], [9]]",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.even_chunk_count",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem even_chunk_count : evenInput.length \u2308/\u2309 4 = 3",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.even_medians",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem even_medians : chunkMedians 4 evenInput = [0, 3, 9]",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.even_pivot",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem even_pivot : medianOfMedians 4 evenInput = some 3",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.even_strict_counts",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem even_strict_counts : evenInput.countP (fun x => decide (x < 3)) = 4 \u2227\n    evenInput.countP (fun x => decide (3 < x)) = 3",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.even_bound_from_general",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem even_bound_from_general : evenInput.countP (fun x => decide (x < 3)) \u2264 8 \u2227\n    evenInput.countP (fun x => decide (3 < x)) \u2264 8",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.even_partition_values",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem even_partition_values :\n    partition3 3 evenInput = ([0, 0, 1, 2], [3, 3], [4, 5, 9])",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.even_partition_bounds",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem even_partition_bounds : (partition3 3 evenInput).1.length \u2264 8 \u2227\n    (partition3 3 evenInput).2.2.length \u2264 8",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.integer_ties_with_short_chunk",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem integer_ties_with_short_chunk :\n    medianOfMedians 6 (List.replicate 7 (-4 : Int)) = some (-4) \u2227\n      chop 6 (List.replicate 7 (-4 : Int)) = [List.replicate 6 (-4), [-4]] \u2227\n        (List.replicate 7 (-4 : Int)).countP (fun x => decide (x < -4)) = 0 \u2227\n          (List.replicate 7 (-4 : Int)).countP (fun x => decide (-4 < x)) = 0",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        },
+        {
+          "name": "Examples.GeneralMedianBounds.integer_tie_bound",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem integer_tie_bound :\n    (List.replicate 7 (-4 : Int)).countP (fun x => decide (x < -4)) \u2264 9 \u2227\n      (List.replicate 7 (-4 : Int)).countP (fun x => decide (-4 < x)) \u2264 9",
+          "source_context": [
+            "set_option autoImplicit false",
+            "set_option warningAsError true",
+            "namespace Examples.GeneralMedianBounds",
+            "open Applications.Selection Applications.Sequences.Chunks Sequences.Partition",
+            "universe u",
+            "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+          ]
+        }
+      ]
+    }
+  ]
+}

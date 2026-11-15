@@ -1,0 +1,9 @@
+{
+  "name": "Examples.CoordinateSelection.total_correct_value_view",
+  "old_header": "theorem total_correct_value_view (k : Fin n) :\n    Total (selectedValue k.val) ∧ Selects (selectedValue k.val) k",
+  "new_header": "theorem total_correct_value_view (k : Fin n) :\n    Total (selectedValue (n := n) k.val) ∧ Selects (selectedValue k.val) k",
+  "change": "The first conjunct now explicitly supplies (n := n) to selectedValue, using the same ambient n bound by k : Fin n.",
+  "old_header_elaboration_status": "Actual attempt2 failed with unresolved implicit n. No equality of previously elaborated types is claimed.",
+  "preserved_domains": "All n : Nat and k : Fin n; Total quantifies the same Fin n integer input dimension as Selects. No added hypothesis or binder, no rank/domain weakening.",
+  "proof_body_exact": true
+}

@@ -1,0 +1,342 @@
+{
+  "recorded_utc": "2026-11-04T19:46:58.215407+00:00",
+  "finding": "C03-RANDOM-RUN-ELAB-002",
+  "related_prior_finding": "C03-RANDOM-RUN-ELAB-001",
+  "fixed_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "previous_candidate": "b059af864122a6b09912ba0db8095f422f8991bf",
+  "changed_paths": [
+    "Applications/Resources/RandomSelectionRun.lean"
+  ],
+  "changed_declaration_bodies": [
+    "run_cons",
+    "run_support_bounds"
+  ],
+  "source": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Applications/Resources/RandomSelectionRun.lean",
+    "bytes": 12714,
+    "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718"
+  },
+  "exact_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/run-correction2-20261104/correction.diff",
+    "bytes": 2057,
+    "sha256": "3c1a0423c89d16dc5016b6eb744c2f2d881357dbfe6a9e38ff1e36ae137075dd"
+  },
+  "headers": [
+    {
+      "kind": "abbrev",
+      "name": "Trace",
+      "header": "abbrev Trace"
+    },
+    {
+      "kind": "abbrev",
+      "name": "Outcome",
+      "header": "abbrev Outcome (\u03b1 : Type u)"
+    },
+    {
+      "kind": "def",
+      "name": "scanVolume",
+      "header": "def scanVolume (trace : Trace) : Nat"
+    },
+    {
+      "kind": "theorem",
+      "name": "scanVolume_nil",
+      "header": "@[simp] theorem scanVolume_nil : scanVolume [] = 0"
+    },
+    {
+      "kind": "theorem",
+      "name": "scanVolume_cons",
+      "header": "@[simp] theorem scanVolume_cons (n i : Nat) (trace : Trace) :\n    scanVolume ((n, i) :: trace) = n + scanVolume trace"
+    },
+    {
+      "kind": "def",
+      "name": "prepend",
+      "header": "def prepend (n i calls : Nat) (result : Outcome \u03b1) : Outcome \u03b1"
+    },
+    {
+      "kind": "def",
+      "name": "run",
+      "header": "def run : Nat \u2192 List \u03b1 \u2192 PMF (Outcome \u03b1)"
+    },
+    {
+      "kind": "theorem",
+      "name": "run_nil",
+      "header": "@[simp] theorem run_nil (k : Nat) :\n    run k ([] : List \u03b1) = PMF.pure (none, ([], 2))"
+    },
+    {
+      "kind": "theorem",
+      "name": "run_cons",
+      "header": "theorem run_cons (k : Nat) (head : \u03b1) (tail : List \u03b1) :\n    run k (head :: tail) =\n      PMF.bind (RandomQuickSort.uniformIndex tail.length) fun i =>\n        let action := stepRun k (head :: tail) i\n        match action.1 with\n        | Sum.inl (j, ys) =>\n            PMF.map (prepend (head :: tail).length i.val action.2) (run j ys)\n        | Sum.inr p => PMF.pure (some p, ([((head :: tail).length, i.val)], action.2))"
+    },
+    {
+      "kind": "theorem",
+      "name": "run_value",
+      "header": "theorem run_value (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) : result.1 = (ordered xs)[k]?"
+    },
+    {
+      "kind": "theorem",
+      "name": "run_ranked",
+      "header": "theorem run_ranked (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) (a : \u03b1) (ha : result.1 = some a) :\n    RankedAt xs k a"
+    },
+    {
+      "kind": "theorem",
+      "name": "run_none",
+      "header": "theorem run_none (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) : result.1 = none \u2194 xs.length \u2264 k"
+    },
+    {
+      "kind": "theorem",
+      "name": "run_valid",
+      "header": "theorem run_valid (k : Nat) (xs : List \u03b1) (hk : k < xs.length)\n    (result : Outcome \u03b1) (hr : result \u2208 (run k xs).support) :\n    \u2203 a, result.1 = some a \u2227 RankedAt xs k a"
+    },
+    {
+      "kind": "theorem",
+      "name": "run_support_bounds",
+      "header": "private theorem run_support_bounds (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) :\n    result.2.1.length \u2264 xs.length \u2227\n      xs.length \u2264 scanVolume result.2.1 \u2227\n      2 * scanVolume result.2.1 \u2264 xs.length * (xs.length + 1) \u2227\n      scanVolume result.2.1 \u2264 result.2.2 \u2227\n      result.2.2 \u2264 9 * scanVolume result.2.1 + 2 \u2227\n      \u2200 entry \u2208 result.2.1, 0 < entry.1 \u2227 entry.2 < entry.1 \u2227 entry.1 \u2264 xs.length"
+    },
+    {
+      "kind": "theorem",
+      "name": "run_active_calls_le",
+      "header": "theorem run_active_calls_le (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) : result.2.1.length \u2264 xs.length"
+    },
+    {
+      "kind": "theorem",
+      "name": "run_initial_scan_le",
+      "header": "theorem run_initial_scan_le (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) : xs.length \u2264 scanVolume result.2.1"
+    },
+    {
+      "kind": "theorem",
+      "name": "run_scanVolume_le",
+      "header": "theorem run_scanVolume_le (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) :\n    scanVolume result.2.1 \u2264 xs.length * (xs.length + 1) / 2"
+    },
+    {
+      "kind": "theorem",
+      "name": "run_source_bridge",
+      "header": "theorem run_source_bridge (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) :\n    scanVolume result.2.1 \u2264 result.2.2 \u2227 result.2.2 \u2264 9 * scanVolume result.2.1 + 2"
+    },
+    {
+      "kind": "theorem",
+      "name": "run_trace_entries",
+      "header": "theorem run_trace_entries (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) :\n    \u2200 entry \u2208 result.2.1, 0 < entry.1 \u2227 entry.2 < entry.1 \u2227 entry.1 \u2264 xs.length"
+    },
+    {
+      "kind": "theorem",
+      "name": "run_source_quadratic",
+      "header": "theorem run_source_quadratic (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) :\n    result.2.2 \u2264 9 * (xs.length * (xs.length + 1) / 2) + 2"
+    },
+    {
+      "kind": "def",
+      "name": "select",
+      "header": "def select (k : Nat) (xs : List \u03b1) : PMF (Outcome \u03b1)"
+    },
+    {
+      "kind": "theorem",
+      "name": "select_value",
+      "header": "theorem select_value (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (select k xs).support) : result.1 = sortSelect k xs"
+    },
+    {
+      "kind": "theorem",
+      "name": "select_none",
+      "header": "theorem select_none (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (select k xs).support) :\n    result.1 = none \u2194 k = 0 \u2228 xs.length < k"
+    },
+    {
+      "kind": "theorem",
+      "name": "select_some_iff",
+      "header": "theorem select_some_iff (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (select k xs).support) (a : \u03b1) :\n    result.1 = some a \u2194 0 < k \u2227 RankedAt xs (k - 1) a"
+    },
+    {
+      "kind": "def",
+      "name": "scanLaw",
+      "header": "def scanLaw (k : Nat) (xs : List \u03b1) : PMF Nat"
+    },
+    {
+      "kind": "def",
+      "name": "sourceLaw",
+      "header": "def sourceLaw (k : Nat) (xs : List \u03b1) : PMF Nat"
+    },
+    {
+      "kind": "theorem",
+      "name": "scanLaw_support",
+      "header": "theorem scanLaw_support (k : Nat) (xs : List \u03b1) :\n    (scanLaw k xs).support \u2286 Set.Iic (xs.length * (xs.length + 1) / 2)"
+    },
+    {
+      "kind": "theorem",
+      "name": "scanLaw_support_finite",
+      "header": "theorem scanLaw_support_finite (k : Nat) (xs : List \u03b1) : (scanLaw k xs).support.Finite"
+    },
+    {
+      "kind": "theorem",
+      "name": "sourceLaw_support",
+      "header": "theorem sourceLaw_support (k : Nat) (xs : List \u03b1) :\n    (sourceLaw k xs).support \u2286 Set.Iic (9 * (xs.length * (xs.length + 1) / 2) + 2)"
+    },
+    {
+      "kind": "theorem",
+      "name": "sourceLaw_support_finite",
+      "header": "theorem sourceLaw_support_finite (k : Nat) (xs : List \u03b1) : (sourceLaw k xs).support.Finite"
+    }
+  ],
+  "all30_declaration_headers_identical": true,
+  "all_execution_definitions_and_bodies_identical": true,
+  "all_other28_declaration_blocks_identical": true,
+  "imports_unchanged": true,
+  "global_options_unchanged": true,
+  "other3_source_files_unchanged": true,
+  "all_prior_own_provenance_unchanged": true,
+  "prior_own_provenance_count": 32,
+  "all_failed_attempt2_evidence_unchanged": true,
+  "full_public_names": [
+    "Resources.RandomSelection.pivotRun",
+    "Resources.RandomSelection.pivotRun_exact",
+    "Resources.RandomSelection.stepRun",
+    "Resources.RandomSelection.stepRun_eq",
+    "Resources.RandomSelection.stepRun_child",
+    "Resources.RandomSelection.stepRun_semantics",
+    "Resources.RandomSelection.stepRun_ranked",
+    "Resources.RandomSelection.stepRun_cost_bounds",
+    "Resources.RandomSelection.pivotLaw",
+    "Resources.RandomSelection.pivotLaw_support",
+    "Resources.RandomSelection.pivotLaw_event",
+    "Examples.RandomSelection.singleton_step",
+    "Examples.RandomSelection.duplicate_middle",
+    "Examples.RandomSelection.selected_side_is_not_larger_side",
+    "Examples.RandomSelection.selected_side_valid",
+    "Examples.RandomSelection.duplicate_ranked",
+    "Examples.RandomSelection.duplicate_source_bound",
+    "Examples.RandomSelection.duplicate_zero_probability",
+    "Examples.RandomSelection.duplicate_one_probability",
+    "Resources.RandomSelection.Trace",
+    "Resources.RandomSelection.Outcome",
+    "Resources.RandomSelection.scanVolume",
+    "Resources.RandomSelection.scanVolume_nil",
+    "Resources.RandomSelection.scanVolume_cons",
+    "Resources.RandomSelection.prepend",
+    "Resources.RandomSelection.run",
+    "Resources.RandomSelection.run_nil",
+    "Resources.RandomSelection.run_cons",
+    "Resources.RandomSelection.run_value",
+    "Resources.RandomSelection.run_ranked",
+    "Resources.RandomSelection.run_none",
+    "Resources.RandomSelection.run_valid",
+    "Resources.RandomSelection.run_active_calls_le",
+    "Resources.RandomSelection.run_initial_scan_le",
+    "Resources.RandomSelection.run_scanVolume_le",
+    "Resources.RandomSelection.run_source_bridge",
+    "Resources.RandomSelection.run_trace_entries",
+    "Resources.RandomSelection.run_source_quadratic",
+    "Resources.RandomSelection.select",
+    "Resources.RandomSelection.select_value",
+    "Resources.RandomSelection.select_none",
+    "Resources.RandomSelection.select_some_iff",
+    "Resources.RandomSelection.scanLaw",
+    "Resources.RandomSelection.sourceLaw",
+    "Resources.RandomSelection.scanLaw_support",
+    "Resources.RandomSelection.scanLaw_support_finite",
+    "Resources.RandomSelection.sourceLaw_support",
+    "Resources.RandomSelection.sourceLaw_support_finite",
+    "Examples.RandomSelectionRun.empty_failure",
+    "Examples.RandomSelectionRun.singleton_execution",
+    "Examples.RandomSelectionRun.invalid_singleton",
+    "Examples.RandomSelectionRun.rank_zero_public_failure",
+    "Examples.RandomSelectionRun.two_key_execution",
+    "Examples.RandomSelectionRun.duplicate_execution",
+    "Examples.RandomSelectionRun.two_key_first_path",
+    "Examples.RandomSelectionRun.two_key_long_path",
+    "Examples.RandomSelectionRun.same_value_different_scan",
+    "Examples.RandomSelectionRun.maximum_scan_on_pair",
+    "Examples.RandomSelectionRun.bounded_actual_pair_calls",
+    "Examples.RandomSelectionRun.arbitrary_supported_rank"
+  ],
+  "public_name_count": 60,
+  "authored_private_helpers": [
+    "Resources.RandomSelection.equal_lookup",
+    "Resources.RandomSelection.run_support_bounds"
+  ],
+  "statement_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/Statements60-candidate04.lean",
+    "bytes": 3264,
+    "sha256": "be10e6e4ef44817ccae42f34d55c156d0b49378f0a24f98dfe961000adf22bd3"
+  },
+  "all60_explicit_at_targets_match_public_scope": true,
+  "statement_input_full_read_tool_chunk": "9a4760",
+  "exact_diff_full_read_tool_chunk": "b9a1c3",
+  "proof_corrections": [
+    "After splitting the dependent match in run_cons, explicitly name its discriminant equation and simplify the ordinary match with the same equation.",
+    "Normalize the child decrease and local source-cost hypotheses by List.length_cons before arithmetic; express the equivalent triangular product majorant as tail.length * (tail.length + 1), eliminating the predecessor expression and its now-unnecessary helper equality.",
+    "Replace the unnecessary simpa in the terminal branch product inequality with direct simp, as requested by the actual diagnostic."
+  ],
+  "statement_assessment": {
+    "quantifiers_types_hypotheses": "All 30 headers, including the complete let-containing run_cons type and private support-bounds conjunction, are byte-identical. No premise, typeclass, rank domain or Option boundary changed.",
+    "execution_semantics": "Every definition body is byte-identical: fresh uniform current occurrence at each active call, stepRun executes the actual selected strict child, equal branch terminates, empty continuation remains explicit, traces and source calls come from that same execution.",
+    "arithmetic": "The new local hproduct is the same inequality because (head::tail).length = tail.length + 1 and this positive predecessor is tail.length. All six conjunctions and sharp constants remain unchanged.",
+    "satisfiability_and_cases": "All existing 20 public example claims and their bodies are unchanged, including valid/invalid/empty ranks, duplicates and the actual-shorter-than-larger-side example. No intended expectation was revised to obtain green.",
+    "restrictions": "No axioms, sorry/admit, linter suppression, declaration deletion, probability assumptions, larger-partition execution substitute, or source/API change."
+  },
+  "finite_run_case_expectations": [
+    {
+      "name": "empty_failure",
+      "expected": "For every worker rank, empty input returns none, empty trace and source cost 2; connected by run_nil."
+    },
+    {
+      "name": "singleton_execution",
+      "expected": "Worker rank 0 on [x] returns some x, trace [(1,0)], source cost 9; connected through run_cons and stepRun_eq."
+    },
+    {
+      "name": "invalid_singleton",
+      "expected": "Worker rank 1 on [7] returns none, trace [(1,0)], source cost 11 including empty continuation."
+    },
+    {
+      "name": "rank_zero_public_failure",
+      "expected": "Public rank 0 is a free failure with empty trace on every input."
+    },
+    {
+      "name": "two_key_execution",
+      "expected": "On [0,1], worker rank 0 follows actual occurrence choice: trace [(2,0)], cost 11, or trace [(2,1),(1,0)], cost 20; both return 0."
+    },
+    {
+      "name": "duplicate_execution",
+      "expected": "Worker rank 1 on [x,x] retains both occurrence choices; one active scan of size 2 and source cost 12+i."
+    },
+    {
+      "name": "two_key_first_path",
+      "expected": "The returning pivot-0 path has positive support through the exact two_key_execution PMF."
+    },
+    {
+      "name": "two_key_long_path",
+      "expected": "The pivot-1 then singleton-0 path has positive support through the exact two_key_execution PMF."
+    },
+    {
+      "name": "same_value_different_scan",
+      "expected": "Actual supported outcomes have the same specified value via run_value, but scan volumes 2 and 3."
+    },
+    {
+      "name": "maximum_scan_on_pair",
+      "expected": "The long supported path has scan volume 3 and meets the triangular upper bound through run_scanVolume_le."
+    },
+    {
+      "name": "bounded_actual_pair_calls",
+      "expected": "The long supported path has source cost 20 and satisfies the same-execution W <= T <= 9W+2 bridge."
+    },
+    {
+      "name": "arbitrary_supported_rank",
+      "expected": "For arbitrary ordered values and any supported public run, successful output iff positive public rank and RankedAt at rank k-1."
+    }
+  ],
+  "step_case_names_retained": [
+    "Examples.RandomSelection.singleton_step",
+    "Examples.RandomSelection.duplicate_middle",
+    "Examples.RandomSelection.selected_side_is_not_larger_side",
+    "Examples.RandomSelection.selected_side_valid",
+    "Examples.RandomSelection.duplicate_ranked",
+    "Examples.RandomSelection.duplicate_source_bound",
+    "Examples.RandomSelection.duplicate_zero_probability",
+    "Examples.RandomSelection.duplicate_one_probability"
+  ],
+  "whitespace_check": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/run-correction2-20261104/whitespace-check.json",
+    "bytes": 166,
+    "sha256": "dd161aaa51ee9d24be66032fb495ec700e0420a74dd11d04e41feabdcd6beccd"
+  },
+  "new_compilation_credit": 0,
+  "actual_type_output_credit": 0,
+  "author_compiler_actions": false,
+  "finding_disposition": "Proposed bounded source correction; pending root actual focused verification and later whole-scope gates. Both previous failures remain historical actual failures.",
+  "probability_extension_added": false
+}

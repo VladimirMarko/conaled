@@ -1,0 +1,105 @@
+{
+  "prepared_utc": "2026-11-04T12:11:26.162894+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "status": "Complete source-only preparation; author readback complete; own writes HOLD",
+  "candidate_assembly": false,
+  "compiler_execution": false,
+  "cache_or_process_action": false,
+  "new_acceptance_or_future_type_credit": false,
+  "written_files": [
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+      "bytes": 4105,
+      "lines": 75,
+      "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/control-status-proposals.json",
+      "bytes": 4912,
+      "lines": 79,
+      "sha256": "6eb9961a1d53f7231fff5674b1f070a278debf870745d53175f3381015367742"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/control-status-proposals.patch",
+      "bytes": 10180,
+      "lines": 138,
+      "sha256": "0d627bd16053b7b641bc8e4054f769d1bbfffdc0c6d5a0a0f01fd6cb3ee21ed8"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/inventory.json",
+      "bytes": 144176,
+      "lines": 3662,
+      "sha256": "1459305992aeb72834dc4360940edc0a221352c16748014ca531cbf0d111433b"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/preparation.md",
+      "bytes": 11258,
+      "lines": 68,
+      "sha256": "4f731b50d191d61736510892b094a9f82f3ef2f583e804d996782857acf55900"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/source-and-evidence.json",
+      "bytes": 25505,
+      "lines": 628,
+      "sha256": "89f2334cb3900acaee8fb60f364808d80ba0ae2c86a32c6371de3281ea29a4f5"
+    }
+  ],
+  "source_and_old_control_mutation": false,
+  "original279_files_unchanged": true,
+  "completed_utc": "2026-11-04T12:15:21.722689+00:00",
+  "author_readback": {
+    "complete_new_artifacts_read": [
+      "preparation.md",
+      "StatementsTail61.lean",
+      "control-status-proposals.patch"
+    ],
+    "structured_records": "Parsed and checked all JSON joins, immutable source identities, exact program lists, private/anonymous counts, current held control bases and proposed after hashes.",
+    "read_boundary": "Both frozen requirements and existing53/84 inputs fully read. Six immutable sources processed for complete explicit declarations/private/anonymous inventory and import closures; existing full mathematical/source/type assessments retained, not repeated. Relevant closed terminal records and successful module lines read; complete log hashes checked. Both current tickets fully read; INDEX current rows and relevant dated continuation contexts read. Existing two complete documentation patches read; prior full-note assessments retained by identity.",
+    "new_independent_review": false,
+    "completed_mathematical_assessments_repeated": false
+  },
+  "mechanical_verification": {
+    "units": [
+      {
+        "unit": "XU02",
+        "public": 53,
+        "private": 5,
+        "anonymous_instances": 6,
+        "local_closure": 6,
+        "external_imports": 14,
+        "actual815_checks": [
+          33,
+          85
+        ]
+      },
+      {
+        "unit": "XU03",
+        "public": 61,
+        "private": 19,
+        "anonymous_instances": 8,
+        "local_closure": 9,
+        "external_imports": 19,
+        "actual815_checks": [
+          203,
+          263
+        ]
+      }
+    ],
+    "all114_public_source_lines_and_program_names_matched": true,
+    "all_evidence_identities_checked": 42,
+    "all_original279_files_unchanged": 6,
+    "old_programs_and_doc_proposals_unchanged": true,
+    "control_patch_applied_only_in_memory": true,
+    "index_changed_lines_only": [
+      26,
+      27
+    ],
+    "all_acceptance_checkboxes_unchanged": true,
+    "no_compiler_or_cache_invocation": true
+  },
+  "concurrent_control_update": {
+    "root_owned_XR01_INDEX_update": "Recorded original and new exact identities in control-status-proposals.json; proposal preserves all other rows.",
+    "own_original_control_mutation": false
+  },
+  "author_write_hold": true
+}

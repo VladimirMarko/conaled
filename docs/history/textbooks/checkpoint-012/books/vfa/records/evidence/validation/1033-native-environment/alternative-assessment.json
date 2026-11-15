@@ -1,0 +1,12 @@
+{
+  "recorded_utc": "2026-11-03T16:37:26.685008+00:00",
+  "selected_environment": "Native official Lean4.35.0/Lake5.0.0 through accepted narrow executable-path adapter",
+  "selected_operational_candidate": "e41336d46dffd7bddd42b242a7ea7484a6055e43",
+  "functional_validation": "Independent captured-candidate reconstruction/runtime validation;17 successful commands; both operational review axes passed",
+  "retained_fallback": "Exact supplied QEMU route and guide unchanged, already saved in checkpoint038",
+  "performance_limits": "Original native Squares sample still slow with high file-backed paging; do not infer speedup from successful startup or compare uncontrolled wall times as a general benchmark.",
+  "concrete_next_optimization": "Scratch-only import Lean -> Init in Squares preserved every remaining source byte and all proofs compiled in4.79s with lower measured RSS/faults; #1034 assesses smallest corresponding main-source dependency correction.",
+  "concurrency_decision": "Retain one module worker and one Lean thread initially; aggregate CPU count does not establish memory headroom for multiple large processes.",
+  "ordinary_host_alternative": "An ordinary compatible Linux host providing its own executable path can use the same official distribution directly, without either adapter. No external host/account/remote compiler was accessed; current work proceeds locally.",
+  "formal_acceptance": false
+}

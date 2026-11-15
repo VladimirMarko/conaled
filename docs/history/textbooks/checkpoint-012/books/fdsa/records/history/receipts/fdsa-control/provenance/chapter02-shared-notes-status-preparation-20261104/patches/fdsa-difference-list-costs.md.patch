@@ -1,0 +1,42 @@
+--- a/docs/research/fdsa-difference-list-costs.md
++++ b/docs/research/fdsa-difference-list-costs.md
+@@ -2,9 +2,15 @@
+ 
+ This shared unit gives an explicit closure model for the constant composition
+ and deferred application claims used by FDSA's natural mergesort discussion.
+-It remains a source draft until elaboration, whole-candidate verification and
+-the retained independent reviews are recorded. It does not activate or accept
++It does not activate or accept
+ Chapter 2, and it does not implement the source scanner.
++
++**Validation snapshot — 4 November 2026.** A successful focused check included
++the difference-list core and examples. A separate successful inspection
++printed 72 public types from those modules. These are historical results;
++reuse requires matching candidate evidence, and complete unit acceptance was
++still outstanding in this snapshot. The full acceptance gates below remain
++required.
+ 
+ ## Sources and existing interfaces
+ 
+@@ -192,7 +198,7 @@
+ repeated append versus prepend/reverse construction also remains chapter work.
+ No chapter completeness claim follows from this shared interface.
+ 
+-## Statement review and pending validation
++## Statement review and validation history
+ 
+ The meaningful premises are the ordered-prefix value relation and a uniform
+ cost contract for an already supplied callback. The base constructors satisfy
+@@ -206,8 +212,8 @@
+ fused-push and singleton-seed distinctions before implementation.
+ 
+ No additional compiler was run for this draft while the frozen old Chapter 1
+-gate remained active. These
+-source proofs and examples still need elaboration, public-entrypoint coverage,
++gate remained active.
++
++Acceptance requires immutable-candidate elaboration, public-entrypoint coverage,
+ the complete guarded candidate build and exhaustive audit, both retained
+-independent review axes, and immediate candidate identity verification before
+-acceptance.
++independent review axes, and immediate candidate identity verification.

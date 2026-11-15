@@ -1,0 +1,68 @@
+{
+  "recorded_utc": "2026-11-04T20:43:46.366742+00:00",
+  "baseline": "d1a2299440c6cb327887e5d60f08ce08b046a8ab",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "add",
+        "--",
+        "Applications/Resources/Selection.lean",
+        "Examples/SelectionCosts.lean"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--stat"
+      ],
+      "exit_code": 0,
+      "stdout": " Applications/Resources/Selection.lean | 423 ++++++++++++++++++++++++++++++++++\n Examples/SelectionCosts.lean          | 286 +++++++++++++++++++++++\n 2 files changed, 709 insertions(+)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--name-status"
+      ],
+      "exit_code": 0,
+      "stdout": "A\tApplications/Resources/Selection.lean\nA\tExamples/SelectionCosts.lean\n",
+      "stderr": ""
+    }
+  ],
+  "staged_paths": [
+    "Applications/Resources/Selection.lean",
+    "Examples/SelectionCosts.lean"
+  ],
+  "all_staged_bytes_match_reviewed_inventory": true,
+  "all_existing_23_files_and_prior_57_records_unchanged": true,
+  "full_added_file_diff_source_readback": "b43426 and9aae66 plus exact changed proof blocks836fa4; staged byte identity establishes this is the complete reviewed two-file addition.",
+  "public_private_header_check": "e0d917 exit0;39 public/29 private; exact type input read8e2e92 exit0",
+  "inventory_creation": "3ad2fc exit0",
+  "patch": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/candidate1-source.patch",
+    "bytes": 34832,
+    "sha256": "7d3df4fdf8f7154872564d3a5615a3300d90f7c073f5be4dddf5f4f57bf65544"
+  },
+  "commit_message": "feat(selection): execute nested median selection with source costs (#174)",
+  "compiler_commands": 0,
+  "mathematical_validation": "Pending root focused check, actual elaborated types, full applicable check/audit and independent reviews; no acceptance claim."
+}

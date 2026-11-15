@@ -1,0 +1,38 @@
+✖ [3603/3613] Building Examples.PermutationTail (82s)
+warning: Examples/PermutationTail.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+trace: .> LEAN_PATH=/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/lib/lean /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/profile/bin/lean /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/PermutationTail.lean -o /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/lib/lean/Examples/PermutationTail.olean -i /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/lib/lean/Examples/PermutationTail.ilean -c /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/ir/Examples/PermutationTail.c --setup /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build/ir/Examples/PermutationTail.setup.json --json
+error: Examples/PermutationTail.lean:102:4: Tactic `decide` failed to reduce
+  @decide ([2, 3] ∈ orders positions (selected.erase 0))
+    (Finset.decidableMem [2, 3] (orders positions (selected.erase 0)))
+to `true` or `false`.
+
+After unfolding the instances `instDecidableEqBool`, `Bool.decEq`, `Finset.decidableMem`, and `Multiset.decidableMem`, reduction got stuck at
+  List.elem [2, 3] (List.filter (fun a => decide (a ∈ selected.erase 0)) positions).permutations.dedup
+error: Examples/PermutationTail.lean:114:41: Tactic `decide` failed to reduce
+  @decide ([3, 2] ∈ orders positions remaining) (Finset.decidableMem [3, 2] (orders positions remaining))
+to `true` or `false`.
+
+After unfolding the instances `instDecidableEqBool`, `Bool.decEq`, `Finset.decidableMem`, and `Multiset.decidableMem`, reduction got stuck at
+  List.elem [3, 2] (List.filter (fun a => decide (a ∈ remaining)) positions).permutations.dedup
+error: Examples/PermutationTail.lean:120:4: Tactic `decide` failed to reduce
+  @decide ([2, 2] ∉ orders positions (selected.erase 0)) instDecidableNot
+to `true` or `false`.
+
+After unfolding the instances `instDecidableEqBool`, `instDecidableNot`, `Bool.decEq`, `Finset.decidableMem`, and `Multiset.decidableMem`, reduction got stuck at
+  List.elem [2, 2] (List.filter (fun a => decide (a ∈ selected.erase 0)) positions).permutations.dedup
+error: Examples/PermutationTail.lean:146:55: Tactic `decide` failed to reduce
+  @decide ([3] ∈ orders positions {3}) (Finset.decidableMem [3] (orders positions {3}))
+to `true` or `false`.
+
+After unfolding the instances `instDecidableEqBool`, `Bool.decEq`, `Finset.decidableMem`, and `Multiset.decidableMem`, reduction got stuck at
+  List.elem [3] (List.filter (fun a => decide (a ∈ {3})) positions).permutations.dedup
+error: Examples/PermutationTail.lean:163:50: unsolved goals
+h : afterFirst = law
+hmass : 1 = 3⁻¹
+⊢ False
+error: Examples/PermutationTail.lean:194:43: Tactic `decide` failed to reduce
+  @decide ([3] ∈ orders positions (remaining.erase 2)) (Finset.decidableMem [3] (orders positions (remaining.erase 2)))
+to `true` or `false`.
+
+After unfolding the instances `instDecidableEqBool`, `Bool.decEq`, `Finset.decidableMem`, and `Multiset.decidableMem`, reduction got stuck at
+  List.elem [3] (List.filter (fun a => decide (a ∈ remaining.erase 2)) positions).permutations.dedup

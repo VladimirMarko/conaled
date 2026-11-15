@@ -1,0 +1,16 @@
+{
+  "time": "2026-11-04T01:10:16.115388+00:00",
+  "kind": "actual-start-input-comparison",
+  "runs": [
+    "integration-3cf-ordinary-r1-045",
+    "integration-3cf-ordinary-r2-045"
+  ],
+  "source_dependency_runtime_controller_requirement_inputs_equal": true,
+  "commands_equal": true,
+  "r2_started_at": "2026-11-04T01:09:04.157848+00:00",
+  "r2_execution_owner": "/root/operational_review",
+  "root_must_not_resume_worker_handle": true,
+  "actual_stockguard": "Hashed30normalartifacts;1091of1101modules invalidated; prior10completedmodule artifacts subject to stockguard reuse.",
+  "terminal_result_observed": false,
+  "formal_acceptance": false
+}

@@ -1,0 +1,640 @@
+{
+  "schema": 1,
+  "record_kind": "native-environment-restoration",
+  "recorded_utc": "2026-11-03T23:26:58.730180+00:00",
+  "setup_completed_utc": "2026-11-03T23:26:09.089030+00:00",
+  "setup_terminal_result_observed": true,
+  "setup_exit_code": 0,
+  "setup_command": [
+    "python3",
+    "/workspace/scratch/09cf0de22282/conaled-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/09cf0de22282/pfds/native-state",
+    "setup",
+    "--project",
+    "/workspace/scratch/09cf0de22282/pfds/conaled"
+  ],
+  "setup_outer_log": {
+    "path": "session/environment/unified-native-setup-045.log",
+    "sha256": "100f282c4888be372aa5da8ea4d300ee43b074559908082c884beb6028e33115"
+  },
+  "kit": {
+    "version": "1.0.0",
+    "extracted_path": "/workspace/scratch/09cf0de22282/conaled-native-kit-4.35.0",
+    "restore_path_relative_to_root": "../conaled-native-kit-4.35.0",
+    "archive": "session/environment/conaled-unified-native-kit-lean-4.35.0-2026-11-03.tar.gz",
+    "archive_sha256": "45edfb844068f93b26ea5469572473f8c07e5a63e2bc294eed6de543cb3d5bf2",
+    "archive_bytes": 1154144,
+    "manifest_sha256": "72ba31d697b09e71cd21edbf6a46340f1fef6380585df86eb0320e1b05b737b6",
+    "verification": {
+      "passed": true,
+      "files_checked": 298,
+      "kit_version": "1.0.0"
+    }
+  },
+  "project": {
+    "path": "conaled",
+    "head": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+    "tree": "3d8e9a8be8d9baf90d12643a8fe6e08565a4e751",
+    "porcelain": "",
+    "pins": {
+      "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "check.sh": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "scripts/check.py": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+    }
+  },
+  "state_path": "native-state",
+  "runtime_identity": {
+    "profile": "/workspace/scratch/09cf0de22282/pfds/native-state/profile",
+    "host_mode": "compat",
+    "tools": [
+      "lake",
+      "lean",
+      "leanc",
+      "leanir"
+    ],
+    "passed": true,
+    "official": {
+      "status": "passed",
+      "path": "/workspace/scratch/09cf0de22282/pfds/native-state/toolchains/lean-4.35.0-linux",
+      "files_checked": 47,
+      "verified_files": [
+        "bin/clang",
+        "bin/lake",
+        "bin/ld.lld",
+        "bin/lean",
+        "lib/Mcrt1.o",
+        "lib/Scrt1.o",
+        "lib/clang/23/lib/x86_64-unknown-linux-gnu/clang_rt.crtbegin.o",
+        "lib/clang/23/lib/x86_64-unknown-linux-gnu/clang_rt.crtend.o",
+        "lib/clang/23/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a",
+        "lib/crt1.o",
+        "lib/crti.o",
+        "lib/crtn.o",
+        "lib/gcrt1.o",
+        "lib/glibc/ld.so",
+        "lib/glibc/libc.so",
+        "lib/glibc/libc_nonshared.a",
+        "lib/glibc/libdl.so",
+        "lib/glibc/libm.so",
+        "lib/glibc/libpthread.so",
+        "lib/glibc/libpthread_nonshared.a",
+        "lib/glibc/librt.so",
+        "lib/lean/libInit.a",
+        "lib/lean/libLake.a",
+        "lib/lean/libLean.a",
+        "lib/lean/libLeanChecker.a",
+        "lib/lean/libLeanExport.a",
+        "lib/lean/libLeanIR.a",
+        "lib/lean/libLeanc.a",
+        "lib/lean/libStd.a",
+        "lib/lean/libinitialize_minimal.a",
+        "lib/lean/libleancpp.a",
+        "lib/lean/libleanmanifest.a",
+        "lib/lean/libleanrt.a",
+        "lib/lean/libmimalloc_paranoid.a",
+        "lib/libLLVM.so.23.1",
+        "lib/libc++.a",
+        "lib/libc++.so.1",
+        "lib/libc++abi.a",
+        "lib/libc++abi.so.1",
+        "lib/libclang-cpp.so.23.1",
+        "lib/libcrypto.a",
+        "lib/libgcc_s.so.1",
+        "lib/libgmp.a",
+        "lib/libssl.a",
+        "lib/libunwind.a",
+        "lib/libuv.a",
+        "lib/libz.so.1"
+      ],
+      "verification_scope": "47 recorded official executables/link inputs; not a whole-tree attestation",
+      "complete_distribution_attested": false
+    },
+    "extra_runtime_inputs": {
+      "passed": true,
+      "files_checked": 8,
+      "scope": "leanir, leanc, leantar and five Lean/Lake shared libraries"
+    }
+  },
+  "observed_free_bytes": 23698399232,
+  "profile_config_sha256": "ef95106ffdf6b594235bfd88284b1ef5450e392d04bbcc3f62a4a7b685dc7573",
+  "official_acquisition_receipt": {
+    "schema": 1,
+    "created_utc": "2026-11-03T23:23:45.654002+00:00",
+    "source_url": "https://github.com/leanprover/lean4/releases/download/v4.35.0/lean-4.35.0-linux.tar.zst",
+    "archive_sha256": "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d",
+    "archive_bytes": 594481375,
+    "extraction": {
+      "members": 18571,
+      "regular_file_bytes": 3137937793
+    },
+    "verification": {
+      "status": "passed",
+      "path": "/workspace/scratch/09cf0de22282/pfds/native-state/toolchains/lean-4.35.0-linux",
+      "files_checked": 47,
+      "verified_files": [
+        "bin/clang",
+        "bin/lake",
+        "bin/ld.lld",
+        "bin/lean",
+        "lib/Mcrt1.o",
+        "lib/Scrt1.o",
+        "lib/clang/23/lib/x86_64-unknown-linux-gnu/clang_rt.crtbegin.o",
+        "lib/clang/23/lib/x86_64-unknown-linux-gnu/clang_rt.crtend.o",
+        "lib/clang/23/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a",
+        "lib/crt1.o",
+        "lib/crti.o",
+        "lib/crtn.o",
+        "lib/gcrt1.o",
+        "lib/glibc/ld.so",
+        "lib/glibc/libc.so",
+        "lib/glibc/libc_nonshared.a",
+        "lib/glibc/libdl.so",
+        "lib/glibc/libm.so",
+        "lib/glibc/libpthread.so",
+        "lib/glibc/libpthread_nonshared.a",
+        "lib/glibc/librt.so",
+        "lib/lean/libInit.a",
+        "lib/lean/libLake.a",
+        "lib/lean/libLean.a",
+        "lib/lean/libLeanChecker.a",
+        "lib/lean/libLeanExport.a",
+        "lib/lean/libLeanIR.a",
+        "lib/lean/libLeanc.a",
+        "lib/lean/libStd.a",
+        "lib/lean/libinitialize_minimal.a",
+        "lib/lean/libleancpp.a",
+        "lib/lean/libleanmanifest.a",
+        "lib/lean/libleanrt.a",
+        "lib/lean/libmimalloc_paranoid.a",
+        "lib/libLLVM.so.23.1",
+        "lib/libc++.a",
+        "lib/libc++.so.1",
+        "lib/libc++abi.a",
+        "lib/libc++abi.so.1",
+        "lib/libclang-cpp.so.23.1",
+        "lib/libcrypto.a",
+        "lib/libgcc_s.so.1",
+        "lib/libgmp.a",
+        "lib/libssl.a",
+        "lib/libunwind.a",
+        "lib/libuv.a",
+        "lib/libz.so.1"
+      ],
+      "verification_scope": "47 recorded official executables/link inputs; not a whole-tree attestation",
+      "complete_distribution_attested": false
+    },
+    "scope": "Complete verified release archive extracted; current-file spot checks are limited to 47 recorded files."
+  },
+  "dependency_sources": [
+    {
+      "name": "mathlib",
+      "path": "conaled/.lake/packages/mathlib",
+      "expected_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "porcelain": ""
+    },
+    {
+      "name": "plausible",
+      "path": "conaled/.lake/packages/plausible",
+      "expected_revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "porcelain": ""
+    },
+    {
+      "name": "LeanSearchClient",
+      "path": "conaled/.lake/packages/LeanSearchClient",
+      "expected_revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "porcelain": ""
+    },
+    {
+      "name": "importGraph",
+      "path": "conaled/.lake/packages/importGraph",
+      "expected_revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "porcelain": ""
+    },
+    {
+      "name": "proofwidgets",
+      "path": "conaled/.lake/packages/proofwidgets",
+      "expected_revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "porcelain": ""
+    },
+    {
+      "name": "aesop",
+      "path": "conaled/.lake/packages/aesop",
+      "expected_revision": "4a174c490d8707121c4a9290800489f105d85e07",
+      "head": "4a174c490d8707121c4a9290800489f105d85e07",
+      "porcelain": ""
+    },
+    {
+      "name": "Qq",
+      "path": "conaled/.lake/packages/Qq",
+      "expected_revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "porcelain": ""
+    },
+    {
+      "name": "batteries",
+      "path": "conaled/.lake/packages/batteries",
+      "expected_revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "porcelain": ""
+    },
+    {
+      "name": "Cli",
+      "path": "conaled/.lake/packages/Cli",
+      "expected_revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "porcelain": ""
+    }
+  ],
+  "cache": {
+    "exit_code": 0,
+    "passed": true,
+    "files_downloaded": 9031,
+    "files_decompressed": 9031,
+    "seconds": 65.95497854200039,
+    "source_record": "/workspace/scratch/09cf0de22282/pfds/native-state/logs/20261103T232452Z-cache-get-58f59495/result.json",
+    "scope": "Complete default requested cache closure; project checking remains separate."
+  },
+  "smoke": {
+    "passed": true,
+    "host_mode": "compat",
+    "case_count": 10,
+    "cases": [
+      {
+        "label": "smoke-lean-version",
+        "exit_code": 0,
+        "expected_failure": false,
+        "expected_outcome_met": true,
+        "seconds": 0.1531480970006669
+      },
+      {
+        "label": "smoke-lake-version",
+        "exit_code": 0,
+        "expected_failure": false,
+        "expected_outcome_met": true,
+        "seconds": 0.17565688700051396
+      },
+      {
+        "label": "smoke-bare-prefix",
+        "exit_code": 0,
+        "expected_failure": false,
+        "expected_outcome_met": true,
+        "seconds": 0.11246319800011406
+      },
+      {
+        "label": "smoke-child-prefix",
+        "exit_code": 0,
+        "expected_failure": false,
+        "expected_outcome_met": true,
+        "seconds": 0.2556485799996153
+      },
+      {
+        "label": "smoke-valid-proof",
+        "exit_code": 0,
+        "expected_failure": false,
+        "expected_outcome_met": true,
+        "seconds": 1.9875271179989795
+      },
+      {
+        "label": "smoke-false-proof",
+        "exit_code": 1,
+        "expected_failure": true,
+        "expected_outcome_met": true,
+        "seconds": 0.32639948500036553
+      },
+      {
+        "label": "smoke-child-proof",
+        "exit_code": 0,
+        "expected_failure": false,
+        "expected_outcome_met": true,
+        "seconds": 0.5537128839987417
+      },
+      {
+        "label": "smoke-native-build",
+        "exit_code": 0,
+        "expected_failure": false,
+        "expected_outcome_met": true,
+        "seconds": 1.3504989289995137
+      },
+      {
+        "label": "smoke-native-run",
+        "exit_code": 0,
+        "expected_failure": false,
+        "expected_outcome_met": true,
+        "seconds": 0.055657983999481075
+      },
+      {
+        "label": "smoke-mathlib-import",
+        "exit_code": 0,
+        "expected_failure": false,
+        "expected_outcome_met": true,
+        "seconds": 5.52699972299888
+      }
+    ]
+  },
+  "retained_evidence": [
+    {
+      "source": "native-state/cache-relink.json",
+      "retained": "session/environment/unified-native-evidence-045/cache-relink.json",
+      "sha256": "4b413ee2e774fb940b933a71cef5fa6c636afea3f25f285ad9e5963a9878f48b",
+      "bytes": 1032
+    },
+    {
+      "source": "native-state/last-smoke.json",
+      "retained": "session/environment/unified-native-evidence-045/last-smoke.json",
+      "sha256": "ed9f8853bc664a373facec506ec11497079854c70b05e6baa82304278ae42b90",
+      "bytes": 8339
+    },
+    {
+      "source": "native-state/project-65f845b1805dc1b967b4-setup.json",
+      "retained": "session/environment/unified-native-evidence-045/project-65f845b1805dc1b967b4-setup.json",
+      "sha256": "9b55cc4c186d12d3db952dddbfcab064ae0726aca1aee7361b9998947c3add61",
+      "bytes": 4190
+    },
+    {
+      "source": "native-state/toolchains/lean-4.35.0-linux.acquisition.json",
+      "retained": "session/environment/unified-native-evidence-045/toolchain/lean-4.35.0-linux.acquisition.json",
+      "sha256": "bf78be5f3a9b8dca7336708c11fbab02da34ad35870f15ebb6601f4b7711136d",
+      "bytes": 2247
+    },
+    {
+      "source": "native-state/profile/config.json",
+      "retained": "session/environment/unified-native-evidence-045/profile/config.json",
+      "sha256": "ef95106ffdf6b594235bfd88284b1ef5450e392d04bbcc3f62a4a7b685dc7573",
+      "bytes": 3651
+    },
+    {
+      "source": "native-state/logs/20261103T232450Z-cache-relink-d1226944/output.log",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232450Z-cache-relink-d1226944/output.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "native-state/logs/20261103T232450Z-cache-relink-d1226944/result.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232450Z-cache-relink-d1226944/result.json",
+      "sha256": "3d45484dd5c41522fef6ca6dfd441a0f7da47e14fec10dfed8859f7dad64fec6",
+      "bytes": 772
+    },
+    {
+      "source": "native-state/logs/20261103T232450Z-cache-relink-d1226944/start.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232450Z-cache-relink-d1226944/start.json",
+      "sha256": "0084b1811f6834bd6034703e85052335e22c1dccd8d97807d8c7188b8de547b1",
+      "bytes": 620
+    },
+    {
+      "source": "native-state/logs/20261103T232452Z-cache-get-58f59495/output.log",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232452Z-cache-get-58f59495/output.log",
+      "sha256": "d248b09417dcb418c051f33a637eecba03f17cb2eeb8a31feb1d42b35c6096fc",
+      "bytes": 13848
+    },
+    {
+      "source": "native-state/logs/20261103T232452Z-cache-get-58f59495/result.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232452Z-cache-get-58f59495/result.json",
+      "sha256": "71936bdd47c2a6385f8a6d15467993bd7b5ca28c6f1eb7edb9c35f74500f4630",
+      "bytes": 815
+    },
+    {
+      "source": "native-state/logs/20261103T232452Z-cache-get-58f59495/start.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232452Z-cache-get-58f59495/start.json",
+      "sha256": "99c308eb6df98eae7eb1e5f98c752953b6f4ef66cbbc33db5ec48a7b8c9a9f13",
+      "bytes": 663
+    },
+    {
+      "source": "native-state/logs/20261103T232558Z-smoke-bare-prefix-214688ad/output.log",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232558Z-smoke-bare-prefix-214688ad/output.log",
+      "sha256": "f417122836fc6a4464bb41d98275451d97f3183f14d9ad79b86392629eb33858",
+      "bytes": 58
+    },
+    {
+      "source": "native-state/logs/20261103T232558Z-smoke-bare-prefix-214688ad/result.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232558Z-smoke-bare-prefix-214688ad/result.json",
+      "sha256": "a6193a990c59b3083d795305d9a67b14c6a321265bcc001f3e1fa6c50eab87a7",
+      "bytes": 602
+    },
+    {
+      "source": "native-state/logs/20261103T232558Z-smoke-bare-prefix-214688ad/start.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232558Z-smoke-bare-prefix-214688ad/start.json",
+      "sha256": "ade531be9f2b52798f2a1d8a7f01efac470207172ac288dd59483ec7a4fd7436",
+      "bytes": 448
+    },
+    {
+      "source": "native-state/logs/20261103T232558Z-smoke-child-prefix-60af6627/output.log",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232558Z-smoke-child-prefix-60af6627/output.log",
+      "sha256": "df68c5c84c109d2f931351b7dfc0099e85dbc7ca09ec2ff5ebac702cc1798294",
+      "bytes": 177
+    },
+    {
+      "source": "native-state/logs/20261103T232558Z-smoke-child-prefix-60af6627/result.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232558Z-smoke-child-prefix-60af6627/result.json",
+      "sha256": "a7d76136751945fab6622b8b508fc217a736f01404ae88776ab4b9cb368da7f5",
+      "bytes": 626
+    },
+    {
+      "source": "native-state/logs/20261103T232558Z-smoke-child-prefix-60af6627/start.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232558Z-smoke-child-prefix-60af6627/start.json",
+      "sha256": "8b1a922472c9fdf6bf770a063d98915eb18301d9c5afbb3c69bde466c56e0e5c",
+      "bytes": 473
+    },
+    {
+      "source": "native-state/logs/20261103T232558Z-smoke-lake-version-bc4ab5dd/output.log",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232558Z-smoke-lake-version-bc4ab5dd/output.log",
+      "sha256": "165f92ed239a8c7db772bf5ee9d58c59357b489951582a12c86dc9d8e06b23a2",
+      "bytes": 53
+    },
+    {
+      "source": "native-state/logs/20261103T232558Z-smoke-lake-version-bc4ab5dd/result.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232558Z-smoke-lake-version-bc4ab5dd/result.json",
+      "sha256": "82f9cd199970107a5691e185323960804eb00545c9a639fc468870f7f1f87fbc",
+      "bytes": 599
+    },
+    {
+      "source": "native-state/logs/20261103T232558Z-smoke-lake-version-bc4ab5dd/start.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232558Z-smoke-lake-version-bc4ab5dd/start.json",
+      "sha256": "f9e15490589ffe6aac47b49cc07935a013c26ae2094dcf1093484f57b6d8a089",
+      "bytes": 445
+    },
+    {
+      "source": "native-state/logs/20261103T232558Z-smoke-lean-version-93ed4aa2/output.log",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232558Z-smoke-lean-version-93ed4aa2/output.log",
+      "sha256": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a",
+      "bytes": 106
+    },
+    {
+      "source": "native-state/logs/20261103T232558Z-smoke-lean-version-93ed4aa2/result.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232558Z-smoke-lean-version-93ed4aa2/result.json",
+      "sha256": "911069cabbd59a8d77221fcd4cce33ca05907e2ec586ee1b3e513a234b590589",
+      "bytes": 598
+    },
+    {
+      "source": "native-state/logs/20261103T232558Z-smoke-lean-version-93ed4aa2/start.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232558Z-smoke-lean-version-93ed4aa2/start.json",
+      "sha256": "689cd482ad0adb587b797e19a5281181480341c54501227bf48c00a6647a3669",
+      "bytes": 445
+    },
+    {
+      "source": "native-state/logs/20261103T232559Z-smoke-valid-proof-5c62fdf1/output.log",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232559Z-smoke-valid-proof-5c62fdf1/output.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "native-state/logs/20261103T232559Z-smoke-valid-proof-5c62fdf1/result.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232559Z-smoke-valid-proof-5c62fdf1/result.json",
+      "sha256": "60fc8bf7db74a6a384c46df7e5a1900ef650c48e239b5966706434199756201d",
+      "bytes": 626
+    },
+    {
+      "source": "native-state/logs/20261103T232559Z-smoke-valid-proof-5c62fdf1/start.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232559Z-smoke-valid-proof-5c62fdf1/start.json",
+      "sha256": "b0a0549ee737f01f2147edd03ab208d10174cb5dce8341f59fea63eee466ab95",
+      "bytes": 473
+    },
+    {
+      "source": "native-state/logs/20261103T232601Z-smoke-child-proof-bd72d56b/output.log",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232601Z-smoke-child-proof-bd72d56b/output.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "native-state/logs/20261103T232601Z-smoke-child-proof-bd72d56b/result.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232601Z-smoke-child-proof-bd72d56b/result.json",
+      "sha256": "0957f1fc067ca93eaba6417f50196229507d3bd5a85cc99a611ac9f22092974d",
+      "bytes": 649
+    },
+    {
+      "source": "native-state/logs/20261103T232601Z-smoke-child-proof-bd72d56b/start.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232601Z-smoke-child-proof-bd72d56b/start.json",
+      "sha256": "a960e7ace61cb5c6d651f3b958798827f655f0be91e13ce046f96c9c1445e9ec",
+      "bytes": 496
+    },
+    {
+      "source": "native-state/logs/20261103T232601Z-smoke-false-proof-0aaf1407/output.log",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232601Z-smoke-false-proof-0aaf1407/output.log",
+      "sha256": "2d068de99d7d8dcb7c977d5f7f15760a738dc72cb7d3231c1d9271db0fcc60cc",
+      "bytes": 144
+    },
+    {
+      "source": "native-state/logs/20261103T232601Z-smoke-false-proof-0aaf1407/result.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232601Z-smoke-false-proof-0aaf1407/result.json",
+      "sha256": "5621b9a68675c8ad8d15e9b44496ad25783abdffde88f490de0229f8582017d2",
+      "bytes": 601
+    },
+    {
+      "source": "native-state/logs/20261103T232601Z-smoke-false-proof-0aaf1407/start.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232601Z-smoke-false-proof-0aaf1407/start.json",
+      "sha256": "9022cff67559f1c64d3677dcda8759d3ea8d8df975daae70cc3ec2bec98ac053",
+      "bytes": 446
+    },
+    {
+      "source": "native-state/logs/20261103T232602Z-smoke-native-build-fadf7caa/output.log",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232602Z-smoke-native-build-fadf7caa/output.log",
+      "sha256": "1020cef215af7f91f8068282e4c4e1d0712a37ea6fb60ab7734b7beef829deea",
+      "bytes": 135
+    },
+    {
+      "source": "native-state/logs/20261103T232602Z-smoke-native-build-fadf7caa/result.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232602Z-smoke-native-build-fadf7caa/result.json",
+      "sha256": "701c1d1da026f20818d9f1d79a0afc7c1ead0cf5f6f2cc2728dd68d35a29cb4e",
+      "bytes": 607
+    },
+    {
+      "source": "native-state/logs/20261103T232602Z-smoke-native-build-fadf7caa/start.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232602Z-smoke-native-build-fadf7caa/start.json",
+      "sha256": "2215c1ff39afc4e882f6d070f8d890c56eb64e84b614ae89836cb56793c2b015",
+      "bytes": 454
+    },
+    {
+      "source": "native-state/logs/20261103T232603Z-smoke-mathlib-import-d01db610/output.log",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232603Z-smoke-mathlib-import-d01db610/output.log",
+      "sha256": "98aee29e7f0b694cc24aa3ba125fa50387f24dd12a82e2c61df06f103b1dde03",
+      "bytes": 392
+    },
+    {
+      "source": "native-state/logs/20261103T232603Z-smoke-mathlib-import-d01db610/result.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232603Z-smoke-mathlib-import-d01db610/result.json",
+      "sha256": "d5eafec16f5f74539403669ad2ae22768233dd83b15ffb69c6c6d04419bd33b7",
+      "bytes": 676
+    },
+    {
+      "source": "native-state/logs/20261103T232603Z-smoke-mathlib-import-d01db610/start.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232603Z-smoke-mathlib-import-d01db610/start.json",
+      "sha256": "1779b5a3cedc6485af780b93fcba3f2c158e8fa28da81a77c62d42969c5080dc",
+      "bytes": 525
+    },
+    {
+      "source": "native-state/logs/20261103T232603Z-smoke-native-run-a38df7cc/output.log",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232603Z-smoke-native-run-a38df7cc/output.log",
+      "sha256": "084c799cd551dd1d8d5c5f9a5d593b2e931f5e36122ee5c793c1d08a19839cc0",
+      "bytes": 3
+    },
+    {
+      "source": "native-state/logs/20261103T232603Z-smoke-native-run-a38df7cc/result.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232603Z-smoke-native-run-a38df7cc/result.json",
+      "sha256": "baf2304bcd5397d2bfe2bd3275bdfa68a57a908ca0c8e92c00e29503e70ce5f8",
+      "bytes": 924
+    },
+    {
+      "source": "native-state/logs/20261103T232603Z-smoke-native-run-a38df7cc/start.json",
+      "retained": "session/environment/unified-native-evidence-045/logs/20261103T232603Z-smoke-native-run-a38df7cc/start.json",
+      "sha256": "fab5bd121ca65494bbbe82108747a24db1d457e54949f8535df37c6232d24f18",
+      "bytes": 769
+    },
+    {
+      "source": "native-state/tmp/smoke-skvrq1z5/Valid.lean",
+      "retained": "session/environment/unified-native-evidence-045/smoke-fixture/Valid.lean",
+      "sha256": "6f75cfb6fd1ffeb0fc869dbdc57dfc9541cc3c086a69ec90bd5c1f67994837b4",
+      "bytes": 35
+    },
+    {
+      "source": "native-state/tmp/smoke-skvrq1z5/Invalid.lean",
+      "retained": "session/environment/unified-native-evidence-045/smoke-fixture/Invalid.lean",
+      "sha256": "27824f35ae8e926106f1e3f25359097a690a3b44ec1353580b2bcdd264264466",
+      "bytes": 38
+    },
+    {
+      "source": "native-state/tmp/smoke-skvrq1z5/Main.lean",
+      "retained": "session/environment/unified-native-evidence-045/smoke-fixture/Main.lean",
+      "sha256": "9d5a3d02e16e68ac71629f86cecb52f75dbae9f5b51ebdc78c3bd8a03f70b299",
+      "bytes": 38
+    },
+    {
+      "source": "native-state/tmp/smoke-skvrq1z5/MathlibSmoke.lean",
+      "retained": "session/environment/unified-native-evidence-045/smoke-fixture/MathlibSmoke.lean",
+      "sha256": "6e1732c817e46f11679891c2e325a823a2b29286d6c735594e51897fc80ed62b",
+      "bytes": 73
+    },
+    {
+      "source": "native-state/tmp/smoke-skvrq1z5/lakefile.toml",
+      "retained": "session/environment/unified-native-evidence-045/smoke-fixture/lakefile.toml",
+      "sha256": "2a6595e44c36b147447d6c030a68ac16dabd9345091c5ba3139edc2b82e6bcae",
+      "bytes": 113
+    },
+    {
+      "source": "native-state/tmp/smoke-skvrq1z5/lean-toolchain",
+      "retained": "session/environment/unified-native-evidence-045/smoke-fixture/lean-toolchain",
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "bytes": 25
+    },
+    {
+      "source": "native-state/tmp/smoke-skvrq1z5/result.json",
+      "retained": "session/environment/unified-native-evidence-045/smoke-fixture/result.json",
+      "sha256": "ed9f8853bc664a373facec506ec11497079854c70b05e6baa82304278ae42b90",
+      "bytes": 8339
+    }
+  ],
+  "formal_acceptance": false,
+  "limitations": [
+    "Environment restoration and smoke only; no project candidate build or exhaustive audit was run.",
+    "Historical interrupted gate outcomes remain unchanged.",
+    "Dependencies, project source, checker and native runtime must stay stable during future candidate gates.",
+    "The kit doctor has a volatile free_bytes observation; it is not a frozen-input identity field.",
+    "The ordinary project main setup uses private dependency checkouts; root separately owns any PFDS-specific sharing for candidate validation."
+  ]
+}

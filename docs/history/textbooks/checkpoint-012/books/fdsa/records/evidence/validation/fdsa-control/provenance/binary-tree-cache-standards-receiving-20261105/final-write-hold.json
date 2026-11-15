@@ -1,0 +1,197 @@
+{
+  "unit": "FDSA-XT01",
+  "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "tree": "18bf4bc9df979d4ee6ac76182f58faed235a0714",
+  "original_unit_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "original_donor": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "incorporated_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "requirements_ids": [
+    "XT01-01",
+    "XT01-02",
+    "XT01-03",
+    "XT01-04",
+    "XT01-05",
+    "XT01-06",
+    "XT01-07"
+  ],
+  "original_scope_paths": [
+    "Applications/Resources/TreeCache.lean",
+    "Applications/Trees/Cached.lean",
+    "Applications/Trees/Observations.lean",
+    "Examples/TreeCache.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-cache.md"
+  ],
+  "public_names": 115,
+  "full_original_scope_complete": true,
+  "actual_public_types_complete": true,
+  "full_validation_accepted": true,
+  "review_complete": true,
+  "unresolved_findings": [],
+  "recorded_utc": "2026-11-05T02:56:14.405864+00:00",
+  "reviewer": "/root/tree_cache_standards",
+  "axis": "Standards",
+  "state": "HELD",
+  "outcome": "Passed",
+  "unresolved_finding_count": 0,
+  "final_validation": {
+    "path": "provenance/binary-tree-cache-standards-receiving-20261105/final-validation-90469ce.json",
+    "bytes": 10775,
+    "sha256": "ab6834468bc984e886006bfbc47fcedb1f1fe0718ef5a728c3a51f1c815fdf5b"
+  },
+  "exact_actual_type_program": {
+    "path": "provenance/binary-tree-cache-receiving-statements115-20261105/Statements115-complete.lean",
+    "bytes": 4721,
+    "sha256": "eea207cce83ce453b3625076041ff1262235771a8b92add322a149a044c98738"
+  },
+  "held_files": [
+    {
+      "path": "reviews/binary-tree-cache-standards-receiving-20261105.md",
+      "bytes": 19188,
+      "sha256": "fa6cfd8df66d56788f842b21ec60d932157b24255499f7e30b8996a4da9c8bd2"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/actual115-assessment.json",
+      "bytes": 54521,
+      "sha256": "74a345559dce391c7a21d016fa6cd1a712c8265e212c47b43a7b9e45d5e6d784"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/final-evidence-reconciliation.json",
+      "bytes": 12445,
+      "sha256": "02fb4af57b44a57bf3108812456e9e6ebac0e1edef33937faa8d6c4a838f56fd"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/final-read-ledger.json",
+      "bytes": 6318,
+      "sha256": "85c4877fcbdfe1003ca427a024f88828c774e8a53487702eda6bcd035405f414"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/final-readback-receipts.json",
+      "bytes": 46126,
+      "sha256": "bf8c29dcdd05c7ee9bf8e8964943a52dfca8bf04946f0793c11e9d2f35968c3a"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/final-validation-90469ce.json",
+      "bytes": 10775,
+      "sha256": "ab6834468bc984e886006bfbc47fcedb1f1fe0718ef5a728c3a51f1c815fdf5b"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/read-ledger.json",
+      "bytes": 10203,
+      "sha256": "f20adfb278a53c6870a0cabbf373fb92a53f9ad6df2bf44b1616df2ef75482ba"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/source-and-type-assessment.json",
+      "bytes": 32508,
+      "sha256": "e230cd3ad4c109b5f0e27f1f8a7e3ea9da21e4b3c2819dca370584d10d48c070"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/source-type-report.md",
+      "bytes": 12933,
+      "sha256": "63001c5b5bd8f57c4b712efea5883efc656e83c409a8ae413365b76f63409bde"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/write-hold-source-types.json",
+      "bytes": 3128,
+      "sha256": "388003aaddafc023a5f32dd8321ca8b579a5cdb0ab7a8ad86f01c20319a8c48b"
+    }
+  ],
+  "complete_final_readback_receipts": [
+    {
+      "file": {
+        "path": "reviews/binary-tree-cache-standards-receiving-20261105.md",
+        "bytes": 19188,
+        "sha256": "fa6cfd8df66d56788f842b21ec60d932157b24255499f7e30b8996a4da9c8bd2"
+      },
+      "total_lines": 98,
+      "reads": [
+        {
+          "tool_chunk": "5b99af",
+          "actual_exit": 0,
+          "lines": [
+            1,
+            55
+          ],
+          "untruncated": true
+        },
+        {
+          "tool_chunk": "6a1828",
+          "actual_exit": 0,
+          "lines": [
+            56,
+            98
+          ],
+          "untruncated": true
+        }
+      ],
+      "all_file_lines_covered": true
+    },
+    {
+      "file": {
+        "path": "provenance/binary-tree-cache-standards-receiving-20261105/final-validation-90469ce.json",
+        "bytes": 10775,
+        "sha256": "ab6834468bc984e886006bfbc47fcedb1f1fe0718ef5a728c3a51f1c815fdf5b"
+      },
+      "total_lines": 265,
+      "reads": [
+        {
+          "tool_chunk": "d13155",
+          "actual_exit": 0,
+          "lines": [
+            1,
+            265
+          ],
+          "untruncated": true
+        }
+      ],
+      "all_file_lines_covered": true
+    },
+    {
+      "file": {
+        "path": "provenance/binary-tree-cache-standards-receiving-20261105/final-evidence-reconciliation.json",
+        "bytes": 12445,
+        "sha256": "02fb4af57b44a57bf3108812456e9e6ebac0e1edef33937faa8d6c4a838f56fd"
+      },
+      "total_lines": 323,
+      "reads": [
+        {
+          "tool_chunk": "df88f4",
+          "actual_exit": 0,
+          "lines": [
+            1,
+            323
+          ],
+          "untruncated": true
+        }
+      ],
+      "all_file_lines_covered": true
+    }
+  ],
+  "raw_complete_readbacks": {
+    "path": "provenance/binary-tree-cache-standards-receiving-20261105/final-readback-receipts.json",
+    "bytes": 46126,
+    "sha256": "bf8c29dcdd05c7ee9bf8e8964943a52dfca8bf04946f0793c11e9d2f35968c3a"
+  },
+  "read_ledger_readback": {
+    "tool_chunk": "8e0fa5",
+    "actual_exit": 0,
+    "lines": [
+      1,
+      208
+    ],
+    "untruncated": true,
+    "saved_raw_receipts_reconstruct_all98_report_lines_and_complete265_and323_line_json_files": true,
+    "all_bound_bytes_match": true
+  },
+  "source_stage_report_snapshot_assessment_and_hold_preserved": true,
+  "all_source_scope_and_actual115_assessment_retained": true,
+  "hold": "All owned final Standards review artifacts are now held. No further review-file edits without an explicit scoped continuation from root. This review outcome does not perform integration or acceptance.",
+  "caller_duties_after_both_axes_pass": [
+    "immediate ./check.sh --verify-candidate HEAD in qualified environment",
+    "exact local fast-forward of accepted integration branch",
+    "accurate local tickets/coverage and durable acceptance checkpoint"
+  ],
+  "caller_acceptance_duties_are_not_review_outcome_prerequisites": true,
+  "reviewer_compiler_supplied_helper_poll_source_ref_cache_upload_or_acceptance_action": false
+}

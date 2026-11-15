@@ -1,0 +1,167 @@
+{
+  "recorded_utc": "2026-11-05T04:00:35.661174+00:00",
+  "inspector": "/root",
+  "author": "/root/checkpoint0137_acceptance_inspection",
+  "scope": "Independent complete proposal source/diff inspection only; actual final acceptance/schema resolution remains pending.",
+  "outcome": "Prepared operational code inspected; zero concrete code findings. Execution stays disabled until real final evidence and held writers are reconciled.",
+  "unresolved_code_findings": [],
+  "no_helper_execution": true,
+  "no_acceptance_claimed": true,
+  "no_configuration_resolution": true,
+  "bindings": {
+    "capture.py": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/capture.py",
+      "bytes": 9349,
+      "sha256": "886a58f7fe5866b7aaed071a86e7ac3d4dd1bd815722257c78264a7aa06d49f6"
+    },
+    "run-stage.py": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/run-stage.py",
+      "bytes": 3201,
+      "sha256": "143b21d296ae814c52f53e8f0a67f00cc321ec0aef514e3c6fbe5353386527bf"
+    },
+    "verify-checkpoint.py": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/verify-checkpoint.py",
+      "bytes": 59014,
+      "sha256": "4691f3fe1c0fca3bee33dec316df085e44b76fe19fef24cc4216867b0c137312"
+    },
+    "README.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/README.md",
+      "bytes": 8380,
+      "sha256": "79de0b83a0d2287fb235b86c15c4a5ba2fa89dbb86cbac6972807f6dd482ba23"
+    },
+    "scope-plan.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/scope-plan.json",
+      "bytes": 3171,
+      "sha256": "81aadfab5380241f723fdf5e1d6cff6fa0f45b03cbb6dd0acd82c19ef5743838"
+    },
+    "preparation.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/preparation.json",
+      "bytes": 11877,
+      "sha256": "74e194486106c04516cfa2c366861f2e0b5817084d0b6e6d5523d89e0e084f5a"
+    },
+    "acceptance-configuration.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/acceptance-configuration.json",
+      "bytes": 990,
+      "sha256": "6e7814ed32faadddd2efe1242191f28a5866956857ff9c8ae66b4ec1f9d00109"
+    },
+    "initial-pending-acceptance-configuration.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/initial-pending-acceptance-configuration.json",
+      "bytes": 990,
+      "sha256": "6e7814ed32faadddd2efe1242191f28a5866956857ff9c8ae66b4ec1f9d00109"
+    },
+    "previous-manifest-0138.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/previous-manifest-0138.json",
+      "bytes": 17907,
+      "sha256": "b9f3b86578c6f50d48045302172200329a04ce6e9d696c427444be64d94c634b"
+    },
+    "historical-manifest-0137.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/historical-manifest-0137.json",
+      "bytes": 17313,
+      "sha256": "3d49f8073e0b81e54ce032007140e9c108e31c9aa734684780804e575a654f5e"
+    },
+    "previous-manifest-origin.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/previous-manifest-origin.json",
+      "bytes": 1521,
+      "sha256": "80fcedb6a6486a2a4bc7933fa9f77752114ea111fd98698d3ea40abe991465ee"
+    },
+    "helper-scope-diffs.patch": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/helper-scope-diffs.patch",
+      "bytes": 13111,
+      "sha256": "7a84ae099a60d74be7e9eedf01cc1d78ad076faa87911dbef5af6d3a940e06e6"
+    },
+    "verifier-scope-diff.patch": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/verifier-scope-diff.patch",
+      "bytes": 36429,
+      "sha256": "e9cb979c78af90962dbe4c121229445329511f204c96d5fc12baf2fad8912090"
+    }
+  },
+  "complete_root_reads": [
+    {
+      "chunk": "a2c1d5",
+      "scope": "capture.py and run-stage.py complete (prior turn, retained unchanged identities)"
+    },
+    {
+      "chunk": "4f6226",
+      "scope": "verify-checkpoint.py lines1-100 complete (prior turn, retained unchanged identity)"
+    },
+    {
+      "chunk": "ee62e2",
+      "scope": "verify-checkpoint.py101-180"
+    },
+    {
+      "chunk": "362b8c",
+      "scope": "verify-checkpoint.py181-280"
+    },
+    {
+      "chunk": "0b417d",
+      "scope": "verify-checkpoint.py281-380"
+    },
+    {
+      "chunk": "db1375",
+      "scope": "verify-checkpoint.py381-480"
+    },
+    {
+      "chunk": "d86deb",
+      "scope": "verify-checkpoint.py481-580"
+    },
+    {
+      "chunk": "10ad9a",
+      "scope": "verify-checkpoint.py581-680"
+    },
+    {
+      "chunk": "5fa0fa",
+      "scope": "verify-checkpoint.py681-780"
+    },
+    {
+      "chunk": "cca206",
+      "scope": "verify-checkpoint.py781-832 completes832"
+    },
+    {
+      "chunk": "cb83a9",
+      "scope": "README, pendingconfiguration, scopeplan complete"
+    },
+    {
+      "chunk": "ae823f",
+      "scope": "preparation and manifestorigin complete"
+    },
+    {
+      "chunk": "37acba",
+      "scope": "helperdiff complete140lines"
+    },
+    {
+      "chunk": "493d89",
+      "scope": "verifierdiff1-160"
+    },
+    {
+      "chunk": "52789b",
+      "scope": "verifierdiff161-320"
+    },
+    {
+      "chunk": "490790",
+      "scope": "verifierdiff321-495 completes495"
+    }
+  ],
+  "truncated_prior_101_340_attempt_not_credited": true,
+  "static_checks": {
+    "all3_ast_parsed_without_import_or_execution": true,
+    "all_saved_diffs_equal_regenerated_exact": true,
+    "all18_preparation_bindings_unchanged": true,
+    "initial_configuration_disabled_unchanged": true,
+    "old_helpers_creator_unchanged": true
+  },
+  "assessment": [
+    "Historical C3/XT01 assertions remain on exact0137/0138 snapshots; onlyXT02 checks livecandidate.",
+    "All79refs9worktrees must match held snapshot; onlybook and exercise oldrefadvances plus newtree-shaperef permitted.",
+    "Exact5requirements6paths90publicnames and full independentaxes/rootgate/full/audit/type/input/immediate/FF chain retained.",
+    "Earlier113closed runs exact prefix plus6actualnewclosures; twofocusfailures and two historicalexceptions preserved.",
+    "Actualroot-source-type-reconciliation provides both observation/index bindings; all3scope auditrows and zero unsafe/exactaxioms remain required.",
+    "The unchanged resource formula remains a staging scenario rather than a proven upper bound; actualspace must pass both capture and precreation.",
+    "Final writerhold must include newly held Chapter4 structuraldesign notes. No future upload is claimed or needed beforecapture."
+  ],
+  "pending": [
+    "Both independent final reports/holds and root complete readback",
+    "Actual rootgate/immediate/FF/acceptance",
+    "Actual final119runprogress and oldcontrolchanges",
+    "Exact finalconfiguration/evidence schema resolution plus final writerhold"
+  ]
+}

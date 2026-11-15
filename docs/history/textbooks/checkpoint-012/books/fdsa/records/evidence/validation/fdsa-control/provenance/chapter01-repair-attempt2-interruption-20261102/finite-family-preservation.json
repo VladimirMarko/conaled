@@ -1,0 +1,15 @@
+{
+  "recorded_utc": "2026-11-02T21:44:42.010688+00:00",
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "reason": "The only observed project-build file at or after the last log modification is the next Applications.FRP.Finite setup input. Preserve all currently present files for that exact module in normal Lean/IR output locations before any possible guard/retry.",
+  "selected_files": [
+    {
+      "source_path": "/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/ir/Applications/FRP/Finite.setup.json",
+      "relative_path": "artifacts/ir/Applications/FRP/Finite.setup.json",
+      "bytes": 6735454,
+      "sha256": "edf08e13d90d6f817952b55f0c4221f6f9f87df0ba8e0d99da52d75b15d788ee",
+      "mtime_ns": 1793654634238692762
+    }
+  ],
+  "limit": "Preservation only; a setup input is not a completed module output, an error report, a stale-artifact diagnosis, or a cache-health proof. Missing family members are not fabricated."
+}

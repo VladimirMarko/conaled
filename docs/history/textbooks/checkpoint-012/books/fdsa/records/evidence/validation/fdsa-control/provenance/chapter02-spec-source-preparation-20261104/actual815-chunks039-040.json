@@ -1,0 +1,109 @@
+{
+  "recorded_utc": "2026-11-04T10:52:47.882916+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete 81-path review scope, all 112 obligations and ten shared scopes.",
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "chunks": [
+    {
+      "chunk": 39,
+      "type_numbers": [
+        707,
+        729
+      ],
+      "native_lines": [
+        10242,
+        10514
+      ],
+      "bytes": 20833,
+      "names": [
+        "Examples.MergeCosts.ties_do_not_determine_cost",
+        "Examples.MergeCosts.unsorted_run",
+        "Examples.MergeCosts.unsorted_cost_bounds",
+        "Examples.MergeCosts.unsorted_inputs_retained",
+        "Examples.MergeCosts.unsorted_for_every_comparator",
+        "Examples.MergeCosts.source_value",
+        "Examples.MergeCosts.key_value",
+        "Examples.MergeCosts.key_sorted_iff",
+        "Examples.MergeCosts.measured_key_spec",
+        "Examples.MergeCosts.recordsLeft",
+        "Examples.MergeCosts.recordsRight",
+        "Examples.MergeCosts.records_value",
+        "Examples.MergeCosts.records_counts",
+        "Examples.MergeCosts.records_exact",
+        "Examples.MergeCosts.taggedLeft",
+        "Examples.MergeCosts.taggedRight",
+        "Examples.MergeCosts.tagged_counts",
+        "Examples.MergeCosts.tagged_exact",
+        "Examples.MergeCosts.tagged_stable",
+        "Examples.MergeCosts.falseLeft",
+        "Examples.MergeCosts.falseRight",
+        "Examples.MergeCosts.false_compare_compatible",
+        "Examples.MergeCosts.false_record_run"
+      ],
+      "sha256": "58c8229b6386851fcd33cc0851a5607abad7969755da32c03415f571195ba2e6",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The tied-run counterexample explicitly has equal returned lists, equal output lengths and permutation while both comparison and entry counts differ; returned value alone does not determine work.",
+        "Unsorted merge examples preserve both input lists as sublists for every Boolean comparator and therefore cannot repair their old inversion. The concrete measured result and size bounds hold without a sorted-input assumption.",
+        "Measured source/key value bridges require only decidable LE. Sortedness equivalence uses a linear preorder; the separate StableSort contract retains both sorted-input premises and key equality.",
+        "Signed record examples connect exact values and(2,3) counts. Generic arbitrary tagged payloads show left/right tie order and asymmetric(2,3)/(1,2) counts, with no payload equality typeclass.",
+        "The always-false comparator is input-locally key compatible for the all-equal-key record example and yields[C,A,B] with(1,2), setting up the explicit distinction between sortedness and stability."
+      ]
+    },
+    {
+      "chunk": 40,
+      "type_numbers": [
+        730,
+        744
+      ],
+      "native_lines": [
+        10515,
+        10793
+      ],
+      "bytes": 20947,
+      "names": [
+        "Examples.MergeCosts.compatible_not_stable",
+        "Examples.MergeCosts.unsortedRecordsLeft",
+        "Examples.MergeCosts.unsortedRecordsRight",
+        "Examples.MergeCosts.unsorted_records_run",
+        "Examples.MergeCosts.unsorted_record_filters",
+        "Examples.MergeCosts.twoStage",
+        "Examples.MergeCosts.twoStage_value",
+        "Examples.MergeCosts.twoStage_entries",
+        "Examples.MergeCosts.twoStage_bounds",
+        "Examples.MergeCosts.twoStage_comparisons_projection",
+        "Examples.MergeCosts.twoStage_entries_projection",
+        "Examples.MergeCosts.first_stage",
+        "Examples.MergeCosts.second_stage",
+        "Examples.MergeCosts.twoStage_example",
+        "Examples.MergeCosts.substituted_input_example"
+      ],
+      "sha256": "7d5462f322444cd4c4f2a7e67fe83a3d45567e311d99d2798c3295c1adb795c1",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The compatible always-false comparator yields a KeySorted permutation but explicitly not Stable, so compatibility is not silently used as a tie-stability premise.",
+        "The unsorted record merge gives[2C,1D,3A,1B] at(2,3), with equal-key filtered output[D,B] versus original[B,D] and explicit instability. This retains the necessity of sorted inputs for the standard key-merge stability contract.",
+        "TwoStage feeds the first returned merge into the second with zs as its left argument. Its value is merge zs(merge xs ys), entries equal comparisons+2, and its law-free size bounds are comparisons<=2*(|xs|+|ys|)+|zs| and entries<=that+2.",
+        "The comparison/entry projections use the corresponding actual AddMonoidHom and preserve the same measured bind and dependent first result. No independent cost recurrence replaces the computation.",
+        "The actual first/second stages have counts(1,2)/(2,3), composing to sorted[0,1,2] at(3,5). Deliberately substituting the original unsorted[2,0] instead of the returned first result gives[1,2,0] at(2,4), preserving the dependency counterexample."
+      ]
+    }
+  ],
+  "prior_progress_sha256": "cd85eb22f899145a1046bcaab5d6ad8af913023674a440cc9f4dafffbfc78c68",
+  "overall_outcome": "Blocked",
+  "new_type_credit": 0,
+  "possible110_credit": 0
+}

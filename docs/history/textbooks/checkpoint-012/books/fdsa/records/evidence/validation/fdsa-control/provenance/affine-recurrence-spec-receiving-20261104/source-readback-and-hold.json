@@ -1,0 +1,84 @@
+{
+  "schema": "fdsa-XR01-Spec-source-preparation-readback-and-hold-v1",
+  "recorded_utc": "2026-11-04T18:53:14.997999+00:00",
+  "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "original_base": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+  "original_candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+  "complete_original_five_path_scope_retained": true,
+  "source_and_prepared21_assessment": "Complete; zero new concrete findings",
+  "overall": "Blocked pending successful full validation and qualified actual21 assessment",
+  "new_source_findings": [],
+  "actual_type_credit": 0,
+  "full_candidate_pass_credit": 0,
+  "all65_input_fingerprints_reverified": true,
+  "full_saved_readbacks": {
+    "report": {
+      "tool": "103d46",
+      "lines": [
+        1,
+        66
+      ]
+    },
+    "semantic_assessment": {
+      "tool": "103d46",
+      "lines": [
+        1,
+        146
+      ]
+    },
+    "source_reconciliation": {
+      "ranges": [
+        {
+          "tool": "eefde7",
+          "lines": [
+            1,
+            280
+          ]
+        },
+        {
+          "tool": "379516",
+          "lines": [
+            281,
+            540
+          ]
+        },
+        {
+          "tool": "369309",
+          "lines": [
+            541,
+            801
+          ]
+        }
+      ],
+      "all801_lines_read": true
+    }
+  },
+  "held_artifacts": [
+    {
+      "path": "reviews/affine-recurrence-spec-receiving-20261104.md",
+      "bytes": 11256,
+      "lines": 66,
+      "sha256": "58b619efddf741e646d7064a863567aa250c3f28140b8f99c884bca5e9cf916b"
+    },
+    {
+      "path": "provenance/affine-recurrence-spec-receiving-20261104/source-and-prepared21-assessment.json",
+      "bytes": 9993,
+      "lines": 146,
+      "sha256": "54c7bddad5262e20c2da7b1f6bb8a457002ed8c438d1f3ec4799307abd1a234a"
+    },
+    {
+      "path": "provenance/affine-recurrence-spec-receiving-20261104/source-reconciliation.json",
+      "bytes": 34372,
+      "lines": 801,
+      "sha256": "395911a63def72ffb62a7c77509f2939c2a711217ca417c78b12464f1ceaa333"
+    }
+  ],
+  "prior_records_modified": false,
+  "hold": "These completed source/preparation records and this readback receipt are held unchanged. Any subsequent actual terminal assessment is a separate additive record in the same full-scope loop.",
+  "later_terminal_notice": {
+    "parent_reported": "Full attempt1 owned18625 CLOSED1, nested SquareApplications Lean exit137, no source diagnostic and no matching audit/verification.",
+    "evidence_read_boundary": "Notice acknowledged after these source records froze; complete secured full evidence has not yet been read by this continuation. It will be assessed additively. No mathematical failure or specific resource cause inferred.",
+    "closed_session_will_not_be_polled": true
+  },
+  "reviewer_compiler_source_ref_cache_runtime_output_or_globalcontrol_actions": false
+}

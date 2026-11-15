@@ -1,0 +1,49 @@
+{
+  "recorded_utc": "2026-11-03T18:38:04.391246+00:00",
+  "candidate": "c1121c5b99e8714a0d91eab0db6bb60f7c650f2c",
+  "comparison": "Root independently compared every delivered operational source byte against the exact immutable Git candidate, including six unchanged inputs and two new files.",
+  "files": [
+    {
+      "path": "work-state/tooling/NATIVE-J1.md",
+      "sha256": "f80a441358bd37ad5f33348193868c6a2d7b22ca993158f43ef444b711edf7a9",
+      "matches_candidate": true
+    },
+    {
+      "path": "work-state/tooling/NATIVE.md",
+      "sha256": "715806649f2debbab648b818eb0d3e0e0bfdf514e0d777c370f74949e44a1d4d",
+      "matches_candidate": true
+    },
+    {
+      "path": "work-state/tooling/README.md",
+      "sha256": "968a1c6d0df5be47ec2bd1d93256854d8031526828fd526f296d6612e7a9ac27",
+      "matches_candidate": true
+    },
+    {
+      "path": "work-state/tooling/native_app_path.c",
+      "sha256": "0798e7e0d6b71510dd3f68778af1e487aaa9093af5f7cb1666c22b8605f5fd76",
+      "matches_candidate": true
+    },
+    {
+      "path": "work-state/tooling/pinned_native_j1_toolchain.py",
+      "sha256": "575ea992adfa874e2f680b2c9e85120057f21a9e7ebbd8cb1005e1122845c1d5",
+      "matches_candidate": true
+    },
+    {
+      "path": "work-state/tooling/pinned_native_toolchain.py",
+      "sha256": "ab9e236bb60bf3bbd96e682cc1d48bd1b8566791a5d2213f325c3f5f81d8f19f",
+      "matches_candidate": true
+    },
+    {
+      "path": "work-state/tooling/pinned_toolchain.py",
+      "sha256": "a343cdbb5aba405c52bca3f5664dfaef592331fa559ba41c232536907febbc47",
+      "matches_candidate": true
+    },
+    {
+      "path": "work-state/tooling/test_native_app_path.py",
+      "sha256": "be6ec5ef2fe8b427c11befe87ccf8e49123b7dade44fbb9aeb9bb2d4a2454d7c",
+      "matches_candidate": true
+    }
+  ],
+  "all_match": true,
+  "root_acceptance_pending_saved_review_record": true
+}

@@ -1,0 +1,42 @@
+{
+  "recorded_utc": "2026-11-04T18:35:02.709160+00:00",
+  "candidate": "e82d1fc8ef3a4bed1b4135711d50cd4abc50e6d3",
+  "expectedHead": "be1bf8de03554faea7beef0a25d01c40091d33b3",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "acceptedHead": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "name": "chapter03-count-rank-focused-attempt3-20261104",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Selection.CountRank",
+    "Examples.SelectionCountRank"
+  ],
+  "expectedPaths": [
+    "Applications/Selection/CountRank.lean",
+    "Examples/SelectionCountRank.lean"
+  ],
+  "recordDirectory": "chapter03-count-rank-validation-20261104",
+  "recordName": "candidate3-receiving.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was be1bf8d feat(selection): model measured occurrence-pivot steps (#174)\nHEAD is now at e82d1fc fix(selection): simplify sorted suffix containment base case (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Selection/CountRank.lean",
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d"
+    },
+    {
+      "path": "Examples/SelectionCountRank.lean",
+      "bytes": 4423,
+      "sha256": "cc73980788882d39abe44672d89e6a3ce37dfe3b5f5788375255248e8b4a66d2"
+    }
+  ],
+  "candidate_tree": "576bd860acb30c0a020c96be04af8ca563de684b",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 376352768
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

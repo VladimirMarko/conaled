@@ -1,0 +1,39 @@
+{
+  "utc": "2026-11-04T10:15:17.930794+00:00",
+  "previous": "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+  "isolated": "3b839319776238fe2a46f22db761058b44d68adc",
+  "accepted": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "central_idle_after_actual_focused10_exit": 1,
+  "only_proposed_delta": "Examples/UniformQuickSortMean.lean",
+  "independent_source_assessments": "Both exact isolated3b source assessments completed with no new findings; final gates remain Blocked",
+  "source_assessments_saved_after_hold": "Existing independent report continuation in progress",
+  "checkpoint0097": "libfile_0094c01620bc81918e17ad4a2268733a",
+  "completed_utc": "2026-11-04T10:15:19.413543+00:00",
+  "actual_merge_exit": 0,
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "parents": [
+    "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+    "3b839319776238fe2a46f22db761058b44d68adc"
+  ],
+  "clean": true,
+  "source_updates": [
+    {
+      "old": {
+        "path": "Examples/UniformQuickSortMean.lean",
+        "bytes": 16466,
+        "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5",
+        "git_blob": "cc0432e8fc56f76380a1e48259954cd559937a1b"
+      },
+      "new": {
+        "path": "Examples/UniformQuickSortMean.lean",
+        "bytes": 16973,
+        "sha256": "744562a71000f1d4f2c82a57a681eaf0491dfd7065ad650f09c4403304d8c24b",
+        "git_blob": "cfb82beff57d8bf116b882c0c49850e4be629586"
+      }
+    }
+  ],
+  "unchanged_full_scope_blobs": 80,
+  "full_scope": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-review-scope-20261104/successor-4b5dbfa0.json",
+  "compiler_status": "Not yet run at this candidate",
+  "new_acceptance": false
+}

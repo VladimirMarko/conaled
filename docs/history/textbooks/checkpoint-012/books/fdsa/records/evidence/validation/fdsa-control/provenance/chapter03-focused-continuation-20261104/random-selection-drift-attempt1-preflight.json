@@ -1,0 +1,78 @@
+{
+  "recorded_utc": "2026-11-04T20:59:09.140084+00:00",
+  "candidate": "eec2172f7296b6bfcd13533aadb68bd9d11c4a32",
+  "expectedHead": "45d120ce0f5bacbaac76cbceeca13ee3ff494dff",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "acceptedHead": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "name": "chapter03-random-selection-drift-focused-attempt1-20261104",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Resources.RandomSelectionDrift",
+    "Examples.RandomSelectionDrift"
+  ],
+  "expectedPaths": [
+    "Applications/Resources/RandomSelection.lean",
+    "Applications/Resources/RandomSelectionDrift.lean",
+    "Applications/Resources/RandomSelectionMean.lean",
+    "Applications/Resources/RandomSelectionRun.lean",
+    "Examples/RandomSelection.lean",
+    "Examples/RandomSelectionDrift.lean",
+    "Examples/RandomSelectionMean.lean",
+    "Examples/RandomSelectionRun.lean"
+  ],
+  "recordDirectory": "chapter03-focused-continuation-20261104",
+  "recordName": "random-selection-drift-attempt1-preflight.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was 45d120c feat(resources): bound positive halving traces (#174)\nHEAD is now at eec2172 feat(selection): bound actual random selection means (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionDrift.lean",
+      "bytes": 15095,
+      "sha256": "3e14d444d8bcc6c44d6af1889a46f3897ae129339f645e1901d6fb79ff00d683"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionMean.lean",
+      "bytes": 16493,
+      "sha256": "5a7d396ed0d451c0b0ec51493c004b721c804c69263ad7c659f023cab3ddda8f"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionRun.lean",
+      "bytes": 12714,
+      "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718"
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e"
+    },
+    {
+      "path": "Examples/RandomSelectionDrift.lean",
+      "bytes": 5766,
+      "sha256": "a6778bb654ace3f8d69883378e1e3351d83281d8c7f46763ace5502c8140bd67"
+    },
+    {
+      "path": "Examples/RandomSelectionMean.lean",
+      "bytes": 5962,
+      "sha256": "b9c83ac6e4dda31c6c70d6ccbf021cfcad5ca8317f5a3bf1133788fc559bb7af"
+    },
+    {
+      "path": "Examples/RandomSelectionRun.lean",
+      "bytes": 3770,
+      "sha256": "76504fe5fa77c581b8a7e3c9f3e0247c8a927adee8b308f84be6167e0ea20e0f"
+    }
+  ],
+  "candidate_tree": "5825b981990e3b7d331d66abe3b9550c0ac4a7ff",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 592728064
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

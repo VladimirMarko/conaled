@@ -1,0 +1,25 @@
+{
+  "recorded_utc": "2026-11-05T04:21:26.022526+00:00",
+  "actual_terminal": "06a9d6",
+  "actual_exit": 0,
+  "complete_closed_log_readback": {
+    "tool_chunk": "0a1c4b",
+    "actual_exit": 0,
+    "all_bytes_displayed_and_read": 317,
+    "before_fast_forward": true
+  },
+  "full_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-immediate-verification-20261105/full.log",
+    "bytes": 317,
+    "sha256": "6d6e5a77d85cca3e8f4ce8bb2382c0e2212db856c40c23ce976c2e5efb79736f"
+  },
+  "qualified_command": [
+    "./check.sh",
+    "--verify-candidate",
+    "HEAD"
+  ],
+  "one_thread": true,
+  "actual_matching_record_candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "actual_fast_forward_tool_chunk": "223d5d",
+  "no_intervening_builder_or_source_change": true
+}

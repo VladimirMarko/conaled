@@ -1,0 +1,23 @@
+diff --git a/Applications/Resources/ListMerge.lean b/Applications/Resources/ListMerge.lean
+index 1382830..b658809 100644
+--- a/Applications/Resources/ListMerge.lean
++++ b/Applications/Resources/ListMerge.lean
+@@ -69,8 +69,8 @@ theorem run_value (cmp : α → α → Bool) (xs ys : List α) :
+       | nil => simp only [run_nil_right, List.merge_right]
+       | cons y ys ihy =>
+           cases h : cmp x y with
+-          | false => simp [run_cons_cons, List.cons_merge_cons, h, Resources.bind, ihy]
+-          | true => simp [run_cons_cons, List.cons_merge_cons, h, Resources.bind, ihx]
++          | false => simp [run_cons_cons, h, Resources.bind, ihy]
++          | true => simp [run_cons_cons, h, Resources.bind, ihx]
+ 
+ theorem comparisons_nil_left (cmp : α → α → Bool) (ys : List α) :
+     comparisons cmp [] ys = 0 := by
+@@ -193,6 +193,7 @@ theorem run_map (cmp : α → α → Bool) (cmp' : β → β → Bool) (f : α 
+             fun a ha b hb => hc a ha b (by simp [hb])
+           have hleft := ihx (y :: ys) hcLeft
+           have hright := ihy hcRight
++          simp only [List.map_cons] at hleft hright
+           cases h : cmp x y with
+           | false => simp [run_cons_cons, ← hxy, h, Resources.bind, hright]
+           | true => simp [run_cons_cons, ← hxy, h, Resources.bind, hleft]

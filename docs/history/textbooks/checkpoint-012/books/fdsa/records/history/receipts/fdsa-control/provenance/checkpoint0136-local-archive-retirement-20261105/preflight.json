@@ -1,0 +1,84 @@
+{
+  "recorded_utc": "2026-11-05T01:10:23.251964+00:00",
+  "action": "Retire only exact local checkpoint0134 archive after fresh identity verification; keep its durable upload and both newer complete local archives0135/0136.",
+  "verified": [
+    {
+      "checkpoint": 134,
+      "archive": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0134-random-selection-path-progress.tar.gz",
+        "bytes": 38083636,
+        "sha256": "2d70445d6636cb3e86828e5838e978b6282eb2fdfd24bdbd3e38eb6710fbcb70"
+      },
+      "durability": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0134-preparation/durability.json",
+        "bytes": 1875,
+        "sha256": "8c167f9f4c073640339f1532b16e5f2907741225ade8546f450db36dcdb17399"
+      },
+      "post_upload_hash": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0134-preparation/post-upload-hash.json",
+        "bytes": 458,
+        "sha256": "09d738b7a3f099660c60fd8e01354ca01520709586bbe5145e057eb9b10d1da3"
+      },
+      "library_file_id": "libfile_5ec3dbda67688191af137be4694522b1",
+      "xattrs": {
+        "user.library-file-id": "libfile_5ec3dbda67688191af137be4694522b1",
+        "user.library-file-version": "0"
+      },
+      "remote_delete_requested": false
+    },
+    {
+      "checkpoint": 135,
+      "archive": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0135-selection-trace-and-statement-progress.tar.gz",
+        "bytes": 39061346,
+        "sha256": "8e2677a3bcdf65c37ca90f8039ea4fafb2fadebeddd3f7c2127c6d774aae0d90"
+      },
+      "durability": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0135-preparation/durability.json",
+        "bytes": 2141,
+        "sha256": "c31f4648729f933abdf28c679d4b52b77a3ef3dec1be65813d28834cfc335bc5"
+      },
+      "post_upload_hash": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0135-preparation/post-upload-hash.json",
+        "bytes": 466,
+        "sha256": "d98bd2916ebcff72947a4ef5ce8df57cc88f8658992fe91400b4a8cca6c05c48"
+      },
+      "library_file_id": "libfile_96266a11f7e481918622e8479c0cf4d9",
+      "xattrs": {
+        "user.library-file-id": "libfile_96266a11f7e481918622e8479c0cf4d9",
+        "user.library-file-version": "0"
+      },
+      "remote_delete_requested": false
+    },
+    {
+      "checkpoint": 136,
+      "archive": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0136-selection-universal-path-progress.tar.gz",
+        "bytes": 40241987,
+        "sha256": "3dfe34eb4e5e81b8698b1960e916bd2e9df3c53b6f79e1bea055a103268c8e2f"
+      },
+      "durability": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0136-preparation/durability.json",
+        "bytes": 2525,
+        "sha256": "df31575db7de74bdcb505b47fe9e5dc6bb0119b5747333ca5dee20fbe530947b"
+      },
+      "post_upload_hash": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0136-preparation/post-upload-hash.json",
+        "bytes": 461,
+        "sha256": "0b347bf60cc8e2ed05e9456dad37ec351c72316f07e85087d3aa9b76c99f9a5f"
+      },
+      "library_file_id": "libfile_6e02967c959881919fe6c4eb3fb86245",
+      "xattrs": {
+        "user.library-file-id": "libfile_6e02967c959881919fe6c4eb3fb86245",
+        "user.library-file-version": "0"
+      },
+      "remote_delete_requested": false
+    }
+  ],
+  "before_space": {
+    "total": 67586535424,
+    "available": 0,
+    "raw_free": 426135552
+  },
+  "no_source_control_cache_or_remote_deletion": true
+}

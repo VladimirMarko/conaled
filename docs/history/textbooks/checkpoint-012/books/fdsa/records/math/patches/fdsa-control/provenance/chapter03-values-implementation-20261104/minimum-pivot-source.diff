@@ -1,0 +1,470 @@
+diff --git a/Applications/Resources/MinimumPivot.lean b/Applications/Resources/MinimumPivot.lean
+new file mode 100644
+index 0000000..c9ab1d9
+--- /dev/null
++++ b/Applications/Resources/MinimumPivot.lean
+@@ -0,0 +1,238 @@
++import Applications.Resources.SelectionPolicy
++import Applications.Resources.FixedRank
++
++/-!
++FDSA p35: corrected deterministic minimum-pivot analysis.
++
++All executions use the actual measured linear minimum constructor. The exact
++path theorem assumes distinct occurrences and a valid zero-based rank. It
++separates active invocations, recursive edges, scan volume and source calls.
++Only the largest-rank specialization is uniformly quadratic. With a fixed rank
++the cost is linear; duplicates can stop at an entire equal block immediately.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.MinimumPivot
++open Applications.Selection
++universe u
++variable {α : Type u} [LinearOrder α]
++
++/-- The minimum constructor is charged on every active invocation. -/
++def run (fuel k : Nat) (xs : List α) : SelectionPolicy.Observed α :=
++  SelectionPolicy.runWith FixedRank.select0Run fuel k xs
++
++theorem policy_valid : PivotValid (fun xs : List α => (FixedRank.select0Run xs).1) := by
++  simpa only [FixedRank.select0Run_value] using
++    (Applications.Selection.FixedRank.select0_pivot_valid (α := α))
++
++theorem run_value (fuel k : Nat) (xs : List α) (hf : xs.length ≤ fuel) :
++    (run fuel k xs).1.1 = (ordered xs)[k]? :=
++  SelectionPolicy.runWith_correct FixedRank.select0Run policy_valid fuel k xs hf
++
++/-- Distinctness is used only for one equal occurrence, not for value correctness. -/
++theorem minimum_bucket_sizes (xs : List α) (p : α) (hn : xs.Nodup)
++    (hp : Applications.Selection.FixedRank.select0 xs = some p) :
++    (partition3 p xs).1.length = 0 ∧ (partition3 p xs).2.1.length = 1 ∧
++      (partition3 p xs).2.2.length + 1 = xs.length ∧
++      (partition3 p xs).2.2.Nodup := by
++  have hr := (Applications.Selection.FixedRank.select0_some_iff_ranked xs p).mp hp
++  have hc := ranked_strict_counts xs 0 p hn hr
++  have hl : (partition3 p xs).1.length = 0 := by
++    simpa only [partition3_eq_filters, List.countP_eq_length_filter] using hc.1
++  have hu : (partition3 p xs).2.2.length = xs.length - 1 := by
++    simpa only [partition3_eq_filters, List.countP_eq_length_filter,
++      Nat.sub_zero] using hc.2
++  have hpos := hr.lt_length
++  have hs := partition_lengths p xs
++  have hnodup : (partition3 p xs).2.2.Nodup := by
++    rw [partition3_eq_filters]
++    exact hn.filter _
++  exact ⟨hl, by omega, by omega, hnodup⟩
++
++/-- With rank zero the first minimum pivot is already the desired occurrence. -/
++theorem run_zero_rank (fuel : Nat) (xs : List α) (hn : xs.Nodup) (hx : xs ≠ []) :
++    run (fuel + 1) 0 xs =
++      ((Applications.Selection.FixedRank.select0 xs, [xs.length]), 3 * xs.length + 8) := by
++  obtain ⟨p, hp, _⟩ := Applications.Selection.FixedRank.select0_pivot_valid xs hx
++  obtain ⟨hl, he, _, _⟩ := minimum_bucket_sizes xs p hn hp
++  have hp' : (FixedRank.select0Run xs).1 = some p := by
++    rw [FixedRank.select0Run_value, hp]
++  have hi := partition_equal_getElem? p xs 0 (by omega)
++  rw [run, SelectionPolicy.runWith_step _ fuel 0 xs hx p hp']
++  simp only [hl, he, FixedRank.select0Run_cost]
++  change (((partition3 p xs).2.1[0]?, [xs.length]),
++    (xs.length + 1) + (xs.length + 1) + (xs.length + 1) + 1 + 2 + 1 + 1) =
++      ((Applications.Selection.FixedRank.select0 xs, [xs.length]), 3 * xs.length + 8)
++  rw [hi, hp]
++  congr 1
++  omega
++
++/-- On distinct data, one minimum occurrence is removed and rank drops by one.
++The real minimum construction contributes `n+1` to the step's `3*n+7` calls. -/
++theorem run_succ_rank (fuel k : Nat) (xs : List α) (p : α) (hn : xs.Nodup)
++    (hp : Applications.Selection.FixedRank.select0 xs = some p) :
++    run (fuel + 1) (k + 1) xs =
++      SelectionPolicy.prepend xs.length (3 * xs.length + 7)
++        (run fuel k (partition3 p xs).2.2) := by
++  have hx : xs ≠ [] := by
++    intro he
++    subst xs
++    simp [Applications.Selection.FixedRank.select0] at hp
++  obtain ⟨hl, he, _, _⟩ := minimum_bucket_sizes xs p hn hp
++  have hp' : (FixedRank.select0Run xs).1 = some p := by
++    rw [FixedRank.select0Run_value, hp]
++  rw [run, SelectionPolicy.runWith_step _ fuel (k + 1) xs hx p hp']
++  simp only [hl, he, Nat.not_lt_zero, ↓reduceIte, Nat.zero_add,
++    show ¬ k + 1 < 1 by omega, Nat.sub_zero, Nat.add_sub_cancel,
++    FixedRank.select0Run_cost]
++  unfold run SelectionPolicy.prepend
++  congr 1
++  omega
++
++/-- The predicted active sizes, independent of input order. -/
++def sizes (n : Nat) : Nat → List Nat
++  | 0 => [n]
++  | k + 1 => n :: sizes (n - 1) k
++
++theorem sizes_length (n k : Nat) : (sizes n k).length = k + 1 := by
++  induction k generalizing n with
++  | zero => rfl
++  | succ k ih => simp only [sizes, List.length_cons, ih]
++
++/-- The observation theorem follows the actual selected strict bucket. -/
++theorem run_observations (fuel k : Nat) (xs : List α) (hn : xs.Nodup)
++    (hk : k < xs.length) (hf : xs.length ≤ fuel) :
++    (run fuel k xs).1.2 = sizes xs.length k ∧
++      (run fuel k xs).2 = 3 * (sizes xs.length k).sum + 7 * (k + 1) + 1 := by
++  induction fuel generalizing k xs with
++  | zero => omega
++  | succ fuel ih =>
++      have hx : xs ≠ [] := List.ne_nil_of_length_pos (by omega)
++      cases k with
++      | zero =>
++          rw [run_zero_rank fuel xs hn hx]
++          constructor
++          · rfl
++          · change 3 * xs.length + 8 = 3 * xs.length + 7 + 1
++            omega
++      | succ k =>
++          obtain ⟨p, hp, _⟩ := Applications.Selection.FixedRank.select0_pivot_valid xs hx
++          obtain ⟨_, _, hs, hd⟩ := minimum_bucket_sizes xs p hn hp
++          have hi := ih k (partition3 p xs).2.2 hd (by omega) (by omega)
++          rw [run_succ_rank fuel k xs p hn hp]
++          have he : (partition3 p xs).2.2.length = xs.length - 1 := by omega
++          constructor
++          · change xs.length :: (run fuel k (partition3 p xs).2.2).1.2 =
++              xs.length :: sizes (xs.length - 1) k
++            rw [hi.1, he]
++          · change (3 * xs.length + 7) + (run fuel k (partition3 p xs).2.2).2 =
++              3 * (xs.length + (sizes (xs.length - 1) k).sum) + 7 * (k + 1 + 1) + 1
++            rw [hi.2, he]
++            omega
++
++theorem run_trace (fuel k : Nat) (xs : List α) (hn : xs.Nodup)
++    (hk : k < xs.length) (hf : xs.length ≤ fuel) :
++    (run fuel k xs).1.2 = sizes xs.length k :=
++  (run_observations fuel k xs hn hk hf).1
++
++/-- Entries include the final equal-branch invocation. -/
++theorem active_calls (fuel k : Nat) (xs : List α) (hn : xs.Nodup)
++    (hk : k < xs.length) (hf : xs.length ≤ fuel) :
++    (run fuel k xs).1.2.length = k + 1 := by
++  rw [run_trace fuel k xs hn hk hf, sizes_length]
++
++/-- Each active invocation except the last makes one recursive edge. -/
++theorem recursive_edges (fuel k : Nat) (xs : List α) (hn : xs.Nodup)
++    (hk : k < xs.length) (hf : xs.length ≤ fuel) :
++    (run fuel k xs).1.2.length - 1 = k := by
++  rw [active_calls fuel k xs hn hk hf]
++  omega
++
++/-- Division-free triangular subtraction, retaining the valid-rank domain. -/
++theorem sizes_sum_double (n k : Nat) (hk : k < n) :
++    2 * (sizes n k).sum + k * (k + 1) = 2 * ((k + 1) * n) := by
++  induction k generalizing n with
++  | zero => simp [sizes]
++  | succ k ih =>
++      cases n with
++      | zero => omega
++      | succ n =>
++          have ht := ih n (by omega)
++          simp only [sizes, Nat.add_sub_cancel, List.sum_cons]
++          nlinarith
++
++theorem sizes_sum (n k : Nat) (hk : k < n) :
++    (sizes n k).sum = (k + 1) * n - k * (k + 1) / 2 := by
++  have h := sizes_sum_double n k hk
++  omega
++
++theorem sizes_sum_bounds (n k : Nat) (hk : k < n) :
++    n ≤ (sizes n k).sum ∧ (sizes n k).sum ≤ (k + 1) * n := by
++  constructor
++  · cases k <;> simp [sizes]
++  · rw [sizes_sum n k hk]
++    exact Nat.sub_le _ _
++
++/-- The p35 exact scan formula counts occurrences scanned, not source calls. -/
++theorem scan_exact (fuel k : Nat) (xs : List α) (hn : xs.Nodup)
++    (hk : k < xs.length) (hf : xs.length ≤ fuel) :
++    (run fuel k xs).1.2.sum = (k + 1) * xs.length - k * (k + 1) / 2 := by
++  rw [run_trace fuel k xs hn hk hf, sizes_sum xs.length k hk]
++
++/-- Transfer the actual minimum/partition/length/lookup charge to the trace. -/
++theorem cost_exact (fuel k : Nat) (xs : List α) (hn : xs.Nodup)
++    (hk : k < xs.length) (hf : xs.length ≤ fuel) :
++    (run fuel k xs).2 = 3 * (run fuel k xs).1.2.sum + 7 * (k + 1) + 1 := by
++  rw [run_trace fuel k xs hn hk hf]
++  exact (run_observations fuel k xs hn hk hf).2
++
++/-- One constant for every list at the chosen fixed rank; pivot search is paid. -/
++theorem fixed_rank_linear (fuel k : Nat) (xs : List α) (hn : xs.Nodup)
++    (hk : k < xs.length) (hf : xs.length ≤ fuel) :
++    xs.length ≤ (run fuel k xs).2 ∧
++      (run fuel k xs).2 ≤ (10 * (k + 1) + 1) * xs.length := by
++  rw [(run_observations fuel k xs hn hk hf).2]
++  have hb := sizes_sum_bounds xs.length k hk
++  have hp : 1 ≤ xs.length := by omega
++  constructor
++  · omega
++  · have hm : k + 1 ≤ (k + 1) * xs.length := by
++      simpa only [Nat.mul_one] using Nat.mul_le_mul_left (k + 1) hp
++    nlinarith
++
++/-- At the largest valid rank, the active sizes are `n,n-1,...,1`. -/
++theorem largest_scan_double (fuel : Nat) (xs : List α) (hn : xs.Nodup)
++    (hx : xs ≠ []) (hf : xs.length ≤ fuel) :
++    2 * (run fuel (xs.length - 1) xs).1.2.sum = xs.length * (xs.length + 1) := by
++  have hp := List.length_pos_iff.mpr hx
++  rw [run_trace fuel (xs.length - 1) xs hn (by omega) hf]
++  have h := sizes_sum_double xs.length (xs.length - 1) (by omega)
++  have he : xs.length - 1 + 1 = xs.length := by omega
++  have hm := congrArg (fun m : Nat => m * xs.length) he
++  rw [he] at h
++  nlinarith
++
++theorem largest_scan (fuel : Nat) (xs : List α) (hn : xs.Nodup)
++    (hx : xs ≠ []) (hf : xs.length ≤ fuel) :
++    (run fuel (xs.length - 1) xs).1.2.sum = xs.length * (xs.length + 1) / 2 := by
++  rw [← largest_scan_double fuel xs hn hx hf]
++  omega
++
++/-- Explicit quadratic constants, valid on every positive distinct input.
++No asymptotic assertion is made for arbitrary target ranks or duplicate data. -/
++theorem largest_cost_quadratic (fuel : Nat) (xs : List α) (hn : xs.Nodup)
++    (hx : xs ≠ []) (hf : xs.length ≤ fuel) :
++    xs.length ^ 2 ≤ 2 * (run fuel (xs.length - 1) xs).2 ∧
++      (run fuel (xs.length - 1) xs).2 ≤ 11 * xs.length ^ 2 := by
++  have hp := List.length_pos_iff.mpr hx
++  have hs := largest_scan_double fuel xs hn hx hf
++  have hc := cost_exact fuel (xs.length - 1) xs hn (by omega) hf
++  have he : xs.length - 1 + 1 = xs.length := by omega
++  rw [he] at hc
++  have hnn : xs.length ≤ xs.length ^ 2 := by
++    simpa only [Nat.pow_two, Nat.mul_one] using
++      Nat.mul_le_mul_left xs.length (show 1 ≤ xs.length by omega)
++  constructor <;> nlinarith
++
++end Resources.MinimumPivot
+diff --git a/Applications/Resources/SelectionPolicy.lean b/Applications/Resources/SelectionPolicy.lean
+new file mode 100644
+index 0000000..cfb1274
+--- /dev/null
++++ b/Applications/Resources/SelectionPolicy.lean
+@@ -0,0 +1,123 @@
++import Applications.Selection.ThreeWay
++import Applications.Resources.Partition
++import Applications.Resources.ListCalls
++
++/-!
++Measured deterministic three-way selection with an explicit pivot constructor.
++
++The returned trace records the positive input sizes at active invocations.
++Those sizes come from an actual measured length traversal. Each active step
++also executes the supplied measured pivot, the one-pass partition, both bucket
++lengths, and either sequential equal-block lookup or its actual recursive call.
++One entry is charged for the selector itself. Primitive arithmetic, comparisons,
++tuple construction and trace bookkeeping add no source calls. Fuel is the same
++administrative depth parameter used by `Applications.Selection.runWith`; it is
++not a claim about runtime fuel overhead. Adequacy is proved after erasure.
++
++This realization deliberately includes its input-size traversal in the tariff.
++It does not identify source calls with scan volume, comparison count or time.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.SelectionPolicy
++universe u
++
++/-- Optional value, active-size trace, and the separately accumulated calls. -/
++abbrev Observed (α : Type u) := Measured (Option α × List Nat) Nat
++
++/-- Extend the actual child result, retaining its value, trace and charge. -/
++def prepend {α : Type u} (n c : Nat) (r : Observed α) : Observed α :=
++  ((r.1.1, n :: r.1.2), c + r.2)
++
++variable {α : Type u} [LinearOrder α]
++
++/-- A measured policy supplies a value and its construction charge together.
++The equal branch retains the source's positional lookup, including duplicates.
++The empty/fuel-zero extension has one entry and no active trace. -/
++def runWith (choose : List α → Measured (Option α) Nat) :
++    Nat → Nat → List α → Observed α
++  | 0, _, _ => ((none, []), 1)
++  | _ + 1, _, [] => ((none, []), 1)
++  | fuel + 1, k, x :: xs =>
++      let n := SymmetricCosts.lengthRun (x :: xs)
++      let pivot := choose (x :: xs)
++      match pivot.1 with
++      | none => ((none, [n.1]), n.2 + pivot.2 + 1)
++      | some p =>
++          let t := Partition.partitionRun p (x :: xs)
++          let nl := SymmetricCosts.lengthRun t.1.1
++          let ne := SymmetricCosts.lengthRun t.1.2.1
++          let c := n.2 + pivot.2 + t.2 + nl.2 + ne.2 + 1
++          if k < nl.1 then prepend n.1 c (runWith choose fuel k t.1.1)
++          else if k < nl.1 + ne.1 then
++            let r := ListCalls.lookupRun t.1.2.1 (k - nl.1)
++            ((r.1, [n.1]), c + r.2)
++          else prepend n.1 c (runWith choose fuel (k - nl.1 - ne.1) t.1.2.2)
++
++theorem runWith_zero (choose : List α → Measured (Option α) Nat)
++    (k : Nat) (xs : List α) : runWith choose 0 k xs = ((none, []), 1) := rfl
++
++theorem runWith_nil (choose : List α → Measured (Option α) Nat)
++    (fuel k : Nat) : runWith choose fuel k [] = ((none, []), 1) := by
++  cases fuel <;> rfl
++
++/-- Normalize only the primitive executions, preserving the actual child call.
++The displayed tariff includes both bucket lengths even on a lower branch. -/
++theorem runWith_step (choose : List α → Measured (Option α) Nat)
++    (fuel k : Nat) (xs : List α) (hx : xs ≠ []) (p : α)
++    (hp : (choose xs).1 = some p) :
++    runWith choose (fuel + 1) k xs =
++      let t := Applications.Selection.partition3 p xs
++      let c := (xs.length + 1) + (choose xs).2 + (xs.length + 1) +
++        (t.1.length + 1) + (t.2.1.length + 1) + 1
++      if k < t.1.length then prepend xs.length c (runWith choose fuel k t.1)
++      else if k < t.1.length + t.2.1.length then
++        ((t.2.1[k - t.1.length]?, [xs.length]),
++          c + (min (k - t.1.length) t.2.1.length + 1))
++      else prepend xs.length c
++        (runWith choose fuel (k - t.1.length - t.2.1.length) t.2.2) := by
++  cases xs with
++  | nil => exact (hx rfl).elim
++  | cons x xs =>
++      simp only [runWith, hp, SymmetricCosts.lengthRun_exact,
++        Partition.partitionRun_value, Partition.partitionRun_cost,
++        ListCalls.lookupRun_value, ListCalls.lookupRun_cost,
++        Applications.Selection.partition3]
++
++/-- Trace instrumentation and measured primitives preserve the existing source
++control flow at every fuel, including invalid indices and policy failure. -/
++theorem runWith_value (choose : List α → Measured (Option α) Nat)
++    (fuel k : Nat) (xs : List α) :
++    (runWith choose fuel k xs).1.1 =
++      Applications.Selection.runWith (fun ys => (choose ys).1) fuel k xs := by
++  induction fuel generalizing k xs with
++  | zero => rfl
++  | succ fuel ih =>
++      cases xs with
++      | nil => rfl
++      | cons x xs =>
++          cases hp : (choose (x :: xs)).1 with
++          | none => simp only [runWith, Applications.Selection.runWith, hp]
++          | some p =>
++              rw [runWith_step choose fuel k (x :: xs) (by simp) p hp]
++              by_cases hl : k < (Applications.Selection.partition3 p (x :: xs)).1.length
++              · simp [Applications.Selection.runWith, hp,
++                  Applications.Selection.dispatch, hl, prepend, ih]
++              · by_cases he : k < (Applications.Selection.partition3 p (x :: xs)).1.length +
++                    (Applications.Selection.partition3 p (x :: xs)).2.1.length
++                · simp [Applications.Selection.runWith, hp,
++                    Applications.Selection.dispatch, hl, he]
++                · simp [Applications.Selection.runWith, hp,
++                    Applications.Selection.dispatch, hl, he, prepend, ih]
++
++/-- Input length suffices for a valid input-occurrence policy. No distinctness
++or valid-rank premise is needed for the optional value contract. -/
++theorem runWith_correct (choose : List α → Measured (Option α) Nat)
++    (hv : Applications.Selection.PivotValid (fun ys => (choose ys).1))
++    (fuel k : Nat) (xs : List α) (hf : xs.length ≤ fuel) :
++    (runWith choose fuel k xs).1.1 = (Applications.Selection.ordered xs)[k]? := by
++  rw [runWith_value]
++  exact Applications.Selection.runWith_value _ hv fuel xs hf k
++
++end Resources.SelectionPolicy
+diff --git a/Examples/MinimumPivot.lean b/Examples/MinimumPivot.lean
+new file mode 100644
+index 0000000..f6cb0d5
+--- /dev/null
++++ b/Examples/MinimumPivot.lean
+@@ -0,0 +1,91 @@
++import Applications.Resources.MinimumPivot
++
++/-! Connected p35 examples. The policy actually computes a minimum each time.
++The explicit call tariff includes the measured size traversals; scan volume and
++recursive depth remain separate observations of that same execution. -/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.MinimumPivot
++open Resources.MinimumPivot
++
++def input : List Nat := [3, 1, 4, 2]
++
++theorem input_nodup : input.Nodup := by decide
++
++theorem middle_execution : run 4 2 input = ((some 3, [4, 3, 2]), 49) := by decide
++
++theorem middle_trace : (run 4 2 input).1.2 = [4, 3, 2] :=
++  run_trace 4 2 input input_nodup (by decide) (by decide)
++
++theorem middle_calls : (run 4 2 input).1.2.length = 3 :=
++  active_calls 4 2 input input_nodup (by decide) (by decide)
++
++theorem middle_edges : (run 4 2 input).1.2.length - 1 = 2 :=
++  recursive_edges 4 2 input input_nodup (by decide) (by decide)
++
++theorem middle_scan : (run 4 2 input).1.2.sum = 9 :=
++  scan_exact 4 2 input input_nodup (by decide) (by decide)
++
++theorem middle_cost : (run 4 2 input).2 = 49 := by
++  rw [cost_exact 4 2 input input_nodup (by decide) (by decide), middle_scan]
++
++theorem largest_execution : run 4 3 input = ((some 4, [4, 3, 2, 1]), 59) := by decide
++
++theorem largest_scan_connected : (run 4 3 input).1.2.sum = 10 :=
++  largest_scan 4 input input_nodup (by decide) (by decide)
++
++theorem minimum_execution : run 4 0 input = ((some 1, [4]), 20) := by decide
++
++theorem minimum_is_not_four_calls : (run 4 0 input).1.2.length ≠ input.length := by
++  rw [active_calls 4 0 input input_nodup (by decide) (by decide)]
++  decide
++
++theorem duplicate_execution :
++    run 4 3 ([7, 7, 7, 7] : List Nat) = ((some 7, [4]), 26) := by decide
++
++theorem duplicates_are_not_four_calls :
++    (run 4 3 ([7, 7, 7, 7] : List Nat)).1.2.length ≠ 4 := by
++  rw [duplicate_execution]
++  decide
++
++theorem singleton_execution : run 1 0 ([-4] : List Int) = ((some (-4), [1]), 11) := by
++  decide
++
++theorem singleton_edges : (run 1 0 ([-4] : List Int)).1.2.length - 1 = 0 :=
++  recursive_edges 1 0 [-4] (by decide) (by decide) (by decide)
++
++theorem empty_execution : run 0 0 ([] : List Nat) = ((none, []), 1) := rfl
++
++theorem invalid_value : (run 4 4 input).1.1 = none := by
++  rw [run_value 4 4 input (by decide)]
++  apply List.getElem?_eq_none_iff.mpr
++  rw [(Applications.Selection.ordered_perm input).length_eq]
++
++/-- A genuine infinite distinct family, with growing size and largest rank. -/
++theorem range_worst_scan (n : Nat) :
++    (run (n + 1) n (List.range (n + 1))).1.2.sum = (n + 1) * (n + 2) / 2 := by
++  simpa only [List.length_range, Nat.add_sub_cancel, Nat.add_assoc] using
++    largest_scan (n + 1) (List.range (n + 1)) List.nodup_range (by simp) (by simp)
++
++theorem range_worst_calls (n : Nat) :
++    (run (n + 1) n (List.range (n + 1))).1.2.length = n + 1 :=
++  active_calls (n + 1) n (List.range (n + 1)) List.nodup_range (by simp) (by simp)
++
++theorem range_worst_edges (n : Nat) :
++    (run (n + 1) n (List.range (n + 1))).1.2.length - 1 = n :=
++  recursive_edges (n + 1) n (List.range (n + 1)) List.nodup_range (by simp) (by simp)
++
++theorem range_worst_quadratic (n : Nat) :
++    (n + 1) ^ 2 ≤ 2 * (run (n + 1) n (List.range (n + 1))).2 ∧
++      (run (n + 1) n (List.range (n + 1))).2 ≤ 11 * (n + 1) ^ 2 := by
++  simpa only [List.length_range, Nat.add_sub_cancel] using
++    largest_cost_quadratic (n + 1) (List.range (n + 1))
++      List.nodup_range (by simp) (by simp)
++
++/-- Fixed zero-based rank two has one uniform linear coefficient. -/
++theorem fixed_third_linear (xs : List Int) (hn : xs.Nodup) (hk : 2 < xs.length) :
++    xs.length ≤ (run xs.length 2 xs).2 ∧ (run xs.length 2 xs).2 ≤ 31 * xs.length :=
++  fixed_rank_linear xs.length 2 xs hn hk (by omega)
++
++end Examples.MinimumPivot

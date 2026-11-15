@@ -1,0 +1,19 @@
+{
+  "timed_out": true,
+  "timeout_seconds": 2,
+  "stdout": "about-to-create-from-fifo\n",
+  "stderr": null,
+  "elapsed_seconds": 2.0063617569976486,
+  "temporary_directory_removed": true,
+  "candidate": "5066fb9d0d0963122332149b3b6984ebea3facda",
+  "scope": "One synthetic public create_companion call with a FIFO at an expected trace path; no Lean/helper, actual cache or formal-source access; only the owned probe subprocess was stopped by its timeout.",
+  "command": [
+    "/root/.nix-profile/bin/nix",
+    "develop",
+    "/workspace/scratch/0c54f2db1fdf/conaled",
+    "--command",
+    "python3",
+    "-B",
+    "-"
+  ]
+}

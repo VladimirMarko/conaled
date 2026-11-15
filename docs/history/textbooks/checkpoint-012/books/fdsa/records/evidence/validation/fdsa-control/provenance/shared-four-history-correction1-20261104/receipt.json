@@ -1,0 +1,163 @@
+{
+  "completed_utc": "2026-11-04T14:21:42.355630+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "finding": "SH4-HIST-001",
+  "disposition": "Implemented by four normal history-preserving merge successors; independent confirmation and all acceptance gates remain pending.",
+  "original_H": "97505ca8a1e714601e6d68137f0659b36a569988",
+  "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "accepted_F": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "branch": "work/fdsa-shared-four-integration",
+  "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+  "source_tree_exactly_H": true,
+  "new_math_or_source_delta_from_H": false,
+  "real_merge_commits": [
+    "15dbd8ac1d653a9ef8000656a91152ca1cda9c58",
+    "eb269d9ec3850b21760f5aa83a5a1001a5f219d3",
+    "b907e9017ed1bd0c32361ed0cad596388cb6da31",
+    "312aafb4446b995ff5542041b4e2e074f776db1e"
+  ],
+  "all_four_original_tips_actual_ancestors": true,
+  "actual_ancestry_exit_codes": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "normal_merge_conflict_exit_codes": [
+    1,
+    1,
+    1,
+    1
+  ],
+  "all_four_resolution_and_commit_exits": 0,
+  "H_original_package_preserved_files": 9,
+  "original_requirements_and_scope_preserved": true,
+  "all_other63refs_unchanged": true,
+  "accepted_book_and_original_foundation_F": true,
+  "status_clean": true,
+  "no_pending_merge": true,
+  "actual_compiler_type_or_audit_credit": 0,
+  "F_verification_unchanged_not_successor_evidence": true,
+  "original18path_source_identities_reference": "provenance/shared-four-source-integration-20261104/receipt.json",
+  "new_final_verification": "final-verification.json",
+  "readback": "All four complete actual merge-result diffs and conflict stage records read before targeted resolution. Every result parent pair/tree, final ancestry, complete H source equality, original package hashes and protected refs checked. H mathematical source review is retained by exact tree identity, not repeated.",
+  "resource_write_failures": [],
+  "mutation_retries": 0,
+  "source_and_provenance_hold": true,
+  "artifacts": [
+    {
+      "path": "01-XM01-before-resolution.json",
+      "bytes": 934,
+      "lines": 11,
+      "sha256": "7c45881ac958c19cc26855a9a136be29b47bc541c80cf5d8fcc01fb8b1889b16"
+    },
+    {
+      "path": "01-XM01-merge-command.json",
+      "bytes": 830,
+      "lines": 22,
+      "sha256": "28b65f77ac62e9cee1eafabb0f3e217d9c16e5cdaeb23d7ee7b881f3985a51e5"
+    },
+    {
+      "path": "01-XM01-merge-result.diff",
+      "bytes": 2904,
+      "lines": 54,
+      "sha256": "7d33bc472f0c773a6bbe8eb45ca20da4c716a96b4ebef4029370bc74c592e947"
+    },
+    {
+      "path": "01-XM01-resolution-and-commit.json",
+      "bytes": 3308,
+      "lines": 90,
+      "sha256": "7aeb9523748f0c8b2dafc568c3a34baff56a53becb36ed79460c9d8adebcf20e"
+    },
+    {
+      "path": "02-XD01-before-resolution.json",
+      "bytes": 1217,
+      "lines": 11,
+      "sha256": "b5619d5dc9d1f30252407e65ed1c2a346379d6d0b229582f433ff5ce44a1c04f"
+    },
+    {
+      "path": "02-XD01-merge-command.json",
+      "bytes": 915,
+      "lines": 22,
+      "sha256": "5932d777fc8632251d40257f24a2102a7a60d7cfbd369ee262dab6f9be26482c"
+    },
+    {
+      "path": "02-XD01-merge-result.diff",
+      "bytes": 5577,
+      "lines": 118,
+      "sha256": "84c8023490e5909aed231c493154c11c56292ab8290b233be869ed5a65b2f147"
+    },
+    {
+      "path": "02-XD01-resolution-and-commit.json",
+      "bytes": 3301,
+      "lines": 87,
+      "sha256": "7394ed0112703d4284036c836a96d6d57e996519062f74d14c591b1be1a4d660"
+    },
+    {
+      "path": "03-XQ01-before-resolution.json",
+      "bytes": 1207,
+      "lines": 11,
+      "sha256": "6ea657d97087b6f01e7b652fbcafd6a2f814fa1b9f9ea74135e3ab6c572ff402"
+    },
+    {
+      "path": "03-XQ01-merge-command.json",
+      "bytes": 911,
+      "lines": 22,
+      "sha256": "a706eb17f0751137c2162578971913d1044379c64c7dcf0871a168bf81b284d0"
+    },
+    {
+      "path": "03-XQ01-merge-result.diff",
+      "bytes": 5462,
+      "lines": 109,
+      "sha256": "e51ffd86c765f020e38f0c7db8128edb2653c165c655e465c11436a143dad4a2"
+    },
+    {
+      "path": "03-XQ01-resolution-and-commit.json",
+      "bytes": 3232,
+      "lines": 87,
+      "sha256": "5f82c19edc0570f35e81b92c093f786bf67c03939163176b9b4e1fbed5f7e608"
+    },
+    {
+      "path": "04-XU01-before-resolution.json",
+      "bytes": 892,
+      "lines": 10,
+      "sha256": "a1441f43ef32ae28edd69d489a2f1be11b828073cd2ec93a31f90dcfad8d0d7d"
+    },
+    {
+      "path": "04-XU01-merge-command.json",
+      "bytes": 848,
+      "lines": 22,
+      "sha256": "a41b3f6e1df58af4f8bf8e33d0dcd8c2c35d8381269beee581f9ff5a27c1408b"
+    },
+    {
+      "path": "04-XU01-merge-result.diff",
+      "bytes": 3707,
+      "lines": 75,
+      "sha256": "bfa9923ee2a924dd538f8a7e4069b3008904497a5b86b6f728b5fac037aaea19"
+    },
+    {
+      "path": "04-XU01-resolution-and-commit.json",
+      "bytes": 2924,
+      "lines": 80,
+      "sha256": "84d1a315f5b4e6b62d142568f9dbc0ce2787738f32bef0c5acc89add4a8a5bcc"
+    },
+    {
+      "path": "final-verification.json",
+      "bytes": 5441,
+      "lines": 169,
+      "sha256": "ca8c88afa10f2298ac6942d083a200ed41cb8797d2b2669bde91c339a561b760"
+    },
+    {
+      "path": "handoff.md",
+      "bytes": 4838,
+      "lines": 81,
+      "sha256": "1e3718c84e7e18f7df92fd4b4f67dc8ad8a49cdeb1e7a713255977b21dbea676"
+    },
+    {
+      "path": "start.json",
+      "bytes": 11325,
+      "lines": 217,
+      "sha256": "24bd27ec6fba17b67d0d95b183206b714a047095fd6fededfa47dbe05621a70d"
+    }
+  ]
+}

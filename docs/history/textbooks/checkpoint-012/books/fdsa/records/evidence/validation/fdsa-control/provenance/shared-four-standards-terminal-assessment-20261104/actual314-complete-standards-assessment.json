@@ -1,0 +1,200 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "axis": "Standards",
+  "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "recorded_utc": "2026-11-04T15:01:31.262605+00:00",
+  "scope": "Same complete original XM01/XD01/XQ01/XU01 scope and 35 affected inherited insertion interfaces, not a selected-output review.",
+  "qualified_input_receipt": {
+    "path": "provenance/shared-four-standards-terminal-assessment-20261104/actual314-input-qualification.json",
+    "bytes": 7567,
+    "lines": 173,
+    "sha256": "1d717dc58d0ed8b2b133c7c439a540242e955da80a8090da084830454acc045b"
+  },
+  "complete_read_ledger": {
+    "path": "provenance/shared-four-standards-terminal-assessment-20261104/actual314-read-ledger.json",
+    "bytes": 14033,
+    "lines": 294,
+    "sha256": "5e61784905b0f5a6134b64808b84970bb4e5024b05ba2cf5aa836b16fd56fa01"
+  },
+  "readback_tool": "a102c4",
+  "all_chunks_independently_rehashed": true,
+  "complete_actual_types": 314,
+  "native_lines": 3438,
+  "native_bytes": 256987,
+  "unread_types": 0,
+  "concrete_findings": [],
+  "terminal": {
+    "outer": {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/full.log",
+      "bytes": 257353,
+      "lines": 3441,
+      "sha256": "dec9c59e8b0891f7863ad9d84b624b763a58114db0d36c20e8865727f4197352"
+    },
+    "native": {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/output.log",
+      "bytes": 256987,
+      "lines": 3438,
+      "sha256": "3bdb9dc0a92ec781a28b46de1a3eb843bda4efcd17c2292f091c19e52df7c50c"
+    },
+    "result": {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/result.json",
+      "bytes": 1412,
+      "lines": 33,
+      "sha256": "4e96d347b0303913359798dc0d58981c59f8d07d70eb946f263a6c68fda83f44"
+    },
+    "outer_native_exit_code": 0,
+    "native_copy_checks": [
+      {
+        "copied": {
+          "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/start.json",
+          "bytes": 567,
+          "lines": 14,
+          "sha256": "146560a48376372f9d6bc12bde6e61edd3a3771e3d015b6b5b6cf2d9f5ec6da6"
+        },
+        "origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T144502Z-project-run-0933976a/start.json",
+        "exact_bytes": true
+      },
+      {
+        "copied": {
+          "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/result.json",
+          "bytes": 719,
+          "lines": 19,
+          "sha256": "e7a21394c023d7915d9e633d9f9cefce17579fe39c30b613b02f999e80d4749e"
+        },
+        "origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T144502Z-project-run-0933976a/result.json",
+        "exact_bytes": true
+      },
+      {
+        "copied": {
+          "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/output.log",
+          "bytes": 256987,
+          "lines": 3438,
+          "sha256": "3bdb9dc0a92ec781a28b46de1a3eb843bda4efcd17c2292f091c19e52df7c50c"
+        },
+        "origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T144502Z-project-run-0933976a/output.log",
+        "exact_bytes": true
+      }
+    ],
+    "copy_check_tool": "506a7f",
+    "later_repeat_hash_check": "this receipt construction"
+  },
+  "actual_statement_semantics": "All binders, hypotheses, laws, values, costs, minimal structures and connected success/boundary/counterexample conclusions were assessed. Per-chunk notes preserve the complete semantic assessment. Header counting and source review were not substitutes for reading actual expanded types.",
+  "ellipsis_boundary": {
+    "lines": [
+      1333,
+      1348,
+      1368,
+      1532,
+      2398,
+      2406,
+      2423,
+      2431,
+      2443,
+      2451,
+      2460,
+      2487,
+      2506,
+      2514,
+      2522,
+      2543,
+      2559,
+      2567,
+      2586,
+      2594,
+      2614,
+      2630,
+      2657,
+      2663,
+      2668,
+      2690,
+      2698,
+      2721,
+      2746,
+      2759,
+      2761,
+      2786,
+      2788,
+      2803,
+      2822,
+      2845,
+      2907
+    ],
+    "count": 37,
+    "toDList_Rep_proofs": [
+      1333,
+      1348,
+      1368,
+      1532
+    ],
+    "remaining_count": 33,
+    "assessment": "Four omissions are only the Rep proof argument in the fully displayed toDList signature and visible f/prefix application. Other 33 occur only in Fin numeral NeZero witnesses or ENNReal numeral Nat.AtLeastTwo witnesses, whose classes are propositions. All public binders, hypotheses, event/measure expressions and conclusions remain visible. No concrete hidden-type gap warrants an optional reinspection.",
+    "pinned_contexts": [
+      {
+        "file": {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/Fin/Basic.lean",
+          "bytes": 12956,
+          "lines": 423,
+          "sha256": "bb3d4e46cb40a24f5a09e6e003c76f2b84140a598df81233f0bffe3afe08cbf4"
+        },
+        "first_line": 229,
+        "last_line": 250,
+        "range_bytes": 609,
+        "range_sha256": "c26f07a20c7aadceb8045ddb06d04022c522fb3243e1a8b550335eb788c6e4fa",
+        "complete_context_read_tool": "506a7f"
+      },
+      {
+        "file": {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/NeZero.lean",
+          "bytes": 1591,
+          "lines": 64,
+          "sha256": "94e1883fd4fd9c5612da4a24a0cbc9bd6a656d31ce9a0123b9833175c5964df3"
+        },
+        "first_line": 20,
+        "last_line": 35,
+        "range_bytes": 301,
+        "range_sha256": "54becef449e184b602bb5eb4bcbf46ec04364c6171ec459fa3727484f0997d72",
+        "complete_context_read_tool": "506a7f"
+      },
+      {
+        "file": {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Data/Nat/Cast/Defs.lean",
+          "bytes": 6965,
+          "lines": 190,
+          "sha256": "5656ed14933f402c33cbe3f1cc3eb7b26e4df670c573187fb7d0972eef4e3118"
+        },
+        "first_line": 1,
+        "last_line": 53,
+        "range_bytes": 1873,
+        "range_sha256": "2f669c3966565f3d25dc0f52b5ef09734c1d8495401a299acc373998581de923",
+        "complete_context_read_tool": "506a7f"
+      },
+      {
+        "file": {
+          "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Data/Nat/Init.lean",
+          "bytes": 19480,
+          "lines": 441,
+          "sha256": "ded24773f40d2499826e1fe3d245cfa10f84b31b326be122ef7a8562fb1c4d9b"
+        },
+        "first_line": 400,
+        "last_line": 426,
+        "range_bytes": 1420,
+        "range_sha256": "5c3b10a95f84360e3737e06906911f94e6e7e9a1cc801343956f4351a8ca66a0",
+        "complete_context_read_tool": "5f7757"
+      }
+    ],
+    "mathlib_pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "mathlib_contexts_exact_to_git_pin_tool": "6905f7"
+  },
+  "compatibility_accounting": {
+    "four_units_public": 279,
+    "unit_or_changed_compatibility": 252,
+    "retained_R_within279": 27,
+    "freshly_inspected_insertion": 35,
+    "current_total": 314,
+    "private_minimum_theorems": 6,
+    "anonymous_local_instances": 5,
+    "boundary": "Private/generated declarations are covered by complete source review and actual exhaustive audit; no fabricated separate #check credit."
+  },
+  "parser_boundary": "Original failed 286-header bookkeeping match and corrected 314-header navigation index are retained on unchanged native output. No compiler rerun or semantic evidence from the failed parser.",
+  "verdict": "PASS for complete actual314 statement assessment at exactI; final receiving110 and full-axis disposition are recorded separately."
+}

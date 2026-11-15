@@ -1,0 +1,78 @@
+{
+  "status": "SOURCE FROZEN FOR ROOT QUALIFICATION; no acceptance; all four author pairs remain UNCOMPILED by this author",
+  "recorded_at_utc": "2026-11-05T03:29:16.430905+00:00",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge",
+  "branch": "work/fdsa-ch04-exercises",
+  "head": "d02419738a9e16963727b25acf2e18f374dd16de",
+  "tree": "6d2033e33b5282ce965c96b71776ab1aafea8828",
+  "status_porcelain": "",
+  "whole_chapter_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "resumption_head": "106601ff0c6af392139786f0ad01a56e0dca96fb",
+  "phase2_commits": [
+    "d02419738a9e16963727b25acf2e18f374dd16de feat(trees): reconstruct distinct-label traversals totally (#174)",
+    "b6affb296a8782284b2ebcaff2d7bd894337c578 feat(trees): enumerate prescribed inorder trees uniquely (#174)"
+  ],
+  "source_files": [
+    {
+      "path": "Applications/Trees/Levels.lean",
+      "bytes": 3596,
+      "sha256": "45a2c073f4cecb400b2af4bf49941558d65b7eb52ef667bbab19ed8c7984b023"
+    },
+    {
+      "path": "Examples/TreeLevels.lean",
+      "bytes": 1874,
+      "sha256": "8c70f590b88a4f7c329a72a114af12fc12965e79d94ce6fc794fc6853dd1dc7b"
+    },
+    {
+      "path": "Applications/Trees/Rose.lean",
+      "bytes": 1849,
+      "sha256": "0a56ff6221c1f177c5127a43af32f4cb1c0d624d91f16ec661d916900ce89f71"
+    },
+    {
+      "path": "Examples/TreeRose.lean",
+      "bytes": 1065,
+      "sha256": "7bf335b8acde9dcbab004179daa16a8e0671a18c50fcbc17b4377ec831d34f02"
+    },
+    {
+      "path": "Applications/Trees/Enumeration.lean",
+      "bytes": 6707,
+      "sha256": "c5e91cbaf276843941d31eec5b5cf1693cfe885f43c8831fd9246559712249c3"
+    },
+    {
+      "path": "Examples/TreeEnumeration.lean",
+      "bytes": 2078,
+      "sha256": "54d112abab423482045370339e5f9bb5144adb599d39baedc6e22a18cb3247de"
+    },
+    {
+      "path": "Applications/Trees/Reconstruction.lean",
+      "bytes": 4278,
+      "sha256": "19750df3d7e88204bfdbbb6322d14403faa7dae64794a3fdb833d0dd54da4943"
+    },
+    {
+      "path": "Examples/TreeReconstruction.lean",
+      "bytes": 4034,
+      "sha256": "c5ca06a87724097c9dbe03e0f87e0105182738316b473b55b3ac336b216c2de1"
+    }
+  ],
+  "authored_declarations": 98,
+  "complete_headers_sha256": "f6f1629fd00a73644e110e24baa6803139511442e919bd597f530d11088ca3d9",
+  "inventory_note": "New complete authored inventory includes Rose carrier/constructor and correct bounded headers. It supersedes the prior auxiliary overlapping intent extraction for convenience only; no old file was edited. It is not actual elaborated type extraction. Initial metadata scan078dbf rejected a comment before writing any report; the corrected scanner masks comments.",
+  "validation": "Static source inspection, contract comparison, token scans and git diff --cached --check only. No compiler/check/audit/output/cache/session actions.",
+  "author_processes": "none; all author tool calls terminal",
+  "remaining": [
+    "Root qualification of Levels, Rose, Enumeration and Reconstruction, including actual public types and any compiler diagnostics.",
+    "Preserve immutable commits and source contracts during root candidate integration.",
+    "All 76 Chapter4 obligations and all whole-candidate acceptance/review/immediate-verification gates remain mandatory; no acceptance credit from these reports."
+  ],
+  "next_action": "Author stops all source/provenance writes after readback and waits for root diagnostic feedback or resumption.",
+  "preserved_root_owned_records": [
+    {
+      "path": "assignment-before-branch.json",
+      "sha256": "bd2005a705f036eef327ff25ab8d6dcc680a4dd526b36344a0fa1ef96ba368b1"
+    },
+    {
+      "path": "branch-creation-result.json",
+      "sha256": "c7b41a45119077a97066aa4d947c301f45b91453b2f0759a67eb5467561d6cdc"
+    }
+  ]
+}

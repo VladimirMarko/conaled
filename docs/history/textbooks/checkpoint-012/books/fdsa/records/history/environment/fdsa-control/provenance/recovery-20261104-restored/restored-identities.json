@@ -1,0 +1,47 @@
+{
+  "utc": "2026-11-04T03:40:18.122265+00:00",
+  "restore_script_exit_code": 0,
+  "restored_refs": 50,
+  "restored_worktrees": 5,
+  "git_fsck_exit_code": 0,
+  "observations": [
+    {
+      "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled",
+      "head": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "branch": "refs/heads/work/fdsa-book",
+      "saved_status": "",
+      "observed_status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.urOBCL"
+    },
+    {
+      "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "head": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "branch": "refs/heads/work/fdsa-foundation-integration",
+      "saved_status": "",
+      "observed_status": ""
+    },
+    {
+      "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-insertion",
+      "head": "95cfce304b9b63057286acc7d5b20b53d95d8eaa",
+      "branch": "refs/heads/work/fdsa-ch02-insertion-observations",
+      "saved_status": "",
+      "observed_status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.C0d1bT"
+    },
+    {
+      "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+      "head": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "branch": "refs/heads/work/fdsa-ch02-quicksort",
+      "saved_status": "",
+      "observed_status": ""
+    },
+    {
+      "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+      "head": "b1677172ef85e40865fe8f292660c1bcfd6e5a0c",
+      "branch": "refs/heads/work/fdsa-ch02-values",
+      "saved_status": "",
+      "observed_status": ""
+    }
+  ],
+  "post_restore_status_note": "Initial secondary equality assertion failed: subsequent Git status observed new untracked baseline temporary files in two worktrees after restore script completed its successful checks. Ownership not established; files preserved. Isolated foundation candidate remains exact and clean.",
+  "available_bytes": 63252180992,
+  "checkpoint0081_attachment_library_file_id": "libfile_5c0c98fd949c8191aaee5f1be49d53cf"
+}

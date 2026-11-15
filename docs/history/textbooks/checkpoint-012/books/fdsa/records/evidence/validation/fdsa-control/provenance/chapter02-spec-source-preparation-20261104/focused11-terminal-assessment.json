@@ -1,0 +1,196 @@
+{
+  "recorded_utc": "2026-11-04T10:26:11.296154+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "foundation_candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "scope": "Same complete 81-path R-through-eventual-Chapter-2 Spec review: 112 obligations, ten shared scopes and unchanged exact-F full scope.",
+  "overall_outcome": "Blocked",
+  "approval_or_acceptance": false,
+  "new_mathematical_spec_findings": 0,
+  "complete_reads": {
+    "full_log": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/full.log",
+      "bytes": 12714,
+      "lines": 77,
+      "sha256": "0401a87f1b037417a2af9c4ff28bb09871d824f9e44dba9a3515749fa143a38d"
+    },
+    "outer_start": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/start.json",
+      "bytes": 956,
+      "lines": 26,
+      "sha256": "3e504db28b6aa80007a7cad18d393ac0b4499edb377df7e18e749cd251aa4aca"
+    },
+    "outer_result": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/result.json",
+      "bytes": 1189,
+      "lines": 31,
+      "sha256": "03be18f596bf303f6ebe8cf3faf50e9b02acfb5e073bd63f43c3b74fc3613be2"
+    },
+    "secured_terminal": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/secured-terminal.json",
+      "bytes": 13132,
+      "lines": 88,
+      "sha256": "00783c88ff13f7fcfe59bf7853be7b400ca83328e7c80c4f112e391401fa52a9"
+    },
+    "native_start": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/native/start.json",
+      "bytes": 436,
+      "lines": 13,
+      "sha256": "428aa78164a4e573b5e890f0efca11eb9bb47f60c681580757c0bb5e609aa5cb"
+    },
+    "native_result": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/native/result.json",
+      "bytes": 588,
+      "lines": 18,
+      "sha256": "dc5ab64a311fa15735007196aaa15a439754b3c6bf429683e6888b24557a3450"
+    },
+    "terminal_securement_note": {
+      "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/terminal-securement-parser-note.json",
+      "bytes": 440,
+      "lines": 8,
+      "sha256": "702afd9b4b537540e497fd833de04c0ca8f8058cfabf5b272d3051c44a30ff60"
+    }
+  },
+  "actual_terminal": {
+    "exit_code": 0,
+    "started_utc": "2026-11-04T10:15:23.085712+00:00",
+    "completed_utc": "2026-11-04T10:24:27.783147+00:00",
+    "outer_seconds": 544.6971439419976,
+    "native_seconds": 544.5767924059983,
+    "initial_head": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "final_head": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "initial_status": "",
+    "final_status": "",
+    "native_threads": 1,
+    "native_passed": true,
+    "timeout": false,
+    "native_recorder_error": null,
+    "outer_bookkeeping_errors": [],
+    "verification_record_present": false,
+    "owned_session": 84591,
+    "session_closed_do_not_poll": true
+  },
+  "record_reconciliation": {
+    "native_output_exact_inner_full_log": true,
+    "native_copies_and_originals": [
+      {
+        "name": "start.json",
+        "original": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T101523Z-project-run-2dfe9726/start.json",
+        "copy": {
+          "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/native/start.json",
+          "bytes": 436,
+          "lines": 13,
+          "sha256": "428aa78164a4e573b5e890f0efca11eb9bb47f60c681580757c0bb5e609aa5cb"
+        },
+        "byte_identical": true
+      },
+      {
+        "name": "result.json",
+        "original": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T101523Z-project-run-2dfe9726/result.json",
+        "copy": {
+          "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/native/result.json",
+          "bytes": 588,
+          "lines": 18,
+          "sha256": "dc5ab64a311fa15735007196aaa15a439754b3c6bf429683e6888b24557a3450"
+        },
+        "byte_identical": true
+      },
+      {
+        "name": "output.log",
+        "original": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T101523Z-project-run-2dfe9726/output.log",
+        "copy": {
+          "path": "provenance/chapter02-uniform-examples-focused-20261104-attempt11/native/output.log",
+          "bytes": 12473,
+          "lines": 74,
+          "sha256": "18170c635aad54d9644d56a9532761fb5c2cc695c3184348a46a728b3b449b1e"
+        },
+        "byte_identical": true
+      }
+    ],
+    "warning_lines_exact_secured_list": true,
+    "error_headers": 0
+  },
+  "actual_build": {
+    "command": [
+      "lake",
+      "build",
+      "Examples.UniformQuickSortMean"
+    ],
+    "new_individual_build": {
+      "module": "Examples.UniformQuickSortMean",
+      "seconds": 524,
+      "log_line_1_based": 74,
+      "exact_log_line": "⚠ [3719/3719] Built Examples.UniformQuickSortMean (524s)"
+    },
+    "completed_successfully_line": "Build completed successfully (3719 jobs).",
+    "reported_lake_jobs": 3719,
+    "job_count_is_not_project_module_or_audit_count": true,
+    "replayed_dependencies_are_not_new_build_claims": true,
+    "reviewed_source_correction": {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/uniform-examples-3b839319-assessment.json",
+      "bytes": 26784,
+      "lines": 737,
+      "sha256": "c084b2c3e83ac9b21c113140c52d0062a2168d2a49f6160964cd93501529238b"
+    },
+    "meaning": "Successful focused elaboration of the reviewed Uniform example correction and explicit finite instance at exact Z. All previous 23 diagnostics are absent in this successful run. Actual printed types and whole-candidate validation remain separate."
+  },
+  "warning_assessment": {
+    "total": 52,
+    "classification": "All are the module-system import advisory suggesting module at the start of a file importing Mathlib.",
+    "per_file": {
+      "Applications/Probability/PermutationOrder.lean": 11,
+      "Applications/Resources/Measured.lean": 2,
+      "Applications/Probability/PermutationTail.lean": 5,
+      "SquareKit/ListFusion.lean": 1,
+      "Applications/Resources/Potential.lean": 1,
+      "Applications/Sequences/Symmetric/Core.lean": 1,
+      "Applications/Resources/ListCalls.lean": 1,
+      "Applications/Resources/ListReversal.lean": 1,
+      "Applications/Sorting/Stable.lean": 1,
+      "Applications/Resources/QuickSort.lean": 1,
+      "Applications/Resources/QuickSortMean.lean": 9,
+      "Applications/Resources/UniformQuickSortMean.lean": 6,
+      "Examples/QuickSortTransport.lean": 1,
+      "Applications/Probability/PermutationMinimum.lean": 4,
+      "Examples/PermutationMinimumBoundary.lean": 1,
+      "Examples/PermutationMinimum.lean": 1,
+      "Examples/PermutationOrderBoundary.lean": 1,
+      "Examples/PermutationOrder.lean": 1,
+      "Examples/PermutationTailBoundary.lean": 1,
+      "Examples/PermutationTail.lean": 1,
+      "Examples/UniformQuickSortMean.lean": 1
+    },
+    "uniform_example_advisories": 1,
+    "other_replayed_import_advisories": 51,
+    "other_warning_kinds": 0,
+    "math_spec_discrepancy_identified": false,
+    "restriction_or_option_change_authorized_or_performed": false,
+    "boundary": "Warnings are retained and explicitly accounted. This focused log is not a source-policy, exhaustive axiom audit, or a reason to change proof restrictions or module visibility."
+  },
+  "terminal_helper_note": {
+    "note": {
+      "recorded_utc": "2026-11-04T10:24:51.212867+00:00",
+      "initial_helper_exit": 1,
+      "reason": "The helper expected exit=0; but the actual native summary includes its elapsed time before the semicolon. Assertion stopped before any native copying.",
+      "resolution": "Read actual closed summary, include its optional elapsed field, then verified and copied exact native records.",
+      "compiler_exit_unchanged": 0,
+      "compiler_rerun": false
+    },
+    "assessment": "The recorded ancillary parser assertion concerns extracting the native summary containing elapsed seconds; it is separate from the secured actual compiler exit0. The exact copied native records and full output now reconcile. No failed compiler result is substituted, and no compiler rerun is performed by this reviewer."
+  },
+  "type_and_acceptance_disposition": {
+    "qualified_historical": 920,
+    "pending_current": 815,
+    "retained_accepted_base": 28,
+    "explicit_public_total": 1763,
+    "new_actual_type_credit": 0,
+    "foundation_145_pending": true,
+    "possible_110_uncredited": true,
+    "C02_TYPE_001": "Open",
+    "C02_DOC_003": "Open",
+    "no_extra_full_or_fresh_before_types_gate": true,
+    "mandatory_acceptance_gates": "Actual complete statement inspection and loaded-object/immutable identity qualifications; separate full candidate guard/check/exhaustive audit; predecessor/shared-unit gates; both independent full-scope final reviews and immediate qualified verification before acceptance."
+  },
+  "actions": "Only closed evidence was read and this reviewer's own records written. No source/output/runtime snapshot, compiler, process polling, ref, pin, cache, ticket or global-control action."
+}

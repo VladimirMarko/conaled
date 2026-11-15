@@ -1,0 +1,822 @@
+{
+  "original_candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "future_integration_candidate": null,
+  "imports": [
+    "Applications.Trees.Observations",
+    "Applications.Trees.Cached",
+    "Applications.Resources.TreeCache",
+    "Examples.TreeCache"
+  ],
+  "public_count": 115,
+  "names": [
+    "Trees.fold",
+    "Trees.fold_nil",
+    "Trees.fold_node",
+    "Trees.fold_map",
+    "Trees.fold_fusion",
+    "Trees.fold_numNodes",
+    "Trees.fold_height",
+    "Trees.inorder",
+    "Trees.inorder_nil",
+    "Trees.inorder_node",
+    "Trees.inorder_length",
+    "Trees.inorder_map",
+    "Trees.numNodes_map",
+    "Trees.numLeaves_map",
+    "Trees.height_map",
+    "Trees.Cached.erase",
+    "Trees.Cached.erase_nil",
+    "Trees.Cached.erase_node",
+    "Trees.Cached.read",
+    "Trees.Cached.read_nil",
+    "Trees.Cached.read_node",
+    "Trees.Cached.smartNode",
+    "Trees.Cached.read_smartNode",
+    "Trees.Cached.erase_smartNode",
+    "Trees.Cached.Valid",
+    "Trees.Cached.valid_nil",
+    "Trees.Cached.valid_node",
+    "Trees.Cached.smartNode_valid_iff",
+    "Trees.Cached.read_eq_fold",
+    "Trees.Cached.inorder_erase",
+    "Trees.Cached.numNodes_erase",
+    "Trees.Cached.numLeaves_erase",
+    "Trees.Cached.height_erase",
+    "Trees.Cached.annotate",
+    "Trees.Cached.annotate_nil",
+    "Trees.Cached.annotate_node",
+    "Trees.Cached.annotate_valid",
+    "Trees.Cached.erase_annotate",
+    "Trees.Cached.read_annotate",
+    "Resources.TreeCache.readRun",
+    "Resources.TreeCache.readRun_value",
+    "Resources.TreeCache.readRun_cost",
+    "Resources.TreeCache.nodeRun",
+    "Resources.TreeCache.nodeRun_value",
+    "Resources.TreeCache.nodeRun_cost",
+    "Resources.TreeCache.nodeRun_le",
+    "Resources.TreeCache.nodeRun_valid",
+    "TreeCacheExamples.sizeStep",
+    "TreeCacheExamples.heightStep",
+    "TreeCacheExamples.size_reader",
+    "TreeCacheExamples.height_reader",
+    "TreeCacheExamples.sample",
+    "TreeCacheExamples.sample_size",
+    "TreeCacheExamples.sample_height",
+    "TreeCacheExamples.sample_inorder",
+    "TreeCacheExamples.sizeSample",
+    "TreeCacheExamples.sizeSample_valid",
+    "TreeCacheExamples.sizeSample_erases",
+    "TreeCacheExamples.sizeSample_read",
+    "TreeCacheExamples.heightSample",
+    "TreeCacheExamples.heightSample_valid",
+    "TreeCacheExamples.heightSample_read",
+    "TreeCacheExamples.pairStep",
+    "TreeCacheExamples.pair_fold_size",
+    "TreeCacheExamples.pair_fold_height",
+    "TreeCacheExamples.pair_reader",
+    "TreeCacheExamples.pairSample",
+    "TreeCacheExamples.pairSample_valid",
+    "TreeCacheExamples.pairSample_erases",
+    "TreeCacheExamples.pairSample_read",
+    "TreeCacheExamples.ordered_summary_fold",
+    "TreeCacheExamples.sample_word",
+    "TreeCacheExamples.balancedThree",
+    "TreeCacheExamples.leftThree",
+    "TreeCacheExamples.same_inorder_different_height",
+    "TreeCacheExamples.repeated_sample",
+    "TreeCacheExamples.empty_tree",
+    "TreeCacheExamples.empty_fold",
+    "TreeCacheExamples.empty_observations",
+    "TreeCacheExamples.empty_annotation",
+    "TreeCacheExamples.corrupt",
+    "TreeCacheExamples.corrupt_root_checks",
+    "TreeCacheExamples.corrupt_not_valid",
+    "TreeCacheExamples.corrupt_erases",
+    "TreeCacheExamples.corrupt_inorder",
+    "TreeCacheExamples.corrupt_smart_not_valid",
+    "TreeCacheExamples.corrupt_smart_same_tree",
+    "TreeCacheExamples.erased_fold",
+    "TreeCacheExamples.sizeRun",
+    "TreeCacheExamples.heightRun",
+    "TreeCacheExamples.size_node_value",
+    "TreeCacheExamples.height_node_value",
+    "TreeCacheExamples.size_node_cost",
+    "TreeCacheExamples.height_node_cost",
+    "TreeCacheExamples.size_node_bound",
+    "TreeCacheExamples.size_node_valid",
+    "TreeCacheExamples.height_node_valid",
+    "TreeCacheExamples.measured_size_reader",
+    "TreeCacheExamples.measured_height_reader",
+    "TreeCacheExamples.listStep",
+    "TreeCacheExamples.appendStepRun",
+    "TreeCacheExamples.append_node_value",
+    "TreeCacheExamples.append_node_cost",
+    "TreeCacheExamples.append_node_valid",
+    "TreeCacheExamples.chain",
+    "TreeCacheExamples.chain_numNodes",
+    "TreeCacheExamples.chainCache",
+    "TreeCacheExamples.chainCache_valid",
+    "TreeCacheExamples.chainCache_read",
+    "TreeCacheExamples.chainCache_length",
+    "TreeCacheExamples.chain_node_cost",
+    "TreeCacheExamples.chain_node_value",
+    "TreeCacheExamples.chain_node_valid",
+    "TreeCacheExamples.chain_node_exceeds",
+    "TreeCacheExamples.empty_read"
+  ],
+  "authored_source_headers": [
+    {
+      "name": "Trees.fold",
+      "path": "Applications/Trees/Observations.lean",
+      "line": 17,
+      "header_sha256": "32c6751ced6b080838d1182c9a0d5393db776e22b375ed261b6aae0427cd9965"
+    },
+    {
+      "name": "Trees.fold_nil",
+      "path": "Applications/Trees/Observations.lean",
+      "line": 21,
+      "header_sha256": "134ab35bb46bc8a027a0866a9a8c1207eded2277aece7764b287cac6e9d98562"
+    },
+    {
+      "name": "Trees.fold_node",
+      "path": "Applications/Trees/Observations.lean",
+      "line": 24,
+      "header_sha256": "6169cedb1545bf6d3dadc6b47a06fbfa9866fb9f2b318c66797d10726362fb60"
+    },
+    {
+      "name": "Trees.fold_map",
+      "path": "Applications/Trees/Observations.lean",
+      "line": 30,
+      "header_sha256": "132d83b4e2abbd32ee2de6b3c21124fece02435a1d5a961dd2959ed27774f6af"
+    },
+    {
+      "name": "Trees.fold_fusion",
+      "path": "Applications/Trees/Observations.lean",
+      "line": 41,
+      "header_sha256": "7b504e07822820df00c7f4264a925d08bfa92bebc08091db38589e8394c353de"
+    },
+    {
+      "name": "Trees.fold_numNodes",
+      "path": "Applications/Trees/Observations.lean",
+      "line": 52,
+      "header_sha256": "952e1008d9fa4639e57092468e51c1f589e338c7ef6cc0a73e133a1903fde5d0"
+    },
+    {
+      "name": "Trees.fold_height",
+      "path": "Applications/Trees/Observations.lean",
+      "line": 59,
+      "header_sha256": "7dea2187cb880dbb9ef46561c81ffc2c343af4be2fe3ff8d031086de3f489d88"
+    },
+    {
+      "name": "Trees.inorder",
+      "path": "Applications/Trees/Observations.lean",
+      "line": 68,
+      "header_sha256": "b5cd169a265bc7a47ad39130fd01ad7703d045428c7161347fe8201a54a3ade5"
+    },
+    {
+      "name": "Trees.inorder_nil",
+      "path": "Applications/Trees/Observations.lean",
+      "line": 71,
+      "header_sha256": "36c8ab6b6c8e701564c0d863d94eb43d4384e519c931890bef16caa6b26b7aea"
+    },
+    {
+      "name": "Trees.inorder_node",
+      "path": "Applications/Trees/Observations.lean",
+      "line": 73,
+      "header_sha256": "a16be30b95557e982d04bebdcba1ba47915eec3da7b1d6d7f288cb088b285078"
+    },
+    {
+      "name": "Trees.inorder_length",
+      "path": "Applications/Trees/Observations.lean",
+      "line": 76,
+      "header_sha256": "04871de1aa062d23f995bf22429cef869dc7fa14572bc523ae98ef2d582b2c08"
+    },
+    {
+      "name": "Trees.inorder_map",
+      "path": "Applications/Trees/Observations.lean",
+      "line": 82,
+      "header_sha256": "2143dca6a607cb79077b54706aba3e6f0ba47a7716853769e6ea92fd7baabfd2"
+    },
+    {
+      "name": "Trees.numNodes_map",
+      "path": "Applications/Trees/Observations.lean",
+      "line": 89,
+      "header_sha256": "f889c8d8d7ad3b3f7852aeb8de24224d8cf935f283c33e2f31128e862b4107a9"
+    },
+    {
+      "name": "Trees.numLeaves_map",
+      "path": "Applications/Trees/Observations.lean",
+      "line": 96,
+      "header_sha256": "92f4723f59a88be01e664249e7ffc8a3fdbb8526d0acc9eeab5a5caa45dcb5af"
+    },
+    {
+      "name": "Trees.height_map",
+      "path": "Applications/Trees/Observations.lean",
+      "line": 100,
+      "header_sha256": "93d079e982ddbee1a1f3319253ecea8041346610a301d27e4536e2eca4b06f46"
+    },
+    {
+      "name": "Trees.Cached.erase",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 15,
+      "header_sha256": "58a160e7a1ccb8c021c187d69d115a380f3e75487db48432581386a0efe1346b"
+    },
+    {
+      "name": "Trees.Cached.erase_nil",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 17,
+      "header_sha256": "9b68bb84761782df316b414382d31ddc30b2a3d91e198e7145c52505e25a49b0"
+    },
+    {
+      "name": "Trees.Cached.erase_node",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 19,
+      "header_sha256": "e63b6a799cb867f5d39380ad7e645e6626d594cef96338ef7cd39d2d8b03ae64"
+    },
+    {
+      "name": "Trees.Cached.read",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 23,
+      "header_sha256": "8edd3b7efc6a2bb125275f4f3036b8c4e1a7b7c3c90252ab410ae54e6a6a01cf"
+    },
+    {
+      "name": "Trees.Cached.read_nil",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 27,
+      "header_sha256": "8e260767e9db3cb7b475890f4d59d391500dc39b5b7a12aa34d9cf63d64278ba"
+    },
+    {
+      "name": "Trees.Cached.read_node",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 30,
+      "header_sha256": "0afca1036c364eeb3890546deb4ee5f85e7a2289ded8003b05cbba47727eca99"
+    },
+    {
+      "name": "Trees.Cached.smartNode",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 34,
+      "header_sha256": "db05f4a301b8841a2f72e756b8124545ac1b4f51105fa736fc4e2f57246c9eea"
+    },
+    {
+      "name": "Trees.Cached.read_smartNode",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 39,
+      "header_sha256": "ac37c39672bc95765c81eb99410072d8f47f6ff82b21e34f6a8f55b61316a250"
+    },
+    {
+      "name": "Trees.Cached.erase_smartNode",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 44,
+      "header_sha256": "eb71ca05ab8b503c0b50798d50e75e949cc145e0330f6d36a1ec1bc4b9dda6e8"
+    },
+    {
+      "name": "Trees.Cached.Valid",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 49,
+      "header_sha256": "49604fd0500f172da382f1375cc3997ae57fc2b8d586862eb5288aecc7a0a252"
+    },
+    {
+      "name": "Trees.Cached.valid_nil",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 56,
+      "header_sha256": "0f5be551549cb97031956903bd36ffe9dfd7879f1e2c75d7d7dc476f11ca0f0c"
+    },
+    {
+      "name": "Trees.Cached.valid_node",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 59,
+      "header_sha256": "0eb13be1941dda0a5ad3fc5836ea835d66f6a79e462939aa38f8f072fac90bf3"
+    },
+    {
+      "name": "Trees.Cached.smartNode_valid_iff",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 66,
+      "header_sha256": "9c495011898ed17d06ac681cd77bcecce74edec26372ca1618ff6c8a5dc5daf4"
+    },
+    {
+      "name": "Trees.Cached.read_eq_fold",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 77,
+      "header_sha256": "48496d6ccadaa493f53569e08e7b1f463c7d684900937ba6d8e90a7fce4cac28"
+    },
+    {
+      "name": "Trees.Cached.inorder_erase",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 89,
+      "header_sha256": "f2bee4e9e496c686491a6282ed79deea1666b956508cf8a84b95a1c149271f88"
+    },
+    {
+      "name": "Trees.Cached.numNodes_erase",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 93,
+      "header_sha256": "73e1bd8eef8652e5cbeffc872e8951359069fbe1d4639643ebcf5173455b61d8"
+    },
+    {
+      "name": "Trees.Cached.numLeaves_erase",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 96,
+      "header_sha256": "bfd79f2ba237be0eef20373c592a7a3f9efbafb3bdb08b7b49a36ba131cda797"
+    },
+    {
+      "name": "Trees.Cached.height_erase",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 99,
+      "header_sha256": "0fa249a6cf798b0efce4b4bd410a028c6e0e754a600996c9854133695ff87fb1"
+    },
+    {
+      "name": "Trees.Cached.annotate",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 103,
+      "header_sha256": "4ddb73e89e11e80d2522b8d5426afbaffa700cc0ff8d6a6e2ebde05cff813c70"
+    },
+    {
+      "name": "Trees.Cached.annotate_nil",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 107,
+      "header_sha256": "5f9dd778f10d62f669cd0f6aaa31450084156c1747b0473606a9d4a766968aa7"
+    },
+    {
+      "name": "Trees.Cached.annotate_node",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 110,
+      "header_sha256": "3edd6dd5acd817184ad3189a0a6992ba4fa98cf79774651e9b27cdd054a209db"
+    },
+    {
+      "name": "Trees.Cached.annotate_valid",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 116,
+      "header_sha256": "947b624017b71cc97e440bdb683d5a92dbbac27f05ce9d8a8a50e541accdc54a"
+    },
+    {
+      "name": "Trees.Cached.erase_annotate",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 123,
+      "header_sha256": "f803aa2506fd0ab126497a27a91acf8926885c4f877c3e5cae36e6bd1f6f73e3"
+    },
+    {
+      "name": "Trees.Cached.read_annotate",
+      "path": "Applications/Trees/Cached.lean",
+      "line": 130,
+      "header_sha256": "dd047f3d64213c71759b31ecca1eb99081968f367ffba647287e427e9930a9c2"
+    },
+    {
+      "name": "Resources.TreeCache.readRun",
+      "path": "Applications/Resources/TreeCache.lean",
+      "line": 19,
+      "header_sha256": "4bb593599b75a3aaa8f4ae1e791c6b71c2da2918b911f6772a4331c3444b6fa5"
+    },
+    {
+      "name": "Resources.TreeCache.readRun_value",
+      "path": "Applications/Resources/TreeCache.lean",
+      "line": 22,
+      "header_sha256": "b958b28b28d3a35c20d6b3315478aa952f65ad99249216caf80eb16ad68e024b"
+    },
+    {
+      "name": "Resources.TreeCache.readRun_cost",
+      "path": "Applications/Resources/TreeCache.lean",
+      "line": 25,
+      "header_sha256": "1c382f77ab83f93c0405fc10c42f6ca7b60224a4ebe6e898c4f0bd7bcf8091d5"
+    },
+    {
+      "name": "Resources.TreeCache.nodeRun",
+      "path": "Applications/Resources/TreeCache.lean",
+      "line": 30,
+      "header_sha256": "6dd138ba5dce666f33be2f75d7367fba9c2cd5c7b5b1f2cba8eca69d7c483b82"
+    },
+    {
+      "name": "Resources.TreeCache.nodeRun_value",
+      "path": "Applications/Resources/TreeCache.lean",
+      "line": 39,
+      "header_sha256": "a3bd7269995df41bcc6572174dbabf9d3b2372c92025f9282c7ba2a43f0b98d4"
+    },
+    {
+      "name": "Resources.TreeCache.nodeRun_cost",
+      "path": "Applications/Resources/TreeCache.lean",
+      "line": 53,
+      "header_sha256": "b5bffd0ba5a00fb8aeae4c9f03746881b436efad531cf030405959d26e654adf"
+    },
+    {
+      "name": "Resources.TreeCache.nodeRun_le",
+      "path": "Applications/Resources/TreeCache.lean",
+      "line": 60,
+      "header_sha256": "d655c08179d17dc5a154de72008975e02c79a4f4c30f6d033037a20f5d81541b"
+    },
+    {
+      "name": "Resources.TreeCache.nodeRun_valid",
+      "path": "Applications/Resources/TreeCache.lean",
+      "line": 68,
+      "header_sha256": "03194fd9fb26f47552dcd3b50bdfd4d85253ca8f2e0f074904cefb867923052b"
+    },
+    {
+      "name": "TreeCacheExamples.sizeStep",
+      "path": "Examples/TreeCache.lean",
+      "line": 17,
+      "header_sha256": "775027ae93654c10f187f8587911643e802d96df6ceaf8059108b0a38e1aae7d"
+    },
+    {
+      "name": "TreeCacheExamples.heightStep",
+      "path": "Examples/TreeCache.lean",
+      "line": 18,
+      "header_sha256": "bc76185bfc1ddc83dff9583c25561ed4ac68bd435933136bd895155ec88ee232"
+    },
+    {
+      "name": "TreeCacheExamples.size_reader",
+      "path": "Examples/TreeCache.lean",
+      "line": 20,
+      "header_sha256": "512702028edeb13749d06fec9f98d5caa23eb528f74dcca2063ca47478ed51c1"
+    },
+    {
+      "name": "TreeCacheExamples.height_reader",
+      "path": "Examples/TreeCache.lean",
+      "line": 26,
+      "header_sha256": "25c1c3838cc8bc98781b103f48db8bc1c1c64f045219f6216c43298d9e8145be"
+    },
+    {
+      "name": "TreeCacheExamples.sample",
+      "path": "Examples/TreeCache.lean",
+      "line": 33,
+      "header_sha256": "8495d3da333105fc4ee45ec7b1b23303d5413ee296c663c88e175fa9db216629"
+    },
+    {
+      "name": "TreeCacheExamples.sample_size",
+      "path": "Examples/TreeCache.lean",
+      "line": 36,
+      "header_sha256": "b933002fc2d966be7ec7d2c196c6a6ea7ba212a53f6380c9b61b8cb8c26eea0c"
+    },
+    {
+      "name": "TreeCacheExamples.sample_height",
+      "path": "Examples/TreeCache.lean",
+      "line": 37,
+      "header_sha256": "175126e8eebb0c1a3288209376319cc5894727523e5f0d50681a869ddb9948e5"
+    },
+    {
+      "name": "TreeCacheExamples.sample_inorder",
+      "path": "Examples/TreeCache.lean",
+      "line": 38,
+      "header_sha256": "265aaf945610992184e7bdbc85f7e74b47874b7f15c4d4ccf3fe1c62b18b8beb"
+    },
+    {
+      "name": "TreeCacheExamples.sizeSample",
+      "path": "Examples/TreeCache.lean",
+      "line": 40,
+      "header_sha256": "6bbee42c8e1a7e66f4bef4ae94020c16e990b98b873b9fb6c7fc79c0578310b1"
+    },
+    {
+      "name": "TreeCacheExamples.sizeSample_valid",
+      "path": "Examples/TreeCache.lean",
+      "line": 42,
+      "header_sha256": "051830ff5bc24626a6f3b98a5326dab478e3eb2b7e471861fcb502a932a7b3e3"
+    },
+    {
+      "name": "TreeCacheExamples.sizeSample_erases",
+      "path": "Examples/TreeCache.lean",
+      "line": 45,
+      "header_sha256": "ebe902506541222e1872257f2e5437d0d5b08bedf7e04f594609348893e23d77"
+    },
+    {
+      "name": "TreeCacheExamples.sizeSample_read",
+      "path": "Examples/TreeCache.lean",
+      "line": 48,
+      "header_sha256": "7fcfbf48bf05ec043b217aff5367b6c90c444c2bf3b232ee645ff5a696feeb55"
+    },
+    {
+      "name": "TreeCacheExamples.heightSample",
+      "path": "Examples/TreeCache.lean",
+      "line": 56,
+      "header_sha256": "293ff80f49a703791aea2807fad3571a1737642ca96ab5d74f11766253a67915"
+    },
+    {
+      "name": "TreeCacheExamples.heightSample_valid",
+      "path": "Examples/TreeCache.lean",
+      "line": 58,
+      "header_sha256": "1006cbeb50e7343a2727e5cdf87afc7d32453955c84aa758287f9c05720f6ac0"
+    },
+    {
+      "name": "TreeCacheExamples.heightSample_read",
+      "path": "Examples/TreeCache.lean",
+      "line": 61,
+      "header_sha256": "15bb986247eec9b7c7af22fc9f847b217ae9630dac89b67e777b1f338f9060f3"
+    },
+    {
+      "name": "TreeCacheExamples.pairStep",
+      "path": "Examples/TreeCache.lean",
+      "line": 71,
+      "header_sha256": "f79b0f6134c09d763644177da93d29fe28aa1de4d8a84c0cbbe908a1076ffa4f"
+    },
+    {
+      "name": "TreeCacheExamples.pair_fold_size",
+      "path": "Examples/TreeCache.lean",
+      "line": 74,
+      "header_sha256": "fb651faad6b50ca71958d7161e987239ca4c388ce5621edfe3891afaa4375771"
+    },
+    {
+      "name": "TreeCacheExamples.pair_fold_height",
+      "path": "Examples/TreeCache.lean",
+      "line": 82,
+      "header_sha256": "e0df11cd9219848933a0dc745bfdcb760b29b26b6717f42214224aa72d73a36f"
+    },
+    {
+      "name": "TreeCacheExamples.pair_reader",
+      "path": "Examples/TreeCache.lean",
+      "line": 91,
+      "header_sha256": "a490ad0c00eda19708b52a862aea96f8b8936e77d3d7b3d37931637a9881a8ec"
+    },
+    {
+      "name": "TreeCacheExamples.pairSample",
+      "path": "Examples/TreeCache.lean",
+      "line": 100,
+      "header_sha256": "32512f69e7f5316f05371a7657dbcd4608e84079ea81ba1f30326219a1978b00"
+    },
+    {
+      "name": "TreeCacheExamples.pairSample_valid",
+      "path": "Examples/TreeCache.lean",
+      "line": 103,
+      "header_sha256": "cc8f38527c1a2720c796ad79caeb5848717cc7ebdb51d7755af34478ae243f3a"
+    },
+    {
+      "name": "TreeCacheExamples.pairSample_erases",
+      "path": "Examples/TreeCache.lean",
+      "line": 106,
+      "header_sha256": "154ed2c334f4862a64dc3c9b6438ba5e108546f0061e53385995906ebc424700"
+    },
+    {
+      "name": "TreeCacheExamples.pairSample_read",
+      "path": "Examples/TreeCache.lean",
+      "line": 109,
+      "header_sha256": "34ee820803ea6bbebfefd8944331cbaae73fb72cb08929e8b66a37dcf6d73435"
+    },
+    {
+      "name": "TreeCacheExamples.ordered_summary_fold",
+      "path": "Examples/TreeCache.lean",
+      "line": 119,
+      "header_sha256": "87cd4dbbe3be9a6d0e2215947241d8cebea39189069c9bf41cfd679c5e28700a"
+    },
+    {
+      "name": "TreeCacheExamples.sample_word",
+      "path": "Examples/TreeCache.lean",
+      "line": 135,
+      "header_sha256": "705876bae5bc7d0221803c1b6356a0d13c41507c2a368b7dfa01f438370b4ed1"
+    },
+    {
+      "name": "TreeCacheExamples.balancedThree",
+      "path": "Examples/TreeCache.lean",
+      "line": 150,
+      "header_sha256": "06d77d6033685990dcc949e8ab7dd9ccce9aad51f4c144dc41b522e1f7e94976"
+    },
+    {
+      "name": "TreeCacheExamples.leftThree",
+      "path": "Examples/TreeCache.lean",
+      "line": 151,
+      "header_sha256": "cc94b151fafa083df09b4d22c1e8cca4265d6b2f8c5a7d843716f1f060abcb25"
+    },
+    {
+      "name": "TreeCacheExamples.same_inorder_different_height",
+      "path": "Examples/TreeCache.lean",
+      "line": 154,
+      "header_sha256": "e46da543c2d48dd51eb965ab5163094e56006ea7b668e50c9b99f194d97e93de"
+    },
+    {
+      "name": "TreeCacheExamples.repeated_sample",
+      "path": "Examples/TreeCache.lean",
+      "line": 159,
+      "header_sha256": "57ccb509f4dd12183c2e074431f8221db82445e47db45633c62e39d74e3a3732"
+    },
+    {
+      "name": "TreeCacheExamples.empty_tree",
+      "path": "Examples/TreeCache.lean",
+      "line": 168,
+      "header_sha256": "e970e827199d91027cc21677d8b2677fd034984bc36c778d24ede08b75a499e4"
+    },
+    {
+      "name": "TreeCacheExamples.empty_fold",
+      "path": "Examples/TreeCache.lean",
+      "line": 173,
+      "header_sha256": "4b699218b74615117dd98ce06275b7a0c1c882462cb9b28152e2398d6922c87d"
+    },
+    {
+      "name": "TreeCacheExamples.empty_observations",
+      "path": "Examples/TreeCache.lean",
+      "line": 177,
+      "header_sha256": "64fb427493157d61f1767a309adb42f0eb64ce8f37b6b7887368212b35b9c7e5"
+    },
+    {
+      "name": "TreeCacheExamples.empty_annotation",
+      "path": "Examples/TreeCache.lean",
+      "line": 182,
+      "header_sha256": "36c5faf4d2209db1e148d937cd349d4ed4b15251d3c40606452dc50c71495668"
+    },
+    {
+      "name": "TreeCacheExamples.corrupt",
+      "path": "Examples/TreeCache.lean",
+      "line": 190,
+      "header_sha256": "b1b51921097147abfe4ef00243cc34711b2239ce1a91dc960a03c7d2568ff9c8"
+    },
+    {
+      "name": "TreeCacheExamples.corrupt_root_checks",
+      "path": "Examples/TreeCache.lean",
+      "line": 194,
+      "header_sha256": "879db4530c4e748e2eaac4b70f06638573272da605ac912d1fc42d85cd912466"
+    },
+    {
+      "name": "TreeCacheExamples.corrupt_not_valid",
+      "path": "Examples/TreeCache.lean",
+      "line": 200,
+      "header_sha256": "88928d77065de0de966a20d0a007d9f3345dd827f42b6efda5ac3ca13636e19e"
+    },
+    {
+      "name": "TreeCacheExamples.corrupt_erases",
+      "path": "Examples/TreeCache.lean",
+      "line": 203,
+      "header_sha256": "13991166c58fbecd976f627e72ef5a4217ed5b1ad4c40e760ba9e66ba92ce830"
+    },
+    {
+      "name": "TreeCacheExamples.corrupt_inorder",
+      "path": "Examples/TreeCache.lean",
+      "line": 205,
+      "header_sha256": "c89591bdaed29c4bd52e645048c989ad4eb729db8cdad65425ec7e623c126ac8"
+    },
+    {
+      "name": "TreeCacheExamples.corrupt_smart_not_valid",
+      "path": "Examples/TreeCache.lean",
+      "line": 209,
+      "header_sha256": "5e6ddc04c5d4f5025741def66c93c2284665d3711bac8ce3a71c877a694c9060"
+    },
+    {
+      "name": "TreeCacheExamples.corrupt_smart_same_tree",
+      "path": "Examples/TreeCache.lean",
+      "line": 215,
+      "header_sha256": "9e0f2a42202cd071631f8ae389a01f9431cd18209e84647e580397eb95bb97bd"
+    },
+    {
+      "name": "TreeCacheExamples.erased_fold",
+      "path": "Examples/TreeCache.lean",
+      "line": 219,
+      "header_sha256": "f5f5ffa3301bef2a77e1baff35e6239d206218e710e237a0a870d497f2f6fb99"
+    },
+    {
+      "name": "TreeCacheExamples.sizeRun",
+      "path": "Examples/TreeCache.lean",
+      "line": 226,
+      "header_sha256": "640979c8d08bae541e532b7e312b747437e76271021faf753980b5bfacefc459"
+    },
+    {
+      "name": "TreeCacheExamples.heightRun",
+      "path": "Examples/TreeCache.lean",
+      "line": 229,
+      "header_sha256": "546418b1bdad2ac6e95a7263813bbd0e807087ab1fef271596bc47c60e976d42"
+    },
+    {
+      "name": "TreeCacheExamples.size_node_value",
+      "path": "Examples/TreeCache.lean",
+      "line": 232,
+      "header_sha256": "e144c509edfeed3e2c2f8d06a83e281a46a248f3fd8729dcf9ba3932aad1794c"
+    },
+    {
+      "name": "TreeCacheExamples.height_node_value",
+      "path": "Examples/TreeCache.lean",
+      "line": 238,
+      "header_sha256": "46a914a6e6071398687f13afde8ee43c07f8d2251bc05a8c844f2a5731a220ee"
+    },
+    {
+      "name": "TreeCacheExamples.size_node_cost",
+      "path": "Examples/TreeCache.lean",
+      "line": 244,
+      "header_sha256": "eeebafca4f2282dd9d7f9a87e1a404d0fd65fe8a51ff63f6c9460c8b63eb1483"
+    },
+    {
+      "name": "TreeCacheExamples.height_node_cost",
+      "path": "Examples/TreeCache.lean",
+      "line": 250,
+      "header_sha256": "fcc8f390671c0abab4e1c7ebb85d73f912060df5204424accb2ab477fe20d73f"
+    },
+    {
+      "name": "TreeCacheExamples.size_node_bound",
+      "path": "Examples/TreeCache.lean",
+      "line": 256,
+      "header_sha256": "113aeee4a3b8372bbc1a8bf4e81cd6ae710618065bfba5aceca9c09e3e5e303b"
+    },
+    {
+      "name": "TreeCacheExamples.size_node_valid",
+      "path": "Examples/TreeCache.lean",
+      "line": 261,
+      "header_sha256": "08b10207ae9ca48f01294b1b865699aeb124ec1ab47af4434fe2f1334fab7b5a"
+    },
+    {
+      "name": "TreeCacheExamples.height_node_valid",
+      "path": "Examples/TreeCache.lean",
+      "line": 267,
+      "header_sha256": "e7ef0c85ef668210c54845f395c4d448e0aeea5134810b5f89b900e2d7d0f738"
+    },
+    {
+      "name": "TreeCacheExamples.measured_size_reader",
+      "path": "Examples/TreeCache.lean",
+      "line": 273,
+      "header_sha256": "ce0bcb7451d58cbe8b0ea5dec5ad01b5f323012a2ae1e2827da5ea3c8339a980"
+    },
+    {
+      "name": "TreeCacheExamples.measured_height_reader",
+      "path": "Examples/TreeCache.lean",
+      "line": 280,
+      "header_sha256": "4d481d7eb549d4b8979babec34b82ad3627ff198ca073b1ed77533fb04ee23b9"
+    },
+    {
+      "name": "TreeCacheExamples.listStep",
+      "path": "Examples/TreeCache.lean",
+      "line": 287,
+      "header_sha256": "0004ff5c9097ff4165e65690683efe9a128c4e034cdadeaa1af7f0a66ca3d8c2"
+    },
+    {
+      "name": "TreeCacheExamples.appendStepRun",
+      "path": "Examples/TreeCache.lean",
+      "line": 290,
+      "header_sha256": "ebc750f07a0d72fb4e3683be1d0397549160374d89716118917be0723e6bd946"
+    },
+    {
+      "name": "TreeCacheExamples.append_node_value",
+      "path": "Examples/TreeCache.lean",
+      "line": 293,
+      "header_sha256": "e6e8aa5b48cd3b4c25699054cad0a820d5c5837fd1c4d4a7086bbea138ed5f92"
+    },
+    {
+      "name": "TreeCacheExamples.append_node_cost",
+      "path": "Examples/TreeCache.lean",
+      "line": 300,
+      "header_sha256": "b566d1010e335b7990195bdcaf774603f3ecccf83fe5fad74fc7d14a36c672dd"
+    },
+    {
+      "name": "TreeCacheExamples.append_node_valid",
+      "path": "Examples/TreeCache.lean",
+      "line": 307,
+      "header_sha256": "a01e0c68d149203232618bf444d0a5e8897a888c900268d41d109fe86680209b"
+    },
+    {
+      "name": "TreeCacheExamples.chain",
+      "path": "Examples/TreeCache.lean",
+      "line": 315,
+      "header_sha256": "c8e9c888ae740f9bcaae0d538a5395f86b9e1840412a26e904d57a641f9114ec"
+    },
+    {
+      "name": "TreeCacheExamples.chain_numNodes",
+      "path": "Examples/TreeCache.lean",
+      "line": 319,
+      "header_sha256": "ecc97a8d5ef1119ad3eec6c4f47978b3bba16afc6bb33e91a61c53c928168852"
+    },
+    {
+      "name": "TreeCacheExamples.chainCache",
+      "path": "Examples/TreeCache.lean",
+      "line": 324,
+      "header_sha256": "c65702b67e1ef363a375b62610e3d4a039c27ca4378c3bc96cb1804b6af8d251"
+    },
+    {
+      "name": "TreeCacheExamples.chainCache_valid",
+      "path": "Examples/TreeCache.lean",
+      "line": 327,
+      "header_sha256": "ac22d2d59a1272355d5fb241b90018cde2c5781e0ee16b79d3f70977ad7ffe96"
+    },
+    {
+      "name": "TreeCacheExamples.chainCache_read",
+      "path": "Examples/TreeCache.lean",
+      "line": 330,
+      "header_sha256": "66dadb0d8e60798080d50f1bf0cace2f56c193e292e157b2443c1e1d3ecfd3f1"
+    },
+    {
+      "name": "TreeCacheExamples.chainCache_length",
+      "path": "Examples/TreeCache.lean",
+      "line": 334,
+      "header_sha256": "9b4e6edf5bf204072fde6c364c0a8dbb4a9117a817a66b199707c0178ecf8c96"
+    },
+    {
+      "name": "TreeCacheExamples.chain_node_cost",
+      "path": "Examples/TreeCache.lean",
+      "line": 340,
+      "header_sha256": "34cd5e1560ef7eaab45c4dcf1d75ab0716f92bc32d66b3cdf318ac33046df11d"
+    },
+    {
+      "name": "TreeCacheExamples.chain_node_value",
+      "path": "Examples/TreeCache.lean",
+      "line": 344,
+      "header_sha256": "c5a411b027bad4bf3a059b082008a1d6c11418974452856426b2780823f15e1f"
+    },
+    {
+      "name": "TreeCacheExamples.chain_node_valid",
+      "path": "Examples/TreeCache.lean",
+      "line": 349,
+      "header_sha256": "cc0517c1ccf266f0963ee879524a17e7343aebadef313eaf25470e2cb3cbd0d6"
+    },
+    {
+      "name": "TreeCacheExamples.chain_node_exceeds",
+      "path": "Examples/TreeCache.lean",
+      "line": 355,
+      "header_sha256": "35c270bde40b72f4c206e8655f2a3083c44d838c6e7a6359c098d11f1f271109"
+    },
+    {
+      "name": "TreeCacheExamples.empty_read",
+      "path": "Examples/TreeCache.lean",
+      "line": 360,
+      "header_sha256": "8313a92e0aa733088afa210fad4e50e670c884c151866e73a002a7f547bbcd8b"
+    }
+  ],
+  "program_sha256": "d02a1852e9873a8b19c32d426584db8671ac4d4344e346cc84450c33cc22431d",
+  "actual_execution_credit": 0
+}

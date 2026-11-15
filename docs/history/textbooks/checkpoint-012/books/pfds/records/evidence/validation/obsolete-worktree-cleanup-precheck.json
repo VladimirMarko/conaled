@@ -1,0 +1,156 @@
+{
+  "at": "2026-11-03T00:38:04.820323+00:00",
+  "scope": "Six superseded clean worktree materializations, with exact branch refs in checkpoint027; retain all refs/history/reports and current candidates.",
+  "checkpoint": 27,
+  "targets": [
+    {
+      "path": "/workspace/scratch/ca9a61d0bf30/validation-chapter02",
+      "checkout": "validation-chapter02",
+      "branch": "refs/heads/pfds/ch02-review-r1",
+      "head": "69f6f00de204617fdd7feefd5b9ee5b80fc0d9f4",
+      "status": "",
+      "checkpoint_ref": {
+        "object": "69f6f00de204617fdd7feefd5b9ee5b80fc0d9f4",
+        "symbolic": ""
+      },
+      "ignored": [
+        ".lake/"
+      ],
+      "private_ignored_entries": [],
+      "lake_entries": [
+        {
+          "name": "packages",
+          "symlink": true,
+          "resolved": "/workspace/scratch/ca9a61d0bf30/conaled/.lake/packages"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/ca9a61d0bf30/validation-chapter02-r2",
+      "checkout": "validation-chapter02-r2",
+      "branch": "refs/heads/pfds/ch02-review-r2",
+      "head": "c372c470008cdda3043040683451662f61131f81",
+      "status": "",
+      "checkpoint_ref": {
+        "object": "c372c470008cdda3043040683451662f61131f81",
+        "symbolic": ""
+      },
+      "ignored": [
+        ".lake/"
+      ],
+      "private_ignored_entries": [],
+      "lake_entries": [
+        {
+          "name": "packages",
+          "symlink": true,
+          "resolved": "/workspace/scratch/ca9a61d0bf30/conaled/.lake/packages"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/ca9a61d0bf30/validation-suspensions",
+      "checkout": "validation-suspensions",
+      "branch": "refs/heads/pfds/suspensions-review-r1",
+      "head": "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+      "status": "",
+      "checkpoint_ref": {
+        "object": "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+        "symbolic": ""
+      },
+      "ignored": [
+        ".lake/"
+      ],
+      "private_ignored_entries": [],
+      "lake_entries": [
+        {
+          "name": "packages",
+          "symlink": true,
+          "resolved": "/workspace/scratch/ca9a61d0bf30/conaled/.lake/packages"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/ca9a61d0bf30/validation-suspensions-r2",
+      "checkout": "validation-suspensions-r2",
+      "branch": "refs/heads/pfds/suspensions-review-r2",
+      "head": "1286e3d6357785d9c787562b95a5019afeefee40",
+      "status": "",
+      "checkpoint_ref": {
+        "object": "1286e3d6357785d9c787562b95a5019afeefee40",
+        "symbolic": ""
+      },
+      "ignored": [
+        ".lake/"
+      ],
+      "private_ignored_entries": [],
+      "lake_entries": [
+        {
+          "name": "packages",
+          "symlink": true,
+          "resolved": "/workspace/scratch/ca9a61d0bf30/conaled/.lake/packages"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/ca9a61d0bf30/validation-imports",
+      "checkout": "validation-imports",
+      "branch": "refs/heads/pfds/import-footprint",
+      "head": "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+      "status": "",
+      "checkpoint_ref": {
+        "object": "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+        "symbolic": ""
+      },
+      "ignored": [
+        ".lake/",
+        "scripts/__pycache__/"
+      ],
+      "private_ignored_entries": [
+        "scripts/__pycache__"
+      ],
+      "lake_entries": [
+        {
+          "name": "config",
+          "symlink": false,
+          "resolved": "/workspace/scratch/ca9a61d0bf30/validation-imports/.lake/config"
+        },
+        {
+          "name": "packages",
+          "symlink": true,
+          "resolved": "/workspace/scratch/ca9a61d0bf30/conaled/.lake/packages"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/ca9a61d0bf30/import-correction",
+      "checkout": "import-correction",
+      "branch": "refs/heads/pfds/import-footprint-r2",
+      "head": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+      "status": "",
+      "checkpoint_ref": {
+        "object": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+        "symbolic": ""
+      },
+      "ignored": [
+        ".lake/",
+        "scripts/__pycache__/"
+      ],
+      "private_ignored_entries": [
+        "scripts/__pycache__"
+      ],
+      "lake_entries": [
+        {
+          "name": "config",
+          "symlink": false,
+          "resolved": "/workspace/scratch/ca9a61d0bf30/import-correction/.lake/config"
+        },
+        {
+          "name": "packages",
+          "symlink": true,
+          "resolved": "/workspace/scratch/ca9a61d0bf30/conaled/.lake/packages"
+        }
+      ]
+    }
+  ],
+  "process_users": []
+}

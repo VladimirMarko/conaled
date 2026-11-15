@@ -1,0 +1,117 @@
+{
+  "recorded_utc": "2026-11-04T21:22:40.277888+00:00",
+  "finding": "C03-MINIMUM-ELAB-001",
+  "candidate": "b150953544438985ce979cc30b9a2f9237091fe8",
+  "tree": "62eb7f22c8d9f0beab21696c4862de836285b9f0",
+  "parent": "eaea222672013a67c4e84cf7bf8adae418be0cf6",
+  "branch": "work/fdsa-ch03-values",
+  "git_status": "",
+  "whole_chapter_review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "scope": "Same three focused modules and all 52 new / 402 cumulative public names; zero new named private helpers / seven cumulative; one proof-body line only.",
+  "targets": [
+    "Applications.Resources.SelectionPolicy",
+    "Applications.Resources.MinimumPivot",
+    "Examples.MinimumPivot"
+  ],
+  "source_identities": [
+    {
+      "module": "Applications.Resources.SelectionPolicy",
+      "repository_path": "Applications/Resources/SelectionPolicy.lean",
+      "imports": [
+        "Applications.Selection.ThreeWay",
+        "Applications.Resources.Partition",
+        "Applications.Resources.ListCalls"
+      ],
+      "bytes": 5986,
+      "sha256": "c906415dff6fc59694629f3d17977e55d2aa2ea2d989610f222bb781056a3112",
+      "git_blob": "71a146d37dc0b87bbdb38cc94dd1d2b02457a031"
+    },
+    {
+      "module": "Applications.Resources.MinimumPivot",
+      "repository_path": "Applications/Resources/MinimumPivot.lean",
+      "imports": [
+        "Applications.Resources.SelectionPolicy",
+        "Applications.Resources.FixedRank"
+      ],
+      "bytes": 10610,
+      "sha256": "c4e4ee7b0ef4413684fc13069d2f7f1200ac6387df2aa81565db0aa45bebaabe",
+      "git_blob": "c9ab1d98137636909b96c98b90bbb314eea700ef"
+    },
+    {
+      "module": "Examples.MinimumPivot",
+      "repository_path": "Examples/MinimumPivot.lean",
+      "imports": [
+        "Applications.Resources.MinimumPivot"
+      ],
+      "bytes": 3761,
+      "sha256": "caf5346d0a81e4540af56e63c4823a93487591ecd14a84359974433f79a221cd",
+      "git_blob": "f6cb0d5d0cd284c2c7042929a81ac217f363acec"
+    }
+  ],
+  "actual_original_terminal": {
+    "attempt": "chapter03-minimum-pivot-focused-attempt1-20261104",
+    "owned_session": 3058,
+    "actual_exit": 1,
+    "state": "CLOSED",
+    "root_terminal": "bc8918",
+    "root_closed_readback": "061804",
+    "author_complete_log_result_terminal_closure_readback": "6c8510",
+    "full_log_bytes": 8715,
+    "full_log_sha256": "7dff60cc3c7261ebdd636d1097a3851c49e8b024717fb2c42d85222bc7e9d860",
+    "native_log_bytes": 8409,
+    "native_log_sha256": "18a223796ca8c5c53d926142cefe3d5171208aa545659c1c6dd3d37385daba34"
+  },
+  "preservation": {
+    "all52_headers_and_contexts": true,
+    "other51_declaration_blocks": true,
+    "other17_source_files": true,
+    "algorithms_costs_cases_imports_options": true
+  },
+  "artifacts": [
+    {
+      "name": "MinimumPivotStatements-candidate2.lean",
+      "bytes": 2849,
+      "sha256": "dd1c716fd109e57795728712609387fbe9e063d75d3b5af9f85d9bd84ba5b10e"
+    },
+    {
+      "name": "correction-assessment.md",
+      "bytes": 3727,
+      "sha256": "640c31ff7c5330db027b1d93b72b96337343e76f323e076d385334a299c807a7"
+    },
+    {
+      "name": "git-commands.json",
+      "bytes": 1663,
+      "sha256": "031c538080ee308f44775a8e97c02970e5cc2c528a635e743cb0f1692a2a977e"
+    },
+    {
+      "name": "preservation-assessment.json",
+      "bytes": 4362,
+      "sha256": "5f3f03aff65e93bcbfb81c1e8581a1b458872a7f2027149d713fb5a54d33074c"
+    },
+    {
+      "name": "source.diff",
+      "bytes": 665,
+      "sha256": "34c00b9a32dfb3dbbcaabc4a29d234f00fd4d7e0b2d41e364b9eb8f7fd939591"
+    },
+    {
+      "name": "starting-state.json",
+      "bytes": 6671,
+      "sha256": "ce99e65c058855e6f769f5216ff6d7c0e2b7ebe964068cd9235b0297052d4dcd"
+    },
+    {
+      "name": "statements-inventory.json",
+      "bytes": 33382,
+      "sha256": "9c9a772f58cd766789330cabc4fb7e65f49dead6f48a1390cb6228be2a8ed7f4"
+    }
+  ],
+  "full_readbacks": {
+    "actual_failed_log_terminal_result_closure": "6c8510",
+    "starting_state": "7557dd",
+    "diff_and_immutable_commit": "c9014a",
+    "preservation_and_full_explicit_input": "cf797e",
+    "complete_corrected_source": "1af717",
+    "complete_correction_assessment_and_diff": "0bb214"
+  },
+  "status": "Uncompiled successor; request root serial check. No author Lean/Lake, actual types, full check, audit, independent review, verification or acceptance credit.",
+  "retained_next_scope": "C03-080 actual halving execution/tariff and concrete balanced policy after checked dependency; C03-055/actual C03-058 bridges retained. No source expansion until explicit release."
+}

@@ -1,0 +1,4034 @@
+{
+  "schema": 1,
+  "unit": "FDSA-XT01",
+  "reviewer": "/root/chapter02_spec",
+  "independent_nonauthor": true,
+  "stage": "Independent Spec source preparation within the existing full-book loop",
+  "recorded_utc": "2026-11-04T13:33:55.925852+00:00",
+  "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "fixed_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "sole_parent_verified": true,
+  "merge_base_verified": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "complete_original_scope_paths": [
+    "Applications/Resources/TreeCache.lean",
+    "Applications/Trees/Cached.lean",
+    "Applications/Trees/Observations.lean",
+    "Examples/TreeCache.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-cache.md"
+  ],
+  "scope_matches_immutable_diff": true,
+  "diff_insertions": 894,
+  "diff_deletions": 0,
+  "overall": "Blocked",
+  "source_assessment_complete": true,
+  "new_concrete_spec_findings": [],
+  "actual_printed_types_read_for_candidate": 0,
+  "compiler_results_credited": 0,
+  "full_checks_or_audits_credited": 0,
+  "sources": [
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "Applications/Resources/TreeCache.lean",
+      "git_blob": "d97a2c738960b893b733687c4f3d713f5edb0dc6",
+      "bytes": 3877,
+      "newline_lines": 80,
+      "sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6",
+      "read_ranges": [
+        [
+          1,
+          80
+        ]
+      ],
+      "complete_read": true
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "Applications/Trees/Cached.lean",
+      "git_blob": "c301ca85e555a8c5bb3c9db10459446121bc6613",
+      "bytes": 5668,
+      "newline_lines": 135,
+      "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "read_ranges": [
+        [
+          1,
+          135
+        ]
+      ],
+      "complete_read": true
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "Applications/Trees/Observations.lean",
+      "git_blob": "f90fbe8c85b9c88f760236d48129bd2b4c4d7e71",
+      "bytes": 4119,
+      "newline_lines": 107,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "read_ranges": [
+        [
+          1,
+          107
+        ]
+      ],
+      "complete_read": true
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "Examples/TreeCache.lean",
+      "git_blob": "d142e853381de3b7d294d3c023c32d53e2756d5c",
+      "bytes": 16307,
+      "newline_lines": 363,
+      "sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "read_ranges": [
+        [
+          1,
+          190
+        ],
+        [
+          191,
+          363
+        ]
+      ],
+      "complete_read": true
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "SquareApplications.lean",
+      "git_blob": "dbc847cd816f0d6a2101d3873b0d9b389695247b",
+      "bytes": 8318,
+      "newline_lines": 253,
+      "sha256": "f6c0e7e43ffdd4f50d7b9a2402d3135d3cd104285c4e539c426ef6cd544b196b",
+      "read_ranges": [
+        [
+          1,
+          253
+        ]
+      ],
+      "complete_read": true
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "91b4dc61828170699a85d1e1fa771e8dbaff6ea4",
+      "bytes": 18101,
+      "newline_lines": 287,
+      "sha256": "b7e4fd17a6b2b76974a39caa55de6d5231c813b13c8e873a024167f36126d9f1",
+      "read_ranges": [
+        [
+          1,
+          150
+        ],
+        [
+          151,
+          287
+        ]
+      ],
+      "complete_read": true
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "docs/research/fdsa-tree-cache.md",
+      "git_blob": "5f5b8833fc422addb9eabaa8a97b0b482662924f",
+      "bytes": 11655,
+      "newline_lines": 183,
+      "sha256": "4d8bfd13aece8fe9c3eeb563ee3908bd443d523c75fcdaa0658fa7b0639d4bed",
+      "read_ranges": [
+        [
+          1,
+          183
+        ]
+      ],
+      "complete_read": true
+    }
+  ],
+  "controls": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tickets/FDSA-XT01.md",
+      "bytes": 3027,
+      "newline_lines": 56,
+      "sha256": "ebca27d38a3368271b76acdf0d4e8a843596ac338410de58551d49082dcc22c3",
+      "read_ranges": [
+        [
+          1,
+          56
+        ]
+      ],
+      "complete_file_read": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/binary-tree-cache-requirements.md",
+      "bytes": 14576,
+      "newline_lines": 259,
+      "sha256": "81260794bec3767bb9eaa2d2fcaa8337da015220df60bf4dda147590c8ed23ce",
+      "read_ranges": [
+        [
+          1,
+          259
+        ]
+      ],
+      "complete_file_read": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/binary-tree-cache-candidate.md",
+      "bytes": 5880,
+      "newline_lines": 102,
+      "sha256": "0f94e8377da3e218a35f97f47d76356aea61ddeb3db959b310e8be12e5d9a18b",
+      "read_ranges": [
+        [
+          1,
+          102
+        ]
+      ],
+      "complete_file_read": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/binary-tree-cache-start.md",
+      "bytes": 2034,
+      "newline_lines": 37,
+      "sha256": "5b9c42701df4577ba8db1fd867fd55e14d908df75b1befcf7de7419c3a59ecbc",
+      "read_ranges": [
+        [
+          1,
+          37
+        ]
+      ],
+      "complete_file_read": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/binary-tree-cache-start.json",
+      "bytes": 392,
+      "newline_lines": 9,
+      "sha256": "1782fab514df5533469afc8769843d7f5cb9813243a33fda8a8da7c2c08dfb69",
+      "read_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "complete_file_read": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/binary-tree-cache-source-identities.json",
+      "bytes": 1627,
+      "newline_lines": 50,
+      "sha256": "838c387994e5061aaaf150e6a8c78174b6dd391a715e2d651df1949cdb7c80aa",
+      "read_ranges": [
+        [
+          1,
+          50
+        ]
+      ],
+      "complete_file_read": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/binary-tree-cache-source-preflight.md",
+      "bytes": 7607,
+      "newline_lines": 125,
+      "sha256": "b0b0c8c5be7f42264f904480c57cd2204b056a6f2fa477b907bdabebc32baa67",
+      "read_ranges": [
+        [
+          1,
+          125
+        ]
+      ],
+      "complete_file_read": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/binary-tree-shared-source-preflight.md",
+      "bytes": 24534,
+      "newline_lines": 398,
+      "sha256": "1ba6a33ae3af2018a843de6ca6b8b5f6daaedca78f4cb5eabb4ae0433451db07",
+      "read_ranges": [
+        [
+          1,
+          200
+        ],
+        [
+          201,
+          398
+        ]
+      ],
+      "complete_file_read": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/binary-tree-shared-case-preflight.md",
+      "bytes": 5002,
+      "newline_lines": 106,
+      "sha256": "15964bb73f6ffcfb8ff2ff1792aacb7b2c155d1c73a08fcc37f450f41cc000bd",
+      "read_ranges": [
+        [
+          1,
+          106
+        ]
+      ],
+      "complete_file_read": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/binary-tree-shared-api-preflight.md",
+      "bytes": 31067,
+      "newline_lines": 290,
+      "sha256": "f20e19c370dec48eccd3a52aa65223012853d75240bfa411b36bad5e5f03bafb",
+      "read_ranges": [
+        [
+          1,
+          110
+        ],
+        [
+          111,
+          210
+        ],
+        [
+          211,
+          290
+        ]
+      ],
+      "complete_file_read": true
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/chapter04-obligations.md",
+      "bytes": 39471,
+      "newline_lines": 332,
+      "sha256": "e7e282df7f553cbe8a960d1e20818e09a04f63c2cf47a069284223ee3a8595e4",
+      "read_ranges": [
+        [
+          1,
+          38
+        ],
+        [
+          180,
+          214
+        ]
+      ],
+      "complete_file_read": false
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/chapter05-obligations.md",
+      "bytes": 45177,
+      "newline_lines": 372,
+      "sha256": "f512f6b3723e8e036e9292aab985e93d15b2bf49b1c2c6dff79b3e6911ffcaad",
+      "read_ranges": [
+        [
+          1,
+          53
+        ]
+      ],
+      "complete_file_read": false
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/chapter09-obligations.md",
+      "bytes": 45359,
+      "newline_lines": 423,
+      "sha256": "6ade1fd1a470c64d613212098e311d2e0189f62bd82045dbb2f8f4387f426285",
+      "read_ranges": [
+        [
+          1,
+          51
+        ]
+      ],
+      "complete_file_read": false
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/chapter15-obligations.md",
+      "bytes": 31107,
+      "newline_lines": 293,
+      "sha256": "03f2571e833fa0eb826a3d6d1a1dbf53a62626a9278b5dc1a0fe911aac15812c",
+      "read_ranges": [
+        [
+          1,
+          32
+        ],
+        [
+          193,
+          213
+        ]
+      ],
+      "complete_file_read": false
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/appendix-b-obligations.md",
+      "bytes": 31759,
+      "newline_lines": 311,
+      "sha256": "8bf1101e774269ead99ccb23d7de237f0a208cc9a3d2d0522a4ab464ed6981e6",
+      "read_ranges": [
+        [
+          1,
+          45
+        ]
+      ],
+      "complete_file_read": false
+    }
+  ],
+  "guidance_retained_exact_reads": [
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "AGENTS.md",
+      "git_blob": "1b1e65502f0b0771b2475e3b1f37e39d7f18d0c2",
+      "bytes": 3118,
+      "newline_lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "retained_source_record": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+      "retained_record_sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e",
+      "retained_read_ranges": [
+        [
+          1,
+          76
+        ]
+      ],
+      "exact_prior_identity": true,
+      "retained_complete_assessment": true,
+      "qualification": "Complete prior source reading retained at exact identical blob."
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": ".agents/skills/implement/SKILL.md",
+      "git_blob": "45b885f90c1ce212e45fbb30727322e4eb34bcd8",
+      "bytes": 4997,
+      "newline_lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "retained_source_record": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+      "retained_record_sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e",
+      "retained_read_ranges": [
+        [
+          1,
+          83
+        ]
+      ],
+      "exact_prior_identity": true,
+      "retained_complete_assessment": true,
+      "qualification": "Complete prior source reading retained at exact identical blob."
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": ".agents/skills/code-review/SKILL.md",
+      "git_blob": "8b79f5e9db43d028f2b9a252d907b9b9b02feb01",
+      "bytes": 7466,
+      "newline_lines": 133,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "retained_source_record": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+      "retained_record_sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e",
+      "retained_read_ranges": [
+        [
+          1,
+          133
+        ]
+      ],
+      "exact_prior_identity": true,
+      "retained_complete_assessment": true,
+      "qualification": "Complete prior source reading retained at exact identical blob."
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": ".agents/skills/code-review/heuristics.md",
+      "git_blob": "9c5666ca66022e0322ebb9687c69182d6d63e553",
+      "bytes": 2232,
+      "newline_lines": 32,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "retained_source_record": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+      "retained_record_sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e",
+      "retained_read_ranges": [
+        [
+          1,
+          32
+        ]
+      ],
+      "exact_prior_identity": true,
+      "retained_complete_assessment": true,
+      "qualification": "Complete prior source reading retained at exact identical blob."
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "git_blob": "8f279691ee250a713f7cd70f7c37c5d581ead152",
+      "bytes": 6991,
+      "newline_lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "retained_source_record": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+      "retained_record_sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e",
+      "retained_read_ranges": [
+        [
+          1,
+          116
+        ]
+      ],
+      "exact_prior_identity": true,
+      "retained_complete_assessment": true,
+      "qualification": "Complete prior source reading retained at exact identical blob."
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": ".agents/skills/example-driven-development/worked-example.md",
+      "git_blob": "255389dab7b86dae37bf06f477f42c5a77fcbec9",
+      "bytes": 2356,
+      "newline_lines": 55,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+      "retained_source_record": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+      "retained_record_sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e",
+      "retained_read_ranges": [
+        [
+          1,
+          55
+        ]
+      ],
+      "exact_prior_identity": true,
+      "retained_complete_assessment": true,
+      "qualification": "Complete prior source reading retained at exact identical blob."
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "docs/agents/review-loop.md",
+      "git_blob": "6c4724d8b5dde60c55543e73414873a5f355d165",
+      "bytes": 7113,
+      "newline_lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "retained_source_record": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+      "retained_record_sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e",
+      "retained_read_ranges": [
+        [
+          1,
+          115
+        ]
+      ],
+      "exact_prior_identity": true,
+      "retained_complete_assessment": true,
+      "qualification": "Complete prior source reading retained at exact identical blob."
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "docs/agents/architectural-quality.md",
+      "git_blob": "bfcdb4a22899e11ba61b67d068d380ef5ea69f9f",
+      "bytes": 3876,
+      "newline_lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "retained_source_record": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+      "retained_record_sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e",
+      "retained_read_ranges": [
+        [
+          1,
+          66
+        ]
+      ],
+      "exact_prior_identity": true,
+      "retained_complete_assessment": true,
+      "qualification": "Complete prior source reading retained at exact identical blob."
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "docs/agents/domain.md",
+      "git_blob": "c26859ec35e14a9051d84066b3b5315aad67ee8b",
+      "bytes": 926,
+      "newline_lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "retained_source_record": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+      "retained_record_sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e",
+      "retained_read_ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "exact_prior_identity": true,
+      "retained_complete_assessment": true,
+      "qualification": "Complete prior source reading retained at exact identical blob."
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "GLOSSARY.md",
+      "git_blob": "58735721568c19cbdc0bfd691280fd24b98e65c9",
+      "bytes": 4824,
+      "newline_lines": 106,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "retained_source_record": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+      "retained_record_sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e",
+      "retained_read_ranges": [
+        [
+          1,
+          106
+        ]
+      ],
+      "exact_prior_identity": true,
+      "retained_complete_assessment": true,
+      "qualification": "Complete prior source reading retained at exact identical blob."
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "docs/adr/README.md",
+      "git_blob": "d8cced6079e8bc98d3ddd9f655a3e1d78bf29107",
+      "bytes": 1547,
+      "newline_lines": 17,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "retained_source_record": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+      "retained_record_sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e",
+      "retained_read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "exact_prior_identity": true,
+      "retained_complete_assessment": true,
+      "qualification": "Complete prior source reading retained at exact identical blob."
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "git_blob": "c997496c5aa49412715630f853419d3a6b10c825",
+      "bytes": 2561,
+      "newline_lines": 50,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "retained_source_record": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+      "retained_record_sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e",
+      "retained_read_ranges": [
+        [
+          1,
+          50
+        ]
+      ],
+      "exact_prior_identity": true,
+      "retained_complete_assessment": true,
+      "qualification": "Complete prior source reading retained at exact identical blob."
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "git_blob": "a864fb47055dc03ffad69dfea236f9e1c1f860f4",
+      "bytes": 7331,
+      "newline_lines": 127,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "retained_source_record": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+      "retained_record_sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e",
+      "retained_read_ranges": [
+        [
+          1,
+          127
+        ]
+      ],
+      "exact_prior_identity": true,
+      "retained_complete_assessment": true,
+      "qualification": "Complete prior source reading retained at exact identical blob."
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "docs/language-direction.md",
+      "git_blob": "1ff46ed93a8c9b34cd7cb30c631b4e427b7d8a6d",
+      "bytes": 19185,
+      "newline_lines": 306,
+      "sha256": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+      "retained_source_record": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+      "retained_record_sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e",
+      "retained_read_ranges": [
+        [
+          1,
+          306
+        ]
+      ],
+      "exact_prior_identity": true,
+      "retained_complete_assessment": true,
+      "qualification": "Complete prior source reading retained at exact identical blob."
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "README.md",
+      "git_blob": "b2d38cbfc770f0ecb3d653dc819a67a9dd3dfa3b",
+      "bytes": 26239,
+      "newline_lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "retained_source_record": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+      "retained_record_sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e",
+      "retained_read_ranges": [
+        [
+          161,
+          248
+        ]
+      ],
+      "exact_prior_identity": true,
+      "retained_complete_assessment": true,
+      "qualification": "Complete earlier C2 read retained; normal/fresh rules reread at XP lines161-248; entire blob remains exact."
+    }
+  ],
+  "pins": [
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "lean-toolchain",
+      "git_blob": "a6aff065db2882c535684f8c5bcd4f16e9a23915",
+      "bytes": 25,
+      "newline_lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "lake-manifest.json",
+      "git_blob": "0452762ecb2bb5e0d0f7db0b128b0af581febb87",
+      "bytes": 3138,
+      "newline_lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "lakefile.toml",
+      "git_blob": "6c6da60ea34d0f4dbfb46fd68a02934368f66a82",
+      "bytes": 444,
+      "newline_lines": 13,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+    }
+  ],
+  "authored_declarations": [
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "line": 17,
+      "kind": "def",
+      "visibility": "public",
+      "name": "Trees.fold",
+      "source_name": "fold",
+      "new_since_fixed_base": true,
+      "source_sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "header_text": "def fold (empty : β) (combine : β → α → β → β) : BinaryTree α → β\n",
+      "header_lines": 1,
+      "header_sha256": "32c6751ced6b080838d1182c9a0d5393db776e22b375ed261b6aae0427cd9965",
+      "header_terminator": "equations"
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "line": 21,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.fold_nil",
+      "source_name": "fold_nil",
+      "new_since_fixed_base": true,
+      "source_sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "header_text": "@[simp] theorem fold_nil (empty : β) (combine : β → α → β → β) :\n    fold empty combine .nil = empty\n",
+      "header_lines": 2,
+      "header_sha256": "134ab35bb46bc8a027a0866a9a8c1207eded2277aece7764b287cac6e9d98562",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "line": 24,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.fold_node",
+      "source_name": "fold_node",
+      "new_since_fixed_base": true,
+      "source_sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "header_text": "@[simp] theorem fold_node (empty : β) (combine : β → α → β → β)\n    (a : α) (l r : BinaryTree α) :\n    fold empty combine (.node a l r) =\n      combine (fold empty combine l) a (fold empty combine r)\n",
+      "header_lines": 4,
+      "header_sha256": "6169cedb1545bf6d3dadc6b47a06fbfa9866fb9f2b318c66797d10726362fb60",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "line": 30,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.fold_map",
+      "source_name": "fold_map",
+      "new_since_fixed_base": true,
+      "source_sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "header_text": "theorem fold_map (empty : β) (combine : β → γ → β → β)\n    (label : α → γ) (t : BinaryTree α) :\n    fold empty combine (t.map label) =\n      fold empty (fun l a r => combine l (label a) r) t\n",
+      "header_lines": 4,
+      "header_sha256": "132d83b4e2abbd32ee2de6b3c21124fece02435a1d5a961dd2959ed27774f6af",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "line": 41,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.fold_fusion",
+      "source_name": "fold_fusion",
+      "new_since_fixed_base": true,
+      "source_sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "header_text": "theorem fold_fusion (empty : β) (combine : β → α → β → β)\n    (empty' : γ) (combine' : γ → α → γ → γ) (observe : β → γ)\n    (h_empty : observe empty = empty')\n    (h_node : ∀ l a r, observe (combine l a r) =\n      combine' (observe l) a (observe r)) (t : BinaryTree α) :\n    observe (fold empty combine t) = fold empty' combine' t\n",
+      "header_lines": 6,
+      "header_sha256": "7b504e07822820df00c7f4264a925d08bfa92bebc08091db38589e8394c353de",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "line": 52,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.fold_numNodes",
+      "source_name": "fold_numNodes",
+      "new_since_fixed_base": true,
+      "source_sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "header_text": "theorem fold_numNodes (t : BinaryTree α) :\n    fold (0 : Nat) (fun l (_ : α) r => l + r + 1) t = t.numNodes\n",
+      "header_lines": 2,
+      "header_sha256": "952e1008d9fa4639e57092468e51c1f589e338c7ef6cc0a73e133a1903fde5d0",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "line": 59,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.fold_height",
+      "source_name": "fold_height",
+      "new_since_fixed_base": true,
+      "source_sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "header_text": "theorem fold_height (t : BinaryTree α) :\n    fold (0 : Nat) (fun l (_ : α) r => max l r + 1) t = t.height\n",
+      "header_lines": 2,
+      "header_sha256": "7dea2187cb880dbb9ef46561c81ffc2c343af4be2fe3ff8d031086de3f489d88",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "line": 68,
+      "kind": "def",
+      "visibility": "public",
+      "name": "Trees.inorder",
+      "source_name": "inorder",
+      "new_since_fixed_base": true,
+      "source_sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "header_text": "def inorder (t : BinaryTree α) : List α\n",
+      "header_lines": 1,
+      "header_sha256": "b5cd169a265bc7a47ad39130fd01ad7703d045428c7161347fe8201a54a3ade5",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "line": 71,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.inorder_nil",
+      "source_name": "inorder_nil",
+      "new_since_fixed_base": true,
+      "source_sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "header_text": "@[simp] theorem inorder_nil : inorder (.nil : BinaryTree α) = []\n",
+      "header_lines": 1,
+      "header_sha256": "36c8ab6b6c8e701564c0d863d94eb43d4384e519c931890bef16caa6b26b7aea",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "line": 73,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.inorder_node",
+      "source_name": "inorder_node",
+      "new_since_fixed_base": true,
+      "source_sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "header_text": "@[simp] theorem inorder_node (a : α) (l r : BinaryTree α) :\n    inorder (.node a l r) = inorder l ++ (a :: inorder r)\n",
+      "header_lines": 2,
+      "header_sha256": "a16be30b95557e982d04bebdcba1ba47915eec3da7b1d6d7f288cb088b285078",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "line": 76,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.inorder_length",
+      "source_name": "inorder_length",
+      "new_since_fixed_base": true,
+      "source_sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "header_text": "theorem inorder_length (t : BinaryTree α) : (inorder t).length = t.numNodes\n",
+      "header_lines": 1,
+      "header_sha256": "04871de1aa062d23f995bf22429cef869dc7fa14572bc523ae98ef2d582b2c08",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "line": 82,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.inorder_map",
+      "source_name": "inorder_map",
+      "new_since_fixed_base": true,
+      "source_sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "header_text": "theorem inorder_map (label : α → β) (t : BinaryTree α) :\n    inorder (t.map label) = (inorder t).map label\n",
+      "header_lines": 2,
+      "header_sha256": "2143dca6a607cb79077b54706aba3e6f0ba47a7716853769e6ea92fd7baabfd2",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "line": 89,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.numNodes_map",
+      "source_name": "numNodes_map",
+      "new_since_fixed_base": true,
+      "source_sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "header_text": "theorem numNodes_map (label : α → β) (t : BinaryTree α) :\n    (t.map label).numNodes = t.numNodes\n",
+      "header_lines": 2,
+      "header_sha256": "f889c8d8d7ad3b3f7852aeb8de24224d8cf935f283c33e2f31128e862b4107a9",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "line": 96,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.numLeaves_map",
+      "source_name": "numLeaves_map",
+      "new_since_fixed_base": true,
+      "source_sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "header_text": "theorem numLeaves_map (label : α → β) (t : BinaryTree α) :\n    (t.map label).numLeaves = t.numLeaves\n",
+      "header_lines": 2,
+      "header_sha256": "92f4723f59a88be01e664249e7ffc8a3fdbb8526d0acc9eeab5a5caa45dcb5af",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "line": 100,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.height_map",
+      "source_name": "height_map",
+      "new_since_fixed_base": true,
+      "source_sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "header_text": "theorem height_map (label : α → β) (t : BinaryTree α) :\n    (t.map label).height = t.height\n",
+      "header_lines": 2,
+      "header_sha256": "93d079e982ddbee1a1f3319253ecea8041346610a301d27e4536e2eca4b06f46",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 15,
+      "kind": "def",
+      "visibility": "public",
+      "name": "Trees.Cached.erase",
+      "source_name": "erase",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "def erase (t : BinaryTree (α × β)) : BinaryTree α\n",
+      "header_lines": 1,
+      "header_sha256": "58a160e7a1ccb8c021c187d69d115a380f3e75487db48432581386a0efe1346b",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 17,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.erase_nil",
+      "source_name": "erase_nil",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "@[simp] theorem erase_nil : erase (.nil : BinaryTree (α × β)) = .nil\n",
+      "header_lines": 1,
+      "header_sha256": "9b68bb84761782df316b414382d31ddc30b2a3d91e198e7145c52505e25a49b0",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 19,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.erase_node",
+      "source_name": "erase_node",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "@[simp] theorem erase_node (a : α) (b : β) (l r : BinaryTree (α × β)) :\n    erase (.node (a, b) l r) = .node a (erase l) (erase r)\n",
+      "header_lines": 2,
+      "header_sha256": "e63b6a799cb867f5d39380ad7e645e6626d594cef96338ef7cd39d2d8b03ae64",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 23,
+      "kind": "def",
+      "visibility": "public",
+      "name": "Trees.Cached.read",
+      "source_name": "read",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "def read (empty : β) : BinaryTree (α × β) → β\n",
+      "header_lines": 1,
+      "header_sha256": "8edd3b7efc6a2bb125275f4f3036b8c4e1a7b7c3c90252ab410ae54e6a6a01cf",
+      "header_terminator": "equations"
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 27,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.read_nil",
+      "source_name": "read_nil",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "@[simp] theorem read_nil (empty : β) :\n    read empty (.nil : BinaryTree (α × β)) = empty\n",
+      "header_lines": 2,
+      "header_sha256": "8e260767e9db3cb7b475890f4d59d391500dc39b5b7a12aa34d9cf63d64278ba",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 30,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.read_node",
+      "source_name": "read_node",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "@[simp] theorem read_node (empty : β) (a : α) (b : β)\n    (l r : BinaryTree (α × β)) : read empty (.node (a, b) l r) = b\n",
+      "header_lines": 2,
+      "header_sha256": "0afca1036c364eeb3890546deb4ee5f85e7a2289ded8003b05cbba47727eca99",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 34,
+      "kind": "def",
+      "visibility": "public",
+      "name": "Trees.Cached.smartNode",
+      "source_name": "smartNode",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "def smartNode (empty : β) (combine : β → α → β → β)\n    (l : BinaryTree (α × β)) (a : α) (r : BinaryTree (α × β)) :\n    BinaryTree (α × β)\n",
+      "header_lines": 3,
+      "header_sha256": "db05f4a301b8841a2f72e756b8124545ac1b4f51105fa736fc4e2f57246c9eea",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 39,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.read_smartNode",
+      "source_name": "read_smartNode",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "@[simp] theorem read_smartNode (empty : β) (combine : β → α → β → β)\n    (l : BinaryTree (α × β)) (a : α) (r : BinaryTree (α × β)) :\n    read empty (smartNode empty combine l a r) =\n      combine (read empty l) a (read empty r)\n",
+      "header_lines": 4,
+      "header_sha256": "ac37c39672bc95765c81eb99410072d8f47f6ff82b21e34f6a8f55b61316a250",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 44,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.erase_smartNode",
+      "source_name": "erase_smartNode",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "@[simp] theorem erase_smartNode (empty : β) (combine : β → α → β → β)\n    (l : BinaryTree (α × β)) (a : α) (r : BinaryTree (α × β)) :\n    erase (smartNode empty combine l a r) = .node a (erase l) (erase r)\n",
+      "header_lines": 3,
+      "header_sha256": "eb71ca05ab8b503c0b50798d50e75e949cc145e0330f6d36a1ec1bc4b9dda6e8",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 49,
+      "kind": "def",
+      "visibility": "public",
+      "name": "Trees.Cached.Valid",
+      "source_name": "Valid",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "def Valid (empty : β) (combine : β → α → β → β) :\n    BinaryTree (α × β) → Prop\n",
+      "header_lines": 2,
+      "header_sha256": "49604fd0500f172da382f1375cc3997ae57fc2b8d586862eb5288aecc7a0a252",
+      "header_terminator": "equations"
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 56,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.valid_nil",
+      "source_name": "valid_nil",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "@[simp] theorem valid_nil (empty : β) (combine : β → α → β → β) :\n    Valid empty combine .nil\n",
+      "header_lines": 2,
+      "header_sha256": "0f5be551549cb97031956903bd36ffe9dfd7879f1e2c75d7d7dc476f11ca0f0c",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 59,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.valid_node",
+      "source_name": "valid_node",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "@[simp] theorem valid_node (empty : β) (combine : β → α → β → β)\n    (a : α) (b : β) (l r : BinaryTree (α × β)) :\n    Valid empty combine (.node (a, b) l r) ↔\n      Valid empty combine l ∧ Valid empty combine r ∧\n        b = combine (read empty l) a (read empty r)\n",
+      "header_lines": 5,
+      "header_sha256": "0eb13be1941dda0a5ad3fc5836ea835d66f6a79e462939aa38f8f072fac90bf3",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 66,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.smartNode_valid_iff",
+      "source_name": "smartNode_valid_iff",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "theorem smartNode_valid_iff (empty : β) (combine : β → α → β → β)\n    (l : BinaryTree (α × β)) (a : α) (r : BinaryTree (α × β)) :\n    Valid empty combine (smartNode empty combine l a r) ↔\n      Valid empty combine l ∧ Valid empty combine r\n",
+      "header_lines": 4,
+      "header_sha256": "9c495011898ed17d06ac681cd77bcecce74edec26372ca1618ff6c8a5dc5daf4",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 77,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.read_eq_fold",
+      "source_name": "read_eq_fold",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "theorem read_eq_fold (empty : β) (combine : β → α → β → β)\n    (t : BinaryTree (α × β)) (ht : Valid empty combine t) :\n    read empty t = Trees.fold empty combine (erase t)\n",
+      "header_lines": 3,
+      "header_sha256": "48496d6ccadaa493f53569e08e7b1f463c7d684900937ba6d8e90a7fce4cac28",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 89,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.inorder_erase",
+      "source_name": "inorder_erase",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "theorem inorder_erase (t : BinaryTree (α × β)) :\n    Trees.inorder (erase t) = (Trees.inorder t).map Prod.fst\n",
+      "header_lines": 2,
+      "header_sha256": "f2bee4e9e496c686491a6282ed79deea1666b956508cf8a84b95a1c149271f88",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 93,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.numNodes_erase",
+      "source_name": "numNodes_erase",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "theorem numNodes_erase (t : BinaryTree (α × β)) :\n    (erase t).numNodes = t.numNodes\n",
+      "header_lines": 2,
+      "header_sha256": "73e1bd8eef8652e5cbeffc872e8951359069fbe1d4639643ebcf5173455b61d8",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 96,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.numLeaves_erase",
+      "source_name": "numLeaves_erase",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "theorem numLeaves_erase (t : BinaryTree (α × β)) :\n    (erase t).numLeaves = t.numLeaves\n",
+      "header_lines": 2,
+      "header_sha256": "bfd79f2ba237be0eef20373c592a7a3f9efbafb3bdb08b7b49a36ba131cda797",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 99,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.height_erase",
+      "source_name": "height_erase",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "theorem height_erase (t : BinaryTree (α × β)) :\n    (erase t).height = t.height\n",
+      "header_lines": 2,
+      "header_sha256": "0fa249a6cf798b0efce4b4bd410a028c6e0e754a600996c9854133695ff87fb1",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 103,
+      "kind": "def",
+      "visibility": "public",
+      "name": "Trees.Cached.annotate",
+      "source_name": "annotate",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "def annotate (empty : β) (combine : β → α → β → β)\n    (t : BinaryTree α) : BinaryTree (α × β)\n",
+      "header_lines": 2,
+      "header_sha256": "4ddb73e89e11e80d2522b8d5426afbaffa700cc0ff8d6a6e2ebde05cff813c70",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 107,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.annotate_nil",
+      "source_name": "annotate_nil",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "@[simp] theorem annotate_nil (empty : β) (combine : β → α → β → β) :\n    annotate empty combine .nil = .nil\n",
+      "header_lines": 2,
+      "header_sha256": "5f9dd778f10d62f669cd0f6aaa31450084156c1747b0473606a9d4a766968aa7",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 110,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.annotate_node",
+      "source_name": "annotate_node",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "@[simp] theorem annotate_node (empty : β) (combine : β → α → β → β)\n    (a : α) (l r : BinaryTree α) :\n    annotate empty combine (.node a l r) =\n      smartNode empty combine (annotate empty combine l) a\n        (annotate empty combine r)\n",
+      "header_lines": 5,
+      "header_sha256": "3edd6dd5acd817184ad3189a0a6992ba4fa98cf79774651e9b27cdd054a209db",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 116,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.annotate_valid",
+      "source_name": "annotate_valid",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "theorem annotate_valid (empty : β) (combine : β → α → β → β)\n    (t : BinaryTree α) : Valid empty combine (annotate empty combine t)\n",
+      "header_lines": 2,
+      "header_sha256": "947b624017b71cc97e440bdb683d5a92dbbac27f05ce9d8a8a50e541accdc54a",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 123,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.erase_annotate",
+      "source_name": "erase_annotate",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "theorem erase_annotate (empty : β) (combine : β → α → β → β)\n    (t : BinaryTree α) : erase (annotate empty combine t) = t\n",
+      "header_lines": 2,
+      "header_sha256": "f803aa2506fd0ab126497a27a91acf8926885c4f877c3e5cae36e6bd1f6f73e3",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "line": 130,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Trees.Cached.read_annotate",
+      "source_name": "read_annotate",
+      "new_since_fixed_base": true,
+      "source_sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "header_text": "theorem read_annotate (empty : β) (combine : β → α → β → β)\n    (t : BinaryTree α) :\n    read empty (annotate empty combine t) = Trees.fold empty combine t\n",
+      "header_lines": 3,
+      "header_sha256": "dd047f3d64213c71759b31ecca1eb99081968f367ffba647287e427e9930a9c2",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "line": 19,
+      "kind": "def",
+      "visibility": "public",
+      "name": "Resources.TreeCache.readRun",
+      "source_name": "readRun",
+      "new_since_fixed_base": true,
+      "source_sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6",
+      "header_text": "def readRun (empty : β) (t : BinaryTree (α × β)) : Measured β Nat\n",
+      "header_lines": 1,
+      "header_sha256": "4bb593599b75a3aaa8f4ae1e791c6b71c2da2918b911f6772a4331c3444b6fa5",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "line": 22,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Resources.TreeCache.readRun_value",
+      "source_name": "readRun_value",
+      "new_since_fixed_base": true,
+      "source_sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6",
+      "header_text": "@[simp] theorem readRun_value (empty : β) (t : BinaryTree (α × β)) :\n    (readRun empty t).1 = Trees.Cached.read empty t\n",
+      "header_lines": 2,
+      "header_sha256": "b958b28b28d3a35c20d6b3315478aa952f65ad99249216caf80eb16ad68e024b",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "line": 25,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Resources.TreeCache.readRun_cost",
+      "source_name": "readRun_cost",
+      "new_since_fixed_base": true,
+      "source_sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6",
+      "header_text": "@[simp] theorem readRun_cost (empty : β) (t : BinaryTree (α × β)) :\n    (readRun empty t).2 = 1\n",
+      "header_lines": 2,
+      "header_sha256": "1c382f77ab83f93c0405fc10c42f6ca7b60224a4ebe6e898c4f0bd7bcf8091d5",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "line": 30,
+      "kind": "def",
+      "visibility": "public",
+      "name": "Resources.TreeCache.nodeRun",
+      "source_name": "nodeRun",
+      "new_since_fixed_base": true,
+      "source_sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6",
+      "header_text": "def nodeRun (empty : β) (combineRun : β → α → β → Measured β Nat)\n    (l : BinaryTree (α × β)) (a : α) (r : BinaryTree (α × β)) :\n    Measured (BinaryTree (α × β)) Nat\n",
+      "header_lines": 3,
+      "header_sha256": "6dd138ba5dce666f33be2f75d7367fba9c2cd5c7b5b1f2cba8eca69d7c483b82",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "line": 39,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Resources.TreeCache.nodeRun_value",
+      "source_name": "nodeRun_value",
+      "new_since_fixed_base": true,
+      "source_sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6",
+      "header_text": "theorem nodeRun_value (empty : β) (combine : β → α → β → β)\n    (combineRun : β → α → β → Measured β Nat)\n    (l : BinaryTree (α × β)) (a : α) (r : BinaryTree (α × β))\n    (hvalue : (combineRun (Trees.Cached.read empty l) a\n      (Trees.Cached.read empty r)).1 =\n      combine (Trees.Cached.read empty l) a (Trees.Cached.read empty r)) :\n    (nodeRun empty combineRun l a r).1 =\n      Trees.Cached.smartNode empty combine l a r\n",
+      "header_lines": 8,
+      "header_sha256": "a3bd7269995df41bcc6572174dbabf9d3b2372c92025f9282c7ba2a43f0b98d4",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "line": 53,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Resources.TreeCache.nodeRun_cost",
+      "source_name": "nodeRun_cost",
+      "new_since_fixed_base": true,
+      "source_sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6",
+      "header_text": "theorem nodeRun_cost (empty : β) (combineRun : β → α → β → Measured β Nat)\n    (l : BinaryTree (α × β)) (a : α) (r : BinaryTree (α × β)) :\n    (nodeRun empty combineRun l a r).2 =\n      (combineRun (Trees.Cached.read empty l) a (Trees.Cached.read empty r)).2 + 3\n",
+      "header_lines": 4,
+      "header_sha256": "b5bffd0ba5a00fb8aeae4c9f03746881b436efad531cf030405959d26e654adf",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "line": 60,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Resources.TreeCache.nodeRun_le",
+      "source_name": "nodeRun_le",
+      "new_since_fixed_base": true,
+      "source_sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6",
+      "header_text": "theorem nodeRun_le (empty : β) (combineRun : β → α → β → Measured β Nat)\n    (l : BinaryTree (α × β)) (a : α) (r : BinaryTree (α × β)) (K : Nat)\n    (hcost : (combineRun (Trees.Cached.read empty l) a\n      (Trees.Cached.read empty r)).2 ≤ K) :\n    (nodeRun empty combineRun l a r).2 ≤ K + 3\n",
+      "header_lines": 5,
+      "header_sha256": "d655c08179d17dc5a154de72008975e02c79a4f4c30f6d033037a20f5d81541b",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "line": 68,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "Resources.TreeCache.nodeRun_valid",
+      "source_name": "nodeRun_valid",
+      "new_since_fixed_base": true,
+      "source_sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6",
+      "header_text": "theorem nodeRun_valid (empty : β) (combine : β → α → β → β)\n    (combineRun : β → α → β → Measured β Nat)\n    (l : BinaryTree (α × β)) (a : α) (r : BinaryTree (α × β))\n    (hl : Trees.Cached.Valid empty combine l)\n    (hr : Trees.Cached.Valid empty combine r)\n    (hvalue : (combineRun (Trees.Cached.read empty l) a\n      (Trees.Cached.read empty r)).1 =\n      combine (Trees.Cached.read empty l) a (Trees.Cached.read empty r)) :\n    Trees.Cached.Valid empty combine (nodeRun empty combineRun l a r).1\n",
+      "header_lines": 9,
+      "header_sha256": "03194fd9fb26f47552dcd3b50bdfd4d85253ca8f2e0f074904cefb867923052b",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 17,
+      "kind": "def",
+      "visibility": "public",
+      "name": "TreeCacheExamples.sizeStep",
+      "source_name": "sizeStep",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "def sizeStep (l : Nat) (_ : α) (r : Nat) : Nat\n",
+      "header_lines": 1,
+      "header_sha256": "775027ae93654c10f187f8587911643e802d96df6ceaf8059108b0a38e1aae7d",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 18,
+      "kind": "def",
+      "visibility": "public",
+      "name": "TreeCacheExamples.heightStep",
+      "source_name": "heightStep",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "def heightStep (l : Nat) (_ : α) (r : Nat) : Nat\n",
+      "header_lines": 1,
+      "header_sha256": "bc76185bfc1ddc83dff9583c25561ed4ac68bd435933136bd895155ec88ee232",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 20,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.size_reader",
+      "source_name": "size_reader",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem size_reader (t : BinaryTree (α × Nat))\n    (ht : Trees.Cached.Valid 0 sizeStep t) :\n    Trees.Cached.read 0 t = t.numNodes\n",
+      "header_lines": 3,
+      "header_sha256": "512702028edeb13749d06fec9f98d5caa23eb528f74dcca2063ca47478ed51c1",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 26,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.height_reader",
+      "source_name": "height_reader",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem height_reader (t : BinaryTree (α × Nat))\n    (ht : Trees.Cached.Valid 0 heightStep t) :\n    Trees.Cached.read 0 t = t.height\n",
+      "header_lines": 3,
+      "header_sha256": "25c1c3838cc8bc98781b103f48db8bc1c1c64f045219f6216c43298d9e8145be",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 33,
+      "kind": "def",
+      "visibility": "public",
+      "name": "TreeCacheExamples.sample",
+      "source_name": "sample",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "def sample : BinaryTree Nat\n",
+      "header_lines": 1,
+      "header_sha256": "8495d3da333105fc4ee45ec7b1b23303d5413ee296c663c88e175fa9db216629",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 36,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.sample_size",
+      "source_name": "sample_size",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem sample_size : sample.numNodes = 4\n",
+      "header_lines": 1,
+      "header_sha256": "b933002fc2d966be7ec7d2c196c6a6ea7ba212a53f6380c9b61b8cb8c26eea0c",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 37,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.sample_height",
+      "source_name": "sample_height",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem sample_height : sample.height = 3\n",
+      "header_lines": 1,
+      "header_sha256": "175126e8eebb0c1a3288209376319cc5894727523e5f0d50681a869ddb9948e5",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 38,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.sample_inorder",
+      "source_name": "sample_inorder",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem sample_inorder : Trees.inorder sample = [0, 1, 2, 3]\n",
+      "header_lines": 1,
+      "header_sha256": "265aaf945610992184e7bdbc85f7e74b47874b7f15c4d4ccf3fe1c62b18b8beb",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 40,
+      "kind": "def",
+      "visibility": "public",
+      "name": "TreeCacheExamples.sizeSample",
+      "source_name": "sizeSample",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "def sizeSample : BinaryTree (Nat × Nat)\n",
+      "header_lines": 1,
+      "header_sha256": "6bbee42c8e1a7e66f4bef4ae94020c16e990b98b873b9fb6c7fc79c0578310b1",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 42,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.sizeSample_valid",
+      "source_name": "sizeSample_valid",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem sizeSample_valid : Trees.Cached.Valid 0 sizeStep sizeSample\n",
+      "header_lines": 1,
+      "header_sha256": "051830ff5bc24626a6f3b98a5326dab478e3eb2b7e471861fcb502a932a7b3e3",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 45,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.sizeSample_erases",
+      "source_name": "sizeSample_erases",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem sizeSample_erases : Trees.Cached.erase sizeSample = sample\n",
+      "header_lines": 1,
+      "header_sha256": "ebe902506541222e1872257f2e5437d0d5b08bedf7e04f594609348893e23d77",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 48,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.sizeSample_read",
+      "source_name": "sizeSample_read",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem sizeSample_read : Trees.Cached.read 0 sizeSample = 4\n",
+      "header_lines": 1,
+      "header_sha256": "7fcfbf48bf05ec043b217aff5367b6c90c444c2bf3b232ee645ff5a696feeb55",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 56,
+      "kind": "def",
+      "visibility": "public",
+      "name": "TreeCacheExamples.heightSample",
+      "source_name": "heightSample",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "def heightSample : BinaryTree (Nat × Nat)\n",
+      "header_lines": 1,
+      "header_sha256": "293ff80f49a703791aea2807fad3571a1737642ca96ab5d74f11766253a67915",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 58,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.heightSample_valid",
+      "source_name": "heightSample_valid",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem heightSample_valid : Trees.Cached.Valid 0 heightStep heightSample\n",
+      "header_lines": 1,
+      "header_sha256": "1006cbeb50e7343a2727e5cdf87afc7d32453955c84aa758287f9c05720f6ac0",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 61,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.heightSample_read",
+      "source_name": "heightSample_read",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem heightSample_read : Trees.Cached.read 0 heightSample = 3\n",
+      "header_lines": 1,
+      "header_sha256": "15bb986247eec9b7c7af22fc9f847b217ae9630dac89b67e777b1f338f9060f3",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 71,
+      "kind": "def",
+      "visibility": "public",
+      "name": "TreeCacheExamples.pairStep",
+      "source_name": "pairStep",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "def pairStep (l : Nat × Nat) (_ : α) (r : Nat × Nat) : Nat × Nat\n",
+      "header_lines": 1,
+      "header_sha256": "f79b0f6134c09d763644177da93d29fe28aa1de4d8a84c0cbbe908a1076ffa4f",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 74,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.pair_fold_size",
+      "source_name": "pair_fold_size",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem pair_fold_size (t : BinaryTree α) :\n    (Trees.fold (0, 0) pairStep t).1 = t.numNodes\n",
+      "header_lines": 2,
+      "header_sha256": "fb651faad6b50ca71958d7161e987239ca4c388ce5621edfe3891afaa4375771",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 82,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.pair_fold_height",
+      "source_name": "pair_fold_height",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem pair_fold_height (t : BinaryTree α) :\n    (Trees.fold (0, 0) pairStep t).2 = t.height\n",
+      "header_lines": 2,
+      "header_sha256": "e0df11cd9219848933a0dc745bfdcb760b29b26b6717f42214224aa72d73a36f",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 91,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.pair_reader",
+      "source_name": "pair_reader",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem pair_reader (t : BinaryTree (α × (Nat × Nat)))\n    (ht : Trees.Cached.Valid (0, 0) pairStep t) :\n    Trees.Cached.read (0, 0) t = (t.numNodes, t.height)\n",
+      "header_lines": 3,
+      "header_sha256": "a490ad0c00eda19708b52a862aea96f8b8936e77d3d7b3d37931637a9881a8ec",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 100,
+      "kind": "def",
+      "visibility": "public",
+      "name": "TreeCacheExamples.pairSample",
+      "source_name": "pairSample",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "def pairSample : BinaryTree (Nat × (Nat × Nat))\n",
+      "header_lines": 1,
+      "header_sha256": "32512f69e7f5316f05371a7657dbcd4608e84079ea81ba1f30326219a1978b00",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 103,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.pairSample_valid",
+      "source_name": "pairSample_valid",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem pairSample_valid : Trees.Cached.Valid (0, 0) pairStep pairSample\n",
+      "header_lines": 1,
+      "header_sha256": "cc8f38527c1a2720c796ad79caeb5848717cc7ebdb51d7755af34478ae243f3a",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 106,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.pairSample_erases",
+      "source_name": "pairSample_erases",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem pairSample_erases : Trees.Cached.erase pairSample = sample\n",
+      "header_lines": 1,
+      "header_sha256": "154ed2c334f4862a64dc3c9b6438ba5e108546f0061e53385995906ebc424700",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 109,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.pairSample_read",
+      "source_name": "pairSample_read",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem pairSample_read : Trees.Cached.read (0, 0) pairSample = (4, 3)\n",
+      "header_lines": 1,
+      "header_sha256": "34ee820803ea6bbebfefd8944331cbaae73fb72cb08929e8b66a37dcf6d73435",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 119,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.ordered_summary_fold",
+      "source_name": "ordered_summary_fold",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem ordered_summary_fold (measure : α → M) (t : BinaryTree α) :\n    Sequences.OrderedSummary.summary measure (Trees.inorder t) =\n      Trees.fold 1 (fun l a r => l * measure a * r) t\n",
+      "header_lines": 3,
+      "header_sha256": "87cd4dbbe3be9a6d0e2215947241d8cebea39189069c9bf41cfd679c5e28700a",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 135,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.sample_word",
+      "source_name": "sample_word",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem sample_word :\n    Trees.fold (1 : FreeMonoid Nat) (fun l a r => l * FreeMonoid.of a * r) sample =\n      FreeMonoid.ofList [0, 1, 2, 3]\n",
+      "header_lines": 3,
+      "header_sha256": "705876bae5bc7d0221803c1b6356a0d13c41507c2a368b7dfa01f438370b4ed1",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 150,
+      "kind": "def",
+      "visibility": "public",
+      "name": "TreeCacheExamples.balancedThree",
+      "source_name": "balancedThree",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "def balancedThree : BinaryTree Nat\n",
+      "header_lines": 1,
+      "header_sha256": "06d77d6033685990dcc949e8ab7dd9ccce9aad51f4c144dc41b522e1f7e94976",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 151,
+      "kind": "def",
+      "visibility": "public",
+      "name": "TreeCacheExamples.leftThree",
+      "source_name": "leftThree",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "def leftThree : BinaryTree Nat\n",
+      "header_lines": 1,
+      "header_sha256": "cc94b151fafa083df09b4d22c1e8cca4265d6b2f8c5a7d843716f1f060abcb25",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 154,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.same_inorder_different_height",
+      "source_name": "same_inorder_different_height",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem same_inorder_different_height :\n    Trees.inorder balancedThree = Trees.inorder leftThree ∧\n      balancedThree.height = 2 ∧ leftThree.height = 3\n",
+      "header_lines": 3,
+      "header_sha256": "e46da543c2d48dd51eb965ab5163094e56006ea7b668e50c9b99f194d97e93de",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 159,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.repeated_sample",
+      "source_name": "repeated_sample",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem repeated_sample :\n    (sample.map (fun _ => ())).numNodes = 4 ∧\n    (sample.map (fun _ => ())).numLeaves = 5 ∧\n    (sample.map (fun _ => ())).height = 3 ∧\n    Trees.inorder (sample.map (fun _ => ())) = [(), (), (), ()]\n",
+      "header_lines": 5,
+      "header_sha256": "57ccb509f4dd12183c2e074431f8221db82445e47db45633c62e39d74e3a3732",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 168,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.empty_tree",
+      "source_name": "empty_tree",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem empty_tree (t : BinaryTree Empty) : t = .nil\n",
+      "header_lines": 1,
+      "header_sha256": "e970e827199d91027cc21677d8b2677fd034984bc36c778d24ede08b75a499e4",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 173,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.empty_fold",
+      "source_name": "empty_fold",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem empty_fold {β : Type v} (empty : β) (combine : β → Empty → β → β)\n    (t : BinaryTree Empty) : Trees.fold empty combine t = empty\n",
+      "header_lines": 2,
+      "header_sha256": "4b699218b74615117dd98ce06275b7a0c1c882462cb9b28152e2398d6922c87d",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 177,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.empty_observations",
+      "source_name": "empty_observations",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem empty_observations (t : BinaryTree Empty) :\n    t.numNodes = 0 ∧ t.height = 0 ∧ Trees.inorder t = []\n",
+      "header_lines": 2,
+      "header_sha256": "64fb427493157d61f1767a309adb42f0eb64ce8f37b6b7887368212b35b9c7e5",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 182,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.empty_annotation",
+      "source_name": "empty_annotation",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem empty_annotation {β : Type v} (empty : β) (combine : β → Empty → β → β)\n    (t : BinaryTree Empty) :\n    Trees.Cached.erase (Trees.Cached.annotate empty combine t) = t ∧\n      Trees.Cached.Valid empty combine (Trees.Cached.annotate empty combine t)\n",
+      "header_lines": 4,
+      "header_sha256": "36c5faf4d2209db1e148d937cd349d4ed4b15251d3c40606452dc50c71495668",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 190,
+      "kind": "def",
+      "visibility": "public",
+      "name": "TreeCacheExamples.corrupt",
+      "source_name": "corrupt",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "def corrupt : BinaryTree (Nat × Nat)\n",
+      "header_lines": 1,
+      "header_sha256": "b1b51921097147abfe4ef00243cc34711b2239ce1a91dc960a03c7d2568ff9c8",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 194,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.corrupt_root_checks",
+      "source_name": "corrupt_root_checks",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem corrupt_root_checks :\n    Trees.Cached.read 0 corrupt = corrupt.numNodes ∧\n      Trees.Cached.read 0 corrupt =\n        sizeStep (Trees.Cached.read 0 corrupt.left) 1 (Trees.Cached.read 0 corrupt.right)\n",
+      "header_lines": 4,
+      "header_sha256": "879db4530c4e748e2eaac4b70f06638573272da605ac912d1fc42d85cd912466",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 200,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.corrupt_not_valid",
+      "source_name": "corrupt_not_valid",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem corrupt_not_valid : ¬ Trees.Cached.Valid 0 sizeStep corrupt\n",
+      "header_lines": 1,
+      "header_sha256": "88928d77065de0de966a20d0a007d9f3345dd827f42b6efda5ac3ca13636e19e",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 203,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.corrupt_erases",
+      "source_name": "corrupt_erases",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem corrupt_erases : Trees.Cached.erase corrupt = sample\n",
+      "header_lines": 1,
+      "header_sha256": "13991166c58fbecd976f627e72ef5a4217ed5b1ad4c40e760ba9e66ba92ce830",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 205,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.corrupt_inorder",
+      "source_name": "corrupt_inorder",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem corrupt_inorder : Trees.inorder (Trees.Cached.erase corrupt) = [0, 1, 2, 3]\n",
+      "header_lines": 1,
+      "header_sha256": "c89591bdaed29c4bd52e645048c989ad4eb729db8cdad65425ec7e623c126ac8",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 209,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.corrupt_smart_not_valid",
+      "source_name": "corrupt_smart_not_valid",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem corrupt_smart_not_valid :\n    ¬ Trees.Cached.Valid 0 sizeStep\n      (Trees.Cached.smartNode 0 sizeStep corrupt.left 1 corrupt.right)\n",
+      "header_lines": 3,
+      "header_sha256": "5e6ddc04c5d4f5025741def66c93c2284665d3711bac8ce3a71c877a694c9060",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 215,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.corrupt_smart_same_tree",
+      "source_name": "corrupt_smart_same_tree",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem corrupt_smart_same_tree :\n    Trees.Cached.smartNode 0 sizeStep corrupt.left 1 corrupt.right = corrupt\n",
+      "header_lines": 2,
+      "header_sha256": "9e0f2a42202cd071631f8ae389a01f9431cd18209e84647e580397eb95bb97bd",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 219,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.erased_fold",
+      "source_name": "erased_fold",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem erased_fold {β : Type v} {γ : Type w} (empty : β)\n    (combine : β → α → β → β) (t : BinaryTree (α × γ)) :\n    Trees.fold empty combine (Trees.Cached.erase t) =\n      Trees.fold empty (fun l ac r => combine l ac.1 r) t\n",
+      "header_lines": 4,
+      "header_sha256": "f5f5ffa3301bef2a77e1baff35e6239d206218e710e237a0a870d497f2f6fb99",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 226,
+      "kind": "def",
+      "visibility": "public",
+      "name": "TreeCacheExamples.sizeRun",
+      "source_name": "sizeRun",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "def sizeRun (l : Nat) (a : α) (r : Nat) : Resources.Measured Nat Nat\n",
+      "header_lines": 1,
+      "header_sha256": "640979c8d08bae541e532b7e312b747437e76271021faf753980b5bfacefc459",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 229,
+      "kind": "def",
+      "visibility": "public",
+      "name": "TreeCacheExamples.heightRun",
+      "source_name": "heightRun",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "def heightRun (l : Nat) (a : α) (r : Nat) : Resources.Measured Nat Nat\n",
+      "header_lines": 1,
+      "header_sha256": "546418b1bdad2ac6e95a7263813bbd0e807087ab1fef271596bc47c60e976d42",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 232,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.size_node_value",
+      "source_name": "size_node_value",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem size_node_value (l : BinaryTree (α × Nat)) (a : α)\n    (r : BinaryTree (α × Nat)) :\n    (Resources.TreeCache.nodeRun 0 sizeRun l a r).1 =\n      Trees.Cached.smartNode 0 sizeStep l a r\n",
+      "header_lines": 4,
+      "header_sha256": "e144c509edfeed3e2c2f8d06a83e281a46a248f3fd8729dcf9ba3932aad1794c",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 238,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.height_node_value",
+      "source_name": "height_node_value",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem height_node_value (l : BinaryTree (α × Nat)) (a : α)\n    (r : BinaryTree (α × Nat)) :\n    (Resources.TreeCache.nodeRun 0 heightRun l a r).1 =\n      Trees.Cached.smartNode 0 heightStep l a r\n",
+      "header_lines": 4,
+      "header_sha256": "46a914a6e6071398687f13afde8ee43c07f8d2251bc05a8c844f2a5731a220ee",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 244,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.size_node_cost",
+      "source_name": "size_node_cost",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem size_node_cost (l : BinaryTree (α × Nat)) (a : α)\n    (r : BinaryTree (α × Nat)) :\n    (Resources.TreeCache.nodeRun 0 sizeRun l a r).2 = 3\n",
+      "header_lines": 3,
+      "header_sha256": "eeebafca4f2282dd9d7f9a87e1a404d0fd65fe8a51ff63f6c9460c8b63eb1483",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 250,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.height_node_cost",
+      "source_name": "height_node_cost",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem height_node_cost (l : BinaryTree (α × Nat)) (a : α)\n    (r : BinaryTree (α × Nat)) :\n    (Resources.TreeCache.nodeRun 0 heightRun l a r).2 = 3\n",
+      "header_lines": 3,
+      "header_sha256": "fcc8f390671c0abab4e1c7ebb85d73f912060df5204424accb2ab477fe20d73f",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 256,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.size_node_bound",
+      "source_name": "size_node_bound",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem size_node_bound (l : BinaryTree (α × Nat)) (a : α)\n    (r : BinaryTree (α × Nat)) :\n    (Resources.TreeCache.nodeRun 0 sizeRun l a r).2 ≤ 3\n",
+      "header_lines": 3,
+      "header_sha256": "113aeee4a3b8372bbc1a8bf4e81cd6ae710618065bfba5aceca9c09e3e5e303b",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 261,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.size_node_valid",
+      "source_name": "size_node_valid",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem size_node_valid (l : BinaryTree (α × Nat)) (a : α)\n    (r : BinaryTree (α × Nat))\n    (hl : Trees.Cached.Valid 0 sizeStep l) (hr : Trees.Cached.Valid 0 sizeStep r) :\n    Trees.Cached.Valid 0 sizeStep (Resources.TreeCache.nodeRun 0 sizeRun l a r).1\n",
+      "header_lines": 4,
+      "header_sha256": "08b10207ae9ca48f01294b1b865699aeb124ec1ab47af4434fe2f1334fab7b5a",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 267,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.height_node_valid",
+      "source_name": "height_node_valid",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem height_node_valid (l : BinaryTree (α × Nat)) (a : α)\n    (r : BinaryTree (α × Nat))\n    (hl : Trees.Cached.Valid 0 heightStep l) (hr : Trees.Cached.Valid 0 heightStep r) :\n    Trees.Cached.Valid 0 heightStep (Resources.TreeCache.nodeRun 0 heightRun l a r).1\n",
+      "header_lines": 4,
+      "header_sha256": "e7ef0c85ef668210c54845f395c4d448e0aeea5134810b5f89b900e2d7d0f738",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 273,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.measured_size_reader",
+      "source_name": "measured_size_reader",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem measured_size_reader (l : BinaryTree (α × Nat)) (a : α)\n    (r : BinaryTree (α × Nat))\n    (hl : Trees.Cached.Valid 0 sizeStep l) (hr : Trees.Cached.Valid 0 sizeStep r) :\n    Trees.Cached.read 0 (Resources.TreeCache.nodeRun 0 sizeRun l a r).1 =\n      (Resources.TreeCache.nodeRun 0 sizeRun l a r).1.numNodes\n",
+      "header_lines": 5,
+      "header_sha256": "ce0bcb7451d58cbe8b0ea5dec5ad01b5f323012a2ae1e2827da5ea3c8339a980",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 280,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.measured_height_reader",
+      "source_name": "measured_height_reader",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem measured_height_reader (l : BinaryTree (α × Nat)) (a : α)\n    (r : BinaryTree (α × Nat))\n    (hl : Trees.Cached.Valid 0 heightStep l) (hr : Trees.Cached.Valid 0 heightStep r) :\n    Trees.Cached.read 0 (Resources.TreeCache.nodeRun 0 heightRun l a r).1 =\n      (Resources.TreeCache.nodeRun 0 heightRun l a r).1.height\n",
+      "header_lines": 5,
+      "header_sha256": "4d481d7eb549d4b8979babec34b82ad3627ff198ca073b1ed77533fb04ee23b9",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 287,
+      "kind": "def",
+      "visibility": "public",
+      "name": "TreeCacheExamples.listStep",
+      "source_name": "listStep",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "def listStep (l : List α) (a : α) (r : List α) : List α\n",
+      "header_lines": 1,
+      "header_sha256": "0004ff5c9097ff4165e65690683efe9a128c4e034cdadeaa1af7f0a66ca3d8c2",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 290,
+      "kind": "def",
+      "visibility": "public",
+      "name": "TreeCacheExamples.appendStepRun",
+      "source_name": "appendStepRun",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "def appendStepRun (l : List α) (a : α) (r : List α) :\n    Resources.Measured (List α) Nat\n",
+      "header_lines": 2,
+      "header_sha256": "ebc750f07a0d72fb4e3683be1d0397549160374d89716118917be0723e6bd946",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 293,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.append_node_value",
+      "source_name": "append_node_value",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem append_node_value (l : BinaryTree (α × List α)) (a : α)\n    (r : BinaryTree (α × List α)) :\n    (Resources.TreeCache.nodeRun [] appendStepRun l a r).1 =\n      Trees.Cached.smartNode [] listStep l a r\n",
+      "header_lines": 4,
+      "header_sha256": "e6e8aa5b48cd3b4c25699054cad0a820d5c5837fd1c4d4a7086bbea138ed5f92",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 300,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.append_node_cost",
+      "source_name": "append_node_cost",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem append_node_cost (l : BinaryTree (α × List α)) (a : α)\n    (r : BinaryTree (α × List α)) :\n    (Resources.TreeCache.nodeRun [] appendStepRun l a r).2 =\n      (Trees.Cached.read [] l).length + 4\n",
+      "header_lines": 4,
+      "header_sha256": "b566d1010e335b7990195bdcaf774603f3ecccf83fe5fad74fc7d14a36c672dd",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 307,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.append_node_valid",
+      "source_name": "append_node_valid",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem append_node_valid (l : BinaryTree (α × List α)) (a : α)\n    (r : BinaryTree (α × List α))\n    (hl : Trees.Cached.Valid [] listStep l) (hr : Trees.Cached.Valid [] listStep r) :\n    Trees.Cached.Valid [] listStep (Resources.TreeCache.nodeRun [] appendStepRun l a r).1\n",
+      "header_lines": 4,
+      "header_sha256": "a01e0c68d149203232618bf444d0a5e8897a888c900268d41d109fe86680209b",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 315,
+      "kind": "def",
+      "visibility": "public",
+      "name": "TreeCacheExamples.chain",
+      "source_name": "chain",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "def chain : Nat → BinaryTree Unit\n",
+      "header_lines": 1,
+      "header_sha256": "c8e9c888ae740f9bcaae0d538a5395f86b9e1840412a26e904d57a641f9114ec",
+      "header_terminator": "equations"
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 319,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.chain_numNodes",
+      "source_name": "chain_numNodes",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem chain_numNodes (n : Nat) : (chain n).numNodes = n\n",
+      "header_lines": 1,
+      "header_sha256": "ecc97a8d5ef1119ad3eec6c4f47978b3bba16afc6bb33e91a61c53c928168852",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 324,
+      "kind": "def",
+      "visibility": "public",
+      "name": "TreeCacheExamples.chainCache",
+      "source_name": "chainCache",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "def chainCache (n : Nat) : BinaryTree (Unit × List Unit)\n",
+      "header_lines": 1,
+      "header_sha256": "c65702b67e1ef363a375b62610e3d4a039c27ca4378c3bc96cb1804b6af8d251",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 327,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.chainCache_valid",
+      "source_name": "chainCache_valid",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem chainCache_valid (n : Nat) : Trees.Cached.Valid [] listStep (chainCache n)\n",
+      "header_lines": 1,
+      "header_sha256": "ac22d2d59a1272355d5fb241b90018cde2c5781e0ee16b79d3f70977ad7ffe96",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 330,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.chainCache_read",
+      "source_name": "chainCache_read",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem chainCache_read (n : Nat) :\n    Trees.Cached.read [] (chainCache n) = Trees.inorder (chain n)\n",
+      "header_lines": 2,
+      "header_sha256": "66dadb0d8e60798080d50f1bf0cace2f56c193e292e157b2443c1e1d3ecfd3f1",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 334,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.chainCache_length",
+      "source_name": "chainCache_length",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem chainCache_length (n : Nat) :\n    (Trees.Cached.read [] (chainCache n)).length = n\n",
+      "header_lines": 2,
+      "header_sha256": "9b4e6edf5bf204072fde6c364c0a8dbb4a9117a817a66b199707c0178ecf8c96",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 340,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.chain_node_cost",
+      "source_name": "chain_node_cost",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem chain_node_cost (n : Nat) :\n    (Resources.TreeCache.nodeRun [] appendStepRun (chainCache n) () .nil).2 = n + 4\n",
+      "header_lines": 2,
+      "header_sha256": "34cd5e1560ef7eaab45c4dcf1d75ab0716f92bc32d66b3cdf318ac33046df11d",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 344,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.chain_node_value",
+      "source_name": "chain_node_value",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem chain_node_value (n : Nat) :\n    (Resources.TreeCache.nodeRun [] appendStepRun (chainCache n) () .nil).1 =\n      chainCache (n + 1)\n",
+      "header_lines": 3,
+      "header_sha256": "c5a411b027bad4bf3a059b082008a1d6c11418974452856426b2780823f15e1f",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 349,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.chain_node_valid",
+      "source_name": "chain_node_valid",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem chain_node_valid (n : Nat) :\n    Trees.Cached.Valid [] listStep\n      (Resources.TreeCache.nodeRun [] appendStepRun (chainCache n) () .nil).1\n",
+      "header_lines": 3,
+      "header_sha256": "cc0517c1ccf266f0963ee879524a17e7343aebadef313eaf25470e2cb3cbd0d6",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 355,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.chain_node_exceeds",
+      "source_name": "chain_node_exceeds",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem chain_node_exceeds (K : Nat) :\n    K < (Resources.TreeCache.nodeRun [] appendStepRun (chainCache (K + 1)) () .nil).2\n",
+      "header_lines": 2,
+      "header_sha256": "35c270bde40b72f4c206e8655f2a3083c44d838c6e7a6359c098d11f1f271109",
+      "header_terminator": ":="
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "line": 360,
+      "kind": "theorem",
+      "visibility": "public",
+      "name": "TreeCacheExamples.empty_read",
+      "source_name": "empty_read",
+      "new_since_fixed_base": true,
+      "source_sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "header_text": "theorem empty_read {β : Type v} (empty : β) :\n    Resources.TreeCache.readRun empty (.nil : BinaryTree (Empty × β)) = (empty, 1)\n",
+      "header_lines": 2,
+      "header_sha256": "8313a92e0aa733088afa210fad4e50e670c884c151866e73a002a7f547bbcd8b",
+      "header_terminator": ":="
+    }
+  ],
+  "declaration_contexts": {
+    "Applications/Trees/Observations.lean": [
+      {
+        "line": 12,
+        "text": "namespace Trees"
+      },
+      {
+        "line": 13,
+        "text": "universe u v w"
+      },
+      {
+        "line": 14,
+        "text": "variable {α : Type u} {β : Type v} {γ : Type w}"
+      },
+      {
+        "line": 107,
+        "text": "end Trees"
+      }
+    ],
+    "Applications/Trees/Cached.lean": [
+      {
+        "line": 11,
+        "text": "namespace Trees.Cached"
+      },
+      {
+        "line": 12,
+        "text": "universe u v"
+      },
+      {
+        "line": 13,
+        "text": "variable {α : Type u} {β : Type v}"
+      },
+      {
+        "line": 135,
+        "text": "end Trees.Cached"
+      }
+    ],
+    "Applications/Resources/TreeCache.lean": [
+      {
+        "line": 14,
+        "text": "namespace Resources.TreeCache"
+      },
+      {
+        "line": 15,
+        "text": "universe u v"
+      },
+      {
+        "line": 16,
+        "text": "variable {α : Type u} {β : Type v}"
+      },
+      {
+        "line": 80,
+        "text": "end Resources.TreeCache"
+      }
+    ],
+    "Examples/TreeCache.lean": [
+      {
+        "line": 13,
+        "text": "namespace TreeCacheExamples"
+      },
+      {
+        "line": 14,
+        "text": "universe u v w"
+      },
+      {
+        "line": 15,
+        "text": "variable {α : Type u}"
+      },
+      {
+        "line": 114,
+        "text": "section Ordered"
+      },
+      {
+        "line": 115,
+        "text": "variable {M : Type v} [Monoid M]"
+      },
+      {
+        "line": 133,
+        "text": "end Ordered"
+      },
+      {
+        "line": 363,
+        "text": "end TreeCacheExamples"
+      }
+    ]
+  },
+  "declaration_counts": {
+    "total_authored_rows": 115,
+    "public_named": 115,
+    "public_definitions": 25,
+    "public_theorems": 90,
+    "new_public_named": 115,
+    "inherited_public_named_in_changed_formal_files": 0,
+    "private_named": 0,
+    "anonymous_examples": 0,
+    "named_instances": 0,
+    "anonymous_instances": 0,
+    "inductives": 0,
+    "structures": 0,
+    "per_file": [
+      {
+        "path": "Applications/Trees/Observations.lean",
+        "public_definitions": 2,
+        "public_theorems": 13,
+        "public_total": 15
+      },
+      {
+        "path": "Applications/Trees/Cached.lean",
+        "public_definitions": 5,
+        "public_theorems": 19,
+        "public_total": 24
+      },
+      {
+        "path": "Applications/Resources/TreeCache.lean",
+        "public_definitions": 2,
+        "public_theorems": 6,
+        "public_total": 8
+      },
+      {
+        "path": "Examples/TreeCache.lean",
+        "public_definitions": 16,
+        "public_theorems": 52,
+        "public_total": 68
+      }
+    ]
+  },
+  "inventory_method": "Complete source reads plus independent authored-declaration scan. Header prefixes include inline attributes and end before :=, where, or the first leading equation bar; trailing whitespace is normalized to one final newline. Sections do not add namespace segments. All 115 complete headers were read in bounded blocks; generated declarations are not inferred or counted.",
+  "local_input_closure": {
+    "method": "Immutable Git source-import traversal only; no runtime/object/output capture.",
+    "roots": [
+      "Applications/Trees/Observations.lean",
+      "Applications/Trees/Cached.lean",
+      "Applications/Resources/TreeCache.lean",
+      "Examples/TreeCache.lean"
+    ],
+    "local_count": 26,
+    "external_direct_import_count": 12,
+    "edge_count": 48,
+    "sources": [
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Bracketing/Basic.lean",
+        "git_blob": "3f6604c226908ee807c7d5076bd1c027b48bbf90",
+        "bytes": 8561,
+        "newline_lines": 243,
+        "sha256": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+        "imports": [
+          "Applications.Optimization.SelectionSpec"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Optimization/SelectionSpec.lean",
+        "git_blob": "2548b66575b5a453e8cec30ceb745234bb0ae2e6",
+        "bytes": 738,
+        "newline_lines": 18,
+        "sha256": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+        "imports": [
+          "Std"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Resources/CallCount.lean",
+        "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+        "bytes": 2447,
+        "newline_lines": 58,
+        "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+        "imports": [
+          "Applications.Resources.Measured"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Resources/ListReversal.lean",
+        "git_blob": "62ab85a7325d521bf925405f9abb053703f4d175",
+        "bytes": 4827,
+        "newline_lines": 116,
+        "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+        "imports": [
+          "Applications.Resources.CallCount",
+          "Applications.Resources.SymmetricCosts",
+          "Applications.Resources.TreeFlattening.Core",
+          "Mathlib.Tactic.Linarith"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Resources/Measured.lean",
+        "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+        "bytes": 2906,
+        "newline_lines": 71,
+        "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+        "imports": [
+          "Mathlib.Algebra.Group.Prod",
+          "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+          "Squares"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Resources/Potential.lean",
+        "git_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+        "bytes": 4638,
+        "newline_lines": 108,
+        "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe",
+        "imports": [
+          "Applications.Resources.Workload",
+          "Mathlib.Algebra.Group.Nat.Defs"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Resources/RandomAccess/CacheCosts.lean",
+        "git_blob": "e583ec5285ea887c38f4b369071408697f0574b2",
+        "bytes": 2227,
+        "newline_lines": 61,
+        "sha256": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+        "imports": [
+          "Applications.Sequences.RandomAccess.TreeBuild"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Resources/SymmetricCosts.lean",
+        "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+        "bytes": 10508,
+        "newline_lines": 281,
+        "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+        "imports": [
+          "Applications.Resources.Potential",
+          "Applications.Sequences.Symmetric.Core"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Resources/TreeCache.lean",
+        "git_blob": "d97a2c738960b893b733687c4f3d713f5edb0dc6",
+        "bytes": 3877,
+        "newline_lines": 80,
+        "sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6",
+        "imports": [
+          "Applications.Trees.Cached",
+          "Applications.Resources.CallCount"
+        ],
+        "same_as_accepted_R": null
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Resources/TreeFlattening/Core.lean",
+        "git_blob": "d136193bd3823ee00431bc240d1e7a0168b4ddaf",
+        "bytes": 4225,
+        "newline_lines": 116,
+        "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+        "imports": [
+          "Applications.Resources.RandomAccess.CacheCosts",
+          "Applications.Resources.Measured"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Resources/Workload.lean",
+        "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+        "bytes": 2745,
+        "newline_lines": 64,
+        "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+        "imports": [
+          "Applications.Resources.Measured",
+          "SquareKit.ListFusion"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Sequences/OrderedSummary.lean",
+        "git_blob": "93509e2e97acd47dcd68a109ea8d18ef1d612b57",
+        "bytes": 8765,
+        "newline_lines": 190,
+        "sha256": "d484e6c34f4ebace4ba121f931eba53a86f34a3c4b69e06d9d0b24ae8c8c7261",
+        "imports": [
+          "Mathlib.Algebra.FreeMonoid.Basic",
+          "Mathlib.Algebra.Group.Prod",
+          "Mathlib.Algebra.Group.TypeTags.Basic",
+          "Batteries.Data.DList.Lemmas",
+          "SquareKit.Relations",
+          "SquareKit.ListFusion",
+          "Applications.Sequences.Symmetric.Observation"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Sequences/RandomAccess/Access.lean",
+        "git_blob": "5354c146a0665cce90ffc996d1b522b8a59079ad",
+        "bytes": 5219,
+        "newline_lines": 141,
+        "sha256": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+        "imports": [
+          "Applications.Sequences.RandomAccess.Basic"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Sequences/RandomAccess/Basic.lean",
+        "git_blob": "fe040b71615878a86d06b326b820e1d5cd5f0229",
+        "bytes": 5970,
+        "newline_lines": 180,
+        "sha256": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+        "imports": [
+          "Applications.Bracketing.Basic"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Sequences/RandomAccess/Borrow.lean",
+        "git_blob": "81b95e8bd4a6e30f6a20a85828409d6d55437be0",
+        "bytes": 5680,
+        "newline_lines": 145,
+        "sha256": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+        "imports": [
+          "Applications.Sequences.RandomAccess.Access"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Sequences/RandomAccess/TreeBuild.lean",
+        "git_blob": "3b662705f001c2a4b8fbe12868d6c7e77316d95f",
+        "bytes": 5392,
+        "newline_lines": 139,
+        "sha256": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+        "imports": [
+          "Applications.Sequences.RandomAccess.Borrow"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Sequences/Symmetric/Core.lean",
+        "git_blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4",
+        "bytes": 12059,
+        "newline_lines": 362,
+        "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+        "imports": [
+          "SquareKit.ListFusion",
+          "Mathlib.Data.List.Infix"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Sequences/Symmetric/Finite.lean",
+        "git_blob": "fedbcc0dfa4c7865ef2ee73f395155d45e33dbe5",
+        "bytes": 4923,
+        "newline_lines": 119,
+        "sha256": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490",
+        "imports": [
+          "Applications.Sequences.Symmetric.Prefixes"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Sequences/Symmetric/Observation.lean",
+        "git_blob": "846aba846bfcfa04867cc221043609f9198b0ec0",
+        "bytes": 3425,
+        "newline_lines": 88,
+        "sha256": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557",
+        "imports": [
+          "Applications.Sequences.Symmetric.Finite",
+          "SquareKit.Relations"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Sequences/Symmetric/Prefixes.lean",
+        "git_blob": "b73854f69696abe7cf827372ad070b6e9dc19991",
+        "bytes": 4345,
+        "newline_lines": 114,
+        "sha256": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308",
+        "imports": [
+          "Applications.Sequences.Symmetric.Core"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Trees/Cached.lean",
+        "git_blob": "c301ca85e555a8c5bb3c9db10459446121bc6613",
+        "bytes": 5668,
+        "newline_lines": 135,
+        "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+        "imports": [
+          "Applications.Trees.Observations"
+        ],
+        "same_as_accepted_R": null
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Applications/Trees/Observations.lean",
+        "git_blob": "f90fbe8c85b9c88f760236d48129bd2b4c4d7e71",
+        "bytes": 4119,
+        "newline_lines": 107,
+        "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+        "imports": [
+          "Mathlib.Data.Tree.Basic",
+          "Mathlib.Data.List.Basic"
+        ],
+        "same_as_accepted_R": null
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Examples/TreeCache.lean",
+        "git_blob": "d142e853381de3b7d294d3c023c32d53e2756d5c",
+        "bytes": 16307,
+        "newline_lines": 363,
+        "sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+        "imports": [
+          "Applications.Trees.Cached",
+          "Applications.Resources.TreeCache",
+          "Applications.Resources.ListReversal",
+          "Applications.Sequences.OrderedSummary"
+        ],
+        "same_as_accepted_R": null
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "SquareKit/ListFusion.lean",
+        "git_blob": "33ec447acb6da7b884ae57d2a885707208201607",
+        "bytes": 2939,
+        "newline_lines": 73,
+        "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+        "imports": [
+          "Mathlib.Data.List.Basic"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "SquareKit/Relations.lean",
+        "git_blob": "cdfa81e8f94728272a5c72da21ae2e4f5a5febc4",
+        "bytes": 5615,
+        "newline_lines": 163,
+        "sha256": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03",
+        "imports": [
+          "Squares"
+        ],
+        "same_as_accepted_R": true
+      },
+      {
+        "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+        "path": "Squares.lean",
+        "git_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+        "bytes": 11694,
+        "newline_lines": 352,
+        "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+        "imports": [
+          "Lean"
+        ],
+        "same_as_accepted_R": true
+      }
+    ],
+    "external_direct_imports": [
+      "Batteries.Data.DList.Lemmas",
+      "Lean",
+      "Mathlib.Algebra.FreeMonoid.Basic",
+      "Mathlib.Algebra.Group.Nat.Defs",
+      "Mathlib.Algebra.Group.Prod",
+      "Mathlib.Algebra.Group.TypeTags.Basic",
+      "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+      "Mathlib.Data.List.Basic",
+      "Mathlib.Data.List.Infix",
+      "Mathlib.Data.Tree.Basic",
+      "Mathlib.Tactic.Linarith",
+      "Std"
+    ],
+    "edges": [
+      {
+        "from": "Examples/TreeCache.lean",
+        "import": "Applications.Trees.Cached",
+        "local": true
+      },
+      {
+        "from": "Examples/TreeCache.lean",
+        "import": "Applications.Resources.TreeCache",
+        "local": true
+      },
+      {
+        "from": "Examples/TreeCache.lean",
+        "import": "Applications.Resources.ListReversal",
+        "local": true
+      },
+      {
+        "from": "Examples/TreeCache.lean",
+        "import": "Applications.Sequences.OrderedSummary",
+        "local": true
+      },
+      {
+        "from": "Applications/Sequences/OrderedSummary.lean",
+        "import": "Mathlib.Algebra.FreeMonoid.Basic",
+        "local": false
+      },
+      {
+        "from": "Applications/Sequences/OrderedSummary.lean",
+        "import": "Mathlib.Algebra.Group.Prod",
+        "local": false
+      },
+      {
+        "from": "Applications/Sequences/OrderedSummary.lean",
+        "import": "Mathlib.Algebra.Group.TypeTags.Basic",
+        "local": false
+      },
+      {
+        "from": "Applications/Sequences/OrderedSummary.lean",
+        "import": "Batteries.Data.DList.Lemmas",
+        "local": false
+      },
+      {
+        "from": "Applications/Sequences/OrderedSummary.lean",
+        "import": "SquareKit.Relations",
+        "local": true
+      },
+      {
+        "from": "Applications/Sequences/OrderedSummary.lean",
+        "import": "SquareKit.ListFusion",
+        "local": true
+      },
+      {
+        "from": "Applications/Sequences/OrderedSummary.lean",
+        "import": "Applications.Sequences.Symmetric.Observation",
+        "local": true
+      },
+      {
+        "from": "Applications/Sequences/Symmetric/Observation.lean",
+        "import": "Applications.Sequences.Symmetric.Finite",
+        "local": true
+      },
+      {
+        "from": "Applications/Sequences/Symmetric/Observation.lean",
+        "import": "SquareKit.Relations",
+        "local": true
+      },
+      {
+        "from": "SquareKit/Relations.lean",
+        "import": "Squares",
+        "local": true
+      },
+      {
+        "from": "Squares.lean",
+        "import": "Lean",
+        "local": false
+      },
+      {
+        "from": "Applications/Sequences/Symmetric/Finite.lean",
+        "import": "Applications.Sequences.Symmetric.Prefixes",
+        "local": true
+      },
+      {
+        "from": "Applications/Sequences/Symmetric/Prefixes.lean",
+        "import": "Applications.Sequences.Symmetric.Core",
+        "local": true
+      },
+      {
+        "from": "Applications/Sequences/Symmetric/Core.lean",
+        "import": "SquareKit.ListFusion",
+        "local": true
+      },
+      {
+        "from": "Applications/Sequences/Symmetric/Core.lean",
+        "import": "Mathlib.Data.List.Infix",
+        "local": false
+      },
+      {
+        "from": "SquareKit/ListFusion.lean",
+        "import": "Mathlib.Data.List.Basic",
+        "local": false
+      },
+      {
+        "from": "Applications/Resources/ListReversal.lean",
+        "import": "Applications.Resources.CallCount",
+        "local": true
+      },
+      {
+        "from": "Applications/Resources/ListReversal.lean",
+        "import": "Applications.Resources.SymmetricCosts",
+        "local": true
+      },
+      {
+        "from": "Applications/Resources/ListReversal.lean",
+        "import": "Applications.Resources.TreeFlattening.Core",
+        "local": true
+      },
+      {
+        "from": "Applications/Resources/ListReversal.lean",
+        "import": "Mathlib.Tactic.Linarith",
+        "local": false
+      },
+      {
+        "from": "Applications/Resources/TreeFlattening/Core.lean",
+        "import": "Applications.Resources.RandomAccess.CacheCosts",
+        "local": true
+      },
+      {
+        "from": "Applications/Resources/TreeFlattening/Core.lean",
+        "import": "Applications.Resources.Measured",
+        "local": true
+      },
+      {
+        "from": "Applications/Resources/Measured.lean",
+        "import": "Mathlib.Algebra.Group.Prod",
+        "local": false
+      },
+      {
+        "from": "Applications/Resources/Measured.lean",
+        "import": "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+        "local": false
+      },
+      {
+        "from": "Applications/Resources/Measured.lean",
+        "import": "Squares",
+        "local": true
+      },
+      {
+        "from": "Applications/Resources/RandomAccess/CacheCosts.lean",
+        "import": "Applications.Sequences.RandomAccess.TreeBuild",
+        "local": true
+      },
+      {
+        "from": "Applications/Sequences/RandomAccess/TreeBuild.lean",
+        "import": "Applications.Sequences.RandomAccess.Borrow",
+        "local": true
+      },
+      {
+        "from": "Applications/Sequences/RandomAccess/Borrow.lean",
+        "import": "Applications.Sequences.RandomAccess.Access",
+        "local": true
+      },
+      {
+        "from": "Applications/Sequences/RandomAccess/Access.lean",
+        "import": "Applications.Sequences.RandomAccess.Basic",
+        "local": true
+      },
+      {
+        "from": "Applications/Sequences/RandomAccess/Basic.lean",
+        "import": "Applications.Bracketing.Basic",
+        "local": true
+      },
+      {
+        "from": "Applications/Bracketing/Basic.lean",
+        "import": "Applications.Optimization.SelectionSpec",
+        "local": true
+      },
+      {
+        "from": "Applications/Optimization/SelectionSpec.lean",
+        "import": "Std",
+        "local": false
+      },
+      {
+        "from": "Applications/Resources/SymmetricCosts.lean",
+        "import": "Applications.Resources.Potential",
+        "local": true
+      },
+      {
+        "from": "Applications/Resources/SymmetricCosts.lean",
+        "import": "Applications.Sequences.Symmetric.Core",
+        "local": true
+      },
+      {
+        "from": "Applications/Resources/Potential.lean",
+        "import": "Applications.Resources.Workload",
+        "local": true
+      },
+      {
+        "from": "Applications/Resources/Potential.lean",
+        "import": "Mathlib.Algebra.Group.Nat.Defs",
+        "local": false
+      },
+      {
+        "from": "Applications/Resources/Workload.lean",
+        "import": "Applications.Resources.Measured",
+        "local": true
+      },
+      {
+        "from": "Applications/Resources/Workload.lean",
+        "import": "SquareKit.ListFusion",
+        "local": true
+      },
+      {
+        "from": "Applications/Resources/CallCount.lean",
+        "import": "Applications.Resources.Measured",
+        "local": true
+      },
+      {
+        "from": "Applications/Resources/TreeCache.lean",
+        "import": "Applications.Trees.Cached",
+        "local": true
+      },
+      {
+        "from": "Applications/Resources/TreeCache.lean",
+        "import": "Applications.Resources.CallCount",
+        "local": true
+      },
+      {
+        "from": "Applications/Trees/Cached.lean",
+        "import": "Applications.Trees.Observations",
+        "local": true
+      },
+      {
+        "from": "Applications/Trees/Observations.lean",
+        "import": "Mathlib.Data.Tree.Basic",
+        "local": false
+      },
+      {
+        "from": "Applications/Trees/Observations.lean",
+        "import": "Mathlib.Data.List.Basic",
+        "local": false
+      }
+    ],
+    "accepted_R": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "preexisting_local_files_byte_identical_to_R": 22,
+    "new_local_files": 4,
+    "compiler_or_type_credit_transferred": 0
+  },
+  "local_dependency_reads": [
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "Applications/Resources/Measured.lean",
+      "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+      "bytes": 2906,
+      "newline_lines": 71,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "read_ranges": [
+        [
+          1,
+          71
+        ]
+      ],
+      "complete_file_read": true
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "Applications/Resources/CallCount.lean",
+      "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+      "bytes": 2447,
+      "newline_lines": 58,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+      "read_ranges": [
+        [
+          1,
+          58
+        ]
+      ],
+      "complete_file_read": true
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "Applications/Resources/ListReversal.lean",
+      "git_blob": "62ab85a7325d521bf925405f9abb053703f4d175",
+      "bytes": 4827,
+      "newline_lines": 116,
+      "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+      "read_ranges": [
+        [
+          1,
+          116
+        ]
+      ],
+      "complete_file_read": true
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "Applications/Resources/TreeFlattening/Core.lean",
+      "git_blob": "d136193bd3823ee00431bc240d1e7a0168b4ddaf",
+      "bytes": 4225,
+      "newline_lines": 116,
+      "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+      "read_ranges": [
+        [
+          1,
+          116
+        ]
+      ],
+      "complete_file_read": true
+    },
+    {
+      "candidate": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "path": "Applications/Sequences/OrderedSummary.lean",
+      "git_blob": "93509e2e97acd47dcd68a109ea8d18ef1d612b57",
+      "bytes": 8765,
+      "newline_lines": 190,
+      "sha256": "d484e6c34f4ebace4ba121f931eba53a86f34a3c4b69e06d9d0b24ae8c8c7261",
+      "read_ranges": [
+        [
+          1,
+          190
+        ]
+      ],
+      "complete_file_read": true
+    }
+  ],
+  "pinned_mathlib_api_reads": [
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Data/Tree/Basic.lean",
+      "git_blob": "6bbdac065ad4667a9251091ec24a24d1b35a7789",
+      "bytes": 6679,
+      "newline_lines": 188,
+      "sha256": "43f201537013e2824d18f6b66f6d329f15bc52289c1ae734fa8acd4bd2a9945d",
+      "read_ranges": [
+        [
+          1,
+          188
+        ]
+      ],
+      "complete_file_read": true
+    },
+    {
+      "candidate": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Algebra/FreeMonoid/Basic.lean",
+      "git_blob": "2aa5e072d3c452e04d402b08decbd2f7fd98674d",
+      "bytes": 19259,
+      "newline_lines": 499,
+      "sha256": "82573d5b6f5968524f3c9c84ed91fd6a3f5eb222434789e6a2de7145c870e2a9",
+      "read_ranges": [
+        [
+          1,
+          150
+        ],
+        [
+          285,
+          335
+        ]
+      ],
+      "complete_file_read": false
+    }
+  ],
+  "book_text": {
+    "path": "/workspace/scratch/b4a17a285e23/research-source/book.txt",
+    "bytes": 719122,
+    "newline_lines": 14905,
+    "sha256": "7e5c0b4e157d28d303cc6248746aa63e1415445fa79f3556ff95ac1bf6b17333",
+    "line_definition": "literal newline preserving formfeeds",
+    "read_ranges": [
+      [
+        2056,
+        2183
+      ],
+      [
+        2454,
+        2575
+      ]
+    ],
+    "complete_file_read": false,
+    "book_pdf_recorded_sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645",
+    "new_pdf_render_or_visual_read": false
+  },
+  "companion_theory_boundary": {
+    "revision": "f86f290225eebcc52c1ae7dba2e098f405f51c21",
+    "new_complete_theory_reads_claimed": false,
+    "new_external_proof_rebuild": false,
+    "attributed_prior_source_inspections_retained": true,
+    "manuscript_build_revision_equality_claimed": false,
+    "theories": [
+      {
+        "path": "src/HOL/Library/Tree.thy",
+        "recorded_sha256": "1060e49bbc11b2e974d3a25668a09eff441180f8aad8b67f2444ba33a8a61af9"
+      },
+      {
+        "path": "src/HOL/Data_Structures/Tree2.thy",
+        "recorded_sha256": "c63da5dc95f98c1c6d1eac889e9c798f3a53ef5b21658791dc914b34b5ea904e"
+      },
+      {
+        "path": "src/HOL/Data_Structures/Interval_Tree.thy",
+        "recorded_sha256": "0a70bfdd8ff8d86055e20319e7bb918550067d2e3f738a42517c8c2bc640def2"
+      },
+      {
+        "path": "src/HOL/Data_Structures/AVL_Set_Code.thy",
+        "recorded_sha256": "423ea6e7e5d415a9d279ca24c48ce45b2d1bd60f591fae50a00ffa6e852cb2e3"
+      },
+      {
+        "path": "src/HOL/Data_Structures/AVL_Set.thy",
+        "recorded_sha256": "282cf829b7efc3421428cbe7ee3e590492d45ed0b8c7b80eff1ae3c57630f3b9"
+      },
+      {
+        "path": "src/HOL/Data_Structures/Leftist_Heap.thy",
+        "recorded_sha256": "894e22da05b2dbf37ce46b8401958957e5d4a729c691d6a402b0e66dd8a22450"
+      },
+      {
+        "path": "src/HOL/Library/Time_Functions.thy",
+        "recorded_sha256": "29a91b7ff9a9939bfed168dfc28407bb3b8e07ff2783d9e9bea0cdc387312d01"
+      }
+    ],
+    "qualification": "Actual pinned book passages were read. The full preflights and bounded chapter inventory excerpts preserve companion identities and attributed earlier source assessments; no fresh theory-byte or full-proof read is claimed."
+  },
+  "semantic_assessment": {
+    "ordinary_fold": "Existing BinaryTree; explicit empty summary and left-summary/label/right-summary combine; separate payload/source-summary/target-summary universes; constructor, arbitrary label-map and local-compatible fusion laws; no generic monoid/order/DecidableEq/Inhabited requirement.",
+    "canonical_observations": "Fold size and height equal existing numNodes and height; inorder preserves occurrences and length; arbitrary noninjective maps preserve inorder, node/leaf counts and height; existing leaf/node identity is reused.",
+    "cache": "Existing product labels; actual root read; smartNode retains both children; Valid includes both recursive child predicates and local equation. Valid smart node iff both children valid. read_eq_fold recomputes independent erased meaning. Erasure laws require no validity.",
+    "annotation": "Computed ordinary-fold client; valid at every node, erases to original and reads the original fold. No full-annotation work theorem or hidden preparation cost.",
+    "resource": "Actual left and right reads then callback at their returned values, storing actual returned annotation; cost c+3 without validity/value hypotheses; value and cost contracts only at reached arguments; validity adds both child premises; Nat local-access tariff distinct from source leftist zero helpers.",
+    "connected_cases": "All nine frozen client groups are present: generic size/height, paired projection fusion, asymmetric 4/3/[0,1,2,3] fixture, arbitrary-monoid ordered composition and FreeMonoid word, same-inorder different-height boundary, Empty and repeated labels, malformed descendant cache passing both root checks, zero-cost size/height callbacks, actual append and valid n+4 chain family.",
+    "unbounded_valid_family": "chainCache n is computed by annotate; its validity and read length follow public contracts. The actual local callback costs n+1, constructor n+4, returns chainCache(n+1), preserves validity and exceeds any constant. Prepared input cost excluded explicitly.",
+    "source_limits": "One-append callback value equality does not transfer literal two-append source timing; no physical arithmetic/allocation claim, balancing/search correctness, optional raw maximum adapter, leftist representation migration, Braun interleaving or rose/binomial equivalence."
+  },
+  "requirement_groups_accounted": [
+    "XT01-01",
+    "XT01-02",
+    "XT01-03",
+    "XT01-04",
+    "XT01-05",
+    "XT01-06",
+    "XT01-07"
+  ],
+  "documentary_history": "November 2 draft status and original Chapter 1 repair boundary are historical. Accepted R remains accepted. XT01 predates XP01 budget extension; no duplicate XP01-DOC-001 is invented here. Later combined candidates must retain their applicable documentary corrections.",
+  "prior_source_correction_history": "The original bounded preflight records removal of a redundant trailing rfl before its final source identities. The exact current proof is read. No new statement change or observed compiler failure is inferred.",
+  "protected_records_before": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/shared-foundations-spec-continuation-20261104.md",
+      "bytes": 8862,
+      "newline_lines": 57,
+      "sha256": "450409a89197f229e88e12ff477f7c3e6b60c067fde0eef297a431163a7249d6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter02-spec-source-preparation-20261104.md",
+      "bytes": 109354,
+      "newline_lines": 473,
+      "sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/potential-spec-development-20261104.md",
+      "bytes": 30193,
+      "newline_lines": 150,
+      "sha256": "9bba3ac4ffa5a5dab1e8a32e3a990851f55846a16dd4a16a72605fd00e21a615"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/affine-recurrence-spec-preparation-20261104.md",
+      "bytes": 19622,
+      "newline_lines": 100,
+      "sha256": "8ee3cac08c1cb0d4b4d8b29821b5de9b54e549530d081155130065c3bb8e8b32"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/accumulated-work-spec-preparation-20261104.md",
+      "bytes": 16845,
+      "newline_lines": 92,
+      "sha256": "9934402d16c3ff5e5006b8ade3ab6995f50739185ed1e5d68a2d9b004ef3f1ba"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/permutation-expectation-spec-preparation-20261104.md",
+      "bytes": 23193,
+      "newline_lines": 130,
+      "sha256": "0c8ed987cea562d8cd783926c3e6fedf3bf82f0e74f673e275bb67b1ebc64d15"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/permutation-joint-spec-preparation-20261104.md",
+      "bytes": 22149,
+      "newline_lines": 120,
+      "sha256": "1be96c03ec7e0dc03fbb47263d119b515e92a7737dd44eb92a0c954279c66ac0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-spec-current-continuation-20261104/potential110-conditions-continuation.json",
+      "bytes": 1456,
+      "newline_lines": 36,
+      "sha256": "631aa4526ee8c4e204b31a6f5bd96b909c73861c37561964d277ae28558d3b44"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-spec-current-continuation-20261104/preparation.json",
+      "bytes": 8310,
+      "newline_lines": 180,
+      "sha256": "a6b4ca64a6d410cfaf1dc0d483e65b4991b6c03f4cbed07913fd7d57016306cf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-spec-current-continuation-20261104/receipt.json",
+      "bytes": 741,
+      "newline_lines": 22,
+      "sha256": "c92983f5bd9e793e27a1d91fb44bcd09e5d132ed62b877703559b500ae5bb5bb"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-spec-current-continuation-20261104/report-initial-before-runtime-wording.md",
+      "bytes": 6991,
+      "newline_lines": 48,
+      "sha256": "4eaed48932f1e91dd3af900f177e4f6bd90c588d1772570bde47996ac5e344e8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-spec-current-continuation-20261104/runtime-wording-clarification.json",
+      "bytes": 1777,
+      "newline_lines": 43,
+      "sha256": "ad4265321da3d0030df1abe93ada03257218eaf34867c9113e29026e2bfb1303"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunk006.json",
+      "bytes": 3111,
+      "newline_lines": 54,
+      "sha256": "ac48c4e51172698488038a961f7e1c6ce4acde2d92f453a80d814ac9a67525be"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks001-005.json",
+      "bytes": 13091,
+      "newline_lines": 248,
+      "sha256": "c483a3e7e92f3aec1913451a914a3b60a0680be9b373bdb92a521fa4585cdb5d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks007-008.json",
+      "bytes": 7201,
+      "newline_lines": 118,
+      "sha256": "64c8f08b48e70c8e0ff34d1671342f50a60d23ac65964c486d706737a208f875"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks009-010.json",
+      "bytes": 6850,
+      "newline_lines": 113,
+      "sha256": "ee3d416bcd21bad966aff49186ae694b62da37e91bea18c23f56e4e8554483c3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks011-012.json",
+      "bytes": 6652,
+      "newline_lines": 104,
+      "sha256": "04158840fb732987cf608f11402707482d31ea2a33b18ee96798c14e4dcdfc22"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks013-014.json",
+      "bytes": 5751,
+      "newline_lines": 101,
+      "sha256": "892463b342d79b6f704c17879bab8b873294f46e2aa1f31b8242dafe6c508a85"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks015-016.json",
+      "bytes": 5191,
+      "newline_lines": 96,
+      "sha256": "e88bc799b0dff12647cd1d319a1c1dd301232b0bc1241ee2ff957177282702b2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks017-018.json",
+      "bytes": 5641,
+      "newline_lines": 106,
+      "sha256": "f3c5fbc9b2f9f4e7acef75050f3bc428a13000d5c5d4358d59fec9863de0573a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks019-020.json",
+      "bytes": 4456,
+      "newline_lines": 86,
+      "sha256": "d06ca00322508269d1e4dfc553cd4900e9f79960267e5deb9ea9138df98174d2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks021-022.json",
+      "bytes": 6041,
+      "newline_lines": 101,
+      "sha256": "aa27522e879357a84f2328dbbc8a5f1353583048cb340aae91a394033e5c792f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks023-024.json",
+      "bytes": 7771,
+      "newline_lines": 131,
+      "sha256": "26a2e4236b164a526592f63c12933638f6e4aae926dce38d596b61b5c45f92e1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks025-026.json",
+      "bytes": 6020,
+      "newline_lines": 106,
+      "sha256": "f51d61de854c01d4214fad9fa1b4bcf031c232da580d095ad0bdf63bbc0aa3bd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks027-028.json",
+      "bytes": 4813,
+      "newline_lines": 88,
+      "sha256": "197643c478c8c8019cfeb912c13c0bfa6fd8508eaf610dbaca7070bc036526bc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks029-030.json",
+      "bytes": 8216,
+      "newline_lines": 148,
+      "sha256": "a9ecd9860e1c0bd62b0de05c9259a39c3a04e46b6133e30a6e3030f021f2321a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks031-032.json",
+      "bytes": 8083,
+      "newline_lines": 135,
+      "sha256": "54127ab0814d981be2927378fc47d0002e2f597368d1aec7123c33c7ba6d2c56"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks033-034.json",
+      "bytes": 5261,
+      "newline_lines": 96,
+      "sha256": "be8e8cbf03a5ffff642bac19142bc84d9d03e958d7ad1b4084e707916b338e9c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks035-036.json",
+      "bytes": 5566,
+      "newline_lines": 121,
+      "sha256": "ec71a5428b8e7877586c930f25300087f9b8160b4730618a0c0bb92ce4e0ffd8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks037-038.json",
+      "bytes": 6619,
+      "newline_lines": 119,
+      "sha256": "9c7deb4fcec2c5c355232d446d76fa7c52c975ebf2af3cbd67957e9b480e8d28"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks039-040.json",
+      "bytes": 5740,
+      "newline_lines": 109,
+      "sha256": "0345af07612caa25a7d1e19a20e33fe8abd8245aeb97acb4de0898d28fe5b527"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks041-042.json",
+      "bytes": 6781,
+      "newline_lines": 122,
+      "sha256": "b15564b99722ba567efe4ba5e5ba31c5218c2ae6a3d5e68eeb3aaa92dbb4ab3c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-chunks043-044.json",
+      "bytes": 5158,
+      "newline_lines": 88,
+      "sha256": "a75766083bbf9ee36e8e09479c668a54131b1e902cff9cbd84ae760897457147"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-complete-spec-assessment-4b5dbfa0.json",
+      "bytes": 23798,
+      "newline_lines": 818,
+      "sha256": "116cf0a800841c3a18d338f446ce3a518455487de8e401dae1186a85c73ad878"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-execution-input-qualification.json",
+      "bytes": 6690,
+      "newline_lines": 150,
+      "sha256": "9bf1f1e098997b9f4f01944c59b5578a32a4768e00fc0e68d1726c342bb82abe"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-read-progress-checkpoint0098-initial.json",
+      "bytes": 1973,
+      "newline_lines": 57,
+      "sha256": "ae0f5881aa44874bd6d1975c11311dddfe28bbaee7ad636de02da26cd5df8682"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-read-progress-complete-before-disposition.json",
+      "bytes": 25943,
+      "newline_lines": 1584,
+      "sha256": "a1f4a8504313bb62b46a577a0e3fd96cc3ebeb6aa3b41d08afe833c27df61275"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/actual815-read-progress.json",
+      "bytes": 27860,
+      "newline_lines": 1627,
+      "sha256": "7999ed166dad55369d5a23880883b744e9c67925ca795f01f81ed58e2cae0ca1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0093.json",
+      "bytes": 2122,
+      "newline_lines": 47,
+      "sha256": "e4fd6a2ef3c5439831d6b397074e306868236dd200cba823d7dd19481c302d21"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0094-integrated-6b95185.json",
+      "bytes": 1012,
+      "newline_lines": 28,
+      "sha256": "9f64d067906c17c0f1f885c573fa3c6942cfdf58d87899be7fd880575167c9f2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0094-proof-repairs.json",
+      "bytes": 2550,
+      "newline_lines": 58,
+      "sha256": "d8f596815e8fca5f7d2cb00633e73f35a523672a68b5b89953ed6cab4a277e87"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0094-type-refinement.json",
+      "bytes": 1034,
+      "newline_lines": 28,
+      "sha256": "210a36782fd9e0c1c72ba36f4ca630bcfa138c644cf721eff68322816f1347b6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0094.json",
+      "bytes": 1416,
+      "newline_lines": 33,
+      "sha256": "222bae21dd9391bb4c432ea9a5041fea64d5254397dbcd3da0b45f622d8c5134"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0095-central0a7ef078.json",
+      "bytes": 1958,
+      "newline_lines": 49,
+      "sha256": "b23fb035a533c30cdc74e3e9fd818d0c80d6ef2726f6405a79c9e29ed3bbb025"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0095-tail070e.json",
+      "bytes": 1730,
+      "newline_lines": 43,
+      "sha256": "9e94ca7531b25abcc6120def2f2f82f1279ee8a547c4993ca1bedbcf8e1fa2e5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0095-types-docs-focused8.json",
+      "bytes": 1947,
+      "newline_lines": 48,
+      "sha256": "385ec5a899fb460d9fd6cf697778001687304edbebe35b0d3fe08b3a1c650460"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0096-central8ba7ae11.json",
+      "bytes": 1756,
+      "newline_lines": 43,
+      "sha256": "f8d600f5dbc7e087bce186ee79198bb4b8e91930fe1f4eafdc966c75743f7f82"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0096-focused10.json",
+      "bytes": 1512,
+      "newline_lines": 37,
+      "sha256": "839a9004bcafa6a21642cb5617be53a206950e5a955d6caa4939fa12f7cf9e4a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0096-focused9.json",
+      "bytes": 1246,
+      "newline_lines": 35,
+      "sha256": "ef4456112a4013c92f98a57e2ca5165945ef8d7324954df232212f1f2a7d61a6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0096-main02fc3f3.json",
+      "bytes": 1325,
+      "newline_lines": 36,
+      "sha256": "9ba9c9531d39c10123b19f9b5c96477434e11e3701b21412756f52c913b7cf95"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0096-potential110.json",
+      "bytes": 2094,
+      "newline_lines": 55,
+      "sha256": "8a7cefadc05c90db7eebf1638b8f5e3fa661b080d7ccbbf2c02790667f6d6550"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0097-central4b5dbfa0.json",
+      "bytes": 1830,
+      "newline_lines": 45,
+      "sha256": "54d0c20bb7a456e56ade9bcf1c457a0ab0e38c4ccfaffeda8f62b6c63907b151"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0097-focused11.json",
+      "bytes": 1782,
+      "newline_lines": 44,
+      "sha256": "3d1da99777dcf8ac608521f508ce939504828a71b2cc958c7b0c3cd8e621d510"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0097-uniform3b839319.json",
+      "bytes": 1867,
+      "newline_lines": 44,
+      "sha256": "181150655d39396c3abf1926ec63ce87a519abc5834c235f39cf05d92ac5b3d1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0098-actual815-initial.json",
+      "bytes": 1681,
+      "newline_lines": 44,
+      "sha256": "5fc6ac9306b5dd3d34f0c1aa736261a6da00df0b005364e4a08f5eb2d203d491"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0098-actual815-through079.json",
+      "bytes": 1868,
+      "newline_lines": 51,
+      "sha256": "215b915cacb17ca88b8bce069e0945453a3aa9930df7e585259affe46eb57a94"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0098-actual815-through269.json",
+      "bytes": 1361,
+      "newline_lines": 39,
+      "sha256": "a739ada767eda0df9148dd07ab7058659b2e2f5197953d69585447147de771bd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0098-actual815-through467.json",
+      "bytes": 982,
+      "newline_lines": 33,
+      "sha256": "f2cd82c026c3baab8a9c164ba45ec02f7a61e1371af3d281dbe05c22ec833464"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/continuation-0099-final-type-disposition.json",
+      "bytes": 3042,
+      "newline_lines": 69,
+      "sha256": "7bbf4acf43373e2474122294d4379fec40d071ac0b898af0994c7d1fa1c51875"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/current-public-type-disposition-4b5dbfa0.json",
+      "bytes": 908317,
+      "newline_lines": 24266,
+      "sha256": "6a749dbb10bddc7f8293330cdb56a27bd68b5c6473bd0f2d03aad2722881dee5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/focused10-terminal-assessment.json",
+      "bytes": 10547,
+      "newline_lines": 221,
+      "sha256": "cab8c2f7b27de5650efd3d27e289da5cf1e6d505f93bde16c947fef0a2d788c8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/focused11-terminal-assessment.json",
+      "bytes": 9248,
+      "newline_lines": 196,
+      "sha256": "b4175f7b3c5f824ba535e4089e37c4257cb320ace8b889b931d2dad5235f3616"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/focused7-terminal-assessment.json",
+      "bytes": 3538,
+      "newline_lines": 89,
+      "sha256": "afe1d405150dba79c923adb02710857814f91873d3253b31deebf68effbd25ef"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/focused8-terminal-assessment.json",
+      "bytes": 4248,
+      "newline_lines": 101,
+      "sha256": "c229bf5bc905e0697ae4b28912bffdbf4b5fb4ed0cc151749644751e0381ee58"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/focused9-terminal-assessment.json",
+      "bytes": 5750,
+      "newline_lines": 130,
+      "sha256": "d51db9fea4aa78224a57ebf754196de34b604179f47addf5d23fcba43706d57f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/foundation110-conditional-reuse-assessment-0a7ef078.json",
+      "bytes": 8414,
+      "newline_lines": 160,
+      "sha256": "6c1de8f08f1a41872c6fe958424b5752edb12124bc28611f6b18ac104ebb1d68"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/growth-dependency-seven-types-assessment-6b95185.json",
+      "bytes": 5968,
+      "newline_lines": 111,
+      "sha256": "fcafc9c32c6c9ad31ebc9cc254616038e5278baf3228beab21741eef8fe4e98e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/growth-examples-15a113b-assessment.json",
+      "bytes": 4162,
+      "newline_lines": 93,
+      "sha256": "c1498148433bff49bac35a76bad90f11123cd8b1ece3df90e4dfb86dc3eb5608"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/historical-type-dependency-qualification-5398db.json",
+      "bytes": 3040,
+      "newline_lines": 57,
+      "sha256": "6b759e6e251785f618f36b4d1bd4d02cc8406c9f42e9cc50016574f9914e874f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/historical-types-readback.json",
+      "bytes": 53587,
+      "newline_lines": 1138,
+      "sha256": "8e9e377b31048e1258894755b92a63181293c7983fd09d53c64688a33a7519c2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/prepared814-rebinding-0a7ef078.json",
+      "bytes": 2751,
+      "newline_lines": 62,
+      "sha256": "e3b4d26763b02c281be789bdc4c1ab38854d019552b6aa36055fd94de598c830"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/prepared814-rebinding-8ba7ae11.json",
+      "bytes": 3506,
+      "newline_lines": 78,
+      "sha256": "f04c7bbd8c5e2b4170608d6ca0ffa7ff9bc04141719641fe17e26e0cde3d1b9e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/prepared815-rebinding-4b5dbfa0.json",
+      "bytes": 5102,
+      "newline_lines": 111,
+      "sha256": "a7e06255dfa4100cfc214d31474b0bd7262fc00371f4e4adf6865d39c3e25586"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/probe2-terminal-assessment.json",
+      "bytes": 3869,
+      "newline_lines": 87,
+      "sha256": "985419fa1f4eb017a6b15bbf8e4f1dd4ea5c7748592a4465551fdd6e4f77ccc4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/public-types814-preparation-assessment-6b95185.json",
+      "bytes": 5896,
+      "newline_lines": 153,
+      "sha256": "3a72a2fe2ed9145bc1d76be1ba39be68b02bc101810ea259f8d862a30f429af0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/rank-example-a07d276-assessment.json",
+      "bytes": 3162,
+      "newline_lines": 60,
+      "sha256": "db0da095a87496a405c3d90f912c1717fa0f22c370911a13af5f0dc9985fa4d7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/read-ledger.json",
+      "bytes": 7233,
+      "newline_lines": 149,
+      "sha256": "ded29441bfbecfb35aa6f08c62385d449241dbc3ce84b2bd7d2be1380ac6ae84"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/result.json",
+      "bytes": 1398,
+      "newline_lines": 37,
+      "sha256": "39e94efde913c6e2a228192cdf43e13d437f9c5514cfa71f02e666a7d4ad05d9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/shared-four-statements314-preparation-assessment.json",
+      "bytes": 23527,
+      "newline_lines": 602,
+      "sha256": "502ff5011b9657bccc4ce614e003e741c15401f92e257ae1c2b66de7d1f6ed1c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/shared-note-status-assessment-5398db.json",
+      "bytes": 19563,
+      "newline_lines": 321,
+      "sha256": "f9e8a6604de9c943a8b9d70f2b1d0c5f91fef1c51a632c5a65deeab35a97c98f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/shared-notes-six-plus-correction1-assessment.json",
+      "bytes": 11163,
+      "newline_lines": 213,
+      "sha256": "fc99f1293fe87d7b55cb37a5e1646c9706e6056c08a9e89042d4a3a41764ae11"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/source-scope-receipt.json",
+      "bytes": 35903,
+      "newline_lines": 960,
+      "sha256": "64ed64bf62781b62ce65fa472105cdff41befcb8ce38af4e621c6f81200a316b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/source-scope-successor-0a7ef078.json",
+      "bytes": 31517,
+      "newline_lines": 719,
+      "sha256": "68e9746221c1e24918bb264a302b14a72dd28c7624bd386be9ccdef5e0c88631"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/source-scope-successor-4b5dbfa0.json",
+      "bytes": 26429,
+      "newline_lines": 721,
+      "sha256": "5bf3a45eab119bbd6b3d16547142282599ea2c26d5e1af986afc42d0ec544620"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/source-scope-successor-5398db.json",
+      "bytes": 31864,
+      "newline_lines": 746,
+      "sha256": "b47e8bf54437dad77010bf4185dd31b09179bbe654072aea805bdc768eac8ba4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/source-scope-successor-6b95185.json",
+      "bytes": 35728,
+      "newline_lines": 782,
+      "sha256": "0e418bbd25975cd9d47a8c6a72a4b60c201e4883e9574565565cfb107e0171ee"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/source-scope-successor-8ba7ae11.json",
+      "bytes": 31478,
+      "newline_lines": 721,
+      "sha256": "9d5771427f9707986ed87033ff9c7389f5990d747b800b30eeb2ab667239e647"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/source-scope-successor-9409826.json",
+      "bytes": 33615,
+      "newline_lines": 786,
+      "sha256": "5e476c9da01f27a91b39ab7ee1410088f5d4e7db087b87a0fe4fe2f3234b26a1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/statement-input-recorder815-static-assessment.json",
+      "bytes": 3006,
+      "newline_lines": 53,
+      "sha256": "aa3c9f107a01bc677997b003f4aa365b64fb7a6b575413a488b7d7ae4508227d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/tail-boundary-070e360-assessment.json",
+      "bytes": 8812,
+      "newline_lines": 224,
+      "sha256": "a29c00dcd31783b697b65875267b0ea301ad87f27662ab3e4faca2bd80bfb290"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/tail-boundary-13fc137-assessment.json",
+      "bytes": 7021,
+      "newline_lines": 166,
+      "sha256": "73540904a044c9429c13c601bb43e92d1abac4a9d41637725d76fc381e7fe2c1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/tail-main-02fc3f3-assessment.json",
+      "bytes": 9807,
+      "newline_lines": 212,
+      "sha256": "ac608e839213f35620d5463f4664a2e2351679cc55efbd2d99db98978a544847"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/uniform-examples-3b839319-assessment.json",
+      "bytes": 26784,
+      "newline_lines": 737,
+      "sha256": "c084b2c3e83ac9b21c113140c52d0062a2168d2a49f6160964cd93501529238b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/uniform-fintype-handler-preparation.json",
+      "bytes": 2279,
+      "newline_lines": 43,
+      "sha256": "10170498b6f47d5064c64c0d191c0e8b6b056d1f7753c95fde2113c808dbb39b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/uniform-repair-aa89ae-assessment.json",
+      "bytes": 2001,
+      "newline_lines": 42,
+      "sha256": "c0254e63472f437250bb473627525f11d71956560fcc7e8cbb37d922edf03820"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-source-preparation-20261104/uniform-repair-c4355db-assessment.json",
+      "bytes": 6162,
+      "newline_lines": 143,
+      "sha256": "c48dc4b4e13bd75a974cc69be1fe6dba181988d494e25aa9affda0092fbb2ba8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xp01-spec-development-20261104/actual20-complete-spec-assessment-12cb14fc.json",
+      "bytes": 28426,
+      "newline_lines": 673,
+      "sha256": "d270babb974f8abac85b96fd46cca5f82102807ab375ffb1c035a29071030bdd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xp01-spec-development-20261104/actual20-type-read-progress.json",
+      "bytes": 8580,
+      "newline_lines": 262,
+      "sha256": "6dce46a1a667388e39d1156bf92e7b676cc5738a268ab1e48d759043e928870c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xp01-spec-development-20261104/book-page228-source-render.png",
+      "bytes": 201912,
+      "newline_lines": 1007,
+      "sha256": "ca93feee8fe756149345a13aea4b730cc40db56df8e4fac4a62615bb2f206f65"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xp01-spec-development-20261104/boundary-before-actual20.json",
+      "bytes": 2654,
+      "newline_lines": 89,
+      "sha256": "f74bf5966413713261c527010fc6e4e7882e898844feeb29c3aa48756ef73655"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xp01-spec-development-20261104/boundary-before-correction2.json",
+      "bytes": 1759,
+      "newline_lines": 51,
+      "sha256": "b48afcdebccd6897a50ccb28457a233678fe49d634446404ca9413bdb7a9fe20"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xp01-spec-development-20261104/boundary-before-focused4.json",
+      "bytes": 2468,
+      "newline_lines": 75,
+      "sha256": "ab4ba197199330faaaf7c9921a89aef52fe95fd9670cf999129c223565b20968"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xp01-spec-development-20261104/checkpoint0100-review-boundary.json",
+      "bytes": 3337,
+      "newline_lines": 96,
+      "sha256": "52a6cfc1b413e4e0ac48dc2946e4e2652a102dda1229023bf4ce7a13148c890c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xp01-spec-development-20261104/correction2-and-launch3-assessment.json",
+      "bytes": 22219,
+      "newline_lines": 572,
+      "sha256": "96202ced5c839ccb1ee7a8b5b01c091e3d10c38694315ebb73677160eb96f0ec"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xp01-spec-development-20261104/current-boundary.json",
+      "bytes": 3550,
+      "newline_lines": 108,
+      "sha256": "f73a2619067a00808af6341da8c773dfae8075f1d760f13d9a46f2811496a127"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xp01-spec-development-20261104/focused4-terminal-assessment.json",
+      "bytes": 7928,
+      "newline_lines": 127,
+      "sha256": "5b821b09f3b7e25b9fc37865efea63e1bc14f7353b78d3662966f4ac630f8a82"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xp01-spec-development-20261104/prepared20-surface-assessment.json",
+      "bytes": 2528,
+      "newline_lines": 57,
+      "sha256": "0708086026c456d97864f9b269bb6579f83bbfc985ed4c53bcf3c42bc68c899e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xp01-spec-development-20261104/readback-completion.json",
+      "bytes": 1707,
+      "newline_lines": 45,
+      "sha256": "50638f403bbbb2456676dbb1f4e91845ee0215e2841791aa1e7a1c465da5604a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xp01-spec-development-20261104/report-before-actual20.md",
+      "bytes": 25523,
+      "newline_lines": 129,
+      "sha256": "19504c006da171e31cb8e1c56bf6351c9d5fd93b5b471dd248bd2e59bddd508e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xp01-spec-development-20261104/report-before-correction2.md",
+      "bytes": 20429,
+      "newline_lines": 111,
+      "sha256": "4e72c913df57271525cf2fbc8ecc6b8978f9e2c50ec30e0a748b5301b5ceb9aa"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xp01-spec-development-20261104/report-before-focused4.md",
+      "bytes": 23960,
+      "newline_lines": 123,
+      "sha256": "a9ef87a18189634dd82de244fc6a9f56e1f82483146d5528a89a324be692d37d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xp01-spec-development-20261104/source-and-read-ledger.json",
+      "bytes": 48123,
+      "newline_lines": 1108,
+      "sha256": "647ced252ed6efe229147e1af53e36cab199733ddab054abd1204a6798bf6396"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xp01-spec-development-20261104/terminal-and-correction1-assessment.json",
+      "bytes": 12385,
+      "newline_lines": 295,
+      "sha256": "78ee2d3912089c80548db90fe2df1ab2b80b40e281bcd790628b40e289667e80"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-spec-preparation-20261104/current-boundary.json",
+      "bytes": 3018,
+      "newline_lines": 83,
+      "sha256": "6191b4f5673f552b9cff1ed41f021037f42dbdfa6f975317116857322fb6467f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-spec-preparation-20261104/source-assessment.json",
+      "bytes": 42793,
+      "newline_lines": 1118,
+      "sha256": "6d6a9b3c0c56e965e91e19720b0d5dafb4c80fcdbe9a4e97610c4e42f19127a2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/accumulated-work-spec-preparation-20261104/current-boundary.json",
+      "bytes": 2332,
+      "newline_lines": 67,
+      "sha256": "37fc2aa34b48e73156c461ff54bd9bc361a14020496b03217157184f6b9100f1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/accumulated-work-spec-preparation-20261104/source-assessment.json",
+      "bytes": 56964,
+      "newline_lines": 1624,
+      "sha256": "cddb9675876989955f0e2211c91c610407d873082f19e491eaa36268ba68e004"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-expectation-spec-preparation-20261104/current-boundary.json",
+      "bytes": 4392,
+      "newline_lines": 118,
+      "sha256": "6c2cd8d74698d227420361111f2ad74bfde536f06848d5d82f9e7a005eaea3c6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-expectation-spec-preparation-20261104/header-metadata-correction.json",
+      "bytes": 6201,
+      "newline_lines": 119,
+      "sha256": "e79b0c541164a5f18192632256c4ca174ceaf3c892dcc0e0b3d2c1df965ce0e1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-expectation-spec-preparation-20261104/source-assessment.json",
+      "bytes": 78939,
+      "newline_lines": 2229,
+      "sha256": "6d3a28e1f9bf153eafde6cd274bc065a2716730aa310b663ffa76a7c723991c0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-joint-spec-preparation-20261104/current-boundary.json",
+      "bytes": 5312,
+      "newline_lines": 146,
+      "sha256": "0bde7c77f9721b1ab0c1799eb6627946e7e9fd486bf47587c46e20e9083ae169"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-joint-spec-preparation-20261104/source-assessment.json",
+      "bytes": 144130,
+      "newline_lines": 3572,
+      "sha256": "37b4f05ac8835622c6e04f949713c9870344c732de782d814017cd7b3766d648"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/permutation-placement-spec-preparation-20261104.md",
+      "bytes": 25474,
+      "newline_lines": 116,
+      "sha256": "3d5a62d33a2f71ae0ca59b9f62b6cbc011d20e77a6092f525f2d6fe5a63b9999"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/current-boundary.json",
+      "bytes": 8169,
+      "newline_lines": 197,
+      "sha256": "a31ac12c65fb0009ab6efa679dfb17e53ebda62ad18498766969d9ec91a6edbe"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/original-boundary-corrections.diff",
+      "bytes": 815,
+      "newline_lines": 21,
+      "sha256": "13bd68ec56f7fb12549983cb1e3ad76e7440aeb6b28c3c1c55859f69d723063a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+      "bytes": 277315,
+      "newline_lines": 6218,
+      "sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e"
+    }
+  ],
+  "read_process_notes": [
+    "One combined display of bounded chapter-inventory excerpts was truncated by about 30 tokens in Chapter 5 table rows 37-38. A separate complete read of Chapter 5 lines 32-44 repaired that gap; no credit was assigned to omitted text.",
+    "The initial exact-theory seed search found no named seed in the available research-source directory; the control research-source directory did not exist. This is not a global claim about all possible external sources.",
+    "After the write hold release, statvfs reported zero f_bavail. No write had been attempted. The coordinator clarified that a bounded sub-MiB source-record write was permitted using the actual root execution context/raw free blocks; the compiler-installation/hydration guard remains unchanged. The report creation actually succeeded; no new builder or cache operation was launched."
+  ],
+  "actions": {
+    "source_mutations": false,
+    "ref_mutations": false,
+    "cache_mutations": false,
+    "compiler_or_checker_execution": false,
+    "process_polling": false,
+    "runtime_or_generated_output_capture": false,
+    "chapter_activation": false,
+    "only_authorized_new_review_provenance_writes": true
+  },
+  "required_remaining_gates": [
+    "Exact incorporated-base/candidate/source history with all original requirements and any later corrections retained",
+    "Qualified focused validation and complete actual public-type inspection with matching immutable inputs/program/runtime/terminal evidence",
+    "Applicable README normal/fresh full candidate check, source/coverage guards and exhaustive kernel audit",
+    "Both independent final axes over the same complete original scope",
+    "Immediate qualified ./check.sh --verify-candidate HEAD",
+    "Authorized local integration and self-contained checkpoint; no pushes or GitHub mutations"
+  ],
+  "unchanged_prior_accounts": {
+    "accepted_chapter1": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "foundation_candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "foundation_terminal_received": false,
+    "foundation145_pending": true,
+    "potential110_uncredited": true,
+    "c2_actual_qualified": 1735,
+    "c2_retained_base": 28,
+    "xp_actual_types": 20,
+    "chapter3": "queued",
+    "chapter4": "not_activated"
+  },
+  "read_boundary": {
+    "all_seven_sources_complete": true,
+    "both_existing_file_diffs_complete": true,
+    "all_five_added_files_complete": true,
+    "all_ten_required_control_preflights_complete": true,
+    "header_inventory_read_blocks": [
+      [
+        1,
+        47
+      ],
+      [
+        48,
+        81
+      ],
+      [
+        82,
+        115
+      ]
+    ],
+    "actual_type_read_count": 0
+  },
+  "report": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/binary-tree-cache-spec-preparation-20261104.md",
+    "bytes": 21429,
+    "newline_lines": 127,
+    "sha256": "c54206bcb23cf96bc0968c2bc4f84ed2166ee6f257c4a1d952f5c578418d3432"
+  }
+}

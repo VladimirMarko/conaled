@@ -1,0 +1,76 @@
+{
+  "inspector": "/root/checkpoint0124_inspection",
+  "scope": "Read-only operational checkpoint preparation inspection, not either mathematical Chapter3 acceptance axis.",
+  "outcome": "PASS",
+  "unresolved_findings": 0,
+  "initial_complete_read_chunks": [
+    "0331ca",
+    "1e2096",
+    "1f83ef",
+    "487a65"
+  ],
+  "identifier_equivalence_and_AST_check": "be70d1 actual0",
+  "final_hold_and_progress_fields": "9543c5 actual0",
+  "complete_preassembly_and_documentation_holds_equal2_log_query3_result": "befe7a actual0",
+  "final_binding_reconciliation": "54aa9f actual0",
+  "verified": {
+    "refs": 73,
+    "worktrees": 9,
+    "explicit_held_heads": 7,
+    "inactive_heads": 2,
+    "author_holds": 7,
+    "preassembly_artifacts": 7,
+    "prior_components_preserved": 26,
+    "prior_closed_rows_preserved": 85,
+    "new_closed_runs": 7,
+    "new_actual0": 3,
+    "new_actual1": 4,
+    "closed_runs": 92,
+    "passed_public_names": 1264,
+    "passed_modules": 70,
+    "prepared_public_names": 1294,
+    "prepared_modules": 72,
+    "unpassed_names": 30,
+    "unpassed_modules": 2,
+    "unfinished_documentation_drafts": 1,
+    "Lean_drafts": 0,
+    "chapter03_obligations": 83,
+    "chapter03_accepted": false,
+    "actual_C3_type_credit": 0,
+    "whole_C3_audit_credit": 0,
+    "unknown_interruption_preserved": 1,
+    "kit_entries_gate_retained": 298
+  },
+  "write_hold": {
+    "bytes": 4972,
+    "sha256": "cdab741fb147fe2f096bbd5721e442154a0120e0a7e26a9321567fa97034e575"
+  },
+  "progress": {
+    "bytes": 49709,
+    "sha256": "6eff36e20c65aa8e9bb63d1b64acc21f5bda7abf5b75c94f3d75a1b50e08d755"
+  },
+  "latest_equal2": "Actual CLOSED1, exact core build and five example normalization diagnostics; full log14337/1257d7c756aebda1439afe87057f0056e1e2f6e2201cf1eea6285a217594c65f",
+  "latest_query3": "Actual CLOSED0 at569545102ff70697066de429eb02f9f47dffa07f; focused two-module scope only.",
+  "root_full_closure_read": "422e29",
+  "root_progress_write_actual": "236554 actual0",
+  "prior_preparation_readonly_error": {
+    "chunk": "a0954a",
+    "actual_exit": 1,
+    "cause": "Overbroad suffix lookup found root and historical manifests; assertion before writes. Exact root member corrected in290c1e and recorded in origin.json."
+  },
+  "unchanged_gates": [
+    "all payload hashes",
+    "reference set and permitted ancestry",
+    "all worktree state",
+    "held controls and allowed prior updates",
+    "accepted Chapter2 and XR evidence",
+    "closed actual terminal exits and complete log identities",
+    "separate unknown interruption snapshots",
+    "unchanged298-entry native kit"
+  ],
+  "inspection_mutations": false,
+  "compiler_runs": false,
+  "capture_or_archive_terminal_success_claimed": false,
+  "inspector_held": true,
+  "recorded_utc": "2026-11-04T22:32:15.644054+00:00"
+}

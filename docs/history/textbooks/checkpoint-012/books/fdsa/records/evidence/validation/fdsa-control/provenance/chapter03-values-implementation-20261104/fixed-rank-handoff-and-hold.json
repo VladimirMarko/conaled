@@ -1,0 +1,76 @@
+{
+  "recorded_utc": "2026-11-04T20:02:31.486631+00:00",
+  "disposition": "HELD: source and own provenance frozen until root releases a correction or next assignment.",
+  "candidate": "fd490573dc6a0ad2ed4a6f3d449e03d9d1b0bb2f",
+  "tree": "7fd22cfe7e6cbf02c659fc07648989ce6b8c1ccb",
+  "branch": "work/fdsa-ch03-values",
+  "status": "",
+  "source_files_verified_at_final_readback": 9,
+  "new_public_names": 86,
+  "new_private_lemmas": 1,
+  "combined_author_public_names": 216,
+  "artifacts": [
+    {
+      "path": "fixed-rank-precommit.json",
+      "bytes": 1655,
+      "sha256": "08e8dced76975763051c027f22ea735706c063cb2a2c5b1844765c863c86b306"
+    },
+    {
+      "path": "fixed-rank-inventory.json",
+      "bytes": 28384,
+      "sha256": "98087f49cbfde3003c2fb3d31f7e01e8fa3ca90261f41e0c5384adf3e2b6398d"
+    },
+    {
+      "path": "FixedRankStatements.lean",
+      "bytes": 5262,
+      "sha256": "788a23b75a1b1f155f1500718f3705a1f719cb37a0295f4a76066e1d05bee7fa"
+    },
+    {
+      "path": "fixed-rank-review-note.md",
+      "bytes": 10940,
+      "sha256": "de41f0237c698f91d4bde9fdfc31511a89c5e2fff97d42111437da9e6fc06cb2"
+    },
+    {
+      "path": "fixed-rank-candidate1.json",
+      "bytes": 6547,
+      "sha256": "e946e500d2d7857e4765d541c3bf997af3f7d09e7ece4d6d5b1173655e9a0af8"
+    }
+  ],
+  "full_readbacks": {
+    "source": [
+      "a51d03",
+      "7df0c6"
+    ],
+    "precommit_and_commit": "7cdcd8",
+    "all_source_headers_context_identities_and_complete_explicit_at_program": "631640",
+    "complete_candidate_json": "6cae55",
+    "candidate_json_parse_hash_and_complete_review_note": "0d6334"
+  },
+  "preparation_failure_preserved": {
+    "id": "C03-FIXED-PREP-001",
+    "tool_result": "6cae55",
+    "actual_exit": 1,
+    "observed_error": "TypeError: Object of type PosixPath is not JSON serializable",
+    "phase": "Final display-only metadata print after fixed-rank-candidate1.json was closed and fully printed. The identity helper was passed a Path rather than a relative filename string.",
+    "effect": "No source, commit, or saved artifact was changed or corrupted by the failed print. No Lean/Lake execution occurred.",
+    "correction": "Read-only parse and hash reconciliation in 0d6334 exited zero, verified the saved candidate JSON, and preserved its original bytes. All final artifact identities were rechecked before this receipt.",
+    "classification": "Resolved preparation-output error; not a Lean, mathematical or candidate-validation result."
+  },
+  "completed_checks": "Only static identity, complete source/header/case readback, explicit-@ enumeration and git diff whitespace checks; no compiled result.",
+  "mandatory_pending": [
+    "Focused check of the exact three targets",
+    "Actual emitted-type inspection",
+    "Complete composed Chapter3 candidate check and exhaustive proof audit",
+    "Independent Standards and Spec reviews across all 83 obligations",
+    "Immediate candidate verification before local integration"
+  ],
+  "remaining_author_scope": [
+    "C03-053",
+    "C03-054",
+    "C03-055",
+    "C03-056",
+    "C03-057",
+    "C03-058"
+  ],
+  "no_scope_waiver": true
+}

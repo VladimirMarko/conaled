@@ -1,0 +1,13 @@
+# XU06 source preparation in the existing book review loop
+
+Fixed base `a5341221bd3e28d76e3b8ad2bc1683a74621ad5e`; original candidate `49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe`. The frozen requirements and entire eight-path scope remain unchanged. This coordinator record reconciles evidence; it is not a third mathematical review.
+
+Both independent source assessments are complete with zero new concrete findings. Both overall outcomes remain **Blocked**. Root read the complete 94-line Standards and 116-line Spec reports and both complete original-to-candidate correction diffs. All eight source identities match both axes and immutable Git. All 179 declaration rows match in position, kind, visibility, authored full name, exact header bytes/hash and inherited/new classification. Both header conventions include the same terminal LF. The 122 protected earlier records were rechecked unchanged.
+
+The complete public surface has 138 names: 27 retained core names and 111 additions. It includes 111 theorems, 21 definitions and six named local instances. Twenty-five private theorems and 16 anonymous local instances remain in full source and exhaustive-audit scope. The prepared 138-name program imports all five defining roots and prints explicit arguments, universes and full names. It has no actual compiler/type or acceptance credit; future integration-candidate binding is absent.
+
+XU06-BC01 and XU06-BC02 retain their original records and source-predicted concerns. Both axes independently source-rechecked the typed local zero-count bridge and supported Dirac.Def import. Their actual compiler and final confirmation remain pending. The two saved correction diffs show the same changes with different context lengths and labels; neither is overwritten or treated as an actual failed compiler run.
+
+Later incorporation must preserve corrected predecessor cores and imported Expectation fixtures, then append the exact XU06 Order/Expectation extensions under their original private context. Keep all original public, private, boundary and actual-environment cases, the arbitrary-LT versus lawful-mean distinction, signed/infinite weights, real integrability and both conditional directions. Historical status must be dated accurately. No algorithm work/history/treap charging result or Chapter2 prerequisite is added by this unit.
+
+Qualified focused compilation and complete actual statement assessment, applicable full immutable check/exhaustive permitted-axiom audit, both final full-scope axes, immediate qualified verification and exact approved integration remain mandatory. The accepted Chapter1 and first F/shared/C2 route are unchanged. No ticket acceptance box or chapter is closed.

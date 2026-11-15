@@ -1,0 +1,32 @@
+{
+  "kind": "bounded_static_import_followup",
+  "recorded_utc_date": "2026-11-02",
+  "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "agent": "/root/reuse_survey",
+  "scope": "Committed diffs 39c3e2f, 1da24c7 and 3279bac, relevant finite-instance and tactic uses, and direct consumers only",
+  "result": "No concrete analogous import defect found; no source change recommended",
+  "findings": [
+    {
+      "files": ["Applications/Durability/DiagnosticGraph.lean", "Applications/Durability/DiagnosticProjection.lean", "Examples/RetainedHistory.lean"],
+      "observation": "The explicit Mathlib.Data.Fintype.Prod import supplies instFintypeProd for Edge N = Fin N × Fin N and, with Powerset, its finite-powerset quantification; direct diagnostic consumers inherit it."
+    },
+    {
+      "files": ["Applications/Linear/Structured.lean", "Applications/Probability/FiniteMH.lean"],
+      "observation": "Public product-instance import path retained through Algebra.BigOperators.Fin, Data.Fintype.BigOperators, Data.Fintype.Vector, Basic.Finite.Prod and Data.Fintype.Prod."
+    },
+    {
+      "files": ["Examples/StructuredLinear.lean", "Applications/Orbifold/StandardForm.lean"],
+      "observation": "fin_cases has a public source import path through LinearAlgebra.Span.Basic, Order.CompactlyGenerated.Basic and Order.SupIndep to Mathlib.Tactic.FinCases."
+    },
+    {
+      "files": ["Applications/Durability/RetentionBanks.lean", "Applications/Linear/StructuredMeasured.lean", "Applications/Resources/BoundedSummary.lean"],
+      "observation": "Directly used omega and ring providers remain available through explicit imports retained in the respective parents."
+    },
+    {
+      "files": ["Applications/Probability/FiniteKernel.lean", "Applications/Orbifold/StandardForm.lean"],
+      "observation": "Examined split_ifs, numerical and ring tactic providers remain in the source import paths."
+    }
+  ],
+  "limitations": "Static import assessment only, not elaboration, validation success, a new full source review, or chapter acceptance. The active full gate remains authoritative for elaboration failures.",
+  "actions_excluded": ["source edits", "compiler or test launch", "active-run/log/process/cache-artifact inspection"]
+}

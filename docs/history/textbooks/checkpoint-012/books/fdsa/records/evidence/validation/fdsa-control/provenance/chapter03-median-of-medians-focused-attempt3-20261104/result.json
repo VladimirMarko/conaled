@@ -1,0 +1,33 @@
+{
+  "candidate": "bc26994a828eb958fe930c0e46039f9c5addc864",
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "build",
+    "Applications.Selection.MedianOfMedians",
+    "Examples.MedianOfMedians"
+  ],
+  "started_utc": "2026-11-04T19:42:02.280727+00:00",
+  "completed_utc": "2026-11-04T19:42:10.087690+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 7.806674389001273,
+  "state": "passed",
+  "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-median-of-medians-focused-attempt3-20261104/full.log",
+  "progress_bookkeeping_errors": [],
+  "final_head": "bc26994a828eb958fe930c0e46039f9c5addc864",
+  "final_status": "",
+  "log_size_bytes": 2294,
+  "log_sha256": "c86d55c97e1a5e12c5c81dd24d31448d1216aca84e2d8c6af6f7fbdcc3c4530a",
+  "available_bytes_at_completion": 0,
+  "verification_record_present": true,
+  "verification_record_sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9"
+}

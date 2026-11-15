@@ -1,0 +1,31 @@
+{
+  "scope": "read own-process metadata feasibility probe only; no adapter or compiler modification",
+  "source": "#define _GNU_SOURCE\n#include <sys/auxv.h>\n#include <unistd.h>\n#include <errno.h>\n#include <stdio.h>\n#include <string.h>\nint main(int argc, char **argv) {\n  const char *p = (const char *)getauxval(AT_EXECFN);\n  char path[64], out[4096];\n  snprintf(path, sizeof(path), \"/proc/%ld/exe\", (long)getpid());\n  errno = 0;\n  ssize_t n = readlink(path, out, sizeof(out)-1);\n  int e = errno;\n  printf(\"auxv_matches_absolute_invocation=%d\\n\", argc > 0 && p && argv[0][0] == '/' && strcmp(p, argv[0]) == 0);\n  printf(\"own_readlink_result=%ld errno=%d\\n\", (long)n, e);\n  return p ? 0 : 1;\n}\n",
+  "source_sha256": "e75fc73d549c1eada657fae6986023e1eb0271148314d21ac2281ba30365de55",
+  "commands": [
+    {
+      "command": [
+        "cc",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-metadata-042/probe.c",
+        "-o",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-metadata-042/probe"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-metadata-042/probe"
+      ],
+      "returncode": 0,
+      "stdout": "auxv_matches_absolute_invocation=1\nown_readlink_result=-1 errno=2\n",
+      "stderr": ""
+    }
+  ],
+  "active_formal_runs_unchanged": true
+}

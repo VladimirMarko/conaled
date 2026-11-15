@@ -1,0 +1,3251 @@
+{
+  "completed_utc": "2026-11-04T12:34:09.139721+00:00",
+  "all_16_roots_match": true,
+  "all_17092_file_metadata_match": true,
+  "records": [
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        943144,
+        4,
+        4096,
+        8
+      ],
+      "counts": {
+        "directories": 9,
+        "files": 24,
+        "apparent_bytes": 2393087,
+        "allocated_bytes": 2453504
+      },
+      "files_metadata_sha256": "480ef70edd8f38d44a32c3ba40d924596ee9cbbe583b1506582c57a6e448ca8e",
+      "directories_identity_sha256": "abd595c44e9ad69b9758009ae8867b949469757dea012505550ab2319a918f38",
+      "suffix_counts": {
+        ".c": 3,
+        ".c.hash": 3,
+        ".setup.json": 3,
+        ".ilean": 3,
+        ".ilean.hash": 3,
+        ".olean": 3,
+        ".olean.hash": 3,
+        ".trace": 3
+      },
+      "possible_unique_evidence": [],
+      "ancestors": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ],
+        [
+          "b4a17a285e23",
+          27,
+          2889817
+        ],
+        [
+          "fdsa-restored-20261104",
+          27,
+          2892498
+        ],
+        [
+          "conaled-ch02-quicksort",
+          27,
+          2897946
+        ],
+        [
+          ".lake",
+          27,
+          396807
+        ],
+        [
+          "build",
+          27,
+          943144
+        ]
+      ],
+      "external_prefix_observation_only": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ]
+      ],
+      "root_observed_timestamps": [
+        1793766945168950231,
+        1793767024013700680
+      ],
+      "directory_timestamp_changes": [],
+      "file_identity_sha256_for_persistence": "dd33e31376d9a58e40ee9a77e9d6bbc33d2008a62f2d83ebc8c5a5187d3dd036",
+      "all_required_comparisons_match": true
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort/.lake/packages/mathlib/.lake/build",
+      "root_identity": [
+        16832,
+        27,
+        1064931,
+        3,
+        4096,
+        8
+      ],
+      "counts": {
+        "directories": 421,
+        "files": 8000,
+        "apparent_bytes": 340073214,
+        "allocated_bytes": 366149632
+      },
+      "files_metadata_sha256": "962cae1e62b6d84b75cf5f67f8dfe708d90ebae3d012b6f41b398edcc146185e",
+      "directories_identity_sha256": "2625797df7e1bb8b770e4744b7ad287e4841228e42a0e73041b10bcd6408db36",
+      "suffix_counts": {
+        ".ilean": 615,
+        ".ilean.hash": 615,
+        ".ir": 615,
+        ".ir.hash": 615,
+        ".ir.sig": 615,
+        ".ir.sig.hash": 615,
+        ".olean": 615,
+        ".olean.hash": 615,
+        ".olean.private": 616,
+        ".olean.private.hash": 616,
+        ".olean.server": 616,
+        ".olean.server.hash": 616,
+        ".trace": 616
+      },
+      "possible_unique_evidence": [],
+      "ancestors": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ],
+        [
+          "b4a17a285e23",
+          27,
+          2889817
+        ],
+        [
+          "fdsa-restored-20261104",
+          27,
+          2892498
+        ],
+        [
+          "conaled-ch02-quicksort",
+          27,
+          2897946
+        ],
+        [
+          ".lake",
+          27,
+          396807
+        ],
+        [
+          "packages",
+          27,
+          1064947
+        ],
+        [
+          "mathlib",
+          27,
+          1064946
+        ],
+        [
+          ".lake",
+          27,
+          1064932
+        ],
+        [
+          "build",
+          27,
+          1064931
+        ]
+      ],
+      "external_prefix_observation_only": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ]
+      ],
+      "root_observed_timestamps": [
+        1793766932292784328,
+        1793766955636396184
+      ],
+      "directory_timestamp_changes": [
+        [
+          "lib/lean/Mathlib/Algebra",
+          1793795040193150830,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/AddConstMap",
+          1793795040229558189,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/AddTorsor",
+          1793795040232500147,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/AffineMonoid",
+          1793795040240085784,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Algebra",
+          1793795040596286177,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Algebra/Hom",
+          1793795040598937797,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Algebra/Spectrum",
+          1793795040653397388,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Algebra/Subalgebra",
+          1793795040799059344,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Azumaya",
+          1793795040819645868,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/BigOperators",
+          1793795040975849361,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/BigOperators/Finsupp",
+          1793795041001011312,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/BigOperators/Group/Finset",
+          1793795041120327382,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/BigOperators/Group/List",
+          1793795041156789258,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/BigOperators/Group/Multiset",
+          1793795041169925754,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/BigOperators/GroupWithZero",
+          1793795041175063179,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/BigOperators/Ring",
+          1793795041196588755,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/BrauerGroup",
+          1793795041200934079,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category",
+          1793795041255878020,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category/AlgCat",
+          1793795041323689191,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category/BialgCat",
+          1793795041342713089,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category/CoalgCat",
+          1793795041373263483,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category/CommAlgCat",
+          1793795041430890501,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category/FGModuleCat",
+          1793795041454125191,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category/Grp",
+          1793795042217462721,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category/HopfAlgCat",
+          1793795042234534073,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category/ModuleCat",
+          1793795042573628431,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category/ModuleCat/Differentials",
+          1793795042606755096,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category/ModuleCat/Ext",
+          1793795042620922467,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category/ModuleCat/Monoidal",
+          1793795042653988266,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category/ModuleCat/Presheaf",
+          1793795042832500541,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category/ModuleCat/Sheaf",
+          1793795042968663794,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category/ModuleCat/Topology",
+          1793795043022441797,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category/MonCat",
+          1793795043148621584,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category/Ring",
+          1793795043336296627,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category/Ring/Under",
+          1793795043364890119,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Category/Semigrp",
+          1793795043383256635,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Central",
+          1793795043399137771,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/CharP",
+          1793795043456287394,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/CharZero",
+          1793795043468424933,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Colimit",
+          1793795043603444972,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/ContinuedFractions",
+          1793795043649644738,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/ContinuedFractions/Computation",
+          1793795043691608178,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/DirectSum",
+          1793795043841997661,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Divisibility",
+          1793795043858135144,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/EuclideanDomain",
+          1793795043887338351,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Exact",
+          1793795043975453065,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Field",
+          1793795044039861512,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Field/Action",
+          1793795044041565137,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Field/Subfield",
+          1793795044074908199,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/FiniteSupport",
+          1793795044081952741,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/FreeAbelianGroup",
+          1793795044084940879,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/FreeAlgebra",
+          1793795044087437755,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/FreeMonoid",
+          1793795044117507218,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/GCDMonoid",
+          1793795044180221862,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group",
+          1793795044557334565,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Action",
+          1793795044664460405,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Action/Pointwise",
+          1793795044673640057,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Action/Pointwise/Set",
+          1793795044689882359,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Commute",
+          1793795044705846049,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Equiv",
+          1793795044761662066,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Fin",
+          1793795044769256612,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Hom",
+          1793795044847894255,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Int",
+          1793795044861882606,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Invertible",
+          1793795044874776005,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Irreducible",
+          1793795044901128377,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Nat",
+          1793795044923807087,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Pi",
+          1793795044978789567,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Pointwise/Finset",
+          1793795045043312727,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Pointwise/Set",
+          1793795045130420086,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Semiconj",
+          1793795045138268895,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Subgroup",
+          1793795045369776858,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Subgroup/ZPowers",
+          1793795045381724470,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Submonoid",
+          1793795045590216785,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Subsemigroup",
+          1793795045650076817,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/TypeTags",
+          1793795045668391058,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/UniqueProds",
+          1793795045715790990,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/Units",
+          1793795045778655478,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Group/WithOne",
+          1793795045798933919,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/GroupWithZero",
+          1793795045974523289,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/GroupWithZero/Action",
+          1793795046033329316,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/GroupWithZero/Action/Pointwise",
+          1793795046045337631,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/GroupWithZero/Pointwise",
+          1793795046047809870,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/GroupWithZero/Pointwise/Set",
+          1793795046050671116,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/GroupWithZero/Submonoid",
+          1793795046060236515,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/GroupWithZero/Units",
+          1793795046086906911,
+          1793795516303217042
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Homology",
+          1793795046772687399,
+          1793795516303217042
+        ]
+      ],
+      "file_identity_sha256_for_persistence": "bcc77c6aac5207282e5d824fb005ebf8611a0aac3862fe6fe253c70276da940f",
+      "all_required_comparisons_match": true
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        1444929,
+        4,
+        4096,
+        8
+      ],
+      "counts": {
+        "directories": 9,
+        "files": 24,
+        "apparent_bytes": 3593762,
+        "allocated_bytes": 3661824
+      },
+      "files_metadata_sha256": "e9302c851d0aa43175a2aa952c5d96b036b454ecd9d14af45f2970baa8f9b5c5",
+      "directories_identity_sha256": "85b8130f1bb55eb428719f82c5e910ba42142cfa2f4c45c570e1f553203fc2c7",
+      "suffix_counts": {
+        ".c": 3,
+        ".c.hash": 3,
+        ".setup.json": 3,
+        ".ilean": 3,
+        ".ilean.hash": 3,
+        ".olean": 3,
+        ".olean.hash": 3,
+        ".trace": 3
+      },
+      "possible_unique_evidence": [],
+      "ancestors": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ],
+        [
+          "b4a17a285e23",
+          27,
+          2889817
+        ],
+        [
+          "fdsa-restored-20261104",
+          27,
+          2892498
+        ],
+        [
+          "conaled-ch02-natural-runs",
+          27,
+          3161429
+        ],
+        [
+          ".lake",
+          27,
+          1314252
+        ],
+        [
+          "build",
+          27,
+          1444929
+        ]
+      ],
+      "external_prefix_observation_only": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ]
+      ],
+      "root_observed_timestamps": [
+        1793766211709475707,
+        1793766211709475707
+      ],
+      "directory_timestamp_changes": [],
+      "file_identity_sha256_for_persistence": "e18b101a987ad73242efcfa151bfcda5de0bb4c4b8092187a7e6183378a63eda",
+      "all_required_comparisons_match": true
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/.lake/packages/LeanSearchClient/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        1444781,
+        4,
+        4096,
+        8
+      ],
+      "counts": {
+        "directories": 5,
+        "files": 60,
+        "apparent_bytes": 4912859,
+        "allocated_bytes": 5107712
+      },
+      "files_metadata_sha256": "90ddcc5d0a7fae1d24a5a9817d74503f57aa728fa39263037225ec818527e0d1",
+      "directories_identity_sha256": "3d54c833d00495afaa1eeb1807a394fb516adbc1d3ded7f4c09f897a834eb539",
+      "suffix_counts": {
+        ".c": 4,
+        ".c.hash": 4,
+        ".ilean": 4,
+        ".ilean.hash": 4,
+        ".ir": 4,
+        ".ir.hash": 4,
+        ".ir.sig": 4,
+        ".ir.sig.hash": 4,
+        ".olean": 4,
+        ".olean.hash": 4,
+        ".olean.private": 4,
+        ".olean.private.hash": 4,
+        ".olean.server": 4,
+        ".olean.server.hash": 4,
+        ".trace": 4
+      },
+      "possible_unique_evidence": [],
+      "ancestors": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ],
+        [
+          "b4a17a285e23",
+          27,
+          2889817
+        ],
+        [
+          "fdsa-restored-20261104",
+          27,
+          2892498
+        ],
+        [
+          "conaled-ch02-natural-runs",
+          27,
+          3161429
+        ],
+        [
+          ".lake",
+          27,
+          1314252
+        ],
+        [
+          "packages",
+          27,
+          1441984
+        ],
+        [
+          "LeanSearchClient",
+          27,
+          1444469
+        ],
+        [
+          ".lake",
+          27,
+          1444760
+        ],
+        [
+          "build",
+          27,
+          1444781
+        ]
+      ],
+      "external_prefix_observation_only": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ]
+      ],
+      "root_observed_timestamps": [
+        1793766216416797149,
+        1793766701931465713
+      ],
+      "directory_timestamp_changes": [],
+      "file_identity_sha256_for_persistence": "3eb716d20afdd60f7cb084fdcf22b078ef250e69af8620bfacb6ea416da949a2",
+      "all_required_comparisons_match": true
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/.lake/packages/Qq/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        1445251,
+        4,
+        4096,
+        8
+      ],
+      "counts": {
+        "directories": 7,
+        "files": 210,
+        "apparent_bytes": 21008898,
+        "allocated_bytes": 21684224
+      },
+      "files_metadata_sha256": "eb152b993087873658ebbd852b859bdd8148087116a44cd8ebe9ac5099f09958",
+      "directories_identity_sha256": "004000a860d1f6905515649f9229253256b31079de2a983d59090d7472abbd53",
+      "suffix_counts": {
+        ".c": 14,
+        ".c.hash": 14,
+        ".ilean": 14,
+        ".ilean.hash": 14,
+        ".ir": 14,
+        ".ir.hash": 14,
+        ".ir.sig": 14,
+        ".ir.sig.hash": 14,
+        ".olean": 14,
+        ".olean.hash": 14,
+        ".olean.private": 14,
+        ".olean.private.hash": 14,
+        ".olean.server": 14,
+        ".olean.server.hash": 14,
+        ".trace": 14
+      },
+      "possible_unique_evidence": [],
+      "ancestors": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ],
+        [
+          "b4a17a285e23",
+          27,
+          2889817
+        ],
+        [
+          "fdsa-restored-20261104",
+          27,
+          2892498
+        ],
+        [
+          "conaled-ch02-natural-runs",
+          27,
+          3161429
+        ],
+        [
+          ".lake",
+          27,
+          1314252
+        ],
+        [
+          "packages",
+          27,
+          1441984
+        ],
+        [
+          "Qq",
+          27,
+          1445189
+        ],
+        [
+          ".lake",
+          27,
+          1445236
+        ],
+        [
+          "build",
+          27,
+          1445251
+        ]
+      ],
+      "external_prefix_observation_only": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ]
+      ],
+      "root_observed_timestamps": [
+        1793766216417896478,
+        1793766701931465713
+      ],
+      "directory_timestamp_changes": [],
+      "file_identity_sha256_for_persistence": "55f74f3213728a069bde33f834fc0ecb928bb82d6a2c633ec677a0578e830ed0",
+      "all_required_comparisons_match": true
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/.lake/packages/aesop/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        1445534,
+        4,
+        4096,
+        8
+      ],
+      "counts": {
+        "directories": 51,
+        "files": 1980,
+        "apparent_bytes": 130994252,
+        "allocated_bytes": 137449472
+      },
+      "files_metadata_sha256": "146d65c801c4d6f03b3bf7286315db8bcbb229b8ffd5c7c65017b1794bde221d",
+      "directories_identity_sha256": "2dda1e42e22da9dcbf4d706b294fc2198bd4a09eac131bae5ee0cd9f8f68f104",
+      "suffix_counts": {
+        ".c": 132,
+        ".c.hash": 132,
+        ".ilean": 132,
+        ".ilean.hash": 132,
+        ".ir": 132,
+        ".ir.hash": 132,
+        ".ir.sig": 132,
+        ".ir.sig.hash": 132,
+        ".olean": 132,
+        ".olean.hash": 132,
+        ".olean.private": 132,
+        ".olean.private.hash": 132,
+        ".olean.server": 132,
+        ".olean.server.hash": 132,
+        ".trace": 132
+      },
+      "possible_unique_evidence": [],
+      "ancestors": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ],
+        [
+          "b4a17a285e23",
+          27,
+          2889817
+        ],
+        [
+          "fdsa-restored-20261104",
+          27,
+          2892498
+        ],
+        [
+          "conaled-ch02-natural-runs",
+          27,
+          3161429
+        ],
+        [
+          ".lake",
+          27,
+          1314252
+        ],
+        [
+          "packages",
+          27,
+          1441984
+        ],
+        [
+          "aesop",
+          27,
+          1445530
+        ],
+        [
+          ".lake",
+          27,
+          1445533
+        ],
+        [
+          "build",
+          27,
+          1445534
+        ]
+      ],
+      "external_prefix_observation_only": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ]
+      ],
+      "root_observed_timestamps": [
+        1793766216423256178,
+        1793766701931465713
+      ],
+      "directory_timestamp_changes": [],
+      "file_identity_sha256_for_persistence": "dee9d1aaa480af0d13c516d9d6cadb589fff99934e81d2673610bf0d2dd896ec",
+      "all_required_comparisons_match": true
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/.lake/packages/batteries/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        1445970,
+        4,
+        4096,
+        8
+      ],
+      "counts": {
+        "directories": 87,
+        "files": 2925,
+        "apparent_bytes": 140506590,
+        "allocated_bytes": 150294528
+      },
+      "files_metadata_sha256": "f54240c46dc692b52ede7d4c7a65edda6c09aa56ca58af1a9609134316f39577",
+      "directories_identity_sha256": "d037f189025c2d290437677a21114b195c122933c6f4b7d0a7a4c94ff7bacb78",
+      "suffix_counts": {
+        ".c": 195,
+        ".c.hash": 195,
+        ".ilean": 195,
+        ".ilean.hash": 195,
+        ".ir": 195,
+        ".ir.hash": 195,
+        ".ir.sig": 195,
+        ".ir.sig.hash": 195,
+        ".olean": 195,
+        ".olean.hash": 195,
+        ".olean.private": 195,
+        ".olean.private.hash": 195,
+        ".olean.server": 195,
+        ".olean.server.hash": 195,
+        ".trace": 195
+      },
+      "possible_unique_evidence": [],
+      "ancestors": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ],
+        [
+          "b4a17a285e23",
+          27,
+          2889817
+        ],
+        [
+          "fdsa-restored-20261104",
+          27,
+          2892498
+        ],
+        [
+          "conaled-ch02-natural-runs",
+          27,
+          3161429
+        ],
+        [
+          ".lake",
+          27,
+          1314252
+        ],
+        [
+          "packages",
+          27,
+          1441984
+        ],
+        [
+          "batteries",
+          27,
+          1445964
+        ],
+        [
+          ".lake",
+          27,
+          1445969
+        ],
+        [
+          "build",
+          27,
+          1445970
+        ]
+      ],
+      "external_prefix_observation_only": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ]
+      ],
+      "root_observed_timestamps": [
+        1793766218245219107,
+        1793766701931465713
+      ],
+      "directory_timestamp_changes": [],
+      "file_identity_sha256_for_persistence": "723eaca6ab9ad61f50f022e70849981f7980be22dbf3d7bc5b495b6ddfd9658f",
+      "all_required_comparisons_match": true
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/.lake/packages/importGraph/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        1446131,
+        4,
+        4096,
+        8
+      ],
+      "counts": {
+        "directories": 23,
+        "files": 525,
+        "apparent_bytes": 33366439,
+        "allocated_bytes": 35078144
+      },
+      "files_metadata_sha256": "4eb668104e6338b190a91a9e8218aa2ed83c235a5455c245787050f5d86dc136",
+      "directories_identity_sha256": "0c7eb5b1d5af14f7deea39dfb00576adfcd3d0f41994cee0675cb7f0d702855e",
+      "suffix_counts": {
+        ".c": 35,
+        ".c.hash": 35,
+        ".ilean": 35,
+        ".ilean.hash": 35,
+        ".ir": 35,
+        ".ir.hash": 35,
+        ".ir.sig": 35,
+        ".ir.sig.hash": 35,
+        ".olean": 35,
+        ".olean.hash": 35,
+        ".olean.private": 35,
+        ".olean.private.hash": 35,
+        ".olean.server": 35,
+        ".olean.server.hash": 35,
+        ".trace": 35
+      },
+      "possible_unique_evidence": [],
+      "ancestors": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ],
+        [
+          "b4a17a285e23",
+          27,
+          2889817
+        ],
+        [
+          "fdsa-restored-20261104",
+          27,
+          2892498
+        ],
+        [
+          "conaled-ch02-natural-runs",
+          27,
+          3161429
+        ],
+        [
+          ".lake",
+          27,
+          1314252
+        ],
+        [
+          "packages",
+          27,
+          1441984
+        ],
+        [
+          "importGraph",
+          27,
+          1446127
+        ],
+        [
+          ".lake",
+          27,
+          1446130
+        ],
+        [
+          "build",
+          27,
+          1446131
+        ]
+      ],
+      "external_prefix_observation_only": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ]
+      ],
+      "root_observed_timestamps": [
+        1793766220374022635,
+        1793766701935465789
+      ],
+      "directory_timestamp_changes": [],
+      "file_identity_sha256_for_persistence": "d0d3e5f8730af9d1843e545e71e3131d65ff5afc6fcc3435550fbbee8e38309f",
+      "all_required_comparisons_match": true
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/.lake/packages/mathlib/.lake/build",
+      "root_identity": [
+        16832,
+        27,
+        1446190,
+        4,
+        4096,
+        8
+      ],
+      "counts": {
+        "directories": 439,
+        "files": 3240,
+        "apparent_bytes": 227849524,
+        "allocated_bytes": 237690880
+      },
+      "files_metadata_sha256": "9fba41a0b9471abbd4989db0a11f539b41c1d595f68c424beb562c11f8082e17",
+      "directories_identity_sha256": "e1e9abfced8cebe40dd17e8ca082b0da913667e5f25db14345f9ec15793abf9a",
+      "suffix_counts": {
+        ".c": 1100,
+        ".c.hash": 1100,
+        ".ilean": 80,
+        ".ilean.hash": 80,
+        ".ir": 80,
+        ".ir.hash": 80,
+        ".ir.sig": 80,
+        ".ir.sig.hash": 80,
+        ".olean": 80,
+        ".olean.hash": 80,
+        ".olean.private": 80,
+        ".olean.private.hash": 80,
+        ".olean.server": 80,
+        ".olean.server.hash": 80,
+        ".trace": 80
+      },
+      "possible_unique_evidence": [],
+      "ancestors": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ],
+        [
+          "b4a17a285e23",
+          27,
+          2889817
+        ],
+        [
+          "fdsa-restored-20261104",
+          27,
+          2892498
+        ],
+        [
+          "conaled-ch02-natural-runs",
+          27,
+          3161429
+        ],
+        [
+          ".lake",
+          27,
+          1314252
+        ],
+        [
+          "packages",
+          27,
+          1441984
+        ],
+        [
+          "mathlib",
+          27,
+          1446175
+        ],
+        [
+          ".lake",
+          27,
+          1446189
+        ],
+        [
+          "build",
+          27,
+          1446190
+        ]
+      ],
+      "external_prefix_observation_only": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ]
+      ],
+      "root_observed_timestamps": [
+        1793766932247494524,
+        1793766955588946840
+      ],
+      "directory_timestamp_changes": [
+        [
+          "ir/Mathlib/Tactic",
+          1793795036624077166,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Algebra",
+          1793795036642672587,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/ArithMult",
+          1793795036642787451,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Attr",
+          1793795036652764310,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Basify",
+          1793795036660914084,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Bound",
+          1793795036673439017,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/CancelDenoms",
+          1793795036686743852,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/CategoryTheory",
+          1793795036751873172,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/CategoryTheory/Bicategory",
+          1793795036873619081,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/CategoryTheory/Coherence",
+          1793795036927341706,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/CategoryTheory/Monoidal",
+          1793795037073104694,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/ClickSuggestions",
+          1793795037147031340,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/ComputeAsymptotics",
+          1793795037147143158,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/ComputeAsymptotics/Multiseries",
+          1793795037149531231,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/ComputeAsymptotics/Multiseries/Monomial",
+          1793795037149749680,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Continuity",
+          1793795037149876301,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Determinant/Bird",
+          1793795037158632619,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Echelon",
+          1793795037178836662,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Explode",
+          1793795037181113566,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/FieldSimp",
+          1793795037192109723,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Finiteness",
+          1793795037193007037,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/FunProp",
+          1793795037264972189,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/GCongr",
+          1793795037293799574,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/GRewrite",
+          1793795037328278449,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Inclusion/Core",
+          1793795037361199099,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Inclusion/Extension",
+          1793795037363502964,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Inclusion/Extension/Core",
+          1793795037364800962,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Inclusion/Extension/IntervalDyadicReal",
+          1793795037373288355,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Inclusion/ExtensionAPI",
+          1793795037391438519,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Linarith",
+          1793795037443543408,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Linarith/Oracle",
+          1793795037462442857,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Linarith/Oracle/SimplexAlgorithm",
+          1793795037468805870,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/LinearCombination",
+          1793795037470744254,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Linter",
+          1793795037675031664,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Linter/TextBased",
+          1793795037705971055,
+          1793795516283216657
+        ],
+        [
+          "ir/Mathlib/Tactic/Matrix",
+          1793795037709466117,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Tactic/Measurability",
+          1793795037709580129,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Tactic/Monotonicity",
+          1793795037713170425,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Tactic/Nontriviality",
+          1793795037716789064,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Tactic/NormNum",
+          1793795037853276280,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Tactic/Order",
+          1793795037877067759,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Tactic/Order/Graph",
+          1793795037880186803,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Tactic/Polynomial",
+          1793795037886617288,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Tactic/Positivity",
+          1793795037957782447,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Tactic/Push",
+          1793795037966511508,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Tactic/ReduceModChar",
+          1793795037966729437,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Tactic/Relation",
+          1793795037967951206,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Tactic/Ring",
+          1793795038034875046,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Tactic/Sat",
+          1793795038047931881,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Tactic/Simproc",
+          1793795038081087614,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Tactic/Simps",
+          1793795038133266834,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Tactic/TacticAnalysis",
+          1793795038151579742,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Tactic/Translate",
+          1793795038278999588,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Tactic/Widget",
+          1793795038422918180,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology",
+          1793795038437671785,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra",
+          1793795038465710500,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/Algebra",
+          1793795038468706079,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/Category/ProfiniteGrp",
+          1793795038476867179,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/Constructions",
+          1793795038477040550,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/ContinuousAffineMap",
+          1793795038477682368,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/Group",
+          1793795038484333401,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/InfiniteSum",
+          1793795038497855899,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/IsUniformGroup",
+          1793795038498859253,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/MetricSpace",
+          1793795038499026235,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/Module",
+          1793795038504526972,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/Module/Alternating",
+          1793795038508018709,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/Module/ContinuousLinearMap",
+          1793795038519222825,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/Module/Equiv",
+          1793795038526488820,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/Module/Multilinear",
+          1793795038531994800,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/Module/Spaces",
+          1793795038547605197,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/Monoid",
+          1793795038548193765,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/Nonarchimedean",
+          1793795038549164780,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/Order",
+          1793795038550837644,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/ProperAction",
+          1793795038551646103,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/RestrictedProduct",
+          1793795038559815165,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/Ring",
+          1793795038560978781,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/SeparationQuotient",
+          1793795038562554132,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/Star",
+          1793795038564280366,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/ValuativeRel",
+          1793795038564567730,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Algebra/Valued",
+          1793795038572330274,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Baire",
+          1793795038576812510,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Bornology",
+          1793795038577938289,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/CWComplex/Abstract",
+          1793795038578103858,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/CWComplex/Classical",
+          1793795038582066164,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Category",
+          1793795038589469648,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Category/CompHaus",
+          1793795038591573201,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Category/CompHausLike",
+          1793795038595155384,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Category/LightProfinite",
+          1793795038602676059,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Category/Profinite",
+          1793795038604592670,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Category/Profinite/Nobeling",
+          1793795038610568574,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Category/Stonean",
+          1793795038611151723,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Category/TopCat",
+          1793795038619547313,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Category/TopCat/Limits",
+          1793795038625741917,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Compactification",
+          1793795038627300363,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Compactification/OnePoint",
+          1793795038628018266,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Compactness",
+          1793795038639494041,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Connected",
+          1793795038643441135,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Constructions",
+          1793795038643641057,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/ContinuousMap",
+          1793795038665987074,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/ContinuousMap/Bounded",
+          1793795038668898987,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Convenient",
+          1793795038677114760,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Covering",
+          1793795038677696367,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Defs",
+          1793795038683807465,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/EMetricSpace",
+          1793795038686832959,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/FiberBundle",
+          1793795038690100177,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/GDelta",
+          1793795038690356714,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Hom",
+          1793795038692793089,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Homeomorph",
+          1793795038697308421,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Homotopy",
+          1793795038708210576,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Homotopy/TopCat",
+          1793795038712273565,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/InductiveDimension",
+          1793795038712621960,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Instances",
+          1793795038723355581,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Instances/AddCircle",
+          1793795038730076071,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Instances/ENNReal",
+          1793795038735201850,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Instances/EReal",
+          1793795038735354741,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Instances/NNReal",
+          1793795038735506410,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Instances/Real",
+          1793795038735714664,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/LocallyConstant",
+          1793795038744633608,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/LocallyFinsupp",
+          1793795038744742472,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Maps",
+          1793795038744938558,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Maps/Proper",
+          1793795038745260994,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Maps/Strict",
+          1793795038746801888,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/MetricSpace",
+          1793795038781584646,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/MetricSpace/ProperSpace",
+          1793795038781810237,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/MetricSpace/Pseudo",
+          1793795038789770224,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/MetricSpace/Ultra",
+          1793795038790269326,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Metrizable",
+          1793795038791028462,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/OpenPartialHomeomorph",
+          1793795038795878027,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Order",
+          1793795038823110335,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Order/Category",
+          1793795038825487972,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Order/Hom",
+          1793795038831723327,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/PartialHomeomorph",
+          1793795038832253096,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Semicontinuity",
+          1793795038838791198,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Separation",
+          1793795038842754697,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Sets",
+          1793795038852881943,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Sheaves",
+          1793795038882768365,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Sheaves/SheafCondition",
+          1793795038884433587,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/Spectral",
+          1793795038884899610,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/UniformSpace",
+          1793795038938666384,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/UniformSpace/Ultra",
+          1793795038939066658,
+          1793795516287216734
+        ],
+        [
+          "ir/Mathlib/Topology/VectorBundle",
+          1793795038942105091,
+          1793795516287216734
+        ],
+        [
+          "lib/lean",
+          1793795038942105091,
+          1793795516287216734
+        ],
+        [
+          "lib/lean/Mathlib",
+          1793795038979741524,
+          1793795516287216734
+        ],
+        [
+          "lib/lean/Mathlib/Algebra",
+          1793795039439930275,
+          1793795516287216734
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/AddConstMap",
+          1793795039479728593,
+          1793795516287216734
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/AddTorsor",
+          1793795039481078159,
+          1793795516287216734
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/AffineMonoid",
+          1793795039492005648,
+          1793795516287216734
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Algebra",
+          1793795039853196777,
+          1793795516287216734
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Algebra/Hom",
+          1793795039855129422,
+          1793795516287216734
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Algebra/Spectrum",
+          1793795039917406674,
+          1793795516287216734
+        ],
+        [
+          "lib/lean/Mathlib/Algebra/Algebra/Subalgebra",
+          1793795040061466824,
+          1793795516287216734
+        ]
+      ],
+      "file_identity_sha256_for_persistence": "2b3082a3728ab279e9c6ef6884abf228cbb8806fd1483f50a35ab34a04c2b62d",
+      "all_required_comparisons_match": true
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        1074031,
+        4,
+        4096,
+        8
+      ],
+      "counts": {
+        "directories": 13,
+        "files": 104,
+        "apparent_bytes": 12684701,
+        "allocated_bytes": 12959744
+      },
+      "files_metadata_sha256": "16ac8e23cb5874c02616dee2a9f26cf99bfa23c3ee96488be3080c8c6592e3b4",
+      "directories_identity_sha256": "7258c62b67c2e7da0d1deeff385beddc03c1c31ce373cb362f0d3b70f4bba430",
+      "suffix_counts": {
+        ".c": 13,
+        ".c.hash": 13,
+        ".setup.json": 13,
+        ".ilean": 13,
+        ".ilean.hash": 13,
+        ".olean": 13,
+        ".olean.hash": 13,
+        ".trace": 13
+      },
+      "possible_unique_evidence": [],
+      "ancestors": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ],
+        [
+          "b4a17a285e23",
+          27,
+          2889817
+        ],
+        [
+          "fdsa-restored-20261104",
+          27,
+          2892498
+        ],
+        [
+          "conaled-ordinary-merge",
+          27,
+          3684537
+        ],
+        [
+          ".lake",
+          27,
+          1061073
+        ],
+        [
+          "build",
+          27,
+          1074031
+        ]
+      ],
+      "external_prefix_observation_only": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ]
+      ],
+      "root_observed_timestamps": [
+        1793765235235640377,
+        1793765458159525256
+      ],
+      "directory_timestamp_changes": [],
+      "file_identity_sha256_for_persistence": "53a4d223cf73e02ae7b740eeb5f7b92404016e9d939a8edaf73be8dd22503b71",
+      "all_required_comparisons_match": true
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/.lake/packages/LeanSearchClient/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        1064486,
+        4,
+        4096,
+        8
+      ],
+      "counts": {
+        "directories": 5
+      },
+      "files_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "directories_identity_sha256": "4ad934a8b87cd9c990fd2f7218413c612bb892f2d05debb3660dfd02872d077d",
+      "suffix_counts": {},
+      "possible_unique_evidence": [],
+      "ancestors": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ],
+        [
+          "b4a17a285e23",
+          27,
+          2889817
+        ],
+        [
+          "fdsa-restored-20261104",
+          27,
+          2892498
+        ],
+        [
+          "conaled-ordinary-merge",
+          27,
+          3684537
+        ],
+        [
+          ".lake",
+          27,
+          1061073
+        ],
+        [
+          "packages",
+          27,
+          1064497
+        ],
+        [
+          "LeanSearchClient",
+          27,
+          1064490
+        ],
+        [
+          ".lake",
+          27,
+          1064487
+        ],
+        [
+          "build",
+          27,
+          1064486
+        ]
+      ],
+      "external_prefix_observation_only": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ]
+      ],
+      "root_observed_timestamps": [
+        1793766091100937554,
+        1793767024273705709
+      ],
+      "directory_timestamp_changes": [],
+      "file_identity_sha256_for_persistence": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "all_required_comparisons_match": true
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/.lake/packages/Qq/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        1064474,
+        4,
+        4096,
+        8
+      ],
+      "counts": {
+        "directories": 7
+      },
+      "files_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "directories_identity_sha256": "6b672d740b1d91c5957a60d956f5c1ef6d9082678576f8f8ff16513c49b30d99",
+      "suffix_counts": {},
+      "possible_unique_evidence": [],
+      "ancestors": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ],
+        [
+          "b4a17a285e23",
+          27,
+          2889817
+        ],
+        [
+          "fdsa-restored-20261104",
+          27,
+          2892498
+        ],
+        [
+          "conaled-ordinary-merge",
+          27,
+          3684537
+        ],
+        [
+          ".lake",
+          27,
+          1061073
+        ],
+        [
+          "packages",
+          27,
+          1064497
+        ],
+        [
+          "Qq",
+          27,
+          1064478
+        ],
+        [
+          ".lake",
+          27,
+          1064475
+        ],
+        [
+          "build",
+          27,
+          1064474
+        ]
+      ],
+      "external_prefix_observation_only": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ]
+      ],
+      "root_observed_timestamps": [
+        1793766091101799023,
+        1793767024273705709
+      ],
+      "directory_timestamp_changes": [],
+      "file_identity_sha256_for_persistence": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "all_required_comparisons_match": true
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/.lake/packages/aesop/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        1064459,
+        4,
+        4096,
+        8
+      ],
+      "counts": {
+        "directories": 51
+      },
+      "files_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "directories_identity_sha256": "a480e4afaa8d7a1ed269d7f24a6628760ba5996512242113b1b366ffd35e8d15",
+      "suffix_counts": {},
+      "possible_unique_evidence": [],
+      "ancestors": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ],
+        [
+          "b4a17a285e23",
+          27,
+          2889817
+        ],
+        [
+          "fdsa-restored-20261104",
+          27,
+          2892498
+        ],
+        [
+          "conaled-ordinary-merge",
+          27,
+          3684537
+        ],
+        [
+          ".lake",
+          27,
+          1061073
+        ],
+        [
+          "packages",
+          27,
+          1064497
+        ],
+        [
+          "aesop",
+          27,
+          1064463
+        ],
+        [
+          ".lake",
+          27,
+          1064460
+        ],
+        [
+          "build",
+          27,
+          1064459
+        ]
+      ],
+      "external_prefix_observation_only": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ]
+      ],
+      "root_observed_timestamps": [
+        1793766091108638790,
+        1793767024273705709
+      ],
+      "directory_timestamp_changes": [],
+      "file_identity_sha256_for_persistence": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "all_required_comparisons_match": true
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/.lake/packages/batteries/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        1064376,
+        4,
+        4096,
+        8
+      ],
+      "counts": {
+        "directories": 87
+      },
+      "files_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "directories_identity_sha256": "de0d28585289b6624366c568fee56061f7b88c208bf916e333f554fc6b47d2ad",
+      "suffix_counts": {},
+      "possible_unique_evidence": [],
+      "ancestors": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ],
+        [
+          "b4a17a285e23",
+          27,
+          2889817
+        ],
+        [
+          "fdsa-restored-20261104",
+          27,
+          2892498
+        ],
+        [
+          "conaled-ordinary-merge",
+          27,
+          3684537
+        ],
+        [
+          ".lake",
+          27,
+          1061073
+        ],
+        [
+          "packages",
+          27,
+          1064497
+        ],
+        [
+          "batteries",
+          27,
+          1064382
+        ],
+        [
+          ".lake",
+          27,
+          1064377
+        ],
+        [
+          "build",
+          27,
+          1064376
+        ]
+      ],
+      "external_prefix_observation_only": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ]
+      ],
+      "root_observed_timestamps": [
+        1793766091131853786,
+        1793767024277705787
+      ],
+      "directory_timestamp_changes": [],
+      "file_identity_sha256_for_persistence": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "all_required_comparisons_match": true
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/.lake/packages/importGraph/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        1064235,
+        4,
+        4096,
+        8
+      ],
+      "counts": {
+        "directories": 23
+      },
+      "files_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "directories_identity_sha256": "21cf041a5ad13da41b208c0c8ec38b9bed49f93ec9b56e000b00e7490fb7e137",
+      "suffix_counts": {},
+      "possible_unique_evidence": [],
+      "ancestors": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ],
+        [
+          "b4a17a285e23",
+          27,
+          2889817
+        ],
+        [
+          "fdsa-restored-20261104",
+          27,
+          2892498
+        ],
+        [
+          "conaled-ordinary-merge",
+          27,
+          3684537
+        ],
+        [
+          ".lake",
+          27,
+          1061073
+        ],
+        [
+          "packages",
+          27,
+          1064497
+        ],
+        [
+          "importGraph",
+          27,
+          1064239
+        ],
+        [
+          ".lake",
+          27,
+          1064236
+        ],
+        [
+          "build",
+          27,
+          1064235
+        ]
+      ],
+      "external_prefix_observation_only": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ]
+      ],
+      "root_observed_timestamps": [
+        1793766091162110452,
+        1793767024277705787
+      ],
+      "directory_timestamp_changes": [],
+      "file_identity_sha256_for_persistence": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "all_required_comparisons_match": true
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge/.lake/packages/mathlib/.lake/build",
+      "root_identity": [
+        16832,
+        27,
+        1064176,
+        4,
+        4096,
+        8
+      ],
+      "counts": {
+        "directories": 1284
+      },
+      "files_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "directories_identity_sha256": "5d50e9ad00e7b2a84cd07c60aa56ddb0c99edfdc3f4b89442a767bba79767afa",
+      "suffix_counts": {},
+      "possible_unique_evidence": [],
+      "ancestors": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ],
+        [
+          "b4a17a285e23",
+          27,
+          2889817
+        ],
+        [
+          "fdsa-restored-20261104",
+          27,
+          2892498
+        ],
+        [
+          "conaled-ordinary-merge",
+          27,
+          3684537
+        ],
+        [
+          ".lake",
+          27,
+          1061073
+        ],
+        [
+          "packages",
+          27,
+          1064497
+        ],
+        [
+          "mathlib",
+          27,
+          1064191
+        ],
+        [
+          ".lake",
+          27,
+          1064177
+        ],
+        [
+          "build",
+          27,
+          1064176
+        ]
+      ],
+      "external_prefix_observation_only": [
+        [
+          "workspace",
+          38,
+          22
+        ],
+        [
+          "scratch",
+          38,
+          23
+        ]
+      ],
+      "root_observed_timestamps": [
+        1793766091420883164,
+        1793767024277705787
+      ],
+      "directory_timestamp_changes": [],
+      "file_identity_sha256_for_persistence": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "all_required_comparisons_match": true
+    }
+  ],
+  "held_controls_verified": 97,
+  "prior_evidence_verified": 63,
+  "checkpoint": {
+    "name": "conaled-fdsa-0103-reviewed-shared-source-and-idle-cache-plan",
+    "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0103-reviewed-shared-source-and-idle-cache-plan.tar.gz",
+    "library_path": "/conaled-fdsa-0103-reviewed-shared-source-and-idle-cache-plan.tar.gz",
+    "library_file_id": "libfile_61ce2e59a53c8191994c93d4d319c8e1",
+    "file_id": "file_00000000d85081f482ea1a3e810f3c6a",
+    "file_name": "conaled-fdsa-0103-reviewed-shared-source-and-idle-cache-plan.tar.gz",
+    "version": 0,
+    "url": "https://chatgpt.com/library?file_id=libfile_61ce2e59a53c8191994c93d4d319c8e1&account_id=personal",
+    "bytes": 19546898,
+    "sha256": "6daddc133311fd0114081e557664ac3ddb47b951fcdda4cb0afac799b249d2df",
+    "xattrs_applied": true,
+    "metadata_applied_in_same_create_invocation": true,
+    "new_acceptance": false,
+    "post_upload_hash_verified": true,
+    "uploaded_utc": "2026-11-04T12:27:52.059095+00:00"
+  },
+  "refs": [
+    {
+      "oid": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "ref": "refs/heads/master",
+      "symref": ""
+    },
+    {
+      "oid": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "ref": "refs/heads/work/fdsa-accumulated-work",
+      "symref": ""
+    },
+    {
+      "oid": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+      "ref": "refs/heads/work/fdsa-adt-refinement",
+      "symref": ""
+    },
+    {
+      "oid": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "ref": "refs/heads/work/fdsa-affine-recurrence",
+      "symref": ""
+    },
+    {
+      "oid": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "ref": "refs/heads/work/fdsa-basics-cost-models",
+      "symref": ""
+    },
+    {
+      "oid": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "ref": "refs/heads/work/fdsa-book",
+      "symref": ""
+    },
+    {
+      "oid": "156ba8170852f8e7f0b8c09315e35b837ce77ff9",
+      "ref": "refs/heads/work/fdsa-braun-shape",
+      "symref": ""
+    },
+    {
+      "oid": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+      "ref": "refs/heads/work/fdsa-builder-costs",
+      "symref": ""
+    },
+    {
+      "oid": "43242f43cba0f2c90c17356d44d71e5765d8ba93",
+      "ref": "refs/heads/work/fdsa-ch02-alternating",
+      "symref": ""
+    },
+    {
+      "oid": "a6f950d7d5dc4aef521445250f9bfbd59166291d",
+      "ref": "refs/heads/work/fdsa-ch02-bottom-up",
+      "symref": ""
+    },
+    {
+      "oid": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "ref": "refs/heads/work/fdsa-ch02-development",
+      "symref": ""
+    },
+    {
+      "oid": "95cfce304b9b63057286acc7d5b20b53d95d8eaa",
+      "ref": "refs/heads/work/fdsa-ch02-insertion-observations",
+      "symref": ""
+    },
+    {
+      "oid": "47f66dccc414d41bddf0dc6576a2338227ee221e",
+      "ref": "refs/heads/work/fdsa-ch02-natural-runs",
+      "symref": ""
+    },
+    {
+      "oid": "5a3af21cb4ff56896f1a7d249736c4804c229873",
+      "ref": "refs/heads/work/fdsa-ch02-quicksort",
+      "symref": ""
+    },
+    {
+      "oid": "15a113b075c2ceb4d44c27a06fa9a69e019b57fc",
+      "ref": "refs/heads/work/fdsa-ch02-random-pivot",
+      "symref": ""
+    },
+    {
+      "oid": "e0df28b7bbfa722b25623606a5a1905620fac91e",
+      "ref": "refs/heads/work/fdsa-ch02-three-way",
+      "symref": ""
+    },
+    {
+      "oid": "66cd1cca539cb667a7bae17d91d51c0ffeb718dc",
+      "ref": "refs/heads/work/fdsa-ch02-top-down",
+      "symref": ""
+    },
+    {
+      "oid": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+      "ref": "refs/heads/work/fdsa-ch02-top-down-costs",
+      "symref": ""
+    },
+    {
+      "oid": "3b839319776238fe2a46f22db761058b44d68adc",
+      "ref": "refs/heads/work/fdsa-ch02-uniform-input",
+      "symref": ""
+    },
+    {
+      "oid": "b1677172ef85e40865fe8f292660c1bcfd6e5a0c",
+      "ref": "refs/heads/work/fdsa-ch02-values",
+      "symref": ""
+    },
+    {
+      "oid": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "ref": "refs/heads/work/fdsa-foundation-integration",
+      "symref": ""
+    },
+    {
+      "oid": "697bcf242ce65d74815b5639bddb1c6e754dd10f",
+      "ref": "refs/heads/work/fdsa-insertion-costs",
+      "symref": ""
+    },
+    {
+      "oid": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+      "ref": "refs/heads/work/fdsa-list-foundations",
+      "symref": ""
+    },
+    {
+      "oid": "a601ad713368daf8e18d5a5537a83d47138491fa",
+      "ref": "refs/heads/work/fdsa-logarithm-bounds",
+      "symref": ""
+    },
+    {
+      "oid": "863aedb924e922ac40747c0ef299701a7785488e",
+      "ref": "refs/heads/work/fdsa-ordered-search",
+      "symref": ""
+    },
+    {
+      "oid": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "ref": "refs/heads/work/fdsa-ordinary-merge",
+      "symref": ""
+    },
+    {
+      "oid": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+      "ref": "refs/heads/work/fdsa-partition-proof-fixes",
+      "symref": ""
+    },
+    {
+      "oid": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+      "ref": "refs/heads/work/fdsa-permutation-expectation",
+      "symref": ""
+    },
+    {
+      "oid": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+      "ref": "refs/heads/work/fdsa-permutation-joint",
+      "symref": ""
+    },
+    {
+      "oid": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+      "ref": "refs/heads/work/fdsa-permutation-minimum",
+      "symref": ""
+    },
+    {
+      "oid": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "ref": "refs/heads/work/fdsa-permutation-minimum-validation",
+      "symref": ""
+    },
+    {
+      "oid": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+      "ref": "refs/heads/work/fdsa-permutation-order",
+      "symref": ""
+    },
+    {
+      "oid": "bdac9703aab4b383fa775568d36bf685af329389",
+      "ref": "refs/heads/work/fdsa-permutation-order-validation",
+      "symref": ""
+    },
+    {
+      "oid": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "ref": "refs/heads/work/fdsa-permutation-placement",
+      "symref": ""
+    },
+    {
+      "oid": "a0597381f02eddd074ee96cabaa974f2062285f8",
+      "ref": "refs/heads/work/fdsa-permutation-tail",
+      "symref": ""
+    },
+    {
+      "oid": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "ref": "refs/heads/work/fdsa-permutation-tail-validation",
+      "symref": ""
+    },
+    {
+      "oid": "12cb14fc98b8617b3b625620da8e60936daba340",
+      "ref": "refs/heads/work/fdsa-potential-development",
+      "symref": ""
+    },
+    {
+      "oid": "c088beeb89aa18df45a56f6f1d6b6ff4ad374905",
+      "ref": "refs/heads/work/fdsa-priority-observations",
+      "symref": ""
+    },
+    {
+      "oid": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+      "ref": "refs/heads/work/fdsa-three-way-partition",
+      "symref": ""
+    },
+    {
+      "oid": "b035f1151ab4f0c7d7380818576cfe97dae434c4",
+      "ref": "refs/heads/work/fdsa-tree-accumulator",
+      "symref": ""
+    },
+    {
+      "oid": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "ref": "refs/heads/work/fdsa-tree-cache",
+      "symref": ""
+    },
+    {
+      "oid": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+      "ref": "refs/heads/work/fdsa-tree-fold",
+      "symref": ""
+    },
+    {
+      "oid": "7b8ab2bee299c937256bf9ce7e82977333d07134",
+      "ref": "refs/heads/work/fdsa-tree-leftmost",
+      "symref": ""
+    },
+    {
+      "oid": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+      "ref": "refs/heads/work/fdsa-tree-order",
+      "symref": ""
+    },
+    {
+      "oid": "28ba79d8d425400cb87d2daf3ecf1cc5a63a7aa2",
+      "ref": "refs/heads/work/fdsa-tree-rotations",
+      "symref": ""
+    },
+    {
+      "oid": "974a97321a8ec174b56104c7e6efaaca881b6639",
+      "ref": "refs/heads/work/fdsa-tree-shape",
+      "symref": ""
+    },
+    {
+      "oid": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "ref": "refs/heads/work/fdsa-tree-traversal-work",
+      "symref": ""
+    },
+    {
+      "oid": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "ref": "refs/remotes/origin/HEAD",
+      "symref": ""
+    },
+    {
+      "oid": "5be3ce96dbeb60365002414409c9421450e39cf0",
+      "ref": "refs/remotes/origin/integrate/frp",
+      "symref": ""
+    },
+    {
+      "oid": "47b556e83229ce11b27b5b7b4444c089a1e96ac3",
+      "ref": "refs/remotes/origin/integration/spec-15",
+      "symref": ""
+    },
+    {
+      "oid": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "ref": "refs/remotes/origin/master",
+      "symref": ""
+    },
+    {
+      "oid": "c12296f63c656737d07325e9d8e8e16d6976d099",
+      "ref": "refs/remotes/origin/reconstruction/adwh-154",
+      "symref": ""
+    },
+    {
+      "oid": "3efc9d926333c19f697a21afe7dd08af53e3a8cd",
+      "ref": "refs/remotes/origin/reconstruction/adwh-155",
+      "symref": ""
+    },
+    {
+      "oid": "e0d76c86040f38728289977c355b848cd6c7d8e3",
+      "ref": "refs/remotes/origin/reconstruction/adwh-180",
+      "symref": ""
+    },
+    {
+      "oid": "f68c79000bdb1ce223c403d38f8dd06e20cfbf29",
+      "ref": "refs/remotes/origin/reconstruction/adwh-181",
+      "symref": ""
+    },
+    {
+      "oid": "9c0a2649f9601c6294850f2b057698650360da9a",
+      "ref": "refs/remotes/origin/reconstruction/adwh-182",
+      "symref": ""
+    },
+    {
+      "oid": "16db707769c322fa17f2c48e24208f81292008da",
+      "ref": "refs/remotes/origin/reconstruction/adwh-183",
+      "symref": ""
+    },
+    {
+      "oid": "48b7655155950c4452bebf1268de1866d0f6129f",
+      "ref": "refs/remotes/origin/reconstruction/adwh-184",
+      "symref": ""
+    },
+    {
+      "oid": "30bbde79d154d1e8d942561c023a5e44d12ca420",
+      "ref": "refs/remotes/origin/reconstruction/adwh-186",
+      "symref": ""
+    },
+    {
+      "oid": "6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e",
+      "ref": "refs/remotes/origin/reconstruction/adwh-187",
+      "symref": ""
+    },
+    {
+      "oid": "855ce1f29ae0b7c7a7aec8321ead07be39c6ff32",
+      "ref": "refs/remotes/origin/reconstruction/adwh-190",
+      "symref": ""
+    },
+    {
+      "oid": "34c85983f601247fb62aea631c4212b7cb994b5b",
+      "ref": "refs/remotes/origin/reconstruction/adwh-array-cost-integration",
+      "symref": ""
+    },
+    {
+      "oid": "f4d3e2f36d5547f2236a601c837280bd0c23a774",
+      "ref": "refs/remotes/origin/research/27-frp-runtime",
+      "symref": ""
+    }
+  ],
+  "worktrees": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled",
+      "head": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "branch_ref": "refs/heads/work/fdsa-book",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.urOBCL\n",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      }
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "head": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "branch_ref": "refs/heads/work/fdsa-foundation-integration",
+      "status": "",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      }
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-bottom-up",
+      "head": "a6f950d7d5dc4aef521445250f9bfbd59166291d",
+      "branch_ref": "refs/heads/work/fdsa-ch02-bottom-up",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.EA8xCS\n",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      }
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-insertion",
+      "head": "43242f43cba0f2c90c17356d44d71e5765d8ba93",
+      "branch_ref": "refs/heads/work/fdsa-ch02-alternating",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.C0d1bT\n",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      }
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs",
+      "head": "47f66dccc414d41bddf0dc6576a2338227ee221e",
+      "branch_ref": "refs/heads/work/fdsa-ch02-natural-runs",
+      "status": "",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      }
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+      "head": "5a3af21cb4ff56896f1a7d249736c4804c229873",
+      "branch_ref": "refs/heads/work/fdsa-ch02-quicksort",
+      "status": "",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      }
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot",
+      "head": "15a113b075c2ceb4d44c27a06fa9a69e019b57fc",
+      "branch_ref": "refs/heads/work/fdsa-ch02-random-pivot",
+      "status": "",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      }
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-three-way",
+      "head": "e0df28b7bbfa722b25623606a5a1905620fac91e",
+      "branch_ref": "refs/heads/work/fdsa-ch02-three-way",
+      "status": "",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      }
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+      "head": "12cb14fc98b8617b3b625620da8e60936daba340",
+      "branch_ref": "refs/heads/work/fdsa-potential-development",
+      "status": "",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      }
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-uniform-input",
+      "head": "3b839319776238fe2a46f22db761058b44d68adc",
+      "branch_ref": "refs/heads/work/fdsa-ch02-uniform-input",
+      "status": "",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      }
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-difference-list-costs",
+      "head": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+      "branch_ref": "refs/heads/work/fdsa-builder-costs",
+      "status": "",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      }
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge",
+      "head": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "branch_ref": "refs/heads/work/fdsa-ordinary-merge",
+      "status": "",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      }
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-permutation-minimum",
+      "head": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "branch_ref": "refs/heads/work/fdsa-permutation-minimum-validation",
+      "status": "",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      }
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-permutation-order-validation",
+      "head": "bdac9703aab4b383fa775568d36bf685af329389",
+      "branch_ref": "refs/heads/work/fdsa-permutation-order-validation",
+      "status": "",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      }
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-permutation-tail-validation",
+      "head": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "branch_ref": "refs/heads/work/fdsa-permutation-tail-validation",
+      "status": "",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      }
+    }
+  ],
+  "ownership": "Root confirms no writer has resumed in these three idle worktrees. F71528 remains the sole compiler owner and its entire tree is excluded.",
+  "protected_paths_untouched": true,
+  "availability_before_mutation": {
+    "utc": "2026-11-04T12:34:09.139818+00:00",
+    "available_bytes": 5219446784,
+    "raw_free_bytes": 8672194560,
+    "total_bytes": 67586535424
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "recorded_utc": "2026-11-04T20:00:04.401649+00:00",
+  "fixed_stage_base": "bc26994a828eb958fe930c0e46039f9c5addc864",
+  "whole_chapter_review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "status_before": "Three new assigned files only; existing index and all tracked files clean.",
+  "scope": [
+    "C03-047",
+    "C03-048",
+    "C03-049",
+    "C03-050",
+    "C03-051"
+  ],
+  "source_files": [
+    {
+      "repository_path": "Applications/Selection/FixedRank.lean",
+      "bytes": 11177,
+      "sha256": "467b20f50cf94be3ae0aaff58d24bc9277b0a23932d7e2545bb53d2e96a695f8",
+      "public_names": 36,
+      "private_names": [
+        "take_orderedInsert_take"
+      ]
+    },
+    {
+      "repository_path": "Applications/Resources/FixedRank.lean",
+      "bytes": 7633,
+      "sha256": "831a78121a2ee7d7db773dd335febb938d8dfc8e7dbe944bb4cb7d71ec202c94",
+      "public_names": 23,
+      "private_names": []
+    },
+    {
+      "repository_path": "Examples/FixedRankSelection.lean",
+      "bytes": 7246,
+      "sha256": "c1ba9819d89af6a1d7f3c1678f10bed4b0614c63b385eb856144d315ebd955da",
+      "public_names": 27,
+      "private_names": []
+    }
+  ],
+  "full_source_readbacks": [
+    "a51d03",
+    "7df0c6"
+  ],
+  "static_preflight": "1d926f",
+  "preserved_six_sources": "Verified byte-identical to fixed-rank-starting-state.json.",
+  "lean_or_lake_execution": false,
+  "validation_state": "Uncompiled immutable development slice; actual types, focused build, full candidate check/audit and independent reviews remain pending.",
+  "remaining_exercises": [
+    "C03-053",
+    "C03-054",
+    "C03-055",
+    "C03-056",
+    "C03-057",
+    "C03-058"
+  ]
+}

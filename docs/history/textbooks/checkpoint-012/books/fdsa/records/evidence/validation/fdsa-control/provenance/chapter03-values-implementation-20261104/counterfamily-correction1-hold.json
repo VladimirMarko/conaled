@@ -1,0 +1,59 @@
+{
+  "recorded_utc": "2026-11-04T20:34:37.330741+00:00",
+  "disposition": "HELD for checkpoint0127 and root focused check. All own source/provenance writes stop until explicit post-checkpoint release.",
+  "candidate": "7758fdcd1d46cee392eee155d74311aeb45322a5",
+  "tree": "64921e2986797aa69574d7160cabfc98a07cad0b",
+  "status": "",
+  "finding": "C03-COUNTERFAMILY-ELAB-001",
+  "targets": [
+    "Applications.Selection.MedianCounterfamily",
+    "Examples.MedianCounterfamily"
+  ],
+  "all42_headers_and_cases_preserved": true,
+  "all14_current_source_identities_verified": true,
+  "all_other13_source_files_unchanged": true,
+  "combined_author_public_names": 323,
+  "combined_named_private_helpers": 6,
+  "artifacts": [
+    {
+      "path": "counterfamily-correction1-precommit.json",
+      "bytes": 1959,
+      "sha256": "1d82c275f18bd7a1883f980ea7d4607fe3d63a1343da6ab9f24c32f7c267824c"
+    },
+    {
+      "path": "counterfamily-correction1.diff",
+      "bytes": 1330,
+      "sha256": "65bcee59a678a32893911ffb876a18f4245280ce189bdd922603cfe05a79e07f"
+    },
+    {
+      "path": "counterfamily-candidate2.json",
+      "bytes": 3939,
+      "sha256": "df864bb8effb7a8a65aaedca132d2f822b589b5d54bb9654371965828a7d92fd"
+    },
+    {
+      "path": "MedianCounterfamilyStatements.lean",
+      "bytes": 3108,
+      "sha256": "41fd267a3eee8197b61856c4a6ed0f588fabfcd07b3365b658c197de254d6c20"
+    },
+    {
+      "path": "counterfamily-review-note-v2.md",
+      "bytes": 10480,
+      "sha256": "65adb558f5a740edf780b6fdb68067dc25bfedd99cedb77925eb866add3e0e9f"
+    }
+  ],
+  "readbacks": {
+    "complete_failed_log_terminal_and_closure": "52de5e",
+    "starting_state": "978631",
+    "complete_diff_commit_and_candidate_record": "59cf20"
+  },
+  "statement_assessment": "Original42-name source/case assessment plus correction statement assessment retained. The failed compiler result corrects the original static assumption about rw closing concrete block lengths. All mathematical requirements and source cases remain unchanged.",
+  "validation": "Successor uncompiled by author. No successor terminal received. No actual-type/full-check/audit/review/acceptance claim.",
+  "later_exercise_source_started": false,
+  "remaining_assigned": [
+    "C03-055 actual cutoff bridge",
+    "C03-057 connected generic pivot applications",
+    "C03-058 generalized algorithm termination/correctness bridges after authorized worker handoff"
+  ],
+  "root_owned_excluded": "C03-058 scalar group-coefficient and affine-majorant arithmetic",
+  "canonical_chapter_rows": 83
+}

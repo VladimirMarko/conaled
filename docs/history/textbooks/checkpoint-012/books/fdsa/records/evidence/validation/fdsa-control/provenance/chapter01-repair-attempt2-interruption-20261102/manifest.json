@@ -1,0 +1,37 @@
+{
+  "recorded_utc": "2026-11-02T21:42:17.402146+00:00",
+  "incident": "INC02 second lost-session observation, separate attempt2",
+  "tool_session": 61365,
+  "tool_outcome": "Unknown process id at2026-11-02T21:40:40UTC",
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "metadata_state": "Original raw result=running retained as historical; it does not establish current liveness.",
+  "terminal_exit": "unknown",
+  "termination_cause": "unknown",
+  "files": {
+    "partial.log": {
+      "bytes": 185444,
+      "sha256": "42fe5ae44a6a03fc6d6dded3f2331b15b191436a950a1c5f1fbb6b68607c78bd"
+    },
+    "host-process-observation.json": {
+      "bytes": 1018,
+      "sha256": "cd6662ca10121fb1fa6eaceff1a776a55b0faf74764dad0d6798895f768a2422"
+    },
+    "raw-attempt-metadata.json": {
+      "bytes": 1280,
+      "sha256": "691911d9e5062f4511a22b2e54c215a6f43ab82936b72ce31d855a9d5165e4e2"
+    },
+    "artifact-inventory.json": {
+      "bytes": 566704,
+      "sha256": "d48b792b2276ad1cfbb7637fac3f32ea2b135a92d12f0d7c56b0ded8274a8e12"
+    },
+    "finite-family-preservation.json": {
+      "bytes": 961,
+      "sha256": "2901dc39179c4dac96929ce7e0f216a1efe63e209d006250f7eb57de1ce3d9e8"
+    },
+    "artifacts/ir/Applications/FRP/Finite.setup.json": {
+      "bytes": 6735454,
+      "sha256": "edf08e13d90d6f817952b55f0c4221f6f9f87df0ba8e0d99da52d75b15d788ee"
+    }
+  },
+  "next_step": "Read preserved evidence and retained Standards disposition before any new compiler/checker/cache action. No source or build output changed."
+}

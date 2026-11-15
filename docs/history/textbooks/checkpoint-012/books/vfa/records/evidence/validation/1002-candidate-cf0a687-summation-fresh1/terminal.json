@@ -1,0 +1,20 @@
+{
+  "observed_utc": "2026-11-04T11:13:12.650943+00:00",
+  "session": 82082,
+  "actual_terminal_exit_code": 1,
+  "candidate": "cf0a687265c1929ffd3ff6f15fa18febe0fb61b5",
+  "kit_log_directory": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T063010Z-project-run-fde51929",
+  "output_bytes": 89126,
+  "output_sha256": "4e08aafee0a0a8f53804c346bb97521d600e9e7b24a4950883435a1ad4bdd244",
+  "kit_exit_code": 1,
+  "timed_out": false,
+  "recorder_error": null,
+  "successful_ordinary_module_count": 936,
+  "failed_ordinary_module_position": 937,
+  "failed_module": "SquareKit.Temporal.Monitor",
+  "diagnostic": "Invalid field Nat.le.trans at lines58/59; unsolved k \u2264 min k xs.length at line123; unknown lt_self_iff_false at line176.",
+  "verification_present": false,
+  "exhaustive_audit_executed": false,
+  "gate_passed": false,
+  "ordinary_available_bytes": 5803278336
+}

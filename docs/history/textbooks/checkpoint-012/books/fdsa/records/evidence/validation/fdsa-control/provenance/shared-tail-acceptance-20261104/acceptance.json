@@ -1,0 +1,176 @@
+{
+  "schema": "fdsa.shared-tail.acceptance.v1",
+  "recorded_utc": "2026-11-04T16:45:43.760301+00:00",
+  "status": "Accepted and integrated locally; acceptance durability follows separately",
+  "branch": "work/fdsa-book",
+  "accepted_commit": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "accepted_tree": "43f1c15166931d4bd3e91e6dbf12059d0da1cfc2",
+  "previous_accepted_commit": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "original_Tail_base": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+  "original_Tail_draft": "a0597381f02eddd074ee96cabaa974f2062285f8",
+  "corrected_Tail_tip": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+  "scope": "Complete original six-path XU03 conditional remaining-order laws with all connected cases and original findings",
+  "source_public_names": 61,
+  "source_public_theorems": 46,
+  "source_public_definitions": 15,
+  "private_theorems": 19,
+  "anonymous_local_instances": 8,
+  "full_check": {
+    "actual_exit": 0,
+    "owned_session": 16392,
+    "terminal_tool_chunk": "a0c3e0",
+    "record": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-full-attempt1-20261104/result.json",
+      "bytes": 1246,
+      "sha256": "0424520e1881da2154c5b0bcf235429e56433d8e6578b50e694d289e57646002"
+    },
+    "closed_log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-full-attempt1-20261104/full.log",
+      "bytes": 284574,
+      "sha256": "3247019f0fa2844cf6a719a51a3396d04c12d3e7b7b715117eed797289f805bf"
+    },
+    "verification": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-full-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "sha256": "0cd4efa701892c229d61bca325a4c0a2aaa9a26428fa409f7d2195ac1e227a46"
+    },
+    "audit": {
+      "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+      "checked_modules": 983,
+      "audit_module_rows": 981,
+      "kernel_safe_declarations": 45809,
+      "theorem_declarations": 25533,
+      "unsafe_excluded": 0,
+      "permitted_axiom_union": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "audit_row_sums_match_headline": true,
+      "whole_project_counts_not_new_book_result_counts": true,
+      "focused_current_Tail_modules_successful": [
+        "\u26a0 [9801/9804] Built Applications.Probability.PermutationTail (10s)",
+        "\u26a0 [9802/9805] Built Examples.PermutationTailBoundary (7.4s)",
+        "\u26a0 [9803/9821] Built Examples.PermutationTail (4.0s)"
+      ],
+      "all_actual_Built_lines": [
+        "\u26a0 [9801/9804] Built Applications.Probability.PermutationTail (10s)",
+        "\u26a0 [9802/9805] Built Examples.PermutationTailBoundary (7.4s)",
+        "\u26a0 [9803/9821] Built Examples.PermutationTail (4.0s)",
+        "\u2714 [10028/10028] Built SquareApplications (223s)"
+      ],
+      "build_completed_jobs": 10028,
+      "pre_guard_artifacts": 2937,
+      "pre_guard_expected_new_missing_modules": 3,
+      "post_guard_artifacts": 2946,
+      "post_guard_inconsistent": 0,
+      "incremental_compile_seconds": 292.38,
+      "audit_seconds": 244.85
+    }
+  },
+  "public_type_evidence": {
+    "actual61_exit": 0,
+    "owned_session": 43963,
+    "terminal_tool_chunk": "cc8d52",
+    "current61": 61,
+    "qualified_J53": 53,
+    "qualified_I314": 314,
+    "qualified_F110": 110,
+    "distinct": 538,
+    "both_complete_actual61_reads": true,
+    "both_all52_ellipsis_contexts_assessed": true,
+    "both_explicit_receiving_qualifications": true,
+    "mechanical_comparison": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-inherited-type-qualification-20261104/comparison.json",
+      "bytes": 65793,
+      "sha256": "dc52b0cc515a7d058832f2a39bcf16147a62cfe9ffaf60281d7e76a077849387"
+    }
+  },
+  "independent_axes": {
+    "Standards": {
+      "outcome": "Passed",
+      "new_findings": 0,
+      "unresolved": 0,
+      "report": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/permutation-tail-standards-final-20261104.md",
+        "bytes": 15441,
+        "sha256": "c912730c717de8ca17595a068f27e360884ef84519c56e93236ac8658084f189"
+      },
+      "completion": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-standards-terminal-assessment-20261104/completion.json",
+        "bytes": 4734,
+        "sha256": "728d8681697efcef939bfe8791aaf9a193cbfec424d5430d1c23adc9b4a6ad80"
+      }
+    },
+    "Spec": {
+      "outcome": "PASS",
+      "new_findings": 0,
+      "unresolved": 0,
+      "report": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/permutation-tail-spec-final-20261104.md",
+        "bytes": 14391,
+        "sha256": "e1e97c2726b8aae3e5c12872fd4ebe0213fde92340a4969b1048242525fff485"
+      },
+      "completion": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-spec-terminal-20261104/readback-and-hold.json",
+        "bytes": 11469,
+        "sha256": "0c996e795ca24f84d96fc0683d3f5a2bc18cf7924c12cf9fa5e21208d3fa9c59"
+      }
+    }
+  },
+  "root_gate": {
+    "actual_exit": 0,
+    "tool_chunk": "41eb01",
+    "record": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-acceptance-20261104/root-gate-reconciliation.json",
+      "bytes": 27449,
+      "sha256": "ff8ee4c13ec32ac79a7236b9adc79e05d6857d341394b79457f2f18d3862d43d"
+    },
+    "bound_files": 91,
+    "native_read_chunks": 41,
+    "saved_artifact_readback_chunks": 25
+  },
+  "immediate_verification": {
+    "actual_exit": 0,
+    "owned_session": 92237,
+    "terminal_tool_chunk": "488c00",
+    "complete_record_read_chunk": "4bc883",
+    "result": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-immediate-verification-20261104-attempt1/result.json",
+      "bytes": 1269,
+      "sha256": "3a3f078a300bbb37780bc5f6d67d92e0bdb106275de4c3bbdc6aa728ad6fc9a4"
+    },
+    "closed_evidence": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-immediate-verification-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 3049,
+      "sha256": "5894522dcfd63e7b4f510f23617ae7e9064b79cff21ba6dfcc175457c21b73fa"
+    }
+  },
+  "fast_forward": {
+    "actual_exit": 0,
+    "tool_chunk": "b862b4",
+    "completed_utc": "2026-11-04T16:44:18.014776+00:00",
+    "record": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-acceptance-20261104/fast-forward-result.json",
+      "bytes": 7963,
+      "sha256": "d915aea813726d2aca9eca39338be8f85c3453b81614bc31586b07dd66f736b4"
+    },
+    "all_other65_refs_preserved": true,
+    "unrelated_baseline_preserved": true
+  },
+  "finding_dispositions": {
+    "all_original_XU03_findings": "Resolved or confirmed at exactL with original histories retained",
+    "C02-DOC-003_Tail": "Finally confirmed atL; global completeC2 remains open",
+    "C02-TYPE-001_Tail_receiving": "Resolved specifically forL and qualified predecessor set; originalZ920/815/28 remains historical"
+  },
+  "environment": "Qualified unchanged official Lean/Lake4.35.0,nativekit1.0.0,disclosed narrow adapter,exactninepins;one thread and solebuilder;Nix waived;normal acceptance with no new fresh trigger",
+  "previous_acceptances_preserved": [
+    "07e480f6ec9958d4975bb90151005b84f2907614",
+    "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "312aafb4446b995ff5542041b4e2e074f776db1e",
+    "932438a765340d69fa6402f6abd17def6ec28d13"
+  ],
+  "no_GitHub_mutation_or_push": true,
+  "next": "Acceptancecheckpoint0119; then separately assembled completeC2 under originalR/81paths/112obligations/ten scopes/1763names",
+  "acceptance_checkpoint": "Pending separate verified upload/exposure record; see subsequent durability.json"
+}

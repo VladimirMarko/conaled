@@ -1,0 +1,161 @@
+{
+  "schema": 1,
+  "started_utc": "2026-11-03T00:15:41.587535+00:00",
+  "finished_utc": "2026-11-03T00:15:43.713847+00:00",
+  "status": "created_and_verified",
+  "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-incident-002-returned-archives.tar",
+  "bytes": 434339840,
+  "sha256": "a34d9162d2a050ae72f8915c358386805490d182b8d60e1e30e2253c75d1a697",
+  "member_count": 53,
+  "payload_count": 3,
+  "payload_bytes": 433516489,
+  "metadata_file_count": 49,
+  "full_payload_capture_and_roundtrip_hash_verification": "passed",
+  "source_identity_and_missing_binding_stability": "passed",
+  "archive_identity": {
+    "device": 27,
+    "inode": 2405991,
+    "mode": 420,
+    "regular": true,
+    "nlink": 1,
+    "size_bytes": 434339840,
+    "allocated_bytes": 434380800,
+    "mtime_ns": 1793664942632249894,
+    "ctime_ns": 1793664942632249894,
+    "uid": 0,
+    "gid": 0
+  },
+  "preparation": "work-state/validation/1025-incident-archive002-preparation.json",
+  "assessment_sha256": "1ee05447323d1e71ba60eda98bcb1c0c128a0868ff2bc6111b8b4b7001d437d7",
+  "captures": [
+    {
+      "checkpoint": 0,
+      "source_path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-000-bootstrap.tar.gz",
+      "member": "payloads/conaled-vfa-checkpoint-000-bootstrap.tar.gz",
+      "source_identity_before": {
+        "device": 27,
+        "inode": 2399921,
+        "mode": 420,
+        "regular": true,
+        "nlink": 1,
+        "size_bytes": 142659672,
+        "allocated_bytes": 142667776,
+        "mtime_ns": 1793586022140343950,
+        "ctime_ns": 1793609049154806562,
+        "uid": 0,
+        "gid": 0
+      },
+      "source_identity_after": {
+        "device": 27,
+        "inode": 2399921,
+        "mode": 420,
+        "regular": true,
+        "nlink": 1,
+        "size_bytes": 142659672,
+        "allocated_bytes": 142667776,
+        "mtime_ns": 1793586022140343950,
+        "ctime_ns": 1793609049154806562,
+        "uid": 0,
+        "gid": 0
+      },
+      "binding_before": {
+        "status": "missing",
+        "errno": 61
+      },
+      "binding_after": {
+        "status": "missing",
+        "errno": 61
+      },
+      "captured_bytes": 142659672,
+      "captured_sha256": "cdd95d12407eb5472f91ab33873b43bca1fe3ea711ba8e497a8e53f09b0d4a1e"
+    },
+    {
+      "checkpoint": 12,
+      "source_path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-012-positive-key-adapters.tar.gz",
+      "member": "payloads/conaled-vfa-checkpoint-012-positive-key-adapters.tar.gz",
+      "source_identity_before": {
+        "device": 27,
+        "inode": 2403650,
+        "mode": 420,
+        "regular": true,
+        "nlink": 1,
+        "size_bytes": 145397542,
+        "allocated_bytes": 145403904,
+        "mtime_ns": 1793605650309045487,
+        "ctime_ns": 1793615468619405618,
+        "uid": 0,
+        "gid": 0
+      },
+      "source_identity_after": {
+        "device": 27,
+        "inode": 2403650,
+        "mode": 420,
+        "regular": true,
+        "nlink": 1,
+        "size_bytes": 145397542,
+        "allocated_bytes": 145403904,
+        "mtime_ns": 1793605650309045487,
+        "ctime_ns": 1793615468619405618,
+        "uid": 0,
+        "gid": 0
+      },
+      "binding_before": {
+        "status": "missing",
+        "errno": 61
+      },
+      "binding_after": {
+        "status": "missing",
+        "errno": 61
+      },
+      "captured_bytes": 145397542,
+      "captured_sha256": "8d5104119ae3b1d2c9da470b1a2fc5785ea45ac432581f0944672e91fb9d312a"
+    },
+    {
+      "checkpoint": 13,
+      "source_path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-013-retention-imports-candidate.tar.gz",
+      "member": "payloads/conaled-vfa-checkpoint-013-retention-imports-candidate.tar.gz",
+      "source_identity_before": {
+        "device": 27,
+        "inode": 2403651,
+        "mode": 420,
+        "regular": true,
+        "nlink": 1,
+        "size_bytes": 145459275,
+        "allocated_bytes": 145469440,
+        "mtime_ns": 1793607851670962784,
+        "ctime_ns": 1793615468619405618,
+        "uid": 0,
+        "gid": 0
+      },
+      "source_identity_after": {
+        "device": 27,
+        "inode": 2403651,
+        "mode": 420,
+        "regular": true,
+        "nlink": 1,
+        "size_bytes": 145459275,
+        "allocated_bytes": 145469440,
+        "mtime_ns": 1793607851670962784,
+        "ctime_ns": 1793615468619405618,
+        "uid": 0,
+        "gid": 0
+      },
+      "binding_before": {
+        "status": "missing",
+        "errno": 61
+      },
+      "binding_after": {
+        "status": "missing",
+        "errno": 61
+      },
+      "captured_bytes": 145459275,
+      "captured_sha256": "1292dcf0a2fde6b32578278be0def82442e95380ed290c8f7eab2951225f46a5"
+    }
+  ],
+  "limitations": [
+    "Current old Library bindings are missing and are not reconstructed.",
+    "Unknown writer, return times and return mechanism remain unknown.",
+    "No source, active cache, compiler configuration, process or prior saved item is modified.",
+    "This evidence companion is not the latest source recovery checkpoint."
+  ]
+}

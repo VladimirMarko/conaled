@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "scope": "Bounded native feasibility only, not approved runtime or project acceptance",
+  "recorded_at": "2026-11-03T16:23:58.102782+00:00",
+  "source_sha256": "90158463e87d14acdd83721452a4faf810249c17c967731ba55f513c8b2f1858",
+  "library_sha256": "94971bd936f36b1851b0245c035f8ae6bbce49e3038f4321749daec9b80662d8",
+  "original_binaries_unchanged": true,
+  "inherited_preload_present": false,
+  "commands": [
+    {
+      "argv": [
+        "cc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2",
+        "-fPIC",
+        "-fvisibility=hidden",
+        "-shared",
+        "/workspace/scratch/b566cace4ed6/pfds/session/environment/native-own-exe.c",
+        "-o",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/native-own-exe.so",
+        "-ldl",
+        "-pthread"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "seconds": 0.14714133999950718
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/probe",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/probe",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/absent"
+      ],
+      "returncode": 0,
+      "stdout": "own-pid=passed count=75 errno=0\nself=passed count=75 errno=0\ntruncation=passed count=3 errno=0\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=0\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\nunrelated-pid=passed count=-1 errno=2\n",
+      "stderr": "",
+      "seconds": 0.0030567059984605294,
+      "case": "enabled",
+      "marker": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/probe"
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/probe",
+        "ENOENT",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/absent"
+      ],
+      "returncode": 0,
+      "stdout": "own-pid-refused=passed count=-1 errno=2\nself-refused=passed count=-1 errno=2\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=0\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\nunrelated-pid=passed count=-1 errno=2\n",
+      "stderr": "",
+      "seconds": 0.003097054999670945,
+      "case": "unmarked",
+      "marker": null
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/probe",
+        "ENOENT",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/ordinary-link",
+        "target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/target.txt",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-own-exe-042/absent"
+      ],
+      "returncode": 0,
+      "stdout": "own-pid-refused=passed count=-1 errno=2\nself-refused=passed count=-1 errno=2\nzero-size=passed count=-1 errno=22\nordinary-link=passed count=10 errno=0\nregular-file=passed count=-1 errno=22\nmissing-file=passed count=-1 errno=2\nunrelated-pid=passed count=-1 errno=2\n",
+      "stderr": "",
+      "seconds": 0.0025508849994366756,
+      "case": "wrong-child",
+      "marker": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lean"
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lean",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": "",
+      "seconds": 0.21222704499996325,
+      "case": "native-lean-version",
+      "marker": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lean"
+    },
+    {
+      "argv": [
+        "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lake",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)\n",
+      "stderr": "",
+      "seconds": 0.10947340500024438,
+      "case": "native-lake-version",
+      "marker": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-linux/bin/lake"
+    }
+  ],
+  "formal_acceptance": false
+}

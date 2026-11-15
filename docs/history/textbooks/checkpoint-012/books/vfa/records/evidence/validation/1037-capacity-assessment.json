@@ -1,0 +1,41 @@
+{
+  "observed_utc": "2026-11-04T04:07:44+00:00",
+  "observer": "native_review independent bounded read-only assessment",
+  "scope": "Only current workspace; sequential statvfs and du-x observations, not atomic",
+  "capacity_bytes": 67586535424,
+  "filesystem_allocated_bytes": 41959530496,
+  "physical_free_bytes": 25627004928,
+  "ordinary_available_bytes": 22174257152,
+  "workspace_allocated_bytes": 9065197568,
+  "filesystem_allocation_not_accounted_for_by_workspace_scan": 32894332928,
+  "unaccounted_allocation_cause": "Not established; no outside paths inspected",
+  "principal_trees": {
+    "native-state": 4613881856,
+    "conaled-vfa": 4354662400,
+    "conaled-vfa/vfa-validation": 3973640192,
+    "upload": 79650816,
+    "reference": 16879616
+  },
+  "official_toolchain_allocated_bytes": 3487121408,
+  "private_fresh_output_followup_bytes": 18784256,
+  "staging_observations": {
+    "completed_installer_allocated_bytes": 594489344,
+    "unattributed_installer_temporary_payloads_bytes": [
+      47710208,
+      108003328
+    ],
+    "mathlib_staging_remnant_bytes": 9961472,
+    "compact_capture_empty_directories": 582,
+    "compact_capture_directory_bytes": 2383872,
+    "cache_archives_count": 3931,
+    "cache_archives_allocated_bytes": 244793344,
+    "cache_partial_names_count": 2798,
+    "cache_partial_allocated_bytes": 98304,
+    "cache_transfer_configs_bytes": 1114112,
+    "retained_smoke_fixtures_bytes": 9113600,
+    "setup_cache_utility_allocated_bytes": 119672832
+  },
+  "cleanup_performed": false,
+  "global_quiescence_claimed": false,
+  "conclusion": "No multi-gigabyte owned cleanup opportunity identified. Re-measure ordinary availability before bounded collector. No new capacity waiver or source/runtime action."
+}

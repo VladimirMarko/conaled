@@ -1,0 +1,1165 @@
+{
+  "started_utc": "2026-11-04T11:33:17.405772+00:00",
+  "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+  "action": "Read-only final preflight; no generated payload mutation",
+  "allowed_roots": [
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/.lake/build",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/plausible/.lake/build",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/LeanSearchClient/.lake/build",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/importGraph/.lake/build",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/proofwidgets/.lake/build",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/aesop/.lake/build",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/Qq/.lake/build",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/batteries/.lake/build"
+  ],
+  "guard_manifest_sha256": "17743ece85790c406ab9807bd1a1477a5529a4c577526f4ddf22fd13a657bc81",
+  "completed_utc": "2026-11-04T11:33:21.837264+00:00",
+  "actual_exit": 0,
+  "roots": [
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        1448738,
+        4,
+        4096,
+        1793766949757501308,
+        1793766949757501308,
+        8
+      ],
+      "ancestors": [
+        {
+          "component": "workspace",
+          "dev": 51,
+          "ino": 22
+        },
+        {
+          "component": "scratch",
+          "dev": 51,
+          "ino": 23
+        },
+        {
+          "component": "b4a17a285e23",
+          "dev": 27,
+          "ino": 2889817
+        },
+        {
+          "component": "fdsa-restored-20261104",
+          "dev": 27,
+          "ino": 2892498
+        },
+        {
+          "component": "conaled-ch02-top-down",
+          "dev": 27,
+          "ino": 2899709
+        },
+        {
+          "component": ".lake",
+          "dev": 27,
+          "ino": 1445442
+        },
+        {
+          "component": "build",
+          "dev": 27,
+          "ino": 1448738
+        }
+      ],
+      "counts": {
+        "directories": 37,
+        "files": 1000,
+        "apparent_bytes": 169264846,
+        "allocated_bytes": 171982848
+      },
+      "metadata_stream_sha256": "47396d8f819f74db513613ef01a3835af210e666e169c36d5f589a1b233ce284",
+      "suffix_counts": {
+        ".c": 125,
+        ".hash": 375,
+        ".ilean": 125,
+        ".json": 125,
+        ".olean": 125,
+        ".trace": 125
+      },
+      "possible_unique_evidence": [],
+      "largest_files": [
+        {
+          "bytes": 3325486,
+          "path": "ir/Examples/UniformQuickSortMean.setup.json"
+        },
+        {
+          "bytes": 3236367,
+          "path": "ir/Examples/PermutationTail.setup.json"
+        },
+        {
+          "bytes": 3236191,
+          "path": "ir/Examples/PermutationTailBoundary.setup.json"
+        },
+        {
+          "bytes": 2891017,
+          "path": "ir/Examples/PermutationOrder.setup.json"
+        },
+        {
+          "bytes": 2890839,
+          "path": "ir/Examples/PermutationOrderBoundary.setup.json"
+        },
+        {
+          "bytes": 2890457,
+          "path": "ir/Examples/PermutationMinimum.setup.json"
+        },
+        {
+          "bytes": 2810589,
+          "path": "ir/Examples/RandomQuickSortGrowth.setup.json"
+        },
+        {
+          "bytes": 2810395,
+          "path": "ir/Applications/Resources/RandomQuickSortGrowth.setup.json"
+        },
+        {
+          "bytes": 2803024,
+          "path": "ir/Applications/Resources/UniformQuickSortMean.setup.json"
+        },
+        {
+          "bytes": 2726563,
+          "path": "ir/Examples/RandomQuickSortRank.setup.json"
+        }
+      ]
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/.lake/build",
+      "root_identity": [
+        16832,
+        27,
+        411227,
+        4,
+        4096,
+        1793766945778285124,
+        1793767024053701453,
+        8
+      ],
+      "ancestors": [
+        {
+          "component": "workspace",
+          "dev": 51,
+          "ino": 22
+        },
+        {
+          "component": "scratch",
+          "dev": 51,
+          "ino": 23
+        },
+        {
+          "component": "b4a17a285e23",
+          "dev": 27,
+          "ino": 2889817
+        },
+        {
+          "component": "fdsa-restored-20261104",
+          "dev": 27,
+          "ino": 2892498
+        },
+        {
+          "component": "conaled-ch02-top-down",
+          "dev": 27,
+          "ino": 2899709
+        },
+        {
+          "component": ".lake",
+          "dev": 27,
+          "ino": 1445442
+        },
+        {
+          "component": "packages",
+          "dev": 27,
+          "ino": 396806
+        },
+        {
+          "component": "mathlib",
+          "dev": 27,
+          "ino": 396805
+        },
+        {
+          "component": ".lake",
+          "dev": 27,
+          "ino": 411226
+        },
+        {
+          "component": "build",
+          "dev": 27,
+          "ino": 411227
+        }
+      ],
+      "counts": {
+        "directories": 2433,
+        "files": 129375,
+        "apparent_bytes": 6583178446,
+        "allocated_bytes": 7001104384
+      },
+      "metadata_stream_sha256": "d87026403af6042d638c5c920480e7437b69539ff1a039b94646adb92bf4f69c",
+      "suffix_counts": {
+        ".c": 8625,
+        ".hash": 60375,
+        ".ilean": 8625,
+        ".ir": 8625,
+        ".olean": 8625,
+        ".private": 8625,
+        ".server": 8625,
+        ".sig": 8625,
+        ".trace": 8625
+      },
+      "possible_unique_evidence": [],
+      "largest_files": [
+        {
+          "bytes": 9338376,
+          "path": "lib/lean/Mathlib/AlgebraicGeometry/EllipticCurve/Projective/Formula.olean.private"
+        },
+        {
+          "bytes": 8226832,
+          "path": "lib/lean/Mathlib/RingTheory/Etale/QuasiFinite.olean.private"
+        },
+        {
+          "bytes": 7607936,
+          "path": "lib/lean/Mathlib/AlgebraicGeometry/AffineTransitionLimit.olean.private"
+        },
+        {
+          "bytes": 6621120,
+          "path": "lib/lean/Mathlib/RingTheory/Polynomial/Resultant/Basic.olean.private"
+        },
+        {
+          "bytes": 6304320,
+          "path": "lib/lean/Mathlib/CategoryTheory/Bicategory/Adjunction/Mate.olean.private"
+        },
+        {
+          "bytes": 6067976,
+          "path": "lib/lean/Mathlib/Tactic/Widget/StringDiagram.olean.private"
+        },
+        {
+          "bytes": 5648728,
+          "path": "lib/lean/Mathlib/Tactic/Module.olean.private"
+        },
+        {
+          "bytes": 5152696,
+          "path": "lib/lean/Mathlib/Tactic/FieldSimp.olean.private"
+        },
+        {
+          "bytes": 5115440,
+          "path": "lib/lean/Mathlib/Tactic/CategoryTheory/Monoidal/Basic.olean.private"
+        },
+        {
+          "bytes": 5043504,
+          "path": "lib/lean/Mathlib/AlgebraicGeometry/EllipticCurve/Affine/AddSubMap.olean.private"
+        }
+      ]
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/plausible/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        935275,
+        4,
+        4096,
+        1793763793118835293,
+        1793765620162635264,
+        8
+      ],
+      "ancestors": [
+        {
+          "component": "workspace",
+          "dev": 51,
+          "ino": 22
+        },
+        {
+          "component": "scratch",
+          "dev": 51,
+          "ino": 23
+        },
+        {
+          "component": "b4a17a285e23",
+          "dev": 27,
+          "ino": 2889817
+        },
+        {
+          "component": "fdsa-restored-20261104",
+          "dev": 27,
+          "ino": 2892498
+        },
+        {
+          "component": "conaled-ch02-top-down",
+          "dev": 27,
+          "ino": 2899709
+        },
+        {
+          "component": ".lake",
+          "dev": 27,
+          "ino": 1445442
+        },
+        {
+          "component": "packages",
+          "dev": 27,
+          "ino": 396806
+        },
+        {
+          "component": "plausible",
+          "dev": 27,
+          "ino": 935137
+        },
+        {
+          "component": ".lake",
+          "dev": 27,
+          "ino": 935274
+        },
+        {
+          "component": "build",
+          "dev": 27,
+          "ino": 935275
+        }
+      ],
+      "counts": {
+        "directories": 5,
+        "files": 195,
+        "apparent_bytes": 13066131,
+        "allocated_bytes": 13705216
+      },
+      "metadata_stream_sha256": "4c495991ba6c642e797753cad236fa64df1efc6ae6c53a171fde89f010736f99",
+      "suffix_counts": {
+        ".c": 13,
+        ".hash": 91,
+        ".ilean": 13,
+        ".ir": 13,
+        ".olean": 13,
+        ".private": 13,
+        ".server": 13,
+        ".sig": 13,
+        ".trace": 13
+      },
+      "possible_unique_evidence": [],
+      "largest_files": [
+        {
+          "bytes": 1276040,
+          "path": "lib/lean/Plausible/Testable.olean.private"
+        },
+        {
+          "bytes": 1168040,
+          "path": "lib/lean/Plausible/DeriveArbitrary.olean.private"
+        },
+        {
+          "bytes": 1011944,
+          "path": "lib/lean/Plausible/DeriveShrinkable.olean.private"
+        },
+        {
+          "bytes": 964807,
+          "path": "ir/Plausible/Testable.c"
+        },
+        {
+          "bytes": 899608,
+          "path": "lib/lean/Plausible/Testable.olean"
+        },
+        {
+          "bytes": 699251,
+          "path": "ir/Plausible/DeriveArbitrary.c"
+        },
+        {
+          "bytes": 617040,
+          "path": "lib/lean/Plausible/Testable.ir"
+        },
+        {
+          "bytes": 563346,
+          "path": "ir/Plausible/DeriveShrinkable.c"
+        },
+        {
+          "bytes": 493376,
+          "path": "lib/lean/Plausible/Gen.olean.private"
+        },
+        {
+          "bytes": 423560,
+          "path": "lib/lean/Plausible/Tactic.olean.private"
+        }
+      ]
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/LeanSearchClient/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        935552,
+        4,
+        4096,
+        1793766945435125504,
+        1793767024021700835,
+        8
+      ],
+      "ancestors": [
+        {
+          "component": "workspace",
+          "dev": 51,
+          "ino": 22
+        },
+        {
+          "component": "scratch",
+          "dev": 51,
+          "ino": 23
+        },
+        {
+          "component": "b4a17a285e23",
+          "dev": 27,
+          "ino": 2889817
+        },
+        {
+          "component": "fdsa-restored-20261104",
+          "dev": 27,
+          "ino": 2892498
+        },
+        {
+          "component": "conaled-ch02-top-down",
+          "dev": 27,
+          "ino": 2899709
+        },
+        {
+          "component": ".lake",
+          "dev": 27,
+          "ino": 1445442
+        },
+        {
+          "component": "packages",
+          "dev": 27,
+          "ino": 396806
+        },
+        {
+          "component": "LeanSearchClient",
+          "dev": 27,
+          "ino": 935476
+        },
+        {
+          "component": ".lake",
+          "dev": 27,
+          "ino": 935551
+        },
+        {
+          "component": "build",
+          "dev": 27,
+          "ino": 935552
+        }
+      ],
+      "counts": {
+        "directories": 5,
+        "files": 60,
+        "apparent_bytes": 4912859,
+        "allocated_bytes": 5107712
+      },
+      "metadata_stream_sha256": "5e137dd69a2bdc98ff5b20129a222b251fdf910dadba4dee5900ef5a8552cb1e",
+      "suffix_counts": {
+        ".c": 4,
+        ".hash": 28,
+        ".ilean": 4,
+        ".ir": 4,
+        ".olean": 4,
+        ".private": 4,
+        ".server": 4,
+        ".sig": 4,
+        ".trace": 4
+      },
+      "possible_unique_evidence": [],
+      "largest_files": [
+        {
+          "bytes": 1092472,
+          "path": "lib/lean/LeanSearchClient/Syntax.olean.private"
+        },
+        {
+          "bytes": 803720,
+          "path": "lib/lean/LeanSearchClient/LoogleSyntax.olean.private"
+        },
+        {
+          "bytes": 647250,
+          "path": "ir/LeanSearchClient/Syntax.c"
+        },
+        {
+          "bytes": 523048,
+          "path": "lib/lean/LeanSearchClient/Syntax.olean"
+        },
+        {
+          "bytes": 443925,
+          "path": "ir/LeanSearchClient/LoogleSyntax.c"
+        },
+        {
+          "bytes": 429952,
+          "path": "lib/lean/LeanSearchClient/Syntax.ir"
+        },
+        {
+          "bytes": 398464,
+          "path": "lib/lean/LeanSearchClient/LoogleSyntax.olean"
+        },
+        {
+          "bytes": 304760,
+          "path": "lib/lean/LeanSearchClient/LoogleSyntax.ir"
+        },
+        {
+          "bytes": 51363,
+          "path": "lib/lean/LeanSearchClient/Syntax.ilean"
+        },
+        {
+          "bytes": 49899,
+          "path": "ir/LeanSearchClient/Basic.c"
+        }
+      ]
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/importGraph/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        935764,
+        4,
+        4096,
+        1793766945520509849,
+        1793767024049701377,
+        8
+      ],
+      "ancestors": [
+        {
+          "component": "workspace",
+          "dev": 51,
+          "ino": 22
+        },
+        {
+          "component": "scratch",
+          "dev": 51,
+          "ino": 23
+        },
+        {
+          "component": "b4a17a285e23",
+          "dev": 27,
+          "ino": 2889817
+        },
+        {
+          "component": "fdsa-restored-20261104",
+          "dev": 27,
+          "ino": 2892498
+        },
+        {
+          "component": "conaled-ch02-top-down",
+          "dev": 27,
+          "ino": 2899709
+        },
+        {
+          "component": ".lake",
+          "dev": 27,
+          "ino": 1445442
+        },
+        {
+          "component": "packages",
+          "dev": 27,
+          "ino": 396806
+        },
+        {
+          "component": "importGraph",
+          "dev": 27,
+          "ino": 935618
+        },
+        {
+          "component": ".lake",
+          "dev": 27,
+          "ino": 935763
+        },
+        {
+          "component": "build",
+          "dev": 27,
+          "ino": 935764
+        }
+      ],
+      "counts": {
+        "directories": 23,
+        "files": 525,
+        "apparent_bytes": 33366439,
+        "allocated_bytes": 35078144
+      },
+      "metadata_stream_sha256": "ebfb13b9d2ff7f887dbcc857cc24fa6df505bd135e17a1302bf3f688ce148d09",
+      "suffix_counts": {
+        ".c": 35,
+        ".hash": 245,
+        ".ilean": 35,
+        ".ir": 35,
+        ".olean": 35,
+        ".private": 35,
+        ".server": 35,
+        ".sig": 35,
+        ".trace": 35
+      },
+      "possible_unique_evidence": [],
+      "largest_files": [
+        {
+          "bytes": 2641408,
+          "path": "lib/lean/ImportGraph/Shake/DeclNeeds.olean.private"
+        },
+        {
+          "bytes": 1556360,
+          "path": "lib/lean/ImportGraph/Tools/FindHome.olean.private"
+        },
+        {
+          "bytes": 1397167,
+          "path": "ir/ImportGraph/Shake/DeclNeeds.c"
+        },
+        {
+          "bytes": 1219440,
+          "path": "lib/lean/ImportGraph/Imports/Pretty.olean.private"
+        },
+        {
+          "bytes": 1051664,
+          "path": "lib/lean/ImportGraph/Shake/Workspace.olean.private"
+        },
+        {
+          "bytes": 991632,
+          "path": "lib/lean/ImportGraph/Shake/Environment.olean.private"
+        },
+        {
+          "bytes": 875871,
+          "path": "ir/ImportGraph/Tools/FindHome.c"
+        },
+        {
+          "bytes": 798928,
+          "path": "lib/lean/ImportGraph/Shake/DeclNeeds.ir"
+        },
+        {
+          "bytes": 784344,
+          "path": "lib/lean/ImportGraph/WorkspaceModel/Build.olean.private"
+        },
+        {
+          "bytes": 701464,
+          "path": "lib/lean/ImportGraph/Imports/RequiredModules.olean.private"
+        }
+      ]
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/proofwidgets/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        936460,
+        4,
+        4096,
+        1793765237067860313,
+        1793765527804865556,
+        8
+      ],
+      "ancestors": [
+        {
+          "component": "workspace",
+          "dev": 51,
+          "ino": 22
+        },
+        {
+          "component": "scratch",
+          "dev": 51,
+          "ino": 23
+        },
+        {
+          "component": "b4a17a285e23",
+          "dev": 27,
+          "ino": 2889817
+        },
+        {
+          "component": "fdsa-restored-20261104",
+          "dev": 27,
+          "ino": 2892498
+        },
+        {
+          "component": "conaled-ch02-top-down",
+          "dev": 27,
+          "ino": 2899709
+        },
+        {
+          "component": ".lake",
+          "dev": 27,
+          "ino": 1445442
+        },
+        {
+          "component": "packages",
+          "dev": 27,
+          "ino": 396806
+        },
+        {
+          "component": "proofwidgets",
+          "dev": 27,
+          "ino": 936313
+        },
+        {
+          "component": ".lake",
+          "dev": 27,
+          "ino": 936459
+        },
+        {
+          "component": "build",
+          "dev": 27,
+          "ino": 936460
+        }
+      ],
+      "counts": {
+        "directories": 13,
+        "files": 195,
+        "apparent_bytes": 20102276,
+        "allocated_bytes": 20717568
+      },
+      "metadata_stream_sha256": "46a58f6a356685980ddce0f213945f55212f6824476afa71f98bcbb91404a41c",
+      "suffix_counts": {
+        ".c": 13,
+        ".hash": 91,
+        ".ilean": 13,
+        ".ir": 13,
+        ".olean": 13,
+        ".private": 13,
+        ".server": 13,
+        ".sig": 13,
+        ".trace": 13
+      },
+      "possible_unique_evidence": [],
+      "largest_files": [
+        {
+          "bytes": 2899816,
+          "path": "lib/lean/ProofWidgets/Component/PenroseDiagram.olean"
+        },
+        {
+          "bytes": 2869177,
+          "path": "ir/ProofWidgets/Component/PenroseDiagram.c"
+        },
+        {
+          "bytes": 2791072,
+          "path": "lib/lean/ProofWidgets/Component/PenroseDiagram.ir"
+        },
+        {
+          "bytes": 1226672,
+          "path": "lib/lean/ProofWidgets/Data/Html.olean.private"
+        },
+        {
+          "bytes": 729456,
+          "path": "lib/lean/ProofWidgets/Data/Html.olean"
+        },
+        {
+          "bytes": 671538,
+          "path": "ir/ProofWidgets/Data/Html.c"
+        },
+        {
+          "bytes": 438096,
+          "path": "lib/lean/ProofWidgets/Data/Html.ir"
+        },
+        {
+          "bytes": 436448,
+          "path": "lib/lean/ProofWidgets/Presentation/Expr.olean.private"
+        },
+        {
+          "bytes": 423856,
+          "path": "lib/lean/ProofWidgets/Cancellable.olean.private"
+        },
+        {
+          "bytes": 399552,
+          "path": "lib/lean/ProofWidgets/Presentation/Expr.olean"
+        }
+      ]
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/aesop/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        936973,
+        4,
+        4096,
+        1793766945443317653,
+        1793767024021700835,
+        8
+      ],
+      "ancestors": [
+        {
+          "component": "workspace",
+          "dev": 51,
+          "ino": 22
+        },
+        {
+          "component": "scratch",
+          "dev": 51,
+          "ino": 23
+        },
+        {
+          "component": "b4a17a285e23",
+          "dev": 27,
+          "ino": 2889817
+        },
+        {
+          "component": "fdsa-restored-20261104",
+          "dev": 27,
+          "ino": 2892498
+        },
+        {
+          "component": "conaled-ch02-top-down",
+          "dev": 27,
+          "ino": 2899709
+        },
+        {
+          "component": ".lake",
+          "dev": 27,
+          "ino": 1445442
+        },
+        {
+          "component": "packages",
+          "dev": 27,
+          "ino": 396806
+        },
+        {
+          "component": "aesop",
+          "dev": 27,
+          "ino": 936669
+        },
+        {
+          "component": ".lake",
+          "dev": 27,
+          "ino": 936972
+        },
+        {
+          "component": "build",
+          "dev": 27,
+          "ino": 936973
+        }
+      ],
+      "counts": {
+        "directories": 51,
+        "files": 1980,
+        "apparent_bytes": 130994252,
+        "allocated_bytes": 137449472
+      },
+      "metadata_stream_sha256": "120bf7b55d1a51d95642cac49f1e210ad9c8013f8326561ccfbb26886587f097",
+      "suffix_counts": {
+        ".c": 132,
+        ".hash": 924,
+        ".ilean": 132,
+        ".ir": 132,
+        ".olean": 132,
+        ".private": 132,
+        ".server": 132,
+        ".sig": 132,
+        ".trace": 132
+      },
+      "possible_unique_evidence": [],
+      "largest_files": [
+        {
+          "bytes": 3849760,
+          "path": "lib/lean/Aesop/Forward/State.olean.private"
+        },
+        {
+          "bytes": 3230216,
+          "path": "lib/lean/Aesop/RuleSet.olean.private"
+        },
+        {
+          "bytes": 2593795,
+          "path": "ir/Aesop/Forward/State.c"
+        },
+        {
+          "bytes": 2195227,
+          "path": "ir/Aesop/RuleSet.c"
+        },
+        {
+          "bytes": 2016280,
+          "path": "lib/lean/Aesop/Search/Expansion/Norm.olean.private"
+        },
+        {
+          "bytes": 1795736,
+          "path": "lib/lean/Aesop/Saturate.olean.private"
+        },
+        {
+          "bytes": 1444640,
+          "path": "lib/lean/Aesop/Script/SpecificTactics.olean.private"
+        },
+        {
+          "bytes": 1397784,
+          "path": "lib/lean/Aesop/Forward/State.ir"
+        },
+        {
+          "bytes": 1346720,
+          "path": "lib/lean/Aesop/Frontend/RuleExpr.olean.private"
+        },
+        {
+          "bytes": 1319064,
+          "path": "lib/lean/Aesop/Frontend/Command.olean.private"
+        }
+      ]
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/Qq/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        939159,
+        4,
+        4096,
+        1793766945437100403,
+        1793767024021700835,
+        8
+      ],
+      "ancestors": [
+        {
+          "component": "workspace",
+          "dev": 51,
+          "ino": 22
+        },
+        {
+          "component": "scratch",
+          "dev": 51,
+          "ino": 23
+        },
+        {
+          "component": "b4a17a285e23",
+          "dev": 27,
+          "ino": 2889817
+        },
+        {
+          "component": "fdsa-restored-20261104",
+          "dev": 27,
+          "ino": 2892498
+        },
+        {
+          "component": "conaled-ch02-top-down",
+          "dev": 27,
+          "ino": 2899709
+        },
+        {
+          "component": ".lake",
+          "dev": 27,
+          "ino": 1445442
+        },
+        {
+          "component": "packages",
+          "dev": 27,
+          "ino": 396806
+        },
+        {
+          "component": "Qq",
+          "dev": 27,
+          "ino": 939023
+        },
+        {
+          "component": ".lake",
+          "dev": 27,
+          "ino": 939158
+        },
+        {
+          "component": "build",
+          "dev": 27,
+          "ino": 939159
+        }
+      ],
+      "counts": {
+        "directories": 7,
+        "files": 210,
+        "apparent_bytes": 21008898,
+        "allocated_bytes": 21684224
+      },
+      "metadata_stream_sha256": "01943935363755e04f0f3f18a22cf302f5424ddcadcdd9ea8baf0782dc4a0fb8",
+      "suffix_counts": {
+        ".c": 14,
+        ".hash": 98,
+        ".ilean": 14,
+        ".ir": 14,
+        ".olean": 14,
+        ".private": 14,
+        ".server": 14,
+        ".sig": 14,
+        ".trace": 14
+      },
+      "possible_unique_evidence": [],
+      "largest_files": [
+        {
+          "bytes": 3377024,
+          "path": "lib/lean/Qq/Macro.olean.private"
+        },
+        {
+          "bytes": 2320800,
+          "path": "lib/lean/Qq/Match.olean.private"
+        },
+        {
+          "bytes": 2238373,
+          "path": "ir/Qq/Macro.c"
+        },
+        {
+          "bytes": 2016392,
+          "path": "lib/lean/Qq/Macro.olean"
+        },
+        {
+          "bytes": 1351488,
+          "path": "lib/lean/Qq/Macro.ir"
+        },
+        {
+          "bytes": 1221800,
+          "path": "ir/Qq/Match.c"
+        },
+        {
+          "bytes": 909944,
+          "path": "lib/lean/Qq/Match.olean"
+        },
+        {
+          "bytes": 793232,
+          "path": "lib/lean/Qq/Match.ir"
+        },
+        {
+          "bytes": 630704,
+          "path": "lib/lean/Qq/AssertInstancesCommute.olean.private"
+        },
+        {
+          "bytes": 505280,
+          "path": "lib/lean/Qq/Commands.olean.private"
+        }
+      ]
+    },
+    {
+      "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/batteries/.lake/build",
+      "root_identity": [
+        16877,
+        27,
+        939748,
+        4,
+        4096,
+        1793766945471784059,
+        1793767024033701067,
+        8
+      ],
+      "ancestors": [
+        {
+          "component": "workspace",
+          "dev": 51,
+          "ino": 22
+        },
+        {
+          "component": "scratch",
+          "dev": 51,
+          "ino": 23
+        },
+        {
+          "component": "b4a17a285e23",
+          "dev": 27,
+          "ino": 2889817
+        },
+        {
+          "component": "fdsa-restored-20261104",
+          "dev": 27,
+          "ino": 2892498
+        },
+        {
+          "component": "conaled-ch02-top-down",
+          "dev": 27,
+          "ino": 2899709
+        },
+        {
+          "component": ".lake",
+          "dev": 27,
+          "ino": 1445442
+        },
+        {
+          "component": "packages",
+          "dev": 27,
+          "ino": 396806
+        },
+        {
+          "component": "batteries",
+          "dev": 27,
+          "ino": 939377
+        },
+        {
+          "component": ".lake",
+          "dev": 27,
+          "ino": 939747
+        },
+        {
+          "component": "build",
+          "dev": 27,
+          "ino": 939748
+        }
+      ],
+      "counts": {
+        "directories": 87,
+        "files": 2925,
+        "apparent_bytes": 140506590,
+        "allocated_bytes": 150294528
+      },
+      "metadata_stream_sha256": "d40e8a057ad57bfde8aee84da67a9ac1009d7abf246be11022da2a1ef22770d2",
+      "suffix_counts": {
+        ".c": 195,
+        ".hash": 1365,
+        ".ilean": 195,
+        ".ir": 195,
+        ".olean": 195,
+        ".private": 195,
+        ".server": 195,
+        ".sig": 195,
+        ".trace": 195
+      },
+      "possible_unique_evidence": [],
+      "largest_files": [
+        {
+          "bytes": 5423840,
+          "path": "lib/lean/Batteries/Data/List/Lemmas.olean.private"
+        },
+        {
+          "bytes": 3659208,
+          "path": "lib/lean/Batteries/Recycling/RBTree/WF.olean.private"
+        },
+        {
+          "bytes": 2897288,
+          "path": "lib/lean/Batteries/Recycling/RBTree/Lemmas.olean.private"
+        },
+        {
+          "bytes": 2654672,
+          "path": "lib/lean/Batteries/Data/String/Lemmas.olean.private"
+        },
+        {
+          "bytes": 2519848,
+          "path": "lib/lean/Batteries/Data/BinaryHeap/WF.olean.private"
+        },
+        {
+          "bytes": 2363656,
+          "path": "lib/lean/Batteries/Util/ProofWanted.olean.private"
+        },
+        {
+          "bytes": 1932848,
+          "path": "lib/lean/Batteries/Data/BinaryHeap/Lemmas.olean.private"
+        },
+        {
+          "bytes": 1813784,
+          "path": "lib/lean/Batteries/Tactic/GeneralizeProofs.olean.private"
+        },
+        {
+          "bytes": 1748568,
+          "path": "lib/lean/Batteries/Data/List/Basic.olean.private"
+        },
+        {
+          "bytes": 1673960,
+          "path": "lib/lean/Batteries/Data/BinomialHeap/Basic.olean.private"
+        }
+      ]
+    }
+  ],
+  "protected_refs": {
+    "refs/heads/work/fdsa-book": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "refs/heads/work/fdsa-foundation-integration": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "refs/heads/work/fdsa-ch02-development": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "refs/heads/work/fdsa-list-foundations": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+    "refs/heads/work/fdsa-potential-development": "12cb14fc98b8617b3b625620da8e60936daba340"
+  },
+  "dependency_pins": {
+    "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "plausible": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+    "LeanSearchClient": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+    "importGraph": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+    "proofwidgets": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+    "aesop": "4a174c490d8707121c4a9290800489f105d85e07",
+    "Qq": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+    "batteries": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+    "Cli": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+  },
+  "source_clean_unchanged": true,
+  "total_files": 136465,
+  "total_apparent_bytes": 7116400737,
+  "total_allocated_bytes": 7557124096,
+  "possible_unique_evidence": [],
+  "evidence_locations": "All actual focused/type native and outer logs/results, input observations and reviews are outside these roots in fdsa-control; no central .lake/verification.json exists. Generated traces remain reproducible artifacts.",
+  "central_verification_record_exists": false,
+  "available_bytes": 2541572096,
+  "raw_free_bytes": 5994319872,
+  "retirement_performed": false
+}

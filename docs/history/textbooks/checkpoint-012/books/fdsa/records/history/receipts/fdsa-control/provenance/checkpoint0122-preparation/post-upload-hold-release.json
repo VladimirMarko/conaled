@@ -1,0 +1,20 @@
+{
+  "recorded_utc": "2026-11-04T18:23:54.390214+00:00",
+  "checkpoint": "conaled-fdsa-0122-accepted-chapter02",
+  "library_file_id": "libfile_bd68f45a79dc8191b9bba484b30eb4a6",
+  "release_scope": "new assigned Chapter 3 implementation and preparation only; completed immutable review and acceptance evidence remains held",
+  "control_files_updated": [
+    "CURRENT.md",
+    "STATUS.md",
+    "tickets/FDSA-002.md",
+    "tickets/INDEX.md",
+    "reviews/chapter02-round1.md"
+  ],
+  "compiler_live": false,
+  "catalog_update_initial_failure": {
+    "actual_exit": 1,
+    "tool_chunk": "5f9911",
+    "reason": "Historical catalog entries need not have a name key; membership check raised KeyError before catalog/control writes. Existing successful upload and durability records were retained.",
+    "correction": "Use optional name lookup for heterogeneous historical entries; no checkpoint evidence, source, ref or review changed."
+  }
+}

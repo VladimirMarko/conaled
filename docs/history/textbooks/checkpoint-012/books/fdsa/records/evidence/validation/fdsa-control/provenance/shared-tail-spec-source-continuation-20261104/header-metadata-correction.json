@@ -1,0 +1,50 @@
+{
+  "schema": "fdsa-spec-authored-header-metadata-correction-v1",
+  "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "original_source_assessment": {
+    "path": "source-assessment.json",
+    "sha256": "862f2b48e0212d7e08137f3f88946df3772be4b1e5e36dfa41874b0c513b8388",
+    "preserved_unchanged": true
+  },
+  "original_report_prefix": {
+    "bytes": 13360,
+    "lines": 73,
+    "sha256": "063f52b930b8da0f902bd17cbd44259fb7bf63950616871f29e0671ee1114c15"
+  },
+  "affected_name": "Examples.PermutationTail.observed_hasLaw",
+  "old_row": {
+    "source": "Examples/PermutationTail.lean",
+    "line": 50,
+    "kind": "theorem",
+    "name": "Examples.PermutationTail.observed_hasLaw",
+    "private": false,
+    "header": "theorem observed_hasLaw :\n    HasLaw observedOrder\n      (uniformOn (orders positions selected : Set (List (Fin 4)))) law where\n  aemeasurable\n",
+    "header_sha256": "ca78ebf59bbdb5acbc8884d3fc10f73b7cd0b7b599c4fb9238f64913b5d639c1"
+  },
+  "corrected_row": {
+    "source": "Examples/PermutationTail.lean",
+    "line": 50,
+    "kind": "theorem",
+    "name": "Examples.PermutationTail.observed_hasLaw",
+    "private": false,
+    "header": "theorem observed_hasLaw :\n    HasLaw observedOrder\n      (uniformOn (orders positions selected : Set (List (Fin 4)))) law\n",
+    "header_sha256": "e1801311fa9cb315368737f66d10ad011c8235162069e680c346c3dd8afde092"
+  },
+  "cause": "The initial convenience parser stopped at the first := and included where plus the first aemeasurable proof-field prefix. Saved-artifact readback detected this one metadata defect. The exact theorem statement prefix instead ends before where; retain normalized terminal LF.",
+  "complete_scan_of_80_headers": {
+    "where_affected": 1,
+    "other79_unchanged": true
+  },
+  "immutable_source_read": {
+    "path": "Examples/PermutationTail.lean",
+    "lines": [
+      44,
+      56
+    ],
+    "tool_chunk": "c52cf3"
+  },
+  "mathematical_source_or_type_change": false,
+  "source_declaration_inventory_changed": false,
+  "actual_type_credit": 0,
+  "outcome": "Effective header metadata corrected; no mathematical or source finding; source assessment complete and overall Blocked pending full/type/final gates."
+}

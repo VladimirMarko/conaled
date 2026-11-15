@@ -1,0 +1,21 @@
+error: Examples/RandomQuickSortGrowth.lean:27:4: Type mismatch
+  exerciseMean_eq_harmonic (fun x => 0) []
+    (of_eq_true (Eq.trans (congrArg List.Nodup List.map_nil) List.nodup_nil._simp_1))
+has type
+  exerciseMean (fun a b => decide (0 < 0)) [] = 8 * (↑[].length + 1) * ↑(harmonic [].length) - 12 * ↑[].length + 1
+but is expected to have type
+  exerciseMean (fun x x_1 => false) [] = 8 * (0 + 1) * ↑(harmonic 0) - 12 * 0 + 1
+error: Examples/RandomQuickSortGrowth.lean:165:2: Type mismatch: After simplification, term
+  ⟨he, hf⟩
+ has type
+  And
+    ((fun i => exerciseMean (fun a b => decide (id a < id b)) (List.range (i + 2))) =O[Filter.atTop] fun i =>
+      ↑(i + 2) * Real.logb 2 ↑(i + 2))
+    ((fun i => literalMean (fun a b => decide (id a < id b)) (List.range (i + 2))) =O[Filter.atTop] fun i =>
+      ↑(i + 2) * Real.logb 2 ↑(i + 2))
+but is expected to have type
+  And
+    ((fun n => exerciseMean (fun a b => decide (a < b)) (List.range (n + 2))) =O[Filter.atTop] fun n =>
+      ↑(n + 2) * Real.logb 2 ↑(n + 2))
+    ((fun n => literalMean (fun a b => decide (a < b)) (List.range (n + 2))) =O[Filter.atTop] fun n =>
+      ↑(n + 2) * Real.logb 2 ↑(n + 2))

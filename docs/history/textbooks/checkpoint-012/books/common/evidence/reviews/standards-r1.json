@@ -1,0 +1,111 @@
+{
+  "schema": "textbook-integration-standards-review/v1",
+  "reviewer": "/root/integration_review/standards",
+  "date": "2026-11-14",
+  "phase": "provisional-source-analysis",
+  "outcome": "Blocked",
+  "approval_requested": false,
+  "source_analysis_complete": true,
+  "base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "merge_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "candidate": "337c29ff2e2b969e701a9deb84840d6b148dd175",
+  "candidate_tree": "70a8cab787ac1f5fb2b9bdda46ca4f4bb4e11f23",
+  "requirements": {
+    "path": "checkpoint/conaled-textbooks/books/common/REQUIREMENTS.md",
+    "version": "2026-11-13-user-clarifications",
+    "sha256": "9358100642aa0a6eef7793459666d39f14ce6edd4437520aff656366df9b97df"
+  },
+  "scope": {
+    "changed_paths": 356,
+    "lean_paths": 326,
+    "added_lines": 67134,
+    "deleted_lines": 66,
+    "manifest_paths": 465,
+    "explicit_exclusions": [],
+    "projections": [],
+    "original_full_spec_base_retained": true
+  },
+  "donor_identity_accounting": {
+    "method": "Enumerate every changed Lean path from the fixed-base candidate diff; compare immutable Git blob IDs at that path with each of the three incoming candidates and extra FDSA donor.",
+    "matching_paths": 321,
+    "total_paths": 326,
+    "donors": [
+      "eae9e110adc7ba1cc28386448a6deef23e406c13",
+      "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "12cb14fc98b8617b3b625620da8e60936daba340"
+    ],
+    "new_or_reconciled_paths": [
+      "Applications/Resources/Growth.lean",
+      "Applications/Resources/Potential.lean",
+      "Examples/TextbookSequences.lean",
+      "Examples/TextbookSorting.lean",
+      "SquareApplications.lean"
+    ],
+    "historical_approval_reused": false
+  },
+  "findings": [
+    {
+      "id": "INT-ST-001",
+      "severity": "Low",
+      "status": "Open",
+      "kind": "documentation-correctness",
+      "title": "Duplicate source identifier S9 in merged provenance catalog",
+      "locations": ["docs/SOURCES.md:90", "docs/SOURCES.md:140", "docs/SOURCES.md:154", "docs/research/pfds-union-coverage.md:5"],
+      "rule": "ADR 0001 provenance policy; unambiguous unified source correspondence",
+      "evidence": "PFDS and VFA are both S9, FDSA is S10; PFDS union coverage explicitly cites S9.",
+      "consequence": "One central source label identifies two different books, making short source correspondence ambiguous despite distinct full heading anchors.",
+      "remedy": "Assign unique stable IDs and update affected references; retaining PFDS S9 and using VFA S10/FDSA S11 preserves the existing PFDS citation.",
+      "candidate": "337c29ff2e2b969e701a9deb84840d6b148dd175",
+      "independently_verified": true,
+      "mathematical_statement_change_required": false
+    }
+  ],
+  "nonfinding_observations": [
+    {
+      "location": "Applications/Search/AbstractSet.lean:90",
+      "description": "Inherited extra blank line at EOF reported by root; cosmetic, no established mathematical or architectural consequence. Root owns optional cleanup and recapture."
+    }
+  ],
+  "validation": {
+    "status": "pending",
+    "terminal_full_check_presented": false,
+    "compiler_owner": "/root",
+    "reviewer_ran_compiler": false,
+    "partial_log_inferred_as_pass": false,
+    "durability_prerequisite_receipt": "intake/003-delivery.json",
+    "durability_archive_sha256": "d25cd846e815c3185796cced6a14499be71343f0490a80a8d08372374794d49e",
+    "remaining": [
+      "Resolve INT-ST-001 and review the exact corrected candidate",
+      "Matching applicable full check and exhaustive audit evidence",
+      "Both independent review axes on the same candidate",
+      "Final candidate verification and snapshot comparison",
+      "Required durable delivery before handoff or session completion"
+    ]
+  },
+  "inherited_findings": {
+    "canonical_pfds_register": "checkpoint/conaled-textbooks/books/pfds/records/evidence/reviews/common-integration-coordinator-r1-045.md#5-all-retained-ids-with-separate-axis-dispositions",
+    "canonical_pfds_ids": 39,
+    "pfds_repair_or_static_closures": 23,
+    "pfds_source_or_ownership_boundaries": 2,
+    "pfds_open_validation_ids": 14,
+    "standards_owned_or_shared_pfds_validation_ids": [
+      "IMPORT-VAL-004",
+      "CH02-PRE-005",
+      "SUSP-STD-VAL-001",
+      "PURE-STD-VAL-001",
+      "COUNT-STD-VAL-001",
+      "PERSIST-ACC-STD-VAL-001",
+      "BODY-COUNT-STD-VAL-001",
+      "SIGNED-POT-STD-VAL-001"
+    ],
+    "vfa_standards_open": ["ST-002"],
+    "vfa_spec_cross_reference": ["SP-VAL-001"],
+    "retained_boundaries": ["SUSP-STAT-001", "PREP-10019-02"],
+    "deferred_fdsa_scope_owner": "INT-020",
+    "deferred_vfa_scope_owner": "INT-021",
+    "historical_outcomes_changed": false,
+    "current_closures_claimed": false
+  },
+  "complete_report": "intake/review/standards-r1.md"
+}

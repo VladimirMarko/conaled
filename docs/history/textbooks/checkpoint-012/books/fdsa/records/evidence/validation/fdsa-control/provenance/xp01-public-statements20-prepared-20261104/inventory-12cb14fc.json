@@ -1,0 +1,70 @@
+{
+  "prepared_utc": "2026-11-04T11:15:24.736592+00:00",
+  "status": "PREPARED ONLY; bound to correction2. Actual focused3/type output and both semantic assessments pending.",
+  "original_source_candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+  "names": [
+    "Resources.budget",
+    "Resources.budget_append",
+    "Resources.budget_map",
+    "Resources.run_potential_map_of_invariant",
+    "Resources.run_potential_map_exact_of_invariant",
+    "Resources.run_potential_map",
+    "Resources.run_potential_map_exact",
+    "Resources.run_cost_le_map_of_invariant",
+    "Resources.budget_amortized",
+    "Resources.charge_iff_signed",
+    "Resources.run_potential",
+    "Resources.run_potential_exact",
+    "Resources.run_cost_le",
+    "Resources.run_zero_potential",
+    "Resources.budget_constant",
+    "Resources.budget_le_constant",
+    "Resources.run_constant_charge",
+    "Resources.initial_potential_matters",
+    "Resources.FIFOContracts.abstractBudget",
+    "Examples.MappedPotentialAccounting.Counter.real_boundary"
+  ],
+  "declarations": 20,
+  "roots": [
+    "Applications.Resources.Potential",
+    "Applications.Resources.FIFOContracts",
+    "Examples.MappedPotentialAccounting"
+  ],
+  "program_bytes": 1002,
+  "program_lines": 28,
+  "program_sha256": "ea75026303b461b1bb676e060aaac51e37797cbb2afd3d6356c08ba28c7eb01f",
+  "printing_options": {
+    "pp.universes": true,
+    "pp.explicit": true,
+    "pp.fullNames": true
+  },
+  "scope": "All18 public Potential names, FIFO abstractBudget, sole new example public named Counter.real_boundary; both independent axes confirm exact source surface. Private/anonymous claims and required Nat clients remain full source/compilation/audit scope.",
+  "preserved_Nat_contracts": 8,
+  "new_kernel_or_theorem_count_not_inferred": true,
+  "input_observations": "Use unchanged reviewed capture_statement_inputs.py only when the project compiler is idle; actual before and after snapshots, qualified stock-build lineage and complete independent actual-output reading remain required.",
+  "full_acceptance": "Separate applicable complete candidate check/audit/both final reviews/immediate verification; no acceptance credit from this preparation.",
+  "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+  "sources": [
+    {
+      "path": "Applications/Resources/FIFOContracts.lean",
+      "bytes": 8308,
+      "lines": 168,
+      "sha256": "f0215c25e27380b170297c9cc010375da4ef263380088f4ae8fdbb7272373343",
+      "git_blob": "01839707e852b3faff6ef1a49ad88a76fb5e5c18"
+    },
+    {
+      "path": "Applications/Resources/Potential.lean",
+      "bytes": 11606,
+      "lines": 239,
+      "sha256": "c921f5a18f9c508c338d49eed9d3bd2a2193f968cfc3e9efb4208f8917efa33c",
+      "git_blob": "dcf7ae78d76c1440c2d89711e6939a00ff24cc90"
+    },
+    {
+      "path": "Examples/MappedPotentialAccounting.lean",
+      "bytes": 6932,
+      "lines": 166,
+      "sha256": "2c83479daec51deb21ec95e26af816bc0dfaa682fdb5ee76ee28cdf1e681386a",
+      "git_blob": "1fb26b51e9f298bd1ba1d1a5fa2a425142f8d8d7"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "recorded_at": "2026-11-15T03:01:09.525290+00:00",
+  "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+  "requirements_version": "2026-11-15-ready-for-conaled-handoff",
+  "requirements_sha256": "e09c5af2de201d808cfe2ed81870991bc82f195223fff2c5aa3f3273a00001ad",
+  "purpose": "Stable R6 checkpoint handoff inputs, outside the unchanged conaled source diff. REVIEW.json and new review reports are coordinator outputs, not circular self-hashed inputs. Source receipt and original full-spec base remain unchanged.",
+  "files": {
+    "HANDOFF.md": {
+      "bytes": 12998,
+      "sha256": "dc08dac4cc40108c56e1b18177dc1a39be3261ce1c656aa3c9b69ff0e6864854"
+    },
+    "README.md": {
+      "bytes": 7683,
+      "sha256": "c9ce23b170435ffeb117069f1b81d7087226027252093d87be3bb7e27ca17966"
+    },
+    "REQUIREMENTS.md": {
+      "bytes": 13764,
+      "sha256": "e09c5af2de201d808cfe2ed81870991bc82f195223fff2c5aa3f3273a00001ad"
+    },
+    "STATUS.md": {
+      "bytes": 10854,
+      "sha256": "d9f08da9aa54bb9c0da26e3713d33ee25291cae7b50860da203253c6bf5b2c8f"
+    },
+    "ISSUES.json": {
+      "bytes": 10697,
+      "sha256": "89728e9350fe2fc94c20807d3712780e2bb24a0421ffb5974458f42298d5cbfd"
+    },
+    "EXECUTION.md": {
+      "bytes": 3527,
+      "sha256": "4c5039b2aa077b3c796d02fff7b034875b82670e09dbbdf187204507dfc295c4"
+    },
+    "VALIDATION-HANDOFF.md": {
+      "bytes": 8811,
+      "sha256": "159725dadf892d93fbfc5ba326b793ae9cb0450872d6dab1d779e676f781fa18"
+    },
+    "COVERAGE.md": {
+      "bytes": 38973,
+      "sha256": "779c1701392c921b81d6c193c9e149c29adf99cc881a0a0fd03650f5b229a59b"
+    },
+    "evidence/retry-r5-reported-observations.json": {
+      "bytes": 3237,
+      "sha256": "57a28e835105f6d55e590956d97a2c5777407b403d3a834ba4e1b793952c01b8"
+    },
+    "evidence/input-recovery-012.json": {
+      "bytes": 1977,
+      "sha256": "64969be66830a9ccbba8f195d081d5b6d3396e8a892dd7f729a533722f50fdcd"
+    },
+    "evidence/recovered-candidate-012.json": {
+      "bytes": 1383,
+      "sha256": "bbecb43a2d640ecf398e5f67b71983d864e2d14656b7ec632c5ab4d05c7982fd"
+    },
+    "evidence/patch-export-012.json": {
+      "bytes": 975,
+      "sha256": "484a19ae99de92320291e746150fbf2bd400716110274b21ad9ed68429076717"
+    },
+    "evidence/handoff-source-check-012.json": {
+      "bytes": 11346,
+      "sha256": "016c5784ce0a3c481000c16c19312f36e2db2b3a8a42fabfd564bde3af1edc8c"
+    },
+    "evidence/requirements-r5.md": {
+      "bytes": 12036,
+      "sha256": "7b4217dd89508c2863304880e2e99c8776d220bdfe6ff710aaae3bf82670159d"
+    },
+    "evidence/validation-handoff-r6.json": {
+      "bytes": 1057,
+      "sha256": "8b11fa009ced72dde0de7d2e61329c863680abaafd4eac35d1fea87ddb9064fe"
+    },
+    "evidence/validation-handoff-r6.patch": {
+      "bytes": 2878,
+      "sha256": "87d1eeb8006b765c5a0a356b305dec0b7530a1833cd7df8b54f96edacea9f6ff"
+    }
+  },
+  "revision": 3,
+  "previous_manifest": "handoff-content-012-review.json",
+  "previous_manifest_sha256": "1d2068062251db08ffc24c086593294ea2c140cf42e6d9afb662d2fe7d833113",
+  "correction": "INT-ST-004 final bookkeeping: INT-091 points to REVIEW.json as the sole current handoff outcome owner; final acceptance blocker and R5/retry facts retained. Source, requirements and other 15 inputs unchanged."
+}

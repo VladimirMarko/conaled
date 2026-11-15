@@ -1,0 +1,29 @@
+{
+  "base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "phase": "source-only compatibility reading; uncompiled",
+  "extracted_eight_declaration_fragment": {
+    "unchanged_bytes": true,
+    "bytes": 2350,
+    "sha256": "b9b77db666fee99c520e2bebdddb8d4d9d2420800147ca54fc84bfd99344b287"
+  },
+  "selection_suffix_from_sorted_partition": {
+    "unchanged_bytes": true,
+    "bytes": 7882,
+    "sha256": "d81e7a883d8f974d7903090689cf292a1b4871fe65b0644258608fd03de227d3"
+  },
+  "unchanged_files": {
+    "Applications/Selection/Rank.lean": {
+      "sha256": "4a82df75593d909e2968bf1e27cbfea52c9795abfe81250bb2385e7dfc16f965",
+      "bytes": 3713
+    },
+    "Applications/Selection/Consumers.lean": {
+      "sha256": "7ddfe4da069279ac03b075088ce34e32a5ee8c1a251f6b035b45275bafa3167b",
+      "bytes": 5450
+    },
+    "Examples/RankSelection.lean": {
+      "sha256": "641a752cdee9b2ab30e66bb2f7feda2548cffebfe6733460b52ff5f7e119520e",
+      "bytes": 5085
+    }
+  },
+  "note": "Root read complete shared core, old/new Selection diff and resource module. Existing declarations retain their old same-signature def/theorem adapters. Source equality does not establish elaboration or final acceptance."
+}

@@ -1,0 +1,37 @@
+{
+  "kind": "prospective_operational_sequence",
+  "recorded_utc_date": "2026-11-02",
+  "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "status": "planned_not_executed",
+  "basis": "Existing incident runbook requires preservation before invalidation. Both original Standards and Spec reviewers support this sequence; source-only investigation by /root/cache_review and an independent advisory found the same existing API and preservation limits.",
+  "acceptance_gate_change": false,
+  "guard_source": "conaled/scripts/lake_integrity.py",
+  "guard_source_sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+  "known_suspect_families": ["Applications.Resources.BoundedSummary", "Examples.BoundedSummary", "Applications.Sequences.ByteBuffer", "Examples.ByteBuffer"],
+  "sequence": [
+    "Wait for the current fresh attempt to terminate, preserve its actual outcome and, if successful, copy its matching fresh verification record before any later candidate check.",
+    "Establish the relevant isolated candidate is stable and idle. Use the normal integrated target inventory (root, SquareKit, Applications and Examples Lean modules, including audit-only dependencies, excluding ProofAudit) and pinned environment.",
+    "Call existing validate_layout(root), then inspect_outputs(root, normal_targets, pinned_env). Do not call the repairing guard yet. Retain the complete diagnostic result or failure/interruption evidence.",
+    "Classify each discrepancy using history. Never-built absences and documented ENOSPC partial outputs can be ordinary recovery cases. Unexpected output mismatches, missing/malformed evidence in previously completed modules and repeated unexplained invalidation require incident assessment.",
+    "Preserve complete current surviving families for all four known suspect modules even if now consistent, plus every newly suspect family. Include all artifact parts, raw traces, corresponding .hash sidecars, and available setup/command provenance. Explicitly inventory missing members and record source/copy identities, digests and observed changes.",
+    "Keep raw evidence outside managed caches and distinct from an installable recovery companion. Current or regenerated copies cannot reconstruct the original four pre-invalidation artifacts. Durably preserve any newly material incident evidence before repair, maintaining its actual provenance.",
+    "Proceed through the unchanged guarded incremental recovery only when preservation and incident disposition permit. This diagnostic is not acceptance evidence replacing the fresh, guarded, managed audit, regression, reviewer or final verification requirements."
+  ],
+  "fixed_guard_family_paths": {
+    "lib_lean_extensions": ["olean", "olean.server", "olean.private", "ilean", "ir", "ir.sig", "trace"],
+    "ir_extensions": ["c", "bc", "ltar"],
+    "sidecars": "Each corresponding filename + .hash",
+    "additional_provenance": "Available setup files and exact command/candidate/compiler/dependency context; setup files are outside the guard deletion set but remain relevant evidence."
+  },
+  "limits": [
+    "The diagnostic invokes the pinned lean --run hashing helper and writes a temporary manifest. It is non-repairing, not a pure metadata read.",
+    "The inspector generally reports the first relevant reason per module. Missing/malformed evidence may prevent inspection of other family members.",
+    "Helper failures, interruptions, malformed results and timeouts are incomplete/failed diagnostics, never an empty discrepancy set. There is no built-in helper timeout.",
+    "Inspection and copying do not freeze inputs or create an atomic snapshot. Stable-input assumptions and observed changes must remain explicit.",
+    "These functions do not perform all candidate/dependency/compiler checks, authenticate historical provenance, inspect external dependency-cache integrity or prove absence of writers.",
+    "The accepted cache companion omits bad families and removes their private copies, so it is not an incident-preservation mechanism.",
+    "No current cache-validity conclusion follows from this source-only plan. ST-002 and SP-VAL-001 remain open."
+  ],
+  "managed_audit_qualification": "If the later managed +ProofAudit build unexpectedly rebuilds project dependencies after guarded success, record that and re-establish the corresponding guard evidence before relying on the changed dependencies for the regression.",
+  "review_method": "Both original axes used static pinned sources and existing policy only. No active output/process/cache/archive inspection, helper execution, compiler/test, edit or record write occurred in their assessment."
+}

@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "started_utc": "2026-11-02T21:34:09.497595+00:00",
+  "requested": {
+    "command": [
+      "/root/.nix-profile/bin/nix",
+      "develop",
+      "--command",
+      "./check.sh",
+      "--fresh",
+      "--jobs",
+      "1",
+      "--candidate",
+      "HEAD"
+    ],
+    "cwd": "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+    "attempt_dir": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-3279bac-fresh2",
+    "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+    "mode": "fresh",
+    "environment_changes": {
+      "PATH": "/root/.nix-profile/bin:/root/.codex/tmp/arg0-linux/codex-arg0EDTsh1:/opt/codex/codex-path:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback",
+      "NIX_CONFIG": "build-users-group =\nexperimental-features = nix-command flakes",
+      "LEAN_NUM_THREADS": "1"
+    },
+    "heartbeat_seconds": 30.0,
+    "cleanup_grace_seconds": 5.0
+  },
+  "recorder": {
+    "pid": 578140,
+    "process_group": 578137,
+    "session": 578137,
+    "source_path": "/workspace/scratch/0c54f2db1fdf/work-state/validation-recorder/recorder.py",
+    "invocation": [
+      "/workspace/scratch/0c54f2db1fdf/work-state/validation-recorder/recorder.py",
+      "--cwd",
+      "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+      "--attempt-dir",
+      "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-3279bac-fresh2",
+      "--candidate",
+      "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "--mode",
+      "fresh",
+      "--env",
+      "PATH=/root/.nix-profile/bin:/root/.codex/tmp/arg0-linux/codex-arg0EDTsh1:/opt/codex/codex-path:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback",
+      "--env",
+      "NIX_CONFIG=build-users-group =\nexperimental-features = nix-command flakes",
+      "--env",
+      "LEAN_NUM_THREADS=1",
+      "--",
+      "/root/.nix-profile/bin/nix",
+      "develop",
+      "--command",
+      "./check.sh",
+      "--fresh",
+      "--jobs",
+      "1",
+      "--candidate",
+      "HEAD"
+    ],
+    "source_sha256": "8e5211cd4fd0e6a2eff593af32bea41409675e3165a86946d36dc4156640614a",
+    "python_executable": "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+    "python_executable_resolved": "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3.13",
+    "python_version": "3.13.15 (main, Aug  5 2026, 12:25:43) [GCC 15.3.0]",
+    "python_implementation": "cpython"
+  }
+}

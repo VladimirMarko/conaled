@@ -1,0 +1,517 @@
+{
+  "candidate": "080e2f63ad4ef56dd18a5889d14dcf8c9100f049",
+  "kind": "Literal source statement inventory; not elaborated type output",
+  "explicit_universe_aware_readback": "Statements.lean is prepared but was not executed",
+  "public_declarations": 62,
+  "private_source_declarations": 8,
+  "files": [
+    {
+      "path": "Applications/Resources/RandomQuickSort.lean",
+      "bytes": 23360,
+      "lines": 503,
+      "sha256": "cea8489bba66981f2909b88f8d20801c4889d8e9b3fef2caaccd3f948fdb30d7",
+      "declarations": [
+        {
+          "name": "Resources.RandomQuickSort.uniformIndex_normalization",
+          "kind": "theorem",
+          "private": true,
+          "line": 25,
+          "source_header": "private theorem uniformIndex_normalization (m : Nat) :\n    (\u2211 _i : Fin (m + 1), (((m + 1 : Nat) : \u211d\u22650\u221e)\u207b\u00b9)) = 1"
+        },
+        {
+          "name": "Resources.RandomQuickSort.uniformIndex",
+          "kind": "def",
+          "private": false,
+          "line": 32,
+          "source_header": "def uniformIndex (m : Nat) : PMF (Fin (m + 1))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.uniformIndex_apply",
+          "kind": "theorem",
+          "private": false,
+          "line": 35,
+          "source_header": "@[simp] theorem uniformIndex_apply (m : Nat) (i : Fin (m + 1)) :\n    uniformIndex m i = (((m + 1 : Nat) : \u211d\u22650\u221e)\u207b\u00b9)"
+        },
+        {
+          "name": "Resources.RandomQuickSort.mem_support_uniformIndex",
+          "kind": "theorem",
+          "private": false,
+          "line": 38,
+          "source_header": "@[simp] theorem mem_support_uniformIndex (m : Nat) (i : Fin (m + 1)) :\n    i \u2208 (uniformIndex m).support"
+        },
+        {
+          "name": "Resources.RandomQuickSort.uniformIndex_zero",
+          "kind": "theorem",
+          "private": false,
+          "line": 43,
+          "source_header": "@[simp] theorem uniformIndex_zero : uniformIndex 0 = PMF.pure (0 : Fin 1)"
+        },
+        {
+          "name": "Resources.RandomQuickSort.uniformIndex_event",
+          "kind": "theorem",
+          "private": false,
+          "line": 51,
+          "source_header": "theorem uniformIndex_event (m : Nat) (event : Fin (m + 1) \u2192 Bool) :\n    PMF.map event (uniformIndex m) true =\n      ((Finset.univ.filter (fun i => event i = true)).card : \u211d\u22650\u221e) /\n        ((m + 1 : Nat) : \u211d\u22650\u221e)"
+        },
+        {
+          "name": "Resources.RandomQuickSort.eraseIdx_length_lt",
+          "kind": "theorem",
+          "private": true,
+          "line": 66,
+          "source_header": "private theorem eraseIdx_length_lt (xs : List \u03b1) (i : Nat) (hi : i < xs.length) :\n    (xs.eraseIdx i).length < xs.length"
+        },
+        {
+          "name": "Resources.RandomQuickSort.filter_eraseIdx_length_lt",
+          "kind": "theorem",
+          "private": true,
+          "line": 71,
+          "source_header": "private theorem filter_eraseIdx_length_lt (p : \u03b1 \u2192 Bool) (xs : List \u03b1)\n    (i : Nat) (hi : i < xs.length) :\n    ((xs.eraseIdx i).filter p).length < xs.length"
+        },
+        {
+          "name": "Resources.RandomQuickSort.unit_filter_exact",
+          "kind": "theorem",
+          "private": true,
+          "line": 76,
+          "source_header": "private theorem unit_filter_exact (p : \u03b1 \u2192 Bool) (xs : List \u03b1) :\n    ListCalls.filterRun (fun x => (p x, 1)) xs = (xs.filter p, 2 * xs.length + 1)"
+        },
+        {
+          "name": "Resources.RandomQuickSort.run",
+          "kind": "def",
+          "private": false,
+          "line": 84,
+          "source_header": "def run (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) : List \u03b1 \u2192 PMF (Measured (List \u03b1) (Nat \u00d7 Nat))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.run_nil",
+          "kind": "theorem",
+          "private": false,
+          "line": 103,
+          "source_header": "@[simp] theorem run_nil (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) :\n    run lt [] = PMF.pure ([], (1, 0))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.run_cons",
+          "kind": "theorem",
+          "private": false,
+          "line": 108,
+          "source_header": "theorem run_cons (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (head : \u03b1) (tail : List \u03b1) :\n    run lt (head :: tail) =\n      PMF.bind (uniformIndex tail.length) fun i =>\n        let pivot := (head :: tail)[i.val]'i.isLt\n        let rest := (head :: tail).eraseIdx i.val\n        PMF.bind (run lt (rest.filter (fun x => lt x pivot))) fun left =>\n          PMF.bind (run lt (rest.filter (fun x => !(lt x pivot)))) fun right =>\n            PMF.pure (left.1 ++ ([pivot] ++ right.1),\n              (left.2.1 + right.2.1 + 4 * rest.length + 3,\n                left.2.2 + right.2.2 + left.1.length + 3))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.run_singleton",
+          "kind": "theorem",
+          "private": false,
+          "line": 131,
+          "source_header": "@[simp] theorem run_singleton (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (x : \u03b1) :\n    run lt [x] = PMF.pure ([x], (5, 3))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.runOn",
+          "kind": "abbrev",
+          "private": false,
+          "line": 136,
+          "source_header": "abbrev runOn [LT \u03ba] [DecidableLT \u03ba] (key : \u03b1 \u2192 \u03ba) (xs : List \u03b1)"
+        },
+        {
+          "name": "Resources.RandomQuickSort.right_filter_eq",
+          "kind": "theorem",
+          "private": true,
+          "line": 139,
+          "source_header": "private theorem right_filter_eq [LinearOrder \u03ba] (key : \u03b1 \u2192 \u03ba)\n    (pivot : \u03b1) (xs : List \u03b1) :\n    xs.filter (fun x => !(decide (key x < key pivot))) =\n      xs.filter (fun x => decide (key pivot \u2264 key x))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.runOn_cons",
+          "kind": "theorem",
+          "private": false,
+          "line": 149,
+          "source_header": "theorem runOn_cons [LinearOrder \u03ba] (key : \u03b1 \u2192 \u03ba) (head : \u03b1) (tail : List \u03b1) :\n    runOn key (head :: tail) =\n      PMF.bind (uniformIndex tail.length) fun i =>\n        let pivot := (head :: tail)[i.val]'i.isLt\n        let rest := (head :: tail).eraseIdx i.val\n        PMF.bind (runOn key (rest.filter (fun x => decide (key x < key pivot)))) fun left =>\n          PMF.bind (runOn key (rest.filter (fun x => decide (key pivot \u2264 key x)))) fun right =>\n            PMF.pure (left.1 ++ ([pivot] ++ right.1),\n              (left.2.1 + right.2.1 + 4 * rest.length + 3,\n                left.2.2 + right.2.2 + left.1.length + 3))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.mem_support_run_cons_iff",
+          "kind": "theorem",
+          "private": false,
+          "line": 163,
+          "source_header": "theorem mem_support_run_cons_iff (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (head : \u03b1) (tail : List \u03b1)\n    (result : Measured (List \u03b1) (Nat \u00d7 Nat)) :\n    result \u2208 (run lt (head :: tail)).support \u2194\n      \u2203 i : Fin (tail.length + 1),\n        let pivot := (head :: tail)[i.val]'i.isLt\n        let rest := (head :: tail).eraseIdx i.val\n        \u2203 left \u2208 (run lt (rest.filter (fun x => lt x pivot))).support,\n          \u2203 right \u2208 (run lt (rest.filter (fun x => !(lt x pivot)))).support,\n            result = (left.1 ++ ([pivot] ++ right.1),\n              (left.2.1 + right.2.1 + 4 * rest.length + 3,\n                left.2.2 + right.2.2 + left.1.length + 3))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.run_perm",
+          "kind": "theorem",
+          "private": false,
+          "line": 179,
+          "source_header": "theorem run_perm (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1)\n    (result : Measured (List \u03b1) (Nat \u00d7 Nat)) (hr : result \u2208 (run lt xs).support) :\n    result.1.Perm xs"
+        },
+        {
+          "name": "Resources.RandomQuickSort.run_length",
+          "kind": "theorem",
+          "private": false,
+          "line": 203,
+          "source_header": "theorem run_length (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1)\n    (result : Measured (List \u03b1) (Nat \u00d7 Nat)) (hr : result \u2208 (run lt xs).support) :\n    result.1.length = xs.length := (run_perm lt xs result hr).length_eq\n\n/-- Comparator compatibility is local to this input, and the observed key\nrelation needs only transitivity. This is not a stability statement. -/\ntheorem run_sorted_compatible_on [LE \u03ba] [IsTrans \u03ba (\u00b7 \u2264 \u00b7)]\n    (key : \u03b1 \u2192 \u03ba) (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1)\n    (hc : \u2200 a \u2208 xs, \u2200 b \u2208 xs, (lt a b = true \u2192 key a \u2264 key b) \u2227\n      (lt a b = false \u2192 key b \u2264 key a))\n    (result : Measured (List \u03b1) (Nat \u00d7 Nat)) (hr : result \u2208 (run lt xs).support) :\n    KeySorted key result.1"
+        },
+        {
+          "name": "Resources.RandomQuickSort.run_sorted_compatible_on",
+          "kind": "theorem",
+          "private": false,
+          "line": 209,
+          "source_header": "theorem run_sorted_compatible_on [LE \u03ba] [IsTrans \u03ba (\u00b7 \u2264 \u00b7)]\n    (key : \u03b1 \u2192 \u03ba) (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1)\n    (hc : \u2200 a \u2208 xs, \u2200 b \u2208 xs, (lt a b = true \u2192 key a \u2264 key b) \u2227\n      (lt a b = false \u2192 key b \u2264 key a))\n    (result : Measured (List \u03b1) (Nat \u00d7 Nat)) (hr : result \u2208 (run lt xs).support) :\n    KeySorted key result.1"
+        },
+        {
+          "name": "Resources.RandomQuickSort.runOn_correct",
+          "kind": "theorem",
+          "private": false,
+          "line": 252,
+          "source_header": "theorem runOn_correct [LinearOrder \u03ba] (key : \u03b1 \u2192 \u03ba) (xs : List \u03b1)\n    (result : Measured (List \u03b1) (Nat \u00d7 Nat)) (hr : result \u2208 (runOn key xs).support) :\n    KeySorted key result.1 \u2227 result.1.Perm xs"
+        },
+        {
+          "name": "Resources.RandomQuickSort.support_cost_bounds",
+          "kind": "theorem",
+          "private": true,
+          "line": 261,
+          "source_header": "private theorem support_cost_bounds (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1)\n    (result : Measured (List \u03b1) (Nat \u00d7 Nat)) (hr : result \u2208 (run lt xs).support) :\n    result.2.1 \u2264 2 * xs.length ^ 2 + 2 * xs.length + 1 \u2227\n      3 * xs.length \u2264 result.2.2 \u2227\n      2 * result.2.2 \u2264 xs.length ^ 2 + 5 * xs.length \u2227\n      result.2.2 \u2264 result.2.1"
+        },
+        {
+          "name": "Resources.RandomQuickSort.exerciseCost_le",
+          "kind": "theorem",
+          "private": false,
+          "line": 303,
+          "source_header": "theorem exerciseCost_le (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1)\n    (result : Measured (List \u03b1) (Nat \u00d7 Nat)) (hr : result \u2208 (run lt xs).support) :\n    result.2.1 \u2264 2 * xs.length ^ 2 + 2 * xs.length + 1"
+        },
+        {
+          "name": "Resources.RandomQuickSort.appendCost_lower",
+          "kind": "theorem",
+          "private": false,
+          "line": 308,
+          "source_header": "theorem appendCost_lower (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1)\n    (result : Measured (List \u03b1) (Nat \u00d7 Nat)) (hr : result \u2208 (run lt xs).support) :\n    3 * xs.length \u2264 result.2.2 := (support_cost_bounds lt xs result hr).2.1\n\ntheorem appendCost_double_le (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1)\n    (result : Measured (List \u03b1) (Nat \u00d7 Nat)) (hr : result \u2208 (run lt xs).support) :\n    2 * result.2.2 \u2264 xs.length ^ 2 + 5 * xs.length"
+        },
+        {
+          "name": "Resources.RandomQuickSort.appendCost_double_le",
+          "kind": "theorem",
+          "private": false,
+          "line": 312,
+          "source_header": "theorem appendCost_double_le (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1)\n    (result : Measured (List \u03b1) (Nat \u00d7 Nat)) (hr : result \u2208 (run lt xs).support) :\n    2 * result.2.2 \u2264 xs.length ^ 2 + 5 * xs.length"
+        },
+        {
+          "name": "Resources.RandomQuickSort.appendCost_le_exerciseCost",
+          "kind": "theorem",
+          "private": false,
+          "line": 317,
+          "source_header": "theorem appendCost_le_exerciseCost (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1)\n    (result : Measured (List \u03b1) (Nat \u00d7 Nat)) (hr : result \u2208 (run lt xs).support) :\n    result.2.2 \u2264 result.2.1 := (support_cost_bounds lt xs result hr).2.2.2\n\n/-- Append-inclusive source-body observation. Selection, lookup/removal and\nrandom bits are still outside this tariff. -/\ntheorem literalCost_comparison (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1)\n    (result : Measured (List \u03b1) (Nat \u00d7 Nat)) (hr : result \u2208 (run lt xs).support) :\n    result.2.1 \u2264 result.2.1 + result.2.2 \u2227\n      result.2.1 + result.2.2 \u2264 2 * result.2.1"
+        },
+        {
+          "name": "Resources.RandomQuickSort.literalCost_comparison",
+          "kind": "theorem",
+          "private": false,
+          "line": 323,
+          "source_header": "theorem literalCost_comparison (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1)\n    (result : Measured (List \u03b1) (Nat \u00d7 Nat)) (hr : result \u2208 (run lt xs).support) :\n    result.2.1 \u2264 result.2.1 + result.2.2 \u2227\n      result.2.1 + result.2.2 \u2264 2 * result.2.1"
+        },
+        {
+          "name": "Resources.RandomQuickSort.literalCost_double_le",
+          "kind": "theorem",
+          "private": false,
+          "line": 330,
+          "source_header": "theorem literalCost_double_le (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1)\n    (result : Measured (List \u03b1) (Nat \u00d7 Nat)) (hr : result \u2208 (run lt xs).support) :\n    2 * (result.2.1 + result.2.2) \u2264 5 * xs.length ^ 2 + 9 * xs.length + 2"
+        },
+        {
+          "name": "Resources.RandomQuickSort.literalCost_le",
+          "kind": "theorem",
+          "private": false,
+          "line": 337,
+          "source_header": "theorem literalCost_le (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1)\n    (result : Measured (List \u03b1) (Nat \u00d7 Nat)) (hr : result \u2208 (run lt xs).support) :\n    result.2.1 + result.2.2 \u2264 (5 * xs.length ^ 2 + 9 * xs.length + 2) / 2"
+        },
+        {
+          "name": "Resources.RandomQuickSort.exerciseLaw",
+          "kind": "def",
+          "private": false,
+          "line": 345,
+          "source_header": "def exerciseLaw (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1) : PMF Nat"
+        },
+        {
+          "name": "Resources.RandomQuickSort.literalLaw",
+          "kind": "def",
+          "private": false,
+          "line": 349,
+          "source_header": "def literalLaw (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1) : PMF Nat"
+        },
+        {
+          "name": "Resources.RandomQuickSort.exerciseLaw_cons",
+          "kind": "theorem",
+          "private": false,
+          "line": 354,
+          "source_header": "theorem exerciseLaw_cons (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (head : \u03b1) (tail : List \u03b1) :\n    exerciseLaw lt (head :: tail) =\n      PMF.bind (uniformIndex tail.length) fun i =>\n        let pivot := (head :: tail)[i.val]'i.isLt\n        let rest := (head :: tail).eraseIdx i.val\n        PMF.bind (exerciseLaw lt (rest.filter (fun x => lt x pivot))) fun left =>\n          PMF.bind (exerciseLaw lt (rest.filter (fun x => !(lt x pivot)))) fun right =>\n            PMF.pure (left + right + 4 * rest.length + 3)"
+        },
+        {
+          "name": "Resources.RandomQuickSort.exerciseLaw_nil",
+          "kind": "theorem",
+          "private": false,
+          "line": 365,
+          "source_header": "@[simp] theorem exerciseLaw_nil (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) :\n    exerciseLaw lt [] = PMF.pure 1"
+        },
+        {
+          "name": "Resources.RandomQuickSort.literalLaw_nil",
+          "kind": "theorem",
+          "private": false,
+          "line": 368,
+          "source_header": "@[simp] theorem literalLaw_nil (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) :\n    literalLaw lt [] = PMF.pure 1"
+        },
+        {
+          "name": "Resources.RandomQuickSort.exerciseLaw_singleton",
+          "kind": "theorem",
+          "private": false,
+          "line": 371,
+          "source_header": "@[simp] theorem exerciseLaw_singleton (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (x : \u03b1) :\n    exerciseLaw lt [x] = PMF.pure 5"
+        },
+        {
+          "name": "Resources.RandomQuickSort.literalLaw_singleton",
+          "kind": "theorem",
+          "private": false,
+          "line": 374,
+          "source_header": "@[simp] theorem literalLaw_singleton (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (x : \u03b1) :\n    literalLaw lt [x] = PMF.pure 8"
+        },
+        {
+          "name": "Resources.RandomQuickSort.exerciseLaw_support",
+          "kind": "theorem",
+          "private": false,
+          "line": 377,
+          "source_header": "theorem exerciseLaw_support (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1) :\n    (exerciseLaw lt xs).support \u2286 Set.Iic (2 * xs.length ^ 2 + 2 * xs.length + 1)"
+        },
+        {
+          "name": "Resources.RandomQuickSort.exerciseLaw_support_finite",
+          "kind": "theorem",
+          "private": false,
+          "line": 384,
+          "source_header": "theorem exerciseLaw_support_finite (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1) :\n    (exerciseLaw lt xs).support.Finite"
+        },
+        {
+          "name": "Resources.RandomQuickSort.literalLaw_support",
+          "kind": "theorem",
+          "private": false,
+          "line": 388,
+          "source_header": "theorem literalLaw_support (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1) :\n    (literalLaw lt xs).support \u2286 Set.Iic ((5 * xs.length ^ 2 + 9 * xs.length + 2) / 2)"
+        },
+        {
+          "name": "Resources.RandomQuickSort.literalLaw_support_finite",
+          "kind": "theorem",
+          "private": false,
+          "line": 395,
+          "source_header": "theorem literalLaw_support_finite (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1) :\n    (literalLaw lt xs).support.Finite"
+        },
+        {
+          "name": "Resources.RandomQuickSort.eq_pure_of_support",
+          "kind": "theorem",
+          "private": true,
+          "line": 399,
+          "source_header": "private theorem eq_pure_of_support {\u03b2 : Type w} (p : PMF \u03b2) (x : \u03b2)\n    (h : \u2200 y \u2208 p.support, y = x) : p = PMF.pure x"
+        },
+        {
+          "name": "Resources.RandomQuickSort.costs_of_all_false",
+          "kind": "theorem",
+          "private": false,
+          "line": 422,
+          "source_header": "theorem costs_of_all_false (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1)\n    (hf : \u2200 a \u2208 xs, \u2200 b \u2208 xs, lt a b = false)\n    (result : Measured (List \u03b1) (Nat \u00d7 Nat)) (hr : result \u2208 (run lt xs).support) :\n    result.2 = (2 * xs.length ^ 2 + 2 * xs.length + 1, 3 * xs.length)"
+        },
+        {
+          "name": "Resources.RandomQuickSort.jointCostLaw_of_all_false",
+          "kind": "theorem",
+          "private": false,
+          "line": 462,
+          "source_header": "theorem jointCostLaw_of_all_false (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs : List \u03b1)\n    (hf : \u2200 a \u2208 xs, \u2200 b \u2208 xs, lt a b = false) :\n    PMF.map Prod.snd (run lt xs) =\n      PMF.pure (2 * xs.length ^ 2 + 2 * xs.length + 1, 3 * xs.length)"
+        },
+        {
+          "name": "Resources.RandomQuickSort.costs_of_constant_key",
+          "kind": "theorem",
+          "private": false,
+          "line": 472,
+          "source_header": "theorem costs_of_constant_key [LinearOrder \u03ba] (key : \u03b1 \u2192 \u03ba) (xs : List \u03b1) (c : \u03ba)\n    (hk : \u2200 x \u2208 xs, key x = c)\n    (result : Measured (List \u03b1) (Nat \u00d7 Nat)) (hr : result \u2208 (runOn key xs).support) :\n    result.2 = (2 * xs.length ^ 2 + 2 * xs.length + 1, 3 * xs.length)"
+        },
+        {
+          "name": "Resources.RandomQuickSort.jointCostLaw_of_constant_key",
+          "kind": "theorem",
+          "private": false,
+          "line": 481,
+          "source_header": "theorem jointCostLaw_of_constant_key [LinearOrder \u03ba] (key : \u03b1 \u2192 \u03ba) (xs : List \u03b1) (c : \u03ba)\n    (hk : \u2200 x \u2208 xs, key x = c) :\n    PMF.map Prod.snd (runOn key xs) =\n      PMF.pure (2 * xs.length ^ 2 + 2 * xs.length + 1, 3 * xs.length)"
+        },
+        {
+          "name": "Resources.RandomQuickSort.runOn_replicate",
+          "kind": "theorem",
+          "private": false,
+          "line": 491,
+          "source_header": "theorem runOn_replicate [LinearOrder \u03ba] (key : \u03b1 \u2192 \u03ba) (x : \u03b1) (n : Nat) :\n    runOn key (List.replicate n x) =\n      PMF.pure (List.replicate n x, (2 * n ^ 2 + 2 * n + 1, 3 * n))"
+        }
+      ],
+      "forbidden_token_matches": []
+    },
+    {
+      "path": "Examples/RandomQuickSort.lean",
+      "bytes": 8334,
+      "lines": 202,
+      "sha256": "294e5b8f77e063b6e30f876b6203f74a6ff346d6c1e674e1d450bcdc3bb1675e",
+      "declarations": [
+        {
+          "name": "Examples.RandomQuickSort.empty_uninhabited",
+          "kind": "theorem",
+          "private": false,
+          "line": 24,
+          "source_header": "theorem empty_uninhabited :\n    run (fun _ _ : Empty => false) [] = PMF.pure ([], (1, 0)) := run_nil _\n\ntheorem singleton_source {\u03b1 : Type u} (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (x : \u03b1) :\n    run lt [x] = PMF.pure ([x], (5, 3)) := run_singleton lt x\n\n/-- The selected root factor in run_cons is uniform on occurrences. Two equal\ntags occupy two of its three indices. -/\ntheorem repeated_occurrence_pivot :\n    PMF.map (fun i : Fin 3 => ([true, true, false] : List Bool)[i.val])\n      (uniformIndex 2) true = (2 : \u211d\u22650\u221e) / 3"
+        },
+        {
+          "name": "Examples.RandomQuickSort.singleton_source",
+          "kind": "theorem",
+          "private": false,
+          "line": 27,
+          "source_header": "theorem singleton_source {\u03b1 : Type u} (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (x : \u03b1) :\n    run lt [x] = PMF.pure ([x], (5, 3)) := run_singleton lt x\n\n/-- The selected root factor in run_cons is uniform on occurrences. Two equal\ntags occupy two of its three indices. -/\ntheorem repeated_occurrence_pivot :\n    PMF.map (fun i : Fin 3 => ([true, true, false] : List Bool)[i.val])\n      (uniformIndex 2) true = (2 : \u211d\u22650\u221e) / 3"
+        },
+        {
+          "name": "Examples.RandomQuickSort.repeated_occurrence_pivot",
+          "kind": "theorem",
+          "private": false,
+          "line": 32,
+          "source_header": "theorem repeated_occurrence_pivot :\n    PMF.map (fun i : Fin 3 => ([true, true, false] : List Bool)[i.val])\n      (uniformIndex 2) true = (2 : \u211d\u22650\u221e) / 3"
+        },
+        {
+          "name": "Examples.RandomQuickSort.pair_exercise",
+          "kind": "theorem",
+          "private": true,
+          "line": 40,
+          "source_header": "private theorem pair_exercise (a b : Nat) :\n    exerciseLaw natLt [a, b] = PMF.pure 13"
+        },
+        {
+          "name": "Examples.RandomQuickSort.two_key_exercise",
+          "kind": "theorem",
+          "private": false,
+          "line": 52,
+          "source_header": "theorem two_key_exercise : exerciseLaw natLt [0, 1] = PMF.pure 13"
+        },
+        {
+          "name": "Examples.RandomQuickSort.two_key_execution",
+          "kind": "theorem",
+          "private": false,
+          "line": 56,
+          "source_header": "theorem two_key_execution :\n    run natLt [0, 1] =\n      PMF.map (fun i : Fin 2 => (([0, 1] : List Nat), (13, if i = 0 then 6 else 7)))\n        (uniformIndex 1)"
+        },
+        {
+          "name": "Examples.RandomQuickSort.two_key_append_mass",
+          "kind": "theorem",
+          "private": false,
+          "line": 65,
+          "source_header": "theorem two_key_append_mass (cost : Nat) :\n    PMF.map (fun result => result.2.2) (run natLt [0, 1]) cost =\n      if cost = 6 then (1 : \u211d\u22650\u221e) / 2 else if cost = 7 then 1 / 2 else 0"
+        },
+        {
+          "name": "Examples.RandomQuickSort.three_key_exercise_law",
+          "kind": "theorem",
+          "private": false,
+          "line": 79,
+          "source_header": "theorem three_key_exercise_law :\n    exerciseLaw natLt [0, 1, 2] =\n      PMF.map (fun i : Fin 3 => if i = 1 then 21 else 25) (uniformIndex 2)"
+        },
+        {
+          "name": "Examples.RandomQuickSort.three_key_exercise_mass",
+          "kind": "theorem",
+          "private": false,
+          "line": 87,
+          "source_header": "theorem three_key_exercise_mass (cost : Nat) :\n    exerciseLaw natLt [0, 1, 2] cost =\n      if cost = 21 then (1 : \u211d\u22650\u221e) / 3 else if cost = 25 then 2 / 3 else 0"
+        },
+        {
+          "name": "Examples.RandomQuickSort.three_key_balanced_mass",
+          "kind": "theorem",
+          "private": false,
+          "line": 100,
+          "source_header": "theorem three_key_balanced_mass :\n    exerciseLaw natLt [0, 1, 2] 21 = (1 : \u211d\u22650\u221e) / 3"
+        },
+        {
+          "name": "Examples.RandomQuickSort.three_key_chain_mass",
+          "kind": "theorem",
+          "private": false,
+          "line": 105,
+          "source_header": "theorem three_key_chain_mass :\n    exerciseLaw natLt [0, 1, 2] 25 = (2 : \u211d\u22650\u221e) / 3"
+        },
+        {
+          "name": "Examples.RandomQuickSort.equal_key_tag_execution",
+          "kind": "theorem",
+          "private": false,
+          "line": 111,
+          "source_header": "theorem equal_key_tag_execution :\n    runOn (Prod.fst : Nat \u00d7 Bool \u2192 Nat) [(7, false), (7, true)] =\n      PMF.map (fun i : Fin 2 =>\n        if i = 0 then ([(7, false), (7, true)], (13, 6))\n        else ([(7, true), (7, false)], (13, 6))) (uniformIndex 1)"
+        },
+        {
+          "name": "Examples.RandomQuickSort.equal_key_reversed_mass",
+          "kind": "theorem",
+          "private": false,
+          "line": 121,
+          "source_header": "theorem equal_key_reversed_mass :\n    PMF.map Prod.fst (runOn (Prod.fst : Nat \u00d7 Bool \u2192 Nat) [(7, false), (7, true)])\n      [(7, true), (7, false)] = (1 : \u211d\u22650\u221e) / 2"
+        },
+        {
+          "name": "Examples.RandomQuickSort.equal_key_reversed_supported",
+          "kind": "theorem",
+          "private": false,
+          "line": 128,
+          "source_header": "theorem equal_key_reversed_supported :\n    ([(7, true), (7, false)], (13, 6)) \u2208\n      (runOn (Prod.fst : Nat \u00d7 Bool \u2192 Nat) [(7, false), (7, true)]).support"
+        },
+        {
+          "name": "Examples.RandomQuickSort.equal_key_instability",
+          "kind": "theorem",
+          "private": false,
+          "line": 137,
+          "source_header": "theorem equal_key_instability :\n    \u2203 result \u2208 (runOn (Prod.fst : Nat \u00d7 Bool \u2192 Nat) [(7, false), (7, true)]).support,\n      \u00ac Stable Prod.fst [(7, false), (7, true)] result.1"
+        },
+        {
+          "name": "Examples.RandomQuickSort.all_equal_three",
+          "kind": "theorem",
+          "private": false,
+          "line": 145,
+          "source_header": "theorem all_equal_three :\n    runOn (id : Nat \u2192 Nat) [2, 2, 2] = PMF.pure ([2, 2, 2], (25, 9))"
+        },
+        {
+          "name": "Examples.RandomQuickSort.duplicate_payload_family",
+          "kind": "theorem",
+          "private": false,
+          "line": 151,
+          "source_header": "theorem duplicate_payload_family {\u03b1 : Type u} (tag : \u03b1) (n : Nat) :\n    runOn (Prod.fst : Nat \u00d7 \u03b1 \u2192 Nat) (List.replicate n (7, tag)) =\n      PMF.pure (List.replicate n (7, tag), (2 * n ^ 2 + 2 * n + 1, 3 * n))"
+        },
+        {
+          "name": "Examples.RandomQuickSort.constant_key_payload_law",
+          "kind": "theorem",
+          "private": false,
+          "line": 157,
+          "source_header": "theorem constant_key_payload_law {\u03b1 : Type u} (tags : List \u03b1) :\n    PMF.map Prod.snd\n        (runOn (Prod.fst : Nat \u00d7 \u03b1 \u2192 Nat) (tags.map (fun tag => (7, tag)))) =\n      PMF.pure (2 * tags.length ^ 2 + 2 * tags.length + 1, 3 * tags.length)"
+        },
+        {
+          "name": "Examples.RandomQuickSort.arbitrary_payload_correct",
+          "kind": "theorem",
+          "private": false,
+          "line": 168,
+          "source_header": "theorem arbitrary_payload_correct {\u03b1 : Type u} (xs : List (Nat \u00d7 \u03b1))\n    (result : Measured (List (Nat \u00d7 \u03b1)) (Nat \u00d7 Nat))\n    (hr : result \u2208 (runOn Prod.fst xs).support) :\n    KeySorted Prod.fst result.1 \u2227 result.1.Perm xs"
+        },
+        {
+          "name": "Examples.RandomQuickSort.arbitrary_payload_exercise_bound",
+          "kind": "theorem",
+          "private": false,
+          "line": 174,
+          "source_header": "theorem arbitrary_payload_exercise_bound {\u03b1 : Type u} (xs : List (Nat \u00d7 \u03b1))\n    (result : Measured (List (Nat \u00d7 \u03b1)) (Nat \u00d7 Nat))\n    (hr : result \u2208 (runOn Prod.fst xs).support) :\n    result.2.1 \u2264 2 * xs.length ^ 2 + 2 * xs.length + 1"
+        },
+        {
+          "name": "Examples.RandomQuickSort.arbitrary_payload_append_bridge",
+          "kind": "theorem",
+          "private": false,
+          "line": 180,
+          "source_header": "theorem arbitrary_payload_append_bridge {\u03b1 : Type u} (xs : List (Nat \u00d7 \u03b1))\n    (result : Measured (List (Nat \u00d7 \u03b1)) (Nat \u00d7 Nat))\n    (hr : result \u2208 (runOn Prod.fst xs).support) :\n    result.2.1 \u2264 result.2.1 + result.2.2 \u2227\n      result.2.1 + result.2.2 \u2264 2 * result.2.1"
+        },
+        {
+          "name": "Examples.RandomQuickSort.arbitrary_payload_finite_cost_support",
+          "kind": "theorem",
+          "private": false,
+          "line": 187,
+          "source_header": "theorem arbitrary_payload_finite_cost_support {\u03b1 : Type u} (xs : List (Nat \u00d7 \u03b1)) :\n    (exerciseLaw (fun a b => decide (a.1 < b.1)) xs).support.Finite"
+        },
+        {
+          "name": "Examples.RandomQuickSort.source_append_association",
+          "kind": "theorem",
+          "private": false,
+          "line": 191,
+          "source_header": "theorem source_append_association :\n    QuickSort.appendPivotRun [0, 1] (2 : Nat) [3] = ([0, 1, 2, 3], 5)"
+        },
+        {
+          "name": "Examples.RandomQuickSort.different_append_association",
+          "kind": "theorem",
+          "private": false,
+          "line": 195,
+          "source_header": "theorem different_append_association :\n    Resources.bind (ListReversal.appendRun [0, 1] [2])\n      (fun middle => ListReversal.appendRun middle [3]) =\n        (([0, 1, 2, 3] : List Nat), 7)"
+        }
+      ],
+      "forbidden_token_matches": []
+    }
+  ]
+}

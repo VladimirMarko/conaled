@@ -1,0 +1,119 @@
+{
+  "recorded_utc": "2026-11-04T10:52:15.315088+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete 81-path review scope, all 112 obligations and ten shared scopes.",
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "chunks": [
+    {
+      "chunk": 37,
+      "type_numbers": [
+        659,
+        681
+      ],
+      "native_lines": [
+        9685,
+        9972
+      ],
+      "bytes": 19993,
+      "names": [
+        "Examples.ListCalls.zero_and_overlarge",
+        "Examples.ListCalls.empty_payload_split",
+        "Examples.ListLibrary.empty_membership_set",
+        "Examples.ListLibrary.cons_membership_set",
+        "Examples.ListLibrary.dropLast_cons_equation",
+        "Examples.ListLibrary.range_succ_equation",
+        "Examples.ListLibrary.range_zero_equation",
+        "Examples.ListLibrary.range_boundaries",
+        "Examples.ListLibrary.range_membership",
+        "Examples.ListLibrary.head_valid",
+        "Examples.ListLibrary.index_valid",
+        "Examples.ListLibrary.invalid_index_and_update",
+        "Examples.ListLibrary.update_observations",
+        "Examples.ListLibrary.update_repeated_value",
+        "Examples.ListLibrary.invalid_boundary",
+        "Examples.ListLibrary.empty_payload_queries",
+        "Examples.ListLibrary.split_reassembles",
+        "Examples.ListLibrary.overlarge_split",
+        "Examples.ListLibrary.last_and_tail_boundaries",
+        "Examples.ListLibrary.duplicate_pipeline",
+        "Examples.ListLibrary.replication_boundaries",
+        "Examples.ListLibrary.duplicates_are_not_distinct",
+        "Examples.ListLibrary.sorted_wrt_cons"
+      ],
+      "sha256": "eafcbe2bff3a345a79dcdedd9832f8ff8e03e6b21dfd00846f962a68b4bb660d",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "Take/drop zero and overlarge examples preserve exact values and call counts1/4; Empty-payload inputs work for arbitrary index with cost1.",
+        "Appendix A membership-set and dropLast equations remain generic without equality/default instances. Nat half-open range recurrence includes the lower<=upper boundary; empty, equal and descending endpoints and exact membership lower<=k<upper are preserved.",
+        "Head/index valid observations use explicit nonempty/bound proofs and Option.some. Invalid lookup returns None and invalid update leaves the entire input unchanged. Valid update preserves length, sets the actual chosen index and preserves every distinct index, including optional invalid observations.",
+        "Duplicate-value updates distinguish positions rather than values. Empty-payload head/index/tail/dropLast, overlarge split and singleton boundaries retain total safe behavior. Splitting reassembles the original list for every Nat index.",
+        "Flatten/filter/map/reverse/sum and replication examples preserve order and multiplicity; duplicate entries are explicitly not Nodup. sorted_wrt_cons elaborates to List.Pairwise with relation to every later member, not just adjacent elements."
+      ]
+    },
+    {
+      "chunk": 38,
+      "type_numbers": [
+        682,
+        706
+      ],
+      "native_lines": [
+        9973,
+        10241
+      ],
+      "bytes": 20447,
+      "names": [
+        "Examples.ListLibrary.adjacent_relation_is_insufficient",
+        "Examples.ListLibrary.sum_source_equations",
+        "Examples.ListLibrary.minimum_source_equation",
+        "Examples.ListLibrary.minimum_valid",
+        "Examples.ListLibrary.minimum_filter_spec",
+        "Examples.ListLibrary.minimum_repeated_values",
+        "Examples.ListLibrary.minimum_empty",
+        "Examples.ListLibrary.empty_payload_minimum",
+        "Examples.ListLibrary.filtered_minimum_example",
+        "Examples.MergeCosts.natCompare",
+        "Examples.MergeCosts.byKey",
+        "Examples.MergeCosts.result_perm",
+        "Examples.MergeCosts.result_length",
+        "Examples.MergeCosts.result_multiset",
+        "Examples.MergeCosts.result_mem",
+        "Examples.MergeCosts.empty_sides",
+        "Examples.MergeCosts.empty_payload",
+        "Examples.MergeCosts.low_singleton",
+        "Examples.MergeCosts.high_singleton",
+        "Examples.MergeCosts.low_singleton_entry_model",
+        "Examples.MergeCosts.interleaving",
+        "Examples.MergeCosts.interleaving_observations",
+        "Examples.MergeCosts.always_true",
+        "Examples.MergeCosts.always_false",
+        "Examples.MergeCosts.tied_runs"
+      ],
+      "sha256": "ba6f8cbe5e7f51340d1b006686ce9af7303000ddc3b5354c8f60550de702a8e6",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The successor relation on[0,1,2] is an adjacent IsChain but not all-pairs Pairwise, explicitly protecting the source sorted_wrt meaning.",
+        "List sum source equations require only Add and Zero. The minimum cons source equation requires Min plus associativity; the nonempty min?/min bridge requires only Min. The ordered filtered-minimum specification uses LinearOrder and an actual Some result to conclude original membership, predicate acceptance and lower-bound minimality.",
+        "Repeated values, empty input and Empty payload minimum examples return appropriate Options with no default element. The concrete filtered minimum retains all three observations.",
+        "Merge result permutation, length, multiset and membership remain law-free for arbitrary payload/comparator. Empty sides and Empty payload return the unchanged list with(0 comparisons,1 entry). Low/high singleton examples distinguish(1,2) and(2,3); reweighting selects actual entry count.",
+        "Interleaving preserves three occurrences of key2 and costs(4,5). Always-true and always-false comparators give different order and counts without order-law assumptions. Tied runs exhibit left-biased comparison behavior with cost(2,3) versus(1,2), while returning the same repeated values."
+      ]
+    }
+  ],
+  "prior_progress_sha256": "ee79275409dff75ae2525f392e636232cd412d4d27d5dd23dbb6963a4ff250ed",
+  "overall_outcome": "Blocked",
+  "new_type_credit": 0,
+  "possible110_credit": 0
+}

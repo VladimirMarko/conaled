@@ -1,0 +1,215 @@
+{
+  "finding_id": "C03-PIVOT-ELAB-002",
+  "recorded_utc": "2026-11-04T19:40:47.550270+00:00",
+  "previous_candidate": "ac8bee488069d471eef9955fed11db5647cff72f",
+  "failure": {
+    "exit": 1,
+    "owned_session": 92661,
+    "terminal_tool_chunk": "335534",
+    "closed_log_read_and_closure": "6e9f6e",
+    "author_full_log_result_reconciliation_readback": "ea5350",
+    "outer_log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-median-of-medians-focused-attempt2-20261104/full.log",
+      "bytes": 7652,
+      "sha256": "bc68c2b9a7bd89374401680e15cc13c9df46e4929245f6e2e67a6bb8319d553e"
+    },
+    "native_log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-median-of-medians-focused-attempt2-20261104/native-records/output.log",
+      "bytes": 7379,
+      "sha256": "d5ba1695b21d0e978eaf3f21c43062c6ba4db8a2c865be25eca11a20956294e6"
+    },
+    "reconciliation": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-median-of-medians-focused-attempt2-20261104/closed-evidence-reconciliation.json",
+      "bytes": 2199,
+      "sha256": "6e5d6a46fc890e3492e7bed6162631e1480ea3ad1997779c9de19cd3faa5515d"
+    },
+    "historical_session_closed": true,
+    "core_module_built": true,
+    "C03_PIVOT_ELAB_001_sites_elaborated_at_this_attempt": true,
+    "inherited_XR_verification_is_not_C3_credit": true
+  },
+  "corrections": [
+    {
+      "original_sites": [
+        24,
+        60,
+        74
+      ],
+      "change": "Replace direct decide through lowerMedianValue with two private Nat-only proof bridges: public lowerMedianValue_ranked -> ranked_iff_index -> sortOn_eq_insertionOn -> explicit insertion-sort optional lookup; erase attached proof arguments via standard List.attach_map_val, then kernel decide computes the same concrete expected lists."
+    },
+    {
+      "original_site": 92,
+      "change": "Use lowerMedianValue_mem and mem_of_mem_chop to prove every chunk median is an occurrence of replicate 6 4, hence equals 4; prove the positive filter empty and complement unchanged, then use concrete chop value."
+    },
+    {
+      "original_sites": [
+        44,
+        70
+      ],
+      "change": "Explicitly expand Nat.ceilDiv_eq_add_pred_div in the two theorem-derived inequalities; expected bounds remain 1 and 7."
+    }
+  ],
+  "affected_source": {
+    "path": "Examples/MedianOfMedians.lean",
+    "before": {
+      "bytes": 6480,
+      "sha256": "9f3d2f87a119db761f1d94de74e431950201043b083c3d83b9bf4a0726357a40"
+    },
+    "after": {
+      "bytes": 9092,
+      "sha256": "0bbbbdab0f2f41f42fd615231d04d29ebeb8f7ffd5cc83e2a6b832cbfcc25f0c"
+    }
+  },
+  "exact_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/pivot-correction2.diff",
+    "bytes": 5622,
+    "sha256": "e7b367ae7076f4747bbe122013ce59f8c8735282e4220cef15781fe5c4daec16"
+  },
+  "full_original_scope_statement_review": {
+    "canonical_chapter_rows": 83,
+    "pivot_public_names": 55,
+    "unchanged_example_headers_compared_byte_for_byte": 27,
+    "built_core_byte_identical": true,
+    "other_five_source_files_byte_identical": true,
+    "imports_unchanged": true,
+    "all_existing_definitions_statements_assumptions_and_expected_case_values_unchanged": true,
+    "new_private_example_helpers": [
+      "lowerMedianValue_eq_insertionLookup",
+      "chunkMedians_eq_insertionLookups"
+    ],
+    "pivot_private_helpers_total": 4,
+    "semantic_assessment": "The Nat-only optional lookup reference is proved equal to the existing payload on every nonempty list; its fallback 0 is never used by a chunk payload and does not alter any public empty-input contract. Three concrete median lists retain [2,7], [2,5], [4,4]. The duplicate split is proved through input membership and filters, retaining every occurrence. Both ceiling consumers still apply the universal bounds. No mathematical scope or hypothesis is weakened. Actual elaborated types and successor results remain pending."
+  },
+  "explicit_at_program": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/MedianOfMediansStatements-v2.lean",
+    "bytes": 3289,
+    "sha256": "51167fa99bb3da9bdbba996a7ba21972b49a0a16f7cc5367201477b8a46064cd",
+    "names": 55,
+    "ordered_names_match_current_public_source": true,
+    "change_needed": false
+  },
+  "compiler_performed_by_author": false,
+  "prior_artifacts": {
+    "ChunksStatements-v2.lean": {
+      "bytes": 2007,
+      "sha256": "6eec8c6ceb180a3f9e262f6e6766ce1597fd9f018af6e25697e6e520a3046dff"
+    },
+    "ChunksStatements.lean": {
+      "bytes": 1972,
+      "sha256": "c47e8e866f4237b9b9884a87acc8a060fbe7e357391826b0557a94c5ab854fa3"
+    },
+    "CountRankStatements-v2.lean": {
+      "bytes": 2450,
+      "sha256": "76846251fab7d07f0834318dffdb932dbc4c90b48e70cc3228c78c12309f2fcb"
+    },
+    "CountRankStatements-v3.lean": {
+      "bytes": 2490,
+      "sha256": "f777431218bc6b86d08f775f14bee9ca74747d5a66bec0908f4490f99fd28564"
+    },
+    "CountRankStatements.lean": {
+      "bytes": 2364,
+      "sha256": "df7bf10779920840d01a44ccdf230559a738a71bcd8c4facc8fca520ca37444c"
+    },
+    "MedianOfMediansStatements-v2.lean": {
+      "bytes": 3289,
+      "sha256": "51167fa99bb3da9bdbba996a7ba21972b49a0a16f7cc5367201477b8a46064cd"
+    },
+    "MedianOfMediansStatements.lean": {
+      "bytes": 3234,
+      "sha256": "2eb7573336bf5e863627ad2becb86c82b0fd9546abe7bb6eb7405266cba5b392"
+    },
+    "README.md": {
+      "bytes": 3652,
+      "sha256": "8253b7ec83b09f113bd10db0a884ff9b38b546d92babd6c048b76159b1df3ee7"
+    },
+    "chunks-candidate1.json": {
+      "bytes": 1672,
+      "sha256": "01ae4c141020949bcc0f1f04d4a75ef4d5a79c793987213ddcefd3d4306c14c3"
+    },
+    "chunks-candidate2.json": {
+      "bytes": 1974,
+      "sha256": "962127ea3fd1fc16aca4b8f88b2da4f1e5905f1f64bdf4baa1c78de5ef7f9d54"
+    },
+    "chunks-correction1.diff": {
+      "bytes": 2015,
+      "sha256": "1ad34d03fed1a1fb927792630266268a826789c7325bc13bd0ee2ecbf40a3bec"
+    },
+    "chunks-precommit.json": {
+      "bytes": 3634,
+      "sha256": "59b58590b3cac8163f39e11ccb31f7289c11e0b3d0d9290e2ab9c00edbaae667"
+    },
+    "count-rank-candidate1.json": {
+      "bytes": 1108,
+      "sha256": "f517e925fe4634a7868c53b744c342457cb00c260368017d9bfdc93d673777bd"
+    },
+    "count-rank-candidate2.json": {
+      "bytes": 1637,
+      "sha256": "a9906a8de39c89eb019d1d7c204e4b719b7d1907c4c5f45204c24e48b9ca8c9f"
+    },
+    "count-rank-candidate3.json": {
+      "bytes": 1458,
+      "sha256": "3f2558c1b6623c9ebd13387f84d170c230bee5a1bbb2a45b34632da4edd87ca5"
+    },
+    "count-rank-correction1.diff": {
+      "bytes": 5219,
+      "sha256": "3b51b5c7295f6d59176f9f2266ae3951b3d76607be2d06bdb1434a093e27dead"
+    },
+    "count-rank-correction2.diff": {
+      "bytes": 634,
+      "sha256": "5613c0546006bdc8a3fd8980ef2c8e75a644b5a56f6ccc0a4e8b10eb6f6f7fcb"
+    },
+    "count-rank-precommit.json": {
+      "bytes": 3771,
+      "sha256": "a3d679cf5dd83427033792fee115382c571fc88b8dea97192b2a3bf06481c096"
+    },
+    "focused-success-and-hold-0123.json": {
+      "bytes": 3387,
+      "sha256": "369ee30002364c82b448275b4b1cd6722a6917fd9afe9599d195c86197dff148"
+    },
+    "pivot-candidate1.json": {
+      "bytes": 5040,
+      "sha256": "6875be6e1e21d0b82423f1cd8aded535d46fae3b9d0e68df1aa9f51502e0f190"
+    },
+    "pivot-candidate2.json": {
+      "bytes": 3042,
+      "sha256": "c0a5c19b6b0c760d08d4a9e6e3ee766c60ac54c430624983a4660c00a12b8e0d"
+    },
+    "pivot-correction1-precommit.json": {
+      "bytes": 7993,
+      "sha256": "b904a0d9e8048990f16b80c1f265012cd0dc331e5fc2845f7be94298d2bfe112"
+    },
+    "pivot-correction1.diff": {
+      "bytes": 1666,
+      "sha256": "07283ef6ba8f03cf767600576618b0a94383d292a69dea065c1dd1e63b003d99"
+    },
+    "pivot-precommit.json": {
+      "bytes": 5086,
+      "sha256": "19c3db880d937a922fb4ab0101439c0aad9814688d1ecf4ef3b6d332f1467f7c"
+    },
+    "pivot-review-note.md": {
+      "bytes": 5749,
+      "sha256": "b7c1c91bbdc0833cb3090950bad63fa1679d1a830897444d24a1a0b31f702e96"
+    },
+    "pivot-starting-state.json": {
+      "bytes": 718,
+      "sha256": "e92c3ede36d3e871e1fd9c5ef5b67d2c57fdf587fb7897c9acd105d7113237be"
+    },
+    "starting-state.json": {
+      "bytes": 786,
+      "sha256": "857a895221c71df194c7b29160fc90353d0275e922ac93ab34ac855a17a64078"
+    },
+    "type-input-explicit-at-correction.diff": {
+      "bytes": 14755,
+      "sha256": "9ab883dbd6009046f8bbdf0d53d0b702d28475d97bdded496d7f035ea4087867"
+    },
+    "type-input-explicit-at-correction.json": {
+      "bytes": 9510,
+      "sha256": "dae9b943048549e46568b73963e3ba210821159977c9499ae51da28eff0ad0ef"
+    },
+    "type-input-explicit-at-readback-and-hold.json": {
+      "bytes": 3057,
+      "sha256": "c9661f15cda24b640b0c8c4d32d6c9e0726e45e2af94b95c58843cba9853acad"
+    }
+  },
+  "validation": "Static diff check exit 0; exact public-header/import/name and other-source identity comparisons. Successor focused check, actual type execution, full C3 check/audit and independent reviews pending."
+}

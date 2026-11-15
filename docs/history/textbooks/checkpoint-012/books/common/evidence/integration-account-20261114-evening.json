@@ -1,0 +1,225 @@
+{
+  "schema": 1,
+  "kind": "read-only verification and concise answer; not acceptance or a replacement coverage owner",
+  "observed_utc": "2026-11-14T20:24:31.685562+00:00",
+  "checkpoint_serial": "008",
+  "candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+  "tree": "33d087744fc2435c29d60981ca0d79af629b8c8d",
+  "upstream_at_audited_candidate": "983d0b6b602b71541f182737011621a8805be27b",
+  "new_upstream_04514fc1_note": "Assessed by the parent/upstream agent; not included in this source cut and grants no inferred textbook obligation credit.",
+  "maintained_owners": [
+    "books/common/COVERAGE.md",
+    "books/common/STATUS.md",
+    "books/common/analysis/donor-dispositions.json"
+  ],
+  "architecture_read": [
+    "AGENTS.md",
+    "docs/agents/architectural-quality.md",
+    "docs/agents/domain.md",
+    "GLOSSARY.md",
+    "docs/adr/README.md",
+    "docs/adr/0001-modules-and-proof-dependencies.md",
+    "docs/adr/0002-relations-and-synchronization.md",
+    "docs/adr/0010-composition-and-proof-audit.md"
+  ],
+  "candidate_input_ancestry": {
+    "fdsa": {
+      "commit": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "ancestor": true
+    },
+    "pfds": {
+      "commit": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "ancestor": true
+    },
+    "vfa": {
+      "commit": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+      "ancestor": true
+    }
+  },
+  "fdsa_historical_scope_ancestry": [
+    {
+      "scope": "chapter01-acceptance-20261103",
+      "commit": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "ancestor_of_audited_candidate": true,
+      "receipt": "books/fdsa/records/evidence/validation/fdsa-control/provenance/chapter01-acceptance-20261103/acceptance.json"
+    },
+    {
+      "scope": "chapter02-acceptance-20261104",
+      "commit": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+      "ancestor_of_audited_candidate": true,
+      "receipt": "books/fdsa/records/evidence/validation/fdsa-control/provenance/chapter02-acceptance-20261104/acceptance.json"
+    },
+    {
+      "scope": "chapter03-acceptance-20261105",
+      "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+      "ancestor_of_audited_candidate": true,
+      "receipt": "books/fdsa/records/evidence/validation/fdsa-control/provenance/chapter03-acceptance-20261105/acceptance.json"
+    },
+    {
+      "scope": "binary-tree-cache-acceptance-20261105",
+      "commit": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "ancestor_of_audited_candidate": true,
+      "receipt": "books/fdsa/records/evidence/validation/fdsa-control/provenance/binary-tree-cache-acceptance-20261105/acceptance.json"
+    },
+    {
+      "scope": "tree-shape-acceptance-20261105",
+      "commit": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "ancestor_of_audited_candidate": true,
+      "receipt": "books/fdsa/records/evidence/validation/fdsa-control/provenance/tree-shape-acceptance-20261105/acceptance.json"
+    }
+  ],
+  "vfa_perm_blobs": [
+    {
+      "path": "Applications/Sorting/FirstPair.lean",
+      "incoming_blob": "16bc18d29f10bcb1bf4f79fa46e0cdead978b395",
+      "candidate_blob": "16bc18d29f10bcb1bf4f79fa46e0cdead978b395",
+      "identical": true
+    },
+    {
+      "path": "Examples/ComparisonPermutations.lean",
+      "incoming_blob": "3e07b3ea1f5a2106d3c88e06885fbb55374a5b5f",
+      "candidate_blob": "3e07b3ea1f5a2106d3c88e06885fbb55374a5b5f",
+      "identical": true
+    }
+  ],
+  "pfds_b2": {
+    "ledger": "books/pfds/records/research/coverage/coverage.json",
+    "selection": "items whose id starts B2, including unnumbered B2-* contracts; not only the six B2.* exercise rows",
+    "records": 22,
+    "distinct_lean_paths": 35,
+    "missing_paths": [],
+    "six_exercise_headings": [
+      "2.1",
+      "2.2",
+      "2.3",
+      "2.4",
+      "2.5",
+      "2.6"
+    ],
+    "source_scope_review": "books/pfds/records/evidence/reviews/chapter02-spec-r3.md"
+  },
+  "vfa_staging": [
+    {
+      "path": "books/vfa/records/math/drafts/sorting-specs/SortingSpecifications.lean",
+      "sha256": "45546bba250cb8613ff0fa41143f63f1a3f81d271a0bdeafac1663343e15188c",
+      "matches_preserved_identity": true,
+      "disposition_at_audited_candidate": "preserved staging, not received as complete draft capability"
+    },
+    {
+      "path": "books/vfa/records/math/drafts/table-specs/TableObservations.lean",
+      "sha256": "0233781d210056e9a61ae9a355120429e55007e72713434d25a5338aa6489b57",
+      "matches_preserved_identity": true,
+      "disposition_at_audited_candidate": "partial recovery of partial-map observations; generic total-table contract pending"
+    },
+    {
+      "path": "books/vfa/records/math/drafts/positive-keys/VFAStaging/PositiveKeys.lean",
+      "sha256": "98c890672ed3e91b16089eb82037af46f15061af572c838f436b5692f5182f79",
+      "matches_preserved_identity": true,
+      "disposition_at_audited_candidate": "preserved staging, not received as complete draft capability"
+    },
+    {
+      "path": "books/vfa/records/math/drafts/unary-costs/UnaryComparisonCosts.lean",
+      "sha256": "997aa73ce69fe65712ba97a1217909a6f7af8c2d00e7e2978a4ca03a18c01c13",
+      "matches_preserved_identity": true,
+      "disposition_at_audited_candidate": "preserved staging, not received as complete draft capability"
+    },
+    {
+      "path": "books/vfa/records/math/drafts/queue-costs/QueuePeekCost.lean",
+      "sha256": "41486ba378124a2d459a74bd8199655e40a4c521e20abb75b9e5580671161df0",
+      "matches_preserved_identity": true,
+      "disposition_at_audited_candidate": "preserved staging, not received as complete draft capability"
+    }
+  ],
+  "fdsa_additional_donor_path_check": {
+    "catalog_new_paths": 65,
+    "present_at_original_path": [
+      "Examples/MappedPotentialAccounting.lean"
+    ],
+    "absent_at_original_path": 64,
+    "caveat": "Path absence is not capability absence: selected XA01 map/validity work was adapted under existing OrderedMap owners. No 1/65 capability-completion percentage."
+  },
+  "public_imports": {
+    "Examples.TextbookSorting": true,
+    "Examples.TextbookSequences": true,
+    "Examples.TextbookMaps": true,
+    "Examples.MappedPotentialAccounting": true,
+    "Examples.ComparisonPermutations": true
+  },
+  "inspected_source_blobs": {
+    "docs/research/textbook-integration.md": "1ddae92172cf5e7f2157891fe9a1e4cddc22ae0c",
+    "Examples/TextbookSorting.lean": "2134433dfd1894924847a3d7f72606c1910fc47b",
+    "Examples/TextbookSequences.lean": "bbee89deabceb58c05d98c09bfcebe5edd4ebb06",
+    "Examples/TextbookMaps.lean": "257904c1b3e90d1f2479cfa6802ca40f6fe86e32",
+    "Applications/Search/OrderedMap/Interface.lean": "071c93285efa3b80bb631c043446bd289f870779",
+    "Applications/Search/OrderedMap/Invariant.lean": "aa6cf4abea99514aed8b15fc9bf779c7e63f8211",
+    "Applications/Search/OrderedMap/AssociationList.lean": "0b2c3d3e529ceaeef22e702a29b0d17f9ae5e624",
+    "Applications/Search/OrderedMap/Observations.lean": "ef2af8d7595ea8c04ff3a43a8f46f435c3db2560",
+    "Applications/Resources/Potential.lean": "367227971ea003ae885b1d710889eac57982bbec",
+    "Applications/Suspensions/Pure/CacheCounts.lean": "1c6db1c91ab928e63bc075b558a353574fa2b269",
+    "Applications/Suspensions/Pure/BodyCounts.lean": "216890611df7e07612380cfa0524d651eee98547",
+    "Applications/Suspensions/Correspondence.lean": "74d84f698c519ce5cec241bbcd2d51a7242d21ef"
+  },
+  "coverage_frontiers": {
+    "fdsa": {
+      "historically_source_complete_chapters": [
+        1,
+        2,
+        3
+      ],
+      "chapter2_obligations": {
+        "covered": 112,
+        "total": 112,
+        "exercise_headings": 7
+      },
+      "chapter3_obligations": {
+        "covered": 83,
+        "total": 83,
+        "exercise_headings": 8
+      },
+      "chapter1": "complete unnumbered scope at historical receipt",
+      "book_chapters": 27,
+      "book_appendices": 3,
+      "chapter4": "76 obligations/11 exercises, three preserved uncompiled committed streams; shared accepted tree prerequisites do not close the chapter"
+    },
+    "vfa": {
+      "implemented_chapter_frontier": "Perm",
+      "mapped_records": 30,
+      "mapped_exercise_markers": 4,
+      "formal_accepted_chapters": 0,
+      "standalone_developments": 5,
+      "historically_checked_standalone_developments": 5,
+      "book_substantive_chapters": 16,
+      "book_exercise_markers": 182,
+      "inventory_only_records": 811
+    },
+    "pfds": {
+      "chapter1": "accepted introductory accounting only; 16 forward cost contracts open",
+      "chapter2_formal_exercise_headings": 6,
+      "chapter2_total_exercise_headings": 6,
+      "retained_mathematical_scopes": 8,
+      "retained_import_only_scopes": 1,
+      "book_exercise_headings": 83,
+      "later_exercise_headings_not_recorded_proved": 77,
+      "book_chapters": 11,
+      "book_appendices": 1,
+      "formal_accepted_substantive_chapters": 0
+    }
+  },
+  "validation_scope": "No new compiler or proof audit was run. Historical acceptance/focused evidence retains its exact source scope. R3 Standards/Spec source analyses at candidate16440863 found no new source corrections, but overall approvals remained blocked by missing exact full-validation/audit evidence. Delegating the full gate changes its execution owner, not theorem coverage.",
+  "operations": {
+    "compiler_runs": 0,
+    "setup_changes": 0,
+    "git_source_index_or_ref_writes": 0,
+    "checkpoint_writes": 0,
+    "new_files": [
+      "intake/integration-account-20261114-evening.md",
+      "intake/integration-account-20261114-evening.json"
+    ]
+  },
+  "limitations": [
+    "Not a fresh reading of all three manuscripts.",
+    "Not an exhaustive comparison between every donor capability and every current library theorem.",
+    "Book inventories mix definitions, algorithms, claims, exercises and source boundaries; no whole-book mathematical percentage follows.",
+    "Formal code present, historical focused success, exact current compilation/audit and chapter/source completeness remain separate."
+  ]
+}

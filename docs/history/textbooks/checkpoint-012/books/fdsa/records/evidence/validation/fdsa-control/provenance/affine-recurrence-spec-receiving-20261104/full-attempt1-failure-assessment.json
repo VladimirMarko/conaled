@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-11-04T18:56:16.924928+00:00",
+  "axis": "Spec; independent nonauthor continuation of the original XR01 full scope",
+  "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "tree": "b62fe504a38948e61c6377a4e7661b639c28c08c",
+  "original_base": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+  "original_draft": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+  "accepted_integration_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "scope": "All original five paths and 21 public declarations, complete original mathematics/cases and later-chapter limits retained. No narrower failure-only review replaces the held source assessment.",
+  "disposition": "Blocked: actual full attempt 1 failed during aggregate compilation; actual 21 types, successful full audit/verification and final independent gates remain pending.",
+  "held_source_artifacts_unchanged": {
+    "reviews/affine-recurrence-spec-receiving-20261104.md": "58b619efddf741e646d7064a863567aa250c3f28140b8f99c884bca5e9cf916b",
+    "provenance/affine-recurrence-spec-receiving-20261104/source-and-prepared21-assessment.json": "54c7bddad5262e20c2da7b1f6bb8a457002ed8c438d1f3ec4799307abd1a234a",
+    "provenance/affine-recurrence-spec-receiving-20261104/source-reconciliation.json": "395911a63def72ffb62a7c77509f2939c2a711217ca417c78b12464f1ceaa333",
+    "provenance/affine-recurrence-spec-receiving-20261104/source-readback-and-hold.json": "1407d68a9238b6759c0f0526b85c0c1067dd59074b2988dfae715c8b7a6a889a"
+  },
+  "closed_evidence_directory": "provenance/affine-recurrence-receiving-full-attempt1-20261104",
+  "bound_files": {
+    "request.json": {
+      "bytes": 737,
+      "lines": 21,
+      "sha256": "30cdf91d71789c4c3ea33fc389d072a4a7f6b2f724aa4dccfb6bc023ed53ab6c"
+    },
+    "start.json": {
+      "bytes": 930,
+      "lines": 26,
+      "sha256": "95187e67350fcb8116a35769f4882c95fef69867c42a129d7f784173af1a2d29"
+    },
+    "result.json": {
+      "bytes": 1164,
+      "lines": 31,
+      "sha256": "d7031fb542ec8e1580081d6969ccf9b78c358e981ae86e080eb042b71f4d18fd"
+    },
+    "owned-terminal.json": {
+      "bytes": 260,
+      "lines": 8,
+      "sha256": "109eb60c727af9d287931e33bed38fb0f8b7093b3d26fceee8dbe1150e041d3c"
+    },
+    "closed-evidence-reconciliation.json": {
+      "bytes": 2157,
+      "lines": 44,
+      "sha256": "b12b22d27518ccc8d7c07a420156b6a976b1e937403b8d48d2e0dc1e5fba27ff"
+    },
+    "native-records/start.json": {
+      "bytes": 421,
+      "lines": 13,
+      "sha256": "59fa87bd18f7b16ac137f071e3f321cf74dd522343e4d13f9d61de70a98bae12"
+    },
+    "native-records/result.json": {
+      "bytes": 575,
+      "lines": 18,
+      "sha256": "6fb278b81850cdd604f6aa5095d46ff1337a0cb730767a993a0989428ad4bb90"
+    },
+    "native-records/output.log": {
+      "bytes": 224538,
+      "lines": 1583,
+      "sha256": "c8b26b6d5752c2044ad0574c501539c06744efa312f7305b73586b4c09751ff7"
+    },
+    "full.log": {
+      "bytes": 224766,
+      "lines": 1586,
+      "sha256": "dab74fdcc00093150c36f7cae8fc7c65304e774a1556f7fa64a372d170ff0cc5"
+    },
+    "resource-observation-after-failure.json": {
+      "bytes": 1337,
+      "lines": 41,
+      "sha256": "b861ffc0009013434e1b9b34d2b63dd436d58fd7fc76575a0fe1c7ce20d35c60"
+    }
+  },
+  "terminal_assessment": {
+    "owned_session": 18625,
+    "terminal_tool_chunk": "9556b9",
+    "never_poll_historical_session": true,
+    "outer_exit": 1,
+    "native_exit": 1,
+    "nested_Lean_exit": 137,
+    "failed_target": "SquareApplications",
+    "reported_target_seconds": 114,
+    "actual_source_initial_and_final": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "initial_and_final_status": "clean",
+    "native_timeout": false,
+    "native_recorder_error": null,
+    "verification_record_present": false,
+    "audit_success": false,
+    "new_actual_type_credit": 0,
+    "cause": "Not established by the saved terminal or resource observation. No OOM, storage, timeout, or source defect conclusion is inferred from exit 137."
+  },
+  "log_qualification": {
+    "native_exact_outer_offset": 70,
+    "native_body_occurrences": 1,
+    "outer_prefix": {
+      "bytes": 70,
+      "sha256": "85b1c84dcee195655562afb91455f0d9c98388a8be8845b8eb9306ffa317cfab"
+    },
+    "outer_suffix": {
+      "bytes": 158,
+      "sha256": "a8a8b44c1b815b0c277158dbb8e6f3abdd1ec0089e5e6eb374b6731538ff9604"
+    },
+    "entire_logs_hashed_and_terminal_structure_reconciled": true,
+    "full_manual_log_read_claimed": false,
+    "complete_manual_native_ranges": [
+      {
+        "start_line": 1,
+        "end_line": 5,
+        "bytes": 392,
+        "sha256": "78f6a6892106a0cb7e9f7b2f67bdb2edebab1de1d5804ea33209d44311b86e69",
+        "read_tool_chunk": "742dbd"
+      },
+      {
+        "start_line": 294,
+        "end_line": 302,
+        "bytes": 1502,
+        "sha256": "9ebb1ae287199e23a1acdb68d8933512e71dd1695c2d9a6c6df2f90b0db6ee1c",
+        "read_tool_chunk": "742dbd"
+      },
+      {
+        "start_line": 1577,
+        "end_line": 1582,
+        "bytes": 2053,
+        "sha256": "18fbef6c2f4c4e1958298f66b4439801318f7657289e7db726a19c3b57c52c93",
+        "read_tool_chunk": "742dbd"
+      }
+    ],
+    "last_line": {
+      "line": 1583,
+      "bytes": 37663,
+      "sha256": "0a01848fc172765c441b6c544e92f80569afac9bbeb193c7bc5fbcb1a3be8b8b",
+      "manual_read": "Only first 1500 and last 650 bytes; not a complete line read. The complete argv was separately parsed mechanically without normalization.",
+      "parsed_argv_entries": 1034,
+      "unique_module_targets": 1030,
+      "first_target": "+Squares",
+      "last_target": "+SquareApplications",
+      "meaning": "1030 requested build targets is not an accepted checked-module or audit count."
+    },
+    "earlier_truncated_output": "Tool 28612a included the oversized final argv line and was truncated; no complete-log or complete-selected-range read credit is taken from that output. Relevant bounded ranges were read again at 742dbd.",
+    "metadata_read": "All request/start/result/owned-terminal/closed-reconciliation/native-start/native-result files read fully at d3a86b; saved root resource observation read fully at 742dbd."
+  },
+  "warnings": {
+    "accepted_Q_native_sha256": "7f2c0853d96f00134c8e4d9e7c1014ed91a3b9ed9e6c8c048ab6ea5c02779693",
+    "accepted_Q_headers": 647,
+    "current_headers": 653,
+    "whole_multiset_comparison_tool_chunk": "742dbd",
+    "added_exactly_six_previously_reviewed_XR_import_advisories": [
+      "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Algebra.Order.Archimedean.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Data.Finset.Lattice.Fold` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Data.Finset.Range` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Data.Nat.Cast.Order.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Tactic.Linarith` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+      "warning: Examples/AffineRecurrence.lean: imports `Mathlib.Algebra.Order.Archimedean.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file"
+    ],
+    "removed": [],
+    "boundary": "Mechanical full warning-header comparison plus direct full reading of the six XR advisories; retains prior complete Q warning assessment by exact identity, without a new complete failed-log context-read claim."
+  },
+  "errors": [
+    [
+      1579,
+      "error: Lean exited with code 137"
+    ],
+    [
+      1582,
+      "error: build failed"
+    ]
+  ],
+  "gates": {
+    "source_guard": "Passed as a pre-build stage, not full candidate acceptance.",
+    "pre_build_integrity": "3090 artifacts hashed; zero modules invalidated. Not a post-build or audit result.",
+    "focused_pair": "Earlier actual focused attempt 2 remains passed at this exact source; it does not override the failed full attempt.",
+    "XR01_ELAB_001": "Previously resolved by actual focused successor compilation; no new elaboration diagnostic in this failed full log.",
+    "XP01_DOC_001": "Receiving Chapter 1 qualifier remains source-resolved; original history retained.",
+    "prepared21": "Held, unexecuted; no current full type or acceptance credit.",
+    "remaining": "Successful qualified complete candidate check/audit/verification, actual 21 type execution and input qualification, both final axes, then root immediate verification/integration."
+  },
+  "actions": "Read secured evidence and wrote this additive own assessment only; no compiler, process polling, source/ref/cache/runtime/output changes. All earlier reports remain byte-identical."
+}

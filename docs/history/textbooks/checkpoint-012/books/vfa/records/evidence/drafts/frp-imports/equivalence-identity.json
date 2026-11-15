@@ -1,0 +1,31 @@
+{
+  "original_source_path": "/workspace/scratch/0c54f2db1fdf/conaled/Applications/FRP/Equivalence.lean",
+  "source_hash": "0bf867cbfd819fd33dc1a762f17989131a720035ed1b50f65475857b45fb20d9",
+  "original_source_hash": "9ea7d5ef3fc907753df528adce7ad773a217179533f68b3190f475f1fa567a02",
+  "diff_hash": "d00eb4e124b78c6d17d97f8034338a557bd05bd0ec04553e71c22836c3b5e365",
+  "setup_hash": "f6d8d6d9ef85b743d06d5f5136201668ecec1b6bbd265a312b4b89ec91c7df00",
+  "setup_name_patch_hash": "328f343e5f81187481b69ed96948e2091c2255551b6748f03b0706f999bf5427",
+  "setup_base_hash": "6b4af7891d8b68f01d431a82dd1a707b7e0d446479daf8935cc8f08f68ca787b",
+  "setup_original_available": false,
+  "setup_construction": "Change only the module name in the completed frozen Spec setup; every other byte including artifact mappings is unchanged",
+  "setup_module": "Applications.FRP.Equivalence",
+  "setup_options": {},
+  "setup_imports_override_absent": true,
+  "setup_import_artifact_count": 9035,
+  "only_source_change": "Replace import Mathlib with the thirteen conservative imports; every other byte unchanged",
+  "direct_imports": [
+    "Lean.Elab.Tactic.NormCast",
+    "Lean.Elab.Tactic.Omega",
+    "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+    "Mathlib.Data.Finset.Card",
+    "Mathlib.Data.Finset.Max",
+    "Mathlib.Data.Nat.Find",
+    "Mathlib.Data.Set.Finite.Basic",
+    "Mathlib.Order.Hom.Basic",
+    "Mathlib.Order.Interval.Finset.Nat",
+    "Mathlib.Order.Prod.Lex.Basic",
+    "Mathlib.Tactic.Ext",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Positivity"
+  ]
+}

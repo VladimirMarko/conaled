@@ -1,0 +1,15 @@
+{
+  "recorded_at": "2026-11-03T16:42:11.623237+00:00",
+  "old_profile": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-native",
+  "retained_directory": "/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-native-feasibility-r1-retired",
+  "old_generated_wrappers_not_relocatable": true,
+  "reason": "No active compiler jobs; preserve feasibility artifacts while rebuilding for the bounded resolver correction. Historical evidence remains bound to original source/library hashes.",
+  "command": [
+    "python3",
+    "session/environment/run-native-toolchain.py",
+    "--create"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "replacement_receipt": "session/environment/native-profile-identity-042-r2.json"
+}

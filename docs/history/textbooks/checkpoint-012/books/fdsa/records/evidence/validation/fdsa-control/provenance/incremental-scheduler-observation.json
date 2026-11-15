@@ -1,0 +1,32 @@
+{
+  "checker": 82650,
+  "owned_processes": [
+    {
+      "pid": 82650,
+      "parent": 82647,
+      "executable": "python3.13",
+      "module": null,
+      "scheduler_setting": [
+        "LEAN_NUM_THREADS=1"
+      ]
+    },
+    {
+      "pid": 83003,
+      "parent": 82650,
+      "executable": "lake.orig",
+      "module": null,
+      "scheduler_setting": [
+        "LEAN_NUM_THREADS=1"
+      ]
+    },
+    {
+      "pid": 93933,
+      "parent": 83003,
+      "executable": "lean",
+      "module": "/workspace/scratch/845aa1048b05/conaled-ch01-review/SquareKit/CommaProducts.lean",
+      "scheduler_setting": [
+        "LEAN_NUM_THREADS=1"
+      ]
+    }
+  ]
+}

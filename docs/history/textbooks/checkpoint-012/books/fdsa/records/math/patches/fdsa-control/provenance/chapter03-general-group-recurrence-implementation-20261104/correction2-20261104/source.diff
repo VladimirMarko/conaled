@@ -1,0 +1,22 @@
+diff --git a/Applications/Resources/GroupSelectionRecurrence.lean b/Applications/Resources/GroupSelectionRecurrence.lean
+index 851bb1e..afa3500 100644
+--- a/Applications/Resources/GroupSelectionRecurrence.lean
++++ b/Applications/Resources/GroupSelectionRecurrence.lean
+@@ -88,13 +88,15 @@ theorem pivotChild_monotone (d : Nat) : Monotone (pivotChild d) := by
+   intro m n h
+   apply Nat.ceil_mono
+   have hm : (m : ℝ) ≤ (n : ℝ) := by exact_mod_cast h
+-  exact add_le_add_right (mul_le_mul_of_nonneg_left hm (by unfold pivotFraction; positivity : (0 : ℝ) ≤ pivotFraction d)) 0
++  have nonneg : (0 : ℝ) ≤ pivotFraction d := by unfold pivotFraction; positivity
++  exact add_le_add (mul_le_mul_of_nonneg_left hm nonneg) le_rfl
+ 
+ theorem sideChild_monotone (d : Nat) : Monotone (sideChild d) := by
+   intro m n h
+   apply Nat.ceil_mono
+   have hm : (m : ℝ) ≤ (n : ℝ) := by exact_mod_cast h
+-  exact add_le_add_right (mul_le_mul_of_nonneg_left hm (by unfold sideFraction; positivity : (0 : ℝ) ≤ sideFraction d)) _
++  have nonneg : (0 : ℝ) ≤ sideFraction d := by unfold sideFraction; positivity
++  exact add_le_add (mul_le_mul_of_nonneg_left hm nonneg) le_rfl
+ 
+ /-- Transport the exact two-group bound, retaining the final short chunk.
+ The same arithmetic applies separately to the less-than and greater-than sides. -/

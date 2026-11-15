@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-03T13:56:14.634675+00:00",
+  "source_checkpoint": 39,
+  "runs": [
+    {
+      "name": "import-footprint-901f734-full-r2",
+      "kind": "full candidate gate",
+      "candidate": "901f734161920a76f3b399a575805b9a1d31e971",
+      "preserved_record": "validation/checkpoint039-progress/import-footprint-901f734-full-r2.json",
+      "record_sha256": "a02e2d3366c5346a99e9d31efdbbf6786eff5fd45b30fe55cd6ba60444366986",
+      "preserved_log": "validation/checkpoint039-progress/import-footprint-901f734-full-r2.log",
+      "log_sha256": "5d556f6812046f04a8d47dea6948fa763f808939a8309e5b004dc12566895a1f",
+      "saved_status": "running",
+      "saved_exit_code": null,
+      "saved_ended_at": null,
+      "recovery_disposition": "interrupted; terminal outcome unknown",
+      "acceptance": false,
+      "next_action": "Repeat the required scope in the pinned environment; preserve this historical partial record unchanged."
+    },
+    {
+      "name": "signed-potential-r2",
+      "kind": "focused development",
+      "candidate": "9c47a052ef96b528a85660d4c632704ca03144fe",
+      "preserved_record": "validation/checkpoint039-progress/signed-potential-r2.json",
+      "record_sha256": "c78596d7f9beefecc773ad5405f7992cef8153d7af4e2e53edbf37e7682eefec",
+      "preserved_log": "validation/checkpoint039-progress/signed-potential-r2.log",
+      "log_sha256": "3f59d2aa6cad01d8f884c1ae98361e8a1078b60da39c522343c98c79eaa41d17",
+      "saved_status": "running",
+      "saved_exit_code": null,
+      "saved_ended_at": null,
+      "recovery_disposition": "interrupted; terminal outcome unknown",
+      "acceptance": false,
+      "next_action": "Repeat the required scope in the pinned environment; preserve this historical partial record unchanged.",
+      "targets": [
+        "Applications.Resources.Potential",
+        "Applications.Resources.SignedPotential",
+        "Applications.Resources.BinaryCounter",
+        "Applications.Resources.SymmetricCosts",
+        "Applications.Resources.RandomAccess.End",
+        "Applications.Resources.FIFOContracts",
+        "Examples.PotentialAccounting",
+        "Examples.FIFOContracts",
+        "Examples.RandomAccessEndCosts",
+        "Examples.SignedPotential",
+        "Examples.PotentialTransport"
+      ]
+    }
+  ],
+  "old_session_handles_reusable": false,
+  "cause_of_original_process_termination": "unknown",
+  "note": "Restoration does not establish whether the original host eventually completed either run. These processes and their final evidence are not recoverable from this checkpoint."
+}

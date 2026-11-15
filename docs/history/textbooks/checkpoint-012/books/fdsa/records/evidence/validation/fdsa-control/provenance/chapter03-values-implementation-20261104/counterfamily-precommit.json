@@ -1,0 +1,37 @@
+{
+  "recorded_utc": "2026-11-04T20:27:23.647857+00:00",
+  "stage_base": "11480d46b4f8f99eb33bdc4b34759031af17c9f0",
+  "tree": "a0e60d9f8f6df21aa836541578d928f90c68e3a6",
+  "status_before_commit": "?? Applications/Selection/MedianCounterfamily.lean\n?? Examples/MedianCounterfamily.lean",
+  "whole_chapter_review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "scope": "C03-056 actual infinite family, two new source modules only",
+  "modules": [
+    {
+      "module": "Applications.Selection.MedianCounterfamily",
+      "repository_path": "Applications/Selection/MedianCounterfamily.lean",
+      "namespace": "Applications.Selection.MedianCounterfamily",
+      "imports": [
+        "Applications.Selection.MedianOfMedians"
+      ],
+      "bytes": 7287,
+      "sha256": "a5c0ded8b731f3304183db02529398fd6887ccc28195acab886aceb56ff79994"
+    },
+    {
+      "module": "Examples.MedianCounterfamily",
+      "repository_path": "Examples/MedianCounterfamily.lean",
+      "namespace": "Examples.MedianCounterfamily",
+      "imports": [
+        "Applications.Selection.MedianCounterfamily"
+      ],
+      "bytes": 2917,
+      "sha256": "8ebe64ee7b3a819b67a4afc9d2d52b8e659ebcdd20ffea17fb9933c1be0f5083"
+    }
+  ],
+  "public_names": 42,
+  "named_private_helpers": 0,
+  "all12_prior_sources_byte_identical": true,
+  "all_prior_records_preserved": true,
+  "statement_review_status": "All source headers and definitions assessed; actual emitted types and focused validation pending. No mathematical expectation weakened.",
+  "author_lean_lake_execution": false,
+  "fresh_full_candidate_validation": "Not performed by author; coordinated whole Chapter3 gates retained."
+}

@@ -1,0 +1,200 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-14T21:16:08.125090+00:00",
+  "kind": "read-only release-boundary recommendation; not final review or merge approval",
+  "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+  "tree": "63205d8a3ff27deb3680c613b70085163f289b83",
+  "pin": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+  "original_full_spec_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "recommendation": "Consolidate the existing bounded contribution for near-term receiving integration; keep additional mathematical slices as explicit follow-ons. No need to finish all books or receive every donor before a useful accepted component.",
+  "patch": {
+    "path": "deliverables/conaled-textbooks-009.patch",
+    "bytes": 3544383,
+    "sha256": "955c71b607aab9e217f1b0e4b9c1ef476f16a4596e9d47192052acc8f8a88498",
+    "equals_fresh_read_only_git_diff": true,
+    "export_receipt": "books/common/evidence/patch-export-009.json",
+    "recorded_reconstructed_tree": "63205d8a3ff27deb3680c613b70085163f289b83",
+    "matches_candidate_tree": true,
+    "new_index_application_performed": false,
+    "changed_paths": 360
+  },
+  "preservation": {
+    "catalog_entries": 155,
+    "distinct_refs": 155,
+    "bundle_advertisements": 156,
+    "missing": [],
+    "mismatched": [],
+    "external_archive_dependencies": [],
+    "original_refs_preserved_recorded": 131,
+    "offline_roundtrip_receipt": "intake/pack-009.json",
+    "completed_durable_delivery_receipt": "intake/delivery-009.json"
+  },
+  "source_reviews": {
+    "standards": {
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "source_handoff_outcome": "Passed",
+      "final_approval": false,
+      "final_acceptance_status": "Pending receiving validation and final acceptance gates",
+      "source_findings": []
+    },
+    "spec": {
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "source_handoff_outcome": "Passed",
+      "final_approval": false,
+      "final_acceptance_status": "Blocked",
+      "source_findings": []
+    }
+  },
+  "bounded_semantic_assessment": {
+    "conclusion": "No unaddressed semantic blocker to the currently advertised slice identified by retained source reviews and this bounded inspection. Missing stronger capabilities are separately owned, not assumptions falsely supplied to current proofs.",
+    "limits": "Not an independent exhaustive new proof/spec review; compiler/axiom acceptance and intended-spec review remain distinct.",
+    "current_bind_api": "empty/bind/lookup, partial Meaning, separate Laws, arbitrary-state binding-list agreement; no advertised deletion or arbitrary total-table implementation theorem",
+    "observations_api": "Explicitly one-way default observation; joint presence/default reflection; generic total-table contract remains pending",
+    "current_core_unchanged_from_prior_inspection": {
+      "Applications/Search/OrderedMap/Interface.lean": true,
+      "Applications/Search/OrderedMap/Observations.lean": true,
+      "Applications/Search/OrderedMap/Invariant.lean": true,
+      "Applications/Search/OrderedMap/AssociationList.lean": true,
+      "Examples/TextbookMaps.lean": true,
+      "Examples/TextbookSorting.lean": true,
+      "Examples/TextbookSequences.lean": true,
+      "Applications/Resources/Potential.lean": true
+    }
+  },
+  "essential_before_final_merge": [
+    "Successful full guarded check and exhaustive audit for actual receiving candidate and pinned inputs, including terminal evidence and matching verification record.",
+    "Fix any genuine public source, semantic or forbidden-axiom failure; retain original full review base and finding history through correction.",
+    "Both final review approvals after reconciling exact-candidate evidence; source/handoff approval alone is insufficient.",
+    "Immediate verify-candidate and successful review_snapshot compare before acceptance; a patch-created commit is a new candidate identity.",
+    "Preserve self-contained archive, all donor identities, explicit pending owners and honest coverage boundaries."
+  ],
+  "decision_by_build_outcome": {
+    "success": "Retain exact successful terminal and verification evidence, reconcile both final axes, verify and compare; then offer current bounded patch for receiving integration. No new mathematics prerequisite.",
+    "source_or_axiom_failure": "Repair the concrete blocker, focused-check affected clients, capture corrected candidate and review/revalidate through existing loop. Do not call known-broken public code merge-ready.",
+    "environment_failure_or_interruption": "Record exact observed outcome without inventing cause; keep INT-SP-001/INT-090 open and transfer unchanged or corrected candidate to normal receiving environment. Continue no indefinite environment rebuild loop.",
+    "new_source_after_this_cut": "Freeze tested candidate; develop follow-ons separately or knowingly capture/review/revalidate a successor. Never let a prior receipt approve new source."
+  },
+  "deferred_with_owners": {
+    "INT-020": [
+      "FDSA deletion/Modify/set deletion/valid-graph capabilities",
+      "remaining tree/traversal/logarithm/probability donors",
+      "Chapter4 streams and wider book work"
+    ],
+    "INT-021": [
+      "weaker total tables",
+      "sorting specifications",
+      "positive keys",
+      "unary comparisons",
+      "queue-peek counterexample"
+    ],
+    "INT-033": [
+      "actual finite random sampling/PMF correspondence"
+    ],
+    "INT-001": [
+      "wider textbook completion and scope-specific historical acceptance reconciliation"
+    ]
+  },
+  "recommended_follow_on_slices": [
+    {
+      "priority": 1,
+      "name": "Weaker total-table contract",
+      "owners": [
+        "INT-021",
+        "INT-032"
+      ],
+      "source": "books/vfa/records/math/drafts/table-specs/TableObservations.lean",
+      "source_sha256": "0233781d210056e9a61ae9a355120429e55007e72713434d25a5338aa6489b57",
+      "existing_owners": [
+        "Applications/Search/OrderedMap/Interface.lean",
+        "Applications/Search/OrderedMap/Observations.lean",
+        "Squares.lean"
+      ],
+      "intended_result": "Recover independent total lookup/update operations and laws, valid-state transport and observational agreement for arbitrary finite update clients; prove existing partial-map/default observation as a specialization. Do not require partial meaning of all total-table models.",
+      "stop_boundary": "Connected function and default-observed partial-map clients plus repeated-key/absence separation; no deletion, whole chapter or cost claim."
+    },
+    {
+      "priority": 2,
+      "name": "Sorting specification equivalences",
+      "owners": [
+        "INT-021",
+        "INT-012"
+      ],
+      "source": "books/vfa/records/math/drafts/sorting-specs/SortingSpecifications.lean",
+      "source_sha256": "45546bba250cb8613ff0fa41143f63f1a3f81d271a0bdeafac1663343e15188c",
+      "existing_owners": [
+        "Applications/Sorting/Stable.lean",
+        "Examples/TextbookSorting.lean"
+      ],
+      "intended_result": "Connect indexed/adjacent/pairwise order and count/permutation contracts to current KeySorted and StableSort APIs; preserve the draft separating cases and use an existing sorting implementation as a connected client.",
+      "stop_boundary": "No new sorting algorithms required; transitivity, lawful equality, multiplicity and stability distinctions retained."
+    },
+    {
+      "priority": 3,
+      "name": "Measured whole-tree folds",
+      "owners": [
+        "INT-020"
+      ],
+      "donor_commit": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+      "original_review_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "later_donor_family_tip": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "existing_owners": [
+        "Applications/Trees/Observations.lean",
+        "Applications/Trees/Cached.lean",
+        "Applications/Resources/CallCount.lean"
+      ],
+      "intended_result": "First recover XT03 actual fold execution and exact measured observations with a current cached-tree client; compare later accumulator/traversal changes so stronger work remains explicitly owned.",
+      "stop_boundary": "Four XT03 formal modules and their correspondence, without swallowing XT04/XT05 or Chapter4. Preserve XT03-CP01/DOC01 and separate callback/construction/application tariffs."
+    },
+    {
+      "priority": 4,
+      "name": "One finite tape-to-PMF bridge",
+      "owners": [
+        "INT-033"
+      ],
+      "existing_owners": [
+        "Applications/Probability/BoundedUniform.lean",
+        "Applications/Probability/TableSampler.lean",
+        "Applications/Probability/TableSamplerComposition.lean",
+        "Applications/Resources/RandomSelectionRun.lean"
+      ],
+      "intended_result": "Begin with a uniform occurrence-index pivot and its returned fresh cursor, then one finite selection step tied to the existing PMF/run observation; use finite-row and stopped-suffix laws.",
+      "stop_boundary": "Preserve duplicate occurrences, shrinking index domains, valid ranks and separate sampling/source costs. Do not require stationarity or complete recursive random selection/quicksort in the first slice."
+    }
+  ],
+  "not_required_for_current_bounded_component": [
+    "Complete all three books",
+    "Finish all65extra FDSA paths and36variant decisions as active code",
+    "Import all five VFA drafts wholesale",
+    "Prove the new probability producer realizes FDSA randomized algorithms",
+    "Reconstruct patch from scratch or split the existing coherent union solely because it is large"
+  ],
+  "authorization": "No GitHub issue, PR, comment, push or merge was performed or is implied as authorized by this recommendation.",
+  "evidence_owners": [
+    "books/common/REQUIREMENTS.md",
+    "books/common/STATUS.md",
+    "books/common/ISSUES.json",
+    "books/common/COVERAGE.md",
+    "books/common/VALIDATION-HANDOFF.md",
+    "books/common/REVIEW.json",
+    "source/integration.json",
+    "source/refs.json"
+  ],
+  "workflow_read": [
+    "AGENTS.md",
+    "README.md build/audit",
+    "docs/agents/architectural-quality.md",
+    "docs/agents/review-loop.md",
+    ".agents/skills/implement/SKILL.md",
+    ".agents/skills/example-driven-development/SKILL.md"
+  ],
+  "operations": {
+    "compiler_or_setup": false,
+    "git_index_ref_source_write": false,
+    "remote_write": false,
+    "checkpoint_mutation": false,
+    "output_files": [
+      "intake/consolidation-next-20261114.md",
+      "intake/consolidation-next-20261114.json"
+    ]
+  }
+}

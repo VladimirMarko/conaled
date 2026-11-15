@@ -1,0 +1,68 @@
+{
+  "recorded_utc": "2026-11-05T03:24:41.032978+00:00",
+  "candidate": "5b3b9ab1d72a70ca454abe68790327bcbb352d3c",
+  "expectedHead": "27c5908b07c7a03feefc09472a8701ef940b7aaf",
+  "base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "acceptedHead": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "expectedPaths": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-shape.md"
+  ],
+  "name": "tree-shape-receiving-focused-attempt2-20261105",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Trees.Shape",
+    "Applications.Trees.ShapeLog",
+    "Examples.TreeShape"
+  ],
+  "recordDirectory": "tree-shape-receiving-20261105",
+  "recordName": "focused-attempt2-start.json",
+  "validationPurpose": "Focused three-module check of exact proof-only correction candidate. Original full six-path scope and all XT02 gates retained; no full-check or acceptance claim.",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was 27c5908 feat(trees): receive shared shape bounds (#174)\nHEAD is now at 5b3b9ab fix(trees): normalize real logarithm rounding casts (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "bytes": 11019,
+      "sha256": "2233e014900a48ebc239d676a1c8abdaee2046ef503e5219bff460a001b868f3"
+    },
+    {
+      "path": "Applications/Trees/ShapeLog.lean",
+      "bytes": 3070,
+      "sha256": "24ba63bd0a8bc04afdcc1f559ae398a7438f8fe9618cc3e29c8d790499bd5629"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "bytes": 12648,
+      "sha256": "2bcf2b65fa7a0eccc043c3bc7ba66d1bfdcd469489eab52d9085fdfb3db0b516"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 10769,
+      "sha256": "a9e0d07ced3385a26f4e1f0f4d45d796ebe4be5c12f03c7f219cce9dc9c9797d"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 51167,
+      "sha256": "1e58dd24c4b46319d5fdf0cf1e51d2ef42864495df08bba6890e4e02ed21fab9"
+    },
+    {
+      "path": "docs/research/fdsa-tree-shape.md",
+      "bytes": 13230,
+      "sha256": "804ae74a082ddd1a493c2d36a34f7ebc842c6951501b0aa4eef717eac8d366c6"
+    }
+  ],
+  "candidate_tree": "7e1270010d256988723a25b027ecbd5083532c61",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 1026088960
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

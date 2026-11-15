@@ -1,0 +1,126 @@
+Mathlib/Algebra/Order/Monoid/Unbundled/Basic.lean
+44: variable {α β : Type*} {a b c d e f : α}
+45: 
+46: section Mul
+47: 
+48: variable [Mul α]
+49: 
+50: section LE
+51: 
+52: variable [LE α]
+53: 
+54: -- Note: in this section, we use `@[gcongr high]` so that these lemmas have a higher priority than
+55: -- lemmas like `mul_le_mul_of_nonneg_left`, which have an extra side condition.
+56: 
+57: @[to_additive (attr := gcongr high - 1, to_dual self)]
+58: theorem mul_le_mul_right [MulLeftMono α] (bc : b ≤ c) (a : α) : a * b ≤ a * c :=
+59:   CovariantClass.elim _ bc
+60: 
+61: @[to_additive (attr := to_dual self) le_of_add_le_add_left]
+62: theorem le_of_mul_le_mul_left' [MulLeftReflectLE α] (bc : a * b ≤ a * c) : b ≤ c :=
+63:   MulLeftReflectLE.le_of_mul_le_mul_left' bc
+64: 
+65: @[to_additive (attr := gcongr high - 1, to_dual self)]
+66: theorem mul_le_mul_left [i : MulRightMono α] (bc : b ≤ c) (a : α) : b * a ≤ c * a :=
+67:   i.elim a bc
+68: 
+69: @[to_additive (attr := to_dual self) le_of_add_le_add_right]
+70: theorem le_of_mul_le_mul_right' [MulRightReflectLE α] (bc : b * a ≤ c * a) :
+71:     b ≤ c :=
+72:   MulRightReflectLE.le_of_mul_le_mul_right' bc
+73: 
+74: @[to_additive (attr := simp, to_dual self)]
+75: theorem mul_le_mul_iff_left [MulLeftMono α] [MulLeftReflectLE α] (a : α) {b c : α} :
+76:     a * b ≤ a * c ↔ b ≤ c :=
+77:   rel_iff_cov' ‹MulLeftMono α›.elim fun _ ↦ MulLeftReflectLE.le_of_mul_le_mul_left'
+78: 
+79: @[to_additive (attr := simp, to_dual self)]
+80: theorem mul_le_mul_iff_right [MulRightMono α] [MulRightReflectLE α] (a : α) :
+81:     b * a ≤ c * a ↔ b ≤ c :=
+82:   rel_iff_cov' ‹MulRightMono α›.elim fun _ ↦ MulRightReflectLE.le_of_mul_le_mul_right'
+
+Mathlib/Algebra/Order/Monoid/Unbundled/Defs.lean
+75: variable {M N : Type*} (μ : M → N → N) (r : N → N → Prop)
+76: variable (M N)
+77: 
+78: /-- `Covariant` is useful to formulate succinctly statements about the interactions between an
+79: action of a Type on another one and a relation on the acted-upon Type.
+80: 
+81: See the `CovariantClass` doc-string for its meaning. -/
+82: def Covariant : Prop :=
+83:   ∀ (m) {n₁ n₂}, r n₁ n₂ → r (μ m n₁) (μ m n₂)
+84: 
+85: /-- `Contravariant` is useful to formulate succinctly statements about the interactions between an
+86: action of a Type on another one and a relation on the acted-upon Type.
+87: 
+88: See the `ContravariantClass` doc-string for its meaning. -/
+89: def Contravariant : Prop :=
+90:   ∀ (m) {n₁ n₂}, r (μ m n₁) (μ m n₂) → r n₁ n₂
+91: 
+92: /-- Given an action `μ` of a Type `M` on a Type `N` and a relation `r` on `N`, informally, the
+93: `CovariantClass` says that "the action `μ` preserves the relation `r`."
+94: 
+95: More precisely, the `CovariantClass` is a class taking two Types `M N`, together with an "action"
+96: `μ : M → N → N` and a relation `r : N → N → Prop`.  Its unique field `elim` is the assertion that
+97: for all `m ∈ M` and all elements `n₁, n₂ ∈ N`, if the relation `r` holds for the pair
+98: `(n₁, n₂)`, then, the relation `r` also holds for the pair `(μ m n₁, μ m n₂)`,
+99: obtained from `(n₁, n₂)` by acting upon it by `m`.
+100: 
+101: If `m : M` and `h : r n₁ n₂`, then `CovariantClass.elim m h : r (μ m n₁) (μ m n₂)`.
+102: -/
+103: class CovariantClass : Prop where
+104:   /-- For all `m ∈ M` and all elements `n₁, n₂ ∈ N`, if the relation `r` holds for the pair
+105:   `(n₁, n₂)`, then, the relation `r` also holds for the pair `(μ m n₁, μ m n₂)` -/
+106:   protected elim : Covariant M N μ r
+107: 
+108: /-- Given an action `μ` of a Type `M` on a Type `N` and a relation `r` on `N`, informally, the
+109: `ContravariantClass` says that "if the result of the action `μ` on a pair satisfies the
+110: relation `r`, then the initial pair satisfied the relation `r`."
+111: 
+112: More precisely, the `ContravariantClass` is a class taking two Types `M N`, together with an
+113: "action" `μ : M → N → N` and a relation `r : N → N → Prop`.  Its unique field `elim` is the
+114: assertion that for all `m ∈ M` and all elements `n₁, n₂ ∈ N`, if the relation `r` holds for the
+115: pair `(μ m n₁, μ m n₂)` obtained from `(n₁, n₂)` by acting upon it by `m`, then, the relation
+116: `r` also holds for the pair `(n₁, n₂)`.
+117: 
+118: If `m : M` and `h : r (μ m n₁) (μ m n₂)`, then `ContravariantClass.elim m h : r n₁ n₂`.
+119: -/
+120: class ContravariantClass : Prop where
+121:   /-- For all `m ∈ M` and all elements `n₁, n₂ ∈ N`, if the relation `r` holds for the
+122:   pair `(μ m n₁, μ m n₂)` obtained from `(n₁, n₂)` by acting upon it by `m`, then, the relation
+123:   `r` also holds for the pair `(n₁, n₂)`. -/
+124:   protected elim : Contravariant M N μ r
+125: 
+126: /-- Typeclass for monotonicity of multiplication on the left,
+127: namely `b₁ ≤ b₂ → a * b₁ ≤ a * b₂`.
+128: 
+129: You should usually not use this very granular typeclass directly, but rather a typeclass like
+130: `IsOrderedMonoid`. -/
+131: abbrev MulLeftMono [Mul M] [LE M] : Prop :=
+132:   CovariantClass M M (· * ·) (· ≤ ·)
+133: 
+134: /-- Typeclass for monotonicity of multiplication on the right,
+135: namely `a₁ ≤ a₂ → a₁ * b ≤ a₂ * b`.
+136: 
+137: You should usually not use this very granular typeclass directly, but rather a typeclass like
+138: `IsOrderedMonoid`. -/
+139: abbrev MulRightMono [Mul M] [LE M] : Prop :=
+140:   CovariantClass M M (swap (· * ·)) (· ≤ ·)
+141: 
+142: /-- Typeclass for monotonicity of addition on the left,
+143: namely `b₁ ≤ b₂ → a + b₁ ≤ a + b₂`.
+144: 
+145: You should usually not use this very granular typeclass directly, but rather a typeclass like
+146: `IsOrderedAddMonoid`. -/
+147: abbrev AddLeftMono [Add M] [LE M] : Prop :=
+148:   CovariantClass M M (· + ·) (· ≤ ·)
+149: 
+150: /-- Typeclass for monotonicity of addition on the right,
+151: namely `a₁ ≤ a₂ → a₁ + b ≤ a₂ + b`.
+152: 
+153: You should usually not use this very granular typeclass directly, but rather a typeclass like
+154: `IsOrderedAddMonoid`. -/
+155: abbrev AddRightMono [Add M] [LE M] : Prop :=
+156:   CovariantClass M M (swap (· + ·)) (· ≤ ·)
+157: 
+158: attribute [to_additive existing] MulLeftMono MulRightMono

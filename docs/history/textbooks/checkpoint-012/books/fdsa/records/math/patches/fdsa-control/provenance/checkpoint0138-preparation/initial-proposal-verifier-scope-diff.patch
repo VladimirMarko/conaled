@@ -1,0 +1,342 @@
+--- 0137/verify-checkpoint.py
++++ 0138/verify-checkpoint.py
+@@ -13,9 +13,11 @@
+ prep = Path(__file__).resolve().parent
+ control = prep.parents[1]
+ base = control.parent
+-name = "conaled-fdsa-0137-chapter03-accepted"
+-accepted = "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2"
+-accepted_tree = "ecb69c3918715cbe0682028cd8697dfcf3e463f9"
++name = "conaled-fdsa-0138-tree-cache-accepted-and-chapter04-progress"
++accepted = "90469ce4ba3fc49397d369a5db7d58aec7014f58"
++chapter3_accepted = "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2"
++accepted_tree = "18bf4bc9df979d4ee6ac76182f58faed235a0714"
++chapter3_tree = "ecb69c3918715cbe0682028cd8697dfcf3e463f9"
+ xr_accepted = "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5"
+ xr_tree = "b62fe504a38948e61c6377a4e7661b639c28c08c"
+ original_q = "2da5708478a1d943a9214b5b386ec2db16cd9eca"
+@@ -78,7 +80,7 @@
+ for relative, digest in expected.items():
+     assert actual[relative]["sha256"] == digest, relative
+ assert manifest["format"] == 2 and manifest["checkpoint"] == name
+-assert actual["fdsa-control/provenance/checkpoint0137-preparation/capture.json"] == identity(prep / "capture.json")
++assert actual["fdsa-control/provenance/checkpoint0138-preparation/capture.json"] == identity(prep / "capture.json")
+ 
+ spec = importlib.util.spec_from_file_location("compact_reader", control / "checkpoint_compact.py")
+ module = importlib.util.module_from_spec(spec)
+@@ -89,17 +91,11 @@
+          "--format=%(objectname) %(refname) %(symref)").splitlines())]
+ assert refs == manifest["refs"] == capture["refs"]
+ current_refs = {row["ref"]: row for row in refs}
+-previous_manifest = read(prep / "previous-manifest-0136.json")
+-assert previous_manifest["checkpoint"] == "conaled-fdsa-0136-selection-universal-path-progress"
++previous_manifest = read(prep / "previous-manifest-0137.json")
++assert previous_manifest["checkpoint"] == "conaled-fdsa-0137-chapter03-accepted"
+ assert len(previous_manifest["refs"]) == 74
+ previous_refs = {row["ref"]: row for row in previous_manifest["refs"]}
+-allowed_advances = {"refs/heads/work/fdsa-ch03-values",
+-                    "refs/heads/work/fdsa-ch03-random-selection",
+-                    "refs/heads/work/fdsa-ch03-query-lower-bounds",
+-                    "refs/heads/work/fdsa-ch03-mom-execution",
+-                    "refs/heads/work/fdsa-ch03-rounded-recurrence",
+-                    "refs/heads/work/fdsa-ch03-integration",
+-                    "refs/heads/work/fdsa-book"}
++allowed_advances = {"refs/heads/work/fdsa-book"}
+ advanced = []
+ for ref, row in previous_refs.items():
+     assert ref in current_refs
+@@ -109,10 +105,17 @@
+         advanced.append(ref)
+ integration_ref = "refs/heads/work/fdsa-ch03-integration"
+ assert integration_ref in previous_refs
+-assert set(current_refs) == set(previous_refs)
+-assert len(current_refs) == 74
++new_refs = {"refs/heads/work/fdsa-tree-cache-integration",
++            "refs/heads/work/fdsa-ch04-structural",
++            "refs/heads/work/fdsa-ch04-balancing",
++            "refs/heads/work/fdsa-ch04-exercises"}
++assert set(current_refs) == set(previous_refs) | new_refs
++assert not new_refs & set(previous_refs) and len(current_refs) == 78
++for ref in new_refs:
++    assert current_refs[ref]["symref"] == ""
++    module.git(repo, "merge-base", "--is-ancestor", accepted, current_refs[ref]["oid"])
+ book_ref = "refs/heads/work/fdsa-book"
+-assert previous_refs[book_ref]["oid"] == xr_accepted
++assert previous_refs[book_ref]["oid"] == chapter3_accepted
+ assert current_refs[book_ref]["oid"] == accepted
+ assert current_refs[book_ref]["symref"] == previous_refs[book_ref]["symref"]
+ assert book_ref in advanced
+@@ -122,8 +125,10 @@
+ module.git(repo, "merge-base", "--is-ancestor", integration_origin,
+            current_refs[integration_ref]["oid"])
+ integration_worktree = base / "conaled-ch02-natural-runs"
+-assert module.git(integration_worktree, "branch", "--show-current").strip() == "work/fdsa-ch03-integration"
+-assert module.git(integration_worktree, "rev-parse", "HEAD").strip() == current_refs[integration_ref]["oid"]
++assert current_refs[integration_ref]["oid"] == chapter3_accepted
++assert module.git(integration_worktree, "branch", "--show-current").strip() == "work/fdsa-tree-cache-integration"
++assert module.git(integration_worktree, "rev-parse", "HEAD").strip() == accepted
++assert current_refs["refs/heads/work/fdsa-tree-cache-integration"]["oid"] == accepted
+ 
+ live = module.worktrees(repo)
+ assert live == capture["worktrees"]
+@@ -156,13 +161,12 @@
+ for relative, expected_identity in capture["held_control"].items():
+     assert identity(control / relative) == expected_identity, relative
+     assert actual["fdsa-control/" + relative] == expected_identity, relative
+-previous_controls = read(control / "provenance/checkpoint0136-preparation/capture.json")["held_control"]
++previous_controls = read(control / "provenance/checkpoint0137-preparation/capture.json")["held_control"]
+ allowed = set(capture["declared_prior_control_updates"])
+-assert allowed <= {"CURRENT.md", "STATUS.md", "ENVIRONMENT.md", "checkpoints.json",
+-                   "tickets/FDSA-002.md", "tickets/FDSA-003.md", "tickets/FDSA-XR01.md", "tickets/INDEX.md",
+-                   "reviews/chapter02-round1.md", "reviews/affine-recurrence-round1.md",
+-                   "reviews/chapter03-round1.md", "reviews/chapter03-standards.md",
+-                   "reviews/chapter03-spec.md", "reviews/README.md"}
++assert allowed <= {"CURRENT.md", "STATUS.md", "checkpoints.json",
++                   "reviews/binary-tree-cache-round1.md", "reviews/chapter03-round1.md",
++                   "reviews/README.md", "tickets/FDSA-003.md", "tickets/FDSA-004.md",
++                   "tickets/FDSA-XT01.md", "tickets/INDEX.md"}
+ changed = []
+ for relative, old in previous_controls.items():
+     assert relative in capture["held_control"], relative
+@@ -208,7 +212,7 @@
+ c3_path = checked_binding(capture["chapter03_acceptance"])
+ assert c3_path == control / "provenance/chapter03-acceptance-20261105/acceptance.json"
+ c3 = read(c3_path)
+-assert c3["accepted_commit"] == accepted and c3["accepted_tree"] == accepted_tree
++assert c3["accepted_commit"] == chapter3_accepted and c3["chapter3_tree"] == chapter3_tree
+ assert c3["previous_accepted_commit"] == xr_accepted and c3["original_whole_task_base"] == original_q
+ assert c3["accepted_branch"] == "work/fdsa-book" and c3["approved_candidate_branch"] == "work/fdsa-ch03-integration"
+ assert c3["chapter03_accepted"] and not c3["all27_chapters_and_appendices_complete"]
+@@ -217,27 +221,28 @@
+ assert c3["chapter03_public_names"] == 1370 and c3["accepted_XR_public_names"] == 21 and c3["actual_public_names"] == 1391
+ assert c3["obligation_ids"] == [f"C03-{n:03}" for n in range(1, 84)]
+ assert module.git(repo, "symbolic-ref", "HEAD").strip() == book_ref
+-assert capture["qualified_candidate"] == current_refs[integration_ref]["oid"] == accepted
++assert current_refs[integration_ref]["oid"] == chapter3_accepted
++assert module.git(repo, "rev-parse", chapter3_accepted + "^{tree}").strip() == chapter3_tree
+ for row in c3["bound_files"]:
+     checked_binding(row)
+ checked_binding(c3["frozen_obligations"])
+ assert c3["frozen_obligations"]["sha256"] == "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed"
+ assert identity(qualified / "docs/research/fdsa-selection.md") == {key: c3["correspondence_document"][key] for key in ("bytes", "sha256")}
+ coverage = read(control / "provenance/chapter03-acceptance-20261105/coverage.json")
+-assert coverage["candidate"] == accepted and coverage["original_task_base"] == original_q
++assert coverage["candidate"] == chapter3_accepted and coverage["original_task_base"] == original_q
+ assert [row["id"] for row in coverage["rows"]] == c3["obligation_ids"]
+-assert all(row["status"] == "accepted" and row["candidate"] == accepted for row in coverage["rows"])
++assert all(row["status"] == "accepted" and row["candidate"] == chapter3_accepted for row in coverage["rows"])
+ assert set(c3["independent_axes"]) == {"Standards", "Spec"}
+ for axis_name, axis in c3["independent_axes"].items():
+     assert axis["outcome"].upper() in {"PASS", "PASSED"} and axis["unresolved"] == 0
+-    assert axis["full_saved_readback_and_hold"] and axis["candidate"] == accepted and axis["original_task_base"] == original_q
++    assert axis["full_saved_readback_and_hold"] and axis["candidate"] == chapter3_accepted and axis["original_task_base"] == original_q
+     for key in ("report", "final_record", "hold", "completion_readback_receipt"):
+         checked_binding(axis[key])
+     assessment = read(Path(axis["final_record"]["path"]))
+     hold = read(Path(axis["hold"]["path"]))
+     assert assessment["outcome"].upper() in {"PASS", "PASSED"}
+     for record in (assessment, hold):
+-        assert record["candidate"] == accepted and record["tree"] == accepted_tree and record["original_task_base"] == original_q
++        assert record["candidate"] == chapter3_accepted and record["tree"] == chapter3_tree and record["original_task_base"] == original_q
+     assert "HELD" in hold["state"] and not hold["unresolved_findings"]
+     if axis_name == "Standards":
+         disposition = assessment["final_standards_disposition"]
+@@ -248,7 +253,7 @@
+         assert assessment["review_complete"] and assessment["source_assessment_complete"] and assessment["scope_obligations"] == 83
+         assert not assessment["unresolved_findings"] and not assessment["new_findings"]
+ gate = read(checked_binding(c3["root_gate"]))
+-assert gate["candidate"] == accepted and gate["candidate_tree"] == accepted_tree and gate["accepted_base"] == xr_accepted
++assert gate["candidate"] == chapter3_accepted and gate["candidate_tree"] == chapter3_tree and gate["accepted_base"] == xr_accepted
+ assert gate["original_whole_task_base"] == original_q and gate["original_scope_paths"] == 84 and gate["obligations"] == 83
+ assert gate["chapter03_public_names"] == 1370 and gate["accepted_XR_public_names"] == 21 and gate["actual_public_names"] == 1391
+ assert gate["all_required_preacceptance_gates_passed"] and gate["all_source_writers_held"] and not gate["compiler_live"]
+@@ -271,16 +276,16 @@
+     native = read(directory / "native-records/result.json")
+     closed = read(directory / "closed-evidence-reconciliation.json")
+     assert result["exit_code"] == owned["actual_exit"] == actual_terminal["exit_code"] == native["exit_code"] == 0
+-    assert result["candidate"] == result["final_head"] == owned["candidate"] == accepted and not result["final_status"]
++    assert result["candidate"] == result["final_head"] == owned["candidate"] == chapter3_accepted and not result["final_status"]
+     assert owned["terminal_tool_chunk"] == actual_terminal["chunk_id"] and closed["complete_closed_log"]
+     assert native["command"] == command and native["lean_threads"] == "1" and native["cwd"] == str(qualified)
+     assert not native["timed_out"] and native["recorder_error"] is None
+     assert identity(directory / "full.log") == {"bytes": result["log_size_bytes"], "sha256": result["log_sha256"]}
+     assert (directory / "full.log").read_bytes() == ((directory / "outer-prefix.log").read_bytes() + (directory / "native-records/output.log").read_bytes() + (directory / "outer-suffix.log").read_bytes())
+     assert (directory / "verification.json").read_bytes() == (full_dir / "verification.json").read_bytes()
+-assert (qualified / ".lake/verification.json").read_bytes() == (full_dir / "verification.json").read_bytes()
++assert next(row["head"] for row in previous_manifest["worktrees"] if row["path"] == str(qualified)) == chapter3_accepted
+ verification = read(full_dir / "verification.json")
+-assert verification["candidate"] == accepted and verification["result"] == "passed" and verification["mode"] == "incremental"
++assert verification["candidate"] == chapter3_accepted and verification["result"] == "passed" and verification["mode"] == "incremental"
+ assert identity(full_dir / "verification.json")["sha256"] == "152ccbf0ee1d37fbe8eef300d88ad16284858464e5c4dc82f1f3884db3641088"
+ audit = read(checked_binding(c3["full_check"]["audit_reconciliation"]))
+ assert (audit["checked_modules"], audit["audit_rows"], audit["logical_declarations"], audit["theorem_declarations"], audit["unsafe_runtime_declarations"]) == (1109, 1107, 50135, 29316, 0)
+@@ -288,11 +293,11 @@
+ assert audit["all80_original_scope_modules_in_audit_rows"] and audit["source_policy_passed"]
+ assert audit["pre_invalidated_modules"] == audit["post_inconsistent_modules"] == 0
+ types = c3["actual_public_types"]
+-assert types["actual_exit"] == 0 and types["candidate"] == accepted and types["count"] == 1391 and types["stable_pre_post_identity"]
++assert types["actual_exit"] == 0 and types["candidate"] == chapter3_accepted and types["count"] == 1391 and types["stable_pre_post_identity"]
+ checked_binding(types["program"])
+ assert types["program"]["sha256"] == "a4671a1d5cd377fcdd0899d7700a3b7b635faeef18b9006bab2cfa3521c2aa2d"
+ observations = read(checked_binding(types["observation_reconciliation"]))
+-assert observations["candidate"] == accepted and observations["identity_equal"] and observations["actual_exit"] == 0
++assert observations["candidate"] == chapter3_accepted and observations["identity_equal"] and observations["actual_exit"] == 0
+ assert (observations["sources"], observations["objects_and_traces"], observations["configuration"], observations["dependencies"], observations["runtime_components"]) == (113, 339, 10, 9, 12)
+ assert read(statement_dir / "pre-inputs.json")["identity"] == read(statement_dir / "post-inputs.json")["identity"]
+ assert c3["full_check"]["actual_exit"] == c3["immediate_verification"]["actual_exit"] == c3["fast_forward"]["actual_exit"] == 0
+@@ -303,23 +308,127 @@
+ ff_actual = read(checked_binding(c3["fast_forward"]["actual_tool_result"]))
+ ff_command = read(checked_binding(ff["command_result"]))
+ assert ff["actual_exit"] == ff_actual["exit_code"] == ff_command["actual_exit"] == 0
+-assert ff["old"] == xr_accepted and ff["accepted_commit"] == accepted and ff["accepted_tree"] == accepted_tree
++assert ff["old"] == xr_accepted and ff["accepted_commit"] == chapter3_accepted and ff["chapter3_tree"] == chapter3_tree
+ assert ff["only_changed_ref"] == book_ref and ff["other_refs_preserved"] == 73 and ff["other_worktree_heads_preserved"] == 8
+ assert ff["all_worktree_statuses_preserved"] and ff["qualified_source_and_verification_preserved"] and ff["local_fast_forward_only"]
+-assert ff_pre["old"] == xr_accepted and ff_pre["candidate"] == accepted
+-expected_after = dict(ff_pre["all_refs"]); expected_after[book_ref] = accepted
+-assert {key: value["oid"] for key, value in current_refs.items()} == expected_after
++assert ff_pre["old"] == xr_accepted and ff_pre["candidate"] == chapter3_accepted
++expected_after = dict(ff_pre["all_refs"]); expected_after[book_ref] = chapter3_accepted
++assert {key: value["oid"] for key, value in previous_refs.items()} == expected_after
++previous_worktrees = {row["path"]: row for row in previous_manifest["worktrees"]}
+ for worktree in ff_pre["worktrees"]:
+     path = Path(worktree["path"])
+-    expected_head = accepted if path == repo else worktree["head"]
+-    assert module.git(path, "rev-parse", "HEAD").strip() == expected_head
+-    assert module.git(path, "status", "--porcelain=v1", "--untracked-files=all") == worktree["status"]
+-assert ff_start["argv"] == ["git", "-C", str(repo), "merge", "--ff-only", accepted]
++    expected_head = chapter3_accepted if path == repo else worktree["head"]
++    assert previous_worktrees[str(path)]["head"] == expected_head
++    assert previous_worktrees[str(path)]["status"] == worktree["status"]
++assert ff_start["argv"] == ["git", "-C", str(repo), "merge", "--ff-only", chapter3_accepted]
+ immediate_result = read(immediate_dir / "result.json")
+ assert datetime.fromisoformat(immediate_result["completed_utc"]) < datetime.fromisoformat(ff_start["started_utc"]) <= datetime.fromisoformat(ff["completed_utc"])
+ measured_delay = (datetime.fromisoformat(ff["completed_utc"]) - datetime.fromisoformat(immediate_result["completed_utc"])).total_seconds()
+ assert abs(measured_delay - ff["elapsed_seconds_after_immediate_completion"]) < 0.01
+ assert c3["accepted_utc"] == ff["completed_utc"]
++
++# The new XT01 acceptance uses the same complete validation and review gates.
++xt_path = checked_binding(capture["tree_cache_acceptance"])
++assert xt_path == control / "provenance/binary-tree-cache-acceptance-20261105/acceptance.json"
++xt = read(xt_path)
++assert xt["unit"] == "FDSA-XT01" and xt["unit_accepted"]
++assert xt["accepted_commit"] == accepted and xt["accepted_tree"] == accepted_tree
++assert xt["previous_accepted_commit"] == chapter3_accepted
++assert xt["original_unit_base"] == "a14977b9e316cc484ffad8a470d26b15615956c0"
++assert xt["original_donor"] == "64c6b777d828ecfe83234fc2aed94600a1f24297"
++assert xt["accepted_branch"] == "work/fdsa-book"
++assert xt["approved_candidate_branch"] == "work/fdsa-tree-cache-integration"
++assert xt["requirements_ids"] == [f"XT01-{i:02}" for i in range(1, 8)]
++assert xt["authored_public_names"] == 115 and len(xt["original_scope_paths"]) == 7
++assert len(xt["formal_modules"]) == 4 and not xt["chapter04_accepted"]
++assert not xt["all27_chapters_and_appendices_complete"]
++checked_binding(xt["requirements"])
++assert xt["requirements"]["sha256"] == "81260794bec3767bb9eaa2d2fcaa8337da015220df60bf4dda147590c8ed23ce"
++for row in xt["bound_files"]:
++    checked_binding(row)
++assert set(xt["independent_axes"]) == {"Standards", "Spec"}
++for axis in xt["independent_axes"].values():
++    assert axis["outcome"].upper() in {"PASS", "PASSED"} and axis["unresolved"] == 0
++    assert axis["candidate"] == accepted and axis["full_saved_readback_and_hold"]
++    for key in ("report", "final_record", "hold", "completion_readback_receipt"):
++        checked_binding(axis[key])
++xt_gate = read(checked_binding(xt["root_gate"]))
++assert xt_gate["candidate"] == accepted and xt_gate["candidate_tree"] == accepted_tree
++assert xt_gate["accepted_base"] == chapter3_accepted
++assert xt_gate["all_required_preacceptance_gates_passed"]
++assert xt_gate["all_source_writers_held"] and not xt_gate["compiler_live"]
++for row in xt_gate["bound_files"]:
++    checked_binding(row)
++xt_full = control / "provenance/binary-tree-cache-receiving-full-attempt1-20261105"
++xt_types = control / "provenance/binary-tree-cache-receiving-statements115-attempt1-20261105"
++xt_immediate = control / "provenance/binary-tree-cache-immediate-verification-20261105"
++xt_statements = control / "provenance/binary-tree-cache-receiving-statements115-20261105"
++xt_commands = [(xt_full, ["./check.sh", "--candidate", "HEAD"]),
++               (xt_types, ["lake", "env", "lean", str(xt_statements / "Statements115-complete.lean")]),
++               (xt_immediate, ["./check.sh", "--verify-candidate", "HEAD"])]
++for directory, command in xt_commands:
++    result = read(directory / "result.json")
++    owned = read(directory / "owned-terminal.json")
++    actual_terminal = read(directory / "actual-tool-terminal.json")
++    native = read(directory / "native-records/result.json")
++    closed = read(directory / "closed-evidence-reconciliation.json")
++    assert result["exit_code"] == owned["actual_exit"] == actual_terminal["exit_code"] == native["exit_code"] == 0
++    assert result["candidate"] == result["final_head"] == owned["candidate"] == accepted
++    assert not result["final_status"] and closed["complete_closed_log"]
++    assert owned["terminal_tool_chunk"] == actual_terminal["chunk_id"]
++    assert native["command"] == command and native["lean_threads"] == "1"
++    assert native["cwd"] == str(qualified) and not native["timed_out"] and native["recorder_error"] is None
++    assert identity(directory / "full.log") == {"bytes": result["log_size_bytes"], "sha256": result["log_sha256"]}
++    assert (directory / "full.log").read_bytes() == ((directory / "outer-prefix.log").read_bytes() + (directory / "native-records/output.log").read_bytes() + (directory / "outer-suffix.log").read_bytes())
++    if directory != xt_types:
++        assert (directory / "verification.json").read_bytes() == (xt_full / "verification.json").read_bytes()
++# The type run preceded the full check; its inherited old record grants no XT01 credit.
++assert read(xt_types / "verification.json")["candidate"] == chapter3_accepted
++assert (qualified / ".lake/verification.json").read_bytes() == (xt_full / "verification.json").read_bytes()
++xt_verification = read(xt_full / "verification.json")
++assert xt_verification["candidate"] == accepted and xt_verification["result"] == "passed"
++assert xt_verification["mode"] == "incremental"
++xt_audit = read(checked_binding(xt["full_check"]["audit_reconciliation"]))
++assert xt_audit["source_policy_passed"] and xt_audit["all4_scope_modules_in_audit_rows"]
++assert xt_audit["checked_modules"] == 1113 and xt_audit["audit_rows"] == 1111
++assert xt_audit["unsafe_runtime_declarations"] == 0
++assert xt_audit["pre_invalidated_modules"] == xt_audit["post_inconsistent_modules"] == 0
++assert set(xt_audit["axiom_union"]) == {"propext", "Classical.choice", "Quot.sound"}
++xt_pre = read(xt_statements / "pre-inputs.json")["identity"]
++xt_post = read(xt_statements / "post-inputs.json")["identity"]
++assert xt_pre == xt_post and xt_pre["candidate"] == accepted
++assert len(xt_pre["program"]["names"]) == 115
++assert [len(xt_pre[k]) for k in ("local_sources", "local_compiler_objects_and_traces", "configuration", "dependencies", "runtime")] == [26, 78, 10, 9, 12]
++assert xt["actual_public_types"]["actual_exit"] == 0 and xt["actual_public_types"]["count"] == 115
++assert xt["actual_public_types"]["stable_pre_post_identity"]
++xt_observation = read(checked_binding(xt["actual_public_types"]["observation_reconciliation"]))
++assert xt_observation["candidate"] == accepted and xt_observation["same_inputs"]
++assert xt_observation["actual_exit"] == 0
++xt_ff = read(checked_binding(xt["fast_forward"]["result"]))
++xt_ff_pre = read(checked_binding(xt["fast_forward"]["preflight"]))
++xt_ff_start = read(checked_binding(xt["fast_forward"]["start"]))
++xt_ff_actual = read(checked_binding(xt["fast_forward"]["actual_tool_result"]))
++xt_ff_command = read(checked_binding(xt_ff["command_result"]))
++assert xt_ff["actual_exit"] == xt_ff_actual["exit_code"] == xt_ff_command["actual_exit"] == 0
++assert xt_ff["old"] == chapter3_accepted and xt_ff["accepted_commit"] == accepted
++assert xt_ff["accepted_tree"] == accepted_tree and xt_ff["only_changed_ref"] == book_ref
++assert xt_ff["other_refs_preserved"] == 77 and xt_ff["other_worktree_heads_preserved"] == 8
++assert xt_ff["all_worktree_statuses_preserved"] and xt_ff["qualified_source_and_verification_preserved"]
++assert xt_ff["local_fast_forward_only"]
++xt_expected_refs = dict(xt_ff_pre["all_refs"]); xt_expected_refs[book_ref] = accepted
++assert {key: value["oid"] for key, value in current_refs.items()} == xt_expected_refs
++for worktree in xt_ff_pre["worktrees"]:
++    path = Path(worktree["path"])
++    assert module.git(path, "rev-parse", "HEAD").strip() == (accepted if path == repo else worktree["head"])
++    assert module.git(path, "status", "--porcelain=v1", "--untracked-files=all") == worktree["status"]
++assert xt_ff_start["argv"] == ["git", "-C", str(repo), "merge", "--ff-only", accepted]
++xt_immediate_result = read(xt_immediate / "result.json")
++assert datetime.fromisoformat(xt_immediate_result["completed_utc"]) < datetime.fromisoformat(xt_ff_start["started_utc"]) <= datetime.fromisoformat(xt_ff["completed_utc"])
++xt_delay = (datetime.fromisoformat(xt_ff["completed_utc"]) - datetime.fromisoformat(xt_immediate_result["completed_utc"])).total_seconds()
++assert abs(xt_delay - xt_ff["elapsed_seconds_after_immediate_completion"]) < 0.01
++assert xt["accepted_utc"] == xt_ff["completed_utc"]
++assert xt["full_check"]["actual_exit"] == xt["immediate_verification"]["actual_exit"] == xt["fast_forward"]["actual_exit"] == 0
++assert xt["immediate_verification"]["matching_full_verification"]
+ 
+ for item in capture["closed_development_runs"]:
+     directory = control / "provenance" / item["name"]
+@@ -416,7 +525,7 @@
+ record = {"verified_utc": datetime.now(timezone.utc).isoformat(), "file": str(archive),
+           **outer, "payload_hashes_verified": len(expected), "refs_verified": len(refs),
+           "all74_prior_refs_retained": True, "authorized_ref_advances": sorted(advanced),
+-          "authorized_new_refs": [], "integration_origin": integration_origin,
++          "authorized_new_refs": sorted(new_refs), "integration_origin": integration_origin,
+           "retired_clean_worktrees_reconstructible": 6, "worktrees_verified": len(live),
+           "held_control_hashes_verified": len(capture["held_control"]),
+           "prior_control_changes_explicit": sorted(changed), "accepted_head": accepted,
+@@ -430,6 +539,10 @@
+           "chapter03_accepted_with_complete_evidence": True,
+           "chapter03_actual_public_names": 1391,
+           "chapter03_acceptance_record": capture["chapter03_acceptance"],
++          "XT01_accepted_with_complete_evidence": True,
++          "XT01_actual_public_names": 115,
++          "XT01_acceptance_record": capture["tree_cache_acceptance"],
++          "chapter04_accepted": False, "chapter04_obligations_retained": 76,
+           "no_compiler_restore_fsck_or_acceptance_execution": True,
+           "format2_creator_and_restorer_preserved": True}
+ with (prep / "integrity.json").open("x") as stream:

@@ -1,0 +1,16 @@
+{
+  "scope": "Read only descendants of the recorded task build leader, requiring isolated checkout cwd and matching process group; no environment reads or signals.",
+  "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "leader": 283393,
+  "samples": [
+    {
+      "utc": "2026-11-02T11:40:21.583450+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-02T11:40:33.583837+00:00",
+      "processes": []
+    }
+  ],
+  "interpretation": "Bounded progress observation only; no causal performance conclusion, validation success, source mutation or cache action."
+}

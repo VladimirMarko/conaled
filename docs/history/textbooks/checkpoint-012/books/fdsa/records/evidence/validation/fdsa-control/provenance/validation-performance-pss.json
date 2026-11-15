@@ -1,0 +1,136 @@
+{
+  "timestamp": "2026-11-02T03:05:05.110881+00:00",
+  "scope": "Fresh checker and its direct Lean children only",
+  "processes": [
+    {
+      "pid": 46434,
+      "command": "python3 scripts/check.py --fresh --jobs 4 --candidate HEAD",
+      "smaps_rollup_kib": {
+        "Rss": 11752,
+        "Pss": 11707,
+        "Pss_Dirty": 11704,
+        "Pss_Anon": 11704,
+        "Pss_File": 3,
+        "Pss_Shmem": 0,
+        "Shared_Clean": 48,
+        "Shared_Dirty": 0,
+        "Private_Clean": 0,
+        "Private_Dirty": 11704,
+        "Anonymous": 11704,
+        "Swap": 0,
+        "SwapPss": 0
+      },
+      "status": {
+        "VmSize": "321096 kB",
+        "VmHWM": "20028 kB",
+        "VmRSS": "11752 kB",
+        "VmPTE": "108 kB",
+        "Threads": "5"
+      }
+    },
+    {
+      "pid": 64542,
+      "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean -o /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/fresh-check-pb_o_nw4/SquareKit/SmoothAlgebra.olean SquareKit/SmoothAlgebra.lean",
+      "smaps_rollup_kib": {
+        "Rss": 466784,
+        "Pss": 360723,
+        "Pss_Dirty": 174968,
+        "Pss_Anon": 174952,
+        "Pss_File": 185771,
+        "Pss_Shmem": 0,
+        "Shared_Clean": 162604,
+        "Shared_Dirty": 0,
+        "Private_Clean": 129212,
+        "Private_Dirty": 174968,
+        "Anonymous": 174952,
+        "Swap": 0,
+        "SwapPss": 0
+      },
+      "status": {
+        "VmSize": "7542596 kB",
+        "VmHWM": "940308 kB",
+        "VmRSS": "464528 kB",
+        "VmPTE": "66868 kB",
+        "Threads": "5"
+      }
+    },
+    {
+      "pid": 64925,
+      "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean -o /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/fresh-check-pb_o_nw4/SquareKit/SmoothHadamard.olean SquareKit/SmoothHadamard.lean",
+      "smaps_rollup_kib": {
+        "Rss": 286152,
+        "Pss": 209435,
+        "Pss_Dirty": 130868,
+        "Pss_Anon": 130852,
+        "Pss_File": 78583,
+        "Pss_Shmem": 0,
+        "Shared_Clean": 113968,
+        "Shared_Dirty": 0,
+        "Private_Clean": 41316,
+        "Private_Dirty": 130868,
+        "Anonymous": 130852,
+        "Swap": 0,
+        "SwapPss": 0
+      },
+      "status": {
+        "VmSize": "8048192 kB",
+        "VmHWM": "965236 kB",
+        "VmRSS": "286040 kB",
+        "VmPTE": "78336 kB",
+        "Threads": "5"
+      }
+    },
+    {
+      "pid": 64941,
+      "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean -o /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/fresh-check-pb_o_nw4/Examples/AlgebraicScalar.olean Examples/AlgebraicScalar.lean",
+      "smaps_rollup_kib": {
+        "Rss": 377408,
+        "Pss": 268826,
+        "Pss_Dirty": 92604,
+        "Pss_Anon": 92588,
+        "Pss_File": 176238,
+        "Pss_Shmem": 0,
+        "Shared_Clean": 162640,
+        "Shared_Dirty": 0,
+        "Private_Clean": 122164,
+        "Private_Dirty": 92604,
+        "Anonymous": 92588,
+        "Swap": 0,
+        "SwapPss": 0
+      },
+      "status": {
+        "VmSize": "7238008 kB",
+        "VmHWM": "842512 kB",
+        "VmRSS": "378860 kB",
+        "VmPTE": "59020 kB",
+        "Threads": "5"
+      }
+    },
+    {
+      "pid": 66434,
+      "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean -o /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/fresh-check-pb_o_nw4/SquareKit/AlgebraicKL.olean SquareKit/AlgebraicKL.lean",
+      "smaps_rollup_kib": {
+        "Rss": 226308,
+        "Pss": 160903,
+        "Pss_Dirty": 84604,
+        "Pss_Anon": 84588,
+        "Pss_File": 76315,
+        "Pss_Shmem": 0,
+        "Shared_Clean": 98216,
+        "Shared_Dirty": 0,
+        "Private_Clean": 43488,
+        "Private_Dirty": 84604,
+        "Anonymous": 84588,
+        "Swap": 0,
+        "SwapPss": 0
+      },
+      "status": {
+        "VmSize": "7221884 kB",
+        "VmHWM": "445176 kB",
+        "VmRSS": "226040 kB",
+        "VmPTE": "59016 kB",
+        "Threads": "5"
+      }
+    }
+  ]
+}

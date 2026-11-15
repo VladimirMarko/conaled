@@ -1,0 +1,49 @@
+{
+  "observed_at": "2026-11-02T15:19:40.752768+00:00",
+  "task_processes": [
+    {
+      "pid": 395828,
+      "program": "lake",
+      "source": null,
+      "cpu_seconds": 18.01,
+      "elapsed_seconds": 325.570000000007,
+      "major_faults": 1905,
+      "minor_faults": 131435,
+      "status": [
+        "State:\tS (sleeping)",
+        "PPid:\t395477",
+        "VmRSS:\t  112128 kB"
+      ]
+    },
+    {
+      "pid": 396079,
+      "program": "lean",
+      "source": "/workspace/scratch/ca9a61d0bf30/validation-persistence/Applications/Progress/Examples.lean",
+      "cpu_seconds": 79.35,
+      "elapsed_seconds": 300.7700000000041,
+      "major_faults": 255708,
+      "minor_faults": 219703,
+      "status": [
+        "State:\tS (sleeping)",
+        "PPid:\t395828",
+        "VmRSS:\t  646304 kB"
+      ]
+    },
+    {
+      "pid": 396083,
+      "program": "lean",
+      "source": "/workspace/scratch/ca9a61d0bf30/validation-persistence/Applications/Orbifold/ConnectionAssessment.lean",
+      "cpu_seconds": 80.92,
+      "elapsed_seconds": 300.7600000000093,
+      "major_faults": 250915,
+      "minor_faults": 228234,
+      "status": [
+        "State:\tS (sleeping)",
+        "PPid:\t395828",
+        "VmRSS:\t  665764 kB"
+      ]
+    }
+  ],
+  "completed_project_traces": 88,
+  "note": "Only task-owned processes inspected; simultaneous two-worker run has produced no further completed project modules at this observation. These per-process faults support testing a serial worker setting."
+}

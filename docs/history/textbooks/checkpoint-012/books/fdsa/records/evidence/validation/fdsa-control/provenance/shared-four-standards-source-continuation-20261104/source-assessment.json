@@ -1,0 +1,1177 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "recorded_utc": "2026-11-04T14:25:43.927824+00:00",
+  "axis": "Standards",
+  "stage": "Existing full four-unit source/integration continuation, not a new or narrowed review loop",
+  "overall_outcome": "Blocked pending actual receiving-candidate validation, full314 type assessment, audit and final gates",
+  "source_assessment": "Complete at I; zero unresolved concrete source findings after SH4-HIST-001 correction",
+  "accepted_F": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "original_H": "97505ca8a1e714601e6d68137f0659b36a569988",
+  "candidate_I": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "exact_shared_tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+  "scope": {
+    "all_original_units": [
+      {
+        "unit": "XM01",
+        "original_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+        "original_candidate": "5f409e71bb068e3b8cc133226046ce8bbe29d982",
+        "corrected_minimal_tip": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+        "original_scope_paths": 6
+      },
+      {
+        "unit": "XD01",
+        "original_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+        "original_candidate": "ffeaf8aed84184f49a13acb5c84e1fd608c9b7e8",
+        "corrected_minimal_tip": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+        "original_scope_paths": 5
+      },
+      {
+        "unit": "XQ01",
+        "original_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+        "original_candidate": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+        "corrected_minimal_tip": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+        "original_scope_paths": 7
+      },
+      {
+        "unit": "XU01",
+        "original_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+        "original_candidate": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+        "corrected_minimal_tip": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+        "original_scope_paths": 6
+      }
+    ],
+    "all18_paths": [
+      {
+        "path": "Applications/Probability/PermutationMinimum.lean",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 8241,
+        "lines": 197,
+        "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+        "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d"
+      },
+      {
+        "path": "Applications/Resources/DifferenceListCosts.lean",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 10061,
+        "lines": 222,
+        "sha256": "f99420b831dff2d0f5fcc3dac1001937942b87c78b710b79f94fa941ab972b01",
+        "git_blob": "b87222f7c0eb0aafc60031864ca815c2e65fc457"
+      },
+      {
+        "path": "Applications/Resources/ListMerge.lean",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 8629,
+        "lines": 201,
+        "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975",
+        "git_blob": "b658809bc2ba424807e326c3ee7cb64712865a46"
+      },
+      {
+        "path": "Applications/Resources/Partition.lean",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 2678,
+        "lines": 61,
+        "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14",
+        "git_blob": "e9d3682a4d3a499aaffd41f73c7fc39965fa0d30"
+      },
+      {
+        "path": "Applications/Selection/ThreeWay.lean",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 9718,
+        "lines": 211,
+        "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa",
+        "git_blob": "8627ad6d219f55a404dd96c4f4553594eaa71264"
+      },
+      {
+        "path": "Applications/Sequences/Partition.lean",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 3786,
+        "lines": 87,
+        "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069",
+        "git_blob": "ff03bd349a39b3b77c49793175d4b474199e7c43"
+      },
+      {
+        "path": "Applications/Sorting/Merge.lean",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 7840,
+        "lines": 172,
+        "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+        "git_blob": "6595f901a9358398bee07333872125990ef8360c"
+      },
+      {
+        "path": "Examples/DifferenceListCosts.lean",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 9299,
+        "lines": 234,
+        "sha256": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1",
+        "git_blob": "33fd3bec15f8c9b7c3078b45d90c24d7df0c1df2"
+      },
+      {
+        "path": "Examples/MergeCosts.lean",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 23410,
+        "lines": 476,
+        "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466",
+        "git_blob": "b5f652cf5258c99f5a615b12987c664ed8be3d76"
+      },
+      {
+        "path": "Examples/PermutationMinimum.lean",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 4994,
+        "lines": 127,
+        "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+        "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876"
+      },
+      {
+        "path": "Examples/PermutationMinimumBoundary.lean",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 4211,
+        "lines": 113,
+        "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+        "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c"
+      },
+      {
+        "path": "Examples/ThreeWayPartition.lean",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 8109,
+        "lines": 172,
+        "sha256": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526",
+        "git_blob": "a1f29b6310bc8623df2725b0d40f3949513199c5"
+      },
+      {
+        "path": "SquareApplications.lean",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 8544,
+        "lines": 260,
+        "sha256": "6197b3a27ee1fd07305a506314caeaa3b3534ab166eaea00e5e169ba4c82956d",
+        "git_blob": "a36fa607584d77618858b5f1707b1df913a22cca"
+      },
+      {
+        "path": "docs/research/fdsa-difference-list-costs.md",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 10923,
+        "lines": 219,
+        "sha256": "bd450660076b5addbd6b64d7a591f71fc60b68e6bfbf5f9cc36fa09fac4eb735",
+        "git_blob": "52b789bb484ca9aceedb584f521c8bab974c0f5f"
+      },
+      {
+        "path": "docs/research/fdsa-list-merge.md",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 15491,
+        "lines": 258,
+        "sha256": "9661cc22e3600c0963c37b0f145f7396a1b7677ae2e8f2d240ecd1cf13b88729",
+        "git_blob": "90ff9f07f9b2a2dbad7233dddb6f091fa5f9d89d"
+      },
+      {
+        "path": "docs/research/fdsa-permutation-minimum.md",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 7970,
+        "lines": 146,
+        "sha256": "2054bf4d6cd371b8570fca003f0fe704793377d261cb8e5f10306022e5b2dcc8",
+        "git_blob": "052101180ceaf79f81e0873f24160fc73ae52f33"
+      },
+      {
+        "path": "docs/research/fdsa-reconstruction-map.md",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 39246,
+        "lines": 596,
+        "sha256": "f479b3b05b2fdfd99683e15cfc1e0d0b9542c58f56a3013872be6df8469cebfe",
+        "git_blob": "e753d5325fcd4f576b091d795ffced6d625c2aaf"
+      },
+      {
+        "path": "docs/research/fdsa-three-way-partition.md",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 13959,
+        "lines": 259,
+        "sha256": "f79bfd4f9691f56019696c8ea0ac0b63045f7bb1ac5f5d790adf8a425345f136",
+        "git_blob": "ee83f49a9c536f22f0340434795e117ea5766484"
+      }
+    ],
+    "F_to_I_patch": {
+      "format": "git diff --binary --full-index",
+      "bytes": 156119,
+      "lines": 3165,
+      "sha256": "2bf1efe257125803f027a13cc2acc683ae01dff846c5a0b9e462c0c6fcb7d01c",
+      "exact_original_saved_H_patch": true
+    },
+    "frozen_requirements": [
+      {
+        "path": "reviews/ordinary-merge-requirements.md",
+        "bytes": 19999,
+        "lines": 346,
+        "sha256": "b54e2b332cc31c04ac12fb5b19cc96fa494a80e1455fcfc173f59b6fe340d3d9",
+        "assessment": "Full original frozen requirements retained unchanged; final-gate excerpts reread in this continuation."
+      },
+      {
+        "path": "reviews/difference-list-cost-requirements.md",
+        "bytes": 6965,
+        "lines": 129,
+        "sha256": "cb215a33cce3dd258cca37b9d703522d19caf2da76767c01e573d268b3e92c4e",
+        "assessment": "Full original frozen requirements retained unchanged; final-gate excerpts reread in this continuation."
+      },
+      {
+        "path": "reviews/three-way-partition-requirements.md",
+        "bytes": 12208,
+        "lines": 209,
+        "sha256": "b1f55911c44a11def3498484787fcb04972398ec040bf1bd65c75796c116d541",
+        "assessment": "Full original frozen requirements retained unchanged; final-gate excerpts reread in this continuation."
+      },
+      {
+        "path": "reviews/permutation-minimum-requirements.md",
+        "bytes": 8884,
+        "lines": 154,
+        "sha256": "59e2ff6ff66dd39b6151a42b501bcc22e86eb593a9b854b532f97bc45fdd7686",
+        "assessment": "Full original frozen requirements retained unchanged; final-gate excerpts reread in this continuation."
+      }
+    ],
+    "excluded_scopes_unchanged": [
+      "XU02",
+      "XU03",
+      "XP01",
+      "later unrelated shared drafts",
+      "remaining Chapter2 development changes"
+    ]
+  },
+  "retained_independent_source_analysis": {
+    "defining_Lean_files": [
+      {
+        "path": "Applications/Resources/ListMerge.lean",
+        "corrected_tip": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+        "exact_to_corrected_tip_and_Z": true
+      },
+      {
+        "path": "Applications/Sorting/Merge.lean",
+        "corrected_tip": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+        "exact_to_corrected_tip_and_Z": true
+      },
+      {
+        "path": "Examples/MergeCosts.lean",
+        "corrected_tip": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+        "exact_to_corrected_tip_and_Z": true
+      },
+      {
+        "path": "Applications/Resources/DifferenceListCosts.lean",
+        "corrected_tip": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+        "exact_to_corrected_tip_and_Z": true
+      },
+      {
+        "path": "Examples/DifferenceListCosts.lean",
+        "corrected_tip": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+        "exact_to_corrected_tip_and_Z": true
+      },
+      {
+        "path": "Applications/Resources/Partition.lean",
+        "corrected_tip": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+        "exact_to_corrected_tip_and_Z": true
+      },
+      {
+        "path": "Applications/Selection/ThreeWay.lean",
+        "corrected_tip": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+        "exact_to_corrected_tip_and_Z": true
+      },
+      {
+        "path": "Applications/Sequences/Partition.lean",
+        "corrected_tip": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+        "exact_to_corrected_tip_and_Z": true
+      },
+      {
+        "path": "Examples/ThreeWayPartition.lean",
+        "corrected_tip": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+        "exact_to_corrected_tip_and_Z": true
+      },
+      {
+        "path": "Applications/Probability/PermutationMinimum.lean",
+        "corrected_tip": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+        "exact_to_corrected_tip_and_Z": true
+      },
+      {
+        "path": "Examples/PermutationMinimum.lean",
+        "corrected_tip": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+        "exact_to_corrected_tip_and_Z": true
+      },
+      {
+        "path": "Examples/PermutationMinimumBoundary.lean",
+        "corrected_tip": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+        "exact_to_corrected_tip_and_Z": true
+      }
+    ],
+    "original_reports": [
+      {
+        "path": "reviews/ordinary-merge-standards.md",
+        "bytes": 30495,
+        "lines": 429,
+        "sha256": "c5dded3c7b52fc1b0978b2ec8b13abcb17d2b7c047c5c83981f8a9c7d56e7992"
+      },
+      {
+        "path": "reviews/difference-list-costs-standards.md",
+        "bytes": 25832,
+        "lines": 333,
+        "sha256": "724285ba7202417014e832b5833bf5268552e24bd0b1a5c22b53110f281a3b9f"
+      },
+      {
+        "path": "reviews/chapter02-standards-source-preparation-20261104.md",
+        "bytes": 104381,
+        "lines": 421,
+        "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+      }
+    ],
+    "own_prior314_receipt": {
+      "path": "provenance/shared-four-statements314-standards-preparation-20261104/projection-and-closure.json",
+      "bytes": 33096,
+      "lines": 856,
+      "sha256": "47e8b8d4b559f599ea154bcb85afe4ba3d2db0114b6266cb832f68e21ef5a759"
+    },
+    "meaning": "Retain full earlier semantic/architecture/case assessments only where immutable source matches. Author handoffs support provenance and do not replace independent assessment. No new complete reread of unchanged proof bodies or historical type output claimed."
+  },
+  "new_read_ledger": {
+    "current_map": {
+      "identity": {
+        "path": "docs/research/fdsa-reconstruction-map.md",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 39246,
+        "lines": 596,
+        "sha256": "f479b3b05b2fdfd99683e15cfc1e0d0b9542c58f56a3013872be6df8469cebfe",
+        "git_blob": "e753d5325fcd4f576b091d795ffced6d625c2aaf"
+      },
+      "contiguous_ranges": [
+        {
+          "start_line": 1,
+          "end_line": 150,
+          "bytes": 9269,
+          "sha256": "3832077d870c00c5f8c04be676f2b56268f305c6d11dbd778654813cd487c632",
+          "read_completely": true
+        },
+        {
+          "start_line": 151,
+          "end_line": 300,
+          "bytes": 9671,
+          "sha256": "e0a1648f5ed5ae1dd225bb354d65a7c066c148efa6e43e344d8c98fdea60b0f6",
+          "read_completely": true
+        },
+        {
+          "start_line": 301,
+          "end_line": 450,
+          "bytes": 10706,
+          "sha256": "bcf7f9aa73d6672f655e89a1e72da308119181ce0e51f09cf81f31094a9ae64d",
+          "read_completely": true
+        },
+        {
+          "start_line": 451,
+          "end_line": 596,
+          "bytes": 9600,
+          "sha256": "2136d04f595013ad33813396060c0b1a3a8079a7e9380b36cb4ea9dc3c0ac0b1",
+          "read_completely": true
+        }
+      ]
+    },
+    "current_root": {
+      "identity": {
+        "path": "SquareApplications.lean",
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "bytes": 8544,
+        "lines": 260,
+        "sha256": "6197b3a27ee1fd07305a506314caeaa3b3534ab166eaea00e5e169ba4c82956d",
+        "git_blob": "a36fa607584d77618858b5f1707b1df913a22cca"
+      },
+      "read_range": [
+        1,
+        260
+      ],
+      "read_completely": true
+    },
+    "complete_root_map_diff": {
+      "bytes": 10850,
+      "lines": 174,
+      "sha256": "8588fab270456325d1927f34394d2f92e4219c1332865d081d868009bf76c56a",
+      "read_completely": true
+    },
+    "complete_control_reads": [
+      {
+        "path": "provenance/shared-acceptance-sequence-20261104/plan.md",
+        "bytes": 23398,
+        "lines": 369,
+        "sha256": "de57733ffbe19af6cd3617baa875dabbc74ec10ef6b8941419c356ec8ae764e1",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-independent-units-scope-20261104/declared-scope.json",
+        "bytes": 17160,
+        "lines": 401,
+        "sha256": "773ce242c586cf7ba381f18218648461ef7b487391d0bb8c4ab5123722ca8fd1",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-source-integration-20261104/handoff.md",
+        "bytes": 7991,
+        "lines": 134,
+        "sha256": "134236557a7e9f92f638b48128fa638c24769f067c5c0abaafaef2cc6d760613",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-source-integration-20261104/receipt.json",
+        "bytes": 19005,
+        "lines": 518,
+        "sha256": "cb3ce94c062e96ffd97414ac17cd02043e256d7c5b72836768c244f3261da447",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-source-integration-20261104/documentary-reconciliation.json",
+        "bytes": 15054,
+        "lines": 83,
+        "sha256": "c9c563f17a54b4110e30b63302e798be5fdc694d590e3eb997d6aa12ccc00a56",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-source-integration-20261104/commit-result.json",
+        "bytes": 1807,
+        "lines": 19,
+        "sha256": "559b8751492c3a60148adfae148ece664f0b2f13de36fd45d8e08033f1d3d5a4",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-and-insertion-statements314-prepared-20261104/preparation.md",
+        "bytes": 2325,
+        "lines": 11,
+        "sha256": "b046cc019a4214f3969ed7cc438e81922e11bf1a9874004b4196e53f786959d6",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-public-statements279-prepared-20261104/preparation.md",
+        "bytes": 9069,
+        "lines": 56,
+        "sha256": "2633d3a79e331f3958cba5cfd6631959adfd55371575c6f709db65acaca0e3c0",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/foundation-acceptance-20261104/acceptance.json",
+        "bytes": 5234,
+        "lines": 146,
+        "sha256": "83c80450ccacba22c263f805670b2ee06dffc757447bb437f86875918c4e7fa0",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "tickets/FDSA-XM01.md",
+        "bytes": 7211,
+        "lines": 122,
+        "sha256": "3de552f1d50a39c235c63e29f86737f85554fb16331627d58c7e77195f60f0d5",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "tickets/FDSA-XD01.md",
+        "bytes": 2475,
+        "lines": 44,
+        "sha256": "41dd6f12cd4bdfc57e6c5d9ee798f73cfbbaffaf873145f60935a2c8e706e240",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "tickets/FDSA-XQ01.md",
+        "bytes": 4947,
+        "lines": 80,
+        "sha256": "8e7846b04ce1156ae915e0bf8feeebc77695d548e19378c58ca55d5f23d422cc",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "tickets/FDSA-XU01.md",
+        "bytes": 4288,
+        "lines": 68,
+        "sha256": "db5271c510b4fc95b224e3c4b0290b118a89c305bf066d894c6916e636839ea1",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/01-XM01-before-resolution.json",
+        "bytes": 934,
+        "lines": 11,
+        "sha256": "7c45881ac958c19cc26855a9a136be29b47bc541c80cf5d8fcc01fb8b1889b16",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/01-XM01-merge-command.json",
+        "bytes": 830,
+        "lines": 22,
+        "sha256": "28b65f77ac62e9cee1eafabb0f3e217d9c16e5cdaeb23d7ee7b881f3985a51e5",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/01-XM01-merge-result.diff",
+        "bytes": 2904,
+        "lines": 54,
+        "sha256": "7d33bc472f0c773a6bbe8eb45ca20da4c716a96b4ebef4029370bc74c592e947",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/01-XM01-resolution-and-commit.json",
+        "bytes": 3308,
+        "lines": 90,
+        "sha256": "7aeb9523748f0c8b2dafc568c3a34baff56a53becb36ed79460c9d8adebcf20e",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/02-XD01-before-resolution.json",
+        "bytes": 1217,
+        "lines": 11,
+        "sha256": "b5619d5dc9d1f30252407e65ed1c2a346379d6d0b229582f433ff5ce44a1c04f",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/02-XD01-merge-command.json",
+        "bytes": 915,
+        "lines": 22,
+        "sha256": "5932d777fc8632251d40257f24a2102a7a60d7cfbd369ee262dab6f9be26482c",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/02-XD01-merge-result.diff",
+        "bytes": 5577,
+        "lines": 118,
+        "sha256": "84c8023490e5909aed231c493154c11c56292ab8290b233be869ed5a65b2f147",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/02-XD01-resolution-and-commit.json",
+        "bytes": 3301,
+        "lines": 87,
+        "sha256": "7394ed0112703d4284036c836a96d6d57e996519062f74d14c591b1be1a4d660",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/03-XQ01-before-resolution.json",
+        "bytes": 1207,
+        "lines": 11,
+        "sha256": "6ea657d97087b6f01e7b652fbcafd6a2f814fa1b9f9ea74135e3ab6c572ff402",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/03-XQ01-merge-command.json",
+        "bytes": 911,
+        "lines": 22,
+        "sha256": "a706eb17f0751137c2162578971913d1044379c64c7dcf0871a168bf81b284d0",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/03-XQ01-merge-result.diff",
+        "bytes": 5462,
+        "lines": 109,
+        "sha256": "e51ffd86c765f020e38f0c7db8128edb2653c165c655e465c11436a143dad4a2",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/03-XQ01-resolution-and-commit.json",
+        "bytes": 3232,
+        "lines": 87,
+        "sha256": "5f82c19edc0570f35e81b92c093f786bf67c03939163176b9b4e1fbed5f7e608",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/04-XU01-before-resolution.json",
+        "bytes": 892,
+        "lines": 10,
+        "sha256": "a1441f43ef32ae28edd69d489a2f1be11b828073cd2ec93a31f90dcfad8d0d7d",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/04-XU01-merge-command.json",
+        "bytes": 848,
+        "lines": 22,
+        "sha256": "a41b3f6e1df58af4f8bf8e33d0dcd8c2c35d8381269beee581f9ff5a27c1408b",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/04-XU01-merge-result.diff",
+        "bytes": 3707,
+        "lines": 75,
+        "sha256": "bfa9923ee2a924dd538f8a7e4069b3008904497a5b86b6f728b5fac037aaea19",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/04-XU01-resolution-and-commit.json",
+        "bytes": 2924,
+        "lines": 80,
+        "sha256": "84d1a315f5b4e6b62d142568f9dbc0ce2787738f32bef0c5acc89add4a8a5bcc",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/final-verification.json",
+        "bytes": 5441,
+        "lines": 169,
+        "sha256": "ca8c88afa10f2298ac6942d083a200ed41cb8797d2b2669bde91c339a561b760",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/handoff.md",
+        "bytes": 4838,
+        "lines": 81,
+        "sha256": "1e3718c84e7e18f7df92fd4b4f67dc8ad8a49cdeb1e7a713255977b21dbea676",
+        "read": "complete, bounded outputs"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/receipt.json",
+        "bytes": 5482,
+        "lines": 163,
+        "sha256": "4ac90846c326a801b4ddde256e7e39daf7df8e3104323104daa92a056715f852",
+        "read": "complete, bounded outputs"
+      }
+    ],
+    "selected_only_reads": [
+      {
+        "path": "provenance/shared-four-source-integration-20261104/start.json",
+        "scope": "Selected method/ref/protected-state fields, not whole file"
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/start.json",
+        "scope": "Identity metadata only, no full semantic read claimed"
+      },
+      {
+        "path": "reviews/chapter02-standards-source-preparation-20261104.md",
+        "scope": "Current continuation reread66–86; entire earlier assessment retained unchanged"
+      },
+      {
+        "path": "reviews/ordinary-merge-standards.md",
+        "scope": "Finding/outcome excerpts refreshed; entire earlier assessment retained unchanged"
+      },
+      {
+        "path": "reviews/difference-list-costs-standards.md",
+        "scope": "Finding/outcome excerpts refreshed; entire earlier assessment retained unchanged"
+      }
+    ],
+    "prior_truncated_prints": "No truncated or deliberately selected metadata output credited as complete read."
+  },
+  "four_note_applications": [
+    {
+      "candidate_path": "docs/research/fdsa-difference-list-costs.md",
+      "prior_fully_read_proposal": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-difference-list-costs.md",
+        "bytes": 10923,
+        "lines": 219,
+        "sha256": "bd450660076b5addbd6b64d7a591f71fc60b68e6bfbf5f9cc36fa09fac4eb735"
+      },
+      "exact": true
+    },
+    {
+      "candidate_path": "docs/research/fdsa-list-merge.md",
+      "prior_fully_read_proposal": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-list-merge.md",
+        "bytes": 15491,
+        "lines": 258,
+        "sha256": "9661cc22e3600c0963c37b0f145f7396a1b7677ae2e8f2d240ecd1cf13b88729"
+      },
+      "exact": true
+    },
+    {
+      "candidate_path": "docs/research/fdsa-permutation-minimum.md",
+      "prior_fully_read_proposal": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-permutation-minimum.md",
+        "bytes": 7970,
+        "lines": 146,
+        "sha256": "2054bf4d6cd371b8570fca003f0fe704793377d261cb8e5f10306022e5b2dcc8"
+      },
+      "exact": true
+    },
+    {
+      "candidate_path": "docs/research/fdsa-three-way-partition.md",
+      "prior_fully_read_proposal": {
+        "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-three-way-partition.md",
+        "bytes": 13959,
+        "lines": 259,
+        "sha256": "f79bfd4f9691f56019696c8ea0ac0b63045f7bb1ac5f5d790adf8a425345f136"
+      },
+      "exact": true
+    }
+  ],
+  "C02_DOC_003_boundary": "These four exact previously reviewed proposals are applied at I. Overall six-note C2 finding not closed: Order/Tail remain outside candidate and pending respective integration.",
+  "SH4_HIST_001": {
+    "H_disposition": "Open: sole parent F plus separate original refs did not satisfy history-preserving merge requirement. H preserved, not retroactively compliant.",
+    "controlling_requirement": "declared-scope.json assembly_constraints[1] and frozen XQ01 requirements198–199",
+    "root_resolution_direction": "No exception or requirement amendment; incorporate all four corrected histories retaining H tree",
+    "I_disposition": "Resolved with independent source/history confirmation",
+    "normal_merge_command_evidence": "All four recorded git merge --no-ff --no-commit -s ort commands read; each conflict exit1 and all resolution/commit exits0 retained",
+    "actual_git_parent_and_ancestry_checks": [
+      {
+        "unit": "XM01",
+        "merge_commit": "15dbd8ac1d653a9ef8000656a91152ca1cda9c58",
+        "parents": [
+          "97505ca8a1e714601e6d68137f0659b36a569988",
+          "72a0951aee406f7db67998d2a3bf8810f4e1bccc"
+        ],
+        "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+        "exact_tip_ancestry_exit": 0
+      },
+      {
+        "unit": "XD01",
+        "merge_commit": "eb269d9ec3850b21760f5aa83a5a1001a5f219d3",
+        "parents": [
+          "15dbd8ac1d653a9ef8000656a91152ca1cda9c58",
+          "52722e3ee481167e99b8f6c0b2417df7fb7615d8"
+        ],
+        "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+        "exact_tip_ancestry_exit": 0
+      },
+      {
+        "unit": "XQ01",
+        "merge_commit": "b907e9017ed1bd0c32361ed0cad596388cb6da31",
+        "parents": [
+          "eb269d9ec3850b21760f5aa83a5a1001a5f219d3",
+          "0612e80a0c297a38fa1add6e837dc7781e1bbd9c"
+        ],
+        "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+        "exact_tip_ancestry_exit": 0
+      },
+      {
+        "unit": "XU01",
+        "merge_commit": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "parents": [
+          "b907e9017ed1bd0c32361ed0cad596388cb6da31",
+          "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0"
+        ],
+        "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+        "exact_tip_ancestry_exit": 0
+      }
+    ],
+    "all_four_intermediate_trees_exact_H": true,
+    "F_and_H_actual_ancestors": true,
+    "all63_original_refs_unchanged": true,
+    "current_ref_count": 64,
+    "accepted_book_and_foundation_refs_at_F": true,
+    "resolution_assessment": "All actual conflict diffs/stages and targeted selections read. Complete accepted-F/four-unit union and dated notes preserved. Only automatic duplicate MergeCosts import removed; XU01 root needed no resolution. All12 defining sources unchanged."
+  },
+  "retained_findings": {
+    "XM01-DOC01": "Fixed comparison/invocation distinction retained",
+    "XM01-DOC02": "Fixed run.2.1/run.2.2 projections retained",
+    "XM01-DOC03": "Disclosed notice whitespace normalization retained",
+    "XM01-PRE-DOC01": "Earlier status/punctuation correction history retained",
+    "XM01-ELAB-001": "Source and historical focused correction retained; receiving whole-candidate confirmation pending",
+    "XM01-ELAB-002": "Source and historical focused/type correction retained; receiving whole-candidate confirmation pending",
+    "XD01-DOC-001": "Fixed separate AFP archive/theory provenance retained",
+    "XQ01_and_XU01": "Original complete correction/finding records retained; no invented compiler/acceptance result"
+  },
+  "public_inventory": {
+    "four_unit_explicit_names": 279,
+    "unit_or_changed_compatibility_names": 252,
+    "retained_R_names": 27,
+    "unit_counts": {
+      "XM01": [
+        103,
+        95,
+        8
+      ],
+      "XD01": [
+        72,
+        72,
+        0
+      ],
+      "XQ01": [
+        67,
+        48,
+        19
+      ],
+      "XU01": [
+        37,
+        37,
+        0
+      ]
+    },
+    "unit_count_columns": [
+      "public",
+      "unit_or_changed_compatibility",
+      "retained_R"
+    ],
+    "kinds": {
+      "definition": 51,
+      "abbrev": 4,
+      "theorem": 224
+    },
+    "private_named": 6,
+    "anonymous_local_instances": 5,
+    "anonymous_examples": 0,
+    "generated_scope": "Complete source and eventual exhaustive audit, no fabricated generated #check inventory",
+    "old_selection_compatibility_names": [
+      "Applications.Selection.partition3",
+      "Applications.Selection.partition3_eq_filters",
+      "Applications.Selection.partition3_perm",
+      "Applications.Selection.partition_left_mem",
+      "Applications.Selection.partition_equal_mem",
+      "Applications.Selection.partition_right_mem",
+      "Applications.Selection.partition_lengths",
+      "Applications.Selection.partition_strict_sizes"
+    ]
+  },
+  "prepared314_binding": {
+    "identity": {
+      "path": "provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+      "bytes": 16826,
+      "lines": 340,
+      "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754"
+    },
+    "candidate_binding": "312aafb4446b995ff5542041b4e2e074f776db1e",
+    "original_preparation_candidate_null_retained": true,
+    "279_order_preserved": true,
+    "appended35_F145_positions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99
+    ],
+    "all314_names_unique": true,
+    "direct_imports": [
+      "Applications.Probability.PermutationMinimum",
+      "Applications.Resources.DifferenceListCosts",
+      "Applications.Resources.ListMerge",
+      "Applications.Resources.Partition",
+      "Applications.Selection.ThreeWay",
+      "Applications.Sequences.Partition",
+      "Applications.Sorting.Merge",
+      "Examples.DifferenceListCosts",
+      "Examples.MergeCosts",
+      "Examples.PermutationMinimum",
+      "Examples.PermutationMinimumBoundary",
+      "Examples.ThreeWayPartition",
+      "Applications.Resources.InsertionSort",
+      "Examples.InsertionCosts"
+    ],
+    "printing_options": {
+      "pp.universes": true,
+      "pp.explicit": true,
+      "pp.fullNames": true
+    },
+    "all279_source_name_lines_match_I": true,
+    "all12_defining_files_reachable_from_four_added_public_imports": true,
+    "static_local_sources": {
+      "Applications/Probability/PermutationMinimum.lean": {
+        "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+        "origin": "original279_static_closure"
+      },
+      "Applications/Resources/CallComparison.lean": {
+        "sha256": "8d6d9324aa9dc71ceeaeaa04073f0f2a4f721a309995f0b623650bb19f01b520",
+        "origin": "original279_static_closure"
+      },
+      "Applications/Resources/CallCount.lean": {
+        "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+        "origin": "original279_static_closure"
+      },
+      "Applications/Resources/DifferenceListCosts.lean": {
+        "sha256": "f99420b831dff2d0f5fcc3dac1001937942b87c78b710b79f94fa941ab972b01",
+        "origin": "original279_static_closure"
+      },
+      "Applications/Resources/Growth.lean": {
+        "sha256": "5e252788c2365d3f9140288a1d51f2ef38270798419af40df8505590a7d20dcc",
+        "origin": "original279_static_closure"
+      },
+      "Applications/Resources/ListMerge.lean": {
+        "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975",
+        "origin": "original279_static_closure"
+      },
+      "Applications/Resources/Measured.lean": {
+        "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+        "origin": "original279_static_closure"
+      },
+      "Applications/Resources/Partition.lean": {
+        "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14",
+        "origin": "original279_static_closure"
+      },
+      "Applications/Resources/Workload.lean": {
+        "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+        "origin": "original279_static_closure"
+      },
+      "Applications/Search/LeftistQueue.lean": {
+        "sha256": "14a0d1130e04e2576dea2abb452823b5504cdbac9dbc1010f15a2f327c6bc378",
+        "origin": "original279_static_closure"
+      },
+      "Applications/Selection/Rank.lean": {
+        "sha256": "4a82df75593d909e2968bf1e27cbfea52c9795abfe81250bb2385e7dfc16f965",
+        "origin": "original279_static_closure"
+      },
+      "Applications/Selection/ThreeWay.lean": {
+        "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa",
+        "origin": "original279_static_closure"
+      },
+      "Applications/Sequences/Partition.lean": {
+        "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069",
+        "origin": "original279_static_closure"
+      },
+      "Applications/Sorting/Merge.lean": {
+        "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+        "origin": "original279_static_closure"
+      },
+      "Applications/Sorting/Sort.lean": {
+        "sha256": "5acd7728aaaefdec121df797efafd7dae13476c820d4f85f4ada19868fa71218",
+        "origin": "original279_static_closure"
+      },
+      "Applications/Sorting/SourceMerge.lean": {
+        "sha256": "bebd8eb2f06d92cc10e6f319c96b7965cdee36ff14c4a8b0b19e1351e8ebeaf2",
+        "origin": "original279_static_closure"
+      },
+      "Applications/Sorting/Stable.lean": {
+        "sha256": "288552150aa002c60ed06c74e69510112cf9b4e2f0045da3d98ca5c39264d881",
+        "origin": "original279_static_closure"
+      },
+      "Examples/DifferenceListCosts.lean": {
+        "sha256": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1",
+        "origin": "original279_static_closure"
+      },
+      "Examples/MergeCosts.lean": {
+        "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466",
+        "origin": "original279_static_closure"
+      },
+      "Examples/PermutationMinimum.lean": {
+        "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+        "origin": "original279_static_closure"
+      },
+      "Examples/PermutationMinimumBoundary.lean": {
+        "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+        "origin": "original279_static_closure"
+      },
+      "Examples/StableSorting.lean": {
+        "sha256": "c894760e594cdc31d9dda54553eeff666156c81f7903dea82738c8a95faaf193",
+        "origin": "original279_static_closure"
+      },
+      "Examples/ThreeWayPartition.lean": {
+        "sha256": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526",
+        "origin": "original279_static_closure"
+      },
+      "SquareKit/ListFusion.lean": {
+        "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+        "origin": "original279_static_closure"
+      },
+      "Squares.lean": {
+        "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+        "origin": "original279_static_closure"
+      },
+      "Applications/Resources/InsertionSort.lean": {
+        "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+        "origin": "inherited35_static_closure"
+      },
+      "Examples/InsertionCosts.lean": {
+        "sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37",
+        "origin": "inherited35_static_closure"
+      }
+    },
+    "static_local_count": 27,
+    "static_external_import_count": 22,
+    "static_import_edges": 56,
+    "source_graph_method": "Independent nested-comment/string masking and recursive import parsing from immutable H in actual tool chunk c465b6; H=I tree equality transfers static result, all27 I hashes rechecked",
+    "inherited_insertion": [
+      {
+        "root": "Applications/Resources/InsertionSort.lean",
+        "future314_indices": [
+          280,
+          298
+        ],
+        "exactF145_indices": [
+          1,
+          19
+        ],
+        "root_source_unchanged": true,
+        "local_path_count": 7,
+        "changed_paths": [
+          "Applications/Sorting/Merge.lean"
+        ]
+      },
+      {
+        "root": "Examples/InsertionCosts.lean",
+        "future314_indices": [
+          299,
+          314
+        ],
+        "exactF145_indices": [
+          84,
+          99
+        ],
+        "root_source_unchanged": true,
+        "local_path_count": 9,
+        "changed_paths": [
+          "Applications/Sorting/Merge.lean"
+        ]
+      }
+    ],
+    "exact_other110_F_reuse_credit": 0,
+    "actual_314_executions": 0,
+    "actual_receiving_types_credited": 0,
+    "old279_and_F145_programs_unchanged": true
+  },
+  "configurations": [
+    {
+      "path": "lean-toolchain",
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "exact_F_H_I": true
+    },
+    {
+      "path": "lake-manifest.json",
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "exact_F_H_I": true
+    },
+    {
+      "path": "lakefile.toml",
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "exact_F_H_I": true
+    },
+    {
+      "path": "flake.nix",
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+      "exact_F_H_I": true
+    },
+    {
+      "path": "flake.lock",
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+      "exact_F_H_I": true
+    },
+    {
+      "path": "check.sh",
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "exact_F_H_I": true
+    },
+    {
+      "path": "scripts/check.py",
+      "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+      "exact_F_H_I": true
+    },
+    {
+      "path": "scripts/lake_integrity.py",
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+      "exact_F_H_I": true
+    },
+    {
+      "path": "scripts/lake-output-hashes.lean",
+      "sha256": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b",
+      "exact_F_H_I": true
+    },
+    {
+      "path": "ProofAudit.lean",
+      "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd",
+      "exact_F_H_I": true
+    }
+  ],
+  "pinned_dependency_boundary": "Exact ten configuration bytes retain recorded nine dependency pins. No new installed-source/runtime/output observation or authenticity claim.",
+  "acceptance_boundaries": {
+    "F": "Accepted state and final independent report unchanged, not reopened",
+    "old_verification_record": "Previously secured record identifies F only, no I validation credit",
+    "historical_types": "C2 actual941/920/815 dispositions retain their old exact scope; no receiving credit by source equality alone",
+    "mandatory_pending": [
+      "Qualified immutable I complete normal check with both output-integrity phases and exhaustive audit",
+      "Actual314 full output with qualified execution/input identities and independent complete semantic reads",
+      "All original affected compatibility obligations, including Selection/Consumers/RankSelection and insertion",
+      "Both complete final axes without unresolved findings",
+      "Root immediate qualified verify, exact accepted fast-forward, controls and acceptance checkpoint"
+    ],
+    "fresh_policy": "Existing README normal/fresh triggers, no new mandatory fresh recheck",
+    "route": "Accepted F -> combined four units -> XU02 -> XU03 -> new complete C2",
+    "focused_scope_connection": {
+      "controlling_plan": "provenance/shared-acceptance-sequence-20261104/plan.md lines214–219 and333–338",
+      "rule": "Retain matching successful prior focused evidence. Complete new normal build checks all current affected targets; no repeat focused invocation merely by label.",
+      "concrete_unmatched_input_requiring_separate_invocation_now": null,
+      "credit": "No future result inferred; actual full output/input identities and all affected-target coverage remain pending."
+    }
+  },
+  "bookkeeping_incidents": [
+    {
+      "tool_chunk": "cb71d3",
+      "actual_exit": 1,
+      "cause": "Read-only helper treated F inventory declarations integer as list",
+      "effect": "No writes/compiler/source action or credit; corrected access8f5f9e and full static checkc465b6 succeeded"
+    },
+    {
+      "tool_chunk": "ec33f5",
+      "actual_exit": 1,
+      "cause": "Pre-write assertion compared abbreviated-index git diff with the saved full-index patch",
+      "effect": "No own directory/report created; c1a2d5 confirmed --full-index gives exact saved patch and no source discrepancy; this write uses exact format"
+    }
+  ],
+  "protected_prior_records": [
+    {
+      "path": "reviews/chapter02-standards-source-preparation-20261104.md",
+      "bytes": 104381,
+      "lines": 421,
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    {
+      "path": "reviews/shared-foundations-standards-terminal-assessment-20261104.md",
+      "bytes": 9830,
+      "lines": 51,
+      "sha256": "5931dafe30f68151d81621ded0274643fb8145c5c57e644b6cca284fc634e141"
+    },
+    {
+      "path": "provenance/shared-foundations-standards-terminal-assessment-20261104/final-standards-assessment-f17cc6b1.json",
+      "bytes": 11280,
+      "lines": 217,
+      "sha256": "a458f3b5d070832368c15710fd8ed4f92703e3d2226e2b882b90b974891cdf3d"
+    },
+    {
+      "path": "reviews/potential-standards-development-20261104.md",
+      "bytes": 40275,
+      "lines": 204,
+      "sha256": "a8c87f38de333a77ab03c82f7da1d3d1b3f122369dd9abb36c8d85acebf495f8"
+    },
+    {
+      "path": "reviews/affine-recurrence-standards-preparation-20261104.md",
+      "bytes": 15543,
+      "lines": 96,
+      "sha256": "bff3e140f1178b6f77ac2d12a42e544dbf2d7522bc27bcf793d1e7ef55b24e92"
+    },
+    {
+      "path": "reviews/accumulated-work-standards-preparation-20261104.md",
+      "bytes": 19038,
+      "lines": 129,
+      "sha256": "e7ea58583cd0c9eabd73e86e0137c874ea3f85b243e6b6d522387175c33ae1b3"
+    },
+    {
+      "path": "reviews/permutation-expectation-standards-preparation-20261104.md",
+      "bytes": 21944,
+      "lines": 107,
+      "sha256": "4e76fd0c52f06dbee8367db24af2c5da3ad4a1785849a5b0e0609d33f2a9881a"
+    },
+    {
+      "path": "reviews/permutation-joint-standards-preparation-20261104.md",
+      "bytes": 21469,
+      "lines": 91,
+      "sha256": "91aa0305006960edde631eec405f2d8e66461bd016ee21900a9831731ddc0c6d"
+    },
+    {
+      "path": "reviews/permutation-placement-standards-preparation-20261104.md",
+      "bytes": 23981,
+      "lines": 94,
+      "sha256": "120b53767cb488f53c50bfb6f70ed39d825b8e6d1236087da68b8884ae0782a2"
+    },
+    {
+      "path": "reviews/binary-tree-cache-standards-preparation-20261104.md",
+      "bytes": 22912,
+      "lines": 89,
+      "sha256": "a24df99f02fd70300f25b982b53293d2f0d8485f053b8891829fe81c37043c97"
+    },
+    {
+      "path": "provenance/shared-four-statements314-standards-preparation-20261104/projection-and-closure.json",
+      "bytes": 33096,
+      "lines": 856,
+      "sha256": "47e8b8d4b559f599ea154bcb85afe4ba3d2db0114b6266cb832f68e21ef5a759"
+    }
+  ],
+  "actions": "Only read-only immutable Git/control inspection and these new own review records. No compiler/process/cache/output/source/ref/pin/ticket/global-control actions. No external or GitHub mutations.",
+  "hold_after_readback": true
+}

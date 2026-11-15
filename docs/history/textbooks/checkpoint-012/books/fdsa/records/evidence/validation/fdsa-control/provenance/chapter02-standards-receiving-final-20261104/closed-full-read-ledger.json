@@ -1,0 +1,222 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "recorded_utc": "2026-11-04T17:30:19.039955+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "scope": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "public_names": 1763,
+    "private_named": 70,
+    "anonymous_instances": 19
+  },
+  "status": "Complete secured outer/native log reading; full terminal qualification and receiving per-name evidence remain separate. No final Standards or acceptance verdict.",
+  "retained_provisional_ledger": {
+    "path": "provenance/chapter02-standards-receiving-final-20261104/provisional-full-read-ledger.json",
+    "bytes": 7633,
+    "sha256": "ea564693ddb4a235f00aa1170b98429ee1038657dbd1082d5738e674153b26d2",
+    "unchanged": true
+  },
+  "run": "provenance/chapter02-complete-receiving-full-attempt1-20261104",
+  "outer": {
+    "bytes": 315124,
+    "lines": 2681,
+    "sha256": "5559dfa557622a8e29e503502df3e5a77287d3ac1f6e2f285a0b5bf5e4af6f0f",
+    "all_bytes_completely_read": true
+  },
+  "native": {
+    "bytes": 314896,
+    "lines": 2678,
+    "sha256": "7f2c0853d96f00134c8e4d9e7c1014ed91a3b9ed9e6c8c048ab6ea5c02779693",
+    "outer_byte_offset": 70,
+    "outer_lines": [
+      3,
+      2680
+    ],
+    "exact_once": true,
+    "all_bytes_read_as_identical_outer_body": true
+  },
+  "read_ranges": [
+    {
+      "first_line": 1,
+      "last_line": 70,
+      "bytes": 13705,
+      "sha256": "a7aae44a6dc3aaa714f04db7543e2ad1048abda59d5b2f7ef3c231259e9cc4d0",
+      "complete_nontruncated_read": true,
+      "actual_read_tool_chunk": "66d656",
+      "actual_exit": 0
+    },
+    {
+      "first_line": 71,
+      "last_line": 200,
+      "bytes": 13223,
+      "sha256": "bf5f4a53a395e200990282e14747e69d1e509e0dc647da22f5a3351856fc25dd",
+      "actual_read_tool_chunk": "d6b245",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 201,
+      "last_line": 350,
+      "bytes": 16078,
+      "sha256": "ea095584ce5165a4cb81fb3a8d7b3fa7206607fcb77ede2ae9f89852e2d2ee38",
+      "actual_read_tool_chunk": "346460",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 351,
+      "last_line": 478,
+      "bytes": 19141,
+      "sha256": "e9dcad3cf4e8d1ef0efc44610c357963697a2dc68fd6b85e113b92e058fd473d",
+      "actual_read_tool_chunk": "9ef445",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 479,
+      "last_line": 630,
+      "bytes": 22820,
+      "sha256": "350c3b93f374a520bf142165121ce3ffe51380224e58ae19ebdb9485badbe404",
+      "actual_read_tool_chunk": "19b481",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 631,
+      "last_line": 800,
+      "bytes": 21674,
+      "sha256": "8816ba424b5e473144e4a0a2f959aec98613e01ae19323bd8197fd067238ce48",
+      "actual_read_tool_chunk": "9942fe",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 801,
+      "last_line": 950,
+      "bytes": 14380,
+      "sha256": "10c3465cf73a2277025394b3ddabce4b6a99062022bb6e6076621fab8319d180",
+      "actual_read_tool_chunk": "e37d9e",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 951,
+      "last_line": 1120,
+      "bytes": 19940,
+      "sha256": "9045e2d73eb547acffabd189d16875936f38d1dafd8597f8e4958346b49250ba",
+      "actual_read_tool_chunk": "26303b",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 1121,
+      "last_line": 1280,
+      "bytes": 24616,
+      "sha256": "e1685ce90fea0e98f40efa5a9ee4d386ba9e4b97cd0d43a1e2d3a3cbb815c5fb",
+      "actual_read_tool_chunk": "04d8b5",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 1281,
+      "last_line": 1450,
+      "bytes": 13058,
+      "sha256": "271d2adf332c5cc463358139aded4975b58c85912c626fcfc7d3153a9a0369b4",
+      "actual_read_tool_chunk": "5cf3bb",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 1451,
+      "last_line": 1600,
+      "bytes": 12408,
+      "sha256": "c55cbb250918342732694b76283ca909cde7aeb41951c60daa42d153594cf0fa",
+      "actual_read_tool_chunk": "fdb6de",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 1601,
+      "last_line": 1642,
+      "bytes": 4888,
+      "sha256": "a1c59c7dfb431c3160ae3052de5d8d9043be8f21658b3cbce44aaf8e541068f7",
+      "actual_read_tool_chunk": "b5856b",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 1643,
+      "last_line": 1860,
+      "bytes": 23288,
+      "sha256": "d52d48c8e593c96b710affdcc5feee2dac992c6390d078fc5cc6bc0a138ade2d",
+      "actual_read_tool_chunk": "7a9d3c",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 1861,
+      "last_line": 2070,
+      "bytes": 23308,
+      "sha256": "6980f6ebd9fd03da5d3cf48102b85018993e8c4b4819e1e572abd1300afa9bd3",
+      "actual_read_tool_chunk": "535a06",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 2071,
+      "last_line": 2280,
+      "bytes": 24283,
+      "sha256": "2b8f982299f5226d5239be6e13dae8d38449d1ac36e239b86656d39288ecf5ea",
+      "actual_read_tool_chunk": "09f1d3",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 2281,
+      "last_line": 2480,
+      "bytes": 23691,
+      "sha256": "fa306b645294abf8f38025413becf36f3ee6794b6492db2e7152ade691468ef2",
+      "actual_read_tool_chunk": "628123",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 2481,
+      "last_line": 2681,
+      "bytes": 24623,
+      "sha256": "02418747d8dfa3f51608bc8fec180479d36ef7bc71a70532912b011ad936b087",
+      "actual_read_tool_chunk": "a1ac00",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    }
+  ],
+  "closed_read_reconciliation_tools": [
+    "100a7a",
+    "06667a"
+  ],
+  "small_terminal_records_fully_read": {
+    "tool_chunk": "06667a",
+    "files": [
+      "owned-launch.json",
+      "owned-terminal.json",
+      "result.json",
+      "native-records/start.json",
+      "native-records/result.json",
+      "verification.json",
+      "closed-evidence-reconciliation.json",
+      "root-resource-observations.jsonl"
+    ]
+  },
+  "read_notes": [
+    "The unchanged complete prefix 1\u20131642 is now bound to the actual closed log; its original provisional ledger and earlier limits are preserved.",
+    "Remaining outer lines 1643\u20132681 were completely read in five bounded, nontruncated chunks. The identical native body is wholly covered without pretending a second independent byte-read.",
+    "The closed log reports the successful build, zero inconsistent post-build artifacts, all 1027 audit defining-module rows, only the permitted axiom union and the final complete-candidate PASS. Audit/count/warning reconciliation is being assessed separately.",
+    "The whole-project audit includes generated/private declarations; its totals are not counts of new book theorems and do not substitute for public statement review.",
+    "Actual receiving type evidence has not been qualified. The separately failed first saved-input comparison gives no receiving credit and does not change this secured full-check result."
+  ],
+  "actual_receiving_type_credit": 0,
+  "acceptance_credit": 0,
+  "source_or_runtime_mutation_performed": false
+}

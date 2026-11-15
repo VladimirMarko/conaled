@@ -1,0 +1,25 @@
+{
+  "purpose": "Final outcome coverage; expected red if inherited SIGCHLD ignore loses the actual return",
+  "candidate": "570112ed5c59ca8694dfa52c3384b49ea6224ef9",
+  "cwd": "/workspace/scratch/0c54f2db1fdf/validation-recorder-validation",
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "environment": "Pinned conaled Nix development shell; no Lean commands",
+  "python_executable": "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+  "python_version": "3.13.15 (main, Aug  5 2026, 12:25:43) [GCC 15.3.0]",
+  "started_utc": "2026-11-02T21:22:13.484962+00:00",
+  "finished_utc": "2026-11-02T21:22:16.670919+00:00",
+  "elapsed_seconds": 3.185967409008299,
+  "raw_returncode": 1,
+  "before_status": "",
+  "after_status": "",
+  "log_sha256": "94e6f7a053378f8f49cecf9fdfc7806e662c25ede47d52843ec6d93bdf694bb6"
+}

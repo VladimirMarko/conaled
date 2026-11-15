@@ -1,0 +1,125 @@
+{
+  "completed_utc": "2026-11-04T07:30:55.281085+00:00",
+  "candidate": "c19a85f8f5e256e87b0001f3e98afb2c7c1b08cc",
+  "parent": "1f315fdbb40288d99921164bb3fd8afcbd756e58",
+  "branch": "work/fdsa-ch02-random-pivot",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot",
+  "final_status": "",
+  "source_identities": {
+    "Applications/Resources/RandomQuickSortRank.lean": {
+      "bytes": 19615,
+      "lines": 393,
+      "sha256": "22960885c968620b957e7e2381baa8b887d9dc80a54fb72fe9644c3ace2890b4"
+    },
+    "Examples/RandomQuickSortRank.lean": {
+      "bytes": 6427,
+      "lines": 151,
+      "sha256": "a0f5fbd6b3d41cad08193a371228bede1b869a773608b21906e85f2848d747bf"
+    }
+  },
+  "existing_dependency_and_pin_identities": {
+    "Applications/Resources/QuickSort.lean": {
+      "bytes": 21782,
+      "lines": 474,
+      "sha256": "e98024f6b741e1aba1fb1e38b419eee2e1acad76a8a40e669752f54775783263"
+    },
+    "Applications/Resources/RandomQuickSort.lean": {
+      "bytes": 23601,
+      "lines": 509,
+      "sha256": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2"
+    },
+    "Examples/RandomQuickSort.lean": {
+      "bytes": 8255,
+      "lines": 203,
+      "sha256": "4f5a21d1656423ac1307b1ca8fe651cd794d70da576ecd14f65d68cc290c424d"
+    },
+    "Applications/Resources/RandomQuickSortMean.lean": {
+      "bytes": 16517,
+      "lines": 335,
+      "sha256": "2c7976bf52a2dbed2eb6eb959055acc7ae0df8319c167f0128b63e5c482bd5d3"
+    },
+    "Examples/RandomQuickSortMean.lean": {
+      "bytes": 5733,
+      "lines": 118,
+      "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670"
+    },
+    "lean-toolchain": {
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    "lake-manifest.json": {
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    "AGENTS.md": {
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    }
+  },
+  "exactly_two_new_source_files": true,
+  "all_existing_source_unchanged": true,
+  "plan": {
+    "bytes": 21178,
+    "lines": 399,
+    "sha256": "58803b7efc845f09fc4e48cd7d4623930fc4500fe456968cc50984ddcf3bca64"
+  },
+  "root_plan_assessment": {
+    "bytes": 1167,
+    "lines": 18,
+    "sha256": "09d061cb54f93693cf72896ca63e7f090b466c950d75ef26293d8a28a7063282"
+  },
+  "source_inventory": {
+    "bytes": 18567,
+    "lines": 354,
+    "sha256": "524176b6389fc6a1ad6ea379d0a6ca549ec6c0e36d34491942ec16498d13d8cc"
+  },
+  "statement_assessment": {
+    "bytes": 14551,
+    "lines": 130,
+    "sha256": "6a096cb2d249758fb9f06cf1512b449b46e7cf28be2097771c529c8fd2877740"
+  },
+  "source_diff": {
+    "bytes": 27026,
+    "lines": 556,
+    "sha256": "0f1d59dc6172f9807c70709bce72cb1fe3a78e05bfcefc81f6c49daa632dc3af"
+  },
+  "diff_check": {
+    "exit_code": 0,
+    "bytes": 0,
+    "lines": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "public_declarations": 30,
+  "private_helpers": 7,
+  "all_source_lines_and_proof_bodies_read": true,
+  "all_public_and_private_source_claims_assessed": true,
+  "source_mathematical_findings": [],
+  "new_sources_compiled": false,
+  "new_elaborated_types_inspected": false,
+  "author_builds_started": 0,
+  "cache_writes": false,
+  "lake_directory_present": false,
+  "children_spawned": false,
+  "global_control_ticket_or_coverage_edits": false,
+  "harmonic_dependency_added": false,
+  "four_independent_payload_key_universes_in_source": true,
+  "mapped_key_distinctness_preserved": true,
+  "new_payload_finiteness_measurability_equality_inhabitation_premises": false,
+  "actual_execution_recurrence_assumed": false,
+  "canonical_size_mean": "Actual exerciseMean of List.range n under Nat strict-order Boolean comparator",
+  "mean_dependency_latest_report": "Root reports individual core and example builds at source1f315fdb / central e4965499; nine-target attempt4 still live and complete type inspection pending",
+  "earlier_failures_preserved": true,
+  "full_candidate_check_audit_or_independent_final_review_pass": false,
+  "acceptance_claimed": false,
+  "mandatory_continuation": [
+    "Root exclusive focused check and complete explicit statement inspection for this exact source",
+    "Actual harmonic identity and logarithmic/Big-O bound using the separately owned numerical solver",
+    "Separate uniform-input deterministic first-pivot mean",
+    "Pivot selection/lookup/removal/random-bit scope qualifications",
+    "Full immutable-candidate validation/audit, independent Standards and Spec, immediate candidate verification"
+  ],
+  "next_action": "HOLD all source/ref/control/provenance writes after this identity and handoff close; await root central diagnostics or checkpoint request"
+}

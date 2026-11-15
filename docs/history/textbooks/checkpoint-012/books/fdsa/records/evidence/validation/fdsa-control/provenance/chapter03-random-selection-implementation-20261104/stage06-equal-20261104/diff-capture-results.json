@@ -1,0 +1,26 @@
+[
+  {
+    "command": [
+      "git",
+      "diff",
+      "--no-index",
+      "--",
+      "/dev/null",
+      "Applications/Resources/RandomSelectionEqual.lean"
+    ],
+    "actual_exit": 1,
+    "interpretation": "Expected status1 means differing files; source-diff capture, not a validation failure."
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--no-index",
+      "--",
+      "/dev/null",
+      "Examples/RandomSelectionEqual.lean"
+    ],
+    "actual_exit": 1,
+    "interpretation": "Expected status1 means differing files; source-diff capture, not a validation failure."
+  }
+]

@@ -1,0 +1,535 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "recorded_utc": "2026-11-04T17:25:18.135288+00:00",
+  "status": "Independent saved-preparation reconstruction only; no receiving capture/helper execution, no type eligibility or remainder selected.",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "all_original_scope_retained": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "public_names": 1763,
+    "private_named": 70,
+    "anonymous_instances": 19
+  },
+  "package_inputs": [
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/ObservationOnly.lean",
+      "bytes": 3236,
+      "sha256": "d7c61fc87c597ff2d263e30c6848b0057ad59d43e104c99a15af7de074ef341d"
+    },
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/bound-inputs.json",
+      "bytes": 43114,
+      "sha256": "2120c53da63d2ae57361900937a14b26d115e4a26a0a6c3f560e307df635a6d8"
+    },
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/compare_receiving.py",
+      "bytes": 17282,
+      "sha256": "ca405b33d8b3e938f2e3a7c6abae7c6b06f754bb12d91d93751833e326e004f9"
+    },
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/plan.md",
+      "bytes": 17411,
+      "sha256": "3fb3621551d7a6a2f184477da2134ef1af6de0a7ed70a1e56bfffd4a73d5a6c2"
+    },
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/schedule.json",
+      "bytes": 409593,
+      "sha256": "6216efb85427a6401e1263f34294141c82f2fe88c74dc2dd18eb464207d06c62"
+    },
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/receipt.json",
+      "bytes": 3947,
+      "sha256": "d5e018458c1ebb888d794383316ec7e22ac00ca8b2b027fcc1675e87a76936c1"
+    }
+  ],
+  "bound_fingerprints_verified": 144,
+  "exact_held_inventory_and_current_source_binding_retained": true,
+  "carrier": {
+    "imports": 71,
+    "local_sources": 97,
+    "external_import_names": 86,
+    "sentinel": "Resources.isBigO_of_nat_bound",
+    "never_executed": true,
+    "no_type_credit": true
+  },
+  "profile_reconciliation": {
+    "F145": {
+      "program_sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4",
+      "commands": 145,
+      "checks": 145,
+      "prints": 0,
+      "literal_at_checks": 145,
+      "expanded_profile_checks": 145,
+      "actual_set_option_commands": [
+        [
+          8,
+          "pp.universes",
+          "true"
+        ],
+        [
+          9,
+          "pp.explicit",
+          "true"
+        ],
+        [
+          10,
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "all_actual_commands_and_order_match": true
+    },
+    "I314": {
+      "program_sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754",
+      "commands": 314,
+      "checks": 314,
+      "prints": 0,
+      "literal_at_checks": 314,
+      "expanded_profile_checks": 314,
+      "actual_set_option_commands": [
+        [
+          21,
+          "pp.universes",
+          "true"
+        ],
+        [
+          22,
+          "pp.explicit",
+          "true"
+        ],
+        [
+          23,
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "all_actual_commands_and_order_match": true
+    },
+    "J53": {
+      "program_sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3",
+      "commands": 53,
+      "checks": 53,
+      "prints": 0,
+      "literal_at_checks": 53,
+      "expanded_profile_checks": 53,
+      "actual_set_option_commands": [
+        [
+          5,
+          "pp.universes",
+          "true"
+        ],
+        [
+          6,
+          "pp.explicit",
+          "true"
+        ],
+        [
+          7,
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "all_actual_commands_and_order_match": true
+    },
+    "Tail61": {
+      "program_sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa",
+      "commands": 61,
+      "checks": 61,
+      "prints": 0,
+      "literal_at_checks": 61,
+      "expanded_profile_checks": 61,
+      "actual_set_option_commands": [
+        [
+          11,
+          "pp.universes",
+          "true"
+        ],
+        [
+          12,
+          "pp.explicit",
+          "true"
+        ],
+        [
+          13,
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "all_actual_commands_and_order_match": true
+    },
+    "Z815": {
+      "program_sha256": "d4d37d6ea2b48fc5c743b1db36fe904ca8623be6c03c05ea5addc99b307687bd",
+      "commands": 815,
+      "checks": 815,
+      "prints": 0,
+      "literal_at_checks": 815,
+      "expanded_profile_checks": 815,
+      "actual_set_option_commands": [
+        [
+          38,
+          "pp.universes",
+          "true"
+        ],
+        [
+          39,
+          "pp.explicit",
+          "true"
+        ],
+        [
+          40,
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "all_actual_commands_and_order_match": true
+    },
+    "chapter02-measured-sorting-types-20261104": {
+      "program_sha256": "904bd664fb385ef63fc1d6f2b8fd9fd2e3af2cadcbf6eb7f610a1e71ccbef20a",
+      "commands": 174,
+      "checks": 174,
+      "prints": 0,
+      "literal_at_checks": 174,
+      "expanded_profile_checks": 174,
+      "actual_set_option_commands": [
+        [
+          7,
+          "pp.universes",
+          "true"
+        ],
+        [
+          8,
+          "pp.explicit",
+          "true"
+        ]
+      ],
+      "all_actual_commands_and_order_match": true
+    },
+    "chapter02-xu01-types-20261104": {
+      "program_sha256": "3755aaeb473b3310749ecc2863f034fc4a7616bb97d16719500c551d831aa367",
+      "commands": 37,
+      "checks": 37,
+      "prints": 0,
+      "literal_at_checks": 37,
+      "expanded_profile_checks": 37,
+      "actual_set_option_commands": [
+        [
+          5,
+          "pp.universes",
+          "true"
+        ],
+        [
+          6,
+          "pp.explicit",
+          "true"
+        ],
+        [
+          7,
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "all_actual_commands_and_order_match": true
+    },
+    "chapter02-bottom-up-costs-types-20261104": {
+      "program_sha256": "f9486a8f64d9786814f2ffc67dfb158ab13bf1d392585c27ca83b35cadd34c2e",
+      "commands": 105,
+      "checks": 105,
+      "prints": 0,
+      "literal_at_checks": 105,
+      "expanded_profile_checks": 105,
+      "actual_set_option_commands": [
+        [
+          4,
+          "pp.universes",
+          "true"
+        ],
+        [
+          5,
+          "pp.explicit",
+          "true"
+        ]
+      ],
+      "all_actual_commands_and_order_match": true
+    },
+    "chapter02-natural-sorting-types-20261104": {
+      "program_sha256": "59d413591ef58c6569fcf39575669aaafcb21d4cf7783f05a88935de0a97b9ac",
+      "commands": 105,
+      "checks": 105,
+      "prints": 0,
+      "literal_at_checks": 105,
+      "expanded_profile_checks": 105,
+      "actual_set_option_commands": [
+        [
+          6,
+          "pp.universes",
+          "true"
+        ],
+        [
+          7,
+          "pp.explicit",
+          "true"
+        ],
+        [
+          8,
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "all_actual_commands_and_order_match": true
+    },
+    "chapter02-three-way-partition-types-20261104": {
+      "program_sha256": "48019e7cc7c38382139b939a521527773e59b39f5b4b8ffff210d199babb7dbf",
+      "commands": 84,
+      "checks": 84,
+      "prints": 0,
+      "literal_at_checks": 84,
+      "expanded_profile_checks": 84,
+      "actual_set_option_commands": [
+        [
+          8,
+          "pp.universes",
+          "true"
+        ],
+        [
+          9,
+          "pp.explicit",
+          "true"
+        ]
+      ],
+      "all_actual_commands_and_order_match": true
+    },
+    "chapter02-xd01-random-types-20261104": {
+      "program_sha256": "5f6eb99c622137c19ff2f5fc35389e7d9a2000cf06e4f3d7a2a25a803a76584b",
+      "commands": 134,
+      "checks": 134,
+      "prints": 0,
+      "literal_at_checks": 134,
+      "expanded_profile_checks": 134,
+      "actual_set_option_commands": [
+        [
+          6,
+          "pp.universes",
+          "true"
+        ],
+        [
+          7,
+          "pp.explicit",
+          "true"
+        ],
+        [
+          8,
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "all_actual_commands_and_order_match": true
+    },
+    "chapter02-bottom-up-alternating-types-20261104": {
+      "program_sha256": "9ef7e05799ff059a262fc1cab1ffaae1ed269b1076931c44a6913bd6e2dda471",
+      "commands": 126,
+      "checks": 126,
+      "prints": 0,
+      "literal_at_checks": 0,
+      "expanded_profile_checks": 0,
+      "actual_set_option_commands": [
+        [
+          4,
+          "autoImplicit",
+          "false"
+        ],
+        [
+          5,
+          "warningAsError",
+          "true"
+        ],
+        [
+          6,
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "all_actual_commands_and_order_match": true
+    },
+    "chapter02-top-down-costs-types-20261104": {
+      "program_sha256": "3f235ac70f6fa1b2234a5899f5ba25f7de7e9caee35c0b8f90b8de98e96ab5c8",
+      "commands": 32,
+      "checks": 32,
+      "prints": 0,
+      "literal_at_checks": 0,
+      "expanded_profile_checks": 0,
+      "actual_set_option_commands": [
+        [
+          3,
+          "autoImplicit",
+          "false"
+        ],
+        [
+          4,
+          "warningAsError",
+          "true"
+        ],
+        [
+          5,
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "all_actual_commands_and_order_match": true
+    },
+    "chapter02-uniqueness-types-20261104": {
+      "program_sha256": "5d5cb3cfd591633c6e0ef635094917f19f60f2db1e226df3782ba963f01fd5bf",
+      "commands": 9,
+      "checks": 9,
+      "prints": 0,
+      "literal_at_checks": 9,
+      "expanded_profile_checks": 9,
+      "actual_set_option_commands": [
+        [
+          4,
+          "pp.universes",
+          "true"
+        ],
+        [
+          5,
+          "pp.explicit",
+          "true"
+        ],
+        [
+          6,
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "all_actual_commands_and_order_match": true
+    },
+    "chapter02-natural-runs-statements-20261104": {
+      "program_sha256": "d56c25d992aa23e63c9bfa51cf4561f8ae2e6c1f186dda1493d0741673b372e4",
+      "commands": 107,
+      "checks": 104,
+      "prints": 3,
+      "literal_at_checks": 0,
+      "expanded_profile_checks": 0,
+      "actual_set_option_commands": [
+        [
+          3,
+          "autoImplicit",
+          "false"
+        ],
+        [
+          4,
+          "warningAsError",
+          "true"
+        ]
+      ],
+      "all_actual_commands_and_order_match": true
+    },
+    "chapter02-quicksort-statements-20261104": {
+      "program_sha256": "648822ba3ec1cebdf007f4dff758647b628d81a755f261804c2cd696ebe5f78b",
+      "commands": 14,
+      "checks": 14,
+      "prints": 0,
+      "literal_at_checks": 14,
+      "expanded_profile_checks": 0,
+      "actual_set_option_commands": [
+        [
+          4,
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "all_actual_commands_and_order_match": true
+    },
+    "ordinary-merge-type-inspection-20261104": {
+      "program_sha256": "72709d2b0430fa10684f3ca088a5d0041568ccfe3182653ce6aec731d49b1215",
+      "commands": 17,
+      "checks": 17,
+      "prints": 0,
+      "literal_at_checks": 17,
+      "expanded_profile_checks": 0,
+      "actual_set_option_commands": [
+        [
+          2,
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "all_actual_commands_and_order_match": true
+    }
+  },
+  "historical_command_totals": {
+    "checks": 941,
+    "prints": 3,
+    "commands": 944,
+    "literal_at_checks": 679,
+    "expanded_profile_checks": 648,
+    "other_profiles": 293,
+    "historically_qualified_names": 920
+  },
+  "recent_unique_names": 1009,
+  "all_recent_and_historical_checked_names": 1762,
+  "only_remaining_accepted_R_name": "Resources.isBigO_of_nat_bound",
+  "Z_complete_anchor_roots": 58,
+  "historical_names_with_Z_input_anchor": 723,
+  "historical_names_without_Z_input_anchor": 197,
+  "anchors_not_printed_names_or_backfilled_snapshots": true,
+  "nine_missing_source_observations": [
+    "Applications/Resources/ListBuildCosts.lean",
+    "Applications/Sorting/Alternating.lean",
+    "Applications/Sorting/ThreeWayQuickSort.lean",
+    "Applications/Sorting/Uniqueness.lean",
+    "Examples/AlternatingSorting.lean",
+    "Examples/ListBuildCosts.lean",
+    "Examples/QuickSortCosts.lean",
+    "Examples/SortUniqueness.lean",
+    "Examples/ThreeWayQuickSort.lean"
+  ],
+  "public_names_in_nine_sources": 149,
+  "four_extra_external_names": [
+    "Init.Data.List.Nat.Range",
+    "Mathlib.Data.List.Perm.Basic",
+    "Mathlib.Data.Multiset.Defs",
+    "Mathlib.Order.Defs.LinearOrder"
+  ],
+  "Growth_affected": {
+    "root_count": 10,
+    "public_names": 388,
+    "MergeCosts_names": 72,
+    "all72_in_actual_I314_and_Z815": true
+  },
+  "helper_source_and_limits_assessed": {
+    "full274lines_read": true,
+    "syntax_parsed_not_imported_or_executed": true,
+    "reads_saved_control_only": true,
+    "no_project_or_runtime_reads": true,
+    "complete_supported_artifact_key_union_compared": true,
+    "literal_paths_and_trace_hashes_preserved": true,
+    "preliminary_and_stable_pair_distinguished": true,
+    "all_type_credit_fields_zero": true,
+    "actual_native_full_audit_lineage_separately_required": true,
+    "source_config_only_historical_evidence_not_laundered": true
+  },
+  "finding": {
+    "id": "C02-PREP-OPT-001",
+    "scope": "Preparation prose only",
+    "observed": "NaturalRuns table says no explicit option commands although autoImplicit=false and warningAsError=true are retained in actual program/schedule. Other rows summarize printer options only.",
+    "machine_profiles_correct": true,
+    "correction_pending": true
+  },
+  "human_read_boundaries": {
+    "plan": "5ca895 entire114lines",
+    "helper": [
+      "b86795 lines1\u2013145",
+      "8cec53 lines146\u2013274"
+    ],
+    "carrier": "9cfe8f entire79lines",
+    "receipt": "4b60c7 entire105lines",
+    "large_JSON_and_program_rows": "Mechanically reconciled from exact bytes; prior complete source/type semantic assessments retained.",
+    "truncated_navigation": [
+      "0bb29d",
+      "d863ca"
+    ]
+  },
+  "receiving_credit": 0,
+  "automatic_run_selected": null
+}

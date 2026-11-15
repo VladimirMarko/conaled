@@ -1,0 +1,77 @@
+--- v3/docs/research/fdsa-selection.md
++++ final/docs/research/fdsa-selection.md
+@@ -73,8 +73,8 @@
+ The all-equal pair at `E` also has a successful focused check after four
+ example proof bodies corrected the five normalization errors recorded at
+ `0fa60badfd353bcd6e22177d852d8d6399a2e0fe`; its core and all statement headers
+-were preserved. Earlier failures and exact corrections remain recorded. The older random execution,
+-expectation, drift and tail sources at `R`, and the value/exercise/policy slices
++were preserved. Earlier failures and exact corrections remain recorded. The
++older random execution, expectation, drift and tail sources at `R`, and the value/exercise/policy slices
+ at `V`, retain their separately recorded focused evidence.
+ 
+ No complete Chapter 3 actual-type program, exhaustive candidate audit,
+@@ -132,8 +132,8 @@
+ 
+ ## Chunks and the mathematical pivot
+ 
+-The pure `Applications.Sequences.Chunks.chop` adapter reuses standard list splitting while
+-exposing the source equations: size 0 returns `[]`; empty input returns `[]`;
++The pure `Applications.Sequences.Chunks.chop` adapter reuses standard list
++splitting while exposing the source equations: size 0 returns `[]`; empty input returns `[]`;
+ positive size on nonempty input prepends `take d xs` to chopping `drop d xs`.
+ For `d>0`, every chunk is nonempty and has length at most `d`, chunk count is
+ `ceil(n/d)`, and flattening returns the complete input. Count sums, multiset
+@@ -273,11 +273,11 @@
+ 1/d + (d+floor(d/2))/(2*d) < 1  ↔  d−floor(d/2)>2.
+ ```
+ 
+-This holds for odd sizes at least 5 and even sizes at least 6. Sizes3 and 4 give
+-coefficient1. The chosen actual algorithm is nevertheless correct and
++This holds for odd sizes at least 5 and even sizes at least 6. Sizes 3 and 4 give
++coefficient 1. The chosen actual algorithm is nevertheless correct and
+ terminating for every `d≥2` with cutoff≥1; failure of this particular sufficient
+ linear argument is not a lower-bound theorem about all grouping strategies.
+-Size1 has an actual self-recursive medians call at arbitrarily large lengths;
++Size 1 has an actual self-recursive medians call at arbitrarily large lengths;
+ size 0 belongs to the separate empty-chop convention, not this worker domain.
+ 
+ The sufficient-group actual bound uses the generic pivot size envelope,
+@@ -285,7 +285,7 @@
+ majorant. The prefix covers the maximum of actual and scalar cutoffs, including
+ both orderings of those cutoffs. Constants precede payloads and valid ranks,
+ so an infinite payload domain introduces no hidden finite-search premise.
+-The examples cover both odd and even sufficient groups and the first genuinely
++The examples cover both odd and even sufficient groups and the first
+ recursive scalar budgets.
+ 
+ Exercise 3.7 supplies an actual universal counterfamily. There are `i` blocks
+@@ -506,8 +506,8 @@
+ All 83 frozen identifiers are retained. Each row names actual source and
+ connected cases; a name's presence is not an acceptance mark. The explicit
+ pending rows and the distinction between focused passes and full candidate
+-validation must survive assembly and review. The table records mathematical domains and source-model
+-limits rather than promoting a focused check to whole-chapter validation.
++validation must survive assembly and review. The table records mathematical
++domains and source-model limits rather than promoting a focused check to whole-chapter validation.
+ 
+ 
+ ### Specification and elementary facts: pp. 31–32
+@@ -565,7 +565,7 @@
+ | **C03-034** — Measured chopping with both source traversals | `ChunkCost.chopRun`, `ChunkCost.chopRun_eq_cons`, `ChunkCost.chopRun_cost`, `ChunkCost.chopRun_cost_bound` | `EChunkCost.zero_size`, `EChunkCost.both_traversals_are_charged`, `EChunkCost.fused_first_step_is_not_source_count`, `EChunkCost.arbitrary_group_budget` | Positive-d exact cost 2n+3ceil(n/d)+1; all-d bound 5n+1. Take and drop are separately charged. |
+ | **C03-035** — Actual median-map callback sum and preparation bounds | `MediansCost.mapSlowMedianRun_cost`, `MediansCost.mapSlowMedianRun_small_bound`, `MediansCost.mapSlowMedianRun_chop_five_bound`, `MediansCost.chunkMediansRun_cost_split`, `MediansCost.chunkMediansRun_five_bound` | `EMediansCost.two_chunk_map`, `EMediansCost.short_final_chunk`, `EMediansCost.first_recursive_map_count`, `EMediansCost.book_map_budget`, `EMediansCost.book_preparation_budget` | Map cost is sum of actual callbacks plus m+1; ≤48m+1≤10n+48, and complete preparation≤15n+49. |
+ | **C03-036** — Exact branch-sensitive nested source equations | `Select.selectRunWith_small`, `Select.selectRunWith_step`, `Select.selectRunWith_cost_step`, `Select.selectRun_cost_step`, `MediansCost.chunkMediansRun_cost_split` | `ESelect.cutoff_ascending`, `ESelect.cutoff_descending`, `ESelect.first_recursive_left`, `ESelect.first_recursive_equal`, `ESelect.first_recursive_right`, `ESelect.all_equal_last` | Entry length is cached; left branch omits equal-length traversal and equal branch omits a second recursive call. Actual counts 83/273, 269/231/266 and 239 are distinct from scalar budgets. |
+-| **C03-037** — Exact monotone scalar F | `F.F`, `F.F_of_le_twenty`, `F.F_of_twenty_lt`, `F.base_le_F`, `F.F_monotone`, `F.pivotSize_lt_iff`, `F.sideSize_lt_iff`, `F.F_rounded` | `EF.scalar_cutoff_obstruction`, `EF.scalar_cutoff_fourteen`, `EF.F_twenty`, `EF.F_twenty_one`, `EF.resize_across_cutoff` | Base 483, cutoff 20, toll19n+54; children ceil(n/5), ceil(7n/10+3), with strict descent and monotonicity proved before resizing. |
++| **C03-037** — Exact monotone scalar F | `F.F`, `F.F_of_le_twenty`, `F.F_of_twenty_lt`, `F.base_le_F`, `F.F_monotone`, `F.pivotSize_lt_iff`, `F.sideSize_lt_iff`, `F.F_rounded` | `EF.scalar_cutoff_obstruction`, `EF.scalar_cutoff_fourteen`, `EF.F_twenty`, `EF.F_twenty_one`, `EF.resize_across_cutoff` | Base 483, cutoff 20, toll 19n+54; children ceil(n/5), ceil(7n/10+3), with strict descent and monotonicity proved before resizing. |
+ | **C03-038** — Actual book execution bounded by F | `Bounds.selectRun_pivot_size_bounds`, `Bounds.selectRun_local_cost_bound`, `Bounds.selectRun_cost_le_F_of_lt`, `Bounds.selectRun_cost_le_F` | `EBounds.cutoff_descending_budget`, `EBounds.first_left_budget`, `EBounds.first_equal_budget`, `EBounds.first_right_budget`, `EBounds.first_local_budget` | Actual recurrence induction combines measured auxiliaries, valid child ranks and F monotonicity; all-rank extension also handles the explicit invalid guard. |
+ 
+ ### Rounded recurrence and linear bound: pp. 41–44
+@@ -618,7 +618,7 @@
+ | **C03-072** — Actual prefix/residual decomposition and Markov premises | `Tail.scanVolume_take_add_residualWork`, `Tail.run_prefix_scan_le`, `Tail.run_tail_residual`, `Tail.residualLaw_integrable`, `Tail.residualLaw_markov` | `ETail.finite_trace_decomposition`, `ETail.arbitrary_residual_integrability`, `ETail.actual_pair_trace_observations` | First w scans≤wn; the tail event forces residual≥4n; nonnegativity and integrability belong to the actual residual law. |
+ | **C03-073** — Larger-side recurrence is only a majorant | `Drift.nextSize_le_rankSide`, `RandomMean.scanExpectation_cons` | `ERandom.selected_side_is_not_larger_side`, `EDrift.selected_branch_is_smaller` | Concrete n=5,k=0,pivot rank 1 has actual next size 1 versus upper majorant 3; no equality is substituted. |
+ | **C03-074** — Pathwise source-cost/scan bridge | `Random.stepRun_cost_bounds`, `RandomRun.run_source_bridge` | `ERandom.duplicate_source_bound`, `ERandomMean.actual_mean_bridge` | W≤T≤9W+2 charges pivot retrieval, partition, length observations and reached branch work. Uniform sampling is abstract; no random-bit or physical-runtime claim. |
+-| **C03-075** — Actual expected/tail bounds and worst-case transfer | `Drift.sourceExpectation_linear_bounds`, `Drift.sourceMean_linear_bounds`, `Tail.sourceLaw_tail`, `RandomRun.run_source_quadratic` | `EDrift.valid_selection_expected_bounds`, `ETail.valid_answer_and_tails`, `ERandomRun.two_key_long_path` | Expected n≤E T≤36n+2, source tail threshold9(4+w)n+2 and uniform quadratic upper are present. PENDING: the general quadratic lower/worst-case family transported from the universal C03-064 path. All-equal core E has a contrasting linear family, not that missing distinct-input witness. |
++| **C03-075** — Actual expected/tail bounds and worst-case transfer | `Drift.sourceExpectation_linear_bounds`, `Drift.sourceMean_linear_bounds`, `Tail.sourceLaw_tail`, `RandomRun.run_source_quadratic` | `EDrift.valid_selection_expected_bounds`, `ETail.valid_answer_and_tails`, `ERandomRun.two_key_long_path` | Expected n≤E T≤36n+2, source tail threshold 9(4+w)n+2 and uniform quadratic upper are present. PENDING: the general quadratic lower/worst-case family transported from the universal C03-064 path. All-equal core E has a contrasting linear family, not that missing distinct-input witness. |
+ | **C03-076** — Tail quantifiers and interpretation | `Tail.scanLaw_tail`, `Tail.sourceLaw_tail` | `ETail.zero_excess_tail`, `ETail.positive_input_tails`, `ETail.empty_tail_countercase` | Statement analysis: exponential decay is in the excess multiple w. Fixed w gives a fixed probability bound, not an automatic fixed-constant high-probability O(n) theorem as n grows. Optional logarithmic excess is not required. |
+ | **C03-077** — Connected random examples and positive finite worst path | `RandomRun.run_value`, `RandomRun.run_trace_entries` | `ERandomRun.singleton_execution`, `ERandomRun.duplicate_execution`, `ERandomRun.two_key_first_path`, `ERandomRun.two_key_long_path`, `ERandomRun.same_value_different_scan`, `ERandomRun.maximum_scan_on_pair`, `ERandomEqual.three_equal_first_atom`, `ERandomEqual.three_equal_last_atom` | Focused-passed earlier cases include singleton, duplicate equal block, valid rank 0, endpoint-rank cases, different supported traces with the same result and a positive-probability triangular path on a pair. Additional all-equal atom/source cases at E now also have a focused pair pass. These finite cases and the general linear equal family do not discharge C03-064; complete chapter gates remain. |
+ 

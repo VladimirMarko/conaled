@@ -1,0 +1,41 @@
+{
+  "recorded_utc": "2026-11-04T06:49:33.243330+00:00",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-permutation-tail-validation",
+  "branch": "work/fdsa-permutation-tail-validation",
+  "candidate": "a0597381f02eddd074ee96cabaa974f2062285f8",
+  "review_base": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+  "status": "clean source-only; no compiler/cache",
+  "requirements": {
+    "bytes": 12866,
+    "sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c"
+  },
+  "files": {
+    "Applications/Probability/PermutationTail.lean": {
+      "bytes": 23402,
+      "sha256": "1093b94886936b4cb859a371a863bfcf0b388db90a3bc063018329a399fe6f33"
+    },
+    "Examples/PermutationTail.lean": {
+      "bytes": 8775,
+      "sha256": "7470b1889baf878488eca8dad1240e1ca419a925b6f18f853a82eccd1178abfe"
+    },
+    "Examples/PermutationTailBoundary.lean": {
+      "bytes": 10173,
+      "sha256": "1bf7dd1e54ca551712b93a45b3c1db96bb6d95ad81a2297b34e29f288769fd73"
+    },
+    "SquareApplications.lean": {
+      "bytes": 8392,
+      "sha256": "7aedfca880167dc6a66e1b49b7ce1c5210c5f97ad090817061c5961c0b1aa321"
+    },
+    "docs/research/fdsa-permutation-tail.md": {
+      "bytes": 10367,
+      "sha256": "34162854a3bfabbec1e87bea6111b4939495cc27eb9ee811758dceaeb62dc96f"
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "bytes": 18893,
+      "sha256": "f519e995709de1e147439ebfc5a903a9e753883b49fd82f02d5bd484619acb9f"
+    }
+  },
+  "read_scope": "Root fully read frozen requirements, original start/candidate assessment, entire 485-line core including private proofs, both complete example modules, complete source note and exact root/map delta. No new mathematical source finding. Known pinned haveILetI linter issue is corrected separately before initial compilation.",
+  "acceptance": "Unaccepted. Accepted R preserved; exact foundation and XU01 then XU02 then XU03 gates mandatory. No later XU prefix is used.",
+  "available_bytes": 19487723520
+}

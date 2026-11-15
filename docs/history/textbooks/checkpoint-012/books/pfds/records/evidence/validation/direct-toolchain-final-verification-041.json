@@ -1,0 +1,67 @@
+{
+  "scope": "operational helpers only",
+  "base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "candidate": "822cb7adeed4943acaf10454e9facfc2e3ee8ceb",
+  "checked_at": "2026-11-03T15:15:35.190372+00:00",
+  "sources": {
+    "session/environment/make-direct-toolchain-profile.py": {
+      "snapshot": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb",
+      "delivered": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb",
+      "expected": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb"
+    },
+    "session/environment/run-direct-toolchain.py": {
+      "snapshot": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+      "delivered": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+      "expected": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d"
+    },
+    "session/environment/test-direct-toolchain.py": {
+      "snapshot": "028e625c2870bafa2668269f981202d76c6509256ca1822e4ab926b3f2526330",
+      "delivered": "028e625c2870bafa2668269f981202d76c6509256ca1822e4ab926b3f2526330",
+      "expected": "028e625c2870bafa2668269f981202d76c6509256ca1822e4ab926b3f2526330"
+    },
+    "session/environment/test-direct-lake-build.py": {
+      "snapshot": "3e364791c25cfce02c15887b1ae040a1a18315ab5189ff393d5fb2ff9bd239cf",
+      "delivered": "3e364791c25cfce02c15887b1ae040a1a18315ab5189ff393d5fb2ff9bd239cf",
+      "expected": "3e364791c25cfce02c15887b1ae040a1a18315ab5189ff393d5fb2ff9bd239cf"
+    },
+    "session/environment/README-direct-toolchain.md": {
+      "snapshot": "f3acb7ba89c954019e6288bffc80c37fbc2e4f90523b1172efdd85dc19ee6734",
+      "delivered": "f3acb7ba89c954019e6288bffc80c37fbc2e4f90523b1172efdd85dc19ee6734",
+      "expected": "f3acb7ba89c954019e6288bffc80c37fbc2e4f90523b1172efdd85dc19ee6734"
+    },
+    "session/validation/run-direct-validation.py": {
+      "snapshot": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b",
+      "delivered": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b",
+      "expected": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b"
+    },
+    "session/validation/test-direct-validation.py": {
+      "snapshot": "a77b7f3f962c45fbe8affe4999615b3721975cc3c858713c9ef027b6aecf5435",
+      "delivered": "a77b7f3f962c45fbe8affe4999615b3721975cc3c858713c9ef027b6aecf5435",
+      "expected": "a77b7f3f962c45fbe8affe4999615b3721975cc3c858713c9ef027b6aecf5435"
+    },
+    "session/validation/direct-validation-runner-notes.md": {
+      "snapshot": "933745db696b993eda5bd8d5470a7b72b5738659658c709fa98705ceb35bdd4e",
+      "delivered": "933745db696b993eda5bd8d5470a7b72b5738659658c709fa98705ceb35bdd4e",
+      "expected": "933745db696b993eda5bd8d5470a7b72b5738659658c709fa98705ceb35bdd4e"
+    }
+  },
+  "snapshot_status": "",
+  "reports": {
+    "direct-toolchain.md": "5fc1d4c38ba16ae6e3d94fa4f5cbd76090eb898d006f602fcb0a43de99d729fe",
+    "direct-toolchain-coordinator-r2.md": "9fd2e60c541a1b68ce9b67a9dc53a986bac9405ae280a818f85b185f6e45ef11",
+    "direct-toolchain-standards-r2.md": "6a81a379f6af97b5d380ab78e08e6d3a0561e1c2689d084e0455249289e13485",
+    "direct-toolchain-spec-r2.md": "cbc435d532e0c8e56fd98c018e62522c71fcd45bbc4b0bcca9b57008bb592b35"
+  },
+  "standards": "Passed",
+  "spec": "Passed",
+  "all_findings_fixed": [
+    "DTS-001",
+    "DTS-002",
+    "DTP-001",
+    "DTP-002"
+  ],
+  "artifact_validation": "validation/direct-toolchain-candidate-validation-r2-reconciled-041.json",
+  "operational_helpers_accepted": true,
+  "formal_acceptance_advanced": false,
+  "first_formal_full_run_must_be_fresh": true
+}

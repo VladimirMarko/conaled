@@ -1,0 +1,17 @@
+{
+  "recorded_at": "2026-11-03T16:20:06.137627+00:00",
+  "reason": "User explicitly requests alternatives to emulation as too slow; root interrupted the current owned exec session before testing a native route.",
+  "run_id": "import-901-direct-fresh-r1",
+  "tool_session_id": 8462,
+  "tool_interrupt": "write_stdin U+0003",
+  "tool_reported_exit_code": 130,
+  "run_record_status": "running",
+  "run_record_terminal_result_observed": false,
+  "wrapper_record_exit_code": null,
+  "record_sha256": "24b50750b435cd0a66d5926e2d0d096215e62db8de90cc4a26fd1e7df701681c",
+  "log_sha256": "32a73d48d9b541928e2ee9d916764acf26429cc324f4d0f0c2412e5369c7a4ff",
+  "full_lock_available_after_interrupt": true,
+  "actual_build_success": false,
+  "acceptance": false,
+  "recovery_rule": "Preserve original running/partial record if wrapper could not finalize; tool interruption is not a compiler result or proof success. New native full gate needs its own exact runtime inputs and evidence."
+}

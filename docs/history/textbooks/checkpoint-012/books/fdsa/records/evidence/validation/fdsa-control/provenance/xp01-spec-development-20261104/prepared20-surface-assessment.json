@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-04T11:21:35.766135+00:00",
+  "candidate_source": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+  "program": {
+    "path": "provenance/xp01-public-statements20-prepared-20261104/Statements.lean",
+    "bytes": 1002,
+    "newline_lines": 28,
+    "sha256": "ea75026303b461b1bb676e060aaac51e37797cbb2afd3d6356c08ba28c7eb01f"
+  },
+  "preparation": {
+    "path": "provenance/xp01-public-statements20-prepared-20261104/preparation.json",
+    "bytes": 2182,
+    "newline_lines": 46,
+    "sha256": "31a3e87483398db2e4fad5fc15de561ff8e48f47de5e94f158ebba7478bd5021"
+  },
+  "program_fully_read": true,
+  "direct_imports": [
+    "Applications.Resources.Potential",
+    "Applications.Resources.FIFOContracts",
+    "Examples.MappedPotentialAccounting"
+  ],
+  "printing_options": {
+    "pp.universes": true,
+    "pp.explicit": true,
+    "pp.fullNames": true
+  },
+  "all_20_ordered_names": [
+    "Resources.budget",
+    "Resources.budget_append",
+    "Resources.budget_map",
+    "Resources.run_potential_map_of_invariant",
+    "Resources.run_potential_map_exact_of_invariant",
+    "Resources.run_potential_map",
+    "Resources.run_potential_map_exact",
+    "Resources.run_cost_le_map_of_invariant",
+    "Resources.budget_amortized",
+    "Resources.charge_iff_signed",
+    "Resources.run_potential",
+    "Resources.run_potential_exact",
+    "Resources.run_cost_le",
+    "Resources.run_zero_potential",
+    "Resources.budget_constant",
+    "Resources.budget_le_constant",
+    "Resources.run_constant_charge",
+    "Resources.initial_potential_matters",
+    "Resources.FIFOContracts.abstractBudget",
+    "Examples.MappedPotentialAccounting.Counter.real_boundary"
+  ],
+  "full_public_surface_match": true,
+  "scope_explanation": "All18 public Potential definitions/theorems, the sole changed FIFO definition abstractBudget, and the sole public named new-example theorem Counter.real_boundary. All eight retained Nat wrappers included. All other FIFO declarations retain exact source and typed Nat inputs. Private/anonymous claims remain full source/focused/audit scope.",
+  "source_header_accounting_only": true,
+  "actual_type_command_executed_by_reviewer": false,
+  "actual_types_read_for_XP01": 0,
+  "actual_type_credit": 0,
+  "qualification_needed": "Bind unchanged program to exact successfully built successor, secure complete closed output and qualified exclusive pre/post relevant input lineage; both independent axes must read every actual type. Full check/audit/verification are separate gates."
+}

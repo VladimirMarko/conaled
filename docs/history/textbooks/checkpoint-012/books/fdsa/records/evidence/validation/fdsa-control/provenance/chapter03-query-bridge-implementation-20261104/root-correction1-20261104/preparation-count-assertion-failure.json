@@ -1,0 +1,17 @@
+{
+  "recorded_utc": "2026-11-04T20:14:42.399906+00:00",
+  "finding": "C03-READALL-PREP-001",
+  "actual_tool_chunk": "bdd621",
+  "actual_exit": 1,
+  "reason": "Before source/provenance writes, an incorrectly expected15 occurrences failed; actual private-helper binder token occurs9 times. Only empty new provenance directory was created.",
+  "read_only_reconciliation": {
+    "tool_chunk": "eea8c2",
+    "actual_exit": 0,
+    "head": "edd0132b491858feda3307da70817e157dcad151",
+    "status": "",
+    "source_sha256": "5ebd75b797b26fb591f3951a68a3cec9d46d4f0bfeedab8c22b1b010e96d8f25",
+    "actual_occurrences": 9,
+    "empty_preparation_directory": true
+  },
+  "no_source_stage_commit_or_compiler_action": true
+}

@@ -1,0 +1,121 @@
+{
+  "failed_candidate": "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+  "actual_error_headers": 23,
+  "source_sites": 10,
+  "mapping": [
+    {
+      "original_source_line": 71,
+      "declaration": "observed_card_one",
+      "after_declaration_line": 65,
+      "actual_error_headers": [
+        "error: Examples/UniformQuickSortMean.lean:71:20: Unknown constant `List.length_eq_one.mp`",
+        "error: Examples/UniformQuickSortMean.lean:71:9: Tactic `rcases` failed: `x✝ : ?m.30` is not an inductive datatype"
+      ],
+      "repair": "Use exact pinned List.length_eq_one_iff.mp; preserve restrictedOrder_length and actual singleton-cost connection.",
+      "status": "Implemented source correction; not compiled or independently resolved"
+    },
+    {
+      "original_source_line": 89,
+      "declaration": "instFintypeLabel",
+      "after_declaration_line": 91,
+      "actual_error_headers": [
+        "error: Examples/UniformQuickSortMean.lean:89:24: Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+      ],
+      "repair": "Root-approved explicit finite enumeration over the unchanged four constructors, with completeness proved by cases/simp; retain DecidableEq deriving and inventory the three omitted deriving-only helpers.",
+      "status": "Implemented source correction; not compiled or independently resolved"
+    },
+    {
+      "original_source_line": 117,
+      "declaration": "selected_keys",
+      "after_declaration_line": 121,
+      "actual_error_headers": [
+        "error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved",
+        "error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved",
+        "error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved",
+        "error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved",
+        "error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved",
+        "error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved",
+        "error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved",
+        "error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved",
+        "error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved",
+        "error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved",
+        "error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved",
+        "error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved",
+        "error: Examples/UniformQuickSortMean.lean:117:26: No goals to be solved"
+      ],
+      "repair": "Use simp_all after the existing constructor cases, retaining the selected-support/key hypotheses and same injectivity statement.",
+      "status": "Implemented source correction; not compiled or independently resolved"
+    },
+    {
+      "original_source_line": 191,
+      "declaration": "extreme_first_mass",
+      "after_declaration_line": 195,
+      "actual_error_headers": [
+        "error: Examples/UniformQuickSortMean.lean:191:71: unsolved goals"
+      ],
+      "repair": "Keep measure_union, disjoint events and both actual head masses; prove the residual rational identity in NNReal and transfer via coe_add/coe_div with explicit nonzero denominator.",
+      "status": "Implemented source correction; not compiled or independently resolved"
+    },
+    {
+      "original_source_line": 204,
+      "declaration": "conditional_of_constant",
+      "after_declaration_line": 208,
+      "actual_error_headers": [
+        "error: Examples/UniformQuickSortMean.lean:204:4: failed to synthesize instance of type class"
+      ],
+      "repair": "Unfold law only inside the existing conditioned IsProbabilityMeasure proof before applying the same cond_isProbabilityMeasure theorem and proved positive head mass.",
+      "status": "Implemented source correction; not compiled or independently resolved"
+    },
+    {
+      "original_source_line": 253,
+      "declaration": "three_mean_from_closedForm",
+      "after_declaration_line": 263,
+      "actual_error_headers": [
+        "error: Examples/UniformQuickSortMean.lean:253:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+      ],
+      "repair": "Unfold comparator locally before applying the same meanBy_eq_closedForm law with selected_keys and selected_card.",
+      "status": "Implemented source correction; not compiled or independently resolved"
+    },
+    {
+      "original_source_line": 266,
+      "declaration": "low_empty_child_mean",
+      "after_declaration_line": 275,
+      "actual_error_headers": [
+        "error: Examples/UniformQuickSortMean.lean:266:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+      ],
+      "repair": "Unfold law locally before applying the same child_integral_cond, leftChild_subset_erase, child identity and meanBy_empty.",
+      "status": "Implemented source correction; not compiled or independently resolved"
+    },
+    {
+      "original_source_line": 273,
+      "declaration": "high_empty_child_mean",
+      "after_declaration_line": 283,
+      "actual_error_headers": [
+        "error: Examples/UniformQuickSortMean.lean:273:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+      ],
+      "repair": "Unfold law locally before applying the same child_integral_cond, rightChild_subset_erase, child identity and meanBy_empty.",
+      "status": "Implemented source correction; not compiled or independently resolved"
+    },
+    {
+      "original_source_line": 291,
+      "declaration": "taggedEqual_payloads_distinct",
+      "after_declaration_line": 304,
+      "actual_error_headers": [
+        "error: Examples/UniformQuickSortMean.lean:291:26: Function expected at"
+      ],
+      "repair": "Supply the implicit n parameter of List.nodup_range by name; retain List.Nodup.map and injection via Prod.snd.",
+      "status": "Implemented source correction; not compiled or independently resolved"
+    },
+    {
+      "original_source_line": 319,
+      "declaration": "taggedRange_keys",
+      "after_declaration_line": 331,
+      "actual_error_headers": [
+        "error: Examples/UniformQuickSortMean.lean:319:61: Function expected at"
+      ],
+      "repair": "Supply the implicit n parameter of List.nodup_range by name; retain the existing map/range simplification and arbitrary payload.",
+      "status": "Implemented source correction; not compiled or independently resolved"
+    }
+  ],
+  "scope": "Nine existing theorem proof bodies plus separately authorized Fintype derivation replacement; not wholly proof-body-only"
+}

@@ -1,0 +1,63 @@
+{
+  "recorded_utc": "2026-11-04T04:28:42.136202+00:00",
+  "accepted_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "initial_draft": "d1c6a3a314ae772c48ba9ea8acd42624ce913b53",
+  "current_candidate": "ff9749d1ccbcb0949486f67d6273e28c262280e0",
+  "branch": "work/fdsa-ch02-natural-runs",
+  "targets": [
+    "Applications.Sorting.NaturalRuns",
+    "Examples.NaturalRuns"
+  ],
+  "source_sha256": {
+    "Applications/Sorting/NaturalRuns.lean": "123c711b5f0cf05074155f3a0d9ae076aa80a8be482e7e6fc77626aa9db6fb1d",
+    "Examples/NaturalRuns.lean": "ef0ed6bbc5beb40815f977e80c0b99b0633e8503b0b1634747d41275cb3f6041",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+  },
+  "checks": [
+    {
+      "attempt": 1,
+      "candidate": "d1c6a3a314ae772c48ba9ea8acd42624ce913b53",
+      "exit_code": 1,
+      "seconds": 20.376373044000502,
+      "log_sha256": "dcc2b00e54ff84dc002ef11a4700b1f845c09950086d0af699bc3ffb7df1096d",
+      "source_unchanged": true,
+      "final_status": "",
+      "record": "chapter02-natural-runs-focused-20261104-attempt1/result.json"
+    },
+    {
+      "attempt": 2,
+      "candidate": "ed6dca0a46da01fa6985b2f2822a2e60226d32e6",
+      "exit_code": 1,
+      "seconds": 12.993148164999184,
+      "log_sha256": "58fa861df15effde9ac62b2389d041bd3f89126f5b8f095e3e3bf2869c068c39",
+      "source_unchanged": true,
+      "final_status": "",
+      "record": "chapter02-natural-runs-focused-20261104-attempt2/result.json"
+    },
+    {
+      "attempt": 3,
+      "candidate": "16865e830d86d6cb980f10e0c7a65e7c2875cdca",
+      "exit_code": 1,
+      "seconds": 16.986497782999322,
+      "log_sha256": "9a2144957d7970b54a79b24f779373bb274a4a110341ecb942e0674c3508eb1b",
+      "source_unchanged": true,
+      "final_status": "",
+      "record": "chapter02-natural-runs-focused-20261104-attempt3/result.json"
+    },
+    {
+      "attempt": 4,
+      "candidate": "ff9749d1ccbcb0949486f67d6273e28c262280e0",
+      "exit_code": 0,
+      "seconds": 10.001259646000108,
+      "log_sha256": "96a4eb0e28f302521d3974ac4add552739593d58ad2d01c8dedf5e0a476eddce",
+      "source_unchanged": true,
+      "final_status": "",
+      "record": "chapter02-natural-runs-focused-20261104-attempt4/result.json"
+    }
+  ],
+  "statement_types_record": "chapter02-natural-runs-statements-20261104/result.json",
+  "source_contracts_and_expected_outputs_preserved": true,
+  "state": "Both focused modules and implementation-author statement review passed; public integration, full candidate check/audit, independent reviews and immediate verification remain pending."
+}

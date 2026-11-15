@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "time": "2026-11-04T01:32:02.238561+00:00",
+  "kind": "complete-bounded-read-only-observer-review",
+  "reviewers": [
+    "/root/operational_review",
+    "/root"
+  ],
+  "source": "session/validation/observe-integration-ordinary-r3-045.py",
+  "sha256": "fc0274d73e2b8f98bd9c37b22e29069b0d467511f8b1a9d6d26f2904ba61407b",
+  "bytes": 4321,
+  "lines": 107,
+  "parent_sha256": "57067577040db3591a920f3c097a9ea111295d2fb3f5a7ad44f7eac311c723af",
+  "only_change": "Fixed one-use RUN_ID ordinary-r2 to ordinary-r3; all paths derive from it.",
+  "AST_parse": "passed",
+  "complete_source_read": true,
+  "controller_source_unchanged": true,
+  "stock_command_environment_and_resource_limits_unchanged": true,
+  "terminal_evidence_required": true,
+  "recorded_PIDs_never_reused": true,
+  "result": "No new static correction required for this one-use observation-only copy. Execution lifetime remains unproven.",
+  "formal_acceptance": false,
+  "compiler_execution_performed": false
+}

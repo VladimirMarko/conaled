@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T18:43:14.561791+00:00",
+  "candidate": "da8a1c6bb03e242d2655b3f38dc9361961102892",
+  "terminal": {
+    "recorded_utc": "2026-11-04T18:43:14.561651+00:00",
+    "owned_session": 6230,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "9fecce",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "da8a1c6bb03e242d2655b3f38dc9361961102892"
+  },
+  "actual_recorder_and_native_exits": [
+    0,
+    0
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-focused-attempt3-20261104/full.log",
+    "bytes": 4147,
+    "sha256": "319ac3466c554652a3d874a91b9b69d609ede89a7b2ba6ac82ea781de68f1e3e"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T184209Z-project-run-5a548144",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-focused-attempt3-20261104/native-records/start.json",
+      "bytes": 475,
+      "sha256": "1f977116e80c458e0c6d5a0b2d1fa8e057d43169e186478d842d320a5f245876"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-focused-attempt3-20261104/native-records/result.json",
+      "bytes": 627,
+      "sha256": "81b272fa6181337348424f421b8725bde329d8659254a712840c62dc6b6b6e36"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-focused-attempt3-20261104/native-records/output.log",
+      "bytes": 3873,
+      "sha256": "5ef74846bdd78700599e2909ff897e138fe063d801d35d8cfbc9b92450e2640a"
+    }
+  },
+  "native_body_exact_outer_offset": 117,
+  "complete_closed_log": true,
+  "scope": "Both RandomSelection first-step modules passed; full finite-run draft remains uncompiled; full C3 acceptance/audit/statement qualification pending.",
+  "verification_record_candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

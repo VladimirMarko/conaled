@@ -1,0 +1,48 @@
+{
+  "recorded_utc": "2026-11-04T18:31:18.741547+00:00",
+  "candidate": "a5341e132c63aa8c9e8af13e24b441b42de2fe27",
+  "terminal": {
+    "recorded_utc": "2026-11-04T18:31:18.741402+00:00",
+    "owned_session": 44183,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "171a77",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "a5341e132c63aa8c9e8af13e24b441b42de2fe27"
+  },
+  "actual_recorder_exit": 1,
+  "actual_native_exit": 1,
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-count-rank-focused-attempt1-20261104/full.log",
+    "bytes": 4893,
+    "sha256": "ee87fda0145fcef5e27465248c833845f58e49dcf0c902aaed1db312e7013dce"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T183041Z-project-run-297d04e9",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-count-rank-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 472,
+      "sha256": "051c59d82e9251071bd382d6856b8dee5ffe96fcdd0c8806d7ae2619f4e4a274"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-count-rank-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 626,
+      "sha256": "6bdc93aac6ccbaa17c14c65c1be3846aa8e1bce53029ae83b9436a430dfe2a75"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-count-rank-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 4622,
+      "sha256": "ae9da5b350ba783d8660046c23889a2159d03e309656d132be55ad3e0dab725c"
+    }
+  },
+  "complete_closed_log": true,
+  "native_body_exact_outer_offset": 114,
+  "focused_build_failed": true,
+  "targets_requested": [
+    "lake",
+    "build",
+    "Applications.Selection.CountRank",
+    "Examples.SelectionCountRank"
+  ],
+  "new_full_candidate_acceptance_credit": false,
+  "copied_prior_verification_is_for_Q_only": "2da5708478a1d943a9214b5b386ec2db16cd9eca"
+}

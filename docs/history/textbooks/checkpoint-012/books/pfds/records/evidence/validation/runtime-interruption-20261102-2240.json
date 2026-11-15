@@ -1,0 +1,42 @@
+{
+  "observed_at": "2026-11-02T22:41:30.599035+00:00",
+  "event": "Previously responsive root validation session4737 now unavailable without a terminal result.",
+  "affected": [
+    {
+      "candidate": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+      "checkout": "import-correction",
+      "exec_session": 4737,
+      "session_result": "Unknown process id",
+      "automatic_record": "validation/import-footprint-324962e-full-r1.json",
+      "automatic_status": "running; wrapper did not save a terminal record",
+      "observed_status": "interrupted; cause unknown",
+      "terminal_exit_code": null,
+      "known_source_finding": "IMPORT-VAL-004 remains recorded from actual compiler diagnostic; no successful full gate"
+    }
+  ],
+  "process_checks": [
+    {
+      "record": "validation/import-liveness-20261102-2241.json",
+      "observed_at": "2026-11-02T22:40:43.150377+00:00",
+      "matching_task_compilers": []
+    },
+    {
+      "scope": "Second exact-cwd check, including all wrapper commands rather than compiler filtering",
+      "result": []
+    }
+  ],
+  "other_run": "Map agent asked to verify its owned focused54270 session; root does not equate a cross-agent routing error with interruption.",
+  "files": [
+    {
+      "source": "active-validation/import-footprint-324962e-full-r1.log",
+      "preserved": "session/validation/import-footprint-324962e-full-r1.log",
+      "bytes": 178051,
+      "sha256": "992d16b71db8aacffc32295249702c1ad3b703fb75c350516e6853430584b121"
+    }
+  ],
+  "cause": "unknown; no Lean crash, OOM or output-integrity cause established",
+  "signals_sent": false,
+  "verification_record_exists": false,
+  "acceptance": false,
+  "recovery": "Keep original automatic record and frozen source unchanged. Recover only complete ordinary outputs checked by stock Lake hash adapter; run the stock full gate on corrected901 after focused ownership is released."
+}

@@ -1,0 +1,90 @@
+{
+  "recorded_utc": "2026-11-04T20:43:16.747306+00:00",
+  "candidate": "3f42358dec92315ac847dc7e1f0c58c2ab26cd40",
+  "expectedHead": "7758fdcd1d46cee392eee155d74311aeb45322a5",
+  "base": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "acceptedHead": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "name": "chapter03-outside-pivot-focused-attempt1-20261104",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Selection.OutsidePivot",
+    "Examples.OutsidePivot"
+  ],
+  "expectedPaths": [
+    "Applications/Resources/GroupSelectionRecurrence.lean",
+    "Applications/Resources/RoundedRecurrence.lean",
+    "Applications/Resources/RoundedRecurrenceBounds.lean",
+    "Applications/Resources/SelectionRecurrence.lean",
+    "Applications/Selection/OutsidePivot.lean",
+    "Examples/GroupSelectionRecurrence.lean",
+    "Examples/OutsidePivot.lean",
+    "Examples/RoundedRecurrence.lean",
+    "Examples/RoundedRecurrenceBounds.lean",
+    "Examples/SelectionRecurrence.lean"
+  ],
+  "recordDirectory": "chapter03-focused-continuation-20261104",
+  "recordName": "outside-pivot-attempt1-preflight.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was 7758fdc fix(selection): elaborate counterfamily proof adapters (#174)\nHEAD is now at 3f42358 feat(selection): prove outside-pivot nontermination (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "bytes": 11646,
+      "sha256": "0dc225b3009a612bea521813fda96789629fc486201cd9998bd6a72d6fdb9eed"
+    },
+    {
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758"
+    },
+    {
+      "path": "Applications/Resources/RoundedRecurrenceBounds.lean",
+      "bytes": 6951,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135"
+    },
+    {
+      "path": "Applications/Resources/SelectionRecurrence.lean",
+      "bytes": 6560,
+      "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e"
+    },
+    {
+      "path": "Applications/Selection/OutsidePivot.lean",
+      "bytes": 6444,
+      "sha256": "22ceec39e94410200dda20d4224a87518aa001eb127605f02fe6961c01a97809"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "bytes": 5638,
+      "sha256": "bfcb81cf7de89516487aedf12fc223df534fa9ca2a4a964edb872023c45beba3"
+    },
+    {
+      "path": "Examples/OutsidePivot.lean",
+      "bytes": 3845,
+      "sha256": "0c2feb488fd784937c8888a3e48e31b32a307b96bcefb6178d7c75274afdb275"
+    },
+    {
+      "path": "Examples/RoundedRecurrence.lean",
+      "bytes": 3782,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d"
+    },
+    {
+      "path": "Examples/RoundedRecurrenceBounds.lean",
+      "bytes": 7295,
+      "sha256": "18275f597cf579edf0db6785d0910e76dcc9cff084566ced73cd0da8828c0135"
+    },
+    {
+      "path": "Examples/SelectionRecurrence.lean",
+      "bytes": 2272,
+      "sha256": "6599e51e8d6ea0197d74d2ca43076a355a9c131ce453f4a25c6c3bf086d99971"
+    }
+  ],
+  "candidate_tree": "e04483f1337ddc10f09280335f4bc7428f872f53",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 633864192
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

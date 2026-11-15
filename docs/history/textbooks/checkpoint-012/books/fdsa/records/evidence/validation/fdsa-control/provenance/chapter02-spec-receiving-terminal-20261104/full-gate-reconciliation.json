@@ -1,0 +1,582 @@
+{
+  "schema": "fdsa.spec.full-q-terminal-reconciliation.v1",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "tree": "fe0bd9f17a5e1a09797be55fd79491e8c363cbd0",
+  "accepted_predecessor": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "original_scope": {
+    "base": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "defining_lean_files": 71,
+    "all_defining_modules_in_exhaustive_audit": true
+  },
+  "full_log_read": {
+    "path": "provenance/chapter02-spec-receiving-terminal-20261104/full-log-read-progress.json",
+    "bytes": 11723,
+    "lines": 361,
+    "sha256": "b840aa1ed9fb3c1f395241a3c986b4ccfc9d8995b50d896cf5ca54556d877ec6"
+  },
+  "evidence": [
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "bytes": 315124,
+      "lines": 2681,
+      "sha256": "5559dfa557622a8e29e503502df3e5a77287d3ac1f6e2f285a0b5bf5e4af6f0f"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "bytes": 314896,
+      "lines": 2678,
+      "sha256": "7f2c0853d96f00134c8e4d9e7c1014ed91a3b9ed9e6c8c048ab6ea5c02779693"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/result.json",
+      "bytes": 1263,
+      "lines": 32,
+      "sha256": "bcd067764dda97bb5c5b2c88860adcbc1def51abe3f771503eab4079b2d6eba6"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/owned-terminal.json",
+      "bytes": 260,
+      "lines": 8,
+      "sha256": "a503c7f1dcb006b6cf0573c7a09ebefc4bdf81b68cc487a71cf81b40f58d10c5"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/start.json",
+      "bytes": 421,
+      "lines": 13,
+      "sha256": "6e6b3fe74441bce880fa394f9551980cd70ef6c31f4c562af333da2560e10ec6"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/result.json",
+      "bytes": 573,
+      "lines": 18,
+      "sha256": "c14770770b9362cb7c4349f5d16d43ece0c7691aa92a95fb8bb0e290b0ee3584"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "lines": 19,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/closed-evidence-reconciliation.json",
+      "bytes": 3135,
+      "lines": 72,
+      "sha256": "4fda5170bd26129f2d57bd5acf806b1eac7aa4b141af09c143ec6179db909d7d"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/audit-and-build-summary.json",
+      "bytes": 117883,
+      "lines": 5422,
+      "sha256": "eb21706903b588d1189e9c7f286ce71d5f834878277ff0c86665a84a936e5121"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/audit-row-and-warning-comparison.json",
+      "bytes": 18309,
+      "lines": 314,
+      "sha256": "779ae5d09f9cd88f2a5e883029015e4d1e6aeee8c789f2d7a5fdad1e31abeb0d"
+    },
+    {
+      "path": "provenance/shared-tail-full-attempt1-20261104/native-records/output.log",
+      "bytes": 284346,
+      "lines": 2484,
+      "sha256": "bd5bd2c170cac6a84f855806595fce60981b86eb1660c52c0d3a7a0b9d149749"
+    }
+  ],
+  "reproduction": {
+    "native_lines": 2678,
+    "native_bytes": 314896,
+    "outer_bytes": 315124,
+    "native_unique_outer_offset": 70,
+    "all23_chunks_read": true,
+    "checked_modules": 1029,
+    "audit_rows": 1027,
+    "kernel_safe": 47797,
+    "theorems": 27214,
+    "unsafe": 0,
+    "axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "actual_built_targets": 55,
+    "lake_jobs": 10074,
+    "source_guard_seconds": 5.61,
+    "incremental_compilation_seconds": 510.53,
+    "pre_guard_artifacts": 2946,
+    "expected_cold_modules": 46,
+    "post_guard_artifacts": 3084,
+    "post_guard_inconsistent": 0,
+    "audit_seconds": 190.52,
+    "overall_native_reported_seconds": 713.6,
+    "row_comparison": {
+      "same": 980,
+      "changed": {
+        "Applications.Resources.Growth": {
+          "before": {
+            "logical": 1,
+            "theorems": 1,
+            "unsafe": 0
+          },
+          "after": {
+            "logical": 4,
+            "theorems": 4,
+            "unsafe": 0
+          }
+        }
+      },
+      "added": {
+        "Applications.Resources.RandomQuickSortMean": {
+          "logical": 42,
+          "theorems": 40,
+          "unsafe": 0
+        },
+        "Applications.Resources.BottomUpSorting": {
+          "logical": 123,
+          "theorems": 87,
+          "unsafe": 0
+        },
+        "Examples.ListBuildCosts": {
+          "logical": 9,
+          "theorems": 9,
+          "unsafe": 0
+        },
+        "Applications.Sorting.NaturalRuns": {
+          "logical": 118,
+          "theorems": 101,
+          "unsafe": 0
+        },
+        "Applications.Resources.RandomQuickSortRank": {
+          "logical": 27,
+          "theorems": 25,
+          "unsafe": 0
+        },
+        "Examples.RandomQuickSortMean": {
+          "logical": 13,
+          "theorems": 11,
+          "unsafe": 0
+        },
+        "Examples.UniformQuickSortMean": {
+          "logical": 101,
+          "theorems": 66,
+          "unsafe": 0
+        },
+        "Applications.Resources.ListBuildCosts": {
+          "logical": 45,
+          "theorems": 35,
+          "unsafe": 0
+        },
+        "Examples.AlternatingSorting": {
+          "logical": 18,
+          "theorems": 18,
+          "unsafe": 0
+        },
+        "Examples.NaturalRunComparisons": {
+          "logical": 14,
+          "theorems": 13,
+          "unsafe": 0
+        },
+        "Examples.TopDownCosts": {
+          "logical": 19,
+          "theorems": 17,
+          "unsafe": 0
+        },
+        "Applications.Resources.NaturalRunOperations": {
+          "logical": 139,
+          "theorems": 118,
+          "unsafe": 0
+        },
+        "Examples.QuickSort": {
+          "logical": 33,
+          "theorems": 32,
+          "unsafe": 0
+        },
+        "Applications.Resources.TopDownSorting": {
+          "logical": 33,
+          "theorems": 30,
+          "unsafe": 0
+        },
+        "Examples.TopDownSorting": {
+          "logical": 11,
+          "theorems": 11,
+          "unsafe": 0
+        },
+        "Applications.Resources.QuickSortTransport": {
+          "logical": 6,
+          "theorems": 5,
+          "unsafe": 0
+        },
+        "Applications.Resources.QuickSortMean": {
+          "logical": 43,
+          "theorems": 42,
+          "unsafe": 0
+        },
+        "Examples.ThreeWayQuickSort": {
+          "logical": 24,
+          "theorems": 24,
+          "unsafe": 0
+        },
+        "Applications.Resources.RandomQuickSortGrowth": {
+          "logical": 21,
+          "theorems": 21,
+          "unsafe": 0
+        },
+        "Examples.NaturalRunOperations": {
+          "logical": 51,
+          "theorems": 49,
+          "unsafe": 0
+        },
+        "Examples.QuickSortTransport": {
+          "logical": 7,
+          "theorems": 7,
+          "unsafe": 0
+        },
+        "Applications.Sorting.InsertionObservations": {
+          "logical": 5,
+          "theorems": 5,
+          "unsafe": 0
+        },
+        "Applications.Sorting.BottomUp": {
+          "logical": 110,
+          "theorems": 78,
+          "unsafe": 0
+        },
+        "Applications.Resources.QuickSort": {
+          "logical": 124,
+          "theorems": 101,
+          "unsafe": 0
+        },
+        "Applications.Resources.NaturalSorting": {
+          "logical": 42,
+          "theorems": 40,
+          "unsafe": 0
+        },
+        "Applications.Sorting.ThreeWayQuickSort": {
+          "logical": 28,
+          "theorems": 21,
+          "unsafe": 0
+        },
+        "Applications.Resources.UniformQuickSortMean": {
+          "logical": 102,
+          "theorems": 91,
+          "unsafe": 0
+        },
+        "Examples.RandomQuickSortRank": {
+          "logical": 20,
+          "theorems": 18,
+          "unsafe": 0
+        },
+        "Applications.Sorting.Alternating": {
+          "logical": 50,
+          "theorems": 36,
+          "unsafe": 0
+        },
+        "Examples.InsertionObservations": {
+          "logical": 33,
+          "theorems": 27,
+          "unsafe": 0
+        },
+        "Examples.RandomQuickSortGrowth": {
+          "logical": 17,
+          "theorems": 15,
+          "unsafe": 0
+        },
+        "Examples.RandomQuickSort": {
+          "logical": 31,
+          "theorems": 29,
+          "unsafe": 0
+        },
+        "Examples.NaturalSorting": {
+          "logical": 27,
+          "theorems": 24,
+          "unsafe": 0
+        },
+        "Applications.Sorting.QuickSort": {
+          "logical": 56,
+          "theorems": 41,
+          "unsafe": 0
+        },
+        "Examples.QuickSortMean": {
+          "logical": 9,
+          "theorems": 9,
+          "unsafe": 0
+        },
+        "Applications.Resources.RandomQuickSort": {
+          "logical": 88,
+          "theorems": 76,
+          "unsafe": 0
+        },
+        "Applications.Resources.NaturalRunComparisons": {
+          "logical": 105,
+          "theorems": 84,
+          "unsafe": 0
+        },
+        "Examples.SortUniqueness": {
+          "logical": 6,
+          "theorems": 6,
+          "unsafe": 0
+        },
+        "Applications.Sorting.TopDown": {
+          "logical": 27,
+          "theorems": 24,
+          "unsafe": 0
+        },
+        "Applications.Sorting.Uniqueness": {
+          "logical": 3,
+          "theorems": 3,
+          "unsafe": 0
+        },
+        "Applications.Sorting.Natural": {
+          "logical": 17,
+          "theorems": 15,
+          "unsafe": 0
+        },
+        "Examples.BottomUpCosts": {
+          "logical": 37,
+          "theorems": 37,
+          "unsafe": 0
+        },
+        "Examples.NaturalRuns": {
+          "logical": 53,
+          "theorems": 43,
+          "unsafe": 0
+        },
+        "Examples.NaturalSortingCosts": {
+          "logical": 32,
+          "theorems": 31,
+          "unsafe": 0
+        },
+        "Examples.QuickSortCosts": {
+          "logical": 33,
+          "theorems": 33,
+          "unsafe": 0
+        },
+        "Examples.BottomUpSorting": {
+          "logical": 33,
+          "theorems": 30,
+          "unsafe": 0
+        }
+      },
+      "removed": {}
+    },
+    "warning_comparison": {
+      "prior": 591,
+      "current": 647,
+      "added": {
+        "warning: Examples/AlternatingSorting.lean: imports `Mathlib.Data.Multiset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/Growth.lean: imports `Mathlib.Analysis.SpecialFunctions.Log.Base` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/Growth.lean: imports `Mathlib.Tactic.Linarith` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/Growth.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Sorting/BottomUp.lean: imports `Mathlib.Algebra.Group.Even` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Sorting/BottomUp.lean: imports `Mathlib.Data.Multiset.AddSub` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/BottomUpSorting.lean: imports `Mathlib.Data.Nat.Log` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Sorting/InsertionObservations.lean: imports `Mathlib.Data.List.Sort` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Examples/InsertionObservations.lean: imports `Mathlib.Data.Multiset.ZeroCons` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Sorting/NaturalRuns.lean: imports `Mathlib.Data.Multiset.AddSub` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Examples/QuickSort.lean: imports `Mathlib.Data.Multiset.Filter` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/QuickSort.lean: imports `Mathlib.Tactic.Linarith` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.NumberTheory.Harmonic.Bounds` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Analysis.Asymptotics.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Analysis.Normed.Field.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Analysis.SpecialFunctions.Log.Base` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Tactic.FieldSimp` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Tactic.Linarith` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Tactic.Positivity` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Examples/QuickSortTransport.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/RandomQuickSort.lean: imports `Mathlib.Probability.ProbabilityMassFunction.Constructions` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/RandomQuickSort.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/RandomQuickSort.lean: imports `Mathlib.Order.Interval.Finset.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Examples/RandomQuickSort.lean: imports `Mathlib.Tactic.FinCases` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Examples/RandomQuickSort.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/RandomQuickSortMean.lean: imports `Mathlib.MeasureTheory.Integral.Lebesgue.Countable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/RandomQuickSortMean.lean: imports `Mathlib.MeasureTheory.Function.L1Space.Integrable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/RandomQuickSortMean.lean: imports `Mathlib.MeasureTheory.Integral.Bochner.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/RandomQuickSortMean.lean: imports `Mathlib.Basic.ENNReal.BigOperators` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Data.Fin.Tuple.Sort` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Data.Fin.Rev` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Data.List.OfFn` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Data.List.FinRange` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Order.Interval.Finset.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Data.Fintype.BigOperators` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/RandomQuickSortRank.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/RandomQuickSortGrowth.lean: imports `Mathlib.Order.Filter.AtTopBot.Tendsto` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Examples/RandomQuickSortMean.lean: imports `Mathlib.Probability.ProbabilityMassFunction.Integrals` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Examples/RandomQuickSortMean.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Examples/RandomQuickSortRank.lean: imports `Mathlib.Tactic.FinCases` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Examples/RandomQuickSortRank.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Sorting/Uniqueness.lean: imports `Mathlib.Data.List.Sort` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Sorting/Uniqueness.lean: imports `Mathlib.Data.Multiset.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Sorting/ThreeWayQuickSort.lean: imports `Mathlib.Data.Multiset.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/TopDownSorting.lean: imports `Mathlib.Data.Nat.Log` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Examples/TopDownSorting.lean: imports `Mathlib.Data.Multiset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/UniformQuickSortMean.lean: imports `Mathlib.Algebra.BigOperators.Intervals` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/UniformQuickSortMean.lean: imports `Mathlib.Data.Finset.Sort` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/UniformQuickSortMean.lean: imports `Mathlib.Data.List.FinRange` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/UniformQuickSortMean.lean: imports `Mathlib.Data.List.OfFn` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/UniformQuickSortMean.lean: imports `Mathlib.MeasureTheory.Integral.Bochner.Set` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Applications/Resources/UniformQuickSortMean.lean: imports `Mathlib.Order.Interval.Finset.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1,
+        "warning: Examples/UniformQuickSortMean.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file": 1
+      },
+      "removed": {},
+      "all56added_module_import_advisories": true,
+      "nonimport_warning_headers": 101,
+      "nonimport_warning_source_identities": [
+        {
+          "path": "Applications/Convolution/Polynomial.lean",
+          "blob": "7fc5da1f06d3b3b4d2590939b90a78e558629c55"
+        },
+        {
+          "path": "Applications/Convolution/Series.lean",
+          "blob": "3ebb13f24e0db9590f8a4beeb2cbb61bbc26d7b3"
+        },
+        {
+          "path": "Applications/Geometry/ParallelTransport.lean",
+          "blob": "4e7a854b92b4cc8b25879782a6c3e5320d120816"
+        },
+        {
+          "path": "Applications/Geometry/VariableCurvature.lean",
+          "blob": "9fc2ddcf28d237ca68ae0c621367e0ba29dddbc3"
+        },
+        {
+          "path": "Applications/Languages/ConvolutionBridge.lean",
+          "blob": "f2f99ec8026a329f2c3bbc408c0887cae4847f5d"
+        },
+        {
+          "path": "Applications/Languages/Regex.lean",
+          "blob": "82843183193fdf4d50d64b0403bd39e0a5581399"
+        },
+        {
+          "path": "Applications/Linear/StructuredCosts.lean",
+          "blob": "ae7d0aa647eaa7fbb187aa8e3b7dedd3549bccd2"
+        },
+        {
+          "path": "Applications/Linear/StructuredMeasured.lean",
+          "blob": "152ad1177032ceffe74ac8e9a2af600e4283406a"
+        },
+        {
+          "path": "Applications/Orbifold/ConnectionAssessment.lean",
+          "blob": "10ae98d69d6e2ef4ae3f078915620e2ae89fa926"
+        },
+        {
+          "path": "Applications/Orbifold/DiskConnection.lean",
+          "blob": "74998770f3fe077dd8a9589c6e4f90415365a5ba"
+        },
+        {
+          "path": "Applications/Orbifold/DiskCurvature.lean",
+          "blob": "0751343f6f5a931686be0345c5fd3f7216d6d347"
+        },
+        {
+          "path": "Applications/Orbifold/DiskTransport.lean",
+          "blob": "8569ba527d0c6ca85015b1b96e258edb6100c860"
+        },
+        {
+          "path": "Applications/Orbifold/Pose.lean",
+          "blob": "5f37c039da1742d2c04d3045f3cef6098df5ce79"
+        },
+        {
+          "path": "Applications/Orbifold/TransportSegments.lean",
+          "blob": "7bc266711250213d2a7cc5120d26bc4228849756"
+        },
+        {
+          "path": "Applications/Parallel/Polynomial.lean",
+          "blob": "486ef66b2acde3ea8272961606f0e0a307352b7b"
+        },
+        {
+          "path": "Applications/Parallel/Scan.lean",
+          "blob": "5496484cf7fd524045c43f0a5b019fcc42c27d51"
+        },
+        {
+          "path": "Applications/Probability/Execution.lean",
+          "blob": "d5f17774c3ff6cb87d94712e78f8c8830aa82b11"
+        },
+        {
+          "path": "Applications/Probability/Results.lean",
+          "blob": "a24726b6346f6cd19c86585f5524fdf8c7826789"
+        },
+        {
+          "path": "Applications/Timing/Adders.lean",
+          "blob": "6607fec9bba0b673646c9e6753872a8950419785"
+        },
+        {
+          "path": "Applications/Timing/Digital.lean",
+          "blob": "5c20777fece1d5d76aca231bfbf247c3c58b0ae8"
+        },
+        {
+          "path": "Applications/Timing/Examples.lean",
+          "blob": "09d34cfafe10f8709d01f5007f5a4db2a589abcc"
+        },
+        {
+          "path": "Examples/CategoryMaps.lean",
+          "blob": "7f2e15c040ade3fce4ff50a2158d7f506e5045f3"
+        },
+        {
+          "path": "Examples/PathTransport.lean",
+          "blob": "966a94129f6bfa36f2df553f56b1baa56d07aa8d"
+        },
+        {
+          "path": "SquareKit/ConstantSheafProducts.lean",
+          "blob": "652c53b3181ff9614837d2a90f68c4b5a3fd7308"
+        },
+        {
+          "path": "SquareKit/Internal/ClassifierSourceChange.lean",
+          "blob": "56b32cf2f3493fe1c9acc477fb91a2e35990e86b"
+        },
+        {
+          "path": "SquareKit/Internal/ClassifierSourceCoherence.lean",
+          "blob": "0ebc115f2b33f860c57d1a7ef298c2f0fe56ebc4"
+        },
+        {
+          "path": "SquareKit/Internal/FiniteClassifier.lean",
+          "blob": "08ec984b18b6a0c905be6fd05b18387514d4e71a"
+        },
+        {
+          "path": "SquareKit/Internal/GenericModel.lean",
+          "blob": "e089abc552f1da6153287dfc7e7adae404802d9b"
+        },
+        {
+          "path": "SquareKit/Internal/PartitionCoherence.lean",
+          "blob": "16507a171cf6992b9aa9220228d1262ce114c659"
+        },
+        {
+          "path": "SquareKit/Internal/PartitionMixedChange.lean",
+          "blob": "dd44026475cee80f7d28f99f43c8bf997c09e092"
+        },
+        {
+          "path": "SquareKit/Internal/PartitionSection.lean",
+          "blob": "9343bc59ffbb7c0b037c7273f31ef0251d49eeb2"
+        },
+        {
+          "path": "SquareKit/Internal/PartitionSequents.lean",
+          "blob": "7125c273ba807d48e356d95b2eb4c253b798cc63"
+        },
+        {
+          "path": "SquareKit/Internal/SheafPseudopullback.lean",
+          "blob": "5276f53f6448eee9e273767b44c17ae678e5f11d"
+        },
+        {
+          "path": "SquareKit/Internal/SliceGenericSection.lean",
+          "blob": "7896240a1130abd92c75143f4a495cddaf2ca75b"
+        },
+        {
+          "path": "SquareKit/Internal/SliceUniversal.lean",
+          "blob": "59428c6c351f44af748ce75a0de8e5a6b1ccafcb"
+        },
+        {
+          "path": "SquareKit/Internal/SliceVaryingBase.lean",
+          "blob": "8bd8c6284c1268b5555e6f9af3a69dfe7fc9b66b"
+        },
+        {
+          "path": "SquareKit/Internal/TransformationCoherence.lean",
+          "blob": "bad741fd76957acfbcbf9151bd50a60770ef6bc8"
+        }
+      ]
+    }
+  },
+  "spec_assessment": "Actual complete normal full check/audit passes at immutable Q. Every full native line and outer wrapper was read; all1027rows and647warning headers independently reproduced. Prior full source, mathematical, connected-case and actual-type semantics remain retained under complete original scope. Generated/private declarations are included in exhaustive audit; these counts are not authored public counts. No new source/proof/axiom warning finding. The receiving observation comparator failure is separate and supplies no type credit. Overall remains Blocked until actual per-name receiving qualification and all final gates.",
+  "no_compiler_or_capture_execution": true
+}

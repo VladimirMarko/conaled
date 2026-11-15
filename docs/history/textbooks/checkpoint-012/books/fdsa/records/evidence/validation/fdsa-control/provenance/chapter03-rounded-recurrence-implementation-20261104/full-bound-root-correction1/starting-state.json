@@ -1,0 +1,143 @@
+{
+  "recorded_utc": "2026-11-04T19:46:07.707334+00:00",
+  "candidate": "4e022bf16e793fd5a1f830b14ba30fb4a2dd0525",
+  "tree": "7d9c38079e6ab5f9045e6c0282f56af97caab227",
+  "original_full_scope_base": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "status": "",
+  "branch": "work/fdsa-ch03-rounded-recurrence",
+  "sources": {
+    "Applications/Resources/RoundedRecurrence.lean": {
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758"
+    },
+    "Applications/Resources/RoundedRecurrenceBounds.lean": {
+      "bytes": 6949,
+      "sha256": "1a9a67658233c4efb0c7ee03b28e334376db28fa6d1c816fbd9e6bebc427751f"
+    },
+    "Examples/RoundedRecurrence.lean": {
+      "bytes": 3782,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d"
+    },
+    "Examples/RoundedRecurrenceBounds.lean": {
+      "bytes": 7279,
+      "sha256": "549561d415dc3a97080c5a3df431a2beb583df32cde9c89798a411b4068e1683"
+    }
+  },
+  "prior_provenance": {
+    "Statements16.lean": {
+      "bytes": 1418,
+      "sha256": "a3cb2079d5dbdd6ddcf41067be0209e6a6b18b3aa85d390c82bcfd83c2bf446f"
+    },
+    "starting-state.json": {
+      "bytes": 7034,
+      "sha256": "d6f72d5309bb1b47de6c3d21c3a52a4f67e6dc2c9edd4a62ba1e5335d26aca84"
+    },
+    "allocation-result.json": {
+      "bytes": 373,
+      "sha256": "7c30f8398954f38fdd2315a96f2210a26e1fb64ebcf3ac14b6c600e258c45968"
+    },
+    "slice1-handoff.md": {
+      "bytes": 8190,
+      "sha256": "458e4aed24e3d39c460d88f459c9711c8c96211bec0cf3d142fe3a92f2b6fe1d"
+    },
+    "slice1-preservation.json": {
+      "bytes": 2270,
+      "sha256": "55caad6618ce56e8ada565647b6e0caa996385f483a2fc0816e443b09e95aec9"
+    },
+    "slice1-readback-receipt.json": {
+      "bytes": 4418,
+      "sha256": "c4b816c1cf60b8d9aee0f26c55464cecd05ff8f099ff6d39d9e6a70b592a761e"
+    },
+    "slice1-requirements.json": {
+      "bytes": 3856,
+      "sha256": "7b3cbffdaa40dc2a8da0879a65e068f3e1b1535bc835fe4be0f0ea93f4f27c8f"
+    },
+    "slice1-source.diff": {
+      "bytes": 12151,
+      "sha256": "638e4438b20c6fb0162310c80463494d81d91b9d19f1370c6aa48ee4b6810fb9"
+    },
+    "slice1-source-baseline.json": {
+      "bytes": 7653,
+      "sha256": "4d49a88c6455b601c9108ff3a2aa4e1fa82fa24c2006fa0142a125004d2fcf56"
+    },
+    "slice1-candidate.json": {
+      "bytes": 7405,
+      "sha256": "c719c7b75ab799825fa101f196a75c4aaf88b38fd7626f0df163034b27041e42"
+    },
+    "slice1-git-commands.json": {
+      "bytes": 8425,
+      "sha256": "d73e24605c40dba8ee7eb05443401872d20fbe5d19e2c4c81735f2b067196131"
+    },
+    "slice1-input-bindings.json": {
+      "bytes": 8543,
+      "sha256": "7f86179e6da646dc250a9bfbe996fdad7d38f513820b18a520e31f7c9cf242ab"
+    },
+    "slice1-statements-inventory.json": {
+      "bytes": 13235,
+      "sha256": "0b2814d5f6aed1792bed6a4e621bb57af905bc2883719cccaf389523c203e802"
+    },
+    "full-bound-continuation1/git-commands.json": {
+      "bytes": 1259,
+      "sha256": "77445a526da119b2a4f905b5bd0cc5e98d865831fea51433eafc26413cd88c19"
+    },
+    "full-bound-continuation1/Statements35-candidate1.lean": {
+      "bytes": 2756,
+      "sha256": "95b7f41a250f0c4238763dc6e5bf2c9f4da9808755b44fe407d514dcd398684b"
+    },
+    "full-bound-continuation1/source.diff": {
+      "bytes": 14989,
+      "sha256": "70059f33add6fb40f9721a2c1100188c278789c04efdabc541f683e55ed251ad"
+    },
+    "full-bound-continuation1/final-preservation.json": {
+      "bytes": 1095,
+      "sha256": "6a3d871d903676199f46068cc1abf8aadcba74326ffca0e7b623c793e029ffc5"
+    },
+    "full-bound-continuation1/handoff.md": {
+      "bytes": 8754,
+      "sha256": "e1758055a618b6710330627f0861e5bf09ecd5a1bf4fac526f86f4a6f9fabdd2"
+    },
+    "full-bound-continuation1/root-slice1-focused-feedback.json": {
+      "bytes": 1038,
+      "sha256": "0e9ed9471f2f598acbbd6aaf51ed6820060342064b0bd080dde7ff03f6cb1da7"
+    },
+    "full-bound-continuation1/git-commands-progress.json": {
+      "bytes": 1259,
+      "sha256": "77445a526da119b2a4f905b5bd0cc5e98d865831fea51433eafc26413cd88c19"
+    },
+    "full-bound-continuation1/baseline.json": {
+      "bytes": 5437,
+      "sha256": "14ab9b6c96f2d5fc7118dc4398ac44f1fa1acb3779c2bba21b75b914680e6c2e"
+    },
+    "full-bound-continuation1/candidate1.json": {
+      "bytes": 1629,
+      "sha256": "3803b47a57d61b427e514d1757a77d742db878fa1447d9f1dd8d9d7bae03eeb0"
+    },
+    "full-bound-continuation1/design.md": {
+      "bytes": 4227,
+      "sha256": "449d70475df87860f3dbfb3bc6241a2a09a0a0692601ee0c2852d1def355a0d7"
+    },
+    "full-bound-continuation1/input-bindings.json": {
+      "bytes": 9834,
+      "sha256": "9cd6fc5250d082cc5b8902e1d7bb03d748a1c000422fd740a0209b73f6371dac"
+    },
+    "full-bound-continuation1/readback-and-hold.json": {
+      "bytes": 5817,
+      "sha256": "827bf2267c2b9f6e129b0b34eb83a50b376772befb0c0e533823afdbf2e58880"
+    },
+    "full-bound-continuation1/statements35-inventory.json": {
+      "bytes": 30328,
+      "sha256": "2c2189ef47596252a71e02c1a5ca54578794b15ed70fcbf8513c18da1dfdff97"
+    },
+    "full-bound-continuation1/statement-review.json": {
+      "bytes": 4150,
+      "sha256": "d129dfbe5361432d1783a8398114d5a8e66a428c1e10dde85f5cd72ff7d9b63b"
+    }
+  },
+  "finding": "C03-ROUNDED-ELAB-001",
+  "failed_run": "provenance/chapter03-rounded-recurrence-bounds-focused-attempt1-20261104",
+  "actual_exit": 1,
+  "owned_session": 26503,
+  "actual_terminal": "4843ca",
+  "complete_log_read_and_closure": "db696b",
+  "complete_new_source_read": "b21f1e"
+}

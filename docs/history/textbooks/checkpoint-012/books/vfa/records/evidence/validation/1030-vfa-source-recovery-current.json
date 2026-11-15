@@ -1,0 +1,230 @@
+{
+  "started_utc": "2026-11-03T17:10:14.518085+00:00",
+  "url": "https://softwarefoundations.cis.upenn.edu/vfa-2.1/vfa.tgz",
+  "expected_sha256": "f03296c763d78aa5bc18a545d848d398292575e5c8af4b5aa94dc25709e169b8",
+  "timeout_seconds": 25,
+  "maximum_body_bytes": 6000000,
+  "status": 200,
+  "final_url": "https://softwarefoundations.cis.upenn.edu/vfa-2.1/vfa.tgz",
+  "body_bytes": 5360265,
+  "sha256": "f03296c763d78aa5bc18a545d848d398292575e5c8af4b5aa94dc25709e169b8",
+  "outcome": "exact_pinned_archive_recovered",
+  "local_path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/reference/vfa/vfa-2.1.tgz",
+  "finished_utc": "2026-11-03T17:10:21.111212+00:00",
+  "extracted_members": [
+    {
+      "archive_member": "vfa/TrieTest.v",
+      "bytes": 8303,
+      "sha256": "05a670ad3e2e1908e6acfe370a35e4bd256309bd84f9fbb0944c30793bb00c7a",
+      "matched_pinned_inventory": false
+    },
+    {
+      "archive_member": "vfa/Redblack.v",
+      "bytes": 27066,
+      "sha256": "f44255ba3d0235f6efa401b72f2fcf9a9551a7ebc065912202d6f33494891ce2",
+      "matched_pinned_inventory": true
+    },
+    {
+      "archive_member": "vfa/Extract.v",
+      "bytes": 13003,
+      "sha256": "c132273a13fafe176573469e664b9cbe8dd3366ec00e2f9a3ab8ab1d42a2e15d",
+      "matched_pinned_inventory": true
+    },
+    {
+      "archive_member": "vfa/SearchTreeTest.v",
+      "bytes": 8580,
+      "sha256": "62c6b41b61007d5edc28dbdfc96f8b1ec2597f0b69652a7a53aca5172d70b71c",
+      "matched_pinned_inventory": false
+    },
+    {
+      "archive_member": "vfa/LICENSE",
+      "bytes": 1043,
+      "sha256": "6fcd23f1728be522ac23586b7e8b066d272fa60d45aac298142afeaefddae4ec",
+      "matched_pinned_inventory": true
+    },
+    {
+      "archive_member": "vfa/BinomTest.v",
+      "bytes": 7582,
+      "sha256": "37091937f0bc2676752ae69728904dd7c3c5b7b7bb1d328b80691ba5ffe327fc",
+      "matched_pinned_inventory": false
+    },
+    {
+      "archive_member": "vfa/SortTest.v",
+      "bytes": 4668,
+      "sha256": "0319413aa9c846c6808ece0c148c7167c2190b7bf8f920f57c07b2af8e0ed1f2",
+      "matched_pinned_inventory": false
+    },
+    {
+      "archive_member": "vfa/PrefaceTest.v",
+      "bytes": 1953,
+      "sha256": "da6aa15b45e5a6a2e2ba1bfbf20cf4b60c80913c6f826d5cd4866f6b72cc5ec7",
+      "matched_pinned_inventory": false
+    },
+    {
+      "archive_member": "vfa/Multiset.v",
+      "bytes": 10383,
+      "sha256": "ecdc47863b68bbef0d0579f75f4b5537cfb9f99c00f9b2fcc154eadcfdc9ef95",
+      "matched_pinned_inventory": true
+    },
+    {
+      "archive_member": "vfa/Sort.v",
+      "bytes": 10864,
+      "sha256": "aeaf646d3b7e4dd88cb5d6dba9d35ae5714e5451c154d90de499bb09a32a7d33",
+      "matched_pinned_inventory": true
+    },
+    {
+      "archive_member": "vfa/ADTTest.v",
+      "bytes": 16445,
+      "sha256": "bb52abbe04b3299a0f65ce33aaa0c2e997629e0cf558bec106e1b445c74f3a46",
+      "matched_pinned_inventory": false
+    },
+    {
+      "archive_member": "vfa/ColorTest.v",
+      "bytes": 9347,
+      "sha256": "350725e94b853721a2bbc1543fe034ad61a8f0480d56f44f1642500c19fd703a",
+      "matched_pinned_inventory": false
+    },
+    {
+      "archive_member": "vfa/Decide.v",
+      "bytes": 19701,
+      "sha256": "f929d55e2b7b39f2ba0bb72f2e70285dc8e10e64cf18322060bdbfc0552a4b26",
+      "matched_pinned_inventory": true
+    },
+    {
+      "archive_member": "vfa/RedblackTest.v",
+      "bytes": 8513,
+      "sha256": "ce77f922e3950988e0c90c3b1f7ff3f5d1596217b92c2e4946c996e9a6604c21",
+      "matched_pinned_inventory": false
+    },
+    {
+      "archive_member": "vfa/BagPermTest.v",
+      "bytes": 6583,
+      "sha256": "e508f41262f19d667cd3366f75cbe549e1d0255d10174681de9dfa9ae6a3c296",
+      "matched_pinned_inventory": false
+    },
+    {
+      "archive_member": "vfa/Maps.v",
+      "bytes": 7017,
+      "sha256": "19e79f4b7ac5bce3ffc246e19dd926b14fa5720b47d9618d2607d809d0504aea",
+      "matched_pinned_inventory": true
+    },
+    {
+      "archive_member": "vfa/MergeTest.v",
+      "bytes": 4636,
+      "sha256": "40957992e516f13649ac6d7ec5f1405ee1ccee39c0f9600744ef74737c57e971",
+      "matched_pinned_inventory": false
+    },
+    {
+      "archive_member": "vfa/BagPerm.v",
+      "bytes": 5949,
+      "sha256": "a11149100fcdf0a2c366267288dfbe6538ad0bbc5ba65e53e2c026e1ec8899a7",
+      "matched_pinned_inventory": true
+    },
+    {
+      "archive_member": "vfa/PriqueueTest.v",
+      "bytes": 5902,
+      "sha256": "21ecbeadad08eb3a68d78a30dbd37f05fcb1cbc4f0f068799ce130048b36e1a3",
+      "matched_pinned_inventory": false
+    },
+    {
+      "archive_member": "vfa/SearchTree.v",
+      "bytes": 44738,
+      "sha256": "44b9464a10e8c9e3222530f6f26be45bd44d1c0568deb1710417618706fae61d",
+      "matched_pinned_inventory": true
+    },
+    {
+      "archive_member": "vfa/ExtractTest.v",
+      "bytes": 3370,
+      "sha256": "6e4f34b02ebbbe890fa87e6d1f2df2174f74aec4fb9cdf8c607c6de8ec3c0493",
+      "matched_pinned_inventory": false
+    },
+    {
+      "archive_member": "vfa/ADT.v",
+      "bytes": 45447,
+      "sha256": "87d7ca279b38d22f31ff56bf9f2b11103b382c325969a269bc542de27e4a8fe2",
+      "matched_pinned_inventory": true
+    },
+    {
+      "archive_member": "vfa/Trie.v",
+      "bytes": 26268,
+      "sha256": "a5af2b4db4c2cb639a8deb063e57909e11eb44ee763782ad0af9afbf45a78f3e",
+      "matched_pinned_inventory": true
+    },
+    {
+      "archive_member": "vfa/Selection.v",
+      "bytes": 14528,
+      "sha256": "ff343099ae0fd551648a8fa2bf0adfe32bf5fb158389cee211ff8d1b32c28e11",
+      "matched_pinned_inventory": true
+    },
+    {
+      "archive_member": "vfa/SelectionTest.v",
+      "bytes": 9293,
+      "sha256": "975eaa4837aac2ea0c4ffdcc1394fd8eb20d60fedc850589efcfaa6bf2b53319",
+      "matched_pinned_inventory": false
+    },
+    {
+      "archive_member": "vfa/DecideTest.v",
+      "bytes": 2852,
+      "sha256": "8f3783b0fd3783d89eeef84a866551538e48102284ec2735af46d8839781ea31",
+      "matched_pinned_inventory": false
+    },
+    {
+      "archive_member": "vfa/Perm.v",
+      "bytes": 21421,
+      "sha256": "0d3ad2421a6bee80b987423b702e8688e59fe802cafa1efa9b98df71d619fd9f",
+      "matched_pinned_inventory": true
+    },
+    {
+      "archive_member": "vfa/Binom.v",
+      "bytes": 13042,
+      "sha256": "f73f18cac4c3a6a38a0e83d4194429eb7ab684ee68068a88025610a13d5c31ed",
+      "matched_pinned_inventory": true
+    },
+    {
+      "archive_member": "vfa/Preface.v",
+      "bytes": 6815,
+      "sha256": "b6a910ecf69bef7682ec6a3d1a3be1d5146ffd046789b254397f0d92db93c1fd",
+      "matched_pinned_inventory": true
+    },
+    {
+      "archive_member": "vfa/MapsTest.v",
+      "bytes": 4621,
+      "sha256": "135e716a69b4f833e07ffa849c2d93aaa9b77226cccee6b359bfa3ac1bf31d8f",
+      "matched_pinned_inventory": false
+    },
+    {
+      "archive_member": "vfa/PermTest.v",
+      "bytes": 3643,
+      "sha256": "e6456e4329c4168f8c69a21731702f1fe7e13a7aee367958b0d3e8aa2ee8dc56",
+      "matched_pinned_inventory": false
+    },
+    {
+      "archive_member": "vfa/MultisetTest.v",
+      "bytes": 8310,
+      "sha256": "201139016ab08f87e3fa5d89b81360838d64767464d68e1d4d2d7fc72cc1ea1b",
+      "matched_pinned_inventory": false
+    },
+    {
+      "archive_member": "vfa/Merge.v",
+      "bytes": 17839,
+      "sha256": "090c5afc3a95750336b8b57ed2169b8d77c790266f231bf096be55761c20378b",
+      "matched_pinned_inventory": true
+    },
+    {
+      "archive_member": "vfa/Color.v",
+      "bytes": 23243,
+      "sha256": "67b3410af5fece56c69f4e8301fd6505e89371cfa1279d069ca945b9b2b33370",
+      "matched_pinned_inventory": true
+    },
+    {
+      "archive_member": "vfa/Priqueue.v",
+      "bytes": 9029,
+      "sha256": "e4dc740bf2c3f338dedae3e6544a8d94d58fd80f810472610122b9ccc4866b9d",
+      "matched_pinned_inventory": true
+    }
+  ],
+  "all_17_chapters_match": true,
+  "license_match": true,
+  "research_copy_excluded_from_checkpoints": true,
+  "extraction_finished_utc": "2026-11-03T17:11:14.565799+00:00"
+}

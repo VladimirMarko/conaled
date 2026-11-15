@@ -1,0 +1,45 @@
+{
+  "recorded_utc": "2026-11-04T22:34:51.572582+00:00",
+  "branch": "work/fdsa-ch03-integration",
+  "head": "660f974640fb89a766b26a4d786ae7ed197cecf2",
+  "base": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "ref_count": 74,
+  "source_copies": 43,
+  "imports_added": 35,
+  "root_changes": {
+    "SquareApplications.lean": {
+      "before": {
+        "bytes": 9405,
+        "sha256": "75563d66c31e9cc1456cedf639812e6025486f69cf8ab50f3961d038a6219d18"
+      },
+      "after": {
+        "bytes": 10602,
+        "sha256": "fc4956ddf099ad65ef4395a266f753fe1a7b044738f354cf92dd32b29b120670"
+      }
+    },
+    "Applications/Resources/RoundedRecurrence.lean": {
+      "before": {
+        "bytes": 7723,
+        "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758"
+      },
+      "after": {
+        "bytes": 7749,
+        "sha256": "a2a223d9e9710faee234c99fccbb85fdb66e414fedfc27a32380538b2c6b5af2"
+      }
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "before": {
+        "bytes": 46693,
+        "sha256": "fdf63be72114a8002cd4c3786007c8ff0e722c0465f819b00dd93ba2ffe3185e"
+      },
+      "after": {
+        "bytes": 46755,
+        "sha256": "dca421107e141c97e48ae28225b26e308816e0b5bae201dca39a2a3d5cc8e741"
+      }
+    }
+  },
+  "status": " M Applications/Resources/RoundedRecurrence.lean\n M SquareApplications.lean\n M docs/research/fdsa-reconstruction-map.md\n?? Applications/Resources/FixedRank.lean\n?? Applications/Resources/HalvingSelection.lean\n?? Applications/Resources/MedianPolicy.lean\n?? Applications/Resources/MedianReduction.lean\n?? Applications/Resources/MinimumPivot.lean\n?? Applications/Resources/RandomSelection.lean\n?? Applications/Resources/RandomSelectionDrift.lean\n?? Applications/Resources/RandomSelectionEqual.lean\n?? Applications/Resources/RandomSelectionMean.lean\n?? Applications/Resources/RandomSelectionRun.lean\n?? Applications/Resources/RandomSelectionTail.lean\n?? Applications/Resources/SelectionGenericBounds.lean\n?? Applications/Resources/SelectionGenericEnvelope.lean\n?? Applications/Resources/SelectionPolicy.lean\n?? Applications/Selection/CoordinateQueries.lean\n?? Applications/Selection/CoordinateReadAll.lean\n?? Applications/Selection/CoordinateSelection.lean\n?? Applications/Selection/CoordinateSensitivity.lean\n?? Applications/Selection/FixedRank.lean\n?? Applications/Selection/MedianCounterfamily.lean\n?? Applications/Selection/MedianReduction.lean\n?? Examples/ChunkCalls.lean\n?? Examples/CoordinateQueries.lean\n?? Examples/CoordinateReadAll.lean\n?? Examples/CoordinateSelection.lean\n?? Examples/CoordinateSensitivity.lean\n?? Examples/FixedRankSelection.lean\n?? Examples/GeneralMedianBounds.lean\n?? Examples/ListChunks.lean\n?? Examples/MedianCounterfamily.lean\n?? Examples/MedianPolicy.lean\n?? Examples/MedianReduction.lean\n?? Examples/MinimumPivot.lean\n?? Examples/RandomSelection.lean\n?? Examples/RandomSelectionDrift.lean\n?? Examples/RandomSelectionEqual.lean\n?? Examples/RandomSelectionMean.lean\n?? Examples/RandomSelectionRun.lean\n?? Examples/RandomSelectionTail.lean\n?? Examples/SelectionBounds.lean\n?? Examples/SelectionCountRank.lean\n?? Examples/SelectionGenericBounds.lean\n?? Examples/SelectionGenericEnvelope.lean\n",
+  "index_empty": true,
+  "source_preservation": "All72 source files exact immutable author commits except the explicitly assessed two-line stale documentation correction in RoundedRecurrence.lean.",
+  "claim_scope": "No new mathematical statement or proof change; no run or acceptance credit. Integration candidate is unfinished."
+}

@@ -1,0 +1,86 @@
+@Applications.Probability.PermutationMinimum.minimumEvent.{u_1,
+    u_2} : {I : Type u_1} →
+  {P : Type u_2} → [LE.{u_2} P] → (I → P) → Finset.{u_1} I → I → Set.{u_1} (Equiv.Perm.{u_1 + 1} I)
+@Applications.Probability.PermutationMinimum.mem_minimumEvent.{u_1,
+    u_2} : ∀ {I : Type u_1} {P : Type u_2} [inst : LE.{u_2} P] (priority : I → P) (S : Finset.{u_1} I) (a : I)
+  (π : Equiv.Perm.{u_1 + 1} I),
+  Iff
+    (@Membership.mem.{u_1, u_1} (Equiv.Perm.{u_1 + 1} I) (Set.{u_1} (Equiv.Perm.{u_1 + 1} I))
+      (@Set.instMembership.{u_1} (Equiv.Perm.{u_1 + 1} I))
+      (@Applications.Probability.PermutationMinimum.minimumEvent.{u_1, u_2} I P inst priority S a) π)
+    (And
+      (@Membership.mem.{u_1, u_1} I (Finset.{u_1} I)
+        (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} I) I (@Finset.instSetLike.{u_1} I)) S a)
+      (∀ (b : I),
+        @Membership.mem.{u_1, u_1} I (Finset.{u_1} I)
+            (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} I) I (@Finset.instSetLike.{u_1} I)) S b →
+          @LE.le.{u_2} P inst
+            (priority
+              (@DFunLike.coe.{u_1 + 1, u_1 + 1, u_1 + 1} (Equiv.Perm.{u_1 + 1} I) I (fun x => I)
+                (@EquivLike.toFunLike.{u_1 + 1, u_1 + 1, u_1 + 1} (Equiv.Perm.{u_1 + 1} I) I I
+                  (@Equiv.instEquivLike.{u_1 + 1, u_1 + 1} I I))
+                π a))
+            (priority
+              (@DFunLike.coe.{u_1 + 1, u_1 + 1, u_1 + 1} (Equiv.Perm.{u_1 + 1} I) I (fun x => I)
+                (@EquivLike.toFunLike.{u_1 + 1, u_1 + 1, u_1 + 1} (Equiv.Perm.{u_1 + 1} I) I I
+                  (@Equiv.instEquivLike.{u_1 + 1, u_1 + 1} I I))
+                π b))))
+@Applications.Probability.PermutationMinimum.minimumEvent_empty.{u_1,
+    u_2} : ∀ {I : Type u_1} {P : Type u_2} [inst : LE.{u_2} P] (priority : I → P) (a : I),
+  @Eq.{u_1 + 1} (Set.{u_1} (Equiv.Perm.{u_1 + 1} I))
+    (@Applications.Probability.PermutationMinimum.minimumEvent.{u_1, u_2} I P inst priority
+      (@EmptyCollection.emptyCollection.{u_1} (Finset.{u_1} I) (@Finset.instEmptyCollection.{u_1} I)) a)
+    (@EmptyCollection.emptyCollection.{u_1} (Set.{u_1} (Equiv.Perm.{u_1 + 1} I))
+      (@Set.instEmptyCollection.{u_1} (Equiv.Perm.{u_1 + 1} I)))
+@Applications.Probability.PermutationMinimum.minimumEvent_of_not_mem.{u_1,
+    u_2} : ∀ {I : Type u_1} {P : Type u_2} [inst : LE.{u_2} P] (priority : I → P) (S : Finset.{u_1} I),
+  ∀ a ∉ S,
+    @Eq.{u_1 + 1} (Set.{u_1} (Equiv.Perm.{u_1 + 1} I))
+      (@Applications.Probability.PermutationMinimum.minimumEvent.{u_1, u_2} I P inst priority S a)
+      (@EmptyCollection.emptyCollection.{u_1} (Set.{u_1} (Equiv.Perm.{u_1 + 1} I))
+        (@Set.instEmptyCollection.{u_1} (Equiv.Perm.{u_1 + 1} I)))
+@Applications.Probability.PermutationMinimum.minimumEvent_singleton.{u_1,
+    u_2} : ∀ {I : Type u_1} {P : Type u_2} [inst : Preorder.{u_2} P] (priority : I → P) (a : I),
+  @Eq.{u_1 + 1} (Set.{u_1} (Equiv.Perm.{u_1 + 1} I))
+    (@Applications.Probability.PermutationMinimum.minimumEvent.{u_1, u_2} I P (@Preorder.toLE.{u_2} P inst) priority
+      (@Singleton.singleton.{u_1, u_1} I (Finset.{u_1} I) (@Finset.instSingleton.{u_1} I) a) a)
+    (@Set.univ.{u_1} (Equiv.Perm.{u_1 + 1} I))
+@Applications.Probability.PermutationMinimum.minimumEvent_inter.{u_1,
+    u_2} : ∀ {I : Type u_1} {P : Type u_2} [inst : LE.{u_2} P] [inst_1 : DecidableEq.{u_1 + 1} I] (priority : I → P)
+  (S T : Finset.{u_1} I) (a : I),
+  @Membership.mem.{u_1, u_1} I (Finset.{u_1} I)
+      (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} I) I (@Finset.instSetLike.{u_1} I)) S a →
+    @Membership.mem.{u_1, u_1} I (Finset.{u_1} I)
+        (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} I) I (@Finset.instSetLike.{u_1} I)) T a →
+      @Eq.{u_1 + 1} (Set.{u_1} (Equiv.Perm.{u_1 + 1} I))
+        (@Inter.inter.{u_1} (Set.{u_1} (Equiv.Perm.{u_1 + 1} I)) (@Set.instInter.{u_1} (Equiv.Perm.{u_1 + 1} I))
+          (@Applications.Probability.PermutationMinimum.minimumEvent.{u_1, u_2} I P inst priority S a)
+          (@Applications.Probability.PermutationMinimum.minimumEvent.{u_1, u_2} I P inst priority T a))
+        (@Applications.Probability.PermutationMinimum.minimumEvent.{u_1, u_2} I P inst priority
+          (@Union.union.{u_1} (Finset.{u_1} I) (@Finset.instUnion.{u_1} I inst_1) S T) a)
+@Applications.Probability.PermutationMinimum.uniformOn_minimumEvent.{u_1,
+    u_2} : ∀ {I : Type u_1} {P : Type u_2} [Finite.{u_1 + 1} I] [inst : LinearOrder.{u_2} P]
+  [inst_1 : MeasurableSpace.{u_1} (Equiv.Perm.{u_1 + 1} I)]
+  [@MeasurableSingletonClass.{u_1} (Equiv.Perm.{u_1 + 1} I) inst_1] (priority : I → P),
+  @Function.Injective.{u_1 + 1, u_2 + 1} I P priority →
+    ∀ (S : Finset.{u_1} I) (a : I),
+      @Membership.mem.{u_1, u_1} I (Finset.{u_1} I)
+          (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} I) I (@Finset.instSetLike.{u_1} I)) S a →
+        @Eq.{1} ENNReal
+          (@DFunLike.coe.{u_1 + 1, u_1 + 1, 1} (@MeasureTheory.Measure.{u_1} (Equiv.Perm.{u_1 + 1} I) inst_1)
+            (Set.{u_1} (Equiv.Perm.{u_1 + 1} I)) (fun x => ENNReal)
+            (@MeasureTheory.Measure.instFunLike.{u_1} (Equiv.Perm.{u_1 + 1} I) inst_1)
+            (@ProbabilityTheory.uniformOn.{u_1} (Equiv.Perm.{u_1 + 1} I) inst_1
+              (@Set.univ.{u_1} (Equiv.Perm.{u_1 + 1} I)))
+            (@Applications.Probability.PermutationMinimum.minimumEvent.{u_1, u_2} I P
+              (@Preorder.toLE.{u_2} P
+                (@PartialOrder.toPreorder.{u_2} P
+                  (@SemilatticeInf.toPartialOrder.{u_2} P
+                    (@Lattice.toSemilatticeInf.{u_2} P
+                      (@DistribLattice.toLattice.{u_2} P (@instDistribLatticeOfLinearOrder.{u_2} P inst))))))
+              priority S a))
+          (@Inv.inv.{0} ENNReal ENNReal.instInv
+            (@Nat.cast.{0} ENNReal
+              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+              (@Finset.card.{u_1} I S)))

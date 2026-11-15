@@ -1,0 +1,20 @@
+{
+  "phase": "first public round-trip test, before implementation",
+  "command": [
+    "/root/.nix-profile/bin/nix",
+    "develop",
+    "--command",
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "/workspace/scratch/0c54f2db1fdf/work-state/cache-companion",
+    "-v"
+  ],
+  "returncode": 1,
+  "elapsed_seconds": 4.160375528001168,
+  "log": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1027-tdd-01-red.log",
+  "expected_failure": "No cache_companion module exists yet; no actual cache capture."
+}

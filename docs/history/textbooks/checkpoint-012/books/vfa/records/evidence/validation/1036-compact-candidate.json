@@ -1,0 +1,19 @@
+{
+  "base": "79f798372bfcef4663544fd617465fac8866c911",
+  "candidate": "1c5f716d0fee6742b5fa7b77eea6e1983e8aadc1",
+  "scope": [
+    "tools/checkpoint_compact.py",
+    "tools/test_checkpoint_compact.py",
+    "specs/1036-compact-recovery.md"
+  ],
+  "formal_source_changed": false,
+  "user_steering": "Current request prioritizes small latest-state recovery with updated native setup",
+  "status": "pending independent Standards and Spec review",
+  "isolated_tests": {
+    "exit_code": 0,
+    "tests": 5,
+    "seconds": 1.732,
+    "log": "work-state/validation/1036-compact-tests.log",
+    "scope": "exact captured operational candidate"
+  }
+}

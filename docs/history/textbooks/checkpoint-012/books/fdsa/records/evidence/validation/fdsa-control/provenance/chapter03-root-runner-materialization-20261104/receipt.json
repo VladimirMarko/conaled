@@ -1,0 +1,23 @@
+{
+  "recorded_utc": "2026-11-04T23:44:52.867879+00:00",
+  "reason": "Earlier V8 store values became unavailable. Trace2 preparation stopped at JSON.parse(undefined) after successfulbinding4a587e and before any compiler start. Durable wrappers prevent reliance on transient stores.",
+  "previous_start_full_read": "02cf34",
+  "start_body_preserved_from_that_read": true,
+  "close_conditions": "Same actual observed tool terminal, completed recorder/native exits, clean candidate, one thread, exact command and complete log-body matching; adds explicit actual-terminal marker/type assertions and preserves entire tool result.",
+  "compiler_profile_pins_and_arguments_unchanged": true,
+  "kit_and_record_command_unchanged": true,
+  "no_owned_terminal_synthesized": true,
+  "newcompilerstarted": false,
+  "files": {
+    "start_qualified_recorded.py": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/start_qualified_recorded.py",
+      "bytes": 2321,
+      "sha256": "de9ffa2cf1d379c6cc2f0350c28be8cd1f31a488ad50e2f788ed683d537940a0"
+    },
+    "close_qualified_recorded.py": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/close_qualified_recorded.py",
+      "bytes": 3340,
+      "sha256": "43224cea695eebbe1911084a7d372b99f703b0df98fb9849d6390162821db5f1"
+    }
+  }
+}

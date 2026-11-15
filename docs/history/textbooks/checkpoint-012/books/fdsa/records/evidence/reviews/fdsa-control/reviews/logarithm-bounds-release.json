@@ -1,0 +1,39 @@
+{
+  "released_utc": "2026-11-03T02:02:33.415566+00:00",
+  "ticket": "FDSA-XL01",
+  "source_release": true,
+  "original_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "checkout": "/workspace/scratch/845aa1048b05/conaled-logarithm-bounds",
+  "branch": "work/fdsa-logarithm-bounds",
+  "requirements": {
+    "exists": true,
+    "bytes": 12432,
+    "lines": 213,
+    "sha256": "d77627f36996722dd938ed6ff5d15d396ff045bf969e43115a7402a95dd2780d"
+  },
+  "checkpoint": "conaled-fdsa-0062-logarithm-bounds-precode",
+  "checkpoint_sha256": "368087e29f70f92994996d30778b5136d811f3833a1f65dabd57dd5b7cae0aad",
+  "checkpoint_library_file_id": "libfile_95ea6e348d80819193de7cf3d1db2c9d",
+  "all_25_existing_baseline_identities_rechecked": true,
+  "absent_alternative_lakefile_and_three_new_paths_rechecked": true,
+  "frozen_reports_controls_rechecked": true,
+  "main_and_c1_source_unchanged": true,
+  "project_build_absent": true,
+  "ownership": {
+    "/root/architecture": [
+      "Applications/Arithmetic/LogarithmBounds.lean"
+    ],
+    "/root/rotation_cases": [
+      "Examples/LogarithmBounds.lean"
+    ],
+    "/root/book_inventory": [
+      "docs/research/fdsa-logarithm-bounds.md",
+      "docs/research/fdsa-reconstruction-map.md"
+    ],
+    "/root": [
+      "SquareApplications.lean",
+      "control/tracking/source review/local commit/checkpoint"
+    ]
+  },
+  "limits": "Only disjoint source authoring under the frozen five-path scope. No compiler/checker/project hash helper, active output inspection, cache/performance operation, ref/index/worktree mutation by authors, final review or acceptance. Root retains integration/commit/checkpoint duties. C1 attempt3 remains sole validator."
+}

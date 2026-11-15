@@ -1,0 +1,47 @@
+{
+  "inspector": "/root/checkpoint0124_inspection",
+  "outcome": "PASS: zero concrete initial helper concerns",
+  "full_reads": {
+    "verifier": "73beb4",
+    "capture_and_stage": "50d03c",
+    "README_origin_diffs_failure": "eb1bb5"
+  },
+  "mechanical_actual0": [
+    "ab9632",
+    "769595"
+  ],
+  "verified_helper_identities": {
+    "verify-checkpoint.py": {
+      "bytes": 17756,
+      "sha256": "e37f1414942db71169bac948d5b3cc693b3c85084702b5c84cfdb821899455f6"
+    },
+    "capture.py": {
+      "bytes": 4961,
+      "sha256": "645c1385f56bc041ca560eb2d287733d923de623d3f93306df4ded28e70c1021"
+    },
+    "run-stage.py": {
+      "bytes": 2402,
+      "sha256": "8d8f4491d4a0d316eeb638a0381f95af49e4262164bec5eb2911ca31f4b5bf1b"
+    }
+  },
+  "previous_manifest": {
+    "bytes": 17325,
+    "sha256": "c5f4c78be37e60ed792d113c24cd73e4d8c0cc9cd214890a00a262d63a0e40c1"
+  },
+  "old_verifier_reconstructed_byte_identically_after_removing_declared_changes": true,
+  "all_existing_gates_retained": true,
+  "new_strict_transport_gate_verified": true,
+  "all11_transport_record_hashes_verified": true,
+  "mutable_reports_exact": [
+    "reviews/chapter03-standards.md",
+    "reviews/chapter03-spec.md"
+  ],
+  "accepted_reviews_not_newly_mutable": true,
+  "prior_archive_full_hash_root_evidence_reused": true,
+  "exact_archive_root_manifest_independently_compared": true,
+  "preparation_failure_preserved_and_bounded": true,
+  "final_source_or_hold_assessment": false,
+  "capture_or_archive_success": false,
+  "reviewer_executions_or_mutations": false,
+  "recorded_utc": "2026-11-04T23:45:33.872982+00:00"
+}

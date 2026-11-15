@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-04T11:33:27.795101+00:00",
+  "review_axis": "Spec",
+  "checkpoint": "0100",
+  "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+  "report": {
+    "path": "reviews/potential-spec-development-20261104.md",
+    "bytes": 30193,
+    "lines": 150,
+    "sha256": "9bba3ac4ffa5a5dab1e8a32e3a990851f55846a16dd4a16a72605fd00e21a615"
+  },
+  "complete_actual20_assessment": {
+    "path": "provenance/xp01-spec-development-20261104/actual20-complete-spec-assessment-12cb14fc.json",
+    "bytes": 28426,
+    "lines": 673,
+    "sha256": "d270babb974f8abac85b96fd46cca5f82102807ab375ffb1c035a29071030bdd"
+  },
+  "read_progress": {
+    "path": "provenance/xp01-spec-development-20261104/actual20-type-read-progress.json",
+    "bytes": 8580,
+    "lines": 262,
+    "sha256": "6dce46a1a667388e39d1156bf92e7b676cc5738a268ab1e48d759043e928870c"
+  },
+  "source_ledger": {
+    "path": "provenance/xp01-spec-development-20261104/source-and-read-ledger.json",
+    "bytes": 48123,
+    "lines": 1108,
+    "sha256": "647ced252ed6efe229147e1af53e36cab199733ddab054abd1204a6798bf6396"
+  },
+  "focused4": {
+    "path": "provenance/xp01-spec-development-20261104/focused4-terminal-assessment.json",
+    "bytes": 7928,
+    "lines": 127,
+    "sha256": "5b821b09f3b7e25b9fc37865efea63e1bc14f7353b78d3662966f4ac630f8a82"
+  },
+  "current_source_correction": {
+    "path": "provenance/xp01-spec-development-20261104/correction2-and-launch3-assessment.json",
+    "bytes": 22219,
+    "lines": 572,
+    "sha256": "96202ced5c839ccb1ee7a8b5b01c091e3d10c38694315ebb73677160eb96f0ec"
+  },
+  "actual_readback": {
+    "initial_report_all111_lines": true,
+    "successive_new_report_ranges": [
+      [
+        1,
+        9
+      ],
+      [
+        112,
+        123
+      ],
+      [
+        124,
+        129
+      ],
+      [
+        130,
+        150
+      ]
+    ],
+    "all_original_mathematical_assessment_text_retained": true,
+    "complete_final_receipt_lines": [
+      1,
+      673
+    ],
+    "all20_native_lines": [
+      1,
+      532
+    ],
+    "all20_native_bytes": 33371,
+    "whole_outer_lines": 535,
+    "whole_outer_bytes": 33722,
+    "input_records": "Complete pre453 lines, complete post delta and exact unchanged identity/boundary comparison; no missing field or input identity."
+  },
+  "disposition": "Complete same-scope source/focused/actual20 Spec preparation; no concrete unresolved findings. Overall Blocked pending accepted prerequisites and all full candidate/final review/immediate verification gates.",
+  "preserved_other_reports": [
+    {
+      "path": "reviews/chapter02-spec-source-preparation-20261104.md",
+      "bytes": 109354,
+      "lines": 473,
+      "sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007"
+    },
+    {
+      "path": "reviews/shared-foundations-spec-continuation-20261104.md",
+      "bytes": 8862,
+      "lines": 57,
+      "sha256": "450409a89197f229e88e12ff477f7c3e6b60c067fde0eef297a431163a7249d6"
+    }
+  ],
+  "F145_and_potential110_credit": 0,
+  "reviewer_actions": "No compiler, process poll, source/ref/pin/cache/ticket/global-control mutation. Only own XP01 report/provenance writes.",
+  "own_write_hold": true,
+  "hold_condition": "Hold all own report/provenance writes until parent confirms checkpoint0100 uploaded/exposed; read-only discussion allowed."
+}

@@ -1,0 +1,28 @@
+{
+  "recorded_utc": "2026-11-02T13:55:15.382484+00:00",
+  "purpose": "A source-only checkpoint while the primary build continues; no cache companion launch",
+  "independent_assessor": "environment",
+  "evidence": {
+    "checkpoint021_archive_bytes": 145817559,
+    "checkpoint021_stage_regular_bytes": 207660265,
+    "checkpoint021_stage_4k_rounded_bytes": 208474112,
+    "history_bundle_bytes": 71839602,
+    "compressed_source_archive_bytes": 70830735,
+    "work_state_bytes": 64645208,
+    "current_main_source_blob_bytes": 87468121,
+    "approximate_git_object_bytes": 72400000
+  },
+  "estimated_peak": {
+    "restore_phase_bytes": 389000000,
+    "archive_phase_bytes": 355000000,
+    "operation_allowance_bytes": 500000000,
+    "continuing_build_reserve_bytes": 1073741824
+  },
+  "decision": {
+    "source_only_launch_floor_bytes": 1600000000,
+    "prior_floor_bytes": 2000000000,
+    "basis": "The generator removes its restored test clone before writing the final archive. The prior 2GB floor was conservative launch policy, not a generator or user requirement. Unchanged main source, modest new workflow code/logs and a 500MB operation allowance plus approximately 1GiB build reserve support this one source-only capture.",
+    "not_authorized_by_this_record": "No cache companion capture, source/build changes, cleanup or recurring lower floor for arbitrary larger checkpoints. Assess actual selected payload and copy stages separately."
+  },
+  "uncertainty": "Planning allowance, not a bound on arbitrary future work-state growth or unknown concurrent storage consumption."
+}

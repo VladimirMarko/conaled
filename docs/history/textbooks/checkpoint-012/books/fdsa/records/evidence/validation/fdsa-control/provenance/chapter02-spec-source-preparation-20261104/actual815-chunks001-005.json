@@ -1,0 +1,248 @@
+{
+  "recorded_utc": "2026-11-04T10:39:23.351999+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same81-path/112-obligation/ten-shared-unit Spec scope and unchanged exact-F scope.",
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "navigation_index": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/actual-type-ranges.json",
+    "bytes": 232026,
+    "lines": 7349,
+    "sha256": "5f53332f2c9719fc6ce7fe15f6eab6f90a6d7baf9dd1b4cf0e2750d1932ffcef"
+  },
+  "chunks": [
+    {
+      "chunk": 1,
+      "type_numbers": [
+        1,
+        27
+      ],
+      "native_lines": [
+        1,
+        267
+      ],
+      "bytes": 20449,
+      "sha256": "c7f36c5194b6b88926472bea04f7b7b511efdabee6f3e28eb340f5d76fdc3917",
+      "names": [
+        "Resources.RandomQuickSort.exerciseMean",
+        "Resources.RandomQuickSort.literalMean",
+        "Resources.RandomQuickSort.exerciseLaw_lintegral_le",
+        "Resources.RandomQuickSort.literalLaw_lintegral_le",
+        "Resources.RandomQuickSort.exerciseLaw_lintegral_ne_top",
+        "Resources.RandomQuickSort.literalLaw_lintegral_ne_top",
+        "Resources.RandomQuickSort.exerciseLaw_integrable",
+        "Resources.RandomQuickSort.literalLaw_integrable",
+        "Resources.RandomQuickSort.exerciseMean_eq_toReal_lintegral",
+        "Resources.RandomQuickSort.literalMean_eq_toReal_lintegral",
+        "Resources.RandomQuickSort.exerciseMean_nonneg",
+        "Resources.RandomQuickSort.literalMean_nonneg",
+        "Resources.RandomQuickSort.exerciseMean_le",
+        "Resources.RandomQuickSort.literalMean_le",
+        "Resources.RandomQuickSort.exerciseMean_nil",
+        "Resources.RandomQuickSort.literalMean_nil",
+        "Resources.RandomQuickSort.exerciseMean_singleton",
+        "Resources.RandomQuickSort.literalMean_singleton",
+        "Resources.RandomQuickSort.exerciseMean_cons",
+        "Resources.RandomQuickSort.literalMean_comparison",
+        "Resources.RandomQuickSort.exerciseMean_of_all_false",
+        "Resources.RandomQuickSort.literalMean_of_all_false",
+        "Examples.RandomQuickSortMean.empty_uninhabited_means",
+        "Examples.RandomQuickSortMean.singleton_means",
+        "Examples.RandomQuickSortMean.two_key_exercise_mean",
+        "Examples.RandomQuickSortMean.two_key_literal_mean",
+        "Examples.RandomQuickSortMean.three_key_exercise_mean"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "Both random-pivot means quantify over arbitrary payload types and Boolean comparators, with no payload equality, default, finite-carrier or measurability requirement.",
+        "ENNReal integral bounds are 2*n^2+2*n+1 for exercise and Nat division (5*n^2+9*n+2)/2 for literal before coercion. Non-top integrals, real integrability and the toReal bridge are stated explicitly.",
+        "The actual exercise recurrence averages over occurrence indices, uses getElem and eraseIdx for exactly one selected occurrence, retains complementary filters on the same remainder, and adds toll4*tail.length+3.",
+        "Exercise <= literal <= 2*exercise is unconditional in the comparator. All-false premises are local to pairs in the input; their exact means are2*n^2+2*n+1 and2*n^2+5*n+1.",
+        "Empty/uninhabited and singleton cases preserve1 and5/8. The distinct two-key examples preserve13 and39/2; the three-key exercise mean is71/3."
+      ],
+      "read_during_checkpoint0098_hold": true,
+      "persisted_only_after_explicit_hold_release": true
+    },
+    {
+      "chunk": 2,
+      "type_numbers": [
+        28,
+        52
+      ],
+      "native_lines": [
+        268,
+        560
+      ],
+      "bytes": 20990,
+      "sha256": "f141b13122483e8b7a38d8ef00c527da6a3dd1bb489260fa397d361f8197fb45",
+      "names": [
+        "Examples.RandomQuickSortMean.constant_key_payload_means",
+        "Examples.RandomQuickSortMean.two_equal_key_tag_means",
+        "Examples.RandomQuickSortMean.all_equal_three_means",
+        "Examples.RandomQuickSortMean.arbitrary_payload_integrable",
+        "Examples.RandomQuickSortMean.arbitrary_payload_mean_comparison",
+        "Applications.Probability.PermutationOrder.restrictedOrder",
+        "Applications.Probability.PermutationOrder.orders",
+        "Applications.Probability.PermutationOrder.mem_restrictedOrder",
+        "Applications.Probability.PermutationOrder.mem_restrictedOrder_of_complete",
+        "Applications.Probability.PermutationOrder.restrictedOrder_nodup",
+        "Applications.Probability.PermutationOrder.restrictedOrder_toFinset",
+        "Applications.Probability.PermutationOrder.restrictedOrder_length",
+        "Applications.Probability.PermutationOrder.restrictedOrder_perm",
+        "Applications.Probability.PermutationOrder.map_restrictedOrder_sublist",
+        "Applications.Probability.PermutationOrder.filter_restrictedOrder",
+        "Applications.Probability.PermutationOrder.filter_restrictedOrder_of_subset",
+        "Applications.Probability.PermutationOrder.mem_orders",
+        "Applications.Probability.PermutationOrder.orders_nonempty",
+        "Applications.Probability.PermutationOrder.restrictedOrder_mem_orders",
+        "Applications.Probability.PermutationOrder.orders_card",
+        "Applications.Probability.PermutationOrder.uniformOn_restrictedOrder_eq",
+        "Applications.Probability.PermutationOrder.map_restrictedOrder_uniformOn",
+        "Examples.PermutationOrder.positions",
+        "Examples.PermutationOrder.selected",
+        "Examples.PermutationOrder.smaller"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "Constant-key tagged families quantify over arbitrary payload lists and retain both quadratic source-cost formulas without a hidden payload DecidableEq requirement.",
+        "Two equal-key tagged values have exercise/literal means13/19; three equal keys have25/34. Actual integrability and mean comparison retain arbitrary payload/comparator scope.",
+        "restrictedOrder and orders require only DecidableEq on labels. Membership uses pi(a) in positions and a in S, consistent with inverse-order observation; applying pi to the result gives a sublist of positions.",
+        "Nodup, completeness, toFinset, length and permutation claims retain their exact required hypotheses. Restriction by T yields S intersect T, reducing to T only under T subset S.",
+        "Order support is nonempty even for empty selection. Factorial cardinality requires complete Nodup positions. Actual event masses are reciprocal factorial on supported orders and zero otherwise.",
+        "The pushforward theorem equates the actual mapped uniform permutation measure with uniformOn orders. Its only additional typeclasses are the intended source/target measurable spaces and measurable singletons; no default or independent-sample hypothesis appears."
+      ],
+      "read_during_checkpoint0098_hold": true,
+      "persisted_only_after_explicit_hold_release": true
+    },
+    {
+      "chunk": 3,
+      "type_numbers": [
+        53,
+        66
+      ],
+      "native_lines": [
+        561,
+        817
+      ],
+      "bytes": 20787,
+      "sha256": "323779e88952936dd3da782be3e85885c5b86828b4ed44b19e7d12b2ec53a51a",
+      "names": [
+        "Examples.PermutationOrder.positions_nodup",
+        "Examples.PermutationOrder.positions_complete",
+        "Examples.PermutationOrder.law",
+        "Examples.PermutationOrder.selected_structure",
+        "Examples.PermutationOrder.selected_permutation",
+        "Examples.PermutationOrder.selected_orders_card",
+        "Examples.PermutationOrder.order_023_mass",
+        "Examples.PermutationOrder.observed_law",
+        "Examples.PermutationOrder.order_032_mass_via_map",
+        "Examples.PermutationOrder.repeated_order_mass_zero",
+        "Examples.PermutationOrder.nestedObservation",
+        "Examples.PermutationOrder.nestedObservation_eq",
+        "Examples.PermutationOrder.nested_order_30_mass",
+        "Examples.PermutationOrder.singleton_order_mass"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The Fin4 positions are complete and Nodup. Every selected observation has the stated support, length3, Nodup structure and mapped-sublist relation, and is a permutation of[0,2,3].",
+        "The selected order support has six elements. The actual023 event and independently mapped032 event each have ENNReal mass1/6; repeated002 has mass0.",
+        "The observed-law equality retains the same actual law and measurable-space instances. Nested restriction is pointwise equal to the smaller observation on the same permutation, with30 mass1/2.",
+        "The singleton{2} observation equals[2] with mass1. These are unconditional projection statements, not an asserted conditional-independence law."
+      ],
+      "read_during_checkpoint0098_hold": true,
+      "persisted_only_after_explicit_hold_release": true
+    },
+    {
+      "chunk": 4,
+      "type_numbers": [
+        67,
+        74
+      ],
+      "native_lines": [
+        818,
+        1034
+      ],
+      "bytes": 18506,
+      "sha256": "c260fd87b02bdc449035723f53f6309b41d6c5d5b06f40c737d77b6881d0ae89",
+      "names": [
+        "Examples.PermutationOrder.full_order_mass",
+        "Examples.PermutationOrderBoundary.empty_subset_output",
+        "Examples.PermutationOrderBoundary.empty_subset_orders",
+        "Examples.PermutationOrderBoundary.empty_subset_mass",
+        "Examples.PermutationOrderBoundary.empty_index_mass",
+        "Examples.PermutationOrderBoundary.cycle",
+        "Examples.PermutationOrderBoundary.cycle_values",
+        "Examples.PermutationOrderBoundary.cycle_inverse_order"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The full Fin4 order[3,1,0,2] has actual law mass1/24.",
+        "The empty Fin3 subset always yields[], its order support is exactly{[]}, and its empty-list event has mass1.",
+        "The genuinely empty label type still has a permutation-space uniform law with empty observation mass1; no Inhabited Empty premise is introduced.",
+        "The fixed Fin3 cycle sends0 to1,1 to2 and2 to0. Its inverse maps[0,1,2] to[2,0,1], retaining the source orientation."
+      ],
+      "read_during_checkpoint0098_hold": true,
+      "persisted_only_after_explicit_hold_release": true
+    },
+    {
+      "chunk": 5,
+      "type_numbers": [
+        75,
+        79
+      ],
+      "native_lines": [
+        1035,
+        1258
+      ],
+      "bytes": 20711,
+      "sha256": "28e6cb3d035e93494043a268aa4ea619401829ace6e4725d409d9f741a4e0414",
+      "names": [
+        "Examples.PermutationOrderBoundary.cycle_restricted_order",
+        "Examples.PermutationOrderBoundary.cycle_direct_order",
+        "Examples.PermutationOrderBoundary.inverse_and_direct_orders_differ",
+        "Examples.PermutationOrderBoundary.numeric_enumeration_values",
+        "Examples.PermutationOrderBoundary.numeric_enumeration_increasing"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "For the cycle and selected{0,1}, the actual inverse-restricted order is[0,1], whereas direct-map-then-filter gives[1,0]; the next theorem explicitly asserts these results differ.",
+        "The priority enumeration uses positions[0,2,1] and the identity permutation; mapping the spaced integer priority yields[-7,4,100].",
+        "The increasing claim is full List.Pairwise(<) on that actual mapped observation. Numeric label order is not substituted for priority order."
+      ],
+      "read_during_checkpoint0098_hold": true,
+      "persisted_only_after_explicit_hold_release": true
+    }
+  ],
+  "complete_type_count": 79,
+  "complete_native_line_prefix": 1258,
+  "complete_native_byte_prefix": 101443,
+  "new_mathematical_spec_findings": 0,
+  "overall_outcome": "Blocked",
+  "new_type_acceptance_credit": 0,
+  "possible110_credit": 0,
+  "remaining_types": 736,
+  "next_type": 80,
+  "next_native_line": 1259,
+  "printed_proof_elision_boundary": "Any ellipsis already present in Lean output is retained as emitted. No tool truncation, filtered lines or replacement summaries stand in for these complete actual blocks."
+}

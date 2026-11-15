@@ -1,0 +1,66 @@
+{
+  "recorded_utc": "2026-11-04T19:42:02.226026+00:00",
+  "candidate": "bc26994a828eb958fe930c0e46039f9c5addc864",
+  "expectedHead": "591ecdd855bc2fab3f788e6b134cc18aa80a3b6a",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "acceptedHead": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "name": "chapter03-median-of-medians-focused-attempt3-20261104",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Selection.MedianOfMedians",
+    "Examples.MedianOfMedians"
+  ],
+  "expectedPaths": [
+    "Applications/Selection/CountRank.lean",
+    "Applications/Selection/MedianOfMedians.lean",
+    "Applications/Sequences/Chunks.lean",
+    "Examples/ListChunks.lean",
+    "Examples/MedianOfMedians.lean",
+    "Examples/SelectionCountRank.lean"
+  ],
+  "recordDirectory": "chapter03-focused-continuation-20261104",
+  "recordName": "median-of-medians-attempt3-preflight.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was 591ecdd fix(selection): normalize finite query examples (#174)\nHEAD is now at bc26994 fix(selection): connect pivot examples through rank correspondence (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Selection/CountRank.lean",
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d"
+    },
+    {
+      "path": "Applications/Selection/MedianOfMedians.lean",
+      "bytes": 13797,
+      "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba"
+    },
+    {
+      "path": "Applications/Sequences/Chunks.lean",
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493"
+    },
+    {
+      "path": "Examples/ListChunks.lean",
+      "bytes": 2683,
+      "sha256": "161e240f9c07db5b13f9abf5bf09782064adce4862e60fbe35f0eba483c76c78"
+    },
+    {
+      "path": "Examples/MedianOfMedians.lean",
+      "bytes": 9092,
+      "sha256": "0bbbbdab0f2f41f42fd615231d04d29ebeb8f7ffd5cc83e2a6b832cbfcc25f0c"
+    },
+    {
+      "path": "Examples/SelectionCountRank.lean",
+      "bytes": 4423,
+      "sha256": "cc73980788882d39abe44672d89e6a3ce37dfe3b5f5788375255248e8b4a66d2"
+    }
+  ],
+  "candidate_tree": "a04fe3e8309bdf8ec6c0f9fba9c78c24fe9fe02a",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 779382784
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

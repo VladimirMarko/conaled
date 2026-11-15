@@ -1,0 +1,61 @@
+{
+  "recorded_utc": "2026-11-04T20:47:11.744721+00:00",
+  "disposition": "HELD for root focused check; all own source/provenance writes stop until explicit release.",
+  "candidate": "9cf01df8f01eb73ec5a2020995d90bb6b6eaba84",
+  "tree": "4a04531393a50206cb1fe73cfbcc77511172ceeb",
+  "status": "",
+  "scope": [
+    "C03-057"
+  ],
+  "targets": [
+    "Examples.GeneralMedianBounds"
+  ],
+  "new_public_names": 27,
+  "new_private_helpers": 1,
+  "all15_current_source_identities_verified": true,
+  "prior14_sources_byte_identical": true,
+  "prior323_public_headers_preserved": true,
+  "combined_author_public_names": 350,
+  "combined_named_private_helpers": 7,
+  "artifacts": [
+    {
+      "path": "general-pivot-candidate1.json",
+      "bytes": 8359,
+      "sha256": "c26031a625d0ccb9a568f18044e4bd73730c4bc9c70994fcea530b1a29801f91"
+    },
+    {
+      "path": "general-pivot-inventory.json",
+      "bytes": 21101,
+      "sha256": "30aeff2fabbb79aa9ae0e39fff34b43e2772dc5ce8ed9507e9674b32f4647906"
+    },
+    {
+      "path": "GeneralMedianBoundsStatements.lean",
+      "bytes": 1955,
+      "sha256": "9e5704dfe23e89891d9d0d401b5a619208fff591a49b0b00c3112b31bcce500f"
+    },
+    {
+      "path": "general-pivot-review-note.md",
+      "bytes": 10384,
+      "sha256": "9c6553e6f87c23fe0295f693cd1f02490542348ac7e15511c68816ecd87c0985"
+    }
+  ],
+  "readbacks": {
+    "complete_source": "cf8e3a",
+    "all28_headers_and_public_type_program": "45f8e5",
+    "complete_source_case_assessment": "8214fe",
+    "precommit_and_commit": "88bca5"
+  },
+  "validation": "No author compiler/type execution. Coordinator focused result not yet received. Full actual-type/check/audit/independent-review/immediate-verification gates remain pending.",
+  "later078080_source_started": false,
+  "remaining_assigned": [
+    "C03-055 actual cutoff bridge after exact checked worker",
+    "C03-058 generalized algorithm termination/correctness after exact checked worker"
+  ],
+  "planned_later_not_started": [
+    "C03-078 minimum-pivot deterministic policy proof",
+    "C03-080 halving-policy deterministic proof"
+  ],
+  "root_owned_excluded": "C03-058 scalar group-coefficient and affine-majorant arithmetic",
+  "canonical_chapter_rows": 83,
+  "acceptance_claimed": false
+}

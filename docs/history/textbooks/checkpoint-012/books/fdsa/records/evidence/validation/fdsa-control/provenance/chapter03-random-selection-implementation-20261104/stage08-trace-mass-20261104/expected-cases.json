@@ -1,0 +1,151 @@
+{
+  "scope": "Independent finite expectations saved before new Lean source; no universal proof or compiler credit.",
+  "model_source": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/stage07-endpoints-20261104/expected_case_model.py",
+  "model_sha256": "7edb978daacc882721553f8a5f0a2b094f36b8571988e405e28703be5fdaa2c7",
+  "new_observation": "For a fixed initial state, supported full outcomes have distinct traces, including duplicates, empty inputs and invalid ranks. Aggregate trace mass therefore equals the supported full atom mass.",
+  "finite_states": 668,
+  "finite_supported_atoms": 3650,
+  "finite_rows_sha256": "2b61d0686ec5c88601532effc338700f42d2f9174c65c9c776d392899995485d",
+  "cases": [
+    {
+      "input": [
+        7
+      ],
+      "rank": 0,
+      "outcome": [
+        7,
+        [
+          [
+            1,
+            0
+          ]
+        ],
+        9
+      ],
+      "scan": 1,
+      "outcome_mass": "1",
+      "trace_mass": "1"
+    },
+    {
+      "input": [
+        3,
+        1,
+        2
+      ],
+      "rank": 1,
+      "outcome": [
+        2,
+        [
+          [
+            3,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        33
+      ],
+      "scan": 6,
+      "outcome_mass": "1/6",
+      "trace_mass": "1/6"
+    },
+    {
+      "input": [
+        3,
+        -2,
+        8,
+        0,
+        5
+      ],
+      "rank": 3,
+      "outcome": [
+        5,
+        [
+          [
+            5,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        67
+      ],
+      "scan": 15,
+      "outcome_mass": "1/120",
+      "trace_mass": "1/120"
+    },
+    {
+      "input": [
+        4,
+        4,
+        4
+      ],
+      "rank": 1,
+      "outcome": [
+        4,
+        [
+          [
+            3,
+            0
+          ]
+        ],
+        15
+      ],
+      "scan": 3,
+      "outcome_mass": "1/3",
+      "trace_mass": "1/3"
+    },
+    {
+      "input": [],
+      "rank": 0,
+      "outcome": [
+        null,
+        [],
+        2
+      ],
+      "scan": 0,
+      "outcome_mass": "1",
+      "trace_mass": "1"
+    },
+    {
+      "input": [
+        7
+      ],
+      "rank": 1,
+      "outcome": [
+        null,
+        [
+          [
+            1,
+            0
+          ]
+        ],
+        11
+      ],
+      "scan": 1,
+      "outcome_mass": "1",
+      "trace_mass": "1"
+    }
+  ],
+  "nonclaim": "Traces need not identify outcomes across different initial input/rank states. A general unsupported outcome is not a valid witness for exact trace-atom equality."
+}

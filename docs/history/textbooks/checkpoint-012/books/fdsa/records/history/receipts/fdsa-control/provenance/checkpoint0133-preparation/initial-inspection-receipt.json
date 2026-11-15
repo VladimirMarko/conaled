@@ -1,0 +1,37 @@
+{
+  "recorded_scope": "Initial checkpoint0133 operational preparation inspection only; no final hold or capture.",
+  "inspector": "/root/checkpoint0124_inspection",
+  "outcome": "PASS",
+  "unresolved_findings": 0,
+  "full_readme_origin_restorer_diffs": "8f4d0f actual0",
+  "full_verifier_reads": [
+    "8a5870",
+    "4f355d"
+  ],
+  "complete_helpers": "496752",
+  "exact_scope_delta_patches_AST_and_ancestry_bindings": "29e0de actual0",
+  "gates_retained": "All prior73 refs, original five author-advance ancestry rules, exactly one named non-symbolic new integration ref descended XR\u2192660f974\u2192receiver and bound to existing natural-runs worktree; nine existing paths and all other payload/control/acceptance/terminal/unknown/kit gates unchanged.",
+  "previous_root_manifest": {
+    "bytes": 17492,
+    "sha256": "e5e6476b84a5242fcf4d0c8bf1ae0344645eb5bdf4f585e5694232c91157a79d"
+  },
+  "previous_archive": {
+    "bytes": 36475630,
+    "sha256": "ca7309e95b12e2efc5561b689a439814d86b7e172730caa7de0575509ae8164b"
+  },
+  "verified_current_files": {
+    "verify-checkpoint.py": "46e9a1171fcdd63741ee6b55238f496b2dc6ab861d40a9365285725546c6065e",
+    "capture.py": "c7cb110a59c00a23b53144091c993fd4c73e49031e37ad2a42b88ed7c2b7610c",
+    "run-stage.py": "acb676d227df270f5442119f7e13931b1cee521e3b6d778b6d8e9f9731fd62aa",
+    "README.md": "471c91e777372743a8a41879d24635c85f5906e4eb2d722b76a34c5b51de2210"
+  },
+  "creator_and_actual_restorer_pinned": true,
+  "origin_optional_null_clarified_by_immutable_addendum": true,
+  "inspection_mutations": false,
+  "current_source_state_inspected": false,
+  "capture_present_at_check": false,
+  "final_hold_present_at_check": false,
+  "compiler_or_acceptance_execution": false,
+  "inspector_held": true,
+  "recorded_utc": "2026-11-04T22:43:11.010412+00:00"
+}

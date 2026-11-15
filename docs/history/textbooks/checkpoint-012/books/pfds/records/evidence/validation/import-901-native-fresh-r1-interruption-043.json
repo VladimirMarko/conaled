@@ -1,0 +1,19 @@
+{
+  "observed_at": "2026-11-03T18:04:37.727824+00:00",
+  "action": "Interrupt the root-owned native full tool session15007 to isolate the module-format performance investigation",
+  "reason": "Native full had observed Squares256.21s and AD.Core1028.20s; concurrent bounded module-format AD probe timed out180s. Eliminate competing compiler invocation before assessing the alternative.",
+  "record_path": "session/validation/import-901-native-fresh-r1.json",
+  "record_sha256": "ba646b8f369b18b8ec3d80468a7cb5beac77c1569a4f0967018fc0752f1a7fe6",
+  "log_path": "session/validation/import-901-native-fresh-r1.log",
+  "log_sha256": "b56497421ca2ddf28d6c4c78804ce32efd82e8ee933dfa34ca13176f28eb31f1",
+  "wrapper_status_observed": "running",
+  "wrapper_exit_code_observed": null,
+  "wrapper_terminal_result_observed": false,
+  "full_lock_available_after_tool_interrupt": true,
+  "formal_acceptance": false,
+  "compiler_terminal_result": "Only the actual wrapper fields above apply; a tool interruption is not a successful compiler/audit result.",
+  "old_session_not_reusable_after_restore": true,
+  "tool_session_exit_code_observed": 130,
+  "tool_result_is_compiler_result": false,
+  "tool_exit_receipt_added_at": "2026-11-03T18:14:22.954758+00:00"
+}

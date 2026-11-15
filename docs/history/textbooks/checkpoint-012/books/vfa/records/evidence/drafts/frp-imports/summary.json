@@ -1,0 +1,69 @@
+{
+  "baseline_candidate": "cba657b43ed57e15962858713b819058e7d3c3ca",
+  "scope": "Local #1021, two existing import replacements only",
+  "proposed_patch_sha256": "897bd8d56ad65cdbb957654fcb819d3ef99f9ddf09dc6783bf2194173d077082",
+  "changed_source_identities": {
+    "Applications/FRP/Spec.lean": {
+      "original_sha256": "c0b5d8155c574329fac0b4aced18c69322b33f8e4e6bbb5278365a7fc57211f8",
+      "proposed_sha256": "b5df6de8a4ed0188009b4d35c8508512418a8e980a85300691d3585894d22230"
+    },
+    "Applications/FRP/Equivalence.lean": {
+      "original_sha256": "9ea7d5ef3fc907753df528adce7ad773a217179533f68b3190f475f1fa567a02",
+      "proposed_sha256": "0bf867cbfd819fd33dc1a762f17989131a720035ed1b50f65475857b45fb20d9"
+    }
+  },
+  "results": {
+    "Applications.FRP.Spec": {
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 60.455,
+      "started_utc": "2026-11-02T05:39:07.643072+00:00",
+      "finished_utc": "2026-11-02T05:40:08.098483+00:00",
+      "diagnostic_bytes": 0
+    },
+    "Applications.FRP.Equivalence": {
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 109.961,
+      "started_utc": "2026-11-02T05:42:54.784855+00:00",
+      "finished_utc": "2026-11-02T05:44:44.745613+00:00",
+      "diagnostic_bytes": 1439
+    },
+    "Applications.FRP.Frontier": {
+      "status": "timeout",
+      "exit_code": 124,
+      "timed_out": true,
+      "elapsed_seconds": 180.062,
+      "started_utc": "2026-11-02T05:47:09.239954+00:00",
+      "finished_utc": "2026-11-02T05:50:09.302517+00:00",
+      "diagnostic_bytes": 0
+    },
+    "Applications.FRP.Finite": {
+      "status": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 88.378,
+      "started_utc": "2026-11-02T05:50:37.245793+00:00",
+      "finished_utc": "2026-11-02T05:52:05.624250+00:00",
+      "diagnostic_bytes": 0
+    },
+    "Examples.FRP": {
+      "status": "timeout",
+      "exit_code": 124,
+      "timed_out": true,
+      "elapsed_seconds": 180.066,
+      "started_utc": "2026-11-02T05:52:35.797123+00:00",
+      "finished_utc": "2026-11-02T05:55:35.863775+00:00",
+      "diagnostic_bytes": 0
+    }
+  },
+  "client_validation_remaining": [
+    "Applications.FRP.Frontier",
+    "Examples.FRP"
+  ],
+  "corrections": 0,
+  "retries": 0,
+  "integrated_acceptance": false
+}

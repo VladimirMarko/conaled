@@ -1,0 +1,69 @@
+{
+  "recorded_utc": "2026-11-04T07:07:23.804654+00:00",
+  "candidate": "e71092c38cf68cae5b984fd9cea85c9f5b34a570",
+  "parent": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+  "source_identities": {
+    "Applications/Resources/QuickSortTransport.lean": {
+      "bytes": 2170,
+      "lines": 53,
+      "sha256": "628ecc7f867b18887fe4f2fc1c2da1ec02c9fafd0bc8625d2639a45228331d0f"
+    },
+    "Examples/QuickSortTransport.lean": {
+      "bytes": 3022,
+      "lines": 69,
+      "sha256": "8d24b685165e0385a60d160ba59fa68e8922273977bd676d7b4a12ec07158917"
+    }
+  },
+  "public_declarations": [
+    {
+      "name": "Resources.QuickSort.run_map",
+      "assessment": "Independent payload universes; arbitrary f and Bool comparator; complete actual returned pair, with pulled-back comparator. Both filters and recursive results are retained. No injectivity or payload instances."
+    },
+    {
+      "name": "Resources.QuickSort.counts_map",
+      "assessment": "Actual exercise/append pair projection of run_map; no surrogate cost."
+    },
+    {
+      "name": "Resources.QuickSort.exerciseCost_map",
+      "assessment": "Existing first cost projection preserved."
+    },
+    {
+      "name": "Resources.QuickSort.appendCost_map",
+      "assessment": "Existing actual append count projection preserved, including terminal calls."
+    },
+    {
+      "name": "Resources.QuickSort.literalCost_map",
+      "assessment": "Existing sum of actual exercise and append coordinates preserved."
+    },
+    {
+      "name": "Examples.QuickSortTransport.arbitrary_occurrence_lookup",
+      "assessment": "Actual Fin xs.length occurrence lookup preserves full run. The label list need not be complete or Nodup; payload remains arbitrary."
+    },
+    {
+      "name": "Examples.QuickSortTransport.arbitrary_occurrence_costs",
+      "assessment": "All three cost projections consume their public transport APIs with the same label list and comparator."
+    },
+    {
+      "name": "Examples.QuickSortTransport.noninjective_constant_run",
+      "assessment": "Bool-to-Nat constant map is explicitly not injective; still preserves actual run and all duplicate occurrences."
+    },
+    {
+      "name": "Examples.QuickSortTransport.duplicate_fixture",
+      "assessment": "Three distinct occurrence positions map to three equal values, actual exercise25 and append9; uses run_map then existing run_cons."
+    },
+    {
+      "name": "Examples.QuickSortTransport.empty_uninhabited",
+      "assessment": "Empty source type, no default or nonempty assumption; uses actual count transport and nil execution."
+    },
+    {
+      "name": "Examples.QuickSortTransport.comparator_cost_boundary",
+      "assessment": "Two concrete Bool branch choices have actual literal19 versus20; shows comparator correspondence matters, without claiming cost invariance for unrelated comparators."
+    }
+  ],
+  "public_count": 11,
+  "unresolved_source_findings": [],
+  "commit_output": "[work/fdsa-ch02-quicksort e71092c] feat(fdsa): transport actual quicksort observations through payload maps\n 2 files changed, 122 insertions(+)\n create mode 100644 Applications/Resources/QuickSortTransport.lean\n create mode 100644 Examples/QuickSortTransport.lean\n",
+  "focused_checked": false,
+  "elaborated_type_readback": false,
+  "full_acceptance": false
+}

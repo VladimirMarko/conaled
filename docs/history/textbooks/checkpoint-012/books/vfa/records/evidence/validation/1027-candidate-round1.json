@@ -1,0 +1,31 @@
+{
+  "recorded_utc": "2026-11-02T13:49:13.675254+00:00",
+  "ticket": 1027,
+  "base": "6f48c1ab7f1e96056c217ca025390aa58a7955b6",
+  "candidate": "5066fb9d0d0963122332149b3b6984ebea3facda",
+  "tree": "2352eb7a03454d1da1f9be8d0887e7ae830118d4",
+  "isolated_checkout": "/workspace/scratch/0c54f2db1fdf/cache-companion-validation",
+  "tracked_files": [
+    ".gitignore",
+    "AMENDMENT.md",
+    "README.md",
+    "cache_companion.py",
+    "check_pinned_runtime.py",
+    "test_cache_companion.py",
+    "vendor/lake-output-hashes.lean",
+    "vendor/lake_integrity.py"
+  ],
+  "spec_sha256": "9d46adc3d69359b29196a615865ce7503a1a073da007cec34dd187da15807f86",
+  "formal_checkouts": {
+    "conaled": {
+      "head": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "status": ""
+    },
+    "vfa-validation": {
+      "head": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "status": ""
+    }
+  },
+  "validation_status": "pending isolated Python suite and exactly one private literal-file Lake-helper smoke check",
+  "source_cache_capture_performed": false
+}

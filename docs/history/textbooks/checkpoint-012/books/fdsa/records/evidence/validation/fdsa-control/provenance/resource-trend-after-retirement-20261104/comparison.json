@@ -1,0 +1,21 @@
+{
+  "recorded_utc": "2026-11-04T12:13:48.470567+00:00",
+  "first_workspace_allocated_bytes": 17414934528,
+  "second_workspace_allocated_bytes": 17415065600,
+  "visible_workspace_allocation_increase_bytes": 131072,
+  "filesystem_available_before_first_du": 6263693312,
+  "filesystem_available_at_second_completion": 5206806528,
+  "filesystem_available_drop_bytes": 1056886784,
+  "primary_F_lake_allocations_at_120828": {
+    "build": 1660686336,
+    "packages": 7579570176,
+    "config": 1515520,
+    "total": 9241776128
+  },
+  "F_reactive_pipeline_setup_created": "2026-11-04T11:48:01.301362+00:00",
+  "F_reactive_pipeline_setup_bytes": 8321035,
+  "interpretation": "Visible workspace allocation growth does not account for the large filesystem-availability decrease. The observations do not identify an unseen writer, storage accounting cause, or specific external allocation. No outside-workspace inspection or deletion was performed.",
+  "F_run": "71528 still returned running on actual owned poll; no terminal outcome",
+  "central_outputs": "retired_unusable; no compiler/cache use or new build",
+  "new_acceptance": false
+}

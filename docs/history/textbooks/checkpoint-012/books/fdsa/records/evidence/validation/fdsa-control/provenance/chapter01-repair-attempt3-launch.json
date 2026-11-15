@@ -1,0 +1,31 @@
+{
+  "requested_utc": "2026-11-02T22:08:36.921181+00:00",
+  "result": "launched",
+  "command": [
+    "/root/.nix-profile/bin/nix",
+    "--extra-experimental-features",
+    "nix-command flakes",
+    "--option",
+    "build-users-group",
+    "",
+    "develop",
+    "--command",
+    "python3",
+    "/workspace/scratch/845aa1048b05/fdsa-control/provenance/run-chapter01-repair-attempt3.py"
+  ],
+  "cwd": "/workspace/scratch/845aa1048b05/conaled",
+  "output": "/workspace/scratch/845aa1048b05/fdsa-control/reviews/chapter01-repair-attempt3-launcher.log",
+  "checkpoint": "conaled-fdsa-0054-chapter01-session-recovery",
+  "checkpoint_sha256": "a8ebb8440a86730053538746e732d14febb63d661bd024376eba393a6294f0b2",
+  "checkpoint_library_file_id": "libfile_ec03fe0e3c68819181acaad8bbc6e184",
+  "separate_session": true,
+  "scope": "Process lifecycle only. No checker, candidate, pin, mode, guard, audit, or cache-policy change.",
+  "launcher_process": {
+    "pid": 600750,
+    "start_ticks": "9123853",
+    "state": "R",
+    "process_group": 600750,
+    "session": 600750
+  },
+  "launched_utc": "2026-11-02T22:08:36.923047+00:00"
+}

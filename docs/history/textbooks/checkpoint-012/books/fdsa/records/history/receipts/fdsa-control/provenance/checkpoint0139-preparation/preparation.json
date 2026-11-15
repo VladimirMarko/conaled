@@ -1,0 +1,222 @@
+{
+  "format": 1,
+  "recorded_utc": "2026-11-05T03:52:51.230921+00:00",
+  "author": "/root/checkpoint0137_acceptance_inspection",
+  "state": "PREPARED, DISABLED, UNEXECUTED; author writes HELD after this metadata readback",
+  "proposed_checkpoint": "conaled-fdsa-0139-tree-shape-accepted-and-chapter04-progress",
+  "current_accepted_at_assignment": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "prospective_accepted": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "prospective_tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "acceptance_claimed": false,
+  "checkpoint_execution_performed": false,
+  "self_review_pass_claimed": false,
+  "independent_exact_code_and_actual_evidence_inspection_by_root": "Pending; author static checks and readback do not provide independent approval",
+  "prepared_files": {
+    "README.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/README.md",
+      "bytes": 8380,
+      "sha256": "79de0b83a0d2287fb235b86c15c4a5ba2fa89dbb86cbac6972807f6dd482ba23"
+    },
+    "scope-plan.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/scope-plan.json",
+      "bytes": 3171,
+      "sha256": "81aadfab5380241f723fdf5e1d6cff6fa0f45b03cbb6dd0acd82c19ef5743838"
+    },
+    "previous-manifest-origin.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/previous-manifest-origin.json",
+      "bytes": 1521,
+      "sha256": "80fcedb6a6486a2a4bc7933fa9f77752114ea111fd98698d3ea40abe991465ee"
+    },
+    "previous-manifest-0138.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/previous-manifest-0138.json",
+      "bytes": 17907,
+      "sha256": "b9f3b86578c6f50d48045302172200329a04ce6e9d696c427444be64d94c634b"
+    },
+    "historical-manifest-0137.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/historical-manifest-0137.json",
+      "bytes": 17313,
+      "sha256": "3d49f8073e0b81e54ce032007140e9c108e31c9aa734684780804e575a654f5e"
+    },
+    "initial-pending-acceptance-configuration.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/initial-pending-acceptance-configuration.json",
+      "bytes": 990,
+      "sha256": "6e7814ed32faadddd2efe1242191f28a5866956857ff9c8ae66b4ec1f9d00109"
+    },
+    "acceptance-configuration.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/acceptance-configuration.json",
+      "bytes": 990,
+      "sha256": "6e7814ed32faadddd2efe1242191f28a5866956857ff9c8ae66b4ec1f9d00109"
+    },
+    "verify-checkpoint.py": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/verify-checkpoint.py",
+      "bytes": 59014,
+      "sha256": "4691f3fe1c0fca3bee33dec316df085e44b76fe19fef24cc4216867b0c137312"
+    },
+    "capture.py": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/capture.py",
+      "bytes": 9349,
+      "sha256": "886a58f7fe5866b7aaed071a86e7ac3d4dd1bd815722257c78264a7aa06d49f6"
+    },
+    "run-stage.py": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/run-stage.py",
+      "bytes": 3201,
+      "sha256": "143b21d296ae814c52f53e8f0a67f00cc321ec0aef514e3c6fbe5353386527bf"
+    },
+    "verifier-scope-diff.patch": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/verifier-scope-diff.patch",
+      "bytes": 36429,
+      "sha256": "e9cb979c78af90962dbe4c121229445329511f204c96d5fc12baf2fad8912090"
+    },
+    "helper-scope-diffs.patch": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/helper-scope-diffs.patch",
+      "bytes": 13111,
+      "sha256": "7a84ae099a60d74be7e9eedf01cc1d78ad076faa87911dbef5af6d3a940e06e6"
+    }
+  },
+  "configuration_at_preparation": "Both current and initial copies are identical and disabled; current configuration may later be resolved only from actual evidence, while the initial copy and this preparation record remain historical.",
+  "baseline_helpers": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0138-preparation/capture.py",
+      "bytes": 5804,
+      "sha256": "deec4ce85d42829e517ff2c8dc38c676d4817756127c1b4da4fa74b7bb2e9295"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0138-preparation/run-stage.py",
+      "bytes": 2406,
+      "sha256": "e440a090f8ee37dacb8a5501cfe8fe0072052c9dd42adec759b68f1faf59c4b0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0138-preparation/verify-checkpoint.py",
+      "bytes": 40301,
+      "sha256": "fab798a3b8474dbb37c178d136bb32b918f31f90ba944456a2bb85d6b3cb0e13"
+    }
+  ],
+  "unchanged_creator": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/checkpoint_compact.py",
+    "bytes": 10520,
+    "sha256": "5e72098a4b07a80c6861cdaf14f4d2234e33cd7b6a0a79170bae762599cbe078"
+  },
+  "unchanged_by_author": [
+    "All original 0138 helpers and records",
+    "Compact creator and restorer",
+    "298-entry native kit",
+    "Runtime/profile/dependencies and project compiler outputs",
+    "All formal sources and Git references",
+    "Historical author holds and prior checkpoint evidence"
+  ],
+  "prepared_coordinator_schema_sources": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/save_acceptance_once.py",
+      "bytes": 16065,
+      "sha256": "0656f226aea22861733b4acece2f3b3d789ae30b93f61fd436af85b39224c969"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/reconcile_root_gate_once.py",
+      "bytes": 15637,
+      "sha256": "b151c4b2b8bdc0418415f933d6fb34f7e47de2ac7ec8b297a1e587ffa9697c76"
+    }
+  ],
+  "schema_alignment": "Prepared recorder binds observation_reconciliation and index to root-source-type-reconciliation.json; the proposal checks both exact bindings plus public/private counts, actual 90-name program identity, 29/87/10/9/12 inputs, complete axes/root-gate/full/immediate/FF chain. Actual final schemas remain subject to root reconciliation.",
+  "static_checks": {
+    "three_helpers_ast_parsed_without_import_or_execution": true,
+    "full_scope_diffs_recomputed_equal": true,
+    "baseline_three_helpers_exactly_unchanged": true,
+    "shared_ten_path_allowlist_equal": true,
+    "historical_manifests_identity_and_78_74_ref_nine_worktree_shapes_checked": true,
+    "initial_and_current_configuration_disabled_and_byte_identical": true
+  },
+  "read_receipts": [
+    {
+      "tool_chunk": "71cb1b",
+      "actual_exit": 0,
+      "scope": "Complete AGENTS.md, REQUEST.md, original 0138 scope/origin records"
+    },
+    {
+      "tool_chunk": "03a848",
+      "actual_exit": 0,
+      "scope": "Complete repository implement skill"
+    },
+    {
+      "tool_chunk": "00f3a9",
+      "actual_exit": 0,
+      "scope": "Complete review-loop instructions; README build and acceptance section lines 124-307"
+    },
+    {
+      "tool_chunk": "4e7eca",
+      "actual_exit": 0,
+      "scope": "Full local 0138 archive hash and exact manifest verified; 9778 members scanned"
+    },
+    {
+      "tool_chunk": "083804",
+      "actual_exit": 0,
+      "scope": "Archive identity repeated for exact 0138 manifest copy; 0137 historical manifest copied"
+    },
+    {
+      "tool_chunk": "51b87f",
+      "actual_exit": 0,
+      "scope": "Four already closed XT02 focused/type runs, retaining two actual failures; no live full outputs"
+    },
+    {
+      "tool_chunk": "1da045",
+      "actual_exit": 0,
+      "scope": "Complete prepared save_acceptance_once.py, 187 lines"
+    },
+    {
+      "tool_chunk": "ee7154",
+      "actual_exit": 0,
+      "scope": "Complete prepared reconcile_root_gate_once.py, 252 lines"
+    },
+    {
+      "tool_chunk": "5ab4c6",
+      "actual_exit": 0,
+      "scope": "Complete capture.py, run-stage.py, scope-plan, origin and pending configuration; before later fixed-list addition, which is fully shown in final diff"
+    },
+    {
+      "tool_chunk": "8d5615",
+      "actual_exit": 0,
+      "scope": "Proposed verifier lines 490-760 before four later direct schema checks, all included in final diff"
+    },
+    {
+      "tool_chunk": "5636af",
+      "actual_exit": 0,
+      "scope": "Complete final README (39 lines) and helper-scope-diffs.patch (140 lines)"
+    },
+    {
+      "tool_chunk": "23eda2",
+      "actual_exit": 0,
+      "scope": "Final verifier-scope-diff.patch lines 1-250 of 495"
+    },
+    {
+      "tool_chunk": "8cc5fc",
+      "actual_exit": 0,
+      "scope": "Final verifier-scope-diff.patch lines 251-495; completes final diff readback"
+    },
+    {
+      "tool_chunk": "973478",
+      "actual_exit": 0,
+      "scope": "Final three helpers AST-only parsing, original helper rehash, pending config preservation, exact diff regeneration and execution-artifact absence"
+    }
+  ],
+  "readback_boundary": "The prior full operational assessment of the exact 0138 helpers is retained. Every final 0138-to-0139 change was read in complete bounded diff output. One combined return ce9aa0 was visually truncated and is not used as complete-read evidence; 8cc5fc supplies its full replacement. No claim of execution testing or independent approval is made.",
+  "pending_actual_requirements": [
+    "Actual full terminal, complete closed log, exhaustive audit and exact matching verification; no count or terminal is predicted.",
+    "Both original independent final assessments and final holds, with complete source/type/validation scope and zero unresolved findings.",
+    "Actual root gate, immediate verification and exact local book 904-to-e61 fast-forward before actual acceptance.json.",
+    "Actual final-inputs-after-full identity and actual five audit counts to resolve null configuration fields.",
+    "Actual progress inventory: exact 113 prior rows and six exact new closures, conditionally totaling 119; failed focus outcomes retained.",
+    "Actual selected subset of the ten-path old-control update ceiling; unexpected changes require correction or independently reviewed scope expansion.",
+    "Final structural design-note hold and all source/review writer holds; old holds must remain unchanged.",
+    "Root independent exact-code/evidence inspection receipt and final write-hold record; neither is fabricated by this author.",
+    "Actual capture-time and precreation filesystem headroom under the unchanged rounded-control +96MiB +32MiB formula."
+  ],
+  "execution_prohibitions_observed": [
+    "No proposed helper, checkpoint creator/verifier/restorer or compiler run",
+    "No session polling",
+    "No live full-check log or compiler-object hashing",
+    "No source/ref/dependency/profile mutation",
+    "No upload or other Library access"
+  ],
+  "author_write_scope": "Only new files inside provenance/checkpoint0139-preparation for this preparation task; earlier authorized resource/helper notes already completed separately.",
+  "future_upload_is_not_prerequisite_for_capture": true,
+  "author_hold": "No further proposal changes after metadata readback unless root requests corrections; root independently reviews and supplies actual resolution."
+}

@@ -1,0 +1,734 @@
+{
+  "recorded_utc": "2026-11-04T20:29:36.451019+00:00",
+  "finding": "C03-RANDOM-MEAN-ELAB-003",
+  "state": "Proposed examples-only elaboration correction, uncompiled by author.",
+  "fixed_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "starting_candidate": "35d02bac718a7fdc84161dfa802fbc757c62b648",
+  "source_files": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3",
+      "public_names": [
+        "Resources.RandomSelection.pivotRun",
+        "Resources.RandomSelection.pivotRun_exact",
+        "Resources.RandomSelection.stepRun",
+        "Resources.RandomSelection.stepRun_eq",
+        "Resources.RandomSelection.stepRun_child",
+        "Resources.RandomSelection.stepRun_semantics",
+        "Resources.RandomSelection.stepRun_ranked",
+        "Resources.RandomSelection.stepRun_cost_bounds",
+        "Resources.RandomSelection.pivotLaw",
+        "Resources.RandomSelection.pivotLaw_support",
+        "Resources.RandomSelection.pivotLaw_event"
+      ],
+      "git_blob": "0307419d586ac03af372629ef264be9a92295f55"
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e",
+      "public_names": [
+        "Examples.RandomSelection.singleton_step",
+        "Examples.RandomSelection.duplicate_middle",
+        "Examples.RandomSelection.selected_side_is_not_larger_side",
+        "Examples.RandomSelection.selected_side_valid",
+        "Examples.RandomSelection.duplicate_ranked",
+        "Examples.RandomSelection.duplicate_source_bound",
+        "Examples.RandomSelection.duplicate_zero_probability",
+        "Examples.RandomSelection.duplicate_one_probability"
+      ],
+      "git_blob": "6f505d29658dc3953baf3aa859205eb7f0569a9a"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionRun.lean",
+      "bytes": 12714,
+      "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718",
+      "public_names": [
+        "Resources.RandomSelection.Trace",
+        "Resources.RandomSelection.Outcome",
+        "Resources.RandomSelection.scanVolume",
+        "Resources.RandomSelection.scanVolume_nil",
+        "Resources.RandomSelection.scanVolume_cons",
+        "Resources.RandomSelection.prepend",
+        "Resources.RandomSelection.run",
+        "Resources.RandomSelection.run_nil",
+        "Resources.RandomSelection.run_cons",
+        "Resources.RandomSelection.run_value",
+        "Resources.RandomSelection.run_ranked",
+        "Resources.RandomSelection.run_none",
+        "Resources.RandomSelection.run_valid",
+        "Resources.RandomSelection.run_active_calls_le",
+        "Resources.RandomSelection.run_initial_scan_le",
+        "Resources.RandomSelection.run_scanVolume_le",
+        "Resources.RandomSelection.run_source_bridge",
+        "Resources.RandomSelection.run_trace_entries",
+        "Resources.RandomSelection.run_source_quadratic",
+        "Resources.RandomSelection.select",
+        "Resources.RandomSelection.select_value",
+        "Resources.RandomSelection.select_none",
+        "Resources.RandomSelection.select_some_iff",
+        "Resources.RandomSelection.scanLaw",
+        "Resources.RandomSelection.sourceLaw",
+        "Resources.RandomSelection.scanLaw_support",
+        "Resources.RandomSelection.scanLaw_support_finite",
+        "Resources.RandomSelection.sourceLaw_support",
+        "Resources.RandomSelection.sourceLaw_support_finite"
+      ],
+      "git_blob": "4af2a079ad55005657eeac2eaf4d3dd2a3a3ac11"
+    },
+    {
+      "path": "Examples/RandomSelectionRun.lean",
+      "bytes": 3770,
+      "sha256": "76504fe5fa77c581b8a7e3c9f3e0247c8a927adee8b308f84be6167e0ea20e0f",
+      "public_names": [
+        "Examples.RandomSelectionRun.empty_failure",
+        "Examples.RandomSelectionRun.singleton_execution",
+        "Examples.RandomSelectionRun.invalid_singleton",
+        "Examples.RandomSelectionRun.rank_zero_public_failure",
+        "Examples.RandomSelectionRun.two_key_execution",
+        "Examples.RandomSelectionRun.duplicate_execution",
+        "Examples.RandomSelectionRun.two_key_first_path",
+        "Examples.RandomSelectionRun.two_key_long_path",
+        "Examples.RandomSelectionRun.same_value_different_scan",
+        "Examples.RandomSelectionRun.maximum_scan_on_pair",
+        "Examples.RandomSelectionRun.bounded_actual_pair_calls",
+        "Examples.RandomSelectionRun.arbitrary_supported_rank"
+      ],
+      "git_blob": "ca900f902acde3c091e67f90108c2adb03b321cb"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionMean.lean",
+      "bytes": 16493,
+      "sha256": "5a7d396ed0d451c0b0ec51493c004b721c804c69263ad7c659f023cab3ddda8f",
+      "git_blob": "b777b0de341a7cb0df0b1b4a2542904250959de1",
+      "public_names": [
+        "Resources.RandomSelection.workExpectation",
+        "Resources.RandomSelection.workExpectation_mono",
+        "Resources.RandomSelection.workExpectation_const",
+        "Resources.RandomSelection.workExpectation_add",
+        "Resources.RandomSelection.workExpectation_mul",
+        "Resources.RandomSelection.workExpectation_nil",
+        "Resources.RandomSelection.workExpectation_cons",
+        "Resources.RandomSelection.scanExpectation",
+        "Resources.RandomSelection.sourceExpectation",
+        "Resources.RandomSelection.scanExpectation_eq_workExpectation",
+        "Resources.RandomSelection.sourceExpectation_eq_workExpectation",
+        "Resources.RandomSelection.scanExpectation_quadratic_le",
+        "Resources.RandomSelection.sourceExpectation_quadratic_le",
+        "Resources.RandomSelection.scanExpectation_ne_top",
+        "Resources.RandomSelection.sourceExpectation_ne_top",
+        "Resources.RandomSelection.scanLaw_integrable",
+        "Resources.RandomSelection.sourceLaw_integrable",
+        "Resources.RandomSelection.scanExpectation_initial_le",
+        "Resources.RandomSelection.sourceExpectation_comparison",
+        "Resources.RandomSelection.scanExpectation_nil",
+        "Resources.RandomSelection.sourceExpectation_nil",
+        "Resources.RandomSelection.scanExpectation_cons",
+        "Resources.RandomSelection.scanMean",
+        "Resources.RandomSelection.sourceMean",
+        "Resources.RandomSelection.scanMean_eq_toReal",
+        "Resources.RandomSelection.sourceMean_eq_toReal",
+        "Resources.RandomSelection.scanMean_nonneg",
+        "Resources.RandomSelection.sourceMean_nonneg",
+        "Resources.RandomSelection.scanMean_initial_le",
+        "Resources.RandomSelection.scanMean_quadratic_le",
+        "Resources.RandomSelection.sourceMean_quadratic_le",
+        "Resources.RandomSelection.sourceMean_comparison",
+        "Resources.RandomSelection.scanMean_nil",
+        "Resources.RandomSelection.sourceMean_nil"
+      ],
+      "private_helpers": [
+        "Resources.RandomSelection.weighted_bind",
+        "Resources.RandomSelection.weighted_pure",
+        "Resources.RandomSelection.weighted_map",
+        "Resources.RandomSelection.weighted_add",
+        "Resources.RandomSelection.weighted_const",
+        "Resources.RandomSelection.weighted_mono_support",
+        "Resources.RandomSelection.lintegral_nat_eq",
+        "Resources.RandomSelection.lintegral_nat_le_of_support",
+        "Resources.RandomSelection.integrable_nat_of_lower_finite",
+        "Resources.RandomSelection.integral_nat_eq"
+      ],
+      "imports": [
+        "Applications.Resources.RandomSelectionRun",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+        "Mathlib.MeasureTheory.Function.L1Space.Integrable",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "Mathlib.Basic.ENNReal.BigOperators"
+      ],
+      "options": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true"
+      ]
+    },
+    {
+      "path": "Examples/RandomSelectionMean.lean",
+      "bytes": 5962,
+      "sha256": "b9c83ac6e4dda31c6c70d6ccbf021cfcad5ca8317f5a3bf1133788fc559bb7af",
+      "git_blob": "ae7113072d39c3549208b52feae61e884c5735d5",
+      "public_names": [
+        "Examples.RandomSelectionMean.empty_means",
+        "Examples.RandomSelectionMean.singleton_means",
+        "Examples.RandomSelectionMean.invalid_singleton_means",
+        "Examples.RandomSelectionMean.two_key_scan_law",
+        "Examples.RandomSelectionMean.two_key_source_law",
+        "Examples.RandomSelectionMean.two_key_scan_mean",
+        "Examples.RandomSelectionMean.two_key_source_mean",
+        "Examples.RandomSelectionMean.duplicate_scan_law",
+        "Examples.RandomSelectionMean.duplicate_source_law",
+        "Examples.RandomSelectionMean.duplicate_means",
+        "Examples.RandomSelectionMean.two_key_scan_step",
+        "Examples.RandomSelectionMean.arbitrary_input_integrable",
+        "Examples.RandomSelectionMean.actual_mean_bridge",
+        "Examples.RandomSelectionMean.selected_value_and_mean_bounds"
+      ],
+      "private_helpers": [
+        "Examples.RandomSelectionMean.integral_nat_map_fin"
+      ],
+      "imports": [
+        "Applications.Resources.RandomSelectionMean",
+        "Examples.RandomSelectionRun",
+        "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "options": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true"
+      ]
+    }
+  ],
+  "changed_paths": [
+    "Examples/RandomSelectionMean.lean"
+  ],
+  "changed_proofs": [
+    "duplicate_source_law",
+    "two_key_scan_step"
+  ],
+  "example_headers_before_after_equal": [
+    {
+      "name": "Examples.RandomSelectionMean.empty_means",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem empty_means (k : Nat) :\n    scanMean k ([] : List \u03b1) = 0 \u2227 sourceMean k ([] : List \u03b1) = 2"
+    },
+    {
+      "name": "Examples.RandomSelectionMean.singleton_means",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem singleton_means (x : \u03b1) : scanMean 0 [x] = 1 \u2227 sourceMean 0 [x] = 9"
+    },
+    {
+      "name": "Examples.RandomSelectionMean.invalid_singleton_means",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem invalid_singleton_means :\n    scanMean 1 ([7] : List Nat) = 1 \u2227 sourceMean 1 ([7] : List Nat) = 11"
+    },
+    {
+      "name": "Examples.RandomSelectionMean.integral_nat_map_fin",
+      "kind": "theorem",
+      "private": true,
+      "header": "private theorem integral_nat_map_fin {n : Nat} (p : PMF (Fin n)) (f : Fin n \u2192 Nat) :\n    (\u222b k : Nat, (k : \u211d) \u2202(p.map f).toMeasure) =\n      \u2211 i : Fin n, (p i).toReal * (f i : \u211d)"
+    },
+    {
+      "name": "Examples.RandomSelectionMean.two_key_scan_law",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem two_key_scan_law :\n    scanLaw 0 ([0, 1] : List Nat) =\n      PMF.map (fun i : Fin 2 => if i = 0 then 2 else 3)\n        (Resources.RandomQuickSort.uniformIndex 1)"
+    },
+    {
+      "name": "Examples.RandomSelectionMean.two_key_source_law",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem two_key_source_law :\n    sourceLaw 0 ([0, 1] : List Nat) =\n      PMF.map (fun i : Fin 2 => if i = 0 then 11 else 20)\n        (Resources.RandomQuickSort.uniformIndex 1)"
+    },
+    {
+      "name": "Examples.RandomSelectionMean.two_key_scan_mean",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem two_key_scan_mean : scanMean 0 ([0, 1] : List Nat) = (5 : \u211d) / 2"
+    },
+    {
+      "name": "Examples.RandomSelectionMean.two_key_source_mean",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem two_key_source_mean : sourceMean 0 ([0, 1] : List Nat) = (31 : \u211d) / 2"
+    },
+    {
+      "name": "Examples.RandomSelectionMean.duplicate_scan_law",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem duplicate_scan_law (x : \u03b1) : scanLaw 1 [x, x] = PMF.pure 2"
+    },
+    {
+      "name": "Examples.RandomSelectionMean.duplicate_source_law",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem duplicate_source_law (x : \u03b1) :\n    sourceLaw 1 [x, x] = PMF.map (fun i : Fin 2 => 12 + i.val)\n      (Resources.RandomQuickSort.uniformIndex 1)"
+    },
+    {
+      "name": "Examples.RandomSelectionMean.duplicate_means",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem duplicate_means (x : \u03b1) :\n    scanMean 1 [x, x] = 2 \u2227 sourceMean 1 [x, x] = (25 : \u211d) / 2"
+    },
+    {
+      "name": "Examples.RandomSelectionMean.two_key_scan_step",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem two_key_scan_step :\n    scanExpectation 0 ([0, 1] : List Nat) =\n      2 + (2 : \u211d\u22650\u221e)\u207b\u00b9 * scanExpectation 0 ([0] : List Nat)"
+    },
+    {
+      "name": "Examples.RandomSelectionMean.arbitrary_input_integrable",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem arbitrary_input_integrable (k : Nat) (xs : List \u03b1) :\n    Integrable (fun w : Nat => (w : \u211d)) (scanLaw k xs).toMeasure \u2227\n      Integrable (fun t : Nat => (t : \u211d)) (sourceLaw k xs).toMeasure"
+    },
+    {
+      "name": "Examples.RandomSelectionMean.actual_mean_bridge",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem actual_mean_bridge (k : Nat) (xs : List \u03b1) :\n    scanMean k xs \u2264 sourceMean k xs \u2227 sourceMean k xs \u2264 9 * scanMean k xs + 2"
+    },
+    {
+      "name": "Examples.RandomSelectionMean.selected_value_and_mean_bounds",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem selected_value_and_mean_bounds (k : Nat) (xs : List \u03b1) (hk : k < xs.length)\n    (result : Outcome \u03b1) (hr : result \u2208 (run k xs).support) :\n    \u2203 a, result.1 = some a \u2227 Applications.Selection.RankedAt xs k a \u2227\n      (xs.length : \u211d) \u2264 scanMean k xs \u2227 scanMean k xs \u2264 sourceMean k xs"
+    }
+  ],
+  "all_108_public_headers_preserved": true,
+  "all_13_authored_private_helper_headers_and_bodies_preserved": true,
+  "all_definitions_and_cost_observations_preserved": true,
+  "all_5_other_sources_byte_identical": true,
+  "actual_built_mean_core_byte_identical": true,
+  "all_imports_options_universes_variables_unchanged": true,
+  "all_numeric_expected_cases_unchanged": true,
+  "old_public_targets": [
+    "Resources.RandomSelection.pivotRun",
+    "Resources.RandomSelection.pivotRun_exact",
+    "Resources.RandomSelection.stepRun",
+    "Resources.RandomSelection.stepRun_eq",
+    "Resources.RandomSelection.stepRun_child",
+    "Resources.RandomSelection.stepRun_semantics",
+    "Resources.RandomSelection.stepRun_ranked",
+    "Resources.RandomSelection.stepRun_cost_bounds",
+    "Resources.RandomSelection.pivotLaw",
+    "Resources.RandomSelection.pivotLaw_support",
+    "Resources.RandomSelection.pivotLaw_event",
+    "Examples.RandomSelection.singleton_step",
+    "Examples.RandomSelection.duplicate_middle",
+    "Examples.RandomSelection.selected_side_is_not_larger_side",
+    "Examples.RandomSelection.selected_side_valid",
+    "Examples.RandomSelection.duplicate_ranked",
+    "Examples.RandomSelection.duplicate_source_bound",
+    "Examples.RandomSelection.duplicate_zero_probability",
+    "Examples.RandomSelection.duplicate_one_probability",
+    "Resources.RandomSelection.Trace",
+    "Resources.RandomSelection.Outcome",
+    "Resources.RandomSelection.scanVolume",
+    "Resources.RandomSelection.scanVolume_nil",
+    "Resources.RandomSelection.scanVolume_cons",
+    "Resources.RandomSelection.prepend",
+    "Resources.RandomSelection.run",
+    "Resources.RandomSelection.run_nil",
+    "Resources.RandomSelection.run_cons",
+    "Resources.RandomSelection.run_value",
+    "Resources.RandomSelection.run_ranked",
+    "Resources.RandomSelection.run_none",
+    "Resources.RandomSelection.run_valid",
+    "Resources.RandomSelection.run_active_calls_le",
+    "Resources.RandomSelection.run_initial_scan_le",
+    "Resources.RandomSelection.run_scanVolume_le",
+    "Resources.RandomSelection.run_source_bridge",
+    "Resources.RandomSelection.run_trace_entries",
+    "Resources.RandomSelection.run_source_quadratic",
+    "Resources.RandomSelection.select",
+    "Resources.RandomSelection.select_value",
+    "Resources.RandomSelection.select_none",
+    "Resources.RandomSelection.select_some_iff",
+    "Resources.RandomSelection.scanLaw",
+    "Resources.RandomSelection.sourceLaw",
+    "Resources.RandomSelection.scanLaw_support",
+    "Resources.RandomSelection.scanLaw_support_finite",
+    "Resources.RandomSelection.sourceLaw_support",
+    "Resources.RandomSelection.sourceLaw_support_finite",
+    "Examples.RandomSelectionRun.empty_failure",
+    "Examples.RandomSelectionRun.singleton_execution",
+    "Examples.RandomSelectionRun.invalid_singleton",
+    "Examples.RandomSelectionRun.rank_zero_public_failure",
+    "Examples.RandomSelectionRun.two_key_execution",
+    "Examples.RandomSelectionRun.duplicate_execution",
+    "Examples.RandomSelectionRun.two_key_first_path",
+    "Examples.RandomSelectionRun.two_key_long_path",
+    "Examples.RandomSelectionRun.same_value_different_scan",
+    "Examples.RandomSelectionRun.maximum_scan_on_pair",
+    "Examples.RandomSelectionRun.bounded_actual_pair_calls",
+    "Examples.RandomSelectionRun.arbitrary_supported_rank",
+    "Resources.RandomSelection.workExpectation",
+    "Resources.RandomSelection.workExpectation_mono",
+    "Resources.RandomSelection.workExpectation_const",
+    "Resources.RandomSelection.workExpectation_add",
+    "Resources.RandomSelection.workExpectation_mul",
+    "Resources.RandomSelection.workExpectation_nil",
+    "Resources.RandomSelection.workExpectation_cons",
+    "Resources.RandomSelection.scanExpectation",
+    "Resources.RandomSelection.sourceExpectation",
+    "Resources.RandomSelection.scanExpectation_eq_workExpectation",
+    "Resources.RandomSelection.sourceExpectation_eq_workExpectation",
+    "Resources.RandomSelection.scanExpectation_quadratic_le",
+    "Resources.RandomSelection.sourceExpectation_quadratic_le",
+    "Resources.RandomSelection.scanExpectation_ne_top",
+    "Resources.RandomSelection.sourceExpectation_ne_top",
+    "Resources.RandomSelection.scanLaw_integrable",
+    "Resources.RandomSelection.sourceLaw_integrable",
+    "Resources.RandomSelection.scanExpectation_initial_le",
+    "Resources.RandomSelection.sourceExpectation_comparison",
+    "Resources.RandomSelection.scanExpectation_nil",
+    "Resources.RandomSelection.sourceExpectation_nil",
+    "Resources.RandomSelection.scanExpectation_cons",
+    "Resources.RandomSelection.scanMean",
+    "Resources.RandomSelection.sourceMean",
+    "Resources.RandomSelection.scanMean_eq_toReal",
+    "Resources.RandomSelection.sourceMean_eq_toReal",
+    "Resources.RandomSelection.scanMean_nonneg",
+    "Resources.RandomSelection.sourceMean_nonneg",
+    "Resources.RandomSelection.scanMean_initial_le",
+    "Resources.RandomSelection.scanMean_quadratic_le",
+    "Resources.RandomSelection.sourceMean_quadratic_le",
+    "Resources.RandomSelection.sourceMean_comparison",
+    "Resources.RandomSelection.scanMean_nil",
+    "Resources.RandomSelection.sourceMean_nil",
+    "Examples.RandomSelectionMean.empty_means",
+    "Examples.RandomSelectionMean.singleton_means",
+    "Examples.RandomSelectionMean.invalid_singleton_means",
+    "Examples.RandomSelectionMean.two_key_scan_law",
+    "Examples.RandomSelectionMean.two_key_source_law",
+    "Examples.RandomSelectionMean.two_key_scan_mean",
+    "Examples.RandomSelectionMean.two_key_source_mean",
+    "Examples.RandomSelectionMean.duplicate_scan_law",
+    "Examples.RandomSelectionMean.duplicate_source_law",
+    "Examples.RandomSelectionMean.duplicate_means",
+    "Examples.RandomSelectionMean.two_key_scan_step",
+    "Examples.RandomSelectionMean.arbitrary_input_integrable",
+    "Examples.RandomSelectionMean.actual_mean_bridge",
+    "Examples.RandomSelectionMean.selected_value_and_mean_bounds"
+  ],
+  "prepared_statement_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/mean-correction3-20261104/Statements108-mean-correction3.lean",
+    "bytes": 5939,
+    "sha256": "a323a5014823dfdacd05249b5829b83d51eb2741cd8964601d02ba6aecb9f46e"
+  },
+  "statement_program_byte_identical_to_predecessor": true,
+  "statement_and_case_review": [
+    {
+      "name": "duplicate_source_law",
+      "expected": "For every x, actual duplicate source costs are12+i for uniformly sampled i:Fin2, hence values12 and13 each at probability1/2.",
+      "actual_diagnostic": "After PMF.map_comp, the source projection composed with the actual duplicate execution function remained as a definitional function equality.",
+      "correction": "Close exactly that remaining definitional equality with rfl, reducing Function.comp and the actual result projections.",
+      "retained_connection": [
+        "sourceLaw",
+        "Examples.RandomSelectionRun.duplicate_execution",
+        "PMF.map_comp"
+      ],
+      "preservation": "No statement, function, probability, index policy or cost change; arbitrary ordered x with duplicates remains explicit."
+    },
+    {
+      "name": "two_key_scan_step",
+      "expected": "The actual rank0 scan expectation on [0,1] is2 plus half the actual singleton [0] expectation.",
+      "actual_diagnostic": "Fin.sum_univ_two did not match the sum while the finite type was still written using [1].length+1.",
+      "correction": "After scanExpectation_cons, use change to expose the definitionally equal Fin2 sum with the same actual stepRun branches, then rewrite Fin.sum_univ_two and use the existing branch calculation.",
+      "retained_connection": [
+        "scanExpectation_cons",
+        "stepRun_eq",
+        "Applications.Selection.partition3_eq_filters",
+        "Fin.sum_univ_two"
+      ],
+      "preservation": "The same selected-child recurrence, direct equal termination and exact constants2 and1/2 are retained. The proof-level type normalization adds no assumption or new law."
+    }
+  ],
+  "retained_whole_mean_claim_assessment": [
+    {
+      "names": [
+        "workExpectation",
+        "workExpectation_mono",
+        "workExpectation_const",
+        "workExpectation_add",
+        "workExpectation_mul",
+        "workExpectation_nil",
+        "workExpectation_cons"
+      ],
+      "assessment": "Weights are exactly the existing run PMF. General observations are nonnegative extended reals and may have infinite expectation. Laws use only PMF normalization, nonnegative summation and support inequalities. The conditional equation retains the exact measured step, actual selected child, recorded occurrence and direct return; it assumes no size independence or desired drift."
+    },
+    {
+      "names": [
+        "scanExpectation",
+        "sourceExpectation",
+        "scanExpectation_eq_workExpectation",
+        "sourceExpectation_eq_workExpectation"
+      ],
+      "assessment": "Definitions are standard lower integrals of the existing Nat marginal laws. Their weighted-run equations are proved by PMF map transport, preserving the coupling and unrestricted payload universe. No new probability law is assigned."
+    },
+    {
+      "names": [
+        "scanExpectation_quadratic_le",
+        "sourceExpectation_quadratic_le",
+        "scanExpectation_ne_top",
+        "sourceExpectation_ne_top",
+        "scanLaw_integrable",
+        "sourceLaw_integrable"
+      ],
+      "assessment": "Existing actual pathwise finite support bounds prove lower-expectation finiteness and genuine real integrability. Natural division precedes the cast in the triangular bound. No linear expected bound, payload measurability, finite payload type or valid-rank premise is assumed."
+    },
+    {
+      "names": [
+        "scanExpectation_initial_le",
+        "sourceExpectation_comparison",
+        "scanExpectation_nil",
+        "sourceExpectation_nil",
+        "scanExpectation_cons"
+      ],
+      "assessment": "The first full scan supplies the lower bound for all worker ranks. The same-run pathwise W<=T<=9W+2 supplies the affine mean bridge, including invalid empty-continuation cost 2. The scan equation pays active n and averages only the actual selected strict child, with zero scan continuation on equal-block termination."
+    },
+    {
+      "names": [
+        "scanMean",
+        "sourceMean",
+        "scanMean_eq_toReal",
+        "sourceMean_eq_toReal",
+        "scanMean_nonneg",
+        "sourceMean_nonneg",
+        "scanMean_initial_le",
+        "scanMean_quadratic_le",
+        "sourceMean_quadratic_le",
+        "sourceMean_comparison",
+        "scanMean_nil",
+        "sourceMean_nil"
+      ],
+      "assessment": "These are actual real integrals on Nat. Separate finiteness theorems precede every finite-order transport from ENNReal, avoiding the toReal(infinity)=0 trap. Ranks remain zero-based worker ranks; no assertion about the public select rank-zero tariff is changed."
+    }
+  ],
+  "retained_all_mean_cases": [
+    {
+      "names": [
+        "empty_means"
+      ],
+      "expected": "Every worker rank on the empty list has means W=0,T=2, without an inhabited-payload premise.",
+      "connections": [
+        "scanMean_nil",
+        "sourceMean_nil"
+      ]
+    },
+    {
+      "names": [
+        "singleton_means"
+      ],
+      "expected": "For arbitrary x, valid singleton rank0 has means W=1,T=9.",
+      "connections": [
+        "Examples.RandomSelectionRun.singleton_execution",
+        "scanMean",
+        "sourceMean",
+        "scanLaw",
+        "sourceLaw",
+        "PMF.pure_map",
+        "PMF.toMeasure_pure"
+      ]
+    },
+    {
+      "names": [
+        "invalid_singleton_means"
+      ],
+      "expected": "Invalid worker rank1 on [7] has means W=1,T=11, retaining the empty continuation.",
+      "connections": [
+        "Examples.RandomSelectionRun.invalid_singleton",
+        "scanMean",
+        "sourceMean",
+        "PMF.pure_map",
+        "PMF.toMeasure_pure"
+      ]
+    },
+    {
+      "names": [
+        "two_key_scan_law",
+        "two_key_source_law",
+        "two_key_scan_mean",
+        "two_key_source_mean"
+      ],
+      "expected": "The actual two-key occurrence law has W=2 or3 and T=11 or20, each with weight1/2, giving real means5/2 and31/2. Both finite indices are exhausted.",
+      "connections": [
+        "Examples.RandomSelectionRun.two_key_execution",
+        "PMF.map_comp",
+        "scanMean",
+        "sourceMean",
+        "PMF.integral_eq_sum",
+        "RandomQuickSort.uniformIndex_apply"
+      ]
+    },
+    {
+      "names": [
+        "duplicate_scan_law",
+        "duplicate_source_law",
+        "duplicate_means"
+      ],
+      "expected": "For every x, the equal-value worker rank1 law has constant scan2 and indexed source costs12+i for i:Fin2, hence source mean25/2. No distinct-value resampling or Nodup assumption occurs.",
+      "connections": [
+        "Examples.RandomSelectionRun.duplicate_execution",
+        "PMF.map_comp",
+        "PMF.map_const",
+        "PMF.integral_eq_sum",
+        "RandomQuickSort.uniformIndex_apply"
+      ]
+    },
+    {
+      "names": [
+        "two_key_scan_step"
+      ],
+      "expected": "The actual scan expectation equation on [0,1] is E[W]=2+(1/2)E[W on [0]], with only the actual pivot-one child.",
+      "connections": [
+        "scanExpectation_cons",
+        "stepRun_eq",
+        "Applications.Selection.partition3_eq_filters"
+      ]
+    },
+    {
+      "names": [
+        "arbitrary_input_integrable",
+        "actual_mean_bridge"
+      ],
+      "expected": "For every ordered input type, list and worker rank, both actual scalar costs are integrable and their means compare via E[W]<=E[T]<=9E[W]+2.",
+      "connections": [
+        "scanLaw_integrable",
+        "sourceLaw_integrable",
+        "sourceMean_comparison"
+      ]
+    },
+    {
+      "names": [
+        "selected_value_and_mean_bounds"
+      ],
+      "expected": "For a valid rank and any supported outcome, its returned value is RankedAt, while the same-run expectations satisfy n<=E[W]<=E[T]. The theorem does not equate branch costs merely because all outputs agree.",
+      "connections": [
+        "run_valid",
+        "scanMean_initial_le",
+        "sourceMean_comparison"
+      ]
+    }
+  ],
+  "original_step_and_run_cases_preserved": "Original four source files remain byte-identical, including all occurrence laws, selected-child counterexample, invalid/empty ranks and finite path/cost cases.",
+  "actual_failed_focus_preserved": {
+    "run": "chapter03-random-selection-mean-focused-attempt3-20261104",
+    "owned_session": 89256,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "ec928e",
+    "root_closure_tool_chunk": "aa5eec",
+    "full_log_and_closure_read_tool_chunk": "8b5ba1",
+    "evidence": [
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt3-20261104/closed-evidence-reconciliation.json",
+        "bytes": 2189,
+        "sha256": "199d5b94c8c898ae57dae9ee884d8f1d89f0e595edec859b5d3004ee6db555ab"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt3-20261104/full.log",
+        "bytes": 8626,
+        "sha256": "89a49ef47764b4a615698ea8bf574d138bf8d2abc432487121f49929543f813c"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt3-20261104/launch.json",
+        "bytes": 174,
+        "sha256": "2ee1acc66116ed279a26b33b5e397ded4bdc9449b6fc8dec919a0883ffb4692d"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt3-20261104/native-records/output.log",
+        "bytes": 8344,
+        "sha256": "a0249b0336b0c98e014e6cb5621fc366f31c9d869af947ded240af634805be43"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt3-20261104/native-records/result.json",
+        "bytes": 637,
+        "sha256": "8e2e05507950c305f175525f36ce80142a0ac58c46fc783181131e0e5af84ad9"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt3-20261104/native-records/start.json",
+        "bytes": 483,
+        "sha256": "8d47851b95a1ff0d82c1c056cdddbf7fa814727c2582bf889142c770cbea6ce1"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt3-20261104/outer-prefix.log",
+        "bytes": 125,
+        "sha256": "d83dc1ae6f38ef5f1c758243fe2650ef9d872c846dcebd1b5c6041cfdc35dfe0"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt3-20261104/outer-suffix.log",
+        "bytes": 157,
+        "sha256": "cfe0d16580c7a1b8f21a7f19f71a7dec4b0ab354bf9deb3c6708e464480bd950"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt3-20261104/owned-terminal.json",
+        "bytes": 260,
+        "sha256": "635ab10d998cf37c27731a88e81b26633fdf34b3dc357fc57bc9054275da2688"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt3-20261104/progress.json",
+        "bytes": 263,
+        "sha256": "a2ad77dd04fa02085e837954212236e6e702473c4542e45daeb9aebdbf590fa2"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt3-20261104/request.json",
+        "bytes": 799,
+        "sha256": "228c05bfe9859fabf670f830c04de87cd166c002be0cfcef9db574c92963722a"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt3-20261104/result.json",
+        "bytes": 1330,
+        "sha256": "84c19482bdacc93f0a59b5125aadbc942aaa2cc11df6a38355428c2195cf108f"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt3-20261104/start.json",
+        "bytes": 992,
+        "sha256": "9e92487e868fa6567eaaaf3cfd47a9cd7ec306f10883e0a39f10cf8b21024167"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt3-20261104/verification.json",
+        "bytes": 867,
+        "sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9"
+      }
+    ],
+    "partial_success": "Applications.Resources.RandomSelectionMean actually built in13s at the parent; that core will remain byte-identical.",
+    "result_scope": "Overall actual pair failed in Examples.RandomSelectionMean at two sites; no successful pair or chapter gate."
+  },
+  "full_failed_log_and_closure_read_tool_chunk": "8b5ba1",
+  "complete_source_diff_read_tool_chunk": "860e13",
+  "prior_author_records_verified_unchanged": 86,
+  "frozen_specifications_verified_unchanged": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/chapter03-obligations.md",
+      "bytes": 52581,
+      "sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/selection-proof-plan.md",
+      "bytes": 31813,
+      "sha256": "4683072c5b47f168f81d0f35b727e247bc2c36af6922c76ab8eaac4fb542d18b"
+    }
+  ],
+  "git_diff_check": {
+    "actual_exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "source_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/mean-correction3-20261104/source.diff",
+    "bytes": 1224,
+    "sha256": "59c6a9ed94d7e9e43ac5de7d9a7d7b8f484551c8d0541e71ac13fe58832d8bed"
+  },
+  "requested_focus": [
+    "Applications.Resources.RandomSelectionMean",
+    "Examples.RandomSelectionMean"
+  ],
+  "author_compiler_actions": false,
+  "actual_new_compilation_credit": false,
+  "actual_new_type_credit": false,
+  "previous_actual_partial_success": "Mean core built13s at immutable35d02bac; preserved without claiming successful full pair or candidate gates.",
+  "scope_boundary": "No new probability source. All linear expectation, exact >= tail with n>0, empty countercase, worst-case families and pivot policies remain unchanged obligations. No new Karp source attribution."
+}

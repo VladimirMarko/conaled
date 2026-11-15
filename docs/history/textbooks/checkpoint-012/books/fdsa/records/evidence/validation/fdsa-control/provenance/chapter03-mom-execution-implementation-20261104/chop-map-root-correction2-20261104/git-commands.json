@@ -1,0 +1,33 @@
+[
+  {
+    "argv": [
+      "add",
+      "--",
+      "Applications/Resources/SelectionMedians.lean"
+    ],
+    "actual_exit": 0,
+    "output": ""
+  },
+  {
+    "argv": [
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "actual_exit": 0,
+    "output": ""
+  },
+  {
+    "argv": [
+      "-c",
+      "user.name=ChatGPT",
+      "-c",
+      "user.email=chatgpt@openai.com",
+      "commit",
+      "-m",
+      "fix(resources): expose measured median match (#174)"
+    ],
+    "actual_exit": 0,
+    "output": "[work/fdsa-ch03-mom-execution 08decce] fix(resources): expose measured median match (#174)\n 1 file changed, 1 insertion(+)\n"
+  }
+]

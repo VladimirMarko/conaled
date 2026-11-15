@@ -1,0 +1,121 @@
+{
+  "recorded_utc": "2026-11-05T03:25:38.577125+00:00",
+  "reviewer": "/root/tree_cache_standards",
+  "unit": "FDSA-XT02",
+  "candidate": "27c5908b07c7a03feefc09472a8701ef940b7aaf",
+  "actual_exit": 1,
+  "owned_session": 18509,
+  "actual_terminal_chunk": "749654",
+  "state": "CLOSED",
+  "complete_log_read": {
+    "tool_chunk": "e80053",
+    "actual_exit": 0,
+    "lines": [
+      1,
+      47
+    ],
+    "untruncated": true
+  },
+  "full_terminal_chain_read": true,
+  "native_recorder_actual_owned_agree": true,
+  "outer_exact_prefix_native_suffix": true,
+  "native_origin_copies_match": true,
+  "build_observation": "Shape built. ShapeLog failed at lines60 and66 because the cast of Nat2 in the pinned rounding lemmas did not match the Real2 target under rw. Examples did not build.",
+  "mathematical_statement_changes": false,
+  "required_action": "Narrow proof-body correction and new immutable candidate; all original scope and later actual-type/full/audit/review gates remain.",
+  "inherited_verification_candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "inherited_verification_stale_for_XT02": true,
+  "full_candidate_check_or_audit_credit": 0,
+  "evidence_bindings": [
+    {
+      "path": "provenance/tree-shape-receiving-focused-attempt1-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "lines": 7,
+      "sha256": "57119c4c732ba0729ba7c2bbe845b6bf7649090c752a8f00f9ec8c2c69d2b284"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-focused-attempt1-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2172,
+      "lines": 44,
+      "sha256": "35c6c033c1f1505f08b5d72ecf7c81d1fe8465a97958cd7e0d46e5be8f0b1f6f"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-focused-attempt1-20261105/full.log",
+      "bytes": 6245,
+      "lines": 47,
+      "sha256": "fe1efdfbe87df7cc20613b7733d3627e05ef4477c031db7a7c61303d05589578"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-focused-attempt1-20261105/launch.json",
+      "bytes": 174,
+      "lines": 6,
+      "sha256": "4bcbc51f00181c527181fb1b53f97cf0052eda88df23a602c42af2d8798d1e16"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-focused-attempt1-20261105/native-records/output.log",
+      "bytes": 5963,
+      "lines": 44,
+      "sha256": "7c7d2ed76e49ee8bc532330c547aa571d138b34e6fc518087172480b37ff5260"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-focused-attempt1-20261105/native-records/result.json",
+      "bytes": 644,
+      "lines": 20,
+      "sha256": "b4f166fd78e137b9c668cf1ce8e4fc4068ef4e8e0d48cb8158fcbd5ed4228c42"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-focused-attempt1-20261105/native-records/start.json",
+      "bytes": 490,
+      "lines": 15,
+      "sha256": "3258811a911dadf2d953b33f937655f0175b604edc0edd7774e36e14e6e771dd"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-focused-attempt1-20261105/outer-prefix.log",
+      "bytes": 125,
+      "lines": 2,
+      "sha256": "999292cbebcbe57384f49b15a5708b8b34724cb93449571aa3b7744593533c37"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-focused-attempt1-20261105/outer-suffix.log",
+      "bytes": 157,
+      "lines": 1,
+      "sha256": "8fa41a501ddb9cc3f80ff1bda0a97032b415ffa3ad5f7e6074957c1ac5c89406"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-focused-attempt1-20261105/owned-terminal.json",
+      "bytes": 260,
+      "lines": 8,
+      "sha256": "4b413f6f06e9c583aab9490b989a6df6bdf0a468caef59abffccaf8e48b64c29"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-focused-attempt1-20261105/progress.json",
+      "bytes": 263,
+      "lines": 8,
+      "sha256": "3868bc3d7758a627da6f0ce5fd7f4e036495116b12a2b3cdcf48cfa900d84c16"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-focused-attempt1-20261105/request.json",
+      "bytes": 806,
+      "lines": 23,
+      "sha256": "8da4a8ebc5f88b997007ce6b1505be5f9715195456b167db036263f7969dd6f4"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-focused-attempt1-20261105/result.json",
+      "bytes": 1326,
+      "lines": 34,
+      "sha256": "ea25baa1651c787556abbf03f0ec5b92064af43ae995fc376142633a16da3bc3"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-focused-attempt1-20261105/start.json",
+      "bytes": 999,
+      "lines": 28,
+      "sha256": "aa7bdea0fad3fe01392de4556b7e271205305eb4fb4baf8e9ec9775b8b9e6666"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-focused-attempt1-20261105/verification.json",
+      "bytes": 867,
+      "lines": 19,
+      "sha256": "329f0d0087adc21b3446d7f10b67c472cdf62238ccf578865eec20569c04da61"
+    }
+  ]
+}

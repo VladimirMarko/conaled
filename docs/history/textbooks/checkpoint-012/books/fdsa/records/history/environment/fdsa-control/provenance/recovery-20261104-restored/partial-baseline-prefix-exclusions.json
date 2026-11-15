@@ -1,0 +1,13 @@
+{
+  "recorded_utc": "2026-11-04T03:57:18.283017+00:00",
+  "observation": "The three original residual paths reappeared after successful recorded rename, with identical sizes/hashes and mtimes but distinct inodes from the preserved holding copies. No cause or surviving writer is inferred.",
+  "checkpoint_repair": "Add only three identity-checked exact paths to existing compact manifest exclusions. Every excluded byte is reconstructible as the recorded prefix length of the pinned public baseline asset. No task source is excluded. Supplied restoration script is unchanged.",
+  "superseded_local_capture": {
+    "filename": "conaled-fdsa-0082-recovered-native-and-sorting-drafts.tar.gz",
+    "bytes": 95124855,
+    "sha256": "f01eadc0cacae8d818fe56f36a7019eb1988c400faca0c41ab077937f3b0d461",
+    "uploaded": false,
+    "reason": "Contains 81,526,784 bytes of redundant regenerable asset prefixes; replaced by compact capture before delivery."
+  },
+  "builder_sha256": "5e72098a4b07a80c6861cdaf14f4d2234e33cd7b6a0a79170bae762599cbe078"
+}

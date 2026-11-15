@@ -1,0 +1,19 @@
+{
+  "recorded_utc": "2026-11-04T03:47:05.602261+00:00",
+  "candidate": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+  "root_selection": "Union retained direct external imports, all406 cached non-Mathlib modules, and auxiliary roots; omit Init/Lean/Std/Lake/Cache namespaces because full official distribution/unchanged source bootstrap covers them.",
+  "selector_count": 671,
+  "mathlib_selector_count": 265,
+  "other_selector_count": 406,
+  "list_sha256": "16959f19eb6b538b5ff331553521652242fa5273a02fa770e87b824d00d47f76",
+  "list_bytes": 19886,
+  "source_inventory": "1036-static-cache-closure/inventory.json",
+  "method": "Use unchanged kit supported cache --project PROJECT --threads 1 followed by every selector as a separate argv element. No full Mathlib umbrella selected.",
+  "required_followup": [
+    "Verify actual cache outcome and cache-import coverage; misses are not success evidence for all modules.",
+    "Run smoke --project PROJECT --threads 1 and full doctor on real provisioning checkout.",
+    "Retain pinned ProofWidgets/nonmodule extra-dependency provider; module selectors alone do not certify all JS/native files.",
+    "New full fresh candidate baseline and all unchanged formal gates remain required."
+  ],
+  "formal_acceptance": false
+}

@@ -1,0 +1,2088 @@
+{
+  "schema": 1,
+  "task": "local1029 second bounded fresh2 capacity census justified by approach toward the existing checkpoint launch floor",
+  "started_utc": "2026-11-02T23:20:22.246246+00:00",
+  "finished_utc": "2026-11-02T23:20:27.013680+00:00",
+  "prior_record": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1029-fresh2-capacity-assessment.json",
+  "prior_record_sha256": "ed1e22681d19a996140811f8fb2ea2a26ba63f48730fee98878196eae6c4ab52",
+  "root_reported_trigger": {
+    "observed_utc": "2026-11-02T23:18:26+00:00",
+    "root_free_bytes": 2554966016,
+    "latest_reported_completed_module_number": 198,
+    "original_checker_reported_active_utc": "2026-11-02T23:15:00+00:00",
+    "source": "Coordinating agent; not a process or log observation by this assessment"
+  },
+  "capacity_before": {
+    "observed_utc": "2026-11-02T23:20:22.246298+00:00",
+    "effective_uid": 0,
+    "free_bytes_including_reserved": 2539950080,
+    "available_bytes_excluding_reserved": 0,
+    "reserved_free_difference_bytes": 2539950080,
+    "free_inodes": 3143079,
+    "available_inodes": 3143079
+  },
+  "capacity_after": {
+    "observed_utc": "2026-11-02T23:20:27.013432+00:00",
+    "effective_uid": 0,
+    "free_bytes_including_reserved": 2539282432,
+    "available_bytes_excluding_reserved": 0,
+    "reserved_free_difference_bytes": 2539282432,
+    "free_inodes": 3143064,
+    "available_inodes": 3143064
+  },
+  "root_free_delta_during_census": -667648,
+  "inventories": [
+    {
+      "label": "checkpoints",
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints",
+      "observed_started_utc": "2026-11-02T23:20:22.246576+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 1567608832,
+      "regular_logical_bytes": 1567456149,
+      "counts": {
+        "directory": 1,
+        "regular": 13,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".IpMeI5": {
+          "files": 1,
+          "allocated_bytes": 60817408,
+          "logical_bytes": 60817408
+        },
+        ".ssR50N": {
+          "files": 1,
+          "allocated_bytes": 49545216,
+          "logical_bytes": 49545216
+        },
+        ".tar.gz": {
+          "files": 11,
+          "allocated_bytes": 1457242112,
+          "logical_bytes": 1457093525
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 2398969,
+        "nlink": 2,
+        "mode": "0o755",
+        "mtime_ns": 1793661516113828141,
+        "ctime_ns": 1793661545399276037
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/checkpoints",
+      "direct_entries": [
+        {
+          "name": ".conaled-vfa-checkpoint-000-bootstrap.tar.gz.IpMeI5",
+          "type": "regular",
+          "logical_bytes": 60817408,
+          "allocated_bytes": 60817408,
+          "device": 27,
+          "inode": 2400252,
+          "nlink": 1,
+          "mode": "0o600",
+          "mtime_ns": 1793586023222524286,
+          "ctime_ns": 1793586025043655111
+        },
+        {
+          "name": ".conaled-vfa-checkpoint-000-bootstrap.tar.gz.IpMeI5.ssR50N",
+          "type": "regular",
+          "logical_bytes": 49545216,
+          "allocated_bytes": 49545216,
+          "device": 27,
+          "inode": 2398933,
+          "nlink": 1,
+          "mode": "0o600",
+          "mtime_ns": 1793586028162404861,
+          "ctime_ns": 1793586029845274963
+        },
+        {
+          "name": "conaled-vfa-checkpoint-000-bootstrap.tar.gz",
+          "type": "regular",
+          "logical_bytes": 142659672,
+          "allocated_bytes": 142667776,
+          "device": 27,
+          "inode": 2399921,
+          "nlink": 1,
+          "mode": "0o644",
+          "mtime_ns": 1793586022140343950,
+          "ctime_ns": 1793609049154806562
+        },
+        {
+          "name": "conaled-vfa-checkpoint-012-positive-key-adapters.tar.gz",
+          "type": "regular",
+          "logical_bytes": 145397542,
+          "allocated_bytes": 145403904,
+          "device": 27,
+          "inode": 2403650,
+          "nlink": 1,
+          "mode": "0o644",
+          "mtime_ns": 1793605650309045487,
+          "ctime_ns": 1793615468619405618
+        },
+        {
+          "name": "conaled-vfa-checkpoint-013-retention-imports-candidate.tar.gz",
+          "type": "regular",
+          "logical_bytes": 145459275,
+          "allocated_bytes": 145469440,
+          "device": 27,
+          "inode": 2403651,
+          "nlink": 1,
+          "mode": "0o644",
+          "mtime_ns": 1793607851670962784,
+          "ctime_ns": 1793615468619405618
+        },
+        {
+          "name": "conaled-vfa-checkpoint-026-fresh-validation-progress.tar.gz",
+          "type": "regular",
+          "logical_bytes": 146023732,
+          "allocated_bytes": 146034688,
+          "device": 27,
+          "inode": 2405456,
+          "nlink": 1,
+          "mode": "0o644",
+          "mtime_ns": 1793642464827682010,
+          "ctime_ns": 1793642530347074078
+        },
+        {
+          "name": "conaled-vfa-checkpoint-027-fresh-run-recovery.tar.gz",
+          "type": "regular",
+          "logical_bytes": 146040188,
+          "allocated_bytes": 146051072,
+          "device": 27,
+          "inode": 2405666,
+          "nlink": 1,
+          "mode": "0o644",
+          "mtime_ns": 1793653446991332371,
+          "ctime_ns": 1793653469123057237
+        },
+        {
+          "name": "conaled-vfa-checkpoint-028-validation-recorder.tar.gz",
+          "type": "regular",
+          "logical_bytes": 146139418,
+          "allocated_bytes": 146149376,
+          "device": 27,
+          "inode": 2405733,
+          "nlink": 1,
+          "mode": "0o644",
+          "mtime_ns": 1793655164004887083,
+          "ctime_ns": 1793655187300649461
+        },
+        {
+          "name": "conaled-vfa-checkpoint-029-fresh-retry-progress.tar.gz",
+          "type": "regular",
+          "logical_bytes": 146144577,
+          "allocated_bytes": 146153472,
+          "device": 27,
+          "inode": 2405751,
+          "nlink": 1,
+          "mode": "0o644",
+          "mtime_ns": 1793655927160238112,
+          "ctime_ns": 1793655949855878862
+        },
+        {
+          "name": "conaled-vfa-checkpoint-030-fresh-retry-evidence.tar.gz",
+          "type": "regular",
+          "logical_bytes": 146158377,
+          "allocated_bytes": 146178048,
+          "device": 27,
+          "inode": 2405803,
+          "nlink": 1,
+          "mode": "0o644",
+          "mtime_ns": 1793657947754154231,
+          "ctime_ns": 1793657968257926155
+        },
+        {
+          "name": "conaled-vfa-checkpoint-031-recorder-loss-evidence.tar.gz",
+          "type": "regular",
+          "logical_bytes": 146169082,
+          "allocated_bytes": 146202624,
+          "device": 27,
+          "inode": 2405851,
+          "nlink": 1,
+          "mode": "0o644",
+          "mtime_ns": 1793659567584557402,
+          "ctime_ns": 1793659588016248560
+        },
+        {
+          "name": "conaled-vfa-checkpoint-032-record-protocol-recovery.tar.gz",
+          "type": "regular",
+          "logical_bytes": 146186394,
+          "allocated_bytes": 146210816,
+          "device": 27,
+          "inode": 2405883,
+          "nlink": 1,
+          "mode": "0o644",
+          "mtime_ns": 1793660562156969144,
+          "ctime_ns": 1793660583513494168
+        },
+        {
+          "name": "conaled-vfa-incident-001-enospc-evidence.tar.gz",
+          "type": "regular",
+          "logical_bytes": 715268,
+          "allocated_bytes": 720896,
+          "device": 27,
+          "inode": 2405845,
+          "nlink": 1,
+          "mode": "0o644",
+          "mtime_ns": 1793659287551809996,
+          "ctime_ns": 1793659312015370061
+        }
+      ],
+      "observed_finished_utc": "2026-11-02T23:20:22.253320+00:00"
+    },
+    {
+      "label": "conaled/project-build",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:22.253336+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 9601024,
+      "regular_logical_bytes": 9202430,
+      "counts": {
+        "directory": 16,
+        "regular": 120,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 15,
+          "allocated_bytes": 303104,
+          "logical_bytes": 274687
+        },
+        ".hash": {
+          "files": 45,
+          "allocated_bytes": 184320,
+          "logical_bytes": 720
+        },
+        ".ilean": {
+          "files": 15,
+          "allocated_bytes": 249856,
+          "logical_bytes": 216241
+        },
+        ".olean": {
+          "files": 15,
+          "allocated_bytes": 3145728,
+          "logical_bytes": 3111976
+        },
+        ".setup.json": {
+          "files": 15,
+          "allocated_bytes": 5591040,
+          "logical_bytes": 5558183
+        },
+        ".trace": {
+          "files": 15,
+          "allocated_bytes": 61440,
+          "logical_bytes": 40623
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 2399260,
+        "nlink": 4,
+        "mode": "0o755",
+        "mtime_ns": 1793586311181949931,
+        "ctime_ns": 1793586548226608981
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/build",
+      "observed_finished_utc": "2026-11-02T23:20:22.263254+00:00"
+    },
+    {
+      "label": "conaled/mathlib",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:22.263274+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 51875840,
+      "regular_logical_bytes": 38556284,
+      "counts": {
+        "directory": 1794,
+        "regular": 2024,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 974,
+          "allocated_bytes": 38367232,
+          "logical_bytes": 36600316
+        },
+        ".export": {
+          "files": 18,
+          "allocated_bytes": 1908736,
+          "logical_bytes": 1858032
+        },
+        ".hash": {
+          "files": 994,
+          "allocated_bytes": 4071424,
+          "logical_bytes": 15904
+        },
+        ".rsp": {
+          "files": 1,
+          "allocated_bytes": 4096,
+          "logical_bytes": 2419
+        },
+        ".setup.json": {
+          "files": 18,
+          "allocated_bytes": 98304,
+          "logical_bytes": 55647
+        },
+        ".trace": {
+          "files": 19,
+          "allocated_bytes": 77824,
+          "logical_bytes": 23966
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 3278009,
+        "nlink": 5,
+        "mode": "0o755",
+        "mtime_ns": 1793609449478482190,
+        "ctime_ns": 1793635157954724084
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build",
+      "observed_finished_utc": "2026-11-02T23:20:23.402014+00:00"
+    },
+    {
+      "label": "conaled/aesop",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/aesop/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:23.402047+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 138121216,
+      "regular_logical_bytes": 131022471,
+      "counts": {
+        "directory": 52,
+        "regular": 1983,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 132,
+          "allocated_bytes": 33562624,
+          "logical_bytes": 33200417
+        },
+        ".hash": {
+          "files": 924,
+          "allocated_bytes": 3784704,
+          "logical_bytes": 14784
+        },
+        ".ilean": {
+          "files": 132,
+          "allocated_bytes": 2281472,
+          "logical_bytes": 1985895
+        },
+        ".ir": {
+          "files": 132,
+          "allocated_bytes": 22560768,
+          "logical_bytes": 22206128
+        },
+        ".olean": {
+          "files": 132,
+          "allocated_bytes": 17588224,
+          "logical_bytes": 17245288
+        },
+        ".olean.private": {
+          "files": 132,
+          "allocated_bytes": 55988224,
+          "logical_bytes": 55565536
+        },
+        ".olean.server": {
+          "files": 132,
+          "allocated_bytes": 1007616,
+          "logical_bytes": 715088
+        },
+        ".setup.json": {
+          "files": 3,
+          "allocated_bytes": 28672,
+          "logical_bytes": 20780
+        },
+        ".sig": {
+          "files": 132,
+          "allocated_bytes": 540672,
+          "logical_bytes": 23232
+        },
+        ".trace": {
+          "files": 132,
+          "allocated_bytes": 540672,
+          "logical_bytes": 45323
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 2912692,
+        "nlink": 4,
+        "mode": "0o755",
+        "mtime_ns": 1793586191098779297,
+        "ctime_ns": 1793630749735260076
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/aesop/.lake/build",
+      "observed_finished_utc": "2026-11-02T23:20:23.479517+00:00"
+    },
+    {
+      "label": "conaled/batteries",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/batteries/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:23.479543+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 151138304,
+      "regular_logical_bytes": 140887254,
+      "counts": {
+        "directory": 88,
+        "regular": 2904,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 193,
+          "allocated_bytes": 21024768,
+          "logical_bytes": 20652939
+        },
+        ".export": {
+          "files": 1,
+          "allocated_bytes": 380928,
+          "logical_bytes": 379464
+        },
+        ".hash": {
+          "files": 1352,
+          "allocated_bytes": 5537792,
+          "logical_bytes": 21632
+        },
+        ".ilean": {
+          "files": 193,
+          "allocated_bytes": 3727360,
+          "logical_bytes": 3240812
+        },
+        ".ir": {
+          "files": 193,
+          "allocated_bytes": 13500416,
+          "logical_bytes": 13044792
+        },
+        ".olean": {
+          "files": 193,
+          "allocated_bytes": 28770304,
+          "logical_bytes": 28336224
+        },
+        ".olean.private": {
+          "files": 193,
+          "allocated_bytes": 74260480,
+          "logical_bytes": 73663608
+        },
+        ".olean.server": {
+          "files": 193,
+          "allocated_bytes": 1925120,
+          "logical_bytes": 1439352
+        },
+        ".setup.json": {
+          "files": 6,
+          "allocated_bytes": 24576,
+          "logical_bytes": 2675
+        },
+        ".sig": {
+          "files": 193,
+          "allocated_bytes": 790528,
+          "logical_bytes": 33968
+        },
+        ".trace": {
+          "files": 194,
+          "allocated_bytes": 794624,
+          "logical_bytes": 71788
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 2814767,
+        "nlink": 4,
+        "mode": "0o755",
+        "mtime_ns": 1793586134964864949,
+        "ctime_ns": 1793631742506008994
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/batteries/.lake/build",
+      "observed_finished_utc": "2026-11-02T23:20:23.599079+00:00"
+    },
+    {
+      "label": "conaled/Qq",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/Qq/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:23.599103+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 21716992,
+      "regular_logical_bytes": 21008898,
+      "counts": {
+        "directory": 8,
+        "regular": 210,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 14,
+          "allocated_bytes": 5017600,
+          "logical_bytes": 4990146
+        },
+        ".hash": {
+          "files": 98,
+          "allocated_bytes": 401408,
+          "logical_bytes": 1568
+        },
+        ".ilean": {
+          "files": 14,
+          "allocated_bytes": 282624,
+          "logical_bytes": 247822
+        },
+        ".ir": {
+          "files": 14,
+          "allocated_bytes": 3162112,
+          "logical_bytes": 3142784
+        },
+        ".olean": {
+          "files": 14,
+          "allocated_bytes": 4263936,
+          "logical_bytes": 4233424
+        },
+        ".olean.private": {
+          "files": 14,
+          "allocated_bytes": 8323072,
+          "logical_bytes": 8299040
+        },
+        ".olean.server": {
+          "files": 14,
+          "allocated_bytes": 118784,
+          "logical_bytes": 87632
+        },
+        ".sig": {
+          "files": 14,
+          "allocated_bytes": 57344,
+          "logical_bytes": 2464
+        },
+        ".trace": {
+          "files": 14,
+          "allocated_bytes": 57344,
+          "logical_bytes": 4018
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 3285911,
+        "nlink": 4,
+        "mode": "0o755",
+        "mtime_ns": 1793586191094974647,
+        "ctime_ns": 1793586389581953484
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/Qq/.lake/build",
+      "observed_finished_utc": "2026-11-02T23:20:23.605900+00:00"
+    },
+    {
+      "label": "conaled/proofwidgets",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/proofwidgets/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:23.605915+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 20107264,
+      "regular_logical_bytes": 19485406,
+      "counts": {
+        "directory": 14,
+        "regular": 180,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 12,
+          "allocated_bytes": 5165056,
+          "logical_bytes": 5144638
+        },
+        ".hash": {
+          "files": 84,
+          "allocated_bytes": 344064,
+          "logical_bytes": 1344
+        },
+        ".ilean": {
+          "files": 12,
+          "allocated_bytes": 159744,
+          "logical_bytes": 137956
+        },
+        ".ir": {
+          "files": 12,
+          "allocated_bytes": 4321280,
+          "logical_bytes": 4298720
+        },
+        ".olean": {
+          "files": 12,
+          "allocated_bytes": 5787648,
+          "logical_bytes": 5764336
+        },
+        ".olean.private": {
+          "files": 12,
+          "allocated_bytes": 4067328,
+          "logical_bytes": 4045992
+        },
+        ".olean.server": {
+          "files": 12,
+          "allocated_bytes": 106496,
+          "logical_bytes": 86864
+        },
+        ".sig": {
+          "files": 12,
+          "allocated_bytes": 49152,
+          "logical_bytes": 2112
+        },
+        ".trace": {
+          "files": 12,
+          "allocated_bytes": 49152,
+          "logical_bytes": 3444
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 2783567,
+        "nlink": 4,
+        "mode": "0o755",
+        "mtime_ns": 1793586220087933671,
+        "ctime_ns": 1793586437731748884
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/proofwidgets/.lake/build",
+      "observed_finished_utc": "2026-11-02T23:20:23.610106+00:00"
+    },
+    {
+      "label": "conaled/importGraph",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/importGraph/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:23.610118+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 35180544,
+      "regular_logical_bytes": 33368996,
+      "counts": {
+        "directory": 24,
+        "regular": 526,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 35,
+          "allocated_bytes": 7897088,
+          "logical_bytes": 7828637
+        },
+        ".hash": {
+          "files": 245,
+          "allocated_bytes": 1003520,
+          "logical_bytes": 3920
+        },
+        ".ilean": {
+          "files": 35,
+          "allocated_bytes": 634880,
+          "logical_bytes": 557597
+        },
+        ".ir": {
+          "files": 35,
+          "allocated_bytes": 5443584,
+          "logical_bytes": 5368840
+        },
+        ".olean": {
+          "files": 35,
+          "allocated_bytes": 4661248,
+          "logical_bytes": 4594312
+        },
+        ".olean.private": {
+          "files": 35,
+          "allocated_bytes": 14782464,
+          "logical_bytes": 14707688
+        },
+        ".olean.server": {
+          "files": 35,
+          "allocated_bytes": 368640,
+          "logical_bytes": 289240
+        },
+        ".setup.json": {
+          "files": 1,
+          "allocated_bytes": 4096,
+          "logical_bytes": 147
+        },
+        ".sig": {
+          "files": 35,
+          "allocated_bytes": 143360,
+          "logical_bytes": 6160
+        },
+        ".trace": {
+          "files": 35,
+          "allocated_bytes": 143360,
+          "logical_bytes": 12455
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 3408023,
+        "nlink": 4,
+        "mode": "0o755",
+        "mtime_ns": 1793586191128446627,
+        "ctime_ns": 1793586389597651358
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/importGraph/.lake/build",
+      "observed_finished_utc": "2026-11-02T23:20:23.638441+00:00"
+    },
+    {
+      "label": "conaled/LeanSearchClient",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/LeanSearchClient/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:23.638465+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 5132288,
+      "regular_logical_bytes": 4912859,
+      "counts": {
+        "directory": 6,
+        "regular": 60,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 4,
+          "allocated_bytes": 1155072,
+          "logical_bytes": 1144946
+        },
+        ".hash": {
+          "files": 28,
+          "allocated_bytes": 114688,
+          "logical_bytes": 448
+        },
+        ".ilean": {
+          "files": 4,
+          "allocated_bytes": 90112,
+          "logical_bytes": 81733
+        },
+        ".ir": {
+          "files": 4,
+          "allocated_bytes": 765952,
+          "logical_bytes": 760896
+        },
+        ".olean": {
+          "files": 4,
+          "allocated_bytes": 958464,
+          "logical_bytes": 951640
+        },
+        ".olean.private": {
+          "files": 4,
+          "allocated_bytes": 1945600,
+          "logical_bytes": 1936688
+        },
+        ".olean.server": {
+          "files": 4,
+          "allocated_bytes": 45056,
+          "logical_bytes": 34656
+        },
+        ".sig": {
+          "files": 4,
+          "allocated_bytes": 16384,
+          "logical_bytes": 704
+        },
+        ".trace": {
+          "files": 4,
+          "allocated_bytes": 16384,
+          "logical_bytes": 1148
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 3418619,
+        "nlink": 4,
+        "mode": "0o755",
+        "mtime_ns": 1793586191094193043,
+        "ctime_ns": 1793586389581953484
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/LeanSearchClient/.lake/build",
+      "observed_finished_utc": "2026-11-02T23:20:23.642994+00:00"
+    },
+    {
+      "label": "conaled/plausible",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/plausible/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:23.643007+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 13737984,
+      "regular_logical_bytes": 13066131,
+      "counts": {
+        "directory": 6,
+        "regular": 195,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 13,
+          "allocated_bytes": 3276800,
+          "logical_bytes": 3255785
+        },
+        ".hash": {
+          "files": 91,
+          "allocated_bytes": 372736,
+          "logical_bytes": 1456
+        },
+        ".ilean": {
+          "files": 13,
+          "allocated_bytes": 249856,
+          "logical_bytes": 218751
+        },
+        ".ir": {
+          "files": 13,
+          "allocated_bytes": 2002944,
+          "logical_bytes": 1975224
+        },
+        ".olean": {
+          "files": 13,
+          "allocated_bytes": 2367488,
+          "logical_bytes": 2339576
+        },
+        ".olean.private": {
+          "files": 13,
+          "allocated_bytes": 5181440,
+          "logical_bytes": 5147848
+        },
+        ".olean.server": {
+          "files": 13,
+          "allocated_bytes": 147456,
+          "logical_bytes": 121472
+        },
+        ".sig": {
+          "files": 13,
+          "allocated_bytes": 53248,
+          "logical_bytes": 2288
+        },
+        ".trace": {
+          "files": 13,
+          "allocated_bytes": 53248,
+          "logical_bytes": 3731
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 3279304,
+        "nlink": 4,
+        "mode": "0o755",
+        "mtime_ns": 1793586220085612797,
+        "ctime_ns": 1793586437731748884
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/plausible/.lake/build",
+      "observed_finished_utc": "2026-11-02T23:20:23.646070+00:00"
+    },
+    {
+      "label": "conaled/Cli",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/Cli/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:23.646078+00:00",
+      "present": false,
+      "complete": true,
+      "allocated_bytes": 0,
+      "regular_logical_bytes": 0,
+      "counts": {
+        "directory": 0,
+        "regular": 0,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {},
+      "observed_finished_utc": "2026-11-02T23:20:23.659415+00:00"
+    },
+    {
+      "label": "vfa-validation/project-build",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:23.659461+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 802684928,
+      "regular_logical_bytes": 788366001,
+      "counts": {
+        "directory": 94,
+        "regular": 4832,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 595,
+          "allocated_bytes": 27271168,
+          "logical_bytes": 25958312
+        },
+        ".hash": {
+          "files": 1785,
+          "allocated_bytes": 7311360,
+          "logical_bytes": 28560
+        },
+        ".ilean": {
+          "files": 595,
+          "allocated_bytes": 17883136,
+          "logical_bytes": 16582077
+        },
+        ".olean": {
+          "files": 595,
+          "allocated_bytes": 257056768,
+          "logical_bytes": 255438016
+        },
+        ".setup.json": {
+          "files": 667,
+          "allocated_bytes": 490139648,
+          "logical_bytes": 488586315
+        },
+        ".trace": {
+          "files": 595,
+          "allocated_bytes": 2465792,
+          "logical_bytes": 1772721
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 4113202,
+        "nlink": 4,
+        "mode": "0o755",
+        "mtime_ns": 1793609529437768161,
+        "ctime_ns": 1793609915598471195
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build",
+      "observed_finished_utc": "2026-11-02T23:20:23.791352+00:00"
+    },
+    {
+      "label": "vfa-validation/mathlib",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:23.791376+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 7479304192,
+      "regular_logical_bytes": 7047695471,
+      "counts": {
+        "directory": 2439,
+        "regular": 130054,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        "(none)": {
+          "files": 1,
+          "allocated_bytes": 115613696,
+          "logical_bytes": 115612976
+        },
+        ".c": {
+          "files": 8643,
+          "allocated_bytes": 450273280,
+          "logical_bytes": 435045294
+        },
+        ".export": {
+          "files": 18,
+          "allocated_bytes": 1908736,
+          "logical_bytes": 1858032
+        },
+        ".hash": {
+          "files": 60520,
+          "allocated_bytes": 247885824,
+          "logical_bytes": 968304
+        },
+        ".ilean": {
+          "files": 8643,
+          "allocated_bytes": 307933184,
+          "logical_bytes": 289918473
+        },
+        ".ir": {
+          "files": 8643,
+          "allocated_bytes": 256446464,
+          "logical_bytes": 238156368
+        },
+        ".mNtPkU": {
+          "files": 1,
+          "allocated_bytes": 90705920,
+          "logical_bytes": 90701824
+        },
+        ".olean": {
+          "files": 8643,
+          "allocated_bytes": 1835507712,
+          "logical_bytes": 1817687448
+        },
+        ".olean.private": {
+          "files": 8643,
+          "allocated_bytes": 3722252288,
+          "logical_bytes": 3704266040
+        },
+        ".olean.server": {
+          "files": 8643,
+          "allocated_bytes": 122814464,
+          "logical_bytes": 105001920
+        },
+        ".rsp": {
+          "files": 1,
+          "allocated_bytes": 4096,
+          "logical_bytes": 2419
+        },
+        ".setup.json": {
+          "files": 350,
+          "allocated_bytes": 243896320,
+          "logical_bytes": 243181239
+        },
+        ".sig": {
+          "files": 8643,
+          "allocated_bytes": 35401728,
+          "logical_bytes": 1521168
+        },
+        ".trace": {
+          "files": 8662,
+          "allocated_bytes": 35852288,
+          "logical_bytes": 3773966
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 4083818,
+        "nlink": 5,
+        "mode": "0o700",
+        "mtime_ns": 1793586599804860702,
+        "ctime_ns": 1793586652233516527
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build",
+      "observed_finished_utc": "2026-11-02T23:20:26.719745+00:00"
+    },
+    {
+      "label": "vfa-validation/aesop",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/aesop/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:26.719785+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 137715712,
+      "regular_logical_bytes": 131022471,
+      "counts": {
+        "directory": 52,
+        "regular": 1983,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 132,
+          "allocated_bytes": 33476608,
+          "logical_bytes": 33200417
+        },
+        ".hash": {
+          "files": 924,
+          "allocated_bytes": 3784704,
+          "logical_bytes": 14784
+        },
+        ".ilean": {
+          "files": 132,
+          "allocated_bytes": 2277376,
+          "logical_bytes": 1985895
+        },
+        ".ir": {
+          "files": 132,
+          "allocated_bytes": 22454272,
+          "logical_bytes": 22206128
+        },
+        ".olean": {
+          "files": 132,
+          "allocated_bytes": 17526784,
+          "logical_bytes": 17245288
+        },
+        ".olean.private": {
+          "files": 132,
+          "allocated_bytes": 55840768,
+          "logical_bytes": 55565536
+        },
+        ".olean.server": {
+          "files": 132,
+          "allocated_bytes": 1007616,
+          "logical_bytes": 715088
+        },
+        ".setup.json": {
+          "files": 3,
+          "allocated_bytes": 28672,
+          "logical_bytes": 20780
+        },
+        ".sig": {
+          "files": 132,
+          "allocated_bytes": 540672,
+          "logical_bytes": 23232
+        },
+        ".trace": {
+          "files": 132,
+          "allocated_bytes": 540672,
+          "logical_bytes": 45323
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 2355,
+        "nlink": 4,
+        "mode": "0o755",
+        "mtime_ns": 1793609529488511678,
+        "ctime_ns": 1793609915718470331
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/aesop/.lake/build",
+      "observed_finished_utc": "2026-11-02T23:20:26.797843+00:00"
+    },
+    {
+      "label": "vfa-validation/batteries",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/batteries/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:26.797868+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 151117824,
+      "regular_logical_bytes": 140919470,
+      "counts": {
+        "directory": 88,
+        "regular": 2936,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 195,
+          "allocated_bytes": 21032960,
+          "logical_bytes": 20661481
+        },
+        ".export": {
+          "files": 1,
+          "allocated_bytes": 380928,
+          "logical_bytes": 379464
+        },
+        ".hash": {
+          "files": 1366,
+          "allocated_bytes": 5595136,
+          "logical_bytes": 21856
+        },
+        ".ilean": {
+          "files": 195,
+          "allocated_bytes": 3731456,
+          "logical_bytes": 3241392
+        },
+        ".ir": {
+          "files": 195,
+          "allocated_bytes": 13492224,
+          "logical_bytes": 13048528
+        },
+        ".olean": {
+          "files": 195,
+          "allocated_bytes": 28749824,
+          "logical_bytes": 28339720
+        },
+        ".olean.private": {
+          "files": 195,
+          "allocated_bytes": 74166272,
+          "logical_bytes": 73663800
+        },
+        ".olean.server": {
+          "files": 195,
+          "allocated_bytes": 1933312,
+          "logical_bytes": 1439544
+        },
+        ".setup.json": {
+          "files": 8,
+          "allocated_bytes": 36864,
+          "logical_bytes": 10692
+        },
+        ".sig": {
+          "files": 195,
+          "allocated_bytes": 798720,
+          "logical_bytes": 34320
+        },
+        ".trace": {
+          "files": 196,
+          "allocated_bytes": 802816,
+          "logical_bytes": 78673
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 4392,
+        "nlink": 4,
+        "mode": "0o755",
+        "mtime_ns": 1793609529561878680,
+        "ctime_ns": 1793609915798469755
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/batteries/.lake/build",
+      "observed_finished_utc": "2026-11-02T23:20:26.922289+00:00"
+    },
+    {
+      "label": "vfa-validation/Qq",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Qq/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:26.922323+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 21716992,
+      "regular_logical_bytes": 21008898,
+      "counts": {
+        "directory": 8,
+        "regular": 210,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 14,
+          "allocated_bytes": 5017600,
+          "logical_bytes": 4990146
+        },
+        ".hash": {
+          "files": 98,
+          "allocated_bytes": 401408,
+          "logical_bytes": 1568
+        },
+        ".ilean": {
+          "files": 14,
+          "allocated_bytes": 282624,
+          "logical_bytes": 247822
+        },
+        ".ir": {
+          "files": 14,
+          "allocated_bytes": 3162112,
+          "logical_bytes": 3142784
+        },
+        ".olean": {
+          "files": 14,
+          "allocated_bytes": 4263936,
+          "logical_bytes": 4233424
+        },
+        ".olean.private": {
+          "files": 14,
+          "allocated_bytes": 8323072,
+          "logical_bytes": 8299040
+        },
+        ".olean.server": {
+          "files": 14,
+          "allocated_bytes": 118784,
+          "logical_bytes": 87632
+        },
+        ".sig": {
+          "files": 14,
+          "allocated_bytes": 57344,
+          "logical_bytes": 2464
+        },
+        ".trace": {
+          "files": 14,
+          "allocated_bytes": 57344,
+          "logical_bytes": 4018
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 7872,
+        "nlink": 4,
+        "mode": "0o755",
+        "mtime_ns": 1793609529472979910,
+        "ctime_ns": 1793609915702470446
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Qq/.lake/build",
+      "observed_finished_utc": "2026-11-02T23:20:26.932848+00:00"
+    },
+    {
+      "label": "vfa-validation/proofwidgets",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/proofwidgets/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:26.932866+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 20779008,
+      "regular_logical_bytes": 20107467,
+      "counts": {
+        "directory": 14,
+        "regular": 196,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 13,
+          "allocated_bytes": 5296128,
+          "logical_bytes": 5272222
+        },
+        ".hash": {
+          "files": 91,
+          "allocated_bytes": 372736,
+          "logical_bytes": 1456
+        },
+        ".ilean": {
+          "files": 13,
+          "allocated_bytes": 172032,
+          "logical_bytes": 147499
+        },
+        ".ir": {
+          "files": 13,
+          "allocated_bytes": 4411392,
+          "logical_bytes": 4388536
+        },
+        ".olean": {
+          "files": 13,
+          "allocated_bytes": 5976064,
+          "logical_bytes": 5948888
+        },
+        ".olean.private": {
+          "files": 13,
+          "allocated_bytes": 4268032,
+          "logical_bytes": 4245568
+        },
+        ".olean.server": {
+          "files": 13,
+          "allocated_bytes": 114688,
+          "logical_bytes": 92088
+        },
+        ".setup.json": {
+          "files": 1,
+          "allocated_bytes": 4096,
+          "logical_bytes": 2403
+        },
+        ".sig": {
+          "files": 13,
+          "allocated_bytes": 53248,
+          "logical_bytes": 2288
+        },
+        ".trace": {
+          "files": 13,
+          "allocated_bytes": 53248,
+          "logical_bytes": 6519
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 1827,
+        "nlink": 4,
+        "mode": "0o755",
+        "mtime_ns": 1793609552082231254,
+        "ctime_ns": 1793609945534128578
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/proofwidgets/.lake/build",
+      "observed_finished_utc": "2026-11-02T23:20:26.942801+00:00"
+    },
+    {
+      "label": "vfa-validation/importGraph",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/importGraph/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:26.942818+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 35180544,
+      "regular_logical_bytes": 33368996,
+      "counts": {
+        "directory": 24,
+        "regular": 526,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 35,
+          "allocated_bytes": 7897088,
+          "logical_bytes": 7828637
+        },
+        ".hash": {
+          "files": 245,
+          "allocated_bytes": 1003520,
+          "logical_bytes": 3920
+        },
+        ".ilean": {
+          "files": 35,
+          "allocated_bytes": 634880,
+          "logical_bytes": 557597
+        },
+        ".ir": {
+          "files": 35,
+          "allocated_bytes": 5443584,
+          "logical_bytes": 5368840
+        },
+        ".olean": {
+          "files": 35,
+          "allocated_bytes": 4661248,
+          "logical_bytes": 4594312
+        },
+        ".olean.private": {
+          "files": 35,
+          "allocated_bytes": 14782464,
+          "logical_bytes": 14707688
+        },
+        ".olean.server": {
+          "files": 35,
+          "allocated_bytes": 368640,
+          "logical_bytes": 289240
+        },
+        ".setup.json": {
+          "files": 1,
+          "allocated_bytes": 4096,
+          "logical_bytes": 147
+        },
+        ".sig": {
+          "files": 35,
+          "allocated_bytes": 143360,
+          "logical_bytes": 6160
+        },
+        ".trace": {
+          "files": 35,
+          "allocated_bytes": 143360,
+          "logical_bytes": 12455
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 1099,
+        "nlink": 4,
+        "mode": "0o755",
+        "mtime_ns": 1793609529642094951,
+        "ctime_ns": 1793609915926468833
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/importGraph/.lake/build",
+      "observed_finished_utc": "2026-11-02T23:20:26.973683+00:00"
+    },
+    {
+      "label": "vfa-validation/LeanSearchClient",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/LeanSearchClient/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:26.973729+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 5132288,
+      "regular_logical_bytes": 4912859,
+      "counts": {
+        "directory": 6,
+        "regular": 60,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 4,
+          "allocated_bytes": 1155072,
+          "logical_bytes": 1144946
+        },
+        ".hash": {
+          "files": 28,
+          "allocated_bytes": 114688,
+          "logical_bytes": 448
+        },
+        ".ilean": {
+          "files": 4,
+          "allocated_bytes": 90112,
+          "logical_bytes": 81733
+        },
+        ".ir": {
+          "files": 4,
+          "allocated_bytes": 765952,
+          "logical_bytes": 760896
+        },
+        ".olean": {
+          "files": 4,
+          "allocated_bytes": 958464,
+          "logical_bytes": 951640
+        },
+        ".olean.private": {
+          "files": 4,
+          "allocated_bytes": 1945600,
+          "logical_bytes": 1936688
+        },
+        ".olean.server": {
+          "files": 4,
+          "allocated_bytes": 45056,
+          "logical_bytes": 34656
+        },
+        ".sig": {
+          "files": 4,
+          "allocated_bytes": 16384,
+          "logical_bytes": 704
+        },
+        ".trace": {
+          "files": 4,
+          "allocated_bytes": 16384,
+          "logical_bytes": 1148
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 793,
+        "nlink": 4,
+        "mode": "0o755",
+        "mtime_ns": 1793609529470631821,
+        "ctime_ns": 1793609915698470475
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/LeanSearchClient/.lake/build",
+      "observed_finished_utc": "2026-11-02T23:20:26.985563+00:00"
+    },
+    {
+      "label": "vfa-validation/plausible",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/plausible/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:26.985586+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 13737984,
+      "regular_logical_bytes": 13066131,
+      "counts": {
+        "directory": 6,
+        "regular": 195,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".c": {
+          "files": 13,
+          "allocated_bytes": 3276800,
+          "logical_bytes": 3255785
+        },
+        ".hash": {
+          "files": 91,
+          "allocated_bytes": 372736,
+          "logical_bytes": 1456
+        },
+        ".ilean": {
+          "files": 13,
+          "allocated_bytes": 249856,
+          "logical_bytes": 218751
+        },
+        ".ir": {
+          "files": 13,
+          "allocated_bytes": 2002944,
+          "logical_bytes": 1975224
+        },
+        ".olean": {
+          "files": 13,
+          "allocated_bytes": 2367488,
+          "logical_bytes": 2339576
+        },
+        ".olean.private": {
+          "files": 13,
+          "allocated_bytes": 5181440,
+          "logical_bytes": 5147848
+        },
+        ".olean.server": {
+          "files": 13,
+          "allocated_bytes": 147456,
+          "logical_bytes": 121472
+        },
+        ".sig": {
+          "files": 13,
+          "allocated_bytes": 53248,
+          "logical_bytes": 2288
+        },
+        ".trace": {
+          "files": 13,
+          "allocated_bytes": 53248,
+          "logical_bytes": 3731
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 513,
+        "nlink": 4,
+        "mode": "0o755",
+        "mtime_ns": 1793609552077430717,
+        "ctime_ns": 1793609945534128578
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/plausible/.lake/build",
+      "observed_finished_utc": "2026-11-02T23:20:26.992795+00:00"
+    },
+    {
+      "label": "vfa-validation/Cli",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Cli/.lake/build",
+      "observed_started_utc": "2026-11-02T23:20:26.992820+00:00",
+      "present": false,
+      "complete": true,
+      "allocated_bytes": 0,
+      "regular_logical_bytes": 0,
+      "counts": {
+        "directory": 0,
+        "regular": 0,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {},
+      "observed_finished_utc": "2026-11-02T23:20:26.993318+00:00"
+    },
+    {
+      "label": "vfa-validation/private/fresh-check-4fhvnocs",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/fresh-check-4fhvnocs",
+      "observed_started_utc": "2026-11-02T23:20:26.993346+00:00",
+      "present": true,
+      "complete": true,
+      "allocated_bytes": 103849984,
+      "regular_logical_bytes": 103322184,
+      "counts": {
+        "directory": 24,
+        "regular": 198,
+        "symlink": 0,
+        "special": 0
+      },
+      "regular_multilinks": 0,
+      "errors": [],
+      "by_extension": {
+        ".olean": {
+          "files": 198,
+          "allocated_bytes": 103751680,
+          "logical_bytes": 103322184
+        }
+      },
+      "root_identity": {
+        "device": 27,
+        "inode": 3279337,
+        "nlink": 5,
+        "mode": "0o700",
+        "mtime_ns": 1793655875192712823,
+        "ctime_ns": 1793655875192712823
+      },
+      "canonical_path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/fresh-check-4fhvnocs",
+      "observed_finished_utc": "2026-11-02T23:20:27.013403+00:00"
+    }
+  ],
+  "per_root_comparisons": [
+    {
+      "label": "checkpoints",
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints",
+      "previous_allocated_bytes": 1274318848,
+      "current_allocated_bytes": 1567608832,
+      "allocated_delta_bytes": 293289984,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 3,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "conaled/project-build",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/build",
+      "previous_allocated_bytes": 9601024,
+      "current_allocated_bytes": 9601024,
+      "allocated_delta_bytes": 0,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "conaled/mathlib",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build",
+      "previous_allocated_bytes": 51875840,
+      "current_allocated_bytes": 51875840,
+      "allocated_delta_bytes": 0,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "conaled/aesop",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/aesop/.lake/build",
+      "previous_allocated_bytes": 138121216,
+      "current_allocated_bytes": 138121216,
+      "allocated_delta_bytes": 0,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "conaled/batteries",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/batteries/.lake/build",
+      "previous_allocated_bytes": 151138304,
+      "current_allocated_bytes": 151138304,
+      "allocated_delta_bytes": 0,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "conaled/Qq",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/Qq/.lake/build",
+      "previous_allocated_bytes": 21716992,
+      "current_allocated_bytes": 21716992,
+      "allocated_delta_bytes": 0,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "conaled/proofwidgets",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/proofwidgets/.lake/build",
+      "previous_allocated_bytes": 20107264,
+      "current_allocated_bytes": 20107264,
+      "allocated_delta_bytes": 0,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "conaled/importGraph",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/importGraph/.lake/build",
+      "previous_allocated_bytes": 35180544,
+      "current_allocated_bytes": 35180544,
+      "allocated_delta_bytes": 0,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "conaled/LeanSearchClient",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/LeanSearchClient/.lake/build",
+      "previous_allocated_bytes": 5132288,
+      "current_allocated_bytes": 5132288,
+      "allocated_delta_bytes": 0,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "conaled/plausible",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/plausible/.lake/build",
+      "previous_allocated_bytes": 13737984,
+      "current_allocated_bytes": 13737984,
+      "allocated_delta_bytes": 0,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "conaled/Cli",
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/Cli/.lake/build",
+      "previous_allocated_bytes": 0,
+      "current_allocated_bytes": 0,
+      "allocated_delta_bytes": 0,
+      "previous_present": false,
+      "current_present": false,
+      "same_present_root_device_inode": null,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "vfa-validation/project-build",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build",
+      "previous_allocated_bytes": 802684928,
+      "current_allocated_bytes": 802684928,
+      "allocated_delta_bytes": 0,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "vfa-validation/mathlib",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build",
+      "previous_allocated_bytes": 7479304192,
+      "current_allocated_bytes": 7479304192,
+      "allocated_delta_bytes": 0,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "vfa-validation/aesop",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/aesop/.lake/build",
+      "previous_allocated_bytes": 137715712,
+      "current_allocated_bytes": 137715712,
+      "allocated_delta_bytes": 0,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "vfa-validation/batteries",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/batteries/.lake/build",
+      "previous_allocated_bytes": 151117824,
+      "current_allocated_bytes": 151117824,
+      "allocated_delta_bytes": 0,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "vfa-validation/Qq",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Qq/.lake/build",
+      "previous_allocated_bytes": 21716992,
+      "current_allocated_bytes": 21716992,
+      "allocated_delta_bytes": 0,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "vfa-validation/proofwidgets",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/proofwidgets/.lake/build",
+      "previous_allocated_bytes": 20779008,
+      "current_allocated_bytes": 20779008,
+      "allocated_delta_bytes": 0,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "vfa-validation/importGraph",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/importGraph/.lake/build",
+      "previous_allocated_bytes": 35180544,
+      "current_allocated_bytes": 35180544,
+      "allocated_delta_bytes": 0,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "vfa-validation/LeanSearchClient",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/LeanSearchClient/.lake/build",
+      "previous_allocated_bytes": 5132288,
+      "current_allocated_bytes": 5132288,
+      "allocated_delta_bytes": 0,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "vfa-validation/plausible",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/plausible/.lake/build",
+      "previous_allocated_bytes": 13737984,
+      "current_allocated_bytes": 13737984,
+      "allocated_delta_bytes": 0,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "vfa-validation/Cli",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/Cli/.lake/build",
+      "previous_allocated_bytes": 0,
+      "current_allocated_bytes": 0,
+      "allocated_delta_bytes": 0,
+      "previous_present": false,
+      "current_present": false,
+      "same_present_root_device_inode": null,
+      "regular_file_count_delta": 0,
+      "both_inventories_complete": true
+    },
+    {
+      "label": "vfa-validation/private/fresh-check-4fhvnocs",
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/fresh-check-4fhvnocs",
+      "previous_allocated_bytes": 91836416,
+      "current_allocated_bytes": 103849984,
+      "allocated_delta_bytes": 12013568,
+      "previous_present": true,
+      "current_present": true,
+      "same_present_root_device_inode": true,
+      "regular_file_count_delta": 43,
+      "both_inventories_complete": true
+    }
+  ],
+  "checkpoint_member_comparisons": [
+    {
+      "name": ".conaled-vfa-checkpoint-000-bootstrap.tar.gz.IpMeI5",
+      "previous_present": true,
+      "current_present": true,
+      "allocated_delta_bytes": 0,
+      "same_device_inode": true
+    },
+    {
+      "name": ".conaled-vfa-checkpoint-000-bootstrap.tar.gz.IpMeI5.ssR50N",
+      "previous_present": true,
+      "current_present": true,
+      "allocated_delta_bytes": 0,
+      "same_device_inode": true
+    },
+    {
+      "name": "conaled-vfa-checkpoint-000-bootstrap.tar.gz",
+      "previous_present": true,
+      "current_present": true,
+      "allocated_delta_bytes": 0,
+      "same_device_inode": true
+    },
+    {
+      "name": "conaled-vfa-checkpoint-012-positive-key-adapters.tar.gz",
+      "previous_present": true,
+      "current_present": true,
+      "allocated_delta_bytes": 0,
+      "same_device_inode": true
+    },
+    {
+      "name": "conaled-vfa-checkpoint-013-retention-imports-candidate.tar.gz",
+      "previous_present": true,
+      "current_present": true,
+      "allocated_delta_bytes": 0,
+      "same_device_inode": true
+    },
+    {
+      "name": "conaled-vfa-checkpoint-025-storage-integrity-recovery.tar.gz",
+      "previous_present": true,
+      "current_present": false,
+      "allocated_delta_bytes": -146022400,
+      "same_device_inode": null
+    },
+    {
+      "name": "conaled-vfa-checkpoint-026-fresh-validation-progress.tar.gz",
+      "previous_present": true,
+      "current_present": true,
+      "allocated_delta_bytes": 0,
+      "same_device_inode": true
+    },
+    {
+      "name": "conaled-vfa-checkpoint-027-fresh-run-recovery.tar.gz",
+      "previous_present": true,
+      "current_present": true,
+      "allocated_delta_bytes": 0,
+      "same_device_inode": true
+    },
+    {
+      "name": "conaled-vfa-checkpoint-028-validation-recorder.tar.gz",
+      "previous_present": true,
+      "current_present": true,
+      "allocated_delta_bytes": 0,
+      "same_device_inode": true
+    },
+    {
+      "name": "conaled-vfa-checkpoint-029-fresh-retry-progress.tar.gz",
+      "previous_present": true,
+      "current_present": true,
+      "allocated_delta_bytes": 0,
+      "same_device_inode": true
+    },
+    {
+      "name": "conaled-vfa-checkpoint-030-fresh-retry-evidence.tar.gz",
+      "previous_present": false,
+      "current_present": true,
+      "allocated_delta_bytes": 146178048,
+      "same_device_inode": null
+    },
+    {
+      "name": "conaled-vfa-checkpoint-031-recorder-loss-evidence.tar.gz",
+      "previous_present": false,
+      "current_present": true,
+      "allocated_delta_bytes": 146202624,
+      "same_device_inode": null
+    },
+    {
+      "name": "conaled-vfa-checkpoint-032-record-protocol-recovery.tar.gz",
+      "previous_present": false,
+      "current_present": true,
+      "allocated_delta_bytes": 146210816,
+      "same_device_inode": null
+    },
+    {
+      "name": "conaled-vfa-incident-001-enospc-evidence.tar.gz",
+      "previous_present": false,
+      "current_present": true,
+      "allocated_delta_bytes": 720896,
+      "same_device_inode": null
+    }
+  ],
+  "private_output_enumeration_errors": [],
+  "assessment": {
+    "existing_root_free_checkpoint_launch_floor_bytes": 2000000000,
+    "root_free_margin_after_census": 539282432,
+    "selected_allocated_delta_bytes": 305303552,
+    "root_free_change_since_prior_census": -1534844928,
+    "checkpoint025_disposition": "Root reports its one-time local retirement has occurred. If it is present again, it is not a new automatic disposal option; do not repeat that deletion.",
+    "returned_root_disposition": "Previously retired main Mathlib/Aesop/Batteries roots and old returned archives are not authorised for another deletion by this census. Metadata deltas do not identify a writer.",
+    "protected_roots": "All validation dependency/project/private outputs remain untouched. Retained normal outputs also belong to the existing integrity-preservation workflow.",
+    "bounded_next_options": [
+      {
+        "checkpoint": 26,
+        "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-026-fresh-validation-progress.tar.gz",
+        "observed_metadata": {
+          "name": "conaled-vfa-checkpoint-026-fresh-validation-progress.tar.gz",
+          "type": "regular",
+          "logical_bytes": 146023732,
+          "allocated_bytes": 146034688,
+          "device": 27,
+          "inode": 2405456,
+          "nlink": 1,
+          "mode": "0o644",
+          "mtime_ns": 1793642464827682010,
+          "ctime_ns": 1793642530347074078
+        },
+        "size_matches_preserved_successful_upload_verification": true,
+        "existing_verification_record": "/workspace/scratch/0c54f2db1fdf/work-state/validation/checkpoint026-upload-verification.json",
+        "disposition": "Potential one-time retirement only after separate exact current full SHA/size/Library-binding, stable identity and prior-retirement checks; not yet authorised or verified eligible by this metadata census."
+      },
+      {
+        "checkpoint": 27,
+        "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-027-fresh-run-recovery.tar.gz",
+        "observed_metadata": {
+          "name": "conaled-vfa-checkpoint-027-fresh-run-recovery.tar.gz",
+          "type": "regular",
+          "logical_bytes": 146040188,
+          "allocated_bytes": 146051072,
+          "device": 27,
+          "inode": 2405666,
+          "nlink": 1,
+          "mode": "0o644",
+          "mtime_ns": 1793653446991332371,
+          "ctime_ns": 1793653469123057237
+        },
+        "size_matches_preserved_successful_upload_verification": true,
+        "existing_verification_record": "/workspace/scratch/0c54f2db1fdf/work-state/validation/checkpoint027-upload-verification.json",
+        "disposition": "Potential one-time retirement only after separate exact current full SHA/size/Library-binding, stable identity and prior-retirement checks; not yet authorised or verified eligible by this metadata census."
+      }
+    ],
+    "recommendation": "If root needs additional headroom, the oldest remaining local source checkpoint026 is the next narrow verification candidate; checkpoint027 is a further option only if needed. No retirement or threshold change follows automatically.",
+    "limits": "This is a non-atomic metadata census while the original fresh2 checker remains active. Allocation can change between roots and before/after samples. It neither predicts the complete build peak nor establishes a complete-build shortage, growth cause, input-integrity failure or new formal gate. Paths outside the original selected scope were not inventoried."
+  },
+  "scope": "Exactly the prior selected main and validation generated roots, local checkpoints, and validation fresh-check-* roots. Metadata and small prior evidence JSON only; no artifact/archive payload read or hash, process inspection/signals, compiler/hash helper, cleanup or new utility. Symlinks are not traversed.",
+  "allocation_counting_limit": "Allocated sums count metadata paths and could overcount hard-linked regular files; link counts and types are recorded. Canonical/root identity separation does not establish active-reference absence.",
+  "mutations": "Only this new evidence record is created. No source/cache/helper/recorder edits or deletion."
+}

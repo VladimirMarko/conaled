@@ -1,0 +1,33 @@
+{
+  "started_utc": "2026-11-04T18:16:19.437159+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "accepted_before": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "command": [
+    "git",
+    "-C",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled",
+    "merge",
+    "--ff-only",
+    "2da5708478a1d943a9214b5b386ec2db16cd9eca"
+  ],
+  "root_gate": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-acceptance-20261104/root-gate-reconciliation.json",
+    "bytes": 139032,
+    "sha256": "ba9c115e8840fec4e587386bd7f6febcbc8e460115163aab69bf758b3ad4d098"
+  },
+  "immediate_terminal": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-immediate-verification-20261104-attempt1/owned-terminal.json",
+    "bytes": 260,
+    "sha256": "deacecb2e6f2e56fcd0eee4b4e4e39aca5467cacec5b6a00640049fc67405af0"
+  },
+  "immediate_closure": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-immediate-verification-20261104-attempt1/closed-evidence-reconciliation.json",
+    "bytes": 2314,
+    "sha256": "4ae06a939df9891aca3ea3f3fcd3ffbc8da82f178b85e80e9f0f96e21092045a"
+  },
+  "method": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-acceptance-20261104/fast_forward_once.py",
+    "bytes": 5682,
+    "sha256": "a757f35a2b629ad8a7d13eb98dd1b355e8a8510ad382fc0b0e6a2fc80dba00b1"
+  }
+}

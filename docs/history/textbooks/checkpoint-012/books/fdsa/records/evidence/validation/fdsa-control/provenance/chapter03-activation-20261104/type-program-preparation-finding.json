@@ -1,0 +1,20 @@
+{
+  "recorded_utc": "2026-11-04T19:16:19.288418+00:00",
+  "finding": "C03-PREP-TYPE-001",
+  "scope": "Preparation-method compatibility, not mathematical or source correctness",
+  "observed_tool_chunks": [
+    "446858",
+    "363cdc"
+  ],
+  "affected_inputs": {
+    "CountRankStatements-v2.lean": 40,
+    "ChunksStatements.lean": 35,
+    "MedianOfMediansStatements.lean": 55
+  },
+  "observed": "All130 prepared checks omit explicit @, whereas the unchanged reviewed capture_statement_inputs.py contract recognizes #check @name for complete declaration inspection. No actual type execution occurred.",
+  "required_correction": "Preserve old inputs and receipts; supply separate explicit-@ programs with identical names/imports/options and a current-candidate/source binding. Do not weaken capture helper.",
+  "owner": "/root/chapter03_values",
+  "candidate_source_unchanged": "9ff4d92e20eeabde29fd91b78c37786019e9613b",
+  "status_at_record": "Correction assigned; source remains held; root will reconcile the separate corrected inputs before treating preparation resolved.",
+  "XR_scope_or_acceptance_impacted": false
+}

@@ -1,0 +1,31 @@
+{
+  "requested_utc": "2026-11-04T06:07:52.124671+00:00",
+  "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+  "candidate": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "build",
+    "Applications.Sorting.ThreeWayQuickSort",
+    "Examples.ThreeWayQuickSort",
+    "Applications.Resources.RandomQuickSort",
+    "Examples.RandomQuickSort",
+    "Applications.Resources.DifferenceListCosts",
+    "Examples.DifferenceListCosts"
+  ],
+  "scope": "Process recording only; command and acceptance policy unchanged.",
+  "started_utc": "2026-11-04T06:07:52.166626+00:00",
+  "initial_head": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+  "initial_status": "",
+  "recorder_pid": 2,
+  "available_bytes_at_start": 20928290816
+}

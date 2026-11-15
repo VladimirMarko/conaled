@@ -1,0 +1,334 @@
+{
+  "schema": "fdsa.chapter02.source-integration.author-readback.v1",
+  "recorded_utc": "2026-11-04T16:58:53.194119+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "source_held": true,
+  "package_completion_stage": "All pre-existing package payloads read completely, all JSON parsed, exact source/stage/resolution/ref identities rechecked; receipt follows.",
+  "full_authored_prose_readback": {
+    "file": {
+      "path": "handoff.md",
+      "bytes": 14249,
+      "lines": 81,
+      "sha256": "583cc9b4cf1f3f00afe9ca9005099b9cf082108a8a39e4fea14476f1a2111d2d"
+    },
+    "tool_chunk": "22dfe1",
+    "all_lines_read": true
+  },
+  "new_complete_source_document_reads": [
+    {
+      "path": "Applications/Resources/Growth.lean",
+      "lines": 59,
+      "tool_chunks": [
+        "761c7c"
+      ],
+      "boundary": "Exact Z source, complete human read; no proof correction."
+    },
+    {
+      "path": "SquareApplications.lean",
+      "lines": 286,
+      "tool_chunks": [
+        "c939fc"
+      ],
+      "boundary": "Complete current root plus exact import-order/block comparison."
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "lines": 683,
+      "tool_chunks": [
+        "66a241",
+        "e8e003"
+      ],
+      "ranges_1_based_inclusive": [
+        [
+          1,
+          310
+        ],
+        [
+          311,
+          683
+        ]
+      ],
+      "boundary": "Complete current map; all nine exact resolutions and retained prose assessed."
+    },
+    {
+      "path": "docs/research/fdsa-sorting.md",
+      "lines": 512,
+      "tool_chunks": [
+        "c939fc",
+        "117772",
+        "8dcf3e",
+        "4e598a"
+      ],
+      "ranges_1_based_inclusive": [
+        [
+          1,
+          145
+        ],
+        [
+          145,
+          255
+        ],
+        [
+          256,
+          350
+        ],
+        [
+          351,
+          444
+        ],
+        [
+          445,
+          512
+        ]
+      ],
+      "boundary": "Complete current note; 112 rows/60 aliases/448 explicit reference set and all remaining bytes preserved."
+    },
+    {
+      "path": "documentary.diff",
+      "tool_chunks": [
+        "4e243f"
+      ],
+      "boundary": "Every new documentary hunk read."
+    }
+  ],
+  "full_mechanical_source_readback": {
+    "scope_paths": 81,
+    "defining_paths": 71,
+    "defining_bytes": 714048,
+    "defining_lines": 15906,
+    "closure_sources": 97,
+    "all_exact_frozen_and_expected_Z": true,
+    "retained_notes_exact_L": 6,
+    "prior_math_case_assessments_retained": true,
+    "no_claim_of_new_semantic_reread_of_all_15906_formal_lines": true
+  },
+  "command_evidence": {
+    "baseline": "499709",
+    "ordinary_branch_and_merge": "b83607",
+    "three_documentary_source_writes": "5fe055",
+    "precommit_check": "1df99f",
+    "actual_commit": "b38d13",
+    "final_source_union_and_refs": "c0e6dd"
+  },
+  "actual_command_exits": {
+    "switch": 0,
+    "ordinary_merge": 1,
+    "git_add": 0,
+    "staged_diff_check": 0,
+    "commit": 0
+  },
+  "actual_merge_conflicts": [
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "saved_stage_payloads_verified": 6,
+  "all_existing_package_payloads_read": [
+    {
+      "path": "add-result.json",
+      "bytes": 441,
+      "lines": 20,
+      "sha256": "be79c923b295c29ff9d40c00cbe499fa5e33982f2cb1fcb301729652b57dc38a"
+    },
+    {
+      "path": "baseline-L-tree.bin",
+      "bytes": 151697,
+      "lines": 0,
+      "sha256": "c76b4a098e9cc13738807abebb6c3a5ba3cf45a0e1ffda819deba2aafe397b06"
+    },
+    {
+      "path": "baseline.json",
+      "bytes": 45004,
+      "lines": 1144,
+      "sha256": "7c85ca73c6f8d481425f394437908de1208f90c93ea2e9c07a2ce3305b0dcf7d"
+    },
+    {
+      "path": "bound-inputs.json",
+      "bytes": 16203,
+      "lines": 446,
+      "sha256": "ab4de201566163067aa2ae6e703a2e279319ee6218d86fe273eb8b6cf6bf13de"
+    },
+    {
+      "path": "branch-result.json",
+      "bytes": 548,
+      "lines": 21,
+      "sha256": "65bcbbb2f65362ce844f5a109dd44a4c915df367ddfbb3dc095ca4178ed12375"
+    },
+    {
+      "path": "branch-start.json",
+      "bytes": 368,
+      "lines": 16,
+      "sha256": "02abb59d09f14fedb5ac07c107cc92e49bdaadcd198565a7825da3f46645408d"
+    },
+    {
+      "path": "commit-result.json",
+      "bytes": 538,
+      "lines": 19,
+      "sha256": "91a12ae6db8eb425374fb405330901100101c27669916f34e4706a0e61c36955"
+    },
+    {
+      "path": "commit-start.json",
+      "bytes": 342,
+      "lines": 15,
+      "sha256": "9055a7da46540a694c5c7ce87c3703156cfcb074f5e475efd550cc20a945f08a"
+    },
+    {
+      "path": "commit.txt",
+      "bytes": 358,
+      "lines": 8,
+      "sha256": "48a6d2eef4ebeb6b37366f307a0df6590dda823631a0a129df2b0607ea4b63fb"
+    },
+    {
+      "path": "conflict-SquareApplications.lean-stage1",
+      "bytes": 8769,
+      "lines": 268,
+      "sha256": "4be374b4672b68eea315625cba159e77c50a8ef8c177635e09bfcac3ae5742fb"
+    },
+    {
+      "path": "conflict-SquareApplications.lean-stage2",
+      "bytes": 8609,
+      "lines": 262,
+      "sha256": "a30e93ebbdb80f40d751cc30a5185e5e96ce40861540c35fb439362d66d2678d"
+    },
+    {
+      "path": "conflict-SquareApplications.lean-stage3",
+      "bytes": 9371,
+      "lines": 285,
+      "sha256": "31fb256fe70c28b42b85b0221c37ffe60ab60248ebf7babecc410326c1f96d15"
+    },
+    {
+      "path": "conflict-docs__research__fdsa-reconstruction-map.md-stage1",
+      "bytes": 40858,
+      "lines": 629,
+      "sha256": "cfe67f21675a2aecd301d5e2f7b8f5adbc54c4b744c462319a95895d7ec3a4d4"
+    },
+    {
+      "path": "conflict-docs__research__fdsa-reconstruction-map.md-stage2",
+      "bytes": 41477,
+      "lines": 631,
+      "sha256": "b5997a67ca8e23f4418b5428db17bedcf960f262f2e9a9e711255799970689d6"
+    },
+    {
+      "path": "conflict-docs__research__fdsa-reconstruction-map.md-stage3",
+      "bytes": 44132,
+      "lines": 671,
+      "sha256": "dd4ce52d2cec15815dd18788e027808b072af75f4759b6fd9d6520682e6a27c2"
+    },
+    {
+      "path": "documentary.diff",
+      "bytes": 13482,
+      "lines": 226,
+      "sha256": "04261b3bb3546bdba2f36b74e6be8f4985d2dbeaa364ba2abdb9a84de8780ab2"
+    },
+    {
+      "path": "frozen-candidate.json",
+      "bytes": 1025,
+      "lines": 22,
+      "sha256": "34d8fe03749f8132a9aa186e23add7c046d5f291520e195037204f3a3e6bf83c"
+    },
+    {
+      "path": "full-scope-commit-list.txt",
+      "bytes": 30005,
+      "lines": 186,
+      "sha256": "6405dce735e9941fd8ad3fc9a209f0a7ea719154c2a0cace2db98e558bb7abc9"
+    },
+    {
+      "path": "full-scope-name-status.txt",
+      "bytes": 3133,
+      "lines": 81,
+      "sha256": "a0c8fb0f7cfe75bd895c8a1ceada183c4fccd954bdef0fc9bc9efd1dda8ec05c"
+    },
+    {
+      "path": "handoff.md",
+      "bytes": 14249,
+      "lines": 81,
+      "sha256": "583cc9b4cf1f3f00afe9ca9005099b9cf082108a8a39e4fea14476f1a2111d2d"
+    },
+    {
+      "path": "merge-result.json",
+      "bytes": 795,
+      "lines": 23,
+      "sha256": "6786b497ddfa3213c695c2fb6679a226e1e9fe772e99ebf9a36cf1d576dc2f46"
+    },
+    {
+      "path": "merge-start.json",
+      "bytes": 373,
+      "lines": 18,
+      "sha256": "22b5b1dd6e28191a93fe352448b9ba4a2f70ab2efa1bfc84cf4dbd218dfb3149"
+    },
+    {
+      "path": "merge-state.json",
+      "bytes": 6453,
+      "lines": 113,
+      "sha256": "1242e4c70e7207f9157fa4b3e80e8877af9f7b4efe6b56fe17c1f5668e915834"
+    },
+    {
+      "path": "pre-resolution-SquareApplications.lean",
+      "bytes": 9637,
+      "lines": 294,
+      "sha256": "e02ea95627432b002a6dd3603172943fd6397f38652521a639ad1e5ef885ec21"
+    },
+    {
+      "path": "pre-resolution-docs__research__fdsa-reconstruction-map.md",
+      "bytes": 48963,
+      "lines": 760,
+      "sha256": "2add240220f9218b822db4162a66abf20c3a30b8bfe4b100431de055d9a93eac"
+    },
+    {
+      "path": "pre-resolution-docs__research__fdsa-sorting.md",
+      "bytes": 78811,
+      "lines": 502,
+      "sha256": "4b8776fd7c5ecd3e877addf9f271d2134a63e6a012486be892efc47cbaf476f2"
+    },
+    {
+      "path": "precommit-check.json",
+      "bytes": 46527,
+      "lines": 1219,
+      "sha256": "856cabd4fcfdaa80f0b0017816e11df83c9a8af8546ff8fe4e54708e465077a3"
+    },
+    {
+      "path": "resolution-applied.json",
+      "bytes": 620,
+      "lines": 22,
+      "sha256": "da2f7cf5a661a8635e2d2c3bffc0b53fefe3d64c026864f863b156c5f5979f78"
+    },
+    {
+      "path": "resolution-plan.json",
+      "bytes": 17322,
+      "lines": 275,
+      "sha256": "3fae1c1287891e64ecc8c4bcac1b58d8bb1971fb12ae159b963632fd0bc29758"
+    },
+    {
+      "path": "resolved-SquareApplications.lean",
+      "bytes": 9372,
+      "lines": 286,
+      "sha256": "39a54b99b5ccc2e7f32307bf3864a3641cf0cd247af4ba9dee2b803d336961b5"
+    },
+    {
+      "path": "resolved-docs__research__fdsa-reconstruction-map.md",
+      "bytes": 45020,
+      "lines": 683,
+      "sha256": "79ca9b2e9761417cdf5951f70e4976a9e134b3fa683d8e4857bb3c86a4bb70ff"
+    },
+    {
+      "path": "resolved-docs__research__fdsa-sorting.md",
+      "bytes": 79434,
+      "lines": 512,
+      "sha256": "8829a89f3be3f6485166622f4fe3490d85aa2981d9c8516c8a01c8b0afe6f697"
+    },
+    {
+      "path": "result.json",
+      "bytes": 108380,
+      "lines": 2727,
+      "sha256": "a0642a45b8580bdb9f0427bbe04c996ff6bc39058fd955117f33613178507f0d"
+    },
+    {
+      "path": "source.diff",
+      "bytes": 614478,
+      "lines": 12061,
+      "sha256": "9d539decf909c07ba6a0ecf4fb38ef0fd1f4c3252ddc336e08f7fd33c124724a"
+    }
+  ],
+  "read_display_limitations": "Initial combined long displays were truncated; no unread suffix was credited. Required documentary source was read later in complete bounded slices. Earlier unchanged full source/type assessments are retained, not newly claimed.",
+  "validation": "Source-only. Zero compiler/cache/project-output actions and zero receiving type/full/audit/verification/acceptance credit.",
+  "final_hold": "No source/ref or old-package changes after freeze. Own package becomes held after final receipt/readback."
+}

@@ -1,0 +1,61 @@
+{
+  "recorded_utc": "2026-11-02T20:56:32.358358+00:00",
+  "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "status": "incomplete_execution_handles_unavailable_no_terminal_status",
+  "formal_validation_success": false,
+  "actual_returncode": null,
+  "cause": "unresolved",
+  "execution_handle_errors": {
+    "monitor_cell_807": "exec cell807 not found",
+    "unified_session_12175": "Unknown process id12175"
+  },
+  "first_recorded_handle_loss_utc": "2026-11-02T20:47:30.780954+00:00",
+  "last_retained_completion": [
+    "161",
+    "953",
+    "SquareKit.SmoothQuotient (286.89s)"
+  ],
+  "retained_log_failure_pattern_matches": [],
+  "frozen_records": [
+    {
+      "original": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-3279bac-fresh1.log",
+      "snapshot": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-3279bac-fresh1-unavailable.log",
+      "size_bytes": 19270,
+      "sha256": "e5691d12514aa22945118dc7b1a3840f7ef5975b295c55616671df390a1928f1",
+      "source_mtime_utc": "2026-11-02T19:58:19.328635+00:00",
+      "stable_during_copy": true
+    },
+    {
+      "original": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-3279bac-fresh1.run.json",
+      "snapshot": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-3279bac-fresh1-unavailable-run.json",
+      "size_bytes": 1384,
+      "sha256": "b12941061e4d71cb19883b039a6f103cb7ccf76622a390dd243815ef757a86c7",
+      "source_mtime_utc": "2026-11-02T16:09:16.725187+00:00",
+      "stable_during_copy": true
+    }
+  ],
+  "source_checkout_state": {
+    "conaled": {
+      "head": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "porcelain": ""
+    },
+    "vfa-validation": {
+      "head": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "porcelain": ""
+    }
+  },
+  "first_native_group_observation": {
+    "utc": "2026-11-02T20:48:28.892553+00:00",
+    "known_group": 426051,
+    "visible_process_entries": 58,
+    "stat_read_failures": 0,
+    "matching_group_processes": [],
+    "verification_record_exists": false
+  },
+  "second_scoped_observation": "work-state/validation/1002-fresh1-handle-loss-scope-observation.json",
+  "observed_process_state": "Two native snapshots found no known group members; the second found no task validation cwd or log/run/private-output file descriptors, with the individual read/race counts retained. This is scoped observation, not proof of absence of every possible writer.",
+  "original_run_record_policy": "Preserved unchanged. Its running status and null return are historical incomplete bookkeeping, not evidence of a live process or successful completion. Do not invent an exit code or overwrite it with a fabricated child result.",
+  "resource_limitations": "Current cgroup observations report zero OOM/OOM-kill events and substantial free storage; these do not establish why the process/handles became unavailable. No cause is assigned to paging, ENOSPC, the tool layer, inactive path recreation, or compiler source.",
+  "actions": "No signal, cache cleanup, source/dependency/toolchain/checker mutation, or replacement formal compiler was performed during assessment.",
+  "next": "Preserve this state in complete checkpoint027; review a minimal durable outcome/heartbeat recorder and retry the unchanged required fresh check. All later guarded, audit, regression, reviewer and final gates remain pending."
+}

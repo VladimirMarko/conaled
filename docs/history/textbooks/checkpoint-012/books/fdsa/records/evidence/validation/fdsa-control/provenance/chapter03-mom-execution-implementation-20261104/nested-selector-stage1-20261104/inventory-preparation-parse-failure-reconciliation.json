@@ -1,0 +1,23 @@
+{
+  "recorded_utc": "2026-11-04T20:43:12.462062+00:00",
+  "actual_terminal": "49c03d exit1",
+  "kind": "Python preparation wrapper parse failure, not a Lean run",
+  "error": "SyntaxError at nested triple-quoted program text; the outer Python wrapper did not execute.",
+  "attempted_file_absent": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/prepare_candidate1_inventory.py",
+  "head_and_status_unchanged": true,
+  "all_23_existing_sources_and_57_prior_records_unchanged": true,
+  "new_source_identities": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/Selection.lean",
+      "bytes": 20262,
+      "sha256": "edf5257473fc51bf6db3dd7d3a5bfe492d5171665f7756495db1c16da93209fd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionCosts.lean",
+      "bytes": 13466,
+      "sha256": "fc9ab165cac2cd05246592bddbcc63632b4c363e4c478dea02e1aeb0d77e8122"
+    }
+  ],
+  "resolution": "Generate the inventory directly, without nesting Python source inside a triple-quoted Python wrapper. No source proof or statement correction is implied.",
+  "compiler_run": false
+}

@@ -1,0 +1,88 @@
+{
+  "recorded_utc": "2026-11-04T20:20:50.113794+00:00",
+  "author": "root, continuation of existing whole-book implementation loop, not independent semantic review",
+  "starting_candidate": "9d4b622ff74ec012d49733ccc0c4c0849b57ade4",
+  "starting_tree": "5eba6a065b0080ad44cb8ef77fb2aa05d42f7a84",
+  "status": "",
+  "new_paths": [
+    "Applications/Resources/GroupSelectionRecurrence.lean",
+    "Examples/GroupSelectionRecurrence.lean"
+  ],
+  "old_six_sources": {
+    "Applications/Resources/RoundedRecurrence.lean": {
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758"
+    },
+    "Applications/Resources/RoundedRecurrenceBounds.lean": {
+      "bytes": 6951,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135"
+    },
+    "Applications/Resources/SelectionRecurrence.lean": {
+      "bytes": 6560,
+      "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e"
+    },
+    "Examples/RoundedRecurrence.lean": {
+      "bytes": 3782,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d"
+    },
+    "Examples/RoundedRecurrenceBounds.lean": {
+      "bytes": 7295,
+      "sha256": "18275f597cf579edf0db6785d0910e76dcc9cff084566ced73cd0da8828c0135"
+    },
+    "Examples/SelectionRecurrence.lean": {
+      "bytes": 2272,
+      "sha256": "6599e51e8d6ea0197d74d2ca43076a355a9c131ce453f4a25c6c3bf086d99971"
+    }
+  },
+  "scope": "Scalar group-size portion of C03-058 plus exact arithmetic transport of the C03-057 two-group bound. Value author retains counterfamily/actual cutoff/correctness; mom author retains measured nested execution. All83 obligations remain.",
+  "frozen_inputs": {
+    "research/chapter03-obligations.md": {
+      "bytes": 52581,
+      "sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed"
+    },
+    "research/selection-proof-plan.md": {
+      "bytes": 31813,
+      "sha256": "4683072c5b47f168f81d0f35b727e247bc2c36af6922c76ab8eaac4fb542d18b"
+    }
+  },
+  "prior_root_F_records": {
+    "provenance/chapter03-selection-recurrence-implementation-20261104/git-commands.json": {
+      "bytes": 836,
+      "sha256": "5879b4e1f1a3ce95cc7f039a839907b0fa70aa4418184fffadfcaace0b9eb49b"
+    },
+    "provenance/chapter03-selection-recurrence-implementation-20261104/Statements28-candidate1.lean": {
+      "bytes": 1930,
+      "sha256": "8e1ea7e7c77c2c13e201567f4269d312c829f94919bc652eae2964150edd31c6"
+    },
+    "provenance/chapter03-selection-recurrence-implementation-20261104/focused-pass-and-hold.json": {
+      "bytes": 2032,
+      "sha256": "a2c2de7dc2c853d5dfd8a0c400768ff8853705ab8e165f64a329c8a909995e68"
+    },
+    "provenance/chapter03-selection-recurrence-implementation-20261104/starting-state-and-cases.json": {
+      "bytes": 17062,
+      "sha256": "47cab1d42982d550dee5f38d76260cd065a52f86ed448e0131fc5e208935db61"
+    },
+    "provenance/chapter03-selection-recurrence-implementation-20261104/precommit-statement-review.json": {
+      "bytes": 9304,
+      "sha256": "7064aeb0bc772ab918ce6de2536ccf4283a4fc02f30e350058a68e5310174ae4"
+    },
+    "provenance/chapter03-selection-recurrence-implementation-20261104/candidate1.json": {
+      "bytes": 1907,
+      "sha256": "3cc24e779dbd7b7dd1b67054ba69c24dee0390f9d1dedbd6cc746ae6c9a60da0"
+    }
+  },
+  "design": [
+    "a(l)=1/l; c(l)=(l+floor(l/2))/(2*l), real arithmetic with natural floor before cast. Positive l essential; sum<1 iff l-floor(l/2)>2 iff l>=5. Odd2r+1 needsr>=2, even2r withr>0 needsr>=3. Equality at3/4 gives no impossibility theorem.",
+    "Exact coarse integer side bound q*m+(l-q)*floor(m/2) transported using m=ceil(n/l) to ceil(c(l)*n+l); offset l explicitly inside ceiling, final short-chunk allowance retained.",
+    "Define a total natural scalar majorant for l>=5 with arbitrary natural constant base and linear toll. Explicit cutoff ceil((l+2)/(1-a(l)-c(l)))+1 yields strict child decrease before recursion. Prove monotonicity and all-n affine bound from the exact rounded theorem, with global witnesses dependent only on fixed data.",
+    "No claim this scalar is an actual source cost; composing measured worker with it remains required. Source guards/pins/acceptedrefs unchanged."
+  ],
+  "expected_cases_before_source": [
+    "l=1 coefficient3/2 and pivotChild n=n; l=2 coefficient5/4; l=3 and4 coefficient1; l=5 coefficient9/10; l=6 coefficient11/12.",
+    "Explicit cutoffs:5->71,6->97,7->64,8->81. For base1,slope2,const3: G5(0)=G5(71)=1, G5(72)=149 with children15,56; G6(98)=201 with children17,80.",
+    "All-n uniform affine constants and ordinary BigO for every fixed sufficient group/toll/base; arbitrary signed rounded offsets in conditional generic corollary retain assumptions.",
+    "Two-group count transport must cover n=0 and short final chunks and both orientations through identical numeric bound; no exact70percent false statement.",
+    "Monotone resizing and no all-n pure linear bound when base>0 at0; sufficient odd/even boundary cases and small-size noncontraction explicitly tested."
+  ],
+  "validation": "Root serial focused checks only after immutable source commit; full candidate check/audit, all actual public types, independent Standards/Spec and immediate verification remain mandatory."
+}

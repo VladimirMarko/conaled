@@ -1,0 +1,76 @@
+{
+  "recorded_utc": "2026-11-02T17:31:20.804358+00:00",
+  "base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "head": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "branch": "work/fdsa-three-way-partition",
+  "worktree": "/workspace/scratch/845aa1048b05/conaled-three-way-partition",
+  "clean_before_source_edits": true,
+  "requirements": "three-way-partition-requirements.md",
+  "requirements_sha256": "b1f55911c44a11def3498484787fcb04972398ec040bf1bd65c75796c116d541",
+  "requirements_bytes": 12208,
+  "requirements_lines": 209,
+  "phase": "frozen pre-code baseline; no source edits or validation",
+  "dependency_packages_link": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+  "project_outputs": "isolated; no build directory exists",
+  "source_authoring_released": false,
+  "preflight_reports": {
+    "three-way-partition-source-preflight.md": {
+      "sha256": "67dbab76a7b3e27dff569171197496273f86fe6fae3c97a62f6ace6191e50656",
+      "bytes": 16305,
+      "lines": 261
+    },
+    "three-way-partition-api-preflight.md": {
+      "sha256": "08d76951855c0fc52ebc9ff6c7a26846a89f33bb2dd35d37f63ea252c9d768e5",
+      "bytes": 17258,
+      "lines": 272
+    },
+    "three-way-partition-case-preflight.md": {
+      "sha256": "2837e5dc0cd2255fb668d2bacee0988d4ca312f5dbf12bed0e9aade6b154e72c",
+      "bytes": 14747,
+      "lines": 254
+    }
+  },
+  "original_inputs": {
+    "Applications/Selection/ThreeWay.lean": {
+      "sha256": "bd72ca5f11d028cde9420ae42f9a9f1f84d6cfc00bf02bd528a61fd00f586d52",
+      "bytes": 10489,
+      "lines": 226
+    },
+    "Applications/Selection/Rank.lean": {
+      "sha256": "4a82df75593d909e2968bf1e27cbfea52c9795abfe81250bb2385e7dfc16f965",
+      "bytes": 3713,
+      "lines": 91
+    },
+    "Applications/Selection/Consumers.lean": {
+      "sha256": "7ddfe4da069279ac03b075088ce34e32a5ee8c1a251f6b035b45275bafa3167b",
+      "bytes": 5450,
+      "lines": 122
+    },
+    "Examples/RankSelection.lean": {
+      "sha256": "641a752cdee9b2ab30e66bb2f7feda2548cffebfe6733460b52ff5f7e119520e",
+      "bytes": 5085,
+      "lines": 121
+    },
+    "Applications/Resources/Measured.lean": {
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "bytes": 2906,
+      "lines": 71
+    },
+    "Applications/Resources/CallCount.lean": {
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+      "bytes": 2447,
+      "lines": 58
+    },
+    "SquareApplications.lean": {
+      "sha256": "b36e3743af5043667735caab1327fda8fc1b6eebc2d7842cdd926b329b2efd68",
+      "bytes": 8292,
+      "lines": 252
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "sha256": "3283880ec3b0d55286be1b080c3b58e606577e9a522f21477b8499306c627668",
+      "bytes": 15963,
+      "lines": 262
+    }
+  },
+  "sole_compiler": "Chapter1 guarded run session83124 at07e480f; no additional compiler/checker/project hash helper"
+}

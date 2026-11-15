@@ -1,0 +1,57 @@
+{
+  "kind": "preparation_static_advisory_not_formal_review",
+  "formal_acceptance": false,
+  "helper": "work-state/validation/1034-pre-guard-assess.py",
+  "final_helper_sha256": "a2c40a0a4d786101442bfe923177e245b66b46e9c5bf5544dcbe00e766fb602c",
+  "historical_first_three_corrections_helper_sha256": "204586a623ea94176b3ad67d5bec0f729c895fdca72a3a7ab0dc2d63eed58a7f",
+  "candidate_tree_mutations": false,
+  "real_project_artifact_access": false,
+  "guard_inspection_execution": false,
+  "requirements_adviser": "/root/recovery_audit/native_spec",
+  "static_code_adviser": "/root/recovery_audit/native_standards",
+  "requirements_advice": "Keep both the full normal-target guard diagnostic and an independent physical inventory; preserve known families plus orphan/surplus/sidecar/unrecognized evidence, fresh outcome/record and source/toolchain identities; incomplete diagnostics and historical causes remain explicitly uncertain.",
+  "findings": [
+    {
+      "id": "PREP-001",
+      "problem": "Invalid filename-derived module identities could escape the candidate or omit an empty-name orphan from preservation.",
+      "correction": "Only nonempty identifier components are used as module identities; invalid names remain unrecognized raw files selected unconditionally.",
+      "disposition": "Corrected by static follow-up; synthetic .Foo.olean and .olean cases passed."
+    },
+    {
+      "id": "PREP-002",
+      "problem": "Noncanonical trace locations and their sidecars could evade orphan selection.",
+      "correction": "Physical member paths are compared with canonical locations, including traces and sidecars; differences select the affected family.",
+      "disposition": "Corrected by static follow-up; misplaced ProofAudit.trace and flat Foo.Bar.trace cases passed."
+    },
+    {
+      "id": "PREP-003",
+      "problem": "Setting TMPDIR only in the child environment did not contain the inspector's in-process temporary manifest.",
+      "correction": "The assessment process sets both os.environ TMPDIR and tempfile.tempdir before importing/invoking the guard, and passes that location to child processes.",
+      "disposition": "Corrected by static follow-up; a real synthetic temporary directory was created within the fixture evidence directory."
+    },
+    {
+      "id": "PREP-004",
+      "reported_by": "/root",
+      "problem": "The handoff pointed to the old vfa-validation checkout instead of the current native candidate checkout.",
+      "correction": "Both recorder cwd and helper root now select vfa-native-validation; candidate c988f183887896c00b09aaff9077a6ea7fb8d68f and enclosing base 7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd remain unchanged.",
+      "disposition": "Corrected and confirmed by the scoped static follow-up."
+    },
+    {
+      "id": "PREP-005",
+      "reported_by": "/root",
+      "problem": "The collector rejected the authorized nine explicit package symlinks to the shared pinned dependency checkout root.",
+      "correction": "Required dependency-root is bound to this recovery's canonical vfa-validation/.lake/packages. Each candidate package must be an explicit symlink to the same-named nonredirected directory under that root. Clean/revision checks and before/after identity comparisons remain required, with the exact dependency layout now recorded. Isolation/preflight provenance is included in the command.",
+      "disposition": "Corrected and confirmed by static follow-up; all nine expected links pass synthetic routing checks, while an outside target and a wrong same-root package are rejected. No real package or build-output inspection occurred."
+    },
+    {
+      "id": "PREP-006",
+      "reported_by": "/root",
+      "problem": "The handoff overstated LEAN_NUM_THREADS=1 as one Lean thread.",
+      "correction": "The handoff limits the claim to Lake's task pool and explicitly states that the variable does not bound the Lean CLI's internal workers.",
+      "disposition": "Corrected and confirmed by the scoped static follow-up; no runtime or formal-input change."
+    }
+  ],
+  "followup_scope": "The adviser confirmed the first three corrections, then the three root-reported contextual corrections in a separate narrow follow-up, without rerunning tests, reading real artifacts/packages, or claiming a broader/formal review.",
+  "validation": "work-state/validation/1034-pre-guard-helper-checks.json",
+  "validation_limit": "Twenty-two synthetic checks cover inventory/parser/copy/budgets/temp containment, exact shared dependency routing and one owned timeout. No end-to-end candidate assessment, real dependency inspection, Lean hash execution, formal build, repair or acceptance has occurred."
+}

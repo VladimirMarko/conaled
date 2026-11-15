@@ -1,0 +1,67 @@
+{
+  "kind": "prospective_acceptance_evidence_checklist",
+  "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "recorded_utc_date": "2026-11-02",
+  "provenance": "Agreement reported by the original Standards and Spec reviewers through /root/perm_review; no active-run inspection, compilation, source re-review, or reviewer record mutation was performed for this checklist.",
+  "approval": false,
+  "finding_states_at_recording": {
+    "ST-001": "fixed",
+    "ST-002": "open",
+    "SP-VAL-001": "open"
+  },
+  "required_sequence": [
+    {
+      "stage": "fresh_candidate_verification",
+      "evidence": "Actual exit 0, complete source-policy and coverage checks, all compilation and exhaustive-audit success, matching candidate/compiler/dependencies, success record with mode fresh.",
+      "scope": "Validates using private fresh project outputs, bypassing suspect incremental project artifacts; external dependency caches and stable-input assumptions remain trusted."
+    },
+    {
+      "stage": "guarded_incremental_recovery",
+      "evidence": "Separate successful normal check.sh --candidate HEAD, classified pre-build invalidations, complete compilation, successful post-build integrity guard and newly executed exhaustive audit, separate mode incremental record.",
+      "scope": "Establishes guarded incremental recovery for this candidate and run, not historical cause or race freedom."
+    },
+    {
+      "stage": "managed_ProofAudit_build",
+      "evidence": "Successful LAKE_ARTIFACT_CACHE=false lake --no-cache --rehash build +ProofAudit in the pinned environment, with command, candidate, log and actual status; dependencies correspond to guarded recovery.",
+      "scope": "Provides the managed import artifact required by the regression. Fresh private outputs do not populate this cache."
+    },
+    {
+      "stage": "proof_audit_regression",
+      "evidence": "Unchanged scripts/test-proof-audit.py exits 0, preserving all four expected outcomes: unused external axiom accepted; private transitive forbidden axiom, private admission and unsafe declaration rejected."
+    },
+    {
+      "stage": "independent_evidence_assessment",
+      "evidence": "Both original reviewers assess completed candidate-matched evidence, explicitly reuse unchanged source review, and provide supported dispositions of ST-002 and SP-VAL-001."
+    },
+    {
+      "stage": "final_candidate_verification",
+      "evidence": "Root runs check.sh --verify-candidate HEAD immediately before acceptance and preserves success, confirming current record matches candidate, dependencies, compiler and mode.",
+      "scope": "Does not rebuild, rerun the audit or rehash artifacts through the integrity guard."
+    }
+  ],
+  "record_handling": "Preserve each successful record, command, available log, actual return code and input identities before a later candidate check removes the current record. Never restore an older record to conceal a later failure.",
+  "ST-002_acceptance_disposition_requires": [
+    "Preserve the four mismatch families, prior Built evidence, subsequent mismatch diagnostics and chronology.",
+    "Disclose loss of original mismatch bytes through automatic invalidation; identify surviving/regenerated artifacts by their actual provenance.",
+    "Record capacity recovery and stable isolated-input conditions.",
+    "Obtain successful fresh verification and separately successful guarded incremental recovery.",
+    "Do not disregard any new unresolved input change, unexplained mismatch, repeated invalidation or integrity failure.",
+    "Explain the connection between recovery evidence and disposition."
+  ],
+  "permitted_eventual_disposition": "Recovered or mitigated for this exact candidate under the recorded validation conditions; original mismatch creation and propagation remain unresolved.",
+  "incident_1025": "Origin investigation may remain open after an independently accepted candidate recovery; do not label root cause fixed without evidence.",
+  "unresolved_even_after_recovery": [
+    "Missing original artifact bytes and hashes cannot be reconstructed from regenerated files.",
+    "Creator/writer identity and whether all four mismatches shared a cause remain unknown.",
+    "No demonstrated attribution to the unknown copier, ENOSPC, or the upstream GraphEmission artifact.",
+    "No proof of absence of transient writers or race freedom."
+  ],
+  "policy_basis": [
+    "conaled/README.md committed-candidate checks and fresh verification requirements",
+    "conaled/docs/agents/lake-integrity-incidents.md permits retry after correcting cause or stabilizing checkout and permits open investigation after recovery",
+    "Existing task-specific cross-cutting requirements retain separate guarded incremental validation"
+  ],
+  "after_all_gates": "Accept Preface then Perm; immediately create and upload a complete acceptance checkpoint before advancing chapter implementation.",
+  "operational_preservation_before_guard": "work-state/validation/1025-pre-guard-preservation-plan.json",
+  "managed_audit_dependency_qualification": "If managed +ProofAudit unexpectedly rebuilds project dependencies after guarded success, record this and re-establish corresponding guard evidence before using those changed dependencies for the regression."
+}

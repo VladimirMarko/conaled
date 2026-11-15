@@ -1,0 +1,32 @@
+{
+  "recorded_utc": "2026-11-04T18:23:05.412242+00:00",
+  "actual_closed_subprocess_exit": 0,
+  "actual_subprocess_result": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0122-preparation/verification-subprocess-result.json",
+    "bytes": 588,
+    "sha256": "3b52349b44af999c0a777b9386e3d587c90ad16ead374bbad72e1b97b6821906"
+  },
+  "full_closed_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0122-preparation/verify.log",
+    "bytes": 2361,
+    "sha256": "366af6a0605530b903c933f912216e044d08b98e05c5c234268829f546c317cf"
+  },
+  "integrity_record": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0122-preparation/integrity.json",
+    "bytes": 2361,
+    "sha256": "366af6a0605530b903c933f912216e044d08b98e05c5c234268829f546c317cf"
+  },
+  "archive": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0122-accepted-chapter02.tar.gz",
+    "bytes": 29712530,
+    "sha256": "30be46bbba2e2a3f68a8ca346ba81b95ef937798b7ca05641699bd941cca6924"
+  },
+  "current_heads": {
+    "conaled": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+    "conaled-ch01-review": "2da5708478a1d943a9214b5b386ec2db16cd9eca"
+  },
+  "recovery_readback_tool_chunk": "80c973",
+  "parent_tool_output_boundary": "The original parent exec tool result was lost at context compaction; no original session ID or terminal tool result is claimed. The synchronous wrapper saved the actual completed subprocess.run return code, timestamps and closed-log identity before exiting. This independent read-only reconciliation recovered and checked those records.",
+  "verifier_rerun": false,
+  "compiler_execution": false
+}

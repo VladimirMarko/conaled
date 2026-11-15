@@ -1,0 +1,214 @@
+{
+  "recorded_utc": "2026-11-04T21:54:34.244132+00:00",
+  "finding": "C03-CUTOFF-ELAB-002",
+  "parent": "bc4490d57d1b65849fb0903f7f3e417f3b0879b6",
+  "tree": "090c70dcf8cecb8edcae81d870f527d0536f400f",
+  "status": "clean",
+  "actual_failure": {
+    "session": 21894,
+    "terminal": "b961da",
+    "exit": 1,
+    "root_full_closed_log_read": "e94f27",
+    "core": "built",
+    "examples": "two proof errors"
+  },
+  "full_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/full.log",
+    "bytes": 10622,
+    "sha256": "5789f4d1dc3c654e92ed8631bb300616b8c6955376577b0f2c3f7a63c212a89b"
+  },
+  "failed_run_records": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/closed-evidence-reconciliation.json",
+      "bytes": 2198,
+      "sha256": "ec9eb662b12cd6b26c3189df22d4ca075cba6c7c0518a75360ddc2fe6e766fdb"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/full.log",
+      "bytes": 10622,
+      "sha256": "5789f4d1dc3c654e92ed8631bb300616b8c6955376577b0f2c3f7a63c212a89b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/launch.json",
+      "bytes": 174,
+      "sha256": "1beba58e3f0761f9b4ad449d7c04eb62193cdf00b78e7916620cc31f5bad5ccf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/native-records/output.log",
+      "bytes": 10348,
+      "sha256": "00122bcf1fc679db961aca11bb81d5b9faef7a2bb97333a960d374a80934163f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/native-records/result.json",
+      "bytes": 629,
+      "sha256": "e4d60d57d865e89f01db9afe56ed5b5e93174cf1dc50c3b7c79d88d54da2e676"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/native-records/start.json",
+      "bytes": 475,
+      "sha256": "7536f6a7c0a5ce7d1b2b7544931d84c735f35f0f79f83025185e208d0b1ec175"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/outer-prefix.log",
+      "bytes": 117,
+      "sha256": "b21aa552b90ea7cf5b20b6f7afb19b265dfcf3ef626a1a73ad14566aab8dd5a6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/outer-suffix.log",
+      "bytes": 157,
+      "sha256": "f0aca21704fe7d06c4a1ad1c8192b3b2de554f6a7f0009cc75832523ef0890ac"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "25026a31dcd8ca2735c44a77510ebb674d173831a8d6501c9f9bc859b9003451"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/progress.json",
+      "bytes": 262,
+      "sha256": "499814bcb5457544f4b3dafedd6d5efe613c1395961efbc0bbe9a8f3e7b88ae4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/request.json",
+      "bytes": 791,
+      "sha256": "97e32bee04fc040753c97765a77992bd8185e96932d15f04946f6d5e96f9ac81"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/result.json",
+      "bytes": 1318,
+      "sha256": "27b94f6464969f8c6f522dfd9c9d7ee3eaf77f3865be6b042cc07328e55d9b4c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/start.json",
+      "bytes": 984,
+      "sha256": "af6fc300b57f42239ec4c3473dca928a0c52661c617483781153566535d96dcc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-focused-attempt2-20261104/verification.json",
+      "bytes": 867,
+      "sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9"
+    }
+  ],
+  "prior_own_records": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/SelectionCutoffStatements40-candidate1.lean",
+      "bytes": 2756,
+      "sha256": "3d0572fa4298caa4b998a57c6436afe2fd9ba7ade304d839053e6c4f02df72e6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/candidate1-source.patch",
+      "bytes": 96860,
+      "sha256": "73a2f4f21479e825fe34b9fce85a671292d49ed89f263bb4d5aff52f385ce818"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/commit-result-candidate1.json",
+      "bytes": 855,
+      "sha256": "f1493b273e8537459b168eb3c68b67c43435a40ba7c60914bd4dd79e0282b826"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/correction1-20261104/SelectionCutoffStatements40-candidate2.lean",
+      "bytes": 2756,
+      "sha256": "0a96f81246b2f601f12aa7f128d21672943da5461c378d27034f6d14fce3745e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/correction1-20261104/commit-result.json",
+      "bytes": 223,
+      "sha256": "eef5d812ffcc02d861c22244628710de7f943e494d7ac2100d7f01434dec1580"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/correction1-20261104/handoff-candidate2.json",
+      "bytes": 1526,
+      "sha256": "16355fab2f332fc096004b5bb79a840afa59044d0ec9b0d639e6e4165ca11c30"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/correction1-20261104/precommit-preservation.json",
+      "bytes": 1060,
+      "sha256": "bc61d51adf1274311e184a04a39bb00b8fe24c7605201a7d5512fc4d2b784fdd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/correction1-20261104/source-inventory-and-assessment-candidate2.json",
+      "bytes": 51302,
+      "sha256": "91d0a04be9eff219bf826f4592679b8797bdcd262f0d9479358dbac6f8db727c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/correction1-20261104/source.patch",
+      "bytes": 3140,
+      "sha256": "e7105f0f04069d0611f7e33d38e2466e4ffb46fd9d8ece8777f016d2a3eaf5af"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/correction1-20261104/stage.json",
+      "bytes": 55,
+      "sha256": "15a74d65d11d156f4d5651f5889af3a6fdf58cf6cac3989131c369231bf2583e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/correction1-20261104/staged-check.json",
+      "bytes": 55,
+      "sha256": "15a74d65d11d156f4d5651f5889af3a6fdf58cf6cac3989131c369231bf2583e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/correction1-20261104/starting-state.json",
+      "bytes": 1698,
+      "sha256": "5c0cf8bbf9347cc54b381f98f37123c0ca678a0e740fa367480e23935f5da98b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/guarded-call-consultation-20261104.json",
+      "bytes": 939,
+      "sha256": "ff0f3f949dfba0759fa80f025095954bbdb457cc4c30438b28d3ee7cc67eccb5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/guarded-call-pre-source.json",
+      "bytes": 2450,
+      "sha256": "e1005178f8e6f72d747e100cf8195c8521eb98dc620ffacfd232c7c6a67a1035"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/handoff-candidate1.json",
+      "bytes": 1468,
+      "sha256": "a84f2fa6b79c8fbea23baa0db3bc7f020da86827dca5f2aa46cc4f0b2fa2ff00"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/readback-assumption-error.json",
+      "bytes": 418,
+      "sha256": "70a78a8f5c4bb22f959f80f41613a33a116e153927c4f352b54ad67f83bc5f4a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/requirements-and-independent-cases.json",
+      "bytes": 2307,
+      "sha256": "781c06c3d68a9c7c2f6e4040df22e989b3aab7404d1bbb82f580b0f96372462f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/source-headers-candidate1-precommit.json",
+      "bytes": 16912,
+      "sha256": "8fc49f655d076073539e950c27d346ffdb9ca777d6959b9f7ce6aeac8a75caa1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/source-inventory-and-assessment-candidate1.json",
+      "bytes": 50981,
+      "sha256": "fd82954c94a9941e621acffc1a0eeef4870f0738e7cb95552fec14788295c43f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/source-inventory-and-assessment-precommit.json",
+      "bytes": 50506,
+      "sha256": "adee90b7c76df2e7755ba331b0e1ca5e85672b374633618af99ef59b85dfc62a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/stage-result.json",
+      "bytes": 491,
+      "sha256": "698c5ceb0e4fa71d060e465ed3dfe9fdb7505df1779b6c3be0ebbade92006bd4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/staged-diff-check.json",
+      "bytes": 55,
+      "sha256": "15a74d65d11d156f4d5651f5889af3a6fdf58cf6cac3989131c369231bf2583e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-cutoff-implementation-20261104/starting-state.json",
+      "bytes": 4959,
+      "sha256": "8047d7c2d379155fac610ebe6aa06f48372e462df5e59aa191b3dc13919d6da9"
+    }
+  ],
+  "planned_changes": {
+    "two_groups_cutoff_one_value": "Use the established rank/count characterization to compute the concrete valid value, preserving the exact worker, input, rank and expected value.",
+    "two_group_actual_children": "Explicitly prove the closed median-list index computation is0; rewrite it in the existing actual children theorem, preserving the existential actual pivot and all strict child bounds."
+  },
+  "scope": "Only two example proof bodies. All40 headers, sole computational definition, all core proofs, all numeric cases and assumptions remain unchanged. Qualified check remains root serial."
+}

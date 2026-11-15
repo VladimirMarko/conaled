@@ -1,0 +1,1177 @@
+diff --git a/Applications/Probability/PermutationTail.lean b/Applications/Probability/PermutationTail.lean
+new file mode 100644
+index 0000000..1085b40
+--- /dev/null
++++ b/Applications/Probability/PermutationTail.lean
+@@ -0,0 +1,485 @@
++import Applications.Probability.PermutationOrder
++import Mathlib.Basic.ENNReal.Inv
++import Mathlib.Data.Nat.Factorial.Basic
++import Mathlib.MeasureTheory.Measure.AEMeasurable
++import Mathlib.Probability.ConditionalProbability
++import Mathlib.Probability.HasLaw
++
++/-!
++# Conditional remaining order
++
++Revealing the optional head of an observed list conditions the existing
++environment measure. Under a uniform whole-order law, the actual tail has
++the uniform law on the remaining keys. The reusable statements take
++Mathlib's `HasLaw`, so a later step may use an already conditioned
++environment without asserting that the full environment is uniform again.
++
++The global-permutation specializations observe the same `restrictedOrder`
++as the unconditional law. Their source-event statements require measurable
++structure only on permutations; their map statements use the caller's
++measurable structure on lists. On the revealed-head event, the actual tail
++equals restriction to the erased subset. This is not an equality on every
++sample. Fixed remaining-subset filtering composes through that bridge.
++
++Null conditioning is the zero measure. No default key, independently sampled
++tail, conditional executor, or assertion about arbitrary histories is used.
++-/
++
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Applications.Probability.PermutationTail
++
++open MeasureTheory ProbabilityTheory PermutationOrder
++open scoped ENNReal BigOperators
++
++universe u v
++
++variable {I : Type u} {Ω : Type v}
++
++/-- Reveal an actual optional head, without adding a default element. -/
++def firstEvent (Y : Ω → List I) (a : I) : Set Ω :=
++  {ω | (Y ω).head? = some a}
++
++/-- Specifying the revealed head and the actual tail specifies the whole list. -/
++theorem firstEvent_inter_tail (Y : Ω → List I) (a : I) (xs : List I) :
++    firstEvent Y a ∩ {ω | (Y ω).tail = xs} = {ω | Y ω = a :: xs} := by
++  apply Set.ext
++  intro ω
++  change ((Y ω).head? = some a ∧ (Y ω).tail = xs) ↔ Y ω = a :: xs
++  cases Y ω <;> simp
++
++section Decidable
++
++variable [DecidableEq I]
++
++/-- Prefixing the exposed key restores exactly the full supported orders. -/
++theorem cons_mem_orders (positions : List I) (hnd : positions.Nodup)
++    (S : Finset I) (a : I) (haPositions : a ∈ positions) (ha : a ∈ S)
++    (xs : List I) :
++    a :: xs ∈ orders positions S ↔ xs ∈ orders positions (S.erase a) := by
++  have hrem : (positions.filter (fun b => decide (b ∈ S.erase a))).Nodup :=
++    hnd.filter _
++  have hanot : a ∉ positions.filter (fun b => decide (b ∈ S.erase a)) := by
++    simp
++  have hbase :
++      (a :: positions.filter (fun b => decide (b ∈ S.erase a))).Perm
++        (positions.filter (fun b => decide (b ∈ S))) := by
++    apply (List.perm_ext_iff_of_nodup (List.Nodup.cons hanot hrem) (hnd.filter _)).mpr
++    intro b
++    by_cases hba : b = a
++    · subst b
++      simp [haPositions, ha]
++    · simp [hba]
++  rw [mem_orders, mem_orders]
++  constructor
++  · intro h
++    exact (List.perm_cons a).1 (h.trans hbase.symm)
++  · intro h
++    exact (h.cons a).trans hbase
++
++/-- On the revealed-head event, removing the head is restriction to the
++erased subset. Completeness is not needed for this pointwise identity. -/
++theorem tail_restrictedOrder_eq (positions : List I) (hnd : positions.Nodup)
++    (S : Finset I) (a : I) (π : Equiv.Perm I)
++    (hfirst : π ∈ firstEvent (restrictedOrder positions S) a) :
++    (restrictedOrder positions S π).tail =
++      restrictedOrder positions (S.erase a) π := by
++  obtain ⟨xs, hxs⟩ := List.head?_eq_some_iff.mp hfirst
++  have hxsnd : (a :: xs).Nodup := by
++    rw [← hxs]
++    exact restrictedOrder_nodup positions hnd S π
++  have hfilter : xs.filter (fun b => decide (b ∈ S.erase a)) = xs := by
++    apply List.filter_eq_self.mpr
++    intro b hb
++    have hbne : b ≠ a := by
++      intro hba
++      subst b
++      exact hxsnd.notMem hb
++    have hbS : b ∈ S := by
++      have hbin : b ∈ restrictedOrder positions S π := by
++        rw [hxs]
++        exact List.mem_cons_of_mem a hb
++      exact ((mem_restrictedOrder positions S π b).mp hbin).2
++    simp only [decide_eq_true_eq, Finset.mem_erase]
++    exact ⟨hbne, hbS⟩
++  calc
++    (restrictedOrder positions S π).tail = xs := by rw [hxs]; rfl
++    _ = (restrictedOrder positions S π).filter (fun b => decide (b ∈ S.erase a)) := by
++      rw [hxs]
++      simp [hfilter]
++    _ = restrictedOrder positions (S.erase a) π :=
++      filter_restrictedOrder_of_subset positions S (S.erase a) π (Finset.erase_subset a S)
++
++theorem filter_tail_restrictedOrder_eq (positions : List I) (hnd : positions.Nodup)
++    (S : Finset I) (a : I) (π : Equiv.Perm I)
++    (hfirst : π ∈ firstEvent (restrictedOrder positions S) a)
++    (T : Finset I) (hT : T ⊆ S.erase a) :
++    (restrictedOrder positions S π).tail.filter (fun b => decide (b ∈ T)) =
++      restrictedOrder positions T π := by
++  rw [tail_restrictedOrder_eq positions hnd S a π hfirst]
++  exact filter_restrictedOrder_of_subset positions (S.erase a) T π hT
++
++/-- An actual restriction never reveals a key outside its fixed subset. -/
++theorem firstEvent_restrictedOrder_of_not_mem (positions : List I)
++    (S : Finset I) (a : I) (ha : a ∉ S) :
++    firstEvent (restrictedOrder positions S) a = ∅ := by
++  apply Set.ext
++  intro π
++  change ((restrictedOrder positions S π).head? = some a) ↔ False
++  constructor
++  · intro h
++    exact ha ((mem_restrictedOrder positions S π a).mp (List.mem_of_head? h)).2
++  · exact False.elim
++
++theorem cond_firstEvent_restrictedOrder_of_not_mem
++    [MeasurableSpace (Equiv.Perm I)]
++    (positions : List I) (S : Finset I) (a : I) (ha : a ∉ S)
++    (μ : Measure (Equiv.Perm I)) :
++    μ[|firstEvent (restrictedOrder positions S) a] = 0 := by
++  rw [firstEvent_restrictedOrder_of_not_mem positions S a ha, cond_empty]
++
++private theorem factorial_card_erase (S : Finset I) (a : I) (ha : a ∈ S) :
++    (Nat.factorial S.card : ℝ≥0∞) =
++      (S.card : ℝ≥0∞) * (Nat.factorial (S.erase a).card : ℝ≥0∞) := by
++  have h : Nat.factorial S.card = S.card * Nat.factorial (S.erase a).card := by
++    rw [← Finset.card_erase_add_one ha, Nat.factorial_succ]
++  simpa only [Nat.cast_mul] using congrArg (fun n : ℕ => (n : ℝ≥0∞)) h
++
++private theorem factorial_ratio_head (S : Finset I) (a : I) (ha : a ∈ S) :
++    (Nat.factorial (S.erase a).card : ℝ≥0∞) *
++        (Nat.factorial S.card : ℝ≥0∞)⁻¹ = (S.card : ℝ≥0∞)⁻¹ := by
++  have hm0 : (S.card : ℝ≥0∞) ≠ 0 :=
++    Nat.cast_ne_zero.mpr (Finset.card_ne_zero_of_mem ha)
++  have hn0 : (Nat.factorial (S.erase a).card : ℝ≥0∞) ≠ 0 :=
++    Nat.cast_ne_zero.mpr (Nat.factorial_ne_zero _)
++  rw [factorial_card_erase S a ha,
++    ENNReal.mul_inv (Or.inl hm0) (Or.inl (ENNReal.natCast_ne_top S.card)),
++    mul_left_comm, ENNReal.mul_inv_cancel hn0 (ENNReal.natCast_ne_top _), mul_one]
++
++private theorem factorial_ratio_tail (S : Finset I) (a : I) (ha : a ∈ S) :
++    (S.card : ℝ≥0∞) * (Nat.factorial S.card : ℝ≥0∞)⁻¹ =
++      (Nat.factorial (S.erase a).card : ℝ≥0∞)⁻¹ := by
++  have hm0 : (S.card : ℝ≥0∞) ≠ 0 :=
++    Nat.cast_ne_zero.mpr (Finset.card_ne_zero_of_mem ha)
++  rw [factorial_card_erase S a ha,
++    ENNReal.mul_inv (Or.inl hm0) (Or.inl (ENNReal.natCast_ne_top S.card))]
++  exact ENNReal.mul_inv_cancel_left hm0 (ENNReal.natCast_ne_top S.card)
++
++/-- The first key within the selected subset has the reciprocal-cardinality
++mass under the original global permutation law. -/
++theorem uniformOn_firstEvent
++    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
++    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)
++    (S : Finset I) (a : I) (ha : a ∈ S) :
++    uniformOn (Set.univ : Set (Equiv.Perm I))
++        (firstEvent (restrictedOrder positions S) a) = (S.card : ℝ≥0∞)⁻¹ := by
++  classical
++  let := Fintype.ofList positions hcomplete
++  let C := (orders positions (S.erase a)).image (List.cons a)
++  have hpre : (restrictedOrder positions S) ⁻¹' (C : Set (List I)) =
++      firstEvent (restrictedOrder positions S) a := by
++    apply Set.ext
++    intro π
++    change restrictedOrder positions S π ∈ C ↔
++      (restrictedOrder positions S π).head? = some a
++    constructor
++    · intro hπ
++      obtain ⟨xs, _hxs, hxsπ⟩ := Finset.mem_image.mp hπ
++      rw [← hxsπ]
++      rfl
++    · intro hπ
++      obtain ⟨xs, hxs⟩ := List.head?_eq_some_iff.mp hπ
++      refine Finset.mem_image.mpr ⟨xs, ?_, hxs.symm⟩
++      apply (cons_mem_orders positions hnd S a (hcomplete a) ha xs).mp
++      rw [← hxs]
++      exact restrictedOrder_mem_orders positions hnd hcomplete S π
++  have hpartition := sum_measure_preimage_singleton
++    (μ := uniformOn (Set.univ : Set (Equiv.Perm I)))
++    (f := restrictedOrder positions S) C (fun _ys _ => (Set.toFinite _).measurableSet)
++  rw [hpre] at hpartition
++  change (∑ ys ∈ C, uniformOn Set.univ {π | restrictedOrder positions S π = ys}) =
++    uniformOn Set.univ (firstEvent (restrictedOrder positions S) a) at hpartition
++  have hsum :
++      (∑ ys ∈ C, uniformOn Set.univ {π | restrictedOrder positions S π = ys}) =
++        (C.card : ℝ≥0∞) * (Nat.factorial S.card : ℝ≥0∞)⁻¹ := by
++    calc
++      _ = ∑ _ys ∈ C, (Nat.factorial S.card : ℝ≥0∞)⁻¹ := by
++        apply Finset.sum_congr rfl
++        intro ys hys
++        obtain ⟨xs, hxs, rfl⟩ := Finset.mem_image.mp hys
++        rw [uniformOn_restrictedOrder_eq positions hnd hcomplete S (a :: xs),
++          ite_eq_left ((cons_mem_orders positions hnd S a (hcomplete a) ha xs).mpr hxs)]
++      _ = _ := by rw [Finset.sum_const, nsmul_eq_mul]
++  have hcard : C.card = (orders positions (S.erase a)).card :=
++    Finset.card_image_of_injective _ (fun _xs _ys h => (List.cons.inj h).2)
++  calc
++    uniformOn Set.univ (firstEvent (restrictedOrder positions S) a) =
++        ∑ ys ∈ C, uniformOn Set.univ {π | restrictedOrder positions S π = ys} :=
++      hpartition.symm
++    _ = (C.card : ℝ≥0∞) * (Nat.factorial S.card : ℝ≥0∞)⁻¹ := hsum
++    _ = (Nat.factorial (S.erase a).card : ℝ≥0∞) *
++        (Nat.factorial S.card : ℝ≥0∞)⁻¹ := by
++      rw [hcard, orders_card positions hnd hcomplete (S.erase a)]
++    _ = (S.card : ℝ≥0∞)⁻¹ := factorial_ratio_head S a ha
++
++/-- Conditioning the original finite uniform environment gives its uniform
++restriction. This also holds on null events and does not require Nodup. -/
++theorem cond_uniformOn_firstEvent
++    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
++    (positions : List I) (hcomplete : ∀ b, b ∈ positions) (S : Finset I) (a : I) :
++    (uniformOn (Set.univ : Set (Equiv.Perm I)))[|
++        firstEvent (restrictedOrder positions S) a] =
++      uniformOn (firstEvent (restrictedOrder positions S) a) := by
++  classical
++  let := Fintype.ofList positions hcomplete
++  have hE : MeasurableSet (firstEvent (restrictedOrder positions S) a) :=
++    (Set.toFinite _).measurableSet
++  unfold uniformOn
++  simpa only [Set.univ_inter] using
++    cond_cond_eq_cond_inter (s := Set.univ)
++      (t := firstEvent (restrictedOrder positions S) a) MeasurableSet.univ hE
++      (Measure.count : Measure (Equiv.Perm I))
++
++/-- Universal source-event formula for the actual tail, including unsupported
++lists. No measurable structure on the output lists is required. -/
++theorem cond_tail_eq
++    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
++    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)
++    (S : Finset I) (a : I) (ha : a ∈ S) (xs : List I) :
++    (uniformOn (Set.univ : Set (Equiv.Perm I)))[|
++        firstEvent (restrictedOrder positions S) a]
++        {π | (restrictedOrder positions S π).tail = xs} =
++      if xs ∈ orders positions (S.erase a)
++      then (Nat.factorial (S.erase a).card : ℝ≥0∞)⁻¹
++      else 0 := by
++  classical
++  let := Fintype.ofList positions hcomplete
++  have hE : MeasurableSet (firstEvent (restrictedOrder positions S) a) :=
++    (Set.toFinite _).measurableSet
++  rw [cond_apply hE, firstEvent_inter_tail (restrictedOrder positions S) a xs,
++    uniformOn_firstEvent positions hnd hcomplete S a ha,
++    uniformOn_restrictedOrder_eq positions hnd hcomplete S (a :: xs),
++    inv_inv, cons_mem_orders positions hnd S a (hcomplete a) ha xs]
++  by_cases hxs : xs ∈ orders positions (S.erase a)
++  · simp only [ite_eq_left hxs]
++    exact factorial_ratio_tail S a ha
++  · simp only [ite_eq_right hxs, mul_zero]
++
++/-- The actual tail's pushforward under the original law conditioned on its
++first selected key is the existing uniform remaining-order measure. -/
++theorem map_tail_cond_first
++    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
++    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]
++    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)
++    (S : Finset I) (a : I) (ha : a ∈ S) :
++    ((uniformOn (Set.univ : Set (Equiv.Perm I)))[|
++        firstEvent (restrictedOrder positions S) a]).map
++        (fun π => (restrictedOrder positions S π).tail) =
++      uniformOn (orders positions (S.erase a) : Set (List I)) := by
++  classical
++  let := Fintype.ofList positions hcomplete
++  apply Measure.ext_of_singleton
++  intro xs
++  rw [Measure.map_apply (measurable_of_finite _) (measurableSet_singleton xs)]
++  change (uniformOn (Set.univ : Set (Equiv.Perm I)))[|
++      firstEvent (restrictedOrder positions S) a]
++      {π | (restrictedOrder positions S π).tail = xs} =
++    uniformOn (orders positions (S.erase a) : Set (List I)) {xs}
++  have htarget : uniformOn (orders positions (S.erase a) : Set (List I)) {xs} =
++      (((orders positions (S.erase a)) ∩ {xs}).card : ℝ≥0∞) /
++        ((orders positions (S.erase a)).card : ℝ≥0∞) := by
++    simpa only [Finset.coe_singleton] using
++      (uniformOn_apply_finset
++        (s := orders positions (S.erase a)) (t := ({xs} : Finset (List I))))
++  rw [cond_tail_eq positions hnd hcomplete S a ha xs, htarget]
++  by_cases hxs : xs ∈ orders positions (S.erase a)
++  · simp [hxs, orders_card positions hnd hcomplete (S.erase a), one_div]
++  · simp [hxs]
++
++private theorem restrictedOrder_hasLaw
++    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
++    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]
++    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)
++    (S : Finset I) :
++    HasLaw (restrictedOrder positions S)
++      (uniformOn (orders positions S : Set (List I)))
++      (uniformOn (Set.univ : Set (Equiv.Perm I))) := by
++  classical
++  let := Fintype.ofList positions hcomplete
++  exact {
++    aemeasurable := (measurable_of_finite _).aemeasurable
++    map_eq := map_restrictedOrder_uniformOn positions hnd hcomplete S
++  }
++
++private theorem hasLaw_cond {A B : Type*} [MeasurableSpace A] [MeasurableSpace B]
++    {μ : Measure A} {ν : Measure B} {Y : A → B}
++    (hY : HasLaw Y ν μ) (H : Set B) (hH : MeasurableSet H) :
++    HasLaw Y (ν[|H]) (μ[|Y ⁻¹' H]) := by
++  refine {
++    aemeasurable := hY.aemeasurable.mono_ac cond_absolutelyContinuous
++    map_eq := ?_
++  }
++  unfold ProbabilityTheory.cond
++  rw [Measure.map_smul _ hY.aemeasurable.restrict,
++    ← Measure.restrict_map_of_aemeasurable hY.aemeasurable hH,
++    ← Measure.map_apply_of_aemeasurable hY.aemeasurable hH, hY.map_eq]
++
++private theorem orders_head_mass
++    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]
++    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)
++    (S : Finset I) (a : I) (ha : a ∈ S) :
++    uniformOn (orders positions S : Set (List I))
++      (firstEvent (id : List I → List I) a) = (S.card : ℝ≥0∞)⁻¹ := by
++  classical
++  let := Fintype.ofList positions hcomplete
++  let : MeasurableSpace (Equiv.Perm I) := ⊤
++  let : MeasurableSingletonClass (Equiv.Perm I) := ⟨fun _ => trivial⟩
++  have hO := restrictedOrder_hasLaw positions hnd hcomplete S
++  have hH : MeasurableSet {xs : List I | xs.head? = some a} :=
++    (Set.to_countable _).measurableSet
++  have hmass := hO.measure_eq (p := fun xs => xs.head? = some a) hH
++  calc
++    uniformOn (orders positions S : Set (List I))
++        (firstEvent (id : List I → List I) a) =
++        uniformOn (Set.univ : Set (Equiv.Perm I))
++          (firstEvent (restrictedOrder positions S) a) := hmass.symm
++    _ = (S.card : ℝ≥0∞)⁻¹ := uniformOn_firstEvent positions hnd hcomplete S a ha
++
++/-- The observed whole-order law determines first-key mass even when the
++underlying environment is not the original uniform permutation measure. -/
++theorem head_mass_of_hasLaw
++    [MeasurableSpace Ω] [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]
++    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)
++    (S : Finset I) (a : I) (ha : a ∈ S)
++    {μ : Measure Ω} {Y : Ω → List I}
++    (hY : HasLaw Y (uniformOn (orders positions S : Set (List I))) μ) :
++    μ (firstEvent Y a) = (S.card : ℝ≥0∞)⁻¹ := by
++  classical
++  let := Fintype.ofList positions hcomplete
++  have hH : MeasurableSet {xs : List I | xs.head? = some a} :=
++    (Set.to_countable _).measurableSet
++  calc
++    μ (firstEvent Y a) = uniformOn (orders positions S : Set (List I))
++        (firstEvent (id : List I → List I) a) :=
++      hY.measure_eq (p := fun xs => xs.head? = some a) hH
++    _ = (S.card : ℝ≥0∞)⁻¹ := orders_head_mass positions hnd hcomplete S a ha
++
++private theorem tail_hasLaw_orders_cond
++    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]
++    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)
++    (S : Finset I) (a : I) (ha : a ∈ S) :
++    HasLaw (List.tail : List I → List I)
++      (uniformOn (orders positions (S.erase a) : Set (List I)))
++      ((uniformOn (orders positions S : Set (List I)))[|
++        firstEvent (id : List I → List I) a]) := by
++  classical
++  let := Fintype.ofList positions hcomplete
++  let : MeasurableSpace (Equiv.Perm I) := ⊤
++  let : MeasurableSingletonClass (Equiv.Perm I) := ⟨fun _ => trivial⟩
++  have hH : MeasurableSet (firstEvent (id : List I → List I) a) :=
++    (Set.to_countable _).measurableSet
++  have hcond := hasLaw_cond (restrictedOrder_hasLaw positions hnd hcomplete S)
++    (firstEvent (id : List I → List I) a) hH
++  change HasLaw (restrictedOrder positions S)
++    ((uniformOn (orders positions S : Set (List I)))[|
++      firstEvent (id : List I → List I) a])
++    ((uniformOn (Set.univ : Set (Equiv.Perm I)))[|
++      firstEvent (restrictedOrder positions S) a]) at hcond
++  refine {
++    aemeasurable := (measurable_of_countable (List.tail : List I → List I)).aemeasurable
++    map_eq := ?_
++  }
++  rw [← hcond.map_eq,
++    Measure.map_map (measurable_of_countable _) (measurable_of_finite _)]
++  exact map_tail_cond_first positions hnd hcomplete S a ha
++
++/-- A uniform observed whole order yields a uniform actual remaining order
++after revealing its first key. Only almost-everywhere measurability of the
++observation, as recorded by `HasLaw`, is required. -/
++theorem hasLaw_tail_cond_first
++    [MeasurableSpace Ω] [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]
++    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)
++    (S : Finset I) (a : I) (ha : a ∈ S)
++    {μ : Measure Ω} {Y : Ω → List I}
++    (hY : HasLaw Y (uniformOn (orders positions S : Set (List I))) μ) :
++    HasLaw (fun ω => (Y ω).tail)
++      (uniformOn (orders positions (S.erase a) : Set (List I)))
++      (μ[|firstEvent Y a]) := by
++  classical
++  let := Fintype.ofList positions hcomplete
++  have hH : MeasurableSet (firstEvent (id : List I → List I) a) :=
++    (Set.to_countable _).measurableSet
++  have hcond := hasLaw_cond hY (firstEvent (id : List I → List I) a) hH
++  change HasLaw Y
++    ((uniformOn (orders positions S : Set (List I)))[|
++      firstEvent (id : List I → List I) a]) (μ[|firstEvent Y a]) at hcond
++  exact (tail_hasLaw_orders_cond positions hnd hcomplete S a ha).fun_comp hcond
++
++private theorem filter_hasLaw_orders
++    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]
++    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)
++    (S T : Finset I) (hT : T ⊆ S) :
++    HasLaw (fun xs : List I => xs.filter (fun b => decide (b ∈ T)))
++      (uniformOn (orders positions T : Set (List I)))
++      (uniformOn (orders positions S : Set (List I))) := by
++  classical
++  let := Fintype.ofList positions hcomplete
++  let : MeasurableSpace (Equiv.Perm I) := ⊤
++  let : MeasurableSingletonClass (Equiv.Perm I) := ⟨fun _ => trivial⟩
++  refine {
++    aemeasurable := (measurable_of_countable _).aemeasurable
++    map_eq := ?_
++  }
++  rw [← map_restrictedOrder_uniformOn positions hnd hcomplete S,
++    Measure.map_map (measurable_of_countable _) (measurable_of_finite _)]
++  have hfun :
++      (fun xs : List I => xs.filter (fun b => decide (b ∈ T))) ∘
++          restrictedOrder positions S = restrictedOrder positions T := by
++    funext π
++    exact filter_restrictedOrder_of_subset positions S T π hT
++  rw [hfun]
++  exact map_restrictedOrder_uniformOn positions hnd hcomplete T
++
++/-- Filtering a fixed subset of the actual remaining order preserves the
++uniform observed-law invariant under the same conditioned environment. -/
++theorem hasLaw_filter_tail_cond_first
++    [MeasurableSpace Ω] [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]
++    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)
++    (S : Finset I) (a : I) (ha : a ∈ S)
++    {μ : Measure Ω} {Y : Ω → List I}
++    (hY : HasLaw Y (uniformOn (orders positions S : Set (List I))) μ)
++    (T : Finset I) (hT : T ⊆ S.erase a) :
++    HasLaw (fun ω => (Y ω).tail.filter (fun b => decide (b ∈ T)))
++      (uniformOn (orders positions T : Set (List I)))
++      (μ[|firstEvent Y a]) :=
++  (filter_hasLaw_orders positions hnd hcomplete (S.erase a) T hT).fun_comp
++    (hasLaw_tail_cond_first positions hnd hcomplete S a ha hY)
++
++/-- The actual original T projection has the stated conditional law when T
++is fixed inside the unexposed part of S. -/
++theorem map_restrictedOrder_cond_first
++    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
++    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]
++    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)
++    (S : Finset I) (a : I) (ha : a ∈ S) (T : Finset I) (hT : T ⊆ S.erase a) :
++    ((uniformOn (Set.univ : Set (Equiv.Perm I)))[|
++        firstEvent (restrictedOrder positions S) a]).map (restrictedOrder positions T) =
++      uniformOn (orders positions T : Set (List I)) := by
++  classical
++  let := Fintype.ofList positions hcomplete
++  have h := hasLaw_filter_tail_cond_first positions hnd hcomplete S a ha
++    (restrictedOrder_hasLaw positions hnd hcomplete S) T hT
++  have hE : MeasurableSet (firstEvent (restrictedOrder positions S) a) :=
++    (Set.toFinite _).measurableSet
++  have heq : restrictedOrder positions T =ᵐ[
++      (uniformOn (Set.univ : Set (Equiv.Perm I)))[|
++        firstEvent (restrictedOrder positions S) a]]
++      (fun π => (restrictedOrder positions S π).tail.filter (fun b => decide (b ∈ T))) :=
++    ae_cond_of_forall_mem hE fun π hπ =>
++      (filter_tail_restrictedOrder_eq positions hnd S a π hπ T hT).symm
++  exact (h.congr heq).map_eq
++
++end Decidable
++
++end Applications.Probability.PermutationTail
+diff --git a/Examples/PermutationTail.lean b/Examples/PermutationTail.lean
+new file mode 100644
+index 0000000..f118b08
+--- /dev/null
++++ b/Examples/PermutationTail.lean
+@@ -0,0 +1,197 @@
++import Applications.Probability.PermutationTail
++import Examples.PermutationOrder
++import Examples.PermutationTailBoundary
++import Mathlib.Tactic
++
++/-!
++# Revealing a head and reusing the observed tail law
++
++The actual order of `{0, 2, 3}` comes from the same global permutation as
++the earlier whole-order example. Conditioning its first key to `0` gives
++two tails, each of mass `1/2`. The source-fiber theorem and the existing
++HasLaw/map semantics give separate connections to the new public results.
++
++The full environment measure changes after the first reveal. Its actual
++tail nevertheless has the uniform remaining-order law. That HasLaw is the
++premise for a second reveal of key `2`, after which `[3]` is the sole tail.
++The second measure retains the actual nested conditioning explicitly.
++
++Filtering the first remaining list to `{3}` also uses the generic law and
++the pointwise on-event projection bridge. These cases do not assume branch
++independence or prove an arbitrary execution-history invariant or cost law.
++-/
++
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.PermutationTail
++
++open MeasureTheory ProbabilityTheory
++open Applications.Probability.PermutationOrder
++open Applications.Probability.PermutationTail
++open Examples.PermutationOrder (positions positions_nodup positions_complete selected law)
++open scoped ENNReal
++
++local instance : MeasurableSpace (Equiv.Perm (Fin 4)) := ⊤
++local instance : MeasurableSpace (List (Fin 4)) := ⊤
++
++def observedOrder (π : Equiv.Perm (Fin 4)) : List (Fin 4) :=
++  restrictedOrder positions selected π
++
++def remaining : Finset (Fin 4) := selected.erase 0
++
++def tailOrder (π : Equiv.Perm (Fin 4)) : List (Fin 4) :=
++  (observedOrder π).tail
++
++noncomputable def afterFirst : Measure (Equiv.Perm (Fin 4)) :=
++  law[|firstEvent observedOrder 0]
++
++/-- The initial premise is the actual whole-order map law from XU02. -/
++theorem observed_hasLaw :
++    HasLaw observedOrder
++      (uniformOn (orders positions selected : Set (List (Fin 4)))) law where
++  aemeasurable := (measurable_of_finite _).aemeasurable
++  map_eq := Examples.PermutationOrder.observed_law
++
++/-- The generic head theorem is applied to a proved whole-observation law. -/
++theorem first_mass : law (firstEvent observedOrder 0) = 1 / 3 := by
++  calc
++    _ = (selected.card : ℝ≥0∞)⁻¹ :=
++      head_mass_of_hasLaw positions positions_nodup positions_complete
++        selected 0 (by decide) observed_hasLaw
++    _ = 1 / 3 := by norm_num [selected, one_div]
++
++/-- This identity concerns the original uniform environment specifically. -/
++theorem afterFirst_eq_uniformOn :
++    afterFirst = uniformOn (firstEvent observedOrder 0) := by
++  exact cond_uniformOn_firstEvent positions positions_complete selected 0
++
++/-- The actual tail, under the changed environment, has the remaining-order law. -/
++theorem tail_hasLaw :
++    HasLaw tailOrder
++      (uniformOn (orders positions remaining : Set (List (Fin 4)))) afterFirst := by
++  exact hasLaw_tail_cond_first positions positions_nodup positions_complete
++    selected 0 (by decide) observed_hasLaw
++
++/-- A concrete use of the public map specialization, in the original sample space. -/
++theorem tail_map :
++    afterFirst.map tailOrder =
++      uniformOn (orders positions remaining : Set (List (Fin 4))) := by
++  exact map_tail_cond_first positions positions_nodup positions_complete
++    selected 0 (by decide)
++
++private theorem mass_of_law {Ω : Type*} [MeasurableSpace Ω]
++    {μ : Measure Ω} {Y : Ω → List (Fin 4)} {S : Finset (Fin 4)}
++    (hY : HasLaw Y (uniformOn (orders positions S : Set (List (Fin 4)))) μ)
++    (xs : List (Fin 4)) (hxs : xs ∈ orders positions S) :
++    μ {ω | Y ω = xs} = (Nat.factorial S.card : ℝ≥0∞)⁻¹ := by
++  calc
++    _ = uniformOn (orders positions S : Set (List (Fin 4))) {xs} :=
++      hY.measure_eq (measurableSet_singleton xs)
++    _ = (((orders positions S) ∩ {xs}).card : ℝ≥0∞) /
++        ((orders positions S).card : ℝ≥0∞) := by
++      simpa only [Finset.coe_singleton] using
++        (uniformOn_apply_finset (s := orders positions S) (t := {xs}))
++    _ = (Nat.factorial S.card : ℝ≥0∞)⁻¹ := by
++      simp [Finset.inter_singleton_of_mem hxs,
++        orders_card positions positions_nodup positions_complete S, one_div]
++
++/-- The first supported tail mass uses the new universal source-fiber formula. -/
++theorem tail_23_mass : afterFirst {π | tailOrder π = [2, 3]} = 1 / 2 := by
++  have hmem : ([2, 3] : List (Fin 4)) ∈ orders positions (selected.erase 0) := by
++    decide
++  calc
++    _ = if ([2, 3] : List (Fin 4)) ∈ orders positions (selected.erase 0)
++        then (Nat.factorial (selected.erase 0).card : ℝ≥0∞)⁻¹ else 0 :=
++      cond_tail_eq positions positions_nodup positions_complete
++        selected 0 (by decide) [2, 3]
++    _ = 1 / 2 := by rw [ite_eq_left hmem]; norm_num [selected, one_div]
++
++/-- The other tail mass is obtained through the generic conditional HasLaw. -/
++theorem tail_32_mass : afterFirst {π | tailOrder π = [3, 2]} = 1 / 2 := by
++  calc
++    _ = (Nat.factorial remaining.card : ℝ≥0∞)⁻¹ :=
++      mass_of_law tail_hasLaw [3, 2] (by decide)
++    _ = 1 / 2 := by norm_num [remaining, selected, one_div]
++
++/-- A repeated output is outside the conditional tail support. -/
++theorem repeated_tail_mass_zero : afterFirst {π | tailOrder π = [2, 2]} = 0 := by
++  have hbad : ([2, 2] : List (Fin 4)) ∉ orders positions (selected.erase 0) := by
++    decide
++  calc
++    _ = if ([2, 2] : List (Fin 4)) ∈ orders positions (selected.erase 0)
++        then (Nat.factorial (selected.erase 0).card : ℝ≥0∞)⁻¹ else 0 :=
++      cond_tail_eq positions positions_nodup positions_complete
++        selected 0 (by decide) [2, 2]
++    _ = 0 := ite_eq_right hbad
++
++def filteredTail (π : Equiv.Perm (Fin 4)) : List (Fin 4) :=
++  (tailOrder π).filter (fun b => decide (b ∈ ({3} : Finset (Fin 4))))
++
++/-- Filtering the actual conditional tail retains its observed-law meaning. -/
++theorem filtered_tail_hasLaw :
++    HasLaw filteredTail
++      (uniformOn (orders positions {3} : Set (List (Fin 4)))) afterFirst := by
++  exact hasLaw_filter_tail_cond_first positions positions_nodup positions_complete
++    selected 0 (by decide) observed_hasLaw {3} (by decide)
++
++/-- The filter equals the original same-sample projection on the head event. -/
++theorem filtered_tail_eq_projection (π : Equiv.Perm (Fin 4))
++    (hπ : π ∈ firstEvent observedOrder 0) :
++    filteredTail π = restrictedOrder positions {3} π := by
++  exact filter_tail_restrictedOrder_eq positions positions_nodup
++    selected 0 π hπ {3} (by decide)
++
++theorem filtered_tail_mass : afterFirst {π | filteredTail π = [3]} = 1 := by
++  simpa using mass_of_law filtered_tail_hasLaw [3] (by decide)
++
++/-- The actual remaining-subset projection has that law in the same environment. -/
++theorem remaining_projection_map :
++    afterFirst.map (restrictedOrder positions {3}) =
++      uniformOn (orders positions {3} : Set (List (Fin 4))) := by
++  exact map_restrictedOrder_cond_first positions positions_nodup positions_complete
++    selected 0 (by decide) {3} (by decide)
++
++/-- Conditioning changes the full environment, even though a tail stays uniform. -/
++theorem afterFirst_first_event_mass : afterFirst (firstEvent observedOrder 0) = 1 := by
++  apply cond_apply_self
++  · rw [first_mass]
++    norm_num
++  · rw [first_mass]
++    norm_num
++
++theorem environment_changed : afterFirst ≠ law := by
++  intro h
++  have hmass := congrArg
++    (fun μ : Measure (Equiv.Perm (Fin 4)) => μ (firstEvent observedOrder 0)) h
++  rw [afterFirst_first_event_mass, first_mass] at hmass
++  norm_num at hmass
++
++/-- A second head law is derived under afterFirst, using only its tail HasLaw. -/
++theorem second_head_mass : afterFirst (firstEvent tailOrder 2) = 1 / 2 := by
++  calc
++    _ = (remaining.card : ℝ≥0∞)⁻¹ :=
++      head_mass_of_hasLaw positions positions_nodup positions_complete
++        remaining 2 (by decide) tail_hasLaw
++    _ = 1 / 2 := by norm_num [remaining, selected, one_div]
++
++noncomputable def afterSecond : Measure (Equiv.Perm (Fin 4)) :=
++  afterFirst[|firstEvent tailOrder 2]
++
++def lastTail (π : Equiv.Perm (Fin 4)) : List (Fin 4) := (tailOrder π).tail
++
++/-- The generic law is reused with the changed source measure and smaller set. -/
++theorem last_tail_hasLaw :
++    HasLaw lastTail
++      (uniformOn (orders positions (remaining.erase 2) : Set (List (Fin 4))))
++      afterSecond := by
++  exact hasLaw_tail_cond_first positions positions_nodup positions_complete
++    remaining 2 (by decide) tail_hasLaw
++
++theorem last_tail_mass : afterSecond {π | lastTail π = [3]} = 1 := by
++  calc
++    _ = (Nat.factorial (remaining.erase 2).card : ℝ≥0∞)⁻¹ :=
++      mass_of_law last_tail_hasLaw [3] (by decide)
++    _ = 1 := by norm_num [remaining, selected]
++
++end Examples.PermutationTail
+diff --git a/Examples/PermutationTailBoundary.lean b/Examples/PermutationTailBoundary.lean
+new file mode 100644
+index 0000000..f15c34f
+--- /dev/null
++++ b/Examples/PermutationTailBoundary.lean
+@@ -0,0 +1,230 @@
++import Applications.Probability.PermutationTail
++import Examples.PermutationOrder
++import Mathlib.Tactic
++
++/-!
++# Boundary observations for conditional permutation tails
++
++These cases keep the selected first key distinct from the first global key,
++use the new tail law at a singleton, and preserve zero conditioning for empty
++or outsider events. The Fin3 counterexample observes the actual original
++projection onto a set outside the selected remainder under the same conditioned
++sample. Its two masses come from full-order fibers and ordinary conditioning.
++-/
++
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.PermutationTailBoundary
++
++open MeasureTheory ProbabilityTheory
++open Applications.Probability.PermutationOrder
++open Applications.Probability.PermutationTail
++open Examples.PermutationOrder (positions selected positions_nodup positions_complete)
++open scoped ENNReal ProbabilityTheory
++
++local instance : MeasurableSpace (Equiv.Perm (Fin 4)) := ⊤
++local instance : MeasurableSingletonClass (Equiv.Perm (Fin 4)) :=
++  ⟨fun _ => trivial⟩
++local instance : MeasurableSpace (Equiv.Perm (Fin 3)) := ⊤
++local instance : MeasurableSingletonClass (Equiv.Perm (Fin 3)) :=
++  ⟨fun _ => trivial⟩
++local instance : MeasurableSpace (Equiv.Perm Empty) := ⊤
++local instance : MeasurableSingletonClass (Equiv.Perm Empty) :=
++  ⟨fun _ => trivial⟩
++
++/-- The same sample exposes selected key 0 while global key 1 is first. -/
++def swap01 : Equiv.Perm (Fin 4) := Equiv.swap 0 1
++
++theorem swap01_global_order :
++    positions.map swap01.symm = [1, 0, 2, 3] := by
++  decide
++
++theorem swap01_selected_order :
++    restrictedOrder positions selected swap01 = [0, 2, 3] := by
++  decide
++
++theorem swap01_first_events :
++    swap01 ∈ firstEvent (restrictedOrder positions selected) 0 ∧
++      swap01 ∈ firstEvent (fun π : Equiv.Perm (Fin 4) => positions.map π.symm) 1 ∧
++      swap01 ∉ firstEvent (fun π : Equiv.Perm (Fin 4) => positions.map π.symm) 0 := by
++  decide
++
++/-- The new source-fiber theorem covers a singleton with empty actual tail. -/
++theorem singleton_conditional_tail_mass :
++    (uniformOn (Set.univ : Set (Equiv.Perm (Fin 4))))[|
++      firstEvent (restrictedOrder positions {2}) 2]
++      {π | (restrictedOrder positions {2} π).tail = []} = 1 := by
++  simpa [orders] using
++    (cond_tail_eq positions positions_nodup positions_complete {2} 2
++      (Finset.mem_singleton_self 2) [])
++
++/-- The empty observation has no first key. -/
++theorem empty_subset_none_mass :
++    uniformOn (Set.univ : Set (Equiv.Perm (Fin 4)))
++      {π | (restrictedOrder positions ∅ π).head? = none} = 1 := by
++  simp [restrictedOrder]
++
++theorem empty_subset_first_event :
++    firstEvent (restrictedOrder positions ∅) (0 : Fin 4) = ∅ :=
++  firstEvent_restrictedOrder_of_not_mem positions ∅ 0 (by simp)
++
++/-- A null first-key event gives the zero conditional measure. -/
++theorem empty_subset_conditional_zero :
++    (uniformOn (Set.univ : Set (Equiv.Perm (Fin 4))))[|
++      firstEvent (restrictedOrder positions ∅) 0] = 0 :=
++  cond_firstEvent_restrictedOrder_of_not_mem positions ∅ 0 (by simp)
++    (uniformOn Set.univ)
++
++theorem outsider_first_event :
++    firstEvent (restrictedOrder positions selected) (1 : Fin 4) = ∅ :=
++  firstEvent_restrictedOrder_of_not_mem positions selected 1 (by decide)
++
++theorem outsider_conditional_zero :
++    (uniformOn (Set.univ : Set (Equiv.Perm (Fin 4))))[|
++      firstEvent (restrictedOrder positions selected) 1] = 0 :=
++  cond_firstEvent_restrictedOrder_of_not_mem positions selected 1 (by decide)
++    (uniformOn Set.univ)
++
++/-- Empty indices still have their identity permutation; no key is manufactured. -/
++theorem empty_indices_none_mass :
++    uniformOn (Set.univ : Set (Equiv.Perm Empty))
++      {π | (restrictedOrder ([] : List Empty) ∅ π).head? = none} = 1 := by
++  simp [restrictedOrder]
++
++/-! ## A set outside the selected remainder can have a biased conditional order -/
++
++def counterPositions : List (Fin 3) := [0, 1, 2]
++def conditionSubset : Finset (Fin 3) := {0, 1}
++def outsideSubset : Finset (Fin 3) := {1, 2}
++
++private theorem counterPositions_nodup : counterPositions.Nodup := by decide
++
++private theorem counterPositions_complete (a : Fin 3) : a ∈ counterPositions := by
++  fin_cases a <;> decide
++
++noncomputable def counterLaw : Measure (Equiv.Perm (Fin 3)) := uniformOn Set.univ
++
++def counterFirst : Set (Equiv.Perm (Fin 3)) :=
++  firstEvent (restrictedOrder counterPositions conditionSubset) 0
++
++noncomputable def outsideConditional : Measure (Equiv.Perm (Fin 3)) :=
++  counterLaw[|counterFirst]
++
++theorem outside_subset_boundaries :
++    (0 : Fin 3) ∉ outsideSubset ∧
++      ¬ (outsideSubset ⊆ conditionSubset.erase 0) := by
++  decide
++
++/-- The conditioning mass uses the new first-event theorem. -/
++theorem counter_first_mass : counterLaw counterFirst = 1 / 2 := by
++  simpa [counterLaw, counterFirst, conditionSubset, one_div] using
++    (uniformOn_firstEvent counterPositions counterPositions_nodup
++      counterPositions_complete conditionSubset 0 (by decide))
++
++private theorem counter_full_mass (xs : List (Fin 3))
++    (hxs : xs ∈ orders counterPositions Finset.univ) :
++    counterLaw {π | restrictedOrder counterPositions Finset.univ π = xs} = 1 / 6 := by
++  unfold counterLaw
++  rw [uniformOn_restrictedOrder_eq counterPositions counterPositions_nodup
++    counterPositions_complete Finset.univ xs, ite_eq_left hxs]
++  norm_num [one_div]
++
++/-- Finite value calculation over the six supported full lists, not over a new law. -/
++private theorem joint12_table :
++    ∀ xs ∈ orders counterPositions (Finset.univ : Finset (Fin 3)),
++      (((xs.filter (fun a => decide (a ∈ conditionSubset))).head? = some 0 ∧
++        xs.filter (fun a => decide (a ∈ outsideSubset)) = [1, 2]) ↔
++        xs = [0, 1, 2]) := by
++  decide
++
++private theorem joint21_table :
++    ∀ xs ∈ orders counterPositions (Finset.univ : Finset (Fin 3)),
++      (((xs.filter (fun a => decide (a ∈ conditionSubset))).head? = some 0 ∧
++        xs.filter (fun a => decide (a ∈ outsideSubset)) = [2, 1]) ↔
++        xs = [0, 2, 1] ∨ xs = [2, 0, 1]) := by
++  decide
++
++private theorem counter_joint12 :
++    counterFirst ∩ {π | restrictedOrder counterPositions outsideSubset π = [1, 2]} =
++      {π | restrictedOrder counterPositions Finset.univ π = [0, 1, 2]} := by
++  ext π
++  change ((restrictedOrder counterPositions conditionSubset π).head? = some 0 ∧
++    restrictedOrder counterPositions outsideSubset π = [1, 2]) ↔
++    restrictedOrder counterPositions Finset.univ π = [0, 1, 2]
++  rw [← filter_restrictedOrder_of_subset counterPositions Finset.univ conditionSubset π
++    (Finset.subset_univ _),
++    ← filter_restrictedOrder_of_subset counterPositions Finset.univ outsideSubset π
++      (Finset.subset_univ _)]
++  exact joint12_table _
++    (restrictedOrder_mem_orders counterPositions counterPositions_nodup
++      counterPositions_complete Finset.univ π)
++
++private theorem counter_joint21 :
++    counterFirst ∩ {π | restrictedOrder counterPositions outsideSubset π = [2, 1]} =
++      {π | restrictedOrder counterPositions Finset.univ π = [0, 2, 1]} ∪
++        {π | restrictedOrder counterPositions Finset.univ π = [2, 0, 1]} := by
++  ext π
++  change ((restrictedOrder counterPositions conditionSubset π).head? = some 0 ∧
++    restrictedOrder counterPositions outsideSubset π = [2, 1]) ↔
++    (restrictedOrder counterPositions Finset.univ π = [0, 2, 1] ∨
++      restrictedOrder counterPositions Finset.univ π = [2, 0, 1])
++  rw [← filter_restrictedOrder_of_subset counterPositions Finset.univ conditionSubset π
++    (Finset.subset_univ _),
++    ← filter_restrictedOrder_of_subset counterPositions Finset.univ outsideSubset π
++      (Finset.subset_univ _)]
++  exact joint21_table _
++    (restrictedOrder_mem_orders counterPositions counterPositions_nodup
++      counterPositions_complete Finset.univ π)
++
++private theorem full_fibers_disjoint :
++    Disjoint
++      {π | restrictedOrder counterPositions Finset.univ π = [0, 2, 1]}
++      {π | restrictedOrder counterPositions Finset.univ π = [2, 0, 1]} := by
++  rw [Set.disjoint_left]
++  intro π h021 h201
++  have hbad : ([0, 2, 1] : List (Fin 3)) = [2, 0, 1] := h021.symm.trans h201
++  exact (by decide : ([0, 2, 1] : List (Fin 3)) ≠ [2, 0, 1]) hbad
++
++private theorem counter_joint12_mass :
++    counterLaw
++      (counterFirst ∩ {π | restrictedOrder counterPositions outsideSubset π = [1, 2]}) =
++      1 / 6 := by
++  rw [counter_joint12]
++  exact counter_full_mass [0, 1, 2] (by decide)
++
++private theorem counter_joint21_mass :
++    counterLaw
++      (counterFirst ∩ {π | restrictedOrder counterPositions outsideSubset π = [2, 1]}) =
++      1 / 3 := by
++  rw [counter_joint21, measure_union full_fibers_disjoint (by trivial)]
++  rw [counter_full_mass [0, 2, 1] (by decide),
++    counter_full_mass [2, 0, 1] (by decide)]
++  norm_num [← ENNReal.coe_div, ← ENNReal.coe_add]
++
++/-- The actual outside projection has conditional mass one-third for [1,2]. -/
++theorem outside_order_12_mass :
++    outsideConditional {π | restrictedOrder counterPositions outsideSubset π = [1, 2]} =
++      1 / 3 := by
++  have hhalf : (1 / 2 : ℝ≥0∞)⁻¹ = 2 := by simp [one_div]
++  rw [outsideConditional, cond_apply (s := counterFirst) (by trivial) counterLaw,
++    counter_first_mass, counter_joint12_mass, hhalf]
++  norm_num [← ENNReal.coe_div, ← ENNReal.coe_mul]
++
++/-- Its reversed order has conditional mass two-thirds under the same measure. -/
++theorem outside_order_21_mass :
++    outsideConditional {π | restrictedOrder counterPositions outsideSubset π = [2, 1]} =
++      2 / 3 := by
++  have hhalf : (1 / 2 : ℝ≥0∞)⁻¹ = 2 := by simp [one_div]
++  rw [outsideConditional, cond_apply (s := counterFirst) (by trivial) counterLaw,
++    counter_first_mass, counter_joint21_mass, hhalf]
++  norm_num [← ENNReal.coe_div, ← ENNReal.coe_mul]
++
++/-- Excluding the exposed key alone cannot replace containment in its selected remainder. -/
++theorem outside_order_not_uniform :
++    outsideConditional {π | restrictedOrder counterPositions outsideSubset π = [1, 2]} ≠
++      1 / 2 := by
++  rw [outside_order_12_mass]
++  norm_num [← ENNReal.coe_div]
++
++end Examples.PermutationTailBoundary
+diff --git a/SquareApplications.lean b/SquareApplications.lean
+index e77c2dd..31c8ecd 100644
+--- a/SquareApplications.lean
++++ b/SquareApplications.lean
+@@ -17,6 +17,7 @@ import Examples.MetropolisHastings
+ import Examples.ProbabilityCorrelation
+ import Examples.PermutationMinimum
+ import Examples.PermutationOrder
++import Examples.PermutationTail
+ import Examples.StatefulIncremental
+ import Examples.ExternalInteraction
+ import Examples.InteractionTransport
+diff --git a/docs/research/fdsa-permutation-tail.md b/docs/research/fdsa-permutation-tail.md
+new file mode 100644
+index 0000000..233136b
+--- /dev/null
++++ b/docs/research/fdsa-permutation-tail.md
+@@ -0,0 +1,203 @@
++# Conditional laws of an observed remaining order
++
++Status: **source draft, not compiled or accepted**. This bounded shared unit
++continues the [whole-order draft](fdsa-permutation-order.md). Its frozen
++requirements, preflights, exact finite expectations, candidate identity and
++eventual gates are retained in the local FDSA-XU03 checkpoint record. No
++chapter or algorithm obligation is accepted by this source draft.
++
++## The observation and conditioning event
++
++The existing operation `restrictedOrder positions S π` reads a global
++key-to-label permutation in inverse label order and filters to the fixed
++subset S. The new ordinary event is more general:
++
++```lean
++firstEvent (Y : Ω → List I) a := {ω | (Y ω).head? = some a}
++```
++
++It concerns the actual list-valued observation Y. The definition needs no
++decidable equality, measurable space, order or default key. Absence remains
++explicit as `none`; `List.tail` already supplies the total tail operation.
++
++For any Y and output xs, the pointwise event identity is
++
++```lean
++firstEvent Y a ∩ {ω | (Y ω).tail = xs} = {ω | Y ω = a :: xs}
++```
++
++It is valid even when Y sometimes returns an empty list. Under the actual
++projection's Nodup assumption, its tail equals the projection onto
++`S.erase a` on the event that a is first. Outside that event, removing the
++head and erasing a can remove different keys, so the equality is explicitly
++restricted to that event. Filtering the tail further to a fixed
++`T ⊆ S.erase a` gives the original T projection on the same event and sample.
++
++The finite support remains the earlier ordinary `orders positions S`, the
++finset of list permutations of the filtered base enumeration. The cons
++support equivalence removes a from that support. Its deterministic proof
++needs Nodup positions, a∈positions and a∈S; full completeness is required
++only by the probability laws that enumerate the whole index universe.
++
++## An observed law under a changing environment
++
++Write ηS for `uniformOn (orders positions S : Set (List I))`. The central
++premise is Mathlib's existing
++
++```lean
++HasLaw Y ηS μ
++```
++
++It records a.e. measurability of Y and equality `μ.map Y = ηS`. The
++environment Ω can be any measurable space and μ can already be a changed
++conditional measure. The premise specifies the entire observed-list law;
++a head marginal alone would not suffice.
++
++For complete, Nodup positions and a∈S, the generic results are:
++
++| Public result | Meaning under the supplied environment μ |
++|---|---|
++| `head_mass_of_hasLaw` | The actual event that Y starts with a has mass 1/S.card. |
++| `hasLaw_tail_cond_first` | The actual tail of Y has uniform law on the orders of S.erase a after conditioning on that event. |
++| `hasLaw_filter_tail_cond_first` | Filtering that actual tail to a fixed T⊆S.erase a has the uniform T-order law under the same conditioned measure. |
++
++The output space has the caller's existing measurable structure and
++measurable singletons. Completeness supplies finite I and countable List I
++locally. There is no finite/discrete-source, uniform-environment, index-order,
++inhabited-index or index-measurable-space hypothesis. The finite nonempty
++target uniform measure supplies normalization through the existing HasLaw
++interface; it is not a new independent premise.
++
++Ordinary conditioning is `ProbabilityTheory.cond`, written `μ[|E]`. The
++transport used here is
++
++```lean
++(μ[|Y ⁻¹' H]).map Y = (μ.map Y)[|H]
++```
++
++for a.e. measurable Y and measurable output event H. Existing restriction,
++map and scalar laws prove this identity even for null events. Conditioning
++is absolutely continuous with respect to μ, so Y remains a.e. measurable.
++Existing HasLaw composition then transports the canonical tail and filter
++laws. No new conditional-probability record, sampling executor, ranking type
++or conditional-distribution kernel is introduced.
++
++The one-step conclusion is substantive: its premise is the current whole
++order's law, and its conclusion is the tail law under a new measure. It does
++not assume the desired conditional conclusion or that the full environment
++returns to its original distribution.
++
++## Connection to the original global permutation
++
++For `μ0 := uniformOn Set.univ` on permutations and
++`O := restrictedOrder positions S`, XU02 supplies the actual whole-order law.
++The new source-event specialization states, for every xs and a∈S,
++
++```lean
++(μ0[|firstEvent O a]) {π | (O π).tail = xs} =
++  if xs ∈ orders positions (S.erase a)
++  then (Nat.factorial (S.erase a).card : ℝ≥0∞)⁻¹ else 0
++```
++
++This scalar formula and the head-mass specialization require measurable
++structure only on the finite permutation sample space. Their map versions
++add the List I measurable/singleton assumptions. The original uniform
++environment conditioned on the first event is also exactly `uniformOn`
++that event; this last identity is particular to the original uniform
++experiment, not a formula for arbitrary μ.
++
++The proof connects the old full-order fibers to the actual tail through
++the cons event identity. Supported prefix fibers have mass 1/S.card!.
++Their finite disjoint sum gives head mass 1/S.card. With
++`(S.erase a).card + 1 = S.card`, factorial successor and ordinary conditional
++normalization give the reciprocal factorial for the remaining support.
++Positive membership and finite natural casts justify the cancellations;
++the zero-length remainder uses 0!=1.
++
++The fixed remaining-subset law composes existing maps and the earlier
++nested-filter theorem. Every invocation keeps the original complete
++positions. The tail enumerates only a subset of I and is never supplied as
++a purported complete enumeration of I. Individual filtered laws do not
++establish independence between multiple branches.
++
++## Connected cases
++
++`Examples.PermutationTail` reuses the Fin4 global experiment with positions
++`[0,1,2,3]` and S=`{0,2,3}`. Its initial HasLaw is assembled from the actual
++XU02 map theorem. The new generic head theorem gives first0 mass 1/3.
++
++After conditioning first0, `tail_23_mass` obtains the mass of `[2,3]` from
++the new universal source-fiber formula. `tail_32_mass` obtains the mass of
++`[3,2]` through the generic conditional HasLaw and its finite target measure.
++Both masses are 1/2; `[2,2]` has mass zero through the off-support formula.
++The map specialization and conditional-uniform-environment identity are
++also instantiated directly.
++
++The actual tail is filtered to `{3}`. Its generic HasLaw gives the sole
++output `[3]` with mass one; the public on-event bridge connects this filter
++to the original same-sample projection. The corresponding conditional
++projection map law is instantiated as well.
++
++The environment has changed: first0 now has mass one, whereas it originally
++had mass 1/3. Nevertheless, the actual tail has uniform law on the orders
++of `{2,3}`. This HasLaw, under the changed measure, is reused to derive
++next-head-2 probability 1/2 and then the sole further tail `[3]` with mass
++one. The second measure is the actual nested conditional measure. This
++case exercises the generic interface twice without asserting a full
++execution-history theorem.
++
++`Examples.PermutationTailBoundary` retains the following independent
++expectations and source-level connections:
++
++- The key-to-label swap of 0 and 1 gives inverse global order `[1,0,2,3]`
++  but selected order `[0,2,3]`. First within a proper subset need not mean
++  first globally.
++- A singleton selected set has its sole conditional tail `[]` with mass
++  one through the new general law. Empty selected sets instead have an
++  always-absent optional head. Their some-a events, and actual outsider
++  events, are empty; conditioning them yields the zero measure. An empty
++  index universe still has its identity permutation and empty observation.
++- On Fin3, condition on first0 in S=`{0,1}` and observe T=`{1,2}` under
++  the same sample. The two T orders have masses 1/3 and 2/3. T excludes
++  the exposed key, but is not a subset of S.erase0. This shows why the
++  containment hypothesis cannot be replaced by nonmembership of a alone.
++
++These mathematical expectations and source-written proofs remain uncompiled.
++Exact finite enumeration and statement assessments do not supply kernel
++validation or final review approval.
++
++## Source scope and remaining obligations
++
++The source is the July 27, 2026 edition of
++[*Functional Data Structures and Algorithms: A Proof Assistant Approach*](https://fdsa-book.net/functional_data_structures_algorithms.pdf),
++SHA-256 `9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645`.
++The saved preflights retain the pinned Mathlib APIs and the recovered AFP
++quicksort source evidence.
++
++For Chapter 2's C02-024, this unit supplies a specified-pivot remaining-order
++law and separate filtered-branch marginals. The AFP joint partition law,
++actual sorting recursion, source tariff and equivalence to fresh random
++occurrence choices remain separate obligations.
++
++For Chapter 3's C03-059–077, indices represent occurrences. Equal payload
++values do not identify those indices, and revealing only a repeated value
++can merge several different head events. A history induction must establish
++the initial law, connect each actual program update to the tail/filter
++observation, justify its retained subset and account for all revealed
++information. A set can be fixed after fixing a history without being fixed
++over the original experiment; that relationship needs its own proof.
++
++Generic HasLaw gives support almost everywhere, not pointwise. Invalid
++outputs on null sets do not contradict it. An outsider event for arbitrary
++Y can therefore be nonempty but null, although the actual projection has
++the stronger empty-event fact. Null conditioning must remain the zero
++measure. The inspected successive-conditioning/intersection theorem also
++requires measurable events; a.e. measurability alone does not discharge
++that stronger premise. These examples keep nested conditioning explicit.
++
++Full histories, selection value/rank/termination, fresh-choice coupling,
++drift and tail-cost bounds, arbitrary adaptive subsets, joint independence,
++expected positions and treap charging remain queued. Completion of this
++shared unit still requires its immutable-candidate compilation, guarded full
++check, exhaustive audit, both independent final review axes and immediate
++candidate verification. All predecessor drafts retain their own pending gates.
+diff --git a/docs/research/fdsa-reconstruction-map.md b/docs/research/fdsa-reconstruction-map.md
+index 69c8fc7..1634c13 100644
+--- a/docs/research/fdsa-reconstruction-map.md
++++ b/docs/research/fdsa-reconstruction-map.md
+@@ -597,3 +597,21 @@ histories, adaptive subsets, joint independence, expected positions, algorithm
+ semantics and actual costs remain separate obligations. The source draft is
+ uncompiled and unaccepted; the local FDSA-XU02 record owns its frozen exact
+ scope and subsequent candidate/review evidence.
++
++## Shared conditional remaining orders (draft)
++
++The [conditional-tail unit](fdsa-permutation-tail.md) connects a specified
++optional head to the law of the actual remaining list. Its existing HasLaw
++premise permits an arbitrary current environment measure, so the result can
++be reused after a prior conditioning without assuming the full environment
++is again uniform. Fixed remaining-subset filtering composes this observed
++law, and explicit global-permutation source-fiber/map specializations retain
++their separate measurable hypotheses and on-event value bridges.
++
++The examples include two successive reveals, a changed environment with a
++uniform observed tail, actual filtered projections, null conditioning and a
++counterexample to weakening subset containment. This supports Chapter 2 and
++Chapter 3 preparation; complete history, algorithm correspondence, sampling
++coupling and cost proofs remain queued. The source is uncompiled and
++unaccepted. Local FDSA-XU03 retains the frozen scope, exact expectations,
++candidate identity and later validation/review evidence.

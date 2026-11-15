@@ -1,0 +1,122 @@
+{
+  "recorded_utc": "2026-11-05T02:19:46.298200+00:00",
+  "kind": "Bounded primary-source visual inspection, not Lean validation",
+  "source": {
+    "path": "/workspace/scratch/b4a17a285e23/research-source/functional_data_structures_algorithms.pdf",
+    "bytes": 1742029,
+    "sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645",
+    "copied_into_deliverable": false
+  },
+  "pdf_page": 60,
+  "printed_page": 54,
+  "figure": "4.3",
+  "source_page_count": 382,
+  "renderer": "PyMuPDF1.26.6",
+  "render_actual_tool": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-preflight-20261105/figure4-3-pymupdf-attempt2-actual-tool.json",
+    "bytes": 856,
+    "sha256": "881ad024da71723113996a73f2d4e849de29fe87084c4bc2c310d4eb244f805d"
+  },
+  "failed_poppler_actual_tool": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter04-preflight-20261105/figure4-3-poppler-attempt1-actual-tool.json",
+    "bytes": 833,
+    "sha256": "b45bba541dc99836bbb7d9c9a696d706f3cb1f080e191c16b99bc942cdff9be5"
+  },
+  "render_identity": {
+    "path": "/workspace/scratch/b4a17a285e23/chapter04-preflight-figure-20261105/tmp/pdfs/figure4-3-page60.png",
+    "bytes": 170981,
+    "sha256": "94bd80c10fb45d926428d873edf4ea4616fa7a2898b73c02d235c31c6ef94928"
+  },
+  "render_dimensions": [
+    1391,
+    1800
+  ],
+  "view_receipt": {
+    "tool": "functions.exec -> tools.view_image",
+    "provider_chunk_id": null,
+    "reported_status": "Script completed; complete page image displayed",
+    "input_path": "/workspace/scratch/b4a17a285e23/chapter04-preflight-figure-20261105/tmp/pdfs/figure4-3-page60.png",
+    "boundary": "The image-return tool exposed no short chunk identifier; no provider identifier is invented."
+  },
+  "visual_observation": {
+    "root": 5,
+    "children": {
+      "5": [
+        2,
+        8
+      ],
+      "2": [
+        1,
+        4
+      ],
+      "8": [
+        7,
+        9
+      ],
+      "1": [
+        0,
+        null
+      ],
+      "4": [
+        3,
+        null
+      ],
+      "7": [
+        6,
+        null
+      ],
+      "0": [
+        null,
+        null
+      ],
+      "3": [
+        null,
+        null
+      ],
+      "6": [
+        null,
+        null
+      ],
+      "9": [
+        null,
+        null
+      ]
+    },
+    "caption_input": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "unshown_children": "Empty leaves, following the book diagram convention.",
+    "diagram_labels_and_edges_legible": true,
+    "matches_frozen_ten_item_example": true
+  },
+  "independent_expected_calculation_for_future_checked_case": {
+    "node_count": 10,
+    "external_leaf_count": 11,
+    "height": 4,
+    "minimum_height": 3,
+    "inorder": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "status": "Expected values from the observed tree; no Lean proof or executed algorithm result supplied by this visual check."
+  },
+  "storage_boundary": "The manuscript and temporary PNG are outside BASE; neither is copied to project/control deliverables. Temporary PNG is to be removed after this record is saved.",
+  "historical_reports_boundary": "The first report correctly states no visual review had then occurred. This later supplement records the newly authorized visual inspection without rewriting that history."
+}

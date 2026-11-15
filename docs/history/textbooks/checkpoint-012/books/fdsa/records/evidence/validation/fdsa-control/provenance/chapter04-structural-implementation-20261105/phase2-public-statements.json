@@ -1,0 +1,275 @@
+{
+  "recorded_utc": "2026-11-05T02:39:44.346586+00:00",
+  "candidate": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1",
+  "parent": "5b17c8e4a962a8e79251eda1b5f94f97a3d4cc34",
+  "whole_chapter_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "scope": "Phase 2 authored public declarations only; prior Phase 1 sources retained unchanged. Generated equations and auxiliaries remain in future exhaustive audit scope.",
+  "sources": [
+    {
+      "path": "Applications/Trees/WeightedPaths.lean",
+      "git_blob": "32c68e171958f3d706111e5216f9222fb156fcc1",
+      "bytes": 2325,
+      "lines": 63,
+      "sha256": "e6d8337983bfb9542a879ed9bc2bafc458e2fb2d38b954d157c292a19cacae7b"
+    },
+    {
+      "path": "Examples/TreeWeightedPaths.lean",
+      "git_blob": "57c0048f1b616f28a821452fefa5d550370755b4",
+      "bytes": 2780,
+      "lines": 81,
+      "sha256": "70bffb98d3e2a3c92e3285ae17111aaaf5ebf1d79864463eb8f3fce49466fe38"
+    }
+  ],
+  "declarations": [
+    {
+      "name": "Trees.sumTree",
+      "kind": "def",
+      "file": "Applications/Trees/WeightedPaths.lean",
+      "line": 15,
+      "syntactic_header": "def sumTree : BinaryTree Nat → Nat",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.sumTree_nil",
+      "kind": "theorem",
+      "file": "Applications/Trees/WeightedPaths.lean",
+      "line": 19,
+      "syntactic_header": "@[simp] theorem sumTree_nil : sumTree .nil = 0",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.sumTree_node",
+      "kind": "theorem",
+      "file": "Applications/Trees/WeightedPaths.lean",
+      "line": 21,
+      "syntactic_header": "@[simp] theorem sumTree_node (w : Nat) (l r : BinaryTree Nat) :\n    sumTree (.node w l r) = sumTree l + w + sumTree r",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.wpld",
+      "kind": "def",
+      "file": "Applications/Trees/WeightedPaths.lean",
+      "line": 26,
+      "syntactic_header": "def wpld (d : Nat) : BinaryTree Nat → Nat",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.wpld_nil",
+      "kind": "theorem",
+      "file": "Applications/Trees/WeightedPaths.lean",
+      "line": 30,
+      "syntactic_header": "@[simp] theorem wpld_nil (d : Nat) : wpld d .nil = 0",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.wpld_node",
+      "kind": "theorem",
+      "file": "Applications/Trees/WeightedPaths.lean",
+      "line": 32,
+      "syntactic_header": "@[simp] theorem wpld_node (d w : Nat) (l r : BinaryTree Nat) :\n    wpld d (.node w l r) =\n      (d + 1) * w + wpld (d + 1) l + wpld (d + 1) r",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.wpl0",
+      "kind": "def",
+      "file": "Applications/Trees/WeightedPaths.lean",
+      "line": 37,
+      "syntactic_header": "def wpl0 (t : BinaryTree Nat) : Nat",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.wpl",
+      "kind": "def",
+      "file": "Applications/Trees/WeightedPaths.lean",
+      "line": 40,
+      "syntactic_header": "def wpl : BinaryTree Nat → Nat",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.wpl_nil",
+      "kind": "theorem",
+      "file": "Applications/Trees/WeightedPaths.lean",
+      "line": 44,
+      "syntactic_header": "@[simp] theorem wpl_nil : wpl .nil = 0",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.wpl_node",
+      "kind": "theorem",
+      "file": "Applications/Trees/WeightedPaths.lean",
+      "line": 46,
+      "syntactic_header": "@[simp] theorem wpl_node (w : Nat) (l r : BinaryTree Nat) :\n    wpl (.node w l r) = sumTree (.node w l r) + wpl l + wpl r",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.wpld_eq_offset",
+      "kind": "theorem",
+      "file": "Applications/Trees/WeightedPaths.lean",
+      "line": 51,
+      "syntactic_header": "theorem wpld_eq_offset (d : Nat) (t : BinaryTree Nat) :\n    wpld d t = d * sumTree t + wpl t",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.wpl0_eq_wpl",
+      "kind": "theorem",
+      "file": "Applications/Trees/WeightedPaths.lean",
+      "line": 60,
+      "syntactic_header": "theorem wpl0_eq_wpl (t : BinaryTree Nat) : wpl0 t = wpl t",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeWeightedPathsExamples.sample",
+      "kind": "def",
+      "file": "Examples/TreeWeightedPaths.lean",
+      "line": 15,
+      "syntactic_header": "def sample : BinaryTree Nat",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeWeightedPathsExamples.sample_sumTree",
+      "kind": "theorem",
+      "file": "Examples/TreeWeightedPaths.lean",
+      "line": 18,
+      "syntactic_header": "theorem sample_sumTree : sumTree sample = 15",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeWeightedPathsExamples.sample_wpl",
+      "kind": "theorem",
+      "file": "Examples/TreeWeightedPaths.lean",
+      "line": 22,
+      "syntactic_header": "theorem sample_wpl : wpl sample = 27",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeWeightedPathsExamples.sample_wpl0",
+      "kind": "theorem",
+      "file": "Examples/TreeWeightedPaths.lean",
+      "line": 25,
+      "syntactic_header": "theorem sample_wpl0 : wpl0 sample = 27",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeWeightedPathsExamples.sample_at_depth",
+      "kind": "theorem",
+      "file": "Examples/TreeWeightedPaths.lean",
+      "line": 29,
+      "syntactic_header": "theorem sample_at_depth (d : Nat) : wpld d sample = d * 15 + 27",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeWeightedPathsExamples.sample_at_depth_two",
+      "kind": "theorem",
+      "file": "Examples/TreeWeightedPaths.lean",
+      "line": 33,
+      "syntactic_header": "theorem sample_at_depth_two : wpld 2 sample = 57",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeWeightedPathsExamples.chain",
+      "kind": "def",
+      "file": "Examples/TreeWeightedPaths.lean",
+      "line": 39,
+      "syntactic_header": "def chain : BinaryTree Nat",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeWeightedPathsExamples.chain_sumTree",
+      "kind": "theorem",
+      "file": "Examples/TreeWeightedPaths.lean",
+      "line": 42,
+      "syntactic_header": "theorem chain_sumTree : sumTree chain = 15",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeWeightedPathsExamples.chain_wpl",
+      "kind": "theorem",
+      "file": "Examples/TreeWeightedPaths.lean",
+      "line": 46,
+      "syntactic_header": "theorem chain_wpl : wpl chain = 34",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeWeightedPathsExamples.chain_wpl0",
+      "kind": "theorem",
+      "file": "Examples/TreeWeightedPaths.lean",
+      "line": 49,
+      "syntactic_header": "theorem chain_wpl0 : wpl0 chain = 34",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeWeightedPathsExamples.chain_at_depth_two",
+      "kind": "theorem",
+      "file": "Examples/TreeWeightedPaths.lean",
+      "line": 52,
+      "syntactic_header": "theorem chain_at_depth_two : wpld 2 chain = 64",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeWeightedPathsExamples.same_total_different_path_length",
+      "kind": "theorem",
+      "file": "Examples/TreeWeightedPaths.lean",
+      "line": 59,
+      "syntactic_header": "theorem same_total_different_path_length :\n    sumTree sample = sumTree chain ∧ wpl0 sample < wpl0 chain",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeWeightedPathsExamples.singleton_weight",
+      "kind": "theorem",
+      "file": "Examples/TreeWeightedPaths.lean",
+      "line": 67,
+      "syntactic_header": "theorem singleton_weight (w : Nat) :\n    wpl0 (.node w .nil .nil) = w",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeWeightedPathsExamples.singleton_seven",
+      "kind": "theorem",
+      "file": "Examples/TreeWeightedPaths.lean",
+      "line": 71,
+      "syntactic_header": "theorem singleton_seven : wpl0 (.node 7 .nil .nil) = 7",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeWeightedPathsExamples.zero_root_seven_child",
+      "kind": "theorem",
+      "file": "Examples/TreeWeightedPaths.lean",
+      "line": 74,
+      "syntactic_header": "theorem zero_root_seven_child : wpl0 (.node 0 (.node 7 .nil .nil) .nil) = 14",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeWeightedPathsExamples.empty_observations",
+      "kind": "theorem",
+      "file": "Examples/TreeWeightedPaths.lean",
+      "line": 77,
+      "syntactic_header": "theorem empty_observations (d : Nat) :\n    sumTree .nil = 0 ∧ wpld d .nil = 0 ∧ wpl0 .nil = 0",
+      "actual_elaborated_type_inspected": false
+    }
+  ],
+  "counts": {
+    "def": 6,
+    "theorem": 22
+  },
+  "public_count": 28,
+  "ordered_name_sha256": "6188b3f0c89fb5689fd7b6e20df6b0cdb9a49e6bf383e4b6e38d6e835ccba6af",
+  "retained_phase1_candidate": "5b17c8e4a962a8e79251eda1b5f94f97a3d4cc34",
+  "retained_phase1_source_identities": [
+    {
+      "path": "Applications/Trees/BasicObservations.lean",
+      "git_blob": "b41b456122021f1bc3cb73e8defb2802afb4362c",
+      "bytes": 5009,
+      "lines": 139,
+      "sha256": "3d2decdac9a8803edde8b5b36a97d0deba1a4d7b1cb1f15a93057044f342afc6"
+    },
+    {
+      "path": "Examples/TreeBasicObservations.lean",
+      "git_blob": "ccd089ead8ab8206c231602ae278d3ab3141ea2e",
+      "bytes": 4033,
+      "lines": 107,
+      "sha256": "5c40f55fad3e17da5bb28490f898c6ab7573023253e43292813df8d58c6104cb"
+    }
+  ],
+  "combined_public_count": 73,
+  "compilation": "NOT RUN by source author; actual types, focused compile and complete candidate audit remain with root.",
+  "acceptance_credit": false
+}

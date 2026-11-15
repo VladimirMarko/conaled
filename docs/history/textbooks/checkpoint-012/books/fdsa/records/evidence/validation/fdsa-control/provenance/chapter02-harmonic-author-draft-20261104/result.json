@@ -1,0 +1,68 @@
+{
+  "recorded_utc": "2026-11-04T07:21:27.977456+00:00",
+  "candidate": "012ff45e3bd34a36b67e62a8cc2ee00125613e53",
+  "parent": "3b727e83fcf9f00ad7d0c95d07305b036ebecbca",
+  "branch": "work/fdsa-ch02-three-way",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-three-way",
+  "commit_subject": "feat(resources): solve numerical quicksort recurrence (#174)",
+  "author": "ChatGPT <chatgpt@openai.com>",
+  "committer": "ChatGPT <chatgpt@openai.com>",
+  "commit_used_per_command_identity": true,
+  "status_porcelain_v1": "",
+  "clean": true,
+  "owned_source_files": [
+    {
+      "path": "Applications/Resources/QuickSortMean.lean",
+      "sha256": "6ac46b57a39ad60eaae10d6b90ac4c46c9cbdc02d5caf214097b1e794d03794b",
+      "bytes": 9714,
+      "lines": 215,
+      "git_blob": "01e7bffde09f6cb5c72f7a0b22d6f47b28025486",
+      "matches_candidate": true
+    },
+    {
+      "path": "Examples/QuickSortMean.lean",
+      "sha256": "924ce55ee6af374b55cea67ee6f2da25997b5a81ad098e2e3789622bd793b904",
+      "bytes": 2488,
+      "lines": 68,
+      "git_blob": "8b8846019ae3d447a38f0ea0f0797ad1afe7d751",
+      "matches_candidate": true
+    }
+  ],
+  "changed_paths": [
+    "Applications/Resources/QuickSortMean.lean",
+    "Examples/QuickSortMean.lean"
+  ],
+  "inserted_lines": 283,
+  "source_assessment": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-harmonic-author-draft-20261104/source-assessment.json",
+    "bytes": 24391,
+    "sha256": "3895228bec19ff2b972e44b8e865f380bb3daf9613f40575cef2b784492bba20"
+  },
+  "source_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-harmonic-author-draft-20261104/source.diff",
+    "bytes": 13020,
+    "sha256": "0620626b0b63cd79eef2227a63630449c86cede298080948b811ff7db5413e30"
+  },
+  "checkpoint0090_boundary": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-harmonic-author-draft-20261104/checkpoint0090-boundary.json",
+    "bytes": 2235,
+    "sha256": "a18ef4d596999be561177717e21c1910e4961dceb17e74c935e78e4bd5c7e1be"
+  },
+  "checks": {
+    "staged_whitespace_exit_code": 0,
+    "staged_whitespace_output": "",
+    "scope_only_owned_new_files": true,
+    "source_bytes_equal_checkpoint0090": true,
+    "existing_source_and_pins_unchanged": true
+  },
+  "validation": "uncompiled source candidate; no Lean or Lake invocation by this author",
+  "compiler_attempts": 0,
+  "full_check_or_audit": false,
+  "elaborated_statement_review": false,
+  "independent_review": false,
+  "acceptance": false,
+  "actual_execution_mean_recurrence_assumed": false,
+  "public_imports_or_coverage_changed": false,
+  "push_or_github_mutations": false,
+  "source_hold": true
+}

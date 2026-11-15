@@ -1,0 +1,51 @@
+{
+  "candidate": "bc4490d57d1b65849fb0903f7f3e417f3b0879b6",
+  "tree": "090c70dcf8cecb8edcae81d870f527d0536f400f",
+  "parent": "89858274b82e25b748762942dd46ff0643df09d3",
+  "status": "clean",
+  "finding": "C03-CUTOFF-ELAB-001",
+  "counts": {
+    "public": 40,
+    "definitions": 1,
+    "theorems": 39,
+    "private": 0,
+    "anonymous": 0
+  },
+  "changed_proofs": [
+    "Resources.SelectionCutoff.one_ceil_div",
+    "Resources.SelectionCutoff.ceil_div_strict_iff",
+    "Resources.SelectionCutoff.singleton_medians",
+    "Resources.SelectionCutoff.zero_cutoff_self_pivot",
+    "Resources.SelectionCutoff.group_one_medians"
+  ],
+  "files": [
+    {
+      "path": "Applications/Resources/SelectionCutoff.lean",
+      "bytes": 10228,
+      "sha256": "12980a69d01206eb2e5e9d45149d7336ff762f0c406ad345d36f1cbdada36218",
+      "source_lines": 233,
+      "public_names": 23
+    },
+    {
+      "path": "Examples/SelectionCutoff.lean",
+      "bytes": 4313,
+      "sha256": "001014a0832f85e2ac7ce92063a05271e753e6f064f9e61e7033d6ce14b46f2b",
+      "source_lines": 104,
+      "public_names": 17
+    }
+  ],
+  "inventory": {
+    "bytes": 51302,
+    "sha256": "91d0a04be9eff219bf826f4592679b8797bdcd262f0d9479358dbac6f8db727c"
+  },
+  "statement_input": {
+    "bytes": 2756,
+    "sha256": "0a96f81246b2f601f12aa7f128d21672943da5461c378d27034f6d14fce3745e"
+  },
+  "patch": {
+    "bytes": 3140,
+    "sha256": "e7105f0f04069d0611f7e33d38e2466e4ffb46fd9d8ece8777f016d2a3eaf5af"
+  },
+  "source_held": true,
+  "no_successor_compiler_credit": true
+}

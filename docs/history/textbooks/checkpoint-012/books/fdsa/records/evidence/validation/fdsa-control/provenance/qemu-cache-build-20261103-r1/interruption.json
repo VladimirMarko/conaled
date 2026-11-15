@@ -1,0 +1,20 @@
+{
+  "observed_utc": "2026-11-03T16:08:29.682616+00:00",
+  "execution_session_id": 57428,
+  "action": "Stopped owned execution session with Ctrl-C after sustained 29/42 plateau.",
+  "tool_returned_exit_code": 130,
+  "recorder_terminal_result_present": false,
+  "owned_child_terminal_exit": "Not separately retained; do not invent a child exit from the tool/session code.",
+  "last_progress": {
+    "observed_utc": "2026-11-03T16:07:15.961008+00:00",
+    "state": "waiting_for_owned_child",
+    "child_pid": 9,
+    "elapsed_seconds": 990.1459257459992,
+    "log_size_bytes": 1063,
+    "warning": "A historical progress record does not establish current liveness."
+  },
+  "log_size_bytes": 1063,
+  "log_sha256": "bddbaafb477f2e91fc43ce54134601002ec8ffe044fbec16a9d5246958616a3f",
+  "result": "interrupted without success credit",
+  "next_step": "Retry unchanged cache target using the supplied adapter default LEAN_NUM_THREADS=1. Preserve all generated dependency outputs; no project artifacts, sources, pins or proof policies change."
+}

@@ -1,0 +1,94 @@
+{
+  "recorded_utc": "2026-11-04T18:02:21.962877+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "profile_number": 4,
+  "label": "naturalsorting105",
+  "terminal": {
+    "started_utc": "2026-11-04T18:02:18.554604+00:00",
+    "completed_utc": "2026-11-04T18:02:21.939220+00:00",
+    "actual_exit": 0,
+    "elapsed_seconds": 3.3846375360008096,
+    "owner": "/root serial driver",
+    "observation": "subprocess.run returned after actual recorder termination; not a tool-session terminal claim",
+    "argv": [
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/record_command.py",
+      "--name",
+      "chapter02-receiving-targeted-naturalsorting105-20261104-attempt1",
+      "--cwd",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "--candidate",
+      "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+      "--",
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+      "--state",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+      "run",
+      "--project",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "--threads",
+      "1",
+      "--",
+      "lake",
+      "env",
+      "lean",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-natural-sorting-statement-source-20261104/Statements.lean"
+    ]
+  },
+  "program_before": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-natural-sorting-statement-source-20261104/Statements.lean",
+    "bytes": 5922,
+    "sha256": "59d413591ef58c6569fcf39575669aaafcb21d4cf7783f05a88935de0a97b9ac"
+  },
+  "program_after": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-natural-sorting-statement-source-20261104/Statements.lean",
+    "bytes": 5922,
+    "sha256": "59d413591ef58c6569fcf39575669aaafcb21d4cf7783f05a88935de0a97b9ac"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T180218Z-project-run-b97a95c1",
+  "native_records": [
+    {
+      "origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T180218Z-project-run-b97a95c1/start.json",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/native-records/start.json",
+      "bytes": 561,
+      "sha256": "c35dca6592265abd5d2ae81e659c578095a0b03d53a8cda3de86a3178f0aae14"
+    },
+    {
+      "origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T180218Z-project-run-b97a95c1/result.json",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/native-records/result.json",
+      "bytes": 713,
+      "sha256": "d5988eb126f91518b26cf6e0b85014c7a3d9063b0bda969e423b1515b5ac2dcd"
+    },
+    {
+      "origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T180218Z-project-run-b97a95c1/output.log",
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/native-records/output.log",
+      "bytes": 79631,
+      "sha256": "c0f895eaac6986af8283b81ad95f70ea4a024fac853169d3a17f6b0362d19db2"
+    }
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/full.log",
+    "bytes": 79990,
+    "sha256": "72671fcfcc61ec1e80f02b03c0ddb745dec2a7578a56f4f33c73cab8b2680308"
+  },
+  "native_output_exact_outer_offset": 203,
+  "outer_prefix": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/outer-prefix.log",
+    "bytes": 203,
+    "sha256": "42e69c99390390e62c8360b4ffbc843be0d6ff636cfab9cf284cbb785c4c6420"
+  },
+  "outer_suffix": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/outer-suffix.log",
+    "bytes": 156,
+    "sha256": "00dee71e8d1f58e8b49497c5bec4daa944575410cb7ac35739100b565c8871a9"
+  },
+  "complete_closed_log": true,
+  "inherited_full_verification": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-naturalsorting105-20261104-attempt1/verification.json",
+    "bytes": 867,
+    "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+  },
+  "inherited_verification_is_not_a_new_full_check": true,
+  "mathematical_or_type_qualification_credit": 0
+}

@@ -1,0 +1,29 @@
+{
+  "recorded_utc": "2026-11-04T20:15:27.514592+00:00",
+  "agent": "/root/checkpoint0124_inspection",
+  "role": "Read-only checkpoint operations, not semantic reviewer",
+  "actual_tools": [
+    {
+      "chunk": "a546d8",
+      "exit": 0
+    },
+    {
+      "chunk": "3a4f3d",
+      "exit": 0
+    }
+  ],
+  "all210_verifier_lines_and_exact_diff_read": true,
+  "exact_five_expected_substitutions_and_AST_pass": true,
+  "verifier": {
+    "bytes": 11472,
+    "sha256": "7d36e977a65b60c1c62a085769968b989ed8ea441c0e6aba3d674292c682ee53"
+  },
+  "prior_archive_and_manifest_verified": true,
+  "refs": 73,
+  "worktrees": 9,
+  "acceptedXR_preserved": true,
+  "creator_and_restorer_unchanged": true,
+  "concrete_findings": 0,
+  "held": true,
+  "no_capture_or_creation_credit_at_inspection": true
+}

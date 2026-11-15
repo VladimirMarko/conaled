@@ -1,0 +1,142 @@
+{
+  "recorded_utc": "2026-11-03T03:08:37.120350+00:00",
+  "scope": "Bounded report-only C02-102 preparation; no new shared unit, source release or freeze",
+  "all_authors_stopped": true,
+  "root_readback": "Complete324-line source and476-line API; complete327-line case snapshot and all final deltas to350 lines; final identities match.",
+  "inputs": {
+    "research/quicksort-accumulator-source-readiness.md": {
+      "bytes": 18282,
+      "lines": 294,
+      "sha256": "ce8c019bfe437bbdb71e5863119469a67c0f0d1a7961a3c0f879566731025eba"
+    },
+    "research/quicksort-accumulator-api-readiness.md": {
+      "bytes": 21912,
+      "lines": 341,
+      "sha256": "aeec34427e96f45ede40f9631a201a443f1eded796abf49a04fd861d17f4572f"
+    },
+    "research/quicksort-accumulator-case-readiness.md": {
+      "bytes": 19851,
+      "lines": 363,
+      "sha256": "6251ba2623d7988496be3e54dbdea8085f878810db276f7fec673429319f09f0"
+    },
+    "research/chapter02-obligations.md": {
+      "bytes": 42539,
+      "lines": 391,
+      "sha256": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2"
+    },
+    "reviews/source-inventories-before-scope-repair/chapter02-obligations.md": {
+      "bytes": 37154,
+      "lines": 350,
+      "sha256": "edba53049bb481f2fe21805f6e8a4ccc46ffec1e9b5fa8cb16b7804e446c832d"
+    },
+    "reviews/chapter02-requirements.md": {
+      "bytes": 12034,
+      "lines": 189,
+      "sha256": "f0c9bc939fbfb6da02c1734b121456c35fd6b4c9ee43f1284003d0b8db087a36"
+    },
+    "research/chapter02-reuse-plan.md": {
+      "bytes": 31586,
+      "lines": 346,
+      "sha256": "ad652aa94f5cb4e0d00db58ffc8a7411c41deb582f35979a860a25c7d3c3454a"
+    },
+    "research/scope-reconciliation.md": {
+      "bytes": 14441,
+      "lines": 151,
+      "sha256": "21de30d9c317dadc2cb8aee51ea84ca26f74c8208b754feea57d81140c1a3e87"
+    },
+    "reviews/chapter02-prefix-source-reconciliation.md": {
+      "bytes": 19719,
+      "lines": 337,
+      "sha256": "a563f8001a86326ed124ad0097aab0ea6b652e21ddfbc9e7203a3c934158dd1a"
+    },
+    "reviews/chapter02-prefix-source-compatibility.md": {
+      "bytes": 24435,
+      "lines": 220,
+      "sha256": "0c1945c23f9d3374cda1a4f98083fc2c31309e1310486e2fb8ea9ae150fd1577"
+    },
+    "research/quicksort-three-way-source-readiness.md": {
+      "bytes": 21439,
+      "lines": 324,
+      "sha256": "d555fa3519e4f2eed6870f674f50a8bd205e00076291159bc186df1c4ce90946"
+    },
+    "research/quicksort-three-way-api-readiness.md": {
+      "bytes": 28341,
+      "lines": 476,
+      "sha256": "e6b96c915cdeda4be1e3c8c2264624b40b3e05cf2f150c1437fd7d7cc0a4f092"
+    },
+    "research/quicksort-three-way-case-readiness.md": {
+      "bytes": 20556,
+      "lines": 350,
+      "sha256": "8994442f2983ff5e9ae275ae3e81de6f5c6477b72566643927bc5cfbf7782ecd"
+    },
+    "reviews/three-way-partition-requirements.md": {
+      "bytes": 12208,
+      "lines": 209,
+      "sha256": "b1f55911c44a11def3498484787fcb04972398ec040bf1bd65c75796c116d541"
+    },
+    "reviews/three-way-partition-candidate.md": {
+      "bytes": 6476,
+      "lines": 99,
+      "sha256": "96264044d5adef8a13f771d84a2153ae753c0b0e855d9306ed0f9e3409460d7c"
+    },
+    "reviews/partition-shared-integration-addendum.md": {
+      "bytes": 3380,
+      "lines": 55,
+      "sha256": "99a64a6db17c7114e98cca6087e440af4b4e9872962c6df6885ba0b8e1e4f3e2"
+    },
+    "reviews/three-way-partition-source-identities.json": {
+      "bytes": 1601,
+      "lines": 51,
+      "sha256": "c65556b40f31c48cc3df3321e02256a007cd8c1b3dea571b7b3ec7e1ac1dc1c3"
+    },
+    "reviews/three-way-partition-compatibility-reading.json": {
+      "bytes": 1194,
+      "lines": 29,
+      "sha256": "e5ba9687cc5215090d252d09cb1a7ed113381a7d05b0c6dd39303c0cd8a0faea"
+    }
+  },
+  "row_preservation": {
+    "research/chapter02-obligations.md": {
+      "distinct_count": 112,
+      "range": "C02-001 through C02-112"
+    },
+    "reviews/source-inventories-before-scope-repair/chapter02-obligations.md": {
+      "distinct_count": 107,
+      "range": "C02-001 through C02-107"
+    }
+  },
+  "c02_102_row_identical": true,
+  "complete_notice": {
+    "bytes": 1673,
+    "lines": 36,
+    "sha256": "44176a9195f0d6110302ca58c302437b2d6685049d4b8a7c1117121883d4b64d"
+  },
+  "complete_notice_occurrences": 1,
+  "source_states": {
+    "conaled": {
+      "head": "1aabd512284fe86254278ac631eda061d311050b",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.n7UlkJ"
+    },
+    "conaled-ch01-review": {
+      "head": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "status": ""
+    },
+    "conaled-logarithm-bounds": {
+      "head": "a601ad713368daf8e18d5a5537a83d47138491fa",
+      "status": ""
+    }
+  },
+  "initial_chapter02_prefix": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "existing_shared_partition_candidate": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+  "shared_core": {
+    "bytes": 3840,
+    "lines": 87,
+    "sha256": "c83144cda94133662be7537fa9c2e8e7870f4959c55c78526d1a62e11fe1f56b"
+  },
+  "assessment": {
+    "bytes": 5864,
+    "lines": 98,
+    "sha256": "d03a5c899d37d33b4a18dd0ce0507324e759326bd1175b7f2c8f6dfcb30610cc"
+  },
+  "limits": "Ordinary source/control identities and read-only Git in pinned Nix. No compiler/checker/project hash helper, cache/performance action, new source/ref/worktree/index change or final review. C1 sole validator untouched. No chapter, appendix, shared unit or obligation accepted."
+}

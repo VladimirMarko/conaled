@@ -1,0 +1,236 @@
+{
+  "schema": "independent Standards complete-log read ledger, existing four-unit loop",
+  "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "base": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "updated_utc": "2026-11-04T14:46:38.398115+00:00",
+  "source_report_unchanged": "reviews/shared-four-standards-source-continuation-20261104.md",
+  "native_log": {
+    "path": "provenance/shared-four-full-attempt1-20261104/native-records/output.log",
+    "bytes": 282588,
+    "lines": 2492,
+    "sha256": "24aab0ba3c7856df723e340a62ce1086ed35969af34682ff96cbbc3af2cc945e"
+  },
+  "outer_log": {
+    "path": "provenance/shared-four-full-attempt1-20261104/full.log",
+    "bytes": 282816,
+    "lines": 2495,
+    "sha256": "a990e35c10e7c8f664298a028467dcc537f1aa6ae6e150f0d0526abf763c76e5",
+    "exact_native_body_offset": 70,
+    "entire_prefix_suffix_read_tool": "51bb2a"
+  },
+  "closed_terminal_metadata": [
+    {
+      "path": "provenance/shared-four-full-attempt1-20261104/start.json",
+      "bytes": 931,
+      "lines": 26,
+      "sha256": "4e3da8b5c56ce30a31e7857d5ac6a569f543b76ee2837b8276fc67fb218e8d61",
+      "read_complete": true
+    },
+    {
+      "path": "provenance/shared-four-full-attempt1-20261104/result.json",
+      "bytes": 1246,
+      "lines": 32,
+      "sha256": "c539bb6d162c9a3a79f01bf8a74a9f7d2a97c3b4ade567a599ea3890dcb74226",
+      "read_complete": true
+    },
+    {
+      "path": "provenance/shared-four-full-attempt1-20261104/owned-terminal.json",
+      "bytes": 249,
+      "lines": 8,
+      "sha256": "9bf10b205a8e273b6e3c81218e3765864ca8eb04b22b4a89ff2032ecd6a24496",
+      "read_complete": true
+    },
+    {
+      "path": "provenance/shared-four-full-attempt1-20261104/closed-evidence-reconciliation.json",
+      "bytes": 3107,
+      "lines": 72,
+      "sha256": "7b290cbf08530ae5c8599b71435dd8a54d0c3c202395cafd1da1de6a051d262b",
+      "read_complete": true
+    },
+    {
+      "path": "provenance/shared-four-full-attempt1-20261104/launch.json",
+      "bytes": 175,
+      "lines": 6,
+      "sha256": "7fbeac4cfcac14d4e0f30a29d9847a02c9e8d75be724a9f00ee6f90e0bb49e4f",
+      "read_complete": true
+    },
+    {
+      "path": "provenance/shared-four-full-attempt1-20261104/request.json",
+      "bytes": 737,
+      "lines": 21,
+      "sha256": "c093332880028b77fb2e646d0ecb3cd0f0f5dabf8e3ce43330aa6bdb8287e5d1",
+      "read_complete": true
+    },
+    {
+      "path": "provenance/shared-four-full-attempt1-20261104/native-records/start.json",
+      "bytes": 421,
+      "lines": 13,
+      "sha256": "8963c232fb905c67ac0cf057a677fafce70314b163205ec8624b0dbea5b24fb7",
+      "read_complete": true
+    },
+    {
+      "path": "provenance/shared-four-full-attempt1-20261104/native-records/result.json",
+      "bytes": 573,
+      "lines": 18,
+      "sha256": "9788dee7d0356436bb94eb4b5e50bb04637a709574672e6060922cb19f663a50",
+      "read_complete": true
+    },
+    {
+      "path": "provenance/shared-four-full-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "lines": 19,
+      "sha256": "2974a2efaa56703448e96ddeec25947e84e91b7733b4e8b405fdcf6d69fe816d",
+      "read_complete": true
+    }
+  ],
+  "read_ranges": [
+    {
+      "first_line": 1,
+      "last_line": 158,
+      "bytes": 17869,
+      "sha256": "725eed5995d1cbc529457b82d49bd38798c290ac3b660b2b562a4a1f35d11326",
+      "tool_chunk": "ad1285",
+      "complete_nontruncated_read": true,
+      "assessment": "Official compiler and source guard, the ten expected missing cold-module traces, 2898 preguard artifacts, incremental build entry; retained baseline replay warnings and permitted axiom diagnostics. No failure inferred from intentional cold outputs."
+    },
+    {
+      "first_line": 159,
+      "last_line": 319,
+      "bytes": 17768,
+      "sha256": "ac2e951ea9da6a4beb1230bff5c5891f9468aa5ee838c29cbb315c304a057a11",
+      "tool_chunk": "78d00d",
+      "complete_nontruncated_read": true,
+      "assessment": "Complete unchanged-module replay warnings and selected existing axiom/example output; no new-source error or disallowed axiom."
+    },
+    {
+      "first_line": 320,
+      "last_line": 442,
+      "bytes": 17965,
+      "sha256": "4e14bfcdbe979831bba5059024319fa605585a231c0020e26c8e67afc780ff72",
+      "tool_chunk": "5638a4",
+      "complete_nontruncated_read": true,
+      "assessment": "Complete baseline replay continuation including module-system and existing class/theorem-style warnings. These are recorded warnings, not suppressed or mistaken for current formal type inspection."
+    },
+    {
+      "first_line": 443,
+      "last_line": 560,
+      "bytes": 17881,
+      "sha256": "d3763c03008da0e04a62c1aa603301b77c4cff8d7bd6d0d22f837b7694201cb1",
+      "tool_chunk": "338684",
+      "complete_nontruncated_read": true,
+      "assessment": "Complete replay continuation and actual DifferenceListCosts core/example builds; new example emits only module-system import advisory."
+    },
+    {
+      "first_line": 561,
+      "last_line": 700,
+      "bytes": 17844,
+      "sha256": "37158249f5fc4de6b5ef2b3f7fefbfe14fde7b08ed3af0fa7f3e899726b08cc7",
+      "tool_chunk": "bc0077",
+      "complete_nontruncated_read": true,
+      "assessment": "Complete replay continuation including accepted C1/Foundation clients; actual Sorting.Merge and SourceMerge rebuilds begin the changed dependency cone."
+    },
+    {
+      "first_line": 701,
+      "last_line": 881,
+      "bytes": 17830,
+      "sha256": "6dc1ea5c8a2c29b86a8c4826ede4ac7eb39397a8a121a0b37e531c66999058bb",
+      "tool_chunk": "af6cb9",
+      "complete_nontruncated_read": true,
+      "assessment": "Actual InsertionSort/InsertionCosts and ListMerge/MergeCosts builds plus affected consumers; retained baseline warnings, no new proof/linter diagnostic in changed units."
+    },
+    {
+      "first_line": 882,
+      "last_line": 1047,
+      "bytes": 17972,
+      "sha256": "e9088d15d3cc3cf762201624a05c0b31da79a9f8ae8ca351b4feb955dac5e0c4",
+      "tool_chunk": "b6ac58",
+      "complete_nontruncated_read": true,
+      "assessment": "Actual PermutationMinimum core, Boundary and Main built at current candidate; only module-system import advisories in that scope. Retained baseline replay diagnostics fully read."
+    },
+    {
+      "first_line": 1048,
+      "last_line": 1171,
+      "bytes": 17984,
+      "sha256": "94035bb6270f75a3288aab9bd02c0fdaa7c420551f7c6bb3b0fcd2976e314dad",
+      "tool_chunk": "659691",
+      "complete_nontruncated_read": true,
+      "assessment": "Actual Sequences.Partition and dependent selection/consumer builds; existing replay diagnostics complete."
+    },
+    {
+      "first_line": 1172,
+      "last_line": 1371,
+      "bytes": 15087,
+      "sha256": "7782af94c149fdcb31efea8726acda62a120cfc34fa276b93815fe2d2c400537",
+      "tool_chunk": "e79372",
+      "complete_nontruncated_read": true,
+      "assessment": "Complete final baseline category/slice replay warnings; no source or compiler failure inferred and no linter suppression."
+    },
+    {
+      "first_line": 1372,
+      "last_line": 1570,
+      "bytes": 17930,
+      "sha256": "4fc1147214029c0ee2b26622e8d6c36a13b77760207b4869584485f22f838c04",
+      "tool_chunk": "f1a621",
+      "complete_nontruncated_read": true,
+      "assessment": "Actual Resources.Partition/ThreeWayPartition and SquareApplications builds; successful10022-job build,344.98s incremental phase, postguard2928 artifacts/zero inconsistencies; start of exhaustive45630/25386/975 audit read through Examples.FRPFrontier. Audit remainder pending."
+    },
+    {
+      "first_line": 1571,
+      "last_line": 1736,
+      "bytes": 17963,
+      "sha256": "57c93ab8a6edc1098e1e061f9c3cec22696d71fb976a1db5a03194adc9131647",
+      "tool_chunk": "3af1bc",
+      "complete_nontruncated_read": true,
+      "assessment": "Every audit row from Examples.FRPTrace through SquareKit.CategoryQuotient read; all unsafe counts zero, including insertion, merge, minimum, difference-list and three-way examples."
+    },
+    {
+      "first_line": 1737,
+      "last_line": 1897,
+      "bytes": 17967,
+      "sha256": "24310de6af066eb57ab5507add9d257643bbcfe0f36f9c7d76f3f9cf8355377a",
+      "tool_chunk": "6d4117",
+      "complete_nontruncated_read": true,
+      "assessment": "Every audit row from SquareKit.ClosedComparison through SmoothOpenDescent read; all unsafe counts zero."
+    },
+    {
+      "first_line": 1898,
+      "last_line": 2053,
+      "bytes": 17991,
+      "sha256": "502a52a239c19ad7eacf682d503dc5e0b5bf432d777d8107062ea18a277cf158",
+      "tool_chunk": "65410a",
+      "complete_nontruncated_read": true,
+      "assessment": "Every audit row from SmoothOpenDescentHom through Applications.FRP.Engine read; all unsafe counts zero."
+    },
+    {
+      "first_line": 2054,
+      "last_line": 2206,
+      "bytes": 17920,
+      "sha256": "a2022385c48c587cfcea81d2c582430a6feeea36279d78f420d44001e1729710",
+      "tool_chunk": "5e0379",
+      "complete_nontruncated_read": true,
+      "assessment": "Every audit row from Applications.FRP.Equivalence through Progress.Processors read; PermutationMinimum is covered and all unsafe counts zero."
+    },
+    {
+      "first_line": 2207,
+      "last_line": 2356,
+      "bytes": 17985,
+      "sha256": "a82c2958e826bbe2c237039baabee8fce6b4e8ea06163c06eafb3b826799d9f0",
+      "tool_chunk": "76e726",
+      "complete_nontruncated_read": true,
+      "assessment": "Every audit row from Applications.Progress.Reactive through Internal.PresheafFrobenius read, including every new Resource/Sorting/Sequence defining module and inherited insertion/list calls; all unsafe counts zero."
+    },
+    {
+      "first_line": 2357,
+      "last_line": 2492,
+      "bytes": 16632,
+      "sha256": "3d480208780d8dbd4bb82266a090f69a2daffae0c3fab9350bb5c590a4161353",
+      "tool_chunk": "5c2713",
+      "complete_nontruncated_read": true,
+      "assessment": "Every remaining audit row and terminal suffix read; zero excluded unsafe roots, exact permitted union propext/Classical.choice/Quot.sound, audit PASSED, matching I verification and all977 modules PASS."
+    }
+  ],
+  "native_read_through_line": 2492,
+  "native_read_bytes": 282588,
+  "all_native_bytes_read": true,
+  "disposition": "Complete actual full-gate log read, no concrete Standards terminal finding. Overall Blocked pending actual314 semantic review and conditional110 receiving-scope qualification; no final acceptance."
+}

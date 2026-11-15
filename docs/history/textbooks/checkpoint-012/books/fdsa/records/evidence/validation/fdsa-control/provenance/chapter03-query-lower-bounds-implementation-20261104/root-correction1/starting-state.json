@@ -1,0 +1,75 @@
+{
+  "recorded_utc": "2026-11-04T19:34:33.252693+00:00",
+  "original_scope_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "parent_candidate": "6c66b545f7f7e2e15a274a67a867d8ddc7f980c3",
+  "branch": "work/fdsa-ch03-query-lower-bounds",
+  "index_and_worktree_status": "",
+  "sources": {
+    "Applications/Selection/CoordinateQueries.lean": {
+      "bytes": 11106,
+      "sha256": "ca1c0d339500e77aa14ca47420b9f7a11f213bbcd8ac113c3281c7f9690e6409"
+    },
+    "Applications/Selection/CoordinateSensitivity.lean": {
+      "bytes": 6659,
+      "sha256": "1b517f10f1ebaab226f1f8c450307cab3456432e1e410d828c73240191ed155d"
+    },
+    "Examples/CoordinateQueries.lean": {
+      "bytes": 7860,
+      "sha256": "b471baa5471a0c01324f013d920c7e1159c30cea0e425bca4b6f050cfad2245e"
+    },
+    "Examples/CoordinateSensitivity.lean": {
+      "bytes": 3587,
+      "sha256": "8fc707c507d0212ca92b113b52976a10fa252d600f5127c042e17a2931aee6ef"
+    }
+  },
+  "prior_provenance": {
+    "candidate01-author-hold.json": {
+      "bytes": 4983,
+      "sha256": "96b02b3b5de494e15576d4d8aa08cf9e1eaedad8b7710ce1aa1da00c33abb3a8"
+    },
+    "starting-state.json": {
+      "bytes": 6758,
+      "sha256": "3773e1ddcad1511a9c38c93bfeebcd138bf5942cdb0d99a77e3a01eef45c1910"
+    },
+    "allocation-result.json": {
+      "bytes": 359,
+      "sha256": "860b03f8df3ee6d5c35540e0b23c11c68e6f95724b813bafcf609058815c23fa"
+    },
+    "candidate01.json": {
+      "bytes": 39625,
+      "sha256": "69d2de7a2b44fc747a66ca430c0394b035f916a123863df1a19f614a610f3006"
+    },
+    "candidate01-staged-check.json": {
+      "bytes": 405,
+      "sha256": "7f362cae16b5957176a734b5377f0b4f60376b1e530fc53968bb5f55abac04ad"
+    },
+    "design-and-expected-cases.md": {
+      "bytes": 5256,
+      "sha256": "000028e21e26f7752f1b7431fec062cec11c8e786cd5d4d15c81639cc4a8a0fb"
+    },
+    "candidate01-handoff.md": {
+      "bytes": 7825,
+      "sha256": "bb6091114730d35ec7c25df45b915e642b51cd629b3054027d0cfecc36b97baa"
+    },
+    "Statements68-candidate01-preparation.json": {
+      "bytes": 5243,
+      "sha256": "5ac585b02cd1be8e64192162088ca1f57656f757827087fd86d2f20098b9a193"
+    },
+    "Statements68-candidate01.lean": {
+      "bytes": 4638,
+      "sha256": "9ec7f897aea6ef3eea6b7579b96830770c7bea64ef1a3deda0155930f8c84016"
+    },
+    "candidate01-commit.json": {
+      "bytes": 499,
+      "sha256": "8ac9611b87b406dc0613ab5cf326cd8ef2277f193f72ce3ca11bf25bfe45dc53"
+    }
+  },
+  "finding": "C03-QUERY-ELAB-001",
+  "failed_check": "provenance/chapter03-coordinate-queries-focused-attempt1-20261104",
+  "actual_exit": 1,
+  "owned_session": 24675,
+  "actual_terminal": "1b5f2e",
+  "complete_root_log_read_and_closure": "840f58",
+  "root_full_core_source_read": "062721",
+  "scope": "Four original modules / 68 authored public names / two private helpers; no actual-type/full-audit/acceptance credit."
+}

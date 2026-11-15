@@ -1,0 +1,56 @@
+{
+  "recorded_utc": "2026-11-04T20:22:10.354209+00:00",
+  "disposition": "HELD for root focused check. All own source/provenance writes stop until explicit release.",
+  "candidate": "11480d46b4f8f99eb33bdc4b34759031af17c9f0",
+  "tree": "a0e60d9f8f6df21aa836541578d928f90c68e3a6",
+  "status": "",
+  "finding": "C03-MEDIAN-REDUCTION-ELAB-002",
+  "change": "Only extremaRun_cost proof gains a definitional change to an expression whose two lengths both use ordinary alpha.",
+  "all65_headers_and_cases_preserved": true,
+  "all12_current_source_identities_verified": true,
+  "all_other11_sources_unchanged": true,
+  "full_header_inventory_and_statement_assessment_retained": true,
+  "artifacts": [
+    {
+      "path": "median-reduction-correction2-precommit.json",
+      "bytes": 1645,
+      "sha256": "4a58329cb5fa60c354b25800a6c622eca9f5e70c795b47d95cdf584bc178205a"
+    },
+    {
+      "path": "median-reduction-correction2.diff",
+      "bytes": 649,
+      "sha256": "15e7baf48f6cfeb99c8d71454bd9ab0b3c742fd1df50c3b285753a98bcb3cd1b"
+    },
+    {
+      "path": "median-reduction-candidate3.json",
+      "bytes": 3739,
+      "sha256": "51af47e209e2bc966cab4d810f736432d51cbed51fb09f4337ef9271b6b04b5b"
+    },
+    {
+      "path": "MedianReductionStatements.lean",
+      "bytes": 4245,
+      "sha256": "d544c9616e72bdd5c046b208d13d989f8b2ca384c8915ce25e95970ff278fe0c"
+    }
+  ],
+  "readbacks": {
+    "complete_actual_failed_log": "9bef04",
+    "terminal_and_closed_reconciliation": "a2299e",
+    "previous_hold_and_candidate2": "448463",
+    "correction_starting_state": "68ced6",
+    "complete_diff_commit_and_candidate_record": "ae6980"
+  },
+  "actual_successor_validation": "Pending; no Lean/Lake or emitted-type command run by author. Both prior failures retained. Value proof fixed in attempt2; resource cost and examples still need successful focused validation.",
+  "counterfamily_source_started": false,
+  "remaining_scope_ownership": {
+    "author": [
+      "C03-056 infinite counterfamily",
+      "C03-057 connected generic pivot-bound application",
+      "C03-055 actual-cutoff bridge and C03-058 generalized algorithm termination/correctness once worker is available"
+    ],
+    "root": [
+      "C03-058 scalar group-coefficient arithmetic and sufficient affine majorants"
+    ],
+    "whole_chapter_rows": 83
+  },
+  "full_chapter_acceptance_claimed": false
+}

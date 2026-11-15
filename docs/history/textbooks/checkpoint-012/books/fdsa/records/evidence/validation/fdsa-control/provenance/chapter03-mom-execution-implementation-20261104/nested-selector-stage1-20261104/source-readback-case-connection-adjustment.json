@@ -1,0 +1,29 @@
+{
+  "recorded_utc": "2026-11-04T20:40:04.062025+00:00",
+  "kind": "pre-commit connected-case improvement after complete source readback",
+  "baseline_hold": "checkpoint0127-author-hold.json",
+  "release": "Root release actual8c5ad2 at2026-11-04T20:38:01.433262 UTC",
+  "reason": "Readback found all large examples consumed the full pair step equation. Two existing cases now separately consume the new value-correctness law and the proved cost-projection equation, retaining their independently expected pairs. The other cases still consume the full execution equation. This improves direct public-API coverage without adding mathematical assumptions or extra cases.",
+  "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionCosts.lean",
+  "old_bytes": 12974,
+  "old_sha256": "77c709afdf35107ead23210b8f64fe8ad7db77c1463e7a56a39eabc6750d6965",
+  "new_bytes": 13466,
+  "new_sha256": "fc9ab165cac2cd05246592bddbcc63632b4c363e4c478dea02e1aeb0d77e8122",
+  "edits": [
+    {
+      "theorem": "Examples.SelectionCosts.first_recursive_left",
+      "old": "theorem first_recursive_left : selectRun 0 (List.range 21) = (some 0, 269) := by\n  rw [selectRun_step 0 _ (by decide) (by decide) 12 first_pivot_observation]\n  norm_num [first_partition, Examples.SelectionMedians.first_recursive_size,\n    Nat.ceilDiv_eq_add_pred_div, first_recursive_pivot, first_left_child,\n    Resources.SymmetricCosts.lengthRun_exact, Resources.Partition.partitionRun_cost]",
+      "new": "theorem first_recursive_left : selectRun 0 (List.range 21) = (some 0, 269) := by\n  apply Prod.ext\n  \u00b7 rw [selectRun_value]\n    simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using\n      (show (Applications.Sorting.insertionOn id (List.range 21))[0]? = some 0 by\n        decide +kernel)\n  \u00b7 rw [selectRun_cost_step 0 _ (by decide) (by decide) 12 first_pivot_observation]\n    norm_num [first_partition, Examples.SelectionMedians.first_recursive_size,\n      Nat.ceilDiv_eq_add_pred_div, first_recursive_pivot, first_left_child,\n      Resources.SymmetricCosts.lengthRun_exact, Resources.Partition.partitionRun_cost]"
+    },
+    {
+      "theorem": "Examples.SelectionCosts.group_two_cutoff_one",
+      "old": "  rw [selectRunWith_step 2 1 (by decide) (by decide) 2 [3, 1, 2, 2]\n    (by decide) (by decide) 1 hp]\n  norm_num [ht, two_preparation_3122, Nat.ceilDiv_eq_add_pred_div, two_select_12,\n    two_select_322, Resources.SymmetricCosts.lengthRun_exact,\n    Resources.Partition.partitionRun_cost]",
+      "new": "  apply Prod.ext\n  \u00b7 rw [selectRunWith_value]\n    simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using\n      (show (Applications.Sorting.insertionOn id ([3, 1, 2, 2] : List Nat))[2]? = some 2 by\n        decide +kernel)\n  \u00b7 rw [selectRunWith_cost_step 2 1 (by decide) (by decide) 2 [3, 1, 2, 2]\n      (by decide) (by decide) 1 hp]\n    norm_num [ht, two_preparation_3122, Nat.ceilDiv_eq_add_pred_div, two_select_12,\n      two_select_322, Resources.SymmetricCosts.lengthRun_exact,\n      Resources.Partition.partitionRun_cost]"
+    }
+  ],
+  "all_public_headers_unchanged": true,
+  "all_execution_definitions_unchanged": true,
+  "all_prepared_expected_values_and_counts_unchanged": true,
+  "compiler_run": false,
+  "status": "Source assessment only; all new sources remain uncompiled."
+}

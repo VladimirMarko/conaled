@@ -1,0 +1,73 @@
+{
+  "observed_utc": "2026-11-02T20:50:55.871957+00:00",
+  "own_probe_pid": 552790,
+  "known_group": 426051,
+  "matching_group_processes": [],
+  "task_validation_working_directories": [],
+  "task_log_run_or_private_output_descriptors": [],
+  "scan_counts": {
+    "process_entries": 55,
+    "stat_failures": 0,
+    "cwd_failures": 1,
+    "fd_directory_failures": 0,
+    "fd_readlink_failures": 1,
+    "fdinfo_failures": 0,
+    "fd_entries": 349
+  },
+  "cgroup_observation": {
+    "memory.max": "8589934592",
+    "memory.current": "8347996160",
+    "memory.swap.current": "0",
+    "memory.events": "low 0\nhigh 0\nmax 538133233\noom 0\noom_kill 0\noom_group_kill 0",
+    "memory.oom.group": "0",
+    "cpu.max": "800000 100000"
+  },
+  "files": {
+    "1002-candidate-3279bac-fresh1.log": {
+      "bytes": 19270,
+      "sha256": "e5691d12514aa22945118dc7b1a3840f7ef5975b295c55616671df390a1928f1",
+      "mtime_utc": "2026-11-02T19:58:19.328635+00:00"
+    },
+    "1002-candidate-3279bac-fresh1.run.json": {
+      "bytes": 1384,
+      "sha256": "b12941061e4d71cb19883b039a6f103cb7ccf76622a390dd243815ef757a86c7",
+      "mtime_utc": "2026-11-02T16:09:16.725187+00:00",
+      "record": {
+        "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+        "mode": "fresh",
+        "command": [
+          "/root/.nix-profile/bin/nix",
+          "develop",
+          "--command",
+          "./check.sh",
+          "--fresh",
+          "--jobs",
+          "1",
+          "--candidate",
+          "HEAD"
+        ],
+        "working_directory": "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+        "log": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-3279bac-fresh1.log",
+        "explicit_environment": {
+          "PATH_prefix": "/root/.nix-profile/bin:",
+          "NIX_CONFIG": "build-users-group =\nexperimental-features = nix-command flakes",
+          "LEAN_NUM_THREADS": "1",
+          "LEAN_override": "removed"
+        },
+        "status": "running",
+        "returncode": null,
+        "started_utc": "2026-11-02T16:09:16.721142+00:00",
+        "reason": "Required by README after unexplained earlier project-output mismatches (ST-002/local1025). Source/checker/toolchain/dependency configuration unchanged.",
+        "checkpoint_before_launch": 25,
+        "root_free_bytes_before_launch": 7799726080,
+        "inactive_main_mathlib_build_present_at_launch": true,
+        "note": "Fresh project outputs are private and removed by the unchanged checker. The complete child output is retained in the log; console shows progress, errors and verification summaries. This is separate from the failed earlier incremental attempt and any later guarded recovery.",
+        "pid": 426051,
+        "process_group": 426051
+      }
+    }
+  },
+  "verification_record_exists": false,
+  "signals_sent": false,
+  "scope": "Read-only stat/cwd/FD metadata; only matching owned task paths returned. No argv, environments, payload contents, cleanup or process signals. Negative observations are not proof of absence of every possible writer."
+}

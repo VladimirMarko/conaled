@@ -1,0 +1,26 @@
+{
+  "recorded_at": "2026-11-02T16:17:35.376722+00:00",
+  "branch": "pfds/ch02-shared",
+  "base": "82501d108f33c62d21b5e0d0f7d2376b902d8d49",
+  "candidate": "b6b93fec6cc636fe6cb3794d79280c363de619d6",
+  "command": "Nix pinned environment; --option eval-cache false develop --offline --command env LEAN_NUM_THREADS=1 lake build Examples.SharedTree",
+  "status": "focused compilation passed",
+  "exit_code": 0,
+  "result": "Build completed successfully (1587 jobs).",
+  "log": "validation/chapter02-shared-constructors-r3.log",
+  "clean_worktree": true,
+  "files": {
+    "Applications/Search/SharedTree/Basic.lean": "7acc9428ee6bd804cabb0125ff391461fb01de47c30c6a94d305ea856418da70",
+    "Applications/Search/SharedTree/Complete.lean": "4e34f42ddd131cc10fd9242be2c0452f4f00af3f2cf2f476f68c844f4ba4f64c",
+    "Applications/Search/SharedTree/Balanced.lean": "1c88674055c227f3c99dbcd31b6154659b8498cd6fefccc62f2492a1d24a06b4",
+    "Applications/Search/SharedTree/Observation.lean": "2c4db02236ab18319be5581deb1c0a8b3f1268acab5c2fa0be871b8d48cd302b",
+    "Applications/Resources/SharedTree.lean": "1a0474363a59673974a9a0dde2e1fb3133dce8e94f83f4e21628998ce1c8dfc7",
+    "Examples/SharedTree.lean": "1358e7de35d052d090c153f57fb9666084fcfbddbd5ac62c087b41890f5b0235"
+  },
+  "acceptance": false,
+  "pending": [
+    "Root integration and SquareApplications import closure",
+    "Isolated exact candidate full build, exhaustive proof audit and final verification",
+    "Independent Standards and Spec reviews for the whole Chapter2 scope"
+  ]
+}

@@ -1,0 +1,9 @@
+# C02-PREP-OPT-001 — pretty-printer table clarification
+
+Recorded 4 November 2026. This is a narrow prose correction to the held receiving-evidence preparation. All six original package files and all 144 bound inputs remain byte-identical. The carrier, helper, producer programs, mechanical schedule and mathematical/validation requirements are unchanged.
+
+In the earlier-program table of `plan.md` (SHA-256 `3fb3621551d7a6a2f184477da2134ef1af6de0a7ed70a1e56bfffd4a73d5a6c2`), interpret the last column heading **“Recorded options”** as **“Pretty-printer options”**. Its NaturalRuns entry **“no explicit option commands”** is clarified to **“No explicit pretty-printer options.”** This record supersedes only that table-label/cell wording; the original file remains held.
+
+The complete original NaturalRuns program does set `autoImplicit false` at line 3 and `warningAsError true` at line 4. The exact program and both option commands were already preserved correctly in `schedule.json`; no option is absent, disabled or changed. The complete schedule also retains these two options for the bottom-up/alternating and top-down programs, whose table entries likewise summarize pretty-printer options rather than every `set_option` command. All program hashes, 941 checks, three additional prints and their actual profiles remain unchanged.
+
+Independent Standards identified this ambiguity. The author directly reread the original NaturalRuns first fifteen lines and verified the full scheduled option records, the six held package fingerprints and all 144 bound input fingerprints. No compiler/capture, source/ref/runtime/cache/output operation or helper execution occurred. This clarification supplies no receiving type or acceptance credit. Root and both continuing axes retain final assessment authority.

@@ -1,0 +1,384 @@
+{
+  "schema": "fdsa-spec-targeted-preparation-reconciliation-v1",
+  "recorded_utc": "2026-11-04T17:56:54.870508+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "full_scope": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "explicit_public": 1763,
+    "private_named": 70,
+    "anonymous_instances": 19
+  },
+  "outcome": "Suitable prepared input; no concrete Spec finding. No actual receiving credit or final acceptance.",
+  "author_package_files": [
+    {
+      "path": "provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/GrowthRetained1.lean",
+      "bytes": 163,
+      "lines": 7,
+      "sha256": "bb4e5d94f5f349aaa4fb8e8ffa4a355b1fc3e7f5a1cb09486a358bbc417f285a"
+    },
+    {
+      "path": "provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/ProjectedRandom62.lean",
+      "bytes": 3583,
+      "lines": 71,
+      "sha256": "501551af4f23759f01fd171b5865543a2c6bccfa58c78067c2c38c7b7cf6d542"
+    },
+    {
+      "path": "provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/ProjectedThreeWay36.lean",
+      "bytes": 2260,
+      "lines": 46,
+      "sha256": "5fff31be12fa4b35d4714b8a81934b44c9dd5b9377939f28131b1255eca4e7b2"
+    },
+    {
+      "path": "provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/ProjectedZ815_543.lean",
+      "bytes": 31622,
+      "lines": 590,
+      "sha256": "b7f0ee4282f183131a58263659afd142b7d0c705bb7a982b32918ca488c835f1"
+    },
+    {
+      "path": "provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/README.md",
+      "bytes": 11379,
+      "lines": 57,
+      "sha256": "36319228d07f0de909fd93ae101cc99051e9dfb65bb086a79d1fc2e8c3953b39"
+    },
+    {
+      "path": "provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/bound-inputs.json",
+      "bytes": 19595,
+      "lines": 424,
+      "sha256": "f9fb153cab9a1df9a5f436d50f05f7be843beeeab1f44ce8e57adf516ad50117"
+    },
+    {
+      "path": "provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/commands.txt",
+      "bytes": 8973,
+      "lines": 14,
+      "sha256": "44741bb2e24f46e9a825db4a3555d6b5fc2337d6d706015573d96eb31560bb6d"
+    },
+    {
+      "path": "provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/manifest.json",
+      "bytes": 75796,
+      "lines": 2249,
+      "sha256": "a9f091706995fba21e40e4e6f0ab3f90c29c658f39f4bafd01c564644a744191"
+    },
+    {
+      "path": "provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/mapping.json",
+      "bytes": 432092,
+      "lines": 1,
+      "sha256": "eb127025be51d2f6ae9f85f0f3c01dcc0c748c86ca51ecf3967c685bf6b971d2"
+    },
+    {
+      "path": "provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/receipt.json",
+      "bytes": 4574,
+      "lines": 113,
+      "sha256": "0830f4b28f6b4cdb0c1fb76e928700da1b80411c3ddf42b597a508e724b39cca"
+    }
+  ],
+  "own_per_name_basis": {
+    "path": "provenance/chapter02-spec-receiving-terminal-20261104/preliminary-per-name-disposition.json",
+    "bytes": 801508,
+    "lines": 1,
+    "sha256": "dadb5c025932de3c7daa1848222f980f078ea87d048a807c4d40abfe74624639"
+  },
+  "bound_input_count": 51,
+  "author_payload_count": 9,
+  "all1763_exactly_accounted": true,
+  "conditional466": {
+    "I314": 242,
+    "J53": 53,
+    "Tail61": 61,
+    "F145": 110
+  },
+  "selected1297": {
+    "chapter02-natural-runs-statements-20261104": 104,
+    "Z815": 543,
+    "chapter02-bottom-up-alternating-types-20261104": 126,
+    "chapter02-natural-sorting-types-20261104": 105,
+    "chapter02-three-way-partition-types-20261104": 36,
+    "chapter02-uniqueness-types-20261104": 9,
+    "chapter02-bottom-up-costs-types-20261104": 105,
+    "chapter02-measured-sorting-types-20261104": 174,
+    "chapter02-xd01-random-types-20261104": 62,
+    "chapter02-top-down-costs-types-20261104": 32,
+    "retained_R_Growth_new_expanded": 1
+  },
+  "all1300_commands_reconciled": true,
+  "all1299_original_selected_block_bounds_reproduced": true,
+  "all815_prior_native_ranges_reproduced": true,
+  "all72_Growth_affected_names_current": true,
+  "exact_current_import_union": [
+    "Applications.Probability.PermutationOrder",
+    "Applications.Probability.PermutationTail",
+    "Applications.Resources.BottomUpSorting",
+    "Applications.Resources.DifferenceListCosts",
+    "Applications.Resources.Growth",
+    "Applications.Resources.InsertionSort",
+    "Applications.Resources.ListBuildCosts",
+    "Applications.Resources.ListCalls",
+    "Applications.Resources.ListMerge",
+    "Applications.Resources.NaturalRunComparisons",
+    "Applications.Resources.NaturalRunOperations",
+    "Applications.Resources.NaturalSorting",
+    "Applications.Resources.Partition",
+    "Applications.Resources.QuickSort",
+    "Applications.Resources.QuickSortMean",
+    "Applications.Resources.QuickSortTransport",
+    "Applications.Resources.RandomQuickSort",
+    "Applications.Resources.RandomQuickSortGrowth",
+    "Applications.Resources.RandomQuickSortMean",
+    "Applications.Resources.RandomQuickSortRank",
+    "Applications.Resources.TopDownSorting",
+    "Applications.Resources.UniformQuickSortMean",
+    "Applications.Selection.ThreeWay",
+    "Applications.Sequences.Partition",
+    "Applications.Sorting.InsertionObservations",
+    "Applications.Sorting.Natural",
+    "Applications.Sorting.NaturalRuns",
+    "Applications.Sorting.QuickSort",
+    "Applications.Sorting.ThreeWayQuickSort",
+    "Applications.Sorting.TopDown",
+    "Applications.Sorting.Uniqueness",
+    "Examples.AlternatingSorting",
+    "Examples.BottomUpCosts",
+    "Examples.BottomUpSorting",
+    "Examples.DifferenceListCosts",
+    "Examples.FunctionalNotation",
+    "Examples.InsertionCosts",
+    "Examples.InsertionObservations",
+    "Examples.ListBuildCosts",
+    "Examples.ListCalls",
+    "Examples.ListLibrary",
+    "Examples.MergeCosts",
+    "Examples.NaturalRunComparisons",
+    "Examples.NaturalRunOperations",
+    "Examples.NaturalRuns",
+    "Examples.NaturalSorting",
+    "Examples.NaturalSortingCosts",
+    "Examples.PermutationOrder",
+    "Examples.PermutationOrderBoundary",
+    "Examples.PermutationTail",
+    "Examples.PermutationTailBoundary",
+    "Examples.QuickSort",
+    "Examples.QuickSortCosts",
+    "Examples.QuickSortMean",
+    "Examples.QuickSortTransport",
+    "Examples.RandomQuickSort",
+    "Examples.RandomQuickSortGrowth",
+    "Examples.RandomQuickSortMean",
+    "Examples.RandomQuickSortRank",
+    "Examples.SortUniqueness",
+    "Examples.ThreeWayPartition",
+    "Examples.ThreeWayQuickSort",
+    "Examples.TopDownCosts",
+    "Examples.TopDownSorting",
+    "Examples.UniformQuickSortMean"
+  ],
+  "all_imports_in_actual97_source_pre_observation": true,
+  "all11_shell_recipes_exact_structured_arrays": true,
+  "program_summaries": [
+    {
+      "profile": 1,
+      "label": "z815543",
+      "producer_key": "Z815",
+      "program": {
+        "path": "provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/ProjectedZ815_543.lean",
+        "bytes": 31622,
+        "lines": 590,
+        "sha256": "b7f0ee4282f183131a58263659afd142b7d0c705bb7a982b32918ca488c835f1"
+      },
+      "checks": 543,
+      "prints": 0,
+      "removed_checks": 272,
+      "complete_old_blocks_independently_reconstructed": 815,
+      "all_selected_raw_blocks_match_mapping": true,
+      "all_options_and_imports_preserved": true,
+      "program_mode": "filtered_check_lines_only"
+    },
+    {
+      "profile": 2,
+      "label": "measured174",
+      "producer_key": "chapter02-measured-sorting-types-20261104",
+      "program": {
+        "path": "provenance/chapter02-measured-sorting-statement-source-20261104/Statements.lean",
+        "bytes": 9342,
+        "lines": 183,
+        "sha256": "904bd664fb385ef63fc1d6f2b8fd9fd2e3af2cadcbf6eb7f610a1e71ccbef20a"
+      },
+      "checks": 174,
+      "prints": 0,
+      "removed_checks": 0,
+      "complete_old_blocks_independently_reconstructed": 174,
+      "all_selected_raw_blocks_match_mapping": true,
+      "all_options_and_imports_preserved": true,
+      "program_mode": "exact_original_file_reused_without_copy"
+    },
+    {
+      "profile": 3,
+      "label": "bottomupcost105",
+      "producer_key": "chapter02-bottom-up-costs-types-20261104",
+      "program": {
+        "path": "provenance/chapter02-bottom-up-costs-statement-source-20261104/Statements.lean",
+        "bytes": 5757,
+        "lines": 111,
+        "sha256": "f9486a8f64d9786814f2ffc67dfb158ab13bf1d392585c27ca83b35cadd34c2e"
+      },
+      "checks": 105,
+      "prints": 0,
+      "removed_checks": 0,
+      "complete_old_blocks_independently_reconstructed": 105,
+      "all_selected_raw_blocks_match_mapping": true,
+      "all_options_and_imports_preserved": true,
+      "program_mode": "exact_original_file_reused_without_copy"
+    },
+    {
+      "profile": 4,
+      "label": "naturalsorting105",
+      "producer_key": "chapter02-natural-sorting-types-20261104",
+      "program": {
+        "path": "provenance/chapter02-natural-sorting-statement-source-20261104/Statements.lean",
+        "bytes": 5922,
+        "lines": 114,
+        "sha256": "59d413591ef58c6569fcf39575669aaafcb21d4cf7783f05a88935de0a97b9ac"
+      },
+      "checks": 105,
+      "prints": 0,
+      "removed_checks": 0,
+      "complete_old_blocks_independently_reconstructed": 105,
+      "all_selected_raw_blocks_match_mapping": true,
+      "all_options_and_imports_preserved": true,
+      "program_mode": "exact_original_file_reused_without_copy"
+    },
+    {
+      "profile": 5,
+      "label": "threeway36",
+      "producer_key": "chapter02-three-way-partition-types-20261104",
+      "program": {
+        "path": "provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/ProjectedThreeWay36.lean",
+        "bytes": 2260,
+        "lines": 46,
+        "sha256": "5fff31be12fa4b35d4714b8a81934b44c9dd5b9377939f28131b1255eca4e7b2"
+      },
+      "checks": 36,
+      "prints": 0,
+      "removed_checks": 48,
+      "complete_old_blocks_independently_reconstructed": 84,
+      "all_selected_raw_blocks_match_mapping": true,
+      "all_options_and_imports_preserved": true,
+      "program_mode": "filtered_check_lines_only"
+    },
+    {
+      "profile": 6,
+      "label": "random62",
+      "producer_key": "chapter02-xd01-random-types-20261104",
+      "program": {
+        "path": "provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/ProjectedRandom62.lean",
+        "bytes": 3583,
+        "lines": 71,
+        "sha256": "501551af4f23759f01fd171b5865543a2c6bccfa58c78067c2c38c7b7cf6d542"
+      },
+      "checks": 62,
+      "prints": 0,
+      "removed_checks": 72,
+      "complete_old_blocks_independently_reconstructed": 134,
+      "all_selected_raw_blocks_match_mapping": true,
+      "all_options_and_imports_preserved": true,
+      "program_mode": "filtered_check_lines_only"
+    },
+    {
+      "profile": 7,
+      "label": "bottomupalternating126",
+      "producer_key": "chapter02-bottom-up-alternating-types-20261104",
+      "program": {
+        "path": "provenance/chapter02-bottom-up-alternating-statement-source-20261104/Statements.lean",
+        "bytes": 6776,
+        "lines": 133,
+        "sha256": "9ef7e05799ff059a262fc1cab1ffaae1ed269b1076931c44a6913bd6e2dda471"
+      },
+      "checks": 126,
+      "prints": 0,
+      "removed_checks": 0,
+      "complete_old_blocks_independently_reconstructed": 126,
+      "all_selected_raw_blocks_match_mapping": true,
+      "all_options_and_imports_preserved": true,
+      "program_mode": "exact_original_file_reused_without_copy"
+    },
+    {
+      "profile": 8,
+      "label": "topdowncost32",
+      "producer_key": "chapter02-top-down-costs-types-20261104",
+      "program": {
+        "path": "provenance/chapter02-top-down-costs-proof-corrections-20261104/TypeInspection.lean",
+        "bytes": 1663,
+        "lines": 38,
+        "sha256": "3f235ac70f6fa1b2234a5899f5ba25f7de7e9caee35c0b8f90b8de98e96ab5c8"
+      },
+      "checks": 32,
+      "prints": 0,
+      "removed_checks": 0,
+      "complete_old_blocks_independently_reconstructed": 32,
+      "all_selected_raw_blocks_match_mapping": true,
+      "all_options_and_imports_preserved": true,
+      "program_mode": "exact_original_file_reused_without_copy"
+    },
+    {
+      "profile": 9,
+      "label": "uniqueness9",
+      "producer_key": "chapter02-uniqueness-types-20261104",
+      "program": {
+        "path": "provenance/chapter02-uniqueness-statement-source-20261104/Statements.lean",
+        "bytes": 614,
+        "lines": 16,
+        "sha256": "5d5cb3cfd591633c6e0ef635094917f19f60f2db1e226df3782ba963f01fd5bf"
+      },
+      "checks": 9,
+      "prints": 0,
+      "removed_checks": 0,
+      "complete_old_blocks_independently_reconstructed": 9,
+      "all_selected_raw_blocks_match_mapping": true,
+      "all_options_and_imports_preserved": true,
+      "program_mode": "exact_original_file_reused_without_copy"
+    },
+    {
+      "profile": 10,
+      "label": "naturalruns104",
+      "producer_key": "chapter02-natural-runs-statements-20261104",
+      "program": {
+        "path": "provenance/chapter02-natural-runs-statements-20261104/statements.lean",
+        "bytes": 5054,
+        "lines": 111,
+        "sha256": "d56c25d992aa23e63c9bfa51cf4561f8ae2e6c1f186dda1493d0741673b372e4"
+      },
+      "checks": 104,
+      "prints": 3,
+      "removed_checks": 0,
+      "complete_old_blocks_independently_reconstructed": 107,
+      "all_selected_raw_blocks_match_mapping": true,
+      "all_options_and_imports_preserved": true,
+      "program_mode": "exact_original_file_reused_without_copy"
+    },
+    {
+      "profile": 11,
+      "label": "growth1",
+      "producer_key": null,
+      "program": {
+        "path": "provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/GrowthRetained1.lean",
+        "bytes": 163,
+        "lines": 7,
+        "sha256": "bb4e5d94f5f349aaa4fb8e8ffa4a355b1fc3e7f5a1cb09486a358bbc417f285a"
+      },
+      "checks": 1,
+      "prints": 0,
+      "removed_checks": 0,
+      "complete_old_blocks_independently_reconstructed": 0,
+      "all_selected_raw_blocks_match_mapping": true,
+      "all_options_and_imports_preserved": true,
+      "program_mode": "new_direct_inspection_of_retained_accepted_R_name"
+    }
+  ],
+  "block_reconstruction_method": "Each original command has one independently anchored header in its complete saved body. All headers are in exact original order; each full block ends immediately before the next header. Complete bytes partition the body, with only separately hashed native outer prefix/suffix excluded. No block byte is normalized.",
+  "NaturalRuns_transport": "The exact 107-command program is supplied as a file because the unchanged recorder uses DEVNULL. Historical stdin command is retained honestly. All current 104 checks and 3 prints must actually be emitted and qualified; a zero exit by itself is insufficient.",
+  "semantic_reuse_boundary": "Earlier same-reader complete semantics remain retained. Current complete blocks must match exact name, profile, commands, imports and relevant context before reusing that reading; any difference and Growth require direct review. All current executions and post-input evidence remain pending.",
+  "actual_receiving_credit": 0,
+  "overall": "Blocked pending actual receiving inspections and input qualification.",
+  "reviewer_compiler_capture_source_ref_cache_actions": false
+}

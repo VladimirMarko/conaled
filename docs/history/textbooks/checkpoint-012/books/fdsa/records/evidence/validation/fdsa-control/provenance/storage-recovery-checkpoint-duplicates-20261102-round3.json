@@ -1,0 +1,55 @@
+{
+  "recorded_utc": "2026-11-02T18:47:44.049757+00:00",
+  "reason": "Continue the established verified-local-checkpoint-duplicate capacity recovery after ENOSPC while retaining latest 0047/0048 locally. Each exact older archive matches its successful upload result, retained receipt, size and ordinary SHA-256. No project build or source/cache deletion.",
+  "available_bytes_before": 2090450944,
+  "entries": [
+    {
+      "checkpoint": "conaled-fdsa-0043-tree-rotations-draft",
+      "local_path": "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0043-tree-rotations-draft.tar.gz",
+      "sha256": "f04e11259d77e4e93270d2db0c3367dc8ec97f649d9aad5b44ae904634129079",
+      "size_bytes": 73677284,
+      "library_file_id": "libfile_3868eb5d64988191a97e28de2627eaec",
+      "file_id": "file_00000000610881f4a453e0d27e94557c",
+      "local_metadata_applied": true,
+      "upload_result_status": "succeeded",
+      "removed_local_duplicate": true
+    },
+    {
+      "checkpoint": "conaled-fdsa-0044-three-way-partition-start",
+      "local_path": "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0044-three-way-partition-start.tar.gz",
+      "sha256": "4ad4b61c6208825e1ebd8321bc10c531faa181190e66f0d7ae6e4c43ec7c057d",
+      "size_bytes": 73700060,
+      "library_file_id": "libfile_f1e57b73914c8191b6eac8a13c37dcd9",
+      "file_id": "file_0000000072e882109ef6f0850780566f",
+      "local_metadata_applied": true,
+      "upload_result_status": "succeeded",
+      "removed_local_duplicate": true
+    },
+    {
+      "checkpoint": "conaled-fdsa-0045-three-way-partition-draft",
+      "local_path": "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0045-three-way-partition-draft.tar.gz",
+      "sha256": "22ddb3b7738cb296eb0fed004b9799a555b27b41c3d742e56e842375e5d3fd64",
+      "size_bytes": 73724815,
+      "library_file_id": "libfile_a6e47a89cc3081919062d367e5690a75",
+      "file_id": "file_00000000d3948210aeb63e7d4a547d50",
+      "local_metadata_applied": true,
+      "upload_result_status": "succeeded",
+      "removed_local_duplicate": true
+    },
+    {
+      "checkpoint": "conaled-fdsa-0046-tree-order-start",
+      "local_path": "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0046-tree-order-start.tar.gz",
+      "sha256": "f96792724a9ba9e33af6ca9aa1d3cecdd6f65e3f1bf0c692cc037f7cbfcdc1dc",
+      "size_bytes": 73761691,
+      "library_file_id": "libfile_eea79aa3f4908191a2864075cc4ae917",
+      "file_id": "file_0000000065f481f4a1fad9950b68a26b",
+      "local_metadata_applied": true,
+      "upload_result_status": "succeeded",
+      "removed_local_duplicate": true
+    }
+  ],
+  "untouched": "Latest 0047/0048 archives, every checksum and receipt, reappeared 0001, unrelated main archive, normal builds/dependencies, all source/history/control and every durable copy.",
+  "completed_utc": "2026-11-02T18:47:44.087497+00:00",
+  "available_bytes_after": 2385354752,
+  "apparent_bytes_removed": 294863850
+}

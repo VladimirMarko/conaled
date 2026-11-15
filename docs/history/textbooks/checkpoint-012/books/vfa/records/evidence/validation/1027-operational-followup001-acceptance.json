@@ -1,0 +1,42 @@
+{
+  "accepted_utc": "2026-11-02T14:59:42.809205+00:00",
+  "status": "operational_guidance_and_capture_evidence_accepted",
+  "guide": {
+    "path": "work-state/CACHE-RECOVERY.md",
+    "sha256": "be39ebe8d6217d375936ff13d5f73ee5112b6ee824dc3a8316022076f55460ae"
+  },
+  "review": {
+    "path": "work-state/reviews/1027-cache-companion.md",
+    "sha256": "a76736358248df61c3f5b5d5c5b7403148bccefbcba54bdd74ab7378970b65d9",
+    "standards": "Passed; OP-CACHE-001 fixed; zero unresolved",
+    "spec": "Passed; OP-CACHE-001 fixed; zero unresolved"
+  },
+  "source_checks": [
+    {
+      "repository": "work-state/cache-companion",
+      "head": "a43cef4881d4eb303a81ef25f5ccff0b801a12fe",
+      "tracked_files": 8,
+      "clean": true,
+      "bytes_match_approved": true
+    },
+    {
+      "repository": "cache-companion-validation",
+      "head": "a43cef4881d4eb303a81ef25f5ccff0b801a12fe",
+      "tracked_files": 8,
+      "clean": true,
+      "bytes_match_approved": true
+    },
+    {
+      "repository": "conaled",
+      "head": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "clean": true
+    },
+    {
+      "repository": "vfa-validation",
+      "head": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "clean": true
+    }
+  ],
+  "scope": "Concrete source023/cache001 guidance and recorded capture/upload evidence only. Original utility/amendment acceptance remains unchanged; no chapter acceptance or new formal validation.",
+  "remaining": "Complete source checkpoint024 must preserve this follow-up, actual receipt and latest tracker state, then be exposed/uploaded immediately on creation."
+}

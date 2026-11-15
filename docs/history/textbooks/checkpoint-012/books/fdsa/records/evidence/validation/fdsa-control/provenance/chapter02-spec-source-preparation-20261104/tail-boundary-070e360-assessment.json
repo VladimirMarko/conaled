@@ -1,0 +1,224 @@
+{
+  "recorded_utc": "2026-11-04T09:27:01.209323+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "central_candidate_at_assessment": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+  "isolated_parent": "13fc137c67e1dc974c833e81cd46042d757fa546",
+  "isolated_successor": "070e3608c439aec23404d23e90de47c6cf835216",
+  "full_scope": "Complete fixed R-to-eventual-C2 scope,81 paths,112 obligations and ten shared units retained. This delta assessment does not narrow the overall review.",
+  "overall_outcome": "Blocked",
+  "approval_or_acceptance": false,
+  "source": {
+    "path": "Examples/PermutationTailBoundary.lean",
+    "before_bytes": 11709,
+    "before_sha256": "03fbb29d9f458a7e76235e198b01ef3dd3b20dbe225d3d1edf3110b5628c437b",
+    "before_blob": "b0de11c970cd6db97db35bf289afbc495c064220",
+    "after_bytes": 12064,
+    "after_lines": 266,
+    "after_sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54",
+    "after_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0",
+    "parent_exact": true,
+    "only_changed_path": true,
+    "all266_lines_read": true,
+    "complete54_line_diff_read": true,
+    "complete51_line_author_readback_and_receipt_read": true
+  },
+  "unchanged_inventory": {
+    "theorem_headers": 25,
+    "public_theorems": 15,
+    "private_theorems": 10,
+    "public_definitions": 7,
+    "total_public_names": 22,
+    "anonymous_local_instances": 6,
+    "imports_and_options": true,
+    "event_support_measure_values_and_conditional_distribution": true
+  },
+  "changed_proof_bodies": [
+    "counter_joint21_mass",
+    "outside_order_12_mass",
+    "outside_order_21_mass"
+  ],
+  "ground_equations": [
+    {
+      "type": "NNReal",
+      "equation": "1/6 + 1/6 = 1/3",
+      "transport": "congrArg coercion; forward ENNReal.coe_add and ENNReal.coe_div at denominators6 and3"
+    },
+    {
+      "type": "NNReal",
+      "equation": "2 * (1/6) = 1/3",
+      "transport": "congrArg coercion; forward ENNReal.coe_mul and ENNReal.coe_div at denominators6 and3"
+    },
+    {
+      "type": "NNReal",
+      "equation": "2 * (1/3) = 2/3",
+      "transport": "congrArg coercion; forward ENNReal.coe_mul and ENNReal.coe_div with numerators1 and2 at denominator3"
+    }
+  ],
+  "mathematical_assessment": "Each actual finite arithmetic equality is correct. Explicit denominator nonzero proofs satisfy the pinned coe_div contract. Finite NNReal arithmetic is transported through the ordinary coercion; no field structure on arbitrary ENNReal, new hypothesis, infinite-value cancellation or changed probability model is introduced. The same six supported full orders yield joint masses1/6 and1/3, conditioned by the same mass1/2 event; the actual outside projection retains conditional masses1/3 and2/3, and exclusion of the exposed key alone still fails without containment in the selected remainder.",
+  "pinned_api_assessment": {
+    "actual_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "contracts": "NNReal has the pinned Semifield instance. ENNReal.coe_add/coe_mul preserve finite arithmetic. ENNReal.coe_div requires a nonzero NNReal denominator; coe_one and coe_ofNat have the explicit literal contracts used.",
+    "records": [
+      {
+        "dependency_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "path": "Mathlib/Basic/ENNReal/Inv.lean",
+        "bytes": 44273,
+        "lines": 982,
+        "sha256": "f06e93ae82105c5c03585c2d11377b94aac119b7fdbcaf34a7a333aa27c53f36",
+        "complete_read_ranges": [
+          [
+            71,
+            94
+          ],
+          [
+            568,
+            585
+          ]
+        ],
+        "whole_file_read_claimed": false
+      },
+      {
+        "dependency_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "path": "Mathlib/Basic/ENNReal/Basic.lean",
+        "bytes": 32272,
+        "lines": 789,
+        "sha256": "f7fe64f0d1865209e4d2be2fd98e3bc5edf9af508dd665f0311e6396f8d513a2",
+        "complete_read_ranges": [
+          [
+            267,
+            284
+          ],
+          [
+            397,
+            423
+          ],
+          [
+            473,
+            493
+          ],
+          [
+            604,
+            621
+          ],
+          [
+            769,
+            789
+          ]
+        ],
+        "whole_file_read_claimed": false
+      },
+      {
+        "dependency_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "path": "Mathlib/Basic/NNReal/Basic.lean",
+        "bytes": 10314,
+        "lines": 280,
+        "sha256": "6b8e62dd5b224b7c83effd5b20443b30dce0a0f135c151051ec120d1e7cacf38",
+        "complete_read_ranges": [
+          [
+            1,
+            42
+          ]
+        ],
+        "whole_file_read_claimed": false
+      },
+      {
+        "dependency_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "path": "Mathlib/Basic/NNReal/Defs.lean",
+        "bytes": 40904,
+        "lines": 1058,
+        "sha256": "250d8ef69dc5cca301cd7f02a1521fa21614794b602ddd99ac2cb1e1da8beeae",
+        "complete_read_ranges": [
+          [
+            94,
+            130
+          ]
+        ],
+        "whole_file_read_claimed": false
+      }
+    ],
+    "deprecated_compatibility_modules": "The three Mathlib/Data compatibility modules were read in full (five lines each) and redirect to Mathlib/Basic. No symbol claims were made from the empty initial search in those compatibility files."
+  },
+  "actual_probe1": {
+    "candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+    "actual_exit": 1,
+    "elapsed_seconds": 188.7007933490022,
+    "exact_clean_before_after": true,
+    "complete9_line_log_outer_secured_native_records_read": true,
+    "diagnostics": [
+      "6^-1 + 6^-1 = 3^-1",
+      "2 * 6^-1 = 3^-1",
+      "2 * 3^-1 = 2/3"
+    ],
+    "no_successor_compilation_inferred": true,
+    "artifacts": [
+      {
+        "path": "provenance/chapter02-tail-arithmetic-probe-20261104-attempt1/full.log",
+        "bytes": 928,
+        "lines": 9,
+        "sha256": "e8991a5f3f76062bd7aa7d7174522314b1a7c1b237462f484a94744ccede159b"
+      },
+      {
+        "path": "provenance/chapter02-tail-arithmetic-probe-20261104-attempt1/result.json",
+        "bytes": 1302,
+        "lines": 32,
+        "sha256": "ea9180916f0b97cf232a3fe69b29fd4edefc7d5de691e343629d26bd20cc3151"
+      },
+      {
+        "path": "provenance/chapter02-tail-arithmetic-probe-20261104-attempt1/secured-terminal.json",
+        "bytes": 1315,
+        "lines": 29,
+        "sha256": "d93296053cd5be911ce768fc4468c801b7e47094420e6f33649621cf84132342"
+      },
+      {
+        "path": "provenance/chapter02-tail-arithmetic-probe-20261104-attempt1/native/result.json",
+        "bytes": 708,
+        "lines": 19,
+        "sha256": "bf38c3f52f066eb45edca73ad6ba5eb0a4f004eb41c7ecc80ce6f4c5efdbc9b2"
+      }
+    ]
+  },
+  "probe2_boundary": "No probe2 terminal supplied or inferred in this receipt; no session polled. A proof-development probe is not the full boundary module check.",
+  "correction_package": [
+    {
+      "path": "provenance/chapter02-xu03-boundary-elaboration-correction4-20261104/before.lean",
+      "bytes": 11709,
+      "lines": 261,
+      "sha256": "03fbb29d9f458a7e76235e198b01ef3dd3b20dbe225d3d1edf3110b5628c437b"
+    },
+    {
+      "path": "provenance/chapter02-xu03-boundary-elaboration-correction4-20261104/source.diff",
+      "bytes": 2858,
+      "lines": 54,
+      "sha256": "d1ff9d05a211968082ad1b84a368be3457ed184b33d68bbfc52c63163ec71fdc"
+    },
+    {
+      "path": "provenance/chapter02-xu03-boundary-elaboration-correction4-20261104/author-readback.md",
+      "bytes": 3088,
+      "lines": 51,
+      "sha256": "c431e6ee0887d5047e8a9f0c1b5eaa68df6cc54ab4f615332e194e5a7a2e55f4"
+    },
+    {
+      "path": "provenance/chapter02-xu03-boundary-elaboration-correction4-20261104/receipt.json",
+      "bytes": 1866,
+      "lines": 27,
+      "sha256": "9f3aba1c6c4dd6efc3d6420f74fef56437e211b9b7b334c4d17204e74edc0799"
+    },
+    {
+      "path": "provenance/chapter02-xu03-boundary-elaboration-correction4-20261104/source-preparation.json",
+      "bytes": 1323,
+      "lines": 18,
+      "sha256": "c129aac6ddbc9c85069d38bcc414ca3db4c6c57112049e2a57913facda713a24"
+    }
+  ],
+  "new_mathematical_findings": [],
+  "source_stage_disposition": "Adequate mathematical proof correction by source assessment; uncompiled isolated successor.",
+  "all_acceptance_gates_retained": [
+    "Actual full boundary/dependent focused success",
+    "All pending actual public types with exact input/terminal identity and full semantic assessment",
+    "All predecessor shared-unit acceptances",
+    "Complete immutable candidate check and exhaustive audit",
+    "Both complete independent axes and immediate candidate verification"
+  ],
+  "no_compiler_source_ref_cache_process_action": true
+}

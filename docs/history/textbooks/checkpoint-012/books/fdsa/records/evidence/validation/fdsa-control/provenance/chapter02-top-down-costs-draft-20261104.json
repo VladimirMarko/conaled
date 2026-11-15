@@ -1,0 +1,32 @@
+{
+  "recorded_utc": "2026-11-04T04:28:49.922565+00:00",
+  "state": "uncompiled uncommitted source draft",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+  "development_base": "c00558e6d69cdba24475e73c027ce7a003b2dc2a",
+  "files": [
+    {
+      "path": "Applications/Resources/Growth.lean",
+      "bytes": 2875,
+      "sha256": "e2d626533b87ab53ba3b7381fa199ea7ab6f07a3ed0854b46c422b31a440e7d4"
+    },
+    {
+      "path": "Applications/Resources/TopDownSorting.lean",
+      "bytes": 9144,
+      "sha256": "26531f25e57c0d198fc90d0a10652051ac6159098f493629af3283b54ab687bc"
+    },
+    {
+      "path": "Examples/TopDownCosts.lean",
+      "bytes": 5442,
+      "sha256": "86e633e35ad31a76b96b0a08ab5074133f0abee8159e8b72799396abf473fde2"
+    }
+  ],
+  "independent_expected_counts": {
+    "floor_ascending_0_1_2": 2,
+    "floor_descending_2_1_0": 3,
+    "ceil_ascending_0_1_2": 3,
+    "ceil_descending_2_1_0": 2,
+    "tagged_1_0_1": 3
+  },
+  "statement_review": "Source readback: one actual bound measured execution, first cost coordinate only, separate erasure/exact recurrence/bounds, arbitrary comparator raw laws, power-of-two premise retained for unrounded real bound, explicit n>=2 threshold for general real bound, ordinary BigO family with exact length premise. No runtime/entry/split/DList cost claim. Pending elaborated-type inspection and checked cases.",
+  "no_acceptance": true
+}

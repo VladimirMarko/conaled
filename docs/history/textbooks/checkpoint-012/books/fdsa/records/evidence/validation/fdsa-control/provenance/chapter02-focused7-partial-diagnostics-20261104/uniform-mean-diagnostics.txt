@@ -1,0 +1,37 @@
+error: Applications/Resources/UniformQuickSortMean.lean:298:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (a : Equiv.Perm I),
+    (observedCost positions lt ?m.149 + observedCost positions lt ?m.163) a +
+      ?m.170 ∂(uniformOn Set.univ)[|firstEvent (restrictedOrder positions S) a]
+in the target expression
+  ∫ (a_1 : Equiv.Perm I),
+      observedCost positions lt (leftChild lt S a) a_1 + observedCost positions lt (rightChild lt S a) a_1 +
+        ↑(4 * (S.card - 1) + 3) ∂(uniformOn Set.univ)[|firstEvent (restrictedOrder positions S) a] =
+    meanBy positions lt (leftChild lt S a) + meanBy positions lt (rightChild lt S a) + ↑(4 * (S.card - 1) + 3)
+
+I : Type u
+inst✝² : DecidableEq I
+inst✝¹ : MeasurableSpace (Equiv.Perm I)
+inst✝ : MeasurableSingletonClass (Equiv.Perm I)
+positions : List I
+hnd : positions.Nodup
+hcomplete : ∀ (b : I), b ∈ positions
+lt : I → I → Bool
+S : Finset I
+a : I
+ha : a ∈ S
+this✝ : Fintype I := Fintype.ofList positions hcomplete
+this : IsProbabilityMeasure (uniformOn Set.univ)[|firstEvent (restrictedOrder positions S) a] :=
+  cond_isProbabilityMeasure (ne_of_gt (firstEvent_positive_finite positions hnd hcomplete S a ha).left)
+hE : MeasurableSet (firstEvent (restrictedOrder positions S) a)
+heq :
+  ∀ᵐ (x : Equiv.Perm I) ∂(uniformOn Set.univ)[|firstEvent (restrictedOrder positions S) a],
+    observedCost positions lt S x =
+      observedCost positions lt (leftChild lt S a) x + observedCost positions lt (rightChild lt S a) x +
+        ↑(4 * (S.card - 1) + 3)
+⊢ ∫ (a_1 : Equiv.Perm I),
+      observedCost positions lt (leftChild lt S a) a_1 + observedCost positions lt (rightChild lt S a) a_1 +
+        ↑(4 * (S.card - 1) + 3) ∂(uniformOn Set.univ)[|firstEvent (restrictedOrder positions S) a] =
+    meanBy positions lt (leftChild lt S a) + meanBy positions lt (rightChild lt S a) + ↑(4 * (S.card - 1) + 3)
+error: Applications/Resources/UniformQuickSortMean.lean:578:31: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

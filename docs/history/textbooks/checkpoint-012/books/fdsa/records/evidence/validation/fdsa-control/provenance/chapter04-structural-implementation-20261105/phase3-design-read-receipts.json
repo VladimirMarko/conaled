@@ -1,0 +1,304 @@
+{
+  "recorded_utc": "2026-11-05T03:56:25.375231+00:00",
+  "kind": "Bounded read-only source-design receipts; no source implementation, compiler, project helper, review or acceptance",
+  "agent": "/root/chapter04_preflight",
+  "whole_chapter_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "obligation_scope": "All 76 C04 obligations retained; this author-design phase is not a narrowed chapter review scope.",
+  "exact_source_reads": [
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "commit": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "lines": [
+        1,
+        267
+      ],
+      "chunk": "9d7f05",
+      "exit_code": 0,
+      "coverage": "Complete source body; XT02 development dependency only, not accepted in assignment."
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "commit": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "lines": [
+        1,
+        135
+      ],
+      "chunk": "6d8fa8",
+      "exit_code": 0,
+      "coverage": "Complete source body; accepted XT01 as supplied by root."
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "commit": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "lines": [
+        1,
+        107
+      ],
+      "chunk": "e33bd3",
+      "exit_code": 0,
+      "coverage": "Complete source body."
+    },
+    {
+      "path": "Applications/Trees/BasicObservations.lean",
+      "commit": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1",
+      "lines": [
+        1,
+        139
+      ],
+      "chunk": "cb0864",
+      "exit_code": 0,
+      "coverage": "Reused complete prior author-phase read; bytes reidentified in current input record. Uncompiled author source status retained."
+    },
+    {
+      "path": "Examples/TreeBasicObservations.lean",
+      "commit": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1",
+      "lines": [
+        1,
+        107
+      ],
+      "chunk": "2c2bab",
+      "exit_code": 0,
+      "coverage": "Reused complete prior author-phase read; bytes reidentified in current input record. No new example pass claimed."
+    },
+    {
+      "path": "Mathlib/Data/Tree/Basic.lean",
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "lines": [
+        1,
+        188
+      ],
+      "chunk": "d4a24f",
+      "exit_code": 0,
+      "coverage": "Reused complete prior source read; exact pinned Git/local bytes reconciled by API binding action 9eb514."
+    }
+  ],
+  "frozen_inventory_reads": {
+    "path": "fdsa-control/research/chapter04-obligations.md",
+    "sha256": "e7e282df7f553cbe8a960d1e20818e09a04f63c2cf47a069284223ee3a8595e4",
+    "lines": 332,
+    "complete_ranges": [
+      {
+        "first": 1,
+        "last": 108,
+        "chunk": "a87307",
+        "exit_code": 0
+      },
+      {
+        "first": 109,
+        "last": 164,
+        "chunk": "b49e07",
+        "exit_code": 0
+      },
+      {
+        "first": 165,
+        "last": 220,
+        "chunk": "c4c576",
+        "exit_code": 0
+      },
+      {
+        "first": 221,
+        "last": 332,
+        "chunk": "604d84",
+        "exit_code": 0
+      }
+    ],
+    "excluded_as_complete_read": {
+      "first": 109,
+      "last": 220,
+      "chunk": "93bd7f",
+      "exit_code": 0,
+      "reason": "The tool output was truncated. The two smaller corrective reads above supply complete coverage; process exit 0 alone does not supply read credit."
+    },
+    "all76_ids_reidentified": true,
+    "rows_modified": false
+  },
+  "primary_source_read": {
+    "path": "/workspace/scratch/b4a17a285e23/research-source/functional_data_structures_algorithms.pdf",
+    "bytes": 1742029,
+    "sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645",
+    "extracted_pdf_pages": [
+      57,
+      58,
+      62,
+      63,
+      64
+    ],
+    "printed_pages": [
+      51,
+      52,
+      56,
+      57,
+      58
+    ],
+    "chunk": "e5d411",
+    "exit_code": 0,
+    "coverage": "Complete visible extracted text for these five pages, including completeness, Exercise 4.7, Exercise 4.8, generic augmentation and Exercise 4.10. This phase makes no new visual figure assessment.",
+    "manuscript_copy_written": false,
+    "note": "Book height maximality is retained exactly. Requested node-count maximality is a derived corollary. The PDF identity record's raw byte line count is not textual read coverage."
+  },
+  "prior_governing_read_receipts": [
+    {
+      "document": "AGENTS.md",
+      "chunk": "8e29e0"
+    },
+    {
+      "document": "implementation instructions",
+      "chunk": "0e2075"
+    },
+    {
+      "document": "EDD instructions",
+      "chunk": "ce8890"
+    },
+    {
+      "document": "worked-example instructions",
+      "chunk": "0ecde1"
+    },
+    {
+      "document": "architecture guidance",
+      "chunk": "e40c57"
+    },
+    {
+      "document": "domain guidance",
+      "chunk": "6de36e"
+    },
+    {
+      "document": "review loop",
+      "chunk": "850aa2"
+    },
+    {
+      "document": "glossary and ADR index",
+      "chunk": "bb2282"
+    },
+    {
+      "document": "ADR 0001 and 0010",
+      "chunk": "7063ef"
+    },
+    {
+      "document": "README normal/fresh acceptance rules, lines 124–293",
+      "chunk": "f698f2"
+    }
+  ],
+  "governing_read_basis": "These are reused author-phase governing reads, not a new review assessment. Exact instructions and scope remain unchanged.",
+  "new_note_write_actions": [
+    {
+      "files": [
+        "phase3-design-input-identities.json"
+      ],
+      "chunk": "16fa95",
+      "exit_code": 0
+    },
+    {
+      "files": [
+        "phase3-existing-api-bindings.json"
+      ],
+      "chunk": "9eb514",
+      "exit_code": 0,
+      "note": "Outer response was truncated. Stored actual tool result was recovered and the complete disk identity independently reconciled in 8bbaa4 exit 0; both halves of the saved file have subsequently been read in full."
+    },
+    {
+      "files": [
+        "phase3-completeness-frozen-contract.md",
+        "phase3-maximal-complete-subtree-frozen-contract.md",
+        "phase3-case-notes.md",
+        "phase3-future-almost-complete.md"
+      ],
+      "chunk": "65f050",
+      "exit_code": 0
+    },
+    {
+      "files": [
+        "phase3-contract-readback-clarifications.md"
+      ],
+      "chunk": "eca9f7",
+      "exit_code": 0
+    }
+  ],
+  "notes_already_read_back": [
+    {
+      "file": "phase3-design-input-identities.json",
+      "first": 1,
+      "last": 141,
+      "tool_chunk": "bf0a36",
+      "exit_code": 0,
+      "original_token_count": 1224,
+      "complete_visible_output": true
+    },
+    {
+      "file": "phase3-existing-api-bindings.json",
+      "first": 1,
+      "last": 174,
+      "tool_chunk": "2cc1fb",
+      "exit_code": 0,
+      "original_token_count": 1968,
+      "complete_visible_output": true
+    },
+    {
+      "file": "phase3-design-input-identities.json",
+      "first": 142,
+      "last": 282,
+      "tool_chunk": "c7e48b",
+      "exit_code": 0,
+      "original_token_count": 1517,
+      "complete_visible_output": true
+    },
+    {
+      "file": "phase3-existing-api-bindings.json",
+      "first": 175,
+      "last": 348,
+      "tool_chunk": "f355b7",
+      "exit_code": 0,
+      "original_token_count": 1841,
+      "complete_visible_output": true
+    },
+    {
+      "file": "phase3-completeness-frozen-contract.md",
+      "first": 1,
+      "last": 162,
+      "tool_chunk": "97c7ca",
+      "exit_code": 0,
+      "original_token_count": 2659,
+      "complete_visible_output": true
+    },
+    {
+      "file": "phase3-case-notes.md",
+      "first": 1,
+      "last": 90,
+      "tool_chunk": "5ed90c",
+      "exit_code": 0,
+      "original_token_count": 2057,
+      "complete_visible_output": true
+    },
+    {
+      "file": "phase3-maximal-complete-subtree-frozen-contract.md",
+      "first": 1,
+      "last": 164,
+      "tool_chunk": "089447",
+      "exit_code": 0,
+      "original_token_count": 3030,
+      "complete_visible_output": true
+    },
+    {
+      "file": "phase3-future-almost-complete.md",
+      "first": 1,
+      "last": 51,
+      "tool_chunk": "e1699c",
+      "exit_code": 0,
+      "original_token_count": 940,
+      "complete_visible_output": true
+    }
+  ],
+  "clarifications": "New readback clarification note specifies the unaugmented annotateCh input, the permitted Nat decisions, case-table notation, and the PDF identity's byte-line metadata. No existing note or report was overwritten.",
+  "validation_status": {
+    "new_formal_source": false,
+    "new_commits_or_ref_changes": false,
+    "compiler_or_Lake_or_check_or_audit": false,
+    "project_helpers_or_session_polling": false,
+    "dependency_or_project_output_writes": false,
+    "new_elaborated_types": false,
+    "checked_examples": false,
+    "independent_review_axis": false,
+    "acceptance_or_coverage_credit": false,
+    "uploads_or_remote_mutations": false
+  },
+  "remaining_actions": "Complete readback of the clarification and this receipt, bind all new notes and protected preexisting records in a final hold, perform read-only reconciliation, then hold all writes for root review and later explicit source release."
+}

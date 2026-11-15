@@ -1,0 +1,37 @@
+{
+  "recorded_at": "2026-11-03T00:31:41.018822+00:00",
+  "scope": "Operational support for optional recovery data; no formal-candidate acceptance or replacement review loop",
+  "assessment": "research/build-cache-recovery-assessment.md",
+  "assessor": "build_cache_recovery",
+  "execution_started": false,
+  "current_script_sha256": "cdc1f7af6dcbf1a219cd3ced7c5a832a3d90f24a874c4e771f0187a5e4648a75",
+  "findings": [
+    {
+      "id": "RECOVERY-COPY-001",
+      "issue": "Individual group size and growing source bytes were not capped by the staging budget.",
+      "correction": "Skip groups exceeding64MiB; compare opened identities with sizing; bounded copy and bounded second hash; one extra-byte growth probe;32MiB metadata allowance.",
+      "status": "corrected; independently verified in the same operational assessment"
+    },
+    {
+      "id": "RECOVERY-COPY-002",
+      "issue": "Destination I/O failures could be mislabeled as source changes, and a partial last file could be left untracked.",
+      "correction": "Track created destination immediately; destination failures propagate and preserve stage; only observed source disappearance/identity/size/content changes skip and clean the complete attempted private group.",
+      "status": "corrected; independently verified in the same operational assessment"
+    },
+    {
+      "id": "RECOVERY-COPY-003",
+      "issue": "Initial/post-enumeration trace reads and sizing stats could abort on a donor disappearance outside the source-change handler.",
+      "correction": "Narrow source-only disappearance handling covers those operations; malformed/unsupported stable evidence still aborts with diagnostics.",
+      "status": "corrected; independently verified in the same operational assessment"
+    }
+  ],
+  "boundaries": [
+    "No donor repair or source/output mutation",
+    "Fixed private-copy stock hash validation",
+    "Separate candidate namespaces and no verification record",
+    "Exhaustive archive-member transport verification",
+    "Own stock full acceptance gates remain mandatory"
+  ],
+  "verification_received_at": "2026-11-03T00:35:22.548975+00:00",
+  "verification_summary": "Assessor verified all three corrections in the frozen command and identified no remaining concrete execution blocker. Static operational assessment only; no capture, compiler, hash tool or candidate approval."
+}

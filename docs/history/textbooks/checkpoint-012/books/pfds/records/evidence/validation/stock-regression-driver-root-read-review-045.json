@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "time": "2026-11-04T01:36:02.362259+00:00",
+  "kind": "root-complete-read-and-exact-diff-regression-driver-review",
+  "reviewed_file": "session/validation/run-integration-regressions-r1-045.py",
+  "original_full_read_sha256": "97614770b30dfc14abbd27583ca501aa0abca59ed6ac9c3fdc497c6e7b72b5a9",
+  "current_sha256": "96b367299b0a87fe17c7556b4ebf2f02502fdf8d259c28e594ac0a583a1c351e",
+  "current_bytes": 36560,
+  "current_lines": 726,
+  "root_full_original_source_read": true,
+  "read_ranges": "1-190,191-380,381-560,561-end; final frozen prefix reread1-195 and checked stock/controller interfaces; sole later print deletion read as exact diff.",
+  "exact_diff": "--- original-frozen-driver\n+++ corrected-driver\n@@ -690,7 +690,6 @@\n                   all_required_command_terminals_observed=all(\n                       command[\"terminal_result_observed\"] for command in record[\"commands\"]))\n     evidence.save()\n-    print(f\"{RUN_ID}: {record['result']}; acceptance remains false; {RECORD_PATH}\", flush=True)\n     return record[\"driver_exit_code\"]\n \n \n",
+  "AST_parse_only": "passed",
+  "controller_and_Elan_receipt_pins_match_actual": true,
+  "four_exact_stock_commands_preserved": true,
+  "original_finding": "A fallible final print after terminal record save could make outer exit disagree with saved passed/0.",
+  "correction": "Removed only the final console print; no fallible presentation follows terminal save.",
+  "independent_continuation_pending": true,
+  "known_limits": [
+    "No lifecycle execution test performed.",
+    "Process-group observability cannot distinguish lingering zombies; incomplete cleanup retains locks.",
+    "Genuine ordinary-r2 full prerequisite is unavailable, so execution remains disallowed until a new actual full and explicit reviewed rebinding."
+  ],
+  "compiler_or_regression_execution": false,
+  "formal_acceptance": false,
+  "prior_read_attempt": "An archive-member prefix assumption failed before any record write; reread used exact existing member name."
+}

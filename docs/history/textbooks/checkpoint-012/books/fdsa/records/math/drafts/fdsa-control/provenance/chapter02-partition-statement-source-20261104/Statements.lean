@@ -1,0 +1,56 @@
+import Applications.Sequences.Partition
+import Applications.Resources.Partition
+import Examples.ThreeWayPartition
+import Applications.Selection.ThreeWay
+
+set_option pp.universes true
+set_option pp.explicit true
+
+#check @Sequences.Partition.partition3
+#check @Sequences.Partition.partition3_eq_filters
+#check @Sequences.Partition.partition3_perm
+#check @Sequences.Partition.partition_left_mem
+#check @Sequences.Partition.partition_equal_mem
+#check @Sequences.Partition.partition_right_mem
+#check @Sequences.Partition.partition_lengths
+#check @Sequences.Partition.partition_strict_sizes
+#check @Sequences.Partition.partition3_nil
+#check @Sequences.Partition.partition3_cons
+#check @Resources.Partition.partitionRun
+#check @Resources.Partition.partitionRun_nil
+#check @Resources.Partition.partitionRun_cons
+#check @Resources.Partition.partitionRun_value
+#check @Resources.Partition.partitionRun_nil_cost
+#check @Resources.Partition.partitionRun_cons_cost
+#check @Resources.Partition.partitionRun_cost
+#check @ThreeWayPartitionExamples.replicate_partition
+#check @ThreeWayPartitionExamples.selection_partition
+#check @ThreeWayPartitionExamples.mixed
+#check @ThreeWayPartitionExamples.mixed_partition
+#check @ThreeWayPartitionExamples.outside_partition
+#check @ThreeWayPartitionExamples.interior_partition
+#check @ThreeWayPartitionExamples.lower_partition
+#check @ThreeWayPartitionExamples.empty_run
+#check @ThreeWayPartitionExamples.replicate_run
+#check @ThreeWayPartitionExamples.singleton_run
+#check @ThreeWayPartitionExamples.replicate_strict
+#check @ThreeWayPartitionExamples.measured_selection_value
+#check @ThreeWayPartitionExamples.mixed_run
+#check @ThreeWayPartitionExamples.mixed_value
+#check @ThreeWayPartitionExamples.mixed_cost
+#check @ThreeWayPartitionExamples.mixed_perm
+#check @ThreeWayPartitionExamples.mixed_lengths
+#check @ThreeWayPartitionExamples.mixed_strict
+#check @ThreeWayPartitionExamples.outside_run
+#check @ThreeWayPartitionExamples.outside_boundary
+#check @ThreeWayPartitionExamples.interior_run
+#check @ThreeWayPartitionExamples.interior_boundary
+#check @ThreeWayPartitionExamples.bind_returned_lower
+#check @Applications.Selection.partition3
+#check @Applications.Selection.partition3_eq_filters
+#check @Applications.Selection.partition3_perm
+#check @Applications.Selection.partition_left_mem
+#check @Applications.Selection.partition_equal_mem
+#check @Applications.Selection.partition_right_mem
+#check @Applications.Selection.partition_lengths
+#check @Applications.Selection.partition_strict_sizes

@@ -1,0 +1,36 @@
+{
+  "observed_utc": "2026-11-02T23:13:21.891751+00:00",
+  "archive": "conaled-fdsa-0056-ordered-search-draft.tar.gz",
+  "archive_bytes": 74694409,
+  "bundle_contains_exact_xs01_branch": true,
+  "exact_xs01_candidate": "863aedb924e922ac40747c0ef299701a7785488e",
+  "archived_controls": {
+    "reviews/ordered-search-source-final.json": {
+      "member": "conaled-fdsa-0056-ordered-search-draft/fdsa-control/reviews/ordered-search-source-final.json",
+      "bytes": 3258,
+      "sha256": "22638b47bd6486504ac12cef718bbed655694bc7f9b81039a2308e71999eb000"
+    },
+    "reviews/ordered-search-requirements.md": {
+      "member": "conaled-fdsa-0056-ordered-search-draft/fdsa-control/reviews/ordered-search-requirements.md",
+      "bytes": 20654,
+      "sha256": "8fc03c60b3aae37d621112504a4fb83ca1675c4c1f2563f5d14cd45e352ab30e"
+    },
+    "provenance/checkpoint0055-save-receipt.json": {
+      "member": "conaled-fdsa-0056-ordered-search-draft/fdsa-control/provenance/checkpoint0055-save-receipt.json",
+      "bytes": 502,
+      "sha256": "2fc16093bb41addf2a1e351f6d2e29c5bcb9c661bc9b299d967a9e614c8dea0b"
+    },
+    "tickets/FDSA-XS01.md": {
+      "member": "conaled-fdsa-0056-ordered-search-draft/fdsa-control/tickets/FDSA-XS01.md",
+      "bytes": 7456,
+      "sha256": "72e4d510ebb8482759bf22c56828f0ff313934fef6a802824ff07918300a5ddf"
+    },
+    "checkpoints.json": {
+      "member": "conaled-fdsa-0056-ordered-search-draft/fdsa-control/checkpoints.json",
+      "bytes": 164352,
+      "sha256": "abc12a6847a91ee4fbc6da9041929c99318ed8d9e83af2d156375b1c85784d67"
+    }
+  },
+  "method": "Streamed archive inspection only; no source/build/cache extraction or project validation. The checkpoint helper already verified the complete Git bundle.",
+  "qualification": "The checkpoint predates its own save receipt as intended; receipt and this bounded content check enter the next archive."
+}

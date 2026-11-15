@@ -1,0 +1,83 @@
+{
+  "recorded_utc": "2026-11-02T19:10:48.679341+00:00",
+  "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "immediate_parent": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+  "branch": "work/fdsa-adt-refinement",
+  "clean_after_commit": true,
+  "diff_check": "staged and unstaged whitespace checks passed",
+  "source_only": true,
+  "root_change": "exactly three added example imports",
+  "map_change": "entire baseline prefix retained, append-only new section",
+  "project_build_exists": false,
+  "requirements_sha256": "724e4956333a93a7e60f78f37ede7c77e5c4bc30fffc3b72ddd52fb707729ab0",
+  "validation": "No XA01 compilation, integrated audit or independent final approval; Chapter 1 session 83124 remains the sole compiler/checker.",
+  "files": [
+    {
+      "path": "SquareKit/ValidGraphs.lean",
+      "bytes": 1792,
+      "lines": 46,
+      "sha256": "c04fdeb9184d50b6a232854bc214ec8160babf6918fa3c4bfe0f1e39953576da"
+    },
+    {
+      "path": "Applications/Collections/Set.lean",
+      "bytes": 7420,
+      "lines": 167,
+      "sha256": "af58ef6990d62ad7d8955d2b4cee98e654e951540d0a969580ddea74f998220f"
+    },
+    {
+      "path": "Applications/Collections/Map.lean",
+      "bytes": 9738,
+      "lines": 211,
+      "sha256": "1c9a386b782f7fdb8e779e616db8af0f8ec845c1c841a1247a20c90408931afe"
+    },
+    {
+      "path": "Applications/Collections/Modify.lean",
+      "bytes": 4902,
+      "lines": 121,
+      "sha256": "5269a9590348a1530868a42c207cca1cbd0b3dac1afe121743d86a168a808365"
+    },
+    {
+      "path": "Applications/Collections/AList.lean",
+      "bytes": 1457,
+      "lines": 43,
+      "sha256": "883d35c2da3f1df84d9d25eb19b3e5f39d2ab38e2a12a9f47ab8e667a6a28901"
+    },
+    {
+      "path": "Examples/SetMapContracts.lean",
+      "bytes": 21957,
+      "lines": 505,
+      "sha256": "f4e6effc589b95f5f6404c5db99bc0ba695851dc3e9c94bd83a9b167316207c3"
+    },
+    {
+      "path": "Examples/MapModify.lean",
+      "bytes": 8344,
+      "lines": 191,
+      "sha256": "a996865877cf0bb1d4c7c33549353636551e860560b446b4fc2e0fc01cc27f52"
+    },
+    {
+      "path": "Examples/ADTRefinement.lean",
+      "bytes": 15010,
+      "lines": 391,
+      "sha256": "04db68f245d1a56b171380a303754a59e6bbe572ad624f9c5489c482710893c7"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 8380,
+      "lines": 255,
+      "sha256": "5c071871e52cbf16b99c48d5d77bc8b7f2dbbd5d74b46fdeed8adf68813c8e04"
+    },
+    {
+      "path": "docs/research/fdsa-adt-refinement.md",
+      "bytes": 18369,
+      "lines": 312,
+      "sha256": "d5d33bc5d4c8be2e769a3efb22e4b1c064f9a81f38c06995137fc04b1bb92cfe"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 18957,
+      "lines": 292,
+      "sha256": "a35a0cea3da6cb18a21bfb85ed458a4437993a99676c304a099c372c084cb4f5"
+    }
+  ]
+}

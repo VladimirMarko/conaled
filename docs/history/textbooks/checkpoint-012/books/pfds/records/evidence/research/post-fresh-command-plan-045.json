@@ -1,0 +1,108 @@
+{
+  "kind": "read-only-post-fresh-command-plan",
+  "source": "native_setup read-only follow-up plus stock scripts and current approved controller",
+  "executed": false,
+  "formal_acceptance": false,
+  "prerequisite": "Genuine fresh full terminal success, complete exhaustive audit, matched identities and retained stock verification evidence; neither lost r1 nor partial r2 qualifies.",
+  "schedule": "One compiler workload at a time under both existing locks.",
+  "steps": [
+    {
+      "action": "ordinary full gate",
+      "argv": [
+        "python3",
+        "session/validation/run-native-validation.py",
+        "full",
+        "NEW_UNUSED_ORDINARY_ID",
+        "--scope",
+        "integration"
+      ],
+      "purpose": "Genuine guarded normal project artifacts and incremental full/audit record; live stock record replaced only by actual command."
+    },
+    {
+      "action": "environment",
+      "expression": "kit.check_project(CHECKOUT); env = kit.environment(STATE, 1)",
+      "notes": "Use the verified kit import route, current exact candidate and private checkout. No nested kit run session."
+    },
+    {
+      "action": "auditor import output",
+      "argv": [
+        "lake",
+        "--no-cache",
+        "--rehash",
+        "build",
+        "+ProofAudit"
+      ],
+      "environment_additions": {
+        "LAKE_ARTIFACT_CACHE": "false"
+      },
+      "reason": "Ordinary check invokes lean ProofAudit.lean without an emitted ProofAudit.olean; the negative suite imports it."
+    },
+    {
+      "action": "stock checker suite",
+      "argv": [
+        "python3",
+        "scripts/test-check.py"
+      ],
+      "environment_after_kit": {
+        "ELAN_HOME": "PFDS_ROOT/native-state/elan-check-tests",
+        "ELAN_TOOLCHAIN": "pfds-unified-4.35.0",
+        "PATH": "PFDS_ROOT/toolchains/elan-4.2.4 prepended to kit PATH"
+      },
+      "notes": "Do not run this suite through lake env or inherit LEAN override. Genuine selected Elan required. Preserve existing timeouts and internal --jobs2 tests."
+    },
+    {
+      "action": "stock root equality suite",
+      "argv": [
+        "python3",
+        "scripts/test-proof-audit-roots.py"
+      ],
+      "environment": "plain kit environment",
+      "historical_result_interpretation": "Exact equality of a38-root set, not38 separate tests."
+    },
+    {
+      "action": "stock negative audit suite",
+      "argv": [
+        "lake",
+        "env",
+        "python3",
+        "scripts/test-proof-audit.py"
+      ],
+      "environment": "plain kit environment",
+      "expected_cases": [
+        "unused-external-axiom accepted",
+        "private-transitive-axiom rejected",
+        "private-admission rejected",
+        "source-unsafe rejected"
+      ]
+    },
+    {
+      "action": "independent evidence continuation",
+      "notes": "Same candidate/full original scopes, both existing axes; retain all historical findings and boundaries.",
+      "executed": false
+    },
+    {
+      "action": "immediate verification for each applicable acceptance",
+      "argv": [
+        "python3",
+        "session/validation/run-native-validation.py",
+        "verify",
+        "NEW_UNUSED_VERIFY_ID",
+        "--scope",
+        "integration",
+        "--full-record",
+        "SUCCESSFUL_ORDINARY_ID"
+      ],
+      "notes": "Use the exact full record matching the current live incremental verification record; no --fresh or --jobs on verify."
+    }
+  ],
+  "evidence_requirements": [
+    "actual argv/cwd/final selected child environment",
+    "source/dependency/runtime/controller/requirement identities before and after",
+    "complete stdout/stderr logs",
+    "actual terminal exit and any failure/timeout/lost-observation state",
+    "actual ordinary and ProofAudit outputs for the negative suite",
+    "authentic Elan binary/link identities for checker suite",
+    "matching current live stock record"
+  ],
+  "observer_caution": "Before any new progress observer, retain protected startup and own/waited separate controller session and implement single-send cancellation; see active r2 observer advisory. Never edit an active observer or claim its log text is terminal evidence."
+}

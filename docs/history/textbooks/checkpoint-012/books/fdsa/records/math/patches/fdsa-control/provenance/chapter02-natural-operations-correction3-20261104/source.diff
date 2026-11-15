@@ -1,0 +1,46 @@
+diff --git a/Examples/NaturalRunOperations.lean b/Examples/NaturalRunOperations.lean
+index 8e3c95c..bbb8927 100644
+--- a/Examples/NaturalRunOperations.lean
++++ b/Examples/NaturalRunOperations.lean
+@@ -60,21 +60,21 @@ theorem ascending_three_execution :
+   singleRunOpsBy_of_sorted id [1, 2, 3] (by decide) (by decide)
+ 
+ theorem descending_two : runsOpsBy natLT [2, 1] = ([[1, 2]], 6) := by
+-  simpa [natLT] using runsOpsBy_of_strictly_descending id [2, 1] (by decide) (by simp)
++  exact runsOpsBy_of_strictly_descending id [2, 1] (by decide) (by simp)
+ 
+ theorem descending_three : runsOpsBy natLT [3, 2, 1] = ([[1, 2, 3]], 9) := by
+-  simpa [natLT] using runsOpsBy_of_strictly_descending id [3, 2, 1] (by decide) (by simp)
++  exact runsOpsBy_of_strictly_descending id [3, 2, 1] (by decide) (by simp)
+ 
+ theorem descending_two_execution :
+     singleRunOpsBy natLT [2, 1]
+       (runsOn_length_le_one_of_strictly_descending id [2, 1] (by decide)) = ([1, 2], 7) := by
+-  simpa [natLT] using singleRunOpsBy_of_strictly_descending id [2, 1] (by decide) (by simp)
++  exact singleRunOpsBy_of_strictly_descending id [2, 1] (by decide) (by simp)
+ 
+ theorem descending_three_execution :
+     singleRunOpsBy natLT [3, 2, 1]
+       (runsOn_length_le_one_of_strictly_descending id [3, 2, 1] (by decide)) =
+         ([1, 2, 3], 10) := by
+-  simpa [natLT] using singleRunOpsBy_of_strictly_descending id [3, 2, 1] (by decide) (by simp)
++  exact singleRunOpsBy_of_strictly_descending id [3, 2, 1] (by decide) (by simp)
+ 
+ theorem ascending_ties : runsOpsBy natLT [1, 1, 2, 3] = ([[1, 1, 2, 3]], 19) := by
+   have path := runsOpsBy_buildAscending natLT 1 3 [1, 2] (by decide)
+@@ -343,10 +343,11 @@ theorem ascending_range_exact (n : Nat) (hn : 2 ≤ n) :
+       (runsOn_length_le_one_of_sorted id (List.range n)
+         (List.pairwise_lt_range.imp (fun h => Nat.le_of_lt h))) =
+       (List.range n, 6 * n - 4) := by
+-  simpa only [natLT, id_eq, List.length_range] using
+-    singleRunOpsBy_of_sorted id (List.range n)
+-      (List.pairwise_lt_range.imp (fun h => Nat.le_of_lt h))
+-      (by simpa only [List.length_range] using hn)
++  have h := singleRunOpsBy_of_sorted id (List.range n)
++    (List.pairwise_lt_range.imp (fun h => Nat.le_of_lt h))
++    (by simpa only [List.length_range] using hn)
++  simp only [List.length_range] at h
++  exact h
+ 
+ /-- The comparison and operation observations are independently specified. -/
+ theorem comparison_counter_is_separate :

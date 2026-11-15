@@ -1,0 +1,158 @@
+{
+  "prepared_utc": "2026-11-04T06:58:29.754877+00:00",
+  "candidate": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+  "groups": [
+    {
+      "module": "Applications.Resources.RandomQuickSortMean",
+      "source": "Applications/Resources/RandomQuickSortMean.lean",
+      "bytes": 16480,
+      "sha256": "41d81697ef917d32f6946b05b7381882838e67e8f4be9408a1b218633cea04d2",
+      "names": [
+        "Resources.RandomQuickSort.exerciseMean",
+        "Resources.RandomQuickSort.literalMean",
+        "Resources.RandomQuickSort.exerciseLaw_lintegral_le",
+        "Resources.RandomQuickSort.literalLaw_lintegral_le",
+        "Resources.RandomQuickSort.exerciseLaw_lintegral_ne_top",
+        "Resources.RandomQuickSort.literalLaw_lintegral_ne_top",
+        "Resources.RandomQuickSort.exerciseLaw_integrable",
+        "Resources.RandomQuickSort.literalLaw_integrable",
+        "Resources.RandomQuickSort.exerciseMean_eq_toReal_lintegral",
+        "Resources.RandomQuickSort.literalMean_eq_toReal_lintegral",
+        "Resources.RandomQuickSort.exerciseMean_nonneg",
+        "Resources.RandomQuickSort.literalMean_nonneg",
+        "Resources.RandomQuickSort.exerciseMean_le",
+        "Resources.RandomQuickSort.literalMean_le",
+        "Resources.RandomQuickSort.exerciseMean_nil",
+        "Resources.RandomQuickSort.literalMean_nil",
+        "Resources.RandomQuickSort.exerciseMean_singleton",
+        "Resources.RandomQuickSort.literalMean_singleton",
+        "Resources.RandomQuickSort.exerciseMean_cons",
+        "Resources.RandomQuickSort.literalMean_comparison",
+        "Resources.RandomQuickSort.exerciseMean_of_all_false",
+        "Resources.RandomQuickSort.literalMean_of_all_false"
+      ]
+    },
+    {
+      "module": "Examples.RandomQuickSortMean",
+      "source": "Examples/RandomQuickSortMean.lean",
+      "bytes": 5733,
+      "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670",
+      "names": [
+        "Examples.RandomQuickSortMean.empty_uninhabited_means",
+        "Examples.RandomQuickSortMean.singleton_means",
+        "Examples.RandomQuickSortMean.two_key_exercise_mean",
+        "Examples.RandomQuickSortMean.two_key_literal_mean",
+        "Examples.RandomQuickSortMean.three_key_exercise_mean",
+        "Examples.RandomQuickSortMean.constant_key_payload_means",
+        "Examples.RandomQuickSortMean.two_equal_key_tag_means",
+        "Examples.RandomQuickSortMean.all_equal_three_means",
+        "Examples.RandomQuickSortMean.arbitrary_payload_integrable",
+        "Examples.RandomQuickSortMean.arbitrary_payload_mean_comparison"
+      ]
+    },
+    {
+      "module": "Applications.Sorting.Uniqueness",
+      "source": "Applications/Sorting/Uniqueness.lean",
+      "bytes": 1999,
+      "sha256": "e0df544f59be358a3e40ad48f25115ae2ba3b4507a30cdeb3425907bf94c8744",
+      "names": [
+        "Applications.Sorting.sorters_eq_at",
+        "Applications.Sorting.sorters_eq",
+        "Applications.Sorting.sorters_eq_of_multiset"
+      ]
+    },
+    {
+      "module": "Examples.SortUniqueness",
+      "source": "Examples/SortUniqueness.lean",
+      "bytes": 3903,
+      "sha256": "ce63cd0d8a953f9441b9b6b1597f9a3604ef736131290cba8c0430c36cd177b7",
+      "names": [
+        "Examples.SortUniqueness.first_pivot_eq_floor",
+        "Examples.SortUniqueness.three_way_eq_floor",
+        "Examples.SortUniqueness.floor_mixed_duplicates",
+        "Examples.SortUniqueness.reverse_eq_of_equal",
+        "Examples.SortUniqueness.equality_order_boundary",
+        "Examples.SortUniqueness.constant_key_boundary"
+      ]
+    },
+    {
+      "module": "Applications.Probability.PermutationOrder",
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "bytes": 15169,
+      "sha256": "fd2aab30b1a3b8053ad5082e00fbe62e4c0d62dfb33c950276b10bfc3616d98e",
+      "names": [
+        "Applications.Probability.PermutationOrder.restrictedOrder",
+        "Applications.Probability.PermutationOrder.orders",
+        "Applications.Probability.PermutationOrder.mem_restrictedOrder",
+        "Applications.Probability.PermutationOrder.mem_restrictedOrder_of_complete",
+        "Applications.Probability.PermutationOrder.restrictedOrder_nodup",
+        "Applications.Probability.PermutationOrder.restrictedOrder_toFinset",
+        "Applications.Probability.PermutationOrder.restrictedOrder_length",
+        "Applications.Probability.PermutationOrder.restrictedOrder_perm",
+        "Applications.Probability.PermutationOrder.map_restrictedOrder_sublist",
+        "Applications.Probability.PermutationOrder.filter_restrictedOrder",
+        "Applications.Probability.PermutationOrder.filter_restrictedOrder_of_subset",
+        "Applications.Probability.PermutationOrder.mem_orders",
+        "Applications.Probability.PermutationOrder.orders_nonempty",
+        "Applications.Probability.PermutationOrder.restrictedOrder_mem_orders",
+        "Applications.Probability.PermutationOrder.orders_card",
+        "Applications.Probability.PermutationOrder.uniformOn_restrictedOrder_eq",
+        "Applications.Probability.PermutationOrder.map_restrictedOrder_uniformOn"
+      ]
+    },
+    {
+      "module": "Examples.PermutationOrder",
+      "source": "Examples/PermutationOrder.lean",
+      "bytes": 6445,
+      "sha256": "251c0ee0ce7b96711ea57e1ff7496a784fe33137596e8f13b244fa9e44fd57e5",
+      "names": [
+        "Examples.PermutationOrder.positions",
+        "Examples.PermutationOrder.selected",
+        "Examples.PermutationOrder.smaller",
+        "Examples.PermutationOrder.positions_nodup",
+        "Examples.PermutationOrder.positions_complete",
+        "Examples.PermutationOrder.law",
+        "Examples.PermutationOrder.selected_structure",
+        "Examples.PermutationOrder.selected_permutation",
+        "Examples.PermutationOrder.selected_orders_card",
+        "Examples.PermutationOrder.order_023_mass",
+        "Examples.PermutationOrder.observed_law",
+        "Examples.PermutationOrder.order_032_mass_via_map",
+        "Examples.PermutationOrder.repeated_order_mass_zero",
+        "Examples.PermutationOrder.nestedObservation",
+        "Examples.PermutationOrder.nestedObservation_eq",
+        "Examples.PermutationOrder.nested_order_30_mass",
+        "Examples.PermutationOrder.singleton_order_mass",
+        "Examples.PermutationOrder.full_order_mass"
+      ]
+    },
+    {
+      "module": "Examples.PermutationOrderBoundary",
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "bytes": 5434,
+      "sha256": "35c9768d94fd12e553905244a69ffa375e01e469098856b311ac17ad88533fea",
+      "names": [
+        "Examples.PermutationOrderBoundary.empty_subset_output",
+        "Examples.PermutationOrderBoundary.empty_subset_orders",
+        "Examples.PermutationOrderBoundary.empty_subset_mass",
+        "Examples.PermutationOrderBoundary.empty_index_mass",
+        "Examples.PermutationOrderBoundary.cycle",
+        "Examples.PermutationOrderBoundary.cycle_values",
+        "Examples.PermutationOrderBoundary.cycle_inverse_order",
+        "Examples.PermutationOrderBoundary.cycle_restricted_order",
+        "Examples.PermutationOrderBoundary.cycle_direct_order",
+        "Examples.PermutationOrderBoundary.inverse_and_direct_orders_differ",
+        "Examples.PermutationOrderBoundary.numeric_enumeration_values",
+        "Examples.PermutationOrderBoundary.numeric_enumeration_increasing",
+        "Examples.PermutationOrderBoundary.ordinary_enumeration_not_increasing",
+        "Examples.PermutationOrderBoundary.numeric_and_ordinary_orders_differ",
+        "Examples.PermutationOrderBoundary.incomplete_output",
+        "Examples.PermutationOrderBoundary.incomplete_support_counterexample",
+        "Examples.PermutationOrderBoundary.repeated_output",
+        "Examples.PermutationOrderBoundary.repeated_support_counterexample"
+      ]
+    }
+  ],
+  "total": 94,
+  "status": "Prepared only; run after actual focused success. Do not infer validation or acceptance."
+}

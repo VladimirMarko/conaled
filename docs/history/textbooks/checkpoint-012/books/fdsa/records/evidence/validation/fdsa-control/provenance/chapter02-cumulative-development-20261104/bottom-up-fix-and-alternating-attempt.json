@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-04T04:53:12.135342+00:00",
+  "first_parent": "85cc3f40a49c84163271900b0b1a20fec82a74d3",
+  "author_fix": "0f4ca66e85e510987393ae9a5066e4b45ef8422f",
+  "candidate": "8cc255095e41288bf3093285ebd8ae3b506fc6dc",
+  "bottom_up_attempt": 2,
+  "alternating_attempt": 1,
+  "targets": [
+    "Applications.Sorting.BottomUp",
+    "Examples.BottomUpSorting",
+    "Applications.Sorting.Alternating",
+    "Examples.AlternatingSorting"
+  ],
+  "source_sha256": {
+    "Applications/Sorting/BottomUp.lean": "18cd276d8a99c16cd5f24568a92d7effa2e2ef762acb051ce28b70af56f4b711",
+    "Examples/BottomUpSorting.lean": "994b870e6f446d9eae5153c3e1511581b683e80e5473d2c5f99665ff04c56637",
+    "Applications/Sorting/Alternating.lean": "0edbc8de67c35eea2698ecfb4e4655c438bc1429f84af6688ae9adf2e9026bac",
+    "Examples/AlternatingSorting.lean": "3755243142363ee41b475ce92696c8f1a84e0fb86cf6c736265ec6a4bcc5a5ee"
+  },
+  "scope": "Focused four-target development check only; both original candidates, full C2 review base and complete acceptance gates are preserved."
+}

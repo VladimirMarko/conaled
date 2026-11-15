@@ -1,0 +1,11 @@
+{
+  "recorded_utc": "2026-11-04T03:45:00.344692+00:00",
+  "reason": "Official Mathlib cache returned HTTP429 under its default parallel curl transfers; first setup attempt exited1 and is preserved.",
+  "scope": "Download concurrency only. No kit, compiler, kernel, cache endpoint/scope, dependency source/revision or proof/check policy changes.",
+  "curl_version": "8.5.0",
+  "curl_home": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/download-config",
+  "configuration": "parallel-max = 2\n",
+  "configuration_sha256": "a749e42f517341c462346ede9ed8eb96abb837d69d61a311c53543168095944b",
+  "supported_option_evidence": "Installed curl --help all lists --parallel-max; pinned Cache/Requests.lean downloadFilesFromLocation passes --parallel but no explicit parallel-max. Kit runtime preserves CURL_HOME.",
+  "retry": "Reuse complete pinned compiler, existing clean dependency sources and successfully downloaded exact cache files; ordinary official cache retry behavior retained."
+}

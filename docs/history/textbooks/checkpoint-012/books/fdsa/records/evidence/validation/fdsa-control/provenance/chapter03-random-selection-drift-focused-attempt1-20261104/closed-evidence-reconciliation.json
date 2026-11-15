@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T21:00:15.053195+00:00",
+  "candidate": "eec2172f7296b6bfcd13533aadb68bd9d11c4a32",
+  "terminal": {
+    "recorded_utc": "2026-11-04T21:00:15.053077+00:00",
+    "owned_session": 76550,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "cc94c2",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "eec2172f7296b6bfcd13533aadb68bd9d11c4a32"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-drift-focused-attempt1-20261104/full.log",
+    "bytes": 14088,
+    "sha256": "e05fc02253486963d308354dc4a9d1a8a38da85c4467d13b9ccf964da5423e6d"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T205909Z-project-run-f4b1b47b",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-drift-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 485,
+      "sha256": "d202df2e055c1b983b7381722380a818e1ce57016e67defa8453f55e2e8dd007"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-drift-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 637,
+      "sha256": "2be1d22ec82b50273c49e67b8efa6496dbdc321e48c76d28dc628e7a4c4fbe90"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-drift-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 13804,
+      "sha256": "4302937b02b7dfea31b7042ad5d93074d524abef2290225c8a6e010565cfb0e7"
+    }
+  },
+  "native_body_exact_outer_offset": 127,
+  "complete_closed_log": true,
+  "scope": "Focused first drift/linear expectation core and examples check; no actual types, full candidate check/audit, independent review or acceptance.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

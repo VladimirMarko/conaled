@@ -1,0 +1,8 @@
+error: Applications/Resources/RandomQuickSortMean.lean:307:4: Type mismatch: After simplification, term
+  h
+ has type
+  @LE.le ℝ Real.instLE (∫⁻ (k : ℕ), ↑k ∂(literalLaw lt xs).toMeasure).toReal
+    (↑2 * (∫⁻ (k : ℕ), ↑k ∂(exerciseLaw lt xs).toMeasure).toReal)
+but is expected to have type
+  @LE.le ℝ Real.instLE (∫⁻ (k : ℕ), ↑k ∂(literalLaw lt xs).toMeasure).toReal
+    (2 * (∫⁻ (k : ℕ), ↑k ∂(exerciseLaw lt xs).toMeasure).toReal)

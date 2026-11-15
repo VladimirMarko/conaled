@@ -1,0 +1,309 @@
+{
+  "recorded_utc": "2026-11-04T09:45:20.215123+00:00",
+  "source_path": "Examples/PermutationTail.lean",
+  "before": {
+    "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/before-examples.lean",
+    "bytes": 8786,
+    "lines": 197,
+    "sha256": "30e07aaede25b10d2484c2a4674bffa66d77094a545fd49f72bc000bd132ddb7"
+  },
+  "after": {
+    "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/after-examples.lean",
+    "bytes": 9826,
+    "lines": 222,
+    "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e"
+  },
+  "all_declaration_names_order_and_headers_byte_identical": true,
+  "theorem_count": 18,
+  "definition_count": 7,
+  "all_definition_bodies_byte_identical": true,
+  "changed_proof_blocks_only": [
+    "tail_23_mass",
+    "tail_32_mass",
+    "repeated_tail_mass_zero",
+    "filtered_tail_mass",
+    "environment_changed",
+    "last_tail_mass"
+  ],
+  "all_unchanged_declaration_blocks_byte_identical": true,
+  "unchanged_line_groups": {
+    "imports": [
+      "import Applications.Probability.PermutationTail",
+      "import Examples.PermutationOrder",
+      "import Examples.PermutationTailBoundary",
+      "import Mathlib.Tactic"
+    ],
+    "options": [
+      "set_option autoImplicit false",
+      "set_option warningAsError true"
+    ],
+    "local_instances": [
+      "local instance : MeasurableSpace (Equiv.Perm (Fin 4)) := ⊤",
+      "local instance : MeasurableSpace (List (Fin 4)) := ⊤"
+    ],
+    "namespace_and_open": [
+      "namespace Examples.PermutationTail",
+      "open MeasureTheory ProbabilityTheory",
+      "open Applications.Probability.PermutationOrder",
+      "open Applications.Probability.PermutationTail",
+      "open Examples.PermutationOrder (positions positions_nodup positions_complete selected law)",
+      "open scoped ENNReal",
+      "end Examples.PermutationTail"
+    ]
+  },
+  "all_comments_byte_identical": true,
+  "declarations": [
+    {
+      "name": "observedOrder",
+      "kind": "def",
+      "before_line": 38,
+      "after_line": 38,
+      "header_sha256": "38eddcde2a2a316a21ea8dc36cd686156d681f75275b518c2a6d4c8678d93055",
+      "before_block_sha256": "2e6ccfab76af8a9566e490c5590f76b7ffbbd667e2995e9d9a84806b9886f60f",
+      "after_block_sha256": "2e6ccfab76af8a9566e490c5590f76b7ffbbd667e2995e9d9a84806b9886f60f",
+      "changed": false
+    },
+    {
+      "name": "remaining",
+      "kind": "def",
+      "before_line": 41,
+      "after_line": 41,
+      "header_sha256": "61c6dd85672670b4ba85379cfd440dda3d9ace739b5a3af7fedc58daf773e4e0",
+      "before_block_sha256": "08711645de96cd12aae40c8e8a7283be87b4aabc2f85b270067af363d6218aa9",
+      "after_block_sha256": "08711645de96cd12aae40c8e8a7283be87b4aabc2f85b270067af363d6218aa9",
+      "changed": false
+    },
+    {
+      "name": "tailOrder",
+      "kind": "def",
+      "before_line": 43,
+      "after_line": 43,
+      "header_sha256": "03cefe353bafe643de63d99612bcf88b150f04ee8ad1ceab96bc4412ad2e06fc",
+      "before_block_sha256": "438d155910cc367332e1a5d8d8e7997dc2cd43a507baf04a5dc1d5a31dab2e8d",
+      "after_block_sha256": "438d155910cc367332e1a5d8d8e7997dc2cd43a507baf04a5dc1d5a31dab2e8d",
+      "changed": false
+    },
+    {
+      "name": "afterFirst",
+      "kind": "def",
+      "before_line": 46,
+      "after_line": 46,
+      "header_sha256": "54b8c15590bd87faada63f468fd73f944849a49ad921f0d774db4d899e3e0d35",
+      "before_block_sha256": "c20b7fe015af52becacde2a35011efbee4bc8f87c49f06cb3bb73f4d380007b0",
+      "after_block_sha256": "c20b7fe015af52becacde2a35011efbee4bc8f87c49f06cb3bb73f4d380007b0",
+      "changed": false
+    },
+    {
+      "name": "observed_hasLaw",
+      "kind": "theorem",
+      "before_line": 50,
+      "after_line": 50,
+      "header_sha256": "51d363c7507933c6e1b4a5a4b85aea62532c452438651273fa7b1ca3130e4e1c",
+      "before_block_sha256": "36ee5ef4b0371dce208be5e7fe7bb7f6d5afecd3485ead6d7e46c5008335427e",
+      "after_block_sha256": "36ee5ef4b0371dce208be5e7fe7bb7f6d5afecd3485ead6d7e46c5008335427e",
+      "changed": false
+    },
+    {
+      "name": "first_mass",
+      "kind": "theorem",
+      "before_line": 57,
+      "after_line": 57,
+      "header_sha256": "04443d7ecfff0e8680e0d8d05ca457642fbb93e8d9b94aca8388fc38267bb291",
+      "before_block_sha256": "70a59639490ad166488a61ee2245cd49e7fdbe60f47e4a90480f7d2f4ad4ff49",
+      "after_block_sha256": "70a59639490ad166488a61ee2245cd49e7fdbe60f47e4a90480f7d2f4ad4ff49",
+      "changed": false
+    },
+    {
+      "name": "afterFirst_eq_uniformOn",
+      "kind": "theorem",
+      "before_line": 65,
+      "after_line": 65,
+      "header_sha256": "001bcfac832f8114beb01a1391442253ab487ab8c74500dc41a15e340b0915f1",
+      "before_block_sha256": "8acb4ca4a8e2489a7ed32146b825f711be8db27aa44976d7d367519ce10c9069",
+      "after_block_sha256": "8acb4ca4a8e2489a7ed32146b825f711be8db27aa44976d7d367519ce10c9069",
+      "changed": false
+    },
+    {
+      "name": "tail_hasLaw",
+      "kind": "theorem",
+      "before_line": 70,
+      "after_line": 70,
+      "header_sha256": "35435cb391ce14139825c2065b78d8fbd628be243ce1b7fdf452605340fbc018",
+      "before_block_sha256": "c75ffa3570916fd8ea23d8d442b94d3231e3f974388e9390438dac5d8ee7bcb2",
+      "after_block_sha256": "c75ffa3570916fd8ea23d8d442b94d3231e3f974388e9390438dac5d8ee7bcb2",
+      "changed": false
+    },
+    {
+      "name": "tail_map",
+      "kind": "theorem",
+      "before_line": 77,
+      "after_line": 77,
+      "header_sha256": "321fd9b296ab2d951e711dba9e65b17a3d4f5ec405de210eff6734efe4608eea",
+      "before_block_sha256": "c6a776bd526f246075d408ec7130dd58cf21f561362b5050a9b20995298fc717",
+      "after_block_sha256": "c6a776bd526f246075d408ec7130dd58cf21f561362b5050a9b20995298fc717",
+      "changed": false
+    },
+    {
+      "name": "mass_of_law",
+      "kind": "theorem",
+      "before_line": 83,
+      "after_line": 83,
+      "header_sha256": "2953158630a651f70b5d9925182f1de9942dc7927cbaa89e1b5d78e7ebdce3e0",
+      "before_block_sha256": "6d3afd91b4841e9b11e84c501ee9d35816e35dd1dec8b35f22de3bd175e82ddf",
+      "after_block_sha256": "6d3afd91b4841e9b11e84c501ee9d35816e35dd1dec8b35f22de3bd175e82ddf",
+      "changed": false
+    },
+    {
+      "name": "tail_23_mass",
+      "kind": "theorem",
+      "before_line": 100,
+      "after_line": 100,
+      "header_sha256": "a1aaeae8cf0498d4acb5f57dfa7c67c6728896a648b2835cacf692835d6c0a58",
+      "before_block_sha256": "2773c2b664fc5d83487359bd01fe06debf1b0f91ecb9c4ca233158d17c9ede22",
+      "after_block_sha256": "3f244c4e462f30ebb6c48ed09efaa9a82925396fb4c1bfba16a924906c2eff1b",
+      "changed": true
+    },
+    {
+      "name": "tail_32_mass",
+      "kind": "theorem",
+      "before_line": 111,
+      "after_line": 115,
+      "header_sha256": "ab751a752e6986d048bd1f48710a1d79f2521e6d528d0fdace14805d6fdfcfd0",
+      "before_block_sha256": "8b3ad62087201c5e943a508c42733528e4f23dd1bec58130aca5342692e037be",
+      "after_block_sha256": "4a52e45c85296afb10751f23344b7d4f086846c3961bcfda7709fb457ac26323",
+      "changed": true
+    },
+    {
+      "name": "repeated_tail_mass_zero",
+      "kind": "theorem",
+      "before_line": 118,
+      "after_line": 127,
+      "header_sha256": "0c1b05a0aee6149f2df5f6e80f32f14319cb35304bebf9939409c79db7a58910",
+      "before_block_sha256": "ced8a2640add0b4da950b2c58106897d691cdea6fb85751b238cf9033adbca98",
+      "after_block_sha256": "2d3d3e9032de44fd1c30c855f8df200adb68e0a759fbbc1c22b7e48862522e74",
+      "changed": true
+    },
+    {
+      "name": "filteredTail",
+      "kind": "def",
+      "before_line": 128,
+      "after_line": 141,
+      "header_sha256": "261c58451f6df3636c5c747130c48774bae87224a9743f4c5bba8af430805b9c",
+      "before_block_sha256": "b8403d7c1291a493cbcfe0419a9aa9f8c22abec808cd3e5801ac3a46f4e0730a",
+      "after_block_sha256": "b8403d7c1291a493cbcfe0419a9aa9f8c22abec808cd3e5801ac3a46f4e0730a",
+      "changed": false
+    },
+    {
+      "name": "filtered_tail_hasLaw",
+      "kind": "theorem",
+      "before_line": 132,
+      "after_line": 145,
+      "header_sha256": "5cea842c3afd245418fa318456398b8e632da40c4c0983bf3010f3b075d5d9a7",
+      "before_block_sha256": "3c71a796fe5271b8f57cba987b5c5d1ff66d6fcf09c3956c4b5b87946716ad91",
+      "after_block_sha256": "3c71a796fe5271b8f57cba987b5c5d1ff66d6fcf09c3956c4b5b87946716ad91",
+      "changed": false
+    },
+    {
+      "name": "filtered_tail_eq_projection",
+      "kind": "theorem",
+      "before_line": 139,
+      "after_line": 152,
+      "header_sha256": "19f3fea8a630bb3d257610ab06f291a92f94201e11636d8981daa96e25a1b06a",
+      "before_block_sha256": "07c68f56b7ca10ed0a70d4144eab3a9771b93306a596e55b2963c0b4e5050a0d",
+      "after_block_sha256": "07c68f56b7ca10ed0a70d4144eab3a9771b93306a596e55b2963c0b4e5050a0d",
+      "changed": false
+    },
+    {
+      "name": "filtered_tail_mass",
+      "kind": "theorem",
+      "before_line": 145,
+      "after_line": 158,
+      "header_sha256": "3771d07d16fab0ac9c0d0126687f8ca2e58364c2a40b224d45c17741841c06a3",
+      "before_block_sha256": "fd8510a67b05e653b2b0e93d7993dae209d6c054def08a72335ccd3039d63ba2",
+      "after_block_sha256": "0a7437c460f8a8ab8cd87c7618668644eb881c2452092b6e4210861c727bae3a",
+      "changed": true
+    },
+    {
+      "name": "remaining_projection_map",
+      "kind": "theorem",
+      "before_line": 149,
+      "after_line": 167,
+      "header_sha256": "170432aa1d439f2d4a56a83c93cb9a2cc792bf02bed5755c818fc6514ec645c4",
+      "before_block_sha256": "0d63742e594b3a131ff225947be6b548346ccd35b655673c963171b48a7daa15",
+      "after_block_sha256": "0d63742e594b3a131ff225947be6b548346ccd35b655673c963171b48a7daa15",
+      "changed": false
+    },
+    {
+      "name": "afterFirst_first_event_mass",
+      "kind": "theorem",
+      "before_line": 156,
+      "after_line": 174,
+      "header_sha256": "d87404f7b440f237a3d522e5ee49a837c5040029171da3487fe34934edd21fcd",
+      "before_block_sha256": "f821c8f12db533834008332968e2ed9332ba9f844a1ca138f662985db6abe4b1",
+      "after_block_sha256": "f821c8f12db533834008332968e2ed9332ba9f844a1ca138f662985db6abe4b1",
+      "changed": false
+    },
+    {
+      "name": "environment_changed",
+      "kind": "theorem",
+      "before_line": 163,
+      "after_line": 181,
+      "header_sha256": "26166eddd8f01805486d764a944e29b401171d72707e499c0ba6eb32bd34fcd5",
+      "before_block_sha256": "d7b433bc918ad85cf7198e3a24469273e269bdcf748d632334075e81887d09a9",
+      "after_block_sha256": "699eb3d4dd1f935f87c96501d32a060455331081a2920ad925d34a73fe774d7a",
+      "changed": true
+    },
+    {
+      "name": "second_head_mass",
+      "kind": "theorem",
+      "before_line": 171,
+      "after_line": 191,
+      "header_sha256": "46e9c02f181ff3c136fb2b5f80494103ca61e4372a5b0d9cdac4dafc7e6c8cb1",
+      "before_block_sha256": "11360594bd67535c9eb16b2bb78fbab8b2068443b490a6601db1d46708c51cd1",
+      "after_block_sha256": "11360594bd67535c9eb16b2bb78fbab8b2068443b490a6601db1d46708c51cd1",
+      "changed": false
+    },
+    {
+      "name": "afterSecond",
+      "kind": "def",
+      "before_line": 178,
+      "after_line": 198,
+      "header_sha256": "ac9156d133e5d8e1d5373cee8f208ffbefdf943dc6333085f8fd28f740bde635",
+      "before_block_sha256": "074cf39f85f682c4d451d2c6c0bbe80bd9ecf494e9b1ca143e3ead449adef3b2",
+      "after_block_sha256": "074cf39f85f682c4d451d2c6c0bbe80bd9ecf494e9b1ca143e3ead449adef3b2",
+      "changed": false
+    },
+    {
+      "name": "lastTail",
+      "kind": "def",
+      "before_line": 181,
+      "after_line": 201,
+      "header_sha256": "ec334aeea2e80dbaa497c17f98aeab074af6f3bd84e3e78e9025c7c8e0c364ca",
+      "before_block_sha256": "791aa00a3b1b671d5a7468e4d09d2c7e0a6931596e191c72e4b85c1fc1e802e8",
+      "after_block_sha256": "791aa00a3b1b671d5a7468e4d09d2c7e0a6931596e191c72e4b85c1fc1e802e8",
+      "changed": false
+    },
+    {
+      "name": "last_tail_hasLaw",
+      "kind": "theorem",
+      "before_line": 184,
+      "after_line": 204,
+      "header_sha256": "e748c831ecf6259bf31344be5ef7c81862f658cbbd2bfcf41703e76dfadf1ebc",
+      "before_block_sha256": "05e47541763a30e94a59cc566a33097fc05e755e54e3623f9010208f0dd90ca6",
+      "after_block_sha256": "05e47541763a30e94a59cc566a33097fc05e755e54e3623f9010208f0dd90ca6",
+      "changed": false
+    },
+    {
+      "name": "last_tail_mass",
+      "kind": "theorem",
+      "before_line": 191,
+      "after_line": 211,
+      "header_sha256": "cc0a25afdd59158a526e6adcccc813883a93dd342b71504e2e8f0f5d09c14a11",
+      "before_block_sha256": "81ad1cdaa91d5224ae60b24d6bf7ef9e73c1b760f181eba0d3de307320564169",
+      "after_block_sha256": "8dbf18c6b7d7e57de0fb75828e2d3baed7528235100ba307dcd9a71b5da806cb",
+      "changed": true
+    }
+  ],
+  "diff_check_exit": 0,
+  "scope_guard": "Only the authorized source path differs; index initially empty; parent HEAD unchanged; no new declaration, definition, import, option, instance or comment."
+}

@@ -1,0 +1,484 @@
+Resources.DifferenceListCosts.Builder.{u_1} : Type u_1 → Type u_1
+@Resources.DifferenceListCosts.Rep.{u_1} : {α : Type u_1} →
+  Resources.DifferenceListCosts.Builder.{u_1} α → List.{u_1} α → Prop
+@Resources.DifferenceListCosts.AppCost.{u_1} : {α : Type u_1} →
+  Resources.DifferenceListCosts.Builder.{u_1} α → Nat → Prop
+@Resources.DifferenceListCosts.empty.{u_1} : {α : Type u_1} → Resources.DifferenceListCosts.Builder.{u_1} α
+@Resources.DifferenceListCosts.singleton.{u_1} : {α : Type u_1} → α → Resources.DifferenceListCosts.Builder.{u_1} α
+@Resources.DifferenceListCosts.compose.{u_1} : {α : Type u_1} →
+  Resources.DifferenceListCosts.Builder.{u_1} α →
+    Resources.DifferenceListCosts.Builder.{u_1} α → Resources.DifferenceListCosts.Builder.{u_1} α
+@Resources.DifferenceListCosts.empty_apply.{u_1} : ∀ {α : Type u_1} (suffix : List.{u_1} α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat) (@Resources.DifferenceListCosts.empty.{u_1} α suffix)
+    (@Prod.mk.{u_1, 0} (List.{u_1} α) Nat suffix (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Resources.DifferenceListCosts.singleton_apply.{u_1} : ∀ {α : Type u_1} (a : α) (suffix : List.{u_1} α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat)
+    (@Resources.DifferenceListCosts.singleton.{u_1} α a suffix)
+    (@Prod.mk.{u_1, 0} (List.{u_1} α) Nat (@List.cons.{u_1} α a suffix)
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Resources.DifferenceListCosts.empty_rep.{u_1} : ∀ {α : Type u_1},
+  @Resources.DifferenceListCosts.Rep.{u_1} α (@Resources.DifferenceListCosts.empty.{u_1} α) (@List.nil.{u_1} α)
+@Resources.DifferenceListCosts.empty_appCost.{u_1} : ∀ {α : Type u_1},
+  @Resources.DifferenceListCosts.AppCost.{u_1} α (@Resources.DifferenceListCosts.empty.{u_1} α)
+    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+@Resources.DifferenceListCosts.singleton_rep.{u_1} : ∀ {α : Type u_1} (a : α),
+  @Resources.DifferenceListCosts.Rep.{u_1} α (@Resources.DifferenceListCosts.singleton.{u_1} α a)
+    (@List.cons.{u_1} α a (@List.nil.{u_1} α))
+@Resources.DifferenceListCosts.singleton_appCost.{u_1} : ∀ {α : Type u_1} (a : α),
+  @Resources.DifferenceListCosts.AppCost.{u_1} α (@Resources.DifferenceListCosts.singleton.{u_1} α a)
+    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+@Resources.DifferenceListCosts.compose_value.{u_1} : ∀ {α : Type u_1}
+  (f g : Resources.DifferenceListCosts.Builder.{u_1} α) (suffix : List.{u_1} α),
+  @Eq.{u_1 + 1} (List.{u_1} α)
+    (@Prod.fst.{u_1, 0} (List.{u_1} α) Nat (@Resources.DifferenceListCosts.compose.{u_1} α f g suffix))
+    (@Prod.fst.{u_1, 0} (List.{u_1} α) Nat (f (@Prod.fst.{u_1, 0} (List.{u_1} α) Nat (g suffix))))
+@Resources.DifferenceListCosts.compose_cost.{u_1} : ∀ {α : Type u_1}
+  (f g : Resources.DifferenceListCosts.Builder.{u_1} α) (suffix : List.{u_1} α),
+  @Eq.{1} Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) Nat (@Resources.DifferenceListCosts.compose.{u_1} α f g suffix))
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@Prod.snd.{u_1, 0} (List.{u_1} α) Nat (g suffix))
+        (@Prod.snd.{u_1, 0} (List.{u_1} α) Nat (f (@Prod.fst.{u_1, 0} (List.{u_1} α) Nat (g suffix)))))
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Resources.DifferenceListCosts.compose_rep.{u_1} : ∀ {α : Type u_1}
+  (f g : Resources.DifferenceListCosts.Builder.{u_1} α) (prefixF prefixG : List.{u_1} α),
+  @Resources.DifferenceListCosts.Rep.{u_1} α f prefixF →
+    @Resources.DifferenceListCosts.Rep.{u_1} α g prefixG →
+      @Resources.DifferenceListCosts.Rep.{u_1} α (@Resources.DifferenceListCosts.compose.{u_1} α f g)
+        (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+          (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α)) prefixF prefixG)
+@Resources.DifferenceListCosts.compose_appCost.{u_1} : ∀ {α : Type u_1}
+  (f g : Resources.DifferenceListCosts.Builder.{u_1} α) (k l : Nat),
+  @Resources.DifferenceListCosts.AppCost.{u_1} α f k →
+    @Resources.DifferenceListCosts.AppCost.{u_1} α g l →
+      @Resources.DifferenceListCosts.AppCost.{u_1} α (@Resources.DifferenceListCosts.compose.{u_1} α f g)
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k l)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Resources.DifferenceListCosts.createEmpty.{u_1} : {α : Type u_1} →
+  Resources.Measured.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+@Resources.DifferenceListCosts.createSingleton.{u_1} : {α : Type u_1} →
+  α → Resources.Measured.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+@Resources.DifferenceListCosts.createCompose.{u_1} : {α : Type u_1} →
+  Resources.DifferenceListCosts.Builder.{u_1} α →
+    Resources.DifferenceListCosts.Builder.{u_1} α →
+      Resources.Measured.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+@Resources.DifferenceListCosts.createEmpty_eq.{u_1} : ∀ {α : Type u_1},
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat)
+    (@Resources.DifferenceListCosts.createEmpty.{u_1} α)
+    (@Prod.mk.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+      (@Resources.DifferenceListCosts.empty.{u_1} α) (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Resources.DifferenceListCosts.createSingleton_eq.{u_1} : ∀ {α : Type u_1} (a : α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat)
+    (@Resources.DifferenceListCosts.createSingleton.{u_1} α a)
+    (@Prod.mk.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+      (@Resources.DifferenceListCosts.singleton.{u_1} α a)
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Resources.DifferenceListCosts.createCompose_eq.{u_1} : ∀ {α : Type u_1}
+  (f g : Resources.DifferenceListCosts.Builder.{u_1} α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat)
+    (@Resources.DifferenceListCosts.createCompose.{u_1} α f g)
+    (@Prod.mk.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+      (@Resources.DifferenceListCosts.compose.{u_1} α f g)
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Resources.DifferenceListCosts.pushRun.{u_1} : {α : Type u_1} →
+  α →
+    Resources.DifferenceListCosts.Builder.{u_1} α →
+      Resources.Measured.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+@Resources.DifferenceListCosts.pushRun_eq.{u_1} : ∀ {α : Type u_1} (a : α)
+  (f : Resources.DifferenceListCosts.Builder.{u_1} α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat)
+    (@Resources.DifferenceListCosts.pushRun.{u_1} α a f)
+    (@Prod.mk.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+      (@Resources.DifferenceListCosts.compose.{u_1} α f (@Resources.DifferenceListCosts.singleton.{u_1} α a))
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+@Resources.DifferenceListCosts.pushRun_rep.{u_1} : ∀ {α : Type u_1} (a : α)
+  (f : Resources.DifferenceListCosts.Builder.{u_1} α) (pref : List.{u_1} α),
+  @Resources.DifferenceListCosts.Rep.{u_1} α f pref →
+    @Resources.DifferenceListCosts.Rep.{u_1} α
+      (@Prod.fst.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+        (@Resources.DifferenceListCosts.pushRun.{u_1} α a f))
+      (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+        (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α)) pref
+        (@List.cons.{u_1} α a (@List.nil.{u_1} α)))
+@Resources.DifferenceListCosts.pushRun_appCost.{u_1} : ∀ {α : Type u_1} (a : α)
+  (f : Resources.DifferenceListCosts.Builder.{u_1} α) (k : Nat),
+  @Resources.DifferenceListCosts.AppCost.{u_1} α f k →
+    @Resources.DifferenceListCosts.AppCost.{u_1} α
+      (@Prod.fst.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+        (@Resources.DifferenceListCosts.pushRun.{u_1} α a f))
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+@Resources.DifferenceListCosts.buildFrom.{u_1} : {α : Type u_1} →
+  List.{u_1} α →
+    Resources.DifferenceListCosts.Builder.{u_1} α →
+      Resources.Measured.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+@Resources.DifferenceListCosts.buildFrom_nil.{u_1} : ∀ {α : Type u_1}
+  (f : Resources.DifferenceListCosts.Builder.{u_1} α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat)
+    (@Resources.DifferenceListCosts.buildFrom.{u_1} α (@List.nil.{u_1} α) f)
+    (@Prod.mk.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat f
+      (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+@Resources.DifferenceListCosts.buildFrom_cons.{u_1} : ∀ {α : Type u_1} (a : α) (items : List.{u_1} α)
+  (f : Resources.DifferenceListCosts.Builder.{u_1} α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat)
+    (@Resources.DifferenceListCosts.buildFrom.{u_1} α (@List.cons.{u_1} α a items) f)
+    (@Prod.mk.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+      (@Prod.fst.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+        (@Resources.DifferenceListCosts.buildFrom.{u_1} α items
+          (@Resources.DifferenceListCosts.compose.{u_1} α f (@Resources.DifferenceListCosts.singleton.{u_1} α a))))
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@Prod.snd.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+          (@Resources.DifferenceListCosts.buildFrom.{u_1} α items
+            (@Resources.DifferenceListCosts.compose.{u_1} α f (@Resources.DifferenceListCosts.singleton.{u_1} α a))))))
+@Resources.DifferenceListCosts.buildFrom_cost.{u_1} : ∀ {α : Type u_1} (items : List.{u_1} α)
+  (f : Resources.DifferenceListCosts.Builder.{u_1} α),
+  @Eq.{1} Nat
+    (@Prod.snd.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+      (@Resources.DifferenceListCosts.buildFrom.{u_1} α items f))
+    (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α items))
+@Resources.DifferenceListCosts.buildFrom_rep.{u_1} : ∀ {α : Type u_1} (items : List.{u_1} α)
+  (f : Resources.DifferenceListCosts.Builder.{u_1} α) (pref : List.{u_1} α),
+  @Resources.DifferenceListCosts.Rep.{u_1} α f pref →
+    @Resources.DifferenceListCosts.Rep.{u_1} α
+      (@Prod.fst.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+        (@Resources.DifferenceListCosts.buildFrom.{u_1} α items f))
+      (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+        (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α)) pref items)
+@Resources.DifferenceListCosts.buildFrom_appCost.{u_1} : ∀ {α : Type u_1} (items : List.{u_1} α)
+  (f : Resources.DifferenceListCosts.Builder.{u_1} α) (k : Nat),
+  @Resources.DifferenceListCosts.AppCost.{u_1} α f k →
+    @Resources.DifferenceListCosts.AppCost.{u_1} α
+      (@Prod.fst.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+        (@Resources.DifferenceListCosts.buildFrom.{u_1} α items f))
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α items)))
+@Resources.DifferenceListCosts.build.{u_1} : {α : Type u_1} →
+  List.{u_1} α → Resources.Measured.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+@Resources.DifferenceListCosts.build_cost.{u_1} : ∀ {α : Type u_1} (items : List.{u_1} α),
+  @Eq.{1} Nat
+    (@Prod.snd.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+      (@Resources.DifferenceListCosts.build.{u_1} α items))
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α items))
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Resources.DifferenceListCosts.build_rep.{u_1} : ∀ {α : Type u_1} (items : List.{u_1} α),
+  @Resources.DifferenceListCosts.Rep.{u_1} α
+    (@Prod.fst.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+      (@Resources.DifferenceListCosts.build.{u_1} α items))
+    items
+@Resources.DifferenceListCosts.build_appCost.{u_1} : ∀ {α : Type u_1} (items : List.{u_1} α),
+  @Resources.DifferenceListCosts.AppCost.{u_1} α
+    (@Prod.fst.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+      (@Resources.DifferenceListCosts.build.{u_1} α items))
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α items))
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Resources.DifferenceListCosts.toDList.{u_1} : {α : Type u_1} →
+  (f : Resources.DifferenceListCosts.Builder.{u_1} α) →
+    (pref : List.{u_1} α) → @Resources.DifferenceListCosts.Rep.{u_1} α f pref → Batteries.DList.{u_1} α
+@Resources.DifferenceListCosts.toDList_apply.{u_1} : ∀ {α : Type u_1}
+  (f : Resources.DifferenceListCosts.Builder.{u_1} α) (pref : List.{u_1} α)
+  (rep : @Resources.DifferenceListCosts.Rep.{u_1} α f pref) (suffix : List.{u_1} α),
+  @Eq.{u_1 + 1} (List.{u_1} α)
+    (@Batteries.DList.apply.{u_1} α (@Resources.DifferenceListCosts.toDList.{u_1} α f pref rep) suffix)
+    (@Prod.fst.{u_1, 0} (List.{u_1} α) Nat (f suffix))
+@Resources.DifferenceListCosts.toList_toDList.{u_1} : ∀ {α : Type u_1}
+  (f : Resources.DifferenceListCosts.Builder.{u_1} α) (pref : List.{u_1} α)
+  (rep : @Resources.DifferenceListCosts.Rep.{u_1} α f pref),
+  @Eq.{u_1 + 1} (List.{u_1} α)
+    (@Batteries.DList.toList.{u_1} α (@Resources.DifferenceListCosts.toDList.{u_1} α f pref rep)) pref
+@Resources.DifferenceListCosts.toDList_eq_ofList.{u_1} : ∀ {α : Type u_1}
+  (f : Resources.DifferenceListCosts.Builder.{u_1} α) (pref : List.{u_1} α)
+  (rep : @Resources.DifferenceListCosts.Rep.{u_1} α f pref),
+  @Eq.{u_1 + 1} (Batteries.DList.{u_1} α) (@Resources.DifferenceListCosts.toDList.{u_1} α f pref rep)
+    (@Batteries.DList.ofList.{u_1} α pref)
+@Resources.DifferenceListCosts.toDList_compose.{u_1} : ∀ {α : Type u_1}
+  (f g : Resources.DifferenceListCosts.Builder.{u_1} α) (prefixF prefixG : List.{u_1} α)
+  (repF : @Resources.DifferenceListCosts.Rep.{u_1} α f prefixF)
+  (repG : @Resources.DifferenceListCosts.Rep.{u_1} α g prefixG),
+  @Eq.{u_1 + 1} (Batteries.DList.{u_1} α)
+    (@Resources.DifferenceListCosts.toDList.{u_1} α (@Resources.DifferenceListCosts.compose.{u_1} α f g)
+      (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+        (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α)) prefixF prefixG)
+      ⋯)
+    (@HAppend.hAppend.{u_1, u_1, u_1} (Batteries.DList.{u_1} α) (Batteries.DList.{u_1} α) (Batteries.DList.{u_1} α)
+      (@instHAppendOfAppend.{u_1} (Batteries.DList.{u_1} α) (@Batteries.DList.instAppend.{u_1} α))
+      (@Resources.DifferenceListCosts.toDList.{u_1} α f prefixF repF)
+      (@Resources.DifferenceListCosts.toDList.{u_1} α g prefixG repG))
+@Resources.DifferenceListCosts.toDList_pushRun.{u_1} : ∀ {α : Type u_1} (a : α)
+  (f : Resources.DifferenceListCosts.Builder.{u_1} α) (pref : List.{u_1} α)
+  (rep : @Resources.DifferenceListCosts.Rep.{u_1} α f pref),
+  @Eq.{u_1 + 1} (Batteries.DList.{u_1} α)
+    (@Resources.DifferenceListCosts.toDList.{u_1} α
+      (@Prod.fst.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+        (@Resources.DifferenceListCosts.pushRun.{u_1} α a f))
+      (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+        (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α)) pref
+        (@List.cons.{u_1} α a (@List.nil.{u_1} α)))
+      ⋯)
+    (@Batteries.DList.push.{u_1} α (@Resources.DifferenceListCosts.toDList.{u_1} α f pref rep) a)
+Examples.DifferenceListCosts.ordered_composition : @Eq.{1} (Resources.Measured.{0, 0} (List.{0} Nat) Nat)
+  (@Resources.DifferenceListCosts.compose.{0} Nat
+    (@Resources.DifferenceListCosts.singleton.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+    (@Resources.DifferenceListCosts.singleton.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9))) (@List.nil.{0} Nat)))
+  (@Prod.mk.{0, 0} (List.{0} Nat) Nat
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9))) (@List.nil.{0} Nat))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+@Examples.DifferenceListCosts.standard_composition_value.{u_1} : ∀ {α : Type u_1}
+  (f g : Resources.DifferenceListCosts.Builder.{u_1} α) (pref more : List.{u_1} α)
+  (hf : @Resources.DifferenceListCosts.Rep.{u_1} α f pref) (hg : @Resources.DifferenceListCosts.Rep.{u_1} α g more),
+  @Eq.{u_1 + 1} (List.{u_1} α)
+    (@Batteries.DList.toList.{u_1} α
+      (@Resources.DifferenceListCosts.toDList.{u_1} α (@Resources.DifferenceListCosts.compose.{u_1} α f g)
+        (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+          (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α)) pref more)
+        ⋯))
+    (@Batteries.DList.toList.{u_1} α
+      (@HAppend.hAppend.{u_1, u_1, u_1} (Batteries.DList.{u_1} α) (Batteries.DList.{u_1} α) (Batteries.DList.{u_1} α)
+        (@instHAppendOfAppend.{u_1} (Batteries.DList.{u_1} α) (@Batteries.DList.instAppend.{u_1} α))
+        (@Resources.DifferenceListCosts.toDList.{u_1} α f pref hf)
+        (@Resources.DifferenceListCosts.toDList.{u_1} α g more hg)))
+@Examples.DifferenceListCosts.expensive_capture.{u_1} : ∀ {α : Type u_1} (p q : Nat) (suffix : List.{u_1} α),
+  have f := fun xs => @Prod.mk.{u_1, 0} (List.{u_1} α) Nat xs p;
+  have g := fun xs => @Prod.mk.{u_1, 0} (List.{u_1} α) Nat xs q;
+  And
+    (@Eq.{1} Nat
+      (@Prod.snd.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+        (@Resources.DifferenceListCosts.createCompose.{u_1} α f g))
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+    (@Eq.{1} Nat
+      (@Prod.snd.{u_1, 0} (List.{u_1} α) Nat
+        (@Prod.fst.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+          (@Resources.DifferenceListCosts.createCompose.{u_1} α f g) suffix))
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) p q)
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+@Examples.DifferenceListCosts.materialize.{u_1} : {α : Type u_1} →
+  List.{u_1} α → List.{u_1} α → Resources.Measured.{u_1, 0} (List.{u_1} α) Nat
+@Examples.DifferenceListCosts.materialize_eq.{u_1} : ∀ {α : Type u_1} (items suffix : List.{u_1} α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat)
+    (@Examples.DifferenceListCosts.materialize.{u_1} α items suffix)
+    (@Prod.mk.{u_1, 0} (List.{u_1} α) Nat
+      (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+        (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α)) items suffix)
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+          (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) (@List.length.{u_1} α items))
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+@Examples.DifferenceListCosts.construction_application_split.{u_1} : ∀ {α : Type u_1} (items suffix : List.{u_1} α),
+  And
+    (@Eq.{1} Nat
+      (@Prod.snd.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+        (@Resources.DifferenceListCosts.build.{u_1} α items))
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α items))
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+    (@Eq.{1} Nat
+      (@Prod.snd.{u_1, 0} (List.{u_1} α) Nat
+        (@Prod.fst.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+          (@Resources.DifferenceListCosts.build.{u_1} α items) suffix))
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α items))
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+@Examples.DifferenceListCosts.materializeTwice.{u_1} : {α : Type u_1} →
+  List.{u_1} α →
+    List.{u_1} α → List.{u_1} α → Resources.Measured.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) Nat
+@Examples.DifferenceListCosts.materializeTwice_eq.{u_1} : ∀ {α : Type u_1}
+  (items firstSuffix secondSuffix : List.{u_1} α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) Nat)
+    (@Examples.DifferenceListCosts.materializeTwice.{u_1} α items firstSuffix secondSuffix)
+    (@Prod.mk.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) Nat
+      (@Prod.mk.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+        (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+          (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α)) items firstSuffix)
+        (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+          (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α)) items secondSuffix))
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+          (@OfNat.ofNat.{0} Nat (nat_lit 6) (instOfNatNat (nat_lit 6))) (@List.length.{u_1} α items))
+        (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))
+Examples.DifferenceListCosts.duplicate_values : @Eq.{1} (Resources.Measured.{0, 0} (List.{0} Nat) Nat)
+  (@Examples.DifferenceListCosts.materialize.{0} Nat
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat))))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9))) (@List.nil.{0} Nat)))
+  (@Prod.mk.{0, 0} (List.{0} Nat) Nat
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9))) (@List.nil.{0} Nat)))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 14) (instOfNatNat (nat_lit 14))))
+Examples.DifferenceListCosts.duplicate_values_twice : @Eq.{1}
+  (Resources.Measured.{0, 0} (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)) Nat)
+  (@Examples.DifferenceListCosts.materializeTwice.{0} Nat
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat))))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9))) (@List.nil.{0} Nat))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8))) (@List.nil.{0} Nat))))
+  (@Prod.mk.{0, 0} (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)) Nat
+    (@Prod.mk.{0, 0} (List.{0} Nat) (List.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9))) (@List.nil.{0} Nat)))))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8)))
+                (@List.nil.{0} Nat)))))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 21) (instOfNatNat (nat_lit 21))))
+Examples.DifferenceListCosts.empty_payload_boundary : And
+  (@Eq.{1} (Resources.Measured.{0, 0} (List.{0} Empty) Nat)
+    (@Examples.DifferenceListCosts.materialize.{0} Empty (@List.nil.{0} Empty) (@List.nil.{0} Empty))
+    (@Prod.mk.{0, 0} (List.{0} Empty) Nat (@List.nil.{0} Empty)
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+  (@Eq.{1} (Resources.Measured.{0, 0} (Prod.{0, 0} (List.{0} Empty) (List.{0} Empty)) Nat)
+    (@Examples.DifferenceListCosts.materializeTwice.{0} Empty (@List.nil.{0} Empty) (@List.nil.{0} Empty)
+      (@List.nil.{0} Empty))
+    (@Prod.mk.{0, 0} (Prod.{0, 0} (List.{0} Empty) (List.{0} Empty)) Nat
+      (@Prod.mk.{0, 0} (List.{0} Empty) (List.{0} Empty) (@List.nil.{0} Empty) (@List.nil.{0} Empty))
+      (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))
+@Examples.DifferenceListCosts.singleton_boundary.{u_1} : ∀ {α : Type u_1} (a : α) (suffix : List.{u_1} α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat)
+    (@Examples.DifferenceListCosts.materialize.{u_1} α (@List.cons.{u_1} α a (@List.nil.{u_1} α)) suffix)
+    (@Prod.mk.{u_1, 0} (List.{u_1} α) Nat (@List.cons.{u_1} α a suffix)
+      (@OfNat.ofNat.{0} Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))
+@Examples.DifferenceListCosts.extendSingleton.{u_1} : {α : Type u_1} →
+  α → List.{u_1} α → List.{u_1} α → Resources.Measured.{u_1, 0} (List.{u_1} α) Nat
+@Examples.DifferenceListCosts.extendSingleton_eq.{u_1} : ∀ {α : Type u_1} (a : α) (items suffix : List.{u_1} α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat)
+    (@Examples.DifferenceListCosts.extendSingleton.{u_1} α a items suffix)
+    (@Prod.mk.{u_1, 0} (List.{u_1} α) Nat
+      (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+        (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α)) (@List.cons.{u_1} α a items) suffix)
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+          (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) (@List.length.{u_1} α items))
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+@Examples.DifferenceListCosts.fused_push_value.{u_1} : ∀ {α : Type u_1} (a : α)
+  (f : Resources.DifferenceListCosts.Builder.{u_1} α) (pref suffix : List.{u_1} α)
+  (rep : @Resources.DifferenceListCosts.Rep.{u_1} α f pref),
+  @Eq.{u_1 + 1} (List.{u_1} α)
+    (@Prod.fst.{u_1, 0} (List.{u_1} α) Nat
+      (@Prod.fst.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+        (@Resources.DifferenceListCosts.pushRun.{u_1} α a f) suffix))
+    (@Batteries.DList.apply.{u_1} α
+      (@Batteries.DList.push.{u_1} α (@Resources.DifferenceListCosts.toDList.{u_1} α f pref rep) a) suffix)
+@Examples.DifferenceListCosts.identity_value_cost.{u_1} : ∀ {α : Type u_1}
+  (f : Resources.DifferenceListCosts.Builder.{u_1} α) (suffix : List.{u_1} α),
+  And
+    (@Eq.{u_1 + 1} (List.{u_1} α)
+      (@Prod.fst.{u_1, 0} (List.{u_1} α) Nat
+        (@Resources.DifferenceListCosts.compose.{u_1} α f (@Resources.DifferenceListCosts.empty.{u_1} α) suffix))
+      (@Prod.fst.{u_1, 0} (List.{u_1} α) Nat (f suffix)))
+    (@Eq.{1} Nat
+      (@Prod.snd.{u_1, 0} (List.{u_1} α) Nat
+        (@Resources.DifferenceListCosts.compose.{u_1} α f (@Resources.DifferenceListCosts.empty.{u_1} α) suffix))
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@Prod.snd.{u_1, 0} (List.{u_1} α) Nat (f suffix))
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+@Examples.DifferenceListCosts.padded.{u_1} : {α : Type u_1} → Nat → Resources.DifferenceListCosts.Builder.{u_1} α
+@Examples.DifferenceListCosts.padded_rep.{u_1} : ∀ {α : Type u_1} (n : Nat),
+  @Resources.DifferenceListCosts.Rep.{u_1} α (@Examples.DifferenceListCosts.padded.{u_1} α n) (@List.nil.{u_1} α)
+@Examples.DifferenceListCosts.padded_appCost.{u_1} : ∀ {α : Type u_1} (n : Nat),
+  @Resources.DifferenceListCosts.AppCost.{u_1} α (@Examples.DifferenceListCosts.padded.{u_1} α n)
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n)
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Examples.DifferenceListCosts.padded_empty_value.{u_1} : ∀ {α : Type u_1} (n : Nat),
+  @Eq.{u_1 + 1} (List.{u_1} α)
+    (@Batteries.DList.toList.{u_1} α
+      (@Resources.DifferenceListCosts.toDList.{u_1} α (@Examples.DifferenceListCosts.padded.{u_1} α n)
+        (@List.nil.{u_1} α) ⋯))
+    (@List.nil.{u_1} α)
+@Examples.DifferenceListCosts.no_bound_from_output_length.{u_1} : ∀ {α : Type u_1} (K B : Nat),
+  ∃ n,
+    @LT.lt.{0} Nat instLTNat
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) K (@List.length.{u_1} α (@List.nil.{u_1} α)))
+        B)
+      (@Prod.snd.{u_1, 0} (List.{u_1} α) Nat (@Examples.DifferenceListCosts.padded.{u_1} α n (@List.nil.{u_1} α)))
+@Examples.DifferenceListCosts.doubled.{u_1} : {α : Type u_1} →
+  Nat → Resources.Measured.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+@Examples.DifferenceListCosts.doubled_creation.{u_1} : ∀ {α : Type u_1} (n : Nat),
+  @Eq.{1} Nat
+    (@Prod.snd.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+      (@Examples.DifferenceListCosts.doubled.{u_1} α n))
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Examples.DifferenceListCosts.doubled_rep.{u_1} : ∀ {α : Type u_1} (n : Nat),
+  @Resources.DifferenceListCosts.Rep.{u_1} α
+    (@Prod.fst.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+      (@Examples.DifferenceListCosts.doubled.{u_1} α n))
+    (@List.nil.{u_1} α)
+@Examples.DifferenceListCosts.doubled_application_add_one.{u_1} : ∀ {α : Type u_1} (n : Nat) (suffix : List.{u_1} α),
+  @Eq.{1} Nat
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@Prod.snd.{u_1, 0} (List.{u_1} α) Nat
+        (@Prod.fst.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+          (@Examples.DifferenceListCosts.doubled.{u_1} α n) suffix))
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+    (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+      (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+@Examples.DifferenceListCosts.doubled_appCost.{u_1} : ∀ {α : Type u_1} (n : Nat),
+  @Resources.DifferenceListCosts.AppCost.{u_1} α
+    (@Prod.fst.{u_1, 0} (Resources.DifferenceListCosts.Builder.{u_1} α) Nat
+      (@Examples.DifferenceListCosts.doubled.{u_1} α n))
+    (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+      (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+        (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Examples.DifferenceListCosts.materializeDoubled.{u_1} : {α : Type u_1} →
+  Nat → List.{u_1} α → Resources.Measured.{u_1, 0} (List.{u_1} α) Nat
+@Examples.DifferenceListCosts.materializeDoubled_eq.{u_1} : ∀ {α : Type u_1} (n : Nat) (suffix : List.{u_1} α),
+  @Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) Nat)
+    (@Examples.DifferenceListCosts.materializeDoubled.{u_1} α n suffix)
+    (@Prod.mk.{u_1, 0} (List.{u_1} α) Nat suffix
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+        (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+          (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+Examples.DifferenceListCosts.four_shared_closure_extensions : And
+  (@Eq.{1} Nat
+    (@Prod.snd.{0, 0} (Resources.DifferenceListCosts.Builder.{0} Nat) Nat
+      (@Examples.DifferenceListCosts.doubled.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+  (@Eq.{1} (Resources.Measured.{0, 0} (List.{0} Nat) Nat)
+    (@Prod.fst.{0, 0} (Resources.DifferenceListCosts.Builder.{0} Nat) Nat
+      (@Examples.DifferenceListCosts.doubled.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9))) (@List.nil.{0} Nat)))
+    (@Prod.mk.{0, 0} (List.{0} Nat) Nat
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9))) (@List.nil.{0} Nat))
+      (@OfNat.ofNat.{0} Nat (nat_lit 31) (instOfNatNat (nat_lit 31)))))
+Examples.DifferenceListCosts.four_shared_closure_extensions_materialized : @Eq.{1}
+  (Resources.Measured.{0, 0} (List.{0} Nat) Nat)
+  (@Examples.DifferenceListCosts.materializeDoubled.{0} Nat
+    (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9))) (@List.nil.{0} Nat)))
+  (@Prod.mk.{0, 0} (List.{0} Nat) Nat
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9))) (@List.nil.{0} Nat))
+    (@OfNat.ofNat.{0} Nat (nat_lit 36) (instOfNatNat (nat_lit 36))))

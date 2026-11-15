@@ -1,0 +1,187 @@
+{
+  "checked_utc": "2026-11-03T01:08:38.071247+00:00",
+  "scope": "Bounded streaming archive inspection: all manifest checksums, safe membership, Git bundle header/ref preservation, exact frozen controls and pre-code state. No extraction, Git object-pack decoding, compiler/checker/cache operation or full recovery execution.",
+  "archive": "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0060-braun-shape-precode.tar.gz",
+  "size_bytes": 74913995,
+  "sha256": "1044b9ec8d8f6bcb506fc6acf66932d035f065265fb86e25a8e84538652fd71f",
+  "member_count": 659,
+  "directory_count": 55,
+  "regular_file_count": 604,
+  "manifest_payload_count": 603,
+  "all_manifest_checksums_match": true,
+  "unsafe_or_special_members": [],
+  "expected_root": "conaled-fdsa-0060-braun-shape-precode",
+  "bundle": {
+    "bytes": 72264606,
+    "sha256": "c31b442e09443c17f5ab937d78c64a8a949783597ca71b297320e2ef2cafbf6c",
+    "header_sha256": "4e5bcbb322bf9e93fdd7ed52933e4db80235f65b6d3b73338d82c86e5336e796",
+    "version_line": "# v2 git bundle",
+    "prerequisites": [],
+    "pack_signature": "PACK",
+    "advertised_ref_count": 51,
+    "all_49_prior_header_refs_preserved": true,
+    "added_refs": {
+      "refs/heads/work/fdsa-braun-shape": "974a97321a8ec174b56104c7e6efaaca881b6639",
+      "worktrees/conaled-braun-shape/HEAD": "974a97321a8ec174b56104c7e6efaaca881b6639"
+    },
+    "advertised_refs": {
+      "refs/heads/master": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "refs/heads/work/fdsa-accumulated-work": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "refs/heads/work/fdsa-adt-refinement": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+      "refs/heads/work/fdsa-affine-recurrence": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "refs/heads/work/fdsa-basics-cost-models": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "refs/heads/work/fdsa-book": "1aabd512284fe86254278ac631eda061d311050b",
+      "refs/heads/work/fdsa-braun-shape": "974a97321a8ec174b56104c7e6efaaca881b6639",
+      "refs/heads/work/fdsa-builder-costs": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+      "refs/heads/work/fdsa-insertion-costs": "697bcf242ce65d74815b5639bddb1c6e754dd10f",
+      "refs/heads/work/fdsa-list-foundations": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+      "refs/heads/work/fdsa-ordered-search": "863aedb924e922ac40747c0ef299701a7785488e",
+      "refs/heads/work/fdsa-ordinary-merge": "5f409e71bb068e3b8cc133226046ce8bbe29d982",
+      "refs/heads/work/fdsa-permutation-expectation": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+      "refs/heads/work/fdsa-permutation-joint": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+      "refs/heads/work/fdsa-permutation-minimum": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+      "refs/heads/work/fdsa-permutation-order": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+      "refs/heads/work/fdsa-permutation-placement": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "refs/heads/work/fdsa-permutation-tail": "a0597381f02eddd074ee96cabaa974f2062285f8",
+      "refs/heads/work/fdsa-priority-observations": "c088beeb89aa18df45a56f6f1d6b6ff4ad374905",
+      "refs/heads/work/fdsa-three-way-partition": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+      "refs/heads/work/fdsa-tree-accumulator": "b035f1151ab4f0c7d7380818576cfe97dae434c4",
+      "refs/heads/work/fdsa-tree-cache": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "refs/heads/work/fdsa-tree-fold": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+      "refs/heads/work/fdsa-tree-leftmost": "7b8ab2bee299c937256bf9ce7e82977333d07134",
+      "refs/heads/work/fdsa-tree-order": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+      "refs/heads/work/fdsa-tree-rotations": "28ba79d8d425400cb87d2daf3ecf1cc5a63a7aa2",
+      "refs/heads/work/fdsa-tree-shape": "974a97321a8ec174b56104c7e6efaaca881b6639",
+      "refs/heads/work/fdsa-tree-traversal-work": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "refs/remotes/origin/HEAD": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "refs/remotes/origin/integrate/frp": "5be3ce96dbeb60365002414409c9421450e39cf0",
+      "refs/remotes/origin/integration/spec-15": "47b556e83229ce11b27b5b7b4444c089a1e96ac3",
+      "refs/remotes/origin/master": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "refs/remotes/origin/reconstruction/adwh-154": "c12296f63c656737d07325e9d8e8e16d6976d099",
+      "refs/remotes/origin/reconstruction/adwh-155": "3efc9d926333c19f697a21afe7dd08af53e3a8cd",
+      "refs/remotes/origin/reconstruction/adwh-180": "e0d76c86040f38728289977c355b848cd6c7d8e3",
+      "refs/remotes/origin/reconstruction/adwh-181": "f68c79000bdb1ce223c403d38f8dd06e20cfbf29",
+      "refs/remotes/origin/reconstruction/adwh-182": "9c0a2649f9601c6294850f2b057698650360da9a",
+      "refs/remotes/origin/reconstruction/adwh-183": "16db707769c322fa17f2c48e24208f81292008da",
+      "refs/remotes/origin/reconstruction/adwh-184": "48b7655155950c4452bebf1268de1866d0f6129f",
+      "refs/remotes/origin/reconstruction/adwh-186": "30bbde79d154d1e8d942561c023a5e44d12ca420",
+      "refs/remotes/origin/reconstruction/adwh-187": "6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e",
+      "refs/remotes/origin/reconstruction/adwh-190": "855ce1f29ae0b7c7a7aec8321ead07be39c6ff32",
+      "refs/remotes/origin/reconstruction/adwh-array-cost-integration": "34c85983f601247fb62aea631c4212b7cb994b5b",
+      "refs/remotes/origin/research/27-frp-runtime": "f4d3e2f36d5547f2236a601c837280bd0c23a774",
+      "HEAD": "1aabd512284fe86254278ac631eda061d311050b",
+      "worktrees/conaled-ordered-search/HEAD": "863aedb924e922ac40747c0ef299701a7785488e",
+      "worktrees/conaled-insertion-costs/HEAD": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+      "worktrees/conaled-ch01-review/HEAD": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "worktrees/conaled-ch01-cost-models/HEAD": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "worktrees/conaled-tree-leftmost/HEAD": "7b8ab2bee299c937256bf9ce7e82977333d07134",
+      "worktrees/conaled-braun-shape/HEAD": "974a97321a8ec174b56104c7e6efaaca881b6639"
+    },
+    "qualification": "The creation helper ran git bundle verify successfully. This inspection checks payload hashes and advertised header refs; it does not decode the object pack or claim a fresh restoration test."
+  },
+  "archive_manifest": {
+    "checkpoint": "conaled-fdsa-0060-braun-shape-precode",
+    "created_utc": "2026-11-03T01:05:51.198137+00:00",
+    "repository": "https://github.com/VladimirMarko/conaled.git",
+    "head": "1aabd512284fe86254278ac631eda061d311050b",
+    "branch": "work/fdsa-book",
+    "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.n7UlkJ\n",
+    "included_untracked": [],
+    "excluded_unrelated_untracked": [
+      "docs/history/algorithm-design-haskell/.checkpoint-233.zip.n7UlkJ"
+    ],
+    "scope": "Complete FDSA formalization; consult fdsa-control/STATUS.md for actual acceptance",
+    "excluded_regenerable": [
+      "Lean/Nix binaries",
+      "Lake dependency and compilation caches",
+      "upstream book PDF and extracted copyrighted text"
+    ]
+  },
+  "required_controls": {
+    "reviews/braun-shape-requirements.md": {
+      "bytes": 14161,
+      "sha256": "b7d1797e80ca2c732fd29632fea1ee5df0b296329bf1648d8ee714018a8f53f5",
+      "exact_live_match_at_inspection": true
+    },
+    "reviews/braun-shape-preflight-assessment.md": {
+      "bytes": 6480,
+      "sha256": "23db3ff2e17634bfe5762964ca51a4a35951e7b18c7c38d97fd7450ffb84189a",
+      "exact_live_match_at_inspection": true
+    },
+    "reviews/braun-shape-start.json": {
+      "bytes": 6892,
+      "sha256": "78d250dffb1a42114578e0f596c7260f0616a797b9906cceebd1dbb5fd587e36",
+      "exact_live_match_at_inspection": true
+    },
+    "reviews/braun-shape-readiness.md": {
+      "bytes": 2520,
+      "sha256": "d44a0d790d1c31ed1bf5474aa22bb6cb6283e8628000afd4c7605dd097a90a62",
+      "exact_live_match_at_inspection": true
+    },
+    "reviews/braun-shape-precode-check.json": {
+      "bytes": 970,
+      "sha256": "644c5950ebf45d968fa599d6e5b048bccda5a140fe43adce044c0325ff53760f",
+      "exact_live_match_at_inspection": true
+    },
+    "research/braun-shape-source-preflight.md": {
+      "bytes": 28163,
+      "sha256": "5a11f1e66cf45870d7b0e0651445459457bdca5cf4c8ddd599c7c5ddb40d5931",
+      "exact_live_match_at_inspection": true
+    },
+    "research/braun-shape-api-preflight.md": {
+      "bytes": 31657,
+      "sha256": "cc445c1eef96e836dee9fb77a73932d221307f31b11fa58c5d0974efce4772e3",
+      "exact_live_match_at_inspection": true
+    },
+    "research/braun-shape-case-preflight.md": {
+      "bytes": 31923,
+      "sha256": "9561054896a97e49cf55ba0d1b19eb7f7e3da51b16b4771b04b58c2963313d52",
+      "exact_live_match_at_inspection": true
+    },
+    "provenance/checkpoint0059-save-receipt.json": {
+      "bytes": 1362,
+      "sha256": "f0c590beff4bda0916f6d8e476a2628be22b19b9d9593cede558a3e17f13ab8a",
+      "exact_live_match_at_inspection": true
+    },
+    "provenance/checkpoint0059-content-check.json": {
+      "bytes": 12779,
+      "sha256": "020ddf20d876f3abfed495cbb5d61cb1fc78362521fa99a720144ec337341043",
+      "exact_live_match_at_inspection": true
+    },
+    "provenance/chapter01-attempt3-process-reader-qualification.json": {
+      "bytes": 3437,
+      "sha256": "b226e0fc958f3fb15d6f474ad6e15269ad0b1e3bc9ef0f97ad4ab377b2e7a123",
+      "exact_live_match_at_inspection": true
+    },
+    "provenance/chapter01-attempt3-progress-before0060.json": {
+      "bytes": 4462,
+      "sha256": "def2feed9fb983f48f8bbad0d5e98f15f17b89cd9a6dd8426722cbe78a46b8e1",
+      "exact_live_match_at_inspection": true
+    }
+  },
+  "archived_ledger_count": 59,
+  "archived_ledger_last": "conaled-fdsa-0059-insertion-readiness",
+  "precode_source_authoring_released": false,
+  "own0060_receipt_and_source_release_absent_as_expected": true,
+  "c1_partial_evidence": {
+    "archived_metadata_result": "running",
+    "archived_log": {
+      "bytes": 167226,
+      "sha256": "56eeb09e7b15d5edb999deda75ec47a36d568247971b16dbb177ae1da009e122"
+    },
+    "observation_prefix_bytes": 167226,
+    "observation_prefix_sha256": "56eeb09e7b15d5edb999deda75ec47a36d568247971b16dbb177ae1da009e122",
+    "prefix_matches": true,
+    "additional_log_bytes": 0,
+    "tail": [
+      "info: Applications/FRP/Equivalence.lean:1149:0: 'FRP.Examples.zeno_not_finiteHistory' depends on axioms: [propext, choice, Quot.sound]",
+      "\u2714 [9559/9562] Built Applications.FRP.Finite (1929s)",
+      "\u2714 [9560/9563] Built Examples.FRP (1519s)",
+      "\u2714 [9561/9564] Built Applications.FRP.Engine (2169s)",
+      "\u2714 [9562/9565] Built Applications.FRP.Lifecycle (1982s)",
+      "\u2714 [9563/9566] Built Applications.FRP.LifecycleSafety (1508s)"
+    ],
+    "qualification": "Only partial running evidence; no terminal success or acceptance is inferred."
+  },
+  "discrepancies": []
+}

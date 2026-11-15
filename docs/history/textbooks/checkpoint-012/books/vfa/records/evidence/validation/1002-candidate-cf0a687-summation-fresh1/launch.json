@@ -1,0 +1,41 @@
+{
+  "prepared_utc": "2026-11-04T06:30:10.529343+00:00",
+  "candidate": "cf0a687265c1929ffd3ff6f15fa18febe0fb61b5",
+  "base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "argv": [
+    "python3",
+    "-B",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/native-kit/conaled_native.py",
+    "--state",
+    "/workspace/scratch/60f07f0e98c8/native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation",
+    "--threads",
+    "1",
+    "--",
+    "./check.sh",
+    "--candidate",
+    "HEAD",
+    "--fresh",
+    "--jobs",
+    "1"
+  ],
+  "cwd": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation",
+  "tty": true,
+  "status": "running",
+  "environment_evidence": "1039-environment-ready.json",
+  "prior_incomplete_attempt": "1002-candidate-4adc2f0-unified-pty-fresh1",
+  "preexisting_project_run_log_directories": [
+    "20261104T040241Z-project-run-2354e0e9",
+    "20261104T055729Z-project-run-78f1cb44",
+    "20261104T060025Z-project-run-a7ddd994",
+    "20261104T062141Z-project-run-b728350b",
+    "20261104T062357Z-project-run-255d9f07",
+    "20261104T062622Z-project-run-382efb4c",
+    "20261104T062703Z-project-run-55d59b31"
+  ],
+  "session": 82082,
+  "kit_log_directory": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T063010Z-project-run-fde51929",
+  "started_utc": "2026-11-04T06:30:10.902556+00:00"
+}

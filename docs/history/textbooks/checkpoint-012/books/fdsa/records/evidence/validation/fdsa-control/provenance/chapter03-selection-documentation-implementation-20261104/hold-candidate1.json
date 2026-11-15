@@ -1,0 +1,108 @@
+{
+  "recorded_utc": "2026-11-04T22:41:37.120635+00:00",
+  "state": "HELD: own source, ref and provenance writes stopped pending explicit parent assignment",
+  "documentation_assignment_complete": true,
+  "candidate": "4f01a75bf4e29cd82b5da932885c22f533cbd7b5",
+  "tree": "4e896e806bd2b84ab2acd862df2e0534e8d928cb",
+  "status": "",
+  "changed_source_paths": [
+    "docs/research/fdsa-selection.md"
+  ],
+  "document_sha256": "918d1c7ba20f5104da880235fd5c32f59d719f8069b5a9e0da7f1e5a3c4c3b30",
+  "actual_commit_and_handoff_full_readback": "f6c54e",
+  "full_document_readback": [
+    "3af40b",
+    "2b0b88",
+    "c7bcd1"
+  ],
+  "final_editorial_delta_readback": "99e22e",
+  "artifact_check_readback": "532a92",
+  "precommit_whitespace_check": "7672a0",
+  "all_provenance_bytes_read_and_json_parsed": true,
+  "prior_draft_archives_exact": true,
+  "artifacts": {
+    "actual-commit-candidate1.json": {
+      "bytes": 952,
+      "sha256": "398d21508a47d14e7b29927fd74c9e94865920124e1ab31e447f63640fe1b838"
+    },
+    "candidate-doc.patch": {
+      "bytes": 77654,
+      "sha256": "037fe6c312dae41ab508046f88788d8c74ff7b6467b73f5977de96633a287909"
+    },
+    "checkpoint0132-hold.json": {
+      "bytes": 1033,
+      "sha256": "1b43ec186b47feac05016890ae1b9b824640a05b20f094fe3b4891cfe1daf703"
+    },
+    "compose_doc-v3.py": {
+      "bytes": 38182,
+      "sha256": "4a190bddea54a06185cf7aea17bb1aa3344e32e3e89950a4b0efffe9f3b297c4"
+    },
+    "compose_doc.py": {
+      "bytes": 37810,
+      "sha256": "41ef66c03cd172ba49e826d3dffcbc719cb68c071fcc979eab2646ba264b11f4"
+    },
+    "correspondence-v2.json": {
+      "bytes": 58226,
+      "sha256": "78dedd1821e4015086b70c3b6852a2883a25df5a712b00ed8c02bb243c2906c2"
+    },
+    "correspondence-v3.json": {
+      "bytes": 58192,
+      "sha256": "6a94048a5532445a94d358477a0c4582b6936754287d8f145d4c2421a7b029e9"
+    },
+    "document-assessment.json": {
+      "bytes": 5259,
+      "sha256": "d8bd26cdef11aab91adc6377cd0cd339e4814f18c6c0f1d560b10340b1444faf"
+    },
+    "draft-v1.json": {
+      "bytes": 683,
+      "sha256": "ff48871da3c3ee2e159cae520cc552e0d77a43860c01c8939fea89269fd0ab6d"
+    },
+    "draft-v1.md.gz": {
+      "bytes": 14374,
+      "sha256": "1cd883b8b22ff668eb51962642fd6e96e1ced980cb1f15d5124b6fb832eaf125"
+    },
+    "draft-v2.md.gz": {
+      "bytes": 24954,
+      "sha256": "1c81f35ccb805250217dfc2b62637d2c27a32dd748b0b9ad62204417d0b3f708"
+    },
+    "editorial-v3-final.patch": {
+      "bytes": 10190,
+      "sha256": "4a71c7f2baf6f34cde2c3d02b5840adfca818eea44be98ca0f6716c9c5c55a21"
+    },
+    "finish_doc.py": {
+      "bytes": 1952,
+      "sha256": "718728259c352b6d79bc98cff9cadc74a829753fcf3fa0de9edb12b57cc0dc2e"
+    },
+    "handoff-candidate1.json": {
+      "bytes": 2350,
+      "sha256": "c6d7c7ccb4c88ffed84db990ac53365e96b54d6465192487d8efff4ebb31a0a4"
+    },
+    "precommit-check.json": {
+      "bytes": 541,
+      "sha256": "e96b8e425e13070ddb17a76594fcd6631d07a6519fa63179b93780d90810e0e9"
+    },
+    "resume-0132.json": {
+      "bytes": 2465,
+      "sha256": "fdc1d4f926244b3841365ab25b27a97dd74f8ffac6a9256c1b6167c8c6aee111"
+    },
+    "source-bindings-v2.json": {
+      "bytes": 32124,
+      "sha256": "f0a63b7bf7e023811eec57c98e88acc3f10f1d1fafd919e78a5c672be237c87d"
+    },
+    "source-bindings-v3.json": {
+      "bytes": 32170,
+      "sha256": "bbb0cdd93fd1a2fcf989505cf719e4b624de1e91b795118ebfe3155b0d2fd585"
+    },
+    "starting-state.json": {
+      "bytes": 1231,
+      "sha256": "9402151ebe85055c41aacbdb7c4b9a4a513ac3d6d0f25e012534e640baad6d72"
+    }
+  },
+  "compiler_runs": false,
+  "whole_chapter_type_audit_acceptance_credit": false,
+  "pending_universal_rows": [
+    "C03-064",
+    "C03-075"
+  ],
+  "next_action_owner": "root: exact receiving assembly and existing complete Chapter3 loop"
+}

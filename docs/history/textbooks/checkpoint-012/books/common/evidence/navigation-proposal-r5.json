@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "purpose": "Reconstruct the historical documentation bytes actually inspected by the R5 preparation reviewers; not an executable resume procedure or proposed current mutation.",
+  "preparation_receipt": "reviews/preparation-r5.json",
+  "disposition": "Direct RESUME edit was not packable under the frozen docs contract. Restore the exact frozen file and use the current EXECUTION.md resource override instead. Policy, tools, kit, durability and mathematical sources are unchanged.",
+  "patch": "navigation-proposal-r5.patch",
+  "patch_sha256": "03d3bc4e95903cd643fbcfcca890988059f143b58017072ac4e60647944b503d",
+  "directions": [
+    {
+      "path": "docs/RESUME.md",
+      "base": "exact restored frozen file",
+      "base_sha256": "0eb5b77c2ebe66ce13490dddb966e46beb4bb067509bb2c4ed1c6166a2b9e393",
+      "historically_reviewed_sha256": "b67187f259ba3a4c425c94df46c738792379858c78e936338cc5721902c6e43a"
+    },
+    {
+      "path": "books/common/VALIDATION-HANDOFF.md",
+      "base": "current EXECUTION.md navigation",
+      "base_sha256": "8c858ae01b07e2e722bd314da7138b540a9bb8f5e95927eca1999cd2ae03c98e",
+      "historically_reviewed_sha256": "d57eca51d8d9da43b14ea4b5fe33271fff3948f33ae865764902fd4e6ab13035"
+    }
+  ],
+  "reconstruction_verified": true,
+  "frozen_docs_equal_last_verified_manifest": true
+}

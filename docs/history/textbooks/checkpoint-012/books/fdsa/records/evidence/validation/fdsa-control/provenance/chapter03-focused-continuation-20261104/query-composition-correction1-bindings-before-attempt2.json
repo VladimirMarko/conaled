@@ -1,0 +1,34 @@
+{
+  "recorded_utc": "2026-11-04T22:16:09.086584+00:00",
+  "candidate": "8b7531d661366d7843ccab9ebd7eca7d41cdbbef",
+  "parent": "2d20573cc5d3373a4746a5ebf16314369e7d7e3e",
+  "tree": "8d7f64ffd6ade763a2c0072a2052f656cbacf528",
+  "clean": true,
+  "only_four_changed_lines": [
+    {
+      "line": 296,
+      "before": "      (distinct : (List.ofFn input).Nodup) (next : Protocol m Int Int)",
+      "after": "      (_distinct : (List.ofFn input).Nodup) (next : Protocol m Int Int)"
+    },
+    {
+      "line": 297,
+      "before": "      (correct : Selects next k) (trace : Transcript m Int)",
+      "after": "      (_correct : Selects next k) (trace : Transcript m Int)"
+    },
+    {
+      "line": 328,
+      "before": "      (distinct : (List.ofFn input).Nodup) (next : Protocol m Int Int)",
+      "after": "      (_distinct : (List.ofFn input).Nodup) (next : Protocol m Int Int)"
+    },
+    {
+      "line": 329,
+      "before": "      (total : Total next) (correct : Selects next k),",
+      "after": "      (_total : Total next) (_correct : Selects next k),"
+    }
+  ],
+  "entire_source_otherwise_exact": true,
+  "patch_matches_saved": true,
+  "root_full_handoff_patch_read": "a2a0d3",
+  "newly_authored_mathematics": false,
+  "boundary": "Successor uncompiled; next root serial focus, final type/audit/reviews unchanged"
+}

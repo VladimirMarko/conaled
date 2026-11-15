@@ -1,0 +1,57 @@
+{
+  "recorded_utc": "2026-11-04T22:41:22.130824+00:00",
+  "state": "Documentation implementation complete; handoff to existing full Chapter3 loop, no independent acceptance",
+  "base": "27281919b9edd31a53336cbb5583ebc17632247e",
+  "candidate": "4f01a75bf4e29cd82b5da932885c22f533cbd7b5",
+  "tree": "4e896e806bd2b84ab2acd862df2e0534e8d928cb",
+  "changed_paths": [
+    "docs/research/fdsa-selection.md"
+  ],
+  "document": {
+    "bytes": 76725,
+    "sha256": "918d1c7ba20f5104da880235fd5c32f59d719f8069b5a9e0da7f1e5a3c4c3b30",
+    "git_blob": "1a019bad209bc7c697b0a5532752fb3d08847d66"
+  },
+  "canonical_rows": 83,
+  "resolved_source_references": 626,
+  "source_aliases": 73,
+  "source_manifest": "source-bindings-v3.json",
+  "author_assessment": "document-assessment.json",
+  "full_diff": "candidate-doc.patch",
+  "actual_commit_record": "actual-commit-candidate1.json",
+  "artifact_validation": "All row IDs/names/source hashes, relative doc link, Markdown framing and git diff --cached --check passed; full text plus final editorial delta read back.",
+  "document_readback_tools": [
+    "3af40b",
+    "2b0b88",
+    "c7bcd1",
+    "99e22e"
+  ],
+  "source_and_evidence_readback_tools": [
+    "f8e296",
+    "8ef1b7",
+    "9dbadb",
+    "af63dd"
+  ],
+  "current_focused_sources": {
+    "generic": "1249f39968a44a25bfe3932d84a2cb44c6a83515",
+    "composition": "660f974640fb89a766b26a4d786ae7ed197cecf2",
+    "query": "569545102ff70697066de429eb02f9f47dffa07f",
+    "all_equal": "d82ee6286de99a032eaf5fd925e6b87f48e0fb36"
+  },
+  "remaining_math": [
+    "C03-064 universal distinct-input every-valid-rank endpoint path, exact1/n! probability, triangular attainment and unbounded family",
+    "C03-075 corresponding universal actual source-cost lower/worst-case family"
+  ],
+  "pending_gates": [
+    "Receiving source/import assembly owned by root",
+    "Complete actual-type inventory and statement inspection",
+    "Applicable immutable-candidate check and exhaustive audit",
+    "Independent Standards and Spec reviews in existing full scope",
+    "Immediate candidate verification before any acceptance"
+  ],
+  "whole_chapter_type_audit_review_acceptance_credit": false,
+  "no_lean_or_tooling_or_canonical_control_changes": true,
+  "no_compiler_run_for_doc_only_change": true,
+  "no_github_mutations": true,
+  "source_and_provenance_hold_follows": true
+}

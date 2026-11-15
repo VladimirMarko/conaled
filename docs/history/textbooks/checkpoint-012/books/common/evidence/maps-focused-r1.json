@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "candidate": "7d6c8dc30677493f04422483b4836b296292c666",
+  "tree": "951b5c11ca3034e17da44de928174530ab8b2b23",
+  "mode": "focused",
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/e1eab3b6b18e/integration-20261113/checkpoint/conaled-textbooks/support/native-kit/conaled_native.py",
+    "--state",
+    "/workspace/scratch/e1eab3b6b18e/integration-20261113/runtime/native",
+    "run",
+    "--project",
+    "/workspace/scratch/e1eab3b6b18e/integration-20261113/master",
+    "--threads",
+    "1",
+    "--",
+    "env",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "lake",
+    "build",
+    "Examples.TextbookMaps",
+    "Examples.OrderedMap",
+    "Examples.SharedTreeMap"
+  ],
+  "started_at": "2026-11-14T03:10:32.155646+00:00",
+  "status": "failed",
+  "terminal_observed": true,
+  "log": "/workspace/scratch/e1eab3b6b18e/integration-20261113/intake/maps-focused-r1.log",
+  "threads_note": "Documented conservative native-kit setting selected before this run; no toolchain, dependency or checker change.",
+  "isolation": "Dedicated clean committed compiler worktree; one compiler owner; no source/dependency/configuration writers during the run.",
+  "pin_sha256": {
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "flake.lock": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+  },
+  "exit_code": 1,
+  "finished_at": "2026-11-14T03:11:09.619964+00:00",
+  "duration_seconds": 37.46232690299985,
+  "head_after": "7d6c8dc30677493f04422483b4836b296292c666",
+  "status_after": "",
+  "log_sha256": "d54900beaf6663b8748c645cbb9d5f48f6bb8b3681f151b378259b5deeab10ef",
+  "reported_child_usage": {
+    "user_cpu_seconds": 24.890675,
+    "system_cpu_seconds": 10.788493,
+    "major_faults": 7688,
+    "max_rss_kib": 2122600,
+    "note": "OS-reported child accounting; not a proof of total host memory capacity or a current-memory sample."
+  }
+}

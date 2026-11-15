@@ -1,0 +1,134 @@
+diff --git a/Applications/Resources/QuickSortTransport.lean b/Applications/Resources/QuickSortTransport.lean
+new file mode 100644
+index 0000000..5ac2dec
+--- /dev/null
++++ b/Applications/Resources/QuickSortTransport.lean
+@@ -0,0 +1,53 @@
++import Applications.Resources.QuickSort
++
++/-!
++# Mapping the actual measured first-pivot execution
++
++Mapping payloads and pulling the Boolean comparator back preserves both recorded
++cost coordinates. This compares the existing executions; it does not charge for
++computing the map or for a later occurrence lookup. No injectivity of the map is
++needed, so duplicate payloads and equal keys retain their occurrences.
++-/
++
++namespace Resources.QuickSort
++
++universe u v
++variable {α : Type u} {β : Type v}
++
++/-- Both filters, recursive results and measured append observations commute
++with a payload map when the comparator is pulled back along that same map. -/
++theorem run_map (f : α → β) (lt : β → β → Bool) (xs : List α) :
++    run lt (xs.map f) =
++      ((run (fun a b => lt (f a) (f b)) xs).1.map f,
++        (run (fun a b => lt (f a) (f b)) xs).2) := by
++  match xs with
++  | [] => simp
++  | pivot :: ys =>
++      simp only [List.map_cons, run_cons, List.filter_map, Function.comp_def,
++        run_map f lt (ys.filter (fun a => lt (f a) (f pivot))),
++        run_map f lt (ys.filter (fun a => !(lt (f a) (f pivot)))),
++        List.length_map, List.map_append, List.map_nil]
++termination_by xs.length
++decreasing_by
++  all_goals exact Nat.lt_succ_of_le (List.length_filter_le _ _)
++
++/-- The existing pair of exercise and append observations is unchanged. -/
++theorem counts_map (f : α → β) (lt : β → β → Bool) (xs : List α) :
++    (run lt (xs.map f)).2 = (run (fun a b => lt (f a) (f b)) xs).2 := by
++  rw [run_map]
++
++theorem exerciseCost_map (f : α → β) (lt : β → β → Bool) (xs : List α) :
++    exerciseCost lt (xs.map f) = exerciseCost (fun a b => lt (f a) (f b)) xs := by
++  unfold exerciseCost
++  rw [run_map]
++
++theorem appendCost_map (f : α → β) (lt : β → β → Bool) (xs : List α) :
++    appendCost lt (xs.map f) = appendCost (fun a b => lt (f a) (f b)) xs := by
++  unfold appendCost
++  rw [run_map]
++
++theorem literalCost_map (f : α → β) (lt : β → β → Bool) (xs : List α) :
++    literalCost lt (xs.map f) = literalCost (fun a b => lt (f a) (f b)) xs := by
++  simp only [literalCost, exerciseCost_map, appendCost_map]
++
++end Resources.QuickSort
+diff --git a/Examples/QuickSortTransport.lean b/Examples/QuickSortTransport.lean
+new file mode 100644
+index 0000000..3dd52b0
+--- /dev/null
++++ b/Examples/QuickSortTransport.lean
+@@ -0,0 +1,69 @@
++import Applications.Resources.QuickSortTransport
++import Mathlib.Tactic.NormNum
++
++/-! Connected occurrence, duplicate-payload and comparator-boundary examples
++for the actual measured first-pivot execution. -/
++
++namespace Examples.QuickSortTransport
++
++open Resources.QuickSort
++
++universe u
++variable {α : Type u}
++
++/-- No equality or inhabitance instance on the payload is needed. The label
++list may itself be incomplete or contain repetitions. -/
++theorem arbitrary_occurrence_lookup (lt : α → α → Bool) (xs : List α)
++    (labels : List (Fin xs.length)) :
++    run lt (labels.map (fun i => xs[i])) =
++      ((run (fun i j : Fin xs.length => lt xs[i] xs[j]) labels).1.map
++          (fun i => xs[i]),
++        (run (fun i j : Fin xs.length => lt xs[i] xs[j]) labels).2) :=
++  run_map (fun i : Fin xs.length => xs[i]) lt labels
++
++theorem arbitrary_occurrence_costs (lt : α → α → Bool) (xs : List α)
++    (labels : List (Fin xs.length)) :
++    exerciseCost lt (labels.map (fun i => xs[i])) =
++        exerciseCost (fun i j : Fin xs.length => lt xs[i] xs[j]) labels ∧
++      appendCost lt (labels.map (fun i => xs[i])) =
++        appendCost (fun i j : Fin xs.length => lt xs[i] xs[j]) labels ∧
++      literalCost lt (labels.map (fun i => xs[i])) =
++        literalCost (fun i j : Fin xs.length => lt xs[i] xs[j]) labels :=
++  ⟨exerciseCost_map (fun i : Fin xs.length => xs[i]) lt labels,
++    appendCost_map (fun i : Fin xs.length => xs[i]) lt labels,
++    literalCost_map (fun i : Fin xs.length => xs[i]) lt labels⟩
++
++/-- A visibly non-injective map still preserves the entire measured result
++with its pulled-back comparator. It never collapses list occurrences. -/
++theorem noninjective_constant_run (xs : List Bool) :
++    ¬ Function.Injective (fun _ : Bool => (0 : Nat)) ∧
++      run (fun a b : Nat => decide (a < b)) (xs.map (fun _ => 0)) =
++        ((run (fun _ _ : Bool => false) xs).1.map (fun _ => 0),
++          (run (fun _ _ : Bool => false) xs).2) := by
++  constructor
++  · intro h
++    have heq : false = true := h rfl
++    cases heq
++  · exact run_map (fun _ : Bool => (0 : Nat)) (fun a b : Nat => decide (a < b)) xs
++
++theorem duplicate_fixture :
++    run (fun a b : Nat => decide (a < b))
++        (([true, false, true] : List Bool).map (fun _ => 0)) =
++      ([0, 0, 0], (25, 9)) := by
++  rw [run_map]
++  norm_num [run_cons]
++
++theorem empty_uninhabited (f : Empty → α) (lt : α → α → Bool) :
++    (run lt (([] : List Empty).map f)).2 = (1, 0) := by
++  simp only [counts_map, run_nil]
++
++/-- The comparator correspondence is substantive: reversing the branch
++choice on a two-element input changes the actual append-inclusive cost. -/
++theorem comparator_cost_boundary :
++    literalCost (fun _ _ : Bool => false) [false, true] = 19 ∧
++      literalCost (fun _ _ : Bool => true) [false, true] = 20 ∧
++      literalCost (fun _ _ : Bool => false) [false, true] ≠
++        literalCost (fun _ _ : Bool => true) [false, true] := by
++  norm_num [literalCost, exerciseCost, appendCost, run_cons]
++
++end Examples.QuickSortTransport

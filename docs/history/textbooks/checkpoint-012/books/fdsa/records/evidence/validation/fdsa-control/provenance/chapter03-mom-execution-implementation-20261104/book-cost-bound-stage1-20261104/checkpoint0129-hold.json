@@ -1,0 +1,52 @@
+{
+  "recorded_utc": "2026-11-04T21:17:37.285539+00:00",
+  "checkpoint": "0129",
+  "authorization": "Root explicit checkpoint capture hold; this final hold record only, then stop every assigned source/provenance write.",
+  "head": "a9ac654c5dc3454709adc3a519ea82794f42f427",
+  "tree": "eabe923655b9536c85d978c967f072577605d591",
+  "branch": "work/fdsa-ch03-mom-execution",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+  "status": "?? Applications/Resources/SelectionBounds.lean\n?? Examples/SelectionBounds.lean",
+  "tracked_and_staged_changes": [],
+  "drafts": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionBounds.lean",
+      "bytes": 10051,
+      "sha256": "acbd5d979dc645cf48d74193185d91d94b6603538dd97b001763425ed6562ae6",
+      "relative_path": "Applications/Resources/SelectionBounds.lean",
+      "source_lines": 205,
+      "source_public_theorems": 10,
+      "source_private_declarations": 0,
+      "status": "UNTRACKED UNCOMPILED DRAFT; no immutable candidate or proof credit"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionBounds.lean",
+      "bytes": 5546,
+      "sha256": "d18c19c5e69e3f77029d498e66716bf7fc45ff303294ee1a78d3ca1eb435ce11",
+      "relative_path": "Examples/SelectionBounds.lean",
+      "source_lines": 122,
+      "source_public_theorems": 12,
+      "source_private_declarations": 0,
+      "status": "UNTRACKED UNCOMPILED DRAFT; no immutable candidate or proof credit"
+    }
+  ],
+  "protected_existing_source_paths_unchanged": 25,
+  "prior_own_records_unchanged": 93,
+  "preparation": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/preparation-and-independent-cases.json",
+    "bytes": 48855,
+    "sha256": "f058133829f079025b851e7ec0675200fd10af89bb7ab1eea30d736c0e18c6f9"
+  },
+  "source_readbacks": [
+    "4f0767 core lines1-125",
+    "665c90 core lines126-end",
+    "8c1ae5 entire examples",
+    "582a3f actual existing execution-example APIs"
+  ],
+  "inventory_status": "NOT YET WRITTEN. The complete22-claim header/domain/case inventory, explicit-@ input, final preservation assessment and source commit remain outstanding. The first draft used a reserved local proof-binder word, renamed to toll before these full readbacks; no compiler was invoked.",
+  "validation_status": "All new source uncompiled. Existing a9ac focused pair pass remains preserved; no new type/full/audit/review/acceptance result.",
+  "root_sole_compiler": true,
+  "author_compiler_commands": 0,
+  "all_assigned_source_and_own_provenance_writes_held": true,
+  "resume_only_after_root_checkpoint_release": true
+}

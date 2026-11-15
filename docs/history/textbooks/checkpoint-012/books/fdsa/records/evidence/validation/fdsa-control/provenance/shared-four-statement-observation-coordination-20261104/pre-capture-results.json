@@ -1,0 +1,44 @@
+[
+  {
+    "kind": "314",
+    "command": [
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/capture_statement_inputs.py",
+      "--project",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "--candidate",
+      "312aafb4446b995ff5542041b4e2e074f776db1e",
+      "--program",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+      "--output",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four314-input-observations-20261104-attempt1/pre-inputs.json"
+    ],
+    "started_utc": "2026-11-04T14:44:43.675716+00:00",
+    "completed_utc": "2026-11-04T14:44:44.047013+00:00",
+    "actual_exit": 0,
+    "stdout": "{\"output\": \"/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four314-input-observations-20261104-attempt1/pre-inputs.json\", \"candidate\": \"312aafb4446b995ff5542041b4e2e074f776db1e\", \"names\": 314, \"local_sources\": 27, \"object_and_trace_files\": 81, \"unchanged\": null}\n",
+    "stderr": "",
+    "compiler_invocation": false
+  },
+  {
+    "kind": "Foundation145-observation-only",
+    "command": [
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/capture_statement_inputs.py",
+      "--project",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "--candidate",
+      "312aafb4446b995ff5542041b4e2e074f776db1e",
+      "--program",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+      "--output",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-foundation110-receiving-observations-20261104-attempt1/pre-inputs.json"
+    ],
+    "started_utc": "2026-11-04T14:44:44.047513+00:00",
+    "completed_utc": "2026-11-04T14:44:44.370624+00:00",
+    "actual_exit": 0,
+    "stdout": "{\"output\": \"/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-foundation110-receiving-observations-20261104-attempt1/pre-inputs.json\", \"candidate\": \"312aafb4446b995ff5542041b4e2e074f776db1e\", \"names\": 145, \"local_sources\": 29, \"object_and_trace_files\": 87, \"unchanged\": null}\n",
+    "stderr": "",
+    "compiler_invocation": false
+  }
+]

@@ -1,0 +1,71 @@
+{
+  "recorded_utc": "2026-11-04T21:10:36.125871+00:00",
+  "state": "HELD: no further source or own provenance writes until explicit root release",
+  "candidate": "eaea222672013a67c4e84cf7bf8adae418be0cf6",
+  "tree": "f059c9e0920a244f331565fda94116fc1f847dc5",
+  "branch": "work/fdsa-ch03-values",
+  "git_status": "",
+  "source_owner": "/root/chapter03_values",
+  "scope": "Three new immutable source files, all52new/402cumulative public names; previous15files unchanged, zero new named private helpers/seven cumulative.",
+  "candidate_manifest": {
+    "name": "minimum-pivot-candidate1.json",
+    "bytes": 11549,
+    "sha256": "7aab99e90ecac3c664a760bd8e38b28b7a9610bbcce2f48f6a62d8e109ff4eb9"
+  },
+  "held_new_artifacts": [
+    {
+      "name": "minimum-pivot-starting-state.json",
+      "bytes": 7288,
+      "sha256": "4d2b44db31cf0802f4732a2cebd635d44b7845efeb0993366bab09e718597ed9"
+    },
+    {
+      "name": "minimum-pivot-precommit.json",
+      "bytes": 2126,
+      "sha256": "98356f7bb606f8037eb1732b0a25b37e2f1fa46d78b6a6b9584c60d3142c8efd"
+    },
+    {
+      "name": "minimum-pivot-inventory.json",
+      "bytes": 32489,
+      "sha256": "18ea6020574caf827e87f07b658340ac5f654eb5370ef2e7a79a716704231c92"
+    },
+    {
+      "name": "minimum-pivot-inventory-v2.json",
+      "bytes": 33174,
+      "sha256": "68e1874ab0e80c398efc76ccf8ebdcff5e3c4e1c76682da8108857f97a2accee"
+    },
+    {
+      "name": "minimum-pivot-preparation-correction.json",
+      "bytes": 1736,
+      "sha256": "99f9788c3c6d7fffc11379bc1d4c70b58e87bf2a8c9816d232b2f866191e8f7c"
+    },
+    {
+      "name": "MinimumPivotStatements.lean",
+      "bytes": 2849,
+      "sha256": "8b82cb6e2c11313812327b9f04e9cf6df0cf3d23635dd48bc8c28d617a8845ed"
+    },
+    {
+      "name": "minimum-pivot-review-note.md",
+      "bytes": 16283,
+      "sha256": "36eeb7d69656230ede4bb47739dfe98e9df38bb9d08940a5b9259177dedb24dd"
+    },
+    {
+      "name": "minimum-pivot-source.diff",
+      "bytes": 21425,
+      "sha256": "1b9e5fb56fa0537884cfce837392aaf7ee0b2e93fd81868685277ae3cb64838e"
+    },
+    {
+      "name": "minimum-pivot-candidate1.json",
+      "bytes": 11549,
+      "sha256": "7aab99e90ecac3c664a760bd8e38b28b7a9610bbcce2f48f6a62d8e109ff4eb9"
+    }
+  ],
+  "actual_compiler_status": "Not run by author; root sole one-thread qualified compiler. No acceptance/type/audit credit.",
+  "next_action": "Root focused compile these exact three targets; preserve all actual terminal evidence. No C080 source expansion before release.",
+  "readback_receipts": {
+    "source_and_all_proof_bodies": "54eaeb",
+    "all52_headers_and_explicit_input": "7e2c4a; the one let-containing header was corrected and fully read7d5a67",
+    "full_assessment": "c6f03b",
+    "starting_state": "aab65f",
+    "precommit_and_commit_result": "dae128"
+  }
+}

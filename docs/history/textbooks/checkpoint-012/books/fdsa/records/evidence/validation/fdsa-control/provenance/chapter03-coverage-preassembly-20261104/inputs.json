@@ -1,0 +1,1514 @@
+{
+  "recorded_utc": "2026-11-04T22:19:41.535732+00:00",
+  "kind": "author-side fixed-snapshot preassembly source cross-check",
+  "not_independent_review": true,
+  "not_actual_type_capture": true,
+  "not_acceptance": true,
+  "source_ref_writes": false,
+  "compiler_runs": false,
+  "snapshots": {
+    "base": {
+      "commit": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+      "tree": "fe0bd9f17a5e1a09797be55fd79491e8c363cbd0"
+    },
+    "root": {
+      "commit": "96c99a18a1f4ad28bbb8d13a17cbefb1899d8ab9",
+      "tree": "c80cbd0f056980069634e5b3ad7d53ea429b733e"
+    },
+    "values": {
+      "commit": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "tree": "e0d90f6ba9b0864a65860983852dd8642e70070a"
+    },
+    "mom": {
+      "commit": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330",
+      "tree": "f45cdd048ccf08e0ed3be2cc9db3e76d142bbdb3"
+    },
+    "random": {
+      "commit": "0b8006f150cdb1aa9c76f5cf80eededca4417e81",
+      "tree": "1f499737b1a9658e8901940d803f5c7ca6d7ad8d"
+    },
+    "query": {
+      "commit": "2d20573cc5d3373a4746a5ebf16314369e7d7e3e",
+      "tree": "aa3f2cb9995d6f25de5b60204a76b5a34b03e2af"
+    }
+  },
+  "accepted_integration": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "frozen_requirements": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/chapter03-obligations.md",
+    "bytes": 52581,
+    "sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed"
+  },
+  "proof_plan": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/selection-proof-plan.md",
+    "bytes": 31813,
+    "sha256": "4683072c5b47f168f81d0f35b727e247bc2c36af6922c76ab8eaac4fb542d18b"
+  },
+  "book_pdf_sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645",
+  "pinned_isabelle_revision": "f86f290225eebcc52c1ae7dba2e098f405f51c21",
+  "pinned_selection_thy_sha256": "c2e5970bcdc9430ef802a6612381fdd3820a02bc796d20f4a202060f3f00b4e8",
+  "module_aliases": {
+    "Rank": {
+      "snapshot": "base",
+      "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+      "path": "Applications/Selection/Rank.lean",
+      "bytes": 3713,
+      "sha256": "4a82df75593d909e2968bf1e27cbfea52c9795abfe81250bb2385e7dfc16f965",
+      "git_blob": "3412cfa142e12d9a50c725661c6ce133609a3d0c",
+      "declared_namespaces": [
+        "Applications.Selection"
+      ]
+    },
+    "ThreeWay": {
+      "snapshot": "base",
+      "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+      "path": "Applications/Selection/ThreeWay.lean",
+      "bytes": 9718,
+      "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa",
+      "git_blob": "8627ad6d219f55a404dd96c4f4553594eaa71264",
+      "declared_namespaces": [
+        "Applications.Selection"
+      ]
+    },
+    "Partition": {
+      "snapshot": "base",
+      "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+      "path": "Applications/Resources/Partition.lean",
+      "bytes": 2678,
+      "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14",
+      "git_blob": "e9d3682a4d3a499aaffd41f73c7fc39965fa0d30",
+      "declared_namespaces": [
+        "Resources.Partition"
+      ]
+    },
+    "EPartition": {
+      "snapshot": "base",
+      "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+      "path": "Examples/ThreeWayPartition.lean",
+      "bytes": 8109,
+      "sha256": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526",
+      "git_blob": "a1f29b6310bc8623df2725b0d40f3949513199c5",
+      "declared_namespaces": [
+        "ThreeWayPartitionExamples"
+      ]
+    },
+    "Count": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Applications/Selection/CountRank.lean",
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d",
+      "git_blob": "5f6393df9fd804e4234eb16c8ecdcd93426952b3",
+      "declared_namespaces": [
+        "Applications.Selection"
+      ]
+    },
+    "ECount": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Examples/SelectionCountRank.lean",
+      "bytes": 4423,
+      "sha256": "cc73980788882d39abe44672d89e6a3ce37dfe3b5f5788375255248e8b4a66d2",
+      "git_blob": "b43d7c7eeb5f2cc3134166a00100edf26e91d2a9",
+      "declared_namespaces": [
+        "Examples.SelectionCountRank"
+      ]
+    },
+    "Chunks": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Applications/Sequences/Chunks.lean",
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493",
+      "git_blob": "c45bcb6427c002d3bab7c728dd6743458c8010fc",
+      "declared_namespaces": [
+        "Applications.Sequences.Chunks"
+      ]
+    },
+    "EChunks": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Examples/ListChunks.lean",
+      "bytes": 2683,
+      "sha256": "161e240f9c07db5b13f9abf5bf09782064adce4862e60fbe35f0eba483c76c78",
+      "git_blob": "adb9da5b16f1bef2e1e8fe7cbeee0698ea1b0859",
+      "declared_namespaces": [
+        "Examples.ListChunks"
+      ]
+    },
+    "Pivot": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Applications/Selection/MedianOfMedians.lean",
+      "bytes": 13797,
+      "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba",
+      "git_blob": "c348fd2b48ec0b40fa76aa30634406580f9063c0",
+      "declared_namespaces": [
+        "Applications.Selection"
+      ]
+    },
+    "EPivot": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Examples/MedianOfMedians.lean",
+      "bytes": 9092,
+      "sha256": "0bbbbdab0f2f41f42fd615231d04d29ebeb8f7ffd5cc83e2a6b832cbfcc25f0c",
+      "git_blob": "4803b5ce143a7501608810059c80bc263027c6a5",
+      "declared_namespaces": [
+        "Examples.MedianOfMedians"
+      ]
+    },
+    "Fixed": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Applications/Selection/FixedRank.lean",
+      "bytes": 11391,
+      "sha256": "463e00dfd9eaac03dd2bec858eb64454d6c79abf03c80c8011019fb8af527395",
+      "git_blob": "9dd07004e3776b073f2786dbc31a105394e2f065",
+      "declared_namespaces": [
+        "Applications.Selection.FixedRank"
+      ]
+    },
+    "FixedCost": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Applications/Resources/FixedRank.lean",
+      "bytes": 7633,
+      "sha256": "831a78121a2ee7d7db773dd335febb938d8dfc8e7dbe944bb4cb7d71ec202c94",
+      "git_blob": "36f8933c8ac1bcbc94f2432a06aa67fc5bd5b702",
+      "declared_namespaces": [
+        "Resources.FixedRank"
+      ]
+    },
+    "EFixed": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Examples/FixedRankSelection.lean",
+      "bytes": 7246,
+      "sha256": "c1ba9819d89af6a1d7f3c1678f10bed4b0614c63b385eb856144d315ebd955da",
+      "git_blob": "fe233b900bbdb3a9c874e79f1bdcf92bb7bb549b",
+      "declared_namespaces": [
+        "Examples.FixedRankSelection"
+      ]
+    },
+    "Reduction": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Applications/Selection/MedianReduction.lean",
+      "bytes": 8269,
+      "sha256": "902329504401dfb5ae2dbd2a62c6c7fa8d3dc9eec22d29d99b350282e57d608a",
+      "git_blob": "1e36217265e5dda7cd3f79f7ffdf1c15e702c4d4",
+      "declared_namespaces": [
+        "Applications.Selection.MedianReduction"
+      ]
+    },
+    "ReductionCost": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Applications/Resources/MedianReduction.lean",
+      "bytes": 5846,
+      "sha256": "e3bb494b94ed6829ad080b9120a69af16cb12c66cb7f7892598db988e3de354c",
+      "git_blob": "723e7c886a4d01eeb014e02d524c8d85553ac76e",
+      "declared_namespaces": [
+        "Resources.MedianReduction"
+      ]
+    },
+    "EReduction": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Examples/MedianReduction.lean",
+      "bytes": 7589,
+      "sha256": "d08959ce8687e1bc6db9dff78fb581c53b072e9db0436da465d9e42fdf652506",
+      "git_blob": "a123c6bfe01f3c667060cb9787d8ac06acb981c5",
+      "declared_namespaces": [
+        "Examples.MedianReduction"
+      ]
+    },
+    "Counter": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Applications/Selection/MedianCounterfamily.lean",
+      "bytes": 7414,
+      "sha256": "8fc4a388b50bd363587b8d8fbdc742d2e9d45426b58af75d9b83f471d1e4e0f6",
+      "git_blob": "6b86f826e0b6d7cba51d592a110219a74279caac",
+      "declared_namespaces": [
+        "Applications.Selection.MedianCounterfamily"
+      ]
+    },
+    "ECounter": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Examples/MedianCounterfamily.lean",
+      "bytes": 2917,
+      "sha256": "8ebe64ee7b3a819b67a4afc9d2d52b8e659ebcdd20ffea17fb9933c1be0f5083",
+      "git_blob": "64df410b43d670f10a595ae1c967487e9a1ef0cc",
+      "declared_namespaces": [
+        "Examples.MedianCounterfamily"
+      ]
+    },
+    "EGeneral": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Examples/GeneralMedianBounds.lean",
+      "bytes": 9001,
+      "sha256": "dfc1bb996f97104c2925bd6b7d2577272cf5a3e674bb756785cfdcdd234ffd9d",
+      "git_blob": "8a3e98962d217a4a3b198562b4b4e22c90de60a5",
+      "declared_namespaces": [
+        "Examples.GeneralMedianBounds"
+      ]
+    },
+    "Policy": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Applications/Resources/SelectionPolicy.lean",
+      "bytes": 5986,
+      "sha256": "c906415dff6fc59694629f3d17977e55d2aa2ea2d989610f222bb781056a3112",
+      "git_blob": "71a146d37dc0b87bbdb38cc94dd1d2b02457a031",
+      "declared_namespaces": [
+        "Resources.SelectionPolicy"
+      ]
+    },
+    "Minimum": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Applications/Resources/MinimumPivot.lean",
+      "bytes": 10610,
+      "sha256": "c4e4ee7b0ef4413684fc13069d2f7f1200ac6387df2aa81565db0aa45bebaabe",
+      "git_blob": "c9ab1d98137636909b96c98b90bbb314eea700ef",
+      "declared_namespaces": [
+        "Resources.MinimumPivot"
+      ]
+    },
+    "EMinimum": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Examples/MinimumPivot.lean",
+      "bytes": 3770,
+      "sha256": "08a54aec03e507b1c8dc87dcf521f96984c6a6cff4988294a60ddb1db6a9cdc8",
+      "git_blob": "098bb18c8422aff6cb9aa1a2b3abf9bf0a66ec61",
+      "declared_namespaces": [
+        "Examples.MinimumPivot"
+      ]
+    },
+    "Halving": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Applications/Resources/HalvingSelection.lean",
+      "bytes": 8464,
+      "sha256": "7a3f78c70011dca48546cba30ae2c6e3d90ed3208a69b35aaca2a78f52da17a1",
+      "git_blob": "146545b7dad10e2b1bb247f282051ae0db9bc005",
+      "declared_namespaces": [
+        "Resources.HalvingSelection"
+      ]
+    },
+    "MedianPolicy": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Applications/Resources/MedianPolicy.lean",
+      "bytes": 7649,
+      "sha256": "d16093224bc2eac70efc27094ccbc6506418e6b98aac73d0ebe309ad13887f00",
+      "git_blob": "3ff974cfeb3df05338df4128b826a11d6abba593",
+      "declared_namespaces": [
+        "Resources.MedianPolicy"
+      ]
+    },
+    "EMedianPolicy": {
+      "snapshot": "values",
+      "candidate": "27281919b9edd31a53336cbb5583ebc17632247e",
+      "path": "Examples/MedianPolicy.lean",
+      "bytes": 7410,
+      "sha256": "fd6259f1b699adc9f7f98f7a90ccb1c34bbb2c7fe4d80ab7196c6a65635c31d4",
+      "git_blob": "f860dfadc7c4e1f4a8e3f0917636047249985b39",
+      "declared_namespaces": [
+        "Examples.MedianPolicy"
+      ]
+    },
+    "Slow": {
+      "snapshot": "mom",
+      "candidate": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330",
+      "path": "Applications/Resources/SelectionAuxiliary.lean",
+      "bytes": 6215,
+      "sha256": "eeba4ac85dd4e07b8b42f38499748cae69cb6dcaaa01fdc8400a3cf5b947a925",
+      "git_blob": "2bc892fee38610f0866e0cc3cd3529b7693f7c03",
+      "declared_namespaces": [
+        "Resources.SelectionAuxiliary"
+      ]
+    },
+    "ESlow": {
+      "snapshot": "mom",
+      "candidate": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330",
+      "path": "Examples/SelectionAuxiliary.lean",
+      "bytes": 7302,
+      "sha256": "d5e495d5a9f6824d9b61fd41ce570059ab5aad3e93f4449f3b712e7d41a4b41e",
+      "git_blob": "494cc24a24555f35d42234967fc2e840488081ad",
+      "declared_namespaces": [
+        "Examples.SelectionAuxiliary"
+      ]
+    },
+    "ChunkCost": {
+      "snapshot": "mom",
+      "candidate": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330",
+      "path": "Applications/Resources/Chunks.lean",
+      "bytes": 4591,
+      "sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc",
+      "git_blob": "25c7db2d5358bf2087657a8987963ba31dff09eb",
+      "declared_namespaces": [
+        "Resources.Chunks"
+      ]
+    },
+    "EChunkCost": {
+      "snapshot": "mom",
+      "candidate": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330",
+      "path": "Examples/ChunkCalls.lean",
+      "bytes": 2730,
+      "sha256": "ca79f35fe846399bcb180d9b8fbd63fa453108c59c4503adb8a5731182fdc5e3",
+      "git_blob": "bf31edf1a15b503df46e6b79daca89476970a200",
+      "declared_namespaces": [
+        "Examples.ChunkCalls"
+      ]
+    },
+    "MediansCost": {
+      "snapshot": "mom",
+      "candidate": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "bytes": 9755,
+      "sha256": "e64e998edc9353e5fd52544177fadd32f6398e3260b27ca54195cd8917e5d098",
+      "git_blob": "cd6bd74d71c43fc76d32555521d612dfb7cc5ee8",
+      "declared_namespaces": [
+        "Resources.SelectionMedians"
+      ]
+    },
+    "EMediansCost": {
+      "snapshot": "mom",
+      "candidate": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330",
+      "path": "Examples/SelectionMedians.lean",
+      "bytes": 5142,
+      "sha256": "4563c04666fdfb6073c8213328a2f868022cf2ed17538cd1671aaea68811c9d8",
+      "git_blob": "2775ddc7f0ae55176ef121b09f9a80bdf6f3ee52",
+      "declared_namespaces": [
+        "Examples.SelectionMedians"
+      ]
+    },
+    "Select": {
+      "snapshot": "mom",
+      "candidate": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330",
+      "path": "Applications/Resources/Selection.lean",
+      "bytes": 22435,
+      "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+      "git_blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3",
+      "declared_namespaces": [
+        "Resources.Selection"
+      ]
+    },
+    "ESelect": {
+      "snapshot": "mom",
+      "candidate": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330",
+      "path": "Examples/SelectionCosts.lean",
+      "bytes": 13604,
+      "sha256": "d1f2c2e2e5ea3180d7fb1f736b0b3c1a98b3280e0a2902c2bfc712f409044a4e",
+      "git_blob": "4c8a21dd318ad19c412cbe710cff0b4dffad3bf9",
+      "declared_namespaces": [
+        "Examples.SelectionCosts"
+      ]
+    },
+    "Bounds": {
+      "snapshot": "mom",
+      "candidate": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330",
+      "path": "Applications/Resources/SelectionBounds.lean",
+      "bytes": 10073,
+      "sha256": "0f9181b569d24b2615c08be5c6a305a75e67679f14338e877fced10113d61edc",
+      "git_blob": "b68014cfc729990255e6883ac5d874af30bbb058",
+      "declared_namespaces": [
+        "Resources.Selection"
+      ]
+    },
+    "EBounds": {
+      "snapshot": "mom",
+      "candidate": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330",
+      "path": "Examples/SelectionBounds.lean",
+      "bytes": 5546,
+      "sha256": "d18c19c5e69e3f77029d498e66716bf7fc45ff303294ee1a78d3ca1eb435ce11",
+      "git_blob": "97a0ec0aa292ba7a8ac69e2be23e89c23671ae13",
+      "declared_namespaces": [
+        "Examples.SelectionBounds"
+      ]
+    },
+    "GenericEnvelope": {
+      "snapshot": "mom",
+      "candidate": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330",
+      "path": "Applications/Resources/SelectionGenericEnvelope.lean",
+      "bytes": 9448,
+      "sha256": "946dc54375989de8413ada388e0672d5f862a1c5da5e62efa9522865911db0e3",
+      "git_blob": "59ef8f3b96d80f86ee97a12efecfe35f07d94209",
+      "declared_namespaces": [
+        "Resources.Selection"
+      ]
+    },
+    "GenericBounds": {
+      "snapshot": "mom",
+      "candidate": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330",
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "bytes": 14543,
+      "sha256": "1b2b629177c96244d377261f12b45034c3c2107f0ef5c78bb512c947e7f12524",
+      "git_blob": "f8d3d060e323a8c74af0dd423c4ee9feecfa1ca3",
+      "declared_namespaces": [
+        "Resources.Selection"
+      ]
+    },
+    "EGenericBounds": {
+      "snapshot": "mom",
+      "candidate": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330",
+      "path": "Examples/SelectionGenericBounds.lean",
+      "bytes": 11435,
+      "sha256": "762be98de6b9d8c1643156509d947ea298b7d16b9e8535c69194c92811831d50",
+      "git_blob": "447ad53f1333f5c408bc7506b4b1d1b9f77ad263",
+      "declared_namespaces": [
+        "Examples.SelectionGenericBounds"
+      ]
+    },
+    "Rounded": {
+      "snapshot": "root",
+      "candidate": "96c99a18a1f4ad28bbb8d13a17cbefb1899d8ab9",
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758",
+      "git_blob": "0f78fd302b88aba9596036a63b79195007e502a8",
+      "declared_namespaces": [
+        "Resources.RoundedRecurrence"
+      ]
+    },
+    "ERounded": {
+      "snapshot": "root",
+      "candidate": "96c99a18a1f4ad28bbb8d13a17cbefb1899d8ab9",
+      "path": "Examples/RoundedRecurrence.lean",
+      "bytes": 3782,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d",
+      "git_blob": "79e2f5c019122b42b55d1073e0f7e73fec06e94a",
+      "declared_namespaces": [
+        "Examples.RoundedRecurrence"
+      ]
+    },
+    "RoundedBounds": {
+      "snapshot": "root",
+      "candidate": "96c99a18a1f4ad28bbb8d13a17cbefb1899d8ab9",
+      "path": "Applications/Resources/RoundedRecurrenceBounds.lean",
+      "bytes": 6951,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135",
+      "git_blob": "45b5c20045c45919eb1f368ae0d9c9629b32a27b",
+      "declared_namespaces": [
+        "Resources.RoundedRecurrence"
+      ]
+    },
+    "ERoundedBounds": {
+      "snapshot": "root",
+      "candidate": "96c99a18a1f4ad28bbb8d13a17cbefb1899d8ab9",
+      "path": "Examples/RoundedRecurrenceBounds.lean",
+      "bytes": 7295,
+      "sha256": "18275f597cf579edf0db6785d0910e76dcc9cff084566ced73cd0da8828c0135",
+      "git_blob": "0c123861745e060ea6926f6c41423fd5cd832e75",
+      "declared_namespaces": [
+        "Examples.RoundedRecurrenceBounds"
+      ]
+    },
+    "F": {
+      "snapshot": "root",
+      "candidate": "96c99a18a1f4ad28bbb8d13a17cbefb1899d8ab9",
+      "path": "Applications/Resources/SelectionRecurrence.lean",
+      "bytes": 6560,
+      "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e",
+      "git_blob": "ff3350e7cc566e62466e056166c8af6f781e32df",
+      "declared_namespaces": [
+        "Resources.SelectionRecurrence"
+      ]
+    },
+    "EF": {
+      "snapshot": "root",
+      "candidate": "96c99a18a1f4ad28bbb8d13a17cbefb1899d8ab9",
+      "path": "Examples/SelectionRecurrence.lean",
+      "bytes": 2272,
+      "sha256": "6599e51e8d6ea0197d74d2ca43076a355a9c131ce453f4a25c6c3bf086d99971",
+      "git_blob": "e0de045d678cb0ac25ca9ce5b98b4dc70dc5e7fb",
+      "declared_namespaces": [
+        "Examples.SelectionRecurrence"
+      ]
+    },
+    "Groups": {
+      "snapshot": "root",
+      "candidate": "96c99a18a1f4ad28bbb8d13a17cbefb1899d8ab9",
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "bytes": 11646,
+      "sha256": "0dc225b3009a612bea521813fda96789629fc486201cd9998bd6a72d6fdb9eed",
+      "git_blob": "afa3500a13705fe4d49cffd91131b47dbdf81701",
+      "declared_namespaces": [
+        "Resources.GroupSelectionRecurrence"
+      ]
+    },
+    "EGroups": {
+      "snapshot": "root",
+      "candidate": "96c99a18a1f4ad28bbb8d13a17cbefb1899d8ab9",
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "bytes": 5638,
+      "sha256": "bfcb81cf7de89516487aedf12fc223df534fa9ca2a4a964edb872023c45beba3",
+      "git_blob": "3682e00b8f41da11acea2a1e4dee83952cff7085",
+      "declared_namespaces": [
+        "Examples.GroupSelectionRecurrence"
+      ]
+    },
+    "Envelope": {
+      "snapshot": "root",
+      "candidate": "96c99a18a1f4ad28bbb8d13a17cbefb1899d8ab9",
+      "path": "Applications/Resources/SelectionEnvelope.lean",
+      "bytes": 3159,
+      "sha256": "e4d1ca2054a7509a082340448b77f95a56380c8abab41da46b3b817fb8dab754",
+      "git_blob": "789110426092d67b85933493ca48296ff0f526c3",
+      "declared_namespaces": [
+        "Resources.SelectionEnvelope"
+      ]
+    },
+    "Cutoff": {
+      "snapshot": "root",
+      "candidate": "96c99a18a1f4ad28bbb8d13a17cbefb1899d8ab9",
+      "path": "Applications/Resources/SelectionCutoff.lean",
+      "bytes": 10228,
+      "sha256": "12980a69d01206eb2e5e9d45149d7336ff762f0c406ad345d36f1cbdada36218",
+      "git_blob": "6c5abaa508ecdcc0355c9413106c1b9f6fb6c72e",
+      "declared_namespaces": [
+        "Resources.SelectionCutoff"
+      ]
+    },
+    "ECutoff": {
+      "snapshot": "root",
+      "candidate": "96c99a18a1f4ad28bbb8d13a17cbefb1899d8ab9",
+      "path": "Examples/SelectionCutoff.lean",
+      "bytes": 4470,
+      "sha256": "cdde5d4630a888b2ca50f25af8e876bae83cea3bef9d8b8a3de0380b477999a4",
+      "git_blob": "83ad3ce6beec1d8ce9919c24bde86400808455e0",
+      "declared_namespaces": [
+        "Examples.SelectionCutoff"
+      ]
+    },
+    "Outside": {
+      "snapshot": "root",
+      "candidate": "96c99a18a1f4ad28bbb8d13a17cbefb1899d8ab9",
+      "path": "Applications/Selection/OutsidePivot.lean",
+      "bytes": 6444,
+      "sha256": "22ceec39e94410200dda20d4224a87518aa001eb127605f02fe6961c01a97809",
+      "git_blob": "e3f8fe0d2fa0dfd02735b45dd298263ee18080c0",
+      "declared_namespaces": [
+        "Applications.Selection.OutsidePivot"
+      ]
+    },
+    "EOutside": {
+      "snapshot": "root",
+      "candidate": "96c99a18a1f4ad28bbb8d13a17cbefb1899d8ab9",
+      "path": "Examples/OutsidePivot.lean",
+      "bytes": 3845,
+      "sha256": "0c2feb488fd784937c8888a3e48e31b32a307b96bcefb6178d7c75274afdb275",
+      "git_blob": "5fc3cf82ffba018307925d0dec1b57726821bd05",
+      "declared_namespaces": [
+        "Examples.OutsidePivot"
+      ]
+    },
+    "HalvingTrace": {
+      "snapshot": "root",
+      "candidate": "96c99a18a1f4ad28bbb8d13a17cbefb1899d8ab9",
+      "path": "Applications/Resources/HalvingTrace.lean",
+      "bytes": 6430,
+      "sha256": "89f15ae8a7e222a5c046e91582c38c61283350b27acacfd0c1278d2da4f7aaa6",
+      "git_blob": "bf85acd26b4d35526ec25a6e6c3009b5589e4949",
+      "declared_namespaces": [
+        "Resources.HalvingTrace"
+      ]
+    },
+    "Random": {
+      "snapshot": "random",
+      "candidate": "0b8006f150cdb1aa9c76f5cf80eededca4417e81",
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3",
+      "git_blob": "0307419d586ac03af372629ef264be9a92295f55",
+      "declared_namespaces": [
+        "Resources.RandomSelection"
+      ]
+    },
+    "ERandom": {
+      "snapshot": "random",
+      "candidate": "0b8006f150cdb1aa9c76f5cf80eededca4417e81",
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e",
+      "git_blob": "6f505d29658dc3953baf3aa859205eb7f0569a9a",
+      "declared_namespaces": [
+        "Examples.RandomSelection"
+      ]
+    },
+    "RandomRun": {
+      "snapshot": "random",
+      "candidate": "0b8006f150cdb1aa9c76f5cf80eededca4417e81",
+      "path": "Applications/Resources/RandomSelectionRun.lean",
+      "bytes": 12714,
+      "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718",
+      "git_blob": "4af2a079ad55005657eeac2eaf4d3dd2a3a3ac11",
+      "declared_namespaces": [
+        "Resources.RandomSelection"
+      ]
+    },
+    "ERandomRun": {
+      "snapshot": "random",
+      "candidate": "0b8006f150cdb1aa9c76f5cf80eededca4417e81",
+      "path": "Examples/RandomSelectionRun.lean",
+      "bytes": 3770,
+      "sha256": "76504fe5fa77c581b8a7e3c9f3e0247c8a927adee8b308f84be6167e0ea20e0f",
+      "git_blob": "ca900f902acde3c091e67f90108c2adb03b321cb",
+      "declared_namespaces": [
+        "Examples.RandomSelectionRun"
+      ]
+    },
+    "RandomMean": {
+      "snapshot": "random",
+      "candidate": "0b8006f150cdb1aa9c76f5cf80eededca4417e81",
+      "path": "Applications/Resources/RandomSelectionMean.lean",
+      "bytes": 16493,
+      "sha256": "5a7d396ed0d451c0b0ec51493c004b721c804c69263ad7c659f023cab3ddda8f",
+      "git_blob": "b777b0de341a7cb0df0b1b4a2542904250959de1",
+      "declared_namespaces": [
+        "Resources.RandomSelection"
+      ]
+    },
+    "ERandomMean": {
+      "snapshot": "random",
+      "candidate": "0b8006f150cdb1aa9c76f5cf80eededca4417e81",
+      "path": "Examples/RandomSelectionMean.lean",
+      "bytes": 5962,
+      "sha256": "b9c83ac6e4dda31c6c70d6ccbf021cfcad5ca8317f5a3bf1133788fc559bb7af",
+      "git_blob": "ae7113072d39c3549208b52feae61e884c5735d5",
+      "declared_namespaces": [
+        "Examples.RandomSelectionMean"
+      ]
+    },
+    "Drift": {
+      "snapshot": "random",
+      "candidate": "0b8006f150cdb1aa9c76f5cf80eededca4417e81",
+      "path": "Applications/Resources/RandomSelectionDrift.lean",
+      "bytes": 15121,
+      "sha256": "cdb869dc4a7816eb76ab462bd8e6b62df9e9bb7799434903afa9ec67bed59ef4",
+      "git_blob": "19b9648eddb6d6b536128772fa0b7e4d73c6dae5",
+      "declared_namespaces": [
+        "Resources.RandomSelection"
+      ]
+    },
+    "EDrift": {
+      "snapshot": "random",
+      "candidate": "0b8006f150cdb1aa9c76f5cf80eededca4417e81",
+      "path": "Examples/RandomSelectionDrift.lean",
+      "bytes": 5797,
+      "sha256": "fade4d637a2c50672d6f792326a22264bb4b348cb608bac58c0cf834a914af48",
+      "git_blob": "cfb93cd1ca0922015d4e844406d51c3c1f6f2779",
+      "declared_namespaces": [
+        "Examples.RandomSelectionDrift"
+      ]
+    },
+    "Tail": {
+      "snapshot": "random",
+      "candidate": "0b8006f150cdb1aa9c76f5cf80eededca4417e81",
+      "path": "Applications/Resources/RandomSelectionTail.lean",
+      "bytes": 24400,
+      "sha256": "76ea201bc310b816f844e45422ecaf75d2d060202d1e391681affd558db99725",
+      "git_blob": "51ffc050d43ae7642b7b94427d3251b61621c6d7",
+      "declared_namespaces": [
+        "Resources.RandomSelection"
+      ]
+    },
+    "ETail": {
+      "snapshot": "random",
+      "candidate": "0b8006f150cdb1aa9c76f5cf80eededca4417e81",
+      "path": "Examples/RandomSelectionTail.lean",
+      "bytes": 8697,
+      "sha256": "2678c1f6fd6cab99353562b050d641427c9b04b7648a30e751051d4f0f0d771e",
+      "git_blob": "682983d2bc4131cb684aad56358a335e9acf59ba",
+      "declared_namespaces": [
+        "Examples.RandomSelectionTail"
+      ]
+    },
+    "Sensitivity": {
+      "snapshot": "query",
+      "candidate": "2d20573cc5d3373a4746a5ebf16314369e7d7e3e",
+      "path": "Applications/Selection/CoordinateSensitivity.lean",
+      "bytes": 6717,
+      "sha256": "224724056815f73aff552ead23b7dd83af4078ad61009169e1b474f4b94476e6",
+      "git_blob": "aa11abfc1bc0aba12c564b3f974f1b2dfed097b0",
+      "declared_namespaces": [
+        "Applications.Selection.CoordinateSensitivity"
+      ]
+    },
+    "ESensitivity": {
+      "snapshot": "query",
+      "candidate": "2d20573cc5d3373a4746a5ebf16314369e7d7e3e",
+      "path": "Examples/CoordinateSensitivity.lean",
+      "bytes": 3726,
+      "sha256": "ed3d3d7cd41c97169893fdb5cf95e336a560f6f042ee70cea0a24ad7a6691828",
+      "git_blob": "83ae3945dc67c142333d41317ae39a38ee3e2b7a",
+      "declared_namespaces": [
+        "Examples.CoordinateSensitivity"
+      ]
+    },
+    "Query": {
+      "snapshot": "query",
+      "candidate": "2d20573cc5d3373a4746a5ebf16314369e7d7e3e",
+      "path": "Applications/Selection/CoordinateQueries.lean",
+      "bytes": 11106,
+      "sha256": "ca1c0d339500e77aa14ca47420b9f7a11f213bbcd8ac113c3281c7f9690e6409",
+      "git_blob": "49aa4bdf4beb2533fe273c3267ae031d862dbcf7",
+      "declared_namespaces": [
+        "Applications.Selection.CoordinateQueries"
+      ]
+    },
+    "EQuery": {
+      "snapshot": "query",
+      "candidate": "2d20573cc5d3373a4746a5ebf16314369e7d7e3e",
+      "path": "Examples/CoordinateQueries.lean",
+      "bytes": 8079,
+      "sha256": "d90bd28ec4496105d9c5da80171a4c96a5ace119c0e178ded48f4f84ca8ad16d",
+      "git_blob": "cdc5b93e5a5ebe720a30812a90b3a8cd388edaba",
+      "declared_namespaces": [
+        "Examples.CoordinateQueries"
+      ]
+    },
+    "ReadAll": {
+      "snapshot": "query",
+      "candidate": "2d20573cc5d3373a4746a5ebf16314369e7d7e3e",
+      "path": "Applications/Selection/CoordinateReadAll.lean",
+      "bytes": 7611,
+      "sha256": "ab2fd8949fe4a73e909cac90f99329fcd3b508e1b221e4411449a535f48f41ff",
+      "git_blob": "e05374c65ff8dafaf6035ca6792271f70522c9ce",
+      "declared_namespaces": [
+        "Applications.Selection.CoordinateQueries"
+      ]
+    },
+    "EReadAll": {
+      "snapshot": "query",
+      "candidate": "2d20573cc5d3373a4746a5ebf16314369e7d7e3e",
+      "path": "Examples/CoordinateReadAll.lean",
+      "bytes": 5626,
+      "sha256": "8290a02bee2fb078439842c26a6cb46ec231aeb092b30659c8a3b674cc54b603",
+      "git_blob": "b561b9fa3a67d6962e997659955d0c29eb846526",
+      "declared_namespaces": [
+        "Examples.CoordinateReadAll"
+      ]
+    },
+    "Coordinate": {
+      "snapshot": "query",
+      "candidate": "2d20573cc5d3373a4746a5ebf16314369e7d7e3e",
+      "path": "Applications/Selection/CoordinateSelection.lean",
+      "bytes": 18607,
+      "sha256": "d68a5a82941db31f406e8499364d7af531041adcd16076a68f6b8b0caf6d739a",
+      "git_blob": "c6ddd1446b424f95b33b3cdb4087e35ccc02bc32",
+      "declared_namespaces": [
+        "Applications.Selection.CoordinateSelection"
+      ]
+    },
+    "ECoordinate": {
+      "snapshot": "query",
+      "candidate": "2d20573cc5d3373a4746a5ebf16314369e7d7e3e",
+      "path": "Examples/CoordinateSelection.lean",
+      "bytes": 10531,
+      "sha256": "0009cb95dfd8e561fabdb0390b58669172a1a29320f8678e4e1f1ea935a2e8b5",
+      "git_blob": "c7934e00f3a2919cf5f58780a625db2ddd80c193",
+      "declared_namespaces": [
+        "Examples.CoordinateSelection"
+      ]
+    }
+  },
+  "changed_path_union": [
+    {
+      "path": "Applications/Resources/AffineRecurrence.lean",
+      "bytes": 5839,
+      "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d",
+      "snapshots": [
+        "root",
+        "mom"
+      ]
+    },
+    {
+      "path": "Applications/Resources/Chunks.lean",
+      "bytes": 4591,
+      "sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc",
+      "snapshots": [
+        "root",
+        "values",
+        "mom",
+        "query"
+      ]
+    },
+    {
+      "path": "Applications/Resources/FixedRank.lean",
+      "bytes": 7633,
+      "sha256": "831a78121a2ee7d7db773dd335febb938d8dfc8e7dbe944bb4cb7d71ec202c94",
+      "snapshots": [
+        "values"
+      ]
+    },
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "bytes": 11646,
+      "sha256": "0dc225b3009a612bea521813fda96789629fc486201cd9998bd6a72d6fdb9eed",
+      "snapshots": [
+        "root",
+        "mom"
+      ]
+    },
+    {
+      "path": "Applications/Resources/HalvingSelection.lean",
+      "bytes": 8464,
+      "sha256": "7a3f78c70011dca48546cba30ae2c6e3d90ed3208a69b35aaca2a78f52da17a1",
+      "snapshots": [
+        "values"
+      ]
+    },
+    {
+      "path": "Applications/Resources/HalvingTrace.lean",
+      "bytes": 6430,
+      "sha256": "89f15ae8a7e222a5c046e91582c38c61283350b27acacfd0c1278d2da4f7aaa6",
+      "snapshots": [
+        "root",
+        "values"
+      ]
+    },
+    {
+      "path": "Applications/Resources/MedianPolicy.lean",
+      "bytes": 7649,
+      "sha256": "d16093224bc2eac70efc27094ccbc6506418e6b98aac73d0ebe309ad13887f00",
+      "snapshots": [
+        "values"
+      ]
+    },
+    {
+      "path": "Applications/Resources/MedianReduction.lean",
+      "bytes": 5846,
+      "sha256": "e3bb494b94ed6829ad080b9120a69af16cb12c66cb7f7892598db988e3de354c",
+      "snapshots": [
+        "values"
+      ]
+    },
+    {
+      "path": "Applications/Resources/MinimumPivot.lean",
+      "bytes": 10610,
+      "sha256": "c4e4ee7b0ef4413684fc13069d2f7f1200ac6387df2aa81565db0aa45bebaabe",
+      "snapshots": [
+        "values"
+      ]
+    },
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3",
+      "snapshots": [
+        "random"
+      ]
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionDrift.lean",
+      "bytes": 15121,
+      "sha256": "cdb869dc4a7816eb76ab462bd8e6b62df9e9bb7799434903afa9ec67bed59ef4",
+      "snapshots": [
+        "random"
+      ]
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionMean.lean",
+      "bytes": 16493,
+      "sha256": "5a7d396ed0d451c0b0ec51493c004b721c804c69263ad7c659f023cab3ddda8f",
+      "snapshots": [
+        "random"
+      ]
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionRun.lean",
+      "bytes": 12714,
+      "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718",
+      "snapshots": [
+        "random"
+      ]
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionTail.lean",
+      "bytes": 24400,
+      "sha256": "76ea201bc310b816f844e45422ecaf75d2d060202d1e391681affd558db99725",
+      "snapshots": [
+        "random"
+      ]
+    },
+    {
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758",
+      "snapshots": [
+        "root",
+        "values",
+        "mom",
+        "query"
+      ]
+    },
+    {
+      "path": "Applications/Resources/RoundedRecurrenceBounds.lean",
+      "bytes": 6951,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135",
+      "snapshots": [
+        "root",
+        "values",
+        "mom",
+        "query"
+      ]
+    },
+    {
+      "path": "Applications/Resources/Selection.lean",
+      "bytes": 22435,
+      "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+      "snapshots": [
+        "root",
+        "values",
+        "mom",
+        "query"
+      ]
+    },
+    {
+      "path": "Applications/Resources/SelectionAuxiliary.lean",
+      "bytes": 6215,
+      "sha256": "eeba4ac85dd4e07b8b42f38499748cae69cb6dcaaa01fdc8400a3cf5b947a925",
+      "snapshots": [
+        "root",
+        "values",
+        "mom",
+        "query"
+      ]
+    },
+    {
+      "path": "Applications/Resources/SelectionBounds.lean",
+      "bytes": 10073,
+      "sha256": "0f9181b569d24b2615c08be5c6a305a75e67679f14338e877fced10113d61edc",
+      "snapshots": [
+        "values",
+        "mom",
+        "query"
+      ]
+    },
+    {
+      "path": "Applications/Resources/SelectionCutoff.lean",
+      "bytes": 10228,
+      "sha256": "12980a69d01206eb2e5e9d45149d7336ff762f0c406ad345d36f1cbdada36218",
+      "snapshots": [
+        "root"
+      ]
+    },
+    {
+      "path": "Applications/Resources/SelectionEnvelope.lean",
+      "bytes": 3159,
+      "sha256": "e4d1ca2054a7509a082340448b77f95a56380c8abab41da46b3b817fb8dab754",
+      "snapshots": [
+        "root",
+        "mom"
+      ]
+    },
+    {
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "bytes": 14543,
+      "sha256": "1b2b629177c96244d377261f12b45034c3c2107f0ef5c78bb512c947e7f12524",
+      "snapshots": [
+        "mom"
+      ]
+    },
+    {
+      "path": "Applications/Resources/SelectionGenericEnvelope.lean",
+      "bytes": 9448,
+      "sha256": "946dc54375989de8413ada388e0672d5f862a1c5da5e62efa9522865911db0e3",
+      "snapshots": [
+        "mom"
+      ]
+    },
+    {
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "bytes": 9755,
+      "sha256": "e64e998edc9353e5fd52544177fadd32f6398e3260b27ca54195cd8917e5d098",
+      "snapshots": [
+        "root",
+        "values",
+        "mom",
+        "query"
+      ]
+    },
+    {
+      "path": "Applications/Resources/SelectionPolicy.lean",
+      "bytes": 5986,
+      "sha256": "c906415dff6fc59694629f3d17977e55d2aa2ea2d989610f222bb781056a3112",
+      "snapshots": [
+        "values"
+      ]
+    },
+    {
+      "path": "Applications/Resources/SelectionRecurrence.lean",
+      "bytes": 6560,
+      "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e",
+      "snapshots": [
+        "root",
+        "values",
+        "mom",
+        "query"
+      ]
+    },
+    {
+      "path": "Applications/Selection/CoordinateQueries.lean",
+      "bytes": 11106,
+      "sha256": "ca1c0d339500e77aa14ca47420b9f7a11f213bbcd8ac113c3281c7f9690e6409",
+      "snapshots": [
+        "query"
+      ]
+    },
+    {
+      "path": "Applications/Selection/CoordinateReadAll.lean",
+      "bytes": 7611,
+      "sha256": "ab2fd8949fe4a73e909cac90f99329fcd3b508e1b221e4411449a535f48f41ff",
+      "snapshots": [
+        "query"
+      ]
+    },
+    {
+      "path": "Applications/Selection/CoordinateSelection.lean",
+      "bytes": 18607,
+      "sha256": "d68a5a82941db31f406e8499364d7af531041adcd16076a68f6b8b0caf6d739a",
+      "snapshots": [
+        "query"
+      ]
+    },
+    {
+      "path": "Applications/Selection/CoordinateSensitivity.lean",
+      "bytes": 6717,
+      "sha256": "224724056815f73aff552ead23b7dd83af4078ad61009169e1b474f4b94476e6",
+      "snapshots": [
+        "query"
+      ]
+    },
+    {
+      "path": "Applications/Selection/CountRank.lean",
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d",
+      "snapshots": [
+        "root",
+        "values",
+        "mom",
+        "query"
+      ]
+    },
+    {
+      "path": "Applications/Selection/FixedRank.lean",
+      "bytes": 11391,
+      "sha256": "463e00dfd9eaac03dd2bec858eb64454d6c79abf03c80c8011019fb8af527395",
+      "snapshots": [
+        "values"
+      ]
+    },
+    {
+      "path": "Applications/Selection/MedianCounterfamily.lean",
+      "bytes": 7414,
+      "sha256": "8fc4a388b50bd363587b8d8fbdc742d2e9d45426b58af75d9b83f471d1e4e0f6",
+      "snapshots": [
+        "values"
+      ]
+    },
+    {
+      "path": "Applications/Selection/MedianOfMedians.lean",
+      "bytes": 13797,
+      "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba",
+      "snapshots": [
+        "root",
+        "values",
+        "mom",
+        "query"
+      ]
+    },
+    {
+      "path": "Applications/Selection/MedianReduction.lean",
+      "bytes": 8269,
+      "sha256": "902329504401dfb5ae2dbd2a62c6c7fa8d3dc9eec22d29d99b350282e57d608a",
+      "snapshots": [
+        "values"
+      ]
+    },
+    {
+      "path": "Applications/Selection/OutsidePivot.lean",
+      "bytes": 6444,
+      "sha256": "22ceec39e94410200dda20d4224a87518aa001eb127605f02fe6961c01a97809",
+      "snapshots": [
+        "root"
+      ]
+    },
+    {
+      "path": "Applications/Sequences/Chunks.lean",
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493",
+      "snapshots": [
+        "root",
+        "values",
+        "mom",
+        "query"
+      ]
+    },
+    {
+      "path": "Examples/AffineRecurrence.lean",
+      "bytes": 5164,
+      "sha256": "6734b0a54ffdcf81de3c3ec2520618011aa8bab357690c6cca6117174ec4abcf",
+      "snapshots": [
+        "root",
+        "mom"
+      ]
+    },
+    {
+      "path": "Examples/ChunkCalls.lean",
+      "bytes": 2730,
+      "sha256": "ca79f35fe846399bcb180d9b8fbd63fa453108c59c4503adb8a5731182fdc5e3",
+      "snapshots": [
+        "mom"
+      ]
+    },
+    {
+      "path": "Examples/CoordinateQueries.lean",
+      "bytes": 8079,
+      "sha256": "d90bd28ec4496105d9c5da80171a4c96a5ace119c0e178ded48f4f84ca8ad16d",
+      "snapshots": [
+        "query"
+      ]
+    },
+    {
+      "path": "Examples/CoordinateReadAll.lean",
+      "bytes": 5626,
+      "sha256": "8290a02bee2fb078439842c26a6cb46ec231aeb092b30659c8a3b674cc54b603",
+      "snapshots": [
+        "query"
+      ]
+    },
+    {
+      "path": "Examples/CoordinateSelection.lean",
+      "bytes": 10531,
+      "sha256": "0009cb95dfd8e561fabdb0390b58669172a1a29320f8678e4e1f1ea935a2e8b5",
+      "snapshots": [
+        "query"
+      ]
+    },
+    {
+      "path": "Examples/CoordinateSensitivity.lean",
+      "bytes": 3726,
+      "sha256": "ed3d3d7cd41c97169893fdb5cf95e336a560f6f042ee70cea0a24ad7a6691828",
+      "snapshots": [
+        "query"
+      ]
+    },
+    {
+      "path": "Examples/FixedRankSelection.lean",
+      "bytes": 7246,
+      "sha256": "c1ba9819d89af6a1d7f3c1678f10bed4b0614c63b385eb856144d315ebd955da",
+      "snapshots": [
+        "values"
+      ]
+    },
+    {
+      "path": "Examples/GeneralMedianBounds.lean",
+      "bytes": 9001,
+      "sha256": "dfc1bb996f97104c2925bd6b7d2577272cf5a3e674bb756785cfdcdd234ffd9d",
+      "snapshots": [
+        "values"
+      ]
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "bytes": 5638,
+      "sha256": "bfcb81cf7de89516487aedf12fc223df534fa9ca2a4a964edb872023c45beba3",
+      "snapshots": [
+        "root",
+        "mom"
+      ]
+    },
+    {
+      "path": "Examples/HalvingTrace.lean",
+      "bytes": 3077,
+      "sha256": "9dc932bb8163746914fa5db351db632864a28a7f0648a1b285dba366689cd6e4",
+      "snapshots": [
+        "root"
+      ]
+    },
+    {
+      "path": "Examples/ListChunks.lean",
+      "bytes": 2683,
+      "sha256": "161e240f9c07db5b13f9abf5bf09782064adce4862e60fbe35f0eba483c76c78",
+      "snapshots": [
+        "values",
+        "mom"
+      ]
+    },
+    {
+      "path": "Examples/MedianCounterfamily.lean",
+      "bytes": 2917,
+      "sha256": "8ebe64ee7b3a819b67a4afc9d2d52b8e659ebcdd20ffea17fb9933c1be0f5083",
+      "snapshots": [
+        "values"
+      ]
+    },
+    {
+      "path": "Examples/MedianOfMedians.lean",
+      "bytes": 9092,
+      "sha256": "0bbbbdab0f2f41f42fd615231d04d29ebeb8f7ffd5cc83e2a6b832cbfcc25f0c",
+      "snapshots": [
+        "values",
+        "mom"
+      ]
+    },
+    {
+      "path": "Examples/MedianPolicy.lean",
+      "bytes": 7410,
+      "sha256": "fd6259f1b699adc9f7f98f7a90ccb1c34bbb2c7fe4d80ab7196c6a65635c31d4",
+      "snapshots": [
+        "values"
+      ]
+    },
+    {
+      "path": "Examples/MedianReduction.lean",
+      "bytes": 7589,
+      "sha256": "d08959ce8687e1bc6db9dff78fb581c53b072e9db0436da465d9e42fdf652506",
+      "snapshots": [
+        "values"
+      ]
+    },
+    {
+      "path": "Examples/MinimumPivot.lean",
+      "bytes": 3770,
+      "sha256": "08a54aec03e507b1c8dc87dcf521f96984c6a6cff4988294a60ddb1db6a9cdc8",
+      "snapshots": [
+        "values"
+      ]
+    },
+    {
+      "path": "Examples/OutsidePivot.lean",
+      "bytes": 3845,
+      "sha256": "0c2feb488fd784937c8888a3e48e31b32a307b96bcefb6178d7c75274afdb275",
+      "snapshots": [
+        "root"
+      ]
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e",
+      "snapshots": [
+        "random"
+      ]
+    },
+    {
+      "path": "Examples/RandomSelectionDrift.lean",
+      "bytes": 5797,
+      "sha256": "fade4d637a2c50672d6f792326a22264bb4b348cb608bac58c0cf834a914af48",
+      "snapshots": [
+        "random"
+      ]
+    },
+    {
+      "path": "Examples/RandomSelectionMean.lean",
+      "bytes": 5962,
+      "sha256": "b9c83ac6e4dda31c6c70d6ccbf021cfcad5ca8317f5a3bf1133788fc559bb7af",
+      "snapshots": [
+        "random"
+      ]
+    },
+    {
+      "path": "Examples/RandomSelectionRun.lean",
+      "bytes": 3770,
+      "sha256": "76504fe5fa77c581b8a7e3c9f3e0247c8a927adee8b308f84be6167e0ea20e0f",
+      "snapshots": [
+        "random"
+      ]
+    },
+    {
+      "path": "Examples/RandomSelectionTail.lean",
+      "bytes": 8697,
+      "sha256": "2678c1f6fd6cab99353562b050d641427c9b04b7648a30e751051d4f0f0d771e",
+      "snapshots": [
+        "random"
+      ]
+    },
+    {
+      "path": "Examples/RoundedRecurrence.lean",
+      "bytes": 3782,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d",
+      "snapshots": [
+        "root",
+        "mom"
+      ]
+    },
+    {
+      "path": "Examples/RoundedRecurrenceBounds.lean",
+      "bytes": 7295,
+      "sha256": "18275f597cf579edf0db6785d0910e76dcc9cff084566ced73cd0da8828c0135",
+      "snapshots": [
+        "root",
+        "mom"
+      ]
+    },
+    {
+      "path": "Examples/SelectionAuxiliary.lean",
+      "bytes": 7302,
+      "sha256": "d5e495d5a9f6824d9b61fd41ce570059ab5aad3e93f4449f3b712e7d41a4b41e",
+      "snapshots": [
+        "mom"
+      ]
+    },
+    {
+      "path": "Examples/SelectionBounds.lean",
+      "bytes": 5546,
+      "sha256": "d18c19c5e69e3f77029d498e66716bf7fc45ff303294ee1a78d3ca1eb435ce11",
+      "snapshots": [
+        "mom"
+      ]
+    },
+    {
+      "path": "Examples/SelectionCosts.lean",
+      "bytes": 13604,
+      "sha256": "d1f2c2e2e5ea3180d7fb1f736b0b3c1a98b3280e0a2902c2bfc712f409044a4e",
+      "snapshots": [
+        "mom"
+      ]
+    },
+    {
+      "path": "Examples/SelectionCountRank.lean",
+      "bytes": 4423,
+      "sha256": "cc73980788882d39abe44672d89e6a3ce37dfe3b5f5788375255248e8b4a66d2",
+      "snapshots": [
+        "values",
+        "mom"
+      ]
+    },
+    {
+      "path": "Examples/SelectionCutoff.lean",
+      "bytes": 4470,
+      "sha256": "cdde5d4630a888b2ca50f25af8e876bae83cea3bef9d8b8a3de0380b477999a4",
+      "snapshots": [
+        "root"
+      ]
+    },
+    {
+      "path": "Examples/SelectionEnvelope.lean",
+      "bytes": 1856,
+      "sha256": "02fedd2ffe6def3a5f6794fa90c01cdd90d982276b089aa488247b116c4eb3dd",
+      "snapshots": [
+        "root",
+        "mom"
+      ]
+    },
+    {
+      "path": "Examples/SelectionGenericBounds.lean",
+      "bytes": 11435,
+      "sha256": "762be98de6b9d8c1643156509d947ea298b7d16b9e8535c69194c92811831d50",
+      "snapshots": [
+        "mom"
+      ]
+    },
+    {
+      "path": "Examples/SelectionGenericEnvelope.lean",
+      "bytes": 5925,
+      "sha256": "3a1748e2f27a77cbf0daf183b6c52c76eedabdfe641cb77865f5364fec6582ca",
+      "snapshots": [
+        "mom"
+      ]
+    },
+    {
+      "path": "Examples/SelectionMedians.lean",
+      "bytes": 5142,
+      "sha256": "4563c04666fdfb6073c8213328a2f868022cf2ed17538cd1671aaea68811c9d8",
+      "snapshots": [
+        "mom"
+      ]
+    },
+    {
+      "path": "Examples/SelectionRecurrence.lean",
+      "bytes": 2272,
+      "sha256": "6599e51e8d6ea0197d74d2ca43076a355a9c131ce453f4a25c6c3bf086d99971",
+      "snapshots": [
+        "root",
+        "mom"
+      ]
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 9405,
+      "sha256": "75563d66c31e9cc1456cedf639812e6025486f69cf8ab50f3961d038a6219d18",
+      "snapshots": [
+        "root",
+        "mom"
+      ]
+    },
+    {
+      "path": "docs/research/fdsa-affine-recurrence.md",
+      "bytes": 10290,
+      "sha256": "8996a9212bd8cf05ec26519cf51ca9ce69f560170512df647fa3fdb9869032f6",
+      "snapshots": [
+        "root",
+        "mom"
+      ]
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 46693,
+      "sha256": "fdf63be72114a8002cd4c3786007c8ff0e722c0465f819b00dd93ba2ffe3185e",
+      "snapshots": [
+        "root",
+        "mom"
+      ]
+    }
+  ],
+  "changed_path_count": 74,
+  "changed_lean_count": 71,
+  "changed_path_hash_conflicts": [],
+  "accepted_xr_modules_in_union": [
+    "Applications/Resources/AffineRecurrence.lean",
+    "Examples/AffineRecurrence.lean"
+  ],
+  "chapter3_lean_modules_in_fixed_union": 69,
+  "missing_direct_example_imports": [
+    "import Examples.ChunkCalls",
+    "import Examples.CoordinateQueries",
+    "import Examples.CoordinateReadAll",
+    "import Examples.CoordinateSelection",
+    "import Examples.CoordinateSensitivity",
+    "import Examples.FixedRankSelection",
+    "import Examples.GeneralMedianBounds",
+    "import Examples.GroupSelectionRecurrence",
+    "import Examples.HalvingTrace",
+    "import Examples.ListChunks",
+    "import Examples.MedianCounterfamily",
+    "import Examples.MedianOfMedians",
+    "import Examples.MedianPolicy",
+    "import Examples.MedianReduction",
+    "import Examples.MinimumPivot",
+    "import Examples.OutsidePivot",
+    "import Examples.RandomSelection",
+    "import Examples.RandomSelectionDrift",
+    "import Examples.RandomSelectionMean",
+    "import Examples.RandomSelectionRun",
+    "import Examples.RandomSelectionTail",
+    "import Examples.RoundedRecurrence",
+    "import Examples.RoundedRecurrenceBounds",
+    "import Examples.SelectionAuxiliary",
+    "import Examples.SelectionBounds",
+    "import Examples.SelectionCosts",
+    "import Examples.SelectionCountRank",
+    "import Examples.SelectionCutoff",
+    "import Examples.SelectionEnvelope",
+    "import Examples.SelectionGenericBounds",
+    "import Examples.SelectionGenericEnvelope",
+    "import Examples.SelectionMedians",
+    "import Examples.SelectionRecurrence"
+  ],
+  "coverage_row_count": 83,
+  "lexical_source_references": 616,
+  "source_state_counts": {
+    "source-present": 79,
+    "partial": 3,
+    "statement-analysis": 1
+  },
+  "qualification": "Focused checks are development evidence only. Some referenced helpers are private and remain in full audit/review scope. Module identity inventory is not an actual elaborated-type inventory."
+}

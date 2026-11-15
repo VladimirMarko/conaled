@@ -1,0 +1,79 @@
+{
+  "recorded_utc": "2026-11-04T05:35:46.918580+00:00",
+  "author_parent": "27d7f9f70dd76a35007dd62cde2b78cf575c4b3f",
+  "author_candidate": "8f4bbe8dec5e8653acda1b309d9da1c42385c564",
+  "author_status": "",
+  "central_attempt3_candidate": "e582eb3fe15492ca8182e530ebd24a15c3d0e4ff",
+  "owned_four_file_inputs_match_parent": true,
+  "closed_attempts_read": [
+    {
+      "attempt": 2,
+      "path": "provenance/chapter02-measured-sorting-focused-20261104-attempt2",
+      "candidate": "841413dc6b1e332ba07063fb62e66dea0802ab37",
+      "exit_code": 1,
+      "seconds": 171.54885325099895,
+      "clean_unchanged": true,
+      "native_exit_code": 1,
+      "native_timed_out": false,
+      "native_recorder_error": null,
+      "evidence_sha256": {
+        "result.json": "4f10c436973d2f2a17acf187ea9ff1724571e99f8278b3a13ccff992bbc53862",
+        "full.log": "a8367b26cf50c6f2ad762e19d54d4455338f60b9615a09bb42c0688d17850f68",
+        "native/result.json": "44e7e813e71ee4657a28c0997eb91a1011ba14bc95ff7d235a07ea7db6b3e9e7",
+        "native/output.log": "459f752379abcee00041489ee57b1c88436cb52e9a94cffe4c907acae02ac708"
+      }
+    },
+    {
+      "attempt": 3,
+      "path": "provenance/chapter02-measured-sorting-focused-20261104-attempt3",
+      "candidate": "e582eb3fe15492ca8182e530ebd24a15c3d0e4ff",
+      "exit_code": 1,
+      "seconds": 78.497292869999,
+      "clean_unchanged": true,
+      "native_exit_code": 1,
+      "native_timed_out": false,
+      "native_recorder_error": null,
+      "evidence_sha256": {
+        "result.json": "dc053839a7352a2092458a91320c91cf5f80f06bb6cb508f229422d52c166efc",
+        "full.log": "089d314f5856c9a26420442d592a8564ff9c76ec9f3ed19363f7b00b08a132ac",
+        "native/result.json": "3feffb6010611198c6d5ea8660854a8ab207720e5bcbea6dd4145cbd000d61f2",
+        "native/output.log": "f9c103e6e12486b9543af06b748c13f54b39aec54a2d4200c1b979a500f89b20"
+      }
+    }
+  ],
+  "observed_successes": "Attempt2 built NaturalRunComparisons core/examples and QuickSortCosts; attempt3 built ListBuildCosts core and had no remaining failure outside Examples.ListBuildCosts. Both overall commands exited1.",
+  "corrections": [
+    {
+      "declaration": "Examples.ListBuildCosts.nonempty_seed_full_loop",
+      "diagnostic": "After rw, concrete pair projection and length arithmetic remain unsolved",
+      "proof_change": "Use simp through the same appendLoopRun_cost and nonempty_seed laws; expected value [9,3,1] and cost8 unchanged"
+    },
+    {
+      "declaration": "Examples.ListBuildCosts.polymorphic_order",
+      "diagnostic": "Bare exact-family application does not elaborate the polymorphic list-length cost formula as numeral11",
+      "proof_change": "Use constructor and simpa for both public exact-law specializations; expected append11 and cons/reverse9 unchanged"
+    }
+  ],
+  "changed_paths": [
+    "Examples/ListBuildCosts.lean"
+  ],
+  "owned_source_sha256": {
+    "Applications/Resources/NaturalRunComparisons.lean": "920e1832416afcdc47a0c2301c2e27c7cd5f0c614a209c8dea21fc2561d809b0",
+    "Examples/NaturalRunComparisons.lean": "9d4dfe317e1af9ee894385ba3478c0ede17de1e713cc7090b120a4d2ab708f8a",
+    "Applications/Resources/ListBuildCosts.lean": "6c2450b98fcb2677fddeea1116519e968223bc0872353d9e34979fc38607547f",
+    "Examples/ListBuildCosts.lean": "eba2961e501f545323e5403e7874ce3ddb256bad8f4046398acc55ca6ec230a1"
+  },
+  "preserved_value_source_sha256": {
+    "Applications/Sorting/NaturalRuns.lean": "123c711b5f0cf05074155f3a0d9ae076aa80a8be482e7e6fc77626aa9db6fb1d",
+    "Examples/NaturalRuns.lean": "ef0ed6bbc5beb40815f977e80c0b99b0633e8503b0b1634747d41275cb3f6041"
+  },
+  "static_checks": {
+    "exact_two_proof_repairs_only": true,
+    "all_declaration_statements_and_expected_counts_unchanged": true,
+    "other_five_owned_value_resource_example_files_unchanged": true,
+    "unstaged_and_staged_whitespace_exit": 0
+  },
+  "author_compiler_or_cache_operation": false,
+  "state": "Correction committed; matching root-owned immutable focused check pending. HOLD after handoff. No full validation, independent approval or acceptance claim.",
+  "handoff": "reviews/chapter02-natural-run-costs-implementation.md"
+}

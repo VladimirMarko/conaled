@@ -1,0 +1,500 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "axis": "Standards",
+  "unit": "FDSA-XU03",
+  "recorded_utc": "2026-11-04T16:09:37.534574+00:00",
+  "stage": "Complete same-loop receiving-source continuation; not final validation",
+  "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "tree": "43f1c15166931d4bd3e91e6dbf12059d0da1cfc2",
+  "base": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "parents": [
+    "932438a765340d69fa6402f6abd17def6ec28d13",
+    "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9"
+  ],
+  "original_base": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+  "original_candidate": "a0597381f02eddd074ee96cabaa974f2062285f8",
+  "corrected_tip": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+  "original_scope": [
+    "Applications/Probability/PermutationTail.lean",
+    "Examples/PermutationTail.lean",
+    "Examples/PermutationTailBoundary.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-permutation-tail.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "frozen_requirements": {
+    "path": "reviews/permutation-tail-requirements.md",
+    "bytes": 12866,
+    "lines": 229,
+    "sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c"
+  },
+  "complete_original_C2_scope": {
+    "base_R": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "retained": true
+  },
+  "source_review": {
+    "complete_files": 6,
+    "complete_lines": 2073,
+    "complete_Lean_lines": 975,
+    "all_public_private_anonymous_proofs_read": true,
+    "inventory_rows": 88,
+    "public": 61,
+    "public_theorems": 46,
+    "public_definitions": 15,
+    "private_theorems": 19,
+    "anonymous_local_instances": 8,
+    "anonymous_examples": 0,
+    "all80_named_headers_preserved_from_original": true,
+    "where_header_excludes_fields": true,
+    "compiler_generated_names_invented": false
+  },
+  "merge_assessment": {
+    "actual_ordinary_merge_exit": 1,
+    "sole_conflict": "docs/research/fdsa-reconstruction-map.md",
+    "actual_commit_exit": 0,
+    "ordered_J_T_parents_verified": true,
+    "eight_original_history_rows_retained": true,
+    "all65_old_refs_preserved": true,
+    "all1604_outside_scope_J_paths_preserved": true,
+    "all6_predecessor_Lean_and2_notes_exact_J": true,
+    "all3_Tail_sources_exact_T_and_Z": true,
+    "three_held_documentary_recipes_exact": true,
+    "all14_author_payloads_verified": true
+  },
+  "semantic_assessment": {
+    "minimal_interfaces": "Optional-head event is structure-free; deterministic support/bridges keep only their own Nodup/membership/containment hypotheses. The generic HasLaw law uses arbitrary environment and a.e. measurability without assuming its conditional conclusion. Original complete positions supply finite/countable output facts locally.",
+    "measure_boundaries": "Actual same-sample tail/filter, fixed subsets, positive supported events, finite ENNReal normalizers and zero null conditioning remain distinct. Source-event and caller-output-map hypotheses remain separate. The uniform-on-event identity concerns only the original uniform environment.",
+    "connected_cases": "Main exercises the public first mass, two distinct tails, unsupported output, actual filtered projection, changed environment and nested second conditioning. Boundary retains swap, singleton, empty, outsider and empty-index cases, plus actual same-sample outside-subset masses1/3 and2/3.",
+    "architecture": "Existing list/finset/permutation/HasLaw/cond/Measure.map interfaces; private transports and eight local example instances. No new probability framework or independent executor.",
+    "limitations": "No complete execution history, adaptive-subset, joint-independence/partition, fresh-choice coupling, sorting/selection recursion, total cost or treap claim is inferred."
+  },
+  "findings": {
+    "new_concrete_findings": [],
+    "retained_original_ids": [
+      "XU03-SRC-001",
+      "XU03-ELAB-001",
+      "XU03-ELAB-002",
+      "XU03-BND-ELAB-001",
+      "XU03-BND-ELAB-002-006",
+      "XU03-BND-ELAB-007-009",
+      "XU03-ELAB3-01",
+      "XU03-ELAB3-02",
+      "XU03-ELAB3-03",
+      "XU03-ELAB3-04",
+      "XU03-ELAB3-05",
+      "XU03-ELAB3-06",
+      "XU03-ELAB3-07",
+      "XU03-ELAB3-08",
+      "XU03-ELAB3-09",
+      "XU03-ELAB3-10",
+      "XU03-ELAB3-11",
+      "XU03-ELAB3-12",
+      "XU03-ELAB3-13",
+      "XU03-ELAB3-14",
+      "XU03-ELAB3-15",
+      "XU03-ELAB3-16",
+      "XU03-MAIN-ELAB-001",
+      "XU03-MAIN-ELAB-002",
+      "XU03-MAIN-ELAB-003",
+      "XU03-MAIN-ELAB-004",
+      "XU03-MAIN-ELAB-005",
+      "XU03-MAIN-ELAB-006",
+      "C02-DOC-003"
+    ],
+    "prior_corrections": "Every existing corrective source and same-reader assessment is retained by exact source/record identity. No historical failed aggregate is changed into a successful aggregate; new receiving confirmation is pending.",
+    "C02_DOC_003_Tail": {
+      "disposition": "Source-resolved at exact L",
+      "evidence": "Applied root/map/dated-note changes exactly match the prepared recipe and preserve all math/case/source/gate prose. Historical individual success and aggregate failure distinctions, and actual Z815 type assessments, are accurate.",
+      "other_scope": "Other portions keep their separately recorded dispositions; this is not Chapter2 or validation acceptance."
+    },
+    "C02_TYPE_001": "Historical Z resolution retained; receiving L actual61 and inherited qualification pending.",
+    "invented_XU03_SP_finding": false
+  },
+  "type_plan_assessment": {
+    "outcome": "Appropriate bounded preparation; not executed or approved as actual evidence",
+    "program": {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+      "bytes": 4105,
+      "lines": 75,
+      "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa",
+      "roots": [
+        "Applications.Probability.PermutationTail",
+        "Examples.PermutationTail",
+        "Examples.PermutationTailBoundary"
+      ],
+      "names": [
+        "Applications.Probability.PermutationTail.firstEvent",
+        "Applications.Probability.PermutationTail.firstEvent_inter_tail",
+        "Applications.Probability.PermutationTail.cons_mem_orders",
+        "Applications.Probability.PermutationTail.tail_restrictedOrder_eq",
+        "Applications.Probability.PermutationTail.filter_tail_restrictedOrder_eq",
+        "Applications.Probability.PermutationTail.firstEvent_restrictedOrder_of_not_mem",
+        "Applications.Probability.PermutationTail.cond_firstEvent_restrictedOrder_of_not_mem",
+        "Applications.Probability.PermutationTail.uniformOn_firstEvent",
+        "Applications.Probability.PermutationTail.cond_uniformOn_firstEvent",
+        "Applications.Probability.PermutationTail.cond_tail_eq",
+        "Applications.Probability.PermutationTail.map_tail_cond_first",
+        "Applications.Probability.PermutationTail.head_mass_of_hasLaw",
+        "Applications.Probability.PermutationTail.hasLaw_tail_cond_first",
+        "Applications.Probability.PermutationTail.hasLaw_filter_tail_cond_first",
+        "Applications.Probability.PermutationTail.map_restrictedOrder_cond_first",
+        "Examples.PermutationTail.observedOrder",
+        "Examples.PermutationTail.remaining",
+        "Examples.PermutationTail.tailOrder",
+        "Examples.PermutationTail.afterFirst",
+        "Examples.PermutationTail.observed_hasLaw",
+        "Examples.PermutationTail.first_mass",
+        "Examples.PermutationTail.afterFirst_eq_uniformOn",
+        "Examples.PermutationTail.tail_hasLaw",
+        "Examples.PermutationTail.tail_map",
+        "Examples.PermutationTail.tail_23_mass",
+        "Examples.PermutationTail.tail_32_mass",
+        "Examples.PermutationTail.repeated_tail_mass_zero",
+        "Examples.PermutationTail.filteredTail",
+        "Examples.PermutationTail.filtered_tail_hasLaw",
+        "Examples.PermutationTail.filtered_tail_eq_projection",
+        "Examples.PermutationTail.filtered_tail_mass",
+        "Examples.PermutationTail.remaining_projection_map",
+        "Examples.PermutationTail.afterFirst_first_event_mass",
+        "Examples.PermutationTail.environment_changed",
+        "Examples.PermutationTail.second_head_mass",
+        "Examples.PermutationTail.afterSecond",
+        "Examples.PermutationTail.lastTail",
+        "Examples.PermutationTail.last_tail_hasLaw",
+        "Examples.PermutationTail.last_tail_mass",
+        "Examples.PermutationTailBoundary.swap01",
+        "Examples.PermutationTailBoundary.swap01_global_order",
+        "Examples.PermutationTailBoundary.swap01_selected_order",
+        "Examples.PermutationTailBoundary.swap01_first_events",
+        "Examples.PermutationTailBoundary.singleton_conditional_tail_mass",
+        "Examples.PermutationTailBoundary.empty_subset_none_mass",
+        "Examples.PermutationTailBoundary.empty_subset_first_event",
+        "Examples.PermutationTailBoundary.empty_subset_conditional_zero",
+        "Examples.PermutationTailBoundary.outsider_first_event",
+        "Examples.PermutationTailBoundary.outsider_conditional_zero",
+        "Examples.PermutationTailBoundary.empty_indices_none_mass",
+        "Examples.PermutationTailBoundary.counterPositions",
+        "Examples.PermutationTailBoundary.conditionSubset",
+        "Examples.PermutationTailBoundary.outsideSubset",
+        "Examples.PermutationTailBoundary.counterLaw",
+        "Examples.PermutationTailBoundary.counterFirst",
+        "Examples.PermutationTailBoundary.outsideConditional",
+        "Examples.PermutationTailBoundary.outside_subset_boundaries",
+        "Examples.PermutationTailBoundary.counter_first_mass",
+        "Examples.PermutationTailBoundary.outside_order_12_mass",
+        "Examples.PermutationTailBoundary.outside_order_21_mass",
+        "Examples.PermutationTailBoundary.outside_order_not_uniform"
+      ],
+      "executed_by_reviewer": false
+    },
+    "static_local_sources": 9,
+    "local_edges": 13,
+    "external_edges": 26,
+    "external_names": 19,
+    "all9_sources_equal_Z": true,
+    "old_J_Tail_importers": [],
+    "concrete_historical_gap": {
+      "source_matches": 6,
+      "olean_and_hash_matches": 12,
+      "unequal_complete_traces": 6,
+      "unequal_complete_dependency_records": 9,
+      "configuration_and_runtime_equal": true,
+      "paths_normalized": false
+    },
+    "conditions": "After own full L gate, four exact receiving pre/post pairs must surround actual61. Qualify J53 and I314 by complete exact source/object/program/configuration/dependency/runtime fields, and F110 by eligible complete23-source/69-key projection and REUSE01–10; retain all producer blocks and complete independent semantic reads. Investigate mismatches.",
+    "future_distinct_account": {
+      "actual_Tail": 61,
+      "conditional_J": 53,
+      "conditional_I": 314,
+      "conditional_F": 110,
+      "total": 538
+    },
+    "current_L_credit": 0,
+    "full_and_focused_boundary": "Normal full build must include all affected targets, integrity guards and exhaustive audit; reuse matching full-build/focused coverage under existing rules. No extra focused/fresh invocation merely by label; exact new triggers still apply."
+  },
+  "report": {
+    "path": "reviews/permutation-tail-standards-source-continuation-20261104.md",
+    "bytes": 16482,
+    "lines": 72,
+    "sha256": "2ddd1f03d8ee8772d26d6438e865206280f2b31d910410a43a97c2d388041bc3"
+  },
+  "read_ledger": {
+    "path": "provenance/shared-tail-standards-source-continuation-20261104/read-ledger.json",
+    "bytes": 14965,
+    "lines": 419,
+    "sha256": "4fc98f01d3c0605da6e3530dd694a3d922cf154b6be1c5681d8b3b117370a339"
+  },
+  "independent_reconciliation": {
+    "path": "provenance/shared-tail-standards-source-continuation-20261104/independent-source-reconciliation.json",
+    "bytes": 95291,
+    "lines": 2245,
+    "sha256": "b6a55de4fd14358833075dab828976a0f4c1459b3c610b9b54eeb63f64376ece"
+  },
+  "independent_reconciliation_script": {
+    "path": "provenance/shared-tail-standards-source-continuation-20261104/reconcile_source.py",
+    "bytes": 18724,
+    "lines": 345,
+    "sha256": "495bd6c2b0159f63bc0054974b75be70b146b6d1f8e3c90e66257d9f7ae772f8"
+  },
+  "bound_existing_records": [
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+      "bytes": 23539,
+      "lines": 472,
+      "sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-type-review-progress.json",
+      "bytes": 123595,
+      "lines": 3562,
+      "sha256": "91b9df119e5b47cd94a7930001947eb2c14601d5d144149b796a8bb06f3f4d0b"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/shared-note-proposals-assessment-6b95185.json",
+      "bytes": 69126,
+      "lines": 1616,
+      "sha256": "ce1ce7e51e89485294e7cdeb3ed3e5ca663e72e720ab434c3f6992a1022e0e16"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-4b5dbfa0.json",
+      "bytes": 27181,
+      "lines": 505,
+      "sha256": "3ae1e9749b8633e64a0adc14bb9cc96f5ee6cd5ba338dd45d55ddeac3df161d7"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/tail-boundary-repair4-assessment.json",
+      "bytes": 9371,
+      "lines": 239,
+      "sha256": "079a7c0b3f8f5edde18cf362730fc7af64dca9da5ab130035cb9f295acc1c22b"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/tail-main-repair5-assessment.json",
+      "bytes": 19227,
+      "lines": 500,
+      "sha256": "1c006f41928dee82f996609b64d0d5ec37cc0c8734a71c46c5f7ee43679a1c3f"
+    },
+    {
+      "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 125726,
+      "lines": 2530,
+      "sha256": "c8a015007775ff98a220c90c328dc10f505cca8ac9ac9c7c3b887e2c0089ab4a"
+    },
+    {
+      "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 125408,
+      "lines": 2524,
+      "sha256": "e4187960a469d194aeceed488d7e9bb45a450ae059bef46ba9645c5f9d6868ac"
+    },
+    {
+      "path": "provenance/shared-order-acceptance-20261104/acceptance.json",
+      "bytes": 19622,
+      "lines": 348,
+      "sha256": "639ab129abcdbcc29486f752e498cf859884201ec2a96a2bfac8db122f7c43b8"
+    },
+    {
+      "path": "provenance/shared-order-acceptance-20261104/durability.json",
+      "bytes": 1466,
+      "lines": 31,
+      "sha256": "866586a5efe778c766f532149be4180dc06884c4637061bf6eb1eac153c269b1"
+    },
+    {
+      "path": "provenance/shared-order-standards-integration-20261104/completion.json",
+      "bytes": 7316,
+      "lines": 194,
+      "sha256": "61205dad86b359ff9830ab4d7cafc44769f4a240cf89334e6356e3f40a0d0af5"
+    },
+    {
+      "path": "provenance/shared-order-standards-terminal-assessment-20261104/completion.json",
+      "bytes": 5324,
+      "lines": 137,
+      "sha256": "29d115fcde09a67cca06d12ab15c12fc2686ddaa867555f5d604cbdce89676ef"
+    },
+    {
+      "path": "provenance/shared-order-standards-terminal-assessment-20261104/final-standards-assessment-932438a7.json",
+      "bytes": 33628,
+      "lines": 579,
+      "sha256": "ec4bd6e8f30d81dc7676e105d5095ba4390f86548e143c8b0ecb2b7284d9d414"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+      "bytes": 4105,
+      "lines": 75,
+      "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa"
+    },
+    {
+      "path": "provenance/shared-order53-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 15788,
+      "lines": 341,
+      "sha256": "40817d0282d0ef62c6dac960429f5f6b8521cc86739f2eb4a195d869b17de15a"
+    },
+    {
+      "path": "provenance/shared-order53-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 15480,
+      "lines": 335,
+      "sha256": "eae1066844315be119551281752fcde15ba1f2cb2bf240d3f4186a9ca16ef8ec"
+    },
+    {
+      "path": "provenance/shared-tail-integration-readiness-20261104/inventory.json",
+      "bytes": 64400,
+      "lines": 1553,
+      "sha256": "9ae15ac5cfc32f7ebe5b8dbe3ddf664774b4c7fff46c8c70fd2bf2d0b5550109"
+    },
+    {
+      "path": "provenance/shared-tail-resource-and-type-readiness-20261104/preparation.json",
+      "bytes": 22047,
+      "lines": 516,
+      "sha256": "bb9d06bf0827a90cb585b91ee4838acad23b7e997eb03d3e1467c69b5b3a2b64"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/01-create-branch.json",
+      "bytes": 653,
+      "lines": 23,
+      "sha256": "445ee84adc35c3aa53cc560952bd6970f4b8a528e8ae6432c503907aa3bba2a2"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/02-normal-merge.json",
+      "bytes": 1090,
+      "lines": 25,
+      "sha256": "70a861c000e69dd0e93a78ac08b70d0c5e6d78aefd118b708fcd349028458997"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/03-conflict-before-resolution.json",
+      "bytes": 726,
+      "lines": 9,
+      "sha256": "12e72cedb96a45768ba7ebb16d2d88fffe4a8d5aba83e97463afbc8794b184d8"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/04-documentary-resolution.json",
+      "bytes": 1404,
+      "lines": 33,
+      "sha256": "efde5f8c81622c1790db652f9be2b27ce441e35c8d1b0d026555d76334256c5b"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/05-stage-resolution.json",
+      "bytes": 452,
+      "lines": 20,
+      "sha256": "442ba25390913397a3be9994e5f1c91bce4bb6f2ec53a2b72096503569a2f45d"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/06-precommit-source-verification.json",
+      "bytes": 6169,
+      "lines": 180,
+      "sha256": "2e26ffaa7b48d11f58b9b209282b65e7e32bccd6487315f40ecbbb9b983d51f3"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/07-merge-commit.json",
+      "bytes": 648,
+      "lines": 21,
+      "sha256": "d676565c034f4551957415d881a86221c7b8b36fb7b724704109c5aafe2cc8d5"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/baseline.json",
+      "bytes": 24243,
+      "lines": 602,
+      "sha256": "ad0e1f4c70808959030f7f3830cdcbd0cf10f467637cbc0fd61566c19af26142"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/handoff.md",
+      "bytes": 14121,
+      "lines": 106,
+      "sha256": "f4ffad157c60c3fd69b6a308472f98824b5500004a3f077c5fe956ea91902f45"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/receipt.json",
+      "bytes": 7167,
+      "lines": 209,
+      "sha256": "d789d407a24a1fe1099366a34e319d2840233aec5a616040035cb0bd5421d186"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/result.json",
+      "bytes": 22289,
+      "lines": 539,
+      "sha256": "568868ee361df9ba76fc5171117dadfaecbe0706d070c7b384add3dd9f7cbde7"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/scope-and-continuation.json",
+      "bytes": 25136,
+      "lines": 636,
+      "sha256": "9d35d42ae7d9d3ded2e9e9e310c9a6c2b13bf8f2490b71493c2766dc8bf13cba"
+    },
+    {
+      "path": "provenance/shared-tail-standards-receiving-preparation-20261104/preparation.json",
+      "bytes": 19481,
+      "lines": 434,
+      "sha256": "0eca8523041884b5bb60294a350c3c96eab1aa93dbbe510704a0fda0a2e0b5b4"
+    },
+    {
+      "path": "provenance/shared-tail-type-evidence-readiness-20261104/plan.md",
+      "bytes": 5862,
+      "lines": 31,
+      "sha256": "5a4eff26eeac03853fe0a9c093d62844a4ae060d0e27e4f6804832cced77c5d0"
+    },
+    {
+      "path": "provenance/shared-tail-type-evidence-readiness-20261104/preparation.json",
+      "bytes": 2248,
+      "lines": 57,
+      "sha256": "aaab7adea6be11d507c159a4f8e31be6b5d9f8e4183fa930b068a97f27f1d521"
+    },
+    {
+      "path": "provenance/shared-tail-type-evidence-readiness-20261104/receiver-binding.json",
+      "bytes": 13437,
+      "lines": 374,
+      "sha256": "331333be207359e4d8609b16d6e734fc88f2af150731885a5305c208379fb5b2"
+    },
+    {
+      "path": "provenance/shared-tail-type-evidence-readiness-20261104/reconcile_after_actual61.py",
+      "bytes": 11878,
+      "lines": 222,
+      "sha256": "40e2924d7e267a35830f33e334fd360e4692c30ab0c66a6e27cabdd8403769f2"
+    },
+    {
+      "path": "provenance/shared-tail-type-evidence-readiness-20261104/reconciliation-script-preparation.json",
+      "bytes": 945,
+      "lines": 13,
+      "sha256": "9cf38dbb4b499bc11aee119f8285ef1f3bdffd4c9765d61259747fd6d76607c2"
+    },
+    {
+      "path": "reviews/chapter02-standards-source-preparation-20261104.md",
+      "bytes": 104381,
+      "lines": 421,
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    {
+      "path": "reviews/permutation-order-standards-final-20261104.md",
+      "bytes": 15675,
+      "lines": 97,
+      "sha256": "27379408402ad18d6c5e401f2c4e3854263d0a386ee5161759875a7be21b8d10"
+    },
+    {
+      "path": "reviews/permutation-tail-requirements.md",
+      "bytes": 12866,
+      "lines": 229,
+      "sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c"
+    },
+    {
+      "path": "reviews/permutation-tail-standards-receiving-preparation-20261104.md",
+      "bytes": 8911,
+      "lines": 51,
+      "sha256": "2e48e156f69effb51aba01146b44f6a359284d509078e58a7083df955e8ac8a6"
+    },
+    {
+      "path": "tickets/FDSA-XU03.md",
+      "bytes": 11715,
+      "lines": 184,
+      "sha256": "749a5b2791a9cac4e38a52724fdf2f0181103499cc20637e567ad72a747d8c40"
+    }
+  ],
+  "remaining_gates": [
+    "Actual complete full L check, integrity guards, exhaustive audit and candidate-matching verification",
+    "Actual complete61 type read and independently qualified J53/I314/F110 receiving evidence",
+    "Both complete independent final axes on exact L",
+    "Immediate qualified candidate verification, exact accepted fast-forward and durable checkpoint"
+  ],
+  "outcome": "Blocked pending actual receiving validation; source assessment complete with no new concrete finding",
+  "new_source_findings": 0,
+  "worst_new_issue": "none",
+  "reviewer_actions": "Only new own report/provenance written; no source/ref/cache/compiler/runtime/capture/process/ticket/global-control or old-report changes."
+}

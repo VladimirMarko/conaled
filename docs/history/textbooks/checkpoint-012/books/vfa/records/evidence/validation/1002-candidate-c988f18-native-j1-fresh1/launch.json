@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "started_utc": "2026-11-04T01:24:44.205436+00:00",
+  "requested": {
+    "command": [
+      "python3",
+      "-B",
+      "../work-state/tooling/pinned_native_j1_toolchain.py",
+      "--",
+      "./check.sh",
+      "--candidate",
+      "HEAD",
+      "--fresh",
+      "--jobs",
+      "1"
+    ],
+    "cwd": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation",
+    "attempt_dir": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/work-state/validation/1002-candidate-c988f18-native-j1-fresh1",
+    "candidate": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+    "mode": "fresh",
+    "environment_changes": {},
+    "heartbeat_seconds": 30.0,
+    "cleanup_grace_seconds": 5.0
+  },
+  "recorder": {
+    "pid": 2,
+    "process_group": 1,
+    "session": 1,
+    "source_path": "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/work-state/validation-recorder/recorder.py",
+    "invocation": [
+      "../work-state/validation-recorder/recorder.py",
+      "--cwd",
+      "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/vfa-native-j1-validation",
+      "--attempt-dir",
+      "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/work-state/validation/1002-candidate-c988f18-native-j1-fresh1",
+      "--candidate",
+      "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+      "--mode",
+      "fresh",
+      "--",
+      "python3",
+      "-B",
+      "../work-state/tooling/pinned_native_j1_toolchain.py",
+      "--",
+      "./check.sh",
+      "--candidate",
+      "HEAD",
+      "--fresh",
+      "--jobs",
+      "1"
+    ],
+    "source_sha256": "8e5211cd4fd0e6a2eff593af32bea41409675e3165a86946d36dc4156640614a",
+    "python_executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "python_executable_resolved": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "python_implementation": "cpython"
+  }
+}

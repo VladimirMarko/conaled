@@ -1,0 +1,79 @@
+/- OBSERVATION ONLY. Never execute this file with Lean or Lake.
+   Imports select the full receiving source/artifact closure for the unchanged
+   capture_statement_inputs.py helper. The one explicit-@ sentinel satisfies
+   that helper's collection assertion; it supplies zero type-inspection credit.
+   Actual producer programs and all 944 historical commands remain separate. -/
+import Applications.Probability.PermutationMinimum
+import Applications.Probability.PermutationOrder
+import Applications.Probability.PermutationTail
+import Applications.Resources.BottomUpSorting
+import Applications.Resources.DifferenceListCosts
+import Applications.Resources.Growth
+import Applications.Resources.InsertionSort
+import Applications.Resources.ListBuildCosts
+import Applications.Resources.ListCalls
+import Applications.Resources.ListMerge
+import Applications.Resources.NaturalRunComparisons
+import Applications.Resources.NaturalRunOperations
+import Applications.Resources.NaturalSorting
+import Applications.Resources.Partition
+import Applications.Resources.QuickSort
+import Applications.Resources.QuickSortMean
+import Applications.Resources.QuickSortTransport
+import Applications.Resources.RandomQuickSort
+import Applications.Resources.RandomQuickSortGrowth
+import Applications.Resources.RandomQuickSortMean
+import Applications.Resources.RandomQuickSortRank
+import Applications.Resources.TopDownSorting
+import Applications.Resources.UniformQuickSortMean
+import Applications.Selection.ThreeWay
+import Applications.Sequences.Partition
+import Applications.Sorting.Alternating
+import Applications.Sorting.BottomUp
+import Applications.Sorting.InsertionObservations
+import Applications.Sorting.Merge
+import Applications.Sorting.Natural
+import Applications.Sorting.NaturalRuns
+import Applications.Sorting.QuickSort
+import Applications.Sorting.ThreeWayQuickSort
+import Applications.Sorting.TopDown
+import Applications.Sorting.Uniqueness
+import Examples.AlternatingSorting
+import Examples.BottomUpCosts
+import Examples.BottomUpSorting
+import Examples.DifferenceListCosts
+import Examples.FunctionalNotation
+import Examples.InsertionCosts
+import Examples.InsertionObservations
+import Examples.ListBuildCosts
+import Examples.ListCalls
+import Examples.ListLibrary
+import Examples.MergeCosts
+import Examples.NaturalRunComparisons
+import Examples.NaturalRunOperations
+import Examples.NaturalRuns
+import Examples.NaturalSorting
+import Examples.NaturalSortingCosts
+import Examples.PermutationMinimum
+import Examples.PermutationMinimumBoundary
+import Examples.PermutationOrder
+import Examples.PermutationOrderBoundary
+import Examples.PermutationTail
+import Examples.PermutationTailBoundary
+import Examples.QuickSort
+import Examples.QuickSortCosts
+import Examples.QuickSortMean
+import Examples.QuickSortTransport
+import Examples.RandomQuickSort
+import Examples.RandomQuickSortGrowth
+import Examples.RandomQuickSortMean
+import Examples.RandomQuickSortRank
+import Examples.SortUniqueness
+import Examples.ThreeWayPartition
+import Examples.ThreeWayQuickSort
+import Examples.TopDownCosts
+import Examples.TopDownSorting
+import Examples.UniformQuickSortMean
+
+-- Observation sentinel only: no execution or semantic output is claimed.
+#check @Resources.isBigO_of_nat_bound

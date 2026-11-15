@@ -1,0 +1,57 @@
+diff --git a/Applications/Resources/Selection.lean b/Applications/Resources/Selection.lean
+index 5884081..2320a90 100644
+--- a/Applications/Resources/Selection.lean
++++ b/Applications/Resources/Selection.lean
+@@ -138,9 +138,11 @@ private def selectWorker (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
+           common + equal.2 + child.2)
+ termination_by xs.length
+ decreasing_by
+-  · exact medians_shorter d xs hd (by omega)
+-  · exact (strict_sizes p xs hp).1
+-  · exact (strict_sizes p xs hp).2
++  all_goals
++    first
++    | exact medians_shorter d xs hd (by omega)
++    | exact (strict_sizes p xs hp).1
++    | exact (strict_sizes p xs hp).2
+ 
+ omit [LinearOrder α] in
+ private def observe {xs : List α} (r : Measured {a // a ∈ xs} Nat) :
+@@ -167,7 +169,7 @@ private theorem worker_observe (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutof
+   subst nr
+   unfold selectRunWith
+   dsimp only
+-  rw [dif_pos hk]
++  rw [dite_eq_left hk]
+ 
+ /-- The optional extension stops after its entry and the one cached length. -/
+ theorem selectRunWith_of_invalid (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
+@@ -175,7 +177,7 @@ theorem selectRunWith_of_invalid (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cut
+     selectRunWith d cutoff hd hc k xs = (none, xs.length + 2) := by
+   unfold selectRunWith
+   dsimp only
+-  rw [dif_neg (by simpa only [length_value] using Nat.not_lt.mpr hk)]
++  rw [dite_eq_right (by simpa only [length_value] using Nat.not_lt.mpr hk)]
+   rw [SymmetricCosts.lengthRun_exact]
+   exact Prod.ext rfl (by omega)
+ 
+@@ -214,8 +216,7 @@ theorem selectRunWith_small (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
+   rw [worker_observe d cutoff hd hc k xs (SymmetricCosts.lengthRun xs) rfl hi]
+   rw [selectWorker]
+   dsimp only
+-  rw [dif_pos (by simpa only [length_value] using hs)]
+-  dsimp only
++  rw [dite_eq_left (by simpa only [length_value] using hs)]
+   split
+   next h =>
+     have hbad := (slowSelectRun_none k xs).mp h
+@@ -258,8 +259,7 @@ theorem selectRunWith_step (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
+   rw [worker_observe d cutoff hd hc k xs (SymmetricCosts.lengthRun xs) rfl hi]
+   rw [selectWorker]
+   dsimp only
+-  rw [dif_neg (by simpa only [length_value] using Nat.not_le.mpr hs)]
+-  dsimp only
++  rw [dite_eq_right (by simpa only [length_value] using Nat.not_le.mpr hs)]
+   by_cases hl : k < (partition3 pr.1.val xs).1.length
+   · have hj : k < (SymmetricCosts.lengthRun (partition3 pr.1.val xs).1).1 := by
+       rw [length_value]

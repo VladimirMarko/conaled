@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-03T13:56:14.634675+00:00",
+  "operation": "Restore required standard Nix store directory",
+  "requested_tool": "exec_command",
+  "requested_command": "mkdir -m 0755 /nix",
+  "requested_sandbox_permissions": "require_escalated",
+  "tool_outcome": "rejected before command execution",
+  "tool_diagnostic": "approval policy is Granular(GranularApprovalConfig { sandbox_approval: false, rules: false, skill_approval: false, request_permissions: false, mcp_elicitations: true }); reject command \u2014 you cannot ask for escalated permissions if the approval policy is Granular(GranularApprovalConfig { sandbox_approval: false, rules: false, skill_approval: false, request_permissions: false, mcp_elicitations: true })",
+  "exit_code": null,
+  "remote_action": false,
+  "nix_directory_present_after_request": false,
+  "consequence": "No permitted standard /nix installation was established. Official namespace-dependent rootless route is unavailable as documented separately. No compiler/build/audit or formal acceptance performed.",
+  "related_investigation": "environment/recovery-040.md",
+  "acceptance": false
+}

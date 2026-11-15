@@ -1,0 +1,22 @@
+{
+  "recorded_utc": "2026-11-04T08:21:40.019156+00:00",
+  "finding_id": "C02-TYPE-001",
+  "category": "Missing final expanded-type evidence, not a mathematical source finding",
+  "reviewer": "chapter02_standards",
+  "candidate": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+  "preliminary_missing_public_names": 98,
+  "files": {
+    "Applications/Sorting/InsertionObservations.lean": 5,
+    "Examples/InsertionObservations.lean": 31,
+    "Applications/Sorting/TopDown.lean": 14,
+    "Examples/TopDownSorting.lean": 11,
+    "Applications/Sorting/QuickSort.lean": 11,
+    "Examples/QuickSort.lean": 21,
+    "Applications/Resources/TopDownSorting.lean": 3,
+    "Examples/TopDownCosts.lean": 2
+  },
+  "evidence": "Older QuickSort log checks14 names only (10/21core and4/25examples); TopDown costs checks32, omitting3core/2examples. Preliminary comparison across11secured logs and pending468 program shows98additional public names above. Representative missing quickSortAccBy_nil and Resources.TopDownSorting.run_nil have no located output.",
+  "limitations": "Full missing-name accounting across all80paths, shared retained evidence and local named instances remains in progress. This is not an assertion that all missing evidence has been inventoried.",
+  "required_disposition": "After0093 release Standards completes exact name/source/run accounting; root extends pending type program before execution, preserves original programs and all historical output, avoids redundant already-complete checks. Review all complete actual types.",
+  "closed": false
+}

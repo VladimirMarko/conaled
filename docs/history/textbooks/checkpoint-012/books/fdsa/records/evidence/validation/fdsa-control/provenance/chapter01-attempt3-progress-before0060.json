@@ -1,0 +1,125 @@
+{
+  "observed_utc": "2026-11-03T01:04:42.017227+00:00",
+  "known": [
+    {
+      "pid": 600750,
+      "state": "S",
+      "ppid": 1,
+      "start_ticks": "9123853",
+      "argv_prefix": [
+        "python3",
+        "/workspace/scratch/845aa1048b05/fdsa-control/provenance/run-chapter01-repair-attempt3.py"
+      ],
+      "argc": 2,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    },
+    {
+      "pid": 600779,
+      "state": "S",
+      "ppid": 600750,
+      "start_ticks": "9123889",
+      "argv_prefix": [
+        "python3",
+        "scripts/check.py",
+        "--candidate",
+        "HEAD"
+      ],
+      "argc": 4,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    },
+    {
+      "pid": 600956,
+      "state": "S",
+      "ppid": 600779,
+      "start_ticks": "9124698",
+      "argv_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake",
+        "--no-cache",
+        "--rehash",
+        "build",
+        "+Squares",
+        "+Applications.AD.Core",
+        "+Applications.AD.Modes",
+        "+FirstOrder"
+      ],
+      "argc": 964,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    }
+  ],
+  "task_cwd_processes": [
+    {
+      "pid": 684574,
+      "state": "S",
+      "ppid": 600956,
+      "start_ticks": "10042248",
+      "argv_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/Applications/FRP/LifecycleProgress.lean",
+        "-o",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/LifecycleProgress.olean",
+        "-i",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/FRP/LifecycleProgress.ilean",
+        "-c",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/ir/Applications/FRP/LifecycleProgress.c"
+      ],
+      "argc": 11,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    }
+  ],
+  "recorder": {
+    "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "review_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+    "started_utc": "2026-11-02T22:08:37.284385+00:00",
+    "checkout": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+    "initial_status": "",
+    "command": [
+      "env",
+      "LEAN_NUM_THREADS=1",
+      "./check.sh",
+      "--candidate",
+      "HEAD"
+    ],
+    "LEAN_NUM_THREADS": "1",
+    "result": "running",
+    "log": "/workspace/scratch/845aa1048b05/fdsa-control/reviews/chapter01-repair-incremental-attempt3.log",
+    "wrapper": {
+      "pid": 600750,
+      "start_ticks": "9123853",
+      "state": "R",
+      "process_group": 600750,
+      "session": 600750
+    },
+    "available_bytes_at_start": 1277620224,
+    "prior_attempt_outcome": "Attempts1 and2 both have unknown terminal outcomes; both INC02 evidence sets remain preserved without modification.",
+    "recovery_disposition": "reviews/chapter01-session2-recovery-standards.md",
+    "recovery_disposition_sha256": "2f2d829897074900896b69cfb8b2edde0f30cddb6f5a525eb9f31e3b9f323293",
+    "launcher_mode": "External pinned-Nix launch in a separate session; checker command and verification policy unchanged.",
+    "scope": "Full unchanged ordinary guarded candidate check: source/coverage/compiler identity, both integrity passes, complete integrated build and exhaustive proof audit. Both retained final review axes and immediate verify-candidate remain required.",
+    "checker": {
+      "pid": 600779,
+      "start_ticks": "9123889",
+      "state": "R",
+      "process_group": 600750,
+      "session": 600750
+    }
+  },
+  "log": {
+    "bytes": 167226,
+    "sha256": "56eeb09e7b15d5edb999deda75ec47a36d568247971b16dbb177ae1da009e122",
+    "tail": [
+      "info: Applications/FRP/Equivalence.lean:1149:0: 'FRP.Examples.zeno_not_finiteHistory' depends on axioms: [propext, choice, Quot.sound]",
+      "\u2714 [9559/9562] Built Applications.FRP.Finite (1929s)",
+      "\u2714 [9560/9563] Built Examples.FRP (1519s)",
+      "\u2714 [9561/9564] Built Applications.FRP.Engine (2169s)",
+      "\u2714 [9562/9565] Built Applications.FRP.Lifecycle (1982s)",
+      "\u2714 [9563/9566] Built Applications.FRP.LifecycleSafety (1508s)"
+    ]
+  },
+  "verification_exists": false,
+  "retained_verification_exists": false,
+  "space": {
+    "euid": 0,
+    "free_blocks_bytes": 4165853184,
+    "unprivileged_available_bytes": 713105408
+  }
+}

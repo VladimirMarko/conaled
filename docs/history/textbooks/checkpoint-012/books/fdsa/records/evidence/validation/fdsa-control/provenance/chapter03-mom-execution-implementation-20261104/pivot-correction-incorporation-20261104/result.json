@@ -1,0 +1,38 @@
+{
+  "completed_utc": "2026-11-04T19:44:19.633821+00:00",
+  "actual_exit": 0,
+  "old_head": "4604d35e44d383fe8e84c2874812b2fc11d8f09b",
+  "candidate": "759589ec63d359231330f732b42c96591a53325e",
+  "tree": "b68c0a0d61282de15ea9aacb41b2e8b90b863ed2",
+  "new_commits_in_order": [
+    "27c0bebd709df49bbc24d498bb446cd7338106b7",
+    "759589ec63d359231330f732b42c96591a53325e"
+  ],
+  "original_commits_in_order": [
+    "ac8bee488069d471eef9955fed11db5647cff72f",
+    "bc26994a828eb958fe930c0e46039f9c5addc864"
+  ],
+  "changed_paths": [
+    "Applications/Selection/MedianOfMedians.lean",
+    "Examples/MedianOfMedians.lean"
+  ],
+  "exact_passing_pivot_source_bytes": [
+    {
+      "path": "Applications/Selection/MedianOfMedians.lean",
+      "bytes": 13797,
+      "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba"
+    },
+    {
+      "path": "Examples/MedianOfMedians.lean",
+      "bytes": 9092,
+      "sha256": "0bbbbdab0f2f41f42fd615231d04d29ebeb8f7ffd5cc83e2a6b832cbfcc25f0c"
+    }
+  ],
+  "six_other_sources_preserved": true,
+  "all_prior_records_preserved": true,
+  "clean_source": true,
+  "all_original_commits_and_branches_retained": true,
+  "Lean_Lake_actions": false,
+  "new_combined_candidate_validation": false,
+  "chapter03_accepted": false
+}

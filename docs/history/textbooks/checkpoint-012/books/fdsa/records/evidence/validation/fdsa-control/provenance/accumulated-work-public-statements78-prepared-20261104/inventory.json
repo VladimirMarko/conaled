@@ -1,0 +1,879 @@
+{
+  "status": "PREPARED ONLY; UNEXECUTED",
+  "source_candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+  "future_candidate": null,
+  "frozen_requirements_sha256": "85c651891cf8c8ee016706bf8baad7711dbd9965eb20ad5c6e96d2ab112728e1",
+  "public_names": [
+    {
+      "name": "Applications.Probability.AccumulatedWork.lintegral_le_geometric",
+      "source_path": "Applications/Probability/AccumulatedWork.lean",
+      "line": 39,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem lintegral_le_geometric (\u03bc : Measure \u03a9) (X : Nat \u2192 \u03a9 \u2192 \u211d\u22650\u221e)\n    {q N : \u211d\u22650\u221e}\n    (initial : (\u222b\u207b \u03c9, X 0 \u03c9 \u2202\u03bc) \u2264 N)\n    (drift : \u2200 t, (\u222b\u207b \u03c9, X (t + 1) \u03c9 \u2202\u03bc) \u2264 q * (\u222b\u207b \u03c9, X t \u03c9 \u2202\u03bc))\n    (t : Nat) : (\u222b\u207b \u03c9, X t \u03c9 \u2202\u03bc) \u2264 q ^ t * N",
+      "source_header_sha256": "2cf3cbb2c62fbb214a20960f10d22b6303454830a5b3ae207a6e814b3e28d2b0",
+      "actual_type_read": false
+    },
+    {
+      "name": "Applications.Probability.AccumulatedWork.lintegral_tsum_shift_le",
+      "source_path": "Applications/Probability/AccumulatedWork.lean",
+      "line": 54,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem lintegral_tsum_shift_le (\u03bc : Measure \u03a9) (X : Nat \u2192 \u03a9 \u2192 \u211d\u22650\u221e)\n    {q N : \u211d\u22650\u221e}\n    (hmeas : \u2200 t, AEMeasurable (X t) \u03bc)\n    (initial : (\u222b\u207b \u03c9, X 0 \u03c9 \u2202\u03bc) \u2264 N)\n    (drift : \u2200 t, (\u222b\u207b \u03c9, X (t + 1) \u03c9 \u2202\u03bc) \u2264 q * (\u222b\u207b \u03c9, X t \u03c9 \u2202\u03bc))\n    (w : Nat) :\n    (\u222b\u207b \u03c9, (\u2211' j : Nat, X (w + j) \u03c9) \u2202\u03bc) \u2264 q ^ w * N / (1 - q)",
+      "source_header_sha256": "9d165f34a5416cc0963c3a5ab7fd7832719ba855fffeadedadf4a70d01f0ae79",
+      "actual_type_read": false
+    },
+    {
+      "name": "Applications.Probability.AccumulatedWork.lintegral_tsum_le",
+      "source_path": "Applications/Probability/AccumulatedWork.lean",
+      "line": 74,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem lintegral_tsum_le (\u03bc : Measure \u03a9) (X : Nat \u2192 \u03a9 \u2192 \u211d\u22650\u221e)\n    {q N : \u211d\u22650\u221e}\n    (hmeas : \u2200 t, AEMeasurable (X t) \u03bc)\n    (initial : (\u222b\u207b \u03c9, X 0 \u03c9 \u2202\u03bc) \u2264 N)\n    (drift : \u2200 t, (\u222b\u207b \u03c9, X (t + 1) \u03c9 \u2202\u03bc) \u2264 q * (\u222b\u207b \u03c9, X t \u03c9 \u2202\u03bc)) :\n    (\u222b\u207b \u03c9, (\u2211' t : Nat, X t \u03c9) \u2202\u03bc) \u2264 N / (1 - q)",
+      "source_header_sha256": "9679920b6d0448179b21613754c488b1d9db3c3c4cb3470a88fb5303cdf79c97",
+      "actual_type_read": false
+    },
+    {
+      "name": "Applications.Probability.AccumulatedWork.lintegral_tsum_lt_top",
+      "source_path": "Applications/Probability/AccumulatedWork.lean",
+      "line": 85,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem lintegral_tsum_lt_top (\u03bc : Measure \u03a9) (X : Nat \u2192 \u03a9 \u2192 \u211d\u22650\u221e)\n    {q N : \u211d\u22650\u221e}\n    (hmeas : \u2200 t, AEMeasurable (X t) \u03bc)\n    (initial : (\u222b\u207b \u03c9, X 0 \u03c9 \u2202\u03bc) \u2264 N)\n    (drift : \u2200 t, (\u222b\u207b \u03c9, X (t + 1) \u03c9 \u2202\u03bc) \u2264 q * (\u222b\u207b \u03c9, X t \u03c9 \u2202\u03bc))\n    (hq : q < 1) (hNtop : N \u2260 \u221e) :\n    (\u222b\u207b \u03c9, (\u2211' t : Nat, X t \u03c9) \u2202\u03bc) < \u221e",
+      "source_header_sha256": "e8ae434a11e700d69c664bdb2486e95666e00b795ee9f6c5077a6c0bfe51d0f2",
+      "actual_type_read": false
+    },
+    {
+      "name": "Applications.Probability.AccumulatedWork.measure_tsum_ge_le",
+      "source_path": "Applications/Probability/AccumulatedWork.lean",
+      "line": 99,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem measure_tsum_ge_le (\u03bc : Measure \u03a9) (X : Nat \u2192 \u03a9 \u2192 \u211d\u22650\u221e)\n    {q N : \u211d\u22650\u221e}\n    (hmeas : \u2200 t, AEMeasurable (X t) \u03bc)\n    (initial : (\u222b\u207b \u03c9, X 0 \u03c9 \u2202\u03bc) \u2264 N)\n    (drift : \u2200 t, (\u222b\u207b \u03c9, X (t + 1) \u03c9 \u2202\u03bc) \u2264 q * (\u222b\u207b \u03c9, X t \u03c9 \u2202\u03bc))\n    (w : Nat) (hq : q < 1) (hNzero : N \u2260 0) (hNtop : N \u2260 \u221e)\n    (prefix : \u2200\u1d50 \u03c9 \u2202\u03bc, (\u2211 t \u2208 Finset.range w, X t \u03c9) \u2264 (w : \u211d\u22650\u221e) * N) :\n    \u03bc {\u03c9 | (w : \u211d\u22650\u221e) * N + N / (1 - q) \u2264 \u2211' t : Nat, X t \u03c9} \u2264 q ^ w",
+      "source_header_sha256": "b39bcd26f3bdb0a897a037a7892d32ef1e17bcee1502f6b502e79a5b2920d52b",
+      "actual_type_read": false
+    },
+    {
+      "name": "Applications.Probability.AccumulatedWork.measure_tsum_ge_le_of_stage_le",
+      "source_path": "Applications/Probability/AccumulatedWork.lean",
+      "line": 141,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem measure_tsum_ge_le_of_stage_le (\u03bc : Measure \u03a9) (X : Nat \u2192 \u03a9 \u2192 \u211d\u22650\u221e)\n    {q N : \u211d\u22650\u221e}\n    (hmeas : \u2200 t, AEMeasurable (X t) \u03bc)\n    (initial : (\u222b\u207b \u03c9, X 0 \u03c9 \u2202\u03bc) \u2264 N)\n    (drift : \u2200 t, (\u222b\u207b \u03c9, X (t + 1) \u03c9 \u2202\u03bc) \u2264 q * (\u222b\u207b \u03c9, X t \u03c9 \u2202\u03bc))\n    (w : Nat) (hq : q < 1) (hNzero : N \u2260 0) (hNtop : N \u2260 \u221e)\n    (stageBound : \u2200 t, X t \u2264\u1d50[\u03bc] (fun _ => N)) :\n    \u03bc {\u03c9 | (w : \u211d\u22650\u221e) * N + N / (1 - q) \u2264 \u2211' t : Nat, X t \u03c9} \u2264 q ^ w",
+      "source_header_sha256": "b2275ba1ddf90c20a012abbb6a4a3b57bb46e842ed27bfd47b5b61831e817614",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.law",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 54,
+      "visibility": "public",
+      "kind": "def",
+      "source_header": "noncomputable def law : Measure (Fin 8)",
+      "source_header_sha256": "2b65aa3ecf02b00a7a5918fa4c2f2d49214e954678286b8b9fc9e78ed223e0ee",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.charge",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 61,
+      "visibility": "public",
+      "kind": "def",
+      "source_header": "def charge : Nat \u2192 Fin 8 \u2192 Nat",
+      "source_header_sha256": "24e59db6229235d6bd709dd628f472394b84fd2ef1fc005aaf6999d617414ccf",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.charge_le_one",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 68,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem charge_le_one (t : Nat) (\u03c9 : Fin 8) : charge t \u03c9 \u2264 1",
+      "source_header_sha256": "0f11248afce48a8cf9848322f25db04afeb40bf10d36dc31c31a72476301bf4b",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.charge_late",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 72,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem charge_late (t : Nat) (\u03c9 : Fin 8) (ht : 4 \u2264 t) : charge t \u03c9 = 0",
+      "source_header_sha256": "c563d76d8ec4388770532b06070ac90d5e7186605ce1cfff971ff9ece810c8a3",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.step",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 78,
+      "visibility": "public",
+      "kind": "def",
+      "source_header": "def step (\u03c9 : Fin 8) (t : Nat) (seen : List Nat) : Measured (List Nat) Nat",
+      "source_header_sha256": "531f70338feba938705a8339ad028cb79d23d7e421bd35ab4763a1251ec4cc77",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.step_cost",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 81,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem step_cost (\u03c9 : Fin 8) (t : Nat) (seen : List Nat) :\n    (step \u03c9 t seen).2 = charge t \u03c9",
+      "source_header_sha256": "53fee6b3e5a0b685e33c4a7cb545f7179c8896b5353cf5417fb88d5a5f7b8103",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.program",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 89,
+      "visibility": "public",
+      "kind": "def",
+      "source_header": "def program (\u03c9 : Fin 8) : Measured (List Nat) Nat",
+      "source_header_sha256": "51332972e02898d3af7499793e15a238c0742fe70a2bfe18e1a02aef86e8626f",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.program_value",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 93,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem program_value (\u03c9 : Fin 8) :\n    (program \u03c9).1 =\n      if \u03c9.val < 1 then [3, 2, 1, 0]\n      else if \u03c9.val < 2 then [2, 1, 0]\n      else if \u03c9.val < 4 then [1, 0]\n      else [0]",
+      "source_header_sha256": "60825029fb10946c0943066be53e75053a96ae147d534dc05fe5ba410f386fcd",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.program_cost",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 101,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem program_cost (\u03c9 : Fin 8) :\n    (program \u03c9).2 = 1 + (if \u03c9.val < 4 then 1 else 0) +\n      (if \u03c9.val < 2 then 1 else 0) + (if \u03c9.val < 1 then 1 else 0)",
+      "source_header_sha256": "e9f44854b131c210d9c03fdf93a625877b4ae2a85d3a0231877d8ead013310b8",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.observation",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 106,
+      "visibility": "public",
+      "kind": "def",
+      "source_header": "def observation (t : Nat) (\u03c9 : Fin 8) : \u211d\u22650\u221e",
+      "source_header_sha256": "6fbd9a0e9dee47ae6ccd9ac6de24dca84f2cb54e1cc8d6d6c2a0988f1a1a4f75",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.observation_measurable",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 108,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem observation_measurable (t : Nat) : AEMeasurable (observation t) law",
+      "source_header_sha256": "0eb1d21d1a99724b7c26c4d59b911d817c49fcdc30b50644e4a88c930a70d8bd",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.observation_le_one",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 111,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem observation_le_one (t : Nat) :\n    observation t \u2264\u1d50[law] (fun _ => 1)",
+      "source_header_sha256": "c0a09e8fe689620e9b3af5fca4a6a1751d5431ec910e998477a1df18408621a2",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.accumulated_eq_cost",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 119,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem accumulated_eq_cost (\u03c9 : Fin 8) :\n    (\u2211' t : Nat, observation t \u03c9) = ((program \u03c9).2 : \u211d\u22650\u221e)",
+      "source_header_sha256": "cbc26ae2ad81d9bd0988d3ddcbe4c4c0a13713fd13f286229efe8ad929221145",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.stage_means",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 131,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem stage_means (t : Nat) : (\u222b\u207b \u03c9, observation t \u03c9 \u2202law) =\n    match t with",
+      "source_header_sha256": "0585dea784d0d3e0a0de48e94a73cab2c7100bce4aa731d538205a5fc0100f05",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.initial_mean",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 144,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem initial_mean : (\u222b\u207b \u03c9, observation 0 \u03c9 \u2202law) \u2264 1",
+      "source_header_sha256": "9aaec468da35462db88990089f00e49ea01ecc617dda5abab949231cc5a50021",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.integrated_drift",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 147,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem integrated_drift (t : Nat) :\n    (\u222b\u207b \u03c9, observation (t + 1) \u03c9 \u2202law) \u2264\n      (1 / 2 : \u211d\u22650\u221e) * (\u222b\u207b \u03c9, observation t \u03c9 \u2202law)",
+      "source_header_sha256": "5de3265cf2d7d1e23d98ff031a8c91ad2df2b29b9c3aad6d93086f63850d3a0a",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.expected_cost_exact",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 155,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem expected_cost_exact :\n    (\u222b\u207b \u03c9, ((program \u03c9).2 : \u211d\u22650\u221e) \u2202law) = 15 / 8",
+      "source_header_sha256": "9c2c3dae44f1dddf46284a615045d86455b87ae487f380d6621a2bb7a8a95933",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.expected_cost_le",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 163,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem expected_cost_le :\n    (\u222b\u207b \u03c9, ((program \u03c9).2 : \u211d\u22650\u221e) \u2202law) \u2264 2",
+      "source_header_sha256": "c250750e777a7a610748d28e6901b253df66f19303c9bfdf92d2cc6caa7c3361",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.expected_cost_finite",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 169,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem expected_cost_finite :\n    (\u222b\u207b \u03c9, ((program \u03c9).2 : \u211d\u22650\u221e) \u2202law) < \u221e",
+      "source_header_sha256": "024cffa8974a03faf036c9a5d7b33c093e126911642b15d63749db56d18a1ebb",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.remaining_eq_cost",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 176,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem remaining_eq_cost (\u03c9 : Fin 8) :\n    (\u2211' j : Nat, observation (1 + j) \u03c9) = (((program \u03c9).2 - 1 : Nat) : \u211d\u22650\u221e)",
+      "source_header_sha256": "0afa99152315f1c89fe06013d3d8d5a3d01f612e72a0d70650e1dff5c14d0655",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.expected_remaining_exact",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 190,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem expected_remaining_exact :\n    (\u222b\u207b \u03c9, (\u2211' j : Nat, observation (1 + j) \u03c9) \u2202law) = 7 / 8",
+      "source_header_sha256": "f3544a1edd43225578b2e1e5e3f3609e70a519125ab92f919c2a08cc6c7a338e",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.expected_remaining_le",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 199,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem expected_remaining_le :\n    (\u222b\u207b \u03c9, (\u2211' j : Nat, observation (1 + j) \u03c9) \u2202law) \u2264 1",
+      "source_header_sha256": "46de58a9d328512db03ace2f37d2c9238e5dd4bebbe2cdf1c68e3f50e68ff8d6",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.tail_event",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 209,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem tail_event : {\u03c9 : Fin 8 | (3 : \u211d\u22650\u221e) \u2264 (program \u03c9).2} =\n    {\u03c9 : Fin 8 | \u03c9.val < 2}",
+      "source_header_sha256": "b4b2010f5ae1d3975f2785cdd352e64710ddfe7c2226ce77a608a77e92df29ed",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.tail_mass",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 214,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem tail_mass : law {\u03c9 | (3 : \u211d\u22650\u221e) \u2264 (program \u03c9).2} = 1 / 4",
+      "source_header_sha256": "a1d9982437bfa1593e6aaf4fa4604316d1c23f35a1d24d5947e1a1c112d17239",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.tail_le",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 223,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem tail_le : law {\u03c9 | (3 : \u211d\u22650\u221e) \u2264 (program \u03c9).2} \u2264 1 / 2",
+      "source_header_sha256": "86390c981a611c401bfdab08cd977cfee2be1182c74486d574f4c1347bb4dd0d",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.shared_stage_masses",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 231,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem shared_stage_masses :\n    law {\u03c9 | \u03c9.val < 4} = 1 / 2 \u2227 law {\u03c9 | \u03c9.val < 2} = 1 / 4 \u2227\n    law ({\u03c9 | \u03c9.val < 4} \u2229 {\u03c9 | \u03c9.val < 2}) = 1 / 4",
+      "source_header_sha256": "73d48fac0b4fa6388813153dd0678fe9b9ce30729f185f134b484c4dd12c2d33",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.shared_stages_not_independent",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 249,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem shared_stages_not_independent :\n    law ({\u03c9 | \u03c9.val < 4} \u2229 {\u03c9 | \u03c9.val < 2}) \u2260\n      law {\u03c9 | \u03c9.val < 4} * law {\u03c9 | \u03c9.val < 2}",
+      "source_header_sha256": "19b49ecd8e751b88d401e2adb55db01bd39cea5dd94d1ac1af16c06cea5f1f48",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.affineProgram",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 256,
+      "visibility": "public",
+      "kind": "def",
+      "source_header": "def affineProgram (\u03c9 : Fin 8) : Measured (List Nat) Nat",
+      "source_header_sha256": "32801103d9853861b18b135cd1e7490796ee53c59f56d60958df2fbafdf6a403",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.affineProgram_value",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 259,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem affineProgram_value (\u03c9 : Fin 8) : (affineProgram \u03c9).1 = (program \u03c9).1",
+      "source_header_sha256": "cb8ff88c27774de62a67fb5fa27c2c172a5237c3bc6779d8b6d700dd2a24a491",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.affineProgram_cost",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 261,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem affineProgram_cost (\u03c9 : Fin 8) :\n    (affineProgram \u03c9).2 = 2 * (program \u03c9).2 + 3",
+      "source_header_sha256": "843cfb1a3a29d3c3c1e4b9d18b1e88a86746b7625a8b1c00c3dc39519acf9a75",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.affine_expected_exact",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 264,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem affine_expected_exact :\n    (\u222b\u207b \u03c9, ((affineProgram \u03c9).2 : \u211d\u22650\u221e) \u2202law) = 27 / 4",
+      "source_header_sha256": "3c30f593726be9b282cbe62618fa2abb87dd98ad83fe06e45b822e544c7ecc54",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.affine_expected_le",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 272,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem affine_expected_le :\n    (\u222b\u207b \u03c9, ((affineProgram \u03c9).2 : \u211d\u22650\u221e) \u2202law) \u2264 7",
+      "source_header_sha256": "8138e2a0947a15610545d204b92623b87dd4041fb7c71cf225aa246230031c3b",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.affine_tail_event",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 286,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem affine_tail_event : {\u03c9 : Fin 8 | (9 : \u211d\u22650\u221e) \u2264 (affineProgram \u03c9).2} =\n    {\u03c9 : Fin 8 | (3 : \u211d\u22650\u221e) \u2264 (program \u03c9).2}",
+      "source_header_sha256": "0907df2add5e1a9b6b0376e049a9330500ec84435cbf1935554357e7ed3c9af3",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.affine_tail_mass",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 291,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem affine_tail_mass : law {\u03c9 | (9 : \u211d\u22650\u221e) \u2264 (affineProgram \u03c9).2} = 1 / 4",
+      "source_header_sha256": "413940593fb6cd146087d6a5830a070f44195338d52132eceda81192cb8a30b2",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.affine_tail_le",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 295,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem affine_tail_le : law {\u03c9 | (9 : \u211d\u22650\u221e) \u2264 (affineProgram \u03c9).2} \u2264 1 / 2",
+      "source_header_sha256": "06bdf9ecf775e43828420a9c70f1a7547f5b0bad7b9aea6e3350044c0ef1b1f9",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.oneStageRun",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 34,
+      "visibility": "public",
+      "kind": "def",
+      "source_header": "def oneStageRun : Resources.Measured Nat Nat",
+      "source_header_sha256": "493d9701b8180d1f84dc748c0b84073f85646790517fde39d0cbd1ea94dcd82c",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.oneStageRun_value",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 39,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem oneStageRun_value : oneStageRun.1 = 7",
+      "source_header_sha256": "ac664a64f6b1979a19c0f8ce8b3e8bb4522957feeb5052c4b57b1c29e1ba614d",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.oneStageRun_cost",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 41,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem oneStageRun_cost : oneStageRun.2 = 3",
+      "source_header_sha256": "04ca7cc3fde28e0ebae6ae388825f4207518d0349c09c1abcffb0f45b780789a",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.singleWork",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 44,
+      "visibility": "public",
+      "kind": "def",
+      "source_header": "def singleWork (t : Nat) (_ : Unit) : \u211d\u22650\u221e",
+      "source_header_sha256": "24565c31711d43f1649b68e85eb4f31bdb00c3b1eab8cb3d0059c4ac17a484d4",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.singleWork_measurable",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 47,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem singleWork_measurable (t : Nat) : AEMeasurable (singleWork t) \u03bc\u2081",
+      "source_header_sha256": "be971bacd335f40f612414d4df180cb91257dddceaccef732e615224add5e761",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.singleWork_total",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 50,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem singleWork_total (\u03c9 : Unit) : (\u2211' t : Nat, singleWork t \u03c9) = 3",
+      "source_header_sha256": "0adb85fc85e871b767308a8aff5fca6d776ed432b9afe7d665d6fa4ac37b50c8",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.oneStageRun_observed",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 53,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem oneStageRun_observed (\u03c9 : Unit) :\n    (oneStageRun.2 : \u211d\u22650\u221e) = \u2211' t : Nat, singleWork t \u03c9",
+      "source_header_sha256": "41fda1eebcef9d90ea466e6889a40334d7e3a1d7e6b64fd113d1fa0150671e48",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.singleWork_initial",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 57,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem singleWork_initial : (\u222b\u207b \u03c9, singleWork 0 \u03c9 \u2202\u03bc\u2081) = 3",
+      "source_header_sha256": "3d8bff9a0edf5832d2e2299bcaad7d57614b68430718f2e1dac01778eecc267a",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.singleWork_drift",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 60,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem singleWork_drift (t : Nat) :\n    (\u222b\u207b \u03c9, singleWork (t + 1) \u03c9 \u2202\u03bc\u2081) \u2264 0 * (\u222b\u207b \u03c9, singleWork t \u03c9 \u2202\u03bc\u2081)",
+      "source_header_sha256": "466c571cdca34d6ffc4ffffcb9104cab2fcfde2db9207173c80429bb87f22185",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.singleWork_stage_le",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 64,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem singleWork_stage_le (t : Nat) :\n    singleWork t \u2264\u1d50[\u03bc\u2081] (fun _ => (3 : \u211d\u22650\u221e))",
+      "source_header_sha256": "6494463b139a23fb3e37b6e0d479449e572bc4c4452046e52123a5e717a2a9cc",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.singleWork_integral_le",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 71,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem singleWork_integral_le :\n    (\u222b\u207b \u03c9, (\u2211' t : Nat, singleWork t \u03c9) \u2202\u03bc\u2081) \u2264 3",
+      "source_header_sha256": "ac29aa629f73bdad759442c1f0690f9dccd1cfcb9ce07ba1d5d693a7c4f01c5f",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.singleWork_integral_finite",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 76,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem singleWork_integral_finite :\n    (\u222b\u207b \u03c9, (\u2211' t : Nat, singleWork t \u03c9) \u2202\u03bc\u2081) < \u221e",
+      "source_header_sha256": "e54bad4fed71139c9bd79a5fd4d9dc7a88140625d4fa50613d480fcbe084785c",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.singleWork_tail",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 82,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem singleWork_tail (w : Nat) :\n    \u03bc\u2081 {\u03c9 | (w : \u211d\u22650\u221e) * 3 + 3 \u2264 \u2211' t : Nat, singleWork t \u03c9} \u2264 (0 : \u211d\u22650\u221e) ^ w",
+      "source_header_sha256": "92b142a9f66550fe1d239e87ed52755e27b1c74f90fa35034a700b6453de0738",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.singleWork_tail_zero",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 89,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem singleWork_tail_zero :\n    \u03bc\u2081 {\u03c9 | 3 \u2264 \u2211' t : Nat, singleWork t \u03c9} = 1 \u2227\n      \u03bc\u2081 {\u03c9 | 3 \u2264 \u2211' t : Nat, singleWork t \u03c9} \u2264 (0 : \u211d\u22650\u221e) ^ 0",
+      "source_header_sha256": "87fcbd5b727f543acfe8a0ca296ca9e50086c23971a28bbfecf68692826c3066",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.singleWork_tail_pos",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 97,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem singleWork_tail_pos (w : Nat) (hw : 0 < w) :\n    \u03bc\u2081 {\u03c9 | (w : \u211d\u22650\u221e) * 3 + 3 \u2264 \u2211' t : Nat, singleWork t \u03c9} = 0",
+      "source_header_sha256": "5c4e73f842dd6e6b5f8e7f84fc6ad1c7ff1681304b5e9d42fc31612655ce3a83",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.zeroWork",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 102,
+      "visibility": "public",
+      "kind": "def",
+      "source_header": "def zeroWork : Nat \u2192 Unit \u2192 \u211d\u22650\u221e",
+      "source_header_sha256": "60e676e3df7482e8de63a315fe08620503ba53234042ce5df9729963df8620f4",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.zeroWork_integral",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 105,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem zeroWork_integral :\n    (\u222b\u207b \u03c9, (\u2211' t : Nat, zeroWork t \u03c9) \u2202\u03bc\u2081) = 0",
+      "source_header_sha256": "43a61a098216795b8e742d7ff2100a8123767667678ec7a690c8b42457653117",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.zeroWork_non_strict_tail_fails",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 114,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem zeroWork_non_strict_tail_fails :\n    \u00ac \u03bc\u2081 {\u03c9 | (1 : \u211d\u22650\u221e) * 0 + 0 / (1 - (1 / 2 : \u211d\u22650\u221e)) \u2264\n      \u2211' t : Nat, zeroWork t \u03c9} \u2264 (1 / 2 : \u211d\u22650\u221e) ^ 1",
+      "source_header_sha256": "00524e1b5e156ff64c61e26c6afc487c7d81ffb3d81463b9443c8644ae5bb6cd",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.rareWork",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 122,
+      "visibility": "public",
+      "kind": "def",
+      "source_header": "def rareWork (t : Nat) (\u03c9 : Fin 3) : \u211d\u22650\u221e",
+      "source_header_sha256": "201a3c31e95ace5055de720e1e071f977438ce8dcc348b058010a147488d2573",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.uniform_three_singleton",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 125,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem uniform_three_singleton (\u03c9 : Fin 3) : \u03bc\u2083 {\u03c9} = (1 : \u211d\u22650\u221e) / 3",
+      "source_header_sha256": "476917f334d43e4615553a5f0bd0cab19e08dc0a5b387f53d3d1c1bf1dca9a38",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.rareWork_measurable",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 128,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem rareWork_measurable (t : Nat) : AEMeasurable (rareWork t) \u03bc\u2083",
+      "source_header_sha256": "52915123ef4ab61427e1eff70eee09177f99f8362adadb2a09d1b383e09365c8",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.rareWork_initial",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 131,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem rareWork_initial : (\u222b\u207b \u03c9, rareWork 0 \u03c9 \u2202\u03bc\u2083) = 1",
+      "source_header_sha256": "cd12134bd3a1eec74f3bba64181d72804fb14db0a249b9e2cd23bd0f7330683b",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.rareWork_drift",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 142,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem rareWork_drift (t : Nat) :\n    (\u222b\u207b \u03c9, rareWork (t + 1) \u03c9 \u2202\u03bc\u2083) \u2264 0 * (\u222b\u207b \u03c9, rareWork t \u03c9 \u2202\u03bc\u2083)",
+      "source_header_sha256": "b37789c33bc645cc0c9467c378fd6f116cb69ac3c92bf83a4ea5238bae0630ed",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.rareWork_total",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 146,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem rareWork_total (\u03c9 : Fin 3) :\n    (\u2211' t : Nat, rareWork t \u03c9) = if \u03c9 = 0 then 3 else 0",
+      "source_header_sha256": "9cefe97a4619f1387f6ff63b7e1e2196b9cf3c4f7a61e21bf7507245f90a1488",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.rareWork_integral",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 150,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem rareWork_integral :\n    (\u222b\u207b \u03c9, (\u2211' t : Nat, rareWork t \u03c9) \u2202\u03bc\u2083) = 1",
+      "source_header_sha256": "b04970ac65ee049534864b1109c5cc3e60cd201e5a0d29a8203596ce84eadf39",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.rareWork_integral_le",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 157,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem rareWork_integral_le :\n    (\u222b\u207b \u03c9, (\u2211' t : Nat, rareWork t \u03c9) \u2202\u03bc\u2083) \u2264 1",
+      "source_header_sha256": "cd1822f92bbdefb01d0e4fabe812e79461ccb722a9e371240fb83561e3fca1f8",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.rareWork_tail_event",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 162,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem rareWork_tail_event :\n    {\u03c9 | (2 : \u211d\u22650\u221e) \u2264 \u2211' t : Nat, rareWork t \u03c9} = ({0} : Set (Fin 3))",
+      "source_header_sha256": "9a7c33864350abdea3a9335df083beab4c50690ceeeb6192ba38b6b375b4eecb",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.rareWork_tail_mass",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 168,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem rareWork_tail_mass :\n    \u03bc\u2083 {\u03c9 | (2 : \u211d\u22650\u221e) \u2264 \u2211' t : Nat, rareWork t \u03c9} = (1 : \u211d\u22650\u221e) / 3",
+      "source_header_sha256": "ed7545f32c2ffbb9816408e0f2d9ae99260088eb63a3951af993516cd03d454c",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.rareWork_tail_positive",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 172,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem rareWork_tail_positive :\n    0 < \u03bc\u2083 {\u03c9 | (2 : \u211d\u22650\u221e) \u2264 \u2211' t : Nat, rareWork t \u03c9}",
+      "source_header_sha256": "26e28437ae7c55371287088c6f16ac5cabcae370c6216478e9deee0840a9c8ce",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.rareWork_tail_without_prefix_fails",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 178,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem rareWork_tail_without_prefix_fails :\n    \u00ac \u03bc\u2083 {\u03c9 | (2 : \u211d\u22650\u221e) \u2264 \u2211' t : Nat, rareWork t \u03c9} \u2264 (0 : \u211d\u22650\u221e) ^ 1",
+      "source_header_sha256": "c3975a62f2f194a594fe505485f9a0ec1456ca64b4d8c33eda164c9d1eb439ed",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.rareWork_prefix_fails",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 184,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem rareWork_prefix_fails :\n    \u00ac \u2200\u1d50 \u03c9 \u2202\u03bc\u2083, (\u2211 t \u2208 Finset.range 1, rareWork t \u03c9) \u2264 (1 : \u211d\u22650\u221e) * 1",
+      "source_header_sha256": "71fcca5f6c295295358de1f9dc07e99cb2e322b6adbbbc892231f40f42d2606c",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.constantWork",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 193,
+      "visibility": "public",
+      "kind": "def",
+      "source_header": "def constantWork : Nat \u2192 Unit \u2192 \u211d\u22650\u221e",
+      "source_header_sha256": "fd54fb8e426eaeac0dacc3ed0998a4bc5be2a96cd3452e986135fd2570c06c45",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.constantWork_initial",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 195,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem constantWork_initial : (\u222b\u207b \u03c9, constantWork 0 \u03c9 \u2202\u03bc\u2081) = 1",
+      "source_header_sha256": "6f8ef5146af7b61bb4d59c34e3d8608905acca69db2ce4c632820f81c01a70eb",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.constantWork_drift",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 198,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem constantWork_drift (t : Nat) :\n    (\u222b\u207b \u03c9, constantWork (t + 1) \u03c9 \u2202\u03bc\u2081) \u2264\n      (1 : \u211d\u22650\u221e) * (\u222b\u207b \u03c9, constantWork t \u03c9 \u2202\u03bc\u2081)",
+      "source_header_sha256": "04f791a6a256ae0f37cad738f6f5a8c41cf8a588c2ed04cd881dc5d1d84573f7",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.constantWork_total",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 203,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem constantWork_total (\u03c9 : Unit) : (\u2211' t : Nat, constantWork t \u03c9) = \u221e",
+      "source_header_sha256": "6da631985bcf33f7bd29b68c1ac7d727573768ef269fe28802a01948cf21a8ce",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.constantWork_integral",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 207,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem constantWork_integral :\n    (\u222b\u207b \u03c9, (\u2211' t : Nat, constantWork t \u03c9) \u2202\u03bc\u2081) = \u221e",
+      "source_header_sha256": "c84f572549e068341e97cbc9c9de922493fa6942bba9357dfa133b962e35a261",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWorkBoundary.constantWork_extended_bound",
+      "source_path": "Examples/AccumulatedWorkBoundary.lean",
+      "line": 213,
+      "visibility": "public",
+      "kind": "theorem",
+      "source_header": "theorem constantWork_extended_bound :\n    (\u222b\u207b \u03c9, (\u2211' t : Nat, constantWork t \u03c9) \u2202\u03bc\u2081) \u2264\n      (1 : \u211d\u22650\u221e) / (1 - (1 : \u211d\u22650\u221e))",
+      "source_header_sha256": "926462365edbf1e4d8f9779bfd90791523603d7c758fecf7970d010c10752b49",
+      "actual_type_read": false
+    }
+  ],
+  "private_helpers": [
+    {
+      "name": "Examples.AccumulatedWork.uniformFin_integral",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 35,
+      "visibility": "private",
+      "kind": "theorem",
+      "source_header": "private theorem uniformFin_integral (n : Nat) (f : Fin n \u2192 \u211d\u22650\u221e) :\n    (\u222b\u207b \u03c9, f \u03c9 \u2202uniformOn (Set.univ : Set (Fin n))) =\n      \u2211 \u03c9 : Fin n, f \u03c9 * (1 / n)",
+      "source_header_sha256": "f45388956940ceaf4cbfddb8573802c1f72bb8c25f14e2975888544e289cfd05",
+      "actual_type_read": false
+    },
+    {
+      "name": "Examples.AccumulatedWork.uniformFin_event",
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 44,
+      "visibility": "private",
+      "kind": "theorem",
+      "source_header": "private theorem uniformFin_event (n : Nat) (p : Fin n \u2192 Prop) [DecidablePred p] :\n    uniformOn (Set.univ : Set (Fin n)) {\u03c9 | p \u03c9} =\n      ((Finset.univ.filter p).card : \u211d\u22650\u221e) / n",
+      "source_header_sha256": "772cfc4decd296822f6dd954a7ebcc8bd4c9759b24fbf4486d14011f49e33900",
+      "actual_type_read": false
+    }
+  ],
+  "anonymous_instances": [
+    {
+      "source_path": "Examples/AccumulatedWork.lean",
+      "line": 56,
+      "authored_header": "instance : IsProbabilityMeasure law",
+      "intended_type": "MeasureTheory.IsProbabilityMeasure Examples.AccumulatedWork.law",
+      "generated_name": "unestablished; no compiler run or inferred elaborated identity",
+      "actual_type_read": false
+    }
+  ],
+  "program": {
+    "path": "provenance/accumulated-work-public-statements78-prepared-20261104/Statements.lean",
+    "bytes": 4862,
+    "sha256": "321271c07355169ab00c3c61b46f71c4e3264469d67098e8ae288bda0ee8c5f1"
+  },
+  "source_files": [
+    {
+      "path": "Applications/Probability/AccumulatedWork.lean",
+      "bytes": 8062,
+      "lines": 157,
+      "sha256": "7731f8a6c5222810ba11a056fc620c68a152dce0024ff3e2544d17fff70a80ba"
+    },
+    {
+      "path": "Examples/AccumulatedWork.lean",
+      "bytes": 11953,
+      "lines": 299,
+      "sha256": "7ef773d2ce87ce1b119838e083ee4a4cff072f5d96f4a8887f8494a80d04c20c"
+    },
+    {
+      "path": "Examples/AccumulatedWorkBoundary.lean",
+      "bytes": 9507,
+      "lines": 219,
+      "sha256": "68ba8fd9571ad860d7f5aabd7093f35c0220ff12ead1e283e903b5bdc90a6927"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 8324,
+      "lines": 253,
+      "sha256": "40d97b7972ba8085c076c6482cc99f130f8e92beeea3f5c0b5fc8e040e4727dd"
+    },
+    {
+      "path": "docs/research/fdsa-accumulated-work.md",
+      "bytes": 8600,
+      "lines": 145,
+      "sha256": "191a7c449f936b84c17f3f5d33a935dd4440a199fc7287e576dfd38f4fbaca8e"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 16899,
+      "lines": 278,
+      "sha256": "35c5cf425168b21900c84735020df5b6a6b9ba86c099ad4d2c555821858a7024"
+    }
+  ],
+  "both_complete_source_reports": [
+    {
+      "path": "reviews/accumulated-work-standards-preparation-20261104.md",
+      "bytes": 19038,
+      "sha256": "e7ea58583cd0c9eabd73e86e0137c874ea3f85b243e6b6d522387175c33ae1b3"
+    },
+    {
+      "path": "reviews/accumulated-work-spec-preparation-20261104.md",
+      "bytes": 16845,
+      "sha256": "9934402d16c3ff5e5006b8ade3ab6995f50739185ed1e5d68a2d9b004ef3f1ba"
+    }
+  ],
+  "program_executed": false,
+  "actual_type_credit": 0,
+  "new_acceptance": false,
+  "binding_limit": "Authored source inventory only; future exact local closure, configuration, pins, qualified runtime, stock-build provenance and real closed compiler/type evidence remain mandatory."
+}

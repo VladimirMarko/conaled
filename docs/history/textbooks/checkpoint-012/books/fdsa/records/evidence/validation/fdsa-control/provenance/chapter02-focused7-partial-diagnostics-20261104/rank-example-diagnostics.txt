@@ -1,0 +1,14 @@
+error: Examples/RandomQuickSortRank.lean:40:2: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  b ≥ 0
+  a ≥ 1
+  a - b ≤ -1
+where
+ a := ↑↑0
+ b := ↑[x].length
+error: Examples/RandomQuickSortRank.lean:128:2: unsolved goals
+case left
+f : Fin 3 → ℕ := fun i => [(1, false), (1, true), (2, false)][↑i].1
+hm : Monotone f
+hs : Tuple.sort f = Equiv.refl (Fin 3)
+⊢ ↑((Equiv.refl (Fin 3)).symm 1) = 1

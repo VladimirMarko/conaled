@@ -1,0 +1,84 @@
+{
+  "time": 1793595205.0027776,
+  "reason": "End the intentionally paused duplicate focused dependency build and free its memory; resume focused validation after Chapter1 acceptance using that isolated checkout and its completed normal cache.",
+  "full_check_session_unchanged": 80227,
+  "focused_session": 66704,
+  "lake_before": {
+    "pid": 102354,
+    "ppid": 102351,
+    "state": "S",
+    "start_ticks": "2564528",
+    "cwd": "/workspace/scratch/845aa1048b05/conaled-insertion-costs",
+    "argv": [
+      "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake",
+      "build",
+      "Applications.Resources.ListCalls"
+    ]
+  },
+  "child_before": {
+    "pid": 109620,
+    "ppid": 102354,
+    "state": "T",
+    "start_ticks": "2642683",
+    "cwd": "/workspace/scratch/845aa1048b05/conaled-insertion-costs",
+    "argv": [
+      "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "/workspace/scratch/845aa1048b05/conaled-insertion-costs/Applications/Resources/SymmetricCosts.lean",
+      "-o",
+      "/workspace/scratch/845aa1048b05/conaled-insertion-costs/.lake/build/lib/lean/Applications/Resources/SymmetricCosts.olean",
+      "-i",
+      "/workspace/scratch/845aa1048b05/conaled-insertion-costs/.lake/build/lib/lean/Applications/Resources/SymmetricCosts.ilean",
+      "-c",
+      "/workspace/scratch/845aa1048b05/conaled-insertion-costs/.lake/build/ir/Applications/Resources/SymmetricCosts.c",
+      "--setup",
+      "/workspace/scratch/845aa1048b05/conaled-insertion-costs/.lake/build/ir/Applications/Resources/SymmetricCosts.setup.json",
+      "--json"
+    ]
+  },
+  "signals": [
+    {
+      "pid": 102354,
+      "signal": "SIGTERM",
+      "confirmed_focused_session_exit_code": 143
+    },
+    {
+      "pid": 109620,
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 109620,
+      "signal": "SIGCONT to deliver pending termination"
+    }
+  ],
+  "outcome": "Secondary focused build intentionally stopped before the new module compiled; no proof failure or validation success is inferred. Primary full check unchanged.",
+  "cleanup_note": "Lake exited between stat and cwd reads; no further signal was sent by the first script. Revalidated the same child as its orphan before completing cleanup.",
+  "child_before_cleanup": {
+    "pid": 109620,
+    "ppid": 1,
+    "state": "T",
+    "start_ticks": "2642683",
+    "cwd": "/workspace/scratch/845aa1048b05/conaled-insertion-costs",
+    "argv": [
+      "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "/workspace/scratch/845aa1048b05/conaled-insertion-costs/Applications/Resources/SymmetricCosts.lean",
+      "-o",
+      "/workspace/scratch/845aa1048b05/conaled-insertion-costs/.lake/build/lib/lean/Applications/Resources/SymmetricCosts.olean",
+      "-i",
+      "/workspace/scratch/845aa1048b05/conaled-insertion-costs/.lake/build/lib/lean/Applications/Resources/SymmetricCosts.ilean",
+      "-c",
+      "/workspace/scratch/845aa1048b05/conaled-insertion-costs/.lake/build/ir/Applications/Resources/SymmetricCosts.c",
+      "--setup",
+      "/workspace/scratch/845aa1048b05/conaled-insertion-costs/.lake/build/ir/Applications/Resources/SymmetricCosts.setup.json",
+      "--json"
+    ]
+  },
+  "child_after": {
+    "pid": 109620,
+    "ppid": 1,
+    "state": "Z",
+    "start_ticks": "2642683"
+  },
+  "lake_after": null,
+  "completed_time": 1793595230.4024518,
+  "focused_root_exit_code": 143
+}

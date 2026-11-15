@@ -1,0 +1,35 @@
+{
+  "format": "emergency-work-state-supplement-1",
+  "recorded_utc": "2026-11-04T13:56:33.948879+00:00",
+  "purpose": "Preserve current recovery work-state after actual compact-checkpoint ENOSPC failures; source and native kit are byte-identical to verified checkpoint117.",
+  "candidate": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+  "required_artifacts": 3,
+  "anchor": {
+    "file_name": "conaled-vfa-checkpoint-117-monitor-corrected-full-fresh-progress.tar.gz",
+    "bytes": 8701322,
+    "sha256": "eda313b2407c56a9c53ae8b6aaa53888252bea2666ec1834ee7a77d73534e22b",
+    "library_file_id": "libfile_f8c15d0e4d388191949a14e7da18c19a",
+    "actual_restore_smoke": "passed"
+  },
+  "base": {
+    "file_name": "conaled-vfa-recovery-base-7c1b4a3.tar(1).gz",
+    "bytes": 71823162,
+    "sha256": "20bf1c2a3d59745fc9c8988ef4eb27c69cd71db20f2a7315a3d6fa2e0962f1d8",
+    "library_file_id": "libfile_b14fa4dc8f948191a1f392e82de118d8"
+  },
+  "supplement_file_name": "conaled-vfa-emergency-recovery-120-work-state.tar.gz",
+  "source_index_refs_match_anchor": true,
+  "native_kit_bytes_and_executable_modes_match_anchor": true,
+  "full_current_work_state": true,
+  "source_or_kit_replacement_in_supplement": false,
+  "full_restore_smoke_for_supplement": false,
+  "restore_limitation": "Actual full restore could not be performed because checkpoint118 and119 failed with ENOSPC. Streaming archive/content/stability verification only; never describe this as a passed full restoration.",
+  "closed_fresh_session": 30015,
+  "fresh_outcome": "actualAPI/kitexit1 after754successfulmodules;attempt755outputcreationfailed;noaudit/freshverification",
+  "new_compiler_or_downstream_gate_started": false,
+  "capacity_blocker": "Zero ordinary free space; no new fresh or collector may start without adequate stable capacity.",
+  "quarantined_old_reader_status": "unknown, frozen; no signal or cleanup authorization from savedidentities",
+  "prospective_adapter_present": false,
+  "formal_gate_credit": false,
+  "chapter_acceptance": false
+}

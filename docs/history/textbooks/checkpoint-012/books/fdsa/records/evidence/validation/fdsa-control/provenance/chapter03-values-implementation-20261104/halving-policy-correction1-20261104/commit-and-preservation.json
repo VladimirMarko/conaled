@@ -1,0 +1,147 @@
+{
+  "recorded_utc": "2026-11-04T21:55:02.304711+00:00",
+  "candidate": "41f46040eeaf1b2c6d21b00dec4c20b9d44c5ce7",
+  "tree": "5a6ec07b60e37e7c87749a0b79d372a0b169310d",
+  "parent": "e40d1f7fa71e51946b29bf1415067240e7cc369a",
+  "finding": "C03-HALVING-ELAB-001",
+  "source_diff": "diff --git a/Applications/Resources/HalvingSelection.lean b/Applications/Resources/HalvingSelection.lean\nindex 3822b7d..146545b 100644\n--- a/Applications/Resources/HalvingSelection.lean\n+++ b/Applications/Resources/HalvingSelection.lean\n@@ -123,7 +123,7 @@ theorem runWith_tariff (choose : List \u03b1 \u2192 Measured (Option \u03b1) Nat)\n               min (k - (partition3 p xs).1.length) (partition3 p xs).2.1.length + 1 \u2264\n                 xs.length := by omega\n           simp only [hl, he, \u2193reduceIte, List.sum_cons, List.sum_nil,\n-            List.length_cons, List.length_nil, Nat.add_zero, Nat.mul_one]\n+            List.length_cons, List.length_nil, Nat.add_zero]\n           constructor\n           \u00b7 omega\n           \u00b7 rw [Nat.add_mul]\n",
+  "all60_headers_preserved": true,
+  "all3_definitions_preserved": true,
+  "other59_declaration_blocks_preserved": true,
+  "other29_sources_preserved": true,
+  "all31_cases_preserved": true,
+  "imports_unchanged": true,
+  "statement_program_only_candidate_comment_changed": true,
+  "actual_type_capture_run": false,
+  "successor_focused_validation": "PENDING ROOT",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exit": 0,
+      "stdout": " M Applications/Resources/HalvingSelection.lean\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--",
+        "Applications/Resources/HalvingSelection.lean"
+      ],
+      "exit": 0,
+      "stdout": "diff --git a/Applications/Resources/HalvingSelection.lean b/Applications/Resources/HalvingSelection.lean\nindex 3822b7d..146545b 100644\n--- a/Applications/Resources/HalvingSelection.lean\n+++ b/Applications/Resources/HalvingSelection.lean\n@@ -123,7 +123,7 @@ theorem runWith_tariff (choose : List \u03b1 \u2192 Measured (Option \u03b1) Nat)\n               min (k - (partition3 p xs).1.length) (partition3 p xs).2.1.length + 1 \u2264\n                 xs.length := by omega\n           simp only [hl, he, \u2193reduceIte, List.sum_cons, List.sum_nil,\n-            List.length_cons, List.length_nil, Nat.add_zero, Nat.mul_one]\n+            List.length_cons, List.length_nil, Nat.add_zero]\n           constructor\n           \u00b7 omega\n           \u00b7 rw [Nat.add_mul]\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "add",
+        "--",
+        "Applications/Resources/HalvingSelection.lean"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "user.name=ChatGPT",
+        "-c",
+        "user.email=chatgpt@openai.com",
+        "commit",
+        "-m",
+        "fix(resources): remove unused halving tariff simplification (#174)"
+      ],
+      "exit": 0,
+      "stdout": "[work/fdsa-ch03-values 41f4604] fix(resources): remove unused halving tariff simplification (#174)\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit": 0,
+      "stdout": "41f46040eeaf1b2c6d21b00dec4c20b9d44c5ce7\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD^{tree}"
+      ],
+      "exit": 0,
+      "stdout": "5a6ec07b60e37e7c87749a0b79d372a0b169310d\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD:Applications/Resources/HalvingSelection.lean"
+      ],
+      "exit": 0,
+      "stdout": "146545b7dad10e2b1bb247f282051ae0db9bc005\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD:Applications/Resources/MedianPolicy.lean"
+      ],
+      "exit": 0,
+      "stdout": "5bebc234bffe8da9eacd4e22cce27ce0792ff554\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD:Examples/MedianPolicy.lean"
+      ],
+      "exit": 0,
+      "stdout": "f860dfadc7c4e1f4a8e3f0917636047249985b39\n",
+      "stderr": ""
+    }
+  ]
+}

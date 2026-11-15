@@ -1,0 +1,221 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "unit": "XT03",
+  "recorded_utc": "2026-11-04T15:15:30.047303+00:00",
+  "base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "candidate": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+  "scope_paths": [
+    "Applications/Resources/TreeFold.lean",
+    "Examples/TreeFold.lean",
+    "Examples/TreeFoldCache.lean",
+    "Examples/TreeFoldObservations.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-fold-resource.md"
+  ],
+  "source_read_boundary": {
+    "files": 7,
+    "bytes": 75017,
+    "lines": 1515,
+    "Lean_declaring_modules": 4,
+    "Lean_lines": 698
+  },
+  "explicit_public_inventory": {
+    "count": 88,
+    "theorems": 77,
+    "definitions": 10,
+    "abbreviations": 1,
+    "private": 0,
+    "anonymous_examples": 0,
+    "instances": 0
+  },
+  "new_concrete_findings": [],
+  "inherited_findings": [
+    "XT03-CP01 source correction confirmed; actual compiler/final confirmation remains pending",
+    "XT03-DOC01 source wording correction confirmed; final receiving confirmation remains pending"
+  ],
+  "outcome": "Source preparation complete; overall Blocked pending original acceptance sequence and all actual validation/type/final gates",
+  "actual_credit": {
+    "compiler": 0,
+    "public_type_outputs": 0,
+    "full_checks": 0,
+    "audits": 0,
+    "acceptance": 0
+  },
+  "full_record_readbacks": [
+    {
+      "path": "reviews/tree-fold-resource-standards-preparation-20261104.md",
+      "bytes": 14007,
+      "lines": 75,
+      "sha256": "3b537954948b22e21889cf9e7c0beccdb9e4e730445e0293c44a9db600364c0b",
+      "readback_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 75,
+          "bytes": 14007,
+          "sha256": "3b537954948b22e21889cf9e7c0beccdb9e4e730445e0293c44a9db600364c0b",
+          "tool_chunk_id": "0eac57",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/tree-fold-resource-standards-preparation-20261104/source-assessment.json",
+      "bytes": 98437,
+      "lines": 1697,
+      "sha256": "ec8d572e7c042c53523d7cd034a875cfae7eeed55710e9960e041038580a31ec",
+      "readback_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 248,
+          "bytes": 14337,
+          "sha256": "0a7487646a44787c5f912edea67ad3b7ed4488ac3aa3d51df579e8008ed5cd7c",
+          "tool_chunk_id": "b8b7bc",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 249,
+          "last_line": 478,
+          "bytes": 14491,
+          "sha256": "126f3e9f9328920861c73c61da0a86103a939064c94d1584a74d829f1fb967e4",
+          "tool_chunk_id": "b8b7bc",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 479,
+          "last_line": 744,
+          "bytes": 14431,
+          "sha256": "bc9ad7b9642ee661834cbc248118b0418791c1919354a1919cca565a00a1e79e",
+          "tool_chunk_id": "e7eddc",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 745,
+          "last_line": 979,
+          "bytes": 14376,
+          "sha256": "8dc1dba9afe68386c7e07599c3102ce3c974f7689d46ba19a15028ea52e686c0",
+          "tool_chunk_id": "e7eddc",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 980,
+          "last_line": 1230,
+          "bytes": 14480,
+          "sha256": "df42cc7f4ee4e3035d8f4eba8c1b500ebf06b9bd3f7682ac68556a1c8a078f59",
+          "tool_chunk_id": "754ff1",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 1231,
+          "last_line": 1501,
+          "bytes": 14464,
+          "sha256": "77e32c65a3810c3a5bc9a1faef65aa7546d432fbf1450c87068fe202453af11d",
+          "tool_chunk_id": "754ff1",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 1502,
+          "last_line": 1697,
+          "bytes": 11858,
+          "sha256": "d35e8816d43915928a1abf263ead4c96a6c6b87e593ce0499acfbb7bdcbdd109",
+          "tool_chunk_id": "c4e357",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/tree-fold-resource-standards-preparation-20261104/read-ledger.json",
+      "bytes": 35380,
+      "lines": 991,
+      "sha256": "ec3548d4da6d8eb1c8dfdb3d59b05f341ec9f1a5941b05560c57387b878069a4",
+      "readback_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 340,
+          "bytes": 10645,
+          "sha256": "fe4b68c42c7a9052e1ed1c3f80224209be02d7427666e22941b85ad15a20a6ea",
+          "tool_chunk_id": "ad9991",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 341,
+          "last_line": 680,
+          "bytes": 13033,
+          "sha256": "1805062621d31e68b79637a972c4b87bc042761331391c611ec6b670bb1d2063",
+          "tool_chunk_id": "ad9991",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 681,
+          "last_line": 991,
+          "bytes": 11702,
+          "sha256": "5daf439e5585c7b86757836f1ce2b549059ed93a71b94874a86d1ac8f59b67c2",
+          "tool_chunk_id": "471277",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "provenance/tree-fold-resource-standards-preparation-20261104/dependency-closure.json",
+      "bytes": 18656,
+      "lines": 550,
+      "sha256": "880c84f3cfd035f953a8c6162176b22e0df183d40b3ee570d5449b36c8de91f3",
+      "readback_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 550,
+          "bytes": 18656,
+          "sha256": "880c84f3cfd035f953a8c6162176b22e0df183d40b3ee570d5449b36c8de91f3",
+          "tool_chunk_id": "c4e357",
+          "complete_nontruncated": true
+        }
+      ]
+    }
+  ],
+  "protected_prior_records_unchanged": [
+    {
+      "path": "reviews/shared-four-standards-final-20261104.md",
+      "bytes": 14756,
+      "lines": 72,
+      "sha256": "6e4665d1d4da826bf8d22c1d067bf67f222b495dd44986b6c247c765cf6faf50"
+    },
+    {
+      "path": "provenance/shared-four-standards-terminal-assessment-20261104/final-standards-assessment-312aafb4.json",
+      "bytes": 15828,
+      "lines": 375,
+      "sha256": "954110b3a4ea725c7079bfa9a623894659da225435b105e65f780656d9c4bfc6"
+    },
+    {
+      "path": "reviews/tree-shape-standards-preparation-20261104.md",
+      "bytes": 14250,
+      "lines": 64,
+      "sha256": "b1abec0f25005e867384b0bed2257677747a6204a8ff7cf39cb14b155d17b003"
+    },
+    {
+      "path": "reviews/binary-tree-cache-standards-preparation-20261104.md",
+      "bytes": 22912,
+      "lines": 89,
+      "sha256": "a24df99f02fd70300f25b982b53293d2f0d8485f053b8891829fe81c37043c97"
+    },
+    {
+      "path": "reviews/shared-foundations-standards-terminal-assessment-20261104.md",
+      "bytes": 9830,
+      "lines": 51,
+      "sha256": "5931dafe30f68151d81621ded0274643fb8145c5c57e644b6cca284fc634e141"
+    },
+    {
+      "path": "reviews/chapter02-standards-source-preparation-20261104.md",
+      "bytes": 104381,
+      "lines": 421,
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    {
+      "path": "reviews/potential-standards-development-20261104.md",
+      "bytes": 40275,
+      "lines": 204,
+      "sha256": "a8c87f38de333a77ab03c82f7da1d3d1b3f122369dd9abb36c8d85acebf495f8"
+    }
+  ],
+  "hold": "All XT03 records held byte-identical after this completion readback; source/ref/runtime/output/cache/process/global controls untouched",
+  "next_task": "Same original XU02 receiving-source Standards scope at immutable J=932438a765340d69fa6402f6abd17def6ec28d13; no receiving credit implied"
+}

@@ -1,0 +1,221 @@
+{
+  "recorded_utc": "2026-11-04T10:05:09.654717+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+  "foundation_candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "scope": "Continuation of the same complete R-through-eventual-Chapter-2 review: 81 paths, all 112 obligations, all ten shared scopes, with exact-F full scope retained.",
+  "overall_outcome": "Blocked",
+  "approval_or_acceptance": false,
+  "new_mathematical_spec_findings": 0,
+  "actual_terminal": {
+    "exit_code": 1,
+    "started_utc": "2026-11-04T09:51:14.430377+00:00",
+    "completed_utc": "2026-11-04T10:00:54.347234+00:00",
+    "elapsed_seconds": 579.9166028049985,
+    "native_seconds": 579.8158846250008,
+    "initial_head": "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+    "final_head": "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+    "initial_status": "",
+    "final_status": "",
+    "lean_threads": 1,
+    "timeout": false,
+    "recorder_error": null,
+    "verification_record_present": false,
+    "owned_session": 81130,
+    "session_closed_do_not_poll": true
+  },
+  "complete_reads": {
+    "full_log": {
+      "path": "provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/full.log",
+      "bytes": 19463,
+      "lines": 170,
+      "sha256": "35f0f9ea785a94ec66026c0483d566be1a611efb9a699362d0a5b5eed3941ccd"
+    },
+    "outer_start": {
+      "path": "provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/start.json",
+      "bytes": 989,
+      "lines": 27,
+      "sha256": "e47ccf7374d1f764fb5d2fec5f92acab6dc818f67b9ccb39fff00972d18b3268"
+    },
+    "outer_result": {
+      "path": "provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/result.json",
+      "bytes": 1236,
+      "lines": 32,
+      "sha256": "94675fff74381b0954e5b08056d1242d7a68eccdf5ce45bcffc7a810b67c227a"
+    },
+    "secured_terminal": {
+      "path": "provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/secured-terminal.json",
+      "bytes": 3597,
+      "lines": 58,
+      "sha256": "019328a42c6ab829e06cd6dfe23c4ac6502741a38d2da4a8b87962a2deee8009"
+    },
+    "native_start": {
+      "path": "provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/native/start.json",
+      "bytes": 468,
+      "lines": 14,
+      "sha256": "e6270d14da96c4c907a4d2f748d1e9699368c5540b9407f28b31284886a04eaa"
+    },
+    "native_result": {
+      "path": "provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/native/result.json",
+      "bytes": 621,
+      "lines": 19,
+      "sha256": "a28f132ac4cf39c9d46a880f09e802299be9f6bdabbc048b4f587c5258dc39c3"
+    },
+    "immutable_uniform_source": {
+      "candidate": "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+      "path": "Examples/UniformQuickSortMean.lean",
+      "bytes": 16466,
+      "lines": 352,
+      "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5",
+      "read_scope": "Complete 352-line source in two bounded reads."
+    }
+  },
+  "closed_log_reconciliation": {
+    "native_output_is_exact_full_log_inner": true,
+    "diagnostic_block_is_exact_full_log_lines_74_through_166": true,
+    "diagnostic_block": {
+      "path": "provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/Examples-UniformQuickSortMean-diagnostics.txt",
+      "bytes": 6925,
+      "lines": 93,
+      "sha256": "284b94feb0773ef436d7de66658ea3932f29ff6234d5b3d01853de42fd211175"
+    },
+    "native_original_copy_checks": [
+      {
+        "name": "start.json",
+        "original": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T095114Z-project-run-091488b6/start.json",
+        "copy": "provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/native/start.json",
+        "bytes": 468,
+        "sha256": "e6270d14da96c4c907a4d2f748d1e9699368c5540b9407f28b31284886a04eaa",
+        "byte_identical": true
+      },
+      {
+        "name": "result.json",
+        "original": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T095114Z-project-run-091488b6/result.json",
+        "copy": "provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/native/result.json",
+        "bytes": 621,
+        "sha256": "a28f132ac4cf39c9d46a880f09e802299be9f6bdabbc048b4f587c5258dc39c3",
+        "byte_identical": true
+      },
+      {
+        "name": "output.log",
+        "original": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T095114Z-project-run-091488b6/output.log",
+        "copy": "provenance/chapter02-main-tail-and-uniform-examples-focused-20261104-attempt10/native/output.log",
+        "bytes": 19197,
+        "sha256": "8d9adab1f49205bfced7071a7145d48d02369991a5645f924d329f179e4fcd6c",
+        "byte_identical": true
+      }
+    ],
+    "error_headers_match_secured_terminal": true
+  },
+  "individual_result": {
+    "Examples.PermutationTail": {
+      "status": "Built",
+      "seconds": 331,
+      "exact_log_line": "⚠ [3603/3626] Built Examples.PermutationTail (331s)",
+      "meaning": "Individual successful module build at Y; no whole-candidate or actual-type acceptance."
+    },
+    "Examples.UniformQuickSortMean": {
+      "status": "Failed",
+      "seconds": 220,
+      "diagnostic_headers": 23,
+      "source_sites": 10
+    }
+  },
+  "diagnostic_sites": [
+    {
+      "line": 71,
+      "diagnostic_count": 2,
+      "declaration_or_context": "observed_card_one",
+      "actual_issue": "Unknown List.length_eq_one.mp, then rcases of an unresolved noninductive value."
+    },
+    {
+      "line": 89,
+      "diagnostic_count": 1,
+      "declaration_or_context": "Label deriving Fintype",
+      "actual_issue": "Generated completeness proof fails its rewrite at the List.Nodup / finset coercion interface."
+    },
+    {
+      "line": 117,
+      "diagnostic_count": 13,
+      "declaration_or_context": "selected_keys",
+      "actual_issue": "Thirteen no-goals-to-be-solved diagnostics in the constructor-case proof of local key injectivity."
+    },
+    {
+      "line": 191,
+      "diagnostic_count": 1,
+      "declaration_or_context": "extreme_first_mass",
+      "actual_issue": "Unclosed ENNReal ground identity 3⁻¹ + 3⁻¹ = 2 / 3."
+    },
+    {
+      "line": 204,
+      "diagnostic_count": 1,
+      "declaration_or_context": "conditional_of_constant",
+      "actual_issue": "Missing inferred IsFiniteMeasure law at conditional probability measure construction."
+    },
+    {
+      "line": 253,
+      "diagnostic_count": 1,
+      "declaration_or_context": "three_mean_from_closedForm",
+      "actual_issue": "Comparator wrapper prevents the stated rewrite from matching the mean expression."
+    },
+    {
+      "line": 266,
+      "diagnostic_count": 1,
+      "declaration_or_context": "low_empty_child_mean",
+      "actual_issue": "law versus uniformOn wrapper prevents the conditional child-integral rewrite."
+    },
+    {
+      "line": 273,
+      "diagnostic_count": 1,
+      "declaration_or_context": "high_empty_child_mean",
+      "actual_issue": "Same conditional-law wrapper mismatch at the high first event."
+    },
+    {
+      "line": 291,
+      "diagnostic_count": 1,
+      "declaration_or_context": "taggedEqual_payloads_distinct",
+      "actual_issue": "List.nodup_range is incorrectly supplied an explicit function argument."
+    },
+    {
+      "line": 319,
+      "diagnostic_count": 1,
+      "declaration_or_context": "taggedRange_keys",
+      "actual_issue": "Same incorrect explicit application of List.nodup_range."
+    }
+  ],
+  "semantic_scope_retained": [
+    "The four-constructor Label carrier, its complete finite uniform law, original positions and selected set, and the outside-label key collision.",
+    "Local key injectivity on the selected set; no unintended global key injectivity, payload equality, order, or default assumption.",
+    "All first-event and extreme-event masses; actual conditional constants and same-sample child integrals.",
+    "The independent head-partition mean 71/3 and closed-form specialization; empty child costs remain 1.",
+    "Occurrence-sensitive payload transport, duplicate-key counterexample, arbitrary-size tagged input family and actual asymptotic/boundary statements."
+  ],
+  "successor_boundary": {
+    "status": "No exact successor supplied or assessed yet.",
+    "parent_authorized_plan": "Retain Label inductive and deriving DecidableEq; replace failed derived Fintype with explicit instFintypeLabel enumerating exactly high, low, middle, outside and constructor-case completeness. Omit only unused deriving-only enumList helpers after a no-client search.",
+    "review_requirement": "Read the exact successor, generated-declaration delta and no-client evidence; inspect actual Fintype semantics and all unchanged mathematical contracts; account the explicit instance in current public-type checks. This plan is not described as proof-body-only and receives no advance source or compiler approval.",
+    "restrictions_retained": "No dropping Fintype, carrier or law changes, added mathematical hypotheses, proof restriction weakening, or option/diagnostic suppression."
+  },
+  "type_disposition": {
+    "qualified_historical": 920,
+    "current_pending": 814,
+    "accepted_base_retained": 28,
+    "historical_outputs_actually_read": 941,
+    "foundation_pending": 145,
+    "possible_foundation_reuse_uncredited": 110,
+    "counts_note": "The current saved programs and counts remain unchanged. Any explicit-instance inventory addition awaits the exact successor and must preserve the original 814 program."
+  },
+  "open_findings": [
+    "C02-TYPE-001",
+    "C02-DOC-003"
+  ],
+  "pending_gates": [
+    "Exact-F terminal full check, matching verification evidence, actual 145-type review and both full-scope axes.",
+    "Any actual current public-type output, including successor declaration additions and qualified retained output.",
+    "Successful immutable whole-candidate check and exhaustive kernel-safe declaration audit.",
+    "Both independent final full-scope reviews and all remaining predecessor/shared-unit gates.",
+    "Immediate qualified --verify-candidate HEAD before any accepted-branch fast-forward."
+  ],
+  "actions": "Read-only immutable source and secured-record inspection, then only this reviewer's own report/provenance writes; no compiler, source, ref, pin, cache, ticket or process action."
+}

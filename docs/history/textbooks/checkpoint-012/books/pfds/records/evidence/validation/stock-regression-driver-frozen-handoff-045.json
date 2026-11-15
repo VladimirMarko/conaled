@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "time": "2026-11-04T01:32:02.248559+00:00",
+  "kind": "frozen-unexecuted-regression-driver-handoff",
+  "source": "session/validation/run-integration-regressions-r1-045.py",
+  "sha256": "97614770b30dfc14abbd27583ca501aa0abca59ed6ac9c3fdc497c6e7b72b5a9",
+  "bytes": 36656,
+  "lines": 727,
+  "AST_parse": "passed",
+  "driver_imported_or_executed": false,
+  "current_prerequisite": "integration-3cf-ordinary-r2-045",
+  "prerequisite_now_incomplete": true,
+  "independent_complete_read_review": "pending",
+  "decision": "Do not execute until a genuine successful ordinary full exists and any prerequisite rebinding is explicitly reviewed.",
+  "formal_acceptance": false
+}

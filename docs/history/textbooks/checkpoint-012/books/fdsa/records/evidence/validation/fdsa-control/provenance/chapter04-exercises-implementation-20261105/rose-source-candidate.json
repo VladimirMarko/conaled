@@ -1,0 +1,50 @@
+{
+  "status": "UNCOMPILED source candidate; no acceptance claimed",
+  "recorded_at_utc": "2026-11-05T02:44:43.385220+00:00",
+  "candidate": "106601ff0c6af392139786f0ad01a56e0dca96fb",
+  "parent": "3a9e02bd4e47282be0e55b71527016277e1d5ca4",
+  "branch": "work/fdsa-ch04-exercises",
+  "clean_status": "",
+  "files": [
+    {
+      "path": "Applications/Trees/Rose.lean",
+      "size": 1849,
+      "sha256": "0a56ff6221c1f177c5127a43af32f4cb1c0d624d91f16ec661d916900ce89f71",
+      "public_declarations": [
+        "Trees.Rose",
+        "Trees.Rose.node",
+        "Trees.Rose.mirror",
+        "Trees.Rose.mirror_node",
+        "Trees.Rose.mirror_mirror"
+      ]
+    },
+    {
+      "path": "Examples/TreeRose.lean",
+      "size": 1065,
+      "sha256": "7bf335b8acde9dcbab004179daa16a8e0671a18c50fcbc17b4377ec831d34f02",
+      "public_declarations": [
+        "TreeRoseExamples.sample",
+        "TreeRoseExamples.sample_mirror",
+        "TreeRoseExamples.sample_mirror_mirror",
+        "TreeRoseExamples.repeated",
+        "TreeRoseExamples.repeated_mirror",
+        "TreeRoseExamples.repeated_mirror_mirror"
+      ]
+    }
+  ],
+  "frozen_contract_sha256": "3385c5051e121908262fde4bf69912f05877496022812ac227560fac5244aa98",
+  "actual_local_checks": [
+    "complete authored source inspection (20d44b)",
+    "git diff --cached --check actual exit0 (20d44b)",
+    "literal forbidden-token scan actual exit0 (20d44b)"
+  ],
+  "not_run": [
+    "Lean",
+    "Lake",
+    "check.sh",
+    "audit",
+    "actual elaborated statement extraction"
+  ],
+  "compiler_owner": "root",
+  "handoff": "C04-029..030: matching nested finite-list Rose carrier; computational child-attach mirror with sizeOf termination; all-tree nested induction proves involution. Exact public node equation hides proof-bearing attach, arbitrary label types/no assumptions. Nested and repeated fixtures consume public law. Parent must qualify compiler/termination elaboration and all chapter gates."
+}

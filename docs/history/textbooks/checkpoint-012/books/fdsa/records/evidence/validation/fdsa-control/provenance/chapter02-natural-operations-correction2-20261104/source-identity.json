@@ -1,0 +1,298 @@
+{
+  "recorded_utc": "2026-11-04T07:47:51.838450+00:00",
+  "base": "c7aa6fa810af070434155ece48b92470ca4a91ec",
+  "changed_path": "Examples/NaturalRunOperations.lean",
+  "diagnostic_observation": {
+    "observed_utc": "2026-11-04T07:45:54.013402+00:00",
+    "attempt": "chapter02-tail-numerical-rank-operations-focused-20261104-attempt5",
+    "candidate": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+    "terminal_result_exists": false,
+    "prefix_bytes": 32431,
+    "prefix_sha256": "b45bded7778156f7829c4fc80e374276edcc9252ea433f848dbb89ac58239126",
+    "status": "Partial live-log observation; no terminal outcome or whole-check pass inferred."
+  },
+  "examples_old_sha256": "fe08adbd075edbed29bd094e3c3a4d5ef156b31cf84463f5b1957c5f019dff9a",
+  "examples_new_sha256": "8bbd6c17eadd48a3af7a7f4c5f8ee3c2e9a97f03317bf373032314cdc835ebbc",
+  "core_sha256_unchanged": "ccbe8f58dd53cbfaa4600780d5d8a2a78da994ba33c3d6edaa3098446d1f09eb",
+  "theorem_headers_unchanged": 43,
+  "core_declarations_unchanged": 63,
+  "diagnostic_count": 18,
+  "changed_theorem_proofs": [
+    "descending_two",
+    "descending_three",
+    "descending_two_execution",
+    "descending_three_execution",
+    "three_boundary_worker",
+    "three_boundary",
+    "restart_worker",
+    "restart_boundary",
+    "odd_runs",
+    "weak_descent_with_ties",
+    "arbitrary_builder_restart",
+    "padded_worker",
+    "repeated_payload_exact",
+    "ascending_range_exact"
+  ],
+  "source_header_comparisons": [
+    {
+      "name": "empty_payload",
+      "same": true,
+      "old_line": 33,
+      "new_line": 33
+    },
+    {
+      "name": "empty_payload_execution",
+      "same": true,
+      "old_line": 36,
+      "new_line": 36
+    },
+    {
+      "name": "singleton_payload",
+      "same": true,
+      "old_line": 40,
+      "new_line": 40
+    },
+    {
+      "name": "singleton_payload_execution",
+      "same": true,
+      "old_line": 43,
+      "new_line": 43
+    },
+    {
+      "name": "ascending_two",
+      "same": true,
+      "old_line": 46,
+      "new_line": 46
+    },
+    {
+      "name": "ascending_three",
+      "same": true,
+      "old_line": 49,
+      "new_line": 49
+    },
+    {
+      "name": "ascending_two_execution",
+      "same": true,
+      "old_line": 52,
+      "new_line": 52
+    },
+    {
+      "name": "ascending_three_execution",
+      "same": true,
+      "old_line": 57,
+      "new_line": 57
+    },
+    {
+      "name": "descending_two",
+      "same": true,
+      "old_line": 62,
+      "new_line": 62
+    },
+    {
+      "name": "descending_three",
+      "same": true,
+      "old_line": 65,
+      "new_line": 65
+    },
+    {
+      "name": "descending_two_execution",
+      "same": true,
+      "old_line": 68,
+      "new_line": 68
+    },
+    {
+      "name": "descending_three_execution",
+      "same": true,
+      "old_line": 73,
+      "new_line": 73
+    },
+    {
+      "name": "ascending_ties",
+      "same": true,
+      "old_line": 79,
+      "new_line": 79
+    },
+    {
+      "name": "ascending_ties_execution",
+      "same": true,
+      "old_line": 84,
+      "new_line": 84
+    },
+    {
+      "name": "three_boundary_worker",
+      "same": true,
+      "old_line": 91,
+      "new_line": 91
+    },
+    {
+      "name": "three_boundary",
+      "same": true,
+      "old_line": 96,
+      "new_line": 97
+    },
+    {
+      "name": "restart_worker",
+      "same": true,
+      "old_line": 101,
+      "new_line": 103
+    },
+    {
+      "name": "restart_boundary",
+      "same": true,
+      "old_line": 110,
+      "new_line": 113
+    },
+    {
+      "name": "odd_runs",
+      "same": true,
+      "old_line": 117,
+      "new_line": 121
+    },
+    {
+      "name": "weak_descent_with_ties",
+      "same": true,
+      "old_line": 140,
+      "new_line": 148
+    },
+    {
+      "name": "multiple_runs_outside_dispatch",
+      "same": true,
+      "old_line": 160,
+      "new_line": 170
+    },
+    {
+      "name": "weak_descent_outside_dispatch",
+      "same": true,
+      "old_line": 168,
+      "new_line": 178
+    },
+    {
+      "name": "arbitrary_builder_restart",
+      "same": true,
+      "old_line": 174,
+      "new_line": 184
+    },
+    {
+      "name": "unsorted_builder_value_and_work",
+      "same": true,
+      "old_line": 184,
+      "new_line": 195
+    },
+    {
+      "name": "unsorted_builder_remains_unsorted",
+      "same": true,
+      "old_line": 189,
+      "new_line": 200
+    },
+    {
+      "name": "arbitrary_descending_accumulator",
+      "same": true,
+      "old_line": 194,
+      "new_line": 205
+    },
+    {
+      "name": "arbitrary_cost_without_rep",
+      "same": true,
+      "old_line": 197,
+      "new_line": 208
+    },
+    {
+      "name": "arbitrary_callback_continuation",
+      "same": true,
+      "old_line": 203,
+      "new_line": 214
+    },
+    {
+      "name": "expensive_capture_worker",
+      "same": true,
+      "old_line": 211,
+      "new_line": 222
+    },
+    {
+      "name": "empty_outer_dispatch",
+      "same": true,
+      "old_line": 225,
+      "new_line": 236
+    },
+    {
+      "name": "empty_inner_dispatch",
+      "same": true,
+      "old_line": 231,
+      "new_line": 242
+    },
+    {
+      "name": "source_builder_with_suffix",
+      "same": true,
+      "old_line": 237,
+      "new_line": 248
+    },
+    {
+      "name": "source_builder_two_applications",
+      "same": true,
+      "old_line": 244,
+      "new_line": 255
+    },
+    {
+      "name": "charged_identity_changes_worker_work",
+      "same": true,
+      "old_line": 262,
+      "new_line": 273
+    },
+    {
+      "name": "padded_worker",
+      "same": true,
+      "old_line": 273,
+      "new_line": 284
+    },
+    {
+      "name": "no_worker_bound_from_empty_prefix",
+      "same": true,
+      "old_line": 283,
+      "new_line": 295
+    },
+    {
+      "name": "shared_closure_counts_retained",
+      "same": true,
+      "old_line": 292,
+      "new_line": 304
+    },
+    {
+      "name": "generic_scanner_contracts",
+      "same": true,
+      "old_line": 300,
+      "new_line": 312
+    },
+    {
+      "name": "arbitrary_payload_correct",
+      "same": true,
+      "old_line": 308,
+      "new_line": 320
+    },
+    {
+      "name": "constant_key_domain",
+      "same": true,
+      "old_line": 314,
+      "new_line": 326
+    },
+    {
+      "name": "repeated_payload_exact",
+      "same": true,
+      "old_line": 320,
+      "new_line": 332
+    },
+    {
+      "name": "ascending_range_exact",
+      "same": true,
+      "old_line": 328,
+      "new_line": 341
+    },
+    {
+      "name": "comparison_counter_is_separate",
+      "same": true,
+      "old_line": 339,
+      "new_line": 352
+    }
+  ],
+  "diff_check_exit": 0,
+  "validation": "Proof-only source correction; no next compile or actual elaborated type check by author. Original aggregate evidence remains partial."
+}

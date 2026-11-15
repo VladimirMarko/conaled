@@ -1,0 +1,39 @@
+{
+  "candidate": "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+  "discovered_at": "2026-11-02T20:58:16.427090+00:00",
+  "run": "import-footprint-226ebae-resumed-r1",
+  "overall_status": "still running; source compilation errors observed; no success or audit result",
+  "log": "../../active-validation/import-footprint-226ebae-resumed-r1.log",
+  "findings": [
+    {
+      "id": "IMPORT-VAL-001",
+      "status": "fixed in corrected candidate, focused compiled; pending full gate and independent reviewer disposition",
+      "module": "Applications.FRP.Demand",
+      "line": 139,
+      "error": "le_rfl has type ?x \u2264 ?x but the expected proposition is n < n + 1",
+      "classification": "Under investigation; no assumption that imports alone explain it."
+    },
+    {
+      "id": "IMPORT-VAL-002",
+      "status": "fixed in corrected candidate, focused compiled; pending full gate and independent reviewer disposition",
+      "module": "Applications.FRP.Finite",
+      "line": 72,
+      "error": "s.biUnion resolves Finite \u2191(FRPSpec.PastSupport e.at t); Finite.biUnion is unavailable",
+      "classification": "Under investigation; distinguish missing provider from prior proof defect."
+    },
+    {
+      "id": "IMPORT-VAL-003",
+      "status": "fixed in corrected candidate, focused compiled; pending full gate and independent reviewer disposition",
+      "module": "Examples.FRP",
+      "line": 99,
+      "error": "exists_nat_gt unavailable after the earlier blocked dependencies compiled",
+      "provider": "Mathlib.Algebra.Order.Archimedean.Real.Basic"
+    }
+  ],
+  "correction_checkout": "import-correction",
+  "correction_branch": "pfds/import-footprint-r2",
+  "starting_commit": "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+  "constraints": "Frozen validation-imports unchanged. Full compiler may finish remaining modules. Scope10018 remains imports only; a necessary proof correction requires a separately recorded prerequisite. No gate/guard/axiom/toolchain relaxation.",
+  "correction_candidate": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+  "focused_result": "exit0,1134jobs,unchanged inputs; import-footprint-r2-focused-r2"
+}

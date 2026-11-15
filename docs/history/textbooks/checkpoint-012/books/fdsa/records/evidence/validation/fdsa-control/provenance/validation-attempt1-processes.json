@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-11-02T03:06:09.124287+00:00",
+  "root_checker_pid": 46434,
+  "scope": "Only the assigned checker and recursively enumerated descendants",
+  "warning": "Snapshot only. Revalidate parent/start time/cwd/command before any action; the running checker can create new descendants.",
+  "processes": [
+    {
+      "pid": 46434,
+      "ppid": 46431,
+      "start_ticks": 2069560,
+      "executable": "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3.13",
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "candidate_cwd_matches": true,
+      "command": "python3 scripts/check.py --fresh --jobs 4 --candidate HEAD"
+    },
+    {
+      "pid": 64925,
+      "ppid": 46434,
+      "start_ticks": 2235296,
+      "executable": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "candidate_cwd_matches": true,
+      "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean -o /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/fresh-check-pb_o_nw4/SquareKit/SmoothHadamard.olean SquareKit/SmoothHadamard.lean"
+    },
+    {
+      "pid": 64941,
+      "ppid": 46434,
+      "start_ticks": 2235750,
+      "executable": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "candidate_cwd_matches": true,
+      "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean -o /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/fresh-check-pb_o_nw4/Examples/AlgebraicScalar.olean Examples/AlgebraicScalar.lean"
+    },
+    {
+      "pid": 66434,
+      "ppid": 46434,
+      "start_ticks": 2250443,
+      "executable": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "candidate_cwd_matches": true,
+      "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean -o /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/fresh-check-pb_o_nw4/SquareKit/AlgebraicKL.olean SquareKit/AlgebraicKL.lean"
+    },
+    {
+      "pid": 67719,
+      "ppid": 46434,
+      "start_ticks": 2267311,
+      "executable": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "candidate_cwd_matches": true,
+      "command": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean -o /workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/fresh-check-pb_o_nw4/SquareKit/SmoothLocalGluing.olean SquareKit/SmoothLocalGluing.lean"
+    }
+  ]
+}

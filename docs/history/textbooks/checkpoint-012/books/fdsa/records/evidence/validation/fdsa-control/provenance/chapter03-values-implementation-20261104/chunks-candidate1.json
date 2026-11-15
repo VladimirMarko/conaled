@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-11-04T18:35:49.070720+00:00",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "previous_candidate": "e82d1fc8ef3a4bed1b4135711d50cd4abc50e6d3",
+  "candidate": "471af117f915a722a3f1b4446ace4e4b9998dfbb",
+  "tree": "915e54710b877c577b09b030b9878c7b5c790943",
+  "new_files": [
+    "Applications/Sequences/Chunks.lean",
+    "Examples/ListChunks.lean"
+  ],
+  "new_public_names": 35,
+  "new_private_names": 1,
+  "combined_public_names": 75,
+  "prior_CountRank_source_unchanged": true,
+  "prior_CountRank_focused_actual_exit": 0,
+  "prior_CountRank_terminal": "1fa08a",
+  "prior_CountRank_closure": "6c8694",
+  "prior_CountRank_full_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-count-rank-focused-attempt3-20261104/full.log",
+    "bytes": 1160,
+    "sha256": "35a677d8def9a7f09aa5c1e942ada9d97de758fc2206664d506a7dd8317ee759"
+  },
+  "required_focused_modules": [
+    "Applications.Sequences.Chunks",
+    "Examples.ListChunks"
+  ],
+  "statement_program": "ChunksStatements.lean",
+  "status": "",
+  "compiler_performed_by_author": false,
+  "validation": "CountRank predecessor focused modules passed at exact same source; new Chunks modules not yet compiled. Full combined candidate/audit/independent reviews pending.",
+  "required_root_import": "import Examples.ListChunks; author left shared root unchanged",
+  "commit_output": "[work/fdsa-ch03-values 471af11] feat(sequences): connect source chopping to standard list splitting (#174)\n 2 files changed, 285 insertions(+)\n create mode 100644 Applications/Sequences/Chunks.lean\n create mode 100644 Examples/ListChunks.lean\n"
+}

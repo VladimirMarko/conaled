@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "axis": "Spec",
+  "reviewer": "/root/integration_review/spec",
+  "round": 2,
+  "stage": "provisional-source-continuation",
+  "approval_requested": false,
+  "outcome": "Blocked",
+  "base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "candidate": "f52a47b9e240b3937533f48befb8622527b7f6db",
+  "tree": "39a6bca727f6b874fc65d5aa1ef661c6e36f952c",
+  "parent": "337c29ff2e2b969e701a9deb84840d6b148dd175",
+  "requirements": {
+    "path": "checkpoint/conaled-textbooks/books/common/REQUIREMENTS.md",
+    "version": "2026-11-13-user-clarifications",
+    "sha256": "9358100642aa0a6eef7793459666d39f14ce6edd4437520aff656366df9b97df"
+  },
+  "snapshot": {
+    "path": "intake/integration-candidate-r2.json",
+    "status": "ok",
+    "mode": "integration",
+    "bytes": 3589637,
+    "sha256": "c71e0bb63d88629c20d4086f254b43be990b6541a222786595a1ed8a7ec08b27",
+    "scope_identity": "b89f794a76862c7dfe5768b5b52a12aa103a6c9c8cdf51d94ee2cd41156ab5d5",
+    "content_identity": "2f138674f695fc3d547e62d1e0379208ee996c5ac9b8f1aaa0f7e481c0392e9d"
+  },
+  "full_scope": {
+    "changed_paths": 356,
+    "changed_lean_paths": 326,
+    "insertions": 67133,
+    "deletions": 66,
+    "declared_manifest_paths": 465,
+    "scope_and_projection_match_round1": true,
+    "explicit_exclusions": [],
+    "scope_reset": false
+  },
+  "retained_analysis": {
+    "path": "intake/review/spec-r1.md",
+    "sha256": "b44bce5a8db5f76c72b02e5f6473508d704a6011d9a4aa8c0cfdcff99836a739",
+    "json": "intake/review/spec-r1.json",
+    "json_sha256": "cd9f2a23edc85a2f72e190e689bc46ff83ea79cb0008ab67e3b4ebfe3d32da39",
+    "scope": "Full original-base mathematical source, inherited context, preservation and finding-history analysis retained; no old validation outcome reused."
+  },
+  "delta": {
+    "paths": [
+      "Applications/Search/AbstractSet.lean",
+      "docs/SOURCES.md"
+    ],
+    "insertions": 2,
+    "deletions": 3,
+    "abstract_set_only_final_blank_removed": true,
+    "ordinary_final_line_ending_retained": true,
+    "sources_only_two_exact_heading_replacements": true,
+    "source_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "source_ids_unique": true,
+    "stale_numbered_markdown_anchor_references_found": false,
+    "formal_declaration_or_proof_change": false,
+    "all_other_source_blobs_unchanged": true
+  },
+  "preservation_delta": {
+    "pfds_exact_incoming_lean_bytes": 149,
+    "pfds_incoming_changed_lean_paths": 159,
+    "additional_difference": "AbstractSet removes one final blank line; all formal content remains identical.",
+    "vfa_fdsa_counts_unchanged": true,
+    "167_donor_checks_unaffected": true
+  },
+  "source_analysis": {
+    "status": "complete",
+    "new_source_findings": [],
+    "worst_new_source_issue": null
+  },
+  "findings": [
+    {
+      "id": "INT-SP-001",
+      "severity": "Blocking",
+      "kind": "required-validation",
+      "status": "pending",
+      "candidate": "f52a47b9e240b3937533f48befb8622527b7f6db",
+      "requirement": "REQUIREMENTS.md governing workflow/completion; code-review sections3/5; review-loop candidate validation",
+      "evidence": "Round-2 snapshot supplied; exact round-2 full-check/audit/record terminal evidence has not been presented for final approval. Root full run remains on round1.",
+      "consequence": "Spec remains Blocked; no approval.",
+      "remedy": "Supply genuine successful exact-candidate full check/exhaustive audit and matching record/input evidence to this same reviewer; preserve original full scope through corrections. Root performs immediate verify-candidate and snapshot compare before acceptance.",
+      "related_local_issue": "INT-090",
+      "replaces_legacy_ids": false
+    }
+  ],
+  "legacy_history": {
+    "all_round1_ids_retained": true,
+    "pfds_total": 39,
+    "pfds_current_validation_pending": 14,
+    "independent_standards_ownership_retained": true,
+    "references": [
+      "intake/review/spec-r1.json",
+      "checkpoint/conaled-textbooks/books/common/analysis/process.md",
+      "checkpoint/conaled-textbooks/books/pfds/records/evidence/reviews/common-integration-coordinator-r1-045.md"
+    ]
+  },
+  "standards_notice": {
+    "id": "INT-ST-001",
+    "source_remedy_observed": true,
+    "closed_by_this_reviewer": false
+  },
+  "validation": {
+    "exact_round2_full_check": "pending-terminal-evidence",
+    "compile_audit_or_checker_run_by_reviewer": false,
+    "final_approval_requested": false,
+    "root_acceptance_actions": [
+      "immediate verify-candidate",
+      "snapshot compare",
+      "required durable capture/upload"
+    ]
+  },
+  "report": {
+    "path": "intake/review/spec-r2.md",
+    "bytes": 5787,
+    "sha256": "4e866716a504af63933da77f5800eea3d6f27fcf2dd63aa72e0ffb0d5f850916"
+  }
+}

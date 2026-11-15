@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T19:36:24.510543+00:00",
+  "candidate": "d204aa2c64937cb1f151bd52759bfcfa50e4248f",
+  "terminal": {
+    "recorded_utc": "2026-11-04T19:36:24.510271+00:00",
+    "owned_session": 61135,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "24a559",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "d204aa2c64937cb1f151bd52759bfcfa50e4248f"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-auxiliary-focused-attempt2-20261104/full.log",
+    "bytes": 6778,
+    "sha256": "4dd326300f22f985eb7dffed645166817814d3fa17cd916b0635b3ff276a9268"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T193554Z-project-run-ee3e9222",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-auxiliary-focused-attempt2-20261104/native-records/start.json",
+      "bytes": 481,
+      "sha256": "cfa241d85147a376365aa5c937bd69b65e07a69ce0cb42c3688404f886822c2f"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-auxiliary-focused-attempt2-20261104/native-records/result.json",
+      "bytes": 634,
+      "sha256": "828b25987cfdb4522e3cdffe0961ec04435a4aee0e809612ab95148c7969eaa7"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-selection-auxiliary-focused-attempt2-20261104/native-records/output.log",
+      "bytes": 6499,
+      "sha256": "853a0161614147503fd3c6a5a4bbce094fec23024c9c922f086cd1f1c3f5d8e2"
+    }
+  },
+  "native_body_exact_outer_offset": 123,
+  "complete_closed_log": true,
+  "scope": "Same original two-module selection auxiliary development scope after example correction; no full-candidate or Chapter3 acceptance credit.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

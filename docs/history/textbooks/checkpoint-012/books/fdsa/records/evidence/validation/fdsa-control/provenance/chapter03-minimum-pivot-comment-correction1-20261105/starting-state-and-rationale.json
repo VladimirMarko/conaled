@@ -1,0 +1,17 @@
+{
+  "recorded_utc": "2026-11-05T00:16:13.562805+00:00",
+  "finding": "C03-STD-DOC-001",
+  "severity": "low",
+  "source": "Independent Standards message; full source read005246; root headera2bb76 and theorem references40e5ac",
+  "candidate_before": "2ff47bdad9f822727fb2d1ea86092c4b26ad0cb6",
+  "status_before": "",
+  "file": "Applications/Resources/MinimumPivot.lean",
+  "before": {
+    "bytes": 10610,
+    "sha256": "c4e4ee7b0ef4413684fc13069d2f7f1200ac6387df2aa81565db0aa45bebaabe"
+  },
+  "problem": "The word Only incorrectly claims that the largest-rank specialization is the sole uniformly quadratic family; the general exact scan formula permits other growing-rank families.",
+  "change": "Remove the exclusive Only qualifier, retaining the established largest-rank quadratic statement and fixed-rank distinction.",
+  "formal_claims_or_proof_changes": false,
+  "validation_plan": "Inspect exact comment-only diff and whitespace. No additional formal declaration or focused compiler rerun is needed for this prose-only correction; final exact whole-candidate validation and both axes remain mandatory."
+}

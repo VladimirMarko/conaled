@@ -1,0 +1,822 @@
+{
+  "reviewer": "/root/tree_cache_standards",
+  "unit": "FDSA-XT01",
+  "recorded_utc": "2026-11-05T02:32:52.404914+00:00",
+  "original_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "original_donor": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "incorporated_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "tree": "18bf4bc9df979d4ee6ac76182f58faed235a0714",
+  "merge_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "review_command": "git diff 298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2...90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "scoped_commits": [
+    "90469ce fix(trees): complete cached-fold connected examples (#174)",
+    "bd7e379 fix(trees): complete cached-node refinement proofs (#174)",
+    "f0fd3fa feat(trees): receive shared cached folds on accepted base (#174)"
+  ],
+  "outcome": "Blocked",
+  "source_assessment_complete": true,
+  "actual115_assessment_complete": true,
+  "findings": [],
+  "unresolved_finding_count": 0,
+  "remaining_blocker": "Full candidate check terminal/audit/success record not yet assessed. Immediate verification and exact acceptance remain subsequent caller duties.",
+  "sources": [
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "git_blob": "445e49be7535e17640c7c4ca81251dd7c4119117",
+      "bytes": 3862,
+      "lines": 80,
+      "sha256": "c03a102b43bb5f04edf8b5ab6f0685bd82f80d55a67af680dfa8c0ff0c149abc"
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "git_blob": "c301ca85e555a8c5bb3c9db10459446121bc6613",
+      "bytes": 5668,
+      "lines": 135,
+      "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6"
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "git_blob": "f90fbe8c85b9c88f760236d48129bd2b4c4d7e71",
+      "bytes": 4119,
+      "lines": 107,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752"
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "git_blob": "e0f09b851bb4ce6d1093faaf3cbbcb3b3d873f24",
+      "bytes": 16571,
+      "lines": 371,
+      "sha256": "d92dfcbb139395af13a5939daed2739c10f08ec52d5eaef4165d3962bc76b955"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "git_blob": "a44e48d33c45392e975906f3a635acc057f03205",
+      "bytes": 10743,
+      "lines": 327,
+      "sha256": "ae0e85d4cc8b4d77b8880279b3632631428bbf4ed68ef2656f3bae80112cbd0a"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "1dc207f930f47e1348e4dfd1e81acc746b4d6deb",
+      "bytes": 49179,
+      "lines": 739,
+      "sha256": "4bdd535ee4b0b22cbad3b83aef8b90cef624a3dd99fb64bf7f40041df39b23e9"
+    },
+    {
+      "path": "docs/research/fdsa-tree-cache.md",
+      "git_blob": "c0a03f7bc859857a28249a54150169489b483386",
+      "bytes": 13344,
+      "lines": 211,
+      "sha256": "409708db3c204007f902fa885fc1e63b2b2181768abb1524b0b1b641789c4e24"
+    }
+  ],
+  "original22_existing_sources_unchanged": [
+    {
+      "path": "Applications/Bracketing/Basic.lean",
+      "bytes": 8561,
+      "lines": 243,
+      "sha256": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9"
+    },
+    {
+      "path": "Applications/Optimization/SelectionSpec.lean",
+      "bytes": 738,
+      "lines": 18,
+      "sha256": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b"
+    },
+    {
+      "path": "Applications/Resources/CallCount.lean",
+      "bytes": 2447,
+      "lines": 58,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8"
+    },
+    {
+      "path": "Applications/Resources/ListReversal.lean",
+      "bytes": 4827,
+      "lines": 116,
+      "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e"
+    },
+    {
+      "path": "Applications/Resources/Measured.lean",
+      "bytes": 2906,
+      "lines": 71,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46"
+    },
+    {
+      "path": "Applications/Resources/Potential.lean",
+      "bytes": 4638,
+      "lines": 108,
+      "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe"
+    },
+    {
+      "path": "Applications/Resources/RandomAccess/CacheCosts.lean",
+      "bytes": 2227,
+      "lines": 61,
+      "sha256": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d"
+    },
+    {
+      "path": "Applications/Resources/SymmetricCosts.lean",
+      "bytes": 10508,
+      "lines": 281,
+      "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5"
+    },
+    {
+      "path": "Applications/Resources/TreeFlattening/Core.lean",
+      "bytes": 4225,
+      "lines": 116,
+      "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2"
+    },
+    {
+      "path": "Applications/Resources/Workload.lean",
+      "bytes": 2745,
+      "lines": 64,
+      "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5"
+    },
+    {
+      "path": "Applications/Sequences/OrderedSummary.lean",
+      "bytes": 8765,
+      "lines": 190,
+      "sha256": "d484e6c34f4ebace4ba121f931eba53a86f34a3c4b69e06d9d0b24ae8c8c7261"
+    },
+    {
+      "path": "Applications/Sequences/RandomAccess/Access.lean",
+      "bytes": 5219,
+      "lines": 141,
+      "sha256": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b"
+    },
+    {
+      "path": "Applications/Sequences/RandomAccess/Basic.lean",
+      "bytes": 5970,
+      "lines": 180,
+      "sha256": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb"
+    },
+    {
+      "path": "Applications/Sequences/RandomAccess/Borrow.lean",
+      "bytes": 5680,
+      "lines": 145,
+      "sha256": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516"
+    },
+    {
+      "path": "Applications/Sequences/RandomAccess/TreeBuild.lean",
+      "bytes": 5392,
+      "lines": 139,
+      "sha256": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6"
+    },
+    {
+      "path": "Applications/Sequences/Symmetric/Core.lean",
+      "bytes": 12059,
+      "lines": 362,
+      "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3"
+    },
+    {
+      "path": "Applications/Sequences/Symmetric/Finite.lean",
+      "bytes": 4923,
+      "lines": 119,
+      "sha256": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490"
+    },
+    {
+      "path": "Applications/Sequences/Symmetric/Observation.lean",
+      "bytes": 3425,
+      "lines": 88,
+      "sha256": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557"
+    },
+    {
+      "path": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "bytes": 4345,
+      "lines": 114,
+      "sha256": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308"
+    },
+    {
+      "path": "SquareKit/ListFusion.lean",
+      "bytes": 2939,
+      "lines": 73,
+      "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164"
+    },
+    {
+      "path": "SquareKit/Relations.lean",
+      "bytes": 5615,
+      "lines": 163,
+      "sha256": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03"
+    },
+    {
+      "path": "Squares.lean",
+      "bytes": 11694,
+      "lines": 352,
+      "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7"
+    }
+  ],
+  "configuration_inputs": [
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "same_as_original_base_and_retained_XU06": true
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "same_as_original_base_and_retained_XU06": true
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 444,
+      "lines": 13,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "same_as_original_base_and_retained_XU06": true
+    },
+    {
+      "path": "flake.nix",
+      "bytes": 637,
+      "lines": 28,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+      "same_as_original_base_and_retained_XU06": true
+    },
+    {
+      "path": "flake.lock",
+      "bytes": 564,
+      "lines": 27,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+      "same_as_original_base_and_retained_XU06": true
+    },
+    {
+      "path": "check.sh",
+      "bytes": 74,
+      "lines": 4,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "same_as_original_base_and_retained_XU06": true
+    },
+    {
+      "path": "scripts/check.py",
+      "bytes": 16119,
+      "lines": 348,
+      "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+      "same_as_original_base_and_retained_XU06": true
+    },
+    {
+      "path": "scripts/lake_integrity.py",
+      "bytes": 5781,
+      "lines": 117,
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+      "same_as_original_base_and_retained_XU06": true
+    },
+    {
+      "path": "scripts/lake-output-hashes.lean",
+      "bytes": 618,
+      "lines": 11,
+      "sha256": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b",
+      "same_as_original_base_and_retained_XU06": true
+    },
+    {
+      "path": "ProofAudit.lean",
+      "bytes": 7925,
+      "lines": 154,
+      "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd",
+      "same_as_original_base_and_retained_XU06": true
+    }
+  ],
+  "retained17instructions": [
+    {
+      "path": ".agents/skills/code-review/SKILL.md",
+      "bytes": 7466,
+      "lines": 133,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": ".agents/skills/code-review/heuristics.md",
+      "bytes": 2232,
+      "lines": 32,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": ".agents/skills/domain-modeling/SKILL.md",
+      "bytes": 3346,
+      "lines": 74,
+      "sha256": "7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "bytes": 6991,
+      "lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/worked-example.md",
+      "bytes": 2356,
+      "lines": 55,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": ".agents/skills/implement/SKILL.md",
+      "bytes": 4997,
+      "lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": ".agents/skills/setup-matt-pocock-skills/domain.md",
+      "bytes": 2042,
+      "lines": 51,
+      "sha256": "593a7042218689f1d24df89df14eaf0a20e19e0d0a7d479a01947ac78f0784b9",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "bytes": 4824,
+      "lines": 106,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "README.md",
+      "bytes": 26239,
+      "lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "lines": 50,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "bytes": 7331,
+      "lines": 127,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "docs/language-direction.md",
+      "bytes": 19185,
+      "lines": 306,
+      "sha256": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "bytes": 3876,
+      "lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "bytes": 7113,
+      "lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "docs/agents/domain.md",
+      "bytes": 926,
+      "lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    },
+    {
+      "path": "docs/adr/README.md",
+      "bytes": 1547,
+      "lines": 17,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "same_as_complete_retained_XU06_reading": true,
+      "read_status": "complete prior applicable reading retained by exact immutable source-byte identity; not a fresh reread claim"
+    }
+  ],
+  "full_scope_preserved": true,
+  "accepted_root_and_map_preserved": true,
+  "all115_headers_names_kinds_exact": true,
+  "source_surface": {
+    "definitions": 25,
+    "theorems": 90,
+    "total": 115,
+    "module_totals": [
+      15,
+      24,
+      8,
+      68
+    ]
+  },
+  "actual_current_input_counts": {
+    "local_sources": 26,
+    "local_compiler_objects_and_traces": 78,
+    "configuration": 10,
+    "dependencies": 9,
+    "runtime": 12
+  },
+  "reconciliation_chunk": "ad0f0f",
+  "runs": [
+    {
+      "name": "binary-tree-cache-receiving-focused-attempt1-20261105",
+      "candidate": "f0fd3faa84d57ab7583f877039da2c703431f0ce",
+      "exit": 1
+    },
+    {
+      "name": "binary-tree-cache-receiving-focused-attempt2-20261105",
+      "candidate": "bd7e379b742103767ee4620b14057ee86da8845c",
+      "exit": 1
+    },
+    {
+      "name": "binary-tree-cache-receiving-focused-attempt3-20261105",
+      "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "exit": 0
+    },
+    {
+      "name": "binary-tree-cache-receiving-statements115-attempt1-20261105",
+      "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "exit": 0
+    }
+  ],
+  "evidence_bindings": [
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt1-20261105/start.json",
+      "bytes": 1044,
+      "sha256": "d227fdbc5b77615a208db23f0890a40cc77f0efe5982b0194f1a42bf612d7e3d"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt1-20261105/result.json",
+      "bytes": 1377,
+      "sha256": "bf82eaf0ec502d64b4aea144a7219fa2f738e29c404edaa9aa6a94c4187cd031"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt1-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "sha256": "dd98cf82489bdeb927b73b66eb5389da62f00d6ff2fba4c7363616b14a928528"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt1-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "bbfa8d307bcc49958b08566e43a009574a0d11e87f3ae95b1950640359abcd80"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt1-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2168,
+      "sha256": "73cc0c1456edfcc37e2fe1c110a75069abf4ef114ff706887f61e98d55f55a74"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt1-20261105/full.log",
+      "bytes": 6789,
+      "sha256": "e90e3654c3df60106479f1a1f38865c96787d31526ee1e254c3029d3b08c0f18"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt1-20261105/outer-prefix.log",
+      "bytes": 163,
+      "sha256": "a7ddc72426ee13b9a21b8aaa35c293d13b434bb84eeb285fec8baf4730be6366"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt1-20261105/outer-suffix.log",
+      "bytes": 157,
+      "sha256": "33936691f4609dc558093034330f6c3016f8fb7187c3626caed8ebd282e049e7"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt1-20261105/native-records/start.json",
+      "bytes": 535,
+      "sha256": "f27f4f1eeca4c6bc1eb28c513d350c4c620b5f95642eaf53be07d788bc9bf424"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt1-20261105/native-records/result.json",
+      "bytes": 689,
+      "sha256": "7d17553cd83adf55c526847638a497f8eb2de449b53a92ecb8217c1227ae172e"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt1-20261105/native-records/output.log",
+      "bytes": 6469,
+      "sha256": "7fa34ac33977e90a8c38faa99ae199ed6c716ad00d80bae222fa01b1df8a6e41"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt2-20261105/start.json",
+      "bytes": 1044,
+      "sha256": "5a5c14212bfc664cb7e864c1f93ffde555f116415979395080417de786e5ac82"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt2-20261105/result.json",
+      "bytes": 1377,
+      "sha256": "44e23951f5c1054571e0519e2f76e0630f545b41edeb9bbe51a71dee64e151e1"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt2-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "sha256": "09921aff86d1c404fae7465fc9448b2865cea31d5aa15f56eaa13c40739ab3f2"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt2-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "9a1384c4c90d7d2a285325f043b971211218aaae287834f935c8905e4d9e340f"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt2-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2191,
+      "sha256": "95d22f821df16c613dc8a1b13609d881aee392407ee5c251482756d93946b9d7"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt2-20261105/full.log",
+      "bytes": 6209,
+      "sha256": "56f4e3346fb7337b82f825afc71781d58bb25a45e582ef4a9c6913f32bdc59ec"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt2-20261105/outer-prefix.log",
+      "bytes": 163,
+      "sha256": "a7ddc72426ee13b9a21b8aaa35c293d13b434bb84eeb285fec8baf4730be6366"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt2-20261105/outer-suffix.log",
+      "bytes": 157,
+      "sha256": "27ecf05ae96dfc26686b09b119750d9b785797e00c03fd8d027cfb2307dff024"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt2-20261105/native-records/start.json",
+      "bytes": 535,
+      "sha256": "67468dcbb3036414adcd397807f602aa7c7420ac138e0c7575ae6b88e655e60c"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt2-20261105/native-records/result.json",
+      "bytes": 689,
+      "sha256": "1769b85ff20512930457012ccf0bcc6a755e66bd7c455e7cf9ec5a89ad856ab2"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt2-20261105/native-records/output.log",
+      "bytes": 5889,
+      "sha256": "b4e228ed964313f0614a9ae98914eaecb3cc3853dce6a65b93c3316876904cdf"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt3-20261105/start.json",
+      "bytes": 1044,
+      "sha256": "3761cbb40f8d7fc7e9ecbf5cd43f85ea2563c3d79af1b7294cdd778bbb3a9663"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt3-20261105/result.json",
+      "bytes": 1377,
+      "sha256": "678771dfd15692acb72680038216bcd7282a82772c54c5c29987e2bf197a257f"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt3-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "sha256": "13439f6cbf38464d4f85e9a13e8cdb1c291ed115fdc2c9a54e83e35fa946cd52"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt3-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "28e7df84991724b9d9129856857c539a5a5e0a47784e0cb6366005faa446dd75"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt3-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2227,
+      "sha256": "1db11f2f9df9d405ed471e50d06fa685b2c9d0a541304da4f3fb244d550ea9f8"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt3-20261105/full.log",
+      "bytes": 3137,
+      "sha256": "264674459ef7acb9115cfaf8033a5b535ccc3da9f3c297f0c80997e620b40c2d"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt3-20261105/outer-prefix.log",
+      "bytes": 163,
+      "sha256": "a7ddc72426ee13b9a21b8aaa35c293d13b434bb84eeb285fec8baf4730be6366"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt3-20261105/outer-suffix.log",
+      "bytes": 156,
+      "sha256": "061238b5185d676744c3565553caa8a4068f6eccd6d7a206d022c8675dba0fa1"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt3-20261105/native-records/start.json",
+      "bytes": 535,
+      "sha256": "ae981b4dc297eaf97c7be7a49b182ea5c89a14cf380bf88a44c41176ddd4867c"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt3-20261105/native-records/result.json",
+      "bytes": 687,
+      "sha256": "843b18e2c2652c9280e26afd078647e1bdf525e91f91b378905f60c01770c2a0"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-focused-attempt3-20261105/native-records/output.log",
+      "bytes": 2818,
+      "sha256": "ff90eda3667eb4e234950a2c6d47374543d745f81305788d7c2812efdd877766"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/start.json",
+      "bytes": 1081,
+      "sha256": "9dabb4f307a289cc14c48dfe24e14a18ff382bfc4157e007ecedb734281b2001"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/result.json",
+      "bytes": 1421,
+      "sha256": "d25b2a2731c099c42cae97f1dc79b974fdceaa3580ee1d2969ce7c426cbf896a"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "sha256": "bcc1060f4c3983dfacb59f016ebb85a9c74ca629d78fe2f94c47277d72a24345"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "fb1cf27ff589ce7c424fc9dbffadd4204ebce09e5f0acfc64755ea7152d8e87d"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2250,
+      "sha256": "8eb176fcb37b593243a32ffb4a089a3d47c72c10c65c8e7eee273fe0ec19f423"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/full.log",
+      "bytes": 46402,
+      "sha256": "f9e84cce01411532b374c731d7cf2142a0d7dadaa6ca1adda79a6df10465513c"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/outer-prefix.log",
+      "bytes": 214,
+      "sha256": "6754f01aa03b51f85c72b77a08e43f74ff94f48cce814a532a19217061a52664"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/outer-suffix.log",
+      "bytes": 156,
+      "sha256": "d8c5f586555d5f6a146346cde844b53512057a54c8c7e3f169e403b17a2e8877"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/native-records/start.json",
+      "bytes": 572,
+      "sha256": "1116cdf62cd1c25186d5edd9d823a0af12c069fbe06b50173f7b3cb97ac41a01"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/native-records/result.json",
+      "bytes": 724,
+      "sha256": "54992ed030ac71bbeabae90c6850111a9985c2958be04e873201b784ceb01446"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/native-records/output.log",
+      "bytes": 46032,
+      "sha256": "ea8ebef082abef7de66e7ce3f269771290073bc96a287ff864d49813c90d052b"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-20261105/Statements115-complete.lean",
+      "bytes": 4721,
+      "sha256": "eea207cce83ce453b3625076041ff1262235771a8b92add322a149a044c98738"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-20261105/actual-type-block-index.json",
+      "bytes": 34482,
+      "sha256": "1a44bd06217f4d6ef66c1fb3effd5e06427a627f023adcb97017cb9a3b517bbb"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-20261105/observation-reconciliation.json",
+      "bytes": 1640,
+      "sha256": "661a19d6f9b91c3b24e11300b17d546408da17581ad7dbe1c4137ff59bd64d33"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-20261105/post-inputs.json",
+      "bytes": 33026,
+      "sha256": "d42a9f64ad16b6913f3d487b5538a892a84d7ba975f9c32a56bf06ab626ce352"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-20261105/pre-inputs.json",
+      "bytes": 32719,
+      "sha256": "2b85a7cadaf18f9fa0922c2977ff64edfa5a3dee5a582501d89faaaff7347cc6"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-20261105/preparation.json",
+      "bytes": 6027,
+      "sha256": "f1269d5426bfb07dbe1f29e4ca7693e50451b56cfa2d07406746ee90c58376ed"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-20261105/start-input.json",
+      "bytes": 3104,
+      "sha256": "7453123f4041157edc169b788fbb994d6c7695ec5af0e33a4c946ce096565ba9"
+    },
+    {
+      "path": "reviews/binary-tree-cache-requirements.md",
+      "bytes": 14576,
+      "sha256": "81260794bec3767bb9eaa2d2fcaa8337da015220df60bf4dda147590c8ed23ce"
+    },
+    {
+      "path": "reviews/binary-tree-cache-standards-preparation-20261104.md",
+      "bytes": 22912,
+      "sha256": "a24df99f02fd70300f25b982b53293d2f0d8485f053b8891829fe81c37043c97"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-preparation-20261104/source-preparation.json",
+      "bytes": 105667,
+      "sha256": "a7ac84609e2cdfca8187357e4e6d379d097c70bf0a2744a4f2aa72f70c43a5de"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-preparation-20261104/dependency-closure.json",
+      "bytes": 47280,
+      "sha256": "b89fa256d6d9cab66f7d2476f86ad465f0d48c2fd4e3e0d50f537ed45e01f831"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "bytes": 22193,
+      "sha256": "6152d773e747cd7c7c2aaf77c89affb5f080fd9c390740213981406d387deb3d"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-20261105/receiving-plan.json",
+      "bytes": 9355,
+      "sha256": "6a5772e7eae743de7f7f810fc1186d486479ee8bc867b555615b8b5ac56057f9"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-20261105/correction1.patch",
+      "bytes": 3429,
+      "sha256": "7f72084952005e3aaea0e9067f3eccf1bdef2cbdd674cb01237067d82c6b803b"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-20261105/correction2.patch",
+      "bytes": 2549,
+      "sha256": "4b9b3578eb959f26209880a972637acedc60da5d5cafc1c7fa376d4c814d6430"
+    }
+  ],
+  "protected_prior_records": [
+    {
+      "path": "reviews/binary-tree-cache-standards-preparation-20261104.md",
+      "bytes": 22912,
+      "sha256": "a24df99f02fd70300f25b982b53293d2f0d8485f053b8891829fe81c37043c97"
+    },
+    {
+      "path": "reviews/binary-tree-cache-spec-preparation-20261104.md",
+      "bytes": 21429,
+      "sha256": "c54206bcb23cf96bc0968c2bc4f84ed2166ee6f257c4a1d952f5c578418d3432"
+    },
+    {
+      "path": "reviews/binary-tree-cache-requirements.md",
+      "bytes": 14576,
+      "sha256": "81260794bec3767bb9eaa2d2fcaa8337da015220df60bf4dda147590c8ed23ce"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-preparation-20261104/source-preparation.json",
+      "bytes": 105667,
+      "sha256": "a7ac84609e2cdfca8187357e4e6d379d097c70bf0a2744a4f2aa72f70c43a5de"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "bytes": 22193,
+      "sha256": "6152d773e747cd7c7c2aaf77c89affb5f080fd9c390740213981406d387deb3d"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-preparation-20261104/dependency-closure.json",
+      "bytes": 47280,
+      "sha256": "b89fa256d6d9cab66f7d2476f86ad465f0d48c2fd4e3e0d50f537ed45e01f831"
+    },
+    {
+      "path": "provenance/chapter03-acceptance-20261105/acceptance.json",
+      "bytes": 52490,
+      "sha256": "b0a6cdf9341b2386010f428b7b16d595895eaa8b24f3dd3c47d5d95dd8287c6d"
+    },
+    {
+      "path": "reviews/chapter03-standards.md",
+      "bytes": 14701,
+      "sha256": "64d568bb79ff6205191a8b8f74ab02fac915f9e0e4f2e0ceb586378619a8980d"
+    },
+    {
+      "path": "reviews/chapter03-spec.md",
+      "bytes": 19366,
+      "sha256": "69b85721d06033e915571a738cea63e23cc4c0e10d6dc36c550d4cd84676c510"
+    }
+  ],
+  "immutable_source_phase_report": {
+    "path": "provenance/binary-tree-cache-standards-receiving-20261105/source-type-report.md",
+    "bytes": 12933,
+    "sha256": "63001c5b5bd8f57c4b712efea5883efc656e83c409a8ae413365b76f63409bde"
+  },
+  "actual_type_assessment": {
+    "path": "provenance/binary-tree-cache-standards-receiving-20261105/actual115-assessment.json",
+    "bytes": 54521,
+    "sha256": "74a345559dce391c7a21d016fa6cd1a712c8265e212c47b43a7b9e45d5e6d784"
+  },
+  "read_ledger": {
+    "path": "provenance/binary-tree-cache-standards-receiving-20261105/read-ledger.json",
+    "bytes": 10203,
+    "sha256": "f20adfb278a53c6870a0cabbf373fb92a53f9ad6df2bf44b1616df2ef75482ba"
+  },
+  "compiler_or_acceptance_action_by_reviewer": false
+}

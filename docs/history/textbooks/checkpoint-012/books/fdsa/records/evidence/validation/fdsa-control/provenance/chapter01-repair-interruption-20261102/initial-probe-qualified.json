@@ -1,0 +1,27 @@
+{
+  "recorded_utc": "2026-11-02T20:18:08.813969+00:00",
+  "reason": "write_stdin returned Unknown process id 83124 while gate metadata still says running; bounded identity check of previously established task-local wrapper/checker/Lake PIDs and their exact-cwd descendants only.",
+  "tool_session_id": 83124,
+  "tool_handle_available": false,
+  "exact_checkout": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+  "known_task_pids": [
+    441574,
+    441577,
+    441717,
+    441957
+  ],
+  "processes": [],
+  "absent_or_unreadable_known_or_descendant_pids": [
+    441574,
+    441577,
+    441717,
+    441957
+  ],
+  "rejected_without_reading_command_or_stat": [],
+  "actions": "Read-only. No signals, process changes, compiler/checker launch, cache or gate mutation.",
+  "later_environment_qualification": {
+    "recorded_utc": "2026-11-02T20:20:49.969526+00:00",
+    "default_probe_proc_available": false,
+    "conclusion": "The default execution environment did not expose /proc; the earlier absent/unreadable entries do not establish host-process absence. See the separate elevated-host identity check."
+  }
+}

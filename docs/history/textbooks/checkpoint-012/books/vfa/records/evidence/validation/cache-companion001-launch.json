@@ -1,0 +1,35 @@
+{
+  "started_utc": "2026-11-02T14:45:26.973733+00:00",
+  "status": "completed",
+  "command": [
+    "/root/.nix-profile/bin/nix",
+    "develop",
+    "/workspace/scratch/0c54f2db1fdf/conaled",
+    "--command",
+    "python3",
+    "-B",
+    "/workspace/scratch/0c54f2db1fdf/work-state/cache-companion/cache_companion.py",
+    "capture",
+    "--repo",
+    "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+    "--binding",
+    "/workspace/scratch/0c54f2db1fdf/work-state/validation/cache-companion001-source-binding.json",
+    "--archive",
+    "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-cache-001-candidate-3279bac.tar.gz"
+  ],
+  "cwd": "/workspace/scratch/0c54f2db1fdf/work-state/cache-companion",
+  "free_at_launch_bytes": 1628487680,
+  "source_binding": {
+    "filename": "conaled-vfa-checkpoint-023-reviewed-cache-recovery.tar.gz",
+    "sha256": "92dc6cc6a95847c3cafd21087ca8c2fa8f6d515a28d9eb8db28680a6a5d3ed17",
+    "size_bytes": 145936501,
+    "library_file_id": "libfile_34c277ab17e08191a7e09db07802c467",
+    "source_commit": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec"
+  },
+  "approved_candidate": "a43cef4881d4eb303a81ef25f5ccff0b801a12fe",
+  "note": "The earlier optional 50 MB outer padding was advisory. The accepted utility live capacity checks and 500 MB reserve remain unchanged.",
+  "raw_returncode": 0,
+  "finished_utc": "2026-11-02T14:45:56.313011+00:00",
+  "elapsed_seconds": 29.339200326998252,
+  "free_after_bytes": 1408290816
+}

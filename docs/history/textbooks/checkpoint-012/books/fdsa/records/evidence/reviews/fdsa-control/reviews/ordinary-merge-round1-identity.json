@@ -1,0 +1,52 @@
+{
+  "recorded_utc": "2026-11-04T04:16:50.485044+00:00",
+  "base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+  "merge_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "diff_command": "git diff 07e480f6ec9958d4975bb90151005b84f2907614...72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+  "commits": [
+    "72a0951 fix(examples): elaborate measured merge clients (#174)",
+    "57a7d33 fix(resources): normalize measured merge proof rewrites (#174)",
+    "5f409e7 feat(resources): observe ordinary list merge work (#174)"
+  ],
+  "files": [
+    {
+      "path": "Applications/Resources/ListMerge.lean",
+      "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975",
+      "bytes": 8629
+    },
+    {
+      "path": "Applications/Sorting/Merge.lean",
+      "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+      "bytes": 7840
+    },
+    {
+      "path": "Examples/MergeCosts.lean",
+      "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466",
+      "bytes": 23410
+    },
+    {
+      "path": "SquareApplications.lean",
+      "sha256": "ef3d3bbac7d252aa6c2575f619001176347f083f452802148c968c6e37ccca41",
+      "bytes": 8319
+    },
+    {
+      "path": "docs/research/fdsa-list-merge.md",
+      "sha256": "25f1982d56183111c112d3e38f4473000668685d126677935dcecc3d1a5cf5b3",
+      "bytes": 14955
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "sha256": "f59022d0709bbb48bdf976021c3c0bbf29861af3eddab377e9ef9fb491c948ff",
+      "bytes": 17800
+    }
+  ],
+  "requirements": {
+    "path": "reviews/ordinary-merge-requirements.md",
+    "sha256": "b54e2b332cc31c04ac12fb5b19cc96fa494a80e1455fcfc173f59b6fe340d3d9",
+    "bytes": 19999
+  },
+  "exclusions": [],
+  "full_validation": "pending",
+  "accepted": false
+}

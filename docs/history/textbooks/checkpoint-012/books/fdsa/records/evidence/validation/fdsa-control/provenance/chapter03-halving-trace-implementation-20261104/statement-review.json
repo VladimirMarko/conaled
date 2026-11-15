@@ -1,0 +1,55 @@
+{
+  "recorded_utc": "2026-11-04T20:53:07.772622+00:00",
+  "candidate": "45d120ce0f5bacbaac76cbceeca13ee3ff494dff",
+  "author_statement_review_only": true,
+  "independent_axes_not_replaced": true,
+  "scope": "Generic supporting arithmetic for C03-080; actual-policy and actual-charge bridge pending elsewhere. All83Chapter3 rows retained.",
+  "relation": "Halves has positive singleton stop, or a nonempty positive tail starting at m with 2*m<=n. Index/list head consistency is proved, not separately assumed. Early stop above1 is legal; no empty or zero initial trace exists.",
+  "edge_convention": "Active invocation count is list.length. Recursive edge count is list.length-1. The positive terminal entry gives2^(length-1)<=n, hence Nat.log2 floor bound and Nat.clog2 ceiling bound. Universal singleton_at_one rules out a hidden extra call at n1.",
+  "volume": "n<=sum sizes<=2*n; positivity also gives length<=sum and each entry<=sum. No nonzero reciprocal or real rounding convention is hidden.",
+  "tariff_quantifiers": "A,B are explicit universally quantified Nat parameters. List.Forall\u2082 fixes equal lengths and aligns each size with its actual supplied charge. The upper condition is charge<=A*size+B; a real algorithm application must establish this with global input-independent A,B, including pivot-construction work. No existential input-dependent constants or fabricated algorithm runtime are introduced.",
+  "tariff_conclusion": "sum charges<=A*sum sizes+B*length<=(2*A+2*B)*n. The separate size<=charge alignment yields n<=sum charges; this lower premise is not inferred from the upper one.",
+  "cases": [
+    {
+      "case": "[8,4,2,1]",
+      "expectation": "sum15, edges3",
+      "connection": "constructors; initial_le_sum; sum_le_twice; edges_le_log; edges_le_clog"
+    },
+    {
+      "case": "[7,3,1]",
+      "expectation": "sum11, edges2, floorlog2(7)=2, ceillog2(7)=3",
+      "connection": "step_of_le_half; sum_le_twice; both log bounds"
+    },
+    {
+      "case": "[1]",
+      "expectation": "sum1, one entry, zero edges; every Halves1 trace is [1]",
+      "connection": "stop; singleton_at_one"
+    },
+    {
+      "case": "early[8]",
+      "expectation": "legal early stop with sum8, zero edges",
+      "connection": "stop; volume and ceiling-log bounds"
+    },
+    {
+      "case": "zero",
+      "expectation": "impossible for every trace",
+      "connection": "zero_impossible from derived positivity"
+    },
+    {
+      "case": "[3,2]",
+      "expectation": "rejected since4>3",
+      "connection": "next_halved from exact indexed tail head"
+    },
+    {
+      "case": "charges[26,14,8,5]",
+      "expectation": "tariff3*size+2, sum53, upper80, lower8",
+      "connection": "explicit Forall\u2082 proof; tariff_sum_le; independently supplied lower alignment"
+    }
+  ],
+  "pre_compilation_source_corrections": "Local file inspection showed no Mathlib.Tactic.Omega; use official Lean.Elab.Tactic.Omega, as imported by the pinned Mathlib.Tactic.Order source. This was a source lookup, not a compiler failure. Singleton power proof states the Nat.succ_le conversion explicitly.",
+  "compiled_or_checked_case_claim": false,
+  "compiler_executed_by_author": false,
+  "actual_type_credit": 0,
+  "row_C03_080_closed": false,
+  "acceptance_credit": false
+}

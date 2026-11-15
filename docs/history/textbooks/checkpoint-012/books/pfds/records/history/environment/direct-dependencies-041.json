@@ -1,0 +1,620 @@
+{
+  "schema": 1,
+  "started_utc": "2026-11-03T14:22:45.154931+00:00",
+  "status": "completed",
+  "scope": "Exact public Git dependency source restoration only; no compiler, Lake, cache build, project edits or acceptance.",
+  "authorization": "User clarification on 2026-11-03 permits direct Lean/Lake without Nix; source/toolchain pins and validation gates remain binding.",
+  "manifest": "/workspace/scratch/b566cace4ed6/pfds/conaled/lake-manifest.json",
+  "manifest_sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+  "store": "/workspace/scratch/b566cace4ed6/pfds/dependency-store-041",
+  "packages": [
+    {
+      "name": "mathlib",
+      "url": "https://github.com/leanprover-community/mathlib4.git",
+      "expected_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "checkout": "/workspace/scratch/b566cace4ed6/pfds/dependency-store-041/mathlib",
+      "log": "tools/dependencies-041/mathlib.log",
+      "started_utc": "2026-11-03T14:22:45.155567+00:00",
+      "commands": [
+        {
+          "argv": [
+            "git",
+            "init",
+            "--quiet",
+            "--initial-branch=restoration"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "remote",
+            "add",
+            "origin",
+            "https://github.com/leanprover-community/mathlib4.git"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "config",
+            "remote.origin.pushurl",
+            "DISABLED-local-only"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "fetch",
+            "--depth=1",
+            "--no-tags",
+            "origin",
+            "56a005855ea17e0b0958f73ec801ae140b0a1679"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "checkout",
+            "--quiet",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "status": "restored",
+      "actual_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "revision_matches": true,
+      "clean": true,
+      "porcelain_status": "",
+      "shallow": true,
+      "tracked_file_count": 9397,
+      "ended_utc": "2026-11-03T14:23:00.730170+00:00"
+    },
+    {
+      "name": "plausible",
+      "url": "https://github.com/leanprover-community/plausible",
+      "expected_revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "checkout": "/workspace/scratch/b566cace4ed6/pfds/dependency-store-041/plausible",
+      "log": "tools/dependencies-041/plausible.log",
+      "started_utc": "2026-11-03T14:22:45.156115+00:00",
+      "commands": [
+        {
+          "argv": [
+            "git",
+            "init",
+            "--quiet",
+            "--initial-branch=restoration"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "remote",
+            "add",
+            "origin",
+            "https://github.com/leanprover-community/plausible"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "config",
+            "remote.origin.pushurl",
+            "DISABLED-local-only"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "fetch",
+            "--depth=1",
+            "--no-tags",
+            "origin",
+            "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "checkout",
+            "--quiet",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "status": "restored",
+      "actual_revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "revision_matches": true,
+      "clean": true,
+      "porcelain_status": "",
+      "shallow": true,
+      "tracked_file_count": 35,
+      "ended_utc": "2026-11-03T14:22:50.979265+00:00"
+    },
+    {
+      "name": "LeanSearchClient",
+      "url": "https://github.com/leanprover-community/LeanSearchClient",
+      "expected_revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "checkout": "/workspace/scratch/b566cace4ed6/pfds/dependency-store-041/LeanSearchClient",
+      "log": "tools/dependencies-041/LeanSearchClient.log",
+      "started_utc": "2026-11-03T14:22:45.156488+00:00",
+      "commands": [
+        {
+          "argv": [
+            "git",
+            "init",
+            "--quiet",
+            "--initial-branch=restoration"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "remote",
+            "add",
+            "origin",
+            "https://github.com/leanprover-community/LeanSearchClient"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "config",
+            "remote.origin.pushurl",
+            "DISABLED-local-only"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "fetch",
+            "--depth=1",
+            "--no-tags",
+            "origin",
+            "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "checkout",
+            "--quiet",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "status": "restored",
+      "actual_revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "revision_matches": true,
+      "clean": true,
+      "porcelain_status": "",
+      "shallow": true,
+      "tracked_file_count": 15,
+      "ended_utc": "2026-11-03T14:22:50.587570+00:00"
+    },
+    {
+      "name": "importGraph",
+      "url": "https://github.com/leanprover-community/import-graph",
+      "expected_revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "checkout": "/workspace/scratch/b566cace4ed6/pfds/dependency-store-041/importGraph",
+      "log": "tools/dependencies-041/importGraph.log",
+      "started_utc": "2026-11-03T14:22:45.156775+00:00",
+      "commands": [
+        {
+          "argv": [
+            "git",
+            "init",
+            "--quiet",
+            "--initial-branch=restoration"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "remote",
+            "add",
+            "origin",
+            "https://github.com/leanprover-community/import-graph"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "config",
+            "remote.origin.pushurl",
+            "DISABLED-local-only"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "fetch",
+            "--depth=1",
+            "--no-tags",
+            "origin",
+            "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "checkout",
+            "--quiet",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "status": "restored",
+      "actual_revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "revision_matches": true,
+      "clean": true,
+      "porcelain_status": "",
+      "shallow": true,
+      "tracked_file_count": 105,
+      "ended_utc": "2026-11-03T14:22:51.899352+00:00"
+    },
+    {
+      "name": "proofwidgets",
+      "url": "https://github.com/leanprover-community/ProofWidgets4",
+      "expected_revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "checkout": "/workspace/scratch/b566cace4ed6/pfds/dependency-store-041/proofwidgets",
+      "log": "tools/dependencies-041/proofwidgets.log",
+      "started_utc": "2026-11-03T14:22:50.588031+00:00",
+      "commands": [
+        {
+          "argv": [
+            "git",
+            "init",
+            "--quiet",
+            "--initial-branch=restoration"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "remote",
+            "add",
+            "origin",
+            "https://github.com/leanprover-community/ProofWidgets4"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "config",
+            "remote.origin.pushurl",
+            "DISABLED-local-only"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "fetch",
+            "--depth=1",
+            "--no-tags",
+            "origin",
+            "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "checkout",
+            "--quiet",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "status": "restored",
+      "actual_revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "revision_matches": true,
+      "clean": true,
+      "porcelain_status": "",
+      "shallow": true,
+      "tracked_file_count": 111,
+      "ended_utc": "2026-11-03T14:22:56.249200+00:00"
+    },
+    {
+      "name": "aesop",
+      "url": "https://github.com/leanprover-community/aesop",
+      "expected_revision": "4a174c490d8707121c4a9290800489f105d85e07",
+      "checkout": "/workspace/scratch/b566cace4ed6/pfds/dependency-store-041/aesop",
+      "log": "tools/dependencies-041/aesop.log",
+      "started_utc": "2026-11-03T14:22:50.980139+00:00",
+      "commands": [
+        {
+          "argv": [
+            "git",
+            "init",
+            "--quiet",
+            "--initial-branch=restoration"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "remote",
+            "add",
+            "origin",
+            "https://github.com/leanprover-community/aesop"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "config",
+            "remote.origin.pushurl",
+            "DISABLED-local-only"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "fetch",
+            "--depth=1",
+            "--no-tags",
+            "origin",
+            "4a174c490d8707121c4a9290800489f105d85e07"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "checkout",
+            "--quiet",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "status": "restored",
+      "actual_revision": "4a174c490d8707121c4a9290800489f105d85e07",
+      "revision_matches": true,
+      "clean": true,
+      "porcelain_status": "",
+      "shallow": true,
+      "tracked_file_count": 258,
+      "ended_utc": "2026-11-03T14:22:55.920348+00:00"
+    },
+    {
+      "name": "Qq",
+      "url": "https://github.com/leanprover-community/quote4",
+      "expected_revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "checkout": "/workspace/scratch/b566cace4ed6/pfds/dependency-store-041/Qq",
+      "log": "tools/dependencies-041/Qq.log",
+      "started_utc": "2026-11-03T14:22:51.899833+00:00",
+      "commands": [
+        {
+          "argv": [
+            "git",
+            "init",
+            "--quiet",
+            "--initial-branch=restoration"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "remote",
+            "add",
+            "origin",
+            "https://github.com/leanprover-community/quote4"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "config",
+            "remote.origin.pushurl",
+            "DISABLED-local-only"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "fetch",
+            "--depth=1",
+            "--no-tags",
+            "origin",
+            "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "checkout",
+            "--quiet",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "status": "restored",
+      "actual_revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "revision_matches": true,
+      "clean": true,
+      "porcelain_status": "",
+      "shallow": true,
+      "tracked_file_count": 35,
+      "ended_utc": "2026-11-03T14:22:56.082932+00:00"
+    },
+    {
+      "name": "batteries",
+      "url": "https://github.com/leanprover-community/batteries",
+      "expected_revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "checkout": "/workspace/scratch/b566cace4ed6/pfds/dependency-store-041/batteries",
+      "log": "tools/dependencies-041/batteries.log",
+      "started_utc": "2026-11-03T14:22:55.921473+00:00",
+      "commands": [
+        {
+          "argv": [
+            "git",
+            "init",
+            "--quiet",
+            "--initial-branch=restoration"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "remote",
+            "add",
+            "origin",
+            "https://github.com/leanprover-community/batteries"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "config",
+            "remote.origin.pushurl",
+            "DISABLED-local-only"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "fetch",
+            "--depth=1",
+            "--no-tags",
+            "origin",
+            "66e469188fe07963e5cf666c7d4433f45b8131c5"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "checkout",
+            "--quiet",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "status": "restored",
+      "actual_revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "revision_matches": true,
+      "clean": true,
+      "porcelain_status": "",
+      "shallow": true,
+      "tracked_file_count": 300,
+      "ended_utc": "2026-11-03T14:23:01.333663+00:00"
+    },
+    {
+      "name": "Cli",
+      "url": "https://github.com/leanprover/lean4-cli",
+      "expected_revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "checkout": "/workspace/scratch/b566cace4ed6/pfds/dependency-store-041/Cli",
+      "log": "tools/dependencies-041/Cli.log",
+      "started_utc": "2026-11-03T14:22:56.083748+00:00",
+      "commands": [
+        {
+          "argv": [
+            "git",
+            "init",
+            "--quiet",
+            "--initial-branch=restoration"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "remote",
+            "add",
+            "origin",
+            "https://github.com/leanprover/lean4-cli"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "config",
+            "remote.origin.pushurl",
+            "DISABLED-local-only"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "fetch",
+            "--depth=1",
+            "--no-tags",
+            "origin",
+            "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+          ],
+          "exit_code": 0
+        },
+        {
+          "argv": [
+            "git",
+            "checkout",
+            "--quiet",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "status": "restored",
+      "actual_revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "revision_matches": true,
+      "clean": true,
+      "porcelain_status": "",
+      "shallow": true,
+      "tracked_file_count": 12,
+      "ended_utc": "2026-11-03T14:23:01.168338+00:00"
+    }
+  ],
+  "source_writers_frozen": true,
+  "acceptance": false,
+  "ended_utc": "2026-11-03T14:23:01.334704+00:00",
+  "manifest_unchanged": true,
+  "all_exact_and_clean": true
+}

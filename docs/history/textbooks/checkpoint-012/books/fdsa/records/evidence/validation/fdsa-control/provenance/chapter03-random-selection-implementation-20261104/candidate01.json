@@ -1,0 +1,55 @@
+{
+  "recorded_utc": "2026-11-04T18:31:55.595643+00:00",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "candidate": "be1bf8de03554faea7beef0a25d01c40091d33b3",
+  "tree": "a2cb6ba0780b4903a80fac6b37e056bbbe908132",
+  "branch": "work/fdsa-ch03-random-selection",
+  "status": "",
+  "files": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 7961,
+      "lines": 177,
+      "sha256": "1968275bcde9b2b61aedad3454fd073d4a4224f4ab1831cd0cb4b40ae653b533",
+      "named_declarations": [
+        "pivotRun",
+        "pivotRun_exact",
+        "stepRun",
+        "stepRun_eq",
+        "stepRun_child",
+        "equal_lookup",
+        "stepRun_semantics",
+        "stepRun_ranked",
+        "stepRun_cost_bounds",
+        "pivotLaw",
+        "pivotLaw_support",
+        "pivotLaw_event"
+      ]
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 2713,
+      "lines": 73,
+      "sha256": "e983ac3d2ea94247f343898bba36648d6a07c6d42860f7bf0b15e96d8373156a",
+      "named_declarations": [
+        "singleton_step",
+        "duplicate_middle",
+        "selected_side_is_not_larger_side",
+        "selected_side_valid",
+        "duplicate_ranked",
+        "duplicate_source_bound",
+        "duplicate_zero_probability",
+        "duplicate_one_probability"
+      ]
+    }
+  ],
+  "static_diff_check_actual_exit": 0,
+  "compiler_execution": false,
+  "validation": "Uncompiled source candidate; no focused build, full audit or independent review is claimed.",
+  "scope": "First-step foundation only; whole finite recursive execution, support bounds, expectation/tails and remaining059\u2013080 obligations remain open.",
+  "required_focused_modules": [
+    "Applications.Resources.RandomSelection",
+    "Examples.RandomSelection"
+  ],
+  "public_root_patch": "Import Examples.RandomSelection when root integrates the slice; SquareApplications was intentionally untouched."
+}

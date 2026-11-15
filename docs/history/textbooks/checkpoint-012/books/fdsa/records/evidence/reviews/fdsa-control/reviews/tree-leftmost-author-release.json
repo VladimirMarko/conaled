@@ -1,0 +1,69 @@
+{
+  "released_utc": "2026-11-02T23:43:56.931347+00:00",
+  "original_review_base": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+  "branch": "work/fdsa-tree-leftmost",
+  "requirements_sha256": "22fcd74bdfdc71085b690041f6dddc10407f188d11be83fe7ffdc084c31a5535",
+  "checkpoint": "conaled-fdsa-0057-leftmost-scope",
+  "checkpoint_sha256": "eec6e37103daf26d9cd63bb8a2384e752b354ed2b2c1a187de665bba3c78bf68",
+  "checkpoint_library_file_id": "libfile_d5eea545d7348191b38dbafe89f28c27",
+  "all_baselines_unchanged_before_release": true,
+  "all_new_paths_absent_before_release": true,
+  "source_authoring_released": true,
+  "authors": [
+    {
+      "agent": "/root/architecture",
+      "paths": [
+        "Applications/Resources/TreeLeftmost.lean"
+      ],
+      "complete_frozen_scope_read": true,
+      "complete_source_api_case_reports_read": true,
+      "concrete_issue_reported": false,
+      "ready": true,
+      "stopped": true,
+      "source_written": false
+    },
+    {
+      "agent": "/root/rotation_cases",
+      "paths": [
+        "Examples/TreeLeftmost.lean"
+      ],
+      "complete_frozen_scope_read": true,
+      "complete_source_api_case_reports_read": true,
+      "concrete_issue_reported": false,
+      "ready": true,
+      "stopped": true,
+      "source_written": false
+    },
+    {
+      "agent": "/root/book_inventory",
+      "paths": [
+        "docs/research/fdsa-tree-leftmost.md",
+        "docs/research/fdsa-reconstruction-map.md"
+      ],
+      "complete_frozen_scope_read": true,
+      "complete_source_api_case_reports_read": true,
+      "concrete_issue_reported": false,
+      "ready": true,
+      "stopped": true,
+      "source_written": false
+    }
+  ],
+  "root_path": "SquareApplications.lean",
+  "root_import_added": true,
+  "root_file_original_prefix_preserved": true,
+  "root_file_sha256": "f70d063115111d693ee5705102e846732a0188916040fb7f5afffe53f270ecb1",
+  "chapter01_recorder_result_observed": "running",
+  "chapter01_known_processes": [
+    {
+      "pid": 600750,
+      "expected_start_ticks": "9123853",
+      "matched": true
+    },
+    {
+      "pid": 600779,
+      "expected_start_ticks": "9123889",
+      "matched": true
+    }
+  ],
+  "validation_hold": "Existing C1 attempt3 remains the sole compiler/checker. No XT08 compiler/checker/project hash helper/cache or final-review action released."
+}

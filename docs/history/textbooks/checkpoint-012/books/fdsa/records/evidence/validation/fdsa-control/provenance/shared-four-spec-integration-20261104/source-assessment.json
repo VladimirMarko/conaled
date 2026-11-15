@@ -1,0 +1,1207 @@
+{
+  "schema": "fdsa-independent-spec-source-continuation-v1",
+  "recorded_utc": "2026-11-04T14:28:56.750635+00:00",
+  "reviewer": "chapter02_spec; independent, nonauthor",
+  "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "accepted_base": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "original_attempt_H": "97505ca8a1e714601e6d68137f0659b36a569988",
+  "retained_source_reference_Z": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "overall": "Blocked",
+  "source_assessment": "Complete; zero new concrete mathematical or statement findings",
+  "finding": {
+    "id": "SH4-HIST-001",
+    "history": [
+      {
+        "candidate": "97505ca8a1e714601e6d68137f0659b36a569988",
+        "status": "Open",
+        "reason": "Sole-parent source incorporation violated frozen history-preserving merge requirement."
+      },
+      {
+        "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "status": "Resolved",
+        "reason": "Four verified normal two-parent merges; every reviewed tree unchanged; all tips ancestors and protected refs exact."
+      }
+    ],
+    "requirements_not_amended": true
+  },
+  "scope": {
+    "original_full_units": [
+      "XM01",
+      "XD01",
+      "XQ01",
+      "XU01"
+    ],
+    "path_count": 18,
+    "paths": [
+      "Applications/Probability/PermutationMinimum.lean",
+      "Applications/Resources/DifferenceListCosts.lean",
+      "Applications/Resources/ListMerge.lean",
+      "Applications/Resources/Partition.lean",
+      "Applications/Selection/ThreeWay.lean",
+      "Applications/Sequences/Partition.lean",
+      "Applications/Sorting/Merge.lean",
+      "Examples/DifferenceListCosts.lean",
+      "Examples/MergeCosts.lean",
+      "Examples/PermutationMinimum.lean",
+      "Examples/PermutationMinimumBoundary.lean",
+      "Examples/ThreeWayPartition.lean",
+      "SquareApplications.lean",
+      "docs/research/fdsa-difference-list-costs.md",
+      "docs/research/fdsa-list-merge.md",
+      "docs/research/fdsa-permutation-minimum.md",
+      "docs/research/fdsa-reconstruction-map.md",
+      "docs/research/fdsa-three-way-partition.md"
+    ],
+    "insertions": 2955,
+    "deletions": 37,
+    "patch_bytes": 156119,
+    "patch_sha256": "2bf1efe257125803f027a13cc2acc683ae01dff846c5a0b9e462c0c6fcb7d01c",
+    "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+    "H_to_I_diff_bytes": 0
+  },
+  "requirements_complete_read": [
+    {
+      "unit": "XM01",
+      "original_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "original_candidate": "5f409e71bb068e3b8cc133226046ce8bbe29d982",
+      "corrected_tip": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "path": "reviews/ordinary-merge-requirements.md",
+      "bytes": 19999,
+      "lines": 346,
+      "sha256": "b54e2b332cc31c04ac12fb5b19cc96fa494a80e1455fcfc173f59b6fe340d3d9"
+    },
+    {
+      "unit": "XD01",
+      "original_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+      "original_candidate": "ffeaf8aed84184f49a13acb5c84e1fd608c9b7e8",
+      "corrected_tip": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+      "path": "reviews/difference-list-cost-requirements.md",
+      "bytes": 6965,
+      "lines": 129,
+      "sha256": "cb215a33cce3dd258cca37b9d703522d19caf2da76767c01e573d268b3e92c4e"
+    },
+    {
+      "unit": "XQ01",
+      "original_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "original_candidate": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+      "corrected_tip": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+      "path": "reviews/three-way-partition-requirements.md",
+      "bytes": 12208,
+      "lines": 209,
+      "sha256": "b1f55911c44a11def3498484787fcb04972398ec040bf1bd65c75796c116d541"
+    },
+    {
+      "unit": "XU01",
+      "original_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+      "original_candidate": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+      "corrected_tip": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "path": "reviews/permutation-minimum-requirements.md",
+      "bytes": 8884,
+      "lines": 154,
+      "sha256": "59e2ff6ff66dd39b6151a42b501bcc22e86eb593a9b854b532f97bc45fdd7686"
+    }
+  ],
+  "source_identities": [
+    {
+      "path": "Applications/Probability/PermutationMinimum.lean",
+      "bytes": 8241,
+      "lines": 197,
+      "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+      "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+      "equal_H": true,
+      "retained_complete_source_review_at_Z": true,
+      "equal_corrected_tip": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "public_named": 7,
+      "private_named": 6,
+      "anonymous_instances": 0
+    },
+    {
+      "path": "Applications/Resources/DifferenceListCosts.lean",
+      "bytes": 10061,
+      "lines": 222,
+      "sha256": "f99420b831dff2d0f5fcc3dac1001937942b87c78b710b79f94fa941ab972b01",
+      "git_blob": "b87222f7c0eb0aafc60031864ca815c2e65fc457",
+      "equal_H": true,
+      "retained_complete_source_review_at_Z": true,
+      "equal_corrected_tip": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+      "public_named": 42,
+      "private_named": 0,
+      "anonymous_instances": 0
+    },
+    {
+      "path": "Applications/Resources/ListMerge.lean",
+      "bytes": 8629,
+      "lines": 201,
+      "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975",
+      "git_blob": "b658809bc2ba424807e326c3ee7cb64712865a46",
+      "equal_H": true,
+      "retained_complete_source_review_at_Z": true,
+      "equal_corrected_tip": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "public_named": 19,
+      "private_named": 0,
+      "anonymous_instances": 0
+    },
+    {
+      "path": "Applications/Resources/Partition.lean",
+      "bytes": 2678,
+      "lines": 61,
+      "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14",
+      "git_blob": "e9d3682a4d3a499aaffd41f73c7fc39965fa0d30",
+      "equal_H": true,
+      "retained_complete_source_review_at_Z": true,
+      "equal_corrected_tip": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+      "public_named": 7,
+      "private_named": 0,
+      "anonymous_instances": 0
+    },
+    {
+      "path": "Applications/Selection/ThreeWay.lean",
+      "bytes": 9718,
+      "lines": 211,
+      "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa",
+      "git_blob": "8627ad6d219f55a404dd96c4f4553594eaa71264",
+      "equal_H": true,
+      "retained_complete_source_review_at_Z": true,
+      "equal_corrected_tip": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+      "public_named": 27,
+      "private_named": 0,
+      "anonymous_instances": 0
+    },
+    {
+      "path": "Applications/Sequences/Partition.lean",
+      "bytes": 3786,
+      "lines": 87,
+      "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069",
+      "git_blob": "ff03bd349a39b3b77c49793175d4b474199e7c43",
+      "equal_H": true,
+      "retained_complete_source_review_at_Z": true,
+      "equal_corrected_tip": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+      "public_named": 10,
+      "private_named": 0,
+      "anonymous_instances": 0
+    },
+    {
+      "path": "Applications/Sorting/Merge.lean",
+      "bytes": 7840,
+      "lines": 172,
+      "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+      "git_blob": "6595f901a9358398bee07333872125990ef8360c",
+      "equal_H": true,
+      "retained_complete_source_review_at_Z": true,
+      "equal_corrected_tip": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "public_named": 12,
+      "private_named": 0,
+      "anonymous_instances": 0
+    },
+    {
+      "path": "Examples/DifferenceListCosts.lean",
+      "bytes": 9299,
+      "lines": 234,
+      "sha256": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1",
+      "git_blob": "33fd3bec15f8c9b7c3078b45d90c24d7df0c1df2",
+      "equal_H": true,
+      "retained_complete_source_review_at_Z": true,
+      "equal_corrected_tip": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+      "public_named": 30,
+      "private_named": 0,
+      "anonymous_instances": 0
+    },
+    {
+      "path": "Examples/MergeCosts.lean",
+      "bytes": 23410,
+      "lines": 476,
+      "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466",
+      "git_blob": "b5f652cf5258c99f5a615b12987c664ed8be3d76",
+      "equal_H": true,
+      "retained_complete_source_review_at_Z": true,
+      "equal_corrected_tip": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "public_named": 72,
+      "private_named": 0,
+      "anonymous_instances": 0
+    },
+    {
+      "path": "Examples/PermutationMinimum.lean",
+      "bytes": 4994,
+      "lines": 127,
+      "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+      "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+      "equal_H": true,
+      "retained_complete_source_review_at_Z": true,
+      "equal_corrected_tip": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "public_named": 16,
+      "private_named": 0,
+      "anonymous_instances": 3
+    },
+    {
+      "path": "Examples/PermutationMinimumBoundary.lean",
+      "bytes": 4211,
+      "lines": 113,
+      "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+      "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+      "equal_H": true,
+      "retained_complete_source_review_at_Z": true,
+      "equal_corrected_tip": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "public_named": 14,
+      "private_named": 0,
+      "anonymous_instances": 2
+    },
+    {
+      "path": "Examples/ThreeWayPartition.lean",
+      "bytes": 8109,
+      "lines": 172,
+      "sha256": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526",
+      "git_blob": "a1f29b6310bc8623df2725b0d40f3949513199c5",
+      "equal_H": true,
+      "retained_complete_source_review_at_Z": true,
+      "equal_corrected_tip": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+      "public_named": 23,
+      "private_named": 0,
+      "anonymous_instances": 0
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 8544,
+      "lines": 260,
+      "sha256": "6197b3a27ee1fd07305a506314caeaa3b3534ab166eaea00e5e169ba4c82956d",
+      "git_blob": "a36fa607584d77618858b5f1707b1df913a22cca",
+      "equal_H": true
+    },
+    {
+      "path": "docs/research/fdsa-difference-list-costs.md",
+      "bytes": 10923,
+      "lines": 219,
+      "sha256": "bd450660076b5addbd6b64d7a591f71fc60b68e6bfbf5f9cc36fa09fac4eb735",
+      "git_blob": "52b789bb484ca9aceedb584f521c8bab974c0f5f",
+      "equal_H": true
+    },
+    {
+      "path": "docs/research/fdsa-list-merge.md",
+      "bytes": 15491,
+      "lines": 258,
+      "sha256": "9661cc22e3600c0963c37b0f145f7396a1b7677ae2e8f2d240ecd1cf13b88729",
+      "git_blob": "90ff9f07f9b2a2dbad7233dddb6f091fa5f9d89d",
+      "equal_H": true
+    },
+    {
+      "path": "docs/research/fdsa-permutation-minimum.md",
+      "bytes": 7970,
+      "lines": 146,
+      "sha256": "2054bf4d6cd371b8570fca003f0fe704793377d261cb8e5f10306022e5b2dcc8",
+      "git_blob": "052101180ceaf79f81e0873f24160fc73ae52f33",
+      "equal_H": true
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 39246,
+      "lines": 596,
+      "sha256": "f479b3b05b2fdfd99683e15cfc1e0d0b9542c58f56a3013872be6df8469cebfe",
+      "git_blob": "e753d5325fcd4f576b091d795ffced6d625c2aaf",
+      "equal_H": true
+    },
+    {
+      "path": "docs/research/fdsa-three-way-partition.md",
+      "bytes": 13959,
+      "lines": 259,
+      "sha256": "f79bfd4f9691f56019696c8ea0ac0b63045f7bb1ac5f5d790adf8a425345f136",
+      "git_blob": "ee83f49a9c536f22f0340434795e117ea5766484",
+      "equal_H": true
+    }
+  ],
+  "retained_independent_review_records": [
+    {
+      "path": "reviews/chapter02-spec-source-preparation-20261104.md",
+      "bytes": 109354,
+      "lines": 473,
+      "sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007"
+    },
+    {
+      "path": "reviews/ordinary-merge-spec.md",
+      "bytes": 28222,
+      "lines": 430,
+      "sha256": "bc4999120b89f330b57641543070cf34a34f8bc207fd004b09aa14ef4125fe09"
+    },
+    {
+      "path": "reviews/difference-list-costs-spec.md",
+      "bytes": 22203,
+      "lines": 262,
+      "sha256": "850aa3a8fd0ce1d7774c1e447a4dd9282366d5353eeb750e2804c5fd52d22dbb"
+    },
+    {
+      "path": "reviews/shared-foundations-spec-final-20261104.md",
+      "bytes": 5066,
+      "lines": 30,
+      "sha256": "f8c8d934662192f4376ab7ae2897957647a890ea964fca18555c0d12dfc5a8dc"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/shared-four-statements314-preparation-assessment.json",
+      "bytes": 23527,
+      "lines": 602,
+      "sha256": "502ff5011b9657bccc4ce614e003e741c15401f92e257ae1c2b66de7d1f6ed1c"
+    }
+  ],
+  "read_boundary": {
+    "retained_prior_complete_source": "All twelve defining modules and four unit note mathematical bodies, under exact corrected-tip/Z identities; all private proofs and connected cases remain included. No fresh whole unchanged-source reread claimed.",
+    "new_complete_reads": "All root/map integration changes, all four note status diffs, existing-file Merge/Selection diffs, original H start, frozen scope and requirements, local tickets and listed correction records.",
+    "map_boundary": "Complete new hunks and prior complete F read for unchanged portion; no fresh full596-line claim.",
+    "history_correction_complete_records": [
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/01-XM01-before-resolution.json",
+        "bytes": 934,
+        "lines": 11,
+        "sha256": "7c45881ac958c19cc26855a9a136be29b47bc541c80cf5d8fcc01fb8b1889b16",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 11,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/01-XM01-merge-command.json",
+        "bytes": 830,
+        "lines": 22,
+        "sha256": "28b65f77ac62e9cee1eafabb0f3e217d9c16e5cdaeb23d7ee7b881f3985a51e5",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 22,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/01-XM01-merge-result.diff",
+        "bytes": 2904,
+        "lines": 54,
+        "sha256": "7d33bc472f0c773a6bbe8eb45ca20da4c716a96b4ebef4029370bc74c592e947",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 54,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/01-XM01-resolution-and-commit.json",
+        "bytes": 3308,
+        "lines": 90,
+        "sha256": "7aeb9523748f0c8b2dafc568c3a34baff56a53becb36ed79460c9d8adebcf20e",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 90,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/02-XD01-before-resolution.json",
+        "bytes": 1217,
+        "lines": 11,
+        "sha256": "b5619d5dc9d1f30252407e65ed1c2a346379d6d0b229582f433ff5ce44a1c04f",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 11,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/02-XD01-merge-command.json",
+        "bytes": 915,
+        "lines": 22,
+        "sha256": "5932d777fc8632251d40257f24a2102a7a60d7cfbd369ee262dab6f9be26482c",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 22,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/02-XD01-merge-result.diff",
+        "bytes": 5577,
+        "lines": 118,
+        "sha256": "84c8023490e5909aed231c493154c11c56292ab8290b233be869ed5a65b2f147",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 118,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/02-XD01-resolution-and-commit.json",
+        "bytes": 3301,
+        "lines": 87,
+        "sha256": "7394ed0112703d4284036c836a96d6d57e996519062f74d14c591b1be1a4d660",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 87,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/03-XQ01-before-resolution.json",
+        "bytes": 1207,
+        "lines": 11,
+        "sha256": "6ea657d97087b6f01e7b652fbcafd6a2f814fa1b9f9ea74135e3ab6c572ff402",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 11,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/03-XQ01-merge-command.json",
+        "bytes": 911,
+        "lines": 22,
+        "sha256": "a706eb17f0751137c2162578971913d1044379c64c7dcf0871a168bf81b284d0",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 22,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/03-XQ01-merge-result.diff",
+        "bytes": 5462,
+        "lines": 109,
+        "sha256": "e51ffd86c765f020e38f0c7db8128edb2653c165c655e465c11436a143dad4a2",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 109,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/03-XQ01-resolution-and-commit.json",
+        "bytes": 3232,
+        "lines": 87,
+        "sha256": "5f82c19edc0570f35e81b92c093f786bf67c03939163176b9b4e1fbed5f7e608",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 87,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/04-XU01-before-resolution.json",
+        "bytes": 892,
+        "lines": 10,
+        "sha256": "a1441f43ef32ae28edd69d489a2f1be11b828073cd2ec93a31f90dcfad8d0d7d",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 10,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/04-XU01-merge-command.json",
+        "bytes": 848,
+        "lines": 22,
+        "sha256": "a41b3f6e1df58af4f8bf8e33d0dcd8c2c35d8381269beee581f9ff5a27c1408b",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 22,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/04-XU01-merge-result.diff",
+        "bytes": 3707,
+        "lines": 75,
+        "sha256": "bfa9923ee2a924dd538f8a7e4069b3008904497a5b86b6f728b5fac037aaea19",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 75,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/04-XU01-resolution-and-commit.json",
+        "bytes": 2924,
+        "lines": 80,
+        "sha256": "84d1a315f5b4e6b62d142568f9dbc0ce2787738f32bef0c5acc89add4a8a5bcc",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 80,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/final-verification.json",
+        "bytes": 5441,
+        "lines": 169,
+        "sha256": "ca8c88afa10f2298ac6942d083a200ed41cb8797d2b2669bde91c339a561b760",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 169,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/handoff.md",
+        "bytes": 4838,
+        "lines": 81,
+        "sha256": "1e3718c84e7e18f7df92fd4b4f67dc8ad8a49cdeb1e7a713255977b21dbea676",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 81,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/receipt.json",
+        "bytes": 5482,
+        "lines": 163,
+        "sha256": "4ac90846c326a801b4ddde256e7e39daf7df8e3104323104daa92a056715f852",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 163,
+          "complete_untruncated_read": true
+        }
+      },
+      {
+        "path": "provenance/shared-four-history-correction1-20261104/start.json",
+        "bytes": 11325,
+        "lines": 217,
+        "sha256": "24bd27ec6fba17b67d0d95b183206b714a047095fd6fededfa47dbe05621a70d",
+        "read_boundary": {
+          "first_line": 1,
+          "last_line": 217,
+          "complete_untruncated_read": true
+        }
+      }
+    ],
+    "controls": [
+      {
+        "path": "provenance/shared-acceptance-sequence-20261104/plan.md",
+        "bytes": 23398,
+        "lines": 369,
+        "sha256": "de57733ffbe19af6cd3617baa875dabbc74ec10ef6b8941419c356ec8ae764e1",
+        "read": "complete"
+      },
+      {
+        "path": "provenance/shared-independent-units-scope-20261104/scope.md",
+        "bytes": 2467,
+        "lines": 38,
+        "sha256": "a7fda87cae0c137d2d93893bb2992330cf2b7544ab689a8985fb786c330b5444",
+        "read": "complete"
+      },
+      {
+        "path": "provenance/shared-independent-units-scope-20261104/declared-scope.json",
+        "bytes": 17160,
+        "lines": 401,
+        "sha256": "773ce242c586cf7ba381f18218648461ef7b487391d0bb8c4ab5123722ca8fd1",
+        "read": "complete"
+      },
+      {
+        "path": "reviews/ordinary-merge-round1.md",
+        "bytes": 5076,
+        "lines": 87,
+        "sha256": "c354d9c13e7660a9b445e4fe9904e5335da6294ee6aa49cce18ae8ff0610fd36",
+        "read": "complete"
+      },
+      {
+        "path": "reviews/difference-list-provenance-correction.md",
+        "bytes": 3908,
+        "lines": 76,
+        "sha256": "55fef0111a352a9e76df32984521bd50abbb53af986ef4d898a99d1891a54667",
+        "read": "complete"
+      },
+      {
+        "path": "reviews/partition-shared-integration-addendum.md",
+        "bytes": 3380,
+        "lines": 55,
+        "sha256": "99a64a6db17c7114e98cca6087e440af4b4e9872962c6df6885ba0b8e1e4f3e2",
+        "read": "complete"
+      },
+      {
+        "path": "provenance/shared-four-and-insertion-statements314-prepared-20261104/preparation.md",
+        "bytes": 2325,
+        "lines": 11,
+        "sha256": "b046cc019a4214f3969ed7cc438e81922e11bf1a9874004b4196e53f786959d6",
+        "read": "complete"
+      },
+      {
+        "path": "provenance/shared-four-source-integration-20261104/start.json",
+        "bytes": 20829,
+        "lines": 406,
+        "sha256": "78ad1637d7a2c2017598f63a9261c9e2ba965d3b4e0ec6ef7179f506601944a1",
+        "read": "complete"
+      },
+      {
+        "path": "tickets/FDSA-XM01.md",
+        "bytes": 7211,
+        "lines": 122,
+        "sha256": "3de552f1d50a39c235c63e29f86737f85554fb16331627d58c7e77195f60f0d5",
+        "read": "complete"
+      },
+      {
+        "path": "tickets/FDSA-XD01.md",
+        "bytes": 2475,
+        "lines": 44,
+        "sha256": "41dd6f12cd4bdfc57e6c5d9ee798f73cfbbaffaf873145f60935a2c8e706e240",
+        "read": "complete"
+      },
+      {
+        "path": "tickets/FDSA-XQ01.md",
+        "bytes": 4947,
+        "lines": 80,
+        "sha256": "8e7846b04ce1156ae915e0bf8feeebc77695d548e19378c58ca55d5f23d422cc",
+        "read": "complete"
+      },
+      {
+        "path": "tickets/FDSA-XU01.md",
+        "bytes": 4288,
+        "lines": 68,
+        "sha256": "db5271c510b4fc95b224e3c4b0290b118a89c305bf066d894c6916e636839ea1",
+        "read": "complete"
+      }
+    ]
+  },
+  "independent_git_checks": {
+    "merges": [
+      {
+        "unit": "XM01",
+        "merge": "15dbd8ac1d653a9ef8000656a91152ca1cda9c58",
+        "parents": [
+          "97505ca8a1e714601e6d68137f0659b36a569988",
+          "72a0951aee406f7db67998d2a3bf8810f4e1bccc"
+        ],
+        "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+        "tree_equals_H": true
+      },
+      {
+        "unit": "XD01",
+        "merge": "eb269d9ec3850b21760f5aa83a5a1001a5f219d3",
+        "parents": [
+          "15dbd8ac1d653a9ef8000656a91152ca1cda9c58",
+          "52722e3ee481167e99b8f6c0b2417df7fb7615d8"
+        ],
+        "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+        "tree_equals_H": true
+      },
+      {
+        "unit": "XQ01",
+        "merge": "b907e9017ed1bd0c32361ed0cad596388cb6da31",
+        "parents": [
+          "eb269d9ec3850b21760f5aa83a5a1001a5f219d3",
+          "0612e80a0c297a38fa1add6e837dc7781e1bbd9c"
+        ],
+        "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+        "tree_equals_H": true
+      },
+      {
+        "unit": "XU01",
+        "merge": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "parents": [
+          "b907e9017ed1bd0c32361ed0cad596388cb6da31",
+          "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0"
+        ],
+        "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+        "tree_equals_H": true
+      }
+    ],
+    "ancestor_exit_codes": {
+      "f17cc6b1a2bf44215b16202ed0fcee2b5c130761": 0,
+      "97505ca8a1e714601e6d68137f0659b36a569988": 0,
+      "72a0951aee406f7db67998d2a3bf8810f4e1bccc": 0,
+      "52722e3ee481167e99b8f6c0b2417df7fb7615d8": 0,
+      "0612e80a0c297a38fa1add6e837dc7781e1bbd9c": 0,
+      "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0": 0
+    },
+    "full_patch_equals_original_H": true,
+    "all18blobs_equal_H": true,
+    "protected_refs": {
+      "count": 64,
+      "unchanged": 63,
+      "only_changed": "refs/heads/work/fdsa-shared-four-integration",
+      "old": "97505ca8a1e714601e6d68137f0659b36a569988",
+      "new": "312aafb4446b995ff5542041b4e2e074f776db1e",
+      "before_map_sha256": "69d9c2bb528a07e4d0e0a0bc90f487b4b83b747d10af16b61488904448f62f76",
+      "after_map_sha256": "1188e4961aa68e98ebda96d074e056fadfd8ca27f36644d17318d22ba43ebcef",
+      "accepted_book": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "foundation": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761"
+    },
+    "original_H_package_unchanged": {
+      "count": 9,
+      "identity_source": "provenance/shared-four-history-correction1-20261104/start.json:H_package_before",
+      "all_hashes_and_sizes_match": true
+    }
+  },
+  "explicit_inventory": {
+    "original_public": 279,
+    "unit_or_changed": 252,
+    "retained_accepted_R": 27,
+    "same_signature_compatibility": 8,
+    "private_named": 6,
+    "anonymous_local_instances": 5,
+    "anonymous_examples": 0,
+    "unit_public": {
+      "XM01": 103,
+      "XD01": 72,
+      "XQ01": 67,
+      "XU01": 37
+    },
+    "kernel_or_new_theorem_count": false
+  },
+  "receiving314": {
+    "program": {
+      "path": "provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+      "bytes": 16826,
+      "lines": 340,
+      "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754"
+    },
+    "inventory": {
+      "path": "provenance/shared-four-and-insertion-statements314-prepared-20261104/inventory.json",
+      "bytes": 53097,
+      "lines": 1988,
+      "sha256": "052ea733c0e83e8af852b177ba9e350fe62b911ae1d83f430f98a2047b7601a9"
+    },
+    "original279_program": {
+      "path": "provenance/shared-four-public-statements279-prepared-20261104/Statements.lean",
+      "bytes": 15990,
+      "lines": 332,
+      "sha256": "6fb956bd7423cdb8d04e94fa544920907bdb3df291822d5ab1dfbd8fa5cc2925"
+    },
+    "original279_inventory": {
+      "path": "provenance/shared-four-public-statements279-prepared-20261104/inventory.json",
+      "bytes": 218625,
+      "lines": 5605,
+      "sha256": "4c03ab11c546ce7e5950abe6af1ab636763a4fa0ffc195f8effd8767d5d8367b"
+    },
+    "F145_program": {
+      "path": "provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+      "bytes": 7518,
+      "lines": 156,
+      "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4"
+    },
+    "names_unique": 314,
+    "original279_prefix_exact": true,
+    "append_exact_F_positions": [
+      "1–19",
+      "84–99"
+    ],
+    "imports": [
+      "Applications.Probability.PermutationMinimum",
+      "Applications.Resources.DifferenceListCosts",
+      "Applications.Resources.ListMerge",
+      "Applications.Resources.Partition",
+      "Applications.Selection.ThreeWay",
+      "Applications.Sequences.Partition",
+      "Applications.Sorting.Merge",
+      "Examples.DifferenceListCosts",
+      "Examples.MergeCosts",
+      "Examples.PermutationMinimum",
+      "Examples.PermutationMinimumBoundary",
+      "Examples.ThreeWayPartition",
+      "Applications.Resources.InsertionSort",
+      "Examples.InsertionCosts"
+    ],
+    "complete_ordered_names_sha256": "6cd991c340d9a2f7896966475a11bfeb110ee844bd146aa79957c78ac258a963",
+    "execution_credit": 0,
+    "full_types_read_at_I": 0,
+    "static_closure": {
+      "local_sources": {
+        "Applications/Probability/PermutationMinimum.lean": {
+          "bytes": 8241,
+          "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64"
+        },
+        "Applications/Resources/CallComparison.lean": {
+          "bytes": 5498,
+          "sha256": "8d6d9324aa9dc71ceeaeaa04073f0f2a4f721a309995f0b623650bb19f01b520"
+        },
+        "Applications/Resources/CallCount.lean": {
+          "bytes": 2447,
+          "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8"
+        },
+        "Applications/Resources/DifferenceListCosts.lean": {
+          "bytes": 10061,
+          "sha256": "f99420b831dff2d0f5fcc3dac1001937942b87c78b710b79f94fa941ab972b01"
+        },
+        "Applications/Resources/Growth.lean": {
+          "bytes": 724,
+          "sha256": "5e252788c2365d3f9140288a1d51f2ef38270798419af40df8505590a7d20dcc"
+        },
+        "Applications/Resources/InsertionSort.lean": {
+          "bytes": 7257,
+          "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad"
+        },
+        "Applications/Resources/ListMerge.lean": {
+          "bytes": 8629,
+          "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975"
+        },
+        "Applications/Resources/Measured.lean": {
+          "bytes": 2906,
+          "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46"
+        },
+        "Applications/Resources/Partition.lean": {
+          "bytes": 2678,
+          "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14"
+        },
+        "Applications/Resources/Workload.lean": {
+          "bytes": 2745,
+          "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5"
+        },
+        "Applications/Search/LeftistQueue.lean": {
+          "bytes": 13036,
+          "sha256": "14a0d1130e04e2576dea2abb452823b5504cdbac9dbc1010f15a2f327c6bc378"
+        },
+        "Applications/Selection/Rank.lean": {
+          "bytes": 3713,
+          "sha256": "4a82df75593d909e2968bf1e27cbfea52c9795abfe81250bb2385e7dfc16f965"
+        },
+        "Applications/Selection/ThreeWay.lean": {
+          "bytes": 9718,
+          "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa"
+        },
+        "Applications/Sequences/Partition.lean": {
+          "bytes": 3786,
+          "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069"
+        },
+        "Applications/Sorting/Merge.lean": {
+          "bytes": 7840,
+          "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7"
+        },
+        "Applications/Sorting/Sort.lean": {
+          "bytes": 5922,
+          "sha256": "5acd7728aaaefdec121df797efafd7dae13476c820d4f85f4ada19868fa71218"
+        },
+        "Applications/Sorting/SourceMerge.lean": {
+          "bytes": 1537,
+          "sha256": "bebd8eb2f06d92cc10e6f319c96b7965cdee36ff14c4a8b0b19e1351e8ebeaf2"
+        },
+        "Applications/Sorting/Stable.lean": {
+          "bytes": 3704,
+          "sha256": "288552150aa002c60ed06c74e69510112cf9b4e2f0045da3d98ca5c39264d881"
+        },
+        "Examples/DifferenceListCosts.lean": {
+          "bytes": 9299,
+          "sha256": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1"
+        },
+        "Examples/InsertionCosts.lean": {
+          "bytes": 3862,
+          "sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37"
+        },
+        "Examples/MergeCosts.lean": {
+          "bytes": 23410,
+          "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466"
+        },
+        "Examples/PermutationMinimum.lean": {
+          "bytes": 4994,
+          "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1"
+        },
+        "Examples/PermutationMinimumBoundary.lean": {
+          "bytes": 4211,
+          "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b"
+        },
+        "Examples/StableSorting.lean": {
+          "bytes": 5041,
+          "sha256": "c894760e594cdc31d9dda54553eeff666156c81f7903dea82738c8a95faaf193"
+        },
+        "Examples/ThreeWayPartition.lean": {
+          "bytes": 8109,
+          "sha256": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526"
+        },
+        "SquareKit/ListFusion.lean": {
+          "bytes": 2939,
+          "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164"
+        },
+        "Squares.lean": {
+          "bytes": 11694,
+          "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7"
+        }
+      },
+      "external_imports": [
+        "Batteries.Data.DList.Lemmas",
+        "Lean",
+        "Mathlib.Algebra.BigOperators.Group.List.Basic",
+        "Mathlib.Algebra.Group.Prod",
+        "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+        "Mathlib.Analysis.Asymptotics.Defs",
+        "Mathlib.Analysis.Normed.Field.Basic",
+        "Mathlib.Data.Finset.Lattice.Fold",
+        "Mathlib.Data.Finset.Max",
+        "Mathlib.Data.Fintype.Perm",
+        "Mathlib.Data.List.Basic",
+        "Mathlib.Data.List.Perm.Basic",
+        "Mathlib.Data.List.Sort",
+        "Mathlib.Data.Multiset.AddSub",
+        "Mathlib.Data.Set.Card",
+        "Mathlib.Order.Defs.LinearOrder",
+        "Mathlib.Probability.UniformOn",
+        "Mathlib.Tactic",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Std"
+      ],
+      "edges": [
+        [
+          "Applications.Probability.PermutationMinimum",
+          "Mathlib.Data.Finset.Max"
+        ],
+        [
+          "Applications.Probability.PermutationMinimum",
+          "Mathlib.Data.Fintype.Perm"
+        ],
+        [
+          "Applications.Probability.PermutationMinimum",
+          "Mathlib.Data.Set.Card"
+        ],
+        [
+          "Applications.Probability.PermutationMinimum",
+          "Mathlib.Probability.UniformOn"
+        ],
+        [
+          "Applications.Resources.CallComparison",
+          "Applications.Resources.CallCount"
+        ],
+        [
+          "Applications.Resources.CallComparison",
+          "Applications.Resources.Growth"
+        ],
+        [
+          "Applications.Resources.CallComparison",
+          "Mathlib.Algebra.BigOperators.Group.List.Basic"
+        ],
+        [
+          "Applications.Resources.CallComparison",
+          "Mathlib.Data.Finset.Lattice.Fold"
+        ],
+        [
+          "Applications.Resources.CallCount",
+          "Applications.Resources.Measured"
+        ],
+        [
+          "Applications.Resources.DifferenceListCosts",
+          "Applications.Resources.CallCount"
+        ],
+        [
+          "Applications.Resources.DifferenceListCosts",
+          "Applications.Resources.Workload"
+        ],
+        [
+          "Applications.Resources.DifferenceListCosts",
+          "Batteries.Data.DList.Lemmas"
+        ],
+        [
+          "Applications.Resources.Growth",
+          "Mathlib.Analysis.Asymptotics.Defs"
+        ],
+        [
+          "Applications.Resources.Growth",
+          "Mathlib.Analysis.Normed.Field.Basic"
+        ],
+        [
+          "Applications.Resources.InsertionSort",
+          "Applications.Resources.CallCount"
+        ],
+        [
+          "Applications.Resources.InsertionSort",
+          "Applications.Sorting.Sort"
+        ],
+        [
+          "Applications.Resources.InsertionSort",
+          "Mathlib.Tactic.Linarith"
+        ],
+        [
+          "Applications.Resources.ListMerge",
+          "Applications.Resources.CallCount"
+        ],
+        [
+          "Applications.Resources.ListMerge",
+          "Applications.Sorting.SourceMerge"
+        ],
+        [
+          "Applications.Resources.Measured",
+          "Mathlib.Algebra.Group.Prod"
+        ],
+        [
+          "Applications.Resources.Measured",
+          "Mathlib.Algebra.Order.Monoid.Unbundled.Basic"
+        ],
+        [
+          "Applications.Resources.Measured",
+          "Squares"
+        ],
+        [
+          "Applications.Resources.Partition",
+          "Applications.Resources.CallCount"
+        ],
+        [
+          "Applications.Resources.Partition",
+          "Applications.Sequences.Partition"
+        ],
+        [
+          "Applications.Resources.Workload",
+          "Applications.Resources.Measured"
+        ],
+        [
+          "Applications.Resources.Workload",
+          "SquareKit.ListFusion"
+        ],
+        [
+          "Applications.Search.LeftistQueue",
+          "Std"
+        ],
+        [
+          "Applications.Selection.Rank",
+          "Applications.Sorting.Sort"
+        ],
+        [
+          "Applications.Selection.ThreeWay",
+          "Applications.Selection.Rank"
+        ],
+        [
+          "Applications.Selection.ThreeWay",
+          "Applications.Sequences.Partition"
+        ],
+        [
+          "Applications.Sequences.Partition",
+          "Mathlib.Data.List.Perm.Basic"
+        ],
+        [
+          "Applications.Sequences.Partition",
+          "Mathlib.Order.Defs.LinearOrder"
+        ],
+        [
+          "Applications.Sorting.Merge",
+          "Applications.Sorting.Stable"
+        ],
+        [
+          "Applications.Sorting.Sort",
+          "Applications.Sorting.Merge"
+        ],
+        [
+          "Applications.Sorting.SourceMerge",
+          "Applications.Sorting.Merge"
+        ],
+        [
+          "Applications.Sorting.Stable",
+          "Mathlib.Data.List.Sort"
+        ],
+        [
+          "Examples.DifferenceListCosts",
+          "Applications.Resources.DifferenceListCosts"
+        ],
+        [
+          "Examples.DifferenceListCosts",
+          "Mathlib.Tactic.NormNum"
+        ],
+        [
+          "Examples.InsertionCosts",
+          "Applications.Resources.InsertionSort"
+        ],
+        [
+          "Examples.InsertionCosts",
+          "Applications.Selection.Rank"
+        ],
+        [
+          "Examples.MergeCosts",
+          "Applications.Resources.CallComparison"
+        ],
+        [
+          "Examples.MergeCosts",
+          "Applications.Resources.ListMerge"
+        ],
+        [
+          "Examples.MergeCosts",
+          "Applications.Search.LeftistQueue"
+        ],
+        [
+          "Examples.MergeCosts",
+          "Examples.StableSorting"
+        ],
+        [
+          "Examples.MergeCosts",
+          "Mathlib.Data.Multiset.AddSub"
+        ],
+        [
+          "Examples.PermutationMinimum",
+          "Applications.Probability.PermutationMinimum"
+        ],
+        [
+          "Examples.PermutationMinimum",
+          "Examples.PermutationMinimumBoundary"
+        ],
+        [
+          "Examples.PermutationMinimum",
+          "Mathlib.Tactic"
+        ],
+        [
+          "Examples.PermutationMinimumBoundary",
+          "Applications.Probability.PermutationMinimum"
+        ],
+        [
+          "Examples.PermutationMinimumBoundary",
+          "Mathlib.Tactic.FinCases"
+        ],
+        [
+          "Examples.StableSorting",
+          "Applications.Sorting.Sort"
+        ],
+        [
+          "Examples.StableSorting",
+          "Applications.Sorting.SourceMerge"
+        ],
+        [
+          "Examples.ThreeWayPartition",
+          "Applications.Resources.Partition"
+        ],
+        [
+          "Examples.ThreeWayPartition",
+          "Applications.Selection.ThreeWay"
+        ],
+        [
+          "SquareKit.ListFusion",
+          "Mathlib.Data.List.Basic"
+        ],
+        [
+          "Squares",
+          "Lean"
+        ]
+      ],
+      "counts": {
+        "local": 27,
+        "external": 22,
+        "edges": 56,
+        "original12_root_locals": 25
+      }
+    },
+    "insertion_dependency_changes": [
+      {
+        "root": "Applications.Resources.InsertionSort",
+        "local_count": 7,
+        "only_changed_input_from_F": [
+          "Applications/Sorting/Merge.lean"
+        ]
+      },
+      {
+        "root": "Examples.InsertionCosts",
+        "local_count": 9,
+        "only_changed_input_from_F": [
+          "Applications/Sorting/Merge.lean"
+        ]
+      }
+    ],
+    "all12_defining_modules_public_root_reachable": true,
+    "other_F110_credit": 0
+  },
+  "gates": {
+    "full_candidate_check": "pending",
+    "actual_receiving314": "pending",
+    "final_two_axes": "pending",
+    "immediate_verify_then_FF": "coordinator step after all final gates",
+    "focused_policy": "Reuse matching successful evidence; full current build must cover every required target; separate invocation only for concrete unmatched scope/input.",
+    "fresh_policy": "README actual trigger only; accepted environment baseline retained",
+    "no_type_or_audit_credit_from_source": true
+  },
+  "mutations": {
+    "only_new_own_report_and_receipt": true,
+    "source": false,
+    "refs": false,
+    "compiler": false,
+    "process_poll": false,
+    "runtime_or_outputs": false,
+    "cache": false,
+    "prior_reports": false,
+    "tickets_global_controls": false
+  },
+  "report_sha256": "3ea59b8a1c62df7f19066c7200410e293d78cf4624d90a67ec148104a7fd9dc1",
+  "report_bytes": 16133,
+  "report_lines": 75
+}

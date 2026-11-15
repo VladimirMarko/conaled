@@ -1,0 +1,142 @@
+{
+  "observed_utc": "2026-11-03T02:38:54.540734+00:00",
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "original_review_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "euid": 0,
+  "expected_original_processes": [
+    {
+      "pid": 600750,
+      "state": "S",
+      "start_ticks": "9123853",
+      "process_group": 600750,
+      "session": 600750,
+      "argv_prefix": [
+        "python3",
+        "/workspace/scratch/845aa1048b05/fdsa-control/provenance/run-chapter01-repair-attempt3.py"
+      ],
+      "argv_count": 2,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    },
+    {
+      "pid": 600779,
+      "state": "S",
+      "start_ticks": "9123889",
+      "process_group": 600750,
+      "session": 600750,
+      "argv_prefix": [
+        "python3",
+        "scripts/check.py",
+        "--candidate",
+        "HEAD"
+      ],
+      "argv_count": 4,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    },
+    {
+      "pid": 600956,
+      "state": "S",
+      "start_ticks": "9124698",
+      "process_group": 600750,
+      "session": 600750,
+      "argv_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake",
+        "--no-cache",
+        "--rehash",
+        "build",
+        "+Squares"
+      ],
+      "argv_count": 964,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    }
+  ],
+  "review_cwd_processes": [
+    {
+      "pid": 600750,
+      "state": "S",
+      "start_ticks": "9123853",
+      "process_group": 600750,
+      "session": 600750,
+      "argv_prefix": [
+        "python3",
+        "/workspace/scratch/845aa1048b05/fdsa-control/provenance/run-chapter01-repair-attempt3.py"
+      ],
+      "argv_count": 2,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    },
+    {
+      "pid": 600779,
+      "state": "S",
+      "start_ticks": "9123889",
+      "process_group": 600750,
+      "session": 600750,
+      "argv_prefix": [
+        "python3",
+        "scripts/check.py",
+        "--candidate",
+        "HEAD"
+      ],
+      "argv_count": 4,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    },
+    {
+      "pid": 600956,
+      "state": "S",
+      "start_ticks": "9124698",
+      "process_group": 600750,
+      "session": 600750,
+      "argv_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake",
+        "--no-cache",
+        "--rehash",
+        "build",
+        "+Squares"
+      ],
+      "argv_count": 964,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    },
+    {
+      "pid": 719737,
+      "state": "S",
+      "start_ticks": "10658030",
+      "process_group": 600750,
+      "session": 600750,
+      "argv_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/SquareKit/ReactiveCompiler.lean",
+        "-o",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/SquareKit/ReactiveCompiler.olean",
+        "-i"
+      ],
+      "argv_count": 11,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    }
+  ],
+  "recorder": {
+    "path": "provenance/chapter01-repair-guarded-attempt3.json",
+    "bytes": 1552,
+    "sha256": "7b00a25b45c8ed51fcfd3cbbb4d986895dd670996aeaeba5f7e04500d8decf35",
+    "terminal_fields": {
+      "result": "running"
+    }
+  },
+  "partial_log": {
+    "path": "reviews/chapter01-repair-incremental-attempt3.log",
+    "bytes": 167589,
+    "lines": 1023,
+    "sha256": "21869cd019350b13b5e50f049efcf8bfccbfaabee780a2a5a2a6000aee9e5a48",
+    "tail": [
+      "\u2714 [9564/9567] Built Applications.FRP.LifecycleProgress (2061s)",
+      "\u2714 [9565/9568] Built Applications.Progress.Feedback (376s)",
+      "\u2714 [9566/9569] Built Applications.Progress.CoupledFeedback (371s)",
+      "\u2714 [9567/9570] Built Applications.FRP.Feedback (2831s)",
+      "\u2714 [9568/9571] Built Applications.Progress.Reactive (461s)",
+      "\u2714 [9569/9572] Built SquareKit.ListFoldCompiler (54s)"
+    ]
+  },
+  "actual_verification_exists": false,
+  "retained_verification_exists": false,
+  "free_block_bytes": 3853340672,
+  "unprivileged_available_bytes": 400592896,
+  "interpretation": "Partial historical process/recorder/log observation only. No terminal/full-validation result is inferred from module lines or recorded running state. Earlier unknown attempts and actual ENOSPC stay unchanged. Process reads are separate and do not use task/children paths.",
+  "actions": "Read-only log/metadata/process/statvfs observation. No compiler/checker/project hash helper, active artifact hashing, cache/performance action or cleanup. Checkpoint0063 upload recovery affected only its exact owned transfer child, not C1."
+}

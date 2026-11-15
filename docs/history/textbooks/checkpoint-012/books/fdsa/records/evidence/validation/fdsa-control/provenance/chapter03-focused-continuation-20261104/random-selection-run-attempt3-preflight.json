@@ -1,0 +1,54 @@
+{
+  "recorded_utc": "2026-11-04T19:49:37.785040+00:00",
+  "candidate": "e15c4c1c2e6cfce76f7ca6372fc3c62e49d40ba7",
+  "expectedHead": "4badcd5a7cab38aed7ff6c178c0649ae8ec63228",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "acceptedHead": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "name": "chapter03-random-selection-run-focused-attempt3-20261104",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Resources.RandomSelectionRun",
+    "Examples.RandomSelectionRun"
+  ],
+  "expectedPaths": [
+    "Applications/Resources/RandomSelection.lean",
+    "Applications/Resources/RandomSelectionRun.lean",
+    "Examples/RandomSelection.lean",
+    "Examples/RandomSelectionRun.lean"
+  ],
+  "recordDirectory": "chapter03-focused-continuation-20261104",
+  "recordName": "random-selection-run-attempt3-preflight.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was 4badcd5 fix(resources): rename reserved recurrence proof binder (#174)\nHEAD is now at e15c4c1 fix(selection): normalize finite run branch proofs (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionRun.lean",
+      "bytes": 12714,
+      "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718"
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e"
+    },
+    {
+      "path": "Examples/RandomSelectionRun.lean",
+      "bytes": 3770,
+      "sha256": "a3a199941807eafddb4c2c6c2218b5611ed58d745b1897ac89af3c59ae3730dc"
+    }
+  ],
+  "candidate_tree": "962d235134282736f47653c8c22177b07d8443f1",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 776634368
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

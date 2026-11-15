@@ -1,0 +1,57 @@
+{
+  "recorded_utc": "2026-11-04T01:42:56.648200+00:00",
+  "candidate": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+  "current_formal_attempt": "validation/1002-candidate-c988f18-native-j1-fresh1",
+  "latest_completed_module": [
+    "61",
+    "Applications.Orbifold.ProjectiveMotion",
+    "30.20"
+  ],
+  "formal_terminal_result": null,
+  "probes": [
+    "validation/1036-jets-j4-probe/result.json",
+    "validation/1036-jets-j1-control/result.json"
+  ],
+  "assessment": "Both separately bounded probes exited0 and produced byte-identical AD.Jets olean output. j4 took31.14s; subsequent j1 control49.27s; original current-run j1 compilation73.30s. CPU counters were much smaller than elapsed times, with many major faults and ~14.1GB block input in the j1 control. This is observed I/O-heavy execution under concurrent uncontrolled load/cache conditions, not a causal diagnosis or a whole-project speed guarantee. The probes changed no formal input and do not establish a different accepted runtime baseline. Native-j1 full validation continues unchanged; no chapter acceptance.",
+  "followup_recorded_utc": "2026-11-04T01:49:55.116536+00:00",
+  "final_bounded_probes": [
+    "validation/1036-jets-mmap-random-probe/result.json",
+    "validation/1036-jets-mmap-j4-probe/result.json"
+  ],
+  "results": [
+    {
+      "route": "plain_j4",
+      "seconds": 31.1443653919996,
+      "exit_code": 0,
+      "input_blocks": null,
+      "peak_rss_kib": 2467884,
+      "output_sha256": "852574083fe8d02b145550afb2255615c8eaf902d51d936fead6622d74fa23a6"
+    },
+    {
+      "route": "plain_j1_control",
+      "seconds": 49.27165036899896,
+      "exit_code": 0,
+      "input_blocks": 27602408,
+      "peak_rss_kib": 2582656,
+      "output_sha256": "852574083fe8d02b145550afb2255615c8eaf902d51d936fead6622d74fa23a6"
+    },
+    {
+      "route": "madv_random_j1",
+      "seconds": 27.628875064001477,
+      "exit_code": 0,
+      "input_blocks": 1202584,
+      "peak_rss_kib": 2005484,
+      "output_sha256": "852574083fe8d02b145550afb2255615c8eaf902d51d936fead6622d74fa23a6"
+    },
+    {
+      "route": "madv_random_j4",
+      "seconds": 40.69934750899847,
+      "exit_code": 0,
+      "input_blocks": 1707456,
+      "peak_rss_kib": 1928268,
+      "output_sha256": "852574083fe8d02b145550afb2255615c8eaf902d51d936fead6622d74fa23a6"
+    }
+  ],
+  "final_decision": "End this bounded performance investigation. The exact retained experimental library was reconstructed to its historical digest. Both advice configurations completed with18716 successful advice selections and no failures, unchanged inputs and identical Jets olean bytes. j1 advice27.63s/read blocks1202584 and j4 advice40.70s/read blocks1707456 compare with plainj1 control49.27s/read blocks27602408; counters report total block I/O, not distinct bytes. Cache/load and concurrent formal execution remain uncontrolled; no robust full-project throughput claim follows. No production runtime change is adopted, no new formal baseline is launched from these probes, and the current native-j1 full check continues unchanged. No further optional probes planned.",
+  "cancellation_limit": "The live recorder accepts actual SIGINT/SIGTERM via its signal handler but has no stdin/control-file cancellation protocol. The current non-PTY exec handle does not document conversion of Ctrl-C bytes into a signal. No raw saved PID was signaled, and no old process quiescence is inferred. Future long launches may use a documented PTY lifecycle so owned foreground interruption is available; this does not change existing process state."
+}

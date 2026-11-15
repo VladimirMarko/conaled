@@ -1,0 +1,66 @@
+{
+  "status": "Qualified local source lookup only; not a compiler/type check",
+  "lean_lake": "4.35.0",
+  "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "files": [
+    {
+      "path": "conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/List/Basic.lean",
+      "bytes": 86754,
+      "sha256": "566e74dd5c3e72b2111af000b8bd1552f1aaffe29be317ba01bc91c9e5b55293"
+    },
+    {
+      "path": "conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/List/Pairwise.lean",
+      "bytes": 17626,
+      "sha256": "fcc984c70a81216c178d42a858dea5e3640201023a9a4d2837e76f138fd9b0f4"
+    },
+    {
+      "path": "conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/List/Perm.lean",
+      "bytes": 27501,
+      "sha256": "d91620e1c9767119095b48601266b8c5267ed4ab0afb7fe31a4780209b9751fb"
+    },
+    {
+      "path": "conaled-native-state/toolchains/lean-4.35.0-linux/src/lean/Init/Data/List/Sort/Lemmas.lean",
+      "bytes": 20420,
+      "sha256": "e04f8070b20080cdbcdd31a6d240e267363e308a5804fdaf6749c92a885547c0"
+    },
+    {
+      "path": "conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Data/List/Sort.lean",
+      "bytes": 35291,
+      "sha256": "bc2fe8a7888a1298dc605ce769915c7bd5cefcb5db7de9cad5215d898d21abd9"
+    },
+    {
+      "path": "conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Data/Multiset/Defs.lean",
+      "bytes": 14700,
+      "sha256": "09b5004aedbde97d9fc6f3ad40510eb2d120c7485088c30cf2e2f72e81d72334"
+    },
+    {
+      "path": "conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Data/Multiset/Filter.lean",
+      "bytes": 18286,
+      "sha256": "75f2eed4f5083292237494afba0c0ff45152995afd6c627c0be2dcfee821d74b"
+    }
+  ],
+  "corrected_documentation_reference": {
+    "previous": "List.pairwise_nil",
+    "actual": "List.Pairwise.nil",
+    "definition": "Init/Data/List/Basic.lean",
+    "simp_attribute_line": 1374
+  },
+  "retained_standard_references": [
+    "List.pairwise_cons",
+    "List.pairwise_map",
+    "List.orderedInsert_nil",
+    "List.orderedInsert_cons",
+    "List.insertionSort_nil",
+    "List.insertionSort_cons",
+    "List.orderedInsert_length",
+    "List.mem_orderedInsert",
+    "List.perm_orderedInsert",
+    "List.perm_insertionSort",
+    "List.pairwise_insertionSort",
+    "List.Perm.length_eq",
+    "List.Perm.eq_of_pairwise'",
+    "List.merge_perm_append",
+    "Multiset.coe_eq_coe",
+    "Multiset.filter_coe"
+  ]
+}

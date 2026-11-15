@@ -1,0 +1,527 @@
+{
+  "format": 2,
+  "checkpoint": "conaled-fdsa-0135-selection-trace-and-statement-progress",
+  "created_utc": "2026-11-05T00:07:44.619930+00:00",
+  "repository": "https://github.com/VladimirMarko/conaled.git",
+  "refs": [
+    {
+      "oid": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "ref": "refs/heads/master",
+      "symref": ""
+    },
+    {
+      "oid": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "ref": "refs/heads/work/fdsa-accumulated-work",
+      "symref": ""
+    },
+    {
+      "oid": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+      "ref": "refs/heads/work/fdsa-adt-refinement",
+      "symref": ""
+    },
+    {
+      "oid": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+      "ref": "refs/heads/work/fdsa-affine-integration",
+      "symref": ""
+    },
+    {
+      "oid": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "ref": "refs/heads/work/fdsa-affine-recurrence",
+      "symref": ""
+    },
+    {
+      "oid": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "ref": "refs/heads/work/fdsa-basics-cost-models",
+      "symref": ""
+    },
+    {
+      "oid": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+      "ref": "refs/heads/work/fdsa-book",
+      "symref": ""
+    },
+    {
+      "oid": "156ba8170852f8e7f0b8c09315e35b837ce77ff9",
+      "ref": "refs/heads/work/fdsa-braun-shape",
+      "symref": ""
+    },
+    {
+      "oid": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+      "ref": "refs/heads/work/fdsa-builder-costs",
+      "symref": ""
+    },
+    {
+      "oid": "43242f43cba0f2c90c17356d44d71e5765d8ba93",
+      "ref": "refs/heads/work/fdsa-ch02-alternating",
+      "symref": ""
+    },
+    {
+      "oid": "a6f950d7d5dc4aef521445250f9bfbd59166291d",
+      "ref": "refs/heads/work/fdsa-ch02-bottom-up",
+      "symref": ""
+    },
+    {
+      "oid": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "ref": "refs/heads/work/fdsa-ch02-development",
+      "symref": ""
+    },
+    {
+      "oid": "95cfce304b9b63057286acc7d5b20b53d95d8eaa",
+      "ref": "refs/heads/work/fdsa-ch02-insertion-observations",
+      "symref": ""
+    },
+    {
+      "oid": "47f66dccc414d41bddf0dc6576a2338227ee221e",
+      "ref": "refs/heads/work/fdsa-ch02-natural-runs",
+      "symref": ""
+    },
+    {
+      "oid": "5a3af21cb4ff56896f1a7d249736c4804c229873",
+      "ref": "refs/heads/work/fdsa-ch02-quicksort",
+      "symref": ""
+    },
+    {
+      "oid": "15a113b075c2ceb4d44c27a06fa9a69e019b57fc",
+      "ref": "refs/heads/work/fdsa-ch02-random-pivot",
+      "symref": ""
+    },
+    {
+      "oid": "e0df28b7bbfa722b25623606a5a1905620fac91e",
+      "ref": "refs/heads/work/fdsa-ch02-three-way",
+      "symref": ""
+    },
+    {
+      "oid": "66cd1cca539cb667a7bae17d91d51c0ffeb718dc",
+      "ref": "refs/heads/work/fdsa-ch02-top-down",
+      "symref": ""
+    },
+    {
+      "oid": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+      "ref": "refs/heads/work/fdsa-ch02-top-down-costs",
+      "symref": ""
+    },
+    {
+      "oid": "3b839319776238fe2a46f22db761058b44d68adc",
+      "ref": "refs/heads/work/fdsa-ch02-uniform-input",
+      "symref": ""
+    },
+    {
+      "oid": "b1677172ef85e40865fe8f292660c1bcfd6e5a0c",
+      "ref": "refs/heads/work/fdsa-ch02-values",
+      "symref": ""
+    },
+    {
+      "oid": "690ab476f4685e5a795d53d18465b067655a34dd",
+      "ref": "refs/heads/work/fdsa-ch03-integration",
+      "symref": ""
+    },
+    {
+      "oid": "1249f39968a44a25bfe3932d84a2cb44c6a83515",
+      "ref": "refs/heads/work/fdsa-ch03-mom-execution",
+      "symref": ""
+    },
+    {
+      "oid": "569545102ff70697066de429eb02f9f47dffa07f",
+      "ref": "refs/heads/work/fdsa-ch03-query-lower-bounds",
+      "symref": ""
+    },
+    {
+      "oid": "2b5ff20504d8811587859e6eb3351cb1598a4504",
+      "ref": "refs/heads/work/fdsa-ch03-random-selection",
+      "symref": ""
+    },
+    {
+      "oid": "660f974640fb89a766b26a4d786ae7ed197cecf2",
+      "ref": "refs/heads/work/fdsa-ch03-rounded-recurrence",
+      "symref": ""
+    },
+    {
+      "oid": "4f01a75bf4e29cd82b5da932885c22f533cbd7b5",
+      "ref": "refs/heads/work/fdsa-ch03-values",
+      "symref": ""
+    },
+    {
+      "oid": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+      "ref": "refs/heads/work/fdsa-chapter02-integration",
+      "symref": ""
+    },
+    {
+      "oid": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "ref": "refs/heads/work/fdsa-foundation-integration",
+      "symref": ""
+    },
+    {
+      "oid": "697bcf242ce65d74815b5639bddb1c6e754dd10f",
+      "ref": "refs/heads/work/fdsa-insertion-costs",
+      "symref": ""
+    },
+    {
+      "oid": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+      "ref": "refs/heads/work/fdsa-list-foundations",
+      "symref": ""
+    },
+    {
+      "oid": "a601ad713368daf8e18d5a5537a83d47138491fa",
+      "ref": "refs/heads/work/fdsa-logarithm-bounds",
+      "symref": ""
+    },
+    {
+      "oid": "932438a765340d69fa6402f6abd17def6ec28d13",
+      "ref": "refs/heads/work/fdsa-order-integration",
+      "symref": ""
+    },
+    {
+      "oid": "863aedb924e922ac40747c0ef299701a7785488e",
+      "ref": "refs/heads/work/fdsa-ordered-search",
+      "symref": ""
+    },
+    {
+      "oid": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "ref": "refs/heads/work/fdsa-ordinary-merge",
+      "symref": ""
+    },
+    {
+      "oid": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+      "ref": "refs/heads/work/fdsa-partition-proof-fixes",
+      "symref": ""
+    },
+    {
+      "oid": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+      "ref": "refs/heads/work/fdsa-permutation-expectation",
+      "symref": ""
+    },
+    {
+      "oid": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+      "ref": "refs/heads/work/fdsa-permutation-joint",
+      "symref": ""
+    },
+    {
+      "oid": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+      "ref": "refs/heads/work/fdsa-permutation-minimum",
+      "symref": ""
+    },
+    {
+      "oid": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "ref": "refs/heads/work/fdsa-permutation-minimum-validation",
+      "symref": ""
+    },
+    {
+      "oid": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+      "ref": "refs/heads/work/fdsa-permutation-order",
+      "symref": ""
+    },
+    {
+      "oid": "bdac9703aab4b383fa775568d36bf685af329389",
+      "ref": "refs/heads/work/fdsa-permutation-order-validation",
+      "symref": ""
+    },
+    {
+      "oid": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "ref": "refs/heads/work/fdsa-permutation-placement",
+      "symref": ""
+    },
+    {
+      "oid": "a0597381f02eddd074ee96cabaa974f2062285f8",
+      "ref": "refs/heads/work/fdsa-permutation-tail",
+      "symref": ""
+    },
+    {
+      "oid": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "ref": "refs/heads/work/fdsa-permutation-tail-validation",
+      "symref": ""
+    },
+    {
+      "oid": "12cb14fc98b8617b3b625620da8e60936daba340",
+      "ref": "refs/heads/work/fdsa-potential-development",
+      "symref": ""
+    },
+    {
+      "oid": "c088beeb89aa18df45a56f6f1d6b6ff4ad374905",
+      "ref": "refs/heads/work/fdsa-priority-observations",
+      "symref": ""
+    },
+    {
+      "oid": "312aafb4446b995ff5542041b4e2e074f776db1e",
+      "ref": "refs/heads/work/fdsa-shared-four-integration",
+      "symref": ""
+    },
+    {
+      "oid": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+      "ref": "refs/heads/work/fdsa-tail-integration",
+      "symref": ""
+    },
+    {
+      "oid": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+      "ref": "refs/heads/work/fdsa-three-way-partition",
+      "symref": ""
+    },
+    {
+      "oid": "b035f1151ab4f0c7d7380818576cfe97dae434c4",
+      "ref": "refs/heads/work/fdsa-tree-accumulator",
+      "symref": ""
+    },
+    {
+      "oid": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "ref": "refs/heads/work/fdsa-tree-cache",
+      "symref": ""
+    },
+    {
+      "oid": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+      "ref": "refs/heads/work/fdsa-tree-fold",
+      "symref": ""
+    },
+    {
+      "oid": "7b8ab2bee299c937256bf9ce7e82977333d07134",
+      "ref": "refs/heads/work/fdsa-tree-leftmost",
+      "symref": ""
+    },
+    {
+      "oid": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+      "ref": "refs/heads/work/fdsa-tree-order",
+      "symref": ""
+    },
+    {
+      "oid": "28ba79d8d425400cb87d2daf3ecf1cc5a63a7aa2",
+      "ref": "refs/heads/work/fdsa-tree-rotations",
+      "symref": ""
+    },
+    {
+      "oid": "974a97321a8ec174b56104c7e6efaaca881b6639",
+      "ref": "refs/heads/work/fdsa-tree-shape",
+      "symref": ""
+    },
+    {
+      "oid": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "ref": "refs/heads/work/fdsa-tree-traversal-work",
+      "symref": ""
+    },
+    {
+      "oid": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "ref": "refs/remotes/origin/HEAD",
+      "symref": ""
+    },
+    {
+      "oid": "5be3ce96dbeb60365002414409c9421450e39cf0",
+      "ref": "refs/remotes/origin/integrate/frp",
+      "symref": ""
+    },
+    {
+      "oid": "47b556e83229ce11b27b5b7b4444c089a1e96ac3",
+      "ref": "refs/remotes/origin/integration/spec-15",
+      "symref": ""
+    },
+    {
+      "oid": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "ref": "refs/remotes/origin/master",
+      "symref": ""
+    },
+    {
+      "oid": "c12296f63c656737d07325e9d8e8e16d6976d099",
+      "ref": "refs/remotes/origin/reconstruction/adwh-154",
+      "symref": ""
+    },
+    {
+      "oid": "3efc9d926333c19f697a21afe7dd08af53e3a8cd",
+      "ref": "refs/remotes/origin/reconstruction/adwh-155",
+      "symref": ""
+    },
+    {
+      "oid": "e0d76c86040f38728289977c355b848cd6c7d8e3",
+      "ref": "refs/remotes/origin/reconstruction/adwh-180",
+      "symref": ""
+    },
+    {
+      "oid": "f68c79000bdb1ce223c403d38f8dd06e20cfbf29",
+      "ref": "refs/remotes/origin/reconstruction/adwh-181",
+      "symref": ""
+    },
+    {
+      "oid": "9c0a2649f9601c6294850f2b057698650360da9a",
+      "ref": "refs/remotes/origin/reconstruction/adwh-182",
+      "symref": ""
+    },
+    {
+      "oid": "16db707769c322fa17f2c48e24208f81292008da",
+      "ref": "refs/remotes/origin/reconstruction/adwh-183",
+      "symref": ""
+    },
+    {
+      "oid": "48b7655155950c4452bebf1268de1866d0f6129f",
+      "ref": "refs/remotes/origin/reconstruction/adwh-184",
+      "symref": ""
+    },
+    {
+      "oid": "30bbde79d154d1e8d942561c023a5e44d12ca420",
+      "ref": "refs/remotes/origin/reconstruction/adwh-186",
+      "symref": ""
+    },
+    {
+      "oid": "6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e",
+      "ref": "refs/remotes/origin/reconstruction/adwh-187",
+      "symref": ""
+    },
+    {
+      "oid": "855ce1f29ae0b7c7a7aec8321ead07be39c6ff32",
+      "ref": "refs/remotes/origin/reconstruction/adwh-190",
+      "symref": ""
+    },
+    {
+      "oid": "34c85983f601247fb62aea631c4212b7cb994b5b",
+      "ref": "refs/remotes/origin/reconstruction/adwh-array-cost-integration",
+      "symref": ""
+    },
+    {
+      "oid": "f4d3e2f36d5547f2236a601c837280bd0c23a774",
+      "ref": "refs/remotes/origin/research/27-frp-runtime",
+      "symref": ""
+    }
+  ],
+  "worktrees": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled",
+      "head": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+      "branch_ref": "refs/heads/work/fdsa-book",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.urOBCL\n",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      },
+      "name": "conaled",
+      "payload": "worktrees/000",
+      "untracked": []
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "head": "2b5ff20504d8811587859e6eb3351cb1598a4504",
+      "branch_ref": null,
+      "status": "",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      },
+      "name": "conaled-ch01-review",
+      "payload": "worktrees/001",
+      "untracked": []
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-bottom-up",
+      "head": "a6f950d7d5dc4aef521445250f9bfbd59166291d",
+      "branch_ref": "refs/heads/work/fdsa-ch02-bottom-up",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.EA8xCS\n",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      },
+      "name": "conaled-ch02-bottom-up",
+      "payload": "worktrees/002",
+      "untracked": []
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-insertion",
+      "head": "43242f43cba0f2c90c17356d44d71e5765d8ba93",
+      "branch_ref": "refs/heads/work/fdsa-ch02-alternating",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.C0d1bT\n",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      },
+      "name": "conaled-ch02-insertion",
+      "payload": "worktrees/003",
+      "untracked": []
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs",
+      "head": "690ab476f4685e5a795d53d18465b067655a34dd",
+      "branch_ref": "refs/heads/work/fdsa-ch03-integration",
+      "status": "",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      },
+      "name": "conaled-ch02-natural-runs",
+      "payload": "worktrees/004",
+      "untracked": []
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+      "head": "4f01a75bf4e29cd82b5da932885c22f533cbd7b5",
+      "branch_ref": "refs/heads/work/fdsa-ch03-values",
+      "status": "",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      },
+      "name": "conaled-ch02-quicksort",
+      "payload": "worktrees/005",
+      "untracked": []
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot",
+      "head": "2b5ff20504d8811587859e6eb3351cb1598a4504",
+      "branch_ref": "refs/heads/work/fdsa-ch03-random-selection",
+      "status": "",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      },
+      "name": "conaled-ch02-random-pivot",
+      "payload": "worktrees/006",
+      "untracked": []
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+      "head": "1249f39968a44a25bfe3932d84a2cb44c6a83515",
+      "branch_ref": "refs/heads/work/fdsa-ch03-mom-execution",
+      "status": "",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      },
+      "name": "conaled-ch02-top-down",
+      "payload": "worktrees/007",
+      "untracked": []
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge",
+      "head": "569545102ff70697066de429eb02f9f47dffa07f",
+      "branch_ref": "refs/heads/work/fdsa-ch03-query-lower-bounds",
+      "status": "",
+      "source_fingerprint": {
+        "staged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "unstaged": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "untracked": []
+      },
+      "name": "conaled-ordinary-merge",
+      "payload": "worktrees/008",
+      "untracked": []
+    }
+  ],
+  "external_assets": [
+    {
+      "path": "docs/history/algorithm-design-haskell/checkpoint-233.zip",
+      "size_bytes": 67920919,
+      "sha256": "8a5e2b2d5535a149a67111c6adf9ba9e173cbbd2a986d63dc702d75178252e63",
+      "git_blob": "e887c040b8c9902c6d9d38672ca54dd84937959d",
+      "url": "https://raw.githubusercontent.com/VladimirMarko/conaled/7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd/docs/history/algorithm-design-haskell/checkpoint-233.zip"
+    }
+  ],
+  "included_git_objects": 7040,
+  "excluded_unrelated_untracked": [
+    "docs/history/algorithm-design-haskell/.checkpoint-233.zip.C0d1bT",
+    "docs/history/algorithm-design-haskell/.checkpoint-233.zip.EA8xCS",
+    "docs/history/algorithm-design-haskell/.checkpoint-233.zip.n7UlkJ",
+    "docs/history/algorithm-design-haskell/.checkpoint-233.zip.urOBCL"
+  ],
+  "scope": "Whole FDSA book; actual acceptance is in fdsa-control/STATUS.md",
+  "excluded_regenerable": [
+    "compiler/runtime installation and dependency caches",
+    "copyrighted book PDF and extracted text"
+  ]
+}

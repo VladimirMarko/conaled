@@ -1,0 +1,126 @@
+{
+  "started_utc": "2026-11-03T17:49:05.535486+00:00",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1033-native-environment/mmap-capability-probe-20261103/probe.py",
+    "--child"
+  ],
+  "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1033-native-environment/mmap-capability-probe-20261103",
+  "timeout_seconds": 15,
+  "source_sha256": "d1a811b04b9d2c27d35c159dd179d34a27ceeb4b1ae2eb6a223b4a3b0d297618",
+  "writes_confined_to": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1033-native-environment/mmap-capability-probe-20261103",
+  "returncode": 0,
+  "outcome": "completed",
+  "wall_seconds": 0.04939577599725453,
+  "finished_utc": "2026-11-03T17:49:05.585022+00:00",
+  "observation": {
+    "scope": "One-page file-mapping capability observation, not a Lean-loader diagnosis or production adapter.",
+    "started_utc": "2026-11-03T17:49:05.578383+00:00",
+    "limits": {
+      "outer_wall_seconds": 15,
+      "cpu_seconds": 5,
+      "address_space_bytes": 268435456,
+      "maximum_single_output_file_bytes": 65536,
+      "maximum_page_size_bytes": 65536,
+      "maximum_live_explicit_mappings": 2,
+      "maximum_explicit_mapped_bytes": 131072,
+      "attempts": "One ordinary file mapping, one preferred mapping, one collision attempt; one ordinary fallback only if preferred mapping fails."
+    },
+    "pinned_source": {
+      "url": "https://raw.githubusercontent.com/leanprover/lean4/eb6cafb7290e8bd5f2937522d8d804f58f02bafc/src/library/module.cpp",
+      "sha256": "9b85a9a7610e73f240282fe288ad81c8b160fc975caa80bd5b13ddacdd6012a8",
+      "lines": "524-540"
+    },
+    "ld_preload_present": false,
+    "calls": [
+      {
+        "operation": "ordinary_file_map",
+        "requested_address": "0x0",
+        "returned_address": "0x7fa9a3dee000",
+        "length": 4096,
+        "prot": 3,
+        "flags": 2,
+        "offset": 0,
+        "failed": false,
+        "errno": 0,
+        "errno_name": null
+      },
+      {
+        "operation": "preferred_file_map_after_unmap",
+        "requested_address": "0x7fa9a3dee000",
+        "returned_address": "0x7fa9a3dee000",
+        "length": 4096,
+        "prot": 3,
+        "flags": 1048578,
+        "offset": 0,
+        "failed": false,
+        "errno": 0,
+        "errno_name": null
+      },
+      {
+        "operation": "collision_against_live_mapping",
+        "requested_address": "0x7fa9a3dee000",
+        "returned_address": "0xffffffffffffffff",
+        "length": 4096,
+        "prot": 3,
+        "flags": 1048578,
+        "offset": 0,
+        "failed": true,
+        "errno": 17,
+        "errno_name": "EEXIST"
+      }
+    ],
+    "cleanup": [
+      {
+        "operation": "ordinary_unmap_before_preferred",
+        "address": "0x7fa9a3dee000",
+        "length": 4096,
+        "returncode": 0,
+        "errno": 0,
+        "errno_name": null
+      },
+      {
+        "operation": "final_cleanup",
+        "address": "0x7fa9a3dee000",
+        "length": 4096,
+        "returncode": 0,
+        "errno": 0,
+        "errno_name": null
+      }
+    ],
+    "page_size_bytes": 4096,
+    "pointer_bits": 64,
+    "mapped_file": {
+      "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1033-native-environment/mmap-capability-probe-20261103/one-page.bin",
+      "planned_size_bytes": 4096,
+      "sha256_before": "3aa183ba3cb7678808e5d91fa536da6203a01ec4f864f4100593669b856e9063",
+      "mapping_descriptor_mode": "O_RDONLY",
+      "size_bytes": 4096,
+      "sha256_after": "3aa183ba3cb7678808e5d91fa536da6203a01ec4f864f4100593669b856e9063",
+      "unchanged": true
+    },
+    "constants": {
+      "PROT_READ": 1,
+      "PROT_WRITE": 2,
+      "MAP_PRIVATE": 2,
+      "MAP_FIXED_NOREPLACE": 1048576,
+      "preferred_and_collision_flags": 1048578,
+      "offset": 0,
+      "MAP_FAILED": "0xffffffffffffffff"
+    },
+    "maximum_live_mappings_observed": 1,
+    "checks": {
+      "ordinary_file_contents_match": true,
+      "preferred_mapping_at_freshly_freed_address": true,
+      "preferred_errno": 0,
+      "collision_baseline_contents_match": true,
+      "collision_refused_with_EEXIST": true,
+      "private_sentinel_and_full_page_preserved": true
+    },
+    "all_explicit_mappings_unmapped": true,
+    "passed": true,
+    "finished_utc": "2026-11-03T17:49:05.579087+00:00",
+    "interpretation": "Exact flag accepted at this freshly freed address and enforced on collision; close the unsupported-flag capability hypothesis for this probe. No actual Lean mapping success rate or per-module cause was measured."
+  }
+}

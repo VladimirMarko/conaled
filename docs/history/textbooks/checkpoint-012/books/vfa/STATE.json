@@ -1,0 +1,53 @@
+{
+  "accepted_chapters": [],
+  "book": "Verified Functional Algorithms",
+  "current_scope": "Preface/Perm; preserve all five cross-cutting drafts.",
+  "durability_contract": "../../docs/DURABILITY.md",
+  "evidence": [
+    "records/evidence/tracker/tickets.json",
+    "records/evidence/reviews/1002-monitor-correction-source-review.md",
+    "records/evidence/validation/1040-candidate.json",
+    "records/evidence/validation/1040-focused-remaining2/terminal.json",
+    "records/evidence/validation/1040-eae9-fresh-output-failure.json"
+  ],
+  "guidance_registry": "../../reference/SOURCES.json",
+  "integration": {
+    "authority": "books/common/REQUIREMENTS.md",
+    "master_pin": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+    "priority_order": [
+      "library coherence",
+      "preserve useful mathematics"
+    ],
+    "tracker": "books/common/ISSUES.json",
+    "status_file": "books/common/STATUS.md",
+    "source_identity": "source/integration.json",
+    "coverage_account": "books/common/COVERAGE.md",
+    "validation_handoff": "books/common/VALIDATION-HANDOFF.md"
+  },
+  "latest_validation": {
+    "focused": "116-module focused development run exited 0.",
+    "full_audit": "No completed full exhaustive audit or fresh-candidate verification is established.",
+    "full_fresh": "Actual exit 1 after 754 successful modules; module 755 Examples.ProbabilisticProgress could not create private output while ordinary free space was zero. Exact errno and proof error were not established."
+  },
+  "new_paper_and_uncompiled_work": "work/",
+  "next_later_math_action": "Reconcile/receive the preserved Preface/Perm candidate against the chosen conaled integration scope, then required exact-candidate checks and both final review axes before Sort.",
+  "phase": "combined-integration-candidate; historical book acceptance remains unchanged",
+  "reviews": {
+    "open_findings": [
+      "ST-002",
+      "SP-VAL-001"
+    ],
+    "spec": "Blocked",
+    "standards": "Blocked"
+  },
+  "schema": 1,
+  "source_book_key": "vfa",
+  "source_registry": "../../source/refs.json",
+  "source_roles": [
+    "main",
+    "candidate"
+  ],
+  "status_owner": "This file owns book-specific historical progress and preserved obligations. books/common/STATUS.md owns current combined integration and validation; immutable original records remain evidence.",
+  "whole_book_complete": false,
+  "latest_validation_scope": "The latest_validation field records the recovered book candidate before combined integration. Current integration checks are owned by books/common/STATUS.md."
+}

@@ -1,0 +1,1334 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "updated_utc": "2026-11-04T10:54:51.931936+00:00",
+  "status": "Complete full-scope source and public-type assessment at exact4b5dbfa0; C02-TYPE-001 resolved on Standards axis; whole-candidate outcome Blocked.",
+  "scope": "Full R through eventual final candidate; no exclusions from 112 obligations",
+  "historical_type_runs": [
+    {
+      "directory": "provenance/chapter02-measured-sorting-types-20261104",
+      "candidate": "1ffb61fceaf7c893e25a35339f6e1fce8531021d",
+      "actual_recorded_exit": 0,
+      "recorded_final_head": "1ffb61fceaf7c893e25a35339f6e1fce8531021d",
+      "recorded_final_status": "",
+      "full_log": {
+        "bytes": 136360,
+        "sha256": "607eba97643a8361295857fb0777248e018534e0a7a78ed7d49760834f3ae325"
+      },
+      "source_identity": [
+        {
+          "path": "Applications/Resources/QuickSort.lean",
+          "bytes": 21782,
+          "sha256": "e98024f6b741e1aba1fb1e38b419eee2e1acad76a8a40e669752f54775783263",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Examples/QuickSortCosts.lean",
+          "bytes": 8828,
+          "sha256": "9d61ea34342e2f5d961c3d2962630f2ed853939802057dbfc2aca65ee1e9f999",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Applications/Resources/NaturalRunComparisons.lean",
+          "bytes": 13562,
+          "sha256": "920e1832416afcdc47a0c2301c2e27c7cd5f0c614a209c8dea21fc2561d809b0",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Examples/NaturalRunComparisons.lean",
+          "bytes": 4753,
+          "sha256": "9d4dfe317e1af9ee894385ba3478c0ede17de1e713cc7090b120a4d2ab708f8a",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Applications/Resources/ListBuildCosts.lean",
+          "bytes": 7232,
+          "sha256": "6c2450b98fcb2677fddeea1116519e968223bc0872353d9e34979fc38607547f",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Examples/ListBuildCosts.lean",
+          "bytes": 3608,
+          "sha256": "eba2961e501f545323e5403e7874ce3ddb256bad8f4046398acc55ca6ec230a1",
+          "historical_candidate_bytes_equal_M2": true
+        }
+      ],
+      "inspected_sections": [
+        {
+          "path": "provenance/chapter02-measured-sorting-types-20261104/QuickSort-core-types.log",
+          "bytes": 42445,
+          "sha256": "8365c4bbcc04463466d927ace4c764d55b80798abc669509d5a0e3a987820ae2",
+          "lines": 584,
+          "declarations": 53,
+          "independently_read": "complete expanded types and assumptions"
+        },
+        {
+          "path": "provenance/chapter02-measured-sorting-types-20261104/QuickSortCosts-examples-types.log",
+          "bytes": 31322,
+          "sha256": "99ecb6fb2cd1f0591868ea93bc418801c2f2870b0646df920cb4a4f64887067a",
+          "lines": 406,
+          "declarations": 30,
+          "independently_read": "complete expanded types and assumptions"
+        },
+        {
+          "path": "provenance/chapter02-measured-sorting-types-20261104/NaturalRunComparisons-core-types.log",
+          "bytes": 19672,
+          "sha256": "8a767e31c2ab4148a5b56c0e520d20834d30edc5c3ff0037a32a7239efa66b42",
+          "lines": 254,
+          "declarations": 43,
+          "independently_read": "complete expanded types and assumptions"
+        },
+        {
+          "path": "provenance/chapter02-measured-sorting-types-20261104/NaturalRunComparisons-examples-types.log",
+          "bytes": 15303,
+          "sha256": "4e2bd42643e4064d5801bc322ada707a5bd8298ef888a1bf183527ab2fe67901",
+          "lines": 205,
+          "declarations": 13,
+          "independently_read": "complete expanded types and assumptions"
+        },
+        {
+          "path": "provenance/chapter02-measured-sorting-types-20261104/ListBuildCosts-core-types.log",
+          "bytes": 14486,
+          "sha256": "2cee36c4b4825188db08223cff38bed10ef8715b4d8ae6a5007ad2d7a9c450e2",
+          "lines": 183,
+          "declarations": 26,
+          "independently_read": "complete expanded types and assumptions"
+        },
+        {
+          "path": "provenance/chapter02-measured-sorting-types-20261104/ListBuildCosts-examples-types.log",
+          "bytes": 12771,
+          "sha256": "3c213869c7cb8158762615a8c8a726eb28d37bff829211d8d0c4f4aba9b35c8f",
+          "lines": 170,
+          "declarations": 9,
+          "independently_read": "complete expanded types and assumptions"
+        }
+      ]
+    },
+    {
+      "directory": "provenance/chapter02-xu01-types-20261104",
+      "candidate": "3fa2b59d6dcab007627af98a2f05c3a016a4c4c4",
+      "actual_recorded_exit": 0,
+      "recorded_final_head": "3fa2b59d6dcab007627af98a2f05c3a016a4c4c4",
+      "recorded_final_status": "",
+      "full_log": {
+        "bytes": 46850,
+        "sha256": "79a9faa38a7647046be84cdd475416793e56bb2fef1f802cad1d3306413be94b"
+      },
+      "source_identity": [
+        {
+          "path": "Applications/Probability/PermutationMinimum.lean",
+          "bytes": 8241,
+          "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Examples/PermutationMinimum.lean",
+          "bytes": 4994,
+          "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Examples/PermutationMinimumBoundary.lean",
+          "bytes": 4211,
+          "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+          "historical_candidate_bytes_equal_M2": true
+        }
+      ],
+      "inspected_sections": [
+        {
+          "path": "provenance/chapter02-xu01-types-20261104/1-Applications-Probability-PermutationMinimum-types.txt",
+          "bytes": 6008,
+          "sha256": "5573bdf42ab81c0adc23cb17d26d69fed45061e6c193771595c5d23385a081e2",
+          "lines": 86,
+          "declarations": 7,
+          "independently_read": "complete expanded types and assumptions"
+        },
+        {
+          "path": "provenance/chapter02-xu01-types-20261104/2-Examples-PermutationMinimum-types.txt",
+          "bytes": 24174,
+          "sha256": "d94e81919afbc94cce3757748884761856ce83b8d01ef66e1e6782771b3ac9fb",
+          "lines": 323,
+          "declarations": 16,
+          "independently_read": "complete expanded types and assumptions"
+        },
+        {
+          "path": "provenance/chapter02-xu01-types-20261104/3-Examples-PermutationMinimumBoundary-types.txt",
+          "bytes": 16318,
+          "sha256": "0fd48948decb6cb9abe43e2cf02457f60d47469b3175209266d5621282125162",
+          "lines": 209,
+          "declarations": 14,
+          "independently_read": "complete expanded types and assumptions"
+        }
+      ]
+    },
+    {
+      "directory": "provenance/chapter02-bottom-up-costs-types-20261104",
+      "candidate": "6d91b822d0f3cf1aeeda333a9e1d47ebb26e709b",
+      "actual_recorded_exit": 0,
+      "recorded_final_head": "6d91b822d0f3cf1aeeda333a9e1d47ebb26e709b",
+      "recorded_final_status": "",
+      "full_log": {
+        "bytes": 69695,
+        "sha256": "b77970fe06b930f34286bcdb0e9a9ce1bdfbffceb2cdaf7f213cdf501137493d"
+      },
+      "source_identity": [
+        {
+          "path": "Applications/Resources/BottomUpSorting.lean",
+          "bytes": 23175,
+          "sha256": "74cc812fb1f1706621daeb1c51512a9ddb3d85dc57a36589aafe96e8514a6826",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Examples/BottomUpCosts.lean",
+          "bytes": 11973,
+          "sha256": "12572e3395c681b18f266374732eb63b059a13eb0f76aef25400aefa8d54a136",
+          "historical_candidate_bytes_equal_M2": true
+        }
+      ],
+      "inspected_sections": [
+        {
+          "path": "provenance/chapter02-bottom-up-costs-types-20261104/BottomUpSorting-types.txt",
+          "bytes": 36106,
+          "sha256": "884d6bbda53f4fc20a87cdd67fee61d2c75bb70f45847c132a5a8178cf6c4e98",
+          "lines": 462,
+          "declarations": 76,
+          "independently_read": "complete expanded types and assumptions"
+        },
+        {
+          "path": "provenance/chapter02-bottom-up-costs-types-20261104/BottomUpCosts-types.txt",
+          "bytes": 33228,
+          "sha256": "877824e5b42c065dd44cc851006c47d84ea3452eaef42a66d937479e1f89520b",
+          "lines": 450,
+          "declarations": 29,
+          "independently_read": "complete expanded types and assumptions"
+        }
+      ]
+    },
+    {
+      "directory": "provenance/chapter02-natural-sorting-types-20261104",
+      "candidate": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+      "actual_recorded_exit": 0,
+      "recorded_final_head": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+      "recorded_final_status": "",
+      "full_log": {
+        "bytes": 79992,
+        "sha256": "136335c62dbd1bd67c9f0ce77c69056b47f4e37b5b42e67ea91b233c1a71e50a"
+      },
+      "source_identity": [
+        {
+          "path": "Applications/Sorting/Natural.lean",
+          "bytes": 5528,
+          "sha256": "e4b27eb275e9509b205da7ae25dd7829e664eb47617cb1602e6114eb5d264493",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Examples/NaturalSorting.lean",
+          "bytes": 5928,
+          "sha256": "69cc14a5f40421076a3af3f8066c0bf2b20678d11f4cbc5e3eefab8454fdbf57",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Applications/Resources/NaturalSorting.lean",
+          "bytes": 13059,
+          "sha256": "bfca759cd0f1014d39824bdcb124a3a0b33d1459be2cc4635739965382a50e7a",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Examples/NaturalSortingCosts.lean",
+          "bytes": 10506,
+          "sha256": "4b6c3fd9c359b31b01f13c5bdeee6b9fc7ccd82ab172f7d6bb5491410379441a",
+          "historical_candidate_bytes_equal_M2": true
+        }
+      ],
+      "inspected_sections": [
+        {
+          "path": "provenance/chapter02-natural-sorting-types-20261104/1-Applications-Sorting-Natural-types.txt",
+          "bytes": 8605,
+          "sha256": "6860b7a605f19d4c5242f4ae3a03ddeef5bb8af5b96f91e0d467596e3b407f18",
+          "lines": 129,
+          "declarations": 16,
+          "independently_read": "complete expanded types and assumptions"
+        },
+        {
+          "path": "provenance/chapter02-natural-sorting-types-20261104/2-Examples-NaturalSorting-types.txt",
+          "bytes": 15877,
+          "sha256": "cca8a24401b569edfa5d48cdd18c2d6da4c60fd56a61b4663e61d2a6ab19f752",
+          "lines": 204,
+          "declarations": 22,
+          "independently_read": "complete expanded types and assumptions"
+        },
+        {
+          "path": "provenance/chapter02-natural-sorting-types-20261104/3-Applications-Resources-NaturalSorting-types.txt",
+          "bytes": 26499,
+          "sha256": "39ccc0ec89a913b5d8bbe4ae834e4cb877fee488f1e2786784323f63b1b29b6e",
+          "lines": 388,
+          "declarations": 37,
+          "independently_read": "complete expanded types and assumptions"
+        },
+        {
+          "path": "provenance/chapter02-natural-sorting-types-20261104/4-Examples-NaturalSortingCosts-types.txt",
+          "bytes": 28650,
+          "sha256": "82c0c64f879ece1ef1f298dd0e581054dd3eccf668b4d5d48989bb31a8dfb6d9",
+          "lines": 382,
+          "declarations": 30,
+          "independently_read": "complete expanded types and assumptions"
+        }
+      ]
+    },
+    {
+      "directory": "provenance/chapter02-three-way-partition-types-20261104",
+      "candidate": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+      "actual_recorded_exit": 0,
+      "recorded_final_head": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+      "recorded_final_status": "",
+      "full_log": {
+        "bytes": 91292,
+        "sha256": "c05a5e5a0098492721b81c689383d421a24ec3d6bf2b00a7629ae18be5ad8d99"
+      },
+      "source_identity": [
+        {
+          "path": "Applications/Sorting/ThreeWayQuickSort.lean",
+          "bytes": 6597,
+          "sha256": "7ef1adb48a9211c010c84c20c64bd01690eba11683002d8a16cc820eefaf1f0e",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Examples/ThreeWayQuickSort.lean",
+          "bytes": 6360,
+          "sha256": "0951a0f474638250912d4b6ee3084bbbf129c67c0f1527785778003ee1331d86",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Applications/Sequences/Partition.lean",
+          "bytes": 3786,
+          "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Applications/Resources/Partition.lean",
+          "bytes": 2678,
+          "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Applications/Selection/ThreeWay.lean",
+          "bytes": 9718,
+          "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Examples/ThreeWayPartition.lean",
+          "bytes": 8109,
+          "sha256": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526",
+          "historical_candidate_bytes_equal_M2": true
+        }
+      ],
+      "inspected_sections": [
+        {
+          "path": "provenance/chapter02-three-way-partition-types-20261104/three-way-types.txt",
+          "bytes": 41779,
+          "sha256": "0cfc0cbc9452e2b1dfd7eef5fe4f7022732d43cb41c1d84c308d9a145c99f70c",
+          "lines": 534,
+          "declarations": 36,
+          "independently_read": "complete expanded types and assumptions"
+        },
+        {
+          "path": "provenance/chapter02-three-way-partition-types-20261104/partition-and-legacy-types.txt",
+          "bytes": 49149,
+          "sha256": "e11516d6b42a939c886b90aa08b71e3d3f9f558a98f94906767a60ac949c45c4",
+          "lines": 683,
+          "declarations": 48,
+          "independently_read": "complete expanded types and assumptions"
+        }
+      ]
+    },
+    {
+      "directory": "provenance/chapter02-xd01-random-types-20261104",
+      "candidate": "dfaf68114d1dda4e15628c94c3d988c3f5457c49",
+      "actual_recorded_exit": 0,
+      "recorded_final_head": "dfaf68114d1dda4e15628c94c3d988c3f5457c49",
+      "recorded_final_status": "",
+      "full_log": {
+        "bytes": 123793,
+        "sha256": "5027831298792411bde1622e6ad00aef816a0f0f41c97e372139eb8a47afe182"
+      },
+      "source_identity": [
+        {
+          "path": "Applications/Resources/DifferenceListCosts.lean",
+          "bytes": 10061,
+          "sha256": "f99420b831dff2d0f5fcc3dac1001937942b87c78b710b79f94fa941ab972b01",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Examples/DifferenceListCosts.lean",
+          "bytes": 9299,
+          "sha256": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Applications/Resources/RandomQuickSort.lean",
+          "bytes": 23601,
+          "sha256": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2",
+          "historical_candidate_bytes_equal_M2": true
+        },
+        {
+          "path": "Examples/RandomQuickSort.lean",
+          "bytes": 8255,
+          "sha256": "4f5a21d1656423ac1307b1ca8fe651cd794d70da576ecd14f65d68cc290c424d",
+          "historical_candidate_bytes_equal_M2": true
+        }
+      ],
+      "inspected_sections": [
+        {
+          "path": "provenance/chapter02-xd01-random-types-20261104/xd01-types.txt",
+          "bytes": 36180,
+          "sha256": "987e4a4cd89fcaa821e0e8b628dcd6947d4571f39f737ad4f8b05573a2e2830e",
+          "lines": 484,
+          "declarations": 72,
+          "independently_read": "complete expanded types and assumptions"
+        },
+        {
+          "path": "provenance/chapter02-xd01-random-types-20261104/random-types.txt",
+          "bytes": 87257,
+          "sha256": "38119532e0476e3fa4870d924bed6484ed26267f1d6eae5707b41f99eb4728ac",
+          "lines": 1188,
+          "declarations": 62,
+          "independently_read": "complete expanded types and assumptions"
+        }
+      ]
+    }
+  ],
+  "completed_expanded_type_declarations": 648,
+  "count_boundary": "Historical941 selected outputs remain separately recorded. Current explicit public inventory1763 is covered by1735 distinct qualified actual type outputs plus28 retained accepted-base declarations; not a kernel audit or a count of new theorems.",
+  "pins_and_gate_source_identity": [
+    {
+      "path": "lakefile.toml",
+      "bytes": 444,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "R_equal_M2": true
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "R_equal_M2": true
+    },
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "R_equal_M2": true
+    },
+    {
+      "path": "flake.nix",
+      "bytes": 637,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+      "R_equal_M2": true
+    },
+    {
+      "path": "flake.lock",
+      "bytes": 564,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+      "R_equal_M2": true
+    },
+    {
+      "path": "check.sh",
+      "bytes": 74,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "R_equal_M2": true
+    },
+    {
+      "path": "scripts/check.py",
+      "bytes": 16119,
+      "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+      "R_equal_M2": true
+    },
+    {
+      "path": "scripts/lake_integrity.py",
+      "bytes": 5781,
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+      "R_equal_M2": true
+    },
+    {
+      "path": "ProofAudit.lean",
+      "bytes": 7925,
+      "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd",
+      "R_equal_M2": true
+    },
+    {
+      "path": "scripts/lake-output-hashes.lean",
+      "bytes": 618,
+      "sha256": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b",
+      "R_equal_M2": true
+    }
+  ],
+  "reviewer_executed_compiler_build_check_audit_or_verify": false,
+  "overall_acceptance": false,
+  "natural_example_followup": {
+    "candidate": "47f66dccc414d41bddf0dc6576a2338227ee221e",
+    "before": "b87e4e05d89d774a3e217d0fafd271bee4a9cd9a",
+    "belongs_to_M2": false,
+    "source_diff_read": "complete; five proof-only corrections",
+    "diagnostics_read": "all five complete comparator-specialization diagnostics from fixed partial focused6 snapshot",
+    "correction_record": "provenance/chapter02-natural-operations-correction3-20261104/result.json",
+    "partial_snapshot": "provenance/chapter02-focused-attempt6-partial-diagnostics-20261104/observed-prefix.log",
+    "partial_snapshot_identity": {
+      "bytes": 14334,
+      "sha256": "4c41c51dd4404fc7b667651833434de775e8844aacc11538004eceb3e91d2665"
+    },
+    "assessment": "Four direct theorem specializations and one length_range-only rewrite retain comparator, values, counts and domains. No new mathematical/Standards issue; compiler correction unverified and findings remain open."
+  },
+  "completed_other_profile_type_declarations": 293,
+  "completed_unique_printed_type_declarations": 941,
+  "full_public_type_accounting": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/public-type-accounting.json",
+    "bytes": 1070441,
+    "sha256": "a67cdd001115164b268d0c8d2b2a2dc2c6d95d46970a02bb17a324edb146e556",
+    "public_named_count": 1762,
+    "actual_printed_types": 941,
+    "prepared_only": 468,
+    "additional_missing_current": 325,
+    "retained_accepted_base": 28,
+    "anonymous_instances": 19,
+    "private_named": 70,
+    "additional_missing_names_sha256": "9b9d7bd4945035e456c88fddb3372a57b2f72c6d59e5dffb1eb095d8c620c715"
+  },
+  "additional_historical_type_runs": [
+    {
+      "run": "chapter02-bottom-up-alternating-types-20261104",
+      "candidate": "98696d86162bd93c1cba46719eeb65bf6cabe65a",
+      "exit_code": 0,
+      "final_head": "98696d86162bd93c1cba46719eeb65bf6cabe65a",
+      "final_status": "",
+      "result_sha256": "e1aea6306fba49563ed8136678010ace5a10268274d56354d593baf1b1b35c57",
+      "full_log_bytes": 41284,
+      "full_log_sha256": "3296e4ba5330af5a1e1d6897ea7acb9898452def68510df2e9c343e70c1180b8",
+      "program": "chapter02-bottom-up-alternating-statement-source-20261104/Statements.lean",
+      "program_sha256": "9ef7e05799ff059a262fc1cab1ffaae1ed269b1076931c44a6913bd6e2dda471",
+      "print_options": [
+        [
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "check_count": 126,
+      "print_count": 0,
+      "matched_public_names": [
+        "Applications.Sorting.halve",
+        "Applications.Sorting.halve_balance",
+        "Applications.Sorting.halve_cons_cons",
+        "Applications.Sorting.halve_empty_balance",
+        "Applications.Sorting.halve_lengths",
+        "Applications.Sorting.halve_nil",
+        "Applications.Sorting.halve_perm",
+        "Applications.Sorting.halve_singleton",
+        "Applications.Sorting.halve_strict",
+        "Applications.Sorting.mem_halve",
+        "Applications.Sorting.mem_sortAlternatingBy",
+        "Applications.Sorting.mergeAllBy",
+        "Applications.Sorting.mergeAllBy_length",
+        "Applications.Sorting.mergeAllBy_multiset",
+        "Applications.Sorting.mergeAllBy_nil",
+        "Applications.Sorting.mergeAllBy_perm",
+        "Applications.Sorting.mergeAllBy_singleton",
+        "Applications.Sorting.mergeAllBy_sorted_compatible_on",
+        "Applications.Sorting.mergeAllBy_step",
+        "Applications.Sorting.mergeAllRevBy",
+        "Applications.Sorting.mergeAllRevBy_length",
+        "Applications.Sorting.mergeAllRevBy_multiset",
+        "Applications.Sorting.mergeAllRevBy_nil",
+        "Applications.Sorting.mergeAllRevBy_perm",
+        "Applications.Sorting.mergeAllRevBy_singleton",
+        "Applications.Sorting.mergeAllRevBy_sorted_compatible_on",
+        "Applications.Sorting.mergeAllRevBy_step",
+        "Applications.Sorting.mergePairsBy",
+        "Applications.Sorting.mergePairsBy_flatten_length",
+        "Applications.Sorting.mergePairsBy_flatten_perm",
+        "Applications.Sorting.mergePairsBy_length",
+        "Applications.Sorting.mergePairsBy_length_lt",
+        "Applications.Sorting.mergePairsBy_multiset",
+        "Applications.Sorting.mergePairsBy_nil",
+        "Applications.Sorting.mergePairsBy_singleton",
+        "Applications.Sorting.mergePairsBy_sorted_compatible_on",
+        "Applications.Sorting.mergePairsBy_step",
+        "Applications.Sorting.mergePairsBy_sum_lengths",
+        "Applications.Sorting.mergePairsBy_uniform_length",
+        "Applications.Sorting.mergePairsRevBy",
+        "Applications.Sorting.mergePairsRevBy_empty_flatten_perm",
+        "Applications.Sorting.mergePairsRevBy_empty_length_lt",
+        "Applications.Sorting.mergePairsRevBy_eq_reverse_append",
+        "Applications.Sorting.mergePairsRevBy_flatten_length",
+        "Applications.Sorting.mergePairsRevBy_flatten_perm",
+        "Applications.Sorting.mergePairsRevBy_length",
+        "Applications.Sorting.mergePairsRevBy_multiset",
+        "Applications.Sorting.mergePairsRevBy_nil",
+        "Applications.Sorting.mergePairsRevBy_singleton",
+        "Applications.Sorting.mergePairsRevBy_sorted_compatible_on",
+        "Applications.Sorting.mergePairsRevBy_step",
+        "Applications.Sorting.multiset_flatten_eq_sum",
+        "Applications.Sorting.sortAlternatingBy",
+        "Applications.Sorting.sortAlternatingBy_cons_cons",
+        "Applications.Sorting.sortAlternatingBy_length",
+        "Applications.Sorting.sortAlternatingBy_nil",
+        "Applications.Sorting.sortAlternatingBy_pair",
+        "Applications.Sorting.sortAlternatingBy_perm",
+        "Applications.Sorting.sortAlternatingBy_singleton",
+        "Applications.Sorting.sortAlternatingBy_sorted_compatible_on",
+        "Applications.Sorting.sortAlternatingOn",
+        "Applications.Sorting.sortAlternatingOn_correct",
+        "Applications.Sorting.sortBottomUpBy",
+        "Applications.Sorting.sortBottomUpBy_length",
+        "Applications.Sorting.sortBottomUpBy_multiset",
+        "Applications.Sorting.sortBottomUpBy_nil",
+        "Applications.Sorting.sortBottomUpBy_perm",
+        "Applications.Sorting.sortBottomUpBy_singleton",
+        "Applications.Sorting.sortBottomUpBy_sorted_compatible_on",
+        "Applications.Sorting.sortBottomUpOn",
+        "Applications.Sorting.sortBottomUpOn_correct",
+        "Applications.Sorting.sortBottomUpRevBy",
+        "Applications.Sorting.sortBottomUpRevBy_length",
+        "Applications.Sorting.sortBottomUpRevBy_multiset",
+        "Applications.Sorting.sortBottomUpRevBy_nil",
+        "Applications.Sorting.sortBottomUpRevBy_perm",
+        "Applications.Sorting.sortBottomUpRevBy_singleton",
+        "Applications.Sorting.sortBottomUpRevBy_sorted_compatible_on",
+        "Applications.Sorting.sortBottomUpRevOn",
+        "Applications.Sorting.sortBottomUpRevOn_correct",
+        "Examples.AlternatingSorting.accumulator_multiset",
+        "Examples.AlternatingSorting.arbitrary_comparator_occurrences",
+        "Examples.AlternatingSorting.arbitrary_payload_order",
+        "Examples.AlternatingSorting.duplicate_source_value",
+        "Examples.AlternatingSorting.empty_halve_payload",
+        "Examples.AlternatingSorting.empty_sort_payload",
+        "Examples.AlternatingSorting.even_halve_example",
+        "Examples.AlternatingSorting.even_halve_lengths",
+        "Examples.AlternatingSorting.local_comparator_sorted",
+        "Examples.AlternatingSorting.recursive_halves",
+        "Examples.AlternatingSorting.singleton_halve_payload",
+        "Examples.AlternatingSorting.singleton_sort_payload",
+        "Examples.AlternatingSorting.source_halve_example",
+        "Examples.AlternatingSorting.source_halve_lengths",
+        "Examples.AlternatingSorting.source_multiset",
+        "Examples.AlternatingSorting.source_sort_three_equation",
+        "Examples.AlternatingSorting.source_variant_not_stable",
+        "Examples.AlternatingSorting.unbalanced_initial_piles",
+        "Examples.BottomUpSorting.arbitrary_accumulator_run_count",
+        "Examples.BottomUpSorting.arbitrary_accumulator_total_length",
+        "Examples.BottomUpSorting.arbitrary_accumulator_value",
+        "Examples.BottomUpSorting.arbitrary_comparator_preserves_occurrences",
+        "Examples.BottomUpSorting.empty_inner_runs_are_counted",
+        "Examples.BottomUpSorting.empty_payload",
+        "Examples.BottomUpSorting.even_uniform_runs_double",
+        "Examples.BottomUpSorting.local_comparator_ordinary",
+        "Examples.BottomUpSorting.local_comparator_tail",
+        "Examples.BottomUpSorting.natCompare",
+        "Examples.BottomUpSorting.odd_runs_do_not_all_double",
+        "Examples.BottomUpSorting.ordinary_duplicate_sort",
+        "Examples.BottomUpSorting.ordinary_equal_keys",
+        "Examples.BottomUpSorting.raggedRuns",
+        "Examples.BottomUpSorting.ragged_duplicate_occurrences",
+        "Examples.BottomUpSorting.ragged_multiset_as_sum",
+        "Examples.BottomUpSorting.ragged_pass_value",
+        "Examples.BottomUpSorting.ragged_run_count",
+        "Examples.BottomUpSorting.ragged_sum_lengths",
+        "Examples.BottomUpSorting.ragged_total_length",
+        "Examples.BottomUpSorting.signed_record_correct",
+        "Examples.BottomUpSorting.singleton_payload",
+        "Examples.BottomUpSorting.singleton_unsorted_run",
+        "Examples.BottomUpSorting.tail_duplicate_sort",
+        "Examples.BottomUpSorting.tail_equal_keys",
+        "Examples.BottomUpSorting.tail_pass_need_not_equal_ordinary_pass",
+        "Examples.BottomUpSorting.tail_sort_need_not_be_stable",
+        "Examples.BottomUpSorting.unsorted_accumulator_multiset"
+      ],
+      "exact_current_source_hashes": {
+        "Applications/Sorting/Alternating.lean": "eb927e5978ea410f360441dfa8d4843b5e93de10aae8a5eac5c2f603f4e233e9",
+        "Applications/Sorting/BottomUp.lean": "4df83022174bc4e5becfb441617624d57695158d69dc7241209ca077dc2c7791",
+        "Examples/AlternatingSorting.lean": "5798ed2ce20dab0ce4b9618fea1e8ea36a7be9b2f60fa7090a85522bfb464c04",
+        "Examples/BottomUpSorting.lean": "1d4a312363af87926c085f790ca7279273df050f40234c449e0e0fa9e5b5592b"
+      },
+      "unmatched_printed_names": []
+    },
+    {
+      "run": "chapter02-top-down-costs-types-20261104",
+      "candidate": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+      "exit_code": 0,
+      "final_head": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+      "final_status": "",
+      "result_sha256": "d8b25ce6073928f25fbebca98ebe94cb30e7e3dca3d7d46d7310b17c3ca5eb2b",
+      "full_log_bytes": 11545,
+      "full_log_sha256": "ad826e1d3c972acbb437e9bceb5403ba230275033c623dc5526649eb2e79e6c8",
+      "program": "chapter02-top-down-costs-proof-corrections-20261104/TypeInspection.lean",
+      "program_sha256": "3f235ac70f6fa1b2234a5899f5ba25f7de7e9caee35c0b8f90b8de98e96ab5c8",
+      "print_options": [
+        [
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "check_count": 32,
+      "print_count": 0,
+      "matched_public_names": [
+        "Examples.TopDownCosts.ceilThreeRun_value",
+        "Examples.TopDownCosts.ceil_ascending",
+        "Examples.TopDownCosts.ceil_descending",
+        "Examples.TopDownCosts.descending_family_isBigO",
+        "Examples.TopDownCosts.empty_and_singleton",
+        "Examples.TopDownCosts.empty_payload",
+        "Examples.TopDownCosts.floor_ascending",
+        "Examples.TopDownCosts.floor_descending",
+        "Examples.TopDownCosts.floor_three_run",
+        "Examples.TopDownCosts.pair_run",
+        "Examples.TopDownCosts.power_zero_boundary",
+        "Examples.TopDownCosts.raw_occurrences_and_bound",
+        "Examples.TopDownCosts.same_values_different_comparisons",
+        "Examples.TopDownCosts.tagged_exact",
+        "Examples.TopDownCosts.tagged_stable",
+        "Resources.TopDownSorting.comparisons_isBigO",
+        "Resources.TopDownSorting.comparisons_le_clog",
+        "Resources.TopDownSorting.comparisons_le_of_length_pow",
+        "Resources.TopDownSorting.comparisons_le_real_log",
+        "Resources.TopDownSorting.comparisons_le_real_log_of_length_pow",
+        "Resources.TopDownSorting.comparisons_of_length_le",
+        "Resources.TopDownSorting.comparisons_step",
+        "Resources.TopDownSorting.comparisons_step_le",
+        "Resources.TopDownSorting.run",
+        "Resources.TopDownSorting.run_length",
+        "Resources.TopDownSorting.run_of_length_le",
+        "Resources.TopDownSorting.run_perm",
+        "Resources.TopDownSorting.run_stable_spec",
+        "Resources.TopDownSorting.run_step",
+        "Resources.TopDownSorting.run_value",
+        "Resources.clog_two_cast_le_two_logb",
+        "Resources.isBigO_of_clog_two_bound"
+      ],
+      "exact_current_source_hashes": {
+        "Examples/TopDownCosts.lean": "8f5f6969049712a5a5d37f7beb78c09017a2835b5f1208e54d0c9912dff425a4",
+        "Applications/Resources/TopDownSorting.lean": "26531f25e57c0d198fc90d0a10652051ac6159098f493629af3283b54ab687bc",
+        "Applications/Resources/Growth.lean": "99be17f2d45ac30de1e912c2181460dac046c8b98e40ea3209abfec342107786"
+      },
+      "unmatched_printed_names": []
+    },
+    {
+      "run": "chapter02-uniqueness-types-20261104",
+      "candidate": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+      "exit_code": 0,
+      "final_head": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+      "final_status": "",
+      "result_sha256": "edcdaf9dcb6432522c27b00cf50d79ec2ca672e3a1853a4b62668cef49400cab",
+      "full_log_bytes": 6817,
+      "full_log_sha256": "11b58acd78c4f7b77bf4fbdb8bd7e4ca48378dcb2fab8c32d91fd0e4ccebda3f",
+      "program": "chapter02-uniqueness-statement-source-20261104/Statements.lean",
+      "program_sha256": "5d5cb3cfd591633c6e0ef635094917f19f60f2db1e226df3782ba963f01fd5bf",
+      "print_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ],
+        [
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "check_count": 9,
+      "print_count": 0,
+      "matched_public_names": [
+        "Applications.Sorting.sorters_eq",
+        "Applications.Sorting.sorters_eq_at",
+        "Applications.Sorting.sorters_eq_of_multiset",
+        "Examples.SortUniqueness.constant_key_boundary",
+        "Examples.SortUniqueness.equality_order_boundary",
+        "Examples.SortUniqueness.first_pivot_eq_floor",
+        "Examples.SortUniqueness.floor_mixed_duplicates",
+        "Examples.SortUniqueness.reverse_eq_of_equal",
+        "Examples.SortUniqueness.three_way_eq_floor"
+      ],
+      "exact_current_source_hashes": {
+        "Applications/Sorting/Uniqueness.lean": "e0df544f59be358a3e40ad48f25115ae2ba3b4507a30cdeb3425907bf94c8744",
+        "Examples/SortUniqueness.lean": "ce63cd0d8a953f9441b9b6b1597f9a3604ef736131290cba8c0430c36cd177b7"
+      },
+      "unmatched_printed_names": []
+    },
+    {
+      "run": "chapter02-natural-runs-statements-20261104",
+      "candidate": "ff9749d1ccbcb0949486f67d6273e28c262280e0",
+      "exit_code": 0,
+      "final_head": "ff9749d1ccbcb0949486f67d6273e28c262280e0",
+      "final_status": "",
+      "result_sha256": "581563a848ae2d6dcbb995fbfa0fe9ea098193fd5940aece7b5b6dbd52dbaf41",
+      "full_log_bytes": 22632,
+      "full_log_sha256": "bcde796041ddae8ec96f0e13e3231501cf9170f8cded41dc9565b54a8fc1af31",
+      "program": "chapter02-natural-runs-statements-20261104/statements.lean",
+      "program_sha256": "d56c25d992aa23e63c9bfa51cf4561f8ae2e6c1f186dda1493d0741673b372e4",
+      "print_options": [],
+      "check_count": 104,
+      "print_count": 3,
+      "matched_public_names": [
+        "Applications.Sorting.DListLaw",
+        "Applications.Sorting.DListLaw.push",
+        "Applications.Sorting.ascBy",
+        "Applications.Sorting.ascBy_cons",
+        "Applications.Sorting.ascBy_flatten_length",
+        "Applications.Sorting.ascBy_length_le",
+        "Applications.Sorting.ascBy_multiset",
+        "Applications.Sorting.ascBy_ne_nil",
+        "Applications.Sorting.ascBy_nil",
+        "Applications.Sorting.ascBy_nonempty",
+        "Applications.Sorting.ascBy_of_chain",
+        "Applications.Sorting.ascBy_pairwise_on",
+        "Applications.Sorting.ascBy_perm",
+        "Applications.Sorting.ascBy_sorted",
+        "Applications.Sorting.ascBy_sorted_compatible_on",
+        "Applications.Sorting.ascSourceBy",
+        "Applications.Sorting.ascSourceBy_cons",
+        "Applications.Sorting.ascSourceBy_flatten_length",
+        "Applications.Sorting.ascSourceBy_nil",
+        "Applications.Sorting.ascSourceBy_pairwise_on",
+        "Applications.Sorting.ascSourceBy_perm",
+        "Applications.Sorting.ascSourceBy_sorted",
+        "Applications.Sorting.dListLaw_cons",
+        "Applications.Sorting.dListLaw_iff",
+        "Applications.Sorting.dListOfLaw",
+        "Applications.Sorting.dListOfLaw_apply",
+        "Applications.Sorting.dListOfLaw_push",
+        "Applications.Sorting.dListOfLaw_toList",
+        "Applications.Sorting.dList_apply_eq",
+        "Applications.Sorting.dList_push_apply",
+        "Applications.Sorting.descBy",
+        "Applications.Sorting.descBy_cons",
+        "Applications.Sorting.descBy_flatten_length",
+        "Applications.Sorting.descBy_length_le",
+        "Applications.Sorting.descBy_multiset",
+        "Applications.Sorting.descBy_ne_nil",
+        "Applications.Sorting.descBy_nil",
+        "Applications.Sorting.descBy_nonempty",
+        "Applications.Sorting.descBy_of_chain",
+        "Applications.Sorting.descBy_pairwise_on",
+        "Applications.Sorting.descBy_perm",
+        "Applications.Sorting.descBy_sorted",
+        "Applications.Sorting.descBy_sorted_compatible_on",
+        "Applications.Sorting.mem_runsBy_flatten",
+        "Applications.Sorting.runsBy",
+        "Applications.Sorting.runsBy_cons_cons",
+        "Applications.Sorting.runsBy_eq_nil_iff",
+        "Applications.Sorting.runsBy_flatten_length",
+        "Applications.Sorting.runsBy_length_le",
+        "Applications.Sorting.runsBy_multiset",
+        "Applications.Sorting.runsBy_nil",
+        "Applications.Sorting.runsBy_nonempty",
+        "Applications.Sorting.runsBy_of_ascending_chain",
+        "Applications.Sorting.runsBy_of_descending_chain",
+        "Applications.Sorting.runsBy_pairwise_on",
+        "Applications.Sorting.runsBy_perm",
+        "Applications.Sorting.runsBy_singleton",
+        "Applications.Sorting.runsBy_sorted_compatible_on",
+        "Applications.Sorting.runsOn",
+        "Applications.Sorting.runsOn_of_sorted",
+        "Applications.Sorting.runsOn_of_strictly_descending",
+        "Applications.Sorting.runsOn_sorted",
+        "Examples.NaturalRuns.Record",
+        "Examples.NaturalRuns.arbitrary_builder_length",
+        "Examples.NaturalRuns.arbitrary_builder_occurrences",
+        "Examples.NaturalRuns.arbitrary_builder_restart",
+        "Examples.NaturalRuns.arbitrary_builder_run_bound",
+        "Examples.NaturalRuns.arbitrary_builder_sorted",
+        "Examples.NaturalRuns.ascending_ties",
+        "Examples.NaturalRuns.descending_reversal",
+        "Examples.NaturalRuns.empty_is_not_one_run",
+        "Examples.NaturalRuns.empty_payload",
+        "Examples.NaturalRuns.equalAccumulator",
+        "Examples.NaturalRuns.equalCurrent",
+        "Examples.NaturalRuns.lawful_builder_does_not_imply_sorted",
+        "Examples.NaturalRuns.local_comparator_is_not_globally_compatible",
+        "Examples.NaturalRuns.local_comparator_sorted",
+        "Examples.NaturalRuns.mixedRecords",
+        "Examples.NaturalRuns.mixedRuns",
+        "Examples.NaturalRuns.mixed_equal_key_order",
+        "Examples.NaturalRuns.mixed_expected_blocks_sorted",
+        "Examples.NaturalRuns.mixed_occurrences",
+        "Examples.NaturalRuns.mixed_records",
+        "Examples.NaturalRuns.mixed_shape",
+        "Examples.NaturalRuns.natLT",
+        "Examples.NaturalRuns.nonnegativeLT",
+        "Examples.NaturalRuns.nonnegative_compatible",
+        "Examples.NaturalRuns.payloads_need_no_structure",
+        "Examples.NaturalRuns.restart_blocks_sorted",
+        "Examples.NaturalRuns.restart_boundary",
+        "Examples.NaturalRuns.restart_flatten_not_sorted",
+        "Examples.NaturalRuns.seededBuilder",
+        "Examples.NaturalRuns.seededBuilder_law",
+        "Examples.NaturalRuns.singleton",
+        "Examples.NaturalRuns.sorted_prefix_needs_upper_bound",
+        "Examples.NaturalRuns.unsortedBuilder",
+        "Examples.NaturalRuns.unsortedBuilder_law",
+        "Examples.NaturalRuns.unsorted_builder_value",
+        "Examples.NaturalRuns.weak_descending_not_stable",
+        "Examples.NaturalRuns.weak_descending_occurrences",
+        "Examples.NaturalRuns.weak_descending_sorted",
+        "Examples.NaturalRuns.weak_descending_value",
+        "Examples.NaturalRuns.weak_descent_not_one_reversal",
+        "Examples.NaturalRuns.weak_descent_with_ties"
+      ],
+      "exact_current_source_hashes": {
+        "Applications/Sorting/NaturalRuns.lean": "123c711b5f0cf05074155f3a0d9ae076aa80a8be482e7e6fc77626aa9db6fb1d",
+        "Examples/NaturalRuns.lean": "ef0ed6bbc5beb40815f977e80c0b99b0633e8503b0b1634747d41275cb3f6041"
+      },
+      "unmatched_printed_names": []
+    },
+    {
+      "run": "chapter02-quicksort-statements-20261104",
+      "candidate": "840252e63026bba5eab109f2b16468deef7670ec",
+      "exit_code": 0,
+      "final_head": null,
+      "final_status": "",
+      "result_sha256": "5603d4d2b028996dfb2cdbfa417a74cbcd53dc5cfd74fb48271d99d22e9dc746",
+      "full_log_bytes": 5491,
+      "full_log_sha256": "e752dc669d2987d02b11270211f978fd5bb575b4566233fbfbfbe3b7e81bc440",
+      "program": "chapter02-quicksort-statements-20261104/statements.lean",
+      "program_sha256": "648822ba3ec1cebdf007f4dff758647b628d81a755f261804c2cd696ebe5f78b",
+      "print_options": [
+        [
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "check_count": 14,
+      "print_count": 0,
+      "matched_public_names": [
+        "Applications.Sorting.quickSortAccBy",
+        "Applications.Sorting.quickSortAccBy_eq_append",
+        "Applications.Sorting.quickSortAccOn_cons",
+        "Applications.Sorting.quickSortAccOn_correct",
+        "Applications.Sorting.quickSortAccOn_eq_append",
+        "Applications.Sorting.quickSortBy",
+        "Applications.Sorting.quickSortBy_perm",
+        "Applications.Sorting.quickSortBy_sorted_compatible_on",
+        "Applications.Sorting.quickSortOn_cons",
+        "Applications.Sorting.quickSortOn_correct",
+        "Examples.QuickSort.arbitrary_payload_suffix",
+        "Examples.QuickSort.source_complementary_multiset",
+        "Examples.QuickSort.source_filter_multiset",
+        "Examples.QuickSort.source_sorted_append"
+      ],
+      "exact_current_source_hashes": {
+        "Applications/Sorting/QuickSort.lean": "696ae63c3f5c23940ac0f05c8ac6b48bff74b65e4c66faf319283efedea73802",
+        "Examples/QuickSort.lean": "2e5e4952bae8edf1fd5985f0cfd40993363a2f642717d61161a2e5ee6835a162"
+      },
+      "unmatched_printed_names": []
+    },
+    {
+      "run": "ordinary-merge-type-inspection-20261104",
+      "candidate": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "exit_code": 0,
+      "final_head": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "final_status": "",
+      "result_sha256": "b410a2972784d2bc661f17599d0c0ed66e27639e77df06da34b3de7aa7bde883",
+      "full_log_bytes": 9351,
+      "full_log_sha256": "4645276a14c159ab587b16acb8d11e8db95615c9a41c8fff69384c4b42f85910",
+      "program": "ordinary-merge-focused-20261104-proof-corrections/TypeInspection.lean",
+      "program_sha256": "72709d2b0430fa10684f3ca088a5d0041568ccfe3182653ce6aec731d49b1215",
+      "print_options": [
+        [
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "check_count": 17,
+      "print_count": 0,
+      "matched_public_names": [
+        "Applications.Sorting.merge_sorted_compatible_on_iff",
+        "Applications.Sorting.pairwise_of_merge",
+        "Applications.Sorting.sublist_merge_left",
+        "Applications.Sorting.sublist_merge_right",
+        "Examples.MergeCosts.actual_input_matters",
+        "Examples.MergeCosts.key_source_value",
+        "Examples.MergeCosts.queueBody_observation",
+        "Examples.MergeCosts.source_key_sorted_iff",
+        "Examples.MergeCosts.tagged_key_transport",
+        "Examples.MergeCosts.tagged_values",
+        "Examples.MergeCosts.twoStage_observation",
+        "Resources.ListMerge.comparisons_le",
+        "Resources.ListMerge.entries_eq_comparisons_add_one",
+        "Resources.ListMerge.entries_le",
+        "Resources.ListMerge.run_entries_cons_cons",
+        "Resources.ListMerge.run_map",
+        "Resources.ListMerge.run_value"
+      ],
+      "exact_current_source_hashes": {
+        "Applications/Sorting/Merge.lean": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+        "Examples/MergeCosts.lean": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466",
+        "Applications/Resources/ListMerge.lean": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975"
+      },
+      "unmatched_printed_names": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "C02-TYPE-001",
+      "kind": "evidence gap",
+      "status": "Resolved on Standards axis at exact4b5dbfa0; same-loop final acceptance remains Blocked",
+      "summary": "All815 current full types independently read and qualified. Together with920 qualified historical types and28 retained accepted-base declarations, the complete1763 explicit public names are accounted for; no unresolved statement-evidence gap remains on Standards.",
+      "source_defect_asserted": false,
+      "previous_disposition_preserved": {
+        "kind": "evidence gap",
+        "status": "Open",
+        "summary": "814 current outputs pending:793 original+7 changed Growth/import dependency+14 absent secured QuickSort type-run final identity.920 historical outputs are qualified; all941 historical outputs remain independently read.",
+        "source_defect_asserted": false
+      },
+      "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "assessment": {
+        "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+        "bytes": 23539,
+        "lines": 472,
+        "sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510"
+      }
+    },
+    {
+      "id": "C02-DOC-001",
+      "status": "Fixed and independently source-confirmed at 9409826; final terminal gates pending",
+      "kind": "public-root integration documentation",
+      "evidence": "ProofAudit.lean imports SquareApplications at line1 and identifies that import as complete public entrypoint; scripts/check.py checks coverage from SquareApplications before visiting ProofAudit.",
+      "required_disposition": "Add23 imports only to SquareApplications; preserve audit/checker implementation; correct original proposal and map statements about both/each/two public roots in a new applied revision while retaining the original draft.",
+      "scope_reduction": false,
+      "candidate": "9409826e199ac29c6a1e3c05dd58f6f536d08704"
+    },
+    {
+      "id": "C02-DOC-002",
+      "status": "Fixed and independently source-confirmed at 9409826; final terminal gates pending",
+      "candidate": "9409826e199ac29c6a1e3c05dd58f6f536d08704",
+      "summary": "Applied public note records actual failed focused6, exact preserving lineage, applied root exposure and included shared gate ordering."
+    },
+    {
+      "id": "C02-DOC-003",
+      "kind": "Shared-note validation status and prerequisite accuracy",
+      "status": "Open pending exact application; proposal correction1 independently assessed",
+      "candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+      "summary": "Six source notes require the reviewed historical-status updates. Original Tail proposal also called checks cited without identifying citations; new correction1 removes that unsupported reference with a verified two-line wording change. All proposals remain outside repository source.",
+      "mathematical_or_architectural_weakening_found": false,
+      "evidence": {
+        "path": "provenance/chapter02-standards-source-preparation-20261104/shared-note-proposals-assessment-6b95185.json",
+        "bytes": 69126,
+        "lines": 1616,
+        "sha256": "ce1ce7e51e89485294e7cdeb3ed3e5ca663e72e720ab434c3f6992a1022e0e16"
+      }
+    }
+  ],
+  "corrective_continuation": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/corrective-continuation.json",
+    "sha256": "7ffa1f05198a17bdbe0c37e70be1b25a3e77ce1e0843113bf7912bc1c44af472"
+  },
+  "public_documentation_proposal_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/public-documentation-assessment.json",
+    "sha256": "dd073774ca90db7fb9ab3c6a8f50fd94a1479b6d05bcb86650c3afd6ebcae885"
+  },
+  "ordinary_profile_type_assessment": {
+    "count": 293,
+    "fully_read": true,
+    "families": {
+      "bottom_up_alternating_126": "Actual signatures retain arbitrary raw comparisons, arbitrary piles/accumulators and explicit local sortedness conditions; boundaries expose absent evenness/stability premises.",
+      "natural_runs_104": "Actual signatures retain all prefix/current/tail arguments and order invariants; three printed definitions additionally expose DListLaw all-suffix quantification and its raw source builder.",
+      "top_down_costs_32": "Actual types retain all-length bounds, explicit power-of-two and positive-log domains, actual comparator/list inputs, and defined comparison projections.",
+      "first_pivot_values_14": "Explicit @ applications display payload universe and raw comparator/suffix quantification; local sortedness and complementary-filter assumptions are visible.",
+      "ordinary_merge_17": "Explicit @ applications expose independent map universes, raw comparator laws, actual cost projections and local key/compatibility hypotheses without added payload requirements."
+    },
+    "concrete_hidden_quantifier_or_premise_gap": null,
+    "blanket_repeat_requested": false,
+    "note": "Printing profiles are retained exactly. No claim that these293 have pp.explicit enabled; source definitions and fully displayed binder lists disambiguate the actual inspected contracts."
+  },
+  "successor_source_reconciliation": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-9409826.json",
+    "sha256": "c6a6f1b57af57755f7f109ab1b2d0143a80df1608a678be4c68f515cda674b57"
+  },
+  "historical_type_receipt_candidate": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+  "uniform_repair1_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/uniform-repair1-assessment.json",
+    "sha256": "eebde100f1e56e4c83ff874344031bcb94a7e8ac504a450c22209f851dc13d74"
+  },
+  "latest_successor_source_reconciliation": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-4b5dbfa0.json",
+    "bytes": 27181,
+    "lines": 505,
+    "sha256": "3ae1e9749b8633e64a0adc14bb9cc96f5ee6cd5ba338dd45d55ddeac3df161d7"
+  },
+  "isolated_rank_examples_repair1": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/rank-examples-repair1-assessment.json",
+    "sha256": "e870eb960ceaf63a15d1fd0bf3cd31df01c5b666a33217a73ff0eff13ee0dce9"
+  },
+  "prepared_type_program_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/prepared-type-program-assessment-5398db7.json",
+    "sha256": "b037204ffbeb70b59cd5968761c1e2a43acee5a053e5a967a3abcd15bd4ea645"
+  },
+  "isolated_tail_boundary_repair3": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/tail-boundary-repair3-assessment.json",
+    "bytes": 5713,
+    "sha256": "f9d3b7a84261511e6b93d6aaf363c9e538fae80786939608e7a09eb6def605c8"
+  },
+  "focused7_terminal_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/focused7-terminal-assessment.json",
+    "bytes": 4083,
+    "sha256": "6d325a753f0fef61c846b13553d74b9cb973480745b2119a8dde8664fc9e8ab3"
+  },
+  "historical_type_dependency_reuse_audit": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/historical-type-dependency-assessment-6b95185.json",
+    "bytes": 312652,
+    "lines": 6578,
+    "sha256": "4cf7c71ed470047083093dd8a5212d3eaa6013b9e2a7ed9e0ae9e15426d9f9ab"
+  },
+  "isolated_uniform_repair2": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/uniform-repair2-assessment.json",
+    "bytes": 4006,
+    "sha256": "155b3552cf6d6c292670f488299a8b353d043c13f723c8611dcc1423578e0512"
+  },
+  "isolated_growth_examples_repair1": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/growth-examples-repair1-assessment.json",
+    "bytes": 2804,
+    "sha256": "86d7a5011b935cd54abaaef50b52809fc8ce99fb4ae4e0f093fa10413f6acab9"
+  },
+  "current_type_evidence_disposition": {
+    "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "historical_outputs_actually_read": 941,
+    "historical_expanded": 648,
+    "historical_ordinary": 293,
+    "qualified_historical_current_type_evidence": 920,
+    "qualified_historical_expanded": 648,
+    "qualified_historical_ordinary": 272,
+    "actual_current_outputs_independently_read_and_qualified": 815,
+    "current_expanded": 815,
+    "changed_dependency_reinspection_resolved": 7,
+    "missing_final_identity_reinspection_resolved": 14,
+    "distinct_qualified_actual_names": 1735,
+    "accepted_base_retained": 28,
+    "current_pending": 0,
+    "public_inventory": 1763,
+    "reconciliation": "920 +815 +28 =1763;1735 distinct public names have qualified actual type evidence;28 retained accepted-base names are separate.",
+    "no_foundation110_subset_credit": true,
+    "finding": "C02-TYPE-001 resolved on Standards axis at exact4b5; whole-candidate Blocked."
+  },
+  "prepared_type_program814_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/prepared-type-program814-assessment-6b95185.json",
+    "bytes": 18259,
+    "lines": 434,
+    "sha256": "74b1758b81ce5d1b727028bd8e075f224500c77647f2683e09f53fc265a6bb32"
+  },
+  "shared_note_proposals_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/shared-note-proposals-assessment-6b95185.json",
+    "bytes": 69126,
+    "lines": 1616,
+    "sha256": "ce1ce7e51e89485294e7cdeb3ed3e5ca663e72e720ab434c3f6992a1022e0e16"
+  },
+  "focused8_terminal_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/focused8-terminal-assessment.json",
+    "bytes": 5911,
+    "lines": 160,
+    "sha256": "52d6b1c6d79056fb0a5958655bc00caa013f7d4cb141508665a7a4950345bcd5"
+  },
+  "foundation_standards_continuation": {
+    "report": {
+      "path": "reviews/shared-foundations-standards-continuation-20261104.md",
+      "bytes": 8391,
+      "lines": 129,
+      "sha256": "6e09c7114bbaa2a4d5a7eb538eaf6c2fc29f0bc64d5427afc0a52ceecd68e559"
+    },
+    "receipt": {
+      "path": "provenance/shared-foundations-standards-continuation-20261104/identity-and-preparation.json",
+      "bytes": 18508,
+      "lines": 437,
+      "sha256": "6302153f8f1efde64ed4066ce41d84e4eafa64ef971ca081745f2a0dd8767762"
+    },
+    "scope_separate_from_Chapter2_acceptance": true,
+    "outcome": "Blocked pending exactF actual terminal validation and145 output; original full foundation source assessment retained."
+  },
+  "isolated_tail_boundary_repair4": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/tail-boundary-repair4-assessment.json",
+    "bytes": 9371,
+    "lines": 239,
+    "sha256": "079a7c0b3f8f5edde18cf362730fc7af64dca9da5ab130035cb9f295acc1c22b"
+  },
+  "focused9_terminal_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/focused9-terminal-assessment.json",
+    "bytes": 8421,
+    "lines": 131,
+    "sha256": "bc6db19f7c7bb0b24ee7c79cf91b619ff86d12e07ecb3cda0db0a182dc177c82"
+  },
+  "successor_source_binding_0a7ef078": {
+    "receipt": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/foundation110-potential-type-reuse-0a7ef078.json",
+      "bytes": 122392,
+      "lines": 3445,
+      "sha256": "23ec745628fc15a330a492bc70f4a22d9fb452faaf9ba482006cebf7d3546bc0"
+    },
+    "section": "full_source_scope_binding",
+    "candidate": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+    "full_scope_paths": 81,
+    "only_changed_path": "Examples/PermutationTailBoundary.lean",
+    "independent_exact_delta_receipt": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/tail-boundary-repair4-assessment.json",
+      "bytes": 9371,
+      "lines": 239,
+      "sha256": "079a7c0b3f8f5edde18cf362730fc7af64dca9da5ab130035cb9f295acc1c22b"
+    }
+  },
+  "potential_foundation110_reuse_preparation": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/foundation110-potential-type-reuse-0a7ef078.json",
+    "bytes": 122392,
+    "lines": 3445,
+    "sha256": "23ec745628fc15a330a492bc70f4a22d9fb452faaf9ba482006cebf7d3546bc0"
+  },
+  "isolated_tail_main_repair5": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/tail-main-repair5-assessment.json",
+    "bytes": 19227,
+    "lines": 500,
+    "sha256": "1c006f41928dee82f996609b64d0d5ec37cc0c8734a71c46c5f7ee43679a1c3f"
+  },
+  "successor_source_reconciliation_8ba7ae11": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-8ba7ae11.json",
+    "bytes": 6016,
+    "lines": 151,
+    "sha256": "c4a55f3a097dd95c7b977e7ff9dd0a5ef706705325447cf17ec182f5b8da7764"
+  },
+  "focused10_terminal_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/focused10-terminal-assessment.json",
+    "bytes": 14055,
+    "lines": 322,
+    "sha256": "4d8de7d8caedc9e15a287913793d27e024cd2a32adc2634223cd7ab11a293fc1"
+  },
+  "isolated_uniform_examples_repair2": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/uniform-examples-repair2-assessment.json",
+    "bytes": 29243,
+    "lines": 837,
+    "sha256": "d3a5cf2e5351b6a9953b96018cea53bda349079e42af63954538505206c3b62f"
+  },
+  "historical_8ba7ae11_type_evidence_disposition": {
+    "historical_outputs_actually_read": 941,
+    "historical_expanded": 648,
+    "historical_ordinary": 293,
+    "dependency_config_matching_historical": 934,
+    "qualified_historical_current_type_evidence": 920,
+    "qualified_expanded": 648,
+    "qualified_ordinary": 272,
+    "changed_dependency_reinspection": 7,
+    "missing_type_run_final_identity_reinspection": 14,
+    "previous_pending_original": 793,
+    "current_pending": 814,
+    "accepted_base_retained": 28,
+    "public_inventory": 1762,
+    "reconciliation": "920 + 814 + 28 = 1762",
+    "no_future_foundation110_subset_credit": true
+  },
+  "current_explicit_public_inventory": {
+    "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "count": 1763,
+    "private_named": 70,
+    "anonymous_instances": 19,
+    "added_name": "Examples.UniformQuickSortMean.instFintypeLabel",
+    "original1762_inventory_retained": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/public-type-accounting.json",
+      "bytes": 1070441,
+      "sha256": "a67cdd001115164b268d0c8d2b2a2dc2c6d95d46970a02bb17a324edb146e556",
+      "public_named_count": 1762,
+      "actual_printed_types": 941,
+      "prepared_only": 468,
+      "additional_missing_current": 325,
+      "retained_accepted_base": 28,
+      "anonymous_instances": 19,
+      "private_named": 70,
+      "additional_missing_names_sha256": "9b9d7bd4945035e456c88fddb3372a57b2f72c6d59e5dffb1eb095d8c620c715"
+    },
+    "source_of_current_delta": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/uniform-examples-repair2-assessment.json",
+      "bytes": 29243,
+      "lines": 837,
+      "sha256": "d3a5cf2e5351b6a9953b96018cea53bda349079e42af63954538505206c3b62f"
+    },
+    "complete_current_binding": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-4b5dbfa0.json",
+      "bytes": 27181,
+      "lines": 505,
+      "sha256": "3ae1e9749b8633e64a0adc14bb9cc96f5ee6cd5ba338dd45d55ddeac3df161d7"
+    },
+    "actual_new_type_credit": 815,
+    "actual_new_type_credit_boundary": "Qualified actual815 statement-inspection evidence; no candidate acceptance or separate Foundation reuse credit."
+  },
+  "successor_source_reconciliation_4b5dbfa0": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-4b5dbfa0.json",
+    "bytes": 27181,
+    "lines": 505,
+    "sha256": "3ae1e9749b8633e64a0adc14bb9cc96f5ee6cd5ba338dd45d55ddeac3df161d7"
+  },
+  "focused11_terminal_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/focused11-terminal-assessment.json",
+    "bytes": 8996,
+    "lines": 201,
+    "sha256": "13260e1035f549ddf42d63b16f1b4b2533d6f462272e0f0044043700bc23133c"
+  },
+  "actual815_execution_input_assessment": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-execution-input-assessment-4b5dbfa0.json",
+    "bytes": 7434,
+    "lines": 156,
+    "sha256": "489ae557c9eef766ef9bf2e2e85d124fb71658c6546e707b494fe738c27d569a"
+  },
+  "actual815_type_read_progress": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-type-review-progress.json",
+    "bytes": 123595,
+    "lines": 3562,
+    "sha256": "91b9df119e5b47cd94a7930001947eb2c14601d5d144149b796a8bb06f3f4d0b"
+  },
+  "historical_pre_actual815_complete_type_evidence_disposition": {
+    "historical_outputs_actually_read": 941,
+    "historical_expanded": 648,
+    "historical_ordinary": 293,
+    "dependency_config_matching_historical": 934,
+    "qualified_historical_current_type_evidence": 920,
+    "qualified_expanded": 648,
+    "qualified_ordinary": 272,
+    "changed_dependency_reinspection": 7,
+    "missing_type_run_final_identity_reinspection": 14,
+    "previous_pending_original": 793,
+    "previous_prepared814_preserved": true,
+    "new_explicit_instance_pending": 1,
+    "current_pending": 815,
+    "accepted_base_retained": 28,
+    "public_inventory": 1763,
+    "reconciliation": "920 + 815 + 28 = 1763",
+    "no_future_foundation110_subset_credit": true
+  },
+  "historical_actual815_partial_semantic_review": {
+    "fully_read_and_assessed_type_count": 706,
+    "completed_type_number_ranges_inclusive": [
+      [
+        1,
+        705
+      ],
+      [
+        815,
+        815
+      ]
+    ],
+    "native_ranges_actually_read_inclusive": [
+      [
+        1,
+        10218
+      ],
+      [
+        11648,
+        11650
+      ]
+    ],
+    "next_contiguous_native_line": 10219,
+    "remaining_complete_types": 109,
+    "type_credit_or_foundation_reuse_granted": 0,
+    "status": "In progress; no acceptance."
+  },
+  "actual815_complete_semantic_review": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+    "bytes": 23539,
+    "lines": 472,
+    "sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510"
+  },
+  "historical_selected_count_boundary": "Includes public example and relocated compatibility declarations. Not a count of new theorems or an exhaustive full-chapter type coverage claim."
+}

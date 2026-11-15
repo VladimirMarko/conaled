@@ -1,0 +1,41 @@
+{
+  "utc": "2026-11-02T06:36:01.217954+00:00",
+  "scope": "Advisory POSIX_FADV_DONTNEED on these two completed, uploaded, inactive checkpoint archives only. No content mutation, source/cache replacement or process signal.",
+  "before": {
+    "memory.current": "8589897728",
+    "memory.max": "8589934592",
+    "memory.swap.current": "0",
+    "memory.stat": {
+      "anon": "1729454080",
+      "file": "4775022592",
+      "active_file": "2322374656",
+      "inactive_file": "2440871936",
+      "file_mapped": "1024884736"
+    }
+  },
+  "files": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-009-frp-imports-candidate.tar.gz",
+      "size_bytes": 144390876,
+      "size_mtime_inode_unchanged": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-010-frp-demand-dependency.tar.gz",
+      "size_bytes": 144780869,
+      "size_mtime_inode_unchanged": true
+    }
+  ],
+  "after": {
+    "memory.current": "8589762560",
+    "memory.max": "8589934592",
+    "memory.swap.current": "0",
+    "memory.stat": {
+      "anon": "1729462272",
+      "file": "4774776832",
+      "active_file": "2325282816",
+      "inactive_file": "2437783552",
+      "file_mapped": "1021943808"
+    }
+  },
+  "limits": "Advisory request only. Aggregate counters also include concurrent activity; no controlled timing or speedup claim."
+}

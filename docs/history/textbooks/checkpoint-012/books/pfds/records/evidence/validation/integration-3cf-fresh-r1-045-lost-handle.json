@@ -1,0 +1,28 @@
+{
+  "time": "2026-11-03T23:58:16.887779+00:00",
+  "kind": "lost-execution-service-handle-observation",
+  "run_id": "integration-3cf-fresh-r1-045",
+  "tool_error": "write_stdin failed: Unknown process id 65713",
+  "original_json_sha256": "ad8d90bdd432a96390cae85a9c64eda2b237024fe3d9590652b31232b872f86b",
+  "original_status": "running",
+  "original_terminal_result_observed": false,
+  "log_sha256": "2330edea33aa402972c493831e192ee255722d3b7c4bcb1ce27b2aedcc924022",
+  "log_bytes": 8090,
+  "last_module_message": "[68/1101] Applications.Orbifolds.QuarterTurn (188.88s)",
+  "stock_verification_exists": false,
+  "locks": [
+    {
+      "name": "full-build.lock",
+      "state": "free; temporary observation lock acquired and released on exit"
+    },
+    {
+      "name": "focused-build.lock",
+      "state": "free; temporary observation lock acquired and released on exit"
+    }
+  ],
+  "terminal_exit_unknown": true,
+  "cause_unknown": true,
+  "no_lean_failure_or_success_inferred": true,
+  "formal_acceptance": false,
+  "original_record_unchanged": true
+}

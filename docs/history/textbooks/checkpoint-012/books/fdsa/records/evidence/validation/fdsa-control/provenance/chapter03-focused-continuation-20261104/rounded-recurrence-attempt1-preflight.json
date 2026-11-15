@@ -1,0 +1,42 @@
+{
+  "recorded_utc": "2026-11-04T19:32:06.694592+00:00",
+  "candidate": "a4cd1b6b53fdab38eab40433c3fd60293fdc054f",
+  "expectedHead": "8fef3ea5964f058f1c0036f53414d5d06fa56e59",
+  "base": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "acceptedHead": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "name": "chapter03-rounded-recurrence-focused-attempt1-20261104",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Resources.RoundedRecurrence",
+    "Examples.RoundedRecurrence"
+  ],
+  "expectedPaths": [
+    "Applications/Resources/RoundedRecurrence.lean",
+    "Examples/RoundedRecurrence.lean"
+  ],
+  "recordDirectory": "chapter03-focused-continuation-20261104",
+  "recordName": "rounded-recurrence-attempt1-preflight.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was 8fef3ea feat(selection): measure insertion selection helpers (#174)\nHEAD is now at a4cd1b6 feat(resources): prove rounded recurrence descent and sharp step (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758"
+    },
+    {
+      "path": "Examples/RoundedRecurrence.lean",
+      "bytes": 3782,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d"
+    }
+  ],
+  "candidate_tree": "cdf8f8ffb0ea2a4afb1188b489491064a89c0a49",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 796917760
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

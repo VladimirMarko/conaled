@@ -1,0 +1,243 @@
+{
+  "recorded_at_utc": "2026-11-02T07:03:55.196232+00:00",
+  "ticket": 1022,
+  "candidate": "bed44c16cee3e1eff6a4175bad9a7ed50651b927",
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 123.72488505100046,
+  "passed_staging_check": true,
+  "ilean_header": {
+    "module": "Applications.Progress.Evaluation",
+    "directImports": [
+      [
+        "Applications.Optimization.Relations",
+        false,
+        false,
+        false
+      ],
+      [
+        "Lean.Elab.Tactic.Omega",
+        false,
+        false,
+        false
+      ]
+    ]
+  },
+  "metadata_error": null,
+  "direct_imports_match": true,
+  "c_imported_initializer_declarations": [
+    "initialize_Init",
+    "initialize_Init",
+    "initialize_compilingWithSquares_Applications_Optimization_Relations",
+    "initialize_Lean_Elab_Tactic_Omega"
+  ],
+  "diagnostics": [],
+  "non_json_diagnostics": [],
+  "diagnostic_identity": {
+    "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/progress-evaluation-import/diagnostics.jsonl",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "staged_source_unchanged": true,
+  "all_other_bytes_identical": true,
+  "setup_byte_identical": true,
+  "no_imports_override": true,
+  "no_omega_mapping_added": true,
+  "heads_after": {
+    "/workspace/scratch/0c54f2db1fdf/conaled": "bed44c16cee3e1eff6a4175bad9a7ed50651b927",
+    "/workspace/scratch/0c54f2db1fdf/vfa-validation": "bed44c16cee3e1eff6a4175bad9a7ed50651b927"
+  },
+  "heads_unchanged": true,
+  "protected_inputs_after": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/Applications/Progress/Evaluation.lean",
+      "bytes": 5871,
+      "sha256": "8882235188cd0e293f3433d220b677f160b539f4829f899ed2a911c655ca059f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/Applications/Progress/Evaluation.lean",
+      "bytes": 5871,
+      "sha256": "8882235188cd0e293f3433d220b677f160b539f4829f899ed2a911c655ca059f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/ir/Applications/Progress/Evaluation.setup.json",
+      "bytes": 2330064,
+      "sha256": "146742d662b389d4c9721e06500e45e7bdc8a6fb039bd03af19298ef7986bdc3"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/Progress/Evaluation.trace",
+      "bytes": 2911,
+      "sha256": "ee3b498458cc23cec6db957bba066dfb2822b39325834213e297c1058b630d61"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/Optimization/Relations.olean",
+      "bytes": 89024,
+      "sha256": "ac11c47eb0273819a073a5c58c07d04275d9bd33d45dc25291bbe7a0e5b8de71"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega.ilean",
+      "bytes": 146,
+      "sha256": "8234ec3aab7bc93ffeb5886093efa731226ff676e1d086aa048402d5be182416"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega.ir",
+      "bytes": 1376,
+      "sha256": "a7b68be8a7588b222d84b39a0b6054be4aadde9418040891bc5b9b75db7b4266"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega.ir.sig",
+      "bytes": 176,
+      "sha256": "23381d2e915ebcc69e6366fd2c1f375d7417d9879426b2654fa316ec1d124a2a"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega.olean",
+      "bytes": 1224,
+      "sha256": "b61ae5aec1e482cdf5decdc5019abe9f1df3217a63d8c8fb7d5555196d7f9f4c"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega.olean.private",
+      "bytes": 96,
+      "sha256": "d364234ee7ffd50b454f629d70aaa0e26177380fad22720c2f3608a5e8298923"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega.olean.server",
+      "bytes": 9920,
+      "sha256": "81f69337b4b788f5a2194284c89737fd342ff3507dc57daeca567f5078a284d7"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega/Frontend.ilean",
+      "bytes": 117928,
+      "sha256": "a1738b285890f844b8049bbac35000ae907ed5082be6352ecbae7ae3d71c4cb9"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega/Frontend.ir",
+      "bytes": 1084512,
+      "sha256": "388a330d0b0a45de5343e632955851fd09993b3d5d5146f12386f289c2fa2aef"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega/Frontend.ir.sig",
+      "bytes": 176,
+      "sha256": "0641848ab7c42e2618057b8c45347dc548a315184d190633a69845797141b375"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega/Frontend.olean",
+      "bytes": 245240,
+      "sha256": "cb6b1bc754fdbf00da1665d5aec64421e7c026099aeee8b408ae22f79462f350"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega/Frontend.olean.private",
+      "bytes": 3146296,
+      "sha256": "c17c0734d9dffa704c141500ebb06feb6304be446a73905bbd489dde92cc7853"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Elab/Tactic/Omega/Frontend.olean.server",
+      "bytes": 15928,
+      "sha256": "6653197c4ce5f8b624bca681fe915ff5dbe6a28e4c4776bd85c445e10635c0f8"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/flake.nix",
+      "bytes": 637,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/flake.lock",
+      "bytes": 564,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/flake.nix",
+      "bytes": 637,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/flake.lock",
+      "bytes": 564,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/Applications/Optimization/Relations.lean",
+      "bytes": 3097,
+      "sha256": "b7927580cfe5b9ba783d1d072d6d0f6859d06ab7c694ddb71ce4e835bed02319"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/Optimization/Relations.ilean",
+      "bytes": 7251,
+      "sha256": "c87332278b0bcb0c4c92027fe4fb44c6bdb9778c149414a7c58ca96fc018a1fc"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/ir/Applications/Optimization/Relations.c",
+      "bytes": 17129,
+      "sha256": "42249fa9b469cbf09cc88833bf0265c67a773a6bf3719871ed01e18817f0fb0f"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/src/lean/Lean/Elab/Tactic/Omega.lean",
+      "bytes": 9449,
+      "sha256": "7a81cef2ff724f9f690993d01aef906b200ca11c36f72fb57f9e6e5eaf4ec45e"
+    },
+    {
+      "path": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/src/lean/Lean/Elab/Tactic/Omega/Frontend.lean",
+      "bytes": 30256,
+      "sha256": "835fe8c15d9ec38157c3ead0b1c68b0f0ee498049918fa4120cd2c7727bced53"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/temporal-finite-import/correction/SHA256SUMS",
+      "bytes": 1248,
+      "sha256": "70132e96a93c7aeac1fb1caf48e4f59d3071c097efc15be90f56854be67540b7"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/Progress/Evaluation.olean",
+      "bytes": 383992,
+      "sha256": "f790af224f4e3d700d3c55358991d04cf512a4b9885c52088eca03dcfe36fad9"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/Applications/Progress/Evaluation.ilean",
+      "bytes": 13342,
+      "sha256": "0c2fd2d6fa88ee3a9e1e2387c348c557d8a5bdabf7a5f53c3ecb771204e512e4"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/ir/Applications/Progress/Evaluation.c",
+      "bytes": 30459,
+      "sha256": "14dfd5df2c0af01dd47db6031d5acc601a33bc05a640b0c90376926a12ccc751"
+    }
+  ],
+  "changed_protected_inputs": [],
+  "generated_artifacts": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/progress-evaluation-import/out/Evaluation.c",
+      "bytes": 30467,
+      "sha256": "4087386ef3a1fb1038cef5166420dfc3842447c45ad787e601188f60e0d0de74"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/progress-evaluation-import/out/Evaluation.ilean",
+      "bytes": 13350,
+      "sha256": "23197c1ef4ba1aff9bccb6aeed06d2d42a265589c152a69e5d58e48cb116ea5e"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/progress-evaluation-import/out/Evaluation.olean",
+      "bytes": 384056,
+      "sha256": "bab3ccab4e0f7330aae9b5ed6ad756df4235f68b0a82fbcd58aa0e479dc9eb6f"
+    }
+  ],
+  "generated_artifact_disposition": "Removed after metadata extraction and hashing; no further attempt authorized.",
+  "generated_output_directory_absent": true
+}

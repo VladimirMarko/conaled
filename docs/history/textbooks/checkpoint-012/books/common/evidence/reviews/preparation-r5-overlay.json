@@ -1,0 +1,152 @@
+{
+  "schema": 1,
+  "kind": "R5 preparation overlay addendum; not final review",
+  "recorded_at": "2026-11-14T22:44:58.553223+00:00",
+  "coordinator": "/root/recovery_review",
+  "round": 5,
+  "adds_to": {
+    "path": "intake/review-preparation-r5.json",
+    "bytes": 9731,
+    "sha256": "21a3e653e051d86475524c72b4e7fb879c42d9c1069649e57f398392693e7018"
+  },
+  "original_preparation_receipt_unchanged": true,
+  "canonical_original_copy_byte_identical": true,
+  "source": {
+    "base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+    "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+    "tree": "63205d8a3ff27deb3680c613b70085163f289b83",
+    "upstream": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+    "source_tree_scope_and_pins_unchanged": true,
+    "retained_candidate_receipt": "books/common/evidence/integration-candidate-r4.json"
+  },
+  "requirements_version": "2026-11-14-unrestricted-full-attempt-and-consolidation",
+  "finding": {
+    "id": "INT-ST-003",
+    "axis": "Standards",
+    "severity": "Low",
+    "status": "Fixed for the packable correction",
+    "history": [
+      "Coordinator observed stale fixed-thread commands in the current resume page; root corrected them and both axes verified the provisional command semantics.",
+      "Root then discovered the entire docs tree is frozen; the direct edit was not packable. The finding was reopened and the original preparation receipt was preserved unchanged.",
+      "Root restored frozen RESUME, added the mutable execution owner, changed common navigation, preserved reconstructible historical proposal bytes, and copied the exact original preparation receipt to its declared evidence destination.",
+      "Both axes independently verified current overlay semantics and identities. Standards verified frozen guards and subsequently verified the final original-receipt copy byte-for-byte, resolving the reopened finding."
+    ]
+  },
+  "ownership": {
+    "general_setup_pins_recovery_budget": "frozen docs/RESUME.md",
+    "current_resource_arguments_and_native_prefix": "books/common/EXECUTION.md",
+    "gate_and_receiving_fallback": "books/common/VALIDATION-HANDOFF.md",
+    "entrypoint": "books/common/README.md",
+    "precedence": "Read EXECUTION before frozen fixed-thread examples; current user resource instruction supersedes those historical arguments."
+  },
+  "independent_preparation_checks": {
+    "Standards": {
+      "agent": "/root/recovery_review/standards_r5",
+      "overlay_and_navigation": "Verified exact current bytes",
+      "guard_preservation": "All five docs and three tools paths/modes/bytes/hashes match serial010 MANIFEST; policy and inspected launcher/runtime unchanged",
+      "original_receipt_copy": "Independently verified 9731-byte exact equality and SHA21a3e653e051d86475524c72b4e7fb879c42d9c1069649e57f398392693e7018",
+      "finding_disposition": "INT-ST-003 Fixed; reopening history retained",
+      "final_approval": false
+    },
+    "Spec": {
+      "agent": "/root/recovery_review/spec_r5",
+      "overlay_and_navigation": "Verified actual hashes, explicit precedence, no replacement build cap, setup-only detected count, unchanged pins/platform/validation requirements",
+      "proposal_history": "Verified proposal record and patch digest; no duplicate Spec finding",
+      "remaining_copy_condition": "Exact copy subsequently supplied by root and independently verified by Standards and coordinator",
+      "final_approval": false
+    }
+  },
+  "historical_proposal": {
+    "not_current_instructions": true,
+    "reconstructible_diff": "books/common/evidence/navigation-proposal-r5.patch",
+    "record": "books/common/evidence/navigation-proposal-r5.json",
+    "retained_reviewed_resume_sha256": "b67187f259ba3a4c425c94df46c738792379858c78e936338cc5721902c6e43a",
+    "retained_reviewed_handoff_sha256": "d57eca51d8d9da43b14ea4b5fe33271fff3948f33ae865764902fd4e6ab13035",
+    "root_reconstruction": "Root reports applying diff in disposable directory and matching exact historical hashes; reviewers did not rerun application."
+  },
+  "reference_manifest": {
+    "serial": 10,
+    "path": "checkpoint/conaled-textbooks/MANIFEST.json",
+    "bytes": 2600228,
+    "sha256": "8674c80e3935f7436674c3d6814802e514291e10eb97c848e608c9848dd387c2"
+  },
+  "files": {
+    "policy.json": {
+      "path": "checkpoint/conaled-textbooks/policy.json",
+      "bytes": 88888,
+      "sha256": "0da93ceb362b34b12bb73cd239e2079f518f5bc8d787c82c21dd9173d944e30f"
+    },
+    "docs/RESUME.md": {
+      "path": "checkpoint/conaled-textbooks/docs/RESUME.md",
+      "bytes": 7031,
+      "sha256": "0eb5b77c2ebe66ce13490dddb966e46beb4bb067509bb2c4ed1c6166a2b9e393"
+    },
+    "books/common/EXECUTION.md": {
+      "path": "checkpoint/conaled-textbooks/books/common/EXECUTION.md",
+      "bytes": 3527,
+      "sha256": "4c5039b2aa077b3c796d02fff7b034875b82670e09dbbdf187204507dfc295c4"
+    },
+    "books/common/VALIDATION-HANDOFF.md": {
+      "path": "checkpoint/conaled-textbooks/books/common/VALIDATION-HANDOFF.md",
+      "bytes": 8597,
+      "sha256": "8c858ae01b07e2e722bd314da7138b540a9bb8f5e95927eca1999cd2ae03c98e"
+    },
+    "books/common/README.md": {
+      "path": "checkpoint/conaled-textbooks/books/common/README.md",
+      "bytes": 5410,
+      "sha256": "4510cad4b807c4a1915197ad678328dd3b07a080b18e6d05b38b78627bf5fa75"
+    },
+    "books/common/REQUIREMENTS.md": {
+      "path": "checkpoint/conaled-textbooks/books/common/REQUIREMENTS.md",
+      "bytes": 12036,
+      "sha256": "7b4217dd89508c2863304880e2e99c8776d220bdfe6ff710aaae3bf82670159d"
+    },
+    "books/common/evidence/navigation-proposal-r5.patch": {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/navigation-proposal-r5.patch",
+      "bytes": 3880,
+      "sha256": "03d3bc4e95903cd643fbcfcca890988059f143b58017072ac4e60647944b503d"
+    },
+    "books/common/evidence/navigation-proposal-r5.json": {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/navigation-proposal-r5.json",
+      "bytes": 1332,
+      "sha256": "83acca34a90f2ed2c0da8423da1bb56b1e4a14b16ef965e74a6be8312b2d1b9e"
+    },
+    "books/common/evidence/reviews/preparation-r5.json": {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/preparation-r5.json",
+      "bytes": 9731,
+      "sha256": "21a3e653e051d86475524c72b4e7fb879c42d9c1069649e57f398392693e7018"
+    }
+  },
+  "preservation": {
+    "policy_amended": false,
+    "tools_or_kit_guards_changed": false,
+    "source_changed": false,
+    "manual_manifest_or_checksum_rewrite_by_reviewers": false,
+    "R4_outcomes_and_inherited_findings_preserved": true
+  },
+  "validation_status": {
+    "latest_supplied_progress_from": "root message at 2026-11-14T22:42:39Z",
+    "root_reports_run_active": true,
+    "reported_successful_built_lines": 2843,
+    "reported_job_exit137_count": 7,
+    "overall_terminal_evidence_supplied": false,
+    "diagnosed_cause": null,
+    "INT-SP-001": "open-delegated-receiving-gate",
+    "PC_session_clue": "Parent reported a user clue; no cause established and no instruction to change the uncapped experiment to fresh or jobs1."
+  },
+  "approval_boundary": {
+    "source_handoff_approval_granted": false,
+    "final_approval_granted": false,
+    "retry_approved_or_executed_by_this_record": false,
+    "ordinary_pack_and_offline_recovery_verification": "root responsibility; not performed by this review",
+    "durable_upload": "root responsibility; no success asserted here"
+  },
+  "continuation": "Same Standards and Spec axes retained for actual terminal evidence and revised canonical R5 final review; this addendum resolves only the narrow preparation/navigation correction.",
+  "operations": {
+    "compiler_or_checker_runs": 0,
+    "process_probes_or_controls": 0,
+    "source_git_canonical_checkpoint_mutations": 0,
+    "remote_operations": 0,
+    "written_file": "intake/review-preparation-r5-overlay.json"
+  }
+}

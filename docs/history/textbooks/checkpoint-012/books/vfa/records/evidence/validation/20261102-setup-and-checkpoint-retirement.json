@@ -1,0 +1,102 @@
+{
+  "started_utc": "2026-11-02T14:14:09.022902+00:00",
+  "status": "completed",
+  "scope": "One-time removal of the verified already-installed Nix distribution intermediate and its archive, plus redundant local checkpoint021; preserve installed runtimes, primary build/cache, local022 and all uploaded checkpoints/receipts. No repeated removal of returned historical paths.",
+  "runtime_canonical_paths": {
+    "/root/.nix-profile/bin/nix": "/nix/store/8lza1b8nnci8lmm4q68p0l33pg975s0q-nix-2.35.4/bin/nix",
+    "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean"
+  },
+  "setup_archive": {
+    "path": "/workspace/scratch/0c54f2db1fdf/toolchain-setup/nix-2.35.4-x86_64-linux.tar.xz",
+    "size_bytes": 27188748,
+    "sha256": "ff66236d2f7e2a21f3350e73668e021ac6a8881ef277a38e16e952bfb22718c3",
+    "signature": [
+      27,
+      2230808,
+      27188748,
+      1793585899086403824,
+      1793585899086403824,
+      1
+    ],
+    "allocated_bytes": 27189248
+  },
+  "distribution": {
+    "path": "/workspace/scratch/0c54f2db1fdf/toolchain-setup/nix-2.35.4-x86_64-linux",
+    "signature": [
+      27,
+      2230767,
+      4096,
+      1793585899117702963,
+      1793585899117702963,
+      3
+    ],
+    "metadata_matches_official_archive": true,
+    "payload_hashing_of_directory": false,
+    "archive_explicit_members": 2237,
+    "only_implicit_parent_paths": [
+      "nix-2.35.4-x86_64-linux",
+      "nix-2.35.4-x86_64-linux/store"
+    ],
+    "counts": {
+      "file": 1556,
+      "directory": 490,
+      "symlink": 193
+    },
+    "allocated_bytes": 119558144,
+    "logical_bytes": 116752902
+  },
+  "checkpoint_verification": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-021-final-chapter-plans.tar.gz",
+      "size_bytes": 145817559,
+      "sha256": "c15f397ce5cda44df6b37f2cb4505219289f15994275e56b624ade0fb0b4e020",
+      "signature": [
+        27,
+        2404305,
+        145817559,
+        1793623625849482756,
+        1793623672733052485,
+        1
+      ],
+      "allocated_bytes": 145846272,
+      "number": 21,
+      "library_file_id": "libfile_ffc6747146b48191bd7d9bf59f640325",
+      "upload_receipt_verified": true
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-022-cache-recovery-candidate.tar.gz",
+      "size_bytes": 145901698,
+      "sha256": "be7026163496fdd5422a4dfd3fc1336d57692017d94fab2a46f2d27a8fb5e33f",
+      "signature": [
+        27,
+        2404924,
+        145901698,
+        1793627758950605801,
+        1793627807990210020,
+        1
+      ],
+      "allocated_bytes": 145936384,
+      "number": 22,
+      "library_file_id": "libfile_ce9de1e765d08191b4f8ebcc2ebcc4b9",
+      "upload_receipt_verified": true
+    }
+  ],
+  "free_before_bytes": 1402114048,
+  "actions": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/toolchain-setup/nix-2.35.4-x86_64-linux",
+      "action": "removed once without following contained symlinks"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/toolchain-setup/nix-2.35.4-x86_64-linux.tar.xz",
+      "action": "removed verified public setup download once"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-021-final-chapter-plans.tar.gz",
+      "action": "retired local copy once; uploaded copy and receipts retained"
+    }
+  ],
+  "finished_utc": "2026-11-02T14:14:09.113288+00:00",
+  "free_after_bytes": 1694703616,
+  "observed_free_delta_bytes": 292589568
+}

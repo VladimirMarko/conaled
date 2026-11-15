@@ -1,0 +1,169 @@
+{
+  "recorded_utc": "2026-11-04T14:21:08.392046+00:00",
+  "finding": "SH4-HIST-001",
+  "state": "Actual ancestry and complete H-tree equality checked; author correction complete, independent confirmation pending; no acceptance",
+  "H": "97505ca8a1e714601e6d68137f0659b36a569988",
+  "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "accepted_F": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+  "normal_merge_steps": [
+    {
+      "unit": "XM01",
+      "merge_commit": "15dbd8ac1d653a9ef8000656a91152ca1cda9c58",
+      "parents": [
+        "97505ca8a1e714601e6d68137f0659b36a569988",
+        "72a0951aee406f7db67998d2a3bf8810f4e1bccc"
+      ],
+      "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+      "source_difference_from_H": false,
+      "merge_command_actual_exit": 1,
+      "conflicts": [
+        "docs/research/fdsa-list-merge.md",
+        "docs/research/fdsa-reconstruction-map.md"
+      ],
+      "all_resolution_commands_actual_exit": 0,
+      "commit_actual_exit": 0,
+      "evidence_prefix": "01-XM01"
+    },
+    {
+      "unit": "XD01",
+      "merge_commit": "eb269d9ec3850b21760f5aa83a5a1001a5f219d3",
+      "parents": [
+        "15dbd8ac1d653a9ef8000656a91152ca1cda9c58",
+        "52722e3ee481167e99b8f6c0b2417df7fb7615d8"
+      ],
+      "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+      "source_difference_from_H": false,
+      "merge_command_actual_exit": 1,
+      "conflicts": [
+        "SquareApplications.lean",
+        "docs/research/fdsa-difference-list-costs.md",
+        "docs/research/fdsa-reconstruction-map.md"
+      ],
+      "all_resolution_commands_actual_exit": 0,
+      "commit_actual_exit": 0,
+      "evidence_prefix": "02-XD01"
+    },
+    {
+      "unit": "XQ01",
+      "merge_commit": "b907e9017ed1bd0c32361ed0cad596388cb6da31",
+      "parents": [
+        "eb269d9ec3850b21760f5aa83a5a1001a5f219d3",
+        "0612e80a0c297a38fa1add6e837dc7781e1bbd9c"
+      ],
+      "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+      "source_difference_from_H": false,
+      "merge_command_actual_exit": 1,
+      "conflicts": [
+        "SquareApplications.lean",
+        "docs/research/fdsa-reconstruction-map.md",
+        "docs/research/fdsa-three-way-partition.md"
+      ],
+      "all_resolution_commands_actual_exit": 0,
+      "commit_actual_exit": 0,
+      "evidence_prefix": "03-XQ01"
+    },
+    {
+      "unit": "XU01",
+      "merge_commit": "312aafb4446b995ff5542041b4e2e074f776db1e",
+      "parents": [
+        "b907e9017ed1bd0c32361ed0cad596388cb6da31",
+        "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0"
+      ],
+      "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+      "source_difference_from_H": false,
+      "merge_command_actual_exit": 1,
+      "conflicts": [
+        "docs/research/fdsa-permutation-minimum.md",
+        "docs/research/fdsa-reconstruction-map.md"
+      ],
+      "all_resolution_commands_actual_exit": 0,
+      "commit_actual_exit": 0,
+      "evidence_prefix": "04-XU01"
+    }
+  ],
+  "all_four_tip_ancestry_checks": [
+    {
+      "unit": "XM01",
+      "tip": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "command": [
+        "git",
+        "merge-base",
+        "--is-ancestor",
+        "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+        "312aafb4446b995ff5542041b4e2e074f776db1e"
+      ],
+      "actual_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "unit": "XD01",
+      "tip": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+      "command": [
+        "git",
+        "merge-base",
+        "--is-ancestor",
+        "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+        "312aafb4446b995ff5542041b4e2e074f776db1e"
+      ],
+      "actual_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "unit": "XQ01",
+      "tip": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+      "command": [
+        "git",
+        "merge-base",
+        "--is-ancestor",
+        "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+        "312aafb4446b995ff5542041b4e2e074f776db1e"
+      ],
+      "actual_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "unit": "XU01",
+      "tip": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "command": [
+        "git",
+        "merge-base",
+        "--is-ancestor",
+        "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+        "312aafb4446b995ff5542041b4e2e074f776db1e"
+      ],
+      "actual_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "H_and_F_ancestors": true,
+  "exact_H_tree": true,
+  "H_to_candidate_diff_bytes": 0,
+  "F_to_candidate_full_patch_matches_original_H_patch": true,
+  "all18source_identities_match_H": true,
+  "original_H_package_payloads_unchanged": 9,
+  "frozen_declared_scope_and_four_requirements_unchanged": true,
+  "reference_count": 64,
+  "only_changed_ref": "refs/heads/work/fdsa-shared-four-integration",
+  "all_other63refs_unchanged": true,
+  "accepted_book_and_original_foundation_at_F": true,
+  "clean_status": "",
+  "no_merge_pending": true,
+  "retained_verification": {
+    "bytes": 867,
+    "lines": 19,
+    "sha256": "9634e5a5318b7ac15cc67871655469838a061340ce719939ddfc5dcc16bc2164",
+    "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "successor_credit": false
+  },
+  "no_compiler_cache_or_output_action": true,
+  "no_ours_strategy_squash_or_history_rewrite": true,
+  "available_bytes": 0,
+  "raw_free_bytes": 1878114304,
+  "resource_write_failures": [],
+  "mutation_retries": 0
+}

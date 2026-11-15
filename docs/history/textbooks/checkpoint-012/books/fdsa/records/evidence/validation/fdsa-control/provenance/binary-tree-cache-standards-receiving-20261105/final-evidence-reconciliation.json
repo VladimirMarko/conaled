@@ -1,0 +1,323 @@
+{
+  "recorded_utc": "2026-11-05T02:53:00.898215+00:00",
+  "reviewer": "/root/tree_cache_standards",
+  "unit": "FDSA-XT01",
+  "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "tree": "18bf4bc9df979d4ee6ac76182f58faed235a0714",
+  "original_unit_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "original_donor": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "incorporated_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "original_scope_paths": [
+    "Applications/Resources/TreeCache.lean",
+    "Applications/Trees/Cached.lean",
+    "Applications/Trees/Observations.lean",
+    "Examples/TreeCache.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-cache.md"
+  ],
+  "protected_source_stage_files_unchanged": true,
+  "retained59_evidence_and9_protected_records_unchanged": true,
+  "source_scope_exact": true,
+  "source_records": [
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "git_blob": "445e49be7535e17640c7c4ca81251dd7c4119117",
+      "bytes": 3862,
+      "lines": 80,
+      "sha256": "c03a102b43bb5f04edf8b5ab6f0685bd82f80d55a67af680dfa8c0ff0c149abc"
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "git_blob": "c301ca85e555a8c5bb3c9db10459446121bc6613",
+      "bytes": 5668,
+      "lines": 135,
+      "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6"
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "git_blob": "f90fbe8c85b9c88f760236d48129bd2b4c4d7e71",
+      "bytes": 4119,
+      "lines": 107,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752"
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "git_blob": "e0f09b851bb4ce6d1093faaf3cbbcb3b3d873f24",
+      "bytes": 16571,
+      "lines": 371,
+      "sha256": "d92dfcbb139395af13a5939daed2739c10f08ec52d5eaef4165d3962bc76b955"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "git_blob": "a44e48d33c45392e975906f3a635acc057f03205",
+      "bytes": 10743,
+      "lines": 327,
+      "sha256": "ae0e85d4cc8b4d77b8880279b3632631428bbf4ed68ef2656f3bae80112cbd0a"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "1dc207f930f47e1348e4dfd1e81acc746b4d6deb",
+      "bytes": 49179,
+      "lines": 739,
+      "sha256": "4bdd535ee4b0b22cbad3b83aef8b90cef624a3dd99fb64bf7f40041df39b23e9"
+    },
+    {
+      "path": "docs/research/fdsa-tree-cache.md",
+      "git_blob": "c0a03f7bc859857a28249a54150169489b483386",
+      "bytes": 13344,
+      "lines": 211,
+      "sha256": "409708db3c204007f902fa885fc1e63b2b2181768abb1524b0b1b641789c4e24"
+    }
+  ],
+  "receiver_and_qualified_clean_candidate": true,
+  "accepted_book_still_incorporated_base": true,
+  "pre_post_final_input_identities_equal": true,
+  "current_all_input_bytes_and_revisions_match": true,
+  "current_input_counts": {
+    "local_sources": 26,
+    "local_objects_hashes_traces": 78,
+    "configuration": 10,
+    "dependencies": 9,
+    "runtime_profile": 12
+  },
+  "existing22_closure_sources_unchanged_from_donor_and_incorporated_base": true,
+  "accepted_chapter03_configuration_dependencies_runtime_identical": true,
+  "accepted_chapter03_inputs": {
+    "path": "provenance/chapter03-final-statement-inputs-20261105/pre-inputs.json",
+    "bytes": 185662,
+    "sha256": "a1d16b9d1f761cf7fc4ab5b933e92fb6292fe614cfc45d7547f4b7c6a61b8c6b"
+  },
+  "no_new_fresh_trigger": true,
+  "actual115_names_and_all_blocks_reconciled": true,
+  "public_names": 115,
+  "public_names_lf_sha256": "1b3459408687c6090f25ff71a11f3fdb886fddea29c6c4421f690261cf8bf4fe",
+  "actual_program": {
+    "path": "provenance/binary-tree-cache-receiving-statements115-20261105/Statements115-complete.lean",
+    "bytes": 4721,
+    "sha256": "eea207cce83ce453b3625076041ff1262235771a8b92add322a149a044c98738"
+  },
+  "actual_type_native_output": {
+    "path": "provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/native-records/output.log",
+    "bytes": 46032,
+    "sha256": "ea8ebef082abef7de66e7ce3f269771290073bc96a287ff864d49813c90d052b"
+  },
+  "full_terminal": {
+    "actual_chunk": "4e4f6d",
+    "owned_session": 58948,
+    "actual_recorder_native_owned_exits": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "state": "CLOSED",
+    "command": [
+      "./check.sh",
+      "--candidate",
+      "HEAD"
+    ],
+    "threads": 1,
+    "complete_outer_equals_prefix_native_suffix": true,
+    "native_origin_copies_identical": true,
+    "timeout": false,
+    "recorder_error": null,
+    "progress_errors": []
+  },
+  "verification": {
+    "format": 1,
+    "result": "passed",
+    "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+    "dependencies": {
+      "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "plausible": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "LeanSearchClient": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "importGraph": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "proofwidgets": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "aesop": "4a174c490d8707121c4a9290800489f105d85e07",
+      "Qq": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "batteries": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "Cli": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+    },
+    "compiler": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+    "mode": "incremental",
+    "completed_at": "2026-11-05T02:46:41.104505+00:00"
+  },
+  "verification_live_bytes_equal_saved": true,
+  "verification_dependencies_match_current_clean_pins_and_manifest": true,
+  "audit": {
+    "all_rows_independently_parsed": true,
+    "row_count": 1111,
+    "unique_module_count": 1111,
+    "row_lines": [
+      1658,
+      2768
+    ],
+    "rows_json_sha256": "64414ef6fbd94384d11f9e2a84bc8e31b0cb5f4ff1718021f46f83456c85cac4",
+    "sums": {
+      "logical": 50288,
+      "theorems": 29430,
+      "unsafe": 0
+    },
+    "permitted_axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "all_required_terminal_lines_present": true,
+    "integrity_artifacts_each": 3336,
+    "invalidated": 0,
+    "inconsistent": 0,
+    "build_target_modules": 1112,
+    "checked_modules": 1113,
+    "accepted_c3_rows_unchanged": 1107,
+    "accepted_c3_log": {
+      "path": "provenance/chapter03-final-complete-full-attempt1-20261105/full.log",
+      "bytes": 325176,
+      "sha256": "1e7a309533e81d901a78be5cd8e8e94977ef57f85f1cb78514bc226505b2bf45"
+    },
+    "added_four_unit_rows": {
+      "Applications.Resources.TreeCache": {
+        "module": "Applications.Resources.TreeCache",
+        "logical": 12,
+        "theorems": 10,
+        "unsafe": 0
+      },
+      "Applications.Trees.Cached": {
+        "module": "Applications.Trees.Cached",
+        "logical": 30,
+        "theorems": 21,
+        "unsafe": 0
+      },
+      "Applications.Trees.Observations": {
+        "module": "Applications.Trees.Observations",
+        "logical": 19,
+        "theorems": 13,
+        "unsafe": 0
+      },
+      "Examples.TreeCache": {
+        "module": "Examples.TreeCache",
+        "logical": 92,
+        "theorems": 70,
+        "unsafe": 0
+      }
+    },
+    "added_compiled_declarations": 153,
+    "added_compiled_theorems": 114,
+    "public_name_count_is_separate": true
+  },
+  "evidence_bindings": [
+    {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/actual-tool-terminal.json",
+      "bytes": 126,
+      "sha256": "d71744a9ed34114d5d3d3d64228f2ee8bbda37856222ecf87e557454299b35d2"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2314,
+      "sha256": "0c0fdda7fa5811d449ee54b5d950376b0bab7f6e16d538f47684549a354a6c3a"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/full.log",
+      "bytes": 325963,
+      "sha256": "dbd8ba410b64f7ee2eedc9389c4dceb907549dabbada6fee358277b760141dd8"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/launch.json",
+      "bytes": 174,
+      "sha256": "56f518c91a19be2899423820af90a5288eec76398b747f50f3fdaefda4bebc7f"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/native-records/output.log",
+      "bytes": 325734,
+      "sha256": "df724e47d431fd2f8aff4bab7c1097862a1dd9a92f527ce24957c9c1b9eceb09"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/native-records/result.json",
+      "bytes": 574,
+      "sha256": "9ecfa1178b4c532e5d562ae9318ce10f0ef35e074d775e3538830cf72abd8347"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/native-records/start.json",
+      "bytes": 421,
+      "sha256": "9e145810da85dc71f0e886717c935d1ba777f3c7c9c8ad75b0bfb50989a29a99"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/outer-prefix.log",
+      "bytes": 70,
+      "sha256": "85b1c84dcee195655562afb91455f0d9c98388a8be8845b8eb9306ffa317cfab"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/outer-suffix.log",
+      "bytes": 159,
+      "sha256": "6c90885939f4db5ca84e490853cd336b821ef5f140e57ac801cae9e75b5a69fe"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "0479ba7ee369bd6c7626e0a65c214430b638d52bc2191fd49356f3dbfc4ce21a"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/progress.json",
+      "bytes": 265,
+      "sha256": "9aa102d6ff597a3a7ad9a255c67e3df34a39962b8ba176d0693c72fe4e62e26b"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/request.json",
+      "bytes": 737,
+      "sha256": "aee74d034ec54df1c7e74d71207836b3854f74c3dd28a36621fa0a1a33a3acc0"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/result.json",
+      "bytes": 1263,
+      "sha256": "b3801e77b70d719dd62a656b2c37da7c198125f2484e42491e343ea7b22c95bd"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/root-audit-reconciliation.json",
+      "bytes": 5540,
+      "sha256": "cfff2ca557f9a22a8681dc2e0e3b37a927a15c68a9055fdd6fca2ad612cac4dc"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/start.json",
+      "bytes": 930,
+      "sha256": "ca645af948bf4b9b9c71e3ae291a78c355d960efe88d7b9572b01e0f09c5c096"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/verification.json",
+      "bytes": 867,
+      "sha256": "329f0d0087adc21b3446d7f10b67c472cdf62238ccf578865eec20569c04da61"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-20261105/pre-inputs.json",
+      "bytes": 32719,
+      "sha256": "2b85a7cadaf18f9fa0922c2977ff64edfa5a3dee5a582501d89faaaff7347cc6"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-20261105/post-inputs.json",
+      "bytes": 33026,
+      "sha256": "d42a9f64ad16b6913f3d487b5538a892a84d7ba975f9c32a56bf06ab626ce352"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-20261105/final-inputs-after-full.json",
+      "bytes": 33026,
+      "sha256": "77d1486a596f4ea372a4d15f961323aa3dad3dd7339396ea5eba884968860fcf"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-20261105/Statements115-complete.lean",
+      "bytes": 4721,
+      "sha256": "eea207cce83ce453b3625076041ff1262235771a8b92add322a149a044c98738"
+    },
+    {
+      "path": "provenance/binary-tree-cache-receiving-statements115-20261105/actual-type-block-index.json",
+      "bytes": 34482,
+      "sha256": "1a44bd06217f4d6ef66c1fb3effd5e06427a627f023adcb97017cb9a3b517bbb"
+    }
+  ],
+  "read_limits": [
+    "Every audit row was parsed computationally; selected meaningful log ranges and summary lines were read semantically. This does not claim a human read of all build warnings.",
+    "Pre/post/final byte identity and current rehashes do not prove loaded-object origin, absence of transient edits or absence of undeclared inputs.",
+    "No compiler, supplied helper, checker, audit, session polling, source/ref/cache mutation, acceptance or upload was performed by this reviewer."
+  ],
+  "findings": [],
+  "unresolved_findings": []
+}

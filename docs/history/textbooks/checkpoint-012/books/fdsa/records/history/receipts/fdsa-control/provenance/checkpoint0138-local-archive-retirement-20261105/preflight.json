@@ -1,0 +1,90 @@
+{
+  "recorded_utc": "2026-11-05T03:12:49.081324+00:00",
+  "target_only": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0136-selection-universal-path-progress.tar.gz",
+    "bytes": 40241987,
+    "sha256": "3dfe34eb4e5e81b8698b1960e916bd2e9df3c53b6f79e1bea055a103268c8e2f"
+  },
+  "target_remote_file_id": "libfile_6e02967c959881919fe6c4eb3fb86245",
+  "target_uploaded_record_preserved": {
+    "name": "conaled-fdsa-0136-selection-universal-path-progress",
+    "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0136-selection-universal-path-progress.tar.gz",
+    "recorded_utc": "2026-11-05T00:57:20.858966+00:00",
+    "file_id": "file_00000000e5ec81f48eb346dde6b4a2cd",
+    "library_file_id": "libfile_6e02967c959881919fe6c4eb3fb86245",
+    "current_version_number": 0,
+    "status": "succeeded",
+    "file_size_bytes": 40241987,
+    "size_bytes": 40241987,
+    "sha256": "3dfe34eb4e5e81b8698b1960e916bd2e9df3c53b6f79e1bea055a103268c8e2f",
+    "url": "https://chatgpt.com/library?file_id=libfile_6e02967c959881919fe6c4eb3fb86245&account_id=personal",
+    "metadata_exit": 0,
+    "metadata_chunk": "fa3623",
+    "post_upload_hash_matched": true,
+    "post_upload_hash_tool_chunk": "fa3623",
+    "capture_owned_session": 4795,
+    "capture_terminal_chunk": "115c45",
+    "creation_owned_session": 17984,
+    "creation_terminal_chunk": "86bbbd",
+    "verification_owned_session": 39913,
+    "verification_terminal_chunk": "437e7f",
+    "payload_hashes_verified": 7911,
+    "refs_verified": 74,
+    "worktrees_verified": 9,
+    "held_control_files_verified": 7867,
+    "accepted_head": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "qualified_candidate": "3c04405d207a7b8c6f7452598da88fa3a7a05ac3",
+    "chapter03_obligations": 83,
+    "C2_accepted": true,
+    "XR_accepted": true,
+    "chapter03_accepted": false,
+    "closed_development_runs": 102,
+    "interrupted_runs_without_terminal_credit": 1,
+    "known_recorded_failures_without_transport_terminal": 1,
+    "checkpoint_exposed": true,
+    "prepared_public_source_names": 1370,
+    "prepared_modules": 78,
+    "focused_passed_public_source_names": 1345,
+    "focused_passed_modules": 76,
+    "unpassed_public_source_names": 25,
+    "uncompiled_corrected_candidate": "96722600aa29636e028751242ce33d562c5a9255",
+    "new_untracked_Lean_drafts": 0,
+    "unfinished_untracked_documentation_drafts": 0,
+    "committed_uncompiled_sources_without_completed_handoff": 0,
+    "integration_preparation": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+    "documentation_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+    "original_whole_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+    "independent_axes": "Partial/Blocked; exact held52/915 Standards and70/1224/1201 Spec preserved",
+    "open_independent_findings": [],
+    "unresolved_implementation_validation": [
+      "C03-RANDOM-WORST-ELAB-001: source correction committed; successor not yet compiled"
+    ],
+    "prior_full_audit_SIGKILL_unresolved": true
+  },
+  "retained_local_checkpoints": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0137-chapter03-accepted.tar.gz",
+      "bytes": 41551502,
+      "sha256": "3203d7abb9a8f46c1d1e1cc29f0114ab3b58b2abed0c21fdbd8c9af0d972ee0b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0138-tree-cache-accepted-and-chapter04-progress.tar.gz",
+      "bytes": 42533649,
+      "sha256": "834ad98e65ccec97d57096e5f7954c7ce7960716ec547e5d2ef3764927328206"
+    }
+  ],
+  "current_acceptance": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-acceptance-20261105/acceptance.json",
+    "bytes": 51089,
+    "sha256": "be1236e81900aa1c7368719717d8a6ccc7f07c2cb5d49692bd665240d738d214"
+  },
+  "current_durability": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0138-preparation/durability.json",
+    "bytes": 2334,
+    "sha256": "8e4165a0733c83dc25883cd65314bd9660acc780ec266eb21aae5be271c4533d"
+  },
+  "all78refs_exact_checkpoint": true,
+  "all122_acceptance_bindings_match": true,
+  "standalone0138_requires_no_prior_checkpoint": true,
+  "operation": "unlink only the exact superseded local0136 archive; no remote deletion or source/cache/output changes"
+}

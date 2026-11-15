@@ -1,0 +1,40 @@
+{
+  "original_path": "session/validation/body-counts-materialization-reuse.json",
+  "original_sha256": "8f55cd66bd7f11bfc79ed4039dd46fe6120c547e9626e4bfc78079c71d4c2ade",
+  "original_bytes": 454275,
+  "removed_fields": [
+    {
+      "pointer": "/source",
+      "entries": 1726,
+      "canonical_json_sha256": "4d0f04b3396bb3f1b77ccd3028a694f592f0363795ad1cee332b90b02d802359"
+    },
+    {
+      "pointer": "/outputs",
+      "entries": 947,
+      "canonical_json_sha256": "5429dee6e40619bb931d568479a55bba890f792661cb86b6401d96092bd58fee"
+    }
+  ],
+  "record": {
+    "recorded_at": "2026-11-03T04:14:54.959796+00:00",
+    "reason": "Reuse inactive clean development materialization and its ordinary outputs after creating an unnecessary duplicate clean checkout consumed about90MiB.",
+    "candidate": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+    "old_checkout": "body-counts",
+    "new_checkout": "signed-potential",
+    "old_branch_preserved": "pfds/body-counts",
+    "old_immutable_ref": "pfds/body-counts-review-r1",
+    "new_branch": "pfds/signed-potential",
+    "precondition_actual_process_observation": "Read-only host /proc inspection found no compiler or validation process in either checkout; all10022 writers/reviewers completed/frozen; focused lock acquired.",
+    "process_check_tool_chunk": "10c692",
+    "full901_untouched": true,
+    "verification_record_transferred": false,
+    "verification_exists": false,
+    "source_count": 1726,
+    "outputs_count": 947,
+    "output_bytes": 96120863,
+    "build_directory_inode_preserved": true,
+    "free_before": 284868608,
+    "free_after": 378519552,
+    "clean_after": true,
+    "recovery": "Recreate body-counts at pfds/body-counts-review-r1 before10022 own full gate/review continuation. All source/ref/review/focused evidence preserved in checkpoint036. Ordinary build outputs retained in signed-potential; no approval record exists or is reused."
+  }
+}

@@ -1,0 +1,3662 @@
+{
+  "schema": 1,
+  "prepared_utc": "2026-11-04T12:11:26.162894+00:00",
+  "status": "PREPARED ONLY; no candidate assembly/execution/future qualification",
+  "accepted_C1": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "F_prerequisite": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "fixed_C2_evidence_candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "future_candidates": {
+    "XU02": null,
+    "XU03": null
+  },
+  "units": [
+    {
+      "unit": "XU02",
+      "type": "PermutationOrder",
+      "tip": "bdac9703aab4b383fa775568d36bf685af329389",
+      "original_base": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+      "original_candidate": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+      "requirement": "reviews/permutation-order-requirements.md",
+      "program_dir": "chapter02-xu02-statement-source-20261104",
+      "total": 53,
+      "expected_private": 5,
+      "expected_anon": 6,
+      "candidate_base_required": "Accepted F plus accepted combined XM01/XD01/XQ01/XU01 stage",
+      "future_candidate": null,
+      "full_original_scope": {
+        "Applications/Probability/PermutationOrder.lean": {
+          "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+          "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+          "bytes": 15304,
+          "lines": 321,
+          "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2"
+        },
+        "Examples/PermutationOrder.lean": {
+          "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+          "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+          "bytes": 6706,
+          "lines": 152,
+          "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084"
+        },
+        "Examples/PermutationOrderBoundary.lean": {
+          "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+          "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+          "bytes": 5605,
+          "lines": 148,
+          "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121"
+        },
+        "SquareApplications.lean": {
+          "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+          "git_blob": "b9b45c865f4345fe58ebcf1b2c14766c4abe0202",
+          "bytes": 8360,
+          "lines": 254,
+          "sha256": "bfa905b56c3cfb7ed63b0c80b7680a0e93486cf32987739ef4d61ca94262dc21"
+        },
+        "docs/research/fdsa-permutation-order.md": {
+          "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+          "git_blob": "d3a16fc8713c5dda2797a07ad14f3174ea97f841",
+          "bytes": 8851,
+          "lines": 166,
+          "sha256": "39fd16835dccd39c9d34ebfcebbdbdd33f44ec1dad49fdfe582a8ac4801faea3"
+        },
+        "docs/research/fdsa-reconstruction-map.md": {
+          "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+          "git_blob": "ebd4016c479ea8e1cf53193eb1aac7f4fd9dffaf",
+          "bytes": 17824,
+          "lines": 294,
+          "sha256": "aa5ae498a2b23a5dee8dcbc0eac1eb5d8735cec4d97ebcdca7877d48ff9f52ce"
+        }
+      },
+      "roots": {
+        "Applications/Probability/PermutationOrder.lean": {
+          "source": {
+            "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+            "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+            "bytes": 15304,
+            "lines": 321,
+            "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2"
+          },
+          "module": "Applications.Probability.PermutationOrder",
+          "public_count": 17,
+          "private_count": 4,
+          "anonymous_instances": 0,
+          "exact_Z_bytes": true
+        },
+        "Examples/PermutationOrder.lean": {
+          "source": {
+            "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+            "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+            "bytes": 6706,
+            "lines": 152,
+            "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084"
+          },
+          "module": "Examples.PermutationOrder",
+          "public_count": 18,
+          "private_count": 1,
+          "anonymous_instances": 2,
+          "exact_Z_bytes": true
+        },
+        "Examples/PermutationOrderBoundary.lean": {
+          "source": {
+            "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+            "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+            "bytes": 5605,
+            "lines": 148,
+            "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121"
+          },
+          "module": "Examples.PermutationOrderBoundary",
+          "public_count": 18,
+          "private_count": 0,
+          "anonymous_instances": 4,
+          "exact_Z_bytes": true
+        }
+      },
+      "public_names": [
+        "Applications.Probability.PermutationOrder.restrictedOrder",
+        "Applications.Probability.PermutationOrder.orders",
+        "Applications.Probability.PermutationOrder.mem_restrictedOrder",
+        "Applications.Probability.PermutationOrder.mem_restrictedOrder_of_complete",
+        "Applications.Probability.PermutationOrder.restrictedOrder_nodup",
+        "Applications.Probability.PermutationOrder.restrictedOrder_toFinset",
+        "Applications.Probability.PermutationOrder.restrictedOrder_length",
+        "Applications.Probability.PermutationOrder.restrictedOrder_perm",
+        "Applications.Probability.PermutationOrder.map_restrictedOrder_sublist",
+        "Applications.Probability.PermutationOrder.filter_restrictedOrder",
+        "Applications.Probability.PermutationOrder.filter_restrictedOrder_of_subset",
+        "Applications.Probability.PermutationOrder.mem_orders",
+        "Applications.Probability.PermutationOrder.orders_nonempty",
+        "Applications.Probability.PermutationOrder.restrictedOrder_mem_orders",
+        "Applications.Probability.PermutationOrder.orders_card",
+        "Applications.Probability.PermutationOrder.uniformOn_restrictedOrder_eq",
+        "Applications.Probability.PermutationOrder.map_restrictedOrder_uniformOn",
+        "Examples.PermutationOrder.positions",
+        "Examples.PermutationOrder.selected",
+        "Examples.PermutationOrder.smaller",
+        "Examples.PermutationOrder.positions_nodup",
+        "Examples.PermutationOrder.positions_complete",
+        "Examples.PermutationOrder.law",
+        "Examples.PermutationOrder.selected_structure",
+        "Examples.PermutationOrder.selected_permutation",
+        "Examples.PermutationOrder.selected_orders_card",
+        "Examples.PermutationOrder.order_023_mass",
+        "Examples.PermutationOrder.observed_law",
+        "Examples.PermutationOrder.order_032_mass_via_map",
+        "Examples.PermutationOrder.repeated_order_mass_zero",
+        "Examples.PermutationOrder.nestedObservation",
+        "Examples.PermutationOrder.nestedObservation_eq",
+        "Examples.PermutationOrder.nested_order_30_mass",
+        "Examples.PermutationOrder.singleton_order_mass",
+        "Examples.PermutationOrder.full_order_mass",
+        "Examples.PermutationOrderBoundary.empty_subset_output",
+        "Examples.PermutationOrderBoundary.empty_subset_orders",
+        "Examples.PermutationOrderBoundary.empty_subset_mass",
+        "Examples.PermutationOrderBoundary.empty_index_mass",
+        "Examples.PermutationOrderBoundary.cycle",
+        "Examples.PermutationOrderBoundary.cycle_values",
+        "Examples.PermutationOrderBoundary.cycle_inverse_order",
+        "Examples.PermutationOrderBoundary.cycle_restricted_order",
+        "Examples.PermutationOrderBoundary.cycle_direct_order",
+        "Examples.PermutationOrderBoundary.inverse_and_direct_orders_differ",
+        "Examples.PermutationOrderBoundary.numeric_enumeration_values",
+        "Examples.PermutationOrderBoundary.numeric_enumeration_increasing",
+        "Examples.PermutationOrderBoundary.ordinary_enumeration_not_increasing",
+        "Examples.PermutationOrderBoundary.numeric_and_ordinary_orders_differ",
+        "Examples.PermutationOrderBoundary.incomplete_output",
+        "Examples.PermutationOrderBoundary.incomplete_support_counterexample",
+        "Examples.PermutationOrderBoundary.repeated_output",
+        "Examples.PermutationOrderBoundary.repeated_support_counterexample"
+      ],
+      "public_count": 53,
+      "private_count": 5,
+      "anonymous_instance_count": 6,
+      "anonymous_example_count": 0,
+      "program_source": {
+        "path": "provenance/chapter02-xu02-statement-source-20261104/Statements.lean",
+        "bytes": 3522,
+        "lines": 61,
+        "sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3"
+      },
+      "historical_program_inventory": {
+        "path": "provenance/chapter02-xu02-statement-source-20261104/inventory.json",
+        "bytes": 4460,
+        "lines": 85,
+        "sha256": "0b4e0fd1c4aba369463d0b83869991edb4654fd65a31b95b23be5fcd9af004ac"
+      },
+      "historical_source_bindings": [
+        {
+          "source": "Applications/Probability/PermutationOrder.lean",
+          "historical_sha256": "fd2aab30b1a3b8053ad5082e00fbe62e4c0d62dfb33c950276b10bfc3616d98e",
+          "corrected_sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2",
+          "same_bytes": false
+        },
+        {
+          "source": "Examples/PermutationOrder.lean",
+          "historical_sha256": "251c0ee0ce7b96711ea57e1ff7496a784fe33137596e8f13b244fa9e44fd57e5",
+          "corrected_sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084",
+          "same_bytes": false
+        },
+        {
+          "source": "Examples/PermutationOrderBoundary.lean",
+          "historical_sha256": "35c9768d94fd12e553905244a69ffa375e01e469098856b311ac17ad88533fea",
+          "corrected_sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121",
+          "same_bytes": false
+        }
+      ],
+      "program_action": "Reuse existing 53-name program bytes unchanged; new exact source binding is this record.",
+      "local_closure": {
+        "Applications/Probability/PermutationMinimum.lean": {
+          "source": {
+            "commit": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+            "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+            "bytes": 8241,
+            "lines": 197,
+            "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64"
+          },
+          "module": "Applications.Probability.PermutationMinimum"
+        },
+        "Applications/Probability/PermutationOrder.lean": {
+          "source": {
+            "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+            "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+            "bytes": 15304,
+            "lines": 321,
+            "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2"
+          },
+          "module": "Applications.Probability.PermutationOrder"
+        },
+        "Examples/PermutationMinimum.lean": {
+          "source": {
+            "commit": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+            "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+            "bytes": 4994,
+            "lines": 127,
+            "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1"
+          },
+          "module": "Examples.PermutationMinimum"
+        },
+        "Examples/PermutationMinimumBoundary.lean": {
+          "source": {
+            "commit": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+            "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+            "bytes": 4211,
+            "lines": 113,
+            "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b"
+          },
+          "module": "Examples.PermutationMinimumBoundary"
+        },
+        "Examples/PermutationOrder.lean": {
+          "source": {
+            "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+            "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+            "bytes": 6706,
+            "lines": 152,
+            "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084"
+          },
+          "module": "Examples.PermutationOrder"
+        },
+        "Examples/PermutationOrderBoundary.lean": {
+          "source": {
+            "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+            "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+            "bytes": 5605,
+            "lines": 148,
+            "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121"
+          },
+          "module": "Examples.PermutationOrderBoundary"
+        }
+      },
+      "external_imports": [
+        "Mathlib.Data.Finset.Card",
+        "Mathlib.Data.Finset.Lattice.Lemmas",
+        "Mathlib.Data.Finset.Max",
+        "Mathlib.Data.Fintype.OfMap",
+        "Mathlib.Data.Fintype.Perm",
+        "Mathlib.Data.List.Basic",
+        "Mathlib.Data.List.Nodup",
+        "Mathlib.Data.List.Permutation",
+        "Mathlib.Data.Set.Card",
+        "Mathlib.Logic.Equiv.Fintype",
+        "Mathlib.Logic.Equiv.List",
+        "Mathlib.Probability.UniformOn",
+        "Mathlib.Tactic",
+        "Mathlib.Tactic.FinCases"
+      ],
+      "root_closures": {
+        "Applications/Probability/PermutationOrder.lean": {
+          "local_sources": [
+            "Applications/Probability/PermutationOrder.lean"
+          ],
+          "external_imports": [
+            "Mathlib.Data.Finset.Card",
+            "Mathlib.Data.Finset.Lattice.Lemmas",
+            "Mathlib.Data.Fintype.OfMap",
+            "Mathlib.Data.Fintype.Perm",
+            "Mathlib.Data.List.Basic",
+            "Mathlib.Data.List.Nodup",
+            "Mathlib.Data.List.Permutation",
+            "Mathlib.Data.Set.Card",
+            "Mathlib.Logic.Equiv.Fintype",
+            "Mathlib.Logic.Equiv.List",
+            "Mathlib.Probability.UniformOn"
+          ],
+          "static_source_equal_Z_and_saved_actual815_observation": true,
+          "future_qualification": false
+        },
+        "Examples/PermutationOrder.lean": {
+          "local_sources": [
+            "Applications/Probability/PermutationMinimum.lean",
+            "Applications/Probability/PermutationOrder.lean",
+            "Examples/PermutationMinimum.lean",
+            "Examples/PermutationMinimumBoundary.lean",
+            "Examples/PermutationOrder.lean",
+            "Examples/PermutationOrderBoundary.lean"
+          ],
+          "external_imports": [
+            "Mathlib.Data.Finset.Card",
+            "Mathlib.Data.Finset.Lattice.Lemmas",
+            "Mathlib.Data.Finset.Max",
+            "Mathlib.Data.Fintype.OfMap",
+            "Mathlib.Data.Fintype.Perm",
+            "Mathlib.Data.List.Basic",
+            "Mathlib.Data.List.Nodup",
+            "Mathlib.Data.List.Permutation",
+            "Mathlib.Data.Set.Card",
+            "Mathlib.Logic.Equiv.Fintype",
+            "Mathlib.Logic.Equiv.List",
+            "Mathlib.Probability.UniformOn",
+            "Mathlib.Tactic",
+            "Mathlib.Tactic.FinCases"
+          ],
+          "static_source_equal_Z_and_saved_actual815_observation": true,
+          "future_qualification": false
+        },
+        "Examples/PermutationOrderBoundary.lean": {
+          "local_sources": [
+            "Applications/Probability/PermutationMinimum.lean",
+            "Applications/Probability/PermutationOrder.lean",
+            "Examples/PermutationMinimum.lean",
+            "Examples/PermutationMinimumBoundary.lean",
+            "Examples/PermutationOrderBoundary.lean"
+          ],
+          "external_imports": [
+            "Mathlib.Data.Finset.Card",
+            "Mathlib.Data.Finset.Lattice.Lemmas",
+            "Mathlib.Data.Finset.Max",
+            "Mathlib.Data.Fintype.OfMap",
+            "Mathlib.Data.Fintype.Perm",
+            "Mathlib.Data.List.Basic",
+            "Mathlib.Data.List.Nodup",
+            "Mathlib.Data.List.Permutation",
+            "Mathlib.Data.Set.Card",
+            "Mathlib.Logic.Equiv.Fintype",
+            "Mathlib.Logic.Equiv.List",
+            "Mathlib.Probability.UniformOn",
+            "Mathlib.Tactic",
+            "Mathlib.Tactic.FinCases"
+          ],
+          "static_source_equal_Z_and_saved_actual815_observation": true,
+          "future_qualification": false
+        }
+      },
+      "incoming_old_predecessor_differences": [
+        {
+          "source": "Applications/Probability/PermutationMinimum.lean",
+          "incoming_minimal_tip_source": {
+            "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+            "git_blob": "9be74c11fda2de70b0fa02fcb597c631dc8e666e",
+            "bytes": 8244,
+            "lines": 197,
+            "sha256": "648a2d799ea9905a27992ad4e8653ad21a0457c5301e8c0a026d08d9cd067bbb"
+          },
+          "required_corrected_predecessor_source": {
+            "commit": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+            "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+            "bytes": 8241,
+            "lines": 197,
+            "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64"
+          }
+        },
+        {
+          "source": "Examples/PermutationMinimum.lean",
+          "incoming_minimal_tip_source": {
+            "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+            "git_blob": "e49e17a2a70836bd2cb8d4fc9bf799dd2be6bad9",
+            "bytes": 4891,
+            "lines": 126,
+            "sha256": "b1cef98f9814eb53668cc29896bad750d2b687c4bc162c7ad500e1df82a09442"
+          },
+          "required_corrected_predecessor_source": {
+            "commit": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+            "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+            "bytes": 4994,
+            "lines": 127,
+            "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1"
+          }
+        },
+        {
+          "source": "Examples/PermutationMinimumBoundary.lean",
+          "incoming_minimal_tip_source": {
+            "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+            "git_blob": "05642e65256626b6ac881c9c2fe6de822858ca2d",
+            "bytes": 4173,
+            "lines": 113,
+            "sha256": "d169fc8ccac457d71978bd1a209ab610338dd601fe816e40f9f0666164cca34d"
+          },
+          "required_corrected_predecessor_source": {
+            "commit": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+            "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+            "bytes": 4211,
+            "lines": 113,
+            "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b"
+          }
+        }
+      ],
+      "public_root_diff": "diff --git a/SquareApplications.lean b/SquareApplications.lean\nindex 33a8fbb..b9b45c8 100644\n--- a/SquareApplications.lean\n+++ b/SquareApplications.lean\n@@ -16,6 +16,7 @@ import Examples.ProbabilisticProgress\n import Examples.MetropolisHastings\n import Examples.ProbabilityCorrelation\n import Examples.PermutationMinimum\n+import Examples.PermutationOrder\n import Examples.StatefulIncremental\n import Examples.ExternalInteraction\n import Examples.InteractionTransport\n",
+      "frozen_requirements": {
+        "path": "reviews/permutation-order-requirements.md",
+        "bytes": 11430,
+        "lines": 209,
+        "sha256": "f473f593bf4a7ef75dcf2f3163440db6fe187b3b9983f87254d2ddfa8191982d"
+      },
+      "prepared_input_to_reuse": {
+        "path": "provenance/chapter02-xu02-statement-source-20261104/Statements.lean",
+        "bytes": 3522,
+        "lines": 61,
+        "sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3"
+      }
+    },
+    {
+      "unit": "XU03",
+      "type": "PermutationTail",
+      "tip": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "original_base": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+      "original_candidate": "a0597381f02eddd074ee96cabaa974f2062285f8",
+      "requirement": "reviews/permutation-tail-requirements.md",
+      "program_dir": "chapter02-tail-numerical-statement-source-20261104",
+      "total": 61,
+      "expected_private": 19,
+      "expected_anon": 8,
+      "candidate_base_required": "Accepted XU02 stage on the accepted preceding F/combined history",
+      "future_candidate": null,
+      "full_original_scope": {
+        "Applications/Probability/PermutationTail.lean": {
+          "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+          "git_blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+          "bytes": 23521,
+          "lines": 487,
+          "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed"
+        },
+        "Examples/PermutationTail.lean": {
+          "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+          "git_blob": "baa3e26a3c72a4589765562167d1d85edc011e67",
+          "bytes": 9826,
+          "lines": 222,
+          "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e"
+        },
+        "Examples/PermutationTailBoundary.lean": {
+          "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+          "git_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0",
+          "bytes": 12064,
+          "lines": 266,
+          "sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54"
+        },
+        "SquareApplications.lean": {
+          "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+          "git_blob": "2cd4b70ebb4b89bfcfcd61c98f1b9594f5a38d7b",
+          "bytes": 8392,
+          "lines": 255,
+          "sha256": "7aedfca880167dc6a66e1b49b7ce1c5210c5f97ad090817061c5961c0b1aa321"
+        },
+        "docs/research/fdsa-permutation-tail.md": {
+          "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+          "git_blob": "233136b41f38efafa0d5e1d8f22d8c2864340335",
+          "bytes": 10367,
+          "lines": 203,
+          "sha256": "34162854a3bfabbec1e87bea6111b4939495cc27eb9ee811758dceaeb62dc96f"
+        },
+        "docs/research/fdsa-reconstruction-map.md": {
+          "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+          "git_blob": "0655c5824d0e5b06a0c128de0ea0645fd8f116d3",
+          "bytes": 18893,
+          "lines": 312,
+          "sha256": "f519e995709de1e147439ebfc5a903a9e753883b49fd82f02d5bd484619acb9f"
+        }
+      },
+      "roots": {
+        "Applications/Probability/PermutationTail.lean": {
+          "source": {
+            "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+            "git_blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+            "bytes": 23521,
+            "lines": 487,
+            "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed"
+          },
+          "module": "Applications.Probability.PermutationTail",
+          "public_count": 15,
+          "private_count": 8,
+          "anonymous_instances": 0,
+          "exact_Z_bytes": true
+        },
+        "Examples/PermutationTail.lean": {
+          "source": {
+            "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+            "git_blob": "baa3e26a3c72a4589765562167d1d85edc011e67",
+            "bytes": 9826,
+            "lines": 222,
+            "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e"
+          },
+          "module": "Examples.PermutationTail",
+          "public_count": 24,
+          "private_count": 1,
+          "anonymous_instances": 2,
+          "exact_Z_bytes": true
+        },
+        "Examples/PermutationTailBoundary.lean": {
+          "source": {
+            "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+            "git_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0",
+            "bytes": 12064,
+            "lines": 266,
+            "sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54"
+          },
+          "module": "Examples.PermutationTailBoundary",
+          "public_count": 22,
+          "private_count": 10,
+          "anonymous_instances": 6,
+          "exact_Z_bytes": true
+        }
+      },
+      "public_names": [
+        "Applications.Probability.PermutationTail.firstEvent",
+        "Applications.Probability.PermutationTail.firstEvent_inter_tail",
+        "Applications.Probability.PermutationTail.cons_mem_orders",
+        "Applications.Probability.PermutationTail.tail_restrictedOrder_eq",
+        "Applications.Probability.PermutationTail.filter_tail_restrictedOrder_eq",
+        "Applications.Probability.PermutationTail.firstEvent_restrictedOrder_of_not_mem",
+        "Applications.Probability.PermutationTail.cond_firstEvent_restrictedOrder_of_not_mem",
+        "Applications.Probability.PermutationTail.uniformOn_firstEvent",
+        "Applications.Probability.PermutationTail.cond_uniformOn_firstEvent",
+        "Applications.Probability.PermutationTail.cond_tail_eq",
+        "Applications.Probability.PermutationTail.map_tail_cond_first",
+        "Applications.Probability.PermutationTail.head_mass_of_hasLaw",
+        "Applications.Probability.PermutationTail.hasLaw_tail_cond_first",
+        "Applications.Probability.PermutationTail.hasLaw_filter_tail_cond_first",
+        "Applications.Probability.PermutationTail.map_restrictedOrder_cond_first",
+        "Examples.PermutationTail.observedOrder",
+        "Examples.PermutationTail.remaining",
+        "Examples.PermutationTail.tailOrder",
+        "Examples.PermutationTail.afterFirst",
+        "Examples.PermutationTail.observed_hasLaw",
+        "Examples.PermutationTail.first_mass",
+        "Examples.PermutationTail.afterFirst_eq_uniformOn",
+        "Examples.PermutationTail.tail_hasLaw",
+        "Examples.PermutationTail.tail_map",
+        "Examples.PermutationTail.tail_23_mass",
+        "Examples.PermutationTail.tail_32_mass",
+        "Examples.PermutationTail.repeated_tail_mass_zero",
+        "Examples.PermutationTail.filteredTail",
+        "Examples.PermutationTail.filtered_tail_hasLaw",
+        "Examples.PermutationTail.filtered_tail_eq_projection",
+        "Examples.PermutationTail.filtered_tail_mass",
+        "Examples.PermutationTail.remaining_projection_map",
+        "Examples.PermutationTail.afterFirst_first_event_mass",
+        "Examples.PermutationTail.environment_changed",
+        "Examples.PermutationTail.second_head_mass",
+        "Examples.PermutationTail.afterSecond",
+        "Examples.PermutationTail.lastTail",
+        "Examples.PermutationTail.last_tail_hasLaw",
+        "Examples.PermutationTail.last_tail_mass",
+        "Examples.PermutationTailBoundary.swap01",
+        "Examples.PermutationTailBoundary.swap01_global_order",
+        "Examples.PermutationTailBoundary.swap01_selected_order",
+        "Examples.PermutationTailBoundary.swap01_first_events",
+        "Examples.PermutationTailBoundary.singleton_conditional_tail_mass",
+        "Examples.PermutationTailBoundary.empty_subset_none_mass",
+        "Examples.PermutationTailBoundary.empty_subset_first_event",
+        "Examples.PermutationTailBoundary.empty_subset_conditional_zero",
+        "Examples.PermutationTailBoundary.outsider_first_event",
+        "Examples.PermutationTailBoundary.outsider_conditional_zero",
+        "Examples.PermutationTailBoundary.empty_indices_none_mass",
+        "Examples.PermutationTailBoundary.counterPositions",
+        "Examples.PermutationTailBoundary.conditionSubset",
+        "Examples.PermutationTailBoundary.outsideSubset",
+        "Examples.PermutationTailBoundary.counterLaw",
+        "Examples.PermutationTailBoundary.counterFirst",
+        "Examples.PermutationTailBoundary.outsideConditional",
+        "Examples.PermutationTailBoundary.outside_subset_boundaries",
+        "Examples.PermutationTailBoundary.counter_first_mass",
+        "Examples.PermutationTailBoundary.outside_order_12_mass",
+        "Examples.PermutationTailBoundary.outside_order_21_mass",
+        "Examples.PermutationTailBoundary.outside_order_not_uniform"
+      ],
+      "public_count": 61,
+      "private_count": 19,
+      "anonymous_instance_count": 8,
+      "anonymous_example_count": 0,
+      "program_source": {
+        "path": "provenance/chapter02-tail-numerical-statement-source-20261104/Statements.lean",
+        "bytes": 5051,
+        "lines": 94,
+        "sha256": "654cd35d4be30170e40b5c5c6ba5d8b351902db07ea899d46cbbeb2e2956c06e"
+      },
+      "historical_program_inventory": {
+        "path": "provenance/chapter02-tail-numerical-statement-source-20261104/inventory.json",
+        "bytes": 19310,
+        "lines": 568,
+        "sha256": "9b3d661055d4312438c6db31b52fd44f254ca99f9164cf6037c67c3050e0dea5"
+      },
+      "historical_source_bindings": [
+        {
+          "source": "Applications/Probability/PermutationTail.lean",
+          "historical_sha256": "9fd7031f057e55933b9f252370e9541197ee1c7029ec903d630e41a8815691a8",
+          "corrected_sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed",
+          "same_bytes": false
+        },
+        {
+          "source": "Examples/PermutationTail.lean",
+          "historical_sha256": "30e07aaede25b10d2484c2a4674bffa66d77094a545fd49f72bc000bd132ddb7",
+          "corrected_sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e",
+          "same_bytes": false
+        },
+        {
+          "source": "Examples/PermutationTailBoundary.lean",
+          "historical_sha256": "fe6e365ff0f324e1f9b143b6203589f36b89e4b789baa79a11317163d21494c0",
+          "corrected_sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54",
+          "same_bytes": false
+        }
+      ],
+      "program_action": "Extract the exact 61-name block and only its three imports from the historical 84-name input; no numerical-mean imports in this stage.",
+      "local_closure": {
+        "Applications/Probability/PermutationMinimum.lean": {
+          "source": {
+            "commit": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+            "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+            "bytes": 8241,
+            "lines": 197,
+            "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64"
+          },
+          "module": "Applications.Probability.PermutationMinimum"
+        },
+        "Applications/Probability/PermutationOrder.lean": {
+          "source": {
+            "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+            "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+            "bytes": 15304,
+            "lines": 321,
+            "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2"
+          },
+          "module": "Applications.Probability.PermutationOrder"
+        },
+        "Applications/Probability/PermutationTail.lean": {
+          "source": {
+            "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+            "git_blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+            "bytes": 23521,
+            "lines": 487,
+            "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed"
+          },
+          "module": "Applications.Probability.PermutationTail"
+        },
+        "Examples/PermutationMinimum.lean": {
+          "source": {
+            "commit": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+            "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+            "bytes": 4994,
+            "lines": 127,
+            "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1"
+          },
+          "module": "Examples.PermutationMinimum"
+        },
+        "Examples/PermutationMinimumBoundary.lean": {
+          "source": {
+            "commit": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+            "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+            "bytes": 4211,
+            "lines": 113,
+            "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b"
+          },
+          "module": "Examples.PermutationMinimumBoundary"
+        },
+        "Examples/PermutationOrder.lean": {
+          "source": {
+            "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+            "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+            "bytes": 6706,
+            "lines": 152,
+            "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084"
+          },
+          "module": "Examples.PermutationOrder"
+        },
+        "Examples/PermutationOrderBoundary.lean": {
+          "source": {
+            "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+            "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+            "bytes": 5605,
+            "lines": 148,
+            "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121"
+          },
+          "module": "Examples.PermutationOrderBoundary"
+        },
+        "Examples/PermutationTail.lean": {
+          "source": {
+            "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+            "git_blob": "baa3e26a3c72a4589765562167d1d85edc011e67",
+            "bytes": 9826,
+            "lines": 222,
+            "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e"
+          },
+          "module": "Examples.PermutationTail"
+        },
+        "Examples/PermutationTailBoundary.lean": {
+          "source": {
+            "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+            "git_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0",
+            "bytes": 12064,
+            "lines": 266,
+            "sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54"
+          },
+          "module": "Examples.PermutationTailBoundary"
+        }
+      },
+      "external_imports": [
+        "Mathlib.Basic.ENNReal.Inv",
+        "Mathlib.Data.Finset.Card",
+        "Mathlib.Data.Finset.Lattice.Lemmas",
+        "Mathlib.Data.Finset.Max",
+        "Mathlib.Data.Fintype.OfMap",
+        "Mathlib.Data.Fintype.Perm",
+        "Mathlib.Data.List.Basic",
+        "Mathlib.Data.List.Nodup",
+        "Mathlib.Data.List.Permutation",
+        "Mathlib.Data.Nat.Factorial.Basic",
+        "Mathlib.Data.Set.Card",
+        "Mathlib.Logic.Equiv.Fintype",
+        "Mathlib.Logic.Equiv.List",
+        "Mathlib.MeasureTheory.Measure.AEMeasurable",
+        "Mathlib.Probability.ConditionalProbability",
+        "Mathlib.Probability.HasLaw",
+        "Mathlib.Probability.UniformOn",
+        "Mathlib.Tactic",
+        "Mathlib.Tactic.FinCases"
+      ],
+      "root_closures": {
+        "Applications/Probability/PermutationTail.lean": {
+          "local_sources": [
+            "Applications/Probability/PermutationOrder.lean",
+            "Applications/Probability/PermutationTail.lean"
+          ],
+          "external_imports": [
+            "Mathlib.Basic.ENNReal.Inv",
+            "Mathlib.Data.Finset.Card",
+            "Mathlib.Data.Finset.Lattice.Lemmas",
+            "Mathlib.Data.Fintype.OfMap",
+            "Mathlib.Data.Fintype.Perm",
+            "Mathlib.Data.List.Basic",
+            "Mathlib.Data.List.Nodup",
+            "Mathlib.Data.List.Permutation",
+            "Mathlib.Data.Nat.Factorial.Basic",
+            "Mathlib.Data.Set.Card",
+            "Mathlib.Logic.Equiv.Fintype",
+            "Mathlib.Logic.Equiv.List",
+            "Mathlib.MeasureTheory.Measure.AEMeasurable",
+            "Mathlib.Probability.ConditionalProbability",
+            "Mathlib.Probability.HasLaw",
+            "Mathlib.Probability.UniformOn"
+          ],
+          "static_source_equal_Z_and_saved_actual815_observation": true,
+          "future_qualification": false
+        },
+        "Examples/PermutationTail.lean": {
+          "local_sources": [
+            "Applications/Probability/PermutationMinimum.lean",
+            "Applications/Probability/PermutationOrder.lean",
+            "Applications/Probability/PermutationTail.lean",
+            "Examples/PermutationMinimum.lean",
+            "Examples/PermutationMinimumBoundary.lean",
+            "Examples/PermutationOrder.lean",
+            "Examples/PermutationOrderBoundary.lean",
+            "Examples/PermutationTail.lean",
+            "Examples/PermutationTailBoundary.lean"
+          ],
+          "external_imports": [
+            "Mathlib.Basic.ENNReal.Inv",
+            "Mathlib.Data.Finset.Card",
+            "Mathlib.Data.Finset.Lattice.Lemmas",
+            "Mathlib.Data.Finset.Max",
+            "Mathlib.Data.Fintype.OfMap",
+            "Mathlib.Data.Fintype.Perm",
+            "Mathlib.Data.List.Basic",
+            "Mathlib.Data.List.Nodup",
+            "Mathlib.Data.List.Permutation",
+            "Mathlib.Data.Nat.Factorial.Basic",
+            "Mathlib.Data.Set.Card",
+            "Mathlib.Logic.Equiv.Fintype",
+            "Mathlib.Logic.Equiv.List",
+            "Mathlib.MeasureTheory.Measure.AEMeasurable",
+            "Mathlib.Probability.ConditionalProbability",
+            "Mathlib.Probability.HasLaw",
+            "Mathlib.Probability.UniformOn",
+            "Mathlib.Tactic",
+            "Mathlib.Tactic.FinCases"
+          ],
+          "static_source_equal_Z_and_saved_actual815_observation": true,
+          "future_qualification": false
+        },
+        "Examples/PermutationTailBoundary.lean": {
+          "local_sources": [
+            "Applications/Probability/PermutationMinimum.lean",
+            "Applications/Probability/PermutationOrder.lean",
+            "Applications/Probability/PermutationTail.lean",
+            "Examples/PermutationMinimum.lean",
+            "Examples/PermutationMinimumBoundary.lean",
+            "Examples/PermutationOrder.lean",
+            "Examples/PermutationOrderBoundary.lean",
+            "Examples/PermutationTailBoundary.lean"
+          ],
+          "external_imports": [
+            "Mathlib.Basic.ENNReal.Inv",
+            "Mathlib.Data.Finset.Card",
+            "Mathlib.Data.Finset.Lattice.Lemmas",
+            "Mathlib.Data.Finset.Max",
+            "Mathlib.Data.Fintype.OfMap",
+            "Mathlib.Data.Fintype.Perm",
+            "Mathlib.Data.List.Basic",
+            "Mathlib.Data.List.Nodup",
+            "Mathlib.Data.List.Permutation",
+            "Mathlib.Data.Nat.Factorial.Basic",
+            "Mathlib.Data.Set.Card",
+            "Mathlib.Logic.Equiv.Fintype",
+            "Mathlib.Logic.Equiv.List",
+            "Mathlib.MeasureTheory.Measure.AEMeasurable",
+            "Mathlib.Probability.ConditionalProbability",
+            "Mathlib.Probability.HasLaw",
+            "Mathlib.Probability.UniformOn",
+            "Mathlib.Tactic",
+            "Mathlib.Tactic.FinCases"
+          ],
+          "static_source_equal_Z_and_saved_actual815_observation": true,
+          "future_qualification": false
+        }
+      },
+      "incoming_old_predecessor_differences": [
+        {
+          "source": "Applications/Probability/PermutationMinimum.lean",
+          "incoming_minimal_tip_source": {
+            "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+            "git_blob": "9be74c11fda2de70b0fa02fcb597c631dc8e666e",
+            "bytes": 8244,
+            "lines": 197,
+            "sha256": "648a2d799ea9905a27992ad4e8653ad21a0457c5301e8c0a026d08d9cd067bbb"
+          },
+          "required_corrected_predecessor_source": {
+            "commit": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+            "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+            "bytes": 8241,
+            "lines": 197,
+            "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64"
+          }
+        },
+        {
+          "source": "Examples/PermutationMinimum.lean",
+          "incoming_minimal_tip_source": {
+            "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+            "git_blob": "e49e17a2a70836bd2cb8d4fc9bf799dd2be6bad9",
+            "bytes": 4891,
+            "lines": 126,
+            "sha256": "b1cef98f9814eb53668cc29896bad750d2b687c4bc162c7ad500e1df82a09442"
+          },
+          "required_corrected_predecessor_source": {
+            "commit": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+            "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+            "bytes": 4994,
+            "lines": 127,
+            "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1"
+          }
+        },
+        {
+          "source": "Examples/PermutationMinimumBoundary.lean",
+          "incoming_minimal_tip_source": {
+            "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+            "git_blob": "05642e65256626b6ac881c9c2fe6de822858ca2d",
+            "bytes": 4173,
+            "lines": 113,
+            "sha256": "d169fc8ccac457d71978bd1a209ab610338dd601fe816e40f9f0666164cca34d"
+          },
+          "required_corrected_predecessor_source": {
+            "commit": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+            "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+            "bytes": 4211,
+            "lines": 113,
+            "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b"
+          }
+        },
+        {
+          "source": "Applications/Probability/PermutationOrder.lean",
+          "incoming_minimal_tip_source": {
+            "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+            "git_blob": "948b428687adb0c370c30298ce22c02e1bd863b6",
+            "bytes": 15172,
+            "lines": 319,
+            "sha256": "b427902814c19d269c850c97cb43728034d03df2539c5e357ce7ce715191298f"
+          },
+          "required_corrected_predecessor_source": {
+            "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+            "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+            "bytes": 15304,
+            "lines": 321,
+            "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2"
+          }
+        },
+        {
+          "source": "Examples/PermutationOrder.lean",
+          "incoming_minimal_tip_source": {
+            "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+            "git_blob": "c6f0d7d2a08b5bfc1b9b34563a8a5578a3fcd52d",
+            "bytes": 6445,
+            "lines": 146,
+            "sha256": "251c0ee0ce7b96711ea57e1ff7496a784fe33137596e8f13b244fa9e44fd57e5"
+          },
+          "required_corrected_predecessor_source": {
+            "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+            "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+            "bytes": 6706,
+            "lines": 152,
+            "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084"
+          }
+        },
+        {
+          "source": "Examples/PermutationOrderBoundary.lean",
+          "incoming_minimal_tip_source": {
+            "commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+            "git_blob": "9e384a46b8fda579ccee3605928a0fde864c881e",
+            "bytes": 5434,
+            "lines": 144,
+            "sha256": "35c9768d94fd12e553905244a69ffa375e01e469098856b311ac17ad88533fea"
+          },
+          "required_corrected_predecessor_source": {
+            "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+            "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+            "bytes": 5605,
+            "lines": 148,
+            "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121"
+          }
+        }
+      ],
+      "public_root_diff": "diff --git a/SquareApplications.lean b/SquareApplications.lean\nindex b9b45c8..2cd4b70 100644\n--- a/SquareApplications.lean\n+++ b/SquareApplications.lean\n@@ -17,6 +17,7 @@ import Examples.MetropolisHastings\n import Examples.ProbabilityCorrelation\n import Examples.PermutationMinimum\n import Examples.PermutationOrder\n+import Examples.PermutationTail\n import Examples.StatefulIncremental\n import Examples.ExternalInteraction\n import Examples.InteractionTransport\n",
+      "frozen_requirements": {
+        "path": "reviews/permutation-tail-requirements.md",
+        "bytes": 12866,
+        "lines": 229,
+        "sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c"
+      },
+      "prepared_input_to_reuse": {
+        "path": "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+        "bytes": 4105,
+        "lines": 75,
+        "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa"
+      }
+    }
+  ],
+  "public_declarations": [
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 49,
+      "kind": "def",
+      "modifiers": [],
+      "source_header_line": "def restrictedOrder (positions : List I) (S : Finset I) (\u03c0 : Equiv.Perm I) : List I :=",
+      "name": "Applications.Probability.PermutationOrder.restrictedOrder",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 33,
+        "native_start_line": 380,
+        "native_end_line": 381,
+        "bytes": 194,
+        "sha256": "a08b0c7bd3215751ed86fc42ec5c9b411e3dd5d2dff10fb0f1487cabd200ca19"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 53,
+      "kind": "def",
+      "modifiers": [],
+      "source_header_line": "def orders (positions : List I) (S : Finset I) : Finset (List I) :=",
+      "name": "Applications.Probability.PermutationOrder.orders",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 34,
+        "native_start_line": 382,
+        "native_end_line": 383,
+        "bytes": 173,
+        "sha256": "f4de8b4444ed88d3e23d706d41274abf4bb212aca3f4c9ec3af9c9f468123a12"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 57,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "@[simp] theorem mem_restrictedOrder (positions : List I) (S : Finset I)",
+      "name": "Applications.Probability.PermutationOrder.mem_restrictedOrder",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 35,
+        "native_start_line": 384,
+        "native_end_line": 396,
+        "bytes": 906,
+        "sha256": "e16b3f9de1dbce17fbcfa7f0468f6a3680bbfbcf87fc4946beedfb15854f3891"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 62,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem mem_restrictedOrder_of_complete (positions : List I)",
+      "name": "Applications.Probability.PermutationOrder.mem_restrictedOrder_of_complete",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 36,
+        "native_start_line": 397,
+        "native_end_line": 405,
+        "bytes": 693,
+        "sha256": "1c1a51d536ddfc3ee4fd824ea681f0f9b0625cfa378c39117deec4533c287c70"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 67,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem restrictedOrder_nodup (positions : List I) (hnd : positions.Nodup)",
+      "name": "Applications.Probability.PermutationOrder.restrictedOrder_nodup",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 37,
+        "native_start_line": 406,
+        "native_end_line": 410,
+        "bytes": 366,
+        "sha256": "9de070ed33c35aec1efcdd082f95f54acd79700ee219626f02d4fa8b6551321f"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 73,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem restrictedOrder_toFinset (positions : List I)",
+      "name": "Applications.Probability.PermutationOrder.restrictedOrder_toFinset",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 38,
+        "native_start_line": 411,
+        "native_end_line": 418,
+        "bytes": 510,
+        "sha256": "0fd894b7e72901103732f34c784bfa75eca63f524656bda72290154c95ca0d0e"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 81,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem restrictedOrder_length (positions : List I) (hnd : positions.Nodup)",
+      "name": "Applications.Probability.PermutationOrder.restrictedOrder_length",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 39,
+        "native_start_line": 419,
+        "native_end_line": 426,
+        "bytes": 541,
+        "sha256": "3ddfa3321019bb72b0a9a0e0b054081d13fc463f2209f319936150d7cc4e0d4a"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 87,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem restrictedOrder_perm (positions : List I) (hnd : positions.Nodup)",
+      "name": "Applications.Probability.PermutationOrder.restrictedOrder_perm",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 40,
+        "native_start_line": 427,
+        "native_end_line": 439,
+        "bytes": 816,
+        "sha256": "cee99e27302b1d9134b4d36d80d3582913340ccb3d34918eda0a5e992da1b569"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 98,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem map_restrictedOrder_sublist (positions : List I) (S : Finset I)",
+      "name": "Applications.Probability.PermutationOrder.map_restrictedOrder_sublist",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 41,
+        "native_start_line": 440,
+        "native_end_line": 449,
+        "bytes": 621,
+        "sha256": "8a720212df455a718305b2c9378cb86f471e3a501f525d9a7782af967e1a858b"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 107,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem filter_restrictedOrder (positions : List I) (S T : Finset I)",
+      "name": "Applications.Probability.PermutationOrder.filter_restrictedOrder",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 42,
+        "native_start_line": 450,
+        "native_end_line": 461,
+        "bytes": 787,
+        "sha256": "f72e19fcaf6de5f0b4574fa9932ba99aeafaa0eb661b19a0976f9259ac3fb04f"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 117,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem filter_restrictedOrder_of_subset (positions : List I) (S T : Finset I)",
+      "name": "Applications.Probability.PermutationOrder.filter_restrictedOrder_of_subset",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 43,
+        "native_start_line": 462,
+        "native_end_line": 476,
+        "bytes": 921,
+        "sha256": "255f0168e8a532316764c2ec9e5441402083a5d1d6310a9adcd25bdb459ca1a2"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 123,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "@[simp] theorem mem_orders (positions : List I) (S : Finset I) (xs : List I) :",
+      "name": "Applications.Probability.PermutationOrder.mem_orders",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 44,
+        "native_start_line": 477,
+        "native_end_line": 491,
+        "bytes": 832,
+        "sha256": "11237af2a4b68ce6a4188532a185c4ea1f1cd2e8aaba7588a498a4f3815d3265"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 129,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem orders_nonempty (positions : List I) (S : Finset I) :",
+      "name": "Applications.Probability.PermutationOrder.orders_nonempty",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 45,
+        "native_start_line": 492,
+        "native_end_line": 494,
+        "bytes": 287,
+        "sha256": "ebc09766109c756d6eee1f2253e8403f8fd6559455f8018fb7708a2f88e2f78c"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 134,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem restrictedOrder_mem_orders (positions : List I) (hnd : positions.Nodup)",
+      "name": "Applications.Probability.PermutationOrder.restrictedOrder_mem_orders",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 46,
+        "native_start_line": 495,
+        "native_end_line": 504,
+        "bytes": 781,
+        "sha256": "630e260945fd88a312b202506711f5c4f11106ab156dcfb6ba8b21d2a47465b7"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 139,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem orders_card (positions : List I) (hnd : positions.Nodup)",
+      "name": "Applications.Probability.PermutationOrder.orders_card",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 47,
+        "native_start_line": 505,
+        "native_end_line": 513,
+        "bytes": 523,
+        "sha256": "c24df0b01a491703a878bf496151d439a097b285eb61f181cd63408b988d76a9"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 234,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem uniformOn_restrictedOrder_eq",
+      "name": "Applications.Probability.PermutationOrder.uniformOn_restrictedOrder_eq",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 48,
+        "native_start_line": 514,
+        "native_end_line": 541,
+        "bytes": 2098,
+        "sha256": "64e98c8edb6cb44e98b3dce262d2d52bbb5527c9868694632407d35696dd62e1"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 297,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem map_restrictedOrder_uniformOn",
+      "name": "Applications.Probability.PermutationOrder.map_restrictedOrder_uniformOn",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 49,
+        "native_start_line": 542,
+        "native_end_line": 557,
+        "bytes": 1288,
+        "sha256": "c1fc2e4cc6c6c138f22e9734f72a25600824e5ee5587028acdb222df0d81dc2c"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 34,
+      "kind": "def",
+      "modifiers": [],
+      "source_header_line": "def positions : List (Fin 4) := [0, 1, 2, 3]",
+      "name": "Examples.PermutationOrder.positions",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 50,
+        "native_start_line": 558,
+        "native_end_line": 558,
+        "bytes": 115,
+        "sha256": "e055b8515ad27ea30e7a22ff2e6213f67a51973eec24286bd6b0d4e3391bb29f"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 35,
+      "kind": "def",
+      "modifiers": [],
+      "source_header_line": "def selected : Finset (Fin 4) := {0, 2, 3}",
+      "name": "Examples.PermutationOrder.selected",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 51,
+        "native_start_line": 559,
+        "native_end_line": 559,
+        "bytes": 116,
+        "sha256": "84933b63c9b0a808034e197843d6293cae7631ff8c658311eeb390db46734ad1"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 36,
+      "kind": "def",
+      "modifiers": [],
+      "source_header_line": "def smaller : Finset (Fin 4) := {0, 3}",
+      "name": "Examples.PermutationOrder.smaller",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 52,
+        "native_start_line": 560,
+        "native_end_line": 560,
+        "bytes": 115,
+        "sha256": "2ea129d97e871b3dabf7968304890ee9dafc324b6582fdd3ac246d7f1a9bffa2"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 38,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem positions_nodup : positions.Nodup := by decide",
+      "name": "Examples.PermutationOrder.positions_nodup",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 53,
+        "native_start_line": 561,
+        "native_end_line": 562,
+        "bytes": 166,
+        "sha256": "e2ecf0376f758f8d37fea97d18938affacf09843eab87b8eafdfd4aa88ac8a14"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 40,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem positions_complete (a : Fin 4) : a \u2208 positions := by",
+      "name": "Examples.PermutationOrder.positions_complete",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 54,
+        "native_start_line": 563,
+        "native_end_line": 568,
+        "bytes": 443,
+        "sha256": "7f588e67b38f786953ec256f616186483b1cf590e8cebbc84c3ed7dcb04276f5"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 43,
+      "kind": "def",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "source_header_line": "noncomputable def law : Measure (Equiv.Perm (Fin 4)) := uniformOn Set.univ",
+      "name": "Examples.PermutationOrder.law",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 55,
+        "native_start_line": 569,
+        "native_end_line": 571,
+        "bytes": 218,
+        "sha256": "d3783cf8ecdcba4bade56e2c00c546f209b4199397040f8c6a8da69618e0f79c"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 46,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem selected_structure (\u03c0 : Equiv.Perm (Fin 4)) :",
+      "name": "Examples.PermutationOrder.selected_structure",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 56,
+        "native_start_line": 572,
+        "native_end_line": 615,
+        "bytes": 3289,
+        "sha256": "9c29cded13e042618eb5433fed46cc6e82406aa7be9616345aa7224496f4a874"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 59,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem selected_permutation (\u03c0 : Equiv.Perm (Fin 4)) :",
+      "name": "Examples.PermutationOrder.selected_permutation",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 57,
+        "native_start_line": 616,
+        "native_end_line": 632,
+        "bytes": 1546,
+        "sha256": "9c73605a0ee0ba57f8466f48f95a2ac3b11e9b8c7b267a30bd2c78e718848310"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 66,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem selected_orders_card : (orders positions selected).card = 6 := by",
+      "name": "Examples.PermutationOrder.selected_orders_card",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 58,
+        "native_start_line": 633,
+        "native_end_line": 639,
+        "bytes": 525,
+        "sha256": "59371141e4f53ef143336f1f02ba3cd7fdfa4ba2d18ba57eba83a934d945818d"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 81,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem order_023_mass :",
+      "name": "Examples.PermutationOrder.order_023_mass",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 59,
+        "native_start_line": 640,
+        "native_end_line": 672,
+        "bytes": 2705,
+        "sha256": "e4a9880039250b4cda12da74520a7eca41de8500a32c6ffe4d5296ec7f804a64"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 89,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem observed_law :",
+      "name": "Examples.PermutationOrder.observed_law",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 60,
+        "native_start_line": 673,
+        "native_end_line": 694,
+        "bytes": 1746,
+        "sha256": "09adc2dc73d4be1d48fa55f9ca3c2efab1d00cde82560b46e9222cd884ddad19"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 96,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem order_032_mass_via_map :",
+      "name": "Examples.PermutationOrder.order_032_mass_via_map",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 61,
+        "native_start_line": 695,
+        "native_end_line": 727,
+        "bytes": 2713,
+        "sha256": "58a4a40b749882392c963b61219a3492fe10fbf639b7a7bf1a9183dc6b098277"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 114,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem repeated_order_mass_zero :",
+      "name": "Examples.PermutationOrder.repeated_order_mass_zero",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 62,
+        "native_start_line": 728,
+        "native_end_line": 753,
+        "bytes": 2323,
+        "sha256": "fa28fdba7dfe2e9caac26c00db382a42b61c9cc67d88356befc2e8965302ea07"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 125,
+      "kind": "def",
+      "modifiers": [],
+      "source_header_line": "def nestedObservation (\u03c0 : Equiv.Perm (Fin 4)) : List (Fin 4) :=",
+      "name": "Examples.PermutationOrder.nestedObservation",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 63,
+        "native_start_line": 754,
+        "native_end_line": 756,
+        "bytes": 216,
+        "sha256": "26da5f97dd5c9b6306ccad9bb0ebc1617ccf7f9e102c3f7401b0033f3fb2de42"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 128,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem nestedObservation_eq (\u03c0 : Equiv.Perm (Fin 4)) :",
+      "name": "Examples.PermutationOrder.nestedObservation_eq",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 64,
+        "native_start_line": 757,
+        "native_end_line": 764,
+        "bytes": 599,
+        "sha256": "9420a767b8425fbb5f87af96493f2524fe1406c7672b7cd9bfd011d204bb10d3"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 133,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem nested_order_30_mass :",
+      "name": "Examples.PermutationOrder.nested_order_30_mass",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 65,
+        "native_start_line": 765,
+        "native_end_line": 791,
+        "bytes": 2117,
+        "sha256": "0b75ccacf7e0c9e006d81a0c5d24ba028bcf9a2960f745baf1ae9fa85a9fdeab"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 141,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem singleton_order_mass :",
+      "name": "Examples.PermutationOrder.singleton_order_mass",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 66,
+        "native_start_line": 792,
+        "native_end_line": 817,
+        "bytes": 2181,
+        "sha256": "ae8792c0245c86f8ee07c4cee0d00d43ed1f0af41aa7370a6cfc1ae1ba860f59"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 145,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem full_order_mass :",
+      "name": "Examples.PermutationOrder.full_order_mass",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 67,
+        "native_start_line": 818,
+        "native_end_line": 856,
+        "bytes": 3197,
+        "sha256": "42dbd6d8d6106acdbf64b8228e1f3828fc911622f6371cc9e0a742f6b1f4bddb"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 32,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem empty_subset_output (\u03c0 : Equiv.Perm (Fin 3)) :",
+      "name": "Examples.PermutationOrderBoundary.empty_subset_output",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 68,
+        "native_start_line": 857,
+        "native_end_line": 877,
+        "bytes": 1838,
+        "sha256": "a5f3a19ae0100f92960101b57a87c695d641805bdef06667b917d9ef5c7d17c2"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 37,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem empty_subset_orders :",
+      "name": "Examples.PermutationOrderBoundary.empty_subset_orders",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 69,
+        "native_start_line": 878,
+        "native_end_line": 899,
+        "bytes": 2022,
+        "sha256": "bbe2124f2ee5db9c92e8213a20d2ff168f1782bf0a9615f31f927c32cd8f5cae"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 42,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem empty_subset_mass :",
+      "name": "Examples.PermutationOrderBoundary.empty_subset_mass",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 70,
+        "native_start_line": 900,
+        "native_end_line": 932,
+        "bytes": 2922,
+        "sha256": "7f6485f908f5c319c150d894e3a7f4424e1c79f35146e98aa1e563fda12d14c3"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 51,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem empty_index_mass :",
+      "name": "Examples.PermutationOrderBoundary.empty_index_mass",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 71,
+        "native_start_line": 933,
+        "native_end_line": 947,
+        "bytes": 1046,
+        "sha256": "87eb1495b2ce3a8a16ca9c7965861d6355b4cb597092802ff9b5990a8e3c26f7"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 59,
+      "kind": "def",
+      "modifiers": [],
+      "source_header_line": "def cycle : Equiv.Perm (Fin 3) :=",
+      "name": "Examples.PermutationOrderBoundary.cycle",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 72,
+        "native_start_line": 948,
+        "native_end_line": 949,
+        "bytes": 127,
+        "sha256": "cc10e09c65853e127b4a8644b01f121ab492dda05f86f17783aa5d60121b8c22"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 62,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem cycle_values : cycle 0 = 1 \u2227 cycle 1 = 2 \u2227 cycle 2 = 0 := by",
+      "name": "Examples.PermutationOrderBoundary.cycle_values",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 73,
+        "native_start_line": 950,
+        "native_end_line": 996,
+        "bytes": 3955,
+        "sha256": "4cfed394e4e52ddd5a10287c653d16443d3dcd883b104cc7ecd90a4ab17e8166"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 66,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem cycle_inverse_order :",
+      "name": "Examples.PermutationOrderBoundary.cycle_inverse_order",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 74,
+        "native_start_line": 997,
+        "native_end_line": 1034,
+        "bytes": 3399,
+        "sha256": "d0d61139a756421d165ee5a2649590fb2ffaf12160e7cc805f9b367ba761a460"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 70,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem cycle_restricted_order :",
+      "name": "Examples.PermutationOrderBoundary.cycle_restricted_order",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 75,
+        "native_start_line": 1035,
+        "native_end_line": 1068,
+        "bytes": 3189,
+        "sha256": "a1e9319c4a21ad4a893a7104d12248a4709711b4b48ed5fa687dc849ddee84ec"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 75,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem cycle_direct_order :",
+      "name": "Examples.PermutationOrderBoundary.cycle_direct_order",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 76,
+        "native_start_line": 1069,
+        "native_end_line": 1133,
+        "bytes": 5980,
+        "sha256": "2083fee852db688de4d54d38f62057013732573325f8cc8508b3d2a820e61768"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 80,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem inverse_and_direct_orders_differ :",
+      "name": "Examples.PermutationOrderBoundary.inverse_and_direct_orders_differ",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 77,
+        "native_start_line": 1134,
+        "native_end_line": 1216,
+        "bytes": 7679,
+        "sha256": "3cf6255d35ba720e94f8816d072c322e14f36c996bbe76674f80f9a1f659e93c"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 88,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem numeric_enumeration_values :",
+      "name": "Examples.PermutationOrderBoundary.numeric_enumeration_values",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 78,
+        "native_start_line": 1217,
+        "native_end_line": 1238,
+        "bytes": 2062,
+        "sha256": "b18dde69ee74a2201c5464c8510b89a15ec3b8f220d49e3d012c46393c739f33"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 93,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem numeric_enumeration_increasing :",
+      "name": "Examples.PermutationOrderBoundary.numeric_enumeration_increasing",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 79,
+        "native_start_line": 1239,
+        "native_end_line": 1258,
+        "bytes": 1801,
+        "sha256": "87cdff4429412632089b82cf8571fc4450345b7f3a66a4193e2c7d9f09b673da"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 101,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem ordinary_enumeration_not_increasing :",
+      "name": "Examples.PermutationOrderBoundary.ordinary_enumeration_not_increasing",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 80,
+        "native_start_line": 1259,
+        "native_end_line": 1278,
+        "bytes": 1848,
+        "sha256": "1a6fd04fb43ddf25c3a2a76b8793e8fb4e25fd896588e91f40ab76b6546030c8"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 107,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem numeric_and_ordinary_orders_differ :",
+      "name": "Examples.PermutationOrderBoundary.numeric_and_ordinary_orders_differ",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 81,
+        "native_start_line": 1279,
+        "native_end_line": 1312,
+        "bytes": 3142,
+        "sha256": "62a2f496f9135dae511f58dc6edcfac266defd76208452d056f75084e67f47dc"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 113,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem incomplete_output :",
+      "name": "Examples.PermutationOrderBoundary.incomplete_output",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 82,
+        "native_start_line": 1313,
+        "native_end_line": 1333,
+        "bytes": 1936,
+        "sha256": "659202c1c59777c72146a07fd199a5448091b73f63ad7933ec303810b7eeb8b7"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 118,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem incomplete_support_counterexample :",
+      "name": "Examples.PermutationOrderBoundary.incomplete_support_counterexample",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 83,
+        "native_start_line": 1334,
+        "native_end_line": 1369,
+        "bytes": 3419,
+        "sha256": "d5bb5766bca35d96de63317131b31d6bc6cd6aa3956b19da92fd26108dbe727f"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 130,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem repeated_output :",
+      "name": "Examples.PermutationOrderBoundary.repeated_output",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 84,
+        "native_start_line": 1370,
+        "native_end_line": 1402,
+        "bytes": 3121,
+        "sha256": "99ca35976f1b8b5c5728123f9e4a4766e4c29d24eb26a19d87797df5a1e674d4"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 136,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem repeated_support_counterexample :",
+      "name": "Examples.PermutationOrderBoundary.repeated_support_counterexample",
+      "unit": "XU02",
+      "source_commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 85,
+        "native_start_line": 1403,
+        "native_end_line": 1454,
+        "bytes": 4927,
+        "sha256": "7ed4b57ad6a852411d6eb7a410e097edf1811fc96279d92d0df4b63abcc50f6e"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 41,
+      "kind": "def",
+      "modifiers": [],
+      "source_header_line": "def firstEvent (Y : \u03a9 \u2192 List I) (a : I) : Set \u03a9 :=",
+      "name": "Applications.Probability.PermutationTail.firstEvent",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 203,
+        "native_start_line": 3047,
+        "native_end_line": 3048,
+        "bytes": 154,
+        "sha256": "b372d577b29e85be8d92d9cb5d9132096e343fd128a70223acfa9508c491304d"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 45,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem firstEvent_inter_tail (Y : \u03a9 \u2192 List I) (a : I) (xs : List I) :",
+      "name": "Applications.Probability.PermutationTail.firstEvent_inter_tail",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 204,
+        "native_start_line": 3049,
+        "native_end_line": 3055,
+        "bytes": 547,
+        "sha256": "f62cbcbc236a3bed17f56bef9c6ae1159f2fb2b4626c46d661bd936b0b805d2f"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 57,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem cons_mem_orders (positions : List I) (hnd : positions.Nodup)",
+      "name": "Applications.Probability.PermutationTail.cons_mem_orders",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 205,
+        "native_start_line": 3056,
+        "native_end_line": 3074,
+        "bytes": 1304,
+        "sha256": "72c75d75287b55fae7c722f6cacf449454be66f28ac56de89cc1d98787dcb917"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 83,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem tail_restrictedOrder_eq (positions : List I) (hnd : positions.Nodup)",
+      "name": "Applications.Probability.PermutationTail.tail_restrictedOrder_eq",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 206,
+        "native_start_line": 3075,
+        "native_end_line": 3087,
+        "bytes": 937,
+        "sha256": "00657975c12d4babfcab09319806e37e34662678a986efa4126d45ca7ef19d97"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 115,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem filter_tail_restrictedOrder_eq (positions : List I) (hnd : positions.Nodup)",
+      "name": "Applications.Probability.PermutationTail.filter_tail_restrictedOrder_eq",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 207,
+        "native_start_line": 3088,
+        "native_end_line": 3111,
+        "bytes": 1555,
+        "sha256": "9c474ab6d0ab17b1cbdc1f01397732dd3627c32585692dbf98effe5ccda827de"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 125,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem firstEvent_restrictedOrder_of_not_mem (positions : List I)",
+      "name": "Applications.Probability.PermutationTail.firstEvent_restrictedOrder_of_not_mem",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 208,
+        "native_start_line": 3112,
+        "native_end_line": 3119,
+        "bytes": 606,
+        "sha256": "78cc826517db71350246b0eef1b81aa5b4c97a81cd1eab77346843a8f677f015"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 136,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem cond_firstEvent_restrictedOrder_of_not_mem",
+      "name": "Applications.Probability.PermutationTail.cond_firstEvent_restrictedOrder_of_not_mem",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 209,
+        "native_start_line": 3120,
+        "native_end_line": 3131,
+        "bytes": 993,
+        "sha256": "388e680f6ec92fe011bfd236d847a8864e8df041609b7d32d4631ad508986143"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 172,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem uniformOn_firstEvent",
+      "name": "Applications.Probability.PermutationTail.uniformOn_firstEvent",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 210,
+        "native_start_line": 3132,
+        "native_end_line": 3152,
+        "bytes": 1570,
+        "sha256": "2ca281f26dd2285d5e2a141e98206d2f4a7bc98adf0a8dd9d482b9eac4fb0cd8"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 229,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem cond_uniformOn_firstEvent",
+      "name": "Applications.Probability.PermutationTail.cond_uniformOn_firstEvent",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 211,
+        "native_start_line": 3153,
+        "native_end_line": 3166,
+        "bytes": 1202,
+        "sha256": "c0a2ce3135af5636ed277c256a3caf567d49fe7f4bb0b7df6e7392475eca44b7"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 247,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem cond_tail_eq",
+      "name": "Applications.Probability.PermutationTail.cond_tail_eq",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 212,
+        "native_start_line": 3167,
+        "native_end_line": 3205,
+        "bytes": 2869,
+        "sha256": "6ceba68cce4f2d43bdf821344fd74c9d5fa2e8106a4dd87eff47d786a764b2b9"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 273,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem map_tail_cond_first",
+      "name": "Applications.Probability.PermutationTail.map_tail_cond_first",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 213,
+        "native_start_line": 3206,
+        "native_end_line": 3229,
+        "bytes": 1877,
+        "sha256": "cb580adabe3941a2bebf7d113ac20656bc884707875ab7b45059f60c11f13301"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 353,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem head_mass_of_hasLaw",
+      "name": "Applications.Probability.PermutationTail.head_mass_of_hasLaw",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 214,
+        "native_start_line": 3230,
+        "native_end_line": 3254,
+        "bytes": 1822,
+        "sha256": "6c689ead7f831660885f970db056e842de813d8ceb825bfc2e0120b576059547"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 402,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem hasLaw_tail_cond_first",
+      "name": "Applications.Probability.PermutationTail.hasLaw_tail_cond_first",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 215,
+        "native_start_line": 3255,
+        "native_end_line": 3278,
+        "bytes": 1837,
+        "sha256": "a523e3156cc48477accc11153f524b2be0b709f96be9d9fa5f71612ee691cb38"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 448,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem hasLaw_filter_tail_cond_first",
+      "name": "Applications.Probability.PermutationTail.hasLaw_filter_tail_cond_first",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 216,
+        "native_start_line": 3279,
+        "native_end_line": 3314,
+        "bytes": 2563,
+        "sha256": "d37effafe11c869e182a8b062319a644fac31e48f11c68eeefed3d75ca3b02d1"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 463,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem map_restrictedOrder_cond_first",
+      "name": "Applications.Probability.PermutationTail.map_restrictedOrder_cond_first",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 217,
+        "native_start_line": 3315,
+        "native_end_line": 3340,
+        "bytes": 2111,
+        "sha256": "12e8a3a656a697e19c6b28999fb0f668a5b50b164592ff3cf40a46f9649d8379"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 38,
+      "kind": "def",
+      "modifiers": [],
+      "source_header_line": "def observedOrder (\u03c0 : Equiv.Perm (Fin 4)) : List (Fin 4) :=",
+      "name": "Examples.PermutationTail.observedOrder",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 218,
+        "native_start_line": 3341,
+        "native_end_line": 3343,
+        "bytes": 211,
+        "sha256": "f71e693c44ee2904b76af5df2a7248b819f52c6f9e239d091609c20794b654cc"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 41,
+      "kind": "def",
+      "modifiers": [],
+      "source_header_line": "def remaining : Finset (Fin 4) := selected.erase 0",
+      "name": "Examples.PermutationTail.remaining",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 219,
+        "native_start_line": 3344,
+        "native_end_line": 3344,
+        "bytes": 116,
+        "sha256": "1ec8233022175f980c1ff63eab4e98ed887a99c4de4724130babe6a72366d820"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 43,
+      "kind": "def",
+      "modifiers": [],
+      "source_header_line": "def tailOrder (\u03c0 : Equiv.Perm (Fin 4)) : List (Fin 4) :=",
+      "name": "Examples.PermutationTail.tailOrder",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 220,
+        "native_start_line": 3345,
+        "native_end_line": 3347,
+        "bytes": 207,
+        "sha256": "4ab5b9d3058c95b7bbdd5ef6bea627e041a4893e7678c8dd4f41c06fd02afdf8"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 46,
+      "kind": "def",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "source_header_line": "noncomputable def afterFirst : Measure (Equiv.Perm (Fin 4)) :=",
+      "name": "Examples.PermutationTail.afterFirst",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 221,
+        "native_start_line": 3348,
+        "native_end_line": 3350,
+        "bytes": 223,
+        "sha256": "52d5937bd5fce18532dd869e3802c45efc154cb52344737e4d3fb86299330f4f"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 50,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem observed_hasLaw :",
+      "name": "Examples.PermutationTail.observed_hasLaw",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 222,
+        "native_start_line": 3351,
+        "native_end_line": 3365,
+        "bytes": 1269,
+        "sha256": "f1119db9fd44fdd0e25884aa3592ed82d2a2d407fe8757997b38971a1334d32c"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 57,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem first_mass : law (firstEvent observedOrder 0) = 1 / 3 := by",
+      "name": "Examples.PermutationTail.first_mass",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 223,
+        "native_start_line": 3366,
+        "native_end_line": 3388,
+        "bytes": 1603,
+        "sha256": "760caba5776021d8f8c47353d5b81d81ab637574693468425e3d939bf5c902aa"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 65,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem afterFirst_eq_uniformOn :",
+      "name": "Examples.PermutationTail.afterFirst_eq_uniformOn",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 224,
+        "native_start_line": 3389,
+        "native_end_line": 3400,
+        "bytes": 965,
+        "sha256": "657055338a8456f02ed69b4b70e4908f12f5bbd8a7e77462fed399fc63956792"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 70,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem tail_hasLaw :",
+      "name": "Examples.PermutationTail.tail_hasLaw",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 225,
+        "native_start_line": 3401,
+        "native_end_line": 3415,
+        "bytes": 1266,
+        "sha256": "4b175fb5ae79e58d9893bec04df3bc0496c55f17c017527a6669d8c17ca9aea7"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 77,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem tail_map :",
+      "name": "Examples.PermutationTail.tail_map",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 226,
+        "native_start_line": 3416,
+        "native_end_line": 3433,
+        "bytes": 1469,
+        "sha256": "a6b6d590b8f58b0f4defd9cf9d743523847a59115a38c52a52ccf645d99a709d"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 100,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem tail_23_mass : afterFirst {\u03c0 | tailOrder \u03c0 = [2, 3]} = 1 / 2 := by",
+      "name": "Examples.PermutationTail.tail_23_mass",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 227,
+        "native_start_line": 3434,
+        "native_end_line": 3460,
+        "bytes": 2103,
+        "sha256": "3e0e8b87d3eafda5c3b5b71e19e9a06a83b700d580723176bac71f6397f88dc0"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 115,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem tail_32_mass : afterFirst {\u03c0 | tailOrder \u03c0 = [3, 2]} = 1 / 2 := by",
+      "name": "Examples.PermutationTail.tail_32_mass",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 228,
+        "native_start_line": 3461,
+        "native_end_line": 3487,
+        "bytes": 2103,
+        "sha256": "0d146fdf92ef7e7835c58cf77930d6db4176228557da1683e0fdeba1d77104a5"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 127,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem repeated_tail_mass_zero : afterFirst {\u03c0 | tailOrder \u03c0 = [2, 2]} = 0 := by",
+      "name": "Examples.PermutationTail.repeated_tail_mass_zero",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 229,
+        "native_start_line": 3488,
+        "native_end_line": 3507,
+        "bytes": 1722,
+        "sha256": "64ff3d6010c63808a002c274d19f1114b2340874c2b3c7d180a5258069d8567a"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 141,
+      "kind": "def",
+      "modifiers": [],
+      "source_header_line": "def filteredTail (\u03c0 : Equiv.Perm (Fin 4)) : List (Fin 4) :=",
+      "name": "Examples.PermutationTail.filteredTail",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 230,
+        "native_start_line": 3508,
+        "native_end_line": 3510,
+        "bytes": 210,
+        "sha256": "b662786ec8c5ccb87e6e036e25330de97a882d8162148810abccf65f07ca1a52"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 145,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem filtered_tail_hasLaw :",
+      "name": "Examples.PermutationTail.filtered_tail_hasLaw",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 231,
+        "native_start_line": 3511,
+        "native_end_line": 3530,
+        "bytes": 1762,
+        "sha256": "015a57e475ef8af8b5e3b675bc31a99a33cfcdd27cc422379f184ae496d73030"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 152,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem filtered_tail_eq_projection (\u03c0 : Equiv.Perm (Fin 4))",
+      "name": "Examples.PermutationTail.filtered_tail_eq_projection",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 232,
+        "native_start_line": 3531,
+        "native_end_line": 3554,
+        "bytes": 1941,
+        "sha256": "3a19793acbcacf0b91d57e2140c20bfcf5bd8a1c3aa44923c6ec74bb5831d52b"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 158,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem filtered_tail_mass : afterFirst {\u03c0 | filteredTail \u03c0 = [3]} = 1 := by",
+      "name": "Examples.PermutationTail.filtered_tail_mass",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 233,
+        "native_start_line": 3555,
+        "native_end_line": 3571,
+        "bytes": 1401,
+        "sha256": "78849ee1c63e615f7ddcf702798db72416a827e27ea2005be65c4543e03ac179"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 167,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem remaining_projection_map :",
+      "name": "Examples.PermutationTail.remaining_projection_map",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 234,
+        "native_start_line": 3572,
+        "native_end_line": 3603,
+        "bytes": 2717,
+        "sha256": "a7ffbbf36a94e0bd9300499b7a705331061d0d77baf9cdf9b6c1d70486303321"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 174,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem afterFirst_first_event_mass : afterFirst (firstEvent observedOrder 0) = 1 := by",
+      "name": "Examples.PermutationTail.afterFirst_first_event_mass",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 235,
+        "native_start_line": 3604,
+        "native_end_line": 3619,
+        "bytes": 1230,
+        "sha256": "dc0b175eb1df9029c47719e97edd9e4546cb8bb74b775e4e9b1aa968a376ba0a"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 181,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem environment_changed : afterFirst \u2260 law := by",
+      "name": "Examples.PermutationTail.environment_changed",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 236,
+        "native_start_line": 3620,
+        "native_end_line": 3623,
+        "bytes": 312,
+        "sha256": "d0ba3991b78837be64584af0fda54c9e91ed1f5e3034bc4578bed057cafc7d72"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 191,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem second_head_mass : afterFirst (firstEvent tailOrder 2) = 1 / 2 := by",
+      "name": "Examples.PermutationTail.second_head_mass",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 237,
+        "native_start_line": 3624,
+        "native_end_line": 3646,
+        "bytes": 1609,
+        "sha256": "b9c0242cbd66af3a34e3f7126819393cf7ff47978368ad4119fb11879205f51d"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 198,
+      "kind": "def",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "source_header_line": "noncomputable def afterSecond : Measure (Equiv.Perm (Fin 4)) :=",
+      "name": "Examples.PermutationTail.afterSecond",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 238,
+        "native_start_line": 3647,
+        "native_end_line": 3649,
+        "bytes": 224,
+        "sha256": "b10de0c8b6e538bd4a6526a9f2ee5e0e569b3394a79be7d2e8571f897d0981ab"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 201,
+      "kind": "def",
+      "modifiers": [],
+      "source_header_line": "def lastTail (\u03c0 : Equiv.Perm (Fin 4)) : List (Fin 4) := (tailOrder \u03c0).tail",
+      "name": "Examples.PermutationTail.lastTail",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 239,
+        "native_start_line": 3650,
+        "native_end_line": 3651,
+        "bytes": 202,
+        "sha256": "759391cebbf24c4a88ba999a4787c36a1d304e5bf1c9132c13c27620118f71ad"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 204,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem last_tail_hasLaw :",
+      "name": "Examples.PermutationTail.last_tail_hasLaw",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 240,
+        "native_start_line": 3652,
+        "native_end_line": 3671,
+        "bytes": 1686,
+        "sha256": "3be7d27a306ed491a810ca16f965b6016faefddef218930982ae9a75a0fd2b9a"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 211,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem last_tail_mass : afterSecond {\u03c0 | lastTail \u03c0 = [3]} = 1 := by",
+      "name": "Examples.PermutationTail.last_tail_mass",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 241,
+        "native_start_line": 3672,
+        "native_end_line": 3688,
+        "bytes": 1394,
+        "sha256": "a6a3d9f0ee5ff5ca943207cae123bdd9100ae2508cfa26d5bd6129007aee4c77"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 37,
+      "kind": "def",
+      "modifiers": [],
+      "source_header_line": "def swap01 : Equiv.Perm (Fin 4) := Equiv.swap 0 1",
+      "name": "Examples.PermutationTailBoundary.swap01",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 242,
+        "native_start_line": 3689,
+        "native_end_line": 3690,
+        "bytes": 127,
+        "sha256": "7c7c27111a2f6a0ddc871cd8f65c2ff8c20ddc6ed6ed8e3f5e53e5ce4efb3511"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 39,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem swap01_global_order :",
+      "name": "Examples.PermutationTailBoundary.swap01_global_order",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 243,
+        "native_start_line": 3691,
+        "native_end_line": 3722,
+        "bytes": 2746,
+        "sha256": "0c7fb97e8c84a4b11ec68aa9f3b85e991c16616013fa41abd50dd0a57de09da6"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 43,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem swap01_selected_order :",
+      "name": "Examples.PermutationTailBoundary.swap01_selected_order",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 244,
+        "native_start_line": 3723,
+        "native_end_line": 3738,
+        "bytes": 1470,
+        "sha256": "fa3ebb655cc55a353ecb3c15580bd74e924b117124400479674d951cb7685549"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 47,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem swap01_first_events :",
+      "name": "Examples.PermutationTailBoundary.swap01_first_events",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 245,
+        "native_start_line": 3739,
+        "native_end_line": 3804,
+        "bytes": 5367,
+        "sha256": "473a7280a1955b23fdcf98200776cad31df34bd840bf798b6eb1ce258fafb773"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 58,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem singleton_conditional_tail_mass :",
+      "name": "Examples.PermutationTailBoundary.singleton_conditional_tail_mass",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 246,
+        "native_start_line": 3805,
+        "native_end_line": 3847,
+        "bytes": 3779,
+        "sha256": "4555acc6ba82514d8cec60a5e38cc3ea81000dbbdad5538f1e3c7cd3a1ad449c"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 67,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem empty_subset_none_mass :",
+      "name": "Examples.PermutationTailBoundary.empty_subset_none_mass",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 247,
+        "native_start_line": 3848,
+        "native_end_line": 3872,
+        "bytes": 2021,
+        "sha256": "220f62176126c2ff8a7fe1bbea05e2b7c55040f0541088049f17c4c4a47df1f9"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 72,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem empty_subset_first_event :",
+      "name": "Examples.PermutationTailBoundary.empty_subset_first_event",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 248,
+        "native_start_line": 3873,
+        "native_end_line": 3889,
+        "bytes": 1372,
+        "sha256": "2fa2dec52e282d986d7af82fbfb89a198afd2ac48afb741a94919d7cd33a3ac8"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 77,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem empty_subset_conditional_zero :",
+      "name": "Examples.PermutationTailBoundary.empty_subset_conditional_zero",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 249,
+        "native_start_line": 3890,
+        "native_end_line": 3920,
+        "bytes": 2449,
+        "sha256": "f26a86c2b4301e8be1b73735caeaf24afd2e56b1f1fc4036a700397b35ee7ea9"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 83,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem outsider_first_event :",
+      "name": "Examples.PermutationTailBoundary.outsider_first_event",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 250,
+        "native_start_line": 3921,
+        "native_end_line": 3934,
+        "bytes": 1159,
+        "sha256": "d6323bf746a23d6c734cd7f714f60c5b2a585ed800ff2ed49e33323279de3d1e"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 87,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem outsider_conditional_zero :",
+      "name": "Examples.PermutationTailBoundary.outsider_conditional_zero",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 251,
+        "native_start_line": 3935,
+        "native_end_line": 3962,
+        "bytes": 2230,
+        "sha256": "add810f952da2821b34b3a1d4ab049e917d9fd306300717ba8da127685d1593f"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 94,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem empty_indices_none_mass :",
+      "name": "Examples.PermutationTailBoundary.empty_indices_none_mass",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 252,
+        "native_start_line": 3963,
+        "native_end_line": 3979,
+        "bytes": 1102,
+        "sha256": "9226a8f422d3d60882a6d908ab303645221c91205811f3a8c36809b91d6709ad"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 101,
+      "kind": "def",
+      "modifiers": [],
+      "source_header_line": "def counterPositions : List (Fin 3) := [0, 1, 2]",
+      "name": "Examples.PermutationTailBoundary.counterPositions",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 253,
+        "native_start_line": 3980,
+        "native_end_line": 3981,
+        "bytes": 131,
+        "sha256": "bdbb217045799885f9001782a07c41b94bf834bee4891668ca684cf93363b0dc"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 102,
+      "kind": "def",
+      "modifiers": [],
+      "source_header_line": "def conditionSubset : Finset (Fin 3) := {0, 1}",
+      "name": "Examples.PermutationTailBoundary.conditionSubset",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 254,
+        "native_start_line": 3982,
+        "native_end_line": 3983,
+        "bytes": 132,
+        "sha256": "2a95508e02ed10a948904c2686e267d0886e463618f4ca78db5d8d9b80ae7f36"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 103,
+      "kind": "def",
+      "modifiers": [],
+      "source_header_line": "def outsideSubset : Finset (Fin 3) := {1, 2}",
+      "name": "Examples.PermutationTailBoundary.outsideSubset",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 255,
+        "native_start_line": 3984,
+        "native_end_line": 3985,
+        "bytes": 130,
+        "sha256": "ec61b625c0c6c07b62c9d589c8a4f70da116f8af21a1f34ec75946a8c4da26d1"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 110,
+      "kind": "def",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "source_header_line": "noncomputable def counterLaw : Measure (Equiv.Perm (Fin 3)) := uniformOn Set.univ",
+      "name": "Examples.PermutationTailBoundary.counterLaw",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 256,
+        "native_start_line": 3986,
+        "native_end_line": 3988,
+        "bytes": 241,
+        "sha256": "2a5320f9edabe0bc8d006d9a8c621cc21d292e70e8ec5c0b22892d915665bb67"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 112,
+      "kind": "def",
+      "modifiers": [],
+      "source_header_line": "def counterFirst : Set (Equiv.Perm (Fin 3)) :=",
+      "name": "Examples.PermutationTailBoundary.counterFirst",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 257,
+        "native_start_line": 3989,
+        "native_end_line": 3990,
+        "bytes": 143,
+        "sha256": "f633ab0329f430ec118c50434abac2b08d93f4e2269739ca280be6dadcf1e0ad"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 115,
+      "kind": "def",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "source_header_line": "noncomputable def outsideConditional : Measure (Equiv.Perm (Fin 3)) :=",
+      "name": "Examples.PermutationTailBoundary.outsideConditional",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 258,
+        "native_start_line": 3991,
+        "native_end_line": 3993,
+        "bytes": 249,
+        "sha256": "393f87460a4cef9ecd3d481bbc38b958e5bb5eea9eac868f929221b760d13454"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 118,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem outside_subset_boundaries :",
+      "name": "Examples.PermutationTailBoundary.outside_subset_boundaries",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 259,
+        "native_start_line": 3994,
+        "native_end_line": 4008,
+        "bytes": 1272,
+        "sha256": "fcfb702987c6a8c5d19b412e1e313e055fa5fc2efd9c3fbdac715667d8f1a423"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 124,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem counter_first_mass : counterLaw counterFirst = 1 / 2 := by",
+      "name": "Examples.PermutationTailBoundary.counter_first_mass",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 260,
+        "native_start_line": 4009,
+        "native_end_line": 4025,
+        "bytes": 1213,
+        "sha256": "62488df395b1bc8d01ed7b50741109cd542d0e60c9ca80a76b6b1799ac378b59"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 233,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem outside_order_12_mass :",
+      "name": "Examples.PermutationTailBoundary.outside_order_12_mass",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 261,
+        "native_start_line": 4026,
+        "native_end_line": 4055,
+        "bytes": 2462,
+        "sha256": "9b5a7571d396bc96111e373b7b78c229a75dcfc703595a8dc7eefea62bb63fad"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 247,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem outside_order_21_mass :",
+      "name": "Examples.PermutationTailBoundary.outside_order_21_mass",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 262,
+        "native_start_line": 4056,
+        "native_end_line": 4089,
+        "bytes": 2631,
+        "sha256": "7e71a978cb5df85af4df9ad1564d05b5955cd3f62488363e16d9e3bbf3418f94"
+      },
+      "future_candidate_credit": false
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 260,
+      "kind": "theorem",
+      "modifiers": [],
+      "source_header_line": "theorem outside_order_not_uniform :",
+      "name": "Examples.PermutationTailBoundary.outside_order_not_uniform",
+      "unit": "XU03",
+      "source_commit": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "historical_program_name_present": true,
+      "fixed_Z_disposition": "actual_current_type_fully_read_and_qualified",
+      "actual815": {
+        "number": 263,
+        "native_start_line": 4090,
+        "native_end_line": 4119,
+        "bytes": 2466,
+        "sha256": "da2e0f148cf71311a368dd962972ad3343810b98066fadad9f1c00983708941d"
+      },
+      "future_candidate_credit": false
+    }
+  ],
+  "private_named_declarations": [
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 152,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem exists_map_eq_of_nodup (xs ys : List I)",
+      "name": "Applications.Probability.PermutationOrder.exists_map_eq_of_nodup",
+      "unit": "XU02"
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 167,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem exists_relabel_orders (positions : List I) (hnd : positions.Nodup)",
+      "name": "Applications.Probability.PermutationOrder.exists_relabel_orders",
+      "unit": "XU02"
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 187,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem restrictedOrder_relabel (positions : List I) (S : Finset I)",
+      "name": "Applications.Probability.PermutationOrder.restrictedOrder_relabel",
+      "unit": "XU02"
+    },
+    {
+      "source": "Applications/Probability/PermutationOrder.lean",
+      "line": 202,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem fiber_mass_eq",
+      "name": "Applications.Probability.PermutationOrder.fiber_mass_eq",
+      "unit": "XU02"
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 72,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem fiber_mass_of_mem (S : Finset (Fin 4)) (xs : List (Fin 4))",
+      "name": "Examples.PermutationOrder.fiber_mass_of_mem",
+      "unit": "XU02"
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 143,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem factorial_card_erase (S : Finset I) (a : I) (ha : a \u2208 S) :",
+      "name": "Applications.Probability.PermutationTail.factorial_card_erase",
+      "unit": "XU03"
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 150,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem factorial_ratio_head (S : Finset I) (a : I) (ha : a \u2208 S) :",
+      "name": "Applications.Probability.PermutationTail.factorial_ratio_head",
+      "unit": "XU03"
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 161,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem factorial_ratio_tail (S : Finset I) (a : I) (ha : a \u2208 S) :",
+      "name": "Applications.Probability.PermutationTail.factorial_ratio_tail",
+      "unit": "XU03"
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 302,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem restrictedOrder_hasLaw",
+      "name": "Applications.Probability.PermutationTail.restrictedOrder_hasLaw",
+      "unit": "XU03"
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 317,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem hasLaw_cond {A B : Type*} [MeasurableSpace A] [MeasurableSpace B]",
+      "name": "Applications.Probability.PermutationTail.hasLaw_cond",
+      "unit": "XU03"
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 330,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem orders_head_mass",
+      "name": "Applications.Probability.PermutationTail.orders_head_mass",
+      "unit": "XU03"
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 370,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem tail_hasLaw_orders_cond",
+      "name": "Applications.Probability.PermutationTail.tail_hasLaw_orders_cond",
+      "unit": "XU03"
+    },
+    {
+      "source": "Applications/Probability/PermutationTail.lean",
+      "line": 421,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem filter_hasLaw_orders",
+      "name": "Applications.Probability.PermutationTail.filter_hasLaw_orders",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 83,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem mass_of_law {\u03a9 : Type*} [MeasurableSpace \u03a9]",
+      "name": "Examples.PermutationTail.mass_of_law",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 105,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem counterPositions_nodup : counterPositions.Nodup := by decide",
+      "name": "Examples.PermutationTailBoundary.counterPositions_nodup",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 107,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem counterPositions_complete (a : Fin 3) : a \u2208 counterPositions := by",
+      "name": "Examples.PermutationTailBoundary.counterPositions_complete",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 129,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem counter_full_mass (xs : List (Fin 3))",
+      "name": "Examples.PermutationTailBoundary.counter_full_mass",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 138,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem joint12_table :",
+      "name": "Examples.PermutationTailBoundary.joint12_table",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 148,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem joint21_table :",
+      "name": "Examples.PermutationTailBoundary.joint21_table",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 158,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem counter_joint12 :",
+      "name": "Examples.PermutationTailBoundary.counter_joint12",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 173,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem counter_joint21 :",
+      "name": "Examples.PermutationTailBoundary.counter_joint21",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 190,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem full_fibers_disjoint :",
+      "name": "Examples.PermutationTailBoundary.full_fibers_disjoint",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 199,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem counter_joint12_mass :",
+      "name": "Examples.PermutationTailBoundary.counter_joint12_mass",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 210,
+      "kind": "theorem",
+      "modifiers": [
+        "private"
+      ],
+      "source_header_line": "private theorem counter_joint21_mass :",
+      "name": "Examples.PermutationTailBoundary.counter_joint21_mass",
+      "unit": "XU03"
+    }
+  ],
+  "anonymous_instances": [
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 31,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSpace (Equiv.Perm (Fin 4)) := \u22a4",
+      "unit": "XU02"
+    },
+    {
+      "source": "Examples/PermutationOrder.lean",
+      "line": 32,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSpace (List (Fin 4)) := \u22a4",
+      "unit": "XU02"
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 24,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSpace (Equiv.Perm Empty) := \u22a4",
+      "unit": "XU02"
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 25,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSingletonClass (Equiv.Perm Empty) :=",
+      "unit": "XU02"
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 27,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSpace (Equiv.Perm (Fin 3)) := \u22a4",
+      "unit": "XU02"
+    },
+    {
+      "source": "Examples/PermutationOrderBoundary.lean",
+      "line": 28,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSingletonClass (Equiv.Perm (Fin 3)) :=",
+      "unit": "XU02"
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 35,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSpace (Equiv.Perm (Fin 4)) := \u22a4",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTail.lean",
+      "line": 36,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSpace (List (Fin 4)) := \u22a4",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 26,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSpace (Equiv.Perm (Fin 4)) := \u22a4",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 27,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSingletonClass (Equiv.Perm (Fin 4)) :=",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 29,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSpace (Equiv.Perm (Fin 3)) := \u22a4",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 30,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSingletonClass (Equiv.Perm (Fin 3)) :=",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 32,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSpace (Equiv.Perm Empty) := \u22a4",
+      "unit": "XU03"
+    },
+    {
+      "source": "Examples/PermutationTailBoundary.lean",
+      "line": 33,
+      "kind": "instance",
+      "modifiers": [
+        "local"
+      ],
+      "source_header_line": "local instance : MeasurableSingletonClass (Equiv.Perm Empty) :=",
+      "unit": "XU03"
+    }
+  ],
+  "compiler_generated_boundary": "Generated declarations not guessed; complete source/build/exhaustive audit scope remains. These are source counts, not new theorem or kernel counts.",
+  "current114_outputs": "All 114 were fully assessed by both axes in actual815 at Z; no future-stage reuse credit is granted here."
+}

@@ -1,0 +1,97 @@
+{
+  "recorded_utc": "2026-11-04T22:30:55.494249+00:00",
+  "checkpoint": "conaled-fdsa-0132-selection-composition-and-random-boundaries",
+  "all_writers_held": true,
+  "compiler_live": false,
+  "accepted_head": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "qualified_candidate": "0fa60badfd353bcd6e22177d852d8d6399a2e0fe",
+  "closed_runs": 92,
+  "interrupted_runs_without_terminal": [
+    {
+      "name": "chapter03-random-selection-drift-focused-attempt2-20261104",
+      "candidate": "f535b1ef557795c4e09c97ce0daf599961c9b268",
+      "actual_exit": null,
+      "original_exec_session_id": null,
+      "no_success_or_failure_credit": true,
+      "reconciliation": "provenance/chapter03-drift-attempt2-interruption-20261104/reconciliation.json",
+      "bytes": 4308,
+      "sha256": "cac4122a94fd253af81ac8ed07c27fdf9fb5521f0f1e50287411120b97470a33"
+    }
+  ],
+  "held_heads": {
+    "conaled": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "conaled-ch01-review": "0fa60badfd353bcd6e22177d852d8d6399a2e0fe",
+    "conaled-ch02-quicksort": "27281919b9edd31a53336cbb5583ebc17632247e",
+    "conaled-ch02-random-pivot": "0fa60badfd353bcd6e22177d852d8d6399a2e0fe",
+    "conaled-ch02-top-down": "1249f39968a44a25bfe3932d84a2cb44c6a83515",
+    "conaled-ch02-natural-runs": "660f974640fb89a766b26a4d786ae7ed197cecf2",
+    "conaled-ordinary-merge": "569545102ff70697066de429eb02f9f47dffa07f"
+  },
+  "held_statuses": {
+    "conaled": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.urOBCL\n",
+    "conaled-ch01-review": "",
+    "conaled-ch02-quicksort": "?? docs/research/fdsa-selection.md\n",
+    "conaled-ch02-random-pivot": "",
+    "conaled-ch02-top-down": "",
+    "conaled-ch02-natural-runs": "",
+    "conaled-ordinary-merge": ""
+  },
+  "drafts": [
+    {
+      "worktree": "conaled-ch02-quicksort",
+      "path": "docs/research/fdsa-selection.md",
+      "bytes": 45977,
+      "sha256": "a131fac5474d4f97c508c9dd8dafe0fc676206fe72e50cd64b4bd83f96edcfa1",
+      "kind": "unfinished documentation",
+      "committed": false,
+      "full_final_document_assessment": false,
+      "Lean_validation_credit": false
+    }
+  ],
+  "author_hold_records": {
+    "provenance/chapter03-values-implementation-20261104/halving-policy-correction2-20261104/hold.json": {
+      "bytes": 2070,
+      "sha256": "cf743d340d5666bbd8b222219598739cbd23e42208323be097ba6dd10d992b69"
+    },
+    "provenance/chapter03-coverage-preassembly-20261104/hold.json": {
+      "bytes": 2396,
+      "sha256": "b3a9c65be33082daea20ab8dc0d633ac59f26672fb1fb13fed399db1a89640f7"
+    },
+    "provenance/chapter03-selection-documentation-implementation-20261104/checkpoint0132-hold.json": {
+      "bytes": 1033,
+      "sha256": "1b43ec186b47feac05016890ae1b9b824640a05b20f094fe3b4891cfe1daf703"
+    },
+    "provenance/chapter03-random-selection-implementation-20261104/equal-correction1-20261104/author-hold.json": {
+      "bytes": 70892,
+      "sha256": "e78eecbc82a16fa74b7a53772d41cd9d4a5b94e238e20ab39cba82f3a2973899"
+    },
+    "provenance/chapter03-mom-execution-implementation-20261104/generic-cost-bound-correction2-20261104/author-hold-candidate3.json": {
+      "bytes": 869,
+      "sha256": "2d06c6a55fa8ee9bb279a1ac15fc3fb85b8d58e148afac82b41cdae48293f711"
+    },
+    "provenance/chapter03-query-bridge-implementation-20261104/actual-selector-composition-20261104/correction2-20261104/final-preservation.json": {
+      "bytes": 1017,
+      "sha256": "f1f115ffe9787dc42f0604273befe6ae769f6bcfc83d6e383de2995e1246efc2"
+    },
+    "provenance/chapter03-selection-composition-implementation-20261104/handoff-candidate1.json": {
+      "bytes": 3904,
+      "sha256": "1ded90bd7c74cccffd998621ee849693d8103d81e87849350ce9a730caf1f562"
+    }
+  },
+  "author_holds": {
+    "values": "Explicit checkpoint0132 documentation hold22:24:38; unfinished untracked draft only.",
+    "random": "Exact candidate0fa60bad source/provenance held; after actual failed terminal root reaffirmed no writes pending upload.",
+    "mom": "Candidate1249 source/provenance held; later endpoint API assistance read-only; no compiler or files.",
+    "query": "Candidate569545 final-preservation hold remains; later performance analysis read-only, no optimization selected.",
+    "root": "Candidate660f974 source held; qualified0fa60bad clean; owned compiler73189 closed1. Root remaining checkpoint control/capture writes only.",
+    "inspector": "Read-only initial0132 PASS; final bounded binding receipt pending."
+  },
+  "project_lock_observation": {
+    "utc": "2026-11-04T22:30:55.494220+00:00",
+    "exclusive_nonblocking_acquired_and_released": true,
+    "global_process_absence_not_claimed": true
+  },
+  "operations_inspector": "Existing read-only inspector assessed full verifier/helpers/README with zero concrete concerns; final hold/progress receipt pending before capture.",
+  "reviewers": "Prior accepted axes remain held; independent Chapter3 acceptance axes not begun.",
+  "root_remaining_capture_writes_only": true
+}

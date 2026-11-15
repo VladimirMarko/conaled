@@ -1,0 +1,991 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "unit": "XT03",
+  "stage": "Independent source preparation only; overall Blocked",
+  "recorded_utc": "2026-11-04T15:12:01.956877+00:00",
+  "base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "candidate": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+  "tree": "b66d05bc7733290057c6104bcc5a74c43b4037a4",
+  "parent": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "merge_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "full_scope_paths": [
+    "Applications/Resources/TreeFold.lean",
+    "Examples/TreeFold.lean",
+    "Examples/TreeFoldCache.lean",
+    "Examples/TreeFoldObservations.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-fold-resource.md"
+  ],
+  "full_diff": {
+    "bytes": 51952,
+    "lines": 1024,
+    "sha256": "92fc6f768b50d9bf6c982e047e9118205db8c84078b90a60456d0eaa3c865991",
+    "insertions": 975,
+    "deletions": 0
+  },
+  "source_reads": [
+    {
+      "path": "Applications/Resources/TreeFold.lean",
+      "bytes": 8347,
+      "lines": 175,
+      "sha256": "bf2acc856e73949ce09434abffbd952fb6cc583ca2342b11b8dd4230bd259dcc",
+      "git_blob": "442f0b1e3bc3c8919cb7cfd3476f9e76182a880c",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 175,
+          "bytes": 8347,
+          "sha256": "bf2acc856e73949ce09434abffbd952fb6cc583ca2342b11b8dd4230bd259dcc",
+          "read_tool": "9ca6d7",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_source_read": true
+    },
+    {
+      "path": "Examples/TreeFold.lean",
+      "bytes": 7437,
+      "lines": 161,
+      "sha256": "45e193ade4f0a98d8aed86b812c8ee22c5cd9e1e74a5a41e832bf7d87bc48d9c",
+      "git_blob": "44cc3195f016a1a8e74d6bc09db2f9ac0d0d2985",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 161,
+          "bytes": 7437,
+          "sha256": "45e193ade4f0a98d8aed86b812c8ee22c5cd9e1e74a5a41e832bf7d87bc48d9c",
+          "read_tool": "770dda",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_source_read": true
+    },
+    {
+      "path": "Examples/TreeFoldCache.lean",
+      "bytes": 7743,
+      "lines": 164,
+      "sha256": "9a98b200ab681ca7fa0cdf791a21f364654dc43dfa386911fb9ad4cf515123f7",
+      "git_blob": "ed6f64ed9d6a33ac6182057aa9fca8af9169ff9a",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 164,
+          "bytes": 7743,
+          "sha256": "9a98b200ab681ca7fa0cdf791a21f364654dc43dfa386911fb9ad4cf515123f7",
+          "read_tool": "a44b5d",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_source_read": true
+    },
+    {
+      "path": "Examples/TreeFoldObservations.lean",
+      "bytes": 8654,
+      "lines": 198,
+      "sha256": "3aeb7f02113c8e858c433a61981d9cea7b4cf8a332d23dac136ce309f33a86be",
+      "git_blob": "cc70b9d0db6c9c54f4c2446093765bb007d35217",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 198,
+          "bytes": 8654,
+          "sha256": "3aeb7f02113c8e858c433a61981d9cea7b4cf8a332d23dac136ce309f33a86be",
+          "read_tool": "43faa7",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_source_read": true
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 8355,
+      "lines": 254,
+      "sha256": "6d454e0bac73c0beca7bafce073e7c293587d81aa4baff7febf5509d8802cf84",
+      "git_blob": "2d5a05a2221113287b437e1a2b9a5f980c4dd47f",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 254,
+          "bytes": 8355,
+          "sha256": "6d454e0bac73c0beca7bafce073e7c293587d81aa4baff7febf5509d8802cf84",
+          "read_tool": "7d02ad",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_source_read": true
+    },
+    {
+      "path": "docs/research/fdsa-tree-fold-resource.md",
+      "bytes": 13890,
+      "lines": 249,
+      "sha256": "29bb52ff57f5a28364e44650f73ce02ca51a0ec9688d8312f7b62bbbe6159b58",
+      "git_blob": "39bd8ef4f47ad15d94f62db1feb252ca43672968",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 249,
+          "bytes": 13890,
+          "sha256": "29bb52ff57f5a28364e44650f73ce02ca51a0ec9688d8312f7b62bbbe6159b58",
+          "read_tool": "563c77",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_source_read": true
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 20591,
+      "lines": 314,
+      "sha256": "6ad9a95519badf2ae2d1cbc4581f1bd8045a8afdf3ce245b0326cddd669f1281",
+      "git_blob": "455dab1a6d0be4deeaca64f97dbaa97908c91d00",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 160,
+          "bytes": 9552,
+          "sha256": "63b83fb9c0ef95a850a0d55b057aec02fa0234aebfbab2f6ff788e3578687b26",
+          "read_tool": "bc17f8",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 161,
+          "last_line": 314,
+          "bytes": 11039,
+          "sha256": "e97b5dee92ecd2de440d3c971b96cbdae5f6b0299e6aacf17ddea00bfb011f84",
+          "read_tool": "a30260",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_source_read": true
+    }
+  ],
+  "source_totals": {
+    "files": 7,
+    "bytes": 75017,
+    "lines": 1515,
+    "Lean_declaring_modules": 4,
+    "Lean_lines": 698
+  },
+  "control_reads": [
+    {
+      "path": "tickets/FDSA-XT03.md",
+      "bytes": 3933,
+      "lines": 72,
+      "sha256": "a0e11f2b9428fec82004563e0f41b85a5cf8da49a7314f0b243ebd19d8c9dbb0",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 72,
+          "bytes": 3933,
+          "sha256": "a0e11f2b9428fec82004563e0f41b85a5cf8da49a7314f0b243ebd19d8c9dbb0",
+          "read_tool": "f4da2b",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_read": true
+    },
+    {
+      "path": "reviews/tree-fold-resource-requirements.md",
+      "bytes": 15461,
+      "lines": 288,
+      "sha256": "0a83c0b87873c33f2d5bf5aeef655ae4ab2957bb4100202164b217363ed8fcf8",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 160,
+          "bytes": 7927,
+          "sha256": "1fb939a779880a6bacc03d8bfd2a3189d56ad22794928712eb3c1f1f1429c484",
+          "read_tool": "a681ff",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 161,
+          "last_line": 288,
+          "bytes": 7534,
+          "sha256": "fc5c15397d5487f0cd57e8165ef5d90a6c146e2811431d9f554d8a25f1c1cc82",
+          "read_tool": "2eb7f3",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_read": true
+    },
+    {
+      "path": "reviews/tree-fold-resource-start.md",
+      "bytes": 2857,
+      "lines": 49,
+      "sha256": "d05754925cc4c2ddf70a84a6a9448ae02641849ebad03c089a140575b2a6ed51",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 49,
+          "bytes": 2857,
+          "sha256": "d05754925cc4c2ddf70a84a6a9448ae02641849ebad03c089a140575b2a6ed51",
+          "read_tool": "5e53d5",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_read": true
+    },
+    {
+      "path": "reviews/tree-fold-resource-start.json",
+      "bytes": 566,
+      "lines": 10,
+      "sha256": "02b4c3e0ae0d7889e0b3a9dfef9776b9d3fe89cf795c138f0ee310396940f985",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 10,
+          "bytes": 566,
+          "sha256": "02b4c3e0ae0d7889e0b3a9dfef9776b9d3fe89cf795c138f0ee310396940f985",
+          "read_tool": "5e53d5",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_read": true
+    },
+    {
+      "path": "reviews/tree-fold-resource-candidate.md",
+      "bytes": 6530,
+      "lines": 111,
+      "sha256": "5ffffd02c8c869c43f01d2a64fef954fdd78f21c148637210f4ea099b7f6048e",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 111,
+          "bytes": 6530,
+          "sha256": "5ffffd02c8c869c43f01d2a64fef954fdd78f21c148637210f4ea099b7f6048e",
+          "read_tool": "40a6b6",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_read": true
+    },
+    {
+      "path": "reviews/tree-fold-resource-source-identities.json",
+      "bytes": 1570,
+      "lines": 51,
+      "sha256": "990c46f205118ce0191baccda75f1621cc34ffb245f2051ddc7dfa6943907258",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 51,
+          "bytes": 1570,
+          "sha256": "990c46f205118ce0191baccda75f1621cc34ffb245f2051ddc7dfa6943907258",
+          "read_tool": "5e53d5",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_read": true
+    },
+    {
+      "path": "reviews/tree-fold-source-preflight-snapshot.json",
+      "bytes": 885,
+      "lines": 30,
+      "sha256": "3969546f7d9c68717734832acf119899d335d5823af19be97599f5705cb21599",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 30,
+          "bytes": 885,
+          "sha256": "3969546f7d9c68717734832acf119899d335d5823af19be97599f5705cb21599",
+          "read_tool": "5e53d5",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_read": true
+    },
+    {
+      "path": "reviews/tree-fold-resource-source-preflight.md",
+      "bytes": 18904,
+      "lines": 375,
+      "sha256": "54f32efab196f02db5dbc252e340bcdd184f072fc9a610df4aaf46f1d6bd71d6",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 375,
+          "bytes": 18904,
+          "sha256": "54f32efab196f02db5dbc252e340bcdd184f072fc9a610df4aaf46f1d6bd71d6",
+          "read_tool": "40a6b6",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_read": true
+    },
+    {
+      "path": "research/tree-fold-resource-case-preflight.md",
+      "bytes": 11869,
+      "lines": 276,
+      "sha256": "42843c8a4d9dcaeee95ef8e0c6a0ac0a11c6f7b44b0e737a82e5bd3c14926497",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 276,
+          "bytes": 11869,
+          "sha256": "42843c8a4d9dcaeee95ef8e0c6a0ac0a11c6f7b44b0e737a82e5bd3c14926497",
+          "read_tool": "f85dfc",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_read": true
+    },
+    {
+      "path": "research/tree-fold-resource-source-preflight.md",
+      "bytes": 20979,
+      "lines": 342,
+      "sha256": "862b45b860fdc3b4e1ccd5168761bb6384008c5f93e3cef92ca44d82d0ca6c8d",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 180,
+          "bytes": 10417,
+          "sha256": "71503334e766078b2f3bd94a719cf20f22e0d84eac5ed88c9a95c8d4428a46cd",
+          "read_tool": "e9b212",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 181,
+          "last_line": 342,
+          "bytes": 10562,
+          "sha256": "f5a578a8c461420083efe7d494f39adc770a9f52c26247c629acad994a96c303",
+          "read_tool": "330f81",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_read": true
+    },
+    {
+      "path": "research/tree-fold-resource-api-preflight.md",
+      "bytes": 28516,
+      "lines": 351,
+      "sha256": "86792205c6116383d7214e96866428c6bbfa984b4aea06c7ddc5143d6c7ef7d2",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 160,
+          "bytes": 12761,
+          "sha256": "7546e25d8f3ada728fdd1cc40578cdfcc87c3b7a451c8567213b06f37dcbe437",
+          "read_tool": "01e65d",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 161,
+          "last_line": 351,
+          "bytes": 15755,
+          "sha256": "7a4dbc42b6a82573aeabf1ef8029b66328aad93a11277b86bde280f57bbc3ec4",
+          "read_tool": "c226ba",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_read": true
+    },
+    {
+      "path": "reviews/tree-fold-preflight-snapshots/Examples-TreeFoldCache-before-CP01.lean",
+      "bytes": 7560,
+      "lines": 160,
+      "sha256": "99d976310dc90a251e10f8ba0c931b141c808bf8bcf7cfc4cdfe482f9b686200",
+      "complete_new_whole_snapshot_read_claimed": false,
+      "assessment": "Exact original snapshot identity and complete affected before/after diff read; unchanged prior source is not claimed newly reread."
+    },
+    {
+      "path": "reviews/tree-fold-preflight-snapshots/fdsa-tree-fold-resource-before-DOC01.md",
+      "bytes": 13681,
+      "lines": 245,
+      "sha256": "51830ed0b59ecdd291d0a62fd7a604356729441532beb7d73d0af00a546491b9",
+      "complete_new_whole_snapshot_read_claimed": false,
+      "assessment": "Exact original snapshot identity and complete affected before/after diff read; unchanged prior source is not claimed newly reread."
+    },
+    {
+      "path": "reviews/tree-fold-preflight-snapshots/fdsa-reconstruction-map-before-DOC01.md",
+      "bytes": 20584,
+      "lines": 313,
+      "sha256": "cb2910f2a343b1d30512183876408b3fd3acd8162993419410dbf9191bc9d8eb",
+      "complete_new_whole_snapshot_read_claimed": false,
+      "assessment": "Exact original snapshot identity and complete affected before/after diff read; unchanged prior source is not claimed newly reread."
+    },
+    {
+      "path": "reviews/tree-fold-preflight-snapshots/DOC01-identities.json",
+      "bytes": 555,
+      "lines": 14,
+      "sha256": "f58ea847f64044cd03b79777f250a017a7a84d528a89156d95538a294169e7a6",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 14,
+          "bytes": 555,
+          "sha256": "f58ea847f64044cd03b79777f250a017a7a84d528a89156d95538a294169e7a6",
+          "read_tool": "91de9b",
+          "complete_nontruncated": true
+        }
+      ],
+      "complete_read": true
+    }
+  ],
+  "instructions": [
+    {
+      "path": ".agents/skills/code-review/SKILL.md",
+      "bytes": 7466,
+      "lines": 133,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": ".agents/skills/code-review/heuristics.md",
+      "bytes": 2232,
+      "lines": 32,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": ".agents/skills/domain-modeling/SKILL.md",
+      "bytes": 3346,
+      "lines": 74,
+      "sha256": "7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "bytes": 6991,
+      "lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": ".agents/skills/example-driven-development/worked-example.md",
+      "bytes": 2356,
+      "lines": 55,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": ".agents/skills/implement/SKILL.md",
+      "bytes": 4997,
+      "lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": ".agents/skills/setup-matt-pocock-skills/domain.md",
+      "bytes": 2042,
+      "lines": 51,
+      "sha256": "593a7042218689f1d24df89df14eaf0a20e19e0d0a7d479a01947ac78f0784b9",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "GLOSSARY.md",
+      "bytes": 4824,
+      "lines": 106,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "README.md",
+      "bytes": 26239,
+      "lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "lines": 50,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "bytes": 7331,
+      "lines": 127,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "docs/language-direction.md",
+      "bytes": 19185,
+      "lines": 306,
+      "sha256": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "bytes": 3876,
+      "lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "bytes": 7113,
+      "lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "docs/agents/domain.md",
+      "bytes": 926,
+      "lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    },
+    {
+      "path": "docs/adr/README.md",
+      "bytes": 1547,
+      "lines": 17,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false,
+      "current_candidate_exact": true
+    }
+  ],
+  "retained_source_contexts": [
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "bytes": 3877,
+      "lines": 80,
+      "sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6",
+      "whole_source_reading_retained_from": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "source_equal": true
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "bytes": 5668,
+      "lines": 135,
+      "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "whole_source_reading_retained_from": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "source_equal": true
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "bytes": 4119,
+      "lines": 107,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "whole_source_reading_retained_from": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "source_equal": true
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "bytes": 16307,
+      "lines": 363,
+      "sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+      "whole_source_reading_retained_from": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "source_equal": true
+    },
+    {
+      "path": "Applications/Resources/Measured.lean",
+      "bytes": 2906,
+      "lines": 71,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "retained_ranges": [
+        [
+          1,
+          71
+        ]
+      ],
+      "whole_file_prior_read": true,
+      "prior_ledger": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": "Applications/Resources/CallCount.lean",
+      "bytes": 2447,
+      "lines": 58,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+      "retained_ranges": [
+        [
+          1,
+          58
+        ]
+      ],
+      "whole_file_prior_read": true,
+      "prior_ledger": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": "Applications/Resources/ListReversal.lean",
+      "bytes": 4827,
+      "lines": 116,
+      "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+      "retained_ranges": [
+        [
+          1,
+          116
+        ]
+      ],
+      "whole_file_prior_read": true,
+      "prior_ledger": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": "Applications/Resources/TreeFlattening/Core.lean",
+      "bytes": 4225,
+      "lines": 116,
+      "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+      "retained_ranges": [
+        [
+          1,
+          116
+        ]
+      ],
+      "whole_file_prior_read": true,
+      "prior_ledger": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": "Applications/Sequences/OrderedSummary.lean",
+      "bytes": 8765,
+      "lines": 190,
+      "sha256": "d484e6c34f4ebace4ba121f931eba53a86f34a3c4b69e06d9d0b24ae8c8c7261",
+      "retained_ranges": [
+        [
+          1,
+          190
+        ]
+      ],
+      "whole_file_prior_read": true,
+      "prior_ledger": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": "Applications/Resources/SymmetricCosts.lean",
+      "bytes": 10508,
+      "lines": 281,
+      "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+      "retained_ranges": [
+        [
+          1,
+          80
+        ]
+      ],
+      "whole_file_prior_read": false,
+      "prior_ledger": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json"
+    }
+  ],
+  "pinned_API_reads": [
+    {
+      "path": "Mathlib/Algebra/Group/Prod.lean",
+      "bytes": 24128,
+      "lines": 685,
+      "sha256": "bb816f922f2b8a8e708535000b340445629bbc6aa960995bca1702fde086133f",
+      "mathlib_pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "read_ranges": [
+        {
+          "first_line": 315,
+          "last_line": 394,
+          "bytes": 2173,
+          "sha256": "8f7f9741e803682b1c3646dd2a4193436fc90c58538db74c6f3480960395baf6",
+          "read_tool": "1436a7",
+          "complete_nontruncated": true
+        }
+      ],
+      "whole_file_read_claimed": false,
+      "source_method": "Immutable pinned Git blob; qualified installed source equality was independently checked during actual reads."
+    },
+    {
+      "path": "Mathlib/Algebra/Group/TypeTags/Basic.lean",
+      "bytes": 18812,
+      "lines": 530,
+      "sha256": "eacdf256d38ddbe5c16b7fc7611613ce7b29f7d8b9320facccc46517bf88f31c",
+      "mathlib_pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "read_ranges": [
+        {
+          "first_line": 145,
+          "last_line": 180,
+          "bytes": 1383,
+          "sha256": "9b2ec1868ce8cd09e2bf35f2c7e3bb64fef2eb524fedea9b6f1d2e357c7fa2c7",
+          "read_tool": "1436a7",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 213,
+          "last_line": 237,
+          "bytes": 794,
+          "sha256": "eb6bdf17b581cd24312d0c4433d389145308d302f6a122898f04d85a4e0553a9",
+          "read_tool": "1436a7",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 246,
+          "last_line": 270,
+          "bytes": 761,
+          "sha256": "e68a367e8f24ac28c19f4429f5350e6bf60c96787e0b979deb19a6a75b3a25dc",
+          "read_tool": "6d4f68",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 268,
+          "last_line": 288,
+          "bytes": 556,
+          "sha256": "95003ad42dc939c6a61cfc108a2e86a397502f688fffded3e068fdc91d0659d7",
+          "read_tool": "1436a7",
+          "complete_nontruncated": true
+        }
+      ],
+      "whole_file_read_claimed": false,
+      "source_method": "Immutable pinned Git blob; qualified installed source equality was independently checked during actual reads."
+    },
+    {
+      "path": "Mathlib/Algebra/FreeMonoid/Basic.lean",
+      "bytes": 19259,
+      "lines": 499,
+      "sha256": "82573d5b6f5968524f3c9c84ed91fd6a3f5eb222434789e6a2de7145c870e2a9",
+      "mathlib_pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "read_ranges": [
+        {
+          "first_line": 45,
+          "last_line": 151,
+          "bytes": 4216,
+          "sha256": "e2096d060c9552f9eea4275795936dc240349efce9b72230116b4bb5c9d26e9a",
+          "read_tool": "1436a7",
+          "complete_nontruncated": true
+        }
+      ],
+      "whole_file_read_claimed": false,
+      "source_method": "Immutable pinned Git blob; qualified installed source equality was independently checked during actual reads."
+    },
+    {
+      "path": "Mathlib/Algebra/Group/Hom/Basic.lean",
+      "bytes": 12140,
+      "lines": 316,
+      "sha256": "ba508cf5f216d0765dd9fe01866361a4b3acfe51ada9b6211e9e4a4714c1847c",
+      "mathlib_pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "read_ranges": [
+        {
+          "first_line": 1,
+          "last_line": 80,
+          "bytes": 2312,
+          "sha256": "ae19233a48b046891313c576008e5b2fdd2aa5a42c6797584c282a00928f71d2",
+          "read_tool": "1436a7",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 225,
+          "last_line": 260,
+          "bytes": 1257,
+          "sha256": "ccff9affc8af6fa6708155553a717991f5db2d53c06425c69437e759f01b8a12",
+          "read_tool": "6d4f68",
+          "complete_nontruncated": true
+        }
+      ],
+      "whole_file_read_claimed": false,
+      "source_method": "Immutable pinned Git blob; qualified installed source equality was independently checked during actual reads."
+    },
+    {
+      "path": "Mathlib/Tactic/ErwQuestion.lean",
+      "bytes": 6504,
+      "lines": 151,
+      "sha256": "b4a29bb9dcbcfd5be1e296f328ed7d9f01c05961cd644f51ab27f87e9cc5df92",
+      "mathlib_pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "read_ranges": [
+        {
+          "first_line": 10,
+          "last_line": 40,
+          "bytes": 1085,
+          "sha256": "a3e9786a655773926c2c77b9ed3c3464182dc8e74b1987cd7abf31768f2f0ce0",
+          "read_tool": "1436a7",
+          "complete_nontruncated": true
+        },
+        {
+          "first_line": 117,
+          "last_line": 126,
+          "bytes": 529,
+          "sha256": "c871f76a5051dfd2449c57791419128d729600c1395c89c4ae2e03f2914b4733",
+          "read_tool": "1436a7",
+          "complete_nontruncated": true
+        }
+      ],
+      "whole_file_read_claimed": false,
+      "source_method": "Immutable pinned Git blob; qualified installed source equality was independently checked during actual reads."
+    }
+  ],
+  "final_contract_context_reads": [
+    {
+      "path": "Applications/Resources/TreeFold.lean",
+      "read_ranges": [
+        {
+          "first_line": 133,
+          "last_line": 175,
+          "bytes": 1957,
+          "sha256": "a3f5b4ce58662237212dc24048c473cadeb48058937147ad430828bec7414412",
+          "read_tool": "ba8c0e",
+          "complete_nontruncated": true
+        }
+      ]
+    },
+    {
+      "path": "Examples/TreeFoldObservations.lean",
+      "read_ranges": [
+        {
+          "first_line": 111,
+          "last_line": 198,
+          "bytes": 3827,
+          "sha256": "08870cf73c936808dec4126bc7ce6af5169a38de1c9663a483e56623a6e27406",
+          "read_tool": "ba8c0e",
+          "complete_nontruncated": true
+        }
+      ]
+    }
+  ],
+  "correction_reads": [
+    {
+      "finding": "XT03-CP01",
+      "original_snapshot": {
+        "path": "reviews/tree-fold-preflight-snapshots/Examples-TreeFoldCache-before-CP01.lean",
+        "bytes": 7560,
+        "lines": 160,
+        "sha256": "99d976310dc90a251e10f8ba0c931b141c808bf8bcf7cfc4cdfe482f9b686200"
+      },
+      "current_path": "Examples/TreeFoldCache.lean",
+      "complete_diff_bytes": 1020,
+      "complete_diff_sha256": "2b96f3c3990594a215980d371930a2292f2a982a46fa13dccb4aac9f5ee55655",
+      "complete_diff_read_tool": "91de9b",
+      "current_corrected_source_fully_read": true,
+      "all22_raw_headers_identical": true,
+      "changed_body": "list_node_cost only"
+    },
+    {
+      "finding": "XT03-DOC01",
+      "original_snapshot": {
+        "path": "reviews/tree-fold-preflight-snapshots/fdsa-tree-fold-resource-before-DOC01.md",
+        "bytes": 13681,
+        "lines": 245,
+        "sha256": "51830ed0b59ecdd291d0a62fd7a604356729441532beb7d73d0af00a546491b9"
+      },
+      "current_path": "docs/research/fdsa-tree-fold-resource.md",
+      "complete_diff_bytes": 1859,
+      "complete_diff_sha256": "2ecdfe51cb7adef83b0ac24975c2589742d3f046e3293480b79489175de5c4d8",
+      "complete_diff_read_tool": "91de9b",
+      "current_corrected_source_fully_read": true
+    },
+    {
+      "finding": "XT03-DOC01",
+      "original_snapshot": {
+        "path": "reviews/tree-fold-preflight-snapshots/fdsa-reconstruction-map-before-DOC01.md",
+        "bytes": 20584,
+        "lines": 313,
+        "sha256": "cb2910f2a343b1d30512183876408b3fd3acd8162993419410dbf9191bc9d8eb"
+      },
+      "current_path": "docs/research/fdsa-reconstruction-map.md",
+      "complete_diff_bytes": 936,
+      "complete_diff_sha256": "f0cba2b64aa83ce646a7a087157408a3daf64b3d3f94e08c34f4a628bddd55b0",
+      "complete_diff_read_tool": "91de9b",
+      "current_corrected_source_fully_read": true
+    }
+  ],
+  "primary_source_boundary": "Book/Isabelle source identities and correspondence retained from the complete frozen requirements and full source/API/case preflight readings. No new primary PDF/theory fetch, rendering, or fresh whole book-text read is claimed. All changed formal source and the named pinned Lean/Mathlib API contexts were independently assessed.",
+  "metadata_incidents": [
+    {
+      "tool": "20e36b",
+      "actual_exit": 1,
+      "issue": "Initial command-line matcher omitted the same-line @[simp] run_nil declaration; no source or compiler error.",
+      "correction": "Include same-line attributes in raw declaration prefix, preserving exact source bytes; all88 independent rows then match."
+    },
+    {
+      "tool": "1128f3",
+      "actual_exit": 1,
+      "issue": "After successful exact88 inventory reconciliation, closure comparison attempted to sort dict-form edges without an explicit key.",
+      "correction": "Compare complete from/to/local edge records with explicit keys; independent30/13/56 closure passed in bef72d.",
+      "diagnostic_tool": "68ced7"
+    }
+  ],
+  "actual_successful_readonly_reconciliations": [
+    "1128f3 inventory portion only",
+    "bef72d closure/config/base comparison",
+    "8c9ba9 immutable original scope and retained-source identities"
+  ],
+  "protected_records_before": [
+    {
+      "path": "reviews/shared-four-standards-final-20261104.md",
+      "bytes": 14756,
+      "lines": 72,
+      "sha256": "6e4665d1d4da826bf8d22c1d067bf67f222b495dd44986b6c247c765cf6faf50"
+    },
+    {
+      "path": "provenance/shared-four-standards-terminal-assessment-20261104/final-standards-assessment-312aafb4.json",
+      "bytes": 15828,
+      "lines": 375,
+      "sha256": "954110b3a4ea725c7079bfa9a623894659da225435b105e65f780656d9c4bfc6"
+    },
+    {
+      "path": "reviews/tree-shape-standards-preparation-20261104.md",
+      "bytes": 14250,
+      "lines": 64,
+      "sha256": "b1abec0f25005e867384b0bed2257677747a6204a8ff7cf39cb14b155d17b003"
+    },
+    {
+      "path": "reviews/binary-tree-cache-standards-preparation-20261104.md",
+      "bytes": 22912,
+      "lines": 89,
+      "sha256": "a24df99f02fd70300f25b982b53293d2f0d8485f053b8891829fe81c37043c97"
+    },
+    {
+      "path": "reviews/shared-foundations-standards-terminal-assessment-20261104.md",
+      "bytes": 9830,
+      "lines": 51,
+      "sha256": "5931dafe30f68151d81621ded0274643fb8145c5c57e644b6cca284fc634e141"
+    },
+    {
+      "path": "reviews/chapter02-standards-source-preparation-20261104.md",
+      "bytes": 104381,
+      "lines": 421,
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    {
+      "path": "reviews/potential-standards-development-20261104.md",
+      "bytes": 40275,
+      "lines": 204,
+      "sha256": "a8c87f38de333a77ab03c82f7da1d3d1b3f122369dd9abb36c8d85acebf495f8"
+    }
+  ],
+  "recording_boundary": "Only new own preparation records written after root release. No compiler/process/runtime capture/source/ref/output/cache actions; actual types and acceptance credit zero."
+}

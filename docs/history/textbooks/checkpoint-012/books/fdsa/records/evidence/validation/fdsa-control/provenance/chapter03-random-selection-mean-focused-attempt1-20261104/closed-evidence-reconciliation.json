@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T20:18:03.073849+00:00",
+  "candidate": "f76bc53339e172a179560654b181040a7313506d",
+  "terminal": {
+    "recorded_utc": "2026-11-04T20:18:03.073754+00:00",
+    "owned_session": 67278,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "41a139",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "f76bc53339e172a179560654b181040a7313506d"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt1-20261104/full.log",
+    "bytes": 9295,
+    "sha256": "f579f7c48fdeb0c1d7a33247a4c8a8f3dbcf6c39b81fdd34fd970e8b54783705"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T201742Z-project-run-0e847e1a",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 483,
+      "sha256": "1a3f1807204dbb56857ce2a2f9e38611eb3351300b33f9e1cde838e1b64d470a"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 636,
+      "sha256": "033956af4be182b3afcda88017311e6e3aa263c48a9fc953fd83bcb6e2838822"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 9013,
+      "sha256": "45ee7b45a9690d077f65cbfe2397ff3d235beb1a2281de25069a9b6f67512bb3"
+    }
+  },
+  "native_body_exact_outer_offset": 125,
+  "complete_closed_log": true,
+  "scope": "Actual randomized scan/source expectation and integrability modules; full Chapter3 gates pending.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

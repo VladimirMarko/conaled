@@ -1,0 +1,60 @@
+{
+  "recorded_utc": "2026-11-04T08:53:05.110110+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "retained_full_central_scope": "5398db774ed5ca9938d0562e379d757323e7a355",
+  "isolated_source_correction": "a07d27634786220294038c0eb1e1c42428adccdf",
+  "isolated_parent": "6f3e010eb3b0a55fe8005c26deefacf2eed10cfc",
+  "scope_boundary": "Review only the changed example file from the isolated predecessor; do not substitute its older whole tree for the complete central source. Full R through eventual C2 remains required.",
+  "changed_paths": [
+    "Examples/RandomQuickSortRank.lean"
+  ],
+  "source": {
+    "path": "Examples/RandomQuickSortRank.lean",
+    "git_blob": "239b28e8d564edc0e8ae54ebaa06872060c8fd1b",
+    "bytes": 6356,
+    "lines": 149,
+    "sha256": "419e02b0865e4ed64041f0afe465271127599a475d3edff658224c9c8fd5d9d6"
+  },
+  "full_successor_lines_independently_read": 149,
+  "complete_source_diff_independently_read": true,
+  "complete_actual_diagnostics_independently_read": true,
+  "actual_diagnostics": {
+    "path": "provenance/chapter02-rank-examples-proof-repair1-20261104/actual-diagnostics.txt",
+    "bytes": 451,
+    "lines": 14,
+    "sha256": "d6eb9764e124dda030dc4f2a3b5ff2c57919d31b226918a40dfd42d93bd83553"
+  },
+  "public_example_headers_byte_unchanged": 18,
+  "core_unchanged_at_6f3_and_5398": true,
+  "core_public_names": [
+    "occurrenceRank",
+    "occurrenceRank_lt_iff",
+    "left_length_eq_rank",
+    "right_length_eq_rank",
+    "child_keys_nodup",
+    "left_length_law",
+    "exerciseMean_eq_of_length_eq",
+    "sizeMean",
+    "exerciseMean_eq_sizeMean",
+    "sizeMean_zero",
+    "sizeMean_succ",
+    "sizeMean_recurrence"
+  ],
+  "core_private_names": [
+    "filter_length_eq_card_indices",
+    "strict_filter_length_eq_rank",
+    "filtered_remainder_keys_nodup",
+    "filtered_remainder_length_lt",
+    "uniformIndex_map_perm",
+    "sum_rank_children",
+    "exerciseMean_cons_size_formula"
+  ],
+  "combined_public_name_count": 30,
+  "mathematical_assessment": "Fin.fin_one_eq_zero discharges the same actual occurrenceRank result in Fin 1, retaining arbitrary payload/key universes and the same key order instance. The added rfl discharges the emitted Equiv.refl inverse value after the established Tuple.sort identity; the repeated-key position remains 1 and actual strict-left child length 0. Empty cases, exact 5/13/71/3/109/3 means, nonidentity ranks, unsorted actual child order, repeated-key quadratic 25 and cross-universe payload transport remain unchanged. No definitions, assumptions, observations or expected values are modified.",
+  "source_findings": 0,
+  "compilation": "Correction uncompiled at review. Parent reported individual rank-core and natural-example passes in still-live focused7; no aggregate terminal or complete acceptance result supplied.",
+  "overall_outcome": "Blocked",
+  "approval_or_acceptance": false,
+  "count_correction": "Earlier report wording all19publiccoreheaders was inaccurate. Correct count: 19 named headers =12 public+7 private, plus18 public examples =30 public total. Existing public-type inventory remains unchanged."
+}

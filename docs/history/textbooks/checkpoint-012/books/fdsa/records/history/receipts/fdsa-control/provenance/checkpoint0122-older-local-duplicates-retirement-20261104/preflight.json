@@ -1,0 +1,60 @@
+{
+  "recorded_utc": "2026-11-04T18:28:39.321809+00:00",
+  "scope": "Only exact verified uploaded0120/0121 local archive duplicates; preserve0122, every source/ref/record, earlier recovery inputs and all remote files. No checkpoint chain is required.",
+  "replacement_checkpoint": {
+    "name": "conaled-fdsa-0122-accepted-chapter02",
+    "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0122-accepted-chapter02.tar.gz",
+    "recorded_utc": "2026-11-04T18:23:44.185511+00:00",
+    "file_id": "file_000000003f88821190f8353db154ad67",
+    "library_file_id": "libfile_bd68f45a79dc8191b9bba484b30eb4a6",
+    "current_version_number": 0,
+    "status": "succeeded",
+    "file_size_bytes": 29712530,
+    "size_bytes": 29712530,
+    "sha256": "30be46bbba2e2a3f68a8ca346ba81b95ef937798b7ca05641699bd941cca6924",
+    "url": "https://chatgpt.com/library?file_id=libfile_bd68f45a79dc8191b9bba484b30eb4a6&account_id=personal",
+    "metadata_exit": 0,
+    "metadata_chunk": "e88126",
+    "post_upload_hash_matched": true,
+    "creation_owned_session": 35637,
+    "creation_terminal_chunk": "a49804",
+    "verification_actual_subprocess_exit": 0,
+    "verification_original_parent_tool_output": "lost during compaction; no original session ID or parent terminal claimed",
+    "verification_closed_record_reconciliation_chunk": "9d3c46",
+    "payload_hashes_verified": 4832,
+    "refs_verified": 67,
+    "worktrees_verified": 15,
+    "held_control_files_verified": 4778,
+    "accepted_head": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+    "C2_accepted": true,
+    "C2_acceptance_durability_complete": true
+  },
+  "targets": [
+    {
+      "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0120-reviewed-chapter02-integration.tar.gz",
+      "bytes": 27347691,
+      "sha256": "91d8c19ebddbed60bb94f417cea59776ec8faf5e8bcfff993ebee05bbdaa3efb",
+      "allocated_bytes": 27353088,
+      "dev": 27,
+      "ino": 400321,
+      "mtime_ns": 1793812113620504196,
+      "library_file_id": "libfile_82d6731e0df88191a51977c16be215df",
+      "url": "https://chatgpt.com/library?file_id=libfile_82d6731e0df88191a51977c16be215df&account_id=personal"
+    },
+    {
+      "file": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0121-checked-chapter02-receiving-evidence.tar.gz",
+      "bytes": 28260739,
+      "sha256": "72195b94b456a4d19daa149797ed006727d58c3477747b9de78eb6404b6de2d5",
+      "allocated_bytes": 28270592,
+      "dev": 27,
+      "ino": 393985,
+      "mtime_ns": 1793814279558233856,
+      "library_file_id": "libfile_d19700c4b2008191916edf1e6d5426e7",
+      "url": "https://chatgpt.com/library?file_id=libfile_d19700c4b2008191916edf1e6d5426e7&account_id=personal"
+    }
+  ],
+  "space_before": {
+    "ordinary_available": 0,
+    "raw_free": 328327168
+  }
+}

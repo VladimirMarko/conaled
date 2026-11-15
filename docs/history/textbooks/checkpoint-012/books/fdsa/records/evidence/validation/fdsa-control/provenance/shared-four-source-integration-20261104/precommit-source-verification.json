@@ -1,0 +1,334 @@
+{
+  "recorded_utc": "2026-11-04T14:13:49.372814+00:00",
+  "state": "Read-only source reconciliation before staging; no Lean/Lake validation",
+  "allowed_path_count": 18,
+  "status": " M Applications/Selection/ThreeWay.lean\n M Applications/Sorting/Merge.lean\n M SquareApplications.lean\n M docs/research/fdsa-reconstruction-map.md\n?? Applications/Probability/PermutationMinimum.lean\n?? Applications/Resources/DifferenceListCosts.lean\n?? Applications/Resources/ListMerge.lean\n?? Applications/Resources/Partition.lean\n?? Applications/Sequences/Partition.lean\n?? Examples/DifferenceListCosts.lean\n?? Examples/MergeCosts.lean\n?? Examples/PermutationMinimum.lean\n?? Examples/PermutationMinimumBoundary.lean\n?? Examples/ThreeWayPartition.lean\n?? docs/research/fdsa-difference-list-costs.md\n?? docs/research/fdsa-list-merge.md\n?? docs/research/fdsa-permutation-minimum.md\n?? docs/research/fdsa-three-way-partition.md\n",
+  "path_identities": [
+    {
+      "path": "Applications/Probability/PermutationMinimum.lean",
+      "mode": 420,
+      "before": null,
+      "after": {
+        "bytes": 8241,
+        "lines": 197,
+        "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64"
+      }
+    },
+    {
+      "path": "Applications/Resources/DifferenceListCosts.lean",
+      "mode": 420,
+      "before": null,
+      "after": {
+        "bytes": 10061,
+        "lines": 222,
+        "sha256": "f99420b831dff2d0f5fcc3dac1001937942b87c78b710b79f94fa941ab972b01"
+      }
+    },
+    {
+      "path": "Applications/Resources/ListMerge.lean",
+      "mode": 420,
+      "before": null,
+      "after": {
+        "bytes": 8629,
+        "lines": 201,
+        "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975"
+      }
+    },
+    {
+      "path": "Applications/Resources/Partition.lean",
+      "mode": 420,
+      "before": null,
+      "after": {
+        "bytes": 2678,
+        "lines": 61,
+        "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14"
+      }
+    },
+    {
+      "path": "Applications/Selection/ThreeWay.lean",
+      "mode": 420,
+      "before": {
+        "git_blob": "278070fc5ac4ea674adb47be8ebb2048c4273aa0",
+        "bytes": 10489,
+        "lines": 226,
+        "sha256": "bd72ca5f11d028cde9420ae42f9a9f1f84d6cfc00bf02bd528a61fd00f586d52"
+      },
+      "after": {
+        "bytes": 9718,
+        "lines": 211,
+        "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa"
+      }
+    },
+    {
+      "path": "Applications/Sequences/Partition.lean",
+      "mode": 420,
+      "before": null,
+      "after": {
+        "bytes": 3786,
+        "lines": 87,
+        "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069"
+      }
+    },
+    {
+      "path": "Applications/Sorting/Merge.lean",
+      "mode": 420,
+      "before": {
+        "git_blob": "15708d975dc76472da0c10990e805e2d4dfbdcbb",
+        "bytes": 5604,
+        "lines": 126,
+        "sha256": "79b35252d0f551b381ef63974497311336ea92a5d118691647825cade12a1338"
+      },
+      "after": {
+        "bytes": 7840,
+        "lines": 172,
+        "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7"
+      }
+    },
+    {
+      "path": "Examples/DifferenceListCosts.lean",
+      "mode": 420,
+      "before": null,
+      "after": {
+        "bytes": 9299,
+        "lines": 234,
+        "sha256": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1"
+      }
+    },
+    {
+      "path": "Examples/MergeCosts.lean",
+      "mode": 420,
+      "before": null,
+      "after": {
+        "bytes": 23410,
+        "lines": 476,
+        "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466"
+      }
+    },
+    {
+      "path": "Examples/PermutationMinimum.lean",
+      "mode": 420,
+      "before": null,
+      "after": {
+        "bytes": 4994,
+        "lines": 127,
+        "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1"
+      }
+    },
+    {
+      "path": "Examples/PermutationMinimumBoundary.lean",
+      "mode": 420,
+      "before": null,
+      "after": {
+        "bytes": 4211,
+        "lines": 113,
+        "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b"
+      }
+    },
+    {
+      "path": "Examples/ThreeWayPartition.lean",
+      "mode": 420,
+      "before": null,
+      "after": {
+        "bytes": 8109,
+        "lines": 172,
+        "sha256": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526"
+      }
+    },
+    {
+      "path": "SquareApplications.lean",
+      "mode": 420,
+      "before": {
+        "git_blob": "1f7e4544b1eb77614a1c6fb2311e0d3290a3b1a5",
+        "bytes": 8412,
+        "lines": 256,
+        "sha256": "7f00379973161019217585a5ed32d0374247300544ae448b2a4b86aa11c6bf64"
+      },
+      "after": {
+        "bytes": 8544,
+        "lines": 260,
+        "sha256": "6197b3a27ee1fd07305a506314caeaa3b3534ab166eaea00e5e169ba4c82956d"
+      }
+    },
+    {
+      "path": "docs/research/fdsa-difference-list-costs.md",
+      "mode": 420,
+      "before": null,
+      "after": {
+        "bytes": 10923,
+        "lines": 219,
+        "sha256": "bd450660076b5addbd6b64d7a591f71fc60b68e6bfbf5f9cc36fa09fac4eb735"
+      }
+    },
+    {
+      "path": "docs/research/fdsa-list-merge.md",
+      "mode": 420,
+      "before": null,
+      "after": {
+        "bytes": 15491,
+        "lines": 258,
+        "sha256": "9661cc22e3600c0963c37b0f145f7396a1b7677ae2e8f2d240ecd1cf13b88729"
+      }
+    },
+    {
+      "path": "docs/research/fdsa-permutation-minimum.md",
+      "mode": 420,
+      "before": null,
+      "after": {
+        "bytes": 7970,
+        "lines": 146,
+        "sha256": "2054bf4d6cd371b8570fca003f0fe704793377d261cb8e5f10306022e5b2dcc8"
+      }
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "mode": 420,
+      "before": {
+        "git_blob": "327f797c0cfbef722d85bfe9143c32f4415c2680",
+        "bytes": 31701,
+        "lines": 485,
+        "sha256": "c3059fc931180a6c0e6ec07ea7b92953aac451677a3939b0daaeb433e042bbe9"
+      },
+      "after": {
+        "bytes": 39246,
+        "lines": 596,
+        "sha256": "f479b3b05b2fdfd99683e15cfc1e0d0b9542c58f56a3013872be6df8469cebfe"
+      }
+    },
+    {
+      "path": "docs/research/fdsa-three-way-partition.md",
+      "mode": 420,
+      "before": null,
+      "after": {
+        "bytes": 13959,
+        "lines": 259,
+        "sha256": "f79bfd4f9691f56019696c8ea0ac0b63045f7bb1ac5f5d790adf8a425345f136"
+      }
+    }
+  ],
+  "exact_copied_inputs": 16,
+  "exact_defining_Lean_blobs": 12,
+  "exact_saved_note_proposals": 4,
+  "merge_existing_prefix_exact": true,
+  "selection_sorted_partition_remainder_exact": true,
+  "all_existing_root_bytes_preserved_after_removing_exact_four_imports": true,
+  "entire_F_mathematical_map_from_chapter1_to_old_end_exact": true,
+  "accepted_foundation_owned_sources_and_compatibility_clients_and_tooling_pins_unchanged": true,
+  "all_existing_refs_preserved": true,
+  "original_scoped_histories_reachable": [
+    {
+      "unit": "XM01",
+      "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "original_candidate": "5f409e71bb068e3b8cc133226046ce8bbe29d982",
+      "corrected_minimal_tip": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "requirements": {
+        "path": "reviews/ordinary-merge-requirements.md",
+        "bytes": 19999,
+        "lines": 346,
+        "sha256": "b54e2b332cc31c04ac12fb5b19cc96fa494a80e1455fcfc173f59b6fe340d3d9",
+        "read": "complete"
+      },
+      "unit_history": [
+        "5f409e71bb068e3b8cc133226046ce8bbe29d982 07e480f6ec9958d4975bb90151005b84f2907614 feat(resources): observe ordinary list merge work (#174)",
+        "57a7d338dedb53a5526bbbc05f7be5fd83443d03 5f409e71bb068e3b8cc133226046ce8bbe29d982 fix(resources): normalize measured merge proof rewrites (#174)",
+        "72a0951aee406f7db67998d2a3bf8810f4e1bccc 57a7d338dedb53a5526bbbc05f7be5fd83443d03 fix(examples): elaborate measured merge clients (#174)"
+      ],
+      "original_tip_reachable_from_existing_refs": [
+        "refs/heads/work/fdsa-ch02-bottom-up",
+        "refs/heads/work/fdsa-ch02-development",
+        "refs/heads/work/fdsa-ch02-natural-runs",
+        "refs/heads/work/fdsa-ch02-quicksort",
+        "refs/heads/work/fdsa-ch02-random-pivot",
+        "refs/heads/work/fdsa-ch02-three-way",
+        "refs/heads/work/fdsa-ch02-top-down-costs",
+        "refs/heads/work/fdsa-ch02-uniform-input",
+        "refs/heads/work/fdsa-ordinary-merge",
+        "refs/heads/work/fdsa-potential-development"
+      ]
+    },
+    {
+      "unit": "XD01",
+      "original_review_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+      "original_candidate": "ffeaf8aed84184f49a13acb5c84e1fd608c9b7e8",
+      "corrected_minimal_tip": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+      "requirements": {
+        "path": "reviews/difference-list-cost-requirements.md",
+        "bytes": 6965,
+        "lines": 129,
+        "sha256": "cb215a33cce3dd258cca37b9d703522d19caf2da76767c01e573d268b3e92c4e",
+        "read": "complete"
+      },
+      "unit_history": [
+        "ffeaf8aed84184f49a13acb5c84e1fd608c9b7e8 a14977b9e316cc484ffad8a470d26b15615956c0 feat(resources): separate builder creation and application costs (#174)",
+        "62809ced86c561c7a6cce8b71e727177a3f17fb8 ffeaf8aed84184f49a13acb5c84e1fd608c9b7e8 docs(resources): correct natural-merge source provenance (#174)",
+        "66e480cf6db359ebf97d761b804ebe5d6d946eca 62809ced86c561c7a6cce8b71e727177a3f17fb8 fix(resources): elaborate difference-list cost contracts (#174)",
+        "52722e3ee481167e99b8f6c0b2417df7fb7615d8 66e480cf6db359ebf97d761b804ebe5d6d946eca fix(resources): apply explicit difference-list representation witnesses"
+      ],
+      "original_tip_reachable_from_existing_refs": [
+        "refs/heads/work/fdsa-builder-costs",
+        "refs/heads/work/fdsa-ch02-development",
+        "refs/heads/work/fdsa-ch02-natural-runs",
+        "refs/heads/work/fdsa-ch02-quicksort",
+        "refs/heads/work/fdsa-ch02-random-pivot",
+        "refs/heads/work/fdsa-ch02-three-way",
+        "refs/heads/work/fdsa-ch02-uniform-input",
+        "refs/heads/work/fdsa-potential-development"
+      ]
+    },
+    {
+      "unit": "XQ01",
+      "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "original_candidate": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+      "corrected_minimal_tip": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+      "requirements": {
+        "path": "reviews/three-way-partition-requirements.md",
+        "bytes": 12208,
+        "lines": 209,
+        "sha256": "b1f55911c44a11def3498484787fcb04972398ec040bf1bd65c75796c116d541",
+        "read": "complete"
+      },
+      "unit_history": [
+        "de5410286bbefd841dff50bef55c2e52d2ebbd2a 07e480f6ec9958d4975bb90151005b84f2907614 feat(sequences): share three-way partition and source costs (#174)",
+        "b3bdc12b304499bf6675a58bc1eb0992e19e3e75 de5410286bbefd841dff50bef55c2e52d2ebbd2a fix(sequences): remove redundant partition proof arguments (#174)",
+        "0612e80a0c297a38fa1add6e837dc7781e1bbd9c b3bdc12b304499bf6675a58bc1eb0992e19e3e75 fix(resources): reduce the partition value projection (#174)"
+      ],
+      "original_tip_reachable_from_existing_refs": [
+        "refs/heads/work/fdsa-ch02-development",
+        "refs/heads/work/fdsa-ch02-natural-runs",
+        "refs/heads/work/fdsa-ch02-quicksort",
+        "refs/heads/work/fdsa-ch02-random-pivot",
+        "refs/heads/work/fdsa-ch02-three-way",
+        "refs/heads/work/fdsa-ch02-uniform-input",
+        "refs/heads/work/fdsa-partition-proof-fixes",
+        "refs/heads/work/fdsa-potential-development"
+      ]
+    },
+    {
+      "unit": "XU01",
+      "original_review_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+      "original_candidate": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+      "corrected_minimal_tip": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "requirements": {
+        "path": "reviews/permutation-minimum-requirements.md",
+        "bytes": 8884,
+        "lines": 154,
+        "sha256": "59e2ff6ff66dd39b6151a42b501bcc22e86eb593a9b854b532f97bc45fdd7686",
+        "read": "complete"
+      },
+      "unit_history": [
+        "ff3dd88082c6283df40bcd86a4363841a0360b12 a14977b9e316cc484ffad8a470d26b15615956c0 feat(probability): prove uniform subset minima (#174)",
+        "22678283ba48b20bc97dfde800fe7360b6408ab7 ff3dd88082c6283df40bcd86a4363841a0360b12 fix(fdsa): use proof-local finite instances for permutation minima",
+        "f833f311caf2630ccbbb2e9465d4765dff7122f0 22678283ba48b20bc97dfde800fe7360b6408ab7 fix(fdsa): normalize the outsider probability boundary explicitly",
+        "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0 f833f311caf2630ccbbb2e9465d4765dff7122f0 fix(fdsa): check minimum-law probability examples on pinned APIs"
+      ],
+      "original_tip_reachable_from_existing_refs": [
+        "refs/heads/work/fdsa-ch02-development",
+        "refs/heads/work/fdsa-ch02-random-pivot",
+        "refs/heads/work/fdsa-ch02-uniform-input",
+        "refs/heads/work/fdsa-permutation-minimum-validation",
+        "refs/heads/work/fdsa-potential-development"
+      ]
+    }
+  ],
+  "verification_unchanged_and_names_only_F": true,
+  "no_compiler_or_output_mutation": true
+}

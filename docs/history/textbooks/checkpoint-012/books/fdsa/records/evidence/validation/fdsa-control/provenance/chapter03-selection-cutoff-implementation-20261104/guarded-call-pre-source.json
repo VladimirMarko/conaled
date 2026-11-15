@@ -1,0 +1,34 @@
+{
+  "recorded_utc": "2026-11-04T21:43:09.594397+00:00",
+  "post_checkpoint_release": "0130; actual3c4964",
+  "head": "736857e20c4004af1a9c0c6f77387c690517dd02",
+  "status": "?? Applications/Resources/Chunks.lean\n?? Applications/Resources/Selection.lean\n?? Applications/Resources/SelectionAuxiliary.lean\n?? Applications/Resources/SelectionCutoff.lean\n?? Applications/Resources/SelectionMedians.lean\n?? Applications/Selection/CountRank.lean\n?? Applications/Selection/MedianOfMedians.lean\n?? Applications/Sequences/Chunks.lean\n?? Examples/SelectionCutoff.lean\n",
+  "existing_sources": {
+    "Applications/Resources/SelectionCutoff.lean": {
+      "bytes": 7624,
+      "sha256": "56b5517e5fc7e074837da496148822555b2fc2bd2e09e3a5a9fe882680fcfd9c"
+    },
+    "Examples/SelectionCutoff.lean": {
+      "bytes": 3278,
+      "sha256": "9c03aa7ee88f3369176fa67b37d95ed30acde8f7a8f70200c8845c76324212fa"
+    }
+  },
+  "consultation": "guarded-call-consultation-20261104.json; independent implementation assistance, no acceptance-axis credit",
+  "new_definition": "FirstPivotCall d cutoff child parent: valid parent rank, parent length above cutoff, and child equals the actual first median-preparation call state. Child-to-parent orientation; no d>=2 or cutoff>=1 assumption in definition.",
+  "new_cases_before_source": [
+    "cutoff0 singleton rank0 is a guarded self-edge for all positive d",
+    "the same singleton cutoff1 admits no first edge, for any alleged child",
+    "invalid singleton rank1 admits no first edge even at cutoff0",
+    "group1 duplicate sequence[-3,4,-3] has self-edge at median rank1",
+    "self-edge implies non-well-founded relation for this recipe; cutoff0 and every group1 cutoff have explicit witnesses"
+  ],
+  "nonvacuity": "Explicit payload a for negative claims supplies nonempty input; no extra inhabitance required by positive correctness. Group1 selfloop uses median rank, not arbitrary original rank.",
+  "existing27claims_preserved": true,
+  "pinned_asymmetric_signature_read": "1a9834: Mathlib.Order.RelClasses WellFounded.asymmetric with explicit instance h and a,b",
+  "existing_dependency_object": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/RelClasses.olean",
+    "bytes": 340512,
+    "sha256": "e8b9d6b078b243b5aefe5bb331d33be879050ebc10ef846870f619222ad364e0"
+  },
+  "compiler_or_proof_credit": false
+}

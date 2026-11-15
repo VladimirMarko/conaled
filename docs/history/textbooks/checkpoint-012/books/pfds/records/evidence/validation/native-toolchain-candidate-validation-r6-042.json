@@ -1,0 +1,351 @@
+{
+  "schema": 1,
+  "candidate": "fa87cd3483de75f24039836f8d4357be3a133176",
+  "base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "started_at": "2026-11-03T16:58:48.431154+00:00",
+  "status": "finished",
+  "formal_acceptance": false,
+  "scope": "Isolated frozen source; new cold native profile, real public Lean/Lake/metadata/runner checks, documentation syntax and existing-state recipe validation",
+  "cold_workspace": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042",
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-native-toolchain-042-r6/session/environment/run-native-toolchain.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042",
+        "--create"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"build_command\": [\n    \"/usr/bin/x86_64-linux-gnu-gcc-13\",\n    \"-std=c11\",\n    \"-Wall\",\n    \"-Wextra\",\n    \"-Werror\",\n    \"-O2\",\n    \"-fPIC\",\n    \"-fvisibility=hidden\",\n    \"-shared\",\n    \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/session/environment/native-own-exe.c\",\n    \"-o\",\n    \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/.lean-native-m95l5ip6/support/native-own-exe.so\",\n    \"-ldl\",\n    \"-pthread\"\n  ],\n  \"c_compiler\": \"/usr/bin/x86_64-linux-gnu-gcc-13\",\n  \"c_compiler_sha256\": \"6117c52522997d2aaccb2b52b3c6bf42c0a6c5edb1d718431fed6b2fc5fec234\",\n  \"c_compiler_version\": \"x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0\\nCopyright (C) 2023 Free Software Foundation, Inc.\\nThis is free software; see the source for copying conditions.  There is NO\\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\\n\\n\",\n  \"compatibility_library_sha256\": \"01ad9e274870f3ddddfc76a9ec165c88a20e5b10d2622107857293bc53fff7db\",\n  \"compatibility_source_sha256\": \"479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842\",\n  \"execution\": \"native\",\n  \"launch_contract\": \"Direct exec of frozen canonical absolute regular ELF; per-exec marker equals AT_EXECFN; original readlink first; only missing own link may fall back.\",\n  \"lean_release_archive_sha256\": \"7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d\",\n  \"original\": \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-linux\",\n  \"profile\": \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native\",\n  \"profile_helper_sha256\": \"3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073\",\n  \"schema\": 1,\n  \"wrapped_binaries\": {\n    \"lake\": {\n      \"launcher_sha256\": \"a830f5d8a630a4a2a621f73b900124857a9ecb2e190e70a1ca48bbba16b3d771\",\n      \"original_sha256\": \"8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1\",\n      \"real_sha256\": \"8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1\"\n    },\n    \"lean\": {\n      \"launcher_sha256\": \"1cdf79cbcf0f44344c6549314ed5a0724c2016bbf81e4934e1b7db287bc90c75\",\n      \"original_sha256\": \"bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38\",\n      \"real_sha256\": \"bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38\"\n    },\n    \"leanir\": {\n      \"launcher_sha256\": \"458b6d4f669b500a0923efd3e72eb77a6d6bf12523e1c6fae6fbf52a2cbdb9b6\",\n      \"original_sha256\": \"5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e\",\n      \"real_sha256\": \"5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e\"\n    }\n  }\n}\n",
+      "stderr": "",
+      "elapsed_seconds": 0.19129512600011367,
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-native-toolchain-042-r6/session/environment/run-native-toolchain.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042",
+        "--describe"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"environment\": {\n    \"LAKE_CACHE_DIR\": \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/runtime-cache/lake\",\n    \"LD_LIBRARY_PATH\": \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/lib/lean:/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/lib\",\n    \"LD_PRELOAD\": \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/support/native-own-exe.so\",\n    \"LEAN_NUM_THREADS\": \"1\",\n    \"LEAN_SYSROOT\": \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native\",\n    \"MATHLIB_CACHE_DIR\": \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/runtime-cache/mathlib\",\n    \"PATH\": \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/bin:/root/.codex/tmp/arg0-linux/codex-arg0D0T4n9:/opt/codex/codex-path:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback\",\n    \"TMPDIR\": \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/runtime-cache/tmp\"\n  },\n  \"execution\": \"native\",\n  \"identities\": {\n    \"/workspace/scratch/b566cace4ed6/pfds/review-native-toolchain-042-r6/session/environment/run-native-toolchain.py\": \"3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073\",\n    \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/session/environment/native-own-exe.c\": \"479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842\",\n    \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-linux/bin/lake\": \"8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1\",\n    \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-linux/bin/lean\": \"bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38\",\n    \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-linux/bin/leanir\": \"5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e\",\n    \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/bin/lake\": \"a830f5d8a630a4a2a621f73b900124857a9ecb2e190e70a1ca48bbba16b3d771\",\n    \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/bin/lake.real\": \"8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1\",\n    \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/bin/lean\": \"1cdf79cbcf0f44344c6549314ed5a0724c2016bbf81e4934e1b7db287bc90c75\",\n    \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/bin/lean.real\": \"bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38\",\n    \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/bin/leanir\": \"458b6d4f669b500a0923efd3e72eb77a6d6bf12523e1c6fae6fbf52a2cbdb9b6\",\n    \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/bin/leanir.real\": \"5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e\",\n    \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/profile-identity.json\": \"26b501cdbcd45da271d7d4c5f426a3bfb483cf26021a0b0e4ab3efe1ac8868f8\",\n    \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/support/native-own-exe.so\": \"01ad9e274870f3ddddfc76a9ec165c88a20e5b10d2622107857293bc53fff7db\"\n  },\n  \"launcher_sha256\": \"3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073\",\n  \"marker_policy\": \"Each compiler wrapper sets its own exact ELF path; direct workspace ELF commands receive their own marker; unrelated child exec inherits a mismatched marker.\",\n  \"profile\": \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native\",\n  \"workspace\": \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042\"\n}\n",
+      "stderr": "",
+      "elapsed_seconds": 0.058065602999704424,
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-native-toolchain-042-r6/session/environment/run-native-toolchain.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042",
+        "--",
+        "lean",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": "",
+      "elapsed_seconds": 0.21697695600050793,
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-native-toolchain-042-r6/session/environment/run-native-toolchain.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042",
+        "--",
+        "lake",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)\n",
+      "stderr": "",
+      "elapsed_seconds": 0.11843113899885793,
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-native-toolchain-042-r6/session/environment/run-native-toolchain.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042",
+        "--",
+        "lean",
+        "Valid.lean"
+      ],
+      "returncode": 0,
+      "stdout": "'native_recovery_add_zero' does not depend on any axioms\n",
+      "stderr": "",
+      "elapsed_seconds": 5.253790720000325,
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-native-toolchain-042-r6/session/environment/run-native-toolchain.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042",
+        "--",
+        "lean",
+        "Invalid.lean"
+      ],
+      "returncode": 1,
+      "stdout": "Invalid.lean:1:22: error: Type mismatch\n  True.intro\nhas type\n  True\nbut is expected to have type\n  False\n",
+      "stderr": "",
+      "elapsed_seconds": 0.5521896930004004,
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-native-toolchain-042-r6/session/environment/test-direct-lake-build.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042",
+        "--runner",
+        "/workspace/scratch/b566cace4ed6/pfds/review-native-toolchain-042-r6/session/environment/run-native-toolchain.py",
+        "--report",
+        "/workspace/scratch/b566cace4ed6/pfds/session/validation/native-candidate-lake-r6-042.json"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"report\": \"/workspace/scratch/b566cace4ed6/pfds/session/validation/native-candidate-lake-r6-042.json\",\n  \"passed\": true,\n  \"checks\": {\n    \"lake_uses_exact_lean\": true,\n    \"lake_builds_executable\": true,\n    \"compiled_executable_runs\": true\n  }\n}\n",
+      "stderr": "",
+      "elapsed_seconds": 3.0812160490004317,
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-native-toolchain-042-r6/session/environment/test-native-own-exe.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042",
+        "--profile-identity",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/profile-identity.json",
+        "--record",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/session/validation/native-own-exe-contract-042-r-cold.json"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"record\": \"/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/session/validation/native-own-exe-contract-042-r-cold.json\",\n  \"status\": \"passed\",\n  \"case_count\": 18,\n  \"passed_cases\": 18,\n  \"inputs_unchanged\": true\n}\n",
+      "stderr": "",
+      "elapsed_seconds": 1.1162048200003483,
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-native-toolchain-042-r6/session/validation/test-native-validation.py"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.238s\n\nOK\n",
+      "elapsed_seconds": 0.3435513809999975,
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "python3",
+        "-"
+      ],
+      "returncode": 0,
+      "stdout": "mathlib 56a005855ea17e0b0958f73ec801ae140b0a1679 clean\nplausible dfa4f38190d07c37e315953e08b90fe2d95b3c24 clean\nLeanSearchClient d6b4c7be5be75ec4917c873ac50c756dc1436372 clean\nimportGraph a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93 clean\nproofwidgets df72b022e558978a1c50264cfc4d7fec86fa8e04 clean\naesop 4a174c490d8707121c4a9290800489f105d85e07 clean\nQq dce0ad79c486cb1fb504af04f953c3466b0c6db8 clean\nbatteries 66e469188fe07963e5cf666c7d4433f45b8131c5 clean\nCli c24fe6078c630e89b489bffe59b3e20ac30d12c8 clean\n",
+      "stderr": "",
+      "elapsed_seconds": 0.5232580220017553,
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "python3",
+        "-"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_seconds": 0.25819739300095534,
+      "timed_out": false
+    }
+  ],
+  "document_checks": [
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 1,
+      "check": "bash -n",
+      "returncode": 0,
+      "executed_commands": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 2,
+      "check": "bash -n",
+      "returncode": 0,
+      "executed_commands": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 3,
+      "check": "bash -n",
+      "returncode": 0,
+      "executed_commands": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 4,
+      "check": "bash -n",
+      "returncode": 0,
+      "executed_commands": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 6,
+      "check": "Python syntax and existing-state verification-only branch",
+      "returncode": 0
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 7,
+      "check": "bash -n",
+      "returncode": 0,
+      "executed_commands": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 8,
+      "check": "Python syntax and existing-state verification-only branch",
+      "returncode": 0
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 9,
+      "check": "bash -n",
+      "returncode": 0,
+      "executed_commands": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 10,
+      "check": "bash -n",
+      "returncode": 0,
+      "executed_commands": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 11,
+      "check": "bash -n",
+      "returncode": 0,
+      "executed_commands": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 12,
+      "check": "bash -n",
+      "returncode": 0,
+      "executed_commands": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 13,
+      "check": "bash -n",
+      "returncode": 0,
+      "executed_commands": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 14,
+      "check": "bash -n",
+      "returncode": 0,
+      "executed_commands": false
+    },
+    {
+      "file": "RECOVER-ENVIRONMENT.md",
+      "block": 15,
+      "check": "bash -n",
+      "returncode": 0,
+      "executed_commands": false
+    }
+  ],
+  "delivered_hashes_before": {
+    "session/environment/make-direct-toolchain-profile.py": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb",
+    "session/environment/run-direct-toolchain.py": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+    "session/environment/test-direct-toolchain.py": "028e625c2870bafa2668269f981202d76c6509256ca1822e4ab926b3f2526330",
+    "session/environment/test-direct-lake-build.py": "3e364791c25cfce02c15887b1ae040a1a18315ab5189ff393d5fb2ff9bd239cf",
+    "session/environment/README-direct-toolchain.md": "f3acb7ba89c954019e6288bffc80c37fbc2e4f90523b1172efdd85dc19ee6734",
+    "session/validation/run-direct-validation.py": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b",
+    "session/validation/test-direct-validation.py": "a77b7f3f962c45fbe8affe4999615b3721975cc3c858713c9ef027b6aecf5435",
+    "session/validation/direct-validation-runner-notes.md": "933745db696b993eda5bd8d5470a7b72b5738659658c709fa98705ceb35bdd4e",
+    "session/environment/RECOVER-ENVIRONMENT.md": "a890517e60afc3eef92658cf5b1c0d501521b4e1c5394b6512dbcbd72a776e72",
+    "session/environment/environment-route-comparison-042.md": "375f28a7ecb3256ccf05abc4c4bc1c600948c655882d2bd3d65edb4c6846b97a",
+    "session/checkpoint.py": "22928db23012fb28c9dee74b3af4998d18587ec91e728d0b2afcf647c6ac47ad",
+    "session/environment/native-own-exe.c": "479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842",
+    "session/environment/run-native-toolchain.py": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073",
+    "session/environment/test-native-own-exe.c": "f26208e4ea0b08349bc99fcb60b15f693fa413c3fbdfcf3649d649de8c748c0b",
+    "session/environment/test-native-own-exe.py": "da5856cb97b1e5a9b86303ee576f3f9dc889e5e5fcf0377d7c6d95e22a872c10",
+    "session/environment/native-readlink-fixture.c": "b5ee1645a2bd1ce54e3130560b759253d12c9f915ef7b252397c3db9230328ae",
+    "session/validation/run-native-validation.py": "15e3d0e41841c688fb1e15bbbf4834beb13784ea4ab241f24566297eea94d559",
+    "session/validation/test-native-validation.py": "bff5df7297ef0590f9a074a4ec6e3331766f73fa0440f152734d67e4b081a68f"
+  },
+  "passed": true,
+  "cold_description": {
+    "environment": {
+      "LAKE_CACHE_DIR": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/runtime-cache/lake",
+      "LD_LIBRARY_PATH": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/lib/lean:/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/lib",
+      "LD_PRELOAD": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/support/native-own-exe.so",
+      "LEAN_NUM_THREADS": "1",
+      "LEAN_SYSROOT": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native",
+      "MATHLIB_CACHE_DIR": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/runtime-cache/mathlib",
+      "PATH": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/bin:/root/.codex/tmp/arg0-linux/codex-arg0D0T4n9:/opt/codex/codex-path:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback",
+      "TMPDIR": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/runtime-cache/tmp"
+    },
+    "execution": "native",
+    "identities": {
+      "/workspace/scratch/b566cace4ed6/pfds/review-native-toolchain-042-r6/session/environment/run-native-toolchain.py": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073",
+      "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/session/environment/native-own-exe.c": "479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842",
+      "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-linux/bin/lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-linux/bin/lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-linux/bin/leanir": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e",
+      "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/bin/lake": "a830f5d8a630a4a2a621f73b900124857a9ecb2e190e70a1ca48bbba16b3d771",
+      "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/bin/lake.real": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/bin/lean": "1cdf79cbcf0f44344c6549314ed5a0724c2016bbf81e4934e1b7db287bc90c75",
+      "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/bin/lean.real": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/bin/leanir": "458b6d4f669b500a0923efd3e72eb77a6d6bf12523e1c6fae6fbf52a2cbdb9b6",
+      "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/bin/leanir.real": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e",
+      "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/profile-identity.json": "26b501cdbcd45da271d7d4c5f426a3bfb483cf26021a0b0e4ab3efe1ac8868f8",
+      "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native/support/native-own-exe.so": "01ad9e274870f3ddddfc76a9ec165c88a20e5b10d2622107857293bc53fff7db"
+    },
+    "launcher_sha256": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073",
+    "marker_policy": "Each compiler wrapper sets its own exact ELF path; direct workspace ELF commands receive their own marker; unrelated child exec inherits a mismatched marker.",
+    "profile": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native",
+    "workspace": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042"
+  },
+  "public_proof_inputs": {
+    "Valid.lean": "theorem native_recovery_add_zero (n : Nat) : n + 0 = n := Nat.add_zero n\n#print axioms native_recovery_add_zero\n",
+    "Invalid.lean": "example : False := by exact True.intro\n"
+  },
+  "minimal_cli_reason": "Cold CLI checks use implicit Init to test actual kernel acceptance/rejection without an unnecessary broad import; earlier full import Lean probes and profiled/statistics runs remain preserved, and project full gates are still mandatory.",
+  "lake_temporary_parent_absent": true,
+  "source_hashes_after": {
+    "session/environment/make-direct-toolchain-profile.py": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb",
+    "session/environment/run-direct-toolchain.py": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+    "session/environment/test-direct-toolchain.py": "028e625c2870bafa2668269f981202d76c6509256ca1822e4ab926b3f2526330",
+    "session/environment/test-direct-lake-build.py": "3e364791c25cfce02c15887b1ae040a1a18315ab5189ff393d5fb2ff9bd239cf",
+    "session/environment/README-direct-toolchain.md": "f3acb7ba89c954019e6288bffc80c37fbc2e4f90523b1172efdd85dc19ee6734",
+    "session/validation/run-direct-validation.py": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b",
+    "session/validation/test-direct-validation.py": "a77b7f3f962c45fbe8affe4999615b3721975cc3c858713c9ef027b6aecf5435",
+    "session/validation/direct-validation-runner-notes.md": "933745db696b993eda5bd8d5470a7b72b5738659658c709fa98705ceb35bdd4e",
+    "session/environment/RECOVER-ENVIRONMENT.md": "a890517e60afc3eef92658cf5b1c0d501521b4e1c5394b6512dbcbd72a776e72",
+    "session/environment/environment-route-comparison-042.md": "375f28a7ecb3256ccf05abc4c4bc1c600948c655882d2bd3d65edb4c6846b97a",
+    "session/checkpoint.py": "22928db23012fb28c9dee74b3af4998d18587ec91e728d0b2afcf647c6ac47ad",
+    "session/environment/native-own-exe.c": "479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842",
+    "session/environment/run-native-toolchain.py": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073",
+    "session/environment/test-native-own-exe.c": "f26208e4ea0b08349bc99fcb60b15f693fa413c3fbdfcf3649d649de8c748c0b",
+    "session/environment/test-native-own-exe.py": "da5856cb97b1e5a9b86303ee576f3f9dc889e5e5fcf0377d7c6d95e22a872c10",
+    "session/environment/native-readlink-fixture.c": "b5ee1645a2bd1ce54e3130560b759253d12c9f915ef7b252397c3db9230328ae",
+    "session/validation/run-native-validation.py": "15e3d0e41841c688fb1e15bbbf4834beb13784ea4ab241f24566297eea94d559",
+    "session/validation/test-native-validation.py": "bff5df7297ef0590f9a074a4ec6e3331766f73fa0440f152734d67e4b081a68f"
+  },
+  "candidate_head": "fa87cd3483de75f24039836f8d4357be3a133176",
+  "candidate_status": "",
+  "ended_at": "2026-11-03T16:59:00.954692+00:00"
+}

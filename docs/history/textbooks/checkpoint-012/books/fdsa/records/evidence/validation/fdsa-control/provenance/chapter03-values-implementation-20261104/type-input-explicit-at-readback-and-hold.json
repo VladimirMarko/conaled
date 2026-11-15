@@ -1,0 +1,60 @@
+{
+  "finding_id": "C03-PREP-TYPE-001",
+  "recorded_utc": "2026-11-04T19:16:42.923740+00:00",
+  "candidate": "9ff4d92e20eeabde29fd91b78c37786019e9613b",
+  "tree": "7d1bf3dcfc4df2aa1573b12f40f6ec74264cb51d",
+  "state": "HELD",
+  "classification": "Preparation-method compatibility finding; not a mathematical/source failure.",
+  "disposition": "Additive explicit-@ preparation correction complete and fully read back. All 130 unchanged names match the reviewed extraction pattern; actual statement-type execution and all mathematical acceptance gates remain pending.",
+  "actual_full_readbacks": {
+    "original_programs": "d73146",
+    "reviewed_capture_contract": "350644",
+    "three_corrected_programs": "4cbf2b",
+    "complete_original_to_corrected_diff": "35f8a7",
+    "complete_correction_manifest": "a3500c"
+  },
+  "checks": {
+    "prior_artifacts_preserved": 21,
+    "candidate_sources_preserved": 6,
+    "all_name_order_and_import_option_bytes_preserved": true,
+    "each_new_program_changes_only_the_added_at_characters": true,
+    "exact_diff_recomputed_from_saved_files": true,
+    "explicit_names_total": 130,
+    "explicit_names_unique": 130,
+    "source_head_and_tree_unchanged": true,
+    "working_tree_clean": true,
+    "compiler_or_type_program_executed_by_author": false,
+    "runtime_cache_profile_changes": false
+  },
+  "corrected_programs": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/CountRankStatements-v3.lean",
+      "bytes": 2490,
+      "sha256": "f777431218bc6b86d08f775f14bee9ca74747d5a66bec0908f4490f99fd28564",
+      "count": 40
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/ChunksStatements-v2.lean",
+      "bytes": 2007,
+      "sha256": "6eec8c6ceb180a3f9e262f6e6766ce1597fd9f018af6e25697e6e520a3046dff",
+      "count": 35
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/MedianOfMediansStatements-v2.lean",
+      "bytes": 3289,
+      "sha256": "51167fa99bb3da9bdbba996a7ba21972b49a0a16f7cc5367201477b8a46064cd",
+      "count": 55
+    }
+  ],
+  "manifest": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/type-input-explicit-at-correction.json",
+    "bytes": 9510,
+    "sha256": "dae9b943048549e46568b73963e3ba210821159977c9499ae51da28eff0ad0ef"
+  },
+  "diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/type-input-explicit-at-correction.diff",
+    "bytes": 14755,
+    "sha256": "9ab883dbd6009046f8bbdf0d53d0b702d28475d97bdded496d7f035ea4087867"
+  },
+  "hold": "All owned source and provenance are held again after this receipt and its full readback, pending root release. No existing file or receipt was changed; no source commit was created."
+}

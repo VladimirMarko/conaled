@@ -1,0 +1,12 @@
+{
+  "started_utc": "2026-11-04T04:00:41.282569+00:00",
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/recovery-validation-0082/extracted/conaled-fdsa-0082-recovered-native-and-sorting-drafts-compact/fdsa-control/restore_compact.py",
+    "/workspace/scratch/b4a17a285e23/recovery-validation-0082/restored",
+    "--asset",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled/docs/history/algorithm-design-haskell/checkpoint-233.zip"
+  ],
+  "archive_sha256": "34a29e372df2fea47b57d08500703b0c118086e3dd8ebb8e53fe220cf8f57e40",
+  "purpose": "Exercise unchanged restore with added exact residual exclusions and eight saved worktrees; no mathematical acceptance claim."
+}

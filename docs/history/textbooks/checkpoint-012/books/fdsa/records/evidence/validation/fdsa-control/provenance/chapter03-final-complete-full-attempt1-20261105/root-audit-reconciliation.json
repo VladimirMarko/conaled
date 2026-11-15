@@ -1,0 +1,96 @@
+{
+  "recorded_utc": "2026-11-05T01:36:31.370040+00:00",
+  "candidate": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "tree": "ecb69c3918715cbe0682028cd8697dfcf3e463f9",
+  "owned_session": 2798,
+  "actual_terminal_chunk": "3b5dc6",
+  "closure_actual_chunk": "92734d",
+  "summary_read_and_full_row_parsing_chunk": "293cbc",
+  "actual_exit": 0,
+  "compiled_project_modules": 1108,
+  "checked_modules": 1109,
+  "audit_rows": 1107,
+  "logical_declarations": 50135,
+  "theorem_declarations": 29316,
+  "unsafe_runtime_declarations": 0,
+  "axiom_union": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "all80_original_scope_modules_in_audit_rows": true,
+  "pre_integrity_artifacts": 3324,
+  "pre_invalidated_modules": 0,
+  "post_integrity_artifacts": 3324,
+  "post_inconsistent_modules": 0,
+  "source_policy_passed": true,
+  "mode": "incremental, no fresh trigger",
+  "audit_seconds": 535.82,
+  "total_check_seconds": 1156.15,
+  "compiler_and9dependencies_exact_accepted_XR": true,
+  "matching_live_verification": true,
+  "bindings": {
+    "full.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-full-attempt1-20261105/full.log",
+      "bytes": 325176,
+      "sha256": "1e7a309533e81d901a78be5cd8e8e94977ef57f85f1cb78514bc226505b2bf45"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-full-attempt1-20261105/result.json",
+      "bytes": 1260,
+      "sha256": "11162a510ec72dd836500bfbda69a1bee8add3ee6e2e4fb0e5fccdd3522a2ebf"
+    },
+    "owned-terminal.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-full-attempt1-20261105/owned-terminal.json",
+      "bytes": 259,
+      "sha256": "2a08726a5734957573b4bd5e2022b3b9ce7a0504770d61ab815aa5a8ffe7810e"
+    },
+    "actual-tool-terminal.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-full-attempt1-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "sha256": "83c37ec442b8bd9d0457ba6e238f6b8d41b83946a688e891347df8c7fbaa42cc"
+    },
+    "native-records/start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-full-attempt1-20261105/native-records/start.json",
+      "bytes": 421,
+      "sha256": "909764104f892f7a1eff9171a16aee71388368a573697c77652bff072b8f95bc"
+    },
+    "native-records/result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-full-attempt1-20261105/native-records/result.json",
+      "bytes": 574,
+      "sha256": "a019cb97e970bab5a14a81987be56af59d11bb5cb86b7cadc1d5c362ac984504"
+    },
+    "native-records/output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-full-attempt1-20261105/native-records/output.log",
+      "bytes": 324947,
+      "sha256": "ebac945f7ff32951c73263dfbd58308f7ec284af997c63931be782acb11cb4ad"
+    },
+    "verification.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-full-attempt1-20261105/verification.json",
+      "bytes": 867,
+      "sha256": "152ccbf0ee1d37fbe8eef300d88ad16284858464e5c4dc82f1f3884db3641088"
+    },
+    "outer-prefix.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-full-attempt1-20261105/outer-prefix.log",
+      "bytes": 70,
+      "sha256": "85b1c84dcee195655562afb91455f0d9c98388a8be8845b8eb9306ffa317cfab"
+    },
+    "outer-suffix.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-full-attempt1-20261105/outer-suffix.log",
+      "bytes": 159,
+      "sha256": "78c4c8e256a557f26ea1e87cdc171e95f0cb2a3f131225d41347754b5035dad8"
+    },
+    "closed-evidence-reconciliation.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-complete-full-attempt1-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2366,
+      "sha256": "ba621e18eb629e5ae9b32d69dc2dacd97a6834cd07078d112411516df4438297"
+    }
+  },
+  "whole_project_counts_not_new_book_result_counts": true,
+  "root_full_native_human_read_claimed": false,
+  "root_read_scope": "Final28 native lines, complete verification/native result, initial source/coverage/integrity/build observations, complete outer prefix/suffix, and computational parsing/summing of every audit row. Independent full closed-evidence assessments remain required.",
+  "prior_preparation_SIGKILL_history_preserved": true,
+  "prior_failure_cause_established": false,
+  "independent_final_axes_and1391_qualification_pending": true,
+  "chapter03_accepted": false
+}

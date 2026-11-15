@@ -1,0 +1,25 @@
+[
+  {
+    "declaration": "Applications.Selection.CoordinateSelection.exists_uniform_competitor_bound",
+    "old_header": "theorem exists_uniform_competitor_bound :\n    ∃ K : Nat, ∀ (c m : Nat) (k : Fin m) (input : Fin m → Int)\n      (distinct : (List.ofFn input).Nodup) (next : Protocol m Int Int)\n      (correct : Selects next k) (trace : Transcript m Int)\n      (observation : Resources.Measured (Option Int) Nat)\n      (otherTrace : Transcript m Int) (value : Int),\n      1 ≤ c → Runs (observedSelect k.val) input [] trace observation →\n      Runs next input [] otherTrace value →\n        work c trace observation ≤ K * queryWork (fun _ _ => c) otherTrace ",
+    "new_header": "theorem exists_uniform_competitor_bound :\n    ∃ K : Nat, ∀ (c m : Nat) (k : Fin m) (input : Fin m → Int)\n      (_distinct : (List.ofFn input).Nodup) (next : Protocol m Int Int)\n      (_correct : Selects next k) (trace : Transcript m Int)\n      (observation : Resources.Measured (Option Int) Nat)\n      (otherTrace : Transcript m Int) (value : Int),\n      1 ≤ c → Runs (observedSelect k.val) input [] trace observation →\n      Runs next input [] otherTrace value →\n        work c trace observation ≤ K * queryWork (fun _ _ => c) otherTrace ",
+    "binder_renames": {
+      "distinct": "_distinct",
+      "correct": "_correct"
+    },
+    "quantifier_domains_order_dependencies_and_conclusion": "unchanged; alpha-renaming only",
+    "proof_body": "byte-identical"
+  },
+  {
+    "declaration": "Applications.Selection.CoordinateSelection.exists_uniform_optimality",
+    "old_header": "theorem exists_uniform_optimality :\n    ∃ K : Nat, ∀ (c m : Nat) (k : Fin m) (input : Fin m → Int)\n      (distinct : (List.ofFn input).Nodup) (next : Protocol m Int Int)\n      (total : Total next) (correct : Selects next k),\n      1 ≤ c → ∃ (trace : Transcript m Int)\n        (observation : Resources.Measured (Option Int) Nat)\n        (otherTrace : Transcript m Int) (value : Int),\n        Runs (observedSelect k.val) input [] trace observation ∧\n        Runs next input [] otherTrace value ∧ observation.1 = some value ∧\n        m ≤ queryWork (fun _ _ => c) otherTrace ∧\n        work c trace observation ≤ K * queryWork (fun _ _ => c) otherTrace ",
+    "new_header": "theorem exists_uniform_optimality :\n    ∃ K : Nat, ∀ (c m : Nat) (k : Fin m) (input : Fin m → Int)\n      (_distinct : (List.ofFn input).Nodup) (next : Protocol m Int Int)\n      (_total : Total next) (_correct : Selects next k),\n      1 ≤ c → ∃ (trace : Transcript m Int)\n        (observation : Resources.Measured (Option Int) Nat)\n        (otherTrace : Transcript m Int) (value : Int),\n        Runs (observedSelect k.val) input [] trace observation ∧\n        Runs next input [] otherTrace value ∧ observation.1 = some value ∧\n        m ≤ queryWork (fun _ _ => c) otherTrace ∧\n        work c trace observation ≤ K * queryWork (fun _ _ => c) otherTrace ",
+    "binder_renames": {
+      "distinct": "_distinct",
+      "total": "_total",
+      "correct": "_correct"
+    },
+    "quantifier_domains_order_dependencies_and_conclusion": "unchanged; alpha-renaming only",
+    "proof_body": "byte-identical"
+  }
+]

@@ -1,0 +1,308 @@
+{
+  "schema": 1,
+  "prepared_at": "2026-11-14T20:24:56.746271+00:00",
+  "scope": "Read-only assessment; no install, compiler, benchmark, source/checkpoint mutation, upload or Git write.",
+  "checkpoint": {
+    "serial": 8,
+    "archive_sha256": "bfb0d6de0bac25a31e79a9f4ebd4cc564e2f1c35c37e86a8a3dab5d808901db2"
+  },
+  "controls": {
+    "last_full_native_kit_threads": 1,
+    "native_kit_default_threads": 1,
+    "mechanism": "LEAN_NUM_THREADS environment variable",
+    "lean_cli_threads_forced_by_launcher": false,
+    "normal_run_wall_timeout": null,
+    "launcher_applied_memory_or_cpu_rlimit_found": false,
+    "fresh_checker_jobs": {
+      "only_fresh": true,
+      "default": "min(4, os.cpu_count() or 1)",
+      "bounds": "concurrent compiler processes"
+    },
+    "not_universal_process_or_thread_limit": true
+  },
+  "current_resource_observation": {
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "os_cpu_count": 9,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "rlimits": {
+      "RLIMIT_AS": [
+        -1,
+        -1
+      ],
+      "RLIMIT_DATA": [
+        -1,
+        -1
+      ],
+      "RLIMIT_CPU": [
+        -1,
+        -1
+      ],
+      "RLIMIT_NPROC": [
+        39792,
+        39792
+      ],
+      "RLIMIT_STACK": [
+        8388608,
+        -1
+      ],
+      "RLIMIT_NOFILE": [
+        16384,
+        16384
+      ]
+    },
+    "cgroup_files": {
+      "/sys/fs/cgroup/cpu.max": {
+        "unavailable": "FileNotFoundError"
+      },
+      "/sys/fs/cgroup/memory.max": {
+        "unavailable": "FileNotFoundError"
+      },
+      "/sys/fs/cgroup/memory.current": {
+        "unavailable": "FileNotFoundError"
+      },
+      "/sys/fs/cgroup/cpuset.cpus.effective": {
+        "unavailable": "FileNotFoundError"
+      },
+      "/sys/fs/cgroup/cpu/cpu.cfs_quota_us": {
+        "unavailable": "FileNotFoundError"
+      },
+      "/sys/fs/cgroup/cpu/cpu.cfs_period_us": {
+        "unavailable": "FileNotFoundError"
+      },
+      "/sys/fs/cgroup/memory/memory.limit_in_bytes": {
+        "unavailable": "FileNotFoundError"
+      }
+    },
+    "meminfo": {
+      "MemTotal": "10206472 kB",
+      "MemAvailable": "9427756 kB",
+      "SwapTotal": "0 kB",
+      "SwapFree": "0 kB"
+    },
+    "available_workspace_disk_bytes": 62078525440
+  },
+  "resource_limits": {
+    "cpu_quota_verified": false,
+    "historical_comparable_resource_measurement_available": false,
+    "downscaling_established": false,
+    "observed_current_values_are_not_promised_capacity": true
+  },
+  "integrated_source_inventory": {
+    "definition": "root *.lean plus recursive SquareKit, Applications and Examples, matching scripts/project_sources.py",
+    "counts": {
+      "old_fdsa": {
+        "commit": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+        "integrated_source_modules": 1116
+      },
+      "checkpoint_candidate": {
+        "commit": "16440863ddb14d95c402ce65498e22497e246e72",
+        "integrated_source_modules": 3361
+      },
+      "old_master": {
+        "commit": "983d0b6b602b71541f182737011621a8805be27b",
+        "integrated_source_modules": 3038
+      },
+      "new_master": {
+        "commit": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+        "integrated_source_modules": 3041
+      }
+    }
+  },
+  "current_candidate_and_new_master_configuration": {
+    "lakefile.toml": {
+      "unchanged": true,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+    },
+    "scripts/check.py": {
+      "unchanged": true,
+      "sha256": "c6ba0f5c83a5324dc01a2309b8de23d54f38afddcc1b647f6c7b46b212ed8c25"
+    },
+    "lean-toolchain": {
+      "unchanged": true,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    "lake-manifest.json": {
+      "unchanged": true,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    "flake.lock": {
+      "unchanged": true,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+    }
+  },
+  "timings": {
+    "old_fdsa": {
+      "date": "2026-11-05",
+      "full_gate_seconds": 1495.42,
+      "native_wrapper_seconds": 1495.7332250129984,
+      "integrated_modules": 1116,
+      "audit_declarations": 50422,
+      "audit_seconds": 739.07,
+      "umbrella_build_seconds": 701,
+      "integrity_invalidations": 0,
+      "result": "passed",
+      "cache_state": "largely reused project outputs; not cold benchmark"
+    },
+    "c1": {
+      "candidate": "337c29ff2e2b969e701a9deb84840d6b148dd175",
+      "cold_project_targets": 3278,
+      "completed_cold_targets_observed": 630,
+      "terminal_exit": null,
+      "complete_wall_interval_available": false
+    },
+    "r3": {
+      "candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+      "started_at": "2026-11-14T03:29:12.689406+00:00",
+      "nonterminal_observation_at": "2026-11-14T03:48:22.468934+00:00",
+      "missing_project_traces": 2652,
+      "source_preflight_seconds": 33.64,
+      "selected_observed_completed_module_seconds": {
+        "Applications.FRP.MigrationIO": 185,
+        "Applications.FRP.MigrationResources": 442,
+        "Applications.FRP.MigrationSafety": 141
+      },
+      "handle_unavailable_at": "2026-11-14T03:54:13.567929+00:00",
+      "terminal_exit": null,
+      "diagnosed_cause": null
+    },
+    "maps_r3": {
+      "duration_seconds": 7.578451,
+      "exit_code": 0,
+      "max_child_rss_kib": 2140408,
+      "major_faults": 960,
+      "limits": "reused outputs; RSS is child maximum, not aggregate or host capacity"
+    }
+  },
+  "eta": {
+    "point_estimate_seconds": null,
+    "basis": "No completed current full run or matched cold benchmark. Historical runtime and caches were pruned.",
+    "planning_assessment": "Substantial and plausibly multi-hour for a cold full gate; not a measured ETA or upper bound.",
+    "prohibited_extrapolations": [
+      "mean of three FRP modules across whole project",
+      "Lake job count as newly compiled project modules",
+      "linear speedup by visible CPU count"
+    ]
+  },
+  "recommendations": [
+    "Next appropriate local build may explicitly use native-kit --threads 2; consider 4 after memory and paging observations from useful focused work.",
+    "Do not describe this environment knob as lean -j or a global child process cap.",
+    "Keep existing guards, exact pins, full audit, source freeze, review and candidate verification.",
+    "Do not switch to fresh merely to expose --jobs; use fresh only when its existing policy requires it.",
+    "Receiving integrator may own the final full gate per user authorization; focused progress continues locally without claiming full validation."
+  ],
+  "primary_sources": [
+    {
+      "url": "https://github.com/leanprover/lean4/blob/eb6cafb7290e8bd5f2937522d8d804f58f02bafc/src/runtime/object.cpp",
+      "lines": "1106-1121, 963-965, 1029-1041",
+      "claim": "Ordinary executable runtime reads LEAN_NUM_THREADS; task wait may temporarily increase worker allowance."
+    },
+    {
+      "url": "https://github.com/leanprover/lean4/blob/eb6cafb7290e8bd5f2937522d8d804f58f02bafc/src/Lean/Shell.lean",
+      "lines": "220-224, 238, 301-310",
+      "claim": "Lean CLI defaults numThreads from detected hardware concurrency; -j changes ShellOptions.numThreads."
+    },
+    {
+      "url": "https://github.com/leanprover/lean4/blob/eb6cafb7290e8bd5f2937522d8d804f58f02bafc/src/util/shell.cpp",
+      "lines": "353",
+      "claim": "Lean CLI initializes task manager from ShellOptions."
+    },
+    {
+      "url": "https://github.com/leanprover/lean4/blob/eb6cafb7290e8bd5f2937522d8d804f58f02bafc/src/lake/Lake/Build/Job/Monad.lean",
+      "lines": "168-173, 224-231",
+      "claim": "Lake asynchronous jobs use Lean runtime tasks."
+    },
+    {
+      "url": "https://github.com/leanprover/lean4/blob/eb6cafb7290e8bd5f2937522d8d804f58f02bafc/src/lake/Lake/Build/Actions.lean",
+      "lines": "31-66",
+      "claim": "Module compilation builds args and launches Lean without an injected -j flag."
+    },
+    {
+      "url": "https://github.com/leanprover/lean4/blob/eb6cafb7290e8bd5f2937522d8d804f58f02bafc/src/lake/Lake/Util/Proc.lean",
+      "lines": "29-45",
+      "claim": "Lake child execution via IO.Process.output."
+    }
+  ],
+  "checkpoint_evidence": [
+    {
+      "path": "support/native-kit/lib/runtime.py",
+      "bytes": 6368,
+      "sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695"
+    },
+    {
+      "path": "support/native-kit/conaled_native.py",
+      "bytes": 34020,
+      "sha256": "9d1b1e6f10ae574e5c1f388d8df069f43c9ca3e1a993c372293595abd2e5090a"
+    },
+    {
+      "path": "support/native-kit/README.md",
+      "bytes": 12744,
+      "sha256": "fa1b4482615a39394754688c85d36d6d5dd2ddf30b1cd194cef99561906b2365"
+    },
+    {
+      "path": "support/native-kit/docs/DECISION.md",
+      "bytes": 16920,
+      "sha256": "8edad8239c13f2aadd2cd3aaf304f78b0c58a04a6135e940e90744222b966b01"
+    },
+    {
+      "path": "support/native-kit/provenance/evidence/pfds/native-performance-analysis-042.md",
+      "bytes": 11550,
+      "sha256": "4a650082b4a8323368e769c03f368c54ef275ed203d1fb12beb1de9ed4beedf1"
+    },
+    {
+      "path": "books/common/evidence/full-validation-r3-start.json",
+      "bytes": 1426,
+      "sha256": "33951558afb5c06a6d3c33141d6279470eed3263bc5d74dcd87e0c5c92a6c28b"
+    },
+    {
+      "path": "books/common/evidence/full-validation-r3-observation-20261114.json",
+      "bytes": 1594,
+      "sha256": "2885c972cd2e0a35bf319cbe546abd793c3ac63fea2e2a02570d711603e8a112"
+    },
+    {
+      "path": "books/common/evidence/full-validation-r3.log",
+      "bytes": 732337,
+      "sha256": "7018fd530bedf585c0833dfd321df58be02d48355e019fb86c218d23006cf687"
+    },
+    {
+      "path": "books/common/evidence/process-interruption-20261114.json",
+      "bytes": 1776,
+      "sha256": "2fa72f42a70a3404545f88df1d7cf4b1df21d5a9eebe05012e0d648d2ae856d0"
+    },
+    {
+      "path": "books/common/evidence/validation-interruption-20261114.json",
+      "bytes": 1511,
+      "sha256": "ac0649ae1ee7f69a0507a28a2b2fe00cd1a1329b2224385e8423d4d16727ac41"
+    },
+    {
+      "path": "books/common/evidence/maps-focused-r3.json",
+      "bytes": 2012,
+      "sha256": "eb10b219e860dc3cf8248a7e303446a372038d0d8bb011ed7be91fd7d56feb42"
+    },
+    {
+      "path": "books/fdsa/records/evidence/validation/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/native-records/result.json",
+      "bytes": 574,
+      "sha256": "d40ba095e94d66f8505db69a99fd8e9e321713d0e43e53cf1804d7485ebdec3b"
+    },
+    {
+      "path": "books/fdsa/records/evidence/validation/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/full.log",
+      "bytes": 326815,
+      "sha256": "47b4f52f06b9610b6d0c54c7f02daf0feb6cf56783fca555927e164ed9fd358b"
+    },
+    {
+      "path": "books/fdsa/records/evidence/validation/fdsa-control/provenance/tree-shape-spec-receiving-20261105/full-validation-assessment-e61bb6f.json",
+      "bytes": 44303,
+      "sha256": "ce9256abde55152ed9c6652d0ac51a23916f175b2e5be65564ba36b0253bf0f5"
+    }
+  ]
+}

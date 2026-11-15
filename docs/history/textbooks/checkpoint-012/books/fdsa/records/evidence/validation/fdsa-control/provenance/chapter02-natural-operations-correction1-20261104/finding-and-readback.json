@@ -1,0 +1,26 @@
+{
+  "recorded_utc": "2026-11-04T07:32:36.593326+00:00",
+  "base": "e1f3b5c43ba3b0f4aca5964f2b4568e06b47700c",
+  "observed_central_candidate": "e4965499954e2afe6bb6be0b8a4a61167a0ff2ce",
+  "diagnostic_evidence": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-focused-attempt4-partial-diagnostics-20261104",
+  "diagnostic_log_sha256": "301c176cae878f0a321efe879cfbe9df1dbcd731760ba3dfe0a47306ee86222f",
+  "evidence_status": "Partial live-log diagnostic observation only; no aggregate terminal result claimed.",
+  "finding": "NOPS-C01: buildAscending_counts_add_three expands singleton through length_cons, leaving [].length unconstrained for omega; length_singleton is consequently unused.",
+  "correction": "Replace the redundant singleton simp lemma with List.length_nil, preserving all mathematical statements and supplied arithmetic expectations.",
+  "scope": [
+    "Applications/Resources/NaturalRunOperations.lean"
+  ],
+  "old_sha256": "c5742c0b6e1617b9646aaf9b92d8c5f4dfd02457735c1eb6d4a561fede258e24",
+  "new_sha256": "ccbe8f58dd53cbfaa4600780d5d8a2a78da994ba33c3d6edaa3098446d1f09eb",
+  "examples_sha256": "fe08adbd075edbed29bd094e3c3a4d5ef156b31cf84463f5b1957c5f019dff9a",
+  "exact_only_change_verified": true,
+  "all_106_declarations_retained": true,
+  "statement_review": "All pre-existing source is byte-identical except this one tactic argument. The two equalities still count the specific source builder construction/application; both counts plus three equal twice the full run length. No premise, definition, cost, case, domain, or instance changed.",
+  "validation": "git diff --check exit0; no author build. Actual central command was still live at observation and no terminal result is claimed. Focused compile, elaborated inspection and full acceptance remain pending.",
+  "uniform_worktree_hold": {
+    "head": "204dba90967f11a2dfe186316bc85a29acbcc576",
+    "partial_file": "Applications/Resources/UniformQuickSortMean.lean",
+    "sha256": "4ed2c7d22edbeb2f316f5b8e79896bc3c79ffd596666e5111c67565823c887b1",
+    "status": "Saved untracked core draft; example file not yet authored; no source/ref mutation in this repair."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "recorded_utc": "2026-11-04T11:07:56.914695+00:00",
+  "argv": [
+    "git",
+    "-C",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+    "-c",
+    "user.name=ChatGPT",
+    "-c",
+    "user.email=chatgpt@openai.com",
+    "merge",
+    "--no-ff",
+    "--no-commit",
+    "4b5dbfa07288acc73f25c27838d3fb2f78e77d71"
+  ],
+  "exit_code": 2,
+  "stdout": "",
+  "stderr": "error: The following untracked working tree files would be overwritten by merge:\n\tApplications/Sorting/InsertionObservations.lean\n\tApplications/Sorting/TopDown.lean\n\tExamples/InsertionObservations.lean\n\tExamples/TopDownSorting.lean\nPlease move or remove them before you merge.\nAborting\nMerge with strategy ort failed.\n",
+  "new_acceptance": false
+}

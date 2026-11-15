@@ -1,0 +1,121 @@
+{
+  "recorded_utc": "2026-11-04T10:51:44.537422+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete 81-path review scope, all 112 obligations and ten shared scopes.",
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "chunks": [
+    {
+      "chunk": 35,
+      "type_numbers": [
+        638,
+        638
+      ],
+      "native_lines": [
+        8886,
+        9413
+      ],
+      "bytes": 46151,
+      "names": [
+        "Examples.InsertionObservations.transitivity_boundaries"
+      ],
+      "sha256": "c1530989aa5d5721f980ee0ca9b48f56a2602f47cb259f348ec25212850e13e8",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The complete 528-line/46151-byte expanded transitivity_boundaries type was read in three contiguous untruncated parts. Its four conjunctions are Pairwise cycle[1,2], failure of Pairwise after inserting0, filter(!=1)(insert0[1,2])=[0,2], and insert0(filter(!=1)[1,2])=[2,0].",
+        "The explicit DecidableRel arguments unfold the same total reflexive Fin3 cycle(a=b or0->1 or1->2 or2->0), with actual finite equality decisions. The differing filtered outputs demonstrate why transitivity is needed even when input is Pairwise and the new element is accepted. No false order instance or conditional assumption is smuggled into the ground counterexample.",
+        "Lean-emitted proof-argument elisions remain part of the authoritative printed type; no additional elision or filtering was used for the human read."
+      ],
+      "bounded_subreads": [
+        {
+          "native_lines": [
+            8886,
+            9061
+          ],
+          "bytes": 15299,
+          "sha256": "5c5862779564c8a752ffd9f59ff71313db3035289700890a1cb59bcfa440d1eb",
+          "complete_read": true,
+          "tool_output_truncated": false
+        },
+        {
+          "native_lines": [
+            9062,
+            9237
+          ],
+          "bytes": 14975,
+          "sha256": "e324468c047505333710f3b44616c607990ff0b4f3a1239f5d0c401b3982dd98",
+          "complete_read": true,
+          "tool_output_truncated": false
+        },
+        {
+          "native_lines": [
+            9238,
+            9413
+          ],
+          "bytes": 15877,
+          "sha256": "c1c70c9fa5b0b187ff8bf632001880f5f01da66eb9bfbb401461cd425f5904ec",
+          "complete_read": true,
+          "tool_output_truncated": false
+        }
+      ]
+    },
+    {
+      "chunk": 36,
+      "type_numbers": [
+        639,
+        658
+      ],
+      "native_lines": [
+        9414,
+        9684
+      ],
+      "bytes": 20162,
+      "names": [
+        "Examples.InsertionObservations.strict_tie_boundary",
+        "Examples.InsertionObservations.signedTail",
+        "Examples.InsertionObservations.signed_tail_fixed",
+        "Examples.InsertionObservations.signed_negative_step",
+        "Examples.InsertionObservations.signed_positive_step",
+        "Examples.InsertionObservations.stability_is_not_arbitrary_filter",
+        "Examples.ListCalls.duplicate_map",
+        "Examples.ListCalls.discarded_last",
+        "Examples.ListCalls.discarded_head",
+        "Examples.ListCalls.zero_and_unit_callbacks",
+        "Examples.ListCalls.discarded_values_still_pay",
+        "Examples.ListCalls.map_then_length",
+        "Examples.ListCalls.composed_callback_count",
+        "Examples.ListCalls.append_then_length",
+        "Examples.ListCalls.valid_lookup",
+        "Examples.ListCalls.first_invalid_lookup",
+        "Examples.ListCalls.farther_invalid_lookup",
+        "Examples.ListCalls.empty_payload_lookup",
+        "Examples.ListCalls.take_drop_values",
+        "Examples.ListCalls.separate_vs_fused"
+      ],
+      "sha256": "2460948866347b654f76b2b8f28f40dfccb9ca17e473af81fd1ea0c5f7fdb653",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The strict-order tie example keeps the singleton Pairwise premise, produces last-before-first on equal keys, and explicitly fails strict Pairwise afterwards. Signed-key examples retain negative and tied-positive filter observations, while stability_is_not_arbitrary_filter prevents equating stability with all-predicate filter preservation.",
+        "Duplicate map and both discarded-head/discarded-tail filter examples retain callback costs11. Zero/unit callback maps cost4/7; even all discarded unit predicates cost7.",
+        "Map followed by measured length returns original length with callback-sum+2*n+2, and the composed concrete count is15. Append followed by length charges2*leftLength+rightLength+2.",
+        "Valid lookup returns Some9 at cost3, first and far invalid lookups both return None at cost4, and Empty-payload lookup returns None at cost1. Concrete take/drop preserve values with cost3 each; separate execution costs6 versus fused split3 for the same returned pair."
+      ]
+    }
+  ],
+  "prior_progress_sha256": "348300f8bc701f074ced09e5d091635d6107dc4762e86234282d00e30a2f06c0",
+  "overall_outcome": "Blocked",
+  "new_type_credit": 0,
+  "possible110_credit": 0
+}

@@ -1,0 +1,30 @@
+{
+  "source": "Exact successful create_library_file structured response; no fields inferred",
+  "structured_response": {
+    "operation": "create_library_file",
+    "status": "succeeded",
+    "path": "/conaled-pfds-checkpoint-003.tar.gz",
+    "file_id": "file_00000000938481f4a5882256a99d4b5f",
+    "library_file_id": "libfile_a79c7eb64c94819192677e0c9b485bd6",
+    "file_name": "conaled-pfds-checkpoint-003.tar.gz",
+    "current_version_number": 0,
+    "restored_from_version_number": null,
+    "xattrs": [
+      {
+        "name": "user.library-file-version",
+        "value": "0"
+      }
+    ],
+    "directory_id": "libdir_43c8b42e635c8191b48cb45c45019d19",
+    "mime_type": "application/x-tar",
+    "library_artifact_type": "other",
+    "file_size_bytes": 71921373,
+    "external_connectors_accessed": false
+  },
+  "exposure": {
+    "evidence_type": "coordinator conversation attestation",
+    "sequence": "The next assistant commentary after the successful upload and xattr application exposed this exact link to the user.",
+    "url": "https://chatgpt.com/library?file_id=libfile_a79c7eb64c94819192677e0c9b485bd6&account_id=personal",
+    "text": "Checkpoint 003 is saved, and its fresh restoration test passed. It contains commit ad73001, the full repository history, local tickets, requirements, source notes, and review records. It explicitly records the pending validation and that no book chapter has been accepted."
+  }
+}

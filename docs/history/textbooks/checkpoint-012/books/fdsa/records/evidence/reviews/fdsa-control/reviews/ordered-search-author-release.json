@@ -1,0 +1,46 @@
+{
+  "released_utc": "2026-11-02T22:31:59.766960+00:00",
+  "original_review_base": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+  "branch": "work/fdsa-ordered-search",
+  "requirements_sha256": "8fc03c60b3aae37d621112504a4fb83ca1675c4c1f2563f5d14cd45e352ab30e",
+  "checkpoint": "conaled-fdsa-0055-ordered-search-scope",
+  "checkpoint_sha256": "f3204d8ebf2ec73f4763f2e03620cc37061ae8180ed88da0b025bff89d998f79",
+  "checkpoint_library_file_id": "libfile_67c639b745dc8191804635de32bea2af",
+  "all_baselines_unchanged_before_release": true,
+  "all_new_paths_absent_before_release": true,
+  "source_authoring_released": true,
+  "authors": [
+    {
+      "agent": "/root/architecture",
+      "paths": [
+        "Applications/Resources/TreeSearch.lean"
+      ],
+      "complete_scope_read": true,
+      "concrete_issue_reported": false,
+      "stopped": true
+    },
+    {
+      "agent": "/root/rotation_cases",
+      "paths": [
+        "Examples/TreeSearch.lean"
+      ],
+      "complete_scope_read": true,
+      "concrete_issue_reported": false,
+      "stopped": true
+    },
+    {
+      "agent": "/root/book_inventory",
+      "paths": [
+        "docs/research/fdsa-tree-search.md",
+        "docs/research/fdsa-reconstruction-map.md"
+      ],
+      "complete_scope_read": true,
+      "concrete_issue_reported": false,
+      "stopped": true
+    }
+  ],
+  "root_path": "SquareApplications.lean",
+  "validation_hold": "C1 attempt3 remains sole authorized compiler/checker; no XS01 compiler/checker/project hash helper/cache modification or final review released.",
+  "root_import_added": true,
+  "root_file_original_prefix_preserved": true
+}

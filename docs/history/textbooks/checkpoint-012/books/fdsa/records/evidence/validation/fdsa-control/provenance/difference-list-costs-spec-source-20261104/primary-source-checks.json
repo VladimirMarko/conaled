@@ -1,0 +1,56 @@
+{
+  "checked_utc": "2026-11-04T06:10:26.907008+00:00",
+  "reviewer": "/root/xd01_spec",
+  "archive": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xd01-primary-source-20261104/afp-Efficient-Mergesort-2026-10-26.tar.gz",
+    "bytes": 5506,
+    "sha256": "148ba9c80cf876a77219b1209dfa5df9bafe1aef1388bc84fc7088ff9c550708"
+  },
+  "archive_members": [
+    "Efficient-Mergesort",
+    "Efficient-Mergesort/Mergesort_Complexity.thy",
+    "Efficient-Mergesort/Efficient_Sort.thy",
+    "Efficient-Mergesort/document",
+    "Efficient-Mergesort/document/root.bib",
+    "Efficient-Mergesort/document/root.tex",
+    "Efficient-Mergesort/ROOT",
+    "Efficient-Mergesort/Natural_Mergesort.thy"
+  ],
+  "member": {
+    "name": "Efficient-Mergesort/Natural_Mergesort.thy",
+    "bytes": 6723,
+    "sha256": "2fd5d686d7702385cc76f84e153034fe9b460ec94c0f751a56e5bd5ea017fe51"
+  },
+  "reading_copy_identical": true,
+  "natural_theory_header": [
+    "(* Author: Christian Sternagel *)",
+    "",
+    "theory Natural_Mergesort",
+    "  imports \"HOL-Data_Structures.Sorting\"",
+    "begin"
+  ],
+  "sorting": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/xd01-primary-source-20261104/Sorting.thy",
+    "bytes": 14846,
+    "sha256": "dfa60eae99cd6fa31e4fdd45f488282f913619a204061960e43ddceba4cadfca"
+  },
+  "sorting_header": [
+    "(* Author: Tobias Nipkow *)",
+    "",
+    "section \"Sorting\"",
+    "",
+    "theory Sorting",
+    "  imports",
+    "    Complex_Main",
+    "    \"HOL-Library.Multiset\"",
+    "    \"HOL-Library.Time_Commands\"",
+    "begin"
+  ],
+  "finding": "XD01-DOC-001",
+  "disposition": "Documentary correction independently confirmed against rehashed primary archive/member and separately pinned Sorting theory; final integrated review and validation remain pending.",
+  "book": {
+    "path": "/workspace/scratch/b4a17a285e23/research-source/functional_data_structures_algorithms.pdf",
+    "bytes": 1742029,
+    "sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645"
+  }
+}

@@ -1,0 +1,1634 @@
+{
+  "schema": "fdsa-spec-tail-receiving-source-v1",
+  "reviewer": "/root/chapter02_spec, independent nonauthor Spec",
+  "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "tree": "43f1c15166931d4bd3e91e6dbf12059d0da1cfc2",
+  "accepted_predecessor": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "corrected_tip": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+  "source_outcome": "Complete original scope assessed; no new concrete Spec finding",
+  "overall_outcome": "Blocked pending actual receiving full/type/final gates",
+  "original_scope": {
+    "paths": [
+      "Applications/Probability/PermutationTail.lean",
+      "Examples/PermutationTail.lean",
+      "Examples/PermutationTailBoundary.lean",
+      "SquareApplications.lean",
+      "docs/research/fdsa-permutation-tail.md",
+      "docs/research/fdsa-reconstruction-map.md"
+    ],
+    "counts": {
+      "public": 61,
+      "private": 19,
+      "anonymous_instances": 8,
+      "public_theorems": 46,
+      "public_definitions": 15
+    },
+    "anonymous_examples": 0,
+    "C2_paths": 81,
+    "C2_obligations": 112,
+    "C2_shared_scopes": 10
+  },
+  "frozen_requirements": {
+    "path": "reviews/permutation-tail-requirements.md",
+    "lines": 229,
+    "bytes": 12866,
+    "sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c"
+  },
+  "prereceiver_refresh": {
+    "status": "Read-only refresh complete; no receiving candidate supplied",
+    "corrected_tip": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+    "accepted_prerequisite": "932438a765340d69fa6402f6abd17def6ec28d13",
+    "fully_read": [
+      {
+        "path": "reviews/permutation-tail-spec-integration-preparation-20261104.md",
+        "lines": 60,
+        "bytes": 11858,
+        "sha256": "cf82fe7273fbdcd88abba72b79de324f7acd082f6ef9cff9072b6b64cb0961ec",
+        "tool_chunk": "805913"
+      },
+      {
+        "path": "reviews/permutation-tail-requirements.md",
+        "lines": 229,
+        "bytes": 12866,
+        "sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c",
+        "tool_chunk": "2d43fd"
+      },
+      {
+        "path": "tickets/FDSA-XU03.md",
+        "lines": 184,
+        "bytes": 11715,
+        "sha256": "749a5b2791a9cac4e38a52724fdf2f0181103499cc20637e567ad72a747d8c40",
+        "tool_chunk": "2448ad"
+      }
+    ],
+    "held_receipt": {
+      "path": "provenance/shared-tail-spec-integration-preparation-20261104/assessment.json",
+      "sha256": "cfa94912bfb3d8a71d522cb30af8aeae69be52e32f6d15fe05cb57a7b1e0bd79",
+      "refreshed_fields": [
+        "prior_full_assessment_retention",
+        "core_semantics",
+        "documentary_assessment",
+        "findings",
+        "historical_focused_results",
+        "concrete_historical_input_gap",
+        "pending",
+        "no_duplicate_gate"
+      ],
+      "tool_chunk": "a3ce40",
+      "new_full_receipt_read_claim": false
+    },
+    "complete_scope": {
+      "paths": 6,
+      "public_names": 61,
+      "private_theorems": 19,
+      "anonymous_local_instances": 8
+    },
+    "new_findings": [],
+    "boundaries": "Current root acceptance/checkpoint notice supersedes only the historical pending Order prerequisite. All historical source/type assessments remain retained without automatic receiving credit; C02-DOC-003 Tail remains open until actual application.",
+    "file_writes": 0,
+    "source_build_process_runtime_capture_actions": 0
+  },
+  "independent_source_reconciliation": {
+    "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+    "tree": "43f1c15166931d4bd3e91e6dbf12059d0da1cfc2",
+    "parents": [
+      "932438a765340d69fa6402f6abd17def6ec28d13",
+      "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9"
+    ],
+    "scope": [
+      {
+        "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+        "path": "Applications/Probability/PermutationTail.lean",
+        "blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+        "bytes": 23521,
+        "lines": 487,
+        "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed"
+      },
+      {
+        "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+        "path": "Examples/PermutationTail.lean",
+        "blob": "baa3e26a3c72a4589765562167d1d85edc011e67",
+        "bytes": 9826,
+        "lines": 222,
+        "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e"
+      },
+      {
+        "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+        "path": "Examples/PermutationTailBoundary.lean",
+        "blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0",
+        "bytes": 12064,
+        "lines": 266,
+        "sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54"
+      },
+      {
+        "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+        "path": "SquareApplications.lean",
+        "blob": "623b77c69d1ff2cf09a9429eefbd69641370b9cc",
+        "bytes": 8609,
+        "lines": 262,
+        "sha256": "a30e93ebbdb80f40d751cc30a5185e5e96ce40861540c35fb439362d66d2678d"
+      },
+      {
+        "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+        "path": "docs/research/fdsa-permutation-tail.md",
+        "blob": "8cb9419840e7f6d2c553765d05d8aa39fe58c389",
+        "bytes": 10871,
+        "lines": 205,
+        "sha256": "bebf1822c26e94c35d1474a99687156ffe44d3c2f37bcb76ed7c930fdf37236d"
+      },
+      {
+        "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+        "path": "docs/research/fdsa-reconstruction-map.md",
+        "blob": "0944dfd5fde6895f2c4cc0db9bd015f3e71ffed1",
+        "bytes": 41477,
+        "lines": 631,
+        "sha256": "b5997a67ca8e23f4418b5428db17bedcf960f262f2e9a9e711255799970689d6"
+      }
+    ],
+    "numstat": "487\t0\tApplications/Probability/PermutationTail.lean\n222\t0\tExamples/PermutationTail.lean\n266\t0\tExamples/PermutationTailBoundary.lean\n1\t0\tSquareApplications.lean\n205\t0\tdocs/research/fdsa-permutation-tail.md\n17\t0\tdocs/research/fdsa-reconstruction-map.md\n",
+    "declarations": [
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 41,
+        "kind": "def",
+        "name": "Applications.Probability.PermutationTail.firstEvent",
+        "private": false,
+        "header": "def firstEvent (Y : Ω → List I) (a : I) : Set Ω\n",
+        "header_sha256": "75209da3b6aec7065cbaccd216063128ba643bcee25a281259b4aee07280edfa"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 45,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.firstEvent_inter_tail",
+        "private": false,
+        "header": "theorem firstEvent_inter_tail (Y : Ω → List I) (a : I) (xs : List I) :\n    firstEvent Y a ∩ {ω | (Y ω).tail = xs} = {ω | Y ω = a :: xs}\n",
+        "header_sha256": "35d924c0a5dc88b33dda3193ef4f62169391dbc021491b2dac5082266726bfa6"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 57,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.cons_mem_orders",
+        "private": false,
+        "header": "theorem cons_mem_orders (positions : List I) (hnd : positions.Nodup)\n    (S : Finset I) (a : I) (haPositions : a ∈ positions) (ha : a ∈ S)\n    (xs : List I) :\n    a :: xs ∈ orders positions S ↔ xs ∈ orders positions (S.erase a)\n",
+        "header_sha256": "0ea5356b99934bd176f7ff9ca012915d24f368f52a5ddd4d57b8dfa083d4da3a"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 83,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.tail_restrictedOrder_eq",
+        "private": false,
+        "header": "theorem tail_restrictedOrder_eq (positions : List I) (hnd : positions.Nodup)\n    (S : Finset I) (a : I) (π : Equiv.Perm I)\n    (hfirst : π ∈ firstEvent (restrictedOrder positions S) a) :\n    (restrictedOrder positions S π).tail =\n      restrictedOrder positions (S.erase a) π\n",
+        "header_sha256": "e5edda236963336944ab202924468dc4ef0728779345987621d7baa820cfbb64"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 115,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.filter_tail_restrictedOrder_eq",
+        "private": false,
+        "header": "theorem filter_tail_restrictedOrder_eq (positions : List I) (hnd : positions.Nodup)\n    (S : Finset I) (a : I) (π : Equiv.Perm I)\n    (hfirst : π ∈ firstEvent (restrictedOrder positions S) a)\n    (T : Finset I) (hT : T ⊆ S.erase a) :\n    (restrictedOrder positions S π).tail.filter (fun b => decide (b ∈ T)) =\n      restrictedOrder positions T π\n",
+        "header_sha256": "146d8b9754ec076df7bf76ac6b1597bd286727c5a220ea1870c5414b7b02336d"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 125,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.firstEvent_restrictedOrder_of_not_mem",
+        "private": false,
+        "header": "theorem firstEvent_restrictedOrder_of_not_mem (positions : List I)\n    (S : Finset I) (a : I) (ha : a ∉ S) :\n    firstEvent (restrictedOrder positions S) a = ∅\n",
+        "header_sha256": "b24f175693185c7cbdae011e98699f55843a5df509cdc21afe331a2c5571b1c3"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 136,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.cond_firstEvent_restrictedOrder_of_not_mem",
+        "private": false,
+        "header": "theorem cond_firstEvent_restrictedOrder_of_not_mem\n    [MeasurableSpace (Equiv.Perm I)]\n    (positions : List I) (S : Finset I) (a : I) (ha : a ∉ S)\n    (μ : Measure (Equiv.Perm I)) :\n    μ[|firstEvent (restrictedOrder positions S) a] = 0\n",
+        "header_sha256": "fd638225c35d47e8629dd9ae12d08bb08184cc6277bb9cd5583e28c19f3bfce6"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 143,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.factorial_card_erase",
+        "private": true,
+        "header": "private theorem factorial_card_erase (S : Finset I) (a : I) (ha : a ∈ S) :\n    (Nat.factorial S.card : ℝ≥0∞) =\n      (S.card : ℝ≥0∞) * (Nat.factorial (S.erase a).card : ℝ≥0∞)\n",
+        "header_sha256": "08e5d385ff518258a27dee71544e0bf297e1fc13cd97f1f118ab5e349d7875e4"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 150,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.factorial_ratio_head",
+        "private": true,
+        "header": "private theorem factorial_ratio_head (S : Finset I) (a : I) (ha : a ∈ S) :\n    (Nat.factorial (S.erase a).card : ℝ≥0∞) *\n        (Nat.factorial S.card : ℝ≥0∞)⁻¹ = (S.card : ℝ≥0∞)⁻¹\n",
+        "header_sha256": "f290f5564b421d9f7d3e317e4309b7f40b54c704889010f73e78288686704756"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 161,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.factorial_ratio_tail",
+        "private": true,
+        "header": "private theorem factorial_ratio_tail (S : Finset I) (a : I) (ha : a ∈ S) :\n    (S.card : ℝ≥0∞) * (Nat.factorial S.card : ℝ≥0∞)⁻¹ =\n      (Nat.factorial (S.erase a).card : ℝ≥0∞)⁻¹\n",
+        "header_sha256": "2cad0b957cf730b01fa178ebfe910a7c0ddbb6064c6cdd30ab63a68501d29498"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 172,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.uniformOn_firstEvent",
+        "private": false,
+        "header": "theorem uniformOn_firstEvent\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)\n    (S : Finset I) (a : I) (ha : a ∈ S) :\n    uniformOn (Set.univ : Set (Equiv.Perm I))\n        (firstEvent (restrictedOrder positions S) a) = (S.card : ℝ≥0∞)⁻¹\n",
+        "header_sha256": "75ea99afa15a939b2e786fd809dc2d5b819d6f18e1085b6e6ffdba906e988f45"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 229,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.cond_uniformOn_firstEvent",
+        "private": false,
+        "header": "theorem cond_uniformOn_firstEvent\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (positions : List I) (hcomplete : ∀ b, b ∈ positions) (S : Finset I) (a : I) :\n    (uniformOn (Set.univ : Set (Equiv.Perm I)))[|\n        firstEvent (restrictedOrder positions S) a] =\n      uniformOn (firstEvent (restrictedOrder positions S) a)\n",
+        "header_sha256": "eaabad938ef86896318754424b15a906467e7542e13ab63cd10c261a9291cb37"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 247,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.cond_tail_eq",
+        "private": false,
+        "header": "theorem cond_tail_eq\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)\n    (S : Finset I) (a : I) (ha : a ∈ S) (xs : List I) :\n    (uniformOn (Set.univ : Set (Equiv.Perm I)))[|\n        firstEvent (restrictedOrder positions S) a]\n        {π | (restrictedOrder positions S π).tail = xs} =\n      if xs ∈ orders positions (S.erase a)\n      then (Nat.factorial (S.erase a).card : ℝ≥0∞)⁻¹\n      else 0\n",
+        "header_sha256": "e2762f279bec7b01be3d6ba8c8507b913ed20c81b655894bac6ae4a0611eefa8"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 273,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.map_tail_cond_first",
+        "private": false,
+        "header": "theorem map_tail_cond_first\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)\n    (S : Finset I) (a : I) (ha : a ∈ S) :\n    ((uniformOn (Set.univ : Set (Equiv.Perm I)))[|\n        firstEvent (restrictedOrder positions S) a]).map\n        (fun π => (restrictedOrder positions S π).tail) =\n      uniformOn (orders positions (S.erase a) : Set (List I))\n",
+        "header_sha256": "b4e4071e979c2345db38abcb05c112a17ed5891c0f864e6500954ebdcfde0189"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 302,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.restrictedOrder_hasLaw",
+        "private": true,
+        "header": "private theorem restrictedOrder_hasLaw\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)\n    (S : Finset I) :\n    HasLaw (restrictedOrder positions S)\n      (uniformOn (orders positions S : Set (List I)))\n      (uniformOn (Set.univ : Set (Equiv.Perm I)))\n",
+        "header_sha256": "bd0145b20a6af30c828505d2718e39fdb18680c7b9e8477cb72fc4137b980a6e"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 317,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.hasLaw_cond",
+        "private": true,
+        "header": "private theorem hasLaw_cond {A B : Type*} [MeasurableSpace A] [MeasurableSpace B]\n    {μ : Measure A} {ν : Measure B} {Y : A → B}\n    (hY : HasLaw Y ν μ) (H : Set B) (hH : MeasurableSet H) :\n    HasLaw Y (ν[|H]) (μ[|Y ⁻¹' H])\n",
+        "header_sha256": "26e8e782b305fca3e9cbb37763034728957cd38948b3ea11a75bf27cce797a45"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 330,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.orders_head_mass",
+        "private": true,
+        "header": "private theorem orders_head_mass\n    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)\n    (S : Finset I) (a : I) (ha : a ∈ S) :\n    uniformOn (orders positions S : Set (List I))\n      (firstEvent (id : List I → List I) a) = (S.card : ℝ≥0∞)⁻¹\n",
+        "header_sha256": "5eab3fefa2991ae45fb881d0c5a9be585ee10acae2f3c3644df5d33bde265930"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 353,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.head_mass_of_hasLaw",
+        "private": false,
+        "header": "theorem head_mass_of_hasLaw\n    [MeasurableSpace Ω] [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)\n    (S : Finset I) (a : I) (ha : a ∈ S)\n    {μ : Measure Ω} {Y : Ω → List I}\n    (hY : HasLaw Y (uniformOn (orders positions S : Set (List I))) μ) :\n    μ (firstEvent Y a) = (S.card : ℝ≥0∞)⁻¹\n",
+        "header_sha256": "3472707ae08b3883b0afcad54cffe4889f15ebd82bc60221caa708b9fee7cb43"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 370,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.tail_hasLaw_orders_cond",
+        "private": true,
+        "header": "private theorem tail_hasLaw_orders_cond\n    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)\n    (S : Finset I) (a : I) (ha : a ∈ S) :\n    HasLaw (List.tail : List I → List I)\n      (uniformOn (orders positions (S.erase a) : Set (List I)))\n      ((uniformOn (orders positions S : Set (List I)))[|\n        firstEvent (id : List I → List I) a])\n",
+        "header_sha256": "fe04bbc10bbd20c9268d39567c7f291f0b2c56173bfb27988510ac91328e5ea1"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 402,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.hasLaw_tail_cond_first",
+        "private": false,
+        "header": "theorem hasLaw_tail_cond_first\n    [MeasurableSpace Ω] [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)\n    (S : Finset I) (a : I) (ha : a ∈ S)\n    {μ : Measure Ω} {Y : Ω → List I}\n    (hY : HasLaw Y (uniformOn (orders positions S : Set (List I))) μ) :\n    HasLaw (fun ω => (Y ω).tail)\n      (uniformOn (orders positions (S.erase a) : Set (List I)))\n      (μ[|firstEvent Y a])\n",
+        "header_sha256": "2e97a2cdf0d6aad293fcec71721c092771eefafa16b39a2a041c359df2599be5"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 421,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.filter_hasLaw_orders",
+        "private": true,
+        "header": "private theorem filter_hasLaw_orders\n    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)\n    (S T : Finset I) (hT : T ⊆ S) :\n    HasLaw (fun xs : List I => xs.filter (fun b => decide (b ∈ T)))\n      (uniformOn (orders positions T : Set (List I)))\n      (uniformOn (orders positions S : Set (List I)))\n",
+        "header_sha256": "d522d81c7b3e458c9bea43f0292164899b27547561389923f08b6807f49b2c32"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 448,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.hasLaw_filter_tail_cond_first",
+        "private": false,
+        "header": "theorem hasLaw_filter_tail_cond_first\n    [MeasurableSpace Ω] [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)\n    (S : Finset I) (a : I) (ha : a ∈ S)\n    {μ : Measure Ω} {Y : Ω → List I}\n    (hY : HasLaw Y (uniformOn (orders positions S : Set (List I))) μ)\n    (T : Finset I) (hT : T ⊆ S.erase a) :\n    HasLaw (fun ω => (Y ω).tail.filter (fun b => decide (b ∈ T)))\n      (uniformOn (orders positions T : Set (List I)))\n      (μ[|firstEvent Y a])\n",
+        "header_sha256": "3ae85c77def25128c479a04127901c067612b06836a8e536a6053f503f2f34fa"
+      },
+      {
+        "source": "Applications/Probability/PermutationTail.lean",
+        "line": 463,
+        "kind": "theorem",
+        "name": "Applications.Probability.PermutationTail.map_restrictedOrder_cond_first",
+        "private": false,
+        "header": "theorem map_restrictedOrder_cond_first\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ b, b ∈ positions)\n    (S : Finset I) (a : I) (ha : a ∈ S) (T : Finset I) (hT : T ⊆ S.erase a) :\n    ((uniformOn (Set.univ : Set (Equiv.Perm I)))[|\n        firstEvent (restrictedOrder positions S) a]).map (restrictedOrder positions T) =\n      uniformOn (orders positions T : Set (List I))\n",
+        "header_sha256": "ee8155945566f29043096cf603e228410fe3b6034e4007927936d5b6c7129b8f"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 38,
+        "kind": "def",
+        "name": "Examples.PermutationTail.observedOrder",
+        "private": false,
+        "header": "def observedOrder (π : Equiv.Perm (Fin 4)) : List (Fin 4)\n",
+        "header_sha256": "0a12075fb3db6286ba882fbcd1640511ba1d96f8f010751ddc1b72dc060856be"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 41,
+        "kind": "def",
+        "name": "Examples.PermutationTail.remaining",
+        "private": false,
+        "header": "def remaining : Finset (Fin 4)\n",
+        "header_sha256": "424a55016f5addebafdead15a172c5ce9fef59b162d977589cf9aae43c7986cb"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 43,
+        "kind": "def",
+        "name": "Examples.PermutationTail.tailOrder",
+        "private": false,
+        "header": "def tailOrder (π : Equiv.Perm (Fin 4)) : List (Fin 4)\n",
+        "header_sha256": "79e37fbf50683d47e13bcc9491f509e72a7e39a286202dc7fec62d435a129fbb"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 46,
+        "kind": "def",
+        "name": "Examples.PermutationTail.afterFirst",
+        "private": false,
+        "header": "noncomputable def afterFirst : Measure (Equiv.Perm (Fin 4))\n",
+        "header_sha256": "fffe9ad2f95f1cfd11cca2a6e23a9b58e3bc26bfaf00d41ec428c65362dbce3b"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 50,
+        "kind": "theorem",
+        "name": "Examples.PermutationTail.observed_hasLaw",
+        "private": false,
+        "header": "theorem observed_hasLaw :\n    HasLaw observedOrder\n      (uniformOn (orders positions selected : Set (List (Fin 4)))) law where\n  aemeasurable\n",
+        "header_sha256": "ca78ebf59bbdb5acbc8884d3fc10f73b7cd0b7b599c4fb9238f64913b5d639c1"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 57,
+        "kind": "theorem",
+        "name": "Examples.PermutationTail.first_mass",
+        "private": false,
+        "header": "theorem first_mass : law (firstEvent observedOrder 0) = 1 / 3\n",
+        "header_sha256": "df8ad14172b149a15ea9bff7754a2b9f669844a5a73ea3861eeab5340f718d3b"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 65,
+        "kind": "theorem",
+        "name": "Examples.PermutationTail.afterFirst_eq_uniformOn",
+        "private": false,
+        "header": "theorem afterFirst_eq_uniformOn :\n    afterFirst = uniformOn (firstEvent observedOrder 0)\n",
+        "header_sha256": "a4fb83a4936de3cc25b3825116274776262d1744a23ed06e8b24caa5d8ca2f26"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 70,
+        "kind": "theorem",
+        "name": "Examples.PermutationTail.tail_hasLaw",
+        "private": false,
+        "header": "theorem tail_hasLaw :\n    HasLaw tailOrder\n      (uniformOn (orders positions remaining : Set (List (Fin 4)))) afterFirst\n",
+        "header_sha256": "839c4497f4dd8a5b5a44f44c7b4fd5fa1921aa66d667cc4d9419e43072dbeeb5"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 77,
+        "kind": "theorem",
+        "name": "Examples.PermutationTail.tail_map",
+        "private": false,
+        "header": "theorem tail_map :\n    afterFirst.map tailOrder =\n      uniformOn (orders positions remaining : Set (List (Fin 4)))\n",
+        "header_sha256": "32991c4a7978a430c5327017d535bed7209ec374a5d1f003554b34e893ff0b15"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 83,
+        "kind": "theorem",
+        "name": "Examples.PermutationTail.mass_of_law",
+        "private": true,
+        "header": "private theorem mass_of_law {Ω : Type*} [MeasurableSpace Ω]\n    {μ : Measure Ω} {Y : Ω → List (Fin 4)} {S : Finset (Fin 4)}\n    (hY : HasLaw Y (uniformOn (orders positions S : Set (List (Fin 4)))) μ)\n    (xs : List (Fin 4)) (hxs : xs ∈ orders positions S) :\n    μ {ω | Y ω = xs} = (Nat.factorial S.card : ℝ≥0∞)⁻¹\n",
+        "header_sha256": "f0eb8fff3313c4161c126bd0fff012c417325df6bf45bbe1bbe2243a8316f5f2"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 100,
+        "kind": "theorem",
+        "name": "Examples.PermutationTail.tail_23_mass",
+        "private": false,
+        "header": "theorem tail_23_mass : afterFirst {π | tailOrder π = [2, 3]} = 1 / 2\n",
+        "header_sha256": "56ff8bd7895af05f1dcfb4abffd32005f0f306458aab7137a21935c2d3b3f772"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 115,
+        "kind": "theorem",
+        "name": "Examples.PermutationTail.tail_32_mass",
+        "private": false,
+        "header": "theorem tail_32_mass : afterFirst {π | tailOrder π = [3, 2]} = 1 / 2\n",
+        "header_sha256": "4f311d53790a2ce1f09a6bffc3ee9b48a56b038a0f56fb5775c665a339de760e"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 127,
+        "kind": "theorem",
+        "name": "Examples.PermutationTail.repeated_tail_mass_zero",
+        "private": false,
+        "header": "theorem repeated_tail_mass_zero : afterFirst {π | tailOrder π = [2, 2]} = 0\n",
+        "header_sha256": "7008cf9c3a13500154ecb3e37e786400fe1847511f744083dbaced3b89c6cf0b"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 141,
+        "kind": "def",
+        "name": "Examples.PermutationTail.filteredTail",
+        "private": false,
+        "header": "def filteredTail (π : Equiv.Perm (Fin 4)) : List (Fin 4)\n",
+        "header_sha256": "9b431ca94987122e204839a7a13b78f1c47e0be82ed111f7b3c30f2dc35fadbd"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 145,
+        "kind": "theorem",
+        "name": "Examples.PermutationTail.filtered_tail_hasLaw",
+        "private": false,
+        "header": "theorem filtered_tail_hasLaw :\n    HasLaw filteredTail\n      (uniformOn (orders positions {3} : Set (List (Fin 4)))) afterFirst\n",
+        "header_sha256": "f0916fdd33d6aba89dd249cf5b0ca679443b2ccbd9960432be26ea27fda6064a"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 152,
+        "kind": "theorem",
+        "name": "Examples.PermutationTail.filtered_tail_eq_projection",
+        "private": false,
+        "header": "theorem filtered_tail_eq_projection (π : Equiv.Perm (Fin 4))\n    (hπ : π ∈ firstEvent observedOrder 0) :\n    filteredTail π = restrictedOrder positions {3} π\n",
+        "header_sha256": "65752bf3ae7010a7fc91e3c3418dfb84b5c2501924a633050f485dc849297609"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 158,
+        "kind": "theorem",
+        "name": "Examples.PermutationTail.filtered_tail_mass",
+        "private": false,
+        "header": "theorem filtered_tail_mass : afterFirst {π | filteredTail π = [3]} = 1\n",
+        "header_sha256": "8aa32bd86a47c47a88ac3f8cf19ae1fe225dd7734b6aeeac5db11b6581ec7a3d"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 167,
+        "kind": "theorem",
+        "name": "Examples.PermutationTail.remaining_projection_map",
+        "private": false,
+        "header": "theorem remaining_projection_map :\n    afterFirst.map (restrictedOrder positions {3}) =\n      uniformOn (orders positions {3} : Set (List (Fin 4)))\n",
+        "header_sha256": "834c0e1e4833739ee6260b52d4d2084cc89fa5a9f83ac9e684a260565f69434f"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 174,
+        "kind": "theorem",
+        "name": "Examples.PermutationTail.afterFirst_first_event_mass",
+        "private": false,
+        "header": "theorem afterFirst_first_event_mass : afterFirst (firstEvent observedOrder 0) = 1\n",
+        "header_sha256": "e6b650bdb83902163efb83e8693bb8a4738cf58c7bb936e292517c196edaa935"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 181,
+        "kind": "theorem",
+        "name": "Examples.PermutationTail.environment_changed",
+        "private": false,
+        "header": "theorem environment_changed : afterFirst ≠ law\n",
+        "header_sha256": "1519cf6ddf885715e653515b173cd8caf7ae097a192b7f8b193e79dda1521cb4"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 191,
+        "kind": "theorem",
+        "name": "Examples.PermutationTail.second_head_mass",
+        "private": false,
+        "header": "theorem second_head_mass : afterFirst (firstEvent tailOrder 2) = 1 / 2\n",
+        "header_sha256": "fa4fc30a69493a636e9714081d383fb2b9cbf6355cc39dc6e5e16be7a0e43629"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 198,
+        "kind": "def",
+        "name": "Examples.PermutationTail.afterSecond",
+        "private": false,
+        "header": "noncomputable def afterSecond : Measure (Equiv.Perm (Fin 4))\n",
+        "header_sha256": "3460c480a11d0315d74c84ab2823d1524415e31f54bd795d61cf56f3902f3d2f"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 201,
+        "kind": "def",
+        "name": "Examples.PermutationTail.lastTail",
+        "private": false,
+        "header": "def lastTail (π : Equiv.Perm (Fin 4)) : List (Fin 4)\n",
+        "header_sha256": "0c1068d10bff258fa5300e9723c68611eee037d42d2a1e8e32ebc4526c5822bf"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 204,
+        "kind": "theorem",
+        "name": "Examples.PermutationTail.last_tail_hasLaw",
+        "private": false,
+        "header": "theorem last_tail_hasLaw :\n    HasLaw lastTail\n      (uniformOn (orders positions (remaining.erase 2) : Set (List (Fin 4))))\n      afterSecond\n",
+        "header_sha256": "66a01fdcd7e633c7a4f11d5d0a4d778f0a5e25ceb6121203481254f5ff3c7e56"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 211,
+        "kind": "theorem",
+        "name": "Examples.PermutationTail.last_tail_mass",
+        "private": false,
+        "header": "theorem last_tail_mass : afterSecond {π | lastTail π = [3]} = 1\n",
+        "header_sha256": "43e8d66ddbab8fb88d2793e4a93bafafad3c6b5fbeaee443c77af0a5a26d5f8d"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 37,
+        "kind": "def",
+        "name": "Examples.PermutationTailBoundary.swap01",
+        "private": false,
+        "header": "def swap01 : Equiv.Perm (Fin 4)\n",
+        "header_sha256": "ed9813daea92fc9d108aa5eac03da2658988a2a0bd2fc9481519371d9af3a9d8"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 39,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.swap01_global_order",
+        "private": false,
+        "header": "theorem swap01_global_order :\n    positions.map swap01.symm = [1, 0, 2, 3]\n",
+        "header_sha256": "26a04a36ce756dcac824e218b3e8247e36a20dfc21d161d05d26bc81ef6bd53a"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 43,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.swap01_selected_order",
+        "private": false,
+        "header": "theorem swap01_selected_order :\n    restrictedOrder positions selected swap01 = [0, 2, 3]\n",
+        "header_sha256": "cde019ac5260d691a5f35093145c5fa6fa231ebc4d1c0e99a8f044c368c7c03c"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 47,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.swap01_first_events",
+        "private": false,
+        "header": "theorem swap01_first_events :\n    swap01 ∈ firstEvent (restrictedOrder positions selected) 0 ∧\n      swap01 ∈ firstEvent (fun π : Equiv.Perm (Fin 4) => positions.map π.symm) 1 ∧\n      swap01 ∉ firstEvent (fun π : Equiv.Perm (Fin 4) => positions.map π.symm) 0\n",
+        "header_sha256": "8b550902eebef2c2a400dc2249e254c88826fa67430489d3a5b9f0e855c8c6e3"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 58,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.singleton_conditional_tail_mass",
+        "private": false,
+        "header": "theorem singleton_conditional_tail_mass :\n    (uniformOn (Set.univ : Set (Equiv.Perm (Fin 4))))[|\n      firstEvent (restrictedOrder positions {2}) 2]\n      {π | (restrictedOrder positions {2} π).tail = []} = 1\n",
+        "header_sha256": "08326e59a02fadabcadfdff8f5ea0fc77ac484d2490107030ad694af90f71600"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 67,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.empty_subset_none_mass",
+        "private": false,
+        "header": "theorem empty_subset_none_mass :\n    uniformOn (Set.univ : Set (Equiv.Perm (Fin 4)))\n      {π | (restrictedOrder positions ∅ π).head? = none} = 1\n",
+        "header_sha256": "659b0521ba7b2061118bad5e84cdecc02140133c8ecd64b0f8cb28619d99e758"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 72,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.empty_subset_first_event",
+        "private": false,
+        "header": "theorem empty_subset_first_event :\n    firstEvent (restrictedOrder positions ∅) (0 : Fin 4) = ∅\n",
+        "header_sha256": "e390adc5aabc166ec8ad5752356d6416067f882a69b228f422c813df94cae4cb"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 77,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.empty_subset_conditional_zero",
+        "private": false,
+        "header": "theorem empty_subset_conditional_zero :\n    (uniformOn (Set.univ : Set (Equiv.Perm (Fin 4))))[|\n      firstEvent (restrictedOrder positions ∅) 0] = 0\n",
+        "header_sha256": "c256aa8a08daf1f0a79d381dd4ff37b2d76dfdf224d5f8c0d45ab72205cc244b"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 83,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.outsider_first_event",
+        "private": false,
+        "header": "theorem outsider_first_event :\n    firstEvent (restrictedOrder positions selected) (1 : Fin 4) = ∅\n",
+        "header_sha256": "c9dbb41d19b2afe0920e168f03e6804c0a8adeb4dc1946ae61b067aa89151fe6"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 87,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.outsider_conditional_zero",
+        "private": false,
+        "header": "theorem outsider_conditional_zero :\n    (uniformOn (Set.univ : Set (Equiv.Perm (Fin 4))))[|\n      firstEvent (restrictedOrder positions selected) 1] = 0\n",
+        "header_sha256": "d9a86140777a736af6c80601934db2233d1a2ee3e7c0cfd5550587d5e7ac605a"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 94,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.empty_indices_none_mass",
+        "private": false,
+        "header": "theorem empty_indices_none_mass :\n    uniformOn (Set.univ : Set (Equiv.Perm Empty))\n      {π | (restrictedOrder ([] : List Empty) ∅ π).head? = none} = 1\n",
+        "header_sha256": "b41eb386f487c65a3614ae01de7e5dc09a98d449e2abccdc611beec5ab57e0ae"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 101,
+        "kind": "def",
+        "name": "Examples.PermutationTailBoundary.counterPositions",
+        "private": false,
+        "header": "def counterPositions : List (Fin 3)\n",
+        "header_sha256": "cd1804a353f39097281e6f80c2d7134a98c4507da1eb39f66519403b0abb8667"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 102,
+        "kind": "def",
+        "name": "Examples.PermutationTailBoundary.conditionSubset",
+        "private": false,
+        "header": "def conditionSubset : Finset (Fin 3)\n",
+        "header_sha256": "1381f9b76be491cd177eeba542918f6f7725db7e3130c81d65eef6a96507d400"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 103,
+        "kind": "def",
+        "name": "Examples.PermutationTailBoundary.outsideSubset",
+        "private": false,
+        "header": "def outsideSubset : Finset (Fin 3)\n",
+        "header_sha256": "e7b3744beff93720b9b5d75ee6a4458cd643a5633bfca280bc3a67f23e43cceb"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 105,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.counterPositions_nodup",
+        "private": true,
+        "header": "private theorem counterPositions_nodup : counterPositions.Nodup\n",
+        "header_sha256": "df977698726a2b120e13bfbef99e09a092c48f1485d06c89f6928f912a4f02c4"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 107,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.counterPositions_complete",
+        "private": true,
+        "header": "private theorem counterPositions_complete (a : Fin 3) : a ∈ counterPositions\n",
+        "header_sha256": "5db36d6df6e150b23d63194dd8aa420368322b3ee0fd7c1d3284bc648d320b0c"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 110,
+        "kind": "def",
+        "name": "Examples.PermutationTailBoundary.counterLaw",
+        "private": false,
+        "header": "noncomputable def counterLaw : Measure (Equiv.Perm (Fin 3))\n",
+        "header_sha256": "12592afc122442b3d2a35ad4bbdca6638c79abdc70f7283348b4fd8a5202efc2"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 112,
+        "kind": "def",
+        "name": "Examples.PermutationTailBoundary.counterFirst",
+        "private": false,
+        "header": "def counterFirst : Set (Equiv.Perm (Fin 3))\n",
+        "header_sha256": "29e89b9c364e340662b4252c7b818fec0ca789038b227aa2c5db4c2eb0aefe1c"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 115,
+        "kind": "def",
+        "name": "Examples.PermutationTailBoundary.outsideConditional",
+        "private": false,
+        "header": "noncomputable def outsideConditional : Measure (Equiv.Perm (Fin 3))\n",
+        "header_sha256": "bf088a72822a3d86b55683bf4c0edf33ed60bc075b7a1cc3eef8b4cf09f3cd5d"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 118,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.outside_subset_boundaries",
+        "private": false,
+        "header": "theorem outside_subset_boundaries :\n    (0 : Fin 3) ∉ outsideSubset ∧\n      ¬ (outsideSubset ⊆ conditionSubset.erase 0)\n",
+        "header_sha256": "8511646e58c199ca1a66ce81cab0aa6aa63f05e1fbe5c7b1db4b034c659fd20b"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 124,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.counter_first_mass",
+        "private": false,
+        "header": "theorem counter_first_mass : counterLaw counterFirst = 1 / 2\n",
+        "header_sha256": "dcc5c46789ec1fedac2a2e841067a07dd0924fa1eb3d4ac1ad7bdb62ce3ffc3f"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 129,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.counter_full_mass",
+        "private": true,
+        "header": "private theorem counter_full_mass (xs : List (Fin 3))\n    (hxs : xs ∈ orders counterPositions Finset.univ) :\n    counterLaw {π | restrictedOrder counterPositions Finset.univ π = xs} = 1 / 6\n",
+        "header_sha256": "3421ab3624429afa6b50d307001027924ffe509a17b2a823b6d76a06fb119619"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 138,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.joint12_table",
+        "private": true,
+        "header": "private theorem joint12_table :\n    ∀ xs ∈ orders counterPositions (Finset.univ : Finset (Fin 3)),\n      (((xs.filter (fun a => decide (a ∈ conditionSubset))).head? = some 0 ∧\n        xs.filter (fun a => decide (a ∈ outsideSubset)) = [1, 2]) ↔\n        xs = [0, 1, 2])\n",
+        "header_sha256": "6a4c772d07e35926c34ce2160a1b73ded2c8b881b8253f3a779bae75e8eeb632"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 148,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.joint21_table",
+        "private": true,
+        "header": "private theorem joint21_table :\n    ∀ xs ∈ orders counterPositions (Finset.univ : Finset (Fin 3)),\n      (((xs.filter (fun a => decide (a ∈ conditionSubset))).head? = some 0 ∧\n        xs.filter (fun a => decide (a ∈ outsideSubset)) = [2, 1]) ↔\n        xs = [0, 2, 1] ∨ xs = [2, 0, 1])\n",
+        "header_sha256": "dacd4f3fa78469c6764191ad3f30fdad1a37a9633429c5e767906e73c5eda6d8"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 158,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.counter_joint12",
+        "private": true,
+        "header": "private theorem counter_joint12 :\n    counterFirst ∩ {π | restrictedOrder counterPositions outsideSubset π = [1, 2]} =\n      {π | restrictedOrder counterPositions Finset.univ π = [0, 1, 2]}\n",
+        "header_sha256": "da758a3f30ad0a5f66dfc4cf3dac78dec4f0810b1492cdf459a0fd6402683193"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 173,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.counter_joint21",
+        "private": true,
+        "header": "private theorem counter_joint21 :\n    counterFirst ∩ {π | restrictedOrder counterPositions outsideSubset π = [2, 1]} =\n      {π | restrictedOrder counterPositions Finset.univ π = [0, 2, 1]} ∪\n        {π | restrictedOrder counterPositions Finset.univ π = [2, 0, 1]}\n",
+        "header_sha256": "d30d65c785420384433c9ca426fc263c1e7692676041d096360d0080e1a7acfb"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 190,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.full_fibers_disjoint",
+        "private": true,
+        "header": "private theorem full_fibers_disjoint :\n    Disjoint\n      {π | restrictedOrder counterPositions Finset.univ π = [0, 2, 1]}\n      {π | restrictedOrder counterPositions Finset.univ π = [2, 0, 1]}\n",
+        "header_sha256": "7a3c7ee2e89929803a7caaa3b515480b4fbbbae6b4aec6ebed6157e1ebce30d4"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 199,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.counter_joint12_mass",
+        "private": true,
+        "header": "private theorem counter_joint12_mass :\n    counterLaw\n      (counterFirst ∩ {π | restrictedOrder counterPositions outsideSubset π = [1, 2]}) =\n      1 / 6\n",
+        "header_sha256": "59480ca9134e76fe857787bdda401f6d4f5e48558beb1111080e023c4940f27f"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 210,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.counter_joint21_mass",
+        "private": true,
+        "header": "private theorem counter_joint21_mass :\n    counterLaw\n      (counterFirst ∩ {π | restrictedOrder counterPositions outsideSubset π = [2, 1]}) =\n      1 / 3\n",
+        "header_sha256": "72890b72429c9d1b06066cb9bca1d7b57b9a40e907af7b6b80c8f4d29ec26f88"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 233,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.outside_order_12_mass",
+        "private": false,
+        "header": "theorem outside_order_12_mass :\n    outsideConditional {π | restrictedOrder counterPositions outsideSubset π = [1, 2]} =\n      1 / 3\n",
+        "header_sha256": "b939ff2b3202d8f90776fd8dfc67f5d43208bc63237d2d367eefd593ea4e924f"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 247,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.outside_order_21_mass",
+        "private": false,
+        "header": "theorem outside_order_21_mass :\n    outsideConditional {π | restrictedOrder counterPositions outsideSubset π = [2, 1]} =\n      2 / 3\n",
+        "header_sha256": "255de594f0ffd5a3107884cb5cccc16456636173c5c5a7dcff168e3e470d1239"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 260,
+        "kind": "theorem",
+        "name": "Examples.PermutationTailBoundary.outside_order_not_uniform",
+        "private": false,
+        "header": "theorem outside_order_not_uniform :\n    outsideConditional {π | restrictedOrder counterPositions outsideSubset π = [1, 2]} ≠\n      1 / 2\n",
+        "header_sha256": "88d4a9704d706fef2527b8f1a7f01c8914af3807c930c30e66e7357b3b50897f"
+      }
+    ],
+    "instances": [
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 35,
+        "source_header_line": "local instance : MeasurableSpace (Equiv.Perm (Fin 4)) := ⊤"
+      },
+      {
+        "source": "Examples/PermutationTail.lean",
+        "line": 36,
+        "source_header_line": "local instance : MeasurableSpace (List (Fin 4)) := ⊤"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 26,
+        "source_header_line": "local instance : MeasurableSpace (Equiv.Perm (Fin 4)) := ⊤"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 27,
+        "source_header_line": "local instance : MeasurableSingletonClass (Equiv.Perm (Fin 4)) :="
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 29,
+        "source_header_line": "local instance : MeasurableSpace (Equiv.Perm (Fin 3)) := ⊤"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 30,
+        "source_header_line": "local instance : MeasurableSingletonClass (Equiv.Perm (Fin 3)) :="
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 32,
+        "source_header_line": "local instance : MeasurableSpace (Equiv.Perm Empty) := ⊤"
+      },
+      {
+        "source": "Examples/PermutationTailBoundary.lean",
+        "line": 33,
+        "source_header_line": "local instance : MeasurableSingletonClass (Equiv.Perm Empty) :="
+      }
+    ],
+    "counts": {
+      "public": 61,
+      "private": 19,
+      "anonymous_instances": 8,
+      "public_theorems": 46,
+      "public_definitions": 15
+    },
+    "program": {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+      "bytes": 4105,
+      "lines": 75,
+      "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa"
+    },
+    "program_names": [
+      "Applications.Probability.PermutationTail.firstEvent",
+      "Applications.Probability.PermutationTail.firstEvent_inter_tail",
+      "Applications.Probability.PermutationTail.cons_mem_orders",
+      "Applications.Probability.PermutationTail.tail_restrictedOrder_eq",
+      "Applications.Probability.PermutationTail.filter_tail_restrictedOrder_eq",
+      "Applications.Probability.PermutationTail.firstEvent_restrictedOrder_of_not_mem",
+      "Applications.Probability.PermutationTail.cond_firstEvent_restrictedOrder_of_not_mem",
+      "Applications.Probability.PermutationTail.uniformOn_firstEvent",
+      "Applications.Probability.PermutationTail.cond_uniformOn_firstEvent",
+      "Applications.Probability.PermutationTail.cond_tail_eq",
+      "Applications.Probability.PermutationTail.map_tail_cond_first",
+      "Applications.Probability.PermutationTail.head_mass_of_hasLaw",
+      "Applications.Probability.PermutationTail.hasLaw_tail_cond_first",
+      "Applications.Probability.PermutationTail.hasLaw_filter_tail_cond_first",
+      "Applications.Probability.PermutationTail.map_restrictedOrder_cond_first",
+      "Examples.PermutationTail.observedOrder",
+      "Examples.PermutationTail.remaining",
+      "Examples.PermutationTail.tailOrder",
+      "Examples.PermutationTail.afterFirst",
+      "Examples.PermutationTail.observed_hasLaw",
+      "Examples.PermutationTail.first_mass",
+      "Examples.PermutationTail.afterFirst_eq_uniformOn",
+      "Examples.PermutationTail.tail_hasLaw",
+      "Examples.PermutationTail.tail_map",
+      "Examples.PermutationTail.tail_23_mass",
+      "Examples.PermutationTail.tail_32_mass",
+      "Examples.PermutationTail.repeated_tail_mass_zero",
+      "Examples.PermutationTail.filteredTail",
+      "Examples.PermutationTail.filtered_tail_hasLaw",
+      "Examples.PermutationTail.filtered_tail_eq_projection",
+      "Examples.PermutationTail.filtered_tail_mass",
+      "Examples.PermutationTail.remaining_projection_map",
+      "Examples.PermutationTail.afterFirst_first_event_mass",
+      "Examples.PermutationTail.environment_changed",
+      "Examples.PermutationTail.second_head_mass",
+      "Examples.PermutationTail.afterSecond",
+      "Examples.PermutationTail.lastTail",
+      "Examples.PermutationTail.last_tail_hasLaw",
+      "Examples.PermutationTail.last_tail_mass",
+      "Examples.PermutationTailBoundary.swap01",
+      "Examples.PermutationTailBoundary.swap01_global_order",
+      "Examples.PermutationTailBoundary.swap01_selected_order",
+      "Examples.PermutationTailBoundary.swap01_first_events",
+      "Examples.PermutationTailBoundary.singleton_conditional_tail_mass",
+      "Examples.PermutationTailBoundary.empty_subset_none_mass",
+      "Examples.PermutationTailBoundary.empty_subset_first_event",
+      "Examples.PermutationTailBoundary.empty_subset_conditional_zero",
+      "Examples.PermutationTailBoundary.outsider_first_event",
+      "Examples.PermutationTailBoundary.outsider_conditional_zero",
+      "Examples.PermutationTailBoundary.empty_indices_none_mass",
+      "Examples.PermutationTailBoundary.counterPositions",
+      "Examples.PermutationTailBoundary.conditionSubset",
+      "Examples.PermutationTailBoundary.outsideSubset",
+      "Examples.PermutationTailBoundary.counterLaw",
+      "Examples.PermutationTailBoundary.counterFirst",
+      "Examples.PermutationTailBoundary.outsideConditional",
+      "Examples.PermutationTailBoundary.outside_subset_boundaries",
+      "Examples.PermutationTailBoundary.counter_first_mass",
+      "Examples.PermutationTailBoundary.outside_order_12_mass",
+      "Examples.PermutationTailBoundary.outside_order_21_mass",
+      "Examples.PermutationTailBoundary.outside_order_not_uniform"
+    ],
+    "all61_names_order_exact": true,
+    "source_closure": {
+      "Examples/PermutationTailBoundary.lean": {
+        "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+        "path": "Examples/PermutationTailBoundary.lean",
+        "blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0",
+        "bytes": 12064,
+        "lines": 266,
+        "sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54"
+      },
+      "Examples/PermutationOrder.lean": {
+        "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+        "path": "Examples/PermutationOrder.lean",
+        "blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+        "bytes": 6706,
+        "lines": 152,
+        "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084"
+      },
+      "Examples/PermutationOrderBoundary.lean": {
+        "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+        "path": "Examples/PermutationOrderBoundary.lean",
+        "blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+        "bytes": 5605,
+        "lines": 148,
+        "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121"
+      },
+      "Examples/PermutationMinimum.lean": {
+        "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+        "path": "Examples/PermutationMinimum.lean",
+        "blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+        "bytes": 4994,
+        "lines": 127,
+        "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1"
+      },
+      "Examples/PermutationMinimumBoundary.lean": {
+        "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+        "path": "Examples/PermutationMinimumBoundary.lean",
+        "blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+        "bytes": 4211,
+        "lines": 113,
+        "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b"
+      },
+      "Applications/Probability/PermutationMinimum.lean": {
+        "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+        "path": "Applications/Probability/PermutationMinimum.lean",
+        "blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+        "bytes": 8241,
+        "lines": 197,
+        "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64"
+      },
+      "Applications/Probability/PermutationOrder.lean": {
+        "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+        "path": "Applications/Probability/PermutationOrder.lean",
+        "blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+        "bytes": 15304,
+        "lines": 321,
+        "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2"
+      },
+      "Applications/Probability/PermutationTail.lean": {
+        "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+        "path": "Applications/Probability/PermutationTail.lean",
+        "blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+        "bytes": 23521,
+        "lines": 487,
+        "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed"
+      },
+      "Examples/PermutationTail.lean": {
+        "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+        "path": "Examples/PermutationTail.lean",
+        "blob": "baa3e26a3c72a4589765562167d1d85edc011e67",
+        "bytes": 9826,
+        "lines": 222,
+        "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e"
+      }
+    },
+    "local_edges": [
+      [
+        "Examples/PermutationTailBoundary.lean",
+        "Applications/Probability/PermutationTail.lean"
+      ],
+      [
+        "Examples/PermutationTailBoundary.lean",
+        "Examples/PermutationOrder.lean"
+      ],
+      [
+        "Examples/PermutationOrder.lean",
+        "Applications/Probability/PermutationOrder.lean"
+      ],
+      [
+        "Examples/PermutationOrder.lean",
+        "Examples/PermutationOrderBoundary.lean"
+      ],
+      [
+        "Examples/PermutationOrderBoundary.lean",
+        "Applications/Probability/PermutationOrder.lean"
+      ],
+      [
+        "Examples/PermutationOrderBoundary.lean",
+        "Examples/PermutationMinimum.lean"
+      ],
+      [
+        "Examples/PermutationMinimum.lean",
+        "Applications/Probability/PermutationMinimum.lean"
+      ],
+      [
+        "Examples/PermutationMinimum.lean",
+        "Examples/PermutationMinimumBoundary.lean"
+      ],
+      [
+        "Examples/PermutationMinimumBoundary.lean",
+        "Applications/Probability/PermutationMinimum.lean"
+      ],
+      [
+        "Applications/Probability/PermutationTail.lean",
+        "Applications/Probability/PermutationOrder.lean"
+      ],
+      [
+        "Examples/PermutationTail.lean",
+        "Applications/Probability/PermutationTail.lean"
+      ],
+      [
+        "Examples/PermutationTail.lean",
+        "Examples/PermutationOrder.lean"
+      ],
+      [
+        "Examples/PermutationTail.lean",
+        "Examples/PermutationTailBoundary.lean"
+      ]
+    ],
+    "external_edges": [
+      [
+        "Examples/PermutationTailBoundary.lean",
+        "Mathlib.Tactic"
+      ],
+      [
+        "Examples/PermutationOrder.lean",
+        "Mathlib.Tactic"
+      ],
+      [
+        "Examples/PermutationOrderBoundary.lean",
+        "Mathlib.Tactic"
+      ],
+      [
+        "Examples/PermutationMinimum.lean",
+        "Mathlib.Tactic"
+      ],
+      [
+        "Examples/PermutationMinimumBoundary.lean",
+        "Mathlib.Tactic.FinCases"
+      ],
+      [
+        "Applications/Probability/PermutationMinimum.lean",
+        "Mathlib.Data.Finset.Max"
+      ],
+      [
+        "Applications/Probability/PermutationMinimum.lean",
+        "Mathlib.Data.Fintype.Perm"
+      ],
+      [
+        "Applications/Probability/PermutationMinimum.lean",
+        "Mathlib.Data.Set.Card"
+      ],
+      [
+        "Applications/Probability/PermutationMinimum.lean",
+        "Mathlib.Probability.UniformOn"
+      ],
+      [
+        "Applications/Probability/PermutationOrder.lean",
+        "Mathlib.Data.Finset.Card"
+      ],
+      [
+        "Applications/Probability/PermutationOrder.lean",
+        "Mathlib.Data.Finset.Lattice.Lemmas"
+      ],
+      [
+        "Applications/Probability/PermutationOrder.lean",
+        "Mathlib.Data.Fintype.OfMap"
+      ],
+      [
+        "Applications/Probability/PermutationOrder.lean",
+        "Mathlib.Data.Fintype.Perm"
+      ],
+      [
+        "Applications/Probability/PermutationOrder.lean",
+        "Mathlib.Data.List.Basic"
+      ],
+      [
+        "Applications/Probability/PermutationOrder.lean",
+        "Mathlib.Data.List.Nodup"
+      ],
+      [
+        "Applications/Probability/PermutationOrder.lean",
+        "Mathlib.Data.List.Permutation"
+      ],
+      [
+        "Applications/Probability/PermutationOrder.lean",
+        "Mathlib.Data.Set.Card"
+      ],
+      [
+        "Applications/Probability/PermutationOrder.lean",
+        "Mathlib.Logic.Equiv.Fintype"
+      ],
+      [
+        "Applications/Probability/PermutationOrder.lean",
+        "Mathlib.Logic.Equiv.List"
+      ],
+      [
+        "Applications/Probability/PermutationOrder.lean",
+        "Mathlib.Probability.UniformOn"
+      ],
+      [
+        "Applications/Probability/PermutationTail.lean",
+        "Mathlib.Basic.ENNReal.Inv"
+      ],
+      [
+        "Applications/Probability/PermutationTail.lean",
+        "Mathlib.Data.Nat.Factorial.Basic"
+      ],
+      [
+        "Applications/Probability/PermutationTail.lean",
+        "Mathlib.MeasureTheory.Measure.AEMeasurable"
+      ],
+      [
+        "Applications/Probability/PermutationTail.lean",
+        "Mathlib.Probability.ConditionalProbability"
+      ],
+      [
+        "Applications/Probability/PermutationTail.lean",
+        "Mathlib.Probability.HasLaw"
+      ],
+      [
+        "Examples/PermutationTail.lean",
+        "Mathlib.Tactic"
+      ]
+    ],
+    "external_names": [
+      "Mathlib.Basic.ENNReal.Inv",
+      "Mathlib.Data.Finset.Card",
+      "Mathlib.Data.Finset.Lattice.Lemmas",
+      "Mathlib.Data.Finset.Max",
+      "Mathlib.Data.Fintype.OfMap",
+      "Mathlib.Data.Fintype.Perm",
+      "Mathlib.Data.List.Basic",
+      "Mathlib.Data.List.Nodup",
+      "Mathlib.Data.List.Permutation",
+      "Mathlib.Data.Nat.Factorial.Basic",
+      "Mathlib.Data.Set.Card",
+      "Mathlib.Logic.Equiv.Fintype",
+      "Mathlib.Logic.Equiv.List",
+      "Mathlib.MeasureTheory.Measure.AEMeasurable",
+      "Mathlib.Probability.ConditionalProbability",
+      "Mathlib.Probability.HasLaw",
+      "Mathlib.Probability.UniformOn",
+      "Mathlib.Tactic",
+      "Mathlib.Tactic.FinCases"
+    ],
+    "all9_sources_exact_Z": true,
+    "six_predecessor_sources_exact_J": true,
+    "two_predecessor_notes_exact_J": true,
+    "root_exact_single_import": true,
+    "map_complete_J_prefix_exact": true,
+    "map_append_lines": 17,
+    "all_three_documentary_hashes_equal_held_proposal": true,
+    "old_J_Tail_importers": [],
+    "retained_own_records_exact": [
+      {
+        "path": "reviews/chapter02-spec-source-preparation-20261104.md",
+        "bytes": 109354,
+        "lines": 473,
+        "sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/source-scope-successor-4b5dbfa0.json",
+        "bytes": 26429,
+        "lines": 721,
+        "sha256": "5bf3a45eab119bbd6b3d16547142282599ea2c26d5e1af986afc42d0ec544620"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-complete-spec-assessment-4b5dbfa0.json",
+        "bytes": 23798,
+        "lines": 818,
+        "sha256": "116cf0a800841c3a18d338f446ce3a518455487de8e401dae1186a85c73ad878"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-execution-input-qualification.json",
+        "bytes": 6690,
+        "lines": 150,
+        "sha256": "9bf1f1e098997b9f4f01944c59b5578a32a4768e00fc0e68d1726c342bb82abe"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/tail-boundary-13fc137-assessment.json",
+        "bytes": 7021,
+        "lines": 166,
+        "sha256": "73540904a044c9429c13c601bb43e92d1abac4a9d41637725d76fc381e7fe2c1"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/tail-boundary-070e360-assessment.json",
+        "bytes": 8812,
+        "lines": 224,
+        "sha256": "a29c00dcd31783b697b65875267b0ea301ad87f27662ab3e4faca2bd80bfb290"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/tail-main-02fc3f3-assessment.json",
+        "bytes": 9807,
+        "lines": 212,
+        "sha256": "ac608e839213f35620d5463f4664a2e2351679cc55efbd2d99db98978a544847"
+      },
+      {
+        "path": "provenance/chapter02-spec-source-preparation-20261104/shared-notes-six-plus-correction1-assessment.json",
+        "bytes": 11163,
+        "lines": 213,
+        "sha256": "fc99f1293fe87d7b55cb37a5e1646c9706e6056c08a9e89042d4a3a41764ae11"
+      },
+      {
+        "path": "reviews/permutation-order-spec-source-continuation-20261104.md",
+        "bytes": 15550,
+        "lines": 88,
+        "sha256": "b4511e6184fd421addd251f6adc644ceba3a11404b7fb4d50a6749b74f7cce22"
+      },
+      {
+        "path": "provenance/shared-order-spec-source-continuation-20261104/source-assessment.json",
+        "bytes": 88083,
+        "lines": 2041,
+        "sha256": "176d0c3ccf6f7cf84d427e9ddbc39b619666f0215b74f2f58e1fe036bfdb67cf"
+      },
+      {
+        "path": "provenance/shared-order-spec-source-continuation-20261104/readback-and-hold.json",
+        "bytes": 8962,
+        "lines": 182,
+        "sha256": "593aa5c2d0bbe5f5a5cda471d87735ca1ccf491c882725976d6b63726fc8ebdb"
+      }
+    ],
+    "source_only": true,
+    "actual_receiving_type_credit": 0
+  },
+  "independent_author_package_reconciliation": {
+    "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+    "payloads_verified": 14,
+    "all15_package_files": [
+      {
+        "path": "provenance/shared-tail-source-integration-20261104/01-create-branch.json",
+        "bytes": 653,
+        "lines": 23,
+        "sha256": "445ee84adc35c3aa53cc560952bd6970f4b8a528e8ae6432c503907aa3bba2a2"
+      },
+      {
+        "path": "provenance/shared-tail-source-integration-20261104/02-normal-merge.json",
+        "bytes": 1090,
+        "lines": 25,
+        "sha256": "70a861c000e69dd0e93a78ac08b70d0c5e6d78aefd118b708fcd349028458997"
+      },
+      {
+        "path": "provenance/shared-tail-source-integration-20261104/03-conflict-before-resolution.json",
+        "bytes": 726,
+        "lines": 9,
+        "sha256": "12e72cedb96a45768ba7ebb16d2d88fffe4a8d5aba83e97463afbc8794b184d8"
+      },
+      {
+        "path": "provenance/shared-tail-source-integration-20261104/04-documentary-resolution.json",
+        "bytes": 1404,
+        "lines": 33,
+        "sha256": "efde5f8c81622c1790db652f9be2b27ce441e35c8d1b0d026555d76334256c5b"
+      },
+      {
+        "path": "provenance/shared-tail-source-integration-20261104/05-stage-resolution.json",
+        "bytes": 452,
+        "lines": 20,
+        "sha256": "442ba25390913397a3be9994e5f1c91bce4bb6f2ec53a2b72096503569a2f45d"
+      },
+      {
+        "path": "provenance/shared-tail-source-integration-20261104/06-precommit-source-verification.json",
+        "bytes": 6169,
+        "lines": 180,
+        "sha256": "2e26ffaa7b48d11f58b9b209282b65e7e32bccd6487315f40ecbbb9b983d51f3"
+      },
+      {
+        "path": "provenance/shared-tail-source-integration-20261104/07-merge-commit.json",
+        "bytes": 648,
+        "lines": 21,
+        "sha256": "d676565c034f4551957415d881a86221c7b8b36fb7b724704109c5aafe2cc8d5"
+      },
+      {
+        "path": "provenance/shared-tail-source-integration-20261104/actual-map-conflict.txt",
+        "bytes": 41653,
+        "lines": 638,
+        "sha256": "1db72d385aa02a63596fae2d0c97b885b3fdeb2f6cede03abf4ba529a18fba18"
+      },
+      {
+        "path": "provenance/shared-tail-source-integration-20261104/author-readback.json",
+        "bytes": 5991,
+        "lines": 163,
+        "sha256": "99cf27593721dfb5b1153ffb204278d8f5c4662cadfb4404c3660236454a3268"
+      },
+      {
+        "path": "provenance/shared-tail-source-integration-20261104/baseline.json",
+        "bytes": 24243,
+        "lines": 602,
+        "sha256": "ad0e1f4c70808959030f7f3830cdcbd0cf10f467637cbc0fd61566c19af26142"
+      },
+      {
+        "path": "provenance/shared-tail-source-integration-20261104/handoff.md",
+        "bytes": 14121,
+        "lines": 106,
+        "sha256": "f4ffad157c60c3fd69b6a308472f98824b5500004a3f077c5fe956ea91902f45"
+      },
+      {
+        "path": "provenance/shared-tail-source-integration-20261104/receipt.json",
+        "bytes": 7167,
+        "lines": 209,
+        "sha256": "d789d407a24a1fe1099366a34e319d2840233aec5a616040035cb0bd5421d186"
+      },
+      {
+        "path": "provenance/shared-tail-source-integration-20261104/result.json",
+        "bytes": 22289,
+        "lines": 539,
+        "sha256": "568868ee361df9ba76fc5171117dadfaecbe0706d070c7b384add3dd9f7cbde7"
+      },
+      {
+        "path": "provenance/shared-tail-source-integration-20261104/scope-and-continuation.json",
+        "bytes": 25136,
+        "lines": 636,
+        "sha256": "9d35d42ae7d9d3ded2e9e9e310c9a6c2b13bf8f2490b71493c2766dc8bf13cba"
+      },
+      {
+        "path": "provenance/shared-tail-source-integration-20261104/source.diff",
+        "bytes": 60434,
+        "lines": 1241,
+        "sha256": "825737dfb5fc507013f9ab5d156a3e4a68339b1305fa09fac45924b20e68c5db"
+      }
+    ],
+    "prior_refs": 65,
+    "current_refs": 66,
+    "all_prior_refs_exact": true,
+    "all1604_outside_scope_J_paths_exact": true,
+    "source_diff_exact_immutable_J_L": true,
+    "conflict_stage_blobs_match_B_J_T": true,
+    "conflict_marker_lines": [
+      611,
+      616,
+      638
+    ],
+    "conflict_prefix_and_ours_reconstruct_exact_J": true,
+    "conflict_theirs_is_exact_T_suffix": true,
+    "all_original_history_ancestors": true,
+    "original_finding_ids_and_historical_results_equal_held_preparation": true,
+    "ten_configuration_blobs_exact_J": true,
+    "five_prior_instruction_blobs_exact_J": true,
+    "source_only": true,
+    "no_actual_validation_or_type_credit": true
+  },
+  "source_read_boundary": {
+    "retained_complete_Lean_lines": 975,
+    "retained_complete_J_map_prefix_lines": 614,
+    "new_full_public_root_lines": 262,
+    "new_full_Tail_note_lines": 205,
+    "new_complete_map_append_lines": 17,
+    "actual_map_conflict_new_read_lines": [
+      599,
+      638
+    ],
+    "actual_conflict_prefix_reconstructed_as_J": true,
+    "new_full_Lean_or815_reread_claim": false
+  },
+  "newly_fully_read_control_records": [
+    {
+      "path": "provenance/shared-tail-type-evidence-readiness-20261104/plan.md",
+      "lines": 31,
+      "bytes": 5862,
+      "sha256": "5a4eff26eeac03853fe0a9c093d62844a4ae060d0e27e4f6804832cced77c5d0"
+    },
+    {
+      "path": "provenance/shared-tail-type-evidence-readiness-20261104/preparation.json",
+      "lines": 57,
+      "bytes": 2248,
+      "sha256": "aaab7adea6be11d507c159a4f8e31be6b5d9f8e4183fa930b068a97f27f1d521"
+    },
+    {
+      "path": "provenance/shared-tail-type-evidence-readiness-20261104/receiver-binding.json",
+      "lines": 374,
+      "bytes": 13437,
+      "sha256": "331333be207359e4d8609b16d6e734fc88f2af150731885a5305c208379fb5b2",
+      "tool_chunk": "624d6a"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/01-create-branch.json",
+      "bytes": 653,
+      "lines": 23,
+      "sha256": "445ee84adc35c3aa53cc560952bd6970f4b8a528e8ae6432c503907aa3bba2a2"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/02-normal-merge.json",
+      "bytes": 1090,
+      "lines": 25,
+      "sha256": "70a861c000e69dd0e93a78ac08b70d0c5e6d78aefd118b708fcd349028458997"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/03-conflict-before-resolution.json",
+      "bytes": 726,
+      "lines": 9,
+      "sha256": "12e72cedb96a45768ba7ebb16d2d88fffe4a8d5aba83e97463afbc8794b184d8"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/04-documentary-resolution.json",
+      "bytes": 1404,
+      "lines": 33,
+      "sha256": "efde5f8c81622c1790db652f9be2b27ce441e35c8d1b0d026555d76334256c5b"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/05-stage-resolution.json",
+      "bytes": 452,
+      "lines": 20,
+      "sha256": "442ba25390913397a3be9994e5f1c91bce4bb6f2ec53a2b72096503569a2f45d"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/06-precommit-source-verification.json",
+      "bytes": 6169,
+      "lines": 180,
+      "sha256": "2e26ffaa7b48d11f58b9b209282b65e7e32bccd6487315f40ecbbb9b983d51f3"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/07-merge-commit.json",
+      "bytes": 648,
+      "lines": 21,
+      "sha256": "d676565c034f4551957415d881a86221c7b8b36fb7b724704109c5aafe2cc8d5"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/author-readback.json",
+      "bytes": 5991,
+      "lines": 163,
+      "sha256": "99cf27593721dfb5b1153ffb204278d8f5c4662cadfb4404c3660236454a3268"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/handoff.md",
+      "bytes": 14121,
+      "lines": 106,
+      "sha256": "f4ffad157c60c3fd69b6a308472f98824b5500004a3f077c5fe956ea91902f45"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/receipt.json",
+      "bytes": 7167,
+      "lines": 209,
+      "sha256": "d789d407a24a1fe1099366a34e319d2840233aec5a616040035cb0bd5421d186"
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/result.json",
+      "bytes": 22289,
+      "lines": 539,
+      "sha256": "568868ee361df9ba76fc5171117dadfaecbe0706d070c7b384add3dd9f7cbde7"
+    }
+  ],
+  "author_result_read_chunks": [
+    {
+      "from": 1,
+      "to": 300,
+      "bytes": 12651,
+      "sha256": "f7e72b6edddb2003370a0543395b5ed34eb55af00a4411a984800e42d68d244f",
+      "tool_chunk": "edddaa"
+    },
+    {
+      "from": 301,
+      "to": 539,
+      "bytes": 9638,
+      "sha256": "02d8502db0e159ee06b8bc5d8451091d23223baba2b4fbc184cfe0f4b682e687",
+      "tool_chunk": "bd18f0"
+    }
+  ],
+  "original_findings_retained": [
+    "XU03-SRC-001",
+    "XU03-ELAB-001",
+    "XU03-ELAB-002",
+    "XU03-BND-ELAB-001",
+    "XU03-BND-ELAB-002-006",
+    "XU03-BND-ELAB-007-009",
+    "XU03-ELAB3-01",
+    "XU03-ELAB3-02",
+    "XU03-ELAB3-03",
+    "XU03-ELAB3-04",
+    "XU03-ELAB3-05",
+    "XU03-ELAB3-06",
+    "XU03-ELAB3-07",
+    "XU03-ELAB3-08",
+    "XU03-ELAB3-09",
+    "XU03-ELAB3-10",
+    "XU03-ELAB3-11",
+    "XU03-ELAB3-12",
+    "XU03-ELAB3-13",
+    "XU03-ELAB3-14",
+    "XU03-ELAB3-15",
+    "XU03-ELAB3-16",
+    "XU03-MAIN-ELAB-001",
+    "XU03-MAIN-ELAB-002",
+    "XU03-MAIN-ELAB-003",
+    "XU03-MAIN-ELAB-004",
+    "XU03-MAIN-ELAB-005",
+    "XU03-MAIN-ELAB-006",
+    "C02-DOC-003"
+  ],
+  "historical_corrections": "Exact original six API ite-name and three NNReal-to-ENNReal proof-transport records retained; no invented additional ID",
+  "DOC_003_Tail": "Resolved for source application at L only; whole C2 finding remains separately scoped",
+  "TYPE_001": "Historical Z resolution retained; receiving L evidence still pending",
+  "new_findings": [],
+  "retained_semantics": [
+    "Hypothesis-free optional-head and cons/tail identity; minimal deterministic support and on-event projection premises.",
+    "Arbitrary current environment HasLaw with a.e. measurability; same conditioned measure and fixed remaining-subset containment.",
+    "Separate actual global scalar/map measurable structures; no independent tail sampling or reset of environment.",
+    "Finite positive head normalization with singleton zero-length remainder; generic a.e. support versus actual pointwise support; null conditioning zero.",
+    "Actual Fin4 two distinct half-mass tails, unsupported zero, filtered same-sample projection, changed environment one versus one-third, second half-head and nested final singleton.",
+    "Actual swap first-selected versus first-global; singleton, empty, outsider and empty-index; Fin3 outside-subset one-third versus two-thirds counterexample.",
+    "Complete history, adaptive sets, joint independence, algorithm recursion/coupling/cost, selection and treap obligations remain outside this bounded scope."
+  ],
+  "planned_type_sequence": {
+    "actual61_after_full_required": true,
+    "conditional_inherited_J53_I314_F110": 477,
+    "prospective_distinct_total": 538,
+    "current_receiving_credit": 0,
+    "all_original_REUSE_conditions_retained": true,
+    "no_path_normalization": true,
+    "no_new_pre_post_observation_claim": true
+  },
+  "original_full_gate_and_final_axes_pending": true,
+  "immediate_verification_before_FF_required": true,
+  "bookkeeping": {
+    "failed_source_check": {
+      "tool_chunk": "82d825",
+      "exit_code": 1,
+      "cause": "Held proposal identities are a list by part, not a dictionary by path; source and closure assertions before that lookup passed.",
+      "corrected_source_check": {
+        "tool_chunk": "d6dd38",
+        "exit_code": 0
+      }
+    },
+    "author_reconciliation": {
+      "tool_chunk": "f9630a",
+      "exit_code": 0
+    },
+    "truncated_combined_ancillary_read": {
+      "tool_chunk": "7441f2",
+      "full_read_credit": false,
+      "receiver_binding_recovered_in": "624d6a",
+      "resource_preflight_full_text_read_claim": false
+    }
+  },
+  "earlier_reports_unchanged": true,
+  "source_ref_compiler_process_runtime_output_cache_or_capture_actions": false,
+  "saved_artifact_readback": "Pending separate complete readback and hold receipt."
+}

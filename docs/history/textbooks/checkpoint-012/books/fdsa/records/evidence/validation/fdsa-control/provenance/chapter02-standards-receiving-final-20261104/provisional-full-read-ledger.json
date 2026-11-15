@@ -1,0 +1,172 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "recorded_utc": "2026-11-04T17:11:08.038939+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "scope": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "public_names": 1763,
+    "private_named": 70,
+    "anonymous_instances": 19
+  },
+  "status": "Provisional original-scope final review preparation; no secured terminal or receiving type credit.",
+  "immutable_source_assessment_sha256": "30156b4058e2de3617b59cba13f9d784bc478f3597cb29865340ed8d795722d0",
+  "readiness_assessment_sha256": "bc927224db060b5e7802ddc5d9ba07ac4386f415930ebb1aef17897b62b99c95",
+  "run": "provenance/chapter02-complete-receiving-full-attempt1-20261104",
+  "initial_actual_read": {
+    "tool_chunk": "66d656",
+    "exit": 0,
+    "request_sha256": "1753fd14f0d739d439d7fb4c28a0a92f384248b00615f703857624d98dd10fb5",
+    "start_sha256": "00baf084d3cfb1cb6c5fbc670e547dd1d6abb075d0a40663e2027328a20b6a87",
+    "launch_sha256": "4b60aeacdc287463120c62cae4bb1fcf444549210f925b4318fc3a60d8d98087",
+    "progress_observed_utc": "2026-11-04T17:10:32.287339+00:00",
+    "progress_sha256": "2c02490454af62f61d391cd6d6a92d6e4433797bab648eb320e3421e3134262d",
+    "whole_append_only_log_snapshot_bytes": 62147,
+    "whole_append_only_log_snapshot_lines": 478,
+    "whole_snapshot_sha256": "1f2e75f6cf834e04ed2a08e2a74426a8db81fe56653c05debb2afa08f914b4a6",
+    "read_ranges": [
+      {
+        "first_line": 1,
+        "last_line": 70,
+        "bytes": 13705,
+        "sha256": "a7aae44a6dc3aaa714f04db7543e2ad1048abda59d5b2f7ef3c231259e9cc4d0",
+        "complete_nontruncated_read": true
+      }
+    ],
+    "unread_snapshot_lines": "71\u2013478",
+    "whole_log_read_claimed": false
+  },
+  "provisional_findings": [
+    "Exact clean source at start and recorded qualified one-thread ./check.sh --candidate HEAD request match the assigned candidate.",
+    "The observed prefix reports source/version checks and expected 46 new-module cold trace rebuilds; this is not a terminal or audit result.",
+    "Prefix shows ordinary module-import advisories and retained baseline axiom notices; remaining full log and terminal require later complete assessment."
+  ],
+  "actual_receiving_type_credit": 0,
+  "acceptance_credit": 0,
+  "prohibited_actions_performed": false,
+  "next_required_evidence": [
+    "Actual owned terminal and complete closed full native/outer logs, audit, verification and source stability.",
+    "Exact saved producer versus actual receiving observations, preserving every source/object/trace/dependency-path/config/runtime/profile boundary.",
+    "Per-name independent eligibility assessment before any justified targeted remainder; no automatic 1297/815/1763 run."
+  ],
+  "subsequent_read_ranges": [
+    {
+      "first_line": 71,
+      "last_line": 200,
+      "bytes": 13223,
+      "sha256": "bf5f4a53a395e200990282e14747e69d1e509e0dc647da22f5a3351856fc25dd",
+      "actual_read_tool_chunk": "d6b245",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 201,
+      "last_line": 350,
+      "bytes": 16078,
+      "sha256": "ea095584ce5165a4cb81fb3a8d7b3fa7206607fcb77ede2ae9f89852e2d2ee38",
+      "actual_read_tool_chunk": "346460",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 351,
+      "last_line": 478,
+      "bytes": 19141,
+      "sha256": "e9dcad3cf4e8d1ef0efc44610c357963697a2dc68fd6b85e113b92e058fd473d",
+      "actual_read_tool_chunk": "9ef445",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 479,
+      "last_line": 630,
+      "bytes": 22820,
+      "sha256": "350c3b93f374a520bf142165121ce3ffe51380224e58ae19ebdb9485badbe404",
+      "actual_read_tool_chunk": "19b481",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 631,
+      "last_line": 800,
+      "bytes": 21674,
+      "sha256": "8816ba424b5e473144e4a0a2f959aec98613e01ae19323bd8197fd067238ce48",
+      "actual_read_tool_chunk": "9942fe",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 801,
+      "last_line": 950,
+      "bytes": 14380,
+      "sha256": "10c3465cf73a2277025394b3ddabce4b6a99062022bb6e6076621fab8319d180",
+      "actual_read_tool_chunk": "e37d9e",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 951,
+      "last_line": 1120,
+      "bytes": 19940,
+      "sha256": "9045e2d73eb547acffabd189d16875936f38d1dafd8597f8e4958346b49250ba",
+      "actual_read_tool_chunk": "26303b",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 1121,
+      "last_line": 1280,
+      "bytes": 24616,
+      "sha256": "e1685ce90fea0e98f40efa5a9ee4d386ba9e4b97cd0d43a1e2d3a3cbb815c5fb",
+      "actual_read_tool_chunk": "04d8b5",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 1281,
+      "last_line": 1450,
+      "bytes": 13058,
+      "sha256": "271d2adf332c5cc463358139aded4975b58c85912c626fcfc7d3153a9a0369b4",
+      "actual_read_tool_chunk": "5cf3bb",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 1451,
+      "last_line": 1600,
+      "bytes": 12408,
+      "sha256": "c55cbb250918342732694b76283ca909cde7aeb41951c60daa42d153594cf0fa",
+      "actual_read_tool_chunk": "fdb6de",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    },
+    {
+      "first_line": 1601,
+      "last_line": 1642,
+      "bytes": 4888,
+      "sha256": "a1c59c7dfb431c3160ae3052de5d8d9043be8f21658b3cbce44aaf8e541068f7",
+      "actual_read_tool_chunk": "b5856b",
+      "actual_exit": 0,
+      "complete_nontruncated_read": true
+    }
+  ],
+  "subsequent_recorded_utc": "2026-11-04T17:14:42.841909+00:00",
+  "current_complete_read_boundary": {
+    "first_line": 1,
+    "last_line": 1642,
+    "bytes": 195931,
+    "sha256": "2b192c6f4b68e3c4eef3280634b2b51a59f3f2928f99f8efdbf5dae6c3025ac1",
+    "current_whole_log_or_terminal_claimed": false
+  },
+  "subsequent_semantic_notes": [
+    "All initial478lines now read completely. Baseline import/linter advisories and allowed-axiom printed notices retain their scopes; no current exhaustive-audit result inferred.",
+    "The observed prefix individually reports Alternating, Growth, BottomUp, BottomUp costs/examples and CallComparison built; no aggregate check or final type credit.",
+    "ArithmeticStaging printed-value ellipsis is an old evaluation display rather than a required statement binder; remaining current full/audit evidence must still be assessed.",
+    "Complete contiguous prefix through1600 includes the changed Growth and all72-name MergeCosts importing module build, natural runs/sorting/operational modules, quicksort mean/transport/random/rank/growth, and top-down modules as individually reported Built. This does not close whole-candidate/audit/type gates.",
+    "All observed new-module notices are module-import advisories; ordinary baseline linter warnings remain in unchanged replayed modules. No current compiler error appeared in this read prefix.",
+    "The same-prefix accepted Minimum/Order/Tail files are Replayed, not newly claimed actual statement outputs. Exact per-name receiving evidence remains pending.",
+    "Through1642, Uniform core/examples are individually Built with module-import advisories and ordinary Verification output is replayed; aggregate build/audit/owned terminal still not supplied."
+  ]
+}

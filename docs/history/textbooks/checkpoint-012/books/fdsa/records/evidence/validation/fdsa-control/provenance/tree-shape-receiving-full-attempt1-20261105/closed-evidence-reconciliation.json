@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-05T03:57:32.404851+00:00",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "terminal": {
+    "recorded_utc": "2026-11-05T03:57:32.404688+00:00",
+    "owned_session": 25113,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "911909",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe"
+  },
+  "actual_recorder_and_native_exits": [
+    0,
+    0
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/full.log",
+    "bytes": 326815,
+    "sha256": "47b4f52f06b9610b6d0c54c7f02daf0feb6cf56783fca555927e164ed9fd358b"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261105T032912Z-project-run-02b027b3",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/native-records/start.json",
+      "bytes": 421,
+      "sha256": "9046d202eae67d88712a9199312367c8b14d3e912a3faa2e22e072566ee0fe77"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/native-records/result.json",
+      "bytes": 574,
+      "sha256": "d40ba095e94d66f8505db69a99fd8e9e321713d0e43e53cf1804d7485ebdec3b"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-full-attempt1-20261105/native-records/output.log",
+      "bytes": 326586,
+      "sha256": "24a3e9d664836b1c39cbe7725ef623a030615cd67efaecadfe338e2111d8b078"
+    }
+  },
+  "native_body_exact_outer_offset": 70,
+  "complete_closed_log": true,
+  "scope": "Full normal candidate check through the unchanged qualified official Lean/Lake 4.35.0 native environment, one Lean thread; actual owned execution session 25113 ended with exit 0. Closure records actual terminal evidence; root and both independent axes must still reconcile the closed exhaustive audit and matching candidate verification before acceptance.",
+  "verification_record_candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

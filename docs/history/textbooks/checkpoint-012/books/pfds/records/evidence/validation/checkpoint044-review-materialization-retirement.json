@@ -1,0 +1,58 @@
+{
+  "started_at": "2026-11-03T19:07:44.554094+00:00",
+  "reason": "Retire clean superseded operational-review materializations; exact source objects and refs preserved in live Git and saved043; current r10 and all formal checkouts retained",
+  "saved_archive": "checkpoints/conaled-pfds-checkpoint-043.tar.gz",
+  "saved_library_file_id": "libfile_a798bf7d663481918d59c5a3a6dfe25a",
+  "retired": [
+    {
+      "path": "review-direct-toolchain-041",
+      "commit": "f010b5d0fdbef9c9f007c56531c326e738557f9d",
+      "saved043_and_live_ref_preserved": true
+    },
+    {
+      "path": "review-direct-toolchain-041-r2",
+      "commit": "822cb7adeed4943acaf10454e9facfc2e3ee8ceb",
+      "saved043_and_live_ref_preserved": true
+    },
+    {
+      "path": "review-direct-toolchain-042-r3",
+      "commit": "6526e5cdcde2e58c8fb0839690c34f3f6c04787c",
+      "saved043_and_live_ref_preserved": true
+    },
+    {
+      "path": "review-direct-toolchain-042-r4",
+      "commit": "120458c4fd40626d93e568f3387d8f5cb1dce69d",
+      "saved043_and_live_ref_preserved": true
+    },
+    {
+      "path": "review-native-toolchain-042-r5",
+      "commit": "f3bac5372edc14ff898ead8b38fa58812d6d2713",
+      "saved043_and_live_ref_preserved": true
+    },
+    {
+      "path": "review-native-toolchain-042-r6",
+      "commit": "fa87cd3483de75f24039836f8d4357be3a133176",
+      "saved043_and_live_ref_preserved": true
+    },
+    {
+      "path": "review-native-toolchain-042-r7",
+      "commit": "af2c53dce68ebb122c81175312d6bb30df9aac05",
+      "saved043_and_live_ref_preserved": true
+    },
+    {
+      "path": "review-native-toolchain-043-r8",
+      "commit": "d95518fde8cfc877da9d2bfc720ed4fd1f4698ba",
+      "saved043_and_live_ref_preserved": true
+    },
+    {
+      "path": "review-native-toolchain-043-r9",
+      "commit": "ff3f709723e5c49e5ba40798abbed7d36141a6fb",
+      "saved043_and_live_ref_preserved": true
+    }
+  ],
+  "finished_at": "2026-11-03T19:07:45.046826+00:00",
+  "disk_after": {
+    "free_bytes": 2215362560,
+    "available_bytes": 0
+  }
+}

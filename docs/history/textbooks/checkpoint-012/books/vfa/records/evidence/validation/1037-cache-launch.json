@@ -1,0 +1,20 @@
+{
+  "started_utc": "2026-11-04T03:51:44.573545+00:00",
+  "command_prefix": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/native-kit/conaled_native.py",
+    "--state",
+    "/workspace/scratch/60f07f0e98c8/native-state",
+    "cache",
+    "--project",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation",
+    "--threads",
+    "1"
+  ],
+  "modules_file": "/workspace/scratch/60f07f0e98c8/conaled-vfa/work-state/validation/1037-targeted-cache-roots.txt",
+  "modules_sha256": "16959f19eb6b538b5ff331553521652242fa5273a02fa770e87b824d00d47f76",
+  "module_count": 671,
+  "tty": true,
+  "formal_acceptance": false
+}

@@ -1,0 +1,30 @@
+{
+  "recorded_utc": "2026-11-04T06:47:44.094936+00:00",
+  "findings": {
+    "XU01-ELAB-003": "Use actual ENNReal.mul_inv with its two nonzero side conditions for 1/2 times 1/2 = 1/4.",
+    "XU01-ELAB-004": "Restrict singleton-mass simplification to the law alias/cardinality/cast/inverse, preserving application of the public minimum theorem.",
+    "XU01-ELAB-005": "Use kernel-checked decide for the concrete finite injectivity proposition; avoids applying norm_num to already discharged Fin cases. No native evaluation."
+  },
+  "scope": "Proof-only corrections; every public statement, expected mass, priority value and hypothesis is unchanged.",
+  "source_before": "f833f311caf2630ccbbb2e9465d4765dff7122f0",
+  "source_after": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+  "development_before": "6255d0a1d190e9ed9111f96a88db2f68c23b4199",
+  "development_after": "3fa2b59d6dcab007627af98a2f05c3a016a4c4c4",
+  "changed_path": "Examples/PermutationMinimum.lean",
+  "before": {
+    "bytes": 4891,
+    "sha256": "b1cef98f9814eb53668cc29896bad750d2b687c4bc162c7ad500e1df82a09442"
+  },
+  "after": {
+    "bytes": 4994,
+    "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1"
+  },
+  "failed_attempt": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-xu01-focused-20261104-attempt3",
+  "failed_log": {
+    "bytes": 4572,
+    "sha256": "604dafe42c0dc98210ae3b2adf5c3438d52d12396f51d5c6f3bc393c23367c52"
+  },
+  "commit_output": "[work/fdsa-permutation-minimum-validation f00078b] fix(fdsa): check minimum-law probability examples on pinned APIs\n 1 file changed, 5 insertions(+), 4 deletions(-)\n",
+  "merge_output": "Merge made by the 'ort' strategy.\n Examples/PermutationMinimum.lean | 9 +++++----\n 1 file changed, 5 insertions(+), 4 deletions(-)\n",
+  "acceptance": "Not accepted; focused and full gates remain."
+}

@@ -1,0 +1,28 @@
+{
+  "structured_response": {
+    "operation": "create_library_file",
+    "status": "succeeded",
+    "path": "/conaled-pfds-checkpoint-005.tar.gz",
+    "file_id": "file_0000000084d081f484b589f866c89bae",
+    "library_file_id": "libfile_6f0fd8d4ef28819193cee518fcbc0f0a",
+    "file_name": "conaled-pfds-checkpoint-005.tar.gz",
+    "current_version_number": 0,
+    "restored_from_version_number": null,
+    "xattrs": [
+      {
+        "name": "user.library-file-version",
+        "value": "0"
+      }
+    ],
+    "directory_id": "libdir_43c8b42e635c8191b48cb45c45019d19",
+    "mime_type": "application/x-tar",
+    "library_artifact_type": "other",
+    "file_size_bytes": 71966495,
+    "external_connectors_accessed": false
+  },
+  "exposure": {
+    "evidence_type": "coordinator conversation attestation",
+    "sequence": "Immediate next commentary after successful upload and xattr application exposed the exact native Library link.",
+    "url": "https://chatgpt.com/library?file_id=libfile_6f0fd8d4ef28819193cee518fcbc0f0a&account_id=personal"
+  }
+}

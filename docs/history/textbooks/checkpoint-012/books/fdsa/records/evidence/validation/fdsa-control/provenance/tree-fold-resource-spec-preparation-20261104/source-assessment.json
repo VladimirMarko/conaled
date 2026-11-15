@@ -1,0 +1,2235 @@
+{
+  "reviewer": "/root/chapter02_spec",
+  "axis": "Spec",
+  "stage": "Original full-scope source preparation; no acceptance",
+  "recorded_utc": "2026-11-04T14:45:02.179230+00:00",
+  "base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "candidate": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+  "candidate_tree": "b66d05bc7733290057c6104bcc5a74c43b4037a4",
+  "sole_parent": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "merge_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "requirements": {
+    "path": "reviews/tree-fold-resource-requirements.md",
+    "bytes": 15461,
+    "lines": 288,
+    "sha256": "0a83c0b87873c33f2d5bf5aeef655ae4ab2957bb4100202164b217363ed8fcf8",
+    "read": "complete"
+  },
+  "scope": [
+    {
+      "path": "Applications/Resources/TreeFold.lean",
+      "bytes": 8347,
+      "lines": 175,
+      "sha256": "bf2acc856e73949ce09434abffbd952fb6cc583ca2342b11b8dd4230bd259dcc",
+      "git_blob": "442f0b1e3bc3c8919cb7cfd3476f9e76182a880c"
+    },
+    {
+      "path": "Examples/TreeFold.lean",
+      "bytes": 7437,
+      "lines": 161,
+      "sha256": "45e193ade4f0a98d8aed86b812c8ee22c5cd9e1e74a5a41e832bf7d87bc48d9c",
+      "git_blob": "44cc3195f016a1a8e74d6bc09db2f9ac0d0d2985"
+    },
+    {
+      "path": "Examples/TreeFoldCache.lean",
+      "bytes": 7743,
+      "lines": 164,
+      "sha256": "9a98b200ab681ca7fa0cdf791a21f364654dc43dfa386911fb9ad4cf515123f7",
+      "git_blob": "ed6f64ed9d6a33ac6182057aa9fca8af9169ff9a"
+    },
+    {
+      "path": "Examples/TreeFoldObservations.lean",
+      "bytes": 8654,
+      "lines": 198,
+      "sha256": "3aeb7f02113c8e858c433a61981d9cea7b4cf8a332d23dac136ce309f33a86be",
+      "git_blob": "cc70b9d0db6c9c54f4c2446093765bb007d35217"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 8355,
+      "lines": 254,
+      "sha256": "6d454e0bac73c0beca7bafce073e7c293587d81aa4baff7febf5509d8802cf84",
+      "git_blob": "2d5a05a2221113287b437e1a2b9a5f980c4dd47f"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 20591,
+      "lines": 314,
+      "sha256": "6ad9a95519badf2ae2d1cbc4581f1bd8045a8afdf3ce245b0326cddd669f1281",
+      "git_blob": "455dab1a6d0be4deeaca64f97dbaa97908c91d00"
+    },
+    {
+      "path": "docs/research/fdsa-tree-fold-resource.md",
+      "bytes": 13890,
+      "lines": 249,
+      "sha256": "29bb52ff57f5a28364e44650f73ce02ca51a0ec9688d8312f7b62bbbe6159b58",
+      "git_blob": "39bd8ef4f47ad15d94f62db1feb252ca43672968"
+    }
+  ],
+  "scope_diff": {
+    "paths": 7,
+    "insertions": 975,
+    "deletions": 0,
+    "full_index_patch_bytes": 51952,
+    "full_index_patch_sha256": "92fc6f768b50d9bf6c982e047e9118205db8c84078b90a60456d0eaa3c865991"
+  },
+  "new_concrete_findings": [],
+  "retained_findings": {
+    "XT03-CP01": "Source correction independently confirmed; compiler and final-review confirmation pending; never reported as observed compiler failure",
+    "XT03-DOC01": "Source correction independently confirmed; integrated final confirmation pending"
+  },
+  "corrections": [
+    {
+      "original": {
+        "path": "reviews/tree-fold-preflight-snapshots/Examples-TreeFoldCache-before-CP01.lean",
+        "bytes": 7560,
+        "lines": 160,
+        "sha256": "99d976310dc90a251e10f8ba0c931b141c808bf8bcf7cfc4cdfe482f9b686200"
+      },
+      "current": {
+        "path": "Examples/TreeFoldCache.lean",
+        "bytes": 7743,
+        "lines": 164,
+        "sha256": "9a98b200ab681ca7fa0cdf791a21f364654dc43dfa386911fb9ad4cf515123f7",
+        "git_blob": "ed6f64ed9d6a33ac6182057aa9fca8af9169ff9a"
+      },
+      "complete_correction_diff_read": true,
+      "diff_bytes": 1058,
+      "diff_sha256": "008c786210ab58086b93c34ba77296108ded2f5d80d46df1f32331725575a3ae",
+      "all22_authored_headers_unchanged": true
+    },
+    {
+      "original": {
+        "path": "reviews/tree-fold-preflight-snapshots/fdsa-tree-fold-resource-before-DOC01.md",
+        "bytes": 13681,
+        "lines": 245,
+        "sha256": "51830ed0b59ecdd291d0a62fd7a604356729441532beb7d73d0af00a546491b9"
+      },
+      "current": {
+        "path": "docs/research/fdsa-tree-fold-resource.md",
+        "bytes": 13890,
+        "lines": 249,
+        "sha256": "29bb52ff57f5a28364e44650f73ce02ca51a0ec9688d8312f7b62bbbe6159b58",
+        "git_blob": "39bd8ef4f47ad15d94f62db1feb252ca43672968"
+      },
+      "complete_correction_diff_read": true,
+      "diff_bytes": 1897,
+      "diff_sha256": "40ac6467faac7527ba9e2201aae2554290a92679f71f80ba3f7cfda1a4d5bf97"
+    },
+    {
+      "original": {
+        "path": "reviews/tree-fold-preflight-snapshots/fdsa-reconstruction-map-before-DOC01.md",
+        "bytes": 20584,
+        "lines": 313,
+        "sha256": "cb2910f2a343b1d30512183876408b3fd3acd8162993419410dbf9191bc9d8eb"
+      },
+      "current": {
+        "path": "docs/research/fdsa-reconstruction-map.md",
+        "bytes": 20591,
+        "lines": 314,
+        "sha256": "6ad9a95519badf2ae2d1cbc4581f1bd8045a8afdf3ce245b0326cddd669f1281",
+        "git_blob": "455dab1a6d0be4deeaca64f97dbaa97908c91d00"
+      },
+      "complete_correction_diff_read": true,
+      "diff_bytes": 974,
+      "diff_sha256": "c0bed722ac291426d1472b5ea64808f2fa8eef8b92ac6bc1d14e595d4525c8aa"
+    }
+  ],
+  "inventory": [
+    {
+      "source": "Applications/Resources/TreeFold.lean",
+      "line": 21,
+      "kind": "def",
+      "name": "Resources.TreeFold.run",
+      "visibility": "public",
+      "header_end_line": 22,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "def run [Add C] (entry : C) (empty : β)\n    (combineRun : β → α → β → Measured β C) (t : BinaryTree α) : Measured β C\n",
+      "header_sha256": "68e3ba92e8b60b24998a4874935c8b61fd07dddc66ea5c2c32e119f315102270"
+    },
+    {
+      "source": "Applications/Resources/TreeFold.lean",
+      "line": 27,
+      "kind": "theorem",
+      "name": "Resources.TreeFold.run_nil",
+      "visibility": "public",
+      "header_end_line": 29,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "@[simp] theorem run_nil [Add C] (entry : C) (empty : β)\n    (combineRun : β → α → β → Measured β C) :\n    run entry empty combineRun .nil = (empty, entry)\n",
+      "header_sha256": "0df5ea75f57f82d9eb6484c33e93076dd558b753d6d2b713e416a315af00ccf6"
+    },
+    {
+      "source": "Applications/Resources/TreeFold.lean",
+      "line": 32,
+      "kind": "theorem",
+      "name": "Resources.TreeFold.run_node",
+      "visibility": "public",
+      "header_end_line": 40,
+      "header_delimiter": ":=",
+      "header_lines": 9,
+      "header_text": "theorem run_node [Add C] (entry : C) (empty : β)\n    (combineRun : β → α → β → Measured β C) (a : α) (l r : BinaryTree α) :\n    run entry empty combineRun (.node a l r) =\n      ((combineRun (run entry empty combineRun l).1 a\n          (run entry empty combineRun r).1).1,\n        ((run entry empty combineRun l).2 +\n          ((run entry empty combineRun r).2 +\n            (combineRun (run entry empty combineRun l).1 a\n              (run entry empty combineRun r).1).2)) + entry)\n",
+      "header_sha256": "a8d36c2826a9a9066372d9c7ddeae9751dfda084100eea3af59eadac59d3f9c4"
+    },
+    {
+      "source": "Applications/Resources/TreeFold.lean",
+      "line": 42,
+      "kind": "theorem",
+      "name": "Resources.TreeFold.run_node_cost",
+      "visibility": "public",
+      "header_end_line": 48,
+      "header_delimiter": ":=",
+      "header_lines": 7,
+      "header_text": "theorem run_node_cost [Add C] (entry : C) (empty : β)\n    (combineRun : β → α → β → Measured β C) (a : α) (l r : BinaryTree α) :\n    (run entry empty combineRun (.node a l r)).2 =\n      ((run entry empty combineRun l).2 +\n        ((run entry empty combineRun r).2 +\n          (combineRun (run entry empty combineRun l).1 a\n            (run entry empty combineRun r).1).2)) + entry\n",
+      "header_sha256": "fc2cb573800dbab637eaddedd200e7bc554a9e244e25a7625dca92440a3f514c"
+    },
+    {
+      "source": "Applications/Resources/TreeFold.lean",
+      "line": 51,
+      "kind": "theorem",
+      "name": "Resources.TreeFold.run_node_tick",
+      "visibility": "public",
+      "header_end_line": 55,
+      "header_delimiter": ":=",
+      "header_lines": 5,
+      "header_text": "theorem run_node_tick (empty : β) (combineRun : β → α → β → Measured β Nat)\n    (a : α) (l r : BinaryTree α) :\n    run 1 empty combineRun (.node a l r) =\n      CallCount.tick (bind (run 1 empty combineRun l) (fun left =>\n        bind (run 1 empty combineRun r) (fun right => combineRun left a right)))\n",
+      "header_sha256": "a73ec5b83bdfb3533b38355641788a16ab457ce344ec00b7f347973ce11372d2"
+    },
+    {
+      "source": "Applications/Resources/TreeFold.lean",
+      "line": 58,
+      "kind": "theorem",
+      "name": "Resources.TreeFold.run_map",
+      "visibility": "public",
+      "header_end_line": 61,
+      "header_delimiter": ":=",
+      "header_lines": 4,
+      "header_text": "theorem run_map [Add C] (entry : C) (empty : β)\n    (combineRun : β → γ → β → Measured β C) (label : α → γ) (t : BinaryTree α) :\n    run entry empty combineRun (t.map label) =\n      run entry empty (fun l a r => combineRun l (label a) r) t\n",
+      "header_sha256": "64c50ff630d8508e5ed07034c22a8da92031484b4944cd66a6cd3ed2cc4275cb"
+    },
+    {
+      "source": "Applications/Resources/TreeFold.lean",
+      "line": 66,
+      "kind": "theorem",
+      "name": "Resources.TreeFold.run_value",
+      "visibility": "public",
+      "header_end_line": 69,
+      "header_delimiter": ":=",
+      "header_lines": 4,
+      "header_text": "theorem run_value [Add C] (entry : C) (empty : β)\n    (combineRun : β → α → β → Measured β C) (t : BinaryTree α) :\n    (run entry empty combineRun t).1 =\n      Trees.fold empty (fun l a r => (combineRun l a r).1) t\n",
+      "header_sha256": "50eb82f67194a35219c6932d638f989aec76587835c00b47fe89ff56f59fc93b"
+    },
+    {
+      "source": "Applications/Resources/TreeFold.lean",
+      "line": 75,
+      "kind": "theorem",
+      "name": "Resources.TreeFold.run_value_entry",
+      "visibility": "public",
+      "header_end_line": 77,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem run_value_entry [Add C] (entry entry' : C) (empty : β)\n    (combineRun : β → α → β → Measured β C) (t : BinaryTree α) :\n    (run entry empty combineRun t).1 = (run entry' empty combineRun t).1\n",
+      "header_sha256": "72241acc95f93c09613c4bb9c61062753f296a3635307af43e673ce85393cba7"
+    },
+    {
+      "source": "Applications/Resources/TreeFold.lean",
+      "line": 81,
+      "kind": "theorem",
+      "name": "Resources.TreeFold.run_value_of",
+      "visibility": "public",
+      "header_end_line": 84,
+      "header_delimiter": ":=",
+      "header_lines": 4,
+      "header_text": "theorem run_value_of [Add C] (entry : C) (empty : β)\n    (combineRun : β → α → β → Measured β C) (combine : β → α → β → β)\n    (hvalue : ∀ l a r, (combineRun l a r).1 = combine l a r) (t : BinaryTree α) :\n    (run entry empty combineRun t).1 = Trees.fold empty combine t\n",
+      "header_sha256": "7bf9a7948eee517542177e46f58952d73c945652a881839dd74b2fb210b6979a"
+    },
+    {
+      "source": "Applications/Resources/TreeFold.lean",
+      "line": 94,
+      "kind": "theorem",
+      "name": "Resources.TreeFold.reweight_run",
+      "visibility": "public",
+      "header_end_line": 98,
+      "header_delimiter": ":=",
+      "header_lines": 5,
+      "header_text": "theorem reweight_run [AddMonoid C] [AddMonoid D] (h : C →+ D)\n    (entry : C) (empty : β) (combineRun : β → α → β → Measured β C)\n    (t : BinaryTree α) :\n    reweight h (run entry empty combineRun t) =\n      run (h entry) empty (fun l a r => reweight h (combineRun l a r)) t\n",
+      "header_sha256": "3b040a8d9535eba02433a7accb004a8347f5be57079e1c6c6395f90faa15e19f"
+    },
+    {
+      "source": "Applications/Resources/TreeFold.lean",
+      "line": 112,
+      "kind": "theorem",
+      "name": "Resources.TreeFold.run_cost_entry",
+      "visibility": "public",
+      "header_end_line": 115,
+      "header_delimiter": ":=",
+      "header_lines": 4,
+      "header_text": "theorem run_cost_entry (entry : Nat) (empty : β)\n    (combineRun : β → α → β → Measured β Nat) (t : BinaryTree α) :\n    (run entry empty combineRun t).2 =\n      (run 0 empty combineRun t).2 + entry * (2 * t.numNodes + 1)\n",
+      "header_sha256": "4d8b47161ab1a0c6a66cdeb195ee5a40b5c86c005d27fabd6d1d58120e283def"
+    },
+    {
+      "source": "Applications/Resources/TreeFold.lean",
+      "line": 125,
+      "kind": "theorem",
+      "name": "Resources.TreeFold.structural_le_cost",
+      "visibility": "public",
+      "header_end_line": 127,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem structural_le_cost (entry : Nat) (empty : β)\n    (combineRun : β → α → β → Measured β Nat) (t : BinaryTree α) :\n    entry * (2 * t.numNodes + 1) ≤ (run entry empty combineRun t).2\n",
+      "header_sha256": "a0a4b0e8a94ad5d36437ef3857d7f50d2ed7009683e644ad46a9ed641699a631"
+    },
+    {
+      "source": "Applications/Resources/TreeFold.lean",
+      "line": 133,
+      "kind": "theorem",
+      "name": "Resources.TreeFold.run_cost_const",
+      "visibility": "public",
+      "header_end_line": 139,
+      "header_delimiter": ":=",
+      "header_lines": 7,
+      "header_text": "theorem run_cost_const (entry : Nat) (empty : β)\n    (combineRun : β → α → β → Measured β Nat) (k : Nat)\n    (hcost : ∀ (l : BinaryTree α) (a : α) (r : BinaryTree α),\n      (combineRun (run entry empty combineRun l).1 a\n        (run entry empty combineRun r).1).2 = k) (t : BinaryTree α) :\n    (run entry empty combineRun t).2 =\n      entry * (2 * t.numNodes + 1) + k * t.numNodes\n",
+      "header_sha256": "102420d5eaecf038b14eef58ba509cfd261d9baafb538131a594d16f267f0d57"
+    },
+    {
+      "source": "Applications/Resources/TreeFold.lean",
+      "line": 149,
+      "kind": "theorem",
+      "name": "Resources.TreeFold.run_cost_le",
+      "visibility": "public",
+      "header_end_line": 155,
+      "header_delimiter": ":=",
+      "header_lines": 7,
+      "header_text": "theorem run_cost_le (entry : Nat) (empty : β)\n    (combineRun : β → α → β → Measured β Nat) (K : Nat)\n    (hcost : ∀ (l : BinaryTree α) (a : α) (r : BinaryTree α),\n      (combineRun (run entry empty combineRun l).1 a\n        (run entry empty combineRun r).1).2 ≤ K) (t : BinaryTree α) :\n    (run entry empty combineRun t).2 ≤\n      entry * (2 * t.numNodes + 1) + K * t.numNodes\n",
+      "header_sha256": "ab0919d44299222e0352c16f1e9c40d4bb5bea2723b4cc882f57d26a1ef453e8"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 17,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.size_value",
+      "visibility": "public",
+      "header_end_line": 18,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem size_value (entry : Nat) (t : BinaryTree α) :\n    (run entry 0 TreeCacheExamples.sizeRun t).1 = t.numNodes\n",
+      "header_sha256": "aff9d3b6071e9f46b04f5fac944b42085a6b2e98a66ac756e04b85b2bfde8685"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 23,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.height_value",
+      "visibility": "public",
+      "header_end_line": 24,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem height_value (entry : Nat) (t : BinaryTree α) :\n    (run entry 0 TreeCacheExamples.heightRun t).1 = t.height\n",
+      "header_sha256": "f260c8d550336c129092f1b9f10e5ec83f3fed57ca53bdb566a25af88f765b98"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 29,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.size_cost",
+      "visibility": "public",
+      "header_end_line": 30,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem size_cost (entry : Nat) (t : BinaryTree α) :\n    (run entry 0 TreeCacheExamples.sizeRun t).2 = entry * (2 * t.numNodes + 1)\n",
+      "header_sha256": "c6eef1515daf04553ed6aaa5d0253c14a444ad53470751293f85fe9b91a56835"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 34,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.height_cost",
+      "visibility": "public",
+      "header_end_line": 35,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem height_cost (entry : Nat) (t : BinaryTree α) :\n    (run entry 0 TreeCacheExamples.heightRun t).2 = entry * (2 * t.numNodes + 1)\n",
+      "header_sha256": "3797c48137e3abc183a2996ab8c9bbfefafb16c8d6a5d2ec9fd77ec72725d867"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 40,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.empty_run",
+      "visibility": "public",
+      "header_end_line": 42,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem empty_run (entry : Nat) (empty : β)\n    (combineRun : β → Empty → β → Measured β Nat) (t : BinaryTree Empty) :\n    run entry empty combineRun t = (empty, entry)\n",
+      "header_sha256": "d3e46e63ddd81a83cd123c7bfcdbd229b1f96524037c998c4d30a10b71ddd3ee"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 45,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.empty_primitives",
+      "visibility": "public",
+      "header_end_line": 47,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem empty_primitives (entry : Nat) (t : BinaryTree Empty) :\n    run entry 0 TreeCacheExamples.sizeRun t = (0, entry) ∧\n      run entry 0 TreeCacheExamples.heightRun t = (0, entry)\n",
+      "header_sha256": "191f3a035bd15f33c2e23bb2a8622755f7d0da97b143e85f544460c3c41ee3c2"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 52,
+      "kind": "def",
+      "name": "TreeFoldExamples.rightStepRun",
+      "visibility": "public",
+      "header_end_line": 52,
+      "header_delimiter": ":=",
+      "header_lines": 1,
+      "header_text": "def rightStepRun (l : List α) (a : α) (r : List α) : Measured (List α) Nat\n",
+      "header_sha256": "0f71f7ccceef555a63674f14aaf51617b5f817a00de5d476705332e263a57c9c"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 56,
+      "kind": "def",
+      "name": "TreeFoldExamples.leftStepRun",
+      "visibility": "public",
+      "header_end_line": 56,
+      "header_delimiter": ":=",
+      "header_lines": 1,
+      "header_text": "def leftStepRun (l : List α) (a : α) (r : List α) : Measured (List α) Nat\n",
+      "header_sha256": "8291407c1238ffba8e798ff51f5189bed3ca4b68c7af31a64adf4447182c5149"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 59,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.single_step_value",
+      "visibility": "public",
+      "header_end_line": 60,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem single_step_value (l : List α) (a : α) (r : List α) :\n    (TreeCacheExamples.appendStepRun l a r).1 = l ++ (a :: r)\n",
+      "header_sha256": "4e7b805d62ca098145c848f05232dd53fe4be322af7d6eec5ecc0016b3f3bba3"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 63,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.right_step_value",
+      "visibility": "public",
+      "header_end_line": 64,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem right_step_value (l : List α) (a : α) (r : List α) :\n    (rightStepRun l a r).1 = l ++ (a :: r)\n",
+      "header_sha256": "ee1bbb0cee628ae13c9ffffb441ba5b40a468bdd7a4c03893adc4c0c446beaa5"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 67,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.left_step_value",
+      "visibility": "public",
+      "header_end_line": 68,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem left_step_value (l : List α) (a : α) (r : List α) :\n    (leftStepRun l a r).1 = l ++ (a :: r)\n",
+      "header_sha256": "9397abf56cea5cf37b485030cd8bf00486ad6570c9045d279bbc82f1181e2e31"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 71,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.single_step_cost",
+      "visibility": "public",
+      "header_end_line": 72,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem single_step_cost (l : List α) (a : α) (r : List α) :\n    (TreeCacheExamples.appendStepRun l a r).2 = l.length + 1\n",
+      "header_sha256": "daa8ad70bcc79a3b25b1035616006a16b445e6344693d26cf34fb62f0d7d69cf"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 75,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.right_step_cost",
+      "visibility": "public",
+      "header_end_line": 76,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem right_step_cost (l : List α) (a : α) (r : List α) :\n    (rightStepRun l a r).2 = l.length + 3\n",
+      "header_sha256": "9d5fe4bef128cb67c6b8e2898cdaafe2408c4efcbf1fa66867c2cc1b79965e85"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 81,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.left_step_cost",
+      "visibility": "public",
+      "header_end_line": 82,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem left_step_cost (l : List α) (a : α) (r : List α) :\n    (leftStepRun l a r).2 = 2 * l.length + 3\n",
+      "header_sha256": "eac09ad121d290510fd97b3df46f831e94a9083885ba142db715fae95f9d05ef"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 87,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.single_value",
+      "visibility": "public",
+      "header_end_line": 88,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem single_value (entry : Nat) (t : BinaryTree α) :\n    (run entry [] TreeCacheExamples.appendStepRun t).1 = Trees.inorder t\n",
+      "header_sha256": "c33371249d94b17ba7bd9b75033ec292926986935ca8e8d368fff2d7f0057ccc"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 92,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.right_value",
+      "visibility": "public",
+      "header_end_line": 93,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem right_value (entry : Nat) (t : BinaryTree α) :\n    (run entry [] rightStepRun t).1 = Trees.inorder t\n",
+      "header_sha256": "2dd4a6dd16805254e792ea7b0feade0b43f6b5d7482ef54dde99c1e97ef17fdd"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 96,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.left_value",
+      "visibility": "public",
+      "header_end_line": 97,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem left_value (entry : Nat) (t : BinaryTree α) :\n    (run entry [] leftStepRun t).1 = Trees.inorder t\n",
+      "header_sha256": "30449c9080f39ee34b5485f97090c960e343a9a2ca64cfa18fb511ebd6c6e784"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 101,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.single_node_cost",
+      "visibility": "public",
+      "header_end_line": 105,
+      "header_delimiter": ":=",
+      "header_lines": 5,
+      "header_text": "theorem single_node_cost (entry : Nat) (a : α) (l r : BinaryTree α) :\n    (run entry [] TreeCacheExamples.appendStepRun (.node a l r)).2 =\n      ((run entry [] TreeCacheExamples.appendStepRun l).2 +\n        ((run entry [] TreeCacheExamples.appendStepRun r).2 + (l.numNodes + 1))) +\n          entry\n",
+      "header_sha256": "94c38751444cab9411d69a33c4fe4011b94f18496e413c98ed2a9aeb6a98b9ee"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 108,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.right_node_cost",
+      "visibility": "public",
+      "header_end_line": 111,
+      "header_delimiter": ":=",
+      "header_lines": 4,
+      "header_text": "theorem right_node_cost (entry : Nat) (a : α) (l r : BinaryTree α) :\n    (run entry [] rightStepRun (.node a l r)).2 =\n      ((run entry [] rightStepRun l).2 +\n        ((run entry [] rightStepRun r).2 + (l.numNodes + 3))) + entry\n",
+      "header_sha256": "d6f20899e4adf88b287def8214e06bbb129657db7175a8838f26af5714549fb6"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 114,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.left_node_cost",
+      "visibility": "public",
+      "header_end_line": 117,
+      "header_delimiter": ":=",
+      "header_lines": 4,
+      "header_text": "theorem left_node_cost (entry : Nat) (a : α) (l r : BinaryTree α) :\n    (run entry [] leftStepRun (.node a l r)).2 =\n      ((run entry [] leftStepRun l).2 +\n        ((run entry [] leftStepRun r).2 + (2 * l.numNodes + 3))) + entry\n",
+      "header_sha256": "d21129c1d2b86836a6edd1386f77b3afa04e1521bf4fb3b19cdd7584ff44a2cb"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 120,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.nil_work",
+      "visibility": "public",
+      "header_end_line": 123,
+      "header_delimiter": ":=",
+      "header_lines": 4,
+      "header_text": "theorem nil_work :\n    (run 1 [] TreeCacheExamples.appendStepRun (.nil : BinaryTree α)).2 = 1 ∧\n      (run 1 [] rightStepRun (.nil : BinaryTree α)).2 = 1 ∧\n      (run 1 [] leftStepRun (.nil : BinaryTree α)).2 = 1\n",
+      "header_sha256": "e91ae684b803842875e67399242a3639f64692910fa3848fad9049594de88571"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 126,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.singleton_work",
+      "visibility": "public",
+      "header_end_line": 129,
+      "header_delimiter": ":=",
+      "header_lines": 4,
+      "header_text": "theorem singleton_work (a : α) :\n    (run 1 [] TreeCacheExamples.appendStepRun (.node a .nil .nil)).2 = 4 ∧\n      (run 1 [] rightStepRun (.node a .nil .nil)).2 = 6 ∧\n      (run 1 [] leftStepRun (.node a .nil .nil)).2 = 6\n",
+      "header_sha256": "67bb9cd7f424bf16ce9b25ed35f4ce039a4359e9907ed153f6aa56774969b760"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 133,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.single_sample",
+      "visibility": "public",
+      "header_end_line": 135,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem single_sample :\n    run 1 [] TreeCacheExamples.appendStepRun TreeCacheExamples.sample =\n      ([0, 1, 2, 3], 15)\n",
+      "header_sha256": "ac4bea40df16e402744be6c0b1a495f1ef14bbcafff7ee367f25f5ea42856965"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 140,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.right_sample",
+      "visibility": "public",
+      "header_end_line": 141,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem right_sample :\n    run 1 [] rightStepRun TreeCacheExamples.sample = ([0, 1, 2, 3], 23)\n",
+      "header_sha256": "de7004ec6fc1cc8c6a90c204c8a65bff01f8b666c8866f73403a95337a463303"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 146,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.left_sample",
+      "visibility": "public",
+      "header_end_line": 147,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem left_sample :\n    run 1 [] leftStepRun TreeCacheExamples.sample = ([0, 1, 2, 3], 25)\n",
+      "header_sha256": "bfd43983ec6573680e48da74c8d672de1319dae9c0b5471b1fc37f3fb2d6ba4f"
+    },
+    {
+      "source": "Examples/TreeFold.lean",
+      "line": 153,
+      "kind": "theorem",
+      "name": "TreeFoldExamples.same_inorder_different_work",
+      "visibility": "public",
+      "header_end_line": 157,
+      "header_delimiter": ":=",
+      "header_lines": 5,
+      "header_text": "theorem same_inorder_different_work :\n    (run 1 [] rightStepRun TreeCacheExamples.sample).1 =\n        (run 1 [] leftStepRun TreeCacheExamples.sample).1 ∧\n      (run 1 [] rightStepRun TreeCacheExamples.sample).2 ≠\n        (run 1 [] leftStepRun TreeCacheExamples.sample).2\n",
+      "header_sha256": "9b70bbbdc3b654edebe25406479aadacf936e570848464d65bae992060a49b29"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 17,
+      "kind": "def",
+      "name": "TreeFoldCacheExamples.annotateRun",
+      "visibility": "public",
+      "header_end_line": 19,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "def annotateRun (entry : Nat) (empty : β)\n    (combineRun : β → α → β → Measured β Nat) (t : BinaryTree α) :\n    Measured (BinaryTree (α × β)) Nat\n",
+      "header_sha256": "83554a220593f6f7edc6f970d0eb1b25b376f3fac5e752a97247cb58f8229e42"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 23,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.annotate_value",
+      "visibility": "public",
+      "header_end_line": 26,
+      "header_delimiter": ":=",
+      "header_lines": 4,
+      "header_text": "theorem annotate_value (entry : Nat) (empty : β)\n    (combineRun : β → α → β → Measured β Nat) (combine : β → α → β → β)\n    (hvalue : ∀ l a r, (combineRun l a r).1 = combine l a r) (t : BinaryTree α) :\n    (annotateRun entry empty combineRun t).1 = Trees.Cached.annotate empty combine t\n",
+      "header_sha256": "691c77d33836b22c9c4b85dc80a777cfb00856d6b26114597e28e46f24130b68"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 32,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.annotate_valid",
+      "visibility": "public",
+      "header_end_line": 35,
+      "header_delimiter": ":=",
+      "header_lines": 4,
+      "header_text": "theorem annotate_valid (entry : Nat) (empty : β)\n    (combineRun : β → α → β → Measured β Nat) (combine : β → α → β → β)\n    (hvalue : ∀ l a r, (combineRun l a r).1 = combine l a r) (t : BinaryTree α) :\n    Trees.Cached.Valid empty combine (annotateRun entry empty combineRun t).1\n",
+      "header_sha256": "6c5c0a8f625dddd4daca3289a416dd318bed5ca02c51300c3d4485ad9f0a08fc"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 39,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.annotate_erases",
+      "visibility": "public",
+      "header_end_line": 42,
+      "header_delimiter": ":=",
+      "header_lines": 4,
+      "header_text": "theorem annotate_erases (entry : Nat) (empty : β)\n    (combineRun : β → α → β → Measured β Nat) (combine : β → α → β → β)\n    (hvalue : ∀ l a r, (combineRun l a r).1 = combine l a r) (t : BinaryTree α) :\n    Trees.Cached.erase (annotateRun entry empty combineRun t).1 = t\n",
+      "header_sha256": "43d8716720ddfb37a06ee953039b3d85e0a7bafd0554e0c6f109cd4ea656a436"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 46,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.annotate_read",
+      "visibility": "public",
+      "header_end_line": 50,
+      "header_delimiter": ":=",
+      "header_lines": 5,
+      "header_text": "theorem annotate_read (entry : Nat) (empty : β)\n    (combineRun : β → α → β → Measured β Nat) (combine : β → α → β → β)\n    (hvalue : ∀ l a r, (combineRun l a r).1 = combine l a r) (t : BinaryTree α) :\n    Trees.Cached.read empty (annotateRun entry empty combineRun t).1 =\n      Trees.fold empty combine t\n",
+      "header_sha256": "ab27ff123277df139f587348d89eedf4b7f544cd1ebcb31e6dc6faf4406794da"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 55,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.size_cost",
+      "visibility": "public",
+      "header_end_line": 57,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem size_cost (entry : Nat) (t : BinaryTree α) :\n    (annotateRun entry 0 TreeCacheExamples.sizeRun t).2 =\n      entry * (2 * t.numNodes + 1) + 3 * t.numNodes\n",
+      "header_sha256": "2bce95eb8e2290c7e656ca780d88acc2f2045a3a55d1bb8e46523ef6d94e4236"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 61,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.height_cost",
+      "visibility": "public",
+      "header_end_line": 63,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem height_cost (entry : Nat) (t : BinaryTree α) :\n    (annotateRun entry 0 TreeCacheExamples.heightRun t).2 =\n      entry * (2 * t.numNodes + 1) + 3 * t.numNodes\n",
+      "header_sha256": "88683a955746bb37fffd8cfcdec36568b4866d5a850bcfa42da154cb41fe06cd"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 67,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.size_cost_one",
+      "visibility": "public",
+      "header_end_line": 68,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem size_cost_one (t : BinaryTree α) :\n    (annotateRun 1 0 TreeCacheExamples.sizeRun t).2 = 5 * t.numNodes + 1\n",
+      "header_sha256": "d404bd32b3269980e71f71597026f2fb0dded14a1ee496fd9129f0619e5ecc06"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 72,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.height_cost_one",
+      "visibility": "public",
+      "header_end_line": 73,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem height_cost_one (t : BinaryTree α) :\n    (annotateRun 1 0 TreeCacheExamples.heightRun t).2 = 5 * t.numNodes + 1\n",
+      "header_sha256": "751194c89ec303a4bc334bab2f6f5190fa8771282a93af0e209e382b61a22107"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 77,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.size_read",
+      "visibility": "public",
+      "header_end_line": 79,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem size_read (entry : Nat) (t : BinaryTree α) :\n    Trees.Cached.read 0 (annotateRun entry 0 TreeCacheExamples.sizeRun t).1 =\n      t.numNodes\n",
+      "header_sha256": "c4a5dbeaeccd52daec469cc1a8bcab18d23f600d3060dacf2421402b97bd284c"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 84,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.height_read",
+      "visibility": "public",
+      "header_end_line": 86,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem height_read (entry : Nat) (t : BinaryTree α) :\n    Trees.Cached.read 0 (annotateRun entry 0 TreeCacheExamples.heightRun t).1 =\n      t.height\n",
+      "header_sha256": "3b418de387069f174a9131b1493b7217194a803d9c82e0c3f2d5be99c29792c6"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 91,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.size_sample_value",
+      "visibility": "public",
+      "header_end_line": 93,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem size_sample_value (entry : Nat) :\n    (annotateRun entry 0 TreeCacheExamples.sizeRun TreeCacheExamples.sample).1 =\n      TreeCacheExamples.sizeSample\n",
+      "header_sha256": "5bd5d6a5517fed8062c4433201e00ba00e5121f1a16a1f3ba4d3e92c1e5bdcc6"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 97,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.height_sample_value",
+      "visibility": "public",
+      "header_end_line": 99,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem height_sample_value (entry : Nat) :\n    (annotateRun entry 0 TreeCacheExamples.heightRun TreeCacheExamples.sample).1 =\n      TreeCacheExamples.heightSample\n",
+      "header_sha256": "a9145cf822a725510f669270c423e3105f1c5f31bad6c43e8590c6f4407d962b"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 103,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.size_sample",
+      "visibility": "public",
+      "header_end_line": 105,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem size_sample :\n    annotateRun 1 0 TreeCacheExamples.sizeRun TreeCacheExamples.sample =\n      (TreeCacheExamples.sizeSample, 21)\n",
+      "header_sha256": "9c5d9b2b5f3d9e83e478b47e6e6393b8293bbf3489828975e707b34927c48dc5"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 110,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.height_sample",
+      "visibility": "public",
+      "header_end_line": 112,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem height_sample :\n    annotateRun 1 0 TreeCacheExamples.heightRun TreeCacheExamples.sample =\n      (TreeCacheExamples.heightSample, 21)\n",
+      "header_sha256": "62d38ba7207359983d5dc8a2988108a168469a3a12019b8e62e4f0f418a98b7f"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 117,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.list_value",
+      "visibility": "public",
+      "header_end_line": 119,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem list_value (entry : Nat) (t : BinaryTree α) :\n    (annotateRun entry [] TreeCacheExamples.appendStepRun t).1 =\n      Trees.Cached.annotate [] TreeCacheExamples.listStep t\n",
+      "header_sha256": "92cc8009ff66e6a5c874b10526b54997ab7240288397f926f3b0db292f3e0727"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 124,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.list_read",
+      "visibility": "public",
+      "header_end_line": 126,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem list_read (entry : Nat) (t : BinaryTree α) :\n    Trees.Cached.read [] (annotateRun entry [] TreeCacheExamples.appendStepRun t).1 =\n      Trees.inorder t\n",
+      "header_sha256": "5b627fda238f89b18c2b97ab78e6a6a799efb0fb01ae638f78b89be710332d63"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 130,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.list_nil_cost",
+      "visibility": "public",
+      "header_end_line": 132,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem list_nil_cost (entry : Nat) :\n    (annotateRun entry [] TreeCacheExamples.appendStepRun (.nil : BinaryTree α)).2 =\n      entry\n",
+      "header_sha256": "2b06f8cb0d40c4f437dd4f9aeff2bc16137c06832c285e57e0cd18fd78dcf7c2"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 135,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.list_node_cost",
+      "visibility": "public",
+      "header_end_line": 139,
+      "header_delimiter": ":=",
+      "header_lines": 5,
+      "header_text": "theorem list_node_cost (entry : Nat) (a : α) (l r : BinaryTree α) :\n    (annotateRun entry [] TreeCacheExamples.appendStepRun (.node a l r)).2 =\n      ((annotateRun entry [] TreeCacheExamples.appendStepRun l).2 +\n        ((annotateRun entry [] TreeCacheExamples.appendStepRun r).2 +\n          (l.numNodes + 4))) + entry\n",
+      "header_sha256": "bcdf781709d7ef68b84ae9030e18ff4ae60f777b79e8042a98ef45a362e3c29d"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 148,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.list_sample_work",
+      "visibility": "public",
+      "header_end_line": 150,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem list_sample_work :\n    (annotateRun 1 [] TreeCacheExamples.appendStepRun TreeCacheExamples.sample).2 =\n      27\n",
+      "header_sha256": "cf6f33dabf13a7ac6fe942c069a956644d304b5072677001843f0bea0c8c0add"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 153,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.list_sample_read",
+      "visibility": "public",
+      "header_end_line": 156,
+      "header_delimiter": ":=",
+      "header_lines": 4,
+      "header_text": "theorem list_sample_read :\n    Trees.Cached.read []\n      (annotateRun 1 [] TreeCacheExamples.appendStepRun TreeCacheExamples.sample).1 =\n      [0, 1, 2, 3]\n",
+      "header_sha256": "2ff9c23d8134055a6139a883796c4bb5d5771f3fd1b4c819ca446518761bccd4"
+    },
+    {
+      "source": "Examples/TreeFoldCache.lean",
+      "line": 159,
+      "kind": "theorem",
+      "name": "TreeFoldCacheExamples.empty_annotation",
+      "visibility": "public",
+      "header_end_line": 161,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem empty_annotation (entry : Nat) (empty : β)\n    (combineRun : β → Empty → β → Measured β Nat) (t : BinaryTree Empty) :\n    annotateRun entry empty combineRun t = (.nil, entry)\n",
+      "header_sha256": "8a2f723b0aec3101a69f4f5e229f13fbf7a393b9e608b6557958ef66902293f8"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 17,
+      "kind": "def",
+      "name": "TreeFoldObservationExamples.splitRun",
+      "visibility": "public",
+      "header_end_line": 18,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "def splitRun (empty : β) (combineRun : β → α → β → Measured β Nat)\n    (t : BinaryTree α) : Measured β (Nat × Nat)\n",
+      "header_sha256": "8f33bc5f9fa1708d56001b916da6b341c9991beea7525784e03442b32fb6ddc3"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 22,
+      "kind": "def",
+      "name": "TreeFoldObservationExamples.total",
+      "visibility": "public",
+      "header_end_line": 22,
+      "header_delimiter": ":=",
+      "header_lines": 1,
+      "header_text": "def total : Nat × Nat →+ Nat\n",
+      "header_sha256": "5d6059d93e394a055abc2191c747d8389b3ce4d778579124f496860eae59a3a6"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 25,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.split_first_run",
+      "visibility": "public",
+      "header_end_line": 28,
+      "header_delimiter": ":=",
+      "header_lines": 4,
+      "header_text": "theorem split_first_run (empty : β) (combineRun : β → α → β → Measured β Nat)\n    (t : BinaryTree α) :\n    reweight (AddMonoidHom.fst Nat Nat) (splitRun empty combineRun t) =\n      run 1 empty (fun l a r => pure (combineRun l a r).1) t\n",
+      "header_sha256": "6e0b0d2dc6475c9f5532e8f99f09fdb57e71224d2b9ffd7e1c610d1fb108ec4d"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 33,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.split_second_run",
+      "visibility": "public",
+      "header_end_line": 36,
+      "header_delimiter": ":=",
+      "header_lines": 4,
+      "header_text": "theorem split_second_run (empty : β) (combineRun : β → α → β → Measured β Nat)\n    (t : BinaryTree α) :\n    reweight (AddMonoidHom.snd Nat Nat) (splitRun empty combineRun t) =\n      run 0 empty combineRun t\n",
+      "header_sha256": "3255bbd19e6f9d13daff30179c360591036d84e5f3a39c5a31fa21156b7e2577"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 42,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.split_total_run",
+      "visibility": "public",
+      "header_end_line": 44,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem split_total_run (empty : β) (combineRun : β → α → β → Measured β Nat)\n    (t : BinaryTree α) :\n    reweight total (splitRun empty combineRun t) = run 1 empty combineRun t\n",
+      "header_sha256": "0aeef747cdd33e045cd6b89ada3515806367b028bc77a7bad64f9a3860ec4d88"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 57,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.split_structural",
+      "visibility": "public",
+      "header_end_line": 58,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem split_structural (empty : β) (combineRun : β → α → β → Measured β Nat)\n    (t : BinaryTree α) : (splitRun empty combineRun t).2.1 = 2 * t.numNodes + 1\n",
+      "header_sha256": "2bdd7ba481bfe5a76aa4213f4ba067a3e684b835802d44b9e05917dfd6528a03"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 68,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.split_work",
+      "visibility": "public",
+      "header_end_line": 70,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem split_work (empty : β) (combineRun : β → α → β → Measured β Nat)\n    (t : BinaryTree α) :\n    (splitRun empty combineRun t).2.2 = (run 0 empty combineRun t).2\n",
+      "header_sha256": "8f753a179dbff5999bf31081446fcd4ee806966a38819e25fc7b0cec1e1db5c8"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 73,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.split_total",
+      "visibility": "public",
+      "header_end_line": 76,
+      "header_delimiter": ":=",
+      "header_lines": 4,
+      "header_text": "theorem split_total (empty : β) (combineRun : β → α → β → Measured β Nat)\n    (t : BinaryTree α) :\n    (splitRun empty combineRun t).2.1 + (splitRun empty combineRun t).2.2 =\n      (run 1 empty combineRun t).2\n",
+      "header_sha256": "1da8e54845c029d3d01fd778645a93d17860565b1b1b0586314c684b4243041b"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 79,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.append_sample_pair",
+      "visibility": "public",
+      "header_end_line": 80,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem append_sample_pair :\n    (splitRun [] TreeCacheExamples.appendStepRun TreeCacheExamples.sample).2 = (9, 6)\n",
+      "header_sha256": "7fdd24bf4ed481fd2dff8db1bf74c9708a1f2b83d4cf1327afc00a5c289f8cf5"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 91,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.cache_sample_pair",
+      "visibility": "public",
+      "header_end_line": 93,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem cache_sample_pair :\n    (splitRun .nil (TreeCache.nodeRun 0 TreeCacheExamples.sizeRun)\n      TreeCacheExamples.sample).2 = (9, 12)\n",
+      "header_sha256": "b3f0f03f0d9bcb624423c1057ca80ff72594344ead36c738868c821602c7bc1e"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 113,
+      "kind": "abbrev",
+      "name": "TreeFoldObservationExamples.Trace",
+      "visibility": "public",
+      "header_end_line": 113,
+      "header_delimiter": ":=",
+      "header_lines": 1,
+      "header_text": "abbrev Trace\n",
+      "header_sha256": "96fc903ac478486932ac9611e7ee7d644f132fe0451e0fb7619ae27292b52e5d"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 115,
+      "kind": "def",
+      "name": "TreeFoldObservationExamples.traceStep",
+      "visibility": "public",
+      "header_end_line": 115,
+      "header_delimiter": ":=",
+      "header_lines": 1,
+      "header_text": "def traceStep (l a r : Nat) : Measured Nat Trace\n",
+      "header_sha256": "c5e3bec28df93620d15795a4747acfb6730be2daccc4b49aaa9b94eb2c4aefd5"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 118,
+      "kind": "def",
+      "name": "TreeFoldObservationExamples.words",
+      "visibility": "public",
+      "header_end_line": 118,
+      "header_delimiter": ":=",
+      "header_lines": 1,
+      "header_text": "def words (w : Trace) : List Nat\n",
+      "header_sha256": "30a8e9b4d22ffde19414afdd2ab38e5f29231692ceb7d31af6637e6c80422720"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 120,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.trace_value",
+      "visibility": "public",
+      "header_end_line": 121,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem trace_value (entry : Trace) (t : BinaryTree Nat) :\n    (run entry 0 traceStep t).1 = t.numNodes\n",
+      "header_sha256": "a48da5334ccb287fb49e04525321de8b9ebade45bbe9aadc0c34f783b320cf9d"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 127,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.trace_node",
+      "visibility": "public",
+      "header_end_line": 130,
+      "header_delimiter": ":=",
+      "header_lines": 4,
+      "header_text": "theorem trace_node (entry : Trace) (a : Nat) (l r : BinaryTree Nat) :\n    words (run entry 0 traceStep (.node a l r)).2 =\n      (words (run entry 0 traceStep l).2 ++\n        (words (run entry 0 traceStep r).2 ++ [a])) ++ words entry\n",
+      "header_sha256": "9d59c362d535c518906ec4c247352549905ba65ccf3994a4038f706923e1451d"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 134,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.trace_sample",
+      "visibility": "public",
+      "header_end_line": 136,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem trace_sample :\n    (run (0 : Trace) 0 traceStep TreeCacheExamples.sample).1 = 4 ∧\n      words (run (0 : Trace) 0 traceStep TreeCacheExamples.sample).2 = [0, 2, 3, 1]\n",
+      "header_sha256": "192155c4ead21137a0a225d6853ffba41287d5ccf895b531895b37c0f41fc3fd"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 142,
+      "kind": "def",
+      "name": "TreeFoldObservationExamples.entryToken",
+      "visibility": "public",
+      "header_end_line": 142,
+      "header_delimiter": ":=",
+      "header_lines": 1,
+      "header_text": "def entryToken : Trace\n",
+      "header_sha256": "2080f2aa62210d774994d1a9fa21928748955198484646ef5fd4db88002d8e16"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 144,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.singleton_trace",
+      "visibility": "public",
+      "header_end_line": 145,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem singleton_trace :\n    words (run entryToken 0 traceStep (.node 1 .nil .nil)).2 = [0, 0, 1, 0]\n",
+      "header_sha256": "988a8ce5aeda46711a6fb2095a8b42d0c4dbe50cf31b5db15c86debdf5a7611c"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 149,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.collected_trace",
+      "visibility": "public",
+      "header_end_line": 151,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem collected_trace :\n    words ((run (0 : Trace) 0 traceStep (.node 1 .nil .nil)).2 + 3 • entryToken) =\n      [1, 0, 0, 0]\n",
+      "header_sha256": "907a700a48c4e653605caa9f868d84da1a7e5eab0c120f07e45294d4d87878b1"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 158,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.trace_not_collected",
+      "visibility": "public",
+      "header_end_line": 160,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem trace_not_collected :\n    (run entryToken 0 traceStep (.node 1 .nil .nil)).2 ≠\n      (run (0 : Trace) 0 traceStep (.node 1 .nil .nil)).2 + 3 • entryToken\n",
+      "header_sha256": "aa04d31c46edf824c0622f7216affd36c8867862ff11d2aff765f20fc6f45c36"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 167,
+      "kind": "def",
+      "name": "TreeFoldObservationExamples.resetStep",
+      "visibility": "public",
+      "header_end_line": 167,
+      "header_delimiter": ":=",
+      "header_lines": 1,
+      "header_text": "def resetStep (l : Nat) (_ : α) (r : Nat) : Measured Nat Nat\n",
+      "header_sha256": "4cb76d634df32904551e35bd104d2e829e854d7655ef2deee1c77aa258c9dee4"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 170,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.reset_value",
+      "visibility": "public",
+      "header_end_line": 171,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem reset_value (entry : Nat) (t : BinaryTree α) :\n    (run entry 0 resetStep t).1 = 0\n",
+      "header_sha256": "ec932d12b77732f95af5e55c39c2400ff80b3a374d2447d35c83fccaf34af733"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 175,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.reset_reached_cost",
+      "visibility": "public",
+      "header_end_line": 177,
+      "header_delimiter": ":=",
+      "header_lines": 3,
+      "header_text": "theorem reset_reached_cost (entry : Nat) (l : BinaryTree α) (a : α)\n    (r : BinaryTree α) :\n    (resetStep (run entry 0 resetStep l).1 a (run entry 0 resetStep r).1).2 = 0\n",
+      "header_sha256": "0c6f5eca321e674d99419be95ee8acf89eabf81ad11b5439cd5592bc4e77d6ba"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 183,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.reset_cost",
+      "visibility": "public",
+      "header_end_line": 184,
+      "header_delimiter": ":=",
+      "header_lines": 2,
+      "header_text": "theorem reset_cost (entry : Nat) (t : BinaryTree α) :\n    (run entry 0 resetStep t).2 = entry * (2 * t.numNodes + 1)\n",
+      "header_sha256": "ec2aa296fa118c3c960012f43616f16364cba83d07762ef7344138a2fb75ead1"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 191,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.reset_unreachable",
+      "visibility": "public",
+      "header_end_line": 191,
+      "header_delimiter": ":=",
+      "header_lines": 1,
+      "header_text": "theorem reset_unreachable (a : α) : (resetStep 1 a 0).2 = 7\n",
+      "header_sha256": "e37aaf8d93fded92b8fbe4347e0f409a82c496168eed0253ee83b7fe34c5d80c"
+    },
+    {
+      "source": "Examples/TreeFoldObservations.lean",
+      "line": 193,
+      "kind": "theorem",
+      "name": "TreeFoldObservationExamples.reset_not_global",
+      "visibility": "public",
+      "header_end_line": 193,
+      "header_delimiter": ":=",
+      "header_lines": 1,
+      "header_text": "theorem reset_not_global (a : α) : ¬ ∀ l r, (resetStep l a r).2 = 0\n",
+      "header_sha256": "82330e02da1aa38fa27def321698b79c2b9113dac5445fcffb5453cc9c6510ce"
+    }
+  ],
+  "inventory_totals": {
+    "public": 88,
+    "theorems": 77,
+    "definitions": 10,
+    "abbreviations": 1,
+    "private_named": 0,
+    "instances": 0,
+    "anonymous_examples": 0,
+    "actual_public_types_read": 0
+  },
+  "header_convention": "Source prefix excluding :=; trim trailing line/header whitespace; one terminal LF; preserve internal indentation. Not elaborated types.",
+  "read_boundaries": {
+    "new_Lean": {
+      "Applications/Resources/TreeFold.lean": [
+        [
+          1,
+          175
+        ]
+      ],
+      "Examples/TreeFold.lean": [
+        [
+          1,
+          161
+        ]
+      ],
+      "Examples/TreeFoldCache.lean": [
+        [
+          1,
+          164
+        ]
+      ],
+      "Examples/TreeFoldObservations.lean": [
+        [
+          1,
+          198
+        ]
+      ]
+    },
+    "new_note": [
+      [
+        1,
+        249
+      ]
+    ],
+    "root_and_map": "Complete new hunks; unchanged bodies retained from exact full XT01 source assessment at B, no fresh whole-file claim.",
+    "controls": [
+      {
+        "path": "tickets/FDSA-XT03.md",
+        "bytes": 3933,
+        "lines": 72,
+        "sha256": "a0e11f2b9428fec82004563e0f41b85a5cf8da49a7314f0b243ebd19d8c9dbb0",
+        "read": "complete"
+      },
+      {
+        "path": "reviews/tree-fold-resource-requirements.md",
+        "bytes": 15461,
+        "lines": 288,
+        "sha256": "0a83c0b87873c33f2d5bf5aeef655ae4ab2957bb4100202164b217363ed8fcf8",
+        "read": "complete"
+      },
+      {
+        "path": "reviews/tree-fold-resource-start.md",
+        "bytes": 2857,
+        "lines": 49,
+        "sha256": "d05754925cc4c2ddf70a84a6a9448ae02641849ebad03c089a140575b2a6ed51",
+        "read": "complete"
+      },
+      {
+        "path": "reviews/tree-fold-resource-start.json",
+        "bytes": 566,
+        "lines": 10,
+        "sha256": "02b4c3e0ae0d7889e0b3a9dfef9776b9d3fe89cf795c138f0ee310396940f985",
+        "read": "complete"
+      },
+      {
+        "path": "reviews/tree-fold-resource-candidate.md",
+        "bytes": 6530,
+        "lines": 111,
+        "sha256": "5ffffd02c8c869c43f01d2a64fef954fdd78f21c148637210f4ea099b7f6048e",
+        "read": "complete"
+      },
+      {
+        "path": "reviews/tree-fold-resource-source-identities.json",
+        "bytes": 1570,
+        "lines": 51,
+        "sha256": "990c46f205118ce0191baccda75f1621cc34ffb245f2051ddc7dfa6943907258",
+        "read": "complete"
+      },
+      {
+        "path": "reviews/tree-fold-resource-source-preflight.md",
+        "bytes": 18904,
+        "lines": 375,
+        "sha256": "54f32efab196f02db5dbc252e340bcdd184f072fc9a610df4aaf46f1d6bd71d6",
+        "read": "complete"
+      },
+      {
+        "path": "research/tree-fold-resource-source-preflight.md",
+        "bytes": 20979,
+        "lines": 342,
+        "sha256": "862b45b860fdc3b4e1ccd5168761bb6384008c5f93e3cef92ca44d82d0ca6c8d",
+        "read": "complete"
+      },
+      {
+        "path": "research/tree-fold-resource-api-preflight.md",
+        "bytes": 28516,
+        "lines": 351,
+        "sha256": "86792205c6116383d7214e96866428c6bbfa984b4aea06c7ddc5143d6c7ef7d2",
+        "read": "complete"
+      },
+      {
+        "path": "research/tree-fold-resource-case-preflight.md",
+        "bytes": 11869,
+        "lines": 276,
+        "sha256": "42843c8a4d9dcaeee95ef8e0c6a0ac0a11c6f7b44b0e737a82e5bd3c14926497",
+        "read": "complete"
+      },
+      {
+        "path": "reviews/tree-fold-source-preflight-snapshot.json",
+        "bytes": 885,
+        "lines": 30,
+        "sha256": "3969546f7d9c68717734832acf119899d335d5823af19be97599f5705cb21599",
+        "read": "complete"
+      },
+      {
+        "path": "reviews/tree-fold-preflight-snapshots/DOC01-identities.json",
+        "bytes": 555,
+        "lines": 14,
+        "sha256": "f58ea847f64044cd03b79777f250a017a7a84d528a89156d95538a294169e7a6",
+        "read": "complete"
+      }
+    ],
+    "guidance_retained": [
+      {
+        "path": "AGENTS.md",
+        "bytes": 3118,
+        "lines": 76,
+        "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+        "git_blob": "1b1e65502f0b0771b2475e3b1f37e39d7f18d0c2",
+        "read": "complete prior same-reviewer read retained by exact identity; no new full read claimed"
+      },
+      {
+        "path": "docs/agents/architectural-quality.md",
+        "bytes": 3876,
+        "lines": 66,
+        "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+        "git_blob": "bfcdb4a22899e11ba61b67d068d380ef5ea69f9f",
+        "read": "complete prior same-reviewer read retained by exact identity; no new full read claimed"
+      },
+      {
+        "path": "docs/agents/domain.md",
+        "bytes": 926,
+        "lines": 27,
+        "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+        "git_blob": "c26859ec35e14a9051d84066b3b5315aad67ee8b",
+        "read": "complete prior same-reviewer read retained by exact identity; no new full read claimed"
+      },
+      {
+        "path": ".agents/skills/code-review/SKILL.md",
+        "bytes": 7466,
+        "lines": 133,
+        "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+        "git_blob": "8b79f5e9db43d028f2b9a252d907b9b9b02feb01",
+        "read": "complete prior same-reviewer read retained by exact identity; no new full read claimed"
+      },
+      {
+        "path": ".agents/skills/example-driven-development/SKILL.md",
+        "bytes": 6991,
+        "lines": 116,
+        "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+        "git_blob": "8f279691ee250a713f7cd70f7c37c5d581ead152",
+        "read": "complete prior same-reviewer read retained by exact identity; no new full read claimed"
+      },
+      {
+        "path": ".agents/skills/implement/SKILL.md",
+        "bytes": 4997,
+        "lines": 83,
+        "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+        "git_blob": "45b885f90c1ce212e45fbb30727322e4eb34bcd8",
+        "read": "complete prior same-reviewer read retained by exact identity; no new full read claimed"
+      },
+      {
+        "path": "docs/agents/review-loop.md",
+        "bytes": 7113,
+        "lines": 115,
+        "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+        "git_blob": "6c4724d8b5dde60c55543e73414873a5f355d165",
+        "read": "complete prior same-reviewer read retained by exact identity; no new full read claimed"
+      }
+    ],
+    "local_inputs_fresh_complete": [
+      {
+        "path": "Applications/Resources/Measured.lean",
+        "bytes": 2906,
+        "lines": 71,
+        "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+        "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+        "read_ranges": [
+          [
+            1,
+            71
+          ]
+        ]
+      },
+      {
+        "path": "Applications/Resources/CallCount.lean",
+        "bytes": 2447,
+        "lines": 58,
+        "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+        "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+        "read_ranges": [
+          [
+            1,
+            58
+          ]
+        ]
+      },
+      {
+        "path": "Applications/Resources/ListReversal.lean",
+        "bytes": 4827,
+        "lines": 116,
+        "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+        "git_blob": "62ab85a7325d521bf925405f9abb053703f4d175",
+        "read_ranges": [
+          [
+            1,
+            116
+          ]
+        ]
+      },
+      {
+        "path": "Applications/Resources/TreeCache.lean",
+        "bytes": 3877,
+        "lines": 80,
+        "sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6",
+        "git_blob": "d97a2c738960b893b733687c4f3d713f5edb0dc6",
+        "read_ranges": [
+          [
+            1,
+            80
+          ]
+        ]
+      }
+    ],
+    "local_inputs_retained_complete": [
+      {
+        "path": "Applications/Trees/Observations.lean",
+        "bytes": 4119,
+        "lines": 107,
+        "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+        "git_blob": "f90fbe8c85b9c88f760236d48129bd2b4c4d7e71",
+        "read": "full earlier same-reviewer read retained; exact C=B source"
+      },
+      {
+        "path": "Applications/Trees/Cached.lean",
+        "bytes": 5668,
+        "lines": 135,
+        "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+        "git_blob": "c301ca85e555a8c5bb3c9db10459446121bc6613",
+        "read": "full earlier same-reviewer read retained; exact C=B source"
+      },
+      {
+        "path": "Examples/TreeCache.lean",
+        "bytes": 16307,
+        "lines": 363,
+        "sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+        "git_blob": "d142e853381de3b7d294d3c023c32d53e2756d5c",
+        "read": "full earlier same-reviewer read retained; exact C=B source"
+      }
+    ],
+    "pinned_apis": [
+      {
+        "path": "Mathlib/Algebra/FreeMonoid/Basic.lean",
+        "bytes": 19259,
+        "lines": 499,
+        "sha256": "82573d5b6f5968524f3c9c84ed91fd6a3f5eb222434789e6a2de7145c870e2a9",
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "read_ranges": [
+          [
+            53,
+            151
+          ]
+        ],
+        "whole_file_read_claimed": false
+      },
+      {
+        "path": "Mathlib/Algebra/Group/TypeTags/Basic.lean",
+        "bytes": 18812,
+        "lines": 530,
+        "sha256": "eacdf256d38ddbe5c16b7fc7611613ce7b29f7d8b9320facccc46517bf88f31c",
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "read_ranges": [
+          [
+            110,
+            179
+          ],
+          [
+            220,
+            240
+          ],
+          [
+            269,
+            289
+          ]
+        ],
+        "whole_file_read_claimed": false
+      },
+      {
+        "path": "Mathlib/Algebra/Group/Prod.lean",
+        "bytes": 24128,
+        "lines": 685,
+        "sha256": "bb816f922f2b8a8e708535000b340445629bbc6aa960995bca1702fde086133f",
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "read_ranges": [
+          [
+            321,
+            403
+          ]
+        ],
+        "whole_file_read_claimed": false
+      },
+      {
+        "path": "Mathlib/Algebra/Group/Hom/Basic.lean",
+        "bytes": 12140,
+        "lines": 316,
+        "sha256": "ba508cf5f216d0765dd9fe01866361a4b3acfe51ada9b6211e9e4a4714c1847c",
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "read_ranges": [
+          [
+            171,
+            254
+          ]
+        ],
+        "whole_file_read_claimed": false
+      },
+      {
+        "path": "Mathlib/Tactic/ErwQuestion.lean",
+        "bytes": 6504,
+        "lines": 151,
+        "sha256": "b4a29bb9dcbcfd5be1e296f328ed7d9f01c05961cd644f51ab27f87e9cc5df92",
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "read_ranges": [
+          [
+            1,
+            100
+          ]
+        ],
+        "whole_file_read_claimed": false
+      }
+    ],
+    "truncated_locator": "One broad API locator output truncated inside irrelevant locator results. No omitted locator span credited; exact relied-upon APIs subsequently fully read in bounded recorded source ranges."
+  },
+  "retained_XT01_records": [
+    {
+      "path": "reviews/binary-tree-cache-spec-preparation-20261104.md",
+      "bytes": 21429,
+      "lines": 127,
+      "sha256": "c54206bcb23cf96bc0968c2bc4f84ed2166ee6f257c4a1d952f5c578418d3432"
+    },
+    {
+      "path": "provenance/binary-tree-cache-spec-preparation-20261104/source-assessment.json",
+      "bytes": 174553,
+      "lines": 4034,
+      "sha256": "e29d75b66949c9bbaabe9ae34e8305057af6015cde693695ee8085d73c811995"
+    },
+    {
+      "path": "provenance/binary-tree-cache-spec-preparation-20261104/current-boundary.json",
+      "bytes": 5903,
+      "lines": 165,
+      "sha256": "4fb09215888ddfca8eff2e9b84d84c959ee9d7873ff257b644105a55d27d66d4"
+    }
+  ],
+  "primary_source": {
+    "pdf": {
+      "path": "research-source/functional_data_structures_algorithms.pdf",
+      "bytes": 1742029,
+      "lines": 17632,
+      "sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645"
+    },
+    "text": {
+      "path": "research-source/book.txt",
+      "bytes": 719122,
+      "lines": 14906,
+      "sha256": "7e5c0b4e157d28d303cc6248746aa63e1415445fa79f3556ff95ac1bf6b17333"
+    },
+    "printed_pages_fully_read": [
+      5,
+      6,
+      7,
+      8,
+      48,
+      49,
+      56,
+      57,
+      58,
+      116,
+      132,
+      133,
+      134,
+      347,
+      348,
+      349,
+      350
+    ],
+    "physical_page_offset": 6,
+    "new_visual_render_or_read": false,
+    "Isabelle_revision": "f86f290225eebcc52c1ae7dba2e098f405f51c21",
+    "Isabelle_boundary": "Attributed complete preflight evidence retained; no fresh full theory read/rebuild or manuscript-build-revision claim; not a Lean dependency."
+  },
+  "static_source_closure": {
+    "root": "Examples.TreeFoldObservations",
+    "local_sources": {
+      "Examples/TreeFoldObservations.lean": {
+        "path": "Examples/TreeFoldObservations.lean",
+        "bytes": 8654,
+        "lines": 198,
+        "sha256": "3aeb7f02113c8e858c433a61981d9cea7b4cf8a332d23dac136ce309f33a86be",
+        "git_blob": "cc70b9d0db6c9c54f4c2446093765bb007d35217",
+        "unchanged_from_B": false
+      },
+      "Examples/TreeFoldCache.lean": {
+        "path": "Examples/TreeFoldCache.lean",
+        "bytes": 7743,
+        "lines": 164,
+        "sha256": "9a98b200ab681ca7fa0cdf791a21f364654dc43dfa386911fb9ad4cf515123f7",
+        "git_blob": "ed6f64ed9d6a33ac6182057aa9fca8af9169ff9a",
+        "unchanged_from_B": false
+      },
+      "Examples/TreeFold.lean": {
+        "path": "Examples/TreeFold.lean",
+        "bytes": 7437,
+        "lines": 161,
+        "sha256": "45e193ade4f0a98d8aed86b812c8ee22c5cd9e1e74a5a41e832bf7d87bc48d9c",
+        "git_blob": "44cc3195f016a1a8e74d6bc09db2f9ac0d0d2985",
+        "unchanged_from_B": false
+      },
+      "Applications/Resources/TreeFold.lean": {
+        "path": "Applications/Resources/TreeFold.lean",
+        "bytes": 8347,
+        "lines": 175,
+        "sha256": "bf2acc856e73949ce09434abffbd952fb6cc583ca2342b11b8dd4230bd259dcc",
+        "git_blob": "442f0b1e3bc3c8919cb7cfd3476f9e76182a880c",
+        "unchanged_from_B": false
+      },
+      "Applications/Trees/Observations.lean": {
+        "path": "Applications/Trees/Observations.lean",
+        "bytes": 4119,
+        "lines": 107,
+        "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+        "git_blob": "f90fbe8c85b9c88f760236d48129bd2b4c4d7e71",
+        "unchanged_from_B": true
+      },
+      "Applications/Resources/CallCount.lean": {
+        "path": "Applications/Resources/CallCount.lean",
+        "bytes": 2447,
+        "lines": 58,
+        "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+        "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+        "unchanged_from_B": true
+      },
+      "Applications/Resources/Measured.lean": {
+        "path": "Applications/Resources/Measured.lean",
+        "bytes": 2906,
+        "lines": 71,
+        "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+        "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+        "unchanged_from_B": true
+      },
+      "Squares.lean": {
+        "path": "Squares.lean",
+        "bytes": 11694,
+        "lines": 352,
+        "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+        "git_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+        "unchanged_from_B": true
+      },
+      "Examples/TreeCache.lean": {
+        "path": "Examples/TreeCache.lean",
+        "bytes": 16307,
+        "lines": 363,
+        "sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754",
+        "git_blob": "d142e853381de3b7d294d3c023c32d53e2756d5c",
+        "unchanged_from_B": true
+      },
+      "Applications/Trees/Cached.lean": {
+        "path": "Applications/Trees/Cached.lean",
+        "bytes": 5668,
+        "lines": 135,
+        "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+        "git_blob": "c301ca85e555a8c5bb3c9db10459446121bc6613",
+        "unchanged_from_B": true
+      },
+      "Applications/Resources/TreeCache.lean": {
+        "path": "Applications/Resources/TreeCache.lean",
+        "bytes": 3877,
+        "lines": 80,
+        "sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6",
+        "git_blob": "d97a2c738960b893b733687c4f3d713f5edb0dc6",
+        "unchanged_from_B": true
+      },
+      "Applications/Resources/ListReversal.lean": {
+        "path": "Applications/Resources/ListReversal.lean",
+        "bytes": 4827,
+        "lines": 116,
+        "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+        "git_blob": "62ab85a7325d521bf925405f9abb053703f4d175",
+        "unchanged_from_B": true
+      },
+      "Applications/Resources/SymmetricCosts.lean": {
+        "path": "Applications/Resources/SymmetricCosts.lean",
+        "bytes": 10508,
+        "lines": 281,
+        "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+        "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+        "unchanged_from_B": true
+      },
+      "Applications/Resources/Potential.lean": {
+        "path": "Applications/Resources/Potential.lean",
+        "bytes": 4638,
+        "lines": 108,
+        "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe",
+        "git_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+        "unchanged_from_B": true
+      },
+      "Applications/Resources/Workload.lean": {
+        "path": "Applications/Resources/Workload.lean",
+        "bytes": 2745,
+        "lines": 64,
+        "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+        "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+        "unchanged_from_B": true
+      },
+      "SquareKit/ListFusion.lean": {
+        "path": "SquareKit/ListFusion.lean",
+        "bytes": 2939,
+        "lines": 73,
+        "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+        "git_blob": "33ec447acb6da7b884ae57d2a885707208201607",
+        "unchanged_from_B": true
+      },
+      "Applications/Sequences/Symmetric/Core.lean": {
+        "path": "Applications/Sequences/Symmetric/Core.lean",
+        "bytes": 12059,
+        "lines": 362,
+        "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+        "git_blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4",
+        "unchanged_from_B": true
+      },
+      "Applications/Resources/TreeFlattening/Core.lean": {
+        "path": "Applications/Resources/TreeFlattening/Core.lean",
+        "bytes": 4225,
+        "lines": 116,
+        "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+        "git_blob": "d136193bd3823ee00431bc240d1e7a0168b4ddaf",
+        "unchanged_from_B": true
+      },
+      "Applications/Resources/RandomAccess/CacheCosts.lean": {
+        "path": "Applications/Resources/RandomAccess/CacheCosts.lean",
+        "bytes": 2227,
+        "lines": 61,
+        "sha256": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+        "git_blob": "e583ec5285ea887c38f4b369071408697f0574b2",
+        "unchanged_from_B": true
+      },
+      "Applications/Sequences/RandomAccess/TreeBuild.lean": {
+        "path": "Applications/Sequences/RandomAccess/TreeBuild.lean",
+        "bytes": 5392,
+        "lines": 139,
+        "sha256": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+        "git_blob": "3b662705f001c2a4b8fbe12868d6c7e77316d95f",
+        "unchanged_from_B": true
+      },
+      "Applications/Sequences/RandomAccess/Borrow.lean": {
+        "path": "Applications/Sequences/RandomAccess/Borrow.lean",
+        "bytes": 5680,
+        "lines": 145,
+        "sha256": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+        "git_blob": "81b95e8bd4a6e30f6a20a85828409d6d55437be0",
+        "unchanged_from_B": true
+      },
+      "Applications/Sequences/RandomAccess/Access.lean": {
+        "path": "Applications/Sequences/RandomAccess/Access.lean",
+        "bytes": 5219,
+        "lines": 141,
+        "sha256": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+        "git_blob": "5354c146a0665cce90ffc996d1b522b8a59079ad",
+        "unchanged_from_B": true
+      },
+      "Applications/Sequences/RandomAccess/Basic.lean": {
+        "path": "Applications/Sequences/RandomAccess/Basic.lean",
+        "bytes": 5970,
+        "lines": 180,
+        "sha256": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+        "git_blob": "fe040b71615878a86d06b326b820e1d5cd5f0229",
+        "unchanged_from_B": true
+      },
+      "Applications/Bracketing/Basic.lean": {
+        "path": "Applications/Bracketing/Basic.lean",
+        "bytes": 8561,
+        "lines": 243,
+        "sha256": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+        "git_blob": "3f6604c226908ee807c7d5076bd1c027b48bbf90",
+        "unchanged_from_B": true
+      },
+      "Applications/Optimization/SelectionSpec.lean": {
+        "path": "Applications/Optimization/SelectionSpec.lean",
+        "bytes": 738,
+        "lines": 18,
+        "sha256": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+        "git_blob": "2548b66575b5a453e8cec30ceb745234bb0ae2e6",
+        "unchanged_from_B": true
+      },
+      "Applications/Sequences/OrderedSummary.lean": {
+        "path": "Applications/Sequences/OrderedSummary.lean",
+        "bytes": 8765,
+        "lines": 190,
+        "sha256": "d484e6c34f4ebace4ba121f931eba53a86f34a3c4b69e06d9d0b24ae8c8c7261",
+        "git_blob": "93509e2e97acd47dcd68a109ea8d18ef1d612b57",
+        "unchanged_from_B": true
+      },
+      "SquareKit/Relations.lean": {
+        "path": "SquareKit/Relations.lean",
+        "bytes": 5615,
+        "lines": 163,
+        "sha256": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03",
+        "git_blob": "cdfa81e8f94728272a5c72da21ae2e4f5a5febc4",
+        "unchanged_from_B": true
+      },
+      "Applications/Sequences/Symmetric/Observation.lean": {
+        "path": "Applications/Sequences/Symmetric/Observation.lean",
+        "bytes": 3425,
+        "lines": 88,
+        "sha256": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557",
+        "git_blob": "846aba846bfcfa04867cc221043609f9198b0ec0",
+        "unchanged_from_B": true
+      },
+      "Applications/Sequences/Symmetric/Finite.lean": {
+        "path": "Applications/Sequences/Symmetric/Finite.lean",
+        "bytes": 4923,
+        "lines": 119,
+        "sha256": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490",
+        "git_blob": "fedbcc0dfa4c7865ef2ee73f395155d45e33dbe5",
+        "unchanged_from_B": true
+      },
+      "Applications/Sequences/Symmetric/Prefixes.lean": {
+        "path": "Applications/Sequences/Symmetric/Prefixes.lean",
+        "bytes": 4345,
+        "lines": 114,
+        "sha256": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308",
+        "git_blob": "b73854f69696abe7cf827372ad070b6e9dc19991",
+        "unchanged_from_B": true
+      }
+    },
+    "external_imports": [
+      "Batteries.Data.DList.Lemmas",
+      "Lean",
+      "Mathlib.Algebra.FreeMonoid.Basic",
+      "Mathlib.Algebra.Group.Nat.Defs",
+      "Mathlib.Algebra.Group.Prod",
+      "Mathlib.Algebra.Group.TypeTags.Basic",
+      "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+      "Mathlib.Data.List.Basic",
+      "Mathlib.Data.List.Infix",
+      "Mathlib.Data.Tree.Basic",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.Ring",
+      "Std"
+    ],
+    "edges": [
+      [
+        "Examples.TreeFoldObservations",
+        "Examples.TreeFoldCache"
+      ],
+      [
+        "Examples.TreeFoldCache",
+        "Examples.TreeFold"
+      ],
+      [
+        "Examples.TreeFold",
+        "Applications.Resources.TreeFold"
+      ],
+      [
+        "Applications.Resources.TreeFold",
+        "Applications.Trees.Observations"
+      ],
+      [
+        "Applications.Trees.Observations",
+        "Mathlib.Data.Tree.Basic"
+      ],
+      [
+        "Applications.Trees.Observations",
+        "Mathlib.Data.List.Basic"
+      ],
+      [
+        "Applications.Resources.TreeFold",
+        "Applications.Resources.CallCount"
+      ],
+      [
+        "Applications.Resources.CallCount",
+        "Applications.Resources.Measured"
+      ],
+      [
+        "Applications.Resources.Measured",
+        "Mathlib.Algebra.Group.Prod"
+      ],
+      [
+        "Applications.Resources.Measured",
+        "Mathlib.Algebra.Order.Monoid.Unbundled.Basic"
+      ],
+      [
+        "Applications.Resources.Measured",
+        "Squares"
+      ],
+      [
+        "Squares",
+        "Lean"
+      ],
+      [
+        "Applications.Resources.TreeFold",
+        "Mathlib.Tactic.Ring"
+      ],
+      [
+        "Examples.TreeFold",
+        "Examples.TreeCache"
+      ],
+      [
+        "Examples.TreeCache",
+        "Applications.Trees.Cached"
+      ],
+      [
+        "Applications.Trees.Cached",
+        "Applications.Trees.Observations"
+      ],
+      [
+        "Examples.TreeCache",
+        "Applications.Resources.TreeCache"
+      ],
+      [
+        "Applications.Resources.TreeCache",
+        "Applications.Trees.Cached"
+      ],
+      [
+        "Applications.Resources.TreeCache",
+        "Applications.Resources.CallCount"
+      ],
+      [
+        "Examples.TreeCache",
+        "Applications.Resources.ListReversal"
+      ],
+      [
+        "Applications.Resources.ListReversal",
+        "Applications.Resources.CallCount"
+      ],
+      [
+        "Applications.Resources.ListReversal",
+        "Applications.Resources.SymmetricCosts"
+      ],
+      [
+        "Applications.Resources.SymmetricCosts",
+        "Applications.Resources.Potential"
+      ],
+      [
+        "Applications.Resources.Potential",
+        "Applications.Resources.Workload"
+      ],
+      [
+        "Applications.Resources.Workload",
+        "Applications.Resources.Measured"
+      ],
+      [
+        "Applications.Resources.Workload",
+        "SquareKit.ListFusion"
+      ],
+      [
+        "SquareKit.ListFusion",
+        "Mathlib.Data.List.Basic"
+      ],
+      [
+        "Applications.Resources.Potential",
+        "Mathlib.Algebra.Group.Nat.Defs"
+      ],
+      [
+        "Applications.Resources.SymmetricCosts",
+        "Applications.Sequences.Symmetric.Core"
+      ],
+      [
+        "Applications.Sequences.Symmetric.Core",
+        "SquareKit.ListFusion"
+      ],
+      [
+        "Applications.Sequences.Symmetric.Core",
+        "Mathlib.Data.List.Infix"
+      ],
+      [
+        "Applications.Resources.ListReversal",
+        "Applications.Resources.TreeFlattening.Core"
+      ],
+      [
+        "Applications.Resources.TreeFlattening.Core",
+        "Applications.Resources.RandomAccess.CacheCosts"
+      ],
+      [
+        "Applications.Resources.RandomAccess.CacheCosts",
+        "Applications.Sequences.RandomAccess.TreeBuild"
+      ],
+      [
+        "Applications.Sequences.RandomAccess.TreeBuild",
+        "Applications.Sequences.RandomAccess.Borrow"
+      ],
+      [
+        "Applications.Sequences.RandomAccess.Borrow",
+        "Applications.Sequences.RandomAccess.Access"
+      ],
+      [
+        "Applications.Sequences.RandomAccess.Access",
+        "Applications.Sequences.RandomAccess.Basic"
+      ],
+      [
+        "Applications.Sequences.RandomAccess.Basic",
+        "Applications.Bracketing.Basic"
+      ],
+      [
+        "Applications.Bracketing.Basic",
+        "Applications.Optimization.SelectionSpec"
+      ],
+      [
+        "Applications.Optimization.SelectionSpec",
+        "Std"
+      ],
+      [
+        "Applications.Resources.TreeFlattening.Core",
+        "Applications.Resources.Measured"
+      ],
+      [
+        "Applications.Resources.ListReversal",
+        "Mathlib.Tactic.Linarith"
+      ],
+      [
+        "Examples.TreeCache",
+        "Applications.Sequences.OrderedSummary"
+      ],
+      [
+        "Applications.Sequences.OrderedSummary",
+        "Mathlib.Algebra.FreeMonoid.Basic"
+      ],
+      [
+        "Applications.Sequences.OrderedSummary",
+        "Mathlib.Algebra.Group.Prod"
+      ],
+      [
+        "Applications.Sequences.OrderedSummary",
+        "Mathlib.Algebra.Group.TypeTags.Basic"
+      ],
+      [
+        "Applications.Sequences.OrderedSummary",
+        "Batteries.Data.DList.Lemmas"
+      ],
+      [
+        "Applications.Sequences.OrderedSummary",
+        "SquareKit.Relations"
+      ],
+      [
+        "SquareKit.Relations",
+        "Squares"
+      ],
+      [
+        "Applications.Sequences.OrderedSummary",
+        "SquareKit.ListFusion"
+      ],
+      [
+        "Applications.Sequences.OrderedSummary",
+        "Applications.Sequences.Symmetric.Observation"
+      ],
+      [
+        "Applications.Sequences.Symmetric.Observation",
+        "Applications.Sequences.Symmetric.Finite"
+      ],
+      [
+        "Applications.Sequences.Symmetric.Finite",
+        "Applications.Sequences.Symmetric.Prefixes"
+      ],
+      [
+        "Applications.Sequences.Symmetric.Prefixes",
+        "Applications.Sequences.Symmetric.Core"
+      ],
+      [
+        "Applications.Sequences.Symmetric.Observation",
+        "SquareKit.Relations"
+      ],
+      [
+        "Examples.TreeFoldObservations",
+        "Mathlib.Algebra.Group.TypeTags.Basic"
+      ]
+    ],
+    "counts": {
+      "local": 30,
+      "external": 13,
+      "edges": 56,
+      "new": 4,
+      "unchanged_from_B": 26
+    },
+    "runtime_or_objects_observed": false
+  },
+  "configs": [
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "git_blob": "a6aff065db2882c535684f8c5bcd4f16e9a23915",
+      "unchanged_from_B": true
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "git_blob": "0452762ecb2bb5e0d0f7db0b128b0af581febb87",
+      "unchanged_from_B": true
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 444,
+      "lines": 13,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "git_blob": "6c6da60ea34d0f4dbfb46fd68a02934368f66a82",
+      "unchanged_from_B": true
+    }
+  ],
+  "future_actual_public_surface": [
+    "Resources.TreeFold.run",
+    "Resources.TreeFold.run_nil",
+    "Resources.TreeFold.run_node",
+    "Resources.TreeFold.run_node_cost",
+    "Resources.TreeFold.run_node_tick",
+    "Resources.TreeFold.run_map",
+    "Resources.TreeFold.run_value",
+    "Resources.TreeFold.run_value_entry",
+    "Resources.TreeFold.run_value_of",
+    "Resources.TreeFold.reweight_run",
+    "Resources.TreeFold.run_cost_entry",
+    "Resources.TreeFold.structural_le_cost",
+    "Resources.TreeFold.run_cost_const",
+    "Resources.TreeFold.run_cost_le",
+    "TreeFoldExamples.size_value",
+    "TreeFoldExamples.height_value",
+    "TreeFoldExamples.size_cost",
+    "TreeFoldExamples.height_cost",
+    "TreeFoldExamples.empty_run",
+    "TreeFoldExamples.empty_primitives",
+    "TreeFoldExamples.rightStepRun",
+    "TreeFoldExamples.leftStepRun",
+    "TreeFoldExamples.single_step_value",
+    "TreeFoldExamples.right_step_value",
+    "TreeFoldExamples.left_step_value",
+    "TreeFoldExamples.single_step_cost",
+    "TreeFoldExamples.right_step_cost",
+    "TreeFoldExamples.left_step_cost",
+    "TreeFoldExamples.single_value",
+    "TreeFoldExamples.right_value",
+    "TreeFoldExamples.left_value",
+    "TreeFoldExamples.single_node_cost",
+    "TreeFoldExamples.right_node_cost",
+    "TreeFoldExamples.left_node_cost",
+    "TreeFoldExamples.nil_work",
+    "TreeFoldExamples.singleton_work",
+    "TreeFoldExamples.single_sample",
+    "TreeFoldExamples.right_sample",
+    "TreeFoldExamples.left_sample",
+    "TreeFoldExamples.same_inorder_different_work",
+    "TreeFoldCacheExamples.annotateRun",
+    "TreeFoldCacheExamples.annotate_value",
+    "TreeFoldCacheExamples.annotate_valid",
+    "TreeFoldCacheExamples.annotate_erases",
+    "TreeFoldCacheExamples.annotate_read",
+    "TreeFoldCacheExamples.size_cost",
+    "TreeFoldCacheExamples.height_cost",
+    "TreeFoldCacheExamples.size_cost_one",
+    "TreeFoldCacheExamples.height_cost_one",
+    "TreeFoldCacheExamples.size_read",
+    "TreeFoldCacheExamples.height_read",
+    "TreeFoldCacheExamples.size_sample_value",
+    "TreeFoldCacheExamples.height_sample_value",
+    "TreeFoldCacheExamples.size_sample",
+    "TreeFoldCacheExamples.height_sample",
+    "TreeFoldCacheExamples.list_value",
+    "TreeFoldCacheExamples.list_read",
+    "TreeFoldCacheExamples.list_nil_cost",
+    "TreeFoldCacheExamples.list_node_cost",
+    "TreeFoldCacheExamples.list_sample_work",
+    "TreeFoldCacheExamples.list_sample_read",
+    "TreeFoldCacheExamples.empty_annotation",
+    "TreeFoldObservationExamples.splitRun",
+    "TreeFoldObservationExamples.total",
+    "TreeFoldObservationExamples.split_first_run",
+    "TreeFoldObservationExamples.split_second_run",
+    "TreeFoldObservationExamples.split_total_run",
+    "TreeFoldObservationExamples.split_structural",
+    "TreeFoldObservationExamples.split_work",
+    "TreeFoldObservationExamples.split_total",
+    "TreeFoldObservationExamples.append_sample_pair",
+    "TreeFoldObservationExamples.cache_sample_pair",
+    "TreeFoldObservationExamples.Trace",
+    "TreeFoldObservationExamples.traceStep",
+    "TreeFoldObservationExamples.words",
+    "TreeFoldObservationExamples.trace_value",
+    "TreeFoldObservationExamples.trace_node",
+    "TreeFoldObservationExamples.trace_sample",
+    "TreeFoldObservationExamples.entryToken",
+    "TreeFoldObservationExamples.singleton_trace",
+    "TreeFoldObservationExamples.collected_trace",
+    "TreeFoldObservationExamples.trace_not_collected",
+    "TreeFoldObservationExamples.resetStep",
+    "TreeFoldObservationExamples.reset_value",
+    "TreeFoldObservationExamples.reset_reached_cost",
+    "TreeFoldObservationExamples.reset_cost",
+    "TreeFoldObservationExamples.reset_unreachable",
+    "TreeFoldObservationExamples.reset_not_global"
+  ],
+  "all_actual_credit_zero": true,
+  "overall": "Blocked",
+  "gates": {
+    "XT01": "Accepted prerequisite still pending; XT02 not required",
+    "history": "Preserve original B/C/seven-path scope and both findings on integration",
+    "actual_types": "All88 qualified complete types pending",
+    "compiler_full_audit": "Pending",
+    "both_final_axes": "Pending",
+    "immediate_verify": "Coordinator after approved candidate; pending"
+  },
+  "mutations": {
+    "only_new_own_report_provenance": true,
+    "source_refs_pins_cache_runtime_outputs_processes": false,
+    "earlier_reports_tickets_global_controls": false
+  },
+  "report": {
+    "path": "reviews/tree-fold-resource-spec-preparation-20261104.md",
+    "bytes": 18729,
+    "lines": 89,
+    "sha256": "7ecce038e40d8ab9f84f44b6a28eb04f2927b6b268bf4e06ddb1a52ab07b63c3"
+  }
+}

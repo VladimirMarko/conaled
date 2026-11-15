@@ -1,0 +1,160 @@
+{
+  "recorded_utc": "2026-11-04T09:34:49.901775+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "foundation_candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "chapter2_candidate": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+  "review_scopes": "Existing complete nine-path R-to-F foundation scope and complete81-path R-to-C2 scope, all112 chapter obligations and ten shared units retained.",
+  "overall_outcome": "Blocked",
+  "approval_or_acceptance": false,
+  "standards_proposal": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/foundation110-potential-type-reuse-0a7ef078.json",
+    "bytes": 122392,
+    "lines": 3445,
+    "sha256": "23ec745628fc15a330a492bc70f4a22d9fb452faaf9ba482006cebf7d3546bc0"
+  },
+  "read_scope": {
+    "all10_conditions_read_in_full": true,
+    "all110_eligible_and35_excluded_name_source_kind_and_program_position_rows_read": true,
+    "foundation145_all156_program_lines_read": true,
+    "chapter2_814_all859_lines_previous_full_read_retained_by_exact_byte_identity": true,
+    "runtime_and_broader_environment_reasoning_read_in_full": true,
+    "complete_raw3445_line_JSON_human_read_claimed": false
+  },
+  "independent_verification": {
+    "method": "Separate read-only recursive traversal of immutable F and0a7 sources after stripping nested block comments, line comments and string literals; resolve every direct import against the corresponding Git tree. No compiler invocation. Independently reconcile every name, source declaration kind/line, both ordered check indices and program line numbers.",
+    "all_six_recorded_closures_reproduced": true,
+    "all145_name_source_kind_and_program_position_mappings_exact": true,
+    "eligible110_and_excluded35_disjoint_exhaustive_for_F145": true,
+    "all30_source_blob_bytes_and_hashes_match": true,
+    "all10_configuration_bytes_and_hashes_match_F_and_T": true,
+    "all9_pinned_manifest_entries_match_F_and_T": true,
+    "exact_eligible_mapping_canonical_sha256": "ae74544057f34caf68740425c73c9e2d612f6d4d1444be87cf84ae2805011e1d",
+    "exact_excluded_mapping_canonical_sha256": "08f5d726eb1f921d834aa1d155900bf510a6348657238bb7e12b44648e2157b3"
+  },
+  "root_dispositions": [
+    {
+      "source": "Applications/Resources/InsertionSort.lean",
+      "public_names": 19,
+      "local_files": 7,
+      "changed_paths": [
+        "Applications/Sorting/Merge.lean"
+      ],
+      "eligible": false,
+      "external_imports_equal": true
+    },
+    {
+      "source": "Applications/Resources/ListCalls.lean",
+      "public_names": 34,
+      "local_files": 9,
+      "changed_paths": [],
+      "eligible": true,
+      "external_imports_equal": true
+    },
+    {
+      "source": "Examples/FunctionalNotation.lean",
+      "public_names": 30,
+      "local_files": 4,
+      "changed_paths": [],
+      "eligible": true,
+      "external_imports_equal": true
+    },
+    {
+      "source": "Examples/InsertionCosts.lean",
+      "public_names": 16,
+      "local_files": 9,
+      "changed_paths": [
+        "Applications/Sorting/Merge.lean"
+      ],
+      "eligible": false,
+      "external_imports_equal": true
+    },
+    {
+      "source": "Examples/ListCalls.lean",
+      "public_names": 16,
+      "local_files": 19,
+      "changed_paths": [],
+      "eligible": true,
+      "external_imports_equal": true
+    },
+    {
+      "source": "Examples/ListLibrary.lean",
+      "public_names": 30,
+      "local_files": 1,
+      "changed_paths": [],
+      "eligible": true,
+      "external_imports_equal": true
+    }
+  ],
+  "programs": {
+    "foundation145": {
+      "path": "provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+      "bytes": 7518,
+      "lines": 156,
+      "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4"
+    },
+    "chapter2_814": {
+      "path": "provenance/chapter02-complete-public-statements814-0a7ef078-prepared-20261104/Statements.lean",
+      "bytes": 46242,
+      "lines": 859,
+      "sha256": "ec9fb2b9a141630d0d4acb527bc28cf5fb6b5c2032f3f9951ce1d53cd1578577"
+    }
+  },
+  "conditional_mathematical_reasoning": "Each eligible name denotes the same stored declaration from the exact same defining-source dependency closure and pinned external inputs. A fully qualified bare #check @constant exposes that stored type; unrelated imports in the broader inspection program do not rewrite the declaration type. This justifies the bounded potential reuse only when actual qualified object, runtime, complete-output and immutable-terminal evidence and both independent assessments exist. No mathematical equivalence across the changed Merge input is claimed for the35 insertion names.",
+  "required_terminal_conditions_assessed": [
+    {
+      "id": "REUSE-01",
+      "assessment": "Adequate: the actual executed producer, exact program and all eligible fully qualified checks with explicit/universe/full-name printing must be identified; prepared files supply no output."
+    },
+    {
+      "id": "REUSE-02",
+      "assessment": "Adequate: actual exit0 and complete secured outer/native records and complete110 printed types must be read. Counts and partial logs cannot stand for statement contents, quantifiers or premises."
+    },
+    {
+      "id": "REUSE-03",
+      "assessment": "Adequate: producer pre/post HEAD, clean relevant source/configuration and unchanged executed program identity are mandatory. Current source identity cannot fill missing historical terminal identity. Both receiving and producing relevant closures must match."
+    },
+    {
+      "id": "REUSE-04",
+      "assessment": "Adequate: the actual run must match official Lean4.35.0, matching Lake, exact nine package revisions and the qualified native profile/adapter, with actual threading recorded. This is a retained qualification condition, not a new runtime measurement."
+    },
+    {
+      "id": "REUSE-05",
+      "assessment": "Adequate: qualified objects must correspond to the exact source and dependencies; stale outputs and concurrent shared writable project outputs cannot supply evidence. Matching source files alone do not establish the actual loaded object identity."
+    },
+    {
+      "id": "REUSE-06",
+      "assessment": "Adequate: both independent axes assess all actual110 types and exact input/profile mapping within the original complete scopes. No author report or focused count substitutes for the independent statement assessment."
+    },
+    {
+      "id": "REUSE-07",
+      "assessment": "Adequate: only110 names are eligible; both insertion scopes totaling35 retain separate candidate evidence because their transitive Merge input differs. No unchanged-root-only equivalence is asserted."
+    },
+    {
+      "id": "REUSE-08",
+      "assessment": "Adequate: any successor of either candidate requires explicit reconciliation of names, relevant inputs and profile. The current identity binding covers only exactF and0a7ef078."
+    },
+    {
+      "id": "REUSE-09",
+      "assessment": "Adequate: any actual reuse needs a new explicit producing/receiving evidence disposition and exact output positions, preserving all original programs and inventories. A later remainder can be recorded only after the evidence exists."
+    },
+    {
+      "id": "REUSE-10",
+      "assessment": "Adequate: conditional reuse supplies only statement-inspection evidence. Both full original candidates still need applicable complete check, exhaustive kernel/axiom audit, matching verification record, final independent reviews and immediate verification. AcceptedC1 stays accepted, with no new fresh trigger inferred."
+    }
+  ],
+  "runtime_fingerprint_boundary": "The twelve recorded component fingerprints and four qualification records are retained historical qualification evidence. This reviewer did not freshly hash or execute the runtime; an actual producer run still has to satisfy the explicit profile and object-integrity conditions.",
+  "current_credit": 0,
+  "pending_counts_unchanged": {
+    "foundation": 145,
+    "chapter2": 814,
+    "qualified_historical": 920,
+    "accepted_base": 28
+  },
+  "programs_changed_or_names_removed": false,
+  "actual_types_or_terminal_evidence_credited": false,
+  "C02_TYPE_001": "Open",
+  "C02_DOC_003": "Open; six status proposals remain unapplied.",
+  "new_concrete_mathematical_findings": [],
+  "no_compiler_source_ref_pin_cache_process_action": true
+}

@@ -1,0 +1,348 @@
+{
+  "recorded_utc": "2026-11-05T03:48:42.557169+00:00",
+  "kind": "Read-only exact existing API bindings for frozen design; source headers are not newly inspected elaborated types.",
+  "project_APIs": [
+    {
+      "commit": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "path": "Applications/Trees/Shape.lean",
+      "sha256": "2233e014900a48ebc239d676a1c8abdaee2046ef503e5219bff460a001b868f3",
+      "context_declarations": [
+        "universe u v",
+        "variable {α : Type u} {β : Type v}"
+      ],
+      "public_source_headers": [
+        {
+          "name": "Trees.Complete",
+          "kind": "def",
+          "source_first_line": 39,
+          "source_header": "def Complete : BinaryTree α → Prop"
+        },
+        {
+          "name": "Trees.complete_nil",
+          "kind": "theorem",
+          "source_first_line": 43,
+          "source_header": "@[simp] theorem complete_nil : Complete (.nil : BinaryTree α)"
+        },
+        {
+          "name": "Trees.complete_node",
+          "kind": "theorem",
+          "source_first_line": 45,
+          "source_header": "@[simp] theorem complete_node (a : α) (l r : BinaryTree α) :\n    Complete (.node a l r) ↔ l.height = r.height ∧ Complete l ∧ Complete r"
+        },
+        {
+          "name": "Trees.complete_map",
+          "kind": "theorem",
+          "source_first_line": 58,
+          "source_header": "theorem complete_map (label : α → β) (t : BinaryTree α) :\n    Complete (t.map label) ↔ Complete t"
+        },
+        {
+          "name": "Trees.complete_iff_minHeight_eq_height",
+          "kind": "theorem",
+          "source_first_line": 48,
+          "source_header": "theorem complete_iff_minHeight_eq_height (t : BinaryTree α) :\n    Complete t ↔ minHeight t = t.height"
+        },
+        {
+          "name": "Trees.numLeaves_eq_pow_height",
+          "kind": "theorem",
+          "source_first_line": 115,
+          "source_header": "theorem numLeaves_eq_pow_height (t : BinaryTree α) :\n    Complete t → t.numLeaves = 2 ^ t.height"
+        },
+        {
+          "name": "Trees.AlmostComplete",
+          "kind": "def",
+          "source_first_line": 64,
+          "source_header": "def AlmostComplete (t : BinaryTree α) : Prop"
+        },
+        {
+          "name": "Trees.complete_almostComplete",
+          "kind": "theorem",
+          "source_first_line": 74,
+          "source_header": "theorem complete_almostComplete (t : BinaryTree α) (ht : Complete t) :\n    AlmostComplete t"
+        },
+        {
+          "name": "Trees.almostComplete_children",
+          "kind": "theorem",
+          "source_first_line": 80,
+          "source_header": "theorem almostComplete_children (a : α) (l r : BinaryTree α)\n    (ht : AlmostComplete (.node a l r)) : AlmostComplete l ∧ AlmostComplete r"
+        }
+      ]
+    },
+    {
+      "commit": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "path": "Applications/Trees/Observations.lean",
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "context_declarations": [
+        "universe u v w",
+        "variable {α : Type u} {β : Type v} {γ : Type w}"
+      ],
+      "public_source_headers": [
+        {
+          "name": "Trees.fold",
+          "kind": "def",
+          "source_first_line": 17,
+          "source_header": "def fold (empty : β) (combine : β → α → β → β) : BinaryTree α → β"
+        },
+        {
+          "name": "Trees.fold_nil",
+          "kind": "theorem",
+          "source_first_line": 21,
+          "source_header": "@[simp] theorem fold_nil (empty : β) (combine : β → α → β → β) :\n    fold empty combine .nil = empty"
+        },
+        {
+          "name": "Trees.fold_node",
+          "kind": "theorem",
+          "source_first_line": 24,
+          "source_header": "@[simp] theorem fold_node (empty : β) (combine : β → α → β → β)\n    (a : α) (l r : BinaryTree α) :\n    fold empty combine (.node a l r) =\n      combine (fold empty combine l) a (fold empty combine r)"
+        },
+        {
+          "name": "Trees.fold_map",
+          "kind": "theorem",
+          "source_first_line": 30,
+          "source_header": "theorem fold_map (empty : β) (combine : β → γ → β → β)\n    (label : α → γ) (t : BinaryTree α) :\n    fold empty combine (t.map label) =\n      fold empty (fun l a r => combine l (label a) r) t"
+        },
+        {
+          "name": "Trees.fold_fusion",
+          "kind": "theorem",
+          "source_first_line": 41,
+          "source_header": "theorem fold_fusion (empty : β) (combine : β → α → β → β)\n    (empty' : γ) (combine' : γ → α → γ → γ) (observe : β → γ)\n    (h_empty : observe empty = empty')\n    (h_node : ∀ l a r, observe (combine l a r) =\n      combine' (observe l) a (observe r)) (t : BinaryTree α) :\n    observe (fold empty combine t) = fold empty' combine' t"
+        },
+        {
+          "name": "Trees.fold_height",
+          "kind": "theorem",
+          "source_first_line": 59,
+          "source_header": "theorem fold_height (t : BinaryTree α) :\n    fold (0 : Nat) (fun l (_ : α) r => max l r + 1) t = t.height"
+        },
+        {
+          "name": "Trees.height_map",
+          "kind": "theorem",
+          "source_first_line": 100,
+          "source_header": "theorem height_map (label : α → β) (t : BinaryTree α) :\n    (t.map label).height = t.height"
+        }
+      ]
+    },
+    {
+      "commit": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "path": "Applications/Trees/Cached.lean",
+      "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6",
+      "context_declarations": [
+        "universe u v",
+        "variable {α : Type u} {β : Type v}"
+      ],
+      "public_source_headers": [
+        {
+          "name": "Trees.Cached.erase",
+          "kind": "def",
+          "source_first_line": 15,
+          "source_header": "def erase (t : BinaryTree (α × β)) : BinaryTree α"
+        },
+        {
+          "name": "Trees.Cached.read",
+          "kind": "def",
+          "source_first_line": 23,
+          "source_header": "def read (empty : β) : BinaryTree (α × β) → β"
+        },
+        {
+          "name": "Trees.Cached.read_nil",
+          "kind": "theorem",
+          "source_first_line": 27,
+          "source_header": "@[simp] theorem read_nil (empty : β) :\n    read empty (.nil : BinaryTree (α × β)) = empty"
+        },
+        {
+          "name": "Trees.Cached.read_node",
+          "kind": "theorem",
+          "source_first_line": 30,
+          "source_header": "@[simp] theorem read_node (empty : β) (a : α) (b : β)\n    (l r : BinaryTree (α × β)) : read empty (.node (a, b) l r) = b"
+        },
+        {
+          "name": "Trees.Cached.smartNode",
+          "kind": "def",
+          "source_first_line": 34,
+          "source_header": "def smartNode (empty : β) (combine : β → α → β → β)\n    (l : BinaryTree (α × β)) (a : α) (r : BinaryTree (α × β)) :\n    BinaryTree (α × β)"
+        },
+        {
+          "name": "Trees.Cached.read_smartNode",
+          "kind": "theorem",
+          "source_first_line": 39,
+          "source_header": "@[simp] theorem read_smartNode (empty : β) (combine : β → α → β → β)\n    (l : BinaryTree (α × β)) (a : α) (r : BinaryTree (α × β)) :\n    read empty (smartNode empty combine l a r) =\n      combine (read empty l) a (read empty r)"
+        },
+        {
+          "name": "Trees.Cached.erase_smartNode",
+          "kind": "theorem",
+          "source_first_line": 44,
+          "source_header": "@[simp] theorem erase_smartNode (empty : β) (combine : β → α → β → β)\n    (l : BinaryTree (α × β)) (a : α) (r : BinaryTree (α × β)) :\n    erase (smartNode empty combine l a r) = .node a (erase l) (erase r)"
+        },
+        {
+          "name": "Trees.Cached.Valid",
+          "kind": "def",
+          "source_first_line": 49,
+          "source_header": "def Valid (empty : β) (combine : β → α → β → β) :\n    BinaryTree (α × β) → Prop"
+        },
+        {
+          "name": "Trees.Cached.valid_nil",
+          "kind": "theorem",
+          "source_first_line": 56,
+          "source_header": "@[simp] theorem valid_nil (empty : β) (combine : β → α → β → β) :\n    Valid empty combine .nil"
+        },
+        {
+          "name": "Trees.Cached.valid_node",
+          "kind": "theorem",
+          "source_first_line": 59,
+          "source_header": "@[simp] theorem valid_node (empty : β) (combine : β → α → β → β)\n    (a : α) (b : β) (l r : BinaryTree (α × β)) :\n    Valid empty combine (.node (a, b) l r) ↔\n      Valid empty combine l ∧ Valid empty combine r ∧\n        b = combine (read empty l) a (read empty r)"
+        },
+        {
+          "name": "Trees.Cached.smartNode_valid_iff",
+          "kind": "theorem",
+          "source_first_line": 66,
+          "source_header": "theorem smartNode_valid_iff (empty : β) (combine : β → α → β → β)\n    (l : BinaryTree (α × β)) (a : α) (r : BinaryTree (α × β)) :\n    Valid empty combine (smartNode empty combine l a r) ↔\n      Valid empty combine l ∧ Valid empty combine r"
+        },
+        {
+          "name": "Trees.Cached.read_eq_fold",
+          "kind": "theorem",
+          "source_first_line": 77,
+          "source_header": "theorem read_eq_fold (empty : β) (combine : β → α → β → β)\n    (t : BinaryTree (α × β)) (ht : Valid empty combine t) :\n    read empty t = Trees.fold empty combine (erase t)"
+        },
+        {
+          "name": "Trees.Cached.height_erase",
+          "kind": "theorem",
+          "source_first_line": 99,
+          "source_header": "theorem height_erase (t : BinaryTree (α × β)) :\n    (erase t).height = t.height"
+        },
+        {
+          "name": "Trees.Cached.annotate",
+          "kind": "def",
+          "source_first_line": 103,
+          "source_header": "def annotate (empty : β) (combine : β → α → β → β)\n    (t : BinaryTree α) : BinaryTree (α × β)"
+        },
+        {
+          "name": "Trees.Cached.annotate_valid",
+          "kind": "theorem",
+          "source_first_line": 116,
+          "source_header": "theorem annotate_valid (empty : β) (combine : β → α → β → β)\n    (t : BinaryTree α) : Valid empty combine (annotate empty combine t)"
+        },
+        {
+          "name": "Trees.Cached.erase_annotate",
+          "kind": "theorem",
+          "source_first_line": 123,
+          "source_header": "theorem erase_annotate (empty : β) (combine : β → α → β → β)\n    (t : BinaryTree α) : erase (annotate empty combine t) = t"
+        },
+        {
+          "name": "Trees.Cached.read_annotate",
+          "kind": "theorem",
+          "source_first_line": 130,
+          "source_header": "theorem read_annotate (empty : β) (combine : β → α → β → β)\n    (t : BinaryTree α) :\n    read empty (annotate empty combine t) = Trees.fold empty combine t"
+        }
+      ]
+    },
+    {
+      "commit": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1",
+      "path": "Applications/Trees/BasicObservations.lean",
+      "sha256": "3d2decdac9a8803edde8b5b36a97d0deba1a4d7b1cb1f15a93057044f342afc6",
+      "context_declarations": [
+        "universe u v",
+        "variable {α : Type u} {β : Type v}"
+      ],
+      "public_source_headers": [
+        {
+          "name": "Trees.Subtree",
+          "kind": "inductive",
+          "source_first_line": 69,
+          "source_header": "inductive Subtree : BinaryTree α → BinaryTree α → Prop"
+        },
+        {
+          "name": "Trees.nil_subtree",
+          "kind": "theorem",
+          "source_first_line": 77,
+          "source_header": "theorem nil_subtree (t : BinaryTree α) : Subtree .nil t"
+        },
+        {
+          "name": "Trees.subtree_nil_iff",
+          "kind": "theorem",
+          "source_first_line": 82,
+          "source_header": "@[simp] theorem subtree_nil_iff (s : BinaryTree α) :\n    Subtree s .nil ↔ s = .nil"
+        },
+        {
+          "name": "Trees.subtree_node_iff",
+          "kind": "theorem",
+          "source_first_line": 93,
+          "source_header": "theorem subtree_node_iff (s : BinaryTree α) (a : α) (l r : BinaryTree α) :\n    Subtree s (.node a l r) ↔\n      s = .node a l r ∨ Subtree s l ∨ Subtree s r"
+        },
+        {
+          "name": "Trees.Subtree.trans",
+          "kind": "theorem",
+          "source_first_line": 110,
+          "source_header": "theorem Subtree.trans {s t u : BinaryTree α}\n    (hst : Subtree s t) (htu : Subtree t u) : Subtree s u"
+        },
+        {
+          "name": "Trees.subtrees",
+          "kind": "def",
+          "source_first_line": 118,
+          "source_header": "def subtrees (t : BinaryTree α) : Set (BinaryTree α)"
+        },
+        {
+          "name": "Trees.mem_subtrees_iff",
+          "kind": "theorem",
+          "source_first_line": 120,
+          "source_header": "@[simp] theorem mem_subtrees_iff {s t : BinaryTree α} :\n    s ∈ subtrees t ↔ Subtree s t"
+        }
+      ]
+    }
+  ],
+  "structural_constructors": {
+    "source": "af03b76:Applications/Trees/BasicObservations.lean69-74",
+    "Trees.Subtree.refl": "(t : BinaryTree α) : Subtree t t",
+    "Trees.Subtree.left": "{s l r : BinaryTree α} (a : α) : Subtree s l → Subtree s (.node a l r)",
+    "Trees.Subtree.right": "{s l r : BinaryTree α} (a : α) : Subtree s r → Subtree s (.node a l r)"
+  },
+  "pins": [
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "same_at_all_three_commits": true
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 444,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "same_at_all_three_commits": true
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "same_at_all_three_commits": true
+    }
+  ],
+  "Mathlib_tree_source": {
+    "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "path": "Mathlib/Data/Tree/Basic.lean",
+    "bytes": 6679,
+    "lines": 188,
+    "sha256": "43f201537013e2824d18f6b66f6d329f15bc52289c1ae734fa8acd4bd2a9945d",
+    "read_basis": "Prior complete source read d4a24f1-188; exact pinned/local byte reconciliation in this design.",
+    "used_APIs": [
+      "BinaryTree.nil",
+      "BinaryTree.node (label, left, right)",
+      "BinaryTree.height",
+      "BinaryTree.numNodes",
+      "BinaryTree.numLeaves",
+      "BinaryTree.numLeaves_eq_numNodes_succ",
+      "BinaryTree.map"
+    ]
+  },
+  "proposed_name_checks": [
+    {
+      "commit": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1",
+      "returncode": 1,
+      "matches": "",
+      "meaning": "Read-only name check in Applications/Examples at this exact commit only."
+    },
+    {
+      "commit": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "returncode": 1,
+      "matches": "",
+      "meaning": "Read-only name check in Applications/Examples at this exact commit only."
+    }
+  ],
+  "no_new_Lean_source_or_type_check": true
+}

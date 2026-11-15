@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-05T03:29:30.490211+00:00",
+  "unit": "FDSA-XT02",
+  "candidate": "27c5908b07c7a03feefc09472a8701ef940b7aaf",
+  "report_readback": {
+    "receipt": "d520b7",
+    "actual_exit": 0,
+    "lines": [
+      1,
+      67
+    ],
+    "untruncated": true,
+    "identity": {
+      "path": "provenance/tree-shape-standards-receiving-20261105/source-stage-report-27c5908.md",
+      "bytes": 13948,
+      "lines": 67,
+      "sha256": "a5ab3ca3ce6afd961d125e0d38e0ee24328daaa2ac16c300a83be19f22265021"
+    }
+  },
+  "failure_and_read_ledger_readback": {
+    "receipt": "5cdc53",
+    "actual_exit": 0,
+    "untruncated": true,
+    "files": [
+      {
+        "path": "provenance/tree-shape-standards-receiving-20261105/focused-failure-27c5908-assessment.json",
+        "bytes": 4622,
+        "lines": 121,
+        "sha256": "5be9d97ec77e0d90313bba20d53f6571e38dd515a4f341aa01f5df2c7d1cc3f9"
+      },
+      {
+        "path": "provenance/tree-shape-standards-receiving-20261105/read-ledger-source-27c5908.json",
+        "bytes": 9412,
+        "lines": 258,
+        "sha256": "a23b77238facf5e9bb7327ca23c76ec3108f6b8c2fbc927f5b0f91c97c5ce201"
+      }
+    ]
+  },
+  "all91_headers_and_current_source_identities_computationally_reconciled": true,
+  "large_assessment_and_closure_json_not_claimed_as_new_full_human_text_read": true,
+  "protected_original_and_accepted_records20_rechecked": true,
+  "historical_source_stage_preserved": true,
+  "outcome": "Blocked"
+}

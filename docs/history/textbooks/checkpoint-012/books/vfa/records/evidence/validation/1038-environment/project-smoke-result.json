@@ -1,0 +1,217 @@
+{
+  "started_utc": "2026-11-04T05:58:20.487836+00:00",
+  "host_mode": "compat",
+  "fixture": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-h55y2wh7",
+  "project": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation",
+  "scope": "Environment validation only; project gates are separate.",
+  "passed": true,
+  "completed_utc": "2026-11-04T05:58:30.235257+00:00",
+  "cases": [
+    {
+      "started_utc": "2026-11-04T05:58:20.487972+00:00",
+      "command": [
+        "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lean",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-h55y2wh7",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T055820Z-smoke-lean-version-a7739e2f/output.log",
+      "label": "smoke-lean-version",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-04T05:58:20.669842+00:00",
+      "seconds": 0.18062317700059793,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-04T05:58:20.671293+00:00",
+      "command": [
+        "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lake",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-h55y2wh7",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T055820Z-smoke-lake-version-f4b92111/output.log",
+      "label": "smoke-lake-version",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-04T05:58:20.905629+00:00",
+      "seconds": 0.23184608900010062,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-04T05:58:20.907342+00:00",
+      "command": [
+        "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lean",
+        "--print-prefix"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-h55y2wh7",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T055820Z-smoke-bare-prefix-2bb0c01f/output.log",
+      "label": "smoke-bare-prefix",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-04T05:58:20.990970+00:00",
+      "seconds": 0.08211134700104594,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-04T05:58:20.992279+00:00",
+      "command": [
+        "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lake",
+        "env",
+        "lean",
+        "--print-prefix"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-h55y2wh7",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T055820Z-smoke-child-prefix-adfc56a5/output.log",
+      "label": "smoke-child-prefix",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-04T05:58:21.357717+00:00",
+      "seconds": 0.3629376710014185,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-04T05:58:21.359719+00:00",
+      "command": [
+        "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lean",
+        "-o",
+        "Valid.olean",
+        "Valid.lean"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-h55y2wh7",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T055821Z-smoke-valid-proof-26347d90/output.log",
+      "label": "smoke-valid-proof",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-04T05:58:23.810900+00:00",
+      "seconds": 2.4498605389999284,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-04T05:58:23.812578+00:00",
+      "command": [
+        "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lean",
+        "Invalid.lean"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-h55y2wh7",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T055823Z-smoke-false-proof-281c3f80/output.log",
+      "label": "smoke-false-proof",
+      "lean_threads": "1",
+      "passed": false,
+      "completed_utc": "2026-11-04T05:58:24.300045+00:00",
+      "seconds": 0.4862308359988674,
+      "exit_code": 1,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": true
+    },
+    {
+      "started_utc": "2026-11-04T05:58:24.301652+00:00",
+      "command": [
+        "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lake",
+        "env",
+        "lean",
+        "-o",
+        "Child.olean",
+        "Valid.lean"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-h55y2wh7",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T055824Z-smoke-child-proof-33b2c6de/output.log",
+      "label": "smoke-child-proof",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-04T05:58:24.989671+00:00",
+      "seconds": 0.6870044940005755,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-04T05:58:24.991191+00:00",
+      "command": [
+        "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lake",
+        "build",
+        "smoke"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-h55y2wh7",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T055824Z-smoke-native-build-d99f3670/output.log",
+      "label": "smoke-native-build",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-04T05:58:26.348883+00:00",
+      "seconds": 1.3566404079992935,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-04T05:58:26.354685+00:00",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/60f07f0e98c8/conaled-vfa/native-kit/conaled_native.py",
+        "--state",
+        "/workspace/scratch/60f07f0e98c8/native-state",
+        "_exec",
+        "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-h55y2wh7/.lake/build/bin/smoke",
+        "576101c3448a3d0eb0456507cb41d961e54f7f2af00240fcbd8d754f717cc7e1"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-h55y2wh7",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T055826Z-smoke-native-run-d7ee35bd/output.log",
+      "label": "smoke-native-run",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-04T05:58:26.414570+00:00",
+      "seconds": 0.05867775899969274,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    },
+    {
+      "started_utc": "2026-11-04T05:58:26.416661+00:00",
+      "command": [
+        "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lake",
+        "env",
+        "lean",
+        "/workspace/scratch/60f07f0e98c8/native-state/tmp/smoke-h55y2wh7/MathlibSmoke.lean"
+      ],
+      "cwd": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation",
+      "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T055826Z-smoke-mathlib-import-fd73c7cd/output.log",
+      "label": "smoke-mathlib-import",
+      "lean_threads": "1",
+      "passed": true,
+      "completed_utc": "2026-11-04T05:58:30.233310+00:00",
+      "seconds": 3.815158948998942,
+      "exit_code": 0,
+      "timed_out": false,
+      "recorder_error": null,
+      "expected_outcome_met": true,
+      "expected_failure": false
+    }
+  ]
+}

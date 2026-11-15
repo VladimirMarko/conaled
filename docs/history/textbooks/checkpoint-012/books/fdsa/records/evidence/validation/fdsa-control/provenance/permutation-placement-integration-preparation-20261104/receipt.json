@@ -1,0 +1,576 @@
+{
+  "kind": "prepared_only_XU06_incorporation_supplement",
+  "created_utc": "2026-11-04T13:25:00.554340+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "write_authority": "Root explicit release before0107 capture; prior packages held unchanged.",
+  "base": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+  "candidate": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+  "tree": "7c014caa64073b9a054fa2b211412883aa502260",
+  "full_delta_paths": [
+    {
+      "change": "M",
+      "ref": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "path": "Applications/Probability/PermutationExpectation.lean",
+      "blob": "9124def903537fd47b71ccb23155eca8eb2fc403",
+      "bytes": 14267,
+      "lines": 303,
+      "sha256": "86210864ee226d247f5ac16df34679651376cf2c14d77127ceb7468f8b91f24d",
+      "base_identity": {
+        "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+        "path": "Applications/Probability/PermutationExpectation.lean",
+        "blob": "02c6d8a12807838c02d33def261ff13139c56b9d",
+        "bytes": 12849,
+        "lines": 273,
+        "sha256": "a322a016ea767d0a1f294cac5f709c20bc7e41d0e1e4f05d2aa2eb9ebc1c1cf9"
+      }
+    },
+    {
+      "change": "M",
+      "ref": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "blob": "965f901ba7843903db3b1260cec88a7fea7adc65",
+      "bytes": 35628,
+      "lines": 709,
+      "sha256": "f0b6ee804b5a972f151858b7e69c87730fc7aea284f245deef725cf288e1ef03",
+      "base_identity": {
+        "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+        "path": "Applications/Probability/PermutationOrder.lean",
+        "blob": "3527f32c466c4cedb1a9aa35b53d2576496f8822",
+        "bytes": 29717,
+        "lines": 590,
+        "sha256": "8a427831a044b3c2aac2b7272648ec702d8b04da2e11a1db57521dde28a0e50c"
+      }
+    },
+    {
+      "change": "A",
+      "ref": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "path": "Applications/Probability/PermutationPlacement.lean",
+      "blob": "6b328c3fc59dc63e7361786077a84a6e6e869cdf",
+      "bytes": 14329,
+      "lines": 259,
+      "sha256": "c7511e4d14886733f3d19c0fbbb97e8ce3ba56a2e7bd341d43da47066a97f9c8"
+    },
+    {
+      "change": "A",
+      "ref": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "path": "Examples/PermutationPlacement.lean",
+      "blob": "589494cfaf89342c41371f28457af0fe7f7132d6",
+      "bytes": 20213,
+      "lines": 466,
+      "sha256": "2c4416a41aa60ad1569fd1a9a876d1f12a55d678dc702013ca43b9c4bd9f0da7"
+    },
+    {
+      "change": "A",
+      "ref": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "blob": "516709a9f641a0de23d52d743cb068133f3f64c6",
+      "bytes": 19014,
+      "lines": 406,
+      "sha256": "d453afaeec363a6e409e2d18d6b9e727868015fb840bd7d967c0e81844d4fc05"
+    },
+    {
+      "change": "M",
+      "ref": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "path": "SquareApplications.lean",
+      "blob": "ae141f05da4fbd441e1fa008f17afca363d218ea",
+      "bytes": 8546,
+      "lines": 259,
+      "sha256": "bc448a3c8040d654f27ef50c5303366f73e767b2a125b8f9db30dce24677b84f",
+      "base_identity": {
+        "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+        "path": "SquareApplications.lean",
+        "blob": "c9307a8c5fc752623731ef4639a8e1f33dadd3c5",
+        "bytes": 8464,
+        "lines": 257,
+        "sha256": "556524fdf37e4237c0e086af06c97d43561b19c35886913688568ad228bdb700"
+      }
+    },
+    {
+      "change": "A",
+      "ref": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "path": "docs/research/fdsa-permutation-placement.md",
+      "blob": "f92e508c016d5b282ab47b612c144e276169c5f2",
+      "bytes": 10862,
+      "lines": 208,
+      "sha256": "286d0ba4deafcaa42a689b0eca835787c5580f10947a8fd2bc58bfcecfbabbd5"
+    },
+    {
+      "change": "M",
+      "ref": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "blob": "06be6836de8c0315e58125ad60322a60ff832727",
+      "bytes": 22925,
+      "lines": 379,
+      "sha256": "087dd293f0ab3ef226b07617ee1e761cceec6f3456d1e45c6245cfd56c45c716",
+      "base_identity": {
+        "ref": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+        "path": "docs/research/fdsa-reconstruction-map.md",
+        "blob": "e0371ecc9e87a6bd90c9574f5d42db01fc1198b9",
+        "bytes": 21507,
+        "lines": 356,
+        "sha256": "8583097adf4bb97611ddda8b276cd5d85d7d7c1dab5bfb31685f427daa3ac408"
+      }
+    }
+  ],
+  "exact_predecessor_segments": [
+    {
+      "path": "Applications/Probability/PermutationExpectation.lean",
+      "recipe": "Exact bytes from set_option autoImplicit false through the byte immediately preceding the final end namespace marker. Match that complete old slice once in candidate; append is the following bytes before candidate end marker. Terminal blank LF is included, no stripping.",
+      "old_body": {
+        "bytes": 11442,
+        "lines": 244,
+        "sha256": "59cf2c0b7eb418e0a4a9073e423723f4875d754f751ced940ec60b37d5fb6bca"
+      },
+      "old_lines": [
+        29,
+        272
+      ],
+      "new_equal_lines": [
+        33,
+        276
+      ],
+      "append": {
+        "bytes": 1185,
+        "lines": 26,
+        "sha256": "bbaa8a0b1abaa2a83110249b6a17302e74c2e8b22c9a6ce29d4dc5354c19348f"
+      },
+      "append_lines": [
+        277,
+        302
+      ]
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "recipe": "Exact bytes from set_option autoImplicit false through the byte immediately preceding the final end namespace marker. Match that complete old slice once in candidate; append is the following bytes before candidate end marker. Terminal blank LF is included, no stripping.",
+      "old_body": {
+        "bytes": 27773,
+        "lines": 548,
+        "sha256": "a73b11ab5841e9d3b08c618c5a50a9b0c3aa3322ef246b202fbd7d4ae0abd3f3"
+      },
+      "old_lines": [
+        42,
+        589
+      ],
+      "new_equal_lines": [
+        48,
+        595
+      ],
+      "append": {
+        "bytes": 5617,
+        "lines": 113,
+        "sha256": "521a45b11239695e587d3dfeaa73d58a5e2ddde2b6570e878da92a4c585bbffd"
+      },
+      "append_lines": [
+        596,
+        708
+      ]
+    }
+  ],
+  "predecessor_corrections_to_retain": [
+    {
+      "path": "Applications/Probability/PermutationMinimum.lean",
+      "XU06_blob": "9be74c11fda2de70b0fa02fcb597c631dc8e666e",
+      "old_XU05_blob": "9be74c11fda2de70b0fa02fcb597c631dc8e666e",
+      "corrected_minimal_tip": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "corrected_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+      "scope_note": "Retain eventual accepted corrected source; identities identify current preserved corrections, not future accepted candidate inputs."
+    },
+    {
+      "path": "Examples/PermutationMinimum.lean",
+      "XU06_blob": "e49e17a2a70836bd2cb8d4fc9bf799dd2be6bad9",
+      "old_XU05_blob": "e49e17a2a70836bd2cb8d4fc9bf799dd2be6bad9",
+      "corrected_minimal_tip": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "corrected_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+      "scope_note": "Retain eventual accepted corrected source; identities identify current preserved corrections, not future accepted candidate inputs."
+    },
+    {
+      "path": "Examples/PermutationMinimumBoundary.lean",
+      "XU06_blob": "05642e65256626b6ac881c9c2fe6de822858ca2d",
+      "old_XU05_blob": "05642e65256626b6ac881c9c2fe6de822858ca2d",
+      "corrected_minimal_tip": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "corrected_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+      "scope_note": "Retain eventual accepted corrected source; identities identify current preserved corrections, not future accepted candidate inputs."
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "XU06_blob": "965f901ba7843903db3b1260cec88a7fea7adc65",
+      "old_XU05_blob": "3527f32c466c4cedb1a9aa35b53d2576496f8822",
+      "corrected_minimal_tip": "bdac9703aab4b383fa775568d36bf685af329389",
+      "corrected_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+      "scope_note": "Retain eventual accepted corrected source; identities identify current preserved corrections, not future accepted candidate inputs."
+    },
+    {
+      "path": "Examples/PermutationOrder.lean",
+      "XU06_blob": "c6f0d7d2a08b5bfc1b9b34563a8a5578a3fcd52d",
+      "old_XU05_blob": "c6f0d7d2a08b5bfc1b9b34563a8a5578a3fcd52d",
+      "corrected_minimal_tip": "bdac9703aab4b383fa775568d36bf685af329389",
+      "corrected_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+      "scope_note": "Retain eventual accepted corrected source; identities identify current preserved corrections, not future accepted candidate inputs."
+    },
+    {
+      "path": "Examples/PermutationOrderBoundary.lean",
+      "XU06_blob": "9e384a46b8fda579ccee3605928a0fde864c881e",
+      "old_XU05_blob": "9e384a46b8fda579ccee3605928a0fde864c881e",
+      "corrected_minimal_tip": "bdac9703aab4b383fa775568d36bf685af329389",
+      "corrected_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+      "scope_note": "Retain eventual accepted corrected source; identities identify current preserved corrections, not future accepted candidate inputs."
+    },
+    {
+      "path": "Applications/Probability/PermutationTail.lean",
+      "XU06_blob": "97d2159ff96dadb45626cd790f01878750e91254",
+      "old_XU05_blob": "97d2159ff96dadb45626cd790f01878750e91254",
+      "corrected_minimal_tip": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "corrected_blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+      "scope_note": "Retain eventual accepted corrected source; identities identify current preserved corrections, not future accepted candidate inputs."
+    },
+    {
+      "path": "Examples/PermutationTail.lean",
+      "XU06_blob": "39e9e5ae53e1c137301111ca63293b0ca1feb94a",
+      "old_XU05_blob": "39e9e5ae53e1c137301111ca63293b0ca1feb94a",
+      "corrected_minimal_tip": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "corrected_blob": "baa3e26a3c72a4589765562167d1d85edc011e67",
+      "scope_note": "Retain eventual accepted corrected source; identities identify current preserved corrections, not future accepted candidate inputs."
+    },
+    {
+      "path": "Examples/PermutationTailBoundary.lean",
+      "XU06_blob": "c494fcae8d3ed02d425a05c49ffa2e4c3487987e",
+      "old_XU05_blob": "c494fcae8d3ed02d425a05c49ffa2e4c3487987e",
+      "corrected_minimal_tip": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "corrected_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0",
+      "scope_note": "Retain eventual accepted corrected source; identities identify current preserved corrections, not future accepted candidate inputs."
+    }
+  ],
+  "Expectation_fixtures": [
+    {
+      "ref": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "path": "Examples/PermutationExpectation.lean",
+      "blob": "047afa3eb12c722e85fa20bb7bbc45a0e687c500",
+      "bytes": 8255,
+      "lines": 191,
+      "sha256": "5f89da2fb3dc77e886532708962eccdf7fc93cbdbaaaf0ef5fe486f231f7a037",
+      "matches_original_XU04": true
+    },
+    {
+      "ref": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "path": "Examples/PermutationExpectationBoundary.lean",
+      "blob": "76f8a118a872ffe94dd2c7aaffdec4d4c3673520",
+      "bytes": 14682,
+      "lines": 332,
+      "sha256": "e5547ba32b5f786c221a5f2259282452c17e05b86eacc9808d5d490a5f62b333",
+      "matches_original_XU04": true
+    }
+  ],
+  "static_source_closure": [
+    {
+      "path": "Applications/Probability/PermutationExpectation.lean",
+      "blob": "9124def903537fd47b71ccb23155eca8eb2fc403",
+      "imports": [
+        "Applications.Probability.PermutationMinimum",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Indicator",
+        "Mathlib.Basic.ENNReal.Inv",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Add",
+        "Mathlib.Order.Interval.Finset.Fin"
+      ]
+    },
+    {
+      "path": "Applications/Probability/PermutationMinimum.lean",
+      "blob": "9be74c11fda2de70b0fa02fcb597c631dc8e666e",
+      "imports": [
+        "Mathlib.Data.Finset.Max",
+        "Mathlib.Data.Fintype.Perm",
+        "Mathlib.Data.Set.Card",
+        "Mathlib.Probability.UniformOn"
+      ]
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "blob": "965f901ba7843903db3b1260cec88a7fea7adc65",
+      "imports": [
+        "Mathlib.Basic.ENNReal.Inv",
+        "Mathlib.Data.Finset.Card",
+        "Mathlib.Data.Finset.Lattice.Lemmas",
+        "Mathlib.Data.Finset.Prod",
+        "Mathlib.Data.Fintype.OfMap",
+        "Mathlib.Data.Fintype.Perm",
+        "Mathlib.Data.List.Basic",
+        "Mathlib.Data.List.Nodup",
+        "Mathlib.Data.List.Permutation",
+        "Mathlib.Data.Set.Card",
+        "Mathlib.Logic.Equiv.Fintype",
+        "Mathlib.Logic.Equiv.List",
+        "Mathlib.Probability.HasLaw",
+        "Mathlib.Probability.UniformOn"
+      ]
+    },
+    {
+      "path": "Applications/Probability/PermutationPlacement.lean",
+      "blob": "6b328c3fc59dc63e7361786077a84a6e6e869cdf",
+      "imports": [
+        "Applications.Probability.PermutationExpectation",
+        "Applications.Probability.PermutationOrder",
+        "Mathlib.Probability.Independence.Integration"
+      ]
+    },
+    {
+      "path": "Applications/Probability/PermutationTail.lean",
+      "blob": "97d2159ff96dadb45626cd790f01878750e91254",
+      "imports": [
+        "Applications.Probability.PermutationOrder",
+        "Mathlib.Basic.ENNReal.Inv",
+        "Mathlib.Data.Nat.Factorial.Basic",
+        "Mathlib.MeasureTheory.Measure.AEMeasurable",
+        "Mathlib.Probability.ConditionalProbability",
+        "Mathlib.Probability.HasLaw"
+      ]
+    },
+    {
+      "path": "Examples/PermutationExpectation.lean",
+      "blob": "047afa3eb12c722e85fa20bb7bbc45a0e687c500",
+      "imports": [
+        "Applications.Probability.PermutationExpectation",
+        "Examples.PermutationExpectationBoundary",
+        "Mathlib.Data.Finset.Max",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "path": "Examples/PermutationExpectationBoundary.lean",
+      "blob": "76f8a118a872ffe94dd2c7aaffdec4d4c3673520",
+      "imports": [
+        "Applications.Probability.PermutationExpectation",
+        "Applications.Probability.PermutationTail",
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "blob": "589494cfaf89342c41371f28457af0fe7f7132d6",
+      "imports": [
+        "Applications.Probability.PermutationPlacement",
+        "Examples.PermutationExpectation",
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.Probability.ConditionalProbability",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "blob": "516709a9f641a0de23d52d743cb068133f3f64c6",
+      "imports": [
+        "Applications.Probability.PermutationPlacement",
+        "Examples.PermutationExpectation",
+        "Mathlib.MeasureTheory.Measure.Dirac.Def",
+        "Mathlib.Tactic"
+      ]
+    }
+  ],
+  "static_closure_counts": {
+    "local_files": 9,
+    "import_edges": 50,
+    "distinct_direct_external_imports": 26
+  },
+  "direct_external_imports": [
+    "Mathlib.Algebra.BigOperators.Group.Finset.Indicator",
+    "Mathlib.Basic.ENNReal.Inv",
+    "Mathlib.Data.Finset.Card",
+    "Mathlib.Data.Finset.Lattice.Lemmas",
+    "Mathlib.Data.Finset.Max",
+    "Mathlib.Data.Finset.Prod",
+    "Mathlib.Data.Fintype.OfMap",
+    "Mathlib.Data.Fintype.Perm",
+    "Mathlib.Data.List.Basic",
+    "Mathlib.Data.List.Nodup",
+    "Mathlib.Data.List.Permutation",
+    "Mathlib.Data.Nat.Factorial.Basic",
+    "Mathlib.Data.Set.Card",
+    "Mathlib.Logic.Equiv.Fintype",
+    "Mathlib.Logic.Equiv.List",
+    "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+    "Mathlib.MeasureTheory.Integral.Bochner.Set",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Add",
+    "Mathlib.MeasureTheory.Measure.AEMeasurable",
+    "Mathlib.MeasureTheory.Measure.Dirac.Def",
+    "Mathlib.Order.Interval.Finset.Fin",
+    "Mathlib.Probability.ConditionalProbability",
+    "Mathlib.Probability.HasLaw",
+    "Mathlib.Probability.Independence.Integration",
+    "Mathlib.Probability.UniformOn",
+    "Mathlib.Tactic"
+  ],
+  "records": [
+    {
+      "path": "tickets/FDSA-XU06.md",
+      "bytes": 4708,
+      "lines": 70,
+      "sha256": "fd4ca3860643600d586297664fc9445db36412e2319cdef2b49d568cbc080968"
+    },
+    {
+      "path": "reviews/permutation-placement-requirements.md",
+      "bytes": 15590,
+      "lines": 282,
+      "sha256": "1769c0550a448d9a5de06b4e926006318723887397f65d4dfabf687bdbef6902"
+    },
+    {
+      "path": "reviews/permutation-placement-candidate.md",
+      "bytes": 8239,
+      "lines": 146,
+      "sha256": "8dd559d23ff1fefe8d87b93b4d488246105b20a9718563cb1486ee2f8886c4c0"
+    },
+    {
+      "path": "reviews/permutation-placement-integration-addendum.md",
+      "bytes": 3336,
+      "lines": 54,
+      "sha256": "6fd54b5cd584a5c0e86349dc1c308535b7322b236be397c160d8959d32649019"
+    },
+    {
+      "path": "reviews/permutation-placement-source-identities.json",
+      "bytes": 1981,
+      "lines": 59,
+      "sha256": "4af2b459c53ce229728fa45130bb9f2bf17a166ef67d05f7019a3284cba1e4d7"
+    },
+    {
+      "path": "reviews/permutation-placement-source-preflight.md",
+      "bytes": 14705,
+      "lines": 258,
+      "sha256": "06bbc851d5a0f45aebf03dcdc432439525db579458884b58431a3db73c60f2ce"
+    },
+    {
+      "path": "reviews/permutation-placement-standards-preparation-20261104.md",
+      "bytes": 23981,
+      "lines": 94,
+      "sha256": "120b53767cb488f53c50bfb6f70ed39d825b8e6d1236087da68b8884ae0782a2"
+    },
+    {
+      "path": "reviews/permutation-placement-spec-preparation-20261104.md",
+      "bytes": 25474,
+      "lines": 116,
+      "sha256": "3d5a62d33a2f71ae0ca59b9f62b6cbc011d20e77a6092f525f2d6fe5a63b9999"
+    },
+    {
+      "path": "provenance/permutation-placement-standards-preparation-20261104/source-preparation.json",
+      "bytes": 154506,
+      "lines": 2956,
+      "sha256": "77b2fedc4bace8bbcf8ef4e666d60a16cdcd8fd78dd71b86caa65c22b984e49c"
+    },
+    {
+      "path": "provenance/permutation-placement-standards-preparation-20261104/read-ledger.json",
+      "bytes": 38048,
+      "lines": 1191,
+      "sha256": "73c1411fbb509830ebbe713c2d3e2482d0710815d3a73b44b458c8939b4134a9"
+    },
+    {
+      "path": "provenance/permutation-placement-standards-preparation-20261104/existing-findings-source-recheck.json",
+      "bytes": 1412,
+      "lines": 32,
+      "sha256": "30e2e262b8d5758bc0074f4c3cbc8b3b051df9341c569dda9890c863b9290c5f"
+    },
+    {
+      "path": "provenance/permutation-placement-standards-preparation-20261104/existing-findings-original-to-candidate.diff",
+      "bytes": 1503,
+      "lines": 36,
+      "sha256": "055db2fc6e8a5d38954e5b6ef50337d103e863fc5eb86ab666b01f55adf494c1"
+    },
+    {
+      "path": "provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+      "bytes": 277315,
+      "lines": 6218,
+      "sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e"
+    },
+    {
+      "path": "provenance/permutation-placement-spec-preparation-20261104/current-boundary.json",
+      "bytes": 8169,
+      "lines": 197,
+      "sha256": "a31ac12c65fb0009ab6efa679dfb17e53ebda62ad18498766969d9ec91a6edbe"
+    },
+    {
+      "path": "reviews/permutation-placement-preflight-snapshots/XU06-BC01-PermutationPlacementBoundary.lean",
+      "bytes": 18923,
+      "lines": 404,
+      "sha256": "e159483b9af4503c4097abb469f869c26e7555bc73e6fc9b509cc55a2e4f7d86"
+    },
+    {
+      "path": "reviews/permutation-placement-preflight-snapshots/XU06-BC01-identity.json",
+      "bytes": 421,
+      "lines": 11,
+      "sha256": "1bdc0360dd81845e7178e9ec71464dd37dacfaabd59bdc44fa2c6018850d7f75"
+    },
+    {
+      "path": "reviews/permutation-placement-preflight-snapshots/XU06-BC02-identity.json",
+      "bytes": 512,
+      "lines": 15,
+      "sha256": "872f65ad9d4b57ef57f7c138d657f46f9b0bf2beb586529c19a77e89ffc87ced"
+    },
+    {
+      "path": "provenance/permutation-expectation-joint-integration-preparation-20261104/receipt.json",
+      "bytes": 26749,
+      "lines": 679,
+      "sha256": "6c2d6af7db01ab5e3ddca2cbfa2947ca1144f7dbbf009ce1a4c2b6e1560d2fa4"
+    },
+    {
+      "path": "provenance/permutation-expectation-joint-integration-preparation-20261104/plan.md",
+      "bytes": 11917,
+      "lines": 56,
+      "sha256": "949e21514e1c1ff29c408c505b4f3b746abf5eff9b3a0fa854d307d8c5481cbb"
+    },
+    {
+      "path": "provenance/permutation-placement-public-statements138-prepared-20261104/Statements.lean",
+      "bytes": 9674,
+      "lines": 151,
+      "sha256": "6ccf609779a9940a9e2f5be20c511007ec15d0d50bae66fda21907c2962b977e"
+    }
+  ],
+  "counts": {
+    "authored": 179,
+    "public": 138,
+    "inherited_public": 27,
+    "new_public": 111,
+    "private": 25,
+    "anonymous_local_instances": 16,
+    "actual_types": 0,
+    "compiled": false,
+    "accepted": false
+  },
+  "existing_findings": {
+    "XU06-BC01": "Implemented and source-rechecked; actual formal/final confirmation pending. Original source-predicted rewrite issue, not compiler diagnostics.",
+    "XU06-BC02": "Implemented and source-rechecked; actual formal/final confirmation pending. Direct Dirac umbrella replaced with supported Def; no observed warning claimed."
+  },
+  "prepared138": {
+    "path": "provenance/permutation-placement-public-statements138-prepared-20261104/Statements.lean",
+    "bytes": 9674,
+    "lines": 151,
+    "sha256": "6ccf609779a9940a9e2f5be20c511007ec15d0d50bae66fda21907c2962b977e",
+    "check_count": 138,
+    "future_candidate": null,
+    "source_candidate_only": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+    "actual_type_credit": 0,
+    "created_by_this_package": false
+  },
+  "acceptance_route_unchanged": [
+    "F",
+    "combinedXM01/XD01/XQ01/XU01",
+    "XU02",
+    "XU03",
+    "newcompleteC2"
+  ],
+  "later_inherited_sequence": [
+    "acceptedXU04",
+    "acceptedXU05",
+    "XU06 matching full gates"
+  ],
+  "read_boundary": "Complete versus bounded reads are explicitly enumerated in plan final section. Large independent receipts are hash-bound, not fully reread. No new mathematical review.",
+  "prior_XT01_readiness": "Separate read-only handoff already delivered: a14977b\u219264c6b777 seven paths;22 existing local closure sources unchanged atR/F/Z; transitive Potential differs atT. No duplicate plan or chapter activation.",
+  "plan": {
+    "path": "plan.md",
+    "bytes": 10201,
+    "lines": 59,
+    "sha256": "f78995bb8c1be7f8a026770392ec8bd69ef334aa7a7e22082e3a844bcba7ba7f"
+  },
+  "author_readback": {
+    "complete": "Final plan, complete prepared138 input and current root-updated ticket read in full. No unresolved author readback item.",
+    "verification": "14 nested full source identities, all held control/program records, nine preserved predecessor correction bindings and nine local closure blobs reverified.",
+    "scope": "This is incorporation preparation only; both independent source reports remain Blocked and actual type/compiler/audit credit remains zero.",
+    "completed_utc": "2026-11-04T13:25:51.967276+00:00"
+  }
+}

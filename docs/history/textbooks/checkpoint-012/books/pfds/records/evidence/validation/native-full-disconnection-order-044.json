@@ -1,0 +1,68 @@
+{
+  "time": "2026-11-03T18:41:14.821133+00:00",
+  "method": "Read-only reproduction of unchanged stock sorted local-import DFS; observed227 completion names equal exact prefix",
+  "next_modules": [
+    "Applications.Optimization.Transport",
+    "Applications.Optimization.Thinning",
+    "Applications.Optimization.SelectionTies",
+    "Applications.Segments.Candidates",
+    "Applications.Segments.Prefixes"
+  ],
+  "prefix_count": 227,
+  "next_sources": {
+    "Applications.Optimization.Transport": {
+      "sha256": "d4397294c684751f9f2dd487eff96425175324ef0b7ab3d48a18239df7c66046",
+      "direct_local_dependencies": [
+        "Applications.Optimization.Basic"
+      ]
+    },
+    "Applications.Optimization.Thinning": {
+      "sha256": "a6b282bb2c18e870c0ce222862259d9b288b55ebaad306f53ef92acd0f4ecf72",
+      "direct_local_dependencies": [
+        "Applications.Optimization.Transport"
+      ]
+    },
+    "Applications.Optimization.SelectionTies": {
+      "sha256": "c2bfc2f60378921ce0cae30424fba9867787a6b3573c93c268c7a27248c7bdd5",
+      "direct_local_dependencies": [
+        "Applications.Optimization.SelectionSpec",
+        "Applications.Optimization.Thinning"
+      ]
+    },
+    "Applications.Segments.Candidates": {
+      "sha256": "85a8b0cbda911bb8a9cc0da4d7ed3b82aa4780b007cb602adb22164d5a0a220b",
+      "direct_local_dependencies": [
+        "Applications.Optimization.Thinning"
+      ]
+    },
+    "Applications.Segments.Prefixes": {
+      "sha256": "e751e0f248e0ed6c616a4f7f6f63592e56a8c05d90785535598b70a6e70477db",
+      "direct_local_dependencies": [
+        "Applications.Segments.Candidates",
+        "SquareKit.ListFusion"
+      ]
+    }
+  },
+  "fresh_directories": [
+    {
+      "path": "/workspace/scratch/b566cace4ed6/pfds/import-correction-r3/.lake/fresh-check-54gl9apm",
+      "olean_count": 28,
+      "has_last_completed": false,
+      "latest_file_mtime_ns": 1793722622463935792
+    },
+    {
+      "path": "/workspace/scratch/b566cace4ed6/pfds/import-correction-r3/.lake/fresh-check-s8noupnf",
+      "olean_count": 4,
+      "has_last_completed": false,
+      "latest_file_mtime_ns": 1793729037084928618
+    },
+    {
+      "path": "/workspace/scratch/b566cace4ed6/pfds/import-correction-r3/.lake/fresh-check-y8wc29i6",
+      "olean_count": 227,
+      "has_last_completed": true,
+      "latest_file_mtime_ns": 1793731089970224180
+    }
+  ],
+  "acceptance": false,
+  "log_sha256": "ae035928d047d7be3b74a7e0e3fb7a6ced42f9db12f1b9ccd35f3247507c7349"
+}

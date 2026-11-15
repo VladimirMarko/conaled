@@ -1,0 +1,151 @@
+{
+  "recorded_utc": "2026-11-04T19:44:04.064054+00:00",
+  "candidate": "4e022bf16e793fd5a1f830b14ba30fb4a2dd0525",
+  "tree": "7d9c38079e6ab5f9045e6c0282f56af97caab227",
+  "parent": "a4cd1b6b53fdab38eab40433c3fd60293fdc054f",
+  "original_full_scope_base": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "scope": [
+    "C03-039",
+    "C03-040",
+    "C03-041",
+    "C03-042",
+    "C03-043",
+    "C03-044"
+  ],
+  "full_chapter_obligations": 83,
+  "state": "SOURCE_AND_PROVENANCE_HELD_AFTER_RECEIPT_READBACK",
+  "payloads_excluding_this_receipt": [
+    {
+      "relative": "Statements35-candidate1.lean",
+      "bytes": 2756,
+      "LF_lines": 51,
+      "sha256": "95b7f41a250f0c4238763dc6e5bf2c9f4da9808755b44fe407d514dcd398684b"
+    },
+    {
+      "relative": "baseline.json",
+      "bytes": 5437,
+      "LF_lines": 108,
+      "sha256": "14ab9b6c96f2d5fc7118dc4398ac44f1fa1acb3779c2bba21b75b914680e6c2e"
+    },
+    {
+      "relative": "candidate1.json",
+      "bytes": 1629,
+      "LF_lines": 36,
+      "sha256": "3803b47a57d61b427e514d1757a77d742db878fa1447d9f1dd8d9d7bae03eeb0"
+    },
+    {
+      "relative": "design.md",
+      "bytes": 4227,
+      "LF_lines": 69,
+      "sha256": "449d70475df87860f3dbfb3bc6241a2a09a0a0692601ee0c2852d1def355a0d7"
+    },
+    {
+      "relative": "final-preservation.json",
+      "bytes": 1095,
+      "LF_lines": 26,
+      "sha256": "6a3d871d903676199f46068cc1abf8aadcba74326ffca0e7b623c793e029ffc5"
+    },
+    {
+      "relative": "git-commands-progress.json",
+      "bytes": 1259,
+      "LF_lines": 46,
+      "sha256": "77445a526da119b2a4f905b5bd0cc5e98d865831fea51433eafc26413cd88c19"
+    },
+    {
+      "relative": "git-commands.json",
+      "bytes": 1259,
+      "LF_lines": 46,
+      "sha256": "77445a526da119b2a4f905b5bd0cc5e98d865831fea51433eafc26413cd88c19"
+    },
+    {
+      "relative": "handoff.md",
+      "bytes": 8754,
+      "LF_lines": 155,
+      "sha256": "e1758055a618b6710330627f0861e5bf09ecd5a1bf4fac526f86f4a6f9fabdd2"
+    },
+    {
+      "relative": "input-bindings.json",
+      "bytes": 9834,
+      "LF_lines": 191,
+      "sha256": "9cd6fc5250d082cc5b8902e1d7bb03d748a1c000422fd740a0209b73f6371dac"
+    },
+    {
+      "relative": "root-slice1-focused-feedback.json",
+      "bytes": 1038,
+      "LF_lines": 24,
+      "sha256": "0e9ed9471f2f598acbbd6aaf51ed6820060342064b0bd080dde7ff03f6cb1da7"
+    },
+    {
+      "relative": "source.diff",
+      "bytes": 14989,
+      "LF_lines": 309,
+      "sha256": "70059f33add6fb40f9721a2c1100188c278789c04efdabc541f683e55ed251ad"
+    },
+    {
+      "relative": "statement-review.json",
+      "bytes": 4150,
+      "LF_lines": 74,
+      "sha256": "d129dfbe5361432d1783a8398114d5a8e66a428c1e10dde85f5cd72ff7d9b63b"
+    },
+    {
+      "relative": "statements35-inventory.json",
+      "bytes": 30328,
+      "LF_lines": 549,
+      "sha256": "2c2189ef47596252a71e02c1a5ca54578794b15ed70fcbf8513c18da1dfdff97"
+    }
+  ],
+  "readbacks": {
+    "new_core_complete_135_lines": "b89fa0",
+    "new_examples_complete_162_lines": "d1fdd4",
+    "commit_and_staged_whitespace_check": "e2f385 exit0",
+    "candidate_and_baseline_complete": "551812",
+    "handoff_complete": "18394e",
+    "prepared_type_program_and_author_statement_review_complete": "62869a",
+    "inventory_metadata_and_five_new_core_headers_complete": "26e18b",
+    "fourteen_new_example_headers_complete": "a07d32",
+    "original16_headers_complete_and_unchanged": "f22ace; mechanically rechecked bdac30",
+    "design_and_root_slice1_feedback_complete": "a4a42a",
+    "completed_git_command_log": "17fea8",
+    "input_bindings_and_final_preservation_complete": "9db466",
+    "preservation_source_header_and_type_program_order_check": "bdac30 exit0",
+    "pinned_finset_API_550_580": "6b3433"
+  },
+  "readback_limitations": [
+    "The exploratory b4cbcd inventory print was truncated and receives no complete-read credit; complete bounded header reads and mechanical reconciliation supersede it.",
+    "The earlier outer read-only output lost at context compaction receives no readback credit.",
+    "In input-bindings.json, the requested Fold.lean LF700-830 read reaches actual EOF at LF820. The actual read is LF700-820; there are no additional lines to inspect.",
+    "Prior large Git-ref/action records were structurally read and fully rehashed, without a claim to manually reread every historical ref row."
+  ],
+  "provenance_script_correction": {
+    "first_attempt": "cdfadf exit1: old inventory rows have no modifier key; assertion script failed before any record write.",
+    "no_partial_files_confirmed": "a8bbeb; both proposed new output files absent",
+    "corrected_attempt": "bdac30 exit0; compares every original row key, all35 source headers and all35 explicit checks exactly",
+    "lean_source_modified_for_this_script_issue": false
+  },
+  "counts": {
+    "public_names": 35,
+    "public_theorems": 34,
+    "public_definitions": 1,
+    "new_public_names": 19,
+    "retained_public_names": 16,
+    "authored_private": 0,
+    "authored_anonymous_examples": 0,
+    "authored_instances": 0
+  },
+  "source_files_and_all13_prior_provenance_preserved": true,
+  "worktree_status": "",
+  "author_compiler_execution": false,
+  "new_focused_result_received_at_recording": false,
+  "actual_type_credit": 0,
+  "full_audit_credit": false,
+  "independent_review_credit": false,
+  "acceptance_credit": false,
+  "remaining_gates": [
+    "Root focused elaboration of the exact candidate and complete terminal/log closure",
+    "Actual35 printed-type inspection with input qualification",
+    "Original-scope complete integrated Chapter3 check/audit and independent Standards and Spec reviews",
+    "Immediate candidate verification and exact acceptance under the existing whole-book loop"
+  ],
+  "no_canonical_control_or_ticket_edits": true,
+  "no_GitHub_mutations_or_push": true
+}

@@ -1,0 +1,38 @@
+{
+  "recorded_utc": "2026-11-04T18:32:42.892838+00:00",
+  "candidate": "79b270943119ae541a8ed5561adae4b55cfbe567",
+  "expectedHead": "4df3bc95b96342250c9b3ff946773449e308e11b",
+  "name": "chapter03-count-rank-focused-attempt2-20261104",
+  "targets": [
+    "Applications.Selection.CountRank",
+    "Examples.SelectionCountRank"
+  ],
+  "expectedPaths": [
+    "Applications/Selection/CountRank.lean",
+    "Examples/SelectionCountRank.lean"
+  ],
+  "recordDirectory": "chapter03-count-rank-validation-20261104",
+  "recordName": "candidate2-receiving.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was 4df3bc9 feat(resources): integrate affine recurrence groundwork (#174)\nHEAD is now at 79b2709 fix(selection): adapt count-rank proofs to pinned Lean APIs (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Selection/CountRank.lean",
+      "bytes": 13010,
+      "sha256": "e1b7a6809d330f8ff272f8c3cff5329b9f6136ab98f56c43a26d676a4411ebc5"
+    },
+    {
+      "path": "Examples/SelectionCountRank.lean",
+      "bytes": 4423,
+      "sha256": "cc73980788882d39abe44672d89e6a3ce37dfe3b5f5788375255248e8b4a66d2"
+    }
+  ],
+  "candidate_tree": "9af78b27e75bcc8bb11786bd1e48f06c5e27a9c4",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 379457536
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

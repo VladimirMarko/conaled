@@ -1,0 +1,915 @@
+{
+  "recorded_utc": "2026-11-04T20:20:40.622522+00:00",
+  "finding": "C03-RANDOM-MEAN-ELAB-001",
+  "state": "Proposed proof-only correction; no compiler check by author; root terminal required.",
+  "fixed_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "starting_candidate": "f76bc53339e172a179560654b181040a7313506d",
+  "source_files": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3",
+      "public_names": [
+        "Resources.RandomSelection.pivotRun",
+        "Resources.RandomSelection.pivotRun_exact",
+        "Resources.RandomSelection.stepRun",
+        "Resources.RandomSelection.stepRun_eq",
+        "Resources.RandomSelection.stepRun_child",
+        "Resources.RandomSelection.stepRun_semantics",
+        "Resources.RandomSelection.stepRun_ranked",
+        "Resources.RandomSelection.stepRun_cost_bounds",
+        "Resources.RandomSelection.pivotLaw",
+        "Resources.RandomSelection.pivotLaw_support",
+        "Resources.RandomSelection.pivotLaw_event"
+      ],
+      "git_blob": "0307419d586ac03af372629ef264be9a92295f55"
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e",
+      "public_names": [
+        "Examples.RandomSelection.singleton_step",
+        "Examples.RandomSelection.duplicate_middle",
+        "Examples.RandomSelection.selected_side_is_not_larger_side",
+        "Examples.RandomSelection.selected_side_valid",
+        "Examples.RandomSelection.duplicate_ranked",
+        "Examples.RandomSelection.duplicate_source_bound",
+        "Examples.RandomSelection.duplicate_zero_probability",
+        "Examples.RandomSelection.duplicate_one_probability"
+      ],
+      "git_blob": "6f505d29658dc3953baf3aa859205eb7f0569a9a"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionRun.lean",
+      "bytes": 12714,
+      "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718",
+      "public_names": [
+        "Resources.RandomSelection.Trace",
+        "Resources.RandomSelection.Outcome",
+        "Resources.RandomSelection.scanVolume",
+        "Resources.RandomSelection.scanVolume_nil",
+        "Resources.RandomSelection.scanVolume_cons",
+        "Resources.RandomSelection.prepend",
+        "Resources.RandomSelection.run",
+        "Resources.RandomSelection.run_nil",
+        "Resources.RandomSelection.run_cons",
+        "Resources.RandomSelection.run_value",
+        "Resources.RandomSelection.run_ranked",
+        "Resources.RandomSelection.run_none",
+        "Resources.RandomSelection.run_valid",
+        "Resources.RandomSelection.run_active_calls_le",
+        "Resources.RandomSelection.run_initial_scan_le",
+        "Resources.RandomSelection.run_scanVolume_le",
+        "Resources.RandomSelection.run_source_bridge",
+        "Resources.RandomSelection.run_trace_entries",
+        "Resources.RandomSelection.run_source_quadratic",
+        "Resources.RandomSelection.select",
+        "Resources.RandomSelection.select_value",
+        "Resources.RandomSelection.select_none",
+        "Resources.RandomSelection.select_some_iff",
+        "Resources.RandomSelection.scanLaw",
+        "Resources.RandomSelection.sourceLaw",
+        "Resources.RandomSelection.scanLaw_support",
+        "Resources.RandomSelection.scanLaw_support_finite",
+        "Resources.RandomSelection.sourceLaw_support",
+        "Resources.RandomSelection.sourceLaw_support_finite"
+      ],
+      "git_blob": "4af2a079ad55005657eeac2eaf4d3dd2a3a3ac11"
+    },
+    {
+      "path": "Examples/RandomSelectionRun.lean",
+      "bytes": 3770,
+      "sha256": "76504fe5fa77c581b8a7e3c9f3e0247c8a927adee8b308f84be6167e0ea20e0f",
+      "public_names": [
+        "Examples.RandomSelectionRun.empty_failure",
+        "Examples.RandomSelectionRun.singleton_execution",
+        "Examples.RandomSelectionRun.invalid_singleton",
+        "Examples.RandomSelectionRun.rank_zero_public_failure",
+        "Examples.RandomSelectionRun.two_key_execution",
+        "Examples.RandomSelectionRun.duplicate_execution",
+        "Examples.RandomSelectionRun.two_key_first_path",
+        "Examples.RandomSelectionRun.two_key_long_path",
+        "Examples.RandomSelectionRun.same_value_different_scan",
+        "Examples.RandomSelectionRun.maximum_scan_on_pair",
+        "Examples.RandomSelectionRun.bounded_actual_pair_calls",
+        "Examples.RandomSelectionRun.arbitrary_supported_rank"
+      ],
+      "git_blob": "ca900f902acde3c091e67f90108c2adb03b321cb"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionMean.lean",
+      "bytes": 16393,
+      "sha256": "292fb4151665a701435ae6456a038b8a5a0b45c11326e16459617b0308c60aa4",
+      "git_blob": "b72f33140308fa4ee9b20baeabac37c63d3e17b6",
+      "public_names": [
+        "Resources.RandomSelection.workExpectation",
+        "Resources.RandomSelection.workExpectation_mono",
+        "Resources.RandomSelection.workExpectation_const",
+        "Resources.RandomSelection.workExpectation_add",
+        "Resources.RandomSelection.workExpectation_mul",
+        "Resources.RandomSelection.workExpectation_nil",
+        "Resources.RandomSelection.workExpectation_cons",
+        "Resources.RandomSelection.scanExpectation",
+        "Resources.RandomSelection.sourceExpectation",
+        "Resources.RandomSelection.scanExpectation_eq_workExpectation",
+        "Resources.RandomSelection.sourceExpectation_eq_workExpectation",
+        "Resources.RandomSelection.scanExpectation_quadratic_le",
+        "Resources.RandomSelection.sourceExpectation_quadratic_le",
+        "Resources.RandomSelection.scanExpectation_ne_top",
+        "Resources.RandomSelection.sourceExpectation_ne_top",
+        "Resources.RandomSelection.scanLaw_integrable",
+        "Resources.RandomSelection.sourceLaw_integrable",
+        "Resources.RandomSelection.scanExpectation_initial_le",
+        "Resources.RandomSelection.sourceExpectation_comparison",
+        "Resources.RandomSelection.scanExpectation_nil",
+        "Resources.RandomSelection.sourceExpectation_nil",
+        "Resources.RandomSelection.scanExpectation_cons",
+        "Resources.RandomSelection.scanMean",
+        "Resources.RandomSelection.sourceMean",
+        "Resources.RandomSelection.scanMean_eq_toReal",
+        "Resources.RandomSelection.sourceMean_eq_toReal",
+        "Resources.RandomSelection.scanMean_nonneg",
+        "Resources.RandomSelection.sourceMean_nonneg",
+        "Resources.RandomSelection.scanMean_initial_le",
+        "Resources.RandomSelection.scanMean_quadratic_le",
+        "Resources.RandomSelection.sourceMean_quadratic_le",
+        "Resources.RandomSelection.sourceMean_comparison",
+        "Resources.RandomSelection.scanMean_nil",
+        "Resources.RandomSelection.sourceMean_nil"
+      ],
+      "private_helpers": [
+        "Resources.RandomSelection.weighted_bind",
+        "Resources.RandomSelection.weighted_pure",
+        "Resources.RandomSelection.weighted_map",
+        "Resources.RandomSelection.weighted_add",
+        "Resources.RandomSelection.weighted_const",
+        "Resources.RandomSelection.weighted_mono_support",
+        "Resources.RandomSelection.lintegral_nat_eq",
+        "Resources.RandomSelection.lintegral_nat_le_of_support",
+        "Resources.RandomSelection.integrable_nat_of_lower_finite",
+        "Resources.RandomSelection.integral_nat_eq"
+      ],
+      "imports": [
+        "Applications.Resources.RandomSelectionRun",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+        "Mathlib.MeasureTheory.Function.L1Space.Integrable",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "Mathlib.Basic.ENNReal.BigOperators"
+      ],
+      "options": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true"
+      ]
+    },
+    {
+      "path": "Examples/RandomSelectionMean.lean",
+      "bytes": 5764,
+      "sha256": "56b9d86c1a11329c04f1c325c99938035c01d6e52e60ffb806dace361249dcf8",
+      "git_blob": "6afd75f45dcc29a8f8764964c947a9014470b460",
+      "public_names": [
+        "Examples.RandomSelectionMean.empty_means",
+        "Examples.RandomSelectionMean.singleton_means",
+        "Examples.RandomSelectionMean.invalid_singleton_means",
+        "Examples.RandomSelectionMean.two_key_scan_law",
+        "Examples.RandomSelectionMean.two_key_source_law",
+        "Examples.RandomSelectionMean.two_key_scan_mean",
+        "Examples.RandomSelectionMean.two_key_source_mean",
+        "Examples.RandomSelectionMean.duplicate_scan_law",
+        "Examples.RandomSelectionMean.duplicate_source_law",
+        "Examples.RandomSelectionMean.duplicate_means",
+        "Examples.RandomSelectionMean.two_key_scan_step",
+        "Examples.RandomSelectionMean.arbitrary_input_integrable",
+        "Examples.RandomSelectionMean.actual_mean_bridge",
+        "Examples.RandomSelectionMean.selected_value_and_mean_bounds"
+      ],
+      "private_helpers": [
+        "Examples.RandomSelectionMean.integral_nat_map_fin"
+      ],
+      "imports": [
+        "Applications.Resources.RandomSelectionMean",
+        "Examples.RandomSelectionRun",
+        "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "options": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true"
+      ]
+    }
+  ],
+  "changed_paths": [
+    "Applications/Resources/RandomSelectionMean.lean"
+  ],
+  "changed_proofs": [
+    "workExpectation_cons",
+    "scanExpectation_eq_workExpectation",
+    "sourceExpectation_eq_workExpectation",
+    "scanExpectation_nil",
+    "sourceMean_comparison"
+  ],
+  "core_headers_before_after_equal": [
+    {
+      "name": "Resources.RandomSelection.weighted_bind",
+      "kind": "theorem",
+      "private": true,
+      "header": "private theorem weighted_bind (p : PMF \u03b1) (f : \u03b1 \u2192 PMF \u03b2) (g : \u03b2 \u2192 \u211d\u22650\u221e) :\n    (\u2211' b, p.bind f b * g b) = \u2211' a, p a * (\u2211' b, f a b * g b)"
+    },
+    {
+      "name": "Resources.RandomSelection.weighted_pure",
+      "kind": "theorem",
+      "private": true,
+      "header": "private theorem weighted_pure (x : \u03b1) (g : \u03b1 \u2192 \u211d\u22650\u221e) :\n    (\u2211' a, PMF.pure x a * g a) = g x"
+    },
+    {
+      "name": "Resources.RandomSelection.weighted_map",
+      "kind": "theorem",
+      "private": true,
+      "header": "private theorem weighted_map (p : PMF \u03b1) (f : \u03b1 \u2192 \u03b2) (g : \u03b2 \u2192 \u211d\u22650\u221e) :\n    (\u2211' b, p.map f b * g b) = \u2211' a, p a * g (f a)"
+    },
+    {
+      "name": "Resources.RandomSelection.weighted_add",
+      "kind": "theorem",
+      "private": true,
+      "header": "private theorem weighted_add (p : PMF \u03b1) (f g : \u03b1 \u2192 \u211d\u22650\u221e) :\n    (\u2211' a, p a * (f a + g a)) = (\u2211' a, p a * f a) + \u2211' a, p a * g a"
+    },
+    {
+      "name": "Resources.RandomSelection.weighted_const",
+      "kind": "theorem",
+      "private": true,
+      "header": "private theorem weighted_const (p : PMF \u03b1) (c : \u211d\u22650\u221e) :\n    (\u2211' a, p a * c) = c"
+    },
+    {
+      "name": "Resources.RandomSelection.weighted_mono_support",
+      "kind": "theorem",
+      "private": true,
+      "header": "private theorem weighted_mono_support (p : PMF \u03b1) (f g : \u03b1 \u2192 \u211d\u22650\u221e)\n    (h : \u2200 a \u2208 p.support, f a \u2264 g a) :\n    (\u2211' a, p a * f a) \u2264 \u2211' a, p a * g a"
+    },
+    {
+      "name": "Resources.RandomSelection.lintegral_nat_eq",
+      "kind": "theorem",
+      "private": true,
+      "header": "private theorem lintegral_nat_eq (p : PMF Nat) :\n    (\u222b\u207b k : Nat, (k : \u211d\u22650\u221e) \u2202p.toMeasure) = \u2211' k, p k * (k : \u211d\u22650\u221e)"
+    },
+    {
+      "name": "Resources.RandomSelection.lintegral_nat_le_of_support",
+      "kind": "theorem",
+      "private": true,
+      "header": "private theorem lintegral_nat_le_of_support (p : PMF Nat) (b : Nat)\n    (h : p.support \u2286 Set.Iic b) :\n    (\u222b\u207b k : Nat, (k : \u211d\u22650\u221e) \u2202p.toMeasure) \u2264 (b : \u211d\u22650\u221e)"
+    },
+    {
+      "name": "Resources.RandomSelection.integrable_nat_of_lower_finite",
+      "kind": "theorem",
+      "private": true,
+      "header": "private theorem integrable_nat_of_lower_finite (p : PMF Nat)\n    (hf : (\u222b\u207b k : Nat, (k : \u211d\u22650\u221e) \u2202p.toMeasure) \u2260 \u221e) :\n    Integrable (fun k : Nat => (k : \u211d)) p.toMeasure"
+    },
+    {
+      "name": "Resources.RandomSelection.integral_nat_eq",
+      "kind": "theorem",
+      "private": true,
+      "header": "private theorem integral_nat_eq (p : PMF Nat) :\n    (\u222b k : Nat, (k : \u211d) \u2202p.toMeasure) =\n      (\u222b\u207b k : Nat, (k : \u211d\u22650\u221e) \u2202p.toMeasure).toReal"
+    },
+    {
+      "name": "Resources.RandomSelection.workExpectation",
+      "kind": "def",
+      "private": false,
+      "header": "def workExpectation (k : Nat) (xs : List \u03b1) (f : Outcome \u03b1 \u2192 \u211d\u22650\u221e) : \u211d\u22650\u221e"
+    },
+    {
+      "name": "Resources.RandomSelection.workExpectation_mono",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem workExpectation_mono (k : Nat) (xs : List \u03b1) (f g : Outcome \u03b1 \u2192 \u211d\u22650\u221e)\n    (h : \u2200 result \u2208 (run k xs).support, f result \u2264 g result) :\n    workExpectation k xs f \u2264 workExpectation k xs g"
+    },
+    {
+      "name": "Resources.RandomSelection.workExpectation_const",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem workExpectation_const (k : Nat) (xs : List \u03b1) (c : \u211d\u22650\u221e) :\n    workExpectation k xs (fun _ => c) = c"
+    },
+    {
+      "name": "Resources.RandomSelection.workExpectation_add",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem workExpectation_add (k : Nat) (xs : List \u03b1) (f g : Outcome \u03b1 \u2192 \u211d\u22650\u221e) :\n    workExpectation k xs (fun result => f result + g result) =\n      workExpectation k xs f + workExpectation k xs g"
+    },
+    {
+      "name": "Resources.RandomSelection.workExpectation_mul",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem workExpectation_mul (k : Nat) (xs : List \u03b1) (c : \u211d\u22650\u221e)\n    (f : Outcome \u03b1 \u2192 \u211d\u22650\u221e) :\n    workExpectation k xs (fun result => c * f result) = c * workExpectation k xs f"
+    },
+    {
+      "name": "Resources.RandomSelection.workExpectation_nil",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem workExpectation_nil (k : Nat) (f : Outcome \u03b1 \u2192 \u211d\u22650\u221e) :\n    workExpectation k [] f = f (none, ([], 2))"
+    },
+    {
+      "name": "Resources.RandomSelection.workExpectation_cons",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem workExpectation_cons (k : Nat) (head : \u03b1) (tail : List \u03b1)\n    (f : Outcome \u03b1 \u2192 \u211d\u22650\u221e) :\n    workExpectation k (head :: tail) f =\n      \u2211 i : Fin (tail.length + 1),\n        let action := stepRun k (head :: tail) i\n        (((tail.length + 1 : Nat) : \u211d\u22650\u221e)\u207b\u00b9) *\n          match action.1 with\n          | Sum.inl (j, ys) => workExpectation j ys\n              (fun result => f (prepend (head :: tail).length i.val action.2 result))\n          | Sum.inr p => f (some p, ([((head :: tail).length, i.val)], action.2))"
+    },
+    {
+      "name": "Resources.RandomSelection.scanExpectation",
+      "kind": "def",
+      "private": false,
+      "header": "def scanExpectation (k : Nat) (xs : List \u03b1) : \u211d\u22650\u221e"
+    },
+    {
+      "name": "Resources.RandomSelection.sourceExpectation",
+      "kind": "def",
+      "private": false,
+      "header": "def sourceExpectation (k : Nat) (xs : List \u03b1) : \u211d\u22650\u221e"
+    },
+    {
+      "name": "Resources.RandomSelection.scanExpectation_eq_workExpectation",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem scanExpectation_eq_workExpectation (k : Nat) (xs : List \u03b1) :\n    scanExpectation k xs =\n      workExpectation k xs (fun result => (scanVolume result.2.1 : \u211d\u22650\u221e))"
+    },
+    {
+      "name": "Resources.RandomSelection.sourceExpectation_eq_workExpectation",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem sourceExpectation_eq_workExpectation (k : Nat) (xs : List \u03b1) :\n    sourceExpectation k xs =\n      workExpectation k xs (fun result => (result.2.2 : \u211d\u22650\u221e))"
+    },
+    {
+      "name": "Resources.RandomSelection.scanExpectation_quadratic_le",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem scanExpectation_quadratic_le (k : Nat) (xs : List \u03b1) :\n    scanExpectation k xs \u2264 ((xs.length * (xs.length + 1) / 2 : Nat) : \u211d\u22650\u221e)"
+    },
+    {
+      "name": "Resources.RandomSelection.sourceExpectation_quadratic_le",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem sourceExpectation_quadratic_le (k : Nat) (xs : List \u03b1) :\n    sourceExpectation k xs \u2264\n      ((9 * (xs.length * (xs.length + 1) / 2) + 2 : Nat) : \u211d\u22650\u221e)"
+    },
+    {
+      "name": "Resources.RandomSelection.scanExpectation_ne_top",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem scanExpectation_ne_top (k : Nat) (xs : List \u03b1) : scanExpectation k xs \u2260 \u221e"
+    },
+    {
+      "name": "Resources.RandomSelection.sourceExpectation_ne_top",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem sourceExpectation_ne_top (k : Nat) (xs : List \u03b1) : sourceExpectation k xs \u2260 \u221e"
+    },
+    {
+      "name": "Resources.RandomSelection.scanLaw_integrable",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem scanLaw_integrable (k : Nat) (xs : List \u03b1) :\n    Integrable (fun w : Nat => (w : \u211d)) (scanLaw k xs).toMeasure"
+    },
+    {
+      "name": "Resources.RandomSelection.sourceLaw_integrable",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem sourceLaw_integrable (k : Nat) (xs : List \u03b1) :\n    Integrable (fun t : Nat => (t : \u211d)) (sourceLaw k xs).toMeasure"
+    },
+    {
+      "name": "Resources.RandomSelection.scanExpectation_initial_le",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem scanExpectation_initial_le (k : Nat) (xs : List \u03b1) :\n    (xs.length : \u211d\u22650\u221e) \u2264 scanExpectation k xs"
+    },
+    {
+      "name": "Resources.RandomSelection.sourceExpectation_comparison",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem sourceExpectation_comparison (k : Nat) (xs : List \u03b1) :\n    scanExpectation k xs \u2264 sourceExpectation k xs \u2227\n      sourceExpectation k xs \u2264 9 * scanExpectation k xs + 2"
+    },
+    {
+      "name": "Resources.RandomSelection.scanExpectation_nil",
+      "kind": "theorem",
+      "private": false,
+      "header": "@[simp] theorem scanExpectation_nil (k : Nat) : scanExpectation k ([] : List \u03b1) = 0"
+    },
+    {
+      "name": "Resources.RandomSelection.sourceExpectation_nil",
+      "kind": "theorem",
+      "private": false,
+      "header": "@[simp] theorem sourceExpectation_nil (k : Nat) : sourceExpectation k ([] : List \u03b1) = 2"
+    },
+    {
+      "name": "Resources.RandomSelection.scanExpectation_cons",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem scanExpectation_cons (k : Nat) (head : \u03b1) (tail : List \u03b1) :\n    scanExpectation k (head :: tail) =\n      ((tail.length + 1 : Nat) : \u211d\u22650\u221e) +\n        (((tail.length + 1 : Nat) : \u211d\u22650\u221e)\u207b\u00b9) *\n          \u2211 i : Fin (tail.length + 1),\n            match (stepRun k (head :: tail) i).1 with\n            | Sum.inl (j, ys) => scanExpectation j ys\n            | Sum.inr _ => 0"
+    },
+    {
+      "name": "Resources.RandomSelection.scanMean",
+      "kind": "def",
+      "private": false,
+      "header": "def scanMean (k : Nat) (xs : List \u03b1) : \u211d"
+    },
+    {
+      "name": "Resources.RandomSelection.sourceMean",
+      "kind": "def",
+      "private": false,
+      "header": "def sourceMean (k : Nat) (xs : List \u03b1) : \u211d"
+    },
+    {
+      "name": "Resources.RandomSelection.scanMean_eq_toReal",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem scanMean_eq_toReal (k : Nat) (xs : List \u03b1) :\n    scanMean k xs = (scanExpectation k xs).toReal"
+    },
+    {
+      "name": "Resources.RandomSelection.sourceMean_eq_toReal",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem sourceMean_eq_toReal (k : Nat) (xs : List \u03b1) :\n    sourceMean k xs = (sourceExpectation k xs).toReal"
+    },
+    {
+      "name": "Resources.RandomSelection.scanMean_nonneg",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem scanMean_nonneg (k : Nat) (xs : List \u03b1) : 0 \u2264 scanMean k xs"
+    },
+    {
+      "name": "Resources.RandomSelection.sourceMean_nonneg",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem sourceMean_nonneg (k : Nat) (xs : List \u03b1) : 0 \u2264 sourceMean k xs"
+    },
+    {
+      "name": "Resources.RandomSelection.scanMean_initial_le",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem scanMean_initial_le (k : Nat) (xs : List \u03b1) : (xs.length : \u211d) \u2264 scanMean k xs"
+    },
+    {
+      "name": "Resources.RandomSelection.scanMean_quadratic_le",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem scanMean_quadratic_le (k : Nat) (xs : List \u03b1) :\n    scanMean k xs \u2264 ((xs.length * (xs.length + 1) / 2 : Nat) : \u211d)"
+    },
+    {
+      "name": "Resources.RandomSelection.sourceMean_quadratic_le",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem sourceMean_quadratic_le (k : Nat) (xs : List \u03b1) :\n    sourceMean k xs \u2264 ((9 * (xs.length * (xs.length + 1) / 2) + 2 : Nat) : \u211d)"
+    },
+    {
+      "name": "Resources.RandomSelection.sourceMean_comparison",
+      "kind": "theorem",
+      "private": false,
+      "header": "theorem sourceMean_comparison (k : Nat) (xs : List \u03b1) :\n    scanMean k xs \u2264 sourceMean k xs \u2227 sourceMean k xs \u2264 9 * scanMean k xs + 2"
+    },
+    {
+      "name": "Resources.RandomSelection.scanMean_nil",
+      "kind": "theorem",
+      "private": false,
+      "header": "@[simp] theorem scanMean_nil (k : Nat) : scanMean k ([] : List \u03b1) = 0"
+    },
+    {
+      "name": "Resources.RandomSelection.sourceMean_nil",
+      "kind": "theorem",
+      "private": false,
+      "header": "@[simp] theorem sourceMean_nil (k : Nat) : sourceMean k ([] : List \u03b1) = 2"
+    }
+  ],
+  "all_108_public_headers_preserved": true,
+  "all_13_authored_private_helpers_headers_and_bodies_preserved": true,
+  "all_5_other_source_files_byte_identical": true,
+  "all_executable_definitions_and_cost_observations_byte_identical": true,
+  "all_imports_options_universes_variables_unchanged": true,
+  "old_public_targets": [
+    "Resources.RandomSelection.pivotRun",
+    "Resources.RandomSelection.pivotRun_exact",
+    "Resources.RandomSelection.stepRun",
+    "Resources.RandomSelection.stepRun_eq",
+    "Resources.RandomSelection.stepRun_child",
+    "Resources.RandomSelection.stepRun_semantics",
+    "Resources.RandomSelection.stepRun_ranked",
+    "Resources.RandomSelection.stepRun_cost_bounds",
+    "Resources.RandomSelection.pivotLaw",
+    "Resources.RandomSelection.pivotLaw_support",
+    "Resources.RandomSelection.pivotLaw_event",
+    "Examples.RandomSelection.singleton_step",
+    "Examples.RandomSelection.duplicate_middle",
+    "Examples.RandomSelection.selected_side_is_not_larger_side",
+    "Examples.RandomSelection.selected_side_valid",
+    "Examples.RandomSelection.duplicate_ranked",
+    "Examples.RandomSelection.duplicate_source_bound",
+    "Examples.RandomSelection.duplicate_zero_probability",
+    "Examples.RandomSelection.duplicate_one_probability",
+    "Resources.RandomSelection.Trace",
+    "Resources.RandomSelection.Outcome",
+    "Resources.RandomSelection.scanVolume",
+    "Resources.RandomSelection.scanVolume_nil",
+    "Resources.RandomSelection.scanVolume_cons",
+    "Resources.RandomSelection.prepend",
+    "Resources.RandomSelection.run",
+    "Resources.RandomSelection.run_nil",
+    "Resources.RandomSelection.run_cons",
+    "Resources.RandomSelection.run_value",
+    "Resources.RandomSelection.run_ranked",
+    "Resources.RandomSelection.run_none",
+    "Resources.RandomSelection.run_valid",
+    "Resources.RandomSelection.run_active_calls_le",
+    "Resources.RandomSelection.run_initial_scan_le",
+    "Resources.RandomSelection.run_scanVolume_le",
+    "Resources.RandomSelection.run_source_bridge",
+    "Resources.RandomSelection.run_trace_entries",
+    "Resources.RandomSelection.run_source_quadratic",
+    "Resources.RandomSelection.select",
+    "Resources.RandomSelection.select_value",
+    "Resources.RandomSelection.select_none",
+    "Resources.RandomSelection.select_some_iff",
+    "Resources.RandomSelection.scanLaw",
+    "Resources.RandomSelection.sourceLaw",
+    "Resources.RandomSelection.scanLaw_support",
+    "Resources.RandomSelection.scanLaw_support_finite",
+    "Resources.RandomSelection.sourceLaw_support",
+    "Resources.RandomSelection.sourceLaw_support_finite",
+    "Examples.RandomSelectionRun.empty_failure",
+    "Examples.RandomSelectionRun.singleton_execution",
+    "Examples.RandomSelectionRun.invalid_singleton",
+    "Examples.RandomSelectionRun.rank_zero_public_failure",
+    "Examples.RandomSelectionRun.two_key_execution",
+    "Examples.RandomSelectionRun.duplicate_execution",
+    "Examples.RandomSelectionRun.two_key_first_path",
+    "Examples.RandomSelectionRun.two_key_long_path",
+    "Examples.RandomSelectionRun.same_value_different_scan",
+    "Examples.RandomSelectionRun.maximum_scan_on_pair",
+    "Examples.RandomSelectionRun.bounded_actual_pair_calls",
+    "Examples.RandomSelectionRun.arbitrary_supported_rank",
+    "Resources.RandomSelection.workExpectation",
+    "Resources.RandomSelection.workExpectation_mono",
+    "Resources.RandomSelection.workExpectation_const",
+    "Resources.RandomSelection.workExpectation_add",
+    "Resources.RandomSelection.workExpectation_mul",
+    "Resources.RandomSelection.workExpectation_nil",
+    "Resources.RandomSelection.workExpectation_cons",
+    "Resources.RandomSelection.scanExpectation",
+    "Resources.RandomSelection.sourceExpectation",
+    "Resources.RandomSelection.scanExpectation_eq_workExpectation",
+    "Resources.RandomSelection.sourceExpectation_eq_workExpectation",
+    "Resources.RandomSelection.scanExpectation_quadratic_le",
+    "Resources.RandomSelection.sourceExpectation_quadratic_le",
+    "Resources.RandomSelection.scanExpectation_ne_top",
+    "Resources.RandomSelection.sourceExpectation_ne_top",
+    "Resources.RandomSelection.scanLaw_integrable",
+    "Resources.RandomSelection.sourceLaw_integrable",
+    "Resources.RandomSelection.scanExpectation_initial_le",
+    "Resources.RandomSelection.sourceExpectation_comparison",
+    "Resources.RandomSelection.scanExpectation_nil",
+    "Resources.RandomSelection.sourceExpectation_nil",
+    "Resources.RandomSelection.scanExpectation_cons",
+    "Resources.RandomSelection.scanMean",
+    "Resources.RandomSelection.sourceMean",
+    "Resources.RandomSelection.scanMean_eq_toReal",
+    "Resources.RandomSelection.sourceMean_eq_toReal",
+    "Resources.RandomSelection.scanMean_nonneg",
+    "Resources.RandomSelection.sourceMean_nonneg",
+    "Resources.RandomSelection.scanMean_initial_le",
+    "Resources.RandomSelection.scanMean_quadratic_le",
+    "Resources.RandomSelection.sourceMean_quadratic_le",
+    "Resources.RandomSelection.sourceMean_comparison",
+    "Resources.RandomSelection.scanMean_nil",
+    "Resources.RandomSelection.sourceMean_nil",
+    "Examples.RandomSelectionMean.empty_means",
+    "Examples.RandomSelectionMean.singleton_means",
+    "Examples.RandomSelectionMean.invalid_singleton_means",
+    "Examples.RandomSelectionMean.two_key_scan_law",
+    "Examples.RandomSelectionMean.two_key_source_law",
+    "Examples.RandomSelectionMean.two_key_scan_mean",
+    "Examples.RandomSelectionMean.two_key_source_mean",
+    "Examples.RandomSelectionMean.duplicate_scan_law",
+    "Examples.RandomSelectionMean.duplicate_source_law",
+    "Examples.RandomSelectionMean.duplicate_means",
+    "Examples.RandomSelectionMean.two_key_scan_step",
+    "Examples.RandomSelectionMean.arbitrary_input_integrable",
+    "Examples.RandomSelectionMean.actual_mean_bridge",
+    "Examples.RandomSelectionMean.selected_value_and_mean_bounds"
+  ],
+  "prepared_statement_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/mean-correction1-20261104/Statements108-mean-correction1.lean",
+    "bytes": 5939,
+    "sha256": "a323a5014823dfdacd05249b5829b83d51eb2741cd8964601d02ba6aecb9f46e"
+  },
+  "statement_program_byte_identical_to_stage03": true,
+  "statement_review": [
+    {
+      "name": "workExpectation_cons",
+      "before_diagnostic": "dsimp made no progress at original line160.",
+      "correction": "Remove only the no-progress dsimp; preserve actual uniform-index conditional bind/map/pure calculation and selected child.",
+      "preservation": "Identical header, expectation definition, branch law, coefficients, payload universes and proof helpers."
+    },
+    {
+      "name": "scanExpectation_eq_workExpectation",
+      "before_diagnostic": "Residual equality between an explicit weighted sum and workExpectation at original line181.",
+      "correction": "Include unfolding of workExpectation in the existing rewrite chain.",
+      "preservation": "The lower integral remains the existing actual scanLaw marginal, with exact same-run equality."
+    },
+    {
+      "name": "sourceExpectation_eq_workExpectation",
+      "before_diagnostic": "Residual equality between an explicit weighted sum and workExpectation at original line186.",
+      "correction": "Include unfolding of workExpectation in the existing rewrite chain.",
+      "preservation": "The lower integral remains the existing actual sourceLaw marginal, with exact same-run equality."
+    },
+    {
+      "name": "scanExpectation_nil",
+      "before_diagnostic": "Stuck LinearOrder payload metavariable at original line251. The source identifies this as scanExpectation_nil, not scanExpectation_cons.",
+      "correction": "Supply (alpha := alpha), written with the existing Greek identifier in Lean, to workExpectation_nil.",
+      "preservation": "Same unrestricted ordered payload, all worker ranks, actual empty execution and expected scan zero; no inhabited or rank premise."
+    },
+    {
+      "name": "sourceMean_comparison",
+      "before_diagnostic": "Finite toReal addition specialization failed to rewrite the numeral form at original line348.",
+      "correction": "Name htwo : (2 : ENNReal) != infinity using the pinned ENNReal.ofNat_ne_top; use this exact typed witness for hfinite and toReal_add.",
+      "preservation": "Same finite nonnegative scan/source means, same upper coefficient9 and additive2, same common-run bridge; no assumptions added and no use of toReal(infinity) to claim finiteness."
+    }
+  ],
+  "retained_whole_mean_claim_assessment": [
+    {
+      "names": [
+        "workExpectation",
+        "workExpectation_mono",
+        "workExpectation_const",
+        "workExpectation_add",
+        "workExpectation_mul",
+        "workExpectation_nil",
+        "workExpectation_cons"
+      ],
+      "assessment": "Weights are exactly the existing run PMF. General observations are nonnegative extended reals and may have infinite expectation. Laws use only PMF normalization, nonnegative summation and support inequalities. The conditional equation retains the exact measured step, actual selected child, recorded occurrence and direct return; it assumes no size independence or desired drift."
+    },
+    {
+      "names": [
+        "scanExpectation",
+        "sourceExpectation",
+        "scanExpectation_eq_workExpectation",
+        "sourceExpectation_eq_workExpectation"
+      ],
+      "assessment": "Definitions are standard lower integrals of the existing Nat marginal laws. Their weighted-run equations are proved by PMF map transport, preserving the coupling and unrestricted payload universe. No new probability law is assigned."
+    },
+    {
+      "names": [
+        "scanExpectation_quadratic_le",
+        "sourceExpectation_quadratic_le",
+        "scanExpectation_ne_top",
+        "sourceExpectation_ne_top",
+        "scanLaw_integrable",
+        "sourceLaw_integrable"
+      ],
+      "assessment": "Existing actual pathwise finite support bounds prove lower-expectation finiteness and genuine real integrability. Natural division precedes the cast in the triangular bound. No linear expected bound, payload measurability, finite payload type or valid-rank premise is assumed."
+    },
+    {
+      "names": [
+        "scanExpectation_initial_le",
+        "sourceExpectation_comparison",
+        "scanExpectation_nil",
+        "sourceExpectation_nil",
+        "scanExpectation_cons"
+      ],
+      "assessment": "The first full scan supplies the lower bound for all worker ranks. The same-run pathwise W<=T<=9W+2 supplies the affine mean bridge, including invalid empty-continuation cost 2. The scan equation pays active n and averages only the actual selected strict child, with zero scan continuation on equal-block termination."
+    },
+    {
+      "names": [
+        "scanMean",
+        "sourceMean",
+        "scanMean_eq_toReal",
+        "sourceMean_eq_toReal",
+        "scanMean_nonneg",
+        "sourceMean_nonneg",
+        "scanMean_initial_le",
+        "scanMean_quadratic_le",
+        "sourceMean_quadratic_le",
+        "sourceMean_comparison",
+        "scanMean_nil",
+        "sourceMean_nil"
+      ],
+      "assessment": "These are actual real integrals on Nat. Separate finiteness theorems precede every finite-order transport from ENNReal, avoiding the toReal(infinity)=0 trap. Ranks remain zero-based worker ranks; no assertion about the public select rank-zero tariff is changed."
+    }
+  ],
+  "retained_all_mean_cases": [
+    {
+      "names": [
+        "empty_means"
+      ],
+      "expected": "Every worker rank on the empty list has means W=0,T=2, without an inhabited-payload premise.",
+      "connections": [
+        "scanMean_nil",
+        "sourceMean_nil"
+      ]
+    },
+    {
+      "names": [
+        "singleton_means"
+      ],
+      "expected": "For arbitrary x, valid singleton rank0 has means W=1,T=9.",
+      "connections": [
+        "Examples.RandomSelectionRun.singleton_execution",
+        "scanMean",
+        "sourceMean",
+        "scanLaw",
+        "sourceLaw",
+        "PMF.pure_map",
+        "PMF.toMeasure_pure"
+      ]
+    },
+    {
+      "names": [
+        "invalid_singleton_means"
+      ],
+      "expected": "Invalid worker rank1 on [7] has means W=1,T=11, retaining the empty continuation.",
+      "connections": [
+        "Examples.RandomSelectionRun.invalid_singleton",
+        "scanMean",
+        "sourceMean",
+        "PMF.pure_map",
+        "PMF.toMeasure_pure"
+      ]
+    },
+    {
+      "names": [
+        "two_key_scan_law",
+        "two_key_source_law",
+        "two_key_scan_mean",
+        "two_key_source_mean"
+      ],
+      "expected": "The actual two-key occurrence law has W=2 or3 and T=11 or20, each with weight1/2, giving real means5/2 and31/2. Both finite indices are exhausted.",
+      "connections": [
+        "Examples.RandomSelectionRun.two_key_execution",
+        "PMF.map_comp",
+        "scanMean",
+        "sourceMean",
+        "PMF.integral_eq_sum",
+        "RandomQuickSort.uniformIndex_apply"
+      ]
+    },
+    {
+      "names": [
+        "duplicate_scan_law",
+        "duplicate_source_law",
+        "duplicate_means"
+      ],
+      "expected": "For every x, the equal-value worker rank1 law has constant scan2 and indexed source costs12+i for i:Fin2, hence source mean25/2. No distinct-value resampling or Nodup assumption occurs.",
+      "connections": [
+        "Examples.RandomSelectionRun.duplicate_execution",
+        "PMF.map_comp",
+        "PMF.map_const",
+        "PMF.integral_eq_sum",
+        "RandomQuickSort.uniformIndex_apply"
+      ]
+    },
+    {
+      "names": [
+        "two_key_scan_step"
+      ],
+      "expected": "The actual scan expectation equation on [0,1] is E[W]=2+(1/2)E[W on [0]], with only the actual pivot-one child.",
+      "connections": [
+        "scanExpectation_cons",
+        "stepRun_eq",
+        "Applications.Selection.partition3_eq_filters"
+      ]
+    },
+    {
+      "names": [
+        "arbitrary_input_integrable",
+        "actual_mean_bridge"
+      ],
+      "expected": "For every ordered input type, list and worker rank, both actual scalar costs are integrable and their means compare via E[W]<=E[T]<=9E[W]+2.",
+      "connections": [
+        "scanLaw_integrable",
+        "sourceLaw_integrable",
+        "sourceMean_comparison"
+      ]
+    },
+    {
+      "names": [
+        "selected_value_and_mean_bounds"
+      ],
+      "expected": "For a valid rank and any supported outcome, its returned value is RankedAt, while the same-run expectations satisfy n<=E[W]<=E[T]. The theorem does not equate branch costs merely because all outputs agree.",
+      "connections": [
+        "run_valid",
+        "scanMean_initial_le",
+        "sourceMean_comparison"
+      ]
+    }
+  ],
+  "original_step_and_run_cases_preserved": "All four originals remain byte-identical, including occurrence multiplicity, selected-side-vs-majorant witness, invalid public rank, pair path probabilities and maximum-scan example.",
+  "full_source_before_read_tool_chunk": "dfa85a",
+  "complete_source_diff_read_tool_chunk": "ab04c4",
+  "failed_full_log_and_closure_read_tool_chunk": "88143f",
+  "pinned_numeral_toReal_source_read_tool_chunk": "6b80e5",
+  "actual_failed_focus_preserved": {
+    "run": "chapter03-random-selection-mean-focused-attempt1-20261104",
+    "owned_session": 67278,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "41a139",
+    "root_closure_tool_chunk": "38bff2",
+    "full_log_read_tool_chunk": "88143f",
+    "evidence": [
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt1-20261104/closed-evidence-reconciliation.json",
+        "bytes": 2172,
+        "sha256": "5fd9b36810fd7eb2d8c7a7aae60ed1e248605dc4fc05ea83cad38ce739114a23"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt1-20261104/full.log",
+        "bytes": 9295,
+        "sha256": "f579f7c48fdeb0c1d7a33247a4c8a8f3dbcf6c39b81fdd34fd970e8b54783705"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt1-20261104/launch.json",
+        "bytes": 174,
+        "sha256": "60ff1e6d3ecdd3702c02ab5493221cbd1a5d4b6e7ad3f20700cfe9ef0fee4e4d"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt1-20261104/native-records/output.log",
+        "bytes": 9013,
+        "sha256": "45ee7b45a9690d077f65cbfe2397ff3d235beb1a2281de25069a9b6f67512bb3"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt1-20261104/native-records/result.json",
+        "bytes": 636,
+        "sha256": "033956af4be182b3afcda88017311e6e3aa263c48a9fc953fd83bcb6e2838822"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt1-20261104/native-records/start.json",
+        "bytes": 483,
+        "sha256": "1a3f1807204dbb56857ce2a2f9e38611eb3351300b33f9e1cde838e1b64d470a"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt1-20261104/outer-prefix.log",
+        "bytes": 125,
+        "sha256": "d83dc1ae6f38ef5f1c758243fe2650ef9d872c846dcebd1b5c6041cfdc35dfe0"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt1-20261104/outer-suffix.log",
+        "bytes": 157,
+        "sha256": "830b7fc760f8c8a1e9244554b8767c0ba94591e31382ce3065550be367a3a6c8"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt1-20261104/owned-terminal.json",
+        "bytes": 260,
+        "sha256": "26f7834ad7a362b6341686877578d5be6395656dc1337ca220538a999d14f949"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt1-20261104/progress.json",
+        "bytes": 263,
+        "sha256": "f40d37192fb049a33e2039b7222149a0ea8a3ae21bfc0802a56b3b7d6b7a8fb3"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt1-20261104/request.json",
+        "bytes": 799,
+        "sha256": "4385b54b257b07fadc5bca4288068dee2afba136f451a6d956274c8906a321e8"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt1-20261104/result.json",
+        "bytes": 1329,
+        "sha256": "78b1f255aea2d420d862171858543545292f587f8192f48337a0c6dd15823de6"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt1-20261104/start.json",
+        "bytes": 992,
+        "sha256": "4084b972e6b61098304892ef057f8c2f7711fb732ce1fa1a087d99685395fc75"
+      },
+      {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt1-20261104/verification.json",
+        "bytes": 867,
+        "sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9"
+      }
+    ],
+    "result_scope": "Actual core failure; no new pair/build/type/audit/acceptance credit."
+  },
+  "prior_own_records_verified_unchanged": 64,
+  "frozen_specifications_verified_unchanged": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/chapter03-obligations.md",
+      "bytes": 52581,
+      "sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/selection-proof-plan.md",
+      "bytes": 31813,
+      "sha256": "4683072c5b47f168f81d0f35b727e247bc2c36af6922c76ab8eaac4fb542d18b"
+    }
+  ],
+  "git_diff_check": {
+    "actual_exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "source_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/mean-correction1-20261104/source.diff",
+    "bytes": 2746,
+    "sha256": "e566b6a1ec2a5155e4acde478f1438b3b657745df4fd9ba5167d1b1b6ed84dd0"
+  },
+  "new_focus_targets": [
+    "Applications.Resources.RandomSelectionMean",
+    "Examples.RandomSelectionMean"
+  ],
+  "actual_new_compilation_credit": false,
+  "actual_new_type_credit": false,
+  "author_compiler_actions": false,
+  "review_and_acceptance": "Neither independent axis nor full candidate/audit/immediate-verification gate is closed by this author correction.",
+  "probability_extension": "No drift, linear-expectation, tail or worst-case source extension; exact original obligations remain pending."
+}

@@ -1,0 +1,53 @@
+{
+  "observed_utc": "2026-11-02T11:54:43.494263+00:00",
+  "run_record": {
+    "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+    "command": [
+      "/root/.nix-profile/bin/nix",
+      "develop",
+      "--command",
+      "./check.sh",
+      "--candidate",
+      "HEAD"
+    ],
+    "working_directory": "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+    "log": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-3279bac.log",
+    "explicit_environment": {
+      "PATH_prefix": "/root/.nix-profile/bin:",
+      "NIX_CONFIG": "build-users-group =\nexperimental-features = nix-command flakes",
+      "LEAN_NUM_THREADS": "1"
+    },
+    "started_utc": "2026-11-02T10:59:38.190453+00:00",
+    "status": "running",
+    "returncode": null,
+    "note": "Exact subprocess return code is recorded independently of interactive session. Required check.sh command unchanged. Checkpoint017 upload completed before launch.",
+    "pid": 283393,
+    "process_group": 283393
+  },
+  "heads": {
+    "conaled": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+    "vfa-validation": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec"
+  },
+  "working_tree_status": {
+    "conaled": "",
+    "vfa-validation": ""
+  },
+  "log_snapshot_bytes": 177349,
+  "log_snapshot_sha256": "d919d3894a99c65307319b205be5b6ef5bc4b3e1e4f3b85abf9de1276b113dc8",
+  "last_completed_entries": [
+    "\u2714 [3902/3904] Built Examples.DijkstraCosts (4.3s)",
+    "\u2714 [3903/3906] Built Applications.Dijkstra.Sentinel.Range (3.4s)",
+    "\u2714 [3904/3906] Built Applications.Dijkstra.Sentinel.Observation (6.7s)",
+    "\u2714 [3905/3910] Built Examples.DijkstraSentinel (12s)",
+    "\u2714 [3908/3910] Built SquareKit.SmoothGeometricKL (192s)",
+    "\u26a0 [3909/3918] Built SquareKit.DiscreteSheaf (73s)",
+    "\u26a0 [3914/3918] Built SquareKit.SmoothDualCover (219s)",
+    "\u2714 [3916/3919] Built SquareKit.SmoothOpenMaps (252s)",
+    "\u26a0 [3917/3920] Built SquareKit.SheafTorsor (92s)",
+    "\u2714 [3918/3920] Built SquareKit.SmoothOpenDuality (579s)",
+    "\u2714 [3919/3924] Built SquareKit.SmoothOpenEmbedding (450s)",
+    "\u2714 [3976/3984] Built SquareKit.SmoothGeometricRepresentable (291s)"
+  ],
+  "errors_observed": [],
+  "scope": "Bounded read-only record of current gate and exact clean source identities. Not validation success or chapter acceptance. Log may continue after this observation."
+}

@@ -1,0 +1,1205 @@
+Exact copied source headers from the authorized checked donor; not newly printed types.
+
+public Resources.Chunks.chopRun
+Applications/Resources/Chunks.lean:19
+def chopRun : (d : Nat) → List α → Measured (List (List α)) Nat
+
+public Resources.Chunks.chopRun_zero
+Applications/Resources/Chunks.lean:32
+theorem chopRun_zero (xs : List α) : chopRun 0 xs = ([], 1)
+
+public Resources.Chunks.chopRun_nil
+Applications/Resources/Chunks.lean:35
+theorem chopRun_nil (d : Nat) : chopRun d ([] : List α) = ([], 1)
+
+public Resources.Chunks.chopRun_eq_cons
+Applications/Resources/Chunks.lean:39
+theorem chopRun_eq_cons (d : Nat) (xs : List α) (hd : 0 < d) (hx : xs ≠ []) :
+    chopRun d xs =
+      (xs.take d :: (chopRun d (xs.drop d)).1,
+        (ListCalls.takeRun d xs).2 + (ListCalls.dropRun d xs).2 +
+          (chopRun d (xs.drop d)).2 + 1)
+
+public Resources.Chunks.chopRun_value
+Applications/Resources/Chunks.lean:53
+theorem chopRun_value (d : Nat) (xs : List α) : (chopRun d xs).1 = chop d xs
+
+public Resources.Chunks.chopRun_cost
+Applications/Resources/Chunks.lean:68
+theorem chopRun_cost (d : Nat) (xs : List α) (hd : 0 < d) :
+    (chopRun d xs).2 = 2 * xs.length + 3 * (xs.length ⌈/⌉ d) + 1
+
+public Resources.Chunks.chopRun_exact
+Applications/Resources/Chunks.lean:87
+theorem chopRun_exact (d : Nat) (xs : List α) (hd : 0 < d) :
+    chopRun d xs = (chop d xs, 2 * xs.length + 3 * (xs.length ⌈/⌉ d) + 1)
+
+public Resources.Chunks.chopRun_cost_bound
+Applications/Resources/Chunks.lean:92
+theorem chopRun_cost_bound (d : Nat) (xs : List α) :
+    (chopRun d xs).2 ≤ 5 * xs.length + 1
+
+public Resources.Chunks.chopRun_one_cost
+Applications/Resources/Chunks.lean:103
+theorem chopRun_one_cost (xs : List α) : (chopRun 1 xs).2 = 5 * xs.length + 1
+
+public Resources.Chunks.chopRun_length
+Applications/Resources/Chunks.lean:107
+theorem chopRun_length (d : Nat) (xs : List α) :
+    (chopRun d xs).1.length = xs.length ⌈/⌉ d
+
+public Resources.Chunks.chopRun_mem_ne_nil
+Applications/Resources/Chunks.lean:111
+theorem chopRun_mem_ne_nil (d : Nat) (xs ys : List α)
+    (hy : ys ∈ (chopRun d xs).1) : ys ≠ []
+
+public Resources.Chunks.chopRun_mem_length
+Applications/Resources/Chunks.lean:116
+theorem chopRun_mem_length (d : Nat) (xs ys : List α)
+    (hy : ys ∈ (chopRun d xs).1) : ys.length ≤ d
+
+public Resources.Chunks.chopRun_flatten
+Applications/Resources/Chunks.lean:121
+theorem chopRun_flatten (d : Nat) (xs : List α) (hd : 0 < d) :
+    (chopRun d xs).1.flatten = xs
+
+public Resources.RoundedRecurrence.ceil_affine_lt_add_one
+Applications/Resources/RoundedRecurrence.lean:25
+theorem ceil_affine_lt_add_one (a b : ℝ) (n : Nat) (ha : 0 ≤ a) :
+    (⌈a * (n : ℝ) + b⌉₊ : ℝ) < a * (n : ℝ) + max 0 b + 1
+
+public Resources.RoundedRecurrence.ceil_affine_lt_of_threshold
+Applications/Resources/RoundedRecurrence.lean:37
+theorem ceil_affine_lt_of_threshold (a b : ℝ) (N n : Nat)
+    (ha : 0 ≤ a) (ha_lt_one : a < 1)
+    (threshold : (max 0 b + 1) / (1 - a) ≤ (N : ℝ)) (large : N < n) :
+    ⌈a * (n : ℝ) + b⌉₊ < n
+
+public Resources.RoundedRecurrence.thresholds_of_combined_cutoff
+Applications/Resources/RoundedRecurrence.lean:52
+theorem thresholds_of_combined_cutoff (a b c d : ℝ) (N : Nat)
+    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1)
+    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ)) :
+    (max 0 b + 1) / (1 - a) ≤ (N : ℝ) ∧
+      (max 0 d + 1) / (1 - c) ≤ (N : ℝ)
+
+public Resources.RoundedRecurrence.ceil_children_lt
+Applications/Resources/RoundedRecurrence.lean:71
+theorem ceil_children_lt (a b c d : ℝ) (N n : Nat)
+    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1)
+    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ))
+    (large : N < n) :
+    ⌈a * (n : ℝ) + b⌉₊ < n ∧ ⌈c * (n : ℝ) + d⌉₊ < n
+
+public Resources.RoundedRecurrence.cutoff_denominator_pos
+Applications/Resources/RoundedRecurrence.lean:83
+theorem cutoff_denominator_pos (a b c d : ℝ) (N : Nat) (contract : a + c < 1)
+    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ)) :
+    0 < (1 - a - c) * (N : ℝ) - max 0 b - max 0 d - 2
+
+public Resources.RoundedRecurrence.slope_nonneg_and_margin
+Applications/Resources/RoundedRecurrence.lean:92
+theorem slope_nonneg_and_margin (a c C1 C3 : ℝ) (contract : a + c < 1)
+    (toll_nonneg : 0 ≤ C1) (slope : C1 / (1 - a - c) ≤ C3) :
+    0 ≤ C3 ∧ 0 ≤ C3 * (1 - a - c) - C1
+
+public Resources.RoundedRecurrence.sharp_affine_absorption
+Applications/Resources/RoundedRecurrence.lean:101
+theorem sharp_affine_absorption (a b c d C1 C2 C3 C4 : ℝ) (N n : Nat)
+    (contract : a + c < 1) (toll_nonneg : 0 ≤ C1)
+    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ))
+    (slope : C1 / (1 - a - c) ≤ C3)
+    (absorb : (C1 * (N : ℝ) + C2 + C4) /
+      ((1 - a - c) * (N : ℝ) - max 0 b - max 0 d - 2) ≤ C3)
+    (large : N ≤ n) :
+    (C3 * (a * (n : ℝ) + max 0 b + 1) + C4) +
+      (C3 * (c * (n : ℝ) + max 0 d + 1) + C4) + C1 * (n : ℝ) + C2 ≤
+        C3 * (n : ℝ) + C4
+
+public Resources.RoundedRecurrence.recurrence_step_le
+Applications/Resources/RoundedRecurrence.lean:121
+theorem recurrence_step_le (f : Nat → ℝ) (a b c d C1 C2 C3 C4 : ℝ) (N n : Nat)
+    (ha : 0 ≤ a) (hc : 0 ≤ c) (contract : a + c < 1) (toll_nonneg : 0 ≤ C1)
+    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ))
+    (slope : C1 / (1 - a - c) ≤ C3)
+    (absorb : (C1 * (N : ℝ) + C2 + C4) /
+      ((1 - a - c) * (N : ℝ) - max 0 b - max 0 d - 2) ≤ C3)
+    (large : N ≤ n)
+    (recurrence : f n = f ⌈a * (n : ℝ) + b⌉₊ + f ⌈c * (n : ℝ) + d⌉₊ +
+      C1 * (n : ℝ) + C2)
+    (left_bound : f ⌈a * (n : ℝ) + b⌉₊ ≤ C3 * (⌈a * (n : ℝ) + b⌉₊ : ℝ) + C4)
+    (right_bound : f ⌈c * (n : ℝ) + d⌉₊ ≤ C3 * (⌈c * (n : ℝ) + d⌉₊ : ℝ) + C4) :
+    f n ≤ C3 * (n : ℝ) + C4
+
+public Resources.RoundedRecurrence.explicit_cutoff_bounds
+Applications/Resources/RoundedRecurrenceBounds.lean:26
+theorem explicit_cutoff_bounds (a b c d : ℝ) (n0 : Nat) :
+    let N : Nat
+
+public Resources.RoundedRecurrence.affine_bound_of_prefix
+Applications/Resources/RoundedRecurrenceBounds.lean:43
+theorem affine_bound_of_prefix (f : Nat → ℝ)
+    (a b c d C1 C2 C3 C4 : ℝ) (n0 N : Nat)
+    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1) (toll_nonneg : 0 ≤ C1)
+    (cutoff : n0 ≤ N)
+    (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ))
+    (hprefix : ∀ n, n ≤ N → f n ≤ C4)
+    (slope : C1 / (1 - a - c) ≤ C3)
+    (absorb : (C1 * (N : ℝ) + C2 + C4) /
+      ((1 - a - c) * (N : ℝ) - max 0 b - max 0 d - 2) ≤ C3)
+    (recurrence : ∀ n, n0 < n →
+      f n = f ⌈a * (n : ℝ) + b⌉₊ + f ⌈c * (n : ℝ) + d⌉₊ +
+        C1 * (n : ℝ) + C2) :
+    ∀ n : Nat, f n ≤ C3 * (n : ℝ) + C4
+
+public Resources.RoundedRecurrence.bound_with_source_constants
+Applications/Resources/RoundedRecurrenceBounds.lean:73
+theorem bound_with_source_constants (f : Nat → ℝ)
+    (a b c d C1 C2 : ℝ) (n0 : Nat)
+    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1) (toll_nonneg : 0 ≤ C1)
+    (recurrence : ∀ n, n0 < n →
+      f n = f ⌈a * (n : ℝ) + b⌉₊ + f ⌈c * (n : ℝ) + d⌉₊ +
+        C1 * (n : ℝ) + C2) :
+    let N : Nat
+
+public Resources.RoundedRecurrence.exists_affine_bound
+Applications/Resources/RoundedRecurrenceBounds.lean:102
+theorem exists_affine_bound (f : Nat → ℝ) (a b c d C1 C2 : ℝ) (n0 : Nat)
+    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1) (toll_nonneg : 0 ≤ C1)
+    (recurrence : ∀ n, n0 < n →
+      f n = f ⌈a * (n : ℝ) + b⌉₊ + f ⌈c * (n : ℝ) + d⌉₊ +
+        C1 * (n : ℝ) + C2) :
+    ∃ C3 C4 : ℝ, ∀ n : Nat, f n ≤ C3 * (n : ℝ) + C4
+
+public Resources.RoundedRecurrence.exists_affine_bound_nat
+Applications/Resources/RoundedRecurrenceBounds.lean:115
+theorem exists_affine_bound_nat (f : Nat → Nat) (a b c d : ℝ) (C1 C2 n0 : Nat)
+    (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1)
+    (recurrence : ∀ n, n0 < n →
+      f n = f ⌈a * (n : ℝ) + b⌉₊ + f ⌈c * (n : ℝ) + d⌉₊ + C1 * n + C2) :
+    ∃ C3 C4 : Nat, ∀ n : Nat, f n ≤ C3 * n + C4
+
+private Resources.Selection.length_value
+Applications/Resources/Selection.lean:31
+private theorem length_value (xs : List α) :
+    (SymmetricCosts.lengthRun xs).1 = xs.length
+
+private Resources.Selection.partition_value
+Applications/Resources/Selection.lean:35
+private theorem partition_value (p : α) (xs : List α) :
+    (Partition.partitionRun p xs).1 = partition3 p xs
+
+private Resources.Selection.left_member
+Applications/Resources/Selection.lean:39
+private theorem left_member (p : α) (xs : List α) (a : α)
+    (ha : a ∈ (Partition.partitionRun p xs).1.1) : a ∈ xs
+
+private Resources.Selection.right_member
+Applications/Resources/Selection.lean:44
+private theorem right_member (p : α) (xs : List α) (a : α)
+    (ha : a ∈ (Partition.partitionRun p xs).1.2.2) : a ∈ xs
+
+private Resources.Selection.strict_sizes
+Applications/Resources/Selection.lean:49
+private theorem strict_sizes (p : α) (xs : List α) (hp : p ∈ xs) :
+    (Partition.partitionRun p xs).1.1.length < xs.length ∧
+      (Partition.partitionRun p xs).1.2.2.length < xs.length
+
+private Resources.Selection.right_rank
+Applications/Resources/Selection.lean:55
+private theorem right_rank (p : α) (xs : List α) (k : Nat)
+    (hk : k < xs.length)
+    (he : ¬ k < (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.1).1 +
+      (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.2.1).1) :
+    k - (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.1).1 -
+        (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.2.1).1 <
+      (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.2.2).1
+
+private Resources.Selection.medians_positive
+Applications/Resources/Selection.lean:66
+private theorem medians_positive (d : Nat) (xs : List α)
+    (hd : 2 ≤ d) (hx : 0 < xs.length) :
+    0 < (chunkMediansRun d xs).1.length
+
+private Resources.Selection.medians_shorter
+Applications/Resources/Selection.lean:77
+private theorem medians_shorter (d : Nat) (xs : List α)
+    (hd : 2 ≤ d) (hx : 1 < xs.length) :
+    (chunkMediansRun d xs).1.length < xs.length
+
+private Resources.Selection.median_rank
+Applications/Resources/Selection.lean:88
+private theorem median_rank (d : Nat) (xs : List α)
+    (hd : 2 ≤ d) (hx : 0 < xs.length) :
+    ((xs.length ⌈/⌉ d) - 1) / 2 <
+      (SymmetricCosts.lengthRun (chunkMediansRun d xs).1).1
+
+private Resources.Selection.selectWorker
+Applications/Resources/Selection.lean:99
+private def selectWorker (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
+    (k : Nat) (xs : List α) (nr : Measured Nat Nat)
+    (hn : nr = SymmetricCosts.lengthRun xs) (hk : k < nr.1) :
+    Measured {a // a ∈ xs} Nat
+
+private Resources.Selection.observe
+Applications/Resources/Selection.lean:148
+private def observe {xs : List α} (r : Measured {a // a ∈ xs} Nat) :
+    Measured (Option α) Nat
+
+public Resources.Selection.selectRunWith
+Applications/Resources/Selection.lean:154
+def selectRunWith (groupSize cutoff : Nat) (hd : 2 ≤ groupSize) (hc : 1 ≤ cutoff)
+    (k : Nat) (xs : List α) : Measured (Option α) Nat
+
+public Resources.Selection.selectRun
+Applications/Resources/Selection.lean:162
+def selectRun (k : Nat) (xs : List α) : Measured (Option α) Nat
+
+private Resources.Selection.worker_observe
+Applications/Resources/Selection.lean:165
+private theorem worker_observe (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
+    (k : Nat) (xs : List α) (nr : Measured Nat Nat)
+    (hn : nr = SymmetricCosts.lengthRun xs) (hk : k < nr.1) :
+    selectRunWith d cutoff hd hc k xs = observe (selectWorker d cutoff hd hc k xs nr hn hk)
+
+public Resources.Selection.selectRunWith_of_invalid
+Applications/Resources/Selection.lean:175
+theorem selectRunWith_of_invalid (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
+    (k : Nat) (xs : List α) (hk : xs.length ≤ k) :
+    selectRunWith d cutoff hd hc k xs = (none, xs.length + 2)
+
+public Resources.Selection.selectRunWith_nil
+Applications/Resources/Selection.lean:184
+theorem selectRunWith_nil (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (k : Nat) :
+    selectRunWith d cutoff hd hc k ([] : List α) = (none, 2)
+
+public Resources.Selection.selectRunWith_exists
+Applications/Resources/Selection.lean:189
+theorem selectRunWith_exists (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
+    (k : Nat) (xs : List α) (hk : k < xs.length) :
+    ∃ a, (selectRunWith d cutoff hd hc k xs).1 = some a
+
+public Resources.Selection.selectRunWith_mem
+Applications/Resources/Selection.lean:197
+theorem selectRunWith_mem (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
+    (k : Nat) (xs : List α) (a : α)
+    (ha : (selectRunWith d cutoff hd hc k xs).1 = some a) : a ∈ xs
+
+public Resources.Selection.selectRunWith_small
+Applications/Resources/Selection.lean:210
+theorem selectRunWith_small (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
+    (k : Nat) (xs : List α) (hk : k < xs.length) (hs : xs.length ≤ cutoff) :
+    selectRunWith d cutoff hd hc k xs =
+      ((slowSelectRun k xs).1,
+        1 + (SymmetricCosts.lengthRun xs).2 + (slowSelectRun k xs).2)
+
+public Resources.Selection.selectRunWith_step
+Applications/Resources/Selection.lean:230
+theorem selectRunWith_step (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
+    (k : Nat) (xs : List α) (hk : k < xs.length) (hs : cutoff < xs.length)
+    (p : α)
+    (hp : (selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)
+      (chunkMediansRun d xs).1).1 = some p) :
+    selectRunWith d cutoff hd hc k xs =
+      let t
+
+public Resources.Selection.selectRunWith_cost_step
+Applications/Resources/Selection.lean:328
+theorem selectRunWith_cost_step (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
+    (k : Nat) (xs : List α) (hk : k < xs.length) (hs : cutoff < xs.length)
+    (p : α)
+    (hp : (selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)
+      (chunkMediansRun d xs).1).1 = some p) :
+    (selectRunWith d cutoff hd hc k xs).2 =
+      let t
+
+public Resources.Selection.selectRunWith_value
+Applications/Resources/Selection.lean:353
+theorem selectRunWith_value (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
+    (k : Nat) (xs : List α) :
+    (selectRunWith d cutoff hd hc k xs).1 = (ordered xs)[k]?
+
+public Resources.Selection.selectRunWith_some_iff
+Applications/Resources/Selection.lean:386
+theorem selectRunWith_some_iff (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
+    (k : Nat) (xs : List α) (a : α) :
+    (selectRunWith d cutoff hd hc k xs).1 = some a ↔ RankedAt xs k a
+
+public Resources.Selection.selectRunWith_none_iff
+Applications/Resources/Selection.lean:391
+theorem selectRunWith_none_iff (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
+    (k : Nat) (xs : List α) :
+    (selectRunWith d cutoff hd hc k xs).1 = none ↔ xs.length ≤ k
+
+public Resources.Selection.selectRunWith_public
+Applications/Resources/Selection.lean:397
+theorem selectRunWith_public (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
+    (k : Nat) (xs : List α) :
+    (selectRunWith d cutoff hd hc k xs).1 = sortSelect (k + 1) xs
+
+public Resources.Selection.selectRun_value
+Applications/Resources/Selection.lean:403
+theorem selectRun_value (k : Nat) (xs : List α) :
+    (selectRun k xs).1 = (ordered xs)[k]?
+
+public Resources.Selection.selectRun_some_iff
+Applications/Resources/Selection.lean:407
+theorem selectRun_some_iff (k : Nat) (xs : List α) (a : α) :
+    (selectRun k xs).1 = some a ↔ RankedAt xs k a
+
+public Resources.Selection.selectRun_none_iff
+Applications/Resources/Selection.lean:411
+theorem selectRun_none_iff (k : Nat) (xs : List α) :
+    (selectRun k xs).1 = none ↔ xs.length ≤ k
+
+public Resources.Selection.selectRun_of_invalid
+Applications/Resources/Selection.lean:415
+theorem selectRun_of_invalid (k : Nat) (xs : List α) (hk : xs.length ≤ k) :
+    selectRun k xs = (none, xs.length + 2)
+
+public Resources.Selection.selectRun_nil
+Applications/Resources/Selection.lean:419
+theorem selectRun_nil (k : Nat) : selectRun k ([] : List α) = (none, 2)
+
+public Resources.Selection.selectRun_small
+Applications/Resources/Selection.lean:422
+theorem selectRun_small (k : Nat) (xs : List α) (hk : k < xs.length)
+    (hs : xs.length ≤ 20) :
+    selectRun k xs = ((slowSelectRun k xs).1,
+      1 + (SymmetricCosts.lengthRun xs).2 + (slowSelectRun k xs).2)
+
+public Resources.Selection.selectRun_step
+Applications/Resources/Selection.lean:428
+theorem selectRun_step (k : Nat) (xs : List α) (hk : k < xs.length)
+    (hs : 20 < xs.length) (p : α)
+    (hp : (selectRun (((xs.length ⌈/⌉ 5) - 1) / 2) (chunkMediansRun 5 xs).1).1 = some p) :
+    selectRun k xs =
+      let t
+
+public Resources.Selection.selectRun_cost_step
+Applications/Resources/Selection.lean:446
+theorem selectRun_cost_step (k : Nat) (xs : List α) (hk : k < xs.length)
+    (hs : 20 < xs.length) (p : α)
+    (hp : (selectRun (((xs.length ⌈/⌉ 5) - 1) / 2) (chunkMediansRun 5 xs).1).1 = some p) :
+    (selectRun k xs).2 =
+      let t
+
+public Resources.SelectionAuxiliary.slowSelectRun
+Applications/Resources/SelectionAuxiliary.lean:22
+def slowSelectRun (k : Nat) (xs : List α) : Measured (Option α) Nat
+
+public Resources.SelectionAuxiliary.slowSelectRun_value
+Applications/Resources/SelectionAuxiliary.lean:25
+theorem slowSelectRun_value (k : Nat) (xs : List α) :
+    (slowSelectRun k xs).1 = (ordered xs)[k]?
+
+public Resources.SelectionAuxiliary.slowSelectRun_cost
+Applications/Resources/SelectionAuxiliary.lean:32
+theorem slowSelectRun_cost (k : Nat) (xs : List α) :
+    (slowSelectRun k xs).2 =
+      (InsertionSort.sortRun (· ≤ ·) xs).2 + min k xs.length + 1
+
+public Resources.SelectionAuxiliary.slowSelectRun_cost_of_lt
+Applications/Resources/SelectionAuxiliary.lean:38
+theorem slowSelectRun_cost_of_lt (k : Nat) (xs : List α) (hk : k < xs.length) :
+    (slowSelectRun k xs).2 = (InsertionSort.sortRun (· ≤ ·) xs).2 + k + 1
+
+public Resources.SelectionAuxiliary.slowSelectRun_some_iff
+Applications/Resources/SelectionAuxiliary.lean:42
+theorem slowSelectRun_some_iff (k : Nat) (xs : List α) (a : α) :
+    (slowSelectRun k xs).1 = some a ↔ RankedAt xs k a
+
+public Resources.SelectionAuxiliary.slowSelectRun_none
+Applications/Resources/SelectionAuxiliary.lean:46
+theorem slowSelectRun_none (k : Nat) (xs : List α) :
+    (slowSelectRun k xs).1 = none ↔ xs.length ≤ k
+
+public Resources.SelectionAuxiliary.slowSelectRun_public
+Applications/Resources/SelectionAuxiliary.lean:51
+theorem slowSelectRun_public (k : Nat) (xs : List α) :
+    (slowSelectRun k xs).1 = sortSelect (k + 1) xs
+
+public Resources.SelectionAuxiliary.slowSelectRun_cost_bound
+Applications/Resources/SelectionAuxiliary.lean:57
+theorem slowSelectRun_cost_bound (k : Nat) (xs : List α) (hk : k < xs.length) :
+    (slowSelectRun k xs).2 ≤ xs.length ^ 2 + 3 * xs.length + 1
+
+public Resources.SelectionAuxiliary.slowSelectRun_cost_of_pairwise
+Applications/Resources/SelectionAuxiliary.lean:63
+theorem slowSelectRun_cost_of_pairwise (k : Nat) (xs : List α)
+    (hk : k < xs.length) (hs : xs.Pairwise (· ≤ ·)) :
+    (slowSelectRun k xs).2 = 2 * xs.length + k + 2
+
+public Resources.SelectionAuxiliary.slowSelectRun_cost_reverse_range
+Applications/Resources/SelectionAuxiliary.lean:69
+theorem slowSelectRun_cost_reverse_range (n k : Nat) (hk : k < n) :
+    (slowSelectRun k (List.range n).reverse).2 =
+      (n + 1) * (n + 2) / 2 + k + 1
+
+public Resources.SelectionAuxiliary.slowSelectRun_entry_bound
+Applications/Resources/SelectionAuxiliary.lean:77
+theorem slowSelectRun_entry_bound (k : Nat) (xs : List α) (hk : k < xs.length) :
+    1 + (SymmetricCosts.lengthRun xs).2 + (slowSelectRun k xs).2 ≤
+      xs.length ^ 2 + 4 * xs.length + 3
+
+public Resources.SelectionAuxiliary.slowSelectRun_cutoff_bound
+Applications/Resources/SelectionAuxiliary.lean:84
+theorem slowSelectRun_cutoff_bound (k : Nat) (xs : List α)
+    (hk : k < xs.length) (hn : xs.length ≤ 20) :
+    1 + (SymmetricCosts.lengthRun xs).2 + (slowSelectRun k xs).2 ≤ 483
+
+public Resources.SelectionAuxiliary.slowMedianRun
+Applications/Resources/SelectionAuxiliary.lean:92
+def slowMedianRun (xs : List α) : Measured (Option α) Nat
+
+public Resources.SelectionAuxiliary.slowMedianRun_value
+Applications/Resources/SelectionAuxiliary.lean:95
+theorem slowMedianRun_value (xs : List α) :
+    (slowMedianRun xs).1 = lowerMedianWith List.head? xs
+
+public Resources.SelectionAuxiliary.slowMedianRun_cost
+Applications/Resources/SelectionAuxiliary.lean:100
+theorem slowMedianRun_cost (xs : List α) :
+    (slowMedianRun xs).2 = (SymmetricCosts.lengthRun xs).2 +
+      (slowSelectRun ((xs.length - 1) / 2) xs).2
+
+public Resources.SelectionAuxiliary.slowMedianRun_some_iff
+Applications/Resources/SelectionAuxiliary.lean:105
+theorem slowMedianRun_some_iff (xs : List α) (a : α) :
+    (slowMedianRun xs).1 = some a ↔ RankedAt xs ((xs.length - 1) / 2) a
+
+public Resources.SelectionAuxiliary.slowMedianRun_none
+Applications/Resources/SelectionAuxiliary.lean:109
+theorem slowMedianRun_none (xs : List α) :
+    (slowMedianRun xs).1 = none ↔ xs = []
+
+public Resources.SelectionAuxiliary.slowMedianRun_mem
+Applications/Resources/SelectionAuxiliary.lean:113
+theorem slowMedianRun_mem (xs : List α) (a : α)
+    (ha : (slowMedianRun xs).1 = some a) : a ∈ xs
+
+public Resources.SelectionAuxiliary.slowMedianRun_cost_bound
+Applications/Resources/SelectionAuxiliary.lean:117
+theorem slowMedianRun_cost_bound (xs : List α) (hx : xs ≠ []) :
+    (slowMedianRun xs).2 ≤ xs.length ^ 2 + 4 * xs.length + 2
+
+public Resources.SelectionAuxiliary.slowMedianRun_small_bound
+Applications/Resources/SelectionAuxiliary.lean:126
+theorem slowMedianRun_small_bound (xs : List α) (hx : xs ≠ [])
+    (hn : xs.length ≤ 5) : (slowMedianRun xs).2 ≤ 47
+
+public Resources.Selection.chunkMediansRun_length_eq_pivotSize
+Applications/Resources/SelectionBounds.lean:27
+theorem chunkMediansRun_length_eq_pivotSize (xs : List α) :
+    (chunkMediansRun 5 xs).1.length = pivotSize xs.length
+
+public Resources.Selection.selectRun_median_value
+Applications/Resources/SelectionBounds.lean:35
+theorem selectRun_median_value (xs : List α) :
+    (selectRun (((xs.length ⌈/⌉ 5) - 1) / 2) (chunkMediansRun 5 xs).1).1 =
+      medianOfMedians 5 xs
+
+public Resources.Selection.selectRun_pivot_size_bounds
+Applications/Resources/SelectionBounds.lean:42
+theorem selectRun_pivot_size_bounds (xs : List α) (p : α)
+    (hp : (selectRun (((xs.length ⌈/⌉ 5) - 1) / 2)
+      (chunkMediansRun 5 xs).1).1 = some p) :
+    (partition3 p xs).1.length ≤ sideSize xs.length ∧
+      (partition3 p xs).2.2.length ≤ sideSize xs.length
+
+public Resources.Selection.selectRun_local_cost_bound
+Applications/Resources/SelectionBounds.lean:62
+theorem selectRun_local_cost_bound (xs : List α) (p : α) :
+    1 + (SymmetricCosts.lengthRun xs).2 + (chunkMediansRun 5 xs).2 +
+      (Partition.partitionRun p xs).2 + (SymmetricCosts.lengthRun (partition3 p xs).1).2 +
+      (SymmetricCosts.lengthRun (partition3 p xs).2.1).2 ≤ 19 * xs.length + 54
+
+public Resources.Selection.selectRun_cost_le_F_of_lt
+Applications/Resources/SelectionBounds.lean:75
+theorem selectRun_cost_le_F_of_lt (k : Nat) (xs : List α) (hk : k < xs.length) :
+    (selectRun k xs).2 ≤ F xs.length
+
+public Resources.Selection.invalid_cost_le_F
+Applications/Resources/SelectionBounds.lean:151
+theorem invalid_cost_le_F (n : Nat) : n + 2 ≤ F n
+
+public Resources.Selection.selectRun_cost_le_F
+Applications/Resources/SelectionBounds.lean:160
+theorem selectRun_cost_le_F (k : Nat) (xs : List α) :
+    (selectRun k xs).2 ≤ F xs.length
+
+public Resources.Selection.selectRun_exists_uniform_affine_bound
+Applications/Resources/SelectionBounds.lean:169
+theorem selectRun_exists_uniform_affine_bound :
+    ∃ A B : Nat, ∀ (β : Type u) [LinearOrder β] (xs : List β) (k : Nat),
+      (selectRun k xs).2 ≤ A * xs.length + B
+
+public Resources.Selection.selectRun_exists_uniform_linear_bound
+Applications/Resources/SelectionBounds.lean:179
+theorem selectRun_exists_uniform_linear_bound :
+    ∃ C : Nat, ∀ (β : Type u) [LinearOrder β] (xs : List β) (k : Nat),
+      0 < xs.length → (selectRun k xs).2 ≤ C * xs.length
+
+public Resources.Selection.selectRun_family_isBigO
+Applications/Resources/SelectionBounds.lean:192
+theorem selectRun_family_isBigO (inputs : Nat → List α) (ranks : Nat → Nat)
+    (lengths : ∀ n, (inputs n).length = n) :
+    Asymptotics.IsBigO Filter.atTop
+      (fun n : Nat => ((selectRun (ranks n) (inputs n)).2 : ℝ))
+      (fun n => (n : ℝ))
+
+public Resources.SelectionMedians.slowMedianValueRun
+Applications/Resources/SelectionMedians.lean:25
+def slowMedianValueRun (xs : List α) (hx : xs ≠ []) : Measured α Nat
+
+public Resources.SelectionMedians.slowMedianValueRun_of_some
+Applications/Resources/SelectionMedians.lean:31
+theorem slowMedianValueRun_of_some (xs : List α) (hx : xs ≠ []) (a : α)
+    (ha : (slowMedianRun xs).1 = some a) :
+    slowMedianValueRun xs hx = (a, (slowMedianRun xs).2)
+
+public Resources.SelectionMedians.slowMedianValueRun_of_run
+Applications/Resources/SelectionMedians.lean:42
+theorem slowMedianValueRun_of_run (xs : List α) (hx : xs ≠ []) (a : α) (c : Nat)
+    (h : slowMedianRun xs = (some a, c)) : slowMedianValueRun xs hx = (a, c)
+
+public Resources.SelectionMedians.slowMedianValueRun_some
+Applications/Resources/SelectionMedians.lean:48
+theorem slowMedianValueRun_some (xs : List α) (hx : xs ≠ []) :
+    some (slowMedianValueRun xs hx).1 = (slowMedianRun xs).1
+
+public Resources.SelectionMedians.slowMedianValueRun_cost
+Applications/Resources/SelectionMedians.lean:54
+theorem slowMedianValueRun_cost (xs : List α) (hx : xs ≠ []) :
+    (slowMedianValueRun xs hx).2 = (slowMedianRun xs).2
+
+public Resources.SelectionMedians.slowMedianValueRun_ranked
+Applications/Resources/SelectionMedians.lean:60
+theorem slowMedianValueRun_ranked (xs : List α) (hx : xs ≠ []) :
+    RankedAt xs ((xs.length - 1) / 2) (slowMedianValueRun xs hx).1
+
+public Resources.SelectionMedians.slowMedianValueRun_mem
+Applications/Resources/SelectionMedians.lean:64
+theorem slowMedianValueRun_mem (xs : List α) (hx : xs ≠ []) :
+    (slowMedianValueRun xs hx).1 ∈ xs
+
+public Resources.SelectionMedians.slowMedianValueRun_value
+Applications/Resources/SelectionMedians.lean:67
+theorem slowMedianValueRun_value (xs : List α) (hx : xs ≠ []) :
+    (slowMedianValueRun xs hx).1 = lowerMedianValue xs hx
+
+public Resources.SelectionMedians.slowMedianValueRun_small_bound
+Applications/Resources/SelectionMedians.lean:71
+theorem slowMedianValueRun_small_bound (xs : List α) (hx : xs ≠ [])
+    (hn : xs.length ≤ 5) : (slowMedianValueRun xs hx).2 ≤ 47
+
+public Resources.SelectionMedians.mapSlowMedianRun
+Applications/Resources/SelectionMedians.lean:77
+def mapSlowMedianRun (xss : List (List α))
+    (hne : ∀ ys ∈ xss, ys ≠ []) : Measured (List α) Nat
+
+public Resources.SelectionMedians.mapSlowMedianRun_value
+Applications/Resources/SelectionMedians.lean:82
+theorem mapSlowMedianRun_value (xss : List (List α))
+    (hne : ∀ ys ∈ xss, ys ≠ []) :
+    (mapSlowMedianRun xss hne).1 =
+      xss.attach.map (fun ys => lowerMedianValue ys.val (hne ys.val ys.property))
+
+public Resources.SelectionMedians.mapSlowMedianRun_some_values
+Applications/Resources/SelectionMedians.lean:89
+theorem mapSlowMedianRun_some_values (xss : List (List α))
+    (hne : ∀ ys ∈ xss, ys ≠ []) :
+    (mapSlowMedianRun xss hne).1.map some = xss.map (fun ys => (slowMedianRun ys).1)
+
+public Resources.SelectionMedians.mapSlowMedianRun_length
+Applications/Resources/SelectionMedians.lean:96
+theorem mapSlowMedianRun_length (xss : List (List α))
+    (hne : ∀ ys ∈ xss, ys ≠ []) : (mapSlowMedianRun xss hne).1.length = xss.length
+
+public Resources.SelectionMedians.mapSlowMedianRun_cost
+Applications/Resources/SelectionMedians.lean:101
+theorem mapSlowMedianRun_cost (xss : List (List α))
+    (hne : ∀ ys ∈ xss, ys ≠ []) :
+    (mapSlowMedianRun xss hne).2 =
+      (xss.map (fun ys => (slowMedianRun ys).2)).sum + xss.length + 1
+
+public Resources.SelectionMedians.mapSlowMedianRun_bound
+Applications/Resources/SelectionMedians.lean:111
+theorem mapSlowMedianRun_bound (xss : List (List α))
+    (hne : ∀ ys ∈ xss, ys ≠ []) (d : Nat)
+    (hlen : ∀ ys ∈ xss, ys.length ≤ d) :
+    (mapSlowMedianRun xss hne).2 ≤ (d ^ 2 + 4 * d + 3) * xss.length + 1
+
+public Resources.SelectionMedians.mapSlowMedianRun_small_bound
+Applications/Resources/SelectionMedians.lean:132
+theorem mapSlowMedianRun_small_bound (xss : List (List α))
+    (hne : ∀ ys ∈ xss, ys ≠ []) (hlen : ∀ ys ∈ xss, ys.length ≤ 5) :
+    (mapSlowMedianRun xss hne).2 ≤ 48 * xss.length + 1
+
+public Resources.SelectionMedians.mapSlowMedianRun_chop_five_bound
+Applications/Resources/SelectionMedians.lean:139
+theorem mapSlowMedianRun_chop_five_bound (xs : List α) :
+    (mapSlowMedianRun (chop 5 xs) (chop_mem_ne_nil 5 xs)).2 ≤ 10 * xs.length + 48
+
+public Resources.SelectionMedians.chunkMediansRun
+Applications/Resources/SelectionMedians.lean:148
+def chunkMediansRun (d : Nat) (xs : List α) : Measured (List α) Nat
+
+public Resources.SelectionMedians.chunkMediansRun_value
+Applications/Resources/SelectionMedians.lean:154
+theorem chunkMediansRun_value (d : Nat) (xs : List α) :
+    (chunkMediansRun d xs).1 = chunkMedians d xs
+
+public Resources.SelectionMedians.chunkMediansRun_some_values
+Applications/Resources/SelectionMedians.lean:159
+theorem chunkMediansRun_some_values (d : Nat) (xs : List α) :
+    (chunkMediansRun d xs).1.map some = (chop d xs).map (fun ys => (slowMedianRun ys).1)
+
+public Resources.SelectionMedians.chunkMediansRun_cost_split
+Applications/Resources/SelectionMedians.lean:164
+theorem chunkMediansRun_cost_split (d : Nat) (xs : List α) :
+    (chunkMediansRun d xs).2 = (Resources.Chunks.chopRun d xs).2 +
+      (mapSlowMedianRun (chop d xs) (chop_mem_ne_nil d xs)).2
+
+public Resources.SelectionMedians.chunkMediansRun_cost
+Applications/Resources/SelectionMedians.lean:169
+theorem chunkMediansRun_cost (d : Nat) (xs : List α) :
+    (chunkMediansRun d xs).2 = (Resources.Chunks.chopRun d xs).2 +
+      ((chop d xs).map (fun ys => (slowMedianRun ys).2)).sum + (xs.length ⌈/⌉ d) + 1
+
+public Resources.SelectionMedians.chunkMediansRun_cost_positive
+Applications/Resources/SelectionMedians.lean:175
+theorem chunkMediansRun_cost_positive (d : Nat) (xs : List α) (hd : 0 < d) :
+    (chunkMediansRun d xs).2 = 2 * xs.length + 4 * (xs.length ⌈/⌉ d) +
+      ((chop d xs).map (fun ys => (slowMedianRun ys).2)).sum + 2
+
+public Resources.SelectionMedians.chunkMediansRun_length
+Applications/Resources/SelectionMedians.lean:181
+theorem chunkMediansRun_length (d : Nat) (xs : List α) :
+    (chunkMediansRun d xs).1.length = xs.length ⌈/⌉ d
+
+public Resources.SelectionMedians.chunkMediansRun_eq_nil_iff
+Applications/Resources/SelectionMedians.lean:185
+theorem chunkMediansRun_eq_nil_iff (d : Nat) (xs : List α) :
+    (chunkMediansRun d xs).1 = [] ↔ d = 0 ∨ xs = []
+
+public Resources.SelectionMedians.chunkMediansRun_mem
+Applications/Resources/SelectionMedians.lean:189
+theorem chunkMediansRun_mem (d : Nat) (xs : List α) (a : α)
+    (ha : a ∈ (chunkMediansRun d xs).1) : a ∈ xs
+
+public Resources.SelectionMedians.chunkMediansRun_bound
+Applications/Resources/SelectionMedians.lean:194
+theorem chunkMediansRun_bound (d : Nat) (xs : List α) :
+    (chunkMediansRun d xs).2 ≤
+      5 * xs.length + (d ^ 2 + 4 * d + 3) * (xs.length ⌈/⌉ d) + 2
+
+public Resources.SelectionMedians.chunkMediansRun_five_bound
+Applications/Resources/SelectionMedians.lean:204
+theorem chunkMediansRun_five_bound (xs : List α) :
+    (chunkMediansRun 5 xs).2 ≤ 15 * xs.length + 49
+
+public Resources.SelectionRecurrence.pivotSize
+Applications/Resources/SelectionRecurrence.lean:21
+def pivotSize (n : Nat) : Nat
+
+public Resources.SelectionRecurrence.sideSize
+Applications/Resources/SelectionRecurrence.lean:24
+def sideSize (n : Nat) : Nat
+
+public Resources.SelectionRecurrence.pivotSize_lt_iff
+Applications/Resources/SelectionRecurrence.lean:27
+theorem pivotSize_lt_iff (n : Nat) : pivotSize n < n ↔ 1 < n
+
+public Resources.SelectionRecurrence.sideSize_lt_iff
+Applications/Resources/SelectionRecurrence.lean:32
+theorem sideSize_lt_iff (n : Nat) : sideSize n < n ↔ 13 < n
+
+public Resources.SelectionRecurrence.pivotSize_monotone
+Applications/Resources/SelectionRecurrence.lean:36
+theorem pivotSize_monotone : Monotone pivotSize
+
+public Resources.SelectionRecurrence.sideSize_monotone
+Applications/Resources/SelectionRecurrence.lean:41
+theorem sideSize_monotone : Monotone sideSize
+
+public Resources.SelectionRecurrence.F
+Applications/Resources/SelectionRecurrence.lean:47
+def F (n : Nat) : Nat
+
+public Resources.SelectionRecurrence.F_of_le_twenty
+Applications/Resources/SelectionRecurrence.lean:57
+theorem F_of_le_twenty (n : Nat) (small : n ≤ 20) : F n = 483
+
+public Resources.SelectionRecurrence.F_of_twenty_lt
+Applications/Resources/SelectionRecurrence.lean:64
+theorem F_of_twenty_lt (n : Nat) (large : 20 < n) :
+    F n = F (pivotSize n) + F (sideSize n) + 19 * n + 54
+
+public Resources.SelectionRecurrence.base_le_F
+Applications/Resources/SelectionRecurrence.lean:73
+theorem base_le_F (n : Nat) : 483 ≤ F n
+
+public Resources.SelectionRecurrence.F_monotone
+Applications/Resources/SelectionRecurrence.lean:85
+theorem F_monotone : Monotone F
+
+public Resources.SelectionRecurrence.pivotSize_eq_ceil
+Applications/Resources/SelectionRecurrence.lean:108
+theorem pivotSize_eq_ceil (n : Nat) :
+    pivotSize n = ⌈(1 / 5 : ℝ) * (n : ℝ)⌉₊
+
+public Resources.SelectionRecurrence.sideSize_eq_ceil
+Applications/Resources/SelectionRecurrence.lean:126
+theorem sideSize_eq_ceil (n : Nat) :
+    sideSize n = ⌈(7 / 10 : ℝ) * (n : ℝ) + 3⌉₊
+
+public Resources.SelectionRecurrence.F_rounded
+Applications/Resources/SelectionRecurrence.lean:143
+theorem F_rounded (n : Nat) (large : 20 < n) :
+    F n = F ⌈(1 / 5 : ℝ) * (n : ℝ) + 0⌉₊ +
+      F ⌈(7 / 10 : ℝ) * (n : ℝ) + 3⌉₊ + 19 * n + 54
+
+public Resources.SelectionRecurrence.exists_affine_bound
+Applications/Resources/SelectionRecurrence.lean:150
+theorem exists_affine_bound : ∃ A B : Nat, ∀ n : Nat, F n ≤ A * n + B
+
+public Resources.SelectionRecurrence.F_isBigO
+Applications/Resources/SelectionRecurrence.lean:155
+theorem F_isBigO :
+    Asymptotics.IsBigO Filter.atTop (fun n : Nat => (F n : ℝ)) (fun n => (n : ℝ))
+
+public Applications.Selection.RankedAt.mem
+Applications/Selection/CountRank.lean:18
+theorem RankedAt.mem [LE α] {xs : List α} {k : Nat} {a : α}
+    (h : RankedAt xs k a) : a ∈ xs
+
+public Applications.Selection.RankedAt.lt_length
+Applications/Selection/CountRank.lean:23
+theorem RankedAt.lt_length [LE α] {xs : List α} {k : Nat} {a : α}
+    (h : RankedAt xs k a) : k < xs.length
+
+public Applications.Selection.RankedAt.count_bounds
+Applications/Selection/CountRank.lean:34
+theorem RankedAt.count_bounds {xs : List α} {k : Nat} {a : α}
+    (h : RankedAt xs k a) :
+    xs.countP (fun x => decide (x < a)) ≤ k ∧
+      xs.countP (fun x => decide (a < x)) < xs.length - k
+
+public Applications.Selection.partition_equal_getElem?
+Applications/Selection/CountRank.lean:59
+theorem partition_equal_getElem? (p : α) (xs : List α) (j : Nat)
+    (hj : j < (partition3 p xs).2.1.length) :
+    (partition3 p xs).2.1[j]? = some p
+
+public Applications.Selection.ordered_getElem?_partition
+Applications/Selection/CountRank.lean:68
+theorem ordered_getElem?_partition (p : α) (xs : List α) (k : Nat) :
+    (ordered xs)[k]? =
+      if k < (partition3 p xs).1.length then
+        (ordered (partition3 p xs).1)[k]?
+      else if k < (partition3 p xs).1.length + (partition3 p xs).2.1.length then
+        some p
+      else
+        (ordered (partition3 p xs).2.2)[k - (partition3 p xs).1.length -
+          (partition3 p xs).2.1.length]?
+
+public Applications.Selection.ranked_iff_count_bounds
+Applications/Selection/CountRank.lean:89
+theorem ranked_iff_count_bounds {xs : List α} {k : Nat} {a : α} :
+    RankedAt xs k a ↔
+      xs.countP (fun x => decide (x < a)) ≤ k ∧
+        xs.countP (fun x => decide (a < x)) < xs.length - k
+
+public Applications.Selection.count_bounds_unique
+Applications/Selection/CountRank.lean:105
+theorem count_bounds_unique {xs : List α} {k : Nat} {a b : α}
+    (ha : xs.countP (fun x => decide (x < a)) ≤ k ∧
+      xs.countP (fun x => decide (a < x)) < xs.length - k)
+    (hb : xs.countP (fun x => decide (x < b)) ≤ k ∧
+      xs.countP (fun x => decide (b < x)) < xs.length - k) : a = b
+
+public Applications.Selection.filter_le_sublist_filter_lt
+Applications/Selection/CountRank.lean:114
+theorem filter_le_sublist_filter_lt (xs : List α) {a b : α} (hab : a < b) :
+    List.Sublist (xs.filter (fun x => decide (x ≤ a)))
+      (xs.filter (fun x => decide (x < b)))
+
+public Applications.Selection.count_le_add_count_gt
+Applications/Selection/CountRank.lean:125
+theorem count_le_add_count_gt (xs : List α) (a : α) :
+    xs.countP (fun x => decide (x ≤ a)) +
+      xs.countP (fun x => decide (a < x)) = xs.length
+
+public Applications.Selection.ordered_eq_of_pairwise_perm
+Applications/Selection/CountRank.lean:141
+theorem ordered_eq_of_pairwise_perm {xs ys : List α}
+    (hs : ys.Pairwise (· ≤ ·)) (hp : ys.Perm xs) : ordered xs = ys
+
+public Applications.Selection.ordered_eq_of_perm
+Applications/Selection/CountRank.lean:146
+theorem ordered_eq_of_perm {xs ys : List α} (hp : xs.Perm ys) :
+    ordered xs = ordered ys
+
+public Applications.Selection.ordered_getElem?_perm
+Applications/Selection/CountRank.lean:151
+theorem ordered_getElem?_perm {xs ys : List α} (hp : xs.Perm ys) (k : Nat) :
+    (ordered xs)[k]? = (ordered ys)[k]?
+
+public Applications.Selection.selectWith_succ_value
+Applications/Selection/CountRank.lean:155
+theorem selectWith_succ_value (choose : List α → Option α) (hv : PivotValid choose)
+    (xs : List α) (k : Nat) : selectWith choose (k + 1) xs = (ordered xs)[k]?
+
+public Applications.Selection.selectWith_succ_some_iff_count_bounds
+Applications/Selection/CountRank.lean:159
+theorem selectWith_succ_some_iff_count_bounds (choose : List α → Option α)
+    (hv : PivotValid choose) (xs : List α) (k : Nat) (a : α) :
+    selectWith choose (k + 1) xs = some a ↔
+      xs.countP (fun x => decide (x < a)) ≤ k ∧
+        xs.countP (fun x => decide (a < x)) < xs.length - k
+
+public Applications.Selection.ordered_getElem?_mem
+Applications/Selection/CountRank.lean:166
+theorem ordered_getElem?_mem {xs : List α} {k : Nat} {a : α}
+    (ha : (ordered xs)[k]? = some a) : a ∈ xs
+
+public Applications.Selection.ranked_zero_iff_min
+Applications/Selection/CountRank.lean:170
+theorem ranked_zero_iff_min {xs : List α} {a : α} :
+    RankedAt xs 0 a ↔ a ∈ xs ∧ ∀ x ∈ xs, a ≤ x
+
+public Applications.Selection.ordered_getElem?_zero_iff_min
+Applications/Selection/CountRank.lean:196
+theorem ordered_getElem?_zero_iff_min {xs : List α} {a : α} :
+    (ordered xs)[0]? = some a ↔ a ∈ xs ∧ ∀ x ∈ xs, a ≤ x
+
+public Applications.Selection.ordered_append
+Applications/Selection/CountRank.lean:201
+theorem ordered_append (xs ys : List α)
+    (hxy : ∀ x ∈ xs, ∀ y ∈ ys, x ≤ y) :
+    ordered (xs ++ ys) = ordered xs ++ ordered ys
+
+public Applications.Selection.ordered_getElem?_append
+Applications/Selection/CountRank.lean:212
+theorem ordered_getElem?_append (xs ys : List α)
+    (hxy : ∀ x ∈ xs, ∀ y ∈ ys, x ≤ y) (k : Nat) :
+    (ordered (xs ++ ys))[k]? =
+      if k < xs.length then (ordered xs)[k]? else (ordered ys)[k - xs.length]?
+
+public Applications.Selection.sorted_filter_lt_sublist_take
+Applications/Selection/CountRank.lean:224
+theorem sorted_filter_lt_sublist_take {ys : List α} {k : Nat} {a : α}
+    (hs : ys.Pairwise (· ≤ ·)) (ha : ys[k]? = some a) :
+    List.Sublist (ys.filter (fun x => decide (x < a))) (ys.take k)
+
+public Applications.Selection.sorted_filter_gt_sublist_drop
+Applications/Selection/CountRank.lean:246
+theorem sorted_filter_gt_sublist_drop {ys : List α} {k : Nat} {a : α}
+    (hs : ys.Pairwise (· ≤ ·)) (ha : ys[k]? = some a) :
+    List.Sublist (ys.filter (fun x => decide (a < x))) (ys.drop (k + 1))
+
+public Applications.Selection.lowerMedian_value
+Applications/Selection/CountRank.lean:264
+theorem lowerMedian_value (choose : List α → Option α) (hv : PivotValid choose)
+    (xs : List α) : lowerMedianWith choose xs = (ordered xs)[(xs.length - 1) / 2]?
+
+public Applications.Selection.lowerMedian_count_bounds
+Applications/Selection/CountRank.lean:274
+theorem lowerMedian_count_bounds (choose : List α → Option α) (hv : PivotValid choose)
+    (xs : List α) (a : α) (ha : lowerMedianWith choose xs = some a) :
+    xs.countP (fun x => decide (x < a)) ≤ (xs.length - 1) / 2 ∧
+      xs.countP (fun x => decide (a < x)) ≤ xs.length / 2
+
+public Applications.Selection.lowerMedian_mem
+Applications/Selection/CountRank.lean:282
+theorem lowerMedian_mem (choose : List α → Option α) (hv : PivotValid choose)
+    (xs : List α) (a : α) (ha : lowerMedianWith choose xs = some a) : a ∈ xs
+
+public Applications.Selection.lowerMedianValue
+Applications/Selection/MedianOfMedians.lean:22
+def lowerMedianValue (xs : List α) (hx : xs ≠ []) : α
+
+public Applications.Selection.lowerMedianValue_ranked
+Applications/Selection/MedianOfMedians.lean:29
+theorem lowerMedianValue_ranked (xs : List α) (hx : xs ≠ []) :
+    RankedAt xs ((xs.length - 1) / 2) (lowerMedianValue xs hx)
+
+public Applications.Selection.lowerMedianValue_mem
+Applications/Selection/MedianOfMedians.lean:38
+theorem lowerMedianValue_mem (xs : List α) (hx : xs ≠ []) :
+    lowerMedianValue xs hx ∈ xs
+
+public Applications.Selection.lowerMedianWith_eq_some_value
+Applications/Selection/MedianOfMedians.lean:42
+theorem lowerMedianWith_eq_some_value (choose : List α → Option α)
+    (hv : PivotValid choose) (xs : List α) (hx : xs ≠ []) :
+    lowerMedianWith choose xs = some (lowerMedianValue xs hx)
+
+public Applications.Selection.lowerMedianValue_count_bounds
+Applications/Selection/MedianOfMedians.lean:48
+theorem lowerMedianValue_count_bounds (xs : List α) (hx : xs ≠ []) :
+    xs.countP (fun x => decide (x < lowerMedianValue xs hx)) ≤ (xs.length - 1) / 2 ∧
+      xs.countP (fun x => decide (lowerMedianValue xs hx < x)) ≤ xs.length / 2
+
+public Applications.Selection.chunkMedians
+Applications/Selection/MedianOfMedians.lean:55
+def chunkMedians (d : Nat) (xs : List α) : List α
+
+public Applications.Selection.length_chunkMedians
+Applications/Selection/MedianOfMedians.lean:59
+@[simp] theorem length_chunkMedians (d : Nat) (xs : List α) :
+    (chunkMedians d xs).length = xs.length ⌈/⌉ d
+
+public Applications.Selection.chunkMedians_eq_nil_iff
+Applications/Selection/MedianOfMedians.lean:63
+theorem chunkMedians_eq_nil_iff (d : Nat) (xs : List α) :
+    chunkMedians d xs = [] ↔ d = 0 ∨ xs = []
+
+public Applications.Selection.mem_chunkMedians
+Applications/Selection/MedianOfMedians.lean:69
+theorem mem_chunkMedians (d : Nat) (xs : List α) (a : α)
+    (ha : a ∈ chunkMedians d xs) : a ∈ xs
+
+public Applications.Selection.medianOfMedians
+Applications/Selection/MedianOfMedians.lean:76
+def medianOfMedians (d : Nat) (xs : List α) : Option α
+
+public Applications.Selection.medianOfMedians_some_iff_ranked
+Applications/Selection/MedianOfMedians.lean:79
+theorem medianOfMedians_some_iff_ranked (d : Nat) (xs : List α) (p : α) :
+    medianOfMedians d xs = some p ↔
+      RankedAt (chunkMedians d xs) (((chunkMedians d xs).length - 1) / 2) p
+
+public Applications.Selection.medianOfMedians_none
+Applications/Selection/MedianOfMedians.lean:84
+theorem medianOfMedians_none (d : Nat) (xs : List α) :
+    medianOfMedians d xs = none ↔ d = 0 ∨ xs = []
+
+public Applications.Selection.medianOfMedians_mem
+Applications/Selection/MedianOfMedians.lean:88
+theorem medianOfMedians_mem (d : Nat) (xs : List α) (p : α)
+    (hp : medianOfMedians d xs = some p) : p ∈ xs
+
+public Applications.Selection.medianOfMedians_pivot_valid
+Applications/Selection/MedianOfMedians.lean:92
+theorem medianOfMedians_pivot_valid (d : Nat) (hd : 0 < d) :
+    PivotValid (medianOfMedians d : List α → Option α)
+
+public Applications.Selection.medianOfMedians_median_counts
+Applications/Selection/MedianOfMedians.lean:103
+theorem medianOfMedians_median_counts (d : Nat) (xs : List α) (p : α)
+    (hp : medianOfMedians d xs = some p) :
+    (chunkMedians d xs).countP (fun x => decide (x < p)) ≤ (xs.length ⌈/⌉ d) / 2 ∧
+      (chunkMedians d xs).countP (fun x => decide (p < x)) ≤ (xs.length ⌈/⌉ d) / 2
+
+public Applications.Selection.chunkMedianGroups
+Applications/Selection/MedianOfMedians.lean:113
+def chunkMedianGroups (d : Nat) (xs : List α) (r : α → Bool) :
+    List (List α) × List (List α)
+
+public Applications.Selection.chunkMedianGroups_perm
+Applications/Selection/MedianOfMedians.lean:121
+theorem chunkMedianGroups_perm (d : Nat) (xs : List α) (r : α → Bool) :
+    ((chunkMedianGroups d xs r).1 ++ (chunkMedianGroups d xs r).2).Perm (chop d xs)
+
+public Applications.Selection.chunkMedianGroups_multiset
+Applications/Selection/MedianOfMedians.lean:130
+theorem chunkMedianGroups_multiset (d : Nat) (xs : List α) (r : α → Bool) :
+    ((chunkMedianGroups d xs r).1 : Multiset (List α)) +
+      ((chunkMedianGroups d xs r).2 : Multiset (List α)) =
+        (chop d xs : Multiset (List α))
+
+public Applications.Selection.chunkMedianGroups_lengths
+Applications/Selection/MedianOfMedians.lean:137
+theorem chunkMedianGroups_lengths (d : Nat) (xs : List α) (r : α → Bool) :
+    (chunkMedianGroups d xs r).1.length + (chunkMedianGroups d xs r).2.length =
+      xs.length ⌈/⌉ d
+
+public Applications.Selection.chunkMedianGroups_related_length
+Applications/Selection/MedianOfMedians.lean:143
+theorem chunkMedianGroups_related_length (d : Nat) (xs : List α) (r : α → Bool) :
+    (chunkMedianGroups d xs r).1.length = (chunkMedians d xs).countP r
+
+public Applications.Selection.chunk_count_lt_of_median_ge
+Applications/Selection/MedianOfMedians.lean:151
+theorem chunk_count_lt_of_median_ge (d : Nat) (xs ys : List α)
+    (hy : ys ∈ chop d xs) (p : α)
+    (hp : p ≤ lowerMedianValue ys (chop_mem_ne_nil d xs ys hy)) :
+    ys.countP (fun x => decide (x < p)) ≤ d / 2
+
+public Applications.Selection.chunk_count_gt_of_median_le
+Applications/Selection/MedianOfMedians.lean:164
+theorem chunk_count_gt_of_median_le (d : Nat) (xs ys : List α)
+    (hy : ys ∈ chop d xs) (p : α)
+    (hp : lowerMedianValue ys (chop_mem_ne_nil d xs ys hy) ≤ p) :
+    ys.countP (fun x => decide (p < x)) ≤ d / 2
+
+private Applications.Selection.sum_le_count_split
+Applications/Selection/MedianOfMedians.lean:177
+private theorem sum_le_count_split {β : Type v} (zs : List β)
+    (cost : β → Nat) (bad : β → Bool) (small big : Nat) (hs : small ≤ big)
+    (hc : ∀ z ∈ zs, cost z ≤ if bad z then big else small) :
+    (zs.map cost).sum ≤ small * zs.length + (big - small) * zs.countP bad
+
+private Applications.Selection.chunk_count_bound
+Applications/Selection/MedianOfMedians.lean:201
+private theorem chunk_count_bound (d : Nat) (xs : List α) (r bad : α → Bool)
+    (hd : 0 < d)
+    (hmed : (chunkMedians d xs).countP bad ≤ (xs.length ⌈/⌉ d) / 2)
+    (hgood : ∀ ys (hy : ys ∈ chop d xs),
+      bad (lowerMedianValue ys (chop_mem_ne_nil d xs ys hy)) = false →
+        ys.countP r ≤ d / 2) :
+    xs.countP r ≤ d / 2 * (xs.length ⌈/⌉ d) +
+      (d - d / 2) * ((xs.length ⌈/⌉ d) / 2)
+
+public Applications.Selection.medianOfMedians_count_bounds
+Applications/Selection/MedianOfMedians.lean:234
+theorem medianOfMedians_count_bounds (d : Nat) (xs : List α) (p : α)
+    (hd : 0 < d) (hp : medianOfMedians d xs = some p) :
+    xs.countP (fun x => decide (x < p)) ≤
+        d / 2 * (xs.length ⌈/⌉ d) + (d - d / 2) * ((xs.length ⌈/⌉ d) / 2) ∧
+      xs.countP (fun x => decide (p < x)) ≤
+        d / 2 * (xs.length ⌈/⌉ d) + (d - d / 2) * ((xs.length ⌈/⌉ d) / 2)
+
+public Applications.Selection.size_five_count_arithmetic
+Applications/Selection/MedianOfMedians.lean:253
+theorem size_five_count_arithmetic (n : Nat) :
+    2 * (n ⌈/⌉ 5) + 3 * ((n ⌈/⌉ 5) / 2) ≤ (7 * n + 30) ⌈/⌉ 10
+
+public Applications.Selection.medianOfMedians_five_count_bounds
+Applications/Selection/MedianOfMedians.lean:258
+theorem medianOfMedians_five_count_bounds (xs : List α) (p : α)
+    (hp : medianOfMedians 5 xs = some p) :
+    xs.countP (fun x => decide (x < p)) ≤ (7 * xs.length + 30) ⌈/⌉ 10 ∧
+      xs.countP (fun x => decide (p < x)) ≤ (7 * xs.length + 30) ⌈/⌉ 10
+
+public Applications.Selection.ceil_nat_div
+Applications/Selection/MedianOfMedians.lean:271
+theorem ceil_nat_div (n d : Nat) (hd : 0 < d) :
+    ⌈(n : R) / (d : R)⌉₊ = n ⌈/⌉ d
+
+public Applications.Selection.size_five_ceiling
+Applications/Selection/MedianOfMedians.lean:281
+theorem size_five_ceiling (n : Nat) :
+    (7 * n + 30) ⌈/⌉ 10 = ⌈(7 : R) * n / 10 + 3⌉₊
+
+public Applications.Selection.medianOfMedians_five_ceil_bounds
+Applications/Selection/MedianOfMedians.lean:288
+theorem medianOfMedians_five_ceil_bounds (xs : List α) (p : α)
+    (hp : medianOfMedians 5 xs = some p) :
+    xs.countP (fun x => decide (x < p)) ≤ ⌈(7 : R) * xs.length / 10 + 3⌉₊ ∧
+      xs.countP (fun x => decide (p < x)) ≤ ⌈(7 : R) * xs.length / 10 + 3⌉₊
+
+public Applications.Sequences.Chunks.chop
+Applications/Sequences/Chunks.lean:22
+def chop (d : Nat) (xs : List α) : List (List α)
+
+public Applications.Sequences.Chunks.chop_zero
+Applications/Sequences/Chunks.lean:25
+@[simp] theorem chop_zero (xs : List α) : chop 0 xs = []
+
+public Applications.Sequences.Chunks.chop_nil
+Applications/Sequences/Chunks.lean:28
+@[simp] theorem chop_nil (d : Nat) : chop d ([] : List α) = []
+
+public Applications.Sequences.Chunks.length_chop
+Applications/Sequences/Chunks.lean:31
+@[simp] theorem length_chop (d : Nat) (xs : List α) :
+    (chop d xs).length = xs.length ⌈/⌉ d
+
+private Applications.Sequences.Chunks.ceilDiv_sub_add_one
+Applications/Sequences/Chunks.lean:34
+private theorem ceilDiv_sub_add_one (n d : Nat) (hn : 0 < n) (hd : 0 < d) :
+    n ⌈/⌉ d = (n - d) ⌈/⌉ d + 1
+
+public Applications.Sequences.Chunks.chop_eq_cons
+Applications/Sequences/Chunks.lean:59
+theorem chop_eq_cons (d : Nat) (xs : List α) (hd : 0 < d) (hx : xs ≠ []) :
+    chop d xs = xs.take d :: chop d (xs.drop d)
+
+public Applications.Sequences.Chunks.chop_eq_nil_iff
+Applications/Sequences/Chunks.lean:65
+theorem chop_eq_nil_iff (d : Nat) (xs : List α) : chop d xs = [] ↔ d = 0 ∨ xs = []
+
+public Applications.Sequences.Chunks.drop_length_lt
+Applications/Sequences/Chunks.lean:76
+theorem drop_length_lt (d : Nat) (xs : List α) (hd : 0 < d) (hx : xs ≠ []) :
+    (xs.drop d).length < xs.length
+
+public Applications.Sequences.Chunks.chop_mem_ne_nil
+Applications/Sequences/Chunks.lean:82
+theorem chop_mem_ne_nil (d : Nat) (xs ys : List α) (hy : ys ∈ chop d xs) : ys ≠ []
+
+public Applications.Sequences.Chunks.length_mem_chop
+Applications/Sequences/Chunks.lean:98
+theorem length_mem_chop (d : Nat) (xs ys : List α) (hy : ys ∈ chop d xs) :
+    ys.length ≤ d
+
+public Applications.Sequences.Chunks.length_chop_le_iff
+Applications/Sequences/Chunks.lean:106
+theorem length_chop_le_iff (d : Nat) (xs : List α) (hd : 0 < d) (k : Nat) :
+    (chop d xs).length ≤ k ↔ xs.length ≤ d * k
+
+public Applications.Sequences.Chunks.length_chop_eq_add_pred_div
+Applications/Sequences/Chunks.lean:110
+theorem length_chop_eq_add_pred_div (d : Nat) (xs : List α) :
+    (chop d xs).length = (xs.length + d - 1) / d
+
+public Applications.Sequences.Chunks.length_chop_le
+Applications/Sequences/Chunks.lean:114
+theorem length_chop_le (d : Nat) (xs : List α) : (chop d xs).length ≤ xs.length
+
+public Applications.Sequences.Chunks.flatten_chop
+Applications/Sequences/Chunks.lean:123
+theorem flatten_chop (d : Nat) (xs : List α) (hd : 0 < d) : (chop d xs).flatten = xs
+
+public Applications.Sequences.Chunks.countP_chop
+Applications/Sequences/Chunks.lean:128
+theorem countP_chop (d : Nat) (xs : List α) (hd : 0 < d) (p : α → Bool) :
+    ((chop d xs).map (List.countP p)).sum = xs.countP p
+
+public Applications.Sequences.Chunks.sum_multiset_chop
+Applications/Sequences/Chunks.lean:132
+theorem sum_multiset_chop (d : Nat) (xs : List α) (hd : 0 < d) :
+    ((chop d xs).map (fun ys : List α => (ys : Multiset α))).sum = (xs : Multiset α)
+
+public Applications.Sequences.Chunks.mem_chop_iff
+Applications/Sequences/Chunks.lean:142
+theorem mem_chop_iff (d : Nat) (xs : List α) (hd : 0 < d) (x : α) :
+    (∃ ys ∈ chop d xs, x ∈ ys) ↔ x ∈ xs
+
+public Applications.Sequences.Chunks.mem_of_mem_chop
+Applications/Sequences/Chunks.lean:146
+theorem mem_of_mem_chop {d : Nat} {xs ys : List α} {x : α}
+    (hy : ys ∈ chop d xs) (hx : x ∈ ys) : x ∈ xs
+
+public Applications.Sequences.Chunks.chop_eq_singleton
+Applications/Sequences/Chunks.lean:152
+theorem chop_eq_singleton (d : Nat) (xs : List α) (hd : 0 < d) (hx : xs ≠ [])
+    (hl : xs.length ≤ d) : chop d xs = [xs]
+
+public Applications.Sequences.Chunks.chop_append
+Applications/Sequences/Chunks.lean:159
+theorem chop_append (d : Nat) (xs ys : List α) (hd : 0 < d) (ha : d ∣ xs.length) :
+    chop d (xs ++ ys) = chop d xs ++ chop d ys
+
+public Applications.Sequences.Chunks.chop_flatten
+Applications/Sequences/Chunks.lean:176
+theorem chop_flatten (d : Nat) (xss : List (List α)) (hd : 0 < d)
+    (hl : ∀ ys ∈ xss, ys.length = d) : chop d xss.flatten = xss
+
+public Applications.Sequences.Chunks.chop_replicate_blocks
+Applications/Sequences/Chunks.lean:191
+theorem chop_replicate_blocks (d : Nat) (xs : List α) (n : Nat)
+    (hd : 0 < d) (hl : xs.length = d) :
+    chop d (List.replicate n xs).flatten = List.replicate n xs
+
+public Applications.Sequences.Chunks.chop_replicate
+Applications/Sequences/Chunks.lean:199
+theorem chop_replicate (d n : Nat) (a : α) (hd : 0 < d) :
+    chop d (List.replicate (n * d) a) = List.replicate n (List.replicate d a)
+
+public Applications.Sequences.Chunks.chop_one
+Applications/Sequences/Chunks.lean:204
+theorem chop_one (xs : List α) : chop 1 xs = xs.map (fun x => [x])

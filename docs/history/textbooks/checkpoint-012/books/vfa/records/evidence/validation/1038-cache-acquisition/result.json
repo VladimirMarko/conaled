@@ -1,0 +1,24 @@
+{
+  "started_utc": "2026-11-04T05:56:33.064870+00:00",
+  "command": [
+    "/workspace/scratch/60f07f0e98c8/native-state/profile/bin/lake",
+    "env",
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/native-kit/conaled_native.py",
+    "--state",
+    "/workspace/scratch/60f07f0e98c8/native-state",
+    "_cache-exec",
+    "get",
+    "Mathlib.Data.Nat.Size"
+  ],
+  "cwd": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation",
+  "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T055633Z-cache-get-0f80ec8e/output.log",
+  "label": "cache-get",
+  "lean_threads": "1",
+  "passed": true,
+  "completed_utc": "2026-11-04T05:56:49.318489+00:00",
+  "seconds": 16.251776023000275,
+  "exit_code": 0,
+  "timed_out": false,
+  "recorder_error": null
+}

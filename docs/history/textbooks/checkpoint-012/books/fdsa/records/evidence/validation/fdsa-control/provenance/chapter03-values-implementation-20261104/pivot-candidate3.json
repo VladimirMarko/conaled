@@ -1,0 +1,67 @@
+{
+  "finding_id": "C03-PIVOT-ELAB-002",
+  "recorded_utc": "2026-11-04T19:41:12.724708+00:00",
+  "candidate": "bc26994a828eb958fe930c0e46039f9c5addc864",
+  "tree": "a04fe3e8309bdf8ec6c0f9fba9c78c24fe9fe02a",
+  "previous_candidate": "ac8bee488069d471eef9955fed11db5647cff72f",
+  "review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "accepted_integration_at_handoff": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "status": "",
+  "changed_source": {
+    "repository_path": "Examples/MedianOfMedians.lean",
+    "git_blob": "4803b5ce143a7501608810059c80bc263027c6a5",
+    "bytes": 9092,
+    "sha256": "0bbbbdab0f2f41f42fd615231d04d29ebeb8f7ffd5cc83e2a6b832cbfcc25f0c"
+  },
+  "built_core_source": {
+    "repository_path": "Applications/Selection/MedianOfMedians.lean",
+    "git_blob": "c348fd2b48ec0b40fa76aa30634406580f9063c0",
+    "bytes": 13797,
+    "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba"
+  },
+  "correction_manifest": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/pivot-correction2-precommit.json",
+    "bytes": 9222,
+    "sha256": "39ca91374d1d74929ebaea1db9a73cc21bda15197a153aabd63e34facbf0579e"
+  },
+  "exact_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/pivot-correction2.diff",
+    "bytes": 5622,
+    "sha256": "e7b367ae7076f4747bbe122013ce59f8c8735282e4220cef15781fe5c4daec16"
+  },
+  "full_original_scope_statement_review": {
+    "canonical_chapter_rows": 83,
+    "pivot_public_names": 55,
+    "unchanged_example_headers_compared_byte_for_byte": 27,
+    "built_core_byte_identical": true,
+    "other_five_source_files_byte_identical": true,
+    "imports_unchanged": true,
+    "all_existing_definitions_statements_assumptions_and_expected_case_values_unchanged": true,
+    "new_private_example_helpers": [
+      "lowerMedianValue_eq_insertionLookup",
+      "chunkMedians_eq_insertionLookups"
+    ],
+    "pivot_private_helpers_total": 4,
+    "semantic_assessment": "The Nat-only optional lookup reference is proved equal to the existing payload on every nonempty list; its fallback 0 is never used by a chunk payload and does not alter any public empty-input contract. Three concrete median lists retain [2,7], [2,5], [4,4]. The duplicate split is proved through input membership and filters, retaining every occurrence. Both ceiling consumers still apply the universal bounds. No mathematical scope or hypothesis is weakened. Actual elaborated types and successor results remain pending."
+  },
+  "statement_preparation": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/pivot-candidate3-statement-preparation.json",
+    "bytes": 5656,
+    "sha256": "a16c94ef11c94511ab8d61d57a86b5a5527fc3e3b78e037aad596ffef917a177"
+  },
+  "explicit_at_program": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/MedianOfMediansStatements-v2.lean",
+    "bytes": 3289,
+    "sha256": "51167fa99bb3da9bdbba996a7ba21972b49a0a16f7cc5367201477b8a46064cd",
+    "names": 55,
+    "ordered_names_match_current_public_source": true,
+    "change_needed": false
+  },
+  "actual_prior_exit": 1,
+  "actual_failure_full_readback": "ea5350",
+  "source_diff_full_readback": "6b17c1",
+  "compiler_performed_by_author": false,
+  "validation": "git diff --cached --check exit 0; unchanged public statement/definition/case scope, two private example proof bridges added. Root successor focused check and actual types pending. No full C3 acceptance credit.",
+  "commit_output": "[work/fdsa-ch03-values bc26994] fix(selection): connect pivot examples through rank correspondence (#174)\n 1 file changed, 54 insertions(+), 6 deletions(-)\n",
+  "hold": "HELD after this record and full readback; no exercise edits or compiler actions. All prior source/candidate/failure/program artifacts preserved."
+}

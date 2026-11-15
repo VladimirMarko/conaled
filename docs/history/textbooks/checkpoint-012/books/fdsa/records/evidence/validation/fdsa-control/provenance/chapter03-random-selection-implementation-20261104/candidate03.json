@@ -1,0 +1,35 @@
+{
+  "recorded_utc": "2026-11-04T18:41:05.645660+00:00",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "previous_candidate": "5433d48eeba0d3ac27460e4d7b23ad41e26c64d2",
+  "candidate": "da8a1c6bb03e242d2655b3f38dc9361961102892",
+  "tree": "c21747d673d2e8f4830bb7e99eeb5e590321a137",
+  "status": "",
+  "source_files": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3"
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e"
+    }
+  ],
+  "failed_focus": {
+    "actual_exit": 1,
+    "closed_session": 13397,
+    "terminal_chunk": "11309d",
+    "whole_log_readback_chunk": "fef855",
+    "bytes": 7007,
+    "sha256": "bb812ede5f65ad3125eb61240c82382f771b7e1aaa842a34404e8e6ee64ef10d",
+    "qualified_partial_result": "Core Applications.Resources.RandomSelection built successfully in17s; aggregate remains failed because two Examples cardinal rewrites failed."
+  },
+  "correction": "Only two example proof bodies changed. After the event law, explicitly normalize Fin3/list-index/cardinal-cast target, then transport the unchanged kernel-decided cardinal equality through n \u21a6 (n:ENNReal)/3. Probabilities remain exactly2/3 and1/3.",
+  "core_source_unchanged": true,
+  "semantic_changes": false,
+  "public_statements_changed": false,
+  "compiler_execution_by_author": false,
+  "validation": "Pending root focused check; no aggregate success or type credit."
+}

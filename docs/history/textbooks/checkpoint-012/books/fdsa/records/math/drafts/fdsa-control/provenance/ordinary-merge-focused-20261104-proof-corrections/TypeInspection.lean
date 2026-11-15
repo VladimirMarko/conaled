@@ -1,0 +1,19 @@
+import Examples.MergeCosts
+set_option pp.universes true
+#check @Applications.Sorting.sublist_merge_left
+#check @Applications.Sorting.sublist_merge_right
+#check @Applications.Sorting.pairwise_of_merge
+#check @Applications.Sorting.merge_sorted_compatible_on_iff
+#check @Resources.ListMerge.run_value
+#check @Resources.ListMerge.run_map
+#check @Resources.ListMerge.entries_eq_comparisons_add_one
+#check @Resources.ListMerge.comparisons_le
+#check @Resources.ListMerge.entries_le
+#check @Resources.ListMerge.run_entries_cons_cons
+#check @Examples.MergeCosts.key_source_value
+#check @Examples.MergeCosts.source_key_sorted_iff
+#check @Examples.MergeCosts.tagged_key_transport
+#check @Examples.MergeCosts.tagged_values
+#check @Examples.MergeCosts.twoStage_observation
+#check @Examples.MergeCosts.actual_input_matters
+#check @Examples.MergeCosts.queueBody_observation

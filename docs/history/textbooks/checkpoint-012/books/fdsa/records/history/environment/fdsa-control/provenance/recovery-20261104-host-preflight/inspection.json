@@ -1,0 +1,62 @@
+{
+  "recorded_utc": "2026-11-04T02:25:38.106416+00:00",
+  "input_archive": {
+    "name": "conaled-fdsa-0080-reviewed-foundation-and-checked-sorting-values.tar(2).gz",
+    "size_bytes": 14000390,
+    "sha256": "15ce1b4ee8fd0f629c4e392cc2c93c7f31e404c7a05615e3058b0291eaeae664"
+  },
+  "payload_manifest_entries_verified": 1266,
+  "kit_manifest_entries_verified": 298,
+  "source_pack_objects_resolved_in_memory": 5596,
+  "source_pack_trailer_verified": true,
+  "manifest_refs": 50,
+  "manifest_worktrees": 5,
+  "manifest_worktree_heads": {
+    "conaled": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "conaled-ch01-review": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "conaled-ch02-insertion": "95cfce304b9b63057286acc7d5b20b53d95d8eaa",
+    "conaled-ch02-quicksort": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "conaled-ch02-top-down": "b1677172ef85e40865fe8f292660c1bcfd6e5a0c"
+  },
+  "accepted_integration": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "pending_foundation": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "foundation_full_attempt1": "unknown terminal result; no known surviving process; historical sessions not polled",
+  "restoration_performed": false,
+  "git_fsck_performed": false,
+  "compiler_installation_started": false,
+  "dependency_hydration_started": false,
+  "candidate_check_started": false,
+  "git_mutations": false,
+  "github_mutations": false,
+  "memory_probe": {
+    "free_command": "failed: /proc/meminfo absent",
+    "os_cpu_count": 9,
+    "concurrency_qualified": false
+  },
+  "preserved_evidence": {
+    "source.pack": {
+      "size_bytes": 7578872,
+      "sha256": "0a52794282788272b41d147d5e0848468a2e946c18ff26a498ebc5b91f3385d6"
+    },
+    "fdsa-control/restore_compact.py": {
+      "size_bytes": 5244,
+      "sha256": "23cdb74849a049df746c9f03af0e90ab261fd4fdc97bf2ea8f8088ffe9159376"
+    },
+    "fdsa-control/reviews/shared-foundations-round1.md": {
+      "size_bytes": 13909,
+      "sha256": "21b930204907024a78e3c0adcca8ee0eb6a064e03c2587872b9379d8585b138d"
+    },
+    "fdsa-control/reviews/shared-foundations-standards.md": {
+      "size_bytes": 24375,
+      "sha256": "3f56c01fe4a53f50a2051108a95fa41584d7037a41af3afbd2346f9b25f5c497"
+    },
+    "fdsa-control/reviews/shared-foundations-spec.md": {
+      "size_bytes": 32927,
+      "sha256": "06880532472d17d6f9d254165b61d41a437d0a79857323deac231025fd38f599"
+    },
+    "fdsa-control/provenance/chapter01-acceptance-20261103/acceptance.json": {
+      "size_bytes": 2562,
+      "sha256": "ca68a978d5bfc4ca8164c2f88c160eebfc0a339e80f9270c16b916caf25e9d4b"
+    }
+  }
+}

@@ -1,0 +1,980 @@
+{
+  "schema": 1,
+  "prepared_utc": "2026-11-04T15:02:27.887638+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "status": "READ-ONLY PREPARATION ONLY; I remains unaccepted; no receiving candidate or execution/type/acceptance credit",
+  "workspace": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104",
+  "control_root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control",
+  "read_only_git_worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+  "source_mutations": false,
+  "ref_mutations": false,
+  "compiler_cache_output_process_actions": false,
+  "receiving_candidate": null,
+  "receiving_type_credit": 0,
+  "prospective_base_I_accepted": false,
+  "accepted_C1": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "accepted_foundation": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "prospective_base_I": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "corrected_minimal_order_tip": "bdac9703aab4b383fa775568d36bf685af329389",
+  "original_order_base": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+  "original_order_candidate": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+  "fixed_historical_evidence_candidate_Z": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "observed_refs": {
+    "work/fdsa-book": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "work/fdsa-foundation-integration": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "work/fdsa-shared-four-integration": "312aafb4446b995ff5542041b4e2e074f776db1e"
+  },
+  "proposed_branch": "work/fdsa-order-integration",
+  "proposed_branch_absent_at_read": true,
+  "actual_merge_base": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+  "merge_executed_or_simulated": false,
+  "future_normal_merge_parent_order": [
+    "312aafb4446b995ff5542041b4e2e074f776db1e",
+    "bdac9703aab4b383fa775568d36bf685af329389"
+  ],
+  "expected_result_tree": null,
+  "expected_received_diff_scope": [
+    "Applications/Probability/PermutationOrder.lean",
+    "Examples/PermutationOrder.lean",
+    "Examples/PermutationOrderBoundary.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-permutation-order.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "original_base_to_corrected_tip_diff": [
+    "A\tApplications/Probability/PermutationOrder.lean",
+    "A\tExamples/PermutationOrder.lean",
+    "A\tExamples/PermutationOrderBoundary.lean",
+    "M\tSquareApplications.lean",
+    "A\tdocs/research/fdsa-permutation-order.md",
+    "M\tdocs/research/fdsa-reconstruction-map.md"
+  ],
+  "corrected_order_history": [
+    "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8 ff3dd88082c6283df40bcd86a4363841a0360b12 feat(probability): formalize restricted permutation orders (#174)",
+    "758e130cc30b8779dfce0ef2c4687aea0efa1792 4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8 fix(fdsa): use proof-local enumerations for restricted permutation orders",
+    "d80edd8f882c74eb4fc9eb4dcd559df32cb370a8 758e130cc30b8779dfce0ef2c4687aea0efa1792 fix(fdsa): elaborate whole-order correspondence on pinned APIs",
+    "2695e20f76604cc85396fd8d8e82459b9067f551 d80edd8f882c74eb4fc9eb4dcd559df32cb370a8 fix(fdsa): omit unused private order-transport equality instance",
+    "fbc9a32a2a7cc333f632c88a27a5d7a977d67f72 2695e20f76604cc85396fd8d8e82459b9067f551 fix(fdsa): prove order-support counterexamples by length and counts (#174)",
+    "bdac9703aab4b383fa775568d36bf685af329389 fbc9a32a2a7cc333f632c88a27a5d7a977d67f72 fix(fdsa): elaborate complete-order probability examples (#174)"
+  ],
+  "six_path_exact_source_scope": [
+    {
+      "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+      "bytes": 15304,
+      "lines": 321,
+      "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2",
+      "receiving_source_action": "Preserve this exact corrected Lean blob"
+    },
+    {
+      "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "path": "Examples/PermutationOrder.lean",
+      "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+      "bytes": 6706,
+      "lines": 152,
+      "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084",
+      "receiving_source_action": "Preserve this exact corrected Lean blob"
+    },
+    {
+      "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "path": "Examples/PermutationOrderBoundary.lean",
+      "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+      "bytes": 5605,
+      "lines": 148,
+      "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121",
+      "receiving_source_action": "Preserve this exact corrected Lean blob"
+    },
+    {
+      "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "path": "SquareApplications.lean",
+      "git_blob": "b9b45c865f4345fe58ebcf1b2c14766c4abe0202",
+      "bytes": 8360,
+      "lines": 254,
+      "sha256": "bfa905b56c3cfb7ed63b0c80b7680a0e93486cf32987739ef4d61ca94262dc21",
+      "receiving_source_action": "Reconcile only the narrow documented import/status union into prospective base I; no whole-file replacement from old branch"
+    },
+    {
+      "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "path": "docs/research/fdsa-permutation-order.md",
+      "git_blob": "d3a16fc8713c5dda2797a07ad14f3174ea97f841",
+      "bytes": 8851,
+      "lines": 166,
+      "sha256": "39fd16835dccd39c9d34ebfcebbdbdd33f44ec1dad49fdfe582a8ac4801faea3",
+      "receiving_source_action": "Reconcile only the narrow documented import/status union into prospective base I; no whole-file replacement from old branch"
+    },
+    {
+      "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "ebd4016c479ea8e1cf53193eb1aac7f4fd9dffaf",
+      "bytes": 17824,
+      "lines": 294,
+      "sha256": "aa5ae498a2b23a5dee8dcbc0eac1eb5d8735cec4d97ebcdca7877d48ff9f52ce",
+      "receiving_source_action": "Reconcile only the narrow documented import/status union into prospective base I; no whole-file replacement from old branch"
+    }
+  ],
+  "preserved_minimum_checks": [
+    {
+      "path": "Applications/Probability/PermutationMinimum.lean",
+      "original_merge_base": {
+        "commit": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+        "path": "Applications/Probability/PermutationMinimum.lean",
+        "git_blob": "9be74c11fda2de70b0fa02fcb597c631dc8e666e",
+        "bytes": 8244,
+        "lines": 197,
+        "sha256": "648a2d799ea9905a27992ad4e8653ad21a0457c5301e8c0a026d08d9cd067bbb"
+      },
+      "incoming_old_tip": {
+        "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+        "path": "Applications/Probability/PermutationMinimum.lean",
+        "git_blob": "9be74c11fda2de70b0fa02fcb597c631dc8e666e",
+        "bytes": 8244,
+        "lines": 197,
+        "sha256": "648a2d799ea9905a27992ad4e8653ad21a0457c5301e8c0a026d08d9cd067bbb"
+      },
+      "required_prospective_base_I": {
+        "commit": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "path": "Applications/Probability/PermutationMinimum.lean",
+        "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+        "bytes": 8241,
+        "lines": 197,
+        "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64"
+      },
+      "matches_Z": true,
+      "incoming_equals_merge_base": true,
+      "normal_merge_expected_to_retain_I": true,
+      "observed_merge_result": null
+    },
+    {
+      "path": "Examples/PermutationMinimum.lean",
+      "original_merge_base": {
+        "commit": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+        "path": "Examples/PermutationMinimum.lean",
+        "git_blob": "e49e17a2a70836bd2cb8d4fc9bf799dd2be6bad9",
+        "bytes": 4891,
+        "lines": 126,
+        "sha256": "b1cef98f9814eb53668cc29896bad750d2b687c4bc162c7ad500e1df82a09442"
+      },
+      "incoming_old_tip": {
+        "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+        "path": "Examples/PermutationMinimum.lean",
+        "git_blob": "e49e17a2a70836bd2cb8d4fc9bf799dd2be6bad9",
+        "bytes": 4891,
+        "lines": 126,
+        "sha256": "b1cef98f9814eb53668cc29896bad750d2b687c4bc162c7ad500e1df82a09442"
+      },
+      "required_prospective_base_I": {
+        "commit": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "path": "Examples/PermutationMinimum.lean",
+        "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+        "bytes": 4994,
+        "lines": 127,
+        "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1"
+      },
+      "matches_Z": true,
+      "incoming_equals_merge_base": true,
+      "normal_merge_expected_to_retain_I": true,
+      "observed_merge_result": null
+    },
+    {
+      "path": "Examples/PermutationMinimumBoundary.lean",
+      "original_merge_base": {
+        "commit": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+        "path": "Examples/PermutationMinimumBoundary.lean",
+        "git_blob": "05642e65256626b6ac881c9c2fe6de822858ca2d",
+        "bytes": 4173,
+        "lines": 113,
+        "sha256": "d169fc8ccac457d71978bd1a209ab610338dd601fe816e40f9f0666164cca34d"
+      },
+      "incoming_old_tip": {
+        "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+        "path": "Examples/PermutationMinimumBoundary.lean",
+        "git_blob": "05642e65256626b6ac881c9c2fe6de822858ca2d",
+        "bytes": 4173,
+        "lines": 113,
+        "sha256": "d169fc8ccac457d71978bd1a209ab610338dd601fe816e40f9f0666164cca34d"
+      },
+      "required_prospective_base_I": {
+        "commit": "312aafb4446b995ff5542041b4e2e074f776db1e",
+        "path": "Examples/PermutationMinimumBoundary.lean",
+        "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+        "bytes": 4211,
+        "lines": 113,
+        "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b"
+      },
+      "matches_Z": true,
+      "incoming_equals_merge_base": true,
+      "normal_merge_expected_to_retain_I": true,
+      "observed_merge_result": null
+    }
+  ],
+  "preserve_I_documentary_and_import_base": [
+    {
+      "commit": "312aafb4446b995ff5542041b4e2e074f776db1e",
+      "path": "SquareApplications.lean",
+      "git_blob": "a36fa607584d77618858b5f1707b1df913a22cca",
+      "bytes": 8544,
+      "lines": 260,
+      "sha256": "6197b3a27ee1fd07305a506314caeaa3b3534ab166eaea00e5e169ba4c82956d"
+    },
+    {
+      "commit": "312aafb4446b995ff5542041b4e2e074f776db1e",
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "e753d5325fcd4f576b091d795ffced6d625c2aaf",
+      "bytes": 39246,
+      "lines": 596,
+      "sha256": "f479b3b05b2fdfd99683e15cfc1e0d0b9542c58f56a3013872be6df8469cebfe"
+    },
+    {
+      "commit": "312aafb4446b995ff5542041b4e2e074f776db1e",
+      "path": "docs/research/fdsa-permutation-minimum.md",
+      "git_blob": "052101180ceaf79f81e0873f24160fc73ae52f33",
+      "bytes": 7970,
+      "lines": 146,
+      "sha256": "2054bf4d6cd371b8570fca003f0fe704793377d261cb8e5f10306022e5b2dcc8"
+    }
+  ],
+  "static_prospective_local_closure": {
+    "Applications/Probability/PermutationOrder.lean": {
+      "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+      "bytes": 15304,
+      "lines": 321,
+      "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2"
+    },
+    "Examples/PermutationOrder.lean": {
+      "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "path": "Examples/PermutationOrder.lean",
+      "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+      "bytes": 6706,
+      "lines": 152,
+      "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084"
+    },
+    "Examples/PermutationOrderBoundary.lean": {
+      "commit": "bdac9703aab4b383fa775568d36bf685af329389",
+      "path": "Examples/PermutationOrderBoundary.lean",
+      "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+      "bytes": 5605,
+      "lines": 148,
+      "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121"
+    },
+    "Examples/PermutationMinimum.lean": {
+      "commit": "312aafb4446b995ff5542041b4e2e074f776db1e",
+      "path": "Examples/PermutationMinimum.lean",
+      "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+      "bytes": 4994,
+      "lines": 127,
+      "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1"
+    },
+    "Applications/Probability/PermutationMinimum.lean": {
+      "commit": "312aafb4446b995ff5542041b4e2e074f776db1e",
+      "path": "Applications/Probability/PermutationMinimum.lean",
+      "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+      "bytes": 8241,
+      "lines": 197,
+      "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64"
+    },
+    "Examples/PermutationMinimumBoundary.lean": {
+      "commit": "312aafb4446b995ff5542041b4e2e074f776db1e",
+      "path": "Examples/PermutationMinimumBoundary.lean",
+      "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+      "bytes": 4211,
+      "lines": 113,
+      "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b"
+    }
+  },
+  "static_local_import_edges": [
+    [
+      "Examples/PermutationOrder.lean",
+      "Applications/Probability/PermutationOrder.lean"
+    ],
+    [
+      "Examples/PermutationOrder.lean",
+      "Examples/PermutationOrderBoundary.lean"
+    ],
+    [
+      "Examples/PermutationOrderBoundary.lean",
+      "Applications/Probability/PermutationOrder.lean"
+    ],
+    [
+      "Examples/PermutationOrderBoundary.lean",
+      "Examples/PermutationMinimum.lean"
+    ],
+    [
+      "Examples/PermutationMinimum.lean",
+      "Applications/Probability/PermutationMinimum.lean"
+    ],
+    [
+      "Examples/PermutationMinimum.lean",
+      "Examples/PermutationMinimumBoundary.lean"
+    ],
+    [
+      "Examples/PermutationMinimumBoundary.lean",
+      "Applications/Probability/PermutationMinimum.lean"
+    ]
+  ],
+  "external_imports": [
+    "Mathlib.Data.Finset.Card",
+    "Mathlib.Data.Finset.Lattice.Lemmas",
+    "Mathlib.Data.Finset.Max",
+    "Mathlib.Data.Fintype.OfMap",
+    "Mathlib.Data.Fintype.Perm",
+    "Mathlib.Data.List.Basic",
+    "Mathlib.Data.List.Nodup",
+    "Mathlib.Data.List.Permutation",
+    "Mathlib.Data.Set.Card",
+    "Mathlib.Logic.Equiv.Fintype",
+    "Mathlib.Logic.Equiv.List",
+    "Mathlib.Probability.UniformOn",
+    "Mathlib.Tactic",
+    "Mathlib.Tactic.FinCases"
+  ],
+  "closure_all_six_local_sources_exact_Z": true,
+  "I_existing_Lean_import_clients_of_Order": [],
+  "existing_public_program": {
+    "path": "provenance/chapter02-xu02-statement-source-20261104/Statements.lean",
+    "bytes": 3522,
+    "lines": 61,
+    "sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3"
+  },
+  "historical_program_inventory": {
+    "path": "provenance/chapter02-xu02-statement-source-20261104/inventory.json",
+    "bytes": 4460,
+    "lines": 85,
+    "sha256": "0b4e0fd1c4aba369463d0b83869991edb4654fd65a31b95b23be5fcd9af004ac"
+  },
+  "explicit_scope_counts": {
+    "public": 53,
+    "private_named": 5,
+    "anonymous_instances": 6,
+    "anonymous_examples": 0,
+    "by_module": {
+      "Applications/Probability/PermutationOrder.lean": {
+        "public_count": 17,
+        "private_count": 4,
+        "anonymous_instances": 0
+      },
+      "Examples/PermutationOrder.lean": {
+        "public_count": 18,
+        "private_count": 1,
+        "anonymous_instances": 2
+      },
+      "Examples/PermutationOrderBoundary.lean": {
+        "public_count": 18,
+        "private_count": 0,
+        "anonymous_instances": 4
+      }
+    }
+  },
+  "existing_public_names_in_program_order": [
+    "Applications.Probability.PermutationOrder.restrictedOrder",
+    "Applications.Probability.PermutationOrder.orders",
+    "Applications.Probability.PermutationOrder.mem_restrictedOrder",
+    "Applications.Probability.PermutationOrder.mem_restrictedOrder_of_complete",
+    "Applications.Probability.PermutationOrder.restrictedOrder_nodup",
+    "Applications.Probability.PermutationOrder.restrictedOrder_toFinset",
+    "Applications.Probability.PermutationOrder.restrictedOrder_length",
+    "Applications.Probability.PermutationOrder.restrictedOrder_perm",
+    "Applications.Probability.PermutationOrder.map_restrictedOrder_sublist",
+    "Applications.Probability.PermutationOrder.filter_restrictedOrder",
+    "Applications.Probability.PermutationOrder.filter_restrictedOrder_of_subset",
+    "Applications.Probability.PermutationOrder.mem_orders",
+    "Applications.Probability.PermutationOrder.orders_nonempty",
+    "Applications.Probability.PermutationOrder.restrictedOrder_mem_orders",
+    "Applications.Probability.PermutationOrder.orders_card",
+    "Applications.Probability.PermutationOrder.uniformOn_restrictedOrder_eq",
+    "Applications.Probability.PermutationOrder.map_restrictedOrder_uniformOn",
+    "Examples.PermutationOrder.positions",
+    "Examples.PermutationOrder.selected",
+    "Examples.PermutationOrder.smaller",
+    "Examples.PermutationOrder.positions_nodup",
+    "Examples.PermutationOrder.positions_complete",
+    "Examples.PermutationOrder.law",
+    "Examples.PermutationOrder.selected_structure",
+    "Examples.PermutationOrder.selected_permutation",
+    "Examples.PermutationOrder.selected_orders_card",
+    "Examples.PermutationOrder.order_023_mass",
+    "Examples.PermutationOrder.observed_law",
+    "Examples.PermutationOrder.order_032_mass_via_map",
+    "Examples.PermutationOrder.repeated_order_mass_zero",
+    "Examples.PermutationOrder.nestedObservation",
+    "Examples.PermutationOrder.nestedObservation_eq",
+    "Examples.PermutationOrder.nested_order_30_mass",
+    "Examples.PermutationOrder.singleton_order_mass",
+    "Examples.PermutationOrder.full_order_mass",
+    "Examples.PermutationOrderBoundary.empty_subset_output",
+    "Examples.PermutationOrderBoundary.empty_subset_orders",
+    "Examples.PermutationOrderBoundary.empty_subset_mass",
+    "Examples.PermutationOrderBoundary.empty_index_mass",
+    "Examples.PermutationOrderBoundary.cycle",
+    "Examples.PermutationOrderBoundary.cycle_values",
+    "Examples.PermutationOrderBoundary.cycle_inverse_order",
+    "Examples.PermutationOrderBoundary.cycle_restricted_order",
+    "Examples.PermutationOrderBoundary.cycle_direct_order",
+    "Examples.PermutationOrderBoundary.inverse_and_direct_orders_differ",
+    "Examples.PermutationOrderBoundary.numeric_enumeration_values",
+    "Examples.PermutationOrderBoundary.numeric_enumeration_increasing",
+    "Examples.PermutationOrderBoundary.ordinary_enumeration_not_increasing",
+    "Examples.PermutationOrderBoundary.numeric_and_ordinary_orders_differ",
+    "Examples.PermutationOrderBoundary.incomplete_output",
+    "Examples.PermutationOrderBoundary.incomplete_support_counterexample",
+    "Examples.PermutationOrderBoundary.repeated_output",
+    "Examples.PermutationOrderBoundary.repeated_support_counterexample"
+  ],
+  "historical_actual815_check_positions": [
+    33,
+    85
+  ],
+  "historical_focused_module_evidence": [
+    {
+      "unit": "XU02",
+      "run": "chapter02-mean-xu02-focused-20261104-attempt3",
+      "candidate": "b3ccd6617c9a0bd033ab181a77d0e07d4b72100a",
+      "aggregate_exit": 1,
+      "completed_utc": "2026-11-04T07:12:15.194031+00:00",
+      "module": "Applications.Probability.PermutationOrder",
+      "individual_success": {
+        "line": 24,
+        "text": "⚠ [3064/3072] Built Applications.Probability.PermutationOrder (63s)"
+      },
+      "source_matches_corrected_tip": true,
+      "result": {
+        "path": "provenance/chapter02-mean-xu02-focused-20261104-attempt3/result.json",
+        "bytes": 1420,
+        "lines": 35,
+        "sha256": "7e74fc1082ef35fa490d58035e99be37d3fa63bfcea953eb9735c10cf1ee4539"
+      },
+      "full_log": {
+        "path": "provenance/chapter02-mean-xu02-focused-20261104-attempt3/full.log",
+        "bytes": 15382,
+        "lines": 86,
+        "sha256": "27fffd453a4650aa56976d4cfac2b482fccaae82a8f1ba53bfe38fb5780108ca"
+      },
+      "no_whole_candidate_or_acceptance_credit": true
+    },
+    {
+      "unit": "XU02",
+      "run": "chapter02-mean-order-operations-transport-focused-20261104-attempt4",
+      "candidate": "e4965499954e2afe6bb6be0b8a4a61167a0ff2ce",
+      "aggregate_exit": 1,
+      "completed_utc": "2026-11-04T07:32:35.334665+00:00",
+      "module": "Examples.PermutationOrderBoundary",
+      "individual_success": {
+        "line": 56,
+        "text": "⚠ [3633/3638] Built Examples.PermutationOrderBoundary (118s)"
+      },
+      "source_matches_corrected_tip": true,
+      "result": {
+        "path": "provenance/chapter02-mean-order-operations-transport-focused-20261104-attempt4/result.json",
+        "bytes": 1615,
+        "lines": 39,
+        "sha256": "d24e0aed4fee51e19ece325a28af916191fbbd874fa970911160e9a4c6425f63"
+      },
+      "full_log": {
+        "path": "provenance/chapter02-mean-order-operations-transport-focused-20261104-attempt4/full.log",
+        "bytes": 21245,
+        "lines": 160,
+        "sha256": "10d22668f7040a1802fbac453a6c8880fe1482b663751055f780cdcf934e2df0"
+      },
+      "no_whole_candidate_or_acceptance_credit": true
+    },
+    {
+      "unit": "XU02",
+      "run": "chapter02-tail-numerical-rank-operations-focused-20261104-attempt5",
+      "candidate": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+      "aggregate_exit": 1,
+      "completed_utc": "2026-11-04T07:52:34.108454+00:00",
+      "module": "Examples.PermutationOrder",
+      "individual_success": {
+        "line": 26,
+        "text": "⚠ [3239/3266] Built Examples.PermutationOrder (241s)"
+      },
+      "source_matches_corrected_tip": true,
+      "result": {
+        "path": "provenance/chapter02-tail-numerical-rank-operations-focused-20261104-attempt5/result.json",
+        "bytes": 1658,
+        "lines": 42,
+        "sha256": "345aeaedd562f9ffb6e71be546346a8883d8538a0ee647df0f54febfa203ccf4"
+      },
+      "full_log": {
+        "path": "provenance/chapter02-tail-numerical-rank-operations-focused-20261104-attempt5/full.log",
+        "bytes": 47237,
+        "lines": 546,
+        "sha256": "d367cd2e1054973cac7d1e1c6fa7d9a278eea9cccfa038b2436c377367b6160e"
+      },
+      "no_whole_candidate_or_acceptance_credit": true
+    }
+  ],
+  "documentary_proposals": {
+    "SquareApplications.lean": {
+      "insert_after": "import Examples.PermutationMinimum",
+      "insert_line": "import Examples.PermutationOrder",
+      "all_other_I_imports_retained": true
+    },
+    "docs/research/fdsa-permutation-order.md": {
+      "retain_original_proposal_unchanged": true,
+      "proposal_path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-permutation-order.md",
+      "replace_validation_paragraph_with": "**Development validation — 4 November 2026.** The whole-order core and both example modules had individual compilation successes in development checks that failed overall. All 53 explicit public declarations from the corrected source were subsequently included in the successful 815-declaration type inspection at `4b5dbfa07288acc73f25c27838d3fb2f78e77d71`; both independent reviewers assessed their complete printed types. These are historical results for that development candidate. Reuse requires matching integration-candidate evidence. The full acceptance gates below remain required.",
+      "retain_proposed_deletion_of_obsolete_opening_status": true,
+      "retain_proposed_deletion_of_later_uncompiled_sentence": true,
+      "all_other_mathematics_citations_notices_and_gate_text_unchanged": true
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "preserve_all_I_content": true,
+      "incorporate_complete_original_Order_section": true,
+      "replace_only_obsolete_final_status_sentence_with": "The source note retains the 4 November 2026 development validation history; the local FDSA-XU02 record retains the frozen exact scope and subsequent candidate/review evidence. Full immutable-candidate acceptance gates remain required."
+    }
+  },
+  "findings_to_continue": [
+    "XU02-SP01",
+    "XU02-SRC-001",
+    "XU02-ELAB-001",
+    "XU02-ELAB-002",
+    "XU02-ELAB-003",
+    "XU02-ELAB-004",
+    "XU02-ELAB-005",
+    "XU02-ELAB-006",
+    "XU02-ELAB-007",
+    "XU02-ELAB-008",
+    "XU02-ELAB-009",
+    "XU02-ELAB-010",
+    "XU02-ELAB-011",
+    "XU02-ELAB-012",
+    "XU02-ELAB-013",
+    "XU02-ELAB-014",
+    "C02-DOC-003"
+  ],
+  "C02_TYPE_001": "Resolved by both axes only for exact Z; no automatic receiving-candidate credit",
+  "scope_cautions": [
+    "Original implementation-side draft-preflight excluded core and its own boundary module; it is not either independent final review.",
+    "Original standalone 53 inventory has historical source bindings; retain it and use corrected bindings in the held Order/Tail preparation plus this exact source reconciliation.",
+    "No dedicated permutation-order Standards/Spec final reports were found in the bounded review-prefix inventory; continue existing full C2 axis records for this entire six-path unit."
+  ],
+  "type_requalification_boundary": "No existing declaration-bearing I module is changed, and the only old Lean path changed is the public import wrapper. No additional public-name group beyond 53 is structurally forced by this source-only comparison. All retained I 314/Foundation 110 evidence still requires actual receiving input/lineage reconciliation and independent assessment; unqualified source/object/config/pin/runtime/import/instance changes require matching actual inspection. No unconditional extra command or future reuse is authorized.",
+  "fixed_acceptance_sequence": [
+    "accepted F",
+    "accepted combined XM01/XD01/XQ01/XU01",
+    "accepted XU02",
+    "accepted XU03",
+    "new complete Chapter 2",
+    "Chapter 3 in existing queue"
+  ],
+  "existing_file_identities": [
+    {
+      "path": "REQUEST.md",
+      "bytes": 8549,
+      "lines": 148,
+      "sha256": "670038db71064a643014c952161666544cf37a4c9e17f14ddc7c4478e78dc6d8"
+    },
+    {
+      "path": "reviews/shared-integration-preflight.md",
+      "bytes": 24778,
+      "lines": 205,
+      "sha256": "e1d9c119e2bca35bbbd283eb47d05330f35d7e548f92e063eeebe7d4d53552eb"
+    },
+    {
+      "path": "provenance/shared-acceptance-sequence-20261104/plan.md",
+      "bytes": 23398,
+      "lines": 369,
+      "sha256": "de57733ffbe19af6cd3617baa875dabbc74ec10ef6b8941419c356ec8ae764e1"
+    },
+    {
+      "path": "provenance/shared-acceptance-sequence-20261104/receipt.json",
+      "bytes": 48744,
+      "lines": 848,
+      "sha256": "c79bdb7c1bb7c8d3579f9b364f742b8ccd5282f233d8bcd885a3eb718d970ae4"
+    },
+    {
+      "path": "reviews/permutation-order-requirements.md",
+      "bytes": 11430,
+      "lines": 209,
+      "sha256": "f473f593bf4a7ef75dcf2f3163440db6fe187b3b9983f87254d2ddfa8191982d"
+    },
+    {
+      "path": "reviews/permutation-order-start.md",
+      "bytes": 3699,
+      "lines": 68,
+      "sha256": "586aa3e548bc5225cb5a1ff40e33f483cbe6b33a3ad26b56433856e7a5208e69"
+    },
+    {
+      "path": "reviews/permutation-order-candidate.md",
+      "bytes": 10748,
+      "lines": 189,
+      "sha256": "3f8451804200be41641ee821b32ddd25a9d7302187615153a5b3901ea1f9a6a7"
+    },
+    {
+      "path": "tickets/FDSA-XU02.md",
+      "bytes": 6959,
+      "lines": 107,
+      "sha256": "03181edb9402031cf6e7515546858043db1c791ecf573d79206e206d953d83d7"
+    },
+    {
+      "path": "research/permutation-order-api-preflight.md",
+      "bytes": 26551,
+      "lines": 456,
+      "sha256": "3e18c4f3eb1d47b8335c270aee311eecc3817e4af0edac69232678efd85c4294"
+    },
+    {
+      "path": "research/permutation-order-source-preflight.md",
+      "bytes": 8636,
+      "lines": 171,
+      "sha256": "53cd24c2bf07945facb04f0249baf0fc52a64bf498466185d7d528488f7214bd"
+    },
+    {
+      "path": "research/permutation-order-calculations.json",
+      "bytes": 5148,
+      "lines": 243,
+      "sha256": "54163e6729373a9c78cd82432d48ae827498321c64e53e3c5160cebb54ca2f80"
+    },
+    {
+      "path": "research/permutation-order-draft-preflight.md",
+      "bytes": 8872,
+      "lines": 147,
+      "sha256": "302611bfb28cb30b5cc580185aa7475233d89587187cd53a92696e40f4bb19e8"
+    },
+    {
+      "path": "reviews/chapter02-round1.md",
+      "bytes": 19413,
+      "lines": 302,
+      "sha256": "b1fe3a4fa32966b663e94db5e9c2456baec9abd0fa204f375a5d1a2fff43b1a4"
+    },
+    {
+      "path": "reviews/chapter02-standards-source-preparation-20261104.md",
+      "bytes": 104381,
+      "lines": 421,
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    {
+      "path": "reviews/chapter02-spec-source-preparation-20261104.md",
+      "bytes": 109354,
+      "lines": 473,
+      "sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-4b5dbfa0.json",
+      "bytes": 27181,
+      "lines": 505,
+      "sha256": "3ae1e9749b8633e64a0adc14bb9cc96f5ee6cd5ba338dd45d55ddeac3df161d7"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/source-scope-successor-4b5dbfa0.json",
+      "bytes": 26429,
+      "lines": 721,
+      "sha256": "5bf3a45eab119bbd6b3d16547142282599ea2c26d5e1af986afc42d0ec544620"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+      "bytes": 23539,
+      "lines": 472,
+      "sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-complete-spec-assessment-4b5dbfa0.json",
+      "bytes": 23798,
+      "lines": 818,
+      "sha256": "116cf0a800841c3a18d338f446ce3a518455487de8e401dae1186a85c73ad878"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-execution-input-assessment-4b5dbfa0.json",
+      "bytes": 7434,
+      "lines": 156,
+      "sha256": "489ae557c9eef766ef9bf2e2e85d124fb71658c6546e707b494fe738c27d569a"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-execution-input-qualification.json",
+      "bytes": 6690,
+      "lines": 150,
+      "sha256": "9bf1f1e098997b9f4f01944c59b5578a32a4768e00fc0e68d1726c342bb82abe"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-permutation-order.md",
+      "bytes": 9172,
+      "lines": 173,
+      "sha256": "8c2be8a6879ece74a935dacd2da3aa635d03d5c2d34860881b7bec9db44a3fcf"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-preparation-20261104/patches/fdsa-permutation-order.md.patch",
+      "bytes": 1415,
+      "lines": 30,
+      "sha256": "49c161eeaa158a4da64c027054a4a078266cd310ef83d26d1aaec43af4e27d4c"
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-preparation-20261104/receipt.json",
+      "bytes": 7500,
+      "lines": 211,
+      "sha256": "faa70afc6fa62c47d9b1442f10a20ff9ad9a73b3576f7028e8ee7ead0594edbe"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/shared-note-proposals-assessment-6b95185.json",
+      "bytes": 69126,
+      "lines": 1616,
+      "sha256": "ce1ce7e51e89485294e7cdeb3ed3e5ca663e72e720ab434c3f6992a1022e0e16"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/shared-note-status-assessment-5398db.json",
+      "bytes": 19563,
+      "lines": 321,
+      "sha256": "f9e8a6604de9c943a8b9d70f2b1d0c5f91fef1c51a632c5a65deeab35a97c98f"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/shared-notes-six-plus-correction1-assessment.json",
+      "bytes": 11163,
+      "lines": 213,
+      "sha256": "fc99f1293fe87d7b55cb37a5e1646c9706e6056c08a9e89042d4a3a41764ae11"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/result.json",
+      "bytes": 1337,
+      "lines": 32,
+      "sha256": "408a2fc698c80f7f4527beb0045f21132c3dc544ad0d9054204e2619aff595ab"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/secured-terminal.json",
+      "bytes": 2508,
+      "lines": 47,
+      "sha256": "c7c0b017ef12185fc8c5cfb4e82bc608dc19bec29bc34cee78fbf959a66c5252"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/actual-type-ranges.json",
+      "bytes": 232026,
+      "lines": 7349,
+      "sha256": "5f53332f2c9719fc6ce7fe15f6eab6f90a6d7baf9dd1b4cf0e2750d1932ffcef"
+    },
+    {
+      "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/full.log",
+      "bytes": 874944,
+      "lines": 11653,
+      "sha256": "a5347095b4f93728b1b384c415189e1d934084eca4af8999028d0864fab9fc6b"
+    },
+    {
+      "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 125408,
+      "lines": 2524,
+      "sha256": "e4187960a469d194aeceed488d7e9bb45a450ae059bef46ba9645c5f9d6868ac"
+    },
+    {
+      "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 125726,
+      "lines": 2530,
+      "sha256": "c8a015007775ff98a220c90c328dc10f505cca8ac9ac9c7c3b887e2c0089ab4a"
+    },
+    {
+      "path": "provenance/chapter02-xu02-statement-source-20261104/Statements.lean",
+      "bytes": 3522,
+      "lines": 61,
+      "sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3"
+    },
+    {
+      "path": "provenance/chapter02-xu02-statement-source-20261104/inventory.json",
+      "bytes": 4460,
+      "lines": 85,
+      "sha256": "0b4e0fd1c4aba369463d0b83869991edb4654fd65a31b95b23be5fcd9af004ac"
+    },
+    {
+      "path": "provenance/chapter02-xu02-proof-style-correction-20261104/result.json",
+      "bytes": 1560,
+      "lines": 27,
+      "sha256": "0c2a219e8da106fe72e5527dfb8abbd4ee45e7c4dcc1ceb23f56e588245069fd"
+    },
+    {
+      "path": "provenance/chapter02-xu02-proof-style-correction-20261104/correction.diff",
+      "bytes": 1537,
+      "lines": 31,
+      "sha256": "7503a20d64ea98ad7b05bc8fdacf34b6559959b86657a193ff12b3e4889add98"
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction1-20261104/result.json",
+      "bytes": 1726,
+      "lines": 25,
+      "sha256": "ed09e1f713d90af4a1663280b5a2502cc5cd6f69c9873ced5c9ead19eb7999ee"
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction1-20261104/correction.diff",
+      "bytes": 2496,
+      "lines": 50,
+      "sha256": "ed0868da23cc25bef57b1f5646069341fabc6933f0a128562dc470055459b9eb"
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction2-20261104/result.json",
+      "bytes": 1879,
+      "lines": 33,
+      "sha256": "732642556a85c0974db489f9f17374955cec07cd05ec3f53e0ce235b2557354e"
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction2-20261104/correction.diff",
+      "bytes": 651,
+      "lines": 12,
+      "sha256": "f12b2915e706c610d988b55ae54b88c4d4c74c6645f2849b6e674778619efde0"
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction3-20261104/result.json",
+      "bytes": 3452,
+      "lines": 54,
+      "sha256": "0a927f716db2b04adf85929cdeabd7a9cda369acf79b86a03add5b36e1cdc216"
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction3-20261104/correction.diff",
+      "bytes": 837,
+      "lines": 25,
+      "sha256": "bee99655766e9c7c687ddca27b0c35f4d258168a9f2add344ed418c8b563b9fc"
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction4-20261104/result.json",
+      "bytes": 2101,
+      "lines": 24,
+      "sha256": "da5482c00ed3baa400d85973db481affcb45ac101aed80ca564af3804a720a5d"
+    },
+    {
+      "path": "provenance/chapter02-xu02-elaboration-correction4-20261104/source.diff",
+      "bytes": 4483,
+      "lines": 88,
+      "sha256": "43023924e9e2622eccba59d80c40aab861c75876f44d5fa482aa981d214eb240"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+      "bytes": 4105,
+      "lines": 75,
+      "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/control-status-proposals.json",
+      "bytes": 4912,
+      "lines": 79,
+      "sha256": "6eb9961a1d53f7231fff5674b1f070a278debf870745d53175f3381015367742"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/control-status-proposals.patch",
+      "bytes": 10180,
+      "lines": 138,
+      "sha256": "0d627bd16053b7b641bc8e4054f769d1bbfffdc0c6d5a0a0f01fd6cb3ee21ed8"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/inventory.json",
+      "bytes": 144176,
+      "lines": 3662,
+      "sha256": "1459305992aeb72834dc4360940edc0a221352c16748014ca531cbf0d111433b"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/preparation.md",
+      "bytes": 11258,
+      "lines": 68,
+      "sha256": "4f731b50d191d61736510892b094a9f82f3ef2f583e804d996782857acf55900"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/receipt.json",
+      "bytes": 4184,
+      "lines": 105,
+      "sha256": "b005b47880ff24fee78885d35dbdc27d065bfb85ccf06b8be2bf5e1b5e8b24cb"
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/source-and-evidence.json",
+      "bytes": 25505,
+      "lines": 628,
+      "sha256": "89f2334cb3900acaee8fb60f364808d80ba0ae2c86a32c6371de3281ea29a4f5"
+    },
+    {
+      "path": "provenance/shared-four-foundation110-reuse-preparation-20261104/inventory.json",
+      "bytes": 144109,
+      "lines": 3980,
+      "sha256": "daeea1d0142de847cb105989e32a4fa78fa1281bdfc30a1a6d1e6fefebc6fb32"
+    },
+    {
+      "path": "provenance/shared-four-foundation110-reuse-preparation-20261104/plan.md",
+      "bytes": 8082,
+      "lines": 44,
+      "sha256": "da2bf87a897fe5d77e6598a3c30e421e23c2faa96d71e8bb81d729cf22dab620"
+    },
+    {
+      "path": "provenance/shared-four-foundation110-reuse-preparation-20261104/receipt.json",
+      "bytes": 2325,
+      "lines": 45,
+      "sha256": "b9e55962fbfe30d412f19aa3ca5c5b3fb4ea8bd69a08109f89b2c8ff00cfcd21"
+    },
+    {
+      "path": "provenance/tree-shape-public-statements90-prepared-20261104/Statements.lean",
+      "bytes": 4230,
+      "lines": 106,
+      "sha256": "28622fb1c6417798d4d4c476e9e3d307792c62e881f0158446ca2938434b83ca"
+    },
+    {
+      "path": "provenance/tree-shape-public-statements90-prepared-20261104/inventory.json",
+      "bytes": 119121,
+      "lines": 2843,
+      "sha256": "c866fc795b7aa77b6f7a85e19cd699a685ed97522c774f53c6742f69faa07b5e"
+    },
+    {
+      "path": "provenance/tree-shape-public-statements90-prepared-20261104/preparation.md",
+      "bytes": 5716,
+      "lines": 32,
+      "sha256": "304b23221702d2b599391e97aa928604d15e645c76a285b69a5c04c64010c0e9"
+    },
+    {
+      "path": "provenance/tree-shape-public-statements90-prepared-20261104/receipt.json",
+      "bytes": 3141,
+      "lines": 64,
+      "sha256": "0488d9c89a9d3f49edc81a6220959bcf57bcc2ff7830005684a4ca0f4c564787"
+    },
+    {
+      "path": "provenance/tree-fold-resource-public-statements88-prepared-20261104/Statements.lean",
+      "bytes": 4310,
+      "lines": 107,
+      "sha256": "bb50de35ccb4c924173f4f6c0e49ac1038f9f3d38e09bb5300b4f5d2b99c733c"
+    },
+    {
+      "path": "provenance/tree-fold-resource-public-statements88-prepared-20261104/inventory.json",
+      "bytes": 136647,
+      "lines": 2841,
+      "sha256": "c2fdb92a6a8e6192dd3bfd04818f98e2767236f3180eaf374c7f58a3a48e7c7c"
+    },
+    {
+      "path": "provenance/tree-fold-resource-public-statements88-prepared-20261104/preparation.md",
+      "bytes": 6838,
+      "lines": 41,
+      "sha256": "d5d2746ff84e375b7c789b31c8d9bd796384633df0893691446a5fd62595345a"
+    },
+    {
+      "path": "provenance/tree-fold-resource-public-statements88-prepared-20261104/receipt.json",
+      "bytes": 3972,
+      "lines": 75,
+      "sha256": "cc6fe19a7d9a0822459ef12ee112ae63c8fc0d04c0c421ec32b163c47a4aab5f"
+    },
+    {
+      "path": "provenance/chapter02-mean-xu02-focused-20261104-attempt3/result.json",
+      "bytes": 1420,
+      "lines": 35,
+      "sha256": "7e74fc1082ef35fa490d58035e99be37d3fa63bfcea953eb9735c10cf1ee4539"
+    },
+    {
+      "path": "provenance/chapter02-mean-xu02-focused-20261104-attempt3/full.log",
+      "bytes": 15382,
+      "lines": 86,
+      "sha256": "27fffd453a4650aa56976d4cfac2b482fccaae82a8f1ba53bfe38fb5780108ca"
+    },
+    {
+      "path": "provenance/chapter02-mean-order-operations-transport-focused-20261104-attempt4/result.json",
+      "bytes": 1615,
+      "lines": 39,
+      "sha256": "d24e0aed4fee51e19ece325a28af916191fbbd874fa970911160e9a4c6425f63"
+    },
+    {
+      "path": "provenance/chapter02-mean-order-operations-transport-focused-20261104-attempt4/full.log",
+      "bytes": 21245,
+      "lines": 160,
+      "sha256": "10d22668f7040a1802fbac453a6c8880fe1482b663751055f780cdcf934e2df0"
+    },
+    {
+      "path": "provenance/chapter02-tail-numerical-rank-operations-focused-20261104-attempt5/result.json",
+      "bytes": 1658,
+      "lines": 42,
+      "sha256": "345aeaedd562f9ffb6e71be546346a8883d8538a0ee647df0f54febfa203ccf4"
+    },
+    {
+      "path": "provenance/chapter02-tail-numerical-rank-operations-focused-20261104-attempt5/full.log",
+      "bytes": 47237,
+      "lines": 546,
+      "sha256": "d367cd2e1054973cac7d1e1c6fa7d9a278eea9cccfa038b2436c377367b6160e"
+    }
+  ],
+  "read_boundary": "This package saves the two completed read-only Order handoffs. The original requirement and candidate/draft-preflight records, three documentary contexts, existing corrected inventory/program and relevant terminal/axis dispositions were read. Immutable six-path identities, merge ancestry and six-local-module import closure were mechanically reconciled. Prior full source/math and full 815 semantic assessments are retained by exact identity rather than newly repeated. No receiving source tree was assembled or compiled; no actual receiving artifact or runtime capture was performed."
+}

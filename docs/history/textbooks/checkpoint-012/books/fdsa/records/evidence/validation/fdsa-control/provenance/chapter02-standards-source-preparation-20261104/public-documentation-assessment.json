@@ -1,0 +1,75 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "updated_utc": "2026-11-04T08:32:59.759220+00:00",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "fixed_source_candidate": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+  "status": "Complete independent assessment of supplied proposals; unapplied proposal assessment does not approve any final candidate.",
+  "artifacts": [
+    {
+      "path": "provenance/chapter02-public-documentation-draft-20261104/fdsa-sorting.md",
+      "bytes": 77557,
+      "lines": 482,
+      "sha256": "93ef5e7e1c159663fa5e450b7c12b33d56a8edc0e91de17062511e2fcaaf3fc3",
+      "fully_read": true
+    },
+    {
+      "path": "provenance/chapter02-public-documentation-draft-20261104/fdsa-reconstruction-map.proposed.patch",
+      "bytes": 10474,
+      "lines": 174,
+      "sha256": "5c71705e297c9170a8cdb723009fd2853eda9ad59162d3a9446c4467a6867668",
+      "fully_read": true
+    },
+    {
+      "path": "provenance/chapter02-public-documentation-draft-20261104/public-example-imports.lean",
+      "bytes": 1035,
+      "lines": 29,
+      "sha256": "86c76caa13142e7f77990e74bbe1817ac661e8d99a1747d698a7b8a7c450b47a",
+      "fully_read": true
+    }
+  ],
+  "correspondence": {
+    "ordered_unique_obligation_ids": 112,
+    "aliases": 60,
+    "explicit_alias_qualified_references": 448,
+    "missing_reference_names": [],
+    "all_explicit_references_matched_exact_source_files": true,
+    "assessment": "All112 obligations and seven exercises retain their source domains; actual returned children/runs, chosen floor-left stability, actual conditional/fresh-pivot mean experiments, same-sample literal inequalities, key-distinctness and zero/one/duplicate cases remain explicit. Source-only status and later chapter obligations are preserved."
+  },
+  "public_imports": {
+    "distinct_additions": 23,
+    "existing_direct_imports_retained": true,
+    "all_proposed_modules_exist_at_M2": true,
+    "before_unreachable_checker_source_modules": 46,
+    "after_SquareApplications_reachable": 1028,
+    "after_ProofAudit_visit": 1029,
+    "all_checker_source_modules_reached": true,
+    "other_tracked_Lean_files": 56,
+    "other_files_exactly_match_accepted_base_set_and_bytes": true,
+    "counts_are_static_source_import_counts_not_checked_or_audit_counts": true
+  },
+  "findings": [
+    {
+      "id": "C02-DOC-001",
+      "status": "Confirmed proposed correction; final applied revision pending assessment",
+      "kind": "public-root integration documentation",
+      "evidence": "ProofAudit.lean imports SquareApplications at line1 and identifies that import as complete public entrypoint; scripts/check.py checks coverage from SquareApplications before visiting ProofAudit.",
+      "required_disposition": "Add23 imports only to SquareApplications; preserve audit/checker implementation; correct original proposal and map statements about both/each/two public roots in a new applied revision while retaining the original draft.",
+      "scope_reduction": false
+    },
+    {
+      "id": "focused6_status_refresh",
+      "status": "Pending final applied revision",
+      "kind": "time-sensitive local validation status",
+      "evidence": "Original draft says focused M2 validation is in progress and ends with only prior attempt5 failure. Attempt6 now has secured actual exit1, matching clean M2 and complete closed log.",
+      "required_disposition": "Final publication must record this failed terminal state accurately; keep individual target successes separate."
+    }
+  ],
+  "other_concrete_Standards_source_findings": [],
+  "gate_assessment": "Root-only source-import additions do not alter audit or checker code, pins, environment profile or integrity implementation. Retain README normal/fresh applicability; accepted fresh baseline remains valid, ordinary full candidate checks and exhaustive audit remain mandatory.",
+  "independently_reread_gate_source": [
+    "ProofAudit.lean:1-65",
+    "scripts/check.py:1-60,226-292",
+    "README.md:135-223"
+  ],
+  "reviewer_executed_compiler_build_check_audit_or_verify": false
+}

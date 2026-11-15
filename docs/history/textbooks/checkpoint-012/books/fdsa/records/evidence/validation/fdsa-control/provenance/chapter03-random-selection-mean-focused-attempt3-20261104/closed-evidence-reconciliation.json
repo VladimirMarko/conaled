@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T20:27:47.059538+00:00",
+  "candidate": "35d02bac718a7fdc84161dfa802fbc757c62b648",
+  "terminal": {
+    "recorded_utc": "2026-11-04T20:27:47.059142+00:00",
+    "owned_session": 89256,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "ec928e",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "35d02bac718a7fdc84161dfa802fbc757c62b648"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt3-20261104/full.log",
+    "bytes": 8626,
+    "sha256": "89a49ef47764b4a615698ea8bf574d138bf8d2abc432487121f49929543f813c"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T202649Z-project-run-adc69436",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt3-20261104/native-records/start.json",
+      "bytes": 483,
+      "sha256": "8d47851b95a1ff0d82c1c056cdddbf7fa814727c2582bf889142c770cbea6ce1"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt3-20261104/native-records/result.json",
+      "bytes": 637,
+      "sha256": "8e2e05507950c305f175525f36ce80142a0ac58c46fc783181131e0e5af84ad9"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-mean-focused-attempt3-20261104/native-records/output.log",
+      "bytes": 8344,
+      "sha256": "a0249b0336b0c98e014e6cb5621fc366f31c9d869af947ded240af634805be43"
+    }
+  },
+  "native_body_exact_outer_offset": 125,
+  "complete_closed_log": true,
+  "scope": "Same actual scan/source mean and example pair after explicit empty-observation proof; full108-name scope retained.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

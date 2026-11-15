@@ -1,0 +1,28 @@
+{
+  "recorded_utc": "2026-11-05T03:02:44.318063+00:00",
+  "finding": "CP0138-OPS-002",
+  "status": "Resolved",
+  "independent_inspector": "/root/checkpoint0137_acceptance_inspection",
+  "actual_untruncated_reads": [
+    "ee0535 actual0 complete76-line correction and root-gate lines1-150",
+    "e9f573 actual0 root-gate lines151-244 and actual schemas/complete receipts"
+  ],
+  "independent_reconciliation": "36b0aa actual0 exact diff/AST/current final review and hold bindings/author holds/input schemas/78refs9WT",
+  "verifier": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0138-preparation/verify-checkpoint.py",
+    "bytes": 40301,
+    "sha256": "fab798a3b8474dbb37c178d136bb32b918f31f90ba944456a2bb85d6b3cb0e13"
+  },
+  "correction": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0138-preparation/CP0138-OPS-002.patch",
+    "bytes": 5133,
+    "sha256": "b4ca79bc5e04d43c32d42d52a46aacefa9c59b4bda8731b94bd6dbae3b953fbb"
+  },
+  "root_gate_recorder": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-acceptance-20261105/reconcile_root_gate_once.py",
+    "bytes": 15033,
+    "sha256": "3a2001623f47a1afbfb09c36ec1d683d0a1f124990bcdd253a57d60a2984d485"
+  },
+  "unresolved_findings": [],
+  "no_helper_execution_by_inspector": true
+}

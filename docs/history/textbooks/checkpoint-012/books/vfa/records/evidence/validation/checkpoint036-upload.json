@@ -1,0 +1,53 @@
+{
+  "finalize_result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "results": [
+        {
+          "operation": "create_library_file",
+          "status": "succeeded",
+          "path": "/conaled-vfa-checkpoint-036-recovered-environment-handoff.tar.gz",
+          "file_id": "file_000000001c1c81f4873f2cb92773008f",
+          "library_file_id": "libfile_ef8dcfdad00c81918b05f345bfc25a3a",
+          "file_name": "conaled-vfa-checkpoint-036-recovered-environment-handoff.tar.gz",
+          "current_version_number": 0,
+          "restored_from_version_number": null,
+          "xattrs": [
+            {
+              "name": "user.library-file-version",
+              "value": "0"
+            }
+          ],
+          "directory_id": "libdir_43c8b42e635c8191b48cb45c45019d19",
+          "mime_type": "application/x-tar",
+          "library_artifact_type": "other",
+          "file_size_bytes": 146624202,
+          "external_connectors_accessed": false
+        }
+      ],
+      "warnings": [],
+      "external_connectors_accessed": false
+    },
+    "isError": false
+  },
+  "transfer": {
+    "implementation": "Unmodified current Library helper SignedUrlUploader and PreparedUpload methods",
+    "success": true,
+    "file_size_bytes": 146624202
+  },
+  "metadata_helper": {
+    "exit_status": 0
+  },
+  "initial_helper_failure": {
+    "exit_status": 1,
+    "message": "could not read Codex auth from /root/.codex/auth.json",
+    "stage": "Local helper initialization; no prepared upload response existed from that invocation"
+  },
+  "followup_route": "Session-authenticated prepared upload API; exact server-returned reservation retained; bundled helper transferred bytes; finalize succeeded once; identity helper applied metadata. No direct-create fallback.",
+  "scope": "Successful save result and local archive identity; no remote readback or chapter acceptance."
+}

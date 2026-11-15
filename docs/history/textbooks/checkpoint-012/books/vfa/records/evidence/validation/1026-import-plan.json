@@ -1,0 +1,100 @@
+{
+  "recorded_utc": "2026-11-02T10:15:16.915057+00:00",
+  "baseline": "39c3e2fd0c3a7b39e56373d453a1a17382bc3749",
+  "enclosing_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "proposal_sha256": "29a90c4156c9c3aadb20c2f78ff90fed093af4efb8bc51714c8694f23fb14ee3",
+  "checkout_identity_before": {
+    "conaled": {
+      "head": "39c3e2fd0c3a7b39e56373d453a1a17382bc3749",
+      "porcelain": ""
+    },
+    "vfa-validation": {
+      "head": "39c3e2fd0c3a7b39e56373d453a1a17382bc3749",
+      "porcelain": ""
+    }
+  },
+  "changes": [
+    {
+      "path": "Applications/Durability/DiagnosticGraph.lean",
+      "old_sha256": "8f49558a9ac21fd23d55c1ad5478d57d785a901715ada62ec5cf90b2e130529a",
+      "new_sha256": "b5a138e524c9d438489bee476bd8bd4cea839df95dcaed281a62cf559408300b",
+      "old_literal": "import Mathlib.Tactic\n",
+      "replacement": "import Mathlib.Tactic.Linarith\nimport Mathlib.Tactic.Ring\n",
+      "non_import_bytes_unchanged": true
+    },
+    {
+      "path": "Applications/Interaction/Obligation.lean",
+      "old_sha256": "053fdb310e95f7383983de03ac3739021e7f87d87e76a59d27c5625fbd863191",
+      "new_sha256": "4a88511cea3f84dcf2d81f5477d7bb94c580c57bf47c94fa33808b2f83ec9340",
+      "old_literal": "import Mathlib.Tactic\n",
+      "replacement": "import Mathlib.Tactic.Tauto\n",
+      "non_import_bytes_unchanged": true
+    },
+    {
+      "path": "Applications/Linear/Structured.lean",
+      "old_sha256": "4354be9787d2d1593de121f911dc4cd97f0539cb89518128581bb86d7f3bec2f",
+      "new_sha256": "5c9bc9083279044c8b0ee68587624556067fefb3d065cafe802a1df5ee2a893b",
+      "old_literal": "import Mathlib.Tactic\n",
+      "replacement": "",
+      "non_import_bytes_unchanged": true
+    },
+    {
+      "path": "Applications/Linear/StructuredCosts.lean",
+      "old_sha256": "6c00cc1e1a73a27c595d9c504948c0b0567f268bcbe698e7c6e236dcab7fc28a",
+      "new_sha256": "328e462f214b45754ab7197d869742ffd3c398c82512867931d3ffa6aebef911",
+      "old_literal": "import Mathlib.Tactic\n",
+      "replacement": "import Lean.Elab.Tactic.Omega\n",
+      "non_import_bytes_unchanged": true
+    },
+    {
+      "path": "Applications/Orbifold/ProjectiveMotion.lean",
+      "old_sha256": "76fd6a04ad9c3b283888f7c44b99237339f5f516acb9dedefe98cbe0db44c0c5",
+      "new_sha256": "d0e0920d166555216764e3a20d6c8f3c26ea15415b1072da527654894d491ae3",
+      "old_literal": "import Mathlib.Tactic\n",
+      "replacement": "import Mathlib.Tactic.Linarith\nimport Mathlib.Tactic.FieldSimp\n",
+      "non_import_bytes_unchanged": true
+    },
+    {
+      "path": "Applications/Probability/CoinPaths.lean",
+      "old_sha256": "f8880ba5d62c62cd64f406b4e61be30e824b7d7f140935dd4b8f10fe6bf44850",
+      "new_sha256": "735ce9377cb1d275cc7a1bb4ffd4d6aaff6a5523ac62d7f5dcebc69c91249e84",
+      "old_literal": "import Mathlib.Tactic\n",
+      "replacement": "import Mathlib.Tactic.NormNum\nimport Lean.Elab.Tactic.Omega\n",
+      "non_import_bytes_unchanged": true
+    },
+    {
+      "path": "Applications/Probability/FiniteMH.lean",
+      "old_sha256": "8b86470a97e577e2e83ece9f40e6d7cfb4afcee11765c915caf257c8e4c5f416",
+      "new_sha256": "5f6d8470d79da75a05655a10543f999b7558bf97abbfa235bd351050a145bad9",
+      "old_literal": "import Mathlib.Tactic\n",
+      "replacement": "import Mathlib.Algebra.BigOperators.Fin\nimport Mathlib.Tactic.Linarith\nimport Mathlib.Tactic.FinCases\n",
+      "non_import_bytes_unchanged": true
+    },
+    {
+      "path": "Applications/Sequences/BoundedSummary.lean",
+      "old_sha256": "96133f27b8c3603429bbbb039b7b617df3d1b3f59c1b1c89e44595eade56a847",
+      "new_sha256": "5cf743692c43758c45e62bf55e705da02a83eec728470ec1252589e62e5b1bf3",
+      "old_literal": "import Mathlib.Tactic\n",
+      "replacement": "import Lean.Elab.Tactic.Omega\nimport Mathlib.Tactic.Ring\n",
+      "non_import_bytes_unchanged": true
+    },
+    {
+      "path": "Examples/ProbabilityCorrelation.lean",
+      "old_sha256": "45038cca487f212ef69919567257da3af230f4ef8a991362b82ff8f83170e017",
+      "new_sha256": "cedc0840e4c8fbab84f230d0ac083a066337d8a17e0b97740abf4f1a987160a4",
+      "old_literal": "import Mathlib.Tactic\n",
+      "replacement": "import Mathlib.Tactic.NormNum\nimport Mathlib.Tactic.FunProp\n",
+      "non_import_bytes_unchanged": true
+    },
+    {
+      "path": "SquareKit/Temporal/Monitor.lean",
+      "old_sha256": "8f9138dccb411976303f1e1b69ceb7a9b61aafebbb00c5b4cec172b9b7139fdd",
+      "new_sha256": "f1b1b28c6ec52c2e948d42ea1b01169bbe77df4911ed9f7082a36406a8a38a23",
+      "old_literal": "import Mathlib.Tactic\n",
+      "replacement": "import Mathlib.Data.Nat.Basic\nimport Lean.Elab.Tactic.Omega\n",
+      "non_import_bytes_unchanged": true
+    }
+  ],
+  "source_modified": false,
+  "validation_strategy": "Exact full guarded candidate build and exhaustive audit, then managed +ProofAudit and required regression; no separate focused compilers. Preserve all actual failures. Both original independent axes review the whole candidate, then final --verify-candidate immediately before acceptance."
+}

@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-11-14",
+  "status": "read-only source assessment; not compilation or acceptance",
+  "repository": "VladimirMarko/conaled",
+  "upstream_base": "983d0b6b602b71541f182737011621a8805be27b",
+  "upstream_head": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+  "textbook_candidate_inspected": "16440863ddb14d95c402ce65498e22497e246e72",
+  "original_full_spec_review_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "evidence": {
+    "method": "Exact-ref GitHub connector file reads and REST comparison; local read-only Git inspection of textbook candidate",
+    "compare_url": "https://github.com/VladimirMarko/conaled/compare/983d0b6b602b71541f182737011621a8805be27b...04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+    "ahead_by": 3,
+    "behind_by": 0,
+    "changed_paths": 8,
+    "added_lines": 1004,
+    "removed_lines": 7,
+    "new_lean_modules": 3,
+    "new_lean_lines": 432
+  },
+  "commits": [
+    {
+      "sha": "c64da5c9fe0410321d847d8419664680c9d927d4",
+      "subject": "docs: research mathematical suppression and its formal contracts",
+      "date_utc": "2026-11-14T13:49:11Z"
+    },
+    {
+      "sha": "72da80957902b175b8df9f09ea06b683a25f31b2",
+      "subject": "docs: clarify suppression as derived reasoning representations (#550)",
+      "date_utc": "2026-11-14T15:03:25Z"
+    },
+    {
+      "sha": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+      "subject": "feat(probability): realize productive rational Markov streams (#542)",
+      "date_utc": "2026-11-14T20:02:36Z"
+    }
+  ],
+  "files": [
+    {
+      "path": "Applications/Probability/TableProducer.lean",
+      "blob": "501490e9694ad04d4eab0566a95701aa75e43ddd",
+      "status": "added",
+      "added": 198,
+      "removed": 0,
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/Applications/Probability/TableProducer.lean"
+    },
+    {
+      "path": "Applications/Probability/TableProducerStationarity.lean",
+      "blob": "5ad8d16f847ffa025b372f3b68eda0b846877fe7",
+      "status": "added",
+      "added": 110,
+      "removed": 0,
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/Applications/Probability/TableProducerStationarity.lean"
+    },
+    {
+      "path": "Examples/TableProducer.lean",
+      "blob": "acc829ec223aa24e82f0e4bf692cb97cef175b02",
+      "status": "added",
+      "added": 124,
+      "removed": 0,
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/Examples/TableProducer.lean"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "blob": "6a2575eb2a91e0bd88435e07e610fb8e8fb567ba",
+      "status": "modified",
+      "added": 1,
+      "removed": 0,
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/SquareApplications.lean"
+    },
+    {
+      "path": "docs/probabilistic-progress.md",
+      "blob": "2337ceccf4fe2b9d0a979378a2bd79f5b5e92719",
+      "status": "modified",
+      "added": 29,
+      "removed": 2,
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/docs/probabilistic-progress.md"
+    },
+    {
+      "path": "docs/probability.md",
+      "blob": "81db70baada9d7cff8202775ef4193de310f28b2",
+      "status": "modified",
+      "added": 51,
+      "removed": 5,
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/docs/probability.md"
+    },
+    {
+      "path": "docs/progress-contracts.md",
+      "blob": "c1664dd8e82ed7ca38c0a0279f508571548df9e5",
+      "status": "modified",
+      "added": 21,
+      "removed": 0,
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/docs/progress-contracts.md"
+    },
+    {
+      "path": "docs/research/mathematical-suppression.md",
+      "blob": "91f35d3b80f797debf8147c5048a519c40800b9b",
+      "status": "added",
+      "added": 470,
+      "removed": 0,
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/docs/research/mathematical-suppression.md"
+    }
+  ],
+  "governance_change": false,
+  "toolchain_change": false,
+  "dependency_change": false,
+  "checker_change": false,
+  "capabilities": [
+    {
+      "capability": "Persistent rational-table producer",
+      "interface": "Progress.Producer",
+      "witnesses": [
+        "evaluates_of_row",
+        "row_of_evaluates",
+        "delivers_of_trace",
+        "trace_of_delivers"
+      ],
+      "retains": [
+        "semantic state",
+        "partial row state",
+        "ordered outputs",
+        "actual cursor",
+        "step count"
+      ]
+    },
+    {
+      "capability": "Exact finite observation laws",
+      "witnesses": [
+        "prefix_mass",
+        "endpoint_mass",
+        "delivers_work"
+      ],
+      "cost_scope": "inspected bits / producer transition count"
+    },
+    {
+      "capability": "Almost-sure coherent finite prefixes of one producer",
+      "witnesses": [
+        "almostSureProductive",
+        "ae_coherent_prefixes"
+      ],
+      "boundary": "not productivity on every tape"
+    },
+    {
+      "capability": "Joint finite-block stationarity",
+      "witnesses": [
+        "stationary_blocks",
+        "FiniteMH.producer_stationary_blocks"
+      ],
+      "boundary": "generic stationary weights need not be normalized; MH target specialization is normalized"
+    },
+    {
+      "capability": "Observation-policy counterexample",
+      "witnesses": [
+        "changes_not_productive"
+      ],
+      "boundary": "state changes, completed transitions and acceptance flags are distinct"
+    }
+  ],
+  "scope_limits": [
+    "Finite carrier and rational transition probabilities for table laws",
+    "Explicit executable enumeration",
+    "Independent fair-tape probability model",
+    "No mixing or convergence theorem",
+    "No statistical error or runtime guarantee",
+    "No generic PFDS lazy-sharing or amortization theorem",
+    "No automatic textbook chapter credit"
+  ],
+  "prospective_fdsa_bridge": {
+    "status": "proposed; not implemented or claimed here",
+    "clients": [
+      {
+        "path": "Applications/Resources/RandomSelectionRun.lean",
+        "commit": "16440863ddb14d95c402ce65498e22497e246e72",
+        "blob": "4af2a079ad55005657eeac2eaf4d3dd2a3a3ac11"
+      },
+      {
+        "path": "Applications/Resources/RandomQuickSortMean.lean",
+        "commit": "16440863ddb14d95c402ce65498e22497e246e72",
+        "blob": "a9ce110d5aca6f04cc8d68cfd1ef5238832dbc0a"
+      }
+    ],
+    "obligations": [
+      "Relate actual tape sampling to existing uniform-index PMF runs",
+      "Preserve occurrence choices, shrinking domains, duplicates and ranks",
+      "Preserve joint source-cost observations",
+      "Prove returned-cursor freshness",
+      "Account for sampling costs separately"
+    ],
+    "avoid": "Do not force finite terminating algorithms through stationary infinite streams; the finite row interface may suffice"
+  },
+  "process": {
+    "focused_development": "Use actual module builds and existing statement-review/implementation workflow",
+    "full_validation": "User explicitly permits receiving integrator to run final full build and exhaustive audit of exact candidate",
+    "acceptance_claim": "Deferred; no new local compiler or audit evidence supplied by this assessment",
+    "fresh_rebuild": "Upstream delta changes no build/dependency pins; separately recorded cache/integrity triggers still apply",
+    "mathematical_suppression": "Research only; no new library abstraction or validation waiver",
+    "resource_estimate": "Owned by separate build-resource assessment"
+  },
+  "sources_read": [
+    {
+      "path": "AGENTS.md",
+      "commit": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+      "blob": "1b1e65502f0b0771b2475e3b1f37e39d7f18d0c2",
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/AGENTS.md"
+    },
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "commit": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+      "blob": "a82dfff52a1fd6593a36d50e04e180bf272a53d5",
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/docs/agents/architectural-quality.md"
+    },
+    {
+      "path": "docs/agents/domain.md",
+      "commit": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+      "blob": "c26859ec35e14a9051d84066b3b5315aad67ee8b",
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/docs/agents/domain.md"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "commit": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+      "blob": "58735721568c19cbdc0bfd691280fd24b98e65c9",
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/GLOSSARY.md"
+    },
+    {
+      "path": "README.md",
+      "commit": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+      "blob": "e2a059bf5bafd293d5b7743eb0157a4dd2e02649",
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/README.md"
+    },
+    {
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "commit": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+      "blob": "c997496c5aa49412715630f853419d3a6b10c825",
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/docs/adr/0001-modules-and-proof-dependencies.md"
+    },
+    {
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "commit": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+      "blob": "98fab162a321590ea719ae84109cd01fa4ce20c1",
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/docs/adr/0010-composition-and-proof-audit.md"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "commit": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+      "blob": "eeea21cc4d6658ec7b4875066dfc53de893c7796",
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/.agents/skills/example-driven-development/SKILL.md"
+    },
+    {
+      "path": "Applications/Probability/TableProducer.lean",
+      "commit": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+      "blob": "501490e9694ad04d4eab0566a95701aa75e43ddd",
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/Applications/Probability/TableProducer.lean"
+    },
+    {
+      "path": "Applications/Probability/TableProducerStationarity.lean",
+      "commit": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+      "blob": "5ad8d16f847ffa025b372f3b68eda0b846877fe7",
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/Applications/Probability/TableProducerStationarity.lean"
+    },
+    {
+      "path": "Examples/TableProducer.lean",
+      "commit": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+      "blob": "acc829ec223aa24e82f0e4bf692cb97cef175b02",
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/Examples/TableProducer.lean"
+    },
+    {
+      "path": "docs/probability.md",
+      "commit": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+      "blob": "81db70baada9d7cff8202775ef4193de310f28b2",
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/docs/probability.md"
+    },
+    {
+      "path": "docs/probabilistic-progress.md",
+      "commit": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+      "blob": "2337ceccf4fe2b9d0a979378a2bd79f5b5e92719",
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/docs/probabilistic-progress.md"
+    },
+    {
+      "path": "docs/progress-contracts.md",
+      "commit": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+      "blob": "c1664dd8e82ed7ca38c0a0279f508571548df9e5",
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/docs/progress-contracts.md"
+    },
+    {
+      "path": "docs/research/mathematical-suppression.md",
+      "commit": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+      "blob": "91f35d3b80f797debf8147c5048a519c40800b9b",
+      "url": "https://github.com/VladimirMarko/conaled/blob/04514fc144dcebdd2b6d4aea5faf2f9cbf229362/docs/research/mathematical-suppression.md"
+    }
+  ]
+}

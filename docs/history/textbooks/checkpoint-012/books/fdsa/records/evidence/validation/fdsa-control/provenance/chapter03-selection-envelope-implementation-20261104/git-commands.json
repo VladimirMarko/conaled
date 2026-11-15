@@ -1,0 +1,37 @@
+[
+  {
+    "args": [
+      "add",
+      "--",
+      "Applications/Resources/SelectionEnvelope.lean",
+      "Examples/SelectionEnvelope.lean"
+    ],
+    "actual_exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "actual_exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "-c",
+      "user.name=ChatGPT",
+      "-c",
+      "user.email=chatgpt@openai.com",
+      "commit",
+      "-m",
+      "feat(resources): bound finite selection prefixes (#174)"
+    ],
+    "actual_exit": 0,
+    "stdout": "[work/fdsa-ch03-rounded-recurrence d872afb] feat(resources): bound finite selection prefixes (#174)\n 2 files changed, 130 insertions(+)\n create mode 100644 Applications/Resources/SelectionEnvelope.lean\n create mode 100644 Examples/SelectionEnvelope.lean\n",
+    "stderr": ""
+  }
+]

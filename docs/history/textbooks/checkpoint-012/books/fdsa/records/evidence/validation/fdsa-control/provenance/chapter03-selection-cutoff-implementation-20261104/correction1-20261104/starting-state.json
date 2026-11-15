@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T21:48:50.189457+00:00",
+  "finding": "C03-CUTOFF-ELAB-001",
+  "candidate": "89858274b82e25b748762942dd46ff0643df09d3",
+  "tree": "d9dab423ee5d63145e37a4fb0ca4582c83a24ea9",
+  "status": "clean",
+  "actual_failure": {
+    "run": "chapter03-selection-cutoff-focused-attempt1-20261104",
+    "owned_session": 80379,
+    "actual_exit": 1,
+    "terminal_chunk": "ff9023",
+    "root_full_closed_log_read": "758a40",
+    "log": {
+      "bytes": 12903,
+      "sha256": "0ac4020b35bfe375a636cf44e8f4f232edf9cb1764675a5d92e11dd90bd73cea"
+    }
+  },
+  "planned_proof_corrections": [
+    "Use pinned Nat.div_self positivity premise directly.",
+    "Use simp at h for the n0 contradiction without unnecessarySimpa.",
+    "Transport singleton and group1 value equations through the existing nondependent map-some correspondence; injectivity of List.map some recovers identical list equality. This avoids invalid dependent attach rewriting.",
+    "Close the actually simplified zero-cutoff tuple conjunction by kernel decide."
+  ],
+  "public40headers_and_one_definition_unchanged": true,
+  "cases_and_constants_unchanged": true,
+  "imports_options_and_pins_unchanged": true,
+  "pinned_sources_read": [
+    "8769a0",
+    "8f9566",
+    "5541f5",
+    "7704ee"
+  ],
+  "author": "root; correction inside existing C3 loop, not independent review",
+  "source_before": {
+    "Applications/Resources/SelectionCutoff.lean": {
+      "bytes": 10016,
+      "sha256": "07fb92ab026596fa18ba985b6c32f81b1650bb0f0ef7298336bab475939c2006"
+    },
+    "Examples/SelectionCutoff.lean": {
+      "bytes": 4313,
+      "sha256": "001014a0832f85e2ac7ce92063a05271e753e6f064f9e61e7033d6ce14b46f2b"
+    }
+  }
+}

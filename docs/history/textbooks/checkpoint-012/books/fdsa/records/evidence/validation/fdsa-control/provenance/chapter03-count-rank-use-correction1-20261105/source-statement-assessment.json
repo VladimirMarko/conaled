@@ -1,0 +1,38 @@
+{
+  "recorded_utc": "2026-11-05T00:11:43.835436+00:00",
+  "finding": "C03-SPEC-USE-001",
+  "parent": "690ab476f4685e5a795d53d18465b067655a34dd",
+  "full_diff_readback": "4fddae",
+  "source_preflight": "3ffc03",
+  "original_expected_case_record": "starting-state-and-expected-case.json",
+  "new_public_claim": "Examples.SelectionCountRank.duplicate_sorted_filter_sublists",
+  "actual_source_statement": "([1] : List Nat).Sublist [1,2] \u2227 ([3] : List Nat).Sublist [3]",
+  "parameters_and_hypotheses": "No free parameters or assumptions. Explicit Nat duplicate-list specialization; sortedness proved by kernel decide and index equality by rfl.",
+  "connection_review": "Both conjuncts are directly obtained from the corresponding public sorted-filter helper with explicit ys,k,a arguments; expected literal lists are independently calculated, and Lean must reduce the filters/take/drop to these lists. No separate proof of the conclusion bypasses the helpers.",
+  "vacuity": "The concrete nonempty sorted list and actual valid optional index establish satisfiable hypotheses; equal-value multiplicity makes the smaller-filter inclusion strict.",
+  "unchanged_prior_source_theorem_bodies": 16,
+  "unchanged_prior_document_except_one_correspondence_row": true,
+  "core_library_claims_unchanged": true,
+  "full_scope_rows": 83,
+  "implementation_assessment_only": true,
+  "compiler_success_claimed": false,
+  "actual_elaborated_type_pending": true,
+  "independent_finding_resolved": false,
+  "new_type_program": {
+    "bytes": 391,
+    "sha256": "743137fd15209d222f6431085e0d6d3f1814b9b59da00f0f4c536db4d58db949"
+  },
+  "type_print_options": [
+    "set_option autoImplicit false",
+    "set_option warningAsError true",
+    "set_option pp.universes true",
+    "set_option pp.explicit true",
+    "set_option pp.fullNames true",
+    "set_option pp.deepTerms true",
+    "set_option pp.proofs true",
+    "set_option pp.maxSteps 1000000",
+    "set_option pp.coercions true",
+    "set_option pp.all true"
+  ],
+  "validation_mode": "Focused development now; final normal whole candidate and exhaustive audit remain mandatory. No README fresh trigger from this source/example/document-only correction."
+}

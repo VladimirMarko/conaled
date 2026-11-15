@@ -1,0 +1,25 @@
+{
+  "phase": "red",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "-B",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1035-mmap-random-prototype/test_mmap_random.py",
+    "--fixture",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1035-mmap-random-prototype/red-fixture"
+  ],
+  "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1035-mmap-random-prototype",
+  "selected_environment": {
+    "LD_PRELOAD": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1035-mmap-random-prototype/libred_snapshot.so",
+    "CONALED_MMAP_RANDOM": "1",
+    "CONALED_MMAP_RANDOM_EXE": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "CONALED_MMAP_RANDOM_REPORT": "1"
+  },
+  "timeout_seconds": 15,
+  "returncode": 1,
+  "wall_seconds": 0.049220437998883426,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1035-mmap-random-prototype/test_mmap_random.py\", line 121, in <module>\n    main()\n  File \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1035-mmap-random-prototype/test_mmap_random.py\", line 85, in main\n    assert after[\"advice_attempts\"] == before[\"advice_attempts\"] + 1, \\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: expected one MADV_RANDOM advice attempt; none or unexpected count observed\n",
+  "test_source_sha256": "4190c2515128c58692ef3897bd74f118cd4cfa30deefdd0706a106414f6004c1",
+  "expected_failure": "expected one MADV_RANDOM advice attempt; none or unexpected count observed",
+  "failed_for_expected_reason": true
+}

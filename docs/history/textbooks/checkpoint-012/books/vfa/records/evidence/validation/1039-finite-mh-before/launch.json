@@ -1,0 +1,33 @@
+{
+  "prepared_utc": "2026-11-04T06:21:40.679647+00:00",
+  "candidate": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+  "argv": [
+    "python3",
+    "-B",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/native-kit/conaled_native.py",
+    "--state",
+    "/workspace/scratch/60f07f0e98c8/native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation",
+    "--threads",
+    "1",
+    "--",
+    "/usr/bin/env",
+    "LEAN_PATH=/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/diagnostic1039:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation/.lake/packages/proofwidgets/.lake/build/lib/lean",
+    "lean",
+    "Applications/Probability/FiniteMH.lean"
+  ],
+  "tty": true,
+  "source_sha256": "5f6d8470d79da75a05655a10543f999b7558bf97abbfa235bd351050a145bad9",
+  "scope": "Entire actual FiniteMH source, direct Lean; no full integrated gate credit",
+  "status": "completed_with_expected_import_failure",
+  "preexisting_project_run_log_directories": [
+    "20261104T040241Z-project-run-2354e0e9",
+    "20261104T055729Z-project-run-78f1cb44",
+    "20261104T060025Z-project-run-a7ddd994"
+  ],
+  "session": 32859,
+  "actual_terminal_exit_code": 1,
+  "kit_log_directory": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T062141Z-project-run-b728350b"
+}

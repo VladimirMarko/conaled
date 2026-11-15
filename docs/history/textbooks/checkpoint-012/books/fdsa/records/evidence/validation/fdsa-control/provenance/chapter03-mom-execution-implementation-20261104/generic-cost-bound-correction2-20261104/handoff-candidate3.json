@@ -1,0 +1,78 @@
+{
+  "recorded_utc": "2026-11-04T22:08:22.364743+00:00",
+  "finding": "C03-GENERIC-BOUNDS-ELAB-002",
+  "candidate": "1249f39968a44a25bfe3932d84a2cb44c6a83515",
+  "tree": "03316a8a96563f706b5335ed775e1e64f55f43e7",
+  "parent": "9e1c7fc6bce757d7bcfb5d114e2806b566c49330",
+  "branch": "work/fdsa-ch03-mom-execution",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+  "status": "clean",
+  "actual_commit_terminal": "2171a6 exit 0",
+  "precommit_preservation_and_staged_check": "ba1141 exit 0",
+  "actual_attempt2_log_full_read": "c421ae exit 0",
+  "full_diff_and_both_private_proof_reads": "008031 exit 0",
+  "targets": [
+    "Applications.Resources.SelectionGenericBounds",
+    "Examples.SelectionGenericBounds"
+  ],
+  "counts": {
+    "public_declarations": 28,
+    "public_definitions": 2,
+    "public_theorems": 26,
+    "private_declarations": 3,
+    "private_definitions": 0,
+    "private_theorems": 3,
+    "total_declarations": 31,
+    "anonymous_examples": 0
+  },
+  "files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionGenericBounds.lean",
+      "bytes": 14543,
+      "sha256": "1b2b629177c96244d377261f12b45034c3c2107f0ef5c78bb512c947e7f12524",
+      "relative_path": "Applications/Resources/SelectionGenericBounds.lean",
+      "source_lines": 260,
+      "public_count": 15,
+      "private_count": 0
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionGenericBounds.lean",
+      "bytes": 11429,
+      "sha256": "181cef244870d4f8aa61dfc99a0cb142ad8b7cbb0c7f3a15835e697d759f8bee",
+      "relative_path": "Examples/SelectionGenericBounds.lean",
+      "source_lines": 209,
+      "public_count": 13,
+      "private_count": 3
+    }
+  ],
+  "inventory": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-bound-correction2-20261104/source-inventory-and-preservation-candidate3.json",
+    "bytes": 182618,
+    "sha256": "4248845db2827c1dfb7dcdc58f691211d6bb3323484da5803e7b0e5cdebbf410"
+  },
+  "new_public_explicit_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-bound-correction2-20261104/SelectionGenericBoundsStatements28-candidate3.lean",
+    "bytes": 2331,
+    "sha256": "6c4f2a673c0af07933ddb843f073244d95649fcb64e8a3e1ebeda73d14d5c568",
+    "public_count": 28,
+    "execution_status": "UNEXECUTED prepared input only",
+    "preservation": "Only candidate/tree comments rebound; public names, imports and all pretty-print options unchanged."
+  },
+  "combined_selected_public_explicit_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-bound-correction2-20261104/NestedSelectionCombinedStatements169-candidate3.lean",
+    "bytes": 10188,
+    "sha256": "a610316e57084a0414de78b092406f5534d51cda56cf1452e1365d58708b0571",
+    "public_count": 169,
+    "execution_status": "UNEXECUTED prepared input only",
+    "preservation": "Only candidate/tree comments rebound; public names, imports and all pretty-print options unchanged."
+  },
+  "exact_patch": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-bound-correction2-20261104/correction-source.patch",
+    "bytes": 1145,
+    "sha256": "f7e06d33234349c7442451312e61bd4af9bba521bc3dec423f478509ffa943c9"
+  },
+  "changed_scope": "Only Examples.SelectionGenericBounds lines40 and53: norm_num [tollCoefficient] <;> omega becomes norm_num [tollCoefficient]; omega. Both arithmetic tactics remain. The pinned unused-tactic linter explicitly recommends this sequential form for at most one goal.",
+  "preservation": "All31 raw headers, mathematical claims, definitions,13 cases and budgets4111/7063 are exact. The whole core and33 earlier sources are exact. All143 prior own records are retained. No linter suppression, compiler change, cost or gate change.",
+  "validation": "Successor pair UNCOMPILED. Root alone runs the next focused attempt. The unchanged core built in the predecessor attempt; no whole-candidate or acceptance credit claimed.",
+  "write_hold": "All assigned source, own provenance and ref writes stop after companion record and final read-only verification until root actual terminal and release."
+}

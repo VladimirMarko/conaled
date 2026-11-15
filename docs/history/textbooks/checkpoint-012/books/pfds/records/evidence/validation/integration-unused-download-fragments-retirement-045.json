@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "kind": "retirement-of-unused-toolchain-download-fragments",
+  "started_at": "2026-11-04T01:28:12.472810+00:00",
+  "status": "finished",
+  "acceptance": false,
+  "locks": [
+    "native-state/locks/setup.lock",
+    "native-state/locks/cache-writer.lock"
+  ],
+  "active_compiler_locks_not_acquired_or_overridden": true,
+  "compiler_workload": "integration-3cf-ordinary-r2-045",
+  "reason": "Ten stable regular files in the task-owned installer download directory, all temporary Lean archive names. Exact installed Lean runtime is independently verified and unchanged; no active validation command reads these downloads. No native setup or cache writer holds its lock. Fragment creation/reappearance cause is unknown.",
+  "inputs_equal_active_before": true,
+  "inputs_digest": "3bbd16a69296b18137b0d6b7bf53964b9bd4bee071a264bd1b9679533cb5b7c7",
+  "space_before": {
+    "free_bytes": 760909824,
+    "available_bytes": 0
+  },
+  "files": [
+    {
+      "path": "native-state/downloads/.lean-4.35.0-linux.tar.zst.2sUe42",
+      "bytes": 470024192,
+      "allocated_bytes": 470028288,
+      "sha256": "f0650951dbe16e25b6535f959335a7f2eab5f3f7f913268a3aac0065b01268f7",
+      "device": 27,
+      "inode": 4067048,
+      "mtime_ns": 1793753288311537723,
+      "ctime_ns": 1793753305130729374
+    },
+    {
+      "path": "native-state/downloads/.lean-4.35.0-linux.tar.zst.2sUe42.KQE7j2",
+      "bytes": 371720192,
+      "allocated_bytes": 371724288,
+      "sha256": "ef4f67efb0ecab2d4983755ca84c240d6fa9021604e82a283933d587e5ee1faa",
+      "device": 27,
+      "inode": 4065826,
+      "mtime_ns": 1793754209587458033,
+      "ctime_ns": 1793754226185217076
+    },
+    {
+      "path": "native-state/downloads/.lean-4.35.0-linux.tar.zst.2sUe42.RBbAur",
+      "bytes": 147062784,
+      "allocated_bytes": 147062784,
+      "sha256": "bd55970a67e3b7b7c822cc9503a4f44f7df40d51ab165698339eb406dca54426",
+      "device": 27,
+      "inode": 4070420,
+      "mtime_ns": 1793754780615711097,
+      "ctime_ns": 1793754786098491752
+    },
+    {
+      "path": "native-state/downloads/.lean-4.35.0-linux.tar.zst.2sUe42.k2CPZX",
+      "bytes": 254803968,
+      "allocated_bytes": 254832640,
+      "sha256": "81cc6ded1a079e7a7b54e4237cb3ade81b619eeca18ae96ca26fa55702d245a2",
+      "device": 27,
+      "inode": 4063682,
+      "mtime_ns": 1793754974211712701,
+      "ctime_ns": 1793754981721089514
+    },
+    {
+      "path": "native-state/downloads/.lean-4.35.0-linux.tar.zst.2sUe42.mJCmfp",
+      "bytes": 201326592,
+      "allocated_bytes": 201326592,
+      "sha256": "0e4766991044bcef46995e1e02798a936e69df48e6dc2158f51421552edab21e",
+      "device": 27,
+      "inode": 4071268,
+      "mtime_ns": 1793753466471507291,
+      "ctime_ns": 1793753479360299387
+    },
+    {
+      "path": "native-state/downloads/.lean-4.35.0-linux.tar.zst.8rULsj",
+      "bytes": 576192512,
+      "allocated_bytes": 576196608,
+      "sha256": "dfe8da0c1e8f7a0c600dbcf282b2840044a809e6dfe6beb1b071ad4359fbefe8",
+      "device": 27,
+      "inode": 4071081,
+      "mtime_ns": 1793753486395532889,
+      "ctime_ns": 1793753503588299344
+    },
+    {
+      "path": "native-state/downloads/.lean-4.35.0-linux.tar.zst.8rULsj.CISXVk",
+      "bytes": 487325696,
+      "allocated_bytes": 487329792,
+      "sha256": "debd9752959a6ea5fff1ac2bc7ac637df44cba64e303b855bcc756e4732de68b",
+      "device": 27,
+      "inode": 4065859,
+      "mtime_ns": 1793753847547703593,
+      "ctime_ns": 1793753861348948303
+    },
+    {
+      "path": "native-state/downloads/.lean-4.35.0-linux.tar.zst.8rULsj.Q44WHd",
+      "bytes": 433324032,
+      "allocated_bytes": 433328128,
+      "sha256": "42fdb13172b3ed3a67a4a6c7d8d9a08064ed193f6ca113c338035f2bdf4d061e",
+      "device": 27,
+      "inode": 4067208,
+      "mtime_ns": 1793754391695490119,
+      "ctime_ns": 1793754408248266586
+    },
+    {
+      "path": "native-state/downloads/.lean-4.35.0-linux.tar.zst.8rULsj.jGtAQi",
+      "bytes": 531628032,
+      "allocated_bytes": 531767296,
+      "sha256": "d81bbe48c49d503ecb0ce7e6c247fb0d4c24bd01761de158a1458f85c6c2b464",
+      "device": 27,
+      "inode": 4070329,
+      "mtime_ns": 1793755581603526591,
+      "ctime_ns": 1793755611409946576
+    },
+    {
+      "path": "native-state/downloads/.lean-4.35.0-linux.tar.zst.hUrkpj",
+      "bytes": 222822400,
+      "allocated_bytes": 222822400,
+      "sha256": "04bbd03c5e9e7af5fb9ffd67cf4be5d8c34f9dfbfc79db20e54597cab25fa76d",
+      "device": 27,
+      "inode": 4070353,
+      "mtime_ns": 1793753110711541627,
+      "ctime_ns": 1793753116726563688
+    }
+  ],
+  "total_allocated_bytes": 3696418816,
+  "finished_at": "2026-11-04T01:28:15.351757+00:00",
+  "inputs_unchanged": true,
+  "all_target_files_absent": true,
+  "space_after": {
+    "free_bytes": 4457148416,
+    "available_bytes": 1004400640
+  }
+}

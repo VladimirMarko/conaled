@@ -1,0 +1,195 @@
+{
+  "recorded_utc": "2026-11-04T22:21:52.388859+00:00",
+  "candidate": "569545102ff70697066de429eb02f9f47dffa07f",
+  "tree": "aa081c5dd24e1497c48a882203c27a349fb18189",
+  "parent": "8b7531d661366d7843ccab9ebd7eca7d41cdbbef",
+  "branch": "work/fdsa-ch03-query-lower-bounds",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ordinary-merge",
+  "status": "",
+  "clean": true,
+  "index": {
+    "bytes": 184758,
+    "sha256": "55e123cde45026af20becc192d0d635e881f1f1d406af1635607ce20eae1e9c1"
+  },
+  "changed_path": "Examples/CoordinateSelection.lean",
+  "source": {
+    "bytes": 10593,
+    "sha256": "880f4de41c96ef5076cb16375b8f718992ee0170b305e370bc9dac1e01308189",
+    "blob": "2d4d41e068e901ff7106092d5e04d9598a1bc4d2"
+  },
+  "core": {
+    "bytes": 18612,
+    "sha256": "14b87898b02acb8f948ee68629331359652e920331e49d60bdeac62788a21abb",
+    "blob": "46e2dc5f47795ad9bd67429dafad87ac6ea7099e"
+  },
+  "all19_sources": {
+    "Applications/Resources/Chunks.lean": {
+      "bytes": 4591,
+      "sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc",
+      "blob": "25c7db2d5358bf2087657a8987963ba31dff09eb"
+    },
+    "Applications/Resources/RoundedRecurrence.lean": {
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758",
+      "blob": "0f78fd302b88aba9596036a63b79195007e502a8"
+    },
+    "Applications/Resources/RoundedRecurrenceBounds.lean": {
+      "bytes": 6951,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135",
+      "blob": "45b5c20045c45919eb1f368ae0d9c9629b32a27b"
+    },
+    "Applications/Resources/Selection.lean": {
+      "bytes": 22435,
+      "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+      "blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3"
+    },
+    "Applications/Resources/SelectionAuxiliary.lean": {
+      "bytes": 6215,
+      "sha256": "eeba4ac85dd4e07b8b42f38499748cae69cb6dcaaa01fdc8400a3cf5b947a925",
+      "blob": "2bc892fee38610f0866e0cc3cd3529b7693f7c03"
+    },
+    "Applications/Resources/SelectionBounds.lean": {
+      "bytes": 10073,
+      "sha256": "0f9181b569d24b2615c08be5c6a305a75e67679f14338e877fced10113d61edc",
+      "blob": "b68014cfc729990255e6883ac5d874af30bbb058"
+    },
+    "Applications/Resources/SelectionMedians.lean": {
+      "bytes": 9755,
+      "sha256": "e64e998edc9353e5fd52544177fadd32f6398e3260b27ca54195cd8917e5d098",
+      "blob": "cd6bd74d71c43fc76d32555521d612dfb7cc5ee8"
+    },
+    "Applications/Resources/SelectionRecurrence.lean": {
+      "bytes": 6560,
+      "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e",
+      "blob": "ff3350e7cc566e62466e056166c8af6f781e32df"
+    },
+    "Applications/Selection/CoordinateQueries.lean": {
+      "bytes": 11106,
+      "sha256": "ca1c0d339500e77aa14ca47420b9f7a11f213bbcd8ac113c3281c7f9690e6409",
+      "blob": "49aa4bdf4beb2533fe273c3267ae031d862dbcf7"
+    },
+    "Applications/Selection/CoordinateReadAll.lean": {
+      "bytes": 7611,
+      "sha256": "ab2fd8949fe4a73e909cac90f99329fcd3b508e1b221e4411449a535f48f41ff",
+      "blob": "e05374c65ff8dafaf6035ca6792271f70522c9ce"
+    },
+    "Applications/Selection/CoordinateSelection.lean": {
+      "bytes": 18612,
+      "sha256": "14b87898b02acb8f948ee68629331359652e920331e49d60bdeac62788a21abb",
+      "blob": "46e2dc5f47795ad9bd67429dafad87ac6ea7099e"
+    },
+    "Applications/Selection/CoordinateSensitivity.lean": {
+      "bytes": 6717,
+      "sha256": "224724056815f73aff552ead23b7dd83af4078ad61009169e1b474f4b94476e6",
+      "blob": "aa11abfc1bc0aba12c564b3f974f1b2dfed097b0"
+    },
+    "Applications/Selection/CountRank.lean": {
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d",
+      "blob": "5f6393df9fd804e4234eb16c8ecdcd93426952b3"
+    },
+    "Applications/Selection/MedianOfMedians.lean": {
+      "bytes": 13797,
+      "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba",
+      "blob": "c348fd2b48ec0b40fa76aa30634406580f9063c0"
+    },
+    "Applications/Sequences/Chunks.lean": {
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493",
+      "blob": "c45bcb6427c002d3bab7c728dd6743458c8010fc"
+    },
+    "Examples/CoordinateQueries.lean": {
+      "bytes": 8079,
+      "sha256": "d90bd28ec4496105d9c5da80171a4c96a5ace119c0e178ded48f4f84ca8ad16d",
+      "blob": "cdc5b93e5a5ebe720a30812a90b3a8cd388edaba"
+    },
+    "Examples/CoordinateReadAll.lean": {
+      "bytes": 5626,
+      "sha256": "8290a02bee2fb078439842c26a6cb46ec231aeb092b30659c8a3b674cc54b603",
+      "blob": "b561b9fa3a67d6962e997659955d0c29eb846526"
+    },
+    "Examples/CoordinateSelection.lean": {
+      "bytes": 10593,
+      "sha256": "880f4de41c96ef5076cb16375b8f718992ee0170b305e370bc9dac1e01308189",
+      "blob": "2d4d41e068e901ff7106092d5e04d9598a1bc4d2"
+    },
+    "Examples/CoordinateSensitivity.lean": {
+      "bytes": 3726,
+      "sha256": "ed3d3d7cd41c97169893fdb5cf95e336a560f6f042ee70cea0a24ad7a6691828",
+      "blob": "83ae3945dc67c142333d41317ae39a38ee3e2b7a"
+    }
+  },
+  "patch": {
+    "bytes": 2752,
+    "sha256": "9a0e72732235a492aa92d114a1addfb1c9126a0047c62ea2924489c148e2c9d3"
+  },
+  "whole_query_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "whole_query_branch_diff": {
+    "bytes": 189992,
+    "sha256": "e3d0e04b6097a17bbd02fb0e26228883e473d9c8f707129e4ba0319ef68c5737"
+  },
+  "public_header_changes": 1,
+  "public_header_change_name": "Examples.CoordinateSelection.total_correct_value_view",
+  "other45_public_headers_exact": true,
+  "private_header_exact": true,
+  "declaration_bodies_exact": 43,
+  "proof_bodies_changed": 4,
+  "three_computational_definitions_exact": true,
+  "sixteen_connected_cases_retained": true,
+  "other18_component_sources_exact": true,
+  "all140_prior_query_provenance_records_exact": true,
+  "new_public": 46,
+  "new_private": 1,
+  "combined_public": 337,
+  "combined_authored_private": 19,
+  "prepared_inputs": {
+    "Statements46-candidate03.lean": {
+      "bytes": 3740,
+      "sha256": "f101b9a2363d54e9e6d5312662b29efd426efc1dd62142ab4e8bc1c99637e8ea",
+      "public_names": 46,
+      "original_body": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-query-bridge-implementation-20261104/actual-selector-composition-20261104/Statements46-candidate01.lean",
+        "bytes": 3358,
+        "sha256": "8a0a86cb8f3c3f6d09c7552c97e4709ee602763191227de5a10a755280ce964d"
+      },
+      "body_exact": true,
+      "candidate": "569545102ff70697066de429eb02f9f47dffa07f",
+      "tree": "aa081c5dd24e1497c48a882203c27a349fb18189",
+      "profile": [
+        "set_option pp.universes true",
+        "set_option pp.explicit true",
+        "set_option pp.fullNames true",
+        "set_option pp.deepTerms true",
+        "set_option pp.proofs true",
+        "set_option pp.maxSteps 1000000"
+      ],
+      "execution": "not executed"
+    },
+    "Statements337-candidate03.lean": {
+      "bytes": 20326,
+      "sha256": "0ee5afef1018ed45aa0c571309ff3f37a3710d71fd27add27db22b8eca3d7fe5",
+      "public_names": 337,
+      "original_body": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-query-bridge-implementation-20261104/actual-selector-composition-20261104/StatementsCombined337-candidate01.lean",
+        "bytes": 19944,
+        "sha256": "6c473981ac213a7baddf5413b97465c35e6a8007c886d0df8f070a60451587a7"
+      },
+      "body_exact": true,
+      "candidate": "569545102ff70697066de429eb02f9f47dffa07f",
+      "tree": "aa081c5dd24e1497c48a882203c27a349fb18189",
+      "profile": [
+        "set_option pp.universes true",
+        "set_option pp.explicit true",
+        "set_option pp.fullNames true",
+        "set_option pp.deepTerms true",
+        "set_option pp.proofs true",
+        "set_option pp.maxSteps 1000000"
+      ],
+      "execution": "not executed"
+    }
+  },
+  "actual_author_compiler_invocations": 0,
+  "status_note": "Actual attempt2 built core but failed examples. This immutable example successor is uncompiled; no example pass inferred.",
+  "remaining_gates": "Root serial focus, actual explicit-@ printout, full candidate check/audit, independent Standards/Spec and immediate verification; all83 obligations remain required.",
+  "hold": "All source/provenance writes held after final preservation and SHA256SUMS creation."
+}

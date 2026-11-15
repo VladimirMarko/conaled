@@ -1,0 +1,20 @@
+{
+  "observed_at": "2026-11-03T00:21:54.052275+00:00",
+  "scope": "Read-only checks of exactly two superseded task-owned private build directories before proposed cleanup",
+  "directories": [
+    {
+      "checkout": "validation-imports",
+      "candidate": "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+      "clean": true,
+      "build_path": "/workspace/scratch/ca9a61d0bf30/validation-imports/.lake/build",
+      "matching_processes": []
+    },
+    {
+      "checkout": "import-correction",
+      "candidate": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+      "clean": true,
+      "build_path": "/workspace/scratch/ca9a61d0bf30/import-correction/.lake/build",
+      "matching_processes": []
+    }
+  ]
+}

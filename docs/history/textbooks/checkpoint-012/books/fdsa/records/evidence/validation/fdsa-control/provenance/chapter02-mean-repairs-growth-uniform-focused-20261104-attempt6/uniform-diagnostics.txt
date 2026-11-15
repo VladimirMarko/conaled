@@ -1,0 +1,192 @@
+error: Applications/Resources/UniformQuickSortMean.lean:201:8: automatically included section variable(s) unused in theorem `Resources.UniformQuickSortMean.meanBy_empty`:
+  [MeasurableSingletonClass (Equiv.Perm I)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSingletonClass (Equiv.Perm I)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+error: Applications/Resources/UniformQuickSortMean.lean:206:0: automatically included section variable(s) unused in theorem `Resources.UniformQuickSortMean.meanBy_singleton`:
+  [MeasurableSingletonClass (Equiv.Perm I)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSingletonClass (Equiv.Perm I)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+error: Applications/Resources/UniformQuickSortMean.lean:232:2: mod_cast has type
+  QuickSort.exerciseCost lt (restrictedOrder positions S π) = 2 * S.card ^ 2 + 2 * S.card + 1
+but is expected to have type
+  observedCost positions lt S π = ↑(2 * S.card ^ 2 + 2 * S.card + 1)
+error: Applications/Resources/UniformQuickSortMean.lean:289:14: don't know how to synthesize implicit argument `μ`
+  @ae_cond_of_forall_mem (Equiv.Perm I) inst✝¹ ?m.117 (firstEvent (restrictedOrder positions S) a) hE
+    (fun π =>
+      observedCost positions lt S π =
+        observedCost positions lt (leftChild lt S a) π + observedCost positions lt (rightChild lt S a) π +
+          ↑(4 * (S.card - 1) + 3))
+    fun π hπ => observedCost_on_first positions hnd hcomplete lt S a π hπ
+context:
+I : Type u
+inst✝² : DecidableEq I
+inst✝¹ : MeasurableSpace (Equiv.Perm I)
+inst✝ : MeasurableSingletonClass (Equiv.Perm I)
+positions : List I
+hnd : positions.Nodup
+hcomplete : ∀ (b : I), b ∈ positions
+lt : I → I → Bool
+S : Finset I
+a : I
+ha : a ∈ S
+this✝ : Fintype I := ⋯
+this : IsProbabilityMeasure (uniformOn Set.univ)[|firstEvent (restrictedOrder positions S) a] := ⋯
+hE : MeasurableSet (firstEvent (restrictedOrder positions S) a)
+⊢ Measure (Equiv.Perm I)
+error: Applications/Resources/UniformQuickSortMean.lean:289:7: failed to infer `have` declaration type
+error: Applications/Resources/UniformQuickSortMean.lean:280:88: unsolved goals
+I : Type u
+inst✝² : DecidableEq I
+inst✝¹ : MeasurableSpace (Equiv.Perm I)
+inst✝ : MeasurableSingletonClass (Equiv.Perm I)
+positions : List I
+hnd : positions.Nodup
+hcomplete : ∀ (b : I), b ∈ positions
+lt : I → I → Bool
+S : Finset I
+a : I
+ha : a ∈ S
+this✝ : Fintype I := Fintype.ofList positions hcomplete
+this : IsProbabilityMeasure (uniformOn Set.univ)[|firstEvent (restrictedOrder positions S) a] :=
+  cond_isProbabilityMeasure (ne_of_gt (firstEvent_positive_finite positions hnd hcomplete S a ha).left)
+hE : MeasurableSet (firstEvent (restrictedOrder positions S) a)
+⊢ ∫ (π : Equiv.Perm I),
+      observedCost positions lt S π ∂(uniformOn Set.univ)[|firstEvent (restrictedOrder positions S) a] =
+    meanBy positions lt (leftChild lt S a) + meanBy positions lt (rightChild lt S a) + ↑(4 * (S.card - 1) + 3)
+error: Applications/Resources/UniformQuickSortMean.lean:307:16: Unknown identifier `on`
+
+Note: It is not possible to treat `on` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: Applications/Resources/UniformQuickSortMean.lean:313:0: automatically included section variable(s) unused in theorem `Resources.UniformQuickSortMean.firstEvents_cover`:
+  [MeasurableSpace (Equiv.Perm I)]
+  [MeasurableSingletonClass (Equiv.Perm I)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+error: Applications/Resources/UniformQuickSortMean.lean:347:8: declaration uses `sorry`
+error: Applications/Resources/UniformQuickSortMean.lean:369:0: automatically included section variable(s) unused in theorem `Resources.UniformQuickSortMean.injOn_leftChild`:
+  [LinearOrder κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [LinearOrder κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+error: Applications/Resources/UniformQuickSortMean.lean:376:0: automatically included section variable(s) unused in theorem `Resources.UniformQuickSortMean.injOn_rightChild`:
+  [LinearOrder κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [LinearOrder κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+error: Applications/Resources/UniformQuickSortMean.lean:384:0: automatically included section variable(s) unused in theorem `Resources.UniformQuickSortMean.restrictedOrder_keys_nodup`:
+  [LinearOrder κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [LinearOrder κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+error: Applications/Resources/UniformQuickSortMean.lean:431:0: automatically included section variable(s) unused in theorem `Resources.UniformQuickSortMean.rankEquiv_key`:
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+error: Applications/Resources/UniformQuickSortMean.lean:465:10: Invalid rewrite argument: The pattern to be substituted is a metavariable (`?key
+  ↑((rankEquiv ?key ?S ?hinj) ?k)`) in this equality
+  ?key ↑((rankEquiv ?key ?S ?hinj) ?k) = ((Finset.image ?key ?S).orderEmbOfFin ⋯) ?k
+error: Applications/Resources/UniformQuickSortMean.lean:511:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i, ?f ↑i
+in the target expression
+  ∑ i ∈ Finset.range S.card, f i + ∑ x, f (S.card - 1 - ↑x) = 2 * ∑ k ∈ Finset.range S.card, f k
+
+I : Type u
+κ : Type w
+inst✝¹ : DecidableEq I
+inst✝ : LinearOrder κ
+key : I → κ
+S : Finset I
+hinj : Set.InjOn key ↑S
+f : ℕ → ℝ
+⊢ ∑ i ∈ Finset.range S.card, f i + ∑ x, f (S.card - 1 - ↑x) = 2 * ∑ k ∈ Finset.range S.card, f k
+error: Applications/Resources/UniformQuickSortMean.lean:531:52: Unknown identifier `hcard`
+error: Applications/Resources/UniformQuickSortMean.lean:533:48: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  QuickSortMean.closedForm 0
+in the target expression
+  1 = QuickSortMean.closedForm ∅.card
+
+case pos
+I : Type u
+κ : Type w
+inst✝³ : DecidableEq I
+inst✝² : LinearOrder κ
+inst✝¹ : MeasurableSpace (Equiv.Perm I)
+inst✝ : MeasurableSingletonClass (Equiv.Perm I)
+positions : List I
+hnd : positions.Nodup
+hcomplete : ∀ (b : I), b ∈ positions
+key : I → κ
+S : Finset I
+hinj : Set.InjOn key ↑S
+hinjT : Set.InjOn key ↑∅
+ih :
+  ∀ m < ∅.card,
+    ∀ (T : Finset I),
+      T.card = m →
+        Set.InjOn key ↑T → meanBy positions (fun x y => decide (key x < key y)) T = QuickSortMean.closedForm m
+hn : ∅.card = 0
+⊢ 1 = QuickSortMean.closedForm ∅.card
+error: Applications/Resources/UniformQuickSortMean.lean:602:2: Type mismatch: After simplification, term
+  h
+ has type
+  @List.Perm α (List.map xs.get (restrictedOrder (List.finRange xs.length) Finset.univ π)) xs
+but is expected to have type
+  @List.Perm α (occurrenceInput xs π) xs
+error: Applications/Resources/UniformQuickSortMean.lean:635:53: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  QuickSort.exerciseCost ?lt (occurrenceInput ?xs ?π)
+in the target expression
+  (fun a => ↑(QuickSort.exerciseCost lt (occurrenceInput xs a))) π =
+    (fun a =>
+        ↑(QuickSort.exerciseCost (fun i j => lt (xs.get i) (xs.get j))
+            (restrictedOrder (List.finRange xs.length) Finset.univ a)))
+      π
+
+α : Type v
+lt : α → α → Bool
+xs : List α
+π : Equiv.Perm (Fin xs.length)
+⊢ (fun a => ↑(QuickSort.exerciseCost lt (occurrenceInput xs a))) π =
+    (fun a =>
+        ↑(QuickSort.exerciseCost (fun i j => lt (xs.get i) (xs.get j))
+            (restrictedOrder (List.finRange xs.length) Finset.univ a)))
+      π
+error: Applications/Resources/UniformQuickSortMean.lean:653:0: automatically included section variable(s) unused in theorem `Resources.UniformQuickSortMean.occurrence_key_injective`:
+  [LinearOrder κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [LinearOrder κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+error: Applications/Resources/UniformQuickSortMean.lean:659:0: automatically included section variable(s) unused in theorem `Resources.UniformQuickSortMean.occurrenceInput_keys_nodup`:
+  [LinearOrder κ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [LinearOrder κ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+error: Applications/Resources/UniformQuickSortMean.lean:670:6: Type mismatch
+  Finset.univ
+has type
+  Finset ?m.20
+but is expected to have type
+  Set (Fin xs.length)
+error: Applications/Resources/UniformQuickSortMean.lean:746:4: mod_cast has type
+  QuickSort.exerciseCost (fun a b => decide (key a < key b)) (occurrenceInput xs π) ≤
+    QuickSort.literalCost (fun a b => decide (key a < key b)) (occurrenceInput xs π)
+but is expected to have type
+  (fun π => ↑(QuickSort.exerciseCost (fun a b => decide (key a < key b)) (occurrenceInput xs π))) π ≤
+    (fun π => ↑(QuickSort.literalCost (fun a b => decide (key a < key b)) (occurrenceInput xs π))) π
+error: Applications/Resources/UniformQuickSortMean.lean:752:4: mod_cast has type
+  QuickSort.literalCost (fun a b => decide (key a < key b)) (occurrenceInput xs π) ≤
+    2 * QuickSort.exerciseCost (fun a b => decide (key a < key b)) (occurrenceInput xs π)
+but is expected to have type
+  (fun π => ↑(QuickSort.literalCost (fun a b => decide (key a < key b)) (occurrenceInput xs π))) π ≤
+    (fun x => ↑(2 * QuickSort.exerciseCost (fun a b => decide (key a < key b)) (occurrenceInput xs x))) π

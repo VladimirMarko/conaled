@@ -1,0 +1,70 @@
+{
+  "core_declarations": 19,
+  "core_public": 12,
+  "core_private": 7,
+  "example_declarations": 18,
+  "all37_names_preserved": true,
+  "changed_source_headers": [
+    {
+      "name": "occurrenceRank_lt_iff",
+      "private": false,
+      "before": "theorem occurrenceRank_lt_iff [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (i j : Fin xs.length) :\n    occurrenceRank key xs i < occurrenceRank key xs j ↔\n      key xs[i.val]'i.isLt < key xs[j.val]'j.isLt",
+      "after": "theorem occurrenceRank_lt_iff [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (i j : Fin xs.length) :\n    occurrenceRank key xs i < occurrenceRank key xs j ↔\n      key (xs[i.val]'i.isLt) < key (xs[j.val]'j.isLt)",
+      "change": "Explicit parentheses around the same intended indexed-list value passed to key/predicate; original parser failure means no pre-repair elaborated type exists."
+    },
+    {
+      "name": "filter_length_eq_card_indices",
+      "private": true,
+      "before": "private theorem filter_length_eq_card_indices (xs : List α) (p : α → Bool) :\n    (xs.filter p).length =\n      (Finset.univ.filter (fun i : Fin xs.length => p xs[i.val]'i.isLt)).card",
+      "after": "private theorem filter_length_eq_card_indices (xs : List α) (p : α → Bool) :\n    (xs.filter p).length =\n      (Finset.univ.filter (fun i : Fin xs.length => p (xs[i.val]'i.isLt))).card",
+      "change": "Explicit parentheses around the same intended indexed-list value passed to key/predicate; original parser failure means no pre-repair elaborated type exists."
+    },
+    {
+      "name": "strict_filter_length_eq_rank",
+      "private": true,
+      "before": "private theorem strict_filter_length_eq_rank [LinearOrder κ] (key : α → κ)\n    (xs : List α) (hd : (xs.map key).Nodup) (i : Fin xs.length) :\n    (xs.filter (fun x => decide (key x < key xs[i.val]'i.isLt))).length =\n      (occurrenceRank key xs i).val",
+      "after": "private theorem strict_filter_length_eq_rank [LinearOrder κ] (key : α → κ)\n    (xs : List α) (hd : (xs.map key).Nodup) (i : Fin xs.length) :\n    (xs.filter (fun x => decide (key x < key (xs[i.val]'i.isLt)))).length =\n      (occurrenceRank key xs i).val",
+      "change": "Explicit parentheses around the same intended indexed-list value passed to key/predicate; original parser failure means no pre-repair elaborated type exists."
+    },
+    {
+      "name": "left_length_eq_rank",
+      "private": false,
+      "before": "theorem left_length_eq_rank [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (i : Fin xs.length) :\n    ((xs.eraseIdx i.val).filter\n      (fun x => decide (key x < key xs[i.val]'i.isLt))).length =\n        (occurrenceRank key xs i).val",
+      "after": "theorem left_length_eq_rank [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (i : Fin xs.length) :\n    ((xs.eraseIdx i.val).filter\n      (fun x => decide (key x < key (xs[i.val]'i.isLt)))).length =\n        (occurrenceRank key xs i).val",
+      "change": "Explicit parentheses around the same intended indexed-list value passed to key/predicate; original parser failure means no pre-repair elaborated type exists."
+    },
+    {
+      "name": "right_length_eq_rank",
+      "private": false,
+      "before": "theorem right_length_eq_rank [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (i : Fin xs.length) :\n    ((xs.eraseIdx i.val).filter\n      (fun x => !(decide (key x < key xs[i.val]'i.isLt)))).length =\n        xs.length - 1 - (occurrenceRank key xs i).val",
+      "after": "theorem right_length_eq_rank [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (i : Fin xs.length) :\n    ((xs.eraseIdx i.val).filter\n      (fun x => !(decide (key x < key (xs[i.val]'i.isLt))))).length =\n        xs.length - 1 - (occurrenceRank key xs i).val",
+      "change": "Explicit parentheses around the same intended indexed-list value passed to key/predicate; original parser failure means no pre-repair elaborated type exists."
+    },
+    {
+      "name": "child_keys_nodup",
+      "private": false,
+      "before": "theorem child_keys_nodup [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (i : Fin xs.length) :\n    (((xs.eraseIdx i.val).filter\n      (fun x => decide (key x < key xs[i.val]'i.isLt))).map key).Nodup ∧\n    (((xs.eraseIdx i.val).filter\n      (fun x => !(decide (key x < key xs[i.val]'i.isLt)))).map key).Nodup",
+      "after": "theorem child_keys_nodup [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (i : Fin xs.length) :\n    (((xs.eraseIdx i.val).filter\n      (fun x => decide (key x < key (xs[i.val]'i.isLt)))).map key).Nodup ∧\n    (((xs.eraseIdx i.val).filter\n      (fun x => !(decide (key x < key (xs[i.val]'i.isLt))))).map key).Nodup",
+      "change": "Explicit parentheses around the same intended indexed-list value passed to key/predicate; original parser failure means no pre-repair elaborated type exists."
+    },
+    {
+      "name": "left_length_law",
+      "private": false,
+      "before": "theorem left_length_law [LinearOrder κ] (key : α → κ) (head : α) (tail : List α)\n    (hd : ((head :: tail).map key).Nodup) :\n    PMF.map (fun i : Fin (tail.length + 1) =>\n      (((head :: tail).eraseIdx i.val).filter\n        (fun x => decide (key x < key (head :: tail)[i.val]'i.isLt))).length)\n      (uniformIndex tail.length) =\n        PMF.map (fun i : Fin (tail.length + 1) => i.val) (uniformIndex tail.length)",
+      "after": "theorem left_length_law [LinearOrder κ] (key : α → κ) (head : α) (tail : List α)\n    (hd : ((head :: tail).map key).Nodup) :\n    PMF.map (fun i : Fin (tail.length + 1) =>\n      (((head :: tail).eraseIdx i.val).filter\n        (fun x => decide (key x < key ((head :: tail)[i.val]'i.isLt)))).length)\n      (uniformIndex tail.length) =\n        PMF.map (fun i : Fin (tail.length + 1) => i.val) (uniformIndex tail.length)",
+      "change": "Explicit parentheses around the same intended indexed-list value passed to key/predicate; original parser failure means no pre-repair elaborated type exists."
+    }
+  ],
+  "other12_core_headers_byte_identical": true,
+  "example_source_byte_identical": true,
+  "growth_pair_byte_identical": true,
+  "mean_pair_and_pins_byte_identical": true,
+  "occurrenceRank_definition_change": "Only key xs[i.val] with its explicit validity proof is parenthesized as the key argument; the same Tuple.sort inverse is retained.",
+  "mathematical_contracts_unchanged_by_source_assessment": true,
+  "compiled_type_equivalence_claimed": false,
+  "new_core": {
+    "bytes": 19590,
+    "lines": 392,
+    "sha256": "8acee8fadda0c94081cc0da43a07c864e54368eaa7ff23ab5cf73c06c2f43108"
+  }
+}

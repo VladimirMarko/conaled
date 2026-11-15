@@ -1,0 +1,81 @@
+diff --git a/Applications/Resources/RandomSelectionEqual.lean b/Applications/Resources/RandomSelectionEqual.lean
+index fafe639ca66fffcc7a33af70e058b98e23272efa..8f6aee1ec143ea2a8a8f02902ea0625289aa0a9c 100644
+--- a/Applications/Resources/RandomSelectionEqual.lean
++++ b/Applications/Resources/RandomSelectionEqual.lean
+@@ -26,7 +26,7 @@ private theorem uniformIndex_map_atom {β : Type v} (n : Nat)
+     (PMF.map f (RandomQuickSort.uniformIndex n)) (f i) =
+       (((n + 1 : Nat) : ℝ≥0∞)⁻¹) := by
+   classical
+-  simpa only [PMF.map_apply, hf.eq_iff, tsum_ite_eq] using
++  simpa only [PMF.map_apply, hf.eq_iff, tsum_ite_eq'] using
+     RandomQuickSort.uniformIndex_apply n i
+ 
+ section Ordered
+@@ -46,7 +46,7 @@ theorem stepRun_all_equal (k : Nat) (xs : List α) (x : α)
+     calc
+       _ = partition3 x (List.replicate xs.length x) := congrArg (partition3 x) hxs
+       _ = ([], List.replicate xs.length x, []) := by
+-        simp [partition3_eq_filters, List.filter_replicate]
++        simp [partition3_eq_filters]
+       _ = _ := congrArg (fun ys : List α => (([] : List α), ys, ([] : List α))) hxs.symm
+   rw [stepRun_eq]
+   simp only [hv, hp, List.length_nil, Nat.not_lt_zero, Nat.zero_add,
+@@ -74,7 +74,7 @@ theorem run_all_equal_cons (k : Nat) (x : α) (tail : List α)
+   have hs := stepRun_all_equal k (x :: tail) x hall' i
+   by_cases hk : k < tail.length + 1
+   · simp only [List.length_cons, hk, ↓reduceIte] at hs
+-    simp only [hs, List.length_cons, hk, ↓reduceIte]
++    simp only [hs, List.length_cons, hk, ↓reduceIte, Function.comp_apply]
+   · simp only [List.length_cons, hk, ↓reduceIte] at hs
+     simp [hs, hk, PMF.pure_map, prepend, Nat.add_assoc]
+ 
+@@ -83,18 +83,30 @@ theorem run_replicate_valid (n k : Nat) (x : α) (hk : k < n + 1) :
+       PMF.map (fun i : Fin (n + 1) =>
+         (some x, ([(n + 1, i.val)], 3 * (n + 1) + i.val + 6)))
+         (RandomQuickSort.uniformIndex n) := by
+-  rw [List.replicate_succ, run_all_equal_cons k x (List.replicate n x)
+-    (fun _ h => List.eq_of_mem_replicate h)]
+-  simp only [List.length_replicate, hk, ↓reduceIte]
++  rw [List.replicate_succ]
++  generalize ht : List.replicate n x = tail
++  have hlen : tail.length = n := by rw [← ht, List.length_replicate]
++  have hall : ∀ a ∈ tail, a = x := by
++    intro a ha
++    rw [← ht] at ha
++    exact List.eq_of_mem_replicate ha
++  subst n
++  simpa only [hk, ↓reduceIte] using run_all_equal_cons k x tail hall
+ 
+ theorem run_replicate_invalid (n k : Nat) (x : α) (hk : n + 1 ≤ k) :
+     run k (List.replicate (n + 1) x) =
+       PMF.map (fun i : Fin (n + 1) =>
+         (none, ([(n + 1, i.val)], 3 * (n + 1) + i.val + 8)))
+         (RandomQuickSort.uniformIndex n) := by
+-  rw [List.replicate_succ, run_all_equal_cons k x (List.replicate n x)
+-    (fun _ h => List.eq_of_mem_replicate h)]
+-  simp only [List.length_replicate, Nat.not_lt.mpr hk, ↓reduceIte]
++  rw [List.replicate_succ]
++  generalize ht : List.replicate n x = tail
++  have hlen : tail.length = n := by rw [← ht, List.length_replicate]
++  have hall : ∀ a ∈ tail, a = x := by
++    intro a ha
++    rw [← ht] at ha
++    exact List.eq_of_mem_replicate ha
++  subst n
++  simpa only [Nat.not_lt.mpr hk, ↓reduceIte] using run_all_equal_cons k x tail hall
+ 
+ theorem run_replicate_valid_support (n k : Nat) (x : α) (hk : k < n + 1)
+     (result : Outcome α) :
+@@ -229,7 +241,11 @@ theorem run_all_equal_summary (k : Nat) (xs : List α) (x : α)
+       3 * xs.length + 6 ≤ result.2.2 ∧ result.2.2 ≤ 4 * xs.length + 5 := by
+   obtain ⟨i, hi, he⟩ := run_all_equal k xs x hall hk result hr
+   subst result
+-  exact ⟨rfl, rfl, rfl, by omega, by omega⟩
++  refine ⟨rfl, rfl, rfl, ?_, ?_⟩
++  · change 3 * xs.length + 6 ≤ 3 * xs.length + i + 6
++    omega
++  · change 3 * xs.length + i + 6 ≤ 4 * xs.length + 5
++    omega
+ 
+ theorem run_all_equal_absorbed (time k : Nat) (xs : List α) (x : α)
+     (hall : ∀ a ∈ xs, a = x) (hk : k < xs.length) (result : Outcome α)

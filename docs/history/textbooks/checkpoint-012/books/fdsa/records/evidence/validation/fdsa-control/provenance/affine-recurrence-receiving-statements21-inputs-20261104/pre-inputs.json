@@ -1,0 +1,226 @@
+{
+  "observed_utc": "2026-11-04T19:09:27.140113+00:00",
+  "identity": {
+    "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "clean": true,
+    "project": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "program": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-affine-receiving-correction1-20261104/Statements21.lean",
+      "bytes": 1651,
+      "sha256": "1e048fe6242d26aca2a1afad7451d048072536ce4f2f5abea2cec9da839519a7",
+      "names": [
+        "Resources.AffineRecurrence.exists_affine_bound_of_two_branch",
+        "Examples.AffineRecurrence.quarter",
+        "Examples.AffineRecurrence.quarter_of_le_one",
+        "Examples.AffineRecurrence.quarter_of_one_lt",
+        "Examples.AffineRecurrence.quarter_zero",
+        "Examples.AffineRecurrence.quarter_one",
+        "Examples.AffineRecurrence.quarter_two",
+        "Examples.AffineRecurrence.quarter_four",
+        "Examples.AffineRecurrence.quarter_eight",
+        "Examples.AffineRecurrence.quarter_sixteen",
+        "Examples.AffineRecurrence.quarter_affine_bound",
+        "Examples.AffineRecurrence.signed",
+        "Examples.AffineRecurrence.signed_base",
+        "Examples.AffineRecurrence.signed_nonpositive",
+        "Examples.AffineRecurrence.signed_recurrence",
+        "Examples.AffineRecurrence.signed_affine_bound",
+        "Examples.AffineRecurrence.negative_square_upper",
+        "Examples.AffineRecurrence.negative_square_absolute_value",
+        "Examples.AffineRecurrence.parameterwise_affine_bound",
+        "Examples.AffineRecurrence.no_uniform_natural_family_bound",
+        "Examples.AffineRecurrence.no_uniform_integer_family_bound"
+      ]
+    },
+    "configuration": {
+      "lean-toolchain": {
+        "bytes": 25,
+        "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+      },
+      "lake-manifest.json": {
+        "bytes": 3138,
+        "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+      },
+      "lakefile.toml": {
+        "bytes": 444,
+        "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+      },
+      "flake.nix": {
+        "bytes": 637,
+        "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+      },
+      "flake.lock": {
+        "bytes": 564,
+        "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+      },
+      "check.sh": {
+        "bytes": 74,
+        "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd"
+      },
+      "scripts/check.py": {
+        "bytes": 16119,
+        "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+      },
+      "scripts/lake_integrity.py": {
+        "bytes": 5781,
+        "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f"
+      },
+      "scripts/lake-output-hashes.lean": {
+        "bytes": 618,
+        "sha256": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b"
+      },
+      "ProofAudit.lean": {
+        "bytes": 7925,
+        "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd"
+      }
+    },
+    "dependencies": {
+      "mathlib": {
+        "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib"
+      },
+      "plausible": {
+        "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/plausible"
+      },
+      "LeanSearchClient": {
+        "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/LeanSearchClient"
+      },
+      "importGraph": {
+        "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/importGraph"
+      },
+      "proofwidgets": {
+        "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/proofwidgets"
+      },
+      "aesop": {
+        "head": "4a174c490d8707121c4a9290800489f105d85e07",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/aesop"
+      },
+      "Qq": {
+        "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/Qq"
+      },
+      "batteries": {
+        "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/batteries"
+      },
+      "Cli": {
+        "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/Cli"
+      }
+    },
+    "runtime": {
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/lake": {
+        "bytes": 13416,
+        "sha256": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/lean": {
+        "bytes": 9024,
+        "sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/leanc": {
+        "bytes": 36168,
+        "sha256": "1e0b075573c5ea98e6b196e35d3b159b93e3226714e28cd8febb30a240ec735c"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/leanir": {
+        "bytes": 215864,
+        "sha256": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e"
+      },
+      "conaled-native-state/profile/bin/lake": {
+        "bytes": 122,
+        "sha256": "85df404efd17484b633376fe8d3705f416e059642133d8232ed555a8d3174e21"
+      },
+      "conaled-native-state/profile/bin/lean": {
+        "bytes": 122,
+        "sha256": "e290032a73b271084c56dfde6315062e1523492dc36b1bbde9cc5dea23d1c716"
+      },
+      "conaled-native-state/profile/bin/leanc": {
+        "bytes": 123,
+        "sha256": "0e5517cfaaa530d1e484e45314a8e4be9bf44ccbccb09f8610fa190f6e5443e6"
+      },
+      "conaled-native-state/profile/bin/leanir": {
+        "bytes": 124,
+        "sha256": "3a64f332683efbab0057235ec2b3c22d3ead19cb060e0830b76f1add4cf7c661"
+      },
+      "conaled-native-state/profile/runtime.py": {
+        "bytes": 6368,
+        "sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695"
+      },
+      "conaled-native-state/profile/app_path.c": {
+        "bytes": 3848,
+        "sha256": "fefc39d8645e4a938d6cc27574257d1a1e8e8f0790b75cc15bcf074272066fe0"
+      },
+      "conaled-native-state/profile/app_path.so": {
+        "bytes": 16056,
+        "sha256": "124bc3f19426ab6558b3ca134d0afb70435eaff82a659e6e62a05e8e373e337d"
+      },
+      "/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": {
+        "bytes": 236616,
+        "sha256": "6222a16be7f2d458d6870efe6e715fc0c8d45766fb79cf7dcc3125538d703e28"
+      }
+    },
+    "roots": [
+      "Applications.Resources.AffineRecurrence",
+      "Examples.AffineRecurrence"
+    ],
+    "local_sources": {
+      "Examples/AffineRecurrence.lean": {
+        "bytes": 5164,
+        "sha256": "6734b0a54ffdcf81de3c3ec2520618011aa8bab357690c6cca6117174ec4abcf",
+        "git_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+      },
+      "Applications/Resources/AffineRecurrence.lean": {
+        "bytes": 5839,
+        "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d",
+        "git_blob": "afba9e03f3d8178c6fcd469e064f07ddff53c32b"
+      }
+    },
+    "local_compiler_objects_and_traces": {
+      ".lake/build/lib/lean/Examples/AffineRecurrence.olean": {
+        "bytes": 289984,
+        "sha256": "90bb2aa57d0d765e09431ebb089966a1ce373df52bc0470fbaf219f55754f198"
+      },
+      ".lake/build/lib/lean/Examples/AffineRecurrence.olean.hash": {
+        "bytes": 16,
+        "sha256": "d869ce7f60bb65e5e03be6df5457353dfe19f39559b8d6d7f31d6fbd76b7a55c"
+      },
+      ".lake/build/lib/lean/Examples/AffineRecurrence.trace": {
+        "bytes": 3422,
+        "sha256": "d4de15405091c6cd2f8b0e30231611bc5a0e5f44ce5c1596c3a8bf34b9935827"
+      },
+      ".lake/build/lib/lean/Applications/Resources/AffineRecurrence.olean": {
+        "bytes": 517312,
+        "sha256": "9170292075f28f7e1be39439a5c93f8e0d51935e4ca132b59d319c6746de5fa7"
+      },
+      ".lake/build/lib/lean/Applications/Resources/AffineRecurrence.olean.hash": {
+        "bytes": 16,
+        "sha256": "1d56185dedb8c6d6c284fcb1a6c4d399e97f409272809ef57eb18075dd5c5c3e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/AffineRecurrence.trace": {
+        "bytes": 3996,
+        "sha256": "b5128a062da3276945cac262b99a0f23b2a239a58fcd16a141b19d7d7b1ed91c"
+      }
+    },
+    "direct_external_imports_of_local_closure": [
+      "Mathlib.Algebra.Order.Archimedean.Basic",
+      "Mathlib.Algebra.Order.Archimedean.Defs",
+      "Mathlib.Data.Finset.Lattice.Fold",
+      "Mathlib.Data.Finset.Range",
+      "Mathlib.Data.Nat.Cast.Order.Ring",
+      "Mathlib.Tactic.Linarith"
+    ]
+  },
+  "boundary": "Read-only input observation; actual execution, loaded-object qualification, complete output review, and candidate acceptance remain separate evidence."
+}

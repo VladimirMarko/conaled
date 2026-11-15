@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/0c54f2db1fdf/work-state/staging/retention-import/run-chain.py", line 53, in <module>
+    assert all(Path(path).is_dir() for path in tokens[0].split("=", 1)[1].split(":"))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

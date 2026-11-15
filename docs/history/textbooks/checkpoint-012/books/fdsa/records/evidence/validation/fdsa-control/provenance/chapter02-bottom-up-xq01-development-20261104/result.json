@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-04T05:34:29.918749+00:00",
+  "candidate": "ccaee94222b78ac57e9a8ea23c6e86c056a19a23",
+  "status": "",
+  "conflicts": [
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "resolution": "Retain every current import and every entire XM01/foundation paragraph, add exact XQ01 import and full section; one blank separator. No Lean proof/body changes.",
+  "xq01_five_nonoverlap_files_identical": true,
+  "selection_specific_suffix_identical_to_R": true,
+  "bottom_up_both_files_identical": true,
+  "xq01_source_sha256": {
+    "Applications/Resources/Partition.lean": "3317bd84f5b8eacb0ede5d9fcde4adc98361fb2afadf7e41afff1d4a5e14e6d2",
+    "Applications/Selection/ThreeWay.lean": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa",
+    "Applications/Sequences/Partition.lean": "c83144cda94133662be7537fa9c2e8e7870f4959c55c78526d1a62e11fe1f56b",
+    "Examples/ThreeWayPartition.lean": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526",
+    "docs/research/fdsa-three-way-partition.md": "5e58b195a53e32369dd31a7d6452c73f595419757faeaae0173c0fd659c0858b"
+  },
+  "acceptance": "None; first outstanding acceptance remains isolated f17cc6b."
+}

@@ -1,0 +1,31 @@
+{
+  "recorded_utc": "2026-11-04T18:39:15.033018+00:00",
+  "previous_candidate": "471af117f915a722a3f1b4446ace4e4b9998dfbb",
+  "candidate": "e1b7b57dd495b9b57597e75141e0ec397536ed35",
+  "tree": "f9aa14230a57f895c8058698a92888b488d26779",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "actual_prior_focused_result": {
+    "exit": 1,
+    "terminal": "a61fa1",
+    "closure": "b989de",
+    "full_log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-chunks-focused-attempt1-20261104/full.log",
+    "bytes": 4791,
+    "sha256": "89e42d9561646a9fb69896c4f294b7deb27c1b937bbbb09e672f3003bc163084",
+    "author_full_readback": "9f071e"
+  },
+  "correction": [
+    "Remove the unused ceilDiv_zero simp argument; the standard simp set already applies its zero rule.",
+    "Annotate each multiset-map binder as List \u03b1 (List Nat in the consumer), preventing elaboration as identity map over an automatically coerced list-monadic computation. The intended sum of each chunk multiset is now explicit.",
+    "Use the narrower Multiset.AddSub import: List.sum and sum_cons require only Add and Zero, and Multiset.coe_add is defined there. No ordered monoid structure is used by these proofs."
+  ],
+  "new_public_name_scope": 35,
+  "new_private_name_scope": 1,
+  "combined_public_name_scope": 75,
+  "CountRank_files_unchanged_from_focused_pass": true,
+  "statement_program": "ChunksStatements.lean unchanged",
+  "status": "",
+  "compiler_performed_by_author": false,
+  "validation": "Actual first focused failure preserved; corrected successor pending root compiler check; no full acceptance claim.",
+  "commit_output": "[work/fdsa-ch03-values e1b7b57] fix(sequences): make chunk multiset coercions explicit (#174)\n 2 files changed, 5 insertions(+), 5 deletions(-)\n",
+  "hold": "Author source and own provenance held after this record pending checkpoint0123 capture/release, unless root explicitly releases a compiler correction."
+}

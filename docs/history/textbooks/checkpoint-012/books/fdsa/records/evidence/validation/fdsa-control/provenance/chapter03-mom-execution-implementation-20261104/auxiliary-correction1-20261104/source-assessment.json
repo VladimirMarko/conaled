@@ -1,0 +1,31 @@
+{
+  "recorded_utc": "2026-11-04T19:34:02.605259+00:00",
+  "finding": "C03-AUX-ELAB-001",
+  "changed_path": "Examples/SelectionAuxiliary.lean",
+  "baseline": "8fef3ea5964f058f1c0036f53414d5d06fa56e59",
+  "public_headers_unchanged": 20,
+  "all_seven_protected_sources_unchanged": true,
+  "all_eleven_prior_records_unchanged": true,
+  "type_program_reuse": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/AuxiliaryStatements40-candidate1.lean",
+    "bytes": 2783,
+    "sha256": "e3910f89e19232f125eca8c166556f2852ba9d171fe6317d066c9a5ab0a371ae"
+  },
+  "type_program_explicit_at_names": 40,
+  "actual_type_credit": 0,
+  "all_independent_expected_values_and_costs_preserved": true,
+  "source": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionAuxiliary.lean",
+    "bytes": 6832,
+    "sha256": "802a160cd634556d717f9ba6ebdbac3e3157fb40b7b439b3b6648e19a5a29953"
+  },
+  "exact_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/correction.diff",
+    "bytes": 4517,
+    "sha256": "0de9f322729d6e1f1fd7fe9e3ee80e0819b6127947ea92daec5ea02b58f8aee7"
+  },
+  "git_diff_check_actual_exit": 0,
+  "git_diff_check_output": "",
+  "Lean_Lake_actions": false,
+  "status": "Source correction prepared; qualified focused check remains required."
+}

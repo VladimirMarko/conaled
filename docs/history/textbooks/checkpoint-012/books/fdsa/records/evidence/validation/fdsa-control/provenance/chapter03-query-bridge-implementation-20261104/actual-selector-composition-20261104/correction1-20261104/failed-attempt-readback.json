@@ -1,0 +1,52 @@
+{
+  "finding": "C03-QUERY-COMPOSITION-LINT-001",
+  "candidate": "2d20573cc5d3373a4746a5ebf16314369e7d7e3e",
+  "actual_terminal": {
+    "owned_session": 34748,
+    "actual_exit": 1,
+    "terminal_chunk": "edd85c",
+    "closure": "3cb0b2"
+  },
+  "complete_log": {
+    "bytes": 11727,
+    "sha256": "91949a3a89b4084d23292e384e8eb093a8e363e3109da444567cb811d6eb57b5"
+  },
+  "recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "diagnostics": [
+    [
+      "296",
+      "7",
+      "distinct"
+    ],
+    [
+      "297",
+      "7",
+      "correct"
+    ],
+    [
+      "328",
+      "7",
+      "distinct"
+    ],
+    [
+      "329",
+      "7",
+      "total"
+    ],
+    [
+      "329",
+      "28",
+      "correct"
+    ]
+  ],
+  "read_chunks": [
+    "602ce5",
+    "14a049"
+  ],
+  "complete_native_body_in_outer_log": true,
+  "examples_status": "not compiled in the blocked first attempt; no success inferred",
+  "scope": "five actual unused quantified-binder name diagnostics only"
+}

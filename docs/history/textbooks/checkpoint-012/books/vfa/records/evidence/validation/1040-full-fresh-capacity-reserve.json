@@ -1,0 +1,32 @@
+{
+  "prepared_utc": "2026-11-04T12:08:16.287252+00:00",
+  "candidate": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+  "attempt": "1002-candidate-eae9e11-monitor-fresh1",
+  "owned_session": 30015,
+  "path": "/workspace/scratch/60f07f0e98c8/native-state/task-capacity/eae9-full-fresh.reserve",
+  "requested_bytes": 536870912,
+  "create_threshold_bytes": 2147483648,
+  "release_below_available_bytes": 1073741824,
+  "ordinary_available_bytes_before": 6007832576,
+  "purpose": "Single bounded disposable emergency allocation for current build/records/checkpoint capacity under observed volatile shared free space. Not a guarantee of completion.",
+  "assessment": {
+    "reviewer": "/root/recovery_efficiency",
+    "read_only": true,
+    "scope": "Checked compact capture whitelist and supplied kit state/profile/runtime paths; task-capacity excluded from checkpoint payload and all assessed proof/runtime inputs.",
+    "recommendation": "Single512MiB actualallocation with prompt existing-cadence release, no daemon/refill; preserve all diagnostic artifacts."
+  },
+  "lifecycle": "Release entire identity-matching owned file below1GiBordinaryavailable or on actualattemptcompletion. Neverrefill. Afterworkspace restoration this historicalreceipt authorizes no file deletion; establish new live ownership.",
+  "formal_gate_credit": false,
+  "status": "released",
+  "allocated_utc": "2026-11-04T12:08:16.288678+00:00",
+  "device": 27,
+  "inode": 3309579,
+  "actual_bytes": 536870912,
+  "reported_allocated_bytes": 536875008,
+  "ordinary_available_bytes_after": 5470953472,
+  "released_utc": "2026-11-04T13:24:28.133981+00:00",
+  "release_reason": "ordinary available capacity below1GiB during existing monitoring cadence",
+  "ordinary_available_bytes_before_release": 1008230400,
+  "ordinary_available_bytes_after_release": 1545105408,
+  "observed_available_delta_not_a_causal_guarantee": true
+}

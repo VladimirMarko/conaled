@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "decided_utc": "2026-11-02T23:25:36.902528+00:00",
+  "decision": "Retire exact verified local duplicates026,027,028,029 once in that order, with immediate per-file identity and Library-binding rechecks.",
+  "assessment": "work-state/validation/1029-checkpoints026-029-retirement-assessment.json",
+  "assessment_sha256": "33ecf1bf6b19cd210150a753c6d1997869923ed393649497b7476ac8e91e3e13",
+  "capacity_basis": "Second bounded census observed2,539,282,432 root-free bytes and539,282,432 margin above the unchanged2GB checkpoint launch floor. Recover working room from older uploaded duplicates. No complete-build shortage, growth cause or full-build fit is asserted.",
+  "root_free_at_decision": 2514898944,
+  "expected_allocated_relief_bytes": 584388608,
+  "ordered_files": [
+    {
+      "checkpoint": 26,
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-026-fresh-validation-progress.tar.gz",
+      "identity": {
+        "device": 27,
+        "inode": 2405456,
+        "mode": 420,
+        "regular": true,
+        "nlink": 1,
+        "size_bytes": 146023732,
+        "allocated_bytes": 146034688,
+        "mtime_ns": 1793642464827682010,
+        "ctime_ns": 1793642530347074078,
+        "uid": 0,
+        "gid": 0
+      },
+      "sha256": "0068b157b143a50bce71590a083bf4f3bad1e56498c2a8ea81b355b66c5c3c70",
+      "library_file_id": "libfile_68c9ebaea698819196afd2b02009130a"
+    },
+    {
+      "checkpoint": 27,
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-027-fresh-run-recovery.tar.gz",
+      "identity": {
+        "device": 27,
+        "inode": 2405666,
+        "mode": 420,
+        "regular": true,
+        "nlink": 1,
+        "size_bytes": 146040188,
+        "allocated_bytes": 146051072,
+        "mtime_ns": 1793653446991332371,
+        "ctime_ns": 1793653469123057237,
+        "uid": 0,
+        "gid": 0
+      },
+      "sha256": "89e61d6402de4eae481278fe137973d1a7b376670bb3cf3ba4046dc384e87ee5",
+      "library_file_id": "libfile_f21d90f7aea88191a43bd31bfccf5a1e"
+    },
+    {
+      "checkpoint": 28,
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-028-validation-recorder.tar.gz",
+      "identity": {
+        "device": 27,
+        "inode": 2405733,
+        "mode": 420,
+        "regular": true,
+        "nlink": 1,
+        "size_bytes": 146139418,
+        "allocated_bytes": 146149376,
+        "mtime_ns": 1793655164004887083,
+        "ctime_ns": 1793655187300649461,
+        "uid": 0,
+        "gid": 0
+      },
+      "sha256": "964d18dcd9746c91a956d649805213ec386650dc6ce74d121c470e34473cde47",
+      "library_file_id": "libfile_f295cb2463d481918d85f5fc6d24384e"
+    },
+    {
+      "checkpoint": 29,
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-029-fresh-retry-progress.tar.gz",
+      "identity": {
+        "device": 27,
+        "inode": 2405751,
+        "mode": 420,
+        "regular": true,
+        "nlink": 1,
+        "size_bytes": 146144577,
+        "allocated_bytes": 146153472,
+        "mtime_ns": 1793655927160238112,
+        "ctime_ns": 1793655949855878862,
+        "uid": 0,
+        "gid": 0
+      },
+      "sha256": "0f92e7441e1470fae170317bbcbd0e4761eb0a8b6c5ee2ee41915a27e898695c",
+      "library_file_id": "libfile_0399b6313f9c8191ba9facf929341e0e"
+    }
+  ],
+  "scope": "Saved copies and receipts retained. Latest local030/031/032 retained. No recurring cleanup or repeat removal if a path returns."
+}

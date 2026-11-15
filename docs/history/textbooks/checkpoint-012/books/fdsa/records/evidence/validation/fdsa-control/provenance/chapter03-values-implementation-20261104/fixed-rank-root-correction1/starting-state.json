@@ -1,0 +1,234 @@
+{
+  "recorded_utc": "2026-11-04T20:04:29.948516+00:00",
+  "finding": "C03-FIXED-ELAB-001",
+  "parent": "fd490573dc6a0ad2ed4a6f3d449e03d9d1b0bb2f",
+  "tree": "7fd22cfe7e6cbf02c659fc07648989ce6b8c1ccb",
+  "status": "",
+  "source": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort/Applications/Selection/FixedRank.lean",
+    "bytes": 11177,
+    "sha256": "467b20f50cf94be3ae0aaff58d24bc9277b0a23932d7e2545bb53d2e96a695f8"
+  },
+  "prior_author_files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/pivot-candidate3-statement-preparation.json",
+      "bytes": 5656,
+      "sha256": "a16c94ef11c94511ab8d61d57a86b5a5527fc3e3b78e037aad596ffef917a177"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/chunks-candidate1.json",
+      "bytes": 1672,
+      "sha256": "01ae4c141020949bcc0f1f04d4a75ef4d5a79c793987213ddcefd3d4306c14c3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/count-rank-precommit.json",
+      "bytes": 3771,
+      "sha256": "a3d679cf5dd83427033792fee115382c571fc88b8dea97192b2a3bf06481c096"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/type-input-explicit-at-correction.json",
+      "bytes": 9510,
+      "sha256": "dae9b943048549e46568b73963e3ba210821159977c9499ae51da28eff0ad0ef"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/README.md",
+      "bytes": 3652,
+      "sha256": "8253b7ec83b09f113bd10db0a884ff9b38b546d92babd6c048b76159b1df3ee7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/chunks-candidate2.json",
+      "bytes": 1974,
+      "sha256": "962127ea3fd1fc16aca4b8f88b2da4f1e5905f1f64bdf4baa1c78de5ef7f9d54"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/pivot-correction1.diff",
+      "bytes": 1666,
+      "sha256": "07283ef6ba8f03cf767600576618b0a94383d292a69dea065c1dd1e63b003d99"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/starting-state.json",
+      "bytes": 786,
+      "sha256": "857a895221c71df194c7b29160fc90353d0275e922ac93ab34ac855a17a64078"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/pivot-candidate2.json",
+      "bytes": 3042,
+      "sha256": "c0a5c19b6b0c760d08d4a9e6e3ee766c60ac54c430624983a4660c00a12b8e0d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/pivot-candidate3.json",
+      "bytes": 4064,
+      "sha256": "990709472fb2c77133e72de6761ba1db7292fa37cac7e69d47db08362520a27a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/MedianOfMediansStatements-v2.lean",
+      "bytes": 3289,
+      "sha256": "51167fa99bb3da9bdbba996a7ba21972b49a0a16f7cc5367201477b8a46064cd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/focused-success-and-hold-0123.json",
+      "bytes": 3387,
+      "sha256": "369ee30002364c82b448275b4b1cd6722a6917fd9afe9599d195c86197dff148"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/pivot-correction1-precommit.json",
+      "bytes": 7993,
+      "sha256": "b904a0d9e8048990f16b80c1f265012cd0dc331e5fc2845f7be94298d2bfe112"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/fixed-rank-review-note.md",
+      "bytes": 10940,
+      "sha256": "de41f0237c698f91d4bde9fdfc31511a89c5e2fff97d42111437da9e6fc06cb2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/count-rank-candidate1.json",
+      "bytes": 1108,
+      "sha256": "f517e925fe4634a7868c53b744c342457cb00c260368017d9bfdc93d673777bd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/CountRankStatements-v3.lean",
+      "bytes": 2490,
+      "sha256": "f777431218bc6b86d08f775f14bee9ca74747d5a66bec0908f4490f99fd28564"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/ChunksStatements-v2.lean",
+      "bytes": 2007,
+      "sha256": "6eec8c6ceb180a3f9e262f6e6766ce1597fd9f018af6e25697e6e520a3046dff"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/FixedRankStatements.lean",
+      "bytes": 5262,
+      "sha256": "788a23b75a1b1f155f1500718f3705a1f719cb37a0295f4a76066e1d05bee7fa"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/fixed-rank-starting-state.json",
+      "bytes": 3752,
+      "sha256": "6884b3a1ed3c261f40be1042e0b0931baeaec62013019cf95ac83c77e4d89dc0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/chunks-precommit.json",
+      "bytes": 3634,
+      "sha256": "59b58590b3cac8163f39e11ccb31f7289c11e0b3d0d9290e2ab9c00edbaae667"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/fixed-rank-design-before-0125.json",
+      "bytes": 3828,
+      "sha256": "2ea434696171d5c76a0cde2f42620bf9458dae3686dbb697a8c2ab0524277d5b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/pivot-review-note.md",
+      "bytes": 5749,
+      "sha256": "b7c1c91bbdc0833cb3090950bad63fa1679d1a830897444d24a1a0b31f702e96"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/checkpoint-0125-write-hold.json",
+      "bytes": 1228,
+      "sha256": "e36419be027fecfcde08e6fa8106aa246018a0f870ac682401520657c563e3a9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/count-rank-correction2.diff",
+      "bytes": 634,
+      "sha256": "5613c0546006bdc8a3fd8980ef2c8e75a644b5a56f6ccc0a4e8b10eb6f6f7fcb"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/CountRankStatements.lean",
+      "bytes": 2364,
+      "sha256": "df7bf10779920840d01a44ccdf230559a738a71bcd8c4facc8fca520ca37444c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/count-rank-correction1.diff",
+      "bytes": 5219,
+      "sha256": "3b51b5c7295f6d59176f9f2266ae3951b3d76607be2d06bdb1434a093e27dead"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/pivot-correction2-precommit.json",
+      "bytes": 9222,
+      "sha256": "39ca91374d1d74929ebaea1db9a73cc21bda15197a153aabd63e34facbf0579e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/pivot-candidate1.json",
+      "bytes": 5040,
+      "sha256": "6875be6e1e21d0b82423f1cd8aded535d46fae3b9d0e68df1aa9f51502e0f190"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/ChunksStatements.lean",
+      "bytes": 1972,
+      "sha256": "c47e8e866f4237b9b9884a87acc8a060fbe7e357391826b0557a94c5ab854fa3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/pivot-starting-state.json",
+      "bytes": 718,
+      "sha256": "e92c3ede36d3e871e1fd9c5ef5b67d2c57fdf587fb7897c9acd105d7113237be"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/pivot-correction2.diff",
+      "bytes": 5622,
+      "sha256": "e7b367ae7076f4747bbe122013ce59f8c8735282e4220cef15781fe5c4daec16"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/CountRankStatements-v2.lean",
+      "bytes": 2450,
+      "sha256": "76846251fab7d07f0834318dffdb932dbc4c90b48e70cc3228c78c12309f2fcb"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/count-rank-candidate2.json",
+      "bytes": 1637,
+      "sha256": "a9906a8de39c89eb019d1d7c204e4b719b7d1907c4c5f45204c24e48b9ca8c9f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/fixed-rank-handoff-and-hold.json",
+      "bytes": 3123,
+      "sha256": "51bd39b86a2e650b860bd0f438e95ef304117cfa95bf3adf2db7365e01bf174f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/chunks-correction1.diff",
+      "bytes": 2015,
+      "sha256": "1ad34d03fed1a1fb927792630266268a826789c7325bc13bd0ee2ecbf40a3bec"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/fixed-rank-inventory.json",
+      "bytes": 28384,
+      "sha256": "98087f49cbfde3003c2fb3d31f7e01e8fa3ca90261f41e0c5384adf3e2b6398d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/type-input-explicit-at-readback-and-hold.json",
+      "bytes": 3057,
+      "sha256": "c9661f15cda24b640b0c8c4d32d6c9e0726e45e2af94b95c58843cba9853acad"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/fixed-rank-precommit.json",
+      "bytes": 1655,
+      "sha256": "08e8dced76975763051c027f22ea735706c063cb2a2c5b1844765c863c86b306"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/type-input-explicit-at-correction.diff",
+      "bytes": 14755,
+      "sha256": "9ab883dbd6009046f8bbdf0d53d0b702d28475d97bdded496d7f035ea4087867"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/MedianOfMediansStatements.lean",
+      "bytes": 3234,
+      "sha256": "2eb7573336bf5e863627ad2becb86c82b0fd9546abe7bb6eb7405266cba5b392"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/fixed-rank-candidate1.json",
+      "bytes": 6547,
+      "sha256": "e946e500d2d7857e4765d541c3bf997af3f7d09e7ece4d6d5b1173655e9a0af8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/pivot-precommit.json",
+      "bytes": 5086,
+      "sha256": "19c3db880d937a922fb4ab0101439c0aad9814688d1ecf4ef3b6d332f1467f7c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/count-rank-candidate3.json",
+      "bytes": 1458,
+      "sha256": "3f2558c1b6623c9ebd13387f84d170c230bee5a1bbb2a45b34632da4edd87ca5"
+    }
+  ],
+  "failed_run": "chapter03-fixed-rank-focused-attempt1-20261104",
+  "actual_failed_exit": 1,
+  "owned_session": 47328,
+  "terminal": "833857",
+  "root_complete_log_closure": "187150"
+}

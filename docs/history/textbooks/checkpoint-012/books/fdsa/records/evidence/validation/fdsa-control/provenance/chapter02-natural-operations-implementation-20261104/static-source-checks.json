@@ -1,0 +1,45 @@
+{
+  "scope": "Static textual observations only; no compiler, linter, kernel, audit or acceptance result",
+  "files": [
+    {
+      "file": "Applications/Resources/NaturalRunOperations.lean",
+      "forbidden_token_occurrences": [],
+      "trailing_whitespace_lines": [],
+      "lines_over_100": [],
+      "letI_occurrences": 0,
+      "warningAsError_true": true,
+      "autoImplicit_false": true
+    },
+    {
+      "file": "Examples/NaturalRunOperations.lean",
+      "forbidden_token_occurrences": [],
+      "trailing_whitespace_lines": [],
+      "lines_over_100": [],
+      "letI_occurrences": 0,
+      "warningAsError_true": true,
+      "autoImplicit_false": true
+    }
+  ],
+  "unchanged_recorded_dependencies_and_pins": {
+    "lean-toolchain": true,
+    "lake-manifest.json": true,
+    "lakefile.toml": true,
+    "Applications/Sorting/NaturalRuns.lean": true,
+    "Examples/NaturalRuns.lean": true,
+    "Applications/Resources/NaturalRunComparisons.lean": true,
+    "Examples/NaturalRunComparisons.lean": true,
+    "Applications/Resources/ListBuildCosts.lean": true,
+    "Examples/ListBuildCosts.lean": true,
+    "Applications/Sorting/Natural.lean": true,
+    "Examples/NaturalSorting.lean": true,
+    "Applications/Resources/NaturalSorting.lean": true,
+    "Examples/NaturalSortingCosts.lean": true,
+    "Applications/Resources/BottomUpSorting.lean": true,
+    "Examples/BottomUpCosts.lean": true,
+    "Applications/Resources/DifferenceListCosts.lean": true,
+    "Examples/DifferenceListCosts.lean": true,
+    "Applications/Resources/CallCount.lean": true,
+    "Applications/Resources/Measured.lean": true
+  },
+  "existing_tracked_diff": ""
+}

@@ -1,0 +1,570 @@
+diff --git a/Applications/Resources/AffineRecurrence.lean b/Applications/Resources/AffineRecurrence.lean
+new file mode 100644
+index 0000000..afba9e0
+--- /dev/null
++++ b/Applications/Resources/AffineRecurrence.lean
+@@ -0,0 +1,113 @@
++import Mathlib.Algebra.Order.Archimedean.Defs
++import Mathlib.Data.Finset.Lattice.Fold
++import Mathlib.Data.Finset.Range
++import Mathlib.Data.Nat.Cast.Order.Ring
++import Mathlib.Tactic.Linarith
++
++/-! An all-input affine upper bound for a contracting two-child recurrence.
++
++The scalar function is already total. An enlarged finite prefix permits strong
++induction; it does not establish termination of an independently proposed
++recursive definition. Values and toll coefficients may be signed. This is a
++one-sided order bound, with no norm or asymptotic conclusion for signed values.
++
++The argument abstracts the affine recurrence proof in FDSA Theorem 3.9 and
++Manuel Eberl's `Selection.thy`, using division-free Archimedean witnesses.
++Provenance, statement review and remaining source scope:
++`docs/research/fdsa-affine-recurrence.md`.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.AffineRecurrence
++universe u
++variable {R : Type u} [CommRing R] [LinearOrder R]
++  [IsStrictOrderedRing R] [Archimedean R]
++
++/-- Fixed recurrence data give one pair of nonnegative constants covering every
++natural input, including the entire finite base prefix. Neither `f` nor the child
++maps need be monotone; the function values and toll coefficients may be signed.
++-/
++theorem exists_affine_bound_of_two_branch
++    (f : Nat → R) (left right : Nat → Nat) (n0 : Nat)
++    (rho K C D : R) (contract : rho < 1)
++    (sizes : ∀ n, n0 < n →
++      (left n : R) + (right n : R) ≤ rho * (n : R) + K)
++    (step : ∀ n, n0 < n →
++      f n ≤ f (left n) + f (right n) + C * (n : R) + D) :
++    ∃ A B : R, 0 ≤ A ∧ 0 ≤ B ∧ ∀ n : Nat, f n ≤ A * (n : R) + B := by
++  have margin : 0 < 1 - rho := sub_pos.mpr contract
++  obtain ⟨M, hM⟩ := Archimedean.arch (2 * K) margin
++  let N := max n0 (max 1 M)
++  have original_cutoff : n0 ≤ N := le_max_left _ _
++  have one_cutoff : 1 ≤ N := (le_max_left 1 M).trans (le_max_right n0 (max 1 M))
++  have multiple_cutoff : M ≤ N := (le_max_right 1 M).trans (le_max_right n0 (max 1 M))
++  have cutoff_margin : 2 * K ≤ (1 - rho) * (N : R) := by
++    calc
++      2 * K ≤ (M : R) * (1 - rho) := by simpa only [nsmul_eq_mul] using hM
++      _ ≤ (N : R) * (1 - rho) :=
++        mul_le_mul_of_nonneg_right ((Nat.cast_le (α := R)).mpr multiple_cutoff) margin.le
++      _ = (1 - rho) * (N : R) := mul_comm _ _
++  have prefix_nonempty : (Finset.range (N + 1)).Nonempty :=
++    ⟨0, Finset.mem_range.mpr (Nat.succ_pos N)⟩
++  let B : R := max 0 ((Finset.range (N + 1)).sup' prefix_nonempty f)
++  have intercept_nonneg : 0 ≤ B := le_max_left _ _
++  have prefix_bound : ∀ n, n ≤ N → f n ≤ B := by
++    intro n hn
++    exact (Finset.le_sup' f (Finset.mem_range.mpr (Nat.lt_succ_of_le hn))).trans
++      (le_max_right _ _)
++  obtain ⟨a, ha⟩ := Archimedean.arch (2 * (max 0 C + max 0 D + B)) margin
++  let A : R := a
++  have slope_nonneg : 0 ≤ A := Nat.cast_nonneg a
++  have slope_margin : 2 * (max 0 C + max 0 D + B) ≤ A * (1 - rho) := by
++    simpa only [nsmul_eq_mul] using ha
++  refine ⟨A, B, slope_nonneg, intercept_nonneg, ?_⟩
++  intro n
++  induction n using Nat.strongRecOn with
++  | ind n ih =>
++      by_cases small : n ≤ N
++      · exact (prefix_bound n small).trans
++          (le_add_of_nonneg_left (mul_nonneg slope_nonneg (Nat.cast_nonneg n)))
++      · have above : N < n := Nat.lt_of_not_ge small
++        have active : n0 < n := lt_of_le_of_lt original_cutoff above
++        have one_le_n : (1 : R) ≤ (n : R) :=
++          Nat.one_le_cast.mpr (one_cutoff.trans above.le)
++        have n_nonneg : (0 : R) ≤ (n : R) := Nat.cast_nonneg n
++        have n_pos : (0 : R) < (n : R) := lt_of_lt_of_le zero_lt_one one_le_n
++        have cutoff_at_n : 2 * K ≤ (1 - rho) * (n : R) :=
++          cutoff_margin.trans (mul_le_mul_of_nonneg_left
++            ((Nat.cast_le (α := R)).mpr above.le) margin.le)
++        have size_bound := sizes n active
++        have doubled_sizes :
++            2 * ((left n : R) + (right n : R)) ≤ (1 + rho) * (n : R) := by
++          nlinarith only [size_bound, cutoff_at_n]
++        have strict_sizes : (1 + rho) * (n : R) < 2 * (n : R) := by
++          nlinarith only [mul_pos margin n_pos]
++        have left_nonneg : (0 : R) ≤ (left n : R) := Nat.cast_nonneg (left n)
++        have right_nonneg : (0 : R) ≤ (right n : R) := Nat.cast_nonneg (right n)
++        have left_smaller : left n < n := (Nat.cast_lt (α := R)).mp (by
++          nlinarith only [doubled_sizes, strict_sizes, right_nonneg])
++        have right_smaller : right n < n := (Nat.cast_lt (α := R)).mp (by
++          nlinarith only [doubled_sizes, strict_sizes, left_nonneg])
++        have left_bound := ih (left n) left_smaller
++        have right_bound := ih (right n) right_smaller
++        have scaled_sizes := mul_le_mul_of_nonneg_left doubled_sizes slope_nonneg
++        have linear_toll : C * (n : R) ≤ max 0 C * (n : R) :=
++          mul_le_mul_of_nonneg_right (le_max_right 0 C) n_nonneg
++        have constant_toll : max 0 D ≤ max 0 D * (n : R) := by
++          simpa only [mul_one] using
++            mul_le_mul_of_nonneg_left one_le_n (le_max_left 0 D)
++        have intercept_at_n : B ≤ B * (n : R) := by
++          simpa only [mul_one] using
++            mul_le_mul_of_nonneg_left one_le_n intercept_nonneg
++        have toll_bound : C * (n : R) + D + B ≤
++            (max 0 C + max 0 D + B) * (n : R) := by
++          nlinarith only [linear_toll, le_max_right 0 D, constant_toll, intercept_at_n]
++        have slope_at_n := mul_le_mul_of_nonneg_right slope_margin n_nonneg
++        have absorption : 2 * (C * (n : R) + D + B) ≤
++            A * (1 - rho) * (n : R) := by
++          nlinarith only [toll_bound, slope_at_n]
++        have recurrence := step n active
++        nlinarith only [recurrence, left_bound, right_bound, scaled_sizes, absorption]
++
++end Resources.AffineRecurrence
+diff --git a/Examples/AffineRecurrence.lean b/Examples/AffineRecurrence.lean
+new file mode 100644
+index 0000000..e16bc24
+--- /dev/null
++++ b/Examples/AffineRecurrence.lean
+@@ -0,0 +1,142 @@
++import Applications.Resources.AffineRecurrence
++import Mathlib.Algebra.Order.Archimedean.Basic
++
++/-! Connected scalar recurrence clients and quantifier boundaries.
++
++The independently calculated quarter-recurrence values at 0, 1, 2, 4, 8, 16
++are 1, 1, 5, 7, 19, 31. Its recursive definition must terminate at its own
++cutoff, before the generic affine theorem enlarges any proof prefix. This
++scalar example is not a selector implementation or an inferred execution cost.
++Provenance and statement review: `docs/research/fdsa-affine-recurrence.md`.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.AffineRecurrence
++open Resources.AffineRecurrence
++
++/-- The natural scalar recurrence Q from the shared unit's worked example. -/
++def quarter (n : Nat) : Nat :=
++  if h : n ≤ 1 then 1 else 2 * quarter (n / 4) + n + 1
++termination_by n
++decreasing_by
++  exact Nat.div_lt_self (by omega) (by decide)
++
++theorem quarter_of_le_one (n : Nat) (small : n ≤ 1) : quarter n = 1 := by
++  rw [quarter]
++  split
++  · rfl
++  · omega
++
++theorem quarter_of_one_lt (n : Nat) (large : 1 < n) :
++    quarter n = 2 * quarter (n / 4) + n + 1 := by
++  rw [quarter]
++  split
++  · omega
++  · rfl
++
++theorem quarter_zero : quarter 0 = 1 := quarter_of_le_one 0 (by decide)
++theorem quarter_one : quarter 1 = 1 := quarter_of_le_one 1 (by decide)
++
++theorem quarter_two : quarter 2 = 5 := by
++  rw [quarter_of_one_lt 2 (by decide)]
++  norm_num [quarter_zero]
++
++theorem quarter_four : quarter 4 = 7 := by
++  rw [quarter_of_one_lt 4 (by decide)]
++  norm_num [quarter_one]
++
++theorem quarter_eight : quarter 8 = 19 := by
++  rw [quarter_of_one_lt 8 (by decide)]
++  norm_num [quarter_two]
++
++theorem quarter_sixteen : quarter 16 = 31 := by
++  rw [quarter_of_one_lt 16 (by decide)]
++  norm_num [quarter_four]
++
++/-- Apply the shared theorem to Q's actual branch equation and rounded sizes.
++The two children sum to at most n/2, even when n is not divisible by four. -/
++theorem quarter_affine_bound :
++    ∃ A B : ℚ, 0 ≤ A ∧ 0 ≤ B ∧
++      ∀ n : Nat, (quarter n : ℚ) ≤ A * (n : ℚ) + B := by
++  refine exists_affine_bound_of_two_branch
++    (fun n => (quarter n : ℚ)) (fun n => n / 4) (fun n => n / 4)
++    1 (1 / 2) 0 1 1 (by norm_num) ?_ ?_
++  · intro n _
++    have divided : ((n / 4 : Nat) : ℚ) * 4 ≤ (n : ℚ) := by
++      simpa only [Nat.cast_mul, Nat.cast_ofNat] using
++        (Nat.cast_le (α := ℚ)).mpr (Nat.div_mul_le_self n 4)
++    nlinarith only [divided]
++  · intro n hn
++    rw [quarter_of_one_lt n hn]
++    simp only [Nat.cast_add, Nat.cast_mul, Nat.cast_ofNat, Nat.cast_one]
++    linarith
++
++/-- Negative function values and a negative linear toll over an integer ring. -/
++def signed (n : Nat) : Int := -(n : Int) - 1
++
++theorem signed_base : signed 0 = -1 := rfl
++
++theorem signed_nonpositive (n : Nat) : signed n ≤ 0 := by
++  have nonneg : (0 : Int) ≤ (n : Int) := Nat.cast_nonneg n
++  simp only [signed]
++  omega
++
++theorem signed_recurrence (n : Nat) :
++    signed n = signed 0 + signed 0 + (-1) * (n : Int) + 1 := by
++  simp only [signed, Nat.cast_zero]
++  ring
++
++/-- This client cannot obtain its scalar instance from a field requirement.
++Its local toll is 1-n and becomes negative; its base is already negative. -/
++theorem signed_affine_bound :
++    ∃ A B : Int, 0 ≤ A ∧ 0 ≤ B ∧
++      ∀ n : Nat, signed n ≤ A * (n : Int) + B := by
++  refine exists_affine_bound_of_two_branch signed (fun _ => 0) (fun _ => 0)
++    0 0 0 (-1) 1 (by decide) ?_ ?_
++  · intro n _
++    simp
++  · intro n _
++    exact (signed_recurrence n).le
++
++/-- A one-sided signed bound does not control the absolute value. -/
++theorem negative_square_upper {R : Type*} [CommRing R] [LinearOrder R]
++    [IsStrictOrderedRing R] (n : Nat) : -((n : R) ^ 2) ≤ 0 := by
++  nlinarith only [sq_nonneg (n : R)]
++
++theorem negative_square_absolute_value :
++    -((2 : Int) ^ 2) ≤ 0 ∧ | -((2 : Int) ^ 2)| = 4 := by
++  norm_num
++
++/-- The same recurrence parameters work for each p, but the prefix depends on p.
++The constants remain inside that parameter's quantifier. -/
++theorem parameterwise_affine_bound (p : Nat) :
++    ∃ A B : Int, 0 ≤ A ∧ 0 ≤ B ∧
++      ∀ n : Nat, (p : Int) ≤ A * (n : Int) + B := by
++  refine exists_affine_bound_of_two_branch (fun _ => (p : Int))
++    (fun _ => 0) (fun _ => 0) 0 0 0 0 0 (by decide) ?_ ?_
++  · intro n _
++    simp
++  · intro n _
++    have nonneg : (0 : Int) ≤ (p : Int) := Nat.cast_nonneg p
++    simp only [zero_mul, add_zero]
++    omega
++
++/-- For f(p,n)=p, n=0 rules out constants uniform over every natural p. -/
++theorem no_uniform_natural_family_bound :
++    ¬ ∃ A B : Nat, ∀ p n : Nat, p ≤ A * n + B := by
++  rintro ⟨A, B, bound⟩
++  have exceeded := bound (B + 1) 0
++  omega
++
++/-- The same obstruction applies to arbitrary integer coefficients, so the
++preceding parameterwise application cannot exchange its quantifiers. -/
++theorem no_uniform_integer_family_bound :
++    ¬ ∃ A B : Int, ∀ p n : Nat, (p : Int) ≤ A * (n : Int) + B := by
++  rintro ⟨A, B, bound⟩
++  obtain ⟨p, hp⟩ := exists_nat_gt B
++  have at_zero := bound p 0
++  simp only [Nat.cast_zero, mul_zero, zero_add] at at_zero
++  exact (not_le_of_gt hp) at_zero
++
++end Examples.AffineRecurrence
+diff --git a/SquareApplications.lean b/SquareApplications.lean
+index 45cbe0f..d3ce332 100644
+--- a/SquareApplications.lean
++++ b/SquareApplications.lean
+@@ -28,6 +28,7 @@ import Examples.DijkstraSentinel
+ import Examples.RandomAccessEndCosts
+ import Examples.RandomAccessCosts
+ import Examples.PotentialAccounting
++import Examples.AffineRecurrence
+ import Examples.OrderedSearch
+ import Examples.SymmetricLists
+ import Examples.RandomAccessLists
+diff --git a/docs/research/fdsa-affine-recurrence.md b/docs/research/fdsa-affine-recurrence.md
+new file mode 100644
+index 0000000..762109d
+--- /dev/null
++++ b/docs/research/fdsa-affine-recurrence.md
+@@ -0,0 +1,236 @@
++# Affine upper bounds for contracting recurrences
++
++This is a shared arithmetic unit for the whole-book FDSA reconstruction.
++At the 4 November 2026 receiving-preparation snapshot, both independent source
++assessments of the original draft were complete with no new XR source findings;
++the unit had no compiler, expanded-type, guarded-full-check or audit result.
++Current receiving validation and acceptance are recorded in the local
++`fdsa-control` review and acceptance evidence. This unit prepares a reusable
++argument for later chapter work while preserving the chapter acceptance order.
++
++## Source and scope
++
++The primary source is *Functional Data Structures and Algorithms: A Proof
++Assistant Approach*, July 27, 2026 edition, printed pages 41–43, particularly
++Theorem 3.9 and its natural-valued corollary. The
++[official PDF](https://fdsa-book.net/functional_data_structures_algorithms.pdf)
++has SHA-256
++`9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645`.
++
++The companion reference is Manuel Eberl's
++[`Selection.thy`](https://github.com/isabelle-prover/mirror-isabelle/blob/f86f290225eebcc52c1ae7dba2e098f405f51c21/src/HOL/Data_Structures/Selection.thy),
++at Isabelle revision `f86f290225eebcc52c1ae7dba2e098f405f51c21`, with SHA-256
++`c2e5970bcdc9430ef802a6612381fdd3820a02bc796d20f4a202060f3f00b4e8`.
++Its relevant declarations are `akra_bazzi_light_aux1`,
++`akra_bazzi_light_aux2`, `akra_bazzi_light`, and `akra_bazzi_light_nat`.
++The pinned Isabelle distribution's top-level license is BSD-3-Clause. That
++revision postdates the PDF and is a statement/proof reference, rather than a
++claim about the exact source used to generate the book.
++
++The book uses rounded affine child sizes and explicit real quotient witnesses.
++The present unit abstracts the child maps and uses a division-free existence
++argument. This permits an ordered commutative ring as the scalar carrier and
++allows signed function values and signed toll coefficients. The exact source
++rounding and prescribed quantitative constants remain separate obligations.
++
++The implementation uses Lean 4.35.0 and Mathlib revision
++`56a005855ea17e0b0958f73ec801ae140b0a1679`, as pinned by the project. The
++pre-existing [`Growth.lean`](../../Applications/Resources/Growth.lean) interface
++converts a supplied natural bound into a real-cast Big-O statement. The new
++arithmetic theorem supplies the preceding recurrence argument; it leaves that
++interface unchanged and imports no asymptotic or real-analysis development.
++
++## Public statement
++
++[`Resources.AffineRecurrence.exists_affine_bound_of_two_branch`](../../Applications/Resources/AffineRecurrence.lean)
++has scalar requirements
++
++```lean
++[CommRing R] [LinearOrder R] [IsStrictOrderedRing R] [Archimedean R]
++```
++
++For fixed functions `f : Nat → R`, `left right : Nat → Nat`, a natural cutoff
++`n0`, and fixed `rho K C D : R`, its assumptions are
++
++```text
++rho < 1
++for every n > n0:
++  left(n) + right(n) <= rho*n + K
++  f(n) <= f(left(n)) + f(right(n)) + C*n + D.
++```
++
++Natural sizes in scalar expressions are explicitly cast into `R`. The
++conclusion is
++
++```text
++there exist A B : R with A >= 0 and B >= 0 such that
++  for every natural n, f(n) <= A*n + B.
++```
++
++The constants are chosen before the input `n`. All inputs are covered, including
++zero and the finite prefix where neither recurrence premise applies. Neither
++the function nor its child maps must be monotone. No sign assumptions are
++made on `f`, `K`, `C`, or `D`; the only explicit restriction on `rho` is strict
++contraction. Children have natural domains and hence nonnegative cast sizes.
++
++This theorem concerns an already given total scalar function. Its later proof
++cutoff cannot justify a recursive definition that fails to decrease at its
++own branch cutoff. A measured algorithm also needs its own theorem connecting
++the actual cost observation to this scalar function.
++
++## Division-free witnesses and induction
++
++Write `delta = 1-rho`, which is positive. `Archimedean.arch` chooses a natural
++`M` satisfying `2*K <= M*delta`. Set `N = max n0 (max 1 M)`. Thus the cutoff
++covers the original base domain, contains at least one, and satisfies
++`2*K <= delta*N`.
++
++The prefix maximum is the standard nonempty finite supremum
++
++```text
++prefixMax = (Finset.range (N+1)).sup' prefix_nonempty f
++B = max 0 prefixMax.
++```
++
++`Finset.le_sup'` supplies the bound for every `n <= N`. The prefix is nonempty
++because it contains zero. The nonnegative intercept is a convenient choice
++for this proof; it does not assert that the book's separate prefix maximum
++must be nonnegative.
++
++A second use of `Archimedean.arch` chooses a natural `a` with
++
++```text
++2*(max 0 C + max 0 D + B) <= a*delta.
++```
++
++The slope `A` is the cast of `a`. Both choices use natural multiples, with
++`nsmul_eq_mul` supplying their ring interpretation. There is no division,
++floor, completeness or field requirement in the core.
++
++For an input above `N`, the size assumption gives
++
++```text
++2*(left(n)+right(n)) <= (1+rho)*n < 2*n.
++```
++
++Nonnegative child sizes then imply that each child is strictly below `n`.
++`Nat.cast_lt` reflects those inequalities back to naturals before
++`Nat.strongRecOn` uses the two induction hypotheses.
++
++The slope choice and `n >= 1` give the absorption inequality
++
++```text
++2*(C*n + D + B) <= A*(1-rho)*n.
++```
++
++The proof obtains this from explicit multiplication inequalities, using the
++positive parts of `C` and `D` and the nonnegative intercept. Combining it with
++the two child bounds and the recurrence yields
++
++```text
++2*f(n)
++  <= 2*A*(left(n)+right(n)) + 4*B + 2*C*n + 2*D
++  <= A*(1+rho)*n + 4*B + 2*C*n + 2*D
++  <= 2*(A*n+B).
++```
++
++Ordered-ring arithmetic finishes the step. The public interface is one ordinary
++theorem over functions. Its witness construction and induction calculation
++remain internal proof details.
++
++## Connected cases and statement review
++
++The retained clients are in
++[`Examples.AffineRecurrence`](../../Examples/AffineRecurrence.lean). At the
++4 November 2026 receiving-preparation snapshot, these clients had not been
++compiled; the following records their intended mathematics and connections.
++
++### A terminating natural quarter recurrence
++
++`quarter` defines
++
++```text
++Q(n) = 1                         when n <= 1
++Q(n) = 2*Q(n/4) + n + 1          when n > 1.
++```
++
++Its well-founded definition uses `Nat.div_lt_self` at the actual branch cutoff.
++The public branch equations support independently calculated values:
++
++| Input | Expected value | Calculation |
++| --- | --- | --- |
++| 0 | 1 | Base branch |
++| 1 | 1 | Base branch |
++| 2 | 5 | `2*Q(0)+2+1` |
++| 4 | 7 | `2*Q(1)+4+1` |
++| 8 | 19 | `2*Q(2)+8+1` |
++| 16 | 31 | `2*Q(4)+16+1` |
++
++`quarter_affine_bound` applies the generic theorem to the rational cast of this
++defined function with `rho=1/2`, `K=0`, `C=1`, `D=1`, and both child maps equal
++to natural division by four. `Nat.div_mul_le_self` establishes the size premise
++for all inputs, including those not divisible by four. The actual branch
++equation supplies the cast upper recurrence. This is a scalar recurrence
++example; it does not claim a cost correspondence with median-of-medians or
++with Lean's runtime evaluation of `quarter`.
++
++### Signed integer values and tolls
++
++`signed n = -(n : Int)-1` has negative base value `-1` and satisfies
++
++```text
++signed(n) = signed(0) + signed(0) + (-1)*n + 1.
++```
++
++Its child maps are zero; `rho=0`, `K=0`, `C=-1`, and `D=1` satisfy the generic
++premises. The local toll is `1-n`, which becomes negative. The independently
++expected inequality is `signed n <= 0`, retained as `signed_nonpositive`.
++`signed_affine_bound` obtains an all-input affine bound through the shared
++theorem over `Int`, exercising the absence of a field or nonnegative-function
++requirement.
++
++`negative_square_upper` separately retains `-(n:R)^2 <= 0` under ordered-ring
++assumptions. At the concrete integer input two, the absolute value is four.
++This illustrates why the one-sided conclusion is not an absolute-value bound.
++The unit exports no signed-function Big-O theorem. Natural-cost asymptotics
++need their nonnegative cast and cost correspondence when using `Growth.lean`.
++
++### Parameters remain outside each invocation's constants
++
++`parameterwise_affine_bound p` applies the theorem to the constant integer
++function `f(p,n)=p`, with zero child maps and zero toll. The recurrence parameters
++are common, but the finite prefix depends on `p`, so the conclusion has order
++`forall p, exists A B, forall n`.
++
++`no_uniform_natural_family_bound` rules out
++`exists A B : Nat, forall p n : Nat, p <= A*n+B` by selecting `n=0` and
++`p=B+1`. `no_uniform_integer_family_bound` also rules out arbitrary integer
++coefficients, choosing a natural `p` above the proposed integer intercept via
++`exists_nat_gt`. These witnesses prevent exchanging the parameter and constant
++quantifiers without additional uniform prefix information.
++
++## Remaining chapter obligations
++
++The full Chapter 3 ledger still retains the exact natural-ceiling bridges with
++negative offsets; the source's displayed child thresholds; its sharper
++constant choices, including a possibly negative intercept in C03-041/042;
++the actual median-of-medians scalar recurrence and uniform selector-to-cost
++correspondence; generalized grouping; and the genuine noncontracting halving
++counterexample. A successful check of this shared theorem would not discharge
++those items. In particular, the chosen nonnegative `B` and division-free
++witnesses do not replace the source's quantitative constant-choice argument.
++
++The theorem supplies a sufficient contraction condition. It neither proves
++that every linear recurrence must contract in this way nor subsumes exact
++constant-toll tree recurrences whose child sizes sum to `n-1`. Those remain
++their direct chapter-specific induction arguments.
++
++## Validation boundary
++
++The frozen shared-unit requirements and source preflight are preserved in the
++external `fdsa-control` checkpoint directory. No compiler was run during the
++original draft while the earlier Chapter 1 full gate remained active. Static
++source and API inspection is not Lean elaboration, an axiom audit or independent
++approval. The coordinated workflow requires focused compilation, public-root
++integration, the full applicable guarded candidate check and exhaustive audit,
++both retained review axes, and immediate final candidate identity verification.
+diff --git a/docs/research/fdsa-reconstruction-map.md b/docs/research/fdsa-reconstruction-map.md
+index 00515bd..772e92b 100644
+--- a/docs/research/fdsa-reconstruction-map.md
++++ b/docs/research/fdsa-reconstruction-map.md
+@@ -485,6 +485,33 @@ These definitions and examples remain subject to complete candidate validation
+ and independent review before acceptance. Cost observations concern the stated
+ recursive model, not execution time of standard-library list operations.
+ 
++## Shared affine recurrence groundwork
++
++`Resources.AffineRecurrence.exists_affine_bound_of_two_branch` supplies a
++uniform all-input affine upper bound for an already total scalar function.
++Its two natural child maps have a strictly contracting eventual sum bound;
++its recurrence and toll are upper bounds. The scalar carrier is an
++Archimedean linearly ordered commutative ring, with signed function values
++and signed tolls allowed. Ordinary finite maxima, natural multiples and strong
++induction provide the witnesses; no recurrence structure or executor is added.
++
++`Examples.AffineRecurrence` connects the theorem to the actual terminating
++quarter-size recurrence over rational casts, a signed integer recurrence, and
++parameter-uniformity boundaries. The finite prefix, including zero, is covered
++by the same constants as every later input. A one-sided order bound is kept
++distinct from an absolute-value or asymptotic norm bound.
++
++At the 4 November 2026 receiving-preparation snapshot, both independent
++assessments of the original source were complete with no new XR source findings;
++the unit had no compiler, expanded-type, guarded-full-check or audit result.
++Current receiving validation and acceptance are recorded in the local
++`fdsa-control` review and acceptance evidence. Its
++[source and statement notes](fdsa-affine-recurrence.md) preserve Chapter 3's
++remaining exact ceiling and negative-offset laws, sharper source constant
++choices, selector-to-cost correspondence and noncontracting counterexample.
++This groundwork does not activate or accept Chapter 3, and it does not prove
++termination of an algorithm by merely enlarging a later proof cutoff.
++
+ ## Architecture and statement review
+ 
+ Appendix C's complete notation correspondence, source corrections and checked
+@@ -499,8 +526,8 @@ realizations are optional and do not impose an allocation or storage capability
+ on other targets. These are ordinary Lean/Type results; no cross-setting
+ interpretation of these new induction proofs is claimed.
+ 
+-The only existing public-interface adjustment is the universe signature of
+-`Resources.erasureSquare`. Its value carriers may now live above the cost type;
++For Chapter 1, the only existing public-interface adjustment is the universe
++signature of `Resources.erasureSquare`. Its value carriers may now live above the cost type;
+ this permits natural costs for lists of arbitrary-universe payloads. Its
+ implementation, semantic contract, old equal-universe specializations and
+ assumptions are unchanged. The new squares and universal composition example

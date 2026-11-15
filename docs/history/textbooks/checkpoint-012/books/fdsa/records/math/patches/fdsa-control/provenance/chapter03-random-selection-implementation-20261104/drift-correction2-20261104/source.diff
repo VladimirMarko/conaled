@@ -1,0 +1,15 @@
+diff --git a/Examples/RandomSelectionDrift.lean b/Examples/RandomSelectionDrift.lean
+index b7e7eaf..cfb93cd 100644
+--- a/Examples/RandomSelectionDrift.lean
++++ b/Examples/RandomSelectionDrift.lean
+@@ -35,7 +35,9 @@ theorem rank_side_small_values :
+ theorem stable_duplicate_positions (x : α) :
+     Resources.RandomQuickSort.occurrenceRank id [x, x] (0 : Fin 2) <
+       Resources.RandomQuickSort.occurrenceRank id [x, x] (1 : Fin 2) :=
+-  occurrenceRank_tie [x, x] 0 1 (by decide) (by rfl)
++  occurrenceRank_tie [x, x] 0 1 (by
++    change (0 : Fin 2) < 1
++    decide) (by rfl)
+ 
+ theorem refined_duplicate_uniform (x : α) :
+     PMF.map (Resources.RandomQuickSort.occurrenceRank id [x, x])

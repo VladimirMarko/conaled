@@ -1,0 +1,633 @@
+diff --git a/Applications/Probability/PermutationMinimum.lean b/Applications/Probability/PermutationMinimum.lean
+new file mode 100644
+index 0000000..9be74c1
+--- /dev/null
++++ b/Applications/Probability/PermutationMinimum.lean
+@@ -0,0 +1,197 @@
++import Mathlib.Data.Finset.Max
++import Mathlib.Data.Fintype.Perm
++import Mathlib.Data.Set.Card
++import Mathlib.Probability.UniformOn
++
++/-!
++# Fixed-subset minima under a uniform permutation
++
++An ordinary permutation assigns each key index a distinct priority label.
++Every observed subset uses that same permutation. For an injective priority
++function into a linear order, each member of a fixed nonempty finite subset
++has the same probability of being its minimum.
++
++The event records membership as well as comparison. Its elementary laws do
++not require finite indices, injective priorities or a probability space.
++The probability law uses the existing uniform measure on permutations and
++keeps its measurable structure explicit. No measurable structure or order
++is required on the index type, and the priority target may be infinite.
++
++Right composition by a key transposition exchanges two members' minimum
++events. Their equal masses sum to one because distinct assigned priorities
++give a unique minimum in every sample. This law concerns fixed subsets;
++conditional histories and the full induced relative order are separate
++claims. In particular, overlapping subsets still share their random input.
++-/
++
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Applications.Probability.PermutationMinimum
++
++open MeasureTheory ProbabilityTheory
++open scoped ENNReal BigOperators
++
++universe u v w
++
++variable {I : Type u} {P : Type v}
++
++/-- The candidate is a member of the subset and has no larger assigned
++priority than any of its members. The permutation maps keys to labels. -/
++def minimumEvent [LE P] (priority : I → P) (S : Finset I) (a : I) :
++    Set (Equiv.Perm I) :=
++  {π | a ∈ S ∧ ∀ b ∈ S, priority (π a) ≤ priority (π b)}
++
++@[simp] theorem mem_minimumEvent [LE P] (priority : I → P) (S : Finset I)
++    (a : I) (π : Equiv.Perm I) :
++    π ∈ minimumEvent priority S a ↔
++      a ∈ S ∧ ∀ b ∈ S, priority (π a) ≤ priority (π b) :=
++  Iff.rfl
++
++/-- An empty subset has no minimum member. -/
++@[simp] theorem minimumEvent_empty [LE P] (priority : I → P) (a : I) :
++    minimumEvent priority ∅ a = ∅ := by
++  simp [minimumEvent]
++
++/-- Comparisons alone do not turn an outsider into a minimum member. -/
++theorem minimumEvent_of_not_mem [LE P] (priority : I → P) (S : Finset I)
++    (a : I) (ha : a ∉ S) : minimumEvent priority S a = ∅ := by
++  simp [minimumEvent, ha]
++
++/-- The sole member of a singleton is a minimum in every sample. -/
++@[simp] theorem minimumEvent_singleton [Preorder P] (priority : I → P) (a : I) :
++    minimumEvent priority {a} a = Set.univ := by
++  simp [minimumEvent]
++
++/-- Two minimum observations of the same member and the same permutation
++combine into the minimum observation on the union. -/
++theorem minimumEvent_inter [LE P] [DecidableEq I] (priority : I → P)
++    (S T : Finset I) (a : I) (haS : a ∈ S) (haT : a ∈ T) :
++    minimumEvent priority S a ∩ minimumEvent priority T a =
++      minimumEvent priority (S ∪ T) a := by
++  apply Set.ext
++  intro π
++  constructor
++  · rintro ⟨hS, hT⟩
++    refine ⟨Finset.mem_union.mpr (Or.inl haS), ?_⟩
++    intro b hb
++    rcases Finset.mem_union.mp hb with hb | hb
++    · exact hS.2 b hb
++    · exact hT.2 b hb
++  · intro h
++    constructor
++    · exact ⟨haS, fun b hb => h.2 b (Finset.mem_union.mpr (Or.inl hb))⟩
++    · exact ⟨haT, fun b hb => h.2 b (Finset.mem_union.mpr (Or.inr hb))⟩
++
++private theorem swap_mem_iff [DecidableEq I] (S : Finset I) (a b : I)
++    (ha : a ∈ S) (hb : b ∈ S) (x : I) :
++    Equiv.swap a b x ∈ S ↔ x ∈ S := by
++  by_cases hxa : x = a
++  · subst x
++    simp [ha, hb]
++  by_cases hxb : x = b
++  · subst x
++    simp [ha, hb]
++  simp only [Equiv.swap_apply_of_ne_of_ne hxa hxb]
++
++private theorem minimumEvent_swap_preimage [LE P] [DecidableEq I]
++    (priority : I → P) (S : Finset I) (a b : I) (ha : a ∈ S) (hb : b ∈ S) :
++    (fun π : Equiv.Perm I => π * Equiv.swap a b) ⁻¹'
++        minimumEvent priority S b =
++      minimumEvent priority S a := by
++  apply Set.ext
++  intro π
++  change
++    (b ∈ S ∧ ∀ x ∈ S,
++      priority ((π * Equiv.swap a b) b) ≤ priority ((π * Equiv.swap a b) x)) ↔
++    (a ∈ S ∧ ∀ x ∈ S, priority (π a) ≤ priority (π x))
++  constructor
++  · intro h
++    refine ⟨ha, ?_⟩
++    intro x hx
++    have hx' := (swap_mem_iff S a b ha hb x).2 hx
++    have hcompare := h.2 (Equiv.swap a b x) hx'
++    simpa only [Equiv.Perm.mul_apply, Equiv.swap_apply_right,
++      Equiv.swap_apply_self] using hcompare
++  · intro h
++    refine ⟨hb, ?_⟩
++    intro x hx
++    have hx' := (swap_mem_iff S a b ha hb x).2 hx
++    have hcompare := h.2 (Equiv.swap a b x) hx'
++    simpa only [Equiv.Perm.mul_apply, Equiv.swap_apply_right] using hcompare
++
++private theorem uniformOn_univ_preimage {Ω : Type w} [Finite Ω]
++    [MeasurableSpace Ω] [MeasurableSingletonClass Ω] (e : Ω ≃ Ω) (E : Set Ω) :
++    uniformOn Set.univ (e ⁻¹' E) = uniformOn Set.univ E := by
++  classical
++  letI := Fintype.ofFinite Ω
++  rw [uniformOn_univ, uniformOn_univ,
++    Measure.count_apply (e ⁻¹' E).toFinite.measurableSet,
++    Measure.count_apply E.toFinite.measurableSet,
++    Set.encard_preimage_of_bijective e.bijective E]
++
++private theorem uniformOn_minimumEvent_eq [Finite I] [LE P]
++    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
++    (priority : I → P) (S : Finset I) (a b : I) (ha : a ∈ S) (hb : b ∈ S) :
++    uniformOn Set.univ (minimumEvent priority S a) =
++      uniformOn Set.univ (minimumEvent priority S b) := by
++  classical
++  letI := Fintype.ofFinite I
++  have h := uniformOn_univ_preimage
++    (Equiv.mulRight (Equiv.swap a b)) (minimumEvent priority S b)
++  simpa only [Equiv.coe_mulRight,
++    minimumEvent_swap_preimage priority S a b ha hb] using h
++
++private theorem minimumEvent_iUnion [LinearOrder P] (priority : I → P)
++    (S : Finset I) (hS : S.Nonempty) :
++    (⋃ a ∈ S, minimumEvent priority S a) = Set.univ := by
++  apply Set.eq_univ_of_forall
++  intro π
++  obtain ⟨a, ha, hmin⟩ :=
++    Finset.exists_min_image S (fun b => priority (π b)) hS
++  exact Set.mem_iUnion.mpr
++    ⟨a, Set.mem_iUnion.mpr ⟨ha, ⟨ha, hmin⟩⟩⟩
++
++private theorem minimumEvent_pairwiseDisjoint [PartialOrder P]
++    (priority : I → P) (hinj : Function.Injective priority) (S : Finset I) :
++    Set.PairwiseDisjoint (↑S) (minimumEvent priority S) := by
++  intro a ha b hb hab
++  apply Set.disjoint_left.mpr
++  intro π hπa hπb
++  exact hab (π.injective (hinj
++    (le_antisymm (hπa.2 b hb) (hπb.2 a ha))))
++
++/-- Under one uniform global permutation, every member of a fixed subset
++has reciprocal-cardinality probability of being its minimum. Membership
++supplies nonemptiness; injectivity of the priority function excludes ties. -/
++theorem uniformOn_minimumEvent [Finite I] [LinearOrder P]
++    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
++    (priority : I → P) (hinj : Function.Injective priority)
++    (S : Finset I) (a : I) (ha : a ∈ S) :
++    uniformOn (Set.univ : Set (Equiv.Perm I)) (minimumEvent priority S a) =
++      (S.card : ℝ≥0∞)⁻¹ := by
++  classical
++  letI := Fintype.ofFinite I
++  have hpartition :=
++    measure_biUnion_finset (μ := uniformOn (Set.univ : Set (Equiv.Perm I)))
++      (minimumEvent_pairwiseDisjoint priority hinj S)
++      (fun b _ => (minimumEvent priority S b).toFinite.measurableSet)
++  rw [minimumEvent_iUnion priority S ⟨a, ha⟩, measure_univ] at hpartition
++  have hsum :
++      (∑ b ∈ S, uniformOn Set.univ (minimumEvent priority S b)) =
++        (S.card : ℝ≥0∞) * uniformOn Set.univ (minimumEvent priority S a) := by
++    calc
++      _ = ∑ _b ∈ S, uniformOn Set.univ (minimumEvent priority S a) := by
++        apply Finset.sum_congr rfl
++        intro b hb
++        exact uniformOn_minimumEvent_eq priority S b a hb ha
++      _ = _ := by rw [Finset.sum_const, nsmul_eq_mul]
++  apply ENNReal.eq_inv_of_mul_eq_one_left
++  calc
++    uniformOn Set.univ (minimumEvent priority S a) * (S.card : ℝ≥0∞) =
++        (S.card : ℝ≥0∞) * uniformOn Set.univ (minimumEvent priority S a) :=
++      mul_comm _ _
++    _ = ∑ b ∈ S, uniformOn Set.univ (minimumEvent priority S b) := hsum.symm
++    _ = 1 := hpartition.symm
++
++end Applications.Probability.PermutationMinimum
+diff --git a/Examples/PermutationMinimum.lean b/Examples/PermutationMinimum.lean
+new file mode 100644
+index 0000000..e49e17a
+--- /dev/null
++++ b/Examples/PermutationMinimum.lean
+@@ -0,0 +1,126 @@
++import Applications.Probability.PermutationMinimum
++import Examples.PermutationMinimumBoundary
++import Mathlib.Tactic
++
++/-!
++# Subset minima under one global random ranking
++
++One uniformly sampled permutation of three key indices determines every
++priority in this example. The two subsets `{0, 1}` and `{1, 2}` share index
++one and the same sampled ranking. Each subset gives that index probability
++`1/2` of being first, while the intersection has probability `1/3`.
++
++These claims use the public minimum law and its event-intersection bridge.
++They do not replace the shared environment by independently chosen subset
++orders. A second specialization uses injective, nonmonotone integer priorities
++with a negative value and unequal gaps: numeric priority values need not be
++ordinal positions, and the priority target need not be finite.
++
++The examples supply no treap construction or sorting execution. Those clients
++still need deterministic minimum/root/comparison bridges and their actual
++conditional sampling and resource observations.
++-/
++
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.PermutationMinimum
++
++open MeasureTheory ProbabilityTheory
++open Applications.Probability.PermutationMinimum
++open scoped ENNReal
++
++local instance : MeasurableSpace (Equiv.Perm (Fin 3)) := ⊤
++local instance : MeasurableSingletonClass (Equiv.Perm (Fin 3)) :=
++  ⟨fun _ => trivial⟩
++
++/-- One common random permutation, mapping key indices to priority labels. -/
++noncomputable def law : Measure (Equiv.Perm (Fin 3)) := uniformOn Set.univ
++
++local instance : IsProbabilityMeasure law := by
++  unfold law
++  infer_instance
++
++def firstSubset : Finset (Fin 3) := {0, 1}
++def secondSubset : Finset (Fin 3) := {1, 2}
++
++theorem first_minimum_mass :
++    law (minimumEvent id firstSubset 1) = 1 / 2 := by
++  simpa [law, firstSubset, one_div] using
++    (uniformOn_minimumEvent (id : Fin 3 → Fin 3) Function.injective_id
++      firstSubset 1 (by simp [firstSubset]))
++
++theorem second_minimum_mass :
++    law (minimumEvent id secondSubset 1) = 1 / 2 := by
++  simpa [law, secondSubset, one_div] using
++    (uniformOn_minimumEvent (id : Fin 3 → Fin 3) Function.injective_id
++      secondSubset 1 (by simp [secondSubset]))
++
++/-- The two observations ask about the same minimum on the union. -/
++theorem overlap_event :
++    minimumEvent id firstSubset 1 ∩ minimumEvent id secondSubset 1 =
++      minimumEvent id Finset.univ 1 := by
++  rw [minimumEvent_inter id firstSubset secondSubset 1
++    (by simp [firstSubset]) (by simp [secondSubset])]
++  have hcover : firstSubset ∪ secondSubset = Finset.univ := by
++    ext a
++    fin_cases a <;> simp [firstSubset, secondSubset]
++  rw [hcover]
++
++theorem full_minimum_mass (a : Fin 3) :
++    law (minimumEvent id Finset.univ a) = 1 / 3 := by
++  simpa [law, one_div] using
++    (uniformOn_minimumEvent (id : Fin 3 → Fin 3) Function.injective_id
++      Finset.univ a (Finset.mem_univ a))
++
++theorem overlap_mass :
++    law (minimumEvent id firstSubset 1 ∩ minimumEvent id secondSubset 1) =
++      1 / 3 := by
++  rw [overlap_event]
++  exact full_minimum_mass 1
++
++theorem marginal_product :
++    law (minimumEvent id firstSubset 1) *
++      law (minimumEvent id secondSubset 1) = 1 / 4 := by
++  rw [first_minimum_mass, second_minimum_mass]
++  norm_num [← ENNReal.coe_div, ← ENNReal.coe_mul]
++
++/-- Uniform marginals on overlapping subsets do not assert their independence. -/
++theorem overlap_mass_ne_product :
++    law (minimumEvent id firstSubset 1 ∩ minimumEvent id secondSubset 1) ≠
++      law (minimumEvent id firstSubset 1) *
++        law (minimumEvent id secondSubset 1) := by
++  rw [overlap_mass, marginal_product]
++  norm_num [← ENNReal.coe_div]
++
++theorem singleton_minimum_mass (a : Fin 3) :
++    law (minimumEvent id {a} a) = 1 := by
++  simpa [law] using
++    (uniformOn_minimumEvent (id : Fin 3 → Fin 3) Function.injective_id
++      {a} a (Finset.mem_singleton_self a))
++
++/-- Distinct integer labels with a negative value and unequal ordered gaps. -/
++def spacedPriority (a : Fin 3) : Int :=
++  if a.val = 0 then -7 else if a.val = 1 then 100 else 4
++
++theorem spacedPriority_values :
++    spacedPriority 0 = -7 ∧ spacedPriority 1 = 100 ∧ spacedPriority 2 = 4 := by
++  decide
++
++theorem spacedPriority_injective : Function.Injective spacedPriority := by
++  intro a b hab
++  fin_cases a <;> fin_cases b <;> norm_num [spacedPriority] at hab ⊢
++
++theorem spacedPriority_not_monotone : ¬ Monotone spacedPriority := by
++  intro h
++  have h12 := h (show (1 : Fin 3) ≤ 2 by decide)
++  norm_num [spacedPriority] at h12
++
++/-- Only injectivity and the target's linear order matter for the minimum law. -/
++theorem spaced_minimum_mass :
++    law (minimumEvent spacedPriority secondSubset 2) = 1 / 2 := by
++  simpa [law, secondSubset, one_div] using
++    (uniformOn_minimumEvent spacedPriority spacedPriority_injective
++      secondSubset 2 (by simp [secondSubset]))
++
++end Examples.PermutationMinimum
+diff --git a/Examples/PermutationMinimumBoundary.lean b/Examples/PermutationMinimumBoundary.lean
+new file mode 100644
+index 0000000..05642e6
+--- /dev/null
++++ b/Examples/PermutationMinimumBoundary.lean
+@@ -0,0 +1,113 @@
++import Applications.Probability.PermutationMinimum
++import Mathlib.Tactic.FinCases
++
++/-!
++# Empty, outsider and tied-priority boundaries for uniform permutation minima
++
++The raw outsider comparison is connected to a genuine full-set minimum, so its
++probability uses the public uniform-permutation theorem. Empty and tied events
++exercise the event definition without asserting that the theorem applies when
++membership or injectivity is absent.
++-/
++
++set_option autoImplicit false
++set_option warningAsError true
++
++open MeasureTheory ProbabilityTheory
++open Applications.Probability.PermutationMinimum
++open scoped ENNReal
++
++namespace Examples.PermutationMinimumBoundary
++
++local instance : MeasurableSpace (Equiv.Perm Empty) := ⊤
++local instance : MeasurableSpace (Equiv.Perm (Fin 2)) := ⊤
++
++/-- The empty index universe still has its identity permutation as a sample. -/
++theorem empty_index_normalized :
++    uniformOn (Set.univ : Set (Equiv.Perm Empty)) Set.univ = 1 := by
++  exact uniformOn_self Set.finite_univ ⟨Equiv.refl Empty, Set.mem_univ _⟩
++
++/-- An empty subset has no minimum member, even when an index is available. -/
++theorem empty_subset_event :
++    minimumEvent (id : Fin 2 → Fin 2) ∅ 0 = ∅ :=
++  minimumEvent_empty _ _
++
++theorem empty_subset_mass :
++    uniformOn Set.univ (minimumEvent (id : Fin 2 → Fin 2) ∅ 0) = 0 := by
++  rw [empty_subset_event]
++  exact measure_empty
++
++/-- Candidate 0 is outside the singleton subset {1}. -/
++theorem outsider_event_empty :
++    minimumEvent (id : Fin 2 → Fin 2) {1} 0 = ∅ :=
++  minimumEvent_of_not_mem _ _ _ (by decide)
++
++theorem outsider_mass :
++    uniformOn Set.univ (minimumEvent (id : Fin 2 → Fin 2) {1} 0) = 0 := by
++  rw [outsider_event_empty]
++  exact measure_empty
++
++/-- Dropping membership leaves only the comparison of two assigned priorities. -/
++def outsiderComparison : Set (Equiv.Perm (Fin 2)) :=
++  {π | π 0 ≤ π 1}
++
++/-- That comparison is the event that 0 is the minimum of the full pair. -/
++theorem outsiderComparison_eq_full_minimum :
++    outsiderComparison =
++      minimumEvent (id : Fin 2 → Fin 2) Finset.univ 0 := by
++  ext π
++  change (π 0 ≤ π 1) ↔
++    ((0 : Fin 2) ∈ (Finset.univ : Finset (Fin 2)) ∧
++      ∀ b ∈ (Finset.univ : Finset (Fin 2)), π 0 ≤ π b)
++  constructor
++  · intro h
++    refine ⟨Finset.mem_univ _, ?_⟩
++    intro b _
++    fin_cases b
++    · exact le_rfl
++    · exact h
++  · intro h
++    exact h.2 1 (Finset.mem_univ _)
++
++/-- The mass comes from the public minimum law on the full two-member set. -/
++theorem outsiderComparison_mass :
++    uniformOn Set.univ outsiderComparison = (2 : ℝ≥0∞)⁻¹ := by
++  rw [outsiderComparison_eq_full_minimum]
++  simpa using
++    (uniformOn_minimumEvent (id : Fin 2 → Fin 2) Function.injective_id
++      (Finset.univ : Finset (Fin 2)) 0 (Finset.mem_univ _))
++
++/-- The outsider comparison does not have the singleton reciprocal mass one. -/
++theorem outsiderComparison_ne_singleton_inverse :
++    uniformOn Set.univ outsiderComparison ≠
++      (({1} : Finset (Fin 2)).card : ℝ≥0∞)⁻¹ := by
++  rw [outsiderComparison_mass]
++  simpa using (ne_of_lt ENNReal.one_half_lt_one)
++
++/-- Both keys receive the same priority, regardless of the sampled permutation. -/
++def tiedPriority : Fin 2 → ℕ := fun _ => 0
++
++theorem tiedPriority_not_injective : ¬ Function.Injective tiedPriority := by
++  intro h
++  have h01 : (0 : Fin 2) = 1 := h rfl
++  exact (by decide : (0 : Fin 2) ≠ 1) h01
++
++/-- Every member is a non-strict minimum on every sample when priorities tie. -/
++theorem tied_event_univ (a : Fin 2) :
++    minimumEvent tiedPriority Finset.univ a = Set.univ := by
++  ext π
++  simp [minimumEvent, tiedPriority]
++
++theorem tied_mass (a : Fin 2) :
++    uniformOn Set.univ (minimumEvent tiedPriority Finset.univ a) = 1 := by
++  rw [tied_event_univ]
++  exact uniformOn_self Set.finite_univ ⟨Equiv.refl (Fin 2), Set.mem_univ _⟩
++
++/-- Without injectivity, the reciprocal-cardinality conclusion fails. -/
++theorem tied_mass_ne_half (a : Fin 2) :
++    uniformOn Set.univ (minimumEvent tiedPriority Finset.univ a) ≠
++      (2 : ℝ≥0∞)⁻¹ := by
++  rw [tied_mass]
++  exact ne_of_gt ENNReal.one_half_lt_one
++
++end Examples.PermutationMinimumBoundary
+diff --git a/SquareApplications.lean b/SquareApplications.lean
+index 9a87298..625d468 100644
+--- a/SquareApplications.lean
++++ b/SquareApplications.lean
+@@ -15,6 +15,7 @@ import Examples.CurryHoward
+ import Examples.ProbabilisticProgress
+ import Examples.MetropolisHastings
+ import Examples.ProbabilityCorrelation
++import Examples.PermutationMinimum
+ import Examples.StatefulIncremental
+ import Examples.ExternalInteraction
+ import Examples.InteractionTransport
+diff --git a/docs/research/fdsa-permutation-minimum.md b/docs/research/fdsa-permutation-minimum.md
+new file mode 100644
+index 0000000..47f66cf
+--- /dev/null
++++ b/docs/research/fdsa-permutation-minimum.md
+@@ -0,0 +1,138 @@
++# Uniform minima under one global ranking
++
++Status: **source draft, not yet compiled or accepted**. This bounded shared
++unit supports the FDSA reconstruction. It closes no chapter or randomized
++algorithm obligation. Its immutable candidate, exact requirements, independent
++calculations and eventual validation/review results are retained in the local
++durability checkpoint's FDSA-XU01 record.
++
++## Mathematical interface
++
++`Applications.Probability.PermutationMinimum.minimumEvent priority S a`
++is a set of ordinary permutations of the index type I. A permutation π
++belongs exactly when a is in the fixed finset S and
++
++`∀ b ∈ S, priority (π a) ≤ priority (π b)`.
++
++Thus π maps key indices to priority labels. A source list which instead maps
++priority positions to keys has the inverse orientation. Every subset observes
++the same π. The event definition needs only the target's order relation;
++injectivity, finiteness and linear order belong to the probability law.
++
++`uniformOn_minimumEvent priority hinj S a ha` states that, under the uniform
++measure on all permutations, this event has mass `(S.card : ℝ≥0∞)⁻¹`.
++The hypotheses are:
++
++- I is finite; no public enumeration, index order or index measurable space
++  is required.
++- P is linearly ordered and `priority : I → P` is injective. P need not be
++  finite or measurable, and priority need not be monotone in an index order.
++- The permutation sample space has a measurable space with measurable
++  singletons. These explicit hypotheses justify ordinary finite event
++  probabilities; the unit installs no global measurable-space instance.
++- `ha : a ∈ S` supplies membership and hence nonemptiness. The index type
++  itself need not be inhabited: the permutation type has its identity even
++  when I is empty.
++
++The reciprocal is not a formula for the minimum of an empty set. The event
++includes membership precisely so that outsiders and an empty S have empty
++minimum events. In contrast, an outsider can satisfy all the raw priority
++comparisons without being a member of the subset.
++
++## Why the uniform law follows
++
++For a nonempty S, finite minimum existence gives a minimum priority. The
++injectivity of priority and the sampled permutation makes its attaining member
++unique. Consequently, the member events are disjoint and cover the sample
++space.
++
++Exchanging two indices in S on the right of π exchanges their minimum events.
++This transformation is a bijection of the whole permutation sample space.
++Mathlib's existing finite uniform/counting measure laws show that the two
++events have equal mass. Summing those equal masses over the disjoint cover
++gives `S.card * p = 1`, and hence the reciprocal formula. No factorial
++calculation, independent subset draw or selector is needed.
++
++This is a small combinatorial connection over existing interfaces. The local
++`Table`, finite-kernel and measured-execution developments keep their current
++semantics; they need no new probability carrier, ranking record or executor.
++The event and its elementary laws remain separate from normalization and
++uniqueness assumptions. The finite-bijection machinery is a proof helper,
++not a replacement invariance framework.
++
++## Connected examples
++
++`Examples.PermutationMinimum` uses the same uniform permutation of Fin 3 for
++the subsets `{0,1}` and `{1,2}`. The public theorem gives index one's minimum
++mass as one-half in each subset. The public event-intersection law identifies
++the joint event with its minimum event in their union, the whole universe.
++The same probability theorem then gives mass one-third. The product of the
++marginal masses is one-quarter, and the example proves the inequality.
++
++This matters for shared priorities: correct uniform marginals alone do not
++license replacing the joint law by independent draws. The full-universe and
++singleton specializations also connect to the generic probability theorem.
++
++`spacedPriority` assigns the three indices the integer values `-7,100,4`.
++Its injectivity and failure of monotonicity in the index order are proved.
++The same public minimum theorem still gives a two-member subset probability
++one-half. The target is infinite, its values have gaps, and its numeric values
++are not ordinal positions. No mean numeric priority is inferred.
++
++`Examples.PermutationMinimumBoundary` retains the consequential boundaries:
++
++- The empty subset has an empty event. The permutation law on an empty index
++  universe is nevertheless normalized.
++- On Fin 2, candidate zero is an outsider of `{1}`, so its membership-aware
++  event has mass zero. Its raw comparison has mass one-half, connected to
++  the genuine minimum event in the full two-member set. It cannot be given
++  the singleton's inverse-cardinality mass one.
++- For constant tied priorities on a two-member set, each member is a
++  non-strict minimum on every sample, with mass one. Dropping injectivity
++  would therefore make the one-half formula false.
++
++Independent exact enumeration checked every permutation and fixed subset
++for universe sizes zero through six, including these overlap and empty
++boundaries. That arithmetic is preparation evidence only. None of these
++source-written examples is called checked until the required Lean gates pass.
++
++## Source use and remaining chapter work
++
++The source edition is *Functional Data Structures and Algorithms: A Proof
++Assistant Approach*, July 27, 2026, available from
++[the authors](https://fdsa-book.net/functional_data_structures_algorithms.pdf).
++Its SHA-256 is
++`9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645`.
++The relevant later obligations are average/randomized quicksort in Chapter 2
++and shared random-priority treaps in Chapter 10's notes. The recovered
++treap source is Blelloch, Ferizovic and Sun,
++[*Joinable Parallel Balanced Binary Trees*](https://doi.org/10.1145/3512769),
++with the [author copy](https://www.cs.ucr.edu/~yihans/papers/TOPC/joinable.pdf)
++pinned at SHA-256
++`c39df24da9ffdd1027777c26a8ef0330d73e8f8b2282c5accb4c090b2b0f3057`.
++The shared-ranking construction is on pp.7:4–5; its root-priority estimate
++and expected bulk-work argument require further results beyond this unit.
++
++The exact fixed-subset minimum law is useful shared groundwork, not a claim
++that the source algorithms have been implemented:
++
++- Quicksort still requires its input-list/permutation orientation bridge,
++  conditional subproblem laws or an explicitly proved equivalent joint
++  construction, both recursive branches and its actual source tariff.
++  Random occurrence pivots and duplicate inputs retain their own obligations.
++- Treaps still require their canonical construction and deterministic
++  root/ancestor characterizations under one shared priority assignment.
++  Expected join/set-operation work additionally needs conditional depth,
++  Jensen/charging arguments and an actual observed-work correspondence.
++- The expected count of labels preceding all members of S has its own
++  count/indicator bridge and finite-linearity proof. Interpreting count plus
++  one as a first position additionally requires a nonempty subset and an
++  ordinal/rank bridge. For empty S that quantity is only a sentinel.
++- Full relative-order restrictions and conditional histories are stronger
++  distribution claims. `Equiv.Perm.subtypePerm` restricts a self-map preserving
++  a subtype; it does not automatically produce the induced order of an
++  arbitrary subset under a global ranking.
++
++The frozen requirements preserve these later obligations. Compilation,
++whole-candidate guarded verification, exhaustive axiom audit, both independent
++review axes and immediate final candidate verification remain pending.
+diff --git a/docs/research/fdsa-reconstruction-map.md b/docs/research/fdsa-reconstruction-map.md
+index 08193cb..5e98914 100644
+--- a/docs/research/fdsa-reconstruction-map.md
++++ b/docs/research/fdsa-reconstruction-map.md
+@@ -565,3 +565,18 @@ costs remain mandatory in the original chapters. Accepted repaired Chapter 1,
+ focused compatibility checks, the full candidate build/audit, both independent
+ review axes and immediate candidate verification remain required. No source
+ preflight or authored draft supplies acceptance evidence.
++
++## Shared fixed-subset minimum probability (draft)
++
++The [uniform-permutation minimum unit](fdsa-permutation-minimum.md) supplies a
++source draft of the probability that a member of a fixed finite subset is
++first under one global uniform permutation of injective priorities. It uses
++ordinary permutations, finsets and Mathlib measures, with no new probability
++carrier. Its examples connect the general theorem to overlapping subsets,
++infinite-target integer priorities, empty indices, outsiders and ties.
++
++This groundwork supports Chapters 2 and 10. It does not supply conditional
++pivot/subproblem laws, full relative-order restrictions, the expected first
++position, treap construction/ancestor/charging proofs or algorithm cost
++correspondences. Its source and examples remain uncompiled and unaccepted;
++the local FDSA-XU01 record retains the frozen scope and subsequent gate results.

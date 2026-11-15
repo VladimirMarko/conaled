@@ -1,0 +1,158 @@
+Exact source headers; NOT elaborated/printed Lean statements.
+
+public Applications.Selection.CoordinateQueries.readPlan (Applications/Selection/CoordinateReadAll.lean)
+def readPlan (indices : List (Fin n)) (compute : List α → β) : Protocol n α β
+
+public Applications.Selection.CoordinateQueries.readPlan_query (Applications/Selection/CoordinateReadAll.lean)
+theorem readPlan_query (indices : List (Fin n)) (compute : List α → β)
+    (history : Transcript n α) (i : Fin n)
+    (query : indices[history.length]? = some i) :
+    readPlan indices compute history = Sum.inr i
+
+public Applications.Selection.CoordinateQueries.readPlan_done (Applications/Selection/CoordinateReadAll.lean)
+theorem readPlan_done (indices : List (Fin n)) (compute : List α → β)
+    (history : Transcript n α) (done : indices[history.length]? = none) :
+    readPlan indices compute history = Sum.inl (compute (history.reverse.map Prod.snd))
+
+private Applications.Selection.CoordinateQueries.readPlan_run_from (Applications/Selection/CoordinateReadAll.lean)
+private theorem readPlan_run_from (input : Fin n → α) (compute : List α → β)
+    (prefix remaining : List (Fin n)) :
+    Runs (readPlan (prefix ++ remaining) compute) input
+      (prefix.map (fun i => (i, input i))).reverse
+      (remaining.map (fun i => (i, input i)))
+      (compute ((prefix ++ remaining).map input))
+
+public Applications.Selection.CoordinateQueries.readPlan_run (Applications/Selection/CoordinateReadAll.lean)
+theorem readPlan_run (indices : List (Fin n)) (compute : List α → β)
+    (input : Fin n → α) :
+    Runs (readPlan indices compute) input []
+      (indices.map (fun i => (i, input i))) (compute (indices.map input))
+
+public Applications.Selection.CoordinateQueries.readPlan_total (Applications/Selection/CoordinateReadAll.lean)
+theorem readPlan_total (indices : List (Fin n)) (compute : List α → β) :
+    Total (readPlan indices compute)
+
+public Applications.Selection.CoordinateQueries.readPlan_run_iff (Applications/Selection/CoordinateReadAll.lean)
+theorem readPlan_run_iff (indices : List (Fin n)) (compute : List α → β)
+    (input : Fin n → α) (trace : Transcript n α) (value : β) :
+    Runs (readPlan indices compute) input [] trace value ↔
+      trace = indices.map (fun i => (i, input i)) ∧
+        value = compute (indices.map input)
+
+public Applications.Selection.CoordinateQueries.readPlan_length (Applications/Selection/CoordinateReadAll.lean)
+theorem readPlan_length (indices : List (Fin n)) (compute : List α → β)
+    (input : Fin n → α) (trace : Transcript n α) (value : β)
+    (run : Runs (readPlan indices compute) input [] trace value) :
+    trace.length = indices.length
+
+public Applications.Selection.CoordinateQueries.readPlan_work (Applications/Selection/CoordinateReadAll.lean)
+theorem readPlan_work (indices : List (Fin n)) (compute : List α → β)
+    (input : Fin n → α) (trace : Transcript n α) (value : β)
+    (run : Runs (readPlan indices compute) input [] trace value) (c : Nat) :
+    queryWork (fun _ _ => c) trace = c * indices.length
+
+public Applications.Selection.CoordinateQueries.readAll (Applications/Selection/CoordinateReadAll.lean)
+def readAll (compute : List α → β) : Protocol n α β
+
+public Applications.Selection.CoordinateQueries.readAll_run (Applications/Selection/CoordinateReadAll.lean)
+theorem readAll_run (compute : List α → β) (input : Fin n → α) :
+    Runs (readAll compute) input [] (List.ofFn (fun i => (i, input i)))
+      (compute (List.ofFn input))
+
+public Applications.Selection.CoordinateQueries.readAll_total (Applications/Selection/CoordinateReadAll.lean)
+theorem readAll_total (compute : List α → β) : Total (readAll (n
+
+public Applications.Selection.CoordinateQueries.readAll_run_iff (Applications/Selection/CoordinateReadAll.lean)
+theorem readAll_run_iff (compute : List α → β) (input : Fin n → α)
+    (trace : Transcript n α) (value : β) :
+    Runs (readAll compute) input [] trace value ↔
+      trace = List.ofFn (fun i => (i, input i)) ∧ value = compute (List.ofFn input)
+
+public Applications.Selection.CoordinateQueries.readAll_coordinates (Applications/Selection/CoordinateReadAll.lean)
+theorem readAll_coordinates (compute : List α → β) (input : Fin n → α)
+    (trace : Transcript n α) (value : β)
+    (run : Runs (readAll compute) input [] trace value) :
+    trace.map Prod.fst = List.finRange n
+
+public Applications.Selection.CoordinateQueries.readAll_length (Applications/Selection/CoordinateReadAll.lean)
+theorem readAll_length (compute : List α → β) (input : Fin n → α)
+    (trace : Transcript n α) (value : β)
+    (run : Runs (readAll compute) input [] trace value) : trace.length = n
+
+public Applications.Selection.CoordinateQueries.readAll_work (Applications/Selection/CoordinateReadAll.lean)
+theorem readAll_work (compute : List α → β) (input : Fin n → α)
+    (trace : Transcript n α) (value : β)
+    (run : Runs (readAll compute) input [] trace value) (c : Nat) :
+    queryWork (fun _ _ => c) trace = c * n
+
+public Applications.Selection.CoordinateQueries.readAll_correct (Applications/Selection/CoordinateReadAll.lean)
+theorem readAll_correct (compute : List α → β) (spec : List α → β → Prop)
+    (correct : ∀ xs : List α, xs.length = n → spec xs (compute xs))
+    (input : Fin n → α) (trace : Transcript n α) (value : β)
+    (run : Runs (readAll compute) input [] trace value) :
+    spec (List.ofFn input) value
+
+public Examples.CoordinateReadAll.empty_run (Examples/CoordinateReadAll.lean)
+theorem empty_run (compute : List α → β) (input : Fin 0 → α) :
+    Runs (readAll compute) input [] [] (compute [])
+
+public Examples.CoordinateReadAll.empty_every_run (Examples/CoordinateReadAll.lean)
+theorem empty_every_run (compute : List α → β) (input : Fin 0 → α)
+    (trace : Transcript 0 α) (value : β)
+    (run : Runs (readAll compute) input [] trace value) (c : Nat) :
+    trace = [] ∧ value = compute [] ∧ queryWork (fun _ _ => c) trace = 0
+
+public Examples.CoordinateReadAll.full_read_exists (Examples/CoordinateReadAll.lean)
+theorem full_read_exists (compute : List α → β) (input : Fin n → α) (c : Nat) :
+    ∃ (trace : Transcript n α) (value : β),
+      Runs (readAll compute) input [] trace value ∧
+      trace.map Prod.fst = List.finRange n ∧
+      value = compute (List.ofFn input) ∧ trace.length = n ∧
+      queryWork (fun _ _ => c) trace = c * n
+
+public Examples.CoordinateReadAll.full_read_every_run (Examples/CoordinateReadAll.lean)
+theorem full_read_every_run (compute : List α → β) (input : Fin n → α)
+    (trace : Transcript n α) (value : β)
+    (run : Runs (readAll compute) input [] trace value) (c : Nat) :
+    trace = List.ofFn (fun i => (i, input i)) ∧
+      value = compute (List.ofFn input) ∧ trace.length = n ∧
+      queryWork (fun _ _ => c) trace = c * n
+
+public Examples.CoordinateReadAll.observed_sum (Examples/CoordinateReadAll.lean)
+theorem observed_sum (input : Fin n → Nat) (trace : Transcript n Nat) (value : Nat)
+    (run : Runs (readAll (fun xs : List Nat => xs.sum)) input [] trace value) :
+    value = (List.ofFn input).sum
+
+public Examples.CoordinateReadAll.concrete_full_read (Examples/CoordinateReadAll.lean)
+theorem concrete_full_read :
+    Runs (readAll (fun xs : List Nat => xs.sum)) (![8, 3, 5] : Fin 3 → Nat) []
+      [(0, 8), (1, 3), (2, 5)] 16
+
+public Examples.CoordinateReadAll.duplicate_full_read (Examples/CoordinateReadAll.lean)
+theorem duplicate_full_read :
+    Runs (readAll (fun xs : List Nat => xs.sum)) (![4, 4, 4] : Fin 3 → Nat) []
+      [(0, 4), (1, 4), (2, 4)] 12
+
+public Examples.CoordinateReadAll.duplicate_every_charge (Examples/CoordinateReadAll.lean)
+theorem duplicate_every_charge (trace : Transcript 3 Nat) (value : Nat)
+    (run : Runs (readAll (fun xs : List Nat => xs.sum))
+      (![4, 4, 4] : Fin 3 → Nat) [] trace value) :
+    value = 12 ∧ trace.length = 3 ∧ queryWork (fun _ _ => 2) trace = 6
+
+public Examples.CoordinateReadAll.repeated_plan_run (Examples/CoordinateReadAll.lean)
+theorem repeated_plan_run (compute : List α → β) (input : Fin 2 → α) :
+    Runs (readPlan [0, 1, 0] compute) input []
+      [(0, input 0), (1, input 1), (0, input 0)]
+      (compute [input 0, input 1, input 0])
+
+public Examples.CoordinateReadAll.repeated_plan_every_charge (Examples/CoordinateReadAll.lean)
+theorem repeated_plan_every_charge (compute : List α → β) (input : Fin 2 → α)
+    (trace : Transcript 2 α) (value : β)
+    (run : Runs (readPlan [0, 1, 0] compute) input [] trace value) (c : Nat) :
+    value = compute [input 0, input 1, input 0] ∧ trace.length = 3 ∧
+      queryWork (fun _ _ => c) trace = c * 3
+
+public Examples.CoordinateReadAll.supplied_history_values (Examples/CoordinateReadAll.lean)
+theorem supplied_history_values :
+    readPlan ([0, 1] : List (Fin 2)) (fun xs : List Nat => xs)
+      [(0, 99), (1, 7)] = Sum.inl [7, 99]

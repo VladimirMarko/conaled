@@ -1,0 +1,15 @@
+{
+  "recorded_utc": "2026-11-03T02:47:01.191898+00:00",
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "prior_readback": "reviews/chapter01-attempt3-root-log-readback-prefix.json",
+  "prefix_bytes": 167645,
+  "prefix_lines": 1024,
+  "prefix_sha256": "53ddc9b5648b195561255ffafe6c2074dff92aa20e54ecb395511c922774870e",
+  "later_fully_read_lines": [
+    "\u2714 [9568/9571] Built Applications.Progress.Reactive (461s)",
+    "\u2714 [9569/9572] Built SquareKit.ListFoldCompiler (54s)",
+    "\u2714 [9570/9573] Built SquareKit.ReactiveCompiler (925s)"
+  ],
+  "archive_copy": "Checkpoint0064 contains this exact1024-line partial log; its full content check was root-read.",
+  "limits": "Root has fully read this prefix using the prior complete1021-line reading and these three module-completion lines. No final build, second integrity pass, exhaustive audit or terminal outcome is inferred. Terminal inspection must verify this prefix and read all subsequent bytes. No source/compiler/checker/cache action."
+}

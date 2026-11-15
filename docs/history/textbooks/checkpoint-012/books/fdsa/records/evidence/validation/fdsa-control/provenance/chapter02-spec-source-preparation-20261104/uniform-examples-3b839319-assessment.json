@@ -1,0 +1,737 @@
+{
+  "recorded_utc": "2026-11-04T10:15:50.153424+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "central_candidate_retained": "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+  "foundation_candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "isolated_source_candidate": "3b839319776238fe2a46f22db761058b44d68adc",
+  "isolated_parent": "c4355db67f6006f58496cc10c2eca1c75ef1aa95",
+  "scope": "Continuation of the existing complete 81-path R-through-eventual-Chapter-2 Spec review, all 112 obligations and all ten shared scopes. This exact isolated delta is assessed for later integration; it is not substituted for the combined central candidate or narrowed to a fresh review.",
+  "outcome": "Source correction adequate; overall Blocked pending actual compiler/type/full-candidate and review gates.",
+  "new_mathematical_spec_findings": 0,
+  "approval_or_acceptance": false,
+  "write_hold": "Read-only assessment completed during checkpoint0097 HOLD; this own report/provenance capture occurs only after root explicitly confirmed verified upload/exposure and released that hold.",
+  "source_identity": {
+    "path": "Examples/UniformQuickSortMean.lean",
+    "before": {
+      "candidate": "c4355db67f6006f58496cc10c2eca1c75ef1aa95",
+      "equals_actual_failed_central_source": true,
+      "bytes": 16466,
+      "lines": 352,
+      "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5",
+      "blob": "cc0432e8fc56f76380a1e48259954cd559937a1b"
+    },
+    "after": {
+      "candidate": "3b839319776238fe2a46f22db761058b44d68adc",
+      "bytes": 16973,
+      "lines": 366,
+      "sha256": "744562a71000f1d4f2c82a57a681eaf0491dfd7065ad650f09c4403304d8c24b",
+      "blob": "cfb82beff57d8bf116b882c0c49850e4be629586"
+    },
+    "only_changed_path": true,
+    "diff_bytes": 5282,
+    "diff_lines": 103,
+    "diff_sha256": "4aacd466132a619fe9a1b1152a00a2b02b2827803139432691678ec27b80af16",
+    "core": {
+      "path": "Applications/Resources/UniformQuickSortMean.lean",
+      "equal_at_parent_isolated_successor_and_central": true,
+      "bytes": 38157,
+      "lines": 789,
+      "sha256": "5e997076f474f1cfcc51cac11c31b870a1cd265cf121c6ae11519beab009ad67"
+    }
+  },
+  "complete_human_reads": {
+    "immutable_successor_source_lines": 366,
+    "immutable_diff_lines": 103,
+    "author_readback_lines": 135,
+    "author_final_receipt_lines": 231,
+    "diagnostic_mapping_lines": 121,
+    "generated_helper_search_lines": 44,
+    "api_excerpt_artifact_lines": 602,
+    "read_ledger_lines": 228,
+    "commit_record_lines": 35,
+    "commit_hook_preflight_lines": 27,
+    "original_source_and_closed_failure": "Complete original 352-line source, all 170 focused10 log lines and all 23 actual diagnostic headers were already read and secured by the preceding continuation; identities reconfirmed without a reset."
+  },
+  "author_artifacts": {
+    "receipt": {
+      "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/receipt.json",
+      "bytes": 9230,
+      "lines": 231,
+      "sha256": "9449408b334350f63b7445713f08fd86693a30c6497e18b551983a8769c3f6e5"
+    },
+    "readback": {
+      "path": "provenance/chapter02-uniform-examples-elaboration-correction2-20261104/author-readback.md",
+      "bytes": 9044,
+      "lines": 135,
+      "sha256": "f5f1cd9415d758c676c0f334227de575115a355f59b3f7ea0cac5c604b79e9b9"
+    },
+    "all_19_receipt_artifact_hashes_reverified": true,
+    "listed_artifacts": [
+      {
+        "path": "actual-diagnostics.txt",
+        "bytes": 6925,
+        "lines": 93,
+        "sha256": "284b94feb0773ef436d7de66658ea3932f29ff6234d5b3d01853de42fd211175"
+      },
+      {
+        "path": "after-examples.lean",
+        "bytes": 16973,
+        "lines": 366,
+        "sha256": "744562a71000f1d4f2c82a57a681eaf0491dfd7065ad650f09c4403304d8c24b"
+      },
+      {
+        "path": "api-excerpts.txt",
+        "bytes": 16391,
+        "lines": 602,
+        "sha256": "6b76b30aab0ddeff1b58ca2bbfe495bd379c82b7a15f8dd9af849f9843299ca7"
+      },
+      {
+        "path": "author-readback.md",
+        "bytes": 9044,
+        "lines": 135,
+        "sha256": "f5f1cd9415d758c676c0f334227de575115a355f59b3f7ea0cac5c604b79e9b9"
+      },
+      {
+        "path": "before-examples.lean",
+        "bytes": 16466,
+        "lines": 352,
+        "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5"
+      },
+      {
+        "path": "commit-hook-preflight.json",
+        "bytes": 799,
+        "lines": 27,
+        "sha256": "c8fac3de9a72444c2178c28b4e30821025738b11fe2cd2a8114846b02b377df6"
+      },
+      {
+        "path": "commit-record.json",
+        "bytes": 1313,
+        "lines": 35,
+        "sha256": "e6bc14e66f6aa12c421183a9735d73415451a10997d5574a5aa07b8864669e92"
+      },
+      {
+        "path": "commit.log",
+        "bytes": 145,
+        "lines": 2,
+        "sha256": "48ae74ac2d27db87c726413c68b3f6f1c3a641b73c9b0c1a18ea2062a33db990"
+      },
+      {
+        "path": "committed-examples.lean",
+        "bytes": 16973,
+        "lines": 366,
+        "sha256": "744562a71000f1d4f2c82a57a681eaf0491dfd7065ad650f09c4403304d8c24b"
+      },
+      {
+        "path": "diagnostic-mapping.json",
+        "bytes": 6589,
+        "lines": 121,
+        "sha256": "36e3569d3ac31fd9e4af04dc1cd70fbfbfa22f6b0db1c0ff774b2535bed51729"
+      },
+      {
+        "path": "diff-check.log",
+        "bytes": 0,
+        "lines": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "generated-helper-search.json",
+        "bytes": 1216,
+        "lines": 44,
+        "sha256": "2a5c4424b284dcf93db355f39c9cee1da290d7a462385690734f859b5dda5517"
+      },
+      {
+        "path": "read-ledger.json",
+        "bytes": 7284,
+        "lines": 228,
+        "sha256": "a1537d679d3aac32affc3834a684fd7944288f6576d02bddc2d86a0453b3b37b"
+      },
+      {
+        "path": "source-inventory.json",
+        "bytes": 19474,
+        "lines": 405,
+        "sha256": "d10245a4676b7040a1845ea8a5ba128c92310ccb779665e3641af4d21900e690"
+      },
+      {
+        "path": "source-marker-scan.json",
+        "bytes": 220,
+        "lines": 5,
+        "sha256": "992fa4fa0e1bf6c8ce6bae73244e945f234ffbfa190e0489c3d3a6d12e274356"
+      },
+      {
+        "path": "source.diff",
+        "bytes": 5282,
+        "lines": 103,
+        "sha256": "4aacd466132a619fe9a1b1152a00a2b02b2827803139432691678ec27b80af16"
+      },
+      {
+        "path": "staged-diff-check.log",
+        "bytes": 0,
+        "lines": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "staged-source.diff",
+        "bytes": 5282,
+        "lines": 103,
+        "sha256": "4aacd466132a619fe9a1b1152a00a2b02b2827803139432691678ec27b80af16"
+      },
+      {
+        "path": "start.json",
+        "bytes": 3289,
+        "lines": 67,
+        "sha256": "9d1c1ec82077b47df00c81915b7ac6b39835788c51aba82d9942930bfca3b544"
+      }
+    ],
+    "source_inventory_read_boundary": "Top-level fields, generated-delta structure and definition/instance entries inspected; all source header/block preservation recomputed independently from immutable Git. No claim of a full raw 405-line inventory read."
+  },
+  "independent_source_comparison": {
+    "existing_theorem_headers": [
+      {
+        "name": "empty_labels_mean",
+        "private": false,
+        "header_sha256": "d0f2fb4ac1a30b59437feb55d7339f0cc6f827e7bb676b5505ed2343618332ce"
+      },
+      {
+        "name": "arbitrary_empty",
+        "private": false,
+        "header_sha256": "2d97325880c1602e42fb7b2d83182d1c68f3c2b1bf64b2866b8f0b27ded9bf33"
+      },
+      {
+        "name": "arbitrary_singleton",
+        "private": false,
+        "header_sha256": "6032c3227ef5f3c58a6134469835cc37ca1d1ae69b6e1090e0a56085bb3f39bd"
+      },
+      {
+        "name": "actual_pair_cost",
+        "private": false,
+        "header_sha256": "b70c7f900651f96f3df412063b389043cf5f5a9ddda52343c4075b7919a7aef3"
+      },
+      {
+        "name": "two_orders",
+        "private": false,
+        "header_sha256": "75c0ab4eb6deb00b2be16632a4a6fc3572eebdb43805407b3711b871a3285b76"
+      },
+      {
+        "name": "two_input_means",
+        "private": false,
+        "header_sha256": "a567a020b717382105c35449e8974e469f2f9e719b26bac88a96aa0a86581c87"
+      },
+      {
+        "name": "observed_card_one",
+        "private": true,
+        "header_sha256": "928e8c56594a1b1d96b079cf44b5d7ad9b6e4bbb68d390e0b55a0b3a92677a8e"
+      },
+      {
+        "name": "observed_card_two",
+        "private": true,
+        "header_sha256": "67cb86c95ac1e3c335a2c938d6f15a74d3a05e1ae15ad0a44db8e2804ac4b9f7"
+      },
+      {
+        "name": "positions_nodup",
+        "private": false,
+        "header_sha256": "beec15256bd9deb222b24154694d71139589bfd3bbcc95a0da3260b357de1d9a"
+      },
+      {
+        "name": "positions_complete",
+        "private": false,
+        "header_sha256": "7084d3789bce0e21beac3fe6f1cf8e5cadc174a2185685a9233d2f9ad26e3966"
+      },
+      {
+        "name": "selected_keys",
+        "private": false,
+        "header_sha256": "dc3ad8fd2714f567e35a595f9f7683acb0c773fec29663d05e47c7b95eed5e12"
+      },
+      {
+        "name": "selected_card",
+        "private": false,
+        "header_sha256": "d54f949b03a6e2598ee3ed5db1fadcda5b44d37a19d1603a36667de2747936e6"
+      },
+      {
+        "name": "outside_collision",
+        "private": false,
+        "header_sha256": "46666cecf56b42b38c15dddcd8254e65da7949139d54aa6e7a6d5532939ee74f"
+      },
+      {
+        "name": "low_children",
+        "private": false,
+        "header_sha256": "9454d713ca2a1d5160ea0857e2eacc79ffca91eb0b8251b6c9d65197eec8dccc"
+      },
+      {
+        "name": "middle_children",
+        "private": false,
+        "header_sha256": "bf15d81afedf55bf5614eebccfbf270c8531846f13debf3209328a0094e1ed35"
+      },
+      {
+        "name": "high_children",
+        "private": false,
+        "header_sha256": "b3850b053fea683ab6477f10ebe507034dcf00834ea8e4c54b6966d101012bbc"
+      },
+      {
+        "name": "middle_actual_cost",
+        "private": false,
+        "header_sha256": "f41912f38af887cb8c79bbc3dc5ef99d6610f9998d8fdd1772fd4c80c66954dc"
+      },
+      {
+        "name": "low_actual_cost",
+        "private": false,
+        "header_sha256": "a9abe0ef6f090f7ed2f83268976033418bbe451f2c3fd52ba99b2c099d741fa1"
+      },
+      {
+        "name": "high_actual_cost",
+        "private": false,
+        "header_sha256": "b605e7062a1ce5e52eba080f1ab89c72b6ee50a2669d5244608f7175af396675"
+      },
+      {
+        "name": "middle_first_mass",
+        "private": false,
+        "header_sha256": "449ba2075edb8c84ecab8a47ab477961f51f13174f64d0c6eba65f78fd941027"
+      },
+      {
+        "name": "low_first_mass",
+        "private": false,
+        "header_sha256": "b748ec69f366e387b064497aa4a943271d8004156b8e8394fcbdda1bdf7fe511"
+      },
+      {
+        "name": "high_first_mass",
+        "private": false,
+        "header_sha256": "41ad240dd30a1f7ffa6db9c060360af424000025977e7fe806395c34fa6a7c11"
+      },
+      {
+        "name": "extreme_first_mass",
+        "private": false,
+        "header_sha256": "a152eac350cc863228b71e738eabecf1692b1031072c9590f9733495df55d2dd"
+      },
+      {
+        "name": "conditional_of_constant",
+        "private": true,
+        "header_sha256": "a99ee0039b3b49a256da2f0e662700e585500e0672260abd7213141b478cbfed"
+      },
+      {
+        "name": "middle_conditional_mean",
+        "private": false,
+        "header_sha256": "7c0944c0fcd81cc4da8a58fcc4f60fbc0c0269eb940dbfcec147d212b7c90348"
+      },
+      {
+        "name": "low_conditional_mean",
+        "private": false,
+        "header_sha256": "0673fb419390bc07aa136d97ea40ae0bffc4dcf1ad1a2d44b68219d6ec74f015"
+      },
+      {
+        "name": "high_conditional_mean",
+        "private": false,
+        "header_sha256": "f813380d82854b2cc0889ff3df233b37d556698ee722675104d885f081c99571"
+      },
+      {
+        "name": "three_mean_from_heads",
+        "private": false,
+        "header_sha256": "bba1de092291b517e8285eb9b2d857b2bd2e1f4fd4decb524e5f01d114ae3d18"
+      },
+      {
+        "name": "three_mean_from_closedForm",
+        "private": false,
+        "header_sha256": "5cf23cd142b817d966831b0b29afd118dc8f0cdb90204c351714c294e8464f7b"
+      },
+      {
+        "name": "low_empty_actual_child",
+        "private": false,
+        "header_sha256": "7f76d9b87ad1b704038999876b9892b1f89592ed44d996aa9ff12509611072c8"
+      },
+      {
+        "name": "low_empty_child_mean",
+        "private": false,
+        "header_sha256": "0ca4013c995ebad033511ae75978c696f587eea23905629e07c413631ea555ea"
+      },
+      {
+        "name": "high_empty_child_mean",
+        "private": false,
+        "header_sha256": "586383b2eb932e5dc23abdf8fdb2c291a876637c0842005f33cb7d3f4d6ded0c"
+      },
+      {
+        "name": "arbitrary_payload_occurrences",
+        "private": false,
+        "header_sha256": "ac1b86d6fde5c11e817eaac2a76aa0d555d7cfa295567857257346a12e12d61e"
+      },
+      {
+        "name": "arbitrary_tagged_three",
+        "private": false,
+        "header_sha256": "d84ae63a1ab5c3d0ad20fdc5076844bbe954d83a25295b73466543e3dc271eb7"
+      },
+      {
+        "name": "taggedEqual_payloads_distinct",
+        "private": false,
+        "header_sha256": "e44f5424d58faac76b18559e301bfbab7a8bdd8065089c254381e1f8c009b8bf"
+      },
+      {
+        "name": "taggedEqual_mean",
+        "private": false,
+        "header_sha256": "e0717c8ae1fedaeef72014da95514ab13413579be77773e6aed138dc765b125c"
+      },
+      {
+        "name": "equal_key_counterexample",
+        "private": false,
+        "header_sha256": "e6701ef3322e81408b255dce3ab52dd119c0113bccab35dadff46258b6d28f9f"
+      },
+      {
+        "name": "taggedRange_length",
+        "private": false,
+        "header_sha256": "9d46a649c966e6c8cd8de1ad90b10664952931cc9a88c604ebae9632123d3f68"
+      },
+      {
+        "name": "taggedRange_keys",
+        "private": false,
+        "header_sha256": "3ce793d369cd202e2d2ea92ef11aaff0c0156bd51d3dd72f093a2eb95f3e8aba"
+      },
+      {
+        "name": "taggedRange_mean",
+        "private": false,
+        "header_sha256": "680bc254a4934bc180a274bd19bce0b755b87a62dcd9f8d50ddc05b0fb57ae4e"
+      },
+      {
+        "name": "arbitrary_payload_growth",
+        "private": false,
+        "header_sha256": "363cf85d0fc12966c2c0b28b19129a78546385a94251c34659c0e05d81aba405"
+      },
+      {
+        "name": "taggedRange_scalar_bound",
+        "private": false,
+        "header_sha256": "f0c26095ac3768d173afcba6b735471950984b01b58d639c891101ce69b2aa7f"
+      },
+      {
+        "name": "taggedRange_literal_bound",
+        "private": false,
+        "header_sha256": "eec0a3f00ac4dd1c05c0653b7d0c4eaa124173dcbd05eb92b7c2df953b396bae"
+      },
+      {
+        "name": "actual_zero_log_boundary",
+        "private": false,
+        "header_sha256": "ee1720963356a5b79719c6258153846a6ece125e3c93ad28dffdd5f02dc02a70"
+      },
+      {
+        "name": "actual_one_log_boundary",
+        "private": false,
+        "header_sha256": "e137269d766f42b7f9bbec0a0dfcc2f0ac5a978ab6bd6ab092ed7961374595b1"
+      }
+    ],
+    "all_45_headers_byte_identical": true,
+    "private_theorems": 3,
+    "public_theorems": 42,
+    "whole_definitions_unchanged": [
+      "positions",
+      "selected",
+      "key",
+      "comparator",
+      "law",
+      "taggedEqual",
+      "taggedRange"
+    ],
+    "whole_old_named_instances_unchanged": [
+      "emptyMeasurableSpace",
+      "emptyMeasurableSingletons",
+      "labelMeasurableSpace",
+      "labelMeasurableSingletons"
+    ],
+    "imports": 5,
+    "options": 2,
+    "imports_options_variables_universes_namespace_and_opens_unchanged": true,
+    "changed_existing_proof_bodies": [
+      "observed_card_one",
+      "selected_keys",
+      "extreme_first_mass",
+      "conditional_of_constant",
+      "three_mean_from_closedForm",
+      "low_empty_child_mean",
+      "high_empty_child_mean",
+      "taggedEqual_payloads_distinct",
+      "taggedRange_keys"
+    ],
+    "old_named_declaration_count": 57,
+    "new_named_declaration_count": 58,
+    "old_explicit_public_count": 58,
+    "new_explicit_public_count": 59,
+    "sole_authored_addition": "Examples.UniformQuickSortMean.instFintypeLabel",
+    "not_wholly_proof_body_only": true
+  },
+  "fintype_semantic_assessment": {
+    "inductive_constructors": "Exactly the unchanged Label.high, Label.low, Label.middle, Label.outside.",
+    "retained_interface": "Deriving DecidableEq is retained. No order, inhabitance/default, additional measure space, or mathematical assumption is introduced.",
+    "new_explicit_instance_source_type": "Fintype Examples.UniformQuickSortMean.Label",
+    "enumeration": "Exactly {Label.high, Label.low, Label.middle, Label.outside}; complete by cases on each constructor and ordinary simp.",
+    "actual_law": "The unchanged law is uniformOn Set.univ. The pinned definition is counting measure conditioned on the same whole permutation space; meanBy still integrates actual observedCost under that law. No alternative probability model or independence premise is introduced.",
+    "generated_helpers_omitted": [
+      "Examples.UniformQuickSortMean.Label.enumList",
+      "Examples.UniformQuickSortMean.Label.enumList_getElem?_ctorIdx_eq",
+      "Examples.UniformQuickSortMean.Label.enumList_nodup"
+    ],
+    "bounded_no_client_checks": [
+      {
+        "candidate": "c4355db67f6006f58496cc10c2eca1c75ef1aa95",
+        "command": [
+          "git",
+          "grep",
+          "-n",
+          "-e",
+          "enumList",
+          "-e",
+          "instFintypeLabel",
+          "c4355db67f6006f58496cc10c2eca1c75ef1aa95",
+          "--",
+          "*.lean"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "candidate": "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+        "command": [
+          "git",
+          "grep",
+          "-n",
+          "-e",
+          "enumList",
+          "-e",
+          "instFintypeLabel",
+          "8ba7ae11a657e8a4af025f60b4e1a54dddb3c512",
+          "--",
+          "*.lean"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "candidate": "3b839319776238fe2a46f22db761058b44d68adc",
+        "command": [
+          "git",
+          "grep",
+          "-n",
+          "-e",
+          "enumList",
+          "-e",
+          "instFintypeLabel",
+          "3b839319776238fe2a46f22db761058b44d68adc",
+          "--",
+          "*.lean"
+        ],
+        "exit_code": 0,
+        "stdout": "3b839319776238fe2a46f22db761058b44d68adc:Examples/UniformQuickSortMean.lean:91:instance instFintypeLabel : Fintype Label where\n",
+        "stderr": ""
+      }
+    ],
+    "no_client_limit": "All tracked Lean source at the exact two inputs and successor; no compiled-environment or arbitrary metaprogram client claim.",
+    "declaration_accounting": "Exactly one new authored/public source inventory entry. This is not an asserted numerical kernel-declaration delta or equivalence to an old elaborated instance. Actual explicit instance type and all generated/private audit declarations remain pending."
+  },
+  "nine_proof_assessments": [
+    {
+      "name": "observed_card_one",
+      "assessment": "Pinned length_eq_one_iff preserves the actual restricted-order length-one witness and original singleton source tariff 5."
+    },
+    {
+      "name": "selected_keys",
+      "assessment": "The same constructor cases and selected-support/key-equality assumptions prove local key injectivity. No global key injectivity is assumed; outside_collision remains exact."
+    },
+    {
+      "name": "extreme_first_mass",
+      "assessment": "The same disjoint union and actual one-third masses remain. The ground NNReal identity is mapped through the coercion using coe_add and coe_div with explicit nonzero denominator 3, yielding the original ENNReal two-thirds conclusion."
+    },
+    {
+      "name": "conditional_of_constant",
+      "assessment": "Unfolding only law inside the local probability-instance proof exposes the same uniformOn measure. cond_isProbabilityMeasure still receives the original proved positive first-event mass; no conditionability or finiteness hypothesis is added to the theorem."
+    },
+    {
+      "name": "three_mean_from_closedForm",
+      "assessment": "Locally unfolding comparator exposes precisely the original key comparison for the same universal mean theorem, local selected_keys and cardinality 3. The independent head-partition derivation remains byte-exact."
+    },
+    {
+      "name": "low_empty_child_mean",
+      "assessment": "Unfolding law exposes the same original conditional measure; child_integral_cond still uses the actual left child subset of selected.erase low and empty cost 1."
+    },
+    {
+      "name": "high_empty_child_mean",
+      "assessment": "The analogous original right child, same conditional sample space and empty cost 1 remain; no independent recursion is introduced."
+    },
+    {
+      "name": "taggedEqual_payloads_distinct",
+      "assessment": "Supplying the implicit n parameter by name leaves the mapped range and injection via Prod.snd unchanged; distinct payload records still need not have distinct keys."
+    },
+    {
+      "name": "taggedRange_keys",
+      "assessment": "The correct named range parameter preserves the original arbitrary-payload family, key Nodup proof, length n and actual expectation/growth connection."
+    }
+  ],
+  "pinned_api_identity": [
+    {
+      "location": "pinned Mathlib",
+      "path": "Mathlib/Tactic/DeriveFintype.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 9552,
+      "lines": 200,
+      "sha256": "ccc5fecbe99adf96964457156d006c07af730e83ec7af678dc90e289745c2e4e",
+      "pin_object_bytes_equal": true,
+      "read_ranges": [
+        [
+          1,
+          200
+        ]
+      ]
+    },
+    {
+      "location": "pinned Mathlib",
+      "path": "Mathlib/Basic/ENNReal/Basic.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 32272,
+      "lines": 789,
+      "sha256": "f7fe64f0d1865209e4d2be2fd98e3bc5edf9af508dd665f0311e6396f8d513a2",
+      "pin_object_bytes_equal": true,
+      "read_ranges": [
+        [
+          273,
+          275
+        ],
+        [
+          405,
+          414
+        ]
+      ]
+    },
+    {
+      "location": "pinned Mathlib",
+      "path": "Mathlib/Basic/ENNReal/Inv.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 44273,
+      "lines": 982,
+      "sha256": "f06e93ae82105c5c03585c2d11377b94aac119b7fdbcaf34a7a333aa27c53f36",
+      "pin_object_bytes_equal": true,
+      "read_ranges": [
+        [
+          68,
+          83
+        ]
+      ]
+    },
+    {
+      "location": "pinned Mathlib",
+      "path": "Mathlib/Probability/ConditionalProbability.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 13138,
+      "lines": 313,
+      "sha256": "4245cc130e59294fadd87a6b011273c010bf3a21fd3395b8a3fe0f8a749f3f8c",
+      "pin_object_bytes_equal": true,
+      "read_ranges": [
+        [
+          149,
+          169
+        ]
+      ]
+    },
+    {
+      "location": "pinned Mathlib",
+      "path": "Mathlib/Probability/UniformOn.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 10493,
+      "lines": 230,
+      "sha256": "7f1aac5e8c78698289601133f5b9551eb772b90eab05338900c472270031f5c3",
+      "pin_object_bytes_equal": true,
+      "read_ranges": [
+        [
+          74,
+          99
+        ]
+      ]
+    },
+    {
+      "location": "retained Lean 4.35.0 compiler source",
+      "path": "Init/Data/List/Lemmas.lean",
+      "bytes": 152724,
+      "lines": 3852,
+      "sha256": "9365fb1c6da0313a4c73e8cf096377e69c28ece28d38290a0423e5f8cc1fdfdb",
+      "read_ranges": [
+        [
+          145,
+          152
+        ]
+      ],
+      "limit": "Source inspected; no compiler or environment qualification was run"
+    },
+    {
+      "location": "retained Lean 4.35.0 compiler source",
+      "path": "Init/Data/List/Nat/Range.lean",
+      "bytes": 15858,
+      "lines": 416,
+      "sha256": "06325fdc2c100a4b20eff48e227419259e0749eb82b156b17a1c57b35a5649e3",
+      "read_ranges": [
+        [
+          257,
+          263
+        ]
+      ],
+      "limit": "Source inspected; no compiler or environment qualification was run"
+    }
+  ],
+  "additional_api_reads": {
+    "Mathlib/Probability/ConditionalProbability.lean": [
+      [
+        36,
+        67
+      ],
+      [
+        149,
+        169
+      ]
+    ],
+    "Mathlib/Probability/UniformOn.lean": [
+      [
+        35,
+        59
+      ],
+      [
+        74,
+        99
+      ]
+    ],
+    "Init/Data/List/Lemmas.lean": [
+      [
+        119,
+        154
+      ]
+    ],
+    "Init/Data/List/Nat/Range.lean": [
+      [
+        249,
+        268
+      ]
+    ],
+    "unchanged_core_contexts": "observedCost, meanBy, integrable_observedCost and firstEvent_positive_finite surrounding declarations; complete original core read retained."
+  },
+  "retained_mathematical_contracts": [
+    "Empty/singleton/pair tariffs 1, 5, 13; actual conditional costs 21,25,25.",
+    "Each head mass 1/3, extreme-event mass 2/3, same-sample conditional expectations and actual empty children.",
+    "Both distinct derivations of 71/3 and the outside label sharing a selected key without global key injectivity.",
+    "Occurrence/payload preservation, equal-key quadratic boundary and three-record 25 versus 71/3 counterexample.",
+    "Actual arbitrarily large tagged families, 32 and 64 scalar bounds for n >= 2, and zero/one logarithmic boundaries."
+  ],
+  "counts_and_gates": {
+    "retained_current_central_disposition": {
+      "qualified_historical": 920,
+      "pending_current": 814,
+      "accepted_base": 28
+    },
+    "expected_after_exact_integration_and_inventory_reconciliation": {
+      "qualified_historical": 920,
+      "pending_current": 815,
+      "accepted_base": 28,
+      "explicit_public_total": 1763
+    },
+    "original_814_program_history_preserved": true,
+    "no_new_type_output_credit": true,
+    "foundation_145_pending": true,
+    "possible_110_uncredited": true,
+    "open_findings": [
+      "C02-TYPE-001",
+      "C02-DOC-003"
+    ],
+    "pending": "Exact receiving-candidate identity, actual focused elaboration, complete current public types including the instance, predecessor/shared acceptance, whole immutable candidate check and exhaustive audit, both full-scope independent reviews, immediate qualified candidate verification before any acceptance."
+  },
+  "actions": "No compiler, process polling, source/ref/pin/cache/ticket/global-control actions. Only this reviewer's own existing report and new own provenance are written after release."
+}

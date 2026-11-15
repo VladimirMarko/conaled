@@ -1,0 +1,683 @@
+@Sequences.Partition.partition3.{u_1} : {α : Type u_1} →
+  [LinearOrder.{u_1} α] →
+    α → List.{u_1} α → Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+@Sequences.Partition.partition3_eq_filters.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α)
+  (xs : List.{u_1} α),
+  @Eq.{u_1 + 1} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)))
+    (@Sequences.Partition.partition3.{u_1} α inst p xs)
+    (@Prod.mk.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+      (@List.filter.{u_1} α
+        (fun x =>
+          @decide
+            (@LT.lt.{u_1} α
+              (@Preorder.toLT.{u_1} α (@PartialOrder.toPreorder.{u_1} α (@LinearOrder.toPartialOrder.{u_1} α inst))) x
+              p)
+            (@LinearOrder.toDecidableLT.{u_1} α inst x p))
+        xs)
+      (@Prod.mk.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+        (@List.filter.{u_1} α (fun x => @decide (@Eq.{u_1 + 1} α x p) (@LinearOrder.toDecidableEq.{u_1} α inst x p)) xs)
+        (@List.filter.{u_1} α
+          (fun x =>
+            @decide
+              (@LT.lt.{u_1} α
+                (@Preorder.toLT.{u_1} α (@PartialOrder.toPreorder.{u_1} α (@LinearOrder.toPartialOrder.{u_1} α inst))) p
+                x)
+              (@LinearOrder.toDecidableLT.{u_1} α inst p x))
+          xs)))
+@Sequences.Partition.partition3_perm.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α) (xs : List.{u_1} α),
+  @List.Perm.{u_1} α
+    (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+      (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α))
+      (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+        (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α))
+        (@Prod.fst.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+          (@Sequences.Partition.partition3.{u_1} α inst p xs))
+        (@Prod.fst.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+          (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+            (@Sequences.Partition.partition3.{u_1} α inst p xs))))
+      (@Prod.snd.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+        (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+          (@Sequences.Partition.partition3.{u_1} α inst p xs))))
+    xs
+@Sequences.Partition.partition_left_mem.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α)
+  (xs : List.{u_1} α) (x : α),
+  Iff
+    (@Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α)
+      (@Prod.fst.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+        (@Sequences.Partition.partition3.{u_1} α inst p xs))
+      x)
+    (And (@Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs x)
+      (@LT.lt.{u_1} α
+        (@Preorder.toLT.{u_1} α (@PartialOrder.toPreorder.{u_1} α (@LinearOrder.toPartialOrder.{u_1} α inst))) x p))
+@Sequences.Partition.partition_equal_mem.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α)
+  (xs : List.{u_1} α) (x : α),
+  Iff
+    (@Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α)
+      (@Prod.fst.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+        (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+          (@Sequences.Partition.partition3.{u_1} α inst p xs)))
+      x)
+    (And (@Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs x) (@Eq.{u_1 + 1} α x p))
+@Sequences.Partition.partition_right_mem.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α)
+  (xs : List.{u_1} α) (x : α),
+  Iff
+    (@Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α)
+      (@Prod.snd.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+        (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+          (@Sequences.Partition.partition3.{u_1} α inst p xs)))
+      x)
+    (And (@Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs x)
+      (@LT.lt.{u_1} α
+        (@Preorder.toLT.{u_1} α (@PartialOrder.toPreorder.{u_1} α (@LinearOrder.toPartialOrder.{u_1} α inst))) p x))
+@Sequences.Partition.partition_lengths.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α)
+  (xs : List.{u_1} α),
+  @Eq.{1} Nat
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@List.length.{u_1} α
+          (@Prod.fst.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+            (@Sequences.Partition.partition3.{u_1} α inst p xs)))
+        (@List.length.{u_1} α
+          (@Prod.fst.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+            (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+              (@Sequences.Partition.partition3.{u_1} α inst p xs)))))
+      (@List.length.{u_1} α
+        (@Prod.snd.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+          (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+            (@Sequences.Partition.partition3.{u_1} α inst p xs)))))
+    (@List.length.{u_1} α xs)
+@Sequences.Partition.partition_strict_sizes.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α)
+  (xs : List.{u_1} α),
+  @Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs p →
+    And
+      (@LT.lt.{0} Nat instLTNat
+        (@List.length.{u_1} α
+          (@Prod.fst.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+            (@Sequences.Partition.partition3.{u_1} α inst p xs)))
+        (@List.length.{u_1} α xs))
+      (@LT.lt.{0} Nat instLTNat
+        (@List.length.{u_1} α
+          (@Prod.snd.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+            (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+              (@Sequences.Partition.partition3.{u_1} α inst p xs))))
+        (@List.length.{u_1} α xs))
+@Sequences.Partition.partition3_nil.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α),
+  @Eq.{u_1 + 1} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)))
+    (@Sequences.Partition.partition3.{u_1} α inst p (@List.nil.{u_1} α))
+    (@Prod.mk.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) (@List.nil.{u_1} α)
+      (@Prod.mk.{u_1, u_1} (List.{u_1} α) (List.{u_1} α) (@List.nil.{u_1} α) (@List.nil.{u_1} α)))
+@Sequences.Partition.partition3_cons.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p y : α)
+  (ys : List.{u_1} α),
+  @Eq.{u_1 + 1} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)))
+    (@Sequences.Partition.partition3.{u_1} α inst p (@List.cons.{u_1} α y ys))
+    (have t := @Sequences.Partition.partition3.{u_1} α inst p ys;
+    @ite.{u_1 + 1} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)))
+      (@LT.lt.{u_1} α
+        (@Preorder.toLT.{u_1} α (@PartialOrder.toPreorder.{u_1} α (@LinearOrder.toPartialOrder.{u_1} α inst))) y p)
+      (@LinearOrder.toDecidableLT.{u_1} α inst y p)
+      (@Prod.mk.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+        (@List.cons.{u_1} α y (@Prod.fst.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) t))
+        (@Prod.mk.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+          (@Prod.fst.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+            (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) t))
+          (@Prod.snd.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+            (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) t))))
+      (@ite.{u_1 + 1} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)))
+        (@Eq.{u_1 + 1} α p y) (@LinearOrder.toDecidableEq.{u_1} α inst p y)
+        (@Prod.mk.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+          (@Prod.fst.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) t)
+          (@Prod.mk.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+            (@List.cons.{u_1} α y
+              (@Prod.fst.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+                (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) t)))
+            (@Prod.snd.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+              (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) t))))
+        (@Prod.mk.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+          (@Prod.fst.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) t)
+          (@Prod.mk.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+            (@Prod.fst.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+              (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) t))
+            (@List.cons.{u_1} α y
+              (@Prod.snd.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+                (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) t)))))))
+@Resources.Partition.partitionRun.{u_1} : {α : Type u_1} →
+  [LinearOrder.{u_1} α] →
+    α →
+      List.{u_1} α →
+        Resources.Measured.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat
+@Resources.Partition.partitionRun_nil.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α),
+  @Eq.{u_1 + 1}
+    (Resources.Measured.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat)
+    (@Resources.Partition.partitionRun.{u_1} α inst p (@List.nil.{u_1} α))
+    (@Prod.mk.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat
+      (@Prod.mk.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) (@List.nil.{u_1} α)
+        (@Prod.mk.{u_1, u_1} (List.{u_1} α) (List.{u_1} α) (@List.nil.{u_1} α) (@List.nil.{u_1} α)))
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Resources.Partition.partitionRun_cons.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p y : α)
+  (ys : List.{u_1} α),
+  @Eq.{u_1 + 1}
+    (Resources.Measured.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat)
+    (@Resources.Partition.partitionRun.{u_1} α inst p (@List.cons.{u_1} α y ys))
+    (@Resources.CallCount.tick.{u_1} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)))
+      (@Resources.bind.{u_1, 0, u_1} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)))
+        (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat instAddNat
+        (@Resources.Partition.partitionRun.{u_1} α inst p ys) fun t =>
+        @Resources.pure.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat
+          (@Zero.ofOfNat0.{0} Nat (instOfNatNat (nat_lit 0)))
+          (@ite.{u_1 + 1} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)))
+            (@LT.lt.{u_1} α
+              (@Preorder.toLT.{u_1} α
+                (@PartialOrder.toPreorder.{u_1} α
+                  (@SemilatticeInf.toPartialOrder.{u_1} α
+                    (@Lattice.toSemilatticeInf.{u_1} α
+                      (@DistribLattice.toLattice.{u_1} α (@instDistribLatticeOfLinearOrder.{u_1} α inst))))))
+              y p)
+            (@LinearOrder.toDecidableLT.{u_1} α inst y p)
+            (@Prod.mk.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+              (@List.cons.{u_1} α y
+                (@Prod.fst.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) t))
+              (@Prod.mk.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+                (@Prod.fst.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+                  (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) t))
+                (@Prod.snd.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+                  (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) t))))
+            (@ite.{u_1 + 1} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)))
+              (@Eq.{u_1 + 1} α p y) (@LinearOrder.toDecidableEq.{u_1} α inst p y)
+              (@Prod.mk.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+                (@Prod.fst.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) t)
+                (@Prod.mk.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+                  (@List.cons.{u_1} α y
+                    (@Prod.fst.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+                      (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) t)))
+                  (@Prod.snd.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+                    (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) t))))
+              (@Prod.mk.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+                (@Prod.fst.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) t)
+                (@Prod.mk.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+                  (@Prod.fst.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+                    (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) t))
+                  (@List.cons.{u_1} α y
+                    (@Prod.snd.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+                      (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) t)))))))))
+@Resources.Partition.partitionRun_value.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α)
+  (xs : List.{u_1} α),
+  @Eq.{u_1 + 1} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)))
+    (@Prod.fst.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat
+      (@Resources.Partition.partitionRun.{u_1} α inst p xs))
+    (@Sequences.Partition.partition3.{u_1} α inst p xs)
+@Resources.Partition.partitionRun_nil_cost.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α),
+  @Eq.{1} Nat
+    (@Prod.snd.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat
+      (@Resources.Partition.partitionRun.{u_1} α inst p (@List.nil.{u_1} α)))
+    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+@Resources.Partition.partitionRun_cons_cost.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p y : α)
+  (ys : List.{u_1} α),
+  @Eq.{1} Nat
+    (@Prod.snd.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat
+      (@Resources.Partition.partitionRun.{u_1} α inst p (@List.cons.{u_1} α y ys)))
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@Prod.snd.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat
+        (@Resources.Partition.partitionRun.{u_1} α inst p ys))
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Resources.Partition.partitionRun_cost.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α)
+  (xs : List.{u_1} α),
+  @Eq.{1} Nat
+    (@Prod.snd.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat
+      (@Resources.Partition.partitionRun.{u_1} α inst p xs))
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@List.length.{u_1} α xs)
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@ThreeWayPartitionExamples.replicate_partition.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α) (n : Nat),
+  @Eq.{u_1 + 1} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)))
+    (@Sequences.Partition.partition3.{u_1} α inst p (@List.replicate.{u_1} α n p))
+    (@Prod.mk.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) (@List.nil.{u_1} α)
+      (@Prod.mk.{u_1, u_1} (List.{u_1} α) (List.{u_1} α) (@List.replicate.{u_1} α n p) (@List.nil.{u_1} α)))
+@ThreeWayPartitionExamples.selection_partition.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α)
+  (xs : List.{u_1} α),
+  @Eq.{u_1 + 1} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)))
+    (@Applications.Selection.partition3.{u_1} α inst p xs) (@Sequences.Partition.partition3.{u_1} α inst p xs)
+ThreeWayPartitionExamples.mixed : List.{0} Nat
+ThreeWayPartitionExamples.mixed_partition : @Eq.{1}
+  (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)))
+  (@Sequences.Partition.partition3.{0} Nat Nat.instLinearOrder
+    (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ThreeWayPartitionExamples.mixed)
+  (@Prod.mk.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat))))
+    (@Prod.mk.{0, 0} (List.{0} Nat) (List.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) (@List.nil.{0} Nat))))))
+ThreeWayPartitionExamples.outside_partition : @Eq.{1}
+  (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)))
+  (@Sequences.Partition.partition3.{0} Nat Nat.instLinearOrder
+    (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat)))))
+  (@Prod.mk.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat))))
+    (@Prod.mk.{0, 0} (List.{0} Nat) (List.{0} Nat) (@List.nil.{0} Nat) (@List.nil.{0} Nat)))
+ThreeWayPartitionExamples.interior_partition : @Eq.{1}
+  (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)))
+  (@Sequences.Partition.partition3.{0} Nat Nat.instLinearOrder
+    (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat))))))
+  (@Prod.mk.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))
+    (@Prod.mk.{0, 0} (List.{0} Nat) (List.{0} Nat) (@List.nil.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat)))))
+ThreeWayPartitionExamples.lower_partition : @Eq.{1}
+  (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)))
+  (@Sequences.Partition.partition3.{0} Nat Nat.instLinearOrder
+    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))))
+  (@Prod.mk.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))
+    (@Prod.mk.{0, 0} (List.{0} Nat) (List.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))
+      (@List.nil.{0} Nat)))
+@ThreeWayPartitionExamples.empty_run.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α),
+  @Eq.{u_1 + 1}
+    (Resources.Measured.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat)
+    (@Resources.Partition.partitionRun.{u_1} α inst p (@List.nil.{u_1} α))
+    (@Prod.mk.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat
+      (@Prod.mk.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) (@List.nil.{u_1} α)
+        (@Prod.mk.{u_1, u_1} (List.{u_1} α) (List.{u_1} α) (@List.nil.{u_1} α) (@List.nil.{u_1} α)))
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@ThreeWayPartitionExamples.replicate_run.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α) (n : Nat),
+  @Eq.{u_1 + 1}
+    (Resources.Measured.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat)
+    (@Resources.Partition.partitionRun.{u_1} α inst p (@List.replicate.{u_1} α n p))
+    (@Prod.mk.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat
+      (@Prod.mk.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) (@List.nil.{u_1} α)
+        (@Prod.mk.{u_1, u_1} (List.{u_1} α) (List.{u_1} α) (@List.replicate.{u_1} α n p) (@List.nil.{u_1} α)))
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+@ThreeWayPartitionExamples.singleton_run.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α),
+  @Eq.{u_1 + 1}
+    (Resources.Measured.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat)
+    (@Resources.Partition.partitionRun.{u_1} α inst p (@List.cons.{u_1} α p (@List.nil.{u_1} α)))
+    (@Prod.mk.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat
+      (@Prod.mk.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)) (@List.nil.{u_1} α)
+        (@Prod.mk.{u_1, u_1} (List.{u_1} α) (List.{u_1} α) (@List.cons.{u_1} α p (@List.nil.{u_1} α))
+          (@List.nil.{u_1} α)))
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+@ThreeWayPartitionExamples.replicate_strict.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α) (n : Nat),
+  @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n →
+    And
+      (@LT.lt.{0} Nat instLTNat
+        (@List.length.{u_1} α
+          (@Prod.fst.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+            (@Prod.fst.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat
+              (@Resources.Partition.partitionRun.{u_1} α inst p (@List.replicate.{u_1} α n p)))))
+        n)
+      (@LT.lt.{0} Nat instLTNat
+        (@List.length.{u_1} α
+          (@Prod.snd.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+            (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+              (@Prod.fst.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat
+                (@Resources.Partition.partitionRun.{u_1} α inst p (@List.replicate.{u_1} α n p))))))
+        n)
+@ThreeWayPartitionExamples.measured_selection_value.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α)
+  (xs : List.{u_1} α),
+  @Eq.{u_1 + 1} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)))
+    (@Prod.fst.{u_1, 0} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))) Nat
+      (@Resources.Partition.partitionRun.{u_1} α inst p xs))
+    (@Applications.Selection.partition3.{u_1} α inst p xs)
+ThreeWayPartitionExamples.mixed_run : @Eq.{1}
+  (Resources.Measured.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat)
+  (@Resources.Partition.partitionRun.{0} Nat Nat.instLinearOrder
+    (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ThreeWayPartitionExamples.mixed)
+  (@Prod.mk.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat
+    (@Prod.mk.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat))))
+      (@Prod.mk.{0, 0} (List.{0} Nat) (List.{0} Nat)
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) (@List.nil.{0} Nat))))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9))))
+ThreeWayPartitionExamples.mixed_value : @Eq.{1} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)))
+  (@Prod.fst.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat
+    (@Resources.Partition.partitionRun.{0} Nat Nat.instLinearOrder
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ThreeWayPartitionExamples.mixed))
+  (@Prod.mk.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat))))
+    (@Prod.mk.{0, 0} (List.{0} Nat) (List.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) (@List.nil.{0} Nat))))))
+ThreeWayPartitionExamples.mixed_cost : @Eq.{1} Nat
+  (@Prod.snd.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat
+    (@Resources.Partition.partitionRun.{0} Nat Nat.instLinearOrder
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ThreeWayPartitionExamples.mixed))
+  (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9)))
+ThreeWayPartitionExamples.mixed_perm : have t :=
+  @Prod.fst.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat
+    (@Resources.Partition.partitionRun.{0} Nat Nat.instLinearOrder
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ThreeWayPartitionExamples.mixed);
+@List.Perm.{0} Nat
+  (@HAppend.hAppend.{0, 0, 0} (List.{0} Nat) (List.{0} Nat) (List.{0} Nat)
+    (@instHAppendOfAppend.{0} (List.{0} Nat) (@List.instAppend.{0} Nat))
+    (@HAppend.hAppend.{0, 0, 0} (List.{0} Nat) (List.{0} Nat) (List.{0} Nat)
+      (@instHAppendOfAppend.{0} (List.{0} Nat) (@List.instAppend.{0} Nat))
+      (@Prod.fst.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)) t)
+      (@Prod.fst.{0, 0} (List.{0} Nat) (List.{0} Nat)
+        (@Prod.snd.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)) t)))
+    (@Prod.snd.{0, 0} (List.{0} Nat) (List.{0} Nat)
+      (@Prod.snd.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)) t)))
+  ThreeWayPartitionExamples.mixed
+ThreeWayPartitionExamples.mixed_lengths : have t :=
+  @Prod.fst.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat
+    (@Resources.Partition.partitionRun.{0} Nat Nat.instLinearOrder
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ThreeWayPartitionExamples.mixed);
+And
+  (@Eq.{1} Nat (@List.length.{0} Nat (@Prod.fst.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)) t))
+    (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+  (And
+    (@Eq.{1} Nat
+      (@List.length.{0} Nat
+        (@Prod.fst.{0, 0} (List.{0} Nat) (List.{0} Nat)
+          (@Prod.snd.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)) t)))
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (And
+      (@Eq.{1} Nat
+        (@List.length.{0} Nat
+          (@Prod.snd.{0, 0} (List.{0} Nat) (List.{0} Nat)
+            (@Prod.snd.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)) t)))
+        (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+      (@Eq.{1} Nat
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@List.length.{0} Nat (@Prod.fst.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)) t))
+            (@List.length.{0} Nat
+              (@Prod.fst.{0, 0} (List.{0} Nat) (List.{0} Nat)
+                (@Prod.snd.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)) t))))
+          (@List.length.{0} Nat
+            (@Prod.snd.{0, 0} (List.{0} Nat) (List.{0} Nat)
+              (@Prod.snd.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)) t))))
+        (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8))))))
+ThreeWayPartitionExamples.mixed_strict : And
+  (@LT.lt.{0} Nat instLTNat
+    (@List.length.{0} Nat
+      (@Prod.fst.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+        (@Prod.fst.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat
+          (@Resources.Partition.partitionRun.{0} Nat Nat.instLinearOrder
+            (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ThreeWayPartitionExamples.mixed))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8))))
+  (@LT.lt.{0} Nat instLTNat
+    (@List.length.{0} Nat
+      (@Prod.snd.{0, 0} (List.{0} Nat) (List.{0} Nat)
+        (@Prod.snd.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+          (@Prod.fst.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat
+            (@Resources.Partition.partitionRun.{0} Nat Nat.instLinearOrder
+              (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ThreeWayPartitionExamples.mixed)))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8))))
+ThreeWayPartitionExamples.outside_run : @Eq.{1}
+  (Resources.Measured.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat)
+  (@Resources.Partition.partitionRun.{0} Nat Nat.instLinearOrder
+    (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat)))))
+  (@Prod.mk.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat
+    (@Prod.mk.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat))))
+      (@Prod.mk.{0, 0} (List.{0} Nat) (List.{0} Nat) (@List.nil.{0} Nat) (@List.nil.{0} Nat)))
+    (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))
+ThreeWayPartitionExamples.outside_boundary : And
+  (Not
+    (@Membership.mem.{0, 0} Nat (List.{0} Nat) (@List.instMembership.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat))))
+      (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))
+  (And
+    (@Eq.{1} Nat
+      (@List.length.{0} Nat
+        (@Prod.fst.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+          (@Prod.fst.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat
+            (@Resources.Partition.partitionRun.{0} Nat Nat.instLinearOrder
+              (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                    (@List.nil.{0} Nat))))))))
+      (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+    (Not
+      (@LT.lt.{0} Nat instLTNat
+        (@List.length.{0} Nat
+          (@Prod.fst.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+            (@Prod.fst.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat
+              (@Resources.Partition.partitionRun.{0} Nat Nat.instLinearOrder
+                (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                      (@List.nil.{0} Nat))))))))
+        (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))))
+ThreeWayPartitionExamples.interior_run : @Eq.{1}
+  (Resources.Measured.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat)
+  (@Resources.Partition.partitionRun.{0} Nat Nat.instLinearOrder
+    (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat))))))
+  (@Prod.mk.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat
+    (@Prod.mk.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))
+      (@Prod.mk.{0, 0} (List.{0} Nat) (List.{0} Nat) (@List.nil.{0} Nat)
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat)))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+ThreeWayPartitionExamples.interior_boundary : And
+  (Not
+    (@Membership.mem.{0, 0} Nat (List.{0} Nat) (@List.instMembership.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))))
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+  (And
+    (@Eq.{1} (List.{0} Nat)
+      (@Prod.fst.{0, 0} (List.{0} Nat) (List.{0} Nat)
+        (@Prod.snd.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+          (@Prod.fst.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat
+            (@Resources.Partition.partitionRun.{0} Nat Nat.instLinearOrder
+              (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                      (@List.nil.{0} Nat)))))))))
+      (@List.nil.{0} Nat))
+    (And
+      (@LT.lt.{0} Nat instLTNat
+        (@List.length.{0} Nat
+          (@Prod.fst.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+            (@Prod.fst.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat
+              (@Resources.Partition.partitionRun.{0} Nat Nat.instLinearOrder
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                        (@List.nil.{0} Nat)))))))))
+        (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))
+      (@LT.lt.{0} Nat instLTNat
+        (@List.length.{0} Nat
+          (@Prod.snd.{0, 0} (List.{0} Nat) (List.{0} Nat)
+            (@Prod.snd.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+              (@Prod.fst.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat
+                (@Resources.Partition.partitionRun.{0} Nat Nat.instLinearOrder
+                  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                          (@List.nil.{0} Nat))))))))))
+        (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))))
+ThreeWayPartitionExamples.bind_returned_lower : @Eq.{1}
+  (Resources.Measured.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat)
+  (@Resources.bind.{0, 0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)))
+    (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat instAddNat
+    (@Resources.Partition.partitionRun.{0} Nat Nat.instLinearOrder
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ThreeWayPartitionExamples.mixed)
+    fun t =>
+    @Resources.Partition.partitionRun.{0} Nat Nat.instLinearOrder
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@Prod.fst.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat)) t))
+  (@Prod.mk.{0, 0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))) Nat
+    (@Prod.mk.{0, 0} (List.{0} Nat) (Prod.{0, 0} (List.{0} Nat) (List.{0} Nat))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))
+      (@Prod.mk.{0, 0} (List.{0} Nat) (List.{0} Nat)
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))
+        (@List.nil.{0} Nat)))
+    (@OfNat.ofNat.{0} Nat (nat_lit 13) (instOfNatNat (nat_lit 13))))
+@Applications.Selection.partition3.{u_1} : {α : Type u_1} →
+  [LinearOrder.{u_1} α] →
+    α → List.{u_1} α → Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+@Applications.Selection.partition3_eq_filters.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α)
+  (xs : List.{u_1} α),
+  @Eq.{u_1 + 1} (Prod.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)))
+    (@Applications.Selection.partition3.{u_1} α inst p xs)
+    (@Prod.mk.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+      (@List.filter.{u_1} α
+        (fun x =>
+          @decide
+            (@LT.lt.{u_1} α
+              (@Preorder.toLT.{u_1} α
+                (@PartialOrder.toPreorder.{u_1} α
+                  (@SemilatticeInf.toPartialOrder.{u_1} α
+                    (@Lattice.toSemilatticeInf.{u_1} α
+                      (@DistribLattice.toLattice.{u_1} α (@instDistribLatticeOfLinearOrder.{u_1} α inst))))))
+              x p)
+            (@LinearOrder.toDecidableLT.{u_1} α inst x p))
+        xs)
+      (@Prod.mk.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+        (@List.filter.{u_1} α (fun x => @decide (@Eq.{u_1 + 1} α x p) (@LinearOrder.toDecidableEq.{u_1} α inst x p)) xs)
+        (@List.filter.{u_1} α
+          (fun x =>
+            @decide
+              (@LT.lt.{u_1} α
+                (@Preorder.toLT.{u_1} α
+                  (@PartialOrder.toPreorder.{u_1} α
+                    (@SemilatticeInf.toPartialOrder.{u_1} α
+                      (@Lattice.toSemilatticeInf.{u_1} α
+                        (@DistribLattice.toLattice.{u_1} α (@instDistribLatticeOfLinearOrder.{u_1} α inst))))))
+                p x)
+              (@LinearOrder.toDecidableLT.{u_1} α inst p x))
+          xs)))
+@Applications.Selection.partition3_perm.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α)
+  (xs : List.{u_1} α),
+  @List.Perm.{u_1} α
+    (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+      (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α))
+      (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+        (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α))
+        (@Prod.fst.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+          (@Applications.Selection.partition3.{u_1} α inst p xs))
+        (@Prod.fst.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+          (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+            (@Applications.Selection.partition3.{u_1} α inst p xs))))
+      (@Prod.snd.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+        (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+          (@Applications.Selection.partition3.{u_1} α inst p xs))))
+    xs
+@Applications.Selection.partition_left_mem.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α)
+  (xs : List.{u_1} α) (x : α),
+  Iff
+    (@Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α)
+      (@Prod.fst.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+        (@Applications.Selection.partition3.{u_1} α inst p xs))
+      x)
+    (And (@Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs x)
+      (@LT.lt.{u_1} α
+        (@Preorder.toLT.{u_1} α
+          (@PartialOrder.toPreorder.{u_1} α
+            (@SemilatticeInf.toPartialOrder.{u_1} α
+              (@Lattice.toSemilatticeInf.{u_1} α
+                (@DistribLattice.toLattice.{u_1} α (@instDistribLatticeOfLinearOrder.{u_1} α inst))))))
+        x p))
+@Applications.Selection.partition_equal_mem.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α)
+  (xs : List.{u_1} α) (x : α),
+  Iff
+    (@Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α)
+      (@Prod.fst.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+        (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+          (@Applications.Selection.partition3.{u_1} α inst p xs)))
+      x)
+    (And (@Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs x) (@Eq.{u_1 + 1} α x p))
+@Applications.Selection.partition_right_mem.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α)
+  (xs : List.{u_1} α) (x : α),
+  Iff
+    (@Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α)
+      (@Prod.snd.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+        (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+          (@Applications.Selection.partition3.{u_1} α inst p xs)))
+      x)
+    (And (@Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs x)
+      (@LT.lt.{u_1} α
+        (@Preorder.toLT.{u_1} α
+          (@PartialOrder.toPreorder.{u_1} α
+            (@SemilatticeInf.toPartialOrder.{u_1} α
+              (@Lattice.toSemilatticeInf.{u_1} α
+                (@DistribLattice.toLattice.{u_1} α (@instDistribLatticeOfLinearOrder.{u_1} α inst))))))
+        p x))
+@Applications.Selection.partition_lengths.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α)
+  (xs : List.{u_1} α),
+  @Eq.{1} Nat
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@List.length.{u_1} α
+          (@Prod.fst.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+            (@Applications.Selection.partition3.{u_1} α inst p xs)))
+        (@List.length.{u_1} α
+          (@Prod.fst.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+            (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+              (@Applications.Selection.partition3.{u_1} α inst p xs)))))
+      (@List.length.{u_1} α
+        (@Prod.snd.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+          (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+            (@Applications.Selection.partition3.{u_1} α inst p xs)))))
+    (@List.length.{u_1} α xs)
+@Applications.Selection.partition_strict_sizes.{u_1} : ∀ {α : Type u_1} [inst : LinearOrder.{u_1} α] (p : α)
+  (xs : List.{u_1} α),
+  @Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs p →
+    And
+      (@LT.lt.{0} Nat instLTNat
+        (@List.length.{u_1} α
+          (@Prod.fst.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+            (@Applications.Selection.partition3.{u_1} α inst p xs)))
+        (@List.length.{u_1} α xs))
+      (@LT.lt.{0} Nat instLTNat
+        (@List.length.{u_1} α
+          (@Prod.snd.{u_1, u_1} (List.{u_1} α) (List.{u_1} α)
+            (@Prod.snd.{u_1, u_1} (List.{u_1} α) (Prod.{u_1, u_1} (List.{u_1} α) (List.{u_1} α))
+              (@Applications.Selection.partition3.{u_1} α inst p xs))))
+        (@List.length.{u_1} α xs))

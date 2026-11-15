@@ -1,0 +1,26 @@
+{
+  "recorded_utc": "2026-11-04T19:03:09.528793+00:00",
+  "independent_readonly_assessor": "/root/shared_acceptance_sequence",
+  "secured_failure": "owned18625 CLOSED1, terminal9556b9, closurecd12d9",
+  "findings": {
+    "source_guard": "passed",
+    "pre_integrity_artifacts": 3090,
+    "pre_invalidations": 0,
+    "requested_project_targets": 1030,
+    "replayed_status_lines": 326,
+    "only_failed_build_target": "SquareApplications",
+    "nested_lean_exit": 137,
+    "target_reported_seconds": 114,
+    "native_timed_out": false,
+    "native_recorder_error": null,
+    "specific_resource_cause_established": false,
+    "matching_audit_or_verification": false
+  },
+  "unchanged_profile_history": {
+    "accepted_Q_aggregate_build_seconds": 321,
+    "ordinary_kit_run_has_no_configured_timeout": true,
+    "installed_and_kit_runtime_sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695"
+  },
+  "root_delta": "One root import; two local XR modules; no unrelated shared draft",
+  "disposition": "One unchanged normal retry (attempt2) already running. No demonstrated source defect, fresh trigger, hydration requirement or approved profile/toolchain/gate change. Preserve first failure."
+}

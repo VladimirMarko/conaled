@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-05T00:39:24.373226+00:00",
+  "candidate": "3c04405d207a7b8c6f7452598da88fa3a7a05ac3",
+  "terminal": {
+    "recorded_utc": "2026-11-05T00:39:24.373073+00:00",
+    "owned_session": 6786,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "c51a4e",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "3c04405d207a7b8c6f7452598da88fa3a7a05ac3"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-worst-focused-attempt1-20261105/full.log",
+    "bytes": 13948,
+    "sha256": "774df7e1df9d46fecf73211a50d19ddee375d0d2b9262d8e5b9aa71acba1f5fe"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261105T003824Z-project-run-1e70298e",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-worst-focused-attempt1-20261105/native-records/start.json",
+      "bytes": 485,
+      "sha256": "d5a2848cd8d98e8cbd6e8526c1131c04b6c9aca14247e71a49f7b75f9d420cdc"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-worst-focused-attempt1-20261105/native-records/result.json",
+      "bytes": 639,
+      "sha256": "0fed0cbd4c9e9f40c4d776cfca8504bb4e2d75cae51417f51049c9eddca8c767"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-worst-focused-attempt1-20261105/native-records/output.log",
+      "bytes": 13664,
+      "sha256": "a92cec41dabc7eeea3f85647312ba43af593c17f3289bcdb0bac5f5382db3d64"
+    }
+  },
+  "native_body_exact_outer_offset": 127,
+  "complete_closed_log": true,
+  "scope": "First focused universal endpoint pair; actual failure1 in endpointTrace_singleton rewrite at core line73. Examples target did not build. No full candidate or audit result; source claims and all validation gates retained.",
+  "verification_record_candidate": null,
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

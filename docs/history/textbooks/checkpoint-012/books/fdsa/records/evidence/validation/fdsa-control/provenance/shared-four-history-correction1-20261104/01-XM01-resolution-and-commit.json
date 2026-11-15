@@ -1,0 +1,90 @@
+{
+  "recorded_utc": "2026-11-04T14:19:40.043869+00:00",
+  "finding": "SH4-HIST-001",
+  "unit": "XM01",
+  "source_diff_read": "complete 3-path merge-result diff before resolution",
+  "conflicts": [
+    "docs/research/fdsa-list-merge.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "automatic_difference": "Second identical MergeCosts import at old source-root tail",
+  "resolution_reason": "The H note is the exact reviewed status-only successor of incoming note. H map contains the complete incoming mathematical section plus all accepted F and other declared unit content. The required MergeCosts import already exists in H. All incoming defining blobs equal H.",
+  "resolution": [
+    {
+      "path": "SquareApplications.lean",
+      "selected_source": "97505ca8a1e714601e6d68137f0659b36a569988",
+      "selected_git_blob": "a36fa607584d77618858b5f1707b1df913a22cca",
+      "bytes": 8544,
+      "sha256": "6197b3a27ee1fd07305a506314caeaa3b3534ab166eaea00e5e169ba4c82956d"
+    },
+    {
+      "path": "docs/research/fdsa-list-merge.md",
+      "selected_source": "97505ca8a1e714601e6d68137f0659b36a569988",
+      "selected_git_blob": "90ff9f07f9b2a2dbad7233dddb6f091fa5f9d89d",
+      "bytes": 15491,
+      "sha256": "9661cc22e3600c0963c37b0f145f7396a1b7677ae2e8f2d240ecd1cf13b88729"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "selected_source": "97505ca8a1e714601e6d68137f0659b36a569988",
+      "selected_git_blob": "e753d5325fcd4f576b091d795ffced6d625c2aaf",
+      "bytes": 39246,
+      "sha256": "f479b3b05b2fdfd99683e15cfc1e0d0b9542c58f56a3013872be6df8469cebfe"
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "git",
+        "restore",
+        "--source=97505ca8a1e714601e6d68137f0659b36a569988",
+        "--staged",
+        "--worktree",
+        "--",
+        "SquareApplications.lean",
+        "docs/research/fdsa-list-merge.md",
+        "docs/research/fdsa-reconstruction-map.md"
+      ],
+      "actual_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "actual_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "-c",
+        "user.name=ChatGPT",
+        "-c",
+        "user.email=chatgpt@openai.com",
+        "commit",
+        "-m",
+        "fix(fdsa): retain ordinary merge integration history (#174)",
+        "-m",
+        "SH4-HIST-001: integrate corrected XM01 tip72a0951 through an actual normal merge. Preserve reviewed H tree97505ca exactly. Resolve the source-note/map conflicts with the reviewed dated snapshots and complete accepted foundation map; discard only the duplicate MergeCosts import added by the merge. No mathematical source changes or validation credit."
+      ],
+      "actual_exit": 0,
+      "stdout": "[work/fdsa-shared-four-integration 15dbd8a] fix(fdsa): retain ordinary merge integration history (#174)\n",
+      "stderr": ""
+    }
+  ],
+  "result_commit": "15dbd8ac1d653a9ef8000656a91152ca1cda9c58",
+  "parents": [
+    "97505ca8a1e714601e6d68137f0659b36a569988",
+    "72a0951aee406f7db67998d2a3bf8810f4e1bccc"
+  ],
+  "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+  "exact_H_tree": true,
+  "status": "",
+  "compiler_or_cache_action": false
+}

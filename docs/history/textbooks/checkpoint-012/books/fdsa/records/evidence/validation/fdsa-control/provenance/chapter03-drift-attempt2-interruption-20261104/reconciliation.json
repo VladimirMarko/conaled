@@ -1,0 +1,78 @@
+{
+  "recorded_utc": "2026-11-04T21:09:07.870189+00:00",
+  "run": "chapter03-random-selection-drift-focused-attempt2-20261104",
+  "candidate": "f535b1ef557795c4e09c97ce0daf599961c9b268",
+  "classification": "Interrupted with unsecured terminal; neither success nor failure established",
+  "actual_exit": null,
+  "original_exec_session_id": null,
+  "original_start_call_response": "exec_command failed: CreateProcess { message: Rejected(Failed to create unified exec process: exec-server transport disconnected) }",
+  "response_does_not_establish_no_side_effects": true,
+  "actual_start_and_preflight_present": true,
+  "recorded_start_utc": "2026-11-04T21:05:30.944769+00:00",
+  "read_observations": [
+    "912f6a",
+    "d32be2",
+    "362957",
+    "8df5e2",
+    "0956b1"
+  ],
+  "current_project_lock_observation": "Nonblocking exclusive acquisition succeeded again; no current qualified wrapper lock owner. Existing lock contents unchanged.",
+  "ps_observation": {
+    "chunk": "8df5e2",
+    "actual_exit": 47,
+    "stderr": "Error, do this: mount -t proc proc /proc",
+    "global_process_absence_not_claimed": true
+  },
+  "original_outer_files": {
+    "full.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-drift-focused-attempt2-20261104/full.log",
+      "bytes": 2951,
+      "sha256": "2c68522fe28a234322a8f25d42fe6c1a61fd6de99d70f1f52c34d6db6a370173"
+    },
+    "launch.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-drift-focused-attempt2-20261104/launch.json",
+      "bytes": 174,
+      "sha256": "18d81ad47f5725d9ff928328e06ebd52208675ea25d5e056c55218529aec8512"
+    },
+    "progress.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-drift-focused-attempt2-20261104/progress.json",
+      "bytes": 263,
+      "sha256": "f52a7ba91d9378d54a529bcefe223900118d94906102c21452f270815494ae8b"
+    },
+    "request.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-drift-focused-attempt2-20261104/request.json",
+      "bytes": 801,
+      "sha256": "c3b35b13d4087bb845f5ceb4f1abb5aa5b3733b7ff08436b7fee24be64cb76ea"
+    },
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-drift-focused-attempt2-20261104/start.json",
+      "bytes": 994,
+      "sha256": "2b5707d19669be096cc3007feb4b328376fb295ee27d48a7e5e3e3aec5f98656"
+    }
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T210531Z-project-run-add7ba38",
+  "original_native_files": {
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T210531Z-project-run-add7ba38/output.log",
+      "bytes": 2824,
+      "sha256": "30b480a9b2432a40e43f8a3b4c72f7d79584e9f11f6781f381c66a4a8ce0e249"
+    },
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T210531Z-project-run-add7ba38/start.json",
+      "bytes": 485,
+      "sha256": "fdd94a052c3203eaedca475022a25f58e947271d71f186abeb056cb2eee7d958"
+    }
+  },
+  "partial_logs_immutable_snapshots": true,
+  "old_progress_is_not_current_liveness": true,
+  "no_known_surviving_qualified_lock_owner": true,
+  "next_action": "Newly named same-candidate attempt under unchanged qualified exclusive project-lock wrapper; never guess or poll unavailable original session ID.",
+  "no_compiler_or_dependency_or_execution_profile_change": true,
+  "no_full_or_focused_success_credit": true,
+  "preparation_failure": {
+    "tool_chunk": "4e53c4",
+    "actual_exit": 1,
+    "cause": "Native directory timestamp was incorrectly assumed to equal outer recorder second. The assertion failed after five outer snapshots, before any native snapshot or reconciliation result.",
+    "recovery": "0956b1 observed exact native directory210531; present finish verifies all prior snapshots without replacing them and binds actual native start/command/profile. This was metadata preparation failure, not a Lean result."
+  }
+}

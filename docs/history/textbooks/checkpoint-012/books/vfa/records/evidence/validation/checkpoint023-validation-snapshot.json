@@ -1,0 +1,73 @@
+{
+  "observed_utc": "2026-11-02T14:24:13.894027+00:00",
+  "checkouts": {
+    "conaled": {
+      "head": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "status": ""
+    },
+    "vfa-validation": {
+      "head": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "status": ""
+    },
+    "work-state/cache-companion": {
+      "head": "a43cef4881d4eb303a81ef25f5ccff0b801a12fe",
+      "status": ""
+    }
+  },
+  "primary_run_record": {
+    "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+    "command": [
+      "/root/.nix-profile/bin/nix",
+      "develop",
+      "--command",
+      "./check.sh",
+      "--candidate",
+      "HEAD"
+    ],
+    "working_directory": "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+    "log": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-3279bac.log",
+    "explicit_environment": {
+      "PATH_prefix": "/root/.nix-profile/bin:",
+      "NIX_CONFIG": "build-users-group =\nexperimental-features = nix-command flakes",
+      "LEAN_NUM_THREADS": "1"
+    },
+    "started_utc": "2026-11-02T10:59:38.190453+00:00",
+    "status": "running",
+    "returncode": null,
+    "note": "Exact subprocess return code is recorded independently of interactive session. Required check.sh command unchanged. Checkpoint017 upload completed before launch.",
+    "pid": 283393,
+    "process_group": 283393
+  },
+  "log_prefix_bytes": 181300,
+  "log_prefix_sha256": "f71e9d73ea62497c2532749e9c3e6b07f97881da79fe318c1ba4581c4bfce925",
+  "last_completed_lines": [
+    "\u2714 [4003/4006] Built Applications.EditAlignment.Observation (139s)",
+    "\u2714 [4004/4007] Built Examples.EditAlignment (115s)",
+    "\u2714 [4005/4008] Built SquareKit.EquationTranspose (25s)",
+    "\u2714 [4006/4009] Built Applications.Languages.Transposition (23s)",
+    "\u2714 [4007/4010] Built Examples.EquationTranspose (39s)",
+    "\u2714 [4008/4011] Built SquareKit.SmoothOpenCoordinates (670s)",
+    "\u2714 [4009/4013] Built SquareKit.SmoothOpenOperations (177s)",
+    "\u26a0 [4010/4014] Built Examples.ExpressiveWitnesses (44s)"
+  ],
+  "reported_errors": [],
+  "root_writable_free_bytes": 1666613248,
+  "source_checkpoint_launch_floor_bytes": 1600000000,
+  "operational_acceptance": {
+    "candidate": "a43cef4881d4eb303a81ef25f5ccff0b801a12fe",
+    "acceptance_sha256": "736bf500005e21ac5072fa207f07b97cd59dc5d720afd84279cd1bb5e6996585",
+    "review_sha256": "f547a6c27fed94ee9275ca93f039371bc01cf4e99a0331053b3a8ff013ab29ef",
+    "standards": "Passed",
+    "spec": "Passed"
+  },
+  "actual_cache_capture_performed": false,
+  "chapter_acceptance": false,
+  "workflow_writers": "No implementation or review writer active; root snapshot finished before capture; primary log may grow as a prefix.",
+  "capacity_decision": "The additional one-time retirement of the verified local022 archive supplies space for the original reviewed1.6GB source-only floor; no further floor reduction.",
+  "failed_prior_preflight": "work-state/validation/checkpoint023-preflight-capacity-failure.json",
+  "prior_preflights": [
+    "work-state/validation/checkpoint023-preflight-capacity-failure.json",
+    "work-state/validation/checkpoint023-preflight-capacity-failure2.json"
+  ],
+  "local_archive_retirement": "work-state/validation/20261102-checkpoint022-local-retirement.json"
+}

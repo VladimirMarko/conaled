@@ -1,0 +1,129 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "axis": "Standards",
+  "recorded_utc": "2026-11-04T16:39:09.348072+00:00",
+  "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "outcome": "Passed",
+  "new_findings": 0,
+  "unresolved_XU03_findings": 0,
+  "full_original_scope_retained": true,
+  "all_own_writes": "HELD after this completed readback boundary",
+  "saved_report_readback": {
+    "record": {
+      "path": "reviews/permutation-tail-standards-final-20261104.md",
+      "bytes": 15441,
+      "lines": 79,
+      "sha256": "c912730c717de8ca17595a068f27e360884ef84519c56e93236ac8658084f189"
+    },
+    "actual_tool": "924156",
+    "whole_file_read": true
+  },
+  "saved_semantic_receipt_readback": {
+    "record": {
+      "path": "provenance/shared-tail-standards-terminal-assessment-20261104/final-standards-assessment-726cb9a9.json",
+      "bytes": 39554,
+      "lines": 802,
+      "sha256": "8fa5056d34362ce4d6ad31a3a6d1500767ea26b4246b7a7047331b8e895cd6b6"
+    },
+    "chunks": [
+      {
+        "first": 1,
+        "last": 400,
+        "bytes": 18457,
+        "sha256": "fa312d90dcaedc5e8e9637919385eb2c7e20459a4118f99789bb77c432c88823",
+        "actual_tool": "33e0c4",
+        "complete_untruncated_read": true
+      },
+      {
+        "first": 401,
+        "last": 802,
+        "bytes": 21097,
+        "sha256": "96ec50e73d00f14053938dc22b5aa31a48114bd7e8c49dffd2c1cb44ded398c3",
+        "actual_tool": "e3806a",
+        "complete_untruncated_read": true
+      }
+    ],
+    "whole_file_read": true
+  },
+  "saved_read_ledger_readback": {
+    "record": {
+      "path": "provenance/shared-tail-standards-terminal-assessment-20261104/read-progress.json",
+      "bytes": 16362,
+      "lines": 381,
+      "sha256": "d563391d972d86efe1631f30e236956fba74f39d2d24e8e3bd3fe17baaecbc39"
+    },
+    "actual_tool": "06739a",
+    "whole_file_read": true
+  },
+  "independent_reconciliation": {
+    "actual_tool": "27231b",
+    "exit": 0,
+    "record": {
+      "path": "provenance/shared-tail-standards-terminal-assessment-20261104/independent-execution-and-type-reconciliation.json",
+      "bytes": 299176,
+      "lines": 8421,
+      "sha256": "fda2e2a7568445a94cb92bd8f276915279e1ea2e151a46c07702005722a00f42"
+    },
+    "method": "All relevant source/closure/keyset/producer-block/read-chunk assertions actually passed. The resulting large identity arrays are JSON parsed and bound here; no separate human reading of their8421 mechanically derived lines is claimed."
+  },
+  "bound_record_count": 38,
+  "all_bound_sizes_hashes_and_line_counts_match": true,
+  "current_full_log": {
+    "complete_native_lines": 2484,
+    "bytes": 284346,
+    "chunks": 13
+  },
+  "actual_types": {
+    "complete_native_lines": 1073,
+    "bytes": 84784,
+    "chunks": 6,
+    "full_types": 61,
+    "ellipsis_contexts": 52
+  },
+  "public_evidence": {
+    "current61": 61,
+    "qualified_J53": 53,
+    "qualified_I314": 314,
+    "qualified_F110": 110,
+    "distinct": 538
+  },
+  "held_files": [
+    {
+      "path": "reviews/permutation-tail-standards-final-20261104.md",
+      "bytes": 15441,
+      "lines": 79,
+      "sha256": "c912730c717de8ca17595a068f27e360884ef84519c56e93236ac8658084f189"
+    },
+    {
+      "path": "provenance/shared-tail-standards-terminal-assessment-20261104/final-standards-assessment-726cb9a9.json",
+      "bytes": 39554,
+      "lines": 802,
+      "sha256": "8fa5056d34362ce4d6ad31a3a6d1500767ea26b4246b7a7047331b8e895cd6b6"
+    },
+    {
+      "path": "provenance/shared-tail-standards-terminal-assessment-20261104/independent-execution-and-type-reconciliation.json",
+      "bytes": 299176,
+      "lines": 8421,
+      "sha256": "fda2e2a7568445a94cb92bd8f276915279e1ea2e151a46c07702005722a00f42"
+    },
+    {
+      "path": "provenance/shared-tail-standards-terminal-assessment-20261104/qualify_receiving_inputs.py",
+      "bytes": 25588,
+      "lines": 336,
+      "sha256": "bb0c2fa7a6f3cee8f4bd280b9c82d016762b58882683bf71e8c77c944e70cd77"
+    },
+    {
+      "path": "provenance/shared-tail-standards-terminal-assessment-20261104/read-progress.json",
+      "bytes": 16362,
+      "lines": 381,
+      "sha256": "d563391d972d86efe1631f30e236956fba74f39d2d24e8e3bd3fe17baaecbc39"
+    }
+  ],
+  "old_records": "All prior source/final reviews and the paused C2 readiness package remain unchanged; no compiler/source/ref/runtime/output/cache/ticket/global-control action was performed.",
+  "coordinator_remaining": [
+    "Reconcile both complete final independent axes for this exact candidate.",
+    "Run immediate qualified ./check.sh --verify-candidate HEAD.",
+    "Fast-forward accepted branch exactly to L and update authorized local controls accurately.",
+    "Create, verify, upload and expose acceptance checkpoint."
+  ]
+}

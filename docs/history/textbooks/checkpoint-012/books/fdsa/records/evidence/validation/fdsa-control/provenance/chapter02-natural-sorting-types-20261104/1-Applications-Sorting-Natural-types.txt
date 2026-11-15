@@ -1,0 +1,129 @@
+@Applications.Sorting.sortNaturalBy.{u_1} : {α : Type u_1} →
+  (α → α → Bool) → (α → α → Bool) → List.{u_1} α → List.{u_1} α
+@Applications.Sorting.sortNaturalBy_eq_mergeAll.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α),
+  @Eq.{u_1 + 1} (List.{u_1} α) (@Applications.Sorting.sortNaturalBy.{u_1} α lt cmp xs)
+    (@Applications.Sorting.mergeAllBy.{u_1} α cmp (@Applications.Sorting.runsBy.{u_1} α lt xs))
+@Applications.Sorting.sortNaturalBy_nil.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool),
+  @Eq.{u_1 + 1} (List.{u_1} α) (@Applications.Sorting.sortNaturalBy.{u_1} α lt cmp (@List.nil.{u_1} α))
+    (@List.nil.{u_1} α)
+@Applications.Sorting.sortNaturalBy_singleton.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (a : α),
+  @Eq.{u_1 + 1} (List.{u_1} α)
+    (@Applications.Sorting.sortNaturalBy.{u_1} α lt cmp (@List.cons.{u_1} α a (@List.nil.{u_1} α)))
+    (@List.cons.{u_1} α a (@List.nil.{u_1} α))
+@Applications.Sorting.sortNaturalBy_perm.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α),
+  @List.Perm.{u_1} α (@Applications.Sorting.sortNaturalBy.{u_1} α lt cmp xs) xs
+@Applications.Sorting.sortNaturalBy_multiset.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α),
+  @Eq.{u_1 + 1} (Multiset.{u_1} α) (@Multiset.ofList.{u_1} α (@Applications.Sorting.sortNaturalBy.{u_1} α lt cmp xs))
+    (@Multiset.ofList.{u_1} α xs)
+@Applications.Sorting.sortNaturalBy_length.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α),
+  @Eq.{1} Nat (@List.length.{u_1} α (@Applications.Sorting.sortNaturalBy.{u_1} α lt cmp xs)) (@List.length.{u_1} α xs)
+@Applications.Sorting.mem_sortNaturalBy.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool) (xs : List.{u_1} α) (a : α),
+  Iff
+    (@Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α)
+      (@Applications.Sorting.sortNaturalBy.{u_1} α lt cmp xs) a)
+    (@Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs a)
+@Applications.Sorting.sortNaturalBy_sorted_compatible_on.{u_1,
+    u_2} : ∀ {α : Type u_1} {κ : Type u_2} [inst : LE.{u_2} κ] [@Std.IsPreorder.{u_2} κ inst] (key : α → κ)
+  (lt cmp : α → α → Bool) (xs : List.{u_1} α),
+  (∀ (a : α),
+      @Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs a →
+        ∀ (b : α),
+          @Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs b →
+            And (@Eq.{1} Bool (lt a b) Bool.true → @LE.le.{u_2} κ inst (key a) (key b))
+              (@Eq.{1} Bool (lt a b) Bool.false → @LE.le.{u_2} κ inst (key b) (key a))) →
+    (∀ (a : α),
+        @Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs a →
+          ∀ (b : α),
+            @Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs b →
+              And (@Eq.{1} Bool (cmp a b) Bool.true → @LE.le.{u_2} κ inst (key a) (key b))
+                (@Eq.{1} Bool (cmp a b) Bool.false → @LE.le.{u_2} κ inst (key b) (key a))) →
+      @Applications.Sorting.KeySorted.{u_1, u_2} α κ inst key (@Applications.Sorting.sortNaturalBy.{u_1} α lt cmp xs)
+@Applications.Sorting.sortNaturalBy_of_runs_eq_singleton.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool)
+  (xs ys : List.{u_1} α),
+  @Eq.{u_1 + 1} (List.{u_1} (List.{u_1} α)) (@Applications.Sorting.runsBy.{u_1} α lt xs)
+      (@List.cons.{u_1} (List.{u_1} α) ys (@List.nil.{u_1} (List.{u_1} α))) →
+    @Eq.{u_1 + 1} (List.{u_1} α) (@Applications.Sorting.sortNaturalBy.{u_1} α lt cmp xs) ys
+@Applications.Sorting.sortNaturalBy_of_ascending_chain.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool)
+  (xs : List.{u_1} α),
+  @Ne.{u_1 + 1} (List.{u_1} α) xs (@List.nil.{u_1} α) →
+    @List.IsChain.{u_1} α (fun a b => @Eq.{1} Bool (lt b a) Bool.false) xs →
+      @Eq.{u_1 + 1} (List.{u_1} α) (@Applications.Sorting.sortNaturalBy.{u_1} α lt cmp xs) xs
+@Applications.Sorting.sortNaturalBy_of_descending_chain.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool)
+  (xs : List.{u_1} α),
+  @Ne.{u_1 + 1} (List.{u_1} α) xs (@List.nil.{u_1} α) →
+    @List.IsChain.{u_1} α (fun a b => @Eq.{1} Bool (lt b a) Bool.true) xs →
+      @Eq.{u_1 + 1} (List.{u_1} α) (@Applications.Sorting.sortNaturalBy.{u_1} α lt cmp xs) (@List.reverse.{u_1} α xs)
+@Applications.Sorting.sortNaturalOn.{u_1,
+    u_2} : {α : Type u_1} →
+  {κ : Type u_2} →
+    [inst : LT.{u_2} κ] →
+      [@DecidableLT.{u_2} κ inst] →
+        [inst : LE.{u_2} κ] → [@DecidableLE.{u_2} κ inst] → (α → κ) → List.{u_1} α → List.{u_1} α
+@Applications.Sorting.sortNaturalOn_correct.{u_1,
+    u_2} : ∀ {α : Type u_1} {κ : Type u_2} [inst : LinearOrder.{u_2} κ] (key : α → κ) (xs : List.{u_1} α),
+  And
+    (@Applications.Sorting.KeySorted.{u_1, u_2} α κ
+      (@Preorder.toLE.{u_2} κ
+        (@PartialOrder.toPreorder.{u_2} κ
+          (@SemilatticeInf.toPartialOrder.{u_2} κ
+            (@Lattice.toSemilatticeInf.{u_2} κ
+              (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+      key
+      (@Applications.Sorting.sortNaturalOn.{u_1, u_2} α κ
+        (@Preorder.toLT.{u_2} κ
+          (@PartialOrder.toPreorder.{u_2} κ
+            (@SemilatticeInf.toPartialOrder.{u_2} κ
+              (@Lattice.toSemilatticeInf.{u_2} κ
+                (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+        (@LinearOrder.toDecidableLT.{u_2} κ inst)
+        (@Preorder.toLE.{u_2} κ
+          (@PartialOrder.toPreorder.{u_2} κ
+            (@SemilatticeInf.toPartialOrder.{u_2} κ
+              (@Lattice.toSemilatticeInf.{u_2} κ
+                (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+        (@LinearOrder.toDecidableLE.{u_2} κ inst) key xs))
+    (@List.Perm.{u_1} α
+      (@Applications.Sorting.sortNaturalOn.{u_1, u_2} α κ
+        (@Preorder.toLT.{u_2} κ
+          (@PartialOrder.toPreorder.{u_2} κ
+            (@SemilatticeInf.toPartialOrder.{u_2} κ
+              (@Lattice.toSemilatticeInf.{u_2} κ
+                (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+        (@LinearOrder.toDecidableLT.{u_2} κ inst)
+        (@Preorder.toLE.{u_2} κ
+          (@PartialOrder.toPreorder.{u_2} κ
+            (@SemilatticeInf.toPartialOrder.{u_2} κ
+              (@Lattice.toSemilatticeInf.{u_2} κ
+                (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+        (@LinearOrder.toDecidableLE.{u_2} κ inst) key xs)
+      xs)
+@Applications.Sorting.sortNaturalOn_of_sorted.{u_1,
+    u_2} : ∀ {α : Type u_1} {κ : Type u_2} [inst : LinearOrder.{u_2} κ] (key : α → κ) (xs : List.{u_1} α),
+  @Applications.Sorting.KeySorted.{u_1, u_2} α κ
+      (@Preorder.toLE.{u_2} κ
+        (@PartialOrder.toPreorder.{u_2} κ
+          (@SemilatticeInf.toPartialOrder.{u_2} κ
+            (@Lattice.toSemilatticeInf.{u_2} κ
+              (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+      key xs →
+    @Eq.{u_1 + 1} (List.{u_1} α)
+      (@Applications.Sorting.sortNaturalOn.{u_1, u_2} α κ
+        (@Preorder.toLT.{u_2} κ
+          (@PartialOrder.toPreorder.{u_2} κ
+            (@SemilatticeInf.toPartialOrder.{u_2} κ
+              (@Lattice.toSemilatticeInf.{u_2} κ
+                (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+        (@LinearOrder.toDecidableLT.{u_2} κ inst)
+        (@Preorder.toLE.{u_2} κ
+          (@PartialOrder.toPreorder.{u_2} κ
+            (@SemilatticeInf.toPartialOrder.{u_2} κ
+              (@Lattice.toSemilatticeInf.{u_2} κ
+                (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+        (@LinearOrder.toDecidableLE.{u_2} κ inst) key xs)
+      xs
+@Applications.Sorting.sortNaturalOn_of_strictly_descending.{u_1,
+    u_2} : ∀ {α : Type u_1} {κ : Type u_2} [inst : LT.{u_2} κ] [inst_1 : @DecidableLT.{u_2} κ inst]
+  [inst_2 : LE.{u_2} κ] [inst_3 : @DecidableLE.{u_2} κ inst_2] (key : α → κ) (xs : List.{u_1} α),
+  @List.Pairwise.{u_1} α (fun a b => @LT.lt.{u_2} κ inst (key b) (key a)) xs →
+    @Eq.{u_1 + 1} (List.{u_1} α) (@Applications.Sorting.sortNaturalOn.{u_1, u_2} α κ inst inst_1 inst_2 inst_3 key xs)
+      (@List.reverse.{u_1} α xs)

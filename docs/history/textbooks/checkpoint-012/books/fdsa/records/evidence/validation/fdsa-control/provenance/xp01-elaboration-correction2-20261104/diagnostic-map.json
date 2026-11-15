@@ -1,0 +1,48 @@
+{
+  "finding": "XP01-ELAB-002",
+  "status": "Source correction submitted; actual successor validation and independent review pending.",
+  "total_actual_error_headers": 20,
+  "groups": [
+    {
+      "category": "Existing charge function not exposed under budget",
+      "old_sites": [
+        "75:2"
+      ],
+      "proof_body": "InitialCredit.boundary",
+      "repair": "Use proof-local change to expose charge as its definitionally equal Int-valued lambda, then apply the same budget_amortized result."
+    },
+    {
+      "category": "Ambiguous bind/pure names and resulting incomplete calculations",
+      "old_ambiguous_sites": [
+        "83:17",
+        "83:23",
+        "88:17",
+        "88:23",
+        "92:17",
+        "92:23",
+        "134:17",
+        "134:23",
+        "139:17",
+        "139:23"
+      ],
+      "old_follow_on_sites": [
+        "81:52",
+        "86:42",
+        "90:76",
+        "135:2",
+        "140:2"
+      ],
+      "repair": "Qualify Resources.bind and Resources.pure in exactly five existing norm_num lists. Retain boundary-based derivations and original expected results."
+    },
+    {
+      "category": "Valid 0 not unfolded for local decidability",
+      "old_sites": [
+        "130:24",
+        "133:35",
+        "138:39",
+        "143:46"
+      ],
+      "repair": "Discharge the existing four premises with norm_num [Valid], exposing the same natural inequality 0 <= 1; no new instance or definition change."
+    }
+  ]
+}

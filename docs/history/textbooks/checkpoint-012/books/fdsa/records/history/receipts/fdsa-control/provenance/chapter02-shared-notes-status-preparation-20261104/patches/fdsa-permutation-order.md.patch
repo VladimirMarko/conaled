@@ -1,0 +1,30 @@
+--- a/docs/research/fdsa-permutation-order.md
++++ b/docs/research/fdsa-permutation-order.md
+@@ -1,10 +1,17 @@
+ # Whole orders induced by a shared random ranking
+ 
+-Status: **source draft, not compiled or accepted**. This bounded shared unit
++This bounded shared unit
+ continues the [minimum-law work](fdsa-permutation-minimum.md). It supplies no
+ chapter acceptance, recursive sampling theorem or algorithm cost bound.
+ The exact frozen requirements, source/API preflights, candidate identity and
+ eventual gate results are retained in the local FDSA-XU02 checkpoint record.
++
++**Validation snapshot — 4 November 2026.** The whole-order core and both example
++modules had recorded individual successes within a broader check that failed.
++The 53 public types from this unit were still awaiting printed inspection,
++and complete unit acceptance was outstanding in this snapshot. Reuse of
++historical module results requires matching candidate evidence. The full
++acceptance gates below remain required.
+ 
+ ## Actual list observation
+ 
+@@ -136,7 +143,7 @@
+ checks: inversion permutes the uniform sample space, so both orientations
+ can have the same distribution despite different pointwise meanings.
+ The independent finite calculations and source statement assessments are
+-preparation evidence. These source-written examples remain uncompiled.
++preparation evidence.
+ 
+ ## Source use and remaining obligations
+ 

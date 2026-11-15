@@ -1,0 +1,34 @@
+{
+  "complete_git_integrity": true,
+  "input_archives": "All five textbook input archive sizes/SHA256 identities verified against earlier audited inputs; their internal original manifests verified during recovery.",
+  "original_ref_count": 131,
+  "portable_regression_tests": {
+    "command": "python3 -B build/conaled-textbooks/tools/test_checkpoint.py",
+    "correction": "STD-001: all ignored files outside the fixed dependency/build locations are refused, independent of suffix. Regression subcases preserve ignored .lean, .txt, .thy and .json bytes and checkpoint state.",
+    "durable_upload_claim": false,
+    "elapsed_seconds": 3.415,
+    "files": {
+      "build/conaled-textbooks/tools/README.md": {
+        "bytes": 7284,
+        "sha256": "7ef3a66bc47d276f27ad196cb620c0281d9b2a31ff508972e13ee9746ae652ff"
+      },
+      "build/conaled-textbooks/tools/checkpoint.py": {
+        "bytes": 38116,
+        "sha256": "fab6f4c58eb230933d429c7dae143ac04e83d6455020bce273b82aae69b58502"
+      },
+      "build/conaled-textbooks/tools/test_checkpoint.py": {
+        "bytes": 21444,
+        "sha256": "b89c66a2db526368827f25ae406100d6ed931eec651c376886028c21e71fb168"
+      }
+    },
+    "no_lean_or_project_execution": true,
+    "runtime": "build/.checkpoint-tests (outside payload; fixture children removed)",
+    "schema": 1,
+    "status": "passed",
+    "test_count": 16
+  },
+  "post_pack_evidence": "The archive pack receipt, fresh restore result, independent artifact review records and actual upload receipt are reported externally after creation. They cannot be inferred from this pre-pack record.",
+  "schema": 1,
+  "scope": "Recovery/packaging only; no Lean, mathematical project code, source rebase or new proof acceptance.",
+  "source_archive_cache_guard": "All reachable objects inspected; exactly the four inherited archive objects allowed, no new archived/dependency/partial/compiler artifacts."
+}

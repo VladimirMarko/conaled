@@ -1,0 +1,80 @@
+{
+  "recorded_utc": "2026-11-05T03:01:00.647121+00:00",
+  "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "expectedHead": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "acceptedHead": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "expectedPaths": [
+    "Applications/Resources/TreeCache.lean",
+    "Applications/Trees/Cached.lean",
+    "Applications/Trees/Observations.lean",
+    "Examples/TreeCache.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-cache.md"
+  ],
+  "name": "binary-tree-cache-immediate-verification-20261105",
+  "command": [
+    "./check.sh",
+    "--verify-candidate",
+    "HEAD"
+  ],
+  "recordDirectory": "binary-tree-cache-acceptance-20261105",
+  "recordName": "immediate-preflight.json",
+  "validationPurpose": "Mandatory immediate verification of exact approved XT01 after complete normal check, exhaustive audit, all115 actual statement qualifications and passing held original independent Standards and Spec axes; immediately precedes exact local accepted-branch fast-forward.",
+  "metadata": {
+    "unit": "FDSA-XT01",
+    "original_unit_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+    "original_donor": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+    "original_scope_paths": 7,
+    "actual_public_names": 115,
+    "root_gate": "provenance/binary-tree-cache-acceptance-20261105/root-gate-reconciliation.json"
+  },
+  "checkout_exit": 0,
+  "checkout_output": "Already at exact candidate; no checkout mutation.",
+  "sources": [
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "bytes": 3862,
+      "sha256": "c03a102b43bb5f04edf8b5ab6f0685bd82f80d55a67af680dfa8c0ff0c149abc"
+    },
+    {
+      "path": "Applications/Trees/Cached.lean",
+      "bytes": 5668,
+      "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6"
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "bytes": 4119,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752"
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "bytes": 16571,
+      "sha256": "d92dfcbb139395af13a5939daed2739c10f08ec52d5eaef4165d3962bc76b955"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 10743,
+      "sha256": "ae0e85d4cc8b4d77b8880279b3632631428bbf4ed68ef2656f3bae80112cbd0a"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 49179,
+      "sha256": "4bdd535ee4b0b22cbad3b83aef8b90cef624a3dd99fb64bf7f40041df39b23e9"
+    },
+    {
+      "path": "docs/research/fdsa-tree-cache.md",
+      "bytes": 13344,
+      "sha256": "409708db3c204007f902fa885fc1e63b2b2181768abb1524b0b1b641789c4e24"
+    }
+  ],
+  "candidate_tree": "18bf4bc9df979d4ee6ac76182f58faed235a0714",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 440074240
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "completed_utc": "2026-11-03T00:08:45.614724+00:00",
+  "checkpoint": 33,
+  "action": "one-time unlink of verified local duplicate",
+  "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-033-capacity-recovery-progress.tar.gz",
+  "removed_identity": {
+    "device": 27,
+    "inode": 2405920,
+    "mode": 420,
+    "regular": true,
+    "nlink": 1,
+    "size_bytes": 146201412,
+    "allocated_bytes": 146214912,
+    "mtime_ns": 1793662305535442299,
+    "ctime_ns": 1793662323895159402,
+    "uid": 0,
+    "gid": 0
+  },
+  "current_path_absent": true,
+  "library_file_id": "libfile_634891ac1274819191b3074301a0bfb9",
+  "sha256": "4fac9ad9306c728f075f19d5e7c3781f91a139bda134897149c347df6f82760c",
+  "size_bytes": 146201412,
+  "allocated_bytes_observed": 146214912,
+  "root_free_before_bytes": 2119008256,
+  "root_free_after_bytes": 2265219072,
+  "observed_free_delta_bytes": 146210816,
+  "decision": "work-state/validation/1029-checkpoint033-retirement-decision.json",
+  "assessment": "work-state/validation/1029-checkpoint033-retirement-assessment.json",
+  "no_recurring_deletion_authorized": true,
+  "limits": "Free-space delta includes possible concurrent unrelated changes. No new remote read occurred."
+}

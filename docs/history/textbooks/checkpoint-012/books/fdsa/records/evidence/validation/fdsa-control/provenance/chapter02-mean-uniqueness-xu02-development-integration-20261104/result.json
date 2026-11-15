@@ -1,0 +1,97 @@
+{
+  "recorded_utc": "2026-11-04T06:57:37.286675+00:00",
+  "starting_candidate": "3fa2b59d6dcab007627af98a2f05c3a016a4c4c4",
+  "final_candidate": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+  "integrations": [
+    {
+      "unit": "mean",
+      "source_candidate": "7b1851cee7fe580a4fe235740b0c07e4ddd8fc58",
+      "development_before": "3fa2b59d6dcab007627af98a2f05c3a016a4c4c4",
+      "development_after": "d179debe5bc74638acd2bb20c7dadcd58c17bbe2",
+      "changed_paths": [
+        "Applications/Resources/RandomQuickSortMean.lean",
+        "Examples/RandomQuickSortMean.lean"
+      ],
+      "source_files": {
+        "Applications/Resources/RandomQuickSortMean.lean": {
+          "bytes": 16480,
+          "sha256": "41d81697ef917d32f6946b05b7381882838e67e8f4be9408a1b218633cea04d2"
+        },
+        "Examples/RandomQuickSortMean.lean": {
+          "bytes": 5733,
+          "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670"
+        }
+      },
+      "commit_output": "[work/fdsa-ch02-development d179deb] merge(fdsa): add actual randomized quicksort expectation draft\n"
+    },
+    {
+      "unit": "uniqueness",
+      "source_candidate": "3b727e83fcf9f00ad7d0c95d07305b036ebecbca",
+      "development_before": "d179debe5bc74638acd2bb20c7dadcd58c17bbe2",
+      "development_after": "7316ca0100d9fe68fba28fd54eaff66e4164f8a0",
+      "changed_paths": [
+        "Applications/Sorting/Uniqueness.lean",
+        "Examples/SortUniqueness.lean"
+      ],
+      "source_files": {
+        "Applications/Sorting/Uniqueness.lean": {
+          "bytes": 1999,
+          "sha256": "e0df544f59be358a3e40ad48f25115ae2ba3b4507a30cdeb3425907bf94c8744"
+        },
+        "Examples/SortUniqueness.lean": {
+          "bytes": 3903,
+          "sha256": "ce63cd0d8a953f9441b9b6b1597f9a3604ef736131290cba8c0430c36cd177b7"
+        }
+      },
+      "commit_output": "[work/fdsa-ch02-development 7316ca0] merge(fdsa): add ordinary sorter extensionality draft\n"
+    },
+    {
+      "unit": "XU02",
+      "source_candidate": "758e130cc30b8779dfce0ef2c4687aea0efa1792",
+      "development_before": "7316ca0100d9fe68fba28fd54eaff66e4164f8a0",
+      "development_after": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+      "changed_paths": [
+        "Applications/Probability/PermutationOrder.lean",
+        "Examples/PermutationOrder.lean",
+        "Examples/PermutationOrderBoundary.lean",
+        "SquareApplications.lean",
+        "docs/research/fdsa-permutation-order.md",
+        "docs/research/fdsa-reconstruction-map.md"
+      ],
+      "conflicts": [],
+      "resolution": "Preserve all pre-merge map bytes and append exactly the original XU02 addition; root contains only the intended added example import. All four standalone files equal the exact corrected source candidate. Earlier checked XU01 files unchanged.",
+      "source_files": {
+        "Applications/Probability/PermutationOrder.lean": {
+          "bytes": 15169,
+          "sha256": "fd2aab30b1a3b8053ad5082e00fbe62e4c0d62dfb33c950276b10bfc3616d98e"
+        },
+        "Examples/PermutationOrder.lean": {
+          "bytes": 6445,
+          "sha256": "251c0ee0ce7b96711ea57e1ff7496a784fe33137596e8f13b244fa9e44fd57e5"
+        },
+        "Examples/PermutationOrderBoundary.lean": {
+          "bytes": 5434,
+          "sha256": "35c9768d94fd12e553905244a69ffa375e01e469098856b311ac17ad88533fea"
+        },
+        "SquareApplications.lean": {
+          "bytes": 8577,
+          "sha256": "63fa8d1974dfaa3216e7b59adb9ee4116fb6d77c7fafb14b28446036d8621211"
+        },
+        "docs/research/fdsa-permutation-order.md": {
+          "bytes": 8851,
+          "sha256": "39fd16835dccd39c9d34ebfcebbdbdd33f44ec1dad49fdfe582a8ac4801faea3"
+        },
+        "docs/research/fdsa-reconstruction-map.md": {
+          "bytes": 39392,
+          "sha256": "6a391a8fd1b6ad0facf36ceb1e6c7037da25f0e8119aa8b86da8038543969d47"
+        }
+      },
+      "commit_output": "[work/fdsa-ch02-development fff993e] merge(fdsa): add exact restricted-order probability draft\n"
+    }
+  ],
+  "protected": {
+    "work/fdsa-book": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "work/fdsa-foundation-integration": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761"
+  },
+  "acceptance": "Development only; no unit or chapter acceptance. Frozen requirements/source assessments and all full gates retained."
+}

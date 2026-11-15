@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-04T11:26:23.692065+00:00",
+  "current_candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+  "overall": "Blocked",
+  "report": {
+    "path": "reviews/potential-spec-development-20261104.md",
+    "bytes": 23960,
+    "lines": 123,
+    "sha256": "a9ef87a18189634dd82de244fc6a9f56e1f82483146d5528a89a324be692d37d"
+  },
+  "source_read_ledger": {
+    "path": "provenance/xp01-spec-development-20261104/source-and-read-ledger.json",
+    "bytes": 48123,
+    "sha256": "647ced252ed6efe229147e1af53e36cab199733ddab054abd1204a6798bf6396",
+    "lines": 1108
+  },
+  "prepared20_surface": {
+    "path": "provenance/xp01-spec-development-20261104/prepared20-surface-assessment.json",
+    "bytes": 2528,
+    "lines": 57,
+    "sha256": "0708086026c456d97864f9b269bb6579f83bbfc985ed4c53bcf3c42bc68c899e"
+  },
+  "terminal_and_correction1": {
+    "path": "provenance/xp01-spec-development-20261104/terminal-and-correction1-assessment.json",
+    "bytes": 12385,
+    "lines": 295,
+    "sha256": "78ee2d3912089c80548db90fe2df1ab2b80b40e281bcd790628b40e289667e80"
+  },
+  "source_render": {
+    "path": "provenance/xp01-spec-development-20261104/book-page228-source-render.png",
+    "bytes": 201912,
+    "sha256": "ca93feee8fe756149345a13aea4b730cc40db56df8e4fac4a62615bb2f206f65"
+  },
+  "source_review_complete": true,
+  "actual_XP01_type_count_read": 0,
+  "open_findings": [
+    "XP01-ELAB-002"
+  ],
+  "resolved_for_Spec": [
+    "XP01-DOC-001",
+    "XP01-ELAB-001"
+  ],
+  "checkpoint_hold": false,
+  "complete_report_readback": {
+    "prior111_line_report": {
+      "path": "provenance/xp01-spec-development-20261104/report-before-correction2.md",
+      "sha256": "4e72c913df57271525cf2fbc8ecc6b8978f9e2c50ec30e0a748b5301b5ceb9aa",
+      "complete": true
+    },
+    "current_changed_ranges_read": [
+      [
+        1,
+        9
+      ],
+      [
+        112,
+        123
+      ]
+    ],
+    "prior_body_from_Reviewer_onward_byte_exact_retained": true
+  },
+  "correction2_and_launch3": {
+    "path": "provenance/xp01-spec-development-20261104/correction2-and-launch3-assessment.json",
+    "bytes": 22219,
+    "lines": 572,
+    "sha256": "96202ced5c839ccb1ee7a8b5b01c091e3d10c38694315ebb73677160eb96f0ec"
+  },
+  "previous_boundary": {
+    "path": "provenance/xp01-spec-development-20261104/boundary-before-correction2.json",
+    "bytes": 1759,
+    "lines": 51,
+    "sha256": "b48afcdebccd6897a50ccb28457a233678fe49d634446404ca9413bdb7a9fe20"
+  }
+}

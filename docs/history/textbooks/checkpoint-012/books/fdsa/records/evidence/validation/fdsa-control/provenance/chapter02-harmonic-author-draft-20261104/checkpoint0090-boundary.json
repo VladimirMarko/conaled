@@ -1,0 +1,61 @@
+{
+  "recorded_utc": "2026-11-04T07:14:30.454494+00:00",
+  "checkpoint_hold": "0090",
+  "head": "3b727e83fcf9f00ad7d0c95d07305b036ebecbca",
+  "status_porcelain_v1": "?? Applications/Resources/QuickSortMean.lean\n?? Examples/QuickSortMean.lean\n",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-three-way",
+  "sources": [
+    {
+      "path": "Applications/Resources/QuickSortMean.lean",
+      "bytes": 9714,
+      "lines": 215,
+      "sha256": "6ac46b57a39ad60eaae10d6b90ac4c46c9cbdc02d5caf214097b1e794d03794b",
+      "declarations": [
+        "closedForm",
+        "closedForm_zero",
+        "closedForm_succ",
+        "closedForm_scaled_sum",
+        "closedForm_recurrence",
+        "scaled_of_recurrence",
+        "step_of_recurrence",
+        "difference_of_recurrence",
+        "eq_closedForm",
+        "closedForm_nonneg",
+        "closedForm_le_log",
+        "closedForm_le_nlog",
+        "closedForm_le_nlogb",
+        "closedForm_isBigO_log",
+        "closedForm_isBigO_logb"
+      ]
+    },
+    {
+      "path": "Examples/QuickSortMean.lean",
+      "bytes": 2488,
+      "lines": 68,
+      "sha256": "924ce55ee6af374b55cea67ee6f2da25997b5a81ad098e2e3789622bd793b904",
+      "declarations": [
+        "empty_mean",
+        "singleton_mean",
+        "two_mean",
+        "three_mean",
+        "sequence_three",
+        "zero_log_boundary",
+        "one_log_boundary",
+        "two_log_bound",
+        "sequence_binary_growth"
+      ]
+    }
+  ],
+  "state": "coherent source-only numerical draft; uncommitted and uncompiled",
+  "source_readback": "all 24 declarations and proof bodies read; no source-contract mismatch identified",
+  "remaining_before_candidate_handoff": [
+    "finish durable per-claim source-assessment record",
+    "stage only the owned pair, whitespace check, and authorized scoped commit",
+    "return exact immutable candidate for root-owned compilation"
+  ],
+  "compiler_attempts": 0,
+  "cache_changes": false,
+  "source_contracts_changed_from_frozen_plan": false,
+  "actual_execution_mean_bridges": "remain separate and pending; no execution recurrence assumption added",
+  "hold": "no further source, reference, provenance or control writes until explicit root release"
+}

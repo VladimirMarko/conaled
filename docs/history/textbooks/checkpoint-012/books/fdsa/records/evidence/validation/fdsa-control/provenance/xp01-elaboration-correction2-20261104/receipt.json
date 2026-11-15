@@ -1,0 +1,221 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-04T11:21:52.091939+00:00",
+  "role": "implementation author, not independent Standards or Spec",
+  "input_commit": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+  "result_commit": "12cb14fc98b8617b3b625620da8e60936daba340",
+  "result_tree": "b714867369d367ac96701c11a066e591215eb9a1",
+  "branch": "work/fdsa-potential-development",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+  "commit_subject": "fix(examples): elaborate mapped potential accounting (#174)",
+  "command_local_identity": "ChatGPT <chatgpt@openai.com>",
+  "post_commit_status": "",
+  "protected_refs_before": {
+    "refs/heads/work/fdsa-book": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "refs/heads/work/fdsa-foundation-integration": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "refs/heads/work/fdsa-ch02-development": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "refs/heads/work/fdsa-list-foundations": "c28ba71863d2a35ee1c3a089caa90464e4cca692"
+  },
+  "protected_refs_after": {
+    "refs/heads/work/fdsa-book": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "refs/heads/work/fdsa-foundation-integration": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "refs/heads/work/fdsa-ch02-development": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "refs/heads/work/fdsa-list-foundations": "c28ba71863d2a35ee1c3a089caa90464e4cca692"
+  },
+  "changed_path": "Examples/MappedPotentialAccounting.lean",
+  "source_before": {
+    "path": "Examples/MappedPotentialAccounting.lean",
+    "git_blob": "0291c5979243b0d12332d3628d06aa910732dfa2",
+    "bytes": 6726,
+    "lines": 165,
+    "sha256": "aa57790203c7dbc800586464c46366fcd7e6da6965fdbc3c260285e9c8d693c3"
+  },
+  "source_after": {
+    "git_blob": "1fb26b51e9f298bd1ba1d1a5fa2a425142f8d8d7",
+    "bytes": 6932,
+    "lines": 166,
+    "sha256": "2c83479daec51deb21ec95e26af816bc0dfaa682fdb5ee76ee28cdf1e681386a"
+  },
+  "diff": {
+    "bytes": 2847,
+    "lines": 61,
+    "sha256": "b975c78b1307c27b7ca20c1cccaad5b2ab65dc80831fc3da17f77458e849a1cd"
+  },
+  "change_account": {
+    "files": 1,
+    "insertions": 11,
+    "deletions": 10,
+    "changed_existing_proof_bodies": 8,
+    "definitions_retained": 8,
+    "named_theorem_headers_retained": 7,
+    "anonymous_statement_headers_retained": 16,
+    "new_definitions_or_statements": 0,
+    "changed_imports_options_instances_hypotheses_or_expected_values": 0
+  },
+  "finding": {
+    "finding": "XP01-ELAB-002",
+    "status": "Source correction submitted; actual successor validation and independent review pending.",
+    "total_actual_error_headers": 20,
+    "groups": [
+      {
+        "category": "Existing charge function not exposed under budget",
+        "old_sites": [
+          "75:2"
+        ],
+        "proof_body": "InitialCredit.boundary",
+        "repair": "Use proof-local change to expose charge as its definitionally equal Int-valued lambda, then apply the same budget_amortized result."
+      },
+      {
+        "category": "Ambiguous bind/pure names and resulting incomplete calculations",
+        "old_ambiguous_sites": [
+          "83:17",
+          "83:23",
+          "88:17",
+          "88:23",
+          "92:17",
+          "92:23",
+          "134:17",
+          "134:23",
+          "139:17",
+          "139:23"
+        ],
+        "old_follow_on_sites": [
+          "81:52",
+          "86:42",
+          "90:76",
+          "135:2",
+          "140:2"
+        ],
+        "repair": "Qualify Resources.bind and Resources.pure in exactly five existing norm_num lists. Retain boundary-based derivations and original expected results."
+      },
+      {
+        "category": "Valid 0 not unfolded for local decidability",
+        "old_sites": [
+          "130:24",
+          "133:35",
+          "138:39",
+          "143:46"
+        ],
+        "repair": "Discharge the existing four premises with norm_num [Valid], exposing the same natural inequality 0 <= 1; no new instance or definition change."
+      }
+    ]
+  },
+  "input_terminal": {
+    "directory": "provenance/xp01-focused-development-20261104-attempt2",
+    "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+    "actual_outer_native_exit": 1,
+    "source_clean_unchanged": true,
+    "full_log": {
+      "bytes": 12511,
+      "lines": 152,
+      "sha256": "8fbbdc6d017240e7984585a02ae04afa3d8ed3ca5a46f3767144c5d7558c84a4"
+    },
+    "native_output_byte_exact_in_outer": true,
+    "only_reported_failed_required_target": "Examples.MappedPotentialAccounting"
+  },
+  "original_scope": [
+    "Applications/Resources/Potential.lean",
+    "Applications/Resources/FIFOContracts.lean",
+    "Examples/MappedPotentialAccounting.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-potential-accounting.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "frozen_requirements_sha256": "545b5d2ff4a93594f2b1ca245594233bdfcf461b8f4fe14b3bbe698e6ad1aa2f",
+  "correction1_preserved": {
+    "receipt_sha256": "e9f9ff7bc4c7968ab5d3cd17e54f793e4437bd45df711f2dbc64bc2927ed9868",
+    "all_17_manifested_payloads_verified_unchanged": true
+  },
+  "author_checks": {
+    "complete_before_after_source_and_diff_read": true,
+    "exact_only_authorized_proof_replacements": true,
+    "all_headers_and_definition_bodies_unchanged": true,
+    "git_diff_check_exit": 0,
+    "compiler_run": false,
+    "elaborated_types_read": false,
+    "audit_run": false,
+    "candidate_verification_run": false
+  },
+  "limit": "Uncompiled author handoff. Root owns actual next validation; independent axes own finding disposition. No acceptance or sequence change.",
+  "hold": "Source HOLD began immediately after commit; provenance HOLD follows final complete readback.",
+  "package_files": [
+    {
+      "path": "after-identity.json",
+      "bytes": 849,
+      "lines": 16,
+      "sha256": "2f6f6b522e3ba4cf579304d2b0d46c3db56b398683ad0351c3196f278dcbd088"
+    },
+    {
+      "path": "author-readback.md",
+      "bytes": 8263,
+      "lines": 56,
+      "sha256": "2a3011ec6e64847074d36b4e7681bd9c677da5dfd773bb8b65d5bd80b72ee4c0"
+    },
+    {
+      "path": "before-identity.json",
+      "bytes": 1109,
+      "lines": 26,
+      "sha256": "673f2e2e26a085946bb878c63c231656b97fad4649bc7ee03b1ed4770b36b0ef"
+    },
+    {
+      "path": "diagnostic-map.json",
+      "bytes": 1457,
+      "lines": 48,
+      "sha256": "98d95764e020c786d1f0fc654dccd28a08ae590f91f783b47294e612ac893aa7"
+    },
+    {
+      "path": "evidence/diagnostic-headers.txt",
+      "bytes": 1436,
+      "lines": 20,
+      "sha256": "58c76f88a62f4ec37264894765626ae3d8001678604b7c38b65226ebb58eea75"
+    },
+    {
+      "path": "evidence/input-full.log",
+      "bytes": 12511,
+      "lines": 152,
+      "sha256": "8fbbdc6d017240e7984585a02ae04afa3d8ed3ca5a46f3767144c5d7558c84a4"
+    },
+    {
+      "path": "evidence/input-native-result.json",
+      "bytes": 757,
+      "lines": 23,
+      "sha256": "6163ccb231e4e4aeef38154147353d270fef8bb7a22ae693aac4842b1f3c538b"
+    },
+    {
+      "path": "evidence/input-result.json",
+      "bytes": 1346,
+      "lines": 36,
+      "sha256": "2b6e38b8592a0f6e069d010cfd983cb52f57b88d301f9a1200fdcf41f7123486"
+    },
+    {
+      "path": "evidence/input-secured-terminal.json",
+      "bytes": 1565,
+      "lines": 42,
+      "sha256": "abefcf885453ac893d947b996e017e1631cb68c0ef1619ece39a980a0bdca47c"
+    },
+    {
+      "path": "source-after/MappedPotentialAccounting.lean",
+      "bytes": 6932,
+      "lines": 166,
+      "sha256": "2c83479daec51deb21ec95e26af816bc0dfaa682fdb5ee76ee28cdf1e681386a"
+    },
+    {
+      "path": "source-before/MappedPotentialAccounting.lean",
+      "bytes": 6726,
+      "lines": 165,
+      "sha256": "aa57790203c7dbc800586464c46366fcd7e6da6965fdbc3c260285e9c8d693c3"
+    },
+    {
+      "path": "source.diff",
+      "bytes": 2847,
+      "lines": 61,
+      "sha256": "b975c78b1307c27b7ca20c1cccaad5b2ab65dc80831fc3da17f77458e849a1cd"
+    },
+    {
+      "path": "static-readback.json",
+      "bytes": 1790,
+      "lines": 56,
+      "sha256": "2580315612e1a05fc5778d5d4b79f4afdfea256437d00771c39d840995e35404"
+    }
+  ]
+}

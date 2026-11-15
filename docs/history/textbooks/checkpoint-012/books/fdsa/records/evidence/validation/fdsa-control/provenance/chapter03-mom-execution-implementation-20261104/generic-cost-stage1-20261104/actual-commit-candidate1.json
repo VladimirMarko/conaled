@@ -1,0 +1,47 @@
+{
+  "recorded_utc": "2026-11-04T21:43:36.772823+00:00",
+  "candidate": "42885f0d87f795252ee50dd01dc9220cfeb20a35",
+  "tree": "3eaf4978a860921249d40774980f5ae0eaaf2ff5",
+  "parent": "296780b789766c74ec332846ccaefdc9fb8dafcb",
+  "branch": "work/fdsa-ch03-mom-execution",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+  "status": "clean",
+  "actual_commit_terminal": "e839ec exit 0",
+  "metadata": "commit 42885f0d87f795252ee50dd01dc9220cfeb20a35\nAuthor:     ChatGPT <chatgpt@openai.com>\nAuthorDate: Wed Nov 4 21:36:51 2026 +0000\nCommit:     ChatGPT <chatgpt@openai.com>\nCommitDate: Wed Nov 4 21:36:51 2026 +0000\n\n    feat(selection): bound generic executions by a uniform size envelope (#174)",
+  "stat": ".../Resources/SelectionGenericEnvelope.lean        | 183 +++++++++++++++++++++\n Examples/SelectionGenericEnvelope.lean             | 112 +++++++++++++\n 2 files changed, 295 insertions(+)",
+  "files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionGenericEnvelope.lean",
+      "bytes": 9448,
+      "sha256": "946dc54375989de8413ada388e0672d5f862a1c5da5e62efa9522865911db0e3",
+      "relative_path": "Applications/Resources/SelectionGenericEnvelope.lean",
+      "source_lines": 183,
+      "public_count": 6,
+      "private_count": 0
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionGenericEnvelope.lean",
+      "bytes": 5925,
+      "sha256": "3a1748e2f27a77cbf0daf183b6c52c76eedabdfe641cb77865f5364fec6582ca",
+      "relative_path": "Examples/SelectionGenericEnvelope.lean",
+      "source_lines": 112,
+      "public_count": 11,
+      "private_count": 1
+    }
+  ],
+  "source_patch": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/actual-envelope-candidate1-source.patch",
+    "bytes": 16138,
+    "sha256": "706e920753c4eb93ccc2588788eb5682d7b4dbba72152e840e8668b9f83b91b1"
+  },
+  "precommit_check": "08a69f exit 0",
+  "postcheckpoint_metadata_read": "e2e695 exit 0",
+  "postcheckpoint_preservation_and_exact_patch_read": "f4c779 exit 0",
+  "checkpoint0130_hold": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/checkpoint0130-hold.json",
+    "bytes": 4030,
+    "sha256": "aa4524730478bdbfaf1225c8db4e9de309bad0967cd0efae46ce92e562b2a02f"
+  },
+  "checkpoint0130_release": "Parent release 3c4964 after verified upload and exposure. Release covers only completion of candidate records before root focus.",
+  "author_compiler_commands": 0
+}

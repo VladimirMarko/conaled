@@ -1,0 +1,117 @@
+{
+  "recorded_utc": "2026-11-04T21:25:20.088462+00:00",
+  "finding": "C03-MINIMUM-ELAB-002",
+  "candidate": "d0479dd03371f1c1f0b41dff5f1882a36206f40a",
+  "tree": "4f7cc77eb1a7d270117ea33065727084c552a630",
+  "parent": "b150953544438985ce979cc30b9a2f9237091fe8",
+  "branch": "work/fdsa-ch03-values",
+  "git_status": "",
+  "whole_chapter_review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "targets": [
+    "Applications.Resources.SelectionPolicy",
+    "Applications.Resources.MinimumPivot",
+    "Examples.MinimumPivot"
+  ],
+  "source_identities": [
+    {
+      "module": "Applications.Resources.SelectionPolicy",
+      "repository_path": "Applications/Resources/SelectionPolicy.lean",
+      "imports": [
+        "Applications.Selection.ThreeWay",
+        "Applications.Resources.Partition",
+        "Applications.Resources.ListCalls"
+      ],
+      "bytes": 5986,
+      "sha256": "c906415dff6fc59694629f3d17977e55d2aa2ea2d989610f222bb781056a3112",
+      "git_blob": "71a146d37dc0b87bbdb38cc94dd1d2b02457a031"
+    },
+    {
+      "module": "Applications.Resources.MinimumPivot",
+      "repository_path": "Applications/Resources/MinimumPivot.lean",
+      "imports": [
+        "Applications.Resources.SelectionPolicy",
+        "Applications.Resources.FixedRank"
+      ],
+      "bytes": 10610,
+      "sha256": "c4e4ee7b0ef4413684fc13069d2f7f1200ac6387df2aa81565db0aa45bebaabe",
+      "git_blob": "c9ab1d98137636909b96c98b90bbb314eea700ef"
+    },
+    {
+      "module": "Examples.MinimumPivot",
+      "repository_path": "Examples/MinimumPivot.lean",
+      "imports": [
+        "Applications.Resources.MinimumPivot"
+      ],
+      "bytes": 3770,
+      "sha256": "08a54aec03e507b1c8dc87dcf521f96984c6a6cff4988294a60ddb1db6a9cdc8",
+      "git_blob": "098bb18c8422aff6cb9aa1a2b3abf9bf0a66ec61"
+    }
+  ],
+  "public_names": 52,
+  "cumulative_public_names": 402,
+  "cumulative_private_helpers": 7,
+  "actual_original_terminal": {
+    "attempt": "chapter03-minimum-pivot-focused-attempt2-20261104",
+    "owned_session": 6299,
+    "state": "CLOSED",
+    "actual_exit": 1,
+    "root_terminal": "2f30c7",
+    "root_closure": "15d7e3",
+    "author_complete_log_result_terminal_closure": "cb90a2",
+    "outer_bytes": 5115,
+    "outer_sha256": "d3ccba1b17f60768073ae7e394f3d50c4727c5c891b107fae3eb7e35b95d4340",
+    "native_bytes": 4808,
+    "native_sha256": "77fc9f51d4949c1400a15440d35fd11e219a1ecc043f6bd9e31c82905168ef0a",
+    "core_modules_built": [
+      "Applications.Resources.SelectionPolicy",
+      "Applications.Resources.MinimumPivot"
+    ],
+    "sole_error": "Examples.MinimumPivot.invalid_value: remaining goal input.length <= 4 after applying value correspondence and ordered-length preservation."
+  },
+  "preservation": "All 52 new headers/contexts and other 51 declaration blocks unchanged; other 17 files, both passed cores, prior correction, algorithms and cases byte-identical. Only added kernel decide to the concrete remaining input.length <= 4 proof.",
+  "artifacts": [
+    {
+      "name": "MinimumPivotStatements-candidate3.lean",
+      "bytes": 2849,
+      "sha256": "4790e5204d7e4b90202ee4b4913e8f32046adfec1092bf1f2a6303f9099c8177"
+    },
+    {
+      "name": "correction-assessment.md",
+      "bytes": 3426,
+      "sha256": "597e8fe8efa3455d503a7ff9df7500e1bede12b9feb94b1fe266c00ad605a403"
+    },
+    {
+      "name": "git-commands.json",
+      "bytes": 2294,
+      "sha256": "5e0850072601efab733309fcc63d8b40fe48a82c781c4411c2a7109be9b3c356"
+    },
+    {
+      "name": "preservation-assessment.json",
+      "bytes": 4396,
+      "sha256": "886a82d7bff946a538337f7139f402a491abcf9ac12d7e4250f2032fc05cdbc7"
+    },
+    {
+      "name": "source.diff",
+      "bytes": 511,
+      "sha256": "045426b37069dd6f72a05527fc8dcea079ee9279b7dac9fe3e63172e0915316b"
+    },
+    {
+      "name": "starting-state.json",
+      "bytes": 6865,
+      "sha256": "8877bcc43dfa0ecf0170bc7fc2924b5af3c0622161f6d26c22e1b716e89be0a9"
+    },
+    {
+      "name": "statements-inventory.json",
+      "bytes": 33417,
+      "sha256": "d7591d2c8a04a9199fbf0bb6f6e86f523e156433d9632beb32822d04a3d7d48c"
+    }
+  ],
+  "full_readbacks": {
+    "actual_attempt2_log_result_terminal_closure": "cb90a2",
+    "starting_state": "f981b8",
+    "source_exact_diff_commit_preservation_all52input": "03af64",
+    "correction_full_scope_assessment": "80976d"
+  },
+  "status": "Uncompiled successor; request root serial focused check at exact candidate. No author Lean/Lake/types, full check, audit, independent review, verification or acceptance credit.",
+  "next_scope": "C03-080 only after full three-target minimum pass and explicit release. C03-055 is now explicitly root-owned; all 83 canonical rows remain in root coordination."
+}

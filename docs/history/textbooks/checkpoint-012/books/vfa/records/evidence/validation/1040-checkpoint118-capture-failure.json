@@ -1,0 +1,17 @@
+{
+  "observed_utc": "2026-11-04T13:53:07.023126+00:00",
+  "checkpoint_number": 118,
+  "attempted_output": "checkpoints/conaled-vfa-checkpoint-118-fresh-output-failure-preserved.tar.gz",
+  "actual_execution_api_exit_code": 1,
+  "failure": "OSError: [Errno 28] No space left on device",
+  "phase": "Unchanged checkpoint tool unpacking fixed base into its TemporaryDirectory before creating checkpointpayload",
+  "archive_present_after_failure": false,
+  "creation_stdout_record": "checkpoints/checkpoint-118-created.json",
+  "creation_stdout_bytes": 0,
+  "tool_output_truncated": true,
+  "tool_output_original_token_count": 420,
+  "restore_smoke_completed": false,
+  "uploaded": false,
+  "latest_completed_checkpoint": 117,
+  "formal_gate_credit": false
+}

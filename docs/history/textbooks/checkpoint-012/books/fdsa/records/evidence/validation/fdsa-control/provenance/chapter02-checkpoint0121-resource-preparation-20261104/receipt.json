@@ -1,0 +1,36 @@
+{
+  "schema": "fdsa.resource-preparation.receipt.v1",
+  "recorded_utc": "2026-11-04T17:36:35.101828+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "status": "Complete read-only resource preparation; HELD. No cleanup performed.",
+  "files": [
+    {
+      "path": "report.md",
+      "bytes": 8022,
+      "lines": 33,
+      "sha256": "d013adfa8a68b48e73baea906100e1f4b819094812a722de60d120d07363d90c"
+    },
+    {
+      "path": "observation.json",
+      "bytes": 57243,
+      "lines": 1,
+      "sha256": "306de24445cf9ee50489d58649be710aed5f4add69c41dee5b236fad411aacc1"
+    }
+  ],
+  "target_rows": 103,
+  "positive_allocated_bytes": 129765376,
+  "bound_inputs_reverified": 17,
+  "directory_scale_refinement": "Final forecast uses actual prior archive directory groups:901 control/16 worktree/1 root, not the earlier approximate current-control subtraction. Final peak151150592 replaces preliminary151113728 without changing target/resource observation.",
+  "raw_free_at_final_saved_observation": 142581760,
+  "ordinary_available": 0,
+  "potential_reclaim_is_not_net_host_gain": true,
+  "source_runtime_compiler_hash_trace_cache_ref_or_checkpoint_mutations": false,
+  "all_original_packages_and0120_preserved": true,
+  "readback": {
+    "source_code": "Full creator/verifier, full prior setup method and selected pinned Lake/IO/complete integrity guard read as detailed in report.",
+    "observation": "Entire JSON parsed and all103 target paths/metadata/hash/JSON-role rows inspected mechanically; complete allocation arithmetic and17 bound-input hashes verified.",
+    "report": "Complete report read before this receipt; final receipt read before handoff.",
+    "no_new_output_scan_during_readback": true
+  },
+  "root_future_decision": "Root subsequently selected a new one-use103-setup retirement subject to fresh guards; this held resource report remains a read-only precursor, not execution evidence."
+}

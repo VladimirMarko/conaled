@@ -1,0 +1,25 @@
+{
+  "recorded_utc": "2026-11-04T20:14:42.458749+00:00",
+  "candidate": "67f4add7bf99a20829cee1f7ec2265121546c879",
+  "tree": "a22761ee6eafce221ff1a5cb68c7f604744bad99",
+  "parent": "edd0132b491858feda3307da70817e157dcad151",
+  "status": "",
+  "finding": "C03-READALL-ELAB-001",
+  "changed_path": "Applications/Selection/CoordinateReadAll.lean",
+  "source": {
+    "bytes": 7593,
+    "sha256": "dc41bcec55423d691981ea4f0faeb894db11010848627a800f94f2312744e03d"
+  },
+  "private_old_header": "private theorem readPlan_run_from (input : Fin n \u2192 \u03b1) (compute : List \u03b1 \u2192 \u03b2)\n    (prefix remaining : List (Fin n)) :\n    Runs (readPlan (prefix ++ remaining) compute) input\n      (prefix.map (fun i => (i, input i))).reverse\n      (remaining.map (fun i => (i, input i)))\n      (compute ((prefix ++ remaining).map input)) ",
+  "private_new_header": "private theorem readPlan_run_from (input : Fin n \u2192 \u03b1) (compute : List \u03b1 \u2192 \u03b2)\n    (prior remaining : List (Fin n)) :\n    Runs (readPlan (prior ++ remaining) compute) input\n      (prior.map (fun i => (i, input i))).reverse\n      (remaining.map (fun i => (i, input i)))\n      (compute ((prior ++ remaining).map input)) ",
+  "public_blocks_unchanged": true,
+  "five_other_sources_exact": true,
+  "all_prior_records_exact": true,
+  "prepared_27_and95_inputs_unchanged": true,
+  "diff": {
+    "bytes": 2053,
+    "sha256": "6c60ea51b6e6e59f20547524a11f995d30e17f100fd597d2c4a31ab8d226ccc6"
+  },
+  "all_public_claims_and_examples_same": true,
+  "next_gate": "Newly named focused check; no pass or acceptance inferred"
+}

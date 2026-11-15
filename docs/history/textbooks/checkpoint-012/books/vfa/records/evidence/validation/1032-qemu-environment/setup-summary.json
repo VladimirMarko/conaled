@@ -1,0 +1,86 @@
+{
+  "recorded_utc": "2026-11-03T15:51:56.358838+00:00",
+  "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "setup_runtime_verified": true,
+  "user_guide": "work-state/environment-guides/user-supplied-lean-lake-qemu-guide.md",
+  "guide_sha256": "ef85039f6097a1a646bb2b980178a2285e23124e5881686f68020acfa2f5d4f1",
+  "adapter": "work-state/tooling/pinned_toolchain.py",
+  "adapter_sha256": "a343cdbb5aba405c52bca3f5664dfaef592331fa559ba41c232536907febbc47",
+  "equivalent_instructions": "work-state/tooling/README.md",
+  "instructions_sha256": "968a1c6d0df5be47ec2bd1d93256854d8031526828fd526f296d6612e7a9ac27",
+  "official_distribution_unchanged": true,
+  "qemu_acquisition": "work-state/validation/1032-qemu-environment/qemu-acquisition.json",
+  "runtime_evidence": "work-state/validation/1032-qemu-environment/launcher-smoke.json",
+  "clean_dependency_revisions": [
+    {
+      "name": "mathlib",
+      "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "clean": true
+    },
+    {
+      "name": "plausible",
+      "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "clean": true
+    },
+    {
+      "name": "LeanSearchClient",
+      "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "clean": true
+    },
+    {
+      "name": "importGraph",
+      "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "clean": true
+    },
+    {
+      "name": "proofwidgets",
+      "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "clean": true
+    },
+    {
+      "name": "aesop",
+      "head": "4a174c490d8707121c4a9290800489f105d85e07",
+      "clean": true
+    },
+    {
+      "name": "Qq",
+      "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "clean": true
+    },
+    {
+      "name": "batteries",
+      "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "clean": true
+    },
+    {
+      "name": "Cli",
+      "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "clean": true
+    }
+  ],
+  "cache_build_state_at_recording": "running",
+  "cache_build_actual_return_at_recording": null,
+  "cache_build_session_id": 80719,
+  "cache_build_record": "work-state/validation/1032-cache-build/run.json",
+  "fresh3_launched": false,
+  "chapter_acceptance": false,
+  "chosen_parallelism": {
+    "fresh_jobs": 1,
+    "lean_threads": 1,
+    "basis": "Conservative retained setting; observed9-CPU affinity and 10451427328 physical bytes do not establish multi-module peak fit."
+  },
+  "capacity_free_bytes_at_recording": 18964230144,
+  "historical_native_failures": "Retained unchanged; effective user-authorized QEMU route now works. No host permission or compiler-byte change.",
+  "cache_followup": {
+    "recorded_utc": "2026-11-03T15:56:20.062720+00:00",
+    "build_completed": true,
+    "build_child_returncode": 0,
+    "build_tool_exit_code": 0,
+    "build_jobs": 42,
+    "cache_get_record": "work-state/validation/1032-cache-get/run.json",
+    "cache_get_session_id": 13167,
+    "cache_get_launched": true,
+    "cache_get_outcome": "running_at_recording",
+    "fresh3_launched": false
+  }
+}

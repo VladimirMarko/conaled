@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-11-02T03:24:28.271373+00:00",
+  "candidate": "1aabd512284fe86254278ac631eda061d311050b",
+  "outcome": "superseded before audit; not successful validation",
+  "reason": "Standards-confirmed routine incremental gate retains guarded outputs for later candidates; documented scheduler limit",
+  "checker": {
+    "pid": 73658,
+    "ppid": 73655,
+    "start_ticks": 2305422,
+    "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+    "exe": "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3.13",
+    "args": [
+      "python3",
+      "scripts/check.py",
+      "--fresh",
+      "--jobs",
+      "1",
+      "--candidate",
+      "HEAD"
+    ]
+  },
+  "children": [
+    {
+      "pid": 81856,
+      "ppid": 73658,
+      "start_ticks": 2373467,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "exe": "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "args": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-o",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/fresh-check-6a_o9dwy/Applications/Linear/Maps.olean",
+        "Applications/Linear/Maps.lean"
+      ]
+    }
+  ]
+}

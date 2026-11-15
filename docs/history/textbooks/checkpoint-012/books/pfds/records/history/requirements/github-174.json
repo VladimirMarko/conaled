@@ -1,0 +1,88 @@
+{
+  "url": "https://api.github.com/repos/VladimirMarko/conaled/issues/174",
+  "repository_url": "https://api.github.com/repos/VladimirMarko/conaled",
+  "labels_url": "https://api.github.com/repos/VladimirMarko/conaled/issues/174/labels{/name}",
+  "comments_url": "https://api.github.com/repos/VladimirMarko/conaled/issues/174/comments",
+  "events_url": "https://api.github.com/repos/VladimirMarko/conaled/issues/174/events",
+  "html_url": "https://github.com/VladimirMarko/conaled/issues/174",
+  "id": 6039806948,
+  "node_id": "I_kwDOVI1STc8AAAABaAAj5A",
+  "number": 174,
+  "title": "Develop compositional data-structure design and optimization toolkits across settings",
+  "user": {
+    "login": "VladimirMarko",
+    "id": 22622584,
+    "node_id": "MDQ6VXNlcjIyNjIyNTg0",
+    "avatar_url": "https://avatars.githubusercontent.com/u/22622584?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/VladimirMarko",
+    "html_url": "https://github.com/VladimirMarko",
+    "followers_url": "https://api.github.com/users/VladimirMarko/followers",
+    "following_url": "https://api.github.com/users/VladimirMarko/following{/other_user}",
+    "gists_url": "https://api.github.com/users/VladimirMarko/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/VladimirMarko/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/VladimirMarko/subscriptions",
+    "organizations_url": "https://api.github.com/users/VladimirMarko/orgs",
+    "repos_url": "https://api.github.com/users/VladimirMarko/repos",
+    "events_url": "https://api.github.com/users/VladimirMarko/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/VladimirMarko/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "labels": [
+    {
+      "id": 12681838558,
+      "node_id": "LA_kwDOVI1STc8AAAAC8-V_3g",
+      "url": "https://api.github.com/repos/VladimirMarko/conaled/labels/needs-triage",
+      "name": "needs-triage",
+      "color": "D4C5F9",
+      "default": false,
+      "description": "Maintainer evaluation needed",
+      "archived_at": null,
+      "archived_by": null
+    }
+  ],
+  "state": "open",
+  "locked": false,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 1,
+  "created_at": "2026-10-26T12:38:45Z",
+  "updated_at": "2026-10-30T15:45:07Z",
+  "closed_at": null,
+  "assignee": null,
+  "author_association": "OWNER",
+  "active_lock_reason": null,
+  "sub_issues_summary": {
+    "total": 17,
+    "completed": 14,
+    "percent_completed": 82
+  },
+  "issue_dependencies_summary": {
+    "blocked_by": 0,
+    "total_blocked_by": 0,
+    "blocking": 0,
+    "total_blocking": 0
+  },
+  "body": "## Objective\n\nEnable compositional construction of expressive, efficient software that adheres to its specification across mathematical, semantic and execution settings. Data structures are optional realizations that can improve such software when a target supplies the capabilities they require. Develop reusable ways to introduce, compose, replace and eliminate those realizations while preserving the required observations and guarantees.\n\nExpose the operations, reasoning principles, invariants and resource assumptions each construction needs, so clients can reuse constructions and proofs where those requirements hold. Targets need not supply a heap, dynamic allocation, mutable addressable memory, sharing, or even retained state. Fixed storage, bounded state and other restricted or exotic settings must remain possible. A construction may need additional capabilities, a different realization, or be unavailable in a target; do not silently strengthen the target to make it fit.\n\nJudge progress by useful client capabilities, proof reuse, composability, author effort and justified improvements under explicit workloads and target resource models. “Most general and powerful” is a direction for extending supported constructions and settings, not a promise of universal expressibility, automatic synthesis or a globally optimal realization.\n\nThe owner's direction is: “We want toolkits to create, assess and optimize data structures (with respect to various settings!); not canonical choices of them.” This workstream must preserve that distinction throughout research, implementation and review.\n\n## Architectural direction\n\nRead `docs/agents/architectural-quality.md`, `docs/language-direction.md`, `GLOSSARY.md` and relevant ADRs. Start from current code and checked applications; consult Felix at the pinned revision where relevant. Separate operations, observations/equivalence, laws, representations and costs. Support ordinary Lean use alongside categorical and internal-language interpretations. Require only the structure each result uses.\n\nStudy reusable construction and derivation techniques, representation refinement, law transport, assessment under explicit workloads and resource models, and justified optimization. Changing element types or swapping containers within ordinary Set/function semantics alone does not demonstrate transport across mathematical settings. Conversely, useful bounded developments need not wait for a universal internal language.\n\nFinger trees are a candidate case study. Their size or reputation does not establish architectural fit or authorize their selection as a central representation. Assess fit before creating a scoped formalization task. A negative assessment is a valid result; evaluate alternative case studies against the same criteria. Concrete representations remain optional realizations with local assumptions. Avoid both premature canonicalization and speculative universal interfaces.\n\n## Sources serve the objective\n\nFormalizing whole books is not required. Okasaki's *Purely Functional Data Structures*, Nipkow and collaborators' *Functional Data Structures and Algorithms: A Proof Assistant Approach*, and Appel's *Verified Functional Algorithms* are candidate sources of useful methods, not coverage milestones. Patricia Johann's work and other research may offer more useful techniques for particular obligations; assess identified primary sources against concrete client needs rather than committing to an author's entire programme. Source selection and implementation methods can change as evidence improves. #149 retains its separately agreed ADWH reconstruction scope.\n\n## Coordination\n\n- #149 owns ADWH reconstruction, including existing representation and cost results. #170, #171 and #173 already cover symmetric lists, random-access lists and potential accounting. Reuse their results and track their actual acceptance status.\n- #110/#112 supply optimization specifications and transport; #113 concerns retained state and resource composition.\n- #225/#226 own durability and recovery contracts; #227 compares storage realizations and diagnostic views. Serialization is one possible representation-boundary technique, not a prerequisite for data structures or durability. Distinguish persistent versions from survival across failures.\n- #8 and #36 supply the broader categorical and internal-language directions. This workstream spans mathematical libraries and compiler consumers; it implies neither a new Lake package nor a compiler-only scope.\n- Initial source survey: `docs/research/functional-data-structures.md` (local research artifact at issue creation). Durable task scope and key sources are included in the children so work does not depend on an unpublished file.\n\n## Delivery and completion\n\nThe initial research tasks establish coverage, design criteria, resource contracts and a finger-tree fit decision. Their completion alone does not complete the toolkit objective. Use their findings to create bounded implementation issues with concrete clients, source provenance, precise theorem scope and dependencies.\n\nAccepted implementation slices must demonstrate reusable construction/assessment/optimization laws, distinct realizations and composition, and explicitly identify which changes of setting are supported or remain open. Preserve semantic distinctions and resource hypotheses. Each new or changed formal claim requires statement review and checked applications under example-driven development, plus applicable fresh builds and exhaustive proof audit. Performance claims require explicit models and evidence beyond semantic equality.\n\nClose this umbrella only when its agreed implementation scope has been delivered and remaining ambitions are explicitly tracked; a standalone container implementation or bibliography is insufficient.\n\n## Initial tasks and order\n\n- [x] #175: Survey data-structure design techniques and audit existing proof coverage\n- [x] #176: Assess reusable data-structure constructions and transport across settings\n- [x] #177: Assess compositional resource contracts for data-structure optimization\n- [x] #178: Assess finger trees as an optional case study for compositional data-structure toolkits\n\n#175 supplies the coverage assessment. #176 and #177 can then develop architecture and resource recommendations together. #178 concludes the finger-tree fit assessment against both. Native sub-issue and blocking links record this order. Source reading can inform other tasks early, but dependent conclusions must incorporate accepted prerequisite findings.\n\n## Target-capability follow-up\n\n- [x] #238: assess data-structure realizations against target capabilities and specify a bounded composition experiment. This new assessment owns the cross-target comparison; #177 owns resource contracts, and #226/#227 own failure/recovery and durable-storage comparisons. It can begin using accepted #175/#176 findings and coordinate with ongoing assessments without blocking #185 or requiring completion of the umbrella.\n\n## Accepted architecture follow-up\n\n- [x] #185: Construct ordered-summary refinements and interpret their composition. Scoped from accepted #176; semantics and a bounded Set/presheaf interpretation, with no performance or finger-tree commitment.\n\n## Accepted assessments and implementation follow-ups\n\nThe target-capability and resource assessments are accepted on master at `76b0bb92bb7667302530e8d034fe1dddd546c716`. #239 is their shared bounded append/query implementation, following #185. #178 recommends deferring a finger-tree commitment until the recorded client/fit criteria hold.\n\n## Accepted bounded realization experiment\n\n- [x] #239: fixed-capacity plain/cached append-query realizations, shared semantic clients, explicit resource comparisons and capability limits. Integrated at `e6c97a8c6c63dc81acea0ea7d97274cf7a2532d3`; implementation record: `docs/research/bounded-summary-implementation.md`. This bounded result does not complete the broader toolkit objective.\n\n\n## Scan and FFT optimization follow-up\n\nThe owner approved the following priority order, connecting existing parallel algorithms to the optimization/resource libraries. Each child owns its acceptance criteria. Native dependencies record actual prerequisites: #243 and #244 depend on #242; #246 depends on #245. The later priority of FFT work does not make it mathematically dependent on scan lower bounds.\n\n- [x] #242: Formalize measured scan circuits with compositional output timing.\n- [x] #243: Certify scan-plan search and context-preserving candidate pruning.\n- [x] #244: Prove scan circuit lower bounds and certify a work-depth optimum.\n- [ ] #245: Formalize FFT structural costs and exact twiddle rewrites.\n- [ ] #246: Prove normalized FFT optimality in the two-coordinate unitary gate model.\n\n## Follow-up investigations from the realization experiments\n\n- [x] #247: Investigate observation-preserving history retention and durable reclamation.\n- [x] #248: Investigate transport of one recursive data-structure argument across settings.\n- [x] #249: Evaluate toolkit author effectiveness under recorded capability and toolchain conditions.\n- [x] #250: Investigate a concrete target correspondence for bounded-buffer resource costs.\n\n\nScan implementation #242–#244 is accepted on local `integration/scan-optimality` at `c4a1de632498350d17debcaa87becb7b49106509`: measured shared circuits, certified bounded contextual search, and free-word/named-DAG prefix lower bounds with an attained work-depth optimum. Both independent whole-scope reviews passed, as did the fresh 910-module build and exhaustive axiom audit. FFT follow-ups #245 and #246 remain open.\n\n- [x] #253: finite-counter byte-buffer refinement with explicit resource failures, scoped by accepted #250.\n\n## Reversible and quantum target investigation\n\n- [x] #261: investigate forgetting, uncomputation and reversible target contracts. Compare logical observations, workspace/gate costs and physical energy claims under explicit assumptions. Queued after #252, #251 and #253 by priority only; no technical blocking dependency is asserted.\n",
+  "closed_by": null,
+  "reactions": {
+    "url": "https://api.github.com/repos/VladimirMarko/conaled/issues/174/reactions",
+    "total_count": 0,
+    "+1": 0,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "timeline_url": "https://api.github.com/repos/VladimirMarko/conaled/issues/174/timeline",
+  "performed_via_github_app": null,
+  "state_reason": null,
+  "pinned_comment": null
+}

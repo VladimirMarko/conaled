@@ -1,0 +1,54 @@
+diff --git a/Examples/PermutationTailBoundary.lean b/Examples/PermutationTailBoundary.lean
+index b0de11c..5b02839 100644
+--- a/Examples/PermutationTailBoundary.lean
++++ b/Examples/PermutationTailBoundary.lean
+@@ -222,10 +222,12 @@ private theorem counter_joint21_mass :
+       rw [List.toFinset_eq_of_perm _ _
+         (List.permutations_perm_permutations' counterPositions)]
+       decide)]
+-  simp only [← ENNReal.coe_div (p := 1) (by norm_num : (6 : NNReal) ≠ 0),
+-    ← ENNReal.coe_div (p := 1) (by norm_num : (3 : NNReal) ≠ 0),
+-    ← ENNReal.coe_add, ENNReal.coe_inj]
+-  norm_num
++  have h : (1 / 6 : NNReal) + 1 / 6 = 1 / 3 := by norm_num
++  have h6 : (6 : NNReal) ≠ 0 := by norm_num
++  have h3 : (3 : NNReal) ≠ 0 := by norm_num
++  simpa only [ENNReal.coe_add, ENNReal.coe_div (p := 1) h6,
++    ENNReal.coe_div (p := 1) h3, ENNReal.coe_one, ENNReal.coe_ofNat] using
++    congrArg (fun x : NNReal => (x : ENNReal)) h
+ 
+ /-- The actual outside projection has conditional mass one-third for [1,2]. -/
+ theorem outside_order_12_mass :
+@@ -234,10 +236,12 @@ theorem outside_order_12_mass :
+   have hhalf : (1 / 2 : ℝ≥0∞)⁻¹ = 2 := by simp [one_div]
+   rw [outsideConditional, cond_apply (s := counterFirst) (by trivial) counterLaw,
+     counter_first_mass, counter_joint12_mass, hhalf]
+-  simp only [← ENNReal.coe_div (p := 1) (by norm_num : (6 : NNReal) ≠ 0),
+-    ← ENNReal.coe_div (p := 1) (by norm_num : (3 : NNReal) ≠ 0),
+-    ← ENNReal.coe_mul, ENNReal.coe_inj]
+-  norm_num
++  have h : (2 : NNReal) * (1 / 6) = 1 / 3 := by norm_num
++  have h6 : (6 : NNReal) ≠ 0 := by norm_num
++  have h3 : (3 : NNReal) ≠ 0 := by norm_num
++  simpa only [ENNReal.coe_mul, ENNReal.coe_div (p := 1) h6,
++    ENNReal.coe_div (p := 1) h3, ENNReal.coe_one, ENNReal.coe_ofNat] using
++    congrArg (fun x : NNReal => (x : ENNReal)) h
+ 
+ /-- Its reversed order has conditional mass two-thirds under the same measure. -/
+ theorem outside_order_21_mass :
+@@ -246,10 +250,11 @@ theorem outside_order_21_mass :
+   have hhalf : (1 / 2 : ℝ≥0∞)⁻¹ = 2 := by simp [one_div]
+   rw [outsideConditional, cond_apply (s := counterFirst) (by trivial) counterLaw,
+     counter_first_mass, counter_joint21_mass, hhalf]
+-  simp only [← ENNReal.coe_div (p := 1) (by norm_num : (3 : NNReal) ≠ 0),
+-    ← ENNReal.coe_div (p := 2) (by norm_num : (3 : NNReal) ≠ 0),
+-    ← ENNReal.coe_mul, ENNReal.coe_inj]
+-  norm_num
++  have h : (2 : NNReal) * (1 / 3) = 2 / 3 := by norm_num
++  have h3 : (3 : NNReal) ≠ 0 := by norm_num
++  simpa only [ENNReal.coe_mul, ENNReal.coe_div (p := 1) h3,
++    ENNReal.coe_div (p := 2) h3, ENNReal.coe_one, ENNReal.coe_ofNat] using
++    congrArg (fun x : NNReal => (x : ENNReal)) h
+ 
+ /-- Excluding the exposed key alone cannot replace containment in its selected remainder. -/
+ theorem outside_order_not_uniform :

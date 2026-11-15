@@ -1,0 +1,40 @@
+{
+  "recorded_utc": "2026-11-04T20:17:19.942964+00:00",
+  "parent": "67f4add7bf99a20829cee1f7ec2265121546c879",
+  "tree": "a22761ee6eafce221ff1a5cb68c7f604744bad99",
+  "source_identities": {
+    "Applications/Selection/CoordinateQueries.lean": {
+      "bytes": 11106,
+      "sha256": "ca1c0d339500e77aa14ca47420b9f7a11f213bbcd8ac113c3281c7f9690e6409"
+    },
+    "Applications/Selection/CoordinateReadAll.lean": {
+      "bytes": 7593,
+      "sha256": "dc41bcec55423d691981ea4f0faeb894db11010848627a800f94f2312744e03d"
+    },
+    "Applications/Selection/CoordinateSensitivity.lean": {
+      "bytes": 6717,
+      "sha256": "224724056815f73aff552ead23b7dd83af4078ad61009169e1b474f4b94476e6"
+    },
+    "Examples/CoordinateQueries.lean": {
+      "bytes": 8079,
+      "sha256": "d90bd28ec4496105d9c5da80171a4c96a5ace119c0e178ded48f4f84ca8ad16d"
+    },
+    "Examples/CoordinateReadAll.lean": {
+      "bytes": 5626,
+      "sha256": "8290a02bee2fb078439842c26a6cb46ec231aeb092b30659c8a3b674cc54b603"
+    },
+    "Examples/CoordinateSensitivity.lean": {
+      "bytes": 3726,
+      "sha256": "ed3d3d7cd41c97169893fdb5cf95e336a560f6f042ee70cea0a24ad7a6691828"
+    }
+  },
+  "finding": "C03-READALL-ELAB-002",
+  "actual_failed_run": "chapter03-coordinate-readall-focused-attempt2-20261104",
+  "terminal": {
+    "session": 87991,
+    "exit": 1,
+    "chunk": "3a6faa",
+    "closure": "a79a0d"
+  },
+  "correction": "Normalize the mapped projection by Function.comp_def in the private nil proof; replace unnecessary simpa with simp in its query equation. No linter changes, new hypotheses or mathematical change."
+}

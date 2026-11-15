@@ -1,0 +1,56 @@
+{
+  "recorded_utc": "2026-11-05T04:12:50.978046+00:00",
+  "new_root_gate_helper": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/reconcile_root_gate_once.py",
+    "bytes": 16302,
+    "sha256": "54464a3da17a5ab69af8416f9612672562b5b40ac28d9614f26948a0c5976c75"
+  },
+  "new_checkpoint_verifier": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/verify-checkpoint.py",
+    "bytes": 59334,
+    "sha256": "bd779785034f20f77b3d9e490e00cdd1c8f85b775a0a02df8ccb64afe404991c"
+  },
+  "complete_actual_schema_patch": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/complete-actual-schema-correction.patch",
+    "bytes": 3970,
+    "sha256": "3397728ed6f36b5ea868be8fd8bf4910fcb1a7367696d88aec743011ee8d4fbe"
+  },
+  "regenerated_complete_0138_to0139_verifier_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0139-preparation/verifier-scope-diff.patch",
+    "bytes": 36755,
+    "sha256": "71790270213c15ff6f7c732a4e68ddc1ac44a3df9bb923e50dcc9a38131533d1"
+  },
+  "preserved_previous_versions": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/reconcile_root_gate_once.before_standards_actual_schema.py",
+      "bytes": 15638,
+      "sha256": "df66f21ca262ad19ebab63cdab5d5016b2f195bf9fc4f5b70d18ce20e3e6d74e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/checkpoint0139-verifier-before-actual-schemas.py",
+      "bytes": 59014,
+      "sha256": "4691f3fe1c0fca3bee33dec316df085e44b76fe19fef24cc4216867b0c137312"
+    }
+  ],
+  "original_verifier_diff_preserved": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-acceptance-20261105/checkpoint0139-verifier-diff-before-actual-schemas.patch",
+    "bytes": 36429,
+    "sha256": "e9cb979c78af90962dbe4c121229445329511f204c96d5fc12baf2fad8912090"
+  },
+  "actual_binding_occurrence_counts": {
+    "Standards": {
+      "final": 38,
+      "hold": 29
+    },
+    "Spec": {
+      "final": 22,
+      "hold": 23
+    }
+  },
+  "behavior": "Rehash every explicit path/bytes/SHA binding recursively with exact actual counts; require Standards exact90 ordered name list and count, Spec count90. All candidate/pins/source/full/audit/type/holds/immediate/FF gates preserved.",
+  "review_report_or_candidate_changes": false,
+  "helper_execution": false,
+  "configuration_still_disabled": true,
+  "independent_operational_inspection_pending": true,
+  "historical_rule": "Initial preparation/inspection records retain their exact older identities; before_actual_schema/before_standards snapshots and original0139 verifier/diff preserve those exact bytes. Current final inspection must bind these explicit schema adaptations."
+}

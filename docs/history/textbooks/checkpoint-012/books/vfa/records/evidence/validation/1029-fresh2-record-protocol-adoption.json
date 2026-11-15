@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-02T22:51:38.050744+00:00",
+  "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "clarification": {
+    "path": "work-state/reviews/1002-fresh2-record-protocol-clarification.md",
+    "sha256": "e795ae7f3babf657d899bb5f98dd40993d603916b2906d897d6d1407c169cfb7",
+    "standards": "/root/perm_review/standards",
+    "spec": "/root/perm_review/spec",
+    "both_agreed": true
+  },
+  "root_action": "Read complete independent consensus, reconciled original normal-evidence wording with unchanged repository native-record protocol, verified cited local static-source hashes; no third source review or live-run approval.",
+  "static_sources_sha256": {
+    "check.sh": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+    "scripts/check.py": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+    "README.md": "3f3a7d6e7c77bfd923998c2b297931d92fade83d2be266cd9a0feb3ee6d82030",
+    "AGENTS.md": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+    "docs/agents/review-loop.md": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c"
+  },
+  "earlier_checklist_retained_unchanged": "work-state/validation/1002-acceptance-evidence-checklist.json",
+  "required_fresh2_route_if_raw_wait_unavailable": [
+    "Establish genuine new matching fresh record attributable to the existing attempt, using launch/child identity and direct-log chronology.",
+    "Preserve complete compilation/audit/final-identity record evidence and assess any missing output or later error.",
+    "Establish original checker and owned compiler activity ended before idle-checkout operations.",
+    "Run pinned check.sh --verify-candidate HEAD and retain that new short command actual success.",
+    "Preserve fresh record, log, command, chronology and unknown original raw status separately before subsequent checks replace the active record."
+  ],
+  "actual_original_raw_returncode": null,
+  "formal_gate_waived": false,
+  "chapter_acceptance": false,
+  "finding_states": {
+    "ST-002": "open",
+    "SP-VAL-001": "open",
+    "Standards": "Blocked",
+    "Spec": "Blocked"
+  }
+}

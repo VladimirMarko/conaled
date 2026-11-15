@@ -1,0 +1,154 @@
+{
+  "schema": "conaled-textbooks-reference-availability-1",
+  "basis": "Supplied checkpoint records and byte-verified retained payloads. URLs were not rechecked during cleanup; source identity is established by recorded hashes, not assumed ongoing web availability.",
+  "project_recovery": {
+    "prior_checkpoint_archives_required": false,
+    "all_supplied_project_source_math_history_recovered": true,
+    "reference_manuscripts_required_to_restore_existing_project": false,
+    "offline_compilation_requires_separate_pinned_toolchain_and_dependency_inputs": true,
+    "new_printed_page_or_complete_reference_source_audits_require_missing_references": true,
+    "toolchain_pins_owner": "source/refs.json and repository toolchain/dependency files; active workflow pin is owned by provenance/pins.json"
+  },
+  "vfa": {
+    "title": "Verified Functional Algorithms, Software Foundations volume3, Andrew W. Appel",
+    "edition": "2.1 (2026-08-24 10:11, Coq9.0.0 or later)",
+    "full_textbook_or_coq_source_embedded": false,
+    "complete_chapter_v_files_embedded": false,
+    "reference_archive": {
+      "url": "https://softwarefoundations.cis.upenn.edu/vfa-2.1/vfa.tgz",
+      "historical_moving_url": "https://softwarefoundations.cis.upenn.edu/vfa-current/vfa.tgz",
+      "bytes": 5360265,
+      "sha256": "f03296c763d78aa5bc18a545d848d398292575e5c8af4b5aa94dc25709e169b8",
+      "historical_url_verification_date": "2026-11-02",
+      "currently_rechecked": false
+    },
+    "present": [
+      "Integrated Lean code and history",
+      "All distinct supplementary Lean drafts",
+      "Chapter/declaration/exercise identities for17chapters",
+      "Coverage, obligations, source analyses, license and recovery provenance"
+    ],
+    "canonical_inventory": "books/vfa/records/research/source/vfa-source-inventory.json",
+    "source_recovery_record": "books/vfa/records/research/source/SOURCE-RECOVERY.md",
+    "limitation": "Lexical inventory and source analyses do not replace full chapter bodies or verify Rocq proofs. Reacquire and hash-check the source for new complete chapter inspection."
+  },
+  "fdsa": {
+    "title": "Functional Data Structures and Algorithms: A Proof Assistant Approach",
+    "editor": "Tobias Nipkow",
+    "edition": "Version of July27,2026",
+    "full_pdf_or_extracted_book_text_embedded": false,
+    "reference_pdf": {
+      "url": "https://fdsa-book.net/functional_data_structures_algorithms.pdf",
+      "bytes": null,
+      "sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645",
+      "pdf_pages": 382,
+      "numbered_pages": 376
+    },
+    "isabelle_mirror": "https://github.com/isabelle-prover/mirror-isabelle",
+    "isabelle_source_revision": "f86f290225eebcc52c1ae7dba2e098f405f51c21",
+    "complete_isabelle_source_embedded": false,
+    "Base_FDS_thy_embedded": false,
+    "canonical_inventory": "books/fdsa/records/research/source/fdsa-control/provenance/source-inventory.json",
+    "embedded_source_members": [
+      "Sorting.thy",
+      "Natural_Mergesort.thy",
+      "Efficient-Mergesort/Efficient_Sort.thy",
+      "Efficient-Mergesort/Mergesort_Complexity.thy",
+      "Efficient-Mergesort/Natural_Mergesort.thy",
+      "Efficient-Mergesort/ROOT",
+      "Efficient-Mergesort/document/root.bib",
+      "Efficient-Mergesort/document/root.tex"
+    ],
+    "embedded_source_distinct_files": 7,
+    "afp_entry_url": "https://isa-afp.org/entries/Efficient-Mergesort.html",
+    "afp_original_archive_label": "afp-Efficient-Mergesort-2026-10-26.tar.gz",
+    "afp_archive_url_confirmed_in_this_review": null,
+    "afp_archive_sha256_confirmed_in_this_review": null,
+    "limitation": "Selected upstream files and original mathematical analyses are present; full book/new printed-page inspections and other upstream theory inspections require matching external reference bytes. Inventory entries alone do not prove that a theory file is embedded.",
+    "embedded_source_identities": [
+      {
+        "path": "books/fdsa/records/research/references/fdsa-control/provenance/xd01-primary-source-20261104/afp-Efficient-Mergesort-2026-10-26/Efficient-Mergesort/Efficient_Sort.thy",
+        "bytes": 9293,
+        "sha256": "baccd818d8a1a5e0b74d433a47d9696fb6763be53e423db6245d720c9a5fae95"
+      },
+      {
+        "path": "books/fdsa/records/research/references/fdsa-control/provenance/xd01-primary-source-20261104/afp-Efficient-Mergesort-2026-10-26/Efficient-Mergesort/Mergesort_Complexity.thy",
+        "bytes": 4697,
+        "sha256": "fe1f2c7037da3f95d3f62077b8653595c90efa887a3d0efc8280c18cd839bb06"
+      },
+      {
+        "path": "books/fdsa/records/research/references/fdsa-control/provenance/xd01-primary-source-20261104/afp-Efficient-Mergesort-2026-10-26/Efficient-Mergesort/ROOT",
+        "bytes": 256,
+        "sha256": "84c78aaf81db440772a1dc27a877733cc498a78e6324aafb148877d155c1c342"
+      },
+      {
+        "path": "books/fdsa/records/research/references/fdsa-control/provenance/xd01-primary-source-20261104/afp-Efficient-Mergesort-2026-10-26/Efficient-Mergesort/document/root.bib",
+        "bytes": 323,
+        "sha256": "b1dcdedda73c9d5312c9d42165131dfc115524f41006d4afbc990d1c89ce6755"
+      },
+      {
+        "path": "books/fdsa/records/research/references/fdsa-control/provenance/xd01-primary-source-20261104/afp-Efficient-Mergesort-2026-10-26/Efficient-Mergesort/document/root.tex",
+        "bytes": 902,
+        "sha256": "ce86245bda0012c4a72e1f78e1dce179bd62df209ac579065bc1bb07d5ab0a24"
+      },
+      {
+        "path": "books/fdsa/records/research/source/fdsa-control/provenance/xd01-primary-source-20261104/Natural_Mergesort.thy",
+        "bytes": 6723,
+        "sha256": "2fd5d686d7702385cc76f84e153034fe9b460ec94c0f751a56e5bd5ea017fe51"
+      },
+      {
+        "path": "books/fdsa/records/research/source/fdsa-control/provenance/xd01-primary-source-20261104/Sorting.thy",
+        "bytes": 14846,
+        "sha256": "dfa60eae99cd6fa31e4fdd45f488282f913619a204061960e43ddceba4cadfca"
+      }
+    ]
+  },
+  "pfds": {
+    "title": "Purely Functional Data Structures, Chris Okasaki",
+    "book_edition_observation": "Inspected copyright page: first publication1998, first paperback1999, digital printing2003; ISBN0521631246 and0521663504.",
+    "book_pdf_embedded": false,
+    "thesis_pdf_embedded": false,
+    "book": {
+      "bytes": 9356709,
+      "sha256": "b9dbf4f6ade4c24da438fd5415fc3abdd3af0aa8459d7e41e4a27de844c7ad41",
+      "pdf_pages": 232,
+      "recovery": "User attachment or explicitly approved exact live reference for new manuscript inspection; historical Library IDs are provenance only."
+    },
+    "thesis": {
+      "url": "https://www.cs.tufts.edu/~nr/cs257/archive/chris-okasaki/dissertation.pdf",
+      "bytes": 628877,
+      "sha256": "f4b92ed7ea425f6f1019f20a4ef40df505327fbc5f1346ed6b7a2e28ab56d072"
+    },
+    "canonical_identity_record": "books/pfds/records/research/source/union-source-identities.json",
+    "latest_book_inspection_record": "books/pfds/records/research/source/book-full-inventory.md",
+    "thesis_inspection_record": "books/pfds/records/research/source/thesis-recovery-045.json",
+    "present": [
+      "Book/thesis identities and distinct-scope reconciliation",
+      "Source/page/exercise inventories and chapter-readiness notes",
+      "Existing Chapter2 source evidence and paper mathematics",
+      "Lean candidates, branches and all supplied research"
+    ],
+    "limitation": "Do not substitute thesis for Cambridge book. The old printed-page6 blocker was resolved by the later full-book inspection record. The recorded A.4 inspection is not complete AppendixA coverage.",
+    "other_absent_reference_pdfs": [
+      {
+        "name": "publisher frontmatter",
+        "url": "https://assets.cambridge.org/97805216/63502/frontmatter/9780521663502_frontmatter.pdf",
+        "bytes": null,
+        "sha256": "6fdfe24ac29b98252139a1aa483c1a56fba8f5807545d9ce788dc059c57148cb"
+      },
+      {
+        "name": "publisher excerpt",
+        "url": "https://assets.cambridge.org/97805216/63502/excerpt/9780521663502_excerpt.pdf",
+        "bytes": null,
+        "sha256": "a39a8a3adb7e2d718a1395ad040e84403bf9c2bf669ebe4722aa850bea92f87b"
+      },
+      {
+        "name": "SML1990 Definition",
+        "url": "https://smlfamily.github.io/sml90-defn.pdf",
+        "bytes": 477208,
+        "sha256": "2ad9e869db05f5a4316bc60b7170fb00789410436651c1a8f425a88098e8e9d1",
+        "pdf_pages": 129
+      }
+    ]
+  }
+}

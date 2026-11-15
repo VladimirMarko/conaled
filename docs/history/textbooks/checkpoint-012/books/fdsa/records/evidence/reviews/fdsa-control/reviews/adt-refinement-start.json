@@ -1,0 +1,75 @@
+{
+  "recorded_utc": "2026-11-02T18:44:26.099951+00:00",
+  "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "head": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "branch": "work/fdsa-adt-refinement",
+  "worktree": "/workspace/scratch/845aa1048b05/conaled-adt-refinement",
+  "index_and_worktree_status": "",
+  "new_paths_absent": [
+    "SquareKit/ValidGraphs.lean",
+    "Applications/Collections/Set.lean",
+    "Applications/Collections/Map.lean",
+    "Applications/Collections/Modify.lean",
+    "Applications/Collections/AList.lean",
+    "Examples/SetMapContracts.lean",
+    "Examples/MapModify.lean",
+    "Examples/ADTRefinement.lean",
+    "docs/research/fdsa-adt-refinement.md"
+  ],
+  "existing_paths": {
+    "SquareApplications.lean": {
+      "bytes": 8292,
+      "lines": 252,
+      "sha256": "b36e3743af5043667735caab1327fda8fc1b6eebc2d7842cdd926b329b2efd68"
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "bytes": 15963,
+      "lines": 262,
+      "sha256": "3283880ec3b0d55286be1b080c3b58e606577e9a522f21477b8499306c627668"
+    }
+  },
+  "input_identities": {
+    "reviews/adt-refinement-requirements.md": {
+      "bytes": 20669,
+      "lines": 340,
+      "sha256": "724e4956333a93a7e60f78f37ede7c77e5c4bc30fffc3b72ddd52fb707729ab0"
+    },
+    "research/adt-refinement-source-preflight.md": {
+      "bytes": 22132,
+      "lines": 342,
+      "sha256": "5db706e4afc85913cfd92c8aeace3de2e8aea174fe813b828aa9a30a3d1d8994"
+    },
+    "research/adt-refinement-api-preflight.md": {
+      "bytes": 28486,
+      "lines": 445,
+      "sha256": "4d63f2616dee5af5e358cc59696745f215698973517dad9d4d77c1310b09e391"
+    },
+    "research/adt-refinement-case-preflight.md": {
+      "bytes": 29841,
+      "lines": 466,
+      "sha256": "98bf8c5e68cb8eecbedbedfde8caf8ed1587c5219a0df8c2d794085ef9738e52"
+    },
+    "reviews/adt-refinement-preflight-readback.md": {
+      "bytes": 4583,
+      "lines": 74,
+      "sha256": "d73e9ddce21c3702f1eaee75945e3714c6ac38c31ab704e6bc25094d83765c38"
+    },
+    "reviews/adt-refinement-design-decision.md": {
+      "bytes": 3551,
+      "lines": 63,
+      "sha256": "940eefbf01188d2709aff7eae744afa9cc9840f7327376294b2d43c72710062b"
+    },
+    "reviews/adt-refinement-requirements-assessment.md": {
+      "bytes": 2846,
+      "lines": 45,
+      "sha256": "6767ab5c00944f4cdbe263225202c8a24ebc32db157dba3ccbee09d2c960cf75"
+    }
+  },
+  "packages_target": "/workspace/scratch/845aa1048b05/conaled/.lake/packages",
+  "project_build_exists": false,
+  "source_authoring_released": false,
+  "prerequisite": "accepted repaired FDSA-001 before integration and acceptance",
+  "initial_chapter02_prefix": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "validation": "No XA01 compiler/checker/audit/review approval; Chapter 1 session 83124 remains the sole full compiler/checker.",
+  "checkpoint_before_authoring": "conaled-fdsa-0048-adt-refinement-start"
+}

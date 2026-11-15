@@ -1,0 +1,1995 @@
+{
+  "schema": 1,
+  "status": "preserved-source-catalog-with-dated-capability-recovery",
+  "target_master": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "old_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "candidate_refs": {
+    "vfa": "refs/checkpoint/vfa/heads/local/vfa-recovery-1",
+    "fdsa": "refs/checkpoint/fdsa/heads/work/fdsa-book",
+    "pfds": "refs/checkpoint/pfds/heads/pfds/signed-potential"
+  },
+  "scope": "Exact65 missing FDSA Lean path choices,36 existing-path variant dispositions, five VFA staged files. No source files edited. Scope is bounded donor evidence, not a repository inventory.",
+  "import_method": "Observed import statements from source text for planning only; pinned Lean parser/build remains authoritative. No external import availability or elaboration is claimed.",
+  "counts": {
+    "fdsa_new_paths": 65,
+    "fdsa_new_versions": 67,
+    "fdsa_existing_variant_paths": 36,
+    "fdsa_existing_variant_versions": 81,
+    "vfa_standalone_files": 5,
+    "new_research_documents": 16
+  },
+  "fdsa_new_files": [
+    {
+      "path": "Applications/Arithmetic/LogarithmBounds.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "a601ad713368daf8e18d5a5537a83d47138491fa",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-logarithm-bounds",
+      "git_blob": "389d069d3233aab8a58cb020c122f79932ad528a",
+      "mode": "100644",
+      "imports_observed": [
+        "Mathlib.Analysis.SpecialFunctions.Log.Base",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Collections/AList.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-adt-refinement",
+      "git_blob": "699187263fa5c8a6baea6ed9743ac531d8fe062f",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Collections.Map",
+        "Mathlib.Data.List.AList"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": [],
+      "current_disposition": {
+        "date": "2026-11-14",
+        "issue": "INT-032",
+        "candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+        "status": "selected-capabilities-recovered; focused-pass; full-acceptance-pending",
+        "owners": [
+          "Applications/Search/OrderedMap/Interface.lean",
+          "Applications/Search/OrderedMap/Invariant.lean",
+          "Applications/Search/OrderedMap/AssociationList.lean",
+          "Examples/TextbookMaps.lean"
+        ],
+        "recovered": "Actual Mathlib AList empty/bind/lookup realization and connected arbitrary-write clients through existing OrderedMap Laws.",
+        "preserved_pending": "Stronger six-law deletion contract and its deletion/Modify capabilities; original source remains exactly retained. No parallel Collections.Map framework introduced.",
+        "validation": "books/common/evidence/maps-focused-r3.json"
+      }
+    },
+    {
+      "path": "Applications/Collections/Map.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-adt-refinement",
+      "git_blob": "b07ca3b4622f218e24c8cd985f089a93384bcd6f",
+      "mode": "100644",
+      "imports_observed": [
+        "SquareKit.ValidGraphs",
+        "Mathlib.Logic.Function.Basic"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": [],
+      "current_disposition": {
+        "date": "2026-11-14",
+        "issue": "INT-032",
+        "candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+        "status": "selected-capabilities-recovered; focused-pass; full-acceptance-pending",
+        "owners": [
+          "Applications/Search/OrderedMap/Interface.lean",
+          "Applications/Search/OrderedMap/Invariant.lean",
+          "Applications/Search/OrderedMap/AssociationList.lean",
+          "Examples/TextbookMaps.lean"
+        ],
+        "recovered": "Valid-state empty/bind/lookup obligations via existing Laws on the valid subtype, arbitrary chronological-client observation agreement, and the existing ordered-tree consumer.",
+        "preserved_pending": "Stronger six-law deletion contract and its deletion/Modify capabilities; original source remains exactly retained. No parallel Collections.Map framework introduced.",
+        "validation": "books/common/evidence/maps-focused-r3.json"
+      }
+    },
+    {
+      "path": "Applications/Collections/Modify.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-adt-refinement",
+      "git_blob": "0a7bea4ea3477fff01efd8b4e42e121da053acab",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Collections.Map"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": [],
+      "current_disposition": {
+        "date": "2026-11-14",
+        "issue": "INT-020",
+        "status": "preserved-pending",
+        "note": "INT-032 recovers the binding-only map validity specialization; this donor capability is not declared integrated. Retain modification round trips, set deletion and generic valid-graph composition for coherent subsequent adoption."
+      }
+    },
+    {
+      "path": "Applications/Collections/Set.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-adt-refinement",
+      "git_blob": "e14c26496de0bcf5341254058ed6daa6d7c0eb65",
+      "mode": "100644",
+      "imports_observed": [
+        "SquareKit.ValidGraphs",
+        "Mathlib.Data.Bool.Basic",
+        "Mathlib.Data.Set.Basic"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": [],
+      "current_disposition": {
+        "date": "2026-11-14",
+        "issue": "INT-020",
+        "status": "preserved-pending",
+        "note": "INT-032 recovers the binding-only map validity specialization; this donor capability is not declared integrated. Retain modification round trips, set deletion and generic valid-graph composition for coherent subsequent adoption."
+      }
+    },
+    {
+      "path": "Applications/Probability/AccumulatedWork.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-accumulated-work",
+      "git_blob": "364a3ae346feaed7205b24dfef27895a9853a3e2",
+      "mode": "100644",
+      "imports_observed": [
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Markov",
+        "Mathlib.Analysis.SpecificLimits.Basic",
+        "Mathlib.MeasureTheory.Constructions.Polish.Basic",
+        "Mathlib.Topology.Algebra.InfiniteSum.NatInt"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Probability/PermutationExpectation.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-permutation-placement",
+      "git_blob": "9124def903537fd47b71ccb23155eca8eb2fc403",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Probability.PermutationMinimum",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Indicator",
+        "Mathlib.Basic.ENNReal.Inv",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Add",
+        "Mathlib.Order.Interval.Finset.Fin"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": [],
+      "superseded_git_blobs": [
+        "02c6d8a12807838c02d33def261ff13139c56b9d"
+      ],
+      "variant_resolution": "Strict extension: earlier file unchanged and beforeCount_relabel added."
+    },
+    {
+      "path": "Applications/Probability/PermutationPlacement.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-permutation-placement",
+      "git_blob": "6b328c3fc59dc63e7361786077a84a6e6e869cdf",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Probability.PermutationExpectation",
+        "Applications.Probability.PermutationOrder",
+        "Mathlib.Probability.Independence.Integration"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": [
+        "Applications/Probability/PermutationOrder.lean"
+      ]
+    },
+    {
+      "path": "Applications/Resources/TreeAccumulator.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-traversal-work",
+      "git_blob": "37738e80b49d9a64f98232d345f9219ff2a18613",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Observations",
+        "Applications.Resources.CallCount",
+        "Mathlib.Tactic.Ring"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Resources/TreeBalance.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "a8f57dbf153c19e3bad2c8136a90b566eeb35374",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-balancing",
+      "git_blob": "e1adc591b7b968b9c55c87ca474e538bdc3f2a62",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Balance",
+        "Applications.Resources.CallCount"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Resources/TreeFold.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-traversal-work",
+      "git_blob": "442f0b1e3bc3c8919cb7cfd3476f9e76182a880c",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Observations",
+        "Applications.Resources.CallCount",
+        "Mathlib.Tactic.Ring"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Resources/TreeLeftmost.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "7b8ab2bee299c937256bf9ce7e82977333d07134",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-leftmost",
+      "git_blob": "485bb39f0d83aea069c259ec9a69388a8814c44c",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Resources.CallCount",
+        "Applications.Trees.Ordered",
+        "Mathlib.Order.Bounds.Defs"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Resources/TreeRotations.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "863aedb924e922ac40747c0ef299701a7785488e",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ordered-search",
+      "git_blob": "82c140759df2b0faac01dc6e4070aa8ef941370a",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Resources.TreeCache",
+        "Applications.Trees.CachedRotations"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Resources/TreeSearch.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "863aedb924e922ac40747c0ef299701a7785488e",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ordered-search",
+      "git_blob": "d79d11642a7fd64aeef3fe4a8f286a56abb8dc12",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Resources.CallCount",
+        "Applications.Trees.Ordered",
+        "Mathlib.Order.Compare",
+        "Lean.Elab.Tactic.Omega"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Resources/TreeTraversalWork.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-traversal-work",
+      "git_blob": "177f0805bb614a8bab3d244c3d1bb63665f83cb7",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.TraversalWork",
+        "Applications.Resources.TreeFold"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Search/PriorityMerge.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "c088beeb89aa18df45a56f6f1d6b6ff4ad374905",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-priority-observations",
+      "git_blob": "ae29acc29fd58127a934f116c9e6ae824403ec88",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Search.PriorityMultiset"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Search/PriorityMultiset.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "c088beeb89aa18df45a56f6f1d6b6ff4ad374905",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-priority-observations",
+      "git_blob": "ad6c3024e2a1af8b9368253f1fc070c216023371",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Search.ExactPriority",
+        "Mathlib.Data.Multiset.MapFold",
+        "Mathlib.Data.Finset.Basic",
+        "Mathlib.Data.Finset.Max"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Trees/Balance.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "a8f57dbf153c19e3bad2c8136a90b566eeb35374",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-balancing",
+      "git_blob": "7a220ad17c81d361b9a609cadca1ef79829e969b",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Observations",
+        "Mathlib.Data.List.TakeDrop"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Trees/BasicObservations.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-structural",
+      "git_blob": "b41b456122021f1bc3cb73e8defb2802afb4362c",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Observations",
+        "Mathlib.Data.Set.Basic"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Trees/Braun.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "156ba8170852f8e7f0b8c09315e35b837ce77ff9",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-braun-shape",
+      "git_blob": "3fd71ca478612650dd5f179496a4e98a2305d40f",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Shape"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": [
+        "Applications/Trees/Shape.lean",
+        "Applications/Trees/ShapeLog.lean"
+      ]
+    },
+    {
+      "path": "Applications/Trees/CachedRotations.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "863aedb924e922ac40747c0ef299701a7785488e",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ordered-search",
+      "git_blob": "0a420a529eb8292419819bfc64f3b0401a3bf5bf",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Rotations",
+        "Applications.Trees.Cached"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Trees/Enumeration.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "d02419738a9e16963727b25acf2e18f374dd16de",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-exercises",
+      "git_blob": "3e16c6554804c822c3f50589226dceeb2d983134",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Observations",
+        "Mathlib.Data.List.Nodup",
+        "Mathlib.Data.Set.Basic"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Trees/Levels.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "d02419738a9e16963727b25acf2e18f374dd16de",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-exercises",
+      "git_blob": "0db89989bd0a628c2a2c451d879e7adbf6f6fc86",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Observations"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Trees/Ordered.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "863aedb924e922ac40747c0ef299701a7785488e",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ordered-search",
+      "git_blob": "4bad941eb245dd3ab305d7eb626f4195c041f3bb",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Observations",
+        "Mathlib.Data.List.Sort"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Trees/OrderedRotations.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "863aedb924e922ac40747c0ef299701a7785488e",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ordered-search",
+      "git_blob": "9bafe107fea88be3dada418e0a0e3f0921fdebba",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Ordered",
+        "Applications.Trees.CachedRotations"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Trees/Reconstruction.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "d02419738a9e16963727b25acf2e18f374dd16de",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-exercises",
+      "git_blob": "83d0375eb8161dc7626beda5ba7d245d5a5215c5",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.BasicObservations",
+        "Mathlib.Data.List.Nodup"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Trees/Rose.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "d02419738a9e16963727b25acf2e18f374dd16de",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-exercises",
+      "git_blob": "7c36b0871cb806ae692e248b1a000cbfe776e15c",
+      "mode": "100644",
+      "imports_observed": [
+        "Mathlib.Data.List.Basic"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Trees/Rotations.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "863aedb924e922ac40747c0ef299701a7785488e",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ordered-search",
+      "git_blob": "40cd6153da0e9a837608823d104b6e1851dc5914",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Observations"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Trees/TraversalWork.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-traversal-work",
+      "git_blob": "c12095778d0e268028b1f6e0a52648417c022644",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Observations",
+        "Mathlib.Data.Nat.Choose.Basic",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Applications/Trees/WeightedPaths.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-structural",
+      "git_blob": "32c68e171958f3d706111e5216f9222fb156fcc1",
+      "mode": "100644",
+      "imports_observed": [
+        "Mathlib.Data.Tree.Basic",
+        "Mathlib.Tactic.Ring"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/ADTRefinement.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-adt-refinement",
+      "git_blob": "e62a0fc3a36e86172eef85164d0f77a7f21bb984",
+      "mode": "100644",
+      "imports_observed": [
+        "SquareKit.ValidGraphs",
+        "SquareKit.RelationComposition",
+        "Examples.SetMapContracts",
+        "Mathlib.Tactic"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/AccumulatedWork.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-accumulated-work",
+      "git_blob": "51f43ab3698fe97b8db83084b1876851388e3738",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Probability.AccumulatedWork",
+        "Applications.Resources.Workload",
+        "Examples.AccumulatedWorkBoundary",
+        "Mathlib.Probability.UniformOn",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+        "Mathlib.Tactic"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/AccumulatedWorkBoundary.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-accumulated-work",
+      "git_blob": "8b7bc778099db7f2de680addb54e53da58cb1f86",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Probability.AccumulatedWork",
+        "Applications.Resources.CallCount",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+        "Mathlib.Probability.UniformOn",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/BraunShape.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "156ba8170852f8e7f0b8c09315e35b837ce77ff9",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-braun-shape",
+      "git_blob": "523bf392d8dbf6710ee211a7248bc34787a6fc55",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Braun",
+        "Examples.TreeShape"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": [
+        "Applications/Trees/Shape.lean",
+        "Applications/Trees/ShapeLog.lean"
+      ]
+    },
+    {
+      "path": "Examples/LogarithmBounds.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "a601ad713368daf8e18d5a5537a83d47138491fa",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-logarithm-bounds",
+      "git_blob": "bdaac73f8621a35c68e6ad68c0d82099aab1281b",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Arithmetic.LogarithmBounds",
+        "Mathlib.Data.Tree.Basic",
+        "Mathlib.Data.Int.Cast.Basic",
+        "Mathlib.Tactic.Ring"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/MapModify.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-adt-refinement",
+      "git_blob": "b09ccb28aacea0aff050208869563a89b165b239",
+      "mode": "100644",
+      "imports_observed": [
+        "Examples.SetMapContracts",
+        "Applications.Collections.Modify"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/MappedPotentialAccounting.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "12cb14fc98b8617b3b625620da8e60936daba340",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-potential-development",
+      "git_blob": "1fb26b51e9f298bd1ba1d1a5fa2a425142f8d8d7",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Resources.BinaryCounter",
+        "Mathlib.Basic.Real.Basic",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Algebra.FreeMonoid.Basic",
+        "Mathlib.Algebra.Group.TypeTags.Basic"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": [
+        "Applications/Resources/Potential.lean"
+      ],
+      "superseded_git_blobs": [
+        "0291c5979243b0d12332d3628d06aa910732dfa2"
+      ],
+      "variant_resolution": "Same mathematical claims with later focused-check elaboration repairs; no second implementation needed."
+    },
+    {
+      "path": "Examples/OrderedTrees.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "863aedb924e922ac40747c0ef299701a7785488e",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ordered-search",
+      "git_blob": "6876ba9277a158f53adfd3fbe53424e8fea903eb",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.OrderedRotations",
+        "Examples.TreeRotations",
+        "Mathlib.Order.Basic"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/PermutationExpectation.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-permutation-placement",
+      "git_blob": "047afa3eb12c722e85fa20bb7bbc45a0e687c500",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Probability.PermutationExpectation",
+        "Examples.PermutationExpectationBoundary",
+        "Mathlib.Data.Finset.Max",
+        "Mathlib.Tactic"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/PermutationExpectationBoundary.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-permutation-placement",
+      "git_blob": "76f8a118a872ffe94dd2c7aaffdec4d4c3673520",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Probability.PermutationExpectation",
+        "Applications.Probability.PermutationTail",
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.Tactic"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/PermutationJoint.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-permutation-placement",
+      "git_blob": "c899032455692900c02bebcdf9f120da226f70da",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Probability.PermutationTail",
+        "Examples.PermutationOrder",
+        "Examples.PermutationJointBoundary",
+        "Mathlib.Probability.HasLaw",
+        "Mathlib.Tactic"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": [
+        "Applications/Probability/PermutationOrder.lean"
+      ]
+    },
+    {
+      "path": "Examples/PermutationJointBoundary.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-permutation-placement",
+      "git_blob": "3b472702b73d713f0af51b31a36073dbae67b214",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Probability.PermutationTail",
+        "Examples.PermutationOrder",
+        "Mathlib.Tactic"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": [
+        "Applications/Probability/PermutationOrder.lean"
+      ]
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-permutation-placement",
+      "git_blob": "589494cfaf89342c41371f28457af0fe7f7132d6",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Probability.PermutationPlacement",
+        "Examples.PermutationExpectation",
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.Probability.ConditionalProbability",
+        "Mathlib.Tactic"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": [
+        "Applications/Probability/PermutationOrder.lean"
+      ]
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-permutation-placement",
+      "git_blob": "516709a9f641a0de23d52d743cb068133f3f64c6",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Probability.PermutationPlacement",
+        "Examples.PermutationExpectation",
+        "Mathlib.MeasureTheory.Measure.Dirac.Def",
+        "Mathlib.Tactic"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": [
+        "Applications/Probability/PermutationOrder.lean"
+      ]
+    },
+    {
+      "path": "Examples/PriorityModels.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "c088beeb89aa18df45a56f6f1d6b6ff4ad374905",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-priority-observations",
+      "git_blob": "f4482731201cfa1ff8f7a04c418185dcc5a3b4e4",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Search.PriorityMerge",
+        "Applications.Search.PrioritySearchQueue"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/SetMapContracts.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-adt-refinement",
+      "git_blob": "8557133d41ae7336053c149c46813a8a37c1eadb",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Collections.AList",
+        "Applications.Collections.Set",
+        "Mathlib.Algebra.Group.Nat.Even",
+        "Mathlib.Data.List.AList",
+        "Mathlib.Data.Set.Finite.Basic",
+        "Mathlib.Logic.Function.Basic"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/TreeAccumulator.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-traversal-work",
+      "git_blob": "f1cdcce5f3d2969cd9c70ae4fa7c53587cd39354",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Resources.TreeAccumulator",
+        "Examples.TreeFoldObservations"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/TreeAccumulatorObservations.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-traversal-work",
+      "git_blob": "93b2ee14105aedde1e8ac6b3a7de4a28c4d65896",
+      "mode": "100644",
+      "imports_observed": [
+        "Examples.TreeAccumulator"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/TreeBalance.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "a8f57dbf153c19e3bad2c8136a90b566eeb35374",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-balancing",
+      "git_blob": "5c10c3d3223d8b88adb69326c5430abd3692ecbe",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Balance"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/TreeBalanceCost.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "a8f57dbf153c19e3bad2c8136a90b566eeb35374",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-balancing",
+      "git_blob": "4a2574e0652fc150367c597dedf63a8dc18430c9",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Resources.TreeBalance",
+        "Examples.TreeBalance"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/TreeBasicObservations.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-structural",
+      "git_blob": "ccd089ead8ab8206c231602ae278d3ab3141ea2e",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.BasicObservations"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/TreeEnumeration.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "d02419738a9e16963727b25acf2e18f374dd16de",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-exercises",
+      "git_blob": "8d79a8278e8aba4b2c5cce31608f4aacd7035347",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Enumeration"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/TreeFold.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-traversal-work",
+      "git_blob": "44cc3195f016a1a8e74d6bc09db2f9ac0d0d2985",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Resources.TreeFold",
+        "Examples.TreeCache"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/TreeFoldCache.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-traversal-work",
+      "git_blob": "ed6f64ed9d6a33ac6182057aa9fca8af9169ff9a",
+      "mode": "100644",
+      "imports_observed": [
+        "Examples.TreeFold"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/TreeFoldObservations.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-traversal-work",
+      "git_blob": "cc70b9d0db6c9c54f4c2446093765bb007d35217",
+      "mode": "100644",
+      "imports_observed": [
+        "Examples.TreeFoldCache",
+        "Mathlib.Algebra.Group.TypeTags.Basic"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/TreeLeftmost.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "7b8ab2bee299c937256bf9ce7e82977333d07134",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-leftmost",
+      "git_blob": "488c633f9a6d07c2b7279e62ecd9c1dadb6ed5e9",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Resources.TreeLeftmost",
+        "Examples.OrderedTrees",
+        "Mathlib.Data.List.Range",
+        "Init.Data.List.Find"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/TreeLevels.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "d02419738a9e16963727b25acf2e18f374dd16de",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-exercises",
+      "git_blob": "a9164cbd40106ab32f9e2a733ef944f5deda5763",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Levels"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/TreeReconstruction.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "d02419738a9e16963727b25acf2e18f374dd16de",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-exercises",
+      "git_blob": "223844cd18e58263763d62e3412358bc55c6ce7e",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Reconstruction"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/TreeRose.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "d02419738a9e16963727b25acf2e18f374dd16de",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-exercises",
+      "git_blob": "85e47d549bb81830466c34c86a5a3b04a48e4ed0",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.Rose"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/TreeRotationCosts.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "863aedb924e922ac40747c0ef299701a7785488e",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ordered-search",
+      "git_blob": "5c9484b8c17855f1974c4b9574c13eb703a033b1",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Resources.TreeRotations",
+        "Examples.TreeRotations"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/TreeRotations.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "863aedb924e922ac40747c0ef299701a7785488e",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ordered-search",
+      "git_blob": "847241c83f0a02c4725843b07e0fcd745e47e93d",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.CachedRotations",
+        "Examples.TreeCache"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/TreeSearch.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "863aedb924e922ac40747c0ef299701a7785488e",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ordered-search",
+      "git_blob": "9b6402373f799df422e2bb1f239dae70a6a68634",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Resources.TreeSearch",
+        "Examples.OrderedTrees",
+        "Mathlib.Data.Tree.Get",
+        "Mathlib.Algebra.BigOperators.Group.List.Basic",
+        "Mathlib.Order.Compare",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/TreeTraversalWork.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-tree-traversal-work",
+      "git_blob": "4161a30538e972e2ba6b30bc49cbf1a55c89664a",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Resources.TreeTraversalWork",
+        "Applications.Resources.Growth",
+        "Examples.TreeAccumulatorObservations",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "Examples/TreeWeightedPaths.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-ch04-structural",
+      "git_blob": "57c0048f1b616f28a821452fefa5d550370755b4",
+      "mode": "100644",
+      "imports_observed": [
+        "Applications.Trees.WeightedPaths"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": []
+    },
+    {
+      "path": "SquareKit/ValidGraphs.lean",
+      "decision": "receive_then_validate",
+      "donor_commit": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+      "donor_ref": "refs/checkpoint/fdsa/heads/work/fdsa-adt-refinement",
+      "git_blob": "3b46e67d348d7e40b9118f3c7017d75fdb65e2ea",
+      "mode": "100644",
+      "imports_observed": [
+        "Mathlib.Logic.Relation"
+      ],
+      "existing_at_same_path": {},
+      "required_existing_path_merges": [],
+      "current_disposition": {
+        "date": "2026-11-14",
+        "issue": "INT-020",
+        "status": "preserved-pending",
+        "note": "INT-032 recovers the binding-only map validity specialization; this donor capability is not declared integrated. Retain modification round trips, set deletion and generic valid-graph composition for coherent subsequent adoption."
+      }
+    }
+  ],
+  "fdsa_existing_path_dispositions": [
+    {
+      "path": "Applications/Probability/PermutationMinimum.lean",
+      "receiving_main_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "9be74c11fda2de70b0fa02fcb597c631dc8e666e",
+          "representative_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "receiving_main_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+      "old_variant_count": 3,
+      "decision": "merge_capabilities",
+      "preferred_base": "fdsa",
+      "reason": "Retain receiving-main elaboration corrections in all existing declarations; add joint-order and intersection-fiber suffix including four private helpers, plus the donor imports. Joint49d contains earlier a534 extension. No second parallel PermutationOrder module.",
+      "variants": [
+        {
+          "git_blob": "3527f32c466c4cedb1a9aa35b53d2576496f8822",
+          "representative_commit": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e"
+        },
+        {
+          "git_blob": "948b428687adb0c370c30298ce22c02e1bd863b6",
+          "representative_commit": "11923e9ffd17246b6f22c5594002a1ba0434e43c"
+        },
+        {
+          "git_blob": "965f901ba7843903db3b1260cec88a7fea7adc65",
+          "representative_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe"
+        }
+      ],
+      "donor": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "public_additions": [
+        "uniformOn_restrictedOrder_pair_eq",
+        "map_restrictedOrder_pair_uniformOn",
+        "hasLaw_filter_pair",
+        "uniformOn_inter_restrictedOrder_eq"
+      ],
+      "prerequisite_for": [
+        "Applications/Probability/PermutationPlacement.lean",
+        "Examples/PermutationJoint.lean",
+        "Examples/PermutationJointBoundary.lean",
+        "Examples/PermutationPlacement.lean",
+        "Examples/PermutationPlacementBoundary.lean"
+      ]
+    },
+    {
+      "path": "Applications/Probability/PermutationTail.lean",
+      "receiving_main_blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+      "old_variant_count": 2,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "1085b40e0f9fb055f4fb29afa9f121e5b15e8877",
+          "representative_commit": "15a113b075c2ceb4d44c27a06fa9a69e019b57fc"
+        },
+        {
+          "git_blob": "97d2159ff96dadb45626cd790f01878750e91254",
+          "representative_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/CallComparison.lean",
+      "receiving_main_blob": "af658c10d82dbae6ee1cf65fe5e8ecf56b6ba9f5",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "720cbaa3dbf3db468d696bb6673eb7acd588cef3",
+          "representative_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/FIFOContracts.lean",
+      "receiving_main_blob": "51a45acf742f9e984188094bb72d3744e9f6e19b",
+      "old_variant_count": 1,
+      "decision": "compatibility_edit",
+      "preferred_base": "fdsa",
+      "reason": "Use explicit (0 : Nat) for abstractBudget raw observation after generic budget introduction; remaining file stays at receiving-main/current merged content.",
+      "variants": [
+        {
+          "git_blob": "01839707e852b3faff6ef1a49ad88a76fb5e5c18",
+          "representative_commit": "12cb14fc98b8617b3b625620da8e60936daba340"
+        }
+      ],
+      "donor": "12cb14fc98b8617b3b625620da8e60936daba340"
+    },
+    {
+      "path": "Applications/Resources/ListCalls.lean",
+      "receiving_main_blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "ed38d5f95f508b564489b676b4dbceb9ac67b87f",
+          "representative_commit": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/MinimumPivot.lean",
+      "receiving_main_blob": "feb0fd0b9540cbdbddb6c4f7a131d5ca50ca0d68",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "c9ab1d98137636909b96c98b90bbb314eea700ef",
+          "representative_commit": "18cde548c080b24d182e754db0e13b0df2d91c15"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/NaturalRunOperations.lean",
+      "receiving_main_blob": "b6b63bd2714a74c4c66e2ec32b860f7107bb727a",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "013f06fbf458e0f0b6597ab5752c7d0fe08ec37a",
+          "representative_commit": "3b839319776238fe2a46f22db761058b44d68adc"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/Partition.lean",
+      "receiving_main_blob": "e9d3682a4d3a499aaffd41f73c7fc39965fa0d30",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "58f76490567f232dc0cd5d153463cf1cd3a7bb16",
+          "representative_commit": "de5410286bbefd841dff50bef55c2e52d2ebbd2a"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/Potential.lean",
+      "receiving_main_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+      "old_variant_count": 2,
+      "decision": "merge_capabilities",
+      "preferred_base": "pfds",
+      "reason": "Keep PFDS same-carrier generic laws, budget_congr_state, final-potential nonnegativity and SignedPotential clients; add FDSA mapped and invariant-aware laws with separate carriers. Use weaker AddZero budget_map assumptions if current Lean validates. Preserve natural specializations. Do not replace either whole file.",
+      "variants": [
+        {
+          "git_blob": "3ffc5e120f94f87c77a442728f654f3fa94d3aeb",
+          "representative_commit": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2"
+        },
+        {
+          "git_blob": "dcf7ae78d76c1440c2d89711e6939a00ff24cc90",
+          "representative_commit": "12cb14fc98b8617b3b625620da8e60936daba340"
+        }
+      ],
+      "donor": "12cb14fc98b8617b3b625620da8e60936daba340",
+      "public_additions": [
+        "run_potential_map_of_invariant",
+        "run_potential_map_exact_of_invariant",
+        "run_potential_map",
+        "run_potential_map_exact",
+        "run_cost_le_map_of_invariant",
+        "budget_amortized"
+      ],
+      "prerequisite_for": [
+        "Examples/MappedPotentialAccounting.lean"
+      ]
+    },
+    {
+      "path": "Applications/Resources/QuickSortMean.lean",
+      "receiving_main_blob": "f5bb73b3f1c2c977013919b02a307c0c3669fed1",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "01e7bffde09f6cb5c72f7a0b22d6f47b28025486",
+          "representative_commit": "15a113b075c2ceb4d44c27a06fa9a69e019b57fc"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "receiving_main_blob": "bf855838820d138c4ad1c7e66e9f993afd411c9f",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "0f78fd302b88aba9596036a63b79195007e502a8",
+          "representative_commit": "1249f39968a44a25bfe3932d84a2cb44c6a83515"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/TreeCache.lean",
+      "receiving_main_blob": "445e49be7535e17640c7c4ca81251dd7c4119117",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "d97a2c738960b893b733687c4f3d713f5edb0dc6",
+          "representative_commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Sequences/Partition.lean",
+      "receiving_main_blob": "ff03bd349a39b3b77c49793175d4b474199e7c43",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "8e0ef37ccc2d60a172daceac201b8eaab98b50ac",
+          "representative_commit": "de5410286bbefd841dff50bef55c2e52d2ebbd2a"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Sorting/Alternating.lean",
+      "receiving_main_blob": "b8147f8fc08969c67da07e9331570590a080760a",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "be660ceffd25542874b38caf7c3767257d353f2c",
+          "representative_commit": "43242f43cba0f2c90c17356d44d71e5765d8ba93"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Sorting/TopDown.lean",
+      "receiving_main_blob": "845444934d6fec2106e25af62b31f685269c2a59",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "514834e3214dd7a1930531942d0a91b48c43fd21",
+          "representative_commit": "66cd1cca539cb667a7bae17d91d51c0ffeb718dc"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "receiving_main_blob": "52c589e228d4c3a8726f7010ec1de7700ba5eca2",
+      "old_variant_count": 1,
+      "decision": "merge_capabilities",
+      "preferred_base": "fdsa",
+      "reason": "Append Braun-required node-balance/rounded-height extension, including its two private helper lemmas, before end Trees; keep receiving-main prefix unchanged.",
+      "variants": [
+        {
+          "git_blob": "872d89f1d842f8a04886cd65a19b5d0751f5fc98",
+          "representative_commit": "156ba8170852f8e7f0b8c09315e35b837ce77ff9"
+        }
+      ],
+      "donor": "156ba8170852f8e7f0b8c09315e35b837ce77ff9",
+      "public_additions": [
+        "height_node_eq_clog_of_numNodes_succ",
+        "minHeight_node_eq_log_of_numNodes_succ",
+        "almostComplete_node_of_numNodes_balance"
+      ],
+      "prerequisite_for": [
+        "Applications/Trees/Braun.lean"
+      ]
+    },
+    {
+      "path": "Applications/Trees/ShapeLog.lean",
+      "receiving_main_blob": "13544a17fd22b734e750044e94d1a4d39d5d1c22",
+      "old_variant_count": 2,
+      "decision": "merge_capabilities",
+      "preferred_base": "fdsa",
+      "reason": "Keep receiving-main corrected Real/Nat casting proofs; append two source real-log intermediate corollaries and adapt their casts to that corrected style if required.",
+      "variants": [
+        {
+          "git_blob": "2b9d3e3ce0adef033ecba262cd5b1126591c390b",
+          "representative_commit": "974a97321a8ec174b56104c7e6efaaca881b6639"
+        },
+        {
+          "git_blob": "31b39204af4b655be72e0c3065e12c1461a254ea",
+          "representative_commit": "156ba8170852f8e7f0b8c09315e35b837ce77ff9"
+        }
+      ],
+      "donor": "156ba8170852f8e7f0b8c09315e35b837ce77ff9",
+      "public_additions": [
+        "height_node_eq_ceil_logb_of_numNodes_succ",
+        "minHeight_node_eq_floor_logb_of_numNodes_succ"
+      ],
+      "prerequisite_for": [
+        "Examples/BraunShape.lean"
+      ]
+    },
+    {
+      "path": "Examples/AffineRecurrence.lean",
+      "receiving_main_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "e16bc2401027fdced90b86edd15d9eb8b79759b9",
+          "representative_commit": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2"
+        }
+      ]
+    },
+    {
+      "path": "Examples/AlternatingSorting.lean",
+      "receiving_main_blob": "cb3a191d95fbf83c439b9c6135adec10767723bc",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "4b0182f8f14e3b884997df949c5d50c837bbcc17",
+          "representative_commit": "43242f43cba0f2c90c17356d44d71e5765d8ba93"
+        }
+      ]
+    },
+    {
+      "path": "Examples/CallModels.lean",
+      "receiving_main_blob": "ec352ad4df7ed7f34438be442eddddf61b564e98",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "b2864078be11bf498366d6e58224ee70c8fa8529",
+          "representative_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe"
+        }
+      ]
+    },
+    {
+      "path": "Examples/FunctionalNotation.lean",
+      "receiving_main_blob": "3e5db8677c94bd330779522f92bc39508540a17a",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_signature_correction",
+      "preferred_base": "fdsa",
+      "reason": "Retain current Preorder hypothesis for all_interval_memberships; old bare LE/LT version was an uncompiled draft. This signature difference is explicit, not classified as a proof-only rewrite. Keep current imports and connected proof fixes. No separate old theorem is justified without checking the actual Mathlib interval interface.",
+      "variants": [
+        {
+          "git_blob": "c143bf1b41c4b75a849c249ef370c5d1daf9487f",
+          "representative_commit": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2"
+        }
+      ],
+      "donor": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe"
+    },
+    {
+      "path": "Examples/ListCalls.lean",
+      "receiving_main_blob": "b4c4683ee2bd16ff6f844ce757470515847a63dc",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "09cfa7440b93fa2dc83efcd9a5c1abe45a500b92",
+          "representative_commit": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2"
+        }
+      ]
+    },
+    {
+      "path": "Examples/NaturalRunOperations.lean",
+      "receiving_main_blob": "bbb89270f236ce467da85bc177c06882b4f9d6e4",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "2ac3aac57a680b4f3b55bba2ef09ff9d49de7068",
+          "representative_commit": "15a113b075c2ceb4d44c27a06fa9a69e019b57fc"
+        }
+      ]
+    },
+    {
+      "path": "Examples/PermutationMinimum.lean",
+      "receiving_main_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "e49e17a2a70836bd2cb8d4fc9bf799dd2be6bad9",
+          "representative_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe"
+        }
+      ]
+    },
+    {
+      "path": "Examples/PermutationMinimumBoundary.lean",
+      "receiving_main_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "05642e65256626b6ac881c9c2fe6de822858ca2d",
+          "representative_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe"
+        }
+      ]
+    },
+    {
+      "path": "Examples/PermutationOrder.lean",
+      "receiving_main_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "c6f0d7d2a08b5bfc1b9b34563a8a5578a3fcd52d",
+          "representative_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe"
+        }
+      ]
+    },
+    {
+      "path": "Examples/PermutationOrderBoundary.lean",
+      "receiving_main_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "9e384a46b8fda579ccee3605928a0fde864c881e",
+          "representative_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe"
+        }
+      ]
+    },
+    {
+      "path": "Examples/PermutationTail.lean",
+      "receiving_main_blob": "baa3e26a3c72a4589765562167d1d85edc011e67",
+      "old_variant_count": 2,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "39e9e5ae53e1c137301111ca63293b0ca1feb94a",
+          "representative_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe"
+        },
+        {
+          "git_blob": "f118b08cd9d2006ceac0f4c24004e1ed09c1fb93",
+          "representative_commit": "15a113b075c2ceb4d44c27a06fa9a69e019b57fc"
+        }
+      ]
+    },
+    {
+      "path": "Examples/PermutationTailBoundary.lean",
+      "receiving_main_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0",
+      "old_variant_count": 2,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "c494fcae8d3ed02d425a05c49ffa2e4c3487987e",
+          "representative_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe"
+        },
+        {
+          "git_blob": "f15c34fc5c3ee0edd5e015ca5e06da4d2106e546",
+          "representative_commit": "15a113b075c2ceb4d44c27a06fa9a69e019b57fc"
+        }
+      ]
+    },
+    {
+      "path": "Examples/SelectionCountRank.lean",
+      "receiving_main_blob": "bd2dd42d428b46b6a7ef846a8f252b5386a72916",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "b43d7c7eeb5f2cc3134166a00100edf26e91d2a9",
+          "representative_commit": "1249f39968a44a25bfe3932d84a2cb44c6a83515"
+        }
+      ]
+    },
+    {
+      "path": "Examples/SharedDemand.lean",
+      "receiving_main_blob": "937400b61230b59ad0889ec554305ce9b6b42800",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "a549bdd1c72159477c046cf8f7e9d142cf98e8de",
+          "representative_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe"
+        }
+      ]
+    },
+    {
+      "path": "Examples/TopDownSorting.lean",
+      "receiving_main_blob": "013dea9599add78a6e839bb9e5831cf660321d69",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "addeb5a1d8f1d2d1c9d0048e8cb9ce83db587458",
+          "representative_commit": "66cd1cca539cb667a7bae17d91d51c0ffeb718dc"
+        }
+      ]
+    },
+    {
+      "path": "Examples/TreeCache.lean",
+      "receiving_main_blob": "e0f09b851bb4ce6d1093faaf3cbbcb3b3d873f24",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "d142e853381de3b7d294d3c023c32d53e2756d5c",
+          "representative_commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a"
+        }
+      ]
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "receiving_main_blob": "70f8fa17f515be7a419c1ca7ad8b7903b86c3524",
+      "old_variant_count": 1,
+      "decision": "retain_receiving_main",
+      "preferred_base": "fdsa",
+      "reason": "Inspected donor-to-receiving diff: earlier proofs/imports/notation or documentation superseded by receiving corrections and additional checked clients; no additional donor declaration requires another implementation.",
+      "variants": [
+        {
+          "git_blob": "ad88549bad45b77c33f039d3e465cd074f038b01",
+          "representative_commit": "156ba8170852f8e7f0b8c09315e35b837ce77ff9"
+        }
+      ]
+    },
+    {
+      "path": "SquareApplications.lean",
+      "receiving_main_blob": "afa218e9c6c928bbd3b04268a240c8d90c22e9d9",
+      "old_variant_count": 39,
+      "decision": "rebuild_public_import_union",
+      "preferred_base": "master",
+      "reason": "Retain pinned-master public coverage; add imported candidates, selected new modules, all new example modules and theory modules under the current coverage convention. Thirty-nine old variants are historical import lists, not competing implementations.",
+      "variants": [
+        {
+          "git_blob": "000a52722e4be80ff8ec03a182ef754254db530a",
+          "representative_commit": "c28ba71863d2a35ee1c3a089caa90464e4cca692"
+        },
+        {
+          "git_blob": "0c1b166916f875ce01b4540b02757d788c122740",
+          "representative_commit": "11923e9ffd17246b6f22c5594002a1ba0434e43c"
+        },
+        {
+          "git_blob": "1a220ba195105933210bd1578552f07052d6224b",
+          "representative_commit": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71"
+        },
+        {
+          "git_blob": "1d5fae363945d74d888fd77e9b62225afe334734",
+          "representative_commit": "c088beeb89aa18df45a56f6f1d6b6ff4ad374905"
+        },
+        {
+          "git_blob": "1f7e4544b1eb77614a1c6fb2311e0d3290a3b1a5",
+          "representative_commit": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761"
+        },
+        {
+          "git_blob": "20036b7e58118d38d00c7a466545b6bcdba94d2d",
+          "representative_commit": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c"
+        },
+        {
+          "git_blob": "2bc1fad47c4993199eccd91ee4b249726619d3dc",
+          "representative_commit": "932438a765340d69fa6402f6abd17def6ec28d13"
+        },
+        {
+          "git_blob": "2cd4b70ebb4b89bfcfcd61c98f1b9594f5a38d7b",
+          "representative_commit": "a0597381f02eddd074ee96cabaa974f2062285f8"
+        },
+        {
+          "git_blob": "2d5a05a2221113287b437e1a2b9a5f980c4dd47f",
+          "representative_commit": "b0fce71fa00b2ff6250b09002176bdc75baf1f46"
+        },
+        {
+          "git_blob": "31c8ecdfd9483cfd00e0592349467a82e991a1b8",
+          "representative_commit": "15a113b075c2ceb4d44c27a06fa9a69e019b57fc"
+        },
+        {
+          "git_blob": "32976aca3190868720795b7e75cfa25026b3ab1a",
+          "representative_commit": "20a5b5537a704be016d09e4eb31db0dad8a12d61"
+        },
+        {
+          "git_blob": "33a8fbb789f8538633309c380a0e8ded0bb16153",
+          "representative_commit": "ff3dd88082c6283df40bcd86a4363841a0360b12"
+        },
+        {
+          "git_blob": "33ac56bd2fd2cad58a044966f47a0938245ecc69",
+          "representative_commit": "156ba8170852f8e7f0b8c09315e35b837ce77ff9"
+        },
+        {
+          "git_blob": "45cbe0faa6e4b6a9070928a73a98c2e876abc309",
+          "representative_commit": "569545102ff70697066de429eb02f9f47dffa07f"
+        },
+        {
+          "git_blob": "623b77c69d1ff2cf09a9429eefbd69641370b9cc",
+          "representative_commit": "726cb9a9b9ff4444a7614383de4fb336e8804aa7"
+        },
+        {
+          "git_blob": "6a74f7f9852adec46204296df5c57e3292a78d6e",
+          "representative_commit": "66eae34815a177c6b4bf5120e05202ebb8876c91"
+        },
+        {
+          "git_blob": "6bda68161b7407aa232b43aefc66c64b09bf5c9f",
+          "representative_commit": "a6f950d7d5dc4aef521445250f9bfbd59166291d"
+        },
+        {
+          "git_blob": "77116918bf2466ff362c7c2357470cd413a43ec3",
+          "representative_commit": "12cb14fc98b8617b3b625620da8e60936daba340"
+        },
+        {
+          "git_blob": "80caa7cfcb80ab957f284d8ea421439b35d14029",
+          "representative_commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a"
+        },
+        {
+          "git_blob": "99c912978cbbc57837e5b9dc19995aaa13d71a53",
+          "representative_commit": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2"
+        },
+        {
+          "git_blob": "9a87298150d2522fde6e5547e498fc29086b8369",
+          "representative_commit": "47f66dccc414d41bddf0dc6576a2338227ee221e"
+        },
+        {
+          "git_blob": "a36fa607584d77618858b5f1707b1df913a22cca",
+          "representative_commit": "312aafb4446b995ff5542041b4e2e074f776db1e"
+        },
+        {
+          "git_blob": "a44e48d33c45392e975906f3a635acc057f03205",
+          "representative_commit": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1"
+        },
+        {
+          "git_blob": "a64e0129367d6c43fbd67e4cef2641a77d082581",
+          "representative_commit": "07e480f6ec9958d4975bb90151005b84f2907614"
+        },
+        {
+          "git_blob": "ae141f05da4fbd441e1fa008f17afca363d218ea",
+          "representative_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe"
+        },
+        {
+          "git_blob": "b9b45c865f4345fe58ebcf1b2c14766c4abe0202",
+          "representative_commit": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8"
+        },
+        {
+          "git_blob": "be6ae209d6626909fe1e779a3c04d9a4322893ae",
+          "representative_commit": "28ba79d8d425400cb87d2daf3ecf1cc5a63a7aa2"
+        },
+        {
+          "git_blob": "c9307a8c5fc752623731ef4639a8e1f33dadd3c5",
+          "representative_commit": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e"
+        },
+        {
+          "git_blob": "cbc9230ac39af7621a7eacef6cb9a88beb2b50a4",
+          "representative_commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2"
+        },
+        {
+          "git_blob": "d3ce332d0f9978a752650a6b6275867476928942",
+          "representative_commit": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5"
+        },
+        {
+          "git_blob": "dbc847cd816f0d6a2101d3873b0d9b389695247b",
+          "representative_commit": "64c6b777d828ecfe83234fc2aed94600a1f24297"
+        },
+        {
+          "git_blob": "e53e5b1bcf96141ec9baf11c57d2642fcc09d8b2",
+          "representative_commit": "863aedb924e922ac40747c0ef299701a7785488e"
+        },
+        {
+          "git_blob": "e74d1db015177ac865493789fda5985213ab6679",
+          "representative_commit": "b035f1151ab4f0c7d7380818576cfe97dae434c4"
+        },
+        {
+          "git_blob": "e83c99ff4bc06123a1ae38097f86ad375e5fecbb",
+          "representative_commit": "7c6bc92c276d39e84351324c442869b8ffa6758c"
+        },
+        {
+          "git_blob": "ebc6d5016b4d4e7eee115c2bee871db9472ff7c2",
+          "representative_commit": "7b8ab2bee299c937256bf9ce7e82977333d07134"
+        },
+        {
+          "git_blob": "f1560127c221eddf982e468b8727ef1135d0353e",
+          "representative_commit": "a601ad713368daf8e18d5a5537a83d47138491fa"
+        },
+        {
+          "git_blob": "f2758b0f7458ab1f685020e42b7d0f5fe0b6fc2c",
+          "representative_commit": "697bcf242ce65d74815b5639bddb1c6e754dd10f"
+        },
+        {
+          "git_blob": "fb0b71e91c7e0b2c245c597f38305764f4a17a78",
+          "representative_commit": "974a97321a8ec174b56104c7e6efaaca881b6639"
+        },
+        {
+          "git_blob": "ffff6aa3f837ce83d9b0163420a044e146ae596d",
+          "representative_commit": "52722e3ee481167e99b8f6c0b2417df7fb7615d8"
+        }
+      ],
+      "donor": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd"
+    }
+  ],
+  "vfa_drafts": [
+    {
+      "checkpoint_path": "books/vfa/records/math/drafts/sorting-specs/SortingSpecifications.lean",
+      "bytes": 12291,
+      "sha256": "45546bba250cb8613ff0fa41143f63f1a3f81d271a0bdeafac1663343e15188c",
+      "imports_observed": [
+        "Batteries.Data.List.Lemmas",
+        "Batteries.Data.List.Pairwise",
+        "Batteries.Data.List.Perm"
+      ],
+      "recommended_theory_path": "Applications/Sorting/Specification.lean",
+      "recommended_example_path": "Examples/SortingSpecification.lean",
+      "proposed_namespace_routing": {
+        "Applications.Sorting.Specification": "Sorting.Specification",
+        "Examples.SortingSpecificationDraft": "Examples.SortingSpecification"
+      },
+      "disposition": "integrate_theory_and_all_cases_with_explicit_adapter_where_interfaces_overlap",
+      "note": "Keep existing Pairwise/IsChain/count APIs, add direct existing KeySorted bridge; sortedness/counts do not imply stability."
+    },
+    {
+      "checkpoint_path": "books/vfa/records/math/drafts/table-specs/TableObservations.lean",
+      "bytes": 9579,
+      "sha256": "0233781d210056e9a61ae9a355120429e55007e72713434d25a5338aa6489b57",
+      "imports_observed": [
+        "Mathlib.Logic.Function.Basic",
+        "Mathlib.Data.List.Basic"
+      ],
+      "recommended_theory_path": "Applications/Collections/TableObservations.lean",
+      "recommended_example_path": "Examples/TableObservations.lean",
+      "proposed_namespace_routing": {
+        "TablePreparation": "Collections.TableObservations"
+      },
+      "disposition": "integrate_theory_and_all_cases_with_explicit_adapter_where_interfaces_overlap",
+      "note": "Reconcile with new FDSA Collections.Map/Set and PFDS OrderedMap; preserve partial/default/presence and first-binding semantics. Retain all additional obligations if a shared adapter replaces draft operations.",
+      "current_disposition": {
+        "date": "2026-11-14",
+        "issue": "INT-032",
+        "candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+        "status": "partial-observation-and-list-capabilities-recovered; focused-pass; full-acceptance-pending",
+        "owners": [
+          "Applications/Search/OrderedMap/Observations.lean",
+          "Applications/Search/OrderedMap/AssociationList.lean",
+          "Examples/TextbookMaps.lean"
+        ],
+        "recovered": "Partial/default/presence relations, function-update and chronological-list laws, first-match/reversal correspondence and connected boundary cases through existing OrderedMap contracts.",
+        "preserved_pending": "The weaker generic total-table Ops/Laws contract remains distinct. This slice does not establish complete donor or chapter acceptance.",
+        "validation": "books/common/evidence/maps-focused-r3.json"
+      }
+    },
+    {
+      "checkpoint_path": "books/vfa/records/math/drafts/positive-keys/VFAStaging/PositiveKeys.lean",
+      "bytes": 9163,
+      "sha256": "98c890672ed3e91b16089eb82037af46f15061af572c838f436b5692f5182f79",
+      "imports_observed": [
+        "Mathlib.Data.Num.Lemmas",
+        "Mathlib.Data.PNat.Equiv"
+      ],
+      "recommended_theory_path": "Applications/Arithmetic/PositiveKeys.lean",
+      "recommended_example_path": "Examples/PositiveKeys.lean",
+      "proposed_namespace_routing": {
+        "VFAStaging.PositiveKeys": "Arithmetic.PositiveKeys"
+      },
+      "disposition": "integrate_theory_and_all_cases_with_explicit_adapter_where_interfaces_overlap",
+      "note": "Reuse PosNum/PNat; preserve shifted Nat key0\u2194positive1, unshifted ofNat collision, comparator and arbitrary observation transport."
+    },
+    {
+      "checkpoint_path": "books/vfa/records/math/drafts/unary-costs/UnaryComparisonCosts.lean",
+      "bytes": 7410,
+      "sha256": "997aa73ce69fe65712ba97a1217909a6f7af8c2d00e7e2978a4ca03a18c01c13",
+      "imports_observed": [
+        "Mathlib.Data.Nat.Basic",
+        "Applications.Resources.Measured"
+      ],
+      "recommended_theory_path": "Applications/Resources/UnaryComparison.lean",
+      "recommended_example_path": "Examples/UnaryComparison.lean",
+      "proposed_namespace_routing": {
+        "VFA.Staging.UnaryCosts": "Resources.UnaryComparison"
+      },
+      "disposition": "integrate_theory_and_all_cases_with_explicit_adapter_where_interfaces_overlap",
+      "note": "Preserve actual recursion, min(n,m)+1 tariff, erasure/sequence consumers and impossibility of a difference-only bound. No native runtime claim."
+    },
+    {
+      "checkpoint_path": "books/vfa/records/math/drafts/queue-costs/QueuePeekCost.lean",
+      "bytes": 14619,
+      "sha256": "41486ba378124a2d459a74bd8199655e40a4c521e20abb75b9e5580671161df0",
+      "imports_observed": [
+        "Batteries.Data.List.Lemmas",
+        "Applications.Resources.Potential"
+      ],
+      "recommended_theory_path": "Applications/Resources/QueuePeek.lean",
+      "recommended_example_path": "Examples/QueuePeek.lean",
+      "proposed_namespace_routing": {
+        "Applications.Resources.QueuePeekDraft": "Resources.QueuePeek",
+        "Examples.QueuePeekCostDraft": "Examples.QueuePeek"
+      },
+      "disposition": "integrate_theory_and_all_cases_with_explicit_adapter_where_interfaces_overlap",
+      "note": "Preserve source-style peek counterexample and actual primitive costs, reachable states and repeated peeks. Do not silently replace it with a normalized state-returning implementation."
+    }
+  ],
+  "new_research_documents": [
+    {
+      "path": "docs/research/fdsa-accumulated-work.md",
+      "donor_commit": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "git_blob": "316cf9cc197bbe618f7da7b9efc645b39ed1b46d",
+      "decision": "adapt_domain_provenance_and_scope_to_new_integration; do_not_copy_dated_workflow_holds_as_active"
+    },
+    {
+      "path": "docs/research/fdsa-adt-refinement.md",
+      "donor_commit": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+      "git_blob": "1945036ff58a2a7763358883341cbc2ba768b6f3",
+      "decision": "adapt_domain_provenance_and_scope_to_new_integration; do_not_copy_dated_workflow_holds_as_active"
+    },
+    {
+      "path": "docs/research/fdsa-braun-shape.md",
+      "donor_commit": "156ba8170852f8e7f0b8c09315e35b837ce77ff9",
+      "git_blob": "5c8fed1ede2f7280db02e1171968bdae99d3348a",
+      "decision": "adapt_domain_provenance_and_scope_to_new_integration; do_not_copy_dated_workflow_holds_as_active"
+    },
+    {
+      "path": "docs/research/fdsa-logarithm-bounds.md",
+      "donor_commit": "a601ad713368daf8e18d5a5537a83d47138491fa",
+      "git_blob": "052bd8cef458cf05e694e57d99edeb0c78b692f2",
+      "decision": "adapt_domain_provenance_and_scope_to_new_integration; do_not_copy_dated_workflow_holds_as_active"
+    },
+    {
+      "path": "docs/research/fdsa-permutation-expectation.md",
+      "donor_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "git_blob": "463c72275a0902373cc0e97c8962a7f701bf23ed",
+      "decision": "adapt_domain_provenance_and_scope_to_new_integration; do_not_copy_dated_workflow_holds_as_active"
+    },
+    {
+      "path": "docs/research/fdsa-permutation-joint.md",
+      "donor_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "git_blob": "d2c1d4ed0f6095320d07cddc10728172a897c1bf",
+      "decision": "adapt_domain_provenance_and_scope_to_new_integration; do_not_copy_dated_workflow_holds_as_active"
+    },
+    {
+      "path": "docs/research/fdsa-permutation-placement.md",
+      "donor_commit": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "git_blob": "f92e508c016d5b282ab47b612c144e276169c5f2",
+      "decision": "adapt_domain_provenance_and_scope_to_new_integration; do_not_copy_dated_workflow_holds_as_active"
+    },
+    {
+      "path": "docs/research/fdsa-potential-accounting.md",
+      "donor_commit": "12cb14fc98b8617b3b625620da8e60936daba340",
+      "git_blob": "b9e70b3a5c15606de595f319ff5d11cdd9ff941e",
+      "decision": "adapt_domain_provenance_and_scope_to_new_integration; do_not_copy_dated_workflow_holds_as_active"
+    },
+    {
+      "path": "docs/research/fdsa-priority-queues.md",
+      "donor_commit": "c088beeb89aa18df45a56f6f1d6b6ff4ad374905",
+      "git_blob": "42d6f7af4203341901599b8b4c8c7d0eacebb73c",
+      "decision": "adapt_domain_provenance_and_scope_to_new_integration; do_not_copy_dated_workflow_holds_as_active"
+    },
+    {
+      "path": "docs/research/fdsa-tree-accumulator-invocation.md",
+      "donor_commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "git_blob": "70caf823c5a55e0ea7bb624ff1ba3abaf21ea98e",
+      "decision": "adapt_domain_provenance_and_scope_to_new_integration; do_not_copy_dated_workflow_holds_as_active"
+    },
+    {
+      "path": "docs/research/fdsa-tree-fold-resource.md",
+      "donor_commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "git_blob": "39bd8ef4f47ad15d94f62db1feb252ca43672968",
+      "decision": "adapt_domain_provenance_and_scope_to_new_integration; do_not_copy_dated_workflow_holds_as_active"
+    },
+    {
+      "path": "docs/research/fdsa-tree-leftmost.md",
+      "donor_commit": "7b8ab2bee299c937256bf9ce7e82977333d07134",
+      "git_blob": "f12415faa9347faf0856792d24717a247f3e9530",
+      "decision": "adapt_domain_provenance_and_scope_to_new_integration; do_not_copy_dated_workflow_holds_as_active"
+    },
+    {
+      "path": "docs/research/fdsa-tree-order.md",
+      "donor_commit": "863aedb924e922ac40747c0ef299701a7785488e",
+      "git_blob": "0b807bd0ccd406cc67fefe488c2e50e214b6b6f9",
+      "decision": "adapt_domain_provenance_and_scope_to_new_integration; do_not_copy_dated_workflow_holds_as_active"
+    },
+    {
+      "path": "docs/research/fdsa-tree-rotations.md",
+      "donor_commit": "863aedb924e922ac40747c0ef299701a7785488e",
+      "git_blob": "f6c65bc23eda66475e34e8d8fcfbd4f9fbd2e0d3",
+      "decision": "adapt_domain_provenance_and_scope_to_new_integration; do_not_copy_dated_workflow_holds_as_active"
+    },
+    {
+      "path": "docs/research/fdsa-tree-search.md",
+      "donor_commit": "863aedb924e922ac40747c0ef299701a7785488e",
+      "git_blob": "360bccbcea7052d89890b74e9fa29e4391544d63",
+      "decision": "adapt_domain_provenance_and_scope_to_new_integration; do_not_copy_dated_workflow_holds_as_active"
+    },
+    {
+      "path": "docs/research/fdsa-tree-traversal-work.md",
+      "donor_commit": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "git_blob": "355a2b81b45280c59d7d5081416f59725ef9a96a",
+      "decision": "adapt_domain_provenance_and_scope_to_new_integration; do_not_copy_dated_workflow_holds_as_active"
+    }
+  ],
+  "unresolved_project_import_paths_in_proposed_union": [],
+  "remaining_gates": [
+    "Root captures stable starting baseline before source edits.",
+    "Preserve original refs/requirements/review bases while applying donor files and capability extensions.",
+    "Use pinned architecture and example-driven development; actual type and boundary review required.",
+    "Validate same exact candidate with full applicable check/audit and both independent review axes before acceptance.",
+    "Make next substantive milestone durable before another extended phase."
+  ],
+  "external_import_roots": [
+    "Init",
+    "Lean",
+    "Std",
+    "Batteries",
+    "Mathlib"
+  ],
+  "catalog_basis_note": "Original bounded planning catalogue at target_master; original donor commits, blobs and source paths remain unchanged. Current upstream/candidate identities are owned by source/integration.json; dated current_disposition fields below supersede only their identified planning decisions."
+}

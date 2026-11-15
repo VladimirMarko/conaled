@@ -1,0 +1,44 @@
+{
+  "candidate": "39c3e2fd0c3a7b39e56373d453a1a17382bc3749",
+  "prior_candidate": "de575a81266ac98194c7c5c83e91628098aac92e",
+  "enclosing_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "recorded_utc": "2026-11-02T08:23:10.040688+00:00",
+  "source": "Applications/Durability/Retention.lean",
+  "old_sha256": "df3c0e1715a9967078183266f8c30b36cdec00cd4f9e328ffa8168ecad93eba3",
+  "new_sha256": "628bf59c4789148005c2304027e29020d2dcd62a63a3326170c03da89ab421b6",
+  "non_import_bytes_unchanged": true,
+  "full_diff": {
+    "files": 13,
+    "insertions": 476,
+    "deletions": 5,
+    "exclusions": []
+  },
+  "focused_evidence": "work-state/staging/retention-import/README.md",
+  "manifest_sha256": "97ac15d688260fdb5dd61be7bdf2f64746e524dc24c486ef42e8a4c35218cac1",
+  "focused_compiler_results": [
+    {
+      "module": "SquareKit.RelationTransport",
+      "exit_code": 0,
+      "elapsed_seconds": 27.3093308680036
+    },
+    {
+      "module": "SquareKit.InteractionContracts",
+      "exit_code": 0,
+      "elapsed_seconds": 43.274867709995306
+    },
+    {
+      "module": "Applications.Durability.Retention",
+      "exit_code": 0,
+      "elapsed_seconds": 27.59511108299921
+    }
+  ],
+  "diagnostics_bytes_each": 0,
+  "protected_identities_unchanged": 62,
+  "generated_outputs_removed": true,
+  "root_manifest_entries_verified": 30,
+  "prelaunch_failure": "Unused inherited Cli search directory rejected by an overly broad Python guard; zero compiler invocations; original runner/diagnostic retained before authorized narrow correction.",
+  "superseded_run": "work-state/validation/1002-de575a8-interruption.json",
+  "current_run": "work-state/validation/1002-candidate-39c3e2f.run.json",
+  "acceptance": false,
+  "review": "Round 6 requested on full candidate; prior round 5 source clearance remains historical. All exact candidate gates pending."
+}

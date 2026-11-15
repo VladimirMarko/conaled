@@ -1,0 +1,432 @@
+{
+  "recorded_utc": "2026-11-04T11:25:40.551160+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "parent": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+  "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+  "actual_parent": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+  "retained_full_original_six_path_scope": [
+    "Applications/Resources/FIFOContracts.lean",
+    "Applications/Resources/Potential.lean",
+    "Examples/MappedPotentialAccounting.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-potential-accounting.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "only_changed_path": "Examples/MappedPotentialAccounting.lean",
+  "before": {
+    "blob": "0291c5979243b0d12332d3628d06aa910732dfa2",
+    "bytes": 6726,
+    "lines": 165,
+    "sha256": "aa57790203c7dbc800586464c46366fcd7e6da6965fdbc3c260285e9c8d693c3"
+  },
+  "after": {
+    "blob": "1fb26b51e9f298bd1ba1d1a5fa2a425142f8d8d7",
+    "bytes": 6932,
+    "lines": 166,
+    "sha256": "2c83479daec51deb21ec95e26af816bc0dfaa682fdb5ee76ee28cdf1e681386a"
+  },
+  "full_source_read_ranges": [
+    [
+      1,
+      166
+    ]
+  ],
+  "full_diff_read": {
+    "bytes": 2781,
+    "lines": 61,
+    "sha256": "b291f9e83e2c417d4f9fd94af54812ae81fe423e807f6a30ed7ced8ca30ee5a1"
+  },
+  "exact_literal_proof_replacements_only": true,
+  "all31_header_comparisons": [
+    {
+      "index": 1,
+      "kind": "theorem",
+      "before_line": 21,
+      "after_line": 21,
+      "header_bytes": 142,
+      "header_sha256": "9d12ffc0f9fbfb3563c9db0585a13ec50a30031c5e3b8f343735b36a87f2cf19"
+    },
+    {
+      "index": 2,
+      "kind": "example",
+      "before_line": 43,
+      "after_line": 43,
+      "header_bytes": 34,
+      "header_sha256": "17a2f1604d1ea4e9a7ee075c0924b6566908eac86946e347dd3143575eaf43ec"
+    },
+    {
+      "index": 3,
+      "kind": "example",
+      "before_line": 45,
+      "after_line": 45,
+      "header_bytes": 36,
+      "header_sha256": "2e4e23f719c19a62ceaecd6f1b6abe9a313188561f7c484f15f9b4ccfbe968b5"
+    },
+    {
+      "index": 4,
+      "kind": "example",
+      "before_line": 55,
+      "after_line": 55,
+      "header_bytes": 80,
+      "header_sha256": "460a4509836859767bacc6c83ace9e887c0edb4d0a46d47342162181c8a46795"
+    },
+    {
+      "index": 5,
+      "kind": "def",
+      "before_line": 62,
+      "after_line": 62,
+      "header_bytes": 61,
+      "header_sha256": "31c9de619ffcbd8323ead7f590d6272cde84771d217d972146521080a043fc14"
+    },
+    {
+      "index": 6,
+      "kind": "def",
+      "before_line": 63,
+      "after_line": 63,
+      "header_bytes": 37,
+      "header_sha256": "c6480df68be8f446a7d5ce9bf5dd91710cf0d3732c591887f7f494eaf3ee8166"
+    },
+    {
+      "index": 7,
+      "kind": "def",
+      "before_line": 64,
+      "after_line": 64,
+      "header_bytes": 45,
+      "header_sha256": "117087e7d9b864fa1968b968d96dd02a5a6e8dfd89e686608b657df6297daf1b"
+    },
+    {
+      "index": 8,
+      "kind": "example",
+      "before_line": 66,
+      "after_line": 66,
+      "header_bytes": 37,
+      "header_sha256": "614191a035472a8d26f4933b93dbafe15afa2b93e11507cfe4f4bafd2228447e"
+    },
+    {
+      "index": 9,
+      "kind": "theorem",
+      "before_line": 72,
+      "after_line": 72,
+      "header_bytes": 174,
+      "header_sha256": "36e8adaa26d4abea41bd6e44ea8e079b79bbf983b6bbb55b8302fb649f750cda"
+    },
+    {
+      "index": 10,
+      "kind": "example",
+      "before_line": 78,
+      "after_line": 79,
+      "header_bytes": 26,
+      "header_sha256": "13c0dc267d0e0906c1401af9bc390f677b4357dc5c86d5fde1e514ce39384693"
+    },
+    {
+      "index": 11,
+      "kind": "example",
+      "before_line": 79,
+      "after_line": 80,
+      "header_bytes": 42,
+      "header_sha256": "2c72468b3cd61a8bded7f027a9c1734a6d807e1291a183ff79bf58032570f07a"
+    },
+    {
+      "index": 12,
+      "kind": "example",
+      "before_line": 81,
+      "after_line": 82,
+      "header_bytes": 48,
+      "header_sha256": "c61c57d6c012eeb649e262c3b1de6e9b82db09e0d4c332f04aa891014b6787a3"
+    },
+    {
+      "index": 13,
+      "kind": "example",
+      "before_line": 85,
+      "after_line": 86,
+      "header_bytes": 92,
+      "header_sha256": "91fdbd7ec4bd3107d98f90eaf5dd257c4ebd831c4827ff19cd6db532e970d9c6"
+    },
+    {
+      "index": 14,
+      "kind": "example",
+      "before_line": 90,
+      "after_line": 91,
+      "header_bytes": 74,
+      "header_sha256": "363053b1d1343b37b8b6f15f1cf8c414d6c1ca9f3707d9501fa980c86280d21f"
+    },
+    {
+      "index": 15,
+      "kind": "def",
+      "before_line": 98,
+      "after_line": 99,
+      "header_bytes": 56,
+      "header_sha256": "4b1f435021b76c2cbc0b37bdadd03a783bf48085bd888499ee40223b5fcb9315"
+    },
+    {
+      "index": 16,
+      "kind": "def",
+      "before_line": 101,
+      "after_line": 102,
+      "header_bytes": 34,
+      "header_sha256": "6392cb68ca8d6e4a321633625aad0238f9077d8100b95c5343c2c1cc2581ae73"
+    },
+    {
+      "index": 17,
+      "kind": "def",
+      "before_line": 102,
+      "after_line": 103,
+      "header_bytes": 51,
+      "header_sha256": "e78d948d404a89c135f6888e150355ccab218cc6d9c0931e426e3e3d48e604f9"
+    },
+    {
+      "index": 18,
+      "kind": "def",
+      "before_line": 103,
+      "after_line": 104,
+      "header_bytes": 59,
+      "header_sha256": "c615ebb323c0dbf503049c0aa5641c23e9fac629dffb4525661c47699f2a0dcf"
+    },
+    {
+      "index": 19,
+      "kind": "theorem",
+      "before_line": 105,
+      "after_line": 106,
+      "header_bytes": 79,
+      "header_sha256": "7ae6ffbe05f32052a91f80fc6a4d02f6f85194caa479265748e28d9567a9b08f"
+    },
+    {
+      "index": 20,
+      "kind": "theorem",
+      "before_line": 109,
+      "after_line": 110,
+      "header_bytes": 164,
+      "header_sha256": "f9fbee28ee3f89430feb369ab9879e7ca6436830879badb08e4a1456964737f5"
+    },
+    {
+      "index": 21,
+      "kind": "theorem",
+      "before_line": 115,
+      "after_line": 116,
+      "header_bytes": 66,
+      "header_sha256": "4e51e4697807e3d4e030d593c602bf33f0bd7dfdd212e72b9d7b45b7433b23e3"
+    },
+    {
+      "index": 22,
+      "kind": "theorem",
+      "before_line": 119,
+      "after_line": 120,
+      "header_bytes": 174,
+      "header_sha256": "6a44164bbf484b38cd93268b3366e34a6c27f9e81ae25098503ea0b840ecc393"
+    },
+    {
+      "index": 23,
+      "kind": "theorem",
+      "before_line": 125,
+      "after_line": 126,
+      "header_bytes": 142,
+      "header_sha256": "dffdbfec89cd30b657fe6799a0570fae822c9dbfb04ca66a342940c9f8ea5f07"
+    },
+    {
+      "index": 24,
+      "kind": "example",
+      "before_line": 130,
+      "after_line": 131,
+      "header_bytes": 17,
+      "header_sha256": "34f94a49df600f15dc9b7c8f7d614e633fac42fabce7c021fcc27b388719b5d1"
+    },
+    {
+      "index": 25,
+      "kind": "example",
+      "before_line": 132,
+      "after_line": 133,
+      "header_bytes": 51,
+      "header_sha256": "6c60e09b52a009129a8a4a72fcaa51bbb3ad8297a7fdc1d4337899c951f2e61a"
+    },
+    {
+      "index": 26,
+      "kind": "example",
+      "before_line": 137,
+      "after_line": 138,
+      "header_bytes": 51,
+      "header_sha256": "a5d143180a137bf69ca559d52e455d1b930663b331f8d3826e462b4822988a36"
+    },
+    {
+      "index": 27,
+      "kind": "example",
+      "before_line": 142,
+      "after_line": 143,
+      "header_bytes": 80,
+      "header_sha256": "5877482955589044007d1908a9ce011bb6c3b2f64b2427c341777ca80454bb13"
+    },
+    {
+      "index": 28,
+      "kind": "example",
+      "before_line": 145,
+      "after_line": 146,
+      "header_bytes": 94,
+      "header_sha256": "c447400ee37f21dd676c69cb1b4e3c9f9a9e53305904941d999e462f5026d55f"
+    },
+    {
+      "index": 29,
+      "kind": "def",
+      "before_line": 152,
+      "after_line": 153,
+      "header_bytes": 87,
+      "header_sha256": "4676c8367d922c64b479134333490414c1175196828394b49ca1cc27b70bb8cc"
+    },
+    {
+      "index": 30,
+      "kind": "example",
+      "before_line": 155,
+      "after_line": 156,
+      "header_bytes": 132,
+      "header_sha256": "691266d1b9bd57820a512238ae6dc345bc3624656f6416785d67260e0a8a4281"
+    },
+    {
+      "index": 31,
+      "kind": "example",
+      "before_line": 162,
+      "after_line": 163,
+      "header_bytes": 131,
+      "header_sha256": "fd5633f4618a04592b5978ebfc6af6fd2a91da8bd8245301d9af3120d6c180e8"
+    }
+  ],
+  "definitions_preserved": 8,
+  "named_theorem_headers_preserved": 7,
+  "anonymous_example_headers_preserved": 16,
+  "changed_existing_proof_bodies": [
+    {
+      "index": 9,
+      "kind": "theorem",
+      "before_line": 72,
+      "after_line": 72,
+      "header": "private theorem boundary (is : List Unit) (s : Nat) :\n    budget clearStep charge is s =\n      ((run clearStep is s).2 : Int) + potential (run clearStep is s).1 - potential s"
+    },
+    {
+      "index": 12,
+      "kind": "example",
+      "before_line": 81,
+      "after_line": 82,
+      "header": "example : budget clearStep charge [(), ()] 1 = 0"
+    },
+    {
+      "index": 13,
+      "kind": "example",
+      "before_line": 85,
+      "after_line": 86,
+      "header": "example : ¬ ((run clearStep [(), ()] 1).2 : Int) ≤\n    budget clearStep charge [(), ()] 1"
+    },
+    {
+      "index": 14,
+      "kind": "example",
+      "before_line": 90,
+      "after_line": 91,
+      "header": "example : budget clearStep charge [(), ()] 1 ≠ charge () 1 + charge () 1"
+    },
+    {
+      "index": 24,
+      "kind": "example",
+      "before_line": 130,
+      "after_line": 131,
+      "header": "example : Valid 0"
+    },
+    {
+      "index": 25,
+      "kind": "example",
+      "before_line": 132,
+      "after_line": 133,
+      "header": "example : budget step charge [()] 0 = (3 / 2 : ℝ)"
+    },
+    {
+      "index": 26,
+      "kind": "example",
+      "before_line": 137,
+      "after_line": 138,
+      "header": "example : budget step charge [(), ()] 0 = (2 : ℝ)"
+    },
+    {
+      "index": 27,
+      "kind": "example",
+      "before_line": 142,
+      "after_line": 143,
+      "header": "example (is : List Unit) : ((run step is 0).2 : ℝ) ≤ budget step charge is 0"
+    }
+  ],
+  "explicit_public_named_inventory_unchanged": {
+    "Potential": 18,
+    "FIFO_changed_definition": 1,
+    "mapped_public_named": 1,
+    "mapped_private_named": 14,
+    "mapped_anonymous": 16
+  },
+  "five_imports_and_zero_options_or_instance_changes": true,
+  "independent_semantic_assessment": [
+    "The local change exposes exactly the existing Int charge lambda under budget; it is definitionally the same private charge, and the universal boundary still applies budget_amortized.",
+    "Five norm_num lists qualify the already imported Resources.bind and Resources.pure used by actual run, retaining all three initial-credit boundary rewrites and both Fractional paid.symm derivations.",
+    "Four Valid0 premises unfold only the unchanged predicate s<=1, proving the same natural 0<=1; no decidability instance or permitted domain is added.",
+    "Every transition, potential, charge, expected value, invariant law, arbitrary-list bound and counter/free-monoid connection is unchanged.",
+    "No new source-level mathematical, architectural, compatibility or proof-restriction finding."
+  ],
+  "author_package_files_fully_read": [
+    {
+      "path": "provenance/xp01-elaboration-correction2-20261104/author-readback.md",
+      "bytes": 8263,
+      "lines": 56,
+      "sha256": "2a3011ec6e64847074d36b4e7681bd9c677da5dfd773bb8b65d5bd80b72ee4c0"
+    },
+    {
+      "path": "provenance/xp01-elaboration-correction2-20261104/receipt.json",
+      "bytes": 8054,
+      "lines": 221,
+      "sha256": "c3ea497355124c0f0c5c77dbc3bdb440548f3e513c2e191795addd1baa8c2bc4"
+    },
+    {
+      "path": "provenance/xp01-elaboration-correction2-20261104/diagnostic-map.json",
+      "bytes": 1457,
+      "lines": 48,
+      "sha256": "98d95764e020c786d1f0fc654dccd28a08ae590f91f783b47294e612ac893aa7"
+    },
+    {
+      "path": "provenance/xp01-elaboration-correction2-20261104/static-readback.json",
+      "bytes": 1790,
+      "lines": 56,
+      "sha256": "2580315612e1a05fc5778d5d4b79f4afdfea256437d00771c39d840995e35404"
+    },
+    {
+      "path": "provenance/xp01-elaboration-correction2-20261104/before-identity.json",
+      "bytes": 1109,
+      "lines": 26,
+      "sha256": "673f2e2e26a085946bb878c63c231656b97fad4649bc7ee03b1ed4770b36b0ef"
+    },
+    {
+      "path": "provenance/xp01-elaboration-correction2-20261104/after-identity.json",
+      "bytes": 849,
+      "lines": 16,
+      "sha256": "2f6f6b522e3ba4cf579304d2b0d46c3db56b398683ad0351c3196f278dcbd088"
+    },
+    {
+      "path": "provenance/xp01-elaboration-correction2-20261104/source.diff",
+      "bytes": 2847,
+      "lines": 61,
+      "sha256": "b975c78b1307c27b7ca20c1cccaad5b2ab65dc80831fc3da17f77458e849a1cd"
+    }
+  ],
+  "all13_manifested_payload_hashes_verified": true,
+  "source_correction_adequate": true,
+  "XP01_ELAB_002": "Open pending actual corrected module/aggregate validation; source-stage assessment has no finding.",
+  "XP01_DOC_001_and_ELAB_001": "Previously resolved at exact parent with retained source and actual core evidence.",
+  "public20_program": {
+    "path": "provenance/xp01-public-statements20-prepared-20261104/Statements.lean",
+    "bytes": 1002,
+    "lines": 28,
+    "sha256": "ea75026303b461b1bb676e060aaac51e37797cbb2afd3d6356c08ba28c7eb01f"
+  },
+  "actual20_types": 0,
+  "current_public_program_source_binding": {
+    "Potential_and_FIFO_bytes_equal_parent": true,
+    "mapped_source_updated": {
+      "bytes": 6932,
+      "lines": 166,
+      "sha256": "2c83479daec51deb21ec95e26af816bc0dfaa682fdb5ee76ee28cdf1e681386a"
+    },
+    "all20_public_headers_unchanged": true
+  },
+  "overall_outcome": "Blocked; original acceptance requirements and unaccepted Z status retained.",
+  "reviewer_ran_compiler_or_process_or_live_output_actions": false
+}

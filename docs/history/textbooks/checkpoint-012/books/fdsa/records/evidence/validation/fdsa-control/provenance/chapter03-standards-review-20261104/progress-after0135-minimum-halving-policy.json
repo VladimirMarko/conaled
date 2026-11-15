@@ -1,0 +1,545 @@
+{
+  "schema": "fdsa-independent-review-progress-v1",
+  "axis": "Standards",
+  "created_utc": "2026-11-05T00:22:15.785528+00:00",
+  "outcome": "Blocked; source review and final validation incomplete",
+  "fixed_scope": {
+    "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+    "accepted_shared_XR": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "scope": "Original Q through final candidate, all 83 frozen obligations; no narrowed or restarted loop",
+    "obligations_sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed"
+  },
+  "current_immutable_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+  "candidate_tree": "5d5bc50e567c66d4875b5ed0ed52121de912a953",
+  "bound_prior_records": [
+    {
+      "path": "provenance/chapter03-standards-review-20261104/count-rank-use-resolution-2ff47bda.json",
+      "bytes": 4664,
+      "sha256": "acd005dd7d3bbb8979f251281b114830508414693b09d8fdab46dc303e1fb91f"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/minimum-pivot-comment-resolution-4c96dc0b.json",
+      "bytes": 2225,
+      "sha256": "398d5088b38b1ce34ced182b9ce0f54c63d0bf7018d7f59a6c66fe94e3b880ed"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/progress-after0135-fixed-reduction-counterfamily.json",
+      "bytes": 9077,
+      "sha256": "5108ff75aff24c0f9e7d1e637cc8c6ef6f9d3174ee2d8145643415a45d485ede"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/progress-after0135-median-values.json",
+      "bytes": 6053,
+      "sha256": "fc50d06be7bb22bebca0fac7a600e79ccf837d409167cd205b4111e470f7edcf"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/progress-before0135.json",
+      "bytes": 7415,
+      "sha256": "7d8067663c5e50ce53b72986e8c630991cd86a085298acc2127a5c56ce3daf57"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/progress-supplement-before0135.json",
+      "bytes": 11789,
+      "sha256": "52cab35241d55883191ce8315a8f9f801656a9188793aea0d06c932b149d3f9b"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/write-hold-before0135.json",
+      "bytes": 826,
+      "sha256": "cb001abcb15fbd5b29f1c72af99223261dc8b97da0a5b9d7a1b4283f90b7c7ff"
+    },
+    {
+      "path": "provenance/chapter03-standards-review-20261104/write-hold-supplement-before0135.json",
+      "bytes": 1238,
+      "sha256": "11289557ea211b533b1a46812eef07d07e530b0e30286c8d033db106c1f68b9d"
+    }
+  ],
+  "full_source_inventory_assessed": [
+    {
+      "path": "Applications/Selection/CountRank.lean",
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d",
+      "lines": 286,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d"
+    },
+    {
+      "path": "Examples/SelectionCountRank.lean",
+      "bytes": 4992,
+      "sha256": "9e8f303e9e704378a6d82285d7fb72e91cb9b4a528b04f5b5d7ed4dd7e8edf78",
+      "lines": 115,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": false,
+      "prefix_sha256": "cc73980788882d39abe44672d89e6a3ce37dfe3b5f5788375255248e8b4a66d2"
+    },
+    {
+      "path": "Applications/Sequences/Chunks.lean",
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493",
+      "lines": 212,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493"
+    },
+    {
+      "path": "Applications/Resources/Chunks.lean",
+      "bytes": 4591,
+      "sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc",
+      "lines": 125,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc"
+    },
+    {
+      "path": "Examples/ListChunks.lean",
+      "bytes": 2683,
+      "sha256": "161e240f9c07db5b13f9abf5bf09782064adce4862e60fbe35f0eba483c76c78",
+      "lines": 73,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "161e240f9c07db5b13f9abf5bf09782064adce4862e60fbe35f0eba483c76c78"
+    },
+    {
+      "path": "Examples/ChunkCalls.lean",
+      "bytes": 2730,
+      "sha256": "ca79f35fe846399bcb180d9b8fbd63fa453108c59c4503adb8a5731182fdc5e3",
+      "lines": 74,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "ca79f35fe846399bcb180d9b8fbd63fa453108c59c4503adb8a5731182fdc5e3"
+    },
+    {
+      "path": "Applications/Selection/MedianOfMedians.lean",
+      "bytes": 13797,
+      "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba",
+      "lines": 296,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba"
+    },
+    {
+      "path": "Examples/MedianOfMedians.lean",
+      "bytes": 9092,
+      "sha256": "0bbbbdab0f2f41f42fd615231d04d29ebeb8f7ffd5cc83e2a6b832cbfcc25f0c",
+      "lines": 196,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "0bbbbdab0f2f41f42fd615231d04d29ebeb8f7ffd5cc83e2a6b832cbfcc25f0c"
+    },
+    {
+      "path": "Examples/GeneralMedianBounds.lean",
+      "bytes": 9001,
+      "sha256": "dfc1bb996f97104c2925bd6b7d2577272cf5a3e674bb756785cfdcdd234ffd9d",
+      "lines": 194,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "dfc1bb996f97104c2925bd6b7d2577272cf5a3e674bb756785cfdcdd234ffd9d"
+    },
+    {
+      "path": "Applications/Selection/FixedRank.lean",
+      "bytes": 11391,
+      "sha256": "463e00dfd9eaac03dd2bec858eb64454d6c79abf03c80c8011019fb8af527395",
+      "lines": 277,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "463e00dfd9eaac03dd2bec858eb64454d6c79abf03c80c8011019fb8af527395"
+    },
+    {
+      "path": "Applications/Resources/FixedRank.lean",
+      "bytes": 7633,
+      "sha256": "831a78121a2ee7d7db773dd335febb938d8dfc8e7dbe944bb4cb7d71ec202c94",
+      "lines": 178,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "831a78121a2ee7d7db773dd335febb938d8dfc8e7dbe944bb4cb7d71ec202c94"
+    },
+    {
+      "path": "Examples/FixedRankSelection.lean",
+      "bytes": 7246,
+      "sha256": "c1ba9819d89af6a1d7f3c1678f10bed4b0614c63b385eb856144d315ebd955da",
+      "lines": 170,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "c1ba9819d89af6a1d7f3c1678f10bed4b0614c63b385eb856144d315ebd955da"
+    },
+    {
+      "path": "Applications/Selection/MedianReduction.lean",
+      "bytes": 8269,
+      "sha256": "902329504401dfb5ae2dbd2a62c6c7fa8d3dc9eec22d29d99b350282e57d608a",
+      "lines": 181,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "902329504401dfb5ae2dbd2a62c6c7fa8d3dc9eec22d29d99b350282e57d608a"
+    },
+    {
+      "path": "Applications/Resources/MedianReduction.lean",
+      "bytes": 5846,
+      "sha256": "e3bb494b94ed6829ad080b9120a69af16cb12c66cb7f7892598db988e3de354c",
+      "lines": 131,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "e3bb494b94ed6829ad080b9120a69af16cb12c66cb7f7892598db988e3de354c"
+    },
+    {
+      "path": "Examples/MedianReduction.lean",
+      "bytes": 7589,
+      "sha256": "d08959ce8687e1bc6db9dff78fb581c53b072e9db0436da465d9e42fdf652506",
+      "lines": 177,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "d08959ce8687e1bc6db9dff78fb581c53b072e9db0436da465d9e42fdf652506"
+    },
+    {
+      "path": "Applications/Selection/MedianCounterfamily.lean",
+      "bytes": 7414,
+      "sha256": "8fc4a388b50bd363587b8d8fbdc742d2e9d45426b58af75d9b83f471d1e4e0f6",
+      "lines": 177,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "8fc4a388b50bd363587b8d8fbdc742d2e9d45426b58af75d9b83f471d1e4e0f6"
+    },
+    {
+      "path": "Examples/MedianCounterfamily.lean",
+      "bytes": 2917,
+      "sha256": "8ebe64ee7b3a819b67a4afc9d2d52b8e659ebcdd20ffea17fb9933c1be0f5083",
+      "lines": 72,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "8ebe64ee7b3a819b67a4afc9d2d52b8e659ebcdd20ffea17fb9933c1be0f5083"
+    },
+    {
+      "path": "Applications/Resources/MinimumPivot.lean",
+      "bytes": 10605,
+      "sha256": "b670f66c810111f625ebfc514c81dd7890298904f996b16dab6a2cb04341cdf3",
+      "lines": 238,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": false,
+      "prefix_sha256": "c4e4ee7b0ef4413684fc13069d2f7f1200ac6387df2aa81565db0aa45bebaabe"
+    },
+    {
+      "path": "Examples/MinimumPivot.lean",
+      "bytes": 3770,
+      "sha256": "08a54aec03e507b1c8dc87dcf521f96984c6a6cff4988294a60ddb1db6a9cdc8",
+      "lines": 92,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "08a54aec03e507b1c8dc87dcf521f96984c6a6cff4988294a60ddb1db6a9cdc8"
+    },
+    {
+      "path": "Applications/Resources/SelectionPolicy.lean",
+      "bytes": 5986,
+      "sha256": "c906415dff6fc59694629f3d17977e55d2aa2ea2d989610f222bb781056a3112",
+      "lines": 124,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "c906415dff6fc59694629f3d17977e55d2aa2ea2d989610f222bb781056a3112"
+    },
+    {
+      "path": "Applications/Resources/HalvingTrace.lean",
+      "bytes": 6430,
+      "sha256": "89f15ae8a7e222a5c046e91582c38c61283350b27acacfd0c1278d2da4f7aaa6",
+      "lines": 159,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "89f15ae8a7e222a5c046e91582c38c61283350b27acacfd0c1278d2da4f7aaa6"
+    },
+    {
+      "path": "Applications/Resources/HalvingSelection.lean",
+      "bytes": 8464,
+      "sha256": "7a3f78c70011dca48546cba30ae2c6e3d90ed3208a69b35aaca2a78f52da17a1",
+      "lines": 164,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "7a3f78c70011dca48546cba30ae2c6e3d90ed3208a69b35aaca2a78f52da17a1"
+    },
+    {
+      "path": "Applications/Resources/MedianPolicy.lean",
+      "bytes": 7649,
+      "sha256": "d16093224bc2eac70efc27094ccbc6506418e6b98aac73d0ebe309ad13887f00",
+      "lines": 162,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "d16093224bc2eac70efc27094ccbc6506418e6b98aac73d0ebe309ad13887f00"
+    },
+    {
+      "path": "Examples/HalvingTrace.lean",
+      "bytes": 3077,
+      "sha256": "9dc932bb8163746914fa5db351db632864a28a7f0648a1b285dba366689cd6e4",
+      "lines": 81,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "9dc932bb8163746914fa5db351db632864a28a7f0648a1b285dba366689cd6e4"
+    },
+    {
+      "path": "Examples/MedianPolicy.lean",
+      "bytes": 7410,
+      "sha256": "fd6259f1b699adc9f7f98f7a90ccb1c34bbb2c7fe4d80ab7196c6a65635c31d4",
+      "lines": 177,
+      "fully_read": true,
+      "source_and_public_type_assessment_completed": true,
+      "equal_to_38_prefix": true,
+      "prefix_sha256": "fd6259f1b699adc9f7f98f7a90ccb1c34bbb2c7fe4d80ab7196c6a65635c31d4"
+    }
+  ],
+  "source_reuse": {
+    "independent_check": "All 25 full-source files compared byte-for-byte with prefix38. Exactly CountRank new client and MinimumPivot comment differ; their independent exact-delta resolutions remain bound above.",
+    "limitation": "This preserves source assessments; it does not qualify current compiler outputs or discharge final acceptance gates."
+  },
+  "actual_types": {
+    "index_path": "provenance/chapter03-assembly2-statement-inputs-20261104/actual-type-block-index.json",
+    "index_bytes": 382223,
+    "index_sha256": "b89adf0160b2a887c5046917d6ac04131e826e3d6dd4d7e31b0edc0ab62961a2",
+    "native_log_sha256": "b5a197138b36a3ecb0cce5bf397f2cfdfb86a6ff2c0d309f4f49303a9557dfd1",
+    "original_prefix_assessed_ranges_inclusive": [
+      [
+        0,
+        461
+      ],
+      [
+        598,
+        636
+      ],
+      [
+        740,
+        752
+      ],
+      [
+        781,
+        791
+      ]
+    ],
+    "additional_closed_actual_type": "Examples.SelectionCountRank.duplicate_sorted_filter_sublists, at exact2ff47bdad9f822727fb2d1ea86092c4b26ad0cb6; prior independent resolution bound above",
+    "total_semantically_assessed_blocks": 526,
+    "newly_completed_ranges": [
+      {
+        "first_index": 350,
+        "last_index": 401,
+        "count": 52,
+        "bytes": 47020,
+        "concatenated_sha256": "734894ac3363952761050be139bd134292c5fd1874524415605de9f3341796ea",
+        "first_name": "Resources.SelectionPolicy.Observed",
+        "last_name": "Examples.MinimumPivot.fixed_third_linear"
+      },
+      {
+        "first_index": 402,
+        "last_index": 461,
+        "count": 60,
+        "bytes": 51821,
+        "concatenated_sha256": "b146adf0c62db8fd520b4711cc404ea75e7e70dcf339be6a57988d10c2221160",
+        "first_name": "Resources.HalvingSelection.HalvingPolicy",
+        "last_name": "Examples.MedianPolicy.all_integer_inputs_linear"
+      },
+      {
+        "first_index": 598,
+        "last_index": 636,
+        "count": 39,
+        "bytes": 22700,
+        "concatenated_sha256": "a00544b738d5eb941f1179f38e9a7db39435924ea42111ba4a58a9acf9e3da17",
+        "first_name": "Resources.HalvingTrace.Halves",
+        "last_name": "Examples.HalvingTrace.fixed_tariff_bounds"
+      }
+    ],
+    "read_receipts": {
+      "350-364": "5efc30",
+      "365-382": "c06218",
+      "383-401": "e55a48",
+      "402-415": "9448e8",
+      "416-432": "bf5b38",
+      "433-447": "d106a3",
+      "448-461": "01a226",
+      "598-622": "b6f8be",
+      "623-636": "604793"
+    },
+    "boundary": "These actual types are from secured earlier prefix observations with unchanged source correspondence, plus the separately secured CountRank repair. Final immutable candidate qualification remains pending. Byte/index verification of all1321 blocks is not semantic assessment of the unread remainder."
+  },
+  "new_source_read_receipts": {
+    "Applications/Resources/MinimumPivot.lean": "005246 at690; corrected opening comment6abf74 at4c96",
+    "Examples/MinimumPivot.lean": "005246",
+    "Applications/Resources/SelectionPolicy.lean": "4bbf4c",
+    "Applications/Resources/HalvingTrace.lean": "9d4069",
+    "Applications/Resources/HalvingSelection.lean": "76023c",
+    "Applications/Resources/MedianPolicy.lean": "76023c",
+    "Examples/HalvingTrace.lean": "c34bce",
+    "Examples/MedianPolicy.lean": "c34bce"
+  },
+  "dependency_context_reads": [
+    {
+      "path": "Applications/Resources/Partition.lean",
+      "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14",
+      "bytes": 2678,
+      "read_line_ranges_inclusive": [
+        [
+          1,
+          61
+        ]
+      ],
+      "purpose": "Inspect relevant actual measured primitive and complete proof used by the newly assessed cost sections; no full-file review claim outside these ranges."
+    },
+    {
+      "path": "Applications/Resources/SymmetricCosts.lean",
+      "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+      "bytes": 10508,
+      "read_line_ranges_inclusive": [
+        [
+          1,
+          49
+        ]
+      ],
+      "purpose": "Inspect relevant actual measured primitive and complete proof used by the newly assessed cost sections; no full-file review claim outside these ranges."
+    },
+    {
+      "path": "Applications/Resources/InsertionSort.lean",
+      "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+      "bytes": 7257,
+      "read_line_ranges_inclusive": [
+        [
+          1,
+          80
+        ]
+      ],
+      "purpose": "Inspect relevant actual measured primitive and complete proof used by the newly assessed cost sections; no full-file review claim outside these ranges."
+    },
+    {
+      "path": "Applications/Resources/ListReversal.lean",
+      "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+      "bytes": 4827,
+      "read_line_ranges_inclusive": [
+        [
+          1,
+          50
+        ]
+      ],
+      "purpose": "Inspect relevant actual measured primitive and complete proof used by the newly assessed cost sections; no full-file review claim outside these ranges."
+    },
+    {
+      "path": "Applications/Resources/ListCalls.lean",
+      "sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+      "bytes": 7939,
+      "read_line_ranges_inclusive": [
+        [
+          1,
+          190
+        ]
+      ],
+      "purpose": "Inspect relevant actual measured primitive and complete proof used by the newly assessed cost sections; no full-file review claim outside these ranges."
+    },
+    {
+      "path": "Applications/Resources/TreeFlattening/Core.lean",
+      "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+      "bytes": 4225,
+      "read_line_ranges_inclusive": [
+        [
+          1,
+          70
+        ]
+      ],
+      "purpose": "Inspect relevant actual measured primitive and complete proof used by the newly assessed cost sections; no full-file review claim outside these ranges."
+    }
+  ],
+  "dependency_read_receipts": [
+    "9bf7dd",
+    "3c4ce2",
+    "7ce4fe"
+  ],
+  "assessment": {
+    "minimum_policy": "The measured worker charges actual length, paid minimum pivot, one-pass partition, both bucket lengths, selected recursion and terminal lookup. Value correctness permits duplicates and optional failure; exact decreasing-size formulas require Nodup and valid rank. The actual trace is [n,n-1,...,n-k], so calls=k+1, edges=k, scan=(k+1)n-k(k+1)/2, cost=3scan+7(k+1)+1. Fixed rank is uniformly linear. Largest-rank quadratic results and the growing range family have explicit positive-size/distinctness premises. Actual types and checked cases agree; the exclusivity-word finding is resolved.",
+    "scalar_halving": "Positive nonempty inductive traces permit early stop and constrain each continuing edge by2m<=n. They prove n<=sum<=2n and2^(length-1)<=n, hence floor-log and ceiling-log edge bounds. Singleton has one active entry and zero edges; size zero is rejected. Tariff upper bounds require explicit Forall2 alignment, and lower bounds have a separate premise. Checked cases exercise even/odd/early-stop/zero/insufficient-halving and charged trace arithmetic. This is clearly scalar infrastructure until connected to an algorithm.",
+    "actual_halving_executor": "The actual valid policy path is proved to satisfy Halves under PivotValid, both strict buckets halving, valid rank, and adequate fuel. Source tariff includes both actual bucket length traversals and equal lookup. The uniform pivot tariff applies to every nonempty intermediate input. The derived linear upper and lower costs concern this actual execution. No distinctness or free-pivot premise was inserted.",
+    "median_policy": "The actual median constructor pays its own input-length traversal, measured deterministic selection, and wrapper. Duplicate-aware lower-median count bounds give both strict buckets at most half. Uniform coefficients are quantified before payload type, order instance, inputs, ranks and adequate fuel. Actual types confirm this quantifier order. Small exact cases include both branches, early equality, duplicate input, empty/invalid and singleton, whose actual cost is19; power-two and odd traces, growing range families, and all integer inputs consume the generic results. The imported deterministic selector/envelope proof chain still requires its own complete assessment later.",
+    "restrictions": "No proof bypass, new axiom, sorry/admit, unsafe evaluator proof shortcut, undocumented hidden premise, or additional concrete finding identified in these read sections. This is bounded human source assessment, not the mandatory exhaustive audit."
+  },
+  "findings": {
+    "C03-SPEC-USE-001": "Resolved independently at2ff and source retained in4c96",
+    "C03-STD-DOC-001": "Resolved independently at4c96",
+    "additional_findings": []
+  },
+  "remaining": {
+    "new_chapter_lean_files_unread": [
+      "Applications/Resources/GroupSelectionRecurrence.lean",
+      "Applications/Resources/RandomSelection.lean",
+      "Applications/Resources/RandomSelectionDrift.lean",
+      "Applications/Resources/RandomSelectionEndpoints.lean",
+      "Applications/Resources/RandomSelectionEqual.lean",
+      "Applications/Resources/RandomSelectionMean.lean",
+      "Applications/Resources/RandomSelectionRun.lean",
+      "Applications/Resources/RandomSelectionTail.lean",
+      "Applications/Resources/RandomSelectionTrace.lean",
+      "Applications/Resources/RoundedRecurrence.lean",
+      "Applications/Resources/RoundedRecurrenceBounds.lean",
+      "Applications/Resources/Selection.lean",
+      "Applications/Resources/SelectionAuxiliary.lean",
+      "Applications/Resources/SelectionBounds.lean",
+      "Applications/Resources/SelectionCutoff.lean",
+      "Applications/Resources/SelectionEnvelope.lean",
+      "Applications/Resources/SelectionGenericBounds.lean",
+      "Applications/Resources/SelectionGenericEnvelope.lean",
+      "Applications/Resources/SelectionMedians.lean",
+      "Applications/Resources/SelectionRecurrence.lean",
+      "Applications/Selection/CoordinateQueries.lean",
+      "Applications/Selection/CoordinateReadAll.lean",
+      "Applications/Selection/CoordinateSelection.lean",
+      "Applications/Selection/CoordinateSensitivity.lean",
+      "Applications/Selection/OutsidePivot.lean",
+      "Examples/CoordinateQueries.lean",
+      "Examples/CoordinateReadAll.lean",
+      "Examples/CoordinateSelection.lean",
+      "Examples/CoordinateSensitivity.lean",
+      "Examples/GroupSelectionRecurrence.lean",
+      "Examples/OutsidePivot.lean",
+      "Examples/RandomSelection.lean",
+      "Examples/RandomSelectionDrift.lean",
+      "Examples/RandomSelectionEndpoints.lean",
+      "Examples/RandomSelectionEqual.lean",
+      "Examples/RandomSelectionMean.lean",
+      "Examples/RandomSelectionRun.lean",
+      "Examples/RandomSelectionTail.lean",
+      "Examples/RandomSelectionTrace.lean",
+      "Examples/RoundedRecurrence.lean",
+      "Examples/RoundedRecurrenceBounds.lean",
+      "Examples/SelectionAuxiliary.lean",
+      "Examples/SelectionBounds.lean",
+      "Examples/SelectionComposition.lean",
+      "Examples/SelectionCosts.lean",
+      "Examples/SelectionCutoff.lean",
+      "Examples/SelectionEnvelope.lean",
+      "Examples/SelectionGenericBounds.lean",
+      "Examples/SelectionGenericEnvelope.lean",
+      "Examples/SelectionMedians.lean",
+      "Examples/SelectionRecurrence.lean"
+    ],
+    "other_scope": [
+      "SquareApplications entrypoint and complete correspondence documentation",
+      "Original Q-to-XR shared source/evidence reuse reconciliation",
+      "Remaining relevant private helpers, checked uses, actual types and implementation pre-case records",
+      "Separate trace pair and the universal endpoint trace/factorial mass/triangular scan/unbounded source-cost family obligations",
+      "Full closed 1321-type command evidence reconciliation and final candidate qualification",
+      "Successful final complete check and exhaustive audit; earlier prefix38 auditSIGKILL9 remains non-success",
+      "Both complete independent review outcomes and immediate candidate verification before exact local fast-forward"
+    ]
+  },
+  "reviewer_execution": "Read-only Git/Python/text inspection; own progress/report writes only. No Lean/Lake/compiler/build/audit/session-poll/source/ref mutation."
+}

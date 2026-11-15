@@ -1,0 +1,28 @@
+diff --git a/Examples/BottomUpCosts.lean b/Examples/BottomUpCosts.lean
+index 86c01d2..4efed66 100644
+--- a/Examples/BottomUpCosts.lean
++++ b/Examples/BottomUpCosts.lean
+@@ -170,8 +170,8 @@ theorem four_empty_runs_zero (cmp : α → α → Bool) :
+     allComparisons cmp [[], [], [], []] = 0 ∧
+       allRevComparisons cmp [[], [], [], []] = 0 := by
+   have hl : ∀ xs ∈ ([[], [], [], []] : List (List α)), xs.length = 0 := by simp
+-  have ho := allComparisons_le_uniform_pow cmp [[], [], [], []] 0 2 hl (by decide)
+-  have hr := allRevComparisons_le_uniform_pow cmp [[], [], [], []] 0 2 hl (by decide)
++  have ho := allComparisons_le_uniform_pow cmp [[], [], [], []] 0 2 hl (by rfl)
++  have hr := allRevComparisons_le_uniform_pow cmp [[], [], [], []] 0 2 hl (by rfl)
+   constructor <;> omega
+ 
+ /-- `k=0` allows an arbitrarily long single run, with zero merge comparisons. -/
+@@ -179,8 +179,10 @@ theorem single_run_power_zero (cmp : α → α → Bool) (xs : List α) :
+     allComparisons cmp [xs] ≤ 0 ∧ allRevComparisons cmp [xs] ≤ 0 := by
+   have hl : ∀ ys ∈ [xs], ys.length = xs.length := by simp
+   constructor
+-  · simpa using allComparisons_le_uniform_pow cmp [xs] xs.length 0 hl (by decide)
+-  · simpa using allRevComparisons_le_uniform_pow cmp [xs] xs.length 0 hl (by decide)
++  · simpa only [Nat.mul_zero, Nat.zero_mul] using
++      allComparisons_le_uniform_pow cmp [xs] xs.length 0 hl (by decide)
++  · simpa only [Nat.mul_zero, Nat.zero_mul] using
++      allRevComparisons_le_uniform_pow cmp [xs] xs.length 0 hl (by decide)
+ 
+ theorem uniform_four_runs_bound :
+     allComparisons natCompare [[0, 4], [1, 5], [2, 6], [3, 7]] ≤ 16 ∧

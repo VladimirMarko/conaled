@@ -1,0 +1,120 @@
+{
+  "recorded_utc": "2026-11-04T13:40:43.502990+00:00",
+  "purpose": "Bounded read-only resource eligibility; not cleanup authorization or runtime/candidate requalification.",
+  "archive": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/downloads/lean-4.35.0-linux.tar.zst",
+    "observed_utc": "2026-11-04T13:38:32.780881+00:00",
+    "bytes": 594481375,
+    "allocated_bytes": 594489344,
+    "sha256": "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d",
+    "mode": 33188,
+    "device": 27,
+    "inode": 2903100,
+    "nlink": 1,
+    "mtime_ns": 1793763668592883906,
+    "ctime_ns": 1793763669088893384,
+    "blocks": 1161112,
+    "method": "Read entire regular single-link archive through descriptor-relative O_DIRECTORY/O_NOFOLLOW absolute-prefix opens and O_NOFOLLOW leaf; exact mode/dev/ino/nlink/size/mtime_ns/ctime_ns/st_blocks unchanged before and after hash.",
+    "stable_ancestor_chain": [
+      {
+        "path": "/workspace/scratch/b4a17a285e23",
+        "device": 27,
+        "inode": 2889817
+      },
+      {
+        "path": "fdsa-restored-20261104",
+        "device": 27,
+        "inode": 2892498
+      },
+      {
+        "path": "conaled-native-state",
+        "device": 27,
+        "inode": 2903083
+      },
+      {
+        "path": "downloads",
+        "device": 27,
+        "inode": 2903096
+      }
+    ],
+    "external_prefix_observations": [
+      {
+        "path": "/workspace",
+        "device": 52,
+        "inode": 22
+      },
+      {
+        "path": "/workspace/scratch",
+        "device": 52,
+        "inode": 23
+      }
+    ]
+  },
+  "findings": [
+    "The unchanged kit run dispatch checks the project, verifies the installed profile/runtime inputs, and executes through that environment; it does not invoke toolchain acquisition or read the downloads archive.",
+    "acquire_toolchain verifies and returns an existing installed toolchain before reaching any archive or download handling. The canonical archive is acquisition/reinstallation data, separate from the installed release.",
+    "Saved exact-F qualification and accepted-native-baseline runtime comparison identify compiler executables, wrappers, loader, adapter and runtime sources. The saved reference additionally enumerates 12 installed-toolchain/profile/loader paths; none is the compressed download.",
+    "The exact archive is reproducible through the retained official version URL, exact byte count and whole-archive SHA-256, authenticated before extraction. No present network fetch was attempted or availability established.",
+    "Earlier canonical retention was an explicit root preference in the checkpoint0099 duplicate-download cleanup scope. The user requires exact compiler/kernel/dependencies, preserved kit and original attachments, but does not expressly require retaining this task-downloaded compressed duplicate after verified installation.",
+    "The kit README says Preserve the complete release in its existing-toolchain verification section. This assessment preserves the complete installed release; it does not propose a reduced runtime or alteration to any runtime input."
+  ],
+  "recovery_conditions": {
+    "official_url": "https://github.com/leanprover/lean4/releases/download/v4.35.0/lean-4.35.0-linux.tar.zst",
+    "new_install_available_space_guard_bytes": 5368709120,
+    "canonical_path_caveat": "_download_archive verifies an existing canonical path and fails on a wrong size/hash; it does not replace a retained zero/truncated file automatically. A later absent-toolchain installation requires that invalid canonical path to be absent or an exact valid explicit --archive seed. Do not bypass verification or the 5 GiB install guard.",
+    "offline_caveat": "Retiring this exact download removes this local offline reinstall seed. Existing installed-toolchain reuse remains supported; online reacquisition requires the official endpoint to be available or another exact authenticated seed."
+  },
+  "read_boundaries": {
+    "complete_or_direct": "Full canonical archive hash and before/after metadata; saved qualification and runtime-content comparison; selected unchanged kit source branches implementing archive validation/acquisition, run dispatch, profile verification and runtime environment; full RECOVERY.md; exact relevant README passages.",
+    "bounded": "Historical foundation110 reference: runtime-components field only. Existing checkpoint0099 resource report: canonical download, acquisition and retention-preference evidence. No new whole-runtime attestation.",
+    "excluded": "No live F output, installed toolchain/profile payload, cache, process/descriptor inventory, Git ref/source mutation, original attached0081/0082, old package edit, download or cleanup operation."
+  },
+  "source_records": {
+    "kit/lib/acquire.py": {
+      "path": "tooling/unified-native-kit-4.35.0/lib/acquire.py",
+      "bytes": 23835,
+      "sha256": "2d537f9656979f95a441c813640d67a804a544a4d12b698c4f8d965f93627297"
+    },
+    "kit/lib/runtime.py": {
+      "path": "tooling/unified-native-kit-4.35.0/lib/runtime.py",
+      "bytes": 6368,
+      "sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695"
+    },
+    "kit/conaled_native.py": {
+      "path": "tooling/unified-native-kit-4.35.0/conaled_native.py",
+      "bytes": 34020,
+      "sha256": "9d1b1e6f10ae574e5c1f388d8df069f43c9ca3e1a993c372293595abd2e5090a"
+    },
+    "kit/README.md": {
+      "path": "tooling/unified-native-kit-4.35.0/README.md",
+      "bytes": 12744,
+      "sha256": "fa1b4482615a39394754688c85d36d6d5dd2ddf30b1cd194cef99561906b2365"
+    },
+    "kit/docs/RECOVERY.md": {
+      "path": "tooling/unified-native-kit-4.35.0/docs/RECOVERY.md",
+      "bytes": 6745,
+      "sha256": "a831215f53ae5380c36c4a4c9fcf6cc239fff3f020d5a951dc14402d0ef5eba4"
+    },
+    "qualification": {
+      "path": "provenance/unified-native-recovery-20261104-qualified/qualification.json",
+      "bytes": 3279,
+      "sha256": "37a60985201cda9ac852adbc972483c32e59ee6ee82119b866dbaa4625301629"
+    },
+    "runtime_comparison": {
+      "path": "provenance/recovery-20261104-restored/runtime-content-comparison.json",
+      "bytes": 3460,
+      "sha256": "9242b4dcbe578dd52c52846cd2ce3432be46fee8702c08bede7fe6956fbc5555"
+    },
+    "historical_runtime_reference": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/foundation110-potential-type-reuse-0a7ef078.json",
+      "bytes": 122392,
+      "sha256": "23ec745628fc15a330a492bc70f4a22d9fb452faaf9ba482006cebf7d3546bc0"
+    },
+    "prior_retention_preference": {
+      "path": "provenance/checkpoint0099-preparation/task-owned-resource-inventory-20261104.md",
+      "bytes": 11002,
+      "sha256": "754c0a42c25d7d3afbc0935f9ff69e6378eb3df74c3864544c7afd602cb01920"
+    }
+  },
+  "disposition": "Exact archive is separate reproducible acquisition data; potential allocated reclaim is 594489344 bytes. Root must decide any later action and preserve all installed runtime/qualification inputs. No cleanup permission, acceptance credit, mathematical gate change, or sustained-space claim is inferred."
+}

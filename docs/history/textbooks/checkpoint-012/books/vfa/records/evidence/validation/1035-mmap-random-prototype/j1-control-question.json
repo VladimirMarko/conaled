@@ -1,0 +1,11 @@
+{
+  "recorded_utc": "2026-11-03T18:18:05.129908+00:00",
+  "question": "Does explicit -j1 alone provide the observed useful improvement without adding mmap interposition?",
+  "motivation": "Original native baseline used default CLI workers; random-run1 added both -j1 and MADV_RANDOM. Prefer simpler runtime if -j1-only control also finishes quickly with matching bytes.",
+  "bound_seconds": 60,
+  "cleanup_grace_seconds": 5,
+  "configuration": "Same original source, payload, readlink shim and -j1. LD_PRELOAD contains accepted readlink shim only; no mmap interposer. Separate output/records.",
+  "confounders": "No forced cold cache; sequential measurements overlap active fresh4. This tests practical viability and not causal speedup.",
+  "runner_sha256": "1ee21911f07167bd93f1e96905102bd672b9106dc2e5a7a5f196e3fcc8e957ab",
+  "prior_probe_result_sha256": "40a2cc95f9496f8b0d0061dfd3070421f3f735feb616553dbde6d056adb11d09"
+}

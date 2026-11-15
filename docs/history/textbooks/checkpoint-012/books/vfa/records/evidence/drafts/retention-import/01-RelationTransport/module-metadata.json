@@ -1,0 +1,35 @@
+{
+  "module": "SquareKit.RelationTransport",
+  "directImports": [
+    [
+      "Mathlib.Logic.Relation",
+      false,
+      false,
+      false
+    ],
+    [
+      "Mathlib.Data.Set.Lattice.Image",
+      false,
+      false,
+      false
+    ]
+  ],
+  "version": 5,
+  "declarations": [
+    "SquareKit.RelationTransport.image",
+    "SquareKit.RelationTransport.image_comp",
+    "SquareKit.RelationTransport.image_graph",
+    "SquareKit.RelationTransport.image_requirement",
+    "SquareKit.RelationTransport.requirement",
+    "SquareKit.RelationTransport.requirement_comp",
+    "SquareKit.RelationTransport.requirement_converse_graph",
+    "SquareKit.RelationTransport.requirement_graph",
+    "SquareKit.RelationTransport.requirement_restricted_converse"
+  ],
+  "c_initializers": [
+    "initialize_Init",
+    "initialize_SquareKit_RelationTransport",
+    "initialize_mathlib_Mathlib_Data_Set_Lattice_Image",
+    "initialize_mathlib_Mathlib_Logic_Relation"
+  ]
+}

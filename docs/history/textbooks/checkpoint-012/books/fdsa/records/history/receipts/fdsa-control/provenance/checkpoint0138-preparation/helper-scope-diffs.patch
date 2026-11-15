@@ -1,0 +1,165 @@
+--- /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0137-preparation/capture.py
++++ /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0138-preparation/capture.py
+@@ -6,7 +6,7 @@
+ import os,sys,json,hashlib,importlib.util,subprocess
+ sys.dont_write_bytecode=True
+ os.environ["GIT_OPTIONAL_LOCKS"]="0"
+-b=Path('/workspace/scratch/b4a17a285e23/fdsa-restored-20261104');c=b/'fdsa-control';p=c/'provenance/checkpoint0137-preparation'
++b=Path('/workspace/scratch/b4a17a285e23/fdsa-restored-20261104');c=b/'fdsa-control';p=c/'provenance/checkpoint0138-preparation'
+ def identity(q):
+  with q.open('rb') as f:return {'bytes':q.stat().st_size,'sha256':hashlib.file_digest(f,'sha256').hexdigest()}
+ def write(name,data):
+@@ -17,30 +17,33 @@
+ spec=importlib.util.spec_from_file_location('compact_reader',c/'checkpoint_compact.py');mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
+ repo=b/'conaled'
+ refs=[{'oid':a[0],'ref':a[1],'symref':a[2]} for a in (line.split(' ',2) for line in mod.git(repo,'for-each-ref','--format=%(objectname) %(refname) %(symref)').splitlines())]
+-wts=mod.worktrees(repo);assert len(refs)==74 and len(wts)==9
++wts=mod.worktrees(repo);assert len(refs)==78 and len(wts)==9
+ accepted=mod.git(repo,'rev-parse','work/fdsa-book').strip();qualified=mod.git(b/'conaled-ch01-review','rev-parse','HEAD').strip()
+-assert accepted==h['accepted_head']=='298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2'
++assert accepted==h['accepted_head']=='90469ce4ba3fc49397d369a5db7d58aec7014f58'
+ assert qualified==h['qualified_candidate']==v['qualified_candidate']==accepted
+ acceptance_path=c/'provenance/chapter03-acceptance-20261105/acceptance.json'
+ acceptance=json.loads(acceptance_path.read_text())
+-assert acceptance['accepted_commit']==accepted and acceptance['accepted_tree']=='ecb69c3918715cbe0682028cd8697dfcf3e463f9'
++assert acceptance['accepted_commit']=='298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2' and acceptance['accepted_tree']=='ecb69c3918715cbe0682028cd8697dfcf3e463f9'
+ assert acceptance['chapter03_accepted'] and acceptance['obligations']==83 and acceptance['actual_public_names']==1391
+-fixed=['README.md','previous-manifest-0136.json','previous-manifest-origin.json','verify-checkpoint.py','write-hold.json','verifier-scope-diff.patch','helper-scope-diffs.patch','capture.py','run-stage.py','independent-inspection-receipt.json']
++xt_path=c/'provenance/binary-tree-cache-acceptance-20261105/acceptance.json'
++xt=json.loads(xt_path.read_text())
++assert xt['unit_accepted'] and xt['accepted_commit']==accepted and xt['authored_public_names']==115
++fixed=['scope-plan.json','README.md','previous-manifest-0137.json','previous-manifest-origin.json','verify-checkpoint.py','write-hold.json','verifier-scope-diff.patch','helper-scope-diffs.patch','capture.py','run-stage.py','independent-inspection-receipt.json']
+ held={}
+ for q in sorted(c.rglob('*')):
+  if not q.is_file() or '__pycache__' in q.parts:continue
+  if p in q.parents and q.name not in fixed:continue
+  assert not q.is_symlink(),str(q)
+  held[str(q.relative_to(c))]=identity(q)
+-previous=json.loads((c/'provenance/checkpoint0136-preparation/capture.json').read_text())['held_control']
+-allowed=['CURRENT.md','STATUS.md','checkpoints.json','reviews/chapter03-round1.md','reviews/chapter03-standards.md','reviews/chapter03-spec.md','tickets/FDSA-003.md','tickets/INDEX.md','reviews/README.md']
++previous=json.loads((c/'provenance/checkpoint0137-preparation/capture.json').read_text())['held_control']
++allowed=['CURRENT.md','STATUS.md','checkpoints.json','reviews/binary-tree-cache-round1.md','reviews/chapter03-round1.md','reviews/README.md','tickets/FDSA-003.md','tickets/FDSA-004.md','tickets/FDSA-XT01.md','tickets/INDEX.md']
+ changes=[]
+ for rel,old in previous.items():
+  assert rel in held,rel
+  if held[rel]!=old:
+   assert rel in allowed,rel
+   changes.append(rel)
+-progress=json.loads((c/'provenance/chapter03-activation-20261104/focused-progress-before0137.json').read_text())
++progress=json.loads((c/'provenance/binary-tree-cache-receiving-20261105/focused-progress-before0138.json').read_text())
+ runs=[{k:r[k] for k in ['name','candidate','exit']} for r in progress['all_closed_runs']]
+ assert len(runs)==v['closed_count']==progress['closed_runs']
+ for r in runs:
+@@ -48,7 +51,7 @@
+  assert result['exit_code']==owned['actual_exit']==r['exit']
+  assert result['candidate']==owned['candidate']==r['candidate']
+  assert identity(d/'full.log')=={'bytes':result['log_size_bytes'],'sha256':result['log_sha256']}
+-capture={'recorded_utc':datetime.now(timezone.utc).isoformat(),'checkpoint':'conaled-fdsa-0137-chapter03-accepted','accepted_head':accepted,'qualified_candidate':qualified,'all_writers_held':True,'compiler_live':False,'refs':refs,'worktrees':wts,'held_control':held,'fixed_own_preparation_files':fixed,'declared_prior_control_updates':allowed,'actual_prior_control_updates':sorted(changes),'closed_development_runs':runs,'interrupted_development_runs':progress['interrupted_development_runs'],'transport_terminal_unavailable_runs':progress['transport_terminal_unavailable_runs'],'scope':progress['checkpoint_scope'],'chapter03_acceptance':{'path':str(acceptance_path),**identity(acceptance_path)}}
++capture={'recorded_utc':datetime.now(timezone.utc).isoformat(),'checkpoint':'conaled-fdsa-0138-tree-cache-accepted-and-chapter04-progress','accepted_head':accepted,'qualified_candidate':qualified,'all_writers_held':True,'compiler_live':False,'refs':refs,'worktrees':wts,'held_control':held,'fixed_own_preparation_files':fixed,'declared_prior_control_updates':allowed,'actual_prior_control_updates':sorted(changes),'closed_development_runs':runs,'interrupted_development_runs':progress['interrupted_development_runs'],'transport_terminal_unavailable_runs':progress['transport_terminal_unavailable_runs'],'scope':progress['checkpoint_scope'],'chapter03_acceptance':{'path':str(acceptance_path),**identity(acceptance_path)},'tree_cache_acceptance':{'path':str(xt_path),**identity(xt_path)}}
+ write('capture.json',capture)
+ s=os.statvfs(b);allocated=sum(((r['bytes']+s.f_frsize-1)//s.f_frsize)*s.f_frsize for r in held.values());scenario=allocated+96*1024*1024
+ assert s.f_bfree*s.f_frsize>=scenario+32*1024*1024,'Insufficient current raw checkpoint staging headroom'
+--- /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0137-preparation/run-stage.py
++++ /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0138-preparation/run-stage.py
+@@ -4,7 +4,7 @@
+ from pathlib import Path
+ from datetime import datetime,timezone
+ import json,hashlib,subprocess,time,sys,os
+-b=Path('/workspace/scratch/b4a17a285e23/fdsa-restored-20261104');c=b/'fdsa-control';p=c/'provenance/checkpoint0137-preparation'
++b=Path('/workspace/scratch/b4a17a285e23/fdsa-restored-20261104');c=b/'fdsa-control';p=c/'provenance/checkpoint0138-preparation'
+ def ident(q):
+  with q.open('rb') as f:return {'path':str(q),'bytes':q.stat().st_size,'sha256':hashlib.file_digest(f,'sha256').hexdigest()}
+ def write(name,obj):
+@@ -18,7 +18,7 @@
+  for rel,expected in capture['held_control'].items():
+   actual=ident(c/rel);assert {k:actual[k] for k in ['bytes','sha256']}==expected,rel
+  s=os.statvfs(b);assert s.f_bfree*s.f_frsize>=pre['checkpoint_staging_scenario_bytes']+32*1024*1024
+- argv=['python3',str(c/'checkpoint_compact.py'),'conaled-fdsa-0137-chapter03-accepted']
++ argv=['python3',str(c/'checkpoint_compact.py'),'conaled-fdsa-0138-tree-cache-accepted-and-chapter04-progress']
+  log=p/'create.log'
+ else:
+  assert v['stage']=='verification'
+--- /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0137-preparation/README.md
++++ /workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0138-preparation/README.md
+@@ -1,43 +1,44 @@
+-# Checkpoint 0137 acceptance preparation
++# Checkpoint 0138 preparation
+ 
+-This compact standalone recovery preserves the actual accepted Chapter 3
+-candidate 298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2, tree
+-ecb69c3918715cbe0682028cd8697dfcf3e463f9. Full normal validation, all 1,391
+-actual statements, both independent whole-scope axes, immediate verification
+-and the exact local fast-forward have completed. Their immutable acceptance
+-record is provenance/chapter03-acceptance-20261105/acceptance.json. Checkpoint
+-creation, verification, upload and exposure still require actual results.
++## Current capture preparation — 2026-11-05
+ 
+-The current accepted state is distinct from historical XR c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5.
+-Historical Chapter 2 and XR acceptance/durability gates remain unchanged, as
+-does XR-to-integration-origin ancestry. The only additional allowed reference
+-advance is the exact local book branch from XR to Chapter 3. All 74 reference
+-names and nine worktrees remain required. The original Q-to-final scope and
+-all 83 obligations are preserved, with 1,370 Chapter 3 names plus 21 XR names.
++XT01 is now accepted at the exact candidate below. The full normal check, all115 actual types, both original independent axes, immediate qualified verification and guarded local fast-forward all passed. The fast-forward completed at2026-11-05T03:01:15.075953+00:00; its actual tool result is e7db74 exit0. Acceptance and coverage are preserved under provenance/binary-tree-cache-acceptance-20261105/. There are113 closed owned executions,78refs and9worktrees. Three Chapter4 source branches are held, uncompiled and unaccepted.
+ 
+-The earlier preacceptance helpers and their inspection are preserved under
+-initial-preacceptance-* names. Exact acceptance-extension diffs and full
+-0136-to-0137 scope diffs are saved. The sole additional prior-control mutation
+-allowance is reviews/README.md, whose obsolete acceptance-status paragraph
+-was corrected without changing its review-process instructions. The final
+-independent operational inspection must cover the current exact helpers;
+-the earlier inspection does not approve the later extension.
++Operational findings CP0138-OPS-001 and002 are resolved with the exact corrections and independent read receipts retained. Final capture/creation/verification/upload have not yet run. Their actual outcomes must be recorded separately. All original mathematical, review, native-profile and resource gates below remain unchanged.
+ 
+-The verifier binds the actual full/type/review/root-gate/immediate/fast-forward
+-chain to live and archived identities. It performs no compiler, restoration,
+-fsck or acceptance action. It does not require its own future upload receipt.
+-The previous uploaded0136 manifest remains byte-exact; this is not a checkpoint
+-chain dependency. The unchanged compact creator and restorer remain in use.
++## Original proposal retained as historical preparation
+ 
+-All source and review writers remain held. Root remains sole serial one-thread
+-compiler owner; no compiler is live. Capture, creation and verification each
+-require actual terminal evidence. The old drift unknown result, the trace
+-native failure without transport terminal, and the preparation audit SIGKILL
+-retain their exact historical outcomes. No historical session may be polled.
++This is preparation for an XT01 acceptance and Chapter 4 progress checkpoint.
++No capture, creation, verification, upload or acceptance action has run from
++these helpers. Their gates require actual complete XT01 acceptance first.
++The current full check is still pending at preparation time.
+ 
+-All compiler/dependency pins, proof restrictions, native launcher profile,
+-normal/fresh rules and space guards remain unchanged. No installation,
+-hydration, GitHub mutation or push is selected. The compact checkpoint omits
+-environment caches and research manuscript copies. Recovery remains standalone
+-for Git/control state, with the unchanged public baseline asset fetched from
+-its pinned immutable URL and checked by the supplied restoration script.
++The proposed accepted candidate is90469ce4ba3fc49397d369a5db7d58aec7014f58,
++tree18bf4bc9df979d4ee6ac76182f58faed235a0714. Original XT01 basea14977b9e316cc484ffad8a470d26b15615956c0 and donor64c6b777d828ecfe83234fc2aed94600a1f24297 remain preserved. The complete seven-path, four-module,115-name scope and XT01-01 through07 requirements retain full normal check/audit, both independent axes, immediate verification and exact local fast-forward gates.
++
++Chapter 3 is historical accepted state298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2,
++with all83 obligations/1391 names and unchanged complete acceptance evidence.
++The previous0137 manifest is stored in this archive for exact historical
++comparisons; recovery requires no earlier checkpoint. Old Chapter2/XR/Chapter3
++acceptance, exceptional execution histories, retired worktree reconstruction,
++298 kit entries and original creator/restorer checks remain.
++
++All74 prior refs must persist, with only work/fdsa-book advancing from Chapter3
++to approved XT01. Four explicit new development refs bring the total to78;
++the nine worktree paths remain. Three new source-author streams contain
++uncompiled Chapter4 work; all76 obligations remain unaccepted. Writer holds
++and exact captured source/status records are required before capture.
++
++The new verifier treats historical Chapter3 live-state comparisons as exact
++comparisons against its archived0137 snapshot, while the new XT01 chain checks
++the current checkout and success record. It distinguishes the type run's old
++inherited Chapter3 verification from the actual new full success record.
++No compiler, restore, fsck or acceptance action is performed by the verifier.
++
++The unchanged raw-space scenario is rounded held-control copy plus96MiB,
++with a further32MiB margin. It is not a formal upper bound. No installation
++or hydration is selected; their existing available-space guards are unchanged.
++All helpers need independent operational inspection of their final identities
++before execution. Actual source/ref/terminal/audit/review/acceptance records
++must be reconciled first. The checkpoint excludes environment caches and
++research manuscript copies and retains the pinned external public baseline.

@@ -1,0 +1,34 @@
+{
+  "recorded_utc": "2026-11-05T02:33:02.621850+00:00",
+  "parent": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "branch": "work/fdsa-ch04-structural",
+  "status_before_stage": "?? Applications/Trees/BasicObservations.lean\n?? Examples/TreeBasicObservations.lean",
+  "source_identities": [
+    {
+      "path": "Applications/Trees/BasicObservations.lean",
+      "bytes": 5009,
+      "lines": 139,
+      "sha256": "3d2decdac9a8803edde8b5b36a97d0deba1a4d7b1cb1f15a93057044f342afc6"
+    },
+    {
+      "path": "Examples/TreeBasicObservations.lean",
+      "bytes": 4033,
+      "lines": 107,
+      "sha256": "5c40f55fad3e17da5bb28490f898c6ab7573023253e43292813df8d58c6104cb"
+    }
+  ],
+  "complete_source_readback": [
+    {
+      "file": "Applications/Trees/BasicObservations.lean",
+      "actual_tool_chunk": "cb0864",
+      "actual_exit": 0
+    },
+    {
+      "file": "Examples/TreeBasicObservations.lean",
+      "actual_tool_chunk": "2c2bab",
+      "actual_exit": 0
+    }
+  ],
+  "scope_and_lexical_checks": "Only assigned two paths; protected source/control bindings unchanged; no forbidden proof tokens; no trailing whitespace. These checks do not elaborate Lean or establish correctness.",
+  "compiler_invoked": false
+}

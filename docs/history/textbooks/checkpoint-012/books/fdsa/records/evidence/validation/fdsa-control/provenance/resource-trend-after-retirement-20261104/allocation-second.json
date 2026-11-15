@@ -1,0 +1,27 @@
+{
+  "started": {
+    "at": "2026-11-04T12:09:40.764874+00:00",
+    "available_bytes": 5227827200,
+    "raw_free_bytes": 8680574976,
+    "filesystem_total_bytes": 67586535424
+  },
+  "completed": {
+    "at": "2026-11-04T12:09:46.389274+00:00",
+    "available_bytes": 5206806528,
+    "raw_free_bytes": 8659554304,
+    "filesystem_total_bytes": 67586535424
+  },
+  "command": [
+    "du",
+    "-x",
+    "--block-size=1",
+    "--max-depth=1",
+    "/workspace/scratch/b4a17a285e23"
+  ],
+  "actual_exit": 0,
+  "stdout": "36864\t/workspace/scratch/b4a17a285e23/library-transfer-current\n8015872\t/workspace/scratch/b4a17a285e23/recovery-validation-0082\n2527232\t/workspace/scratch/b4a17a285e23/research-source\n20480\t/workspace/scratch/b4a17a285e23/recovery-run-20261104\n13959168\t/workspace/scratch/b4a17a285e23/upload\n39673856\t/workspace/scratch/b4a17a285e23/recovery-input-0081\n17350819840\t/workspace/scratch/b4a17a285e23/fdsa-restored-20261104\n8192\t/workspace/scratch/b4a17a285e23/.codex\n17415065600\t/workspace/scratch/b4a17a285e23\n",
+  "stderr": "",
+  "read_only_allocation_observation": true,
+  "source_refs_outputs_unmodified": true,
+  "does_not_identify_unobserved_writers": true
+}

@@ -1,0 +1,134 @@
+{
+  "schema": "conaled-textbooks-review-first-terminal-v1",
+  "recorded_at": "2026-11-14T23:18:42.845097+00:00",
+  "round": 5,
+  "coordinator": "/root/recovery_review",
+  "purpose": "Immutable bounded assessment of the first unrestricted R5 attempt. The existing ordinary integration review loop continues; this is not a new source review or approval.",
+  "path_base": "checkpoint/conaled-textbooks/books/common",
+  "candidate": {
+    "commit": "18235331da1fe343d09080ca4c41173f9b4d9963",
+    "tree": "63205d8a3ff27deb3680c613b70085163f289b83",
+    "original_full_spec_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+    "incorporated_upstream": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+    "source_scope": "Unchanged full original-base scope; 490-path manifest and complete R4 candidate receipt retained."
+  },
+  "requirements": {
+    "path": "REQUIREMENTS.md",
+    "sha256": "7b4217dd89508c2863304880e2e99c8776d220bdfe6ff710aaae3bf82670159d"
+  },
+  "evidence": [
+    {
+      "role": "terminal_receipt",
+      "archived_path": "evidence/full-validation-r5-unrestricted.json",
+      "bytes": 2687,
+      "sha256": "d8a71400c8f3cefaae1160f86c076d255e35511c8209c808c5f3087e1901805f",
+      "original_copy_identical": true
+    },
+    {
+      "role": "complete_log",
+      "archived_path": "evidence/full-validation-r5-unrestricted.log",
+      "bytes": 1624681,
+      "sha256": "4745a20204e25c44b88bce4f4cb4f661359dfad379dc722a5e4fc690e60b5445",
+      "original_copy_identical": true
+    },
+    {
+      "role": "native_result",
+      "archived_path": "evidence/native-project-run-r5-result.json",
+      "bytes": 1838,
+      "sha256": "982a404ad1cfd13c947704030be01fb327eabf21cd68b57c216cb79cad6d36f8",
+      "original_copy_identical": true
+    },
+    {
+      "role": "derived_summary",
+      "archived_path": "evidence/full-validation-r5-summary.json",
+      "bytes": 4363,
+      "sha256": "4b8f245a197e0433e503306a29ed4ddd04646cb828d5bf6db05b84d26d258e16",
+      "original_copy_identical": true
+    },
+    {
+      "role": "effective_child_environment",
+      "archived_path": "evidence/full-validation-r5-effective-environment.json",
+      "bytes": 919,
+      "sha256": "844e835ff7ea97f1240cdf547b041bb14b8c53e6b1c5bc3f49817a3a7d412086",
+      "original_copy_identical": true
+    }
+  ],
+  "observed_result": {
+    "started_at": "2026-11-14T21:27:30.162016+00:00",
+    "finished_at": "2026-11-14T23:07:48.922060+00:00",
+    "elapsed_seconds": 6018.760040774999,
+    "overall_exit_code": 1,
+    "terminal_observed": true,
+    "end_candidate_unchanged": true,
+    "end_worktree_clean": true,
+    "compiler_job_exit_137_count": 8,
+    "built_completion_lines": 3174,
+    "integration_clients_compiled": [
+      "Examples.MappedPotentialAccounting",
+      "Examples.TextbookMaps",
+      "Examples.TextbookSequences",
+      "Examples.TextbookSorting"
+    ],
+    "exhaustive_audit": "not reached after failed build",
+    "verification_record_present": false
+  },
+  "independent_axes": [
+    {
+      "axis": "Standards",
+      "agent": "/root/recovery_review/standards_r5",
+      "assessment": "Wrapper, native result and relevant complete-log lines agree; all four terminal evidence hashes matched. Independently counted 3174 Built lines and confirmed all four integration-client completion lines. No additional Standards finding in this bounded assessment.",
+      "new_findings": [],
+      "final_approval": false
+    },
+    {
+      "axis": "Spec",
+      "agent": "/root/recovery_review/spec_r5",
+      "assessment": "Wrapper, native result and relevant complete-log lines agree; all four terminal evidence hashes matched. Confirmed eight compiler exits 137 and all four integration-client completion lines; retained summary count at its stated scope. No additional Spec finding in this bounded assessment.",
+      "new_findings": [],
+      "final_approval": false
+    }
+  ],
+  "interpretation_limits": [
+    "Compiler exit 137 does not establish OOM, a supervisor or session cause, or a theorem defect. The cause remains unknown.",
+    "Native timed_out:false describes only the launcher timeout flag; it does not rule out external termination.",
+    "Native lean_threads:1 is pre-child launcher metadata. The command removes LEAN_NUM_THREADS before the checker; the separate effective-child observation records the resulting controls.",
+    "The eight failed files matching pinned upstream is root source-identity evidence in the summary; neither reviewer repeated that source audit for this assessment.",
+    "Built lines and four successful integration-client compilations are development observations, not whole-project coverage, exhaustive audit, or final acceptance.",
+    "No new source/handoff approval is issued. Earlier source/handoff outcomes remain scoped to their own reviewed requirements and evidence."
+  ],
+  "findings_retained": {
+    "INT-ST-001": "Fixed; prior records retained.",
+    "INT-ST-002": "Fixed; prior exact start observation retained.",
+    "INT-ST-003": "Fixed through the packable EXECUTION.md overlay; provisional command fix, reopening and guarded resolution remain recorded in the immutable preparation lineage.",
+    "INT-SP-001": "Open; receiving final gate remains available and has not been waived or satisfied."
+  },
+  "preparation_lineage": [
+    {
+      "path": "evidence/reviews/preparation-r5.json",
+      "bytes": 9731,
+      "sha256": "21a3e653e051d86475524c72b4e7fb879c42d9c1069649e57f398392693e7018"
+    },
+    {
+      "path": "evidence/reviews/preparation-r5-overlay.json",
+      "bytes": 7886,
+      "sha256": "ebb147cac707237bbf736178b3c41b35f728ae209a2b8befa40392c3723f2910"
+    }
+  ],
+  "next_step": {
+    "owner": "/root",
+    "status": "Single unchanged uncapped incremental retry planned; no retry outcome assessed.",
+    "conditions": [
+      "Verified durable checkpoint 011 must precede the retry.",
+      "Keep candidate, pinned inputs, full source/coverage checks, per-module integrity guards and exhaustive audit unchanged.",
+      "Reuse only per-module outputs accepted by the existing guard; a failed whole-run receipt is not validation success.",
+      "Retain this first attempt under distinct identities; do not overwrite its raw log or receipts."
+    ],
+    "final_review": "Both same independent axes await the retry terminal outcome and final canonical cut before final R5 reports."
+  },
+  "approval": {
+    "source_handoff_approval_issued": false,
+    "final_library_acceptance": false,
+    "durable_upload_verified_by_this_receipt": false
+  },
+  "mutations": "Only this intake review receipt was written. No source, compiler, process, Git, canonical checkpoint, policy, tool or kit mutation was performed."
+}

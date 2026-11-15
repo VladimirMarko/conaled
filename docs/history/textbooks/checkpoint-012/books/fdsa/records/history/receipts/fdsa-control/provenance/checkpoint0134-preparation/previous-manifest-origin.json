@@ -1,0 +1,66 @@
+{
+  "recorded_utc": "2026-11-04T22:57:54.259906+00:00",
+  "previous_archive": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/checkpoints/conaled-fdsa-0133-selection-integration-and-endpoint-progress.tar.gz",
+    "bytes": 37279344,
+    "sha256": "aa77f4c286be99530cad300b38109e0a40ca06f8ad8d0b59d59eeb3cc4d687e0"
+  },
+  "previous_upload_library_file_id": "libfile_243f38a7e8388191b70bff75b3777f88",
+  "previous_post_upload_hash_matched": true,
+  "exact_root_manifest_member": "conaled-fdsa-0133-selection-integration-and-endpoint-progress/MANIFEST.json",
+  "extracted_manifest": {
+    "bytes": 17338,
+    "sha256": "cd28ddf0f2abf2bab5fe15fcbed38a328e645ec40c0c46c8a68c8dc0f675bfac"
+  },
+  "previous_verified_receipt": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0133-preparation/integrity.json",
+    "bytes": 1526,
+    "sha256": "9a2ce28d6c92a9887f269bcd401fddda3231b982aa92d96f7c144923c6d25a06"
+  },
+  "previous_capture": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0133-preparation/capture.json",
+    "bytes": 1512655,
+    "sha256": "e08808d3a2c5415e5922fd92bc834ecb316871e2fb9c83385425c0b13750d847"
+  },
+  "preparation_files": {
+    "verify-checkpoint.py": {
+      "bytes": 14509,
+      "sha256": "a789802715353faea3eda0749f0ef2ab5973062e4c95241be139e5bcfa0beadc"
+    },
+    "capture.py": {
+      "bytes": 4806,
+      "sha256": "d45520e954cccad0c4bd9f0bb5dd6b831bce09e21e4d2dd08ba01ece3a6e22a6"
+    },
+    "run-stage.py": {
+      "bytes": 2394,
+      "sha256": "374d9a679e31563aad9e85337fe80a22e68c7f032cc6c655049cb12b73ebbacd"
+    },
+    "verifier-scope-diff.patch": {
+      "bytes": 5258,
+      "sha256": "9e56c4652a6bab20021a5a7b576896d98f4f19d8116080b4152164044458e2de"
+    },
+    "helper-scope-diffs.patch": {
+      "bytes": 5274,
+      "sha256": "999cd3449f8c1eaf40baaea86d472ace1b1aab8001cf2eba4a68b939037ba7d3"
+    },
+    "README.md": {
+      "bytes": 2152,
+      "sha256": "415c5461a9f7db86a4647d570735077050c8b93e7dfa35cc47f566bed32f9faf"
+    }
+  },
+  "original_creator": {
+    "bytes": 10520,
+    "sha256": "5e72098a4b07a80c6861cdaf14f4d2234e33cd7b6a0a79170bae762599cbe078"
+  },
+  "original_restorer": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/restore_compact.py",
+    "bytes": 5244,
+    "sha256": "23cdb74849a049df746c9f03af0e90ab261fd4fdc97bf2ea8f8088ffe9159376"
+  },
+  "changes": "Five verifier identifiers; prior count74; all74 exact ref names retained with no addition; existing integration ref added to permitted ancestry-preserving advances, retained origin/worktree bindings. Capture and stage identifiers only. All other gates unchanged.",
+  "full_parent_verifier_read": "04a79d",
+  "full_parent_helpers_read": "c1014d",
+  "capture_not_started": true,
+  "current_source_snapshot_not_claimed": true,
+  "independent_inspection_pending": true
+}

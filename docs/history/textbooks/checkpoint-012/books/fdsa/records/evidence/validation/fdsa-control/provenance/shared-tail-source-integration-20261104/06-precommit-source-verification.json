@@ -1,0 +1,180 @@
+{
+  "utc": "2026-11-04T16:00:48.171711+00:00",
+  "base": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "merge_head": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+  "exact_six_paths": [
+    {
+      "path": "Applications/Probability/PermutationTail.lean",
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "437552dda711378d6a0910d9aa79bd99caae8977"
+      },
+      "bytes": 23521,
+      "lines": 487,
+      "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed"
+    },
+    {
+      "path": "Examples/PermutationTail.lean",
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "baa3e26a3c72a4589765562167d1d85edc011e67"
+      },
+      "bytes": 9826,
+      "lines": 222,
+      "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e"
+    },
+    {
+      "path": "Examples/PermutationTailBoundary.lean",
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0"
+      },
+      "bytes": 12064,
+      "lines": 266,
+      "sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "2bc1fad47c4993199eccd91ee4b249726619d3dc"
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "623b77c69d1ff2cf09a9429eefbd69641370b9cc"
+      },
+      "bytes": 8609,
+      "lines": 262,
+      "sha256": "a30e93ebbdb80f40d751cc30a5185e5e96ce40861540c35fb439362d66d2678d"
+    },
+    {
+      "path": "docs/research/fdsa-permutation-tail.md",
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8cb9419840e7f6d2c553765d05d8aa39fe58c389"
+      },
+      "bytes": 10871,
+      "lines": 205,
+      "sha256": "bebf1822c26e94c35d1474a99687156ffe44d3c2f37bcb76ed7c930fdf37236d"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "d25451ccf02cde119a880d063aa7c0ade5e81cd2"
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "0944dfd5fde6895f2c4cc0db9bd015f3e71ffed1"
+      },
+      "bytes": 41477,
+      "lines": 631,
+      "sha256": "b5997a67ca8e23f4418b5428db17bedcf960f262f2e9a9e711255799970689d6"
+    }
+  ],
+  "formal_exact_T": [
+    {
+      "path": "Applications/Probability/PermutationTail.lean",
+      "candidate_staged_blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+      "exact_T_blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+      "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed",
+      "bytes": 23521,
+      "lines": 487,
+      "unchanged_from_T": true
+    },
+    {
+      "path": "Examples/PermutationTail.lean",
+      "candidate_staged_blob": "baa3e26a3c72a4589765562167d1d85edc011e67",
+      "exact_T_blob": "baa3e26a3c72a4589765562167d1d85edc011e67",
+      "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e",
+      "bytes": 9826,
+      "lines": 222,
+      "unchanged_from_T": true
+    },
+    {
+      "path": "Examples/PermutationTailBoundary.lean",
+      "candidate_staged_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0",
+      "exact_T_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0",
+      "sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54",
+      "bytes": 12064,
+      "lines": 266,
+      "unchanged_from_T": true
+    }
+  ],
+  "protected_predecessors": [
+    {
+      "path": "Applications/Probability/PermutationMinimum.lean",
+      "blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+      "exact_J": true
+    },
+    {
+      "path": "Examples/PermutationMinimum.lean",
+      "blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+      "exact_J": true
+    },
+    {
+      "path": "Examples/PermutationMinimumBoundary.lean",
+      "blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+      "exact_J": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+      "exact_J": true
+    },
+    {
+      "path": "Examples/PermutationOrder.lean",
+      "blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+      "exact_J": true
+    },
+    {
+      "path": "Examples/PermutationOrderBoundary.lean",
+      "blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+      "exact_J": true
+    },
+    {
+      "path": "docs/research/fdsa-permutation-minimum.md",
+      "blob": "052101180ceaf79f81e0873f24160fc73ae52f33",
+      "exact_J": true
+    },
+    {
+      "path": "docs/research/fdsa-permutation-order.md",
+      "blob": "8d8f68c95185bd787ce26bb5ba6cf3a6f652862a",
+      "exact_J": true
+    }
+  ],
+  "all_other_J_tracked_paths_preserved": true,
+  "outside_scope_mismatches": [],
+  "J_tracked_path_count": 1606,
+  "candidate_index_path_count": 1610,
+  "all65_prior_refs_unchanged": true,
+  "current_ref_count": 66,
+  "new_branch_still_at_J_until_commit": true,
+  "git_diff_cached_check": {
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "no_unstaged_changes": true,
+  "source_diff": {
+    "path": "source.diff",
+    "bytes": 60434,
+    "lines": 1241,
+    "sha256": "825737dfb5fc507013f9ab5d156a3e4a68339b1305fa09fac45924b20e68c5db"
+  },
+  "name_status": "A\tApplications/Probability/PermutationTail.lean\nA\tExamples/PermutationTail.lean\nA\tExamples/PermutationTailBoundary.lean\nM\tSquareApplications.lean\nA\tdocs/research/fdsa-permutation-tail.md\nM\tdocs/research/fdsa-reconstruction-map.md\n",
+  "stat": " Applications/Probability/PermutationTail.lean | 487 ++++++++++++++++++++++++++\n Examples/PermutationTail.lean                 | 222 ++++++++++++\n Examples/PermutationTailBoundary.lean         | 266 ++++++++++++++\n SquareApplications.lean                       |   1 +\n docs/research/fdsa-permutation-tail.md        | 205 +++++++++++\n docs/research/fdsa-reconstruction-map.md      |  17 +\n 6 files changed, 1198 insertions(+)\n",
+  "compiler_cache_runtime_output_actions": []
+}

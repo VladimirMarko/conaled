@@ -1,0 +1,112 @@
+{
+  "time_utc": "2026-11-02T06:15:49.835972+00:00",
+  "scope": "Read-only working-directory-scoped task process inventory; no unrelated process details, command lines or environments collected.",
+  "task_processes": [
+    {
+      "pid": 82647,
+      "comm": "bash",
+      "state": "S",
+      "ppid": 232,
+      "start_ticks": 2380492,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "memory": {
+        "VmRSS": "2044 kB",
+        "RssAnon": "320 kB",
+        "RssFile": "1724 kB",
+        "RssShmem": "0 kB"
+      }
+    },
+    {
+      "pid": 82650,
+      "comm": "python3",
+      "state": "S",
+      "ppid": 82647,
+      "start_ticks": 2380494,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "memory": {
+        "VmRSS": "11380 kB",
+        "RssAnon": "11340 kB",
+        "RssFile": "40 kB",
+        "RssShmem": "0 kB"
+      }
+    },
+    {
+      "pid": 83003,
+      "comm": "lake.orig",
+      "state": "S",
+      "ppid": 82650,
+      "start_ticks": 2382085,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "memory": {
+        "VmRSS": "125388 kB",
+        "RssAnon": "125212 kB",
+        "RssFile": "176 kB",
+        "RssShmem": "0 kB"
+      }
+    },
+    {
+      "pid": 180927,
+      "comm": "lean",
+      "state": "S",
+      "ppid": 83003,
+      "start_ticks": 3392547,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+      "memory": {
+        "VmRSS": "711496 kB",
+        "RssAnon": "146376 kB",
+        "RssFile": "565120 kB",
+        "RssShmem": "0 kB"
+      }
+    },
+    {
+      "pid": 181854,
+      "comm": "bash",
+      "state": "S",
+      "ppid": 232,
+      "start_ticks": 3407138,
+      "cwd": "/workspace/scratch/845aa1048b05",
+      "memory": {
+        "VmRSS": "2064 kB",
+        "RssAnon": "332 kB",
+        "RssFile": "1732 kB",
+        "RssShmem": "0 kB"
+      }
+    },
+    {
+      "pid": 181857,
+      "comm": "python3",
+      "state": "R",
+      "ppid": 181854,
+      "start_ticks": 3407140,
+      "cwd": "/workspace/scratch/845aa1048b05",
+      "memory": {
+        "VmRSS": "8836 kB",
+        "RssAnon": "5028 kB",
+        "RssFile": "3808 kB",
+        "RssShmem": "0 kB"
+      }
+    }
+  ],
+  "aggregate_cgroup": {
+    "memory.current": "8589918208",
+    "memory.max": "8589934592",
+    "memory.swap.current": "0",
+    "memory.swap.max": "max",
+    "memory.stat": {
+      "anon": 1214918656,
+      "file": 5391687680,
+      "kernel": 1978036224,
+      "shmem": 11554816,
+      "file_mapped": 1680277504,
+      "file_dirty": 978944,
+      "file_writeback": 0,
+      "active_anon": 11923456,
+      "inactive_anon": 1217118208,
+      "active_file": 3675185152,
+      "inactive_file": 1704624128,
+      "unevictable": 0,
+      "slab": 1510168544
+    }
+  },
+  "actions": "No signals, compilation, source changes, cache mutations or process resumption."
+}

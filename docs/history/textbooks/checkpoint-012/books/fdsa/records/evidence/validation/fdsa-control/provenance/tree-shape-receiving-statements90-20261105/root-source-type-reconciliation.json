@@ -1,0 +1,1440 @@
+{
+  "recorded_utc": "2026-11-05T03:31:57.533289+00:00",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "accepted_head_unchanged": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "original_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "all91_original_headers_unchanged": true,
+  "all90_names_in_original_order": true,
+  "headers": [
+    {
+      "name": "Trees.minHeight",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 17,
+      "raw_header_sha256": "1642c4e75c8def94ef719dfab81f531ceb8333afbf12cd570e2f38024a2fb270",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.minHeight_nil",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 20,
+      "raw_header_sha256": "89acdacb587591da70cbe71cd3018b9c072a54256752956d8892f62a6292b0b7",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.minHeight_node",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 22,
+      "raw_header_sha256": "77376cdaa28d4f860a1252b1851af8cbf736b07add33e55da0cbcfa02a3d7062",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.minHeight_map",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 25,
+      "raw_header_sha256": "492d2a5c80947cd0046b5e9f9f840035a3575729178d55ea66f4ac6796a33e17",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.minHeight_le_height",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 29,
+      "raw_header_sha256": "df9cc31797f559b0b44b2280a839bd9e345478b749fb075eff7f45b05fa66b03",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.Complete",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 39,
+      "raw_header_sha256": "818612c7ef1e844cf12a4780f7f595eb5b4fd9488422ffb9eaaa57a9bab83216",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.complete_nil",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 43,
+      "raw_header_sha256": "7109baf6a07a07f063625b9a498584afc7670531377c88fab5d8bc04793cf4ec",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.complete_node",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 45,
+      "raw_header_sha256": "e760e55ec2a49e219fb75283202c66cb0fb8c241e86222d87c8d0c463ec80475",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.complete_iff_minHeight_eq_height",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 48,
+      "raw_header_sha256": "0431fd46cf1eff1b64c892e22496ec45918d0828ba03cfed0444785c40a76b51",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.complete_map",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 58,
+      "raw_header_sha256": "b72da16e5c497c532ca121158a584932c994fe82a7d71869950b00c499c3fd72",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.AlmostComplete",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 64,
+      "raw_header_sha256": "f67247ed5572fd5cb0686cb6827bec85fe9a482bc243dd5a98a4489fe072ce20",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.almostComplete_nil",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 66,
+      "raw_header_sha256": "8153bc15339ce59aa8818c662d5e7d9c684bb0ac4177ce7daadeaf92a5c74eb1",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.almostComplete_iff_sub",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 69,
+      "raw_header_sha256": "3a24f686aec5ae8813f7a3814c7da484eaaa8a058ac570d47c22f9e835f8ed53",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.complete_almostComplete",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 74,
+      "raw_header_sha256": "9aaf92b165161201ba6301a6da48763bfc3c019a73d0e8db6e98fc14265968e3",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.almostComplete_children",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 80,
+      "raw_header_sha256": "a9f65cf7857cceffb4496f8bcdc89a7ad3a514be4b4a0f018a04e62f9c3b7b50",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.almostComplete_map",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 85,
+      "raw_header_sha256": "f9ec78f4e200d256007972dbc67943f31389a06c78a437456e33c9011ffdbf4a",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.pow_minHeight_le_numLeaves",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 90,
+      "raw_header_sha256": "15861c51d0df3627ae0b50f5db0fd8970a83a938fe031da122464bb48a5af922",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.numLeaves_le_pow_height",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 103,
+      "raw_header_sha256": "fdb59324e3860cd698376a53e43d1344cb3768e0686d523f8001d6b4f5747fae",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.numLeaves_eq_pow_height",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 115,
+      "raw_header_sha256": "da031ded5f8efa1dc3f5fd4d11f3bb124f716603acf4513b5fdc7e135749b268",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.numLeaves_eq_pow_minHeight",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 125,
+      "raw_header_sha256": "30296b2e6fe2c78441c15000a51698e0f02519241ba409abbd73010c8a74bd74",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.numLeaves_lt_pow_height",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 131,
+      "raw_header_sha256": "b2ee9992506e6163187ab94ed14e310ed529e4ca063964b86d3b7be3bce87bb7",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.pow_minHeight_lt_numLeaves",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 164,
+      "raw_header_sha256": "b645b9d0b807d9a6034a30b12b0ca61aa9fd6c9bd8f664a471d1211cc7ee9a61",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.complete_iff_numLeaves_eq_pow_height",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 200,
+      "raw_header_sha256": "6ffeaf7e9e3f9550f262ee21d3349ae364fd2f9db1480e26353f1ef9e078b47a",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.complete_iff_numLeaves_eq_pow_minHeight",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 208,
+      "raw_header_sha256": "7f8f8be4e1af9351336b5a4713aa62637e4d749f7aaa602290bf68b954d0841a",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.minHeight_le_log_numLeaves",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 216,
+      "raw_header_sha256": "2387b1809836b6a52f2bb5b1c2d7b98f48a6123a4fb63e7d8d62cd527d252ca0",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.clog_numLeaves_le_height",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 220,
+      "raw_header_sha256": "276347b73fc3b3429caf2f61cfad3e0dc6dd564ebd6cc2e0dd2413bf240d7293",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.minHeight_eq_log_numLeaves",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 225,
+      "raw_header_sha256": "9ea4252415b9ea6a61dde821df357163b29f1931c7715281a900aab43a6d0014",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.height_eq_clog_numLeaves",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 243,
+      "raw_header_sha256": "118b595e9a532389de0099713968cb088b75a664bfb774af4307c08fdf11ca3a",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.height_optimal",
+      "source": "Applications/Trees/Shape.lean",
+      "visibility": "public",
+      "current_line": 258,
+      "raw_header_sha256": "059f6cd85d13191ed6b5d3a6c933a09bb0c6bcfc2c4eb370da1ceaa77d21c349",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.minHeight_le_logb_numLeaves",
+      "source": "Applications/Trees/ShapeLog.lean",
+      "visibility": "public",
+      "current_line": 14,
+      "raw_header_sha256": "7af9bde4cb20083529165175f96ebf008bb3c094a7a07ea424f70aefe7c0b673",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.logb_numLeaves_le_height",
+      "source": "Applications/Trees/ShapeLog.lean",
+      "visibility": "public",
+      "current_line": 23,
+      "raw_header_sha256": "d5706a4a36f4a101533608a2fd770226050d0b1af22fefcddf7465328ac93377",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.minHeight_lt_logb_numLeaves",
+      "source": "Applications/Trees/ShapeLog.lean",
+      "visibility": "public",
+      "current_line": 32,
+      "raw_header_sha256": "e8ac97009dac5f0206b0307e71daca5bacf4465a1e76e391a20d2877beed5b26",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.logb_numLeaves_lt_height",
+      "source": "Applications/Trees/ShapeLog.lean",
+      "visibility": "public",
+      "current_line": 41,
+      "raw_header_sha256": "9f7a6f4abe778c9bbef85f8dd453c35a4b2823f426734f55bd22e7f4b4cc5dd5",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.height_eq_logb_numLeaves",
+      "source": "Applications/Trees/ShapeLog.lean",
+      "visibility": "public",
+      "current_line": 50,
+      "raw_header_sha256": "a30e1d9796945a581ee526a1f062eb29c316b0164ca73920e413189955b3b78f",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.minHeight_eq_floor_logb_numLeaves",
+      "source": "Applications/Trees/ShapeLog.lean",
+      "visibility": "public",
+      "current_line": 57,
+      "raw_header_sha256": "24f43f882274406b174455ee87ace6cc5a2c9158c33f7b45b43a0f3894e91bbc",
+      "matches_original": true
+    },
+    {
+      "name": "Trees.height_eq_ceil_logb_numLeaves",
+      "source": "Applications/Trees/ShapeLog.lean",
+      "visibility": "public",
+      "current_line": 65,
+      "raw_header_sha256": "57df74b060ac39c76529672d5c9351ea6b2867cef1f4fa3c972711fbc0d56b72",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.single",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 14,
+      "raw_header_sha256": "ff25c462a56efc2f30691451fddbe633a4c3bd399b4814e845e85ee6c053e2b4",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.single_complete",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 16,
+      "raw_header_sha256": "001127a6f09f27bd1ca83e89d5c866ea1eda935b48690a2b42e5427bfff79b00",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.single_minHeight",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 19,
+      "raw_header_sha256": "5d8114efc0be7951a7b8f886de469d7b60b13dcd42b0b52d3f464a24823b34b5",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.single_almostComplete",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 25,
+      "raw_header_sha256": "54e300a07fc2da76fa51f093b16b318a7b7e347d93a02c34204eb64be46980a4",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.empty_shapes",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 28,
+      "raw_header_sha256": "b1abfaf9ed154445705b3d3e99b25e3efaafe2458dcdf335f969d7a869b82bda",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.perfectThree",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 34,
+      "raw_header_sha256": "29e9b6a52c5047f47552583e978f00eb5f26e18a5b211bd6d50b78103fdcaae1",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.perfectThree_complete",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 36,
+      "raw_header_sha256": "337aa7064c19842bf82a9aaf8fc51a32e9d0b38131f54b66f2991fc0a994ba01",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.perfectThree_leaves",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 39,
+      "raw_header_sha256": "8dda241be1a4eb292a8f04ad14e009bbadbf8eebb27de5046bd5996f34255665",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.perfectThree_minHeight",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 43,
+      "raw_header_sha256": "9b0fd5f9b9abf441cecb2009d7d03a9c286b6bac29cd18cd4f1dd6f63a53e50b",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 49,
+      "raw_header_sha256": "dafa731f8ebef8d9abd4a7349e9c498629111daf45c3ccf3d5e17fdc186a42f6",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_incomplete",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 51,
+      "raw_header_sha256": "90bfdfd42182221b7f7ab10e015433f32969ca1e65fca66ff4053ab19a892ca0",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_almostComplete",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 55,
+      "raw_header_sha256": "b8d3be6d5a0e1a98e35c4f72f7fdfd977b8ac3aadc0588f55fc98f515feb4837",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_strict_capacity",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 59,
+      "raw_header_sha256": "3063e4f0e7278301e1dcf756c5bd9ad51cc240e90725bba183756fcc747874b5",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_children",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 65,
+      "raw_header_sha256": "a28c4974fcad2c2ae0dd040c6dd82c30ff9bd18e7cca59ff0febe3eff868e72a",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_sub",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 69,
+      "raw_header_sha256": "82af65c52008b8bd8db0bf65c635d70ac2b86414b505307bb3bdb4e3dff73e46",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.chainThree_power_not_complete",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 72,
+      "raw_header_sha256": "c8df2519cc433079265090ab2f0aea1d9c81b23dd9a357b2a9addcded06457a5",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_rounded_equalities",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 80,
+      "raw_header_sha256": "ae37698c99cff31f254078e66e417fce57e7a8328022afa70aed33e83087bef0",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_rounded_strictness_fails",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 86,
+      "raw_header_sha256": "9759362e87f5205b93154cd8ffed1548f00a9c3b4b94291499f5fa2f922749be",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.empty_logarithms",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 93,
+      "raw_header_sha256": "fad8fd990139805313e46835511eb3b1be89a6e23b6b11820a6ca83505f3bde4",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.sample_almostComplete",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 102,
+      "raw_header_sha256": "6e638a2b90124f2780510279b40c3960830d9cf576c30a971ec19898b608270b",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.sample_minHeight",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 106,
+      "raw_header_sha256": "a4900570803a81de174398d5c8849713a2de5f84154792fa69fc0ad6fdf53ae1",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.sample_leaves",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 107,
+      "raw_header_sha256": "f4c89b22836b45b87547e3086a6d289c5ea50f75f32af524eafc04101fb4a719",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.sample_logarithms",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 109,
+      "raw_header_sha256": "ac0d6687bbd1901115e8d8039d1775008be561420b652d6c32d275efab130964",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.sample_height_nodes",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 116,
+      "raw_header_sha256": "6389abde692f287fee1af0c29c58d29be4ca1d6b4abb53589c262676c83b9a0f",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.sample_wrong_node_offset",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 121,
+      "raw_header_sha256": "e876068fef9aff6aecc964f757b25042292174ad1c38cc4b823ce1b4e0417a85",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.perfectThree_real_height",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 125,
+      "raw_header_sha256": "24cc40bd9426d73f39ef35834cfc46d19603b809a112911806b82ce670e48d7d",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_strict_real",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 129,
+      "raw_header_sha256": "6774d29f11aaf4d84ce79df675227305560bfbde413a691d26e968759c2d9b9e",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.sample_real_rounding",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 140,
+      "raw_header_sha256": "80788686f2e42ff976adc00be6edc2cf5479d1fa270d10b85e58e0ff5c1f2f77",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.empty_real_height",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 150,
+      "raw_header_sha256": "c098a41359745a37db9ca452aee6bd971bde003956d2e4e76a2af3fc0f7775b1",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.mapped_sample",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 154,
+      "raw_header_sha256": "91bf654bef86ddc49813461d217b967b7b24b738d4589889dd433ebc731004b5",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.relabelled_complete",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 160,
+      "raw_header_sha256": "cc3ce93bb8f1accb10844a09a0353d2f5fc5f053e9c158409bc0d639629a14ed",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.minHeight_erase",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 165,
+      "raw_header_sha256": "cf8125bbfc2995e891745237e349d987a95aaf45b51a4caa49d26f1f877a2d7f",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.almostComplete_erase",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 169,
+      "raw_header_sha256": "c161170a03fe4145a64803b026c41029e42f9f39b79b6063afe2b68c66f60ce9",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.pairSample_shape",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 173,
+      "raw_header_sha256": "c1d6593f549aac1895dbf11933e7605e75894a49710ec736232bf234746dced9",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.corrupt_shape_without_validity",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 188,
+      "raw_header_sha256": "e5208adf39252ca63600efa2675efe76337750b01dd18370a13a9bdfa0b86977",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.minStep",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 204,
+      "raw_header_sha256": "2a1a0922762cc59cdd8d55dba5a0ac6b2455437523052da367fd824656d18c0c",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.min_reader",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 207,
+      "raw_header_sha256": "49a56bc2c4b0e1c910dcba7924db3e7d8115622fe2dd5c4482324b2b7ad0c3b0",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.minSample",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 216,
+      "raw_header_sha256": "af0d4593c640d404e49576dffba0b95e665a81d8e4090eb7c1b2c30dac92f519",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.minSample_valid",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 219,
+      "raw_header_sha256": "e876719a6fdeed9ca0c866c6c4b47d8da8a557977da6d251ed41d2bdcc0dfe10",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.minSample_erases",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 222,
+      "raw_header_sha256": "d4414e83acdc48373ebfd47399a064ae48f63da088abdc6f7a6acfa4cd825fe6",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.minSample_reads",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 225,
+      "raw_header_sha256": "37e84d0718c61aa5d91b736687ad4abb77bf8a5679f8345c1a47136545cec3ae",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.heightOptimalCounter",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 234,
+      "raw_header_sha256": "d0194ad836cccdf124ff3f1c5ef3019dd7de74e9e376759542b5407f276533ba",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.heightOptimalCounter_numNodes",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 237,
+      "raw_header_sha256": "817507681665b0e405e0d149c4f4024ae2668236e18c966f9c6db9bc827b543a",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.heightOptimalCounter_shape",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 239,
+      "raw_header_sha256": "bd13d44447b1820c17d07d4281613041d69bb7b881c741d13bc5f30364420dd0",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.optimum_across_labels",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 244,
+      "raw_header_sha256": "c57b478fe321182a577871cf088a7f2d6648bc65e69ed78b58eb9af12eb989fc",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.counter_not_almostComplete",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 249,
+      "raw_header_sha256": "0a8a671977b17782c1c2b77bb74ef979d3acaeb1d3d78e5fce5b7e0530cfab1d",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.counter_rounded_height",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 253,
+      "raw_header_sha256": "f0db31901191609577671f0021ba7379943998fbcac12e379caef4c32865bd37",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.counter_height_optimal",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 263,
+      "raw_header_sha256": "6978ad78b719f267b706bc5a3ec7222c715b18fced6212be21c614157b39721e",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.almostFour",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 272,
+      "raw_header_sha256": "8ae38f284bfad5af8bbdb295ef21016011c6b4ee9429bf437c2d26adecd4aa14",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.localBalanceCounter",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 273,
+      "raw_header_sha256": "58623a78088f5f283811f52f5b433d5d21ba9720f472872ab8bace95f955c1f3",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.localBalanceCounter_balanced",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 281,
+      "raw_header_sha256": "d10f47021aa654e3c10139e38fbfb7a8a2f21da0ff4ca07a71fe6be951d33fd0",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.localBalanceCounter_shape",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 285,
+      "raw_header_sha256": "901233c9f1e4b729b5d361fa064bb08f6e2a00b58a37746e6a6815795404e7df",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.localBalanceCounter_not_almostComplete",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 290,
+      "raw_header_sha256": "21b1f2b54ba5f9fab1c69f63cf77fb55f299853e82acdacd6718f15cc4a68e0e",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.chain_rounded_bounds",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "public",
+      "current_line": 295,
+      "raw_header_sha256": "1cb07a288b5721ce2c327e6cfaea770f739eec55ec00fd3fce0345aaeb82b340",
+      "matches_original": true
+    },
+    {
+      "name": "TreeShapeExamples.SiblingHeightBalanced",
+      "source": "Examples/TreeShape.lean",
+      "visibility": "private",
+      "current_line": 276,
+      "raw_header_sha256": "2b4ac5cebb2b44694b4daa3d9cd71b8f039db7a9d0488aec496c44b423f16e46",
+      "matches_original": true
+    }
+  ],
+  "actual_type_blocks": [
+    {
+      "name": "Trees.minHeight",
+      "line_start": 1,
+      "line_end": 1,
+      "bytes": 79,
+      "sha256": "0391cc2d454233796680f87543ed0d878357ff4b75b89de1b99483d6bfcf5299"
+    },
+    {
+      "name": "Trees.minHeight_nil",
+      "line_start": 2,
+      "line_end": 4,
+      "bytes": 185,
+      "sha256": "41223483853e68bc2dcc384a36e119c2b006ca04c7a9195ae4b686b7f28f3bfb"
+    },
+    {
+      "name": "Trees.minHeight_node",
+      "line_start": 5,
+      "line_end": 9,
+      "bytes": 398,
+      "sha256": "ce82c6a64a62394babbbc8638abadbe1dc66a18d67bf0abfe460d3a329ac602c"
+    },
+    {
+      "name": "Trees.minHeight_map",
+      "line_start": 10,
+      "line_end": 12,
+      "bytes": 236,
+      "sha256": "efe34e25199456d2abe8b3c35eb4652a4d2c36a41f7c6ac794cfa9e9884b0ae4"
+    },
+    {
+      "name": "Trees.minHeight_le_height",
+      "line_start": 13,
+      "line_end": 14,
+      "bytes": 171,
+      "sha256": "c499e3c1fbf6992d109a837326e5a41315e9f9ebbdd9f16bebe606db65b27236"
+    },
+    {
+      "name": "Trees.Complete",
+      "line_start": 15,
+      "line_end": 15,
+      "bytes": 73,
+      "sha256": "4d543a188cae2a168efbb66282b8350ca1971bcb244537cf113ff056784e5451"
+    },
+    {
+      "name": "Trees.complete_nil",
+      "line_start": 16,
+      "line_end": 16,
+      "bytes": 101,
+      "sha256": "a9680b60c4019eb482b803fc45e190725c280313d4ea27f3abb1b813063890c3"
+    },
+    {
+      "name": "Trees.complete_node",
+      "line_start": 17,
+      "line_end": 20,
+      "bytes": 312,
+      "sha256": "7ada3c3e74752893b46ec2a94baae2b97945254b2cae8a542ceef552f3ec2b8c"
+    },
+    {
+      "name": "Trees.complete_iff_minHeight_eq_height",
+      "line_start": 21,
+      "line_end": 22,
+      "bytes": 206,
+      "sha256": "e4eb711551dd63974a702f57f698e2e595066c4f143f48535da75b0dee64816f"
+    },
+    {
+      "name": "Trees.complete_map",
+      "line_start": 23,
+      "line_end": 25,
+      "bytes": 225,
+      "sha256": "9d25018cdf29ba5333ff6aeaba16ee77aa44ff374abc541e9ca49f16680a00bf"
+    },
+    {
+      "name": "Trees.AlmostComplete",
+      "line_start": 26,
+      "line_end": 26,
+      "bytes": 85,
+      "sha256": "b13d8e5abe5b8dbb974e0e908734897d2bbdf4814215c3ebd0fd0e30646155c4"
+    },
+    {
+      "name": "Trees.almostComplete_nil",
+      "line_start": 27,
+      "line_end": 27,
+      "bytes": 113,
+      "sha256": "e8801f8d6ec72275cf0350ffbc5b5498beb1c99ecc01130558d0e8ca3a2ba7d6"
+    },
+    {
+      "name": "Trees.almostComplete_iff_sub",
+      "line_start": 28,
+      "line_end": 33,
+      "bytes": 367,
+      "sha256": "cbacc3b66a5c7db543fd503ebc35017105c39786d63f899cb38615b8f20d9227"
+    },
+    {
+      "name": "Trees.complete_almostComplete",
+      "line_start": 34,
+      "line_end": 35,
+      "bytes": 155,
+      "sha256": "c6ba07840ead5870a38adf9623c4a6be7ab97492c2107553e90a932f05918bac"
+    },
+    {
+      "name": "Trees.almostComplete_children",
+      "line_start": 36,
+      "line_end": 38,
+      "bytes": 247,
+      "sha256": "59d8f31edd8330d8376ad1947cdd4d043d5634cdc492af157369f82cf2ba1244"
+    },
+    {
+      "name": "Trees.almostComplete_map",
+      "line_start": 39,
+      "line_end": 41,
+      "bytes": 243,
+      "sha256": "a46461873f9a0af4d72c8e882fc4f019b3fc7a5653efc87874c26eb310dfdf23"
+    },
+    {
+      "name": "Trees.pow_minHeight_le_numLeaves",
+      "line_start": 42,
+      "line_end": 46,
+      "bytes": 355,
+      "sha256": "69d0f1c44f68627e94cefda4eb2d23a9e5e2fa4131ee45a8bf121de988cf01a4"
+    },
+    {
+      "name": "Trees.numLeaves_le_pow_height",
+      "line_start": 47,
+      "line_end": 50,
+      "bytes": 350,
+      "sha256": "b41807bbe545bf338700beacbfaecd8e985f1585be8e2adcea812b279be45a69"
+    },
+    {
+      "name": "Trees.numLeaves_eq_pow_height",
+      "line_start": 51,
+      "line_end": 55,
+      "bytes": 376,
+      "sha256": "43626dbdd5a52485fd6efa9b4c3e056dc9a64c178d89967d9ab1c9c51f65013d"
+    },
+    {
+      "name": "Trees.numLeaves_eq_pow_minHeight",
+      "line_start": 56,
+      "line_end": 59,
+      "bytes": 372,
+      "sha256": "54442988d36ed0d810c7684b9a4de5c5bb22512de5b10f37a9fc4f41c895f618"
+    },
+    {
+      "name": "Trees.numLeaves_lt_pow_height",
+      "line_start": 60,
+      "line_end": 64,
+      "bytes": 395,
+      "sha256": "130e3b246f85e97319bab034641fcdc38dafba0f6f4f8573469d94a11f0b1562"
+    },
+    {
+      "name": "Trees.pow_minHeight_lt_numLeaves",
+      "line_start": 65,
+      "line_end": 70,
+      "bytes": 402,
+      "sha256": "0537411ee3985d6d0bc238a806aeda2a824594e7ea35cfee0912da49834fa3b1"
+    },
+    {
+      "name": "Trees.complete_iff_numLeaves_eq_pow_height",
+      "line_start": 71,
+      "line_end": 75,
+      "bytes": 393,
+      "sha256": "41046f73ebaa36c3538e5c8ea61122f7ef5178c2d6d0d016f3d93390c6cd1b48"
+    },
+    {
+      "name": "Trees.complete_iff_numLeaves_eq_pow_minHeight",
+      "line_start": 76,
+      "line_end": 80,
+      "bytes": 394,
+      "sha256": "60e67a7d5a5ffa6c751264fcda518cfc8f198812d4e0cbadb6ce7cc62abb8c93"
+    },
+    {
+      "name": "Trees.minHeight_le_log_numLeaves",
+      "line_start": 81,
+      "line_end": 83,
+      "bytes": 257,
+      "sha256": "f8c5db80c5331e57b4bb2b9c65a5d4cf03927b63b0a52e0b3016253b0c1d31d0"
+    },
+    {
+      "name": "Trees.clog_numLeaves_le_height",
+      "line_start": 84,
+      "line_end": 87,
+      "bytes": 262,
+      "sha256": "f5ed2552108c75e73f09449915a19d598e9b35960f3071ce3651b73899500f28"
+    },
+    {
+      "name": "Trees.minHeight_eq_log_numLeaves",
+      "line_start": 88,
+      "line_end": 91,
+      "bytes": 286,
+      "sha256": "0e21ef8c568992175f36fe19c5fed3c61771628908d4ec07619368f75c735876"
+    },
+    {
+      "name": "Trees.height_eq_clog_numLeaves",
+      "line_start": 92,
+      "line_end": 95,
+      "bytes": 287,
+      "sha256": "2bcfd891e01d8b8ac0e4d177097e2d12d6215a161b5409a888c4d852a002d88c"
+    },
+    {
+      "name": "Trees.height_optimal",
+      "line_start": 96,
+      "line_end": 100,
+      "bytes": 366,
+      "sha256": "c1d4182e5b0ab8ee5f1e81e8a0107617fd66d353b147edfad757fbb1da057b55"
+    },
+    {
+      "name": "Trees.minHeight_le_logb_numLeaves",
+      "line_start": 101,
+      "line_end": 108,
+      "bytes": 593,
+      "sha256": "78d71665bab37c03206a65b018247f09bcaf7089df92f57c4549906e0c3f6ca9"
+    },
+    {
+      "name": "Trees.logb_numLeaves_le_height",
+      "line_start": 109,
+      "line_end": 117,
+      "bytes": 596,
+      "sha256": "c473904c6b2542862c70093022e6e5b403388110977f502fea347c08f47b483b"
+    },
+    {
+      "name": "Trees.minHeight_lt_logb_numLeaves",
+      "line_start": 118,
+      "line_end": 126,
+      "bytes": 635,
+      "sha256": "b2731ff7f2a9cefe1b589e9bc3fe3f62c4dd80792322b6c5bea9551e89db97aa"
+    },
+    {
+      "name": "Trees.logb_numLeaves_lt_height",
+      "line_start": 127,
+      "line_end": 136,
+      "bytes": 638,
+      "sha256": "d6241dea691113cbfc4a599e9e24df46649de7a493d4404f1aa8f7d8822453e9"
+    },
+    {
+      "name": "Trees.height_eq_logb_numLeaves",
+      "line_start": 137,
+      "line_end": 144,
+      "bytes": 611,
+      "sha256": "cdd0f284eb84efc325e7077f2db34e7266727f09486cd1a3ea11f1672b550b1c"
+    },
+    {
+      "name": "Trees.minHeight_eq_floor_logb_numLeaves",
+      "line_start": 145,
+      "line_end": 155,
+      "bytes": 751,
+      "sha256": "6868b370be249f444784e891e12ab0df6d5f72542159716686cc615edb6db738"
+    },
+    {
+      "name": "Trees.height_eq_ceil_logb_numLeaves",
+      "line_start": 156,
+      "line_end": 166,
+      "bytes": 748,
+      "sha256": "2cfbb7bfa79b65d4883d6c6f0ea68b80f6e8ad1c7469cf4ce477599e707e4aad"
+    },
+    {
+      "name": "TreeShapeExamples.single",
+      "line_start": 167,
+      "line_end": 167,
+      "bytes": 47,
+      "sha256": "5b2292041316f90d2a59b28ce0020dd5277ddd8fb37d55d470ff8e59436ebc24"
+    },
+    {
+      "name": "TreeShapeExamples.single_complete",
+      "line_start": 168,
+      "line_end": 168,
+      "bytes": 86,
+      "sha256": "849fdfffd6edbd0770de143bf2d1bd329c1a94654619dfd5f7ecaf0f38d7e16b"
+    },
+    {
+      "name": "TreeShapeExamples.single_minHeight",
+      "line_start": 169,
+      "line_end": 170,
+      "bytes": 166,
+      "sha256": "8a580f59ef07e6967a78f40868477767743c756595ee6a0571a599641e9c2636"
+    },
+    {
+      "name": "TreeShapeExamples.single_almostComplete",
+      "line_start": 171,
+      "line_end": 171,
+      "bytes": 98,
+      "sha256": "fc34a1a7dd8cd1066c7c5a0aac11b0c44e251c3eca7c732cbdd3046bdd654752"
+    },
+    {
+      "name": "TreeShapeExamples.empty_shapes",
+      "line_start": 172,
+      "line_end": 179,
+      "bytes": 533,
+      "sha256": "299c0754db6d72b6da2f08e060c6d24a8e77b93e827ce88a4984cde1cebec671"
+    },
+    {
+      "name": "TreeShapeExamples.perfectThree",
+      "line_start": 180,
+      "line_end": 180,
+      "bytes": 53,
+      "sha256": "53e3b71c517a891123f426b16641ba7d545f1e18e989063bca2adfa5229dbee1"
+    },
+    {
+      "name": "TreeShapeExamples.perfectThree_complete",
+      "line_start": 181,
+      "line_end": 181,
+      "bytes": 98,
+      "sha256": "cca0cab6645cfcccc37f5910cf53a6d19fda7102fe1e4ebd83fe429b892f1bde"
+    },
+    {
+      "name": "TreeShapeExamples.perfectThree_leaves",
+      "line_start": 182,
+      "line_end": 186,
+      "bytes": 375,
+      "sha256": "35cd534896b21a4ea342a9958f15e17e4ecf7307e884d310eb8d17515abce4d9"
+    },
+    {
+      "name": "TreeShapeExamples.perfectThree_minHeight",
+      "line_start": 187,
+      "line_end": 188,
+      "bytes": 178,
+      "sha256": "ea648a4bc9cb09b6cb980e2e6627f0bb48fe5299ed6ae3cc735ed578906ea4b3"
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo",
+      "line_start": 189,
+      "line_end": 189,
+      "bytes": 49,
+      "sha256": "50a0b8610112c61215f1b7928641b20dc294e20f95cab6d08d81118aca9e8a1b"
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_incomplete",
+      "line_start": 190,
+      "line_end": 190,
+      "bytes": 98,
+      "sha256": "ad50469e7fd0621cf76aba335c4d70b9186e0500a423d30cb6162d997f8831ce"
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_almostComplete",
+      "line_start": 191,
+      "line_end": 191,
+      "bytes": 102,
+      "sha256": "a003680c5cf55a4f69c70eaabbcd115337ba775bfb1e39110a67dcd127287dc1"
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_strict_capacity",
+      "line_start": 192,
+      "line_end": 203,
+      "bytes": 759,
+      "sha256": "c520230fe0ba6e4783958d7dbb83c8746c431347450cdcb6b908998fad86fc13"
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_children",
+      "line_start": 204,
+      "line_end": 205,
+      "bytes": 162,
+      "sha256": "a7c3a73d01211e79a60a5f5e6cd48cb8721ab1acb2db2198a2a4efbeeb825651"
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_sub",
+      "line_start": 206,
+      "line_end": 209,
+      "bytes": 306,
+      "sha256": "ac9418b57de561a3465f8c021c6c621501e490eba9c3c8243ac02b955034aff6"
+    },
+    {
+      "name": "TreeShapeExamples.chainThree_power_not_complete",
+      "line_start": 210,
+      "line_end": 219,
+      "bytes": 598,
+      "sha256": "b8552942d27512687dad4b1074e53cb90a0c16dc74d645f7867a3514d27d3315"
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_rounded_equalities",
+      "line_start": 220,
+      "line_end": 226,
+      "bytes": 481,
+      "sha256": "eff2017e584262fbbefb6f2531e70dcfc96d61ff99923900c6c7f0d5c2861b57"
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_rounded_strictness_fails",
+      "line_start": 227,
+      "line_end": 236,
+      "bytes": 547,
+      "sha256": "ed9d3db627d75a10a4de7cc6c874d193eaf816d32281278e39fe5c1b4a0b884a"
+    },
+    {
+      "name": "TreeShapeExamples.empty_logarithms",
+      "line_start": 237,
+      "line_end": 244,
+      "bytes": 476,
+      "sha256": "ed752d3b293eb8c0d4540735c4ae532bb0b4cb224e1eb71c910d2573d014cfe3"
+    },
+    {
+      "name": "TreeShapeExamples.sample_almostComplete",
+      "line_start": 245,
+      "line_end": 245,
+      "bytes": 97,
+      "sha256": "4b4fa8be8290b61ad7a4902430376d667f5f2017ddb6c244b5fb8a8921ea7a92"
+    },
+    {
+      "name": "TreeShapeExamples.sample_minHeight",
+      "line_start": 246,
+      "line_end": 247,
+      "bytes": 165,
+      "sha256": "b632cd34b0f113de1e619ad9ba48dfd3017609b8fca979a26ac2b3c4845d7638"
+    },
+    {
+      "name": "TreeShapeExamples.sample_leaves",
+      "line_start": 248,
+      "line_end": 249,
+      "bytes": 167,
+      "sha256": "cabe8911199444341172690d5820fe985d0888114349c4ead588f4c7d3efe652"
+    },
+    {
+      "name": "TreeShapeExamples.sample_logarithms",
+      "line_start": 250,
+      "line_end": 258,
+      "bytes": 495,
+      "sha256": "eed9b9c0aca3a6ed808dd558ab5cf2b4a8d2094d4018e907391dbe98a5e56895"
+    },
+    {
+      "name": "TreeShapeExamples.sample_height_nodes",
+      "line_start": 259,
+      "line_end": 263,
+      "bytes": 381,
+      "sha256": "1d89471cc7c6345fa47acb6d22276adf76684ad060af5012e4657cc73f55743f"
+    },
+    {
+      "name": "TreeShapeExamples.sample_wrong_node_offset",
+      "line_start": 264,
+      "line_end": 266,
+      "bytes": 246,
+      "sha256": "5418151b0e4b0bef547482a4b0463f39d0613b165f0f30e0230bc8272f816d9e"
+    },
+    {
+      "name": "TreeShapeExamples.perfectThree_real_height",
+      "line_start": 267,
+      "line_end": 274,
+      "bytes": 581,
+      "sha256": "4630884ce213b4b9f22f68bb98dcc2908219c3c91798faace521fe42d422af64"
+    },
+    {
+      "name": "TreeShapeExamples.rightTwo_strict_real",
+      "line_start": 275,
+      "line_end": 299,
+      "bytes": 1757,
+      "sha256": "d519214de5fd82cb72560c3216c2938271c5ab391998b81cf52a1959751f2a4f"
+    },
+    {
+      "name": "TreeShapeExamples.sample_real_rounding",
+      "line_start": 300,
+      "line_end": 326,
+      "bytes": 1820,
+      "sha256": "92d24ded3a6804975dc9bd59650dbbf1262f7ed7862148b7ccd35570474518c8"
+    },
+    {
+      "name": "TreeShapeExamples.empty_real_height",
+      "line_start": 327,
+      "line_end": 334,
+      "bytes": 562,
+      "sha256": "b1b8043ab18066a7dfbc90acb1de0c971c578c36f1685f677670d49f7511c536"
+    },
+    {
+      "name": "TreeShapeExamples.mapped_sample",
+      "line_start": 335,
+      "line_end": 340,
+      "bytes": 367,
+      "sha256": "43c43bc2fd5950a139200f57b7c30603e5b5d354a5d066b46ddcb9f48700c56d"
+    },
+    {
+      "name": "TreeShapeExamples.relabelled_complete",
+      "line_start": 341,
+      "line_end": 342,
+      "bytes": 164,
+      "sha256": "acfab5263f37c5d442423c6c5318d302b61e3686f484fc8817b83af251553420"
+    },
+    {
+      "name": "TreeShapeExamples.minHeight_erase",
+      "line_start": 343,
+      "line_end": 346,
+      "bytes": 290,
+      "sha256": "ec11d17ed3e0f4217367463796b4f139cb8998f6d841b15d6472f4fd7eb62db5"
+    },
+    {
+      "name": "TreeShapeExamples.almostComplete_erase",
+      "line_start": 347,
+      "line_end": 350,
+      "bytes": 297,
+      "sha256": "121a59bc90f817a56cc4af4d18ab97bb7a92c06e5d288e8d45511c3ee67e66ca"
+    },
+    {
+      "name": "TreeShapeExamples.pairSample_shape",
+      "line_start": 351,
+      "line_end": 354,
+      "bytes": 314,
+      "sha256": "961eeb5ed481f27a08ca0efe82d98684d5e3406a1d63091729469a1ec2448306"
+    },
+    {
+      "name": "TreeShapeExamples.corrupt_shape_without_validity",
+      "line_start": 355,
+      "line_end": 361,
+      "bytes": 479,
+      "sha256": "d4ed60799d87e373fe1a92fc7c53d3601ff6d1f7b5cc04760cf0441f1c287ebb"
+    },
+    {
+      "name": "TreeShapeExamples.minStep",
+      "line_start": 362,
+      "line_end": 362,
+      "bytes": 94,
+      "sha256": "149f7cdc6db20d55065c623ebf2131aba586412242e96e9972797aec97f5dc51"
+    },
+    {
+      "name": "TreeShapeExamples.min_reader",
+      "line_start": 363,
+      "line_end": 368,
+      "bytes": 431,
+      "sha256": "88914737a12db3bc534607a8ce1e9474feab11efb60205d4928e16810203415c"
+    },
+    {
+      "name": "TreeShapeExamples.minSample",
+      "line_start": 369,
+      "line_end": 369,
+      "bytes": 67,
+      "sha256": "c54d795918ff866733335672c6b2044d36a36cdfcda0c6ba3e8a3ee35443a0d2"
+    },
+    {
+      "name": "TreeShapeExamples.minSample_valid",
+      "line_start": 370,
+      "line_end": 372,
+      "bytes": 202,
+      "sha256": "c6692dd7a97148278d2c35cebfd8de65c2b98f042dfdd12c527a6893e15a0762"
+    },
+    {
+      "name": "TreeShapeExamples.minSample_erases",
+      "line_start": 373,
+      "line_end": 374,
+      "bytes": 158,
+      "sha256": "167570001439470e5d9a249234dbcdfd63f8e371b06ce61a9f653b322c099776"
+    },
+    {
+      "name": "TreeShapeExamples.minSample_reads",
+      "line_start": 375,
+      "line_end": 378,
+      "bytes": 244,
+      "sha256": "c41bccade04cf93329093bc4025547cf5ba9d66ddf5baef264f9c0d6bbd68359"
+    },
+    {
+      "name": "TreeShapeExamples.heightOptimalCounter",
+      "line_start": 379,
+      "line_end": 379,
+      "bytes": 61,
+      "sha256": "06839a3885251243e722ec30941d86edd3c70bf37423ed674cdaf388f1d1a24e"
+    },
+    {
+      "name": "TreeShapeExamples.heightOptimalCounter_numNodes",
+      "line_start": 380,
+      "line_end": 382,
+      "bytes": 199,
+      "sha256": "6bdbabbffe70770bda60a5a3838e26b946b37a4a141421575c12b992f2ef90a5"
+    },
+    {
+      "name": "TreeShapeExamples.heightOptimalCounter_shape",
+      "line_start": 383,
+      "line_end": 390,
+      "bytes": 521,
+      "sha256": "dd5722e15eb93526163bea37ab4a1af5c56e669ba286c527a7c522e9bdddb2e8"
+    },
+    {
+      "name": "TreeShapeExamples.optimum_across_labels",
+      "line_start": 391,
+      "line_end": 392,
+      "bytes": 192,
+      "sha256": "02d65bd4eb905496bce0c0834d4a1486352b1c85df3b27fcd70aad3335597bb3"
+    },
+    {
+      "name": "TreeShapeExamples.counter_not_almostComplete",
+      "line_start": 393,
+      "line_end": 394,
+      "bytes": 125,
+      "sha256": "021ff573530b36858fed4d93736961ed755905451ea259df9ca1b6b98da4681b"
+    },
+    {
+      "name": "TreeShapeExamples.counter_rounded_height",
+      "line_start": 395,
+      "line_end": 398,
+      "bytes": 277,
+      "sha256": "e12a3533fc542809ad36a69da27d7c4ae9a6207538d81cccd1fd6de43e1137cc"
+    },
+    {
+      "name": "TreeShapeExamples.counter_height_optimal",
+      "line_start": 399,
+      "line_end": 404,
+      "bytes": 378,
+      "sha256": "cd37058c526d103459e6b7f1556d5405df7613dca7bfdef5d68d1a7c067b5ec9"
+    },
+    {
+      "name": "TreeShapeExamples.almostFour",
+      "line_start": 405,
+      "line_end": 405,
+      "bytes": 51,
+      "sha256": "816710af67f7e84e93f0eb60a9a595a5ef114601822dec656b638f8f134f5277"
+    },
+    {
+      "name": "TreeShapeExamples.localBalanceCounter",
+      "line_start": 406,
+      "line_end": 406,
+      "bytes": 60,
+      "sha256": "81eff5a8fcf9b4827e196d037873ea864608c497e1b98e8bab4707ca13e81dc7"
+    },
+    {
+      "name": "TreeShapeExamples.localBalanceCounter_balanced",
+      "line_start": 407,
+      "line_end": 408,
+      "bytes": 169,
+      "sha256": "5720ad3230cb15fa0504154e451e5964e7147ec2c6a3b3bc58f6ebbd1067d8cb"
+    },
+    {
+      "name": "TreeShapeExamples.localBalanceCounter_shape",
+      "line_start": 409,
+      "line_end": 419,
+      "bytes": 691,
+      "sha256": "d50748dbd9a71b801c22441cc81f61a335ca391c6051222c51cdb3bdd5a51c12"
+    },
+    {
+      "name": "TreeShapeExamples.localBalanceCounter_not_almostComplete",
+      "line_start": 420,
+      "line_end": 421,
+      "bytes": 136,
+      "sha256": "16d71d618cf44c1fb0aa5ae04fd7b8ab84a22cf07f79eba52a8b53b16732924c"
+    },
+    {
+      "name": "TreeShapeExamples.chain_rounded_bounds",
+      "line_start": 422,
+      "line_end": 430,
+      "bytes": 539,
+      "sha256": "972724a4a2af00c11dff128b94f2cd0e7cae609e82afaccd009cf8ac25c038f0"
+    }
+  ],
+  "native_output": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/native-records/output.log",
+    "bytes": 30252,
+    "sha256": "1df9da87b91e300b1cb9ac92ac52b379ddeba30231a0f149bbab50ba322e5cd7"
+  },
+  "program": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean",
+    "bytes": 4199,
+    "sha256": "fab2460caafba1f3f28a09006c4e220b9c735857e02294091486cdf4e8461c33"
+  },
+  "input_observations": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/inputs-before.json",
+      "bytes": 34483,
+      "sha256": "1ee3406ca37aeaa9b62485d8719d1085fc7803f41c01229526619f48e2c2a963"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/inputs-after.json",
+      "bytes": 34785,
+      "sha256": "e099ff7584144fe5d9c3294dea7d19139009622808de2ab65b4a437dbc0353ee"
+    }
+  ],
+  "before_after_identity_equal": true,
+  "counts": {
+    "local_sources": 29,
+    "local_compiler_objects_and_traces": 87,
+    "configuration": 10,
+    "dependencies": 9,
+    "runtime": 12
+  },
+  "root_complete_actual_type_reads": [
+    {
+      "tool": "447bab",
+      "lines": "1-100"
+    },
+    {
+      "tool": "81e97c",
+      "lines": "101-220"
+    },
+    {
+      "tool": "ccfded",
+      "lines": "221-330"
+    },
+    {
+      "tool": "856638",
+      "lines": "331-430"
+    }
+  ],
+  "root_complete_current_formal_source_reads": {
+    "Applications/Trees/Shape.lean": [
+      "2292cd lines1-55",
+      "1b09b0 lines56-165",
+      "74656b lines166-267"
+    ],
+    "Applications/Trees/ShapeLog.lean": [
+      "d834ed all73lines"
+    ],
+    "Examples/TreeShape.lean": [
+      "74656b lines1-158",
+      "fb5f23 lines159-303"
+    ]
+  },
+  "outer_prefix_suffix_complete_read": "dcf8cb",
+  "source_read_limits": "Earlier source-note/root/map readings are retained in receiving records; this record claims complete current formal sources and all actual public types, not an independent replacement review.",
+  "semantic_assessment": "Actual universes and premises preserve unrestricted payload types, exact complete/almost-complete implications, strict real inequalities versus potentially non-strict rounded bounds, leaf count equal to node count plus one, cross-type height optimum, and validity as sufficient for cached minimum. The full private recursive sibling-height predicate is reconciled with its public counterexample type; no necessity or converse is claimed.",
+  "new_findings": [],
+  "full_check_status": "Owned full check currently running; no terminal, audit, review-pass or acceptance credit from this record.",
+  "observation_limit": "Before/after recorded identities are observations, not proof of loaded-object origin or absence of transient/undeclared inputs; full integrity/audit gates remain mandatory."
+}

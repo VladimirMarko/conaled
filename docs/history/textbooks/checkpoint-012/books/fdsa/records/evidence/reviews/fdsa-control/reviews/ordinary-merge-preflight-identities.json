@@ -1,0 +1,34 @@
+{
+  "recorded_utc": "2026-11-02T20:57:27.951137+00:00",
+  "all_reports_read_in_full_by_root": true,
+  "reports": {
+    "ordinary-merge-source-preflight.md": {
+      "bytes": 23346,
+      "lines": 319,
+      "sha256": "42552545b9b6e2a1836ef12288c41a655dd5c44e34885c285cd4f191da167a69"
+    },
+    "ordinary-merge-api-preflight.md": {
+      "bytes": 28099,
+      "lines": 243,
+      "sha256": "7f4c38df7a2cba111f24a3b7fa684e04922ca0ef7327e3e33ee05a39fb2e5f26"
+    },
+    "ordinary-merge-case-preflight.md": {
+      "bytes": 24208,
+      "lines": 469,
+      "sha256": "5df99d21ef97da7eb0ddc4cb21f80a21653dc07406f8eda6369ab1f307418e92"
+    }
+  },
+  "bounded_correction": {
+    "id": "XM01-PRE-DOC01",
+    "reason": "The original phrase separately validated could falsely imply the initial C2 prefix had passed; its own combined validation/reviews remain pending. Numeric cases and requirements are unchanged.",
+    "original_bytes": 24170,
+    "original_sha256": "c87170cc54feee176e1814e5980c300c164c5fd3b8ad06256cd60c872800f94d",
+    "original_copy": "fdsa-control/reviews/ordinary-merge-case-preflight-before-status-correction.md",
+    "corrected_report": "fdsa-control/research/ordinary-merge-case-preflight.md",
+    "changes": [
+      "Clarify initial C2 prefix has not completed combined validation/review.",
+      "Remove an extra closing parenthesis from an optional tie illustration."
+    ]
+  },
+  "decision": "One actual dual-Nat run and scalar projections; no separate scalar recursion or broad merge framework. Include input-local exact map/key transport with the actual tagged-to-key case. All full gates pending; no source writer released."
+}

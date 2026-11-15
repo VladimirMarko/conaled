@@ -1,0 +1,143 @@
+{
+  "recorded_utc": "2026-11-04T09:00:37.536018+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "retained_complete_central_source": "5398db774ed5ca9938d0562e379d757323e7a355",
+  "full_scope_retained": "All 112 obligations, all ten shared scopes and the complete fixed R-to-eventual-final Chapter 2 scope. Isolated corrections are not complete replacement candidates.",
+  "overall_outcome": "Blocked",
+  "compiler_or_build_invoked_by_reviewer": false,
+  "approval_or_acceptance": false,
+  "candidate": "c4355db67f6006f58496cc10c2eca1c75ef1aa95",
+  "parent": "aa89aeccf7e06cd046b4f3c5c430631d4ea73b5b",
+  "source": {
+    "candidate": "c4355db67f6006f58496cc10c2eca1c75ef1aa95",
+    "path": "Applications/Resources/UniformQuickSortMean.lean",
+    "git_blob": "2e06a117d18b4657dfc3e436a1939acad5427876",
+    "bytes": 38157,
+    "lines": 789,
+    "sha256": "5e997076f474f1cfcc51cac11c31b870a1cd265cf121c6ae11519beab009ad67"
+  },
+  "unchanged_examples": {
+    "candidate": "c4355db67f6006f58496cc10c2eca1c75ef1aa95",
+    "path": "Examples/UniformQuickSortMean.lean",
+    "git_blob": "cc0432e8fc56f76380a1e48259954cd559937a1b",
+    "bytes": 16466,
+    "lines": 352,
+    "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5"
+  },
+  "parent_file_equals_retained_central": true,
+  "changed_paths": [
+    "Applications/Resources/UniformQuickSortMean.lean"
+  ],
+  "static_core_comparison": {
+    "authored_declaration_count": 68,
+    "all_headers_byte_identical": true,
+    "kind_counts": {
+      "def": 10,
+      "instance": 2,
+      "theorem": 56
+    },
+    "changed_blocks": [
+      "conditional_mean",
+      "meanBy_eq_closedForm"
+    ]
+  },
+  "static_examples_comparison": {
+    "authored_declaration_count": 57,
+    "all_headers_byte_identical": true,
+    "kind_counts": {
+      "def": 7,
+      "inductive": 1,
+      "instance": 4,
+      "theorem": 45
+    },
+    "changed_blocks": []
+  },
+  "count_qualification": "125 authored source declaration headers comprise definitions, theorem/private helpers, named local instances and the Label inductive. This is not a count of 125 public theorems; the separately reconciled public/private/constructor inventory remains authoritative.",
+  "independent_readback": {
+    "complete_diff_lines": 36,
+    "affected_successor_source_ranges": [
+      [
+        240,
+        320
+      ],
+      [
+        525,
+        590
+      ]
+    ],
+    "complete_diagnostic_lines": 37,
+    "actual_diagnostic_headers": 2,
+    "complete_author_readback_lines": 223,
+    "receipt_read_in_full": true,
+    "source_inventory_not_claimed_read_in_full": true,
+    "unchanged_remainder": "Retained previously completed whole-source read through exact bytes and complete proof-only delta."
+  },
+  "pinned_api_assessments": [
+    {
+      "path": "Mathlib/MeasureTheory/Integral/Bochner/Basic.lean",
+      "pinned_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 72737,
+      "lines": 1425,
+      "sha256": "7e46dfb89df86399622c463d2ac657ab679eb2c0151266c82e896634be6d5965",
+      "independently_read_lines": [
+        200,
+        260
+      ],
+      "assessment": "integral_add has separately explicit functions f and g and requires integrability of both under the same measure."
+    },
+    {
+      "path": "Mathlib/MeasureTheory/Function/L1Space/Integrable.lean",
+      "pinned_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 57662,
+      "lines": 1257,
+      "sha256": "eb58a9036c9d7d38ad8b0f8b12b757bf598fcd056a5dd0f2ee2d6a0c4d619500",
+      "independently_read_lines": [
+        395,
+        437
+      ],
+      "assessment": "Integrable.add constructs integrability of the pointwise sum from both integrability premises with the same measure."
+    }
+  ],
+  "semantic_assessment": [
+    "The outer integral_add now names the sum of the two observed child costs and the original constant toll as pointwise functions; explicit child Finsets discharge integrability for the actual left and right children.",
+    "The original uniform permutation measure, selected-head conditioning, actual a.e. execution decomposition, positive conditioning mass and separate marginal child laws remain unchanged. No joint child independence is assumed.",
+    "The toll remains the natural number 4*(S.card-1)+3 before its real cast; empty child means and arbitrary labelled subset boundaries are preserved.",
+    "Sequential field_simp with the existing nonzero real cardinality proof followed by ring retains the same strong cardinal induction and closed-form recurrence. No linter option or proof restriction changes."
+  ],
+  "historical_diagnostic_boundary": "Author receipt correctly records a fixed live partial focused7 capture at 08:48:02. The independently secured final focused7 failure is a later separate record.",
+  "matching_successor_compilation": "Not yet supplied. No equivalence to a successfully elaborated predecessor is inferred.",
+  "concrete_mathematical_spec_findings": [],
+  "artifacts": [
+    {
+      "path": "provenance/chapter02-uniform-proof-repair2-20261104/source.diff",
+      "bytes": 2027,
+      "lines": 36,
+      "sha256": "af37c072bda9cb2c1c420b9d52f6a3c4f049205051439258031670f26db26b9d"
+    },
+    {
+      "path": "provenance/chapter02-uniform-proof-repair2-20261104/diagnostics.txt",
+      "bytes": 2136,
+      "lines": 37,
+      "sha256": "427fcc34e2ba86f0958ab30c91a1d526f19fbe977b18275f672a4aee2bab1d2d"
+    },
+    {
+      "path": "provenance/chapter02-uniform-proof-repair2-20261104/diagnostic-capture.json",
+      "bytes": 530,
+      "lines": 12,
+      "sha256": "f260bb475591efd19012a52f9bdde7a33505e0863f6f9b27e87738f071be6f84"
+    },
+    {
+      "path": "provenance/chapter02-uniform-proof-repair2-20261104/author-readback.md",
+      "bytes": 12233,
+      "lines": 223,
+      "sha256": "f79a044154777ebc963db82dd9e8a5db364da5075fbc9432f5b5a56815dde66e"
+    },
+    {
+      "path": "provenance/chapter02-uniform-proof-repair2-20261104/receipt.json",
+      "bytes": 5712,
+      "lines": 137,
+      "sha256": "925963e151e16eb3f80a91da9d34617093eaccd111607cc7cd2e53ae5c4ff082"
+    }
+  ]
+}

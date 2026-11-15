@@ -1,0 +1,851 @@
+{
+  "schema": 1,
+  "accounting_date": "2026-11-14",
+  "book_source_cut": "f52a47b9e240b3937533f48befb8622527b7f6db",
+  "incorporated_master": "983d0b6b602b71541f182737011621a8805be27b",
+  "fdsa": {
+    "schema": 1,
+    "date": "2026-11-14",
+    "book": "Functional Data Structures and Algorithms: A Proof Assistant Approach",
+    "edition": "July 27, 2026",
+    "accounting_cut": {
+      "checkpoint": "conaled-textbooks-005",
+      "candidate": "f52a47b9e240b3937533f48befb8622527b7f6db",
+      "incoming_FDSA_candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+      "original_integration_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+      "new_master_pin_requested": "983d0b6b602b71541f182737011621a8805be27b",
+      "note": "This accounting reads the preserved005/C2 evidence; it does not credit subsequent recovery or the upstream update as validated mathematics."
+    },
+    "method": "Read-only comparison of current STATE, exact historical acceptance/coverage receipts, canonical source-obligation tables, preservation dispositions and current Git tree/ancestry. No compiler or new proof certification. Inventory counts count unique first-column obligation IDs; Chapter1 is unnumbered. Source-obligation units mix definitions, equations, algorithms, claims, exercises, boundaries and correspondence tasks, so their counts are not a weighted book percentage or a theorem count.",
+    "summary": {
+      "chapter_count": 27,
+      "appendix_count": 3,
+      "historically_complete_chapters": [
+        1,
+        2,
+        3
+      ],
+      "historically_accepted_numbered_chapter_obligations": 195,
+      "chapter1_numbered_obligation_total": null,
+      "numbered_chapter_inventory_rows": 2526,
+      "appendix_inventory_rows": 170,
+      "all_numbered_inventory_rows": 2696,
+      "chapter4_numbered_rows": 76,
+      "chapter4_numbered_exercises": 11,
+      "chapter4_rows_accepted_as_chapter_completion": 0,
+      "additional_FDSA_Lean_paths_at_intake": 65,
+      "additional_FDSA_Lean_paths_present_in_C2": [
+        "Examples/MappedPotentialAccounting.lean"
+      ],
+      "additional_FDSA_Lean_paths_absent_at_same_path_in_C2": 64,
+      "whole_book_complete": false
+    },
+    "historical_acceptance": [
+      {
+        "unit": "chapter01-acceptance-20261103",
+        "commit": "07e480f6ec9958d4975bb90151005b84f2907614",
+        "receipt": "books/fdsa/records/evidence/validation/fdsa-control/provenance/chapter01-acceptance-20261103/acceptance.json",
+        "ancestor_of_C2": true
+      },
+      {
+        "unit": "chapter02-acceptance-20261104",
+        "commit": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+        "receipt": "books/fdsa/records/evidence/validation/fdsa-control/provenance/chapter02-acceptance-20261104/acceptance.json",
+        "ancestor_of_C2": true
+      },
+      {
+        "unit": "chapter03-acceptance-20261105",
+        "commit": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+        "receipt": "books/fdsa/records/evidence/validation/fdsa-control/provenance/chapter03-acceptance-20261105/acceptance.json",
+        "ancestor_of_C2": true
+      },
+      {
+        "unit": "binary-tree-cache-acceptance-20261105",
+        "commit": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+        "receipt": "books/fdsa/records/evidence/validation/fdsa-control/provenance/binary-tree-cache-acceptance-20261105/acceptance.json",
+        "ancestor_of_C2": true
+      },
+      {
+        "unit": "tree-shape-acceptance-20261105",
+        "commit": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+        "receipt": "books/fdsa/records/evidence/validation/fdsa-control/provenance/tree-shape-acceptance-20261105/acceptance.json",
+        "ancestor_of_C2": true
+      }
+    ],
+    "chapters": [
+      {
+        "chapter": 1,
+        "title": "Basics",
+        "inventory_rows": null,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter01-obligations.md",
+        "inventory_sha256": "bff50cca69043edf08e8941745b70af62296f0e492d735c006f959010950671e",
+        "historically_accepted_as_complete_chapter": true,
+        "historically_accepted_numbered_rows": null,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Historical complete chapter acceptance; unnumbered source scope, including concrete call-count equations and the separate cost-model addendum."
+      },
+      {
+        "chapter": 2,
+        "title": "Sorting",
+        "inventory_rows": 112,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter02-obligations.md",
+        "inventory_sha256": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2",
+        "historically_accepted_as_complete_chapter": true,
+        "historically_accepted_numbered_rows": 112,
+        "numbered_exercises_in_scope": 7,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Historical complete chapter acceptance: all 112 numbered rows, seven exercises, 71 defining Lean files and 1763 public names in the recorded full scope."
+      },
+      {
+        "chapter": 3,
+        "title": "Selection",
+        "inventory_rows": 83,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter03-obligations.md",
+        "inventory_sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed",
+        "historically_accepted_as_complete_chapter": true,
+        "historically_accepted_numbered_rows": 83,
+        "numbered_exercises_in_scope": 8,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Historical complete chapter acceptance: all 83 rows, eight exercises, 78 chapter modules and 1370 public names; two separately accepted affine-recurrence modules add 21 names."
+      },
+      {
+        "chapter": 4,
+        "title": "Binary Trees",
+        "inventory_rows": 76,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter04-obligations.md",
+        "inventory_sha256": "e7e282df7f553cbe8a960d1e20818e09a04f63c2cf47a069284223ee3a8595e4",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": 11,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "No chapter row accepted as a Chapter 4 completion. XT01/XT02 are historically accepted shared prerequisites; three committed chapter streams and XT03 onward remain uncompiled or unaccepted."
+      },
+      {
+        "chapter": 5,
+        "title": "Binary Search Trees",
+        "inventory_rows": 94,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter05-obligations.md",
+        "inventory_sha256": "f512f6b3723e8e036e9292aab985e93d15b2bf49b1c2c6dff79b3e6911ffcaad",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Ordered search/rotations/leftmost draft families and existing library reuse are available; no complete Chapter 5 source correspondence is established."
+      },
+      {
+        "chapter": 6,
+        "title": "Abstract Data Types",
+        "inventory_rows": 74,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter06-obligations.md",
+        "inventory_sha256": "078bb9759e7bfd9245cfff69443f7722ae4b49295da61f311689da874bb20146",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. XA01 Set/Map/AList/Modify and ValidGraphs Lean drafts are retained; the current map/table bridge assessment is paper research."
+      },
+      {
+        "chapter": 7,
+        "title": "2-3 Trees",
+        "inventory_rows": 90,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter07-obligations.md",
+        "inventory_sha256": "8e9aa9dda75c04a4c6a09a40feead8a2ff8d7ebc64c7dd47c0344921a6f41bde",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Source obligations, source discrepancies and reuse analysis are retained; no complete chapter-specific implementation or acceptance is recorded."
+      },
+      {
+        "chapter": 8,
+        "title": "Red-Black Trees",
+        "inventory_rows": 98,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter08-obligations.md",
+        "inventory_sha256": "16e26a46452d06401e1f50317fb8d7e3ad4a341a2070870b07c7014f1b2e07e1",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Source obligations, source discrepancies and reuse analysis are retained; no complete chapter-specific implementation or acceptance is recorded."
+      },
+      {
+        "chapter": 9,
+        "title": "AVL Trees",
+        "inventory_rows": 110,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter09-obligations.md",
+        "inventory_sha256": "6ade1fd1a470c64d613212098e311d2e0189f62bd82045dbb2f8f4387f426285",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Source obligations, source discrepancies and reuse analysis are retained; no complete chapter-specific implementation or acceptance is recorded."
+      },
+      {
+        "chapter": 10,
+        "title": "Beyond Insert and Delete",
+        "inventory_rows": 118,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter10-obligations.md",
+        "inventory_sha256": "f3703190c2c5591a8b8685e88205652ca412e90fedb3b467ceb5d4bfd55eac0b",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Source obligations, source discrepancies and reuse analysis are retained; no complete chapter-specific implementation or acceptance is recorded."
+      },
+      {
+        "chapter": 11,
+        "title": "Arrays via Braun Trees",
+        "inventory_rows": 135,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter11-obligations.md",
+        "inventory_sha256": "ec4a0763833c45d4ff3cd0a06b90cb3fd270a245b61bab2c52608066554213fc",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Retained Braun-shape draft supplies a prerequisite, not the complete array algorithms, invariants or cost correspondence."
+      },
+      {
+        "chapter": 12,
+        "title": "Tries",
+        "inventory_rows": 110,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter12-obligations.md",
+        "inventory_sha256": "246779209f9f855837a8bb20bc7f2f58c37cd66144c85960fed6cb3426a0ef28",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Source obligations, source discrepancies and reuse analysis are retained; no complete chapter-specific implementation or acceptance is recorded."
+      },
+      {
+        "chapter": 13,
+        "title": "Region Quadtrees",
+        "inventory_rows": 104,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter13-obligations.md",
+        "inventory_sha256": "de2ffeda482de966604adb7b59bc211d40dc6d1895f7fbb28ca682b14a6f8e54",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Source obligations, source discrepancies and reuse analysis are retained; no complete chapter-specific implementation or acceptance is recorded."
+      },
+      {
+        "chapter": 14,
+        "title": "Priority Queues",
+        "inventory_rows": 40,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter14-obligations.md",
+        "inventory_sha256": "9222adc24498e1f0e8df361c1a936cc5656fce0f2b4caf7570bc0515a5e4434d",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. XH01 priority-observation/merge laws are retained as drafts; they do not instantiate every required concrete queue."
+      },
+      {
+        "chapter": 15,
+        "title": "Leftist Heaps",
+        "inventory_rows": 79,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter15-obligations.md",
+        "inventory_sha256": "03f2571e833fa0eb826a3d6d1a1dbf53a62626a9278b5dc1a0fe911aac15812c",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Source obligations, source discrepancies and reuse analysis are retained; no complete chapter-specific implementation or acceptance is recorded."
+      },
+      {
+        "chapter": 16,
+        "title": "Priority Queues via Braun Trees",
+        "inventory_rows": 48,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter16-obligations.md",
+        "inventory_sha256": "180865d8315609bd24687b5ce0c2cbf7e75995769ac10db74e621cc693585108",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Source obligations, source discrepancies and reuse analysis are retained; no complete chapter-specific implementation or acceptance is recorded."
+      },
+      {
+        "chapter": 17,
+        "title": "Binomial Priority Queues",
+        "inventory_rows": 80,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter17-obligations.md",
+        "inventory_sha256": "3ffde1d8021bf3dcb0aa9c3430b30e945c2fad2d16f3aca9b886e166a6dcebe2",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Source obligations, source discrepancies and reuse analysis are retained; no complete chapter-specific implementation or acceptance is recorded."
+      },
+      {
+        "chapter": 18,
+        "title": "Dynamic Programming",
+        "inventory_rows": 126,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter18-obligations.md",
+        "inventory_sha256": "ead4b0cc69ebdbd4ea767b272c2cdafd57262ce2d0ca13cd0e7273cc9fa55337",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Source obligations, source discrepancies and reuse analysis are retained; no complete chapter-specific implementation or acceptance is recorded."
+      },
+      {
+        "chapter": 19,
+        "title": "Amortized Analysis",
+        "inventory_rows": 68,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter19-obligations.md",
+        "inventory_sha256": "1d9d22ca8d801d7c0ba47910d0f6519dd7c76acd787164be3a382ad818c220c6",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. XP01 mapped/invariant/signed accounting was reconciled into C2 and focused checks passed; C19-011\u2013016 have a shared-core correspondence, but this is not final chapter acceptance."
+      },
+      {
+        "chapter": 20,
+        "title": "Queues",
+        "inventory_rows": 119,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter20-obligations.md",
+        "inventory_sha256": "deaa46226bc68126f6c0b92f0ea175329d53eb23908b1491d575388ab15010e9",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Existing FIFO/queue interfaces and accounting are reuse candidates; book-specific queue/deque algorithms, execution and cost correspondences remain separately required."
+      },
+      {
+        "chapter": 21,
+        "title": "Splay Trees",
+        "inventory_rows": 102,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter21-obligations.md",
+        "inventory_sha256": "e9ec73c1de2835060646f62fd7d675b192b4f1960742f917952a4fbf78265a51",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Tree, logarithm and potential drafts are prerequisites; Dynamic Optimality is retained as an explicitly unproved proposition obligation."
+      },
+      {
+        "chapter": 22,
+        "title": "Skew Heaps",
+        "inventory_rows": 65,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter22-obligations.md",
+        "inventory_sha256": "805b5d297ee9088a01ed4adf7f3816debd7e9a4f02777364fc85f522a1935939",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Shared heap observations, logarithm and potential drafts are prerequisites; the actual skew-heap algorithm/cost correspondence remains required."
+      },
+      {
+        "chapter": 23,
+        "title": "Pairing Heaps",
+        "inventory_rows": 78,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter23-obligations.md",
+        "inventory_sha256": "01c1184e372e574b0487822e844ff5f2abecd6c7e05fa3d59961972d785ea700",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Shared heap observations, logarithm and potential drafts are prerequisites; the actual pairing-heap algorithms and representations remain required."
+      },
+      {
+        "chapter": 24,
+        "title": "Graph Algorithms",
+        "inventory_rows": 138,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter24-obligations.md",
+        "inventory_sha256": "5187150f423dfa75c730e3e09bb2740851e85c0fc8ff1b8494d6dd5a4d585329",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Source obligations, source discrepancies and reuse analysis are retained; no complete chapter-specific implementation or acceptance is recorded."
+      },
+      {
+        "chapter": 25,
+        "title": "Fast String Search by Knuth\u2013Morris\u2013Pratt",
+        "inventory_rows": 94,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter25-obligations.md",
+        "inventory_sha256": "13b30148bf4094e8f1a98bffd8d6fe3fcf7071828582ff384f788c99934ce042",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Inventory identifies existing KMP implementations and their reuse limits; source-specific representation, algorithm and cost bridges remain required."
+      },
+      {
+        "chapter": 26,
+        "title": "Huffman's Algorithm",
+        "inventory_rows": 100,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter26-obligations.md",
+        "inventory_sha256": "c1803a540a887977be6bf2a75e3291a6f1665ea7167786939b04a40b0b8ecb61",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Inventory identifies existing Huffman optimality proof and its reuse limits; required source/coding/algorithm bridges remain open."
+      },
+      {
+        "chapter": 27,
+        "title": "Alpha-Beta Pruning",
+        "inventory_rows": 185,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/chapter27-obligations.md",
+        "inventory_sha256": "87ba6c9cbca1df75012cc594668ea1c7c0b76cfb76ea8e1cee9f7276e4e298e6",
+        "historically_accepted_as_complete_chapter": false,
+        "historically_accepted_numbered_rows": 0,
+        "numbered_exercises_in_scope": null,
+        "current_integration_acceptance": "pending; inherited acceptance is scoped to historical commits",
+        "state_note": "Chapter not accepted. Extensive paper inventory and recovered graph/cache source analysis exist; no complete chapter Lean acceptance is recorded."
+      }
+    ],
+    "appendices": [
+      {
+        "appendix": "A",
+        "title": "List Library",
+        "inventory_rows": 20,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/appendix-a-obligations.md",
+        "whole_appendix_accepted": false,
+        "state_note": "Shared list/selection and cost interfaces provide partial implemented reuse; whole-appendix closure is not recorded."
+      },
+      {
+        "appendix": "B",
+        "title": "Time Functions",
+        "inventory_rows": 60,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/appendix-b-obligations.md",
+        "whole_appendix_accepted": false,
+        "state_note": "Shared list/selection and cost interfaces provide partial implemented reuse; whole-appendix closure is not recorded."
+      },
+      {
+        "appendix": "C",
+        "title": "Notation",
+        "inventory_rows": 90,
+        "inventory_path": "books/fdsa/records/research/coverage/fdsa-control/research/appendix-c-obligations.md",
+        "whole_appendix_accepted": false,
+        "state_note": "Notation and semantic-boundary inventory; whole-appendix closure is not recorded."
+      }
+    ],
+    "evidence": {
+      "current_book_state": "books/fdsa/STATE.json",
+      "current_integration_state": "books/common/STATUS.md",
+      "preservation": "books/common/analysis/preservation.md",
+      "donor_dispositions": "books/common/analysis/donor-dispositions.json",
+      "source_scope_reconciliation": "books/fdsa/records/research/coverage/fdsa-control/research/scope-reconciliation.md",
+      "historical_current_status": "books/fdsa/records/history/control/fdsa-control/STATUS.md",
+      "tree_cache_coverage": "books/fdsa/records/evidence/validation/fdsa-control/provenance/binary-tree-cache-acceptance-20261105/coverage.json",
+      "tree_shape_coverage": "books/fdsa/records/evidence/validation/fdsa-control/provenance/tree-shape-acceptance-20261105/coverage.json",
+      "potential_correspondence_at_C2": "docs/research/fdsa-potential-accounting.md",
+      "source_path_resolution": "books/fdsa/records/RETENTION.json"
+    },
+    "limitations": [
+      "Historical Passed reviews and full audits do not confer acceptance on C2 or the new master integration.",
+      "No complete per-obligation classification of every later chapter against the expanded modern conaled library was performed; reuse may exist under other names.",
+      "Preserved draft path counts do not imply that each should become a separate public interface.",
+      "No restored process/session ID was polled; no setup, compiler, source/index/ref or remote mutation occurred."
+    ]
+  },
+  "vfa_pfds": {
+    "schema": 1,
+    "as_of_date": "2026-11-14",
+    "kind": "read-only coverage accounting; no new acceptance",
+    "scope": {
+      "combined_candidate": "f52a47b9e240b3937533f48befb8622527b7f6db",
+      "original_full_spec_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+      "newly_observed_upstream_pin": "983d0b6b602b71541f182737011621a8805be27b",
+      "post_c2_recovery_work_included": false,
+      "evidence_paths_relative_to": "conaled-textbooks checkpoint root"
+    },
+    "counting_rules": [
+      "Lexical source records and exercise headings are not equal-weight mathematical obligations.",
+      "Source reading, formal implementation, historical focused checking, current integration verification and chapter acceptance are distinct.",
+      "No whole-book percentage is justified.",
+      "Related existing library code needs explicit source/specification correspondence before coverage credit.",
+      "Frozen older fields can be superseded by later exact-identity evidence without rewriting history."
+    ],
+    "vfa": {
+      "title": "Verified Functional Algorithms",
+      "edition": "2.1, 2026-08-24",
+      "source_archive_sha256": "f03296c763d78aa5bc18a545d848d398292575e5c8af4b5aa94dc25709e169b8",
+      "inventory": {
+        "substantive_chapters": 16,
+        "preface_additional": true,
+        "lexical_records": 811,
+        "exercise_markers": 182,
+        "upstream_source_admissions": 231,
+        "source": "books/vfa/records/research/source/SOURCE-COVERAGE.md"
+      },
+      "accepted_chapters": [],
+      "implemented_chapter_frontier": "Perm; Preface accounting prepared",
+      "chapter_rows": [
+        {
+          "chapter": "Perm",
+          "source_records": 30,
+          "exercise_markers": 4,
+          "progress_at_cut": "implemented_source_map",
+          "accepted": false
+        },
+        {
+          "chapter": "Sort",
+          "source_records": 17,
+          "exercise_markers": 8,
+          "progress_at_cut": "checked_shared_specification_draft",
+          "accepted": false
+        },
+        {
+          "chapter": "Multiset",
+          "source_records": 22,
+          "exercise_markers": 14,
+          "progress_at_cut": "checked_shared_specification_draft",
+          "accepted": false
+        },
+        {
+          "chapter": "BagPerm",
+          "source_records": 19,
+          "exercise_markers": 9,
+          "progress_at_cut": "checked_shared_specification_draft",
+          "accepted": false
+        },
+        {
+          "chapter": "Selection",
+          "source_records": 33,
+          "exercise_markers": 20,
+          "progress_at_cut": "source_preparation",
+          "accepted": false
+        },
+        {
+          "chapter": "Merge",
+          "source_records": 17,
+          "exercise_markers": 6,
+          "progress_at_cut": "source_preparation",
+          "accepted": false
+        },
+        {
+          "chapter": "Maps",
+          "source_records": 23,
+          "exercise_markers": 6,
+          "progress_at_cut": "checked_table_observation_draft",
+          "accepted": false
+        },
+        {
+          "chapter": "SearchTree",
+          "source_records": 90,
+          "exercise_markers": 35,
+          "progress_at_cut": "checked_observation_preparation",
+          "accepted": false
+        },
+        {
+          "chapter": "ADT",
+          "source_records": 254,
+          "exercise_markers": 12,
+          "progress_at_cut": "checked_table_and_queue_cost_preparation",
+          "accepted": false
+        },
+        {
+          "chapter": "Extract",
+          "source_records": 34,
+          "exercise_markers": 4,
+          "progress_at_cut": "checked_explicit_cost_model_and_source_preparation",
+          "accepted": false
+        },
+        {
+          "chapter": "Redblack",
+          "source_records": 45,
+          "exercise_markers": 13,
+          "progress_at_cut": "source_preparation",
+          "accepted": false
+        },
+        {
+          "chapter": "Trie",
+          "source_records": 55,
+          "exercise_markers": 12,
+          "progress_at_cut": "checked_representation_and_cost_preparation",
+          "accepted": false
+        },
+        {
+          "chapter": "Priqueue",
+          "source_records": 43,
+          "exercise_markers": 2,
+          "progress_at_cut": "source_preparation",
+          "accepted": false
+        },
+        {
+          "chapter": "Binom",
+          "source_records": 44,
+          "exercise_markers": 21,
+          "progress_at_cut": "source_preparation",
+          "accepted": false
+        },
+        {
+          "chapter": "Decide",
+          "source_records": 32,
+          "exercise_markers": 2,
+          "progress_at_cut": "source_preparation",
+          "accepted": false
+        },
+        {
+          "chapter": "Color",
+          "source_records": 53,
+          "exercise_markers": 14,
+          "progress_at_cut": "source_preparation_with_reusable_representation_observations",
+          "accepted": false
+        }
+      ],
+      "perm": {
+        "mapped_records": 30,
+        "mapped_exercise_markers": 4,
+        "mapping": "books/vfa/records/research/Perm-coverage-draft.md",
+        "latest_retained_candidate": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+        "latest_source_continuation": "books/vfa/records/evidence/reviews/1002-monitor-correction-source-review.md",
+        "candidate_source_equal_at_c2": {
+          "Applications/Sorting/FirstPair.lean": "16bc18d29f10bcb1bf4f79fa46e0cdead978b395",
+          "Examples/ComparisonPermutations.lean": "3e07b3ea1f5a2106d3c88e06885fbb55374a5b5f"
+        },
+        "mapping_note": "The early correspondence draft has older source hashes; final source continuation binds the later retained candidate."
+      },
+      "staging": [
+        {
+          "path": "books/vfa/records/math/drafts/sorting-specs/SortingSpecifications.lean",
+          "sha256": "45546bba250cb8613ff0fa41143f63f1a3f81d271a0bdeafac1663343e15188c",
+          "historical_focused_check": "exit 0 recorded at matching source identity",
+          "bounded_review": "no unresolved findings at final retained revision",
+          "review": "books/vfa/records/evidence/reviews/sorting-spec-draft.md",
+          "integrated_at_c2": false,
+          "current_candidate_acceptance": false
+        },
+        {
+          "path": "books/vfa/records/math/drafts/table-specs/TableObservations.lean",
+          "sha256": "0233781d210056e9a61ae9a355120429e55007e72713434d25a5338aa6489b57",
+          "historical_focused_check": "exit 0 recorded at matching source identity",
+          "bounded_review": "no unresolved findings at final retained revision",
+          "review": "books/vfa/records/evidence/reviews/table-spec-draft.md",
+          "integrated_at_c2": false,
+          "current_candidate_acceptance": false
+        },
+        {
+          "path": "books/vfa/records/math/drafts/positive-keys/VFAStaging/PositiveKeys.lean",
+          "sha256": "98c890672ed3e91b16089eb82037af46f15061af572c838f436b5692f5182f79",
+          "historical_focused_check": "exit 0 recorded at matching source identity",
+          "bounded_review": "no unresolved findings at final retained revision",
+          "review": "books/vfa/records/evidence/reviews/positive-key-draft.md",
+          "integrated_at_c2": false,
+          "current_candidate_acceptance": false
+        },
+        {
+          "path": "books/vfa/records/math/drafts/unary-costs/UnaryComparisonCosts.lean",
+          "sha256": "997aa73ce69fe65712ba97a1217909a6f7af8c2d00e7e2978a4ca03a18c01c13",
+          "historical_focused_check": "exit 0 recorded at matching source identity",
+          "bounded_review": "no unresolved findings at final retained revision",
+          "review": "books/vfa/records/evidence/reviews/resource-model-drafts.md",
+          "integrated_at_c2": false,
+          "current_candidate_acceptance": false
+        },
+        {
+          "path": "books/vfa/records/math/drafts/queue-costs/QueuePeekCost.lean",
+          "sha256": "41486ba378124a2d459a74bd8199655e40a4c521e20abb75b9e5580671161df0",
+          "historical_focused_check": "exit 0 recorded at matching source identity",
+          "bounded_review": "no unresolved findings at final retained revision",
+          "review": "books/vfa/records/evidence/reviews/resource-model-drafts.md",
+          "integrated_at_c2": false,
+          "current_candidate_acceptance": false
+        }
+      ],
+      "historical_validation": {
+        "focused_modules": 116,
+        "focused_exit_code": 0,
+        "fresh_exit_code": 1,
+        "fresh_successful_modules_before_failure": 754,
+        "failure": "Output creation failed while ordinary available bytes were zero; no proof error or exact errno established.",
+        "failure_evidence": "books/vfa/records/evidence/validation/1040-eae9-fresh-output-failure.json",
+        "open_findings": [
+          "ST-002",
+          "SP-VAL-001"
+        ]
+      },
+      "status_owner": "books/vfa/STATE.json",
+      "tracker": "books/vfa/records/evidence/tracker/tickets.json"
+    },
+    "pfds": {
+      "title": "Purely Functional Data Structures",
+      "source_scope": "Cambridge book plus exact 1996 thesis supplements",
+      "book_sha256": "b9dbf4f6ade4c24da438fd5415fc3abdd3af0aa8459d7e41e4a27de844c7ad41",
+      "thesis_sha256": "f4b92ed7ea425f6f1019f20a4ef40df505327fbc5f1346ed6b7a2e28ab56d072",
+      "inventory": {
+        "book_chapters": 11,
+        "appendix_A_additional": true,
+        "numbered_exercise_headings": 83,
+        "numbered_theorem_lemma_results": 12,
+        "exhaustive_mathematical_obligation_denominator": null,
+        "source": "books/pfds/records/research/source/book-full-inventory.md"
+      },
+      "historical_acceptance": {
+        "chapter": 1,
+        "scope": "introductory source accounting/documentation only",
+        "candidate": "1ce161412a2cfb725f27525ff98d400209163316",
+        "integration_commit": "82501d108f33c62d21b5e0d0f7d2376b902d8d49",
+        "evidence": "books/pfds/records/evidence/reviews/chapter01-integration-r3.json"
+      },
+      "substantive_mathematical_chapters_accepted": [],
+      "chapter_rows": [
+        {
+          "chapter": 1,
+          "title": "Introduction",
+          "exercise_headings": 0,
+          "progress_at_cut": "historically_accepted_documentation_only",
+          "mathematical_chapter_accepted": false
+        },
+        {
+          "chapter": 2,
+          "title": "Persistence",
+          "exercise_headings": 6,
+          "progress_at_cut": "implemented_focused_checked_acceptance_pending",
+          "mathematical_chapter_accepted": false
+        },
+        {
+          "chapter": 3,
+          "title": "Heaps and red-black trees",
+          "exercise_headings": 10,
+          "progress_at_cut": "detailed_paper_preparation",
+          "mathematical_chapter_accepted": false
+        },
+        {
+          "chapter": 4,
+          "title": "Lazy evaluation",
+          "exercise_headings": 2,
+          "progress_at_cut": "formal_foundations_stream_algorithms_open",
+          "mathematical_chapter_accepted": false
+        },
+        {
+          "chapter": 5,
+          "title": "Amortization",
+          "exercise_headings": 9,
+          "progress_at_cut": "formal_potential_foundation_algorithm_bounds_open",
+          "mathematical_chapter_accepted": false
+        },
+        {
+          "chapter": 6,
+          "title": "Persistent lazy amortization",
+          "exercise_headings": 7,
+          "progress_at_cut": "formal_history_debit_foundations_actual_work_and_algorithms_open",
+          "mathematical_chapter_accepted": false
+        },
+        {
+          "chapter": 7,
+          "title": "Scheduling",
+          "exercise_headings": 4,
+          "progress_at_cut": "detailed_paper_preparation",
+          "mathematical_chapter_accepted": false
+        },
+        {
+          "chapter": 8,
+          "title": "Rebuilding and deques",
+          "exercise_headings": 7,
+          "progress_at_cut": "detailed_paper_preparation",
+          "mathematical_chapter_accepted": false
+        },
+        {
+          "chapter": 9,
+          "title": "Numerical representations",
+          "exercise_headings": 19,
+          "progress_at_cut": "thesis_source_preparation_book_correspondence_open",
+          "mathematical_chapter_accepted": false
+        },
+        {
+          "chapter": 10,
+          "title": "Bootstrapping",
+          "exercise_headings": 15,
+          "progress_at_cut": "thesis_source_preparation_book_correspondence_open",
+          "mathematical_chapter_accepted": false
+        },
+        {
+          "chapter": 11,
+          "title": "Implicit slowdown and catenable deques",
+          "exercise_headings": 4,
+          "progress_at_cut": "thesis_source_preparation_book_correspondence_open",
+          "mathematical_chapter_accepted": false
+        }
+      ],
+      "chapter2": {
+        "exercise_headings_with_formal_implementation_records": 6,
+        "ids": [
+          "B2.1",
+          "B2.2",
+          "B2.3",
+          "B2.4",
+          "B2.5",
+          "B2.6"
+        ],
+        "source_pages": "7-16",
+        "exercise_2_5_subparts_retained": [
+          "complete shared tree of depth d",
+          "paired-size balanced shared tree of size n"
+        ],
+        "cited_lean_source_paths_present_at_c2": 35,
+        "missing_cited_lean_paths": [],
+        "source_review": "books/pfds/records/evidence/reviews/chapter02-spec-r3.md",
+        "status": "focused checked; no outstanding source-coverage defect in retained review; exact integration acceptance pending"
+      },
+      "later_exercise_headings_marked_unproved_in_retained_ledger": 77,
+      "coverage_ledger": {
+        "path": "books/pfds/records/research/coverage/coverage.json",
+        "row_count": 135,
+        "scope": "Initial non-exhaustive mixed book/thesis ledger",
+        "not_a_completion_denominator": true,
+        "known_superseded_field": "TU.POTENTIAL.SIGNED says focused round running, superseded by signed-3cf-native-r2.json exit 0 for eleven targets."
+      },
+      "forward_cost_contracts": {
+        "count": 16,
+        "status": "unproved/open",
+        "ids": "T1.01-T1.16",
+        "source": "books/pfds/records/research/source/thesis-obligations.json",
+        "note": "Introductory accounting acceptance did not prove these algorithm costs."
+      },
+      "formal_scope_review": {
+        "retained_candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "tracked_scopes": 9,
+        "mathematical_scopes": 8,
+        "import_only_scopes": 1,
+        "source_reviews_complete": true,
+        "source_review_new_defects": 0,
+        "formal_accepted_scopes": 0,
+        "historical_finding_diagnostic_boundary_ids": 39,
+        "open_validation_ids": 14,
+        "evidence": [
+          "books/pfds/records/evidence/reviews/common-integration-scope-matrix-045.md",
+          "books/pfds/records/evidence/reviews/common-integration-standards-r1-045.md",
+          "books/pfds/records/evidence/reviews/common-integration-spec-r1-045.md"
+        ]
+      },
+      "cross_cutting_mathematics": [
+        "shared immutable cells and physical path copying",
+        "Chapter 2 realizations",
+        "delimited source suspension semantics",
+        "pure recursive forcing and successful cache reuse",
+        "finite pure successful cache-write accounting",
+        "persistent logical histories and finite debit accounting",
+        "conditional actual body-entry bounds",
+        "generic and signed potential accounting"
+      ],
+      "paper_preparation": {
+        "book_chapters_3_to_8": "Detailed readiness/source/proof records under books/pfds/records/research/source; no chapter acceptance.",
+        "thesis_chapters_6_7_8": "Complete inspected source inventories, relevant to book9/10/11; formal obligations remain unproved and full book/appendix comparisons remain open.",
+        "thesis_endmatter": "Conclusions and AppendixA source inventory complete at stated extent; no new proof credit."
+      },
+      "status_owner": "books/pfds/STATE.json"
+    },
+    "source_availability": {
+      "new_manuscript_reading_claimed": false,
+      "manuscripts_deliberately_outside_checkpoint": true,
+      "retained_evidence_sufficient_for_this_accounting": true,
+      "future_missing_published_book_question": "Request user attachment when an actual new PFDS source question needs unavailable pages; do not read historical Library IDs."
+    },
+    "operations": {
+      "compiler_runs": 0,
+      "source_index_ref_changes": false,
+      "checkpoint_changes": false,
+      "outputs": [
+        "intake/vfa-pfds-coverage-20261114.md",
+        "intake/vfa-pfds-coverage-20261114.json"
+      ],
+      "durable_save_owner": "root"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "recorded_utc": "2026-11-05T03:01:34.146896+00:00",
+  "unit": "FDSA-XT01",
+  "accepted_commit": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "original_unit_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "original_donor": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "requirements": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/binary-tree-cache-requirements.md",
+    "bytes": 14576,
+    "sha256": "81260794bec3767bb9eaa2d2fcaa8337da015220df60bf4dda147590c8ed23ce"
+  },
+  "acceptance": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-acceptance-20261105/acceptance.json",
+    "bytes": 51089,
+    "sha256": "be1236e81900aa1c7368719717d8a6ccc7f07c2cb5d49692bd665240d738d214"
+  },
+  "rows": [
+    {
+      "id": "XT01-01",
+      "scope": "Ordinary binary-tree fold and its algebraic laws",
+      "status": "accepted",
+      "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "Standards": "Passed",
+      "Spec": "Passed"
+    },
+    {
+      "id": "XT01-02",
+      "scope": "Ordered inorder and canonical shape observations",
+      "status": "accepted",
+      "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "Standards": "Passed",
+      "Spec": "Passed"
+    },
+    {
+      "id": "XT01-03",
+      "scope": "Recursive cache validity, erasure and independent reader correctness",
+      "status": "accepted",
+      "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "Standards": "Passed",
+      "Spec": "Passed"
+    },
+    {
+      "id": "XT01-04",
+      "scope": "Actual annotation and generic read agreement",
+      "status": "accepted",
+      "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "Standards": "Passed",
+      "Spec": "Passed"
+    },
+    {
+      "id": "XT01-05",
+      "scope": "Measured reached-callback refinement and exact local cost",
+      "status": "accepted",
+      "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "Standards": "Passed",
+      "Spec": "Passed"
+    },
+    {
+      "id": "XT01-06",
+      "scope": "All required connected examples and unbounded valid append family",
+      "status": "accepted",
+      "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "Standards": "Passed",
+      "Spec": "Passed"
+    },
+    {
+      "id": "XT01-07",
+      "scope": "Public integration, source correspondence and retained representation/tariff limits",
+      "status": "accepted",
+      "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+      "Standards": "Passed",
+      "Spec": "Passed"
+    }
+  ],
+  "complete_chapter04_rows_accepted": 0,
+  "boundary": "Shared XT01 only. Every original Chapter4 algorithm, exercise, representation bridge and cost obligation remains in the original complete chapter scope."
+}

@@ -1,0 +1,27 @@
+{
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-c",
+    "from pathlib import Path; import sys; p=Path(sys.argv[1]); p.open('x').write('one execution\\n'); print('owned child terminal marker', flush=True); sys.exit(7)",
+    "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/environment0068-recorder-progress-failure/child-executed-once.txt"
+  ],
+  "started_utc": "2026-11-03T15:57:04.891815+00:00",
+  "completed_utc": "2026-11-03T15:57:04.958962+00:00",
+  "exit_code": 7,
+  "elapsed_seconds": 0.06682639199971163,
+  "state": "failed",
+  "log": "/workspace/scratch/6bb268f9336f/work/fdsa-control/provenance/environment0068-recorder-progress-failure/full.log",
+  "progress_bookkeeping_errors": [
+    {
+      "observed_utc": "2026-11-03T15:57:04.894615+00:00",
+      "error": "OSError('intentional progress-write failure for ENV68-SPEC-001')"
+    }
+  ],
+  "final_head": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "final_status": "",
+  "log_size_bytes": 28,
+  "log_sha256": "ad324837620c36a7160a3daaf1424e68b3920e349ea01b8ef83b70b8f356b492",
+  "available_bytes_at_completion": 12940513280,
+  "verification_record_present": false
+}

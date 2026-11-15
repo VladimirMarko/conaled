@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "decided_utc": "2026-11-03T00:03:11.859851+00:00",
+  "decision": "Retire exact verified local duplicates030,031,032 once in that order, with immediate per-file identity and Library-binding rechecks.",
+  "assessment": "work-state/validation/1029-checkpoints030-032-retirement-assessment.json",
+  "assessment_sha256": "fed9003b94b4c494977651de2566eef3915513fd09e385f6949d8c3a55fd8be2",
+  "capacity_basis": "Root-writable free space has fallen below the unchanged2,000,000,000-byte checkpoint launch floor. Recover working room from these older verified saved duplicates; no growth cause or complete-build fit is asserted.",
+  "root_free_at_decision": 1918287872,
+  "expected_allocated_relief_bytes": 438591488,
+  "ordered_files": [
+    {
+      "checkpoint": 30,
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-030-fresh-retry-evidence.tar.gz",
+      "identity": {
+        "device": 27,
+        "inode": 2405803,
+        "mode": 420,
+        "regular": true,
+        "nlink": 1,
+        "size_bytes": 146158377,
+        "allocated_bytes": 146178048,
+        "mtime_ns": 1793657947754154231,
+        "ctime_ns": 1793657968257926155,
+        "uid": 0,
+        "gid": 0
+      },
+      "sha256": "50f1a4a55076b93f2ba76e1651f001b71b63a3418682002c58e48a5800a9a293",
+      "library_file_id": "libfile_74d0ab3b951881919a43d66180b70872"
+    },
+    {
+      "checkpoint": 31,
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-031-recorder-loss-evidence.tar.gz",
+      "identity": {
+        "device": 27,
+        "inode": 2405851,
+        "mode": 420,
+        "regular": true,
+        "nlink": 1,
+        "size_bytes": 146169082,
+        "allocated_bytes": 146202624,
+        "mtime_ns": 1793659567584557402,
+        "ctime_ns": 1793659588016248560,
+        "uid": 0,
+        "gid": 0
+      },
+      "sha256": "50e438d6e1352c0b83006ad4bee606abffe3803e7f930539337ba0a4cc1f81a0",
+      "library_file_id": "libfile_2929204bf6ec8191a3f2ceac54a5f95f"
+    },
+    {
+      "checkpoint": 32,
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-032-record-protocol-recovery.tar.gz",
+      "identity": {
+        "device": 27,
+        "inode": 2405883,
+        "mode": 420,
+        "regular": true,
+        "nlink": 1,
+        "size_bytes": 146186394,
+        "allocated_bytes": 146210816,
+        "mtime_ns": 1793660562156969144,
+        "ctime_ns": 1793660583513494168,
+        "uid": 0,
+        "gid": 0
+      },
+      "sha256": "8372be8834251e85d034a17ca61d2d82d47442eae9ab3ff1a843958442bf1c49",
+      "library_file_id": "libfile_afb1269553c48191b4c6b22bd419aa57"
+    }
+  ],
+  "scope": "Saved copies and receipts retained. Latest complete local033 retained. No active compiler output or cache is modified. No recurring cleanup or repeat removal if a path returns."
+}

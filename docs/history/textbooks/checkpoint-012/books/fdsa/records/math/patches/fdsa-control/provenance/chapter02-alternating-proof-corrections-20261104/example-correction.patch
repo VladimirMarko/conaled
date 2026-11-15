@@ -1,0 +1,22 @@
+diff --git a/Examples/AlternatingSorting.lean b/Examples/AlternatingSorting.lean
+index 4b0182f..cb3a191 100644
+--- a/Examples/AlternatingSorting.lean
++++ b/Examples/AlternatingSorting.lean
+@@ -43,7 +43,7 @@ theorem accumulator_multiset (xs left right : List α) :
+ theorem unbalanced_initial_piles :
+     (halve ([] : List Nat) ([3, 2, 1], [])).1.length = 3 ∧
+       (halve ([] : List Nat) ([3, 2, 1], [])).2.length = 0 := by
+-  simpa using halve_lengths ([] : List Nat) [3, 2, 1] []
++  exact halve_lengths ([] : List Nat) [3, 2, 1] []
+ 
+ theorem empty_halve_payload : halve ([] : List Empty) ([], []) = ([], []) := halve_nil _
+ 
+@@ -97,7 +97,7 @@ theorem arbitrary_payload_order (first middle last : α) :
+       [(0, middle), (1, last), (1, first)] := by
+   unfold sortAlternatingOn
+   rw [source_sort_three_equation, sortAlternatingBy_pair, sortAlternatingBy_singleton]
+-  simp [List.cons_merge_cons]
++  simp
+ 
+ /-- Ordinary sortedness and multiplicity preservation do not make this variant stable. -/
+ theorem source_variant_not_stable :

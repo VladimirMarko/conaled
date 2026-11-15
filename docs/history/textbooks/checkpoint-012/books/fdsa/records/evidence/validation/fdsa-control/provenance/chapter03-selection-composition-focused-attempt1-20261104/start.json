@@ -1,0 +1,26 @@
+{
+  "requested_utc": "2026-11-04T22:14:21.931153+00:00",
+  "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+  "candidate": "660f974640fb89a766b26a4d786ae7ed197cecf2",
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "build",
+    "Examples.SelectionComposition"
+  ],
+  "scope": "Process recording only; command and acceptance policy unchanged.",
+  "started_utc": "2026-11-04T22:14:21.944533+00:00",
+  "initial_head": "660f974640fb89a766b26a4d786ae7ed197cecf2",
+  "initial_status": "",
+  "recorder_pid": 4,
+  "available_bytes_at_start": 0
+}

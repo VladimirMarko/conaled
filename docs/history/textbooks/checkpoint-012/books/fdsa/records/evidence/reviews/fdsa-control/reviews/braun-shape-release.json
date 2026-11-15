@@ -1,0 +1,37 @@
+{
+  "released_utc": "2026-11-03T01:07:10.231113+00:00",
+  "ticket": "FDSA-XT09",
+  "original_review_base": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "requirements": {
+    "bytes": 14161,
+    "lines": 252,
+    "sha256": "b7d1797e80ca2c732fd29632fea1ee5df0b296329bf1648d8ee714018a8f53f5"
+  },
+  "all_24_baselines_match": true,
+  "source_initially_clean": true,
+  "new_source_files_initially_absent": true,
+  "only_pinned_packages_link_no_project_build": true,
+  "main_and_c1_source_unchanged": true,
+  "checkpoint0060_receipt": "provenance/checkpoint0060-save-receipt.json",
+  "checkpoint0060_sha256": "1044b9ec8d8f6bcb506fc6acf66932d035f065265fb86e25a8e84538652fd71f",
+  "checkpoint0060_library_file_id": "libfile_07029487567c8191810b2110d28d6c7b",
+  "source_authoring_released": true,
+  "ownership": {
+    "/root/architecture": [
+      "Applications/Trees/Braun.lean",
+      "Applications/Trees/Shape.lean",
+      "Applications/Trees/ShapeLog.lean"
+    ],
+    "/root/rotation_cases": [
+      "Examples/BraunShape.lean"
+    ],
+    "/root/book_inventory": [
+      "docs/research/fdsa-braun-shape.md",
+      "docs/research/fdsa-reconstruction-map.md",
+      "SquareApplications.lean"
+    ]
+  },
+  "validation_released": false,
+  "c1_recorded_result_at_release": "running",
+  "restrictions": "Only frozen seven paths; authors do not mutate Git refs/index or run compiler/checker/project hash helper/cache operations. Root owns final readback/statement assessment/commit/checkpoint. All final acceptance gates remain."
+}

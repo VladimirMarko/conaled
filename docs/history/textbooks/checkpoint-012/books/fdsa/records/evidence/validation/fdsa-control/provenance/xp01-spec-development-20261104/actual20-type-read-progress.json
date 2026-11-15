@@ -1,0 +1,262 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-04T11:32:42.090779+00:00",
+  "candidate": "12cb14fc98b8617b3b625620da8e60936daba340",
+  "native_log_sha256": "e1b29bcf05bd9841e7213b71f024f22153a4eb644d6df2ba659800eb5fd83f76",
+  "native_log_lines": 532,
+  "native_log_bytes": 33371,
+  "range_index_independently_reconciled": [
+    {
+      "index": 1,
+      "name": "Resources.budget",
+      "first_line": 1,
+      "last_line": 6,
+      "bytes": 270,
+      "sha256": "7d2491df8801474403c58dd0773ed118592ad724c11b4319aaacf6e32f9d3f53"
+    },
+    {
+      "index": 2,
+      "name": "Resources.budget_append",
+      "first_line": 7,
+      "last_line": 25,
+      "bytes": 1523,
+      "sha256": "2e8b1c8d9b14eaab0e91b791b21c4a9711429412443ab4176bac04a7d2f56c93"
+    },
+    {
+      "index": 3,
+      "name": "Resources.budget_map",
+      "first_line": 26,
+      "last_line": 40,
+      "bytes": 1051,
+      "sha256": "b4fdb5c81879a0411478ec54e0b48969d04a3a172c91770ea4d22f3f66c5ea8d"
+    },
+    {
+      "index": 4,
+      "name": "Resources.run_potential_map_of_invariant",
+      "first_line": 41,
+      "last_line": 91,
+      "bytes": 3365,
+      "sha256": "0e44d6e6ea039439bccd660b17c81ea474ff102949983afb4c913fe0a32382b6"
+    },
+    {
+      "index": 5,
+      "name": "Resources.run_potential_map_exact_of_invariant",
+      "first_line": 92,
+      "last_line": 137,
+      "bytes": 3006,
+      "sha256": "9f27c7720c26b1532e2f77d7cef165656a2fb6fff789911bef9242fdd4256c71"
+    },
+    {
+      "index": 6,
+      "name": "Resources.run_potential_map",
+      "first_line": 138,
+      "last_line": 184,
+      "bytes": 3072,
+      "sha256": "b1317aa48e03c0068894b11e9599afb67ce2bdf98e2f5e229bee17b561db728f"
+    },
+    {
+      "index": 7,
+      "name": "Resources.run_potential_map_exact",
+      "first_line": 185,
+      "last_line": 226,
+      "bytes": 2713,
+      "sha256": "00dc9bed0fd54135b5369844e5b062fb2e10814db9825d4c1cdaa760ae99044c"
+    },
+    {
+      "index": 8,
+      "name": "Resources.run_cost_le_map_of_invariant",
+      "first_line": 227,
+      "last_line": 280,
+      "bytes": 3383,
+      "sha256": "652c6ab194694d293dee7702335eae7291887c76ad684a34b166cb0b23de1182"
+    },
+    {
+      "index": 9,
+      "name": "Resources.budget_amortized",
+      "first_line": 281,
+      "last_line": 355,
+      "bytes": 4015,
+      "sha256": "ad93fc96d3e041c09c5d8569a5b4e69576ed2b7f2d72b579d425b92778abdb46"
+    },
+    {
+      "index": 10,
+      "name": "Resources.charge_iff_signed",
+      "first_line": 356,
+      "last_line": 364,
+      "bytes": 643,
+      "sha256": "6124c77f6dec4afa9108e0c235c180db4923c76fed5a0d8e82988bc7cbefd5d9"
+    },
+    {
+      "index": 11,
+      "name": "Resources.run_potential",
+      "first_line": 365,
+      "last_line": 391,
+      "bytes": 1561,
+      "sha256": "c5175cadef1a555143dd9ba8d45fbcdc030f6cfb752ea3d7caeddbc8b6a63a72"
+    },
+    {
+      "index": 12,
+      "name": "Resources.run_potential_exact",
+      "first_line": 392,
+      "last_line": 418,
+      "bytes": 1541,
+      "sha256": "c8d8ec22c4781b76d844b03bb61d770d5c81bb65b7aa5de0cb014703d1e65a15"
+    },
+    {
+      "index": 13,
+      "name": "Resources.run_cost_le",
+      "first_line": 419,
+      "last_line": 438,
+      "bytes": 1173,
+      "sha256": "b28bf5d029882b137ca1f4109d5f0faad51b3b0308657c37051ee8eba0333113"
+    },
+    {
+      "index": 14,
+      "name": "Resources.run_zero_potential",
+      "first_line": 439,
+      "last_line": 458,
+      "bytes": 1202,
+      "sha256": "cb01ed1004147cb8f7110087ec8e6d52f73ee93a45cb6ccebb54bc01670acef3"
+    },
+    {
+      "index": 15,
+      "name": "Resources.budget_constant",
+      "first_line": 459,
+      "last_line": 465,
+      "bytes": 497,
+      "sha256": "0899c6df9a1ddaafa487820da99ff86d39ee377566f6be942f2537842851d302"
+    },
+    {
+      "index": 16,
+      "name": "Resources.budget_le_constant",
+      "first_line": 466,
+      "last_line": 475,
+      "bytes": 644,
+      "sha256": "a8551a6e96ebc22b1fb2ae0bda02b5d6f2fd188d1f5298d6fd04f4f9cba69a1d"
+    },
+    {
+      "index": 17,
+      "name": "Resources.run_constant_charge",
+      "first_line": 476,
+      "last_line": 498,
+      "bytes": 1399,
+      "sha256": "915226539046bb3690369edcb9f0731161412ffc83bd264978045be3704116c2"
+    },
+    {
+      "index": 18,
+      "name": "Resources.initial_potential_matters",
+      "first_line": 499,
+      "last_line": 519,
+      "bytes": 1299,
+      "sha256": "5d187b78cdc40a72672f7382bf87f29511eb7ca513dfe09cb55c5869ff30087f"
+    },
+    {
+      "index": 19,
+      "name": "Resources.FIFOContracts.abstractBudget",
+      "first_line": 520,
+      "last_line": 522,
+      "bytes": 225,
+      "sha256": "eb04c3b66addad1c0aa055a96f9dfba416228d8ddc1aad764483e68e560ae96e"
+    },
+    {
+      "index": 20,
+      "name": "Examples.MappedPotentialAccounting.Counter.real_boundary",
+      "first_line": 523,
+      "last_line": 532,
+      "bytes": 789,
+      "sha256": "629ded9502c9a1f390d93864e83184e43f89168b8c1418394b86a39df1ef55e6"
+    }
+  ],
+  "completed_type_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "read_chunks": [
+    {
+      "first_line": 1,
+      "last_line": 137,
+      "bytes": 9215,
+      "sha256": "a69fb034b329eaedbf88f3ae6af52cb194e4fa348f3fa047715edaaee49e2e7b",
+      "complete_types": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "assessment": "Independent carrier universes and only Zero/Add D for budget; append raw Zero/Add C and target AddMonoid D with actual run state; hom budget transport has raw C unconstrained and AddZero D/E; invariant mapped inequality has exactly target preorder and both covariance premises; exact invariant law has no order. Actual projections, h, local P, final P-dependent conclusion and boundary operand order match the source. No finding."
+    },
+    {
+      "first_line": 138,
+      "last_line": 280,
+      "bytes": 9168,
+      "sha256": "5536666e54446c077d9d75c58949bf5c3c89c5b66cc0b882f41b49fedfce6e15",
+      "complete_types": [
+        6,
+        7,
+        8
+      ],
+      "assessment": "All-state mapped inequality/equality retain exactly the intended local laws and raw/target classes; no extra payload assumptions. The invariant cost-only bound explicitly quantifies nonnegativity on P and starting P, keeps initial potential plus actual budget, and maps the same actual run observation. No finding."
+    },
+    {
+      "first_line": 281,
+      "last_line": 418,
+      "bytes": 7760,
+      "sha256": "5b36dbf38e3be3ad0274faba1ebf964a34c67f216bdcfe5a282b8f84f876eb47",
+      "complete_types": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "assessment": "budget_amortized has only AddZero raw C and AddCommGroup D, explicit additive h, local signed h(work)+Phi(after)-Phi(before), and global h(total)+Phi(final)-Phi(initial), without sign/order premises. charge_iff_signed casts all four naturals to Int before subtraction. Retained run_potential and exact fix raw/charge/potential Nat, keep independent operation/state universes and original local/global boundary order. No finding."
+    },
+    {
+      "first_line": 419,
+      "last_line": 532,
+      "bytes": 7228,
+      "sha256": "e07f5ec6603e419beba336bfdda6534b48cac94dfc3e80731edd231677c34b28",
+      "complete_types": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "assessment": "Nat cost-only bound retains initial potential; zero-initial bound has explicit equality premise; constant/bounded budgets and constant-charge potential bound retain exact Nat lengths and boundary terms. The complete initial-credit counterexample includes its local let and conjunction, actual Unit/Nat step, zero new charge and strict work>budget. FIFO abstractBudget has arbitrary-universe payload but exactly Nat profile/result and no hidden raw carrier. Counter.real_boundary quantifies arbitrary n and Bits with Real casts of totalCost/final and initial ones and 2*n, with no Canonical/zero-start premise. No finding."
+    }
+  ],
+  "actual_qualification_complete": true,
+  "all20_read_complete": true,
+  "current_actual_type_credit": 20,
+  "remaining_read_from_native_line": null,
+  "no_live_output_or_compiler_action": true,
+  "all_native_bytes_read": 33371,
+  "qualification_receipt": {
+    "path": "provenance/xp01-spec-development-20261104/actual20-complete-spec-assessment-12cb14fc.json",
+    "bytes": 28426,
+    "lines": 673,
+    "sha256": "d270babb974f8abac85b96fd46cca5f82102807ab375ffb1c035a29071030bdd"
+  }
+}

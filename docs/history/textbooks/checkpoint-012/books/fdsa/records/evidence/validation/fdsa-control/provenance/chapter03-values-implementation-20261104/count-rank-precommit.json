@@ -1,0 +1,72 @@
+{
+  "recorded_utc": "2026-11-04T18:29:43.347084+00:00",
+  "review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "scope": "C03-001\u2013014 semantic foundations; no cost or recursion termination claim beyond reused partition strict sizes",
+  "files": [
+    {
+      "path": "Applications/Selection/CountRank.lean",
+      "bytes": 12910,
+      "lines": 286,
+      "sha256": "27efd392d5f1489fee9f83ff51e519b92a0239121dec9a1de24fbf74a1e2a73a",
+      "public_names": [
+        "Applications.Selection.RankedAt.mem",
+        "Applications.Selection.RankedAt.lt_length",
+        "Applications.Selection.RankedAt.count_bounds",
+        "Applications.Selection.partition_equal_getElem?",
+        "Applications.Selection.ordered_getElem?_partition",
+        "Applications.Selection.ranked_iff_count_bounds",
+        "Applications.Selection.count_bounds_unique",
+        "Applications.Selection.filter_le_sublist_filter_lt",
+        "Applications.Selection.count_le_add_count_gt",
+        "Applications.Selection.ordered_eq_of_pairwise_perm",
+        "Applications.Selection.ordered_eq_of_perm",
+        "Applications.Selection.ordered_getElem?_perm",
+        "Applications.Selection.selectWith_succ_value",
+        "Applications.Selection.selectWith_succ_some_iff_count_bounds",
+        "Applications.Selection.ordered_getElem?_mem",
+        "Applications.Selection.ranked_zero_iff_min",
+        "Applications.Selection.ordered_getElem?_zero_iff_min",
+        "Applications.Selection.ordered_append",
+        "Applications.Selection.ordered_getElem?_append",
+        "Applications.Selection.sorted_filter_lt_sublist_take",
+        "Applications.Selection.sorted_filter_gt_sublist_drop",
+        "Applications.Selection.lowerMedian_value",
+        "Applications.Selection.lowerMedian_count_bounds",
+        "Applications.Selection.lowerMedian_mem"
+      ]
+    },
+    {
+      "path": "Examples/SelectionCountRank.lean",
+      "bytes": 4407,
+      "lines": 106,
+      "sha256": "d9116f0c8766d85c23ec4c0f7a728aef6ec98e701967da0fc1e4059aa465986d",
+      "public_names": [
+        "Examples.SelectionCountRank.duplicate_lower_rank",
+        "Examples.SelectionCountRank.duplicate_upper_rank",
+        "Examples.SelectionCountRank.duplicate_bounds",
+        "Examples.SelectionCountRank.duplicate_public_selection",
+        "Examples.SelectionCountRank.weak_upper_count_is_insufficient",
+        "Examples.SelectionCountRank.zero_book_rank_is_public_one",
+        "Examples.SelectionCountRank.smallest_is_not_largest",
+        "Examples.SelectionCountRank.invalid_count_bounds",
+        "Examples.SelectionCountRank.outside_pivot_equal_block",
+        "Examples.SelectionCountRank.outside_pivot_value",
+        "Examples.SelectionCountRank.equal_occurrence_branch",
+        "Examples.SelectionCountRank.ordered_blocks",
+        "Examples.SelectionCountRank.ordered_blocks_invalid_index",
+        "Examples.SelectionCountRank.duplicate_lower_median",
+        "Examples.SelectionCountRank.duplicate_median_counts",
+        "Examples.SelectionCountRank.monotone_count_transport"
+      ]
+    }
+  ],
+  "public_names": 40,
+  "no_new_definitions": true,
+  "source_policy_note": "No admissions, axioms, unsafe declarations, native evaluation or compiled proof shortcut. Numeric examples use kernel decision procedures. No compiler has run for this slice.",
+  "validation": "Prepared source only; root-owned immutable focused check and statement output pending. Full acceptance remains pending.",
+  "required_modules": [
+    "Applications.Selection.CountRank",
+    "Examples.SelectionCountRank"
+  ],
+  "entrypoint_instruction": "Integration owner must add import Examples.SelectionCountRank to SquareApplications.lean when the unit is included; this author did not edit that shared file."
+}

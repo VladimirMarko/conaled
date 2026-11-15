@@ -1,0 +1,366 @@
+{
+  "Applications/Resources/DifferenceListCosts.lean": [
+    {
+      "line": 26,
+      "kind": "abbrev",
+      "name": "Resources.DifferenceListCosts.Builder"
+    },
+    {
+      "line": 29,
+      "kind": "def",
+      "name": "Resources.DifferenceListCosts.Rep"
+    },
+    {
+      "line": 33,
+      "kind": "def",
+      "name": "Resources.DifferenceListCosts.AppCost"
+    },
+    {
+      "line": 37,
+      "kind": "def",
+      "name": "Resources.DifferenceListCosts.empty"
+    },
+    {
+      "line": 39,
+      "kind": "def",
+      "name": "Resources.DifferenceListCosts.singleton"
+    },
+    {
+      "line": 42,
+      "kind": "def",
+      "name": "Resources.DifferenceListCosts.compose"
+    },
+    {
+      "line": 45,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.empty_apply"
+    },
+    {
+      "line": 47,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.singleton_apply"
+    },
+    {
+      "line": 50,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.empty_rep"
+    },
+    {
+      "line": 54,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.empty_appCost"
+    },
+    {
+      "line": 58,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.singleton_rep"
+    },
+    {
+      "line": 62,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.singleton_appCost"
+    },
+    {
+      "line": 66,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.compose_value"
+    },
+    {
+      "line": 71,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.compose_cost"
+    },
+    {
+      "line": 74,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.compose_rep"
+    },
+    {
+      "line": 80,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.compose_appCost"
+    },
+    {
+      "line": 88,
+      "kind": "def",
+      "name": "Resources.DifferenceListCosts.createEmpty"
+    },
+    {
+      "line": 91,
+      "kind": "def",
+      "name": "Resources.DifferenceListCosts.createSingleton"
+    },
+    {
+      "line": 95,
+      "kind": "def",
+      "name": "Resources.DifferenceListCosts.createCompose"
+    },
+    {
+      "line": 98,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.createEmpty_eq"
+    },
+    {
+      "line": 101,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.createSingleton_eq"
+    },
+    {
+      "line": 103,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.createCompose_eq"
+    },
+    {
+      "line": 107,
+      "kind": "def",
+      "name": "Resources.DifferenceListCosts.pushRun"
+    },
+    {
+      "line": 110,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.pushRun_eq"
+    },
+    {
+      "line": 113,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.pushRun_rep"
+    },
+    {
+      "line": 117,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.pushRun_appCost"
+    },
+    {
+      "line": 123,
+      "kind": "def",
+      "name": "Resources.DifferenceListCosts.buildFrom"
+    },
+    {
+      "line": 126,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.buildFrom_nil"
+    },
+    {
+      "line": 128,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.buildFrom_cons"
+    },
+    {
+      "line": 134,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.buildFrom_cost"
+    },
+    {
+      "line": 142,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.buildFrom_rep"
+    },
+    {
+      "line": 151,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.buildFrom_appCost"
+    },
+    {
+      "line": 162,
+      "kind": "def",
+      "name": "Resources.DifferenceListCosts.build"
+    },
+    {
+      "line": 165,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.build_cost"
+    },
+    {
+      "line": 169,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.build_rep"
+    },
+    {
+      "line": 173,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.build_appCost"
+    },
+    {
+      "line": 178,
+      "kind": "def",
+      "name": "Resources.DifferenceListCosts.toDList"
+    },
+    {
+      "line": 184,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.toDList_apply"
+    },
+    {
+      "line": 187,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.toList_toDList"
+    },
+    {
+      "line": 193,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.toDList_eq_ofList"
+    },
+    {
+      "line": 198,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.toDList_compose"
+    },
+    {
+      "line": 211,
+      "kind": "theorem",
+      "name": "Resources.DifferenceListCosts.toDList_pushRun"
+    }
+  ],
+  "Examples/DifferenceListCosts.lean": [
+    {
+      "line": 21,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.ordered_composition"
+    },
+    {
+      "line": 31,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.standard_composition_value"
+    },
+    {
+      "line": 40,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.expensive_capture"
+    },
+    {
+      "line": 54,
+      "kind": "def",
+      "name": "Examples.DifferenceListCosts.materialize"
+    },
+    {
+      "line": 57,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.materialize_eq"
+    },
+    {
+      "line": 66,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.construction_application_split"
+    },
+    {
+      "line": 73,
+      "kind": "def",
+      "name": "Examples.DifferenceListCosts.materializeTwice"
+    },
+    {
+      "line": 80,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.materializeTwice_eq"
+    },
+    {
+      "line": 91,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.duplicate_values"
+    },
+    {
+      "line": 95,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.duplicate_values_twice"
+    },
+    {
+      "line": 100,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.empty_payload_boundary"
+    },
+    {
+      "line": 105,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.singleton_boundary"
+    },
+    {
+      "line": 109,
+      "kind": "def",
+      "name": "Examples.DifferenceListCosts.extendSingleton"
+    },
+    {
+      "line": 112,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.extendSingleton_eq"
+    },
+    {
+      "line": 125,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.fused_push_value"
+    },
+    {
+      "line": 132,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.identity_value_cost"
+    },
+    {
+      "line": 142,
+      "kind": "def",
+      "name": "Examples.DifferenceListCosts.padded"
+    },
+    {
+      "line": 146,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.padded_rep"
+    },
+    {
+      "line": 152,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.padded_appCost"
+    },
+    {
+      "line": 161,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.padded_empty_value"
+    },
+    {
+      "line": 166,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.no_bound_from_output_length"
+    },
+    {
+      "line": 175,
+      "kind": "def",
+      "name": "Examples.DifferenceListCosts.doubled"
+    },
+    {
+      "line": 179,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.doubled_creation"
+    },
+    {
+      "line": 186,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.doubled_rep"
+    },
+    {
+      "line": 192,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.doubled_application_add_one"
+    },
+    {
+      "line": 204,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.doubled_appCost"
+    },
+    {
+      "line": 210,
+      "kind": "def",
+      "name": "Examples.DifferenceListCosts.materializeDoubled"
+    },
+    {
+      "line": 213,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.materializeDoubled_eq"
+    },
+    {
+      "line": 222,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.four_shared_closure_extensions"
+    },
+    {
+      "line": 230,
+      "kind": "theorem",
+      "name": "Examples.DifferenceListCosts.four_shared_closure_extensions_materialized"
+    }
+  ]
+}

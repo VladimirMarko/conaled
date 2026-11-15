@@ -1,0 +1,86 @@
+{
+  "recorded_utc": "2026-11-04T10:45:11.191107+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete81-path review scope, all112 obligations and ten shared scopes.",
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "chunks": [
+    {
+      "chunk": 19,
+      "type_numbers": [
+        305,
+        310
+      ],
+      "native_lines": [
+        4722,
+        4982
+      ],
+      "bytes": 18340,
+      "sha256": "c681d6f046f738fa93563a59e8a42ea3aefbcf87968092694e70382edd0b94de",
+      "names": [
+        "Examples.RandomQuickSortRank.three_occurrence_ranks",
+        "Examples.RandomQuickSortRank.three_middle_children",
+        "Examples.RandomQuickSortRank.three_left_size_law",
+        "Examples.RandomQuickSortRank.three_reordered_exercise_mean",
+        "Examples.RandomQuickSortRank.sizeMean_four",
+        "Examples.RandomQuickSortRank.four_occurrence_ranks"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "For input[2,0,1], each actual occurrence rank equals the key at that occurrence, despite input order. Selecting occurrence2 gives actual filtered children[0] and[2] after eraseIdx.",
+        "The three-element left-size law is an actual PMF.map equality from uniformIndex2 to the uniform Fin3 value distribution. The reordered exercise expectation remains71/3.",
+        "sizeMean4 is109/3, and occurrence ranks for reordered input[3,1,0,2] equal its selected keys at every Fin4 index. The full expanded dependent Fin/list expressions preserve the exact intended input and bounds."
+      ]
+    },
+    {
+      "chunk": 20,
+      "type_numbers": [
+        311,
+        322
+      ],
+      "native_lines": [
+        4983,
+        5281
+      ],
+      "bytes": 20873,
+      "sha256": "d929898914c722d4c6fda4b1d6e1c50399e65cb9a7199e3a323ad0d19f52618d",
+      "names": [
+        "Examples.RandomQuickSortRank.four_selected_children",
+        "Examples.RandomQuickSortRank.four_reordered_exercise_mean",
+        "Examples.RandomQuickSortRank.distinct_tags_repeated_keys",
+        "Examples.RandomQuickSortRank.repeated_key_rank_is_not_left_size",
+        "Examples.RandomQuickSortRank.equal_keys_keep_quadratic_mean",
+        "Examples.RandomQuickSortRank.tagged_inputs_equal_mean",
+        "Resources.UniformQuickSortMean.leftChild",
+        "Resources.UniformQuickSortMean.rightChild",
+        "Resources.UniformQuickSortMean.mem_leftChild",
+        "Resources.UniformQuickSortMean.mem_rightChild",
+        "Resources.UniformQuickSortMean.leftChild_subset_erase",
+        "Resources.UniformQuickSortMean.rightChild_subset_erase"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The four-element selected occurrence3 produces actual left child[1,0] and right child[3], retaining sublist order rather than sorting children prematurely; its exercise mean is109/3.",
+        "The distinct tagged records[(1,false),(1,true),(2,false)] are Nodup while their key list is not. The second occurrence rank is1 but its actual strictly-smaller child length is0, explicitly retaining the failure of the rank-size claim without distinct keys.",
+        "Three equal keys have actual exercise mean25 and differ from sizeMean3. Equal-mean transport across independently typed tags/keys retains mapped-key Nodup for both inputs and equal lengths, without tag equality/default assumptions.",
+        "Uniform-input child sets require only decidable equality on labels and an arbitrary Boolean comparator. Membership is b!=a, b in S and lt b a=true for left or=false for right. Both sets explicitly lie inside S.erase a; no unrelated measure/order assumptions leak into these combinatorial definitions."
+      ]
+    }
+  ],
+  "prior_progress_sha256": "a4a8aec840be3823a97a80683246101b3c0775b97571457cf09ee953af080e7b",
+  "overall_outcome": "Blocked",
+  "new_type_credit": 0,
+  "possible110_credit": 0
+}

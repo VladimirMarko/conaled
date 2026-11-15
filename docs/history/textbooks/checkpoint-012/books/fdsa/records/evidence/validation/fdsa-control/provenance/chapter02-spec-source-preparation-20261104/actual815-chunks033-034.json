@@ -1,0 +1,96 @@
+{
+  "recorded_utc": "2026-11-04T10:51:04.252833+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete 81-path review scope, all 112 obligations and ten shared scopes.",
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "chunks": [
+    {
+      "chunk": 33,
+      "type_numbers": [
+        609,
+        635
+      ],
+      "native_lines": [
+        8576,
+        8878
+      ],
+      "bytes": 20805,
+      "names": [
+        "Examples.InsertionCosts.key_tie_observation",
+        "Examples.InsertionCosts.sorted_result_has_rank",
+        "Examples.InsertionCosts.repeated_value_rank",
+        "Examples.InsertionCosts.small_sort_budget",
+        "Examples.InsertionCosts.small_rank_with_sort_budget",
+        "Examples.InsertionObservations.keyed_insert_equations",
+        "Examples.InsertionObservations.keyed_sort_equations",
+        "Examples.InsertionObservations.keyed_insert_observations",
+        "Examples.InsertionObservations.keyed_sorted_iff",
+        "Examples.InsertionObservations.keyed_filter_of_pos",
+        "Examples.InsertionObservations.keyed_sort_observations",
+        "Examples.InsertionObservations.raw_insertion_cannot_repair",
+        "Examples.InsertionObservations.all_members_without_sorted_input",
+        "Examples.InsertionObservations.tied_head_ignores_inversion",
+        "Examples.InsertionObservations.equal_key_payloads",
+        "Examples.InsertionObservations.empty_type_sort",
+        "Examples.InsertionObservations.empty_payload_sort",
+        "Examples.InsertionObservations.predicate_premises_matter",
+        "Examples.InsertionObservations.negative_extreme_relations",
+        "Examples.InsertionObservations.Flagged",
+        "Examples.InsertionObservations.rawFlags",
+        "Examples.InsertionObservations.sortedFlags",
+        "Examples.InsertionObservations.negative_filter_unsorted",
+        "Examples.InsertionObservations.positive_filter_discards_stopping_head",
+        "Examples.InsertionObservations.even",
+        "Examples.InsertionObservations.positive_filter_needs_sorted_input",
+        "Examples.InsertionObservations.cycle"
+      ],
+      "sha256": "276f33859b2e69aa18f210baec3d25a95b020dcf5f76b870c1c8be389ebc7286",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The exact equal-key output filter keeps first/last payload order. Rank observations require actual safe sorted lookup=Some a and conclude RankedAt in the original input, including repeated values; the length<=5 budget is21 and the combined rank/budget claim keeps both premises.",
+        "Keyed insertion and insertion-sort equations need only decidable key comparison. Multiset, membership and length observations preserve multiplicity without payload equality. Sortedness equivalence uses the key linear preorder; filter-positive commutation keeps a key preorder, sorted mapped keys and predicate acceptance.",
+        "Keyed whole-sort observations include actual multiset equality, all-pairs key order and exact equal-key filtered sublists, with key equality only where the filter requires it.",
+        "The unsorted [2,0] counterexample shows any raw insertion relation cannot repair the old inversion. All-members immediate insertion and tied-head early exit are separated; equal-key arbitrary payload insertion and Empty carrier/payload examples preserve generality.",
+        "Predicate truth premises are shown necessary; negative filtering works even for extreme always-true/always-false insertion relations and unsorted input. Positive filtering may discard the stopping head yet still commute on sorted input; the explicit unsorted [3,0] example gives different [2,0] versus [0,2] results. The cyclic relation is introduced as Fin3->Fin3->Prop for the next transitivity counterexamples."
+      ]
+    },
+    {
+      "chunk": 34,
+      "type_numbers": [
+        636,
+        637
+      ],
+      "native_lines": [
+        8879,
+        8885
+      ],
+      "bytes": 501,
+      "names": [
+        "Examples.InsertionObservations.cycle_total",
+        "Examples.InsertionObservations.cycle_not_transitive"
+      ],
+      "sha256": "27e9c3e9a81768b0f04cd2e057ac82fd230f548e8b00a0bbcd2857dbae0eb1e2",
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The Fin3 cyclic relation is explicitly total on every pair and explicitly fails transitivity. These separate compiled propositions support the following premise-necessity examples; neither introduces a false transitivity instance."
+      ]
+    }
+  ],
+  "prior_progress_sha256": "138fc4c45a0293dd9345406f993ce90b9b855df17af692d417968852244b93ed",
+  "overall_outcome": "Blocked",
+  "new_type_credit": 0,
+  "possible110_credit": 0
+}

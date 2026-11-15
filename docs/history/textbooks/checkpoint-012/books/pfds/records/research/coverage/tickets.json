@@ -1,0 +1,1898 @@
+{
+  "schema": 1,
+  "scope": "Union of Okasaki Cambridge book and1996 thesis; local-only tracking",
+  "upstream_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "branch": "pfds/local",
+  "tickets": [
+    {
+      "id": 10000,
+      "title": "Bootstrap pinned development environment and recoverable checkpoints",
+      "status": "accepted",
+      "label": "ready-for-agent",
+      "depends_on": [],
+      "acceptance": [
+        "Required Nix development shell runs pinned Lean/Lake",
+        "Requirements, tickets and full repository history restore from self-contained checkpoint",
+        "Checkpoint uploaded and exact saved identity exposed"
+      ],
+      "evidence": [
+        "environment/README.md",
+        "environment/summary.json",
+        "checkpoints.json",
+        "research/checkpoint-review.md",
+        "research/checkpoint-fixture-evidence-r2.json",
+        "reviews/bootstrap-standards.md",
+        "reviews/bootstrap-spec.md",
+        "receipts/checkpoint003-upload.json"
+      ],
+      "reviews": {
+        "standards": "passed; bootstrap-standards.md",
+        "spec": "passed; bootstrap-spec.md"
+      },
+      "accepted_artifact": "checkpoint003 SHA256 37a8dc11bdb3899f1dbbc7c411f4c011c31d45e06eb941567022e603f45bc107; checkpoint.py SHA256 617c14ed63170ee39a8ac1df2eb4cc20b1b509ebd5f1d4c16ae4e469b7ed51ab"
+    },
+    {
+      "id": 10001,
+      "chapter": 1,
+      "title": "Introduction",
+      "pages": "1\u20136",
+      "status": "accepted",
+      "label": "ready-for-agent",
+      "depends_on": [
+        10000
+      ],
+      "source_status": "Both complete introductions inspected; bookp6 visuallyblank, thesisTable1.1 sixteen forward cost contracts retained; sourceblocker resolved",
+      "source": "https://www.cambridge.org/core/books/purely-functional-data-structures/0409255DA1B48FA731859AC72E34D494",
+      "acceptance": [
+        "Complete chapter source and exercises inspected; item-level scope ledger retained",
+        "All substantive formal obligations mapped to checked declarations or explicit non-formal classification",
+        "Existing conaled abstractions reused and semantic/cost/target distinctions preserved",
+        "Connected specializations/applications and statement review complete",
+        "Clean isolated candidate build and exhaustive proof audit pass",
+        "Independent Standards and Spec reviews pass on identical candidate",
+        "Final candidate verification passes; durable checkpoint uploaded",
+        "Reconcile mapped thesis material and differing realizations/contracts; retain all forward cost obligations until proved"
+      ],
+      "coverage": [],
+      "candidate": "1ce161412a2cfb725f27525ff98d400209163316",
+      "reviews": {
+        "standards": "passed; chapter01-standards-r3.md",
+        "spec": "passed; chapter01-spec-r3.md"
+      },
+      "evidence": [
+        "research/book-full-inventory.md",
+        "research/book-thesis-union.md",
+        "research/thesis-obligations.json",
+        "reviews/chapter01-validation-r3.txt",
+        "reviews/chapter01-standards-r3.md",
+        "reviews/chapter01-spec-r3.md",
+        "reviews/chapter01-integration-r3.json"
+      ],
+      "acceptance_scope_note": "Introductory source accounting; table cost claims are forward mathematical obligations owned and proved in later chapters. No mathematical table result is accepted here.",
+      "integration_commit": "82501d108f33c62d21b5e0d0f7d2376b902d8d49",
+      "accepted_scope": "Introductory source accounting; sixteen forward cost contracts and later chapter proofs remain pending.",
+      "validation_scope_note": "Documentation-only candidate: exact clean identity, whitespace, links, source fingerprints and coverage checks passed; no Lean build/audit applies to this scope. Accepted delivery content matches all three reviewed blob IDs. Checkpoint006 scheduled immediately."
+    },
+    {
+      "id": 10002,
+      "chapter": 2,
+      "title": "Persistence",
+      "pages": "7\u201316",
+      "status": "in_progress",
+      "label": "ready-for-agent",
+      "depends_on": [
+        10000,
+        10001
+      ],
+      "source_status": "Complete printedpp7\u201316 visuallyinspected, allFigures2.1\u20132.10 andExercises2.1\u20132.6 including subparts; research/book-full-inventory.md",
+      "source": "https://www.cambridge.org/core/books/purely-functional-data-structures/0409255DA1B48FA731859AC72E34D494",
+      "acceptance": [
+        "Complete chapter source and exercises inspected; item-level scope ledger retained",
+        "All substantive formal obligations mapped to checked declarations or explicit non-formal classification",
+        "Existing conaled abstractions reused and semantic/cost/target distinctions preserved",
+        "Connected specializations/applications and statement review complete",
+        "Clean isolated candidate build and exhaustive proof audit pass",
+        "Independent Standards and Spec reviews pass on identical candidate",
+        "Final candidate verification passes; durable checkpoint uploaded",
+        "Reconcile mapped thesis material and differing realizations/contracts; retain all forward cost obligations until proved"
+      ],
+      "coverage": [
+        "B2-PERSIST",
+        "B2-STACK",
+        "B2-STACK-LIST",
+        "B2-STACK-CUSTOM",
+        "B2-APPEND-ABSTRACT",
+        "B2-APPEND-LIST",
+        "B2-APPEND-SHARING",
+        "B2-UPDATE",
+        "B2-UPDATE-DOMAIN",
+        "B2.1",
+        "B2-ORDER",
+        "B2-SET",
+        "B2-MEMBER",
+        "B2-INSERT",
+        "B2.2",
+        "B2.3",
+        "B2.4",
+        "B2-E2.5a",
+        "B2-E2.5b",
+        "B2.6",
+        "B2.5",
+        "B2-NOTES"
+      ],
+      "candidate": {
+        "commit": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "tree": "d3dcf94916de5ccaf3df357e06192e69c4e0cf33",
+        "preserved_branch": "pfds/signed-potential",
+        "planned_isolated_checkout": "validation-pfds-integration",
+        "restored_main": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c"
+      },
+      "reviews": {
+        "standards": "chapter02-standards-r3.md: zero static findings, Blocked.",
+        "spec": "chapter02-spec-r3.md: zero static findings, Blocked."
+      },
+      "evidence": [
+        "research/chapter02-stack.md",
+        "research/chapter02-ordered.md",
+        "research/chapter02-shared.md",
+        "research/chapter02-map.md",
+        "research/chapter02-physical.md",
+        "validation/chapter02-shared-focused.json",
+        "validation/chapter02-ordered-focused-r3.json",
+        "validation/chapter02-integer-ordered-focused-r9.json",
+        "validation/chapter02-optimized-focused-r3.json",
+        "validation/ch02-shared-map-focused.json",
+        "research/chapter02-preacceptance-gaps.md",
+        "reviews/chapter02.md",
+        "validation/chapter02-shared-terminal-focused.json",
+        "validation/chapter02-candidate-r1.json",
+        "reviews/chapter02-standards-r1.md",
+        "reviews/chapter02-spec-r1.md",
+        "reviews/chapter02-69f6f00-dispatch.md",
+        "validation/chapter02-candidate-r2.json",
+        "validation/chapter02-candidate-r3.json",
+        "reviews/chapter02-standards-r3.md",
+        "reviews/chapter02-spec-r3.md",
+        "reviews/chapter02-99a29dc-dispatch.md",
+        "validation/chapter02-focused-output-copy.json",
+        "reviews/common-integration-dispatch-r1-045.md",
+        "validation/common-integration-scope-matrix-045.json"
+      ],
+      "blocker": "Genuine fresh full build/audit, current-kit stock regressions, validation-evidence continuation of both independent axes, dependency-ordered decisions and immediate verification remain.",
+      "implementation_base": "82501d108f33c62d21b5e0d0f7d2376b902d8d49",
+      "requirements": "requirements/chapter02.md",
+      "work_in_progress_heads": {
+        "conaled": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+        "chapter02-ordered": "26975a435a38ea89512c68a9d87f9efd7c971113",
+        "chapter02-shared": "4b0f0c0bc7c139480fb72407b93a2d9eb6874289",
+        "chapter02-map": "fcf086ddc271d4b20d4714e36238e47a325316bd",
+        "validation-imports": "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+        "validation-chapter02": "69f6f00de204617fdd7feefd5b9ee5b80fc0d9f4",
+        "import-correction": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+        "validation-chapter02-r2": "c372c470008cdda3043040683451662f61131f81"
+      },
+      "formal_status": "Implementation remains unaccepted; common candidate now includes all mapped scopes. Actual full validation and independent full-scope reconciliation pending.",
+      "implementation_status": {
+        "abstract_stack": "Focused compilation passed; generic operators/laws, List/custom realizations, 4*n+1 primitive append bound and composition.",
+        "source_integer_update": "Focused compilation passed in669-job r9; all-integer direct execution and relational adapter.",
+        "pure_ordered_set": "Focused compilation passed at worker df1b362; integrated through6837888, all six pure algorithm/cost/invariant modules and connected cases.",
+        "shared_tree_constructors": "Focused compilation passed at worker b6b93fe; integrated atf2b187e; complete/create2 exact sizes, balance, root sharing and logarithmic bounds.",
+        "pure_finite_map": "Focused compilation passed at worker3dd9617; integrated at94e8c14; key-only order, arbitrary payloads, finite-domain and overwrite/lookup laws.",
+        "physical_paths": "Path/Rebuilds/follow/searchPathBy compiled; integrated through17de2f7.",
+        "physical_ordered_baseline": "Focused compilation passed at ebdeec2; actual path-copy execution, exact profiles, retained roots and composed observers. Matched endpoint/subtree identity now integrated and separately focused-compiled at worker4b0f0c0.",
+        "physical_abort_combined": "Focused compilation passed at worker26975a4,672jobs; integrated as c6dcabd/ef01b63 with public import7baa042. Actual abort/combined executions, exact original-state duplicate return, profile/retention contracts and composed observers.",
+        "physical_map": "Focused compilation passed at workerfcf086d,666jobs; integrated as047c21e/f39d1a9/52f930a with public import439dc67. WrittenAt endpoint children, actual bind/lookup, exact profiles and composed observation.",
+        "physical_duplicate_endpoint": "Focused pass at worker4b0f0c0,665jobs; integrated5437931/aadb51b/c74eab7 with public import76d77a1. Exact terminal root, all descendants, old version and strict-ancestor count are stated and exercised."
+      },
+      "validation_status": "No terminal result yet; full audit, current-kit stock regressions, evidence review and final verification pending.",
+      "candidate_checkout": "validation-pfds-integration",
+      "validation": "Ordinary-r2 is genuinely running under dedicated continuous polling. Start inputs exactly equal r1; stockguard verified30normalartifacts and invalidated1091modules. No terminal/full success; mandatory fresh baseline/regressions/acceptance pending.",
+      "review_base": "82501d108f33c62d21b5e0d0f7d2376b902d8d49",
+      "integration_review_base": "82501d108f33c62d21b5e0d0f7d2376b902d8d49",
+      "review_status": "Both independent common-candidate static reviews complete with zero new static defects; both outcomes Blocked on genuine validation.",
+      "planned_common_candidate": {
+        "sha": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "status": "Explicitly retargeted; static reviews complete, genuine full validation running, acceptance pending",
+        "dispatch": "reviews/common-integration-dispatch-r1-045.md",
+        "matrix": "validation/common-integration-scope-matrix-045.json"
+      },
+      "historical_candidate_before_common_045": "99a29dcd02eb529fbefbb675e244a8c47b78cdef",
+      "common_candidate_reviews": {
+        "standards": {
+          "report": "reviews/common-integration-standards-r1-045.md",
+          "outcome": "Blocked",
+          "static_complete": true,
+          "new_static_findings": 0
+        },
+        "spec": {
+          "report": "reviews/common-integration-spec-r1-045.md",
+          "outcome": "Blocked",
+          "static_complete": true,
+          "new_static_findings": 0
+        }
+      },
+      "preparation_evidence": [
+        "research/thesis-endmatter-source-inventory-045.md"
+      ]
+    },
+    {
+      "id": 10003,
+      "chapter": 3,
+      "title": "Some Familiar Data Structures in a Functional Setting",
+      "pages": "17\u201330",
+      "status": "open",
+      "label": "needs-triage",
+      "depends_on": [
+        10000,
+        10002
+      ],
+      "source_status": "Complete book pp17-30 visually and text inspected, Figs3.1-3.6 and Exercises3.1-3.10 including all subparts; ordinary-binomial thesis correspondence inspected at definition6.2/Figs6.2(b),6.3(b),6.7,6.8 and section6.2.2. Preparation only; Chapter2 acceptance remains prerequisite.",
+      "source": "https://www.cambridge.org/core/books/purely-functional-data-structures/0409255DA1B48FA731859AC72E34D494",
+      "acceptance": [
+        "Complete chapter source and exercises inspected; item-level scope ledger retained",
+        "All substantive formal obligations mapped to checked declarations or explicit non-formal classification",
+        "Existing conaled abstractions reused and semantic/cost/target distinctions preserved",
+        "Connected specializations/applications and statement review complete",
+        "Clean isolated candidate build and exhaustive proof audit pass",
+        "Independent Standards and Spec reviews pass on identical candidate",
+        "Final candidate verification passes; durable checkpoint uploaded",
+        "Reconcile mapped thesis material and differing realizations/contracts; retain all forward cost obligations until proved"
+      ],
+      "coverage": [
+        "B3.1",
+        "B3.2",
+        "B3.3",
+        "B3.4",
+        "B3.5",
+        "B3.6",
+        "B3.7",
+        "B3.8",
+        "B3.9",
+        "B3.10"
+      ],
+      "candidate": null,
+      "reviews": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "evidence": [
+        "research/chapter03-union-inventory.md",
+        "research/chapter03-reuse-inventory.md",
+        "research/chapter03-binomial-redblack-readiness.md",
+        "requirements/chapter03.md",
+        "research/chapter03-first-slice-design.md",
+        "research/chapter03-leftist-readiness.md",
+        "research/chapter03-paired-round-cost-readiness.md"
+      ],
+      "implementation_status": "Not started; no formal frontier advance. Existing LeftistQueue/ExactPriority reuse identified for later statement review.",
+      "requirements": "requirements/chapter03.md",
+      "requirements_sha256": "1ebd1b0cea79634336fa8a4f21b375fe67e5aa2e3171db7394bfad9c4f187ba1",
+      "requirements_status": "Version1 scope preparation only; Chapter2 acceptance required before implementation/base activation.",
+      "preparation_evidence": [
+        "research/thesis-chapter06-source-inventory-045.md"
+      ]
+    },
+    {
+      "id": 10004,
+      "chapter": 4,
+      "title": "Lazy Evaluation",
+      "pages": "31\u201338",
+      "status": "open",
+      "label": "needs-triage",
+      "depends_on": [
+        10000,
+        10003,
+        10014,
+        10019
+      ],
+      "source_status": "Complete bookpp31-38 and thesisChapter2/AppendixA inspected, including both exercises and figures; source/statement inventory retained. Formal chapter implementation has not started.",
+      "source": "https://www.cambridge.org/core/books/purely-functional-data-structures/0409255DA1B48FA731859AC72E34D494",
+      "acceptance": [
+        "Complete chapter source and exercises inspected; item-level scope ledger retained",
+        "All substantive formal obligations mapped to checked declarations or explicit non-formal classification",
+        "Existing conaled abstractions reused and semantic/cost/target distinctions preserved",
+        "Connected specializations/applications and statement review complete",
+        "Clean isolated candidate build and exhaustive proof audit pass",
+        "Independent Standards and Spec reviews pass on identical candidate",
+        "Final candidate verification passes; durable checkpoint uploaded",
+        "Reconcile mapped thesis material and differing realizations/contracts; retain all forward cost obligations until proved"
+      ],
+      "coverage": [
+        "B4.1",
+        "B4.2",
+        "TU.FORCE"
+      ],
+      "candidate": null,
+      "reviews": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "evidence": [
+        "research/suspension-foundation-inventory.md",
+        "research/chapter04-readiness.md"
+      ],
+      "preparation_note": "Readiness only: reuse existing bidirectional force-after-delay observations; stream algorithms, compositional drop equivalence and actual O(n*k) prefix work remain. Preserve signed-count behavior and TU.FORCE later digit-forcing obligations. No Chapter4 implementation or acceptance; add10020 as an actual dependency if its general count theorem is adopted at activation."
+    },
+    {
+      "id": 10005,
+      "chapter": 5,
+      "title": "Fundamentals of Amortization",
+      "pages": "39\u201356",
+      "status": "open",
+      "label": "needs-triage",
+      "depends_on": [
+        10000,
+        10004
+      ],
+      "source_status": "Complete book pp39\u201356 and thesis pp13\u201322 inspected with all nine exercises/subparts and relevant AppendixA realizations; source/statement inventory and distinct-priority persistent counterexample families retained. Chapter5 implementation has not started.",
+      "source": "https://www.cambridge.org/core/books/purely-functional-data-structures/0409255DA1B48FA731859AC72E34D494",
+      "acceptance": [
+        "Complete chapter source and exercises inspected; item-level scope ledger retained",
+        "All substantive formal obligations mapped to checked declarations or explicit non-formal classification",
+        "Existing conaled abstractions reused and semantic/cost/target distinctions preserved",
+        "Connected specializations/applications and statement review complete",
+        "Clean isolated candidate build and exhaustive proof audit pass",
+        "Independent Standards and Spec reviews pass on identical candidate",
+        "Final candidate verification passes; durable checkpoint uploaded",
+        "Reconcile mapped thesis material and differing realizations/contracts; retain all forward cost obligations until proved"
+      ],
+      "coverage": [
+        "B5.1",
+        "B5.2",
+        "B5.3",
+        "B5.4",
+        "B5.5",
+        "B5.6",
+        "B5.7",
+        "B5.8",
+        "B5.9"
+      ],
+      "candidate": null,
+      "reviews": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "evidence": [
+        "research/chapter05-readiness.md",
+        "research/chapter05-persistent-counterexample-readiness.md",
+        "validation/chapter05-source-reading-correction.json"
+      ],
+      "preparation_note": "Readiness only: preserve actual-cost/charge distinction, signed real log potential, multiple-input linear-consumption premise, exact splay small-size bound, both-end deque adapter and existing heap carriers. Appendix binomial link uses <=; minimum-tree selection and pairing merge use <. Initial source-reading error retained and corrected; no formal coverage or chapter frontier advance."
+    },
+    {
+      "id": 10006,
+      "chapter": 6,
+      "title": "Amortization and Persistence via Lazy Evaluation",
+      "pages": "57\u201382",
+      "status": "open",
+      "label": "needs-triage",
+      "depends_on": [
+        10000,
+        10005,
+        10017
+      ],
+      "source_status": "Complete book57\u201382 and thesis19\u201338 inspected with all seven exercises/subparts, both numbered chapter theorems and relevant AppendixA realizations; exact source variants and proposed proof cases retained. Chapter6 implementation has not started.",
+      "source": "https://www.cambridge.org/core/books/purely-functional-data-structures/0409255DA1B48FA731859AC72E34D494",
+      "acceptance": [
+        "Complete chapter source and exercises inspected; item-level scope ledger retained",
+        "All substantive formal obligations mapped to checked declarations or explicit non-formal classification",
+        "Existing conaled abstractions reused and semantic/cost/target distinctions preserved",
+        "Connected specializations/applications and statement review complete",
+        "Clean isolated candidate build and exhaustive proof audit pass",
+        "Independent Standards and Spec reviews pass on identical candidate",
+        "Final candidate verification passes; durable checkpoint uploaded",
+        "Reconcile mapped thesis material and differing realizations/contracts; retain all forward cost obligations until proved"
+      ],
+      "coverage": [
+        "B6.1",
+        "B6.2",
+        "B6.3",
+        "B6.4",
+        "B6.5",
+        "B6.6",
+        "B6.7",
+        "T1.01",
+        "T1.02",
+        "T1.15"
+      ],
+      "candidate": null,
+      "reviews": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "evidence": [
+        "research/chapter06-theory-readiness.md",
+        "research/chapter06-thesis-union-readiness.md",
+        "research/chapter06-book-algorithms-readiness.md"
+      ],
+      "preparation_note": "Readiness only: retain logical work units before physical allocation, source-specific tie/forcing variants, graph/chronology and arbitrary-work bridge, precise small-size and cost-model conventions, and historical conjecture classification. No chapter coverage accepted."
+    },
+    {
+      "id": 10007,
+      "chapter": 7,
+      "title": "Eliminating Amortization",
+      "pages": "83\u201398",
+      "status": "open",
+      "label": "needs-triage",
+      "depends_on": [
+        10000,
+        10006
+      ],
+      "source_status": "Complete book83\u201398 and thesis39\u201348, all four exercises/named results and relevant appendix read; printed type/syntax issues, timing/schedule variants and unresolved eager-merge cost obligation recorded. Source preparation only.",
+      "source": "https://www.cambridge.org/core/books/purely-functional-data-structures/0409255DA1B48FA731859AC72E34D494",
+      "acceptance": [
+        "Complete chapter source and exercises inspected; item-level scope ledger retained",
+        "All substantive formal obligations mapped to checked declarations or explicit non-formal classification",
+        "Existing conaled abstractions reused and semantic/cost/target distinctions preserved",
+        "Connected specializations/applications and statement review complete",
+        "Clean isolated candidate build and exhaustive proof audit pass",
+        "Independent Standards and Spec reviews pass on identical candidate",
+        "Final candidate verification passes; durable checkpoint uploaded",
+        "Reconcile mapped thesis material and differing realizations/contracts; retain all forward cost obligations until proved"
+      ],
+      "coverage": [
+        "B7.1",
+        "B7.2",
+        "B7.3",
+        "B7.4",
+        "T1.03",
+        "T1.16"
+      ],
+      "candidate": null,
+      "reviews": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "evidence": [
+        "research/chapter07-union-readiness.md",
+        "validation/chapter07-readiness-receipt.json"
+      ],
+      "preparation_evidence": [
+        "research/thesis-chapter08-source-inventory-045.md"
+      ]
+    },
+    {
+      "id": 10008,
+      "chapter": 8,
+      "title": "Lazy Rebuilding",
+      "pages": "99\u2013114",
+      "status": "open",
+      "label": "needs-triage",
+      "depends_on": [
+        10000,
+        10007
+      ],
+      "source_status": "Complete book99\u2013114/thesis49\u201360 and relevant appendix, all seven exercises/named theorem read; source variants/defects, proposed progress proofs and detailed8.1/8.6 count/workload qualifications retained. Source preparation only; no implementation accepted.",
+      "source": "https://www.cambridge.org/core/books/purely-functional-data-structures/0409255DA1B48FA731859AC72E34D494",
+      "acceptance": [
+        "Complete chapter source and exercises inspected; item-level scope ledger retained",
+        "All substantive formal obligations mapped to checked declarations or explicit non-formal classification",
+        "Existing conaled abstractions reused and semantic/cost/target distinctions preserved",
+        "Connected specializations/applications and statement review complete",
+        "Clean isolated candidate build and exhaustive proof audit pass",
+        "Independent Standards and Spec reviews pass on identical candidate",
+        "Final candidate verification passes; durable checkpoint uploaded",
+        "Reconcile mapped thesis material and differing realizations/contracts; retain all forward cost obligations until proved"
+      ],
+      "coverage": [
+        "B8.1",
+        "B8.2",
+        "B8.3",
+        "B8.4",
+        "B8.5",
+        "B8.6",
+        "B8.7",
+        "T1.06",
+        "T1.07"
+      ],
+      "candidate": null,
+      "reviews": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "evidence": [
+        "research/chapter08-union-readiness.md",
+        "validation/chapter08-readiness-receipt.json",
+        "research/chapter08-exercise-readiness.md",
+        "validation/chapter08-exercise-readiness-receipt.json"
+      ]
+    },
+    {
+      "id": 10009,
+      "chapter": 9,
+      "title": "Numerical Representations",
+      "pages": "115\u2013140",
+      "status": "open",
+      "label": "needs-triage",
+      "depends_on": [
+        10000,
+        10008,
+        10015,
+        10016
+      ],
+      "source_status": "Book PDF absent in this recovery; prior targeted notes retained and full book chapter/exercise/appendix comparison pending. Thesis Chapters6/8 complete source preparation retained. All formal obligations remain unproved; no chapter acceptance.",
+      "source": "https://www.cambridge.org/core/books/purely-functional-data-structures/0409255DA1B48FA731859AC72E34D494",
+      "acceptance": [
+        "Complete chapter source and exercises inspected; item-level scope ledger retained",
+        "All substantive formal obligations mapped to checked declarations or explicit non-formal classification",
+        "Existing conaled abstractions reused and semantic/cost/target distinctions preserved",
+        "Connected specializations/applications and statement review complete",
+        "Clean isolated candidate build and exhaustive proof audit pass",
+        "Independent Standards and Spec reviews pass on identical candidate",
+        "Final candidate verification passes; durable checkpoint uploaded",
+        "Reconcile mapped thesis material and differing realizations/contracts; retain all forward cost obligations until proved"
+      ],
+      "coverage": [
+        "B9.1",
+        "B9.2",
+        "B9.3",
+        "B9.4",
+        "B9.5",
+        "B9.6",
+        "B9.7",
+        "B9.8",
+        "B9.9",
+        "B9.10",
+        "B9.11",
+        "B9.12",
+        "B9.13",
+        "B9.14",
+        "B9.15",
+        "B9.16",
+        "B9.17",
+        "B9.18",
+        "B9.19",
+        "T1.12",
+        "T1.13",
+        "TU.SCHEDULE",
+        "B9-SKEW-BOUNDARY-CORRECTION",
+        "TU-NUMERICAL-SKETCHES"
+      ],
+      "candidate": null,
+      "reviews": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "evidence": [
+        "research/union-scope-reconciliation.md"
+      ],
+      "source_reconciliation": "Targeted source differences recorded; no implementation, complete chapter inspection or acceptance advanced.",
+      "historical_source_status_before_recovery_045": "Complete book and thesis available; later full chapter statement/subpart inspection pending",
+      "preparation_evidence": [
+        "research/thesis-chapter08-source-inventory-045.md",
+        "research/thesis-chapter06-source-inventory-045.md"
+      ]
+    },
+    {
+      "id": 10010,
+      "chapter": 10,
+      "title": "Data-Structural Bootstrapping",
+      "pages": "141\u2013170",
+      "status": "open",
+      "label": "needs-triage",
+      "depends_on": [
+        10000,
+        10009
+      ],
+      "source_status": "Complete thesisChapter7 printed85-104 source preparation now recorded. Book10 PDF is absent; complete book/Haskell/exercise comparison remains pending. All formal obligations remain unproved.",
+      "source": "https://www.cambridge.org/core/books/purely-functional-data-structures/0409255DA1B48FA731859AC72E34D494",
+      "acceptance": [
+        "Complete chapter source and exercises inspected; item-level scope ledger retained",
+        "All substantive formal obligations mapped to checked declarations or explicit non-formal classification",
+        "Existing conaled abstractions reused and semantic/cost/target distinctions preserved",
+        "Connected specializations/applications and statement review complete",
+        "Clean isolated candidate build and exhaustive proof audit pass",
+        "Independent Standards and Spec reviews pass on identical candidate",
+        "Final candidate verification passes; durable checkpoint uploaded",
+        "Reconcile mapped thesis material and differing realizations/contracts; retain all forward cost obligations until proved"
+      ],
+      "coverage": [
+        "B10.1",
+        "B10.2",
+        "B10.3",
+        "B10.4",
+        "B10.5",
+        "B10.6",
+        "B10.7",
+        "B10.8",
+        "B10.9",
+        "B10.10",
+        "B10.11",
+        "B10.12",
+        "B10.13",
+        "B10.14",
+        "B10.15",
+        "T1.04",
+        "T1.09",
+        "T1.14",
+        "TU.MODULES",
+        "TU.BOOTVAR"
+      ],
+      "candidate": null,
+      "reviews": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "evidence": [
+        "research/thesis-chapter07-source-inventory-045.md"
+      ],
+      "source_followups": [
+        {
+          "source": "Book Appendix A printed188/PDF200",
+          "observation": "Printed BootstrappedQueue empty Q0[]E0[] conflicts with isEmpty True only for E; snoc-on-E uses lower-case q. Incidentally observed while Chapter8 appendix inspection; settle during complete Chapter10 comparison.",
+          "evidence": "research/chapter08-union-readiness.md",
+          "formalized": false
+        },
+        {
+          "source": "ThesisChapter7 printed90 / Figure7.1 printed89",
+          "observation": "Literal successive middle-block doubling fails in the recorded hand-calculated tail/snoc trace with blocks[4,6]. Preserve as unchecked source-equation counterexample obligation. A weaker prefix-sum growth invariant and all log-star/demand/call-count conclusions remain unproved.",
+          "evidence": "research/thesis-chapter07-source-inventory-045.md",
+          "formalized": false,
+          "new_book_comparison": false
+        }
+      ],
+      "historical_source_status_before_recovery_045": "Complete book and thesis available; later full chapter statement/subpart inspection pending"
+    },
+    {
+      "id": 10011,
+      "chapter": 11,
+      "title": "Implicit Recursive Slowdown",
+      "pages": "171\u2013184",
+      "status": "open",
+      "label": "needs-triage",
+      "depends_on": [
+        10000,
+        10010
+      ],
+      "source_status": "Book PDF absent in this recovery; prior targeted notes retained and full book chapter/exercise/appendix comparison pending. Thesis Chapter8 complete source preparation retained. All formal obligations remain unproved; no chapter acceptance.",
+      "source": "https://www.cambridge.org/core/books/purely-functional-data-structures/0409255DA1B48FA731859AC72E34D494",
+      "acceptance": [
+        "Complete chapter source and exercises inspected; item-level scope ledger retained",
+        "All substantive formal obligations mapped to checked declarations or explicit non-formal classification",
+        "Existing conaled abstractions reused and semantic/cost/target distinctions preserved",
+        "Connected specializations/applications and statement review complete",
+        "Clean isolated candidate build and exhaustive proof audit pass",
+        "Independent Standards and Spec reviews pass on identical candidate",
+        "Final candidate verification passes; durable checkpoint uploaded",
+        "Reconcile mapped thesis material and differing realizations/contracts; retain all forward cost obligations until proved"
+      ],
+      "coverage": [
+        "B11.1",
+        "B11.2",
+        "B11.3",
+        "B11.4",
+        "T1.05",
+        "T1.08",
+        "T1.10",
+        "T1.11",
+        "TU-SIMPLE-CAT-BOUNDARY-CORRECTION",
+        "TU-CAT-THRESHOLD",
+        "TU-RESTRICTED-IMPLICIT-DEQUES",
+        "TU-CAT-SIZE-PREMISE",
+        "TU-SIMPLE-CAT-SHARP"
+      ],
+      "candidate": null,
+      "reviews": {
+        "standards": "pending",
+        "spec": "pending"
+      },
+      "evidence": [
+        "research/union-scope-reconciliation.md"
+      ],
+      "source_reconciliation": "Targeted source differences recorded; no implementation, complete chapter inspection or acceptance advanced.",
+      "historical_source_status_before_recovery_045": "Complete book and thesis available; later full chapter statement/subpart inspection pending",
+      "preparation_evidence": [
+        "research/thesis-chapter08-source-inventory-045.md"
+      ]
+    },
+    {
+      "id": 10012,
+      "title": "Both appendices, thesis conclusions and whole-union integration acceptance",
+      "status": "open",
+      "label": "needs-triage",
+      "depends_on": [
+        10011,
+        10014,
+        10015,
+        10016,
+        10017,
+        10019,
+        10020
+      ],
+      "acceptance": [
+        "Book Haskell appendix implementations accounted for by chapter correspondence proofs",
+        "Distinct thesisAppendixA operational/static rules fully accounted for by its accepted model",
+        "Whole-union source ledger reconciled with both complete sources, exercise subparts, algorithms and all forward cost contracts",
+        "Thesis conclusions/open questions classified without claiming unsolved research as established results",
+        "Full integrated build/audit and independent whole-scope review pass",
+        "Final recoverable checkpoint uploaded"
+      ],
+      "evidence": [
+        "research/union-scope-reconciliation.md"
+      ],
+      "source_reconciliation": "Targeted source differences recorded; no implementation, complete chapter inspection or acceptance advanced."
+    },
+    {
+      "id": 10013,
+      "title": "Cross-cutting immutable cell and sharing foundation",
+      "status": "in_progress",
+      "label": "ready-for-agent",
+      "depends_on": [
+        10000
+      ],
+      "supports": [
+        10002,
+        10006,
+        10010,
+        10011
+      ],
+      "justification": "User permits cross-cutting concerns. An explicit model of fresh allocation, retained roots and sharing is required by multiple chapters; development does not close or skip source-blocked chapters.",
+      "acceptance": [
+        "Reuse existing heap-extension and measured-execution primitives",
+        "Prove fresh allocation retains all prior list observations",
+        "Implement actual root traversal for path-copying append and partial update with correctness and exact allocation bounds",
+        "Connect suffix roots to standard suffix values and linear additional storage under explicit model",
+        "Retain examples through public results and review every statement",
+        "Clean isolated candidate build/proof audit and independent Standards/Spec reviews pass"
+      ],
+      "evidence": [
+        "requirements/shared-persistence.md",
+        "reviews/shared-persistence.md",
+        "reviews/shared-persistence-standards-r1.md",
+        "reviews/shared-persistence-spec-r1.md",
+        "research/shared-persistence-statement-check.md",
+        "validation/persistence-focused-r2.log",
+        "reviews/shared-persistence-standards-r2.md",
+        "reviews/shared-persistence-spec-r2.md",
+        "validation/execution-record.json",
+        "validation/import-footprint-226ebae-observed-errors.json",
+        "validation/import-footprint-candidate-r2.json",
+        "validation/import-footprint-r2-focused-r2.json",
+        "research/import-footprint-r2.md",
+        "research/import-footprint-r2-source-comparison.json",
+        "validation/import-footprint-324962e-full-r1.json",
+        "validation/import-footprint-r2-cache-copy.json",
+        "validation/session-disconnection-20261102-2141.json",
+        "validation/import-footprint-324962e-observed-errors.json",
+        "reviews/shared-persistence-standards-r4.md",
+        "reviews/import-footprint-standards-r2.md",
+        "validation/import-footprint-candidate-r3.json",
+        "reviews/prerequisites-901f734-dispatch.md",
+        "research/import-footprint-r3.md",
+        "reviews/shared-persistence-standards-r5.md",
+        "reviews/shared-persistence-spec-r5.md",
+        "reviews/import-footprint-standards-r3.md",
+        "reviews/import-footprint-spec-r3.md",
+        "validation/runtime-interruption-20261102-2240.json",
+        "validation/import-footprint-r3-focused-interruption-r1.json",
+        "validation/import-footprint-r3-cache-copy.json",
+        "validation/import-footprint-901f734-full-r1.json",
+        "validation/import-901-direct-fresh-r1.json",
+        "validation/import-901-direct-fresh-r1-interruption-042.json",
+        "requirements/REQUEST-native-toolchain-042.md",
+        "environment/RECOVER-ENVIRONMENT.md",
+        "validation/import-901-native-fresh-r1.json",
+        "validation/native-toolchain-final-verification-042.json",
+        "validation/import-901-native-fresh-r1-interruption-043.json",
+        "reviews/prerequisites-901f734-coordinator-takeover-042.md",
+        "validation/prerequisites-901f734-continuation-identity-042.json",
+        "environment/RECOVER-ELAN-REGRESSIONS.md",
+        "validation/native-stock-regressions-r1-043.json",
+        "validation/native-stock-roots-r1-043.log",
+        "validation/native-stock-checker-r1-043.log",
+        "validation/native-toolchain-final-verification-043.json",
+        "validation/import-901-native-fresh-r2.json",
+        "validation/import-901-native-fresh-r2-disconnection-044.json",
+        "validation/import-901-native-fresh-r2-post-disconnection-044.json",
+        "reviews/common-integration-dispatch-r1-045.md",
+        "validation/common-integration-scope-matrix-045.json"
+      ],
+      "candidate": {
+        "commit": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "tree": "d3dcf94916de5ccaf3df357e06192e69c4e0cf33",
+        "preserved_branch": "pfds/signed-potential",
+        "planned_isolated_checkout": "validation-pfds-integration",
+        "restored_main": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c"
+      },
+      "review_base": "cbb1e27d18c69ce2e0c35ef1cb492483b5ca0833",
+      "reviews": {
+        "standards": "Full901 static assessment complete, zero code/prose findings; Blocked pending004 terminal compiler evidence and full exact gate/record/finalverify.",
+        "spec": "Full901 static assessment complete, zero implementation findings; same validation Blocked state. Retained reviewers/coordinator."
+      },
+      "validation": "Ordinary-r2 is genuinely running under dedicated continuous polling. Start inputs exactly equal r1; stockguard verified30normalartifacts and invalidated1091modules. No terminal/full success; mandatory fresh baseline/regressions/acceptance pending.",
+      "candidate_checkout": "validation-pfds-integration",
+      "previous_candidate": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+      "formal_status": "Implementation remains unaccepted; common candidate now includes all mapped scopes. Actual full validation and independent full-scope reconciliation pending.",
+      "native_full_retry": "validation/import-901-native-fresh-r2.json",
+      "native_full_retry_disposition": "Execution session disappeared; partial227 completion messages, terminal unknown, full lock free, later log/input identities stable, no verification record. Cause unknown. Explicit sidecars preserve facts; no acceptance.",
+      "planned_common_candidate": {
+        "sha": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "status": "Explicitly retargeted; static reviews complete, genuine full validation running, acceptance pending",
+        "dispatch": "reviews/common-integration-dispatch-r1-045.md",
+        "matrix": "validation/common-integration-scope-matrix-045.json"
+      },
+      "historical_candidate_before_common_045": "901f734161920a76f3b399a575805b9a1d31e971",
+      "integration_review_base": "cbb1e27d18c69ce2e0c35ef1cb492483b5ca0833",
+      "blocker": "Genuine fresh full build/audit, current-kit stock regressions, validation-evidence continuation of both independent axes, dependency-ordered decisions and immediate verification remain.",
+      "review_status": "Both independent common-candidate static reviews complete with zero new static defects; both outcomes Blocked on genuine validation.",
+      "validation_status": "No terminal result yet; full audit, current-kit stock regressions, evidence review and final verification pending.",
+      "common_candidate_reviews": {
+        "standards": {
+          "report": "reviews/common-integration-standards-r1-045.md",
+          "outcome": "Blocked",
+          "static_complete": true,
+          "new_static_findings": 0
+        },
+        "spec": {
+          "report": "reviews/common-integration-spec-r1-045.md",
+          "outcome": "Blocked",
+          "static_complete": true,
+          "new_static_findings": 0
+        }
+      },
+      "preparation_evidence": [
+        "research/thesis-endmatter-source-inventory-045.md"
+      ]
+    },
+    {
+      "id": 10014,
+      "title": "Thesis AppendixA suspension extension and evaluation correspondence",
+      "status": "in_progress",
+      "label": "ready-for-agent",
+      "depends_on": [
+        10000,
+        10001
+      ],
+      "supports": [
+        10003,
+        10004,
+        10006,
+        10007,
+        10008,
+        10009,
+        10010,
+        10011
+      ],
+      "coverage": [
+        "TU.A"
+      ],
+      "source_status": "All bookChapter4 pp31-38, thesisChapter2 pp7-12 and AppendixA pp131-136 visually inspected, plus bookExercise3.4c/d and bibliographic basis distinction; research/suspension-foundation-inventory.md.",
+      "acceptance": [
+        "Inspect complete relevant source rules/claims and preserve explicit assumptions",
+        "Implement source-specific realization or prove adequate correspondence through existing project interfaces",
+        "Prove semantic, invariant and specified evaluation/resource contracts with connected examples",
+        "Statement review, isolated exactcandidate build/exhaustiveaudit/finalverify and both independent review axes pass"
+      ],
+      "evidence": [
+        "research/book-thesis-union.md",
+        "research/thesis-obligations.json",
+        "research/suspension-foundation-inventory.md",
+        "research/suspension-base-core.md",
+        "research/suspension-store.md",
+        "research/suspension-rules.md",
+        "research/suspension-machine.md",
+        "research/suspension-static.md",
+        "research/sml90-source-identity.json",
+        "research/suspension-progress-import.json",
+        "validation/checkpoint012-progress/manifest.json",
+        "validation/checkpoint013-progress/manifest.json",
+        "research/suspension-renaming.md",
+        "validation/suspension-return-r3.json",
+        "validation/suspension-observation-r2.json",
+        "validation/checkpoint014-progress/manifest.json",
+        "validation/suspension-correspondence-r1.json",
+        "validation/suspension-renaming-r1.json",
+        "validation/checkpoint015-progress/manifest.json",
+        "validation/suspension-renaming-r3.json",
+        "validation/suspension-correspondence-r3.json",
+        "validation/suspension-static-r8.json",
+        "validation/suspension-invariant-r3.json",
+        "validation/suspension-recursive-r3.json",
+        "validation/checkpoint016-progress/suspension-derived-r10.json",
+        "validation/suspension-relocation-r2.json",
+        "validation/checkpoint016-progress/manifest.json",
+        "research/suspension-force-observation.md",
+        "validation/suspension-force-observation-r2.json",
+        "validation/suspension-candidate-r1.json",
+        "validation/checkpoint017-progress/manifest.json",
+        "validation/suspension-candidate-r2.json",
+        "validation/suspension-candidate-r3.json",
+        "reviews/suspension-a3feaff-dispatch.md",
+        "reviews/suspension-foundation-standards-r1.md",
+        "reviews/suspension-foundation-spec-r1.md",
+        "validation/suspension-focused-output-copy.json",
+        "validation/suspension-existing-consumers-r1.json",
+        "validation/suspension-existing-consumers-summary.json",
+        "reviews/common-integration-dispatch-r1-045.md",
+        "validation/common-integration-scope-matrix-045.json"
+      ],
+      "implementation_status": "Complete immutable a3feaff foundation implementation has focused development evidence and two completed independent static reviews, with no code/prose findings. Both axes remain Blocked pending its own exact full build/audit/record/finalverify; no acceptance or chapter advance.",
+      "requirements": "requirements/suspension-foundation.md",
+      "implementation_base": "69f6f00de204617fdd7feefd5b9ee5b80fc0d9f4",
+      "branch": "pfds/suspensions",
+      "checkout": "suspension-foundation",
+      "work_in_progress_head": "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+      "formal_status": "Implementation remains unaccepted; common candidate now includes all mapped scopes. Actual full validation and independent full-scope reconciliation pending.",
+      "known_findings": {
+        "SUSP-STAT-001": "Lean checked in focused Static r8: the exact cachedReference core AST has boolean type and finite execution returning integer0, with atomType(integer0) unequal boolean. This concerns the explicitly delimited1990+AppendixA effectful core. Source rules are retained; no blanket value-type preservation is claimed.",
+        "SUSP-DEV-001": "Closed in focused machine round3: helper renamed proceed, Finset supremum function explicit, trace projection equation corrected; Machine compiled.",
+        "SUSP-DEV-002": "Closed in focused machine round3: Rules example names relations explicitly; connected source-rule example compiled.",
+        "SUSP-DEV-003": "Closed by machine r5: Namespace example compiled after reserved binder correction.",
+        "SUSP-DEV-004": "Closed by machine r6: original runtime cases, unused-RHS typing corrections and actual mutual Rec/SRec case all compiled; expected runtime conclusions unchanged.",
+        "SUSP-DEV-005": "Closed by Static r7/r8: original syntax-index equations justify weakening termination; Static/Names/Grammar cores and all static/grammar clients now compile with unchanged statements/default limits.",
+        "SUSP-DEV-006": "Closed by Return r3 (module+examples): opaque symbolic tails and explicit constructor substitution, default limits and unchanged claims.",
+        "SUSP-DEV-007": "Closed by Observation r2 (module+examples): explicit definitional equality closure; exact measured search/count and relational clients compile.",
+        "SUSP-DEV-008": "Closed by Continuation r3: factored control cases with explicit constructor substitution; statements and limits unchanged."
+      },
+      "candidate": {
+        "commit": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "tree": "d3dcf94916de5ccaf3df357e06192e69c4e0cf33",
+        "preserved_branch": "pfds/signed-potential",
+        "planned_isolated_checkout": "validation-pfds-integration",
+        "restored_main": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c"
+      },
+      "candidate_checkout": "validation-pfds-integration",
+      "review_record": "reviews/suspension-foundation.md",
+      "validation": "Ordinary-r2 is genuinely running under dedicated continuous polling. Start inputs exactly equal r1; stockguard verified30normalartifacts and invalidated1091modules. No terminal/full success; mandatory fresh baseline/regressions/acceptance pending.",
+      "original_review_base": "69f6f00de204617fdd7feefd5b9ee5b80fc0d9f4",
+      "review_base": "69f6f00de204617fdd7feefd5b9ee5b80fc0d9f4",
+      "integration_review_base": "69f6f00de204617fdd7feefd5b9ee5b80fc0d9f4",
+      "reviews": {
+        "standards": "Complete static review of a3feaff, zero code/prose findings; Blocked SUSP-STD-VAL-001 for own exact full check/audit/record/finalverify.",
+        "spec": "Complete static review of a3feaff, zero code/prose findings; Blocked SUSP-SPEC-VAL-001 for same exact-gate evidence."
+      },
+      "materialization_status": "Source checkout retired after exact saved-ref/source/process checks; ALL ordinary outputs/config retained unchanged in inactive-outputs/suspensions-a3feaff. Recreate exact original validation-suspensions-r3 path and return unchanged material before own full gate.",
+      "materialization_evidence": "validation/inactive-suspensions-source-retirement.json",
+      "planned_common_candidate": {
+        "sha": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "status": "Explicitly retargeted; static reviews complete, genuine full validation running, acceptance pending",
+        "dispatch": "reviews/common-integration-dispatch-r1-045.md",
+        "matrix": "validation/common-integration-scope-matrix-045.json"
+      },
+      "historical_candidate_before_common_045": "a3feaff319ad5fad912fb8bdc113f33fea4e2a60",
+      "blocker": "Genuine fresh full build/audit, current-kit stock regressions, validation-evidence continuation of both independent axes, dependency-ordered decisions and immediate verification remain.",
+      "review_status": "Both independent common-candidate static reviews complete with zero new static defects; both outcomes Blocked on genuine validation.",
+      "validation_status": "No terminal result yet; full audit, current-kit stock regressions, evidence review and final verification pending.",
+      "common_candidate_reviews": {
+        "standards": {
+          "report": "reviews/common-integration-standards-r1-045.md",
+          "outcome": "Blocked",
+          "static_complete": true,
+          "new_static_findings": 0
+        },
+        "spec": {
+          "report": "reviews/common-integration-spec-r1-045.md",
+          "outcome": "Blocked",
+          "static_complete": true,
+          "new_static_findings": 0
+        }
+      },
+      "preparation_evidence": [
+        "research/thesis-endmatter-source-inventory-045.md"
+      ]
+    },
+    {
+      "id": 10015,
+      "title": "Thesis redundant digits1/2/3 and mixed increment/decrement variant",
+      "status": "open",
+      "label": "needs-triage",
+      "depends_on": [
+        10000,
+        10008
+      ],
+      "supports": [
+        10009
+      ],
+      "coverage": [
+        "TU.DIG123"
+      ],
+      "source_status": "Confirmed source obligation; detailed mathematical specification and implementation pending",
+      "acceptance": [
+        "Inspect complete relevant source rules/claims and preserve explicit assumptions",
+        "Implement source-specific realization or prove adequate correspondence through existing project interfaces",
+        "Prove semantic, invariant and specified evaluation/resource contracts with connected examples",
+        "Statement review, isolated exactcandidate build/exhaustiveaudit/finalverify and both independent review axes pass"
+      ],
+      "evidence": [
+        "research/book-thesis-union.md",
+        "research/thesis-obligations.json"
+      ],
+      "preparation_evidence": [
+        "research/thesis-chapter08-source-inventory-045.md"
+      ]
+    },
+    {
+      "id": 10016,
+      "title": "Thesis segmented binomial collections using real-time deques",
+      "status": "open",
+      "label": "needs-triage",
+      "depends_on": [
+        10000,
+        10008
+      ],
+      "supports": [
+        10009
+      ],
+      "coverage": [
+        "TU.SEG"
+      ],
+      "source_status": "Confirmed source obligation; detailed mathematical specification and implementation pending",
+      "acceptance": [
+        "Inspect complete relevant source rules/claims and preserve explicit assumptions",
+        "Implement source-specific realization or prove adequate correspondence through existing project interfaces",
+        "Prove semantic, invariant and specified evaluation/resource contracts with connected examples",
+        "Statement review, isolated exactcandidate build/exhaustiveaudit/finalverify and both independent review axes pass"
+      ],
+      "evidence": [
+        "research/book-thesis-union.md",
+        "research/thesis-obligations.json"
+      ],
+      "preparation_evidence": [
+        "research/thesis-chapter06-source-inventory-045.md"
+      ]
+    },
+    {
+      "id": 10017,
+      "title": "Persistent execution traces and debit set/multiset accounting",
+      "status": "open",
+      "label": "needs-triage",
+      "depends_on": [
+        10000,
+        10004,
+        10005,
+        10021,
+        10022
+      ],
+      "supports": [
+        10006
+      ],
+      "coverage": [
+        "TU.TRACE"
+      ],
+      "source_status": "Confirmed source obligation; detailed mathematical specification and implementation pending",
+      "acceptance": [
+        "Inspect complete relevant source rules/claims and preserve explicit assumptions",
+        "Implement source-specific realization or prove adequate correspondence through existing project interfaces",
+        "Prove semantic, invariant and specified evaluation/resource contracts with connected examples",
+        "Statement review, isolated exactcandidate build/exhaustiveaudit/finalverify and both independent review axes pass"
+      ],
+      "evidence": [
+        "research/book-thesis-union.md",
+        "research/thesis-obligations.json",
+        "research/persistent-trace-source-scope.md",
+        "research/persistent-trace-reuse.md"
+      ],
+      "foundation_child": 10021,
+      "scope_note": "10021 extracts only the independent graph/debit foundation. Existing Chapter4/5 dependencies and complete source/actual-cost correspondence obligations remain; TU.TRACE is still unproved. 10022 supplies only conditional actual body-entry nonrepetition and its selected debit observation; full arbitrary work, incidence and original chapter dependencies remain.",
+      "semantic_body_entry_child": 10022,
+      "preparation_evidence": [
+        "research/thesis-endmatter-source-inventory-045.md"
+      ]
+    },
+    {
+      "id": 10018,
+      "title": "Replace whole-Mathlib FRP imports with their actual dependencies",
+      "status": "in_progress",
+      "label": "ready-for-agent",
+      "depends_on": [
+        10000
+      ],
+      "supports": [
+        10013,
+        10002
+      ],
+      "requirements": "requirements/import-footprint.md",
+      "base": "70a1477d822efd4fdcec2007280f650bb4695eda",
+      "acceptance": [
+        "Preserve existing declarations and proofs; only imports change",
+        "Exact candidate full build and exhaustive audit pass; both review axes and final verify pass",
+        "Record resource observations without claiming unmeasured speedups"
+      ],
+      "candidate": {
+        "commit": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "tree": "d3dcf94916de5ccaf3df357e06192e69c4e0cf33",
+        "preserved_branch": "pfds/signed-potential",
+        "planned_isolated_checkout": "validation-pfds-integration",
+        "restored_main": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c"
+      },
+      "evidence": [
+        "research/import-footprint.md",
+        "validation/import-cache-migration.json",
+        "validation/import-footprint-226ebae-full.json",
+        "validation/import-footprint-pause.json",
+        "validation/import-footprint-226ebae-observed-errors.json",
+        "validation/import-footprint-candidate-r2.json",
+        "validation/import-footprint-r2-focused-r2.json",
+        "research/import-footprint-r2.md",
+        "research/import-footprint-r2-source-comparison.json",
+        "validation/import-footprint-324962e-full-r1.json",
+        "validation/import-footprint-r2-cache-copy.json",
+        "validation/session-disconnection-20261102-2141.json",
+        "validation/import-footprint-324962e-observed-errors.json",
+        "reviews/shared-persistence-standards-r4.md",
+        "reviews/import-footprint-standards-r2.md",
+        "validation/import-footprint-candidate-r3.json",
+        "reviews/prerequisites-901f734-dispatch.md",
+        "research/import-footprint-r3.md",
+        "reviews/shared-persistence-standards-r5.md",
+        "reviews/shared-persistence-spec-r5.md",
+        "reviews/import-footprint-standards-r3.md",
+        "reviews/import-footprint-spec-r3.md",
+        "validation/runtime-interruption-20261102-2240.json",
+        "validation/import-footprint-r3-focused-interruption-r1.json",
+        "validation/import-footprint-r3-cache-copy.json",
+        "validation/import-footprint-901f734-full-r1.json",
+        "validation/import-901-direct-fresh-r1.json",
+        "validation/import-901-direct-fresh-r1-interruption-042.json",
+        "requirements/REQUEST-native-toolchain-042.md",
+        "environment/RECOVER-ENVIRONMENT.md",
+        "validation/import-901-native-fresh-r1.json",
+        "validation/native-toolchain-final-verification-042.json",
+        "validation/import-901-native-fresh-r1-interruption-043.json",
+        "reviews/prerequisites-901f734-coordinator-takeover-042.md",
+        "validation/prerequisites-901f734-continuation-identity-042.json",
+        "environment/RECOVER-ELAN-REGRESSIONS.md",
+        "validation/native-stock-regressions-r1-043.json",
+        "validation/native-stock-roots-r1-043.log",
+        "validation/native-stock-checker-r1-043.log",
+        "validation/native-toolchain-final-verification-043.json",
+        "validation/import-901-native-fresh-r2.json",
+        "validation/import-901-native-fresh-r2-disconnection-044.json",
+        "validation/import-901-native-fresh-r2-post-disconnection-044.json",
+        "reviews/common-integration-dispatch-r1-045.md",
+        "validation/common-integration-scope-matrix-045.json"
+      ],
+      "formal_status": "Implementation remains unaccepted; common candidate now includes all mapped scopes. Actual full validation and independent full-scope reconciliation pending.",
+      "validation": "Ordinary-r2 is genuinely running under dedicated continuous polling. Start inputs exactly equal r1; stockguard verified30normalartifacts and invalidated1091modules. No terminal/full success; mandatory fresh baseline/regressions/acceptance pending.",
+      "candidate_checkout": "validation-pfds-integration",
+      "reviews": {
+        "standards": "Full901 static assessment complete, zero code/prose findings; Blocked pending004 terminal compiler evidence and full exact gate/record/finalverify.",
+        "spec": "Full901 static assessment complete, zero implementation findings; same validation Blocked state. Retained reviewers/coordinator."
+      },
+      "previous_candidate": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+      "native_full_retry": "validation/import-901-native-fresh-r2.json",
+      "native_full_retry_disposition": "Execution session disappeared; partial227 completion messages, terminal unknown, full lock free, later log/input identities stable, no verification record. Cause unknown. Explicit sidecars preserve facts; no acceptance.",
+      "planned_common_candidate": {
+        "sha": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "status": "Explicitly retargeted; static reviews complete, genuine full validation running, acceptance pending",
+        "dispatch": "reviews/common-integration-dispatch-r1-045.md",
+        "matrix": "validation/common-integration-scope-matrix-045.json"
+      },
+      "historical_candidate_before_common_045": "901f734161920a76f3b399a575805b9a1d31e971",
+      "review_base": "70a1477d822efd4fdcec2007280f650bb4695eda",
+      "integration_review_base": "70a1477d822efd4fdcec2007280f650bb4695eda",
+      "blocker": "Genuine fresh full build/audit, current-kit stock regressions, validation-evidence continuation of both independent axes, dependency-ordered decisions and immediate verification remain.",
+      "review_status": "Both independent common-candidate static reviews complete with zero new static defects; both outcomes Blocked on genuine validation.",
+      "validation_status": "No terminal result yet; full audit, current-kit stock regressions, evidence review and final verification pending.",
+      "common_candidate_reviews": {
+        "standards": {
+          "report": "reviews/common-integration-standards-r1-045.md",
+          "outcome": "Blocked",
+          "static_complete": true,
+          "new_static_findings": 0
+        },
+        "spec": {
+          "report": "reviews/common-integration-spec-r1-045.md",
+          "outcome": "Blocked",
+          "static_complete": true,
+          "new_static_findings": 0
+        }
+      }
+    },
+    {
+      "id": 10019,
+      "title": "Pure recursive forcing and successful cache reuse",
+      "status": "in_progress",
+      "label": "ready-for-agent",
+      "depends_on": [
+        10014
+      ],
+      "supports": [
+        10004,
+        10005,
+        10006,
+        10007,
+        10008,
+        10009,
+        10010,
+        10011
+      ],
+      "coverage": [
+        "TU.A.4.PURE"
+      ],
+      "source_status": "Exact thesis AppendixA printed135/PDF147 remark inspected. General raw/source-domain self-reentry theorem now focused-checked; complete acceptance and cache consequences remain pending.",
+      "acceptance": [
+        "Define a pure source/client domain with explicit primitive, reference, exception and observation assumptions, related to the general suspension machine",
+        "Prove that actual self-reentry in that domain precludes finite completion; nonreentrancy must not be assumed as the substitute conclusion",
+        "Derive only the successful cache-reuse laws justified by those restrictions, retaining repeated-exception and allocation distinctions",
+        "Exercise the theorem on representative source algorithms or recursive constructions, with statement review",
+        "Required exact candidate validation and both independent review axes pass; preserve evidence in uploaded checkpoints"
+      ],
+      "requirements": "requirements/pure-recursive-forcing.md",
+      "candidate": {
+        "commit": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "tree": "d3dcf94916de5ccaf3df357e06192e69c4e0cf33",
+        "preserved_branch": "pfds/signed-potential",
+        "planned_isolated_checkout": "validation-pfds-integration",
+        "restored_main": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c"
+      },
+      "reviews": {
+        "standards": "Round2 complete on361f5f3: zero unresolved static findings; PURE-STD-DOC-001 and PURE-STD-EVID-001 independently closed. Blocked solely PURE-STD-VAL-001 exact own full gate/audit/record/final verify.",
+        "spec": "Round2 complete on361f5f3: zero unresolved static findings; PURE-SPEC-DOC-001 and PURE-SPEC-DOC-002 independently closed. Blocked solely PURE-SPEC-VAL-001 exact own full gate/audit/record/final verify."
+      },
+      "evidence": [
+        "research/suspension-foundation-inventory.md",
+        "research/pure-recursive-forcing-methods.md",
+        "research/pure-recursive-forcing-model.md",
+        "research/pure-recursive-forcing-decomposition.md",
+        "research/pure-recursive-forcing-representation.md",
+        "research/pure-recursive-forcing-creation.md",
+        "research/pure-recursive-forcing-memory.md",
+        "research/suspension-pure-recurrence.md",
+        "validation/suspension-pure-representation-r3.json",
+        "validation/suspension-pure-creation-r3.json",
+        "validation/suspension-pure-memory-r4.json",
+        "validation/suspension-pure-machine-r4.json",
+        "validation/suspension-pure-recurrence-r2.json",
+        "research/pure-recursive-forcing-compatibility.md",
+        "research/pure-recursive-forcing-domain.md",
+        "research/pure-recursive-forcing-history-steps.md",
+        "research/pure-recursive-forcing-integration-plan.md",
+        "validation/suspension-pure-compatibility-r2.json",
+        "validation/suspension-pure-domain-r2.json",
+        "validation/suspension-pure-creation-r4.json",
+        "validation/suspension-raw-recursive-stack-r1.json",
+        "validation/suspension-pure-recurrence-r3.json",
+        "validation/suspension-pure-history-r1.json",
+        "validation/suspension-pure-forcing-r2.json",
+        "research/pure-recursive-forcing-domain-state.md",
+        "research/pure-recursive-forcing-world-domain.md",
+        "research/suspension-pure-ordinary.md",
+        "research/pure-recursive-forcing-recursive-step.md",
+        "research/pure-recursive-forcing-execution.md",
+        "research/pure-recursive-forcing-reentry.md",
+        "research/suspension-body-event.md",
+        "research/pure-recursive-forcing-no-reentry.md",
+        "validation/suspension-pure-execution-r1.json",
+        "validation/suspension-pure-no-reentry-r1.json",
+        "research/pure-recursive-forcing-cached-program.md",
+        "validation/suspension-pure-cached-program-r1.json",
+        "research/pure-recursive-forcing-preacceptance.md",
+        "research/suspension-value-persistence.md",
+        "research/pure-recursive-forcing-cached-closure.md",
+        "validation/suspension-value-persistence-r3.json",
+        "validation/suspension-pure-cached-closure-r1.json",
+        "validation/pure-suspension-candidate-r1.json",
+        "reviews/pure-suspension-ea8afa-dispatch.md",
+        "validation/pure-suspension-candidate-r2.json",
+        "validation/suspension-pure-compatibility-r2.log",
+        "validation/pure-suspension-r2-focused-output-copy.json",
+        "reviews/pure-recursive-forcing-standards-r1.md",
+        "reviews/pure-recursive-forcing-spec-r1.md",
+        "reviews/pure-recursive-forcing-standards-r2.md",
+        "reviews/pure-recursive-forcing-spec-r2.md",
+        "reviews/pure-suspension-361f5f3-dispatch.md",
+        "reviews/common-integration-dispatch-r1-045.md",
+        "validation/common-integration-scope-matrix-045.json"
+      ],
+      "notes": [
+        "This separately owned pure-domain theorem does not alter the unrestricted effectful AppendixA machine or authorize advancing the chapter frontier.",
+        "TU.A remains incomplete until this supplemental claim and the10014 extension obligations are discharged."
+      ],
+      "implementation_base": "b422800fb5b6dc1253823057c0ea71644274d77c",
+      "branch": "pfds/pure-suspensions",
+      "checkout": "purity-foundation",
+      "work_in_progress_head": "501a95463f455b52ea839eb8bbcf6ab9379862e4",
+      "implementation_status": "Planned pure-domain/raw nontermination and successful-cache consequences are focused-checked, with literal and recursive-closure source applications. Corrected361 candidate contains only two documentation fixes relative to ea8. Complete independent static review passes both axes; exact own full acceptance remains open. No general write-count bound claimed by10019.",
+      "review_record": "reviews/pure-recursive-forcing.md",
+      "candidate_checkout": "validation-pfds-integration",
+      "review_base": "b422800fb5b6dc1253823057c0ea71644274d77c",
+      "integration_review_base": "b422800fb5b6dc1253823057c0ea71644274d77c",
+      "validation": "Ordinary-r2 is genuinely running under dedicated continuous polling. Start inputs exactly equal r1; stockguard verified30normalartifacts and invalidated1091modules. No terminal/full success; mandatory fresh baseline/regressions/acceptance pending.",
+      "previous_candidate": "ea8afa12706d30cdc69ece1a172d5f21a3ea1809",
+      "validation_materialization": "retired_recreate_before_own_gate",
+      "validation_materialization_note": "Inactive clean purity-correction removed after full source/blob and ordinary-output comparisons, saved candidate ledger/receipt checks and real-process checks. All completed outputs remain byte-identical in body-counts; all source refs unchanged. Recreate exact candidate from pfds/pure-suspensions-review-r2 at the same path before own full gate. See validation/duplicate-candidate-materializations-cleanup.json; no acceptance or transfer occurred.",
+      "planned_common_candidate": {
+        "sha": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "status": "Explicitly retargeted; static reviews complete, genuine full validation running, acceptance pending",
+        "dispatch": "reviews/common-integration-dispatch-r1-045.md",
+        "matrix": "validation/common-integration-scope-matrix-045.json"
+      },
+      "historical_candidate_before_common_045": "361f5f3f6bb3de1974510ce355883dac2bf25333",
+      "blocker": "Genuine fresh full build/audit, current-kit stock regressions, validation-evidence continuation of both independent axes, dependency-ordered decisions and immediate verification remain.",
+      "review_status": "Both independent common-candidate static reviews complete with zero new static defects; both outcomes Blocked on genuine validation.",
+      "validation_status": "No terminal result yet; full audit, current-kit stock regressions, evidence review and final verification pending.",
+      "common_candidate_reviews": {
+        "standards": {
+          "report": "reviews/common-integration-standards-r1-045.md",
+          "outcome": "Blocked",
+          "static_complete": true,
+          "new_static_findings": 0
+        },
+        "spec": {
+          "report": "reviews/common-integration-spec-r1-045.md",
+          "outcome": "Blocked",
+          "static_complete": true,
+          "new_static_findings": 0
+        }
+      },
+      "preparation_evidence": [
+        "research/thesis-endmatter-source-inventory-045.md"
+      ]
+    },
+    {
+      "id": 10020,
+      "title": "Finite pure cache-write accounting",
+      "status": "in_progress",
+      "label": "ready-for-agent",
+      "depends_on": [
+        10019
+      ],
+      "supports": [
+        10003,
+        10004,
+        10005,
+        10006,
+        10007,
+        10008,
+        10009,
+        10010,
+        10011,
+        10017
+      ],
+      "coverage": [
+        "TU.A.4.CACHE-COUNT"
+      ],
+      "requirements": "requirements/pure-cache-counts.md",
+      "implementation_base": "ea8afa12706d30cdc69ece1a172d5f21a3ea1809",
+      "review_base": "ea8afa12706d30cdc69ece1a172d5f21a3ea1809",
+      "branch": "pfds/pure-cache-counts",
+      "checkout": "cache-counts",
+      "work_in_progress_head": "3dd930c3e3989f3e5530463f3ac937a629551335",
+      "review_record": "reviews/pure-cache-counts.md",
+      "source_status": "Book memoization discussion and thesis AppendixA reentrant overwrite distinction inspected; cross-cutting consequence beyond10019.",
+      "acceptance": [
+        "Actual per-address cache-write provenance and finite pure source uniqueness derived, not assumed",
+        "Connected successful, repeated-exception, allocation-distinction and effectful negative cases",
+        "Exact complete candidate full build/audit/record/finalverify and independent review axes pass"
+      ],
+      "evidence": [
+        "requirements/pure-cache-counts.md",
+        "research/pure-recursive-forcing-preacceptance.md",
+        "validation/suspension-pending-r1.json",
+        "validation/suspension-pending-r2.json",
+        "validation/pure-cache-counts-integration-r2.json",
+        "validation/pure-cache-counts-wip-r1.json",
+        "research/pure-cache-counts-source.md",
+        "research/pure-cache-accounting.md",
+        "validation/suspension-pending-r3.json",
+        "validation/suspension-cache-write-r1.json",
+        "validation/suspension-cache-write-r2.json",
+        "research/suspension-pending.md",
+        "research/suspension-cache-write.md",
+        "validation/suspension-cache-accounting-r1.json",
+        "validation/suspension-cache-accounting-r2.json",
+        "validation/suspension-cache-accounting-r3.json",
+        "validation/pure-cache-counts-wip-r2.json",
+        "validation/suspension-pure-cache-counts-r1.json",
+        "validation/suspension-pure-cache-counts-r2.json",
+        "validation/suspension-trace-observation-r1.json",
+        "validation/suspension-pure-cache-counts-r3.json",
+        "research/suspension-trace-observation.md",
+        "validation/pure-cache-counts-candidate-r1.json",
+        "validation/pure-cache-counts-focused-output-copy.json",
+        "reviews/pure-cache-counts-3dd930c-dispatch.md",
+        "reviews/pure-cache-counts-standards-r1.md",
+        "reviews/pure-cache-counts-spec-r1.md",
+        "reviews/pure-cache-counts.md",
+        "reviews/common-integration-dispatch-r1-045.md",
+        "validation/common-integration-scope-matrix-045.json"
+      ],
+      "reviews": {
+        "standards": "Blocked:0static findings; COUNT-STD-VAL-001 exact full acceptance evidence absent",
+        "spec": "Blocked:0static findings; COUNT-SPEC-VAL-001 exact full acceptance evidence absent"
+      },
+      "implementation_status": "Complete clean candidate3dd930c; all five formal module/client pairs focused-green with matching input fingerprints. Both complete independent static axes have0findings; only exact own full gate/audit/record/final verification remains. No source correction requested. No chapter frontier change.",
+      "integration_review_base": "ea8afa12706d30cdc69ece1a172d5f21a3ea1809",
+      "candidate": {
+        "commit": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "tree": "d3dcf94916de5ccaf3df357e06192e69c4e0cf33",
+        "preserved_branch": "pfds/signed-potential",
+        "planned_isolated_checkout": "validation-pfds-integration",
+        "restored_main": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c"
+      },
+      "candidate_checkout": "validation-pfds-integration",
+      "validation_materialization": "retired_recreate_before_own_gate",
+      "validation_materialization_note": "Inactive clean validation-cache-counts removed after full source/blob and ordinary-output comparisons, saved candidate ledger/receipt checks and real-process checks. All completed outputs remain byte-identical in body-counts; all source refs unchanged. Recreate exact candidate from pfds/cache-counts-review-r1 at the same path before own full gate. See validation/duplicate-candidate-materializations-cleanup.json; no acceptance or transfer occurred.",
+      "planned_common_candidate": {
+        "sha": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "status": "Explicitly retargeted; static reviews complete, genuine full validation running, acceptance pending",
+        "dispatch": "reviews/common-integration-dispatch-r1-045.md",
+        "matrix": "validation/common-integration-scope-matrix-045.json"
+      },
+      "historical_candidate_before_common_045": "3dd930c3e3989f3e5530463f3ac937a629551335",
+      "blocker": "Genuine fresh full build/audit, current-kit stock regressions, validation-evidence continuation of both independent axes, dependency-ordered decisions and immediate verification remain.",
+      "review_status": "Both independent common-candidate static reviews complete with zero new static defects; both outcomes Blocked on genuine validation.",
+      "validation_status": "No terminal result yet; full audit, current-kit stock regressions, evidence review and final verification pending.",
+      "validation": "Ordinary-r2 is genuinely running under dedicated continuous polling. Start inputs exactly equal r1; stockguard verified30normalartifacts and invalidated1091modules. No terminal/full success; mandatory fresh baseline/regressions/acceptance pending.",
+      "common_candidate_reviews": {
+        "standards": {
+          "report": "reviews/common-integration-standards-r1-045.md",
+          "outcome": "Blocked",
+          "static_complete": true,
+          "new_static_findings": 0
+        },
+        "spec": {
+          "report": "reviews/common-integration-spec-r1-045.md",
+          "outcome": "Blocked",
+          "static_complete": true,
+          "new_static_findings": 0
+        }
+      },
+      "preparation_evidence": [
+        "research/thesis-endmatter-source-inventory-045.md"
+      ]
+    },
+    {
+      "id": 10021,
+      "title": "Persistent logical histories and finite debit accounting foundation",
+      "status": "in_progress",
+      "label": "ready-for-agent",
+      "depends_on": [
+        10000,
+        10020
+      ],
+      "supports": [
+        10017,
+        10006
+      ],
+      "coverage": [
+        "TU.TRACE.FOUNDATION"
+      ],
+      "requirements": "requirements/persistent-debit-foundation.md",
+      "requirements_version": 1,
+      "requirements_sha256": "2a89d7818d73e0b1b118ebf7d902a75afb2b6e25afaae6b9c7842d229964922f",
+      "source_status": "Complete bounded abstract graph/debit argument inspected in thesis19\u201324 and book57\u201363; decisive definitions/conditions visually checked. Concrete source incidence and full actual-work bridge remain10017.",
+      "cross_cutting_justification": "Algorithm-independent graph and finite set/multiset mathematics shared by persistent amortization; separate bounded task preserves10017 Chapter4/5 dependencies and chapter acceptance order.",
+      "base": "3dd930c3e3989f3e5530463f3ac937a629551335",
+      "original_integration_base": "3dd930c3e3989f3e5530463f3ac937a629551335",
+      "branch": "pfds/persistent-accounting",
+      "checkout": "persistent-accounting",
+      "candidate": {
+        "commit": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "tree": "d3dcf94916de5ccaf3df357e06192e69c4e0cf33",
+        "preserved_branch": "pfds/signed-potential",
+        "planned_isolated_checkout": "validation-pfds-integration",
+        "restored_main": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c"
+      },
+      "reviews": {
+        "standards": "Blocked: zero static findings; PERSIST-ACC-STD-VAL-001 High, own full gate/record pending",
+        "spec": "Blocked: zero static findings; PERSIST-ACC-SPEC-VAL-001 Blocking, own full gate/record pending"
+      },
+      "acceptance": [
+        "Source-faithful unrestricted quiver histories and separate fresh-allocation/discharge/realization laws with provenance and injective debit renaming",
+        "History-closed finite-scope and explicit-boundary support/cardinality bounds derived from local laws; finite allocation partition retained",
+        "Interpreter of debit observations reuses Resources.run, with exact initial-state accounting and justified finite-node enumeration",
+        "Connected positive/negative source-boundary cases and statement review; actual machine-work bridge remains explicit10017 obligation",
+        "Clean isolated exact candidate stock build, exhaustive audit, both independent full-scope review axes and immediate final verification; durable checkpoint uploaded"
+      ],
+      "evidence": [
+        "research/persistent-trace-source-scope.md",
+        "research/persistent-trace-reuse.md",
+        "validation/persistent-accounting-baseline.json",
+        "research/persistent-history-implementation.md",
+        "research/persistent-debit-implementation.md",
+        "research/persistent-realization-implementation.md",
+        "validation/persistent-accounting-wip-r1.json",
+        "validation/persistent-history-r1.json",
+        "validation/persistent-realization-r1.json",
+        "validation/persistent-realization-r2.json",
+        "validation/persistent-history-r2.json",
+        "validation/persistent-realization-r3.json",
+        "validation/persistent-debits-r1.json",
+        "validation/persistent-debits-r2.json",
+        "validation/persistent-observation-core-r1.json",
+        "validation/persistent-accounting-wip-r2.json",
+        "validation/persistent-accounting-r1.json",
+        "validation/persistent-accounting-r2.json",
+        "validation/persistent-accounting-r3.json",
+        "validation/persistent-accounting-candidate-r2.json",
+        "validation/persistent-accounting-candidate-r3.json",
+        "validation/persistent-accounting-candidate-focused-output-copy.json",
+        "validation/persistent-accounting-candidate-validation-preparation-r2.json",
+        "reviews/persistent-accounting-standards-r1.md",
+        "reviews/persistent-accounting-spec-r1.md",
+        "reviews/persistent-accounting-coordinator-r1.md",
+        "reviews/common-integration-dispatch-r1-045.md",
+        "validation/common-integration-scope-matrix-045.json"
+      ],
+      "development_commit": "577be121e074ddb5de6727a7481c115cb61b3b27",
+      "development_manifest": "validation/persistent-accounting-wip-r2.json",
+      "development_status": "All nine new modules passed combined r3 with67 inputs unchanged. A doc-only temporal-scope clarification preserves all checked inputs. Complete exact candidate is frozen for first independent full-scope review; own full gate remains pending.",
+      "review_record": "reviews/persistent-accounting.md",
+      "candidate_manifest": "validation/persistent-accounting-candidate-r3.json",
+      "candidate_checkout": "validation-pfds-integration",
+      "candidate_branch": "pfds/persistent-accounting-review-r3",
+      "review_dispatch": "reviews/persistent-accounting-577be12-dispatch.md",
+      "review_coordinator": "/root/persistent_accounting_review",
+      "development_materialization_note": "The inactive clean development materialization was moved to body-counts for10022 after review; pfds/persistent-accounting remains at577 and the frozen validation-persistent-accounting candidate is unchanged. See body-entry-counts-baseline.json.",
+      "validation_materialization": "retired_recreate_before_own_gate",
+      "validation_materialization_note": "The inactive clean validation-persistent-accounting materialization was removed with ordinary git worktree remove after saved033 ref checks and fresh byte equality of every125groups/875files against existing private copies in body-counts. No transfer or active input change. Recreate exact577 at the same path from pfds/persistent-accounting-review-r3 before its own full gate. See validation/duplicate-persistent-candidate-cleanup.json.",
+      "planned_common_candidate": {
+        "sha": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "status": "Explicitly retargeted; static reviews complete, genuine full validation running, acceptance pending",
+        "dispatch": "reviews/common-integration-dispatch-r1-045.md",
+        "matrix": "validation/common-integration-scope-matrix-045.json"
+      },
+      "historical_candidate_before_common_045": "577be121e074ddb5de6727a7481c115cb61b3b27",
+      "review_base": "3dd930c3e3989f3e5530463f3ac937a629551335",
+      "integration_review_base": "3dd930c3e3989f3e5530463f3ac937a629551335",
+      "blocker": "Genuine fresh full build/audit, current-kit stock regressions, validation-evidence continuation of both independent axes, dependency-ordered decisions and immediate verification remain.",
+      "review_status": "Both independent common-candidate static reviews complete with zero new static defects; both outcomes Blocked on genuine validation.",
+      "validation_status": "No terminal result yet; full audit, current-kit stock regressions, evidence review and final verification pending.",
+      "validation": "Ordinary-r2 is genuinely running under dedicated continuous polling. Start inputs exactly equal r1; stockguard verified30normalartifacts and invalidated1091modules. No terminal/full success; mandatory fresh baseline/regressions/acceptance pending.",
+      "common_candidate_reviews": {
+        "standards": {
+          "report": "reviews/common-integration-standards-r1-045.md",
+          "outcome": "Blocked",
+          "static_complete": true,
+          "new_static_findings": 0
+        },
+        "spec": {
+          "report": "reviews/common-integration-spec-r1-045.md",
+          "outcome": "Blocked",
+          "static_complete": true,
+          "new_static_findings": 0
+        }
+      }
+    },
+    {
+      "id": 10022,
+      "title": "Conditional bounds on actual suspension-body entries and their debit observation",
+      "status": "in_progress",
+      "label": "ready-for-agent",
+      "depends_on": [
+        10000,
+        10020,
+        10021
+      ],
+      "supports": [
+        10004,
+        10017,
+        10006
+      ],
+      "coverage": [
+        "TU.A.4.BODY-COUNT"
+      ],
+      "requirements": "requirements/body-entry-counts.md",
+      "requirements_version": 1,
+      "requirements_sha256": "1483d8bfc4470c4aa700c809209b3083db89fa713def40821e1968d9e3ce2a58",
+      "base": "577be121e074ddb5de6727a7481c115cb61b3b27",
+      "original_integration_base": "577be121e074ddb5de6727a7481c115cb61b3b27",
+      "branch": "pfds/body-counts",
+      "checkout": "body-counts",
+      "candidate": {
+        "commit": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "tree": "d3dcf94916de5ccaf3df357e06192e69c4e0cf33",
+        "preserved_branch": "pfds/signed-potential",
+        "planned_isolated_checkout": "validation-pfds-integration",
+        "restored_main": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c"
+      },
+      "source_status": "Algorithm-independent conditional semantic consequence of memoization, with inspected book31\u201333 and thesis AppendixA evidence and preserved actual retry counterexample. New theorem is not assumed to follow from pure finite return alone.",
+      "cross_cutting_justification": "Supplies the missing condition between successful cache-write uniqueness and actual body-entry nonrepetition needed by later source cost proofs; no later algorithm or chapter acceptance advances.",
+      "reviews": {
+        "standards": "Blocked: zero static findings; BODY-COUNT-STD-VAL-001 High, own full gate/audit/record/finalverify pending",
+        "spec": "Blocked: zero static findings; BODY-COUNT-SPEC-VAL-001 Blocking, own full gate/audit/record/finalverify pending"
+      },
+      "acceptance": [
+        "Actual continuing pending-address loss is classified by existing continuation laws as retained, successfully written or exceptionally unwound",
+        "Bound actual body-event occurrences from existing boundedness/nonreentry and explicit actual-prefix no-unwind premise, including unfinished budgets",
+        "Derive source specialization from existing finite pure execution premises; retain both normal repeated-force and actual handled retry cases",
+        "Connect the same ordered body-address projection to distinct-identity debit observation only; preserve remaining arbitrary-work/algorithm obligations",
+        "Exact own full candidate build/audit/verification, independent full-scope axes, immediate final verification, durable uploaded recovery checkpoint"
+      ],
+      "evidence": [
+        "research/body-entry-counts-design.md",
+        "validation/body-entry-counts-baseline.json",
+        "validation/body-entry-counts-r1.json",
+        "validation/body-entry-counts-wip-r1.json",
+        "validation/body-entry-counts-focused-output-copy.json",
+        "research/body-accounting-implementation.md",
+        "research/suspension-pending-retention.md",
+        "research/pure-body-counts-source.md",
+        "research/suspension-body-realization.md",
+        "validation/body-entry-counts-r2.json",
+        "validation/body-entry-counts-correction-r2.json",
+        "validation/body-entry-counts-wip-r2.json",
+        "validation/body-entry-counts-r3.json",
+        "validation/body-entry-counts-wip-r3.json",
+        "validation/body-entry-counts-r4.json",
+        "validation/body-entry-counts-wip-r4.json",
+        "research/suspension-body-realization-correction-r1.md",
+        "validation/body-entry-counts-r5.json",
+        "validation/body-entry-counts-candidate-r1.json",
+        "reviews/body-entry-counts-5e048f7-dispatch.md",
+        "reviews/body-entry-counts-standards-r1.md",
+        "reviews/body-entry-counts-spec-r1.md",
+        "reviews/body-entry-counts-coordinator-r1.md",
+        "reviews/common-integration-dispatch-r1-045.md",
+        "validation/common-integration-scope-matrix-045.json"
+      ],
+      "development_status": "Complete clean5e048f7 candidate, all9 focused targets green with71 matching inputs. Both independent full-scope static axes have zero findings; only own full acceptance evidence remains. No source correction or optional extra test requested.",
+      "review_record": "reviews/body-entry-counts.md",
+      "development_commit": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+      "development_manifest": "validation/body-entry-counts-wip-r4.json",
+      "candidate_manifest": "validation/body-entry-counts-candidate-r1.json",
+      "review_dispatch": "reviews/body-entry-counts-5e048f7-dispatch.md",
+      "review_coordinator": "/root/body_entry_counts_review",
+      "materialization_status": "Recreate body-counts from pfds/body-counts-review-r1 before own full gate; inactive clean checkout/ordinary outputs moved to signed-potential for10023.",
+      "materialization_evidence": "validation/body-counts-materialization-reuse.json",
+      "planned_common_candidate": {
+        "sha": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "status": "Explicitly retargeted; static reviews complete, genuine full validation running, acceptance pending",
+        "dispatch": "reviews/common-integration-dispatch-r1-045.md",
+        "matrix": "validation/common-integration-scope-matrix-045.json"
+      },
+      "historical_candidate_before_common_045": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+      "candidate_checkout": "validation-pfds-integration",
+      "review_base": "577be121e074ddb5de6727a7481c115cb61b3b27",
+      "integration_review_base": "577be121e074ddb5de6727a7481c115cb61b3b27",
+      "blocker": "Genuine fresh full build/audit, current-kit stock regressions, validation-evidence continuation of both independent axes, dependency-ordered decisions and immediate verification remain.",
+      "review_status": "Both independent common-candidate static reviews complete with zero new static defects; both outcomes Blocked on genuine validation.",
+      "validation_status": "No terminal result yet; full audit, current-kit stock regressions, evidence review and final verification pending.",
+      "validation": "Ordinary-r2 is genuinely running under dedicated continuous polling. Start inputs exactly equal r1; stockguard verified30normalartifacts and invalidated1091modules. No terminal/full success; mandatory fresh baseline/regressions/acceptance pending.",
+      "common_candidate_reviews": {
+        "standards": {
+          "report": "reviews/common-integration-standards-r1-045.md",
+          "outcome": "Blocked",
+          "static_complete": true,
+          "new_static_findings": 0
+        },
+        "spec": {
+          "report": "reviews/common-integration-spec-r1-045.md",
+          "outcome": "Blocked",
+          "static_complete": true,
+          "new_static_findings": 0
+        }
+      },
+      "preparation_evidence": [
+        "research/thesis-endmatter-source-inventory-045.md"
+      ]
+    },
+    {
+      "id": 10023,
+      "title": "Shared potential accounting over ordered and signed additive domains",
+      "status": "blocked",
+      "label": "ready-for-agent",
+      "depends_on": [
+        10000
+      ],
+      "supports": [
+        10005,
+        10006
+      ],
+      "coverage": [
+        "TU.POTENTIAL.SIGNED"
+      ],
+      "requirements": "requirements/signed-potential.md",
+      "requirements_version": 1,
+      "requirements_sha256": "bb28d4f56eb48c80d2a9905b6e349d3e4b6fdb4e4ad2a01976408432a434ac81",
+      "base": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+      "original_integration_base": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+      "branch": "pfds/signed-potential",
+      "checkout": "signed-potential",
+      "candidate": {
+        "commit": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "tree": "d3dcf94916de5ccaf3df357e06192e69c4e0cf33",
+        "preserved_branch": "pfds/signed-potential",
+        "planned_isolated_checkout": "validation-pfds-integration",
+        "restored_main": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c"
+      },
+      "source_status": "Book Chapter5 real potential and Chapter6/thesis debt sign inspected; reuse inventory and independently expected signed/real cases fixed. No new algorithm is included.",
+      "cross_cutting_justification": "Generalize existing same-trajectory potential algebra required by both classical real/logarithmic and lazy debt analyses; existing Nat clients and executor remain. No later chapter algorithm/frontier advances.",
+      "integration_gate_predecessor": 10022,
+      "integration_note": "Base includes still-unaccepted10022 and its ancestors. This is sequencing of integrated-candidate acceptance, not a claimed mathematical dependency on body counting.",
+      "reviews": {
+        "standards": "r3 on exact3cf: complete six-file/five-commit static scope clear, source finding fixed with matched focused evidence, High SIGNED-POT-STD-VAL-001 remains unresolved; Blocked.",
+        "spec": "r3 on exact3cf: complete static/mathematical scope clear, source finding fixed with matched focused evidence, Blocking SIGNED-POT-SPEC-VAL-001 remains unresolved; Blocked."
+      },
+      "acceptance": [
+        "Same existing budget/run generalize with only necessary additive/order structure; natural clients retain their exact semantics and calls",
+        "Signed savings/debt identities with explicit boundary potential and nonnegative-terminal condition for cost-only bound",
+        "Connected Int, fractional Real, negative-final counterexample and lifted actual BinaryCounter applications use public laws",
+        "Own exact isolated full build/exhaustive audit, both full-scope independent axes, immediate final verification and uploaded recovery checkpoint"
+      ],
+      "evidence": [
+        "requirements/signed-potential.md",
+        "validation/signed-potential-baseline.json",
+        "research/chapter05-readiness.md",
+        "research/chapter06-theory-readiness.md",
+        "research/chapter06-thesis-union-readiness.md",
+        "research/chapter06-book-algorithms-readiness.md",
+        "research/potential-generalization-inventory.md",
+        "validation/body-counts-materialization-reuse.json",
+        "validation/signed-potential-draft-r1.json",
+        "research/signed-potential-implementation.md",
+        "research/potential-transport-client.md",
+        "research/signed-potential-root-integration.md",
+        "validation/signed-potential-r1.json",
+        "validation/signed-potential-r1.log",
+        "validation/signed-potential-draft-r2.json",
+        "requirements/REQUEST-recovery-039.md",
+        "validation/recovery-040-audit.json",
+        "validation/recovery-040-interruptions.json",
+        "environment/recovery-040-approval.json",
+        "validation/signed-potential-recovery-review-r1.json",
+        "validation/signed-potential-recovery-review-r2.json",
+        "validation/signed-potential-noncomputable-correction.patch",
+        "research/signed-potential-noncomputable-correction-r1.md",
+        "reviews/signed-potential-standards-r1.md",
+        "reviews/signed-potential-spec-r1.md",
+        "reviews/signed-potential-coordinator-r1.md",
+        "reviews/signed-potential-standards-r2.md",
+        "reviews/signed-potential-spec-r2.md",
+        "reviews/signed-potential-coordinator-r2.md",
+        "validation/signed-potential-recovery-review-receipt.json",
+        "requirements/REQUEST-direct-toolchain-041.md",
+        "environment/direct-toolchain-cli-green-041.json",
+        "environment/direct-lake-build-profile-041-r1.json",
+        "environment/direct-dependencies-after-cache-041.json",
+        "validation/direct-cache-get-041.json",
+        "requirements/REQUEST-environment-handoff-042.md",
+        "requirements/REQUEST-native-toolchain-042.md",
+        "validation/signed-d24-direct-r1.json",
+        "validation/signed-956-native-r1.json",
+        "validation/signed-potential-compiler-correction-baseline-042.json",
+        "validation/signed-potential-compiler-candidate-042.json",
+        "validation/signed-potential-compiler-correction-042.patch",
+        "validation/signed-potential-budget-cast-candidate-042.json",
+        "validation/signed-potential-budget-cast-correction-042.patch",
+        "validation/signed-3cf-native-r2.json",
+        "research/signed-potential-proof-corrections-042.md",
+        "reviews/signed-potential-standards-r3-042.md",
+        "reviews/signed-potential-spec-r3-042.md",
+        "reviews/signed-potential-coordinator-r3-042.md",
+        "validation/signed-potential-coordinator-identity-r3-042.json",
+        "validation/signed-potential-root-static-receipt-r3-043.json",
+        "reviews/common-integration-dispatch-r1-045.md",
+        "validation/common-integration-scope-matrix-045.json"
+      ],
+      "development_status": "Native focused3cf passed all eleven requested targets at2026-11-03T17:14:27Z, actual exit0, terminal observed, inputs unchanged and clean exact candidate. Preserved d24/956 failures led to proof-only name and explicit Nat-budget codomain corrections; definitions/statements/expectations unchanged. No formal acceptance.",
+      "review_record": "reviews/signed-potential.md",
+      "development_commit": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "candidate_checkout": "validation-pfds-integration",
+      "validation": "Ordinary-r2 is genuinely running under dedicated continuous polling. Start inputs exactly equal r1; stockguard verified30normalartifacts and invalidated1091modules. No terminal/full success; mandatory fresh baseline/regressions/acceptance pending.",
+      "known_findings": {
+        "SIGNED-POT-STD-CODE-001": "Fixed and retained in r3 on3cf; two noncomputable boundaries, now also matched focused compilation.",
+        "SIGNED-POT-SPEC-001": "Fixed and retained in r3 on3cf; mathematical expectations/statements unchanged, matched focused evidence.",
+        "SIGNED-POT-STD-VAL-001": "Unresolved High; required corrected-candidate validation remains pending in the recovered direct-toolchain environment.",
+        "SIGNED-POT-SPEC-VAL-001": "Unresolved Blocking; required corrected-candidate validation remains pending in the recovered direct-toolchain environment."
+      },
+      "previous_candidate": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+      "planned_common_candidate": {
+        "sha": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+        "status": "Explicitly retargeted; static reviews complete, genuine full validation running, acceptance pending",
+        "dispatch": "reviews/common-integration-dispatch-r1-045.md",
+        "matrix": "validation/common-integration-scope-matrix-045.json"
+      },
+      "historical_candidate_before_common_045": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+      "review_base": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+      "integration_review_base": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+      "blocker": "Genuine fresh full build/audit, current-kit stock regressions, validation-evidence continuation of both independent axes, dependency-ordered decisions and immediate verification remain.",
+      "review_status": "Both independent common-candidate static reviews complete with zero new static defects; both outcomes Blocked on genuine validation.",
+      "validation_status": "No terminal result yet; full audit, current-kit stock regressions, evidence review and final verification pending.",
+      "common_candidate_reviews": {
+        "standards": {
+          "report": "reviews/common-integration-standards-r1-045.md",
+          "outcome": "Blocked",
+          "static_complete": true,
+          "new_static_findings": 0
+        },
+        "spec": {
+          "report": "reviews/common-integration-spec-r1-045.md",
+          "outcome": "Blocked",
+          "static_complete": true,
+          "new_static_findings": 0
+        }
+      }
+    }
+  ],
+  "requirements": "requirements/REQUEST-union-v2.md",
+  "coverage_ledger": "tracker/coverage.json",
+  "current_workspace_recovery": {
+    "source_checkpoint": 39,
+    "observed_utc": "2026-11-03T18:20:28.368909+00:00",
+    "repository_and_records_restored": true,
+    "formal_acceptance_advanced": false,
+    "earliest_unaccepted_chapter": 2,
+    "environment_status": "Approved native unchanged Lean4.35.0/Lake5.0.0 plus genuine scoped Elan4.2.4 recovery. Stock roots and19 checker tests passed on clean901 with unchanged inputs. First native fresh full interrupted; serial fresh retry and negative-audit/full/review/final verification remain pending.",
+    "environment_evidence": [
+      "environment/recovery-040.md",
+      "environment/recovery-040.json",
+      "environment/recovery-040-approval.json",
+      "environment/README-direct-toolchain.md",
+      "environment/direct-toolchain-041.json",
+      "environment/qemu-lean-smoke-041.json",
+      "environment/direct-toolchain-cli-green-041.json",
+      "environment/direct-lake-build-profile-041-r1.json",
+      "environment/direct-dependencies-after-cache-041.json",
+      "validation/direct-cache-get-041.json",
+      "environment/RECOVER-ENVIRONMENT.md",
+      "environment/environment-route-comparison-042.md",
+      "environment/native-performance-analysis-042.md",
+      "validation/native-toolchain-candidate-r7-042.json",
+      "validation/native-toolchain-candidate-validation-r7-042.json",
+      "reviews/direct-toolchain-standards-r7-042.md",
+      "reviews/direct-toolchain-spec-r7-042.md",
+      "reviews/direct-toolchain-coordinator-r7-042.md",
+      "validation/native-toolchain-final-verification-042.json",
+      "environment/RECOVER-ELAN-REGRESSIONS.md",
+      "environment/elan-4.2.4-provenance/setup.json",
+      "validation/native-toolchain-candidate-r10-043.json",
+      "validation/native-toolchain-candidate-validation-r10-043.json",
+      "reviews/direct-toolchain-standards-r10-043.md",
+      "reviews/direct-toolchain-spec-r10-043.md",
+      "reviews/direct-toolchain-coordinator-r10-043.md",
+      "validation/native-toolchain-final-verification-043.json",
+      "research/native-import-performance-043.md",
+      "validation/native-stock-regressions-r1-043.json"
+    ],
+    "interrupted_runs": "validation/recovery-040-interruptions.json",
+    "source_availability": "research/recovery-040-source-availability.json",
+    "book_reattachment_required": true,
+    "ordinary_outputs_and_dependency_caches_restored": false,
+    "historical_bootstrap_acceptance": "10000 describes the accepted original bootstrap artifact; its prior runtime is not present here.",
+    "latest_source_correction": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+    "signed_potential_review": "Both independent r3 axes completed full current3cf static scope with0new/source findings and genuine11target focus0; both remain Blocked on own full/audit/record/finalverify. Root read complete reports/reconciliation; no formal acceptance.",
+    "direct_toolchain_requirement": "requirements/REQUEST-direct-toolchain-041.md",
+    "dependency_cache_recreated": true,
+    "project_outputs_restored": false,
+    "operational_helper_candidate": "822cb7adeed4943acaf10454e9facfc2e3ee8ceb",
+    "operational_helper_acceptance": "validation/direct-toolchain-final-verification-041.json",
+    "first_formal_full_run_must_be_fresh": true,
+    "native_toolchain_requirement": "requirements/REQUEST-native-toolchain-042.md",
+    "environment_handoff": "environment/RECOVER-ENVIRONMENT.md",
+    "native_operational_candidate": "060e6b877b8db57a30f947b996b7dfe34a5401a1",
+    "native_operational_status": "Both independent full19 r10 axes Passed, all six retained findings fixed at original severities; root read complete reports and final exact source/mode/requirement/profile identity passed. Operational only.",
+    "book_reattachment_scope": "Required when new original-book page/figure/appendix inspection is needed; retained Chapter2 source evidence supports current gates. No other-conversation file retrieval is authorized.",
+    "native_operational_acceptance": "validation/native-toolchain-final-verification-043.json",
+    "native_full_run": "validation/import-901-native-fresh-r2.json",
+    "environment_handoff_appendix": "environment/RECOVER-ELAN-REGRESSIONS.md",
+    "native_full_interruption": "validation/import-901-native-fresh-r1-interruption-043.json",
+    "native_stock_regressions": "validation/native-stock-regressions-r1-043.json",
+    "native_execution_scheduling": "One compiler validation workload at a time based on measured memory/I/O variation; no project module migration applied.",
+    "native_full_run_disposition": "Execution session disappeared; partial227 completion messages, terminal unknown, full lock free, later log/input identities stable, no verification record. Cause unknown. Explicit sidecars preserve facts; no acceptance.",
+    "chapter02_materialization": "validation/chapter02-native-materialization-043.json"
+  },
+  "prospective_common_integration": {
+    "status": "Both staticreviews remain Blocked; ordinary-r2 genuinely running with exactsame startinputs and guardednormalartifact reuse; mandatoryfreshbaseline pending.",
+    "candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+    "checkout": "validation-pfds-integration",
+    "tickets": [
+      10013,
+      10018,
+      10002,
+      10014,
+      10019,
+      10020,
+      10021,
+      10022,
+      10023
+    ],
+    "decision_record": "validation/common-integration-decision-044.json",
+    "requirements": "requirements/REQUEST-common-candidate-validation-044.md",
+    "formal_acceptance": false,
+    "scope_manifest_and_rounds": "Complete matrix and both frozen independent static reports in recovery045",
+    "full_run": "validation/integration-3cf-ordinary-r2-045.json",
+    "incomplete_fresh_runs": [
+      "validation/integration-3cf-fresh-r1-045-lost-handle.json",
+      "validation/integration-3cf-fresh-r2-045-lost-handle.json"
+    ],
+    "preparation_order": "validation/common-integration-preparation-order-045.json",
+    "next_run": "Observe real ordinary-r2 result; unexecuted regressions require its success, then genuine fresh baseline.",
+    "fresh_baseline_passed": false,
+    "incomplete_ordinary_runs": [
+      "validation/integration-3cf-ordinary-r1-045-lost-handle.json"
+    ]
+  }
+}

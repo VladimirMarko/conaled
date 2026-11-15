@@ -1,0 +1,96 @@
+{
+  "recorded_utc": "2026-11-04T10:44:16.327951+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "scope": "Same complete81-path review scope, all112 obligations and ten shared scopes.",
+  "native_output": {
+    "path": "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "bytes": 874568,
+    "lines": 11650,
+    "sha256": "54eb95a2c257468c1f457a56883079af5df66cd728338ffba2fc9673d1a42d29"
+  },
+  "chunks": [
+    {
+      "chunk": 15,
+      "type_numbers": [
+        243,
+        250
+      ],
+      "native_lines": [
+        3691,
+        3934
+      ],
+      "bytes": 20363,
+      "sha256": "de78edb953ddaffc49ce10cf834f9469b50d5ce05e49e970d78f7172fea2dbaf",
+      "names": [
+        "Examples.PermutationTailBoundary.swap01_global_order",
+        "Examples.PermutationTailBoundary.swap01_selected_order",
+        "Examples.PermutationTailBoundary.swap01_first_events",
+        "Examples.PermutationTailBoundary.singleton_conditional_tail_mass",
+        "Examples.PermutationTailBoundary.empty_subset_none_mass",
+        "Examples.PermutationTailBoundary.empty_subset_first_event",
+        "Examples.PermutationTailBoundary.empty_subset_conditional_zero",
+        "Examples.PermutationTailBoundary.outsider_first_event"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "The swap0/1 example explicitly computes global inverse order[1,0,2,3] and selected order[0,2,3]. It belongs to selected-head0 and global-head1 events but not global-head0, distinguishing the selected first event from the global first event.",
+        "Conditioning a singleton subset{2} on its head2 gives empty tail mass1. The empty subset has head?=none with mass1, its proposed head0 event is empty, and conditioning on that event is the zero measure.",
+        "The selected subset excludes label1; the outsider first-event statement is exactly the empty set. There is no default head or claimed probability law on an impossible conditioning event."
+      ]
+    },
+    {
+      "chunk": 16,
+      "type_numbers": [
+        251,
+        269
+      ],
+      "native_lines": [
+        3935,
+        4206
+      ],
+      "bytes": 20989,
+      "sha256": "f34bbfbf2311ea997c2eaf4527cde3a8b9e67565026b4c2c10cc57b5d664a347",
+      "names": [
+        "Examples.PermutationTailBoundary.outsider_conditional_zero",
+        "Examples.PermutationTailBoundary.empty_indices_none_mass",
+        "Examples.PermutationTailBoundary.counterPositions",
+        "Examples.PermutationTailBoundary.conditionSubset",
+        "Examples.PermutationTailBoundary.outsideSubset",
+        "Examples.PermutationTailBoundary.counterLaw",
+        "Examples.PermutationTailBoundary.counterFirst",
+        "Examples.PermutationTailBoundary.outsideConditional",
+        "Examples.PermutationTailBoundary.outside_subset_boundaries",
+        "Examples.PermutationTailBoundary.counter_first_mass",
+        "Examples.PermutationTailBoundary.outside_order_12_mass",
+        "Examples.PermutationTailBoundary.outside_order_21_mass",
+        "Examples.PermutationTailBoundary.outside_order_not_uniform",
+        "Resources.QuickSortMean.closedForm",
+        "Resources.QuickSortMean.closedForm_zero",
+        "Resources.QuickSortMean.closedForm_succ",
+        "Resources.QuickSortMean.closedForm_scaled_sum",
+        "Resources.QuickSortMean.closedForm_recurrence",
+        "Resources.QuickSortMean.step_of_recurrence"
+      ],
+      "complete_actual_output_read": true,
+      "tool_output_truncated": false,
+      "semantic_assessment_complete_for_all_listed_types": true,
+      "findings": [],
+      "semantic_notes": [
+        "Conditioning the selected order on outsider label1 is the zero measure. Empty label carrier still has its identity permutation and head?=none mass1 without an inhabitant of Empty.",
+        "The Fin3 outside-subset counterexample retains the exact measure/event objects and the explicit premises0 notin outsideSubset and outsideSubset not subset of conditionSubset.erase0. The conditioning event has mass1/2; subsequent outside orders[1,2] and[2,1] have masses1/3 and2/3, and[1,2] mass is explicitly not1/2.",
+        "These types preserve the necessity of T subset of S.erase a. Merely excluding the conditioned head is not promoted to a uniform conditional-order theorem.",
+        "The numerical closedForm is Nat->Real with value1 at0. Its successor identity is(n+1)*A(n+1)=(n+2)*A(n)+8*n+3; its scaled finite sum is n*A(n)=2*sum(k<n,A(k))+4*n^2-n.",
+        "The recurrence uses real division2/n and toll4*n-1 with n>0. step_of_recurrence correctly derives the successor identity for every n from the recurrence without imposing an unnecessary initial-value assumption; n=0 follows from the n=1 recurrence."
+      ]
+    }
+  ],
+  "prior_progress_sha256": "60065fea2f480cff69446876c1da3ae24969e690fd0e384daa125dc1d258843f",
+  "overall_outcome": "Blocked",
+  "new_type_credit": 0,
+  "possible110_credit": 0
+}

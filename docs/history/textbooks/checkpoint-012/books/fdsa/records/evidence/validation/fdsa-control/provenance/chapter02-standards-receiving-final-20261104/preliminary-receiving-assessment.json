@@ -1,0 +1,826 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "recorded_utc": "2026-11-04T17:51:11.231576+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "scope": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "explicit_public": 1763,
+    "private_named": 70,
+    "anonymous_instances": 19
+  },
+  "status": "Independent preliminary disposition:466 conditional producer transfers and1297 specific current-inspection obligations. No transfer before actual unchanged post evidence and both final assessments.",
+  "actual_closed_boundary": {
+    "whole_candidate_full_gate": "Passed; complete held Standards full-gate assessment retained.",
+    "original_comparison_failure": "C02-PREP-CMD-001 retained, with original helper and failed records.",
+    "corrected_comparison_actual_exit": 0,
+    "corrected_comparison_tool": "7b4cc2",
+    "corrected_comparison_completed_utc": "2026-11-04T17:32:55.609544+00:00",
+    "same_successful_pre_used": true,
+    "new_capture_or_compiler_for_retry": false,
+    "current_post_observation": null
+  },
+  "independent_reconstruction": {
+    "current_local_sources": 97,
+    "current_supported_objects_and_traces": 291,
+    "configurations": 10,
+    "clean_actual_dependency_records": 9,
+    "runtime_fingerprints": 12,
+    "recent_and_anchor_root_projections": 87,
+    "historical_root_projections": 41,
+    "all1763_recent_and_historical_name_positions_reproduced": true,
+    "supported_complete_keysets_compared": [
+      ".olean",
+      ".olean.hash",
+      ".olean.private",
+      ".olean.server",
+      ".trace"
+    ],
+    "normalization_performed": false,
+    "successful_read_only_reconstruction_tools": [
+      "3d6bef",
+      "2d2145",
+      "cb8f07"
+    ],
+    "complete_decision_summary_reads": [
+      "96065c",
+      "88c290",
+      "d32610"
+    ],
+    "truncated_navigation_excluded": [
+      "8e57d4"
+    ],
+    "temporary_display_only_typo": "3d6bef used retained_R instead of acceptedR28 for a display-only list;88c290 corrected it to Resources.isBigO_of_nat_bound,ID1730. The correct1-name count and all source/program/evidence bytes were unchanged."
+  },
+  "conditional_reuse": {
+    "total": 466,
+    "by_producer": {
+      "I314": 242,
+      "J53": 53,
+      "Tail61": 61,
+      "F145": 110
+    },
+    "exact_name_position_mapping": "Rows marked conditional_reuse_after_post in the bound TSV; full inventory IDs resolve to the exact frozen source catalog.",
+    "remaining_condition": "Actual receiving post must match every complete relevant input keyset around the current inspection/stable candidate boundary. Retain qualified producer execution/build integrity, original complete output/profile and both independent semantic assessments.",
+    "F35_insertion_boundary": "The35 old F insertion names do not transfer from F because Sorting.Merge changed. They have a separate matching actual I314 producer.",
+    "I72_Growth_boundary": "All72 MergeCosts names fail I314 source/external/object identity after Growth changed. Z has literal project/dependency-path and trace gaps; those72 remain current-inspection obligations."
+  },
+  "current_inspection": {
+    "total": 1297,
+    "historical920": 753,
+    "actualZ815": 543,
+    "retained_R_without_a_saved_printed_block": {
+      "count": 1,
+      "name": "Resources.isBigO_of_nat_bound",
+      "inventory_id": 1730,
+      "reason": "Accepted source segment remains accepted, but enclosing imports changed and no prior fully printed block exists. A first current explicit type inspection resolves this narrow statement boundary without reopening C1."
+    },
+    "profiles": [
+      {
+        "group": "chapter02-natural-runs-statements-20261104",
+        "name_count": 104,
+        "names_and_exact_positions": "Rows with this target_profile_group in the bound per-name TSV.",
+        "sorted_full_names_final_LF_sha256": "d8eca61488a9af584600375b4a673a7fda34a3c09997c84743794d8cafcd78df",
+        "original_program": {
+          "path": "provenance/chapter02-natural-runs-statements-20261104/statements.lean",
+          "bytes": 5054,
+          "sha256": "d56c25d992aa23e63c9bfa51cf4561f8ae2e6c1f186dda1493d0741673b372e4",
+          "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+        },
+        "original_imports": [
+          "Applications.Sorting.NaturalRuns",
+          "Examples.NaturalRuns"
+        ],
+        "all_actual_option_commands": [
+          [
+            3,
+            "autoImplicit",
+            "false"
+          ],
+          [
+            4,
+            "warningAsError",
+            "true"
+          ]
+        ],
+        "additional_print_commands": [
+          [
+            5,
+            "print",
+            "Applications.Sorting.DListLaw",
+            false,
+            null
+          ],
+          [
+            6,
+            "print",
+            "Applications.Sorting.dListOfLaw",
+            false,
+            null
+          ],
+          [
+            7,
+            "print",
+            "Applications.Sorting.ascSourceBy",
+            false,
+            null
+          ]
+        ]
+      },
+      {
+        "group": "Z815",
+        "name_count": 543,
+        "names_and_exact_positions": "Rows with this target_profile_group in the bound per-name TSV.",
+        "sorted_full_names_final_LF_sha256": "f5ecca6d363e6c9c1b52c25e3fcf96b40bd0f117bf2a28019478e35bfe5146ed",
+        "original_program": {
+          "path": "provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/Statements.lean",
+          "bytes": 46371,
+          "sha256": "d4d37d6ea2b48fc5c743b1db36fe904ca8623be6c03c05ea5addc99b307687bd",
+          "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+        },
+        "original_imports": [
+          "Applications.Probability.PermutationOrder",
+          "Applications.Probability.PermutationTail",
+          "Applications.Resources.InsertionSort",
+          "Applications.Resources.ListCalls",
+          "Applications.Resources.ListMerge",
+          "Applications.Resources.NaturalRunOperations",
+          "Applications.Resources.QuickSortMean",
+          "Applications.Resources.QuickSortTransport",
+          "Applications.Resources.RandomQuickSortGrowth",
+          "Applications.Resources.RandomQuickSortMean",
+          "Applications.Resources.RandomQuickSortRank",
+          "Applications.Resources.TopDownSorting",
+          "Applications.Resources.UniformQuickSortMean",
+          "Applications.Sorting.InsertionObservations",
+          "Applications.Sorting.QuickSort",
+          "Applications.Sorting.TopDown",
+          "Examples.FunctionalNotation",
+          "Examples.InsertionCosts",
+          "Examples.InsertionObservations",
+          "Examples.ListCalls",
+          "Examples.ListLibrary",
+          "Examples.MergeCosts",
+          "Examples.NaturalRunOperations",
+          "Examples.PermutationOrder",
+          "Examples.PermutationOrderBoundary",
+          "Examples.PermutationTail",
+          "Examples.PermutationTailBoundary",
+          "Examples.QuickSort",
+          "Examples.QuickSortMean",
+          "Examples.QuickSortTransport",
+          "Examples.RandomQuickSortGrowth",
+          "Examples.RandomQuickSortMean",
+          "Examples.RandomQuickSortRank",
+          "Examples.TopDownCosts",
+          "Examples.TopDownSorting",
+          "Examples.UniformQuickSortMean"
+        ],
+        "all_actual_option_commands": [
+          [
+            38,
+            "pp.universes",
+            "true"
+          ],
+          [
+            39,
+            "pp.explicit",
+            "true"
+          ],
+          [
+            40,
+            "pp.fullNames",
+            "true"
+          ]
+        ],
+        "additional_print_commands": []
+      },
+      {
+        "group": "chapter02-bottom-up-alternating-types-20261104",
+        "name_count": 126,
+        "names_and_exact_positions": "Rows with this target_profile_group in the bound per-name TSV.",
+        "sorted_full_names_final_LF_sha256": "514e66ea8fcce7b3a8135e72047682a3421ba0ff02e8fdbe093b8c583d2c7b84",
+        "original_program": {
+          "path": "provenance/chapter02-bottom-up-alternating-statement-source-20261104/Statements.lean",
+          "bytes": 6776,
+          "sha256": "9ef7e05799ff059a262fc1cab1ffaae1ed269b1076931c44a6913bd6e2dda471",
+          "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+        },
+        "original_imports": [
+          "Examples.BottomUpSorting",
+          "Examples.AlternatingSorting"
+        ],
+        "all_actual_option_commands": [
+          [
+            4,
+            "autoImplicit",
+            "false"
+          ],
+          [
+            5,
+            "warningAsError",
+            "true"
+          ],
+          [
+            6,
+            "pp.universes",
+            "true"
+          ]
+        ],
+        "additional_print_commands": []
+      },
+      {
+        "group": "chapter02-natural-sorting-types-20261104",
+        "name_count": 105,
+        "names_and_exact_positions": "Rows with this target_profile_group in the bound per-name TSV.",
+        "sorted_full_names_final_LF_sha256": "73d738200deaaa1527bd8cdfe840d68a36a8c29b871d480493844a2fe10f129c",
+        "original_program": {
+          "path": "provenance/chapter02-natural-sorting-statement-source-20261104/Statements.lean",
+          "bytes": 5922,
+          "sha256": "59d413591ef58c6569fcf39575669aaafcb21d4cf7783f05a88935de0a97b9ac",
+          "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+        },
+        "original_imports": [
+          "Applications.Sorting.Natural",
+          "Examples.NaturalSorting",
+          "Applications.Resources.NaturalSorting",
+          "Examples.NaturalSortingCosts"
+        ],
+        "all_actual_option_commands": [
+          [
+            6,
+            "pp.universes",
+            "true"
+          ],
+          [
+            7,
+            "pp.explicit",
+            "true"
+          ],
+          [
+            8,
+            "pp.fullNames",
+            "true"
+          ]
+        ],
+        "additional_print_commands": []
+      },
+      {
+        "group": "chapter02-three-way-partition-types-20261104",
+        "name_count": 36,
+        "names_and_exact_positions": "Rows with this target_profile_group in the bound per-name TSV.",
+        "sorted_full_names_final_LF_sha256": "eb335616eed380f8f5307e6d627a0dba3eb4bc0c2e7db4e10a749ef8fe441d83",
+        "original_program": {
+          "path": "provenance/chapter02-three-way-partition-statement-source-20261104/Statements.lean",
+          "bytes": 4571,
+          "sha256": "48019e7cc7c38382139b939a521527773e59b39f5b4b8ffff210d199babb7dbf",
+          "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+        },
+        "original_imports": [
+          "Applications.Sorting.ThreeWayQuickSort",
+          "Examples.ThreeWayQuickSort",
+          "Applications.Sequences.Partition",
+          "Applications.Resources.Partition",
+          "Examples.ThreeWayPartition",
+          "Applications.Selection.ThreeWay"
+        ],
+        "all_actual_option_commands": [
+          [
+            8,
+            "pp.universes",
+            "true"
+          ],
+          [
+            9,
+            "pp.explicit",
+            "true"
+          ]
+        ],
+        "additional_print_commands": []
+      },
+      {
+        "group": "chapter02-uniqueness-types-20261104",
+        "name_count": 9,
+        "names_and_exact_positions": "Rows with this target_profile_group in the bound per-name TSV.",
+        "sorted_full_names_final_LF_sha256": "0da8052eed450ff9e84e540205d97755a881c17fdedb522c48e13a974672b0a2",
+        "original_program": {
+          "path": "provenance/chapter02-uniqueness-statement-source-20261104/Statements.lean",
+          "bytes": 614,
+          "sha256": "5d5cb3cfd591633c6e0ef635094917f19f60f2db1e226df3782ba963f01fd5bf",
+          "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+        },
+        "original_imports": [
+          "Applications.Sorting.Uniqueness",
+          "Examples.SortUniqueness"
+        ],
+        "all_actual_option_commands": [
+          [
+            4,
+            "pp.universes",
+            "true"
+          ],
+          [
+            5,
+            "pp.explicit",
+            "true"
+          ],
+          [
+            6,
+            "pp.fullNames",
+            "true"
+          ]
+        ],
+        "additional_print_commands": []
+      },
+      {
+        "group": "chapter02-bottom-up-costs-types-20261104",
+        "name_count": 105,
+        "names_and_exact_positions": "Rows with this target_profile_group in the bound per-name TSV.",
+        "sorted_full_names_final_LF_sha256": "072a06112b976816dc1c6eba96b55baba81eff3ce39cf03fdb54d2fd825cd0e2",
+        "original_program": {
+          "path": "provenance/chapter02-bottom-up-costs-statement-source-20261104/Statements.lean",
+          "bytes": 5757,
+          "sha256": "f9486a8f64d9786814f2ffc67dfb158ab13bf1d392585c27ca83b35cadd34c2e",
+          "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+        },
+        "original_imports": [
+          "Applications.Resources.BottomUpSorting",
+          "Examples.BottomUpCosts"
+        ],
+        "all_actual_option_commands": [
+          [
+            4,
+            "pp.universes",
+            "true"
+          ],
+          [
+            5,
+            "pp.explicit",
+            "true"
+          ]
+        ],
+        "additional_print_commands": []
+      },
+      {
+        "group": "chapter02-measured-sorting-types-20261104",
+        "name_count": 174,
+        "names_and_exact_positions": "Rows with this target_profile_group in the bound per-name TSV.",
+        "sorted_full_names_final_LF_sha256": "20e24f41c452d8c6e2d3ffb4ba51270b99a61c52555ac63264f682421af9c7ba",
+        "original_program": {
+          "path": "provenance/chapter02-measured-sorting-statement-source-20261104/Statements.lean",
+          "bytes": 9342,
+          "sha256": "904bd664fb385ef63fc1d6f2b8fd9fd2e3af2cadcbf6eb7f610a1e71ccbef20a",
+          "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+        },
+        "original_imports": [
+          "Applications.Resources.QuickSort",
+          "Examples.QuickSortCosts",
+          "Applications.Resources.NaturalRunComparisons",
+          "Examples.NaturalRunComparisons",
+          "Applications.Resources.ListBuildCosts",
+          "Examples.ListBuildCosts"
+        ],
+        "all_actual_option_commands": [
+          [
+            7,
+            "pp.universes",
+            "true"
+          ],
+          [
+            8,
+            "pp.explicit",
+            "true"
+          ]
+        ],
+        "additional_print_commands": []
+      },
+      {
+        "group": "chapter02-xd01-random-types-20261104",
+        "name_count": 62,
+        "names_and_exact_positions": "Rows with this target_profile_group in the bound per-name TSV.",
+        "sorted_full_names_final_LF_sha256": "a3988928f42c697b59ccadfe17fe4ee23cc3270907c69ec8cf73c17e66ca5281",
+        "original_program": {
+          "path": "provenance/chapter02-xd01-random-statement-source-20261104/Statements.lean",
+          "bytes": 7417,
+          "sha256": "5f6eb99c622137c19ff2f5fc35389e7d9a2000cf06e4f3d7a2a25a803a76584b",
+          "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+        },
+        "original_imports": [
+          "Applications.Resources.DifferenceListCosts",
+          "Examples.DifferenceListCosts",
+          "Applications.Resources.RandomQuickSort",
+          "Examples.RandomQuickSort"
+        ],
+        "all_actual_option_commands": [
+          [
+            6,
+            "pp.universes",
+            "true"
+          ],
+          [
+            7,
+            "pp.explicit",
+            "true"
+          ],
+          [
+            8,
+            "pp.fullNames",
+            "true"
+          ]
+        ],
+        "additional_print_commands": []
+      },
+      {
+        "group": "chapter02-top-down-costs-types-20261104",
+        "name_count": 32,
+        "names_and_exact_positions": "Rows with this target_profile_group in the bound per-name TSV.",
+        "sorted_full_names_final_LF_sha256": "a359ce4789c5a2d00d63fde88055acc9ddb3c21a43c32287e9990529b2595c99",
+        "original_program": {
+          "path": "provenance/chapter02-top-down-costs-proof-corrections-20261104/TypeInspection.lean",
+          "bytes": 1663,
+          "sha256": "3f235ac70f6fa1b2234a5899f5ba25f7de7e9caee35c0b8f90b8de98e96ab5c8",
+          "role": "Actual historical producer program; retained exact, never replaced by the carrier"
+        },
+        "original_imports": [
+          "Examples.TopDownCosts"
+        ],
+        "all_actual_option_commands": [
+          [
+            3,
+            "autoImplicit",
+            "false"
+          ],
+          [
+            4,
+            "warningAsError",
+            "true"
+          ],
+          [
+            5,
+            "pp.universes",
+            "true"
+          ]
+        ],
+        "additional_print_commands": []
+      },
+      {
+        "group": "new_current_Growth",
+        "name_count": 1,
+        "names_and_exact_positions": "Rows with this target_profile_group in the bound per-name TSV.",
+        "sorted_full_names_final_LF_sha256": "0012b6de49c9d23b6b0fd1b178993bd0c6e9cd0bbc76e01a200e90ca9ef23fc4",
+        "original_program": null,
+        "original_imports": null,
+        "all_actual_option_commands": null,
+        "additional_print_commands": []
+      }
+    ],
+    "prepared_or_executed_by_reviewer": false,
+    "all_old_programs_preserved": true
+  },
+  "historical_boundaries": {
+    "old_checks": 941,
+    "additional_prints": 3,
+    "literal_at_checks": 679,
+    "expanded_pp_explicit_profile_checks": 648,
+    "other_profiles": 293,
+    "qualified_at_Z": 920,
+    "old_exclusions": "Seven Growth-dependent and fourteen missing-terminal QuickSort names remain excluded from old execution credit; later Z815 evidence is separately retained.",
+    "Z_gap": "Every examined supported-object difference is a literal trace hash difference. Project path and nine actual dependency paths differ. Equal source/configuration/runtime fingerprints alone do not grant transfer.",
+    "older_gap": "All12 actual execution contexts use different literal project paths. Source configuration/pins match, but paired old runtime/object/dependency-path records remain absent.",
+    "Z_anchor_boundary": "All58 closure anchors and723 historical-name anchors are input anchors only; they neither add printed names nor backfill old captures."
+  },
+  "semantic_analysis_reuse_conditions": [
+    "Retain the complete original R-based source/statement analysis; both axes still assess the whole Q scope and affected context.",
+    "Qualify each new actual successful current execution with exact program bytes, imports, every safety/printing option, source command forms, immutable clean Q, complete output, and actual matching current input observations. Explicitly record any changed CLI input transport instead of calling its command identical.",
+    "Independently map every complete raw output block to its exact prior producer/program position and fully read block. Account for all bytes, warnings and extra messages; do not normalize whitespace/paths or drop commands.",
+    "Reuse semantic analysis only for exact complete block identity with the same meaningful definitions/instances/source context and retained printer-omission qualification. This retains analysis, not an unmatched old execution.",
+    "Read and assess every differing/new block, first Growth output and new diagnostic/ellipsis ambiguity completely. Preserve ordinary versus expanded profiles accurately.",
+    "NaturalRuns retains all three #print commands plus104 #checks. A prospective file-input invocation must process all107 commands; an empty-stdin exit gives no credit.",
+    "The full Q check/audit is separately passed. Final receiving qualification, both final complete axes and immediate candidate verification remain mandatory."
+  ],
+  "NaturalRuns_input_transport": {
+    "root_notice": "Unchanged recorder sets stdin=DEVNULL; a standard qualified lake env lean /absolute/program.lean invocation is proposed for the exact original NaturalRuns source bytes.",
+    "method_assessment": "Suitable in principle as an explicitly different input transport, without changing kit/wrapper/compiler/profile code. The input has imports/options/printing commands only; original actual program bytes and all107 commands must remain. Exact prepared mapping and actual output qualification are still pending.",
+    "not_claimed": "No claim of identical old CLI command or actual new execution; diagnostic filenames outside complete type/definition blocks must be accounted for."
+  },
+  "review_guidance": {
+    "path": "docs/agents/review-loop.md",
+    "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+    "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+    "complete_revisited_read": "54e729,all115lines",
+    "relevant_rule": "Lines60\u201373 retain matching analysis while changed inputs require qualification;75\u201391 preserve full and immediate gates."
+  },
+  "per_name_table": {
+    "path": "provenance/chapter02-standards-receiving-final-20261104/preliminary-receiving-name-disposition.tsv",
+    "bytes": 221413,
+    "lf_lines": 1764,
+    "sha256": "4e28da44ba86372f24a44cf1c0965e1c39d460062bfb455226485d291edc3985"
+  },
+  "producer_semantic_linkage": [
+    {
+      "producer": "F145",
+      "conditional_names": 110,
+      "program": {
+        "path": "provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+        "bytes": 7518,
+        "lf_lines": 156,
+        "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4"
+      },
+      "native_output": {
+        "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/native-records/output.log",
+        "bytes": 107530,
+        "lf_lines": 1491,
+        "sha256": "bbf02ed2d02358a10d1ed670e28bc00e43beef3af20409d4dc926ad36ab193c2"
+      },
+      "output_blocks": {
+        "path": "provenance/foundation-complete-public-statements145-20261104-attempt1/output-blocks.json",
+        "bytes": 46564,
+        "lf_lines": 1492,
+        "sha256": "77705d6d4150af6d722114fd8836a2c67efdecd43d26e0019eb8fe5fa2f599d4"
+      },
+      "same_reviewer_full_read_ledger": {
+        "path": "provenance/shared-foundations-standards-terminal-assessment-20261104/actual145-read-progress.json",
+        "bytes": 20912,
+        "lf_lines": 378,
+        "sha256": "ef690b8f502c1ac4b70cd956cf682d2faa080b4b36151afc7cd05cd8a3a77a0b"
+      },
+      "complete_block_and_read_chunk_identity_reproduced_in": "cb8f07 and007a81 before its later receipt-only lookup failure"
+    },
+    {
+      "producer": "I314",
+      "conditional_names": 242,
+      "program": {
+        "path": "provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+        "bytes": 16826,
+        "lf_lines": 340,
+        "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754"
+      },
+      "native_output": {
+        "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/output.log",
+        "bytes": 256987,
+        "lf_lines": 3438,
+        "sha256": "3bdb9dc0a92ec781a28b46de1a3eb843bda4efcd17c2292f091c19e52df7c50c"
+      },
+      "output_blocks": {
+        "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/output-blocks.json",
+        "bytes": 112874,
+        "lf_lines": 3199,
+        "sha256": "2fe194e3f70287d3be4815f418f7ee898e46980145afc2761c469701b1073f12"
+      },
+      "same_reviewer_full_read_ledger": {
+        "path": "provenance/shared-four-standards-terminal-assessment-20261104/actual314-read-ledger.json",
+        "bytes": 14033,
+        "lf_lines": 294,
+        "sha256": "5e61784905b0f5a6134b64808b84970bb4e5024b05ba2cf5aa836b16fd56fa01"
+      },
+      "complete_block_and_read_chunk_identity_reproduced_in": "cb8f07 and007a81 before its later receipt-only lookup failure"
+    },
+    {
+      "producer": "J53",
+      "conditional_names": 53,
+      "program": {
+        "path": "provenance/chapter02-xu02-statement-source-20261104/Statements.lean",
+        "bytes": 3522,
+        "lf_lines": 61,
+        "sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3"
+      },
+      "native_output": {
+        "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/native-records/output.log",
+        "bytes": 91080,
+        "lf_lines": 1075,
+        "sha256": "48466b063b338defe63e54b3eed7594095cd3036dd773443ef9649b2bc211b65"
+      },
+      "output_blocks": {
+        "path": "provenance/shared-order-complete-public-statements53-20261104-attempt1/output-blocks.json",
+        "bytes": 22024,
+        "lf_lines": 670,
+        "sha256": "5ac94d0bd7a5ae4b51b0aa35cf24bbd7b89cfa9be122d7cc1c8514d319d76269"
+      },
+      "same_reviewer_full_read_ledger": {
+        "path": "provenance/shared-order-standards-terminal-assessment-20261104/actual53-read-ledger.json",
+        "bytes": 5617,
+        "lf_lines": 89,
+        "sha256": "801098585a98ff633f744e86513d037ed45fc1390f88bedcf80041a019d9fa08"
+      },
+      "complete_block_and_read_chunk_identity_reproduced_in": "cb8f07 and007a81 before its later receipt-only lookup failure"
+    },
+    {
+      "producer": "Tail61",
+      "conditional_names": 61,
+      "program": {
+        "path": "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+        "bytes": 4105,
+        "lf_lines": 75,
+        "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa"
+      },
+      "native_output": {
+        "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/native-records/output.log",
+        "bytes": 84784,
+        "lf_lines": 1073,
+        "sha256": "57747c4b4764ac5aea6885671ff66b5ff202da2c919a0e9bb38f5921738916cf"
+      },
+      "output_blocks": {
+        "path": "provenance/shared-tail-complete-public-statements61-20261104-attempt1/output-blocks.json",
+        "bytes": 24176,
+        "lf_lines": 684,
+        "sha256": "9e83cbfb18c911c3602c2e9fde71b727456bab93ad6bd76375f472142cadb748"
+      },
+      "same_reviewer_full_read_ledger": {
+        "path": "provenance/shared-tail-standards-terminal-assessment-20261104/read-progress.json",
+        "bytes": 16362,
+        "lf_lines": 381,
+        "sha256": "d563391d972d86efe1631f30e236956fba74f39d2d24e8e3bd3fe17baaecbc39"
+      },
+      "complete_block_and_read_chunk_identity_reproduced_in": "cb8f07 and007a81 before its later receipt-only lookup failure"
+    }
+  ],
+  "bound_evidence": [
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/schedule.json",
+      "bytes": 409593,
+      "lf_lines": 1,
+      "sha256": "6216efb85427a6401e1263f34294141c82f2fe88c74dc2dd18eb464207d06c62"
+    },
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/bound-inputs.json",
+      "bytes": 43114,
+      "lf_lines": 873,
+      "sha256": "2120c53da63d2ae57361900937a14b26d115e4a26a0a6c3f560e307df635a6d8"
+    },
+    {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/compare_receiving_v2.py",
+      "bytes": 18779,
+      "lf_lines": 291,
+      "sha256": "84a6d52d489c88efa0ddc155ba88bd4fdd2472042b898a3a95843509049f7f0b"
+    },
+    {
+      "path": "provenance/shared-chapter02-statement-evidence-readiness-20261104/inventory.json",
+      "bytes": 496079,
+      "lf_lines": 15238,
+      "sha256": "80311e829c93fa2653616d9b5e85f237a17a6347cda79b69d1388d2cb8bb6b47"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/historical-type-dependency-audit-preparation-6b95185.json",
+      "bytes": 207685,
+      "lf_lines": 4016,
+      "sha256": "293e9dfca4b47047e90d727b346ffa4d7139254b4980494f26d645e28ab36687"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/historical-type-dependency-assessment-6b95185.json",
+      "bytes": 312652,
+      "lf_lines": 6578,
+      "sha256": "4cf7c71ed470047083093dd8a5212d3eaa6013b9e2a7ed9e0ae9e15426d9f9ab"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 90134,
+      "lf_lines": 1970,
+      "sha256": "6e915cd019a10381fb096fece62bdbd9964f189a446024825a71daabc808a2a3"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/pre-observation-execution.json",
+      "bytes": 1543,
+      "lf_lines": 33,
+      "sha256": "7877f2330ff802eba28c8552b9737af9eb72d247203cef00d3fb0307a7e33678"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/comparison-attempt2-start.json",
+      "bytes": 1474,
+      "lf_lines": 27,
+      "sha256": "1f8a7dcb7e35947d56726c684078c70916696885d8dff52f31ce11ed36417f94"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/comparison-attempt2-execution.json",
+      "bytes": 1548,
+      "lf_lines": 29,
+      "sha256": "39ffb53b6ffe96c9c24f3c18a6e6a00be11a389951017c7a7bb434181b10b684"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/comparison-attempt2.log",
+      "bytes": 316,
+      "lf_lines": 1,
+      "sha256": "6b9a6a38e51f38574b80de96059637664d3643f33f210261733b7906292e44aa"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/preliminary-comparison-attempt2.json",
+      "bytes": 2419127,
+      "lf_lines": 62276,
+      "sha256": "1f98ccb397b0be943b8bf96dc0707e5f293e2d3af85491695cbbe94390e15632"
+    },
+    {
+      "path": "provenance/chapter02-standards-receiving-final-20261104/full-gate-assessment.json",
+      "bytes": 11125,
+      "lf_lines": 242,
+      "sha256": "0dd393894a8f877db50e191131b3582ffcca45769b0962b10f264c0dbb6d74cd"
+    },
+    {
+      "path": "provenance/chapter02-standards-receiving-final-20261104/command-correction-and-full-gate-completion.json",
+      "bytes": 7114,
+      "lf_lines": 139,
+      "sha256": "15ce77a023eb2050bf3d73c0ab041ab29cf8a51adfff077a33ced129158e7bd8"
+    },
+    {
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/source-assessment.json",
+      "bytes": 14841,
+      "lf_lines": 343,
+      "sha256": "30156b4058e2de3617b59cba13f9d784bc478f3597cb29865340ed8d795722d0"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+      "bytes": 23539,
+      "lf_lines": 472,
+      "sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-type-review-progress.json",
+      "bytes": 123595,
+      "lf_lines": 3562,
+      "sha256": "91b9df119e5b47cd94a7930001947eb2c14601d5d144149b796a8bb06f3f4d0b"
+    },
+    {
+      "path": "provenance/foundation145-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 38785,
+      "lf_lines": 839,
+      "sha256": "482b005a6b020bc8fbc087ed746202caa89426382200d2aa37b4259ac0116d37"
+    },
+    {
+      "path": "provenance/foundation145-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 39092,
+      "lf_lines": 845,
+      "sha256": "3065efbace8dc8cff34d764d33fd29e81f09b5549407d72be5cdaa217d482d16"
+    },
+    {
+      "path": "provenance/shared-four314-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 45835,
+      "lf_lines": 972,
+      "sha256": "c3dc93d12e645171b3df24d417cc36838f666233c09034bb751672f47081f3f9"
+    },
+    {
+      "path": "provenance/shared-four314-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 46143,
+      "lf_lines": 978,
+      "sha256": "fb1b01c56f251f9ddc28ae17b301d312b09714e687b5b0803fbe8be32ff95307"
+    },
+    {
+      "path": "provenance/shared-order53-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 15480,
+      "lf_lines": 335,
+      "sha256": "eae1066844315be119551281752fcde15ba1f2cb2bf240d3f4186a9ca16ef8ec"
+    },
+    {
+      "path": "provenance/shared-order53-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 15788,
+      "lf_lines": 341,
+      "sha256": "40817d0282d0ef62c6dac960429f5f6b8521cc86739f2eb4a195d869b17de15a"
+    },
+    {
+      "path": "provenance/shared-tail61-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 18465,
+      "lf_lines": 399,
+      "sha256": "1829a1a48106a01e46d9994baaf4a01c0f13d29bc973239c6a0ee1a8ab25206e"
+    },
+    {
+      "path": "provenance/shared-tail61-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 18772,
+      "lf_lines": 405,
+      "sha256": "6a8c7067a0f78eae29982f34f38342253cf56bae1432050ee7e054b87996e986"
+    },
+    {
+      "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 125408,
+      "lf_lines": 2524,
+      "sha256": "e4187960a469d194aeceed488d7e9bb45a450ae059bef46ba9645c5f9d6868ac"
+    },
+    {
+      "path": "provenance/chapter02-statements815-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 125726,
+      "lf_lines": 2530,
+      "sha256": "c8a015007775ff98a220c90c328dc10f505cca8ac9ac9c7c3b887e2c0089ab4a"
+    }
+  ],
+  "local_record_assembly_failure": {
+    "tool": "007a81",
+    "actual_exit": 1,
+    "cause": "Receipt-only lookup omitted -4b5dbfa0 from the existing actual815-complete-type-assessment filename. All preceding projection assertions completed and the coherent per-name TSV was already saved; the new assessment JSON was not created.",
+    "diagnosis_tool": "56aca7",
+    "correct_existing_file": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+      "bytes": 23539,
+      "lf_lines": 472,
+      "sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510"
+    },
+    "preservation": "No old file/table/program/source was deleted or rewritten; this corrected assembly reverifies the existing TSV exactly."
+  },
+  "setup_only_action_boundary": "Root reported103 setup-only truncations and separate persistence, preserving7196 real compiler/hash/trace files,925 old zero placeholders and source/refs/pins/verification/pre snapshot. This receipt uses saved inputs only. Actual current execution/post observations must retain those compiler inputs; no reviewer runtime capture is performed.",
+  "receiving_credit": 0,
+  "acceptance_credit": 0,
+  "new_concrete_math_source_findings": [],
+  "remaining": [
+    "Both axes inspect the author exact targeted input mapping/profiles before execution.",
+    "Actual current output qualification and exact old-block mapping or complete new semantic assessment.",
+    "Actual receiving post and final466 transfer qualification.",
+    "Both final full-scope axes and immediate candidate verification before accepted FF."
+  ]
+}

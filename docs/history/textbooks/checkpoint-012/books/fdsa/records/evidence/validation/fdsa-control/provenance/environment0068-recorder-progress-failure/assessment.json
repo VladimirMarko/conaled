@@ -1,0 +1,13 @@
+{
+  "tested_utc": "2026-11-03T15:57:04.975163+00:00",
+  "source_sha256": "f84384210851b0fd1999a323aa693eab8d464fa82f344446bd04b9e61d78c686",
+  "finding": "ENV68-SPEC-001",
+  "injected_failure": "Every progress.json save raises OSError; start and result writes succeed.",
+  "actual_child_exit": 7,
+  "actual_recorded_exit": 7,
+  "actual_recorded_state": "failed",
+  "single_execution_marker": "child-executed-once.txt",
+  "closed_log": "full.log",
+  "outcome": "passed; optional progress failure did not abandon the owned child or erase its nonzero terminal outcome",
+  "formal_project_validation_credit": false
+}

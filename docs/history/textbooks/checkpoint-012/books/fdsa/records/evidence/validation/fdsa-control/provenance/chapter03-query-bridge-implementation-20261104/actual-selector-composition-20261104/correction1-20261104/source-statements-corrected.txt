@@ -1,0 +1,291 @@
+Corrected source headers only; not elaborated/printed Lean statements.
+
+public Applications.Selection.CoordinateSelection.observedSelect
+def observedSelect [LinearOrder α] (k : Nat) :
+    Protocol n α (Resources.Measured (Option α) Nat)
+
+public Applications.Selection.CoordinateSelection.observedSelect_run
+theorem observedSelect_run [LinearOrder α] (k : Nat) (input : Fin n → α) :
+    Runs (observedSelect k) input [] (List.ofFn (fun i => (i, input i)))
+      (Resources.Selection.selectRun k (List.ofFn input))
+
+public Applications.Selection.CoordinateSelection.observedSelect_total
+theorem observedSelect_total [LinearOrder α] (k : Nat) :
+    Total (observedSelect (n := n) (α := α) k)
+
+public Applications.Selection.CoordinateSelection.observedSelect_run_iff
+theorem observedSelect_run_iff [LinearOrder α] (k : Nat) (input : Fin n → α)
+    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat) :
+    Runs (observedSelect k) input [] trace observation ↔
+      trace = List.ofFn (fun i => (i, input i)) ∧
+        observation = Resources.Selection.selectRun k (List.ofFn input)
+
+public Applications.Selection.CoordinateSelection.observedSelect_acquired
+theorem observedSelect_acquired [LinearOrder α] (k : Nat) (input : Fin n → α)
+    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
+    (run : Runs (observedSelect k) input [] trace observation) :
+    trace.map Prod.snd = List.ofFn input
+
+public Applications.Selection.CoordinateSelection.observedSelect_on_acquired
+theorem observedSelect_on_acquired [LinearOrder α] (k : Nat) (input : Fin n → α)
+    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
+    (run : Runs (observedSelect k) input [] trace observation) :
+    observation = Resources.Selection.selectRun k (trace.map Prod.snd)
+
+public Applications.Selection.CoordinateSelection.observedSelect_some_iff
+theorem observedSelect_some_iff [LinearOrder α] (k : Nat) (input : Fin n → α)
+    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
+    (run : Runs (observedSelect k) input [] trace observation) (a : α) :
+    observation.1 = some a ↔ RankedAt (List.ofFn input) k a
+
+public Applications.Selection.CoordinateSelection.observedSelect_of_invalid
+theorem observedSelect_of_invalid [LinearOrder α] (k : Nat) (input : Fin n → α)
+    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
+    (run : Runs (observedSelect k) input [] trace observation) (invalid : n ≤ k) :
+    observation = (none, n + 2)
+
+public Applications.Selection.CoordinateSelection.observedSelect_length
+theorem observedSelect_length [LinearOrder α] (k : Nat) (input : Fin n → α)
+    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
+    (run : Runs (observedSelect k) input [] trace observation) : trace.length = n
+
+public Applications.Selection.CoordinateSelection.observedSelect_query_work
+theorem observedSelect_query_work [LinearOrder α] (k : Nat) (input : Fin n → α)
+    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
+    (run : Runs (observedSelect k) input [] trace observation) (c : Nat) :
+    queryWork (fun _ _ => c) trace = c * n
+
+public Applications.Selection.CoordinateSelection.work
+def work (c : Nat) (trace : Transcript n α)
+    (observation : Resources.Measured (Option α) Nat) : Nat
+
+public Applications.Selection.CoordinateSelection.work_acquisition
+theorem work_acquisition [LinearOrder α] (k : Nat) (input : Fin n → α)
+    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
+    (run : Runs (observedSelect k) input [] trace observation) (c : Nat) :
+    work c trace observation = c * n + observation.2
+
+public Applications.Selection.CoordinateSelection.work_exact
+theorem work_exact [LinearOrder α] (k : Nat) (input : Fin n → α)
+    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
+    (run : Runs (observedSelect k) input [] trace observation) (c : Nat) :
+    work c trace observation =
+      c * n + (Resources.Selection.selectRun k (List.ofFn input)).2
+
+public Applications.Selection.CoordinateSelection.work_covers_queries
+theorem work_covers_queries (c : Nat) (trace : Transcript n α)
+    (observation : Resources.Measured (Option α) Nat) :
+    queryWork (fun _ _ => c) trace ≤ work c trace observation
+
+public Applications.Selection.CoordinateSelection.source_cost_le_F
+theorem source_cost_le_F [LinearOrder α] (k : Nat) (input : Fin n → α)
+    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
+    (run : Runs (observedSelect k) input [] trace observation) :
+    observation.2 ≤ Resources.SelectionRecurrence.F n
+
+public Applications.Selection.CoordinateSelection.work_le_F
+theorem work_le_F [LinearOrder α] (k : Nat) (input : Fin n → α)
+    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
+    (run : Runs (observedSelect k) input [] trace observation) (c : Nat) :
+    work c trace observation ≤ c * n + Resources.SelectionRecurrence.F n
+
+public Applications.Selection.CoordinateSelection.work_exists_uniform_affine_bound
+theorem work_exists_uniform_affine_bound :
+    ∃ A B : Nat, ∀ (β : Type u) [LinearOrder β] (c m k : Nat)
+      (input : Fin m → β) (trace : Transcript m β)
+      (observation : Resources.Measured (Option β) Nat),
+      Runs (observedSelect k) input [] trace observation →
+        work c trace observation ≤ (c + A) * m + B
+
+public Applications.Selection.CoordinateSelection.work_exists_uniform_linear_bound
+theorem work_exists_uniform_linear_bound :
+    ∃ C : Nat, ∀ (β : Type u) [LinearOrder β] (c m k : Nat)
+      (input : Fin m → β) (trace : Transcript m β)
+      (observation : Resources.Measured (Option β) Nat),
+      Runs (observedSelect k) input [] trace observation → 0 < m →
+        work c trace observation ≤ (c + C) * m
+
+public Applications.Selection.CoordinateSelection.work_lower_acquisition
+theorem work_lower_acquisition [LinearOrder α] (k : Nat) (input : Fin n → α)
+    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
+    (run : Runs (observedSelect k) input [] trace observation) (c : Nat) :
+    c * n ≤ work c trace observation
+
+public Applications.Selection.CoordinateSelection.work_lower_input
+theorem work_lower_input [LinearOrder α] (k : Nat) (input : Fin n → α)
+    (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat)
+    (run : Runs (observedSelect k) input [] trace observation) (c : Nat)
+    (positive : 1 ≤ c) : n ≤ work c trace observation
+
+public Applications.Selection.CoordinateSelection.work_family_isBigO
+theorem work_family_isBigO [LinearOrder α] (c : Nat)
+    (inputs : (m : Nat) → Fin m → α) (ranks : Nat → Nat)
+    (traces : (m : Nat) → Transcript m α)
+    (observations : Nat → Resources.Measured (Option α) Nat)
+    (runs : ∀ m, Runs (observedSelect (ranks m)) (inputs m) []
+      (traces m) (observations m)) :
+    Asymptotics.IsBigO Filter.atTop
+      (fun m : Nat => (work c (traces m) (observations m) : ℝ))
+      (fun m => (m : ℝ))
+
+public Applications.Selection.CoordinateSelection.observedSelect_valid
+theorem observedSelect_valid (k : Fin n) (input : Fin n → Int)
+    (trace : Transcript n Int) (observation : Resources.Measured (Option Int) Nat)
+    (run : Runs (observedSelect k.val) input [] trace observation) :
+    observation.1 = some (observation.1.getD 0) ∧
+      RankedAt (List.ofFn input) k.val (observation.1.getD 0)
+
+public Applications.Selection.CoordinateSelection.selectedValue
+def selectedValue (k : Nat) : Protocol n Int Int
+
+public Applications.Selection.CoordinateSelection.selectedValue_eq_readAll
+theorem selectedValue_eq_readAll (k : Nat) :
+    selectedValue (n := n) k =
+      readAll (fun xs : List Int => (Resources.Selection.selectRun k xs).1.getD 0)
+
+public Applications.Selection.CoordinateSelection.selectedValue_run_iff
+theorem selectedValue_run_iff (k : Nat) (input : Fin n → Int)
+    (trace : Transcript n Int) (value : Int) :
+    Runs (selectedValue k) input [] trace value ↔
+      ∃ observation : Resources.Measured (Option Int) Nat,
+        Runs (observedSelect k) input [] trace observation ∧
+          value = observation.1.getD 0
+
+public Applications.Selection.CoordinateSelection.selectedValue_total
+theorem selectedValue_total (k : Nat) : Total (selectedValue (n := n) k)
+
+public Applications.Selection.CoordinateSelection.selectedValue_correct
+theorem selectedValue_correct (k : Fin n) : Selects (selectedValue k.val) k
+
+private Applications.Selection.CoordinateSelection.input_injective_of_nodup
+private theorem input_injective_of_nodup (input : Fin n → Int)
+    (distinct : (List.ofFn input).Nodup) : Function.Injective input
+
+public Applications.Selection.CoordinateSelection.competitor_query_work_lower_bound
+theorem competitor_query_work_lower_bound (k : Fin n) (input : Fin n → Int)
+    (distinct : (List.ofFn input).Nodup) (next : Protocol n Int Int)
+    (correct : Selects next k) (trace : Transcript n Int) (value : Int)
+    (run : Runs next input [] trace value) (c : Nat) :
+    c * n ≤ queryWork (fun _ _ => c) trace
+
+public Applications.Selection.CoordinateSelection.exists_uniform_competitor_bound
+theorem exists_uniform_competitor_bound :
+    ∃ K : Nat, ∀ (c m : Nat) (k : Fin m) (input : Fin m → Int)
+      (_distinct : (List.ofFn input).Nodup) (next : Protocol m Int Int)
+      (_correct : Selects next k) (trace : Transcript m Int)
+      (observation : Resources.Measured (Option Int) Nat)
+      (otherTrace : Transcript m Int) (value : Int),
+      1 ≤ c → Runs (observedSelect k.val) input [] trace observation →
+      Runs next input [] otherTrace value →
+        work c trace observation ≤ K * queryWork (fun _ _ => c) otherTrace
+
+public Applications.Selection.CoordinateSelection.exists_uniform_optimality
+theorem exists_uniform_optimality :
+    ∃ K : Nat, ∀ (c m : Nat) (k : Fin m) (input : Fin m → Int)
+      (_distinct : (List.ofFn input).Nodup) (next : Protocol m Int Int)
+      (_total : Total next) (_correct : Selects next k),
+      1 ≤ c → ∃ (trace : Transcript m Int)
+        (observation : Resources.Measured (Option Int) Nat)
+        (otherTrace : Transcript m Int) (value : Int),
+        Runs (observedSelect k.val) input [] trace observation ∧
+        Runs next input [] otherTrace value ∧ observation.1 = some value ∧
+        m ≤ queryWork (fun _ _ => c) otherTrace ∧
+        work c trace observation ≤ K * queryWork (fun _ _ => c) otherTrace
+
+public Examples.CoordinateSelection.acquired_worker_execution
+theorem acquired_worker_execution [LinearOrder α] (k : Nat) (input : Fin n → α)
+    (c : Nat) :
+    ∃ (trace : Transcript n α) (observation : Resources.Measured (Option α) Nat),
+      Runs (observedSelect k) input [] trace observation ∧
+      trace.map Prod.snd = List.ofFn input ∧
+      observation = Resources.Selection.selectRun k (trace.map Prod.snd) ∧
+      work c trace observation = c * n + observation.2
+
+public Examples.CoordinateSelection.empty_run
+theorem empty_run [LinearOrder α] (k : Nat) (input : Fin 0 → α) :
+    Runs (observedSelect k) input [] [] (none, 2)
+
+public Examples.CoordinateSelection.empty_every_work
+theorem empty_every_work [LinearOrder α] (k : Nat) (input : Fin 0 → α)
+    (trace : Transcript 0 α) (observation : Resources.Measured (Option α) Nat)
+    (run : Runs (observedSelect k) input [] trace observation) (c : Nat) :
+    trace = [] ∧ observation = (none, 2) ∧ work c trace observation = 2
+
+public Examples.CoordinateSelection.singleton_run
+theorem singleton_run (a : Int) :
+    Runs (observedSelect 0) (fun _ : Fin 1 => a) [] [(0, a)] (some a, 7)
+
+public Examples.CoordinateSelection.singleton_every_work
+theorem singleton_every_work (a : Int) (trace : Transcript 1 Int)
+    (observation : Resources.Measured (Option Int) Nat)
+    (run : Runs (observedSelect 0) (fun _ : Fin 1 => a) [] trace observation)
+    (c : Nat) : observation = (some a, 7) ∧ work c trace observation = c + 7
+
+public Examples.CoordinateSelection.concrete_run
+theorem concrete_run :
+    Runs (observedSelect 1) (![8, 3, 5] : Fin 3 → Int) []
+      [(0, 8), (1, 3), (2, 5)] (some 5, 16)
+
+public Examples.CoordinateSelection.concrete_value_run
+theorem concrete_value_run :
+    Runs (selectedValue 1) (![8, 3, 5] : Fin 3 → Int) []
+      [(0, 8), (1, 3), (2, 5)] 5
+
+public Examples.CoordinateSelection.concrete_every_work
+theorem concrete_every_work (trace : Transcript 3 Int)
+    (observation : Resources.Measured (Option Int) Nat)
+    (run : Runs (observedSelect 1) (![8, 3, 5] : Fin 3 → Int) [] trace observation) :
+    observation = (some 5, 16) ∧ work 2 trace observation = 22 ∧
+      work 0 trace observation = 16
+
+public Examples.CoordinateSelection.duplicate_run
+theorem duplicate_run :
+    Runs (observedSelect 1) (![4, 4, 4] : Fin 3 → Int) []
+      [(0, 4), (1, 4), (2, 4)] (some 4, 14)
+
+public Examples.CoordinateSelection.duplicate_every_work
+theorem duplicate_every_work (trace : Transcript 3 Int)
+    (observation : Resources.Measured (Option Int) Nat)
+    (run : Runs (observedSelect 1) (![4, 4, 4] : Fin 3 → Int) [] trace observation) :
+    observation.1 = some 4 ∧ trace.length = 3 ∧ work 2 trace observation = 20
+
+public Examples.CoordinateSelection.invalid_every_work
+theorem invalid_every_work (input : Fin 3 → Int) (trace : Transcript 3 Int)
+    (observation : Resources.Measured (Option Int) Nat)
+    (run : Runs (observedSelect 3) input [] trace observation) :
+    observation = (none, 5) ∧ work 2 trace observation = 11
+
+public Examples.CoordinateSelection.cutoff_twenty_run
+theorem cutoff_twenty_run :
+    ∃ trace : Transcript 20 Int,
+      Runs (observedSelect 9) (fun i : Fin 20 => (i.val : Int)) [] trace (some 9, 73) ∧
+      trace.length = 20 ∧ work 1 trace (some 9, 73) = 93
+
+public Examples.CoordinateSelection.first_recursive_run
+theorem first_recursive_run :
+    ∃ (trace : Transcript 21 Int) (observation : Resources.Measured (Option Int) Nat),
+      Runs (observedSelect 10) (fun i : Fin 21 => (i.val : Int)) [] trace observation ∧
+      observation.1 = some 10 ∧ trace.length = 21 ∧ work 1 trace observation ≤ 1440
+
+public Examples.CoordinateSelection.total_correct_value_view
+theorem total_correct_value_view (k : Fin n) :
+    Total (selectedValue k.val) ∧ Selects (selectedValue k.val) k
+
+public Examples.CoordinateSelection.any_valid_input_contract
+theorem any_valid_input_contract (k : Fin n) (input : Fin n → Int)
+    (trace : Transcript n Int) (observation : Resources.Measured (Option Int) Nat)
+    (run : Runs (observedSelect k.val) input [] trace observation)
+    (c : Nat) (positive : 1 ≤ c) :
+    RankedAt (List.ofFn input) k.val (observation.1.getD 0) ∧
+      n ≤ work c trace observation ∧
+      work c trace observation ≤ c * n + Resources.SelectionRecurrence.F n
+
+public Examples.CoordinateSelection.pair_minimum_comparison
+theorem pair_minimum_comparison :
+    ∃ K : Nat, ∀ input : Fin 2 → Int, (List.ofFn input).Nodup →
+      ∃ (trace : Transcript 2 Int) (observation : Resources.Measured (Option Int) Nat)
+        (otherTrace : Transcript 2 Int) (value : Int),
+        Runs (observedSelect 0) input [] trace observation ∧
+        Runs Examples.CoordinateQueries.pairMinimum input [] otherTrace value ∧
+        observation.1 = some value ∧ 2 ≤ otherTrace.length ∧
+        work 1 trace observation ≤ K * otherTrace.length

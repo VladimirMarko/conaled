@@ -1,0 +1,32 @@
+{
+  "started_at_utc": "2026-11-02T08:16:25.186175+00:00",
+  "modules": [
+    [
+      "SquareKit.RelationTransport",
+      [
+        "Mathlib.Logic.Relation",
+        "Mathlib.Data.Set.Lattice.Image"
+      ]
+    ],
+    [
+      "SquareKit.InteractionContracts",
+      [
+        "SquareKit.RelationTransport"
+      ]
+    ],
+    [
+      "Applications.Durability.Retention",
+      [
+        "SquareKit.InteractionContracts",
+        "Mathlib.Data.List.TakeDrop",
+        "Mathlib.Tactic.SplitIfs",
+        "Lean.Elab.Tactic.Omega"
+      ]
+    ]
+  ],
+  "maximum_compiler_invocations": 3,
+  "strictly_sequential": true,
+  "stop_on_failure": true,
+  "timeout_seconds_each": 180,
+  "termination_grace_seconds_each": 5
+}

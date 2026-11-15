@@ -1,0 +1,78 @@
+{
+  "versions": {
+    "lean": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+    "lake": "Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)",
+    "elan": "elan 4.2.1",
+    "git": "git version 2.54.0"
+  },
+  "direnv": "2.37.1",
+  "nix": "nix (Nix) 2.35.4",
+  "toolchain": "leanprover/lean4:v4.35.0",
+  "lake_cache_get_exit": 0,
+  "full_project_build_performed": false,
+  "dependencies": [
+    {
+      "name": "mathlib",
+      "expected_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "actual_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "revision_matches": true,
+      "clean": true
+    },
+    {
+      "name": "plausible",
+      "expected_revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "actual_revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "revision_matches": true,
+      "clean": true
+    },
+    {
+      "name": "LeanSearchClient",
+      "expected_revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "actual_revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "revision_matches": true,
+      "clean": true
+    },
+    {
+      "name": "importGraph",
+      "expected_revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "actual_revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "revision_matches": true,
+      "clean": true
+    },
+    {
+      "name": "proofwidgets",
+      "expected_revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "actual_revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "revision_matches": true,
+      "clean": true
+    },
+    {
+      "name": "aesop",
+      "expected_revision": "4a174c490d8707121c4a9290800489f105d85e07",
+      "actual_revision": "4a174c490d8707121c4a9290800489f105d85e07",
+      "revision_matches": true,
+      "clean": true
+    },
+    {
+      "name": "Qq",
+      "expected_revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "actual_revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "revision_matches": true,
+      "clean": true
+    },
+    {
+      "name": "batteries",
+      "expected_revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "actual_revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "revision_matches": true,
+      "clean": true
+    },
+    {
+      "name": "Cli",
+      "expected_revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "actual_revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "revision_matches": true,
+      "clean": true
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "observed_utc": "2026-11-02T22:51:52.060275+00:00",
+  "first_zero_space_observed_utc": "2026-11-02T22:48:43.993716+00:00",
+  "original_review_base": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+  "requirements_sha256": "8fc03c60b3aae37d621112504a4fb83ca1675c4c1f2563f5d14cd45e352ab30e",
+  "source_state": "Partial uncommitted draft; core published but author final readback not handed off, examples and documentation incomplete. No compiler/acceptance.",
+  "root_interrupt_requests_after_zero_space": {
+    "architecture_previous_status": "interrupted",
+    "rotation_cases_previous_status": "interrupted",
+    "book_inventory_previous_status": "not_found",
+    "qualification": "These were the replies to root requests. The earlier interruption/unavailability causes are not established."
+  },
+  "files": [
+    {
+      "path": "Applications/Resources/TreeSearch.lean",
+      "bytes": 22768,
+      "lines": 501,
+      "sha256": "1924f95f0f4c912cdf4ab0661c8ef182f709b9bd82e7af67d1ae5b93df5dc7f6",
+      "source_still_matches_after_copy": true
+    },
+    {
+      "path": "Examples/TreeSearch.lean",
+      "bytes": 16352,
+      "lines": 338,
+      "sha256": "1f3e8d702998e2958b102fd0c5d35aa24bb699bdfe15ab0d99d756bdf94bd8ae",
+      "source_still_matches_after_copy": true
+    },
+    {
+      "path": "docs/research/fdsa-tree-search.md",
+      "bytes": 24712,
+      "lines": 388,
+      "sha256": "49833aa2dad383c4844fe3ec433355df95089215a25637ce94dd5aee0d88e318",
+      "source_still_matches_after_copy": true
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 8438,
+      "lines": 257,
+      "sha256": "d19c6a2ece73f6d40e34d2dbbdb238568877e83d05b78a50ac4b400be67fab14",
+      "source_still_matches_after_copy": true
+    }
+  ],
+  "reconstruction_map_unchanged": {
+    "bytes": 23287,
+    "sha256": "9c2527dd358bb08e2ef1355f6a1016224f720b98f90b824767004d29d0ec52b4"
+  },
+  "chapter01_observed_metadata_bytes": 1552,
+  "chapter01_observed_metadata_sha256": "7b00a25b45c8ed51fcfd3cbbb4d986895dd670996aeaeba5f7e04500d8decf35",
+  "chapter01_observed_log_bytes": 167009,
+  "chapter01_observed_log_sha256": "8a8a7c80f6994aa4e11dcab33e38403c2ac1659589bcabd5d6feaf67f5991f32",
+  "chapter01_log_last_complete_line": "\u2714 [9559/9562] Built Applications.FRP.Finite (1929s)",
+  "chapter01_qualification": "Last observed new completion is FRP.Finite; no terminal outcome or new failure established. Raw metadata says running; fresh host liveness inspection still required.",
+  "available_bytes_after_copy": 0
+}

@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-11-14T21:15:12.030237+00:00",
+  "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+  "system": "Linux",
+  "machine": "x86_64",
+  "libc": [
+    "glibc",
+    "2.41"
+  ],
+  "cpu_count": 9,
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "free_bytes": 61301436416,
+  "native_state": "/workspace/scratch/e1eab3b6b18e/integration-20261114/runtime-unrestricted",
+  "validation_checkout": "/workspace/scratch/e1eab3b6b18e/integration-20261114/build-unrestricted",
+  "source_recovery": "Existing completed009 remains present and source clean; no wipe/reconstruction required.",
+  "setup_threads": "Detected hardware count for installer/cache setup, no smaller agent-selected count; actual full build will unset LEAN_NUM_THREADS after launcher injection."
+}

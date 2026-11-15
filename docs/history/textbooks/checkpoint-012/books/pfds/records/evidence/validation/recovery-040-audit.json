@@ -1,0 +1,3435 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-11-03T13:50:50.947588+00:00",
+  "scope": "Read-only independent restoration and bookkeeping audit; no Lean compilation, semantic review, or candidate acceptance. Only this report pair was written.",
+  "source_archive": {
+    "path": "/workspace/scratch/b566cace4ed6/upload/conaled-pfds-checkpoint-039.tar(2).gz",
+    "bytes": 76523489,
+    "sha256": "c9df19c0c3af4c08295cca6e0dabeadf3775e4ec8f0148e90295f8e2317947d1"
+  },
+  "checkpoint_number": 39,
+  "manifest_sha256": "f7f66ed728527b5dc6679b8be8b857222e243a342b9ed91e02830eee82511ca4",
+  "checks": {
+    "archive_members": {
+      "checked": 901,
+      "matching": 901,
+      "failures": []
+    },
+    "restored_session": {
+      "checked": 895,
+      "matching": 895,
+      "failures": []
+    },
+    "refs": {
+      "expected_count": 46,
+      "actual_count": 46,
+      "exact": true,
+      "expected": {
+        "refs/heads/master": {
+          "object": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/body-counts": {
+          "object": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/body-counts-review-r1": {
+          "object": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/cache-counts-review-r1": {
+          "object": "3dd930c3e3989f3e5530463f3ac937a629551335",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/ch01-union": {
+          "object": "1ce161412a2cfb725f27525ff98d400209163316",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/ch02-map": {
+          "object": "fcf086ddc271d4b20d4714e36238e47a325316bd",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/ch02-ordered": {
+          "object": "26975a435a38ea89512c68a9d87f9efd7c971113",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/ch02-review-r1": {
+          "object": "69f6f00de204617fdd7feefd5b9ee5b80fc0d9f4",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/ch02-review-r2": {
+          "object": "c372c470008cdda3043040683451662f61131f81",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/ch02-review-r3": {
+          "object": "99a29dcd02eb529fbefbb675e244a8c47b78cdef",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/ch02-shared": {
+          "object": "4b0f0c0bc7c139480fb72407b93a2d9eb6874289",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/import-footprint": {
+          "object": "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/import-footprint-r2": {
+          "object": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/import-footprint-r3": {
+          "object": "901f734161920a76f3b399a575805b9a1d31e971",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/local": {
+          "object": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/output-migration-review-base": {
+          "object": "27a2b897983eb0e60b6ebe1ffa2b0b6c4ece6405",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/output-migration-review-r1": {
+          "object": "2748089840723943ddc8ae58acd82f5728b2098b",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/persistent-accounting": {
+          "object": "577be121e074ddb5de6727a7481c115cb61b3b27",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/persistent-accounting-review-r1": {
+          "object": "eedaeca6fc2fcc3f73cb92630dc8d8acf2bd50f8",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/persistent-accounting-review-r2": {
+          "object": "eb61c35f911ad0fac36758c878559eaf5f795cfa",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/persistent-accounting-review-r3": {
+          "object": "577be121e074ddb5de6727a7481c115cb61b3b27",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/pure-cache-counts": {
+          "object": "3dd930c3e3989f3e5530463f3ac937a629551335",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/pure-suspensions": {
+          "object": "501a95463f455b52ea839eb8bbcf6ab9379862e4",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/pure-suspensions-review-r1": {
+          "object": "ea8afa12706d30cdc69ece1a172d5f21a3ea1809",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/pure-suspensions-review-r2": {
+          "object": "361f5f3f6bb3de1974510ce355883dac2bf25333",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/signed-potential": {
+          "object": "9c47a052ef96b528a85660d4c632704ca03144fe",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/suspensions": {
+          "object": "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/suspensions-review-r1": {
+          "object": "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/suspensions-review-r2": {
+          "object": "1286e3d6357785d9c787562b95a5019afeefee40",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/suspensions-review-r3": {
+          "object": "a3feaff319ad5fad912fb8bdc113f33fea4e2a60",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/HEAD": {
+          "object": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "symbolic": "refs/remotes/origin/master"
+        },
+        "refs/remotes/origin/integrate/frp": {
+          "object": "5be3ce96dbeb60365002414409c9421450e39cf0",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/integration/spec-15": {
+          "object": "47b556e83229ce11b27b5b7b4444c089a1e96ac3",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/master": {
+          "object": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-154": {
+          "object": "c12296f63c656737d07325e9d8e8e16d6976d099",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-155": {
+          "object": "3efc9d926333c19f697a21afe7dd08af53e3a8cd",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-180": {
+          "object": "e0d76c86040f38728289977c355b848cd6c7d8e3",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-181": {
+          "object": "f68c79000bdb1ce223c403d38f8dd06e20cfbf29",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-182": {
+          "object": "9c0a2649f9601c6294850f2b057698650360da9a",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-183": {
+          "object": "16db707769c322fa17f2c48e24208f81292008da",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-184": {
+          "object": "48b7655155950c4452bebf1268de1866d0f6129f",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-186": {
+          "object": "30bbde79d154d1e8d942561c023a5e44d12ca420",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-187": {
+          "object": "6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-190": {
+          "object": "855ce1f29ae0b7c7a7aec8321ead07be39c6ff32",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-array-cost-integration": {
+          "object": "34c85983f601247fb62aea631c4212b7cb994b5b",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/research/27-frp-runtime": {
+          "object": "f4d3e2f36d5547f2236a601c837280bd0c23a774",
+          "symbolic": ""
+        }
+      },
+      "actual": {
+        "refs/heads/master": {
+          "object": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/body-counts": {
+          "object": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/body-counts-review-r1": {
+          "object": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/cache-counts-review-r1": {
+          "object": "3dd930c3e3989f3e5530463f3ac937a629551335",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/ch01-union": {
+          "object": "1ce161412a2cfb725f27525ff98d400209163316",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/ch02-map": {
+          "object": "fcf086ddc271d4b20d4714e36238e47a325316bd",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/ch02-ordered": {
+          "object": "26975a435a38ea89512c68a9d87f9efd7c971113",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/ch02-review-r1": {
+          "object": "69f6f00de204617fdd7feefd5b9ee5b80fc0d9f4",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/ch02-review-r2": {
+          "object": "c372c470008cdda3043040683451662f61131f81",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/ch02-review-r3": {
+          "object": "99a29dcd02eb529fbefbb675e244a8c47b78cdef",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/ch02-shared": {
+          "object": "4b0f0c0bc7c139480fb72407b93a2d9eb6874289",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/import-footprint": {
+          "object": "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/import-footprint-r2": {
+          "object": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/import-footprint-r3": {
+          "object": "901f734161920a76f3b399a575805b9a1d31e971",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/local": {
+          "object": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/output-migration-review-base": {
+          "object": "27a2b897983eb0e60b6ebe1ffa2b0b6c4ece6405",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/output-migration-review-r1": {
+          "object": "2748089840723943ddc8ae58acd82f5728b2098b",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/persistent-accounting": {
+          "object": "577be121e074ddb5de6727a7481c115cb61b3b27",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/persistent-accounting-review-r1": {
+          "object": "eedaeca6fc2fcc3f73cb92630dc8d8acf2bd50f8",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/persistent-accounting-review-r2": {
+          "object": "eb61c35f911ad0fac36758c878559eaf5f795cfa",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/persistent-accounting-review-r3": {
+          "object": "577be121e074ddb5de6727a7481c115cb61b3b27",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/pure-cache-counts": {
+          "object": "3dd930c3e3989f3e5530463f3ac937a629551335",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/pure-suspensions": {
+          "object": "501a95463f455b52ea839eb8bbcf6ab9379862e4",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/pure-suspensions-review-r1": {
+          "object": "ea8afa12706d30cdc69ece1a172d5f21a3ea1809",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/pure-suspensions-review-r2": {
+          "object": "361f5f3f6bb3de1974510ce355883dac2bf25333",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/signed-potential": {
+          "object": "9c47a052ef96b528a85660d4c632704ca03144fe",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/suspensions": {
+          "object": "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/suspensions-review-r1": {
+          "object": "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/suspensions-review-r2": {
+          "object": "1286e3d6357785d9c787562b95a5019afeefee40",
+          "symbolic": ""
+        },
+        "refs/heads/pfds/suspensions-review-r3": {
+          "object": "a3feaff319ad5fad912fb8bdc113f33fea4e2a60",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/HEAD": {
+          "object": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "symbolic": "refs/remotes/origin/master"
+        },
+        "refs/remotes/origin/integrate/frp": {
+          "object": "5be3ce96dbeb60365002414409c9421450e39cf0",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/integration/spec-15": {
+          "object": "47b556e83229ce11b27b5b7b4444c089a1e96ac3",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/master": {
+          "object": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-154": {
+          "object": "c12296f63c656737d07325e9d8e8e16d6976d099",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-155": {
+          "object": "3efc9d926333c19f697a21afe7dd08af53e3a8cd",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-180": {
+          "object": "e0d76c86040f38728289977c355b848cd6c7d8e3",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-181": {
+          "object": "f68c79000bdb1ce223c403d38f8dd06e20cfbf29",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-182": {
+          "object": "9c0a2649f9601c6294850f2b057698650360da9a",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-183": {
+          "object": "16db707769c322fa17f2c48e24208f81292008da",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-184": {
+          "object": "48b7655155950c4452bebf1268de1866d0f6129f",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-186": {
+          "object": "30bbde79d154d1e8d942561c023a5e44d12ca420",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-187": {
+          "object": "6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-190": {
+          "object": "855ce1f29ae0b7c7a7aec8321ead07be39c6ff32",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/reconstruction/adwh-array-cost-integration": {
+          "object": "34c85983f601247fb62aea631c4212b7cb994b5b",
+          "symbolic": ""
+        },
+        "refs/remotes/origin/research/27-frp-runtime": {
+          "object": "f4d3e2f36d5547f2236a601c837280bd0c23a774",
+          "symbolic": ""
+        }
+      }
+    },
+    "main": {
+      "head": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+      "branch": "pfds/local",
+      "status_porcelain_v1": "",
+      "expected_head": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+      "expected_branch": "pfds/local"
+    },
+    "git_object_integrity": {
+      "command": [
+        "git",
+        "-C",
+        "/workspace/scratch/b566cace4ed6/pfds/conaled",
+        "fsck",
+        "--full"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "observed_before_report": true
+    },
+    "bundle_integrity": {
+      "command": [
+        "git",
+        "-C",
+        "/workspace/scratch/b566cace4ed6/pfds/conaled",
+        "bundle",
+        "verify",
+        "/workspace/scratch/b566cace4ed6/checkpoint-039/repository.bundle"
+      ],
+      "exit_code": 0,
+      "summary": "Bundle is okay, records a complete history, uses SHA-1; 50 advertised refs include HEAD and three historical worktree pseudo refs in addition to 46 named refs.",
+      "observed_before_report": true
+    },
+    "tracking": {
+      "tickets": 24,
+      "ticket_status_counts": {
+        "accepted": 2,
+        "in_progress": 9,
+        "open": 13
+      },
+      "missing_dependencies": [],
+      "dependency_cycles": [],
+      "missing_direct_evidence_paths": [
+        {
+          "ticket": 10014,
+          "path": "validation/suspension-derived-r10.json"
+        }
+      ],
+      "accepted_tickets": [
+        10000,
+        10001
+      ],
+      "coverage_rows": 135,
+      "coverage_explicit_accepted_true": 0,
+      "coverage_explicit_accepted_false": 44,
+      "coverage_without_accepted_flag": 91,
+      "source_frontier": "Chapter 1 introductory accounting accepted; Chapter 2 earliest unaccepted; Chapter 3 not implemented."
+    },
+    "historical_workspace": {
+      "path": "/workspace/scratch/ca9a61d0bf30",
+      "present": false,
+      "warning": "Historical process/session identifiers and checkout paths are provenance only; they are not handles or materializations in the restored workspace."
+    }
+  },
+  "candidate_record_checks": [
+    {
+      "record": "validation/import-footprint-candidate-r3.json",
+      "record_sha256": "1f1c3f86e52d68bba25cd01ceaeead2a0b01b2f651810efe6ed0dd64ee291ead",
+      "commit": "901f734161920a76f3b399a575805b9a1d31e971",
+      "commit_exists": true,
+      "acceptance": false,
+      "file_checks": [
+        {
+          "field": "files",
+          "path": "Applications/FRP/Demand.lean",
+          "expected": "4e92f97ac56aa684c27f3421cdf1890b64159b631fdd828c420af00d3d9c6ad6",
+          "actual": "4e92f97ac56aa684c27f3421cdf1890b64159b631fdd828c420af00d3d9c6ad6",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/FRP/Equivalence.lean",
+          "expected": "71abc997d44acf7831a423f2b17559feed15e39517f20ab3dd22ae14c8733b83",
+          "actual": "71abc997d44acf7831a423f2b17559feed15e39517f20ab3dd22ae14c8733b83",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/FRP/Finite.lean",
+          "expected": "f617d2f3db4fd162f43e53abd8271ebcf15bd242d79dd201a61b314afa90954c",
+          "actual": "f617d2f3db4fd162f43e53abd8271ebcf15bd242d79dd201a61b314afa90954c",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/FRP/Spec.lean",
+          "expected": "c8b349b4a0919acfe55302b1c1998e942b0d8281f2244fec5606fa368f5c1db7",
+          "actual": "c8b349b4a0919acfe55302b1c1998e942b0d8281f2244fec5606fa368f5c1db7",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Resources/SharedList.lean",
+          "expected": "ed5c78b79eb530bf76937da4036303304d96c902bb7a7130686773d74b62145b",
+          "actual": "ed5c78b79eb530bf76937da4036303304d96c902bb7a7130686773d74b62145b",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Sequences/SharedList/Basic.lean",
+          "expected": "ef62f66166b1934ebd52e68783ea7865c678dea792f66632bd5c5eb7c4bf674b",
+          "actual": "ef62f66166b1934ebd52e68783ea7865c678dea792f66632bd5c5eb7c4bf674b",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Sequences/SharedList/Copy.lean",
+          "expected": "8604ffc06c4e03cae537e07af6efcccd7c78dda964126e72db0d6a9964c3124f",
+          "actual": "8604ffc06c4e03cae537e07af6efcccd7c78dda964126e72db0d6a9964c3124f",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Sequences/SharedList/Observation.lean",
+          "expected": "1f9f6360c0a02771445f5a88bbeea62488391a33309721b3ebc190e5889ae431",
+          "actual": "1f9f6360c0a02771445f5a88bbeea62488391a33309721b3ebc190e5889ae431",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Sequences/SharedList/Suffixes.lean",
+          "expected": "8af7f29bce9a719c2200128bf28eccd4e24de0e321c9db7c7fe93e3e0268e72b",
+          "actual": "8af7f29bce9a719c2200128bf28eccd4e24de0e321c9db7c7fe93e3e0268e72b",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/FRP.lean",
+          "expected": "a5bf0f5263b45514b4f9b88b09ef1abe2a6a1fb773a44493afd5a8198abeb22b",
+          "actual": "a5bf0f5263b45514b4f9b88b09ef1abe2a6a1fb773a44493afd5a8198abeb22b",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/IndefiniteService.lean",
+          "expected": "0daaf049128e56210c605cc5b2d5cf8b155aad1727eac6bad189615fc75fa7fd",
+          "actual": "0daaf049128e56210c605cc5b2d5cf8b155aad1727eac6bad189615fc75fa7fd",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SharedList.lean",
+          "expected": "0e2847b8bcbfa522638ec1bddee15b47792effdfc4d607f0ffeb589fd4c2845a",
+          "actual": "0e2847b8bcbfa522638ec1bddee15b47792effdfc4d607f0ffeb589fd4c2845a",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "SquareApplications.lean",
+          "expected": "129d892f8a72abff2bf10c17f2d4d67b8aefb5eac4596cc7df57577d74b1e159",
+          "actual": "129d892f8a72abff2bf10c17f2d4d67b8aefb5eac4596cc7df57577d74b1e159",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "docs/research/pfds-shared-persistence.md",
+          "expected": "e13e4986e4e7755b136951ab681cfce94f9ec24ff4c32affab3d878898a9cc34",
+          "actual": "e13e4986e4e7755b136951ab681cfce94f9ec24ff4c32affab3d878898a9cc34",
+          "matches": true
+        }
+      ],
+      "requirement_checks": [
+        {
+          "path": "requirements/REQUEST.md",
+          "expected": "b847f23fcce44837f5b1ead01aae43ac5ed626ffd32aab84055dd664e339e499",
+          "actual": "b847f23fcce44837f5b1ead01aae43ac5ed626ffd32aab84055dd664e339e499",
+          "matches": true
+        },
+        {
+          "path": "requirements/REQUEST-union-v2.md",
+          "expected": "3336bed1154438b3683aeb5a1c63fee44e87aff190f5ff69e34705a780b9d22c",
+          "actual": "3336bed1154438b3683aeb5a1c63fee44e87aff190f5ff69e34705a780b9d22c",
+          "matches": true
+        },
+        {
+          "path": "requirements/shared-persistence.md",
+          "expected": "177e80e0beda3ec144279c104d2fa3b968e916b0104db7f2e5d3c7c81a4bec76",
+          "actual": "177e80e0beda3ec144279c104d2fa3b968e916b0104db7f2e5d3c7c81a4bec76",
+          "matches": true
+        },
+        {
+          "path": "requirements/import-footprint.md",
+          "expected": "cf8fb3133b83ac59fdf6fd46b818d8b279d96385f5de50da843ef9b7fd62444d",
+          "actual": "cf8fb3133b83ac59fdf6fd46b818d8b279d96385f5de50da843ef9b7fd62444d",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "record": "validation/chapter02-candidate-r3.json",
+      "record_sha256": "e6b4991105910790cb24e6b2fb2f2ffacc8864ba4d5326808bdb1af235886b36",
+      "commit": "99a29dcd02eb529fbefbb675e244a8c47b78cdef",
+      "commit_exists": true,
+      "acceptance": false,
+      "file_checks": [
+        {
+          "field": "files",
+          "path": "Applications/FRP/Demand.lean",
+          "expected": "4e92f97ac56aa684c27f3421cdf1890b64159b631fdd828c420af00d3d9c6ad6",
+          "actual": "4e92f97ac56aa684c27f3421cdf1890b64159b631fdd828c420af00d3d9c6ad6",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/FRP/Equivalence.lean",
+          "expected": "71abc997d44acf7831a423f2b17559feed15e39517f20ab3dd22ae14c8733b83",
+          "actual": "71abc997d44acf7831a423f2b17559feed15e39517f20ab3dd22ae14c8733b83",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/FRP/Finite.lean",
+          "expected": "f617d2f3db4fd162f43e53abd8271ebcf15bd242d79dd201a61b314afa90954c",
+          "actual": "f617d2f3db4fd162f43e53abd8271ebcf15bd242d79dd201a61b314afa90954c",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/FRP/Spec.lean",
+          "expected": "c8b349b4a0919acfe55302b1c1998e942b0d8281f2244fec5606fa368f5c1db7",
+          "actual": "c8b349b4a0919acfe55302b1c1998e942b0d8281f2244fec5606fa368f5c1db7",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Resources/SharedTree.lean",
+          "expected": "1a0474363a59673974a9a0dde2e1fb3133dce8e94f83f4e21628998ce1c8dfc7",
+          "actual": "1a0474363a59673974a9a0dde2e1fb3133dce8e94f83f4e21628998ce1c8dfc7",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/AbstractSet.lean",
+          "expected": "cbe396ef4ac43d6aa1aefde6b10e8d64f2f9eef5ed06de51fd4da7cea3339de9",
+          "actual": "cbe396ef4ac43d6aa1aefde6b10e8d64f2f9eef5ed06de51fd4da7cea3339de9",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/OrderedMap/Basic.lean",
+          "expected": "109926ec73294bb804ee739d4f7f4d805ef1a37f62614194d6253398ad6fa9bd",
+          "actual": "109926ec73294bb804ee739d4f7f4d805ef1a37f62614194d6253398ad6fa9bd",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/OrderedMap/Interface.lean",
+          "expected": "dc548681e9df55f766cd0cad323c844953ca1c5c8763266fa4fc145412a28d82",
+          "actual": "dc548681e9df55f766cd0cad323c844953ca1c5c8763266fa4fc145412a28d82",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/OrderedTree/Basic.lean",
+          "expected": "6f1a3c8bf217ff609e3f08f65a1a20b52747723d5259ad671fb0e5aebaf44a6b",
+          "actual": "6f1a3c8bf217ff609e3f08f65a1a20b52747723d5259ad671fb0e5aebaf44a6b",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/OrderedTree/Candidate.lean",
+          "expected": "25977fd11475ad446a92361d94ac5fb11a1a4b8ec07f9a84e106e0b487fa8753",
+          "actual": "25977fd11475ad446a92361d94ac5fb11a1a4b8ec07f9a84e106e0b487fa8753",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/OrderedTree/Comparison.lean",
+          "expected": "39f8b29dde6c1d9eef28c922c37ceafcbf5a2a47fc585f0803d7245650b8208f",
+          "actual": "39f8b29dde6c1d9eef28c922c37ceafcbf5a2a47fc585f0803d7245650b8208f",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/OrderedTree/Contents.lean",
+          "expected": "0c44cd7ca492bdb028252a31d959ec2a476fa624ec326809e57958ae586716a2",
+          "actual": "0c44cd7ca492bdb028252a31d959ec2a476fa624ec326809e57958ae586716a2",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/OrderedTree/Interface.lean",
+          "expected": "562b68e5d84bc326fa602b658f8cd6f278ea857b8a3cc424bce8d53587a821e0",
+          "actual": "562b68e5d84bc326fa602b658f8cd6f278ea857b8a3cc424bce8d53587a821e0",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/SharedTree/Balanced.lean",
+          "expected": "1c88674055c227f3c99dbcd31b6154659b8498cd6fefccc62f2492a1d24a06b4",
+          "actual": "1c88674055c227f3c99dbcd31b6154659b8498cd6fefccc62f2492a1d24a06b4",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/SharedTree/Basic.lean",
+          "expected": "7acc9428ee6bd804cabb0125ff391461fb01de47c30c6a94d305ea856418da70",
+          "actual": "7acc9428ee6bd804cabb0125ff391461fb01de47c30c6a94d305ea856418da70",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/SharedTree/Complete.lean",
+          "expected": "4e34f42ddd131cc10fd9242be2c0452f4f00af3f2cf2f476f68c844f4ba4f64c",
+          "actual": "4e34f42ddd131cc10fd9242be2c0452f4f00af3f2cf2f476f68c844f4ba4f64c",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/SharedTree/Map.lean",
+          "expected": "57c609e386662de452f3c86669d895651c5d76ad7962dd32035665894e4e771c",
+          "actual": "57c609e386662de452f3c86669d895651c5d76ad7962dd32035665894e4e771c",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/SharedTree/Observation.lean",
+          "expected": "fd2b3ec4beb4638bbf763926f27d5ca1a607f9338bfbd8833c7c267c6e80e80f",
+          "actual": "fd2b3ec4beb4638bbf763926f27d5ca1a607f9338bfbd8833c7c267c6e80e80f",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/SharedTree/Optimized.lean",
+          "expected": "b4e89a61bd7902b95a1d078e4d3b15b254d17d1d7af3802da1385b5bd8962378",
+          "actual": "b4e89a61bd7902b95a1d078e4d3b15b254d17d1d7af3802da1385b5bd8962378",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/SharedTree/OptimizedObservation.lean",
+          "expected": "285cac8fd057b9f4f8892effc8ee1f1d6bb2d96571a6b599026dcdd0c9edea4f",
+          "actual": "285cac8fd057b9f4f8892effc8ee1f1d6bb2d96571a6b599026dcdd0c9edea4f",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/SharedTree/Ordered.lean",
+          "expected": "c2b7a5f19ddcdf15e8eb5170148ff828579980569d457e0201e44a451dd946ab",
+          "actual": "c2b7a5f19ddcdf15e8eb5170148ff828579980569d457e0201e44a451dd946ab",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/SharedTree/OrderedObservation.lean",
+          "expected": "603440bbe7aed20724412e70787adb8ae539d3e9c24f0d7326bc515f3a2a5424",
+          "actual": "603440bbe7aed20724412e70787adb8ae539d3e9c24f0d7326bc515f3a2a5424",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/SharedTree/OrderedTerminal.lean",
+          "expected": "4c1d293efaba164bf0ba9c170c9e09e41ca6a1f1f51df95df0d553b33c02ace3",
+          "actual": "4c1d293efaba164bf0ba9c170c9e09e41ca6a1f1f51df95df0d553b33c02ace3",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/SharedTree/Path.lean",
+          "expected": "a0912e3e46dc702773ac91327c5868c6ee8f5a44e4492a3197b0c0767f5c8f1f",
+          "actual": "a0912e3e46dc702773ac91327c5868c6ee8f5a44e4492a3197b0c0767f5c8f1f",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Search/SharedTree/PathEndpoint.lean",
+          "expected": "d090e01eff2536b90e2c3769d888a3b7f9f6aa0b08553b82eaf68495ee21e34a",
+          "actual": "d090e01eff2536b90e2c3769d888a3b7f9f6aa0b08553b82eaf68495ee21e34a",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Sequences/AbstractStack.lean",
+          "expected": "518d561f57e3fa0aa272a0ec1d05673e489fd2b19212c89fa5886aa7aeec877d",
+          "actual": "518d561f57e3fa0aa272a0ec1d05673e489fd2b19212c89fa5886aa7aeec877d",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Sequences/SharedList/IntegerUpdate.lean",
+          "expected": "42a8d216e38c9fb1b99246f5d233a16aea3d5d71e4b63542cb897aeb2c3dc37f",
+          "actual": "42a8d216e38c9fb1b99246f5d233a16aea3d5d71e4b63542cb897aeb2c3dc37f",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/AbstractStack.lean",
+          "expected": "36e3c2c1767d2600a7f11e9a58ffd73b0be9aeef5957ec493d865844cb67c008",
+          "actual": "36e3c2c1767d2600a7f11e9a58ffd73b0be9aeef5957ec493d865844cb67c008",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/FRP.lean",
+          "expected": "a5bf0f5263b45514b4f9b88b09ef1abe2a6a1fb773a44493afd5a8198abeb22b",
+          "actual": "a5bf0f5263b45514b4f9b88b09ef1abe2a6a1fb773a44493afd5a8198abeb22b",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/IndefiniteService.lean",
+          "expected": "0daaf049128e56210c605cc5b2d5cf8b155aad1727eac6bad189615fc75fa7fd",
+          "actual": "0daaf049128e56210c605cc5b2d5cf8b155aad1727eac6bad189615fc75fa7fd",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/OrderedMap.lean",
+          "expected": "39d673b6aa84e42061f95326f480687e3188a799a5a2f5a9e51fb28614216647",
+          "actual": "39d673b6aa84e42061f95326f480687e3188a799a5a2f5a9e51fb28614216647",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/OrderedTree.lean",
+          "expected": "3619a864d1041f5d8f2c845c8249a8396ae469a7bdc254eb489d753804a640cc",
+          "actual": "3619a864d1041f5d8f2c845c8249a8396ae469a7bdc254eb489d753804a640cc",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SharedListIntegers.lean",
+          "expected": "79207c2cd31921fb6a4934f33c89ad63ea748c45c5dba8e11ea0b35236ef1670",
+          "actual": "79207c2cd31921fb6a4934f33c89ad63ea748c45c5dba8e11ea0b35236ef1670",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SharedTree.lean",
+          "expected": "1358e7de35d052d090c153f57fb9666084fcfbddbd5ac62c087b41890f5b0235",
+          "actual": "1358e7de35d052d090c153f57fb9666084fcfbddbd5ac62c087b41890f5b0235",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SharedTreeMap.lean",
+          "expected": "f8fc151c2ffad6414039a505618307fa7405be4a85b7590cf02431e084c176f1",
+          "actual": "f8fc151c2ffad6414039a505618307fa7405be4a85b7590cf02431e084c176f1",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SharedTreeOptimized.lean",
+          "expected": "1505a6420d5f0bcd69db48395217a3ac93a1a5dcc4867076e77189655c58cb8a",
+          "actual": "1505a6420d5f0bcd69db48395217a3ac93a1a5dcc4867076e77189655c58cb8a",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SharedTreeOrdered.lean",
+          "expected": "8ad7858962fc918de0b479ea015f167475910ef302a8f24776252257f9b0e8c8",
+          "actual": "8ad7858962fc918de0b479ea015f167475910ef302a8f24776252257f9b0e8c8",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SharedTreeTerminal.lean",
+          "expected": "a543a14bbd97fe6063cf11dc6106f8c2d5d2c7d5541ebc86c4ab0870e0395661",
+          "actual": "a543a14bbd97fe6063cf11dc6106f8c2d5d2c7d5541ebc86c4ab0870e0395661",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "SquareApplications.lean",
+          "expected": "57663ea6a04275cd52952a5ae26a42f15f446057a43f4dddabf0d3b7be7d6cb5",
+          "actual": "57663ea6a04275cd52952a5ae26a42f15f446057a43f4dddabf0d3b7be7d6cb5",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "docs/research/pfds-persistence.md",
+          "expected": "1e4649e33948761c2efbf49418c70302bd2a459c92cc798c6791b62ece6c0ee3",
+          "actual": "1e4649e33948761c2efbf49418c70302bd2a459c92cc798c6791b62ece6c0ee3",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "docs/research/pfds-reconstruction.md",
+          "expected": "998587591c6c701491062672cd0483dae2790eb485c3c064aa0f6377cb534aeb",
+          "actual": "998587591c6c701491062672cd0483dae2790eb485c3c064aa0f6377cb534aeb",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "docs/research/pfds-shared-persistence.md",
+          "expected": "26573e0c4c27e4cbe2234e86956278709cbb9441cc59f23e0e69dd3b824fa02f",
+          "actual": "26573e0c4c27e4cbe2234e86956278709cbb9441cc59f23e0e69dd3b824fa02f",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/FRP/Demand.lean",
+          "expected": "4e92f97ac56aa684c27f3421cdf1890b64159b631fdd828c420af00d3d9c6ad6",
+          "actual": "4e92f97ac56aa684c27f3421cdf1890b64159b631fdd828c420af00d3d9c6ad6",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/FRP/Equivalence.lean",
+          "expected": "71abc997d44acf7831a423f2b17559feed15e39517f20ab3dd22ae14c8733b83",
+          "actual": "71abc997d44acf7831a423f2b17559feed15e39517f20ab3dd22ae14c8733b83",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/FRP/Finite.lean",
+          "expected": "f617d2f3db4fd162f43e53abd8271ebcf15bd242d79dd201a61b314afa90954c",
+          "actual": "f617d2f3db4fd162f43e53abd8271ebcf15bd242d79dd201a61b314afa90954c",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/FRP/Spec.lean",
+          "expected": "c8b349b4a0919acfe55302b1c1998e942b0d8281f2244fec5606fa368f5c1db7",
+          "actual": "c8b349b4a0919acfe55302b1c1998e942b0d8281f2244fec5606fa368f5c1db7",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Resources/SharedTree.lean",
+          "expected": "1a0474363a59673974a9a0dde2e1fb3133dce8e94f83f4e21628998ce1c8dfc7",
+          "actual": "1a0474363a59673974a9a0dde2e1fb3133dce8e94f83f4e21628998ce1c8dfc7",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/AbstractSet.lean",
+          "expected": "cbe396ef4ac43d6aa1aefde6b10e8d64f2f9eef5ed06de51fd4da7cea3339de9",
+          "actual": "cbe396ef4ac43d6aa1aefde6b10e8d64f2f9eef5ed06de51fd4da7cea3339de9",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/OrderedMap/Basic.lean",
+          "expected": "109926ec73294bb804ee739d4f7f4d805ef1a37f62614194d6253398ad6fa9bd",
+          "actual": "109926ec73294bb804ee739d4f7f4d805ef1a37f62614194d6253398ad6fa9bd",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/OrderedMap/Interface.lean",
+          "expected": "dc548681e9df55f766cd0cad323c844953ca1c5c8763266fa4fc145412a28d82",
+          "actual": "dc548681e9df55f766cd0cad323c844953ca1c5c8763266fa4fc145412a28d82",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/OrderedTree/Basic.lean",
+          "expected": "6f1a3c8bf217ff609e3f08f65a1a20b52747723d5259ad671fb0e5aebaf44a6b",
+          "actual": "6f1a3c8bf217ff609e3f08f65a1a20b52747723d5259ad671fb0e5aebaf44a6b",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/OrderedTree/Candidate.lean",
+          "expected": "25977fd11475ad446a92361d94ac5fb11a1a4b8ec07f9a84e106e0b487fa8753",
+          "actual": "25977fd11475ad446a92361d94ac5fb11a1a4b8ec07f9a84e106e0b487fa8753",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/OrderedTree/Comparison.lean",
+          "expected": "39f8b29dde6c1d9eef28c922c37ceafcbf5a2a47fc585f0803d7245650b8208f",
+          "actual": "39f8b29dde6c1d9eef28c922c37ceafcbf5a2a47fc585f0803d7245650b8208f",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/OrderedTree/Contents.lean",
+          "expected": "0c44cd7ca492bdb028252a31d959ec2a476fa624ec326809e57958ae586716a2",
+          "actual": "0c44cd7ca492bdb028252a31d959ec2a476fa624ec326809e57958ae586716a2",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/OrderedTree/Interface.lean",
+          "expected": "562b68e5d84bc326fa602b658f8cd6f278ea857b8a3cc424bce8d53587a821e0",
+          "actual": "562b68e5d84bc326fa602b658f8cd6f278ea857b8a3cc424bce8d53587a821e0",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/SharedTree/Balanced.lean",
+          "expected": "1c88674055c227f3c99dbcd31b6154659b8498cd6fefccc62f2492a1d24a06b4",
+          "actual": "1c88674055c227f3c99dbcd31b6154659b8498cd6fefccc62f2492a1d24a06b4",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/SharedTree/Basic.lean",
+          "expected": "7acc9428ee6bd804cabb0125ff391461fb01de47c30c6a94d305ea856418da70",
+          "actual": "7acc9428ee6bd804cabb0125ff391461fb01de47c30c6a94d305ea856418da70",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/SharedTree/Complete.lean",
+          "expected": "4e34f42ddd131cc10fd9242be2c0452f4f00af3f2cf2f476f68c844f4ba4f64c",
+          "actual": "4e34f42ddd131cc10fd9242be2c0452f4f00af3f2cf2f476f68c844f4ba4f64c",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/SharedTree/Map.lean",
+          "expected": "57c609e386662de452f3c86669d895651c5d76ad7962dd32035665894e4e771c",
+          "actual": "57c609e386662de452f3c86669d895651c5d76ad7962dd32035665894e4e771c",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/SharedTree/Observation.lean",
+          "expected": "fd2b3ec4beb4638bbf763926f27d5ca1a607f9338bfbd8833c7c267c6e80e80f",
+          "actual": "fd2b3ec4beb4638bbf763926f27d5ca1a607f9338bfbd8833c7c267c6e80e80f",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/SharedTree/Optimized.lean",
+          "expected": "b4e89a61bd7902b95a1d078e4d3b15b254d17d1d7af3802da1385b5bd8962378",
+          "actual": "b4e89a61bd7902b95a1d078e4d3b15b254d17d1d7af3802da1385b5bd8962378",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/SharedTree/OptimizedObservation.lean",
+          "expected": "285cac8fd057b9f4f8892effc8ee1f1d6bb2d96571a6b599026dcdd0c9edea4f",
+          "actual": "285cac8fd057b9f4f8892effc8ee1f1d6bb2d96571a6b599026dcdd0c9edea4f",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/SharedTree/Ordered.lean",
+          "expected": "c2b7a5f19ddcdf15e8eb5170148ff828579980569d457e0201e44a451dd946ab",
+          "actual": "c2b7a5f19ddcdf15e8eb5170148ff828579980569d457e0201e44a451dd946ab",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/SharedTree/OrderedObservation.lean",
+          "expected": "603440bbe7aed20724412e70787adb8ae539d3e9c24f0d7326bc515f3a2a5424",
+          "actual": "603440bbe7aed20724412e70787adb8ae539d3e9c24f0d7326bc515f3a2a5424",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/SharedTree/OrderedTerminal.lean",
+          "expected": "4c1d293efaba164bf0ba9c170c9e09e41ca6a1f1f51df95df0d553b33c02ace3",
+          "actual": "4c1d293efaba164bf0ba9c170c9e09e41ca6a1f1f51df95df0d553b33c02ace3",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/SharedTree/Path.lean",
+          "expected": "a0912e3e46dc702773ac91327c5868c6ee8f5a44e4492a3197b0c0767f5c8f1f",
+          "actual": "a0912e3e46dc702773ac91327c5868c6ee8f5a44e4492a3197b0c0767f5c8f1f",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Search/SharedTree/PathEndpoint.lean",
+          "expected": "d090e01eff2536b90e2c3769d888a3b7f9f6aa0b08553b82eaf68495ee21e34a",
+          "actual": "d090e01eff2536b90e2c3769d888a3b7f9f6aa0b08553b82eaf68495ee21e34a",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Sequences/AbstractStack.lean",
+          "expected": "518d561f57e3fa0aa272a0ec1d05673e489fd2b19212c89fa5886aa7aeec877d",
+          "actual": "518d561f57e3fa0aa272a0ec1d05673e489fd2b19212c89fa5886aa7aeec877d",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Sequences/SharedList/IntegerUpdate.lean",
+          "expected": "42a8d216e38c9fb1b99246f5d233a16aea3d5d71e4b63542cb897aeb2c3dc37f",
+          "actual": "42a8d216e38c9fb1b99246f5d233a16aea3d5d71e4b63542cb897aeb2c3dc37f",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/AbstractStack.lean",
+          "expected": "36e3c2c1767d2600a7f11e9a58ffd73b0be9aeef5957ec493d865844cb67c008",
+          "actual": "36e3c2c1767d2600a7f11e9a58ffd73b0be9aeef5957ec493d865844cb67c008",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/FRP.lean",
+          "expected": "a5bf0f5263b45514b4f9b88b09ef1abe2a6a1fb773a44493afd5a8198abeb22b",
+          "actual": "a5bf0f5263b45514b4f9b88b09ef1abe2a6a1fb773a44493afd5a8198abeb22b",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/IndefiniteService.lean",
+          "expected": "0daaf049128e56210c605cc5b2d5cf8b155aad1727eac6bad189615fc75fa7fd",
+          "actual": "0daaf049128e56210c605cc5b2d5cf8b155aad1727eac6bad189615fc75fa7fd",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/OrderedMap.lean",
+          "expected": "39d673b6aa84e42061f95326f480687e3188a799a5a2f5a9e51fb28614216647",
+          "actual": "39d673b6aa84e42061f95326f480687e3188a799a5a2f5a9e51fb28614216647",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/OrderedTree.lean",
+          "expected": "3619a864d1041f5d8f2c845c8249a8396ae469a7bdc254eb489d753804a640cc",
+          "actual": "3619a864d1041f5d8f2c845c8249a8396ae469a7bdc254eb489d753804a640cc",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SharedListIntegers.lean",
+          "expected": "79207c2cd31921fb6a4934f33c89ad63ea748c45c5dba8e11ea0b35236ef1670",
+          "actual": "79207c2cd31921fb6a4934f33c89ad63ea748c45c5dba8e11ea0b35236ef1670",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SharedTree.lean",
+          "expected": "1358e7de35d052d090c153f57fb9666084fcfbddbd5ac62c087b41890f5b0235",
+          "actual": "1358e7de35d052d090c153f57fb9666084fcfbddbd5ac62c087b41890f5b0235",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SharedTreeMap.lean",
+          "expected": "f8fc151c2ffad6414039a505618307fa7405be4a85b7590cf02431e084c176f1",
+          "actual": "f8fc151c2ffad6414039a505618307fa7405be4a85b7590cf02431e084c176f1",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SharedTreeOptimized.lean",
+          "expected": "1505a6420d5f0bcd69db48395217a3ac93a1a5dcc4867076e77189655c58cb8a",
+          "actual": "1505a6420d5f0bcd69db48395217a3ac93a1a5dcc4867076e77189655c58cb8a",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SharedTreeOrdered.lean",
+          "expected": "8ad7858962fc918de0b479ea015f167475910ef302a8f24776252257f9b0e8c8",
+          "actual": "8ad7858962fc918de0b479ea015f167475910ef302a8f24776252257f9b0e8c8",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SharedTreeTerminal.lean",
+          "expected": "a543a14bbd97fe6063cf11dc6106f8c2d5d2c7d5541ebc86c4ab0870e0395661",
+          "actual": "a543a14bbd97fe6063cf11dc6106f8c2d5d2c7d5541ebc86c4ab0870e0395661",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "SquareApplications.lean",
+          "expected": "57663ea6a04275cd52952a5ae26a42f15f446057a43f4dddabf0d3b7be7d6cb5",
+          "actual": "57663ea6a04275cd52952a5ae26a42f15f446057a43f4dddabf0d3b7be7d6cb5",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "docs/research/pfds-persistence.md",
+          "expected": "1e4649e33948761c2efbf49418c70302bd2a459c92cc798c6791b62ece6c0ee3",
+          "actual": "1e4649e33948761c2efbf49418c70302bd2a459c92cc798c6791b62ece6c0ee3",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "docs/research/pfds-reconstruction.md",
+          "expected": "998587591c6c701491062672cd0483dae2790eb485c3c064aa0f6377cb534aeb",
+          "actual": "998587591c6c701491062672cd0483dae2790eb485c3c064aa0f6377cb534aeb",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "docs/research/pfds-shared-persistence.md",
+          "expected": "26573e0c4c27e4cbe2234e86956278709cbb9441cc59f23e0e69dd3b824fa02f",
+          "actual": "26573e0c4c27e4cbe2234e86956278709cbb9441cc59f23e0e69dd3b824fa02f",
+          "matches": true
+        }
+      ],
+      "requirement_checks": [
+        {
+          "path": "requirements/chapter02.md",
+          "expected": "240b6bfec9f9e8599f1034abc309499928c8472edf76481b553ef99ce40ff944",
+          "actual": "240b6bfec9f9e8599f1034abc309499928c8472edf76481b553ef99ce40ff944",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "record": "validation/suspension-candidate-r3.json",
+      "record_sha256": "8765b415888f81797ca136ff8e4e3414b0259cf25037a5fc51c3425ae30192c4",
+      "commit": "a3feaff319ad5fad912fb8bdc113f33fea4e2a60",
+      "commit_exists": true,
+      "acceptance": false,
+      "file_checks": [
+        {
+          "field": "files",
+          "path": "Applications/Progress/Evaluation.lean",
+          "expected": "27d93c2ebfa3c88e4a8c31e7665aa9a7b4d259ffc73d0f8c020b5102e7cdf564",
+          "actual": "27d93c2ebfa3c88e4a8c31e7665aa9a7b4d259ffc73d0f8c020b5102e7cdf564",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/AddressRange.lean",
+          "expected": "1a8e023b0839b6c53218df4e1d9960126357f4d0406b49294791b8114ebc7b7d",
+          "actual": "1a8e023b0839b6c53218df4e1d9960126357f4d0406b49294791b8114ebc7b7d",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Continuation.lean",
+          "expected": "a10202a385afdfe09cedc02884967bb774a896090f4bba5b1ee7f29afcc4c0fc",
+          "actual": "a10202a385afdfe09cedc02884967bb774a896090f4bba5b1ee7f29afcc4c0fc",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Correspondence.lean",
+          "expected": "c4102bb6c5b368096e712c1318d491ab76eb633d6c099bafb2ecd57763753c5c",
+          "actual": "c4102bb6c5b368096e712c1318d491ab76eb633d6c099bafb2ecd57763753c5c",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Derived.lean",
+          "expected": "e2a8a06345cb61ad736214e2d39cbf4b237b9e6d74fdb5752f2d9d84683446a5",
+          "actual": "e2a8a06345cb61ad736214e2d39cbf4b237b9e6d74fdb5752f2d9d84683446a5",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/ForceObservation.lean",
+          "expected": "298a787c9bc1d2f75aa5462bdca9a3c8a741cdd370088b93c2539e692ecc39f7",
+          "actual": "298a787c9bc1d2f75aa5462bdca9a3c8a741cdd370088b93c2539e692ecc39f7",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Grammar.lean",
+          "expected": "258f4248a4bd5235b5e2a5c0e82e6c274794910abc5e7934974424e71fc10939",
+          "actual": "258f4248a4bd5235b5e2a5c0e82e6c274794910abc5e7934974424e71fc10939",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Invariant.lean",
+          "expected": "04a3e34c93488f2029538d92070e48b54e7560ec236472b4a63ec1ffacf9880c",
+          "actual": "04a3e34c93488f2029538d92070e48b54e7560ec236472b4a63ec1ffacf9880c",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Machine.lean",
+          "expected": "921f9b17fa4e78bcda22d4b2059d49471af529b6aa7e31cd760a364d8bda7204",
+          "actual": "921f9b17fa4e78bcda22d4b2059d49471af529b6aa7e31cd760a364d8bda7204",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Names.lean",
+          "expected": "267803f09543b11acc9d1c305be76fb675351e001d0588dd8d290b17d590b31c",
+          "actual": "267803f09543b11acc9d1c305be76fb675351e001d0588dd8d290b17d590b31c",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Namespace.lean",
+          "expected": "92b7e31c7552c656325443cb20bdfa345f6d424b01fc01fc8a089d0e37cf1999",
+          "actual": "92b7e31c7552c656325443cb20bdfa345f6d424b01fc01fc8a089d0e37cf1999",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Observation.lean",
+          "expected": "a82067eb6907478b3a879d937aa503574c6201cfe8ceb08fffdd71835dd97cfd",
+          "actual": "a82067eb6907478b3a879d937aa503574c6201cfe8ceb08fffdd71835dd97cfd",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Prefix.lean",
+          "expected": "1c65535c19aa145e38de544fa05e599157b2c7c26eaa1150334d044dfe4ca5c6",
+          "actual": "1c65535c19aa145e38de544fa05e599157b2c7c26eaa1150334d044dfe4ca5c6",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Recursive.lean",
+          "expected": "525f56b2104c5d89807682bcea36bc444a57e0f959cee633e44d05e93556960f",
+          "actual": "525f56b2104c5d89807682bcea36bc444a57e0f959cee633e44d05e93556960f",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Relocation.lean",
+          "expected": "00946cb4af37669326648a47aca8c8d7e98c18a7f8fefc1729296ff6f4c0d344",
+          "actual": "00946cb4af37669326648a47aca8c8d7e98c18a7f8fefc1729296ff6f4c0d344",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Renaming.lean",
+          "expected": "20fb392f131fba790059cd6f9cde4600f61978df82c852cb44f4b3528f71ecfd",
+          "actual": "20fb392f131fba790059cd6f9cde4600f61978df82c852cb44f4b3528f71ecfd",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Return.lean",
+          "expected": "ac4b2bce65fdc249182ac8bc65f24c9fc2ac39ae3956616b5f5ba13e03b8c27e",
+          "actual": "ac4b2bce65fdc249182ac8bc65f24c9fc2ac39ae3956616b5f5ba13e03b8c27e",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Rules.lean",
+          "expected": "cc715c11d5ac1c3d9c1421663e4e7a54ceee8d6cb04a3e0367312123f39f30b4",
+          "actual": "cc715c11d5ac1c3d9c1421663e4e7a54ceee8d6cb04a3e0367312123f39f30b4",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Static.lean",
+          "expected": "bf876df55c0686f49e3cc16fdee3912ce2faac238e0e0ca2ba42af42fc365659",
+          "actual": "bf876df55c0686f49e3cc16fdee3912ce2faac238e0e0ca2ba42af42fc365659",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Store.lean",
+          "expected": "4dd30845a11b7ef9a5d32cd3793f7269acabaa2b70a60939b0ba4506b9b16036",
+          "actual": "4dd30845a11b7ef9a5d32cd3793f7269acabaa2b70a60939b0ba4506b9b16036",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Syntax.lean",
+          "expected": "f45ebe0708025c0f431b079caedb310487f7d7758f4c550dda215a61c0a82bd7",
+          "actual": "f45ebe0708025c0f431b079caedb310487f7d7758f4c550dda215a61c0a82bd7",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionCorrespondence.lean",
+          "expected": "95c97dff5719a8d67e95db1fbc8c617c714c2f9c53339f690a3701c7c3a7faff",
+          "actual": "95c97dff5719a8d67e95db1fbc8c617c714c2f9c53339f690a3701c7c3a7faff",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionDerived.lean",
+          "expected": "a4d3f37f2a216819ae7572e559da49c7ebc0db3df2a30b73c1ef6bd5f13066ff",
+          "actual": "a4d3f37f2a216819ae7572e559da49c7ebc0db3df2a30b73c1ef6bd5f13066ff",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionForceObservation.lean",
+          "expected": "6372cd7ddbbb90eb50918a206e469229f84f9ce977b6a5d33396d6a396fb3241",
+          "actual": "6372cd7ddbbb90eb50918a206e469229f84f9ce977b6a5d33396d6a396fb3241",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionGrammar.lean",
+          "expected": "3d5f484433881aa91ed27cfa58c191f8da040cd8afd40047b8b3ff08fcdf2920",
+          "actual": "3d5f484433881aa91ed27cfa58c191f8da040cd8afd40047b8b3ff08fcdf2920",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionInvariant.lean",
+          "expected": "7c8c5011d445f6de57183b402afb824abfdcbf904daae775c7a78283976a12ae",
+          "actual": "7c8c5011d445f6de57183b402afb824abfdcbf904daae775c7a78283976a12ae",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionMachine.lean",
+          "expected": "5fda6288957ee90259ecb76b25c063c6d0b5f86b84e280183c9d262acc926ca9",
+          "actual": "5fda6288957ee90259ecb76b25c063c6d0b5f86b84e280183c9d262acc926ca9",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionNamespaces.lean",
+          "expected": "a0586935d34a2ec4f1f0982ba449e1f36604972f7b994e2e2a25f1f8e7e1d685",
+          "actual": "a0586935d34a2ec4f1f0982ba449e1f36604972f7b994e2e2a25f1f8e7e1d685",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionObservation.lean",
+          "expected": "029ddea77139f22c8a77572f51f575bbb16340a6f0f14c6dd0f79cd2360cafad",
+          "actual": "029ddea77139f22c8a77572f51f575bbb16340a6f0f14c6dd0f79cd2360cafad",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionRecursive.lean",
+          "expected": "169244d47a8836029e78c3176605ea8765d1f7a8e2d0e0f2cfe083a0c259bc71",
+          "actual": "169244d47a8836029e78c3176605ea8765d1f7a8e2d0e0f2cfe083a0c259bc71",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionRelocation.lean",
+          "expected": "839da7896e3d44a9cf42d97d164dfc23f72464bf4ffb0658ca490eaff0bbe2e9",
+          "actual": "839da7896e3d44a9cf42d97d164dfc23f72464bf4ffb0658ca490eaff0bbe2e9",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionRenaming.lean",
+          "expected": "1f369e909e6b265f452476210bb8315fd3b58e1f2e9f904374a93088aada0ed6",
+          "actual": "1f369e909e6b265f452476210bb8315fd3b58e1f2e9f904374a93088aada0ed6",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionReturn.lean",
+          "expected": "2d926a7efe4f8cbe66cfe5d7e8e4b5ccc64367b150f436eba751940d47bc6c95",
+          "actual": "2d926a7efe4f8cbe66cfe5d7e8e4b5ccc64367b150f436eba751940d47bc6c95",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionRules.lean",
+          "expected": "b97d601c10a41fce246f28063939b3dfb1fdcf71f7b54a6c9e39b8ea22905eb2",
+          "actual": "b97d601c10a41fce246f28063939b3dfb1fdcf71f7b54a6c9e39b8ea22905eb2",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionStatic.lean",
+          "expected": "5b095742ee31199f46c8045ef2bab6f116fe5b3e61e238a34841672e6dcb8bdf",
+          "actual": "5b095742ee31199f46c8045ef2bab6f116fe5b3e61e238a34841672e6dcb8bdf",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionStore.lean",
+          "expected": "ac22f7c5db874d54d7de33f2a5f09b7395ac06eb1941eff80e4a1b399337f28f",
+          "actual": "ac22f7c5db874d54d7de33f2a5f09b7395ac06eb1941eff80e4a1b399337f28f",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "SquareApplications.lean",
+          "expected": "2f3f740f5eb6a8b3f492f40943e390de158f54672cd0126ef13e54565d9166e3",
+          "actual": "2f3f740f5eb6a8b3f492f40943e390de158f54672cd0126ef13e54565d9166e3",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "docs/research/pfds-suspensions.md",
+          "expected": "5c8b241c7c219df6126f7d6868977870ceef8373b3a3042318822f054cba881e",
+          "actual": "5c8b241c7c219df6126f7d6868977870ceef8373b3a3042318822f054cba881e",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/FRP/Demand.lean",
+          "expected": "4e92f97ac56aa684c27f3421cdf1890b64159b631fdd828c420af00d3d9c6ad6",
+          "actual": "4e92f97ac56aa684c27f3421cdf1890b64159b631fdd828c420af00d3d9c6ad6",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/FRP/Finite.lean",
+          "expected": "f617d2f3db4fd162f43e53abd8271ebcf15bd242d79dd201a61b314afa90954c",
+          "actual": "f617d2f3db4fd162f43e53abd8271ebcf15bd242d79dd201a61b314afa90954c",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Progress/Evaluation.lean",
+          "expected": "27d93c2ebfa3c88e4a8c31e7665aa9a7b4d259ffc73d0f8c020b5102e7cdf564",
+          "actual": "27d93c2ebfa3c88e4a8c31e7665aa9a7b4d259ffc73d0f8c020b5102e7cdf564",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/AddressRange.lean",
+          "expected": "1a8e023b0839b6c53218df4e1d9960126357f4d0406b49294791b8114ebc7b7d",
+          "actual": "1a8e023b0839b6c53218df4e1d9960126357f4d0406b49294791b8114ebc7b7d",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Continuation.lean",
+          "expected": "a10202a385afdfe09cedc02884967bb774a896090f4bba5b1ee7f29afcc4c0fc",
+          "actual": "a10202a385afdfe09cedc02884967bb774a896090f4bba5b1ee7f29afcc4c0fc",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Correspondence.lean",
+          "expected": "c4102bb6c5b368096e712c1318d491ab76eb633d6c099bafb2ecd57763753c5c",
+          "actual": "c4102bb6c5b368096e712c1318d491ab76eb633d6c099bafb2ecd57763753c5c",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Derived.lean",
+          "expected": "e2a8a06345cb61ad736214e2d39cbf4b237b9e6d74fdb5752f2d9d84683446a5",
+          "actual": "e2a8a06345cb61ad736214e2d39cbf4b237b9e6d74fdb5752f2d9d84683446a5",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/ForceObservation.lean",
+          "expected": "298a787c9bc1d2f75aa5462bdca9a3c8a741cdd370088b93c2539e692ecc39f7",
+          "actual": "298a787c9bc1d2f75aa5462bdca9a3c8a741cdd370088b93c2539e692ecc39f7",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Grammar.lean",
+          "expected": "258f4248a4bd5235b5e2a5c0e82e6c274794910abc5e7934974424e71fc10939",
+          "actual": "258f4248a4bd5235b5e2a5c0e82e6c274794910abc5e7934974424e71fc10939",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Invariant.lean",
+          "expected": "04a3e34c93488f2029538d92070e48b54e7560ec236472b4a63ec1ffacf9880c",
+          "actual": "04a3e34c93488f2029538d92070e48b54e7560ec236472b4a63ec1ffacf9880c",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Machine.lean",
+          "expected": "921f9b17fa4e78bcda22d4b2059d49471af529b6aa7e31cd760a364d8bda7204",
+          "actual": "921f9b17fa4e78bcda22d4b2059d49471af529b6aa7e31cd760a364d8bda7204",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Names.lean",
+          "expected": "267803f09543b11acc9d1c305be76fb675351e001d0588dd8d290b17d590b31c",
+          "actual": "267803f09543b11acc9d1c305be76fb675351e001d0588dd8d290b17d590b31c",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Namespace.lean",
+          "expected": "92b7e31c7552c656325443cb20bdfa345f6d424b01fc01fc8a089d0e37cf1999",
+          "actual": "92b7e31c7552c656325443cb20bdfa345f6d424b01fc01fc8a089d0e37cf1999",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Observation.lean",
+          "expected": "a82067eb6907478b3a879d937aa503574c6201cfe8ceb08fffdd71835dd97cfd",
+          "actual": "a82067eb6907478b3a879d937aa503574c6201cfe8ceb08fffdd71835dd97cfd",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Prefix.lean",
+          "expected": "1c65535c19aa145e38de544fa05e599157b2c7c26eaa1150334d044dfe4ca5c6",
+          "actual": "1c65535c19aa145e38de544fa05e599157b2c7c26eaa1150334d044dfe4ca5c6",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Recursive.lean",
+          "expected": "525f56b2104c5d89807682bcea36bc444a57e0f959cee633e44d05e93556960f",
+          "actual": "525f56b2104c5d89807682bcea36bc444a57e0f959cee633e44d05e93556960f",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Relocation.lean",
+          "expected": "00946cb4af37669326648a47aca8c8d7e98c18a7f8fefc1729296ff6f4c0d344",
+          "actual": "00946cb4af37669326648a47aca8c8d7e98c18a7f8fefc1729296ff6f4c0d344",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Renaming.lean",
+          "expected": "20fb392f131fba790059cd6f9cde4600f61978df82c852cb44f4b3528f71ecfd",
+          "actual": "20fb392f131fba790059cd6f9cde4600f61978df82c852cb44f4b3528f71ecfd",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Return.lean",
+          "expected": "ac4b2bce65fdc249182ac8bc65f24c9fc2ac39ae3956616b5f5ba13e03b8c27e",
+          "actual": "ac4b2bce65fdc249182ac8bc65f24c9fc2ac39ae3956616b5f5ba13e03b8c27e",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Rules.lean",
+          "expected": "cc715c11d5ac1c3d9c1421663e4e7a54ceee8d6cb04a3e0367312123f39f30b4",
+          "actual": "cc715c11d5ac1c3d9c1421663e4e7a54ceee8d6cb04a3e0367312123f39f30b4",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Static.lean",
+          "expected": "bf876df55c0686f49e3cc16fdee3912ce2faac238e0e0ca2ba42af42fc365659",
+          "actual": "bf876df55c0686f49e3cc16fdee3912ce2faac238e0e0ca2ba42af42fc365659",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Store.lean",
+          "expected": "4dd30845a11b7ef9a5d32cd3793f7269acabaa2b70a60939b0ba4506b9b16036",
+          "actual": "4dd30845a11b7ef9a5d32cd3793f7269acabaa2b70a60939b0ba4506b9b16036",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Syntax.lean",
+          "expected": "f45ebe0708025c0f431b079caedb310487f7d7758f4c550dda215a61c0a82bd7",
+          "actual": "f45ebe0708025c0f431b079caedb310487f7d7758f4c550dda215a61c0a82bd7",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/FRP.lean",
+          "expected": "a5bf0f5263b45514b4f9b88b09ef1abe2a6a1fb773a44493afd5a8198abeb22b",
+          "actual": "a5bf0f5263b45514b4f9b88b09ef1abe2a6a1fb773a44493afd5a8198abeb22b",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/IndefiniteService.lean",
+          "expected": "0daaf049128e56210c605cc5b2d5cf8b155aad1727eac6bad189615fc75fa7fd",
+          "actual": "0daaf049128e56210c605cc5b2d5cf8b155aad1727eac6bad189615fc75fa7fd",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionCorrespondence.lean",
+          "expected": "95c97dff5719a8d67e95db1fbc8c617c714c2f9c53339f690a3701c7c3a7faff",
+          "actual": "95c97dff5719a8d67e95db1fbc8c617c714c2f9c53339f690a3701c7c3a7faff",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionDerived.lean",
+          "expected": "a4d3f37f2a216819ae7572e559da49c7ebc0db3df2a30b73c1ef6bd5f13066ff",
+          "actual": "a4d3f37f2a216819ae7572e559da49c7ebc0db3df2a30b73c1ef6bd5f13066ff",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionForceObservation.lean",
+          "expected": "6372cd7ddbbb90eb50918a206e469229f84f9ce977b6a5d33396d6a396fb3241",
+          "actual": "6372cd7ddbbb90eb50918a206e469229f84f9ce977b6a5d33396d6a396fb3241",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionGrammar.lean",
+          "expected": "3d5f484433881aa91ed27cfa58c191f8da040cd8afd40047b8b3ff08fcdf2920",
+          "actual": "3d5f484433881aa91ed27cfa58c191f8da040cd8afd40047b8b3ff08fcdf2920",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionInvariant.lean",
+          "expected": "7c8c5011d445f6de57183b402afb824abfdcbf904daae775c7a78283976a12ae",
+          "actual": "7c8c5011d445f6de57183b402afb824abfdcbf904daae775c7a78283976a12ae",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionMachine.lean",
+          "expected": "5fda6288957ee90259ecb76b25c063c6d0b5f86b84e280183c9d262acc926ca9",
+          "actual": "5fda6288957ee90259ecb76b25c063c6d0b5f86b84e280183c9d262acc926ca9",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionNamespaces.lean",
+          "expected": "a0586935d34a2ec4f1f0982ba449e1f36604972f7b994e2e2a25f1f8e7e1d685",
+          "actual": "a0586935d34a2ec4f1f0982ba449e1f36604972f7b994e2e2a25f1f8e7e1d685",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionObservation.lean",
+          "expected": "029ddea77139f22c8a77572f51f575bbb16340a6f0f14c6dd0f79cd2360cafad",
+          "actual": "029ddea77139f22c8a77572f51f575bbb16340a6f0f14c6dd0f79cd2360cafad",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionRecursive.lean",
+          "expected": "169244d47a8836029e78c3176605ea8765d1f7a8e2d0e0f2cfe083a0c259bc71",
+          "actual": "169244d47a8836029e78c3176605ea8765d1f7a8e2d0e0f2cfe083a0c259bc71",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionRelocation.lean",
+          "expected": "839da7896e3d44a9cf42d97d164dfc23f72464bf4ffb0658ca490eaff0bbe2e9",
+          "actual": "839da7896e3d44a9cf42d97d164dfc23f72464bf4ffb0658ca490eaff0bbe2e9",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionRenaming.lean",
+          "expected": "1f369e909e6b265f452476210bb8315fd3b58e1f2e9f904374a93088aada0ed6",
+          "actual": "1f369e909e6b265f452476210bb8315fd3b58e1f2e9f904374a93088aada0ed6",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionReturn.lean",
+          "expected": "2d926a7efe4f8cbe66cfe5d7e8e4b5ccc64367b150f436eba751940d47bc6c95",
+          "actual": "2d926a7efe4f8cbe66cfe5d7e8e4b5ccc64367b150f436eba751940d47bc6c95",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionRules.lean",
+          "expected": "b97d601c10a41fce246f28063939b3dfb1fdcf71f7b54a6c9e39b8ea22905eb2",
+          "actual": "b97d601c10a41fce246f28063939b3dfb1fdcf71f7b54a6c9e39b8ea22905eb2",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionStatic.lean",
+          "expected": "5b095742ee31199f46c8045ef2bab6f116fe5b3e61e238a34841672e6dcb8bdf",
+          "actual": "5b095742ee31199f46c8045ef2bab6f116fe5b3e61e238a34841672e6dcb8bdf",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionStore.lean",
+          "expected": "ac22f7c5db874d54d7de33f2a5f09b7395ac06eb1941eff80e4a1b399337f28f",
+          "actual": "ac22f7c5db874d54d7de33f2a5f09b7395ac06eb1941eff80e4a1b399337f28f",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "SquareApplications.lean",
+          "expected": "2f3f740f5eb6a8b3f492f40943e390de158f54672cd0126ef13e54565d9166e3",
+          "actual": "2f3f740f5eb6a8b3f492f40943e390de158f54672cd0126ef13e54565d9166e3",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "docs/research/pfds-suspensions.md",
+          "expected": "5c8b241c7c219df6126f7d6868977870ceef8373b3a3042318822f054cba881e",
+          "actual": "5c8b241c7c219df6126f7d6868977870ceef8373b3a3042318822f054cba881e",
+          "matches": true
+        }
+      ],
+      "requirement_checks": [
+        {
+          "path": "requirements/suspension-foundation.md",
+          "expected": "56828fa549b0f96b76db9c2451b82106ea12cf4c6e15bd7cd0fc5ecdf3a98f3e",
+          "actual": "56828fa549b0f96b76db9c2451b82106ea12cf4c6e15bd7cd0fc5ecdf3a98f3e",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "record": "validation/pure-suspension-candidate-r2.json",
+      "record_sha256": "95179e677edbd6bb1613769487496c753a6b1860da565bd372176fdb26effe17",
+      "commit": "361f5f3f6bb3de1974510ce355883dac2bf25333",
+      "commit_exists": true,
+      "acceptance": false,
+      "file_checks": [
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/BodyEvent.lean",
+          "expected": "41cf64feb32b28b1b3e03bcba475f7fd5811f33307aa253328e2527d2fbed0d2",
+          "actual": "41cf64feb32b28b1b3e03bcba475f7fd5811f33307aa253328e2527d2fbed0d2",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Decomposition.lean",
+          "expected": "543bed65561480f6b103b1bffe70e34e1ddc1f4e7f0d0eb18bc24261e2462e12",
+          "actual": "543bed65561480f6b103b1bffe70e34e1ddc1f4e7f0d0eb18bc24261e2462e12",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/Compatibility.lean",
+          "expected": "bee261d1fc3dbf637030df6b964b2a249ca83ef10343d6fb4c3aaf4049b0cc92",
+          "actual": "bee261d1fc3dbf637030df6b964b2a249ca83ef10343d6fb4c3aaf4049b0cc92",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/Continuation.lean",
+          "expected": "44b6bef4fafe225ec0b1ca5579c16e9c19d778bc5ce8e27414d54507841c2656",
+          "actual": "44b6bef4fafe225ec0b1ca5579c16e9c19d778bc5ce8e27414d54507841c2656",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/Creation.lean",
+          "expected": "f46d236bc93220d6e4cfd3c150dd293a496b509074b961ba1ca9ec774ca5f193",
+          "actual": "f46d236bc93220d6e4cfd3c150dd293a496b509074b961ba1ca9ec774ca5f193",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/Domain.lean",
+          "expected": "822af891bf84e007a57c5ad96f53dc6e8c861c49be6dbec084cf78b6513e6203",
+          "actual": "822af891bf84e007a57c5ad96f53dc6e8c861c49be6dbec084cf78b6513e6203",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/DomainState.lean",
+          "expected": "5e6d5294dd41029867b5f6590a98a08dce5a9801572cf81c46c19c9e160bb058",
+          "actual": "5e6d5294dd41029867b5f6590a98a08dce5a9801572cf81c46c19c9e160bb058",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/Execution.lean",
+          "expected": "2882d5135fe1987ff9fcdcecae0716873f443152e41d48902d15f5cab9ceb5cb",
+          "actual": "2882d5135fe1987ff9fcdcecae0716873f443152e41d48902d15f5cab9ceb5cb",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/Forcing.lean",
+          "expected": "dcbb54424d0ff115642fe89f42d1ddf14c57f8e5d2e986f43bf2a93ec2d56b84",
+          "actual": "dcbb54424d0ff115642fe89f42d1ddf14c57f8e5d2e986f43bf2a93ec2d56b84",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/History.lean",
+          "expected": "46d397220a3d0ef2a72ae4f79761476d456f8db0e196d0d20ddf9eb05736069a",
+          "actual": "46d397220a3d0ef2a72ae4f79761476d456f8db0e196d0d20ddf9eb05736069a",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/Machine.lean",
+          "expected": "469f0ba1cfd4cdb45e4ec11ae506969e39d4fea15abe3112878943a1e38d710a",
+          "actual": "469f0ba1cfd4cdb45e4ec11ae506969e39d4fea15abe3112878943a1e38d710a",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/Memory.lean",
+          "expected": "b82b11aa217e79a5ddacba88699f089078cf107faa79c5cf25f6fdcb1a3fe46d",
+          "actual": "b82b11aa217e79a5ddacba88699f089078cf107faa79c5cf25f6fdcb1a3fe46d",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/NoReentry.lean",
+          "expected": "907b2a1dcb84e29bf013eb8cfdd24da6ba86520fc351bb870c40a58ed4f1f455",
+          "actual": "907b2a1dcb84e29bf013eb8cfdd24da6ba86520fc351bb870c40a58ed4f1f455",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/Ordinary.lean",
+          "expected": "e73351ff23c7415d3f2938fe23f95be8ef68ef541e5772fbf1c037d8c197fcf4",
+          "actual": "e73351ff23c7415d3f2938fe23f95be8ef68ef541e5772fbf1c037d8c197fcf4",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/Recurrence.lean",
+          "expected": "05ef3559e0dfbcdf346eb7da5e706ccc8a23f4b1b4695bc264af8fd3819046d5",
+          "actual": "05ef3559e0dfbcdf346eb7da5e706ccc8a23f4b1b4695bc264af8fd3819046d5",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/RecursiveStep.lean",
+          "expected": "2708be3631118478ac1310dbc9c0aa908809ed8b0de6224b548bd5f91ef7d324",
+          "actual": "2708be3631118478ac1310dbc9c0aa908809ed8b0de6224b548bd5f91ef7d324",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/Reentry.lean",
+          "expected": "335ebd1d615341b149b38f40111a33bb9423a1074ed0fbe5efaff1bd2e7c7d85",
+          "actual": "335ebd1d615341b149b38f40111a33bb9423a1074ed0fbe5efaff1bd2e7c7d85",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/Representation.lean",
+          "expected": "dbcf7f1fb656ede59bfb57db5bca97f2d145cf5226aa27e2bb635465e5b5f980",
+          "actual": "dbcf7f1fb656ede59bfb57db5bca97f2d145cf5226aa27e2bb635465e5b5f980",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/Simulation.lean",
+          "expected": "b4240d04d4bc1f08fbc0ebb2452e5a4bb46b901f080c6020271044a841249b9d",
+          "actual": "b4240d04d4bc1f08fbc0ebb2452e5a4bb46b901f080c6020271044a841249b9d",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/Syntax.lean",
+          "expected": "57075f43a93a941144b656f73dd642926deb001c0324734b6243f7b02c4b469c",
+          "actual": "57075f43a93a941144b656f73dd642926deb001c0324734b6243f7b02c4b469c",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/Value.lean",
+          "expected": "b02154383a7a00b1324ac8f85d1fb66ba7ee99e692c72118191c91e466ce2abf",
+          "actual": "b02154383a7a00b1324ac8f85d1fb66ba7ee99e692c72118191c91e466ce2abf",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/WorldDomain.lean",
+          "expected": "d4c811882707c942e1d69fb6af71e81253695b4fdb98d045b156991e2e7159b9",
+          "actual": "d4c811882707c942e1d69fb6af71e81253695b4fdb98d045b156991e2e7159b9",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Recursive.lean",
+          "expected": "cbf1dfda736afb9f8e4e9bc4b023030edcb6713de9902a8828cdc1489f0d0934",
+          "actual": "cbf1dfda736afb9f8e4e9bc4b023030edcb6713de9902a8828cdc1489f0d0934",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/ValuePersistence.lean",
+          "expected": "ce6998fd2e8d400dc69d9a5ff8f503ea28182403a721efc8a8251b60772b60f8",
+          "actual": "ce6998fd2e8d400dc69d9a5ff8f503ea28182403a721efc8a8251b60772b60f8",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionBodyEvent.lean",
+          "expected": "fcb8561a8b1d845cd6f0483f68bbec35e63710f40a136035dc5b7273ffc361a8",
+          "actual": "fcb8561a8b1d845cd6f0483f68bbec35e63710f40a136035dc5b7273ffc361a8",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionDecomposition.lean",
+          "expected": "ae13938b5c02bc095fb90e9225ba0b159e148fe5c06571d4dea35eb337e10565",
+          "actual": "ae13938b5c02bc095fb90e9225ba0b159e148fe5c06571d4dea35eb337e10565",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureCachedClosure.lean",
+          "expected": "e8afed46093e0dab9a1fdb2e13787c461c0cc48271f351a933dda1510aa21c65",
+          "actual": "e8afed46093e0dab9a1fdb2e13787c461c0cc48271f351a933dda1510aa21c65",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureCachedProgram.lean",
+          "expected": "abf9a7014ced9705deb20bbfb59b38270384e8b8513cbfb19c7950d43a2f3dd0",
+          "actual": "abf9a7014ced9705deb20bbfb59b38270384e8b8513cbfb19c7950d43a2f3dd0",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureCompatibility.lean",
+          "expected": "d8072593abca3cbf857683558009b1bda5d03b8cdf3070acade3b8479b860efc",
+          "actual": "d8072593abca3cbf857683558009b1bda5d03b8cdf3070acade3b8479b860efc",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureCreation.lean",
+          "expected": "c2dceb5d457101b7fb537e784d5bd2a1499cf7e814ff59c8147d115e26755a4f",
+          "actual": "c2dceb5d457101b7fb537e784d5bd2a1499cf7e814ff59c8147d115e26755a4f",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureDomain.lean",
+          "expected": "dea47aed43321e1671d9ad59964008cda44f1d8597c342fe258a0aa482bbd8b5",
+          "actual": "dea47aed43321e1671d9ad59964008cda44f1d8597c342fe258a0aa482bbd8b5",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureDomainState.lean",
+          "expected": "512aa48d4f42854a9e996206417847e1406d41fe8b2c248b3c1b0482aceb2ebd",
+          "actual": "512aa48d4f42854a9e996206417847e1406d41fe8b2c248b3c1b0482aceb2ebd",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureExecution.lean",
+          "expected": "6b1d973868f5d4f8dd41ff1690f5e8f8280807dfd2f555c38533ff6ce57aa3dc",
+          "actual": "6b1d973868f5d4f8dd41ff1690f5e8f8280807dfd2f555c38533ff6ce57aa3dc",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureForcing.lean",
+          "expected": "2f8fdd04d45cf1b2afe6c2e4d683858a58d1044658b089a9448445af9879172b",
+          "actual": "2f8fdd04d45cf1b2afe6c2e4d683858a58d1044658b089a9448445af9879172b",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureHistory.lean",
+          "expected": "0e6b8345755e877d630a2bf66792d8151c5d556e65f1950d1ca238f92f522f13",
+          "actual": "0e6b8345755e877d630a2bf66792d8151c5d556e65f1950d1ca238f92f522f13",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureMachine.lean",
+          "expected": "565dfa03c058447a19af738ac0769b8e47684419ec63ebf31c59c3e35620c4e5",
+          "actual": "565dfa03c058447a19af738ac0769b8e47684419ec63ebf31c59c3e35620c4e5",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureMemory.lean",
+          "expected": "5c3a7ab87c18861333853f40c4ddf5dbd7afe26ce750f371965e87c5ccb04c9d",
+          "actual": "5c3a7ab87c18861333853f40c4ddf5dbd7afe26ce750f371965e87c5ccb04c9d",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureNoReentry.lean",
+          "expected": "84fdee48fd637e00d5f26dad6cc83da273d4a347440495eeb1d6a60c24b726e6",
+          "actual": "84fdee48fd637e00d5f26dad6cc83da273d4a347440495eeb1d6a60c24b726e6",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureOrdinary.lean",
+          "expected": "e2262f31771a9c0587eceab723c978121a68b72ae8739822405a151134ea9911",
+          "actual": "e2262f31771a9c0587eceab723c978121a68b72ae8739822405a151134ea9911",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureRecurrence.lean",
+          "expected": "3d4627029f85ecdd1997b004f0f06df3c58b1f4a67f1011a014e04ab0cfcd41c",
+          "actual": "3d4627029f85ecdd1997b004f0f06df3c58b1f4a67f1011a014e04ab0cfcd41c",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureRecursiveStep.lean",
+          "expected": "b4e0c9a3c3f9214db1fb6a95be3da91192710cba368e8a6fe57e060fd767e20f",
+          "actual": "b4e0c9a3c3f9214db1fb6a95be3da91192710cba368e8a6fe57e060fd767e20f",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureReentry.lean",
+          "expected": "e79e3c6b4bf8d6dfcb5afa8464d94dde438ebd295ff097a1b95cd0df525ed405",
+          "actual": "e79e3c6b4bf8d6dfcb5afa8464d94dde438ebd295ff097a1b95cd0df525ed405",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureRepresentation.lean",
+          "expected": "d5f13dace82411621256fc0411a97087ec16b644d6ef3123359a5f17846d662f",
+          "actual": "d5f13dace82411621256fc0411a97087ec16b644d6ef3123359a5f17846d662f",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureSimulation.lean",
+          "expected": "8e40114b35362cf607a633c51492e1378351be8e3b602cbc28a8a259879fedea",
+          "actual": "8e40114b35362cf607a633c51492e1378351be8e3b602cbc28a8a259879fedea",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureValues.lean",
+          "expected": "81c333becd68cbe9f6b3e1838eb56c2f56066b12cab0878382a86c93323ef46c",
+          "actual": "81c333becd68cbe9f6b3e1838eb56c2f56066b12cab0878382a86c93323ef46c",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureWorldDomain.lean",
+          "expected": "5de16e1b462b842e5ec92338ddd9e155a7583110f886245323fa4f631468240c",
+          "actual": "5de16e1b462b842e5ec92338ddd9e155a7583110f886245323fa4f631468240c",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionValuePersistence.lean",
+          "expected": "1072d09d7f1a3bc6d83a145685cbde3cad8730e0f9377028500dee1ea48090e1",
+          "actual": "1072d09d7f1a3bc6d83a145685cbde3cad8730e0f9377028500dee1ea48090e1",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "SquareApplications.lean",
+          "expected": "34be527a435a2ae6d69c4c6c0fe2c73f477b043c48c5de63c0bb1e74f9d02398",
+          "actual": "34be527a435a2ae6d69c4c6c0fe2c73f477b043c48c5de63c0bb1e74f9d02398",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "docs/research/pfds-pure-suspensions.md",
+          "expected": "2a7d2e304e5590aa774bc425eb69ce00aec872bfffa9d116e4477c645f106ab4",
+          "actual": "2a7d2e304e5590aa774bc425eb69ce00aec872bfffa9d116e4477c645f106ab4",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "docs/research/pfds-suspensions.md",
+          "expected": "1257cfb512545c090beadfde13605db4632fae41f53c4b83a0b5f5345688c113",
+          "actual": "1257cfb512545c090beadfde13605db4632fae41f53c4b83a0b5f5345688c113",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/FRP/Demand.lean",
+          "expected": "4e92f97ac56aa684c27f3421cdf1890b64159b631fdd828c420af00d3d9c6ad6",
+          "actual": "4e92f97ac56aa684c27f3421cdf1890b64159b631fdd828c420af00d3d9c6ad6",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/FRP/Finite.lean",
+          "expected": "f617d2f3db4fd162f43e53abd8271ebcf15bd242d79dd201a61b314afa90954c",
+          "actual": "f617d2f3db4fd162f43e53abd8271ebcf15bd242d79dd201a61b314afa90954c",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/BodyEvent.lean",
+          "expected": "41cf64feb32b28b1b3e03bcba475f7fd5811f33307aa253328e2527d2fbed0d2",
+          "actual": "41cf64feb32b28b1b3e03bcba475f7fd5811f33307aa253328e2527d2fbed0d2",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Decomposition.lean",
+          "expected": "543bed65561480f6b103b1bffe70e34e1ddc1f4e7f0d0eb18bc24261e2462e12",
+          "actual": "543bed65561480f6b103b1bffe70e34e1ddc1f4e7f0d0eb18bc24261e2462e12",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/ForceObservation.lean",
+          "expected": "298a787c9bc1d2f75aa5462bdca9a3c8a741cdd370088b93c2539e692ecc39f7",
+          "actual": "298a787c9bc1d2f75aa5462bdca9a3c8a741cdd370088b93c2539e692ecc39f7",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/Compatibility.lean",
+          "expected": "bee261d1fc3dbf637030df6b964b2a249ca83ef10343d6fb4c3aaf4049b0cc92",
+          "actual": "bee261d1fc3dbf637030df6b964b2a249ca83ef10343d6fb4c3aaf4049b0cc92",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/Continuation.lean",
+          "expected": "44b6bef4fafe225ec0b1ca5579c16e9c19d778bc5ce8e27414d54507841c2656",
+          "actual": "44b6bef4fafe225ec0b1ca5579c16e9c19d778bc5ce8e27414d54507841c2656",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/Creation.lean",
+          "expected": "f46d236bc93220d6e4cfd3c150dd293a496b509074b961ba1ca9ec774ca5f193",
+          "actual": "f46d236bc93220d6e4cfd3c150dd293a496b509074b961ba1ca9ec774ca5f193",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/Domain.lean",
+          "expected": "822af891bf84e007a57c5ad96f53dc6e8c861c49be6dbec084cf78b6513e6203",
+          "actual": "822af891bf84e007a57c5ad96f53dc6e8c861c49be6dbec084cf78b6513e6203",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/DomainState.lean",
+          "expected": "5e6d5294dd41029867b5f6590a98a08dce5a9801572cf81c46c19c9e160bb058",
+          "actual": "5e6d5294dd41029867b5f6590a98a08dce5a9801572cf81c46c19c9e160bb058",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/Execution.lean",
+          "expected": "2882d5135fe1987ff9fcdcecae0716873f443152e41d48902d15f5cab9ceb5cb",
+          "actual": "2882d5135fe1987ff9fcdcecae0716873f443152e41d48902d15f5cab9ceb5cb",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/Forcing.lean",
+          "expected": "dcbb54424d0ff115642fe89f42d1ddf14c57f8e5d2e986f43bf2a93ec2d56b84",
+          "actual": "dcbb54424d0ff115642fe89f42d1ddf14c57f8e5d2e986f43bf2a93ec2d56b84",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/History.lean",
+          "expected": "46d397220a3d0ef2a72ae4f79761476d456f8db0e196d0d20ddf9eb05736069a",
+          "actual": "46d397220a3d0ef2a72ae4f79761476d456f8db0e196d0d20ddf9eb05736069a",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/Machine.lean",
+          "expected": "469f0ba1cfd4cdb45e4ec11ae506969e39d4fea15abe3112878943a1e38d710a",
+          "actual": "469f0ba1cfd4cdb45e4ec11ae506969e39d4fea15abe3112878943a1e38d710a",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/Memory.lean",
+          "expected": "b82b11aa217e79a5ddacba88699f089078cf107faa79c5cf25f6fdcb1a3fe46d",
+          "actual": "b82b11aa217e79a5ddacba88699f089078cf107faa79c5cf25f6fdcb1a3fe46d",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/NoReentry.lean",
+          "expected": "907b2a1dcb84e29bf013eb8cfdd24da6ba86520fc351bb870c40a58ed4f1f455",
+          "actual": "907b2a1dcb84e29bf013eb8cfdd24da6ba86520fc351bb870c40a58ed4f1f455",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/Ordinary.lean",
+          "expected": "e73351ff23c7415d3f2938fe23f95be8ef68ef541e5772fbf1c037d8c197fcf4",
+          "actual": "e73351ff23c7415d3f2938fe23f95be8ef68ef541e5772fbf1c037d8c197fcf4",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/Recurrence.lean",
+          "expected": "05ef3559e0dfbcdf346eb7da5e706ccc8a23f4b1b4695bc264af8fd3819046d5",
+          "actual": "05ef3559e0dfbcdf346eb7da5e706ccc8a23f4b1b4695bc264af8fd3819046d5",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/RecursiveStep.lean",
+          "expected": "2708be3631118478ac1310dbc9c0aa908809ed8b0de6224b548bd5f91ef7d324",
+          "actual": "2708be3631118478ac1310dbc9c0aa908809ed8b0de6224b548bd5f91ef7d324",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/Reentry.lean",
+          "expected": "335ebd1d615341b149b38f40111a33bb9423a1074ed0fbe5efaff1bd2e7c7d85",
+          "actual": "335ebd1d615341b149b38f40111a33bb9423a1074ed0fbe5efaff1bd2e7c7d85",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/Representation.lean",
+          "expected": "dbcf7f1fb656ede59bfb57db5bca97f2d145cf5226aa27e2bb635465e5b5f980",
+          "actual": "dbcf7f1fb656ede59bfb57db5bca97f2d145cf5226aa27e2bb635465e5b5f980",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/Simulation.lean",
+          "expected": "b4240d04d4bc1f08fbc0ebb2452e5a4bb46b901f080c6020271044a841249b9d",
+          "actual": "b4240d04d4bc1f08fbc0ebb2452e5a4bb46b901f080c6020271044a841249b9d",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/Syntax.lean",
+          "expected": "57075f43a93a941144b656f73dd642926deb001c0324734b6243f7b02c4b469c",
+          "actual": "57075f43a93a941144b656f73dd642926deb001c0324734b6243f7b02c4b469c",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/Value.lean",
+          "expected": "b02154383a7a00b1324ac8f85d1fb66ba7ee99e692c72118191c91e466ce2abf",
+          "actual": "b02154383a7a00b1324ac8f85d1fb66ba7ee99e692c72118191c91e466ce2abf",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/WorldDomain.lean",
+          "expected": "d4c811882707c942e1d69fb6af71e81253695b4fdb98d045b156991e2e7159b9",
+          "actual": "d4c811882707c942e1d69fb6af71e81253695b4fdb98d045b156991e2e7159b9",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Recursive.lean",
+          "expected": "cbf1dfda736afb9f8e4e9bc4b023030edcb6713de9902a8828cdc1489f0d0934",
+          "actual": "cbf1dfda736afb9f8e4e9bc4b023030edcb6713de9902a8828cdc1489f0d0934",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Relocation.lean",
+          "expected": "00946cb4af37669326648a47aca8c8d7e98c18a7f8fefc1729296ff6f4c0d344",
+          "actual": "00946cb4af37669326648a47aca8c8d7e98c18a7f8fefc1729296ff6f4c0d344",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/ValuePersistence.lean",
+          "expected": "ce6998fd2e8d400dc69d9a5ff8f503ea28182403a721efc8a8251b60772b60f8",
+          "actual": "ce6998fd2e8d400dc69d9a5ff8f503ea28182403a721efc8a8251b60772b60f8",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/FRP.lean",
+          "expected": "a5bf0f5263b45514b4f9b88b09ef1abe2a6a1fb773a44493afd5a8198abeb22b",
+          "actual": "a5bf0f5263b45514b4f9b88b09ef1abe2a6a1fb773a44493afd5a8198abeb22b",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/IndefiniteService.lean",
+          "expected": "0daaf049128e56210c605cc5b2d5cf8b155aad1727eac6bad189615fc75fa7fd",
+          "actual": "0daaf049128e56210c605cc5b2d5cf8b155aad1727eac6bad189615fc75fa7fd",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionBodyEvent.lean",
+          "expected": "fcb8561a8b1d845cd6f0483f68bbec35e63710f40a136035dc5b7273ffc361a8",
+          "actual": "fcb8561a8b1d845cd6f0483f68bbec35e63710f40a136035dc5b7273ffc361a8",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionDecomposition.lean",
+          "expected": "ae13938b5c02bc095fb90e9225ba0b159e148fe5c06571d4dea35eb337e10565",
+          "actual": "ae13938b5c02bc095fb90e9225ba0b159e148fe5c06571d4dea35eb337e10565",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionForceObservation.lean",
+          "expected": "6372cd7ddbbb90eb50918a206e469229f84f9ce977b6a5d33396d6a396fb3241",
+          "actual": "6372cd7ddbbb90eb50918a206e469229f84f9ce977b6a5d33396d6a396fb3241",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureCachedClosure.lean",
+          "expected": "e8afed46093e0dab9a1fdb2e13787c461c0cc48271f351a933dda1510aa21c65",
+          "actual": "e8afed46093e0dab9a1fdb2e13787c461c0cc48271f351a933dda1510aa21c65",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureCachedProgram.lean",
+          "expected": "abf9a7014ced9705deb20bbfb59b38270384e8b8513cbfb19c7950d43a2f3dd0",
+          "actual": "abf9a7014ced9705deb20bbfb59b38270384e8b8513cbfb19c7950d43a2f3dd0",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureCompatibility.lean",
+          "expected": "d8072593abca3cbf857683558009b1bda5d03b8cdf3070acade3b8479b860efc",
+          "actual": "d8072593abca3cbf857683558009b1bda5d03b8cdf3070acade3b8479b860efc",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureCreation.lean",
+          "expected": "c2dceb5d457101b7fb537e784d5bd2a1499cf7e814ff59c8147d115e26755a4f",
+          "actual": "c2dceb5d457101b7fb537e784d5bd2a1499cf7e814ff59c8147d115e26755a4f",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureDomain.lean",
+          "expected": "dea47aed43321e1671d9ad59964008cda44f1d8597c342fe258a0aa482bbd8b5",
+          "actual": "dea47aed43321e1671d9ad59964008cda44f1d8597c342fe258a0aa482bbd8b5",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureDomainState.lean",
+          "expected": "512aa48d4f42854a9e996206417847e1406d41fe8b2c248b3c1b0482aceb2ebd",
+          "actual": "512aa48d4f42854a9e996206417847e1406d41fe8b2c248b3c1b0482aceb2ebd",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureExecution.lean",
+          "expected": "6b1d973868f5d4f8dd41ff1690f5e8f8280807dfd2f555c38533ff6ce57aa3dc",
+          "actual": "6b1d973868f5d4f8dd41ff1690f5e8f8280807dfd2f555c38533ff6ce57aa3dc",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureForcing.lean",
+          "expected": "2f8fdd04d45cf1b2afe6c2e4d683858a58d1044658b089a9448445af9879172b",
+          "actual": "2f8fdd04d45cf1b2afe6c2e4d683858a58d1044658b089a9448445af9879172b",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureHistory.lean",
+          "expected": "0e6b8345755e877d630a2bf66792d8151c5d556e65f1950d1ca238f92f522f13",
+          "actual": "0e6b8345755e877d630a2bf66792d8151c5d556e65f1950d1ca238f92f522f13",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureMachine.lean",
+          "expected": "565dfa03c058447a19af738ac0769b8e47684419ec63ebf31c59c3e35620c4e5",
+          "actual": "565dfa03c058447a19af738ac0769b8e47684419ec63ebf31c59c3e35620c4e5",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureMemory.lean",
+          "expected": "5c3a7ab87c18861333853f40c4ddf5dbd7afe26ce750f371965e87c5ccb04c9d",
+          "actual": "5c3a7ab87c18861333853f40c4ddf5dbd7afe26ce750f371965e87c5ccb04c9d",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureNoReentry.lean",
+          "expected": "84fdee48fd637e00d5f26dad6cc83da273d4a347440495eeb1d6a60c24b726e6",
+          "actual": "84fdee48fd637e00d5f26dad6cc83da273d4a347440495eeb1d6a60c24b726e6",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureOrdinary.lean",
+          "expected": "e2262f31771a9c0587eceab723c978121a68b72ae8739822405a151134ea9911",
+          "actual": "e2262f31771a9c0587eceab723c978121a68b72ae8739822405a151134ea9911",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureRecurrence.lean",
+          "expected": "3d4627029f85ecdd1997b004f0f06df3c58b1f4a67f1011a014e04ab0cfcd41c",
+          "actual": "3d4627029f85ecdd1997b004f0f06df3c58b1f4a67f1011a014e04ab0cfcd41c",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureRecursiveStep.lean",
+          "expected": "b4e0c9a3c3f9214db1fb6a95be3da91192710cba368e8a6fe57e060fd767e20f",
+          "actual": "b4e0c9a3c3f9214db1fb6a95be3da91192710cba368e8a6fe57e060fd767e20f",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureReentry.lean",
+          "expected": "e79e3c6b4bf8d6dfcb5afa8464d94dde438ebd295ff097a1b95cd0df525ed405",
+          "actual": "e79e3c6b4bf8d6dfcb5afa8464d94dde438ebd295ff097a1b95cd0df525ed405",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureRepresentation.lean",
+          "expected": "d5f13dace82411621256fc0411a97087ec16b644d6ef3123359a5f17846d662f",
+          "actual": "d5f13dace82411621256fc0411a97087ec16b644d6ef3123359a5f17846d662f",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureSimulation.lean",
+          "expected": "8e40114b35362cf607a633c51492e1378351be8e3b602cbc28a8a259879fedea",
+          "actual": "8e40114b35362cf607a633c51492e1378351be8e3b602cbc28a8a259879fedea",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureValues.lean",
+          "expected": "81c333becd68cbe9f6b3e1838eb56c2f56066b12cab0878382a86c93323ef46c",
+          "actual": "81c333becd68cbe9f6b3e1838eb56c2f56066b12cab0878382a86c93323ef46c",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureWorldDomain.lean",
+          "expected": "5de16e1b462b842e5ec92338ddd9e155a7583110f886245323fa4f631468240c",
+          "actual": "5de16e1b462b842e5ec92338ddd9e155a7583110f886245323fa4f631468240c",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionRelocation.lean",
+          "expected": "839da7896e3d44a9cf42d97d164dfc23f72464bf4ffb0658ca490eaff0bbe2e9",
+          "actual": "839da7896e3d44a9cf42d97d164dfc23f72464bf4ffb0658ca490eaff0bbe2e9",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionValuePersistence.lean",
+          "expected": "1072d09d7f1a3bc6d83a145685cbde3cad8730e0f9377028500dee1ea48090e1",
+          "actual": "1072d09d7f1a3bc6d83a145685cbde3cad8730e0f9377028500dee1ea48090e1",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "SquareApplications.lean",
+          "expected": "34be527a435a2ae6d69c4c6c0fe2c73f477b043c48c5de63c0bb1e74f9d02398",
+          "actual": "34be527a435a2ae6d69c4c6c0fe2c73f477b043c48c5de63c0bb1e74f9d02398",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "docs/research/pfds-pure-suspensions.md",
+          "expected": "2a7d2e304e5590aa774bc425eb69ce00aec872bfffa9d116e4477c645f106ab4",
+          "actual": "2a7d2e304e5590aa774bc425eb69ce00aec872bfffa9d116e4477c645f106ab4",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "docs/research/pfds-suspensions.md",
+          "expected": "1257cfb512545c090beadfde13605db4632fae41f53c4b83a0b5f5345688c113",
+          "actual": "1257cfb512545c090beadfde13605db4632fae41f53c4b83a0b5f5345688c113",
+          "matches": true
+        }
+      ],
+      "requirement_checks": [
+        {
+          "path": "requirements/pure-recursive-forcing.md",
+          "expected": "57ddefb472b9393a3fe890f880ad4eb94893f5aa6bd8be912da2d7dfa4f4ec55",
+          "actual": "57ddefb472b9393a3fe890f880ad4eb94893f5aa6bd8be912da2d7dfa4f4ec55",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "record": "validation/pure-cache-counts-candidate-r1.json",
+      "record_sha256": "14764869f0f8d659d8b894b5ec13d04658ffc9acd8c85085ade0e718a31a93a9",
+      "commit": "3dd930c3e3989f3e5530463f3ac937a629551335",
+      "commit_exists": true,
+      "acceptance": false,
+      "file_checks": [
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/CacheAccounting.lean",
+          "expected": "c8468574f8b2efb72b212efd9261c789ac209381dedd342d70a8c84ff2bfab53",
+          "actual": "c8468574f8b2efb72b212efd9261c789ac209381dedd342d70a8c84ff2bfab53",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/CacheWrite.lean",
+          "expected": "95e3cad6dfc478ec88d3f4f442a077bd3533395a8987731dc2edd33444e35347",
+          "actual": "95e3cad6dfc478ec88d3f4f442a077bd3533395a8987731dc2edd33444e35347",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pending.lean",
+          "expected": "d8f103c89fa891c46969e27be6bcbacfdb547d96bbfaaa4277c301a7793aed1a",
+          "actual": "d8f103c89fa891c46969e27be6bcbacfdb547d96bbfaaa4277c301a7793aed1a",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/Pure/CacheCounts.lean",
+          "expected": "1b163ae926fb4083957eda6f1bd82d3ff54f97013376931a6efa9889af70baf9",
+          "actual": "1b163ae926fb4083957eda6f1bd82d3ff54f97013376931a6efa9889af70baf9",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Suspensions/TraceObservation.lean",
+          "expected": "69640c7683b3fe9c4212036e29e64bbb319f41beda7d339ecbafd1b1fca66487",
+          "actual": "69640c7683b3fe9c4212036e29e64bbb319f41beda7d339ecbafd1b1fca66487",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionCacheAccounting.lean",
+          "expected": "277a6259f141d2f82c9cac1dcc297c895d1b86bb4ba4d840909b1a03198327e4",
+          "actual": "277a6259f141d2f82c9cac1dcc297c895d1b86bb4ba4d840909b1a03198327e4",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionCacheWrite.lean",
+          "expected": "a342c700c663f64d8c0456b050e9c3717ee92dfeb4b577387b68c221454ba7bc",
+          "actual": "a342c700c663f64d8c0456b050e9c3717ee92dfeb4b577387b68c221454ba7bc",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPending.lean",
+          "expected": "433bdd73524f647e8d361fb2e9f9fbad2275a8d2bd14b37945da6a3b4cb11498",
+          "actual": "433bdd73524f647e8d361fb2e9f9fbad2275a8d2bd14b37945da6a3b4cb11498",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionPureCacheCounts.lean",
+          "expected": "4ea8c73079f93e1cebaa95956bea401b1deaba7f6ee7806ba53a1076b96a4c61",
+          "actual": "4ea8c73079f93e1cebaa95956bea401b1deaba7f6ee7806ba53a1076b96a4c61",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SuspensionTraceObservation.lean",
+          "expected": "4119e90b2bbf2a51c49844a7343e99fc3507ce5742b906009097e524638e6ce1",
+          "actual": "4119e90b2bbf2a51c49844a7343e99fc3507ce5742b906009097e524638e6ce1",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "SquareApplications.lean",
+          "expected": "c83426dca3b1498f67ae6d77ded7291e7156b333e971e4f35f962e3c0dd80cbe",
+          "actual": "c83426dca3b1498f67ae6d77ded7291e7156b333e971e4f35f962e3c0dd80cbe",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "docs/research/pfds-cache-counts.md",
+          "expected": "59fcd634ac9a5c375dd72437feb343554495d4cfbd4f3c4242ec8cb85093991f",
+          "actual": "59fcd634ac9a5c375dd72437feb343554495d4cfbd4f3c4242ec8cb85093991f",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "docs/research/pfds-pure-suspensions.md",
+          "expected": "644e2894be39b483e5f523f1762bde09629efa82baa9573214937aef388f27d0",
+          "actual": "644e2894be39b483e5f523f1762bde09629efa82baa9573214937aef388f27d0",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/CacheAccounting.lean",
+          "expected": "c8468574f8b2efb72b212efd9261c789ac209381dedd342d70a8c84ff2bfab53",
+          "actual": "c8468574f8b2efb72b212efd9261c789ac209381dedd342d70a8c84ff2bfab53",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/CacheWrite.lean",
+          "expected": "95e3cad6dfc478ec88d3f4f442a077bd3533395a8987731dc2edd33444e35347",
+          "actual": "95e3cad6dfc478ec88d3f4f442a077bd3533395a8987731dc2edd33444e35347",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pending.lean",
+          "expected": "d8f103c89fa891c46969e27be6bcbacfdb547d96bbfaaa4277c301a7793aed1a",
+          "actual": "d8f103c89fa891c46969e27be6bcbacfdb547d96bbfaaa4277c301a7793aed1a",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/Pure/CacheCounts.lean",
+          "expected": "1b163ae926fb4083957eda6f1bd82d3ff54f97013376931a6efa9889af70baf9",
+          "actual": "1b163ae926fb4083957eda6f1bd82d3ff54f97013376931a6efa9889af70baf9",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Applications/Suspensions/TraceObservation.lean",
+          "expected": "69640c7683b3fe9c4212036e29e64bbb319f41beda7d339ecbafd1b1fca66487",
+          "actual": "69640c7683b3fe9c4212036e29e64bbb319f41beda7d339ecbafd1b1fca66487",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionCacheAccounting.lean",
+          "expected": "277a6259f141d2f82c9cac1dcc297c895d1b86bb4ba4d840909b1a03198327e4",
+          "actual": "277a6259f141d2f82c9cac1dcc297c895d1b86bb4ba4d840909b1a03198327e4",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionCacheWrite.lean",
+          "expected": "a342c700c663f64d8c0456b050e9c3717ee92dfeb4b577387b68c221454ba7bc",
+          "actual": "a342c700c663f64d8c0456b050e9c3717ee92dfeb4b577387b68c221454ba7bc",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPending.lean",
+          "expected": "433bdd73524f647e8d361fb2e9f9fbad2275a8d2bd14b37945da6a3b4cb11498",
+          "actual": "433bdd73524f647e8d361fb2e9f9fbad2275a8d2bd14b37945da6a3b4cb11498",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionPureCacheCounts.lean",
+          "expected": "4ea8c73079f93e1cebaa95956bea401b1deaba7f6ee7806ba53a1076b96a4c61",
+          "actual": "4ea8c73079f93e1cebaa95956bea401b1deaba7f6ee7806ba53a1076b96a4c61",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "Examples/SuspensionTraceObservation.lean",
+          "expected": "4119e90b2bbf2a51c49844a7343e99fc3507ce5742b906009097e524638e6ce1",
+          "actual": "4119e90b2bbf2a51c49844a7343e99fc3507ce5742b906009097e524638e6ce1",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "SquareApplications.lean",
+          "expected": "c83426dca3b1498f67ae6d77ded7291e7156b333e971e4f35f962e3c0dd80cbe",
+          "actual": "c83426dca3b1498f67ae6d77ded7291e7156b333e971e4f35f962e3c0dd80cbe",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "docs/research/pfds-cache-counts.md",
+          "expected": "59fcd634ac9a5c375dd72437feb343554495d4cfbd4f3c4242ec8cb85093991f",
+          "actual": "59fcd634ac9a5c375dd72437feb343554495d4cfbd4f3c4242ec8cb85093991f",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "docs/research/pfds-pure-suspensions.md",
+          "expected": "644e2894be39b483e5f523f1762bde09629efa82baa9573214937aef388f27d0",
+          "actual": "644e2894be39b483e5f523f1762bde09629efa82baa9573214937aef388f27d0",
+          "matches": true
+        },
+        {
+          "field": "integration_files",
+          "path": "docs/research/pfds-suspensions.md",
+          "expected": "1257cfb512545c090beadfde13605db4632fae41f53c4b83a0b5f5345688c113",
+          "actual": "1257cfb512545c090beadfde13605db4632fae41f53c4b83a0b5f5345688c113",
+          "matches": true
+        }
+      ],
+      "requirement_checks": [
+        {
+          "path": "requirements/pure-cache-counts.md",
+          "expected": "fa5b5c01205aea18cc19aa53047cc7e0d57c0bb225534f0152bc04d7c87e569e",
+          "actual": "fa5b5c01205aea18cc19aa53047cc7e0d57c0bb225534f0152bc04d7c87e569e",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "record": "validation/persistent-accounting-candidate-r3.json",
+      "record_sha256": "a4b11da6857531cb53eb893260e9cc45606ce77cb08f52621b31013e96b163cb",
+      "commit": "577be121e074ddb5de6727a7481c115cb61b3b27",
+      "commit_exists": true,
+      "acceptance": false,
+      "file_checks": [
+        {
+          "field": "file_sha256",
+          "path": "Applications/Resources/Persistent/Debits.lean",
+          "expected": "528f2dfa589b82ed46c0e21684d8a2e77be60acf37df8ea36e799b7884f55254",
+          "actual": "528f2dfa589b82ed46c0e21684d8a2e77be60acf37df8ea36e799b7884f55254",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "Applications/Resources/Persistent/History.lean",
+          "expected": "f0f33917f728ef5e1999e58514f816ab7ba2386c5d66e69b315b4bc5079399d9",
+          "actual": "f0f33917f728ef5e1999e58514f816ab7ba2386c5d66e69b315b4bc5079399d9",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "Applications/Resources/Persistent/Observation.lean",
+          "expected": "aad9f38524f3af29697ae2e935d5e374da24ae01592220a975f9d22b40700e3a",
+          "actual": "aad9f38524f3af29697ae2e935d5e374da24ae01592220a975f9d22b40700e3a",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "Applications/Resources/Persistent/Realization.lean",
+          "expected": "529c001b0016f7faac0f63fbf49ee65a58570e91854ebf2698669f6a3342d955",
+          "actual": "529c001b0016f7faac0f63fbf49ee65a58570e91854ebf2698669f6a3342d955",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "Examples/PersistentDebits.lean",
+          "expected": "ea391f67f3082ea44ec91bff213f5b1b59d30b18467bc13b12637b2cdec8f090",
+          "actual": "ea391f67f3082ea44ec91bff213f5b1b59d30b18467bc13b12637b2cdec8f090",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "Examples/PersistentHistory.lean",
+          "expected": "ce16376024cd71f447ef722119287abb8384af8b59f99c0b1a100b379bd020e1",
+          "actual": "ce16376024cd71f447ef722119287abb8384af8b59f99c0b1a100b379bd020e1",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "Examples/PersistentObservation.lean",
+          "expected": "51a2b62b57dd12351a1d03c2fe2f0254d431f5f244c7305efe01260e1bf76985",
+          "actual": "51a2b62b57dd12351a1d03c2fe2f0254d431f5f244c7305efe01260e1bf76985",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "Examples/PersistentRealization.lean",
+          "expected": "34ee36b21b1bb1208cbd51b49164adde68ffbea9298e0c1c8583c934dc70f30e",
+          "actual": "34ee36b21b1bb1208cbd51b49164adde68ffbea9298e0c1c8583c934dc70f30e",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "Examples/PersistentSourceBoundary.lean",
+          "expected": "f36ea2bf6446e10aae8fc88f982f08373d0332833bd84a6b83544d4d4d0a12f8",
+          "actual": "f36ea2bf6446e10aae8fc88f982f08373d0332833bd84a6b83544d4d4d0a12f8",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "SquareApplications.lean",
+          "expected": "f66df362e26041769e364c17d486fa1f6603b96a72513299cd6474edf6b91be4",
+          "actual": "f66df362e26041769e364c17d486fa1f6603b96a72513299cd6474edf6b91be4",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "docs/research/pfds-persistent-accounting.md",
+          "expected": "c10b722daa9a71e88183864b52b18ded160d0ce82f0eef42f21bafedd5c0304b",
+          "actual": "c10b722daa9a71e88183864b52b18ded160d0ce82f0eef42f21bafedd5c0304b",
+          "matches": true
+        }
+      ],
+      "requirement_checks": [
+        {
+          "path": "requirements/persistent-debit-foundation.md",
+          "expected": "2a89d7818d73e0b1b118ebf7d902a75afb2b6e25afaae6b9c7842d229964922f",
+          "actual": "2a89d7818d73e0b1b118ebf7d902a75afb2b6e25afaae6b9c7842d229964922f",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "record": "validation/body-entry-counts-candidate-r1.json",
+      "record_sha256": "99f2dab381933f68fa349b8e25d803bf234c3d40d9641808c440b46606ad7ea8",
+      "commit": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+      "commit_exists": true,
+      "acceptance": false,
+      "file_checks": [
+        {
+          "field": "file_sha256",
+          "path": "Applications/Suspensions/BodyAccounting.lean",
+          "expected": "e068f898e5a01e96426dc4d9fae0acd9686e2d6acbd3ad3235c6417c8fc8a84d",
+          "actual": "e068f898e5a01e96426dc4d9fae0acd9686e2d6acbd3ad3235c6417c8fc8a84d",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "Applications/Suspensions/BodyRealization.lean",
+          "expected": "b0174e8fbb3631010d22b9431e2f8d1f46326730a4d8628d8ed3bdb7471db2bb",
+          "actual": "b0174e8fbb3631010d22b9431e2f8d1f46326730a4d8628d8ed3bdb7471db2bb",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "Applications/Suspensions/EventCounts.lean",
+          "expected": "f4ba91c590f6482deffabbf67c88853960f2ae4ff60587079e89414ffba73332",
+          "actual": "f4ba91c590f6482deffabbf67c88853960f2ae4ff60587079e89414ffba73332",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "Applications/Suspensions/PendingRetention.lean",
+          "expected": "a0d1a2bf2d6d076098327255852cebf8d75a6a771b95202e87ae2a1f8a78097d",
+          "actual": "a0d1a2bf2d6d076098327255852cebf8d75a6a771b95202e87ae2a1f8a78097d",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "Applications/Suspensions/Pure/BodyCounts.lean",
+          "expected": "bb02cc83b9dfa0ab797936df9d325f1300b4c077ad751577bf22ce211ea4040b",
+          "actual": "bb02cc83b9dfa0ab797936df9d325f1300b4c077ad751577bf22ce211ea4040b",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "Examples/SuspensionBodyRealization.lean",
+          "expected": "2aed95a1b467bb196578009e16cf02c429e0f153a3da1b7b22d796661b2a4abb",
+          "actual": "2aed95a1b467bb196578009e16cf02c429e0f153a3da1b7b22d796661b2a4abb",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "Examples/SuspensionEventCounts.lean",
+          "expected": "77d8f182ba1b382cd9e1a5e7306b1b2942bd1096e428efbab137f871f3725ce0",
+          "actual": "77d8f182ba1b382cd9e1a5e7306b1b2942bd1096e428efbab137f871f3725ce0",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "Examples/SuspensionPendingRetention.lean",
+          "expected": "84a6048b63a692d7c719863eb4ed385aeb290ee759363f73744a746773b8549d",
+          "actual": "84a6048b63a692d7c719863eb4ed385aeb290ee759363f73744a746773b8549d",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "Examples/SuspensionPureBodyCounts.lean",
+          "expected": "a4ba47686f06e89bbe7d39554a486ed89fe6fe5b471b9472ba22405e436f1d8f",
+          "actual": "a4ba47686f06e89bbe7d39554a486ed89fe6fe5b471b9472ba22405e436f1d8f",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "SquareApplications.lean",
+          "expected": "c36098548928546247cdffaf3bc45c257b7b705da1e7b60863e75dfd1c0ddbbc",
+          "actual": "c36098548928546247cdffaf3bc45c257b7b705da1e7b60863e75dfd1c0ddbbc",
+          "matches": true
+        },
+        {
+          "field": "file_sha256",
+          "path": "docs/research/pfds-body-counts.md",
+          "expected": "43e9c42c868393fcb041c344e5f31f39bd47f67b168b5b430f35ca9b6b71e77c",
+          "actual": "43e9c42c868393fcb041c344e5f31f39bd47f67b168b5b430f35ca9b6b71e77c",
+          "matches": true
+        }
+      ],
+      "requirement_checks": [
+        {
+          "path": "requirements/body-entry-counts.md",
+          "expected": "1483d8bfc4470c4aa700c809209b3083db89fa713def40821e1968d9e3ce2a58",
+          "actual": "1483d8bfc4470c4aa700c809209b3083db89fa713def40821e1968d9e3ce2a58",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "record": "validation/signed-potential-draft-r1.json",
+      "record_sha256": "bcb0acdaa8438673f36b7cb6d83715d166c9c82dda4ef8f1b5645b4ddcf4d81d",
+      "commit": "679786087f589caadbe7cc97a1537b6679ec8522",
+      "commit_exists": true,
+      "acceptance": false,
+      "file_checks": [
+        {
+          "field": "files",
+          "path": "Applications/Resources/Potential.lean",
+          "expected": "55b948c7992260ffafa51c77da6ff4cead59c11844c8b5b7b5358e2d594028a7",
+          "actual": "55b948c7992260ffafa51c77da6ff4cead59c11844c8b5b7b5358e2d594028a7",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Applications/Resources/SignedPotential.lean",
+          "expected": "c839b1e32b3182c5789d05934ea253139d91c338917c1207616fe0043b0ce222",
+          "actual": "c839b1e32b3182c5789d05934ea253139d91c338917c1207616fe0043b0ce222",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/PotentialTransport.lean",
+          "expected": "5fa86b8dec422ca73c6a8c4853a6a2719b2f3892c0bac57b6a58becb18dd3c7c",
+          "actual": "5fa86b8dec422ca73c6a8c4853a6a2719b2f3892c0bac57b6a58becb18dd3c7c",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "Examples/SignedPotential.lean",
+          "expected": "ea3361fcee325fbb6c360b01b2cc06fe18c773cc3ecf963494f9d0c431f9c122",
+          "actual": "ea3361fcee325fbb6c360b01b2cc06fe18c773cc3ecf963494f9d0c431f9c122",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "SquareApplications.lean",
+          "expected": "d5f96d925f272187870e3831a33d2f2ee544ddabb149978fbe9ef65dbd8bb581",
+          "actual": "d5f96d925f272187870e3831a33d2f2ee544ddabb149978fbe9ef65dbd8bb581",
+          "matches": true
+        },
+        {
+          "field": "files",
+          "path": "docs/research/pfds-signed-potential.md",
+          "expected": "e7ebb2dd51fec8706a0bba38da9e9a6c0a2eb3aa3a688c5b80a66e6f7cb8dfe5",
+          "actual": "e7ebb2dd51fec8706a0bba38da9e9a6c0a2eb3aa3a688c5b80a66e6f7cb8dfe5",
+          "matches": true
+        }
+      ],
+      "requirement_checks": []
+    },
+    {
+      "record": "validation/signed-potential-draft-r2.json",
+      "record_sha256": "d8483ec54c73f9d466ba390fabf5c13e6b16626a33f31dfeb61854bec3364206",
+      "commit": "9c47a052ef96b528a85660d4c632704ca03144fe",
+      "commit_exists": true,
+      "acceptance": false,
+      "file_checks": [
+        {
+          "field": "potential_sha256",
+          "path": "Applications/Resources/Potential.lean",
+          "expected": "690b48d41dc0b4b21a62e29d1a67c8b0494b3a0ca9de378e07cca82f415f961e",
+          "actual": "690b48d41dc0b4b21a62e29d1a67c8b0494b3a0ca9de378e07cca82f415f961e",
+          "matches": true
+        }
+      ],
+      "requirement_checks": []
+    }
+  ],
+  "candidate_ancestry_chain": [
+    {
+      "ancestor": "901f734161920a76f3b399a575805b9a1d31e971",
+      "descendant": "99a29dcd02eb529fbefbb675e244a8c47b78cdef",
+      "is_ancestor": false
+    },
+    {
+      "ancestor": "99a29dcd02eb529fbefbb675e244a8c47b78cdef",
+      "descendant": "a3feaff319ad5fad912fb8bdc113f33fea4e2a60",
+      "is_ancestor": true
+    },
+    {
+      "ancestor": "a3feaff319ad5fad912fb8bdc113f33fea4e2a60",
+      "descendant": "361f5f3f6bb3de1974510ce355883dac2bf25333",
+      "is_ancestor": true
+    },
+    {
+      "ancestor": "361f5f3f6bb3de1974510ce355883dac2bf25333",
+      "descendant": "3dd930c3e3989f3e5530463f3ac937a629551335",
+      "is_ancestor": true
+    },
+    {
+      "ancestor": "3dd930c3e3989f3e5530463f3ac937a629551335",
+      "descendant": "577be121e074ddb5de6727a7481c115cb61b3b27",
+      "is_ancestor": true
+    },
+    {
+      "ancestor": "577be121e074ddb5de6727a7481c115cb61b3b27",
+      "descendant": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+      "is_ancestor": true
+    },
+    {
+      "ancestor": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+      "descendant": "9c47a052ef96b528a85660d4c632704ca03144fe",
+      "is_ancestor": true
+    }
+  ],
+  "incomplete_validations": [
+    {
+      "name": "import-footprint-901f734-full-r2",
+      "record": "validation/checkpoint039-progress/import-footprint-901f734-full-r2.json",
+      "record_sha256": "a02e2d3366c5346a99e9d31efdbbf6786eff5fd45b30fe55cd6ba60444366986",
+      "log": "validation/checkpoint039-progress/import-footprint-901f734-full-r2.log",
+      "log_sha256": "5d556f6812046f04a8d47dea6948fa763f808939a8309e5b004dc12566895a1f",
+      "log_bytes": 164909,
+      "saved_status": "running",
+      "candidate": "901f734161920a76f3b399a575805b9a1d31e971",
+      "owner_pid": 700729,
+      "owner_proc_present_at_audit": false,
+      "terminal_exit_code_present": false,
+      "terminal_end_time_present": false,
+      "final_inputs_present": false,
+      "saved_acceptance": false,
+      "last_six_log_lines": [
+        "warning: SquareKit/SmoothClutchingTorsor.lean: imports `Mathlib.CategoryTheory.Sites.CartesianClosed` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "\u26a0 [4959/4963] Built SquareKit.SheafActionQuotientDescent (55s)",
+        "warning: SquareKit/SheafActionQuotientDescent.lean: imports `Mathlib.CategoryTheory.Sites.RegularEpi` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "\u26a0 [4960/4964] Built SquareKit.SmoothClutchingPrincipal (578s)",
+        "warning: SquareKit/SmoothClutchingPrincipal.lean: imports `Mathlib.CategoryTheory.Limits.Types.Pullbacks` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "\u2714 [4961/4964] Built Applications.Sequences.RandomAccess.Basic (2.9s)"
+      ],
+      "input_checks_against_git": [],
+      "recovery_status": "interrupted_by_workspace_loss_terminal_outcome_unknown",
+      "action": "Preserve the partial source record unchanged; rerun the same validation scope on the identical commit in a restored pinned environment. No terminal success or failure inferred."
+    },
+    {
+      "name": "signed-potential-r2",
+      "record": "validation/checkpoint039-progress/signed-potential-r2.json",
+      "record_sha256": "c78596d7f9beefecc773ad5405f7992cef8153d7af4e2e53edbf37e7682eefec",
+      "log": "validation/checkpoint039-progress/signed-potential-r2.log",
+      "log_sha256": "3f59d2aa6cad01d8f884c1ae98361e8a1078b60da39c522343c98c79eaa41d17",
+      "log_bytes": 2605,
+      "saved_status": "running",
+      "candidate": "9c47a052ef96b528a85660d4c632704ca03144fe",
+      "owner_pid": 757951,
+      "owner_proc_present_at_audit": false,
+      "terminal_exit_code_present": false,
+      "terminal_end_time_present": false,
+      "final_inputs_present": false,
+      "saved_acceptance": false,
+      "last_six_log_lines": [
+        "\u2714 [602/611] Built Applications.Resources.SymmetricCosts (139s)",
+        "\u2714 [613/618] Built Applications.Resources.BinaryCounter.Decrement (122s)",
+        "\u26a0 [616/624] Replayed Applications.Resources.RandomAccess.Lookup",
+        "warning: Applications/Resources/RandomAccess/Lookup.lean: imports `Mathlib.Data.Nat.Log` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "\u2714 [619/627] Built Applications.Resources.RandomAccess.End (60s)",
+        "\u2714 [625/628] Built Applications.Resources.SymmetricWorkload (37s)"
+      ],
+      "input_checks_against_git": [
+        {
+          "path": "Applications/Bracketing/Basic.lean",
+          "expected": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+          "actual": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+          "matches": true
+        },
+        {
+          "path": "Applications/Optimization/SelectionSpec.lean",
+          "expected": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+          "actual": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/BinaryCounter/Decrement.lean",
+          "expected": "dc9d3d7d9a1fb5bd1650d33af54504b12568178f13feac9840267ecbddcc0cab",
+          "actual": "dc9d3d7d9a1fb5bd1650d33af54504b12568178f13feac9840267ecbddcc0cab",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/BinaryCounter.lean",
+          "expected": "d990e0e8d9b09fff3f774180fa2396558f2d1abcf7e6231be648f5bd66f6f9c0",
+          "actual": "d990e0e8d9b09fff3f774180fa2396558f2d1abcf7e6231be648f5bd66f6f9c0",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/FIFOContracts.lean",
+          "expected": "dff2940bacabe6b759b4ff1f6ebe361282fb0777192bafbb05911f9c13b6ecbb",
+          "actual": "dff2940bacabe6b759b4ff1f6ebe361282fb0777192bafbb05911f9c13b6ecbb",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/Measured.lean",
+          "expected": "b5f76c8dfdb3cc9dd28a356bebd12787b3a7add61abba1022d474604a6979667",
+          "actual": "b5f76c8dfdb3cc9dd28a356bebd12787b3a7add61abba1022d474604a6979667",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/Potential.lean",
+          "expected": "690b48d41dc0b4b21a62e29d1a67c8b0494b3a0ca9de378e07cca82f415f961e",
+          "actual": "690b48d41dc0b4b21a62e29d1a67c8b0494b3a0ca9de378e07cca82f415f961e",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/RandomAccess/Bulk.lean",
+          "expected": "f894c9364e48c3e4845842e57328ba89fbf47b9d3cf3adfcd9200b0c2b544254",
+          "actual": "f894c9364e48c3e4845842e57328ba89fbf47b9d3cf3adfcd9200b0c2b544254",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/RandomAccess/CacheCosts.lean",
+          "expected": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+          "actual": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/RandomAccess/Cycles.lean",
+          "expected": "3f60553002fefc29cc992a9932f531635648d316d2d8cedeacc807dce24c3b31",
+          "actual": "3f60553002fefc29cc992a9932f531635648d316d2d8cedeacc807dce24c3b31",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/RandomAccess/Drain.lean",
+          "expected": "2e715a1709a10cb027ec28b66b0a312cd8bc6c3d2845622c29cfaef881529003",
+          "actual": "2e715a1709a10cb027ec28b66b0a312cd8bc6c3d2845622c29cfaef881529003",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/RandomAccess/End.lean",
+          "expected": "ded4129df132c7fd87a40899cea6f483db02f3f95332bd9ec7c8c57dd868f099",
+          "actual": "ded4129df132c7fd87a40899cea6f483db02f3f95332bd9ec7c8c57dd868f099",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/RandomAccess/EndCases.lean",
+          "expected": "7b33c4effd2eb8d2eedc997b9769960e075015e1a7bbaedec05c2dd19d69b8a1",
+          "actual": "7b33c4effd2eb8d2eedc997b9769960e075015e1a7bbaedec05c2dd19d69b8a1",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/RandomAccess/EndObservation.lean",
+          "expected": "c670636b445bfc00b9b4053759f2f86876bb341310b52e1e86371779504f03bb",
+          "actual": "c670636b445bfc00b9b4053759f2f86876bb341310b52e1e86371779504f03bb",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/RandomAccess/Families.lean",
+          "expected": "3ff9ffb4dafd9e37fb563db019e622a27fbb58ff12a296120c78574ec1daf578",
+          "actual": "3ff9ffb4dafd9e37fb563db019e622a27fbb58ff12a296120c78574ec1daf578",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/RandomAccess/Lookup.lean",
+          "expected": "fee5e437b510db3af153b5c43b940c160c0f5f3163c2b21108550f4aadc689dc",
+          "actual": "fee5e437b510db3af153b5c43b940c160c0f5f3163c2b21108550f4aadc689dc",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/RandomAccess/Observation.lean",
+          "expected": "f4e64afdae5d1df4505d0a6a668b049941496d27450d40bf40c9fd20f24c6aaa",
+          "actual": "f4e64afdae5d1df4505d0a6a668b049941496d27450d40bf40c9fd20f24c6aaa",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/SignedPotential.lean",
+          "expected": "c839b1e32b3182c5789d05934ea253139d91c338917c1207616fe0043b0ce222",
+          "actual": "c839b1e32b3182c5789d05934ea253139d91c338917c1207616fe0043b0ce222",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/SymmetricCosts.lean",
+          "expected": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+          "actual": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/SymmetricWorkload.lean",
+          "expected": "c3d5d35f5144d0a9cb7a723c059329ce267cb88cec07fc8f128ca1dd4f8b96a0",
+          "actual": "c3d5d35f5144d0a9cb7a723c059329ce267cb88cec07fc8f128ca1dd4f8b96a0",
+          "matches": true
+        },
+        {
+          "path": "Applications/Resources/Workload.lean",
+          "expected": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+          "actual": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+          "matches": true
+        },
+        {
+          "path": "Applications/Sequences/AbstractFIFO.lean",
+          "expected": "e9d468a3d60c15f6474e71082c19b561819cb3c084e201c0eb8b935d57af0bb2",
+          "actual": "e9d468a3d60c15f6474e71082c19b561819cb3c084e201c0eb8b935d57af0bb2",
+          "matches": true
+        },
+        {
+          "path": "Applications/Sequences/RandomAccess/Access.lean",
+          "expected": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+          "actual": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+          "matches": true
+        },
+        {
+          "path": "Applications/Sequences/RandomAccess/Basic.lean",
+          "expected": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+          "actual": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+          "matches": true
+        },
+        {
+          "path": "Applications/Sequences/RandomAccess/Borrow.lean",
+          "expected": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+          "actual": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+          "matches": true
+        },
+        {
+          "path": "Applications/Sequences/RandomAccess/Representation.lean",
+          "expected": "89d2b1a17b5fafa0f5153283fab8d3c6cf9c68a9816312be09fec8a64b7a1924",
+          "actual": "89d2b1a17b5fafa0f5153283fab8d3c6cf9c68a9816312be09fec8a64b7a1924",
+          "matches": true
+        },
+        {
+          "path": "Applications/Sequences/RandomAccess/TreeBuild.lean",
+          "expected": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+          "actual": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+          "matches": true
+        },
+        {
+          "path": "Applications/Sequences/Symmetric/Core.lean",
+          "expected": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+          "actual": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+          "matches": true
+        },
+        {
+          "path": "Applications/Sequences/Symmetric/Finite.lean",
+          "expected": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490",
+          "actual": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490",
+          "matches": true
+        },
+        {
+          "path": "Applications/Sequences/Symmetric/Observation.lean",
+          "expected": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557",
+          "actual": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557",
+          "matches": true
+        },
+        {
+          "path": "Applications/Sequences/Symmetric/Prefixes.lean",
+          "expected": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308",
+          "actual": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308",
+          "matches": true
+        },
+        {
+          "path": "Examples/FIFOContracts.lean",
+          "expected": "de9e455109ecb5cca0f5e30b7dc993f81149ab7a6145750cc2b62bcb9f83831b",
+          "actual": "de9e455109ecb5cca0f5e30b7dc993f81149ab7a6145750cc2b62bcb9f83831b",
+          "matches": true
+        },
+        {
+          "path": "Examples/PotentialAccounting.lean",
+          "expected": "ee3fbee1b7e8be75226ac912e3cbb2b82c322d843b3231bdb6ac94908c7b1871",
+          "actual": "ee3fbee1b7e8be75226ac912e3cbb2b82c322d843b3231bdb6ac94908c7b1871",
+          "matches": true
+        },
+        {
+          "path": "Examples/PotentialTransport.lean",
+          "expected": "5fa86b8dec422ca73c6a8c4853a6a2719b2f3892c0bac57b6a58becb18dd3c7c",
+          "actual": "5fa86b8dec422ca73c6a8c4853a6a2719b2f3892c0bac57b6a58becb18dd3c7c",
+          "matches": true
+        },
+        {
+          "path": "Examples/RandomAccessEndCosts.lean",
+          "expected": "ea68d8773ae7fea32d43e9b0eb01d3ca9111a0d41eac28079adafa5a719fa600",
+          "actual": "ea68d8773ae7fea32d43e9b0eb01d3ca9111a0d41eac28079adafa5a719fa600",
+          "matches": true
+        },
+        {
+          "path": "Examples/SignedPotential.lean",
+          "expected": "ea3361fcee325fbb6c360b01b2cc06fe18c773cc3ecf963494f9d0c431f9c122",
+          "actual": "ea3361fcee325fbb6c360b01b2cc06fe18c773cc3ecf963494f9d0c431f9c122",
+          "matches": true
+        },
+        {
+          "path": "SquareKit/ListFusion.lean",
+          "expected": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+          "actual": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+          "matches": true
+        },
+        {
+          "path": "SquareKit/Relations.lean",
+          "expected": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03",
+          "actual": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03",
+          "matches": true
+        },
+        {
+          "path": "Squares.lean",
+          "expected": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+          "actual": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+          "matches": true
+        },
+        {
+          "path": "flake.lock",
+          "expected": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+          "actual": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+          "matches": true
+        },
+        {
+          "path": "flake.nix",
+          "expected": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+          "actual": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+          "matches": true
+        },
+        {
+          "path": "lake-manifest.json",
+          "expected": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+          "actual": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+          "matches": true
+        },
+        {
+          "path": "lakefile.toml",
+          "expected": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+          "actual": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+          "matches": true
+        },
+        {
+          "path": "lean-toolchain",
+          "expected": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+          "actual": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+          "matches": true
+        }
+      ],
+      "recovery_status": "interrupted_by_workspace_loss_terminal_outcome_unknown",
+      "action": "Preserve the partial source record unchanged; rerun the same validation scope on the identical commit in a restored pinned environment. No terminal success or failure inferred."
+    }
+  ],
+  "findings": [
+    {
+      "id": "RECOVERY-040-001",
+      "kind": "tracker_evidence_path",
+      "ticket": 10014,
+      "severity": "administrative",
+      "stale_path": "validation/suspension-derived-r10.json",
+      "preserved_path": "validation/checkpoint016-progress/suspension-derived-r10.json",
+      "preserved_sha256": "11f157de7311a126588ae46f382effa139b577b92f6e8fd4e9a83722d8a9e5e5",
+      "preserved_status": null,
+      "preserved_exit_code": 0,
+      "review_corroboration": [
+        "reviews/suspension-foundation-standards-r1.md:190",
+        "reviews/suspension-foundation-spec-r1.md:389"
+      ],
+      "recommendation": "Correct the direct evidence link in the live tracker while retaining this audit and historical snapshot; do not fabricate or move evidence.",
+      "acceptance_effect": "None; ticket10014 remains unaccepted."
+    }
+  ],
+  "formal_acceptance_asserted": false,
+  "required_followup": [
+    "Keep the historical running records unchanged and record their interrupted/unknown recovery disposition in new session evidence.",
+    "Restore the pinned Nix/Lean/dependency environment before repeating validations.",
+    "Run full901 and signed-potential focused scope again; successful focused completion is still not candidate acceptance.",
+    "Retain separate independent Standards and Spec review and the stock candidate build/audit/final verification for every formal candidate.",
+    "Correct the one stale evidence link without altering ticket status."
+  ],
+  "summary": {
+    "all_manifest_members_match": true,
+    "all_saved_session_members_match": true,
+    "all_refs_match": true,
+    "candidate_file_checks": 342,
+    "candidate_requirement_checks": 10,
+    "candidate_hash_failures": [],
+    "ancestry_chain_matches": false,
+    "interrupted_validation_count": 2,
+    "administrative_findings": 1,
+    "subsequent_chapter2_foundation_ancestry_matches": true
+  },
+  "candidate_ancestry_boundary": {
+    "isolated_prerequisite": "901f734161920a76f3b399a575805b9a1d31e971",
+    "chapter2_candidate": "99a29dcd02eb529fbefbb675e244a8c47b78cdef",
+    "prerequisite_is_ancestor_of_chapter2": false,
+    "merge_base": "70a1477d822efd4fdcec2007280f650bb4695eda",
+    "prerequisite_file_count": 14,
+    "prerequisite_files_different_in_chapter2": [
+      {
+        "path": "SquareApplications.lean",
+        "901_sha256": "129d892f8a72abff2bf10c17f2d4d67b8aefb5eac4596cc7df57577d74b1e159",
+        "99_sha256": "57663ea6a04275cd52952a5ae26a42f15f446057a43f4dddabf0d3b7be7d6cb5"
+      },
+      {
+        "path": "docs/research/pfds-shared-persistence.md",
+        "901_sha256": "e13e4986e4e7755b136951ab681cfce94f9ec24ff4c32affab3d878898a9cc34",
+        "99_sha256": "26573e0c4c27e4cbe2234e86956278709cbb9441cc59f23e0e69dd3b824fa02f"
+      }
+    ],
+    "explanation": "901 is a separate isolated prerequisite candidate. The validation sequence is not a Git ancestry sequence at the first step. Twelve of its14 recorded files have matching bytes in99; public SquareApplications imports and the shared-persistence research document differ. Own full99 gate remains mandatory. The subsequent99\u2192a3\u2192361\u21923dd\u2192577\u21925e\u21929c chain is ancestral.",
+    "prerequisite_files_matching_in_chapter2": 12
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "completed_utc": "2026-11-04T03:51:12.324222+00:00",
+  "kit_version": "1.0.0",
+  "project": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation",
+  "toolchain": {
+    "status": "passed",
+    "path": "/workspace/scratch/60f07f0e98c8/native-state/toolchains/lean-4.35.0-linux",
+    "files_checked": 47,
+    "verified_files": [
+      "bin/clang",
+      "bin/lake",
+      "bin/ld.lld",
+      "bin/lean",
+      "lib/Mcrt1.o",
+      "lib/Scrt1.o",
+      "lib/clang/23/lib/x86_64-unknown-linux-gnu/clang_rt.crtbegin.o",
+      "lib/clang/23/lib/x86_64-unknown-linux-gnu/clang_rt.crtend.o",
+      "lib/clang/23/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a",
+      "lib/crt1.o",
+      "lib/crti.o",
+      "lib/crtn.o",
+      "lib/gcrt1.o",
+      "lib/glibc/ld.so",
+      "lib/glibc/libc.so",
+      "lib/glibc/libc_nonshared.a",
+      "lib/glibc/libdl.so",
+      "lib/glibc/libm.so",
+      "lib/glibc/libpthread.so",
+      "lib/glibc/libpthread_nonshared.a",
+      "lib/glibc/librt.so",
+      "lib/lean/libInit.a",
+      "lib/lean/libLake.a",
+      "lib/lean/libLean.a",
+      "lib/lean/libLeanChecker.a",
+      "lib/lean/libLeanExport.a",
+      "lib/lean/libLeanIR.a",
+      "lib/lean/libLeanc.a",
+      "lib/lean/libStd.a",
+      "lib/lean/libinitialize_minimal.a",
+      "lib/lean/libleancpp.a",
+      "lib/lean/libleanmanifest.a",
+      "lib/lean/libleanrt.a",
+      "lib/lean/libmimalloc_paranoid.a",
+      "lib/libLLVM.so.23.1",
+      "lib/libc++.a",
+      "lib/libc++.so.1",
+      "lib/libc++abi.a",
+      "lib/libc++abi.so.1",
+      "lib/libclang-cpp.so.23.1",
+      "lib/libcrypto.a",
+      "lib/libgcc_s.so.1",
+      "lib/libgmp.a",
+      "lib/libssl.a",
+      "lib/libunwind.a",
+      "lib/libuv.a",
+      "lib/libz.so.1"
+    ],
+    "verification_scope": "47 recorded official executables/link inputs; not a whole-tree attestation",
+    "complete_distribution_attested": false,
+    "extra_runtime_inputs": {
+      "passed": true,
+      "files_checked": 8,
+      "scope": "leanir, leanc, leantar and five Lean/Lake shared libraries"
+    }
+  },
+  "dependencies": [
+    {
+      "name": "mathlib",
+      "path": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages/mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "status": "reused"
+    },
+    {
+      "name": "plausible",
+      "path": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages/plausible",
+      "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "status": "reused"
+    },
+    {
+      "name": "LeanSearchClient",
+      "path": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages/LeanSearchClient",
+      "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "status": "reused"
+    },
+    {
+      "name": "importGraph",
+      "path": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages/importGraph",
+      "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "status": "reused"
+    },
+    {
+      "name": "proofwidgets",
+      "path": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages/proofwidgets",
+      "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "status": "reused"
+    },
+    {
+      "name": "aesop",
+      "path": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages/aesop",
+      "revision": "4a174c490d8707121c4a9290800489f105d85e07",
+      "status": "reused"
+    },
+    {
+      "name": "Qq",
+      "path": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages/Qq",
+      "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "status": "installed"
+    },
+    {
+      "name": "batteries",
+      "path": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages/batteries",
+      "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "status": "installed"
+    },
+    {
+      "name": "Cli",
+      "path": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-validation/.lake/packages/Cli",
+      "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "status": "installed"
+    }
+  ],
+  "profile": "/workspace/scratch/60f07f0e98c8/native-state/profile",
+  "cache_requested": false,
+  "modules": [],
+  "smoke_passed": true,
+  "project_acceptance": false
+}

@@ -1,0 +1,105 @@
+{
+  "schema": "fdsa.prepared-receiving-comparison.receipt.v1",
+  "recorded_utc": "2026-11-04T17:21:58.239797+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "status": "Complete author readback; HELD. Observation carrier and comparison helper unexecuted.",
+  "receiver": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "root_owned_live_full_at_assignment": 14509,
+  "source_or_ref_changes": false,
+  "compiler_or_capture_or_cache_or_runtime_actions": false,
+  "receiving_type_credit": 0,
+  "prepared_targeted_type_run": null,
+  "full_scope_preserved": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "public_names": 1763,
+    "source_closure": 97,
+    "defining_roots": 71,
+    "external_imports": 86
+  },
+  "readback": {
+    "plan_full_lines": [
+      1,
+      114
+    ],
+    "plan_tool_chunks": [
+      "95b098",
+      "3def18"
+    ],
+    "helper_full_lines": [
+      1,
+      274
+    ],
+    "helper_tool_chunks": [
+      "221280",
+      "412e32"
+    ],
+    "carrier_complete_tool_chunk": "125c54",
+    "schedule_and_bound_inputs": "Entire JSONs parsed; all 144 bound bytes/hashes matched. All 17 command/profile inventories matched exact original source lines/options; all 941 historical name/root mappings checked. All 97 immutable Q sources/71 closures rederived before save. This is mechanical readback, not a replacement semantic source/type review.",
+    "helper_syntax_parse_only": true,
+    "helper_import_or_execution": false,
+    "no_mock_or_real_receiver_inputs_created": true
+  },
+  "accounting": {
+    "recent_actual_producers": 5,
+    "recent_unique_checked_names": 1009,
+    "older_actual_producers": 12,
+    "older_unique_checked_names": 941,
+    "older_total_commands": 944,
+    "older_explicit_at_checks": 679,
+    "older_expanded_profile_count_retained": 648,
+    "older_other_profile_count_retained": 293,
+    "older_additional_prints": 3,
+    "recent_and_older_checked_name_union": 1762,
+    "remaining_accepted_R_name": "Resources.isBigO_of_nat_bound",
+    "all72_Growth_affected_names_in_actual_Z815": true,
+    "Z_saved_complete_anchor_closures": 58,
+    "historical920_names_with_complete_Z_anchor": 723,
+    "historical920_names_without_complete_Z_anchor": 197,
+    "outside_all_five_recent_source_union": 9,
+    "extra_externals_beyond_Z815": 4
+  },
+  "read_only_preparation_diagnostics": [
+    {
+      "event": "A summary calculation iterated a group dictionary as if it were name IDs and raised TypeError: unsupported operand type(s) for -: str and int.",
+      "effects": "Read-only command; no file writes. Corrected calculation selected the existing name_ids field; original group unchanged.",
+      "not_a_comparison_execution": true
+    }
+  ],
+  "bound_input_files": 144,
+  "historical_malformed_Foundation_receipt": "Preserved invalid 32768-byte artifact is not parsed or used as valid evidence; valid final report/read-progress bindings retained.",
+  "files": [
+    {
+      "path": "ObservationOnly.lean",
+      "bytes": 3236,
+      "lines": 79,
+      "sha256": "d7c61fc87c597ff2d263e30c6848b0057ad59d43e104c99a15af7de074ef341d"
+    },
+    {
+      "path": "bound-inputs.json",
+      "bytes": 43114,
+      "lines": 873,
+      "sha256": "2120c53da63d2ae57361900937a14b26d115e4a26a0a6c3f560e307df635a6d8"
+    },
+    {
+      "path": "compare_receiving.py",
+      "bytes": 17282,
+      "lines": 274,
+      "sha256": "ca405b33d8b3e938f2e3a7c6abae7c6b06f754bb12d91d93751833e326e004f9"
+    },
+    {
+      "path": "plan.md",
+      "bytes": 17411,
+      "lines": 114,
+      "sha256": "3fb3621551d7a6a2f184477da2134ef1af6de0a7ed70a1e56bfffd4a73d5a6c2"
+    },
+    {
+      "path": "schedule.json",
+      "bytes": 409593,
+      "lines": 1,
+      "sha256": "6216efb85427a6401e1263f34294141c82f2fe88c74dc2dd18eb464207d06c62"
+    }
+  ],
+  "next": "Root/both axes read held preparation; root alone captures and compares after the actual full gate is secured. No automatic type reuse or rerun."
+}

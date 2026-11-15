@@ -1,0 +1,197 @@
+{
+  "schema": "conaled-textbooks-migration-1",
+  "scope": "Archive cleanup, source recovery, instruction consolidation and preservation. No Lean implementation, rebase, new chapter acceptance or mathematical/scientific execution.",
+  "source_owner": "source/refs.json and the complete shared Git source archive; source/provenance identities are recorded in provenance/source-preservation.json.",
+  "standalone_project_recovery": true,
+  "prior_checkpoint_archives_required": false,
+  "reference_availability_owner": "provenance/reference-availability.json",
+  "vfa": {
+    "source_refs": 5,
+    "source_candidate": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+    "git_source_files": 1574,
+    "git_lean_files": 1010,
+    "supplementary_lean_entries": 29,
+    "supplementary_lean_distinct_bytes": 25,
+    "latest_state": "emergency120",
+    "source_history_and_kit": "checkpoint117 plus supplied immutable base",
+    "previous117_versions_retained": 9,
+    "mathematical_source_spec_review_changes_between117_and120": 0,
+    "decision_accounting": {
+      "copied_exact": {
+        "files": 1188,
+        "original_bytes": 10078415
+      },
+      "derived_summary": {
+        "files": 6,
+        "original_bytes": 9023424
+      },
+      "alias_exact": {
+        "files": 153,
+        "original_bytes": 404429
+      },
+      "derived_exact": {
+        "files": 17,
+        "original_bytes": 424126
+      },
+      "omitted_operational": {
+        "files": 218,
+        "original_bytes": 68209128
+      }
+    },
+    "omission_categories": {
+      "generated_setup_import_maps": {
+        "files": 11,
+        "original_bytes": 59173255
+      },
+      "generated_compiler_or_probe_outputs": {
+        "files": 5,
+        "original_bytes": 91664
+      },
+      "partial_setup_file": {
+        "files": 1,
+        "original_bytes": 6815744
+      },
+      "operational_git_metadata": {
+        "files": 198,
+        "original_bytes": 291393
+      },
+      "downloaded_package_metadata": {
+        "files": 3,
+        "original_bytes": 1837072
+      }
+    },
+    "alias_map": "books/vfa/records/history/provenance/aliases.json",
+    "routing_rules": "books/vfa/records/history/provenance/path-rules.json",
+    "derived_chapter_views": "books/vfa/records/history/provenance/chapter-views.json",
+    "chapter_inventory_rule": "17 split source-inventory files are exactly reconstructible from one preserved aggregate, including original hashes and formatting.",
+    "acceptance": "No chapter accepted. Focused success and failed complete run remain distinct."
+  },
+  "pfds": {
+    "source_refs": 45,
+    "source_main": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+    "source_candidate": "3cf3de4fbc24c1a144353ae64b13b72f5ead54a5",
+    "main_is_not_latest_candidate": true,
+    "task_commits": 125,
+    "task_blob_versions": 356,
+    "lean_blob_versions": 281,
+    "count_method": "all45 restored refs, objects reachable excluding pinned commonbase",
+    "decision_accounting": {
+      "copied_exact": {
+        "files": 1180,
+        "original_bytes": 19206438
+      },
+      "omitted_operational": {
+        "files": 10,
+        "original_bytes": 3374379
+      },
+      "alias_exact": {
+        "files": 98,
+        "original_bytes": 1638159
+      },
+      "shared_source": {
+        "files": 1,
+        "original_bytes": 550265
+      },
+      "derived_summary": {
+        "files": 19,
+        "original_bytes": 11518467
+      },
+      "shared_tooling": {
+        "files": 1,
+        "original_bytes": 1154144
+      },
+      "alias_prefix": {
+        "files": 38,
+        "original_bytes": 4766292
+      }
+    },
+    "omission_categories": {
+      "empty_untracked_container": {
+        "files": 1,
+        "original_bytes": 59
+      },
+      "superseded_checkpoint_manifests": {
+        "files": 8,
+        "original_bytes": 1666980
+      },
+      "downloaded_package_index": {
+        "files": 1,
+        "original_bytes": 1707340
+      }
+    },
+    "alias_map": "books/pfds/records/history/provenance/aliases.json",
+    "routing_rules": "books/pfds/records/history/provenance/path-rules.json",
+    "source_scope_matrix": "books/pfds/records/evidence/validation/common-integration-scope-matrix-045.json",
+    "scope_matrix_preserved_exact": true,
+    "summary_rule": "Only19 identified operational records have named repeated inventory fields removed; all other fields and original identity/count/digest remain. No substantive scope matrix or mathematical research record was summarized.",
+    "acceptance": "Chapter2 earliest unaccepted; latest ordinary-r3 record is nonterminal, not a pass or inferred failure."
+  },
+  "fdsa": {
+    "source_refs": 79,
+    "task_refs": 62,
+    "source_accepted_head": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+    "original_loose_lean_entries": 280,
+    "original_loose_lean_distinct_bytes": 241,
+    "additional_staged_lean_versions": 6,
+    "checked_lean_records_including_stage_versions": 286,
+    "decision_accounting": {
+      "copied_exact": {
+        "files": 7301,
+        "bytes": 99883102
+      },
+      "shared_source": {
+        "files": 136,
+        "bytes": 10090261
+      },
+      "alias_exact": {
+        "files": 354,
+        "bytes": 1838935
+      },
+      "shared_tooling": {
+        "files": 299,
+        "bytes": 6424423
+      },
+      "omitted_operational": {
+        "files": 59,
+        "bytes": 10238457
+      },
+      "derived_summary": {
+        "files": 55,
+        "bytes": 45798950
+      },
+      "alias_range": {
+        "files": 530,
+        "bytes": 12775252
+      },
+      "expanded_mathematics": {
+        "files": 3,
+        "bytes": 44834
+      }
+    },
+    "expanded_mathematical_members": 8,
+    "omission_rule": "59 operational archive/cache/partial/empty-container items omitted;55 repetitive operational inventory records summarized; exact duplicate/prefix/range aliases retain original hashes and reconstructible byte ranges. All supplied unique mathematics,280 looseLean entries/241identities plus staged variants and expanded AFP/paper sources retained.",
+    "chapter_status": "Historical Chapters1-3 and XT02 acceptance preserved; XT03 pending; Chapter4 drafts uncompiled. Packaging grants no acceptance."
+  },
+  "shared_native_kit": {
+    "physical_copies": 1,
+    "files": 299,
+    "bytes": 6424423,
+    "manifest_sha256": "72ba31d697b09e71cd21edbf6a46340f1fef6380585df86eb0320e1b05b737b6",
+    "all_three_inputs_exact_bytes_and_modes_verified": true,
+    "scope": "Immutable historical support. Its19 original bootstrap objects/generated C are hash-bound inputs, not a general cache/output exemption or active permission to bypass conaled policy."
+  },
+  "limits": [
+    "Counts of Lean files in a whole repository do not describe completed textbook coverage.",
+    "Original source-manuscript exclusions are explicitly reported; no missing PDF or full upstream corpus is represented as embedded.",
+    "All saved execution results remain historical and bound to their original candidates.",
+    "Full migration path inventories stay outside the checkpoint; compact nontrivial aliases and uniform routing rules remain inside each book records tree.",
+    "A verified local archive is not a durable save; only observed owner-root create_library_file success completes delivery."
+  ],
+  "final_routing_correction": {
+    "book": "pfds",
+    "original_path": "history/environment/unified-native-evidence-045/toolchain/lean-4.35.0-linux.acquisition.json",
+    "retained_path": "history/environment/unified-native-evidence-045/compiler-acquisition/lean-4.35.0-linux.acquisition.json",
+    "sha256": "bf78be5f3a9b8dca7336708c11fbab02da34ad35870f15ebb6601f4b7711136d",
+    "reason": "Preserved 2247-byte historical acquisition JSON under an inert record directory, avoiding a prohibited toolchain-installation directory name; bytes unchanged."
+  }
+}

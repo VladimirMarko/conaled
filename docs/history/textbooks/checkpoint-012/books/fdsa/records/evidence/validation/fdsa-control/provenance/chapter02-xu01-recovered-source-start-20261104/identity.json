@@ -1,0 +1,37 @@
+{
+  "recorded_utc": "2026-11-04T06:36:25.097924+00:00",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-permutation-minimum",
+  "branch": "work/fdsa-permutation-minimum-validation",
+  "head": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+  "original_review_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "status": "clean source-only tree; no compiler or cache created",
+  "source": {
+    "Applications/Probability/PermutationMinimum.lean": {
+      "bytes": 8244,
+      "sha256": "648a2d799ea9905a27992ad4e8653ad21a0457c5301e8c0a026d08d9cd067bbb"
+    },
+    "Examples/PermutationMinimum.lean": {
+      "bytes": 4891,
+      "sha256": "b1cef98f9814eb53668cc29896bad750d2b687c4bc162c7ad500e1df82a09442"
+    },
+    "Examples/PermutationMinimumBoundary.lean": {
+      "bytes": 4173,
+      "sha256": "d169fc8ccac457d71978bd1a209ab610338dd601fe816e40f9f0666164cca34d"
+    },
+    "SquareApplications.lean": {
+      "bytes": 8327,
+      "sha256": "577dc9b46b727b6c951a3fbff19ff545b94cdbe47d85507ca5348bbb0a489bd0"
+    },
+    "docs/research/fdsa-permutation-minimum.md": {
+      "bytes": 7608,
+      "sha256": "9b0ac9218e6a82f40e61faf97447af33adcccfafb60498a4f33acbfce91f5a31"
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "bytes": 16847,
+      "sha256": "98cb1df9badd9ce31b6dc252e7741cd9362e7ef1785b4989b4c2011e5facdfd7"
+    }
+  },
+  "root_assessment": "Full frozen requirements, retained starting/candidate reports, complete3 Lean files including private proofs, complete source note and exact public-root/map diff read. No new mathematical source finding. Original source assessment and frozen expected cases retained. No elaboration or independent final review credit inferred.",
+  "acceptance_order": "Exact foundation first, then required shared-unit gates; preserve XU01\u2192XU02\u2192XU03 historical sequence. This is only source recovery and focused-validation preparation.",
+  "available_bytes": 19855515648
+}

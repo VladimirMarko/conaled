@@ -1,0 +1,20 @@
+{
+  "observed_at": "2026-11-02T23:30:14.726721+00:00",
+  "scope": "Read-only exact-owned-checkout liveness, no signals or inferred cause",
+  "processes": [
+    {
+      "pid": 643924,
+      "checkout": "/workspace/scratch/ca9a61d0bf30/import-correction-r3",
+      "cpu_seconds": 160.28,
+      "module": "/workspace/scratch/ca9a61d0bf30/import-correction-r3/Applications/Orbifold/NumericalExecution.lean",
+      "state": "S"
+    },
+    {
+      "pid": 647849,
+      "checkout": "/workspace/scratch/ca9a61d0bf30/cache-counts",
+      "cpu_seconds": 13.2,
+      "module": "/workspace/scratch/ca9a61d0bf30/cache-counts/Applications/Suspensions/CacheAccounting.lean",
+      "state": "S"
+    }
+  ]
+}

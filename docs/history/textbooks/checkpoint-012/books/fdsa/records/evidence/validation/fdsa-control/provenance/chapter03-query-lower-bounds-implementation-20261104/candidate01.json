@@ -1,0 +1,709 @@
+{
+  "recorded_utc": "2026-11-04T19:06:25.108733+00:00",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "candidate": "6c66b545f7f7e2e15a274a67a867d8ddc7f980c3",
+  "tree": "3eb772753cd1188982c588c1ca96f64f34d41260",
+  "branch": "work/fdsa-ch03-query-lower-bounds",
+  "status": "",
+  "accepted_integration_observed": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "prior_ordinary_merge_ref": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+  "source_files": [
+    {
+      "path": "Applications/Selection/CoordinateSensitivity.lean",
+      "bytes": 6659,
+      "lines": 156,
+      "sha256": "1b517f10f1ebaab226f1f8c450307cab3456432e1e410d828c73240191ed155d",
+      "git_blob": "ecd1ca8b54ff5c0ed19b782e5b4b2dc278a932b5",
+      "declarations": [
+        {
+          "name": "Applications.Selection.CoordinateSensitivity.exists_above",
+          "kind": "theorem",
+          "line": 22,
+          "private": true,
+          "header": "private theorem exists_above (xs : List Int) :\n    \u2203 z : Int, \u2200 x \u2208 xs, x < z",
+          "header_sha256": "9b224feebeef9343cdcbfa776298529eec75b86a7583f8a1b62643c12b9eb55e"
+        },
+        {
+          "name": "Applications.Selection.CoordinateSensitivity.exists_below",
+          "kind": "theorem",
+          "line": 37,
+          "private": true,
+          "header": "private theorem exists_below (xs : List Int) :\n    \u2203 z : Int, \u2200 x \u2208 xs, z < x",
+          "header_sha256": "d099925388fb639460a27744ce547f10f63e3329be87752d29e507c5b47f111a"
+        },
+        {
+          "name": "Applications.Selection.CoordinateSensitivity.ordered_index_injective",
+          "kind": "theorem",
+          "line": 53,
+          "private": false,
+          "header": "theorem ordered_index_injective [LinearOrder \u03b1] (xs : List \u03b1) (hd : xs.Nodup) :\n    Function.Injective (fun k : Fin xs.length => (ordered xs)[k.val]?)",
+          "header_sha256": "017837f0acf6a89462183cb41c72dceca217178b01ecc6eb54bae649a6915a4a"
+        },
+        {
+          "name": "Applications.Selection.CoordinateSensitivity.exists_fresh_set_changes",
+          "kind": "theorem",
+          "line": 68,
+          "private": false,
+          "header": "theorem exists_fresh_set_changes (xs : List Int) (k i : Nat)\n    (hd : xs.Nodup) (hk : k < xs.length) (hi : i < xs.length) :\n    \u2203 z : Int, z \u2209 xs \u2227\n      (ordered (xs.set i z))[k]? \u2260 (ordered xs)[k]?",
+          "header_sha256": "fcf55dfb0b5303e0ff3a7fdcd12ea2d8c684c314c4a8f5945ef0b894792c64b2"
+        },
+        {
+          "name": "Applications.Selection.CoordinateSensitivity.exists_set_changes",
+          "kind": "theorem",
+          "line": 111,
+          "private": false,
+          "header": "theorem exists_set_changes (xs : List Int) (k i : Nat)\n    (hd : xs.Nodup) (hk : k < xs.length) (hi : i < xs.length) :\n    \u2203 z : Int, (ordered (xs.set i z))[k]? \u2260 (ordered xs)[k]?",
+          "header_sha256": "0a58c71d742d12786f7c1015389f208b979da7838aacc8a1cc78b1fbda61e3a6"
+        },
+        {
+          "name": "Applications.Selection.CoordinateSensitivity.sortSelect_set_changes",
+          "kind": "theorem",
+          "line": 118,
+          "private": false,
+          "header": "theorem sortSelect_set_changes (xs : List Int) (k i : Nat)\n    (hd : xs.Nodup) (hk : k < xs.length) (hi : i < xs.length) :\n    \u2203 z : Int, sortSelect (k + 1) (xs.set i z) \u2260 sortSelect (k + 1) xs",
+          "header_sha256": "e8f7089392a8519a2f465c09893bfac9102d879e6139950ee5683d44df66b070"
+        },
+        {
+          "name": "Applications.Selection.CoordinateSensitivity.selectWith_set_changes",
+          "kind": "theorem",
+          "line": 125,
+          "private": false,
+          "header": "theorem selectWith_set_changes (choose : List Int \u2192 Option Int)\n    (hv : PivotValid choose) (xs : List Int) (k i : Nat)\n    (hd : xs.Nodup) (hk : k < xs.length) (hi : i < xs.length) :\n    \u2203 z : Int, selectWith choose (k + 1) (xs.set i z) \u2260\n      selectWith choose (k + 1) xs",
+          "header_sha256": "04c24c021b12f323f2f383a5cda80042915e2f3ca8b52a12203fb6d076dbed13"
+        },
+        {
+          "name": "Applications.Selection.CoordinateSensitivity.ofFn_update",
+          "kind": "theorem",
+          "line": 134,
+          "private": false,
+          "header": "theorem ofFn_update (input : Fin n \u2192 \u03b1) (i : Fin n) (z : \u03b1) :\n    List.ofFn (Function.update input i z) = (List.ofFn input).set i.val z",
+          "header_sha256": "9606a96acde4bd21403eb020b3fef285a8521e1962147cf259de7cc5f19927f9"
+        },
+        {
+          "name": "Applications.Selection.CoordinateSensitivity.exists_update_changes",
+          "kind": "theorem",
+          "line": 147,
+          "private": false,
+          "header": "theorem exists_update_changes (input : Fin n \u2192 Int) (k i : Fin n)\n    (hd : Function.Injective input) :\n    \u2203 z : Int,\n      (ordered (List.ofFn (Function.update input i z)))[k.val]? \u2260\n        (ordered (List.ofFn input))[k.val]?",
+          "header_sha256": "2e7dfa885a77f7b100d0ac07e0fc020b443506bc3b5024570ea4c74e4c817345"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Selection/CoordinateQueries.lean",
+      "bytes": 11106,
+      "lines": 239,
+      "sha256": "ca1c0d339500e77aa14ca47420b9f7a11f213bbcd8ac113c3281c7f9690e6409",
+      "git_blob": "49aa4bdf4beb2533fe273c3267ae031d862dbcf7",
+      "declarations": [
+        {
+          "name": "Applications.Selection.CoordinateQueries.Transcript",
+          "kind": "abbrev",
+          "line": 19,
+          "private": false,
+          "header": "abbrev Transcript (n : Nat) (\u03b1 : Type u)",
+          "header_sha256": "c467366735f780c4204b5b8b1e99db7e6baefcb5e41c4c99a0ac8a477902525b"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.Protocol",
+          "kind": "abbrev",
+          "line": 23,
+          "private": false,
+          "header": "abbrev Protocol (n : Nat) (\u03b1 : Type u) (\u03b2 : Type v)",
+          "header_sha256": "b4eb3415614004ae9a35152390910737cf7429863d75b47fb08b1baf454e3204"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.Runs",
+          "kind": "inductive",
+          "line": 29,
+          "private": false,
+          "header": "inductive Runs (next : Protocol n \u03b1 \u03b2) (input : Fin n \u2192 \u03b1) :\n    Transcript n \u03b1 \u2192 Transcript n \u03b1 \u2192 \u03b2 \u2192 Prop where",
+          "header_sha256": "29498d7c932d192cb6e01c8691680688f24041db707e50a3f5daa4ff7a30f056"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.Runs.done",
+          "kind": "constructor",
+          "line": 31,
+          "private": false,
+          "source_declared_constructor": true
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.Runs.query",
+          "kind": "constructor",
+          "line": 34,
+          "private": false,
+          "source_declared_constructor": true
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.Total",
+          "kind": "def",
+          "line": 45,
+          "private": false,
+          "header": "def Total (next : Protocol n \u03b1 \u03b2) : Prop",
+          "header_sha256": "c9d43019c43e0a0ab440eeebd400af81263559675e9af654175d7b53d2b3ed4e"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.Runs.answers",
+          "kind": "theorem",
+          "line": 49,
+          "private": false,
+          "header": "theorem Runs.answers (run : Runs next input history trace value) :\n    \u2200 i a, (i, a) \u2208 trace \u2192 a = input i",
+          "header_sha256": "16c0b7f75a60071fb1b61799774859f78fa28366cacd0185f9c757f26297c557"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.Runs.replay",
+          "kind": "theorem",
+          "line": 62,
+          "private": false,
+          "header": "theorem Runs.replay (run : Runs next input history trace value)\n    (agree : \u2200 i \u2208 trace.map Prod.fst, input i = other i) :\n    Runs next other history trace value",
+          "header_sha256": "7c906b9911ca3d490c048cee52f4cdb2f05db485325ecbb0fb82638870c3065e"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.Runs.replay_update_of_not_mem",
+          "kind": "theorem",
+          "line": 78,
+          "private": false,
+          "header": "theorem Runs.replay_update_of_not_mem (run : Runs next input history trace value)\n    (i : Fin n) (a : \u03b1) (missing : i \u2209 trace.map Prod.fst) :\n    Runs next (Function.update input i a) history trace value",
+          "header_sha256": "68fe9144a585ed213ba450fe2297d37442fc58bb7ae1b06515ec8e6f635438b0"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.Runs.deterministic",
+          "kind": "theorem",
+          "line": 89,
+          "private": false,
+          "header": "theorem Runs.deterministic (run : Runs next input history trace value)\n    (run' : Runs next input history trace' value') :\n    trace = trace' \u2227 value = value'",
+          "header_sha256": "2e05e0f0516c59da9263753beab48343cb52864fdb81b6e689ef353322705659"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.Selects",
+          "kind": "def",
+          "line": 107,
+          "private": false,
+          "header": "def Selects (next : Protocol n Int Int) (k : Fin n) : Prop",
+          "header_sha256": "278f937be2761392748efe7f51b52b683bcf45547064a67b5abaea9a1cc37d3c"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.Runs.queries_all",
+          "kind": "theorem",
+          "line": 113,
+          "private": false,
+          "header": "theorem Runs.queries_all {next : Protocol n Int Int} {input : Fin n \u2192 Int}\n    {trace : Transcript n Int} {value : Int} (run : Runs next input [] trace value)\n    (k : Fin n) (correct : Selects next k) (distinct : Function.Injective input) :\n    \u2200 i : Fin n, i \u2208 trace.map Prod.fst",
+          "header_sha256": "aa90a9472d805facf3555413f9d105b8e4d25be1cd6111180ad0fb3141a22948"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.Runs.length_lower_bound",
+          "kind": "theorem",
+          "line": 128,
+          "private": false,
+          "header": "theorem Runs.length_lower_bound {next : Protocol n Int Int} {input : Fin n \u2192 Int}\n    {trace : Transcript n Int} {value : Int} (run : Runs next input [] trace value)\n    (k : Fin n) (correct : Selects next k) (distinct : Function.Injective input) :\n    n \u2264 trace.length",
+          "header_sha256": "e17c8efcec9b514c7e2ca8d5ced0b56e8207fc39b76e5ee26bc63486a39f4890"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.queryWork",
+          "kind": "def",
+          "line": 139,
+          "private": false,
+          "header": "def queryWork (tariff : Fin n \u2192 \u03b1 \u2192 Nat) : Transcript n \u03b1 \u2192 Nat",
+          "header_sha256": "d3415b1fc694a8485a037dacdac914b2de9664ca84d46653c7b86ab901d79032"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.queryWork_nil",
+          "kind": "theorem",
+          "line": 143,
+          "private": false,
+          "header": "theorem queryWork_nil (tariff : Fin n \u2192 \u03b1 \u2192 Nat) : queryWork tariff [] = 0",
+          "header_sha256": "1f212aafb436eb875d3b50dfbbc79ebd6278c877811ec9b058a184c64cb8eecc"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.queryWork_cons",
+          "kind": "theorem",
+          "line": 145,
+          "private": false,
+          "header": "theorem queryWork_cons (tariff : Fin n \u2192 \u03b1 \u2192 Nat) (i : Fin n) (a : \u03b1)\n    (rest : Transcript n \u03b1) :\n    queryWork tariff ((i, a) :: rest) = tariff i a + queryWork tariff rest",
+          "header_sha256": "ecce3704c9dc7a034d6a231d1da4b445182584a8c752f11ac298e12f74d8a3f7"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.queryWork_unit",
+          "kind": "theorem",
+          "line": 149,
+          "private": false,
+          "header": "theorem queryWork_unit (trace : Transcript n \u03b1) :\n    queryWork (fun _ _ => 1) trace = trace.length",
+          "header_sha256": "fa08c04fdfb7a3596add06c0d99429b150b62e9e6608a09cc3472ca301a7e6ff"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.queryWork_constant",
+          "kind": "theorem",
+          "line": 158,
+          "private": false,
+          "header": "theorem queryWork_constant (c : Nat) (trace : Transcript n \u03b1) :\n    queryWork (fun _ _ => c) trace = c * trace.length",
+          "header_sha256": "c3e49cc2e0958351c1af25f86918cf493b8d9ce76f83e481e0278fbf8a94e526"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.length_le_queryWork",
+          "kind": "theorem",
+          "line": 168,
+          "private": false,
+          "header": "theorem length_le_queryWork (tariff : Fin n \u2192 \u03b1 \u2192 Nat)\n    (positive : \u2200 i a, 1 \u2264 tariff i a) (trace : Transcript n \u03b1) :\n    trace.length \u2264 queryWork tariff trace",
+          "header_sha256": "77fdcc14ecedf5f6b7f2b5cb7b1278ea04f32b27abd1560d75669641706dfb07"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.Runs.work_lower_bound",
+          "kind": "theorem",
+          "line": 179,
+          "private": false,
+          "header": "theorem Runs.work_lower_bound {next : Protocol n Int Int} {input : Fin n \u2192 Int}\n    {trace : Transcript n Int} {value : Int} (run : Runs next input [] trace value)\n    (k : Fin n) (correct : Selects next k) (distinct : Function.Injective input)\n    (tariff : Fin n \u2192 Int \u2192 Nat) (positive : \u2200 i a, 1 \u2264 tariff i a) :\n    n \u2264 queryWork tariff trace",
+          "header_sha256": "f3a2120dbf96c69be5da2e01909b6628e19fa4a93dae5b6c77b21fe8a25d2fe6"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.Runs.resource_lower_bound",
+          "kind": "theorem",
+          "line": 189,
+          "private": false,
+          "header": "theorem Runs.resource_lower_bound {next : Protocol n Int Int} {input : Fin n \u2192 Int}\n    {trace : Transcript n Int} {value : Int} (run : Runs next input [] trace value)\n    (k : Fin n) (correct : Selects next k) (distinct : Function.Injective input)\n    (tariff : Fin n \u2192 Int \u2192 Nat) (positive : \u2200 i a, 1 \u2264 tariff i a)\n    (resource : Nat) (coversQueries : queryWork tariff trace \u2264 resource) :\n    n \u2264 resource",
+          "header_sha256": "b0e4f2c2ad6cb7d9123dfd165cc4280a0b6f1de214b7a5a0411a4e965fe520f1"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.exists_linear_run",
+          "kind": "theorem",
+          "line": 199,
+          "private": false,
+          "header": "theorem exists_linear_run (next : Protocol n Int Int) (k : Fin n)\n    (total : Total next) (correct : Selects next k) :\n    \u2203 (input : Fin n \u2192 Int) (trace : Transcript n Int) (value : Int),\n      Function.Injective input \u2227 Runs next input [] trace value \u2227 n \u2264 trace.length",
+          "header_sha256": "757d6ccf540307f4ca83a57c0951401db421d4096a5c6f4977b874c4f9da2c16"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.linear_worst_case_bound",
+          "kind": "theorem",
+          "line": 212,
+          "private": false,
+          "header": "theorem linear_worst_case_bound\n    (next : (m : Nat) \u2192 Protocol (m + 1) Int Int) (k : (m : Nat) \u2192 Fin (m + 1))\n    (total : \u2200 m, Total (next m)) (correct : \u2200 m, Selects (next m) (k m))\n    (bound : Nat \u2192 Nat)\n    (upper : \u2200 m input trace value,\n      Runs (next m) input [] trace value \u2192 trace.length \u2264 bound (m + 1))\n    (m : Nat) : m + 1 \u2264 bound (m + 1)",
+          "header_sha256": "3e4caa4f475fd99de026aa4170a637790bae09ded12d3f9a3b75323b47e7ee44"
+        },
+        {
+          "name": "Applications.Selection.CoordinateQueries.linear_isBigO_of_query_bound",
+          "kind": "theorem",
+          "line": 225,
+          "private": false,
+          "header": "theorem linear_isBigO_of_query_bound\n    (next : (m : Nat) \u2192 Protocol (m + 1) Int Int) (k : (m : Nat) \u2192 Fin (m + 1))\n    (total : \u2200 m, Total (next m)) (correct : \u2200 m, Selects (next m) (k m))\n    (bound : Nat \u2192 Nat)\n    (upper : \u2200 m input trace value,\n      Runs (next m) input [] trace value \u2192 trace.length \u2264 bound (m + 1)) :\n    Asymptotics.IsBigO Filter.atTop (fun m : Nat => (m : \u211d))\n      (fun m => (bound m : \u211d))",
+          "header_sha256": "b9c76a9ab654a28380e27670410a268504bfc0b8aa0ed9cb8348af8fcb7923a6"
+        }
+      ]
+    },
+    {
+      "path": "Examples/CoordinateSensitivity.lean",
+      "bytes": 3587,
+      "lines": 86,
+      "sha256": "8fc707c507d0212ca92b113b52976a10fa252d600f5127c042e17a2931aee6ef",
+      "git_blob": "8334adc3911e0eb01f5af3224fd8fa907cb3ec0d",
+      "declarations": [
+        {
+          "name": "Examples.CoordinateSensitivity.middle_of_triple",
+          "kind": "theorem",
+          "line": 11,
+          "private": false,
+          "header": "theorem middle_of_triple : (ordered ([8, 1, 5] : List Int))[1]? = some 5",
+          "header_sha256": "7fb979ca710b8e68178c47cc7618a74b43fe0efbf1c0d64eccdf52903c31dd36"
+        },
+        {
+          "name": "Examples.CoordinateSensitivity.every_triple_coordinate",
+          "kind": "theorem",
+          "line": 16,
+          "private": false,
+          "header": "theorem every_triple_coordinate (i : Fin 3) :\n    \u2203 z : Int, (ordered (([8, 1, 5] : List Int).set i.val z))[1]? \u2260 some 5",
+          "header_sha256": "65e22507c433fc4b1bbfbd487ce0b4322a9a6534b3df38d88e87bb349aa3feab"
+        },
+        {
+          "name": "Examples.CoordinateSensitivity.triple_fresh_witness",
+          "kind": "theorem",
+          "line": 22,
+          "private": false,
+          "header": "theorem triple_fresh_witness (i : Fin 3) :\n    \u2203 z : Int, z \u2209 ([8, 1, 5] : List Int) \u2227\n      (ordered (([8, 1, 5] : List Int).set i.val z))[1]? \u2260\n        (ordered ([8, 1, 5] : List Int))[1]?",
+          "header_sha256": "632f46b8c3ee6f0e590b408d8308486185a8cc4bb14dbc0ecdd42bac0f0ff7a6"
+        },
+        {
+          "name": "Examples.CoordinateSensitivity.above_coordinate_replaced",
+          "kind": "theorem",
+          "line": 30,
+          "private": false,
+          "header": "theorem above_coordinate_replaced :\n    (ordered (([8, 1, 5] : List Int).set 0 (-1)))[1]? = some 1",
+          "header_sha256": "a83ce06db98819381169abc0faec9461a2a772675f69c3397ae63d2d30da8ea0"
+        },
+        {
+          "name": "Examples.CoordinateSensitivity.below_coordinate_replaced",
+          "kind": "theorem",
+          "line": 35,
+          "private": false,
+          "header": "theorem below_coordinate_replaced :\n    (ordered (([8, 1, 5] : List Int).set 1 9))[1]? = some 8",
+          "header_sha256": "8496ccb20335c1e9b14d2095cb23c9df9ab76c15616675e6a6aa201cbec4c4de"
+        },
+        {
+          "name": "Examples.CoordinateSensitivity.selected_coordinate_replaced",
+          "kind": "theorem",
+          "line": 40,
+          "private": false,
+          "header": "theorem selected_coordinate_replaced :\n    (ordered (([8, 1, 5] : List Int).set 2 9))[1]? = some 8",
+          "header_sha256": "ee3ec75c34095f4e387af3bf77c0582d0248478f5c9841b4a627b7d7fa04f5c4"
+        },
+        {
+          "name": "Examples.CoordinateSensitivity.singleton_sensitive",
+          "kind": "theorem",
+          "line": 45,
+          "private": false,
+          "header": "theorem singleton_sensitive (a : Int) :\n    \u2203 z : Int, (ordered ([a].set 0 z))[0]? \u2260 some a",
+          "header_sha256": "07b16f26fa836dd3aec62d3fbc6c0580fcead5b50ba521768131bb21bac3dcdd"
+        },
+        {
+          "name": "Examples.CoordinateSensitivity.valid_ranks_are_injective",
+          "kind": "theorem",
+          "line": 50,
+          "private": false,
+          "header": "theorem valid_ranks_are_injective :\n    Function.Injective\n      (fun k : Fin 3 => (ordered ([8, 1, 5] : List Int))[k.val]?)",
+          "header_sha256": "e41ebb637dfb91c437b551cf617bfab1a5d37b063207b91f4abad35a8b074b0f"
+        },
+        {
+          "name": "Examples.CoordinateSensitivity.invalid_ranks_agree",
+          "kind": "theorem",
+          "line": 56,
+          "private": false,
+          "header": "theorem invalid_ranks_agree :\n    (ordered ([8, 1, 5] : List Int))[3]? = none \u2227\n      (ordered ([8, 1, 5] : List Int))[4]? = none",
+          "header_sha256": "5e4043dc76c27bb7095650b2960a11e02a07fec62400eb111bc8962943f9d4a1"
+        },
+        {
+          "name": "Examples.CoordinateSensitivity.one_based_middle_changes",
+          "kind": "theorem",
+          "line": 62,
+          "private": false,
+          "header": "theorem one_based_middle_changes (i : Fin 3) :\n    \u2203 z : Int, sortSelect 2 (([8, 1, 5] : List Int).set i.val z) \u2260\n      sortSelect 2 ([8, 1, 5] : List Int)",
+          "header_sha256": "18e544cf980c900c5e49a830ee462c0f4b0df53ab14ee7344159fe6203134338"
+        },
+        {
+          "name": "Examples.CoordinateSensitivity.last_pivot_middle_changes",
+          "kind": "theorem",
+          "line": 67,
+          "private": false,
+          "header": "theorem last_pivot_middle_changes (i : Fin 3) :\n    \u2203 z : Int, selectWith lastPivot 2 (([8, 1, 5] : List Int).set i.val z) \u2260\n      selectWith lastPivot 2 ([8, 1, 5] : List Int)",
+          "header_sha256": "c52a3cd5de576c948f7c99b0477e8537e016a9bfd35641815827d487aed092f2"
+        },
+        {
+          "name": "Examples.CoordinateSensitivity.finite_coordinate_adapter",
+          "kind": "theorem",
+          "line": 73,
+          "private": false,
+          "header": "theorem finite_coordinate_adapter :\n    List.ofFn (Function.update (![8, 1, 5] : Fin 3 \u2192 Int) 1 9) = [8, 9, 5]",
+          "header_sha256": "b02cf5f6976aed726d4a0c358283f24e790e2222559c07b67f432408aa0e84d3"
+        },
+        {
+          "name": "Examples.CoordinateSensitivity.increasing_input_sensitive",
+          "kind": "theorem",
+          "line": 78,
+          "private": false,
+          "header": "theorem increasing_input_sensitive (n : Nat) (k i : Fin n) :\n    \u2203 z : Int,\n      (ordered (List.ofFn (Function.update (fun j : Fin n => (j.val : Int)) i z)))[k.val]? \u2260\n        (ordered (List.ofFn (fun j : Fin n => (j.val : Int))))[k.val]?",
+          "header_sha256": "1f8c6d43eb223bd577b2626e933636d0b63c1b91fa43f6b1c9a55e6433d6a5f9"
+        }
+      ]
+    },
+    {
+      "path": "Examples/CoordinateQueries.lean",
+      "bytes": 7860,
+      "lines": 178,
+      "sha256": "b471baa5471a0c01324f013d920c7e1159c30cea0e425bca4b6f050cfad2245e",
+      "git_blob": "00811a4dc5452c722f983ce99d480ce874388d50",
+      "declarations": [
+        {
+          "name": "Examples.CoordinateQueries.oneQuery",
+          "kind": "def",
+          "line": 12,
+          "private": false,
+          "header": "def oneQuery : Protocol 1 Int Int",
+          "header_sha256": "9e1f53648bef9bd4e033a1e9777607e053353c5d9e5b728f4c3e2b8b8e46d3ce"
+        },
+        {
+          "name": "Examples.CoordinateQueries.oneQuery_run",
+          "kind": "theorem",
+          "line": 16,
+          "private": false,
+          "header": "theorem oneQuery_run (input : Fin 1 \u2192 Int) :\n    Runs oneQuery input [] [(0, input 0)] (input 0)",
+          "header_sha256": "6215de4eed8d5109565fbbe01e992f30cfee62350e6366c0e1f0637863f1a931"
+        },
+        {
+          "name": "Examples.CoordinateQueries.oneQuery_total",
+          "kind": "theorem",
+          "line": 20,
+          "private": false,
+          "header": "theorem oneQuery_total : Total oneQuery",
+          "header_sha256": "505ca9ac569737f830548dbe2344948be5807579fb6a3ff6e7e4270d69f375ba"
+        },
+        {
+          "name": "Examples.CoordinateQueries.oneQuery_correct",
+          "kind": "theorem",
+          "line": 23,
+          "private": false,
+          "header": "theorem oneQuery_correct : Selects oneQuery 0",
+          "header_sha256": "6021842d8cda738f6a752c18178886578c2d6635157204ff790bf3b39673cc5e"
+        },
+        {
+          "name": "Examples.CoordinateQueries.oneQuery_every_run",
+          "kind": "theorem",
+          "line": 32,
+          "private": false,
+          "header": "theorem oneQuery_every_run (input : Fin 1 \u2192 Int) (trace : Transcript 1 Int)\n    (value : Int) (run : Runs oneQuery input [] trace value) :\n    trace = [(0, input 0)] \u2227 value = input 0 \u2227 1 \u2264 trace.length",
+          "header_sha256": "56a27f25abda117e53db2d431f24002a0a73916f721a93f451c2563b97128228"
+        },
+        {
+          "name": "Examples.CoordinateQueries.repeatNegative",
+          "kind": "def",
+          "line": 41,
+          "private": false,
+          "header": "def repeatNegative : Protocol 1 Int Int",
+          "header_sha256": "3fe2b9374e26e699a4c80579b054bcdacb3fe08876e1d87a3708f5d543fb1b26"
+        },
+        {
+          "name": "Examples.CoordinateQueries.repeatNegative_negative_run",
+          "kind": "theorem",
+          "line": 46,
+          "private": false,
+          "header": "theorem repeatNegative_negative_run (input : Fin 1 \u2192 Int) (negative : input 0 < 0) :\n    Runs repeatNegative input [] [(0, input 0), (0, input 0)] (input 0)",
+          "header_sha256": "409566215af37fcf991551808682fe06e990f85e12d3b1a6e24eb6048af077cf"
+        },
+        {
+          "name": "Examples.CoordinateQueries.repeatNegative_nonnegative_run",
+          "kind": "theorem",
+          "line": 51,
+          "private": false,
+          "header": "theorem repeatNegative_nonnegative_run (input : Fin 1 \u2192 Int) (nonnegative : 0 \u2264 input 0) :\n    Runs repeatNegative input [] [(0, input 0)] (input 0)",
+          "header_sha256": "97c3b8f20f37412ca7d66280f95675e6d2aed1882e53e32f27529a41f1b3bc49"
+        },
+        {
+          "name": "Examples.CoordinateQueries.repeatNegative_total",
+          "kind": "theorem",
+          "line": 56,
+          "private": false,
+          "header": "theorem repeatNegative_total : Total repeatNegative",
+          "header_sha256": "88a9d6e20d24ecaa4d436f8e618c153231b2284b48cdad7dc4b8272c10604d51"
+        },
+        {
+          "name": "Examples.CoordinateQueries.repeatNegative_correct",
+          "kind": "theorem",
+          "line": 62,
+          "private": false,
+          "header": "theorem repeatNegative_correct : Selects repeatNegative 0",
+          "header_sha256": "728bb3dc19af88154521a688a2a3fd1f3af709c0b1a46b91d11f458d95dafedd"
+        },
+        {
+          "name": "Examples.CoordinateQueries.repeated_negative_charges",
+          "kind": "theorem",
+          "line": 72,
+          "private": false,
+          "header": "theorem repeated_negative_charges (a : Int) (negative : a < 0) :\n    Runs repeatNegative (fun _ => a) [] [(0, a), (0, a)] a \u2227\n      ([(0, a), (0, a)] : Transcript 1 Int).length = 2 \u2227\n      queryWork (fun _ _ => 3) ([(0, a), (0, a)] : Transcript 1 Int) = 6",
+          "header_sha256": "91df349f8592eddedb21ccf43a93751eda46d5afe31015fc14baa19be4313150"
+        },
+        {
+          "name": "Examples.CoordinateQueries.nonnegative_single_charge",
+          "kind": "theorem",
+          "line": 80,
+          "private": false,
+          "header": "theorem nonnegative_single_charge (a : Int) (nonnegative : 0 \u2264 a) :\n    Runs repeatNegative (fun _ => a) [] [(0, a)] a \u2227\n      queryWork (fun _ _ => 3) ([(0, a)] : Transcript 1 Int) = 3",
+          "header_sha256": "265fb815decfb7f39c3cdf9fe4cf0d5e61de1100097445cf2bde6e231d51b2a4"
+        },
+        {
+          "name": "Examples.CoordinateQueries.adaptive_run_lower_bound",
+          "kind": "theorem",
+          "line": 87,
+          "private": false,
+          "header": "theorem adaptive_run_lower_bound (input : Fin 1 \u2192 Int) (trace : Transcript 1 Int)\n    (value : Int) (run : Runs repeatNegative input [] trace value) :\n    1 \u2264 queryWork (fun _ _ => 1) trace",
+          "header_sha256": "22f50f4e0b68cf64b1fe982af0c90c8a3a5013ad683f1d3bbeb9425b68c11e7f"
+        },
+        {
+          "name": "Examples.CoordinateQueries.pairMinimum",
+          "kind": "def",
+          "line": 95,
+          "private": false,
+          "header": "def pairMinimum : Protocol 2 Int Int",
+          "header_sha256": "8ccead7c741b5b922df3c307c93ad8c1fc4eb54321f025bbcd97f8ea4d4b6264"
+        },
+        {
+          "name": "Examples.CoordinateQueries.pairMinimum_run",
+          "kind": "theorem",
+          "line": 100,
+          "private": false,
+          "header": "theorem pairMinimum_run (input : Fin 2 \u2192 Int) :\n    Runs pairMinimum input [] [(0, input 0), (1, input 1)]\n      (min (input 0) (input 1))",
+          "header_sha256": "e52411ae1dc6fd275ddd0ca0df69160510f777116a2781db7d627f477169880f"
+        },
+        {
+          "name": "Examples.CoordinateQueries.pairMinimum_total",
+          "kind": "theorem",
+          "line": 105,
+          "private": false,
+          "header": "theorem pairMinimum_total : Total pairMinimum",
+          "header_sha256": "5e105d8478fdaac8d70e05a675834ac4e1a68eaf0ef0a53ec226a294d6d819b2"
+        },
+        {
+          "name": "Examples.CoordinateQueries.pair_minimum_ranked",
+          "kind": "theorem",
+          "line": 108,
+          "private": false,
+          "header": "theorem pair_minimum_ranked (a b : Int) : RankedAt [a, b] 0 (min a b)",
+          "header_sha256": "3dff50c74e5d0f96161df9672a2218402ce63ed5b51a5e66ed988d29a6b6fc8e"
+        },
+        {
+          "name": "Examples.CoordinateQueries.pairMinimum_correct",
+          "kind": "theorem",
+          "line": 124,
+          "private": false,
+          "header": "theorem pairMinimum_correct : Selects pairMinimum 0",
+          "header_sha256": "74336d455cda42229d4f414a830b969fac9a1f32bd81f75918ed49582a4deed2"
+        },
+        {
+          "name": "Examples.CoordinateQueries.pairMinimum_distinct_coverage",
+          "kind": "theorem",
+          "line": 131,
+          "private": false,
+          "header": "theorem pairMinimum_distinct_coverage :\n    \u2200 i : Fin 2, i \u2208 ([(0, (8 : Int)), (1, 1)] : Transcript 2 Int).map Prod.fst",
+          "header_sha256": "b1ae85428a1d7e7c4a6bf02d1ad208cced3252733251b30b85ec05e924ca51e6"
+        },
+        {
+          "name": "Examples.CoordinateQueries.pairMinimum_distinct_lower_bound",
+          "kind": "theorem",
+          "line": 138,
+          "private": false,
+          "header": "theorem pairMinimum_distinct_lower_bound :\n    2 \u2264 ([(0, (8 : Int)), (1, 1)] : Transcript 2 Int).length",
+          "header_sha256": "00a53c42c615da5127697c911501c09a8375d57649ca18fa0f2c9c7fbd5b5b0f"
+        },
+        {
+          "name": "Examples.CoordinateQueries.pairMinimum_measured_contract",
+          "kind": "theorem",
+          "line": 145,
+          "private": false,
+          "header": "theorem pairMinimum_measured_contract (input : Fin 2 \u2192 Int)\n    (distinct : Function.Injective input) (trace : Transcript 2 Int) (value : Int)\n    (run : Runs pairMinimum input [] trace value) (resource : Nat)\n    (contract : 2 * trace.length \u2264 resource) : 2 \u2264 resource",
+          "header_sha256": "9d75812687d28b2600514b07785e9155fbb599219157f1e3f93593723182751b"
+        },
+        {
+          "name": "Examples.CoordinateQueries.unqueried_update_replays",
+          "kind": "theorem",
+          "line": 155,
+          "private": false,
+          "header": "theorem unqueried_update_replays {n : Nat} (next : Protocol n Int Int)\n    (input : Fin n \u2192 Int) (trace : Transcript n Int) (value : Int)\n    (run : Runs next input [] trace value) (i : Fin n)\n    (missing : i \u2209 trace.map Prod.fst) (z : Int) :\n    Runs next (Function.update input i z) [] trace value",
+          "header_sha256": "1f67582a0daf1a15ff6d4897d4f58ed7170e37e0130c446ecc2dd2b58abb2b4e"
+        },
+        {
+          "name": "Examples.CoordinateQueries.total_correct_protocol_has_witness",
+          "kind": "theorem",
+          "line": 162,
+          "private": false,
+          "header": "theorem total_correct_protocol_has_witness {n : Nat} (next : Protocol n Int Int)\n    (k : Fin n) (total : Total next) (correct : Selects next k) :\n    \u2203 (input : Fin n \u2192 Int) (trace : Transcript n Int) (value : Int),\n      Function.Injective input \u2227 Runs next input [] trace value \u2227 n \u2264 trace.length",
+          "header_sha256": "03952ff5549d39702d643b37ea05525050e1a20d6e7ba10d7dcc03d38e6b4428"
+        },
+        {
+          "name": "Examples.CoordinateQueries.any_uniform_query_bound_is_linear",
+          "kind": "theorem",
+          "line": 168,
+          "private": false,
+          "header": "theorem any_uniform_query_bound_is_linear\n    (next : (m : Nat) \u2192 Protocol (m + 1) Int Int) (k : (m : Nat) \u2192 Fin (m + 1))\n    (total : \u2200 m, Total (next m)) (correct : \u2200 m, Selects (next m) (k m))\n    (bound : Nat \u2192 Nat)\n    (upper : \u2200 m input trace value,\n      Runs (next m) input [] trace value \u2192 trace.length \u2264 bound (m + 1)) :\n    Asymptotics.IsBigO Filter.atTop (fun m : Nat => (m : \u211d))\n      (fun m => (bound m : \u211d))",
+          "header_sha256": "7372b0ece6a76c84e06317f2d6fedf8103ba45a8e6acef295e492dab559375f0"
+        }
+      ]
+    }
+  ],
+  "public_name_count": 68,
+  "public_names": [
+    "Applications.Selection.CoordinateSensitivity.ordered_index_injective",
+    "Applications.Selection.CoordinateSensitivity.exists_fresh_set_changes",
+    "Applications.Selection.CoordinateSensitivity.exists_set_changes",
+    "Applications.Selection.CoordinateSensitivity.sortSelect_set_changes",
+    "Applications.Selection.CoordinateSensitivity.selectWith_set_changes",
+    "Applications.Selection.CoordinateSensitivity.ofFn_update",
+    "Applications.Selection.CoordinateSensitivity.exists_update_changes",
+    "Applications.Selection.CoordinateQueries.Transcript",
+    "Applications.Selection.CoordinateQueries.Protocol",
+    "Applications.Selection.CoordinateQueries.Runs",
+    "Applications.Selection.CoordinateQueries.Runs.done",
+    "Applications.Selection.CoordinateQueries.Runs.query",
+    "Applications.Selection.CoordinateQueries.Total",
+    "Applications.Selection.CoordinateQueries.Runs.answers",
+    "Applications.Selection.CoordinateQueries.Runs.replay",
+    "Applications.Selection.CoordinateQueries.Runs.replay_update_of_not_mem",
+    "Applications.Selection.CoordinateQueries.Runs.deterministic",
+    "Applications.Selection.CoordinateQueries.Selects",
+    "Applications.Selection.CoordinateQueries.Runs.queries_all",
+    "Applications.Selection.CoordinateQueries.Runs.length_lower_bound",
+    "Applications.Selection.CoordinateQueries.queryWork",
+    "Applications.Selection.CoordinateQueries.queryWork_nil",
+    "Applications.Selection.CoordinateQueries.queryWork_cons",
+    "Applications.Selection.CoordinateQueries.queryWork_unit",
+    "Applications.Selection.CoordinateQueries.queryWork_constant",
+    "Applications.Selection.CoordinateQueries.length_le_queryWork",
+    "Applications.Selection.CoordinateQueries.Runs.work_lower_bound",
+    "Applications.Selection.CoordinateQueries.Runs.resource_lower_bound",
+    "Applications.Selection.CoordinateQueries.exists_linear_run",
+    "Applications.Selection.CoordinateQueries.linear_worst_case_bound",
+    "Applications.Selection.CoordinateQueries.linear_isBigO_of_query_bound",
+    "Examples.CoordinateSensitivity.middle_of_triple",
+    "Examples.CoordinateSensitivity.every_triple_coordinate",
+    "Examples.CoordinateSensitivity.triple_fresh_witness",
+    "Examples.CoordinateSensitivity.above_coordinate_replaced",
+    "Examples.CoordinateSensitivity.below_coordinate_replaced",
+    "Examples.CoordinateSensitivity.selected_coordinate_replaced",
+    "Examples.CoordinateSensitivity.singleton_sensitive",
+    "Examples.CoordinateSensitivity.valid_ranks_are_injective",
+    "Examples.CoordinateSensitivity.invalid_ranks_agree",
+    "Examples.CoordinateSensitivity.one_based_middle_changes",
+    "Examples.CoordinateSensitivity.last_pivot_middle_changes",
+    "Examples.CoordinateSensitivity.finite_coordinate_adapter",
+    "Examples.CoordinateSensitivity.increasing_input_sensitive",
+    "Examples.CoordinateQueries.oneQuery",
+    "Examples.CoordinateQueries.oneQuery_run",
+    "Examples.CoordinateQueries.oneQuery_total",
+    "Examples.CoordinateQueries.oneQuery_correct",
+    "Examples.CoordinateQueries.oneQuery_every_run",
+    "Examples.CoordinateQueries.repeatNegative",
+    "Examples.CoordinateQueries.repeatNegative_negative_run",
+    "Examples.CoordinateQueries.repeatNegative_nonnegative_run",
+    "Examples.CoordinateQueries.repeatNegative_total",
+    "Examples.CoordinateQueries.repeatNegative_correct",
+    "Examples.CoordinateQueries.repeated_negative_charges",
+    "Examples.CoordinateQueries.nonnegative_single_charge",
+    "Examples.CoordinateQueries.adaptive_run_lower_bound",
+    "Examples.CoordinateQueries.pairMinimum",
+    "Examples.CoordinateQueries.pairMinimum_run",
+    "Examples.CoordinateQueries.pairMinimum_total",
+    "Examples.CoordinateQueries.pair_minimum_ranked",
+    "Examples.CoordinateQueries.pairMinimum_correct",
+    "Examples.CoordinateQueries.pairMinimum_distinct_coverage",
+    "Examples.CoordinateQueries.pairMinimum_distinct_lower_bound",
+    "Examples.CoordinateQueries.pairMinimum_measured_contract",
+    "Examples.CoordinateQueries.unqueried_update_replays",
+    "Examples.CoordinateQueries.total_correct_protocol_has_witness",
+    "Examples.CoordinateQueries.any_uniform_query_bound_is_linear"
+  ],
+  "private_name_count": 2,
+  "private_source_names": [
+    "Applications.Selection.CoordinateSensitivity.exists_above",
+    "Applications.Selection.CoordinateSensitivity.exists_below"
+  ],
+  "anonymous_declarations": 0,
+  "generated_declarations": "Not enumerated as authored names; mandatory exhaustive whole-project audit remains required. Both explicitly authored Runs constructors are included among public names.",
+  "statement_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-query-lower-bounds-implementation-20261104/Statements68-candidate01.lean",
+    "bytes": 4638,
+    "sha256": "9ec7f897aea6ef3eea6b7579b96830770c7bea64ef1a3deda0155930f8c84016"
+  },
+  "requested_focus": [
+    "Applications.Selection.CoordinateSensitivity",
+    "Examples.CoordinateSensitivity",
+    "Applications.Selection.CoordinateQueries",
+    "Examples.CoordinateQueries"
+  ],
+  "validation": {
+    "staged_whitespace_check_actual_exit": 0,
+    "commit_actual_exit": 0,
+    "commit_tool_chunk": "905888",
+    "compiler_actions": false,
+    "type_output_credit": 0,
+    "full_audit_or_acceptance_credit": false
+  },
+  "scope": {
+    "C03-052": "Proposed complete integer sensitivity, valid-rank injectivity and public/finite-function adapters. Uncompiled.",
+    "C03-081": "Proposed transcript-only operation, finite actual query relation, replay, determinism and explicit all-input totality law. Uncompiled.",
+    "C03-082": "Proposed coverage of every coordinate on distinct input for a selector correct on all inputs. Uncompiled.",
+    "C03-083": "Proposed actual trace length and positive tariff lower bounds, concrete distinct-input witness and uniform linear asymptotic consequence. Actual median-of-medians read/tariff upper bridge still outstanding."
+  }
+}

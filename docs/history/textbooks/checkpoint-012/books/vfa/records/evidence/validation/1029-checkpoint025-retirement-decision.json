@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "decided_utc": "2026-11-02T23:01:02.679775+00:00",
+  "decision": "Retire this exact local025 duplicate once, after assessed complete successful upload and immediate identity/binding recheck.",
+  "reason": "Preserve working room for continuing fresh validation and future recovery checkpoints. No full-build shortage or growth cause is claimed.",
+  "assessment": "work-state/validation/1029-checkpoint025-retirement-assessment.json",
+  "assessment_sha256": "d1196276d50394338f64ad26917181207747ebcbe7c8c6604e7d565f43b6c80a",
+  "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-025-storage-integrity-recovery.tar.gz",
+  "expected_identity": {
+    "device": 27,
+    "inode": 2405225,
+    "mode": 420,
+    "regular": true,
+    "nlink": 1,
+    "size_bytes": 146014033,
+    "allocated_bytes": 146022400,
+    "mtime_ns": 1793635477587724844,
+    "ctime_ns": 1793635578494813995,
+    "uid": 0,
+    "gid": 0
+  },
+  "library_file_id": "libfile_266926f2377481918b44d05a4a5f83b9",
+  "source_sha256": "b83eaf7cefdcde6fa104469a180065a992a4801dde7479e8e9509215b2aeb06e",
+  "root_free_before_bytes": 3144224768,
+  "scope": "One exact local archive only. Preserve all receipts and the saved copy. No other archive, source, cache, process, or formal output is modified. No recurring deletion of this path is authorized.",
+  "preflight_note": "An initial read-only ledger lookup raised KeyError(path) on an older entry lacking that optional field, before any write or unlink. This lookup uses get; absence of decision/action records and continued target existence were checked before proceeding."
+}

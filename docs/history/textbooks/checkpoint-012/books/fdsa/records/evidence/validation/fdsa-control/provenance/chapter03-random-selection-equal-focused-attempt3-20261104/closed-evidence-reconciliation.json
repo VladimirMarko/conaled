@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T22:37:46.175555+00:00",
+  "candidate": "d82ee6286de99a032eaf5fd925e6b87f48e0fb36",
+  "terminal": {
+    "recorded_utc": "2026-11-04T22:37:46.175401+00:00",
+    "owned_session": 1656,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "a5a63b",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "d82ee6286de99a032eaf5fd925e6b87f48e0fb36"
+  },
+  "actual_recorder_and_native_exits": [
+    0,
+    0
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-equal-focused-attempt3-20261104/full.log",
+    "bytes": 10349,
+    "sha256": "d032586fe3045770de87eace64add91b461954210c93bd7b3cbfe80ea69b9962"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T223626Z-project-run-4b11753a",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-equal-focused-attempt3-20261104/native-records/start.json",
+      "bytes": 485,
+      "sha256": "d059590ce702ce4cef3d530e24c3e3a793ed1e32a99674548b8d89f7faba5f45"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-equal-focused-attempt3-20261104/native-records/result.json",
+      "bytes": 636,
+      "sha256": "26023bc4d9c49bb4e96fc9ccfba6653ce8b43eb0cdc62d861b1041f890148878"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-equal-focused-attempt3-20261104/native-records/output.log",
+      "bytes": 10065,
+      "sha256": "00f096de63ddfda7c6659122afd11a963f51f840f7da935e88aabecb517794c0"
+    }
+  },
+  "native_body_exact_outer_offset": 127,
+  "complete_closed_log": true,
+  "scope": "Focused two-module all-equal randomized selection example correction, 30 public statements and one private helper only; no whole Chapter3 check, audit or acceptance.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

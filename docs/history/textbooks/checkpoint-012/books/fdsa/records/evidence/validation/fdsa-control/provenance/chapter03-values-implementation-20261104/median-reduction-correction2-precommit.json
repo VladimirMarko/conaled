@@ -1,0 +1,32 @@
+{
+  "recorded_utc": "2026-11-04T20:21:31.959025+00:00",
+  "finding": "C03-MEDIAN-REDUCTION-ELAB-002",
+  "failed_candidate": "1e499eb9e00c84afa934930822f957f51f5f02f9",
+  "tree": "c1856aff042e5b72b259967cab81a2c216151944",
+  "status": "",
+  "whole_chapter_review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "source_before": {
+    "repository_path": "Applications/Resources/MedianReduction.lean",
+    "bytes": 5767,
+    "sha256": "f1e06d1295d6b07f25581ec733b5dc29a48a7f45bbf35dcfd9b36ca1b4fa4164"
+  },
+  "failure": {
+    "path": "provenance/chapter03-median-reduction-focused-attempt2-20261104/full.log",
+    "actual_exit": 1,
+    "owned_session": 20282,
+    "terminal": "06a2c5",
+    "root_complete_readback": "b4924f",
+    "author_complete_log_readback": "9bef04",
+    "author_terminal_reconciliation_readback": "a2299e",
+    "bytes": 6508,
+    "sha256": "c7800be8006fa3251a869365c8324bca159ca045b354e91f270ddc673f27c03f"
+  },
+  "actual_diagnostic": "Only extremaRun_cost omega fails because ordinary and OrderDual list length applications print identically but remain distinct atoms to omega. The value proof now elaborates. Examples not built.",
+  "correction_scope": "Add an explicit change to one ordinary-alpha list length in extremaRun_cost after the existing cost rewrites. No statement, algorithm, domain, cost formula, import, example or other proof changes.",
+  "readonly_lookup_failure": {
+    "chunk": "c040a7",
+    "detail": "Attempted AGENTS.md under control directory; file absent, no writes. Correct repository AGENTS read at e11564."
+  },
+  "counterfamily_source_started": false,
+  "author_compiler_execution": false
+}

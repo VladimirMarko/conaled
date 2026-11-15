@@ -1,0 +1,113 @@
+{
+  "recorded_utc": "2026-11-04T09:16:39.517932+00:00",
+  "patch_reconstruction": [
+    {
+      "base": "original",
+      "base_sha256": "34162854a3bfabbec1e87bea6111b4939495cc27eb9ee811758dceaeb62dc96f",
+      "patch": {
+        "path": "provenance/chapter02-shared-notes-status-correction1-20261104/patches/fdsa-permutation-tail-vs-original.patch",
+        "bytes": 2069,
+        "lines": 39,
+        "sha256": "b173be2d0bf04b001441c9da0702c9e5f49b983a937f2b17c572d7ac3886b963"
+      },
+      "hunk_count": 3,
+      "context_and_counts_match": true,
+      "reconstructed_proposal_sha256": "9740fdf8ff9761daebae4ec0be6c9388deffcb55fc567d695be27ca89ea86b87"
+    },
+    {
+      "base": "prior-proposal",
+      "base_sha256": "7be59b23d2386f18a8ddd61cf9298fb5f55083d9432d0ccd0d9a7a8129a78432",
+      "patch": {
+        "path": "provenance/chapter02-shared-notes-status-correction1-20261104/patches/fdsa-permutation-tail-vs-prior-proposal.patch",
+        "bytes": 792,
+        "lines": 13,
+        "sha256": "a644fa8ff28e12eeac7b43af971c2e160a6b87bf816df86c68d053fad91584b9"
+      },
+      "hunk_count": 1,
+      "context_and_counts_match": true,
+      "reconstructed_proposal_sha256": "9740fdf8ff9761daebae4ec0be6c9388deffcb55fc567d695be27ca89ea86b87"
+    }
+  ],
+  "sole_change_vs_prior_proposal": {
+    "old": "individual successful compilation, retained in a later focused check. The\ntwo cited closed checks recorded boundary-example failures, and neither\n",
+    "new": "individual successful compilation, retained in a later focused check.\nTwo closed focused checks recorded boundary-example failures, and neither\n"
+  },
+  "reverse_replacement_recovers_prior_bytes": true,
+  "complete_suffix_from_first_mathematical_section_byte_identical": true,
+  "all_prior_package_files_unchanged": {
+    "verified_count": 27,
+    "manifest": "input-identities.json"
+  },
+  "other_five_proposals_unchanged": {
+    "proposed/fdsa-difference-list-costs.md": {
+      "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-difference-list-costs.md",
+      "bytes": 10923,
+      "lines": 219,
+      "sha256": "bd450660076b5addbd6b64d7a591f71fc60b68e6bfbf5f9cc36fa09fac4eb735"
+    },
+    "proposed/fdsa-list-merge.md": {
+      "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-list-merge.md",
+      "bytes": 15491,
+      "lines": 258,
+      "sha256": "9661cc22e3600c0963c37b0f145f7396a1b7677ae2e8f2d240ecd1cf13b88729"
+    },
+    "proposed/fdsa-permutation-minimum.md": {
+      "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-permutation-minimum.md",
+      "bytes": 7970,
+      "lines": 146,
+      "sha256": "2054bf4d6cd371b8570fca003f0fe704793377d261cb8e5f10306022e5b2dcc8"
+    },
+    "proposed/fdsa-permutation-order.md": {
+      "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-permutation-order.md",
+      "bytes": 9172,
+      "lines": 173,
+      "sha256": "8c2be8a6879ece74a935dacd2da3aa635d03d5c2d34860881b7bec9db44a3fcf"
+    },
+    "proposed/fdsa-three-way-partition.md": {
+      "path": "provenance/chapter02-shared-notes-status-preparation-20261104/proposed/fdsa-three-way-partition.md",
+      "bytes": 13959,
+      "lines": 259,
+      "sha256": "f79bfd4f9691f56019696c8ea0ac0b63045f7bb1ac5f5d790adf8a425345f136"
+    }
+  },
+  "retained_closed_checks": [
+    {
+      "name": "chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6",
+      "candidate": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+      "result": {
+        "path": "provenance/chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6/result.json",
+        "bytes": 1833,
+        "lines": 46,
+        "sha256": "1e40ac4caff1953928a946f37c850f9673d98472628517318cf510630d5e5233"
+      },
+      "closed_log": {
+        "path": "provenance/chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6/full.log",
+        "bytes": 48390,
+        "lines": 468,
+        "sha256": "4d18122cfbe8698979673c10b4bdf76b0fb7442d48f75882b95d89c6bae1aa95"
+      },
+      "exit_code": 1,
+      "read_boundary": "Exact already-read closed evidence identities reverified; no new live-output interpretation or validation claimed."
+    },
+    {
+      "name": "chapter02-corrected-sorting-focused-20261104-attempt7",
+      "candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+      "result": {
+        "path": "provenance/chapter02-corrected-sorting-focused-20261104-attempt7/result.json",
+        "bytes": 1525,
+        "lines": 39,
+        "sha256": "117a43c280e6a01064899fd7c4453a5f887ce9cc02fb02332ca6f176e58c50f4"
+      },
+      "closed_log": {
+        "path": "provenance/chapter02-corrected-sorting-focused-20261104-attempt7/full.log",
+        "bytes": 39048,
+        "lines": 324,
+        "sha256": "ad4eaff147d21d5fe4cf1f9ba4c6089db4cb10c01645f37ffc83f9003c28addc"
+      },
+      "exit_code": 1,
+      "read_boundary": "Exact already-read closed evidence identities reverified; no new live-output interpretation or validation claimed."
+    }
+  ],
+  "new_validation_claimed": false,
+  "repository_mutation": false
+}

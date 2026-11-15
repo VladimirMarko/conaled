@@ -1,0 +1,235 @@
+{
+  "parent": "254a4162fa6aeeb7ab2a1ceea5139e5772a5865b",
+  "candidate": "bb4fb243bb7b16ae8bef921fec479a86f2b01c90",
+  "method": "Literal source-header comparison, not elaborated readback",
+  "changed_example_proof_bodies": [
+    "two_key_execution",
+    "two_key_append_mass",
+    "three_key_exercise_law",
+    "three_key_exercise_mass",
+    "equal_key_tag_execution"
+  ],
+  "all_example_headers_unchanged": true,
+  "header_records": [
+    {
+      "name": "empty_uninhabited",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 24,
+      "new_line": 24,
+      "header_sha256": "34f2bb9fd436e8a312b991f096ca1f540a4aac6fbe5afae6e389bbc06e73020b",
+      "unchanged": true
+    },
+    {
+      "name": "singleton_source",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 27,
+      "new_line": 27,
+      "header_sha256": "599fe7204d791dcbbca0a3ebc182c9035e8441bdd8c02ba91c9c5f9ed04346fe",
+      "unchanged": true
+    },
+    {
+      "name": "repeated_occurrence_pivot",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 32,
+      "new_line": 32,
+      "header_sha256": "e291a3db5d856fe5af460d56f9f37f4d12b4e540bc3d033f1bb5d57cf8fc8f34",
+      "unchanged": true
+    },
+    {
+      "name": "pair_exercise",
+      "kind": "theorem",
+      "private": true,
+      "old_line": 40,
+      "new_line": 40,
+      "header_sha256": "7df0a23b018368e10ad20099b235171cebc387a98d8bf20b754244ee556cdac3",
+      "unchanged": true
+    },
+    {
+      "name": "two_key_exercise",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 52,
+      "new_line": 52,
+      "header_sha256": "f3e4a1f0eea30ba069be8089a5459303cf94a7056f262dcce583e9abf398f438",
+      "unchanged": true
+    },
+    {
+      "name": "two_key_execution",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 56,
+      "new_line": 56,
+      "header_sha256": "488284e86da935b7baa44bcd5d090cd45026431f96b52944002ddb4c0359c9cd",
+      "unchanged": true
+    },
+    {
+      "name": "two_key_append_mass",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 65,
+      "new_line": 65,
+      "header_sha256": "12b9a756f68764eb058aed0d804c5f7fc10be1f3ac14d39586575316cb7d14ab",
+      "unchanged": true
+    },
+    {
+      "name": "three_key_exercise_law",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 79,
+      "new_line": 79,
+      "header_sha256": "e468bd1ffc175604e21adef8cdc08f3e8985a64e3de5046cdb7a7af5388b8b89",
+      "unchanged": true
+    },
+    {
+      "name": "three_key_exercise_mass",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 87,
+      "new_line": 87,
+      "header_sha256": "f5b87d7d5e158839be82ab64a2e0fe7b2113f1472875ed3abbb9a098d2fb6c7e",
+      "unchanged": true
+    },
+    {
+      "name": "three_key_balanced_mass",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 100,
+      "new_line": 101,
+      "header_sha256": "ce328c672eabe46f541509e6d2f7e1a13c0c6caf82349f7268197a91051d480b",
+      "unchanged": true
+    },
+    {
+      "name": "three_key_chain_mass",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 105,
+      "new_line": 106,
+      "header_sha256": "4c0b0d2471021dca3986d57a9e355ef3ab585f606b2a80a9de31aec96c832a82",
+      "unchanged": true
+    },
+    {
+      "name": "equal_key_tag_execution",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 111,
+      "new_line": 112,
+      "header_sha256": "d2ace324836bc12b76f676f4dee46314459728c36ab89c666d1d6b53850fbeaf",
+      "unchanged": true
+    },
+    {
+      "name": "equal_key_reversed_mass",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 121,
+      "new_line": 122,
+      "header_sha256": "a6bacfee6de59aedf2e0b247e345f9eaeb5b002dff45f4203dc4e5484abe10e0",
+      "unchanged": true
+    },
+    {
+      "name": "equal_key_reversed_supported",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 128,
+      "new_line": 129,
+      "header_sha256": "10e8ed93efd13eb9b322e8317c5ab93caab603996a2c9bc81afb038ceafefdba",
+      "unchanged": true
+    },
+    {
+      "name": "equal_key_instability",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 137,
+      "new_line": 138,
+      "header_sha256": "dba5c786112a1647871109f6be39970af9311b28b11057d599799fc08ae7520a",
+      "unchanged": true
+    },
+    {
+      "name": "all_equal_three",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 145,
+      "new_line": 146,
+      "header_sha256": "5092e8e80568d5c129230e992859aa0b9bf24ede3d1cb061b7274e25c2aefde8",
+      "unchanged": true
+    },
+    {
+      "name": "duplicate_payload_family",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 151,
+      "new_line": 152,
+      "header_sha256": "eb71a92f8f311cd01deb666d226a4e463e2c93b5814cb190922d28c99096f2ef",
+      "unchanged": true
+    },
+    {
+      "name": "constant_key_payload_law",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 157,
+      "new_line": 158,
+      "header_sha256": "c6749cd797785186c3b7ca94bc367983acf0450a2f326c8e6fd49d586a3ac882",
+      "unchanged": true
+    },
+    {
+      "name": "arbitrary_payload_correct",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 168,
+      "new_line": 169,
+      "header_sha256": "4a5006ccd7a97a36bafd58809238f7d602775ec856b72a37bb9f899446557308",
+      "unchanged": true
+    },
+    {
+      "name": "arbitrary_payload_exercise_bound",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 174,
+      "new_line": 175,
+      "header_sha256": "df792f355a784dcf74d832f84f19ceebe0793b5265e3bf31aaf0a742a7f8801c",
+      "unchanged": true
+    },
+    {
+      "name": "arbitrary_payload_append_bridge",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 180,
+      "new_line": 181,
+      "header_sha256": "16eb9586bf41ada4fbbabcfc71bd9846f66a8e2e4032e77a568ead65562cf085",
+      "unchanged": true
+    },
+    {
+      "name": "arbitrary_payload_finite_cost_support",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 187,
+      "new_line": 188,
+      "header_sha256": "a31eb9ff4f3fbcd7629f8574ea9edd8c14cb27ff1d4d388b47865959f16302b6",
+      "unchanged": true
+    },
+    {
+      "name": "source_append_association",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 191,
+      "new_line": 192,
+      "header_sha256": "c2045e5f821a78e5bd615bb5971bc66e9a9089e8fccbe78bdea6d13163f33990",
+      "unchanged": true
+    },
+    {
+      "name": "different_append_association",
+      "kind": "theorem",
+      "private": false,
+      "old_line": 195,
+      "new_line": 196,
+      "header_sha256": "ab67cf2b4aa882a38149faaa73c5e58aabee584db09535ef5cd1f6109370dc5c",
+      "unchanged": true
+    }
+  ],
+  "core_byte_identical": true,
+  "core_sha256": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2",
+  "expected_distributions_probabilities_and_constants_unchanged": true,
+  "imports_options_and_pins_unchanged": true
+}

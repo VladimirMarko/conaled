@@ -1,0 +1,250 @@
+{
+  "status": "PREPARED ONLY; UNEXECUTED",
+  "source_candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+  "future_candidate": null,
+  "frozen_requirements_sha256": "5873700a349c359d15873829f1399a20225fa80eaa980e7ad9f1e4c8f774dd02",
+  "public_names": [
+    {
+      "name": "Resources.AffineRecurrence.exists_affine_bound_of_two_branch",
+      "kind": "theorem",
+      "source_path": "Applications/Resources/AffineRecurrence.lean",
+      "line": 31,
+      "source_header": "theorem exists_affine_bound_of_two_branch\n    (f : Nat \u2192 R) (left right : Nat \u2192 Nat) (n0 : Nat)\n    (rho K C D : R) (contract : rho < 1)\n    (sizes : \u2200 n, n0 < n \u2192\n      (left n : R) + (right n : R) \u2264 rho * (n : R) + K)\n    (step : \u2200 n, n0 < n \u2192\n      f n \u2264 f (left n) + f (right n) + C * (n : R) + D) :\n    \u2203 A B : R, 0 \u2264 A \u2227 0 \u2264 B \u2227 \u2200 n : Nat, f n \u2264 A * (n : R) + B",
+      "source_header_sha256": "a1c9465fd6ebcd26339aa20ec95705cd0fe72d1d97cd6abe68b0d2efee36bc46",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.quarter",
+      "kind": "def",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 19,
+      "source_header": "def quarter (n : Nat) : Nat",
+      "source_header_sha256": "6c0f44c505ad5d924a22516e61c2d7f614d6cb167fc70d674a1c10fe8510ca4f",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.quarter_of_le_one",
+      "kind": "theorem",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 25,
+      "source_header": "theorem quarter_of_le_one (n : Nat) (small : n \u2264 1) : quarter n = 1",
+      "source_header_sha256": "e86e31de26e3f27303084aca1c23be9b2ce1ca49cc48af120f2824c17457cf41",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.quarter_of_one_lt",
+      "kind": "theorem",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 31,
+      "source_header": "theorem quarter_of_one_lt (n : Nat) (large : 1 < n) :\n    quarter n = 2 * quarter (n / 4) + n + 1",
+      "source_header_sha256": "8fdf365f75d98446b44c2ed75a6ae9cb8afcf8cf3f72bad929843325f9120987",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.quarter_zero",
+      "kind": "theorem",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 38,
+      "source_header": "theorem quarter_zero : quarter 0 = 1",
+      "source_header_sha256": "080040cab03cbe100f0fe200e17c63a341529b1a820128d5eee4bec40d9ac9a9",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.quarter_one",
+      "kind": "theorem",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 39,
+      "source_header": "theorem quarter_one : quarter 1 = 1",
+      "source_header_sha256": "4b41d3a1cf0720b0fcdd7cfb67beab0218d0b207efd0707854ed5f56cb6f7616",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.quarter_two",
+      "kind": "theorem",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 41,
+      "source_header": "theorem quarter_two : quarter 2 = 5",
+      "source_header_sha256": "8e70aa5df5938eeef53bf0f556cb81a5d8bb0f307b39b65e4c41454760a004e5",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.quarter_four",
+      "kind": "theorem",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 45,
+      "source_header": "theorem quarter_four : quarter 4 = 7",
+      "source_header_sha256": "dc8d993943ef71d03fafebf25acf07860a37ceb69a397c3c03872b73d76b0ffc",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.quarter_eight",
+      "kind": "theorem",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 49,
+      "source_header": "theorem quarter_eight : quarter 8 = 19",
+      "source_header_sha256": "cc3615442b7181b6eee4c0647eff49c61a7e95ad1f071e870a7e6f110ce3eedb",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.quarter_sixteen",
+      "kind": "theorem",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 53,
+      "source_header": "theorem quarter_sixteen : quarter 16 = 31",
+      "source_header_sha256": "1ffff4f5a98211c047e3dc7d81bf74d9a49de476bba41c280091c050b5ee7f1e",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.quarter_affine_bound",
+      "kind": "theorem",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 59,
+      "source_header": "theorem quarter_affine_bound :\n    \u2203 A B : \u211a, 0 \u2264 A \u2227 0 \u2264 B \u2227\n      \u2200 n : Nat, (quarter n : \u211a) \u2264 A * (n : \u211a) + B",
+      "source_header_sha256": "35328daafdfd0c896affe53b0f397a14345abc3da9185cccc46dbb4d42a0de71",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.signed",
+      "kind": "def",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 76,
+      "source_header": "def signed (n : Nat) : Int",
+      "source_header_sha256": "06bf821ea4f7bf8aabc62fa17d87a5f2fd1c5e317428f897dba9a5b1b2d06325",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.signed_base",
+      "kind": "theorem",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 78,
+      "source_header": "theorem signed_base : signed 0 = -1",
+      "source_header_sha256": "2e4834616dc7f71e466403dd772102bddc5915565d85acd3d24c9ec298936734",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.signed_nonpositive",
+      "kind": "theorem",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 80,
+      "source_header": "theorem signed_nonpositive (n : Nat) : signed n \u2264 0",
+      "source_header_sha256": "3467b94e1056e70c3b06fb1383976beaa9d5a34e9634bb04e2e07476e25f607a",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.signed_recurrence",
+      "kind": "theorem",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 85,
+      "source_header": "theorem signed_recurrence (n : Nat) :\n    signed n = signed 0 + signed 0 + (-1) * (n : Int) + 1",
+      "source_header_sha256": "33c370b97c4f7076b456658b7cb0e62955e24939ef2dcb227cb4e26a0a1090aa",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.signed_affine_bound",
+      "kind": "theorem",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 92,
+      "source_header": "theorem signed_affine_bound :\n    \u2203 A B : Int, 0 \u2264 A \u2227 0 \u2264 B \u2227\n      \u2200 n : Nat, signed n \u2264 A * (n : Int) + B",
+      "source_header_sha256": "21fb429882a6e444447469054612713d36f08dd93630b827f727f2e7faba3f98",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.negative_square_upper",
+      "kind": "theorem",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 103,
+      "source_header": "theorem negative_square_upper {R : Type*} [CommRing R] [LinearOrder R]\n    [IsStrictOrderedRing R] (n : Nat) : -((n : R) ^ 2) \u2264 0",
+      "source_header_sha256": "cf5aedcad037d08ea4073660676c31246d32974a95981c753a7c98fa6f072ce6",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.negative_square_absolute_value",
+      "kind": "theorem",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 107,
+      "source_header": "theorem negative_square_absolute_value :\n    -((2 : Int) ^ 2) \u2264 0 \u2227 | -((2 : Int) ^ 2)| = 4",
+      "source_header_sha256": "b9f5b5d06763095aea26dc8170c2d2ca9a9d2ddd0d2eb5f5046a1c3ea329b109",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.parameterwise_affine_bound",
+      "kind": "theorem",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 113,
+      "source_header": "theorem parameterwise_affine_bound (p : Nat) :\n    \u2203 A B : Int, 0 \u2264 A \u2227 0 \u2264 B \u2227\n      \u2200 n : Nat, (p : Int) \u2264 A * (n : Int) + B",
+      "source_header_sha256": "24010d6bf3554be63d7e5fd28241007cfe9a86d14ca40d52ade34da80ec6c9ea",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.no_uniform_natural_family_bound",
+      "kind": "theorem",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 126,
+      "source_header": "theorem no_uniform_natural_family_bound :\n    \u00ac \u2203 A B : Nat, \u2200 p n : Nat, p \u2264 A * n + B",
+      "source_header_sha256": "1a95af1d5f59e44ea34467cf7609ece5df76c8c1e9733fa26dc6a0b56f868307",
+      "actual_expanded_type_read": false
+    },
+    {
+      "name": "Examples.AffineRecurrence.no_uniform_integer_family_bound",
+      "kind": "theorem",
+      "source_path": "Examples/AffineRecurrence.lean",
+      "line": 134,
+      "source_header": "theorem no_uniform_integer_family_bound :\n    \u00ac \u2203 A B : Int, \u2200 p n : Nat, (p : Int) \u2264 A * (n : Int) + B",
+      "source_header_sha256": "1149819714d41a8cc47a4392ee198b163eab11f195281a66f922867bffd0e9a2",
+      "actual_expanded_type_read": false
+    }
+  ],
+  "program": {
+    "path": "provenance/affine-recurrence-public-statements21-prepared-20261104/Statements.lean",
+    "bytes": 1474,
+    "sha256": "13d96149ecb926ead0a9b892f72331fceeef6e85d674bf5f0d6d0682e03e7d60"
+  },
+  "source_files": [
+    {
+      "path": "Applications/Resources/AffineRecurrence.lean",
+      "bytes": 5839,
+      "lines": 113,
+      "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d"
+    },
+    {
+      "path": "Examples/AffineRecurrence.lean",
+      "bytes": 5165,
+      "lines": 142,
+      "sha256": "eb9239f5810887ba988420c3fe8538eab21285c1e6173eb5467133baa63868d5"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 8431,
+      "lines": 256,
+      "sha256": "c7abc390617e80c42c2b604528748fcebe794f869d8abeae88a07a69864ea3ef"
+    },
+    {
+      "path": "docs/research/fdsa-affine-recurrence.md",
+      "bytes": 9975,
+      "lines": 233,
+      "sha256": "a07b086bc846c0898b2713a7b055b9cb451d0471c655eeaab9cc1077f32b87bf"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 32550,
+      "lines": 500,
+      "sha256": "4e8acd033864e106e6881d8d5bb3d73993f9c6c65bee14d072553eadf392789b"
+    }
+  ],
+  "both_complete_source_reports": [
+    {
+      "path": "reviews/affine-recurrence-standards-preparation-20261104.md",
+      "bytes": 15543,
+      "sha256": "bff3e140f1178b6f77ac2d12a42e544dbf2d7522bc27bcf793d1e7ef55b24e92"
+    },
+    {
+      "path": "reviews/affine-recurrence-spec-preparation-20261104.md",
+      "bytes": 18414,
+      "sha256": "51d44fb60b962dd4237450c2a88c5dd24cd62c5187f79354f20eab90448204af"
+    }
+  ],
+  "program_executed": false,
+  "actual_type_credit": 0,
+  "new_acceptance": false,
+  "binding_limit": "Source names/header inventory only. Actual future local closure, configuration, dependency pins, qualified runtime, stock-build ownership, compiler objects and terminal/prepost evidence remain mandatory; original d64 is uncompiled."
+}

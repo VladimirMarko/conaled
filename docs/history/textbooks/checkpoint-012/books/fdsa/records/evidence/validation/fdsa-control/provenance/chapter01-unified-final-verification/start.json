@@ -1,0 +1,24 @@
+{
+  "requested_utc": "2026-11-03T21:16:47.906071+00:00",
+  "cwd": "/workspace/scratch/31d6377eca78/fdsa/conaled-ch01-review",
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "command": [
+    "python3",
+    "/workspace/scratch/31d6377eca78/conaled-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/31d6377eca78/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/31d6377eca78/fdsa/conaled-ch01-review",
+    "--",
+    "./check.sh",
+    "--verify-candidate",
+    "HEAD"
+  ],
+  "scope": "Process recording only; command and acceptance policy unchanged.",
+  "started_utc": "2026-11-03T21:16:47.915405+00:00",
+  "initial_head": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "initial_status": "",
+  "recorder_pid": 2,
+  "available_bytes_at_start": 50065104896
+}

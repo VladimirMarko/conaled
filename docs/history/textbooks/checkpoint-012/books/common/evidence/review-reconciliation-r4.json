@@ -1,0 +1,24 @@
+{
+  "recorded_at": "2026-11-14T20:48:53.314435+00:00",
+  "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+  "requirements_sha256": "a60dd5a4aa4ef46ff8463e47f536961a7f374c5ade74f012c609470e59f6b29c",
+  "action": "Mechanical recording of independent R4 source/handoff outcomes and report pointers. R1\u2013R3 rounds unchanged; no source, requirements, handoff, coverage, STATUS, finding closure or validation promotion.",
+  "before": {
+    "REVIEW.json": "2350a066c50a62086cb9bbf4185d0d9f291e6f8a71d27a66ac9983b1292384de",
+    "ISSUES.json": "d9160998531f10a50c6cfba551683b355aa2036cba4c2eb57213c5452bcf7c47"
+  },
+  "after": {
+    "REVIEW.json": "652df7d7ed3b205b7a6e69b216a6e6c412f6c047f41a7a44cdf6522987518c8a",
+    "ISSUES.json": "4191d596a3e5bb73185a45f9ea970b86524552dbafe7d0faa00f9ab9d788b57d"
+  },
+  "report_sha256": {
+    "standards-r4.md": "7419875f61ef4bfe81b0de8db55e94569e25b5315562e21afecfa96b6618828e",
+    "standards-r4.json": "4dc7b5ebb47ad255254858453206ccc6ce9a5d458af3e85729c6ebcfd9295c08",
+    "spec-r4.md": "6c44f87397ef292ff65e4e805f7f45d7f9aab98e4cdaf35912a00da9f6ac66f0",
+    "spec-r4.json": "994a06bfa004d292f81f4928cc2724d4f7119555a5212c14c410d751f1c3066c",
+    "coordinator-r4.md": "b004bcd1fb64783eaed37c07889ffe991784a1b980cc61b2b5f62f93850ba1e5",
+    "coordinator-r4.json": "cef99123f5702bb898002b11a5d518d52b71204d027e7069d62ec0068f6023c7"
+  },
+  "source_handoff": "Passed by both axes; zero new findings",
+  "final_acceptance": "Still pending receiving exact-candidate full build/audit, both final approvals, immediate verify-candidate and snapshot compare. INT-SP-001 remains open."
+}

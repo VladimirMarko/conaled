@@ -1,0 +1,84 @@
+{
+  "recorded_utc": "2026-11-04T08:51:08.559450+00:00",
+  "role": "Source author: Uniform mean repair2; independent foundation Standards role paused and kept separate.",
+  "author_worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-uniform-input",
+  "branch": "work/fdsa-ch02-uniform-input",
+  "author_base": "aa89aeccf7e06cd046b4f3c5c430631d4ea73b5b",
+  "start_status_porcelain": "",
+  "original_full_uniform_candidate": "9d5dcd2cfbd6fc5df572234a85bf4957d0c32a21",
+  "original_prepared_prefix": "204dba90967f11a2dfe186316bc85a29acbcc576",
+  "observed_central_candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+  "actual_diagnostic_state": "Complete emitted two-error block from fixed 34,903-byte growing-log prefix; no aggregate terminal result. No process polled.",
+  "source": [
+    {
+      "path": "conaled-ch02-uniform-input/Applications/Resources/UniformQuickSortMean.lean",
+      "bytes": 37880,
+      "lines": 783,
+      "sha256": "135066a5f434ddd99981212a739b165ccdacadbff1448e5f7c358ff04e33883f"
+    },
+    {
+      "path": "conaled-ch02-uniform-input/Examples/UniformQuickSortMean.lean",
+      "bytes": 16466,
+      "lines": 352,
+      "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5"
+    }
+  ],
+  "pins": [
+    {
+      "path": "conaled-ch02-uniform-input/lean-toolchain",
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "path": "conaled-ch02-uniform-input/lake-manifest.json",
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    {
+      "path": "conaled-ch02-uniform-input/lakefile.toml",
+      "bytes": 444,
+      "lines": 13,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+    }
+  ],
+  "diagnostics": {
+    "path": "fdsa-control/provenance/chapter02-uniform-proof-repair2-20261104/diagnostics.txt",
+    "bytes": 2136,
+    "lines": 37,
+    "sha256": "427fcc34e2ba86f0958ab30c91a1d526f19fbe977b18275f672a4aee2bab1d2d"
+  },
+  "capture": {
+    "path": "fdsa-control/provenance/chapter02-uniform-proof-repair2-20261104/diagnostic-capture.json",
+    "bytes": 530,
+    "lines": 12,
+    "sha256": "f260bb475591efd19012a52f9bdde7a33505e0863f6f9b27e87738f071be6f84"
+  },
+  "pinned_api_read": [
+    {
+      "path": "conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/MeasureTheory/Integral/Bochner/Basic.lean",
+      "bytes": 72737,
+      "lines": 1425,
+      "sha256": "7e46dfb89df86399622c463d2ac657ab679eb2c0151266c82e896634be6d5965"
+    },
+    {
+      "path": "conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/MeasureTheory/Function/L1Space/Integrable.lean",
+      "bytes": 57662,
+      "lines": 1257,
+      "sha256": "eb58a9036c9d7d38ad8b0f8b12b757bf598fcd056a5dd0f2ee2d6a0c4d619500"
+    }
+  ],
+  "pinned_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "author_plan": [
+    "Fix conditional_mean integral linearity by naming the exact pointwise child-sum function and constant function, and the exact child sets in the established conditional integrability proofs. Preserve the event, measure, actual same-sample observations and every theorem header.",
+    "Replace the redundant all-goals sequencing operator after field_simp with ordinary sequential tactics in meanBy_eq_closedForm. Preserve the fixed-environment induction and arithmetic identity.",
+    "Preserve all 125 declarations and connected cases; retain all first-repair scope/instance corrections. Save complete before/diff, affected statement assessment and static identity checks, make one scoped issue174 commit, then HOLD for central validation."
+  ],
+  "allowed_source_paths": [
+    "Applications/Resources/UniformQuickSortMean.lean"
+  ],
+  "excluded": "All examples, other source, public roots, maps, pins, dependencies/cache, central/F worktrees and output commands; no build, child agent, independent C2 review or acceptance claim.",
+  "validation_status": "Uncompiled source correction; root exclusively owns compilation/full audit/actual types and independent final axes.",
+  "recorder_correction": "Initial provenance recorder exited 1 after saving exact before/diagnostic files because it assumed lakefile.lean; rg found actual lakefile.toml. No Lean or source command ran. This corrected recorder reverified the unchanged clean base and all backups before recording actual pin paths."
+}

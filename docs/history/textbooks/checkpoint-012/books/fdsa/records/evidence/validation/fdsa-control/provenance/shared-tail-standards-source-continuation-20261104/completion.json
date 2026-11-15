@@ -1,0 +1,104 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "tree": "43f1c15166931d4bd3e91e6dbf12059d0da1cfc2",
+  "base": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "recorded_utc": "2026-11-04T16:11:30.717298+00:00",
+  "purpose": "Final source-stage readback and hold for checkpoint0117; no new review scope or validation credit.",
+  "bound_own_records": [
+    {
+      "path": "reviews/permutation-tail-standards-source-continuation-20261104.md",
+      "bytes": 16482,
+      "lines": 72,
+      "sha256": "2ddd1f03d8ee8772d26d6438e865206280f2b31d910410a43a97c2d388041bc3"
+    },
+    {
+      "path": "provenance/shared-tail-standards-source-continuation-20261104/source-assessment.json",
+      "bytes": 22417,
+      "lines": 500,
+      "sha256": "c6a9857bc995e29a159545a6ceb5a15662042576ec34ccec1c02f0f42400ee2a"
+    },
+    {
+      "path": "provenance/shared-tail-standards-source-continuation-20261104/read-ledger.json",
+      "bytes": 14965,
+      "lines": 419,
+      "sha256": "4fc98f01d3c0605da6e3530dd694a3d922cf154b6be1c5681d8b3b117370a339"
+    },
+    {
+      "path": "provenance/shared-tail-standards-source-continuation-20261104/independent-source-reconciliation.json",
+      "bytes": 95291,
+      "lines": 2245,
+      "sha256": "b6a55de4fd14358833075dab828976a0f4c1459b3c610b9b54eeb63f64376ece"
+    },
+    {
+      "path": "provenance/shared-tail-standards-source-continuation-20261104/reconcile_source.py",
+      "bytes": 18724,
+      "lines": 345,
+      "sha256": "495bd6c2b0159f63bc0054974b75be70b146b6d1f8e3c90e66257d9f7ae772f8"
+    }
+  ],
+  "completed_readbacks": [
+    {
+      "path": "reviews/permutation-tail-standards-source-continuation-20261104.md",
+      "first_line": 1,
+      "last_line": 72,
+      "actual_tool": "0c5e60",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-standards-source-continuation-20261104/source-assessment.json",
+      "first_line": 1,
+      "last_line": 250,
+      "bytes": 12596,
+      "sha256": "1a0ff5693a18135b9796767f1394a5dde049f19c2b5ed17334292a25794d267c",
+      "actual_tool": "a4ec91",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-standards-source-continuation-20261104/source-assessment.json",
+      "first_line": 251,
+      "last_line": 500,
+      "bytes": 9821,
+      "sha256": "18cc32d89ef6dc00809acf569bf9f20b5fdcf3d675c17c71fbc50d95c18ad362",
+      "actual_tool": "4f5ba4",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-standards-source-continuation-20261104/read-ledger.json",
+      "first_line": 1,
+      "last_line": 419,
+      "actual_tool": "57e9e2",
+      "complete_untruncated_read": true
+    }
+  ],
+  "final_identity_check": {
+    "own_records": 5,
+    "all_bound_existing_record_hashes_bytes_lines_match": true,
+    "bound_existing_records": 41,
+    "source_chunk_count": 9,
+    "source_paths": 6,
+    "source_lines": 2073,
+    "source_formal_lines": 975,
+    "source_chunks_contiguous_complete_as_recorded": true,
+    "repeated_immutable_or_runtime_execution": false
+  },
+  "accounting": {
+    "explicit_public": 61,
+    "public_theorems": 46,
+    "public_definitions": 15,
+    "private_theorems": 19,
+    "anonymous_local_instances": 8,
+    "authored_rows": 88,
+    "anonymous_examples": 0,
+    "generated_scope": "Retained full source and eventual exhaustive audit; no separate generated-name inspection claim."
+  },
+  "finding_disposition": {
+    "new_source_findings": 0,
+    "C02-DOC-003": "Tail portion source-resolved at exact L; all historical findings and receiving gates retained."
+  },
+  "outcome": "Blocked pending actual full L validation, actual61 types and qualified J53/I314/F110 evidence, both final axes and immediate verification/accepted integration.",
+  "current_L_type_full_audit_acceptance_credit": 0,
+  "read_honesty": "No claim of a separate complete human read of the generated 2245-line mechanical receipt. All six current source files, their actual headers and all 88 derived metadata rows were read; mechanical assertions establish the recorded identities. Prior truncation and locator failure remain in the ledger.",
+  "write_hold": "All own source-review report/provenance writes HELD after this completion receipt; only its readback remains. Earlier reports unchanged.",
+  "prohibited_actions_performed": false
+}

@@ -1,0 +1,21 @@
+{
+  "recorded_utc": "2026-11-04T05:55:19.600325+00:00",
+  "author_base": "a338b540ada6d1aa85e5c7c3adfe1edd4cea4a8c",
+  "observed_starting_status": "",
+  "central_candidate": "5d7a479549f5acd64a9e5adb418ab48780c238ef",
+  "central_log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-extended-sorting-focused-20261104-attempt1/full.log",
+  "central_outcome_recorded": null,
+  "central_outcome_note": "Only emitted diagnostics recorded. Root described the attempt as live at assignment and owns the terminal record; this receipt does not assert an overall build exit.",
+  "diagnostic_count": 2,
+  "diagnostics_excerpt_sha256": "0af5a590d93f792332f53c04d1f46d9eaf4193be0f459a2066d1946a309f1ba5",
+  "generated_decrease_context": "The emitted diagnostics contain no separate goal-state display. Source recursion is over the strict tail filters; the retained proof applies List.length_filter_le and Nat.lt_succ_of_le directly.",
+  "change": "Delete only the redundant preliminary unattach simplification in the defining termination proof.",
+  "statements_definitions_and_cases_unchanged": true,
+  "before_sha256": "36388954d5478761cb0176f947face60b5c681ceb6c19fce1d1f21c4c2445d3f",
+  "after_sha256": "7b1d0269b645453635cf4324b5064f24609ef61621615968d047977f3d2b0e91",
+  "example_sha256": "0951a0f474638250912d4b6ee3084bbbf129c67c0f1527785778003ee1331d86",
+  "source_diff_sha256": "d32dfdf5a381eb83966a2876b8a5f1b548fd04b04281969e563f6164b81e8c13",
+  "compiler_run": false,
+  "cache_directory_exists": false,
+  "accepted": false
+}

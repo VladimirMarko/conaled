@@ -1,0 +1,170 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-03T16:51:40.832213+00:00",
+  "scope": "Read-only assessment of the three explicitly assigned owned path classes; sole written output is this assessment.",
+  "coordinator_context": {
+    "active_validation": "native fresh4 in vfa-native-validation, candidate prefix c988f18, session 98926",
+    "reported_preflight_free_bytes": 1429745664,
+    "cache_get_active": false,
+    "current_validation_reads": "decompressed .lake/packages build inputs",
+    "basis": "Coordinator task statement; no process inspection or signalling performed."
+  },
+  "observed_available_bytes": 1425952768,
+  "observed_available_bytes_basis": "statvfs(recovery root): f_bavail * f_frsize",
+  "cause_of_prior_capacity_change": "Not determined; no attribution to any writer.",
+  "recommended_disposable_downloads": {
+    "lean_installer": {
+      "path": "/workspace/scratch/83865511e965/toolchain-setup/lean-4.35.0-linux.tar.zst",
+      "count": 1,
+      "logical_bytes": 594481375,
+      "allocated_bytes": 594489344,
+      "nlink": 1,
+      "mtime_ns": 1793716122927179895,
+      "kind": "Completed verified official release archive, already extracted",
+      "source_url": "https://github.com/leanprover/lean4/releases/download/v4.35.0/lean-4.35.0-linux.tar.zst",
+      "previously_verified_sha256": "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d",
+      "verified_before_extraction": true,
+      "extraction_record": "Python tarfile data-filtered extraction of unzstd output; completed with exit0",
+      "extracted_distribution_to_preserve": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-linux",
+      "provenance_record": {
+        "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1031-direct-toolchain.json",
+        "sha256": "c6e3a3284177646495ccfc7469470ab5592b8abe675a562f3b7bab2dd6ec94bb"
+      },
+      "checksum_recomputed_during_this_assessment": false,
+      "reproduction": "Re-download the same official release asset and require the recorded SHA256; no download is needed by the current build."
+    },
+    "mathlib_compressed_downloads": {
+      "root": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/dependency-cache/mathlib",
+      "selection": "Exactly the 9031 observed immediate regular files whose names fully match [0-9a-f]{16}\\.ltar; no recursive deletion and no directory removal.",
+      "count": 9031,
+      "logical_bytes": 455355304,
+      "allocated_bytes": 473616384,
+      "all_nlink_one": true,
+      "nested_files": 0,
+      "other_entries": 0,
+      "sorted_relative_names_sha256": "2c9ed061a3d5e05cd609bc7fd346145853cba1bd4c99d6aace395fe3e46f07a2",
+      "names_digest_encoding": "UTF-8 of sorted basenames joined by LF, with final LF",
+      "cache_get_exit": 0,
+      "cache_get_finished_utc": "2026-11-03T15:57:37.725107+00:00",
+      "decompressed_file_count": 9031,
+      "pinned_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "completion_record": {
+        "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1032-cache-get/run.json",
+        "sha256": "0361d7d206e93148dd6b1dc9fbffe7c3fd0fc1fc84d8bb42b61735e3b61c2cb5"
+      },
+      "preflight_record": {
+        "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1032-qemu-environment/cache-completion-preflight.json",
+        "sha256": "799c6d9953bddb093ed8da27b36fd8211181657cf49547b539cbcfe350049098"
+      },
+      "log_record": {
+        "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1032-cache-get/child.log",
+        "sha256": "12cca7bd5c53293a2b02bbe5e6323a232f89e34ace708bc18045c5f16e009ead"
+      },
+      "captured_reproduction_argv": [
+        "python3",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/tooling/pinned_toolchain.py",
+        "--",
+        "lake",
+        "env",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/qemu-user/bin/qemu-x86_64-static",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/mathlib/.lake/build/bin/cache",
+        "get"
+      ],
+      "captured_reproduction_cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation",
+      "reproduction": "The recorded successful pinned Mathlib cache get can fetch these compressed cache objects again if needed; preserve already decompressed dependency outputs. Current fresh validation does not consume the compressed .ltar files."
+    }
+  },
+  "recommended_reclaim_allocated_bytes": 1068105728,
+  "recommended_reclaim_logical_bytes": 1049836679,
+  "estimated_available_bytes_after_reclaim_if_no_other_allocation": 2494058496,
+  "reclaim_estimate_limit": "Allocated sizes are st_blocks * 512. Measure actual available bytes after cleanup; concurrent build allocation can change the result.",
+  "lower_priority_checkpoint_copies": [
+    {
+      "checkpoint": "036",
+      "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/checkpoints/conaled-vfa-checkpoint-036-recovered-environment-handoff.tar.gz",
+      "count": 1,
+      "logical_bytes": 146624202,
+      "allocated_bytes": 146628608,
+      "nlink": 1,
+      "uploaded_library_file_id": "libfile_ef8dcfdad00c81918b05f345bfc25a3a",
+      "uploaded_file_id": "file_000000001c1c81f4873f2cb92773008f",
+      "uploaded_version": 0,
+      "previously_recorded_archive_sha256": "fe08cb3718b66926051397f42c8a82af3547eb63844f9d8edb19caf3bb337e7b",
+      "upload_record": {
+        "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/checkpoint036-upload.json",
+        "sha256": "d788b5272e12c18f80cd415d5545eb05471d172b23cba51cc4c96eee957a7e39"
+      },
+      "verification_record": {
+        "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/checkpoint036-upload-verification.json",
+        "sha256": "e89e8273203116a2021e4965dc7ffc5782d116a28427b65caf9f87a85e6a6da1"
+      },
+      "independent_remote_readback": false,
+      "recommend_delete_now": false
+    },
+    {
+      "checkpoint": "037",
+      "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/checkpoints/conaled-vfa-checkpoint-037-direct-toolchain-runtime-handoff.tar.gz",
+      "count": 1,
+      "logical_bytes": 146635841,
+      "allocated_bytes": 146640896,
+      "nlink": 1,
+      "uploaded_library_file_id": "libfile_7123fe616a408191928a760efd565476",
+      "uploaded_file_id": "file_0000000018cc81f4a8ea5a1d5c61ccfa",
+      "uploaded_version": 0,
+      "previously_recorded_archive_sha256": "88d98e30970438af11c127a962bceae9d3535fee08382cfcc3b25548fe0739ab",
+      "upload_record": {
+        "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/checkpoint037-upload.json",
+        "sha256": "bd01ada181923922425f41a1e298b04dd847af9e3723ced29f5289ef498882bd"
+      },
+      "verification_record": {
+        "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/checkpoint037-upload-verification.json",
+        "sha256": "b7132a122d477b523bb7a7f6a91ab2e4f3618122a69afc9a2c673cfcbc7fa5e8"
+      },
+      "independent_remote_readback": false,
+      "recommend_delete_now": false
+    },
+    {
+      "checkpoint": "038",
+      "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/checkpoints/conaled-vfa-checkpoint-038-working-qemu-environment.tar.gz",
+      "count": 1,
+      "logical_bytes": 148425489,
+      "allocated_bytes": 148430848,
+      "nlink": 1,
+      "uploaded_library_file_id": "libfile_2b94c4367a60819194280072b5301481",
+      "uploaded_file_id": "file_000000001d70820a93ed863a47d10fee",
+      "uploaded_version": 0,
+      "previously_recorded_archive_sha256": "a1ed387f58f0a49dd3033c24da727467ae7ae2e7d4d5425f5ed9e0541395ed9e",
+      "upload_record": {
+        "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/checkpoint038-upload.json",
+        "sha256": "6245a0a78e5119075e8b4520043d1d69747d04ec3f897c94c8125d3e7e8d5a38"
+      },
+      "verification_record": {
+        "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/checkpoint038-upload-verification.json",
+        "sha256": "2fba684a5678c0cd59298398fefebf5b78b12410937d86c7aa97d0ea1bcf20dc"
+      },
+      "independent_remote_readback": false,
+      "recommend_delete_now": false
+    }
+  ],
+  "checkpoint_copy_total_allocated_bytes": 441700352,
+  "checkpoint_disposition": "Keep 036-038 local copies for now; disposable download candidates provide approximately 1.07 GB without deleting deliverables. Uploaded receipts are present but no new remote access/readback was performed.",
+  "finite_cleanup_recommendation": "Coordinator may unlink the one exact installer path and the enumerated immediate .ltar set after rechecking the count, filename digest, regular-file status and nlink=1. Do not expand this to directory-level removal or other workspaces.",
+  "protected_paths_and_classes": [
+    "All formal source, Git history, tickets, incident evidence and validation records",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-native-validation/.lake/packages",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages",
+    "All current project build outputs and fresh private build directories",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains",
+    "Checkpoint archives 035 and 039 and all other unassigned checkpoints"
+  ],
+  "actions_performed": {
+    "deletions": 0,
+    "compiled_input_changes": 0,
+    "process_actions": 0,
+    "network_actions": 0,
+    "files_written": [
+      "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/validation/1034-current-capacity-assessment.json"
+    ]
+  },
+  "formal_acceptance_claimed": false
+}

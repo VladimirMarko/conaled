@@ -1,0 +1,85 @@
+{
+  "completed_utc": "2026-11-04T11:08:49.558241+00:00",
+  "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+  "parents": [
+    "fa17cf8e0362be37ea6eff169db9f2f3233fab9d",
+    "4b5dbfa07288acc73f25c27838d3fb2f78e77d71"
+  ],
+  "branch": "work/fdsa-potential-development",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+  "status": "",
+  "purpose": "Isolated XP01 development only; no acceptance",
+  "historical_combined_review_base": "1aabd512284fe86254278ac631eda061d311050b",
+  "original_XP01_base": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "original_XP01_draft": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+  "first_F_based_development_merge": "fa17cf8e0362be37ea6eff169db9f2f3233fab9d",
+  "first_merge_validation": "No compiler launched; unclean status preflight stopped bookkeeping",
+  "development_incorporation_base": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "incorporation_base_is_accepted": false,
+  "base_adjustment_reason": "Four exact-Z files reappeared as untracked after switching away. Preserve Z in development source and original protected refs; no policy ignores or deletion-durability assumption.",
+  "protected_refs_unchanged": {
+    "work/fdsa-book": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "work/fdsa-foundation-integration": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "work/fdsa-ch02-development": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "work/fdsa-list-foundations": "c28ba71863d2a35ee1c3a089caa90464e4cca692"
+  },
+  "paths": [
+    {
+      "path": "Applications/Resources/FIFOContracts.lean",
+      "bytes": 8308,
+      "lines": 168,
+      "sha256": "f0215c25e27380b170297c9cc010375da4ef263380088f4ae8fdbb7272373343",
+      "blob": "01839707e852b3faff6ef1a49ad88a76fb5e5c18",
+      "original_draft_blob": "01839707e852b3faff6ef1a49ad88a76fb5e5c18"
+    },
+    {
+      "path": "Applications/Resources/Potential.lean",
+      "bytes": 11523,
+      "lines": 238,
+      "sha256": "fa33b209a7c8cd700e7a33a6d3ee11ef9ad572c2d2e8406dfbabf6468ebf7d8c",
+      "blob": "3ffc5e120f94f87c77a442728f654f3fa94d3aeb",
+      "original_draft_blob": "3ffc5e120f94f87c77a442728f654f3fa94d3aeb"
+    },
+    {
+      "path": "Examples/MappedPotentialAccounting.lean",
+      "bytes": 6726,
+      "lines": 165,
+      "sha256": "aa57790203c7dbc800586464c46366fcd7e6da6965fdbc3c260285e9c8d693c3",
+      "blob": "0291c5979243b0d12332d3628d06aa910732dfa2",
+      "original_draft_blob": "0291c5979243b0d12332d3628d06aa910732dfa2"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 9413,
+      "lines": 286,
+      "sha256": "f435dd0a16590472f21a9b25d7ae48e21bccf6a74ff4c54539b091529ed574b9",
+      "blob": "77116918bf2466ff362c7c2357470cd413a43ec3",
+      "original_draft_blob": "000a52722e4be80ff8ec03a182ef754254db530a"
+    },
+    {
+      "path": "docs/research/fdsa-potential-accounting.md",
+      "bytes": 9877,
+      "lines": 163,
+      "sha256": "19c6dc50bc71b518c879cdd8a3f238a3fc5726e5d2486469e18a94a3f310d272",
+      "blob": "b9e70b3a5c15606de595f319ff5d11cdd9ff941e",
+      "original_draft_blob": "b9e70b3a5c15606de595f319ff5d11cdd9ff941e"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 44518,
+      "lines": 677,
+      "sha256": "9124fe8ac99901d2e5658c215d936889d6de8ff4ded6dfd8264ddc0ed66ef896",
+      "blob": "5ae3836703d0d105f6c08a742b5070a62b159ad1",
+      "original_draft_blob": "f4fad4bf564098927d5b7db002a17d8e524871b7"
+    }
+  ],
+  "scope_paths_relative_to_Z": 6,
+  "nonoverlap_four_paths_exact_original_XP01": true,
+  "root_and_map_automatic_merge_diff_read_in_full": true,
+  "every_other_Z_path_unchanged": true,
+  "source_readback": "Full Potential238, mapped examples165, note163 and root/map/FIFO diffs read. Existing preflights retained.",
+  "compiler_validation": "Pending",
+  "acceptance_route_unchanged": "Exact F then combined XM01/XD01/XQ01/XU01, XU02, XU03, new fullC2; XP01 does not enter that sequence. Eventual XP01 acceptance requires accepted incorporation and all full gates.",
+  "no_third_cache_or_worktree": true,
+  "new_acceptance": false
+}

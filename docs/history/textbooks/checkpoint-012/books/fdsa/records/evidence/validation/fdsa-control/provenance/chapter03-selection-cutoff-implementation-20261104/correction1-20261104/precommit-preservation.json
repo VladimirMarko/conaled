@@ -1,0 +1,22 @@
+{
+  "recorded_utc": "2026-11-04T21:49:15.359198+00:00",
+  "finding": "C03-CUTOFF-ELAB-001",
+  "parent": "89858274b82e25b748762942dd46ff0643df09d3",
+  "all40headers_exact": true,
+  "one_computational_definition_exact": true,
+  "examples_exact": true,
+  "all22_other_candidate_paths_unchanged": true,
+  "changed_proofs": [
+    "Resources.SelectionCutoff.one_ceil_div",
+    "Resources.SelectionCutoff.ceil_div_strict_iff",
+    "Resources.SelectionCutoff.singleton_medians",
+    "Resources.SelectionCutoff.zero_cutoff_self_pivot",
+    "Resources.SelectionCutoff.group_one_medians"
+  ],
+  "proof_review": "Reuses exact actual map-some correspondence to erase dependent attach proof terms without changing execution or value definitions; map some injectivity recovers original equalities. Other changes use actual pinned API/normalization goals. No theorem premise, numeric case or source policy change.",
+  "patch": {
+    "bytes": 3140,
+    "sha256": "e7105f0f04069d0611f7e33d38e2466e4ffb46fd9d8ece8777f016d2a3eaf5af"
+  },
+  "actual_successor_compilation": false
+}

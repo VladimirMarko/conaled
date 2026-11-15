@@ -1,0 +1,114 @@
+diff --git a/Applications/Resources/Selection.lean b/Applications/Resources/Selection.lean
+index 2320a90..b77373a 100644
+--- a/Applications/Resources/Selection.lean
++++ b/Applications/Resources/Selection.lean
+@@ -246,44 +246,81 @@ theorem selectRunWith_step (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
+       else
+         let child := selectRunWith d cutoff hd hc (k - t.1.length - t.2.1.length) t.2.2
+         (child.1, common + (SymmetricCosts.lengthRun t.2.1).2 + child.2) := by
+-  have hm := median_rank d xs hd (by omega)
+-  let pr := selectWorker d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)
++  have hm : (((SymmetricCosts.lengthRun xs).1 ⌈/⌉ d) - 1) / 2 <
++      (SymmetricCosts.lengthRun (chunkMediansRun d xs).1).1 := by
++    simpa only [length_value] using median_rank d xs hd (by omega)
++  let pr := selectWorker d cutoff hd hc
++    ((((SymmetricCosts.lengthRun xs).1 ⌈/⌉ d) - 1) / 2)
+     (chunkMediansRun d xs).1 (SymmetricCosts.lengthRun (chunkMediansRun d xs).1) rfl hm
+   have hpr : selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)
+-      (chunkMediansRun d xs).1 = observe pr :=
+-    worker_observe d cutoff hd hc _ _ _ rfl hm
++      (chunkMediansRun d xs).1 = observe pr := by
++    rw [← length_value xs]
++    exact worker_observe d cutoff hd hc _ _ _ rfl hm
++  have pivot_cost : (selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)
++      (chunkMediansRun d xs).1).2 = pr.2 := congrArg Prod.snd hpr
+   have hpv : pr.1.val = p :=
+     Option.some.inj ((congrArg Prod.fst hpr).symm.trans hp)
+   subst p
++  let parts := Partition.partitionRun pr.1.val xs
++  let common := 1 + (SymmetricCosts.lengthRun xs).2 + (chunkMediansRun d xs).2 +
++    pr.2 + parts.2 + (SymmetricCosts.lengthRun parts.1.1).2
+   have hi : k < (SymmetricCosts.lengthRun xs).1 := by rw [length_value]; exact hk
+   rw [worker_observe d cutoff hd hc k xs (SymmetricCosts.lengthRun xs) rfl hi]
+   rw [selectWorker]
+   dsimp only
+   rw [dite_eq_right (by simpa only [length_value] using Nat.not_le.mpr hs)]
+-  by_cases hl : k < (partition3 pr.1.val xs).1.length
+-  · have hj : k < (SymmetricCosts.lengthRun (partition3 pr.1.val xs).1).1 := by
+-      rw [length_value]
+-      exact hl
+-    have child_eq := worker_observe d cutoff hd hc k (partition3 pr.1.val xs).1
+-      (SymmetricCosts.lengthRun (partition3 pr.1.val xs).1) rfl hj
+-    simp only [length_value, partition_value, hl, ↓reduceDIte, ↓reduceIte,
+-      hpr, child_eq, observe]
+-  · by_cases he : k < (partition3 pr.1.val xs).1.length +
+-        (partition3 pr.1.val xs).2.1.length
+-    · simp only [length_value, partition_value, hl, he, ↓reduceDIte, ↓reduceIte,
+-        hpr, observe]
+-    · have hj : k - (partition3 pr.1.val xs).1.length -
+-          (partition3 pr.1.val xs).2.1.length <
+-          (SymmetricCosts.lengthRun (partition3 pr.1.val xs).2.2).1 := by
+-        rw [length_value]
+-        have hsum := partition_lengths pr.1.val xs
+-        omega
+-      have child_eq := worker_observe d cutoff hd hc
+-        (k - (partition3 pr.1.val xs).1.length - (partition3 pr.1.val xs).2.1.length)
+-        (partition3 pr.1.val xs).2.2
+-        (SymmetricCosts.lengthRun (partition3 pr.1.val xs).2.2) rfl hj
+-      simp only [length_value, partition_value, hl, he, ↓reduceDIte, ↓reduceIte,
+-        hpr, child_eq, observe]
++  by_cases hl : k < (SymmetricCosts.lengthRun parts.1.1).1
++  · rw [dite_eq_left hl]
++    let child := selectWorker d cutoff hd hc k parts.1.1
++      (SymmetricCosts.lengthRun parts.1.1) rfl hl
++    have child_eq : selectRunWith d cutoff hd hc k parts.1.1 = observe child :=
++      worker_observe d cutoff hd hc k parts.1.1 (SymmetricCosts.lengthRun parts.1.1) rfl hl
++    have child_value : (selectRunWith d cutoff hd hc k parts.1.1).1 = some child.1.val :=
++      congrArg Prod.fst child_eq
++    have child_cost : (selectRunWith d cutoff hd hc k parts.1.1).2 = child.2 :=
++      congrArg Prod.snd child_eq
++    have hl_math : k < (partition3 pr.1.val xs).1.length := by
++      simpa only [parts, length_value, partition_value] using hl
++    change (some child.1.val, common + child.2) = _
++    rw [← child_value, ← child_cost]
++    dsimp only [common, parts]
++    rw [pivot_cost]
++    simp only [partition_value, hl_math, ↓reduceIte]
++  · rw [dite_eq_right hl]
++    have hl_math : ¬ k < (partition3 pr.1.val xs).1.length := by
++      simpa only [parts, length_value, partition_value] using hl
++    by_cases he : k < (SymmetricCosts.lengthRun parts.1.1).1 +
++        (SymmetricCosts.lengthRun parts.1.2.1).1
++    · rw [dite_eq_left he]
++      have he_math : k < (partition3 pr.1.val xs).1.length +
++          (partition3 pr.1.val xs).2.1.length := by
++        simpa only [parts, length_value, partition_value] using he
++      change (some pr.1.val, common + (SymmetricCosts.lengthRun parts.1.2.1).2) = _
++      dsimp only [common, parts]
++      rw [pivot_cost]
++      simp only [partition_value, hl_math, he_math, ↓reduceIte]
++    · rw [dite_eq_right he]
++      let j := k - (SymmetricCosts.lengthRun parts.1.1).1 -
++        (SymmetricCosts.lengthRun parts.1.2.1).1
++      have hj : j < (SymmetricCosts.lengthRun parts.1.2.2).1 :=
++        right_rank pr.1.val xs k hk he
++      let child := selectWorker d cutoff hd hc j parts.1.2.2
++        (SymmetricCosts.lengthRun parts.1.2.2) rfl hj
++      have child_eq : selectRunWith d cutoff hd hc j parts.1.2.2 = observe child :=
++        worker_observe d cutoff hd hc j parts.1.2.2 (SymmetricCosts.lengthRun parts.1.2.2) rfl hj
++      have child_value : (selectRunWith d cutoff hd hc j parts.1.2.2).1 = some child.1.val :=
++        congrArg Prod.fst child_eq
++      have child_cost : (selectRunWith d cutoff hd hc j parts.1.2.2).2 = child.2 :=
++        congrArg Prod.snd child_eq
++      have he_math : ¬ k < (partition3 pr.1.val xs).1.length +
++          (partition3 pr.1.val xs).2.1.length := by
++        simpa only [parts, length_value, partition_value] using he
++      change (some child.1.val,
++        common + (SymmetricCosts.lengthRun parts.1.2.1).2 + child.2) = _
++      rw [← child_value, ← child_cost]
++      dsimp only [common, parts, j]
++      rw [pivot_cost]
++      simp only [length_value, partition_value, hl_math, he_math, ↓reduceIte]
+ 
+ /-- Project the count from the proved execution equation. In particular, the
+ equal-length traversal is absent from the left branch, and the equal branch

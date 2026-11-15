@@ -1,0 +1,77 @@
+{
+  "recorded_utc": "2026-11-05T00:10:13.740403+00:00",
+  "finding": {
+    "id": "C03-SPEC-USE-001",
+    "severity": "medium",
+    "status": "Open; root acknowledged and intends repair after checkpoint0135",
+    "scope_obligation": "C03-005",
+    "candidate": "38ae31902682ff6e3f4b28cea519a3bfeb4f96c7",
+    "also_applies_to_current_preparation": "690ab476f4685e5a795d53d18465b067655a34dd",
+    "locations": [
+      "Applications/Selection/CountRank.lean:224-261",
+      "docs/research/fdsa-selection.md:521"
+    ],
+    "summary": "The two sorted-index filter helpers have no meaningful checked client; the documented C03-005 examples exercise different theorems.",
+    "public_claims": [
+      "Applications.Selection.sorted_filter_lt_sublist_take",
+      "Applications.Selection.sorted_filter_gt_sublist_drop"
+    ],
+    "evidence": "Full CountRank and example proof bodies were inspected in tool241e97. Whole-candidate immutable name search a48d24 found only definitions plus documentation. Neither helper is a simp theorem. The mapped ECount.duplicate_bounds and ECount.invalid_count_bounds proofs consume RankedAt.count_bounds and RankedAt.lt_length, respectively, not these helpers. Current metadata b03403 confirms exact core/example source identity at690ab476.",
+    "reproduced_immutable_name_search": "38ae31902682ff6e3f4b28cea519a3bfeb4f96c7:Applications/Selection/CountRank.lean:224:theorem sorted_filter_lt_sublist_take {ys : List \u03b1} {k : Nat} {a : \u03b1}\n38ae31902682ff6e3f4b28cea519a3bfeb4f96c7:Applications/Selection/CountRank.lean:246:theorem sorted_filter_gt_sublist_drop {ys : List \u03b1} {k : Nat} {a : \u03b1}\n38ae31902682ff6e3f4b28cea519a3bfeb4f96c7:docs/research/fdsa-selection.md:521:| **C03-005** \u2014 Sorted filter/take/drop bounds | `Count.sorted_filter_lt_sublist_take`, `Count.sorted_filter_gt_sublist_drop`, `Count.RankedAt.count_bounds` | `ECount.duplicate_bounds`, `ECount.invalid_count_bounds` | Helpers require a valid sorted index; duplicates are retained. |\n",
+    "requirement": "REQUEST and example-driven-development instructions require meaningful checked specializations or applications of new formal claims; examples must consume the intended result.",
+    "recommended_fix": "Add a meaningful sorted duplicate-list and valid-index specialization invoking both public helpers (for example [1,2,2,3] at an index carrying2), update correspondence as necessary, and validate the exact successor.",
+    "mathematical_falsity_alleged": false,
+    "acceptance_credit": false
+  },
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs",
+  "parent": "690ab476f4685e5a795d53d18465b067655a34dd",
+  "original_whole_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "accepted_receiving_comparison_point": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "status": "",
+  "before": {
+    "Examples/SelectionCountRank.lean": {
+      "bytes": 4423,
+      "sha256": "cc73980788882d39abe44672d89e6a3ce37dfe3b5f5788375255248e8b4a66d2",
+      "git_blob": "b43d7c7eeb5f2cc3134166a00100edf26e91d2a9"
+    },
+    "docs/research/fdsa-selection.md": {
+      "bytes": 76725,
+      "sha256": "918d1c7ba20f5104da880235fd5c32f59d719f8069b5a9e0da7f1e5a3c4c3b30",
+      "git_blob": "1a019bad209bc7c697b0a5532752fb3d08847d66"
+    }
+  },
+  "expected_case_before_edit": {
+    "list": [
+      1,
+      2,
+      2,
+      3
+    ],
+    "zero_based_index": 2,
+    "selected_value": 2,
+    "sorted": true,
+    "strictly_smaller_filter": [
+      1
+    ],
+    "take_index": [
+      1,
+      2
+    ],
+    "strictly_greater_filter": [
+      3
+    ],
+    "drop_index_plus_one": [
+      3
+    ],
+    "expected": "[1] is a sublist of [1,2] and [3] is a sublist of [3]. The equal2 occurrence remains in the prefix but not the strict filter.",
+    "connection": "Invoke both public sorted_filter_lt_sublist_take and sorted_filter_gt_sublist_drop with independently checked sortedness and actual optional index equality.",
+    "not_a_new_mathematical_gap": "Existing general claims suffice; missing checked-use evidence is established by immutable source search, not an artificial failing Lean theorem."
+  },
+  "change_scope": [
+    "Examples/SelectionCountRank.lean",
+    "docs/research/fdsa-selection.md"
+  ],
+  "core_claims_changed": false,
+  "source_readback": "00a2fb complete affected helper proofs and106-line example; independent finding2ea2a4",
+  "compiler_run": false
+}

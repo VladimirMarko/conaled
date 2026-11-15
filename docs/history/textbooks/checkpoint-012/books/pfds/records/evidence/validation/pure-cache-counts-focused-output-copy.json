@@ -1,0 +1,36 @@
+{
+  "original_path": "session/validation/pure-cache-counts-focused-output-copy.json",
+  "original_sha256": "733e35fe7b78f20d868ded691291d0899047005d5ba48df4e29a734359cc918c",
+  "original_bytes": 163490,
+  "removed_fields": [
+    {
+      "pointer": "/copied",
+      "entries": 812,
+      "canonical_json_sha256": "9d49759c58dca0fd44ea04f60f5a70520c2d1892381e462256d5fd3243064552"
+    },
+    {
+      "pointer": "/selected_modules",
+      "entries": 116,
+      "canonical_json_sha256": "5e0afc0143a58a7cd416462774f19ee62ba025c3da2789f542e6499f691c8760"
+    }
+  ],
+  "record": {
+    "started_at": "2026-11-02T23:59:09.875718+00:00",
+    "status": "completed",
+    "source": "/workspace/scratch/ca9a61d0bf30/cache-counts",
+    "target": "/workspace/scratch/ca9a61d0bf30/validation-cache-counts",
+    "source_head": "3dd930c3e3989f3e5530463f3ac937a629551335",
+    "target_head": "3dd930c3e3989f3e5530463f3ac937a629551335",
+    "approval_copied": false,
+    "source_validation": "focused development outputs only; not accepted",
+    "selection": "identical source bytes; no destination module artifacts; complete saved outputs",
+    "skipped": {},
+    "acceptance": false,
+    "hashed_artifacts": 348,
+    "source_inconsistencies": {},
+    "ended_at": "2026-11-02T23:59:14.933303+00:00",
+    "copied_modules": 116,
+    "copied_files": 812,
+    "copied_bytes": 87102765
+  }
+}

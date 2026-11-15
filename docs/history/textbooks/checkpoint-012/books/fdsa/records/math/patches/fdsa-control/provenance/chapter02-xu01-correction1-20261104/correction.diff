@@ -1,0 +1,31 @@
+diff --git a/Applications/Probability/PermutationMinimum.lean b/Applications/Probability/PermutationMinimum.lean
+index 9be74c1..084f329 100644
+--- a/Applications/Probability/PermutationMinimum.lean
++++ b/Applications/Probability/PermutationMinimum.lean
+@@ -124,7 +124,7 @@ private theorem uniformOn_univ_preimage {Ω : Type w} [Finite Ω]
+     [MeasurableSpace Ω] [MeasurableSingletonClass Ω] (e : Ω ≃ Ω) (E : Set Ω) :
+     uniformOn Set.univ (e ⁻¹' E) = uniformOn Set.univ E := by
+   classical
+-  letI := Fintype.ofFinite Ω
++  let := Fintype.ofFinite Ω
+   rw [uniformOn_univ, uniformOn_univ,
+     Measure.count_apply (e ⁻¹' E).toFinite.measurableSet,
+     Measure.count_apply E.toFinite.measurableSet,
+@@ -136,7 +136,7 @@ private theorem uniformOn_minimumEvent_eq [Finite I] [LE P]
+     uniformOn Set.univ (minimumEvent priority S a) =
+       uniformOn Set.univ (minimumEvent priority S b) := by
+   classical
+-  letI := Fintype.ofFinite I
++  let := Fintype.ofFinite I
+   have h := uniformOn_univ_preimage
+     (Equiv.mulRight (Equiv.swap a b)) (minimumEvent priority S b)
+   simpa only [Equiv.coe_mulRight,
+@@ -171,7 +171,7 @@ theorem uniformOn_minimumEvent [Finite I] [LinearOrder P]
+     uniformOn (Set.univ : Set (Equiv.Perm I)) (minimumEvent priority S a) =
+       (S.card : ℝ≥0∞)⁻¹ := by
+   classical
+-  letI := Fintype.ofFinite I
++  let := Fintype.ofFinite I
+   have hpartition :=
+     measure_biUnion_finset (μ := uniformOn (Set.univ : Set (Equiv.Perm I)))
+       (minimumEvent_pairwiseDisjoint priority hinj S)

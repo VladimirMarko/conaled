@@ -1,0 +1,30 @@
+{
+  "recorded_at": "2026-11-02T16:44:42.604694+00:00",
+  "commit": "26975a435a38ea89512c68a9d87f9efd7c971113",
+  "branch": "pfds/ch02-ordered",
+  "worktree_clean": true,
+  "environment": "Pinned Nix shell; offline/eval-cache false; Lean 4.35.0",
+  "command": "/nix/store/8lza1b8nnci8lmm4q68p0l33pg975s0q-nix-2.35.4/bin/nix --extra-experimental-features 'nix-command flakes' --option build-users-group '' --option sandbox false --option eval-cache false develop --offline --command env LEAN_NUM_THREADS=1 lake build Examples.SharedTreeOptimized",
+  "serialized_with": "/workspace/scratch/ca9a61d0bf30/active-validation/focused-build.lock",
+  "exit_code": 0,
+  "result": "Build completed successfully (672 jobs).",
+  "scope": "Focused compilation of optimized graph traversals, relational adapters and connected public examples; no full candidate acceptance or audit asserted",
+  "log_sha256": "defc2c5f06e914420ee4deb8adc4727266d0ddd4895b74474e3dba3f68df5a90",
+  "source_sha256": {
+    "Applications/Search/SharedTree/Optimized.lean": "b4e89a61bd7902b95a1d078e4d3b15b254d17d1d7af3802da1385b5bd8962378",
+    "Applications/Search/SharedTree/OptimizedObservation.lean": "285cac8fd057b9f4f8892effc8ee1f1d6bb2d96571a6b599026dcdd0c9edea4f",
+    "Examples/SharedTreeOptimized.lean": "1505a6420d5f0bcd69db48395217a3ac93a1a5dcc4867076e77189655c58cb8a"
+  },
+  "direct_project_dependency_sha256": {
+    "Applications/Search/SharedTree/Basic.lean": "7acc9428ee6bd804cabb0125ff391461fb01de47c30c6a94d305ea856418da70",
+    "Applications/Search/SharedTree/Path.lean": "a0912e3e46dc702773ac91327c5868c6ee8f5a44e4492a3197b0c0767f5c8f1f",
+    "Applications/Search/SharedTree/Observation.lean": "fd2b3ec4beb4638bbf763926f27d5ca1a607f9338bfbd8833c7c267c6e80e80f",
+    "Applications/Search/OrderedTree/Basic.lean": "6f1a3c8bf217ff609e3f08f65a1a20b52747723d5259ad671fb0e5aebaf44a6b",
+    "Applications/Search/OrderedTree/Candidate.lean": "25977fd11475ad446a92361d94ac5fb11a1a4b8ec07f9a84e106e0b487fa8753",
+    "Examples/OrderedTree.lean": "3619a864d1041f5d8f2c845c8249a8396ae469a7bdc254eb489d753804a640cc"
+  },
+  "previous_attempts": [
+    "chapter02-optimized-focused-r1.log",
+    "chapter02-optimized-focused-r2.log"
+  ]
+}

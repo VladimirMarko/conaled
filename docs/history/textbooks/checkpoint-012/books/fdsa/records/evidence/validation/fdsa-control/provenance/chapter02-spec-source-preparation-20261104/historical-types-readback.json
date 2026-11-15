@@ -1,0 +1,1138 @@
+{
+  "recorded_utc": "2026-11-04T08:38:41.298717+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "source_snapshot": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+  "peer_accounting_path": "provenance/chapter02-standards-source-preparation-20261104/public-type-accounting.json",
+  "peer_accounting_sha256": "a67cdd001115164b268d0c8d2b2a2dc2c6d95d46970a02bb17a324edb146e556",
+  "peer_accounting_use": "Coverage reconciliation aid only; this reviewer independently hashed actual programs/logs/results and Git blobs. Semantic review state is explicitly per log below.",
+  "runs": [
+    {
+      "run": "chapter02-measured-sorting-types-20261104",
+      "candidate": "1ffb61fceaf7c893e25a35339f6e1fce8531021d",
+      "exit": 0,
+      "final_head": "1ffb61fceaf7c893e25a35339f6e1fce8531021d",
+      "final_status": "",
+      "result_sha256": "0239a13a5fd5ce2929ca4f949844c35336db81799410437749e5b686139240a2",
+      "log_bytes": 136360,
+      "log_lines": 1805,
+      "log_sha256": "607eba97643a8361295857fb0777248e018534e0a7a78ed7d49760834f3ae325",
+      "inspection_program": "chapter02-measured-sorting-statement-source-20261104/Statements.lean",
+      "program_sha256": "904bd664fb385ef63fc1d6f2b8fd9fd2e3af2cadcbf6eb7f610a1e71ccbef20a",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ]
+      ],
+      "source_byte_identity_independently_verified": [
+        {
+          "path": "Examples/ListBuildCosts.lean",
+          "bytes": 3608,
+          "sha256": "eba2961e501f545323e5403e7874ce3ddb256bad8f4046398acc55ca6ec230a1",
+          "historical_blob": "e42a8264c6286a9b03f34e053a6d39094e09247b",
+          "M2_blob": "e42a8264c6286a9b03f34e053a6d39094e09247b"
+        },
+        {
+          "path": "Examples/NaturalRunComparisons.lean",
+          "bytes": 4753,
+          "sha256": "9d4dfe317e1af9ee894385ba3478c0ede17de1e713cc7090b120a4d2ab708f8a",
+          "historical_blob": "3db23a5aedf55911f686bd66d3bc63abd67fd09e",
+          "M2_blob": "3db23a5aedf55911f686bd66d3bc63abd67fd09e"
+        },
+        {
+          "path": "Examples/QuickSortCosts.lean",
+          "bytes": 8828,
+          "sha256": "9d61ea34342e2f5d961c3d2962630f2ed853939802057dbfc2aca65ee1e9f999",
+          "historical_blob": "89508c235b442aef7562119dcc3ba5f643bb7dad",
+          "M2_blob": "89508c235b442aef7562119dcc3ba5f643bb7dad"
+        },
+        {
+          "path": "Applications/Resources/ListBuildCosts.lean",
+          "bytes": 7232,
+          "sha256": "6c2450b98fcb2677fddeea1116519e968223bc0872353d9e34979fc38607547f",
+          "historical_blob": "6f3c157572db29c6b9a5d415a83368f2afacb952",
+          "M2_blob": "6f3c157572db29c6b9a5d415a83368f2afacb952"
+        },
+        {
+          "path": "Applications/Resources/NaturalRunComparisons.lean",
+          "bytes": 13562,
+          "sha256": "920e1832416afcdc47a0c2301c2e27c7cd5f0c614a209c8dea21fc2561d809b0",
+          "historical_blob": "1ac499d0e87a2d7e91401c90ed01be4a1cbff1f3",
+          "M2_blob": "1ac499d0e87a2d7e91401c90ed01be4a1cbff1f3"
+        },
+        {
+          "path": "Applications/Resources/QuickSort.lean",
+          "bytes": 21782,
+          "sha256": "e98024f6b741e1aba1fb1e38b419eee2e1acad76a8a40e669752f54775783263",
+          "historical_blob": "66bcbb7075aadfe3e1070ee532b5839091c6ab5d",
+          "M2_blob": "66bcbb7075aadfe3e1070ee532b5839091c6ab5d"
+        }
+      ],
+      "printed_names_in_peer_inventory": 174,
+      "complete_log_independently_read": true,
+      "read_line_ranges": [
+        [
+          1,
+          220
+        ],
+        [
+          221,
+          440
+        ],
+        [
+          441,
+          660
+        ],
+        [
+          661,
+          880
+        ],
+        [
+          881,
+          1100
+        ],
+        [
+          1101,
+          1320
+        ],
+        [
+          1321,
+          1540
+        ],
+        [
+          1541,
+          1760
+        ],
+        [
+          1761,
+          1805
+        ]
+      ],
+      "spec_assessment": "Complete 174 selected public types independently read. No Spec defect: actual deterministic quicksort returns and child costs retain strict-left/complement-right partitions, held pivot and right-associated append tariff; source filter recurrence, empty/singleton values, quadratic sharp cases, suffix-independent append-free worker, and T/F comparison are explicit. PartitionMass is one per tail occurrence and T = 4Q + 4n + 1. Natural run comparisons follow actual branch results and restart calls, exactly n-1 in Nat for every raw comparator, with separately conditioned sorted/strict-descending one-run results and builder/stability counterexamples. Repeated append subcall costs distinguish existing seed, loop and wrapper; cons/reverse realization preserves occurrence order and has 2n+3 cost, while append build has n(n+1)/2+n+2. Positive-size upper bounds and empty/singleton/cost-distinguishing examples match intended scope. No hidden payload equality, finiteness or default requirement."
+    },
+    {
+      "run": "chapter02-xu01-types-20261104",
+      "candidate": "3fa2b59d6dcab007627af98a2f05c3a016a4c4c4",
+      "exit": 0,
+      "final_head": "3fa2b59d6dcab007627af98a2f05c3a016a4c4c4",
+      "final_status": "",
+      "result_sha256": "be230f2fb193bc58fd7e9ee60c51f46ab420b0328019a6dd16bacd51f5579ca9",
+      "log_bytes": 46850,
+      "log_lines": 621,
+      "log_sha256": "79a9faa38a7647046be84cdd475416793e56bb2fef1f802cad1d3306413be94b",
+      "inspection_program": "chapter02-xu01-statement-source-20261104/Statements.lean",
+      "program_sha256": "3755aaeb473b3310749ecc2863f034fc4a7616bb97d16719500c551d831aa367",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ],
+        [
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "source_byte_identity_independently_verified": [
+        {
+          "path": "Applications/Probability/PermutationMinimum.lean",
+          "bytes": 8241,
+          "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+          "historical_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+          "M2_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d"
+        },
+        {
+          "path": "Examples/PermutationMinimum.lean",
+          "bytes": 4994,
+          "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+          "historical_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+          "M2_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876"
+        },
+        {
+          "path": "Examples/PermutationMinimumBoundary.lean",
+          "bytes": 4211,
+          "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+          "historical_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+          "M2_blob": "2e7ca462be60d0e3c484573950b194cce532d26c"
+        }
+      ],
+      "printed_names_in_peer_inventory": 37,
+      "complete_log_independently_read": true,
+      "read_line_ranges": [
+        [
+          1,
+          621
+        ]
+      ],
+      "spec_assessment": "All 621 log lines / 37 checked types read with full explicit applications. The minimum event includes membership; the uniform theorem assumes finite index type, injective arbitrary-priority map into a possibly infinite ordered type, and measurable singleton permutation space. The same three-element law gives 1/3 intersection against 1/4 product. Empty index normalization, empty/outsider events, comparison-only outsider 1/2 boundary and tied-priority mass one are all explicit and agree. No concrete Spec finding."
+    },
+    {
+      "run": "chapter02-bottom-up-costs-types-20261104",
+      "candidate": "6d91b822d0f3cf1aeeda333a9e1d47ebb26e709b",
+      "exit": 0,
+      "final_head": "6d91b822d0f3cf1aeeda333a9e1d47ebb26e709b",
+      "final_status": "",
+      "result_sha256": "f1d24ea0cc59994c61ac312cd5d96aa9d3d9ace6f7d9014b8d523d69266409ad",
+      "log_bytes": 69695,
+      "log_lines": 915,
+      "log_sha256": "b77970fe06b930f34286bcdb0e9a9ce1bdfbffceb2cdaf7f213cdf501137493d",
+      "inspection_program": "chapter02-bottom-up-costs-statement-source-20261104/Statements.lean",
+      "program_sha256": "f9486a8f64d9786814f2ffc67dfb158ab13bf1d392585c27ca83b35cadd34c2e",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ]
+      ],
+      "source_byte_identity_independently_verified": [
+        {
+          "path": "Examples/BottomUpCosts.lean",
+          "bytes": 11973,
+          "sha256": "12572e3395c681b18f266374732eb63b059a13eb0f76aef25400aefa8d54a136",
+          "historical_blob": "cd02cf29cdfa1c5a0b2db9340603e348c7f4475e",
+          "M2_blob": "cd02cf29cdfa1c5a0b2db9340603e348c7f4475e"
+        },
+        {
+          "path": "Applications/Resources/BottomUpSorting.lean",
+          "bytes": 23175,
+          "sha256": "74cc812fb1f1706621daeb1c51512a9ddb3d85dc57a36589aafe96e8514a6826",
+          "historical_blob": "f141f4393d52e1061feaa2e57149cdea02085555",
+          "M2_blob": "f141f4393d52e1061feaa2e57149cdea02085555"
+        }
+      ],
+      "printed_names_in_peer_inventory": 105,
+      "complete_log_independently_read": true,
+      "read_line_ranges": [
+        [
+          1,
+          915
+        ]
+      ],
+      "spec_assessment": "All 915 log lines / 105 checked types independently read with explicit applications. Actual selected merge/pass/repeated-pass continuations and singleton initialization carry comparison-only tariffs. Arbitrary accumulator pass equality does not assert equal repeated-pass costs. Uniform, ragged, power-zero, empty/one outer run, empty inner runs and real-log/integer-ceiling domains agree. The complete 3-versus-2 counterexample and arbitrary-payload/local-comparator cases agree. No concrete Spec finding."
+    },
+    {
+      "run": "chapter02-natural-sorting-types-20261104",
+      "candidate": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+      "exit": 0,
+      "final_head": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+      "final_status": "",
+      "result_sha256": "f5615311995f5ceb9c6adf151f13ca00fad20fd061125f6c890e5e4267a4ca0c",
+      "log_bytes": 79992,
+      "log_lines": 1106,
+      "log_sha256": "136335c62dbd1bd67c9f0ce77c69056b47f4e37b5b42e67ea91b233c1a71e50a",
+      "inspection_program": "chapter02-natural-sorting-statement-source-20261104/Statements.lean",
+      "program_sha256": "59d413591ef58c6569fcf39575669aaafcb21d4cf7783f05a88935de0a97b9ac",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ],
+        [
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "source_byte_identity_independently_verified": [
+        {
+          "path": "Applications/Sorting/Natural.lean",
+          "bytes": 5528,
+          "sha256": "e4b27eb275e9509b205da7ae25dd7829e664eb47617cb1602e6114eb5d264493",
+          "historical_blob": "c026d784e2397e61b9b2848c6867f5b145a019eb",
+          "M2_blob": "c026d784e2397e61b9b2848c6867f5b145a019eb"
+        },
+        {
+          "path": "Examples/NaturalSorting.lean",
+          "bytes": 5928,
+          "sha256": "69cc14a5f40421076a3af3f8066c0bf2b20678d11f4cbc5e3eefab8454fdbf57",
+          "historical_blob": "cf0dcd57dcf7dabc059874a074d1f902c597078b",
+          "M2_blob": "cf0dcd57dcf7dabc059874a074d1f902c597078b"
+        },
+        {
+          "path": "Examples/NaturalSortingCosts.lean",
+          "bytes": 10506,
+          "sha256": "4b6c3fd9c359b31b01f13c5bdeee6b9fc7ccd82ab172f7d6bb5491410379441a",
+          "historical_blob": "df34eef25210991ab4ed4c31dff13afb9ffb88ca",
+          "M2_blob": "df34eef25210991ab4ed4c31dff13afb9ffb88ca"
+        },
+        {
+          "path": "Applications/Resources/NaturalSorting.lean",
+          "bytes": 13059,
+          "sha256": "bfca759cd0f1014d39824bdcb124a3a0b33d1459be2cc4635739965382a50e7a",
+          "historical_blob": "d80f1a8f8f5c076cbe763c8a62a4942d267e8b86",
+          "M2_blob": "d80f1a8f8f5c076cbe763c8a62a4942d267e8b86"
+        }
+      ],
+      "printed_names_in_peer_inventory": 105,
+      "complete_log_independently_read": true,
+      "read_line_ranges": [
+        [
+          1,
+          1106
+        ]
+      ],
+      "spec_assessment": "All 1106 log lines / 105 checked types independently read with explicit applications. Actual scanner output feeds the measured merger. The n\u22121 Nat scan term, adaptive/source/clog/integer bounds, sorted nonempty one-run/zero-merge specializations, global lower bound and genuine length-indexed asymptotic families agree. Strict descending and weak-descent-with-ties remain separated; arbitrary raw comparators preserve occurrences without an added sortedness claim, and payload universes impose no equality/default structure. No concrete Spec finding."
+    },
+    {
+      "run": "chapter02-three-way-partition-types-20261104",
+      "candidate": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+      "exit": 0,
+      "final_head": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+      "final_status": "",
+      "result_sha256": "96f5ed0f13dab18888343d9544fbec662d26914d1429b70591b55f9c2f9f24f8",
+      "log_bytes": 91292,
+      "log_lines": 1220,
+      "log_sha256": "c05a5e5a0098492721b81c689383d421a24ec3d6bf2b00a7629ae18be5ad8d99",
+      "inspection_program": "chapter02-three-way-partition-statement-source-20261104/Statements.lean",
+      "program_sha256": "48019e7cc7c38382139b939a521527773e59b39f5b4b8ffff210d199babb7dbf",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ]
+      ],
+      "source_byte_identity_independently_verified": [
+        {
+          "path": "Applications/Selection/ThreeWay.lean",
+          "bytes": 9718,
+          "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa",
+          "historical_blob": "8627ad6d219f55a404dd96c4f4553594eaa71264",
+          "M2_blob": "8627ad6d219f55a404dd96c4f4553594eaa71264"
+        },
+        {
+          "path": "Applications/Sorting/ThreeWayQuickSort.lean",
+          "bytes": 6597,
+          "sha256": "7ef1adb48a9211c010c84c20c64bd01690eba11683002d8a16cc820eefaf1f0e",
+          "historical_blob": "587a649182fc07df34f685021c5b29b9f477be07",
+          "M2_blob": "587a649182fc07df34f685021c5b29b9f477be07"
+        },
+        {
+          "path": "Examples/ThreeWayQuickSort.lean",
+          "bytes": 6360,
+          "sha256": "0951a0f474638250912d4b6ee3084bbbf129c67c0f1527785778003ee1331d86",
+          "historical_blob": "02e0333981456099e328c65a72683e75af49581a",
+          "M2_blob": "02e0333981456099e328c65a72683e75af49581a"
+        },
+        {
+          "path": "Applications/Resources/Partition.lean",
+          "bytes": 2678,
+          "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14",
+          "historical_blob": "e9d3682a4d3a499aaffd41f73c7fc39965fa0d30",
+          "M2_blob": "e9d3682a4d3a499aaffd41f73c7fc39965fa0d30"
+        },
+        {
+          "path": "Applications/Sequences/Partition.lean",
+          "bytes": 3786,
+          "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069",
+          "historical_blob": "ff03bd349a39b3b77c49793175d4b474199e7c43",
+          "M2_blob": "ff03bd349a39b3b77c49793175d4b474199e7c43"
+        },
+        {
+          "path": "Examples/ThreeWayPartition.lean",
+          "bytes": 8109,
+          "sha256": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526",
+          "historical_blob": "a1f29b6310bc8623df2725b0d40f3949513199c5",
+          "M2_blob": "a1f29b6310bc8623df2725b0d40f3949513199c5"
+        }
+      ],
+      "printed_names_in_peer_inventory": 84,
+      "complete_log_independently_read": true,
+      "read_line_ranges": [
+        [
+          1,
+          1220
+        ]
+      ],
+      "spec_assessment": "All 1220 log lines / 84 checked types independently read with explicit applications. Ordinary LinearOrder three-way sorter retains the held pivot, full equal block and both actual strict recursive children; the absent-tail-pivot decrease and four altered-result counterexamples are substantive. Shared two-pass value operation and separate one-pass measured n+1 entry tariff retain their actual definitions and value bridge. Partition strict-size results retain pivot membership, with outside/interior examples checking the boundary; the actual bind uses the returned lower bucket and cost 13. Selection compatibility types retain the same triples/membership/length contracts. No concrete Spec finding."
+    },
+    {
+      "run": "chapter02-xd01-random-types-20261104",
+      "candidate": "dfaf68114d1dda4e15628c94c3d988c3f5457c49",
+      "exit": 0,
+      "final_head": "dfaf68114d1dda4e15628c94c3d988c3f5457c49",
+      "final_status": "",
+      "result_sha256": "9bda3c662f6a9b177bd9f4da465124a722e8017c43eea9eb970a455988f366c3",
+      "log_bytes": 123793,
+      "log_lines": 1675,
+      "log_sha256": "5027831298792411bde1622e6ad00aef816a0f0f41c97e372139eb8a47afe182",
+      "inspection_program": "chapter02-xd01-random-statement-source-20261104/Statements.lean",
+      "program_sha256": "5f6eb99c622137c19ff2f5fc35389e7d9a2000cf06e4f3d7a2a25a803a76584b",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ],
+        [
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "source_byte_identity_independently_verified": [
+        {
+          "path": "Examples/DifferenceListCosts.lean",
+          "bytes": 9299,
+          "sha256": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1",
+          "historical_blob": "33fd3bec15f8c9b7c3078b45d90c24d7df0c1df2",
+          "M2_blob": "33fd3bec15f8c9b7c3078b45d90c24d7df0c1df2"
+        },
+        {
+          "path": "Examples/RandomQuickSort.lean",
+          "bytes": 8255,
+          "sha256": "4f5a21d1656423ac1307b1ca8fe651cd794d70da576ecd14f65d68cc290c424d",
+          "historical_blob": "9c3608babafebadb470c9e1254fa8bbd15c5ad76",
+          "M2_blob": "9c3608babafebadb470c9e1254fa8bbd15c5ad76"
+        },
+        {
+          "path": "Applications/Resources/DifferenceListCosts.lean",
+          "bytes": 10061,
+          "sha256": "f99420b831dff2d0f5fcc3dac1001937942b87c78b710b79f94fa941ab972b01",
+          "historical_blob": "b87222f7c0eb0aafc60031864ca815c2e65fc457",
+          "M2_blob": "b87222f7c0eb0aafc60031864ca815c2e65fc457"
+        },
+        {
+          "path": "Applications/Resources/RandomQuickSort.lean",
+          "bytes": 23601,
+          "sha256": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2",
+          "historical_blob": "99b1b19cbfb6e6dc875e46cdc338bf4a518674fc",
+          "M2_blob": "99b1b19cbfb6e6dc875e46cdc338bf4a518674fc"
+        }
+      ],
+      "printed_names_in_peer_inventory": 134,
+      "complete_log_independently_read": true,
+      "read_line_ranges": [
+        [
+          1,
+          220
+        ],
+        [
+          221,
+          440
+        ],
+        [
+          441,
+          660
+        ],
+        [
+          661,
+          880
+        ],
+        [
+          881,
+          1100
+        ],
+        [
+          1101,
+          1320
+        ],
+        [
+          1321,
+          1540
+        ],
+        [
+          1541,
+          1675
+        ]
+      ],
+      "spec_assessment": "Complete 134 selected public types independently read. No Spec defect: value representation and suffix-uniform application cost remain distinct; composition charges actual continuation values and one application step; capture-only creation is separated from materialization/repeated observation, including empty represented values and exponential shared-closure counterexamples. Actual fresh Fin-index PMF bind removes one occurrence and composes supported returned children; keyed correctness has no payload equality/finiteness/default assumptions. Exercise/append/literal costs, arbitrary-payload finite cost support, constant-key quadratic laws, nonuniform repeated-value pivot masses, two-key append masses, three-key 21/25 cost law, equal-key instability and association-sensitive append counts match intended source contracts. This log alone is neither a whole-candidate check nor coverage of other files."
+    },
+    {
+      "run": "chapter02-bottom-up-alternating-types-20261104",
+      "candidate": "98696d86162bd93c1cba46719eeb65bf6cabe65a",
+      "exit": 0,
+      "final_head": "98696d86162bd93c1cba46719eeb65bf6cabe65a",
+      "final_status": "",
+      "result_sha256": "e1aea6306fba49563ed8136678010ace5a10268274d56354d593baf1b1b35c57",
+      "log_bytes": 41284,
+      "log_lines": 584,
+      "log_sha256": "3296e4ba5330af5a1e1d6897ea7acb9898452def68510df2e9c343e70c1180b8",
+      "inspection_program": "chapter02-bottom-up-alternating-statement-source-20261104/Statements.lean",
+      "program_sha256": "9ef7e05799ff059a262fc1cab1ffaae1ed269b1076931c44a6913bd6e2dda471",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "source_byte_identity_independently_verified": [
+        {
+          "path": "Applications/Sorting/Alternating.lean",
+          "bytes": 8597,
+          "sha256": "eb927e5978ea410f360441dfa8d4843b5e93de10aae8a5eac5c2f603f4e233e9",
+          "historical_blob": "b8147f8fc08969c67da07e9331570590a080760a",
+          "M2_blob": "b8147f8fc08969c67da07e9331570590a080760a"
+        },
+        {
+          "path": "Applications/Sorting/BottomUp.lean",
+          "bytes": 19856,
+          "sha256": "4df83022174bc4e5becfb441617624d57695158d69dc7241209ca077dc2c7791",
+          "historical_blob": "41d69c71ffeb337684f397e5e35310cf697ba4d3",
+          "M2_blob": "41d69c71ffeb337684f397e5e35310cf697ba4d3"
+        },
+        {
+          "path": "Examples/AlternatingSorting.lean",
+          "bytes": 5254,
+          "sha256": "5798ed2ce20dab0ce4b9618fea1e8ea36a7be9b2f60fa7090a85522bfb464c04",
+          "historical_blob": "cb3a191d95fbf83c439b9c6135adec10767723bc",
+          "M2_blob": "cb3a191d95fbf83c439b9c6135adec10767723bc"
+        },
+        {
+          "path": "Examples/BottomUpSorting.lean",
+          "bytes": 8304,
+          "sha256": "1d4a312363af87926c085f790ca7279273df050f40234c449e0e0fa9e5b5592b",
+          "historical_blob": "8acdca99b63ebd22b6fd6dbefd37aa3f54f2d25c",
+          "M2_blob": "8acdca99b63ebd22b6fd6dbefd37aa3f54f2d25c"
+        }
+      ],
+      "printed_names_in_peer_inventory": 126,
+      "complete_log_independently_read": true,
+      "read_line_ranges": [
+        [
+          1,
+          584
+        ]
+      ],
+      "spec_assessment": "All 584 log lines / 126 checked names read. Actual odd leftover and arbitrary-accumulator pass types, even-only uniform doubling, per-run sortedness premises, law-free occurrence preservation, alternating source recurrence and added-length balance, strict recursive decrease at length at least 2, arbitrary-payload examples and instability boundaries agree. No concrete Spec finding."
+    },
+    {
+      "run": "chapter02-top-down-costs-types-20261104",
+      "candidate": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+      "exit": 0,
+      "final_head": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+      "final_status": "",
+      "result_sha256": "d8b25ce6073928f25fbebca98ebe94cb30e7e3dca3d7d46d7310b17c3ca5eb2b",
+      "log_bytes": 11545,
+      "log_lines": 150,
+      "log_sha256": "ad826e1d3c972acbb437e9bceb5403ba230275033c623dc5526649eb2e79e6c8",
+      "inspection_program": "chapter02-top-down-costs-proof-corrections-20261104/TypeInspection.lean",
+      "program_sha256": "3f235ac70f6fa1b2234a5899f5ba25f7de7e9caee35c0b8f90b8de98e96ab5c8",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "source_byte_identity_independently_verified": [
+        {
+          "path": "Examples/TopDownCosts.lean",
+          "bytes": 5403,
+          "sha256": "8f5f6969049712a5a5d37f7beb78c09017a2835b5f1208e54d0c9912dff425a4",
+          "historical_blob": "05cf0aa40cfe066499ec49b3bab520cb2f3d9070",
+          "M2_blob": "05cf0aa40cfe066499ec49b3bab520cb2f3d9070"
+        },
+        {
+          "path": "Applications/Resources/TopDownSorting.lean",
+          "bytes": 9144,
+          "sha256": "26531f25e57c0d198fc90d0a10652051ac6159098f493629af3283b54ab687bc",
+          "historical_blob": "91cba444e67f3947d5fca7984242fde825807929",
+          "M2_blob": "91cba444e67f3947d5fca7984242fde825807929"
+        },
+        {
+          "path": "Applications/Resources/Growth.lean",
+          "bytes": 2906,
+          "sha256": "99be17f2d45ac30de1e912c2181460dac046c8b98e40ea3209abfec342107786",
+          "historical_blob": "65cfdecea6a600b9ed80a9784637e9811c4bd425",
+          "M2_blob": "65cfdecea6a600b9ed80a9784637e9811c4bd425"
+        }
+      ],
+      "printed_names_in_peer_inventory": 32,
+      "complete_log_independently_read": true,
+      "read_line_ranges": [
+        [
+          1,
+          150
+        ]
+      ],
+      "spec_assessment": "All 32 selected types read. Floor-left actual bind recurrence, stable-key assumptions, power/log domains and real asymptotic length family agree. The selected log omits three core and two example names; not whole-file coverage."
+    },
+    {
+      "run": "chapter02-uniqueness-types-20261104",
+      "candidate": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+      "exit": 0,
+      "final_head": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+      "final_status": "",
+      "result_sha256": "edcdaf9dcb6432522c27b00cf50d79ec2ca672e3a1853a4b62668cef49400cab",
+      "log_bytes": 6817,
+      "log_lines": 94,
+      "log_sha256": "11b58acd78c4f7b77bf4fbdb8bd7e4ca48378dcb2fab8c32d91fd0e4ccebda3f",
+      "inspection_program": "chapter02-uniqueness-statement-source-20261104/Statements.lean",
+      "program_sha256": "5d5cb3cfd591633c6e0ef635094917f19f60f2db1e226df3782ba963f01fd5bf",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ],
+        [
+          "pp.explicit",
+          "true"
+        ],
+        [
+          "pp.fullNames",
+          "true"
+        ]
+      ],
+      "source_byte_identity_independently_verified": [
+        {
+          "path": "Applications/Sorting/Uniqueness.lean",
+          "bytes": 1999,
+          "sha256": "e0df544f59be358a3e40ad48f25115ae2ba3b4507a30cdeb3425907bf94c8744",
+          "historical_blob": "5a0e68e51d521b6ab216e2487aa523b9b6844fcb",
+          "M2_blob": "5a0e68e51d521b6ab216e2487aa523b9b6844fcb"
+        },
+        {
+          "path": "Examples/SortUniqueness.lean",
+          "bytes": 3903,
+          "sha256": "ce63cd0d8a953f9441b9b6b1597f9a3604ef736131290cba8c0430c36cd177b7",
+          "historical_blob": "c4960ecd07a3ed7eb40a7e3eb5240d9efaed0891",
+          "M2_blob": "c4960ecd07a3ed7eb40a7e3eb5240d9efaed0891"
+        }
+      ],
+      "printed_names_in_peer_inventory": 9,
+      "complete_log_independently_read": true,
+      "read_line_ranges": [
+        [
+          1,
+          94
+        ]
+      ],
+      "spec_assessment": "All 9 types read with universes/full explicit applications. Antisymmetry is the sole relation law on arbitrary payloads in the generic uniqueness results; non-total equality relation and constant-key non-antisymmetric boundary examples match the intended distinction. No concrete Spec finding."
+    },
+    {
+      "run": "chapter02-natural-runs-statements-20261104",
+      "candidate": "ff9749d1ccbcb0949486f67d6273e28c262280e0",
+      "exit": 0,
+      "final_head": "ff9749d1ccbcb0949486f67d6273e28c262280e0",
+      "final_status": "",
+      "result_sha256": "581563a848ae2d6dcbb995fbfa0fe9ea098193fd5940aece7b5b6dbd52dbaf41",
+      "log_bytes": 22632,
+      "log_lines": 279,
+      "log_sha256": "bcde796041ddae8ec96f0e13e3231501cf9170f8cded41dc9565b54a8fc1af31",
+      "inspection_program": "chapter02-natural-runs-statements-20261104/statements.lean",
+      "program_sha256": "d56c25d992aa23e63c9bfa51cf4561f8ae2e6c1f186dda1493d0741673b372e4",
+      "printing_options": [],
+      "source_byte_identity_independently_verified": [
+        {
+          "path": "Applications/Sorting/NaturalRuns.lean",
+          "bytes": 25272,
+          "sha256": "123c711b5f0cf05074155f3a0d9ae076aa80a8be482e7e6fc77626aa9db6fb1d",
+          "historical_blob": "5590b9aeb9f93670602774360e87a374db8228a7",
+          "M2_blob": "5590b9aeb9f93670602774360e87a374db8228a7"
+        },
+        {
+          "path": "Examples/NaturalRuns.lean",
+          "bytes": 8415,
+          "sha256": "ef0ed6bbc5beb40815f977e80c0b99b0633e8503b0b1634747d41275cb3f6041",
+          "historical_blob": "83f5d1b1d719fd844c8e2d1920c230a8cfebdef5",
+          "M2_blob": "83f5d1b1d719fd844c8e2d1920c230a8cfebdef5"
+        }
+      ],
+      "printed_names_in_peer_inventory": 104,
+      "complete_log_independently_read": true,
+      "read_line_ranges": [
+        [
+          1,
+          279
+        ]
+      ],
+      "spec_assessment": "All 279 log lines read, including the three printed adapter definitions and all 104 checked names. General payload universe, arbitrary lawful raw builders and accumulators, strict descending/weak ascending comparator branches, explicit sorted-prefix/bound hypotheses, nonempty side conditions, and connected counterexamples agree with the source. Ordinary printing does not reveal every internal implicit application; this is recorded as the actual historical profile, not mislabeled pp.explicit."
+    },
+    {
+      "run": "chapter02-quicksort-statements-20261104",
+      "candidate": "840252e63026bba5eab109f2b16468deef7670ec",
+      "exit": 0,
+      "final_head": null,
+      "final_status": "",
+      "result_sha256": "5603d4d2b028996dfb2cdbfa417a74cbcd53dc5cfd74fb48271d99d22e9dc746",
+      "log_bytes": 5491,
+      "log_lines": 73,
+      "log_sha256": "e752dc669d2987d02b11270211f978fd5bb575b4566233fbfbfbe3b7e81bc440",
+      "inspection_program": "chapter02-quicksort-statements-20261104/statements.lean",
+      "program_sha256": "648822ba3ec1cebdf007f4dff758647b628d81a755f261804c2cd696ebe5f78b",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "source_byte_identity_independently_verified": [
+        {
+          "path": "Applications/Sorting/QuickSort.lean",
+          "bytes": 9994,
+          "sha256": "696ae63c3f5c23940ac0f05c8ac6b48bff74b65e4c66faf319283efedea73802",
+          "historical_blob": "01026a360a8f9f44afacd2fbd6ddb356ef8a95d4",
+          "M2_blob": "01026a360a8f9f44afacd2fbd6ddb356ef8a95d4"
+        },
+        {
+          "path": "Examples/QuickSort.lean",
+          "bytes": 7164,
+          "sha256": "2e5e4952bae8edf1fd5985f0cfd40993363a2f642717d61161a2e5ee6835a162",
+          "historical_blob": "376371a0a74a54c8aaaaf653d4528af347347018",
+          "M2_blob": "376371a0a74a54c8aaaaf653d4528af347347018"
+        }
+      ],
+      "printed_names_in_peer_inventory": 14,
+      "complete_log_independently_read": true,
+      "read_line_ranges": [
+        [
+          1,
+          73
+        ]
+      ],
+      "spec_assessment": "All 14 selected types read. Generic payload/suffix universes and local comparator compatibility agree with source; no payload equality/default/order added. The selected log omits 32 additional names across the two source files; not whole-file coverage."
+    },
+    {
+      "run": "ordinary-merge-type-inspection-20261104",
+      "candidate": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "exit": 0,
+      "final_head": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "final_status": "",
+      "result_sha256": "b410a2972784d2bc661f17599d0c0ed66e27639e77df06da34b3de7aa7bde883",
+      "log_bytes": 9351,
+      "log_lines": 129,
+      "log_sha256": "4645276a14c159ab587b16acb8d11e8db95615c9a41c8fff69384c4b42f85910",
+      "inspection_program": "ordinary-merge-focused-20261104-proof-corrections/TypeInspection.lean",
+      "program_sha256": "72709d2b0430fa10684f3ca088a5d0041568ccfe3182653ce6aec731d49b1215",
+      "printing_options": [
+        [
+          "pp.universes",
+          "true"
+        ]
+      ],
+      "source_byte_identity_independently_verified": [
+        {
+          "path": "Applications/Sorting/Merge.lean",
+          "bytes": 7840,
+          "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+          "historical_blob": "6595f901a9358398bee07333872125990ef8360c",
+          "M2_blob": "6595f901a9358398bee07333872125990ef8360c"
+        },
+        {
+          "path": "Examples/MergeCosts.lean",
+          "bytes": 23410,
+          "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466",
+          "historical_blob": "b5f652cf5258c99f5a615b12987c664ed8be3d76",
+          "M2_blob": "b5f652cf5258c99f5a615b12987c664ed8be3d76"
+        },
+        {
+          "path": "Applications/Resources/ListMerge.lean",
+          "bytes": 8629,
+          "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975",
+          "historical_blob": "b658809bc2ba424807e326c3ee7cb64712865a46",
+          "M2_blob": "b658809bc2ba424807e326c3ee7cb64712865a46"
+        }
+      ],
+      "printed_names_in_peer_inventory": 17,
+      "complete_log_independently_read": true,
+      "read_line_ranges": [
+        [
+          1,
+          129
+        ]
+      ],
+      "spec_assessment": "All 17 selected types read. Law-free sublist converse, local key compatibility, exact actual two-stage continuation, noninjective map transport and merge-only queue-body cost agree. The log selects only part of the included shared public surface."
+    }
+  ],
+  "complete_logs_read": 12,
+  "overall_outcome": "Blocked",
+  "limits": "Selected historical types do not establish whole-file coverage; pending programs have no actual output. Full final candidate identity, missing types, terminal full acceptance/audit and final verification remain required.",
+  "selected_public_names_fully_read": 941,
+  "successor_identity_checks": {
+    "successor": "5398db774ed5ca9938d0562e379d757323e7a355",
+    "matching_file_pairs": [
+      {
+        "run": "chapter02-measured-sorting-types-20261104",
+        "path": "Examples/ListBuildCosts.lean",
+        "historical_candidate": "1ffb61fceaf7c893e25a35339f6e1fce8531021d",
+        "historical_blob": "e42a8264c6286a9b03f34e053a6d39094e09247b",
+        "successor_blob": "e42a8264c6286a9b03f34e053a6d39094e09247b",
+        "sha256": "eba2961e501f545323e5403e7874ce3ddb256bad8f4046398acc55ca6ec230a1",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-measured-sorting-types-20261104",
+        "path": "Examples/NaturalRunComparisons.lean",
+        "historical_candidate": "1ffb61fceaf7c893e25a35339f6e1fce8531021d",
+        "historical_blob": "3db23a5aedf55911f686bd66d3bc63abd67fd09e",
+        "successor_blob": "3db23a5aedf55911f686bd66d3bc63abd67fd09e",
+        "sha256": "9d4dfe317e1af9ee894385ba3478c0ede17de1e713cc7090b120a4d2ab708f8a",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-measured-sorting-types-20261104",
+        "path": "Examples/QuickSortCosts.lean",
+        "historical_candidate": "1ffb61fceaf7c893e25a35339f6e1fce8531021d",
+        "historical_blob": "89508c235b442aef7562119dcc3ba5f643bb7dad",
+        "successor_blob": "89508c235b442aef7562119dcc3ba5f643bb7dad",
+        "sha256": "9d61ea34342e2f5d961c3d2962630f2ed853939802057dbfc2aca65ee1e9f999",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-measured-sorting-types-20261104",
+        "path": "Applications/Resources/ListBuildCosts.lean",
+        "historical_candidate": "1ffb61fceaf7c893e25a35339f6e1fce8531021d",
+        "historical_blob": "6f3c157572db29c6b9a5d415a83368f2afacb952",
+        "successor_blob": "6f3c157572db29c6b9a5d415a83368f2afacb952",
+        "sha256": "6c2450b98fcb2677fddeea1116519e968223bc0872353d9e34979fc38607547f",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-measured-sorting-types-20261104",
+        "path": "Applications/Resources/NaturalRunComparisons.lean",
+        "historical_candidate": "1ffb61fceaf7c893e25a35339f6e1fce8531021d",
+        "historical_blob": "1ac499d0e87a2d7e91401c90ed01be4a1cbff1f3",
+        "successor_blob": "1ac499d0e87a2d7e91401c90ed01be4a1cbff1f3",
+        "sha256": "920e1832416afcdc47a0c2301c2e27c7cd5f0c614a209c8dea21fc2561d809b0",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-measured-sorting-types-20261104",
+        "path": "Applications/Resources/QuickSort.lean",
+        "historical_candidate": "1ffb61fceaf7c893e25a35339f6e1fce8531021d",
+        "historical_blob": "66bcbb7075aadfe3e1070ee532b5839091c6ab5d",
+        "successor_blob": "66bcbb7075aadfe3e1070ee532b5839091c6ab5d",
+        "sha256": "e98024f6b741e1aba1fb1e38b419eee2e1acad76a8a40e669752f54775783263",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-xu01-types-20261104",
+        "path": "Applications/Probability/PermutationMinimum.lean",
+        "historical_candidate": "3fa2b59d6dcab007627af98a2f05c3a016a4c4c4",
+        "historical_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+        "successor_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+        "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-xu01-types-20261104",
+        "path": "Examples/PermutationMinimum.lean",
+        "historical_candidate": "3fa2b59d6dcab007627af98a2f05c3a016a4c4c4",
+        "historical_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+        "successor_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+        "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-xu01-types-20261104",
+        "path": "Examples/PermutationMinimumBoundary.lean",
+        "historical_candidate": "3fa2b59d6dcab007627af98a2f05c3a016a4c4c4",
+        "historical_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+        "successor_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+        "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-bottom-up-costs-types-20261104",
+        "path": "Examples/BottomUpCosts.lean",
+        "historical_candidate": "6d91b822d0f3cf1aeeda333a9e1d47ebb26e709b",
+        "historical_blob": "cd02cf29cdfa1c5a0b2db9340603e348c7f4475e",
+        "successor_blob": "cd02cf29cdfa1c5a0b2db9340603e348c7f4475e",
+        "sha256": "12572e3395c681b18f266374732eb63b059a13eb0f76aef25400aefa8d54a136",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-bottom-up-costs-types-20261104",
+        "path": "Applications/Resources/BottomUpSorting.lean",
+        "historical_candidate": "6d91b822d0f3cf1aeeda333a9e1d47ebb26e709b",
+        "historical_blob": "f141f4393d52e1061feaa2e57149cdea02085555",
+        "successor_blob": "f141f4393d52e1061feaa2e57149cdea02085555",
+        "sha256": "74cc812fb1f1706621daeb1c51512a9ddb3d85dc57a36589aafe96e8514a6826",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-natural-sorting-types-20261104",
+        "path": "Applications/Sorting/Natural.lean",
+        "historical_candidate": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+        "historical_blob": "c026d784e2397e61b9b2848c6867f5b145a019eb",
+        "successor_blob": "c026d784e2397e61b9b2848c6867f5b145a019eb",
+        "sha256": "e4b27eb275e9509b205da7ae25dd7829e664eb47617cb1602e6114eb5d264493",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-natural-sorting-types-20261104",
+        "path": "Examples/NaturalSorting.lean",
+        "historical_candidate": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+        "historical_blob": "cf0dcd57dcf7dabc059874a074d1f902c597078b",
+        "successor_blob": "cf0dcd57dcf7dabc059874a074d1f902c597078b",
+        "sha256": "69cc14a5f40421076a3af3f8066c0bf2b20678d11f4cbc5e3eefab8454fdbf57",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-natural-sorting-types-20261104",
+        "path": "Examples/NaturalSortingCosts.lean",
+        "historical_candidate": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+        "historical_blob": "df34eef25210991ab4ed4c31dff13afb9ffb88ca",
+        "successor_blob": "df34eef25210991ab4ed4c31dff13afb9ffb88ca",
+        "sha256": "4b6c3fd9c359b31b01f13c5bdeee6b9fc7ccd82ab172f7d6bb5491410379441a",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-natural-sorting-types-20261104",
+        "path": "Applications/Resources/NaturalSorting.lean",
+        "historical_candidate": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+        "historical_blob": "d80f1a8f8f5c076cbe763c8a62a4942d267e8b86",
+        "successor_blob": "d80f1a8f8f5c076cbe763c8a62a4942d267e8b86",
+        "sha256": "bfca759cd0f1014d39824bdcb124a3a0b33d1459be2cc4635739965382a50e7a",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-three-way-partition-types-20261104",
+        "path": "Applications/Selection/ThreeWay.lean",
+        "historical_candidate": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+        "historical_blob": "8627ad6d219f55a404dd96c4f4553594eaa71264",
+        "successor_blob": "8627ad6d219f55a404dd96c4f4553594eaa71264",
+        "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-three-way-partition-types-20261104",
+        "path": "Applications/Sorting/ThreeWayQuickSort.lean",
+        "historical_candidate": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+        "historical_blob": "587a649182fc07df34f685021c5b29b9f477be07",
+        "successor_blob": "587a649182fc07df34f685021c5b29b9f477be07",
+        "sha256": "7ef1adb48a9211c010c84c20c64bd01690eba11683002d8a16cc820eefaf1f0e",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-three-way-partition-types-20261104",
+        "path": "Examples/ThreeWayQuickSort.lean",
+        "historical_candidate": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+        "historical_blob": "02e0333981456099e328c65a72683e75af49581a",
+        "successor_blob": "02e0333981456099e328c65a72683e75af49581a",
+        "sha256": "0951a0f474638250912d4b6ee3084bbbf129c67c0f1527785778003ee1331d86",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-three-way-partition-types-20261104",
+        "path": "Applications/Resources/Partition.lean",
+        "historical_candidate": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+        "historical_blob": "e9d3682a4d3a499aaffd41f73c7fc39965fa0d30",
+        "successor_blob": "e9d3682a4d3a499aaffd41f73c7fc39965fa0d30",
+        "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-three-way-partition-types-20261104",
+        "path": "Applications/Sequences/Partition.lean",
+        "historical_candidate": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+        "historical_blob": "ff03bd349a39b3b77c49793175d4b474199e7c43",
+        "successor_blob": "ff03bd349a39b3b77c49793175d4b474199e7c43",
+        "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-three-way-partition-types-20261104",
+        "path": "Examples/ThreeWayPartition.lean",
+        "historical_candidate": "4ac0e7eed2fa41a8844fff8d213b6298e9ad5cf9",
+        "historical_blob": "a1f29b6310bc8623df2725b0d40f3949513199c5",
+        "successor_blob": "a1f29b6310bc8623df2725b0d40f3949513199c5",
+        "sha256": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-xd01-random-types-20261104",
+        "path": "Examples/DifferenceListCosts.lean",
+        "historical_candidate": "dfaf68114d1dda4e15628c94c3d988c3f5457c49",
+        "historical_blob": "33fd3bec15f8c9b7c3078b45d90c24d7df0c1df2",
+        "successor_blob": "33fd3bec15f8c9b7c3078b45d90c24d7df0c1df2",
+        "sha256": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-xd01-random-types-20261104",
+        "path": "Examples/RandomQuickSort.lean",
+        "historical_candidate": "dfaf68114d1dda4e15628c94c3d988c3f5457c49",
+        "historical_blob": "9c3608babafebadb470c9e1254fa8bbd15c5ad76",
+        "successor_blob": "9c3608babafebadb470c9e1254fa8bbd15c5ad76",
+        "sha256": "4f5a21d1656423ac1307b1ca8fe651cd794d70da576ecd14f65d68cc290c424d",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-xd01-random-types-20261104",
+        "path": "Applications/Resources/DifferenceListCosts.lean",
+        "historical_candidate": "dfaf68114d1dda4e15628c94c3d988c3f5457c49",
+        "historical_blob": "b87222f7c0eb0aafc60031864ca815c2e65fc457",
+        "successor_blob": "b87222f7c0eb0aafc60031864ca815c2e65fc457",
+        "sha256": "f99420b831dff2d0f5fcc3dac1001937942b87c78b710b79f94fa941ab972b01",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-xd01-random-types-20261104",
+        "path": "Applications/Resources/RandomQuickSort.lean",
+        "historical_candidate": "dfaf68114d1dda4e15628c94c3d988c3f5457c49",
+        "historical_blob": "99b1b19cbfb6e6dc875e46cdc338bf4a518674fc",
+        "successor_blob": "99b1b19cbfb6e6dc875e46cdc338bf4a518674fc",
+        "sha256": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-bottom-up-alternating-types-20261104",
+        "path": "Applications/Sorting/Alternating.lean",
+        "historical_candidate": "98696d86162bd93c1cba46719eeb65bf6cabe65a",
+        "historical_blob": "b8147f8fc08969c67da07e9331570590a080760a",
+        "successor_blob": "b8147f8fc08969c67da07e9331570590a080760a",
+        "sha256": "eb927e5978ea410f360441dfa8d4843b5e93de10aae8a5eac5c2f603f4e233e9",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-bottom-up-alternating-types-20261104",
+        "path": "Applications/Sorting/BottomUp.lean",
+        "historical_candidate": "98696d86162bd93c1cba46719eeb65bf6cabe65a",
+        "historical_blob": "41d69c71ffeb337684f397e5e35310cf697ba4d3",
+        "successor_blob": "41d69c71ffeb337684f397e5e35310cf697ba4d3",
+        "sha256": "4df83022174bc4e5becfb441617624d57695158d69dc7241209ca077dc2c7791",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-bottom-up-alternating-types-20261104",
+        "path": "Examples/AlternatingSorting.lean",
+        "historical_candidate": "98696d86162bd93c1cba46719eeb65bf6cabe65a",
+        "historical_blob": "cb3a191d95fbf83c439b9c6135adec10767723bc",
+        "successor_blob": "cb3a191d95fbf83c439b9c6135adec10767723bc",
+        "sha256": "5798ed2ce20dab0ce4b9618fea1e8ea36a7be9b2f60fa7090a85522bfb464c04",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-bottom-up-alternating-types-20261104",
+        "path": "Examples/BottomUpSorting.lean",
+        "historical_candidate": "98696d86162bd93c1cba46719eeb65bf6cabe65a",
+        "historical_blob": "8acdca99b63ebd22b6fd6dbefd37aa3f54f2d25c",
+        "successor_blob": "8acdca99b63ebd22b6fd6dbefd37aa3f54f2d25c",
+        "sha256": "1d4a312363af87926c085f790ca7279273df050f40234c449e0e0fa9e5b5592b",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-top-down-costs-types-20261104",
+        "path": "Examples/TopDownCosts.lean",
+        "historical_candidate": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+        "historical_blob": "05cf0aa40cfe066499ec49b3bab520cb2f3d9070",
+        "successor_blob": "05cf0aa40cfe066499ec49b3bab520cb2f3d9070",
+        "sha256": "8f5f6969049712a5a5d37f7beb78c09017a2835b5f1208e54d0c9912dff425a4",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-top-down-costs-types-20261104",
+        "path": "Applications/Resources/TopDownSorting.lean",
+        "historical_candidate": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+        "historical_blob": "91cba444e67f3947d5fca7984242fde825807929",
+        "successor_blob": "91cba444e67f3947d5fca7984242fde825807929",
+        "sha256": "26531f25e57c0d198fc90d0a10652051ac6159098f493629af3283b54ab687bc",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-top-down-costs-types-20261104",
+        "path": "Applications/Resources/Growth.lean",
+        "historical_candidate": "7fb7c3ed47b5b1ae6c378227928f7da7d67f1cb0",
+        "historical_blob": "65cfdecea6a600b9ed80a9784637e9811c4bd425",
+        "successor_blob": "65cfdecea6a600b9ed80a9784637e9811c4bd425",
+        "sha256": "99be17f2d45ac30de1e912c2181460dac046c8b98e40ea3209abfec342107786",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-uniqueness-types-20261104",
+        "path": "Applications/Sorting/Uniqueness.lean",
+        "historical_candidate": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+        "historical_blob": "5a0e68e51d521b6ab216e2487aa523b9b6844fcb",
+        "successor_blob": "5a0e68e51d521b6ab216e2487aa523b9b6844fcb",
+        "sha256": "e0df544f59be358a3e40ad48f25115ae2ba3b4507a30cdeb3425907bf94c8744",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-uniqueness-types-20261104",
+        "path": "Examples/SortUniqueness.lean",
+        "historical_candidate": "fff993ec1d041c0a86e7e79a94d13f5be6b92a94",
+        "historical_blob": "c4960ecd07a3ed7eb40a7e3eb5240d9efaed0891",
+        "successor_blob": "c4960ecd07a3ed7eb40a7e3eb5240d9efaed0891",
+        "sha256": "ce63cd0d8a953f9441b9b6b1597f9a3604ef736131290cba8c0430c36cd177b7",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-natural-runs-statements-20261104",
+        "path": "Applications/Sorting/NaturalRuns.lean",
+        "historical_candidate": "ff9749d1ccbcb0949486f67d6273e28c262280e0",
+        "historical_blob": "5590b9aeb9f93670602774360e87a374db8228a7",
+        "successor_blob": "5590b9aeb9f93670602774360e87a374db8228a7",
+        "sha256": "123c711b5f0cf05074155f3a0d9ae076aa80a8be482e7e6fc77626aa9db6fb1d",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-natural-runs-statements-20261104",
+        "path": "Examples/NaturalRuns.lean",
+        "historical_candidate": "ff9749d1ccbcb0949486f67d6273e28c262280e0",
+        "historical_blob": "83f5d1b1d719fd844c8e2d1920c230a8cfebdef5",
+        "successor_blob": "83f5d1b1d719fd844c8e2d1920c230a8cfebdef5",
+        "sha256": "ef0ed6bbc5beb40815f977e80c0b99b0633e8503b0b1634747d41275cb3f6041",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-quicksort-statements-20261104",
+        "path": "Applications/Sorting/QuickSort.lean",
+        "historical_candidate": "840252e63026bba5eab109f2b16468deef7670ec",
+        "historical_blob": "01026a360a8f9f44afacd2fbd6ddb356ef8a95d4",
+        "successor_blob": "01026a360a8f9f44afacd2fbd6ddb356ef8a95d4",
+        "sha256": "696ae63c3f5c23940ac0f05c8ac6b48bff74b65e4c66faf319283efedea73802",
+        "byte_identical": true
+      },
+      {
+        "run": "chapter02-quicksort-statements-20261104",
+        "path": "Examples/QuickSort.lean",
+        "historical_candidate": "840252e63026bba5eab109f2b16468deef7670ec",
+        "historical_blob": "376371a0a74a54c8aaaaf653d4528af347347018",
+        "successor_blob": "376371a0a74a54c8aaaaf653d4528af347347018",
+        "sha256": "2e5e4952bae8edf1fd5985f0cfd40993363a2f642717d61161a2e5ee6835a162",
+        "byte_identical": true
+      },
+      {
+        "run": "ordinary-merge-type-inspection-20261104",
+        "path": "Applications/Sorting/Merge.lean",
+        "historical_candidate": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+        "historical_blob": "6595f901a9358398bee07333872125990ef8360c",
+        "successor_blob": "6595f901a9358398bee07333872125990ef8360c",
+        "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+        "byte_identical": true
+      },
+      {
+        "run": "ordinary-merge-type-inspection-20261104",
+        "path": "Examples/MergeCosts.lean",
+        "historical_candidate": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+        "historical_blob": "b5f652cf5258c99f5a615b12987c664ed8be3d76",
+        "successor_blob": "b5f652cf5258c99f5a615b12987c664ed8be3d76",
+        "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466",
+        "byte_identical": true
+      },
+      {
+        "run": "ordinary-merge-type-inspection-20261104",
+        "path": "Applications/Resources/ListMerge.lean",
+        "historical_candidate": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+        "historical_blob": "b658809bc2ba424807e326c3ee7cb64712865a46",
+        "successor_blob": "b658809bc2ba424807e326c3ee7cb64712865a46",
+        "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975",
+        "byte_identical": true
+      }
+    ],
+    "all_41_pairs_byte_identical": true,
+    "selected_public_names": 941,
+    "limit": "Historical actual printed outputs retained only with exact source-file identity; this is not a new compiler run, proof audit or full immutable candidate verification."
+  }
+}

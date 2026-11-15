@@ -1,0 +1,40 @@
+{
+  "recorded_utc": "2026-11-04T20:07:57.714762+00:00",
+  "finding": "C03-CHOP-MAP-ELAB-003",
+  "candidate": "18279b690e789a60a5e78b40e3977d4064dc3b59",
+  "tree": "09a7ddbc35b8805bb2249245a1baa1405c2b83af",
+  "parent": "08decce77c35b0897609df8a4c8bcf6dfe24020d",
+  "source_scope_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "source": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionMedians.lean",
+    "bytes": 5142,
+    "sha256": "4563c04666fdfb6073c8213328a2f868022cf2ed17538cd1671aaea68811c9d8"
+  },
+  "changed_declaration": "two_chunk_map",
+  "only_change": "Normalize empty-membership disjunct inside the inline nonemptiness proof supplied in the example theorem type. Full old/new headers are retained; logical type is unchanged by proof irrelevance, not byte-identical.",
+  "old_raw_header": "theorem two_chunk_map :\n    mapSlowMedianRun ([[7, 2], [4, 4]] : List (List Nat))\n      (by\n        intro ys hy\n        simp only [List.mem_cons, List.mem_singleton] at hy\n        rcases hy with rfl | rfl <;> decide) = ([2, 4], 22) ",
+  "new_raw_header": "theorem two_chunk_map :\n    mapSlowMedianRun ([[7, 2], [4, 4]] : List (List Nat))\n      (by\n        intro ys hy\n        simp only [List.mem_cons, List.not_mem_nil, or_false] at hy\n        rcases hy with rfl | rfl <;> decide) = ([2, 4], 22) ",
+  "all_other15_example_headers_and_blocks_preserved": true,
+  "all_execution_definitions_and_other11_sources_preserved": true,
+  "all_inputs_expected_values_costs_and_logical_claims_preserved": true,
+  "all_prior_records_preserved": true,
+  "full_public_scope": 68,
+  "unchanged68_program_rebound": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/ChopMapStatements68-candidate1.lean",
+    "bytes": 4076,
+    "sha256": "3e1de6e46c407771794f4b315b2c8836e35d5c9cc141d4ca167a554d5a2fd4ac"
+  },
+  "exact_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction3-20261104/correction.diff",
+    "bytes": 561,
+    "sha256": "f24a1c9d1e66f8e5200eb8cd6c5a429f0727614eb7584a03f1b2a9c3a8a33ebd"
+  },
+  "actual_preparation_failure_retained": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction3-20261104/first-preparation-assertion-failure.json",
+    "bytes": 878,
+    "sha256": "11fbbd610fbf18fd5282d8803365086e6c7fac462882097d248f8bfc66e20359"
+  },
+  "compiled": false,
+  "type_fullgate_or_acceptance_credit": false,
+  "source_and_records_held_for_root_focus": true
+}

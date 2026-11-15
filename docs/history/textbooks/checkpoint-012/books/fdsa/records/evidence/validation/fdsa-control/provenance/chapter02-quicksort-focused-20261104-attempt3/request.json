@@ -1,0 +1,31 @@
+{
+  "requested_utc": "2026-11-04T04:02:24.266455+00:00",
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "build",
+    "Applications.Sorting.QuickSort",
+    "Examples.QuickSort"
+  ],
+  "candidate": "840252e63026bba5eab109f2b16468deef7670ec",
+  "initial_status": "",
+  "source_sha256": {
+    "Applications/Sorting/QuickSort.lean": "696ae63c3f5c23940ac0f05c8ac6b48bff74b65e4c66faf319283efedea73802",
+    "Examples/QuickSort.lean": "2e5e4952bae8edf1fd5985f0cfd40993363a2f642717d61161a2e5ee6835a162",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+  },
+  "available_bytes_at_start": 25839026176,
+  "scope": "Focused development build only; not complete candidate check or acceptance.",
+  "private_environment_record": "provenance/chapter02-quicksort-private-doctor-20261104"
+}

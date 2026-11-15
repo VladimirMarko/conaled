@@ -1,0 +1,294 @@
+{
+  "recorded_utc": "2026-11-04T08:27:51.431399+00:00",
+  "author": "/root/chapter02_natural_runs",
+  "author_head": "9d5dcd2cfbd6fc5df572234a85bf4957d0c32a21",
+  "author_branch": "work/fdsa-ch02-uniform-input",
+  "initial_status": "",
+  "central_failed_candidate": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+  "source_scope": [
+    "Applications/Resources/UniformQuickSortMean.lean"
+  ],
+  "examples": "Read completely and frozen byte-identical; no actual example diagnostics yet.",
+  "before": [
+    {
+      "path": "conaled-ch02-uniform-input/Applications/Resources/UniformQuickSortMean.lean",
+      "bytes": 36958,
+      "lines": 764,
+      "sha256": "ff977270b5ba80869dd3bdcf309cfcc06dee8f80422d37ff5fb6a9916ef38a72",
+      "snapshot": {
+        "path": "fdsa-control/provenance/chapter02-uniform-proof-repair1-20261104/before/Applications_Resources_UniformQuickSortMean.lean",
+        "bytes": 36958,
+        "lines": 764,
+        "sha256": "ff977270b5ba80869dd3bdcf309cfcc06dee8f80422d37ff5fb6a9916ef38a72"
+      },
+      "central_source_matches": true
+    },
+    {
+      "path": "conaled-ch02-uniform-input/Examples/UniformQuickSortMean.lean",
+      "bytes": 16466,
+      "lines": 352,
+      "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5",
+      "snapshot": {
+        "path": "fdsa-control/provenance/chapter02-uniform-proof-repair1-20261104/before/Examples_UniformQuickSortMean.lean",
+        "bytes": 16466,
+        "lines": 352,
+        "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5"
+      },
+      "central_source_matches": true
+    }
+  ],
+  "original_inventory": {
+    "path": "fdsa-control/provenance/chapter02-uniform-input-implementation-20261104/source-inventory.json",
+    "bytes": 93987,
+    "lines": 1415,
+    "sha256": "92e4fbdf7b272eb387449ff404c6a24ca5e4b4f7cf59aa4f3c555ee67d9a6913"
+  },
+  "actual_diagnostics": {
+    "path": "fdsa-control/provenance/chapter02-uniform-proof-repair1-20261104/diagnostics.txt",
+    "bytes": 10696,
+    "lines": 192,
+    "sha256": "fa80b7c7cbad5cea596a243977c8214d2845dda181503cecc40f957340dc26b2"
+  },
+  "diagnostic_headers": [
+    {
+      "ordinal": 1,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:201:8: automatically included section variable(s) unused in theorem `Resources.UniformQuickSortMean.meanBy_empty`:"
+    },
+    {
+      "ordinal": 2,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:206:0: automatically included section variable(s) unused in theorem `Resources.UniformQuickSortMean.meanBy_singleton`:"
+    },
+    {
+      "ordinal": 3,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:232:2: mod_cast has type"
+    },
+    {
+      "ordinal": 4,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:289:14: don't know how to synthesize implicit argument `\u03bc`"
+    },
+    {
+      "ordinal": 5,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:289:7: failed to infer `have` declaration type"
+    },
+    {
+      "ordinal": 6,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:280:88: unsolved goals"
+    },
+    {
+      "ordinal": 7,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:307:16: Unknown identifier `on`"
+    },
+    {
+      "ordinal": 8,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:313:0: automatically included section variable(s) unused in theorem `Resources.UniformQuickSortMean.firstEvents_cover`:"
+    },
+    {
+      "ordinal": 9,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:347:8: declaration uses `sorry`"
+    },
+    {
+      "ordinal": 10,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:369:0: automatically included section variable(s) unused in theorem `Resources.UniformQuickSortMean.injOn_leftChild`:"
+    },
+    {
+      "ordinal": 11,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:376:0: automatically included section variable(s) unused in theorem `Resources.UniformQuickSortMean.injOn_rightChild`:"
+    },
+    {
+      "ordinal": 12,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:384:0: automatically included section variable(s) unused in theorem `Resources.UniformQuickSortMean.restrictedOrder_keys_nodup`:"
+    },
+    {
+      "ordinal": 13,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:431:0: automatically included section variable(s) unused in theorem `Resources.UniformQuickSortMean.rankEquiv_key`:"
+    },
+    {
+      "ordinal": 14,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:465:10: Invalid rewrite argument: The pattern to be substituted is a metavariable (`?key"
+    },
+    {
+      "ordinal": 15,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:511:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+    },
+    {
+      "ordinal": 16,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:531:52: Unknown identifier `hcard`"
+    },
+    {
+      "ordinal": 17,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:533:48: Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+    },
+    {
+      "ordinal": 18,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:602:2: Type mismatch: After simplification, term"
+    },
+    {
+      "ordinal": 19,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:635:53: Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+    },
+    {
+      "ordinal": 20,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:653:0: automatically included section variable(s) unused in theorem `Resources.UniformQuickSortMean.occurrence_key_injective`:"
+    },
+    {
+      "ordinal": 21,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:659:0: automatically included section variable(s) unused in theorem `Resources.UniformQuickSortMean.occurrenceInput_keys_nodup`:"
+    },
+    {
+      "ordinal": 22,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:670:6: Type mismatch"
+    },
+    {
+      "ordinal": 23,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:746:4: mod_cast has type"
+    },
+    {
+      "ordinal": 24,
+      "header": "error: Applications/Resources/UniformQuickSortMean.lean:752:4: mod_cast has type"
+    }
+  ],
+  "actual_failed_result": {
+    "candidate": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+    "command": [
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+      "--state",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+      "run",
+      "--project",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+      "--threads",
+      "1",
+      "--",
+      "lake",
+      "build",
+      "Applications.Probability.PermutationOrder",
+      "Examples.PermutationOrderBoundary",
+      "Examples.PermutationOrder",
+      "Applications.Resources.NaturalRunOperations",
+      "Examples.NaturalRunOperations",
+      "Applications.Probability.PermutationTail",
+      "Examples.PermutationTailBoundary",
+      "Examples.PermutationTail",
+      "Applications.Resources.QuickSortMean",
+      "Examples.QuickSortMean",
+      "Applications.Resources.RandomQuickSortRank",
+      "Examples.RandomQuickSortRank",
+      "Applications.Resources.RandomQuickSortGrowth",
+      "Examples.RandomQuickSortGrowth",
+      "Applications.Resources.UniformQuickSortMean",
+      "Examples.UniformQuickSortMean"
+    ],
+    "started_utc": "2026-11-04T08:04:20.092484+00:00",
+    "completed_utc": "2026-11-04T08:23:37.410780+00:00",
+    "exit_code": 1,
+    "elapsed_seconds": 1157.3180223529998,
+    "state": "failed",
+    "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6/full.log",
+    "progress_bookkeeping_errors": [],
+    "final_head": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+    "final_status": "",
+    "log_size_bytes": 48390,
+    "log_sha256": "4d18122cfbe8698979673c10b4bdf76b0fb7442d48f75882b95d89c6bae1aa95",
+    "available_bytes_at_completion": 18811265024,
+    "verification_record_present": false
+  },
+  "actual_native_result": {
+    "started_utc": "2026-11-04T08:04:20.146676+00:00",
+    "command": [
+      "lake",
+      "build",
+      "Applications.Probability.PermutationOrder",
+      "Examples.PermutationOrderBoundary",
+      "Examples.PermutationOrder",
+      "Applications.Resources.NaturalRunOperations",
+      "Examples.NaturalRunOperations",
+      "Applications.Probability.PermutationTail",
+      "Examples.PermutationTailBoundary",
+      "Examples.PermutationTail",
+      "Applications.Resources.QuickSortMean",
+      "Examples.QuickSortMean",
+      "Applications.Resources.RandomQuickSortRank",
+      "Examples.RandomQuickSortRank",
+      "Applications.Resources.RandomQuickSortGrowth",
+      "Examples.RandomQuickSortGrowth",
+      "Applications.Resources.UniformQuickSortMean",
+      "Examples.UniformQuickSortMean"
+    ],
+    "cwd": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+    "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T080420Z-project-run-538dbe33/output.log",
+    "label": "project-run",
+    "lean_threads": "1",
+    "passed": false,
+    "completed_utc": "2026-11-04T08:23:37.359238+00:00",
+    "seconds": 1157.210775697,
+    "exit_code": 1,
+    "timed_out": false,
+    "recorder_error": null
+  },
+  "failure_evidence": [
+    {
+      "path": "fdsa-control/provenance/chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6/result.json",
+      "bytes": 1833,
+      "lines": 46,
+      "sha256": "1e40ac4caff1953928a946f37c850f9673d98472628517318cf510630d5e5233"
+    },
+    {
+      "path": "fdsa-control/provenance/chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6/full.log",
+      "bytes": 48390,
+      "lines": 468,
+      "sha256": "4d18122cfbe8698979673c10b4bdf76b0fb7442d48f75882b95d89c6bae1aa95"
+    },
+    {
+      "path": "fdsa-control/provenance/chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6/native/start.json",
+      "bytes": 1068,
+      "lines": 28,
+      "sha256": "7d3604ccabc3cc64a554b1508e78bb8d1f0c408700ff99c905a6b1859317c2e7"
+    },
+    {
+      "path": "fdsa-control/provenance/chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6/native/result.json",
+      "bytes": 1218,
+      "lines": 33,
+      "sha256": "cde591c9387136a9e4905362be15a77600e1f789e06b55e06d173d8326cca633"
+    },
+    {
+      "path": "fdsa-control/provenance/chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6/native/output.log",
+      "bytes": 47621,
+      "lines": 465,
+      "sha256": "a7234d856b9607996c796cd4ffee2e4153512bcd6901cf660ff15a8a63840dc2"
+    },
+    {
+      "path": "fdsa-control/provenance/chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6/secured-terminal.json",
+      "bytes": 2009,
+      "lines": 43,
+      "sha256": "168b196105ae7b78c9dc54f3a80456fcab32b52e6644c5915f3e47b5493e1f80"
+    },
+    {
+      "path": "fdsa-control/provenance/chapter02-mean-repairs-growth-uniform-focused-20261104-attempt6/uniform-diagnostics.txt",
+      "bytes": 10696,
+      "lines": 192,
+      "sha256": "fa80b7c7cbad5cea596a243977c8214d2845dda181503cecc40f957340dc26b2"
+    }
+  ],
+  "constraints": {
+    "all_125_intended_declarations_and_cases_retained": true,
+    "no_builds_or_compiler_invocations": true,
+    "no_cache_or_dependency_changes": true,
+    "no_examples_changes_without_actual_finding": true,
+    "no_linter_suppression": true,
+    "no_admissions": true,
+    "signature_corrections_disclosed_separately": true,
+    "old_elaborated_equivalence_not_claimed": true,
+    "foundation_standards_role_held_separately": true
+  },
+  "planned_repairs": [
+    "Scoped omission of unused measure/order/equality section instances, including directly affected pure prerequisites.",
+    "Expand the unelaborated on notation to an explicit disjoint-event relation.",
+    "Supply the original uniform measure to conditional almost-everywhere equality.",
+    "Expose observed-cost and occurrence definitions, beta-reduce pointwise lambdas before casting/rewriting.",
+    "Give explicit rank and finite-sum rewrite arguments.",
+    "Keep cardinal equality available in the zero branch by using its explicit composition with n=0.",
+    "Give Finset.univ its finite-set type before coercing to a set."
+  ],
+  "validation_status": "Failed original central core compilation; source-only repair not yet authored or compiled."
+}

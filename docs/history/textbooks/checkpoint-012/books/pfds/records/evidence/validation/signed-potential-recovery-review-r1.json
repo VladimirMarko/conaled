@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-03T13:56:14.634675+00:00",
+  "task": 10023,
+  "base": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+  "original_integration_base": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+  "candidate": "9c47a052ef96b528a85660d4c632704ca03144fe",
+  "source_changed_since_checkpoint039": false,
+  "requirements": "requirements/signed-potential.md",
+  "requirements_sha256": "bb28d4f56eb48c80d2a9905b6e349d3e4b6fdb4e4ad2a01976408432a434ac81",
+  "files": {
+    "Applications/Resources/Potential.lean": "690b48d41dc0b4b21a62e29d1a67c8b0494b3a0ca9de378e07cca82f415f961e",
+    "Applications/Resources/SignedPotential.lean": "c839b1e32b3182c5789d05934ea253139d91c338917c1207616fe0043b0ce222",
+    "Examples/PotentialTransport.lean": "5fa86b8dec422ca73c6a8c4853a6a2719b2f3892c0bac57b6a58becb18dd3c7c",
+    "Examples/SignedPotential.lean": "ea3361fcee325fbb6c360b01b2cc06fe18c773cc3ecf963494f9d0c431f9c122",
+    "SquareApplications.lean": "d5f96d925f272187870e3831a33d2f2ee544ddabb149978fbe9ef65dbd8bb581",
+    "docs/research/pfds-signed-potential.md": "e7ebb2dd51fec8706a0bba38da9e9a6c0a2eb3aa3a688c5b80a66e6f7cb8dfe5"
+  },
+  "exclusions": [],
+  "checkout": "/workspace/scratch/b566cace4ed6/pfds/signed-potential",
+  "status": "immutable source prepared for independent static review; formal gates blocked",
+  "validation": "validation/recovery-040-interruptions.json",
+  "environment_blocker": "environment/recovery-040-approval.json",
+  "acceptance": false
+}

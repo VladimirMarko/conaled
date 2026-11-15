@@ -1,0 +1,30 @@
+{
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "command": [
+    "python3",
+    "/workspace/scratch/31d6377eca78/conaled-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/31d6377eca78/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/31d6377eca78/fdsa/conaled-ch01-review",
+    "--",
+    "./check.sh",
+    "--verify-candidate",
+    "HEAD"
+  ],
+  "started_utc": "2026-11-03T21:16:47.915405+00:00",
+  "completed_utc": "2026-11-03T21:16:48.283254+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 0.3677071309994062,
+  "state": "passed",
+  "log": "/workspace/scratch/31d6377eca78/fdsa/fdsa-control/provenance/chapter01-unified-final-verification/full.log",
+  "progress_bookkeeping_errors": [],
+  "final_head": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "final_status": "",
+  "log_size_bytes": 288,
+  "log_sha256": "ecb0563df606d47b38ba4d953ec5f6f4e941b6b8e703dfebeefaa4a829a3491b",
+  "available_bytes_at_completion": 50065072128,
+  "verification_record_present": true,
+  "verification_record_sha256": "8d9257a238ab4c2e0743a41851a080f403aa09b41f4bf34690496c1f9a7b0264"
+}

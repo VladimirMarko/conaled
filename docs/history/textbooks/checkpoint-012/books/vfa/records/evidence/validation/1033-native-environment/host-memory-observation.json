@@ -1,0 +1,30 @@
+{
+  "recorded_utc": "2026-11-03T16:24:55.329654+00:00",
+  "method": "read-only libc sysinfo aggregate resource observation; no procfs/cgroup reads",
+  "source": "#include <sys/sysinfo.h>\n#include <stdio.h>\nint main(void) { struct sysinfo s; if(sysinfo(&s)) return 1; printf(\"{\\\"totalram\\\":%lu,\\\"freeram\\\":%lu,\\\"sharedram\\\":%lu,\\\"bufferram\\\":%lu,\\\"totalswap\\\":%lu,\\\"freeswap\\\":%lu,\\\"mem_unit\\\":%u}\\n\",s.totalram,s.freeram,s.sharedram,s.bufferram,s.totalswap,s.freeswap,s.mem_unit); return 0; }\n",
+  "compile_exit": 0,
+  "returncode": 0,
+  "stdout": "{\"totalram\":10451427328,\"freeram\":954830848,\"sharedram\":12288,\"bufferram\":235229184,\"totalswap\":0,\"freeswap\":0,\"mem_unit\":1}\n",
+  "stderr": "",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "scope": "Global aggregate, not a measured task-specific memory limit or attribution to other processes.",
+  "sysinfo": {
+    "totalram": 10451427328,
+    "freeram": 954830848,
+    "sharedram": 12288,
+    "bufferram": 235229184,
+    "totalswap": 0,
+    "freeswap": 0,
+    "mem_unit": 1
+  }
+}

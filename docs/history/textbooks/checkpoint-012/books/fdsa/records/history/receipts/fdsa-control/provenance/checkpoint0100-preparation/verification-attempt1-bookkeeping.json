@@ -1,0 +1,9 @@
+{
+  "recorded_utc": "2026-11-04T11:36:59.760853+00:00",
+  "owned_verification_session": 84239,
+  "actual_exit": 1,
+  "failure": "KeyError actual_owned_exec_exit while checking first earlier focused secured-terminal record; its retained schema differs.",
+  "archive_corruption_established": false,
+  "checks_before_failure": "Archive SHA/size/sidecar, every payload checksum and exact file set, all63refs/15worktree states and21held control hashes passed. Closed-run reconciliation stopped before completion.",
+  "next": "Inspect exact old receipt keys and rerun complete archive verification with explicit schema handling; never change original receipt."
+}

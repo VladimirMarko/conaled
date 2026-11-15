@@ -1,0 +1,15 @@
+{
+  "recorded_utc": "2026-11-04T23:41:26.037670+00:00",
+  "actual_exit": 1,
+  "tool_result": {
+    "chunk_id": "92f99e",
+    "wall_time_seconds": 0.824463459,
+    "exit_code": 1,
+    "original_token_count": 23,
+    "output": "Traceback (most recent call last):\n  File \"<stdin>\", line 29, in <module>\nAssertionError\n"
+  },
+  "failure": "Literal allowlist anchor had20 leading spaces; preserved parent has19. Assertion stopped before any helper write. Only exact previous manifest had been extracted.",
+  "correction": "Match exact quoted path+closing brace independently of leading indentation; retain original19-space continuation. Resume only from the expected owned manifest and original failed-attempt records.",
+  "source_or_validation_effect": false,
+  "first_script_sha256": "44577e4bca0221e22cab209fdd2bb1e4fc8b9ca8a7c4dc36a8e045c9ab837f51"
+}

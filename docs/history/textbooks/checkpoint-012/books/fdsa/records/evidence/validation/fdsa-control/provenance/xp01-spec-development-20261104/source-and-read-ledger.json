@@ -1,0 +1,1108 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-04T11:21:35.766135+00:00",
+  "review_axis": "Spec",
+  "reviewer": "/root/chapter02_spec",
+  "independent_nonauthor": true,
+  "kind": "Complete original XP01 source preparation and same-scope correction continuation; not final acceptance",
+  "overall": "Blocked",
+  "identities": {
+    "accepted_R": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "pending_F": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "original_unit_base_B": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+    "original_unit_draft_X": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+    "historical_combined_review_base": "1aabd512284fe86254278ac631eda061d311050b",
+    "unaccepted_development_base_Z": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "first_development_D": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+    "current_source_E": "cfa413e247c084245a270ae7bcc91fd9ea24b002"
+  },
+  "protected_refs_observed_exact": {
+    "work/fdsa-book": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "work/fdsa-foundation-integration": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "work/fdsa-ch02-development": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+    "work/fdsa-list-foundations": "c28ba71863d2a35ee1c3a089caa90464e4cca692"
+  },
+  "original_and_current_path_sets_equal": true,
+  "paths": [
+    "Applications/Resources/FIFOContracts.lean",
+    "Applications/Resources/Potential.lean",
+    "Examples/MappedPotentialAccounting.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-potential-accounting.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "all_non_six_Z_paths_unchanged": true,
+  "four_nonoverlap_D_files_exact_X": true,
+  "full_changed_source_reads_at_D": [
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Applications/Resources/FIFOContracts.lean",
+      "git_blob": "01839707e852b3faff6ef1a49ad88a76fb5e5c18",
+      "bytes": 8308,
+      "newline_lines": 168,
+      "sha256": "f0215c25e27380b170297c9cc010375da4ef263380088f4ae8fdbb7272373343",
+      "read_ranges": [
+        [
+          1,
+          168
+        ]
+      ],
+      "read_complete": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Applications/Resources/Potential.lean",
+      "git_blob": "3ffc5e120f94f87c77a442728f654f3fa94d3aeb",
+      "bytes": 11523,
+      "newline_lines": 238,
+      "sha256": "fa33b209a7c8cd700e7a33a6d3ee11ef9ad572c2d2e8406dfbabf6468ebf7d8c",
+      "read_ranges": [
+        [
+          1,
+          238
+        ]
+      ],
+      "read_complete": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Examples/MappedPotentialAccounting.lean",
+      "git_blob": "0291c5979243b0d12332d3628d06aa910732dfa2",
+      "bytes": 6726,
+      "newline_lines": 165,
+      "sha256": "aa57790203c7dbc800586464c46366fcd7e6da6965fdbc3c260285e9c8d693c3",
+      "read_ranges": [
+        [
+          1,
+          165
+        ]
+      ],
+      "read_complete": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "SquareApplications.lean",
+      "git_blob": "77116918bf2466ff362c7c2357470cd413a43ec3",
+      "bytes": 9413,
+      "newline_lines": 286,
+      "sha256": "f435dd0a16590472f21a9b25d7ae48e21bccf6a74ff4c54539b091529ed574b9",
+      "read_ranges": [
+        [
+          1,
+          286
+        ]
+      ],
+      "read_complete": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "docs/research/fdsa-potential-accounting.md",
+      "git_blob": "b9e70b3a5c15606de595f319ff5d11cdd9ff941e",
+      "bytes": 9877,
+      "newline_lines": 163,
+      "sha256": "19c6dc50bc71b518c879cdd8a3f238a3fc5726e5d2486469e18a94a3f310d272",
+      "read_ranges": [
+        [
+          1,
+          163
+        ]
+      ],
+      "read_complete": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "5ae3836703d0d105f6c08a742b5070a62b159ad1",
+      "bytes": 44518,
+      "newline_lines": 677,
+      "sha256": "9124fe8ac99901d2e5658c215d936889d6de8ff4ded6dfd8264ddc0ed66ef896",
+      "read_ranges": [
+        [
+          1,
+          677
+        ]
+      ],
+      "read_complete": true
+    }
+  ],
+  "current_source_identities": [
+    {
+      "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+      "path": "Applications/Resources/FIFOContracts.lean",
+      "git_blob": "01839707e852b3faff6ef1a49ad88a76fb5e5c18",
+      "bytes": 8308,
+      "newline_lines": 168,
+      "sha256": "f0215c25e27380b170297c9cc010375da4ef263380088f4ae8fdbb7272373343"
+    },
+    {
+      "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+      "path": "Applications/Resources/Potential.lean",
+      "git_blob": "dcf7ae78d76c1440c2d89711e6939a00ff24cc90",
+      "bytes": 11606,
+      "newline_lines": 239,
+      "sha256": "c921f5a18f9c508c338d49eed9d3bd2a2193f968cfc3e9efb4208f8917efa33c"
+    },
+    {
+      "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+      "path": "Examples/MappedPotentialAccounting.lean",
+      "git_blob": "0291c5979243b0d12332d3628d06aa910732dfa2",
+      "bytes": 6726,
+      "newline_lines": 165,
+      "sha256": "aa57790203c7dbc800586464c46366fcd7e6da6965fdbc3c260285e9c8d693c3"
+    },
+    {
+      "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+      "path": "SquareApplications.lean",
+      "git_blob": "77116918bf2466ff362c7c2357470cd413a43ec3",
+      "bytes": 9413,
+      "newline_lines": 286,
+      "sha256": "f435dd0a16590472f21a9b25d7ae48e21bccf6a74ff4c54539b091529ed574b9"
+    },
+    {
+      "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+      "path": "docs/research/fdsa-potential-accounting.md",
+      "git_blob": "b9e70b3a5c15606de595f319ff5d11cdd9ff941e",
+      "bytes": 9877,
+      "newline_lines": 163,
+      "sha256": "19c6dc50bc71b518c879cdd8a3f238a3fc5726e5d2486469e18a94a3f310d272"
+    },
+    {
+      "candidate": "cfa413e247c084245a270ae7bcc91fd9ea24b002",
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "db598df8a4fe01d368cd0c791040dee22b5d7311",
+      "bytes": 44533,
+      "newline_lines": 677,
+      "sha256": "c617f951a84072835c80945c8093a2096272d97f9e21981d865a263a19eb186b"
+    }
+  ],
+  "successor_read": "Complete two-path D→E diff, Potential changed proof contexts 30–78 and 125–153, and changed map paragraph; exhaustive byte identity preserves all unchanged parts of the complete D read.",
+  "required_unchanged_client_full_reads": [
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Applications/Resources/Measured.lean",
+      "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+      "bytes": 2906,
+      "newline_lines": 71,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          71
+        ]
+      ],
+      "unchanged_Z_D_E": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Applications/Resources/Workload.lean",
+      "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+      "bytes": 2745,
+      "newline_lines": 64,
+      "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          64
+        ]
+      ],
+      "unchanged_Z_D_E": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Applications/Resources/BinaryCounter.lean",
+      "git_blob": "ed65ac31a2674df62fe26c0ff69a2d6b9bb2101d",
+      "bytes": 11446,
+      "newline_lines": 304,
+      "sha256": "d990e0e8d9b09fff3f774180fa2396558f2d1abcf7e6231be648f5bd66f6f9c0",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          304
+        ]
+      ],
+      "unchanged_Z_D_E": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Applications/Resources/SharedDemand.lean",
+      "git_blob": "449d7fce653a449be11209c4cb8cb23ae1240609",
+      "bytes": 12012,
+      "newline_lines": 251,
+      "sha256": "c9740655b7afb51b28b044f1a72006d7a393b74a3e60e2f26464dc7eca7ee996",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          251
+        ]
+      ],
+      "unchanged_Z_D_E": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Applications/Resources/SymmetricCosts.lean",
+      "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+      "bytes": 10508,
+      "newline_lines": 281,
+      "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          281
+        ]
+      ],
+      "unchanged_Z_D_E": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Applications/Resources/RandomAccess/End.lean",
+      "git_blob": "74cd8d740e2ed2d45638466faf8eec1c6913ee0e",
+      "bytes": 11480,
+      "newline_lines": 307,
+      "sha256": "ded4129df132c7fd87a40899cea6f483db02f3f95332bd9ec7c8c57dd868f099",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          307
+        ]
+      ],
+      "unchanged_Z_D_E": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Examples/PotentialAccounting.lean",
+      "git_blob": "eb0cdb80a1d8728e4b1e4eb827fa24c947092a8a",
+      "bytes": 6221,
+      "newline_lines": 126,
+      "sha256": "ee3fbee1b7e8be75226ac912e3cbb2b82c322d843b3231bdb6ac94908c7b1871",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          126
+        ]
+      ],
+      "unchanged_Z_D_E": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Examples/FIFOContracts.lean",
+      "git_blob": "f67c5167345d8809dcc6677c162c85e9621fd0ca",
+      "bytes": 4627,
+      "newline_lines": 92,
+      "sha256": "de9e455109ecb5cca0f5e30b7dc993f81149ab7a6145750cc2b62bcb9f83831b",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          92
+        ]
+      ],
+      "unchanged_Z_D_E": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Examples/RandomAccessEndCosts.lean",
+      "git_blob": "61fe0b5fba72b692f493a80b779a11437b42c4ad",
+      "bytes": 7737,
+      "newline_lines": 130,
+      "sha256": "ea68d8773ae7fea32d43e9b0eb01d3ca9111a0d41eac28079adafa5a719fa600",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          130
+        ]
+      ],
+      "unchanged_Z_D_E": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Examples/SharedDemand.lean",
+      "git_blob": "937400b61230b59ad0889ec554305ce9b6b42800",
+      "bytes": 7844,
+      "newline_lines": 188,
+      "sha256": "5b0e374c3d57a9a681d49b9ae0b1bff41a6f60490efadc79cd2d3432b7737fc9",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          188
+        ]
+      ],
+      "unchanged_Z_D_E": true
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "Examples/SymmetricLists.lean",
+      "git_blob": "da14a29c827e67dc21eb8997af66510ecc341d84",
+      "bytes": 5370,
+      "newline_lines": 103,
+      "sha256": "e6a0121d5afc79d19b607ad0bb6c4574894e6152475687e265958d5c028022be",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          103
+        ]
+      ],
+      "unchanged_Z_D_E": true
+    }
+  ],
+  "original_Potential_B_full_read": {
+    "candidate": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+    "path": "Applications/Resources/Potential.lean",
+    "git_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+    "bytes": 4638,
+    "newline_lines": 108,
+    "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe",
+    "read_complete": true
+  },
+  "retained_Nat_headers": [
+    {
+      "name": "Resources.charge_iff_signed",
+      "header_sha256": "db84731f4edee5481fa9c521de7f7f9e068454a7a081955e754a3fbf018d30d1",
+      "source_header_byte_exact_B_D_E": true,
+      "is_one_of_eight_Nat_wrappers": true,
+      "complete_source_header": "theorem charge_iff_signed (cost before after amortized : Nat) :\n    cost + after ≤ before + amortized ↔\n      (cost : Int) ≤ (before : Int) - after + amortized"
+    },
+    {
+      "name": "Resources.run_potential",
+      "header_sha256": "1e0e87e60cd20504a3ccb18b311ebd032c597ce127218cb2ed5ba3319a211674",
+      "source_header_byte_exact_B_D_E": true,
+      "is_one_of_eight_Nat_wrappers": true,
+      "complete_source_header": "theorem run_potential (step : ι → σ → σ × Nat) (charge : ι → σ → Nat)\n    (potential : σ → Nat)\n    (hstep : ∀ i s, (step i s).2 + potential (step i s).1 ≤ potential s + charge i s)\n    (is : List ι) (s : σ) :\n    (run step is s).2 + potential (run step is s).1 ≤\n      potential s + budget step charge is s"
+    },
+    {
+      "name": "Resources.run_potential_exact",
+      "header_sha256": "836d1f6bd2af872a5bc176c91cfcd982ff3174362ed96d77aca72becbcabf8ac",
+      "source_header_byte_exact_B_D_E": true,
+      "is_one_of_eight_Nat_wrappers": true,
+      "complete_source_header": "theorem run_potential_exact (step : ι → σ → σ × Nat) (charge : ι → σ → Nat)\n    (potential : σ → Nat)\n    (hstep : ∀ i s, (step i s).2 + potential (step i s).1 = potential s + charge i s)\n    (is : List ι) (s : σ) :\n    (run step is s).2 + potential (run step is s).1 =\n      potential s + budget step charge is s"
+    },
+    {
+      "name": "Resources.run_cost_le",
+      "header_sha256": "584c7d341eda3a1de8944e259614b4bbde8a98c5714463b667c1e8c65dbe1d70",
+      "source_header_byte_exact_B_D_E": true,
+      "is_one_of_eight_Nat_wrappers": true,
+      "complete_source_header": "theorem run_cost_le (step : ι → σ → σ × Nat) (charge : ι → σ → Nat)\n    (potential : σ → Nat)\n    (hstep : ∀ i s, (step i s).2 + potential (step i s).1 ≤ potential s + charge i s)\n    (is : List ι) (s : σ) :\n    (run step is s).2 ≤ potential s + budget step charge is s"
+    },
+    {
+      "name": "Resources.run_zero_potential",
+      "header_sha256": "4ce405d9057f938fe793fda0d5ba300aa4ac8bc88dfe9111537b7de80e5d88c7",
+      "source_header_byte_exact_B_D_E": true,
+      "is_one_of_eight_Nat_wrappers": true,
+      "complete_source_header": "theorem run_zero_potential (step : ι → σ → σ × Nat) (charge : ι → σ → Nat)\n    (potential : σ → Nat)\n    (hstep : ∀ i s, (step i s).2 + potential (step i s).1 ≤ potential s + charge i s)\n    (is : List ι) (s : σ) (zero : potential s = 0) :\n    (run step is s).2 ≤ budget step charge is s"
+    },
+    {
+      "name": "Resources.budget_constant",
+      "header_sha256": "00c4939f27bbe06098170544f2f1664ee72b46e4d66aa18896685ad085d99a8e",
+      "source_header_byte_exact_B_D_E": true,
+      "is_one_of_eight_Nat_wrappers": true,
+      "complete_source_header": "theorem budget_constant (step : ι → σ → σ × Nat) (k : Nat) (is : List ι) (s : σ) :\n    budget step (fun _ _ => k) is s = k * is.length"
+    },
+    {
+      "name": "Resources.budget_le_constant",
+      "header_sha256": "459d273660c99e043ef8b8f23c5618a263bda6baf1e4d1286f207a261a8af00f",
+      "source_header_byte_exact_B_D_E": true,
+      "is_one_of_eight_Nat_wrappers": true,
+      "complete_source_header": "theorem budget_le_constant (step : ι → σ → σ × Nat) (charge : ι → σ → Nat)\n    (k : Nat) (bound : ∀ i s, charge i s ≤ k) (is : List ι) (s : σ) :\n    budget step charge is s ≤ k * is.length"
+    },
+    {
+      "name": "Resources.run_constant_charge",
+      "header_sha256": "5f9671fa60c6cf7c36634f2714340aa33a65d49bd76ba7f6446118ed9bee6b17",
+      "source_header_byte_exact_B_D_E": true,
+      "is_one_of_eight_Nat_wrappers": true,
+      "complete_source_header": "theorem run_constant_charge (step : ι → σ → σ × Nat) (potential : σ → Nat)\n    (k : Nat)\n    (hstep : ∀ i s, (step i s).2 + potential (step i s).1 ≤ potential s + k)\n    (is : List ι) (s : σ) :\n    (run step is s).2 + potential (run step is s).1 ≤ potential s + k * is.length"
+    },
+    {
+      "name": "Resources.initial_potential_matters",
+      "header_sha256": "fe6d14eb75b4a61f2851cbfbdb01c685c3a87733d5c294c2400dd2103f688e43",
+      "source_header_byte_exact_B_D_E": true,
+      "is_one_of_eight_Nat_wrappers": false,
+      "complete_source_header": "theorem initial_potential_matters :\n    let step : Unit → Nat → Measured Nat Nat := fun _ s => (0, s)\n    (∀ i s, (step i s).2 + (step i s).1 ≤ s + 0) ∧\n      (run step [()] 1).2 > budget step (fun _ _ => 0) [()] 1"
+    }
+  ],
+  "Potential_all_18_headers_D_E_exact": true,
+  "guidance_reads": [
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "AGENTS.md",
+      "git_blob": "1b1e65502f0b0771b2475e3b1f37e39d7f18d0c2",
+      "bytes": 3118,
+      "newline_lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          76
+        ]
+      ]
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": ".agents/skills/implement/SKILL.md",
+      "git_blob": "45b885f90c1ce212e45fbb30727322e4eb34bcd8",
+      "bytes": 4997,
+      "newline_lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          83
+        ]
+      ]
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": ".agents/skills/code-review/SKILL.md",
+      "git_blob": "8b79f5e9db43d028f2b9a252d907b9b9b02feb01",
+      "bytes": 7466,
+      "newline_lines": 133,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          133
+        ]
+      ]
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": ".agents/skills/code-review/heuristics.md",
+      "git_blob": "9c5666ca66022e0322ebb9687c69182d6d63e553",
+      "bytes": 2232,
+      "newline_lines": 32,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          32
+        ]
+      ]
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "git_blob": "8f279691ee250a713f7cd70f7c37c5d581ead152",
+      "bytes": 6991,
+      "newline_lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          116
+        ]
+      ]
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": ".agents/skills/example-driven-development/worked-example.md",
+      "git_blob": "255389dab7b86dae37bf06f477f42c5a77fcbec9",
+      "bytes": 2356,
+      "newline_lines": 55,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          55
+        ]
+      ]
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "docs/agents/review-loop.md",
+      "git_blob": "6c4724d8b5dde60c55543e73414873a5f355d165",
+      "bytes": 7113,
+      "newline_lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          115
+        ]
+      ]
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "docs/agents/architectural-quality.md",
+      "git_blob": "bfcdb4a22899e11ba61b67d068d380ef5ea69f9f",
+      "bytes": 3876,
+      "newline_lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          66
+        ]
+      ]
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "docs/agents/domain.md",
+      "git_blob": "c26859ec35e14a9051d84066b3b5315aad67ee8b",
+      "bytes": 926,
+      "newline_lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          27
+        ]
+      ]
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "GLOSSARY.md",
+      "git_blob": "58735721568c19cbdc0bfd691280fd24b98e65c9",
+      "bytes": 4824,
+      "newline_lines": 106,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          106
+        ]
+      ]
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "docs/adr/README.md",
+      "git_blob": "d8cced6079e8bc98d3ddd9f655a3e1d78bf29107",
+      "bytes": 1547,
+      "newline_lines": 17,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "git_blob": "c997496c5aa49412715630f853419d3a6b10c825",
+      "bytes": 2561,
+      "newline_lines": 50,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          50
+        ]
+      ]
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "git_blob": "a864fb47055dc03ffad69dfea236f9e1c1f860f4",
+      "bytes": 7331,
+      "newline_lines": 127,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          127
+        ]
+      ]
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "docs/language-direction.md",
+      "git_blob": "1ff46ed93a8c9b34cd7cb30c631b4e427b7d8a6d",
+      "bytes": 19185,
+      "newline_lines": 306,
+      "sha256": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          306
+        ]
+      ]
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "docs/research/adwh-potential-accounting.md",
+      "git_blob": "a9c5c4ca3224f518321b963bbd85b2eaa022d670",
+      "bytes": 10656,
+      "newline_lines": 171,
+      "sha256": "4577cde599152eeec22d4008ccf5fa09e27e1550bbaf7fb0d82342fc566d52cb",
+      "read_complete": true,
+      "read_ranges": [
+        [
+          1,
+          171
+        ]
+      ]
+    },
+    {
+      "candidate": "5ffa882bbcb34c1c533710a0c980423484e5a77d",
+      "path": "README.md",
+      "git_blob": "b2d38cbfc770f0ecb3d653dc819a67a9dd3dfa3b",
+      "bytes": 26239,
+      "newline_lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "read_complete": false,
+      "read_ranges": [
+        [
+          161,
+          248
+        ]
+      ],
+      "retained_prior_complete_C2_read": true,
+      "unchanged_Z_D_E": true
+    }
+  ],
+  "control_and_preflight_reads": [
+    {
+      "path": "REQUEST.md",
+      "bytes": 8549,
+      "newline_lines": 148,
+      "sha256": "670038db71064a643014c952161666544cf37a4c9e17f14ddc7c4478e78dc6d8",
+      "read_complete": true
+    },
+    {
+      "path": "reviews/potential-round1.md",
+      "bytes": 5318,
+      "newline_lines": 83,
+      "sha256": "b0c20ce407f3fa41a73fe808ca8e02bd48d453eac386c86ab9cc5167c8173792",
+      "read_complete": true
+    },
+    {
+      "path": "reviews/potential-requirements.md",
+      "bytes": 7148,
+      "newline_lines": 116,
+      "sha256": "545b5d2ff4a93594f2b1ca245594233bdfcf461b8f4fe14b3bbe698e6ad1aa2f",
+      "read_complete": true
+    },
+    {
+      "path": "research/chapter19-obligations.md",
+      "bytes": 29453,
+      "newline_lines": 235,
+      "sha256": "1d9d22ca8d801d7c0ba47910d0f6519dd7c76acd787164be3a382ad818c220c6",
+      "read_complete": true
+    },
+    {
+      "path": "research/potential-generalization-preflight.md",
+      "bytes": 18738,
+      "newline_lines": 321,
+      "sha256": "c47864985fc8c1c6baffa5601d2610268b7f5c2cd895073966eb214e365226ae",
+      "read_complete": true
+    },
+    {
+      "path": "research/potential-draft-preflight.md",
+      "bytes": 6519,
+      "newline_lines": 90,
+      "sha256": "fba713681c8eb3a80720b10d9ed0d0a33b46d2dddd883b7bd2ca0bc263f254f2",
+      "read_complete": true
+    },
+    {
+      "path": "provenance/xp01-continuation-preparation-20261104/report.md",
+      "bytes": 11937,
+      "newline_lines": 188,
+      "sha256": "70081d52f40550c40831a31a3c411f058a81ead270f03c57468d74982617e1c7",
+      "read_complete": true
+    },
+    {
+      "path": "provenance/xp01-continuation-preparation-20261104/compatibility-continuation-4b5dbfa0.md",
+      "bytes": 7208,
+      "newline_lines": 121,
+      "sha256": "3482a4016bc6ca58a0d56596cb2c04d234547174fcffac1a094f17b0856836fa",
+      "read_complete": true
+    },
+    {
+      "path": "provenance/xp01-development-integration-20261104/declared-review-scope.json",
+      "bytes": 2767,
+      "newline_lines": 69,
+      "sha256": "5225a0b0a53d9a87cdd2e6cb9c194ec0cb59b1bad5bc98819905cdc1e1ef2786",
+      "read_complete": true
+    }
+  ],
+  "pinned_API_reads": [
+    {
+      "path": "Mathlib/Algebra/Group/Monoid.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 31274,
+      "newline_lines": 697,
+      "sha256": "20508b506beff9b559f941de9cc44b1e263fc01bf70ec138ed1a5a6e3404f379",
+      "read_ranges": [
+        [
+          21,
+          88
+        ]
+      ],
+      "read_complete": false
+    },
+    {
+      "path": "Mathlib/Algebra/Group/Hom/Defs.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 45332,
+      "newline_lines": 1129,
+      "sha256": "01aa5f4c424688f5ef7ca46a65442f1d88ae7148990b6d9a4e85269ed7921c64",
+      "read_ranges": [
+        [
+          115,
+          175
+        ]
+      ],
+      "read_complete": false
+    },
+    {
+      "path": "Mathlib/Algebra/Order/Monoid/Unbundled/Defs.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 24958,
+      "newline_lines": 581,
+      "sha256": "3ffec259f3ceff4c07ce572d133d76ac052acb034402f2ff672562dec5f2ed5a",
+      "read_ranges": [
+        [
+          35,
+          164
+        ]
+      ],
+      "read_complete": false
+    },
+    {
+      "path": "Mathlib/Algebra/Order/Monoid/Unbundled/Basic.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 48178,
+      "newline_lines": 1221,
+      "sha256": "d0d17e30f7c74c20cf8e75f7f533133e59adfe596bcd561fcab67ee7e5423e6c",
+      "read_ranges": [
+        [
+          1,
+          90
+        ]
+      ],
+      "read_complete": false
+    },
+    {
+      "path": "Mathlib/Data/Nat/Cast/Basic.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 6448,
+      "newline_lines": 202,
+      "sha256": "f3031ed5191c17ed213bbb5731159ed70b600b17224f486cf9c98de39a3b9f64",
+      "read_ranges": [
+        [
+          25,
+          53
+        ]
+      ],
+      "read_complete": false
+    },
+    {
+      "path": "Mathlib/Algebra/FreeMonoid/Basic.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 19259,
+      "newline_lines": 499,
+      "sha256": "82573d5b6f5968524f3c9c84ed91fd6a3f5eb222434789e6a2de7145c870e2a9",
+      "read_ranges": [
+        [
+          39,
+          150
+        ]
+      ],
+      "read_complete": false
+    }
+  ],
+  "primary_book": {
+    "text_path": "/workspace/scratch/b4a17a285e23/research-source/book.txt",
+    "text_identity": {
+      "bytes": 719122,
+      "newline_lines": 14906,
+      "sha256": "7e5c0b4e157d28d303cc6248746aa63e1415445fa79f3556ff95ac1bf6b17333"
+    },
+    "complete_Chapter19_read_newline_ranges": [
+      [
+        9082,
+        9310
+      ]
+    ],
+    "line_convention": "Split on literal newline; an initial splitlines-based range reached Chapter18 because formfeeds are counted by splitlines. That initial range is not credited as Chapter19 reading. Correct newline range was fully read.",
+    "PDF_path": "/workspace/scratch/b4a17a285e23/research-source/functional_data_structures_algorithms.pdf",
+    "PDF_identity": {
+      "bytes": 1742029,
+      "sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645"
+    },
+    "visually_read_PDF_page_1_based": 234,
+    "printed_page": 228,
+    "render": {
+      "path": "provenance/xp01-spec-development-20261104/book-page228-source-render.png",
+      "bytes": 201912,
+      "sha256": "ca93feee8fe756149345a13aea4b730cc40db56df8e4fac4a62615bb2f206f65"
+    },
+    "visual_assessment": "Verified equation19.1 and telescoped sum signs, initial/final potentials, zero-initial/nonnegative assumption, optional invariant, two-input formula and pure-observer caveat.",
+    "render_note": "Bundled pdftoppm attempt returned127 without an image; PyMuPDF rendering then succeeded and was visually read. No PDF was edited."
+  },
+  "AFP_boundary": {
+    "archive_url": "https://isa-afp.org/release/afp-Amortized_Complexity-2026-10-26.tar.gz",
+    "retained_archive_sha256": "d853a2fbf5644b5515847398dda6f9b65b203532ae608ad99d28b8f7a571442a",
+    "retained_Framework0_sha256": "905899004289e7a68601a2f416ba33926135f31288c2396a0ae1abcac7133eff",
+    "current_original_theory_seed_available": false,
+    "current_full_theory_read_or_rebuild_claimed": false,
+    "basis": "Prior attributed pinned inspection and full local preflight records retained; actual pinned book method independently read. Parent confirms no additional seed and no general new external-proof gate. No AFP proof is a Lean dependency; no concrete unresolved claim needing absent theory content was found."
+  },
+  "requirement_mapping": [
+    {
+      "id": "XP01-R1",
+      "requirement": "Reuse the existing executor and measured observation architecture",
+      "assessment": "The only executor is Resources.run/Measured.bind; budget reads its actual successor states. No second state machine or cost framework. Workload and Measured remain byte-exact Z."
+    },
+    {
+      "id": "XP01-R2",
+      "requirement": "Separate raw observation C and charge D; minimal budget laws",
+      "assessment": "budget requires only Zero/Add D and no raw algebra; budget_append adds Zero/Add C for run and AddMonoid D for append. Actual state after the first workload is explicit."
+    },
+    {
+      "id": "XP01-R3",
+      "requirement": "Preserve natural-number API and required clients",
+      "assessment": "All eight Nat wrapper source headers and the retained initial-potential counterexample are byte-exact B→D→E. FIFO sole delta fixes raw zero to Nat. Full relevant client source was read; actual attempt2 builds core and four Nat example targets, while SymmetricLists has the preserved attempt1 build."
+    },
+    {
+      "id": "XP01-R4",
+      "requirement": "Budget transport through explicit additive homomorphism",
+      "assessment": "budget_map follows map_zero/map_add along exactly the same states. No target associativity or raw algebra beyond the theorem signature is silently used; no performance or order-preservation claim."
+    },
+    {
+      "id": "XP01-R5",
+      "requirement": "Mapped invariant-local exact and inequality boundaries",
+      "assessment": "Source quantifies arbitrary operation/state/raw/accounting types, uses actual invariant-preserving trajectories, explicit additive h and local mapped-work law. Ordered proofs associate only, with stated left/right covariance; equality needs no order."
+    },
+    {
+      "id": "XP01-R6",
+      "requirement": "Drop only nonnegative final potential and retain initial credit",
+      "assessment": "run_invariant supplies the actual final domain premise to nonneg; then left covariance adds mapped work to 0≤Phi(final). Initial credit stays in the conclusion; zero-initial specialization is explicit in the retained and new clients."
+    },
+    {
+      "id": "XP01-R7",
+      "requirement": "Signed source amortized charge and exact telescoping",
+      "assessment": "budget_amortized uses AddCommGroup D and h(work)+Phi(after)-Phi(before), with no sign assumptions and no truncated Nat subtraction. The signed reset example exhibits a negative first charge and the exact two-boundary equality."
+    },
+    {
+      "id": "XP01-R8",
+      "requirement": "Independent universes and no unrelated payload capabilities",
+      "assessment": "Source universes/types remain independent and there is no payload equality, order, inhabitation or finiteness premise. The generic inequality does not strengthen to commutative/cancellative/linear ordered algebra; ordinary source proof restrictions remain."
+    }
+  ],
+  "connected_cases": {
+    "binary_counter": "Arbitrary n,bs real boundary is derived from the local flipCost_potential via Nat.castAddMonoidHom and the generic mapped law, with actual incWithCost/run and budget_map; 4 increments from empty give value4/work7; arbitrary zero-start final potential is retained.",
+    "initial_credit": "Actual step clears state and costs1; Int Phi=2s; first charge -1 then1, two-step work2 and budget0. The counterexamples refute omission of initial2 and reusing the first charge twice. Source claims remain intact; three anonymous proof sites plus local boundary need elaboration repair.",
+    "fractional_invariant": "Total step alternates valid0/1 with work1 and gives work100 at invalid states; Valid s≤1 is inhabited, closed and explicitly required by local/exact/work bounds. Real Phi half, charges3/2 and1/2, actual budgets3/2 and2, arbitrary zero-start bound, invalid100≤1/2 refutation. Proof simplification/Valid0 decidability remains blocked; no model change is justified.",
+    "ordered_observations": "Additive FreeMonoid records [1,2] through actual run/budget and exact zero-potential law. No commutativity is assumed in that theorem.",
+    "existing_Nat": "Counter, symmetric charge/work, FIFO, random-access writes and finite shared-demand accounting retain their concrete state/cost contracts, initial credit, append and value relations."
+  },
+  "text_search_boundary": {
+    "all_tracked_Lean_budget_and_wrapper_name_paths_enumerated": true,
+    "explicit_at_calls_found": 0,
+    "remaining_unrelated_matches": "Local/qualified budgets in search, motion, bounded summaries, parallel scheduling, probability and comments; no new resource-potential client identified. This is a tracked Lean search, not a proof about external downstream code.",
+    "truncation_recovery": "One combined author-receipt/search output lost the final receipt tail and first FRP match; receipt200–230 and the FRP match were reread separately. No omitted text is credited."
+  },
+  "scope_limits": [
+    "Unary sequential actual workloads only. Binary two-input ownership/history and persistent aliasing obligations remain open in later chapter tickets.",
+    "Connected toy/fractional cases do not formalize dynamic tables, queues, splay, skew or pairing algorithms. All later Chapter19–23 obligations remain mandatory.",
+    "No runtime, memory, hardware, lazy sharing or external proof validation inferred.",
+    "All private and anonymous example declarations remain in full source/compilation/exhaustive-audit scope."
+  ],
+  "actions": "Read immutable Git blobs, closed evidence and primary source; wrote only own XP01 report/provenance. No Lean/Lake/check/audit, source/ref/pin/cache mutation, process polling, ticket/global-control write or acceptance.",
+  "Potential_header_extraction": "budget header ends before its equation clauses; initial_potential_matters header includes the inner let binding and complete proposition through the outer := by; all other named theorem headers end at their proof delimiter.",
+  "Potential_all18_complete_headers": [
+    {
+      "name": "Resources.budget",
+      "source_header": "def budget [Zero D] [Add D] (step : ι → σ → σ × C) (charge : ι → σ → D) :\n    List ι → σ → D",
+      "sha256": "c6ba8c0ee363cda201ae2605a4031231be79657d2a2f562584cc142e6be7e2be"
+    },
+    {
+      "name": "Resources.budget_append",
+      "source_header": "theorem budget_append [Zero C] [Add C] [AddMonoid D]\n    (step : ι → σ → σ × C) (charge : ι → σ → D)\n    (is js : List ι) (s : σ) :\n    budget step charge (is ++ js) s =\n      budget step charge is s + budget step charge js (run step is s).1",
+      "sha256": "224f7f901c99635adfb092c2b2275e3bd59a20bf465fed513d474edc5eca27f9"
+    },
+    {
+      "name": "Resources.budget_map",
+      "source_header": "theorem budget_map [AddZero D] [AddZero E] (h : D →+ E)\n    (step : ι → σ → σ × C) (charge : ι → σ → D) (is : List ι) (s : σ) :\n    h (budget step charge is s) = budget step (fun i s => h (charge i s)) is s",
+      "sha256": "cad53ee6286d5ff44d4761b3fcee58e7c3fa5b3117138476a631ba5178908845"
+    },
+    {
+      "name": "Resources.run_potential_map_of_invariant",
+      "source_header": "theorem run_potential_map_of_invariant [AddZero C] [AddMonoid D] [Preorder D]\n    [AddLeftMono D] [AddRightMono D]\n    (step : ι → σ → σ × C) (charge : ι → σ → D) (potential : σ → D)\n    (h : C →+ D) (P : σ → Prop)\n    (closed : ∀ i s, P s → P (step i s).1)\n    (hstep : ∀ i s, P s →\n      h (step i s).2 + potential (step i s).1 ≤ potential s + charge i s)\n    (is : List ι) (s : σ) (hs : P s) :\n    h (run step is s).2 + potential (run step is s).1 ≤\n      potential s + budget step charge is s",
+      "sha256": "1c18491045f90063c941e0a6419534f44a55ed63a3e53e706e0ef32248d7ae5e"
+    },
+    {
+      "name": "Resources.run_potential_map_exact_of_invariant",
+      "source_header": "theorem run_potential_map_exact_of_invariant [AddZero C] [AddMonoid D]\n    (step : ι → σ → σ × C) (charge : ι → σ → D) (potential : σ → D)\n    (h : C →+ D) (P : σ → Prop)\n    (closed : ∀ i s, P s → P (step i s).1)\n    (hstep : ∀ i s, P s →\n      h (step i s).2 + potential (step i s).1 = potential s + charge i s)\n    (is : List ι) (s : σ) (hs : P s) :\n    h (run step is s).2 + potential (run step is s).1 =\n      potential s + budget step charge is s",
+      "sha256": "6c7f592ab686945ea0f944813812094ac81b09f4af1add7174d52f7cec408050"
+    },
+    {
+      "name": "Resources.run_potential_map",
+      "source_header": "theorem run_potential_map [AddZero C] [AddMonoid D] [Preorder D]\n    [AddLeftMono D] [AddRightMono D]\n    (step : ι → σ → σ × C) (charge : ι → σ → D) (potential : σ → D)\n    (h : C →+ D)\n    (hstep : ∀ i s,\n      h (step i s).2 + potential (step i s).1 ≤ potential s + charge i s)\n    (is : List ι) (s : σ) :\n    h (run step is s).2 + potential (run step is s).1 ≤\n      potential s + budget step charge is s",
+      "sha256": "1b695fb84505a8331f9c39c8df1cbd88caa762e594cf3a69db2a4a0af789e762"
+    },
+    {
+      "name": "Resources.run_potential_map_exact",
+      "source_header": "theorem run_potential_map_exact [AddZero C] [AddMonoid D]\n    (step : ι → σ → σ × C) (charge : ι → σ → D) (potential : σ → D)\n    (h : C →+ D)\n    (hstep : ∀ i s,\n      h (step i s).2 + potential (step i s).1 = potential s + charge i s)\n    (is : List ι) (s : σ) :\n    h (run step is s).2 + potential (run step is s).1 =\n      potential s + budget step charge is s",
+      "sha256": "a56d6c32d1414a6cf703bd39f86c20a6dfaead46aaa61bf12afe48800a3ca03b"
+    },
+    {
+      "name": "Resources.run_cost_le_map_of_invariant",
+      "source_header": "theorem run_cost_le_map_of_invariant [AddZero C] [AddMonoid D] [Preorder D]\n    [AddLeftMono D] [AddRightMono D]\n    (step : ι → σ → σ × C) (charge : ι → σ → D) (potential : σ → D)\n    (h : C →+ D) (P : σ → Prop)\n    (closed : ∀ i s, P s → P (step i s).1)\n    (hstep : ∀ i s, P s →\n      h (step i s).2 + potential (step i s).1 ≤ potential s + charge i s)\n    (nonneg : ∀ s, P s → 0 ≤ potential s)\n    (is : List ι) (s : σ) (hs : P s) :\n    h (run step is s).2 ≤ potential s + budget step charge is s",
+      "sha256": "4081f7fa48e5f78e9b5bcd715ec560709f7b09119f255993781746abb101605c"
+    },
+    {
+      "name": "Resources.budget_amortized",
+      "source_header": "theorem budget_amortized [AddZero C] [AddCommGroup D]\n    (step : ι → σ → σ × C) (potential : σ → D) (h : C →+ D)\n    (is : List ι) (s : σ) :\n    budget step (fun i s => h (step i s).2 + potential (step i s).1 - potential s) is s =\n      h (run step is s).2 + potential (run step is s).1 - potential s",
+      "sha256": "a4185ffe91ab5195fc962507858fcae8db6d73a12609fc0b050dceac98816333"
+    },
+    {
+      "name": "Resources.charge_iff_signed",
+      "source_header": "theorem charge_iff_signed (cost before after amortized : Nat) :\n    cost + after ≤ before + amortized ↔\n      (cost : Int) ≤ (before : Int) - after + amortized",
+      "sha256": "db84731f4edee5481fa9c521de7f7f9e068454a7a081955e754a3fbf018d30d1"
+    },
+    {
+      "name": "Resources.run_potential",
+      "source_header": "theorem run_potential (step : ι → σ → σ × Nat) (charge : ι → σ → Nat)\n    (potential : σ → Nat)\n    (hstep : ∀ i s, (step i s).2 + potential (step i s).1 ≤ potential s + charge i s)\n    (is : List ι) (s : σ) :\n    (run step is s).2 + potential (run step is s).1 ≤\n      potential s + budget step charge is s",
+      "sha256": "1e0e87e60cd20504a3ccb18b311ebd032c597ce127218cb2ed5ba3319a211674"
+    },
+    {
+      "name": "Resources.run_potential_exact",
+      "source_header": "theorem run_potential_exact (step : ι → σ → σ × Nat) (charge : ι → σ → Nat)\n    (potential : σ → Nat)\n    (hstep : ∀ i s, (step i s).2 + potential (step i s).1 = potential s + charge i s)\n    (is : List ι) (s : σ) :\n    (run step is s).2 + potential (run step is s).1 =\n      potential s + budget step charge is s",
+      "sha256": "836d1f6bd2af872a5bc176c91cfcd982ff3174362ed96d77aca72becbcabf8ac"
+    },
+    {
+      "name": "Resources.run_cost_le",
+      "source_header": "theorem run_cost_le (step : ι → σ → σ × Nat) (charge : ι → σ → Nat)\n    (potential : σ → Nat)\n    (hstep : ∀ i s, (step i s).2 + potential (step i s).1 ≤ potential s + charge i s)\n    (is : List ι) (s : σ) :\n    (run step is s).2 ≤ potential s + budget step charge is s",
+      "sha256": "584c7d341eda3a1de8944e259614b4bbde8a98c5714463b667c1e8c65dbe1d70"
+    },
+    {
+      "name": "Resources.run_zero_potential",
+      "source_header": "theorem run_zero_potential (step : ι → σ → σ × Nat) (charge : ι → σ → Nat)\n    (potential : σ → Nat)\n    (hstep : ∀ i s, (step i s).2 + potential (step i s).1 ≤ potential s + charge i s)\n    (is : List ι) (s : σ) (zero : potential s = 0) :\n    (run step is s).2 ≤ budget step charge is s",
+      "sha256": "4ce405d9057f938fe793fda0d5ba300aa4ac8bc88dfe9111537b7de80e5d88c7"
+    },
+    {
+      "name": "Resources.budget_constant",
+      "source_header": "theorem budget_constant (step : ι → σ → σ × Nat) (k : Nat) (is : List ι) (s : σ) :\n    budget step (fun _ _ => k) is s = k * is.length",
+      "sha256": "00c4939f27bbe06098170544f2f1664ee72b46e4d66aa18896685ad085d99a8e"
+    },
+    {
+      "name": "Resources.budget_le_constant",
+      "source_header": "theorem budget_le_constant (step : ι → σ → σ × Nat) (charge : ι → σ → Nat)\n    (k : Nat) (bound : ∀ i s, charge i s ≤ k) (is : List ι) (s : σ) :\n    budget step charge is s ≤ k * is.length",
+      "sha256": "459d273660c99e043ef8b8f23c5618a263bda6baf1e4d1286f207a261a8af00f"
+    },
+    {
+      "name": "Resources.run_constant_charge",
+      "source_header": "theorem run_constant_charge (step : ι → σ → σ × Nat) (potential : σ → Nat)\n    (k : Nat)\n    (hstep : ∀ i s, (step i s).2 + potential (step i s).1 ≤ potential s + k)\n    (is : List ι) (s : σ) :\n    (run step is s).2 + potential (run step is s).1 ≤ potential s + k * is.length",
+      "sha256": "5f9671fa60c6cf7c36634f2714340aa33a65d49bd76ba7f6446118ed9bee6b17"
+    },
+    {
+      "name": "Resources.initial_potential_matters",
+      "source_header": "theorem initial_potential_matters :\n    let step : Unit → Nat → Measured Nat Nat := fun _ s => (0, s)\n    (∀ i s, (step i s).2 + (step i s).1 ≤ s + 0) ∧\n      (run step [()] 1).2 > budget step (fun _ _ => 0) [()] 1",
+      "sha256": "fe6d14eb75b4a61f2851cbfbdb01c685c3a87733d5c294c2400dd2103f688e43"
+    }
+  ],
+  "mapped_declaration_surface": {
+    "public_named": [
+      {
+        "line": 21,
+        "declaration_start": "theorem real_boundary (n : Nat) (bs : Bits) :"
+      }
+    ],
+    "private_named": [
+      {
+        "line": 62,
+        "declaration_start": "private def clearStep (_ : Unit) (_ : Nat) : Measured Nat Nat := (0, 1)"
+      },
+      {
+        "line": 63,
+        "declaration_start": "private def potential (s : Nat) : Int := 2 * (s : Int)"
+      },
+      {
+        "line": 64,
+        "declaration_start": "private def charge (_ : Unit) (s : Nat) : Int := 1 - 2 * (s : Int)"
+      },
+      {
+        "line": 72,
+        "declaration_start": "private theorem boundary (is : List Unit) (s : Nat) :"
+      },
+      {
+        "line": 98,
+        "declaration_start": "private def step (_ : Unit) (s : Nat) : Measured Nat Nat :="
+      },
+      {
+        "line": 101,
+        "declaration_start": "private def Valid (s : Nat) : Prop := s ≤ 1"
+      },
+      {
+        "line": 102,
+        "declaration_start": "private noncomputable def potential (s : Nat) : ℝ := if s = 1 then 1 / 2 else 0"
+      },
+      {
+        "line": 103,
+        "declaration_start": "private noncomputable def charge (_ : Unit) (s : Nat) : ℝ := if s = 0 then 3 / 2 else 1 / 2"
+      },
+      {
+        "line": 105,
+        "declaration_start": "private theorem closed (i : Unit) (s : Nat) (hs : Valid s) : Valid (step i s).1 := by"
+      },
+      {
+        "line": 109,
+        "declaration_start": "private theorem localLaw (i : Unit) (s : Nat) (hs : Valid s) :"
+      },
+      {
+        "line": 115,
+        "declaration_start": "private theorem nonneg (s : Nat) (_ : Valid s) : 0 ≤ potential s := by"
+      },
+      {
+        "line": 119,
+        "declaration_start": "private theorem boundary (is : List Unit) (s : Nat) (hs : Valid s) :"
+      },
+      {
+        "line": 125,
+        "declaration_start": "private theorem work_bound (is : List Unit) (s : Nat) (hs : Valid s) :"
+      },
+      {
+        "line": 152,
+        "declaration_start": "private def recordStep (i : Nat) (s : Unit) : Measured Unit (Additive (FreeMonoid Nat)) :="
+      }
+    ],
+    "anonymous_example_lines": [
+      43,
+      45,
+      55,
+      66,
+      78,
+      79,
+      81,
+      85,
+      90,
+      130,
+      132,
+      137,
+      142,
+      145,
+      155,
+      162
+    ],
+    "public_names": 1,
+    "private_names": 14,
+    "anonymous_examples": 16,
+    "not_kernel_declaration_counts": true
+  },
+  "bookkeeping_note": "Initial receipt assembly stopped before its terminal/report write because git diff default abbreviates index IDs while the author package uses --full-index. Complete --full-index comparison then matches exactly. This was a reviewer bookkeeping assertion, not a source or compiler failure."
+}

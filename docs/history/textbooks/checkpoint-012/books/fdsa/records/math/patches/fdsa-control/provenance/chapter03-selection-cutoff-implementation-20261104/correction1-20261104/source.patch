@@ -1,0 +1,66 @@
+diff --git a/Applications/Resources/SelectionCutoff.lean b/Applications/Resources/SelectionCutoff.lean
+index 3611e21..6c5abaa 100644
+--- a/Applications/Resources/SelectionCutoff.lean
++++ b/Applications/Resources/SelectionCutoff.lean
+@@ -50,7 +50,7 @@ theorem no_first_call_of_small (d cutoff k : Nat) (xs : List α)
+ theorem one_ceil_div (d : Nat) (hd : 0 < d) : (1 : Nat) ⌈/⌉ d = 1 := by
+   rw [Nat.ceilDiv_eq_add_pred_div]
+   have h : 1 + d - 1 = d := by omega
+-  rw [h, Nat.div_self (Nat.ne_of_gt hd)]
++  rw [h, Nat.div_self hd]
+ 
+ /-- The exact obstruction is singleton size, for every fixed d≥2. -/
+ theorem ceil_div_strict_iff (n d : Nat) (hd : 2 ≤ d) :
+@@ -60,7 +60,7 @@ theorem ceil_div_strict_iff (n d : Nat) (hd : 2 ≤ d) :
+     by_contra hn
+     have cases : n = 0 ∨ n = 1 := by omega
+     rcases cases with rfl | rfl
+-    · simpa using h
++    · simp at h
+     · rw [one_ceil_div d (by omega)] at h
+       omega
+   · intro hn
+@@ -98,11 +98,11 @@ theorem lowerMedianValue_singleton (a : α) (h : [a] ≠ []) :
+ /-- This is the actual first recursive input when cutoff zero admits a singleton. -/
+ theorem singleton_medians (d : Nat) (hd : 0 < d) (a : α) :
+     (chunkMediansRun d [a]).1 = [a] := by
+-  rw [chunkMediansRun_value]
+-  unfold chunkMedians
+-  rw [chop_eq_singleton d [a] hd (by simp)
++  apply List.map_injective_iff.mpr (Option.some_injective α)
++  rw [chunkMediansRun_some_values, chop_eq_singleton d [a] hd (by simp)
+     (by simp only [List.length_cons, List.length_nil]; omega)]
+-  simp only [List.attach_cons, List.attach_nil, List.map_cons, List.map_nil,
++  simp only [List.map_cons, List.map_nil, slowMedianRun_value,
++    lowerMedianWith_eq_some_value List.head? head_pivot_valid [a] (by simp),
+     lowerMedianValue_singleton]
+ 
+ theorem zero_cutoff_self_pivot (d : Nat) (hd : 0 < d) (a : α) :
+@@ -111,7 +111,7 @@ theorem zero_cutoff_self_pivot (d : Nat) (hd : 0 < d) (a : α) :
+         (chunkMediansRun d [a]).1) = (0, [a]) := by
+   rw [singleton_medians d hd a]
+   simp only [List.length_cons, List.length_nil, one_ceil_div d hd]
+-  exact ⟨by decide, rfl⟩
++  decide
+ 
+ theorem zero_cutoff_self_call (d : Nat) (hd : 0 < d) (a : α) :
+     FirstPivotCall d 0 (0, [a]) (0, [a]) := by
+@@ -127,10 +127,14 @@ theorem zero_cutoff_not_wellFounded (d : Nat) (hd : 0 < d) (a : α) :
+ 
+ /-- Singleton chunks preserve the entire ordered sequence of payloads. -/
+ theorem group_one_medians (xs : List α) : (chunkMediansRun 1 xs).1 = xs := by
+-  rw [chunkMediansRun_value]
+-  simp only [chunkMedians, chop_one, List.attach_map, List.map_map,
+-    Function.comp_apply, lowerMedianValue_singleton]
+-  exact List.attach_map_subtype_val xs
++  apply List.map_injective_iff.mpr (Option.some_injective α)
++  rw [chunkMediansRun_some_values, chop_one, List.map_map]
++  apply List.map_congr_left
++  intro a _
++  change (slowMedianRun [a]).1 = some a
++  rw [slowMedianRun_value,
++    lowerMedianWith_eq_some_value List.head? head_pivot_valid [a] (by simp),
++    lowerMedianValue_singleton]
+ 
+ theorem group_one_self_pivot (xs : List α) :
+     (((xs.length ⌈/⌉ 1) - 1) / 2, (chunkMediansRun 1 xs).1) =

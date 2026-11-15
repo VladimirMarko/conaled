@@ -1,0 +1,43 @@
+{
+  "started_utc": "2026-11-02T15:59:11.504654+00:00",
+  "status": "completed",
+  "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build",
+  "active_counterpart": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build",
+  "inactive_root_identity": [
+    27,
+    3278033
+  ],
+  "active_root_identity": [
+    27,
+    4083818
+  ],
+  "inventory": {
+    "regular_files": 74135,
+    "directories": 2425,
+    "allocated_bytes": 3797491712,
+    "logical_bytes": 3560099666
+  },
+  "metadata_inventory_sha256": "38bff2ae7d1129a13358fef710e974465edc2a1919f6b8032808b5212c3155bc",
+  "dependency_sources": [
+    {
+      "package": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib",
+      "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "clean": true
+    },
+    {
+      "package": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib",
+      "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "clean": true
+    }
+  ],
+  "known_primary_group_members": [],
+  "independent_assessor": "environment",
+  "previous_disposition": "Avoid repeated deletion of returned paths while the active validation is running and no concrete capacity failure has occurred.",
+  "explicit_one_time_change": "The primary run has now actually failed with ENOSPC and ended, known group283393 has no members, and no other owned compiler is running. Permit one additional retirement of this exact returned inactive generated Mathlib cohort to restore material build capacity.",
+  "scope": "Preserve the main Mathlib parent, Git/source/configuration, every validation-checkout output, source/history/tickets and surviving incident evidence. No payload read or compiler/runtime change.",
+  "limits": "Does not explain or resolve the four earlier project-output mismatches, prove absence of unknown writers, or waive fresh/guarded validation. No automatic or recurring deletion if this path returns again.",
+  "free_before_bytes": 4300488704,
+  "finished_utc": "2026-11-02T15:59:12.624643+00:00",
+  "free_after_bytes": 8097976320,
+  "observed_free_delta_bytes": 3797487616
+}

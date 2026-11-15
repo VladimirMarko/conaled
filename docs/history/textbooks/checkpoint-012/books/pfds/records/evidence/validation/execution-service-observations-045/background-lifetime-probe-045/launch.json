@@ -1,0 +1,13 @@
+{
+  "time": "2026-11-03T23:59:26.201777+00:00",
+  "purpose": "Bounded execution-service lifetime observation after lost full handle; no compiler",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-c",
+    "from pathlib import Path; import time,os,json; p=Path('/workspace/scratch/09cf0de22282/background-lifetime-probe-045'); (p/'started.json').write_text(json.dumps({'pid':os.getpid(),'ppid':os.getppid(),'time':time.time()})); time.sleep(5); (p/'completed.json').write_text(json.dumps({'time':time.time(),'actual_child_completion':True}))"
+  ],
+  "child_pid_this_invocation_only": 5,
+  "parent_waits_for_child": false,
+  "child_requested_seconds": 5,
+  "formal_acceptance": false
+}

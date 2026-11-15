@@ -1,0 +1,462 @@
+{
+  "parent": "080e2f63ad4ef56dd18a5889d14dcf8c9100f049",
+  "candidate": "254a4162fa6aeeb7ab2a1ceea5139e5772a5865b",
+  "method": "Literal source statement/definition comparison, not elaborated type readback",
+  "changed_proof_bodies": [
+    "uniformIndex_zero",
+    "uniformIndex_event",
+    "costs_of_all_false"
+  ],
+  "all_library_headers_unchanged": true,
+  "all_library_definitions_unchanged": true,
+  "definition_records": [
+    {
+      "name": "uniformIndex",
+      "bytes": 145,
+      "sha256": "c08f7b9e7091b6a66fd3f9238c07949d3d560a0b491cd6f979cda70bf6fc3900",
+      "unchanged": true
+    },
+    {
+      "name": "run",
+      "bytes": 939,
+      "sha256": "b0da2c2771acfce07a1683a9aeeb339de223df99ca9c96c3192e60f51577ec59",
+      "unchanged": true
+    },
+    {
+      "name": "runOn",
+      "bytes": 120,
+      "sha256": "23f649235941fb50255412f655e0b2f1b2956d805c99742b026711cbe245b3dd",
+      "unchanged": true
+    },
+    {
+      "name": "exerciseLaw",
+      "bytes": 203,
+      "sha256": "ac1c76bb46f6e8528c9de664ad327a80bd6553d00805346f31da6a0d1b7b7778",
+      "unchanged": true
+    },
+    {
+      "name": "literalLaw",
+      "bytes": 287,
+      "sha256": "46be3cd02dc04f272f333c6f4a5a2c892fe7da9e68596b503235a3112409e65b",
+      "unchanged": true
+    }
+  ],
+  "header_records": [
+    {
+      "name": "uniformIndex_normalization",
+      "private": true,
+      "kind": "theorem",
+      "old_line": 25,
+      "new_line": 25,
+      "header_sha256": "d2ec051e4ae7359f998e62c6247825092baf5299d970f0334bfb8260c79de188",
+      "header_unchanged": true
+    },
+    {
+      "name": "uniformIndex",
+      "private": false,
+      "kind": "def",
+      "old_line": 32,
+      "new_line": 32,
+      "header_sha256": "38b17369bee07687c7a3d585d147953b89f5dbbc6b2d7bc6cc705fdfbdd18560",
+      "header_unchanged": true
+    },
+    {
+      "name": "uniformIndex_apply",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 35,
+      "new_line": 35,
+      "header_sha256": "e38e2552c02c64309459d84c0f31bdbfd2e90330b8a66d521320c70c4155644c",
+      "header_unchanged": true
+    },
+    {
+      "name": "mem_support_uniformIndex",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 38,
+      "new_line": 38,
+      "header_sha256": "fcd56a8c62138686cd48f18eefd569d5f3cc183f4b61cc18761b8d1d3a7b7bf8",
+      "header_unchanged": true
+    },
+    {
+      "name": "uniformIndex_zero",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 43,
+      "new_line": 43,
+      "header_sha256": "0d75eb2f989af097efc7ec49a6736fc98087c9aa19de0044f2cab903c3c4890f",
+      "header_unchanged": true
+    },
+    {
+      "name": "uniformIndex_event",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 51,
+      "new_line": 54,
+      "header_sha256": "5f54a90b0f3ac8e32c0843313ad77481eac3c4b92b0a67c53602d762096f402f",
+      "header_unchanged": true
+    },
+    {
+      "name": "eraseIdx_length_lt",
+      "private": true,
+      "kind": "theorem",
+      "old_line": 66,
+      "new_line": 69,
+      "header_sha256": "75bcfd822e0e2d6bf544a256c1903ade82dfcccd9120a992f66b379599af7fbc",
+      "header_unchanged": true
+    },
+    {
+      "name": "filter_eraseIdx_length_lt",
+      "private": true,
+      "kind": "theorem",
+      "old_line": 71,
+      "new_line": 74,
+      "header_sha256": "94077a47744866fd299e41df55f7e63cfeb1242f5ecc7ab7e70edde0a6340b91",
+      "header_unchanged": true
+    },
+    {
+      "name": "unit_filter_exact",
+      "private": true,
+      "kind": "theorem",
+      "old_line": 76,
+      "new_line": 79,
+      "header_sha256": "b3da7d40f077186ac28957778e0a26d2103ab3d55a2df926aa289dd41fceb3af",
+      "header_unchanged": true
+    },
+    {
+      "name": "run",
+      "private": false,
+      "kind": "def",
+      "old_line": 84,
+      "new_line": 87,
+      "header_sha256": "3e0c6e0347e50165436c023aea7ff4bc6612717955f33c80e92a9fa5c6b0f847",
+      "header_unchanged": true
+    },
+    {
+      "name": "run_nil",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 103,
+      "new_line": 106,
+      "header_sha256": "0593625017f23edc5d805ccb77027a9037a9bbd1a86c3d1b9cf618a19cff7d20",
+      "header_unchanged": true
+    },
+    {
+      "name": "run_cons",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 108,
+      "new_line": 111,
+      "header_sha256": "062f576c9755c694082c426aa94fec946fcdb0396408c4ff451073ff63fae39d",
+      "header_unchanged": true
+    },
+    {
+      "name": "run_singleton",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 131,
+      "new_line": 134,
+      "header_sha256": "f645996577e7469eb0271587c564283c121cd0380b2e6f68e6d7b9c0f0d2dfa0",
+      "header_unchanged": true
+    },
+    {
+      "name": "runOn",
+      "private": false,
+      "kind": "abbrev",
+      "old_line": 136,
+      "new_line": 139,
+      "header_sha256": "ab1c9308169d8d0a466f5cc2873b036d090344f2fdfc2a60927a0721b16d3ae2",
+      "header_unchanged": true
+    },
+    {
+      "name": "right_filter_eq",
+      "private": true,
+      "kind": "theorem",
+      "old_line": 139,
+      "new_line": 142,
+      "header_sha256": "75089413c8ead40485942753bd1cc354dccfffb7763e641d0143d17262e153df",
+      "header_unchanged": true
+    },
+    {
+      "name": "runOn_cons",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 149,
+      "new_line": 152,
+      "header_sha256": "1564ae07a1b5ddf1420faeca9e7325a70c868fc340a276dd8e749bf6b4ae56f3",
+      "header_unchanged": true
+    },
+    {
+      "name": "mem_support_run_cons_iff",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 163,
+      "new_line": 166,
+      "header_sha256": "654f66b2cbd8e74d2248f26dc267c8ed1968c5b0be5a8031276460d88900d371",
+      "header_unchanged": true
+    },
+    {
+      "name": "run_perm",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 179,
+      "new_line": 182,
+      "header_sha256": "0a0b06de3acdd3932e4cd42de3393e9ca66a0940417b12822588e7666edddbc6",
+      "header_unchanged": true
+    },
+    {
+      "name": "run_length",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 203,
+      "new_line": 206,
+      "header_sha256": "d4c5a3c4417583c157a2fafe800c299700a011c827bfc22aca7fbb2bd19f6a31",
+      "header_unchanged": true
+    },
+    {
+      "name": "run_sorted_compatible_on",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 209,
+      "new_line": 212,
+      "header_sha256": "af86c36e3bd2f542282dd1acf2d043e1011f2858f40ded206ce23bae5c65672d",
+      "header_unchanged": true
+    },
+    {
+      "name": "runOn_correct",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 252,
+      "new_line": 255,
+      "header_sha256": "8084770df6117b2ace3ce992d1bb026a13fece07941142e3c74155770f11bb96",
+      "header_unchanged": true
+    },
+    {
+      "name": "support_cost_bounds",
+      "private": true,
+      "kind": "theorem",
+      "old_line": 261,
+      "new_line": 264,
+      "header_sha256": "f557434b3fc7454f2f369833f859aa0d32a6425da6283411e12184ae64d7a5d2",
+      "header_unchanged": true
+    },
+    {
+      "name": "exerciseCost_le",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 303,
+      "new_line": 306,
+      "header_sha256": "c2ff508d16d8753960940bbf967a77206e2a72d989bc4f08bda03884626274d6",
+      "header_unchanged": true
+    },
+    {
+      "name": "appendCost_lower",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 308,
+      "new_line": 311,
+      "header_sha256": "8b77d91eac9676daa4fe8267b476fdfc6c9bec41616b4955bc5e82faaa0d5dea",
+      "header_unchanged": true
+    },
+    {
+      "name": "appendCost_double_le",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 312,
+      "new_line": 315,
+      "header_sha256": "77e17e728fc053e884d73cae7d19d9484d12bbeaece84f06d30d3dd3135b69d9",
+      "header_unchanged": true
+    },
+    {
+      "name": "appendCost_le_exerciseCost",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 317,
+      "new_line": 320,
+      "header_sha256": "6ed3175d7d0f246676b25fb428c0586c64693cdd75478a174c49844411640735",
+      "header_unchanged": true
+    },
+    {
+      "name": "literalCost_comparison",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 323,
+      "new_line": 326,
+      "header_sha256": "3f87da718bf008a3877a801cda8b7d09f48744a2a76dc5a071fad0e87cae4ca0",
+      "header_unchanged": true
+    },
+    {
+      "name": "literalCost_double_le",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 330,
+      "new_line": 333,
+      "header_sha256": "fab76a2590100d4be77b5c808a6fc8c25dc4f356bf58f6449bb0d4bb8246de03",
+      "header_unchanged": true
+    },
+    {
+      "name": "literalCost_le",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 337,
+      "new_line": 340,
+      "header_sha256": "5afb15744704389fa6f3af1e5ee4e7b4d6f2e8594d8282233fc095f261b73bae",
+      "header_unchanged": true
+    },
+    {
+      "name": "exerciseLaw",
+      "private": false,
+      "kind": "def",
+      "old_line": 345,
+      "new_line": 348,
+      "header_sha256": "f996da25913a92c13d19e1c32af3adc9142355f52b128538c7de42867f6c149a",
+      "header_unchanged": true
+    },
+    {
+      "name": "literalLaw",
+      "private": false,
+      "kind": "def",
+      "old_line": 349,
+      "new_line": 352,
+      "header_sha256": "adbcc724efdf69b72fcf1a2f7bb2eac94778341b7cfa2f4efc6a6945d42da351",
+      "header_unchanged": true
+    },
+    {
+      "name": "exerciseLaw_cons",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 354,
+      "new_line": 357,
+      "header_sha256": "d20f70d8864afa995e29a45fdfe417ec4072f015153d737ccc010402f4d170a3",
+      "header_unchanged": true
+    },
+    {
+      "name": "exerciseLaw_nil",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 365,
+      "new_line": 368,
+      "header_sha256": "ce8ad88bcc6c3b47c6d1341a76f16b813658fcc7d897408b481c5372de231ce0",
+      "header_unchanged": true
+    },
+    {
+      "name": "literalLaw_nil",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 368,
+      "new_line": 371,
+      "header_sha256": "dc6038935fa0adf7d8138acd1c2f850e4128fceae3b3d6b5da7fb9080fb23b89",
+      "header_unchanged": true
+    },
+    {
+      "name": "exerciseLaw_singleton",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 371,
+      "new_line": 374,
+      "header_sha256": "ca98d657461dc4a9de27647ec234c63d6cc244715dedb6f340fc9893ea0ef93d",
+      "header_unchanged": true
+    },
+    {
+      "name": "literalLaw_singleton",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 374,
+      "new_line": 377,
+      "header_sha256": "c5ceed252dc5ce6804f6355a9eb6962788b909f0ae92f7c90e97370d87801c73",
+      "header_unchanged": true
+    },
+    {
+      "name": "exerciseLaw_support",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 377,
+      "new_line": 380,
+      "header_sha256": "b259c8d880bf8de104021ebdd7ae71e7b6c42240781d9061094e0ad6f1054a85",
+      "header_unchanged": true
+    },
+    {
+      "name": "exerciseLaw_support_finite",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 384,
+      "new_line": 387,
+      "header_sha256": "c14e4523024ac865257393a697fdb7812b208bd050e2137f6037619edc0e6dfa",
+      "header_unchanged": true
+    },
+    {
+      "name": "literalLaw_support",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 388,
+      "new_line": 391,
+      "header_sha256": "335b0696a4822604204bbcbe969ff4c669d2372c0e7151f3730c4a63a9cbcccc",
+      "header_unchanged": true
+    },
+    {
+      "name": "literalLaw_support_finite",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 395,
+      "new_line": 398,
+      "header_sha256": "3c107e78a651ee767c6a928f1b85a8ab50309c715e951c15136881bf77b44f05",
+      "header_unchanged": true
+    },
+    {
+      "name": "eq_pure_of_support",
+      "private": true,
+      "kind": "theorem",
+      "old_line": 399,
+      "new_line": 402,
+      "header_sha256": "11b4847aa0b303acc3dd64717681cd9810f42c731af56840e9242d81cf118eca",
+      "header_unchanged": true
+    },
+    {
+      "name": "costs_of_all_false",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 422,
+      "new_line": 425,
+      "header_sha256": "7a76bb7b4064c69487e25a2b8b419790117c3a429daa8417da488238ca768bb2",
+      "header_unchanged": true
+    },
+    {
+      "name": "jointCostLaw_of_all_false",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 462,
+      "new_line": 468,
+      "header_sha256": "dfb26d572f8d0f694eb2486776a60f3a384c734771928fdc8e6cde3464b1cb2d",
+      "header_unchanged": true
+    },
+    {
+      "name": "costs_of_constant_key",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 472,
+      "new_line": 478,
+      "header_sha256": "4539709e79d9587d63176a625593523321da8a8f68580595e8e97cb77f5d324e",
+      "header_unchanged": true
+    },
+    {
+      "name": "jointCostLaw_of_constant_key",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 481,
+      "new_line": 487,
+      "header_sha256": "a6d9ad46da605ba1ef5d86c557d5d3905aeb8a1e31c5168d5643c77a6296315d",
+      "header_unchanged": true
+    },
+    {
+      "name": "runOn_replicate",
+      "private": false,
+      "kind": "theorem",
+      "old_line": 491,
+      "new_line": 497,
+      "header_sha256": "028e7858ea3cdc8b7a670d236baa74e8b717550d6806882e69b83b12d1c180ce",
+      "header_unchanged": true
+    }
+  ],
+  "example_file_unchanged": true,
+  "example_sha256": "294e5b8f77e063b6e30f876b6203f74a6ff346d6c1e674e1d450bcdc3bb1675e"
+}

@@ -1,0 +1,39 @@
+{
+  "started_utc": "2026-11-04T17:28:36.038233+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "compiler_live": false,
+  "ownership": "Root sole builder; secured full14509 CLOSED0 at23b186; no compiler since. This recorder and comparator invoke no Lean/Lake and do not mutate project outputs.",
+  "method_gate": "provenance/chapter02-receiving-type-qualification-coordinator-20261104/method-and-full-pre-observation-gate.json",
+  "method_gate_tool": "770f36 exit0",
+  "commands": [
+    [
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/capture_statement_inputs.py",
+      "--project",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "--candidate",
+      "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+      "--program",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-type-qualification-preparation-20261104/ObservationOnly.lean",
+      "--output",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/pre-inputs.json"
+    ],
+    [
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-type-qualification-preparation-20261104/compare_receiving.py",
+      "--control",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control",
+      "--full-result",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/result.json",
+      "--receiver-pre",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/pre-inputs.json",
+      "--output",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/preliminary-comparison.json"
+    ]
+  ],
+  "space": {
+    "available_bytes": 0,
+    "raw_free_bytes": 280129536
+  },
+  "receiving_credit": 0
+}

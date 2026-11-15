@@ -1,0 +1,243 @@
+{
+  "timestamp": "2026-11-02T22:04:31.736286+00:00",
+  "scope": "Only fdsa-recovery-0001, ordinary-merge candidate provenance, and common Git read operations",
+  "git_executable": "/nix/store/b1wn5clix1mz4vpfih7x9cnj9qfh7c6h-git-2.54.0/bin/git",
+  "actions": "No deletion, source/cache/tool mutation, compiler/checker/hash-helper run, or process inspection.",
+  "ownership_record": "/workspace/scratch/845aa1048b05/fdsa-control/reviews/recovery-0001.md",
+  "ordinary_merge": {
+    "path": "/workspace/scratch/845aa1048b05/conaled-ordinary-merge",
+    "candidate": "5f409e71bb068e3b8cc133226046ce8bbe29d982",
+    "branch": "refs/heads/work/fdsa-ordinary-merge",
+    "candidate_record": "/workspace/scratch/845aa1048b05/fdsa-control/reviews/ordinary-merge-candidate.md",
+    "coordinator_disposition": "Coordinator independently rechecks/removes only this working copy; separate removal journal owns exact action evidence.",
+    "main_branch_head": "5f409e71bb068e3b8cc133226046ce8bbe29d982",
+    "candidate_record_exact_sha_match": true,
+    "checkpoint_matches": [
+      {
+        "checkpoint": "conaled-fdsa-0053-ordinary-merge-draft",
+        "candidate_match": true,
+        "library_file_id": "libfile_7bebe01eeb0c8191b221356411b5863b",
+        "file_id": "file_00000000277482108040fe0fc38bdf72"
+      },
+      {
+        "checkpoint": "conaled-fdsa-0054-chapter01-session-recovery",
+        "candidate_match": true,
+        "library_file_id": "libfile_ec03fe0e3c68819181acaad8bbc6e184",
+        "file_id": "file_00000000bb34824388eacc02ccba8ed8"
+      }
+    ],
+    "working_copy_absent_at_final_read": true
+  },
+  "recovery_test": {
+    "path": "/workspace/scratch/845aa1048b05/fdsa-recovery-0001",
+    "restored_source_path": "/workspace/scratch/845aa1048b05/fdsa-recovery-0001/restored/conaled",
+    "restored_git_metadata_exists": false,
+    "baseline": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+    "baseline_reachable_in_main": true,
+    "bundles": [
+      {
+        "path": "/workspace/scratch/845aa1048b05/fdsa-recovery-0001/extracted/conaled-fdsa-0001-baseline/conaled.bundle",
+        "size_bytes": 71839930,
+        "heads": {
+          "refs/heads/master": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "refs/heads/work/fdsa-book": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "refs/remotes/origin/HEAD": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "refs/remotes/origin/integrate/frp": "5be3ce96dbeb60365002414409c9421450e39cf0",
+          "refs/remotes/origin/integration/spec-15": "47b556e83229ce11b27b5b7b4444c089a1e96ac3",
+          "refs/remotes/origin/master": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "refs/remotes/origin/reconstruction/adwh-154": "c12296f63c656737d07325e9d8e8e16d6976d099",
+          "refs/remotes/origin/reconstruction/adwh-155": "3efc9d926333c19f697a21afe7dd08af53e3a8cd",
+          "refs/remotes/origin/reconstruction/adwh-180": "e0d76c86040f38728289977c355b848cd6c7d8e3",
+          "refs/remotes/origin/reconstruction/adwh-181": "f68c79000bdb1ce223c403d38f8dd06e20cfbf29",
+          "refs/remotes/origin/reconstruction/adwh-182": "9c0a2649f9601c6294850f2b057698650360da9a",
+          "refs/remotes/origin/reconstruction/adwh-183": "16db707769c322fa17f2c48e24208f81292008da",
+          "refs/remotes/origin/reconstruction/adwh-184": "48b7655155950c4452bebf1268de1866d0f6129f",
+          "refs/remotes/origin/reconstruction/adwh-186": "30bbde79d154d1e8d942561c023a5e44d12ca420",
+          "refs/remotes/origin/reconstruction/adwh-187": "6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e",
+          "refs/remotes/origin/reconstruction/adwh-190": "855ce1f29ae0b7c7a7aec8321ead07be39c6ff32",
+          "refs/remotes/origin/reconstruction/adwh-array-cost-integration": "34c85983f601247fb62aea631c4212b7cb994b5b",
+          "refs/remotes/origin/research/27-frp-runtime": "f4d3e2f36d5547f2236a601c837280bd0c23a774",
+          "HEAD": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd"
+        },
+        "targets_not_reachable_in_main": []
+      },
+      {
+        "path": "/workspace/scratch/845aa1048b05/fdsa-recovery-0001/fixed-cycle.bundle",
+        "size_bytes": 71839930,
+        "heads": {
+          "refs/heads/master": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "refs/heads/work/fdsa-book": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "refs/remotes/origin/HEAD": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "refs/remotes/origin/integrate/frp": "5be3ce96dbeb60365002414409c9421450e39cf0",
+          "refs/remotes/origin/integration/spec-15": "47b556e83229ce11b27b5b7b4444c089a1e96ac3",
+          "refs/remotes/origin/master": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+          "refs/remotes/origin/reconstruction/adwh-154": "c12296f63c656737d07325e9d8e8e16d6976d099",
+          "refs/remotes/origin/reconstruction/adwh-155": "3efc9d926333c19f697a21afe7dd08af53e3a8cd",
+          "refs/remotes/origin/reconstruction/adwh-180": "e0d76c86040f38728289977c355b848cd6c7d8e3",
+          "refs/remotes/origin/reconstruction/adwh-181": "f68c79000bdb1ce223c403d38f8dd06e20cfbf29",
+          "refs/remotes/origin/reconstruction/adwh-182": "9c0a2649f9601c6294850f2b057698650360da9a",
+          "refs/remotes/origin/reconstruction/adwh-183": "16db707769c322fa17f2c48e24208f81292008da",
+          "refs/remotes/origin/reconstruction/adwh-184": "48b7655155950c4452bebf1268de1866d0f6129f",
+          "refs/remotes/origin/reconstruction/adwh-186": "30bbde79d154d1e8d942561c023a5e44d12ca420",
+          "refs/remotes/origin/reconstruction/adwh-187": "6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e",
+          "refs/remotes/origin/reconstruction/adwh-190": "855ce1f29ae0b7c7a7aec8321ead07be39c6ff32",
+          "refs/remotes/origin/reconstruction/adwh-array-cost-integration": "34c85983f601247fb62aea631c4212b7cb994b5b",
+          "refs/remotes/origin/research/27-frp-runtime": "f4d3e2f36d5547f2236a601c837280bd0c23a774",
+          "HEAD": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd"
+        },
+        "targets_not_reachable_in_main": []
+      }
+    ],
+    "bundle_head_maps_equal": true,
+    "source_extra_files": [],
+    "source_missing_files": [],
+    "source_content_mismatches": [],
+    "source_mode_mismatches": [],
+    "unsupported_git_entries": [],
+    "git_blob_reader_exit": 0,
+    "source_file_count": 1570,
+    "source_allocated_bytes": 91652096,
+    "source_symlinks": [],
+    "control_extra_restored_files": [],
+    "control_missing_restored_files": [],
+    "control_content_mismatches": [],
+    "control_file_count": 8,
+    "extracted_files_outside_manifest": [],
+    "manifest_files_absent": [],
+    "patch_sizes": {
+      "staged.patch": 0,
+      "unstaged.patch": 0
+    },
+    "untracked_payload_members": [],
+    "total_allocated_bytes": 235520000,
+    "total_logical_bytes": 231197618,
+    "unexpected_top_level_entries": [],
+    "unexpected_restored_top_level_entries": [],
+    "unexpected_extracted_top_level_entries": [],
+    "eligible_for_coordinator_removal_after_recheck": true,
+    "qualification": "No live restored Git metadata exists today, so Git-clean status is not asserted. Every restored source file was compared directly to its recorded baseline Git blob, including executable/symlink mode. Bundle headers and main reachability establish retained advertised ref targets; no pack/fsck/hash helper was run. Retained recovery review owns the earlier complete bundle/restore/ref-cycle verification.",
+    "named_ref_comparison": [
+      {
+        "ref": "refs/heads/master",
+        "test_target": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+        "main_target": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+        "present_in_main": true
+      },
+      {
+        "ref": "refs/heads/work/fdsa-book",
+        "test_target": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+        "main_target": "1aabd512284fe86254278ac631eda061d311050b",
+        "present_in_main": true,
+        "old_target_is_ancestor": true
+      },
+      {
+        "ref": "refs/remotes/origin/HEAD",
+        "test_target": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+        "main_target": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+        "present_in_main": true
+      },
+      {
+        "ref": "refs/remotes/origin/integrate/frp",
+        "test_target": "5be3ce96dbeb60365002414409c9421450e39cf0",
+        "main_target": "5be3ce96dbeb60365002414409c9421450e39cf0",
+        "present_in_main": true
+      },
+      {
+        "ref": "refs/remotes/origin/integration/spec-15",
+        "test_target": "47b556e83229ce11b27b5b7b4444c089a1e96ac3",
+        "main_target": "47b556e83229ce11b27b5b7b4444c089a1e96ac3",
+        "present_in_main": true
+      },
+      {
+        "ref": "refs/remotes/origin/master",
+        "test_target": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+        "main_target": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+        "present_in_main": true
+      },
+      {
+        "ref": "refs/remotes/origin/reconstruction/adwh-154",
+        "test_target": "c12296f63c656737d07325e9d8e8e16d6976d099",
+        "main_target": "c12296f63c656737d07325e9d8e8e16d6976d099",
+        "present_in_main": true
+      },
+      {
+        "ref": "refs/remotes/origin/reconstruction/adwh-155",
+        "test_target": "3efc9d926333c19f697a21afe7dd08af53e3a8cd",
+        "main_target": "3efc9d926333c19f697a21afe7dd08af53e3a8cd",
+        "present_in_main": true
+      },
+      {
+        "ref": "refs/remotes/origin/reconstruction/adwh-180",
+        "test_target": "e0d76c86040f38728289977c355b848cd6c7d8e3",
+        "main_target": "e0d76c86040f38728289977c355b848cd6c7d8e3",
+        "present_in_main": true
+      },
+      {
+        "ref": "refs/remotes/origin/reconstruction/adwh-181",
+        "test_target": "f68c79000bdb1ce223c403d38f8dd06e20cfbf29",
+        "main_target": "f68c79000bdb1ce223c403d38f8dd06e20cfbf29",
+        "present_in_main": true
+      },
+      {
+        "ref": "refs/remotes/origin/reconstruction/adwh-182",
+        "test_target": "9c0a2649f9601c6294850f2b057698650360da9a",
+        "main_target": "9c0a2649f9601c6294850f2b057698650360da9a",
+        "present_in_main": true
+      },
+      {
+        "ref": "refs/remotes/origin/reconstruction/adwh-183",
+        "test_target": "16db707769c322fa17f2c48e24208f81292008da",
+        "main_target": "16db707769c322fa17f2c48e24208f81292008da",
+        "present_in_main": true
+      },
+      {
+        "ref": "refs/remotes/origin/reconstruction/adwh-184",
+        "test_target": "48b7655155950c4452bebf1268de1866d0f6129f",
+        "main_target": "48b7655155950c4452bebf1268de1866d0f6129f",
+        "present_in_main": true
+      },
+      {
+        "ref": "refs/remotes/origin/reconstruction/adwh-186",
+        "test_target": "30bbde79d154d1e8d942561c023a5e44d12ca420",
+        "main_target": "30bbde79d154d1e8d942561c023a5e44d12ca420",
+        "present_in_main": true
+      },
+      {
+        "ref": "refs/remotes/origin/reconstruction/adwh-187",
+        "test_target": "6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e",
+        "main_target": "6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e",
+        "present_in_main": true
+      },
+      {
+        "ref": "refs/remotes/origin/reconstruction/adwh-190",
+        "test_target": "855ce1f29ae0b7c7a7aec8321ead07be39c6ff32",
+        "main_target": "855ce1f29ae0b7c7a7aec8321ead07be39c6ff32",
+        "present_in_main": true
+      },
+      {
+        "ref": "refs/remotes/origin/reconstruction/adwh-array-cost-integration",
+        "test_target": "34c85983f601247fb62aea631c4212b7cb994b5b",
+        "main_target": "34c85983f601247fb62aea631c4212b7cb994b5b",
+        "present_in_main": true
+      },
+      {
+        "ref": "refs/remotes/origin/research/27-frp-runtime",
+        "test_target": "f4d3e2f36d5547f2236a601c837280bd0c23a774",
+        "main_target": "f4d3e2f36d5547f2236a601c837280bd0c23a774",
+        "present_in_main": true
+      }
+    ],
+    "all_original_named_refs_present_in_main": true,
+    "prior_removal_record": {
+      "path": "/workspace/scratch/845aa1048b05/fdsa-control/provenance/storage-recovery-disposable-outputs-20261102.json",
+      "completed_utc": "2026-11-02T15:57:19.521079+00:00",
+      "observation": "The earlier journal lists fdsa-recovery-0001 as removed; the present reappeared copy was independently compared in this triage."
+    }
+  },
+  "final_decision": {
+    "recovery_test": "Eligible for coordinator removal after immediate path/state recheck; no unique current source edits, control-copy changes, advertised ref targets, or untracked payload found.",
+    "ordinary_merge": "Coordinator owns its independent verification/removal journal; working copy already absent at final read, retained branch remains exactly at checkpointed candidate.",
+    "source_or_cache_mutations_by_this_agent": false,
+    "protected_archives_and_main_historical_zip": "Untouched."
+  }
+}

@@ -1,0 +1,20 @@
+diff --git a/Applications/Selection/CoordinateReadAll.lean b/Applications/Selection/CoordinateReadAll.lean
+index 525625e..e05374c 100644
+--- a/Applications/Selection/CoordinateReadAll.lean
++++ b/Applications/Selection/CoordinateReadAll.lean
+@@ -48,13 +48,13 @@ private theorem readPlan_run_from (input : Fin n → α) (compute : List α →
+   induction remaining generalizing prior with
+   | nil =>
+     apply Runs.done
+-    simp [readPlan]
++    simp [readPlan, Function.comp_def]
+   | cons i remaining ih =>
+     apply Runs.query
+     · have query : (prior ++ i :: remaining)[prior.length]? = some i := by
+         rw [List.getElem?_append_right (Nat.le_refl prior.length)]
+         simp
+-      simpa only [readPlan, List.length_reverse, List.length_map, query]
++      simp only [readPlan, List.length_reverse, List.length_map, query]
+     · simpa only [List.append_assoc, List.singleton_append, List.map_append,
+         List.map_cons, List.map_nil, List.reverse_append, List.reverse_cons,
+         List.reverse_nil, List.nil_append] using ih (prior ++ [i])

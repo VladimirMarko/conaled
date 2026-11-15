@@ -1,0 +1,362 @@
+{
+  "recorded_utc": "2026-11-05T02:51:49.144259+00:00",
+  "unit": "FDSA-XT01",
+  "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "tree": "18bf4bc9df979d4ee6ac76182f58faed235a0714",
+  "incorporated_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "owned_terminal": 58948,
+  "actual_terminal_chunk": "4e4f6d",
+  "actual_exits": {
+    "owned": 0,
+    "tool": 0,
+    "recorder": 0,
+    "native": 0
+  },
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "--threads",
+    "1",
+    "--",
+    "./check.sh",
+    "--candidate",
+    "HEAD"
+  ],
+  "native_command": [
+    "./check.sh",
+    "--candidate",
+    "HEAD"
+  ],
+  "lean_threads": 1,
+  "clean_initial_final_and_current": true,
+  "outer_prefix_native_suffix_exact": true,
+  "native_saved_origin_exact": true,
+  "complete_closed_log": true,
+  "verification_matches_saved_and_live": true,
+  "verification": {
+    "format": 1,
+    "result": "passed",
+    "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+    "dependencies": {
+      "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "plausible": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "LeanSearchClient": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "importGraph": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "proofwidgets": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "aesop": "4a174c490d8707121c4a9290800489f105d85e07",
+      "Qq": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "batteries": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "Cli": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+    },
+    "compiler": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+    "mode": "incremental",
+    "completed_at": "2026-11-05T02:46:41.104505+00:00"
+  },
+  "source_policy_passed": true,
+  "build_modules": 1112,
+  "checked_modules": 1113,
+  "audit_module_rows": 1111,
+  "audit_contiguous_outer_log_lines": [
+    1658,
+    2768
+  ],
+  "all_audit_rows_computationally_parsed": true,
+  "audit_row_canonical_json_sha256": "decf949744d4070b979cc757d3f78195a9b47da3c90252e505f07f94323a82bb",
+  "audit_sums": {
+    "logical": 50288,
+    "theorems": 29430,
+    "unsafe": 0
+  },
+  "axiom_union": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "all_four_scope_rows": {
+    "Examples.TreeCache": {
+      "line": 1932,
+      "module": "Examples.TreeCache",
+      "logical": 92,
+      "theorems": 70,
+      "unsafe": 0
+    },
+    "Applications.Resources.TreeCache": {
+      "line": 2491,
+      "module": "Applications.Resources.TreeCache",
+      "logical": 12,
+      "theorems": 10,
+      "unsafe": 0
+    },
+    "Applications.Trees.Cached": {
+      "line": 2554,
+      "module": "Applications.Trees.Cached",
+      "logical": 30,
+      "theorems": 21,
+      "unsafe": 0
+    },
+    "Applications.Trees.Observations": {
+      "line": 2555,
+      "module": "Applications.Trees.Observations",
+      "logical": 19,
+      "theorems": 13,
+      "unsafe": 0
+    }
+  },
+  "integrity_guards": [
+    [
+      6,
+      "Integrity guard: hashed 3336 artifacts; 0 modules invalidated (2.14s)."
+    ],
+    [
+      1656,
+      "Integrity guard: hashed 3336 artifacts; 0 modules inconsistent (3.01s)."
+    ]
+  ],
+  "pre_post_final_identity_equal": true,
+  "current_inputs_rehashed_and_verified": {
+    "local_sources": 26,
+    "local_compiler_objects_and_traces": 78,
+    "configuration": 10,
+    "dependencies": 9,
+    "runtime": 12
+  },
+  "current_dependency_heads_and_clean_status_verified": 9,
+  "all_configuration_and26_sources_equal_candidate_git": true,
+  "program": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-20261105/Statements115-complete.lean",
+    "bytes": 4721,
+    "sha256": "eea207cce83ce453b3625076041ff1262235771a8b92add322a149a044c98738",
+    "names": [
+      "Trees.fold",
+      "Trees.fold_nil",
+      "Trees.fold_node",
+      "Trees.fold_map",
+      "Trees.fold_fusion",
+      "Trees.fold_numNodes",
+      "Trees.fold_height",
+      "Trees.inorder",
+      "Trees.inorder_nil",
+      "Trees.inorder_node",
+      "Trees.inorder_length",
+      "Trees.inorder_map",
+      "Trees.numNodes_map",
+      "Trees.numLeaves_map",
+      "Trees.height_map",
+      "Trees.Cached.erase",
+      "Trees.Cached.erase_nil",
+      "Trees.Cached.erase_node",
+      "Trees.Cached.read",
+      "Trees.Cached.read_nil",
+      "Trees.Cached.read_node",
+      "Trees.Cached.smartNode",
+      "Trees.Cached.read_smartNode",
+      "Trees.Cached.erase_smartNode",
+      "Trees.Cached.Valid",
+      "Trees.Cached.valid_nil",
+      "Trees.Cached.valid_node",
+      "Trees.Cached.smartNode_valid_iff",
+      "Trees.Cached.read_eq_fold",
+      "Trees.Cached.inorder_erase",
+      "Trees.Cached.numNodes_erase",
+      "Trees.Cached.numLeaves_erase",
+      "Trees.Cached.height_erase",
+      "Trees.Cached.annotate",
+      "Trees.Cached.annotate_nil",
+      "Trees.Cached.annotate_node",
+      "Trees.Cached.annotate_valid",
+      "Trees.Cached.erase_annotate",
+      "Trees.Cached.read_annotate",
+      "Resources.TreeCache.readRun",
+      "Resources.TreeCache.readRun_value",
+      "Resources.TreeCache.readRun_cost",
+      "Resources.TreeCache.nodeRun",
+      "Resources.TreeCache.nodeRun_value",
+      "Resources.TreeCache.nodeRun_cost",
+      "Resources.TreeCache.nodeRun_le",
+      "Resources.TreeCache.nodeRun_valid",
+      "TreeCacheExamples.sizeStep",
+      "TreeCacheExamples.heightStep",
+      "TreeCacheExamples.size_reader",
+      "TreeCacheExamples.height_reader",
+      "TreeCacheExamples.sample",
+      "TreeCacheExamples.sample_size",
+      "TreeCacheExamples.sample_height",
+      "TreeCacheExamples.sample_inorder",
+      "TreeCacheExamples.sizeSample",
+      "TreeCacheExamples.sizeSample_valid",
+      "TreeCacheExamples.sizeSample_erases",
+      "TreeCacheExamples.sizeSample_read",
+      "TreeCacheExamples.heightSample",
+      "TreeCacheExamples.heightSample_valid",
+      "TreeCacheExamples.heightSample_read",
+      "TreeCacheExamples.pairStep",
+      "TreeCacheExamples.pair_fold_size",
+      "TreeCacheExamples.pair_fold_height",
+      "TreeCacheExamples.pair_reader",
+      "TreeCacheExamples.pairSample",
+      "TreeCacheExamples.pairSample_valid",
+      "TreeCacheExamples.pairSample_erases",
+      "TreeCacheExamples.pairSample_read",
+      "TreeCacheExamples.ordered_summary_fold",
+      "TreeCacheExamples.sample_word",
+      "TreeCacheExamples.balancedThree",
+      "TreeCacheExamples.leftThree",
+      "TreeCacheExamples.same_inorder_different_height",
+      "TreeCacheExamples.repeated_sample",
+      "TreeCacheExamples.empty_tree",
+      "TreeCacheExamples.empty_fold",
+      "TreeCacheExamples.empty_observations",
+      "TreeCacheExamples.empty_annotation",
+      "TreeCacheExamples.corrupt",
+      "TreeCacheExamples.corrupt_root_checks",
+      "TreeCacheExamples.corrupt_not_valid",
+      "TreeCacheExamples.corrupt_erases",
+      "TreeCacheExamples.corrupt_inorder",
+      "TreeCacheExamples.corrupt_smart_not_valid",
+      "TreeCacheExamples.corrupt_smart_same_tree",
+      "TreeCacheExamples.erased_fold",
+      "TreeCacheExamples.sizeRun",
+      "TreeCacheExamples.heightRun",
+      "TreeCacheExamples.size_node_value",
+      "TreeCacheExamples.height_node_value",
+      "TreeCacheExamples.size_node_cost",
+      "TreeCacheExamples.height_node_cost",
+      "TreeCacheExamples.size_node_bound",
+      "TreeCacheExamples.size_node_valid",
+      "TreeCacheExamples.height_node_valid",
+      "TreeCacheExamples.measured_size_reader",
+      "TreeCacheExamples.measured_height_reader",
+      "TreeCacheExamples.listStep",
+      "TreeCacheExamples.appendStepRun",
+      "TreeCacheExamples.append_node_value",
+      "TreeCacheExamples.append_node_cost",
+      "TreeCacheExamples.append_node_valid",
+      "TreeCacheExamples.chain",
+      "TreeCacheExamples.chain_numNodes",
+      "TreeCacheExamples.chainCache",
+      "TreeCacheExamples.chainCache_valid",
+      "TreeCacheExamples.chainCache_read",
+      "TreeCacheExamples.chainCache_length",
+      "TreeCacheExamples.chain_node_cost",
+      "TreeCacheExamples.chain_node_value",
+      "TreeCacheExamples.chain_node_valid",
+      "TreeCacheExamples.chain_node_exceeds",
+      "TreeCacheExamples.empty_read"
+    ]
+  },
+  "ordered_names_lf_sha256": "1b3459408687c6090f25ff71a11f3fdb886fddea29c6c4421f690261cf8bf4fe",
+  "chapter3_configuration_runtime_dependencies_identical": true,
+  "no_fresh_trigger": true,
+  "input_observation_limit": "Pre/post/current identity observations, together with normal candidate integrity checks and complete proof audit, qualify this review. The observations do not independently prove the origin of loaded objects or exclude every possible transient input change.",
+  "human_read_limit": "Complete terminal/request/start/result/closure/native-record/verification/root-summary JSON and targeted log stage ranges and all four XT01 audit rows were read. All 1111 audit rows were independently parsed and summed computationally; no claim that every build warning was read by a human.",
+  "whole_project_counts_not_new_book_result_counts": true,
+  "findings": [],
+  "unresolved_findings": [],
+  "bound_evidence": {
+    "provenance/binary-tree-cache-receiving-full-attempt1-20261105/request.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/request.json",
+      "bytes": 737,
+      "sha256": "aee74d034ec54df1c7e74d71207836b3854f74c3dd28a36621fa0a1a33a3acc0"
+    },
+    "provenance/binary-tree-cache-receiving-full-attempt1-20261105/start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/start.json",
+      "bytes": 930,
+      "sha256": "ca645af948bf4b9b9c71e3ae291a78c355d960efe88d7b9572b01e0f09c5c096"
+    },
+    "provenance/binary-tree-cache-receiving-full-attempt1-20261105/launch.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/launch.json",
+      "bytes": 174,
+      "sha256": "56f518c91a19be2899423820af90a5288eec76398b747f50f3fdaefda4bebc7f"
+    },
+    "provenance/binary-tree-cache-receiving-full-attempt1-20261105/owned-terminal.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "0479ba7ee369bd6c7626e0a65c214430b638d52bc2191fd49356f3dbfc4ce21a"
+    },
+    "provenance/binary-tree-cache-receiving-full-attempt1-20261105/actual-tool-terminal.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/actual-tool-terminal.json",
+      "bytes": 126,
+      "sha256": "d71744a9ed34114d5d3d3d64228f2ee8bbda37856222ecf87e557454299b35d2"
+    },
+    "provenance/binary-tree-cache-receiving-full-attempt1-20261105/result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/result.json",
+      "bytes": 1263,
+      "sha256": "b3801e77b70d719dd62a656b2c37da7c198125f2484e42491e343ea7b22c95bd"
+    },
+    "provenance/binary-tree-cache-receiving-full-attempt1-20261105/closed-evidence-reconciliation.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2314,
+      "sha256": "0c0fdda7fa5811d449ee54b5d950376b0bab7f6e16d538f47684549a354a6c3a"
+    },
+    "provenance/binary-tree-cache-receiving-full-attempt1-20261105/native-records/start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/native-records/start.json",
+      "bytes": 421,
+      "sha256": "9e145810da85dc71f0e886717c935d1ba777f3c7c9c8ad75b0bfb50989a29a99"
+    },
+    "provenance/binary-tree-cache-receiving-full-attempt1-20261105/native-records/result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/native-records/result.json",
+      "bytes": 574,
+      "sha256": "9ecfa1178b4c532e5d562ae9318ce10f0ef35e074d775e3538830cf72abd8347"
+    },
+    "provenance/binary-tree-cache-receiving-full-attempt1-20261105/native-records/output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/native-records/output.log",
+      "bytes": 325734,
+      "sha256": "df724e47d431fd2f8aff4bab7c1097862a1dd9a92f527ce24957c9c1b9eceb09"
+    },
+    "provenance/binary-tree-cache-receiving-full-attempt1-20261105/full.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/full.log",
+      "bytes": 325963,
+      "sha256": "dbd8ba410b64f7ee2eedc9389c4dceb907549dabbada6fee358277b760141dd8"
+    },
+    "provenance/binary-tree-cache-receiving-full-attempt1-20261105/outer-prefix.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/outer-prefix.log",
+      "bytes": 70,
+      "sha256": "85b1c84dcee195655562afb91455f0d9c98388a8be8845b8eb9306ffa317cfab"
+    },
+    "provenance/binary-tree-cache-receiving-full-attempt1-20261105/outer-suffix.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/outer-suffix.log",
+      "bytes": 159,
+      "sha256": "6c90885939f4db5ca84e490853cd336b821ef5f140e57ac801cae9e75b5a69fe"
+    },
+    "provenance/binary-tree-cache-receiving-full-attempt1-20261105/verification.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/verification.json",
+      "bytes": 867,
+      "sha256": "329f0d0087adc21b3446d7f10b67c472cdf62238ccf578865eec20569c04da61"
+    },
+    "provenance/binary-tree-cache-receiving-full-attempt1-20261105/root-audit-reconciliation.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/root-audit-reconciliation.json",
+      "bytes": 5540,
+      "sha256": "cfff2ca557f9a22a8681dc2e0e3b37a927a15c68a9055fdd6fca2ad612cac4dc"
+    },
+    "provenance/binary-tree-cache-receiving-statements115-20261105/Statements115-complete.lean": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-20261105/Statements115-complete.lean",
+      "bytes": 4721,
+      "sha256": "eea207cce83ce453b3625076041ff1262235771a8b92add322a149a044c98738"
+    },
+    "provenance/binary-tree-cache-receiving-statements115-20261105/pre-inputs.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-20261105/pre-inputs.json",
+      "bytes": 32719,
+      "sha256": "2b85a7cadaf18f9fa0922c2977ff64edfa5a3dee5a582501d89faaaff7347cc6"
+    },
+    "provenance/binary-tree-cache-receiving-statements115-20261105/post-inputs.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-20261105/post-inputs.json",
+      "bytes": 33026,
+      "sha256": "d42a9f64ad16b6913f3d487b5538a892a84d7ba975f9c32a56bf06ab626ce352"
+    },
+    "provenance/binary-tree-cache-receiving-statements115-20261105/final-inputs-after-full.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-20261105/final-inputs-after-full.json",
+      "bytes": 33026,
+      "sha256": "77d1486a596f4ea372a4d15f961323aa3dad3dd7339396ea5eba884968860fcf"
+    },
+    "provenance/binary-tree-cache-receiving-statements115-20261105/actual-type-block-index.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-20261105/actual-type-block-index.json",
+      "bytes": 34482,
+      "sha256": "1a44bd06217f4d6ef66c1fb3effd5e06427a627f023adcb97017cb9a3b517bbb"
+    }
+  }
+}

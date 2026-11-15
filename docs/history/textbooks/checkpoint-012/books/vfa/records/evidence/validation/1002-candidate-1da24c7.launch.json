@@ -1,0 +1,28 @@
+{
+  "candidate": "1da24c77d10fe03296dbf117e4249283139f5021",
+  "status": "launched",
+  "recorded_utc": "2026-11-02T10:18:21.164791+00:00",
+  "working_directory": "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+  "command": [
+    "/root/.nix-profile/bin/nix",
+    "develop",
+    "--command",
+    "./check.sh",
+    "--candidate",
+    "HEAD"
+  ],
+  "explicit_environment": {
+    "PATH_prefix": "/root/.nix-profile/bin:",
+    "NIX_CONFIG": "build-users-group =\nexperimental-features = nix-command flakes",
+    "LEAN_NUM_THREADS": "1"
+  },
+  "run_record": "work-state/validation/1002-candidate-1da24c7.run.json",
+  "log": "work-state/validation/1002-candidate-1da24c7.log",
+  "prerequisite": "Create, restore-check, expose and upload checkpoint 015 before launch. Keep source, dependencies, configuration and cache inputs stable.",
+  "post_success": "Preserve matching verification.json; managed +ProofAudit prerequisite; required proof-audit regression; both independent review axes; root final --verify-candidate immediately before acceptance.",
+  "started_utc": "2026-11-02T10:22:31.150465+00:00",
+  "pid": 270340,
+  "process_group": 270340,
+  "interactive_session": 14562,
+  "checkpoint015_saved_before_launch": true
+}

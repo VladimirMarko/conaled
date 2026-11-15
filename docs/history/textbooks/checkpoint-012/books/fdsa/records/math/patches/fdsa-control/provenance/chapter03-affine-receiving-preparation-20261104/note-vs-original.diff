@@ -1,0 +1,48 @@
+diff --git a/docs/research/fdsa-affine-recurrence.md b/docs/research/fdsa-affine-recurrence.md
+index 8319a44..762109d 100644
+--- a/docs/research/fdsa-affine-recurrence.md
++++ b/docs/research/fdsa-affine-recurrence.md
+@@ -1,9 +1,12 @@
+ # Affine upper bounds for contracting recurrences
+ 
+-This is a shared arithmetic unit for the whole-book FDSA reconstruction. Its
+-source is drafted before compilation; validation and independent review remain
+-pending. It prepares a reusable argument for later chapter work while preserving
+-the chapter acceptance order.
++This is a shared arithmetic unit for the whole-book FDSA reconstruction.
++At the 4 November 2026 receiving-preparation snapshot, both independent source
++assessments of the original draft were complete with no new XR source findings;
++the unit had no compiler, expanded-type, guarded-full-check or audit result.
++Current receiving validation and acceptance are recorded in the local
++`fdsa-control` review and acceptance evidence. This unit prepares a reusable
++argument for later chapter work while preserving the chapter acceptance order.
+ 
+ ## Source and scope
+ 
+@@ -138,9 +141,9 @@ remain internal proof details.
+ ## Connected cases and statement review
+ 
+ The retained clients are in
+-[`Examples.AffineRecurrence`](../../Examples/AffineRecurrence.lean). They are
+-source drafts pending the normal checks; the following records their intended
+-mathematics and connections.
++[`Examples.AffineRecurrence`](../../Examples/AffineRecurrence.lean). At the
++4 November 2026 receiving-preparation snapshot, these clients had not been
++compiled; the following records their intended mathematics and connections.
+ 
+ ### A terminating natural quarter recurrence
+ 
+@@ -225,9 +228,9 @@ their direct chapter-specific induction arguments.
+ ## Validation boundary
+ 
+ The frozen shared-unit requirements and source preflight are preserved in the
+-external `fdsa-control` checkpoint directory. No compiler was run during this
+-draft while the earlier Chapter 1 full gate remained active. Static source and
+-API inspection is not Lean elaboration, an axiom audit or independent approval.
+-The coordinated workflow still needs focused compilation, public-root
++external `fdsa-control` checkpoint directory. No compiler was run during the
++original draft while the earlier Chapter 1 full gate remained active. Static
++source and API inspection is not Lean elaboration, an axiom audit or independent
++approval. The coordinated workflow requires focused compilation, public-root
+ integration, the full applicable guarded candidate check and exhaustive audit,
+ both retained review axes, and immediate final candidate identity verification.

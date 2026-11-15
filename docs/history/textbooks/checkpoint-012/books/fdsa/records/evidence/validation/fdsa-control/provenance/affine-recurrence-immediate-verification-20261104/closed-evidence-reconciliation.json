@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T19:21:32.187040+00:00",
+  "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "terminal": {
+    "recorded_utc": "2026-11-04T19:21:32.186908+00:00",
+    "owned_session": 94331,
+    "actual_exit": 0,
+    "terminal_tool_chunk": "689efc",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5"
+  },
+  "actual_recorder_and_native_exits": [
+    0,
+    0
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-immediate-verification-20261104/full.log",
+    "bytes": 317,
+    "sha256": "65ee03f27d8d4864e94fb53eaba3c6c2b05dab38469b849249fd6d5e6850eb26"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T192119Z-project-run-006e8c53",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-immediate-verification-20261104/native-records/start.json",
+      "bytes": 428,
+      "sha256": "7297beaa5bcb97eaaa988eb04c8c4cd2ed870509c7cbd71244634d14f662486d"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-immediate-verification-20261104/native-records/result.json",
+      "bytes": 581,
+      "sha256": "84f1678b660ec79bd1770b62f2e176c0b9252f080b3cdb025c7ae1affa4a20c0"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/affine-recurrence-immediate-verification-20261104/native-records/output.log",
+      "bytes": 84,
+      "sha256": "260d752affee306c296c0bcd00129960ba906e4e97f999f9f2389ef77e5083b2"
+    }
+  },
+  "native_body_exact_outer_offset": 77,
+  "complete_closed_log": true,
+  "scope": "Mandatory immediate qualified verify-candidate after complete full/type validation and both independent final PASS outcomes. The next action is the guarded exact local Q-to-XR fast-forward.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

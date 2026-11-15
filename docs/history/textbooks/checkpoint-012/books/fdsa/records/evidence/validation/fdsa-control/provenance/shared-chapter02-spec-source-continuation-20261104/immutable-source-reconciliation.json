@@ -1,0 +1,982 @@
+{
+  "schema": "fdsa-spec-c2-immutable-source-reconciliation-v1",
+  "recorded_utc": "2026-11-04T16:56:45.410094+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "integration_base": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "historical_source": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "tree": "fe0bd9f17a5e1a09797be55fd79491e8c363cbd0",
+  "ordered_parents": [
+    "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+    "4b5dbfa07288acc73f25c27838d3fb2f78e77d71"
+  ],
+  "all_R_L_Z_actual_ancestors": true,
+  "full_scope": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "defining_paths": 71,
+    "public_names": 1763,
+    "private_named": 70,
+    "anonymous_instances": 19
+  },
+  "all81_current_source_identities": [
+    {
+      "path": "Applications/Probability/PermutationMinimum.lean",
+      "bytes": 8241,
+      "lines": 197,
+      "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+      "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "bytes": 15304,
+      "lines": 321,
+      "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2",
+      "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Applications/Probability/PermutationTail.lean",
+      "bytes": 23521,
+      "lines": 487,
+      "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed",
+      "git_blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Applications/Resources/BottomUpSorting.lean",
+      "bytes": 23175,
+      "lines": 512,
+      "sha256": "74cc812fb1f1706621daeb1c51512a9ddb3d85dc57a36589aafe96e8514a6826",
+      "git_blob": "f141f4393d52e1061feaa2e57149cdea02085555",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Resources/DifferenceListCosts.lean",
+      "bytes": 10061,
+      "lines": 222,
+      "sha256": "f99420b831dff2d0f5fcc3dac1001937942b87c78b710b79f94fa941ab972b01",
+      "git_blob": "b87222f7c0eb0aafc60031864ca815c2e65fc457",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Applications/Resources/Growth.lean",
+      "bytes": 2906,
+      "lines": 59,
+      "sha256": "99be17f2d45ac30de1e912c2181460dac046c8b98e40ea3209abfec342107786",
+      "git_blob": "65cfdecea6a600b9ed80a9784637e9811c4bd425",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Resources/InsertionSort.lean",
+      "bytes": 7257,
+      "lines": 178,
+      "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+      "git_blob": "d51ea6e9845378d3f7667adee189f8a210b477ed",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Applications/Resources/ListBuildCosts.lean",
+      "bytes": 7232,
+      "lines": 169,
+      "sha256": "6c2450b98fcb2677fddeea1116519e968223bc0872353d9e34979fc38607547f",
+      "git_blob": "6f3c157572db29c6b9a5d415a83368f2afacb952",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Resources/ListCalls.lean",
+      "bytes": 7939,
+      "lines": 190,
+      "sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+      "git_blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Applications/Resources/ListMerge.lean",
+      "bytes": 8629,
+      "lines": 201,
+      "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975",
+      "git_blob": "b658809bc2ba424807e326c3ee7cb64712865a46",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Applications/Resources/NaturalRunComparisons.lean",
+      "bytes": 13562,
+      "lines": 330,
+      "sha256": "920e1832416afcdc47a0c2301c2e27c7cd5f0c614a209c8dea21fc2561d809b0",
+      "git_blob": "1ac499d0e87a2d7e91401c90ed01be4a1cbff1f3",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Resources/NaturalRunOperations.lean",
+      "bytes": 29855,
+      "lines": 690,
+      "sha256": "ccbe8f58dd53cbfaa4600780d5d8a2a78da994ba33c3d6edaa3098446d1f09eb",
+      "git_blob": "b6b63bd2714a74c4c66e2ec32b860f7107bb727a",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "bytes": 13059,
+      "lines": 262,
+      "sha256": "bfca759cd0f1014d39824bdcb124a3a0b33d1459be2cc4635739965382a50e7a",
+      "git_blob": "d80f1a8f8f5c076cbe763c8a62a4942d267e8b86",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Resources/Partition.lean",
+      "bytes": 2678,
+      "lines": 61,
+      "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14",
+      "git_blob": "e9d3682a4d3a499aaffd41f73c7fc39965fa0d30",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Applications/Resources/QuickSort.lean",
+      "bytes": 21782,
+      "lines": 474,
+      "sha256": "e98024f6b741e1aba1fb1e38b419eee2e1acad76a8a40e669752f54775783263",
+      "git_blob": "66bcbb7075aadfe3e1070ee532b5839091c6ab5d",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Resources/QuickSortMean.lean",
+      "bytes": 9673,
+      "lines": 216,
+      "sha256": "888bae2d149f2664f41e37f702ce5352718ac2d008f13fa51952239d85e5d09a",
+      "git_blob": "f5bb73b3f1c2c977013919b02a307c0c3669fed1",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Resources/QuickSortTransport.lean",
+      "bytes": 2232,
+      "lines": 56,
+      "sha256": "4093b8aa3b1bf884760926a4c866453f8ffa47d40304b8746f8083d2a3f54eff",
+      "git_blob": "438a6a58d720002fac7a2a61abb6b0b29804df21",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Resources/RandomQuickSort.lean",
+      "bytes": 23601,
+      "lines": 509,
+      "sha256": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2",
+      "git_blob": "99b1b19cbfb6e6dc875e46cdc338bf4a518674fc",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Resources/RandomQuickSortGrowth.lean",
+      "bytes": 9896,
+      "lines": 203,
+      "sha256": "2b8bf7b4820790edaaa5726efb8e8bd8bccd3a30cb30388148d95bba00e63674",
+      "git_blob": "ecad03eedc57c3bc75e19172eb4941bef9a3faf6",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Resources/RandomQuickSortMean.lean",
+      "bytes": 16517,
+      "lines": 335,
+      "sha256": "2c7976bf52a2dbed2eb6eb959055acc7ae0df8319c167f0128b63e5c482bd5d3",
+      "git_blob": "a9ce110d5aca6f04cc8d68cfd1ef5238832dbc0a",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Resources/RandomQuickSortRank.lean",
+      "bytes": 19646,
+      "lines": 396,
+      "sha256": "11a3eab707a445f1a205567845485c023e1eddf99358a06bfcd3a19a0a2c66ed",
+      "git_blob": "691d5f4aebc513566813d35891f5bb749dc8d1e8",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Resources/TopDownSorting.lean",
+      "bytes": 9144,
+      "lines": 200,
+      "sha256": "26531f25e57c0d198fc90d0a10652051ac6159098f493629af3283b54ab687bc",
+      "git_blob": "91cba444e67f3947d5fca7984242fde825807929",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Resources/UniformQuickSortMean.lean",
+      "bytes": 38157,
+      "lines": 789,
+      "sha256": "5e997076f474f1cfcc51cac11c31b870a1cd265cf121c6ae11519beab009ad67",
+      "git_blob": "2e06a117d18b4657dfc3e436a1939acad5427876",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Selection/ThreeWay.lean",
+      "bytes": 9718,
+      "lines": 211,
+      "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa",
+      "git_blob": "8627ad6d219f55a404dd96c4f4553594eaa71264",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Applications/Sequences/Partition.lean",
+      "bytes": 3786,
+      "lines": 87,
+      "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069",
+      "git_blob": "ff03bd349a39b3b77c49793175d4b474199e7c43",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Applications/Sorting/Alternating.lean",
+      "bytes": 8597,
+      "lines": 194,
+      "sha256": "eb927e5978ea410f360441dfa8d4843b5e93de10aae8a5eac5c2f603f4e233e9",
+      "git_blob": "b8147f8fc08969c67da07e9331570590a080760a",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Sorting/BottomUp.lean",
+      "bytes": 19856,
+      "lines": 445,
+      "sha256": "4df83022174bc4e5becfb441617624d57695158d69dc7241209ca077dc2c7791",
+      "git_blob": "41d69c71ffeb337684f397e5e35310cf697ba4d3",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Sorting/InsertionObservations.lean",
+      "bytes": 3325,
+      "lines": 69,
+      "sha256": "e537e85fa7d06db4e3030fbac3ad2123dfa295158ee87480ece9c47a56ee5add",
+      "git_blob": "3be66c5841da1fee074b9bbc5dc784f34c9a846f",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Sorting/Merge.lean",
+      "bytes": 7840,
+      "lines": 172,
+      "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+      "git_blob": "6595f901a9358398bee07333872125990ef8360c",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Applications/Sorting/Natural.lean",
+      "bytes": 5528,
+      "lines": 121,
+      "sha256": "e4b27eb275e9509b205da7ae25dd7829e664eb47617cb1602e6114eb5d264493",
+      "git_blob": "c026d784e2397e61b9b2848c6867f5b145a019eb",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Sorting/NaturalRuns.lean",
+      "bytes": 25272,
+      "lines": 613,
+      "sha256": "123c711b5f0cf05074155f3a0d9ae076aa80a8be482e7e6fc77626aa9db6fb1d",
+      "git_blob": "5590b9aeb9f93670602774360e87a374db8228a7",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Sorting/QuickSort.lean",
+      "bytes": 9994,
+      "lines": 208,
+      "sha256": "696ae63c3f5c23940ac0f05c8ac6b48bff74b65e4c66faf319283efedea73802",
+      "git_blob": "01026a360a8f9f44afacd2fbd6ddb356ef8a95d4",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Sorting/ThreeWayQuickSort.lean",
+      "bytes": 6597,
+      "lines": 150,
+      "sha256": "7ef1adb48a9211c010c84c20c64bd01690eba11683002d8a16cc820eefaf1f0e",
+      "git_blob": "587a649182fc07df34f685021c5b29b9f477be07",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Sorting/TopDown.lean",
+      "bytes": 5978,
+      "lines": 145,
+      "sha256": "5a953ff534311e1686112273f7c95db6813c8a06ecee0af8fcc191f1c7d9586f",
+      "git_blob": "845444934d6fec2106e25af62b31f685269c2a59",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Applications/Sorting/Uniqueness.lean",
+      "bytes": 1999,
+      "lines": 44,
+      "sha256": "e0df544f59be358a3e40ad48f25115ae2ba3b4507a30cdeb3425907bf94c8744",
+      "git_blob": "5a0e68e51d521b6ab216e2487aa523b9b6844fcb",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/AlternatingSorting.lean",
+      "bytes": 5254,
+      "lines": 111,
+      "sha256": "5798ed2ce20dab0ce4b9618fea1e8ea36a7be9b2f60fa7090a85522bfb464c04",
+      "git_blob": "cb3a191d95fbf83c439b9c6135adec10767723bc",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/BottomUpCosts.lean",
+      "bytes": 11973,
+      "lines": 243,
+      "sha256": "12572e3395c681b18f266374732eb63b059a13eb0f76aef25400aefa8d54a136",
+      "git_blob": "cd02cf29cdfa1c5a0b2db9340603e348c7f4475e",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/BottomUpSorting.lean",
+      "bytes": 8304,
+      "lines": 188,
+      "sha256": "1d4a312363af87926c085f790ca7279273df050f40234c449e0e0fa9e5b5592b",
+      "git_blob": "8acdca99b63ebd22b6fd6dbefd37aa3f54f2d25c",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/DifferenceListCosts.lean",
+      "bytes": 9299,
+      "lines": 234,
+      "sha256": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1",
+      "git_blob": "33fd3bec15f8c9b7c3078b45d90c24d7df0c1df2",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Examples/FunctionalNotation.lean",
+      "bytes": 8277,
+      "lines": 202,
+      "sha256": "fe4b585a6753110dee67c1942ce68d16d9bf00feb5946f32791682c634c42eef",
+      "git_blob": "3e5db8677c94bd330779522f92bc39508540a17a",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Examples/InsertionCosts.lean",
+      "bytes": 3862,
+      "lines": 101,
+      "sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37",
+      "git_blob": "1c3de9b0a0a5f27f108de09f28f6ac55f4cddb36",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Examples/InsertionObservations.lean",
+      "bytes": 10998,
+      "lines": 224,
+      "sha256": "29ba454b380ab837133863318611b059bc0af385008667d60c410ddedb7ba0f1",
+      "git_blob": "c164f9c2b150ae3a25dc731846d692b2f36f6e1e",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/ListBuildCosts.lean",
+      "bytes": 3608,
+      "lines": 83,
+      "sha256": "eba2961e501f545323e5403e7874ce3ddb256bad8f4046398acc55ca6ec230a1",
+      "git_blob": "e42a8264c6286a9b03f34e053a6d39094e09247b",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/ListCalls.lean",
+      "bytes": 4333,
+      "lines": 124,
+      "sha256": "24d0809f51d04b0a9cadb5a349141e7327a5f7721f63c1021113527917487d5d",
+      "git_blob": "b4c4683ee2bd16ff6f844ce757470515847a63dc",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Examples/ListLibrary.lean",
+      "bytes": 6761,
+      "lines": 170,
+      "sha256": "036cf4c12ddf5d25ce433d9f7dbedfcbb96dfc3c7f602d10605388d2791e47ad",
+      "git_blob": "99ba369997885e176bbda192ee0feb5c7bf4d034",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Examples/MergeCosts.lean",
+      "bytes": 23410,
+      "lines": 476,
+      "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466",
+      "git_blob": "b5f652cf5258c99f5a615b12987c664ed8be3d76",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Examples/NaturalRunComparisons.lean",
+      "bytes": 4753,
+      "lines": 112,
+      "sha256": "9d4dfe317e1af9ee894385ba3478c0ede17de1e713cc7090b120a4d2ab708f8a",
+      "git_blob": "3db23a5aedf55911f686bd66d3bc63abd67fd09e",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/NaturalRunOperations.lean",
+      "bytes": 16095,
+      "lines": 366,
+      "sha256": "7db50231ecbcdf3e63ff20475b0def2af0e855b70c367cc49235edb730b44f90",
+      "git_blob": "bbb89270f236ce467da85bc177c06882b4f9d6e4",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/NaturalRuns.lean",
+      "bytes": 8415,
+      "lines": 209,
+      "sha256": "ef0ed6bbc5beb40815f977e80c0b99b0633e8503b0b1634747d41275cb3f6041",
+      "git_blob": "83f5d1b1d719fd844c8e2d1920c230a8cfebdef5",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/NaturalSorting.lean",
+      "bytes": 5928,
+      "lines": 141,
+      "sha256": "69cc14a5f40421076a3af3f8066c0bf2b20678d11f4cbc5e3eefab8454fdbf57",
+      "git_blob": "cf0dcd57dcf7dabc059874a074d1f902c597078b",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/NaturalSortingCosts.lean",
+      "bytes": 10506,
+      "lines": 231,
+      "sha256": "4b6c3fd9c359b31b01f13c5bdeee6b9fc7ccd82ab172f7d6bb5491410379441a",
+      "git_blob": "df34eef25210991ab4ed4c31dff13afb9ffb88ca",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/PermutationMinimum.lean",
+      "bytes": 4994,
+      "lines": 127,
+      "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+      "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Examples/PermutationMinimumBoundary.lean",
+      "bytes": 4211,
+      "lines": 113,
+      "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+      "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Examples/PermutationOrder.lean",
+      "bytes": 6706,
+      "lines": 152,
+      "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084",
+      "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Examples/PermutationOrderBoundary.lean",
+      "bytes": 5605,
+      "lines": 148,
+      "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121",
+      "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Examples/PermutationTail.lean",
+      "bytes": 9826,
+      "lines": 222,
+      "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e",
+      "git_blob": "baa3e26a3c72a4589765562167d1d85edc011e67",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Examples/PermutationTailBoundary.lean",
+      "bytes": 12064,
+      "lines": 266,
+      "sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54",
+      "git_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Examples/QuickSort.lean",
+      "bytes": 7164,
+      "lines": 162,
+      "sha256": "2e5e4952bae8edf1fd5985f0cfd40993363a2f642717d61161a2e5ee6835a162",
+      "git_blob": "376371a0a74a54c8aaaaf653d4528af347347018",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/QuickSortCosts.lean",
+      "bytes": 8828,
+      "lines": 193,
+      "sha256": "9d61ea34342e2f5d961c3d2962630f2ed853939802057dbfc2aca65ee1e9f999",
+      "git_blob": "89508c235b442aef7562119dcc3ba5f643bb7dad",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/QuickSortMean.lean",
+      "bytes": 2488,
+      "lines": 68,
+      "sha256": "924ce55ee6af374b55cea67ee6f2da25997b5a81ad098e2e3789622bd793b904",
+      "git_blob": "8b8846019ae3d447a38f0ea0f0797ad1afe7d751",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/QuickSortTransport.lean",
+      "bytes": 3084,
+      "lines": 72,
+      "sha256": "57dc49986edb9c8f990781c980177a513a9e9e2020c6218ce4f4d88daac4c6b2",
+      "git_blob": "089aaca818282da784d6843205fc8b97ad3c4d73",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/RandomQuickSort.lean",
+      "bytes": 8255,
+      "lines": 203,
+      "sha256": "4f5a21d1656423ac1307b1ca8fe651cd794d70da576ecd14f65d68cc290c424d",
+      "git_blob": "9c3608babafebadb470c9e1254fa8bbd15c5ad76",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/RandomQuickSortGrowth.lean",
+      "bytes": 10033,
+      "lines": 216,
+      "sha256": "372d0fad2f5a77f0c9c97e6b2004036ab1b922a2a80f623784011381905ab3a1",
+      "git_blob": "f9e153715b0ad68d3eac30f1dc0c2b986475a148",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/RandomQuickSortMean.lean",
+      "bytes": 5733,
+      "lines": 118,
+      "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670",
+      "git_blob": "2a1f75a801b49ea6a3bdbaecfc7b8e4a5407e38e",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/RandomQuickSortRank.lean",
+      "bytes": 6356,
+      "lines": 149,
+      "sha256": "419e02b0865e4ed64041f0afe465271127599a475d3edff658224c9c8fd5d9d6",
+      "git_blob": "239b28e8d564edc0e8ae54ebaa06872060c8fd1b",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/SortUniqueness.lean",
+      "bytes": 3903,
+      "lines": 87,
+      "sha256": "ce63cd0d8a953f9441b9b6b1597f9a3604ef736131290cba8c0430c36cd177b7",
+      "git_blob": "c4960ecd07a3ed7eb40a7e3eb5240d9efaed0891",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/ThreeWayPartition.lean",
+      "bytes": 8109,
+      "lines": 172,
+      "sha256": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526",
+      "git_blob": "a1f29b6310bc8623df2725b0d40f3949513199c5",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "Examples/ThreeWayQuickSort.lean",
+      "bytes": 6360,
+      "lines": 142,
+      "sha256": "0951a0f474638250912d4b6ee3084bbbf129c67c0f1527785778003ee1331d86",
+      "git_blob": "02e0333981456099e328c65a72683e75af49581a",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/TopDownCosts.lean",
+      "bytes": 5403,
+      "lines": 117,
+      "sha256": "8f5f6969049712a5a5d37f7beb78c09017a2835b5f1208e54d0c9912dff425a4",
+      "git_blob": "05cf0aa40cfe066499ec49b3bab520cb2f3d9070",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/TopDownSorting.lean",
+      "bytes": 3620,
+      "lines": 82,
+      "sha256": "0689ac22c8cc716efec24b4744ed606b79f734542101b28fc4f78af40ef089c5",
+      "git_blob": "013dea9599add78a6e839bb9e5831cf660321d69",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "Examples/UniformQuickSortMean.lean",
+      "bytes": 16973,
+      "lines": 366,
+      "sha256": "744562a71000f1d4f2c82a57a681eaf0491dfd7065ad650f09c4403304d8c24b",
+      "git_blob": "cfb82beff57d8bf116b882c0c49850e4be629586",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 9372,
+      "lines": 286,
+      "sha256": "39a54b99b5ccc2e7f32307bf3864a3641cf0cd247af4ba9dee2b803d336961b5",
+      "git_blob": "45cbe0faa6e4b6a9070928a73a98c2e876abc309",
+      "exact_reviewed_Z": false,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "docs/research/fdsa-difference-list-costs.md",
+      "bytes": 10923,
+      "lines": 219,
+      "sha256": "bd450660076b5addbd6b64d7a591f71fc60b68e6bfbf5f9cc36fa09fac4eb735",
+      "git_blob": "52b789bb484ca9aceedb584f521c8bab974c0f5f",
+      "exact_reviewed_Z": false,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "docs/research/fdsa-list-merge.md",
+      "bytes": 15491,
+      "lines": 258,
+      "sha256": "9661cc22e3600c0963c37b0f145f7396a1b7677ae2e8f2d240ecd1cf13b88729",
+      "git_blob": "90ff9f07f9b2a2dbad7233dddb6f091fa5f9d89d",
+      "exact_reviewed_Z": false,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "docs/research/fdsa-notation-map.md",
+      "bytes": 24280,
+      "lines": 317,
+      "sha256": "cff778380868755fa7e7018797bf3d5e8c7b0cc55b5e3cd37bc64b3f32658d5b",
+      "git_blob": "ba187a2744932874581e0b0b8c3741add60b9cee",
+      "exact_reviewed_Z": true,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "docs/research/fdsa-permutation-minimum.md",
+      "bytes": 7970,
+      "lines": 146,
+      "sha256": "2054bf4d6cd371b8570fca003f0fe704793377d261cb8e5f10306022e5b2dcc8",
+      "git_blob": "052101180ceaf79f81e0873f24160fc73ae52f33",
+      "exact_reviewed_Z": false,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "docs/research/fdsa-permutation-order.md",
+      "bytes": 9343,
+      "lines": 175,
+      "sha256": "5368374d61ac214c5609fbaedd3c5449a737a114947978631d1de7893a00d35f",
+      "git_blob": "8d8f68c95185bd787ce26bb5ba6cf3a6f652862a",
+      "exact_reviewed_Z": false,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "docs/research/fdsa-permutation-tail.md",
+      "bytes": 10871,
+      "lines": 205,
+      "sha256": "bebf1822c26e94c35d1474a99687156ffe44d3c2f37bcb76ed7c930fdf37236d",
+      "git_blob": "8cb9419840e7f6d2c553765d05d8aa39fe58c389",
+      "exact_reviewed_Z": false,
+      "exact_accepted_L": true
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 45020,
+      "lines": 683,
+      "sha256": "79ca9b2e9761417cdf5951f70e4976a9e134b3fa683d8e4857bb3c86a4bb70ff",
+      "git_blob": "00515bdfa3fa1835f5fe62e6d13f9dfb1c64e7ea",
+      "exact_reviewed_Z": false,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "docs/research/fdsa-sorting.md",
+      "bytes": 79434,
+      "lines": 512,
+      "sha256": "8829a89f3be3f6485166622f4fe3490d85aa2981d9c8516c8a01c8b0afe6f697",
+      "git_blob": "d8f3516a4a0f8bb64684cbedc7c861d9b3f78cb2",
+      "exact_reviewed_Z": false,
+      "exact_accepted_L": false
+    },
+    {
+      "path": "docs/research/fdsa-three-way-partition.md",
+      "bytes": 13959,
+      "lines": 259,
+      "sha256": "f79bfd4f9691f56019696c8ea0ac0b63045f7bb1ac5f5d790adf8a425345f136",
+      "git_blob": "ee83f49a9c536f22f0340434795e117ea5766484",
+      "exact_reviewed_Z": false,
+      "exact_accepted_L": true
+    }
+  ],
+  "all71_defining_blobs_exact_reviewed_Z": true,
+  "L_delta": {
+    "paths": 50,
+    "added": 47,
+    "modified": 3,
+    "insertions": 11666,
+    "deletions": 23,
+    "all1607_outside_paths_modes_blobs_preserved": true
+  },
+  "Z_delta_exact_paths": [
+    "SquareApplications.lean",
+    "docs/research/fdsa-difference-list-costs.md",
+    "docs/research/fdsa-list-merge.md",
+    "docs/research/fdsa-permutation-minimum.md",
+    "docs/research/fdsa-permutation-order.md",
+    "docs/research/fdsa-permutation-tail.md",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-sorting.md",
+    "docs/research/fdsa-three-way-partition.md"
+  ],
+  "accepted_six_notes": [
+    {
+      "path": "docs/research/fdsa-list-merge.md",
+      "bytes": 15491,
+      "lines": 258,
+      "sha256": "9661cc22e3600c0963c37b0f145f7396a1b7677ae2e8f2d240ecd1cf13b88729",
+      "git_blob": "90ff9f07f9b2a2dbad7233dddb6f091fa5f9d89d"
+    },
+    {
+      "path": "docs/research/fdsa-difference-list-costs.md",
+      "bytes": 10923,
+      "lines": 219,
+      "sha256": "bd450660076b5addbd6b64d7a591f71fc60b68e6bfbf5f9cc36fa09fac4eb735",
+      "git_blob": "52b789bb484ca9aceedb584f521c8bab974c0f5f"
+    },
+    {
+      "path": "docs/research/fdsa-three-way-partition.md",
+      "bytes": 13959,
+      "lines": 259,
+      "sha256": "f79bfd4f9691f56019696c8ea0ac0b63045f7bb1ac5f5d790adf8a425345f136",
+      "git_blob": "ee83f49a9c536f22f0340434795e117ea5766484"
+    },
+    {
+      "path": "docs/research/fdsa-permutation-minimum.md",
+      "bytes": 7970,
+      "lines": 146,
+      "sha256": "2054bf4d6cd371b8570fca003f0fe704793377d261cb8e5f10306022e5b2dcc8",
+      "git_blob": "052101180ceaf79f81e0873f24160fc73ae52f33"
+    },
+    {
+      "path": "docs/research/fdsa-permutation-order.md",
+      "bytes": 9343,
+      "lines": 175,
+      "sha256": "5368374d61ac214c5609fbaedd3c5449a737a114947978631d1de7893a00d35f",
+      "git_blob": "8d8f68c95185bd787ce26bb5ba6cf3a6f652862a"
+    },
+    {
+      "path": "docs/research/fdsa-permutation-tail.md",
+      "bytes": 10871,
+      "lines": 205,
+      "sha256": "bebf1822c26e94c35d1474a99687156ffe44d3c2f37bcb76ed7c930fdf37236d",
+      "git_blob": "8cb9419840e7f6d2c553765d05d8aa39fe58c389"
+    }
+  ],
+  "root_recipe_exact": true,
+  "all23_added_once_with_existing_order_preserved": true,
+  "root_import_set_exact_Z": true,
+  "ProofAudit_unchanged": true,
+  "sorting_only_exact_opening_change": true,
+  "all112_rows_exact_order_and_hash": "63e542b18e496734504276fefbdbdcfcabbb910d73578b3cca9fd073739df958",
+  "map_complete_C2_section_exact": true,
+  "map_nonC2_rows_and_prefix_exact_L": true,
+  "shared_map_actual_hunks_semantically_read_tool": "159765",
+  "Growth_full_module_read_tool": "ae6584",
+  "sorting_actual_diff_read_tool": "c83f04",
+  "current1763_names": {
+    "sorted_name_hash": "bb75ae373b6dcd0d9adad97432cd808dd7e8a4729dc2e1072ac11fa77b85c901",
+    "per_source_counts": {
+      "Applications/Probability/PermutationMinimum.lean": 7,
+      "Applications/Probability/PermutationOrder.lean": 17,
+      "Applications/Probability/PermutationTail.lean": 15,
+      "Applications/Resources/BottomUpSorting.lean": 76,
+      "Applications/Resources/DifferenceListCosts.lean": 42,
+      "Applications/Resources/Growth.lean": 3,
+      "Applications/Resources/InsertionSort.lean": 19,
+      "Applications/Resources/ListBuildCosts.lean": 26,
+      "Applications/Resources/ListCalls.lean": 34,
+      "Applications/Resources/ListMerge.lean": 19,
+      "Applications/Resources/NaturalRunComparisons.lean": 43,
+      "Applications/Resources/NaturalRunOperations.lean": 63,
+      "Applications/Resources/NaturalSorting.lean": 37,
+      "Applications/Resources/Partition.lean": 7,
+      "Applications/Resources/QuickSort.lean": 53,
+      "Applications/Resources/QuickSortMean.lean": 14,
+      "Applications/Resources/QuickSortTransport.lean": 5,
+      "Applications/Resources/RandomQuickSort.lean": 39,
+      "Applications/Resources/RandomQuickSortGrowth.lean": 17,
+      "Applications/Resources/RandomQuickSortMean.lean": 22,
+      "Applications/Resources/RandomQuickSortRank.lean": 12,
+      "Applications/Resources/TopDownSorting.lean": 18,
+      "Applications/Resources/UniformQuickSortMean.lean": 67,
+      "Applications/Selection/ThreeWay.lean": 27,
+      "Applications/Sequences/Partition.lean": 10,
+      "Applications/Sorting/Alternating.lean": 21,
+      "Applications/Sorting/BottomUp.lean": 59,
+      "Applications/Sorting/InsertionObservations.lean": 5,
+      "Applications/Sorting/Merge.lean": 12,
+      "Applications/Sorting/Natural.lean": 16,
+      "Applications/Sorting/NaturalRuns.lean": 62,
+      "Applications/Sorting/QuickSort.lean": 21,
+      "Applications/Sorting/ThreeWayQuickSort.lean": 13,
+      "Applications/Sorting/TopDown.lean": 14,
+      "Applications/Sorting/Uniqueness.lean": 3,
+      "Examples/AlternatingSorting.lean": 18,
+      "Examples/BottomUpCosts.lean": 29,
+      "Examples/BottomUpSorting.lean": 28,
+      "Examples/DifferenceListCosts.lean": 30,
+      "Examples/FunctionalNotation.lean": 30,
+      "Examples/InsertionCosts.lean": 16,
+      "Examples/InsertionObservations.lean": 31,
+      "Examples/ListBuildCosts.lean": 9,
+      "Examples/ListCalls.lean": 16,
+      "Examples/ListLibrary.lean": 30,
+      "Examples/MergeCosts.lean": 72,
+      "Examples/NaturalRunComparisons.lean": 13,
+      "Examples/NaturalRunOperations.lean": 43,
+      "Examples/NaturalRuns.lean": 42,
+      "Examples/NaturalSorting.lean": 22,
+      "Examples/NaturalSortingCosts.lean": 30,
+      "Examples/PermutationMinimum.lean": 16,
+      "Examples/PermutationMinimumBoundary.lean": 14,
+      "Examples/PermutationOrder.lean": 18,
+      "Examples/PermutationOrderBoundary.lean": 18,
+      "Examples/PermutationTail.lean": 24,
+      "Examples/PermutationTailBoundary.lean": 22,
+      "Examples/QuickSort.lean": 25,
+      "Examples/QuickSortCosts.lean": 30,
+      "Examples/QuickSortMean.lean": 9,
+      "Examples/QuickSortTransport.lean": 6,
+      "Examples/RandomQuickSort.lean": 23,
+      "Examples/RandomQuickSortGrowth.lean": 14,
+      "Examples/RandomQuickSortMean.lean": 10,
+      "Examples/RandomQuickSortRank.lean": 18,
+      "Examples/SortUniqueness.lean": 6,
+      "Examples/ThreeWayPartition.lean": 23,
+      "Examples/ThreeWayQuickSort.lean": 23,
+      "Examples/TopDownCosts.lean": 17,
+      "Examples/TopDownSorting.lean": 11,
+      "Examples/UniformQuickSortMean.lean": 59
+    },
+    "historical_partition_retained_not_credited_for_receiver": {
+      "qualified_historical_actual_type_fully_read": 920,
+      "actual_current_type_fully_read_and_qualified": 815,
+      "accepted_R_declaration_exact_source_segment_retained": 28
+    },
+    "source_identity_binding": {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/current-public-type-disposition-4b5dbfa0.json",
+      "bytes": 908317,
+      "lines": 24266,
+      "sha256": "6a749dbb10bddc7f8293330cdb56a27bd68b5c6473bd0f2d03aad2722881dee5"
+    }
+  },
+  "private_and_anonymous_exact_source_surfaces_retained": true,
+  "generated_Fintype_helper_history_retained": true,
+  "policy_and_pin_identities_exact": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    },
+    {
+      "path": "README.md",
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216"
+    },
+    {
+      "path": ".agents/skills/implement/SKILL.md",
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df"
+    },
+    {
+      "path": ".agents/skills/code-review/SKILL.md",
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42"
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c"
+    },
+    {
+      "path": "lean-toolchain",
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "path": "lakefile.toml",
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+    },
+    {
+      "path": "lake-manifest.json",
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    {
+      "path": "check.sh",
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd"
+    },
+    {
+      "path": "ProofAudit.lean",
+      "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd"
+    }
+  ],
+  "static_import_graph": {
+    "method": "Every local Lean source except root is exact Z; root import set and unchanged ProofAudit are exact. Retain existing complete graph analysis by this exact identity; no compiler/audit count claimed.",
+    "tracked_Lean": 1085,
+    "public_source_closure": 1028,
+    "checker_source_closure": 1029,
+    "unreached_accepted_source_paths": 56,
+    "prior_receipt": {
+      "path": "provenance/chapter02-public-integration-20261104/static-closure.json",
+      "bytes": 4036,
+      "lines": 72,
+      "sha256": "8b681347140316c1c91565e19293b9bca3a4f11ae8846c371e150420c157dab7"
+    }
+  },
+  "recipe": {
+    "path": "provenance/shared-chapter02-integration-readiness-20261104/inventory.json",
+    "bytes": 83228,
+    "lines": 1973,
+    "sha256": "d4a4a91d9712c97067c7bb2b83a12444da2f6333f3feab1ab8cbc6be9af80eca"
+  },
+  "source_review_boundary": "Exact receiving source facts only; final author command/conflict/ref evidence and complete source report remain pending. No receiving compiler/type/audit credit.",
+  "receiving_type_credit": 0
+}

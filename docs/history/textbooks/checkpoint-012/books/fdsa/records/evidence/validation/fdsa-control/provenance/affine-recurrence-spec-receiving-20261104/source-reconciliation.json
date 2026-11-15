@@ -1,0 +1,801 @@
+{
+  "schema": "fdsa-XR01-Spec-receiving-source-reconciliation-v1",
+  "recorded_utc": "2026-11-04T18:51:20.383727+00:00",
+  "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "tree": "b62fe504a38948e61c6377a4e7661b639c28c08c",
+  "integration_lineage": [
+    "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+    "4df3bc95b96342250c9b3ff946773449e308e11b",
+    "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5"
+  ],
+  "original_base": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+  "original_candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+  "complete_original_paths": [
+    "Applications/Resources/AffineRecurrence.lean",
+    "Examples/AffineRecurrence.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-affine-recurrence.md",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "only_five_Q_delta_paths": true,
+  "all_other_Q_paths_unchanged": 1655,
+  "all67_checkpoint0122_saved_refs_preserved": true,
+  "concurrent_other_C3_branches_recorded_not_silently_frozen": true,
+  "no_live_ref_or_output_capture": true,
+  "all15_original_guidance_blobs_exact": true,
+  "complete_original_source_readings_retained": true,
+  "source_identities": [
+    {
+      "path": "Applications/Resources/AffineRecurrence.lean",
+      "blob": "afba9e03f3d8178c6fcd469e064f07ddff53c32b",
+      "bytes": 5839,
+      "lines": 113,
+      "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d",
+      "same_original": true,
+      "same_first_receiving": true
+    },
+    {
+      "path": "Examples/AffineRecurrence.lean",
+      "blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708",
+      "bytes": 5164,
+      "lines": 142,
+      "sha256": "6734b0a54ffdcf81de3c3ec2520618011aa8bab357690c6cca6117174ec4abcf",
+      "same_original": false,
+      "same_first_receiving": false
+    },
+    {
+      "path": "SquareApplications.lean",
+      "blob": "d3ce332d0f9978a752650a6b6275867476928942",
+      "bytes": 9405,
+      "lines": 287,
+      "sha256": "75563d66c31e9cc1456cedf639812e6025486f69cf8ab50f3961d038a6219d18",
+      "same_original": false,
+      "same_first_receiving": true
+    },
+    {
+      "path": "docs/research/fdsa-affine-recurrence.md",
+      "blob": "762109da0f1d8be2605d691f5bf50b51db57e084",
+      "bytes": 10290,
+      "lines": 236,
+      "sha256": "8996a9212bd8cf05ec26519cf51ca9ce69f560170512df647fa3fdb9869032f6",
+      "same_original": false,
+      "same_first_receiving": true
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "blob": "772e92b364c1077e141a160adf7213d0a2ceef02",
+      "bytes": 46693,
+      "lines": 710,
+      "sha256": "fdf63be72114a8002cd4c3786007c8ff0e722c0465f819b00dd93ba2ffe3185e",
+      "same_original": false,
+      "same_first_receiving": true
+    }
+  ],
+  "all_three_saved_conflict_stages_exact": true,
+  "root_exact_Q_plus_one_import": true,
+  "map_exact_Q_plus_XR_and_prior_Chapter1_qualifier": true,
+  "complete_one_byte_header_correction_only": true,
+  "header_position18_changes_honestly": true,
+  "all21_public_inventory": [
+    {
+      "position": 1,
+      "name": "Resources.AffineRecurrence.exists_affine_bound_of_two_branch",
+      "kind": "theorem",
+      "path": "Applications/Resources/AffineRecurrence.lean",
+      "line": 31,
+      "header": "theorem exists_affine_bound_of_two_branch\n    (f : Nat → R) (left right : Nat → Nat) (n0 : Nat)\n    (rho K C D : R) (contract : rho < 1)\n    (sizes : ∀ n, n0 < n →\n      (left n : R) + (right n : R) ≤ rho * (n : R) + K)\n    (step : ∀ n, n0 < n →\n      f n ≤ f (left n) + f (right n) + C * (n : R) + D) :\n    ∃ A B : R, 0 ≤ A ∧ 0 ≤ B ∧ ∀ n : Nat, f n ≤ A * (n : R) + B",
+      "header_sha256": "a1c9465fd6ebcd26339aa20ec95705cd0fe72d1d97cd6abe68b0d2efee36bc46",
+      "source_blob": "afba9e03f3d8178c6fcd469e064f07ddff53c32b"
+    },
+    {
+      "position": 2,
+      "name": "Examples.AffineRecurrence.quarter",
+      "kind": "def",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 19,
+      "header": "def quarter (n : Nat) : Nat",
+      "header_sha256": "6c0f44c505ad5d924a22516e61c2d7f614d6cb167fc70d674a1c10fe8510ca4f",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 3,
+      "name": "Examples.AffineRecurrence.quarter_of_le_one",
+      "kind": "theorem",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 25,
+      "header": "theorem quarter_of_le_one (n : Nat) (small : n ≤ 1) : quarter n = 1",
+      "header_sha256": "e86e31de26e3f27303084aca1c23be9b2ce1ca49cc48af120f2824c17457cf41",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 4,
+      "name": "Examples.AffineRecurrence.quarter_of_one_lt",
+      "kind": "theorem",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 31,
+      "header": "theorem quarter_of_one_lt (n : Nat) (large : 1 < n) :\n    quarter n = 2 * quarter (n / 4) + n + 1",
+      "header_sha256": "8fdf365f75d98446b44c2ed75a6ae9cb8afcf8cf3f72bad929843325f9120987",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 5,
+      "name": "Examples.AffineRecurrence.quarter_zero",
+      "kind": "theorem",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 38,
+      "header": "theorem quarter_zero : quarter 0 = 1",
+      "header_sha256": "080040cab03cbe100f0fe200e17c63a341529b1a820128d5eee4bec40d9ac9a9",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 6,
+      "name": "Examples.AffineRecurrence.quarter_one",
+      "kind": "theorem",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 39,
+      "header": "theorem quarter_one : quarter 1 = 1",
+      "header_sha256": "4b41d3a1cf0720b0fcdd7cfb67beab0218d0b207efd0707854ed5f56cb6f7616",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 7,
+      "name": "Examples.AffineRecurrence.quarter_two",
+      "kind": "theorem",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 41,
+      "header": "theorem quarter_two : quarter 2 = 5",
+      "header_sha256": "8e70aa5df5938eeef53bf0f556cb81a5d8bb0f307b39b65e4c41454760a004e5",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 8,
+      "name": "Examples.AffineRecurrence.quarter_four",
+      "kind": "theorem",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 45,
+      "header": "theorem quarter_four : quarter 4 = 7",
+      "header_sha256": "dc8d993943ef71d03fafebf25acf07860a37ceb69a397c3c03872b73d76b0ffc",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 9,
+      "name": "Examples.AffineRecurrence.quarter_eight",
+      "kind": "theorem",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 49,
+      "header": "theorem quarter_eight : quarter 8 = 19",
+      "header_sha256": "cc3615442b7181b6eee4c0647eff49c61a7e95ad1f071e870a7e6f110ce3eedb",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 10,
+      "name": "Examples.AffineRecurrence.quarter_sixteen",
+      "kind": "theorem",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 53,
+      "header": "theorem quarter_sixteen : quarter 16 = 31",
+      "header_sha256": "1ffff4f5a98211c047e3dc7d81bf74d9a49de476bba41c280091c050b5ee7f1e",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 11,
+      "name": "Examples.AffineRecurrence.quarter_affine_bound",
+      "kind": "theorem",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 59,
+      "header": "theorem quarter_affine_bound :\n    ∃ A B : ℚ, 0 ≤ A ∧ 0 ≤ B ∧\n      ∀ n : Nat, (quarter n : ℚ) ≤ A * (n : ℚ) + B",
+      "header_sha256": "35328daafdfd0c896affe53b0f397a14345abc3da9185cccc46dbb4d42a0de71",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 12,
+      "name": "Examples.AffineRecurrence.signed",
+      "kind": "def",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 76,
+      "header": "def signed (n : Nat) : Int",
+      "header_sha256": "06bf821ea4f7bf8aabc62fa17d87a5f2fd1c5e317428f897dba9a5b1b2d06325",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 13,
+      "name": "Examples.AffineRecurrence.signed_base",
+      "kind": "theorem",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 78,
+      "header": "theorem signed_base : signed 0 = -1",
+      "header_sha256": "2e4834616dc7f71e466403dd772102bddc5915565d85acd3d24c9ec298936734",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 14,
+      "name": "Examples.AffineRecurrence.signed_nonpositive",
+      "kind": "theorem",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 80,
+      "header": "theorem signed_nonpositive (n : Nat) : signed n ≤ 0",
+      "header_sha256": "3467b94e1056e70c3b06fb1383976beaa9d5a34e9634bb04e2e07476e25f607a",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 15,
+      "name": "Examples.AffineRecurrence.signed_recurrence",
+      "kind": "theorem",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 85,
+      "header": "theorem signed_recurrence (n : Nat) :\n    signed n = signed 0 + signed 0 + (-1) * (n : Int) + 1",
+      "header_sha256": "33c370b97c4f7076b456658b7cb0e62955e24939ef2dcb227cb4e26a0a1090aa",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 16,
+      "name": "Examples.AffineRecurrence.signed_affine_bound",
+      "kind": "theorem",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 92,
+      "header": "theorem signed_affine_bound :\n    ∃ A B : Int, 0 ≤ A ∧ 0 ≤ B ∧\n      ∀ n : Nat, signed n ≤ A * (n : Int) + B",
+      "header_sha256": "21fb429882a6e444447469054612713d36f08dd93630b827f727f2e7faba3f98",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 17,
+      "name": "Examples.AffineRecurrence.negative_square_upper",
+      "kind": "theorem",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 103,
+      "header": "theorem negative_square_upper {R : Type*} [CommRing R] [LinearOrder R]\n    [IsStrictOrderedRing R] (n : Nat) : -((n : R) ^ 2) ≤ 0",
+      "header_sha256": "cf5aedcad037d08ea4073660676c31246d32974a95981c753a7c98fa6f072ce6",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 18,
+      "name": "Examples.AffineRecurrence.negative_square_absolute_value",
+      "kind": "theorem",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 107,
+      "header": "theorem negative_square_absolute_value :\n    -((2 : Int) ^ 2) ≤ 0 ∧ |-((2 : Int) ^ 2)| = 4",
+      "header_sha256": "5760846efc5140d1c9fc2d4b71e9f107608a53f5f1c544cbd09f442ca1e7e747",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 19,
+      "name": "Examples.AffineRecurrence.parameterwise_affine_bound",
+      "kind": "theorem",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 113,
+      "header": "theorem parameterwise_affine_bound (p : Nat) :\n    ∃ A B : Int, 0 ≤ A ∧ 0 ≤ B ∧\n      ∀ n : Nat, (p : Int) ≤ A * (n : Int) + B",
+      "header_sha256": "24010d6bf3554be63d7e5fd28241007cfe9a86d14ca40d52ade34da80ec6c9ea",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 20,
+      "name": "Examples.AffineRecurrence.no_uniform_natural_family_bound",
+      "kind": "theorem",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 126,
+      "header": "theorem no_uniform_natural_family_bound :\n    ¬ ∃ A B : Nat, ∀ p n : Nat, p ≤ A * n + B",
+      "header_sha256": "1a95af1d5f59e44ea34467cf7609ece5df76c8c1e9733fa26dc6a0b56f868307",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    },
+    {
+      "position": 21,
+      "name": "Examples.AffineRecurrence.no_uniform_integer_family_bound",
+      "kind": "theorem",
+      "path": "Examples/AffineRecurrence.lean",
+      "line": 134,
+      "header": "theorem no_uniform_integer_family_bound :\n    ¬ ∃ A B : Int, ∀ p n : Nat, (p : Int) ≤ A * (n : Int) + B",
+      "header_sha256": "1149819714d41a8cc47a4392ee198b163eab11f195281a66f922867bffd0e9a2",
+      "source_blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708"
+    }
+  ],
+  "public_counts": {
+    "total": 21,
+    "theorems": 19,
+    "defs": 2,
+    "private": 0,
+    "anonymous_examples": 0,
+    "instances": 0
+  },
+  "prepared_program": {
+    "path": "provenance/chapter03-affine-receiving-correction1-20261104/Statements21.lean",
+    "bytes": 1651,
+    "lines": 34,
+    "sha256": "1e048fe6242d26aca2a1afad7451d048072536ce4f2f5abea2cec9da839519a7"
+  },
+  "all21_commands_order_exact_original": true,
+  "both_imports_and_six_options_verified": "bc33c4",
+  "two_local_source_closure_six_external_roots": [
+    "Mathlib.Algebra.Order.Archimedean.Basic",
+    "Mathlib.Algebra.Order.Archimedean.Defs",
+    "Mathlib.Data.Finset.Lattice.Fold",
+    "Mathlib.Data.Finset.Range",
+    "Mathlib.Data.Nat.Cast.Order.Ring",
+    "Mathlib.Tactic.Linarith"
+  ],
+  "all10_configs_exact_Q": true,
+  "focused_actual_closed_evidence": [
+    {
+      "attempt": 1,
+      "candidate": "4df3bc95b96342250c9b3ff946773449e308e11b",
+      "actual_exit": 1,
+      "outer": {
+        "path": "provenance/affine-recurrence-receiving-focused-attempt1-20261104/full.log",
+        "bytes": 3800,
+        "lines": 16,
+        "sha256": "6d0b02515abb300fef8abf747e3845ee091ce3ec6281506c093c3c1aa16b0a53"
+      },
+      "native": {
+        "path": "provenance/affine-recurrence-receiving-focused-attempt1-20261104/native-records/output.log",
+        "bytes": 3524,
+        "lines": 13,
+        "sha256": "bf7fc2a8578a94ea16cf847a6b46988e46ca6e03a3f73fba3f7b15eb31150a3c"
+      },
+      "owned_terminal": {
+        "path": "provenance/affine-recurrence-receiving-focused-attempt1-20261104/owned-terminal.json",
+        "bytes": 260,
+        "lines": 8,
+        "sha256": "6ad4dfb470ab7e5baf2553d54e60d563fa787819034e83a77c22c39199b10b5f"
+      },
+      "warning_count": 6,
+      "warnings": [
+        "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Algebra.Order.Archimedean.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Data.Finset.Lattice.Fold` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Data.Finset.Range` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Data.Nat.Cast.Order.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Tactic.Linarith` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "warning: Examples/AffineRecurrence.lean: imports `Mathlib.Algebra.Order.Archimedean.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file"
+      ],
+      "errors": [
+        "error: Examples/AffineRecurrence.lean:108:27: expected no space before",
+        "error: build failed"
+      ],
+      "core": "Built 5.9s",
+      "examples": "Failed parser108:27",
+      "full_closed_read_tool": "3ed916",
+      "source_clean_immutable": true,
+      "copied_Q_verification_is_not_XR_full_validation": true
+    },
+    {
+      "attempt": 2,
+      "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+      "actual_exit": 0,
+      "outer": {
+        "path": "provenance/affine-recurrence-receiving-focused-attempt2-20261104/full.log",
+        "bytes": 1753,
+        "lines": 12,
+        "sha256": "f8c5dff295862af1d5e2ba538bb0db5012a786dfb7890d58e4de8933a7973f9a"
+      },
+      "native": {
+        "path": "provenance/affine-recurrence-receiving-focused-attempt2-20261104/native-records/output.log",
+        "bytes": 1478,
+        "lines": 9,
+        "sha256": "33ec52158c3e4325d657d4ca6c1ee3e40d56709b5667834223464fedd2a0adad"
+      },
+      "owned_terminal": {
+        "path": "provenance/affine-recurrence-receiving-focused-attempt2-20261104/owned-terminal.json",
+        "bytes": 260,
+        "lines": 8,
+        "sha256": "6ab54fa64206110b2c22b4f0bdfadd69789ec449279363b34bcf7d7b4e8b03a2"
+      },
+      "warning_count": 6,
+      "warnings": [
+        "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Algebra.Order.Archimedean.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Data.Finset.Lattice.Fold` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Data.Finset.Range` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Data.Nat.Cast.Order.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Tactic.Linarith` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "warning: Examples/AffineRecurrence.lean: imports `Mathlib.Algebra.Order.Archimedean.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file"
+      ],
+      "errors": [],
+      "core": "Replayed exact core",
+      "examples": "Built2.1s",
+      "full_closed_read_tool": "3ed916",
+      "source_clean_immutable": true,
+      "copied_Q_verification_is_not_XR_full_validation": true
+    }
+  ],
+  "actual_type_credit": 0,
+  "full_candidate_gate_credit": 0,
+  "new_source_or_preparation_findings": [],
+  "failed_receipt_attempt": {
+    "tool": "454429",
+    "actual_exit": 1,
+    "line": 27,
+    "failure": "AssertionError before any file was written",
+    "cause_verified_tool": "b91057",
+    "cause": "Accepted-state refs are saved as SHA ref with trailing space; author refs are saved as ref SHA. The first temporary comparison reversed the former fields.",
+    "repair": "Parse each documented saved record format into exact ref/SHA pairs; preserve every ref/SHA value, do not normalize or alter source/runtime evidence."
+  },
+  "input_fingerprints": [
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt1-20261104/closed-evidence-reconciliation.json",
+      "bytes": 2012,
+      "lines": 43,
+      "sha256": "00a97a061461d11854b7a1f0024b04bf231a76ee38f412be25af6635723a32cd"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt1-20261104/full.log",
+      "bytes": 3800,
+      "lines": 16,
+      "sha256": "6d0b02515abb300fef8abf747e3845ee091ce3ec6281506c093c3c1aa16b0a53"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt1-20261104/launch.json",
+      "bytes": 174,
+      "lines": 6,
+      "sha256": "94de21aa5e1e8923ed5a9141f64bc3a5f9eee582d8d57f0ac970d4b2a0afd25a"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 3524,
+      "lines": 13,
+      "sha256": "bf7fc2a8578a94ea16cf847a6b46988e46ca6e03a3f73fba3f7b15eb31150a3c"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 631,
+      "lines": 19,
+      "sha256": "162449ed70cb4407023d3a2543f05e09cd8d067dfa14d91cfa9a97f793ba937d"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 477,
+      "lines": 14,
+      "sha256": "ad841f416dafee163d371a57a05dc2eee56982c5de7b2d5f08e9e9f3b399ee32"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt1-20261104/owned-terminal.json",
+      "bytes": 260,
+      "lines": 8,
+      "sha256": "6ad4dfb470ab7e5baf2553d54e60d563fa787819034e83a77c22c39199b10b5f"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt1-20261104/progress.json",
+      "bytes": 261,
+      "lines": 8,
+      "sha256": "280b46fee243131b6303497f3aabf1ccfad320afa922ecc02c5c115c13beac6c"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt1-20261104/request.json",
+      "bytes": 793,
+      "lines": 22,
+      "sha256": "f6f233548f4a6a20f877386ce402b7e08d06104b9abb667f5f91e0b4efbb77c4"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt1-20261104/result.json",
+      "bytes": 1320,
+      "lines": 33,
+      "sha256": "6a24ee115cf5180677b20019ebf2848f555e4aa2bca283195c912c4d175f9c1d"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt1-20261104/start.json",
+      "bytes": 986,
+      "lines": 27,
+      "sha256": "c4c7963ce6642aa62909c9d163b4513296b355f355b6e84916fc06d3f0a78ec0"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "lines": 19,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt2-20261104/closed-evidence-reconciliation.json",
+      "bytes": 2212,
+      "lines": 44,
+      "sha256": "6e276a87a964fc51df4ee900807024450286a22bcfa0353a894c3620ede3d79f"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt2-20261104/full.log",
+      "bytes": 1753,
+      "lines": 12,
+      "sha256": "f8c5dff295862af1d5e2ba538bb0db5012a786dfb7890d58e4de8933a7973f9a"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt2-20261104/launch.json",
+      "bytes": 174,
+      "lines": 6,
+      "sha256": "6b75196ef338d6473cd69494ad83de48d369e267e3cc8f67abe025b6194af72d"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt2-20261104/native-records/output.log",
+      "bytes": 1478,
+      "lines": 9,
+      "sha256": "33ec52158c3e4325d657d4ca6c1ee3e40d56709b5667834223464fedd2a0adad"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt2-20261104/native-records/result.json",
+      "bytes": 629,
+      "lines": 19,
+      "sha256": "8edb6b63b60afe7bdb0c75f2f44fdb2537933c4d089f5c6b717a4eda7f4b2180"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt2-20261104/native-records/start.json",
+      "bytes": 477,
+      "lines": 14,
+      "sha256": "406095370ff065f2d7da5a328cf8eaca860025516497db61c0d6dc0e2285d937"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt2-20261104/outer-prefix.log",
+      "bytes": 119,
+      "lines": 2,
+      "sha256": "8a3a6e215923661922d90b4a512ec8e20039d6a23851de25de685fc25be80f4a"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt2-20261104/outer-suffix.log",
+      "bytes": 156,
+      "lines": 1,
+      "sha256": "20a69b77bea2a9ae61501cbd4cc82cdcc9e8e7fc0690bf987a78ce28f1aa3ba3"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt2-20261104/owned-terminal.json",
+      "bytes": 260,
+      "lines": 8,
+      "sha256": "6ab54fa64206110b2c22b4f0bdfadd69789ec449279363b34bcf7d7b4e8b03a2"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt2-20261104/progress.json",
+      "bytes": 263,
+      "lines": 8,
+      "sha256": "f1994d35d9d05d2c0e406d67f68ed570df2f5d4432825ddc0d2a83a229bcf44a"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt2-20261104/request.json",
+      "bytes": 793,
+      "lines": 22,
+      "sha256": "3762a1c0c6dac494e74d08f0e180b6087960dd7c1a4286b62f70007d4412d9ee"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt2-20261104/result.json",
+      "bytes": 1319,
+      "lines": 33,
+      "sha256": "8d44f644c8b2ffc1cd29c42f760415108fcdfed4ba809f64f55a9fdb82b8ac20"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt2-20261104/start.json",
+      "bytes": 986,
+      "lines": 27,
+      "sha256": "44f86d289f42e3850b28530c4c2010f181ae397ce80ef103a48bf4a2ffc8c5eb"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-focused-attempt2-20261104/verification.json",
+      "bytes": 867,
+      "lines": 19,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/01-switch-result.json",
+      "bytes": 448,
+      "lines": 15,
+      "sha256": "aa8bf478ac03125a687f8620ae5f69a9ab1cf42cf5dc6984b32dc2fbe6de1f1d"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/02-cherry-pick-result.json",
+      "bytes": 1747,
+      "lines": 23,
+      "sha256": "1e54e73137fe9d786e6a808b34fc4acd56ded48042d99c8463eea25bc83f1d7e"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/03-resolution-plan.json",
+      "bytes": 1748,
+      "lines": 39,
+      "sha256": "4c2de957487d961c5f8c0a29912110749658121d8f60547c65c55f46875bb204"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/04-stage-result.json",
+      "bytes": 616,
+      "lines": 18,
+      "sha256": "c6056045565178d6214bd33af40628cf9b472466fdc2c04265c13fa3d8d380a6"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/05-diff-check-result.json",
+      "bytes": 275,
+      "lines": 13,
+      "sha256": "f55902e7e38bb3ea3204890bdcb94b0194b27eff801108038f524afc2ea8d82e"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/06-commit-result.json",
+      "bytes": 926,
+      "lines": 19,
+      "sha256": "41b8ca60d20416d0e7ea5454f6d71eb27a1a3efc0f8251ff1ad2a1c68c1c59ee"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/Statements21.lean",
+      "bytes": 1651,
+      "lines": 34,
+      "sha256": "19d1a87cd666573c7f3df632a27b79dedbc262e5cb983265896aa55449d2138b"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/baseline.json",
+      "bytes": 19158,
+      "lines": 323,
+      "sha256": "5ffad9b36548d2b6e8b797eb8a38a49f9530bcaca05ec049a179be266b123a83"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/candidate.json",
+      "bytes": 11711,
+      "lines": 149,
+      "sha256": "aac012217f3149f2bfd6ee701cfece8de34ad0e46726e9e8f4a15d889c3601d2"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/commit-message.txt",
+      "bytes": 478,
+      "lines": 10,
+      "sha256": "44824963d81691e0b365c53359b0516c391edefb72d215dde7188a3e3223a738"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/conflict-SquareApplications.lean-stage1",
+      "bytes": 8398,
+      "lines": 255,
+      "sha256": "1d8fa606b206345d7b9c158c6faf9f7eefb88295d4ba75535715b012d5d2ad97"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/conflict-SquareApplications.lean-stage2",
+      "bytes": 9372,
+      "lines": 286,
+      "sha256": "39a54b99b5ccc2e7f32307bf3864a3641cf0cd247af4ba9dee2b803d336961b5"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/conflict-SquareApplications.lean-stage3",
+      "bytes": 8431,
+      "lines": 256,
+      "sha256": "c7abc390617e80c42c2b604528748fcebe794f869d8abeae88a07a69864ea3ef"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/handoff.md",
+      "bytes": 10893,
+      "lines": 66,
+      "sha256": "7e56ce086159887e6bdfd8592ae95b71b4f739fc454f13cf20e3a9f1b6d5f3a5"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/note-vs-original.diff",
+      "bytes": 2680,
+      "lines": 48,
+      "sha256": "69feacb576dd62b8624a10551dc395c5ac5d02da0c44f768e28ca95cbb08b58e"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/preservation-and-readback.json",
+      "bytes": 2710,
+      "lines": 57,
+      "sha256": "708b89d6ec6992f61500b243c961dbe6dfd96a320281fa186431282cc341cfc5"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/printer-option-source.json",
+      "bytes": 2476,
+      "lines": 61,
+      "sha256": "2ae54ea25b738a78045338fda90701bf981927610a54d34d0fbd6fafcff7e7c1"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/receiving-vs-Q.diff",
+      "bytes": 25941,
+      "lines": 570,
+      "sha256": "c228063a1f6beed12848e7721a272b7cd0cb4982b2667b410370314912123497"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/statements21-inventory.json",
+      "bytes": 18892,
+      "lines": 405,
+      "sha256": "df220e17e3d5aefe47e822c082e3fae98fc297cedbcbe305822fdafa2948c65c"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-preparation-20261104/receipt.json",
+      "bytes": 4853,
+      "lines": 134,
+      "sha256": "c49460652b3bd4db177c84ec1354d0b881d5ee1f7e7121c6b8d173e6b2df402c"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-correction1-20261104/Statements21.lean",
+      "bytes": 1651,
+      "lines": 34,
+      "sha256": "1e048fe6242d26aca2a1afad7451d048072536ce4f2f5abea2cec9da839519a7"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-correction1-20261104/before-and-diagnosis.json",
+      "bytes": 10749,
+      "lines": 162,
+      "sha256": "d7c4baf4fbffcf621b5d3c3955070756e53c1d4819d1e2ce1f6602105b0eea33"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-correction1-20261104/candidate.json",
+      "bytes": 6937,
+      "lines": 93,
+      "sha256": "5a830b6231a1bad18a95ab1891a3fc51895bc841d830180cee7b772d2de43d04"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-correction1-20261104/commit-message.txt",
+      "bytes": 330,
+      "lines": 7,
+      "sha256": "df5cceda00f205e345de21b91aecce845b61d797f4f923f82c107beb76879a90"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-correction1-20261104/commit-result.json",
+      "bytes": 739,
+      "lines": 19,
+      "sha256": "7b27dbd85976668b2337e402907681803ff533e2586c2701303a4d1ab23da1ed"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-correction1-20261104/handoff.md",
+      "bytes": 4856,
+      "lines": 42,
+      "sha256": "f9ac1641fc180f86e2d273389bb88b177caccb373d279ee1876a7f86f0424791"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-correction1-20261104/precommit-actions.json",
+      "bytes": 297,
+      "lines": 23,
+      "sha256": "2b645cd2deb4939f23601451bf24321e8900a58fc6ac7ed7e2ca77647f26d7c5"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-correction1-20261104/source.diff",
+      "bytes": 573,
+      "lines": 13,
+      "sha256": "5904713742bfe8af0fd5b8320f62f7008f4aa496320939fbfd7bbc74e0aa6a6f"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-correction1-20261104/statements21-inventory.json",
+      "bytes": 20639,
+      "lines": 435,
+      "sha256": "cd667523b4bfec43ee8b8fe52203400245e69f6206a63465a9f44689dc061f6a"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-correction1-20261104/receipt.json",
+      "bytes": 3632,
+      "lines": 84,
+      "sha256": "1eb5e212b39789e65d7e1f4ad8f29174aa849de75b75c70611e4df7b6e0127d1"
+    },
+    {
+      "path": "reviews/affine-recurrence-requirements.md",
+      "bytes": 5540,
+      "lines": 96,
+      "sha256": "5873700a349c359d15873829f1399a20225fa80eaa980e7ad9f1e4c8f774dd02"
+    },
+    {
+      "path": "reviews/affine-recurrence-spec-preparation-20261104.md",
+      "bytes": 19622,
+      "lines": 100,
+      "sha256": "8ee3cac08c1cb0d4b4d8b29821b5de9b54e549530d081155130065c3bb8e8b32"
+    },
+    {
+      "path": "provenance/affine-recurrence-spec-preparation-20261104/source-assessment.json",
+      "bytes": 42793,
+      "lines": 1118,
+      "sha256": "6d6a9b3c0c56e965e91e19720b0d5dafb4c80fcdbe9a4e97610c4e42f19127a2"
+    },
+    {
+      "path": "provenance/affine-recurrence-spec-preparation-20261104/current-boundary.json",
+      "bytes": 3018,
+      "lines": 83,
+      "sha256": "6191b4f5673f552b9cff1ed41f021037f42dbdfa6f975317116857322fb6467f"
+    },
+    {
+      "path": "reviews/chapter02-spec-final-20261104.md",
+      "bytes": 15377,
+      "lines": 108,
+      "sha256": "4852842a5ccae808bd0d96ba82339a2857eda445e5992a34ab8c2e4fd2a133c0"
+    },
+    {
+      "path": "provenance/chapter02-spec-receiving-terminal-20261104/final-disposition.json",
+      "bytes": 12999,
+      "lines": 296,
+      "sha256": "439db86ed31edcc2d6b58701cd01a5dde0f739d5d3e3cb82a84b4fa134bcbda4"
+    },
+    {
+      "path": "provenance/chapter02-spec-receiving-terminal-20261104/final-readback-and-hold.json",
+      "bytes": 5528,
+      "lines": 138,
+      "sha256": "b542c98aa7e8ddc268b1e61f7aef6cf1105d733a6226a876da7dd42c211f06ee"
+    },
+    {
+      "path": "provenance/chapter02-acceptance-20261104/fast-forward-result.json",
+      "bytes": 7459,
+      "lines": 104,
+      "sha256": "33508645d18cdee1f3106c56226c0c16ef98fc16091a5390f940fbd206bdc0d8"
+    },
+    {
+      "path": "tooling/capture_statement_inputs.py",
+      "bytes": 5812,
+      "lines": 119,
+      "sha256": "4df281f3f427ec462a6973b9177fcc3f825b57b19fa8e205780f17cfaa89b5b7"
+    }
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "recorded_utc": "2026-11-04T23:10:42.566360+00:00",
+  "author": "/root/chapter03_path_mass_support",
+  "authorization_scope": "Report-only preservation in this newly absent directory; no compiler, source/ref mutation or nested review workflow",
+  "output_directory": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-path-mass-support-20261104",
+  "output_directory_absent_at_preflight": true,
+  "repository": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot",
+  "immutable_candidate": "56b46dc955c44057afc366359e4f6f28cfad6330",
+  "prior_inspected_candidate": "7950275f345d1077e23730e1975b6dac7460be87",
+  "candidate_difference_paths": [
+    "Applications/Resources/RandomSelectionEndpoints.lean"
+  ],
+  "identical_run_blob_at_both_candidates": "4af2a079ad55005657eeac2eaf4d3dd2a3a3ac11",
+  "repository_files": {
+    "Applications/Resources/RandomSelectionRun.lean": {
+      "candidate": "56b46dc955c44057afc366359e4f6f28cfad6330",
+      "git_blob": "4af2a079ad55005657eeac2eaf4d3dd2a3a3ac11",
+      "bytes": 12714,
+      "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718",
+      "inspection_scope": "Full immutable run source read13d1c9; identical blob at both candidate commits",
+      "current_worktree_source_not_read_or_modified": true
+    },
+    "Applications/Resources/RandomSelectionEndpoints.lean": {
+      "candidate": "56b46dc955c44057afc366359e4f6f28cfad6330",
+      "git_blob": "e17dbcbdd83a20de00ed5c02dda7a3e7f5fe9e39",
+      "bytes": 8643,
+      "sha256": "1621c8f16d8c5a4621268ec115ac2cee6eb18fe1b936116cb50f6b641bd3be8e",
+      "inspection_scope": "Full prior source read f252b2 plus complete narrow correction delta read 648d10; focused-passed correction status is parent-reported, not Chapter3 acceptance",
+      "current_worktree_source_not_read_or_modified": true
+    },
+    "Applications/Resources/RandomSelectionEqual.lean": {
+      "candidate": "56b46dc955c44057afc366359e4f6f28cfad6330",
+      "git_blob": "8f6aee1ec143ea2a8a8f02902ea0625289aa0a9c",
+      "bytes": 11702,
+      "sha256": "05abf888d8ef2ab6934a1ad90034ac12e07dd7c79f558828fc719bf3973e1dd2",
+      "inspection_scope": "Inspected private uniformIndex_map_atom proof and actual replicate/atom formulas in5b9560/39fa62",
+      "current_worktree_source_not_read_or_modified": true
+    },
+    "Applications/Resources/RandomQuickSort.lean": {
+      "candidate": "56b46dc955c44057afc366359e4f6f28cfad6330",
+      "git_blob": "99b1b19cbfb6e6dc875e46cdc338bf4a518674fc",
+      "bytes": 23601,
+      "sha256": "c2fcc81b6bd7a4de8b7a9dc476dad62322701609a53b4ea58772f1d9a81307a2",
+      "inspection_scope": "Inspected uniformIndex definition/apply/support at the beginning ofa58890; that combined retrieval later truncated, no complete quicksort-source read claimed",
+      "current_worktree_source_not_read_or_modified": true
+    },
+    "AGENTS.md": {
+      "candidate": "56b46dc955c44057afc366359e4f6f28cfad6330",
+      "git_blob": "1b1e65502f0b0771b2475e3b1f37e39d7f18d0c2",
+      "bytes": 3118,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "inspection_scope": "Complete read26d285",
+      "current_worktree_source_not_read_or_modified": true
+    },
+    "docs/agents/architectural-quality.md": {
+      "candidate": "56b46dc955c44057afc366359e4f6f28cfad6330",
+      "git_blob": "bfcdb4a22899e11ba61b67d068d380ef5ea69f9f",
+      "bytes": 3876,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "inspection_scope": "Complete read0f9d04",
+      "current_worktree_source_not_read_or_modified": true
+    },
+    ".agents/skills/example-driven-development/SKILL.md": {
+      "candidate": "56b46dc955c44057afc366359e4f6f28cfad6330",
+      "git_blob": "8f279691ee250a713f7cd70f7c37c5d581ead152",
+      "bytes": 6991,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "inspection_scope": "Complete readc0d680",
+      "current_worktree_source_not_read_or_modified": true
+    },
+    "docs/agents/domain.md": {
+      "candidate": "56b46dc955c44057afc366359e4f6f28cfad6330",
+      "git_blob": "c26859ec35e14a9051d84066b3b5315aad67ee8b",
+      "bytes": 926,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "inspection_scope": "Complete read0de430",
+      "current_worktree_source_not_read_or_modified": true
+    },
+    "GLOSSARY.md": {
+      "candidate": "56b46dc955c44057afc366359e4f6f28cfad6330",
+      "git_blob": "58735721568c19cbdc0bfd691280fd24b98e65c9",
+      "bytes": 4824,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "inspection_scope": "Complete read9a8de5",
+      "current_worktree_source_not_read_or_modified": true
+    },
+    "docs/adr/README.md": {
+      "candidate": "56b46dc955c44057afc366359e4f6f28cfad6330",
+      "git_blob": "d8cced6079e8bc98d3ddd9f655a3e1d78bf29107",
+      "bytes": 1547,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "inspection_scope": "Complete read9a8de5",
+      "current_worktree_source_not_read_or_modified": true
+    },
+    "docs/adr/0001-modules-and-proof-dependencies.md": {
+      "candidate": "56b46dc955c44057afc366359e4f6f28cfad6330",
+      "git_blob": "c997496c5aa49412715630f853419d3a6b10c825",
+      "bytes": 2561,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "inspection_scope": "Complete read9a8de5",
+      "current_worktree_source_not_read_or_modified": true
+    },
+    "docs/adr/0010-composition-and-proof-audit.md": {
+      "candidate": "56b46dc955c44057afc366359e4f6f28cfad6330",
+      "git_blob": "a864fb47055dc03ffad69dfea236f9e1c1f860f4",
+      "bytes": 7331,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "inspection_scope": "Complete read9a8de5",
+      "current_worktree_source_not_read_or_modified": true
+    }
+  },
+  "mathlib_checkout": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib",
+  "mathlib_pinned_head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "mathlib_tracked_status": "",
+  "mathlib_files": {
+    "Mathlib/Probability/ProbabilityMassFunction/Basic.lean": {
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "a1fe77bf0a9f639e4dfccb7a42b292d8eb489217",
+      "bytes": 14717,
+      "sha256": "42d8ba19dead746276936fe3907b73cf02bf68ae44d49f3041b3ae8dbf35615c",
+      "workspace_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Basic.lean",
+      "working_bytes_equal_pinned_blob": true,
+      "inspection_scope": "Exact support/mass signatures in fb378f and18d4a1; bounded subtree API search6bf60f"
+    },
+    "Mathlib/Probability/ProbabilityMassFunction/Monad.lean": {
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "5e348efcb639282e8453e2027373550fb75e9d83",
+      "bytes": 11910,
+      "sha256": "fa8edb0c9feb17a79e9119179fbb08178ebca32fa6d126232287866bb7a5088e",
+      "workspace_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Monad.lean",
+      "working_bytes_equal_pinned_blob": true,
+      "inspection_scope": "Pure/bind definitions and support signatures through line165 infb378f; bounded refresh18d4a1/6bf60f"
+    },
+    "Mathlib/Probability/ProbabilityMassFunction/Constructions.lean": {
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "11c140bdc433847627f717816382b245a1e141e3",
+      "bytes": 11757,
+      "sha256": "188136d13b18f6ce0018e1483b36a669e880990cf51a7073ebb1e01c99779cca",
+      "workspace_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Probability/ProbabilityMassFunction/Constructions.lean",
+      "working_bytes_equal_pinned_blob": true,
+      "inspection_scope": "Map definition and signatures through line87 infb378f; bounded refresh18d4a1/6bf60f"
+    },
+    "Mathlib/Basic/ENNReal/Inv.lean": {
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "fd51b663656c80c2e47a7a694662fd1c379bdca8",
+      "bytes": 44273,
+      "sha256": "f06e93ae82105c5c03585c2d11377b94aac119b7fdbcaf34a7a333aa27c53f36",
+      "workspace_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Basic/ENNReal/Inv.lean",
+      "working_bytes_equal_pinned_blob": true,
+      "inspection_scope": "Exact inverse-product side conditions and inverse nonzero facts in409c92; initial targeted search00196a"
+    },
+    "Mathlib/Basic/ENNReal/Basic.lean": {
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "242f8bc87ce2a87beb391ede8ec77f85f9d7ff84",
+      "bytes": 32272,
+      "sha256": "f7fe64f0d1865209e4d2be2fd98e3bc5edf9af508dd665f0311e6396f8d513a2",
+      "workspace_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Basic/ENNReal/Basic.lean",
+      "working_bytes_equal_pinned_blob": true,
+      "inspection_scope": "Targeted natCast_ne_top declaration search00196a; whole source hash only, not full source review"
+    },
+    "Mathlib/Data/Nat/Factorial/Basic.lean": {
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "cb31155696b4728e7025a3c6a1ab7cef05e8329e",
+      "bytes": 22687,
+      "sha256": "8728bc17da88bbf503a28686b362661a1449c567d5bba740669593d93054ded7",
+      "workspace_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Data/Nat/Factorial/Basic.lean",
+      "working_bytes_equal_pinned_blob": true,
+      "inspection_scope": "Exact factorial recurrence/positivity block409c92; initial targeted search7f7994"
+    },
+    "Mathlib/Algebra/GroupWithZero/Defs.lean": {
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "6e409fb317ecec19dd209fe684d4e294e0fe797a",
+      "bytes": 13509,
+      "sha256": "fb85527ccab74eb4340c5c49c235028f63564b82c0ff866dc75c78119af67fb4",
+      "workspace_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Algebra/GroupWithZero/Defs.lean",
+      "working_bytes_equal_pinned_blob": true,
+      "inspection_scope": "Exact mul_eq_zero_of_right declaration search409c92; whole source hash only, not full source review"
+    }
+  },
+  "canonical_obligations": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/chapter03-obligations.md",
+    "bytes": 52581,
+    "sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed",
+    "inspected_scope": "C03-064/C03-075 and adjacent worst-case quantifier explanation via0e8b17; no complete new scope assessment"
+  },
+  "proof_suggestions_compiled": false,
+  "compiler_actions": false,
+  "candidate_acceptance_evidence": false,
+  "claimed_universal_scope": "Proposed branch atom and trace injectivity lemmas cover arbitrary fixed worker state k,xs, including duplicates and invalid ranks; endpoint/factorial theorem retains every distinct input and every valid rank",
+  "scope_cautions": [
+    "Fixed initial k,xs is necessary; no cross-input global trace-to-outcome injectivity claim",
+    "Trace atom equality requires the selected Outcome in actual run support; unsupported Outcomes can share supported traces",
+    "All suggestions remain uncompiled and need root-owned immutable candidate checks",
+    "A subtree API search is not a claim of global library theorem absence"
+  ],
+  "read_only_preflight_tool_chunk": "601cfe",
+  "current_endpoint_delta_read_tool_chunk": "648d10",
+  "report_scope": "Preservation of two completed read-only reports; all snippets uncompiled; original spellings and immediate refinements retained with explicit labels",
+  "read_evidence": [
+    {
+      "chunk": "13d1c9",
+      "scope": "Complete immutable RandomSelectionRun source"
+    },
+    {
+      "chunk": "f252b2",
+      "scope": "Complete original endpoints source"
+    },
+    {
+      "chunk": "648d10",
+      "scope": "Complete normalization-only endpoint delta at correction candidate"
+    },
+    {
+      "chunk": "fb378f",
+      "scope": "Pinned PMF signature and definition blocks"
+    },
+    {
+      "chunk": "5b9560",
+      "scope": "Existing private injective uniform-map proof pattern"
+    },
+    {
+      "chunk": "39fa62",
+      "scope": "Actual equal/singleton tariffs and atoms"
+    },
+    {
+      "chunk": "409c92",
+      "scope": "Exact ENNReal inverse restrictions and factorial recurrence"
+    },
+    {
+      "chunk": "d211ef",
+      "scope": "Candidate resolution and equal run blobs"
+    },
+    {
+      "chunk": "18d4a1",
+      "scope": "Refreshed pinned pushforward/support signatures"
+    },
+    {
+      "chunk": "6bf60f",
+      "scope": "Bounded PMF subtree API search and ite conventions"
+    },
+    {
+      "chunk": "601cfe",
+      "scope": "Report-only preflight and immutable file identities"
+    }
+  ],
+  "preservation_written_utc": "2026-11-04T23:12:44.203797+00:00"
+}

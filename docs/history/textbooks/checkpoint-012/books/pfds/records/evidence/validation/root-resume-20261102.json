@@ -1,0 +1,27 @@
+{
+  "candidate": "70a1477d822efd4fdcec2007280f650bb4695eda",
+  "checkout": "validation-persistence",
+  "argv": [
+    "/nix/store/8lza1b8nnci8lmm4q68p0l33pg975s0q-nix-2.35.4/bin/nix",
+    "--extra-experimental-features",
+    "nix-command flakes",
+    "--option",
+    "build-users-group",
+    "",
+    "--option",
+    "sandbox",
+    "false",
+    "develop",
+    "--command",
+    "env",
+    "LEAN_NUM_THREADS=1",
+    "./check.sh",
+    "--candidate",
+    "HEAD"
+  ],
+  "started_at": "2026-11-02T15:41:09.127146+00:00",
+  "status": "ended without terminal result; session no longer available and own-workspace process inventory found no corresponding build process",
+  "log": "active-validation/persistence-70a1477-root-20261102.log",
+  "owner": "root",
+  "acceptance": false
+}

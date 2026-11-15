@@ -1,0 +1,1858 @@
+{
+  "recorded_utc": "2026-11-04T21:58:27.052935+00:00",
+  "finding": "C03-GENERIC-BOUNDS-ELAB-001",
+  "baseline": "ef7def9a5a18d2cfc68111bf65d2e036be55c26e",
+  "baseline_tree": "8bb7d813f43836af16264ed35a2535ca33d93c67",
+  "original_full_inventory": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage2-20261104/source-inventory-statement-and-case-assessment-candidate1.json",
+    "bytes": 143759,
+    "sha256": "b2ce91ce8f4b60b782257652391e77ea57d22d6df285731550a1d8a96f53bb32"
+  },
+  "preparation": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-bound-correction1-20261104/preparation.json",
+    "bytes": 60977,
+    "sha256": "a45f1de9a90b964c9e8991b63a5b24057a2d57022eb1384282e8f6c9722bb11a"
+  },
+  "actual_log_full_read": "0d678a exit 0",
+  "full_exact_diff_and_all_three_changed_declarations_read": "973d18 exit 0",
+  "files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionGenericBounds.lean",
+      "bytes": 14543,
+      "sha256": "1b2b629177c96244d377261f12b45034c3c2107f0ef5c78bb512c947e7f12524",
+      "relative_path": "Applications/Resources/SelectionGenericBounds.lean",
+      "source_lines": 260,
+      "public_count": 15,
+      "private_count": 0
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionGenericBounds.lean",
+      "bytes": 11435,
+      "sha256": "762be98de6b9d8c1643156509d947ea298b7d16b9e8535c69194c92811831d50",
+      "relative_path": "Examples/SelectionGenericBounds.lean",
+      "source_lines": 209,
+      "public_count": 13,
+      "private_count": 3
+    }
+  ],
+  "counts": {
+    "public_declarations": 28,
+    "public_definitions": 2,
+    "public_theorems": 26,
+    "private_declarations": 3,
+    "private_definitions": 0,
+    "private_theorems": 3,
+    "total_declarations": 31,
+    "anonymous_examples": 0
+  },
+  "public_names": [
+    "Resources.Selection.chunkMediansRun_length_eq_groupPivotChild",
+    "Resources.Selection.selectRunWith_pivot_size_bounds",
+    "Resources.Selection.genericSelectionBase",
+    "Resources.Selection.genericSelectionMajorant",
+    "Resources.Selection.genericSelectionMajorant_small",
+    "Resources.Selection.genericSelectionMajorant_large",
+    "Resources.Selection.genericSelectionBase_le_majorant",
+    "Resources.Selection.genericSelectionMajorant_monotone",
+    "Resources.Selection.selectRunWith_cost_le_groupBase_of_prefix",
+    "Resources.Selection.invalid_cost_le_groupMajorant",
+    "Resources.Selection.selectRunWith_cost_le_groupMajorant_of_lt",
+    "Resources.Selection.selectRunWith_cost_le_groupMajorant",
+    "Resources.Selection.selectRunWith_exists_uniform_affine_bound",
+    "Resources.Selection.selectRunWith_exists_uniform_linear_bound",
+    "Resources.Selection.selectRunWith_family_isBigO",
+    "Examples.SelectionGenericBounds.empty_every_sufficient_group",
+    "Examples.SelectionGenericBounds.five_repeated_prefix",
+    "Examples.SelectionGenericBounds.six_repeated_prefix",
+    "Examples.SelectionGenericBounds.book_recurses_inside_scalar_prefix",
+    "Examples.SelectionGenericBounds.first_five_recursive_budget",
+    "Examples.SelectionGenericBounds.first_six_recursive_budget",
+    "Examples.SelectionGenericBounds.actual_cutoff_above_scalar",
+    "Examples.SelectionGenericBounds.invalid_above_scalar",
+    "Examples.SelectionGenericBounds.three_four_threshold_semantics",
+    "Examples.SelectionGenericBounds.odd_sufficient_uniform_family",
+    "Examples.SelectionGenericBounds.even_sufficient_uniform_family",
+    "Examples.SelectionGenericBounds.six_duplicate_integer_family",
+    "Examples.SelectionGenericBounds.five_descending_family"
+  ],
+  "private_logical_source_names": [
+    "Examples.SelectionGenericBounds.range_value",
+    "Examples.SelectionGenericBounds.first_five_scalar",
+    "Examples.SelectionGenericBounds.first_six_scalar"
+  ],
+  "declarations": [
+    {
+      "logical_source_name": "Resources.Selection.chunkMediansRun_length_eq_groupPivotChild",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "start_line": 30,
+      "raw_header": "theorem chunkMediansRun_length_eq_groupPivotChild (d : Nat) (xs : List α)\n    (hd : 0 < d) :\n    (chunkMediansRun d xs).1.length = GroupSelectionRecurrence.pivotChild d xs.length",
+      "raw_header_sha256": "0d8c93825f9f739c2b31cf852de38b00d2d0447496a87f3216c0ff784c9deb47",
+      "source_block": "theorem chunkMediansRun_length_eq_groupPivotChild (d : Nat) (xs : List α)\n    (hd : 0 < d) :\n    (chunkMediansRun d xs).1.length = GroupSelectionRecurrence.pivotChild d xs.length := by\n  rw [chunkMediansRun_length]\n  unfold GroupSelectionRecurrence.pivotChild GroupSelectionRecurrence.pivotFraction\n  have quotient : (1 / (d : ℝ)) * (xs.length : ℝ) + 0 =\n      (xs.length : ℝ) / (d : ℝ) := by ring\n  rw [quotient, ceil_nat_div ℝ xs.length d hd]\n\n/-- The observed recursive median controls both strict sides with ties and a\nshort final chunk retained. No distinctness or assumed balance is supplied. -/\n",
+      "source_block_sha256": "30ee840f0a376ccdedf15cd0c009e16f24889cf0319b4fefd6ffedec7059f7b6",
+      "intended_claim": "The actual chunk-median list has exactly the rounded scalar pivot-child size.",
+      "domain_and_quantifiers": "Positive natural group d; any linearly ordered list, including empty.",
+      "statement_and_proof_assessment": "Checked exact chunk length and the real-ceiling/natural-ceiling correspondence; the reciprocal product identity is proved in the real field.",
+      "case_connection": "Both first scalar-recursive cases and all large-case induction steps.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith_pivot_size_bounds",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "start_line": 41,
+      "raw_header": "theorem selectRunWith_pivot_size_bounds (d cutoff : Nat)\n    (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (xs : List α) (p : α)\n    (hp : (selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)\n      (chunkMediansRun d xs).1).1 = some p) :\n    (partition3 p xs).1.length ≤ GroupSelectionRecurrence.sideChild d xs.length ∧\n      (partition3 p xs).2.2.length ≤ GroupSelectionRecurrence.sideChild d xs.length",
+      "raw_header_sha256": "18ca47c01720d204dbc77b45cc951657612048cc03740e9b7db9b33090bd1e0f",
+      "source_block": "theorem selectRunWith_pivot_size_bounds (d cutoff : Nat)\n    (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (xs : List α) (p : α)\n    (hp : (selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)\n      (chunkMediansRun d xs).1).1 = some p) :\n    (partition3 p xs).1.length ≤ GroupSelectionRecurrence.sideChild d xs.length ∧\n      (partition3 p xs).2.2.length ≤ GroupSelectionRecurrence.sideChild d xs.length := by\n  have hpm : medianOfMedians d xs = some p :=\n    (selectRunWith_median_value d cutoff hd hc xs).symm.trans hp\n  have counts := medianOfMedians_count_bounds d xs p (by omega) hpm\n  have hm : xs.length ⌈/⌉ d = GroupSelectionRecurrence.pivotChild d xs.length := by\n    simpa only [chunkMediansRun_length] using\n      chunkMediansRun_length_eq_groupPivotChild d xs (by omega)\n  rw [hm] at counts\n  have hl : (partition3 p xs).1.length = xs.countP (fun x => decide (x < p)) := by\n    simp only [partition3_eq_filters, List.countP_eq_length_filter]\n  have hr : (partition3 p xs).2.2.length = xs.countP (fun x => decide (p < x)) := by\n    simp only [partition3_eq_filters, List.countP_eq_length_filter]\n  rw [hl, hr]\n  exact ⟨GroupSelectionRecurrence.two_group_bound_le_child d xs.length _ (by omega) counts.1,\n    GroupSelectionRecurrence.two_group_bound_le_child d xs.length _ (by omega) counts.2⟩\n\n/-- A uniform finite base, chosen before the payload type, list and rank. -/\n",
+      "source_block_sha256": "ca8f1dc23d1170387c7abe7be85984fc95b8b7649a65a26d6a2e290f53907fe4",
+      "intended_claim": "An actual observed recursive pivot bounds both strict partition sizes by the generic side child.",
+      "domain_and_quantifiers": "d ≥ 2, cutoff ≥ 1, arbitrary duplicate list and actual recursive observation some p; no balance or runtime premise.",
+      "statement_and_proof_assessment": "Actual value bridge supplies the mathematical median. The duplicate-aware two-group count and exact pivot-child length feed the checked rounded side inequality, separately for both sides.",
+      "case_connection": "Used after an actual pivot existence witness in every recursive cost branch; d5/d6 examples retain short final chunks.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Resources.Selection.genericSelectionBase",
+      "visibility": "public",
+      "kind": "def",
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "start_line": 63,
+      "raw_header": "def genericSelectionBase (d cutoff : Nat) : Nat",
+      "raw_header_sha256": "523a16eee44205424a416b907d16cca6c57debfaa596b6e94825522a6426517f",
+      "source_block": "def genericSelectionBase (d cutoff : Nat) : Nat :=\n  envelope d (max cutoff (GroupSelectionRecurrence.cutoff d))\n\n/-- The existing contracting scalar with the actual proved local tariff.\nIt is a cost majorant, not a replacement implementation of selection. -/\n",
+      "source_block_sha256": "bf3f68dc86ca7654c59ed825b58bb98399239148ceb8e7a782a123bd0f3d8bc8",
+      "intended_claim": "Fix the finite natural base U_d(max actual cutoff, scalar cutoff).",
+      "domain_and_quantifiers": "Pure scalar definition for all natural d and cutoffs; no payload parameters.",
+      "statement_and_proof_assessment": "Reuses the unchanged size envelope and scalar cutoff. This is not a supremum over input values and not a new execution.",
+      "case_connection": "Both cutoff orderings: actual cutoff20 versus scalar71, and actual100 versus scalar71.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Resources.Selection.genericSelectionMajorant",
+      "visibility": "public",
+      "kind": "def",
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "start_line": 68,
+      "raw_header": "def genericSelectionMajorant (d cutoff : Nat) (hd : 5 ≤ d) (n : Nat) : Nat",
+      "raw_header_sha256": "b6123d21ed6432f35089de0eb30123510257efc3fd49275765b6a9978c1a3b50",
+      "source_block": "def genericSelectionMajorant (d cutoff : Nat) (hd : 5 ≤ d) (n : Nat) : Nat :=\n  GroupSelectionRecurrence.majorant d (genericSelectionBase d cutoff)\n    (tollCoefficient d) 7 hd n\n\n",
+      "source_block_sha256": "0ecfca29162ba4413011a63955e259a3c8b03312e4e9b7037e84d2e2fbd53450",
+      "intended_claim": "Instantiate the unchanged generic scalar G with the fixed base, proved coefficient d*d+4*d+12, and constant7.",
+      "domain_and_quantifiers": "Fixed natural d ≥ 5 and arbitrary natural cutoff, then varying size n. Actual workers additionally require cutoff ≥ 1.",
+      "statement_and_proof_assessment": "Noncomputable scalar wrapper only; neither the recursive worker nor any prior source tariff or scalar recurrence changes.",
+      "case_connection": "Finite-prefix and first scalar-recursive budgets; all affine and linear consumers.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Resources.Selection.genericSelectionMajorant_small",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "start_line": 72,
+      "raw_header": "theorem genericSelectionMajorant_small (d cutoff : Nat) (hd : 5 ≤ d)\n    (n : Nat) (small : n ≤ GroupSelectionRecurrence.cutoff d) :\n    genericSelectionMajorant d cutoff hd n = genericSelectionBase d cutoff",
+      "raw_header_sha256": "e0f12ae681e191420f90325aa146a2076680976b27a7684a49f0405a21026214",
+      "source_block": "theorem genericSelectionMajorant_small (d cutoff : Nat) (hd : 5 ≤ d)\n    (n : Nat) (small : n ≤ GroupSelectionRecurrence.cutoff d) :\n    genericSelectionMajorant d cutoff hd n = genericSelectionBase d cutoff :=\n  GroupSelectionRecurrence.majorant_small d (genericSelectionBase d cutoff)\n    (tollCoefficient d) 7 hd n small\n\n",
+      "source_block_sha256": "d5d9d7f4818331a412c10671131e6f5fa83e8013004dd78d032005542ac50127",
+      "intended_claim": "At a size at most the scalar cutoff, G equals the fixed base.",
+      "domain_and_quantifiers": "d ≥ 5; n ≤ scalar cutoff; no ordering assumed between cutoffs.",
+      "statement_and_proof_assessment": "Direct wrapper of the already checked scalar small equation.",
+      "case_connection": "Repeated d5/d6 examples and book n21 finite-prefix case.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Resources.Selection.genericSelectionMajorant_large",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "start_line": 78,
+      "raw_header": "theorem genericSelectionMajorant_large (d cutoff : Nat) (hd : 5 ≤ d)\n    (n : Nat) (large : GroupSelectionRecurrence.cutoff d < n) :\n    genericSelectionMajorant d cutoff hd n =\n      genericSelectionMajorant d cutoff hd (GroupSelectionRecurrence.pivotChild d n) +\n        genericSelectionMajorant d cutoff hd (GroupSelectionRecurrence.sideChild d n) +\n        tollCoefficient d * n + 7",
+      "raw_header_sha256": "1040bced70d2d327160570655eb5fb521d81001c0ecfc781a7587bfe8954bb47",
+      "source_block": "theorem genericSelectionMajorant_large (d cutoff : Nat) (hd : 5 ≤ d)\n    (n : Nat) (large : GroupSelectionRecurrence.cutoff d < n) :\n    genericSelectionMajorant d cutoff hd n =\n      genericSelectionMajorant d cutoff hd (GroupSelectionRecurrence.pivotChild d n) +\n        genericSelectionMajorant d cutoff hd (GroupSelectionRecurrence.sideChild d n) +\n        tollCoefficient d * n + 7 :=\n  GroupSelectionRecurrence.majorant_large d (genericSelectionBase d cutoff)\n    (tollCoefficient d) 7 hd n large\n\n",
+      "source_block_sha256": "151610295d31c1bedce7d5174b35a54fa326724d28f11eeeaaf399871d6d38cf",
+      "intended_claim": "Above the scalar cutoff, G is the sum of its rounded child budgets and K_d*n+7.",
+      "domain_and_quantifiers": "d ≥ 5 and scalar cutoff < n.",
+      "statement_and_proof_assessment": "Direct wrapper of the checked scalar large equation, whose termination is already independently established.",
+      "case_connection": "Private scalar calculations at d5/n72 and d6/n98; actual large-case comparison.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Resources.Selection.genericSelectionBase_le_majorant",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "start_line": 87,
+      "raw_header": "theorem genericSelectionBase_le_majorant (d cutoff : Nat) (hd : 5 ≤ d) (n : Nat) :\n    genericSelectionBase d cutoff ≤ genericSelectionMajorant d cutoff hd n",
+      "raw_header_sha256": "cbdcdec61e0a9d5ab25e203d0528fce21a9003a977b9b64995a8881111e8c862",
+      "source_block": "theorem genericSelectionBase_le_majorant (d cutoff : Nat) (hd : 5 ≤ d) (n : Nat) :\n    genericSelectionBase d cutoff ≤ genericSelectionMajorant d cutoff hd n :=\n  GroupSelectionRecurrence.base_le_majorant d (genericSelectionBase d cutoff)\n    (tollCoefficient d) 7 hd n\n\n",
+      "source_block_sha256": "4f06747126830bd2e3e0e7debbe6a8e0f25c1677ed2ad96b6b172d7113b6ef0f",
+      "intended_claim": "The fixed finite base is at most G(n) for every size.",
+      "domain_and_quantifiers": "d ≥ 5; all natural n and actual-cutoff parameter.",
+      "statement_and_proof_assessment": "Uses the scalar base domination law, not an execution bound assumption.",
+      "case_connection": "The actual-cutoff100 case demonstrates use when n80 is already above scalar cutoff71.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Resources.Selection.genericSelectionMajorant_monotone",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "start_line": 92,
+      "raw_header": "theorem genericSelectionMajorant_monotone (d cutoff : Nat) (hd : 5 ≤ d) :\n    Monotone (genericSelectionMajorant d cutoff hd)",
+      "raw_header_sha256": "f436c6b5ed78c132777e990cd65aae32d4518886242cc3591239c7a69a019999",
+      "source_block": "theorem genericSelectionMajorant_monotone (d cutoff : Nat) (hd : 5 ≤ d) :\n    Monotone (genericSelectionMajorant d cutoff hd) :=\n  GroupSelectionRecurrence.majorant_monotone d (genericSelectionBase d cutoff)\n    (tollCoefficient d) 7 hd\n\n/-- Either cutoff can determine the finite prefix. The bound uses actual\nexecution and does not take a supremum over arbitrary payload values. -/\n",
+      "source_block_sha256": "80d30fb4c34585b0f44cfe23301287e50cdf48febda6b1ca1c88b6c4f83f116b",
+      "intended_claim": "The instantiated scalar G is monotone in input size.",
+      "domain_and_quantifiers": "Fixed d ≥ 5 and cutoff.",
+      "statement_and_proof_assessment": "Transport of the checked scalar monotonicity law.",
+      "case_connection": "Actual side sizes can be smaller than the rounded side child in every selected branch.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith_cost_le_groupBase_of_prefix",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "start_line": 99,
+      "raw_header": "theorem selectRunWith_cost_le_groupBase_of_prefix (d cutoff : Nat)\n    (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (k : Nat) (xs : List α)\n    (hprefix : xs.length ≤ cutoff ∨ xs.length ≤ GroupSelectionRecurrence.cutoff d) :\n    (selectRunWith d cutoff hd hc k xs).2 ≤ genericSelectionBase d cutoff",
+      "raw_header_sha256": "76806531e4939dfcd240bf03c4e74527508561ab6d1bb575e9bf623ce4d98368",
+      "source_block": "theorem selectRunWith_cost_le_groupBase_of_prefix (d cutoff : Nat)\n    (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (k : Nat) (xs : List α)\n    (hprefix : xs.length ≤ cutoff ∨ xs.length ≤ GroupSelectionRecurrence.cutoff d) :\n    (selectRunWith d cutoff hd hc k xs).2 ≤ genericSelectionBase d cutoff :=\n  (selectRunWith_cost_le_envelope d cutoff hd hc k xs).trans\n    (prefix_max_bound d cutoff (GroupSelectionRecurrence.cutoff d) xs.length hprefix)\n\n/-- The entry-and-length cost of every invalid rank fits the same scalar. -/\n",
+      "source_block_sha256": "10ae5bb3284d22325b885dd93578b1440bb98ec4064d679760099c1c75026b4e",
+      "intended_claim": "Actual cost is at most the fixed base whenever the input size is at most either cutoff.",
+      "domain_and_quantifiers": "d ≥ 2, cutoff ≥ 1, all lists and ranks; prefix is an input-size condition, not a runtime premise.",
+      "statement_and_proof_assessment": "The focused-passed actual U theorem and scalar prefix_max_bound give the comparison. This handles either cutoff ordering uniformly over infinite payload types.",
+      "case_connection": "Cutoff20/scalar71 at n21; cutoff100/scalar71 at n80.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Resources.Selection.invalid_cost_le_groupMajorant",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "start_line": 107,
+      "raw_header": "theorem invalid_cost_le_groupMajorant (d cutoff : Nat) (hd : 5 ≤ d) (n : Nat) :\n    n + 2 ≤ genericSelectionMajorant d cutoff hd n",
+      "raw_header_sha256": "cebd625fc92afe2564c698e51f9a55a2370d4ab9601259e36ea22038fd5f21a5",
+      "source_block": "theorem invalid_cost_le_groupMajorant (d cutoff : Nat) (hd : 5 ≤ d) (n : Nat) :\n    n + 2 ≤ genericSelectionMajorant d cutoff hd n := by\n  by_cases small : n ≤ GroupSelectionRecurrence.cutoff d\n  · rw [genericSelectionMajorant_small d cutoff hd n small]\n    exact (invalid_budget_le d n).trans\n      (prefix_max_bound d cutoff (GroupSelectionRecurrence.cutoff d) n (Or.inr small))\n  · rw [genericSelectionMajorant_large d cutoff hd n (Nat.lt_of_not_ge small)]\n    have coefficient : 1 ≤ tollCoefficient d := by unfold tollCoefficient; omega\n    have charged : n ≤ tollCoefficient d * n := by\n      simpa only [Nat.one_mul] using Nat.mul_le_mul_right n coefficient\n    omega\n\n/-- Actual valid executions are bounded by the contracting group scalar.\nThe finite prefix is proved uniformly before this induction; no desired\nruntime, growth or payload-finiteness hypothesis is assumed. -/\n",
+      "source_block_sha256": "be8866060354f44102aa33b486a16c8ea6d94077df6832206d2201e2981f3f7f",
+      "intended_claim": "The exact invalid guard cost n+2 is at most G(n).",
+      "domain_and_quantifiers": "Fixed d ≥ 5, arbitrary scalar base-cutoff parameter, all n including0.",
+      "statement_and_proof_assessment": "Below the scalar cutoff use invalid_budget_le and the fixed base; above it use the G equation and 1 ≤ K_d. This avoids incorrectly extending a finite-prefix comparison to arbitrary n.",
+      "case_connection": "Empty cost2 and invalid n72 cost74.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith_cost_le_groupMajorant_of_lt",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "start_line": 122,
+      "raw_header": "theorem selectRunWith_cost_le_groupMajorant_of_lt (d cutoff : Nat)\n    (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (hgroup : 5 ≤ d) (k : Nat) (xs : List α)\n    (hk : k < xs.length) :\n    (selectRunWith d cutoff hd hc k xs).2 ≤ genericSelectionMajorant d cutoff hgroup xs.length",
+      "raw_header_sha256": "7cc4e349c90f230b9abfd6ea36ae0a5cfbb0b41f7d2a821cf55f33c0afe22971",
+      "source_block": "theorem selectRunWith_cost_le_groupMajorant_of_lt (d cutoff : Nat)\n    (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (hgroup : 5 ≤ d) (k : Nat) (xs : List α)\n    (hk : k < xs.length) :\n    (selectRunWith d cutoff hd hc k xs).2 ≤ genericSelectionMajorant d cutoff hgroup xs.length := by\n  suffices h : ∀ n (ys : List α), ys.length = n →\n      ∀ j, j < ys.length →\n        (selectRunWith d cutoff hd hc j ys).2 ≤ genericSelectionMajorant d cutoff hgroup n by\n    exact h xs.length xs rfl k hk\n  intro n\n  induction n using Nat.strongRecOn with\n  | ind n ih =>\n    intro ys hyn j hj\n    by_cases hprefix : ys.length ≤ cutoff ∨ ys.length ≤ GroupSelectionRecurrence.cutoff d\n    · have bounded := selectRunWith_cost_le_groupBase_of_prefix d cutoff hd hc j ys hprefix\n      exact bounded.trans (genericSelectionBase_le_majorant d cutoff hgroup n)\n    · have large : cutoff < ys.length := by omega\n      have large_n : GroupSelectionRecurrence.cutoff d < n := by omega\n      let ms := (chunkMediansRun d ys).1\n      let i := ((ys.length ⌈/⌉ d) - 1) / 2\n      have proper : 0 < ms.length ∧ ms.length < ys.length :=\n        chunkMediansRun_proper_size d ys hd (by omega)\n      have hmshort : ms.length < n := by omega\n      have hm : ms.length = GroupSelectionRecurrence.pivotChild d n := by\n        dsimp only [ms]\n        rw [chunkMediansRun_length_eq_groupPivotChild d ys (by omega), hyn]\n      have hi : i < ms.length := by\n        have hmlen : ms.length = ys.length ⌈/⌉ d := chunkMediansRun_length d ys\n        dsimp only [i]\n        omega\n      obtain ⟨p, hp⟩ := selectRunWith_exists d cutoff hd hc i ms hi\n      have hpm : medianOfMedians d ys = some p :=\n        (selectRunWith_median_value d cutoff hd hc ys).symm.trans hp\n      have strict := partition_strict_sizes p ys (medianOfMedians_mem d ys p hpm)\n      have sides := selectRunWith_pivot_size_bounds d cutoff hd hc ys p hp\n      have pivot_cost := ih ms.length hmshort ms rfl i hi\n      have pivot_bound : (selectRunWith d cutoff hd hc i ms).2 ≤\n          genericSelectionMajorant d cutoff hgroup (GroupSelectionRecurrence.pivotChild d n) := by\n        simpa only [hm] using pivot_cost\n      have toll : 1 + (SymmetricCosts.lengthRun ys).2 + (chunkMediansRun d ys).2 +\n          (Partition.partitionRun p ys).2 + (SymmetricCosts.lengthRun (partition3 p ys).1).2 +\n          (SymmetricCosts.lengthRun (partition3 p ys).2.1).2 ≤ tollCoefficient d * n + 7 := by\n        simpa only [hyn] using selectRunWith_local_cost_bound d ys p\n      rw [selectRunWith_cost_step d cutoff hd hc j ys hj large p hp,\n        genericSelectionMajorant_large d cutoff hgroup n large_n]\n      change 1 + (SymmetricCosts.lengthRun ys).2 + (chunkMediansRun d ys).2 +\n        (selectRunWith d cutoff hd hc i ms).2 + (Partition.partitionRun p ys).2 +\n        (SymmetricCosts.lengthRun (partition3 p ys).1).2 +\n        (if j < (partition3 p ys).1.length then\n          (selectRunWith d cutoff hd hc j (partition3 p ys).1).2\n        else (SymmetricCosts.lengthRun (partition3 p ys).2.1).2 +\n          if j < (partition3 p ys).1.length + (partition3 p ys).2.1.length then 0\n          else (selectRunWith d cutoff hd hc\n            (j - (partition3 p ys).1.length - (partition3 p ys).2.1.length)\n            (partition3 p ys).2.2).2) ≤\n        genericSelectionMajorant d cutoff hgroup (GroupSelectionRecurrence.pivotChild d n) +\n          genericSelectionMajorant d cutoff hgroup (GroupSelectionRecurrence.sideChild d n) +\n          tollCoefficient d * n + 7\n      by_cases hl : j < (partition3 p ys).1.length\n      · rw [ite_eq_left hl]\n        have child := ih (partition3 p ys).1.length (by omega)\n          (partition3 p ys).1 rfl j hl\n        have child_bound : (selectRunWith d cutoff hd hc j (partition3 p ys).1).2 ≤\n            genericSelectionMajorant d cutoff hgroup (GroupSelectionRecurrence.sideChild d n) := by\n          simpa only [hyn] using child.trans\n            (genericSelectionMajorant_monotone d cutoff hgroup sides.1)\n        omega\n      · rw [ite_eq_right hl]\n        by_cases he : j < (partition3 p ys).1.length + (partition3 p ys).2.1.length\n        · rw [ite_eq_left he]\n          omega\n        · rw [ite_eq_right he]\n          have parts := partition_lengths p ys\n          have hj' : j - (partition3 p ys).1.length - (partition3 p ys).2.1.length <\n              (partition3 p ys).2.2.length := by omega\n          have child := ih (partition3 p ys).2.2.length (by omega)\n            (partition3 p ys).2.2 rfl\n            (j - (partition3 p ys).1.length - (partition3 p ys).2.1.length) hj'\n          have child_bound :\n              (selectRunWith d cutoff hd hc\n                (j - (partition3 p ys).1.length - (partition3 p ys).2.1.length)\n                (partition3 p ys).2.2).2 ≤\n                genericSelectionMajorant d cutoff hgroup (GroupSelectionRecurrence.sideChild d n) := by\n            simpa only [hyn] using child.trans\n              (genericSelectionMajorant_monotone d cutoff hgroup sides.2)\n          omega\n\n/-- The same bound covers all ranks, including the actual invalid extension. -/\n",
+      "source_block_sha256": "c20dff2910df685cf6a0e7fae3ed13d3e9fb5f27e2c662ee22239897e22ffb73",
+      "intended_claim": "Every valid actual generic execution has cost ≤ G(length).",
+      "domain_and_quantifiers": "d ≥ 5, explicit supported-worker proof d ≥ 2, cutoff ≥ 1, valid rank; arbitrary payloads and duplicates.",
+      "statement_and_proof_assessment": "Strong size induction. Prefix is bounded by U before any growth argument. Above both cutoffs, actual median-list existence/size and pivot membership give strict children; actual balance bounds and G monotonicity enlarge only the selected child. The checked exact branch equation and local tariff close the bound, with zero absent child in the equal branch.",
+      "case_connection": "First recursive d5/n72 left rank, d6/n98 right rank, duplicates, and both cutoff orderings.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith_cost_le_groupMajorant",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "start_line": 209,
+      "raw_header": "theorem selectRunWith_cost_le_groupMajorant (d cutoff : Nat)\n    (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (hgroup : 5 ≤ d) (k : Nat) (xs : List α) :\n    (selectRunWith d cutoff hd hc k xs).2 ≤ genericSelectionMajorant d cutoff hgroup xs.length",
+      "raw_header_sha256": "b88dc7150fc7bd3bff87b9fa510dacd0a5a8a6601aa303d93d3f65325d9f9c84",
+      "source_block": "theorem selectRunWith_cost_le_groupMajorant (d cutoff : Nat)\n    (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (hgroup : 5 ≤ d) (k : Nat) (xs : List α) :\n    (selectRunWith d cutoff hd hc k xs).2 ≤ genericSelectionMajorant d cutoff hgroup xs.length := by\n  by_cases hk : k < xs.length\n  · exact selectRunWith_cost_le_groupMajorant_of_lt d cutoff hd hc hgroup k xs hk\n  · rw [selectRunWith_of_invalid d cutoff hd hc k xs (Nat.le_of_not_gt hk)]\n    exact invalid_cost_le_groupMajorant d cutoff hgroup xs.length\n\n/-- The constants depend on the fixed group and cutoff, before any payload\ntype, list or rank is supplied. The all-size statement includes empty inputs. -/\n",
+      "source_block_sha256": "8e8eddadfb43672b35cd5aa60b923d16e110d3d469be11a5097057cac1c14fdf",
+      "intended_claim": "The actual scalar comparison covers all public ranks and empty inputs.",
+      "domain_and_quantifiers": "Same supported fixed group/cutoff; rank need not be valid.",
+      "statement_and_proof_assessment": "Combines the valid execution induction with the checked actual invalid equation and invalid scalar bound.",
+      "case_connection": "Empty Fin0, boundary-invalid72, and all uniform-family consumers.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith_exists_uniform_affine_bound",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "start_line": 219,
+      "raw_header": "theorem selectRunWith_exists_uniform_affine_bound (d cutoff : Nat)\n    (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (hgroup : 5 ≤ d) :\n    ∃ A B : Nat, ∀ (β : Type u) [LinearOrder β] (xs : List β) (k : Nat),\n      (selectRunWith d cutoff hd hc k xs).2 ≤ A * xs.length + B",
+      "raw_header_sha256": "db5266edff3aca79ed71f0c42911182a975696f0c4b4287e38769dc292e6f0b3",
+      "source_block": "theorem selectRunWith_exists_uniform_affine_bound (d cutoff : Nat)\n    (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (hgroup : 5 ≤ d) :\n    ∃ A B : Nat, ∀ (β : Type u) [LinearOrder β] (xs : List β) (k : Nat),\n      (selectRunWith d cutoff hd hc k xs).2 ≤ A * xs.length + B := by\n  obtain ⟨A, B, bound⟩ := GroupSelectionRecurrence.majorant_affine_bound d\n    (genericSelectionBase d cutoff) (tollCoefficient d) 7 hgroup\n  refine ⟨A, B, ?_⟩\n  intro β inst ys j\n  exact (selectRunWith_cost_le_groupMajorant d cutoff hd hc hgroup j ys).trans (bound ys.length)\n\n/-- A single multiplicative constant works at every positive input size.\nThe empty input retains its separate cost two and the all-size affine bound. -/\n",
+      "source_block_sha256": "aa98d5a43fb9bd2692a05469573eee4676de82ca319148a91e0363b7b745a69e",
+      "intended_claim": "For fixed sufficient group/cutoff, one natural A,B bounds all actual execution counts at every size.",
+      "domain_and_quantifiers": "∃ A B precedes ∀ payload type β:Type u, LinearOrder β, input list, rank. No finite-payload or desired-cost hypothesis.",
+      "statement_and_proof_assessment": "Apply the existing proved affine bound to the now-derived actual G comparison. Constants depend only on fixed configuration, not on payload values, ranks, or sizes.",
+      "case_connection": "Supplies the positive-size uniform constant and empty-input-compatible all-size statement.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith_exists_uniform_linear_bound",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "start_line": 231,
+      "raw_header": "theorem selectRunWith_exists_uniform_linear_bound (d cutoff : Nat)\n    (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (hgroup : 5 ≤ d) :\n    ∃ C : Nat, ∀ (β : Type u) [LinearOrder β] (xs : List β) (k : Nat),\n      0 < xs.length → (selectRunWith d cutoff hd hc k xs).2 ≤ C * xs.length",
+      "raw_header_sha256": "ed643b261d2315b542b8584b6e4b5aad36e20a5802947e3c9e37672420bf6849",
+      "source_block": "theorem selectRunWith_exists_uniform_linear_bound (d cutoff : Nat)\n    (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (hgroup : 5 ≤ d) :\n    ∃ C : Nat, ∀ (β : Type u) [LinearOrder β] (xs : List β) (k : Nat),\n      0 < xs.length → (selectRunWith d cutoff hd hc k xs).2 ≤ C * xs.length := by\n  obtain ⟨A, B, bound⟩ := selectRunWith_exists_uniform_affine_bound d cutoff hd hc hgroup\n  refine ⟨A + B, ?_⟩\n  intro β inst ys j hy\n  have h := bound β ys j\n  have hb : B ≤ B * ys.length := by nlinarith\n  nlinarith\n\n/-- Actual size-indexed families have ordinary linear growth; the family\nhypothesis supplies input sizes, not a desired runtime bound. -/\n",
+      "source_block_sha256": "913372207c239cb814e557cb5217038e04e6f2928997375add8cf2ed5d4571e7",
+      "intended_claim": "For fixed sufficient group/cutoff, one natural C bounds actual cost by C*n for all positive sizes.",
+      "domain_and_quantifiers": "∃ C precedes all payload types, lists and ranks; 0 < length is explicit.",
+      "statement_and_proof_assessment": "From uniform A,B choose A+B and use B ≤ B*n for n>0. Empty cost2 is not incorrectly bounded by C*0.",
+      "case_connection": "Odd/even families and arbitrary-length repeated integer inputs.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Resources.Selection.selectRunWith_family_isBigO",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionGenericBounds.lean",
+      "start_line": 244,
+      "raw_header": "theorem selectRunWith_family_isBigO (d cutoff : Nat)\n    (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (hgroup : 5 ≤ d)\n    (inputs : Nat → List α) (ranks : Nat → Nat)\n    (lengths : ∀ n, (inputs n).length = n) :\n    Asymptotics.IsBigO Filter.atTop\n      (fun n : Nat => ((selectRunWith d cutoff hd hc (ranks n) (inputs n)).2 : ℝ))\n      (fun n => (n : ℝ))",
+      "raw_header_sha256": "8afa7d7bf41fba461414568691cc56a065719d08eaca76f503bde6ec02baa0e3",
+      "source_block": "theorem selectRunWith_family_isBigO (d cutoff : Nat)\n    (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (hgroup : 5 ≤ d)\n    (inputs : Nat → List α) (ranks : Nat → Nat)\n    (lengths : ∀ n, (inputs n).length = n) :\n    Asymptotics.IsBigO Filter.atTop\n      (fun n : Nat => ((selectRunWith d cutoff hd hc (ranks n) (inputs n)).2 : ℝ))\n      (fun n => (n : ℝ)) := by\n  obtain ⟨C, bound⟩ := selectRunWith_exists_uniform_linear_bound d cutoff hd hc hgroup\n  apply Resources.isBigO_of_nat_bound\n    (fun n => (selectRunWith d cutoff hd hc (ranks n) (inputs n)).2) (fun n => n) C 1\n  intro n hn\n  have positive : 0 < (inputs n).length := by rw [lengths n]; omega\n  have h := bound α (inputs n) (ranks n) positive\n  simpa only [lengths n] using h\n\nend\nend Resources.Selection\n",
+      "source_block_sha256": "d28e91de5ca909ff50196da02f9b4c85069617e5ba18cb11fb4924b6b40a9dc1",
+      "intended_claim": "Every actual size-indexed execution family for a fixed sufficient group/cutoff has ordinary linear Big O.",
+      "domain_and_quantifiers": "Arbitrary input and rank families with length(inputs n)=n; no runtime inequality is a premise.",
+      "statement_and_proof_assessment": "Use the proved uniform positive-size constant and the existing natural-bound-to-real-Big-O interface at threshold1.",
+      "case_connection": "Descending range inputs with rank n-1 and arbitrary positive algorithm cutoff.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Examples.SelectionGenericBounds.range_value",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionGenericBounds.lean",
+      "start_line": 21,
+      "raw_header": "private theorem range_value (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)\n    (n k : Nat) (hk : k < n) :\n    (selectRunWith d cutoff hd hc k (List.range n)).1 = some k",
+      "raw_header_sha256": "cc2c7dd7652b01d5e43529ac2a50170a73abb062942691ab0e6f169e2499ca02",
+      "source_block": "private theorem range_value (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)\n    (n k : Nat) (hk : k < n) :\n    (selectRunWith d cutoff hd hc k (List.range n)).1 = some k := by\n  have sorted : ordered (List.range n) = List.range n :=\n    ordered_eq_of_pairwise_perm List.pairwise_le_range (List.Perm.refl _)\n  rw [selectRunWith_value, sorted]\n  exact List.getElem?_range hk\n\n",
+      "source_block_sha256": "05528612f053cc565e56bf825f79dc8190f7f99a952ff736b84eae3bd2f8b539",
+      "intended_claim": "A valid actual selection from range n returns its rank k.",
+      "domain_and_quantifiers": "Private Nat specialization, d ≥ 2, cutoff ≥ 1 and k<n.",
+      "statement_and_proof_assessment": "Actual value correspondence, ordered_eq_of_pairwise_perm, pinned pairwise_le_range and getElem?_range; no expensive expansion of the recursive worker.",
+      "case_connection": "Values0,97,0 at ranges72,98,80.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Examples.SelectionGenericBounds.first_five_scalar",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionGenericBounds.lean",
+      "start_line": 29,
+      "raw_header": "private theorem first_five_scalar :\n    genericSelectionMajorant 5 1 (by decide) 72 = 2 * envelope 5 71 + 4111",
+      "raw_header_sha256": "f243e25634f429ea237c98262e6f786100edf00dea9f84937e1bd8220dd06ef7",
+      "source_block": "private theorem first_five_scalar :\n    genericSelectionMajorant 5 1 (by decide) 72 = 2 * envelope 5 71 + 4111 := by\n  have cut : Resources.GroupSelectionRecurrence.cutoff 5 = 71 :=\n    Examples.GroupSelectionRecurrence.explicit_cutoffs.1\n  have base : genericSelectionBase 5 1 = envelope 5 71 := by\n    simp only [genericSelectionBase, cut, show max (1 : Nat) 71 = 71 from by decide]\n  rw [genericSelectionMajorant_large 5 1 (by decide) 72 (by omega),\n    Examples.GroupSelectionRecurrence.first_five_children.1,\n    Examples.GroupSelectionRecurrence.first_five_children.2,\n    genericSelectionMajorant_small 5 1 (by decide) 15 (by omega),\n    genericSelectionMajorant_small 5 1 (by decide) 56 (by omega), base]\n  norm_num [tollCoefficient] <;> omega\n\n",
+      "source_block_sha256": "bf22dbe322bfd816ae3b602e02251906fae7d18442d8f35c9ce57211632f1946",
+      "intended_claim": "The instantiated G5,1(72) equals 2*U5(71)+4111.",
+      "domain_and_quantifiers": "Private scalar claim; fixed first size above scalar cutoff71.",
+      "statement_and_proof_assessment": "Checked children15/56 both lie in the scalar base. K5=57 gives57*72+7=4111. U is left symbolic.",
+      "case_connection": "Actual n72 valid and invalid cost consumers.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Examples.SelectionGenericBounds.first_six_scalar",
+      "visibility": "private",
+      "kind": "theorem",
+      "path": "Examples/SelectionGenericBounds.lean",
+      "start_line": 42,
+      "raw_header": "private theorem first_six_scalar :\n    genericSelectionMajorant 6 1 (by decide) 98 = 2 * envelope 6 97 + 7063",
+      "raw_header_sha256": "a9b630f93308076c9540a8dc5e2d588c46623d31948586e90fdb6c8f055c3fab",
+      "source_block": "private theorem first_six_scalar :\n    genericSelectionMajorant 6 1 (by decide) 98 = 2 * envelope 6 97 + 7063 := by\n  have cut : Resources.GroupSelectionRecurrence.cutoff 6 = 97 :=\n    Examples.GroupSelectionRecurrence.explicit_cutoffs.2.1\n  have base : genericSelectionBase 6 1 = envelope 6 97 := by\n    simp only [genericSelectionBase, cut, show max (1 : Nat) 97 = 97 from by decide]\n  rw [genericSelectionMajorant_large 6 1 (by decide) 98 (by omega),\n    Examples.GroupSelectionRecurrence.first_six_children.1,\n    Examples.GroupSelectionRecurrence.first_six_children.2,\n    genericSelectionMajorant_small 6 1 (by decide) 17 (by omega),\n    genericSelectionMajorant_small 6 1 (by decide) 80 (by omega), base]\n  norm_num [tollCoefficient] <;> omega\n\n/-- Empty inputs need the affine or scalar statement: their actual cost is two. -/\n",
+      "source_block_sha256": "1d5f14576d7390f0daa6aedba103c74c8b8c61077ae4aba133d44b6f567870c7",
+      "intended_claim": "The instantiated G6,1(98) equals 2*U6(97)+7063.",
+      "domain_and_quantifiers": "Private scalar claim; fixed first size above scalar cutoff97.",
+      "statement_and_proof_assessment": "Checked children17/80 both lie in the scalar base. K6=72 gives72*98+7=7063.",
+      "case_connection": "Actual even-group n98 cost consumer.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Examples.SelectionGenericBounds.empty_every_sufficient_group",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionGenericBounds.lean",
+      "start_line": 56,
+      "raw_header": "theorem empty_every_sufficient_group (d cutoff : Nat) (hd : 2 ≤ d)\n    (hc : 1 ≤ cutoff) (hgroup : 5 ≤ d) (k : Nat) :\n    selectRunWith d cutoff hd hc k ([] : List (Fin 0)) = (none, 2) ∧\n      (selectRunWith d cutoff hd hc k ([] : List (Fin 0))).2 ≤\n        genericSelectionMajorant d cutoff hgroup 0",
+      "raw_header_sha256": "e1be5b6c9efb16e7dea6662e367a961b004a0b1a71aabb27417509e90f626531",
+      "source_block": "theorem empty_every_sufficient_group (d cutoff : Nat) (hd : 2 ≤ d)\n    (hc : 1 ≤ cutoff) (hgroup : 5 ≤ d) (k : Nat) :\n    selectRunWith d cutoff hd hc k ([] : List (Fin 0)) = (none, 2) ∧\n      (selectRunWith d cutoff hd hc k ([] : List (Fin 0))).2 ≤\n        genericSelectionMajorant d cutoff hgroup 0 := by\n  constructor\n  · exact selectRunWith_nil d cutoff hd hc k\n  · simpa only [List.length_nil] using\n      selectRunWith_cost_le_groupMajorant d cutoff hd hc hgroup k ([] : List (Fin 0))\n\n",
+      "source_block_sha256": "370b00f7fa254b6f2b3ae7ca271555ebfa51510839ac76521f1b7ad102685f21",
+      "intended_claim": "Every supported sufficient-group empty Fin0 execution is (none,2) and bounded by G(0).",
+      "domain_and_quantifiers": "All d≥5, positive actual cutoffs, and all ranks; no inhabitant of Fin0 assumed.",
+      "statement_and_proof_assessment": "Uses the existing actual empty equation and new all-rank G comparison.",
+      "case_connection": "Prepared empty case; separate zero-size behavior for the linear theorem.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Examples.SelectionGenericBounds.five_repeated_prefix",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionGenericBounds.lean",
+      "start_line": 66,
+      "raw_header": "theorem five_repeated_prefix :\n    (selectRunWith 5 1 (by decide) (by decide) 2 ([3, 1, 2, 2] : List Nat)).1 = some 2 ∧\n      genericSelectionMajorant 5 1 (by decide) 4 = envelope 5 71 ∧\n      (selectRunWith 5 1 (by decide) (by decide) 2 ([3, 1, 2, 2] : List Nat)).2 ≤\n        genericSelectionMajorant 5 1 (by decide) 4",
+      "raw_header_sha256": "55722c77b0fa34590695ca284805443529bdab5e9c784f8717dbb2e1a7c18aeb",
+      "source_block": "theorem five_repeated_prefix :\n    (selectRunWith 5 1 (by decide) (by decide) 2 ([3, 1, 2, 2] : List Nat)).1 = some 2 ∧\n      genericSelectionMajorant 5 1 (by decide) 4 = envelope 5 71 ∧\n      (selectRunWith 5 1 (by decide) (by decide) 2 ([3, 1, 2, 2] : List Nat)).2 ≤\n        genericSelectionMajorant 5 1 (by decide) 4 := by\n  have cut : Resources.GroupSelectionRecurrence.cutoff 5 = 71 :=\n    Examples.GroupSelectionRecurrence.explicit_cutoffs.1\n  refine ⟨Examples.SelectionGenericEnvelope.group_five_budget.1, ?_, ?_⟩\n  · rw [genericSelectionMajorant_small 5 1 (by decide) 4 (by omega)]\n    simp only [genericSelectionBase, cut, show max (1 : Nat) 71 = 71 from by decide]\n  · simpa only [List.length_cons, List.length_nil] using\n      selectRunWith_cost_le_groupMajorant 5 1 (by decide) (by decide) (by decide)\n        2 ([3, 1, 2, 2] : List Nat)\n\n",
+      "source_block_sha256": "fb105108679af9ee757aeb0d8c3a0030749837cf35d8ba3f00da8ce6b8d38308",
+      "intended_claim": "Group5/cutoff1 rank2 on [3,1,2,2] returns2 and is bounded by G4=U5(71).",
+      "domain_and_quantifiers": "Concrete duplicate input and scalar finite-prefix size4.",
+      "statement_and_proof_assessment": "Checked previous actual value plus new G small law and actual G comparison.",
+      "case_connection": "Prepared five_repeated_prefix.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Examples.SelectionGenericBounds.six_repeated_prefix",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionGenericBounds.lean",
+      "start_line": 80,
+      "raw_header": "theorem six_repeated_prefix :\n    (selectRunWith 6 1 (by decide) (by decide) 2 ([3, 1, 2, 2] : List Nat)).1 = some 2 ∧\n      genericSelectionMajorant 6 1 (by decide) 4 = envelope 6 97 ∧\n      (selectRunWith 6 1 (by decide) (by decide) 2 ([3, 1, 2, 2] : List Nat)).2 ≤\n        genericSelectionMajorant 6 1 (by decide) 4",
+      "raw_header_sha256": "e408d57dc59645970d0c83458c10f653bf1cf314b22e8ab448c660a95561fed6",
+      "source_block": "theorem six_repeated_prefix :\n    (selectRunWith 6 1 (by decide) (by decide) 2 ([3, 1, 2, 2] : List Nat)).1 = some 2 ∧\n      genericSelectionMajorant 6 1 (by decide) 4 = envelope 6 97 ∧\n      (selectRunWith 6 1 (by decide) (by decide) 2 ([3, 1, 2, 2] : List Nat)).2 ≤\n        genericSelectionMajorant 6 1 (by decide) 4 := by\n  have cut : Resources.GroupSelectionRecurrence.cutoff 6 = 97 :=\n    Examples.GroupSelectionRecurrence.explicit_cutoffs.2.1\n  refine ⟨Examples.SelectionGenericEnvelope.group_six_budget.1, ?_, ?_⟩\n  · rw [genericSelectionMajorant_small 6 1 (by decide) 4 (by omega)]\n    simp only [genericSelectionBase, cut, show max (1 : Nat) 97 = 97 from by decide]\n  · simpa only [List.length_cons, List.length_nil] using\n      selectRunWith_cost_le_groupMajorant 6 1 (by decide) (by decide) (by decide)\n        2 ([3, 1, 2, 2] : List Nat)\n\n/-- The book selector already recurses at 21, while this generic scalar is\nstill in its finite prefix. Its exact checked cost remains 269. -/\n",
+      "source_block_sha256": "134e00c3c64438dc69a465cdc2efddccf9f1746efd0acbb7cc2b2fc33a342b52",
+      "intended_claim": "Group6/cutoff1 rank2 on [3,1,2,2] returns2 and is bounded by G4=U6(97).",
+      "domain_and_quantifiers": "Concrete duplicate input, even group and scalar finite-prefix size4.",
+      "statement_and_proof_assessment": "Previous checked value, new scalar wrapper equation and actual comparison.",
+      "case_connection": "Prepared six_repeated_prefix.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Examples.SelectionGenericBounds.book_recurses_inside_scalar_prefix",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionGenericBounds.lean",
+      "start_line": 96,
+      "raw_header": "theorem book_recurses_inside_scalar_prefix :\n    selectRun 0 (List.range 21) = (some 0, 269) ∧\n      genericSelectionMajorant 5 20 (by decide) 21 = envelope 5 71 ∧\n      (selectRun 0 (List.range 21)).2 ≤ genericSelectionMajorant 5 20 (by decide) 21",
+      "raw_header_sha256": "aa851c3ea8787c134aaff2a6e7a5eaac61088fd1d302126de044a974645cee13",
+      "source_block": "theorem book_recurses_inside_scalar_prefix :\n    selectRun 0 (List.range 21) = (some 0, 269) ∧\n      genericSelectionMajorant 5 20 (by decide) 21 = envelope 5 71 ∧\n      (selectRun 0 (List.range 21)).2 ≤ genericSelectionMajorant 5 20 (by decide) 21 := by\n  have cut : Resources.GroupSelectionRecurrence.cutoff 5 = 71 :=\n    Examples.GroupSelectionRecurrence.explicit_cutoffs.1\n  refine ⟨Examples.SelectionCosts.first_recursive_left, ?_, ?_⟩\n  · rw [genericSelectionMajorant_small 5 20 (by decide) 21 (by omega)]\n    simp only [genericSelectionBase, cut, show max (20 : Nat) 71 = 71 from by decide]\n  · simpa only [selectRun, List.length_range] using\n      selectRunWith_cost_le_groupMajorant 5 20 (by decide) (by decide) (by decide)\n        0 (List.range 21)\n\n/-- Children 15 and 56 use the base; the actual local budget is 57*72+7. -/\n",
+      "source_block_sha256": "5dd16802b29853848d4168e1e6a86d27cecc8861f2310dc7c1e87133f03a9930",
+      "intended_claim": "The checked book run at n21/rank0 remains (some0,269), and actual cost≤G5,20(21)=U5(71).",
+      "domain_and_quantifiers": "Actual source cutoff20 is below n21, while generic scalar cutoff71 is above n21.",
+      "statement_and_proof_assessment": "Retains the exact prior execution example and connects the same worker to the generic G theorem. Does not replace or weaken book F.",
+      "case_connection": "Prepared opposite cutoff ordering from n80/cutoff100.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Examples.SelectionGenericBounds.first_five_recursive_budget",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionGenericBounds.lean",
+      "start_line": 110,
+      "raw_header": "theorem first_five_recursive_budget :\n    (selectRunWith 5 1 (by decide) (by decide) 0 (List.range 72)).1 = some 0 ∧\n      (selectRunWith 5 1 (by decide) (by decide) 0 (List.range 72)).2 ≤\n        2 * envelope 5 71 + 4111",
+      "raw_header_sha256": "f2ac313f9a8628e47a832ae14531959b6892f7c1195351db6754a35444704c98",
+      "source_block": "theorem first_five_recursive_budget :\n    (selectRunWith 5 1 (by decide) (by decide) 0 (List.range 72)).1 = some 0 ∧\n      (selectRunWith 5 1 (by decide) (by decide) 0 (List.range 72)).2 ≤\n        2 * envelope 5 71 + 4111 := by\n  constructor\n  · exact range_value 5 1 (by decide) (by decide) 72 0 (by decide)\n  · simpa only [List.length_range, first_five_scalar] using\n      selectRunWith_cost_le_groupMajorant 5 1 (by decide) (by decide) (by decide)\n        0 (List.range 72)\n\n/-- The first even sufficient size has children 17 and 80, and toll 72*98+7. -/\n",
+      "source_block_sha256": "3ed4d5188ba079d1b2d828759de05fd51ef30050bc85f06005ae37ef427edc38",
+      "intended_claim": "At group5/cutoff1, range72 rank0 returns0 and actual cost≤2*U5(71)+4111.",
+      "domain_and_quantifiers": "Concrete valid first scalar-recursive size, with a short final group.",
+      "statement_and_proof_assessment": "Private range value uses the public worker law; actual G comparison and independently calculated scalar equation give the budget. This is not an exact runtime assertion.",
+      "case_connection": "Prepared first_five_recursive_budget, children15/56 and coefficient57.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Examples.SelectionGenericBounds.first_six_recursive_budget",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionGenericBounds.lean",
+      "start_line": 121,
+      "raw_header": "theorem first_six_recursive_budget :\n    (selectRunWith 6 1 (by decide) (by decide) 97 (List.range 98)).1 = some 97 ∧\n      (selectRunWith 6 1 (by decide) (by decide) 97 (List.range 98)).2 ≤\n        2 * envelope 6 97 + 7063",
+      "raw_header_sha256": "9cd0bb0fb1f5192e0144d73d9611156e9db9eb9d1192d149f7b1e94ea556298f",
+      "source_block": "theorem first_six_recursive_budget :\n    (selectRunWith 6 1 (by decide) (by decide) 97 (List.range 98)).1 = some 97 ∧\n      (selectRunWith 6 1 (by decide) (by decide) 97 (List.range 98)).2 ≤\n        2 * envelope 6 97 + 7063 := by\n  constructor\n  · exact range_value 6 1 (by decide) (by decide) 98 97 (by decide)\n  · simpa only [List.length_range, first_six_scalar] using\n      selectRunWith_cost_le_groupMajorant 6 1 (by decide) (by decide) (by decide)\n        97 (List.range 98)\n\n/-- At size 80 the actual cutoff 100 gives a small branch, while the scalar\ncutoff 71 is already exceeded. The finite base must use the larger cutoff. -/\n",
+      "source_block_sha256": "d86e8024d621048cbab3433a2f588a080098677e7c9cc42abc338390941c30be",
+      "intended_claim": "At group6/cutoff1, range98 rank97 returns97 and actual cost≤2*U6(97)+7063.",
+      "domain_and_quantifiers": "Even sufficient group, first scalar-recursive size, valid last rank and short final group.",
+      "statement_and_proof_assessment": "Public actual value/cost laws and the separately calculated scalar equation.",
+      "case_connection": "Prepared first_six_recursive_budget, children17/80 and coefficient72.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Examples.SelectionGenericBounds.actual_cutoff_above_scalar",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionGenericBounds.lean",
+      "start_line": 133,
+      "raw_header": "theorem actual_cutoff_above_scalar :\n    Resources.GroupSelectionRecurrence.cutoff 5 < 80 ∧\n      (selectRunWith 5 100 (by decide) (by decide) 0 (List.range 80)).1 = some 0 ∧\n      (selectRunWith 5 100 (by decide) (by decide) 0 (List.range 80)).2 ≤ envelope 5 100 ∧\n      (selectRunWith 5 100 (by decide) (by decide) 0 (List.range 80)).2 ≤\n        genericSelectionMajorant 5 100 (by decide) 80",
+      "raw_header_sha256": "5edded57629e1b99486bc864aa0f281f0dfd952ac5a6aef8f80784eb8da2d2e2",
+      "source_block": "theorem actual_cutoff_above_scalar :\n    Resources.GroupSelectionRecurrence.cutoff 5 < 80 ∧\n      (selectRunWith 5 100 (by decide) (by decide) 0 (List.range 80)).1 = some 0 ∧\n      (selectRunWith 5 100 (by decide) (by decide) 0 (List.range 80)).2 ≤ envelope 5 100 ∧\n      (selectRunWith 5 100 (by decide) (by decide) 0 (List.range 80)).2 ≤\n        genericSelectionMajorant 5 100 (by decide) 80 := by\n  have cut : Resources.GroupSelectionRecurrence.cutoff 5 = 71 :=\n    Examples.GroupSelectionRecurrence.explicit_cutoffs.1\n  refine ⟨by omega, range_value 5 100 (by decide) (by decide) 80 0 (by decide), ?_, ?_⟩\n  · have hprefix := selectRunWith_cost_le_groupBase_of_prefix 5 100 (by decide) (by decide)\n      0 (List.range 80) (Or.inl (by\n        simpa only [List.length_range] using (show (80 : Nat) ≤ 100 from by decide)))\n    simpa only [genericSelectionBase, cut, show max (100 : Nat) 71 = 100 from by decide]\n      using hprefix\n  · simpa only [List.length_range] using\n      selectRunWith_cost_le_groupMajorant 5 100 (by decide) (by decide) (by decide)\n        0 (List.range 80)\n\n",
+      "source_block_sha256": "cab4f257bb5c6d95dd43860e34079b0ef3de2423c33fa56ece3a96558c7ebe0d",
+      "intended_claim": "At group5/cutoff100, scalar cutoff71<80, range80/rank0 returns0, and cost is ≤U5(100) and ≤G5,100(80).",
+      "domain_and_quantifiers": "Algorithm small branch applies since80≤100, even though the scalar already recurses.",
+      "statement_and_proof_assessment": "Explicit actual-prefix transfer uses max100 71=100; all-rank G comparison independently supplies the final bound.",
+      "case_connection": "Prepared actual_cutoff_above_scalar; no assumption that actual cutoff≤scalar cutoff.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Examples.SelectionGenericBounds.invalid_above_scalar",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionGenericBounds.lean",
+      "start_line": 151,
+      "raw_header": "theorem invalid_above_scalar :\n    selectRunWith 5 1 (by decide) (by decide) 72 (List.range 72) = (none, 74) ∧\n      (selectRunWith 5 1 (by decide) (by decide) 72 (List.range 72)).2 ≤\n        2 * envelope 5 71 + 4111",
+      "raw_header_sha256": "57b484091784439ed7561e1b2a99a3328d3554df880214368513d85126f43b7b",
+      "source_block": "theorem invalid_above_scalar :\n    selectRunWith 5 1 (by decide) (by decide) 72 (List.range 72) = (none, 74) ∧\n      (selectRunWith 5 1 (by decide) (by decide) 72 (List.range 72)).2 ≤\n        2 * envelope 5 71 + 4111 := by\n  constructor\n  · simpa only [List.length_range] using\n      selectRunWith_of_invalid 5 1 (by decide) (by decide) 72 (List.range 72)\n        (by simp only [List.length_range, Nat.le_refl])\n  · simpa only [List.length_range, first_five_scalar] using\n      selectRunWith_cost_le_groupMajorant 5 1 (by decide) (by decide) (by decide)\n        72 (List.range 72)\n\n/-- Coefficient equality at three/four leaves their checked value correctness\nintact. It supplies no impossibility theorem about running time. -/\n",
+      "source_block_sha256": "791b386c3b9925a2adaaa8a60b59d1e6ad4bfd691df6749201e99ee4f2b6dd79",
+      "intended_claim": "Group5/cutoff1 at invalid rank72 on range72 returns(none,74) and is bounded by2*U5(71)+4111.",
+      "domain_and_quantifiers": "Boundary-invalid rank, above both cutoffs.",
+      "statement_and_proof_assessment": "Existing exact invalid equation and the new all-rank actual G comparison, followed by the private scalar budget.",
+      "case_connection": "Prepared invalid_above_scalar.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Examples.SelectionGenericBounds.three_four_threshold_semantics",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionGenericBounds.lean",
+      "start_line": 165,
+      "raw_header": "theorem three_four_threshold_semantics :\n    Resources.GroupSelectionRecurrence.pivotFraction 3 +\n        Resources.GroupSelectionRecurrence.sideFraction 3 = 1 ∧\n      Resources.GroupSelectionRecurrence.pivotFraction 4 +\n        Resources.GroupSelectionRecurrence.sideFraction 4 = 1 ∧\n      (selectRunWith 3 1 (by decide) (by decide) 2 ([3, 1, 2, 2] : List Nat)).1 = some 2 ∧\n      (selectRunWith 4 1 (by decide) (by decide) 2 ([3, 1, 2, 2] : List Nat)).1 = some 2",
+      "raw_header_sha256": "b9de978c12e229bb0b16bf12887dd7a224392113707500ab70ca84093bfb2384",
+      "source_block": "theorem three_four_threshold_semantics :\n    Resources.GroupSelectionRecurrence.pivotFraction 3 +\n        Resources.GroupSelectionRecurrence.sideFraction 3 = 1 ∧\n      Resources.GroupSelectionRecurrence.pivotFraction 4 +\n        Resources.GroupSelectionRecurrence.sideFraction 4 = 1 ∧\n      (selectRunWith 3 1 (by decide) (by decide) 2 ([3, 1, 2, 2] : List Nat)).1 = some 2 ∧\n      (selectRunWith 4 1 (by decide) (by decide) 2 ([3, 1, 2, 2] : List Nat)).1 = some 2 :=\n  ⟨Examples.GroupSelectionRecurrence.groups_three_four.1,\n    Examples.GroupSelectionRecurrence.groups_three_four.2,\n    Examples.SelectionGenericEnvelope.group_three_budget.1,\n    Examples.SelectionGenericEnvelope.group_four_budget.1⟩\n\n",
+      "source_block_sha256": "db7b6d7b1523d3bb9d13a4c57b25e3a4851e44e020eeed5a9df78b7523f67210",
+      "intended_claim": "The scalar fractions sum to1 for groups3/4, while both checked selectors still return2 on the repeated sample.",
+      "domain_and_quantifiers": "Concrete noncontracting-fraction boundary; no assertion that their actual runtime is nonlinear or impossible to improve.",
+      "statement_and_proof_assessment": "Reuses exact scalar equality and previous checked value cases; no sufficient-group G theorem is applied outside its domain.",
+      "case_connection": "Prepared equality-boundary semantics; their generic termination/correctness/U bounds remain unchanged.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Examples.SelectionGenericBounds.odd_sufficient_uniform_family",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionGenericBounds.lean",
+      "start_line": 177,
+      "raw_header": "theorem odd_sufficient_uniform_family (r cutoff : Nat) (hr : 2 ≤ r) (hc : 1 ≤ cutoff) :\n    ∃ C : Nat, ∀ (β : Type u) [LinearOrder β] (xs : List β) (k : Nat),\n      0 < xs.length →\n        (selectRunWith (2 * r + 1) cutoff (by omega) hc k xs).2 ≤ C * xs.length",
+      "raw_header_sha256": "b9f9e25a0894db97b8b67e958a9448031967a59edac7e7997220f79c24dbbbdc",
+      "source_block": "theorem odd_sufficient_uniform_family (r cutoff : Nat) (hr : 2 ≤ r) (hc : 1 ≤ cutoff) :\n    ∃ C : Nat, ∀ (β : Type u) [LinearOrder β] (xs : List β) (k : Nat),\n      0 < xs.length →\n        (selectRunWith (2 * r + 1) cutoff (by omega) hc k xs).2 ≤ C * xs.length :=\n  selectRunWith_exists_uniform_linear_bound (2 * r + 1) cutoff (by omega) hc (by omega)\n\n",
+      "source_block_sha256": "7a762225be96bdf825e5fba0882b1c5e06effc2e6b2f5f8742083554b9400100",
+      "intended_claim": "Every fixed odd group2r+1 withr≥2 and positive cutoff admits one uniform positive-size linear constant.",
+      "domain_and_quantifiers": "∃C before payload type, list and rank; inline worker proof follows fromr≥2.",
+      "statement_and_proof_assessment": "Specializes actual uniform linear theorem atd=2r+1≥5.",
+      "case_connection": "Prepared all-odd sufficient family; smallest sufficient odd size5.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Examples.SelectionGenericBounds.even_sufficient_uniform_family",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionGenericBounds.lean",
+      "start_line": 183,
+      "raw_header": "theorem even_sufficient_uniform_family (r cutoff : Nat) (hr : 3 ≤ r) (hc : 1 ≤ cutoff) :\n    ∃ C : Nat, ∀ (β : Type u) [LinearOrder β] (xs : List β) (k : Nat),\n      0 < xs.length →\n        (selectRunWith (2 * r) cutoff (by omega) hc k xs).2 ≤ C * xs.length",
+      "raw_header_sha256": "25f6c4b9d987e570726265ab477df6d1b59270a5a8f4fd9d67144e1324a20f9e",
+      "source_block": "theorem even_sufficient_uniform_family (r cutoff : Nat) (hr : 3 ≤ r) (hc : 1 ≤ cutoff) :\n    ∃ C : Nat, ∀ (β : Type u) [LinearOrder β] (xs : List β) (k : Nat),\n      0 < xs.length →\n        (selectRunWith (2 * r) cutoff (by omega) hc k xs).2 ≤ C * xs.length :=\n  selectRunWith_exists_uniform_linear_bound (2 * r) cutoff (by omega) hc (by omega)\n\n",
+      "source_block_sha256": "522e7d2877e7f357cf3b579c26a18a9a779bc216067d747a79d36ff287cc695c",
+      "intended_claim": "Every fixed even group2r withr≥3 and positive cutoff admits one uniform positive-size linear constant.",
+      "domain_and_quantifiers": "∃C before payload type, list and rank; inline worker proof follows fromr≥3.",
+      "statement_and_proof_assessment": "Specializes actual uniform linear theorem atd=2r≥6.",
+      "case_connection": "Prepared all-even sufficient family; smallest sufficient even size6.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Examples.SelectionGenericBounds.six_duplicate_integer_family",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionGenericBounds.lean",
+      "start_line": 189,
+      "raw_header": "theorem six_duplicate_integer_family (cutoff : Nat) (hc : 1 ≤ cutoff) :\n    ∃ C : Nat, ∀ n k : Nat, 0 < n →\n      (selectRunWith 6 cutoff (by decide) hc k (List.replicate n (4 : Int))).2 ≤ C * n",
+      "raw_header_sha256": "7c06ce0912e44150c4cb4a27cea2f365daaffc5cf29e871592d49e4aae005549",
+      "source_block": "theorem six_duplicate_integer_family (cutoff : Nat) (hc : 1 ≤ cutoff) :\n    ∃ C : Nat, ∀ n k : Nat, 0 < n →\n      (selectRunWith 6 cutoff (by decide) hc k (List.replicate n (4 : Int))).2 ≤ C * n := by\n  obtain ⟨C, bound⟩ :=\n    selectRunWith_exists_uniform_linear_bound 6 cutoff (by decide) hc (by decide)\n  refine ⟨C, ?_⟩\n  intro n k hn\n  have h := bound Int (List.replicate n (4 : Int)) k\n    (by simpa only [List.length_replicate] using hn)\n  simpa only [List.length_replicate] using h\n\n",
+      "source_block_sha256": "135990a8c8a1cf3166aa2cf51f3b3d1795d353e5c0a33f596c5824029d7748d8",
+      "intended_claim": "For each positive cutoff, one constant bounds all group6 repeated-integer inputs and all ranks at every positive size.",
+      "domain_and_quantifiers": "Cutoff fixed before C, then varying n/rank; Int is infinite and duplicates are unrestricted.",
+      "statement_and_proof_assessment": "Consumes actual uniform linear theorem and exact replicate length.",
+      "case_connection": "Prepared infinite-payload duplicate family.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    },
+    {
+      "logical_source_name": "Examples.SelectionGenericBounds.five_descending_family",
+      "visibility": "public",
+      "kind": "theorem",
+      "path": "Examples/SelectionGenericBounds.lean",
+      "start_line": 200,
+      "raw_header": "theorem five_descending_family (cutoff : Nat) (hc : 1 ≤ cutoff) :\n    Asymptotics.IsBigO Filter.atTop\n      (fun n : Nat =>\n        ((selectRunWith 5 cutoff (by decide) hc (n - 1) (List.range n).reverse).2 : ℝ))\n      (fun n => (n : ℝ))",
+      "raw_header_sha256": "bf1056142dc2ff665f689d741c9725e19c2328c083d1b32cb1da79d7123b5359",
+      "source_block": "theorem five_descending_family (cutoff : Nat) (hc : 1 ≤ cutoff) :\n    Asymptotics.IsBigO Filter.atTop\n      (fun n : Nat =>\n        ((selectRunWith 5 cutoff (by decide) hc (n - 1) (List.range n).reverse).2 : ℝ))\n      (fun n => (n : ℝ)) :=\n  selectRunWith_family_isBigO 5 cutoff (by decide) hc (by decide)\n    (fun n => (List.range n).reverse) (fun n => n - 1)\n    (by intro n; simp only [List.length_reverse, List.length_range])\n\nend Examples.SelectionGenericBounds\n",
+      "source_block_sha256": "94ef56f69e32f5ea9f78090b615fe8b8e1b3b04cb572978f400601abcb453ae2",
+      "intended_claim": "For every positive cutoff, actual group5 selection on descending ranges at rankn-1 is ordinary linear Big O.",
+      "domain_and_quantifiers": "Varying n, including invalid empty index0 through the option extension; only the size identity is supplied.",
+      "statement_and_proof_assessment": "Direct actual family theorem; reversal/range lengths establish its hypothesis.",
+      "case_connection": "Prepared descending family, without an assumed runtime law.",
+      "actual_type_status": "UNEXECUTED. Source statement and explicit argument review only; compiler elaborated types and private kernel names remain root gates.",
+      "correction_assessment": "Only bound/local identifier renaming prefix→hprefix; no mathematical, algorithmic, expected-case or hypothesis change."
+    }
+  ],
+  "raw_header_changes": [
+    {
+      "name": "Resources.Selection.selectRunWith_cost_le_groupBase_of_prefix",
+      "old_raw_header": "theorem selectRunWith_cost_le_groupBase_of_prefix (d cutoff : Nat)\n    (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (k : Nat) (xs : List α)\n    (prefix : xs.length ≤ cutoff ∨ xs.length ≤ GroupSelectionRecurrence.cutoff d) :\n    (selectRunWith d cutoff hd hc k xs).2 ≤ genericSelectionBase d cutoff",
+      "new_raw_header": "theorem selectRunWith_cost_le_groupBase_of_prefix (d cutoff : Nat)\n    (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (k : Nat) (xs : List α)\n    (hprefix : xs.length ≤ cutoff ∨ xs.length ≤ GroupSelectionRecurrence.cutoff d) :\n    (selectRunWith d cutoff hd hc k xs).2 ≤ genericSelectionBase d cutoff",
+      "old_sha256": "143c7dbd6951029f4964ab33a66eb5b38b6ef7afe2bdec8989f8bb7eed3a25ec",
+      "new_sha256": "76806531e4939dfcd240bf03c4e74527508561ab6d1bb575e9bf623ce4d98368",
+      "semantic_assessment": "One proof-binder name changes. Its proposition, binder position, quantifiers, domain and conclusion remain identical under alpha renaming. Raw header is explicitly not byte-identical."
+    }
+  ],
+  "raw_header_unchanged_count": 30,
+  "changed_declaration_blocks": [
+    "Resources.Selection.selectRunWith_cost_le_groupBase_of_prefix",
+    "Resources.Selection.selectRunWith_cost_le_groupMajorant_of_lt",
+    "Examples.SelectionGenericBounds.actual_cutoff_above_scalar"
+  ],
+  "unchanged_declaration_block_count": 28,
+  "per_declaration_preservation": [
+    {
+      "name": "Resources.Selection.chunkMediansRun_length_eq_groupPivotChild",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Resources.Selection.selectRunWith_pivot_size_bounds",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Resources.Selection.genericSelectionBase",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Resources.Selection.genericSelectionMajorant",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Resources.Selection.genericSelectionMajorant_small",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Resources.Selection.genericSelectionMajorant_large",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Resources.Selection.genericSelectionBase_le_majorant",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Resources.Selection.genericSelectionMajorant_monotone",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Resources.Selection.selectRunWith_cost_le_groupBase_of_prefix",
+      "raw_header_exact": false,
+      "source_block_exact": false,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Resources.Selection.invalid_cost_le_groupMajorant",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Resources.Selection.selectRunWith_cost_le_groupMajorant_of_lt",
+      "raw_header_exact": true,
+      "source_block_exact": false,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Resources.Selection.selectRunWith_cost_le_groupMajorant",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Resources.Selection.selectRunWith_exists_uniform_affine_bound",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Resources.Selection.selectRunWith_exists_uniform_linear_bound",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Resources.Selection.selectRunWith_family_isBigO",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Examples.SelectionGenericBounds.range_value",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Examples.SelectionGenericBounds.first_five_scalar",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Examples.SelectionGenericBounds.first_six_scalar",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Examples.SelectionGenericBounds.empty_every_sufficient_group",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Examples.SelectionGenericBounds.five_repeated_prefix",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Examples.SelectionGenericBounds.six_repeated_prefix",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Examples.SelectionGenericBounds.book_recurses_inside_scalar_prefix",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Examples.SelectionGenericBounds.first_five_recursive_budget",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Examples.SelectionGenericBounds.first_six_recursive_budget",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Examples.SelectionGenericBounds.actual_cutoff_above_scalar",
+      "raw_header_exact": true,
+      "source_block_exact": false,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Examples.SelectionGenericBounds.invalid_above_scalar",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Examples.SelectionGenericBounds.three_four_threshold_semantics",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Examples.SelectionGenericBounds.odd_sufficient_uniform_family",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Examples.SelectionGenericBounds.even_sufficient_uniform_family",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Examples.SelectionGenericBounds.six_duplicate_integer_family",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    },
+    {
+      "name": "Examples.SelectionGenericBounds.five_descending_family",
+      "raw_header_exact": true,
+      "source_block_exact": true,
+      "normalized_header_and_block_exact": true
+    }
+  ],
+  "exact_file_transform": "In the core, insert h before prefix at lines101,104,134,135. In examples, insert h at142,146. Replacing the resulting six hprefix occurrences with prefix reconstructs both previous source files exactly, with no other change.",
+  "all_two_scalar_definitions_exact": true,
+  "all_thirteen_cases_and_expected_values_budgets_exact": true,
+  "case_assessment": "All 13 prepared cases are represented by public statements. Three private claims are inventoried. Values use checked public worker correctness; scalar numerical calculations remain budgets, not asserted actual call counts. Exact269,2,74 use already checked execution equations. The prefix cases exercise both cutoff orderings. Coefficient equality at3/4 carries no impossibility conclusion.",
+  "independent_cases": [
+    {
+      "name": "empty_every_sufficient_group",
+      "expected_value": null,
+      "expected_actual_calls": 2,
+      "domain": "d ≥ 5, arbitrary cutoff ≥ 1, arbitrary rank, empty Fin 0",
+      "expected_comparison": "2 ≤ G(0) = U_d(max(actual cutoff, scalar cutoff))"
+    },
+    {
+      "name": "five_repeated_prefix",
+      "group": 5,
+      "cutoff": 1,
+      "input": [
+        3,
+        1,
+        2,
+        2
+      ],
+      "rank": 2,
+      "expected_value": 2,
+      "expected_comparison": "actual cost ≤ G(4) = U_5(71)"
+    },
+    {
+      "name": "six_repeated_prefix",
+      "group": 6,
+      "cutoff": 1,
+      "input": [
+        3,
+        1,
+        2,
+        2
+      ],
+      "rank": 2,
+      "expected_value": 2,
+      "expected_comparison": "actual cost ≤ G(4) = U_6(97)"
+    },
+    {
+      "name": "book_recurses_inside_scalar_prefix",
+      "group": 5,
+      "cutoff": 20,
+      "input": "range 21",
+      "rank": 0,
+      "expected_value": 0,
+      "expected_actual_calls": 269,
+      "expected_comparison": "actual cost ≤ G(21) = U_5(71)",
+      "count_source": "Existing checked Examples.SelectionCosts.first_recursive_left, not a new evaluation."
+    },
+    {
+      "name": "first_five_recursive_budget",
+      "group": 5,
+      "cutoff": 1,
+      "input": "range 72",
+      "rank": 0,
+      "expected_value": 0,
+      "expected_comparison": "actual cost ≤ G(72) = 2 * U_5(71) + 4111",
+      "arithmetic": {
+        "group": 5,
+        "size": 72,
+        "pivot_fraction": "1/5",
+        "side_fraction": "7/10",
+        "sum": "9/10",
+        "scalar_cutoff": 71,
+        "pivot_child": 15,
+        "side_child": 56,
+        "toll_coefficient": 57,
+        "local_budget": 4111
+      }
+    },
+    {
+      "name": "first_six_recursive_budget",
+      "group": 6,
+      "cutoff": 1,
+      "input": "range 98",
+      "rank": 97,
+      "expected_value": 97,
+      "expected_comparison": "actual cost ≤ G(98) = 2 * U_6(97) + 7063",
+      "arithmetic": {
+        "group": 6,
+        "size": 98,
+        "pivot_fraction": "1/6",
+        "side_fraction": "3/4",
+        "sum": "11/12",
+        "scalar_cutoff": 97,
+        "pivot_child": 17,
+        "side_child": 80,
+        "toll_coefficient": 72,
+        "local_budget": 7063
+      }
+    },
+    {
+      "name": "actual_cutoff_above_scalar",
+      "group": 5,
+      "cutoff": 100,
+      "input": "range 80",
+      "rank": 0,
+      "expected_value": 0,
+      "expected_comparison": "actual cost ≤ U_5(100) ≤ G(80); scalar is recursive while actual source uses the small branch",
+      "arithmetic": {
+        "group": 5,
+        "size": 80,
+        "pivot_fraction": "1/5",
+        "side_fraction": "7/10",
+        "sum": "9/10",
+        "scalar_cutoff": 71,
+        "pivot_child": 16,
+        "side_child": 61,
+        "toll_coefficient": 57,
+        "local_budget": 4567
+      }
+    },
+    {
+      "name": "invalid_above_scalar",
+      "group": 5,
+      "cutoff": 1,
+      "input": "range 72",
+      "rank": 72,
+      "expected_value": null,
+      "expected_actual_calls": 74,
+      "expected_comparison": "actual cost ≤ 2 * U_5(71) + 4111"
+    },
+    {
+      "name": "three_four_threshold_semantics",
+      "groups": [
+        3,
+        4
+      ],
+      "cutoff": 1,
+      "input": [
+        3,
+        1,
+        2,
+        2
+      ],
+      "rank": 2,
+      "expected_value": 2,
+      "expected_scalar_sums": [
+        1,
+        1
+      ],
+      "claim_limit": "Retain correctness and finite-size bounds; equality of sufficient recurrence fractions is not a runtime impossibility theorem."
+    },
+    {
+      "name": "odd_sufficient_uniform_family",
+      "domain": "r ≥ 2, d = 2*r+1, arbitrary cutoff ≥ 1",
+      "expected_quantifiers": "∃ C, ∀ payload type with LinearOrder, xs, rank, 0 < length → actual cost ≤ C*length"
+    },
+    {
+      "name": "even_sufficient_uniform_family",
+      "domain": "r ≥ 3, d = 2*r, arbitrary cutoff ≥ 1",
+      "expected_quantifiers": "∃ C, ∀ payload type with LinearOrder, xs, rank, 0 < length → actual cost ≤ C*length"
+    },
+    {
+      "name": "six_duplicate_integer_family",
+      "domain": "fixed d = 6 and arbitrary cutoff ≥ 1; replicate n (4 : Int), arbitrary rank",
+      "expected_quantifiers": "∃ C, ∀ n rank, 0 < n → actual cost ≤ C*n"
+    },
+    {
+      "name": "five_descending_family",
+      "domain": "fixed d = 5 and arbitrary cutoff ≥ 1; reverse(range n), rank n-1",
+      "expected_growth": "Ordinary IsBigO atTop of actual source-call counts by n; sizes, not costs, supplied as the family premise"
+    }
+  ],
+  "construction_assessment": [
+    "The prior executable selector, cost annotations, termination and correctness proofs remain unchanged.",
+    "The actual pivot observation is converted to the mathematical median before applying the duplicate-aware generic count bounds.",
+    "The finite base depends only on fixed group/cutoffs, never on the varying payload type, input values or rank.",
+    "The valid-cost induction derives both recursive call bounds only for strict children, then uses scalar monotonicity for the selected side.",
+    "The exact source branch equation retains one pivot call and at most one selected-side call. The equal branch has no selected recursive call. The common local upper tariff includes the optional equal-length traversal as nonnegative slack.",
+    "Invalid n+2 is handled separately at arbitrary large sizes; empty cost2 is covered by G/affine, and the pure multiplicative theorem explicitly requires positive size.",
+    "Uniform constants are obtained from the proved scalar affine theorem only after the actual G comparison; no desired growth or cost premise is assumed.",
+    "Arbitrary duplicates, short final chunks, positive actual cutoffs, and infinite linearly ordered payload domains remain included."
+  ],
+  "protected_33_source_paths_verified": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Selection/CountRank.lean",
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionCountRank.lean",
+      "bytes": 4423,
+      "sha256": "cc73980788882d39abe44672d89e6a3ce37dfe3b5f5788375255248e8b4a66d2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Sequences/Chunks.lean",
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/ListChunks.lean",
+      "bytes": 2683,
+      "sha256": "161e240f9c07db5b13f9abf5bf09782064adce4862e60fbe35f0eba483c76c78"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Selection/MedianOfMedians.lean",
+      "bytes": 13797,
+      "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/MedianOfMedians.lean",
+      "bytes": 9092,
+      "sha256": "0bbbbdab0f2f41f42fd615231d04d29ebeb8f7ffd5cc83e2a6b832cbfcc25f0c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionAuxiliary.lean",
+      "bytes": 6215,
+      "sha256": "eeba4ac85dd4e07b8b42f38499748cae69cb6dcaaa01fdc8400a3cf5b947a925"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionAuxiliary.lean",
+      "bytes": 7302,
+      "sha256": "d5e495d5a9f6824d9b61fd41ce570059ab5aad3e93f4449f3b712e7d41a4b41e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/Chunks.lean",
+      "bytes": 4591,
+      "sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionMedians.lean",
+      "bytes": 9755,
+      "sha256": "e64e998edc9353e5fd52544177fadd32f6398e3260b27ca54195cd8917e5d098"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/ChunkCalls.lean",
+      "bytes": 2730,
+      "sha256": "ca79f35fe846399bcb180d9b8fbd63fa453108c59c4503adb8a5731182fdc5e3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionMedians.lean",
+      "bytes": 5142,
+      "sha256": "4563c04666fdfb6073c8213328a2f868022cf2ed17538cd1671aaea68811c9d8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/AffineRecurrence.lean",
+      "bytes": 5839,
+      "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/RoundedRecurrence.lean",
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/RoundedRecurrenceBounds.lean",
+      "bytes": 6951,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionRecurrence.lean",
+      "bytes": 6560,
+      "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/AffineRecurrence.lean",
+      "bytes": 5164,
+      "sha256": "6734b0a54ffdcf81de3c3ec2520618011aa8bab357690c6cca6117174ec4abcf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/RoundedRecurrence.lean",
+      "bytes": 3782,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/RoundedRecurrenceBounds.lean",
+      "bytes": 7295,
+      "sha256": "18275f597cf579edf0db6785d0910e76dcc9cff084566ced73cd0da8828c0135"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionRecurrence.lean",
+      "bytes": 2272,
+      "sha256": "6599e51e8d6ea0197d74d2ca43076a355a9c131ce453f4a25c6c3bf086d99971"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/SquareApplications.lean",
+      "bytes": 9405,
+      "sha256": "75563d66c31e9cc1456cedf639812e6025486f69cf8ab50f3961d038a6219d18"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/docs/research/fdsa-affine-recurrence.md",
+      "bytes": 10290,
+      "sha256": "8996a9212bd8cf05ec26519cf51ca9ce69f560170512df647fa3fdb9869032f6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/docs/research/fdsa-reconstruction-map.md",
+      "bytes": 46693,
+      "sha256": "fdf63be72114a8002cd4c3786007c8ff0e722c0465f819b00dd93ba2ffe3185e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/Selection.lean",
+      "bytes": 22435,
+      "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionCosts.lean",
+      "bytes": 13604,
+      "sha256": "d1f2c2e2e5ea3180d7fb1f736b0b3c1a98b3280e0a2902c2bfc712f409044a4e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionBounds.lean",
+      "bytes": 10073,
+      "sha256": "0f9181b569d24b2615c08be5c6a305a75e67679f14338e877fced10113d61edc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionBounds.lean",
+      "bytes": 5546,
+      "sha256": "d18c19c5e69e3f77029d498e66716bf7fc45ff303294ee1a78d3ca1eb435ce11"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/GroupSelectionRecurrence.lean",
+      "bytes": 11646,
+      "sha256": "0dc225b3009a612bea521813fda96789629fc486201cd9998bd6a72d6fdb9eed"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/GroupSelectionRecurrence.lean",
+      "bytes": 5638,
+      "sha256": "bfcb81cf7de89516487aedf12fc223df534fa9ca2a4a964edb872023c45beba3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionEnvelope.lean",
+      "bytes": 3159,
+      "sha256": "e4d1ca2054a7509a082340448b77f95a56380c8abab41da46b3b817fb8dab754"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionEnvelope.lean",
+      "bytes": 1856,
+      "sha256": "02fedd2ffe6def3a5f6794fa90c01cdd90d982276b089aa488247b116c4eb3dd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionGenericEnvelope.lean",
+      "bytes": 9448,
+      "sha256": "946dc54375989de8413ada388e0672d5f862a1c5da5e62efa9522865911db0e3",
+      "relative_path": "Applications/Resources/SelectionGenericEnvelope.lean",
+      "source_lines": 183,
+      "public_count": 6,
+      "private_count": 0
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionGenericEnvelope.lean",
+      "bytes": 5925,
+      "sha256": "3a1748e2f27a77cbf0daf183b6c52c76eedabdfe641cb77865f5364fec6582ca",
+      "relative_path": "Examples/SelectionGenericEnvelope.lean",
+      "source_lines": 112,
+      "public_count": 11,
+      "private_count": 1
+    }
+  ],
+  "all_33_prior_sources_exact": true,
+  "prior_own_records_verified": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/AuxiliaryStatements40-candidate1-preparation.json",
+      "bytes": 6096,
+      "sha256": "5c6366e3afa741fc955bb27addb7775657eb216ba3cd7b0da9fbdc9567f34931"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/AuxiliaryStatements40-candidate1.lean",
+      "bytes": 2783,
+      "sha256": "e3910f89e19232f125eca8c166556f2852ba9d171fe6317d066c9a5ab0a371ae"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/allocation-result.json",
+      "bytes": 349,
+      "sha256": "a3fc90e796dec995ff50bafa87362673ffc88b66e2a831797f0156828fa825f6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-candidate1-author-hold.json",
+      "bytes": 3651,
+      "sha256": "ca6bc455c522289c880afbca02933d3198cd72b3c283d089a7b7500e2db10150"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-candidate1-handoff.md",
+      "bytes": 7506,
+      "sha256": "746e0955345ff9bcad5d313e4078cff55d7a0e411954683bb9fb92c4650c79ef"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-candidate1.json",
+      "bytes": 5670,
+      "sha256": "b209da15c8be35977c90d35b36a613ed943366922f530fc830418300093e5431"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-commit-result.json",
+      "bytes": 352,
+      "sha256": "e52bf42db6a46387367aec86c238fccba16ce963432b7dca27240978af44052a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/author-hold.json",
+      "bytes": 2583,
+      "sha256": "7a9b0eec80da4e444440890ef3b9210d3c3fe27a144929f51881807b76cd92df"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/candidate.json",
+      "bytes": 1929,
+      "sha256": "6caad294442648b06b82b993eda0d5f076f57c1fceb2d90291cf5dbf78eeecf3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/commit-result.json",
+      "bytes": 612,
+      "sha256": "a5c69567a51deceb48c86a6536fe44ac600588cc8d26d604df6b401e21cb230f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/correction.diff",
+      "bytes": 4517,
+      "sha256": "0de9f322729d6e1f1fd7fe9e3ee80e0819b6127947ea92daec5ea02b58f8aee7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/handoff.md",
+      "bytes": 3924,
+      "sha256": "e154233fae8eaae8b0498fb882ed86c115fa16498535e371eb6b109a86408da8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/preparation.json",
+      "bytes": 7581,
+      "sha256": "985f5863a2d0f2643eb7a83736224c47a4519d77a218ea2272285eb76fcfe93e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-correction1-20261104/source-assessment.json",
+      "bytes": 1509,
+      "sha256": "211613fb630a84e4ce2fb72733c83c655568386fac028386ec29f0de720c7dff"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-preparation.json",
+      "bytes": 3554,
+      "sha256": "2b19d1eb746b0710128900764f0ea721ecaa65331ad28a1d9452281932a9933e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/candidate.json",
+      "bytes": 1428,
+      "sha256": "c9c1712835e8c71fe0650b0ef1ba2f6a8ec4ab6ec8a069acbdce8a10b394aace"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/commit-result.json",
+      "bytes": 170,
+      "sha256": "e249166fcf6917604a82587e7e389477512a00f90fb6701292d194d87f36fc92"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/correction.diff",
+      "bytes": 2930,
+      "sha256": "bf1c07899181ba672e1cf13c723739e3d3b03d4de3ae8366df4e63afd469a944"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/diff-check.json",
+      "bytes": 39,
+      "sha256": "4555466a11b51d337471bdac80f509baf403e0d276b2f256372bd1d99f3252b4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-root-correction2-20261104/starting-state.json",
+      "bytes": 4750,
+      "sha256": "9e2024dd36bee9bca7451ac0d1b490e5b6532cad9d45a6cd8255b1c3b8bad37d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-source-inventory-precommit.json",
+      "bytes": 16654,
+      "sha256": "d636bf579286ce0aa6617b96e1ee1e70bdc7f9dfbb7ff322a8cf455afb518a3c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/auxiliary-whitespace-check.json",
+      "bytes": 312,
+      "sha256": "93b7bceb843b8e2dd70e6365c410c87341fff195f6833631594bded4a3a44c26"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-correction1-20261104/NestedSelectionCombinedStatements61-candidate2.lean",
+      "bytes": 3648,
+      "sha256": "10f014ed91dd5282c72874e9b76c79f16051d8e99dab8a5028068e39ca374093"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-correction1-20261104/SelectionBoundsStatements22-candidate2.lean",
+      "bytes": 1725,
+      "sha256": "ab753bc4cbc75f1695d0ef90b52eb6ddf8b8f2ae63a5a7926dee2f79cf43df16"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-correction1-20261104/actual-commit-candidate2.json",
+      "bytes": 1703,
+      "sha256": "ffc190a6365613623f5770258e81ba46c1d23a8ce74479ac67f793009c699451"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-correction1-20261104/author-hold-candidate2.json",
+      "bytes": 701,
+      "sha256": "8485d083955265c519ed4b6544336ed3c433a3bc6db3b041b688d66f6203614e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-correction1-20261104/correction-source.patch",
+      "bytes": 1365,
+      "sha256": "c1af95b6f4f77155604eb5b8d7c2be562b5695d4811f162deba6f86d43c09fd5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-correction1-20261104/handoff-candidate2.json",
+      "bytes": 3754,
+      "sha256": "707dc0c03d5ae47eca399ff2b6e5cc1f4a21546b201c1407bf6c4d59a01c0dca"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-correction1-20261104/precommit-preservation.json",
+      "bytes": 42327,
+      "sha256": "b33d4e445baf7b0f1c708a73402c7aee16ccc376dc20c8c44b7c1d5f9ef0cfd0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-correction1-20261104/preparation.json",
+      "bytes": 36768,
+      "sha256": "03fd7411c7095f4043119be2604aa5cfd5d98cf4b907a8e72cc1dfd18b8578fb"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-correction1-20261104/source-inventory-and-preservation-candidate2.json",
+      "bytes": 50234,
+      "sha256": "1d4f59e1cf0ef2a82c117e33ec9e0d3b296aafe63067d5024ef5b0ce6f0ea96d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/NestedSelectionCombinedStatements61-candidate1.lean",
+      "bytes": 3648,
+      "sha256": "9cde0df66d798c4556af4a864c624dfa6b597ff6a6fc6c17d2e61b72f4d2fc2b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/SelectionBoundsStatements22-candidate1.lean",
+      "bytes": 1725,
+      "sha256": "fc1f0f292b5c2615bb41e24ed2f73401d8d7781d2e78bb9a9d94211042856e5b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/actual-commit-candidate1.json",
+      "bytes": 1727,
+      "sha256": "678a3a61dc1ba2f34a28562d854db1fb6737c1901535f0078fbc201629a0a5f9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/author-hold-candidate1.json",
+      "bytes": 734,
+      "sha256": "9c3007fd0fb8cc82bdb72c674cbbc9bb62cf08ed60c0066a53acb046e98977cb"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/candidate1-source.patch",
+      "bytes": 16340,
+      "sha256": "e996140fe77c157f74f8b9333392a1e2bacdee9effe5fbe45b76bc91f43a62ae"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/checkpoint0129-hold.json",
+      "bytes": 2854,
+      "sha256": "31940f5cc73bcb377f84f326b9e397561e6278ea925ca723730d35f6df76c45e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/handoff-candidate1.json",
+      "bytes": 4565,
+      "sha256": "cd5fe56b191ddbe76a75fbb7ebe3493a695a7d08bd7d4f7898f1e4f4b473c146"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/preparation-and-independent-cases.json",
+      "bytes": 48855,
+      "sha256": "f058133829f079025b851e7ec0675200fd10af89bb7ab1eea30d736c0e18c6f9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/source-inventory-and-case-assessment-candidate1.json",
+      "bytes": 53235,
+      "sha256": "faf0db078b8e8987aab72f422e8217feebeb9d9e675e033e7b03c95012c58af1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/book-cost-bound-stage1-20261104/source-statement-and-case-assessment-before-candidate1.json",
+      "bytes": 79615,
+      "sha256": "8bc4601d52ae4ad428a657b752c9bb3d0d29d6ee5f420dde96670346dc6534ee"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/author-hold.json",
+      "bytes": 2718,
+      "sha256": "6099aa4ebda0fc248fc8ae538bec2f9ca3ecaa5d7cc64c7ac8e07ec299cfbcd7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/candidate.json",
+      "bytes": 4201,
+      "sha256": "ab6b53b38195e495d98f2142558d6c9684e8cfe43da3a430a150e683f404ae5d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/commit-result.json",
+      "bytes": 464,
+      "sha256": "5de62520f7f4f61bae73a031ca76668d5770253027700c367b03c1ce4e600203"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/correction.diff",
+      "bytes": 1917,
+      "sha256": "1805efb2bce45a334eaaf1e8c868c399c47dd988d949c1ffc13adb2b65db29c9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/handoff.md",
+      "bytes": 3843,
+      "sha256": "1135f95abbc2b9ca8465b29563846e7ee852b8e31700596cf08f1d901ad70096"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/precommit-validation.json",
+      "bytes": 1305,
+      "sha256": "853d30e746b20f99641c2b8e42f9595b910b09f035210efa5999a64f0c98a2ff"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/preparation.json",
+      "bytes": 18487,
+      "sha256": "71170010414453108e09cc3a96179d676722ab58cea8673a265b0dfbf4f96d19"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-correction1-20261104/source-inventory-and-assessment.json",
+      "bytes": 16844,
+      "sha256": "b2d0d7ec73d84a3795828113bee4c09e4fc7ed433a601dd6adfc3c34c63d2544"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction2-20261104/candidate.json",
+      "bytes": 1721,
+      "sha256": "ded5be3938bd89ac395087e2b6b3988f1a95746a38a5a5c4113b6da26332ab53"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction2-20261104/correction.diff",
+      "bytes": 573,
+      "sha256": "21625501ef35d97e6e35ca65e96615cad082b35f341b0ccde73737fb4c423cad"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction2-20261104/git-commands.json",
+      "bytes": 639,
+      "sha256": "eb6bec91fe42d6f27e6e607814af3550c33d033da2952e076f0f6de5bc2727fa"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction2-20261104/starting-state.json",
+      "bytes": 14110,
+      "sha256": "59b0abe758b41f42db7b6265dc4872e1fe78a8b1111fa2ef324dee9675d886fc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction3-20261104/candidate.json",
+      "bytes": 2786,
+      "sha256": "2ea03cdff27f176390ddf6fa1a8c340d480cccd54e020fccf43e60b6c364704e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction3-20261104/correction.diff",
+      "bytes": 561,
+      "sha256": "f24a1c9d1e66f8e5200eb8cd6c5a429f0727614eb7584a03f1b2a9c3a8a33ebd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction3-20261104/first-preparation-assertion-failure.json",
+      "bytes": 878,
+      "sha256": "11fbbd610fbf18fd5282d8803365086e6c7fac462882097d248f8bfc66e20359"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction3-20261104/git-commands.json",
+      "bytes": 648,
+      "sha256": "e27174eff5eb080b21d99d736d04e804d7c13cc2b3a82ff7a7f38af62e10dfbc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-root-correction3-20261104/starting-state.json",
+      "bytes": 15410,
+      "sha256": "0be044f9601cc2287caa96967e36f6f67e804709a8e51bf343e2b80eb70018c6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/ChopMapStatements68-candidate1.lean",
+      "bytes": 4076,
+      "sha256": "3e1de6e46c407771794f4b315b2c8836e35d5c9cc141d4ca167a554d5a2fd4ac"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/author-hold.json",
+      "bytes": 3911,
+      "sha256": "dd832a07d5ac0552fc8c576fc0ff31cd95e85b50d6b8b62e31a5b5d412245615"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/candidate.json",
+      "bytes": 4066,
+      "sha256": "340e7e43d800196b08c2dc237e566755af89d78582e59ad1ff2c8606e66bf828"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/checkpoint0125-author-hold.json",
+      "bytes": 1711,
+      "sha256": "2f2665f56f57243c4735931710f0ac0579275a743119d066c473bb07ddcac44f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/commit-result.json",
+      "bytes": 695,
+      "sha256": "fcfc199a2981de638ab11f47b1f27b07cb750742e75d03d22e1a6d35e264ed1a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/handoff.md",
+      "bytes": 6265,
+      "sha256": "fcb8cfac53b667a3c3ca40b0c0e24d7a3fe626066cb7e89ec1b95717f4651daa"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/precommit-validation.json",
+      "bytes": 2044,
+      "sha256": "20309cc992a9a61d1f115eb3f10221d515e95941030663388f2ed732a7ac3675"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/preparation-reconciliation.json",
+      "bytes": 671,
+      "sha256": "235d7f03bbc0f4b0be7556cdd8be7b0d5d511dc87c3cfb56ee890e01e94d276b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/preparation.json",
+      "bytes": 15783,
+      "sha256": "7c7e0597df7b12d7275ed2188e2370623d17ad70fc99ed1b42d19b4bfe5ac460"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/source-inventory-and-statement-review.json",
+      "bytes": 45503,
+      "sha256": "473e4e14d3e46d85282db9e60fb5b387aa0f5cae739afadca3eaff51ce14d20c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/NestedSelectionCombinedStatements141-candidate1.lean",
+      "bytes": 8430,
+      "sha256": "bd9f5ed13266e43496e34495193c40ac42ed9ebf7c012eace98b2811d7bbd33c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/SelectionGenericEnvelopeStatements17-candidate1.lean",
+      "bytes": 1547,
+      "sha256": "8182acf347d091e215c42c09839fb07e89380e22312ac1cd41970b9418550ca8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/actual-commit-candidate1.json",
+      "bytes": 2800,
+      "sha256": "8b1caee3b01917ffe70c2ae654e636961f85a65f809bcb0448ca14ab5ab7da7d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/actual-envelope-candidate1-source.patch",
+      "bytes": 16138,
+      "sha256": "706e920753c4eb93ccc2588788eb5682d7b4dbba72152e840e8668b9f83b91b1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/actual-envelope-full-statement-and-case-assessment-before-candidate1.json",
+      "bytes": 83332,
+      "sha256": "915c5cec1b43af18a06ee1cdde25cac38643be0f070ae52902973814dc466e01"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/actual-envelope-preparation-and-cases.json",
+      "bytes": 53045,
+      "sha256": "a40511efd8c7d710f93d5e52c8b30a2485a2c3fd688455c40d9247573899c1d3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/author-hold-candidate1.json",
+      "bytes": 874,
+      "sha256": "814bb9d859dff4b9f6c920b9a5d1ffee9ae52091cda966956a446f0045cdbe9a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/checkpoint0130-hold.json",
+      "bytes": 4030,
+      "sha256": "aa4524730478bdbfaf1225c8db4e9de309bad0967cd0efae46ce92e562b2a02f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/handoff-candidate1.json",
+      "bytes": 5974,
+      "sha256": "d5139a1ea72b5ae97d3b7e5f85fba862a186d9c77b5863b032868e3348016c14"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/scalar-incorporation-completion.json",
+      "bytes": 2294,
+      "sha256": "4a1c3bb049040c43c8dd8200aa3154ebe2f8166bb0bb88fd757644fa62e5ae84"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/scalar-incorporation-preparation.json",
+      "bytes": 51736,
+      "sha256": "857c1fe09ba5202b5e8591e813a1910dc5c58aaec3b6190503cbb56eebdbe34b"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/source-inventory-statement-and-case-assessment-candidate1.json",
+      "bytes": 99998,
+      "sha256": "26541e9a2ebc4a31b4784516fa091301974e27579c69bdae4c9187907798e67c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage2-20261104/NestedSelectionCombinedStatements169-candidate1.lean",
+      "bytes": 10188,
+      "sha256": "26628bc52b24c20dec71a3a7924fb935b0acaef6466a8dae80f8ae04911b320c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage2-20261104/SelectionGenericBoundsStatements28-candidate1.lean",
+      "bytes": 2331,
+      "sha256": "f9eb6931a23f6aa50f1a9f7738845af0865e6043a02fde8b966beccb8b5910ea"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage2-20261104/actual-commit-candidate1.json",
+      "bytes": 2282,
+      "sha256": "8f9b6854b74423d9994566deac982aa500ca7c5a7a72d06f35922667aabbf9df"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage2-20261104/author-hold-candidate1.json",
+      "bytes": 878,
+      "sha256": "0f257859cd62a33ff78b2db6ee6ade17c27a04f16474e8ca045905136347e291"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage2-20261104/candidate1-source.patch",
+      "bytes": 26899,
+      "sha256": "6b920a250f79628f54f117fcdfd7dcaf68473662eafabf512a5fee22b55bff3c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage2-20261104/full-source-statement-and-case-assessment-before-candidate1.json",
+      "bytes": 127060,
+      "sha256": "d565381cd64417f6114811ecebfee2b9c7ad3acbdb4ee5e431071ddff0a8a0ef"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage2-20261104/handoff-candidate1.json",
+      "bytes": 6220,
+      "sha256": "010d198c6deae6adbd2c5009f97bd4d334a16e0a7751822707e36b1a797d1ff0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage2-20261104/precommit-preservation-and-staged-check.json",
+      "bytes": 2156,
+      "sha256": "5aa1897defd30c38beb39133a779d7473529208c23c01c926eba2590bbf1607e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage2-20261104/preparation-and-independent-cases.json",
+      "bytes": 57686,
+      "sha256": "b0bd6a4bb7b5825a1456d928b01fcbe52fa8772b7fad26c7185ada01d47d0f3d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage2-20261104/source-inventory-statement-and-case-assessment-candidate1.json",
+      "bytes": 143759,
+      "sha256": "b2ce91ce8f4b60b782257652391e77ea57d22d6df285731550a1d8a96f53bb32"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/NestedSelectorStatements39-candidate2.lean",
+      "bytes": 2530,
+      "sha256": "f526c60244a2b5af539fbc99a1b55c50b25a4a40c40993ed870cde2d1e2bb809"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/author-hold.json",
+      "bytes": 674,
+      "sha256": "0ceb1084f9b1edc304419177dff5d289c2ab59f8f68dd8754922f2714f175da3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/commit.json",
+      "bytes": 916,
+      "sha256": "25ffe755d81f93c7c0d29ed6960cd127bcd3964f595347c9bc98f00d8e93d343"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/correction-source.patch",
+      "bytes": 2504,
+      "sha256": "e26e5c493e5af1ace3e8ef4c08cda667536ce767e2f6ad6947895e1ba150d738"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/handoff.json",
+      "bytes": 3564,
+      "sha256": "4384d1d2a06ad171babb2cbd376ed1693e7f97bffd3ba56ebbf77fad9b51f2a5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/precommit-preservation.json",
+      "bytes": 3212,
+      "sha256": "16c3a422c68e16f1d996fad43cdc95b3e3918c6c4156a375cce345a72ad2d92e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/preparation.json",
+      "bytes": 24316,
+      "sha256": "c11caa2d46504d29aa2c61f8b6164ea3feadaf324f32a6a2330475e67b2e2dad"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction1-20261104/source-inventory-and-preservation-candidate2.json",
+      "bytes": 133357,
+      "sha256": "09fd0ad1defada6963b9bf72cb8af2c5d242d30396880b90c1a783c0bc451e80"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction2-20261104/NestedSelectorStatements39-candidate3.lean",
+      "bytes": 2555,
+      "sha256": "fe2c93868ee3ac3710668d08287f49278cd8b50257d414c8b8fa1d66a4a55da9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction2-20261104/author-hold.json",
+      "bytes": 687,
+      "sha256": "1c2c64976f8c970384e42c9eafd2258ddde3de568f4f434e9428ac4a7522342a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction2-20261104/commit.json",
+      "bytes": 915,
+      "sha256": "5068b0c28c5e6259fe910a9a936428960d3d39cda11d2d49dc3e347021a22b58"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction2-20261104/correction-source.patch",
+      "bytes": 6410,
+      "sha256": "4b01537bdabd19107e62079d01eed0591209df40dcf967725c155ec08d177876"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction2-20261104/handoff.json",
+      "bytes": 3451,
+      "sha256": "8f82355ca9fd5c8723baa2bd35b4d443cfac15e45ac223f63637bc3f7a852c52"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction2-20261104/precommit-preservation.json",
+      "bytes": 3447,
+      "sha256": "04aef0bea2fdca09d6fe42142b8bb80feb2536b37eb741936a9481b5aef06768"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction2-20261104/preparation.json",
+      "bytes": 27742,
+      "sha256": "bec1f89e6bb68f9e854e88423859525753bac9fda2ae201d2661e13619ce44cc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction2-20261104/source-inventory-and-preservation-candidate3.json",
+      "bytes": 142328,
+      "sha256": "e377aa094e5a8ec6539c9963d6d1eff15b144f021dd9d474af7798356503d871"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction3-20261104/NestedSelectorStatements39-candidate4.lean",
+      "bytes": 2457,
+      "sha256": "866a2e91f57e05133eb673d48871a191bbd33e3a957604079c3ae5e4ec22f4cd"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction3-20261104/actual-commit.json",
+      "bytes": 1592,
+      "sha256": "e4c33cefdd1f84d2b07f8ade5d532daa70085eda2c9b756618c07c73abc0ed72"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction3-20261104/author-hold.json",
+      "bytes": 687,
+      "sha256": "66e9e414a67ed8848314b36e963493f10eb0ed7ad4400a16c6ab7cf29fd9bcd0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction3-20261104/correction-source.patch",
+      "bytes": 1730,
+      "sha256": "c0c34b2b89c79b089f0685a02dbb2f37d9a31da3d0e51822eef9a0f14bcfa010"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction3-20261104/handoff.json",
+      "bytes": 3487,
+      "sha256": "d7594debadcc4e0c65ca292609e1c24d47ff0698b9edce33825fbfa5ea1b673f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction3-20261104/precommit-preservation.json",
+      "bytes": 71099,
+      "sha256": "5d747ca408413b2b2d7dea9952f6b651cfbb092dcd12270a7caf99d85f90810a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction3-20261104/preparation.json",
+      "bytes": 32820,
+      "sha256": "4c110ebbbbd3b0776aacb9c10393207618224ea4cba9ea277920a122bf41fe67"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-correction3-20261104/source-inventory-and-preservation-candidate4.json",
+      "bytes": 158673,
+      "sha256": "91c3a8b865fe275af666ff24490b33438aea5386d765d2187a92df113639277a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/NestedSelectorStatements39-candidate1.lean",
+      "bytes": 2461,
+      "sha256": "8d1fabab9fa3a5d349b0d6573563ee2f5c2bba8e2c9f5ae1f335830b4c259396"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/candidate1-author-hold.json",
+      "bytes": 746,
+      "sha256": "5ed2bf9f8ef23c79469ac351e12fa7905e87eaa7305fdf90660cf8e530c73298"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/candidate1-commit.json",
+      "bytes": 1090,
+      "sha256": "1a8da6a12bc419c248d2d6268d541ef9edf93dd21969894839223eb8d3337990"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/candidate1-handoff.json",
+      "bytes": 6092,
+      "sha256": "07024de74b6d630cddfae56f3b3a3fb98ce2e42e271866f7a0e1397318cd1121"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/candidate1-precommit.json",
+      "bytes": 2287,
+      "sha256": "61a0b8e4dfc02b15a96781dd9c9544cd4a02a21d5eae2201d48f5a73c2f8c38e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/candidate1-source.patch",
+      "bytes": 34832,
+      "sha256": "7d3df4fdf8f7154872564d3a5615a3300d90f7c073f5be4dddf5f4f57bf65544"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/checkpoint0126-author-hold.json",
+      "bytes": 2675,
+      "sha256": "0fe517ae80b4fce4194cbb92091f1ccc6d2320a3e53330600e30d9d140a354c2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/checkpoint0127-author-hold.json",
+      "bytes": 1827,
+      "sha256": "9549050f68d319ee4cfaa7be64e06d892ffc642240d6b06ad2ffa8eaf425dda4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/inventory-preparation-parse-failure-reconciliation.json",
+      "bytes": 1316,
+      "sha256": "32bf2466d29ef975ed9bce4921a21c21a341e5b18af3ae9e7aa247b9c0c36baf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/recurrence-incorporation-command.json",
+      "bytes": 1986,
+      "sha256": "01a1819d96f85ac4f55ebee849a1e9bcd86b419c7ac0e792c2031558d083384c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/recurrence-incorporation-result.json",
+      "bytes": 1658,
+      "sha256": "fc67ccd9ebcf7ce60447df1b680bf7997b46c93a6027e0872802bfadcdaebd74"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/recurrence-incorporation-start.json",
+      "bytes": 24091,
+      "sha256": "253a41403f6538d6c6e3bbfccc9f301231c02e55292f158264477bd2cc114456"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/source-inventory-statement-and-case-review-candidate1.json",
+      "bytes": 135083,
+      "sha256": "df621b9ac48082c0ced368c07a1e4bebaae4902bfc4c9e3db92d0e1b4091e511"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/source-readback-case-connection-adjustment.json",
+      "bytes": 3383,
+      "sha256": "008c16492c471c4b54fe0df1e6f2ee28e4f67dc36a2a17e3f19ea1235419df53"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/worker-preparation-and-cases.json",
+      "bytes": 36419,
+      "sha256": "628cb4b74a83bd89ba7cb488a259afcdc5e25ab1d7ac643ecf000779e2092e47"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/nested-selector-stage1-20261104/worker-preparation-output-loss-reconciliation.json",
+      "bytes": 963,
+      "sha256": "d2107c610572f530b93e515482bde9389cfa2356719f2a38de3759325591f855"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/pivot-correction-incorporation-20261104/command-result.json",
+      "bytes": 807,
+      "sha256": "37e801ebf7fb5485ff3744f712467c13d8a914c9dec5fe5e10ee7b465aba217f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/pivot-correction-incorporation-20261104/result.json",
+      "bytes": 1273,
+      "sha256": "d7f4608471bbca053ab5f40f79a1b29b04bcd8a44665fff6cc52736e400d0997"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/pivot-correction-incorporation-20261104/start.json",
+      "bytes": 9262,
+      "sha256": "d7c38ac6c9577e5a10515d11e6ef8fb4e967a67705641ac85ba6896196904319"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/starting-state.json",
+      "bytes": 6935,
+      "sha256": "ffa3143d09aaf84868c847f7e0f1d6457171c48ae34728c8cb2513a64729eb67"
+    }
+  ],
+  "prior_record_count": 134,
+  "all_prior_records_exact": true,
+  "source_patch": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/generic-cost-bound-correction1-20261104/correction-source.patch",
+    "bytes": 3058,
+    "sha256": "c8aa483370bd9578cd7989ec519613748ce6f62bffb958da0c5a53e03ffcff6c"
+  },
+  "git_add_exit": 0,
+  "staged_diff_check": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "frozen83_scope_retained": true,
+  "source_proof_escape_scan": "No source sorry, admit, axiom, unsafe, native_decide or implemented_by token. Actual failed log remains preserved, including parser recovery diagnostics.",
+  "author_compiler_commands": 0,
+  "validation_boundary": "UNCOMPILED successor source. Header alpha renaming is a source assessment, not an elaborated-type or focused-pass result. All root validation gates remain mandatory."
+}

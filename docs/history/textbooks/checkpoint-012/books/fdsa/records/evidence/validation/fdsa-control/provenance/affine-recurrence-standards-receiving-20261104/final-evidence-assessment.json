@@ -1,0 +1,689 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-04T19:16:18.671732+00:00",
+  "axis": "Standards",
+  "outcome": "Passed",
+  "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "tree": "b62fe504a38948e61c6377a4e7661b639c28c08c",
+  "original_source_base": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+  "original_source_candidate": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+  "receiving_integration_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "scope": "Entire original XR01 five-path /21 explicitly authored public names; original requirements, source analyses, clients, prose and all receiving corrections retained. Not a Chapter3 review or acceptance.",
+  "source_scope": [
+    {
+      "path": "Applications/Resources/AffineRecurrence.lean",
+      "blob": "afba9e03f3d8178c6fcd469e064f07ddff53c32b",
+      "bytes": 5839,
+      "LF_lines": 113,
+      "sha256": "0f867ba6fa96cbeaaaeeba6c4a24cc71b38fdbf798b684d484234eabb283d17d"
+    },
+    {
+      "path": "Examples/AffineRecurrence.lean",
+      "blob": "a370ee598cb5f43a1ea9af2560cec30d053ed708",
+      "bytes": 5164,
+      "LF_lines": 142,
+      "sha256": "6734b0a54ffdcf81de3c3ec2520618011aa8bab357690c6cca6117174ec4abcf"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "blob": "d3ce332d0f9978a752650a6b6275867476928942",
+      "bytes": 9405,
+      "LF_lines": 287,
+      "sha256": "75563d66c31e9cc1456cedf639812e6025486f69cf8ab50f3961d038a6219d18"
+    },
+    {
+      "path": "docs/research/fdsa-affine-recurrence.md",
+      "blob": "762109da0f1d8be2605d691f5bf50b51db57e084",
+      "bytes": 10290,
+      "LF_lines": 236,
+      "sha256": "8996a9212bd8cf05ec26519cf51ca9ce69f560170512df647fa3fdb9869032f6"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "blob": "772e92b364c1077e141a160adf7213d0a2ceef02",
+      "bytes": 46693,
+      "LF_lines": 710,
+      "sha256": "fdf63be72114a8002cd4c3786007c8ff0e722c0465f819b00dd93ba2ffe3185e"
+    }
+  ],
+  "retained_source_assessment": {
+    "path": "provenance/affine-recurrence-standards-receiving-20261104/source-preparation.json",
+    "bytes": 29390,
+    "LF_lines": 716,
+    "sha256": "1cafd836c05e0b01a719064d2280cc3ebe72e662ed11bbdf2df824f68a4898d2"
+  },
+  "authored_inventory": {
+    "public": 21,
+    "theorems": 19,
+    "definitions": 2,
+    "private": 0,
+    "anonymous_examples": 0,
+    "instances": 0,
+    "all21_actual_names_exact_retained_source_order": true,
+    "generated_auxiliaries": "Covered by complete retained source and current exhaustive audit; not misreported as separate21 outputs."
+  },
+  "full_gate": {
+    "command": [
+      "./check.sh",
+      "--candidate",
+      "HEAD"
+    ],
+    "mode": "incremental",
+    "owned_session_historical": 66741,
+    "owned_terminal": "487100",
+    "outer_native_owned_exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "clean_before_after_exact_candidate": true,
+    "timeout": false,
+    "recorder_error": null,
+    "native_seconds": 789.1142812629987,
+    "compiler": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+    "source_guard": "Passed",
+    "pre_guard": "3087artifacts, one expected missing SquareApplications output after closed failed attempt1; no unexplained stale-output incident.",
+    "aggregate": "SquareApplications Built415s;10076Lakejobs are job count, not audit count.",
+    "post_guard": "3090artifacts/0inconsistent",
+    "checked_modules": 1031,
+    "audit_rows": 1029,
+    "kernel_safe_declarations": 47828,
+    "theorem_declarations": 27242,
+    "unsafe_runtime_declarations": 0,
+    "axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "audit_seconds": 316.94,
+    "whole_project_counts": true,
+    "all1027_acceptedQ_rows_exact": true,
+    "added_defining_rows": {
+      "Examples.AffineRecurrence": [
+        30,
+        27,
+        0
+      ],
+      "Applications.Resources.AffineRecurrence": [
+        1,
+        1,
+        0
+      ]
+    },
+    "warnings": {
+      "current": 653,
+      "acceptedQ_retained": 647,
+      "removed": 0,
+      "new_six_only_module_import_advisories": [
+        "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Algebra.Order.Archimedean.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Data.Finset.Lattice.Fold` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Data.Finset.Range` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Data.Nat.Cast.Order.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "warning: Applications/Resources/AffineRecurrence.lean: imports `Mathlib.Tactic.Linarith` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+        "warning: Examples/AffineRecurrence.lean: imports `Mathlib.Algebra.Order.Archimedean.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file"
+      ],
+      "all101_nonimport_headers_retained": true
+    },
+    "matching_verification_sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9",
+    "manual_read": {
+      "native_lines": "1-2617",
+      "bytes": 304174,
+      "chunks": 11,
+      "ledger": {
+        "path": "provenance/affine-recurrence-standards-receiving-20261104/full-attempt2-read-ledger.json",
+        "bytes": 6362,
+        "LF_lines": 100,
+        "sha256": "9b7d8a95906a1c3236d712d07a16c6907c5cffcb2a2962e7efc97d0965cf1d21"
+      },
+      "outer": "Full-gate outer framing70+158bytes read in3222df; exact prefix+complete native+suffix concatenation asserted."
+    },
+    "reconciliation_tools": [
+      "3222df",
+      "e02cf5"
+    ],
+    "normal_mode_boundary": "README normal acceptance applies; exact source-only changes and expected failed aggregate output do not create a fresh trigger. User Nix waiver retained; compiler/dependencies/proof restrictions and native adapter unchanged."
+  },
+  "first_failure": {
+    "retained_assessment": {
+      "path": "provenance/affine-recurrence-standards-receiving-20261104/full-attempt1-failure-assessment.json",
+      "bytes": 8580,
+      "LF_lines": 186,
+      "sha256": "ca16bcb007cbe03b1e2f377f0b1fcf799e31815d38624c251580b7823f834482"
+    },
+    "outer_native_exit": 1,
+    "nested_SquareApplications_exit": 137,
+    "diagnostic_or_cause": "No positioned source diagnostic, timeout or established resource cause; no full verification or audit. Earlier complete-process/bounded-log assessment remains honest, not promoted to a full manual failed-log read.",
+    "same_candidate_retry": "Exactly one normal unchanged retry, now actually passed. Failure evidence unchanged."
+  },
+  "actual21": {
+    "owned_session_historical": 55717,
+    "owned_terminal": "bb0312",
+    "outer_native_owned_exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "native_seconds": 19.32125656799326,
+    "qualified_command": [
+      "lake",
+      "env",
+      "lean",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-affine-receiving-correction1-20261104/Statements21.lean"
+    ],
+    "one_thread": true,
+    "prepared_program": {
+      "path": "provenance/chapter03-affine-receiving-correction1-20261104/Statements21.lean",
+      "bytes": 1651,
+      "LF_lines": 34,
+      "sha256": "1e048fe6242d26aca2a1afad7451d048072536ce4f2f5abea2cec9da839519a7"
+    },
+    "actual_names_order_exact": true,
+    "printer_options": [
+      "pp.universes=true",
+      "pp.explicit=true",
+      "pp.fullNames=true",
+      "pp.deepTerms=true",
+      "pp.proofs=true",
+      "pp.maxSteps=1000000"
+    ],
+    "complete_manual_read": {
+      "tool": "7b3976",
+      "native_lines": "1-294",
+      "bytes": 17154,
+      "sha256": "afd6d3ab3f0afbc81eba682a50556ada9f9acf72f3bcf80bfea98b8b1c06be07",
+      "all21types_read": true,
+      "untruncated": true
+    },
+    "no_omission_or_diagnostic_markers": true,
+    "whole_native_bytes_accounted": true,
+    "blocks": [
+      {
+        "name": "Resources.AffineRecurrence.exists_affine_bound_of_two_branch",
+        "first_LF_line": 1,
+        "last_LF_line": 153,
+        "bytes": 8152,
+        "sha256": "29a900a8faccfb278609849dac93a9badb6af2822c65dfe587b3fdbbcd4f3754",
+        "semantic_assessment": "Universally quantified CommRing, LinearOrder, compatible IsStrictOrderedRing and Archimedean; arbitrary f, children, cutoff and signed rho/K/C/D. Only rho<1, post-cutoff child-sum and recurrence bounds imply nonnegative A/B and an all-Nat affine upper bound. No field, positivity/monotonicity of f, supplied child-descent or assumed final bound appears."
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter",
+        "first_LF_line": 154,
+        "last_LF_line": 154,
+        "bytes": 48,
+        "sha256": "a1b49459a4f307cb041674cce1278286b47f757aafe25f2d7dfa250e8d042632",
+        "semantic_assessment": "Actual recursive client has type Nat to Nat; retained full source defines the quarter recurrence and its own termination."
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_of_le_one",
+        "first_LF_line": 155,
+        "last_LF_line": 157,
+        "bytes": 272,
+        "sha256": "df6d074eb357906417db21e3cef57b3e129ac350e5ddddadd58cc396c9f691cd",
+        "semantic_assessment": "All n<=1 give the exact base value1."
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_of_one_lt",
+        "first_LF_line": 158,
+        "last_LF_line": 169,
+        "bytes": 797,
+        "sha256": "fc0b195a4e9d2f95026c14dfb3c238dff273fa5c13df78cf8d8cee4aaf77d0e7",
+        "semantic_assessment": "All 1<n give exactly2*quarter(n/4)+n+1 in Nat, preserving floor division and the strict cutoff."
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_zero",
+        "first_LF_line": 170,
+        "last_LF_line": 172,
+        "bytes": 217,
+        "sha256": "6bd67ed389301b73e1447d19b129ef15cc359aba06efec28569660d85badeae9",
+        "semantic_assessment": "Exact quarter0=1."
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_one",
+        "first_LF_line": 173,
+        "last_LF_line": 175,
+        "bytes": 216,
+        "sha256": "a16a047c7657b4de9f3d635ea4e5af657fb68611733ddca99cb55a3d8d44d259",
+        "semantic_assessment": "Exact quarter1=1."
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_two",
+        "first_LF_line": 176,
+        "last_LF_line": 178,
+        "bytes": 216,
+        "sha256": "eb00cf260d7702d3569838fda98966ae5f1756dd24900183ac879033989aa322",
+        "semantic_assessment": "Exact quarter2=5."
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_four",
+        "first_LF_line": 179,
+        "last_LF_line": 181,
+        "bytes": 217,
+        "sha256": "50e3ffb0feb107731802100bcc39800ef84b079f5e0ad1c9ec4fcd5b01ed2f7d",
+        "semantic_assessment": "Exact quarter4=7."
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_eight",
+        "first_LF_line": 182,
+        "last_LF_line": 184,
+        "bytes": 220,
+        "sha256": "d41f976e04d5b3589ab807008a94075dc72e7f7cfea60ff23d08377244fce02a",
+        "semantic_assessment": "Exact quarter8=19."
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_sixteen",
+        "first_LF_line": 185,
+        "last_LF_line": 187,
+        "bytes": 224,
+        "sha256": "6256ecbd10be35ca049d2c6fc435db56bbe46a8d5209f52866cea2ec5adc8be2",
+        "semantic_assessment": "Exact quarter16=31."
+      },
+      {
+        "name": "Examples.AffineRecurrence.quarter_affine_bound",
+        "first_LF_line": 188,
+        "last_LF_line": 195,
+        "bytes": 603,
+        "sha256": "9a952cff061b762170efb87216bc8407fe60773e999fe965e4ef535efd3dc43d",
+        "semantic_assessment": "Existential nonnegative rational A/B bound the cast of the actual quarter function at every Nat input; generic-theorem connection retained in source."
+      },
+      {
+        "name": "Examples.AffineRecurrence.signed",
+        "first_LF_line": 196,
+        "last_LF_line": 196,
+        "bytes": 47,
+        "sha256": "772f8bfe83b430af6f3b5dc0c6e45b571de0a41c54e95e607a9be674d1a3a6bd",
+        "semantic_assessment": "Signed client has type Nat to Int, preserving the nonfield target."
+      },
+      {
+        "name": "Examples.AffineRecurrence.signed_base",
+        "first_LF_line": 197,
+        "last_LF_line": 199,
+        "bytes": 247,
+        "sha256": "6357f31f7201c8c02e60c74218fa765cf722b77b853a050903d4b783046758c2",
+        "semantic_assessment": "Exact signed0=-1."
+      },
+      {
+        "name": "Examples.AffineRecurrence.signed_nonpositive",
+        "first_LF_line": 200,
+        "last_LF_line": 202,
+        "bytes": 194,
+        "sha256": "e947d88155d21f22c1f0fc7ceb70b3ae2c0636eb648c25e951f7dd883e45730e",
+        "semantic_assessment": "Every signed n is at most0 in Int."
+      },
+      {
+        "name": "Examples.AffineRecurrence.signed_recurrence",
+        "first_LF_line": 203,
+        "last_LF_line": 213,
+        "bytes": 837,
+        "sha256": "f23e9283825769a9782531e78fe2a93d6b780a703b5ed10b56c0aee69e924093",
+        "semantic_assessment": "Every signed n equals signed0+signed0+(-1)*(n:Int)+1; no positive-toll premise."
+      },
+      {
+        "name": "Examples.AffineRecurrence.signed_affine_bound",
+        "first_LF_line": 214,
+        "last_LF_line": 221,
+        "bytes": 565,
+        "sha256": "c7837699652581b992c99e9fa5f2a4e197b51c2a93d543729f9fd71bb9cb8ea0",
+        "semantic_assessment": "Nonnegative integer A/B bound the actual signed client at every Nat input; source generic connection retained."
+      },
+      {
+        "name": "Examples.AffineRecurrence.negative_square_upper",
+        "first_LF_line": 222,
+        "last_LF_line": 257,
+        "bytes": 1900,
+        "sha256": "56f4c8a8c41b8c4b170f28f1c30f51084d01e85345862cd0ba8f93da132924fc",
+        "semantic_assessment": "For every linearly strictly ordered commutative ring and n, the negative square of the Nat cast is<=0; no unnecessary Archimedean or field instance in the actual type."
+      },
+      {
+        "name": "Examples.AffineRecurrence.negative_square_absolute_value",
+        "first_LF_line": 258,
+        "last_LF_line": 273,
+        "bytes": 929,
+        "sha256": "33ca5c548b871f1fe3ecb787943a0d52968991b89bd4bde5005d90db3dbba400",
+        "semantic_assessment": "Conjunction is exactly negative integer square2<=0 and abs(negative square2)=4. The corrected bars elaborate to abs of the negated power, preserving the one-sided-versus-absolute distinction."
+      },
+      {
+        "name": "Examples.AffineRecurrence.parameterwise_affine_bound",
+        "first_LF_line": 274,
+        "last_LF_line": 282,
+        "bytes": 603,
+        "sha256": "877eb9d0edc41ac644b00f835f5b69b2144806ac08a1eabdb7a1887094e19fa7",
+        "semantic_assessment": "For every fixed p:Nat there exist nonnegative integer A/B bounding its cast for all n; p remains outside the existential."
+      },
+      {
+        "name": "Examples.AffineRecurrence.no_uniform_natural_family_bound",
+        "first_LF_line": 283,
+        "last_LF_line": 288,
+        "bytes": 287,
+        "sha256": "37d259507221b21e252462e46b3b74facdc8905ee74777abfcf943a2bf940313",
+        "semantic_assessment": "No single natural A/B pair bounds every p and n; complete actual existential/universal order retained."
+      },
+      {
+        "name": "Examples.AffineRecurrence.no_uniform_integer_family_bound",
+        "first_LF_line": 289,
+        "last_LF_line": 294,
+        "bytes": 363,
+        "sha256": "f8aa429691de880afae77ede7d37cd1f403889ca5ca5c549b89c2c672e312171",
+        "semantic_assessment": "No single integer A/B pair bounds all casts of p for all natural p and n; no hidden nonnegativity condition narrows the counterexample."
+      }
+    ],
+    "copied_verification": "Exact unchanged successful full2 verification, not a new audit."
+  },
+  "input_qualification": {
+    "pre_utc": "2026-11-04T19:09:27.140113+00:00",
+    "actual_start_utc": "2026-11-04T19:09:41.699183+00:00",
+    "actual_end_utc": "2026-11-04T19:10:01.129449+00:00",
+    "post_utc": "2026-11-04T19:10:10.183160+00:00",
+    "full_pass_precedes_entire_interval": true,
+    "both_actual_captures_exit0": true,
+    "identity_complete_exact": true,
+    "clean_candidate_exact": true,
+    "local_sources": 2,
+    "local_edges": 1,
+    "external_edges": 6,
+    "direct_external_names": [
+      "Mathlib.Algebra.Order.Archimedean.Basic",
+      "Mathlib.Algebra.Order.Archimedean.Defs",
+      "Mathlib.Data.Finset.Lattice.Fold",
+      "Mathlib.Data.Finset.Range",
+      "Mathlib.Data.Nat.Cast.Order.Ring",
+      "Mathlib.Tactic.Linarith"
+    ],
+    "supported_object_hash_trace_keys": 6,
+    "all_six_objects_nonzero_and_complete_keysets_equal": true,
+    "configuration_inputs": 10,
+    "dependency_pins": 9,
+    "runtime_components": 12,
+    "all_configs_equal_immutableX": true,
+    "pins_equal_exact_manifest_and_full_verification": true,
+    "dependency_paths_and_clean_records_preserved": true,
+    "all12_runtime_and10config_and9dependency_records_exact_qualified_acceptedQ": true,
+    "capture_helper_sha256": "4df281f3f427ec462a6973b9177fcc3f825b57b19fa8e205780f17cfaa89b5b7",
+    "independent_immutable_closure_and_actual_block_reconstruction_tool": "b26570",
+    "qualification": "Actual qualified stock focused/full lineage, exact clean source, successful whole-candidate pre/post-integrity and exhaustive audit, exclusive stable-checkout execution, and complete pre/post identity equality jointly qualify loaded objects. Fingerprints alone certify neither artifact authenticity nor execution. No output transplantation, normalization or new compiler work by reviewer.",
+    "read_boundary": "Full pre snapshot and complete post delta read f2fd1d; exact singular identity equality confirmed7b3976 and reproducedb26570. Complete run/closed/native/verification/framing metadata read2be56a; root block index read47f7c7 only as cross-check."
+  },
+  "findings": [
+    {
+      "id": "XP01-DOC-001",
+      "disposition": "Resolved for XR receiver",
+      "basis": "Retained exact For Chapter1 map qualifier and full original source/prose assessment."
+    },
+    {
+      "id": "XR01-ELAB-001",
+      "disposition": "Resolved at exact c1ce",
+      "basis": "Original one-byte absolute-value header correction, pinned noWs macro, actual focused2, full2 and actual21 all succeed. Actual type includes precisely abs(-(2:Int)^2)=4. No claim of old elaborated-type equivalence."
+    }
+  ],
+  "new_or_unresolved_findings": [],
+  "reviewer_bookkeeping_history": [
+    {
+      "tool": "f2fd1d",
+      "actual_exit": 1,
+      "error": "KeyError: 'identities'",
+      "boundary": "Full saved pre and post delta had already printed. Reviewer lookup used plural key; actual snapshots contain singular identity. No capture/compiler/source result changed.",
+      "correction": "Singular identity comparison succeeded7b3976 and comprehensive qualificationb26570; original tool failure retained here."
+    }
+  ],
+  "bound_inputs": [
+    {
+      "path": "reviews/affine-recurrence-requirements.md",
+      "bytes": 5540,
+      "LF_lines": 96,
+      "sha256": "5873700a349c359d15873829f1399a20225fa80eaa980e7ad9f1e4c8f774dd02"
+    },
+    {
+      "path": "reviews/affine-recurrence-standards-preparation-20261104.md",
+      "bytes": 15543,
+      "LF_lines": 96,
+      "sha256": "bff3e140f1178b6f77ac2d12a42e544dbf2d7522bc27bcf793d1e7ef55b24e92"
+    },
+    {
+      "path": "provenance/affine-recurrence-standards-preparation-20261104/source-preparation.json",
+      "bytes": 27442,
+      "LF_lines": 665,
+      "sha256": "15c3ce5346dcc02fe80916faf6697820982e51b31b7b2e728ea9f7b9ba6e358b"
+    },
+    {
+      "path": "provenance/affine-recurrence-standards-preparation-20261104/read-ledger.json",
+      "bytes": 16443,
+      "LF_lines": 489,
+      "sha256": "618044bd4d93ac6e860c58b1be14b16f064b19aa01620220eb345fd6468edf16"
+    },
+    {
+      "path": "reviews/affine-recurrence-standards-receiving-20261104.md",
+      "bytes": 11114,
+      "LF_lines": 63,
+      "sha256": "95cbe38f9b78f3ee8e13b747d5600ab6882092444919a168ef6c744da5431f39"
+    },
+    {
+      "path": "provenance/affine-recurrence-standards-receiving-20261104/source-preparation.json",
+      "bytes": 29390,
+      "LF_lines": 716,
+      "sha256": "1cafd836c05e0b01a719064d2280cc3ebe72e662ed11bbdf2df824f68a4898d2"
+    },
+    {
+      "path": "provenance/affine-recurrence-standards-receiving-20261104/completion-and-hold.json",
+      "bytes": 2228,
+      "LF_lines": 56,
+      "sha256": "43456a13a107ec6586de137ada4ea52b3693db17fb94b691f2a3f2b00d2254b4"
+    },
+    {
+      "path": "provenance/affine-recurrence-standards-receiving-20261104/full-attempt1-failure-assessment.json",
+      "bytes": 8580,
+      "LF_lines": 186,
+      "sha256": "ca16bcb007cbe03b1e2f377f0b1fcf799e31815d38624c251580b7823f834482"
+    },
+    {
+      "path": "provenance/affine-recurrence-standards-receiving-20261104/full-attempt2-read-ledger.json",
+      "bytes": 6362,
+      "LF_lines": 100,
+      "sha256": "9b7d8a95906a1c3236d712d07a16c6907c5cffcb2a2962e7efc97d0965cf1d21"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "bytes": 314896,
+      "LF_lines": 2678,
+      "sha256": "7f2c0853d96f00134c8e4d9e7c1014ed91a3b9ed9e6c8c048ab6ea5c02779693"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 90456,
+      "LF_lines": 1976,
+      "sha256": "7dfa8f4fa803ad8a3d9c8c0b0c54ebbb7f3925b78a25a6d3d4ac02ba0ff29723"
+    },
+    {
+      "path": "provenance/chapter03-affine-receiving-correction1-20261104/Statements21.lean",
+      "bytes": 1651,
+      "LF_lines": 34,
+      "sha256": "1e048fe6242d26aca2a1afad7451d048072536ce4f2f5abea2cec9da839519a7"
+    },
+    {
+      "path": "tooling/capture_statement_inputs.py",
+      "bytes": 5812,
+      "LF_lines": 119,
+      "sha256": "4df281f3f427ec462a6973b9177fcc3f825b57b19fa8e205780f17cfaa89b5b7"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt2-20261104/request.json",
+      "bytes": 737,
+      "LF_lines": 21,
+      "sha256": "51af4a92c99cf53f13632268af46c5fcfa59fc61d6f7d34a25d7a243cfcb8312"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt2-20261104/start.json",
+      "bytes": 930,
+      "LF_lines": 26,
+      "sha256": "2c82a38eb7447b3ebdedc9410ef25483f807f25850d6539ff5ba2252194b19db"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt2-20261104/result.json",
+      "bytes": 1262,
+      "LF_lines": 32,
+      "sha256": "37e3cd37c275be838a2a6701041a95a6f84e9a876a3587d3c7e44169f2fa1602"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt2-20261104/owned-terminal.json",
+      "bytes": 260,
+      "LF_lines": 8,
+      "sha256": "b23274f302b0bc650feaa0d6ba0c7edfc2007c41a173f334946a5b912d5d158c"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt2-20261104/closed-evidence-reconciliation.json",
+      "bytes": 2246,
+      "LF_lines": 44,
+      "sha256": "bcecf34d22d82c75fab85e4b3926b164da03f32bae5be3fa1183614518dba375"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt2-20261104/verification.json",
+      "bytes": 867,
+      "LF_lines": 19,
+      "sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt2-20261104/full.log",
+      "bytes": 304402,
+      "LF_lines": 2620,
+      "sha256": "cada5fe7ec2fed03ef1eb9295359e9b894cfcdf21b1d2f66e06730bf926b9a24"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt2-20261104/native-records/start.json",
+      "bytes": 421,
+      "LF_lines": 13,
+      "sha256": "3032ecc8b399486d0e48d9fe3d26221deff68951f61c3cf74272661c66a870c8"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt2-20261104/native-records/result.json",
+      "bytes": 573,
+      "LF_lines": 18,
+      "sha256": "cdf4d36fe01a44caf6cad15c33f086f961d7e4d74730dc9d914eda575e064edf"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt2-20261104/native-records/output.log",
+      "bytes": 304174,
+      "LF_lines": 2617,
+      "sha256": "877aca4200b45501e2ae0a92d94a2a04355e58fa6de12bc0920353b8ba35a66f"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt2-20261104/outer-prefix.log",
+      "bytes": 70,
+      "LF_lines": 2,
+      "sha256": "85b1c84dcee195655562afb91455f0d9c98388a8be8845b8eb9306ffa317cfab"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt2-20261104/outer-suffix.log",
+      "bytes": 158,
+      "LF_lines": 1,
+      "sha256": "a6ac710b89216d9796bb10185c53658a1f3a2fcebf6d98ddb0ef27143b25eb2c"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-statements21-attempt1-20261104/request.json",
+      "bytes": 875,
+      "LF_lines": 22,
+      "sha256": "064e080b2364adeee9b44c2d332d449b4fbf2191db92d09ca0879ade58be3dda"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-statements21-attempt1-20261104/start.json",
+      "bytes": 1068,
+      "LF_lines": 27,
+      "sha256": "645db3680edb5051f6cfd2dbc9ac4453120321125ff633f50ac20077fdfe72fa"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-statements21-attempt1-20261104/result.json",
+      "bytes": 1408,
+      "LF_lines": 33,
+      "sha256": "430205e1715b51ed7cee69f41b11dfe485d3b66dd394f4d24f27c8b5b723e404"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-statements21-attempt1-20261104/owned-terminal.json",
+      "bytes": 260,
+      "LF_lines": 8,
+      "sha256": "2da25db2facdc2eb6cc91a0eba5b7b5185424da51253b373a8f24347b23781f1"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-statements21-attempt1-20261104/closed-evidence-reconciliation.json",
+      "bytes": 2304,
+      "LF_lines": 44,
+      "sha256": "b76f4ac0c1c96f6251f5333c6d72b3cddf0f0b1feed49f5fb35bed8166fd0294"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-statements21-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "LF_lines": 19,
+      "sha256": "70459831c371d1c496c29b3e1edd0352d41d64a00d1ec8f2a3600ee6880f05c9"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-statements21-attempt1-20261104/full.log",
+      "bytes": 17512,
+      "LF_lines": 297,
+      "sha256": "fbb86fb040e0700421f315af6a111a73e8ba2a54e4c7b151ec7097d1a997df0b"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-statements21-attempt1-20261104/native-records/start.json",
+      "bytes": 559,
+      "LF_lines": 14,
+      "sha256": "c44c6823bc80561782593a66063c8cee4f2c0dd84d163577f46ad6df32da1ffe"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-statements21-attempt1-20261104/native-records/result.json",
+      "bytes": 711,
+      "LF_lines": 19,
+      "sha256": "ba5a32c5c2e55cc557b8664d0311eeb7c0a7f2f7959384b969d1cd41fcc63319"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-statements21-attempt1-20261104/native-records/output.log",
+      "bytes": 17154,
+      "LF_lines": 294,
+      "sha256": "afd6d3ab3f0afbc81eba682a50556ada9f9acf72f3bcf80bfea98b8b1c06be07"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-statements21-attempt1-20261104/outer-prefix.log",
+      "bytes": 201,
+      "LF_lines": 2,
+      "sha256": "8490626dd9f69af5a48b73614cca179e4e9fac070e642385d4ff75a1844064b8"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-statements21-attempt1-20261104/outer-suffix.log",
+      "bytes": 157,
+      "LF_lines": 1,
+      "sha256": "fd647ea1e63cbf2927e9bfa7e128c36ef05324fd4c72671c42ded1cbf29aecbe"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-full-attempt2-20261104/root-audit-reconciliation.json",
+      "bytes": 908,
+      "LF_lines": 21,
+      "sha256": "1c9569f1d65b8e28ef57ead3730f4763ba1df54dfac7a2a8b0964e5782c8ac25"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-statements21-inputs-20261104/pre-inputs.json",
+      "bytes": 9671,
+      "LF_lines": 226,
+      "sha256": "bed2ba7d8ba3c727ea67838e26f903f9da2318c1d9244fc12dccf4ad639b6a5b"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-statements21-inputs-20261104/post-inputs.json",
+      "bytes": 9983,
+      "LF_lines": 232,
+      "sha256": "f27b1cbbd2cfd09e7e24cdee9d722d6df793419ac8c2984d4bf3b791e35abe5b"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-statements21-inputs-20261104/pre-capture-terminal.json",
+      "bytes": 448,
+      "LF_lines": 7,
+      "sha256": "85fc40352ddf69ea6f3d2e01f203f91e01325c7619f56553802722ee787e8d49"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-statements21-inputs-20261104/post-capture-terminal.json",
+      "bytes": 449,
+      "LF_lines": 7,
+      "sha256": "6441da2c8c8ff2949c29369c4e9622c49bf25ed48e85983d33916e530c7a09ef"
+    },
+    {
+      "path": "provenance/affine-recurrence-receiving-statements21-inputs-20261104/actual21-reconciliation.json",
+      "bytes": 6868,
+      "LF_lines": 191,
+      "sha256": "651d35acc4e695c7f153f115428fb7fa663ba0f058835b48577356301ea405e9"
+    }
+  ],
+  "reviewer_actions": "Read immutable sources and secured evidence; wrote only these new own records. No compiler/process polling/live output capture/source/ref/cache/global control or other-reviewer changes.",
+  "handoff": "Standards passes for exact c1ce under original XR scope. Root still owns the separate Spec gate, immediate qualified verify-candidate, exact accepted incorporation and durability; no such future action claimed here."
+}

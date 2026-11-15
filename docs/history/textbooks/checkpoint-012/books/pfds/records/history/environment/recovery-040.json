@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-03T13:51:05.928400+00:00",
+  "scope": "Read-only environment recovery investigation; no compiler/build launched",
+  "repository_head": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "repository_status": "",
+  "versions_required": {
+    "nix_previous_environment": "2.35.4",
+    "lean": "leanprover/lean4:v4.35.0",
+    "nixpkgs": "26f4107e47e3ad0ffd0db220469ba83b6f6d96e8",
+    "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+  },
+  "tools_on_path": {
+    "nix": null,
+    "nix-store": null,
+    "direnv": null,
+    "lean": null,
+    "lake": null,
+    "elan": null,
+    "bwrap": "/usr/bin/bwrap",
+    "unshare": "/usr/bin/unshare",
+    "gcc": "/usr/bin/gcc",
+    "g++": "/usr/bin/g++",
+    "make": "/usr/bin/make",
+    "cmake": null
+  },
+  "paths_exist": {
+    "/nix": false,
+    "/proc": false,
+    "/proc/self": false,
+    "/proc/self/uid_map": false,
+    "/proc/self/ns/user": false,
+    "/proc/self/ns/mnt": false,
+    "/dev/fuse": false
+  },
+  "namespace_probe": {
+    "command": [
+      "unshare",
+      "--user",
+      "--map-root-user",
+      "true"
+    ],
+    "exit_code": 1,
+    "output": "unshare: cannot open /proc/self/uid_map: No such file or directory\n",
+    "evidence": "Captured in this agent tool response; not repeated or repaired"
+  },
+  "sources": [
+    {
+      "url": "https://nix.dev/manual/nix/2.35/store/types/local-store.html",
+      "local_temporary_path": "/workspace/scratch/b566cace4ed6/pfds/session/tools/environment-040/local-store.html",
+      "sha256": "8e8907aafe9bd5a2c09c723e43971c3d0bb3511bab6f3b74d2652037c989e61b"
+    },
+    {
+      "url": "https://nix.dev/manual/nix/2.35/installation/installing-binary.html",
+      "local_temporary_path": "/workspace/scratch/b566cace4ed6/pfds/session/tools/environment-040/installing-binary.html",
+      "sha256": "6d420c44ad11255238c351dbef6720fd225782bada69851e83561a04c2f788e5"
+    },
+    {
+      "url": "https://nix.dev/manual/nix/2.35/installation/installing-source.html",
+      "local_temporary_path": "/workspace/scratch/b566cace4ed6/pfds/session/tools/environment-040/installing-source.html",
+      "sha256": "afd68627e975b7e9fb2a8cf0b57f68d21c3fa7e7c89fca4c3a2dc058fef9df0a"
+    }
+  ],
+  "routes": [
+    {
+      "route": "Official single-user binary installation",
+      "status": "Not attempted",
+      "reason": "Requires creating /nix, outside this conversation writable roots; prior environment used elevated execution."
+    },
+    {
+      "route": "Official local chroot store rooted under workspace",
+      "status": "Not restored",
+      "reason": "Manual requires mount and user namespaces; namespace probe fails and /proc is absent. No namespace or mount configuration was changed."
+    },
+    {
+      "route": "Different logical store path under workspace",
+      "status": "Not attempted",
+      "reason": "Manual says default cache.nixos.org substitutions cannot be used; would require rebuilding supporting tools. No verified bootstrap path was established."
+    }
+  ],
+  "network_observations": {
+    "nix_manual": "Three official pages fetched with curl successfully",
+    "github_release_api": "GET /repos/NixOS/nix/releases/tags/2.35.4 returned HTTP 404; not used as evidence of network restriction"
+  },
+  "not_performed": [
+    "No out-of-root writes",
+    "No sandbox escalation",
+    "No compiler or project build",
+    "No installer execution",
+    "No source, pin, guard, review, audit or approval changes",
+    "No remote GitHub writes",
+    "No Library access"
+  ],
+  "conclusion": "No supported workspace-only restoration of the required cached Nix development environment was established. A conventional permitted Nix installation, or an environment exposing the required namespace support, is needed to resume the required full gates. This is a tooling blocker, not a failed proof or accepted candidate."
+}

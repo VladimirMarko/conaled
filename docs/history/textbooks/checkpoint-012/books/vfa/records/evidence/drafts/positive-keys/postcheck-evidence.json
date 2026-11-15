@@ -1,0 +1,394 @@
+{
+  "recorded_at_utc": "2026-11-02T07:38:25.355262+00:00",
+  "ticket": 1023,
+  "candidate": "de575a81266ac98194c7c5c83e91628098aac92e",
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 59.97473625600105,
+  "passed_staging_check": true,
+  "ilean_header": {
+    "module": "VFAStaging.PositiveKeys",
+    "directImports": [
+      [
+        "Mathlib.Data.Num.Lemmas",
+        false,
+        false,
+        false
+      ],
+      [
+        "Mathlib.Data.PNat.Equiv",
+        false,
+        false,
+        false
+      ]
+    ]
+  },
+  "metadata_error": null,
+  "direct_imports_match": true,
+  "declaration_names_from_ilean": [
+    "VFAStaging.PositiveKeys.Examples.comparator_recovers_ten",
+    "VFAStaging.PositiveKeys.Examples.decode_one",
+    "VFAStaging.PositiveKeys.Examples.encode_nine",
+    "VFAStaging.PositiveKeys.Examples.encode_one",
+    "VFAStaging.PositiveKeys.Examples.encode_zero",
+    "VFAStaging.PositiveKeys.Examples.numeric_one_before_two",
+    "VFAStaging.PositiveKeys.Examples.numeric_ten_after_one",
+    "VFAStaging.PositiveKeys.Examples.observed_absence",
+    "VFAStaging.PositiveKeys.Examples.observed_empty_value",
+    "VFAStaging.PositiveKeys.Examples.observed_nine",
+    "VFAStaging.PositiveKeys.Examples.ofNat_not_injective",
+    "VFAStaging.PositiveKeys.Examples.ofNat_zero_one_collision",
+    "VFAStaging.PositiveKeys.Examples.predecessor_boundary",
+    "VFAStaging.PositiveKeys.Examples.sampleObservation",
+    "VFAStaging.PositiveKeys.Examples.ten",
+    "VFAStaging.PositiveKeys.Examples.ten_key",
+    "VFAStaging.PositiveKeys.Examples.ten_numeric",
+    "VFAStaging.PositiveKeys.Examples.ten_pnat_observations",
+    "VFAStaging.PositiveKeys.Examples.zero_one_distinct",
+    "VFAStaging.PositiveKeys.binaryNatEquiv",
+    "VFAStaging.PositiveKeys.binaryPNatEquiv",
+    "VFAStaging.PositiveKeys.cmp_encoded_eq_iff",
+    "VFAStaging.PositiveKeys.cmp_encoded_gt_iff",
+    "VFAStaging.PositiveKeys.cmp_encoded_lt_iff",
+    "VFAStaging.PositiveKeys.cmp_eq_iff",
+    "VFAStaging.PositiveKeys.cmp_gt_iff",
+    "VFAStaging.PositiveKeys.cmp_lt_iff",
+    "VFAStaging.PositiveKeys.decode",
+    "VFAStaging.PositiveKeys.decode_encode",
+    "VFAStaging.PositiveKeys.decode_eq_numeric_pred",
+    "VFAStaging.PositiveKeys.decode_injective",
+    "VFAStaging.PositiveKeys.encode",
+    "VFAStaging.PositiveKeys.encode_decode",
+    "VFAStaging.PositiveKeys.encode_injective",
+    "VFAStaging.PositiveKeys.numeric",
+    "VFAStaging.PositiveKeys.numeric_bit0",
+    "VFAStaging.PositiveKeys.numeric_bit1",
+    "VFAStaging.PositiveKeys.numeric_encode",
+    "VFAStaging.PositiveKeys.numeric_eq_decode_add_one",
+    "VFAStaging.PositiveKeys.numeric_injective",
+    "VFAStaging.PositiveKeys.numeric_one",
+    "VFAStaging.PositiveKeys.numeric_pos",
+    "VFAStaging.PositiveKeys.observation_roundtrip",
+    "VFAStaging.PositiveKeys.ofPNat",
+    "VFAStaging.PositiveKeys.ofPNat_toPNat",
+    "VFAStaging.PositiveKeys.one_le_numeric",
+    "VFAStaging.PositiveKeys.pnat_equiv_observation",
+    "VFAStaging.PositiveKeys.toPNat",
+    "VFAStaging.PositiveKeys.toPNat_encode",
+    "VFAStaging.PositiveKeys.toPNat_injective",
+    "VFAStaging.PositiveKeys.toPNat_ofPNat",
+    "VFAStaging.PositiveKeys.toPNat_value"
+  ],
+  "c_imported_initializer_declarations": [
+    "initialize_Init",
+    "initialize_Init",
+    "initialize_mathlib_Mathlib_Data_Num_Lemmas",
+    "initialize_mathlib_Mathlib_Data_PNat_Equiv"
+  ],
+  "diagnostics": [
+    {
+      "caption": "",
+      "data": "'VFAStaging.PositiveKeys.numeric_encode' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "endPos": {
+        "column": 6,
+        "line": 242
+      },
+      "fileName": "/workspace/scratch/0c54f2db1fdf/work-state/staging/positive-keys/VFAStaging/PositiveKeys.lean",
+      "isSilent": false,
+      "keepFullRange": false,
+      "kind": "[anonymous]",
+      "pos": {
+        "column": 0,
+        "line": 242
+      },
+      "severity": "information"
+    },
+    {
+      "caption": "",
+      "data": "'VFAStaging.PositiveKeys.decode_encode' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "endPos": {
+        "column": 6,
+        "line": 243
+      },
+      "fileName": "/workspace/scratch/0c54f2db1fdf/work-state/staging/positive-keys/VFAStaging/PositiveKeys.lean",
+      "isSilent": false,
+      "keepFullRange": false,
+      "kind": "[anonymous]",
+      "pos": {
+        "column": 0,
+        "line": 243
+      },
+      "severity": "information"
+    },
+    {
+      "caption": "",
+      "data": "'VFAStaging.PositiveKeys.encode_decode' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "endPos": {
+        "column": 6,
+        "line": 244
+      },
+      "fileName": "/workspace/scratch/0c54f2db1fdf/work-state/staging/positive-keys/VFAStaging/PositiveKeys.lean",
+      "isSilent": false,
+      "keepFullRange": false,
+      "kind": "[anonymous]",
+      "pos": {
+        "column": 0,
+        "line": 244
+      },
+      "severity": "information"
+    },
+    {
+      "caption": "",
+      "data": "'VFAStaging.PositiveKeys.cmp_eq_iff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "endPos": {
+        "column": 6,
+        "line": 245
+      },
+      "fileName": "/workspace/scratch/0c54f2db1fdf/work-state/staging/positive-keys/VFAStaging/PositiveKeys.lean",
+      "isSilent": false,
+      "keepFullRange": false,
+      "kind": "[anonymous]",
+      "pos": {
+        "column": 0,
+        "line": 245
+      },
+      "severity": "information"
+    },
+    {
+      "caption": "",
+      "data": "'VFAStaging.PositiveKeys.cmp_lt_iff' depends on axioms: [propext]",
+      "endPos": {
+        "column": 6,
+        "line": 246
+      },
+      "fileName": "/workspace/scratch/0c54f2db1fdf/work-state/staging/positive-keys/VFAStaging/PositiveKeys.lean",
+      "isSilent": false,
+      "keepFullRange": false,
+      "kind": "[anonymous]",
+      "pos": {
+        "column": 0,
+        "line": 246
+      },
+      "severity": "information"
+    },
+    {
+      "caption": "",
+      "data": "'VFAStaging.PositiveKeys.cmp_gt_iff' depends on axioms: [propext]",
+      "endPos": {
+        "column": 6,
+        "line": 247
+      },
+      "fileName": "/workspace/scratch/0c54f2db1fdf/work-state/staging/positive-keys/VFAStaging/PositiveKeys.lean",
+      "isSilent": false,
+      "keepFullRange": false,
+      "kind": "[anonymous]",
+      "pos": {
+        "column": 0,
+        "line": 247
+      },
+      "severity": "information"
+    },
+    {
+      "caption": "",
+      "data": "'VFAStaging.PositiveKeys.Examples.ofNat_not_injective' does not depend on any axioms",
+      "endPos": {
+        "column": 6,
+        "line": 248
+      },
+      "fileName": "/workspace/scratch/0c54f2db1fdf/work-state/staging/positive-keys/VFAStaging/PositiveKeys.lean",
+      "isSilent": false,
+      "keepFullRange": false,
+      "kind": "[anonymous]",
+      "pos": {
+        "column": 0,
+        "line": 248
+      },
+      "severity": "information"
+    },
+    {
+      "caption": "",
+      "data": "'VFAStaging.PositiveKeys.Examples.observed_nine' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "endPos": {
+        "column": 6,
+        "line": 249
+      },
+      "fileName": "/workspace/scratch/0c54f2db1fdf/work-state/staging/positive-keys/VFAStaging/PositiveKeys.lean",
+      "isSilent": false,
+      "keepFullRange": false,
+      "kind": "[anonymous]",
+      "pos": {
+        "column": 0,
+        "line": 249
+      },
+      "severity": "information"
+    }
+  ],
+  "non_json_diagnostics": [],
+  "diagnostic_identity": {
+    "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/positive-keys/diagnostics.jsonl",
+    "bytes": 2951,
+    "sha256": "2adb007c7d67ce214dd3c7d96d1defe5ef1e13f866a572d08ed09c26347cd9c5"
+  },
+  "diagnostic_counts": {
+    "error": 0,
+    "warning": 0,
+    "information": 8
+  },
+  "protected_inputs_after": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/frp-imports/Spec.setup.json",
+      "bytes": 7051229,
+      "sha256": "6b4af7891d8b68f01d431a82dd1a707b7e0d446479daf8935cc8f08f68ca787b"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/build/lib/lean/SquareKit/Temporal/Finite.trace",
+      "bytes": 3020,
+      "sha256": "c71294375fdc4a6cee39a8a658cc98cb45bc940211ea3ff58da48f50b12ee961"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Num/Lemmas.olean",
+      "bytes": 523368,
+      "sha256": "2b81f9349d885d88cdb2f3b52f68470949f3cd223b5cd1e81af2853781e24221"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Num/Lemmas.olean.server",
+      "bytes": 34520,
+      "sha256": "d5bae3bb9de6de82248d44125b527e7ab404eb14aa77663840ac11be57986f0d"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Num/Lemmas.olean.private",
+      "bytes": 1196632,
+      "sha256": "3224d5e25bbe1cbb28bdb73cc359689ccddc3b807fb66cbcd4809ee5a99e6c16"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Num/Lemmas.ir.sig",
+      "bytes": 176,
+      "sha256": "106405c66f895596c23aa88100622e732580b89169feacde015ad6bf158c0a36"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Num/Lemmas.ir",
+      "bytes": 126192,
+      "sha256": "8c43f28de08fcea0d06140c144bc5d2e628e5396cc053ec6c1e1c1fb04b0c3ff"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/PNat/Equiv.olean",
+      "bytes": 9864,
+      "sha256": "9b774de442e334ec9cb6278b0879472857af9c7237632791708ae407437c5bd8"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/PNat/Equiv.olean.server",
+      "bytes": 1720,
+      "sha256": "5e59c5f7fd92f96d996886461e19e431c6fd4946f42f15281a0f2031982a2320"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/PNat/Equiv.olean.private",
+      "bytes": 5296,
+      "sha256": "8d312f9e453d41f1782f570bb76442052972e66640c1302156a9bf049e8058f7"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/PNat/Equiv.ir.sig",
+      "bytes": 176,
+      "sha256": "42e2f300d4a6a316e6b8d0ec7e7f07d4d4b32bae8c714f4cc68cf4f96f678718"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/PNat/Equiv.ir",
+      "bytes": 3528,
+      "sha256": "cbfd6561cde195ed518787b2a0945ad66df05de5c678644f2b97c9f5a7104a15"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/flake.nix",
+      "bytes": 637,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/flake.lock",
+      "bytes": 564,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/flake.nix",
+      "bytes": 637,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/flake.lock",
+      "bytes": 564,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/Mathlib/Data/Num/Basic.lean",
+      "bytes": 15026,
+      "sha256": "92971636728e05bc108db821379b71e42c41a49a78eb7ef7674710228cb520f1"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/Mathlib/Data/Num/Lemmas.lean",
+      "bytes": 30067,
+      "sha256": "5cec0cb9b3b20de90fddc44955c23fc5bd94e09aa630214b88e1a95997d7c8c7"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/Mathlib/Data/PNat/Notation.lean",
+      "bytes": 798,
+      "sha256": "27f551615e05235a068fec3b16124ba5bb6aaa56fef85e968d0b2c98b932d171"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/Mathlib/Data/PNat/Defs.lean",
+      "bytes": 7324,
+      "sha256": "6e01d3031fce32d6de89d510736f3abc6293a45b295f08fb0cc712c41c4f9d6e"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/Mathlib/Data/PNat/Equiv.lean",
+      "bytes": 660,
+      "sha256": "424a2758860de194f91226631abeacc39b97a7322b4d99ab7fceaa785920c9a9"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/reference/vfa/vfa/Trie.v",
+      "bytes": 26268,
+      "sha256": "a5af2b4db4c2cb639a8deb063e57909e11eb44ee763782ad0af9afbf45a78f3e"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/reference/vfa/vfa/Color.v",
+      "bytes": 23243,
+      "sha256": "67b3410af5fece56c69f4e8301fd6505e89371cfa1279d069ca945b9b2b33370"
+    }
+  ],
+  "changed_protected_inputs": [],
+  "generated_artifacts": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/positive-keys/out/PositiveKeys.c",
+      "bytes": 15614,
+      "sha256": "c1a040f0160fc154a73a4c01833f3289c9836decf93c1417556358b75662f0ee"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/positive-keys/out/PositiveKeys.ilean",
+      "bytes": 40987,
+      "sha256": "462fe20d43acb95479b489ad4c49e05916b24bca5bdf8750339b5f61bd56363f"
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/work-state/staging/positive-keys/out/PositiveKeys.olean",
+      "bytes": 172416,
+      "sha256": "6b056cec59a77f6e92a4dc79fcf31e62b1943e914b7bb24689b2a84c387adccf"
+    }
+  ],
+  "generated_artifact_disposition": "All generated artifacts removed after metadata extraction and hashing; no further invocation authorized.",
+  "generated_output_directory_absent": true
+}

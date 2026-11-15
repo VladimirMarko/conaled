@@ -1,0 +1,85 @@
+{
+  "captured_at": "2026-11-02T23:58:28.423361+00:00",
+  "candidate": "3dd930c3e3989f3e5530463f3ac937a629551335",
+  "checkout": "validation-cache-counts",
+  "branch": "pfds/cache-counts-review-r1",
+  "development_checkout": "cache-counts",
+  "development_branch": "pfds/pure-cache-counts",
+  "base": "361f5f3f6bb3de1974510ce355883dac2bf25333",
+  "integration_review_base": "ea8afa12706d30cdc69ece1a172d5f21a3ea1809",
+  "requirements": "requirements/pure-cache-counts.md",
+  "requirements_sha256": "fa5b5c01205aea18cc19aa53047cc7e0d57c0bb225534f0152bc04d7c87e569e",
+  "files": {
+    "Applications/Suspensions/CacheAccounting.lean": "c8468574f8b2efb72b212efd9261c789ac209381dedd342d70a8c84ff2bfab53",
+    "Applications/Suspensions/CacheWrite.lean": "95e3cad6dfc478ec88d3f4f442a077bd3533395a8987731dc2edd33444e35347",
+    "Applications/Suspensions/Pending.lean": "d8f103c89fa891c46969e27be6bcbacfdb547d96bbfaaa4277c301a7793aed1a",
+    "Applications/Suspensions/Pure/CacheCounts.lean": "1b163ae926fb4083957eda6f1bd82d3ff54f97013376931a6efa9889af70baf9",
+    "Applications/Suspensions/TraceObservation.lean": "69640c7683b3fe9c4212036e29e64bbb319f41beda7d339ecbafd1b1fca66487",
+    "Examples/SuspensionCacheAccounting.lean": "277a6259f141d2f82c9cac1dcc297c895d1b86bb4ba4d840909b1a03198327e4",
+    "Examples/SuspensionCacheWrite.lean": "a342c700c663f64d8c0456b050e9c3717ee92dfeb4b577387b68c221454ba7bc",
+    "Examples/SuspensionPending.lean": "433bdd73524f647e8d361fb2e9f9fbad2275a8d2bd14b37945da6a3b4cb11498",
+    "Examples/SuspensionPureCacheCounts.lean": "4ea8c73079f93e1cebaa95956bea401b1deaba7f6ee7806ba53a1076b96a4c61",
+    "Examples/SuspensionTraceObservation.lean": "4119e90b2bbf2a51c49844a7343e99fc3507ce5742b906009097e524638e6ce1",
+    "SquareApplications.lean": "c83426dca3b1498f67ae6d77ded7291e7156b333e971e4f35f962e3c0dd80cbe",
+    "docs/research/pfds-cache-counts.md": "59fcd634ac9a5c375dd72437feb343554495d4cfbd4f3c4242ec8cb85093991f",
+    "docs/research/pfds-pure-suspensions.md": "644e2894be39b483e5f523f1762bde09629efa82baa9573214937aef388f27d0"
+  },
+  "integration_files": {
+    "Applications/Suspensions/CacheAccounting.lean": "c8468574f8b2efb72b212efd9261c789ac209381dedd342d70a8c84ff2bfab53",
+    "Applications/Suspensions/CacheWrite.lean": "95e3cad6dfc478ec88d3f4f442a077bd3533395a8987731dc2edd33444e35347",
+    "Applications/Suspensions/Pending.lean": "d8f103c89fa891c46969e27be6bcbacfdb547d96bbfaaa4277c301a7793aed1a",
+    "Applications/Suspensions/Pure/CacheCounts.lean": "1b163ae926fb4083957eda6f1bd82d3ff54f97013376931a6efa9889af70baf9",
+    "Applications/Suspensions/TraceObservation.lean": "69640c7683b3fe9c4212036e29e64bbb319f41beda7d339ecbafd1b1fca66487",
+    "Examples/SuspensionCacheAccounting.lean": "277a6259f141d2f82c9cac1dcc297c895d1b86bb4ba4d840909b1a03198327e4",
+    "Examples/SuspensionCacheWrite.lean": "a342c700c663f64d8c0456b050e9c3717ee92dfeb4b577387b68c221454ba7bc",
+    "Examples/SuspensionPending.lean": "433bdd73524f647e8d361fb2e9f9fbad2275a8d2bd14b37945da6a3b4cb11498",
+    "Examples/SuspensionPureCacheCounts.lean": "4ea8c73079f93e1cebaa95956bea401b1deaba7f6ee7806ba53a1076b96a4c61",
+    "Examples/SuspensionTraceObservation.lean": "4119e90b2bbf2a51c49844a7343e99fc3507ce5742b906009097e524638e6ce1",
+    "SquareApplications.lean": "c83426dca3b1498f67ae6d77ded7291e7156b333e971e4f35f962e3c0dd80cbe",
+    "docs/research/pfds-cache-counts.md": "59fcd634ac9a5c375dd72437feb343554495d4cfbd4f3c4242ec8cb85093991f",
+    "docs/research/pfds-pure-suspensions.md": "644e2894be39b483e5f523f1762bde09629efa82baa9573214937aef388f27d0",
+    "docs/research/pfds-suspensions.md": "1257cfb512545c090beadfde13605db4632fae41f53c4b83a0b5f5345688c113"
+  },
+  "commits": [
+    "78ed1a1501a955a5579a7a098910a5d4bc1361be",
+    "0ebbf185d084b2cfe0b11501e8c7d4998932c16a",
+    "3dd930c3e3989f3e5530463f3ac937a629551335"
+  ],
+  "integration_commits": [
+    "361f5f3f6bb3de1974510ce355883dac2bf25333",
+    "78ed1a1501a955a5579a7a098910a5d4bc1361be",
+    "0ebbf185d084b2cfe0b11501e8c7d4998932c16a",
+    "3dd930c3e3989f3e5530463f3ac937a629551335"
+  ],
+  "exclusions": [],
+  "initial_status": "clean",
+  "focused_matching_evidence": {
+    "suspension-pending-r3": {
+      "record_sha256": "fa70cd81af7ce36993895c3fceecf8f0f8c47fcd678451ceb0710f63b86d2b1b",
+      "log_sha256": "1f8ce3b7c369a0b1531cae45a0d0fa5df88279b62e6083a1f4828f03ff2934b5",
+      "matching_inputs": 20
+    },
+    "suspension-cache-write-r2": {
+      "record_sha256": "d757b317c8837fa5ef56f30b4956154f9272d075e2d2392974d4e8a67797a6f3",
+      "log_sha256": "18961a456eb4d6a8ca24c8b83011a75b663b848a64fde06a51f51df4abc74f1a",
+      "matching_inputs": 26
+    },
+    "suspension-cache-accounting-r3": {
+      "record_sha256": "3a487946d56ebd5c603d2c269830fd697e8173e6e9847192d1f10c00f20e374f",
+      "log_sha256": "3f530b71192dd6c01b4ff35f5beec66f29657c7319766e514895319374ea982a",
+      "matching_inputs": 29
+    },
+    "suspension-trace-observation-r1": {
+      "record_sha256": "6381183ca50ec59499b92d7b75e835a6f1a4e84690ad5e5fde7a26671c5acaf9",
+      "log_sha256": "65aaf8af1caa6fae39d0e5902af8b24d40bfbd8b2ec934b55263ce111b81985e",
+      "matching_inputs": 26
+    },
+    "suspension-pure-cache-counts-r3": {
+      "record_sha256": "b7be6defc6d17bc1e7611afb1c262098ef5ae9122f66b156849d08f699ec74f3",
+      "log_sha256": "8d535b14b3c8d456312bb3e74eb83f53c17a361184d51e6ce0f93ea48a6aeb7d",
+      "matching_inputs": 58
+    }
+  },
+  "acceptance": false,
+  "validation": "All new formal modules/clients focused-green with source/configuration identity checked; exact own full gate/audit/verification and independent review remain required. No predecessor approval record copied."
+}

@@ -1,0 +1,223 @@
+{
+  "before_sha256": "0e5714b2db186c36eae1495ac6a6b503cfe8a5f74e8ae98452e7680444667cd0",
+  "after_sha256": "900cff100eb671e6527e75a7115903bdd583b80cca60b0cc42b5f98b496c4758",
+  "ticket_10023_before": {
+    "id": 10023,
+    "title": "Shared potential accounting over ordered and signed additive domains",
+    "status": "blocked",
+    "label": "ready-for-agent",
+    "depends_on": [
+      10000
+    ],
+    "supports": [
+      10005,
+      10006
+    ],
+    "coverage": [
+      "TU.POTENTIAL.SIGNED"
+    ],
+    "requirements": "requirements/signed-potential.md",
+    "requirements_version": 1,
+    "requirements_sha256": "bb28d4f56eb48c80d2a9905b6e349d3e4b6fdb4e4ad2a01976408432a434ac81",
+    "base": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+    "original_integration_base": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+    "branch": "pfds/signed-potential",
+    "checkout": "signed-potential",
+    "candidate": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+    "source_status": "Book Chapter5 real potential and Chapter6/thesis debt sign inspected; reuse inventory and independently expected signed/real cases fixed. No new algorithm is included.",
+    "cross_cutting_justification": "Generalize existing same-trajectory potential algebra required by both classical real/logarithmic and lazy debt analyses; existing Nat clients and executor remain. No later chapter algorithm/frontier advances.",
+    "integration_gate_predecessor": 10022,
+    "integration_note": "Base includes still-unaccepted10022 and its ancestors. This is sequencing of integrated-candidate acceptance, not a claimed mathematical dependency on body counting.",
+    "reviews": {
+      "standards": "Complete r2 source review on d24c443: source finding SIGNED-POT-STD-CODE-001 fixed; zero unresolved source/prose findings. Blocked SIGNED-POT-STD-VAL-001 High pending complete corrected-candidate validation.",
+      "spec": "Complete r2 source review on d24c443: source finding SIGNED-POT-SPEC-001 fixed; zero unresolved static findings. Blocked SIGNED-POT-SPEC-VAL-001 Blocking pending complete corrected-candidate validation."
+    },
+    "acceptance": [
+      "Same existing budget/run generalize with only necessary additive/order structure; natural clients retain their exact semantics and calls",
+      "Signed savings/debt identities with explicit boundary potential and nonnegative-terminal condition for cost-only bound",
+      "Connected Int, fractional Real, negative-final counterexample and lifted actual BinaryCounter applications use public laws",
+      "Own exact isolated full build/exhaustive audit, both full-scope independent axes, immediate final verification and uploaded recovery checkpoint"
+    ],
+    "evidence": [
+      "requirements/signed-potential.md",
+      "validation/signed-potential-baseline.json",
+      "research/chapter05-readiness.md",
+      "research/chapter06-theory-readiness.md",
+      "research/chapter06-thesis-union-readiness.md",
+      "research/chapter06-book-algorithms-readiness.md",
+      "research/potential-generalization-inventory.md",
+      "validation/body-counts-materialization-reuse.json",
+      "validation/signed-potential-draft-r1.json",
+      "research/signed-potential-implementation.md",
+      "research/potential-transport-client.md",
+      "research/signed-potential-root-integration.md",
+      "validation/signed-potential-r1.json",
+      "validation/signed-potential-r1.log",
+      "validation/signed-potential-draft-r2.json",
+      "requirements/REQUEST-recovery-039.md",
+      "validation/recovery-040-audit.json",
+      "validation/recovery-040-interruptions.json",
+      "environment/recovery-040-approval.json",
+      "validation/signed-potential-recovery-review-r1.json",
+      "validation/signed-potential-recovery-review-r2.json",
+      "validation/signed-potential-noncomputable-correction.patch",
+      "research/signed-potential-noncomputable-correction-r1.md",
+      "reviews/signed-potential-standards-r1.md",
+      "reviews/signed-potential-spec-r1.md",
+      "reviews/signed-potential-coordinator-r1.md",
+      "reviews/signed-potential-standards-r2.md",
+      "reviews/signed-potential-spec-r2.md",
+      "reviews/signed-potential-coordinator-r2.md",
+      "validation/signed-potential-recovery-review-receipt.json"
+    ],
+    "development_status": "Recovered9c candidate received independent full-scope review; two missing noncomputable annotations for fractional Real examples corrected in d24c443. Both retained axes re-reviewed complete scope and closed source findings. No compiler or formal gate can run in the recovered environment; no acceptance.",
+    "review_record": "reviews/signed-potential.md",
+    "development_commit": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+    "candidate_checkout": "signed-potential",
+    "validation": "Old focusedr2 at9c has unknown terminal outcome. Newd24 candidate has only source-diff/identity checks and static reviews; full focused closure, own candidate build/audit/record/final verification remain mandatory.",
+    "known_findings": {
+      "SIGNED-POT-STD-CODE-001": "Fixed with source-review evidence in d24c443; two noncomputable boundaries, no compiler-success claim.",
+      "SIGNED-POT-SPEC-001": "Fixed with source-review evidence in d24c443; unchanged mathematical expectations and theorem statements.",
+      "SIGNED-POT-STD-VAL-001": "Unresolved High; required corrected-candidate validation unavailable.",
+      "SIGNED-POT-SPEC-VAL-001": "Unresolved Blocking; required corrected-candidate validation unavailable."
+    }
+  },
+  "ticket_10023_after": {
+    "id": 10023,
+    "title": "Shared potential accounting over ordered and signed additive domains",
+    "status": "blocked",
+    "label": "ready-for-agent",
+    "depends_on": [
+      10000
+    ],
+    "supports": [
+      10005,
+      10006
+    ],
+    "coverage": [
+      "TU.POTENTIAL.SIGNED"
+    ],
+    "requirements": "requirements/signed-potential.md",
+    "requirements_version": 1,
+    "requirements_sha256": "bb28d4f56eb48c80d2a9905b6e349d3e4b6fdb4e4ad2a01976408432a434ac81",
+    "base": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+    "original_integration_base": "5e048f781aa04be9ce993f1e7455bdc82df22bff",
+    "branch": "pfds/signed-potential",
+    "checkout": "signed-potential",
+    "candidate": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+    "source_status": "Book Chapter5 real potential and Chapter6/thesis debt sign inspected; reuse inventory and independently expected signed/real cases fixed. No new algorithm is included.",
+    "cross_cutting_justification": "Generalize existing same-trajectory potential algebra required by both classical real/logarithmic and lazy debt analyses; existing Nat clients and executor remain. No later chapter algorithm/frontier advances.",
+    "integration_gate_predecessor": 10022,
+    "integration_note": "Base includes still-unaccepted10022 and its ancestors. This is sequencing of integrated-candidate acceptance, not a claimed mathematical dependency on body counting.",
+    "reviews": {
+      "standards": "Complete r2 source review on d24c443: source finding SIGNED-POT-STD-CODE-001 fixed; zero unresolved source/prose findings. Blocked SIGNED-POT-STD-VAL-001 High pending complete corrected-candidate validation.",
+      "spec": "Complete r2 source review on d24c443: source finding SIGNED-POT-SPEC-001 fixed; zero unresolved static findings. Blocked SIGNED-POT-SPEC-VAL-001 Blocking pending complete corrected-candidate validation."
+    },
+    "acceptance": [
+      "Same existing budget/run generalize with only necessary additive/order structure; natural clients retain their exact semantics and calls",
+      "Signed savings/debt identities with explicit boundary potential and nonnegative-terminal condition for cost-only bound",
+      "Connected Int, fractional Real, negative-final counterexample and lifted actual BinaryCounter applications use public laws",
+      "Own exact isolated full build/exhaustive audit, both full-scope independent axes, immediate final verification and uploaded recovery checkpoint"
+    ],
+    "evidence": [
+      "requirements/signed-potential.md",
+      "validation/signed-potential-baseline.json",
+      "research/chapter05-readiness.md",
+      "research/chapter06-theory-readiness.md",
+      "research/chapter06-thesis-union-readiness.md",
+      "research/chapter06-book-algorithms-readiness.md",
+      "research/potential-generalization-inventory.md",
+      "validation/body-counts-materialization-reuse.json",
+      "validation/signed-potential-draft-r1.json",
+      "research/signed-potential-implementation.md",
+      "research/potential-transport-client.md",
+      "research/signed-potential-root-integration.md",
+      "validation/signed-potential-r1.json",
+      "validation/signed-potential-r1.log",
+      "validation/signed-potential-draft-r2.json",
+      "requirements/REQUEST-recovery-039.md",
+      "validation/recovery-040-audit.json",
+      "validation/recovery-040-interruptions.json",
+      "environment/recovery-040-approval.json",
+      "validation/signed-potential-recovery-review-r1.json",
+      "validation/signed-potential-recovery-review-r2.json",
+      "validation/signed-potential-noncomputable-correction.patch",
+      "research/signed-potential-noncomputable-correction-r1.md",
+      "reviews/signed-potential-standards-r1.md",
+      "reviews/signed-potential-spec-r1.md",
+      "reviews/signed-potential-coordinator-r1.md",
+      "reviews/signed-potential-standards-r2.md",
+      "reviews/signed-potential-spec-r2.md",
+      "reviews/signed-potential-coordinator-r2.md",
+      "validation/signed-potential-recovery-review-receipt.json",
+      "requirements/REQUEST-direct-toolchain-041.md",
+      "environment/direct-toolchain-cli-green-041.json",
+      "environment/direct-lake-build-profile-041-r1.json",
+      "environment/direct-dependencies-after-cache-041.json",
+      "validation/direct-cache-get-041.json"
+    ],
+    "development_status": "The corrected d24c443 source retains both complete r2 static reviews. The user explicitly made Nix optional; genuine exact Lean/Lake CLI and executable-build tests now pass, and clean pinned dependency caches are prepared. Corrected-candidate focused/full validation remains pending; no acceptance.",
+    "review_record": "reviews/signed-potential.md",
+    "development_commit": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+    "candidate_checkout": "signed-potential",
+    "validation": "Old focused r2 at9c has unknown terminal outcome. New d24 candidate retains source identity/static reviews; direct-toolchain runtime is now verified. The complete eleven-target focused closure, own candidate build/audit/record, both reviews, and immediate final verification remain mandatory.",
+    "known_findings": {
+      "SIGNED-POT-STD-CODE-001": "Fixed with source-review evidence in d24c443; two noncomputable boundaries, no compiler-success claim.",
+      "SIGNED-POT-SPEC-001": "Fixed with source-review evidence in d24c443; unchanged mathematical expectations and theorem statements.",
+      "SIGNED-POT-STD-VAL-001": "Unresolved High; required corrected-candidate validation remains pending in the recovered direct-toolchain environment.",
+      "SIGNED-POT-SPEC-VAL-001": "Unresolved Blocking; required corrected-candidate validation remains pending in the recovered direct-toolchain environment."
+    }
+  },
+  "recovery_before": {
+    "source_checkpoint": 39,
+    "observed_utc": "2026-11-03T13:58:03.087826+00:00",
+    "repository_and_records_restored": true,
+    "formal_acceptance_advanced": false,
+    "earliest_unaccepted_chapter": 2,
+    "environment_status": "blocked: Nix/Lean absent; standard /nix escalation rejected and supported rootless namespace facilities absent",
+    "environment_evidence": [
+      "environment/recovery-040.md",
+      "environment/recovery-040.json",
+      "environment/recovery-040-approval.json"
+    ],
+    "interrupted_runs": "validation/recovery-040-interruptions.json",
+    "source_availability": "research/recovery-040-source-availability.json",
+    "book_reattachment_required": true,
+    "ordinary_outputs_and_dependency_caches_restored": false,
+    "historical_bootstrap_acceptance": "10000 describes the accepted original bootstrap artifact; its prior runtime is not present here.",
+    "latest_source_correction": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+    "signed_potential_review": "Both independent r2 static source findings resolved; both required-validation findings remain unresolved and outcomes Blocked."
+  },
+  "recovery_after": {
+    "source_checkpoint": 39,
+    "observed_utc": "2026-11-03T14:58:06.157428+00:00",
+    "repository_and_records_restored": true,
+    "formal_acceptance_advanced": false,
+    "earliest_unaccepted_chapter": 2,
+    "environment_status": "Exact Lean 4.35.0/Lake 5.0.0 directly restored and runtime-tested through a workspace QEMU profile. Ordinary dependency cache get completed successfully; operational helper review pending. Nix is optional by explicit user clarification.",
+    "environment_evidence": [
+      "environment/recovery-040.md",
+      "environment/recovery-040.json",
+      "environment/recovery-040-approval.json",
+      "environment/README-direct-toolchain.md",
+      "environment/direct-toolchain-041.json",
+      "environment/qemu-lean-smoke-041.json",
+      "environment/direct-toolchain-cli-green-041.json",
+      "environment/direct-lake-build-profile-041-r1.json",
+      "environment/direct-dependencies-after-cache-041.json",
+      "validation/direct-cache-get-041.json"
+    ],
+    "interrupted_runs": "validation/recovery-040-interruptions.json",
+    "source_availability": "research/recovery-040-source-availability.json",
+    "book_reattachment_required": true,
+    "ordinary_outputs_and_dependency_caches_restored": false,
+    "historical_bootstrap_acceptance": "10000 describes the accepted original bootstrap artifact; its prior runtime is not present here.",
+    "latest_source_correction": "d24c443ba22019613b1ce646d6eed7279c791ad6",
+    "signed_potential_review": "Both independent r2 static source findings resolved; both required-validation findings remain unresolved and outcomes Blocked.",
+    "direct_toolchain_requirement": "requirements/REQUEST-direct-toolchain-041.md",
+    "dependency_cache_recreated": true,
+    "project_outputs_restored": false
+  },
+  "formal_acceptance_advanced": false,
+  "scope": "record explicit Nix exception and genuine direct-toolchain/cache recovery without changing accepted frontier or prior review outcomes"
+}

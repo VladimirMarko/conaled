@@ -1,0 +1,2633 @@
+{
+  "reviewer": "Independent nonauthor Spec",
+  "recipient": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "predecessor": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "I_producer": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "F_producer": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "method": "Independent immutable Git closure reconstruction, complete saved-record equality and all executed producer block bytes/order; no compiler, runtime capture, live-output inspection or mutation.",
+  "comparison_record": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-inherited-type-qualification-20261104/comparison.json",
+    "bytes": 65793,
+    "lines": 1369,
+    "sha256": "dc52b0cc515a7d058832f2a39bcf16147a62cfe9ffaf60281d7e76a077849387"
+  },
+  "all20_saved_observation_files": {
+    "Tail61_pre": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail61-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 18465,
+      "lines": 399,
+      "sha256": "1829a1a48106a01e46d9994baaf4a01c0f13d29bc973239c6a0ee1a8ab25206e"
+    },
+    "Tail61_post": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail61-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 18772,
+      "lines": 405,
+      "sha256": "6a8c7067a0f78eae29982f34f38342253cf56bae1432050ee7e054b87996e986"
+    },
+    "TailJ53_pre": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-inherited53-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 15480,
+      "lines": 335,
+      "sha256": "c99c4c3f95ebec814549b85cdb06658da531ac3ff14b86274155d39a90764b0b"
+    },
+    "TailJ53_post": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-inherited53-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 15797,
+      "lines": 341,
+      "sha256": "3b0e72070014329e326785084e7a5aad260f93fe4bb1e164e8b564e48278436a"
+    },
+    "TailI314_pre": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-inherited314-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 45835,
+      "lines": 972,
+      "sha256": "01527cbce12b7d8a99004251fc71954987aa12cc99b703942d9389e3fa6273f5"
+    },
+    "TailI314_post": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-inherited314-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 46153,
+      "lines": 978,
+      "sha256": "42e4b0927efeca40c7e23caf5dd7dba99ccc8266e3d2f93a3bc0aff000934d32"
+    },
+    "TailF145_pre": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-foundation110-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 38785,
+      "lines": 839,
+      "sha256": "659b17853597f0a72c2463244a032ba57a2c6f05f65709cbc06cda17941c192c"
+    },
+    "TailF145_post": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-foundation110-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 39104,
+      "lines": 845,
+      "sha256": "cbbd97d9cfb7e1ae101cfcab8afebca1fd926755ade7584ce359cda435eb8374"
+    },
+    "J53_pre": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order53-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 15480,
+      "lines": 335,
+      "sha256": "eae1066844315be119551281752fcde15ba1f2cb2bf240d3f4186a9ca16ef8ec"
+    },
+    "J53_post": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order53-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 15788,
+      "lines": 341,
+      "sha256": "40817d0282d0ef62c6dac960429f5f6b8521cc86739f2eb4a195d869b17de15a"
+    },
+    "J314_pre": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-inherited314-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 45835,
+      "lines": 972,
+      "sha256": "16f7a23c60ae0cc7c6a638f2931a706e1f793566abc1eacacd708c767a8870c6"
+    },
+    "J314_post": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-inherited314-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 46154,
+      "lines": 978,
+      "sha256": "9d93f410cd67ecce280f828504564933afbab050718044fd0573f5143dc7d3c0"
+    },
+    "J145_pre": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-foundation110-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 38785,
+      "lines": 839,
+      "sha256": "e6786bd5a56d50814ab6c496924c8432d307b7d6221a4af89660e0a83e1a5502"
+    },
+    "J145_post": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-foundation110-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 39105,
+      "lines": 845,
+      "sha256": "a94eed7b002cb01271991c41715978fad5d9f974fbdd8fd304962a4911b2d89a"
+    },
+    "I314_pre": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four314-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 45835,
+      "lines": 972,
+      "sha256": "c3dc93d12e645171b3df24d417cc36838f666233c09034bb751672f47081f3f9"
+    },
+    "I314_post": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four314-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 46143,
+      "lines": 978,
+      "sha256": "fb1b01c56f251f9ddc28ae17b301d312b09714e687b5b0803fbe8be32ff95307"
+    },
+    "I145_pre": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-foundation110-receiving-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 38785,
+      "lines": 839,
+      "sha256": "8086173cd41da9d833701718a3963146ae0b87e54e8a3c7a2fe43dcf4b2124e3"
+    },
+    "I145_post": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-foundation110-receiving-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 39108,
+      "lines": 845,
+      "sha256": "c50094536c54d8bfc02d00c77295d2eb7a166f5277075872ca1118452eeb79ce"
+    },
+    "F145_pre": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation145-input-observations-20261104-attempt1/pre-inputs.json",
+      "bytes": 38785,
+      "lines": 839,
+      "sha256": "482b005a6b020bc8fbc087ed746202caa89426382200d2aa37b4259ac0116d37"
+    },
+    "F145_post": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation145-input-observations-20261104-attempt1/post-inputs.json",
+      "bytes": 39092,
+      "lines": 845,
+      "sha256": "3065efbace8dc8cff34d764d33fd29e81f09b5549407d72be5cdaa217d482d16"
+    }
+  },
+  "all10_pre_post_identity_pairs_exact": true,
+  "all_receiving_pairs_after_full_and_around_actual61": true,
+  "actual61": {
+    "local_sources": 9,
+    "complete_artifact_keys": 27,
+    "identity_fields": [
+      "candidate",
+      "clean",
+      "configuration",
+      "dependencies",
+      "direct_external_imports_of_local_closure",
+      "local_compiler_objects_and_traces",
+      "local_sources",
+      "program",
+      "project",
+      "roots",
+      "runtime"
+    ],
+    "program_and_closed_run_qualified": true
+  },
+  "J53": {
+    "source_count": 6,
+    "artifact_count": 18,
+    "all_non_candidate_fields_compared": [
+      "clean",
+      "configuration",
+      "dependencies",
+      "direct_external_imports_of_local_closure",
+      "local_compiler_objects_and_traces",
+      "local_sources",
+      "program",
+      "project",
+      "roots",
+      "runtime"
+    ],
+    "all_four_J_L_records_exact": true
+  },
+  "I314": {
+    "source_count": 27,
+    "artifact_count": 81,
+    "all_non_candidate_fields_compared": [
+      "clean",
+      "configuration",
+      "dependencies",
+      "direct_external_imports_of_local_closure",
+      "local_compiler_objects_and_traces",
+      "local_sources",
+      "program",
+      "project",
+      "roots",
+      "runtime"
+    ],
+    "all_six_I_J_L_records_exact": true
+  },
+  "F110": {
+    "positions": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129,
+      130,
+      131,
+      132,
+      133,
+      134,
+      135,
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145
+    ],
+    "source_count": 23,
+    "artifact_count": 69,
+    "four_roots": [
+      "Applications.Resources.ListCalls",
+      "Examples.FunctionalNotation",
+      "Examples.ListCalls",
+      "Examples.ListLibrary"
+    ],
+    "all_eight_F_I_J_L_projected_records_exact": true,
+    "excluded35_separately_in_actual_I314": true
+  },
+  "independently_reconstructed_closures": {
+    "Tail61": {
+      "sources": {
+        "Examples/PermutationTailBoundary.lean": {
+          "bytes": 12064,
+          "sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54",
+          "git_blob": "5b0283972ed1bfd0f2e12d30e0d2189203f04af0"
+        },
+        "Examples/PermutationOrder.lean": {
+          "bytes": 6706,
+          "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084",
+          "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35"
+        },
+        "Examples/PermutationOrderBoundary.lean": {
+          "bytes": 5605,
+          "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121",
+          "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59"
+        },
+        "Examples/PermutationMinimum.lean": {
+          "bytes": 4994,
+          "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+          "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876"
+        },
+        "Examples/PermutationMinimumBoundary.lean": {
+          "bytes": 4211,
+          "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+          "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c"
+        },
+        "Applications/Probability/PermutationMinimum.lean": {
+          "bytes": 8241,
+          "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+          "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d"
+        },
+        "Applications/Probability/PermutationOrder.lean": {
+          "bytes": 15304,
+          "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2",
+          "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63"
+        },
+        "Applications/Probability/PermutationTail.lean": {
+          "bytes": 23521,
+          "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed",
+          "git_blob": "437552dda711378d6a0910d9aa79bd99caae8977"
+        },
+        "Examples/PermutationTail.lean": {
+          "bytes": 9826,
+          "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e",
+          "git_blob": "baa3e26a3c72a4589765562167d1d85edc011e67"
+        }
+      },
+      "external": [
+        "Mathlib.Basic.ENNReal.Inv",
+        "Mathlib.Data.Finset.Card",
+        "Mathlib.Data.Finset.Lattice.Lemmas",
+        "Mathlib.Data.Finset.Max",
+        "Mathlib.Data.Fintype.OfMap",
+        "Mathlib.Data.Fintype.Perm",
+        "Mathlib.Data.List.Basic",
+        "Mathlib.Data.List.Nodup",
+        "Mathlib.Data.List.Permutation",
+        "Mathlib.Data.Nat.Factorial.Basic",
+        "Mathlib.Data.Set.Card",
+        "Mathlib.Logic.Equiv.Fintype",
+        "Mathlib.Logic.Equiv.List",
+        "Mathlib.MeasureTheory.Measure.AEMeasurable",
+        "Mathlib.Probability.ConditionalProbability",
+        "Mathlib.Probability.HasLaw",
+        "Mathlib.Probability.UniformOn",
+        "Mathlib.Tactic",
+        "Mathlib.Tactic.FinCases"
+      ],
+      "edges": [
+        [
+          "Applications.Probability.PermutationMinimum",
+          "Mathlib.Data.Finset.Max"
+        ],
+        [
+          "Applications.Probability.PermutationMinimum",
+          "Mathlib.Data.Fintype.Perm"
+        ],
+        [
+          "Applications.Probability.PermutationMinimum",
+          "Mathlib.Data.Set.Card"
+        ],
+        [
+          "Applications.Probability.PermutationMinimum",
+          "Mathlib.Probability.UniformOn"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Data.Finset.Card"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Data.Finset.Lattice.Lemmas"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Data.Fintype.OfMap"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Data.Fintype.Perm"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Data.List.Basic"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Data.List.Nodup"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Data.List.Permutation"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Data.Set.Card"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Logic.Equiv.Fintype"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Logic.Equiv.List"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Probability.UniformOn"
+        ],
+        [
+          "Applications.Probability.PermutationTail",
+          "Applications.Probability.PermutationOrder"
+        ],
+        [
+          "Applications.Probability.PermutationTail",
+          "Mathlib.Basic.ENNReal.Inv"
+        ],
+        [
+          "Applications.Probability.PermutationTail",
+          "Mathlib.Data.Nat.Factorial.Basic"
+        ],
+        [
+          "Applications.Probability.PermutationTail",
+          "Mathlib.MeasureTheory.Measure.AEMeasurable"
+        ],
+        [
+          "Applications.Probability.PermutationTail",
+          "Mathlib.Probability.ConditionalProbability"
+        ],
+        [
+          "Applications.Probability.PermutationTail",
+          "Mathlib.Probability.HasLaw"
+        ],
+        [
+          "Examples.PermutationMinimum",
+          "Applications.Probability.PermutationMinimum"
+        ],
+        [
+          "Examples.PermutationMinimum",
+          "Examples.PermutationMinimumBoundary"
+        ],
+        [
+          "Examples.PermutationMinimum",
+          "Mathlib.Tactic"
+        ],
+        [
+          "Examples.PermutationMinimumBoundary",
+          "Applications.Probability.PermutationMinimum"
+        ],
+        [
+          "Examples.PermutationMinimumBoundary",
+          "Mathlib.Tactic.FinCases"
+        ],
+        [
+          "Examples.PermutationOrder",
+          "Applications.Probability.PermutationOrder"
+        ],
+        [
+          "Examples.PermutationOrder",
+          "Examples.PermutationOrderBoundary"
+        ],
+        [
+          "Examples.PermutationOrder",
+          "Mathlib.Tactic"
+        ],
+        [
+          "Examples.PermutationOrderBoundary",
+          "Applications.Probability.PermutationOrder"
+        ],
+        [
+          "Examples.PermutationOrderBoundary",
+          "Examples.PermutationMinimum"
+        ],
+        [
+          "Examples.PermutationOrderBoundary",
+          "Mathlib.Tactic"
+        ],
+        [
+          "Examples.PermutationTail",
+          "Applications.Probability.PermutationTail"
+        ],
+        [
+          "Examples.PermutationTail",
+          "Examples.PermutationOrder"
+        ],
+        [
+          "Examples.PermutationTail",
+          "Examples.PermutationTailBoundary"
+        ],
+        [
+          "Examples.PermutationTail",
+          "Mathlib.Tactic"
+        ],
+        [
+          "Examples.PermutationTailBoundary",
+          "Applications.Probability.PermutationTail"
+        ],
+        [
+          "Examples.PermutationTailBoundary",
+          "Examples.PermutationOrder"
+        ],
+        [
+          "Examples.PermutationTailBoundary",
+          "Mathlib.Tactic"
+        ]
+      ]
+    },
+    "J53": {
+      "sources": {
+        "Examples/PermutationOrderBoundary.lean": {
+          "bytes": 5605,
+          "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121",
+          "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59"
+        },
+        "Examples/PermutationMinimum.lean": {
+          "bytes": 4994,
+          "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+          "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876"
+        },
+        "Examples/PermutationMinimumBoundary.lean": {
+          "bytes": 4211,
+          "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+          "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c"
+        },
+        "Applications/Probability/PermutationMinimum.lean": {
+          "bytes": 8241,
+          "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+          "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d"
+        },
+        "Applications/Probability/PermutationOrder.lean": {
+          "bytes": 15304,
+          "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2",
+          "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63"
+        },
+        "Examples/PermutationOrder.lean": {
+          "bytes": 6706,
+          "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084",
+          "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35"
+        }
+      },
+      "external": [
+        "Mathlib.Data.Finset.Card",
+        "Mathlib.Data.Finset.Lattice.Lemmas",
+        "Mathlib.Data.Finset.Max",
+        "Mathlib.Data.Fintype.OfMap",
+        "Mathlib.Data.Fintype.Perm",
+        "Mathlib.Data.List.Basic",
+        "Mathlib.Data.List.Nodup",
+        "Mathlib.Data.List.Permutation",
+        "Mathlib.Data.Set.Card",
+        "Mathlib.Logic.Equiv.Fintype",
+        "Mathlib.Logic.Equiv.List",
+        "Mathlib.Probability.UniformOn",
+        "Mathlib.Tactic",
+        "Mathlib.Tactic.FinCases"
+      ],
+      "edges": [
+        [
+          "Applications.Probability.PermutationMinimum",
+          "Mathlib.Data.Finset.Max"
+        ],
+        [
+          "Applications.Probability.PermutationMinimum",
+          "Mathlib.Data.Fintype.Perm"
+        ],
+        [
+          "Applications.Probability.PermutationMinimum",
+          "Mathlib.Data.Set.Card"
+        ],
+        [
+          "Applications.Probability.PermutationMinimum",
+          "Mathlib.Probability.UniformOn"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Data.Finset.Card"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Data.Finset.Lattice.Lemmas"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Data.Fintype.OfMap"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Data.Fintype.Perm"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Data.List.Basic"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Data.List.Nodup"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Data.List.Permutation"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Data.Set.Card"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Logic.Equiv.Fintype"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Logic.Equiv.List"
+        ],
+        [
+          "Applications.Probability.PermutationOrder",
+          "Mathlib.Probability.UniformOn"
+        ],
+        [
+          "Examples.PermutationMinimum",
+          "Applications.Probability.PermutationMinimum"
+        ],
+        [
+          "Examples.PermutationMinimum",
+          "Examples.PermutationMinimumBoundary"
+        ],
+        [
+          "Examples.PermutationMinimum",
+          "Mathlib.Tactic"
+        ],
+        [
+          "Examples.PermutationMinimumBoundary",
+          "Applications.Probability.PermutationMinimum"
+        ],
+        [
+          "Examples.PermutationMinimumBoundary",
+          "Mathlib.Tactic.FinCases"
+        ],
+        [
+          "Examples.PermutationOrder",
+          "Applications.Probability.PermutationOrder"
+        ],
+        [
+          "Examples.PermutationOrder",
+          "Examples.PermutationOrderBoundary"
+        ],
+        [
+          "Examples.PermutationOrder",
+          "Mathlib.Tactic"
+        ],
+        [
+          "Examples.PermutationOrderBoundary",
+          "Applications.Probability.PermutationOrder"
+        ],
+        [
+          "Examples.PermutationOrderBoundary",
+          "Examples.PermutationMinimum"
+        ],
+        [
+          "Examples.PermutationOrderBoundary",
+          "Mathlib.Tactic"
+        ]
+      ]
+    },
+    "I314": {
+      "sources": {
+        "Examples/InsertionCosts.lean": {
+          "bytes": 3862,
+          "sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37",
+          "git_blob": "1c3de9b0a0a5f27f108de09f28f6ac55f4cddb36"
+        },
+        "Applications/Selection/Rank.lean": {
+          "bytes": 3713,
+          "sha256": "4a82df75593d909e2968bf1e27cbfea52c9795abfe81250bb2385e7dfc16f965",
+          "git_blob": "3412cfa142e12d9a50c725661c6ce133609a3d0c"
+        },
+        "Applications/Sorting/Sort.lean": {
+          "bytes": 5922,
+          "sha256": "5acd7728aaaefdec121df797efafd7dae13476c820d4f85f4ada19868fa71218",
+          "git_blob": "fb7096ebfede6b6a1721c453295faaa851453049"
+        },
+        "Applications/Sorting/Merge.lean": {
+          "bytes": 7840,
+          "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+          "git_blob": "6595f901a9358398bee07333872125990ef8360c"
+        },
+        "Applications/Sorting/Stable.lean": {
+          "bytes": 3704,
+          "sha256": "288552150aa002c60ed06c74e69510112cf9b4e2f0045da3d98ca5c39264d881",
+          "git_blob": "614b0628261442bcbe2a3c97b4af8fc56084fc42"
+        },
+        "Applications/Resources/InsertionSort.lean": {
+          "bytes": 7257,
+          "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+          "git_blob": "d51ea6e9845378d3f7667adee189f8a210b477ed"
+        },
+        "Applications/Resources/CallCount.lean": {
+          "bytes": 2447,
+          "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+          "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195"
+        },
+        "Applications/Resources/Measured.lean": {
+          "bytes": 2906,
+          "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+          "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46"
+        },
+        "Squares.lean": {
+          "bytes": 11694,
+          "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+          "git_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a"
+        },
+        "Examples/ThreeWayPartition.lean": {
+          "bytes": 8109,
+          "sha256": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526",
+          "git_blob": "a1f29b6310bc8623df2725b0d40f3949513199c5"
+        },
+        "Applications/Selection/ThreeWay.lean": {
+          "bytes": 9718,
+          "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa",
+          "git_blob": "8627ad6d219f55a404dd96c4f4553594eaa71264"
+        },
+        "Applications/Sequences/Partition.lean": {
+          "bytes": 3786,
+          "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069",
+          "git_blob": "ff03bd349a39b3b77c49793175d4b474199e7c43"
+        },
+        "Applications/Resources/Partition.lean": {
+          "bytes": 2678,
+          "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14",
+          "git_blob": "e9d3682a4d3a499aaffd41f73c7fc39965fa0d30"
+        },
+        "Examples/PermutationMinimumBoundary.lean": {
+          "bytes": 4211,
+          "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+          "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c"
+        },
+        "Applications/Probability/PermutationMinimum.lean": {
+          "bytes": 8241,
+          "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+          "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d"
+        },
+        "Examples/PermutationMinimum.lean": {
+          "bytes": 4994,
+          "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+          "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876"
+        },
+        "Examples/MergeCosts.lean": {
+          "bytes": 23410,
+          "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466",
+          "git_blob": "b5f652cf5258c99f5a615b12987c664ed8be3d76"
+        },
+        "Examples/StableSorting.lean": {
+          "bytes": 5041,
+          "sha256": "c894760e594cdc31d9dda54553eeff666156c81f7903dea82738c8a95faaf193",
+          "git_blob": "103451954850b23fc45813630321360546e46349"
+        },
+        "Applications/Sorting/SourceMerge.lean": {
+          "bytes": 1537,
+          "sha256": "bebd8eb2f06d92cc10e6f319c96b7965cdee36ff14c4a8b0b19e1351e8ebeaf2",
+          "git_blob": "0c77bae4f80ad4ba48a0b8c1de38f19daedd7809"
+        },
+        "Applications/Search/LeftistQueue.lean": {
+          "bytes": 13036,
+          "sha256": "14a0d1130e04e2576dea2abb452823b5504cdbac9dbc1010f15a2f327c6bc378",
+          "git_blob": "2c50f5e181ea29d4032f0ae8fec4dd33f30c94f0"
+        },
+        "Applications/Resources/CallComparison.lean": {
+          "bytes": 5498,
+          "sha256": "8d6d9324aa9dc71ceeaeaa04073f0f2a4f721a309995f0b623650bb19f01b520",
+          "git_blob": "af658c10d82dbae6ee1cf65fe5e8ecf56b6ba9f5"
+        },
+        "Applications/Resources/Growth.lean": {
+          "bytes": 724,
+          "sha256": "5e252788c2365d3f9140288a1d51f2ef38270798419af40df8505590a7d20dcc",
+          "git_blob": "5453fc50cc172b409f12542921a97d82ca60e067"
+        },
+        "Applications/Resources/ListMerge.lean": {
+          "bytes": 8629,
+          "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975",
+          "git_blob": "b658809bc2ba424807e326c3ee7cb64712865a46"
+        },
+        "Examples/DifferenceListCosts.lean": {
+          "bytes": 9299,
+          "sha256": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1",
+          "git_blob": "33fd3bec15f8c9b7c3078b45d90c24d7df0c1df2"
+        },
+        "Applications/Resources/DifferenceListCosts.lean": {
+          "bytes": 10061,
+          "sha256": "f99420b831dff2d0f5fcc3dac1001937942b87c78b710b79f94fa941ab972b01",
+          "git_blob": "b87222f7c0eb0aafc60031864ca815c2e65fc457"
+        },
+        "Applications/Resources/Workload.lean": {
+          "bytes": 2745,
+          "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+          "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05"
+        },
+        "SquareKit/ListFusion.lean": {
+          "bytes": 2939,
+          "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+          "git_blob": "33ec447acb6da7b884ae57d2a885707208201607"
+        }
+      },
+      "external": [
+        "Batteries.Data.DList.Lemmas",
+        "Lean",
+        "Mathlib.Algebra.BigOperators.Group.List.Basic",
+        "Mathlib.Algebra.Group.Prod",
+        "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+        "Mathlib.Analysis.Asymptotics.Defs",
+        "Mathlib.Analysis.Normed.Field.Basic",
+        "Mathlib.Data.Finset.Lattice.Fold",
+        "Mathlib.Data.Finset.Max",
+        "Mathlib.Data.Fintype.Perm",
+        "Mathlib.Data.List.Basic",
+        "Mathlib.Data.List.Perm.Basic",
+        "Mathlib.Data.List.Sort",
+        "Mathlib.Data.Multiset.AddSub",
+        "Mathlib.Data.Set.Card",
+        "Mathlib.Order.Defs.LinearOrder",
+        "Mathlib.Probability.UniformOn",
+        "Mathlib.Tactic",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Std"
+      ],
+      "edges": [
+        [
+          "Applications.Probability.PermutationMinimum",
+          "Mathlib.Data.Finset.Max"
+        ],
+        [
+          "Applications.Probability.PermutationMinimum",
+          "Mathlib.Data.Fintype.Perm"
+        ],
+        [
+          "Applications.Probability.PermutationMinimum",
+          "Mathlib.Data.Set.Card"
+        ],
+        [
+          "Applications.Probability.PermutationMinimum",
+          "Mathlib.Probability.UniformOn"
+        ],
+        [
+          "Applications.Resources.CallComparison",
+          "Applications.Resources.CallCount"
+        ],
+        [
+          "Applications.Resources.CallComparison",
+          "Applications.Resources.Growth"
+        ],
+        [
+          "Applications.Resources.CallComparison",
+          "Mathlib.Algebra.BigOperators.Group.List.Basic"
+        ],
+        [
+          "Applications.Resources.CallComparison",
+          "Mathlib.Data.Finset.Lattice.Fold"
+        ],
+        [
+          "Applications.Resources.CallCount",
+          "Applications.Resources.Measured"
+        ],
+        [
+          "Applications.Resources.DifferenceListCosts",
+          "Applications.Resources.CallCount"
+        ],
+        [
+          "Applications.Resources.DifferenceListCosts",
+          "Applications.Resources.Workload"
+        ],
+        [
+          "Applications.Resources.DifferenceListCosts",
+          "Batteries.Data.DList.Lemmas"
+        ],
+        [
+          "Applications.Resources.Growth",
+          "Mathlib.Analysis.Asymptotics.Defs"
+        ],
+        [
+          "Applications.Resources.Growth",
+          "Mathlib.Analysis.Normed.Field.Basic"
+        ],
+        [
+          "Applications.Resources.InsertionSort",
+          "Applications.Resources.CallCount"
+        ],
+        [
+          "Applications.Resources.InsertionSort",
+          "Applications.Sorting.Sort"
+        ],
+        [
+          "Applications.Resources.InsertionSort",
+          "Mathlib.Tactic.Linarith"
+        ],
+        [
+          "Applications.Resources.ListMerge",
+          "Applications.Resources.CallCount"
+        ],
+        [
+          "Applications.Resources.ListMerge",
+          "Applications.Sorting.SourceMerge"
+        ],
+        [
+          "Applications.Resources.Measured",
+          "Mathlib.Algebra.Group.Prod"
+        ],
+        [
+          "Applications.Resources.Measured",
+          "Mathlib.Algebra.Order.Monoid.Unbundled.Basic"
+        ],
+        [
+          "Applications.Resources.Measured",
+          "Squares"
+        ],
+        [
+          "Applications.Resources.Partition",
+          "Applications.Resources.CallCount"
+        ],
+        [
+          "Applications.Resources.Partition",
+          "Applications.Sequences.Partition"
+        ],
+        [
+          "Applications.Resources.Workload",
+          "Applications.Resources.Measured"
+        ],
+        [
+          "Applications.Resources.Workload",
+          "SquareKit.ListFusion"
+        ],
+        [
+          "Applications.Search.LeftistQueue",
+          "Std"
+        ],
+        [
+          "Applications.Selection.Rank",
+          "Applications.Sorting.Sort"
+        ],
+        [
+          "Applications.Selection.ThreeWay",
+          "Applications.Selection.Rank"
+        ],
+        [
+          "Applications.Selection.ThreeWay",
+          "Applications.Sequences.Partition"
+        ],
+        [
+          "Applications.Sequences.Partition",
+          "Mathlib.Data.List.Perm.Basic"
+        ],
+        [
+          "Applications.Sequences.Partition",
+          "Mathlib.Order.Defs.LinearOrder"
+        ],
+        [
+          "Applications.Sorting.Merge",
+          "Applications.Sorting.Stable"
+        ],
+        [
+          "Applications.Sorting.Sort",
+          "Applications.Sorting.Merge"
+        ],
+        [
+          "Applications.Sorting.SourceMerge",
+          "Applications.Sorting.Merge"
+        ],
+        [
+          "Applications.Sorting.Stable",
+          "Mathlib.Data.List.Sort"
+        ],
+        [
+          "Examples.DifferenceListCosts",
+          "Applications.Resources.DifferenceListCosts"
+        ],
+        [
+          "Examples.DifferenceListCosts",
+          "Mathlib.Tactic.NormNum"
+        ],
+        [
+          "Examples.InsertionCosts",
+          "Applications.Resources.InsertionSort"
+        ],
+        [
+          "Examples.InsertionCosts",
+          "Applications.Selection.Rank"
+        ],
+        [
+          "Examples.MergeCosts",
+          "Applications.Resources.CallComparison"
+        ],
+        [
+          "Examples.MergeCosts",
+          "Applications.Resources.ListMerge"
+        ],
+        [
+          "Examples.MergeCosts",
+          "Applications.Search.LeftistQueue"
+        ],
+        [
+          "Examples.MergeCosts",
+          "Examples.StableSorting"
+        ],
+        [
+          "Examples.MergeCosts",
+          "Mathlib.Data.Multiset.AddSub"
+        ],
+        [
+          "Examples.PermutationMinimum",
+          "Applications.Probability.PermutationMinimum"
+        ],
+        [
+          "Examples.PermutationMinimum",
+          "Examples.PermutationMinimumBoundary"
+        ],
+        [
+          "Examples.PermutationMinimum",
+          "Mathlib.Tactic"
+        ],
+        [
+          "Examples.PermutationMinimumBoundary",
+          "Applications.Probability.PermutationMinimum"
+        ],
+        [
+          "Examples.PermutationMinimumBoundary",
+          "Mathlib.Tactic.FinCases"
+        ],
+        [
+          "Examples.StableSorting",
+          "Applications.Sorting.Sort"
+        ],
+        [
+          "Examples.StableSorting",
+          "Applications.Sorting.SourceMerge"
+        ],
+        [
+          "Examples.ThreeWayPartition",
+          "Applications.Resources.Partition"
+        ],
+        [
+          "Examples.ThreeWayPartition",
+          "Applications.Selection.ThreeWay"
+        ],
+        [
+          "SquareKit.ListFusion",
+          "Mathlib.Data.List.Basic"
+        ],
+        [
+          "Squares",
+          "Lean"
+        ]
+      ]
+    },
+    "F110": {
+      "sources": {
+        "Examples/ListLibrary.lean": {
+          "bytes": 6761,
+          "sha256": "036cf4c12ddf5d25ce433d9f7dbedfcbb96dfc3c7f602d10605388d2791e47ad",
+          "git_blob": "99ba369997885e176bbda192ee0feb5c7bf4d034"
+        },
+        "Examples/ListCalls.lean": {
+          "bytes": 4333,
+          "sha256": "24d0809f51d04b0a9cadb5a349141e7327a5f7721f63c1021113527917487d5d",
+          "git_blob": "b4c4683ee2bd16ff6f844ce757470515847a63dc"
+        },
+        "Applications/Resources/ListReversal.lean": {
+          "bytes": 4827,
+          "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+          "git_blob": "62ab85a7325d521bf925405f9abb053703f4d175"
+        },
+        "Applications/Resources/TreeFlattening/Core.lean": {
+          "bytes": 4225,
+          "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+          "git_blob": "d136193bd3823ee00431bc240d1e7a0168b4ddaf"
+        },
+        "Applications/Resources/Measured.lean": {
+          "bytes": 2906,
+          "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+          "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46"
+        },
+        "Squares.lean": {
+          "bytes": 11694,
+          "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+          "git_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a"
+        },
+        "Applications/Resources/RandomAccess/CacheCosts.lean": {
+          "bytes": 2227,
+          "sha256": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+          "git_blob": "e583ec5285ea887c38f4b369071408697f0574b2"
+        },
+        "Applications/Sequences/RandomAccess/TreeBuild.lean": {
+          "bytes": 5392,
+          "sha256": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+          "git_blob": "3b662705f001c2a4b8fbe12868d6c7e77316d95f"
+        },
+        "Applications/Sequences/RandomAccess/Borrow.lean": {
+          "bytes": 5680,
+          "sha256": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+          "git_blob": "81b95e8bd4a6e30f6a20a85828409d6d55437be0"
+        },
+        "Applications/Sequences/RandomAccess/Access.lean": {
+          "bytes": 5219,
+          "sha256": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+          "git_blob": "5354c146a0665cce90ffc996d1b522b8a59079ad"
+        },
+        "Applications/Sequences/RandomAccess/Basic.lean": {
+          "bytes": 5970,
+          "sha256": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+          "git_blob": "fe040b71615878a86d06b326b820e1d5cd5f0229"
+        },
+        "Applications/Bracketing/Basic.lean": {
+          "bytes": 8561,
+          "sha256": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+          "git_blob": "3f6604c226908ee807c7d5076bd1c027b48bbf90"
+        },
+        "Applications/Optimization/SelectionSpec.lean": {
+          "bytes": 738,
+          "sha256": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+          "git_blob": "2548b66575b5a453e8cec30ceb745234bb0ae2e6"
+        },
+        "Applications/Resources/SymmetricCosts.lean": {
+          "bytes": 10508,
+          "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+          "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233"
+        },
+        "Applications/Sequences/Symmetric/Core.lean": {
+          "bytes": 12059,
+          "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+          "git_blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4"
+        },
+        "SquareKit/ListFusion.lean": {
+          "bytes": 2939,
+          "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+          "git_blob": "33ec447acb6da7b884ae57d2a885707208201607"
+        },
+        "Applications/Resources/Potential.lean": {
+          "bytes": 4638,
+          "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe",
+          "git_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1"
+        },
+        "Applications/Resources/Workload.lean": {
+          "bytes": 2745,
+          "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+          "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05"
+        },
+        "Applications/Resources/CallCount.lean": {
+          "bytes": 2447,
+          "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+          "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195"
+        },
+        "Applications/Resources/ListCalls.lean": {
+          "bytes": 7939,
+          "sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+          "git_blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4"
+        },
+        "Examples/FunctionalNotation.lean": {
+          "bytes": 8277,
+          "sha256": "fe4b585a6753110dee67c1942ce68d16d9bf00feb5946f32791682c634c42eef",
+          "git_blob": "3e5db8677c94bd330779522f92bc39508540a17a"
+        },
+        "Examples/FunctionalBasics.lean": {
+          "bytes": 3381,
+          "sha256": "f9d141719675eaaf1a09bcfabf1a0e79cc2f68f89406a2229233b71a8d1bae3d",
+          "git_blob": "bdd58014ed1f3ca284e4ba44155da946c65de866"
+        },
+        "Applications/Arithmetic/EuclidInduction.lean": {
+          "bytes": 1069,
+          "sha256": "1195a850cc25d518c50f6f6133da87f5d4fcffd264ea3c687c67b5dcc34abe3e",
+          "git_blob": "0c4d03bcd60641cabb821ad5bfc1f6763656dc54"
+        }
+      },
+      "external": [
+        "Lean",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+        "Mathlib.Algebra.BigOperators.Group.List.Basic",
+        "Mathlib.Algebra.BigOperators.Group.Multiset.Basic",
+        "Mathlib.Algebra.Group.Nat.Defs",
+        "Mathlib.Algebra.Group.Prod",
+        "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+        "Mathlib.Algebra.Order.Floor.Ring",
+        "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+        "Mathlib.Basic.Real.Basic",
+        "Mathlib.Data.Int.DivMod",
+        "Mathlib.Data.List.Basic",
+        "Mathlib.Data.List.Chain",
+        "Mathlib.Data.List.Infix",
+        "Mathlib.Data.List.Intervals",
+        "Mathlib.Data.List.MinMax",
+        "Mathlib.Data.List.Sort",
+        "Mathlib.Data.Multiset.Filter",
+        "Mathlib.Data.Nat.GCD.Basic",
+        "Mathlib.Data.Set.Finite.Basic",
+        "Mathlib.Data.Set.Lattice.Bounded",
+        "Mathlib.Data.Set.Lattice.Disjoint",
+        "Mathlib.Data.Set.Lattice.Image",
+        "Mathlib.Data.Set.Lattice.Indexed",
+        "Mathlib.Data.Set.Lattice.Order",
+        "Mathlib.Data.Set.Prod",
+        "Mathlib.Logic.Function.Basic",
+        "Mathlib.Order.Interval.Finset.Nat",
+        "Mathlib.Order.Interval.Set.Defs",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Std"
+      ],
+      "edges": [
+        [
+          "Applications.Arithmetic.EuclidInduction",
+          "Mathlib.Data.Nat.GCD.Basic"
+        ],
+        [
+          "Applications.Bracketing.Basic",
+          "Applications.Optimization.SelectionSpec"
+        ],
+        [
+          "Applications.Optimization.SelectionSpec",
+          "Std"
+        ],
+        [
+          "Applications.Resources.CallCount",
+          "Applications.Resources.Measured"
+        ],
+        [
+          "Applications.Resources.ListCalls",
+          "Applications.Resources.CallCount"
+        ],
+        [
+          "Applications.Resources.ListCalls",
+          "Applications.Resources.SymmetricCosts"
+        ],
+        [
+          "Applications.Resources.ListCalls",
+          "Mathlib.Algebra.BigOperators.Group.List.Basic"
+        ],
+        [
+          "Applications.Resources.ListReversal",
+          "Applications.Resources.CallCount"
+        ],
+        [
+          "Applications.Resources.ListReversal",
+          "Applications.Resources.SymmetricCosts"
+        ],
+        [
+          "Applications.Resources.ListReversal",
+          "Applications.Resources.TreeFlattening.Core"
+        ],
+        [
+          "Applications.Resources.ListReversal",
+          "Mathlib.Tactic.Linarith"
+        ],
+        [
+          "Applications.Resources.Measured",
+          "Mathlib.Algebra.Group.Prod"
+        ],
+        [
+          "Applications.Resources.Measured",
+          "Mathlib.Algebra.Order.Monoid.Unbundled.Basic"
+        ],
+        [
+          "Applications.Resources.Measured",
+          "Squares"
+        ],
+        [
+          "Applications.Resources.Potential",
+          "Applications.Resources.Workload"
+        ],
+        [
+          "Applications.Resources.Potential",
+          "Mathlib.Algebra.Group.Nat.Defs"
+        ],
+        [
+          "Applications.Resources.RandomAccess.CacheCosts",
+          "Applications.Sequences.RandomAccess.TreeBuild"
+        ],
+        [
+          "Applications.Resources.SymmetricCosts",
+          "Applications.Resources.Potential"
+        ],
+        [
+          "Applications.Resources.SymmetricCosts",
+          "Applications.Sequences.Symmetric.Core"
+        ],
+        [
+          "Applications.Resources.TreeFlattening.Core",
+          "Applications.Resources.Measured"
+        ],
+        [
+          "Applications.Resources.TreeFlattening.Core",
+          "Applications.Resources.RandomAccess.CacheCosts"
+        ],
+        [
+          "Applications.Resources.Workload",
+          "Applications.Resources.Measured"
+        ],
+        [
+          "Applications.Resources.Workload",
+          "SquareKit.ListFusion"
+        ],
+        [
+          "Applications.Sequences.RandomAccess.Access",
+          "Applications.Sequences.RandomAccess.Basic"
+        ],
+        [
+          "Applications.Sequences.RandomAccess.Basic",
+          "Applications.Bracketing.Basic"
+        ],
+        [
+          "Applications.Sequences.RandomAccess.Borrow",
+          "Applications.Sequences.RandomAccess.Access"
+        ],
+        [
+          "Applications.Sequences.RandomAccess.TreeBuild",
+          "Applications.Sequences.RandomAccess.Borrow"
+        ],
+        [
+          "Applications.Sequences.Symmetric.Core",
+          "Mathlib.Data.List.Infix"
+        ],
+        [
+          "Applications.Sequences.Symmetric.Core",
+          "SquareKit.ListFusion"
+        ],
+        [
+          "Examples.FunctionalBasics",
+          "Applications.Arithmetic.EuclidInduction"
+        ],
+        [
+          "Examples.FunctionalBasics",
+          "Mathlib.Algebra.BigOperators.Group.Multiset.Basic"
+        ],
+        [
+          "Examples.FunctionalBasics",
+          "Mathlib.Basic.Real.Basic"
+        ],
+        [
+          "Examples.FunctionalBasics",
+          "Mathlib.Data.Multiset.Filter"
+        ],
+        [
+          "Examples.FunctionalBasics",
+          "Mathlib.Logic.Function.Basic"
+        ],
+        [
+          "Examples.FunctionalBasics",
+          "Mathlib.Tactic.NormNum"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Examples.FunctionalBasics"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Examples.ListLibrary"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Algebra.BigOperators.Group.Finset.Basic"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Algebra.Order.Archimedean.Real.Basic"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Algebra.Order.Floor.Ring"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Data.Int.DivMod"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Data.Set.Finite.Basic"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Data.Set.Lattice.Bounded"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Data.Set.Lattice.Disjoint"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Data.Set.Lattice.Image"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Data.Set.Lattice.Indexed"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Data.Set.Lattice.Order"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Data.Set.Prod"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Order.Interval.Finset.Nat"
+        ],
+        [
+          "Examples.FunctionalNotation",
+          "Mathlib.Order.Interval.Set.Defs"
+        ],
+        [
+          "Examples.ListCalls",
+          "Applications.Resources.ListCalls"
+        ],
+        [
+          "Examples.ListCalls",
+          "Applications.Resources.ListReversal"
+        ],
+        [
+          "Examples.ListLibrary",
+          "Mathlib.Data.List.Chain"
+        ],
+        [
+          "Examples.ListLibrary",
+          "Mathlib.Data.List.Intervals"
+        ],
+        [
+          "Examples.ListLibrary",
+          "Mathlib.Data.List.MinMax"
+        ],
+        [
+          "Examples.ListLibrary",
+          "Mathlib.Data.List.Sort"
+        ],
+        [
+          "SquareKit.ListFusion",
+          "Mathlib.Data.List.Basic"
+        ],
+        [
+          "Squares",
+          "Lean"
+        ]
+      ]
+    }
+  },
+  "all_complete_supported_artifact_keys": {
+    "Tail61": [
+      ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.olean",
+      ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.olean.hash",
+      ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.trace",
+      ".lake/build/lib/lean/Applications/Probability/PermutationOrder.olean",
+      ".lake/build/lib/lean/Applications/Probability/PermutationOrder.olean.hash",
+      ".lake/build/lib/lean/Applications/Probability/PermutationOrder.trace",
+      ".lake/build/lib/lean/Applications/Probability/PermutationTail.olean",
+      ".lake/build/lib/lean/Applications/Probability/PermutationTail.olean.hash",
+      ".lake/build/lib/lean/Applications/Probability/PermutationTail.trace",
+      ".lake/build/lib/lean/Examples/PermutationMinimum.olean",
+      ".lake/build/lib/lean/Examples/PermutationMinimum.olean.hash",
+      ".lake/build/lib/lean/Examples/PermutationMinimum.trace",
+      ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.olean",
+      ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.olean.hash",
+      ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.trace",
+      ".lake/build/lib/lean/Examples/PermutationOrder.olean",
+      ".lake/build/lib/lean/Examples/PermutationOrder.olean.hash",
+      ".lake/build/lib/lean/Examples/PermutationOrder.trace",
+      ".lake/build/lib/lean/Examples/PermutationOrderBoundary.olean",
+      ".lake/build/lib/lean/Examples/PermutationOrderBoundary.olean.hash",
+      ".lake/build/lib/lean/Examples/PermutationOrderBoundary.trace",
+      ".lake/build/lib/lean/Examples/PermutationTail.olean",
+      ".lake/build/lib/lean/Examples/PermutationTail.olean.hash",
+      ".lake/build/lib/lean/Examples/PermutationTail.trace",
+      ".lake/build/lib/lean/Examples/PermutationTailBoundary.olean",
+      ".lake/build/lib/lean/Examples/PermutationTailBoundary.olean.hash",
+      ".lake/build/lib/lean/Examples/PermutationTailBoundary.trace"
+    ],
+    "J53": [
+      ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.olean",
+      ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.olean.hash",
+      ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.trace",
+      ".lake/build/lib/lean/Applications/Probability/PermutationOrder.olean",
+      ".lake/build/lib/lean/Applications/Probability/PermutationOrder.olean.hash",
+      ".lake/build/lib/lean/Applications/Probability/PermutationOrder.trace",
+      ".lake/build/lib/lean/Examples/PermutationMinimum.olean",
+      ".lake/build/lib/lean/Examples/PermutationMinimum.olean.hash",
+      ".lake/build/lib/lean/Examples/PermutationMinimum.trace",
+      ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.olean",
+      ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.olean.hash",
+      ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.trace",
+      ".lake/build/lib/lean/Examples/PermutationOrder.olean",
+      ".lake/build/lib/lean/Examples/PermutationOrder.olean.hash",
+      ".lake/build/lib/lean/Examples/PermutationOrder.trace",
+      ".lake/build/lib/lean/Examples/PermutationOrderBoundary.olean",
+      ".lake/build/lib/lean/Examples/PermutationOrderBoundary.olean.hash",
+      ".lake/build/lib/lean/Examples/PermutationOrderBoundary.trace"
+    ],
+    "I314": [
+      ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.olean",
+      ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.olean.hash",
+      ".lake/build/lib/lean/Applications/Probability/PermutationMinimum.trace",
+      ".lake/build/lib/lean/Applications/Resources/CallComparison.olean",
+      ".lake/build/lib/lean/Applications/Resources/CallComparison.olean.hash",
+      ".lake/build/lib/lean/Applications/Resources/CallComparison.trace",
+      ".lake/build/lib/lean/Applications/Resources/CallCount.olean",
+      ".lake/build/lib/lean/Applications/Resources/CallCount.olean.hash",
+      ".lake/build/lib/lean/Applications/Resources/CallCount.trace",
+      ".lake/build/lib/lean/Applications/Resources/DifferenceListCosts.olean",
+      ".lake/build/lib/lean/Applications/Resources/DifferenceListCosts.olean.hash",
+      ".lake/build/lib/lean/Applications/Resources/DifferenceListCosts.trace",
+      ".lake/build/lib/lean/Applications/Resources/Growth.olean",
+      ".lake/build/lib/lean/Applications/Resources/Growth.olean.hash",
+      ".lake/build/lib/lean/Applications/Resources/Growth.trace",
+      ".lake/build/lib/lean/Applications/Resources/InsertionSort.olean",
+      ".lake/build/lib/lean/Applications/Resources/InsertionSort.olean.hash",
+      ".lake/build/lib/lean/Applications/Resources/InsertionSort.trace",
+      ".lake/build/lib/lean/Applications/Resources/ListMerge.olean",
+      ".lake/build/lib/lean/Applications/Resources/ListMerge.olean.hash",
+      ".lake/build/lib/lean/Applications/Resources/ListMerge.trace",
+      ".lake/build/lib/lean/Applications/Resources/Measured.olean",
+      ".lake/build/lib/lean/Applications/Resources/Measured.olean.hash",
+      ".lake/build/lib/lean/Applications/Resources/Measured.trace",
+      ".lake/build/lib/lean/Applications/Resources/Partition.olean",
+      ".lake/build/lib/lean/Applications/Resources/Partition.olean.hash",
+      ".lake/build/lib/lean/Applications/Resources/Partition.trace",
+      ".lake/build/lib/lean/Applications/Resources/Workload.olean",
+      ".lake/build/lib/lean/Applications/Resources/Workload.olean.hash",
+      ".lake/build/lib/lean/Applications/Resources/Workload.trace",
+      ".lake/build/lib/lean/Applications/Search/LeftistQueue.olean",
+      ".lake/build/lib/lean/Applications/Search/LeftistQueue.olean.hash",
+      ".lake/build/lib/lean/Applications/Search/LeftistQueue.trace",
+      ".lake/build/lib/lean/Applications/Selection/Rank.olean",
+      ".lake/build/lib/lean/Applications/Selection/Rank.olean.hash",
+      ".lake/build/lib/lean/Applications/Selection/Rank.trace",
+      ".lake/build/lib/lean/Applications/Selection/ThreeWay.olean",
+      ".lake/build/lib/lean/Applications/Selection/ThreeWay.olean.hash",
+      ".lake/build/lib/lean/Applications/Selection/ThreeWay.trace",
+      ".lake/build/lib/lean/Applications/Sequences/Partition.olean",
+      ".lake/build/lib/lean/Applications/Sequences/Partition.olean.hash",
+      ".lake/build/lib/lean/Applications/Sequences/Partition.trace",
+      ".lake/build/lib/lean/Applications/Sorting/Merge.olean",
+      ".lake/build/lib/lean/Applications/Sorting/Merge.olean.hash",
+      ".lake/build/lib/lean/Applications/Sorting/Merge.trace",
+      ".lake/build/lib/lean/Applications/Sorting/Sort.olean",
+      ".lake/build/lib/lean/Applications/Sorting/Sort.olean.hash",
+      ".lake/build/lib/lean/Applications/Sorting/Sort.trace",
+      ".lake/build/lib/lean/Applications/Sorting/SourceMerge.olean",
+      ".lake/build/lib/lean/Applications/Sorting/SourceMerge.olean.hash",
+      ".lake/build/lib/lean/Applications/Sorting/SourceMerge.trace",
+      ".lake/build/lib/lean/Applications/Sorting/Stable.olean",
+      ".lake/build/lib/lean/Applications/Sorting/Stable.olean.hash",
+      ".lake/build/lib/lean/Applications/Sorting/Stable.trace",
+      ".lake/build/lib/lean/Examples/DifferenceListCosts.olean",
+      ".lake/build/lib/lean/Examples/DifferenceListCosts.olean.hash",
+      ".lake/build/lib/lean/Examples/DifferenceListCosts.trace",
+      ".lake/build/lib/lean/Examples/InsertionCosts.olean",
+      ".lake/build/lib/lean/Examples/InsertionCosts.olean.hash",
+      ".lake/build/lib/lean/Examples/InsertionCosts.trace",
+      ".lake/build/lib/lean/Examples/MergeCosts.olean",
+      ".lake/build/lib/lean/Examples/MergeCosts.olean.hash",
+      ".lake/build/lib/lean/Examples/MergeCosts.trace",
+      ".lake/build/lib/lean/Examples/PermutationMinimum.olean",
+      ".lake/build/lib/lean/Examples/PermutationMinimum.olean.hash",
+      ".lake/build/lib/lean/Examples/PermutationMinimum.trace",
+      ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.olean",
+      ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.olean.hash",
+      ".lake/build/lib/lean/Examples/PermutationMinimumBoundary.trace",
+      ".lake/build/lib/lean/Examples/StableSorting.olean",
+      ".lake/build/lib/lean/Examples/StableSorting.olean.hash",
+      ".lake/build/lib/lean/Examples/StableSorting.trace",
+      ".lake/build/lib/lean/Examples/ThreeWayPartition.olean",
+      ".lake/build/lib/lean/Examples/ThreeWayPartition.olean.hash",
+      ".lake/build/lib/lean/Examples/ThreeWayPartition.trace",
+      ".lake/build/lib/lean/SquareKit/ListFusion.olean",
+      ".lake/build/lib/lean/SquareKit/ListFusion.olean.hash",
+      ".lake/build/lib/lean/SquareKit/ListFusion.trace",
+      ".lake/build/lib/lean/Squares.olean",
+      ".lake/build/lib/lean/Squares.olean.hash",
+      ".lake/build/lib/lean/Squares.trace"
+    ],
+    "F110": [
+      ".lake/build/lib/lean/Applications/Arithmetic/EuclidInduction.olean",
+      ".lake/build/lib/lean/Applications/Arithmetic/EuclidInduction.olean.hash",
+      ".lake/build/lib/lean/Applications/Arithmetic/EuclidInduction.trace",
+      ".lake/build/lib/lean/Applications/Bracketing/Basic.olean",
+      ".lake/build/lib/lean/Applications/Bracketing/Basic.olean.hash",
+      ".lake/build/lib/lean/Applications/Bracketing/Basic.trace",
+      ".lake/build/lib/lean/Applications/Optimization/SelectionSpec.olean",
+      ".lake/build/lib/lean/Applications/Optimization/SelectionSpec.olean.hash",
+      ".lake/build/lib/lean/Applications/Optimization/SelectionSpec.trace",
+      ".lake/build/lib/lean/Applications/Resources/CallCount.olean",
+      ".lake/build/lib/lean/Applications/Resources/CallCount.olean.hash",
+      ".lake/build/lib/lean/Applications/Resources/CallCount.trace",
+      ".lake/build/lib/lean/Applications/Resources/ListCalls.olean",
+      ".lake/build/lib/lean/Applications/Resources/ListCalls.olean.hash",
+      ".lake/build/lib/lean/Applications/Resources/ListCalls.trace",
+      ".lake/build/lib/lean/Applications/Resources/ListReversal.olean",
+      ".lake/build/lib/lean/Applications/Resources/ListReversal.olean.hash",
+      ".lake/build/lib/lean/Applications/Resources/ListReversal.trace",
+      ".lake/build/lib/lean/Applications/Resources/Measured.olean",
+      ".lake/build/lib/lean/Applications/Resources/Measured.olean.hash",
+      ".lake/build/lib/lean/Applications/Resources/Measured.trace",
+      ".lake/build/lib/lean/Applications/Resources/Potential.olean",
+      ".lake/build/lib/lean/Applications/Resources/Potential.olean.hash",
+      ".lake/build/lib/lean/Applications/Resources/Potential.trace",
+      ".lake/build/lib/lean/Applications/Resources/RandomAccess/CacheCosts.olean",
+      ".lake/build/lib/lean/Applications/Resources/RandomAccess/CacheCosts.olean.hash",
+      ".lake/build/lib/lean/Applications/Resources/RandomAccess/CacheCosts.trace",
+      ".lake/build/lib/lean/Applications/Resources/SymmetricCosts.olean",
+      ".lake/build/lib/lean/Applications/Resources/SymmetricCosts.olean.hash",
+      ".lake/build/lib/lean/Applications/Resources/SymmetricCosts.trace",
+      ".lake/build/lib/lean/Applications/Resources/TreeFlattening/Core.olean",
+      ".lake/build/lib/lean/Applications/Resources/TreeFlattening/Core.olean.hash",
+      ".lake/build/lib/lean/Applications/Resources/TreeFlattening/Core.trace",
+      ".lake/build/lib/lean/Applications/Resources/Workload.olean",
+      ".lake/build/lib/lean/Applications/Resources/Workload.olean.hash",
+      ".lake/build/lib/lean/Applications/Resources/Workload.trace",
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Access.olean",
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Access.olean.hash",
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Access.trace",
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Basic.olean",
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Basic.olean.hash",
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Basic.trace",
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Borrow.olean",
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Borrow.olean.hash",
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Borrow.trace",
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/TreeBuild.olean",
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/TreeBuild.olean.hash",
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/TreeBuild.trace",
+      ".lake/build/lib/lean/Applications/Sequences/Symmetric/Core.olean",
+      ".lake/build/lib/lean/Applications/Sequences/Symmetric/Core.olean.hash",
+      ".lake/build/lib/lean/Applications/Sequences/Symmetric/Core.trace",
+      ".lake/build/lib/lean/Examples/FunctionalBasics.olean",
+      ".lake/build/lib/lean/Examples/FunctionalBasics.olean.hash",
+      ".lake/build/lib/lean/Examples/FunctionalBasics.trace",
+      ".lake/build/lib/lean/Examples/FunctionalNotation.olean",
+      ".lake/build/lib/lean/Examples/FunctionalNotation.olean.hash",
+      ".lake/build/lib/lean/Examples/FunctionalNotation.trace",
+      ".lake/build/lib/lean/Examples/ListCalls.olean",
+      ".lake/build/lib/lean/Examples/ListCalls.olean.hash",
+      ".lake/build/lib/lean/Examples/ListCalls.trace",
+      ".lake/build/lib/lean/Examples/ListLibrary.olean",
+      ".lake/build/lib/lean/Examples/ListLibrary.olean.hash",
+      ".lake/build/lib/lean/Examples/ListLibrary.trace",
+      ".lake/build/lib/lean/SquareKit/ListFusion.olean",
+      ".lake/build/lib/lean/SquareKit/ListFusion.olean.hash",
+      ".lake/build/lib/lean/SquareKit/ListFusion.trace",
+      ".lake/build/lib/lean/Squares.olean",
+      ".lake/build/lib/lean/Squares.olean.hash",
+      ".lake/build/lib/lean/Squares.trace"
+    ]
+  },
+  "common_exact_fields": {
+    "configs": 10,
+    "actual_clean_dependency_records": 9,
+    "runtime_components": 12,
+    "dependency_paths_not_normalized": true
+  },
+  "programs_and_actual_producer_records": {
+    "Tail61": {
+      "program": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+        "bytes": 4105,
+        "lines": 75,
+        "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa"
+      },
+      "native_output": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-complete-public-statements61-20261104-attempt1/native-records/output.log",
+        "bytes": 84784,
+        "lines": 1073,
+        "sha256": "57747c4b4764ac5aea6885671ff66b5ff202da2c919a0e9bb38f5921738916cf"
+      },
+      "outer_output": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-complete-public-statements61-20261104-attempt1/full.log",
+        "bytes": 85148,
+        "lines": 1076,
+        "sha256": "6ee54f20c375ad1ddf0ffcd79f30d2552f3bee2c52632f6ce7f8155625cc3b8e"
+      },
+      "index": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-complete-public-statements61-20261104-attempt1/output-blocks.json",
+        "bytes": 24176,
+        "lines": 684,
+        "sha256": "9e83cbfb18c911c3602c2e9fde71b727456bab93ad6bd76375f472142cadb748"
+      },
+      "result": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-complete-public-statements61-20261104-attempt1/result.json",
+        "bytes": 1414,
+        "lines": 33,
+        "sha256": "166535394036f2c652e6d324c17401eadfc1d0dac2ae0b48bc40b9e97e20dbc8"
+      },
+      "native_result": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-complete-public-statements61-20261104-attempt1/native-records/result.json",
+        "bytes": 718,
+        "lines": 19,
+        "sha256": "57111ff744ca1bdc7ef97cdbb4b9b86e2737f566fd4e008c5f9028ba493fd12e"
+      },
+      "full_order_and_every_block_byte_hash_independently_checked": true
+    },
+    "J53": {
+      "program": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-xu02-statement-source-20261104/Statements.lean",
+        "bytes": 3522,
+        "lines": 61,
+        "sha256": "e2a9cbb72b7d24ef6fc53732a8f597ac32eca4f0f2a10e135745b5444d1a81c3"
+      },
+      "native_output": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-complete-public-statements53-20261104-attempt1/native-records/output.log",
+        "bytes": 91080,
+        "lines": 1075,
+        "sha256": "48466b063b338defe63e54b3eed7594095cd3036dd773443ef9649b2bc211b65"
+      },
+      "outer_output": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-complete-public-statements53-20261104-attempt1/full.log",
+        "bytes": 91428,
+        "lines": 1078,
+        "sha256": "54821ffa5bf5340248ed33971ff353c1335ff8a4988e23df048fe0892a7b2584"
+      },
+      "index": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-complete-public-statements53-20261104-attempt1/output-blocks.json",
+        "bytes": 22024,
+        "lines": 670,
+        "sha256": "5ac94d0bd7a5ae4b51b0aa35cf24bbd7b89cfa9be122d7cc1c8514d319d76269"
+      },
+      "result": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-complete-public-statements53-20261104-attempt1/result.json",
+        "bytes": 1399,
+        "lines": 33,
+        "sha256": "db079a70c552f4871fc32b4235b96b385e28cef14263966f0208113d4dbf4cde"
+      },
+      "native_result": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-complete-public-statements53-20261104-attempt1/native-records/result.json",
+        "bytes": 702,
+        "lines": 19,
+        "sha256": "221966b7f590b03a50a0c8ae2cb1c8b06e756af0d050b82c181e950f77ecf57b"
+      },
+      "full_order_and_every_block_byte_hash_independently_checked": true
+    },
+    "I314": {
+      "program": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+        "bytes": 16826,
+        "lines": 340,
+        "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754"
+      },
+      "native_output": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/output.log",
+        "bytes": 256987,
+        "lines": 3438,
+        "sha256": "3bdb9dc0a92ec781a28b46de1a3eb843bda4efcd17c2292f091c19e52df7c50c"
+      },
+      "outer_output": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-complete-public-statements314-20261104-attempt1/full.log",
+        "bytes": 257353,
+        "lines": 3441,
+        "sha256": "dec9c59e8b0891f7863ad9d84b624b763a58114db0d36c20e8865727f4197352"
+      },
+      "index": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-complete-public-statements314-20261104-attempt1/output-blocks.json",
+        "bytes": 112874,
+        "lines": 3199,
+        "sha256": "2fe194e3f70287d3be4815f418f7ee898e46980145afc2761c469701b1073f12"
+      },
+      "result": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-complete-public-statements314-20261104-attempt1/result.json",
+        "bytes": 1412,
+        "lines": 33,
+        "sha256": "4e96d347b0303913359798dc0d58981c59f8d07d70eb946f263a6c68fda83f44"
+      },
+      "native_result": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/result.json",
+        "bytes": 719,
+        "lines": 19,
+        "sha256": "e7a21394c023d7915d9e633d9f9cefce17579fe39c30b613b02f999e80d4749e"
+      },
+      "full_order_and_every_block_byte_hash_independently_checked": true
+    },
+    "F145": {
+      "program": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+        "bytes": 7518,
+        "lines": 156,
+        "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4"
+      },
+      "native_output": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-complete-public-statements145-20261104-attempt1/native-records/output.log",
+        "bytes": 107530,
+        "lines": 1491,
+        "sha256": "bbf02ed2d02358a10d1ed670e28bc00e43beef3af20409d4dc926ad36ab193c2"
+      },
+      "outer_output": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-complete-public-statements145-20261104-attempt1/full.log",
+        "bytes": 107894,
+        "lines": 1494,
+        "sha256": "61ec42665eb65844556f10adb003cb706d45af01111affd0614405b5772fd5f4"
+      },
+      "index": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-complete-public-statements145-20261104-attempt1/output-blocks.json",
+        "bytes": 46564,
+        "lines": 1492,
+        "sha256": "77705d6d4150af6d722114fd8836a2c67efdecd43d26e0019eb8fe5fa2f599d4"
+      },
+      "result": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-complete-public-statements145-20261104-attempt1/result.json",
+        "bytes": 1415,
+        "lines": 33,
+        "sha256": "f563b12f4b572f99531027ab920784a94b8b9118a6e17cb1e65669217b1a216b"
+      },
+      "native_result": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-complete-public-statements145-20261104-attempt1/native-records/result.json",
+        "bytes": 718,
+        "lines": 19,
+        "sha256": "d41d579cb7a4089cbee06ec5636e458e2b4de7001bd1a99e5d98ad2fa58dc724"
+      },
+      "full_order_and_every_block_byte_hash_independently_checked": true
+    }
+  },
+  "exact_name_groups": {
+    "current61": [
+      "Applications.Probability.PermutationTail.firstEvent",
+      "Applications.Probability.PermutationTail.firstEvent_inter_tail",
+      "Applications.Probability.PermutationTail.cons_mem_orders",
+      "Applications.Probability.PermutationTail.tail_restrictedOrder_eq",
+      "Applications.Probability.PermutationTail.filter_tail_restrictedOrder_eq",
+      "Applications.Probability.PermutationTail.firstEvent_restrictedOrder_of_not_mem",
+      "Applications.Probability.PermutationTail.cond_firstEvent_restrictedOrder_of_not_mem",
+      "Applications.Probability.PermutationTail.uniformOn_firstEvent",
+      "Applications.Probability.PermutationTail.cond_uniformOn_firstEvent",
+      "Applications.Probability.PermutationTail.cond_tail_eq",
+      "Applications.Probability.PermutationTail.map_tail_cond_first",
+      "Applications.Probability.PermutationTail.head_mass_of_hasLaw",
+      "Applications.Probability.PermutationTail.hasLaw_tail_cond_first",
+      "Applications.Probability.PermutationTail.hasLaw_filter_tail_cond_first",
+      "Applications.Probability.PermutationTail.map_restrictedOrder_cond_first",
+      "Examples.PermutationTail.observedOrder",
+      "Examples.PermutationTail.remaining",
+      "Examples.PermutationTail.tailOrder",
+      "Examples.PermutationTail.afterFirst",
+      "Examples.PermutationTail.observed_hasLaw",
+      "Examples.PermutationTail.first_mass",
+      "Examples.PermutationTail.afterFirst_eq_uniformOn",
+      "Examples.PermutationTail.tail_hasLaw",
+      "Examples.PermutationTail.tail_map",
+      "Examples.PermutationTail.tail_23_mass",
+      "Examples.PermutationTail.tail_32_mass",
+      "Examples.PermutationTail.repeated_tail_mass_zero",
+      "Examples.PermutationTail.filteredTail",
+      "Examples.PermutationTail.filtered_tail_hasLaw",
+      "Examples.PermutationTail.filtered_tail_eq_projection",
+      "Examples.PermutationTail.filtered_tail_mass",
+      "Examples.PermutationTail.remaining_projection_map",
+      "Examples.PermutationTail.afterFirst_first_event_mass",
+      "Examples.PermutationTail.environment_changed",
+      "Examples.PermutationTail.second_head_mass",
+      "Examples.PermutationTail.afterSecond",
+      "Examples.PermutationTail.lastTail",
+      "Examples.PermutationTail.last_tail_hasLaw",
+      "Examples.PermutationTail.last_tail_mass",
+      "Examples.PermutationTailBoundary.swap01",
+      "Examples.PermutationTailBoundary.swap01_global_order",
+      "Examples.PermutationTailBoundary.swap01_selected_order",
+      "Examples.PermutationTailBoundary.swap01_first_events",
+      "Examples.PermutationTailBoundary.singleton_conditional_tail_mass",
+      "Examples.PermutationTailBoundary.empty_subset_none_mass",
+      "Examples.PermutationTailBoundary.empty_subset_first_event",
+      "Examples.PermutationTailBoundary.empty_subset_conditional_zero",
+      "Examples.PermutationTailBoundary.outsider_first_event",
+      "Examples.PermutationTailBoundary.outsider_conditional_zero",
+      "Examples.PermutationTailBoundary.empty_indices_none_mass",
+      "Examples.PermutationTailBoundary.counterPositions",
+      "Examples.PermutationTailBoundary.conditionSubset",
+      "Examples.PermutationTailBoundary.outsideSubset",
+      "Examples.PermutationTailBoundary.counterLaw",
+      "Examples.PermutationTailBoundary.counterFirst",
+      "Examples.PermutationTailBoundary.outsideConditional",
+      "Examples.PermutationTailBoundary.outside_subset_boundaries",
+      "Examples.PermutationTailBoundary.counter_first_mass",
+      "Examples.PermutationTailBoundary.outside_order_12_mass",
+      "Examples.PermutationTailBoundary.outside_order_21_mass",
+      "Examples.PermutationTailBoundary.outside_order_not_uniform"
+    ],
+    "J53": [
+      "Applications.Probability.PermutationOrder.restrictedOrder",
+      "Applications.Probability.PermutationOrder.orders",
+      "Applications.Probability.PermutationOrder.mem_restrictedOrder",
+      "Applications.Probability.PermutationOrder.mem_restrictedOrder_of_complete",
+      "Applications.Probability.PermutationOrder.restrictedOrder_nodup",
+      "Applications.Probability.PermutationOrder.restrictedOrder_toFinset",
+      "Applications.Probability.PermutationOrder.restrictedOrder_length",
+      "Applications.Probability.PermutationOrder.restrictedOrder_perm",
+      "Applications.Probability.PermutationOrder.map_restrictedOrder_sublist",
+      "Applications.Probability.PermutationOrder.filter_restrictedOrder",
+      "Applications.Probability.PermutationOrder.filter_restrictedOrder_of_subset",
+      "Applications.Probability.PermutationOrder.mem_orders",
+      "Applications.Probability.PermutationOrder.orders_nonempty",
+      "Applications.Probability.PermutationOrder.restrictedOrder_mem_orders",
+      "Applications.Probability.PermutationOrder.orders_card",
+      "Applications.Probability.PermutationOrder.uniformOn_restrictedOrder_eq",
+      "Applications.Probability.PermutationOrder.map_restrictedOrder_uniformOn",
+      "Examples.PermutationOrder.positions",
+      "Examples.PermutationOrder.selected",
+      "Examples.PermutationOrder.smaller",
+      "Examples.PermutationOrder.positions_nodup",
+      "Examples.PermutationOrder.positions_complete",
+      "Examples.PermutationOrder.law",
+      "Examples.PermutationOrder.selected_structure",
+      "Examples.PermutationOrder.selected_permutation",
+      "Examples.PermutationOrder.selected_orders_card",
+      "Examples.PermutationOrder.order_023_mass",
+      "Examples.PermutationOrder.observed_law",
+      "Examples.PermutationOrder.order_032_mass_via_map",
+      "Examples.PermutationOrder.repeated_order_mass_zero",
+      "Examples.PermutationOrder.nestedObservation",
+      "Examples.PermutationOrder.nestedObservation_eq",
+      "Examples.PermutationOrder.nested_order_30_mass",
+      "Examples.PermutationOrder.singleton_order_mass",
+      "Examples.PermutationOrder.full_order_mass",
+      "Examples.PermutationOrderBoundary.empty_subset_output",
+      "Examples.PermutationOrderBoundary.empty_subset_orders",
+      "Examples.PermutationOrderBoundary.empty_subset_mass",
+      "Examples.PermutationOrderBoundary.empty_index_mass",
+      "Examples.PermutationOrderBoundary.cycle",
+      "Examples.PermutationOrderBoundary.cycle_values",
+      "Examples.PermutationOrderBoundary.cycle_inverse_order",
+      "Examples.PermutationOrderBoundary.cycle_restricted_order",
+      "Examples.PermutationOrderBoundary.cycle_direct_order",
+      "Examples.PermutationOrderBoundary.inverse_and_direct_orders_differ",
+      "Examples.PermutationOrderBoundary.numeric_enumeration_values",
+      "Examples.PermutationOrderBoundary.numeric_enumeration_increasing",
+      "Examples.PermutationOrderBoundary.ordinary_enumeration_not_increasing",
+      "Examples.PermutationOrderBoundary.numeric_and_ordinary_orders_differ",
+      "Examples.PermutationOrderBoundary.incomplete_output",
+      "Examples.PermutationOrderBoundary.incomplete_support_counterexample",
+      "Examples.PermutationOrderBoundary.repeated_output",
+      "Examples.PermutationOrderBoundary.repeated_support_counterexample"
+    ],
+    "I314": [
+      "Resources.ListMerge.run",
+      "Resources.ListMerge.comparisons",
+      "Resources.ListMerge.entries",
+      "Resources.ListMerge.run_nil_left",
+      "Resources.ListMerge.run_nil_right",
+      "Resources.ListMerge.run_cons_cons",
+      "Resources.ListMerge.run_value",
+      "Resources.ListMerge.comparisons_nil_left",
+      "Resources.ListMerge.comparisons_nil_right",
+      "Resources.ListMerge.comparisons_cons_cons",
+      "Resources.ListMerge.entries_nil_left",
+      "Resources.ListMerge.entries_nil_right",
+      "Resources.ListMerge.entries_cons_cons",
+      "Resources.ListMerge.run_entries_cons_cons",
+      "Resources.ListMerge.entries_eq_comparisons_add_one",
+      "Resources.ListMerge.comparisons_le",
+      "Resources.ListMerge.entries_le",
+      "Resources.ListMerge.comparisons_cons_pos",
+      "Resources.ListMerge.run_map",
+      "Applications.Sorting.sublist_merge_left",
+      "Applications.Sorting.sublist_merge_right",
+      "Applications.Sorting.pairwise_of_merge",
+      "Applications.Sorting.merge_sorted_compatible_on_iff",
+      "Examples.MergeCosts.natCompare",
+      "Examples.MergeCosts.byKey",
+      "Examples.MergeCosts.result_perm",
+      "Examples.MergeCosts.result_length",
+      "Examples.MergeCosts.result_multiset",
+      "Examples.MergeCosts.result_mem",
+      "Examples.MergeCosts.empty_sides",
+      "Examples.MergeCosts.empty_payload",
+      "Examples.MergeCosts.low_singleton",
+      "Examples.MergeCosts.high_singleton",
+      "Examples.MergeCosts.low_singleton_entry_model",
+      "Examples.MergeCosts.interleaving",
+      "Examples.MergeCosts.interleaving_observations",
+      "Examples.MergeCosts.always_true",
+      "Examples.MergeCosts.always_false",
+      "Examples.MergeCosts.tied_runs",
+      "Examples.MergeCosts.ties_do_not_determine_cost",
+      "Examples.MergeCosts.unsorted_run",
+      "Examples.MergeCosts.unsorted_cost_bounds",
+      "Examples.MergeCosts.unsorted_inputs_retained",
+      "Examples.MergeCosts.unsorted_for_every_comparator",
+      "Examples.MergeCosts.source_value",
+      "Examples.MergeCosts.key_value",
+      "Examples.MergeCosts.key_source_value",
+      "Examples.MergeCosts.key_sorted_iff",
+      "Examples.MergeCosts.source_key_sorted_iff",
+      "Examples.MergeCosts.measured_key_spec",
+      "Examples.MergeCosts.recordsLeft",
+      "Examples.MergeCosts.recordsRight",
+      "Examples.MergeCosts.records_value",
+      "Examples.MergeCosts.records_counts",
+      "Examples.MergeCosts.records_exact",
+      "Examples.MergeCosts.taggedLeft",
+      "Examples.MergeCosts.taggedRight",
+      "Examples.MergeCosts.tagged_key_transport",
+      "Examples.MergeCosts.tagged_counts",
+      "Examples.MergeCosts.tagged_values",
+      "Examples.MergeCosts.tagged_exact",
+      "Examples.MergeCosts.tagged_stable",
+      "Examples.MergeCosts.falseLeft",
+      "Examples.MergeCosts.falseRight",
+      "Examples.MergeCosts.false_compare_compatible",
+      "Examples.MergeCosts.false_record_run",
+      "Examples.MergeCosts.compatible_not_stable",
+      "Examples.MergeCosts.unsortedRecordsLeft",
+      "Examples.MergeCosts.unsortedRecordsRight",
+      "Examples.MergeCosts.unsorted_records_run",
+      "Examples.MergeCosts.unsorted_record_filters",
+      "Examples.MergeCosts.twoStage",
+      "Examples.MergeCosts.twoStage_value",
+      "Examples.MergeCosts.twoStage_observation",
+      "Examples.MergeCosts.twoStage_entries",
+      "Examples.MergeCosts.twoStage_bounds",
+      "Examples.MergeCosts.twoStage_comparisons_projection",
+      "Examples.MergeCosts.twoStage_entries_projection",
+      "Examples.MergeCosts.first_stage",
+      "Examples.MergeCosts.second_stage",
+      "Examples.MergeCosts.twoStage_example",
+      "Examples.MergeCosts.substituted_input_example",
+      "Examples.MergeCosts.actual_input_matters",
+      "Examples.MergeCosts.queueBody",
+      "Examples.MergeCosts.queueBody_value",
+      "Examples.MergeCosts.queueBody_observation",
+      "Examples.MergeCosts.queueBody_bounds",
+      "Examples.MergeCosts.rawLeft",
+      "Examples.MergeCosts.rawRight",
+      "Examples.MergeCosts.rawRoot",
+      "Examples.MergeCosts.raw_queue_body",
+      "Examples.MergeCosts.raw_queue_erasure_and_order",
+      "Examples.MergeCosts.nonempty_tariffs",
+      "Examples.MergeCosts.empty_tariff_not_multiplicative",
+      "Examples.MergeCosts.low_singleton_attains_factor_two",
+      "Resources.DifferenceListCosts.Builder",
+      "Resources.DifferenceListCosts.Rep",
+      "Resources.DifferenceListCosts.AppCost",
+      "Resources.DifferenceListCosts.empty",
+      "Resources.DifferenceListCosts.singleton",
+      "Resources.DifferenceListCosts.compose",
+      "Resources.DifferenceListCosts.empty_apply",
+      "Resources.DifferenceListCosts.singleton_apply",
+      "Resources.DifferenceListCosts.empty_rep",
+      "Resources.DifferenceListCosts.empty_appCost",
+      "Resources.DifferenceListCosts.singleton_rep",
+      "Resources.DifferenceListCosts.singleton_appCost",
+      "Resources.DifferenceListCosts.compose_value",
+      "Resources.DifferenceListCosts.compose_cost",
+      "Resources.DifferenceListCosts.compose_rep",
+      "Resources.DifferenceListCosts.compose_appCost",
+      "Resources.DifferenceListCosts.createEmpty",
+      "Resources.DifferenceListCosts.createSingleton",
+      "Resources.DifferenceListCosts.createCompose",
+      "Resources.DifferenceListCosts.createEmpty_eq",
+      "Resources.DifferenceListCosts.createSingleton_eq",
+      "Resources.DifferenceListCosts.createCompose_eq",
+      "Resources.DifferenceListCosts.pushRun",
+      "Resources.DifferenceListCosts.pushRun_eq",
+      "Resources.DifferenceListCosts.pushRun_rep",
+      "Resources.DifferenceListCosts.pushRun_appCost",
+      "Resources.DifferenceListCosts.buildFrom",
+      "Resources.DifferenceListCosts.buildFrom_nil",
+      "Resources.DifferenceListCosts.buildFrom_cons",
+      "Resources.DifferenceListCosts.buildFrom_cost",
+      "Resources.DifferenceListCosts.buildFrom_rep",
+      "Resources.DifferenceListCosts.buildFrom_appCost",
+      "Resources.DifferenceListCosts.build",
+      "Resources.DifferenceListCosts.build_cost",
+      "Resources.DifferenceListCosts.build_rep",
+      "Resources.DifferenceListCosts.build_appCost",
+      "Resources.DifferenceListCosts.toDList",
+      "Resources.DifferenceListCosts.toDList_apply",
+      "Resources.DifferenceListCosts.toList_toDList",
+      "Resources.DifferenceListCosts.toDList_eq_ofList",
+      "Resources.DifferenceListCosts.toDList_compose",
+      "Resources.DifferenceListCosts.toDList_pushRun",
+      "Examples.DifferenceListCosts.ordered_composition",
+      "Examples.DifferenceListCosts.standard_composition_value",
+      "Examples.DifferenceListCosts.expensive_capture",
+      "Examples.DifferenceListCosts.materialize",
+      "Examples.DifferenceListCosts.materialize_eq",
+      "Examples.DifferenceListCosts.construction_application_split",
+      "Examples.DifferenceListCosts.materializeTwice",
+      "Examples.DifferenceListCosts.materializeTwice_eq",
+      "Examples.DifferenceListCosts.duplicate_values",
+      "Examples.DifferenceListCosts.duplicate_values_twice",
+      "Examples.DifferenceListCosts.empty_payload_boundary",
+      "Examples.DifferenceListCosts.singleton_boundary",
+      "Examples.DifferenceListCosts.extendSingleton",
+      "Examples.DifferenceListCosts.extendSingleton_eq",
+      "Examples.DifferenceListCosts.fused_push_value",
+      "Examples.DifferenceListCosts.identity_value_cost",
+      "Examples.DifferenceListCosts.padded",
+      "Examples.DifferenceListCosts.padded_rep",
+      "Examples.DifferenceListCosts.padded_appCost",
+      "Examples.DifferenceListCosts.padded_empty_value",
+      "Examples.DifferenceListCosts.no_bound_from_output_length",
+      "Examples.DifferenceListCosts.doubled",
+      "Examples.DifferenceListCosts.doubled_creation",
+      "Examples.DifferenceListCosts.doubled_rep",
+      "Examples.DifferenceListCosts.doubled_application_add_one",
+      "Examples.DifferenceListCosts.doubled_appCost",
+      "Examples.DifferenceListCosts.materializeDoubled",
+      "Examples.DifferenceListCosts.materializeDoubled_eq",
+      "Examples.DifferenceListCosts.four_shared_closure_extensions",
+      "Examples.DifferenceListCosts.four_shared_closure_extensions_materialized",
+      "Resources.Partition.partitionRun",
+      "Resources.Partition.partitionRun_nil",
+      "Resources.Partition.partitionRun_cons",
+      "Resources.Partition.partitionRun_value",
+      "Resources.Partition.partitionRun_nil_cost",
+      "Resources.Partition.partitionRun_cons_cost",
+      "Resources.Partition.partitionRun_cost",
+      "Applications.Selection.partition3",
+      "Applications.Selection.partition3_eq_filters",
+      "Applications.Selection.partition3_perm",
+      "Applications.Selection.partition_left_mem",
+      "Applications.Selection.partition_equal_mem",
+      "Applications.Selection.partition_right_mem",
+      "Applications.Selection.partition_lengths",
+      "Applications.Selection.partition_strict_sizes",
+      "Sequences.Partition.partition3",
+      "Sequences.Partition.partition3_eq_filters",
+      "Sequences.Partition.partition3_perm",
+      "Sequences.Partition.partition_left_mem",
+      "Sequences.Partition.partition_equal_mem",
+      "Sequences.Partition.partition_right_mem",
+      "Sequences.Partition.partition_lengths",
+      "Sequences.Partition.partition_strict_sizes",
+      "Sequences.Partition.partition3_nil",
+      "Sequences.Partition.partition3_cons",
+      "ThreeWayPartitionExamples.replicate_partition",
+      "ThreeWayPartitionExamples.selection_partition",
+      "ThreeWayPartitionExamples.mixed",
+      "ThreeWayPartitionExamples.mixed_partition",
+      "ThreeWayPartitionExamples.outside_partition",
+      "ThreeWayPartitionExamples.interior_partition",
+      "ThreeWayPartitionExamples.lower_partition",
+      "ThreeWayPartitionExamples.empty_run",
+      "ThreeWayPartitionExamples.replicate_run",
+      "ThreeWayPartitionExamples.singleton_run",
+      "ThreeWayPartitionExamples.replicate_strict",
+      "ThreeWayPartitionExamples.measured_selection_value",
+      "ThreeWayPartitionExamples.mixed_run",
+      "ThreeWayPartitionExamples.mixed_value",
+      "ThreeWayPartitionExamples.mixed_cost",
+      "ThreeWayPartitionExamples.mixed_perm",
+      "ThreeWayPartitionExamples.mixed_lengths",
+      "ThreeWayPartitionExamples.mixed_strict",
+      "ThreeWayPartitionExamples.outside_run",
+      "ThreeWayPartitionExamples.outside_boundary",
+      "ThreeWayPartitionExamples.interior_run",
+      "ThreeWayPartitionExamples.interior_boundary",
+      "ThreeWayPartitionExamples.bind_returned_lower",
+      "Applications.Probability.PermutationMinimum.minimumEvent",
+      "Applications.Probability.PermutationMinimum.mem_minimumEvent",
+      "Applications.Probability.PermutationMinimum.minimumEvent_empty",
+      "Applications.Probability.PermutationMinimum.minimumEvent_of_not_mem",
+      "Applications.Probability.PermutationMinimum.minimumEvent_singleton",
+      "Applications.Probability.PermutationMinimum.minimumEvent_inter",
+      "Applications.Probability.PermutationMinimum.uniformOn_minimumEvent",
+      "Examples.PermutationMinimum.law",
+      "Examples.PermutationMinimum.firstSubset",
+      "Examples.PermutationMinimum.secondSubset",
+      "Examples.PermutationMinimum.first_minimum_mass",
+      "Examples.PermutationMinimum.second_minimum_mass",
+      "Examples.PermutationMinimum.overlap_event",
+      "Examples.PermutationMinimum.full_minimum_mass",
+      "Examples.PermutationMinimum.overlap_mass",
+      "Examples.PermutationMinimum.marginal_product",
+      "Examples.PermutationMinimum.overlap_mass_ne_product",
+      "Examples.PermutationMinimum.singleton_minimum_mass",
+      "Examples.PermutationMinimum.spacedPriority",
+      "Examples.PermutationMinimum.spacedPriority_values",
+      "Examples.PermutationMinimum.spacedPriority_injective",
+      "Examples.PermutationMinimum.spacedPriority_not_monotone",
+      "Examples.PermutationMinimum.spaced_minimum_mass",
+      "Examples.PermutationMinimumBoundary.empty_index_normalized",
+      "Examples.PermutationMinimumBoundary.empty_subset_event",
+      "Examples.PermutationMinimumBoundary.empty_subset_mass",
+      "Examples.PermutationMinimumBoundary.outsider_event_empty",
+      "Examples.PermutationMinimumBoundary.outsider_mass",
+      "Examples.PermutationMinimumBoundary.outsiderComparison",
+      "Examples.PermutationMinimumBoundary.outsiderComparison_eq_full_minimum",
+      "Examples.PermutationMinimumBoundary.outsiderComparison_mass",
+      "Examples.PermutationMinimumBoundary.outsiderComparison_ne_singleton_inverse",
+      "Examples.PermutationMinimumBoundary.tiedPriority",
+      "Examples.PermutationMinimumBoundary.tiedPriority_not_injective",
+      "Examples.PermutationMinimumBoundary.tied_event_univ",
+      "Examples.PermutationMinimumBoundary.tied_mass",
+      "Examples.PermutationMinimumBoundary.tied_mass_ne_half",
+      "Applications.Sorting.mergeBy",
+      "Applications.Sorting.mergeBy_perm",
+      "Applications.Sorting.merge_sorted_compatible_on",
+      "Applications.Sorting.merge_sorted_compatible",
+      "Applications.Sorting.mergeBy_sorted",
+      "Applications.Sorting.mergeBy_filter",
+      "Applications.Sorting.mergeBy_stable",
+      "Applications.Sorting.mergeBy_spec",
+      "Applications.Selection.sorted_partition",
+      "Applications.Selection.dispatch",
+      "Applications.Selection.dispatch_value",
+      "Applications.Selection.PivotValid",
+      "Applications.Selection.runWith",
+      "Applications.Selection.runWith_value",
+      "Applications.Selection.selectWith",
+      "Applications.Selection.selectWith_value",
+      "Applications.Selection.selectWith_ranked",
+      "Applications.Selection.selectWith_none",
+      "Applications.Selection.head_pivot_valid",
+      "Applications.Selection.lastPivot",
+      "Applications.Selection.last_pivot_valid",
+      "Applications.Selection.selectWith_some_iff",
+      "Applications.Selection.selectWith_policy",
+      "Applications.Selection.sortSelect",
+      "Applications.Selection.selectWith_eq_sortSelect",
+      "Applications.Selection.sortSelect_some_iff",
+      "Applications.Selection.sortSelect_none",
+      "Resources.InsertionSort.insertRun",
+      "Resources.InsertionSort.insertRun_value",
+      "Resources.InsertionSort.insertRun_cost_bounds",
+      "Resources.InsertionSort.insertRun_cost_of_head",
+      "Resources.InsertionSort.insertRun_cost_of_all",
+      "Resources.InsertionSort.insertRun_cost_of_all_not",
+      "Resources.InsertionSort.sortRun",
+      "Resources.InsertionSort.sortRun_value",
+      "Resources.InsertionSort.sortRun_length",
+      "Resources.InsertionSort.sortRun_cons_cost",
+      "Resources.InsertionSort.sortRun_cost_lower",
+      "Resources.InsertionSort.sortRun_double_cost_le",
+      "Resources.InsertionSort.sortRun_cost_le",
+      "Resources.InsertionSort.sortRun_quadratic",
+      "Resources.InsertionSort.sortRun_cost_of_pairwise",
+      "Resources.InsertionSort.sortRun_double_cost_of_opposite",
+      "Resources.InsertionSort.reverse_range_opposite",
+      "Resources.InsertionSort.sortRun_cost_reverse_range",
+      "Resources.InsertionSort.sortRun_stable",
+      "Examples.InsertionCosts.empty_cost",
+      "Examples.InsertionCosts.singleton_cost",
+      "Examples.InsertionCosts.sorted_with_duplicates",
+      "Examples.InsertionCosts.descending_worst",
+      "Examples.InsertionCosts.best_is_global",
+      "Examples.InsertionCosts.worst_is_global",
+      "Examples.InsertionCosts.source_quadratic",
+      "Examples.InsertionCosts.immediate_insertion",
+      "Examples.InsertionCosts.full_traversal",
+      "Examples.InsertionCosts.tied_head_ignores_tail",
+      "Examples.InsertionCosts.key_contract",
+      "Examples.InsertionCosts.key_tie_observation",
+      "Examples.InsertionCosts.sorted_result_has_rank",
+      "Examples.InsertionCosts.repeated_value_rank",
+      "Examples.InsertionCosts.small_sort_budget",
+      "Examples.InsertionCosts.small_rank_with_sort_budget"
+    ],
+    "F110": [
+      "Resources.ListCalls.mapRun",
+      "Resources.ListCalls.mapRun_nil",
+      "Resources.ListCalls.mapRun_cons",
+      "Resources.ListCalls.mapRun_value",
+      "Resources.ListCalls.mapRun_cost",
+      "Resources.ListCalls.mapRun_exact",
+      "Resources.ListCalls.mapRun_cost_of_constant",
+      "Resources.ListCalls.filterRun",
+      "Resources.ListCalls.filterRun_nil",
+      "Resources.ListCalls.filterRun_cons",
+      "Resources.ListCalls.filterRun_value",
+      "Resources.ListCalls.filterRun_cost",
+      "Resources.ListCalls.filterRun_exact",
+      "Resources.ListCalls.filterRun_cost_eq_mapRun",
+      "Resources.ListCalls.filterRun_cost_of_constant",
+      "Resources.ListCalls.takeRun",
+      "Resources.ListCalls.dropRun",
+      "Resources.ListCalls.takeRun_nil",
+      "Resources.ListCalls.takeRun_zero",
+      "Resources.ListCalls.takeRun_succ_cons",
+      "Resources.ListCalls.dropRun_nil",
+      "Resources.ListCalls.dropRun_zero",
+      "Resources.ListCalls.dropRun_succ_cons",
+      "Resources.ListCalls.takeRun_exact",
+      "Resources.ListCalls.dropRun_exact",
+      "Resources.ListCalls.take_drop_separate",
+      "Resources.ListCalls.lookupRun",
+      "Resources.ListCalls.lookupRun_nil",
+      "Resources.ListCalls.lookupRun_zero_cons",
+      "Resources.ListCalls.lookupRun_succ_cons",
+      "Resources.ListCalls.lookupRun_value",
+      "Resources.ListCalls.lookupRun_cost",
+      "Resources.ListCalls.lookupRun_cost_of_lt",
+      "Resources.ListCalls.lookupRun_valid",
+      "Examples.FunctionalNotation.composition_and_eta",
+      "Examples.FunctionalNotation.boolean_truth",
+      "Examples.FunctionalNotation.comprehension_order_and_repetition",
+      "Examples.FunctionalNotation.set_union_intersection",
+      "Examples.FunctionalNotation.proper_subset",
+      "Examples.FunctionalNotation.direct_image",
+      "Examples.FunctionalNotation.restricted_comprehension",
+      "Examples.FunctionalNotation.two_variable_comprehension",
+      "Examples.FunctionalNotation.indexed_union",
+      "Examples.FunctionalNotation.set_of_sets_observations",
+      "Examples.FunctionalNotation.bounded_quantifiers",
+      "Examples.FunctionalNotation.product_membership",
+      "Examples.FunctionalNotation.all_interval_memberships",
+      "Examples.FunctionalNotation.upper_interval_correction",
+      "Examples.FunctionalNotation.floor_division_nonnegative",
+      "Examples.FunctionalNotation.negative_divisor_distinguishes",
+      "Examples.FunctionalNotation.floor_division_zero",
+      "Examples.FunctionalNotation.typed_arithmetic",
+      "Examples.FunctionalNotation.floor_and_ceiling",
+      "Examples.FunctionalNotation.submultiset_is_not_support_subset",
+      "Examples.FunctionalNotation.repeated_sum_and_product",
+      "Examples.FunctionalNotation.closed_interval_fold",
+      "Examples.FunctionalNotation.finiteIndexProduct",
+      "Examples.FunctionalNotation.finiteIndexProduct_of_finite",
+      "Examples.FunctionalNotation.finiteIndexProduct_of_infinite",
+      "Examples.FunctionalNotation.finiteIndexProduct_of_finset",
+      "Examples.FunctionalNotation.finite_index_values",
+      "Examples.FunctionalNotation.infinite_index_values",
+      "Examples.FunctionalNotation.empty_index_type",
+      "Examples.FunctionalNotation.ordered_list_folds",
+      "Examples.ListCalls.duplicate_map",
+      "Examples.ListCalls.discarded_last",
+      "Examples.ListCalls.discarded_head",
+      "Examples.ListCalls.zero_and_unit_callbacks",
+      "Examples.ListCalls.discarded_values_still_pay",
+      "Examples.ListCalls.map_then_length",
+      "Examples.ListCalls.composed_callback_count",
+      "Examples.ListCalls.append_then_length",
+      "Examples.ListCalls.valid_lookup",
+      "Examples.ListCalls.first_invalid_lookup",
+      "Examples.ListCalls.farther_invalid_lookup",
+      "Examples.ListCalls.empty_payload_lookup",
+      "Examples.ListCalls.take_drop_values",
+      "Examples.ListCalls.separate_vs_fused",
+      "Examples.ListCalls.zero_and_overlarge",
+      "Examples.ListCalls.empty_payload_split",
+      "Examples.ListLibrary.empty_membership_set",
+      "Examples.ListLibrary.cons_membership_set",
+      "Examples.ListLibrary.dropLast_cons_equation",
+      "Examples.ListLibrary.range_succ_equation",
+      "Examples.ListLibrary.range_zero_equation",
+      "Examples.ListLibrary.range_boundaries",
+      "Examples.ListLibrary.range_membership",
+      "Examples.ListLibrary.head_valid",
+      "Examples.ListLibrary.index_valid",
+      "Examples.ListLibrary.invalid_index_and_update",
+      "Examples.ListLibrary.update_observations",
+      "Examples.ListLibrary.update_repeated_value",
+      "Examples.ListLibrary.invalid_boundary",
+      "Examples.ListLibrary.empty_payload_queries",
+      "Examples.ListLibrary.split_reassembles",
+      "Examples.ListLibrary.overlarge_split",
+      "Examples.ListLibrary.last_and_tail_boundaries",
+      "Examples.ListLibrary.duplicate_pipeline",
+      "Examples.ListLibrary.replication_boundaries",
+      "Examples.ListLibrary.duplicates_are_not_distinct",
+      "Examples.ListLibrary.sorted_wrt_cons",
+      "Examples.ListLibrary.adjacent_relation_is_insufficient",
+      "Examples.ListLibrary.sum_source_equations",
+      "Examples.ListLibrary.minimum_source_equation",
+      "Examples.ListLibrary.minimum_valid",
+      "Examples.ListLibrary.minimum_filter_spec",
+      "Examples.ListLibrary.minimum_repeated_values",
+      "Examples.ListLibrary.minimum_empty",
+      "Examples.ListLibrary.empty_payload_minimum",
+      "Examples.ListLibrary.filtered_minimum_example"
+    ]
+  },
+  "current_distinct_account": 538,
+  "retained_prior_complete_semantic_and_source_evidence": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-spec-terminal-20261104/final-disposition.json",
+      "bytes": 11450,
+      "lines": 239,
+      "sha256": "b719dc1f9534bbebd1df670160bf33609fbcdc8609aec4b7c069c9f4362a45c1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-spec-terminal-20261104/full-log-assessment.json",
+      "bytes": 21435,
+      "lines": 480,
+      "sha256": "0012729a78a824aa7e08b83e5ab6e00ea04c4d3fec20dccbc49476ee211848f6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-spec-terminal-20261104/actual53-read-progress.json",
+      "bytes": 27369,
+      "lines": 853,
+      "sha256": "5da455393e8f02b05619efa9d595bae896bce6033bb3ee3527a5fe3da8da8f00"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-spec-terminal-20261104/independent-input-reconciliation.py",
+      "bytes": 12602,
+      "lines": 164,
+      "sha256": "e194e25ebb44b9d41e9a018170a3b16d3b4c14b3717e691a3b7ab922787e56e8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-spec-terminal-20261104/independent-input-reconciliation.json",
+      "bytes": 100817,
+      "lines": 2689,
+      "sha256": "cab7b1231d86e780e64f89c55a291a6b7bdb7ba2c2db8387e7ad69d61fed4c85"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-spec-terminal-20261104/actual53-complete-type-assessment.json",
+      "bytes": 14211,
+      "lines": 428,
+      "sha256": "48cf1d163b1c7e0bc064c2664df8a965a42a81d24105a57920a5adc0dfcd9b68"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-order-spec-terminal-20261104/inherited-semantic-disposition.json",
+      "bytes": 9770,
+      "lines": 184,
+      "sha256": "c9f29b300c14847abcde4a296e11a51ecc56d4ed83d8e5d32262f38e83021081"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-spec-terminal-20261104/final-disposition.json",
+      "bytes": 9494,
+      "lines": 247,
+      "sha256": "5015445d0793f175ea0cc8e122a31bf3d9e440ad8f70dbb27f3ce36e431bded6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/shared-four-spec-integration-20261104.md",
+      "bytes": 16133,
+      "lines": 75,
+      "sha256": "3ea59b8a1c62df7f19066c7200410e293d78cf4624d90a67ec148104a7fd9dc1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-spec-integration-20261104/source-assessment.json",
+      "bytes": 42136,
+      "lines": 1207,
+      "sha256": "c4cb641895db5651683acd382df5d27d107b4ae137c415b62b5ab24872caf268"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/shared-foundations-spec-final-20261104.md",
+      "bytes": 5066,
+      "lines": 30,
+      "sha256": "f8c8d934662192f4376ab7ae2897957647a890ea964fca18555c0d12dfc5a8dc"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-spec-terminal-assessment-20261104/actual145-read-progress.json",
+      "bytes": 9380,
+      "lines": 245,
+      "sha256": "ab4ba79877f9d85d3fe4f08d271312ed2f37922e60886e67a653afaea1e62a23"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-full-attempt1-20261104/full.log",
+      "bytes": 282816,
+      "lines": 2495,
+      "sha256": "a990e35c10e7c8f664298a028467dcc537f1aa6ae6e150f0d0526abf763c76e5"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-full-attempt1-20261104/result.json",
+      "bytes": 1246,
+      "lines": 32,
+      "sha256": "c539bb6d162c9a3a79f01bf8a74a9f7d2a97c3b4ade567a599ea3890dcb74226"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-full-attempt1-20261104/owned-terminal.json",
+      "bytes": 249,
+      "lines": 8,
+      "sha256": "9bf10b205a8e273b6e3c81218e3765864ca8eb04b22b4a89ff2032ecd6a24496"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-full-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "lines": 19,
+      "sha256": "2974a2efaa56703448e96ddeec25947e84e91b7733b4e8b405fdcf6d69fe816d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/output.log",
+      "bytes": 256987,
+      "lines": 3438,
+      "sha256": "3bdb9dc0a92ec781a28b46de1a3eb843bda4efcd17c2292f091c19e52df7c50c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-complete-public-statements314-20261104-attempt1/result.json",
+      "bytes": 1412,
+      "lines": 33,
+      "sha256": "4e96d347b0303913359798dc0d58981c59f8d07d70eb946f263a6c68fda83f44"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-complete-public-statements314-20261104-attempt1/owned-terminal.json",
+      "bytes": 237,
+      "lines": 8,
+      "sha256": "290da6f6103fbbd295d650f5c86d5146399d5b56eb518b39c910738c3ac201a4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-foundation110-receiving-qualification-20261104/comparison.json",
+      "bytes": 114579,
+      "lines": 3232,
+      "sha256": "bdb7aaaba90baaa748466d7c084e9dd7214c346cc2c0736b92c5d1a5b3d2d256"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-foundation110-reuse-preparation-20261104/plan.md",
+      "bytes": 8082,
+      "lines": 44,
+      "sha256": "da2bf87a897fe5d77e6598a3c30e421e23c2faa96d71e8bb81d729cf22dab620"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-spec-terminal-20261104/full-log-read-progress.json",
+      "bytes": 9973,
+      "lines": 248,
+      "sha256": "4cf5f37434efb952be52c92ce5b2174f932e62d77e224b2acf3ad90ffc54ed1c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-spec-terminal-20261104/full-gate-assessment.json",
+      "bytes": 53669,
+      "lines": 1450,
+      "sha256": "e45882268d2bee1433811bfb9eac6b72eafcf925a7737c391c47d3c3cc879391"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-spec-terminal-20261104/actual314-input-qualification.json",
+      "bytes": 5095,
+      "lines": 114,
+      "sha256": "4aef04733f3bb99e597640ed201726207e44a0752fb4ee3b29869521e62b371f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-spec-terminal-20261104/actual314-type-read-progress.json",
+      "bytes": 21128,
+      "lines": 675,
+      "sha256": "0dab0663b61eba1eaa6cd13b2c9480d75bafa4c63acd587ddc7d1a889f9e7012"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-spec-terminal-20261104/actual314-complete-type-assessment.json",
+      "bytes": 19153,
+      "lines": 412,
+      "sha256": "93755b8c310680acd71460ca5922362be2e77e3debbce140d2234f2f3bf7067a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-spec-terminal-20261104/receiving110-independent-reconciliation.json",
+      "bytes": 9886,
+      "lines": 306,
+      "sha256": "e86a651827a13ebec8f67f602f45433b545fc8e4ed23730d8684bd9d12e4582d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-four-spec-terminal-20261104/receiving110-semantic-disposition.json",
+      "bytes": 14461,
+      "lines": 202,
+      "sha256": "d14261b13840e8e5859880b3105dcc549c80b40f7c7aee45488504e59ebe0848"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/permutation-tail-spec-source-continuation-20261104.md",
+      "bytes": 13891,
+      "lines": 75,
+      "sha256": "977d1f38916c6e3c0eba1e4949bc4ceefc41766482229d1eadef4884dc461b70"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-spec-source-continuation-20261104/source-assessment.json",
+      "bytes": 76738,
+      "lines": 1634,
+      "sha256": "862f2b48e0212d7e08137f3f88946df3772be4b1e5e36dfa41874b0c513b8388"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-spec-source-continuation-20261104/header-metadata-correction.json",
+      "bytes": 2210,
+      "lines": 50,
+      "sha256": "f39acf9998c66b8766183d8470c66c7b90b5d1bfaa478986cc28bf1687140e36"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-spec-terminal-assessment-20261104/actual145-read-progress.json",
+      "bytes": 9380,
+      "lines": 245,
+      "sha256": "ab4ba79877f9d85d3fe4f08d271312ed2f37922e60886e67a653afaea1e62a23"
+    }
+  ],
+  "qualified_lineage": "Successful guarded stock-native complete L build/audit precedes all receiving pre observations; sole actual61 run and matching post observations. Prior accepted J/I/F full and type lineage retained. Fingerprints supplement those qualified executions.",
+  "conditions": [
+    {
+      "id": "REUSE-01",
+      "condition": "Identify one actually executed producer inspection at exact F or exact current Chapter2 candidate, with the executed program bytes/hash and complete selected-name inventory. Prepared files alone are not evidence. The producer program must contain every transferred name as a fully qualified #check @constant with the stated full-name, explicit and universe printing profile; any successor program must be separately identified."
+    },
+    {
+      "id": "REUSE-02",
+      "condition": "Secure actual exit0 and closed complete outer/native logs and terminal JSONs; match commands, cwd, start/end times, hashes and sizes, with no timeout, recorder error, truncated/missing output or inferred session result. Read the complete actual type output for every one of the110 names; printed-type blocks must expose all quantifiers and premises rather than relying on an occurrence count."
+    },
+    {
+      "id": "REUSE-03",
+      "condition": "Secure producer pre/post HEAD and clean relevant source/configuration state, unchanged executed program hash, and immutable-run ownership. Verify these six/four relevant root closures against the exact produced candidate and the receiving candidate, including the expected source blobs, direct external imports and all pinned configuration. Do not substitute present source equality or an earlier/later unrelated result for missing producer terminal identity."
+    },
+    {
+      "id": "REUSE-04",
+      "condition": "Match the actual Lean4.35.0/Lake/native-kit1.0.0 execution to the preserved qualified profile, official compiler archive and disclosed launcher adapter. Retain command/profile/runtime/loader identities and exact nine package revisions with clean actual dependency sources. Record actual threading (one in the qualified current setup). An incompatible profile, compiler, package revision or unqualified change is a gap requiring applicable qualification, not an assumed equivalent environment."
+    },
+    {
+      "id": "REUSE-05",
+      "condition": "Establish that the producer loaded compiler objects corresponding to the recorded immutable defining sources and pinned dependencies, using the qualified launcher plus retained build/input integrity evidence. Do not reuse stale or unverified outputs merely because the source files match. No concurrent builders may share writable project outputs, and no command may be launched against a project while its other builder owns those outputs."
+    },
+    {
+      "id": "REUSE-06",
+      "condition": "Both independent axes must assess the actual110 printed types and this exact dependency/configuration/profile mapping within their original full review scopes. Retain attribution to the actual producer run and to the source/type reviewers. No author summary, focused module count, selected older output or anticipated success substitutes for that assessment."
+    },
+    {
+      "id": "REUSE-07",
+      "condition": "Transfer only the110 eligible names. The35 InsertionSort/InsertionCosts names remain separate at both candidates because transitive Sorting.Merge differs, even though their root source bytes match and the Merge change appends plain theorems. No elaboration-equivalence proof is claimed for that changed environment."
+    },
+    {
+      "id": "REUSE-08",
+      "condition": "If either candidate advances, reconcile its relevant defining closures, exact names, pins and profile to this receipt before transfer. The current binding is only F and0a7ef078. A later unrelated source/doc delta may permit bounded identity extension, but it is not automatically covered."
+    },
+    {
+      "id": "REUSE-09",
+      "condition": "Record any actual reuse in a new explicit evidence disposition with producing run, receiving candidate, exact names and reviewed output positions, preserving both original pending programs and inventories. This preparation changes no pending count and removes no command. Any later targeted remainder must be a separately recorded derivative after the evidence conditions actually hold."
+    },
+    {
+      "id": "REUSE-10",
+      "condition": "Reuse supplies only public statement-inspection evidence. Each original immutable candidate still requires its applicable complete check, exhaustive kernel/axiom audit including private/generated declarations, new matching verification record, both final independent reviews and immediate qualified --verify-candidate before acceptance. Accepted Chapter1 remains accepted; no extra fresh check is implied without the README trigger."
+    }
+  ],
+  "boundary": "Stored public-statement evidence only; all original full source/private/generated scope, final axes and immediate verification remain. No whole-environment equivalence or hostile-input authenticity claim; no blanket transfer by source equality.",
+  "semantic_disposition": "Mechanical prerequisites independently satisfied. Complete current61 semantic reading and final Spec disposition remain separate saved records."
+}

@@ -1,0 +1,64 @@
+{
+  "recorded_utc": "2026-11-04T21:22:40.281614+00:00",
+  "state": "HELD: all own source and provenance writes stopped until explicit root release",
+  "candidate": "b150953544438985ce979cc30b9a2f9237091fe8",
+  "tree": "62eb7f22c8d9f0beab21696c4862de836285b9f0",
+  "git_status": "",
+  "candidate_manifest": {
+    "name": "candidate2.json",
+    "bytes": 4536,
+    "sha256": "feef913a2dbe54593d7ec7e9b7d7e632871432c397c0387b153e737d94b4961c"
+  },
+  "held_artifacts": [
+    {
+      "name": "MinimumPivotStatements-candidate2.lean",
+      "bytes": 2849,
+      "sha256": "dd1c716fd109e57795728712609387fbe9e063d75d3b5af9f85d9bd84ba5b10e"
+    },
+    {
+      "name": "correction-assessment.md",
+      "bytes": 3727,
+      "sha256": "640c31ff7c5330db027b1d93b72b96337343e76f323e076d385334a299c807a7"
+    },
+    {
+      "name": "git-commands.json",
+      "bytes": 1663,
+      "sha256": "031c538080ee308f44775a8e97c02970e5cc2c528a635e743cb0f1692a2a977e"
+    },
+    {
+      "name": "preservation-assessment.json",
+      "bytes": 4362,
+      "sha256": "5f3f03aff65e93bcbfb81c1e8581a1b458872a7f2027149d713fb5a54d33074c"
+    },
+    {
+      "name": "source.diff",
+      "bytes": 665,
+      "sha256": "34c00b9a32dfb3dbbcaabc4a29d234f00fd4d7e0b2d41e364b9eb8f7fd939591"
+    },
+    {
+      "name": "starting-state.json",
+      "bytes": 6671,
+      "sha256": "ce99e65c058855e6f769f5216ff6d7c0e2b7ebe964068cd9235b0297052d4dcd"
+    },
+    {
+      "name": "statements-inventory.json",
+      "bytes": 33382,
+      "sha256": "9c9a772f58cd766789330cabc4fb7e65f49dead6f48a1390cb6228be2a8ed7f4"
+    },
+    {
+      "name": "candidate2.json",
+      "bytes": 4536,
+      "sha256": "feef913a2dbe54593d7ec7e9b7d7e632871432c397c0387b153e737d94b4961c"
+    }
+  ],
+  "requested_next_action": "Root focused check of the same three targets at this exact successor. Preserve new actual terminal; do not treat the historical session as live.",
+  "validation": "Actual original failure CLOSED 1; successor not compiled by author. All complete Chapter 3 gates remain.",
+  "readbacks": {
+    "actual_failed_log_terminal_result_closure": "6c8510",
+    "starting_state": "7557dd",
+    "diff_and_immutable_commit": "c9014a",
+    "preservation_and_full_explicit_input": "cf797e",
+    "complete_corrected_source": "1af717",
+    "complete_correction_assessment_and_diff": "0bb214"
+  }
+}

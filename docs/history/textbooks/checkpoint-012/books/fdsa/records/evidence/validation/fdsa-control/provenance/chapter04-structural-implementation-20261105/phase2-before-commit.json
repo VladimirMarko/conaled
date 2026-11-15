@@ -1,0 +1,50 @@
+{
+  "recorded_utc": "2026-11-05T02:38:35.448087+00:00",
+  "parent": "5b17c8e4a962a8e79251eda1b5f94f97a3d4cc34",
+  "branch": "work/fdsa-ch04-structural",
+  "status_before_stage": "?? Applications/Trees/WeightedPaths.lean\n?? Examples/TreeWeightedPaths.lean",
+  "source_identities": [
+    {
+      "path": "Applications/Trees/WeightedPaths.lean",
+      "bytes": 2325,
+      "lines": 63,
+      "sha256": "e6d8337983bfb9542a879ed9bc2bafc458e2fb2d38b954d157c292a19cacae7b"
+    },
+    {
+      "path": "Examples/TreeWeightedPaths.lean",
+      "bytes": 2780,
+      "lines": 81,
+      "sha256": "70bffb98d3e2a3c92e3285ae17111aaaf5ebf1d79864463eb8f3fce49466fe38"
+    }
+  ],
+  "complete_source_readback": [
+    {
+      "file": "Applications/Trees/WeightedPaths.lean",
+      "actual_tool_chunk": "891a4d",
+      "actual_exit": 0
+    },
+    {
+      "file": "Examples/TreeWeightedPaths.lean",
+      "actual_tool_chunk": "527d54",
+      "actual_exit": 0
+    }
+  ],
+  "retained_phase1_sources": [
+    {
+      "path": "Applications/Trees/BasicObservations.lean",
+      "git_blob": "b41b456122021f1bc3cb73e8defb2802afb4362c",
+      "bytes": 5009,
+      "lines": 139,
+      "sha256": "3d2decdac9a8803edde8b5b36a97d0deba1a4d7b1cb1f15a93057044f342afc6"
+    },
+    {
+      "path": "Examples/TreeBasicObservations.lean",
+      "git_blob": "ccd089ead8ab8206c231602ae278d3ab3141ea2e",
+      "bytes": 4033,
+      "lines": 107,
+      "sha256": "5c40f55fad3e17da5bb28490f898c6ab7573023253e43292813df8d58c6104cb"
+    }
+  ],
+  "checks": "Only assigned two new paths, Phase1 and protected source/control unchanged, no forbidden proof tokens or trailing whitespace; these do not elaborate Lean.",
+  "compiler_invoked": false
+}

@@ -1,0 +1,31 @@
+{
+  "recorded_utc": "2026-11-04T20:09:38.438720+00:00",
+  "captures": [
+    {
+      "command": [
+        "git",
+        "diff",
+        "--no-index",
+        "--",
+        "/dev/null",
+        "Applications/Resources/RandomSelectionMean.lean"
+      ],
+      "actual_exit": 1,
+      "meaning": "Expected git diff status 1: the new source file differs from /dev/null; not a build or check result.",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--no-index",
+        "--",
+        "/dev/null",
+        "Examples/RandomSelectionMean.lean"
+      ],
+      "actual_exit": 1,
+      "meaning": "Expected git diff status 1: the new source file differs from /dev/null; not a build or check result.",
+      "stderr": ""
+    }
+  ]
+}

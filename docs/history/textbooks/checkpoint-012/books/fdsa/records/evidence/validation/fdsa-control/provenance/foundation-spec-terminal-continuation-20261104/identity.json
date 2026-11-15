@@ -1,0 +1,138 @@
+{
+  "observed_utc": "2026-11-04T07:56:44.193366+00:00",
+  "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "original_prefix": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "head": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "branch": "refs/heads/work/fdsa-foundation-integration",
+  "accepted_ref": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "merge_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "tree": "1c657c8923e258758aa1118a618c34732eaa9e45",
+  "status": "",
+  "prefix_ancestor": true,
+  "commit_list": [
+    "697bcf242ce65d74815b5639bddb1c6e754dd10f feat(resources): add shared insertion-sort call bounds (#174)",
+    "333f900d04be3153518e68cc8c10920f40a08e05 feat(examples): check shared FDSA list interfaces (#174)",
+    "df116c2f6d834eeb952157505b5c93a9ab5497e8 feat(resources): draft shared list-call proofs (#174)",
+    "c994c22b754db5300d28670dff6b6f83ad56df02 feat(examples): draft FDSA notation bridges (#174)",
+    "50dc7df3649d9f4f33bc6b3464c2c9fb6399aa46 fix(examples): make notation dependencies explicit (#174)",
+    "c80eec92f5458eccfd1c34c8314d666c2a1e3847 test(examples): add empty-index notation boundary (#174)",
+    "0c93725def6b6a4ce4f9d87e76f2430ba148ccc8 feat(resources): reconcile FDSA sorting foundations (#174)",
+    "9875bfd08b37ef841d96de067ff05e2da107ccbf fix(resources): elaborate FDSA list and notation witnesses (#174)",
+    "f17cc6b1a2bf44215b16202ed0fcee2b5c130761 fix(resources): qualify natural doubling in split costs (#174)"
+  ],
+  "scope": [
+    {
+      "path": "Applications/Resources/InsertionSort.lean",
+      "bytes": 7257,
+      "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+      "git_blob": "d51ea6e9845378d3f7667adee189f8a210b477ed",
+      "worktree_matches": true
+    },
+    {
+      "path": "Applications/Resources/ListCalls.lean",
+      "bytes": 7939,
+      "sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+      "git_blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4",
+      "worktree_matches": true
+    },
+    {
+      "path": "Examples/FunctionalNotation.lean",
+      "bytes": 8277,
+      "sha256": "fe4b585a6753110dee67c1942ce68d16d9bf00feb5946f32791682c634c42eef",
+      "git_blob": "3e5db8677c94bd330779522f92bc39508540a17a",
+      "worktree_matches": true
+    },
+    {
+      "path": "Examples/InsertionCosts.lean",
+      "bytes": 3862,
+      "sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37",
+      "git_blob": "1c3de9b0a0a5f27f108de09f28f6ac55f4cddb36",
+      "worktree_matches": true
+    },
+    {
+      "path": "Examples/ListCalls.lean",
+      "bytes": 4333,
+      "sha256": "24d0809f51d04b0a9cadb5a349141e7327a5f7721f63c1021113527917487d5d",
+      "git_blob": "b4c4683ee2bd16ff6f844ce757470515847a63dc",
+      "worktree_matches": true
+    },
+    {
+      "path": "Examples/ListLibrary.lean",
+      "bytes": 6761,
+      "sha256": "036cf4c12ddf5d25ce433d9f7dbedfcbb96dfc3c7f602d10605388d2791e47ad",
+      "git_blob": "99ba369997885e176bbda192ee0feb5c7bf4d034",
+      "worktree_matches": true
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 8412,
+      "sha256": "7f00379973161019217585a5ed32d0374247300544ae448b2a4b86aa11c6bf64",
+      "git_blob": "1f7e4544b1eb77614a1c6fb2311e0d3290a3b1a5",
+      "worktree_matches": true
+    },
+    {
+      "path": "docs/research/fdsa-notation-map.md",
+      "bytes": 24280,
+      "sha256": "cff778380868755fa7e7018797bf3d5e8c7b0cc55b5e3cd37bc64b3f32658d5b",
+      "git_blob": "ba187a2744932874581e0b0b8c3741add60b9cee",
+      "worktree_matches": true
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 31701,
+      "sha256": "c3059fc931180a6c0e6ec07ea7b92953aac451677a3939b0daaeb433e042bbe9",
+      "git_blob": "327f797c0cfbef722d85bfe9143c32f4415c2680",
+      "worktree_matches": true
+    }
+  ],
+  "configs": [
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "unchanged_from_R": true,
+      "worktree_matches": true
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "unchanged_from_R": true,
+      "worktree_matches": true
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 444,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "unchanged_from_R": true,
+      "worktree_matches": true
+    },
+    {
+      "path": "check.sh",
+      "bytes": 74,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "unchanged_from_R": true,
+      "worktree_matches": true
+    },
+    {
+      "path": "README.md",
+      "bytes": 26239,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "unchanged_from_R": true,
+      "worktree_matches": true
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 3118,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "unchanged_from_R": true,
+      "worktree_matches": true
+    }
+  ],
+  "result_present": false,
+  "destinations_preexist": {
+    "reviews/shared-foundations-spec-recovered-terminal.md": false,
+    "provenance/foundation-spec-terminal-continuation-20261104": false
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "recorded_utc": "2026-11-02T14:01:26.391312+00:00",
+  "base": "6f48c1ab7f1e96056c217ca025390aa58a7955b6",
+  "previous_candidate": "5066fb9d0d0963122332149b3b6984ebea3facda",
+  "candidate": "a43cef4881d4eb303a81ef25f5ccff0b801a12fe",
+  "tree": "27b06c3e118792cc5a27820540ce22d820ad3ca0",
+  "isolated_checkout": "/workspace/scratch/0c54f2db1fdf/cache-companion-validation",
+  "correction_findings": [
+    "ST-CACHE-001",
+    "SP-CACHE-001"
+  ],
+  "changes": "Add O_NONBLOCK to the anchored final-component open, retaining all type/link/identity checks; add bounded public capture and archive FIFO regressions.",
+  "unchanged_files": {
+    "check_pinned_runtime.py": "7d6843d33cc1a549cfa88974f84f5934c8d971efcacffa08a863d952671564e3",
+    "vendor/lake-output-hashes.lean": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b",
+    "vendor/lake_integrity.py": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+    "AMENDMENT.md": "f66b1aa410d3476128c3bcfe2731034cb84505ca68d1fe304505e34a054c7651",
+    "README.md": "69fc868da5fdb95d76a921f9376489aa5380e6c941bbacd0d25fb40dd32d1b18"
+  },
+  "actual_helper_reuse": {
+    "record": "work-state/validation/1027-round1-pinned-helper.json",
+    "matching_runtime_segments_sha256": {
+      "HERE": "31701891196b39cb92e11d9535a06f3b340f6562de3d14af1369aac47f8a1823",
+      "HELPER_SHA": "254dedba005b89f8503216adaad797ed0e9af74f9db29b42f161ffd8c3036811",
+      "_sha": "9e9f3f3505325e2efdc02b8df63c85894af4373ef3390a90b2069dcb1b85714f",
+      "PinnedLake": "288e10d4f8a84a65727e96bc591caee4296c3dc22c21ca2ebfae7c754d92ca48"
+    },
+    "basis": "The literal smoke-check script, vendored helper/guard, PinnedLake class and its helper hash/path dependencies are byte-identical; formal source/configuration remains the same clean 3279bac checkout; no environment change occurred. No additional real-helper invocation is needed."
+  },
+  "formal_checkouts": {
+    "conaled": {
+      "head": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "status": ""
+    },
+    "vfa-validation": {
+      "head": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "status": ""
+    }
+  },
+  "validation_status": "pending isolated 18-test suite",
+  "source_cache_capture_performed": false
+}

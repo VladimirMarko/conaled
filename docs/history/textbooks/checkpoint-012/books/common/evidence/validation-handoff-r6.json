@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "recorded_at": "2026-11-15T02:48:34.656459+00:00",
+  "purpose": "Preserve exact historical R5 navigation-review reconstruction after updating current receiving instructions.",
+  "path": "books/common/VALIDATION-HANDOFF.md",
+  "r5_base_sha256": "8c858ae01b07e2e722bd314da7138b540a9bb8f5e95927eca1999cd2ae03c98e",
+  "current_sha256": "159725dadf892d93fbfc5ba326b793ae9cb0450872d6dab1d779e676f781fa18",
+  "patch": "validation-handoff-r6.patch",
+  "patch_sha256": "87d1eeb8006b765c5a0a356b305dec0b7530a1833cd7df8b54f96edacea9f6ff",
+  "reconstruction": "In a separate temporary directory, reverse this patch against current VALIDATION-HANDOFF.md to recover the exact R5 base; then apply navigation-proposal-r5.patch with the unchanged frozen docs/RESUME.md. Never apply the historical proposal to the live checkpoint.",
+  "r5_base_and_both_historical_reviewed_hashes_verified": true,
+  "changes": "Current012 patch naming and completed local experiment disposition. Final receiving gate, fixed source identities and proof policy unchanged."
+}

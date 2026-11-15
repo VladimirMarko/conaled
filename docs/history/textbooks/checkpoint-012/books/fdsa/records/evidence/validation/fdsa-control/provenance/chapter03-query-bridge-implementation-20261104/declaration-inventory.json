@@ -1,0 +1,231 @@
+{
+  "status": "source inventory only; elaborated types and axiom audit pending root",
+  "new_public_count": 27,
+  "new_private_count": 1,
+  "declarations": [
+    {
+      "name": "Applications.Selection.CoordinateQueries.readPlan",
+      "visibility": "public",
+      "kind": "def",
+      "source": "Applications/Selection/CoordinateReadAll.lean",
+      "line": 23,
+      "source_statement": "def readPlan (indices : List (Fin n)) (compute : List \u03b1 \u2192 \u03b2) : Protocol n \u03b1 \u03b2"
+    },
+    {
+      "name": "Applications.Selection.CoordinateQueries.readPlan_query",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Applications/Selection/CoordinateReadAll.lean",
+      "line": 29,
+      "source_statement": "theorem readPlan_query (indices : List (Fin n)) (compute : List \u03b1 \u2192 \u03b2)\n    (history : Transcript n \u03b1) (i : Fin n)\n    (query : indices[history.length]? = some i) :\n    readPlan indices compute history = Sum.inr i"
+    },
+    {
+      "name": "Applications.Selection.CoordinateQueries.readPlan_done",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Applications/Selection/CoordinateReadAll.lean",
+      "line": 35,
+      "source_statement": "theorem readPlan_done (indices : List (Fin n)) (compute : List \u03b1 \u2192 \u03b2)\n    (history : Transcript n \u03b1) (done : indices[history.length]? = none) :\n    readPlan indices compute history = Sum.inl (compute (history.reverse.map Prod.snd))"
+    },
+    {
+      "name": "Applications.Selection.CoordinateQueries.readPlan_run_from",
+      "visibility": "private",
+      "kind": "theorem",
+      "source": "Applications/Selection/CoordinateReadAll.lean",
+      "line": 42,
+      "source_statement": "private theorem readPlan_run_from (input : Fin n \u2192 \u03b1) (compute : List \u03b1 \u2192 \u03b2)\n    (prefix remaining : List (Fin n)) :\n    Runs (readPlan (prefix ++ remaining) compute) input\n      (prefix.map (fun i => (i, input i))).reverse\n      (remaining.map (fun i => (i, input i)))\n      (compute ((prefix ++ remaining).map input))"
+    },
+    {
+      "name": "Applications.Selection.CoordinateQueries.readPlan_run",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Applications/Selection/CoordinateReadAll.lean",
+      "line": 63,
+      "source_statement": "theorem readPlan_run (indices : List (Fin n)) (compute : List \u03b1 \u2192 \u03b2)\n    (input : Fin n \u2192 \u03b1) :\n    Runs (readPlan indices compute) input []\n      (indices.map (fun i => (i, input i))) (compute (indices.map input))"
+    },
+    {
+      "name": "Applications.Selection.CoordinateQueries.readPlan_total",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Applications/Selection/CoordinateReadAll.lean",
+      "line": 70,
+      "source_statement": "theorem readPlan_total (indices : List (Fin n)) (compute : List \u03b1 \u2192 \u03b2) :\n    Total (readPlan indices compute)"
+    },
+    {
+      "name": "Applications.Selection.CoordinateQueries.readPlan_run_iff",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Applications/Selection/CoordinateReadAll.lean",
+      "line": 76,
+      "source_statement": "theorem readPlan_run_iff (indices : List (Fin n)) (compute : List \u03b1 \u2192 \u03b2)\n    (input : Fin n \u2192 \u03b1) (trace : Transcript n \u03b1) (value : \u03b2) :\n    Runs (readPlan indices compute) input [] trace value \u2194\n      trace = indices.map (fun i => (i, input i)) \u2227\n        value = compute (indices.map input)"
+    },
+    {
+      "name": "Applications.Selection.CoordinateQueries.readPlan_length",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Applications/Selection/CoordinateReadAll.lean",
+      "line": 88,
+      "source_statement": "theorem readPlan_length (indices : List (Fin n)) (compute : List \u03b1 \u2192 \u03b2)\n    (input : Fin n \u2192 \u03b1) (trace : Transcript n \u03b1) (value : \u03b2)\n    (run : Runs (readPlan indices compute) input [] trace value) :\n    trace.length = indices.length"
+    },
+    {
+      "name": "Applications.Selection.CoordinateQueries.readPlan_work",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Applications/Selection/CoordinateReadAll.lean",
+      "line": 95,
+      "source_statement": "theorem readPlan_work (indices : List (Fin n)) (compute : List \u03b1 \u2192 \u03b2)\n    (input : Fin n \u2192 \u03b1) (trace : Transcript n \u03b1) (value : \u03b2)\n    (run : Runs (readPlan indices compute) input [] trace value) (c : Nat) :\n    queryWork (fun _ _ => c) trace = c * indices.length"
+    },
+    {
+      "name": "Applications.Selection.CoordinateQueries.readAll",
+      "visibility": "public",
+      "kind": "def",
+      "source": "Applications/Selection/CoordinateReadAll.lean",
+      "line": 102,
+      "source_statement": "def readAll (compute : List \u03b1 \u2192 \u03b2) : Protocol n \u03b1 \u03b2"
+    },
+    {
+      "name": "Applications.Selection.CoordinateQueries.readAll_run",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Applications/Selection/CoordinateReadAll.lean",
+      "line": 106,
+      "source_statement": "theorem readAll_run (compute : List \u03b1 \u2192 \u03b2) (input : Fin n \u2192 \u03b1) :\n    Runs (readAll compute) input [] (List.ofFn (fun i => (i, input i)))\n      (compute (List.ofFn input))"
+    },
+    {
+      "name": "Applications.Selection.CoordinateQueries.readAll_total",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Applications/Selection/CoordinateReadAll.lean",
+      "line": 112,
+      "source_statement": "theorem readAll_total (compute : List \u03b1 \u2192 \u03b2) : Total (readAll (n"
+    },
+    {
+      "name": "Applications.Selection.CoordinateQueries.readAll_run_iff",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Applications/Selection/CoordinateReadAll.lean",
+      "line": 115,
+      "source_statement": "theorem readAll_run_iff (compute : List \u03b1 \u2192 \u03b2) (input : Fin n \u2192 \u03b1)\n    (trace : Transcript n \u03b1) (value : \u03b2) :\n    Runs (readAll compute) input [] trace value \u2194\n      trace = List.ofFn (fun i => (i, input i)) \u2227 value = compute (List.ofFn input)"
+    },
+    {
+      "name": "Applications.Selection.CoordinateQueries.readAll_coordinates",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Applications/Selection/CoordinateReadAll.lean",
+      "line": 125,
+      "source_statement": "theorem readAll_coordinates (compute : List \u03b1 \u2192 \u03b2) (input : Fin n \u2192 \u03b1)\n    (trace : Transcript n \u03b1) (value : \u03b2)\n    (run : Runs (readAll compute) input [] trace value) :\n    trace.map Prod.fst = List.finRange n"
+    },
+    {
+      "name": "Applications.Selection.CoordinateQueries.readAll_length",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Applications/Selection/CoordinateReadAll.lean",
+      "line": 132,
+      "source_statement": "theorem readAll_length (compute : List \u03b1 \u2192 \u03b2) (input : Fin n \u2192 \u03b1)\n    (trace : Transcript n \u03b1) (value : \u03b2)\n    (run : Runs (readAll compute) input [] trace value) : trace.length = n"
+    },
+    {
+      "name": "Applications.Selection.CoordinateQueries.readAll_work",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Applications/Selection/CoordinateReadAll.lean",
+      "line": 140,
+      "source_statement": "theorem readAll_work (compute : List \u03b1 \u2192 \u03b2) (input : Fin n \u2192 \u03b1)\n    (trace : Transcript n \u03b1) (value : \u03b2)\n    (run : Runs (readAll compute) input [] trace value) (c : Nat) :\n    queryWork (fun _ _ => c) trace = c * n"
+    },
+    {
+      "name": "Applications.Selection.CoordinateQueries.readAll_correct",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Applications/Selection/CoordinateReadAll.lean",
+      "line": 148,
+      "source_statement": "theorem readAll_correct (compute : List \u03b1 \u2192 \u03b2) (spec : List \u03b1 \u2192 \u03b2 \u2192 Prop)\n    (correct : \u2200 xs : List \u03b1, xs.length = n \u2192 spec xs (compute xs))\n    (input : Fin n \u2192 \u03b1) (trace : Transcript n \u03b1) (value : \u03b2)\n    (run : Runs (readAll compute) input [] trace value) :\n    spec (List.ofFn input) value"
+    },
+    {
+      "name": "Examples.CoordinateReadAll.empty_run",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Examples/CoordinateReadAll.lean",
+      "line": 15,
+      "source_statement": "theorem empty_run (compute : List \u03b1 \u2192 \u03b2) (input : Fin 0 \u2192 \u03b1) :\n    Runs (readAll compute) input [] [] (compute [])"
+    },
+    {
+      "name": "Examples.CoordinateReadAll.empty_every_run",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Examples/CoordinateReadAll.lean",
+      "line": 19,
+      "source_statement": "theorem empty_every_run (compute : List \u03b1 \u2192 \u03b2) (input : Fin 0 \u2192 \u03b1)\n    (trace : Transcript 0 \u03b1) (value : \u03b2)\n    (run : Runs (readAll compute) input [] trace value) (c : Nat) :\n    trace = [] \u2227 value = compute [] \u2227 queryWork (fun _ _ => c) trace = 0"
+    },
+    {
+      "name": "Examples.CoordinateReadAll.full_read_exists",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Examples/CoordinateReadAll.lean",
+      "line": 27,
+      "source_statement": "theorem full_read_exists (compute : List \u03b1 \u2192 \u03b2) (input : Fin n \u2192 \u03b1) (c : Nat) :\n    \u2203 (trace : Transcript n \u03b1) (value : \u03b2),\n      Runs (readAll compute) input [] trace value \u2227\n      trace.map Prod.fst = List.finRange n \u2227\n      value = compute (List.ofFn input) \u2227 trace.length = n \u2227\n      queryWork (fun _ _ => c) trace = c * n"
+    },
+    {
+      "name": "Examples.CoordinateReadAll.full_read_every_run",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Examples/CoordinateReadAll.lean",
+      "line": 39,
+      "source_statement": "theorem full_read_every_run (compute : List \u03b1 \u2192 \u03b2) (input : Fin n \u2192 \u03b1)\n    (trace : Transcript n \u03b1) (value : \u03b2)\n    (run : Runs (readAll compute) input [] trace value) (c : Nat) :\n    trace = List.ofFn (fun i => (i, input i)) \u2227\n      value = compute (List.ofFn input) \u2227 trace.length = n \u2227\n      queryWork (fun _ _ => c) trace = c * n"
+    },
+    {
+      "name": "Examples.CoordinateReadAll.observed_sum",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Examples/CoordinateReadAll.lean",
+      "line": 50,
+      "source_statement": "theorem observed_sum (input : Fin n \u2192 Nat) (trace : Transcript n Nat) (value : Nat)\n    (run : Runs (readAll (fun xs : List Nat => xs.sum)) input [] trace value) :\n    value = (List.ofFn input).sum"
+    },
+    {
+      "name": "Examples.CoordinateReadAll.concrete_full_read",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Examples/CoordinateReadAll.lean",
+      "line": 57,
+      "source_statement": "theorem concrete_full_read :\n    Runs (readAll (fun xs : List Nat => xs.sum)) (![8, 3, 5] : Fin 3 \u2192 Nat) []\n      [(0, 8), (1, 3), (2, 5)] 16"
+    },
+    {
+      "name": "Examples.CoordinateReadAll.duplicate_full_read",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Examples/CoordinateReadAll.lean",
+      "line": 67,
+      "source_statement": "theorem duplicate_full_read :\n    Runs (readAll (fun xs : List Nat => xs.sum)) (![4, 4, 4] : Fin 3 \u2192 Nat) []\n      [(0, 4), (1, 4), (2, 4)] 12"
+    },
+    {
+      "name": "Examples.CoordinateReadAll.duplicate_every_charge",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Examples/CoordinateReadAll.lean",
+      "line": 76,
+      "source_statement": "theorem duplicate_every_charge (trace : Transcript 3 Nat) (value : Nat)\n    (run : Runs (readAll (fun xs : List Nat => xs.sum))\n      (![4, 4, 4] : Fin 3 \u2192 Nat) [] trace value) :\n    value = 12 \u2227 trace.length = 3 \u2227 queryWork (fun _ _ => 2) trace = 6"
+    },
+    {
+      "name": "Examples.CoordinateReadAll.repeated_plan_run",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Examples/CoordinateReadAll.lean",
+      "line": 84,
+      "source_statement": "theorem repeated_plan_run (compute : List \u03b1 \u2192 \u03b2) (input : Fin 2 \u2192 \u03b1) :\n    Runs (readPlan [0, 1, 0] compute) input []\n      [(0, input 0), (1, input 1), (0, input 0)]\n      (compute [input 0, input 1, input 0])"
+    },
+    {
+      "name": "Examples.CoordinateReadAll.repeated_plan_every_charge",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Examples/CoordinateReadAll.lean",
+      "line": 91,
+      "source_statement": "theorem repeated_plan_every_charge (compute : List \u03b1 \u2192 \u03b2) (input : Fin 2 \u2192 \u03b1)\n    (trace : Transcript 2 \u03b1) (value : \u03b2)\n    (run : Runs (readPlan [0, 1, 0] compute) input [] trace value) (c : Nat) :\n    value = compute [input 0, input 1, input 0] \u2227 trace.length = 3 \u2227\n      queryWork (fun _ _ => c) trace = c * 3"
+    },
+    {
+      "name": "Examples.CoordinateReadAll.supplied_history_values",
+      "visibility": "public",
+      "kind": "theorem",
+      "source": "Examples/CoordinateReadAll.lean",
+      "line": 102,
+      "source_statement": "theorem supplied_history_values :\n    readPlan ([0, 1] : List (Fin 2)) (fun xs : List Nat => xs)\n      [(0, 99), (1, 7)] = Sum.inl [7, 99]"
+    }
+  ]
+}

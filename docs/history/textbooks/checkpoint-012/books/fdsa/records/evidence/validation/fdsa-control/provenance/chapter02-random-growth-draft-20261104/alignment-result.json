@@ -1,0 +1,41 @@
+{
+  "completed_utc": "2026-11-04T07:41:21.345847+00:00",
+  "source_before": "c19a85f8f5e256e87b0001f3e98afb2c7c1b08cc",
+  "source_after": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+  "branch": "work/fdsa-ch02-random-pivot",
+  "source_worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot",
+  "clean": true,
+  "lake_absent": true,
+  "exact_dependency_source_identities": {
+    "Applications/Resources/RandomQuickSortRank.lean": {
+      "original_source_candidate": "c19a85f8f5e256e87b0001f3e98afb2c7c1b08cc",
+      "sha256": "22960885c968620b957e7e2381baa8b887d9dc80a54fb72fe9644c3ace2890b4"
+    },
+    "Examples/RandomQuickSortRank.lean": {
+      "original_source_candidate": "c19a85f8f5e256e87b0001f3e98afb2c7c1b08cc",
+      "sha256": "a0f5fbd6b3d41cad08193a371228bede1b869a773608b21906e85f2848d747bf"
+    },
+    "Applications/Resources/QuickSortMean.lean": {
+      "original_source_candidate": "012ff45e3bd34a36b67e62a8cc2ee00125613e53",
+      "sha256": "6ac46b57a39ad60eaae10d6b90ac4c46c9cbdc02d5caf214097b1e794d03794b"
+    },
+    "Examples/QuickSortMean.lean": {
+      "original_source_candidate": "012ff45e3bd34a36b67e62a8cc2ee00125613e53",
+      "sha256": "924ce55ee6af374b55cea67ee6f2da25997b5a81ad098e2e3789622bd793b904"
+    },
+    "Applications/Resources/RandomQuickSortMean.lean": {
+      "original_source_candidate": "1f315fdbb40288d99921164bb3fd8afcbd756e58",
+      "sha256": "2c7976bf52a2dbed2eb6eb959055acc7ae0df8319c167f0128b63e5c482bd5d3"
+    },
+    "Examples/RandomQuickSortMean.lean": {
+      "original_source_candidate": "1f315fdbb40288d99921164bb3fd8afcbd756e58",
+      "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670"
+    }
+  },
+  "central_candidate_unchanged": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+  "authorized_new_paths": [
+    "Applications/Resources/RandomQuickSortGrowth.lean",
+    "Examples/RandomQuickSortGrowth.lean"
+  ],
+  "status": "Source-only release; actual dependency compilation/type/acceptance still pending. No compiler operation."
+}

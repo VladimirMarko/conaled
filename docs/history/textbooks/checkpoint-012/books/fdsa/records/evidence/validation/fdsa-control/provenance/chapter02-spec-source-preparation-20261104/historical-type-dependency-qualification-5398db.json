@@ -1,0 +1,57 @@
+{
+  "recorded_utc": "2026-11-04T09:00:37.536018+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "retained_complete_central_source": "5398db774ed5ca9938d0562e379d757323e7a355",
+  "full_scope_retained": "All 112 obligations, all ten shared scopes and the complete fixed R-to-eventual-final Chapter 2 scope. Isolated corrections are not complete replacement candidates.",
+  "overall_outcome": "Blocked",
+  "compiler_or_build_invoked_by_reviewer": false,
+  "approval_or_acceptance": false,
+  "foundation": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "cross_candidate_reuse_established": false,
+  "root_record": {
+    "path": "provenance/foundation-public-types-central-preparation-20261104/blocked-identity.json",
+    "bytes": 2162,
+    "lines": 41,
+    "sha256": "e516aa3029aee88f1fa2e6c96fd362fdcfbd5b91461e571e9de138b64ae6a84e"
+  },
+  "actual_dependency_before": {
+    "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "path": "Applications/Sorting/Merge.lean",
+    "git_blob": "15708d975dc76472da0c10990e805e2d4dfbdcbb",
+    "bytes": 5604,
+    "lines": 126,
+    "sha256": "79b35252d0f551b381ef63974497311336ea92a5d118691647825cade12a1338"
+  },
+  "actual_dependency_after": {
+    "candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+    "path": "Applications/Sorting/Merge.lean",
+    "git_blob": "6595f901a9358398bee07333872125990ef8360c",
+    "bytes": 7840,
+    "lines": 172,
+    "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7"
+  },
+  "complete_diff_read": true,
+  "diff_identity": {
+    "bytes": 2747,
+    "lines": 55,
+    "sha256": "dc7b3c00987bd6a3eb8ed9b6f8a870e33f93a0168dfb4aac081bbd582c45c4d9"
+  },
+  "existing_declarations_prefix_byte_identical": true,
+  "added_theorems": [
+    "sublist_merge_left",
+    "sublist_merge_right",
+    "pairwise_of_merge",
+    "merge_sorted_compatible_on_iff"
+  ],
+  "new_instances_or_simp_registrations": false,
+  "mathematical_assessment": "Four appended theorems preserve actual merge occurrence order and expose the law-free pairwise converse plus the existing input-local compatible sortedness iff. No concrete mathematical weakening was found in this dependency delta.",
+  "validation_assessment": "Complete matching roots do not establish matching imported environments. The historical 941 printed outputs remain read and semantically assessed, but their reuse at the final candidate still requires relevant transitive dependency/configuration reconciliation. Neither 793 current missing-name inspections nor exact-F 145 inspections may be subtracted on root hashes alone.",
+  "accepted_chapter1_status_unchanged": true,
+  "no_compiler_or_type_program_launched_for_cross_candidate_F145": true,
+  "historical_profile_counts": {
+    "pp_explicit": 648,
+    "ordinary_or_universe_profile": 293
+  },
+  "remaining_required_work": "Standards will identify precise historical closure/configuration differences; any qualified subset reuse or necessary new output must be explicitly justified."
+}

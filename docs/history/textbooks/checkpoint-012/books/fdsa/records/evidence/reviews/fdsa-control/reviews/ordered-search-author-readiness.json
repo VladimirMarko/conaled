@@ -1,0 +1,46 @@
+{
+  "recorded_utc": "2026-11-02T22:28:19.034796+00:00",
+  "requirements": {
+    "path": "reviews/ordered-search-requirements.md",
+    "bytes": 20654,
+    "lines": 383,
+    "sha256": "8fc03c60b3aae37d621112504a4fb83ca1675c4c1f2563f5d14cd45e352ab30e"
+  },
+  "original_review_base": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+  "checkout": "conaled-ordered-search",
+  "branch": "work/fdsa-ordered-search",
+  "source_authoring_released": false,
+  "required_pre_code_checkpoint": "conaled-fdsa-0055-ordered-search-scope",
+  "authors": [
+    {
+      "agent": "/root/architecture",
+      "paths": [
+        "Applications/Resources/TreeSearch.lean"
+      ],
+      "complete_scope_read": true,
+      "concrete_issue_reported": false,
+      "stopped": true
+    },
+    {
+      "agent": "/root/rotation_cases",
+      "paths": [
+        "Examples/TreeSearch.lean"
+      ],
+      "complete_scope_read": true,
+      "concrete_issue_reported": false,
+      "stopped": true
+    },
+    {
+      "agent": "/root/book_inventory",
+      "paths": [
+        "docs/research/fdsa-tree-search.md",
+        "docs/research/fdsa-reconstruction-map.md"
+      ],
+      "complete_scope_read": true,
+      "concrete_issue_reported": false,
+      "stopped": true
+    }
+  ],
+  "root_path": "SquareApplications.lean",
+  "validation": "No XS01 compilation. C1 attempt3 sole authorized full run; first two outcomes unknown."
+}

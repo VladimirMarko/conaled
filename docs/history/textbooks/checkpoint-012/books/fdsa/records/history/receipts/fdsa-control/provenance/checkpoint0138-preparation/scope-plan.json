@@ -1,0 +1,35 @@
+{
+  "recorded_utc": "2026-11-05T02:41:14.246647+00:00",
+  "proposed_checkpoint": "conaled-fdsa-0138-tree-cache-accepted-and-chapter04-progress",
+  "state": "PREPARATION ONLY; no XT01 acceptance or checkpoint execution has occurred",
+  "current_accepted": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "proposed_accepted": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "proposed_accepted_tree": "18bf4bc9df979d4ee6ac76182f58faed235a0714",
+  "previous_checkpoint": "0137",
+  "expected_refs": 78,
+  "expected_worktrees": 9,
+  "new_refs": [
+    "refs/heads/work/fdsa-tree-cache-integration",
+    "refs/heads/work/fdsa-ch04-structural",
+    "refs/heads/work/fdsa-ch04-balancing",
+    "refs/heads/work/fdsa-ch04-exercises"
+  ],
+  "only_permitted_previous_ref_advance": "refs/heads/work/fdsa-book: accepted Chapter3 to fully approved XT01 after all gates",
+  "current_existing_control_changes": [
+    "CURRENT.md",
+    "STATUS.md",
+    "checkpoints.json",
+    "reviews/binary-tree-cache-round1.md",
+    "reviews/chapter03-round1.md",
+    "tickets/FDSA-003.md",
+    "tickets/FDSA-004.md",
+    "tickets/FDSA-XT01.md",
+    "tickets/INDEX.md"
+  ],
+  "historical_acceptance_rule": "Preserve Chapter2/XR/Chapter3 immutable acceptance/evidence, original source references and archived historical observations. Former live-current Chapter3 comparisons must use the exact previous0137 manifest and bound historical records once the current accepted head advances. No mathematical or validation requirement is removed.",
+  "new_unit_gate": "Require actual full candidate pass/audit, all115 actual types with matching input observations, both final axes Passed/zero unresolved, immediate verification, exact local fast-forward, then actual acceptance record.",
+  "chapter04_rule": "All76 obligations remain unaccepted. Preserve all current authored source, immutable phase commits and relevant uncommitted drafts with exact worktree states under explicit writer holds. No draft validation credit.",
+  "resource_rule": "Unchanged rounded-control-copy plus96MiB staging allowance and32MiB margin. No installation/hydration.",
+  "checkpoint_chain_dependency": false,
+  "original_creator_and_restorer_unchanged": true
+}

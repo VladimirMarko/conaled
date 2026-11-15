@@ -1,0 +1,62 @@
+{
+  "candidate": "a4cd1b6b53fdab38eab40433c3fd60293fdc054f",
+  "full_chapter_inventory": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/research/chapter03-obligations.md",
+    "bytes": 52581,
+    "lines": 510,
+    "sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed"
+  },
+  "full_chapter_rows": 83,
+  "assigned_original_scope": [
+    "C03-039",
+    "C03-040",
+    "C03-041",
+    "C03-042",
+    "C03-043",
+    "C03-044"
+  ],
+  "requirements": [
+    {
+      "id": "C03-039",
+      "required": "For f : Nat → Real and fixed real a,b,c,d,C1,C2, the recurrence above n0 uses exactly Nat.ceil (a*n+b) and Nat.ceil (c*n+d).",
+      "slice1": "recurrence_step_le carries this exact equality at one n and consumes both child bounds.",
+      "remaining": "The universal cutoff recurrence and all-input induction/existence theorem remain to be added; no row-completion credit."
+    },
+    {
+      "id": "C03-040",
+      "required": "For arbitrary signed offsets use max 0 b/max 0 d in the two (3.16) thresholds, with zero truncation explicit.",
+      "slice1": "ceil_affine_lt_add_one; ceil_affine_lt_of_threshold; thresholds_of_combined_cutoff; ceil_children_lt. Negative-argument and signed-offset clients included.",
+      "remaining": "All declarations uncompiled; independent source/type and applicable full gates pending."
+    },
+    {
+      "id": "C03-041",
+      "required": "The sufficient slope is NONSTRICT C3 ≥ C1/(1-a-c); retain the counterexample to the printed strict assertion.",
+      "slice1": "slope_nonneg_and_margin derives C3 ≥ 0 from C1 ≥ 0 and positive gap. strict_slope_choice_counterexample uses a=c=1/4, N=5 and zero toll/function; zero_recurrence and zero_recurrence_bound_step connect the actual rounded recurrence.",
+      "remaining": "All declarations uncompiled; no acceptance credit."
+    },
+    {
+      "id": "C03-042",
+      "required": "Sharp induction with arbitrary real C4, f n ≤ C4 for n≤N, N>(max 0 b+max 0 d+2)/(1-a-c), C3 at least both source quotients, positive denominator and derived C3≥0.",
+      "slice1": "cutoff_denominator_pos, slope_nonneg_and_margin, sharp_affine_absorption and recurrence_step_le preserve the exact numerator/denominator and possibly negative C4.",
+      "remaining": "Strong induction and source witness construction remain pending. Retain N=max n0 (Nat.ceil(K/(1-a-c))+1), C4 as the finite prefix maximum, C3=max(C1/(1-a-c),(C1*N+C2+C4)/((1-a-c)*N-K)); K=max 0 b+max 0 d+2. If using the pinned theory cutoff with Nat.ceil(ratio+1), prove its standard ceiling equivalence."
+    },
+    {
+      "id": "C03-043",
+      "required": "For arbitrary f : Nat → Real and b,d,C2 : Real, a,c>0, a+c<1, C1≥0 and recurrence above n0, there exist fixed real C3,C4 bounding every n including zero. No f≥0/C2≥0/b,d≥0/C4≥0 strengthening.",
+      "slice1": "Preparatory exact child and one-step laws only.",
+      "remaining": "Full existence theorem entirely pending; the existing generic XR result cannot replace the retained sharp source statements."
+    },
+    {
+      "id": "C03-044",
+      "required": "For natural-valued f and natural C1,C2, derive natural bounding constants by rounding the real constants upward; retain arbitrary real offsets and all n including zero.",
+      "slice1": "None.",
+      "remaining": "Natural-valued corollary pending, derived from the completed real theorem rather than a duplicate induction."
+    }
+  ],
+  "required_future_consumers": {
+    "C03-045": "Exact F instantiation at a=1/5,b=0,c=7/10,d=3,C1=19,C2=54,n0=20; requires actual scalar F.",
+    "C03-046": "Uniform actual selector source-cost bridge after C03-038 and C03-045. Neither is claimed by this scalar slice."
+  },
+  "review_scope_not_reduced_by_first_slice": true,
+  "no_actual_validation_or_acceptance_credit": true
+}

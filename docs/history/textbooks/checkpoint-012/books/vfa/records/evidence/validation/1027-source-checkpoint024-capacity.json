@@ -1,0 +1,20 @@
+{
+  "recorded_utc": "2026-11-02T15:01:39.862469+00:00",
+  "scope": "One complete source checkpoint024 only; no new cache capture",
+  "independent_assessor": "environment",
+  "shape_evidence": {
+    "estimated_peak_bytes": 389000000,
+    "source023_archive_bytes": 145936501,
+    "source023_growth_over021_bytes": 118942,
+    "generator_removes_restore_clone_before_packing": true,
+    "formal_candidate_unchanged": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec"
+  },
+  "operation_allowance_bytes": 500000000,
+  "operation_margin_over_estimated_peak_bytes": 111000000,
+  "previous_continuing_build_reserve_bytes": 1073741824,
+  "one_capture_continuing_build_reserve_bytes": 805306368,
+  "combined_allowance_bytes": 1305306368,
+  "one_capture_launch_floor_bytes": 1310000000,
+  "basis": "Keep the source operation allowance approximately29 percent above its estimated peak. Explicitly reduce the advisory continuing-build reserve from1GiB to768MiB for this one unchanged-shape capture, supported by source023 approximately29-second capture and substantial remaining reserve. The source generator and its bundle/restore/stability/hash checks remain unchanged.",
+  "limitations": "Engineering allowance, not a hard bound on unknown concurrent storage consumption or a guarantee of duration. No automatic further floor reduction. Not applicable to cache capture; the accepted cache utility500MBreserve is unchanged."
+}

@@ -1,0 +1,194 @@
+{
+  "recorded_utc": "2026-11-03T01:04:18.045624+00:00",
+  "ticket": "FDSA-XT09",
+  "phase": "Frozen bounded source scope; untouched source-only starting state before readiness and saved pre-code checkpoint.",
+  "original_review_base": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "xt01_ancestor": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "branch": "work/fdsa-braun-shape",
+  "checkout": "/workspace/scratch/845aa1048b05/conaled-braun-shape",
+  "initial_head": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "initial_status": "",
+  "git_creation_stdout": "HEAD is now at 974a973 feat(trees): add shared sharp shape bounds (#174)\n",
+  "requirements": {
+    "bytes": 14161,
+    "lines": 252,
+    "sha256": "b7d1797e80ca2c732fd29632fea1ee5df0b296329bf1648d8ee714018a8f53f5"
+  },
+  "root_assessment": {
+    "bytes": 6480,
+    "lines": 107,
+    "sha256": "23db3ff2e17634bfe5762964ca51a4a35951e7b18c7c38d97fd7450ffb84189a"
+  },
+  "reports": {
+    "source": {
+      "path": "research/braun-shape-source-preflight.md",
+      "bytes": 28163,
+      "lines": 401,
+      "sha256": "5a11f1e66cf45870d7b0e0651445459457bdca5cf4c8ddd599c7c5ddb40d5931",
+      "root_fully_read": true,
+      "author_stopped_before_readiness": true
+    },
+    "api": {
+      "path": "research/braun-shape-api-preflight.md",
+      "bytes": 31657,
+      "lines": 514,
+      "sha256": "cc445c1eef96e836dee9fb77a73932d221307f31b11fa58c5d0974efce4772e3",
+      "root_fully_read": true,
+      "author_stopped_before_readiness": true
+    },
+    "cases": {
+      "path": "research/braun-shape-case-preflight.md",
+      "bytes": 31923,
+      "lines": 495,
+      "sha256": "9561054896a97e49cf55ba0d1b19eb7f7e3da51b16b4771b04b58c2963313d52",
+      "root_fully_read": true,
+      "author_stopped_before_readiness": true
+    }
+  },
+  "source_baselines": {
+    "Applications/Trees/Observations.lean": {
+      "bytes": 4119,
+      "lines": 107,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752"
+    },
+    "Applications/Trees/Cached.lean": {
+      "bytes": 5668,
+      "lines": 135,
+      "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6"
+    },
+    "Applications/Trees/Shape.lean": {
+      "bytes": 11019,
+      "lines": 267,
+      "sha256": "2233e014900a48ebc239d676a1c8abdaee2046ef503e5219bff460a001b868f3"
+    },
+    "Applications/Trees/ShapeLog.lean": {
+      "bytes": 2796,
+      "lines": 69,
+      "sha256": "35c0555383fc3d03bcac4f368d41b2c8f744a49e18ef72b192c3753b7ef4497b"
+    },
+    "Examples/TreeCache.lean": {
+      "bytes": 16307,
+      "lines": 363,
+      "sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754"
+    },
+    "Examples/TreeShape.lean": {
+      "bytes": 12648,
+      "lines": 297,
+      "sha256": "2bcf2b65fa7a0eccc043c3bc7ba66d1bfdcd469489eab52d9085fdfb3db0b516"
+    },
+    "docs/SOURCES.md": {
+      "bytes": 7841,
+      "lines": 126,
+      "sha256": "ea7e9c276f7ea729ca1a17b4efa76bb724ccf3ba26df95a2535f7560f4d41766"
+    },
+    "docs/research/fdsa-reconstruction-map.md": {
+      "bytes": 20055,
+      "lines": 311,
+      "sha256": "a9425275ce38e4a0c49b5bca9219bb38c6afcc36b65e6e7874e5c4e88a1fdc3b"
+    },
+    "SquareApplications.lean": {
+      "bytes": 8344,
+      "lines": 254,
+      "sha256": "3ce2c9953286d48d62aa8c354af5d1a1e07c483dbe57974f0beb97124db5effb"
+    },
+    "AGENTS.md": {
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    },
+    "README.md": {
+      "bytes": 26239,
+      "lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216"
+    },
+    "lean-toolchain": {
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    "lakefile.toml": {
+      "bytes": 444,
+      "lines": 13,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+    },
+    "lake-manifest.json": {
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    "flake.nix": {
+      "bytes": 637,
+      "lines": 28,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+    },
+    "flake.lock": {
+      "bytes": 564,
+      "lines": 27,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+    },
+    "check.sh": {
+      "bytes": 74,
+      "lines": 4,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd"
+    },
+    "scripts/check.py": {
+      "bytes": 16119,
+      "lines": 348,
+      "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+    },
+    "scripts/lake_integrity.py": {
+      "bytes": 5781,
+      "lines": 117,
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f"
+    },
+    ".agents/skills/implement/SKILL.md": {
+      "bytes": 4997,
+      "lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df"
+    },
+    ".agents/skills/example-driven-development/SKILL.md": {
+      "bytes": 6991,
+      "lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a"
+    },
+    "docs/agents/architectural-quality.md": {
+      "bytes": 3876,
+      "lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6"
+    },
+    "docs/agents/domain.md": {
+      "bytes": 926,
+      "lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d"
+    },
+    "docs/agents/lake-integrity-incidents.md": {
+      "bytes": 5037,
+      "lines": 75,
+      "sha256": "af2791fe85d0f559356a73899c02a61dd4012599e3ae70b203c14e27483d4b11"
+    }
+  },
+  "new_paths_absent": [
+    "Applications/Trees/Braun.lean",
+    "Examples/BraunShape.lean",
+    "docs/research/fdsa-braun-shape.md"
+  ],
+  "allowed_source_paths": [
+    "Applications/Trees/Braun.lean",
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/BraunShape.lean",
+    "docs/research/fdsa-braun-shape.md",
+    "docs/research/fdsa-reconstruction-map.md",
+    "SquareApplications.lean"
+  ],
+  "dependency_source_link": "../../conaled/.lake/packages",
+  "project_build_absent": true,
+  "source_authoring_released": false,
+  "validation_released": false,
+  "main_head": "1aabd512284fe86254278ac631eda061d311050b",
+  "main_status_before_and_after": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.n7UlkJ\n",
+  "c1_candidate_before_and_after": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "c1_source_clean": true,
+  "initial_chapter02_prefix": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "next_action": "Obtain all three full-requirements readiness responses, preserve local tracking, create/expose/upload checkpoint0060, then recheck and explicitly release disjoint source ownership."
+}

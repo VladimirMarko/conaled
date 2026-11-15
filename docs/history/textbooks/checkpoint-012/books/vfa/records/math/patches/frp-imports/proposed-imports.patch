@@ -1,0 +1,37 @@
+diff --git a/Applications/FRP/Spec.lean b/Applications/FRP/Spec.lean
+--- a/Applications/FRP/Spec.lean
++++ b/Applications/FRP/Spec.lean
+@@ -17,7 +17,11 @@
+   Origin: the accompanying research answer on Elliott's push-pull FRP.
+ -/
+ 
+-import Mathlib
++import Mathlib.Basic.Real.Basic
++import Mathlib.Data.Finset.Dedup
++import Mathlib.Data.Finset.Sort
++import Mathlib.Data.Set.Finite.Lattice
++import Mathlib.Tactic.Ext
+ import SquareKit.FunctionCategory
+ import SquareKit.CartesianMap
+ 
+diff --git a/Applications/FRP/Equivalence.lean b/Applications/FRP/Equivalence.lean
+--- a/Applications/FRP/Equivalence.lean
++++ b/Applications/FRP/Equivalence.lean
+@@ -1,4 +1,16 @@
+-import Mathlib
++import Lean.Elab.Tactic.NormCast
++import Lean.Elab.Tactic.Omega
++import Mathlib.Algebra.Order.Archimedean.Real.Basic
++import Mathlib.Data.Finset.Card
++import Mathlib.Data.Finset.Max
++import Mathlib.Data.Nat.Find
++import Mathlib.Data.Set.Finite.Basic
++import Mathlib.Order.Hom.Basic
++import Mathlib.Order.Interval.Finset.Nat
++import Mathlib.Order.Prod.Lex.Basic
++import Mathlib.Tactic.Ext
++import Mathlib.Tactic.Linarith
++import Mathlib.Tactic.Positivity
+ 
+ /-!
+ # The two event denotations in Elliott's 2015 talks

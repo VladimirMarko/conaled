@@ -1,0 +1,119 @@
+{
+  "schema": "fdsa.spec.full-gate-additive-completion.v1",
+  "recorded_utc": "2026-11-04T17:47:08.449501+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "checkpoint_release": "0121; archive28260739bytes SHA72195b94b456a4d19daa149797ed006727d58c3477747b9de78eb6404b6de2d5",
+  "prior_held_files_preserved": [
+    {
+      "path": "provenance/chapter02-spec-receiving-terminal-20261104/full-log-read-index.json",
+      "bytes": 5864,
+      "lines": 247,
+      "sha256": "697868e99da0e8bd993ea82ca4578b76e217bbd6afc88a16055cc8beda41711e"
+    },
+    {
+      "path": "provenance/chapter02-spec-receiving-terminal-20261104/full-log-read-progress.json",
+      "bytes": 11723,
+      "lines": 361,
+      "sha256": "b840aa1ed9fb3c1f395241a3c986b4ccfc9d8995b50d896cf5ca54556d877ec6"
+    },
+    {
+      "path": "provenance/chapter02-spec-receiving-terminal-20261104/full-gate-reconciliation.json",
+      "bytes": 29592,
+      "lines": 582,
+      "sha256": "cafb886c02822cddb7da08413d2e2ff63da8581e0c015231f3f4832ba417c9b5"
+    },
+    {
+      "path": "provenance/chapter02-spec-receiving-terminal-20261104/method-correction-C02-PREP-CMD-001-assessment.json",
+      "bytes": 6318,
+      "lines": 108,
+      "sha256": "c9ab93271d07cae0562ae8e3ffbf525f6466ed67f44d3d0f47f5ac5ff4de840d"
+    }
+  ],
+  "complete_readback": {
+    "full_gate_receipt582lines29592bytes": [
+      {
+        "lines": [
+          1,
+          200
+        ],
+        "bytes": 6289,
+        "sha256": "20a7e5e439f74bb1e1458f283eff7cb7a603094f842add99a487ff1809d3fe1a",
+        "tool": "621847 exit0"
+      },
+      {
+        "lines": [
+          201,
+          400
+        ],
+        "bytes": 11823,
+        "sha256": "b60275fee125d6100ca451b3b3105b097b861e53a89f6c69702fb17ad7aca9cf",
+        "tool": "0f6480 exit0"
+      },
+      {
+        "lines": [
+          401,
+          582
+        ],
+        "bytes": 11480,
+        "sha256": "8aebcbf63d4d9d41e5bbeb1d91ffbf72e850ff946d499bb86c824393d6f6c8d8",
+        "tool": "384ff9 exit0"
+      }
+    ],
+    "complete_progress361lines": "6e56ce exit0",
+    "complete_CMD001108lines": "f699b6 exit0"
+  },
+  "supersession_clarification": "The held progress ledger retains initial text saying independent reconstruction/native contexts and complete log/audit were pending. Its complete_closed_log_read=true and final2678-line/314896-byte entry, followed by full-gate-reconciliation.json, supersede those dated initial labels. Current full log/audit/warning/terminal assessment is complete with no new Spec finding. Receiving statement qualification and final gates remain pending; no prior evidence is erased or retroactively relabelled.",
+  "actual_corrected_comparison": [
+    {
+      "path": "provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/comparison-attempt2-start.json",
+      "bytes": 1474,
+      "lines": 27,
+      "sha256": "1f8a7dcb7e35947d56726c684078c70916696885d8dff52f31ce11ed36417f94"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/comparison-attempt2-execution.json",
+      "bytes": 1548,
+      "lines": 29,
+      "sha256": "39ffb53b6ffe96c9c24f3c18a6e6a00be11a389951017c7a7bb434181b10b684"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/comparison-attempt2.log",
+      "bytes": 316,
+      "lines": 1,
+      "sha256": "6b9a6a38e51f38574b80de96059637664d3643f33f210261733b7906292e44aa"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/preliminary-comparison-attempt2.json",
+      "bytes": 2419127,
+      "lines": 62276,
+      "sha256": "1f98ccb397b0be943b8bf96dc0707e5f293e2d3af85491695cbbe94390e15632"
+    }
+  ],
+  "comparison_outcome": "Actual root-owned comparison-only retry closed0 at7b4cc2 with same successful pre-input observation and no compiler or capture rerun. It mechanically reports1763rows/87recent-root/41historical-root comparisons; preliminary status and type_credit0 retained. First exit1 remains preserved.",
+  "exploratory_boundaries": [
+    {
+      "tool": "0bb53a exit0",
+      "boundary": "Complete actual v2execution/start/log read. Selected schema/sample output only; full149boundinput/1763row content not claimed as a raw semantic read."
+    },
+    {
+      "tool": "7427f5 exit0",
+      "boundary": "Exploratory oversized schema/root output truncated; no complete-read credit. Replaced by bounded root/count output04ad67 and independent read-only reproduction2c8c11."
+    },
+    {
+      "tool": "a1b149 exit1",
+      "boundary": "Local exploratory schema lookup incorrectly expected unwrapped local_sources. No file mutation, compiler, capture, or qualification. Correct identity wrapper inspected at72dacb."
+    },
+    {
+      "tool": "846456 exit0",
+      "boundary": "Unfiltered immutable path listing truncated; no source-read credit. Relevant exact instruction paths then obtained by bounded625a7a/e42fc3."
+    }
+  ],
+  "guidance_readback": {
+    "code_review_and_AGENTS": "e42fc3 exit0, complete",
+    "review_loop": "ca7c8c exit0, complete",
+    "statement_review": "08166b exit0, complete"
+  },
+  "retained_semantic_analysis_condition": "Same-reader complete earlier mathematical/type analysis may be retained only for a newly secured complete actual block with exact bytes, fully-qualified name, printing/explicit-argument profile, original import/name-resolution context and relevant definition/assumption context established. New producer actual exit/immutable pre-post/qualified lineage remain required. Any mismatch, incompleteness, changed hidden-proof context or unmatched profile requires direct assessment; no output/path/trace/proof normalization.",
+  "current_outcome": "Blocked pending actual receiving statement qualification and final gates; full originalR/81paths/112obligations/ten scopes retained.",
+  "reviewer_compiler_capture_source_ref_cache_actions": false
+}

@@ -1,0 +1,77 @@
+{
+  "recorded_utc": "2026-11-03T17:14:03.963017+00:00",
+  "kind": "read_only_new_capacity_assessment",
+  "free_bytes": 1198354432,
+  "scope": [
+    {
+      "number": 36,
+      "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/checkpoints/conaled-vfa-checkpoint-036-recovered-environment-handoff.tar.gz",
+      "size_bytes": 146624202,
+      "allocated_bytes": 146628608,
+      "sha256": "fe08cb3718b66926051397f42c8a82af3547eb63844f9d8edb19caf3bb337e7b",
+      "matches_saved_identity": true,
+      "library_file_id": "libfile_ef8dcfdad00c81918b05f345bfc25a3a",
+      "file_id": "file_000000001c1c81f4873f2cb92773008f",
+      "upload_receipt": "work-state/validation/checkpoint036-upload.json",
+      "metadata": {
+        "user.library-file-version": "0",
+        "user.library-file-id": "libfile_ef8dcfdad00c81918b05f345bfc25a3a"
+      },
+      "regular": true,
+      "nlink": 1
+    },
+    {
+      "number": 37,
+      "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/checkpoints/conaled-vfa-checkpoint-037-direct-toolchain-runtime-handoff.tar.gz",
+      "size_bytes": 146635841,
+      "allocated_bytes": 146640896,
+      "sha256": "88d98e30970438af11c127a962bceae9d3535fee08382cfcc3b25548fe0739ab",
+      "matches_saved_identity": true,
+      "library_file_id": "libfile_7123fe616a408191928a760efd565476",
+      "file_id": "file_0000000018cc81f4a8ea5a1d5c61ccfa",
+      "upload_receipt": "work-state/validation/checkpoint037-upload.json",
+      "metadata": {
+        "user.library-file-version": "0",
+        "user.library-file-id": "libfile_7123fe616a408191928a760efd565476"
+      },
+      "regular": true,
+      "nlink": 1
+    },
+    {
+      "number": 38,
+      "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/checkpoints/conaled-vfa-checkpoint-038-working-qemu-environment.tar.gz",
+      "size_bytes": 148425489,
+      "allocated_bytes": 148430848,
+      "sha256": "a1ed387f58f0a49dd3033c24da727467ae7ae2e7d4d5425f5ed9e0541395ed9e",
+      "matches_saved_identity": true,
+      "library_file_id": "libfile_2b94c4367a60819194280072b5301481",
+      "file_id": "file_000000001d70820a93ed863a47d10fee",
+      "upload_receipt": "work-state/validation/checkpoint038-upload.json",
+      "metadata": {
+        "user.library-file-version": "0",
+        "user.library-file-id": "libfile_2b94c4367a60819194280072b5301481"
+      },
+      "regular": true,
+      "nlink": 1
+    },
+    {
+      "number": 39,
+      "path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/checkpoints/conaled-vfa-checkpoint-039-native-toolchain-alternative.tar.gz",
+      "size_bytes": 148513364,
+      "allocated_bytes": 148520960,
+      "sha256": "ec4310f49bb8845b968a8503fcee8dbc78dbc5f516cfb22992c72b5a9ffaf399",
+      "matches_saved_identity": true,
+      "library_file_id": "libfile_e2e4ee38fd3c819186b3a7100b7e3b24",
+      "file_id": "file_00000000c1648243bafb8d6dcd3c1cb6",
+      "upload_receipt": "work-state/validation/checkpoint039-upload.json",
+      "metadata": {
+        "user.library-file-version": "0",
+        "user.library-file-id": "libfile_e2e4ee38fd3c819186b3a7100b7e3b24"
+      },
+      "regular": true,
+      "nlink": 1
+    }
+  ],
+  "allocated_total": 590221312,
+  "retention": "Keep current checkpoint040 and user-attached035 local. These four earlier generated copies are separately saved remotely with their exact identities; checkpoint040 also contains complete current source/history/tickets and their prior receipts. They are not compiler inputs. No deletion performed by this assessment."
+}

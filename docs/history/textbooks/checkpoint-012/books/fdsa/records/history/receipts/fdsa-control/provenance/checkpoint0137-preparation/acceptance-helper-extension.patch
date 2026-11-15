@@ -1,0 +1,115 @@
+--- 0137-initial/capture.py
++++ 0137-accepted/capture.py
+@@ -19,8 +19,12 @@
+ refs=[{'oid':a[0],'ref':a[1],'symref':a[2]} for a in (line.split(' ',2) for line in mod.git(repo,'for-each-ref','--format=%(objectname) %(refname) %(symref)').splitlines())]
+ wts=mod.worktrees(repo);assert len(refs)==74 and len(wts)==9
+ accepted=mod.git(repo,'rev-parse','work/fdsa-book').strip();qualified=mod.git(b/'conaled-ch01-review','rev-parse','HEAD').strip()
+-assert accepted==h['accepted_head']=='c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5'
+-assert qualified==h['qualified_candidate']==v['qualified_candidate']
++assert accepted==h['accepted_head']=='298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2'
++assert qualified==h['qualified_candidate']==v['qualified_candidate']==accepted
++acceptance_path=c/'provenance/chapter03-acceptance-20261105/acceptance.json'
++acceptance=json.loads(acceptance_path.read_text())
++assert acceptance['accepted_commit']==accepted and acceptance['accepted_tree']=='ecb69c3918715cbe0682028cd8697dfcf3e463f9'
++assert acceptance['chapter03_accepted'] and acceptance['obligations']==83 and acceptance['actual_public_names']==1391
+ fixed=['README.md','previous-manifest-0136.json','previous-manifest-origin.json','verify-checkpoint.py','write-hold.json','verifier-scope-diff.patch','helper-scope-diffs.patch','capture.py','run-stage.py','independent-inspection-receipt.json']
+ held={}
+ for q in sorted(c.rglob('*')):
+@@ -29,7 +33,7 @@
+  assert not q.is_symlink(),str(q)
+  held[str(q.relative_to(c))]=identity(q)
+ previous=json.loads((c/'provenance/checkpoint0136-preparation/capture.json').read_text())['held_control']
+-allowed=['CURRENT.md','STATUS.md','checkpoints.json','reviews/chapter03-round1.md','reviews/chapter03-standards.md','reviews/chapter03-spec.md','tickets/FDSA-003.md','tickets/INDEX.md']
++allowed=['CURRENT.md','STATUS.md','checkpoints.json','reviews/chapter03-round1.md','reviews/chapter03-standards.md','reviews/chapter03-spec.md','tickets/FDSA-003.md','tickets/INDEX.md','reviews/README.md']
+ changes=[]
+ for rel,old in previous.items():
+  assert rel in held,rel
+@@ -44,7 +48,7 @@
+  assert result['exit_code']==owned['actual_exit']==r['exit']
+  assert result['candidate']==owned['candidate']==r['candidate']
+  assert identity(d/'full.log')=={'bytes':result['log_size_bytes'],'sha256':result['log_sha256']}
+-capture={'recorded_utc':datetime.now(timezone.utc).isoformat(),'checkpoint':'conaled-fdsa-0137-selection-complete-candidate-progress','accepted_head':accepted,'qualified_candidate':qualified,'all_writers_held':True,'compiler_live':False,'refs':refs,'worktrees':wts,'held_control':held,'fixed_own_preparation_files':fixed,'declared_prior_control_updates':allowed,'actual_prior_control_updates':sorted(changes),'closed_development_runs':runs,'interrupted_development_runs':progress['interrupted_development_runs'],'transport_terminal_unavailable_runs':progress['transport_terminal_unavailable_runs'],'scope':progress['checkpoint_scope']}
++capture={'recorded_utc':datetime.now(timezone.utc).isoformat(),'checkpoint':'conaled-fdsa-0137-chapter03-accepted','accepted_head':accepted,'qualified_candidate':qualified,'all_writers_held':True,'compiler_live':False,'refs':refs,'worktrees':wts,'held_control':held,'fixed_own_preparation_files':fixed,'declared_prior_control_updates':allowed,'actual_prior_control_updates':sorted(changes),'closed_development_runs':runs,'interrupted_development_runs':progress['interrupted_development_runs'],'transport_terminal_unavailable_runs':progress['transport_terminal_unavailable_runs'],'scope':progress['checkpoint_scope'],'chapter03_acceptance':{'path':str(acceptance_path),**identity(acceptance_path)}}
+ write('capture.json',capture)
+ s=os.statvfs(b);allocated=sum(((r['bytes']+s.f_frsize-1)//s.f_frsize)*s.f_frsize for r in held.values());scenario=allocated+96*1024*1024
+ assert s.f_bfree*s.f_frsize>=scenario+32*1024*1024,'Insufficient current raw checkpoint staging headroom'
+--- 0137-initial/run-stage.py
++++ 0137-accepted/run-stage.py
+@@ -18,7 +18,7 @@
+  for rel,expected in capture['held_control'].items():
+   actual=ident(c/rel);assert {k:actual[k] for k in ['bytes','sha256']}==expected,rel
+  s=os.statvfs(b);assert s.f_bfree*s.f_frsize>=pre['checkpoint_staging_scenario_bytes']+32*1024*1024
+- argv=['python3',str(c/'checkpoint_compact.py'),'conaled-fdsa-0137-selection-complete-candidate-progress']
++ argv=['python3',str(c/'checkpoint_compact.py'),'conaled-fdsa-0137-chapter03-accepted']
+  log=p/'create.log'
+ else:
+  assert v['stage']=='verification'
+--- 0137-initial/README.md
++++ 0137-accepted/README.md
+@@ -1,27 +1,43 @@
+-# Checkpoint 0137 preparation
++# Checkpoint 0137 acceptance preparation
+ 
+-This compact standalone recovery is prepared while the exact complete Chapter 3
+-receiving candidate is undergoing its normal full check. No future terminal
+-result, review outcome, type qualification or acceptance is predicted here.
+-Accepted Chapter 2 and the separately accepted XR prefix remain fixed. The
+-original Chapter 3 Q-to-final scope and all 83 obligations remain unchanged.
++This compact standalone recovery preserves the actual accepted Chapter 3
++candidate 298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2, tree
++ecb69c3918715cbe0682028cd8697dfcf3e463f9. Full normal validation, all 1,391
++actual statements, both independent whole-scope axes, immediate verification
++and the exact local fast-forward have completed. Their immutable acceptance
++record is provenance/chapter03-acceptance-20261105/acceptance.json. Checkpoint
++creation, verification, upload and exposure still require actual results.
+ 
+-The three helpers preserve every inspected checkpoint0136 payload, reference,
+-worktree, accepted-state, owned-terminal, incomplete-history, kit and resource
+-gate. Only current/previous checkpoint identifiers and names change. The exact
+-uploaded0136 archive supplies the predecessor manifest. Scope diffs are saved.
++The current accepted state is distinct from historical XR c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5.
++Historical Chapter 2 and XR acceptance/durability gates remain unchanged, as
++does XR-to-integration-origin ancestry. The only additional allowed reference
++advance is the exact local book branch from XR to Chapter 3. All 74 reference
++names and nine worktrees remain required. The original Q-to-final scope and
++all 83 obligations are preserved, with 1,370 Chapter 3 names plus 21 XR names.
+ 
+-Before capture, root must record all actual outcomes and current type/source
+-bindings, obtain every writer hold, verify no owned compiler is live, and secure
+-the independent operational inspection. Capture, creation, verification and
+-upload each require real terminal evidence. No historical session may be polled.
+-The old unknown drift outcome and known native trace failure with unavailable
+-transport terminal retain their separate exact histories without fabricated
+-closure or success credit. The full audit SIGKILL history remains preserved.
++The earlier preacceptance helpers and their inspection are preserved under
++initial-preacceptance-* names. Exact acceptance-extension diffs and full
++0136-to-0137 scope diffs are saved. The sole additional prior-control mutation
++allowance is reviews/README.md, whose obsolete acceptance-status paragraph
++was corrected without changing its review-process instructions. The final
++independent operational inspection must cover the current exact helpers;
++the earlier inspection does not approve the later extension.
+ 
+-No full candidate validation or independent review gate is replaced by packaging.
+-Official compiler/Lake/dependency pins, one-thread exclusive compiler ownership,
+-native profile, normal/fresh rules, proof restrictions and resource guards remain
+-unchanged. No installation, hydration, restore, fsck or GitHub action is selected.
+-Recovery is standalone, with only the unchanged public baseline asset fetched
+-from its pinned immutable URL and checked by the existing restoration script.
++The verifier binds the actual full/type/review/root-gate/immediate/fast-forward
++chain to live and archived identities. It performs no compiler, restoration,
++fsck or acceptance action. It does not require its own future upload receipt.
++The previous uploaded0136 manifest remains byte-exact; this is not a checkpoint
++chain dependency. The unchanged compact creator and restorer remain in use.
++
++All source and review writers remain held. Root remains sole serial one-thread
++compiler owner; no compiler is live. Capture, creation and verification each
++require actual terminal evidence. The old drift unknown result, the trace
++native failure without transport terminal, and the preparation audit SIGKILL
++retain their exact historical outcomes. No historical session may be polled.
++
++All compiler/dependency pins, proof restrictions, native launcher profile,
++normal/fresh rules and space guards remain unchanged. No installation,
++hydration, GitHub mutation or push is selected. The compact checkpoint omits
++environment caches and research manuscript copies. Recovery remains standalone
++for Git/control state, with the unchanged public baseline asset fetched from
++its pinned immutable URL and checked by the supplied restoration script.

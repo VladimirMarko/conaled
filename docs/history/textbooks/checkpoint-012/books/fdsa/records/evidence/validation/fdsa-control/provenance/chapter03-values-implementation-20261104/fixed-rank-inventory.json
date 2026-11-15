@@ -1,0 +1,593 @@
+{
+  "candidate": "fd490573dc6a0ad2ed4a6f3d449e03d9d1b0bb2f",
+  "tree": "7fd22cfe7e6cbf02c659fc07648989ce6b8c1ccb",
+  "fixed_stage_base": "bc26994a828eb958fe930c0e46039f9c5addc864",
+  "whole_chapter_review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "status": "Exhaustive source-header inventory, not emitted Lean types. All 86 public declarations are queued for explicit-@ capture; the one private lemma remains in full source review and audit scope.",
+  "public_declaration_count": 86,
+  "private_declaration_count": 1,
+  "modules": [
+    {
+      "module": "Applications.Selection.FixedRank",
+      "repository_path": "Applications/Selection/FixedRank.lean",
+      "namespace": "Applications.Selection.FixedRank",
+      "imports": [
+        "Applications.Selection.CountRank"
+      ],
+      "explicit_file_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+      ],
+      "bytes": 11177,
+      "sha256": "467b20f50cf94be3ae0aaff58d24bc9277b0a23932d7e2545bb53d2e96a695f8",
+      "git_blob": "6b96dd26c01e073748b2641366cff37ffbff00a2",
+      "declarations": [
+        {
+          "name": "Applications.Selection.FixedRank.minimumLoop",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def minimumLoop (best : \u03b1) : List \u03b1 \u2192 \u03b1"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.select0",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def select0 : List \u03b1 \u2192 Option \u03b1"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.minimumLoop_spec",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem minimumLoop_spec (best : \u03b1) (xs : List \u03b1) :\n    minimumLoop best xs \u2208 best :: xs \u2227\n      \u2200 y \u2208 best :: xs, minimumLoop best xs \u2264 y"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.select0_none_iff",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem select0_none_iff (xs : List \u03b1) : select0 xs = none \u2194 xs = []"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.select0_some_iff_min",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem select0_some_iff_min (xs : List \u03b1) (a : \u03b1) :\n    select0 xs = some a \u2194 a \u2208 xs \u2227 \u2200 x \u2208 xs, a \u2264 x"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.select0_value",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem select0_value (xs : List \u03b1) : select0 xs = (ordered xs)[0]?"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.select0_some_iff_ranked",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem select0_some_iff_ranked (xs : List \u03b1) (a : \u03b1) :\n    select0 xs = some a \u2194 RankedAt xs 0 a"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.select0_pivot_valid",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem select0_pivot_valid : PivotValid (select0 : List \u03b1 \u2192 Option \u03b1)"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.select0_spec",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem select0_spec (xs : List \u03b1) (hx : xs \u2260 []) :\n    \u2203 a, select0 xs = some a \u2227 RankedAt xs 0 a"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.secondLoop",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def secondLoop (lo hi : \u03b1) : List \u03b1 \u2192 \u03b1"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.select1",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def select1 : List \u03b1 \u2192 Option \u03b1"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.boundedInsert",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def boundedInsert (m : Nat) (x : \u03b1) (acc : List \u03b1) : List \u03b1"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.boundedInsert_length_le",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem boundedInsert_length_le (m : Nat) (x : \u03b1) (acc : List \u03b1) :\n    (boundedInsert m x acc).length \u2264 m"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.take_orderedInsert_take",
+          "visibility": "private",
+          "kind": "theorem",
+          "source_header": "private theorem take_orderedInsert_take (m : Nat) (x : \u03b1) (ys : List \u03b1) :\n    (List.orderedInsert (\u00b7 \u2264 \u00b7) x (ys.take m)).take m =\n      (List.orderedInsert (\u00b7 \u2264 \u00b7) x ys).take m"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.ordered_cons_eq_insert",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem ordered_cons_eq_insert (x : \u03b1) (xs : List \u03b1) :\n    ordered (x :: xs) = List.orderedInsert (\u00b7 \u2264 \u00b7) x (ordered xs)"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.boundedInsert_prefix",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem boundedInsert_prefix (m : Nat) (x : \u03b1) (seen : List \u03b1) :\n    boundedInsert m x ((ordered seen).take m) = (ordered (x :: seen)).take m"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.prefixLoop",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def prefixLoop (m : Nat) (acc : List \u03b1) : List \u03b1 \u2192 List \u03b1"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.prefixLoop_prefix",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem prefixLoop_prefix (m : Nat) (seen xs : List \u03b1) :\n    prefixLoop m ((ordered seen).take m) xs =\n      (ordered (xs.reverse ++ seen)).take m"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.takeSort",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def takeSort (m : Nat) (xs : List \u03b1) : List \u03b1"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.takeSort_value",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem takeSort_value (m : Nat) (xs : List \u03b1) :\n    takeSort m xs = (ordered xs).take m"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.takeSort_length",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem takeSort_length (m : Nat) (xs : List \u03b1) :\n    (takeSort m xs).length = min m xs.length"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.selectFixed",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def selectFixed (k : Nat) (xs : List \u03b1) : Option \u03b1"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.selectFixed_value",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem selectFixed_value (k : Nat) (xs : List \u03b1) :\n    selectFixed k xs = (ordered xs)[k]?"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.selectFixed_some_iff_ranked",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem selectFixed_some_iff_ranked (k : Nat) (xs : List \u03b1) (a : \u03b1) :\n    selectFixed k xs = some a \u2194 RankedAt xs k a"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.selectFixed_some_iff_count_bounds",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem selectFixed_some_iff_count_bounds (k : Nat) (xs : List \u03b1) (a : \u03b1) :\n    selectFixed k xs = some a \u2194\n      xs.countP (fun x => decide (x < a)) \u2264 k \u2227\n        xs.countP (fun x => decide (a < x)) < xs.length - k"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.selectFixed_none_iff",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem selectFixed_none_iff (k : Nat) (xs : List \u03b1) :\n    selectFixed k xs = none \u2194 xs.length \u2264 k"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.selectFixed_spec",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem selectFixed_spec (k : Nat) (xs : List \u03b1) (hk : k < xs.length) :\n    \u2203 a, selectFixed k xs = some a \u2227 RankedAt xs k a"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.selectFixed_eq_selectWith",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem selectFixed_eq_selectWith (choose : List \u03b1 \u2192 Option \u03b1)\n    (hv : PivotValid choose) (k : Nat) (xs : List \u03b1) :\n    selectFixed k xs = selectWith choose (k + 1) xs"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.select0_eq_selectFixed",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem select0_eq_selectFixed (xs : List \u03b1) : select0 xs = selectFixed 0 xs"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.boundedInsert_two",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem boundedInsert_two (x lo hi : \u03b1) :\n    boundedInsert 2 x [lo, hi] =\n      if x \u2264 lo then [x, lo] else [lo, min x hi]"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.prefixLoop_two",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem prefixLoop_two (lo hi : \u03b1) (xs : List \u03b1) :\n    (prefixLoop 2 [lo, hi] xs)[1]? = some (secondLoop lo hi xs)"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.boundedInsert_singleton",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem boundedInsert_singleton (x y : \u03b1) :\n    boundedInsert 2 y [x] = [min x y, max x y]"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.select1_eq_selectFixed",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem select1_eq_selectFixed (xs : List \u03b1) : select1 xs = selectFixed 1 xs"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.select1_value",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem select1_value (xs : List \u03b1) : select1 xs = (ordered xs)[1]?"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.select1_some_iff_ranked",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem select1_some_iff_ranked (xs : List \u03b1) (a : \u03b1) :\n    select1 xs = some a \u2194 RankedAt xs 1 a"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.select1_none_iff",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem select1_none_iff (xs : List \u03b1) : select1 xs = none \u2194 xs.length \u2264 1"
+        },
+        {
+          "name": "Applications.Selection.FixedRank.select1_spec",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem select1_spec (xs : List \u03b1) (hx : 1 < xs.length) :\n    \u2203 a, select1 xs = some a \u2227 RankedAt xs 1 a"
+        }
+      ]
+    },
+    {
+      "module": "Applications.Resources.FixedRank",
+      "repository_path": "Applications/Resources/FixedRank.lean",
+      "namespace": "Resources.FixedRank",
+      "imports": [
+        "Applications.Selection.FixedRank",
+        "Applications.Resources.InsertionSort",
+        "Applications.Resources.ListCalls"
+      ],
+      "explicit_file_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "open Applications.Selection.FixedRank",
+        "universe u",
+        "variable {\u03b1 : Type u} [LinearOrder \u03b1]"
+      ],
+      "bytes": 7633,
+      "sha256": "831a78121a2ee7d7db773dd335febb938d8dfc8e7dbe944bb4cb7d71ec202c94",
+      "git_blob": "36f8933c8ac1bcbc94f2432a06aa67fc5bd5b702",
+      "declarations": [
+        {
+          "name": "Resources.FixedRank.minimumLoopRun",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def minimumLoopRun (best : \u03b1) (spent : Nat) : List \u03b1 \u2192 Measured \u03b1 Nat"
+        },
+        {
+          "name": "Resources.FixedRank.minimumLoopRun_value",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem minimumLoopRun_value (best : \u03b1) (spent : Nat) (xs : List \u03b1) :\n    (minimumLoopRun best spent xs).1 = minimumLoop best xs"
+        },
+        {
+          "name": "Resources.FixedRank.minimumLoopRun_cost",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem minimumLoopRun_cost (best : \u03b1) (spent : Nat) (xs : List \u03b1) :\n    (minimumLoopRun best spent xs).2 = spent + xs.length + 1"
+        },
+        {
+          "name": "Resources.FixedRank.select0Run",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def select0Run : List \u03b1 \u2192 Measured (Option \u03b1) Nat"
+        },
+        {
+          "name": "Resources.FixedRank.select0Run_value",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem select0Run_value (xs : List \u03b1) : (select0Run xs).1 = select0 xs"
+        },
+        {
+          "name": "Resources.FixedRank.select0Run_cost",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem select0Run_cost (xs : List \u03b1) : (select0Run xs).2 = xs.length + 1"
+        },
+        {
+          "name": "Resources.FixedRank.select0Run_exact",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem select0Run_exact (xs : List \u03b1) :\n    select0Run xs = (select0 xs, xs.length + 1)"
+        },
+        {
+          "name": "Resources.FixedRank.boundedInsertRun",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def boundedInsertRun (m : Nat) (x : \u03b1) (acc : List \u03b1) : Measured (List \u03b1) Nat"
+        },
+        {
+          "name": "Resources.FixedRank.boundedInsertRun_value",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem boundedInsertRun_value (m : Nat) (x : \u03b1) (acc : List \u03b1) :\n    (boundedInsertRun m x acc).1 = boundedInsert m x acc"
+        },
+        {
+          "name": "Resources.FixedRank.boundedInsertRun_cost",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem boundedInsertRun_cost (m : Nat) (x : \u03b1) (acc : List \u03b1) :\n    (boundedInsertRun m x acc).2 =\n      (InsertionSort.insertRun (\u00b7 \u2264 \u00b7) x acc).2 + min m (acc.length + 1) + 2"
+        },
+        {
+          "name": "Resources.FixedRank.boundedInsertRun_cost_le",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem boundedInsertRun_cost_le (m : Nat) (x : \u03b1) (acc : List \u03b1)\n    (hacc : acc.length \u2264 m) : (boundedInsertRun m x acc).2 \u2264 2 * m + 3"
+        },
+        {
+          "name": "Resources.FixedRank.boundedInsertRun_length_le",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem boundedInsertRun_length_le (m : Nat) (x : \u03b1) (acc : List \u03b1) :\n    (boundedInsertRun m x acc).1.length \u2264 m"
+        },
+        {
+          "name": "Resources.FixedRank.prefixLoopRun",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def prefixLoopRun (m : Nat) (acc : List \u03b1) (spent : Nat) :\n    List \u03b1 \u2192 Measured (List \u03b1) Nat"
+        },
+        {
+          "name": "Resources.FixedRank.prefixLoopRun_value",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem prefixLoopRun_value (m : Nat) (acc : List \u03b1) (spent : Nat) (xs : List \u03b1) :\n    (prefixLoopRun m acc spent xs).1 = prefixLoop m acc xs"
+        },
+        {
+          "name": "Resources.FixedRank.prefixLoopRun_cost_le",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem prefixLoopRun_cost_le (m : Nat) (acc : List \u03b1) (spent : Nat) (xs : List \u03b1)\n    (hacc : acc.length \u2264 m) :\n    (prefixLoopRun m acc spent xs).2 \u2264 spent + (2 * m + 4) * xs.length + 1"
+        },
+        {
+          "name": "Resources.FixedRank.takeSortRun",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def takeSortRun (m : Nat) (xs : List \u03b1) : Measured (List \u03b1) Nat"
+        },
+        {
+          "name": "Resources.FixedRank.takeSortRun_value",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem takeSortRun_value (m : Nat) (xs : List \u03b1) :\n    (takeSortRun m xs).1 = takeSort m xs"
+        },
+        {
+          "name": "Resources.FixedRank.takeSortRun_cost_le",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem takeSortRun_cost_le (m : Nat) (xs : List \u03b1) :\n    (takeSortRun m xs).2 \u2264 (2 * m + 4) * xs.length + 2"
+        },
+        {
+          "name": "Resources.FixedRank.selectFixedRun",
+          "visibility": "public",
+          "kind": "def",
+          "source_header": "def selectFixedRun (k : Nat) (xs : List \u03b1) : Measured (Option \u03b1) Nat"
+        },
+        {
+          "name": "Resources.FixedRank.selectFixedRun_value",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem selectFixedRun_value (k : Nat) (xs : List \u03b1) :\n    (selectFixedRun k xs).1 = selectFixed k xs"
+        },
+        {
+          "name": "Resources.FixedRank.selectFixedRun_cost",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem selectFixedRun_cost (k : Nat) (xs : List \u03b1) :\n    (selectFixedRun k xs).2 =\n      (takeSortRun (k + 1) xs).2 + min k (min (k + 1) xs.length) + 2"
+        },
+        {
+          "name": "Resources.FixedRank.selectFixedRun_cost_le",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem selectFixedRun_cost_le (k : Nat) (xs : List \u03b1) :\n    (selectFixedRun k xs).2 \u2264\n      2 * k * xs.length + 6 * xs.length + k + 4"
+        },
+        {
+          "name": "Resources.FixedRank.selectFixedRun_uniform_bound",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem selectFixedRun_uniform_bound :\n    \u2203 C1 C2 C3 C4 : Nat, \u2200 (k : Nat) (xs : List \u03b1), k < xs.length \u2192\n      (selectFixedRun k xs).2 \u2264\n        C1 * k * xs.length + C2 * xs.length + C3 * k + C4"
+        }
+      ]
+    },
+    {
+      "module": "Examples.FixedRankSelection",
+      "repository_path": "Examples/FixedRankSelection.lean",
+      "namespace": "Examples.FixedRankSelection",
+      "imports": [
+        "Applications.Resources.FixedRank"
+      ],
+      "explicit_file_context": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true",
+        "open Applications.Selection Applications.Selection.FixedRank",
+        "open Resources.FixedRank"
+      ],
+      "bytes": 7246,
+      "sha256": "c1ba9819d89af6a1d7f3c1678f10bed4b0614c63b385eb856144d315ebd955da",
+      "git_blob": "fe233b900bbdb3a9c874e79f1bdcf92bb7bb549b",
+      "declarations": [
+        {
+          "name": "Examples.FixedRankSelection.minimum_example",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem minimum_example : select0 ([8, 1, 5] : List Nat) = some 1"
+        },
+        {
+          "name": "Examples.FixedRankSelection.minimum_duplicate",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem minimum_duplicate : select0 ([4, 1, 1] : List Nat) = some 1"
+        },
+        {
+          "name": "Examples.FixedRankSelection.minimum_empty",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem minimum_empty : select0 ([] : List Nat) = none"
+        },
+        {
+          "name": "Examples.FixedRankSelection.minimum_execution",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem minimum_execution : select0Run ([8, 1, 5] : List Nat) = (some 1, 4)"
+        },
+        {
+          "name": "Examples.FixedRankSelection.minimum_empty_execution",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem minimum_empty_execution : select0Run ([] : List Nat) = (none, 1)"
+        },
+        {
+          "name": "Examples.FixedRankSelection.duplicate_prefix",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem duplicate_prefix : takeSort 3 ([4, 1, 7, 1] : List Nat) = [1, 1, 4]"
+        },
+        {
+          "name": "Examples.FixedRankSelection.zero_width_prefix",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem zero_width_prefix (xs : List Nat) : takeSort 0 xs = []"
+        },
+        {
+          "name": "Examples.FixedRankSelection.prefix_with_history",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem prefix_with_history : prefixLoop 2 ([2, 5] : List Nat) [4, 1] = [1, 2]"
+        },
+        {
+          "name": "Examples.FixedRankSelection.two_loop_correspondence",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem two_loop_correspondence :\n    (prefixLoop 2 ([1, 4] : List Nat) [1])[1]? = some (secondLoop 1 4 [1])"
+        },
+        {
+          "name": "Examples.FixedRankSelection.second_duplicate",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem second_duplicate : select1 ([4, 1, 1] : List Nat) = some 1"
+        },
+        {
+          "name": "Examples.FixedRankSelection.second_distinct",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem second_distinct : select1 ([3, 1, 2] : List Nat) = some 2"
+        },
+        {
+          "name": "Examples.FixedRankSelection.second_singleton",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem second_singleton : select1 ([7] : List Nat) = none"
+        },
+        {
+          "name": "Examples.FixedRankSelection.second_exists",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem second_exists {\u03b1 : Type} [LinearOrder \u03b1] (x y : \u03b1) (xs : List \u03b1) :\n    \u2203 a, select1 (x :: y :: xs) = some a \u2227 RankedAt (x :: y :: xs) 1 a"
+        },
+        {
+          "name": "Examples.FixedRankSelection.fixed_zero_is_minimum",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem fixed_zero_is_minimum : selectFixed 0 ([8, 1, 5] : List Nat) = some 1"
+        },
+        {
+          "name": "Examples.FixedRankSelection.fixed_last_occurrence",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem fixed_last_occurrence : selectFixed 3 ([4, 1, 7, 1] : List Nat) = some 7"
+        },
+        {
+          "name": "Examples.FixedRankSelection.fixed_invalid_rank",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem fixed_invalid_rank : selectFixed 4 ([4, 1, 7, 1] : List Nat) = none"
+        },
+        {
+          "name": "Examples.FixedRankSelection.book_index_two_is_public_rank_three",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem book_index_two_is_public_rank_three :\n    selectWith List.head? 3 ([4, 1, 7, 1] : List Nat) = some 4"
+        },
+        {
+          "name": "Examples.FixedRankSelection.bounded_insert_at_head",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem bounded_insert_at_head :\n    boundedInsertRun 2 (0 : Nat) [1, 2] = ([0, 1], 5)"
+        },
+        {
+          "name": "Examples.FixedRankSelection.bounded_insert_after_accumulator",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem bounded_insert_after_accumulator :\n    boundedInsertRun 2 (3 : Nat) [1, 2] = ([1, 2], 7)"
+        },
+        {
+          "name": "Examples.FixedRankSelection.bounded_step_for_rank",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem bounded_step_for_rank (k x : Nat) (acc : List Nat)\n    (hacc : acc.length \u2264 k + 1) : (boundedInsertRun (k + 1) x acc).2 \u2264 2 * k + 5"
+        },
+        {
+          "name": "Examples.FixedRankSelection.measured_rank_and_bound",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem measured_rank_and_bound {\u03b1 : Type} [LinearOrder \u03b1]\n    (k : Nat) (xs : List \u03b1) (a : \u03b1)\n    (h : xs.countP (fun x => decide (x < a)) \u2264 k \u2227\n      xs.countP (fun x => decide (a < x)) < xs.length - k) :\n    (selectFixedRun k xs).1 = some a \u2227\n      (selectFixedRun k xs).2 \u2264 2 * k * xs.length + 6 * xs.length + k + 4"
+        },
+        {
+          "name": "Examples.FixedRankSelection.fixed_zero_execution",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem fixed_zero_execution : selectFixedRun 0 ([4, 1, 1] : List Nat) = (some 1, 19)"
+        },
+        {
+          "name": "Examples.FixedRankSelection.fixed_zero_bound",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem fixed_zero_bound : (selectFixedRun 0 ([4, 1, 1] : List Nat)).2 \u2264 22"
+        },
+        {
+          "name": "Examples.FixedRankSelection.minimum_and_fixed_costs_differ",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem minimum_and_fixed_costs_differ :\n    (select0Run ([4, 1, 1] : List Nat)).1 = (selectFixedRun 0 [4, 1, 1]).1 \u2227\n      (select0Run ([4, 1, 1] : List Nat)).2 = 4 \u2227\n      (selectFixedRun 0 ([4, 1, 1] : List Nat)).2 = 19"
+        },
+        {
+          "name": "Examples.FixedRankSelection.fixed_second_execution",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem fixed_second_execution : selectFixedRun 1 ([4, 1, 1] : List Nat) = (some 1, 22)"
+        },
+        {
+          "name": "Examples.FixedRankSelection.duplicate_second_with_bound",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem duplicate_second_with_bound :\n    (selectFixedRun 1 ([4, 1, 1] : List Nat)).1 = some 1 \u2227\n      (selectFixedRun 1 ([4, 1, 1] : List Nat)).2 \u2264 29"
+        },
+        {
+          "name": "Examples.FixedRankSelection.uniform_constants_include_minimum",
+          "visibility": "public",
+          "kind": "theorem",
+          "source_header": "theorem uniform_constants_include_minimum :\n    \u2203 C1 C2 C3 C4 : Nat, \u2200 (k : Nat) (xs : List Nat), k < xs.length \u2192\n      (selectFixedRun k xs).2 \u2264\n        C1 * k * xs.length + C2 * xs.length + C3 * k + C4"
+        }
+      ]
+    }
+  ]
+}

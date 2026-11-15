@@ -1,0 +1,41 @@
+{
+  "time": "2026-11-04T18:52:50.320918+00:00",
+  "sysconf": {
+    "SC_PHYS_PAGES": 2551618,
+    "SC_AVPHYS_PAGES": 365735,
+    "SC_PAGE_SIZE": 4096,
+    "SC_NPROCESSORS_ONLN": 9
+  },
+  "limits": {
+    "RLIMIT_AS": [
+      -1,
+      -1
+    ],
+    "RLIMIT_DATA": [
+      -1,
+      -1
+    ],
+    "RLIMIT_RSS": [
+      -1,
+      -1
+    ],
+    "RLIMIT_CPU": [
+      -1,
+      -1
+    ],
+    "RLIMIT_FSIZE": [
+      -1,
+      -1
+    ]
+  },
+  "cgroup": {
+    "memory.max": "FileNotFoundError: [Errno 2] No such file or directory: '/sys/fs/cgroup/memory.max'",
+    "memory.current": "FileNotFoundError: [Errno 2] No such file or directory: '/sys/fs/cgroup/memory.current'",
+    "memory.peak": "FileNotFoundError: [Errno 2] No such file or directory: '/sys/fs/cgroup/memory.peak'",
+    "memory.events": "FileNotFoundError: [Errno 2] No such file or directory: '/sys/fs/cgroup/memory.events'",
+    "memory.swap.max": "FileNotFoundError: [Errno 2] No such file or directory: '/sys/fs/cgroup/memory.swap.max'",
+    "memory.swap.current": "FileNotFoundError: [Errno 2] No such file or directory: '/sys/fs/cgroup/memory.swap.current'",
+    "pids.current": "FileNotFoundError: [Errno 2] No such file or directory: '/sys/fs/cgroup/pids.current'",
+    "pids.max": "FileNotFoundError: [Errno 2] No such file or directory: '/sys/fs/cgroup/pids.max'"
+  }
+}

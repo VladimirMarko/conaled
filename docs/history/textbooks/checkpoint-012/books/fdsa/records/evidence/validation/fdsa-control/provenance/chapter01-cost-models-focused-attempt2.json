@@ -1,0 +1,23 @@
+{
+  "candidate": "057e07cd0bd16c7877967aedc46aeefaca01a7a6",
+  "started_utc": "2026-11-02T16:19:31.723611+00:00",
+  "checkout": "/workspace/scratch/845aa1048b05/conaled-ch01-review",
+  "command": [
+    "lake",
+    "--no-cache",
+    "--rehash",
+    "build",
+    "Applications.Resources.CallComparison",
+    "Applications.Resources.SharedDemand",
+    "Examples.CallModels",
+    "Examples.SharedDemand"
+  ],
+  "LEAN_NUM_THREADS": "1",
+  "result": "failed",
+  "log": "/workspace/scratch/845aa1048b05/fdsa-control/reviews/chapter01-cost-models-focused-attempt2.log",
+  "scope": "Focused correction validation only; full guarded candidate verification/audit and final reviews remain required.",
+  "completed_utc": "2026-11-02T16:25:34.951641+00:00",
+  "exit_code": 1,
+  "final_head": "057e07cd0bd16c7877967aedc46aeefaca01a7a6",
+  "final_status": ""
+}

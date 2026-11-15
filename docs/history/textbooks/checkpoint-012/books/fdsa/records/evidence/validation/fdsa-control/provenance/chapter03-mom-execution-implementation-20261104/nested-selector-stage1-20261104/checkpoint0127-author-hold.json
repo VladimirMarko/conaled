@@ -1,0 +1,37 @@
+{
+  "recorded_utc": "2026-11-04T20:34:29.816180+00:00",
+  "purpose": "Checkpoint 0127 author write hold after two completed atomic source writes",
+  "head": "d1a2299440c6cb327887e5d60f08ce08b046a8ab",
+  "tree": "a87ae33094321c7475fb31ef176eac8f1d44f833",
+  "branch": "work/fdsa-ch03-mom-execution",
+  "git_status_short": "?? Applications/Resources/Selection.lean\n?? Examples/SelectionCosts.lean\n",
+  "sources": [
+    {
+      "path": "Applications/Resources/Selection.lean",
+      "bytes": 20262,
+      "sha256": "edf5257473fc51bf6db3dd7d3a5bfe492d5171665f7756495db1c16da93209fd",
+      "lines": 423,
+      "status": "untracked new source, uncompiled draft"
+    },
+    {
+      "path": "Examples/SelectionCosts.lean",
+      "bytes": 12974,
+      "sha256": "77c709afdf35107ead23210b8f64fe8ad7db77c1463e7a56a39eabc6750d6965",
+      "lines": 276,
+      "status": "untracked new source, uncompiled draft"
+    }
+  ],
+  "scope": "Nested membership-carrying worker, generic/book optional boundary, complete exact source branch equations, correctness induction, and connected finite cases are drafted. This is not a committed/compiled candidate.",
+  "pending_before_handoff": [
+    "Complete source and proof readback",
+    "Exhaustive public explicit-@ inventory and case/statement assessment",
+    "Meaningful source diff check and immutable source commit",
+    "Root focused compiler validation and terminal evidence",
+    "Mandatory subsequent actual run <= F and uniform affine bridge"
+  ],
+  "preservation": "No tracked source or imported recurrence file is changed; prior records are preserved.",
+  "root_sole_compiler": true,
+  "compiler_run": false,
+  "write_hold": true,
+  "hold_scope": "All writes in assigned worktree and own provenance, including unfinished source, stop after this record; await explicit root release."
+}

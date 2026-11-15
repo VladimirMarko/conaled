@@ -1,0 +1,68 @@
+{
+  "recorded_utc": "2026-11-04T08:54:08.837660+00:00",
+  "candidate": "c4355db67f6006f58496cc10c2eca1c75ef1aa95",
+  "parent": "aa89aeccf7e06cd046b4f3c5c430631d4ea73b5b",
+  "branch": "work/fdsa-ch02-uniform-input",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-uniform-input",
+  "status_porcelain": "",
+  "source": [
+    {
+      "path": "conaled-ch02-uniform-input/Applications/Resources/UniformQuickSortMean.lean",
+      "bytes": 38157,
+      "lines": 789,
+      "sha256": "5e997076f474f1cfcc51cac11c31b870a1cd265cf121c6ae11519beab009ad67",
+      "repository_path": "Applications/Resources/UniformQuickSortMean.lean",
+      "git_blob": "2e06a117d18b4657dfc3e436a1939acad5427876",
+      "base_git_blob": "7b5c18a9f8fa0ab0377e629e1a5ec3443c9720b4"
+    },
+    {
+      "path": "conaled-ch02-uniform-input/Examples/UniformQuickSortMean.lean",
+      "bytes": 16466,
+      "lines": 352,
+      "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5",
+      "repository_path": "Examples/UniformQuickSortMean.lean",
+      "git_blob": "cc0432e8fc56f76380a1e48259954cd559937a1b",
+      "base_git_blob": "cc0432e8fc56f76380a1e48259954cd559937a1b"
+    }
+  ],
+  "unchanged_pins": [
+    {
+      "path": "conaled-ch02-uniform-input/lean-toolchain",
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "path": "conaled-ch02-uniform-input/lake-manifest.json",
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    {
+      "path": "conaled-ch02-uniform-input/lakefile.toml",
+      "bytes": 444,
+      "lines": 13,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+    }
+  ],
+  "declaration_counts": {
+    "core": 68,
+    "examples": 57,
+    "total": 125
+  },
+  "declaration_kinds": {
+    "def": 17,
+    "theorem": 101,
+    "instance": 6,
+    "inductive": 1
+  },
+  "all_125_written_headers_unchanged": true,
+  "only_proof_bodies_changed": [
+    "conditional_mean",
+    "meanBy_eq_closedForm"
+  ],
+  "examples_byte_identical": true,
+  "all_other_source_text_unchanged": true,
+  "compiler_result": "Not run for this source successor; actual corrected elaboration pending.",
+  "own_build_or_cache_commands": false
+}

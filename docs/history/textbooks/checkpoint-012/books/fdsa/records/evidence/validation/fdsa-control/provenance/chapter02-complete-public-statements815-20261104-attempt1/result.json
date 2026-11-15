@@ -1,0 +1,32 @@
+{
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/Statements.lean"
+  ],
+  "started_utc": "2026-11-04T10:25:46.192567+00:00",
+  "completed_utc": "2026-11-04T10:28:34.728449+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 168.53564069700224,
+  "state": "passed",
+  "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-public-statements815-20261104-attempt1/full.log",
+  "progress_bookkeeping_errors": [],
+  "final_head": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "final_status": "",
+  "log_size_bytes": 874944,
+  "log_sha256": "a5347095b4f93728b1b384c415189e1d934084eca4af8999028d0864fab9fc6b",
+  "available_bytes_at_completion": 8360615936,
+  "verification_record_present": false
+}

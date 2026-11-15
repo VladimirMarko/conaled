@@ -1,0 +1,24 @@
+{
+  "observed_utc": "2026-11-03T02:51:30.972337+00:00",
+  "reason": "Create space for restore-tested checkpoint033 and active compiler outputs by reclaiming only saved size/SHA-verified local archive duplicates. Checkpoint032 saved receipt verified. Checkpoint001 unexpectedly remained despite its older local_copy_retained=false flag; its actual bytes match the saved001 ledger exactly. No cause of the prior discrepancy is inferred.",
+  "available_bytes_before": 265818112,
+  "removed": [
+    {
+      "number": 1,
+      "filename": "conaled-pfds-checkpoint-001.tar.gz",
+      "bytes": 71851746,
+      "sha256": "f4db5d8f707399e597e94279dd5068d4a688d092f691b70a6dbd0b581bb40525",
+      "library_file_id": "libfile_b05bfc436bd8819185a911717ca95588"
+    },
+    {
+      "number": 32,
+      "filename": "conaled-pfds-checkpoint-032.tar.gz",
+      "bytes": 75136813,
+      "sha256": "8562b0a103dd4c69f4bfe6d8c258df3a1d194d1155396da8c0c7499dce49ad6c",
+      "library_file_id": "libfile_98c2da2355a4819193cdcec06966e5b0"
+    }
+  ],
+  "remote_deleted": false,
+  "source_or_build_changed": false,
+  "available_bytes_after": 412819456
+}

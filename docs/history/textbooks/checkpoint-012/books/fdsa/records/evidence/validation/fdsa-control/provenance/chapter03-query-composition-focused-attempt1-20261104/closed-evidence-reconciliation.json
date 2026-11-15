@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T22:11:24.458365+00:00",
+  "candidate": "2d20573cc5d3373a4746a5ebf16314369e7d7e3e",
+  "terminal": {
+    "recorded_utc": "2026-11-04T22:11:24.458229+00:00",
+    "owned_session": 34748,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "edd85c",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "2d20573cc5d3373a4746a5ebf16314369e7d7e3e"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-query-composition-focused-attempt1-20261104/full.log",
+    "bytes": 11727,
+    "sha256": "91949a3a89b4084d23292e384e8eb093a8e363e3109da444567cb811d6eb57b5"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T220806Z-project-run-2128467c",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-query-composition-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 483,
+      "sha256": "a0f46fa892c9ac1911468fe9e9a27145a045eadf25ad620363e839642bcde2d5"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-query-composition-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 636,
+      "sha256": "0675de4fbd954c641aef5327685d17c02b219b09302da4c580d4d29acd104f7b"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-query-composition-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 11445,
+      "sha256": "b590d763b9850c2419770bc46d5e3b1b85566244b41f3b3ae4008a5583d63d02"
+    }
+  },
+  "native_body_exact_outer_offset": 125,
+  "complete_closed_log": true,
+  "scope": "Focused Chapter 3 actual coordinate acquisition plus measured selection composition, two new modules only; not a whole candidate check, explicit-type inspection, audit, independent review or acceptance.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

@@ -1,0 +1,28 @@
+{
+  "candidate": "70a1477d822efd4fdcec2007280f650bb4695eda",
+  "checkout": "validation-persistence",
+  "status": "ended without terminal result; no matching live task process and no verification.json observed",
+  "started_at": "2026-11-02T15:20:03.899580+00:00",
+  "argv": [
+    "/nix/store/8lza1b8nnci8lmm4q68p0l33pg975s0q-nix-2.35.4/bin/nix",
+    "--extra-experimental-features",
+    "nix-command flakes",
+    "--option",
+    "build-users-group",
+    "",
+    "--option",
+    "sandbox",
+    "false",
+    "develop",
+    "--command",
+    "env",
+    "LEAN_NUM_THREADS=1",
+    "./check.sh",
+    "--candidate",
+    "HEAD"
+  ],
+  "log": "active-validation/persistence-70a1477-resumed-t1-20261102.log",
+  "reason": "Supported serial worker setting to reduce measured import working-set reclaim; same exact guarded check, outputs and acceptance gates.",
+  "observed_at": "2026-11-02T15:37:56.672816+00:00",
+  "acceptance": false
+}

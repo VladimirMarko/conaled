@@ -1,0 +1,47 @@
+{
+  "candidate": "39c3e2fd0c3a7b39e56373d453a1a17382bc3749",
+  "primary_group": 232108,
+  "primary_command": "LEAN_NUM_THREADS=1 nix develop --command ./check.sh --candidate HEAD",
+  "observer": "environment (bounded native task-process observations relayed to root)",
+  "latest_module": "Applications.Durability.DiagnosticStorage",
+  "pid": 259330,
+  "observations": [
+    {
+      "utc": "2026-11-02T09:59:15Z",
+      "user_cpu_seconds": 6.85,
+      "system_cpu_seconds": 159.11,
+      "major_faults_cumulative": 765245,
+      "rss_bytes": 847171584,
+      "read_bytes_cumulative": 240214802432
+    },
+    {
+      "utc": "2026-11-02T10:11:59Z",
+      "user_cpu_seconds": 11.67,
+      "system_cpu_seconds": 394.62,
+      "major_faults_cumulative": 1770525,
+      "rss_bytes": 893603840,
+      "read_bytes_cumulative": 606444457984
+    }
+  ],
+  "prior_completed_modules": [
+    {
+      "module": "Applications.Durability.DiagnosticGraph",
+      "reported_elapsed_seconds": 288
+    },
+    {
+      "module": "Applications.Durability.DiagnosticProjection",
+      "reported_elapsed_seconds": 424
+    }
+  ],
+  "interpretation": "The same active worker continued I/O activity without completing during the interval. This supports investigating avoidable import load; it does not prove a unique performance cause, quantify savings from a proposed source change, or demonstrate a logic failure.",
+  "configuration_change": false,
+  "source_change": false,
+  "signals_sent_by_observer": false,
+  "no_new_workers_authorized": true,
+  "latest_worker_completed": {
+    "module": "Applications.Durability.DiagnosticStorage",
+    "elapsed_seconds_reported": 1387,
+    "observed_by_environment_utc": "2026-11-02T10:13:22Z",
+    "result": "Built; no Lean error reported"
+  }
+}

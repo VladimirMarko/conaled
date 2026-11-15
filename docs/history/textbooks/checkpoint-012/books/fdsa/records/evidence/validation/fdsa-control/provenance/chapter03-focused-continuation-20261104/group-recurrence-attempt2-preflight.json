@@ -1,0 +1,78 @@
+{
+  "recorded_utc": "2026-11-04T20:25:37.786212+00:00",
+  "candidate": "631ba1d0b3255be426603737050990a8c332f79e",
+  "expectedHead": "451766483f401f737f63184f730a7561deb7ccb3",
+  "base": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "acceptedHead": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "name": "chapter03-group-recurrence-focused-attempt2-20261104",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Resources.GroupSelectionRecurrence",
+    "Examples.GroupSelectionRecurrence"
+  ],
+  "expectedPaths": [
+    "Applications/Resources/GroupSelectionRecurrence.lean",
+    "Applications/Resources/RoundedRecurrence.lean",
+    "Applications/Resources/RoundedRecurrenceBounds.lean",
+    "Applications/Resources/SelectionRecurrence.lean",
+    "Examples/GroupSelectionRecurrence.lean",
+    "Examples/RoundedRecurrence.lean",
+    "Examples/RoundedRecurrenceBounds.lean",
+    "Examples/SelectionRecurrence.lean"
+  ],
+  "recordDirectory": "chapter03-focused-continuation-20261104",
+  "recordName": "group-recurrence-attempt2-preflight.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was 4517664 feat(resources): bound generalized selection recurrences (#174)\nHEAD is now at 631ba1d fix(resources): elaborate group recurrence proofs (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Resources/GroupSelectionRecurrence.lean",
+      "bytes": 11604,
+      "sha256": "71e4fb9928215a7f3aad9f9a0ca3c8ce3da171be18985f618bd635d586ba0deb"
+    },
+    {
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758"
+    },
+    {
+      "path": "Applications/Resources/RoundedRecurrenceBounds.lean",
+      "bytes": 6951,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135"
+    },
+    {
+      "path": "Applications/Resources/SelectionRecurrence.lean",
+      "bytes": 6560,
+      "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e"
+    },
+    {
+      "path": "Examples/GroupSelectionRecurrence.lean",
+      "bytes": 5163,
+      "sha256": "9e37b5a369179295134f3de913c07c040401c5ca4938fe1b032fb55ff146e08a"
+    },
+    {
+      "path": "Examples/RoundedRecurrence.lean",
+      "bytes": 3782,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d"
+    },
+    {
+      "path": "Examples/RoundedRecurrenceBounds.lean",
+      "bytes": 7295,
+      "sha256": "18275f597cf579edf0db6785d0910e76dcc9cff084566ced73cd0da8828c0135"
+    },
+    {
+      "path": "Examples/SelectionRecurrence.lean",
+      "bytes": 2272,
+      "sha256": "6599e51e8d6ea0197d74d2ca43076a355a9c131ce453f4a25c6c3bf086d99971"
+    }
+  ],
+  "candidate_tree": "509871d4bd22047e6c0fcf0f5efddbc4e8cbd212",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 677793792
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

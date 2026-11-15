@@ -1,0 +1,94 @@
+{
+  "recorded_utc": "2026-11-04T19:39:09.224340+00:00",
+  "parent": "0ae89d68b3e1f7002f2766c95cf52492a3a7923e",
+  "tree": "430a9db5699a2aa53cc5d71f1f13c345996974d0",
+  "status": "",
+  "sources": {
+    "Applications/Selection/CoordinateQueries.lean": {
+      "bytes": 11106,
+      "sha256": "ca1c0d339500e77aa14ca47420b9f7a11f213bbcd8ac113c3281c7f9690e6409"
+    },
+    "Applications/Selection/CoordinateSensitivity.lean": {
+      "bytes": 6717,
+      "sha256": "224724056815f73aff552ead23b7dd83af4078ad61009169e1b474f4b94476e6"
+    },
+    "Examples/CoordinateQueries.lean": {
+      "bytes": 7860,
+      "sha256": "b471baa5471a0c01324f013d920c7e1159c30cea0e425bca4b6f050cfad2245e"
+    },
+    "Examples/CoordinateSensitivity.lean": {
+      "bytes": 3587,
+      "sha256": "8fc707c507d0212ca92b113b52976a10fa252d600f5127c042e17a2931aee6ef"
+    }
+  },
+  "prior_provenance": {
+    "candidate01-author-hold.json": {
+      "bytes": 4983,
+      "sha256": "96b02b3b5de494e15576d4d8aa08cf9e1eaedad8b7710ce1aa1da00c33abb3a8"
+    },
+    "starting-state.json": {
+      "bytes": 6758,
+      "sha256": "3773e1ddcad1511a9c38c93bfeebcd138bf5942cdb0d99a77e3a01eef45c1910"
+    },
+    "allocation-result.json": {
+      "bytes": 359,
+      "sha256": "860b03f8df3ee6d5c35540e0b23c11c68e6f95724b813bafcf609058815c23fa"
+    },
+    "candidate01.json": {
+      "bytes": 39625,
+      "sha256": "69d2de7a2b44fc747a66ca430c0394b035f916a123863df1a19f614a610f3006"
+    },
+    "candidate01-staged-check.json": {
+      "bytes": 405,
+      "sha256": "7f362cae16b5957176a734b5377f0b4f60376b1e530fc53968bb5f55abac04ad"
+    },
+    "design-and-expected-cases.md": {
+      "bytes": 5256,
+      "sha256": "000028e21e26f7752f1b7431fec062cec11c8e786cd5d4d15c81639cc4a8a0fb"
+    },
+    "candidate01-handoff.md": {
+      "bytes": 7825,
+      "sha256": "bb6091114730d35ec7c25df45b915e642b51cd629b3054027d0cfecc36b97baa"
+    },
+    "Statements68-candidate01-preparation.json": {
+      "bytes": 5243,
+      "sha256": "5ac585b02cd1be8e64192162088ca1f57656f757827087fd86d2f20098b9a193"
+    },
+    "Statements68-candidate01.lean": {
+      "bytes": 4638,
+      "sha256": "9ec7f897aea6ef3eea6b7579b96830770c7bea64ef1a3deda0155930f8c84016"
+    },
+    "candidate01-commit.json": {
+      "bytes": 499,
+      "sha256": "8ac9611b87b406dc0613ab5cf326cd8ef2277f193f72ce3ca11bf25bfe45dc53"
+    },
+    "root-correction1/diff-check.json": {
+      "bytes": 39,
+      "sha256": "4555466a11b51d337471bdac80f509baf403e0d276b2f256372bd1d99f3252b4"
+    },
+    "root-correction1/starting-state.json": {
+      "bytes": 2855,
+      "sha256": "bd323614f34fc2b3a505cf303427b4620cd8ddbbffbef0194ec69d53967efbb5"
+    },
+    "root-correction1/commit-result.json": {
+      "bytes": 251,
+      "sha256": "5778d14d6af85cc82f68ef6d5c6997f1672682e599ef13b121940feeccc4d84d"
+    },
+    "root-correction1/candidate.json": {
+      "bytes": 2663,
+      "sha256": "bc6017b2f30f3f3ff7ae54c06736354d9728dc1586e35be4d90ca57a89b67d87"
+    },
+    "root-correction1/correction.diff": {
+      "bytes": 2039,
+      "sha256": "fded085dfbcfe42f27769f32a98ffc970eebdccbe948860a3a7ead460f60cd29"
+    }
+  },
+  "finding": "C03-QUERY-ELAB-002",
+  "failed_run": "provenance/chapter03-coordinate-queries-focused-attempt2-20261104",
+  "actual_exit": 1,
+  "owned_session": 67752,
+  "actual_terminal": "50b523",
+  "complete_root_log_read_and_closure": "9df5ca",
+  "full_examples_source_read": "96ccd1",
+  "both_core_modules_built": true
+}

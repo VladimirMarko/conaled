@@ -1,0 +1,434 @@
+{
+  "recorded_utc": "2026-11-04T09:20:22.394889+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "status": "PREPARATION ASSESSED; NOT EXECUTED; C02-TYPE-001 OPEN",
+  "base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+  "full_scope": "Original complete 81-path Chapter2 review, all112 obligations and ten shared scopes retained.",
+  "program": {
+    "path": "provenance/chapter02-complete-public-statements814-6b95185-prepared-20261104/Statements.lean",
+    "bytes": 46242,
+    "lines": 859,
+    "sha256": "ec9fb2b9a141630d0d4acb527bc28cf5fb6b5c2032f3f9951ce1d53cd1578577"
+  },
+  "inventory": {
+    "path": "provenance/chapter02-complete-public-statements814-6b95185-prepared-20261104/inventory.json",
+    "bytes": 60157,
+    "lines": 1185,
+    "sha256": "3d4fe66aa858d5e7e00a23c792b1f0ac72b5f7f09b72cf83ad44465f28c280b6"
+  },
+  "original793_program": {
+    "path": "provenance/chapter02-complete-public-statements793-prepared-20261104/Statements.lean",
+    "bytes": 45044,
+    "lines": 834,
+    "sha256": "6e211efdaaeb3fd160d5f39fcbaf724a567f8af83aa5161017e7bbc948b2e8db"
+  },
+  "original793_inventory": {
+    "path": "provenance/chapter02-complete-public-statements793-prepared-20261104/inventory.json",
+    "bytes": 54020,
+    "lines": 1063,
+    "sha256": "e2319e9b974d58bbf239812eef1b27b4e52c106b638f5ff4a688c52c1f3281b1"
+  },
+  "declarations": 814,
+  "unique_names": 814,
+  "original793_order_preserved": true,
+  "additional_name_inventories": [
+    {
+      "inventory": {
+        "path": "provenance/chapter02-standards-source-preparation-20261104/additional-current-types-after-dependency-audit.tsv",
+        "bytes": 1552,
+        "lines": 8,
+        "sha256": "b28af0679ea939206af714aa9d4e3297ac8cc6cc83fdcd51cc09ee9a3f559f90"
+      },
+      "names": [
+        "Examples.MergeCosts.key_source_value",
+        "Examples.MergeCosts.source_key_sorted_iff",
+        "Examples.MergeCosts.tagged_key_transport",
+        "Examples.MergeCosts.tagged_values",
+        "Examples.MergeCosts.twoStage_observation",
+        "Examples.MergeCosts.actual_input_matters",
+        "Examples.MergeCosts.queueBody_observation"
+      ],
+      "reason": "Current type required: changed transitive Growth/import environment"
+    },
+    {
+      "inventory": {
+        "path": "provenance/chapter02-standards-source-preparation-20261104/additional-current-types-after-immutable-identity-audit.tsv",
+        "bytes": 3260,
+        "lines": 15,
+        "sha256": "14607786c01b23662a29de96407b14aaa0ba0c73ecd28c2e5f2cb0b8d50837f7"
+      },
+      "names": [
+        "Applications.Sorting.quickSortAccBy",
+        "Applications.Sorting.quickSortAccBy_eq_append",
+        "Applications.Sorting.quickSortAccOn_cons",
+        "Applications.Sorting.quickSortAccOn_correct",
+        "Applications.Sorting.quickSortAccOn_eq_append",
+        "Applications.Sorting.quickSortBy",
+        "Applications.Sorting.quickSortBy_perm",
+        "Applications.Sorting.quickSortBy_sorted_compatible_on",
+        "Applications.Sorting.quickSortOn_cons",
+        "Applications.Sorting.quickSortOn_correct",
+        "Examples.QuickSort.arbitrary_payload_suffix",
+        "Examples.QuickSort.source_complementary_multiset",
+        "Examples.QuickSort.source_filter_multiset",
+        "Examples.QuickSort.source_sorted_append"
+      ],
+      "reason": "Current type required: missing secured type-run final immutable identity"
+    }
+  ],
+  "names_equal_exact_793_plus7_plus14": true,
+  "program_imports": [
+    "Applications.Probability.PermutationOrder",
+    "Applications.Probability.PermutationTail",
+    "Applications.Resources.InsertionSort",
+    "Applications.Resources.ListCalls",
+    "Applications.Resources.ListMerge",
+    "Applications.Resources.NaturalRunOperations",
+    "Applications.Resources.QuickSortMean",
+    "Applications.Resources.QuickSortTransport",
+    "Applications.Resources.RandomQuickSortGrowth",
+    "Applications.Resources.RandomQuickSortMean",
+    "Applications.Resources.RandomQuickSortRank",
+    "Applications.Resources.TopDownSorting",
+    "Applications.Resources.UniformQuickSortMean",
+    "Applications.Sorting.InsertionObservations",
+    "Applications.Sorting.QuickSort",
+    "Applications.Sorting.TopDown",
+    "Examples.FunctionalNotation",
+    "Examples.InsertionCosts",
+    "Examples.InsertionObservations",
+    "Examples.ListCalls",
+    "Examples.ListLibrary",
+    "Examples.MergeCosts",
+    "Examples.NaturalRunOperations",
+    "Examples.PermutationOrder",
+    "Examples.PermutationOrderBoundary",
+    "Examples.PermutationTail",
+    "Examples.PermutationTailBoundary",
+    "Examples.QuickSort",
+    "Examples.QuickSortMean",
+    "Examples.QuickSortTransport",
+    "Examples.RandomQuickSortGrowth",
+    "Examples.RandomQuickSortMean",
+    "Examples.RandomQuickSortRank",
+    "Examples.TopDownCosts",
+    "Examples.TopDownSorting",
+    "Examples.UniformQuickSortMean"
+  ],
+  "options": [
+    "set_option pp.universes true",
+    "set_option pp.explicit true",
+    "set_option pp.fullNames true"
+  ],
+  "unexpected_commands": [],
+  "all_commands_processed": true,
+  "read_boundary": "Every line was parsed against imports, the three exact pp options, fully qualified #check @ commands, comments or blanks; ordered names and all source identities were independently matched. This preparation is not actual output or an elaborated-type assessment.",
+  "sources": [
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "module": "Applications.Probability.PermutationOrder",
+      "bytes": 15304,
+      "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2",
+      "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Applications/Probability/PermutationTail.lean",
+      "module": "Applications.Probability.PermutationTail",
+      "bytes": 23521,
+      "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed",
+      "git_blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Applications/Resources/InsertionSort.lean",
+      "module": "Applications.Resources.InsertionSort",
+      "bytes": 7257,
+      "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+      "git_blob": "d51ea6e9845378d3f7667adee189f8a210b477ed",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Applications/Resources/ListCalls.lean",
+      "module": "Applications.Resources.ListCalls",
+      "bytes": 7939,
+      "sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+      "git_blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Applications/Resources/ListMerge.lean",
+      "module": "Applications.Resources.ListMerge",
+      "bytes": 8629,
+      "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975",
+      "git_blob": "b658809bc2ba424807e326c3ee7cb64712865a46",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Applications/Resources/NaturalRunOperations.lean",
+      "module": "Applications.Resources.NaturalRunOperations",
+      "bytes": 29855,
+      "sha256": "ccbe8f58dd53cbfaa4600780d5d8a2a78da994ba33c3d6edaa3098446d1f09eb",
+      "git_blob": "b6b63bd2714a74c4c66e2ec32b860f7107bb727a",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Applications/Resources/QuickSortMean.lean",
+      "module": "Applications.Resources.QuickSortMean",
+      "bytes": 9673,
+      "sha256": "888bae2d149f2664f41e37f702ce5352718ac2d008f13fa51952239d85e5d09a",
+      "git_blob": "f5bb73b3f1c2c977013919b02a307c0c3669fed1",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Applications/Resources/QuickSortTransport.lean",
+      "module": "Applications.Resources.QuickSortTransport",
+      "bytes": 2232,
+      "sha256": "4093b8aa3b1bf884760926a4c866453f8ffa47d40304b8746f8083d2a3f54eff",
+      "git_blob": "438a6a58d720002fac7a2a61abb6b0b29804df21",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Applications/Resources/RandomQuickSortGrowth.lean",
+      "module": "Applications.Resources.RandomQuickSortGrowth",
+      "bytes": 9896,
+      "sha256": "2b8bf7b4820790edaaa5726efb8e8bd8bccd3a30cb30388148d95bba00e63674",
+      "git_blob": "ecad03eedc57c3bc75e19172eb4941bef9a3faf6",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Applications/Resources/RandomQuickSortMean.lean",
+      "module": "Applications.Resources.RandomQuickSortMean",
+      "bytes": 16517,
+      "sha256": "2c7976bf52a2dbed2eb6eb959055acc7ae0df8319c167f0128b63e5c482bd5d3",
+      "git_blob": "a9ce110d5aca6f04cc8d68cfd1ef5238832dbc0a",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Applications/Resources/RandomQuickSortRank.lean",
+      "module": "Applications.Resources.RandomQuickSortRank",
+      "bytes": 19646,
+      "sha256": "11a3eab707a445f1a205567845485c023e1eddf99358a06bfcd3a19a0a2c66ed",
+      "git_blob": "691d5f4aebc513566813d35891f5bb749dc8d1e8",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Applications/Resources/TopDownSorting.lean",
+      "module": "Applications.Resources.TopDownSorting",
+      "bytes": 9144,
+      "sha256": "26531f25e57c0d198fc90d0a10652051ac6159098f493629af3283b54ab687bc",
+      "git_blob": "91cba444e67f3947d5fca7984242fde825807929",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Applications/Resources/UniformQuickSortMean.lean",
+      "module": "Applications.Resources.UniformQuickSortMean",
+      "bytes": 38157,
+      "sha256": "5e997076f474f1cfcc51cac11c31b870a1cd265cf121c6ae11519beab009ad67",
+      "git_blob": "2e06a117d18b4657dfc3e436a1939acad5427876",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Applications/Sorting/InsertionObservations.lean",
+      "module": "Applications.Sorting.InsertionObservations",
+      "bytes": 3325,
+      "sha256": "e537e85fa7d06db4e3030fbac3ad2123dfa295158ee87480ece9c47a56ee5add",
+      "git_blob": "3be66c5841da1fee074b9bbc5dc784f34c9a846f",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Applications/Sorting/QuickSort.lean",
+      "module": "Applications.Sorting.QuickSort",
+      "bytes": 9994,
+      "sha256": "696ae63c3f5c23940ac0f05c8ac6b48bff74b65e4c66faf319283efedea73802",
+      "git_blob": "01026a360a8f9f44afacd2fbd6ddb356ef8a95d4",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Applications/Sorting/TopDown.lean",
+      "module": "Applications.Sorting.TopDown",
+      "bytes": 5978,
+      "sha256": "5a953ff534311e1686112273f7c95db6813c8a06ecee0af8fcc191f1c7d9586f",
+      "git_blob": "845444934d6fec2106e25af62b31f685269c2a59",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/FunctionalNotation.lean",
+      "module": "Examples.FunctionalNotation",
+      "bytes": 8277,
+      "sha256": "fe4b585a6753110dee67c1942ce68d16d9bf00feb5946f32791682c634c42eef",
+      "git_blob": "3e5db8677c94bd330779522f92bc39508540a17a",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/InsertionCosts.lean",
+      "module": "Examples.InsertionCosts",
+      "bytes": 3862,
+      "sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37",
+      "git_blob": "1c3de9b0a0a5f27f108de09f28f6ac55f4cddb36",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/InsertionObservations.lean",
+      "module": "Examples.InsertionObservations",
+      "bytes": 10998,
+      "sha256": "29ba454b380ab837133863318611b059bc0af385008667d60c410ddedb7ba0f1",
+      "git_blob": "c164f9c2b150ae3a25dc731846d692b2f36f6e1e",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/ListCalls.lean",
+      "module": "Examples.ListCalls",
+      "bytes": 4333,
+      "sha256": "24d0809f51d04b0a9cadb5a349141e7327a5f7721f63c1021113527917487d5d",
+      "git_blob": "b4c4683ee2bd16ff6f844ce757470515847a63dc",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/ListLibrary.lean",
+      "module": "Examples.ListLibrary",
+      "bytes": 6761,
+      "sha256": "036cf4c12ddf5d25ce433d9f7dbedfcbb96dfc3c7f602d10605388d2791e47ad",
+      "git_blob": "99ba369997885e176bbda192ee0feb5c7bf4d034",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/MergeCosts.lean",
+      "module": "Examples.MergeCosts",
+      "bytes": 23410,
+      "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466",
+      "git_blob": "b5f652cf5258c99f5a615b12987c664ed8be3d76",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/NaturalRunOperations.lean",
+      "module": "Examples.NaturalRunOperations",
+      "bytes": 16095,
+      "sha256": "7db50231ecbcdf3e63ff20475b0def2af0e855b70c367cc49235edb730b44f90",
+      "git_blob": "bbb89270f236ce467da85bc177c06882b4f9d6e4",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/PermutationOrder.lean",
+      "module": "Examples.PermutationOrder",
+      "bytes": 6706,
+      "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084",
+      "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/PermutationOrderBoundary.lean",
+      "module": "Examples.PermutationOrderBoundary",
+      "bytes": 5605,
+      "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121",
+      "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/PermutationTail.lean",
+      "module": "Examples.PermutationTail",
+      "bytes": 8786,
+      "sha256": "30e07aaede25b10d2484c2a4674bffa66d77094a545fd49f72bc000bd132ddb7",
+      "git_blob": "f118b08cd9d2006ceac0f4c24004e1ed09c1fb93",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/PermutationTailBoundary.lean",
+      "module": "Examples.PermutationTailBoundary",
+      "bytes": 11709,
+      "sha256": "03fbb29d9f458a7e76235e198b01ef3dd3b20dbe225d3d1edf3110b5628c437b",
+      "git_blob": "b0de11c970cd6db97db35bf289afbc495c064220",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/QuickSort.lean",
+      "module": "Examples.QuickSort",
+      "bytes": 7164,
+      "sha256": "2e5e4952bae8edf1fd5985f0cfd40993363a2f642717d61161a2e5ee6835a162",
+      "git_blob": "376371a0a74a54c8aaaaf653d4528af347347018",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/QuickSortMean.lean",
+      "module": "Examples.QuickSortMean",
+      "bytes": 2488,
+      "sha256": "924ce55ee6af374b55cea67ee6f2da25997b5a81ad098e2e3789622bd793b904",
+      "git_blob": "8b8846019ae3d447a38f0ea0f0797ad1afe7d751",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/QuickSortTransport.lean",
+      "module": "Examples.QuickSortTransport",
+      "bytes": 3084,
+      "sha256": "57dc49986edb9c8f990781c980177a513a9e9e2020c6218ce4f4d88daac4c6b2",
+      "git_blob": "089aaca818282da784d6843205fc8b97ad3c4d73",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/RandomQuickSortGrowth.lean",
+      "module": "Examples.RandomQuickSortGrowth",
+      "bytes": 10033,
+      "sha256": "372d0fad2f5a77f0c9c97e6b2004036ab1b922a2a80f623784011381905ab3a1",
+      "git_blob": "f9e153715b0ad68d3eac30f1dc0c2b986475a148",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/RandomQuickSortMean.lean",
+      "module": "Examples.RandomQuickSortMean",
+      "bytes": 5733,
+      "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670",
+      "git_blob": "2a1f75a801b49ea6a3bdbaecfc7b8e4a5407e38e",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/RandomQuickSortRank.lean",
+      "module": "Examples.RandomQuickSortRank",
+      "bytes": 6356,
+      "sha256": "419e02b0865e4ed64041f0afe465271127599a475d3edff658224c9c8fd5d9d6",
+      "git_blob": "239b28e8d564edc0e8ae54ebaa06872060c8fd1b",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/TopDownCosts.lean",
+      "module": "Examples.TopDownCosts",
+      "bytes": 5403,
+      "sha256": "8f5f6969049712a5a5d37f7beb78c09017a2835b5f1208e54d0c9912dff425a4",
+      "git_blob": "05cf0aa40cfe066499ec49b3bab520cb2f3d9070",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/TopDownSorting.lean",
+      "module": "Examples.TopDownSorting",
+      "bytes": 3620,
+      "sha256": "0689ac22c8cc716efec24b4744ed606b79f734542101b28fc4f78af40ef089c5",
+      "git_blob": "013dea9599add78a6e839bb9e5831cf660321d69",
+      "independently_matches_immutable_Q": true
+    },
+    {
+      "path": "Examples/UniformQuickSortMean.lean",
+      "module": "Examples.UniformQuickSortMean",
+      "bytes": 16466,
+      "sha256": "83e4407bec884caeb3d1ff285a9e6932f52a9f84431f2a5874e322e18773aeb5",
+      "git_blob": "cc0432e8fc56f76380a1e48259954cd559937a1b",
+      "independently_matches_immutable_Q": true
+    }
+  ],
+  "type_disposition": {
+    "historical_actual_outputs_read": 941,
+    "historical_expanded": 648,
+    "historical_ordinary": 293,
+    "qualified_historical_remaining": 920,
+    "qualified_expanded": 648,
+    "qualified_ordinary": 272,
+    "current_pending": 814,
+    "retained_base": 28,
+    "total_public_named": 1762,
+    "private_named_separate": 70,
+    "anonymous_instances_separate": 19
+  },
+  "foundation_reuse": "Prepared F145 is separate. No unexecuted F output or root-byte-only identity is credited; two insertion roots / 35 names differ in transitive Merge input.",
+  "compiler_invocations": 0,
+  "source_ref_index_pin_cache_mutations": false,
+  "final_gates": "Actual complete current-candidate type output, immutable whole-candidate check/audit, both independent axes and immediate candidate verification remain open."
+}

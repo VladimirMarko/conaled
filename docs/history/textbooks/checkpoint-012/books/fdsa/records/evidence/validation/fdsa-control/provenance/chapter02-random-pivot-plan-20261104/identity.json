@@ -1,0 +1,448 @@
+{
+  "recorded_utc": "2026-11-04T05:11:49.842414+00:00",
+  "agent": "/root/chapter02_random_pivot",
+  "kind": "Read-only source and pinned-API preparation with two new control artifacts only",
+  "accepted_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "pending_foundation": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "initial_deterministic_source": "e4c152e62271725abe6e71ac52e4756316208b24",
+  "initial_parent": "fdd4d4796fe8201cecfa8a53930a391b6e50f401",
+  "corrected_author_base": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+  "author_worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot",
+  "author_branch": "work/fdsa-ch02-random-pivot",
+  "author_head_at_recording": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+  "source_release": "Waiting for parent pre-code checkpoint and explicit implementation release",
+  "candidate_status": "Corrected uncompiled deterministic draft; pending foundation; no acceptance claim",
+  "scope": "Direct actual fresh uniform occurrence-index PMF; initial raw values/support/cost bounds; exact expectation recurrence, harmonic bound, uniform-input mean, and overhead qualifications remain mandatory",
+  "full_chapter_obligations": 112,
+  "initial_source_records": [
+    {
+      "commit": "e4c152e62271725abe6e71ac52e4756316208b24",
+      "path": "Applications/Resources/QuickSort.lean",
+      "bytes": 21806,
+      "sha256": "d4d3efecce795e70bc8c4a41ef4f63591d9e438a7cd0de8c46e6c9340d318d78"
+    },
+    {
+      "commit": "e4c152e62271725abe6e71ac52e4756316208b24",
+      "path": "Examples/QuickSortCosts.lean",
+      "bytes": 8818,
+      "sha256": "8ef4641517938d5004a172badce122ec5f69ad0749558431c060bea94f5b064b"
+    },
+    {
+      "commit": "e4c152e62271725abe6e71ac52e4756316208b24",
+      "path": "Applications/Sorting/QuickSort.lean",
+      "bytes": 9994,
+      "sha256": "696ae63c3f5c23940ac0f05c8ac6b48bff74b65e4c66faf319283efedea73802"
+    },
+    {
+      "commit": "e4c152e62271725abe6e71ac52e4756316208b24",
+      "path": "Examples/QuickSort.lean",
+      "bytes": 7164,
+      "sha256": "2e5e4952bae8edf1fd5985f0cfd40993363a2f642717d61161a2e5ee6835a162"
+    }
+  ],
+  "corrected_source_and_governance_records": [
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "AGENTS.md",
+      "bytes": 3118,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "README.md",
+      "bytes": 26239,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "GLOSSARY.md",
+      "bytes": 4824,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "docs/adr/README.md",
+      "bytes": 1547,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "bytes": 7331,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "docs/agents/architectural-quality.md",
+      "bytes": 3876,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "docs/agents/domain.md",
+      "bytes": 926,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "docs/agents/review-loop.md",
+      "bytes": 7113,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": ".agents/skills/implement/SKILL.md",
+      "bytes": 4997,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": ".agents/skills/implement-spec/SKILL.md",
+      "bytes": 5698,
+      "sha256": "fae629d1460affb9c1a8a8b462d9da09aeaaac36d64171431244de7dfe872f62"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": ".agents/skills/code-review/SKILL.md",
+      "bytes": 7466,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "bytes": 6991,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": ".agents/skills/example-driven-development/worked-example.md",
+      "bytes": 2356,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "Applications/Resources/Measured.lean",
+      "bytes": 2906,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "Applications/Resources/CallCount.lean",
+      "bytes": 2447,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "Applications/Resources/ListCalls.lean",
+      "bytes": 7939,
+      "sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "Applications/Resources/ListReversal.lean",
+      "bytes": 4827,
+      "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "Applications/Resources/Growth.lean",
+      "bytes": 724,
+      "sha256": "5e252788c2365d3f9140288a1d51f2ef38270798419af40df8505590a7d20dcc"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "Applications/Selection/Rank.lean",
+      "bytes": 3713,
+      "sha256": "4a82df75593d909e2968bf1e27cbfea52c9795abfe81250bb2385e7dfc16f965"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "Applications/Sorting/QuickSort.lean",
+      "bytes": 9994,
+      "sha256": "696ae63c3f5c23940ac0f05c8ac6b48bff74b65e4c66faf319283efedea73802"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "Applications/Resources/QuickSort.lean",
+      "bytes": 21782,
+      "sha256": "e98024f6b741e1aba1fb1e38b419eee2e1acad76a8a40e669752f54775783263"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "Examples/QuickSortCosts.lean",
+      "bytes": 8818,
+      "sha256": "8ef4641517938d5004a172badce122ec5f69ad0749558431c060bea94f5b064b"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "lakefile.toml",
+      "bytes": 444,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+    },
+    {
+      "commit": "6122dd02c0a5b7ab4435e442e27d641e763f58f5",
+      "path": "lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    }
+  ],
+  "control_snapshot_records": [
+    {
+      "path": "REQUEST.md",
+      "bytes": 8549,
+      "sha256": "670038db71064a643014c952161666544cf37a4c9e17f14ddc7c4478e78dc6d8"
+    },
+    {
+      "path": "CURRENT.md",
+      "bytes": 13350,
+      "sha256": "b95ada076ad550924c34cf7e1e350e86eed9a80fa42f85d9ec88a43f9823174b"
+    },
+    {
+      "path": "STATUS.md",
+      "bytes": 5695,
+      "sha256": "7b1c10b028e5574c8ad5caab115eaab80387897a7ca7712afcb1c2adc419cd0e"
+    },
+    {
+      "path": "tickets/INDEX.md",
+      "bytes": 7975,
+      "sha256": "2cb419c5264bba2659fd91be3eebed65e3143356e5808d502db12428b93314ef"
+    },
+    {
+      "path": "reviews/chapter02-requirements.md",
+      "bytes": 12034,
+      "sha256": "f0c9bc939fbfb6da02c1734b121456c35fd6b4c9ee43f1284003d0b8db087a36"
+    },
+    {
+      "path": "research/chapter02-obligations.md",
+      "bytes": 42539,
+      "sha256": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2"
+    },
+    {
+      "path": "research/quicksort-average-proof-plan.md",
+      "bytes": 18013,
+      "sha256": "ca2090accf91ac662f2738486f7590e8b29968be524794e9356257d5f918dc46"
+    },
+    {
+      "path": "research/random-pivot-api-preflight.md",
+      "bytes": 26357,
+      "sha256": "91d34b4c86d315935f0df98023cf382fe3d141e8ab7d748baf9fdc64738a0ed0"
+    },
+    {
+      "path": "research/chapter02-probability-dependency-handoff-20261104.md",
+      "bytes": 15304,
+      "sha256": "1a19f73a1628d0016c3b76dd6a6d7ea0426fd6f6184f6589bbe15d098efa8d4f"
+    },
+    {
+      "path": "provenance/chapter02-random-pivot-start-20261104/identity.json",
+      "bytes": 983,
+      "sha256": "13f96bf8f1838724976dad8c11b0240f41fa542eae8ba1b3ec0d9af04161b54c"
+    },
+    {
+      "path": "provenance/chapter02-quicksort-cost-namespace-repair-20261104/result.json",
+      "bytes": 855,
+      "sha256": "585e52e4bcc8800d1d40b4ca34c52c4045912ea16853d702ce70b565f7cd6cf8"
+    },
+    {
+      "path": "provenance/chapter02-quicksort-cost-namespace-repair-20261104/source.diff",
+      "bytes": 360,
+      "sha256": "b12f9d8fdfea223c65dcf01b13e2b7754ed2b5b89f4e74749dc36024be5cb3a8"
+    },
+    {
+      "path": "reviews/chapter02-random-pivot-implementation.md",
+      "bytes": 23447,
+      "sha256": "c0de0651d9d44f22ad055e7a7db7d3b810abde8438e749e4d6c2dd4f6d614b42"
+    }
+  ],
+  "qualified_mathlib_source": {
+    "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib",
+    "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "files": [
+      {
+        "path": "Mathlib/Probability/ProbabilityMassFunction/Monad.lean",
+        "bytes": 11910,
+        "sha256": "fa8edb0c9feb17a79e9119179fbb08178ebca32fa6d126232287866bb7a5088e"
+      },
+      {
+        "path": "Mathlib/Probability/ProbabilityMassFunction/Constructions.lean",
+        "bytes": 11757,
+        "sha256": "188136d13b18f6ce0018e1483b36a669e880990cf51a7073ebb1e01c99779cca"
+      },
+      {
+        "path": "Mathlib/Probability/ProbabilityMassFunction/Basic.lean",
+        "bytes": 14717,
+        "sha256": "42d8ba19dead746276936fe3907b73cf02bf68ae44d49f3041b3ae8dbf35615c"
+      },
+      {
+        "path": "Mathlib/Probability/ProbabilityMassFunction/Integrals.lean",
+        "bytes": 2263,
+        "sha256": "04484c3ede88e8e0029000c3fc95b44eaaf19e3e4ccc09243a7cb9fe3034d6d5"
+      },
+      {
+        "path": "Mathlib/Probability/Distributions/Uniform.lean",
+        "bytes": 13059,
+        "sha256": "19b53a1140fb5a29373ddecd3550a07020da16b6f1f9118827ea85a67c752f20"
+      },
+      {
+        "path": "Mathlib/Basic/ENNReal/Inv.lean",
+        "bytes": 44273,
+        "sha256": "f06e93ae82105c5c03585c2d11377b94aac119b7fdbcaf34a7a333aa27c53f36"
+      },
+      {
+        "path": "Mathlib/Basic/ENNReal/Basic.lean",
+        "bytes": 32272,
+        "sha256": "f7fe64f0d1865209e4d2be2fd98e3bc5edf9af508dd665f0311e6396f8d513a2"
+      },
+      {
+        "path": "Mathlib/Data/List/Basic.lean",
+        "bytes": 44433,
+        "sha256": "d954cf5406e239d718e03bf9eb755e4d1245e2b66c0eb814eb6ec9c24c87c5eb"
+      },
+      {
+        "path": "Mathlib/Data/List/Perm/Basic.lean",
+        "bytes": 10399,
+        "sha256": "73cb327fd595ffec05bc06dc317f339b05824096cb2d68873d4f39d49e96ef71"
+      },
+      {
+        "path": "Mathlib/MeasureTheory/Integral/Lebesgue/Countable.lean",
+        "bytes": 19365,
+        "sha256": "456f4ba959eee9fbb1ba4e741917457e4e199220b18d654d9fd68c9d1ef43216"
+      },
+      {
+        "path": "Mathlib/MeasureTheory/Function/L1Space/Integrable.lean",
+        "bytes": 57662,
+        "sha256": "eb58a9036c9d7d38ad8b0f8b12b757bf598fcd056a5dd0f2ee2d6a0c4d619500"
+      },
+      {
+        "path": "Mathlib/MeasureTheory/Integral/Bochner/Basic.lean",
+        "bytes": 72737,
+        "sha256": "7e46dfb89df86399622c463d2ac657ab679eb2c0151266c82e896634be6d5965"
+      },
+      {
+        "path": "Mathlib/NumberTheory/Harmonic/Defs.lean",
+        "bytes": 874,
+        "sha256": "0fa361ed6bb6b40fd24d0d1c347e49405a4e3f83c7735fd3158a070e899f1c33"
+      },
+      {
+        "path": "Mathlib/NumberTheory/Harmonic/Bounds.lean",
+        "bytes": 2954,
+        "sha256": "e224a6906515987a5c19d7e5301e88e1b88834099169e4ec6a3acc6840a54629"
+      },
+      {
+        "path": "Mathlib/Algebra/BigOperators/Fin.lean",
+        "bytes": 31632,
+        "sha256": "2d1513845663c2e6882699e51e8c5cba62700c27c6d2ef1f28d3bf35577e3d6a"
+      },
+      {
+        "path": "Mathlib/Data/Fintype/Fin.lean",
+        "bytes": 3262,
+        "sha256": "d73d96c855c604368a87c202ec18bb270ceb173cf27e989726eb76b6b503cee5"
+      },
+      {
+        "path": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "bytes": 53127,
+        "sha256": "45b548e8d8491da4820c71eb29b0a2c92786f98e300d947e677f6fbe16e6f78a"
+      }
+    ]
+  },
+  "qualified_lean_source": {
+    "root": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/toolchains/lean-4.35.0-linux/src/lean",
+    "official_version": "4.35.0",
+    "files": [
+      {
+        "path": "Init/Data/List/Erase.lean",
+        "bytes": 25817,
+        "sha256": "8a56a5a4368da5cbc0c7d5bed616cf71ecfbb4e937724d2ed306fdafcf5142bd"
+      },
+      {
+        "path": "Init/Data/List/Lemmas.lean",
+        "bytes": 152724,
+        "sha256": "9365fb1c6da0313a4c73e8cf096377e69c28ece28d38290a0423e5f8cc1fdfdb"
+      }
+    ]
+  },
+  "dependency_pins": [
+    {
+      "name": "mathlib",
+      "url": "https://github.com/leanprover-community/mathlib4.git",
+      "rev": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "inputRev": "v4.35.0"
+    },
+    {
+      "name": "plausible",
+      "url": "https://github.com/leanprover-community/plausible",
+      "rev": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "inputRev": "main"
+    },
+    {
+      "name": "LeanSearchClient",
+      "url": "https://github.com/leanprover-community/LeanSearchClient",
+      "rev": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "inputRev": "main"
+    },
+    {
+      "name": "importGraph",
+      "url": "https://github.com/leanprover-community/import-graph",
+      "rev": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "inputRev": "main"
+    },
+    {
+      "name": "proofwidgets",
+      "url": "https://github.com/leanprover-community/ProofWidgets4",
+      "rev": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "inputRev": "main"
+    },
+    {
+      "name": "aesop",
+      "url": "https://github.com/leanprover-community/aesop",
+      "rev": "4a174c490d8707121c4a9290800489f105d85e07",
+      "inputRev": "master"
+    },
+    {
+      "name": "Qq",
+      "url": "https://github.com/leanprover-community/quote4",
+      "rev": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "inputRev": "master"
+    },
+    {
+      "name": "batteries",
+      "url": "https://github.com/leanprover-community/batteries",
+      "rev": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "inputRev": "main"
+    },
+    {
+      "name": "Cli",
+      "url": "https://github.com/leanprover/lean4-cli",
+      "rev": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "inputRev": "v4.35.0"
+    }
+  ],
+  "foundation_ListCalls_identical_to_corrected_base": true,
+  "source_changes_by_this_preparation": false,
+  "git_ref_changes_by_this_preparation": false,
+  "cache_or_build_changes_by_this_preparation": false,
+  "compiler_or_checker_started": false,
+  "elaborated_statement_readback_performed": false,
+  "source_APIs_only": true,
+  "review_or_acceptance_performed": false,
+  "historical_or_other_agent_sessions_polled": false,
+  "planned_new_Lean_files": [
+    "Applications/Resources/RandomQuickSort.lean",
+    "Examples/RandomQuickSort.lean"
+  ],
+  "written_artifacts": [
+    "reviews/chapter02-random-pivot-implementation.md",
+    "provenance/chapter02-random-pivot-plan-20261104/identity.json"
+  ]
+}

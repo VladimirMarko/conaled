@@ -1,0 +1,1514 @@
+{
+  "recorded_utc": "2026-11-04T21:03:26.847855+00:00",
+  "finding": "C03-RANDOM-DRIFT-ELAB-001",
+  "status": "Proposed bounded source correction; actual successor compilation and types pending root.",
+  "fixed_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "starting_candidate": "eec2172f7296b6bfcd13533aadb68bd9d11c4a32",
+  "source_files": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3",
+      "public_names": [
+        "Resources.RandomSelection.pivotRun",
+        "Resources.RandomSelection.pivotRun_exact",
+        "Resources.RandomSelection.stepRun",
+        "Resources.RandomSelection.stepRun_eq",
+        "Resources.RandomSelection.stepRun_child",
+        "Resources.RandomSelection.stepRun_semantics",
+        "Resources.RandomSelection.stepRun_ranked",
+        "Resources.RandomSelection.stepRun_cost_bounds",
+        "Resources.RandomSelection.pivotLaw",
+        "Resources.RandomSelection.pivotLaw_support",
+        "Resources.RandomSelection.pivotLaw_event"
+      ],
+      "git_blob": "0307419d586ac03af372629ef264be9a92295f55",
+      "line_count": 176,
+      "private_helpers": [
+        "Resources.RandomSelection.equal_lookup"
+      ]
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e",
+      "public_names": [
+        "Examples.RandomSelection.singleton_step",
+        "Examples.RandomSelection.duplicate_middle",
+        "Examples.RandomSelection.selected_side_is_not_larger_side",
+        "Examples.RandomSelection.selected_side_valid",
+        "Examples.RandomSelection.duplicate_ranked",
+        "Examples.RandomSelection.duplicate_source_bound",
+        "Examples.RandomSelection.duplicate_zero_probability",
+        "Examples.RandomSelection.duplicate_one_probability"
+      ],
+      "git_blob": "6f505d29658dc3953baf3aa859205eb7f0569a9a",
+      "line_count": 79,
+      "private_helpers": []
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionRun.lean",
+      "bytes": 12714,
+      "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718",
+      "public_names": [
+        "Resources.RandomSelection.Trace",
+        "Resources.RandomSelection.Outcome",
+        "Resources.RandomSelection.scanVolume",
+        "Resources.RandomSelection.scanVolume_nil",
+        "Resources.RandomSelection.scanVolume_cons",
+        "Resources.RandomSelection.prepend",
+        "Resources.RandomSelection.run",
+        "Resources.RandomSelection.run_nil",
+        "Resources.RandomSelection.run_cons",
+        "Resources.RandomSelection.run_value",
+        "Resources.RandomSelection.run_ranked",
+        "Resources.RandomSelection.run_none",
+        "Resources.RandomSelection.run_valid",
+        "Resources.RandomSelection.run_active_calls_le",
+        "Resources.RandomSelection.run_initial_scan_le",
+        "Resources.RandomSelection.run_scanVolume_le",
+        "Resources.RandomSelection.run_source_bridge",
+        "Resources.RandomSelection.run_trace_entries",
+        "Resources.RandomSelection.run_source_quadratic",
+        "Resources.RandomSelection.select",
+        "Resources.RandomSelection.select_value",
+        "Resources.RandomSelection.select_none",
+        "Resources.RandomSelection.select_some_iff",
+        "Resources.RandomSelection.scanLaw",
+        "Resources.RandomSelection.sourceLaw",
+        "Resources.RandomSelection.scanLaw_support",
+        "Resources.RandomSelection.scanLaw_support_finite",
+        "Resources.RandomSelection.sourceLaw_support",
+        "Resources.RandomSelection.sourceLaw_support_finite"
+      ],
+      "git_blob": "4af2a079ad55005657eeac2eaf4d3dd2a3a3ac11",
+      "line_count": 288,
+      "private_helpers": [
+        "Resources.RandomSelection.run_support_bounds"
+      ]
+    },
+    {
+      "path": "Examples/RandomSelectionRun.lean",
+      "bytes": 3770,
+      "sha256": "76504fe5fa77c581b8a7e3c9f3e0247c8a927adee8b308f84be6167e0ea20e0f",
+      "public_names": [
+        "Examples.RandomSelectionRun.empty_failure",
+        "Examples.RandomSelectionRun.singleton_execution",
+        "Examples.RandomSelectionRun.invalid_singleton",
+        "Examples.RandomSelectionRun.rank_zero_public_failure",
+        "Examples.RandomSelectionRun.two_key_execution",
+        "Examples.RandomSelectionRun.duplicate_execution",
+        "Examples.RandomSelectionRun.two_key_first_path",
+        "Examples.RandomSelectionRun.two_key_long_path",
+        "Examples.RandomSelectionRun.same_value_different_scan",
+        "Examples.RandomSelectionRun.maximum_scan_on_pair",
+        "Examples.RandomSelectionRun.bounded_actual_pair_calls",
+        "Examples.RandomSelectionRun.arbitrary_supported_rank"
+      ],
+      "git_blob": "ca900f902acde3c091e67f90108c2adb03b321cb",
+      "line_count": 96,
+      "private_helpers": []
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionMean.lean",
+      "bytes": 16493,
+      "sha256": "5a7d396ed0d451c0b0ec51493c004b721c804c69263ad7c659f023cab3ddda8f",
+      "git_blob": "b777b0de341a7cb0df0b1b4a2542904250959de1",
+      "public_names": [
+        "Resources.RandomSelection.workExpectation",
+        "Resources.RandomSelection.workExpectation_mono",
+        "Resources.RandomSelection.workExpectation_const",
+        "Resources.RandomSelection.workExpectation_add",
+        "Resources.RandomSelection.workExpectation_mul",
+        "Resources.RandomSelection.workExpectation_nil",
+        "Resources.RandomSelection.workExpectation_cons",
+        "Resources.RandomSelection.scanExpectation",
+        "Resources.RandomSelection.sourceExpectation",
+        "Resources.RandomSelection.scanExpectation_eq_workExpectation",
+        "Resources.RandomSelection.sourceExpectation_eq_workExpectation",
+        "Resources.RandomSelection.scanExpectation_quadratic_le",
+        "Resources.RandomSelection.sourceExpectation_quadratic_le",
+        "Resources.RandomSelection.scanExpectation_ne_top",
+        "Resources.RandomSelection.sourceExpectation_ne_top",
+        "Resources.RandomSelection.scanLaw_integrable",
+        "Resources.RandomSelection.sourceLaw_integrable",
+        "Resources.RandomSelection.scanExpectation_initial_le",
+        "Resources.RandomSelection.sourceExpectation_comparison",
+        "Resources.RandomSelection.scanExpectation_nil",
+        "Resources.RandomSelection.sourceExpectation_nil",
+        "Resources.RandomSelection.scanExpectation_cons",
+        "Resources.RandomSelection.scanMean",
+        "Resources.RandomSelection.sourceMean",
+        "Resources.RandomSelection.scanMean_eq_toReal",
+        "Resources.RandomSelection.sourceMean_eq_toReal",
+        "Resources.RandomSelection.scanMean_nonneg",
+        "Resources.RandomSelection.sourceMean_nonneg",
+        "Resources.RandomSelection.scanMean_initial_le",
+        "Resources.RandomSelection.scanMean_quadratic_le",
+        "Resources.RandomSelection.sourceMean_quadratic_le",
+        "Resources.RandomSelection.sourceMean_comparison",
+        "Resources.RandomSelection.scanMean_nil",
+        "Resources.RandomSelection.sourceMean_nil"
+      ],
+      "private_helpers": [
+        "Resources.RandomSelection.weighted_bind",
+        "Resources.RandomSelection.weighted_pure",
+        "Resources.RandomSelection.weighted_map",
+        "Resources.RandomSelection.weighted_add",
+        "Resources.RandomSelection.weighted_const",
+        "Resources.RandomSelection.weighted_mono_support",
+        "Resources.RandomSelection.lintegral_nat_eq",
+        "Resources.RandomSelection.lintegral_nat_le_of_support",
+        "Resources.RandomSelection.integrable_nat_of_lower_finite",
+        "Resources.RandomSelection.integral_nat_eq"
+      ],
+      "imports": [
+        "Applications.Resources.RandomSelectionRun",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Countable",
+        "Mathlib.MeasureTheory.Function.L1Space.Integrable",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "Mathlib.Basic.ENNReal.BigOperators"
+      ],
+      "options": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true"
+      ],
+      "line_count": 360
+    },
+    {
+      "path": "Examples/RandomSelectionMean.lean",
+      "bytes": 5962,
+      "sha256": "b9c83ac6e4dda31c6c70d6ccbf021cfcad5ca8317f5a3bf1133788fc559bb7af",
+      "git_blob": "ae7113072d39c3549208b52feae61e884c5735d5",
+      "public_names": [
+        "Examples.RandomSelectionMean.empty_means",
+        "Examples.RandomSelectionMean.singleton_means",
+        "Examples.RandomSelectionMean.invalid_singleton_means",
+        "Examples.RandomSelectionMean.two_key_scan_law",
+        "Examples.RandomSelectionMean.two_key_source_law",
+        "Examples.RandomSelectionMean.two_key_scan_mean",
+        "Examples.RandomSelectionMean.two_key_source_mean",
+        "Examples.RandomSelectionMean.duplicate_scan_law",
+        "Examples.RandomSelectionMean.duplicate_source_law",
+        "Examples.RandomSelectionMean.duplicate_means",
+        "Examples.RandomSelectionMean.two_key_scan_step",
+        "Examples.RandomSelectionMean.arbitrary_input_integrable",
+        "Examples.RandomSelectionMean.actual_mean_bridge",
+        "Examples.RandomSelectionMean.selected_value_and_mean_bounds"
+      ],
+      "private_helpers": [
+        "Examples.RandomSelectionMean.integral_nat_map_fin"
+      ],
+      "imports": [
+        "Applications.Resources.RandomSelectionMean",
+        "Examples.RandomSelectionRun",
+        "Mathlib.Probability.ProbabilityMassFunction.Integrals",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "options": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true"
+      ],
+      "line_count": 130
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionDrift.lean",
+      "bytes": 15121,
+      "sha256": "cdb869dc4a7816eb76ab462bd8e6b62df9e9bb7799434903afa9ec67bed59ef4",
+      "git_blob": "19b9648eddb6d6b536128772fa0b7e4d73c6dae5",
+      "public_names": [
+        "Resources.RandomSelection.rankSideSum",
+        "Resources.RandomSelection.rankSideSum_zero",
+        "Resources.RandomSelection.rankSideSum_one",
+        "Resources.RandomSelection.rankSideSum_add_two",
+        "Resources.RandomSelection.rankSideSum_bound",
+        "Resources.RandomSelection.rankSideSum_mean_le",
+        "Resources.RandomSelection.occurrenceRank_lt_of_lt",
+        "Resources.RandomSelection.occurrenceRank_tie",
+        "Resources.RandomSelection.occurrenceRank_uniform",
+        "Resources.RandomSelection.strict_side_rank_bounds",
+        "Resources.RandomSelection.nextSize",
+        "Resources.RandomSelection.nextSize_le_rankSide",
+        "Resources.RandomSelection.nextSize_sum_le",
+        "Resources.RandomSelection.nextSize_drift",
+        "Resources.RandomSelection.scanExpectation_linear_le",
+        "Resources.RandomSelection.scanExpectation_linear_bounds",
+        "Resources.RandomSelection.scanMean_linear_le",
+        "Resources.RandomSelection.scanMean_linear_bounds",
+        "Resources.RandomSelection.sourceExpectation_linear_bounds",
+        "Resources.RandomSelection.sourceMean_linear_bounds"
+      ],
+      "private_helpers": [
+        "Resources.RandomSelection.four_mul_three_quarters",
+        "Resources.RandomSelection.filter_length_eq_card_indices"
+      ],
+      "imports": [
+        "Applications.Resources.RandomSelectionMean",
+        "Applications.Resources.RandomQuickSortRank",
+        "Mathlib.Data.Nat.Init",
+        "Mathlib.Tactic.Linarith"
+      ],
+      "options": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true"
+      ],
+      "line_count": 331
+    },
+    {
+      "path": "Examples/RandomSelectionDrift.lean",
+      "bytes": 5766,
+      "sha256": "a6778bb654ace3f8d69883378e1e3351d83281d8c7f46763ace5502c8140bd67",
+      "git_blob": "b7e7eaf72a085c5ace7186ec0a4b9f4eb1016725",
+      "public_names": [
+        "Examples.RandomSelectionDrift.rank_side_small_values",
+        "Examples.RandomSelectionDrift.stable_duplicate_positions",
+        "Examples.RandomSelectionDrift.refined_duplicate_uniform",
+        "Examples.RandomSelectionDrift.singleton_next_size",
+        "Examples.RandomSelectionDrift.duplicate_next_choices",
+        "Examples.RandomSelectionDrift.duplicate_next_expectation",
+        "Examples.RandomSelectionDrift.duplicate_drift_bound",
+        "Examples.RandomSelectionDrift.selected_branch_is_smaller",
+        "Examples.RandomSelectionDrift.arbitrary_expected_bounds",
+        "Examples.RandomSelectionDrift.valid_selection_expected_bounds",
+        "Examples.RandomSelectionDrift.empty_expected_bounds"
+      ],
+      "private_helpers": [],
+      "imports": [
+        "Applications.Resources.RandomSelectionDrift",
+        "Examples.RandomSelection",
+        "Examples.RandomSelectionMean",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "options": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true"
+      ],
+      "line_count": 120
+    }
+  ],
+  "public_targets": 139,
+  "authored_private_helpers": 15,
+  "all_authored_private_helpers": [
+    "Resources.RandomSelection.equal_lookup",
+    "Resources.RandomSelection.run_support_bounds",
+    "Resources.RandomSelection.weighted_bind",
+    "Resources.RandomSelection.weighted_pure",
+    "Resources.RandomSelection.weighted_map",
+    "Resources.RandomSelection.weighted_add",
+    "Resources.RandomSelection.weighted_const",
+    "Resources.RandomSelection.weighted_mono_support",
+    "Resources.RandomSelection.lintegral_nat_eq",
+    "Resources.RandomSelection.lintegral_nat_le_of_support",
+    "Resources.RandomSelection.integrable_nat_of_lower_finite",
+    "Resources.RandomSelection.integral_nat_eq",
+    "Examples.RandomSelectionMean.integral_nat_map_fin",
+    "Resources.RandomSelection.four_mul_three_quarters",
+    "Resources.RandomSelection.filter_length_eq_card_indices"
+  ],
+  "header_reviews": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "declarations": [
+        {
+          "name": "Resources.RandomSelection.pivotRun",
+          "kind": "def",
+          "private": false,
+          "header": "def pivotRun (xs : List \u03b1) (i : Fin xs.length) : Measured \u03b1 Nat"
+        },
+        {
+          "name": "Resources.RandomSelection.pivotRun_exact",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem pivotRun_exact (xs : List \u03b1) (i : Fin xs.length) :\n    pivotRun xs i = (xs[i.val]'i.isLt, i.val + 1)"
+        },
+        {
+          "name": "Resources.RandomSelection.stepRun",
+          "kind": "def",
+          "private": false,
+          "header": "def stepRun (k : Nat) (xs : List \u03b1) (i : Fin xs.length) :\n    Measured ((Nat \u00d7 List \u03b1) \u2295 \u03b1) Nat"
+        },
+        {
+          "name": "Resources.RandomSelection.stepRun_eq",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem stepRun_eq (k : Nat) (xs : List \u03b1) (i : Fin xs.length) :\n    let p"
+        },
+        {
+          "name": "Resources.RandomSelection.stepRun_child",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem stepRun_child (k : Nat) (xs : List \u03b1) (i : Fin xs.length)\n    (j : Nat) (ys : List \u03b1) (h : (stepRun k xs i).1 = Sum.inl (j, ys)) :\n    ys.length < xs.length \u2227 (k < xs.length \u2192 j < ys.length)"
+        },
+        {
+          "name": "Resources.RandomSelection.equal_lookup",
+          "kind": "theorem",
+          "private": true,
+          "header": "private theorem equal_lookup (p : \u03b1) (xs : List \u03b1) (k : Nat)\n    (hl : (partition3 p xs).1.length \u2264 k)\n    (he : k < (partition3 p xs).1.length + (partition3 p xs).2.1.length) :\n    (partition3 p xs).2.1[k - (partition3 p xs).1.length]? = some p"
+        },
+        {
+          "name": "Resources.RandomSelection.stepRun_semantics",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem stepRun_semantics (k : Nat) (xs : List \u03b1) (i : Fin xs.length) :\n    (match (stepRun k xs i).1 with\n      | Sum.inl (j, ys) => (ordered ys)[j]?\n      | Sum.inr p => some p) = (ordered xs)[k]?"
+        },
+        {
+          "name": "Resources.RandomSelection.stepRun_ranked",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem stepRun_ranked (k : Nat) (xs : List \u03b1) (i : Fin xs.length) (a : \u03b1)\n    (h : (stepRun k xs i).1 = Sum.inr a) : RankedAt xs k a"
+        },
+        {
+          "name": "Resources.RandomSelection.stepRun_cost_bounds",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem stepRun_cost_bounds (k : Nat) (xs : List \u03b1) (i : Fin xs.length) :\n    xs.length \u2264 (stepRun k xs i).2 \u2227 (stepRun k xs i).2 \u2264 9 * xs.length"
+        },
+        {
+          "name": "Resources.RandomSelection.pivotLaw",
+          "kind": "def",
+          "private": false,
+          "header": "def pivotLaw (head : \u03b1) (tail : List \u03b1) : PMF \u03b1"
+        },
+        {
+          "name": "Resources.RandomSelection.pivotLaw_support",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem pivotLaw_support (head : \u03b1) (tail : List \u03b1) (a : \u03b1)\n    (h : a \u2208 (pivotLaw head tail).support) : a \u2208 head :: tail"
+        },
+        {
+          "name": "Resources.RandomSelection.pivotLaw_event",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem pivotLaw_event (head : \u03b1) (tail : List \u03b1) (event : \u03b1 \u2192 Bool) :\n    PMF.map event (pivotLaw head tail) true =\n      ((Finset.univ.filter (fun i : Fin (tail.length + 1) =>\n        event ((head :: tail)[i.val]'i.isLt) = true)).card : \u211d\u22650\u221e) /\n          ((tail.length + 1 : Nat) : \u211d\u22650\u221e)"
+        }
+      ],
+      "header_text_unchanged": true,
+      "byte_identical_to_prior": true
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "declarations": [
+        {
+          "name": "Examples.RandomSelection.singleton_step",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem singleton_step :\n    stepRun 0 [7] \u27e80, by decide\u27e9 = (Sum.inr 7, 9)"
+        },
+        {
+          "name": "Examples.RandomSelection.duplicate_middle",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem duplicate_middle :\n    stepRun 1 [0, 0, 1] \u27e81, by decide\u27e9 = (Sum.inr 0, 15)"
+        },
+        {
+          "name": "Examples.RandomSelection.selected_side_is_not_larger_side",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem selected_side_is_not_larger_side :\n    (stepRun 0 [0, 1, 2, 3, 4] \u27e81, by decide\u27e9).1 =\n      Sum.inl (0, [0]) \u2227 max 1 3 = 3"
+        },
+        {
+          "name": "Examples.RandomSelection.selected_side_valid",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem selected_side_valid :\n    ([0] : List Nat).length < ([0, 1, 2, 3, 4] : List Nat).length \u2227\n      (0 < ([0, 1, 2, 3, 4] : List Nat).length \u2192 0 < ([0] : List Nat).length)"
+        },
+        {
+          "name": "Examples.RandomSelection.duplicate_ranked",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem duplicate_ranked : RankedAt ([0, 0, 1] : List Nat) 1 0"
+        },
+        {
+          "name": "Examples.RandomSelection.duplicate_source_bound",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem duplicate_source_bound :\n    3 \u2264 (stepRun 1 [0, 0, 1] \u27e81, by decide\u27e9).2 \u2227\n      (stepRun 1 [0, 0, 1] \u27e81, by decide\u27e9).2 \u2264 27"
+        },
+        {
+          "name": "Examples.RandomSelection.duplicate_zero_probability",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem duplicate_zero_probability :\n    PMF.map (fun a : Nat => decide (a = 0)) (pivotLaw 0 [0, 1]) true =\n      (2 : \u211d\u22650\u221e) / 3"
+        },
+        {
+          "name": "Examples.RandomSelection.duplicate_one_probability",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem duplicate_one_probability :\n    PMF.map (fun a : Nat => decide (a = 1)) (pivotLaw 0 [0, 1]) true =\n      (1 : \u211d\u22650\u221e) / 3"
+        }
+      ],
+      "header_text_unchanged": true,
+      "byte_identical_to_prior": true
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionRun.lean",
+      "declarations": [
+        {
+          "name": "Resources.RandomSelection.Trace",
+          "kind": "abbrev",
+          "private": false,
+          "header": "abbrev Trace"
+        },
+        {
+          "name": "Resources.RandomSelection.Outcome",
+          "kind": "abbrev",
+          "private": false,
+          "header": "abbrev Outcome (\u03b1 : Type u)"
+        },
+        {
+          "name": "Resources.RandomSelection.scanVolume",
+          "kind": "def",
+          "private": false,
+          "header": "def scanVolume (trace : Trace) : Nat"
+        },
+        {
+          "name": "Resources.RandomSelection.scanVolume_nil",
+          "kind": "theorem",
+          "private": false,
+          "header": "@[simp] theorem scanVolume_nil : scanVolume [] = 0"
+        },
+        {
+          "name": "Resources.RandomSelection.scanVolume_cons",
+          "kind": "theorem",
+          "private": false,
+          "header": "@[simp] theorem scanVolume_cons (n i : Nat) (trace : Trace) :\n    scanVolume ((n, i) :: trace) = n + scanVolume trace"
+        },
+        {
+          "name": "Resources.RandomSelection.prepend",
+          "kind": "def",
+          "private": false,
+          "header": "def prepend (n i calls : Nat) (result : Outcome \u03b1) : Outcome \u03b1"
+        },
+        {
+          "name": "Resources.RandomSelection.run",
+          "kind": "def",
+          "private": false,
+          "header": "def run : Nat \u2192 List \u03b1 \u2192 PMF (Outcome \u03b1)\n  | _, [] => PMF.pure (none, ([], (SymmetricCosts.lengthRun ([] : List \u03b1)).2 + 1))\n  | k, head :: tail =>\n      PMF.bind (RandomQuickSort.uniformIndex tail.length) fun i =>\n        let action"
+        },
+        {
+          "name": "Resources.RandomSelection.run_nil",
+          "kind": "theorem",
+          "private": false,
+          "header": "@[simp] theorem run_nil (k : Nat) :\n    run k ([] : List \u03b1) = PMF.pure (none, ([], 2))"
+        },
+        {
+          "name": "Resources.RandomSelection.run_cons",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem run_cons (k : Nat) (head : \u03b1) (tail : List \u03b1) :\n    run k (head :: tail) =\n      PMF.bind (RandomQuickSort.uniformIndex tail.length) fun i =>\n        let action"
+        },
+        {
+          "name": "Resources.RandomSelection.run_value",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem run_value (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) : result.1 = (ordered xs)[k]?"
+        },
+        {
+          "name": "Resources.RandomSelection.run_ranked",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem run_ranked (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) (a : \u03b1) (ha : result.1 = some a) :\n    RankedAt xs k a"
+        },
+        {
+          "name": "Resources.RandomSelection.run_none",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem run_none (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) : result.1 = none \u2194 xs.length \u2264 k"
+        },
+        {
+          "name": "Resources.RandomSelection.run_valid",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem run_valid (k : Nat) (xs : List \u03b1) (hk : k < xs.length)\n    (result : Outcome \u03b1) (hr : result \u2208 (run k xs).support) :\n    \u2203 a, result.1 = some a \u2227 RankedAt xs k a"
+        },
+        {
+          "name": "Resources.RandomSelection.run_support_bounds",
+          "kind": "theorem",
+          "private": true,
+          "header": "private theorem run_support_bounds (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) :\n    result.2.1.length \u2264 xs.length \u2227\n      xs.length \u2264 scanVolume result.2.1 \u2227\n      2 * scanVolume result.2.1 \u2264 xs.length * (xs.length + 1) \u2227\n      scanVolume result.2.1 \u2264 result.2.2 \u2227\n      result.2.2 \u2264 9 * scanVolume result.2.1 + 2 \u2227\n      \u2200 entry \u2208 result.2.1, 0 < entry.1 \u2227 entry.2 < entry.1 \u2227 entry.1 \u2264 xs.length"
+        },
+        {
+          "name": "Resources.RandomSelection.run_active_calls_le",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem run_active_calls_le (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) : result.2.1.length \u2264 xs.length"
+        },
+        {
+          "name": "Resources.RandomSelection.run_initial_scan_le",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem run_initial_scan_le (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) : xs.length \u2264 scanVolume result.2.1"
+        },
+        {
+          "name": "Resources.RandomSelection.run_scanVolume_le",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem run_scanVolume_le (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) :\n    scanVolume result.2.1 \u2264 xs.length * (xs.length + 1) / 2"
+        },
+        {
+          "name": "Resources.RandomSelection.run_source_bridge",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem run_source_bridge (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) :\n    scanVolume result.2.1 \u2264 result.2.2 \u2227 result.2.2 \u2264 9 * scanVolume result.2.1 + 2"
+        },
+        {
+          "name": "Resources.RandomSelection.run_trace_entries",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem run_trace_entries (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) :\n    \u2200 entry \u2208 result.2.1, 0 < entry.1 \u2227 entry.2 < entry.1 \u2227 entry.1 \u2264 xs.length"
+        },
+        {
+          "name": "Resources.RandomSelection.run_source_quadratic",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem run_source_quadratic (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (run k xs).support) :\n    result.2.2 \u2264 9 * (xs.length * (xs.length + 1) / 2) + 2"
+        },
+        {
+          "name": "Resources.RandomSelection.select",
+          "kind": "def",
+          "private": false,
+          "header": "def select (k : Nat) (xs : List \u03b1) : PMF (Outcome \u03b1)"
+        },
+        {
+          "name": "Resources.RandomSelection.select_value",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem select_value (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (select k xs).support) : result.1 = sortSelect k xs"
+        },
+        {
+          "name": "Resources.RandomSelection.select_none",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem select_none (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (select k xs).support) :\n    result.1 = none \u2194 k = 0 \u2228 xs.length < k"
+        },
+        {
+          "name": "Resources.RandomSelection.select_some_iff",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem select_some_iff (k : Nat) (xs : List \u03b1) (result : Outcome \u03b1)\n    (hr : result \u2208 (select k xs).support) (a : \u03b1) :\n    result.1 = some a \u2194 0 < k \u2227 RankedAt xs (k - 1) a"
+        },
+        {
+          "name": "Resources.RandomSelection.scanLaw",
+          "kind": "def",
+          "private": false,
+          "header": "def scanLaw (k : Nat) (xs : List \u03b1) : PMF Nat"
+        },
+        {
+          "name": "Resources.RandomSelection.sourceLaw",
+          "kind": "def",
+          "private": false,
+          "header": "def sourceLaw (k : Nat) (xs : List \u03b1) : PMF Nat"
+        },
+        {
+          "name": "Resources.RandomSelection.scanLaw_support",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem scanLaw_support (k : Nat) (xs : List \u03b1) :\n    (scanLaw k xs).support \u2286 Set.Iic (xs.length * (xs.length + 1) / 2)"
+        },
+        {
+          "name": "Resources.RandomSelection.scanLaw_support_finite",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem scanLaw_support_finite (k : Nat) (xs : List \u03b1) : (scanLaw k xs).support.Finite"
+        },
+        {
+          "name": "Resources.RandomSelection.sourceLaw_support",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem sourceLaw_support (k : Nat) (xs : List \u03b1) :\n    (sourceLaw k xs).support \u2286 Set.Iic (9 * (xs.length * (xs.length + 1) / 2) + 2)"
+        },
+        {
+          "name": "Resources.RandomSelection.sourceLaw_support_finite",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem sourceLaw_support_finite (k : Nat) (xs : List \u03b1) : (sourceLaw k xs).support.Finite"
+        }
+      ],
+      "header_text_unchanged": true,
+      "byte_identical_to_prior": true
+    },
+    {
+      "path": "Examples/RandomSelectionRun.lean",
+      "declarations": [
+        {
+          "name": "Examples.RandomSelectionRun.empty_failure",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem empty_failure (k : Nat) :\n    run k ([] : List \u03b1) = PMF.pure (none, ([], 2))"
+        },
+        {
+          "name": "Examples.RandomSelectionRun.singleton_execution",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem singleton_execution (x : \u03b1) :\n    run 0 [x] = PMF.pure (some x, ([(1, 0)], 9))"
+        },
+        {
+          "name": "Examples.RandomSelectionRun.invalid_singleton",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem invalid_singleton :\n    run 1 ([7] : List Nat) = PMF.pure (none, ([(1, 0)], 11))"
+        },
+        {
+          "name": "Examples.RandomSelectionRun.rank_zero_public_failure",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem rank_zero_public_failure (xs : List \u03b1) :\n    select 0 xs = PMF.pure (none, ([], 0))"
+        },
+        {
+          "name": "Examples.RandomSelectionRun.two_key_execution",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem two_key_execution :\n    run 0 ([0, 1] : List Nat) =\n      PMF.map (fun i : Fin 2 =>\n        if i = 0 then (some 0, ([(2, 0)], 11))\n        else (some 0, ([(2, 1), (1, 0)], 20)))\n        (Resources.RandomQuickSort.uniformIndex 1)"
+        },
+        {
+          "name": "Examples.RandomSelectionRun.duplicate_execution",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem duplicate_execution (x : \u03b1) :\n    run 1 [x, x] =\n      PMF.map (fun i : Fin 2 => (some x, ([(2, i.val)], 12 + i.val)))\n        (Resources.RandomQuickSort.uniformIndex 1)"
+        },
+        {
+          "name": "Examples.RandomSelectionRun.two_key_first_path",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem two_key_first_path :\n    ((some 0, ([(2, 0)], 11)) : Outcome Nat) \u2208 (run 0 [0, 1]).support"
+        },
+        {
+          "name": "Examples.RandomSelectionRun.two_key_long_path",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem two_key_long_path :\n    ((some 0, ([(2, 1), (1, 0)], 20)) : Outcome Nat) \u2208 (run 0 [0, 1]).support"
+        },
+        {
+          "name": "Examples.RandomSelectionRun.same_value_different_scan",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem same_value_different_scan :\n    ((some 0, ([(2, 0)], 11)) : Outcome Nat).1 =\n      ((some 0, ([(2, 1), (1, 0)], 20)) : Outcome Nat).1 \u2227\n    scanVolume [(2, 0)] \u2260 scanVolume [(2, 1), (1, 0)]"
+        },
+        {
+          "name": "Examples.RandomSelectionRun.maximum_scan_on_pair",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem maximum_scan_on_pair :\n    scanVolume [(2, 1), (1, 0)] = 3 \u2227\n      scanVolume [(2, 1), (1, 0)] \u2264 (2 * (2 + 1)) / 2"
+        },
+        {
+          "name": "Examples.RandomSelectionRun.bounded_actual_pair_calls",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem bounded_actual_pair_calls :\n    scanVolume [(2, 1), (1, 0)] \u2264 20 \u2227\n      20 \u2264 9 * scanVolume [(2, 1), (1, 0)] + 2"
+        },
+        {
+          "name": "Examples.RandomSelectionRun.arbitrary_supported_rank",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem arbitrary_supported_rank (xs : List \u03b1) (k : Nat) (result : Outcome \u03b1)\n    (h : result \u2208 (select k xs).support) (a : \u03b1) :\n    result.1 = some a \u2194 0 < k \u2227 RankedAt xs (k - 1) a"
+        }
+      ],
+      "header_text_unchanged": true,
+      "byte_identical_to_prior": true
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionMean.lean",
+      "declarations": [
+        {
+          "name": "Resources.RandomSelection.weighted_bind",
+          "kind": "theorem",
+          "private": true,
+          "header": "private theorem weighted_bind (p : PMF \u03b1) (f : \u03b1 \u2192 PMF \u03b2) (g : \u03b2 \u2192 \u211d\u22650\u221e) :\n    (\u2211' b, p.bind f b * g b) = \u2211' a, p a * (\u2211' b, f a b * g b)"
+        },
+        {
+          "name": "Resources.RandomSelection.weighted_pure",
+          "kind": "theorem",
+          "private": true,
+          "header": "private theorem weighted_pure (x : \u03b1) (g : \u03b1 \u2192 \u211d\u22650\u221e) :\n    (\u2211' a, PMF.pure x a * g a) = g x"
+        },
+        {
+          "name": "Resources.RandomSelection.weighted_map",
+          "kind": "theorem",
+          "private": true,
+          "header": "private theorem weighted_map (p : PMF \u03b1) (f : \u03b1 \u2192 \u03b2) (g : \u03b2 \u2192 \u211d\u22650\u221e) :\n    (\u2211' b, p.map f b * g b) = \u2211' a, p a * g (f a)"
+        },
+        {
+          "name": "Resources.RandomSelection.weighted_add",
+          "kind": "theorem",
+          "private": true,
+          "header": "private theorem weighted_add (p : PMF \u03b1) (f g : \u03b1 \u2192 \u211d\u22650\u221e) :\n    (\u2211' a, p a * (f a + g a)) = (\u2211' a, p a * f a) + \u2211' a, p a * g a"
+        },
+        {
+          "name": "Resources.RandomSelection.weighted_const",
+          "kind": "theorem",
+          "private": true,
+          "header": "private theorem weighted_const (p : PMF \u03b1) (c : \u211d\u22650\u221e) :\n    (\u2211' a, p a * c) = c"
+        },
+        {
+          "name": "Resources.RandomSelection.weighted_mono_support",
+          "kind": "theorem",
+          "private": true,
+          "header": "private theorem weighted_mono_support (p : PMF \u03b1) (f g : \u03b1 \u2192 \u211d\u22650\u221e)\n    (h : \u2200 a \u2208 p.support, f a \u2264 g a) :\n    (\u2211' a, p a * f a) \u2264 \u2211' a, p a * g a"
+        },
+        {
+          "name": "Resources.RandomSelection.lintegral_nat_eq",
+          "kind": "theorem",
+          "private": true,
+          "header": "private theorem lintegral_nat_eq (p : PMF Nat) :\n    (\u222b\u207b k : Nat, (k : \u211d\u22650\u221e) \u2202p.toMeasure) = \u2211' k, p k * (k : \u211d\u22650\u221e)"
+        },
+        {
+          "name": "Resources.RandomSelection.lintegral_nat_le_of_support",
+          "kind": "theorem",
+          "private": true,
+          "header": "private theorem lintegral_nat_le_of_support (p : PMF Nat) (b : Nat)\n    (h : p.support \u2286 Set.Iic b) :\n    (\u222b\u207b k : Nat, (k : \u211d\u22650\u221e) \u2202p.toMeasure) \u2264 (b : \u211d\u22650\u221e)"
+        },
+        {
+          "name": "Resources.RandomSelection.integrable_nat_of_lower_finite",
+          "kind": "theorem",
+          "private": true,
+          "header": "private theorem integrable_nat_of_lower_finite (p : PMF Nat)\n    (hf : (\u222b\u207b k : Nat, (k : \u211d\u22650\u221e) \u2202p.toMeasure) \u2260 \u221e) :\n    Integrable (fun k : Nat => (k : \u211d)) p.toMeasure"
+        },
+        {
+          "name": "Resources.RandomSelection.integral_nat_eq",
+          "kind": "theorem",
+          "private": true,
+          "header": "private theorem integral_nat_eq (p : PMF Nat) :\n    (\u222b k : Nat, (k : \u211d) \u2202p.toMeasure) =\n      (\u222b\u207b k : Nat, (k : \u211d\u22650\u221e) \u2202p.toMeasure).toReal"
+        },
+        {
+          "name": "Resources.RandomSelection.workExpectation",
+          "kind": "def",
+          "private": false,
+          "header": "def workExpectation (k : Nat) (xs : List \u03b1) (f : Outcome \u03b1 \u2192 \u211d\u22650\u221e) : \u211d\u22650\u221e"
+        },
+        {
+          "name": "Resources.RandomSelection.workExpectation_mono",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem workExpectation_mono (k : Nat) (xs : List \u03b1) (f g : Outcome \u03b1 \u2192 \u211d\u22650\u221e)\n    (h : \u2200 result \u2208 (run k xs).support, f result \u2264 g result) :\n    workExpectation k xs f \u2264 workExpectation k xs g"
+        },
+        {
+          "name": "Resources.RandomSelection.workExpectation_const",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem workExpectation_const (k : Nat) (xs : List \u03b1) (c : \u211d\u22650\u221e) :\n    workExpectation k xs (fun _ => c) = c"
+        },
+        {
+          "name": "Resources.RandomSelection.workExpectation_add",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem workExpectation_add (k : Nat) (xs : List \u03b1) (f g : Outcome \u03b1 \u2192 \u211d\u22650\u221e) :\n    workExpectation k xs (fun result => f result + g result) =\n      workExpectation k xs f + workExpectation k xs g"
+        },
+        {
+          "name": "Resources.RandomSelection.workExpectation_mul",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem workExpectation_mul (k : Nat) (xs : List \u03b1) (c : \u211d\u22650\u221e)\n    (f : Outcome \u03b1 \u2192 \u211d\u22650\u221e) :\n    workExpectation k xs (fun result => c * f result) = c * workExpectation k xs f"
+        },
+        {
+          "name": "Resources.RandomSelection.workExpectation_nil",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem workExpectation_nil (k : Nat) (f : Outcome \u03b1 \u2192 \u211d\u22650\u221e) :\n    workExpectation k [] f = f (none, ([], 2))"
+        },
+        {
+          "name": "Resources.RandomSelection.workExpectation_cons",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem workExpectation_cons (k : Nat) (head : \u03b1) (tail : List \u03b1)\n    (f : Outcome \u03b1 \u2192 \u211d\u22650\u221e) :\n    workExpectation k (head :: tail) f =\n      \u2211 i : Fin (tail.length + 1),\n        let action"
+        },
+        {
+          "name": "Resources.RandomSelection.scanExpectation",
+          "kind": "def",
+          "private": false,
+          "header": "def scanExpectation (k : Nat) (xs : List \u03b1) : \u211d\u22650\u221e"
+        },
+        {
+          "name": "Resources.RandomSelection.sourceExpectation",
+          "kind": "def",
+          "private": false,
+          "header": "def sourceExpectation (k : Nat) (xs : List \u03b1) : \u211d\u22650\u221e"
+        },
+        {
+          "name": "Resources.RandomSelection.scanExpectation_eq_workExpectation",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem scanExpectation_eq_workExpectation (k : Nat) (xs : List \u03b1) :\n    scanExpectation k xs =\n      workExpectation k xs (fun result => (scanVolume result.2.1 : \u211d\u22650\u221e))"
+        },
+        {
+          "name": "Resources.RandomSelection.sourceExpectation_eq_workExpectation",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem sourceExpectation_eq_workExpectation (k : Nat) (xs : List \u03b1) :\n    sourceExpectation k xs =\n      workExpectation k xs (fun result => (result.2.2 : \u211d\u22650\u221e))"
+        },
+        {
+          "name": "Resources.RandomSelection.scanExpectation_quadratic_le",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem scanExpectation_quadratic_le (k : Nat) (xs : List \u03b1) :\n    scanExpectation k xs \u2264 ((xs.length * (xs.length + 1) / 2 : Nat) : \u211d\u22650\u221e)"
+        },
+        {
+          "name": "Resources.RandomSelection.sourceExpectation_quadratic_le",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem sourceExpectation_quadratic_le (k : Nat) (xs : List \u03b1) :\n    sourceExpectation k xs \u2264\n      ((9 * (xs.length * (xs.length + 1) / 2) + 2 : Nat) : \u211d\u22650\u221e)"
+        },
+        {
+          "name": "Resources.RandomSelection.scanExpectation_ne_top",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem scanExpectation_ne_top (k : Nat) (xs : List \u03b1) : scanExpectation k xs \u2260 \u221e"
+        },
+        {
+          "name": "Resources.RandomSelection.sourceExpectation_ne_top",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem sourceExpectation_ne_top (k : Nat) (xs : List \u03b1) : sourceExpectation k xs \u2260 \u221e"
+        },
+        {
+          "name": "Resources.RandomSelection.scanLaw_integrable",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem scanLaw_integrable (k : Nat) (xs : List \u03b1) :\n    Integrable (fun w : Nat => (w : \u211d)) (scanLaw k xs).toMeasure"
+        },
+        {
+          "name": "Resources.RandomSelection.sourceLaw_integrable",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem sourceLaw_integrable (k : Nat) (xs : List \u03b1) :\n    Integrable (fun t : Nat => (t : \u211d)) (sourceLaw k xs).toMeasure"
+        },
+        {
+          "name": "Resources.RandomSelection.scanExpectation_initial_le",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem scanExpectation_initial_le (k : Nat) (xs : List \u03b1) :\n    (xs.length : \u211d\u22650\u221e) \u2264 scanExpectation k xs"
+        },
+        {
+          "name": "Resources.RandomSelection.sourceExpectation_comparison",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem sourceExpectation_comparison (k : Nat) (xs : List \u03b1) :\n    scanExpectation k xs \u2264 sourceExpectation k xs \u2227\n      sourceExpectation k xs \u2264 9 * scanExpectation k xs + 2"
+        },
+        {
+          "name": "Resources.RandomSelection.scanExpectation_nil",
+          "kind": "theorem",
+          "private": false,
+          "header": "@[simp] theorem scanExpectation_nil (k : Nat) : scanExpectation k ([] : List \u03b1) = 0"
+        },
+        {
+          "name": "Resources.RandomSelection.sourceExpectation_nil",
+          "kind": "theorem",
+          "private": false,
+          "header": "@[simp] theorem sourceExpectation_nil (k : Nat) : sourceExpectation k ([] : List \u03b1) = 2"
+        },
+        {
+          "name": "Resources.RandomSelection.scanExpectation_cons",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem scanExpectation_cons (k : Nat) (head : \u03b1) (tail : List \u03b1) :\n    scanExpectation k (head :: tail) =\n      ((tail.length + 1 : Nat) : \u211d\u22650\u221e) +\n        (((tail.length + 1 : Nat) : \u211d\u22650\u221e)\u207b\u00b9) *\n          \u2211 i : Fin (tail.length + 1),\n            match (stepRun k (head :: tail) i).1 with\n            | Sum.inl (j, ys) => scanExpectation j ys\n            | Sum.inr _ => 0"
+        },
+        {
+          "name": "Resources.RandomSelection.scanMean",
+          "kind": "def",
+          "private": false,
+          "header": "def scanMean (k : Nat) (xs : List \u03b1) : \u211d"
+        },
+        {
+          "name": "Resources.RandomSelection.sourceMean",
+          "kind": "def",
+          "private": false,
+          "header": "def sourceMean (k : Nat) (xs : List \u03b1) : \u211d"
+        },
+        {
+          "name": "Resources.RandomSelection.scanMean_eq_toReal",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem scanMean_eq_toReal (k : Nat) (xs : List \u03b1) :\n    scanMean k xs = (scanExpectation k xs).toReal"
+        },
+        {
+          "name": "Resources.RandomSelection.sourceMean_eq_toReal",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem sourceMean_eq_toReal (k : Nat) (xs : List \u03b1) :\n    sourceMean k xs = (sourceExpectation k xs).toReal"
+        },
+        {
+          "name": "Resources.RandomSelection.scanMean_nonneg",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem scanMean_nonneg (k : Nat) (xs : List \u03b1) : 0 \u2264 scanMean k xs"
+        },
+        {
+          "name": "Resources.RandomSelection.sourceMean_nonneg",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem sourceMean_nonneg (k : Nat) (xs : List \u03b1) : 0 \u2264 sourceMean k xs"
+        },
+        {
+          "name": "Resources.RandomSelection.scanMean_initial_le",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem scanMean_initial_le (k : Nat) (xs : List \u03b1) : (xs.length : \u211d) \u2264 scanMean k xs"
+        },
+        {
+          "name": "Resources.RandomSelection.scanMean_quadratic_le",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem scanMean_quadratic_le (k : Nat) (xs : List \u03b1) :\n    scanMean k xs \u2264 ((xs.length * (xs.length + 1) / 2 : Nat) : \u211d)"
+        },
+        {
+          "name": "Resources.RandomSelection.sourceMean_quadratic_le",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem sourceMean_quadratic_le (k : Nat) (xs : List \u03b1) :\n    sourceMean k xs \u2264 ((9 * (xs.length * (xs.length + 1) / 2) + 2 : Nat) : \u211d)"
+        },
+        {
+          "name": "Resources.RandomSelection.sourceMean_comparison",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem sourceMean_comparison (k : Nat) (xs : List \u03b1) :\n    scanMean k xs \u2264 sourceMean k xs \u2227 sourceMean k xs \u2264 9 * scanMean k xs + 2"
+        },
+        {
+          "name": "Resources.RandomSelection.scanMean_nil",
+          "kind": "theorem",
+          "private": false,
+          "header": "@[simp] theorem scanMean_nil (k : Nat) : scanMean k ([] : List \u03b1) = 0"
+        },
+        {
+          "name": "Resources.RandomSelection.sourceMean_nil",
+          "kind": "theorem",
+          "private": false,
+          "header": "@[simp] theorem sourceMean_nil (k : Nat) : sourceMean k ([] : List \u03b1) = 2"
+        }
+      ],
+      "header_text_unchanged": true,
+      "byte_identical_to_prior": true
+    },
+    {
+      "path": "Examples/RandomSelectionMean.lean",
+      "declarations": [
+        {
+          "name": "Examples.RandomSelectionMean.empty_means",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem empty_means (k : Nat) :\n    scanMean k ([] : List \u03b1) = 0 \u2227 sourceMean k ([] : List \u03b1) = 2"
+        },
+        {
+          "name": "Examples.RandomSelectionMean.singleton_means",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem singleton_means (x : \u03b1) : scanMean 0 [x] = 1 \u2227 sourceMean 0 [x] = 9"
+        },
+        {
+          "name": "Examples.RandomSelectionMean.invalid_singleton_means",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem invalid_singleton_means :\n    scanMean 1 ([7] : List Nat) = 1 \u2227 sourceMean 1 ([7] : List Nat) = 11"
+        },
+        {
+          "name": "Examples.RandomSelectionMean.integral_nat_map_fin",
+          "kind": "theorem",
+          "private": true,
+          "header": "private theorem integral_nat_map_fin {n : Nat} (p : PMF (Fin n)) (f : Fin n \u2192 Nat) :\n    (\u222b k : Nat, (k : \u211d) \u2202(p.map f).toMeasure) =\n      \u2211 i : Fin n, (p i).toReal * (f i : \u211d)"
+        },
+        {
+          "name": "Examples.RandomSelectionMean.two_key_scan_law",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem two_key_scan_law :\n    scanLaw 0 ([0, 1] : List Nat) =\n      PMF.map (fun i : Fin 2 => if i = 0 then 2 else 3)\n        (Resources.RandomQuickSort.uniformIndex 1)"
+        },
+        {
+          "name": "Examples.RandomSelectionMean.two_key_source_law",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem two_key_source_law :\n    sourceLaw 0 ([0, 1] : List Nat) =\n      PMF.map (fun i : Fin 2 => if i = 0 then 11 else 20)\n        (Resources.RandomQuickSort.uniformIndex 1)"
+        },
+        {
+          "name": "Examples.RandomSelectionMean.two_key_scan_mean",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem two_key_scan_mean : scanMean 0 ([0, 1] : List Nat) = (5 : \u211d) / 2"
+        },
+        {
+          "name": "Examples.RandomSelectionMean.two_key_source_mean",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem two_key_source_mean : sourceMean 0 ([0, 1] : List Nat) = (31 : \u211d) / 2"
+        },
+        {
+          "name": "Examples.RandomSelectionMean.duplicate_scan_law",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem duplicate_scan_law (x : \u03b1) : scanLaw 1 [x, x] = PMF.pure 2"
+        },
+        {
+          "name": "Examples.RandomSelectionMean.duplicate_source_law",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem duplicate_source_law (x : \u03b1) :\n    sourceLaw 1 [x, x] = PMF.map (fun i : Fin 2 => 12 + i.val)\n      (Resources.RandomQuickSort.uniformIndex 1)"
+        },
+        {
+          "name": "Examples.RandomSelectionMean.duplicate_means",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem duplicate_means (x : \u03b1) :\n    scanMean 1 [x, x] = 2 \u2227 sourceMean 1 [x, x] = (25 : \u211d) / 2"
+        },
+        {
+          "name": "Examples.RandomSelectionMean.two_key_scan_step",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem two_key_scan_step :\n    scanExpectation 0 ([0, 1] : List Nat) =\n      2 + (2 : \u211d\u22650\u221e)\u207b\u00b9 * scanExpectation 0 ([0] : List Nat)"
+        },
+        {
+          "name": "Examples.RandomSelectionMean.arbitrary_input_integrable",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem arbitrary_input_integrable (k : Nat) (xs : List \u03b1) :\n    Integrable (fun w : Nat => (w : \u211d)) (scanLaw k xs).toMeasure \u2227\n      Integrable (fun t : Nat => (t : \u211d)) (sourceLaw k xs).toMeasure"
+        },
+        {
+          "name": "Examples.RandomSelectionMean.actual_mean_bridge",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem actual_mean_bridge (k : Nat) (xs : List \u03b1) :\n    scanMean k xs \u2264 sourceMean k xs \u2227 sourceMean k xs \u2264 9 * scanMean k xs + 2"
+        },
+        {
+          "name": "Examples.RandomSelectionMean.selected_value_and_mean_bounds",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem selected_value_and_mean_bounds (k : Nat) (xs : List \u03b1) (hk : k < xs.length)\n    (result : Outcome \u03b1) (hr : result \u2208 (run k xs).support) :\n    \u2203 a, result.1 = some a \u2227 Applications.Selection.RankedAt xs k a \u2227\n      (xs.length : \u211d) \u2264 scanMean k xs \u2227 scanMean k xs \u2264 sourceMean k xs"
+        }
+      ],
+      "header_text_unchanged": true,
+      "byte_identical_to_prior": true
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionDrift.lean",
+      "declarations": [
+        {
+          "name": "Resources.RandomSelection.rankSideSum",
+          "kind": "def",
+          "private": false,
+          "header": "def rankSideSum (n : Nat) : Nat"
+        },
+        {
+          "name": "Resources.RandomSelection.rankSideSum_zero",
+          "kind": "theorem",
+          "private": false,
+          "header": "@[simp] theorem rankSideSum_zero : rankSideSum 0 = 0"
+        },
+        {
+          "name": "Resources.RandomSelection.rankSideSum_one",
+          "kind": "theorem",
+          "private": false,
+          "header": "@[simp] theorem rankSideSum_one : rankSideSum 1 = 0"
+        },
+        {
+          "name": "Resources.RandomSelection.rankSideSum_add_two",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem rankSideSum_add_two (n : Nat) :\n    rankSideSum (n + 2) = rankSideSum n + 3 * n + 2"
+        },
+        {
+          "name": "Resources.RandomSelection.rankSideSum_bound",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem rankSideSum_bound (n : Nat) : 4 * rankSideSum n \u2264 3 * n * n"
+        },
+        {
+          "name": "Resources.RandomSelection.four_mul_three_quarters",
+          "kind": "theorem",
+          "private": true,
+          "header": "private theorem four_mul_three_quarters : (4 : \u211d\u22650\u221e) * (3 / 4) = 3"
+        },
+        {
+          "name": "Resources.RandomSelection.rankSideSum_mean_le",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem rankSideSum_mean_le (n : Nat) (hn : 0 < n) :\n    (n : \u211d\u22650\u221e)\u207b\u00b9 * (rankSideSum n : \u211d\u22650\u221e) \u2264 (3 / 4 : \u211d\u22650\u221e) * n"
+        },
+        {
+          "name": "Resources.RandomSelection.occurrenceRank_lt_of_lt",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem occurrenceRank_lt_of_lt (xs : List \u03b1) (i j : Fin xs.length)\n    (hij : xs[i.val] < xs[j.val]) :\n    RandomQuickSort.occurrenceRank id xs i < RandomQuickSort.occurrenceRank id xs j"
+        },
+        {
+          "name": "Resources.RandomSelection.occurrenceRank_tie",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem occurrenceRank_tie (xs : List \u03b1) (i j : Fin xs.length)\n    (hij : i < j) (hvalue : xs[i.val] = xs[j.val]) :\n    RandomQuickSort.occurrenceRank id xs i < RandomQuickSort.occurrenceRank id xs j"
+        },
+        {
+          "name": "Resources.RandomSelection.occurrenceRank_uniform",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem occurrenceRank_uniform (head : \u03b1) (tail : List \u03b1) :\n    PMF.map (RandomQuickSort.occurrenceRank id (head :: tail))\n      (RandomQuickSort.uniformIndex tail.length) =\n        RandomQuickSort.uniformIndex tail.length"
+        },
+        {
+          "name": "Resources.RandomSelection.filter_length_eq_card_indices",
+          "kind": "theorem",
+          "private": true,
+          "header": "private theorem filter_length_eq_card_indices (xs : List \u03b1) (p : \u03b1 \u2192 Bool) :\n    (xs.filter p).length =\n      (Finset.univ.filter (fun i : Fin xs.length => p (xs[i.val]'i.isLt))).card"
+        },
+        {
+          "name": "Resources.RandomSelection.strict_side_rank_bounds",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem strict_side_rank_bounds (xs : List \u03b1) (i : Fin xs.length) :\n    (partition3 (xs[i.val]'i.isLt) xs).1.length \u2264\n        (RandomQuickSort.occurrenceRank id xs i).val \u2227\n      (partition3 (xs[i.val]'i.isLt) xs).2.2.length \u2264\n        xs.length - 1 - (RandomQuickSort.occurrenceRank id xs i).val"
+        },
+        {
+          "name": "Resources.RandomSelection.nextSize",
+          "kind": "def",
+          "private": false,
+          "header": "def nextSize (k : Nat) (xs : List \u03b1) (i : Fin xs.length) : Nat"
+        },
+        {
+          "name": "Resources.RandomSelection.nextSize_le_rankSide",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem nextSize_le_rankSide (k : Nat) (xs : List \u03b1) (i : Fin xs.length) :\n    nextSize k xs i \u2264\n      max (RandomQuickSort.occurrenceRank id xs i).val\n        (xs.length - 1 - (RandomQuickSort.occurrenceRank id xs i).val)"
+        },
+        {
+          "name": "Resources.RandomSelection.nextSize_sum_le",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem nextSize_sum_le (k : Nat) (xs : List \u03b1) :\n    (\u2211 i : Fin xs.length, nextSize k xs i) \u2264 rankSideSum xs.length"
+        },
+        {
+          "name": "Resources.RandomSelection.nextSize_drift",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem nextSize_drift (k : Nat) (head : \u03b1) (tail : List \u03b1) :\n    (\u2211 i : Fin (tail.length + 1),\n      RandomQuickSort.uniformIndex tail.length i *\n        (nextSize k (head :: tail) i : \u211d\u22650\u221e)) \u2264\n          (3 / 4 : \u211d\u22650\u221e) * (tail.length + 1 : Nat)"
+        },
+        {
+          "name": "Resources.RandomSelection.scanExpectation_linear_le",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem scanExpectation_linear_le (k : Nat) (xs : List \u03b1) :\n    scanExpectation k xs \u2264 4 * (xs.length : \u211d\u22650\u221e)"
+        },
+        {
+          "name": "Resources.RandomSelection.scanExpectation_linear_bounds",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem scanExpectation_linear_bounds (k : Nat) (xs : List \u03b1) :\n    (xs.length : \u211d\u22650\u221e) \u2264 scanExpectation k xs \u2227\n      scanExpectation k xs \u2264 4 * (xs.length : \u211d\u22650\u221e)"
+        },
+        {
+          "name": "Resources.RandomSelection.scanMean_linear_le",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem scanMean_linear_le (k : Nat) (xs : List \u03b1) :\n    scanMean k xs \u2264 4 * (xs.length : \u211d)"
+        },
+        {
+          "name": "Resources.RandomSelection.scanMean_linear_bounds",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem scanMean_linear_bounds (k : Nat) (xs : List \u03b1) :\n    (xs.length : \u211d) \u2264 scanMean k xs \u2227 scanMean k xs \u2264 4 * (xs.length : \u211d)"
+        },
+        {
+          "name": "Resources.RandomSelection.sourceExpectation_linear_bounds",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem sourceExpectation_linear_bounds (k : Nat) (xs : List \u03b1) :\n    (xs.length : \u211d\u22650\u221e) \u2264 sourceExpectation k xs \u2227\n      sourceExpectation k xs \u2264 36 * (xs.length : \u211d\u22650\u221e) + 2"
+        },
+        {
+          "name": "Resources.RandomSelection.sourceMean_linear_bounds",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem sourceMean_linear_bounds (k : Nat) (xs : List \u03b1) :\n    (xs.length : \u211d) \u2264 sourceMean k xs \u2227\n      sourceMean k xs \u2264 36 * (xs.length : \u211d) + 2"
+        }
+      ],
+      "header_text_unchanged": true,
+      "byte_identical_to_prior": false
+    },
+    {
+      "path": "Examples/RandomSelectionDrift.lean",
+      "declarations": [
+        {
+          "name": "Examples.RandomSelectionDrift.rank_side_small_values",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem rank_side_small_values :\n    rankSideSum 0 = 0 \u2227 rankSideSum 1 = 0 \u2227 rankSideSum 2 = 2 \u2227\n      rankSideSum 3 = 5 \u2227 rankSideSum 4 = 10 \u2227 rankSideSum 5 = 16"
+        },
+        {
+          "name": "Examples.RandomSelectionDrift.stable_duplicate_positions",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem stable_duplicate_positions (x : \u03b1) :\n    Resources.RandomQuickSort.occurrenceRank id [x, x] (0 : Fin 2) <\n      Resources.RandomQuickSort.occurrenceRank id [x, x] (1 : Fin 2)"
+        },
+        {
+          "name": "Examples.RandomSelectionDrift.refined_duplicate_uniform",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem refined_duplicate_uniform (x : \u03b1) :\n    PMF.map (Resources.RandomQuickSort.occurrenceRank id [x, x])\n      (Resources.RandomQuickSort.uniformIndex 1) =\n        Resources.RandomQuickSort.uniformIndex 1"
+        },
+        {
+          "name": "Examples.RandomSelectionDrift.singleton_next_size",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem singleton_next_size (k : Nat) (x : \u03b1) (i : Fin 1) : nextSize k [x] i = 0"
+        },
+        {
+          "name": "Examples.RandomSelectionDrift.duplicate_next_choices",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem duplicate_next_choices (i : Fin 3) :\n    nextSize 2 ([0, 0, 1] : List Nat) i = if i = 2 then 0 else 1"
+        },
+        {
+          "name": "Examples.RandomSelectionDrift.duplicate_next_expectation",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem duplicate_next_expectation :\n    (\u2211 i : Fin 3, Resources.RandomQuickSort.uniformIndex 2 i *\n      (nextSize 2 ([0, 0, 1] : List Nat) i : \u211d\u22650\u221e)) = (2 : \u211d\u22650\u221e) / 3"
+        },
+        {
+          "name": "Examples.RandomSelectionDrift.duplicate_drift_bound",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem duplicate_drift_bound :\n    (\u2211 i : Fin 3, Resources.RandomQuickSort.uniformIndex 2 i *\n      (nextSize 2 ([0, 0, 1] : List Nat) i : \u211d\u22650\u221e)) \u2264 (9 : \u211d\u22650\u221e) / 4"
+        },
+        {
+          "name": "Examples.RandomSelectionDrift.selected_branch_is_smaller",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem selected_branch_is_smaller :\n    nextSize 0 ([0, 1, 2, 3, 4] : List Nat) \u27e81, by decide\u27e9 = 1 \u2227 max 1 3 = 3"
+        },
+        {
+          "name": "Examples.RandomSelectionDrift.arbitrary_expected_bounds",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem arbitrary_expected_bounds (k : Nat) (xs : List \u03b1) :\n    (xs.length : \u211d) \u2264 scanMean k xs \u2227 scanMean k xs \u2264 4 * (xs.length : \u211d) \u2227\n      (xs.length : \u211d) \u2264 sourceMean k xs \u2227 sourceMean k xs \u2264 36 * (xs.length : \u211d) + 2"
+        },
+        {
+          "name": "Examples.RandomSelectionDrift.valid_selection_expected_bounds",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem valid_selection_expected_bounds (k : Nat) (xs : List \u03b1) (hk : k < xs.length)\n    (result : Outcome \u03b1) (hr : result \u2208 (run k xs).support) :\n    \u2203 a, result.1 = some a \u2227 Applications.Selection.RankedAt xs k a \u2227\n      (xs.length : \u211d) \u2264 scanMean k xs \u2227 scanMean k xs \u2264 4 * (xs.length : \u211d) \u2227\n        sourceMean k xs \u2264 36 * (xs.length : \u211d) + 2"
+        },
+        {
+          "name": "Examples.RandomSelectionDrift.empty_expected_bounds",
+          "kind": "theorem",
+          "private": false,
+          "header": "theorem empty_expected_bounds (k : Nat) :\n    scanMean k ([] : List \u03b1) = 0 \u2227 sourceMean k ([] : List \u03b1) = 2 \u2227\n      scanMean k ([] : List \u03b1) \u2264 0 \u2227 sourceMean k ([] : List \u03b1) \u2264 2"
+        }
+      ],
+      "header_text_unchanged": true,
+      "byte_identical_to_prior": true
+    }
+  ],
+  "all_139_public_header_texts_unchanged": true,
+  "private_context_change": {
+    "name": "Resources.RandomSelection.filter_length_eq_card_indices",
+    "before": "Automatically included [LinearOrder \u03b1]",
+    "after": "omit [LinearOrder \u03b1] in; generic list/Bool-filter cardinality theorem without that instance",
+    "reason": "Actual pinned unusedSectionVars diagnostic; the proof and proposition never use an order. This changes one private implicit context and is not claimed as exact actual-type preservation.",
+    "public_context_unchanged": true,
+    "other_14_private_contexts_unchanged": true
+  },
+  "proof_corrections": [
+    {
+      "name": "nextSize_drift",
+      "change": "Use pinned mul_le_mul_right for a common left factor; same finite sum/cast inequality."
+    },
+    {
+      "name": "scanExpectation_linear_le",
+      "change": "Use add_le_add_right for both common-left scan summands and mul_le_mul_right for both common-left scalar factors; actual recursive call, stepRun_child decrease, match branches, exact scan recurrence and constants unchanged."
+    },
+    {
+      "name": "sourceExpectation_linear_bounds",
+      "change": "Use mul_le_mul_right for the common left factor9 and add_le_add_left for common right offset2; exact old pathwise-bridge and4n proof unchanged."
+    }
+  ],
+  "no_other_source_changes": true,
+  "seven_other_sources_byte_identical": true,
+  "all_six_prior_passing_sources_byte_identical": true,
+  "all_executable_definitions_and_imports_options_unchanged": true,
+  "statement_review_full139": [
+    {
+      "names": [
+        "rankSideSum",
+        "rankSideSum_zero",
+        "rankSideSum_one",
+        "rankSideSum_add_two",
+        "rankSideSum_bound",
+        "rankSideSum_mean_le"
+      ],
+      "intended_and_actual": "The finite sum is exactly sum_{r<n} max(r,n-1-r), with natural subtraction. Both endpoints/interior shifts prove the two-step recurrence; natural induction gives4*S(n)<=3*n*n for all n. Positive n is explicit only when dividing by n. The ENNReal average and3/4 coefficient use finite nonzero denominators, not approximate real arithmetic."
+    },
+    {
+      "names": [
+        "occurrenceRank_lt_of_lt",
+        "occurrenceRank_tie",
+        "occurrenceRank_uniform"
+      ],
+      "intended_and_actual": "Reuse the existing occurrenceRank id permutation backed by Tuple.sort. Monotone sorted values force strict-value ordering of refined positions; Tuple.eq_sort_iff supplies stable equal-value order. Uniform rank is proved by actual PMF permutation pushforward. No Nodup, finite payload, inhabited payload or distribution on inputs is assumed."
+    },
+    {
+      "names": [
+        "strict_side_rank_bounds"
+      ],
+      "intended_and_actual": "The actual three-way filters count every strict lower/upper occurrence. Injective rank images lie in Iio/Ioi, whose exact finite cards are r and n-1-r. Duplicate equal occurrences may occupy other refined positions and only decrease strict sides. No erasure or two-way quicksort partition is substituted."
+    },
+    {
+      "names": [
+        "nextSize",
+        "nextSize_le_rankSide",
+        "nextSize_sum_le",
+        "nextSize_drift"
+      ],
+      "intended_and_actual": "nextSize reads only stepRun.1: actual selected recursive list length or0 on direct equal return. Pointwise domination, sum reindexing by the rank permutation and uniformIndex_apply give the actual conditional weighted next-size average <=3*n/4. Max-side sums are majorants only. Worker k is arbitrary; empty input is absent from the nonempty conditional sampler by its head/tail type."
+    },
+    {
+      "names": [
+        "scanExpectation_linear_le",
+        "scanExpectation_linear_bounds"
+      ],
+      "intended_and_actual": "The existing scanExpectation lower integral is unchanged. Well-founded recursion uses stepRun_child strict decrease and the established actual scanExpectation_cons equation. The induction hypothesis bounds only the reached child; terminal equal returns have zero continuation. Algebra yields n+4*(3*n/4)=4*n. The initial full-scan theorem gives lower n. Neither desired linear bound nor drift appears as a new hypothesis."
+    },
+    {
+      "names": [
+        "scanMean_linear_le",
+        "scanMean_linear_bounds",
+        "sourceExpectation_linear_bounds",
+        "sourceMean_linear_bounds"
+      ],
+      "intended_and_actual": "The real mean remains the existing actual Nat marginal integral. Separate finite upper bounds justify toReal order transport. Existing common-run W<=T<=9W+2 gives n<=E[T]<=36*n+2. The actual invalid worker empty continuation remains counted; one-based select and free public rank-zero failure are untouched. These are expectation bounds only, not random-bit or physical runtime guarantees."
+    }
+  ],
+  "statement_review_reuse_reason": "All139 public header texts and contexts are identical; all31 drift public proof propositions/cases were reread completely in a6b1d8. Prior108 headers, definitions and proofs remain byte-identical. Only disclosed private context and monotonicity proof references change.",
+  "case_review": [
+    {
+      "names": [
+        "rank_side_small_values"
+      ],
+      "expectation": "0,0,2,5,10,16 for n0..5; includes both parity bases.",
+      "connections": [
+        "rankSideSum_zero",
+        "rankSideSum_one",
+        "rankSideSum_add_two"
+      ]
+    },
+    {
+      "names": [
+        "stable_duplicate_positions",
+        "refined_duplicate_uniform"
+      ],
+      "expectation": "Two equal payloads retain separate increasing original-occurrence ranks and the uniform Fin2 rank law.",
+      "connections": [
+        "occurrenceRank_tie",
+        "occurrenceRank_uniform"
+      ]
+    },
+    {
+      "names": [
+        "singleton_next_size"
+      ],
+      "expectation": "Every worker k and every unique singleton occurrence have actual next size0, including invalid empty-child continuation.",
+      "connections": [
+        "nextSize_le_rankSide",
+        "existing occurrenceRank Fin1 bound"
+      ]
+    },
+    {
+      "names": [
+        "duplicate_next_choices",
+        "duplicate_next_expectation"
+      ],
+      "expectation": "At rank2 on [0,0,1], indexed next sizes1,1,0 have expectation2/3. All three indices are exhausted.",
+      "connections": [
+        "nextSize",
+        "stepRun_eq",
+        "partition3_eq_filters",
+        "uniformIndex_apply",
+        "Fin.sum_univ_three"
+      ]
+    },
+    {
+      "names": [
+        "duplicate_drift_bound"
+      ],
+      "expectation": "The same actual duplicate average is at most9/4 by the general3/4 contraction at n3.",
+      "connections": [
+        "nextSize_drift"
+      ]
+    },
+    {
+      "names": [
+        "selected_branch_is_smaller"
+      ],
+      "expectation": "Existing rank0/pivot-index1 counterexample keeps length1 although the larger side is3.",
+      "connections": [
+        "nextSize",
+        "Examples.RandomSelection.selected_side_is_not_larger_side"
+      ]
+    },
+    {
+      "names": [
+        "arbitrary_expected_bounds"
+      ],
+      "expectation": "For arbitrary ordered input and worker rank: n<=scanMean<=4*n and n<=sourceMean<=36*n+2.",
+      "connections": [
+        "scanMean_linear_bounds",
+        "sourceMean_linear_bounds"
+      ]
+    },
+    {
+      "names": [
+        "valid_selection_expected_bounds"
+      ],
+      "expectation": "Every supported outcome at a valid rank has its RankedAt answer and the same actual scan/source expectation bounds. No equality of path costs is inferred from value correctness.",
+      "connections": [
+        "run_valid",
+        "scanMean_linear_bounds",
+        "sourceMean_linear_bounds"
+      ]
+    },
+    {
+      "names": [
+        "empty_expected_bounds"
+      ],
+      "expectation": "Exact empty worker means0 and2 agree with the new upper bounds0 and2, for any k and ordered payload. No >= tail theorem at n0 is claimed.",
+      "connections": [
+        "scanMean_nil",
+        "sourceMean_nil",
+        "scanMean_linear_le",
+        "sourceMean_linear_bounds"
+      ]
+    }
+  ],
+  "all_examples_byte_identical": true,
+  "actual_failed_evidence_preserved": true,
+  "prior_own_records_preserved": true,
+  "frozen_specs_preserved": true,
+  "complete_failed_log_read_tool_chunk": "dc5845",
+  "complete_original_sources_read_tool_chunk": "a6b1d8",
+  "primary_api_read_tool_chunk": "5e3dc9",
+  "pinned_primary_api": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/Mathlib/Algebra/Order/Monoid/Unbundled/Basic.lean",
+    "bytes": 48178,
+    "sha256": "d0d17e30f7c74c20cf8e75f7f533133e59adfe596bcd561fcab67ee7e5423e6c"
+  },
+  "retained_cascading_diagnostics": "No-goals and unused termination hints are retained as prior failed evidence. Their resolution is not claimed until root actual successor check; recursion hints were not removed.",
+  "source_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/drift-correction1-20261104/source.diff",
+    "bytes": 2596,
+    "sha256": "8be1476c2a1b80de31279ef6595e8baff61918da2c82b3f048c090f4a6eef98a"
+  },
+  "whitespace_check": {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "statement_input": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/drift-correction1-20261104/Statements139-correction1.lean",
+    "bytes": 7759,
+    "sha256": "11642119a2fafb69c23bc1e16d41fe82a34cc8d0319d7256eb6717bcaba35084"
+  },
+  "statement_program_byte_identical_to_prior": true,
+  "statement_input_scope": "139 distinct full explicit-@ public targets in prior exact order; input prepared only, not executed.",
+  "author_compiler_actions": false,
+  "actual_successor_type_output": false,
+  "actual_successor_build_pass": false,
+  "root_only_focus": [
+    "Applications.Resources.RandomSelectionDrift",
+    "Examples.RandomSelectionDrift"
+  ],
+  "mathematical_and_gate_boundaries": "All domains/constants/duplicate, singleton, empty, invalid-rank and actual-selected-child semantics retained. No tail/worstcase extension. No full-candidate build/audit, independent-review pass, immediate verification, finding closure or Chapter3 acceptance credit."
+}

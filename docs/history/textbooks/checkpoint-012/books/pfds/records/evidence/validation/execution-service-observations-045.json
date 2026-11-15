@@ -1,0 +1,39 @@
+{
+  "time": "2026-11-04T00:06:53.898485+00:00",
+  "purpose": "Bounded execution-service observations after actual lost handle; no compiler probes",
+  "original_run": "integration-3cf-fresh-r1-045",
+  "original_log_sha256": "2330edea33aa402972c493831e192ee255722d3b7c4bcb1ce27b2aedcc924022",
+  "original_last_module": "[68/1101] Applications.Orbifolds.QuarterTurn (188.88s)",
+  "current_original_locks": {
+    "full-build.lock": "free",
+    "focused-build.lock": "free"
+  },
+  "original_stock_record_exists": false,
+  "background_probe": "No started or completed marker after original parent exited; no child terminal observed. Detachment not established.",
+  "upload_probe": "Live handle and periodic observations continued across checkpoint048 upload. Completion marker and final text observed; tool result omitted explicit exit_code, so no numerical exit asserted.",
+  "child_cleanup_probe": "Separate-session child was observed started and holding its own lock. After parent tool command returned zero, child lock was free, marker remained tick0, and no completion marker existed. This is bounded lifecycle evidence, not a universal process-lifetime guarantee.",
+  "cause_of_full_loss": "unknown",
+  "retry_observation_plan": "Unchanged controller/stock command/environment, ordinary pipes, read-only stdout progress every20seconds; no PTY or detachment. Actual child.wait result required.",
+  "serial_readiness": "No current owned compiler handle; cooperative locks free; original log remains unchanged. Old PIDs not signalled. The bounded cleanup probe supports execution-context cleanup, but cannot identify the lost run cause.",
+  "formal_acceptance": false,
+  "source_or_gate_modified": false,
+  "observer_sha256": "20f44548d9ffe03f84cd7cf36e7fb4979d7437a02d46b1fafb69516c85775e4a",
+  "observer_note": "UTF-8 replacement is only for live progress display of a potentially partial write; the original official log remains byte-for-byte untouched.",
+  "observer_review_correction": "Coordinator spotted startup signal gap before try/handler installation. Spawn now occurs within protected lifetime; handlers are installed first and defer signals until child assignment.",
+  "observer_lifecycle_advisory": {
+    "coordinator": "operational_review",
+    "kind": "read-only observation-boundary advice, not new formal approval",
+    "corrections": [
+      "handlers before protected spawn and deferred startup signals",
+      "owned and waited controller in a new session prevents ordinary group-signal duplicate forwarding"
+    ],
+    "controller_start_new_session": true,
+    "no_guarantee_against_service_tree_cleanup": true,
+    "original_controller_source_unchanged": true
+  },
+  "observer_revision_hashes": [
+    "a82f8d8b58a588231cc399631f1ff4cea392f35044534566512e543cc9b3804f",
+    "32b9edd35c6da68b6a8d0cf6aac28a0a141e5344771282e489200123ca0d7a4a",
+    "20f44548d9ffe03f84cd7cf36e7fb4979d7437a02d46b1fafb69516c85775e4a"
+  ]
+}

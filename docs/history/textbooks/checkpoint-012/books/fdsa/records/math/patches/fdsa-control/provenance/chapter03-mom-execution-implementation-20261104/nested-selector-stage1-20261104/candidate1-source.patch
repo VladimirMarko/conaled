@@ -1,0 +1,721 @@
+diff --git a/Applications/Resources/Selection.lean b/Applications/Resources/Selection.lean
+new file mode 100644
+index 0000000..5884081
+--- /dev/null
++++ b/Applications/Resources/Selection.lean
+@@ -0,0 +1,423 @@
++import Applications.Resources.SelectionMedians
++import Applications.Resources.Partition
++
++/-! Nested median-of-medians execution for FDSA Chapter 3.
++
++Every invocation evaluates its entry length once. The recursive branch executes
++chopping and the median map, recursively selects one median, and then executes
++the source partition. It evaluates the equal-bucket length only after the left
++branch has failed, and recurses into at most one strict bucket.
++
++The private valid-rank worker returns an input member. That modest invariant
++justifies strict child decrease before rank correctness is proved; no balance,
++growth, pivot-rank, or cost law is assumed by the construction. The supplied
++entry-length observation is an actual cached length execution, including its
++count. Proofs, comparisons and projections have the source's zero tariff.
++
++The public operation uses Option without requiring an inhabited payload type.
++Its invalid-rank guard reuses the entry length. The resulting n+2 invalid count
++belongs to this total extension of the source's valid-rank operation.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Resources.Selection
++open Applications.Selection
++open Resources.SelectionAuxiliary Resources.SelectionMedians
++universe u
++variable {α : Type u} [LinearOrder α]
++
++omit [LinearOrder α] in
++private theorem length_value (xs : List α) :
++    (SymmetricCosts.lengthRun xs).1 = xs.length :=
++  congrArg Prod.fst (SymmetricCosts.lengthRun_exact xs)
++
++private theorem partition_value (p : α) (xs : List α) :
++    (Partition.partitionRun p xs).1 = partition3 p xs :=
++  Partition.partitionRun_value p xs
++
++private theorem left_member (p : α) (xs : List α) (a : α)
++    (ha : a ∈ (Partition.partitionRun p xs).1.1) : a ∈ xs := by
++  rw [partition_value] at ha
++  exact ((partition_left_mem p xs a).mp ha).1
++
++private theorem right_member (p : α) (xs : List α) (a : α)
++    (ha : a ∈ (Partition.partitionRun p xs).1.2.2) : a ∈ xs := by
++  rw [partition_value] at ha
++  exact ((partition_right_mem p xs a).mp ha).1
++
++private theorem strict_sizes (p : α) (xs : List α) (hp : p ∈ xs) :
++    (Partition.partitionRun p xs).1.1.length < xs.length ∧
++      (Partition.partitionRun p xs).1.2.2.length < xs.length := by
++  rw [partition_value]
++  exact partition_strict_sizes p xs hp
++
++private theorem right_rank (p : α) (xs : List α) (k : Nat)
++    (hk : k < xs.length)
++    (he : ¬ k < (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.1).1 +
++      (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.2.1).1) :
++    k - (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.1).1 -
++        (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.2.1).1 <
++      (SymmetricCosts.lengthRun (Partition.partitionRun p xs).1.2.2).1 := by
++  simp only [length_value, partition_value] at he ⊢
++  have h := partition_lengths p xs
++  omega
++
++private theorem medians_positive (d : Nat) (xs : List α)
++    (hd : 2 ≤ d) (hx : 0 < xs.length) :
++    0 < (chunkMediansRun d xs).1.length := by
++  apply List.length_pos_iff.mpr
++  intro h
++  rcases (chunkMediansRun_eq_nil_iff d xs).mp h with h | h
++  · omega
++  · subst xs
++    simp only [List.length_nil] at hx
++    omega
++
++private theorem medians_shorter (d : Nat) (xs : List α)
++    (hd : 2 ≤ d) (hx : 1 < xs.length) :
++    (chunkMediansRun d xs).1.length < xs.length := by
++  rw [chunkMediansRun_length]
++  have hc : xs.length ⌈/⌉ d ≤ xs.length - 1 := by
++    apply (ceilDiv_le_iff_le_mul (by omega : 0 < d)).mpr
++    calc
++      xs.length ≤ 2 * (xs.length - 1) := by omega
++      _ ≤ d * (xs.length - 1) := Nat.mul_le_mul_right _ hd
++  omega
++
++private theorem median_rank (d : Nat) (xs : List α)
++    (hd : 2 ≤ d) (hx : 0 < xs.length) :
++    ((xs.length ⌈/⌉ d) - 1) / 2 <
++      (SymmetricCosts.lengthRun (chunkMediansRun d xs).1).1 := by
++  have hp := medians_positive d xs hd hx
++  rw [chunkMediansRun_length] at hp
++  rw [length_value, chunkMediansRun_length]
++  omega
++
++/-- The cached observation contributes its actual cost at this invocation.
++The result carries membership solely to support noncircular termination. -/
++private def selectWorker (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) (nr : Measured Nat Nat)
++    (hn : nr = SymmetricCosts.lengthRun xs) (hk : k < nr.1) :
++    Measured {a // a ∈ xs} Nat :=
++  have hlen : nr.1 = xs.length := by rw [hn, SymmetricCosts.lengthRun_exact]
++  if hsmall : nr.1 ≤ cutoff then
++    let r := slowSelectRun k xs
++    match h : r.1 with
++    | none => False.elim (by
++        have hi := (slowSelectRun_none k xs).mp h
++        omega)
++    | some a =>
++        (⟨a, ((slowSelectRun_some_iff k xs a).mp h).mem⟩, 1 + nr.2 + r.2)
++  else
++    let med := chunkMediansRun d xs
++    let i := ((nr.1 ⌈/⌉ d) - 1) / 2
++    let pivot := selectWorker d cutoff hd hc i med.1
++      (SymmetricCosts.lengthRun med.1) rfl (by
++        dsimp only [i, med]
++        rw [hlen]
++        exact median_rank d xs hd (by omega))
++    let p := pivot.1.val
++    have hp : p ∈ xs := chunkMediansRun_mem d xs p pivot.1.property
++    let parts := Partition.partitionRun p xs
++    let lower := SymmetricCosts.lengthRun parts.1.1
++    let common := 1 + nr.2 + med.2 + pivot.2 + parts.2 + lower.2
++    if hl : k < lower.1 then
++      let child := selectWorker d cutoff hd hc k parts.1.1
++        (SymmetricCosts.lengthRun parts.1.1) rfl hl
++      (⟨child.1.val, left_member p xs child.1.val child.1.property⟩, common + child.2)
++    else
++      let equal := SymmetricCosts.lengthRun parts.1.2.1
++      if he : k < lower.1 + equal.1 then
++        (⟨p, hp⟩, common + equal.2)
++      else
++        let child := selectWorker d cutoff hd hc (k - lower.1 - equal.1) parts.1.2.2
++          (SymmetricCosts.lengthRun parts.1.2.2) rfl
++          (right_rank p xs k (by omega) he)
++        (⟨child.1.val, right_member p xs child.1.val child.1.property⟩,
++          common + equal.2 + child.2)
++termination_by xs.length
++decreasing_by
++  · exact medians_shorter d xs hd (by omega)
++  · exact (strict_sizes p xs hp).1
++  · exact (strict_sizes p xs hp).2
++
++omit [LinearOrder α] in
++private def observe {xs : List α} (r : Measured {a // a ∈ xs} Nat) :
++    Measured (Option α) Nat := (some r.1.val, r.2)
++
++/-- Execute the nested selector for a group size and a finite base cutoff.
++The constraints ensure termination; a linear bound additionally requires a
++contracting grouping regime and a separately proved source-cost comparison. -/
++def selectRunWith (groupSize cutoff : Nat) (hd : 2 ≤ groupSize) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) : Measured (Option α) Nat :=
++  let nr := SymmetricCosts.lengthRun xs
++  if hk : k < nr.1 then
++    observe (selectWorker groupSize cutoff hd hc k xs nr rfl hk)
++  else (none, 1 + nr.2)
++
++/-- The book uses groups of five and insertion selection through size twenty. -/
++def selectRun (k : Nat) (xs : List α) : Measured (Option α) Nat :=
++  selectRunWith 5 20 (by decide) (by decide) k xs
++
++private theorem worker_observe (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) (nr : Measured Nat Nat)
++    (hn : nr = SymmetricCosts.lengthRun xs) (hk : k < nr.1) :
++    selectRunWith d cutoff hd hc k xs = observe (selectWorker d cutoff hd hc k xs nr hn hk) := by
++  subst nr
++  unfold selectRunWith
++  dsimp only
++  rw [dif_pos hk]
++
++/-- The optional extension stops after its entry and the one cached length. -/
++theorem selectRunWith_of_invalid (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) (hk : xs.length ≤ k) :
++    selectRunWith d cutoff hd hc k xs = (none, xs.length + 2) := by
++  unfold selectRunWith
++  dsimp only
++  rw [dif_neg (by simpa only [length_value] using Nat.not_lt.mpr hk)]
++  rw [SymmetricCosts.lengthRun_exact]
++  exact Prod.ext rfl (by omega)
++
++theorem selectRunWith_nil (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (k : Nat) :
++    selectRunWith d cutoff hd hc k ([] : List α) = (none, 2) :=
++  selectRunWith_of_invalid d cutoff hd hc k [] (Nat.zero_le k)
++
++/-- Validity is established before any rank-correctness induction. -/
++theorem selectRunWith_exists (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) (hk : k < xs.length) :
++    ∃ a, (selectRunWith d cutoff hd hc k xs).1 = some a := by
++  have hi : k < (SymmetricCosts.lengthRun xs).1 := by rw [length_value]; exact hk
++  rw [worker_observe d cutoff hd hc k xs (SymmetricCosts.lengthRun xs) rfl hi]
++  exact ⟨_, rfl⟩
++
++/-- Every returned payload is a member, independently of its eventual rank law. -/
++theorem selectRunWith_mem (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) (a : α)
++    (ha : (selectRunWith d cutoff hd hc k xs).1 = some a) : a ∈ xs := by
++  by_cases hk : k < xs.length
++  · have hi : k < (SymmetricCosts.lengthRun xs).1 := by rw [length_value]; exact hk
++    rw [worker_observe d cutoff hd hc k xs (SymmetricCosts.lengthRun xs) rfl hi] at ha
++    have he : (selectWorker d cutoff hd hc k xs (SymmetricCosts.lengthRun xs) rfl hi).1.val =
++        a := Option.some.inj ha
++    exact he ▸ (selectWorker d cutoff hd hc k xs (SymmetricCosts.lengthRun xs) rfl hi).1.property
++  · rw [selectRunWith_of_invalid d cutoff hd hc k xs (Nat.le_of_not_gt hk)] at ha
++    cases ha
++
++/-- The base branch executes the actual insertion/lookup helper. -/
++theorem selectRunWith_small (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) (hk : k < xs.length) (hs : xs.length ≤ cutoff) :
++    selectRunWith d cutoff hd hc k xs =
++      ((slowSelectRun k xs).1,
++        1 + (SymmetricCosts.lengthRun xs).2 + (slowSelectRun k xs).2) := by
++  have hi : k < (SymmetricCosts.lengthRun xs).1 := by rw [length_value]; exact hk
++  rw [worker_observe d cutoff hd hc k xs (SymmetricCosts.lengthRun xs) rfl hi]
++  rw [selectWorker]
++  dsimp only
++  rw [dif_pos (by simpa only [length_value] using hs)]
++  dsimp only
++  split
++  next h =>
++    have hbad := (slowSelectRun_none k xs).mp h
++    omega
++  next a ha =>
++    exact Prod.ext ha.symm rfl
++
++/-- The full recursive source equation uses the value returned by its own
++median recursion. The premise identifies that observed value; it assumes
++neither its rank, its cost, nor a bound on either strict bucket. -/
++theorem selectRunWith_step (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) (hk : k < xs.length) (hs : cutoff < xs.length)
++    (p : α)
++    (hp : (selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)
++      (chunkMediansRun d xs).1).1 = some p) :
++    selectRunWith d cutoff hd hc k xs =
++      let t := partition3 p xs
++      let pivot := selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)
++        (chunkMediansRun d xs).1
++      let common := 1 + (SymmetricCosts.lengthRun xs).2 + (chunkMediansRun d xs).2 +
++        pivot.2 + (Partition.partitionRun p xs).2 + (SymmetricCosts.lengthRun t.1).2
++      if k < t.1.length then
++        let child := selectRunWith d cutoff hd hc k t.1
++        (child.1, common + child.2)
++      else if k < t.1.length + t.2.1.length then
++        (some p, common + (SymmetricCosts.lengthRun t.2.1).2)
++      else
++        let child := selectRunWith d cutoff hd hc (k - t.1.length - t.2.1.length) t.2.2
++        (child.1, common + (SymmetricCosts.lengthRun t.2.1).2 + child.2) := by
++  have hm := median_rank d xs hd (by omega)
++  let pr := selectWorker d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)
++    (chunkMediansRun d xs).1 (SymmetricCosts.lengthRun (chunkMediansRun d xs).1) rfl hm
++  have hpr : selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)
++      (chunkMediansRun d xs).1 = observe pr :=
++    worker_observe d cutoff hd hc _ _ _ rfl hm
++  have hpv : pr.1.val = p :=
++    Option.some.inj ((congrArg Prod.fst hpr).symm.trans hp)
++  subst p
++  have hi : k < (SymmetricCosts.lengthRun xs).1 := by rw [length_value]; exact hk
++  rw [worker_observe d cutoff hd hc k xs (SymmetricCosts.lengthRun xs) rfl hi]
++  rw [selectWorker]
++  dsimp only
++  rw [dif_neg (by simpa only [length_value] using Nat.not_le.mpr hs)]
++  dsimp only
++  by_cases hl : k < (partition3 pr.1.val xs).1.length
++  · have hj : k < (SymmetricCosts.lengthRun (partition3 pr.1.val xs).1).1 := by
++      rw [length_value]
++      exact hl
++    have child_eq := worker_observe d cutoff hd hc k (partition3 pr.1.val xs).1
++      (SymmetricCosts.lengthRun (partition3 pr.1.val xs).1) rfl hj
++    simp only [length_value, partition_value, hl, ↓reduceDIte, ↓reduceIte,
++      hpr, child_eq, observe]
++  · by_cases he : k < (partition3 pr.1.val xs).1.length +
++        (partition3 pr.1.val xs).2.1.length
++    · simp only [length_value, partition_value, hl, he, ↓reduceDIte, ↓reduceIte,
++        hpr, observe]
++    · have hj : k - (partition3 pr.1.val xs).1.length -
++          (partition3 pr.1.val xs).2.1.length <
++          (SymmetricCosts.lengthRun (partition3 pr.1.val xs).2.2).1 := by
++        rw [length_value]
++        have hsum := partition_lengths pr.1.val xs
++        omega
++      have child_eq := worker_observe d cutoff hd hc
++        (k - (partition3 pr.1.val xs).1.length - (partition3 pr.1.val xs).2.1.length)
++        (partition3 pr.1.val xs).2.2
++        (SymmetricCosts.lengthRun (partition3 pr.1.val xs).2.2) rfl hj
++      simp only [length_value, partition_value, hl, he, ↓reduceDIte, ↓reduceIte,
++        hpr, child_eq, observe]
++
++/-- Project the count from the proved execution equation. In particular, the
++equal-length traversal is absent from the left branch, and the equal branch
++has no second recursive selection call. -/
++theorem selectRunWith_cost_step (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) (hk : k < xs.length) (hs : cutoff < xs.length)
++    (p : α)
++    (hp : (selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)
++      (chunkMediansRun d xs).1).1 = some p) :
++    (selectRunWith d cutoff hd hc k xs).2 =
++      let t := partition3 p xs
++      1 + (SymmetricCosts.lengthRun xs).2 + (chunkMediansRun d xs).2 +
++        (selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)
++          (chunkMediansRun d xs).1).2 + (Partition.partitionRun p xs).2 +
++        (SymmetricCosts.lengthRun t.1).2 +
++        (if k < t.1.length then (selectRunWith d cutoff hd hc k t.1).2
++        else (SymmetricCosts.lengthRun t.2.1).2 +
++          if k < t.1.length + t.2.1.length then 0
++          else (selectRunWith d cutoff hd hc (k - t.1.length - t.2.1.length) t.2.2).2) := by
++  have h := congrArg Prod.snd (selectRunWith_step d cutoff hd hc k xs hk hs p hp)
++  dsimp only at h ⊢
++  by_cases hl : k < (partition3 p xs).1.length
++  · simpa only [hl, ↓reduceIte] using h
++  · by_cases he : k < (partition3 p xs).1.length + (partition3 p xs).2.1.length
++    · simpa only [hl, he, ↓reduceIte, Nat.add_zero] using h
++    · simpa only [hl, he, ↓reduceIte, Nat.add_assoc] using h
++
++/-- Every grouping/cutoff in the terminating parameter range returns the
++requested occurrence, including arbitrary duplicates and invalid ranks. -/
++theorem selectRunWith_value (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) :
++    (selectRunWith d cutoff hd hc k xs).1 = (ordered xs)[k]? := by
++  by_cases hk : k < xs.length
++  · by_cases hs : xs.length ≤ cutoff
++    · rw [selectRunWith_small d cutoff hd hc k xs hk hs]
++      exact slowSelectRun_value k xs
++    · have hi : ((xs.length ⌈/⌉ d) - 1) / 2 < (chunkMediansRun d xs).1.length := by
++        simpa only [length_value] using median_rank d xs hd (by omega)
++      obtain ⟨p, hp⟩ := selectRunWith_exists d cutoff hd hc _ _ hi
++      have hp_mem : p ∈ xs := chunkMediansRun_mem d xs p
++        (selectRunWith_mem d cutoff hd hc _ _ p hp)
++      rw [selectRunWith_step d cutoff hd hc k xs hk (Nat.lt_of_not_ge hs) p hp,
++        ordered_getElem?_partition p xs k]
++      dsimp only
++      by_cases hl : k < (partition3 p xs).1.length
++      · simp only [hl, ↓reduceIte]
++        exact selectRunWith_value d cutoff hd hc k (partition3 p xs).1
++      · by_cases he : k < (partition3 p xs).1.length + (partition3 p xs).2.1.length
++        · simp only [hl, he, ↓reduceIte]
++        · simp only [hl, he, ↓reduceIte]
++          exact selectRunWith_value d cutoff hd hc
++            (k - (partition3 p xs).1.length - (partition3 p xs).2.1.length)
++            (partition3 p xs).2.2
++  · rw [selectRunWith_of_invalid d cutoff hd hc k xs (Nat.le_of_not_gt hk)]
++    symm
++    apply List.getElem?_eq_none_iff.mpr
++    simpa only [(ordered_perm xs).length_eq] using Nat.le_of_not_gt hk
++termination_by xs.length
++decreasing_by
++  · exact (partition_strict_sizes p xs hp_mem).1
++  · exact (partition_strict_sizes p xs hp_mem).2
++
++theorem selectRunWith_some_iff (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) (a : α) :
++    (selectRunWith d cutoff hd hc k xs).1 = some a ↔ RankedAt xs k a := by
++  rw [selectRunWith_value, ← ranked_iff_index]
++
++theorem selectRunWith_none_iff (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) :
++    (selectRunWith d cutoff hd hc k xs).1 = none ↔ xs.length ≤ k := by
++  rw [selectRunWith_value, List.getElem?_eq_none_iff, (ordered_perm xs).length_eq]
++
++/-- Preserve the repository's one-based public selection interface. -/
++theorem selectRunWith_public (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (k : Nat) (xs : List α) :
++    (selectRunWith d cutoff hd hc k xs).1 = sortSelect (k + 1) xs := by
++  rw [selectRunWith_value]
++  simp [sortSelect]
++
++theorem selectRun_value (k : Nat) (xs : List α) :
++    (selectRun k xs).1 = (ordered xs)[k]? :=
++  selectRunWith_value 5 20 (by decide) (by decide) k xs
++
++theorem selectRun_some_iff (k : Nat) (xs : List α) (a : α) :
++    (selectRun k xs).1 = some a ↔ RankedAt xs k a :=
++  selectRunWith_some_iff 5 20 (by decide) (by decide) k xs a
++
++theorem selectRun_none_iff (k : Nat) (xs : List α) :
++    (selectRun k xs).1 = none ↔ xs.length ≤ k :=
++  selectRunWith_none_iff 5 20 (by decide) (by decide) k xs
++
++theorem selectRun_of_invalid (k : Nat) (xs : List α) (hk : xs.length ≤ k) :
++    selectRun k xs = (none, xs.length + 2) :=
++  selectRunWith_of_invalid 5 20 (by decide) (by decide) k xs hk
++
++theorem selectRun_nil (k : Nat) : selectRun k ([] : List α) = (none, 2) :=
++  selectRunWith_nil 5 20 (by decide) (by decide) k
++
++theorem selectRun_small (k : Nat) (xs : List α) (hk : k < xs.length)
++    (hs : xs.length ≤ 20) :
++    selectRun k xs = ((slowSelectRun k xs).1,
++      1 + (SymmetricCosts.lengthRun xs).2 + (slowSelectRun k xs).2) :=
++  selectRunWith_small 5 20 (by decide) (by decide) k xs hk hs
++
++theorem selectRun_step (k : Nat) (xs : List α) (hk : k < xs.length)
++    (hs : 20 < xs.length) (p : α)
++    (hp : (selectRun (((xs.length ⌈/⌉ 5) - 1) / 2) (chunkMediansRun 5 xs).1).1 = some p) :
++    selectRun k xs =
++      let t := partition3 p xs
++      let pivot := selectRun (((xs.length ⌈/⌉ 5) - 1) / 2) (chunkMediansRun 5 xs).1
++      let common := 1 + (SymmetricCosts.lengthRun xs).2 + (chunkMediansRun 5 xs).2 +
++        pivot.2 + (Partition.partitionRun p xs).2 + (SymmetricCosts.lengthRun t.1).2
++      if k < t.1.length then
++        let child := selectRun k t.1
++        (child.1, common + child.2)
++      else if k < t.1.length + t.2.1.length then
++        (some p, common + (SymmetricCosts.lengthRun t.2.1).2)
++      else
++        let child := selectRun (k - t.1.length - t.2.1.length) t.2.2
++        (child.1, common + (SymmetricCosts.lengthRun t.2.1).2 + child.2) :=
++  selectRunWith_step 5 20 (by decide) (by decide) k xs hk hs p hp
++
++theorem selectRun_cost_step (k : Nat) (xs : List α) (hk : k < xs.length)
++    (hs : 20 < xs.length) (p : α)
++    (hp : (selectRun (((xs.length ⌈/⌉ 5) - 1) / 2) (chunkMediansRun 5 xs).1).1 = some p) :
++    (selectRun k xs).2 =
++      let t := partition3 p xs
++      1 + (SymmetricCosts.lengthRun xs).2 + (chunkMediansRun 5 xs).2 +
++        (selectRun (((xs.length ⌈/⌉ 5) - 1) / 2) (chunkMediansRun 5 xs).1).2 +
++        (Partition.partitionRun p xs).2 + (SymmetricCosts.lengthRun t.1).2 +
++        (if k < t.1.length then (selectRun k t.1).2
++        else (SymmetricCosts.lengthRun t.2.1).2 +
++          if k < t.1.length + t.2.1.length then 0
++          else (selectRun (k - t.1.length - t.2.1.length) t.2.2).2) :=
++  selectRunWith_cost_step 5 20 (by decide) (by decide) k xs hk hs p hp
++
++end Resources.Selection
+diff --git a/Examples/SelectionCosts.lean b/Examples/SelectionCosts.lean
+new file mode 100644
+index 0000000..eb8ffcf
+--- /dev/null
++++ b/Examples/SelectionCosts.lean
+@@ -0,0 +1,286 @@
++import Applications.Resources.Selection
++import Examples.SelectionMedians
++
++/-! Checked applications of the nested selector's public execution equations.
++
++The finite targets were calculated from the source phases before this module.
++At size twenty-one, the left/equal/right cases cost 269/231/266. The left
++branch omits the equal-length traversal; the equal branch omits the selected
++child. These applications never unfold the private worker or its proof terms.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Examples.SelectionCosts
++open Applications.Selection
++open Resources.Selection Resources.SelectionAuxiliary Resources.SelectionMedians
++universe u v
++
++private theorem singleton_with (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ cutoff)
++    (a : Nat) : selectRunWith d cutoff hd hc 0 [a] = (some a, 7) := by
++  rw [selectRunWith_small d cutoff hd hc 0 [a] (by decide) hc]
++  apply Prod.ext
++  · rw [slowSelectRun_value]
++    simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using
++      (show (Applications.Sorting.insertionOn id [a])[0]? = some a from rfl)
++  · rw [Resources.SymmetricCosts.lengthRun_exact, slowSelectRun_cost]
++    rfl
++
++private theorem sorted_base (k : Nat) (xs : List Nat) (a : Nat)
++    (hk : k < xs.length) (hs : xs.length ≤ 20) (hp : xs.Pairwise (· ≤ ·))
++    (ha : (Applications.Sorting.insertionOn id xs)[k]? = some a) :
++    selectRun k xs = (some a, 3 * xs.length + k + 4) := by
++  rw [selectRun_small k xs hk hs]
++  apply Prod.ext
++  · rw [slowSelectRun_value]
++    simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using ha
++  · rw [Resources.SymmetricCosts.lengthRun_exact, slowSelectRun_cost_of_pairwise k xs hk hp]
++    omega
++
++theorem empty_payload : selectRun 0 ([] : List (Fin 0)) = (none, 2) :=
++  selectRun_nil 0
++
++theorem empty_arbitrary_rank (k : Nat) : selectRun k ([] : List (Fin 0)) = (none, 2) :=
++  selectRun_nil k
++
++theorem singleton : selectRun 0 ([7] : List Nat) = (some 7, 7) :=
++  singleton_with 5 20 (by decide) (by decide) 7
++
++theorem singleton_invalid : selectRun 1 ([7] : List Nat) = (none, 3) :=
++  selectRun_of_invalid 1 [7] (by decide)
++
++theorem cutoff_ascending : selectRun 19 (List.range 20) = (some 19, 83) := by
++  simpa only [List.length_range] using sorted_base 19 (List.range 20) 19
++    (by decide) (by decide) (by decide) (by decide +kernel)
++
++theorem cutoff_descending : selectRun 19 (List.range 20).reverse = (some 19, 273) := by
++  rw [selectRun_small 19 _ (by decide) (by decide)]
++  apply Prod.ext
++  · rw [slowSelectRun_value]
++    simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using
++      (show (Applications.Sorting.insertionOn id (List.range 20).reverse)[19]? = some 19 by
++        decide +kernel)
++  · exact Examples.SelectionAuxiliary.cutoff_descending_last
++
++theorem same_cutoff_value_different_work :
++    (selectRun 19 (List.range 20)).1 = (selectRun 19 (List.range 20).reverse).1 ∧
++      (selectRun 19 (List.range 20)).2 < (selectRun 19 (List.range 20).reverse).2 := by
++  rw [cutoff_ascending, cutoff_descending]
++  decide
++
++theorem first_recursive_pivot :
++    selectRun 2 ([2, 7, 12, 17, 20] : List Nat) = (some 12, 21) := by
++  exact sorted_base 2 [2, 7, 12, 17, 20] 12
++    (by decide) (by decide) (by decide) (by decide +kernel)
++
++private theorem first_left_child : selectRun 0 (List.range 12) = (some 0, 40) := by
++  simpa only [List.length_range] using sorted_base 0 (List.range 12) 0
++    (by decide) (by decide) (by decide) (by decide +kernel)
++
++private theorem first_right_child :
++    selectRun 7 ([13, 14, 15, 16, 17, 18, 19, 20] : List Nat) = (some 20, 35) := by
++  exact sorted_base 7 [13, 14, 15, 16, 17, 18, 19, 20] 20
++    (by decide) (by decide) (by decide) (by decide +kernel)
++
++private theorem first_partition :
++    partition3 12 (List.range 21) =
++      (List.range 12, [12], [13, 14, 15, 16, 17, 18, 19, 20]) := by
++  rw [partition3_eq_filters]
++  decide +kernel
++
++private theorem first_pivot_observation :
++    (selectRun ((((List.range 21).length ⌈/⌉ 5) - 1) / 2)
++      (chunkMediansRun 5 (List.range 21)).1).1 = some 12 := by
++  norm_num [Examples.SelectionMedians.first_recursive_size,
++    Nat.ceilDiv_eq_add_pred_div, first_recursive_pivot]
++
++/-- Entry/length 23, preparation 150, pivot 21, partition 22, lower length
++13, selected child 40. The equal-bucket length is not evaluated. -/
++theorem first_recursive_left : selectRun 0 (List.range 21) = (some 0, 269) := by
++  apply Prod.ext
++  · rw [selectRun_value]
++    simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using
++      (show (Applications.Sorting.insertionOn id (List.range 21))[0]? = some 0 by
++        decide +kernel)
++  · rw [selectRun_cost_step 0 _ (by decide) (by decide) 12 first_pivot_observation]
++    norm_num [first_partition, Examples.SelectionMedians.first_recursive_size,
++      Nat.ceilDiv_eq_add_pred_div, first_recursive_pivot, first_left_child,
++      Resources.SymmetricCosts.lengthRun_exact, Resources.Partition.partitionRun_cost]
++
++/-- The additional equal length costs two; no strict child is selected. -/
++theorem first_recursive_equal : selectRun 12 (List.range 21) = (some 12, 231) := by
++  rw [selectRun_step 12 _ (by decide) (by decide) 12 first_pivot_observation]
++  norm_num [first_partition, Examples.SelectionMedians.first_recursive_size,
++    Nat.ceilDiv_eq_add_pred_div, first_recursive_pivot,
++    Resources.SymmetricCosts.lengthRun_exact, Resources.Partition.partitionRun_cost]
++
++/-- The right child has adjusted rank seven and costs thirty-five. -/
++theorem first_recursive_right : selectRun 20 (List.range 21) = (some 20, 266) := by
++  rw [selectRun_step 20 _ (by decide) (by decide) 12 first_pivot_observation]
++  norm_num [first_partition, Examples.SelectionMedians.first_recursive_size,
++    Nat.ceilDiv_eq_add_pred_div, first_recursive_pivot, first_right_child,
++    Resources.SymmetricCosts.lengthRun_exact, Resources.Partition.partitionRun_cost]
++
++theorem first_recursive_invalid : selectRun 21 (List.range 21) = (none, 23) :=
++  selectRun_of_invalid 21 _ (by decide)
++
++private theorem equal_preparation :
++    chunkMediansRun 5 (List.replicate 21 4) = (List.replicate 5 4, 150) := by
++  apply Prod.ext
++  · apply (List.map_inj_right
++      (fun (a b : Nat) (h : some a = some b) => Option.some.inj h)).mp
++    rw [chunkMediansRun_some_values]
++    decide +kernel
++  · rw [chunkMediansRun_cost_positive 5 _ (by decide)]
++    decide +kernel
++
++private theorem equal_pivot : selectRun 2 (List.replicate 5 4) = (some 4, 21) := by
++  simpa only [List.length_replicate] using sorted_base 2 (List.replicate 5 4) 4
++    (by decide) (by decide) (by decide) (by decide +kernel)
++
++private theorem equal_partition :
++    partition3 4 (List.replicate 21 4) = ([], List.replicate 21 4, []) := by
++  rw [partition3_eq_filters]
++  decide +kernel
++
++private theorem equal_run (k : Nat) (hk : k < 21) :
++    selectRun k (List.replicate 21 4) = (some 4, 239) := by
++  have hp : (selectRun ((((List.replicate 21 4).length ⌈/⌉ 5) - 1) / 2)
++      (chunkMediansRun 5 (List.replicate 21 4)).1).1 = some 4 := by
++    norm_num [equal_preparation, Nat.ceilDiv_eq_add_pred_div, equal_pivot]
++  rw [selectRun_step k _ (by simpa only [List.length_replicate] using hk)
++    (by decide) 4 hp]
++  norm_num [equal_partition, equal_preparation, Nat.ceilDiv_eq_add_pred_div,
++    equal_pivot, Resources.SymmetricCosts.lengthRun_exact,
++    Resources.Partition.partitionRun_cost, hk]
++
++theorem all_equal_first : selectRun 0 (List.replicate 21 4) = (some 4, 239) :=
++  equal_run 0 (by decide)
++
++theorem all_equal_last : selectRun 20 (List.replicate 21 4) = (some 4, 239) :=
++  equal_run 20 (by decide)
++
++private theorem two_preparation_12 :
++    chunkMediansRun 2 ([1, 2] : List Nat) = ([1], 19) := by
++  apply Prod.ext
++  · apply (List.map_inj_right
++      (fun (a b : Nat) (h : some a = some b) => Option.some.inj h)).mp
++    rw [chunkMediansRun_some_values]
++    decide +kernel
++  · rw [chunkMediansRun_cost_positive 2 _ (by decide)]
++    decide +kernel
++
++private theorem two_preparation_22 :
++    chunkMediansRun 2 ([2, 2] : List Nat) = ([2], 19) := by
++  apply Prod.ext
++  · apply (List.map_inj_right
++      (fun (a b : Nat) (h : some a = some b) => Option.some.inj h)).mp
++    rw [chunkMediansRun_some_values]
++    decide +kernel
++  · rw [chunkMediansRun_cost_positive 2 _ (by decide)]
++    decide +kernel
++
++private theorem two_preparation_322 :
++    chunkMediansRun 2 ([3, 2, 2] : List Nat) = ([2, 2], 32) := by
++  apply Prod.ext
++  · apply (List.map_inj_right
++      (fun (a b : Nat) (h : some a = some b) => Option.some.inj h)).mp
++    rw [chunkMediansRun_some_values]
++    decide +kernel
++  · rw [chunkMediansRun_cost_positive 2 _ (by decide)]
++    decide +kernel
++
++private theorem two_preparation_3122 :
++    chunkMediansRun 2 ([3, 1, 2, 2] : List Nat) = ([1, 2], 37) := by
++  apply Prod.ext
++  · apply (List.map_inj_right
++      (fun (a b : Nat) (h : some a = some b) => Option.some.inj h)).mp
++    rw [chunkMediansRun_some_values]
++    decide +kernel
++  · rw [chunkMediansRun_cost_positive 2 _ (by decide)]
++    decide +kernel
++
++private theorem two_select_12 :
++    selectRunWith 2 1 (by decide) (by decide) 0 ([1, 2] : List Nat) = (some 1, 36) := by
++  have hp : (selectRunWith 2 1 (by decide) (by decide)
++      (((([1, 2] : List Nat).length ⌈/⌉ 2) - 1) / 2)
++      (chunkMediansRun 2 [1, 2]).1).1 = some 1 := by
++    norm_num [two_preparation_12, Nat.ceilDiv_eq_add_pred_div, singleton_with]
++  have ht : partition3 1 ([1, 2] : List Nat) = ([], [1], [2]) := by
++    rw [partition3_eq_filters]
++    decide +kernel
++  rw [selectRunWith_step 2 1 (by decide) (by decide) 0 [1, 2]
++    (by decide) (by decide) 1 hp]
++  norm_num [ht, two_preparation_12, Nat.ceilDiv_eq_add_pred_div, singleton_with,
++    Resources.SymmetricCosts.lengthRun_exact, Resources.Partition.partitionRun_cost]
++
++private theorem two_select_22 :
++    selectRunWith 2 1 (by decide) (by decide) 0 ([2, 2] : List Nat) = (some 2, 37) := by
++  have hp : (selectRunWith 2 1 (by decide) (by decide)
++      (((([2, 2] : List Nat).length ⌈/⌉ 2) - 1) / 2)
++      (chunkMediansRun 2 [2, 2]).1).1 = some 2 := by
++    norm_num [two_preparation_22, Nat.ceilDiv_eq_add_pred_div, singleton_with]
++  have ht : partition3 2 ([2, 2] : List Nat) = ([], [2, 2], []) := by
++    rw [partition3_eq_filters]
++    decide +kernel
++  rw [selectRunWith_step 2 1 (by decide) (by decide) 0 [2, 2]
++    (by decide) (by decide) 2 hp]
++  norm_num [ht, two_preparation_22, Nat.ceilDiv_eq_add_pred_div, singleton_with,
++    Resources.SymmetricCosts.lengthRun_exact, Resources.Partition.partitionRun_cost]
++
++private theorem two_select_322 :
++    selectRunWith 2 1 (by decide) (by decide) 1 ([3, 2, 2] : List Nat) = (some 2, 82) := by
++  have hp : (selectRunWith 2 1 (by decide) (by decide)
++      (((([3, 2, 2] : List Nat).length ⌈/⌉ 2) - 1) / 2)
++      (chunkMediansRun 2 [3, 2, 2]).1).1 = some 2 := by
++    norm_num [two_preparation_322, Nat.ceilDiv_eq_add_pred_div, two_select_22]
++  have ht : partition3 2 ([3, 2, 2] : List Nat) = ([], [2, 2], [3]) := by
++    rw [partition3_eq_filters]
++    decide +kernel
++  rw [selectRunWith_step 2 1 (by decide) (by decide) 1 [3, 2, 2]
++    (by decide) (by decide) 2 hp]
++  norm_num [ht, two_preparation_322, Nat.ceilDiv_eq_add_pred_div, two_select_22,
++    Resources.SymmetricCosts.lengthRun_exact, Resources.Partition.partitionRun_cost]
++
++/-- Size-two groups terminate and select correctly, without asserting linear
++growth for this noncontracting grouping regime. The cutoff is one. -/
++theorem group_two_cutoff_one :
++    selectRunWith 2 1 (by decide) (by decide) 2 ([3, 1, 2, 2] : List Nat) =
++      (some 2, 169) := by
++  have hp : (selectRunWith 2 1 (by decide) (by decide)
++      (((([3, 1, 2, 2] : List Nat).length ⌈/⌉ 2) - 1) / 2)
++      (chunkMediansRun 2 [3, 1, 2, 2]).1).1 = some 1 := by
++    norm_num [two_preparation_3122, Nat.ceilDiv_eq_add_pred_div, two_select_12]
++  have ht : partition3 1 ([3, 1, 2, 2] : List Nat) = ([], [1], [3, 2, 2]) := by
++    rw [partition3_eq_filters]
++    decide +kernel
++  apply Prod.ext
++  · rw [selectRunWith_value]
++    simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using
++      (show (Applications.Sorting.insertionOn id ([3, 1, 2, 2] : List Nat))[2]? = some 2 by
++        decide +kernel)
++  · rw [selectRunWith_cost_step 2 1 (by decide) (by decide) 2 [3, 1, 2, 2]
++      (by decide) (by decide) 1 hp]
++    norm_num [ht, two_preparation_3122, Nat.ceilDiv_eq_add_pred_div, two_select_12,
++      two_select_322, Resources.SymmetricCosts.lengthRun_exact,
++      Resources.Partition.partitionRun_cost]
++
++theorem one_based_public_bridge {α : Type u} [LinearOrder α] (k : Nat) (xs : List α) :
++    (selectRun k xs).1 = sortSelect (k + 1) xs :=
++  selectRunWith_public 5 20 (by decide) (by decide) k xs
++
++/-- Relabeling may merge distinct values; this transports the occurrence value,
++without claiming that relabeling preserves the executed branch costs. -/
++theorem monotone_payload_selection {α : Type u} {β : Type v}
++    [LinearOrder α] [LinearOrder β] (f : α → β) (hf : Monotone f)
++    (k : Nat) (xs : List α) (a : α) (ha : (selectRun k xs).1 = some a) :
++    (selectRun k (xs.map f)).1 = some (f a) := by
++  apply (selectRun_some_iff k (xs.map f) (f a)).mpr
++  exact ((selectRun_some_iff k xs a).mp ha).map f hf
++
++theorem collapsed_payload :
++    (selectRun 20 ((List.range 21).map (fun _ : Nat => (0 : Nat)))).1 = some 0 :=
++  monotone_payload_selection (fun _ : Nat => (0 : Nat)) (fun _ _ _ => le_rfl)
++    20 (List.range 21) 20 (congrArg Prod.fst first_recursive_right)
++
++end Examples.SelectionCosts

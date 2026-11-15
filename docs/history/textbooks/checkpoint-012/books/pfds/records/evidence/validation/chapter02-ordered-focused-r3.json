@@ -1,0 +1,18 @@
+{
+  "recorded_at": "2026-11-02T16:19:23.620861+00:00",
+  "commit": "df1b362a9ed9023089da64d0ad37fa6a154d41ed",
+  "environment": "Pinned Nix shell; offline/eval-cache false; Lean4.35.0",
+  "command": "env LEAN_NUM_THREADS=1 lake build Examples.OrderedTree",
+  "exit_code": 0,
+  "result": "Build completed successfully (598 jobs).",
+  "scope": "Focused compilation only; no full candidate acceptance/audit asserted",
+  "source_sha256": {
+    "Applications/Search/AbstractSet.lean": "cbe396ef4ac43d6aa1aefde6b10e8d64f2f9eef5ed06de51fd4da7cea3339de9",
+    "Applications/Search/OrderedTree/Basic.lean": "6f1a3c8bf217ff609e3f08f65a1a20b52747723d5259ad671fb0e5aebaf44a6b",
+    "Applications/Search/OrderedTree/Candidate.lean": "25977fd11475ad446a92361d94ac5fb11a1a4b8ec07f9a84e106e0b487fa8753",
+    "Applications/Search/OrderedTree/Comparison.lean": "39f8b29dde6c1d9eef28c922c37ceafcbf5a2a47fc585f0803d7245650b8208f",
+    "Applications/Search/OrderedTree/Contents.lean": "0c44cd7ca492bdb028252a31d959ec2a476fa624ec326809e57958ae586716a2",
+    "Applications/Search/OrderedTree/Interface.lean": "562b68e5d84bc326fa602b658f8cd6f278ea857b8a3cc424bce8d53587a821e0",
+    "Examples/OrderedTree.lean": "3619a864d1041f5d8f2c845c8249a8396ae469a7bdc254eb489d753804a640cc"
+  }
+}

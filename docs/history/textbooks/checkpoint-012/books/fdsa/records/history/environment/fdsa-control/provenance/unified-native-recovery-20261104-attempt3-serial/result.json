@@ -1,0 +1,27 @@
+{
+  "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "command": [
+    "env",
+    "CURL_HOME=/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/download-config-serial",
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "setup",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review"
+  ],
+  "started_utc": "2026-11-04T03:51:37.331817+00:00",
+  "completed_utc": "2026-11-04T03:52:44.429232+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 67.09719476100008,
+  "state": "failed",
+  "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/unified-native-recovery-20261104-attempt3-serial/full.log",
+  "progress_bookkeeping_errors": [],
+  "final_head": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "final_status": "",
+  "log_size_bytes": 17381,
+  "log_sha256": "9f74b5f24d9156336f4aeb7638a2585c8b953d4b9c1fef9ecb6ec55da1416db2",
+  "available_bytes_at_completion": 37475581952,
+  "verification_record_present": false
+}

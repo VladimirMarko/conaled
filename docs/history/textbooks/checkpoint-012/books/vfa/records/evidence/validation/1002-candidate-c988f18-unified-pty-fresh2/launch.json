@@ -1,0 +1,32 @@
+{
+  "prepared_utc": "2026-11-04T04:02:41.507445+00:00",
+  "candidate": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+  "base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/native-kit/conaled_native.py",
+    "--state",
+    "/workspace/scratch/60f07f0e98c8/native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-unified-pty-validation",
+    "--threads",
+    "1",
+    "--",
+    "./check.sh",
+    "--candidate",
+    "HEAD",
+    "--fresh",
+    "--jobs",
+    "1"
+  ],
+  "cwd": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-unified-pty-validation",
+  "tty": true,
+  "outer_recorder": false,
+  "environment_record": "validation/1037-environment-ready.json",
+  "status": "launched; completion pending",
+  "formal_acceptance": false,
+  "actual_session": 62004,
+  "kit_log_directory": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T040241Z-project-run-2354e0e9"
+}

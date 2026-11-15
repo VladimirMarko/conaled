@@ -1,0 +1,27 @@
+{
+  "recorded_utc": "2026-11-04T06:46:41.143567+00:00",
+  "finding": "XU02-SRC-001",
+  "source_before": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+  "source_after": "758e130cc30b8779dfce0ef2c4687aea0efa1792",
+  "changed_path": "Applications/Probability/PermutationOrder.lean",
+  "scope": "Three proposition-proof local Fintype declarations use let rather than letI. All public statements, examples, algorithms and pins unchanged. No warning suppressed.",
+  "basis": {
+    "pinned_linter": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/Mathlib/Tactic/Linter/HaveILetI.lean",
+    "identity": {
+      "bytes": 3586,
+      "sha256": "8bf4aaa707fc589130ec5b8f98c3590a21ee0d35b89ede587c6de2e78b2e391b"
+    },
+    "read_scope": "Complete 81-line linter source read; default true and all proposition-goal letI tactics flagged. Current XU01 actual failure confirms the same rule under the qualified environment."
+  },
+  "before": {
+    "bytes": 15172,
+    "sha256": "b427902814c19d269c850c97cb43728034d03df2539c5e357ce7ce715191298f"
+  },
+  "after": {
+    "bytes": 15169,
+    "sha256": "fd2aab30b1a3b8053ad5082e00fbe62e4c0d62dfb33c950276b10bfc3616d98e"
+  },
+  "commit_output": "[work/fdsa-permutation-order-validation 758e130] fix(fdsa): use proof-local enumerations for restricted permutation orders\n 1 file changed, 3 insertions(+), 3 deletions(-)\n",
+  "compiler_status": "Pre-compilation source compatibility correction; no XU02 compiler outcome claimed.",
+  "acceptance": "Not accepted; all gates remain."
+}

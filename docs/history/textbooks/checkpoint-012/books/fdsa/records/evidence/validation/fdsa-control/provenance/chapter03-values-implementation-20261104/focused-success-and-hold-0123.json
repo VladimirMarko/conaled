@@ -1,0 +1,68 @@
+{
+  "recorded_utc": "2026-11-04T18:41:25.150192+00:00",
+  "candidate": "e1b7b57dd495b9b57597e75141e0ec397536ed35",
+  "tree": "f9aa14230a57f895c8058698a92888b488d26779",
+  "review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort/Applications/Selection/CountRank.lean",
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d",
+      "repository_path": "Applications/Selection/CountRank.lean"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort/Examples/SelectionCountRank.lean",
+      "bytes": 4423,
+      "sha256": "cc73980788882d39abe44672d89e6a3ce37dfe3b5f5788375255248e8b4a66d2",
+      "repository_path": "Examples/SelectionCountRank.lean"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort/Applications/Sequences/Chunks.lean",
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493",
+      "repository_path": "Applications/Sequences/Chunks.lean"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort/Examples/ListChunks.lean",
+      "bytes": 2683,
+      "sha256": "161e240f9c07db5b13f9abf5bf09782064adce4862e60fbe35f0eba483c76c78",
+      "repository_path": "Examples/ListChunks.lean"
+    }
+  ],
+  "CountRank_focused": {
+    "candidate": "e82d1fc8ef3a4bed1b4135711d50cd4abc50e6d3",
+    "same_source": true,
+    "actual_exit": 0,
+    "root_terminal": "1fa08a",
+    "root_closure": "6c8694",
+    "full_log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-count-rank-focused-attempt3-20261104/full.log",
+      "bytes": 1160,
+      "sha256": "35a677d8def9a7f09aa5c1e942ada9d97de758fc2206664d506a7dd8317ee759"
+    },
+    "author_complete_log_read": "d0c464"
+  },
+  "Chunks_focused": {
+    "candidate": "e1b7b57dd495b9b57597e75141e0ec397536ed35",
+    "actual_exit": 0,
+    "root_terminal": "be2bce",
+    "root_closure": "9fb1ed",
+    "full_log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-chunks-focused-attempt2-20261104/full.log",
+      "bytes": 1036,
+      "sha256": "751e95455fac0a4fb808bb85c6e0af090f12a3c2fdf5a23ccfca5bdc11e17c52"
+    },
+    "actual_result": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-chunks-focused-attempt2-20261104/result.json",
+      "bytes": 1291,
+      "sha256": "bf6bf6687b77d0d10673d9bc4e61a6c021751f6a7885a6f0d71ac7e18ac048a2"
+    },
+    "only_diagnostics": "Three ordinary external module-system import advisories"
+  },
+  "public_names": 75,
+  "private_names": 1,
+  "state": "Source slices and focused module checks ready; actual elaborated-type inspection, full candidate check/audit and independent full-scope reviews pending. Chapter3 remains unaccepted.",
+  "scope": "Proposed C03-001\u2013020 implementation/reuse; C03-021\u2013026 pivot/balance next. Full chapter retains all83 canonical rows.",
+  "compiler_performed_by_author": false,
+  "hold": "All four project files and all own provenance HELD after this saved disposition pending checkpoint0123 release. No pivot file has been written."
+}

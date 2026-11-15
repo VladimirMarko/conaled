@@ -1,0 +1,510 @@
+{
+  "unit": "FDSA-XT02",
+  "axis": "Standards",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "incorporated_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "requirements_ids": [
+    "XT02-01",
+    "XT02-02",
+    "XT02-03",
+    "XT02-04",
+    "XT02-05"
+  ],
+  "original_scope_paths": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-shape.md"
+  ],
+  "public_names": [
+    "Trees.minHeight",
+    "Trees.minHeight_nil",
+    "Trees.minHeight_node",
+    "Trees.minHeight_map",
+    "Trees.minHeight_le_height",
+    "Trees.Complete",
+    "Trees.complete_nil",
+    "Trees.complete_node",
+    "Trees.complete_iff_minHeight_eq_height",
+    "Trees.complete_map",
+    "Trees.AlmostComplete",
+    "Trees.almostComplete_nil",
+    "Trees.almostComplete_iff_sub",
+    "Trees.complete_almostComplete",
+    "Trees.almostComplete_children",
+    "Trees.almostComplete_map",
+    "Trees.pow_minHeight_le_numLeaves",
+    "Trees.numLeaves_le_pow_height",
+    "Trees.numLeaves_eq_pow_height",
+    "Trees.numLeaves_eq_pow_minHeight",
+    "Trees.numLeaves_lt_pow_height",
+    "Trees.pow_minHeight_lt_numLeaves",
+    "Trees.complete_iff_numLeaves_eq_pow_height",
+    "Trees.complete_iff_numLeaves_eq_pow_minHeight",
+    "Trees.minHeight_le_log_numLeaves",
+    "Trees.clog_numLeaves_le_height",
+    "Trees.minHeight_eq_log_numLeaves",
+    "Trees.height_eq_clog_numLeaves",
+    "Trees.height_optimal",
+    "Trees.minHeight_le_logb_numLeaves",
+    "Trees.logb_numLeaves_le_height",
+    "Trees.minHeight_lt_logb_numLeaves",
+    "Trees.logb_numLeaves_lt_height",
+    "Trees.height_eq_logb_numLeaves",
+    "Trees.minHeight_eq_floor_logb_numLeaves",
+    "Trees.height_eq_ceil_logb_numLeaves",
+    "TreeShapeExamples.single",
+    "TreeShapeExamples.single_complete",
+    "TreeShapeExamples.single_minHeight",
+    "TreeShapeExamples.single_almostComplete",
+    "TreeShapeExamples.empty_shapes",
+    "TreeShapeExamples.perfectThree",
+    "TreeShapeExamples.perfectThree_complete",
+    "TreeShapeExamples.perfectThree_leaves",
+    "TreeShapeExamples.perfectThree_minHeight",
+    "TreeShapeExamples.rightTwo",
+    "TreeShapeExamples.rightTwo_incomplete",
+    "TreeShapeExamples.rightTwo_almostComplete",
+    "TreeShapeExamples.rightTwo_strict_capacity",
+    "TreeShapeExamples.rightTwo_children",
+    "TreeShapeExamples.rightTwo_sub",
+    "TreeShapeExamples.chainThree_power_not_complete",
+    "TreeShapeExamples.rightTwo_rounded_equalities",
+    "TreeShapeExamples.rightTwo_rounded_strictness_fails",
+    "TreeShapeExamples.empty_logarithms",
+    "TreeShapeExamples.sample_almostComplete",
+    "TreeShapeExamples.sample_minHeight",
+    "TreeShapeExamples.sample_leaves",
+    "TreeShapeExamples.sample_logarithms",
+    "TreeShapeExamples.sample_height_nodes",
+    "TreeShapeExamples.sample_wrong_node_offset",
+    "TreeShapeExamples.perfectThree_real_height",
+    "TreeShapeExamples.rightTwo_strict_real",
+    "TreeShapeExamples.sample_real_rounding",
+    "TreeShapeExamples.empty_real_height",
+    "TreeShapeExamples.mapped_sample",
+    "TreeShapeExamples.relabelled_complete",
+    "TreeShapeExamples.minHeight_erase",
+    "TreeShapeExamples.almostComplete_erase",
+    "TreeShapeExamples.pairSample_shape",
+    "TreeShapeExamples.corrupt_shape_without_validity",
+    "TreeShapeExamples.minStep",
+    "TreeShapeExamples.min_reader",
+    "TreeShapeExamples.minSample",
+    "TreeShapeExamples.minSample_valid",
+    "TreeShapeExamples.minSample_erases",
+    "TreeShapeExamples.minSample_reads",
+    "TreeShapeExamples.heightOptimalCounter",
+    "TreeShapeExamples.heightOptimalCounter_numNodes",
+    "TreeShapeExamples.heightOptimalCounter_shape",
+    "TreeShapeExamples.optimum_across_labels",
+    "TreeShapeExamples.counter_not_almostComplete",
+    "TreeShapeExamples.counter_rounded_height",
+    "TreeShapeExamples.counter_height_optimal",
+    "TreeShapeExamples.almostFour",
+    "TreeShapeExamples.localBalanceCounter",
+    "TreeShapeExamples.localBalanceCounter_balanced",
+    "TreeShapeExamples.localBalanceCounter_shape",
+    "TreeShapeExamples.localBalanceCounter_not_almostComplete",
+    "TreeShapeExamples.chain_rounded_bounds"
+  ],
+  "outcome": "Passed",
+  "unresolved_findings": [],
+  "full_original_scope_complete": true,
+  "actual_public_types_complete": true,
+  "full_validation_accepted": true,
+  "review_complete": true,
+  "recorded_utc": "2026-11-05T04:08:53.759238+00:00",
+  "reviewer": "/root/tree_cache_standards",
+  "public_name_count": 90,
+  "full_original_scope_path_count": 6,
+  "closed_findings": [
+    {
+      "id": "XT02-SP01",
+      "status": "Closed",
+      "resolution": "Documentary necessity overclaim corrected to sufficient recursive Valid premise; full source, actual min_reader type and exact-candidate full validation now confirm the correction. Original finding/snapshot/counterexample remain intact."
+    }
+  ],
+  "report": {
+    "path": "reviews/tree-shape-standards-receiving-20261105.md",
+    "bytes": 26731,
+    "lines": 124,
+    "sha256": "75049278e999f564958d90b0bc8dff8bdfd873c476fc3f646ed8936dcc8b9321"
+  },
+  "report_snapshot": {
+    "path": "provenance/tree-shape-standards-receiving-20261105/final-report-e61bb6f.md",
+    "bytes": 26731,
+    "lines": 124,
+    "sha256": "75049278e999f564958d90b0bc8dff8bdfd873c476fc3f646ed8936dcc8b9321"
+  },
+  "full_readback": {
+    "path": "provenance/tree-shape-standards-receiving-20261105/final-report-assessment-readback.json",
+    "bytes": 1729,
+    "lines": 69,
+    "sha256": "4b77d9a5fb8901816da26e31c874bebc33cf3af2551b0bb981fb15d611cef5a9"
+  },
+  "saved_report_assessment_read_results": {
+    "path": "provenance/tree-shape-standards-receiving-20261105/final-report-assessment-readback-results.json",
+    "bytes": 59016,
+    "lines": 107,
+    "sha256": "9f9597695be0267381c21c8934e50aed4fd659412fc9c36435f16f762fac2bd6"
+  },
+  "full_validation_assessment": {
+    "path": "provenance/tree-shape-standards-receiving-20261105/full-validation-assessment-e61bb6f.json",
+    "bytes": 20973,
+    "lines": 562,
+    "sha256": "de631a8b53e583651fb814ae8a13ad1d98643cdd377a3c3fac223aaac92ed775"
+  },
+  "successful_independent_computation": {
+    "tool": "1284a9",
+    "actual_exit": 0
+  },
+  "exact_executed_program": {
+    "path": "provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean",
+    "bytes": 4199,
+    "lines": 105,
+    "sha256": "fab2460caafba1f3f28a09006c4e220b9c735857e02294091486cdf4e8461c33"
+  },
+  "actual_public_type_output": {
+    "path": "provenance/tree-shape-receiving-statements90-run-20261105/native-records/output.log",
+    "bytes": 30252,
+    "lines": 430,
+    "sha256": "1df9da87b91e300b1cb9ac92ac52b379ddeba30231a0f149bbab50ba322e5cd7"
+  },
+  "actual_public_type_assessment": {
+    "path": "provenance/tree-shape-standards-receiving-20261105/actual-types90-assessment-e61bb6f.json",
+    "bytes": 22930,
+    "lines": 524,
+    "sha256": "e21ed0245db7c20c19113b39e94108997d0d0a1f615f1dec92185ba9422a9b48"
+  },
+  "actual_public_type_block_index": {
+    "path": "provenance/tree-shape-standards-receiving-20261105/actual-types90-blocks-e61bb6f.json",
+    "bytes": 39417,
+    "lines": 1386,
+    "sha256": "fe7afd60fd784ff101f6ddc152639471aa112031e25deef5f47b1dc77a037da1"
+  },
+  "actual_type_complete_read_receipts": [
+    {
+      "tool": "8a9c8c",
+      "range": [
+        1,
+        100
+      ]
+    },
+    {
+      "tool": "ffff71",
+      "range": [
+        101,
+        200
+      ]
+    },
+    {
+      "tool": "360ece",
+      "range": [
+        201,
+        315
+      ]
+    },
+    {
+      "tool": "ac6ee1",
+      "range": [
+        316,
+        430
+      ]
+    }
+  ],
+  "source_corrections": {
+    "path": "provenance/tree-shape-standards-receiving-20261105/source-corrections-e61bb6f.json",
+    "bytes": 40917,
+    "lines": 1173,
+    "sha256": "849e7e6bd7b36ef2f16fe112c607be4f04d62524bdc928f70fc06bfe3c84b78c"
+  },
+  "source_original_assessment": {
+    "path": "provenance/tree-shape-standards-receiving-20261105/source-assessment-27c5908.json",
+    "bytes": 71866,
+    "lines": 1623,
+    "sha256": "291aeb1e57b93456a9fcc63c46371f1485236ddabac2b2cdf8776ecf71939612"
+  },
+  "source_type_stage_snapshot": {
+    "path": "provenance/tree-shape-standards-receiving-20261105/source-type-stage-report-e61bb6f.md",
+    "bytes": 20793,
+    "lines": 94,
+    "sha256": "87c566ebdd9cdb2eaad1a4c274c1a3361e58cc56ec2a21dbcc6ae868e505bc1c"
+  },
+  "source_type_stage_hold": {
+    "path": "provenance/tree-shape-standards-receiving-20261105/source-type-stage-hold-e61bb6f.json",
+    "bytes": 9683,
+    "lines": 242,
+    "sha256": "0192eafc6880e9bfaa1eb9ca43cf564d0075d148184d96cabec88ec637a1a552"
+  },
+  "full_normal_terminal": {
+    "owned_session": 25113,
+    "actual_tool_chunk": "911909",
+    "actual_exit": 0,
+    "closure_tool_chunk": "0d933c",
+    "state": "CLOSED; never poll",
+    "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+    "clean": true,
+    "completed_at": "2026-11-05T03:54:08.410454+00:00",
+    "all_terminal_recorder_native_exits_agree": true,
+    "exact_outer_prefix_native_suffix": true,
+    "native_origin_copies_match": true,
+    "saved_verification_matches_live": true
+  },
+  "full_normal_command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "--threads",
+    "1",
+    "--",
+    "./check.sh",
+    "--candidate",
+    "HEAD"
+  ],
+  "full_run_bound_evidence": [
+    {
+      "path": "provenance/tree-shape-receiving-full-attempt1-20261105/actual-closure-result.json",
+      "bytes": 2567,
+      "lines": 7,
+      "sha256": "e4e81fca8f4fad25c5edb766236fd51bc1d7cfea6573b57af82f4f4f2b09e6b3"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-full-attempt1-20261105/actual-launch-result.json",
+      "bytes": 298,
+      "lines": 7,
+      "sha256": "5cde899352a9f54c65ba4fa826d5e02a94d47e65171c169c10fa30f090f62f26"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-full-attempt1-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "lines": 7,
+      "sha256": "36dfc8ae9b902c8dc8e0232cac699ab94dc95c6b9ac78d62809e417562ced583"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-full-attempt1-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2377,
+      "lines": 44,
+      "sha256": "e8f6a27379b5d3fbaead75a7081970976ac042ff2a4884f2e5bc072f527e148b"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-full-attempt1-20261105/full.log",
+      "bytes": 326815,
+      "lines": 2782,
+      "sha256": "47b4f52f06b9610b6d0c54c7f02daf0feb6cf56783fca555927e164ed9fd358b"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-full-attempt1-20261105/launch.json",
+      "bytes": 174,
+      "lines": 6,
+      "sha256": "6defdd366866df0ae82c0c8e2426359423720a2741d2189f84f318dd9fed8143"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-full-attempt1-20261105/native-records/output.log",
+      "bytes": 326586,
+      "lines": 2779,
+      "sha256": "24a3e9d664836b1c39cbe7725ef623a030615cd67efaecadfe338e2111d8b078"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-full-attempt1-20261105/native-records/result.json",
+      "bytes": 574,
+      "lines": 18,
+      "sha256": "d40ba095e94d66f8505db69a99fd8e9e321713d0e43e53cf1804d7485ebdec3b"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-full-attempt1-20261105/native-records/start.json",
+      "bytes": 421,
+      "lines": 13,
+      "sha256": "9046d202eae67d88712a9199312367c8b14d3e912a3faa2e22e072566ee0fe77"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-full-attempt1-20261105/outer-prefix.log",
+      "bytes": 70,
+      "lines": 2,
+      "sha256": "85b1c84dcee195655562afb91455f0d9c98388a8be8845b8eb9306ffa317cfab"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-full-attempt1-20261105/outer-suffix.log",
+      "bytes": 159,
+      "lines": 1,
+      "sha256": "e22fe7c8d23ba3bc77adbdf767d6c9fa286936973d62f5fd70afb4470fd20fc2"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-full-attempt1-20261105/owned-terminal.json",
+      "bytes": 260,
+      "lines": 8,
+      "sha256": "f36bce46608672c9b43b8cd206b6faf914ff2fa1211fa7e4b740e4d97401cedd"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-full-attempt1-20261105/progress.json",
+      "bytes": 265,
+      "lines": 8,
+      "sha256": "c0e652290371acb29d73334354f500096b91567654daffce8f22ded16843868f"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-full-attempt1-20261105/request.json",
+      "bytes": 737,
+      "lines": 21,
+      "sha256": "f899730f860180d9a41a062846b95e4a1d973e04dd20a85780e351d5b36f8331"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-full-attempt1-20261105/result.json",
+      "bytes": 1256,
+      "lines": 32,
+      "sha256": "4bec18d19e16579555633111050e54bd4e443add13efa8d348fac2cbbcfcdb61"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-full-attempt1-20261105/root-audit-reconciliation.json",
+      "bytes": 6725,
+      "lines": 139,
+      "sha256": "85dd530168d74c6f631a723154f613804a9777b2ceb3b394eee71becc982cd52"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-full-attempt1-20261105/start.json",
+      "bytes": 930,
+      "lines": 26,
+      "sha256": "d90418969674da2f213dce278b7165f323aaa7bbc74509a9b8086fcdba5ce17c"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-full-attempt1-20261105/verification.json",
+      "bytes": 867,
+      "lines": 19,
+      "sha256": "379dcc3142a4ea4b207f7e1c952ef4ca08c1b80c39168816d168cac5f6023503"
+    }
+  ],
+  "audit": {
+    "all_rows_computationally_parsed": true,
+    "row_count": 1114,
+    "unique_modules": 1114,
+    "full_log_row_range": [
+      1662,
+      2775
+    ],
+    "logical_declarations": 50422,
+    "theorem_declarations": 29543,
+    "unsafe_runtime_declarations": 0,
+    "checked_modules": 1116,
+    "build_requested_project_modules": 1115,
+    "axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "guards": {
+      "pre_hashed": 3345,
+      "invalidated": 0,
+      "post_hashed": 3345,
+      "inconsistent": 0
+    },
+    "previous_accepted_rows_unchanged": 1111,
+    "added_rows": {
+      "Examples.TreeShape": {
+        "logical": 71,
+        "theorems": 57,
+        "unsafe": 0
+      },
+      "Applications.Trees.Shape": {
+        "logical": 56,
+        "theorems": 49,
+        "unsafe": 0
+      },
+      "Applications.Trees.ShapeLog": {
+        "logical": 7,
+        "theorems": 7,
+        "unsafe": 0
+      }
+    },
+    "added_totals": {
+      "logical": 134,
+      "theorems": 113,
+      "unsafe": 0
+    },
+    "kernel_counts_are_not_authored_book_result_counts": true,
+    "canonical_all_rows_sha256": "2fa40ff2670287cff4c2484569fe856b2a815967e9b94dfd45b5004ae5864b85",
+    "previous_accepted_log": {
+      "path": "provenance/binary-tree-cache-receiving-full-attempt1-20261105/full.log",
+      "bytes": 325963,
+      "lines": 2775,
+      "sha256": "dbd8ba410b64f7ee2eedc9389c4dceb907549dabbada6fee358277b760141dd8"
+    }
+  },
+  "post_full_inputs": {
+    "all_observed_identity_entries_exact_before_after_types_after_full": true,
+    "counts": {
+      "local_sources": 29,
+      "local_compiler_objects_and_traces": 87,
+      "configuration": 10,
+      "dependencies": 9,
+      "runtime": 12
+    },
+    "observed_utc": "2026-11-05T03:58:13.150299+00:00",
+    "actual_capture_chunk": "b2da80",
+    "all90_ordered_names_and_exact_program_unchanged": true,
+    "same_accepted_configuration_dependencies_runtime": true,
+    "bindings": [
+      {
+        "path": "provenance/tree-shape-receiving-statements90-20261105/inputs-before.json",
+        "bytes": 34483,
+        "lines": 763,
+        "sha256": "1ee3406ca37aeaa9b62485d8719d1085fc7803f41c01229526619f48e2c2a963"
+      },
+      {
+        "path": "provenance/tree-shape-receiving-statements90-20261105/inputs-after.json",
+        "bytes": 34785,
+        "lines": 769,
+        "sha256": "e099ff7584144fe5d9c3294dea7d19139009622808de2ab65b4a437dbc0353ee"
+      },
+      {
+        "path": "provenance/tree-shape-receiving-statements90-20261105/final-inputs-after-full.json",
+        "bytes": 34785,
+        "lines": 769,
+        "sha256": "c44a0f8632b982d3080329c074fe17b1642eb7fcc5b8e193fcae0a3c034a063f"
+      },
+      {
+        "path": "provenance/tree-shape-receiving-statements90-20261105/final-inputs-after-full-actual-result.json",
+        "bytes": 449,
+        "lines": 7,
+        "sha256": "68a3936e5001bd149a34fd81f5eb180f8f5bffea44b76e4ff23c0a912597cdd4"
+      }
+    ],
+    "boundary": "Observed identity equality alone is not proof of absence of transient changes or cryptographic origin of loaded objects. Full candidate check and both guards provide separate evidence; reviewer did not run the helper or hash live compiler objects."
+  },
+  "qualification": "Unchanged official Lean/Lake 4.35.0, disclosed native profile, one thread; same ten configuration inputs, nine clean pins and twelve runtime/profile identities as accepted XT01. Preserved Chapter 1 full fresh baseline; no fresh trigger; only Nix waived.",
+  "protected_history": {
+    "all13_held_source_type_provenance_unchanged": true,
+    "all20_original_and_accepted_protected_records_unchanged": true,
+    "both_failed_focused_attempts_retained": [
+      {
+        "path": "provenance/tree-shape-standards-receiving-20261105/focused-failure-27c5908-assessment.json",
+        "bytes": 4622,
+        "lines": 121,
+        "sha256": "5be9d97ec77e0d90313bba20d53f6571e38dd515a4f341aa01f5df2c7d1cc3f9"
+      },
+      {
+        "path": "provenance/tree-shape-standards-receiving-20261105/focused-failure-5b3b9ab-assessment.json",
+        "bytes": 4870,
+        "lines": 131,
+        "sha256": "2498a79951af4e3bfe140aae3340f3c48b35d87d7582d140e8b16493dd060426"
+      }
+    ],
+    "historical_blocked_records_not_amended": true
+  },
+  "all_report_and_assessment_lines_read_back": true,
+  "reading_limits": [
+    "All audit rows processed computationally; meaningful protocol, guard, current-unit and final lines read. No claim that every inherited warning or all 2782 log lines were human-read.",
+    "All430 actual-type lines fully read in preserved source/type receipts; actual types are not inferred from authored headers.",
+    "Private/generated declarations now covered by exhaustive audit; no separate private #check command."
+  ],
+  "reviewer_only_metadata_incidents_resolved": true,
+  "reviewer_source_ref_cache_output_compiler_helper_poll_upload_or_acceptance_mutations": false,
+  "caller_next_actions": "After both ordinary axes pass, root performs immediate qualified candidate verification, exact local fast-forward, local status and durability. No chapter acceptance is implied by this shared-unit review."
+}

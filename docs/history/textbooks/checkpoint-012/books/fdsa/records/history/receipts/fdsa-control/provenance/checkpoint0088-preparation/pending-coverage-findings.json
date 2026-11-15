@@ -1,0 +1,25 @@
+{
+  "recorded_utc": "2026-11-04T06:31:06.178309+00:00",
+  "assessed_snapshot": "dfaf68114d1dda4e15628c94c3d988c3f5457c49",
+  "assessor": "chapter02_quicksort",
+  "report_status": "read-only reconciliation in progress; file not yet written at checkpoint hold",
+  "confirmed": [
+    {
+      "obligation": "C02-090",
+      "gap": "Generic arbitrary-correct-sorter pointwise and function equality missing. Existing specific algorithm agreements and the reusable List.Perm.eq_of_pairwise theorem do not discharge the quantified corollary."
+    },
+    {
+      "scope": "public integration documentation",
+      "gap": "Complete Chapter2 coverage map and public-root imports for chapter-specific examples remain to be integrated; existing shared-unit map wording needs truthful final updates."
+    }
+  ],
+  "still_checking": [
+    "Frozen stable-sort-to-rank connected client"
+  ],
+  "known_pending": [
+    "Actual random-pivot expectations/rank/recurrence/harmonic/asymptotic proofs",
+    "Separate uniform-input probability analysis and XU01\u2192XU02\u2192XU03 acceptance chain",
+    "Natural scanner/builder operational execution and bounds",
+    "All integrated acceptance gates"
+  ]
+}

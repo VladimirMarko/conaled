@@ -1,0 +1,51 @@
+{
+  "recorded_utc": "2026-11-02T17:38:51.452305+00:00",
+  "reason": "Continue the established verified-local-checkpoint-duplicate retention procedure after the prior ENOSPC incident; preserve latest0043/0044 local archives and all durable copies, receipts, source/history/control and build artifacts. No project-cache or source deletion.",
+  "available_bytes_before": 2855751680,
+  "entries": [
+    {
+      "checkpoint": "conaled-fdsa-0039-mergesort-readiness",
+      "local_path": "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0039-mergesort-readiness.tar.gz",
+      "sha256": "7bf339b47e2f6b4d84c0b98f888a5adcfd4463475b716a0348408fd1546b6ad3",
+      "size_bytes": 73478597,
+      "library_file_id": "libfile_779eb631de6c81918acb3142c9491a3a",
+      "file_id": "file_00000000ede8822f9563c6778ba0cb39",
+      "local_metadata_applied": true,
+      "removed_local_duplicate": true
+    },
+    {
+      "checkpoint": "conaled-fdsa-0040-chapter1-repair-recovery",
+      "local_path": "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0040-chapter1-repair-recovery.tar.gz",
+      "sha256": "e9c40984843604a1fc5a6cf173bef66a714a1446e5f7914249241357ad94905e",
+      "size_bytes": 73589321,
+      "library_file_id": "libfile_2385870f26fc8191afbdd16c8deb0d58",
+      "file_id": "file_00000000c0788246965f7ad83abc6c1b",
+      "local_metadata_applied": true,
+      "removed_local_duplicate": true
+    },
+    {
+      "checkpoint": "conaled-fdsa-0041-chapter1-focused-pass",
+      "local_path": "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0041-chapter1-focused-pass.tar.gz",
+      "sha256": "69745fc539d787f0a19160dc143acb895aedb07164fc931ec281aea568023907",
+      "size_bytes": 73596851,
+      "library_file_id": "libfile_b9b0fc70064881919a5125c853f7da42",
+      "file_id": "file_00000000402081f5bd3353f5af74cde8",
+      "local_metadata_applied": true,
+      "removed_local_duplicate": true
+    },
+    {
+      "checkpoint": "conaled-fdsa-0042-tree-rotations-start",
+      "local_path": "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0042-tree-rotations-start.tar.gz",
+      "sha256": "3741eb1160cefa498f7784446291ff2e652e1175ede7b07ff229122d967ccfe6",
+      "size_bytes": 73648476,
+      "library_file_id": "libfile_1880a9cd0dfc8191a396d14961b66137",
+      "file_id": "file_000000001da48246a20a2bc4b25cb418",
+      "local_metadata_applied": true,
+      "removed_local_duplicate": true
+    }
+  ],
+  "untouched": "Latest0043/0044 archives; all checksum/receipt files; reappeared0001; unrelated main checkpoint artifact; normal builds/dependencies; all source/history/control; durable copies.",
+  "completed_utc": "2026-11-02T17:38:51.527054+00:00",
+  "available_bytes_after": 3150155776,
+  "apparent_bytes_removed": 294313245
+}

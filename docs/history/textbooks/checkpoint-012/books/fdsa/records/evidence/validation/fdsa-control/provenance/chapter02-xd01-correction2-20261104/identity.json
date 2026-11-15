@@ -1,0 +1,22 @@
+{
+  "recorded_utc": "2026-11-04T06:22:31.514893+00:00",
+  "base_candidate": "66e480cf6db359ebf97d761b804ebe5d6d946eca",
+  "candidate": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+  "finding": "XD01-ELAB-003",
+  "failed_attempt": "chapter02-natural-xd01-focused-20261104-attempt1",
+  "failed_log_sha256": "057996ba9c497d0821e21cb47efad8b7eda3a2a8db26b7f112259adf77e0983f",
+  "scope": "One proof body only: compose_rep. Apply Rep witnesses at their exact suffixes; no definitions, theorem statements, hypotheses or examples changed.",
+  "source": {
+    "Applications/Resources/DifferenceListCosts.lean": {
+      "bytes": 10061,
+      "sha256": "f99420b831dff2d0f5fcc3dac1001937942b87c78b710b79f94fa941ab972b01"
+    },
+    "Examples/DifferenceListCosts.lean": {
+      "bytes": 9299,
+      "sha256": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1"
+    }
+  },
+  "diff_sha256": "4ea3868d721d664f2b52b0dd04a5e789ad119c8e4664973143dec004825dcad5",
+  "compiler_status": "uncompiled correction; previous actual failure retained",
+  "statement_assessment": "Rep f prefixF and Rep g prefixG remain universal contracts; specialize repF to the actual inner output (g suffix).1 and repG to suffix, then use append associativity. All quantifiers and public conclusions unchanged."
+}

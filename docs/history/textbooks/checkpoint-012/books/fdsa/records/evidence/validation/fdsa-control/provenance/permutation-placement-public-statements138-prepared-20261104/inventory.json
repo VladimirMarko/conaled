@@ -1,0 +1,2298 @@
+{
+  "prepared_utc": "2026-11-04T13:24:43.818578+00:00",
+  "status": "prepared only, unexecuted",
+  "source_candidate": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+  "fixed_base": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+  "future_candidate": null,
+  "explicit_public_names": 138,
+  "new_public_names": 111,
+  "retained_core_public_names": 27,
+  "private_theorems": 25,
+  "anonymous_local_instances": 16,
+  "actual_type_credit": 0,
+  "imports": [
+    "Applications.Probability.PermutationExpectation",
+    "Applications.Probability.PermutationOrder",
+    "Applications.Probability.PermutationPlacement",
+    "Examples.PermutationPlacement",
+    "Examples.PermutationPlacementBoundary"
+  ],
+  "declarations": [
+    {
+      "path": "Applications/Probability/PermutationExpectation.lean",
+      "line": 47,
+      "header_end_line": 48,
+      "name": "beforeCount",
+      "qualified_name": "Applications.Probability.PermutationExpectation.beforeCount",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "header": "noncomputable def beforeCount [LT P] (priority : I → P) (S : Finset I)\n    (π : Equiv.Perm I) : ℕ\n",
+      "header_sha256": "8adb1e13dc2b00e1729fd5a4b6331b11db7cab1fca4153eefc6011dfb8a5ed7d",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationExpectation.lean",
+      "line": 52,
+      "header_end_line": 53,
+      "name": "beforeCount_empty",
+      "qualified_name": "Applications.Probability.PermutationExpectation.beforeCount_empty",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "@[simp] theorem beforeCount_empty [LT P] (priority : I → P) (π : Equiv.Perm I) :\n    beforeCount priority ∅ π = Nat.card I\n",
+      "header_sha256": "713889ba0f2224eb879d3a50584536570ab15731023475b8d8a741efd1585e9a",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationExpectation.lean",
+      "line": 58,
+      "header_end_line": 60,
+      "name": "beforeCount_le",
+      "qualified_name": "Applications.Probability.PermutationExpectation.beforeCount_le",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem beforeCount_le [Finite I] [Preorder P]\n    (priority : I → P) (S : Finset I) (π : Equiv.Perm I) :\n    beforeCount priority S π ≤ Nat.card I - S.card\n",
+      "header_sha256": "105c19b4cfafed61128e828dd6975657031296db3fe1d79c0d2d7ff0f02de1af",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationExpectation.lean",
+      "line": 120,
+      "header_end_line": 125,
+      "name": "lintegral_beforeCount_uniformOn",
+      "qualified_name": "Applications.Probability.PermutationExpectation.lintegral_beforeCount_uniformOn",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem lintegral_beforeCount_uniformOn [Finite I] [LinearOrder P]\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (priority : I → P) (hinj : Function.Injective priority) (S : Finset I) :\n    (∫⁻ π, (beforeCount priority S π : ℝ≥0∞)\n        ∂uniformOn (Set.univ : Set (Equiv.Perm I))) =\n      ((Nat.card I - S.card : ℕ) : ℝ≥0∞) / ((S.card + 1 : ℕ) : ℝ≥0∞)\n",
+      "header_sha256": "91e673519e1d273b60cd850fdf892eec0c900147e33f5773d705e67aa0b207a8",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationExpectation.lean",
+      "line": 159,
+      "header_end_line": 164,
+      "name": "integral_beforeCount_uniformOn",
+      "qualified_name": "Applications.Probability.PermutationExpectation.integral_beforeCount_uniformOn",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem integral_beforeCount_uniformOn [Finite I] [LinearOrder P]\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (priority : I → P) (hinj : Function.Injective priority) (S : Finset I) :\n    (∫ π, (beforeCount priority S π : ℝ)\n        ∂uniformOn (Set.univ : Set (Equiv.Perm I))) =\n      ((Nat.card I - S.card : ℕ) : ℝ) / ((S.card + 1 : ℕ) : ℝ)\n",
+      "header_sha256": "a2c979035b423458b54e429f79ca945f180cc5e6844b243fda11d73ed9a27033",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationExpectation.lean",
+      "line": 194,
+      "header_end_line": 198,
+      "name": "beforeCount_rank_eq",
+      "qualified_name": "Applications.Probability.PermutationExpectation.beforeCount_rank_eq",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem beforeCount_rank_eq {U : ℕ} (rank : I ≃ Fin U)\n    (S : Finset I) (hS : S.Nonempty) (π : Equiv.Perm I) :\n    beforeCount rank S π =\n      ((S.image (fun a => rank (π a))).min'\n        (hS.image (fun a => rank (π a)))).val\n",
+      "header_sha256": "4c3f68da4767ae7796ac69d4420210d13e85cb87df334a1c2df9aa4e307cd6bd",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationExpectation.lean",
+      "line": 229,
+      "header_end_line": 236,
+      "name": "integral_firstPosition_uniformOn",
+      "qualified_name": "Applications.Probability.PermutationExpectation.integral_firstPosition_uniformOn",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem integral_firstPosition_uniformOn {U : ℕ}\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (rank : I ≃ Fin U) (S : Finset I) (hS : S.Nonempty) :\n    (∫ π,\n        ((((S.image (fun a => rank (π a))).min'\n          (hS.image (fun a => rank (π a)))).val + 1 : ℕ) : ℝ)\n        ∂uniformOn (Set.univ : Set (Equiv.Perm I))) =\n      ((U + 1 : ℕ) : ℝ) / ((S.card + 1 : ℕ) : ℝ)\n",
+      "header_sha256": "156e6830e871ac79e91d69880cf5033b8a1a05caf709dde52c5bb4d7ab63ee32",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationExpectation.lean",
+      "line": 280,
+      "header_end_line": 282,
+      "name": "beforeCount_relabel",
+      "qualified_name": "Applications.Probability.PermutationExpectation.beforeCount_relabel",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem beforeCount_relabel [LT P] (priority : I → P) (S : Finset I)\n    (π σ : Equiv.Perm I) (hS : ∀ a, σ a ∈ S ↔ a ∈ S) :\n    beforeCount priority S (π * σ.symm) = beforeCount priority S π\n",
+      "header_sha256": "7b90879d7a53006c54bb3b7a5369febafd4440e68a3ef4d04d683ba973edfb49",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 61,
+      "header_end_line": 61,
+      "name": "restrictedOrder",
+      "qualified_name": "Applications.Probability.PermutationOrder.restrictedOrder",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "def restrictedOrder (positions : List I) (S : Finset I) (π : Equiv.Perm I) : List I\n",
+      "header_sha256": "eba43f2f160e9e92acfb2cd1ddc6c950dcbabef9b8d81b9d8c11e1b903b977d7",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 65,
+      "header_end_line": 65,
+      "name": "orders",
+      "qualified_name": "Applications.Probability.PermutationOrder.orders",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "def orders (positions : List I) (S : Finset I) : Finset (List I)\n",
+      "header_sha256": "5a32de98081cf64c7e6d34a2261ae4d8162d124826bb1205351310ff99edfb3c",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 69,
+      "header_end_line": 71,
+      "name": "mem_restrictedOrder",
+      "qualified_name": "Applications.Probability.PermutationOrder.mem_restrictedOrder",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "@[simp] theorem mem_restrictedOrder (positions : List I) (S : Finset I)\n    (π : Equiv.Perm I) (a : I) :\n    a ∈ restrictedOrder positions S π ↔ π a ∈ positions ∧ a ∈ S\n",
+      "header_sha256": "4a215489b27789fc622afcdcb6af9cd0527467e502d18c746c1e1167286b9456",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 74,
+      "header_end_line": 76,
+      "name": "mem_restrictedOrder_of_complete",
+      "qualified_name": "Applications.Probability.PermutationOrder.mem_restrictedOrder_of_complete",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem mem_restrictedOrder_of_complete (positions : List I)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) (a : I) :\n    a ∈ restrictedOrder positions S π ↔ a ∈ S\n",
+      "header_sha256": "28e2b66d2fcfbb0eac631dee9dd4bb3c53cb073b3e970e9b9d2efb19c6a13812",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 79,
+      "header_end_line": 81,
+      "name": "restrictedOrder_nodup",
+      "qualified_name": "Applications.Probability.PermutationOrder.restrictedOrder_nodup",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem restrictedOrder_nodup (positions : List I) (hnd : positions.Nodup)\n    (S : Finset I) (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).Nodup\n",
+      "header_sha256": "1cd01a5f1d8c4384eb587c13e77a02ed8c0024af04333e2c1f9076069b6293c1",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 85,
+      "header_end_line": 87,
+      "name": "restrictedOrder_toFinset",
+      "qualified_name": "Applications.Probability.PermutationOrder.restrictedOrder_toFinset",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem restrictedOrder_toFinset (positions : List I)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).toFinset = S\n",
+      "header_sha256": "7d094f2cb134dc438e3912e39fdf61941372f3608e0fdb6953cea34839643f72",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 93,
+      "header_end_line": 95,
+      "name": "restrictedOrder_length",
+      "qualified_name": "Applications.Probability.PermutationOrder.restrictedOrder_length",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem restrictedOrder_length (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).length = S.card\n",
+      "header_sha256": "6faed8ca30d57fed53e397b5e01eba348351da744600fe8da4155d093d36843a",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 99,
+      "header_end_line": 102,
+      "name": "restrictedOrder_perm",
+      "qualified_name": "Applications.Probability.PermutationOrder.restrictedOrder_perm",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem restrictedOrder_perm (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).Perm\n      (positions.filter (fun a => decide (a ∈ S)))\n",
+      "header_sha256": "0cbfda3b2b14ca1198d69c42e1730dba2cccea0f268adb3b0e698aaecfe3a7da",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 110,
+      "header_end_line": 112,
+      "name": "map_restrictedOrder_sublist",
+      "qualified_name": "Applications.Probability.PermutationOrder.map_restrictedOrder_sublist",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem map_restrictedOrder_sublist (positions : List I) (S : Finset I)\n    (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).map π <+ positions\n",
+      "header_sha256": "43ec8bd69a03621f42a2b073739da2d0b44a4ca958ffa392c5c05da2be7204c4",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 119,
+      "header_end_line": 122,
+      "name": "filter_restrictedOrder",
+      "qualified_name": "Applications.Probability.PermutationOrder.filter_restrictedOrder",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem filter_restrictedOrder (positions : List I) (S T : Finset I)\n    (π : Equiv.Perm I) :\n    (restrictedOrder positions S π).filter (fun a => decide (a ∈ T)) =\n      restrictedOrder positions (S ∩ T) π\n",
+      "header_sha256": "5720aaf456892e91780459300c9410bd09a7452031747f1315ce6c3ca35f71e5",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 129,
+      "header_end_line": 132,
+      "name": "filter_restrictedOrder_of_subset",
+      "qualified_name": "Applications.Probability.PermutationOrder.filter_restrictedOrder_of_subset",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem filter_restrictedOrder_of_subset (positions : List I) (S T : Finset I)\n    (π : Equiv.Perm I) (hTS : T ⊆ S) :\n    (restrictedOrder positions S π).filter (fun a => decide (a ∈ T)) =\n      restrictedOrder positions T π\n",
+      "header_sha256": "aa842174f6b01a4a8a495a10c477ef2eade3f06aaf40b2aad85cd7d56a387527",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 135,
+      "header_end_line": 137,
+      "name": "mem_orders",
+      "qualified_name": "Applications.Probability.PermutationOrder.mem_orders",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "@[simp] theorem mem_orders (positions : List I) (S : Finset I) (xs : List I) :\n    xs ∈ orders positions S ↔\n      xs.Perm (positions.filter (fun a => decide (a ∈ S)))\n",
+      "header_sha256": "53701b2da7ba90fd0a794deaaa59b3b0ead1974128630339d67bc1144def802c",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 141,
+      "header_end_line": 142,
+      "name": "orders_nonempty",
+      "qualified_name": "Applications.Probability.PermutationOrder.orders_nonempty",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem orders_nonempty (positions : List I) (S : Finset I) :\n    (orders positions S).Nonempty\n",
+      "header_sha256": "b15fa8dae28eb47232fe771fa8cc987dc9aa4aa144163eb59ca0649aac4956f0",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 146,
+      "header_end_line": 148,
+      "name": "restrictedOrder_mem_orders",
+      "qualified_name": "Applications.Probability.PermutationOrder.restrictedOrder_mem_orders",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem restrictedOrder_mem_orders (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) (π : Equiv.Perm I) :\n    restrictedOrder positions S π ∈ orders positions S\n",
+      "header_sha256": "5e353ad014fab61ab17c1548d614df7c7a80dfcfe2bf7ccba517d0598a16c0ac",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 151,
+      "header_end_line": 153,
+      "name": "orders_card",
+      "qualified_name": "Applications.Probability.PermutationOrder.orders_card",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem orders_card (positions : List I) (hnd : positions.Nodup)\n    (hcomplete : ∀ a, a ∈ positions) (S : Finset I) :\n    (orders positions S).card = Nat.factorial S.card\n",
+      "header_sha256": "ed7257da7ba9067c85b3e4cadf159d72cd9af21cbb029107021215a4024354db",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 244,
+      "header_end_line": 252,
+      "name": "uniformOn_restrictedOrder_eq",
+      "qualified_name": "Applications.Probability.PermutationOrder.uniformOn_restrictedOrder_eq",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem uniformOn_restrictedOrder_eq\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (S : Finset I) (xs : List I) :\n    uniformOn (Set.univ : Set (Equiv.Perm I))\n        {π | restrictedOrder positions S π = xs} =\n      if xs ∈ orders positions S\n      then (Nat.factorial S.card : ℝ≥0∞)⁻¹\n      else 0\n",
+      "header_sha256": "086857b1aaa8c697aa81cca907521f98bc1417d5abb01b3db1402ed2273b7086",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 307,
+      "header_end_line": 313,
+      "name": "map_restrictedOrder_uniformOn",
+      "qualified_name": "Applications.Probability.PermutationOrder.map_restrictedOrder_uniformOn",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem map_restrictedOrder_uniformOn\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (S : Finset I) :\n    (uniformOn (Set.univ : Set (Equiv.Perm I))).map (restrictedOrder positions S) =\n      uniformOn (orders positions S : Set (List I))\n",
+      "header_sha256": "517ea2da5983bbf50b981cd91ca33aca2ca6e026a24cd374476e6b03e1fcb01a",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 432,
+      "header_end_line": 440,
+      "name": "uniformOn_restrictedOrder_pair_eq",
+      "qualified_name": "Applications.Probability.PermutationOrder.uniformOn_restrictedOrder_pair_eq",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem uniformOn_restrictedOrder_pair_eq\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (A B : Finset I) (hAB : Disjoint A B) (xs ys : List I) :\n    uniformOn (Set.univ : Set (Equiv.Perm I))\n        {π | (restrictedOrder positions A π, restrictedOrder positions B π) = (xs, ys)} =\n      if xs ∈ orders positions A ∧ ys ∈ orders positions B then\n        ((Nat.factorial A.card * Nat.factorial B.card : ℕ) : ℝ≥0∞)⁻¹\n      else 0\n",
+      "header_sha256": "52c11a8383e769ca829255a5857dc6e1c28063718d30eababb94131a9cc7dbcc",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 505,
+      "header_end_line": 513,
+      "name": "map_restrictedOrder_pair_uniformOn",
+      "qualified_name": "Applications.Probability.PermutationOrder.map_restrictedOrder_pair_uniformOn",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem map_restrictedOrder_pair_uniformOn\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (A B : Finset I) (hAB : Disjoint A B) :\n    (uniformOn (Set.univ : Set (Equiv.Perm I))).map\n        (fun π => (restrictedOrder positions A π, restrictedOrder positions B π)) =\n      (uniformOn (orders positions A : Set (List I))).prod\n        (uniformOn (orders positions B : Set (List I)))\n",
+      "header_sha256": "b42b4b72fd03bf32936fe876e026875adbbec59c921be879f813c28332cb3aa0",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 583,
+      "header_end_line": 593,
+      "name": "hasLaw_filter_pair",
+      "qualified_name": "Applications.Probability.PermutationOrder.hasLaw_filter_pair",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem hasLaw_filter_pair {Ω : Type*}\n    [MeasurableSpace Ω] [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (S : Finset I) {μ : Measure Ω} {Y : Ω → List I}\n    (hY : HasLaw Y (uniformOn (orders positions S : Set (List I))) μ)\n    (A B : Finset I) (hAS : A ⊆ S) (hBS : B ⊆ S) (hAB : Disjoint A B) :\n    HasLaw\n      (fun ω => ((Y ω).filter (fun a => decide (a ∈ A)),\n        (Y ω).filter (fun b => decide (b ∈ B))))\n      ((uniformOn (orders positions A : Set (List I))).prod\n        (uniformOn (orders positions B : Set (List I)))) μ\n",
+      "header_sha256": "025aef426e8a4544db6adb5a86630ea4bf1454b9f9f570f266bc656380ab86d7",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": true
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "line": 636,
+      "header_end_line": 649,
+      "name": "uniformOn_inter_restrictedOrder_eq",
+      "qualified_name": "Applications.Probability.PermutationOrder.uniformOn_inter_restrictedOrder_eq",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem uniformOn_inter_restrictedOrder_eq\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (A : Finset I) (E : Set (Equiv.Perm I))\n    (hInvariant : ∀ (σ : Equiv.Perm I),\n      (∀ a, σ a ∈ A ↔ a ∈ A) →\n      ∀ π, (π * σ.symm ∈ E ↔ π ∈ E))\n    (xs : List I) :\n    uniformOn (Set.univ : Set (Equiv.Perm I))\n        (E ∩ {π | restrictedOrder positions A π = xs}) =\n      if xs ∈ orders positions A\n      then uniformOn (Set.univ : Set (Equiv.Perm I)) E /\n        (Nat.factorial A.card : ℝ≥0∞)\n      else 0\n",
+      "header_sha256": "d8a848e11c4278a8f16c445345fe97590a9f06b100db4c013de83a85b74362a2",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Applications/Probability/PermutationPlacement.lean",
+      "line": 104,
+      "header_end_line": 112,
+      "name": "indepFun_beforeCount_restrictedOrder",
+      "qualified_name": "Applications.Probability.PermutationPlacement.indepFun_beforeCount_restrictedOrder",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem indepFun_beforeCount_restrictedOrder [LT P]\n    {Ω : Type w} [MeasurableSpace Ω]\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    [MeasurableSpace (List I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (priority : I → P) (A : Finset I) {μ : Measure Ω} {Π : Ω → Equiv.Perm I}\n    (hΠ : HasLaw Π (uniformOn (Set.univ : Set (Equiv.Perm I))) μ) :\n    IndepFun (fun ω => beforeCount priority A (Π ω))\n      (fun ω => restrictedOrder positions A (Π ω)) μ\n",
+      "header_sha256": "44451caee5f5e7c506045475297a6be71c9e6327ba7da393524c8a07ddb93460",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Applications/Probability/PermutationPlacement.lean",
+      "line": 137,
+      "header_end_line": 147,
+      "name": "lintegral_beforeCount_mul_order",
+      "qualified_name": "Applications.Probability.PermutationPlacement.lintegral_beforeCount_mul_order",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem lintegral_beforeCount_mul_order [LinearOrder P]\n    {Ω : Type w} [MeasurableSpace Ω]\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (priority : I → P) (hinj : Function.Injective priority) (A : Finset I)\n    (g : List I → ℝ≥0∞) {μ : Measure Ω} {Π : Ω → Equiv.Perm I}\n    (hΠ : HasLaw Π (uniformOn (Set.univ : Set (Equiv.Perm I))) μ) :\n    (∫⁻ ω, (beforeCount priority A (Π ω) : ℝ≥0∞) *\n        g (restrictedOrder positions A (Π ω)) ∂μ) =\n      (((Nat.card I - A.card : ℕ) : ℝ≥0∞) / ((A.card + 1 : ℕ) : ℝ≥0∞)) *\n        ∫⁻ ω, g (restrictedOrder positions A (Π ω)) ∂μ\n",
+      "header_sha256": "1c53b38052bd486c2aaca2555054ed9e6de900c0c669a86df39b26230e27d323",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Applications/Probability/PermutationPlacement.lean",
+      "line": 246,
+      "header_end_line": 256,
+      "name": "integral_beforeCount_mul_order",
+      "qualified_name": "Applications.Probability.PermutationPlacement.integral_beforeCount_mul_order",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem integral_beforeCount_mul_order [LinearOrder P]\n    {Ω : Type w} [MeasurableSpace Ω]\n    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]\n    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)\n    (priority : I → P) (hinj : Function.Injective priority) (A : Finset I)\n    (g : List I → ℝ) {μ : Measure Ω} {Π : Ω → Equiv.Perm I}\n    (hΠ : HasLaw Π (uniformOn (Set.univ : Set (Equiv.Perm I))) μ) :\n    (∫ ω, (beforeCount priority A (Π ω) : ℝ) *\n        g (restrictedOrder positions A (Π ω)) ∂μ) =\n      (((Nat.card I - A.card : ℕ) : ℝ) / ((A.card + 1 : ℕ) : ℝ)) *\n        ∫ ω, g (restrictedOrder positions A (Π ω)) ∂μ\n",
+      "header_sha256": "76800d623f0d0e99b13f365dadc6429b16786a9774ebceed6b9aec7b9f9b3e84",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 45,
+      "header_end_line": 45,
+      "name": "law3_isProbabilityMeasure",
+      "qualified_name": "Examples.PermutationPlacement.law3_isProbabilityMeasure",
+      "kind": "instance",
+      "visibility": "public",
+      "modifiers": [
+        "local"
+      ],
+      "header": "local instance law3_isProbabilityMeasure : IsProbabilityMeasure law3\n",
+      "header_sha256": "beb96159a31346cb78286ad167acbae6cf04958d5bb31a1a0b2c2b645fe6445b",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 49,
+      "header_end_line": 49,
+      "name": "positions",
+      "qualified_name": "Examples.PermutationPlacement.positions",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "def positions : List (Fin 3)\n",
+      "header_sha256": "124b0d8f0cc30c11de1d5c6ec62609a6f829b8a81fd86898029421edc87a4478",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 57,
+      "header_end_line": 57,
+      "name": "order",
+      "qualified_name": "Examples.PermutationPlacement.order",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "def order (π : Equiv.Perm (Fin 3)) : List (Fin 3)\n",
+      "header_sha256": "76162f68ac5538b6f25e5384ca29c5433ce8003dfe470dea2a9bdc106360b073",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 60,
+      "header_end_line": 60,
+      "name": "countEvent",
+      "qualified_name": "Examples.PermutationPlacement.countEvent",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "def countEvent (n : ℕ) : Set (Equiv.Perm (Fin 3))\n",
+      "header_sha256": "4afb7067eb6c0b75a5bcdcdfef29903e71fcf200ca42dc88681fe72b1954c45a",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 63,
+      "header_end_line": 63,
+      "name": "orderEvent",
+      "qualified_name": "Examples.PermutationPlacement.orderEvent",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "def orderEvent (xs : List (Fin 3)) : Set (Equiv.Perm (Fin 3))\n",
+      "header_sha256": "e6fdfe8a8382b1695d1c17d6cf2c231dba0c195d78490112b8be06f3ed070343",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 82,
+      "header_end_line": 82,
+      "name": "count_one_mass",
+      "qualified_name": "Examples.PermutationPlacement.count_one_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem count_one_mass : law3 (countEvent 1) = 1 / 3\n",
+      "header_sha256": "644807308c5a83de897502b452fd80bc6d938b7c24abfbe3391cce226683ac1f",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 98,
+      "header_end_line": 98,
+      "name": "count_zero_mass",
+      "qualified_name": "Examples.PermutationPlacement.count_zero_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem count_zero_mass : law3 (countEvent 0) = 2 / 3\n",
+      "header_sha256": "f4f46908e9619dd4d86055f23761a6b92e630512ad228a91fcc0ae1e2829dd61",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 102,
+      "header_end_line": 102,
+      "name": "order01_mass",
+      "qualified_name": "Examples.PermutationPlacement.order01_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem order01_mass : law3 (orderEvent [0, 1]) = 1 / 2\n",
+      "header_sha256": "9c5f40db0d5e52736e69ef5c1ddc64e6c557433e03417ad1d381b1b34e62a8f6",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 112,
+      "header_end_line": 112,
+      "name": "order10_mass",
+      "qualified_name": "Examples.PermutationPlacement.order10_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem order10_mass : law3 (orderEvent [1, 0]) = 1 / 2\n",
+      "header_sha256": "a9d78b67404f58ef9932bf757e2cc5c2dbf76ef044a0399caf164dea759728d0",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 138,
+      "header_end_line": 139,
+      "name": "count_zero_order01_mass",
+      "qualified_name": "Examples.PermutationPlacement.count_zero_order01_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem count_zero_order01_mass :\n    law3 (countEvent 0 ∩ orderEvent [0, 1]) = 1 / 3\n",
+      "header_sha256": "5de43f26ce1d14bbfe1ec11d5f5bd77700b9360b3b679b10dabc29bdf2e5bbdd",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 143,
+      "header_end_line": 144,
+      "name": "count_zero_order10_mass",
+      "qualified_name": "Examples.PermutationPlacement.count_zero_order10_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem count_zero_order10_mass :\n    law3 (countEvent 0 ∩ orderEvent [1, 0]) = 1 / 3\n",
+      "header_sha256": "30ba2b6d94b94aa1c701b561b63455160e9a95c3f4f65ba30a1ac9970d74eb4a",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 148,
+      "header_end_line": 149,
+      "name": "count_one_order01_mass",
+      "qualified_name": "Examples.PermutationPlacement.count_one_order01_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem count_one_order01_mass :\n    law3 (countEvent 1 ∩ orderEvent [0, 1]) = 1 / 6\n",
+      "header_sha256": "aeb70cf446460d86cc0dd2da8cb297f9bbf5af844a91ca36256ed1cb194a7fb0",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 153,
+      "header_end_line": 154,
+      "name": "count_one_order10_mass",
+      "qualified_name": "Examples.PermutationPlacement.count_one_order10_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem count_one_order10_mass :\n    law3 (countEvent 1 ∩ orderEvent [1, 0]) = 1 / 6\n",
+      "header_sha256": "c4df5bc0112b1b368938427d802adb36fb351c423d2c4ae220f865e7291800fb",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 159,
+      "header_end_line": 160,
+      "name": "count_order_independent",
+      "qualified_name": "Examples.PermutationPlacement.count_order_independent",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem count_order_independent :\n    IndepFun (fun π => beforeCount rank3 selected π) order law3\n",
+      "header_sha256": "2855f2bbfd21615b4ecc7289062c69156f9efc18cf14fcf6e7f05529114e581a",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 174,
+      "header_end_line": 174,
+      "name": "weight",
+      "qualified_name": "Examples.PermutationPlacement.weight",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "header": "noncomputable def weight (xs : List (Fin 3)) : ℝ\n",
+      "header_sha256": "1b88677c152487b6fb84f1d8a7fc05998b0d40955c2164b03dbf6dc474edddbd",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 177,
+      "header_end_line": 177,
+      "name": "weight_nonneg",
+      "qualified_name": "Examples.PermutationPlacement.weight_nonneg",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem weight_nonneg (xs : List (Fin 3)) : 0 ≤ weight xs\n",
+      "header_sha256": "8cd1163140e05426e1c0b9624797ad00ec2d630ae1fc4fbf54336b2b2a7bf723",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 181,
+      "header_end_line": 181,
+      "name": "weight_integrable",
+      "qualified_name": "Examples.PermutationPlacement.weight_integrable",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem weight_integrable : Integrable (fun π => weight (order π)) law3\n",
+      "header_sha256": "a1fa6c570a599639c13c9ef652dd8b8403f1abde9a10f747e36eb2e644ab09fd",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 184,
+      "header_end_line": 185,
+      "name": "weighted_count_integrable",
+      "qualified_name": "Examples.PermutationPlacement.weighted_count_integrable",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem weighted_count_integrable :\n    Integrable (fun π => (beforeCount rank3 selected π : ℝ) * weight (order π)) law3\n",
+      "header_sha256": "8e54728ffecc70113b685de4295f1c337d681d39d0f6356d0fb7921204dff7be",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 192,
+      "header_end_line": 192,
+      "name": "weight_mean",
+      "qualified_name": "Examples.PermutationPlacement.weight_mean",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem weight_mean : (∫ π, weight (order π) ∂law3) = 7 / 2\n",
+      "header_sha256": "eee1ed76d3c4178ff408d272c8265bc5edb02c6b06b8884e9c1bcbd0c64cec29",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 211,
+      "header_end_line": 213,
+      "name": "weighted_count_factor",
+      "qualified_name": "Examples.PermutationPlacement.weighted_count_factor",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem weighted_count_factor :\n    (∫ π, (beforeCount rank3 selected π : ℝ) * weight (order π) ∂law3) =\n      (1 / 3 : ℝ) * ∫ π, weight (order π) ∂law3\n",
+      "header_sha256": "863154e6dbcaa80a6ccbc466266fd4251928b7c028a61a12ee03069885c9e41b",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 218,
+      "header_end_line": 219,
+      "name": "weighted_count_mean",
+      "qualified_name": "Examples.PermutationPlacement.weighted_count_mean",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem weighted_count_mean :\n    (∫ π, (beforeCount rank3 selected π : ℝ) * weight (order π) ∂law3) = 7 / 6\n",
+      "header_sha256": "ecb3e47ea06afee946caffbcef7db9cfac1757fb833d180cd98d2d986e61410c",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 224,
+      "header_end_line": 225,
+      "name": "weighted_count_bound",
+      "qualified_name": "Examples.PermutationPlacement.weighted_count_bound",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem weighted_count_bound :\n    (∫ π, (beforeCount rank3 selected π : ℝ) * weight (order π) ∂law3) ≤ 7 / 4\n",
+      "header_sha256": "0b375920983307b89480a1b32255cdbdb1ce438a34323d38e78f5b3f9efda857",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 234,
+      "header_end_line": 235,
+      "name": "weighted_ordinal_integrable",
+      "qualified_name": "Examples.PermutationPlacement.weighted_ordinal_integrable",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem weighted_ordinal_integrable :\n    Integrable (fun π => (firstPosition3 π : ℝ) * weight (order π)) law3\n",
+      "header_sha256": "afa26e9797b736f19312941fe34fef37d30be5765b2b9b56e396d1a797d64303",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 239,
+      "header_end_line": 240,
+      "name": "weighted_ordinal_mean",
+      "qualified_name": "Examples.PermutationPlacement.weighted_ordinal_mean",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem weighted_ordinal_mean :\n    (∫ π, (firstPosition3 π : ℝ) * weight (order π) ∂law3) = 14 / 3\n",
+      "header_sha256": "22d3bff8529bdd79f81d58d59db2e8178243a1c813125debea4e9ed646beef89",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 254,
+      "header_end_line": 254,
+      "name": "signedWeight",
+      "qualified_name": "Examples.PermutationPlacement.signedWeight",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "header": "noncomputable def signedWeight (xs : List (Fin 3)) : ℝ\n",
+      "header_sha256": "59c189407f51f57a83f52f966bcdc146eef978d109aebaa3ef822b3c99bed0f7",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 256,
+      "header_end_line": 256,
+      "name": "signed_weight_integrable",
+      "qualified_name": "Examples.PermutationPlacement.signed_weight_integrable",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem signed_weight_integrable : Integrable (fun π => signedWeight (order π)) law3\n",
+      "header_sha256": "5bf2a1356b5ebba4d65447cc8faed5ec15353d081dd5f6db32229692ef9a4186",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 259,
+      "header_end_line": 261,
+      "name": "signed_product_integrable",
+      "qualified_name": "Examples.PermutationPlacement.signed_product_integrable",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem signed_product_integrable :\n    Integrable (fun π => (beforeCount rank3 selected π : ℝ) * signedWeight (order π))\n      law3\n",
+      "header_sha256": "dac12f3310e04d3648f7333ba98f7681c9606d26cd7cb7beb4eb2a43a990926c",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 263,
+      "header_end_line": 263,
+      "name": "signed_weight_mean",
+      "qualified_name": "Examples.PermutationPlacement.signed_weight_mean",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem signed_weight_mean : (∫ π, signedWeight (order π) ∂law3) = -(7 / 2 : ℝ)\n",
+      "header_sha256": "f97ca88980c215fd4bee632ab35a79934969c04a790037fd809b5b9c709f640e",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 268,
+      "header_end_line": 270,
+      "name": "signed_product_mean",
+      "qualified_name": "Examples.PermutationPlacement.signed_product_mean",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem signed_product_mean :\n    (∫ π, (beforeCount rank3 selected π : ℝ) * signedWeight (order π) ∂law3) =\n      -(7 / 6 : ℝ)\n",
+      "header_sha256": "77520444dc73846ac49456db7ab1a14b47febdef731b024cb1786f4b482bf090",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 281,
+      "header_end_line": 281,
+      "name": "weightENN",
+      "qualified_name": "Examples.PermutationPlacement.weightENN",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "header": "noncomputable def weightENN (xs : List (Fin 3)) : ℝ≥0∞\n",
+      "header_sha256": "6a4e167797670c2accb5a51f8dbcea0859562efdab2e0b980f1ab2d682ba884c",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 283,
+      "header_end_line": 283,
+      "name": "weight_ennreal_mean",
+      "qualified_name": "Examples.PermutationPlacement.weight_ennreal_mean",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem weight_ennreal_mean : (∫⁻ π, weightENN (order π) ∂law3) = 7 / 2\n",
+      "header_sha256": "c4e9e242adb81a6472f12645fcd5d3d9b8c00c5f07047de0d5d55f66aa3faa03",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 292,
+      "header_end_line": 294,
+      "name": "weighted_count_ennreal_mean",
+      "qualified_name": "Examples.PermutationPlacement.weighted_count_ennreal_mean",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem weighted_count_ennreal_mean :\n    (∫⁻ π, (beforeCount rank3 selected π : ℝ≥0∞) * weightENN (order π) ∂law3) =\n      7 / 6\n",
+      "header_sha256": "75f1231aee17f146737423ea5930438764f526cfae41f8e336b22327e6db7723",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 306,
+      "header_end_line": 306,
+      "name": "afterOrder01",
+      "qualified_name": "Examples.PermutationPlacement.afterOrder01",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "header": "noncomputable def afterOrder01 : Measure (Equiv.Perm (Fin 3))\n",
+      "header_sha256": "c2490829fec05badc58e15446b3f9151fbe221c1eceafde8a213c8c0bd16b017",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 309,
+      "header_end_line": 309,
+      "name": "afterOrder01_isProbabilityMeasure",
+      "qualified_name": "Examples.PermutationPlacement.afterOrder01_isProbabilityMeasure",
+      "kind": "instance",
+      "visibility": "public",
+      "modifiers": [
+        "local"
+      ],
+      "header": "local instance afterOrder01_isProbabilityMeasure : IsProbabilityMeasure afterOrder01\n",
+      "header_sha256": "d3317a316a7c75eea8fd2e3e617f0f3f6db30cd74a00c2fe22c392dab5451e7e",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 327,
+      "header_end_line": 327,
+      "name": "after_order_count_zero_mass",
+      "qualified_name": "Examples.PermutationPlacement.after_order_count_zero_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem after_order_count_zero_mass : afterOrder01 (countEvent 0) = 2 / 3\n",
+      "header_sha256": "40579b048a42df369edf168d85f8fa5cc8e42b6b9836ab2f5288ae4c7dd3ce1d",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 330,
+      "header_end_line": 330,
+      "name": "after_order_count_one_mass",
+      "qualified_name": "Examples.PermutationPlacement.after_order_count_one_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem after_order_count_one_mass : afterOrder01 (countEvent 1) = 1 / 3\n",
+      "header_sha256": "38d81359f32acf66ee289d10b485423099eb7dd20a82d65e96745e8c981f0ee9",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 333,
+      "header_end_line": 333,
+      "name": "after_order_environment_changed",
+      "qualified_name": "Examples.PermutationPlacement.after_order_environment_changed",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem after_order_environment_changed : afterOrder01 ≠ law3\n",
+      "header_sha256": "01e364fd802904cb11112953fee1f184a5f4bc38df793c538b137beb988e790d",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 342,
+      "header_end_line": 342,
+      "name": "afterOne",
+      "qualified_name": "Examples.PermutationPlacement.afterOne",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "header": "noncomputable def afterOne : Measure (Equiv.Perm (Fin 3))\n",
+      "header_sha256": "3b9610a5f31f67b376b28c3a71d0081acb0fda658e66aeb0f14dd8974ca99c69",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 344,
+      "header_end_line": 344,
+      "name": "afterOne_isProbabilityMeasure",
+      "qualified_name": "Examples.PermutationPlacement.afterOne_isProbabilityMeasure",
+      "kind": "instance",
+      "visibility": "public",
+      "modifiers": [
+        "local"
+      ],
+      "header": "local instance afterOne_isProbabilityMeasure : IsProbabilityMeasure afterOne\n",
+      "header_sha256": "e222f7c2fd984e69d64c18de817ecbd67ce4ded5b4d631c527ace13601051d5a",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 349,
+      "header_end_line": 349,
+      "name": "after_one_order01_mass",
+      "qualified_name": "Examples.PermutationPlacement.after_one_order01_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem after_one_order01_mass : afterOne (orderEvent [0, 1]) = 1 / 2\n",
+      "header_sha256": "935e13c92fefc8a0895ea221ff5fd469071585263920cb8f1fabd33bc7bafce9",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 354,
+      "header_end_line": 354,
+      "name": "after_one_order10_mass",
+      "qualified_name": "Examples.PermutationPlacement.after_one_order10_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem after_one_order10_mass : afterOne (orderEvent [1, 0]) = 1 / 2\n",
+      "header_sha256": "d996a93dc7d2138dcbb7a662e3e5d70b0c3aaabe2a5f9665194473367886842a",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 359,
+      "header_end_line": 360,
+      "name": "after_one_count_ae",
+      "qualified_name": "Examples.PermutationPlacement.after_one_count_ae",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem after_one_count_ae :\n    ∀ᵐ π ∂afterOne, beforeCount rank3 selected π = 1\n",
+      "header_sha256": "0581e6e3aefda415845e92b702da7dc2fa46210d65b43fb4bc572b5eb7241e89",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 364,
+      "header_end_line": 366,
+      "name": "after_one_count_moment",
+      "qualified_name": "Examples.PermutationPlacement.after_one_count_moment",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem after_one_count_moment :\n    Integrable (fun π => (beforeCount rank3 selected π : ℝ)) afterOne ∧\n      (∫ π, (beforeCount rank3 selected π : ℝ) ∂afterOne) = 1\n",
+      "header_sha256": "7b0786b4966469408dd0a9d9b0d7abf767d0eb9a17a03efa49776eb06d3ed3c0",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 375,
+      "header_end_line": 375,
+      "name": "after_one_environment_changed",
+      "qualified_name": "Examples.PermutationPlacement.after_one_environment_changed",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem after_one_environment_changed : afterOne ≠ law3\n",
+      "header_sha256": "ccd8662a425628a970383266a81cc1061cf1b9f8b13bffdf8131aff4a52bef99",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 384,
+      "header_end_line": 385,
+      "name": "empty_event_slice",
+      "qualified_name": "Examples.PermutationPlacement.empty_event_slice",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem empty_event_slice (xs : List (Fin 3)) :\n    law3 ((∅ : Set (Equiv.Perm (Fin 3))) ∩ orderEvent xs) = 0\n",
+      "header_sha256": "a5119ae87cfe5f8f8b096d9a0beb2ba2f64ffbea6dbd21911f1f0ac77805a64d",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 395,
+      "header_end_line": 395,
+      "name": "count_two_event_empty",
+      "qualified_name": "Examples.PermutationPlacement.count_two_event_empty",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem count_two_event_empty : countEvent 2 = ∅\n",
+      "header_sha256": "a1c85cfb59d73892ec5c5cd180bc5294f4f29f4ff936b98cb2b3fb1d8f51757c",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 401,
+      "header_end_line": 401,
+      "name": "count_two_mass",
+      "qualified_name": "Examples.PermutationPlacement.count_two_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem count_two_mass : law3 (countEvent 2) = 0\n",
+      "header_sha256": "aa38e56df889b10abb604c9bfe64d2384f7bfc32cf290cc2d25587c46b1718e9",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 404,
+      "header_end_line": 404,
+      "name": "count_two_slice",
+      "qualified_name": "Examples.PermutationPlacement.count_two_slice",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem count_two_slice (xs : List (Fin 3)) : law3 (countEvent 2 ∩ orderEvent xs) = 0\n",
+      "header_sha256": "53408a5cb65bf14001a27e011d8c155a59f04cb3fa027e09f04370c25aec4c09",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 408,
+      "header_end_line": 409,
+      "name": "unsupported_order_slice",
+      "qualified_name": "Examples.PermutationPlacement.unsupported_order_slice",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem unsupported_order_slice (n : ℕ) :\n    law3 (countEvent n ∩ orderEvent [0, 0]) = 0\n",
+      "header_sha256": "74bede3fde3d4de00c4cb49133cba7de5dc227138db731d6b12ef05288323ef5",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 412,
+      "header_end_line": 412,
+      "name": "unsupported_order_mass",
+      "qualified_name": "Examples.PermutationPlacement.unsupported_order_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem unsupported_order_mass : law3 (orderEvent [0, 0]) = 0\n",
+      "header_sha256": "43889b249f6b31ec9286aa14405f919cd580d76f09bead2b4ee9463ee516786e",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 423,
+      "header_end_line": 423,
+      "name": "cond_empty_eq_zero",
+      "qualified_name": "Examples.PermutationPlacement.cond_empty_eq_zero",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem cond_empty_eq_zero : law3[|(∅ : Set (Equiv.Perm (Fin 3)))] = 0\n",
+      "header_sha256": "671a6430fa8c4a1d1dc64fe2f922e5a9ddbe6bfb08d143f1f762d8aa9d0f86ee",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 425,
+      "header_end_line": 425,
+      "name": "cond_count_two_eq_zero",
+      "qualified_name": "Examples.PermutationPlacement.cond_count_two_eq_zero",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem cond_count_two_eq_zero : law3[|countEvent 2] = 0\n",
+      "header_sha256": "7a36a13b4a01e775b0f01e53916036386fad875d378fb934ae69ae470c8d493f",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 428,
+      "header_end_line": 428,
+      "name": "cond_unsupported_order_eq_zero",
+      "qualified_name": "Examples.PermutationPlacement.cond_unsupported_order_eq_zero",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem cond_unsupported_order_eq_zero : law3[|orderEvent [0, 0]] = 0\n",
+      "header_sha256": "52b0783b71cbb78ca5c4b0b788c2d52fb582355add827490031fa6c0fee9850e",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 433,
+      "header_end_line": 433,
+      "name": "placementWeight",
+      "qualified_name": "Examples.PermutationPlacement.placementWeight",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "header": "noncomputable def placementWeight (π : Equiv.Perm (Fin 3)) : ℝ\n",
+      "header_sha256": "c99c3126dd883e24b238c020d3450dc6314ffa26917e0f4b0b1979328ff2ad24",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 436,
+      "header_end_line": 436,
+      "name": "placement_weight_mean",
+      "qualified_name": "Examples.PermutationPlacement.placement_weight_mean",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem placement_weight_mean : (∫ π, placementWeight π ∂law3) = 1 / 3\n",
+      "header_sha256": "2c9feecdb33aab76ef6c9d17863b0abd4678e3310bb8df0054158fc870714581",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 439,
+      "header_end_line": 440,
+      "name": "placement_product_integrable",
+      "qualified_name": "Examples.PermutationPlacement.placement_product_integrable",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem placement_product_integrable :\n    Integrable (fun π => (beforeCount rank3 selected π : ℝ) * placementWeight π) law3\n",
+      "header_sha256": "0de31311f2f8b8d00dcf3a9c61f3b1b8a160079c0fd5ab7dce29bfb1848de4fd",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 443,
+      "header_end_line": 444,
+      "name": "placement_product_mean",
+      "qualified_name": "Examples.PermutationPlacement.placement_product_mean",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem placement_product_mean :\n    (∫ π, (beforeCount rank3 selected π : ℝ) * placementWeight π ∂law3) = 1 / 3\n",
+      "header_sha256": "c179e57f9b42f06912e6033fd0180cabab0a906ec26fdee713df89ce6ec7c4ca",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 452,
+      "header_end_line": 454,
+      "name": "placement_marginal_product",
+      "qualified_name": "Examples.PermutationPlacement.placement_marginal_product",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem placement_marginal_product :\n    (∫ π, (beforeCount rank3 selected π : ℝ) ∂law3) *\n      (∫ π, placementWeight π ∂law3) = 1 / 9\n",
+      "header_sha256": "6da60cf7f1d68c68d68a6645951bc38128ddf69fa96d1354527ddce769f3f394",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "line": 459,
+      "header_end_line": 462,
+      "name": "placement_factorization_fails",
+      "qualified_name": "Examples.PermutationPlacement.placement_factorization_fails",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem placement_factorization_fails :\n    (∫ π, (beforeCount rank3 selected π : ℝ) * placementWeight π ∂law3) ≠\n      (∫ π, (beforeCount rank3 selected π : ℝ) ∂law3) *\n        ∫ π, placementWeight π ∂law3\n",
+      "header_sha256": "a80a117e9cb59d97101a1218e6d579ddb115f6141ca9c3279d5cabce759a6e70",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 49,
+      "header_end_line": 49,
+      "name": "positions3",
+      "qualified_name": "Examples.PermutationPlacementBoundary.positions3",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "def positions3 : List (Fin 3)\n",
+      "header_sha256": "a8161904482d3dd6e6501a0ed87ca87af7ea7b79fdfa5a9199d8530c6106dd89",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 51,
+      "header_end_line": 51,
+      "name": "positions3_nodup",
+      "qualified_name": "Examples.PermutationPlacementBoundary.positions3_nodup",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem positions3_nodup : positions3.Nodup\n",
+      "header_sha256": "844578b9840f0631efbbad26e7dbd66599ee8c260b052d7b683aa9ffccea9a1a",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 53,
+      "header_end_line": 53,
+      "name": "positions3_complete",
+      "qualified_name": "Examples.PermutationPlacementBoundary.positions3_complete",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem positions3_complete (a : Fin 3) : a ∈ positions3\n",
+      "header_sha256": "5d051bcde37cf243f577818b85d3d69b7bad69e56e2296be954614781b9edcbf",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 56,
+      "header_end_line": 56,
+      "name": "positions2",
+      "qualified_name": "Examples.PermutationPlacementBoundary.positions2",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "def positions2 : List (Fin 2)\n",
+      "header_sha256": "a3d426e5f55af8c665cf84f4972fc723d671acf9b97ec1aa37d35a7c838caa72",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 58,
+      "header_end_line": 58,
+      "name": "positions2_nodup",
+      "qualified_name": "Examples.PermutationPlacementBoundary.positions2_nodup",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem positions2_nodup : positions2.Nodup\n",
+      "header_sha256": "afe6531ba8ed423c3fe39cf79a99bd55109698ef011a219a5737a30800a5e7dc",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 60,
+      "header_end_line": 60,
+      "name": "positions2_complete",
+      "qualified_name": "Examples.PermutationPlacementBoundary.positions2_complete",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem positions2_complete (a : Fin 2) : a ∈ positions2\n",
+      "header_sha256": "3958ee33ce1fe4952f5430e792977e13df2bd63ee47dd1a85e19b32ed59a35c3",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 63,
+      "header_end_line": 63,
+      "name": "law2",
+      "qualified_name": "Examples.PermutationPlacementBoundary.law2",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "header": "noncomputable def law2 : Measure (Equiv.Perm (Fin 2))\n",
+      "header_sha256": "682999d8c2983f3e4f25ac76350664b8863a6415be7264f52e0111754beffd6c",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 65,
+      "header_end_line": 65,
+      "name": "emptyLaw",
+      "qualified_name": "Examples.PermutationPlacementBoundary.emptyLaw",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "header": "noncomputable def emptyLaw : Measure (Equiv.Perm Empty)\n",
+      "header_sha256": "809d88b5855c7efc84103a6c1cf17afea358430b1ac4fcf3770dc07f5dea2827",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 67,
+      "header_end_line": 67,
+      "name": "law3_isProbabilityMeasure",
+      "qualified_name": "Examples.PermutationPlacementBoundary.law3_isProbabilityMeasure",
+      "kind": "instance",
+      "visibility": "public",
+      "modifiers": [
+        "local"
+      ],
+      "header": "local instance law3_isProbabilityMeasure : IsProbabilityMeasure law3\n",
+      "header_sha256": "beb96159a31346cb78286ad167acbae6cf04958d5bb31a1a0b2c2b645fe6445b",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 72,
+      "header_end_line": 74,
+      "name": "empty_subset_independent",
+      "qualified_name": "Examples.PermutationPlacementBoundary.empty_subset_independent",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem empty_subset_independent :\n    IndepFun (fun π => beforeCount rank3 ∅ π)\n      (restrictedOrder positions3 ∅) law3\n",
+      "header_sha256": "59eb9b9fef7b1423eee3ab9e36391c6ed153ea9463b69648933c8492f802430f",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 79,
+      "header_end_line": 80,
+      "name": "empty_subset_observations",
+      "qualified_name": "Examples.PermutationPlacementBoundary.empty_subset_observations",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem empty_subset_observations (π : Equiv.Perm (Fin 3)) :\n    beforeCount rank3 ∅ π = 3 ∧ restrictedOrder positions3 ∅ π = []\n",
+      "header_sha256": "4781a3e18ee95adcfb42c6175415b22708f3a65892e14cc7fff65661ba92e59e",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 85,
+      "header_end_line": 87,
+      "name": "full_subset_independent",
+      "qualified_name": "Examples.PermutationPlacementBoundary.full_subset_independent",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem full_subset_independent :\n    IndepFun (fun π => beforeCount rank3 Finset.univ π)\n      (restrictedOrder positions3 Finset.univ) law3\n",
+      "header_sha256": "4cd73ed693f7884bcc974f7f4a96f13ff6e4ebb86ec20b25589fb1d3b30eb67c",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 92,
+      "header_end_line": 94,
+      "name": "singleton_independent",
+      "qualified_name": "Examples.PermutationPlacementBoundary.singleton_independent",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem singleton_independent :\n    IndepFun (fun π => beforeCount rank3 PermutationExpectationBoundary.singleton π)\n      (restrictedOrder positions3 PermutationExpectationBoundary.singleton) law3\n",
+      "header_sha256": "f59c2e0f73367c4a67278751d21ed9c862cabe2e530033919817c411de09d6f9",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 100,
+      "header_end_line": 102,
+      "name": "singleton_observations",
+      "qualified_name": "Examples.PermutationPlacementBoundary.singleton_observations",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem singleton_observations (π : Equiv.Perm (Fin 3)) :\n    beforeCount rank3 PermutationExpectationBoundary.singleton π = (π 1).val ∧\n      restrictedOrder positions3 PermutationExpectationBoundary.singleton π = [1]\n",
+      "header_sha256": "355fc72dd91b57d14fbcda6a04cbff3e2199db405ff88c42310706f7e056955f",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 109,
+      "header_end_line": 113,
+      "name": "tied_priorities_independent",
+      "qualified_name": "Examples.PermutationPlacementBoundary.tied_priorities_independent",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem tied_priorities_independent :\n    IndepFun\n      (fun π => beforeCount PermutationExpectationBoundary.tiedPriority\n        PermutationExpectationBoundary.tiedSubset π)\n      (restrictedOrder positions2 PermutationExpectationBoundary.tiedSubset) law2\n",
+      "header_sha256": "878e147e2a31ab66c2f7ed4636b03194ee48c6790e26da309376421a86cd2eab",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 120,
+      "header_end_line": 127,
+      "name": "tied_mean_boundary",
+      "qualified_name": "Examples.PermutationPlacementBoundary.tied_mean_boundary",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem tied_mean_boundary :\n    (∀ π : Equiv.Perm (Fin 2),\n      beforeCount PermutationExpectationBoundary.tiedPriority\n        PermutationExpectationBoundary.tiedSubset π = 0) ∧\n    (∫ π, (beforeCount PermutationExpectationBoundary.tiedPriority\n      PermutationExpectationBoundary.tiedSubset π : ℝ) ∂law2) ≠\n      ((Nat.card (Fin 2) - PermutationExpectationBoundary.tiedSubset.card : ℕ) : ℝ) /\n        ((PermutationExpectationBoundary.tiedSubset.card + 1 : ℕ) : ℝ)\n",
+      "header_sha256": "8678e876efce10ca709c903bc2450a9069294475a32db32864b80c378a958148",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 131,
+      "header_end_line": 134,
+      "name": "empty_indices_independent",
+      "qualified_name": "Examples.PermutationPlacementBoundary.empty_indices_independent",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem empty_indices_independent :\n    IndepFun\n      (fun π => beforeCount PermutationExpectationBoundary.emptyPriority ∅ π)\n      (restrictedOrder ([] : List Empty) ∅) emptyLaw\n",
+      "header_sha256": "79b6930fd20b51ef21f222e51b5b49025ae925e14e06eef0541fcad356590de1",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 140,
+      "header_end_line": 144,
+      "name": "empty_indices_observations",
+      "qualified_name": "Examples.PermutationPlacementBoundary.empty_indices_observations",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem empty_indices_observations :\n    emptyLaw Set.univ = 1 ∧\n      ∀ π : Equiv.Perm Empty,\n        beforeCount PermutationExpectationBoundary.emptyPriority ∅ π = 0 ∧\n          restrictedOrder ([] : List Empty) ∅ π = []\n",
+      "header_sha256": "881f2e86daae38cfba7ad182fbffdd5dd57b3697ca85458620bb66b5460c68da",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 151,
+      "header_end_line": 151,
+      "name": "alwaysTrueLT",
+      "qualified_name": "Examples.PermutationPlacementBoundary.alwaysTrueLT",
+      "kind": "instance",
+      "visibility": "public",
+      "modifiers": [
+        "local"
+      ],
+      "header": "local instance alwaysTrueLT : LT Unit\n",
+      "header_sha256": "8ab9008c0a79be9cd8b0a34977aa3298d5e210c0f7a3e1c5f91c83d89140f001",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 153,
+      "header_end_line": 153,
+      "name": "alwaysPriority",
+      "qualified_name": "Examples.PermutationPlacementBoundary.alwaysPriority",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "def alwaysPriority (_ : Fin 2) : Unit\n",
+      "header_sha256": "3cd65ee07492b85ca8c2b18914ddd3667a594edbccd5d4e4a410332eea546900",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 156,
+      "header_end_line": 157,
+      "name": "always_true_full_count",
+      "qualified_name": "Examples.PermutationPlacementBoundary.always_true_full_count",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem always_true_full_count (π : Equiv.Perm (Fin 2)) :\n    beforeCount alwaysPriority Finset.univ π = 2\n",
+      "header_sha256": "9625d08359bceed30aa8d34b690613a4deda294a9f7660694d0183bad0a21d52",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 167,
+      "header_end_line": 169,
+      "name": "always_true_full_independent",
+      "qualified_name": "Examples.PermutationPlacementBoundary.always_true_full_independent",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem always_true_full_independent :\n    IndepFun (fun π => beforeCount alwaysPriority Finset.univ π)\n      (restrictedOrder positions2 Finset.univ) law2\n",
+      "header_sha256": "a90f2413ab5bf1556c1a16db513540e11b2aaf03aee086dca6de5b5f0647ef5f",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 176,
+      "header_end_line": 177,
+      "name": "full_infinite_product_value",
+      "qualified_name": "Examples.PermutationPlacementBoundary.full_infinite_product_value",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem full_infinite_product_value (π : Equiv.Perm (Fin 3)) :\n    (beforeCount rank3 Finset.univ π : ℝ≥0∞) * ∞ = 0\n",
+      "header_sha256": "2a067bf68188c1755d5cf6672b1c73e82b7509478f006c89c3816e6e814cde79",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 184,
+      "header_end_line": 187,
+      "name": "full_infinite_weight_mean",
+      "qualified_name": "Examples.PermutationPlacementBoundary.full_infinite_weight_mean",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem full_infinite_weight_mean :\n    (∫⁻ π, (beforeCount rank3 Finset.univ π : ℝ≥0∞) *\n      (fun _ : List (Fin 3) => ∞) (restrictedOrder positions3 Finset.univ π)\n      ∂law3) = 0\n",
+      "header_sha256": "16e37c22aa08d8491f44d682b53b5aaff77c647db12d1002acb90f2f6d6ea910",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 193,
+      "header_end_line": 196,
+      "name": "full_weight_itself_infinite",
+      "qualified_name": "Examples.PermutationPlacementBoundary.full_weight_itself_infinite",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem full_weight_itself_infinite :\n    (∫⁻ π : Equiv.Perm (Fin 3),\n      (fun _ : List (Fin 3) => (∞ : ℝ≥0∞))\n        (restrictedOrder positions3 Finset.univ π) ∂law3) = ∞\n",
+      "header_sha256": "2161c100255f431460df00bb830815834a6c8097e9306c88a6a7bb9f9957a8e8",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 201,
+      "header_end_line": 210,
+      "name": "actual_environment_case",
+      "qualified_name": "Examples.PermutationPlacementBoundary.actual_environment_case",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem actual_environment_case {Ω : Type w} [MeasurableSpace Ω]\n    {μ : Measure Ω} {Π : Ω → Equiv.Perm (Fin 3)}\n    (hΠ : HasLaw Π law3 μ) (g : List (Fin 3) → ℝ) :\n    IndepFun (fun ω => beforeCount rank3 selected (Π ω))\n      (fun ω => restrictedOrder positions3 selected (Π ω)) μ ∧\n    Integrable (fun ω => (beforeCount rank3 selected (Π ω) : ℝ) *\n      g (restrictedOrder positions3 selected (Π ω))) μ ∧\n    (∫ ω, (beforeCount rank3 selected (Π ω) : ℝ) *\n      g (restrictedOrder positions3 selected (Π ω)) ∂μ) =\n      (1 / 3 : ℝ) * ∫ ω, g (restrictedOrder positions3 selected (Π ω)) ∂μ\n",
+      "header_sha256": "ea94c337deb6e60187afdceff7972f636e7576e72c400598dc354e246d62f46c",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 225,
+      "header_end_line": 225,
+      "name": "flipped",
+      "qualified_name": "Examples.PermutationPlacementBoundary.flipped",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "def flipped : Equiv.Perm (Fin 3)\n",
+      "header_sha256": "c0e2a954a8964097ba3979a683e2bd6ee025d43fd42668d5598c35de92b60b8e",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 227,
+      "header_end_line": 227,
+      "name": "selectedOrder",
+      "qualified_name": "Examples.PermutationPlacementBoundary.selectedOrder",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "def selectedOrder (π : Equiv.Perm (Fin 3)) : List (Fin 3)\n",
+      "header_sha256": "d931121bcac6a81fc40bec0f2141bd0b80491dbb8b2cfdb667ba58a56a6207bb",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 230,
+      "header_end_line": 230,
+      "name": "twoAtomLaw",
+      "qualified_name": "Examples.PermutationPlacementBoundary.twoAtomLaw",
+      "kind": "def",
+      "visibility": "public",
+      "modifiers": [
+        "noncomputable"
+      ],
+      "header": "noncomputable def twoAtomLaw : Measure (Equiv.Perm (Fin 3))\n",
+      "header_sha256": "fe776562804516aaf8eaca4433aa81485d678a3f74316c714a7d72bbf360a05a",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 234,
+      "header_end_line": 236,
+      "name": "identity_observations",
+      "qualified_name": "Examples.PermutationPlacementBoundary.identity_observations",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem identity_observations :\n    beforeCount rank3 selected (Equiv.refl (Fin 3)) = 0 ∧\n      selectedOrder (Equiv.refl (Fin 3)) = [0, 1]\n",
+      "header_sha256": "e12a4a8c8f3c1b529c0117f07dfc1e0aa25818dd3104bfc5dd3919d2f4ca95e3",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 245,
+      "header_end_line": 246,
+      "name": "flipped_observations",
+      "qualified_name": "Examples.PermutationPlacementBoundary.flipped_observations",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem flipped_observations :\n    beforeCount rank3 selected flipped = 1 ∧ selectedOrder flipped = [1, 0]\n",
+      "header_sha256": "adb43cdec52cd9aa38069a6c03488500151c9b16d10030ec0b486b03307f98cc",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 255,
+      "header_end_line": 258,
+      "name": "twoAtomLaw_apply",
+      "qualified_name": "Examples.PermutationPlacementBoundary.twoAtomLaw_apply",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem twoAtomLaw_apply (E : Set (Equiv.Perm (Fin 3))) :\n    twoAtomLaw E =\n      (1 / 2 : ℝ≥0∞) * E.indicator 1 (Equiv.refl (Fin 3)) +\n        (1 / 2 : ℝ≥0∞) * E.indicator 1 flipped\n",
+      "header_sha256": "c8ec719b5505003d2ddfe4923766a268beb12b9cce765e72b034308c8aee442d",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 261,
+      "header_end_line": 261,
+      "name": "two_atom_normalized",
+      "qualified_name": "Examples.PermutationPlacementBoundary.two_atom_normalized",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem two_atom_normalized : twoAtomLaw Set.univ = 1\n",
+      "header_sha256": "693fe13d36f35b331db8f41207dc5370c05be27c7e05aa630d3cc6905f78486b",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 265,
+      "header_end_line": 265,
+      "name": "twoAtomLaw_isProbabilityMeasure",
+      "qualified_name": "Examples.PermutationPlacementBoundary.twoAtomLaw_isProbabilityMeasure",
+      "kind": "instance",
+      "visibility": "public",
+      "modifiers": [
+        "local"
+      ],
+      "header": "local instance twoAtomLaw_isProbabilityMeasure : IsProbabilityMeasure twoAtomLaw\n",
+      "header_sha256": "5642cfdf32f0d5a326ecc03a6bf37c769a5464f2d25c04752844db4ea6d4887a",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 272,
+      "header_end_line": 274,
+      "name": "selected_order_original_hasLaw",
+      "qualified_name": "Examples.PermutationPlacementBoundary.selected_order_original_hasLaw",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem selected_order_original_hasLaw :\n    HasLaw selectedOrder\n      (uniformOn (orders positions3 selected : Set (List (Fin 3)))) law3\n",
+      "header_sha256": "ea6ba847c42d174396554ca086ce7e03ce4d301beb219004555abbaa7e7a224d",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 280,
+      "header_end_line": 282,
+      "name": "selected_order_two_atom_hasLaw",
+      "qualified_name": "Examples.PermutationPlacementBoundary.selected_order_two_atom_hasLaw",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem selected_order_two_atom_hasLaw :\n    HasLaw selectedOrder\n      (uniformOn (orders positions3 selected : Set (List (Fin 3)))) twoAtomLaw\n",
+      "header_sha256": "48563103d1714773cf57741cd9fee6ad4ec394fb2204a7e110eef2cbaebd7cb8",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 307,
+      "header_end_line": 308,
+      "name": "two_atom_count_one_mass",
+      "qualified_name": "Examples.PermutationPlacementBoundary.two_atom_count_one_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem two_atom_count_one_mass :\n    twoAtomLaw {π | beforeCount rank3 selected π = 1} = 1 / 2\n",
+      "header_sha256": "92d73fe81c06b6859764b7fda434f0641ecad960598868969817f278d52564fc",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 312,
+      "header_end_line": 313,
+      "name": "two_atom_reverse_order_mass",
+      "qualified_name": "Examples.PermutationPlacementBoundary.two_atom_reverse_order_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem two_atom_reverse_order_mass :\n    twoAtomLaw {π | selectedOrder π = [1, 0]} = 1 / 2\n",
+      "header_sha256": "c2b58dadded4bbea157454dbe56e073dc58c37255c59d325daf76f02a3d7fdaa",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 317,
+      "header_end_line": 319,
+      "name": "two_atom_joint_mass",
+      "qualified_name": "Examples.PermutationPlacementBoundary.two_atom_joint_mass",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem two_atom_joint_mass :\n    twoAtomLaw ({π | beforeCount rank3 selected π = 1} ∩\n      {π | selectedOrder π = [1, 0]}) = 1 / 2\n",
+      "header_sha256": "129101aa5a735bc7e3019153128e5204814637af44806cd32f9dcd4f94757b0b",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 324,
+      "header_end_line": 326,
+      "name": "two_atom_marginal_product",
+      "qualified_name": "Examples.PermutationPlacementBoundary.two_atom_marginal_product",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem two_atom_marginal_product :\n    twoAtomLaw {π | beforeCount rank3 selected π = 1} *\n      twoAtomLaw {π | selectedOrder π = [1, 0]} = 1 / 4\n",
+      "header_sha256": "90ca77f33c97444e6b89ca6c18c6e5201a8faca02986f54a92e19e783d16da93",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 330,
+      "header_end_line": 334,
+      "name": "two_atom_joint_ne_product",
+      "qualified_name": "Examples.PermutationPlacementBoundary.two_atom_joint_ne_product",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem two_atom_joint_ne_product :\n    twoAtomLaw ({π | beforeCount rank3 selected π = 1} ∩\n      {π | selectedOrder π = [1, 0]}) ≠\n      twoAtomLaw {π | beforeCount rank3 selected π = 1} *\n        twoAtomLaw {π | selectedOrder π = [1, 0]}\n",
+      "header_sha256": "cfa46bb42e1e87c63f85c994e5785ee591494969dde07e3119ce9145eadcb25b",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 339,
+      "header_end_line": 340,
+      "name": "two_atom_not_independent",
+      "qualified_name": "Examples.PermutationPlacementBoundary.two_atom_not_independent",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem two_atom_not_independent :\n    ¬ IndepFun (fun π => beforeCount rank3 selected π) selectedOrder twoAtomLaw\n",
+      "header_sha256": "b9725a91ed545b39a1c5856949b3070b2d4176a8caf1c991fb55ec621eca1104",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 352,
+      "header_end_line": 353,
+      "name": "two_atom_not_global_uniform",
+      "qualified_name": "Examples.PermutationPlacementBoundary.two_atom_not_global_uniform",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem two_atom_not_global_uniform :\n    ¬ HasLaw (id : Equiv.Perm (Fin 3) → Equiv.Perm (Fin 3)) law3 twoAtomLaw\n",
+      "header_sha256": "9eabc54f58504fbf1ffd0e197f9a6d4f9be7410a18125e626fe823ff784a8e65",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 364,
+      "header_end_line": 376,
+      "name": "retained_global_head_boundary",
+      "qualified_name": "Examples.PermutationPlacementBoundary.retained_global_head_boundary",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem retained_global_head_boundary :\n    HasLaw PermutationExpectationBoundary.singletonOrder\n      (uniformOn (orders PermutationExpectationBoundary.positions\n        PermutationExpectationBoundary.singleton : Set (List (Fin 3))))\n      PermutationExpectationBoundary.original ∧\n    HasLaw PermutationExpectationBoundary.singletonOrder\n      (uniformOn (orders PermutationExpectationBoundary.positions\n        PermutationExpectationBoundary.singleton : Set (List (Fin 3))))\n      PermutationExpectationBoundary.afterZero ∧\n    (∫ π, (beforeCount rank3 PermutationExpectationBoundary.singleton π : ℝ)\n      ∂PermutationExpectationBoundary.afterZero) ≠\n      ∫ π, (beforeCount rank3 PermutationExpectationBoundary.singleton π : ℝ)\n        ∂PermutationExpectationBoundary.original\n",
+      "header_sha256": "86cbeef7a8171ecc93caf127e620400ae09f8a2d2ca8a072222b5eb77a6f8dfa",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 383,
+      "header_end_line": 389,
+      "name": "retained_adaptive_boundary",
+      "qualified_name": "Examples.PermutationPlacementBoundary.retained_adaptive_boundary",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem retained_adaptive_boundary :\n    (∀ π : Equiv.Perm (Fin 3),\n      beforeCount rank3 (PermutationExpectationBoundary.adaptiveSubset π) π = 0) ∧\n    (∫ π, (beforeCount rank3 (PermutationExpectationBoundary.adaptiveSubset π) π : ℝ)\n      ∂law3) ≠\n      ∫ π, (beforeCount rank3 PermutationExpectationBoundary.singleton π : ℝ)\n        ∂law3\n",
+      "header_sha256": "5d34541adaa787a5935af204fcf9b66ed870d8768c1f632b5d3747685280b717",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 394,
+      "header_end_line": 396,
+      "name": "preserving_can_move_outsider",
+      "qualified_name": "Examples.PermutationPlacementBoundary.preserving_can_move_outsider",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem preserving_can_move_outsider :\n    (∀ a : Fin 4, Equiv.swap 2 3 a ∈ ({0, 1} : Finset (Fin 4)) ↔\n      a ∈ ({0, 1} : Finset (Fin 4))) ∧ Equiv.swap (2 : Fin 4) 3 2 ≠ 2\n",
+      "header_sha256": "eba3ccfb71e35d1a966811b9efd4b6bff8911bbb0d7cf54fa116c02372e52232",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "line": 399,
+      "header_end_line": 402,
+      "name": "outsider_swap_count_preserved",
+      "qualified_name": "Examples.PermutationPlacementBoundary.outsider_swap_count_preserved",
+      "kind": "theorem",
+      "visibility": "public",
+      "modifiers": [],
+      "header": "theorem outsider_swap_count_preserved (π : Equiv.Perm (Fin 4)) :\n    beforeCount (fun a : Fin 4 => a) ({0, 1} : Finset (Fin 4))\n        (π * (Equiv.swap 2 3).symm) =\n      beforeCount (fun a : Fin 4 => a) ({0, 1} : Finset (Fin 4)) π\n",
+      "header_sha256": "1a4af3f2c6a1ff9ea10bdcccd9bb9c882b0b9651e826f286a7c8dc50ba278bcd",
+      "header_boundary": "source declaration prefix, rstripped plus newline, before proof/body := or where; not an elaborated full type",
+      "inherited_from_original_base": false
+    }
+  ],
+  "full_original_scope": [
+    {
+      "path": "Applications/Probability/PermutationExpectation.lean",
+      "bytes": 14267,
+      "lines": 303,
+      "sha256": "86210864ee226d247f5ac16df34679651376cf2c14d77127ceb7468f8b91f24d",
+      "git_blob": "9124def903537fd47b71ccb23155eca8eb2fc403",
+      "read_ranges": [
+        [
+          1,
+          160
+        ],
+        [
+          161,
+          303
+        ]
+      ],
+      "read_status": "complete immutable current source read in bounded nontruncated ranges"
+    },
+    {
+      "path": "Applications/Probability/PermutationOrder.lean",
+      "bytes": 35628,
+      "lines": 709,
+      "sha256": "f0b6ee804b5a972f151858b7e69c87730fc7aea284f245deef725cf288e1ef03",
+      "git_blob": "965f901ba7843903db3b1260cec88a7fea7adc65",
+      "read_status": "complete source coverage by exact retained XU05 original reading plus full immutable original-to-candidate diff",
+      "retained_prior_candidate": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+      "retained_prior_ledger": "provenance/permutation-joint-standards-preparation-20261104/read-ledger.json",
+      "retained_prior_identity": {
+        "bytes": 29717,
+        "lines": 590,
+        "sha256": "8a427831a044b3c2aac2b7272648ec702d8b04da2e11a1db57521dde28a0e50c"
+      },
+      "exact_retained_ranges": [
+        {
+          "original_lines": [
+            1,
+            39
+          ],
+          "candidate_lines": [
+            2,
+            40
+          ]
+        },
+        {
+          "original_lines": [
+            40,
+            589
+          ],
+          "candidate_lines": [
+            46,
+            595
+          ]
+        },
+        {
+          "original_lines": [
+            590,
+            590
+          ],
+          "candidate_lines": [
+            709,
+            709
+          ]
+        }
+      ],
+      "current_additions_fully_read": [
+        {
+          "kind": "insert",
+          "candidate_lines": [
+            1,
+            1
+          ],
+          "bytes": 33,
+          "sha256": "13ac7254f3508ba9435736f2bf97319e5c49ff9cb73f91a7e3f13443863302f6"
+        },
+        {
+          "kind": "insert",
+          "candidate_lines": [
+            41,
+            45
+          ],
+          "bytes": 261,
+          "sha256": "b3da4900b0c9f0f59395acc40fce684c94b172e097d7de74447b44bcac63d0f4"
+        },
+        {
+          "kind": "insert",
+          "candidate_lines": [
+            596,
+            708
+          ],
+          "bytes": 5617,
+          "sha256": "521a45b11239695e587d3dfeaa73d58a5e2ddde2b6570e878da92a4c585bbffd"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Probability/PermutationPlacement.lean",
+      "bytes": 14329,
+      "lines": 259,
+      "sha256": "c7511e4d14886733f3d19c0fbbb97e8ce3ba56a2e7bd341d43da47066a97f9c8",
+      "git_blob": "6b328c3fc59dc63e7361786077a84a6e6e869cdf",
+      "read_ranges": [
+        [
+          1,
+          145
+        ],
+        [
+          146,
+          259
+        ]
+      ],
+      "read_status": "complete immutable current source read in bounded nontruncated ranges"
+    },
+    {
+      "path": "Examples/PermutationPlacement.lean",
+      "bytes": 20213,
+      "lines": 466,
+      "sha256": "2c4416a41aa60ad1569fd1a9a876d1f12a55d678dc702013ca43b9c4bd9f0da7",
+      "git_blob": "589494cfaf89342c41371f28457af0fe7f7132d6",
+      "read_ranges": [
+        [
+          1,
+          160
+        ],
+        [
+          161,
+          320
+        ],
+        [
+          321,
+          466
+        ]
+      ],
+      "read_status": "complete immutable current source read in bounded nontruncated ranges"
+    },
+    {
+      "path": "Examples/PermutationPlacementBoundary.lean",
+      "bytes": 19014,
+      "lines": 406,
+      "sha256": "d453afaeec363a6e409e2d18d6b9e727868015fb840bd7d967c0e81844d4fc05",
+      "git_blob": "516709a9f641a0de23d52d743cb068133f3f64c6",
+      "read_ranges": [
+        [
+          1,
+          145
+        ],
+        [
+          146,
+          280
+        ],
+        [
+          281,
+          406
+        ]
+      ],
+      "read_status": "complete immutable current source read in bounded nontruncated ranges"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 8546,
+      "lines": 259,
+      "sha256": "bc448a3c8040d654f27ef50c5303366f73e767b2a125b8f9db30dce24677b84f",
+      "git_blob": "ae141f05da4fbd441e1fa008f17afca363d218ea",
+      "read_status": "complete source coverage by exact retained XU05 original reading plus full immutable original-to-candidate diff",
+      "retained_prior_candidate": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+      "retained_prior_ledger": "provenance/permutation-joint-standards-preparation-20261104/read-ledger.json",
+      "retained_prior_identity": {
+        "bytes": 8464,
+        "lines": 257,
+        "sha256": "556524fdf37e4237c0e086af06c97d43561b19c35886913688568ad228bdb700"
+      },
+      "exact_retained_ranges": [
+        {
+          "original_lines": [
+            1,
+            22
+          ],
+          "candidate_lines": [
+            1,
+            22
+          ]
+        },
+        {
+          "original_lines": [
+            23,
+            257
+          ],
+          "candidate_lines": [
+            25,
+            259
+          ]
+        }
+      ],
+      "current_additions_fully_read": [
+        {
+          "kind": "insert",
+          "candidate_lines": [
+            23,
+            24
+          ],
+          "bytes": 82,
+          "sha256": "f35cedb47a08ff2a27b3bc7fe917cc6c1482fe47b44b122d87fada8bd417df2d"
+        }
+      ]
+    },
+    {
+      "path": "docs/research/fdsa-permutation-placement.md",
+      "bytes": 10862,
+      "lines": 208,
+      "sha256": "286d0ba4deafcaa42a689b0eca835787c5580f10947a8fd2bc58bfcecfbabbd5",
+      "git_blob": "f92e508c016d5b282ab47b612c144e276169c5f2",
+      "read_ranges": [
+        [
+          1,
+          208
+        ]
+      ],
+      "read_status": "complete immutable current source read in bounded nontruncated ranges"
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 22925,
+      "lines": 379,
+      "sha256": "087dd293f0ab3ef226b07617ee1e761cceec6f3456d1e45c6245cfd56c45c716",
+      "git_blob": "06be6836de8c0315e58125ad60322a60ff832727",
+      "read_status": "complete source coverage by exact retained XU05 original reading plus full immutable original-to-candidate diff",
+      "retained_prior_candidate": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+      "retained_prior_ledger": "provenance/permutation-joint-standards-preparation-20261104/read-ledger.json",
+      "retained_prior_identity": {
+        "bytes": 21507,
+        "lines": 356,
+        "sha256": "8583097adf4bb97611ddda8b276cd5d85d7d7c1dab5bfb31685f427daa3ac408"
+      },
+      "exact_retained_ranges": [
+        {
+          "original_lines": [
+            1,
+            356
+          ],
+          "candidate_lines": [
+            1,
+            356
+          ]
+        }
+      ],
+      "current_additions_fully_read": [
+        {
+          "kind": "insert",
+          "candidate_lines": [
+            357,
+            379
+          ],
+          "bytes": 1418,
+          "sha256": "f8a78720d17a67d2657af222ea2824926d1258719204b26491ec9ef85ddc9f95"
+        }
+      ]
+    }
+  ],
+  "review_inputs": [
+    {
+      "path": "reviews/permutation-placement-standards-preparation-20261104.md",
+      "bytes": 23981,
+      "sha256": "120b53767cb488f53c50bfb6f70ed39d825b8e6d1236087da68b8884ae0782a2"
+    },
+    {
+      "path": "reviews/permutation-placement-spec-preparation-20261104.md",
+      "bytes": 25474,
+      "sha256": "3d5a62d33a2f71ae0ca59b9f62b6cbc011d20e77a6092f525f2d6fe5a63b9999"
+    },
+    {
+      "path": "provenance/permutation-placement-standards-preparation-20261104/existing-findings-original-to-candidate.diff",
+      "bytes": 1503,
+      "sha256": "055db2fc6e8a5d38954e5b6ef50337d103e863fc5eb86ab666b01f55adf494c1"
+    },
+    {
+      "path": "provenance/permutation-placement-standards-preparation-20261104/existing-findings-source-recheck.json",
+      "bytes": 1412,
+      "sha256": "30e2e262b8d5758bc0074f4c3cbc8b3b051df9341c569dda9890c863b9290c5f"
+    },
+    {
+      "path": "provenance/permutation-placement-standards-preparation-20261104/read-ledger.json",
+      "bytes": 38048,
+      "sha256": "73c1411fbb509830ebbe713c2d3e2482d0710815d3a73b44b458c8939b4134a9"
+    },
+    {
+      "path": "provenance/permutation-placement-standards-preparation-20261104/source-preparation.json",
+      "bytes": 154506,
+      "sha256": "77b2fedc4bace8bbcf8ef4e666d60a16cdcd8fd78dd71b86caa65c22b984e49c"
+    },
+    {
+      "path": "provenance/permutation-placement-spec-preparation-20261104/current-boundary.json",
+      "bytes": 8169,
+      "sha256": "a31ac12c65fb0009ab6efa679dfb17e53ebda62ad18498766969d9ec91a6edbe"
+    },
+    {
+      "path": "provenance/permutation-placement-spec-preparation-20261104/original-boundary-corrections.diff",
+      "bytes": 815,
+      "sha256": "13bd68ec56f7fb12549983cb1e3ad76e7440aeb6b28c3c1c55859f69d723063a"
+    },
+    {
+      "path": "provenance/permutation-placement-spec-preparation-20261104/source-assessment.json",
+      "bytes": 277315,
+      "sha256": "f8665c4035fbd3e251eff13f262935c67924017d88d466bdfd247a2873d0aa1e"
+    }
+  ],
+  "program": {
+    "path": "provenance/permutation-placement-public-statements138-prepared-20261104/Statements.lean",
+    "bytes": 9674,
+    "sha256": "6ccf609779a9940a9e2f5be20c511007ec15d0d50bae66fda21907c2962b977e"
+  },
+  "generated_names_not_guessed": true,
+  "prior_F_C2_XP_and_other_unit_counts_unchanged": true
+}

@@ -1,0 +1,117 @@
+{
+  "recorded_utc": "2026-11-04T21:50:35.497860+00:00",
+  "finding": "C03-RANDOM-TAIL-ELAB-002",
+  "candidate": "831b6df2daeb7278581bdd05f0d1f6aca8a5be39",
+  "tree": "3ea411e7e0ad4060ecbe6832b6cb06eee6419f0e",
+  "status": "clean",
+  "state": "All ten source files and own provenance writes HELD pending root actual terminal or explicit release.",
+  "bound_files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/tail-correction2-20261104/Statements209-tail-correction2-preparation.json",
+      "bytes": 29013,
+      "sha256": "5cfedf45d071a2fd853655ea4b38ecb551b41d80d9f077824b71ee5fc71af016"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/tail-correction2-20261104/Statements209-tail-correction2.lean",
+      "bytes": 11862,
+      "sha256": "5f3c2af90ccbd65dcdb7e91a555d5cbb2ae2a4579eaf2b9c3fd05f5c44c3c3df"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/tail-correction2-20261104/candidate.json",
+      "bytes": 21536,
+      "sha256": "62e382ea81912f6abccbc254e56079641db93ef69b459f2a9f4a30336cd25251"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/tail-correction2-20261104/commit-result.json",
+      "bytes": 483,
+      "sha256": "47bf1db468263158342d122c0c9158bd3b92319d4cefb5cea96ad966e5ef9f98"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/tail-correction2-20261104/handoff.md",
+      "bytes": 5757,
+      "sha256": "93b345bc016c6723bad997b28942c0103b41c07f862b331c3168e4ba1e5c5770"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/tail-correction2-20261104/precommit-assessment.json",
+      "bytes": 259966,
+      "sha256": "b17f8192e8959406227ba3bbca59588d148ef92fee3955dea074be14a026b97e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/tail-correction2-20261104/source.diff",
+      "bytes": 2021,
+      "sha256": "2283bd10a4cb66d30999fa232257b3d1693b0571a7b1441e184cb03bbe918390"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/tail-correction2-20261104/stage-result.json",
+      "bytes": 215,
+      "sha256": "1d3a36d5a39918b4c149bd156927c17581856e0508d56938f747978d404307a7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/tail-correction2-20261104/staged-check-result.json",
+      "bytes": 182,
+      "sha256": "5a9f51c6a9fdcca01445e9482b9ceda3e968e335ba25c294bbf9bb97be0e2960"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/tail-correction2-20261104/starting-state.json",
+      "bytes": 76829,
+      "sha256": "95497e8fa0cf63e29ac9114e4ccbce9fc08da305c4eeb15d719e82a0e20c0d2e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Examples/RandomSelection.lean",
+      "bytes": 3135,
+      "sha256": "c5e5654cd0567ed3e0addcfebb2da18549d3fe8102d21cf84efebf36d142100e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Applications/Resources/RandomSelectionRun.lean",
+      "bytes": 12714,
+      "sha256": "23de5dcdde20559ebe581fef8d77679dbe07219b7d88825032aaeb872fad4718"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Examples/RandomSelectionRun.lean",
+      "bytes": 3770,
+      "sha256": "76504fe5fa77c581b8a7e3c9f3e0247c8a927adee8b308f84be6167e0ea20e0f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Applications/Resources/RandomSelectionMean.lean",
+      "bytes": 16493,
+      "sha256": "5a7d396ed0d451c0b0ec51493c004b721c804c69263ad7c659f023cab3ddda8f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Examples/RandomSelectionMean.lean",
+      "bytes": 5962,
+      "sha256": "b9c83ac6e4dda31c6c70d6ccbf021cfcad5ca8317f5a3bf1133788fc559bb7af"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Applications/Resources/RandomSelectionDrift.lean",
+      "bytes": 15121,
+      "sha256": "cdb869dc4a7816eb76ab462bd8e6b62df9e9bb7799434903afa9ec67bed59ef4"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Examples/RandomSelectionDrift.lean",
+      "bytes": 5797,
+      "sha256": "fade4d637a2c50672d6f792326a22264bb4b348cb608bac58c0cf834a914af48"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Applications/Resources/RandomSelectionTail.lean",
+      "bytes": 24389,
+      "sha256": "111f9aabb7cb6b95c686aedb12f6808932b1f661549063e701fe3ef65506c7e7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-random-pivot/Examples/RandomSelectionTail.lean",
+      "bytes": 8697,
+      "sha256": "2678c1f6fd6cab99353562b050d641427c9b04b7648a30e751051d4f0f0d771e"
+    }
+  ],
+  "public_targets": 209,
+  "authored_private_helpers": 16,
+  "computational_definitions": 23,
+  "author_compiler_actions": false,
+  "actual_successor_pair_pass": false,
+  "actual_type_output": false,
+  "worstcase_extension_started": false
+}

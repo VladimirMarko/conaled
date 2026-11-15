@@ -1,0 +1,64 @@
+{
+  "module": "Applications.Durability.Retention",
+  "directImports": [
+    [
+      "SquareKit.InteractionContracts",
+      false,
+      false,
+      false
+    ],
+    [
+      "Mathlib.Data.List.TakeDrop",
+      false,
+      false,
+      false
+    ],
+    [
+      "Mathlib.Tactic.SplitIfs",
+      false,
+      false,
+      false
+    ],
+    [
+      "Lean.Elab.Tactic.Omega",
+      false,
+      false,
+      false
+    ]
+  ],
+  "version": 5,
+  "declarations": [
+    "Durability.Retention.Config",
+    "Durability.Retention.Reply",
+    "Durability.Retention.Represents",
+    "Durability.Retention.Represents.lower",
+    "Durability.Retention.Represents.range",
+    "Durability.Retention.Represents.suffix",
+    "Durability.Retention.Represents.total",
+    "Durability.Retention.Snapshot",
+    "Durability.Retention.Snapshot.lower",
+    "Durability.Retention.Snapshot.total",
+    "Durability.Retention.append",
+    "Durability.Retention.append_represents",
+    "Durability.Retention.classify",
+    "Durability.Retention.classify_refines",
+    "Durability.Retention.empty",
+    "Durability.Retention.parity",
+    "Durability.Retention.parity_append",
+    "Durability.Retention.range",
+    "Durability.Retention.read",
+    "Durability.Retention.read_refines",
+    "Durability.Retention.represents_empty",
+    "Durability.Retention.reserved_fresh",
+    "Durability.Retention.specClassify",
+    "Durability.Retention.specRead"
+  ],
+  "c_initializers": [
+    "initialize_Applications_Durability_Retention",
+    "initialize_Init",
+    "initialize_Lean_Elab_Tactic_Omega",
+    "initialize_SquareKit_InteractionContracts",
+    "initialize_mathlib_Mathlib_Data_List_TakeDrop",
+    "initialize_mathlib_Mathlib_Tactic_SplitIfs"
+  ]
+}

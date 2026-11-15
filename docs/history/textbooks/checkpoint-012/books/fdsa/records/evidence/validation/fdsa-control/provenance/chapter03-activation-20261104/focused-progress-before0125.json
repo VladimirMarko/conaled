@@ -1,0 +1,431 @@
+{
+  "recorded_utc": "2026-11-04T19:52:27.132200+00:00",
+  "accepted_head": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "qualified_head": "95406b83968e5b438e206c06f9797804664e0170",
+  "chapter03_accepted": false,
+  "required_obligations": 83,
+  "all_closed_runs": [
+    {
+      "name": "affine-recurrence-immediate-verification-20261104",
+      "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+      "exit": 0,
+      "owned_session": 94331,
+      "terminal_chunk": "689efc",
+      "closed_log": {
+        "path": "provenance/affine-recurrence-immediate-verification-20261104/full.log",
+        "bytes": 317,
+        "sha256": "65ee03f27d8d4864e94fb53eaba3c6c2b05dab38469b849249fd6d5e6850eb26"
+      }
+    },
+    {
+      "name": "affine-recurrence-receiving-focused-attempt1-20261104",
+      "candidate": "4df3bc95b96342250c9b3ff946773449e308e11b",
+      "exit": 1,
+      "owned_session": 37708,
+      "terminal_chunk": "40f51a",
+      "closed_log": {
+        "path": "provenance/affine-recurrence-receiving-focused-attempt1-20261104/full.log",
+        "bytes": 3800,
+        "sha256": "6d0b02515abb300fef8abf747e3845ee091ce3ec6281506c093c3c1aa16b0a53"
+      }
+    },
+    {
+      "name": "affine-recurrence-receiving-focused-attempt2-20261104",
+      "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+      "exit": 0,
+      "owned_session": 39301,
+      "terminal_chunk": "235f30",
+      "closed_log": {
+        "path": "provenance/affine-recurrence-receiving-focused-attempt2-20261104/full.log",
+        "bytes": 1753,
+        "sha256": "f8c5dff295862af1d5e2ba538bb0db5012a786dfb7890d58e4de8933a7973f9a"
+      }
+    },
+    {
+      "name": "affine-recurrence-receiving-full-attempt1-20261104",
+      "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+      "exit": 1,
+      "owned_session": 18625,
+      "terminal_chunk": "9556b9",
+      "closed_log": {
+        "path": "provenance/affine-recurrence-receiving-full-attempt1-20261104/full.log",
+        "bytes": 224766,
+        "sha256": "dab74fdcc00093150c36f7cae8fc7c65304e774a1556f7fa64a372d170ff0cc5"
+      }
+    },
+    {
+      "name": "affine-recurrence-receiving-full-attempt2-20261104",
+      "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+      "exit": 0,
+      "owned_session": 66741,
+      "terminal_chunk": "487100",
+      "closed_log": {
+        "path": "provenance/affine-recurrence-receiving-full-attempt2-20261104/full.log",
+        "bytes": 304402,
+        "sha256": "cada5fe7ec2fed03ef1eb9295359e9b894cfcdf21b1d2f66e06730bf926b9a24"
+      }
+    },
+    {
+      "name": "affine-recurrence-receiving-statements21-attempt1-20261104",
+      "candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+      "exit": 0,
+      "owned_session": 55717,
+      "terminal_chunk": "bb0312",
+      "closed_log": {
+        "path": "provenance/affine-recurrence-receiving-statements21-attempt1-20261104/full.log",
+        "bytes": 17512,
+        "sha256": "fbb86fb040e0700421f315af6a111a73e8ba2a54e4c7b151ec7097d1a997df0b"
+      }
+    },
+    {
+      "name": "chapter03-chunks-focused-attempt1-20261104",
+      "candidate": "471af117f915a722a3f1b4446ace4e4b9998dfbb",
+      "exit": 1,
+      "owned_session": 28867,
+      "terminal_chunk": "a61fa1",
+      "closed_log": {
+        "path": "provenance/chapter03-chunks-focused-attempt1-20261104/full.log",
+        "bytes": 4791,
+        "sha256": "89e42d9561646a9fb69896c4f294b7deb27c1b937bbbb09e672f3003bc163084"
+      }
+    },
+    {
+      "name": "chapter03-chunks-focused-attempt2-20261104",
+      "candidate": "e1b7b57dd495b9b57597e75141e0ec397536ed35",
+      "exit": 0,
+      "owned_session": 17606,
+      "terminal_chunk": "be2bce",
+      "closed_log": {
+        "path": "provenance/chapter03-chunks-focused-attempt2-20261104/full.log",
+        "bytes": 1036,
+        "sha256": "751e95455fac0a4fb808bb85c6e0af090f12a3c2fdf5a23ccfca5bdc11e17c52"
+      }
+    },
+    {
+      "name": "chapter03-coordinate-queries-focused-attempt1-20261104",
+      "candidate": "6c66b545f7f7e2e15a274a67a867d8ddc7f980c3",
+      "exit": 1,
+      "owned_session": 24675,
+      "terminal_chunk": "1b5f2e",
+      "closed_log": {
+        "path": "provenance/chapter03-coordinate-queries-focused-attempt1-20261104/full.log",
+        "bytes": 6401,
+        "sha256": "eda4276bc188b27f8a6c0fdc7f4e96920974b300e54ffe2fea11c14cf755d1fe"
+      }
+    },
+    {
+      "name": "chapter03-coordinate-queries-focused-attempt2-20261104",
+      "candidate": "0ae89d68b3e1f7002f2766c95cf52492a3a7923e",
+      "exit": 1,
+      "owned_session": 67752,
+      "terminal_chunk": "50b523",
+      "closed_log": {
+        "path": "provenance/chapter03-coordinate-queries-focused-attempt2-20261104/full.log",
+        "bytes": 9700,
+        "sha256": "a055b55cf4440d29c1fd0b63fd2895dba5146f754f300016b5783922603ef897"
+      }
+    },
+    {
+      "name": "chapter03-coordinate-queries-focused-attempt3-20261104",
+      "candidate": "591ecdd855bc2fab3f788e6b134cc18aa80a3b6a",
+      "exit": 0,
+      "owned_session": 64627,
+      "terminal_chunk": "d3a94e",
+      "closed_log": {
+        "path": "provenance/chapter03-coordinate-queries-focused-attempt3-20261104/full.log",
+        "bytes": 3725,
+        "sha256": "32166f0d039aa627e8bc6fb8bdc50cae77fb561f749104a16243b9f91b88d8cd"
+      }
+    },
+    {
+      "name": "chapter03-count-rank-focused-attempt1-20261104",
+      "candidate": "a5341e132c63aa8c9e8af13e24b441b42de2fe27",
+      "exit": 1,
+      "owned_session": 44183,
+      "terminal_chunk": "171a77",
+      "closed_log": {
+        "path": "provenance/chapter03-count-rank-focused-attempt1-20261104/full.log",
+        "bytes": 4893,
+        "sha256": "ee87fda0145fcef5e27465248c833845f58e49dcf0c902aaed1db312e7013dce"
+      }
+    },
+    {
+      "name": "chapter03-count-rank-focused-attempt2-20261104",
+      "candidate": "79b270943119ae541a8ed5561adae4b55cfbe567",
+      "exit": 1,
+      "owned_session": 53264,
+      "terminal_chunk": "a290aa",
+      "closed_log": {
+        "path": "provenance/chapter03-count-rank-focused-attempt2-20261104/full.log",
+        "bytes": 3337,
+        "sha256": "59f82a85de1909e64049bbafee52924f6fce261fcfeeeed7be2201f6f8cd040c"
+      }
+    },
+    {
+      "name": "chapter03-count-rank-focused-attempt3-20261104",
+      "candidate": "e82d1fc8ef3a4bed1b4135711d50cd4abc50e6d3",
+      "exit": 0,
+      "owned_session": 58408,
+      "terminal_chunk": "1fa08a",
+      "closed_log": {
+        "path": "provenance/chapter03-count-rank-focused-attempt3-20261104/full.log",
+        "bytes": 1160,
+        "sha256": "35a677d8def9a7f09aa5c1e942ada9d97de758fc2206664d506a7dd8317ee759"
+      }
+    },
+    {
+      "name": "chapter03-median-of-medians-focused-attempt1-20261104",
+      "candidate": "9ff4d92e20eeabde29fd91b78c37786019e9613b",
+      "exit": 1,
+      "owned_session": 9461,
+      "terminal_chunk": "9f945e",
+      "closed_log": {
+        "path": "provenance/chapter03-median-of-medians-focused-attempt1-20261104/full.log",
+        "bytes": 5939,
+        "sha256": "0493742f653e8f58b5f4e418eb1e25c46c5fc10ae294c8ff36bda09cd6146a41"
+      }
+    },
+    {
+      "name": "chapter03-median-of-medians-focused-attempt2-20261104",
+      "candidate": "ac8bee488069d471eef9955fed11db5647cff72f",
+      "exit": 1,
+      "owned_session": 92661,
+      "terminal_chunk": "335534",
+      "closed_log": {
+        "path": "provenance/chapter03-median-of-medians-focused-attempt2-20261104/full.log",
+        "bytes": 7652,
+        "sha256": "bc68c2b9a7bd89374401680e15cc13c9df46e4929245f6e2e67a6bb8319d553e"
+      }
+    },
+    {
+      "name": "chapter03-median-of-medians-focused-attempt3-20261104",
+      "candidate": "bc26994a828eb958fe930c0e46039f9c5addc864",
+      "exit": 0,
+      "owned_session": 95787,
+      "terminal_chunk": "cebdf4",
+      "closed_log": {
+        "path": "provenance/chapter03-median-of-medians-focused-attempt3-20261104/full.log",
+        "bytes": 2294,
+        "sha256": "c86d55c97e1a5e12c5c81dd24d31448d1216aca84e2d8c6af6f7fbdcc3c4530a"
+      }
+    },
+    {
+      "name": "chapter03-random-selection-focused-attempt1-20261104",
+      "candidate": "be1bf8de03554faea7beef0a25d01c40091d33b3",
+      "exit": 1,
+      "owned_session": 62595,
+      "terminal_chunk": "420f8a",
+      "closed_log": {
+        "path": "provenance/chapter03-random-selection-focused-attempt1-20261104/full.log",
+        "bytes": 13000,
+        "sha256": "98180dbe25953895c12ce7560611f9085bcc71c3c888f9b29bb4bb3bb579707e"
+      }
+    },
+    {
+      "name": "chapter03-random-selection-focused-attempt2-20261104",
+      "candidate": "5433d48eeba0d3ac27460e4d7b23ad41e26c64d2",
+      "exit": 1,
+      "owned_session": 13397,
+      "terminal_chunk": "11309d",
+      "closed_log": {
+        "path": "provenance/chapter03-random-selection-focused-attempt2-20261104/full.log",
+        "bytes": 7007,
+        "sha256": "bb812ede5f65ad3125eb61240c82382f771b7e1aaa842a34404e8e6ee64ef10d"
+      }
+    },
+    {
+      "name": "chapter03-random-selection-focused-attempt3-20261104",
+      "candidate": "da8a1c6bb03e242d2655b3f38dc9361961102892",
+      "exit": 0,
+      "owned_session": 6230,
+      "terminal_chunk": "9fecce",
+      "closed_log": {
+        "path": "provenance/chapter03-random-selection-focused-attempt3-20261104/full.log",
+        "bytes": 4147,
+        "sha256": "319ac3466c554652a3d874a91b9b69d609ede89a7b2ba6ac82ea781de68f1e3e"
+      }
+    },
+    {
+      "name": "chapter03-random-selection-run-focused-attempt1-20261104",
+      "candidate": "94f10cf511785d2ecf50817e3c24abb3c6287010",
+      "exit": 1,
+      "owned_session": 51952,
+      "terminal_chunk": "9341a5",
+      "closed_log": {
+        "path": "provenance/chapter03-random-selection-run-focused-attempt1-20261104/full.log",
+        "bytes": 14916,
+        "sha256": "71d60c039eaeab0977babcc0525dbb5a9334efe108f8d022a574ec241f68d897"
+      }
+    },
+    {
+      "name": "chapter03-random-selection-run-focused-attempt2-20261104",
+      "candidate": "b059af864122a6b09912ba0db8095f422f8991bf",
+      "exit": 1,
+      "owned_session": 39520,
+      "terminal_chunk": "26714d",
+      "closed_log": {
+        "path": "provenance/chapter03-random-selection-run-focused-attempt2-20261104/full.log",
+        "bytes": 12839,
+        "sha256": "e76898a357e67981bf7ddadfb4b3169c85c21421d280ff953c3f6ae8fa11725e"
+      }
+    },
+    {
+      "name": "chapter03-random-selection-run-focused-attempt3-20261104",
+      "candidate": "e15c4c1c2e6cfce76f7ca6372fc3c62e49d40ba7",
+      "exit": 1,
+      "owned_session": 98660,
+      "terminal_chunk": "6eb519",
+      "closed_log": {
+        "path": "provenance/chapter03-random-selection-run-focused-attempt3-20261104/full.log",
+        "bytes": 11688,
+        "sha256": "7b59e0f21c41e05fc58935b786915bf0107e250415638599e816bd8bf329dd90"
+      }
+    },
+    {
+      "name": "chapter03-rounded-recurrence-bounds-focused-attempt1-20261104",
+      "candidate": "4e022bf16e793fd5a1f830b14ba30fb4a2dd0525",
+      "exit": 1,
+      "owned_session": 26503,
+      "terminal_chunk": "4843ca",
+      "closed_log": {
+        "path": "provenance/chapter03-rounded-recurrence-bounds-focused-attempt1-20261104/full.log",
+        "bytes": 4679,
+        "sha256": "36545e27c51cdac86455459c410a53309a1325199c8a9351fc115e0325b79a9a"
+      }
+    },
+    {
+      "name": "chapter03-rounded-recurrence-bounds-focused-attempt2-20261104",
+      "candidate": "4badcd5a7cab38aed7ff6c178c0649ae8ec63228",
+      "exit": 1,
+      "owned_session": 60468,
+      "terminal_chunk": "2b3c01",
+      "closed_log": {
+        "path": "provenance/chapter03-rounded-recurrence-bounds-focused-attempt2-20261104/full.log",
+        "bytes": 4852,
+        "sha256": "7af587c501e7335609c07b1c755ed62c72cbd459e78b5a047264a854c5cbc3b9"
+      }
+    },
+    {
+      "name": "chapter03-rounded-recurrence-bounds-focused-attempt3-20261104",
+      "candidate": "95406b83968e5b438e206c06f9797804664e0170",
+      "exit": 0,
+      "owned_session": 80278,
+      "terminal_chunk": "731351",
+      "closed_log": {
+        "path": "provenance/chapter03-rounded-recurrence-bounds-focused-attempt3-20261104/full.log",
+        "bytes": 2065,
+        "sha256": "bbd749fe1f415ef0ae8e5de988be621811e798cc3b05f5d656fad7679586128f"
+      }
+    },
+    {
+      "name": "chapter03-rounded-recurrence-focused-attempt1-20261104",
+      "candidate": "a4cd1b6b53fdab38eab40433c3fd60293fdc054f",
+      "exit": 0,
+      "owned_session": 52277,
+      "terminal_chunk": "3e669a",
+      "closed_log": {
+        "path": "provenance/chapter03-rounded-recurrence-focused-attempt1-20261104/full.log",
+        "bytes": 1319,
+        "sha256": "98f6a19dba123ee588b5b97135f7b9bb335d3da67d18fd75f6332232928cea14"
+      }
+    },
+    {
+      "name": "chapter03-selection-auxiliary-focused-attempt1-20261104",
+      "candidate": "8fef3ea5964f058f1c0036f53414d5d06fa56e59",
+      "exit": 1,
+      "owned_session": 21687,
+      "terminal_chunk": "a10808",
+      "closed_log": {
+        "path": "provenance/chapter03-selection-auxiliary-focused-attempt1-20261104/full.log",
+        "bytes": 7536,
+        "sha256": "3c643708f63fd68cb13ae619cc7a046e95da8650b3e0ef2ddd1ca07efed10cb0"
+      }
+    },
+    {
+      "name": "chapter03-selection-auxiliary-focused-attempt2-20261104",
+      "candidate": "d204aa2c64937cb1f151bd52759bfcfa50e4248f",
+      "exit": 1,
+      "owned_session": 61135,
+      "terminal_chunk": "24a559",
+      "closed_log": {
+        "path": "provenance/chapter03-selection-auxiliary-focused-attempt2-20261104/full.log",
+        "bytes": 6778,
+        "sha256": "4dd326300f22f985eb7dffed645166817814d3fa17cd916b0635b3ff276a9268"
+      }
+    },
+    {
+      "name": "chapter03-selection-auxiliary-focused-attempt3-20261104",
+      "candidate": "4604d35e44d383fe8e84c2874812b2fc11d8f09b",
+      "exit": 0,
+      "owned_session": 83350,
+      "terminal_chunk": "651912",
+      "closed_log": {
+        "path": "provenance/chapter03-selection-auxiliary-focused-attempt3-20261104/full.log",
+        "bytes": 2938,
+        "sha256": "0d1b23bf30cdf41452f130136413d01df77656d413e04d3dc6bb4afe3bf88490"
+      }
+    }
+  ],
+  "focused_components": [
+    {
+      "scope": "CountRank and Chunks",
+      "candidate": "bc26994a828eb958fe930c0e46039f9c5addc864",
+      "public_names": 75,
+      "focused_pair_passed": true,
+      "note": "Exact preserved earlier passing source identities."
+    },
+    {
+      "scope": "MedianOfMedians pivot",
+      "candidate": "bc26994a828eb958fe930c0e46039f9c5addc864",
+      "public_names": 55,
+      "focused_pair_passed": true
+    },
+    {
+      "scope": "SelectionAuxiliary",
+      "candidate": "4604d35e44d383fe8e84c2874812b2fc11d8f09b",
+      "public_names": 40,
+      "focused_pair_passed": true,
+      "later_author_head": "759589ec63d359231330f732b42c96591a53325e",
+      "note": "Later author only incorporates the exact pivot corrections; combined successor not recompiled."
+    },
+    {
+      "scope": "RoundedRecurrence and RoundedRecurrenceBounds",
+      "candidate": "95406b83968e5b438e206c06f9797804664e0170",
+      "public_names": 35,
+      "focused_pair_passed": true
+    },
+    {
+      "scope": "CoordinateSensitivity and CoordinateQueries",
+      "candidate": "591ecdd855bc2fab3f788e6b134cc18aa80a3b6a",
+      "public_names": 68,
+      "focused_pair_passed": true
+    },
+    {
+      "scope": "RandomSelection first step and finite run",
+      "candidate": "e15c4c1c2e6cfce76f7ca6372fc3c62e49d40ba7",
+      "public_names": 60,
+      "focused_pair_passed": false,
+      "earlier_first_step_pair_passed_names": 19,
+      "finite_run_core_compiled": true,
+      "finite_run_examples_failed": true
+    }
+  ],
+  "prepared_public_source_names": 333,
+  "public_names_in18_focused_passed_modules": 292,
+  "counts_are_source_inventory_not_audit_or_completed_obligations": true,
+  "actual_type_credit_for_new_C3_names": 0,
+  "full_C3_candidate_check_audit_reviews_pending": true,
+  "compiler_live": false,
+  "unmodified_one_thread_qualified_environment": true,
+  "remaining_scope": [
+    "actual measured chop and chunk median map",
+    "nested deterministic selector, termination, value correctness and actual costs",
+    "F monotonicity, rounded theorem specialization and actual linear bound",
+    "fixed-rank algorithms and remaining exercises",
+    "finite randomized examples correction, expectations, exact tail, worst-case attainment and resource bridges",
+    "actual coordinate-query observation and declared tariff bridge"
+  ],
+  "checkpoint0125_not_created_yet": true,
+  "latest_durable_checkpoint": "0124",
+  "full_failed_runs_and_proof_corrections_retained": true
+}

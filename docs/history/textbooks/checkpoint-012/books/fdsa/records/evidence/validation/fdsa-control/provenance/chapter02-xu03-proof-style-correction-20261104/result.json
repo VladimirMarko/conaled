@@ -1,0 +1,17 @@
+{
+  "recorded_utc": "2026-11-04T06:49:47.595301+00:00",
+  "finding": "XU03-SRC-001",
+  "source_before": "a0597381f02eddd074ee96cabaa974f2062285f8",
+  "source_after": "97ed9feee78f723cb6294aa5148da9ab5846db7a",
+  "scope": "Replace all seventeen proposition-proof local letI tactics by let, preserving every public/private statement, ordinary definition, hypothesis and example. Pinned linter source and actual XU01 diagnostics establish this compatibility correction. No linter or checker change.",
+  "after": {
+    "bytes": 23385,
+    "sha256": "9acccef466f57da5621c6582be3332204b85f4de2ba758713fe538de0a205402"
+  },
+  "diff": {
+    "bytes": 5768,
+    "sha256": "f1fc825a316132aca7de80c6c9c1a0f1b43caaeda4b0ebe44dba4e8cb3204025"
+  },
+  "commit_output": "[work/fdsa-permutation-tail-validation 97ed9fe] fix(fdsa): use proof-local instances for conditional remaining orders\n 1 file changed, 17 insertions(+), 17 deletions(-)\n",
+  "validation": "Source-only pre-compilation correction; no compiler result or acceptance."
+}

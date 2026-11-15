@@ -1,0 +1,111 @@
+{
+  "recorded_utc": "2026-11-04T19:02:09.040512+00:00",
+  "author": "/root/chapter03_mom_execution",
+  "base": "9ff4d92e20eeabde29fd91b78c37786019e9613b",
+  "tree": "7d1bf3dcfc4df2aa1573b12f40f6ec74264cb51d",
+  "branch": "work/fdsa-ch03-mom-execution",
+  "status": "",
+  "owned_paths": [
+    "Applications/Resources/SelectionAuxiliary.lean",
+    "Examples/SelectionAuxiliary.lean"
+  ],
+  "preserved_base_files": [
+    {
+      "path": "Applications/Selection/CountRank.lean",
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d"
+    },
+    {
+      "path": "Examples/SelectionCountRank.lean",
+      "bytes": 4423,
+      "sha256": "cc73980788882d39abe44672d89e6a3ce37dfe3b5f5788375255248e8b4a66d2"
+    },
+    {
+      "path": "Applications/Sequences/Chunks.lean",
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493"
+    },
+    {
+      "path": "Examples/ListChunks.lean",
+      "bytes": 2683,
+      "sha256": "161e240f9c07db5b13f9abf5bf09782064adce4862e60fbe35f0eba483c76c78"
+    },
+    {
+      "path": "Applications/Selection/MedianOfMedians.lean",
+      "bytes": 13715,
+      "sha256": "bc67a91a75dcff12a800039ea781be097dc0907c6dbebab3e1d281d1d1a06645"
+    },
+    {
+      "path": "Examples/MedianOfMedians.lean",
+      "bytes": 6480,
+      "sha256": "9f3d2f87a119db761f1d94de74e431950201043b083c3d83b9bf4a0726357a40"
+    }
+  ],
+  "source": "Pinned FDSA July27 2026 PDF SHA9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645; printed39-41 and348, current book.txt LF1761-1780,1823-1848,13847-13874 read directly. Earlier splitlines display did not preserve LF coordinates; corrected LF extraction was read in dc02d3.",
+  "scope": [
+    "C03-027",
+    "C03-032",
+    "C03-033",
+    "C03-035 per-chunk bound only",
+    "C03-038 base arithmetic only"
+  ],
+  "source_equations": [
+    "slowSelect: actual insertion sort followed by actual lookup, no wrapper tick",
+    "slowMedian: actual length followed by slowSelect at (n-1)/2, no wrapper tick"
+  ],
+  "expected_cases": [
+    {
+      "case": "empty optional selection",
+      "value": "none",
+      "calls": 2
+    },
+    {
+      "case": "singleton [7], zero-based rank0",
+      "value": "some7",
+      "calls": 4
+    },
+    {
+      "case": "singleton median [7]",
+      "value": "some7",
+      "calls": 6
+    },
+    {
+      "case": "invalid singleton rank1 or17",
+      "value": "none",
+      "calls": 5
+    },
+    {
+      "case": "even reversed pair [7,2] lower median",
+      "value": "some2",
+      "calls": 10
+    },
+    {
+      "case": "duplicate pair [4,4] median",
+      "value": "some4",
+      "calls": 9
+    },
+    {
+      "case": "range5 median",
+      "value": "some2",
+      "calls": 20
+    },
+    {
+      "case": "reverse range5 median",
+      "value": "some2",
+      "calls": 30
+    },
+    {
+      "case": "base entry+length+select range20 rank19",
+      "value": "some19",
+      "calls": 83
+    },
+    {
+      "case": "base entry+length+select reverse range20 rank19",
+      "value": "some19",
+      "calls": 273
+    }
+  ],
+  "nonempty_small_chunk_source_bound": 47,
+  "cutoff_base_source_bound": 483,
+  "limits": "These are independently calculated intended cases and source preparation. No Lean/Lake has run, no actual type/audit/review or acceptance credit. C03-028\u2013030,034,035 mapped payload execution,036\u2013038 recursive majorant remain pending after first auxiliary slice. No Inhabited/Nodup assumption and no source cost attached to merge-sort specification."
+}

@@ -1,0 +1,67 @@
+{
+  "started_utc": "2026-11-02T14:02:57.320157+00:00",
+  "status": "completed",
+  "scope": "One-time retirement of redundant local checkpoint020 only; uploaded copies and all receipts remain; retain verified021/022. No source, cache, process, configuration or remote deletion.",
+  "verified": [
+    {
+      "number": 20,
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-020-extract-redblack-trie-plans.tar.gz",
+      "size_bytes": 145707469,
+      "sha256": "f1c7dd2a0dbce3657e6bf146c53cf638cdac1779d499bb6ef10b5b93e9286868",
+      "library_file_id": "libfile_86865aace83c819188758ff6cd7e0eee",
+      "signature": [
+        27,
+        2404150,
+        145707469,
+        1793620586229954642,
+        1793620630357458940,
+        1
+      ],
+      "checks": "full SHA256, byte size, successful upload receipt, singly linked regular file, stable identity and Library binding passed"
+    },
+    {
+      "number": 21,
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-021-final-chapter-plans.tar.gz",
+      "size_bytes": 145817559,
+      "sha256": "c15f397ce5cda44df6b37f2cb4505219289f15994275e56b624ade0fb0b4e020",
+      "library_file_id": "libfile_ffc6747146b48191bd7d9bf59f640325",
+      "signature": [
+        27,
+        2404305,
+        145817559,
+        1793623625849482756,
+        1793623672733052485,
+        1
+      ],
+      "checks": "full SHA256, byte size, successful upload receipt, singly linked regular file, stable identity and Library binding passed"
+    },
+    {
+      "number": 22,
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-022-cache-recovery-candidate.tar.gz",
+      "size_bytes": 145901698,
+      "sha256": "be7026163496fdd5422a4dfd3fc1336d57692017d94fab2a46f2d27a8fb5e33f",
+      "library_file_id": "libfile_ce9de1e765d08191b4f8ebcc2ebcc4b9",
+      "signature": [
+        27,
+        2404924,
+        145901698,
+        1793627758950605801,
+        1793627807990210020,
+        1
+      ],
+      "checks": "full SHA256, byte size, successful upload receipt, singly linked regular file, stable identity and Library binding passed"
+    }
+  ],
+  "free_before_bytes": 1237864448,
+  "removed": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-020-extract-redblack-trie-plans.tar.gz",
+      "logical_bytes": 145707469,
+      "removed_once": true,
+      "library_file_id": "libfile_86865aace83c819188758ff6cd7e0eee"
+    }
+  ],
+  "finished_utc": "2026-11-02T14:02:57.336486+00:00",
+  "free_after_bytes": 1383235584,
+  "observed_free_delta_bytes": 145371136
+}

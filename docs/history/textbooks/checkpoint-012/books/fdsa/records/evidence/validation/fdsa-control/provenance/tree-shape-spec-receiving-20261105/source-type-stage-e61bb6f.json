@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-05T03:35:27.130083+00:00",
+  "unit": "FDSA-XT02",
+  "axis": "Spec",
+  "reviewer": "/root/tree_cache_spec",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "incorporated_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "requirements_ids": [
+    "XT02-01",
+    "XT02-02",
+    "XT02-03",
+    "XT02-04",
+    "XT02-05"
+  ],
+  "original_scope_paths": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-shape.md"
+  ],
+  "public_names": 90,
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "outcome": "Blocked",
+  "unresolved_findings": [],
+  "full_original_scope_complete": true,
+  "actual_public_types_complete": true,
+  "full_validation_accepted": false,
+  "review_complete": false,
+  "remaining_gate": "Matching complete full receiving-candidate check and exhaustive audit have not yet been supplied. Root immediate verification and acceptance are subsequent caller actions.",
+  "retained_finding": {
+    "id": "XT02-SP01",
+    "severity": "minor",
+    "source_and_actual_type_correction_confirmed": true,
+    "fully_validated_candidate_confirmation_pending": true
+  },
+  "source_assessment_complete": true,
+  "all91_source_headers_unchanged": true,
+  "actual_public_type_count": 90,
+  "private_definition_count": 1,
+  "failed_receiving_attempts_retained": [
+    {
+      "candidate": "27c5908b07c7a03feefc09472a8701ef940b7aaf",
+      "exit": 1
+    },
+    {
+      "candidate": "5b3b9ab1d72a70ca454abe68790327bcbb352d3c",
+      "exit": 1
+    }
+  ],
+  "focused3_actual_exit": 0,
+  "actual90_actual_exit": 0,
+  "actual_program": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean",
+    "bytes": 4199,
+    "sha256": "fab2460caafba1f3f28a09006c4e220b9c735857e02294091486cdf4e8461c33"
+  },
+  "native_actual_type_output": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/native-records/output.log",
+    "bytes": 30252,
+    "sha256": "1df9da87b91e300b1cb9ac92ac52b379ddeba30231a0f149bbab50ba322e5cd7"
+  },
+  "full_type_read_receipts": [
+    {
+      "receipt": "5e5cf4",
+      "actual_exit": 0,
+      "lines": [
+        1,
+        150
+      ],
+      "untruncated": true
+    },
+    {
+      "receipt": "6316cc",
+      "actual_exit": 0,
+      "lines": [
+        151,
+        300
+      ],
+      "untruncated": true
+    },
+    {
+      "receipt": "07cdd9",
+      "actual_exit": 0,
+      "lines": [
+        301,
+        430
+      ],
+      "untruncated": true
+    }
+  ],
+  "bound_evidence": {
+    "reviews/tree-shape-spec-receiving-20261105.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-shape-spec-receiving-20261105.md",
+      "bytes": 23134,
+      "sha256": "24d3040036ac3ba50614365cc564f0844d6466082a93d1cc29bf8d2e78f51a96"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/source-stage-report-27c5908.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-stage-report-27c5908.md",
+      "bytes": 16346,
+      "sha256": "a4b6e6b2a666f7fc0848af2dfb906b3726afacf1e1592202f048e213f38e80cd"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/source-stage-write-hold-27c5908.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-stage-write-hold-27c5908.json",
+      "bytes": 6913,
+      "sha256": "a6649df6cd66a77dc1fd08ae1a7d7353a3f775b98a378949eecf06a50648bd8e"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/source-reconciliation-27c5908.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-reconciliation-27c5908.json",
+      "bytes": 76893,
+      "sha256": "29978ad7f74dc89ab0818fc3db780dd907b0c07eb33271f2efce954a6f2287c9"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/read-ledger-source-27c5908.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/read-ledger-source-27c5908.json",
+      "bytes": 7396,
+      "sha256": "57c915ac255f980e2a8b56706adf748328777334c1c49a46f4e6e04e0d139f8f"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/focused-attempt1-assessment-27c5908.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/focused-attempt1-assessment-27c5908.json",
+      "bytes": 7553,
+      "sha256": "7644eaace1355a7aa3c845ea4394bf9eaaf06f3f83d55a5fa2d5fea20ab63590"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/focused-attempt2-assessment-5b3b9ab.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/focused-attempt2-assessment-5b3b9ab.json",
+      "bytes": 8054,
+      "sha256": "ec2d58d5215bb152fb4071e2648d5f8f80b26190c3cdb0e4734bcf69357c3066"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/focused-attempt3-assessment-e61bb6f.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/focused-attempt3-assessment-e61bb6f.json",
+      "bytes": 7659,
+      "sha256": "c9654a8d57c50eb06cc2964aa3a7a3631433ae33c9838dcca99fc5e299a8afb4"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/source-corrections-e61bb6f.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-corrections-e61bb6f.json",
+      "bytes": 51320,
+      "sha256": "3e0eec71c60f4a515dabf05e6b373bfa149a4a777c3c1d1dfe1a6b25396aa912"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/actual-types90-assessment-e61bb6f.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/actual-types90-assessment-e61bb6f.json",
+      "bytes": 69498,
+      "sha256": "e30648cdaea94fbf5eddb97f917bbe3299323e8a97eaacd9ebaa2194e13882ac"
+    }
+  },
+  "writes_only_authorized_report_and_provenance": true,
+  "no_compiler_helper_process_polling_current_object_hashing": true,
+  "no_acceptance_or_chapter04_claim": true
+}

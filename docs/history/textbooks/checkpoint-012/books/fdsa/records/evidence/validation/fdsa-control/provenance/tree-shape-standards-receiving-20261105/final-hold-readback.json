@@ -1,0 +1,37 @@
+{
+  "recorded_utc": "2026-11-05T04:09:37.346974+00:00",
+  "unit": "FDSA-XT02",
+  "axis": "Standards",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "state": "HELD",
+  "outcome": "Passed",
+  "unresolved_findings": [],
+  "hold": {
+    "path": "provenance/tree-shape-standards-receiving-20261105/final-write-hold.json",
+    "bytes": 13031,
+    "lines": 317,
+    "sha256": "59e85a7a7e99c128d7ab89e586b3bcf0afab865102fb4f3ca401dbaa5d7b9a59"
+  },
+  "full_hold_readback": {
+    "tool": "b06f69",
+    "exit": 0,
+    "lines": [
+      1,
+      317
+    ],
+    "untruncated": true,
+    "exact_saved_bytes": true
+  },
+  "validation_readback_descriptor_lines": [
+    1,
+    40
+  ],
+  "all22_held_provenance_files_plus_report_and20_protected_records_reconciled": true,
+  "saved_actual_tool_result": {
+    "path": "provenance/tree-shape-standards-receiving-20261105/final-hold-readback-result.json",
+    "bytes": 17365,
+    "lines": 10,
+    "sha256": "fe2feecc4ae6cc4424dfab498e20ea808e25ec5e654b05ac7f9a6b737f7b1940"
+  },
+  "no_held_file_changed": true
+}

@@ -1,0 +1,209 @@
+{
+  "schema": 1,
+  "completed_utc": "2026-11-04T16:03:39.231288+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "status": "Complete source-only handoff; source and own provenance HELD after final receipt readback.",
+  "package": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-source-integration-20261104",
+  "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "tree": "43f1c15166931d4bd3e91e6dbf12059d0da1cfc2",
+  "ordered_parents": [
+    "932438a765340d69fa6402f6abd17def6ec28d13",
+    "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9"
+  ],
+  "branch": "work/fdsa-tail-integration",
+  "accepted_ref_remains": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "all65_prior_refs_unchanged": true,
+  "prior_ref_count": 65,
+  "current_ref_count": 66,
+  "worktrees": 15,
+  "complete_author_source_readback": {
+    "paths": 6,
+    "lines": 2073,
+    "formal_defining_lines": 975,
+    "record": "author-readback.json"
+  },
+  "complete_saved_handoff_readback": {
+    "path": "handoff.md",
+    "owned_chunk": "3180c1",
+    "lines": 106
+  },
+  "actual_commands_secured": [
+    "01-create-branch.json",
+    "02-normal-merge.json",
+    "05-stage-resolution.json",
+    "07-merge-commit.json"
+  ],
+  "actual_merge_conflict_count": 1,
+  "conflict_evidence": "03-conflict-before-resolution.json and actual-map-conflict.txt",
+  "resolved_only_per_exact_held_recipe": true,
+  "complete_diff_and_path_inventory": "source.diff and result.json",
+  "independent_review_role": false,
+  "actual_receiving_compiler_type_audit_verify_credit": 0,
+  "compiler_cache_output_runtime_action": false,
+  "global_control_ticket_old_report_mutations": false,
+  "original_notes_and_preparations_reverified": [
+    {
+      "path": "provenance/shared-order-acceptance-20261104/acceptance.json",
+      "sha256": "639ab129abcdbcc29486f752e498cf859884201ec2a96a2bfac8db122f7c43b8",
+      "unchanged": true
+    },
+    {
+      "path": "provenance/shared-order-acceptance-20261104/durability.json",
+      "sha256": "866586a5efe778c766f532149be4180dc06884c4637061bf6eb1eac153c269b1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/permutation-tail-requirements.md",
+      "sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/permutation-tail-standards-receiving-preparation-20261104.md",
+      "sha256": "2e48e156f69effb51aba01146b44f6a359284d509078e58a7083df955e8ac8a6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/permutation-tail-spec-integration-preparation-20261104.md",
+      "sha256": "cf82fe7273fbdcd88abba72b79de324f7acd082f6ef9cff9072b6b64cb0961ec",
+      "unchanged": true
+    },
+    {
+      "path": "provenance/shared-tail-integration-readiness-20261104/readiness.md",
+      "sha256": "8c78289e814157df89637bfc004092876ec1a26f25ac8354b3dea9cdfb73017f",
+      "unchanged": true
+    },
+    {
+      "path": "provenance/shared-tail-integration-readiness-20261104/inventory.json",
+      "sha256": "9ae15ac5cfc32f7ebe5b8dbe3ddf664774b4c7fff46c8c70fd2bf2d0b5550109",
+      "unchanged": true
+    },
+    {
+      "path": "provenance/shared-tail-integration-readiness-20261104/receipt.json",
+      "sha256": "0acd1288355966bcfda05afb4f958e66bfd100ddc9cdaf637b60e95cbf9854d9",
+      "unchanged": true
+    },
+    {
+      "path": "provenance/chapter02-shared-notes-status-correction1-20261104/proposed/fdsa-permutation-tail.md",
+      "sha256": "9740fdf8ff9761daebae4ec0be6c9388deffcb55fc567d695be27ca89ea86b87",
+      "unchanged": true
+    },
+    {
+      "path": "provenance/shared-order-tail-acceptance-preparation-20261104/StatementsTail61.lean",
+      "sha256": "50d89e5f2118f345624a6eb51c0c6b075af0af416f454a141893b460f1ea17aa",
+      "unchanged": true
+    }
+  ],
+  "observed_CURRENT_is_historical_baseline_not_held_by_author": true,
+  "original_full_scope_counts": {
+    "public": 61,
+    "private_named": 19,
+    "anonymous_instances": 8,
+    "anonymous_examples": 0,
+    "by_module": {
+      "Applications/Probability/PermutationTail.lean": {
+        "public_count": 15,
+        "private_count": 8,
+        "anonymous_instances": 0
+      },
+      "Examples/PermutationTail.lean": {
+        "public_count": 24,
+        "private_count": 1,
+        "anonymous_instances": 2
+      },
+      "Examples/PermutationTailBoundary.lean": {
+        "public_count": 22,
+        "private_count": 10,
+        "anonymous_instances": 6
+      }
+    }
+  },
+  "original_findings_and_type_program_retained": "scope-and-continuation.json",
+  "artifacts": [
+    {
+      "path": "01-create-branch.json",
+      "bytes": 653,
+      "lines": 23,
+      "sha256": "445ee84adc35c3aa53cc560952bd6970f4b8a528e8ae6432c503907aa3bba2a2"
+    },
+    {
+      "path": "02-normal-merge.json",
+      "bytes": 1090,
+      "lines": 25,
+      "sha256": "70a861c000e69dd0e93a78ac08b70d0c5e6d78aefd118b708fcd349028458997"
+    },
+    {
+      "path": "03-conflict-before-resolution.json",
+      "bytes": 726,
+      "lines": 9,
+      "sha256": "12e72cedb96a45768ba7ebb16d2d88fffe4a8d5aba83e97463afbc8794b184d8"
+    },
+    {
+      "path": "04-documentary-resolution.json",
+      "bytes": 1404,
+      "lines": 33,
+      "sha256": "efde5f8c81622c1790db652f9be2b27ce441e35c8d1b0d026555d76334256c5b"
+    },
+    {
+      "path": "05-stage-resolution.json",
+      "bytes": 452,
+      "lines": 20,
+      "sha256": "442ba25390913397a3be9994e5f1c91bce4bb6f2ec53a2b72096503569a2f45d"
+    },
+    {
+      "path": "06-precommit-source-verification.json",
+      "bytes": 6169,
+      "lines": 180,
+      "sha256": "2e26ffaa7b48d11f58b9b209282b65e7e32bccd6487315f40ecbbb9b983d51f3"
+    },
+    {
+      "path": "07-merge-commit.json",
+      "bytes": 648,
+      "lines": 21,
+      "sha256": "d676565c034f4551957415d881a86221c7b8b36fb7b724704109c5aafe2cc8d5"
+    },
+    {
+      "path": "actual-map-conflict.txt",
+      "bytes": 41653,
+      "lines": 638,
+      "sha256": "1db72d385aa02a63596fae2d0c97b885b3fdeb2f6cede03abf4ba529a18fba18"
+    },
+    {
+      "path": "author-readback.json",
+      "bytes": 5991,
+      "lines": 163,
+      "sha256": "99cf27593721dfb5b1153ffb204278d8f5c4662cadfb4404c3660236454a3268"
+    },
+    {
+      "path": "baseline.json",
+      "bytes": 24243,
+      "lines": 602,
+      "sha256": "ad0e1f4c70808959030f7f3830cdcbd0cf10f467637cbc0fd61566c19af26142"
+    },
+    {
+      "path": "handoff.md",
+      "bytes": 14121,
+      "lines": 106,
+      "sha256": "f4ffad157c60c3fd69b6a308472f98824b5500004a3f077c5fe956ea91902f45"
+    },
+    {
+      "path": "result.json",
+      "bytes": 22289,
+      "lines": 539,
+      "sha256": "568868ee361df9ba76fc5171117dadfaecbe0706d070c7b384add3dd9f7cbde7"
+    },
+    {
+      "path": "scope-and-continuation.json",
+      "bytes": 25136,
+      "lines": 636,
+      "sha256": "9d35d42ae7d9d3ded2e9e9e310c9a6c2b13bf8f2490b71493c2766dc8bf13cba"
+    },
+    {
+      "path": "source.diff",
+      "bytes": 60434,
+      "lines": 1241,
+      "sha256": "825737dfb5fc507013f9ab5d156a3e4a68339b1305fa09fac45924b20e68c5db"
+    }
+  ],
+  "payload_count_excluding_this_receipt": 14,
+  "no_source_or_provenance_write_authorized_after_handoff_without_root_release": true
+}

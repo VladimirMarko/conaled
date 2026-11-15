@@ -1,0 +1,66 @@
+{
+  "recorded_utc": "2026-11-04T13:50:23.048536+00:00",
+  "candidate": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+  "attempt": "validation/1002-candidate-eae9e11-monitor-fresh1",
+  "raw_directory": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T114805Z-project-run-0faa8e6a",
+  "owned_session": 30015,
+  "session_closed": true,
+  "actual_execution_api_exit_code": 1,
+  "kit_result": {
+    "started_utc": "2026-11-04T11:48:05.483081+00:00",
+    "command": [
+      "./check.sh",
+      "--candidate",
+      "HEAD",
+      "--fresh",
+      "--jobs",
+      "1"
+    ],
+    "cwd": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation",
+    "log": "/workspace/scratch/60f07f0e98c8/native-state/logs/20261104T114805Z-project-run-0faa8e6a/output.log",
+    "label": "project-run",
+    "lean_threads": "1",
+    "passed": false,
+    "completed_utc": "2026-11-04T13:49:27.706305+00:00",
+    "seconds": 7282.222446444997,
+    "exit_code": 1,
+    "timed_out": false,
+    "recorder_error": null
+  },
+  "printed_ordinary_module_records": 755,
+  "successful_ordinary_modules": 754,
+  "failed_module_index": 755,
+  "failed_module": "Examples.ProbabilisticProgress",
+  "failure_text": "failed to write private Examples/ProbabilisticProgress.olean: failed to create file",
+  "error_number_reported": null,
+  "classification": "Actual output-file-creation failure. Ordinary available space was zero. No theorem/proof error or exact operating-system errno was reported. Cause beyond these observations remains unestablished.",
+  "full_output_bytes": 62708,
+  "full_output_sha256": "62e53ab0a8a7f268806ceba51a8a6f4c24f56ed9c0704d42a5c144da1bca27a0",
+  "full_raw_records_preserved_byte_identically": [
+    "start.json",
+    "output.log",
+    "result.json"
+  ],
+  "fresh_verification_present": false,
+  "exhaustive_audit_executed": false,
+  "fresh_private_directory_present": false,
+  "source_checkout_observations": {
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/conaled": {
+      "head": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+      "status": ""
+    },
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation": {
+      "head": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+      "status": ""
+    }
+  },
+  "ordinary_available_bytes": 0,
+  "all_free_blocks_bytes_diagnostic_only": 41078784,
+  "reserve_status": "released before failure; no refill",
+  "capacity_recovery_pending": true,
+  "artifact_reappearance_incident": "1040-compressed-download-reappearance.json",
+  "runtime_boundary_protocol": "1040-unused-path-runtime-boundary.json",
+  "formal_gate_credit": false,
+  "acceptance": false,
+  "next_action": "Preserve failure and recover adequate stable ordinary capacity before any new full fresh. Do not run success-dependent collector or downstream gates on this failed attempt. Never combine its prefix with another run."
+}

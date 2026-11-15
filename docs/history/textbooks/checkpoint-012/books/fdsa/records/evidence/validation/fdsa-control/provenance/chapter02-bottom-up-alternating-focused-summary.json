@@ -1,0 +1,67 @@
+{
+  "utc": "2026-11-04T05:10:41.810454+00:00",
+  "candidate": "98696d86162bd93c1cba46719eeb65bf6cabe65a",
+  "original_chapter_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "bottom_up_original": "101aaa6f94f75af35d339746bff44305840373fe",
+  "bottom_up_author_successor": "1b705afef4601d955d3ed55b09e6abbec576905b",
+  "alternating_original": "43242f43cba0f2c90c17356d44d71e5765d8ba93",
+  "source_sha256": {
+    "Applications/Sorting/BottomUp.lean": "4df83022174bc4e5becfb441617624d57695158d69dc7241209ca077dc2c7791",
+    "Examples/BottomUpSorting.lean": "1d4a312363af87926c085f790ca7279273df050f40234c449e0e0fa9e5b5592b",
+    "Applications/Sorting/Alternating.lean": "eb927e5978ea410f360441dfa8d4843b5e93de10aae8a5eac5c2f603f4e233e9",
+    "Examples/AlternatingSorting.lean": "5798ed2ce20dab0ce4b9618fea1e8ea36a7be9b2f60fa7090a85522bfb464c04"
+  },
+  "checks": [
+    {
+      "attempt": 1,
+      "candidate": "101aaa6f94f75af35d339746bff44305840373fe",
+      "exit_code": 1,
+      "seconds": 22.135141776000637,
+      "log_sha256": "380e22d418718907ed7fde6d8d7b1a7bcef707a09815cf3d4ca79ba0fba0087a",
+      "final_status": "?? Applications/Sorting/InsertionObservations.lean\n?? Applications/Sorting/TopDown.lean\n?? Examples/InsertionObservations.lean\n?? Examples/TopDownSorting.lean"
+    },
+    {
+      "attempt": 2,
+      "candidate": "8cc255095e41288bf3093285ebd8ae3b506fc6dc",
+      "exit_code": 1,
+      "seconds": 48.184414350000225,
+      "log_sha256": "2fabaa95aa8fbf1810597c41e5a5806b887cf89a50b7ede0319ca58aa122d8a7",
+      "final_status": ""
+    },
+    {
+      "attempt": 3,
+      "candidate": "b5516e43fcc43b26f92f7220002b4eff4d7ba59e",
+      "exit_code": 1,
+      "seconds": 16.346117453999796,
+      "log_sha256": "b57bd2c42036b8ce3613469766df9687047db04f27778ed5830da8fe25421f3c",
+      "final_status": ""
+    },
+    {
+      "attempt": 4,
+      "candidate": "d404e2ad3164efe30d61504e71fd62bdff5b8929",
+      "exit_code": 1,
+      "seconds": 21.903525993000585,
+      "log_sha256": "46a4ced742ffcc57b9176038a2784fd4e984b927c733bb5576bc232cdd86285a",
+      "final_status": ""
+    },
+    {
+      "attempt": 5,
+      "candidate": "98696d86162bd93c1cba46719eeb65bf6cabe65a",
+      "exit_code": 0,
+      "seconds": 17.480759209999633,
+      "log_sha256": "cab1074b263d717c9f70b2cdfba694fddd43f282b853f74bfcbb83ebc7e63983",
+      "final_status": ""
+    }
+  ],
+  "types": {
+    "declarations": 126,
+    "exit_code": 0,
+    "seconds": 38.0912527419996,
+    "log_sha256": "3296e4ba5330af5a1e1d6897ea7acb9898452def68510df2e9c343e70c1180b8"
+  },
+  "author_statement_readback": {
+    "bottom_up": "87 declarations read by retained author; no contract issue reported.",
+    "alternating": "39 declarations read by root; arbitrary accumulators, raw comparator/payload generality, explicit local/key assumptions, source examples and instability witness retained."
+  },
+  "outcome": "Four focused targets and statement inspection passed. Full C2 completion/reviews/check/audit/immediate verification remain pending."
+}

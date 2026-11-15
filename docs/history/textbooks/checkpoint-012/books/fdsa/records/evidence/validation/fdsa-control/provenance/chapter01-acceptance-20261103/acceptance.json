@@ -1,0 +1,68 @@
+{
+  "recorded_utc": "2026-11-03T21:18:19.285873+00:00",
+  "chapter": "FDSA-001",
+  "state": "accepted locally; acceptance checkpoint next",
+  "base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "integration_branch": "work/fdsa-book",
+  "integration_method": "fast-forward",
+  "integration_head": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "integration_status": "",
+  "standards": "Passed; zero unresolved findings",
+  "spec": "Passed; zero unresolved findings",
+  "verification_exit_code": 0,
+  "verified_before_integration": true,
+  "evidence": [
+    {
+      "path": "reviews/chapter01-round1.md",
+      "bytes": 40449,
+      "sha256": "740c8332526003970c5442abb4cefcd5a2ff9e4d1a5d03d8ca03a155bb8c7f07"
+    },
+    {
+      "path": "reviews/chapter01-standards-unified-final.md",
+      "bytes": 24730,
+      "sha256": "347e81fe7f9407ec9fc011d0b2b8ccaa4ac0a410449465fd5356912c806860a1"
+    },
+    {
+      "path": "reviews/chapter01-spec-unified-final.md",
+      "bytes": 23732,
+      "sha256": "dc745b6dbbea795121ba76be9c34ea6205f653bb2bacc817e83b467bed920540"
+    },
+    {
+      "path": "reviews/chapter01-requirements.md",
+      "bytes": 2672,
+      "sha256": "7b7ce18bcfe9bb888ac9e99810a1095a823f9a67dbb54717c5bf673017a890ba"
+    },
+    {
+      "path": "reviews/chapter01-cost-model-requirements.md",
+      "bytes": 9471,
+      "sha256": "1b88c327e465db8d1575d0af086e0b954fb0a21b393f145ae89f630d361914a1"
+    },
+    {
+      "path": "provenance/chapter01-unified-fresh-attempt4/result.json",
+      "bytes": 1186,
+      "sha256": "8f2a76c0f6b3adfb3c1f4c92f8e1aa946ac476cbe3e253869bf0ae1d65ae7873"
+    },
+    {
+      "path": "provenance/chapter01-unified-fresh-attempt4/full.log",
+      "bytes": 201415,
+      "sha256": "751732fbf985a26956e27eef716bf88834d41e885494884cd80aa858d9f40af2"
+    },
+    {
+      "path": "provenance/chapter01-unified-fresh-attempt4/verification.json",
+      "bytes": 861,
+      "sha256": "8d9257a238ab4c2e0743a41851a080f403aa09b41f4bf34690496c1f9a7b0264"
+    },
+    {
+      "path": "provenance/chapter01-unified-final-verification/result.json",
+      "bytes": 1134,
+      "sha256": "83100c332e2116512db25c88c28f09af3752ddb1cc571a3e37d2f4d752fa8f06"
+    },
+    {
+      "path": "provenance/chapter01-unified-final-verification/full.log",
+      "bytes": 288,
+      "sha256": "ecb0563df606d47b38ba4d953ec5f6f4e941b6b8e703dfebeefaa4a829a3491b"
+    }
+  ],
+  "remaining_scope": "Chapters 2\u201327 and final Appendix A\u2013C completeness; all shared drafts remain unaccepted."
+}

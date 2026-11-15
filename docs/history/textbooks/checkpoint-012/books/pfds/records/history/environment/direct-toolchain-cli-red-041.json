@@ -1,0 +1,54 @@
+{
+  "test": "public Lean/Lake command-line interfaces",
+  "workspace": "/workspace/scratch/b566cace4ed6/pfds",
+  "runner": null,
+  "checks": {
+    "exact_lean_version": false,
+    "exact_lake_version": true,
+    "valid_theorem_accepted": false,
+    "false_theorem_rejected": false
+  },
+  "probes": [
+    {
+      "command": [
+        "lean",
+        "--version"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "error: failed to locate application\n",
+      "elapsed_seconds": 0.06890038999972603
+    },
+    {
+      "command": [
+        "lake",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)\n",
+      "stderr": "",
+      "elapsed_seconds": 0.23170307700002013
+    },
+    {
+      "command": [
+        "lean",
+        "Valid.lean"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "error: failed to locate application\n",
+      "elapsed_seconds": 0.037214040999970166
+    },
+    {
+      "command": [
+        "lean",
+        "Invalid.lean"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "error: failed to locate application\n",
+      "elapsed_seconds": 0.03886221100037801
+    }
+  ],
+  "passed": false
+}

@@ -1,0 +1,63 @@
+# FDSA-XT02 — Shared binary-tree shape bounds
+
+State: committed draft; compilation and final reviews pending.
+Triage: ready-for-agent. Parent: FDSA-000.
+Dependencies: accepted repaired FDSA-001 and accepted FDSA-XT01 before
+integration or acceptance.
+
+## Scope and authority
+
+Under the user's cross-cutting exception, develop shared minimum external-leaf
+height, recursive completeness, sharp leaf bounds, almost-complete rounded
+logarithms and cross-type height optimality. Supply separate real-log source
+corollaries and meaningful cache/map/edge-case compositions. These support
+Chapters 4, 11 and 15 without changing their sequential acceptance or remaining
+algorithm, representation, checker and runtime obligations.
+
+Exact requirements: `reviews/tree-shape-requirements.md`, version 1.
+SHA-256: `50d11472d8380fb3458a3ea71aba3d1104886f676a7b1cec578c0557a6979e91`.
+The source/API/independent case preflights and exact initial state are retained
+in `reviews/tree-shape-start.md` and `reviews/tree-shape-start.json`.
+Fixed initial base: `64c6b777d828ecfe83234fc2aed94600a1f24297`.
+Branch: `work/fdsa-tree-shape`; checkout: `conaled-tree-shape`.
+
+## Completion gates
+
+- [x] Bounded source, API and independent mathematical cases prepared.
+- [x] Exact requirements and clean initial base recorded before source edits.
+- [x] Core and connected formal uses drafted; statement review retained.
+- [ ] Accepted Chapter 1 and XT01 bases incorporated, with history retained.
+- [ ] Focused builds, applicable candidate build and exhaustive audit pass.
+- [ ] Both independent final review axes have no unresolved findings.
+- [ ] Approved candidate immediately verified; checkpoint saved and uploaded.
+
+At the initial freeze no XT02 source implementation existed; that history is retained.
+No additional compiler,
+checker or project hash helper may run while the old Chapter 1 gate is active.
+No chapter is activated or accepted by this shared preparation.
+
+Pre-code checkpoint 0029 is saved as `libfile_791ead23414c8191894812d08f89ab8a`,
+SHA-256 `e54526124d207180fd1a5473e79577ef707a951de5f6e492fa2b8148762ddc20`.
+It preserves the clean starting branch, frozen scope and complete source/API/case
+preflights before implementation. Its creation/upload supplies no acceptance credit.
+
+## Committed source draft
+
+Candidate: `974a97321a8ec174b56104c7e6efaaca881b6639`, six files and 838
+insertions, with clean post-commit status. See `reviews/tree-shape-candidate.md`
+and `reviews/tree-shape-source-identities.json` for the immutable handoff.
+Natural and separate real bounds, exact rounded formulas, cross-type optimum,
+connected cache/map uses and the independent counterexamples are drafted.
+
+The bounded source assessments are retained in
+`reviews/tree-shape-source-preflight.md`. XT02-SP01 corrected a docstring's
+necessary-versus-sufficient claim; the reader confirmed the wording correction,
+while final-review confirmation remains pending. No formal theorem changed.
+No compiler, complete audit or final acceptance is inferred from the source
+readings, commit or whitespace checks.
+
+Committed-draft checkpoint 0030 is saved as
+`libfile_64f885bfaf3881918be6465290d645f8`, SHA-256
+`94b93298b327a83510cfe962b0aa5a9d03705a807d2565c2e8381aba25285e19`.
+It preserves this candidate, exact file identities, the full preflight/finding
+history and all prior refs/tickets. It supplies no formal acceptance credit.

@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "acceptance": false,
+  "candidate": "ebdeec2374b969eeb809f243fffa84863b6eefba",
+  "command": [
+    "lake",
+    "build",
+    "Examples.SharedListIntegers",
+    "Examples.SharedTreeOrdered"
+  ],
+  "environment": "pinned Nix flake; offline; LEAN_NUM_THREADS=1; focused-build lock",
+  "jobs": 669,
+  "log": "validation/chapter02-integer-ordered-focused-r9.log",
+  "sources": {
+    "Applications/Sequences/AbstractStack.lean": "518d561f57e3fa0aa272a0ec1d05673e489fd2b19212c89fa5886aa7aeec877d",
+    "Applications/Sequences/SharedList/IntegerUpdate.lean": "42a8d216e38c9fb1b99246f5d233a16aea3d5d71e4b63542cb897aeb2c3dc37f",
+    "Applications/Search/SharedTree/Basic.lean": "7acc9428ee6bd804cabb0125ff391461fb01de47c30c6a94d305ea856418da70",
+    "Applications/Search/SharedTree/Path.lean": "a0912e3e46dc702773ac91327c5868c6ee8f5a44e4492a3197b0c0767f5c8f1f",
+    "Applications/Search/SharedTree/Ordered.lean": "c2b7a5f19ddcdf15e8eb5170148ff828579980569d457e0201e44a451dd946ab",
+    "Applications/Search/SharedTree/Observation.lean": "fd2b3ec4beb4638bbf763926f27d5ca1a607f9338bfbd8833c7c267c6e80e80f",
+    "Applications/Search/SharedTree/OrderedObservation.lean": "603440bbe7aed20724412e70787adb8ae539d3e9c24f0d7326bc515f3a2a5424",
+    "Applications/Search/OrderedTree/Basic.lean": "6f1a3c8bf217ff609e3f08f65a1a20b52747723d5259ad671fb0e5aebaf44a6b",
+    "Examples/AbstractStack.lean": "36e3c2c1767d2600a7f11e9a58ffd73b0be9aeef5957ec493d865844cb67c008",
+    "Examples/SharedListIntegers.lean": "79207c2cd31921fb6a4934f33c89ad63ea748c45c5dba8e11ea0b35236ef1670",
+    "Examples/SharedTreeOrdered.lean": "8ad7858962fc918de0b479ea015f167475910ef302a8f24776252257f9b0e8c8"
+  },
+  "note": "Focused development validation only. AbstractStack was compiled earlier and source remains unchanged; the stated command covers integer/list and physical ordered insertion imports. Whole Chapter2 isolated full validation/review is pending."
+}

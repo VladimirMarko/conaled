@@ -1,0 +1,1188 @@
+Resources.RandomQuickSort.uniformIndex : (m : Nat) →
+  PMF.{0}
+    (Fin
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) m
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+Resources.RandomQuickSort.uniformIndex_apply : ∀ (m : Nat)
+  (i :
+    Fin
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) m
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+  @Eq.{1} ENNReal
+    (@DFunLike.coe.{1, 1, 1}
+      (PMF.{0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) m
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      (Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) m
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (fun x => ENNReal)
+      (@PMF.instFunLike.{0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) m
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      (Resources.RandomQuickSort.uniformIndex m) i)
+    (@Inv.inv.{0} ENNReal ENNReal.instInv
+      (@Nat.cast.{0} ENNReal
+        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) m
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+Resources.RandomQuickSort.mem_support_uniformIndex : ∀ (m : Nat)
+  (i :
+    Fin
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) m
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+  @Membership.mem.{0, 0}
+    (Fin
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) m
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+    (Set.{0}
+      (Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) m
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+    (@Set.instMembership.{0}
+      (Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) m
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+    (@PMF.support.{0}
+      (Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) m
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (Resources.RandomQuickSort.uniformIndex m))
+    i
+Resources.RandomQuickSort.uniformIndex_zero : @Eq.{1}
+  (PMF.{0}
+    (Fin
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+  (Resources.RandomQuickSort.uniformIndex (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+  (@PMF.pure.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+    (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) (nat_lit 0)
+      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) ⋯ (nat_lit 0))))
+Resources.RandomQuickSort.uniformIndex_event : ∀ (m : Nat)
+  (event :
+    Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) m
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+      Bool),
+  @Eq.{1} ENNReal
+    (@DFunLike.coe.{1, 1, 1} (PMF.{0} Bool) Bool (fun x => ENNReal) (@PMF.instFunLike.{0} Bool)
+      (@PMF.map.{0, 0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) m
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        Bool event (Resources.RandomQuickSort.uniformIndex m))
+      Bool.true)
+    (@HDiv.hDiv.{0, 0, 0} ENNReal ENNReal ENNReal
+      (@instHDiv.{0} ENNReal (@DivInvMonoid.toDiv.{0} ENNReal ENNReal.instDivInvMonoid))
+      (@Nat.cast.{0} ENNReal
+        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+        (@Finset.card.{0}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) m
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          {i | @Eq.{1} Bool (event i) Bool.true}))
+      (@Nat.cast.{0} ENNReal
+        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) m
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+@Resources.RandomQuickSort.run.{u_1} : {α : Type u_1} →
+  (α → α → Bool) → List.{u_1} α → PMF.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+@Resources.RandomQuickSort.run_nil.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool),
+  @Eq.{u_1 + 1} (PMF.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+    (@Resources.RandomQuickSort.run.{u_1} α lt (@List.nil.{u_1} α))
+    (@PMF.pure.{u_1} (Prod.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+      (@Prod.mk.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) (@List.nil.{u_1} α)
+        (@Prod.mk.{0, 0} Nat Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+          (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))
+@Resources.RandomQuickSort.run_cons.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (head : α) (tail : List.{u_1} α),
+  @Eq.{u_1 + 1} (PMF.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+    (@Resources.RandomQuickSort.run.{u_1} α lt (@List.cons.{u_1} α head tail))
+    (@PMF.bind.{0, u_1}
+      (Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@List.length.{u_1} α tail)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (Prod.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+      (Resources.RandomQuickSort.uniformIndex (@List.length.{u_1} α tail)) fun i =>
+      have pivot :=
+        @GetElem.getElem.{u_1, 0, u_1} (List.{u_1} α) Nat α
+          (fun as i => @LT.lt.{0} Nat instLTNat i (@List.length.{u_1} α as)) (@List.instGetElemNatLtLength.{u_1} α)
+          (@List.cons.{u_1} α head tail)
+          (@Fin.val
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@List.length.{u_1} α tail)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            i)
+          ⋯;
+      have rest :=
+        @List.eraseIdx.{u_1} α (@List.cons.{u_1} α head tail)
+          (@Fin.val
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@List.length.{u_1} α tail)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            i);
+      @PMF.bind.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+        (Prod.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+        (@Resources.RandomQuickSort.run.{u_1} α lt (@List.filter.{u_1} α (fun x => lt x pivot) rest)) fun left =>
+        @PMF.bind.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+          (Prod.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+          (@Resources.RandomQuickSort.run.{u_1} α lt (@List.filter.{u_1} α (fun x => (lt x pivot).not) rest))
+          fun right =>
+          @PMF.pure.{u_1} (Prod.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+            (@Prod.mk.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)
+              (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+                (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α))
+                (@Prod.fst.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) left)
+                (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+                  (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α))
+                  (@List.cons.{u_1} α pivot (@List.nil.{u_1} α))
+                  (@Prod.fst.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) right)))
+              (@Prod.mk.{0, 0} Nat Nat
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                      (@Prod.fst.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) left))
+                      (@Prod.fst.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) right)))
+                    (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                      (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) (@List.length.{u_1} α rest)))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                      (@Prod.snd.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) left))
+                      (@Prod.snd.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) right)))
+                    (@List.length.{u_1} α (@Prod.fst.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) left)))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))))
+@Resources.RandomQuickSort.run_singleton.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (x : α),
+  @Eq.{u_1 + 1} (PMF.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+    (@Resources.RandomQuickSort.run.{u_1} α lt (@List.cons.{u_1} α x (@List.nil.{u_1} α)))
+    (@PMF.pure.{u_1} (Prod.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+      (@Prod.mk.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) (@List.cons.{u_1} α x (@List.nil.{u_1} α))
+        (@Prod.mk.{0, 0} Nat Nat (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))
+          (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))))
+@Resources.RandomQuickSort.runOn.{u_1,
+    u_2} : {α : Type u_1} →
+  {κ : Type u_2} →
+    [inst : LT.{u_2} κ] →
+      [@DecidableLT.{u_2} κ inst] →
+        (α → κ) → List.{u_1} α → PMF.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+@Resources.RandomQuickSort.runOn_cons.{u_1,
+    u_2} : ∀ {α : Type u_1} {κ : Type u_2} [inst : LinearOrder.{u_2} κ] (key : α → κ) (head : α) (tail : List.{u_1} α),
+  @Eq.{u_1 + 1} (PMF.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+    (@Resources.RandomQuickSort.runOn.{u_1, u_2} α κ
+      (@Preorder.toLT.{u_2} κ
+        (@PartialOrder.toPreorder.{u_2} κ
+          (@SemilatticeInf.toPartialOrder.{u_2} κ
+            (@Lattice.toSemilatticeInf.{u_2} κ
+              (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+      (@LinearOrder.toDecidableLT.{u_2} κ inst) key (@List.cons.{u_1} α head tail))
+    (@PMF.bind.{0, u_1}
+      (Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@List.length.{u_1} α tail)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (Prod.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+      (Resources.RandomQuickSort.uniformIndex (@List.length.{u_1} α tail)) fun i =>
+      have pivot :=
+        @GetElem.getElem.{u_1, 0, u_1} (List.{u_1} α) Nat α
+          (fun as i => @LT.lt.{0} Nat instLTNat i (@List.length.{u_1} α as)) (@List.instGetElemNatLtLength.{u_1} α)
+          (@List.cons.{u_1} α head tail)
+          (@Fin.val
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@List.length.{u_1} α tail)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            i)
+          ⋯;
+      have rest :=
+        @List.eraseIdx.{u_1} α (@List.cons.{u_1} α head tail)
+          (@Fin.val
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@List.length.{u_1} α tail)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            i);
+      @PMF.bind.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+        (Prod.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+        (@Resources.RandomQuickSort.runOn.{u_1, u_2} α κ
+          (@Preorder.toLT.{u_2} κ
+            (@PartialOrder.toPreorder.{u_2} κ
+              (@SemilatticeInf.toPartialOrder.{u_2} κ
+                (@Lattice.toSemilatticeInf.{u_2} κ
+                  (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+          (@LinearOrder.toDecidableLT.{u_2} κ inst) key
+          (@List.filter.{u_1} α
+            (fun x =>
+              @Decidable.decide
+                (@LT.lt.{u_2} κ
+                  (@Preorder.toLT.{u_2} κ
+                    (@PartialOrder.toPreorder.{u_2} κ
+                      (@SemilatticeInf.toPartialOrder.{u_2} κ
+                        (@Lattice.toSemilatticeInf.{u_2} κ
+                          (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+                  (key x) (key pivot))
+                (@LinearOrder.toDecidableLT.{u_2} κ inst (key x) (key pivot)))
+            rest))
+        fun left =>
+        @PMF.bind.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+          (Prod.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+          (@Resources.RandomQuickSort.runOn.{u_1, u_2} α κ
+            (@Preorder.toLT.{u_2} κ
+              (@PartialOrder.toPreorder.{u_2} κ
+                (@SemilatticeInf.toPartialOrder.{u_2} κ
+                  (@Lattice.toSemilatticeInf.{u_2} κ
+                    (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+            (@LinearOrder.toDecidableLT.{u_2} κ inst) key
+            (@List.filter.{u_1} α
+              (fun x =>
+                @Decidable.decide
+                  (@LE.le.{u_2} κ
+                    (@Preorder.toLE.{u_2} κ
+                      (@PartialOrder.toPreorder.{u_2} κ
+                        (@SemilatticeInf.toPartialOrder.{u_2} κ
+                          (@Lattice.toSemilatticeInf.{u_2} κ
+                            (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+                    (key pivot) (key x))
+                  (@LinearOrder.toDecidableLE.{u_2} κ inst (key pivot) (key x)))
+              rest))
+          fun right =>
+          @PMF.pure.{u_1} (Prod.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+            (@Prod.mk.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)
+              (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+                (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α))
+                (@Prod.fst.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) left)
+                (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+                  (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α))
+                  (@List.cons.{u_1} α pivot (@List.nil.{u_1} α))
+                  (@Prod.fst.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) right)))
+              (@Prod.mk.{0, 0} Nat Nat
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                      (@Prod.fst.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) left))
+                      (@Prod.fst.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) right)))
+                    (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                      (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) (@List.length.{u_1} α rest)))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                      (@Prod.snd.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) left))
+                      (@Prod.snd.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) right)))
+                    (@List.length.{u_1} α (@Prod.fst.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) left)))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))))
+@Resources.RandomQuickSort.mem_support_run_cons_iff.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (head : α)
+  (tail : List.{u_1} α) (result : Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)),
+  Iff
+    (@Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+      (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+        (@Resources.RandomQuickSort.run.{u_1} α lt (@List.cons.{u_1} α head tail)))
+      result)
+    (∃ i,
+      have pivot :=
+        @GetElem.getElem.{u_1, 0, u_1} (List.{u_1} α) Nat α
+          (fun as i => @LT.lt.{0} Nat instLTNat i (@List.length.{u_1} α as)) (@List.instGetElemNatLtLength.{u_1} α)
+          (@List.cons.{u_1} α head tail)
+          (@Fin.val
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@List.length.{u_1} α tail)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            i)
+          ⋯;
+      have rest :=
+        @List.eraseIdx.{u_1} α (@List.cons.{u_1} α head tail)
+          (@Fin.val
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@List.length.{u_1} α tail)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            i);
+      ∃ left,
+        And
+          (@Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+            (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+            (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+            (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+              (@Resources.RandomQuickSort.run.{u_1} α lt (@List.filter.{u_1} α (fun x => lt x pivot) rest)))
+            left)
+          (∃ right,
+            And
+              (@Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+                (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+                (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+                (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+                  (@Resources.RandomQuickSort.run.{u_1} α lt (@List.filter.{u_1} α (fun x => (lt x pivot).not) rest)))
+                right)
+              (@Eq.{u_1 + 1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)) result
+                (@Prod.mk.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)
+                  (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+                    (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α))
+                    (@Prod.fst.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) left)
+                    (@HAppend.hAppend.{u_1, u_1, u_1} (List.{u_1} α) (List.{u_1} α) (List.{u_1} α)
+                      (@instHAppendOfAppend.{u_1} (List.{u_1} α) (@List.instAppend.{u_1} α))
+                      (@List.cons.{u_1} α pivot (@List.nil.{u_1} α))
+                      (@Prod.fst.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) right)))
+                  (@Prod.mk.{0, 0} Nat Nat
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                          (@Prod.fst.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) left))
+                          (@Prod.fst.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) right)))
+                        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                          (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) (@List.length.{u_1} α rest)))
+                      (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                          (@Prod.snd.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) left))
+                          (@Prod.snd.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) right)))
+                        (@List.length.{u_1} α (@Prod.fst.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) left)))
+                      (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))))))
+@Resources.RandomQuickSort.run_perm.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (xs : List.{u_1} α)
+  (result : Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)),
+  @Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+      (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+        (@Resources.RandomQuickSort.run.{u_1} α lt xs))
+      result →
+    @List.Perm.{u_1} α (@Prod.fst.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result) xs
+@Resources.RandomQuickSort.run_length.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (xs : List.{u_1} α)
+  (result : Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)),
+  @Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+      (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+        (@Resources.RandomQuickSort.run.{u_1} α lt xs))
+      result →
+    @Eq.{1} Nat (@List.length.{u_1} α (@Prod.fst.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result))
+      (@List.length.{u_1} α xs)
+@Resources.RandomQuickSort.run_sorted_compatible_on.{u_1,
+    u_2} : ∀ {α : Type u_1} {κ : Type u_2} [inst : LE.{u_2} κ]
+  [IsTrans.{u_2 + 1} κ fun x1 x2 => @LE.le.{u_2} κ inst x1 x2] (key : α → κ) (lt : α → α → Bool) (xs : List.{u_1} α),
+  (∀ (a : α),
+      @Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs a →
+        ∀ (b : α),
+          @Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs b →
+            And (@Eq.{1} Bool (lt a b) Bool.true → @LE.le.{u_2} κ inst (key a) (key b))
+              (@Eq.{1} Bool (lt a b) Bool.false → @LE.le.{u_2} κ inst (key b) (key a))) →
+    ∀ (result : Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)),
+      @Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+          (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+          (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+          (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+            (@Resources.RandomQuickSort.run.{u_1} α lt xs))
+          result →
+        @Applications.Sorting.KeySorted.{u_1, u_2} α κ inst key
+          (@Prod.fst.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result)
+@Resources.RandomQuickSort.runOn_correct.{u_1,
+    u_2} : ∀ {α : Type u_1} {κ : Type u_2} [inst : LinearOrder.{u_2} κ] (key : α → κ) (xs : List.{u_1} α)
+  (result : Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)),
+  @Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+      (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+        (@Resources.RandomQuickSort.runOn.{u_1, u_2} α κ
+          (@Preorder.toLT.{u_2} κ
+            (@PartialOrder.toPreorder.{u_2} κ
+              (@SemilatticeInf.toPartialOrder.{u_2} κ
+                (@Lattice.toSemilatticeInf.{u_2} κ
+                  (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+          (@LinearOrder.toDecidableLT.{u_2} κ inst) key xs))
+      result →
+    And
+      (@Applications.Sorting.KeySorted.{u_1, u_2} α κ
+        (@Preorder.toLE.{u_2} κ
+          (@PartialOrder.toPreorder.{u_2} κ
+            (@SemilatticeInf.toPartialOrder.{u_2} κ
+              (@Lattice.toSemilatticeInf.{u_2} κ
+                (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+        key (@Prod.fst.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result))
+      (@List.Perm.{u_1} α (@Prod.fst.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result) xs)
+@Resources.RandomQuickSort.exerciseCost_le.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (xs : List.{u_1} α)
+  (result : Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)),
+  @Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+      (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+        (@Resources.RandomQuickSort.run.{u_1} α lt xs))
+      result →
+    @LE.le.{0} Nat instLENat (@Prod.fst.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result))
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+            (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+              (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+              (@List.length.{u_1} α xs) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+            (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α xs)))
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Resources.RandomQuickSort.appendCost_lower.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (xs : List.{u_1} α)
+  (result : Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)),
+  @Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+      (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+        (@Resources.RandomQuickSort.run.{u_1} α lt xs))
+      result →
+    @LE.le.{0} Nat instLENat
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+        (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.length.{u_1} α xs))
+      (@Prod.snd.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result))
+@Resources.RandomQuickSort.appendCost_double_le.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (xs : List.{u_1} α)
+  (result : Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)),
+  @Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+      (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+        (@Resources.RandomQuickSort.run.{u_1} α lt xs))
+      result →
+    @LE.le.{0} Nat instLENat
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@Prod.snd.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result)))
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+          (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+          (@List.length.{u_1} α xs) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+          (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) (@List.length.{u_1} α xs)))
+@Resources.RandomQuickSort.appendCost_le_exerciseCost.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (xs : List.{u_1} α)
+  (result : Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)),
+  @Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+      (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+        (@Resources.RandomQuickSort.run.{u_1} α lt xs))
+      result →
+    @LE.le.{0} Nat instLENat (@Prod.snd.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result))
+      (@Prod.fst.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result))
+@Resources.RandomQuickSort.literalCost_comparison.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (xs : List.{u_1} α)
+  (result : Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)),
+  @Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+      (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+        (@Resources.RandomQuickSort.run.{u_1} α lt xs))
+      result →
+    And
+      (@LE.le.{0} Nat instLENat
+        (@Prod.fst.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result))
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@Prod.fst.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result))
+          (@Prod.snd.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result))))
+      (@LE.le.{0} Nat instLENat
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@Prod.fst.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result))
+          (@Prod.snd.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result)))
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@Prod.fst.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result))))
+@Resources.RandomQuickSort.literalCost_double_le.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (xs : List.{u_1} α)
+  (result : Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)),
+  @Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+      (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+        (@Resources.RandomQuickSort.run.{u_1} α lt xs))
+      result →
+    @LE.le.{0} Nat instLENat
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@Prod.fst.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result))
+          (@Prod.snd.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result))))
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+            (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+              (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+              (@List.length.{u_1} α xs) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+            (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9))) (@List.length.{u_1} α xs)))
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+@Resources.RandomQuickSort.literalCost_le.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (xs : List.{u_1} α)
+  (result : Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)),
+  @Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+      (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+      (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+        (@Resources.RandomQuickSort.run.{u_1} α lt xs))
+      result →
+    @LE.le.{0} Nat instLENat
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@Prod.fst.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result))
+        (@Prod.snd.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result)))
+      (@HDiv.hDiv.{0, 0, 0} Nat Nat Nat (@instHDiv.{0} Nat Nat.instDiv)
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+              (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                (@List.length.{u_1} α xs) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+              (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9))) (@List.length.{u_1} α xs)))
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+@Resources.RandomQuickSort.exerciseLaw.{u_1} : {α : Type u_1} → (α → α → Bool) → List.{u_1} α → PMF.{0} Nat
+@Resources.RandomQuickSort.literalLaw.{u_1} : {α : Type u_1} → (α → α → Bool) → List.{u_1} α → PMF.{0} Nat
+@Resources.RandomQuickSort.exerciseLaw_cons.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (head : α)
+  (tail : List.{u_1} α),
+  @Eq.{1} (PMF.{0} Nat) (@Resources.RandomQuickSort.exerciseLaw.{u_1} α lt (@List.cons.{u_1} α head tail))
+    (@PMF.bind.{0, 0}
+      (Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@List.length.{u_1} α tail)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      Nat (Resources.RandomQuickSort.uniformIndex (@List.length.{u_1} α tail)) fun i =>
+      have pivot :=
+        @GetElem.getElem.{u_1, 0, u_1} (List.{u_1} α) Nat α
+          (fun as i => @LT.lt.{0} Nat instLTNat i (@List.length.{u_1} α as)) (@List.instGetElemNatLtLength.{u_1} α)
+          (@List.cons.{u_1} α head tail)
+          (@Fin.val
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@List.length.{u_1} α tail)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            i)
+          ⋯;
+      have rest :=
+        @List.eraseIdx.{u_1} α (@List.cons.{u_1} α head tail)
+          (@Fin.val
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@List.length.{u_1} α tail)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            i);
+      @PMF.bind.{0, 0} Nat Nat
+        (@Resources.RandomQuickSort.exerciseLaw.{u_1} α lt (@List.filter.{u_1} α (fun x => lt x pivot) rest))
+        fun left =>
+        @PMF.bind.{0, 0} Nat Nat
+          (@Resources.RandomQuickSort.exerciseLaw.{u_1} α lt (@List.filter.{u_1} α (fun x => (lt x pivot).not) rest))
+          fun right =>
+          @PMF.pure.{0} Nat
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) left right)
+                (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) (@List.length.{u_1} α rest)))
+              (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))
+@Resources.RandomQuickSort.exerciseLaw_nil.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool),
+  @Eq.{1} (PMF.{0} Nat) (@Resources.RandomQuickSort.exerciseLaw.{u_1} α lt (@List.nil.{u_1} α))
+    (@PMF.pure.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Resources.RandomQuickSort.literalLaw_nil.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool),
+  @Eq.{1} (PMF.{0} Nat) (@Resources.RandomQuickSort.literalLaw.{u_1} α lt (@List.nil.{u_1} α))
+    (@PMF.pure.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Resources.RandomQuickSort.exerciseLaw_singleton.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (x : α),
+  @Eq.{1} (PMF.{0} Nat) (@Resources.RandomQuickSort.exerciseLaw.{u_1} α lt (@List.cons.{u_1} α x (@List.nil.{u_1} α)))
+    (@PMF.pure.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+@Resources.RandomQuickSort.literalLaw_singleton.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (x : α),
+  @Eq.{1} (PMF.{0} Nat) (@Resources.RandomQuickSort.literalLaw.{u_1} α lt (@List.cons.{u_1} α x (@List.nil.{u_1} α)))
+    (@PMF.pure.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8))))
+@Resources.RandomQuickSort.exerciseLaw_support.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (xs : List.{u_1} α),
+  @LE.le.{0} (Set.{0} Nat) (@Set.instLE.{0} Nat)
+    (@PMF.support.{0} Nat (@Resources.RandomQuickSort.exerciseLaw.{u_1} α lt xs))
+    (@Set.Iic.{0} Nat Nat.instPreorder
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+            (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+              (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+              (@List.length.{u_1} α xs) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+            (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α xs)))
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+@Resources.RandomQuickSort.exerciseLaw_support_finite.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (xs : List.{u_1} α),
+  @Set.Finite.{0} Nat (@PMF.support.{0} Nat (@Resources.RandomQuickSort.exerciseLaw.{u_1} α lt xs))
+@Resources.RandomQuickSort.literalLaw_support.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (xs : List.{u_1} α),
+  @LE.le.{0} (Set.{0} Nat) (@Set.instLE.{0} Nat)
+    (@PMF.support.{0} Nat (@Resources.RandomQuickSort.literalLaw.{u_1} α lt xs))
+    (@Set.Iic.{0} Nat Nat.instPreorder
+      (@HDiv.hDiv.{0, 0, 0} Nat Nat Nat (@instHDiv.{0} Nat Nat.instDiv)
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+              (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                (@List.length.{u_1} α xs) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+              (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9))) (@List.length.{u_1} α xs)))
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+@Resources.RandomQuickSort.literalLaw_support_finite.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (xs : List.{u_1} α),
+  @Set.Finite.{0} Nat (@PMF.support.{0} Nat (@Resources.RandomQuickSort.literalLaw.{u_1} α lt xs))
+@Resources.RandomQuickSort.costs_of_all_false.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (xs : List.{u_1} α),
+  (∀ (a : α),
+      @Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs a →
+        ∀ (b : α),
+          @Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs b →
+            @Eq.{1} Bool (lt a b) Bool.false) →
+    ∀ (result : Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)),
+      @Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+          (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+          (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+          (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+            (@Resources.RandomQuickSort.run.{u_1} α lt xs))
+          result →
+        @Eq.{1} (Prod.{0, 0} Nat Nat) (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result)
+          (@Prod.mk.{0, 0} Nat Nat
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                    (@List.length.{u_1} α xs) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+                (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α xs)))
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+              (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.length.{u_1} α xs)))
+@Resources.RandomQuickSort.jointCostLaw_of_all_false.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (xs : List.{u_1} α),
+  (∀ (a : α),
+      @Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs a →
+        ∀ (b : α),
+          @Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs b →
+            @Eq.{1} Bool (lt a b) Bool.false) →
+    @Eq.{1} (PMF.{0} (Prod.{0, 0} Nat Nat))
+      (@PMF.map.{u_1, 0} (Prod.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)) (Prod.{0, 0} Nat Nat)
+        (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)) (@Resources.RandomQuickSort.run.{u_1} α lt xs))
+      (@PMF.pure.{0} (Prod.{0, 0} Nat Nat)
+        (@Prod.mk.{0, 0} Nat Nat
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                  (@List.length.{u_1} α xs) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+              (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α xs)))
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+            (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.length.{u_1} α xs))))
+@Resources.RandomQuickSort.costs_of_constant_key.{u_1,
+    u_2} : ∀ {α : Type u_1} {κ : Type u_2} [inst : LinearOrder.{u_2} κ] (key : α → κ) (xs : List.{u_1} α) (c : κ),
+  (∀ (x : α),
+      @Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs x → @Eq.{u_2 + 1} κ (key x) c) →
+    ∀ (result : Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)),
+      @Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+          (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+          (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+          (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+            (@Resources.RandomQuickSort.runOn.{u_1, u_2} α κ
+              (@Preorder.toLT.{u_2} κ
+                (@PartialOrder.toPreorder.{u_2} κ
+                  (@SemilatticeInf.toPartialOrder.{u_2} κ
+                    (@Lattice.toSemilatticeInf.{u_2} κ
+                      (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+              (@LinearOrder.toDecidableLT.{u_2} κ inst) key xs))
+          result →
+        @Eq.{1} (Prod.{0, 0} Nat Nat) (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) result)
+          (@Prod.mk.{0, 0} Nat Nat
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                    (@List.length.{u_1} α xs) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+                (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α xs)))
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+              (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.length.{u_1} α xs)))
+@Resources.RandomQuickSort.jointCostLaw_of_constant_key.{u_1,
+    u_2} : ∀ {α : Type u_1} {κ : Type u_2} [inst : LinearOrder.{u_2} κ] (key : α → κ) (xs : List.{u_1} α) (c : κ),
+  (∀ (x : α),
+      @Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs x → @Eq.{u_2 + 1} κ (key x) c) →
+    @Eq.{1} (PMF.{0} (Prod.{0, 0} Nat Nat))
+      (@PMF.map.{u_1, 0} (Prod.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)) (Prod.{0, 0} Nat Nat)
+        (@Prod.snd.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+        (@Resources.RandomQuickSort.runOn.{u_1, u_2} α κ
+          (@Preorder.toLT.{u_2} κ
+            (@PartialOrder.toPreorder.{u_2} κ
+              (@SemilatticeInf.toPartialOrder.{u_2} κ
+                (@Lattice.toSemilatticeInf.{u_2} κ
+                  (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+          (@LinearOrder.toDecidableLT.{u_2} κ inst) key xs))
+      (@PMF.pure.{0} (Prod.{0, 0} Nat Nat)
+        (@Prod.mk.{0, 0} Nat Nat
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                  (@List.length.{u_1} α xs) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+              (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α xs)))
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+            (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.length.{u_1} α xs))))
+@Resources.RandomQuickSort.runOn_replicate.{u_1,
+    u_2} : ∀ {α : Type u_1} {κ : Type u_2} [inst : LinearOrder.{u_2} κ] (key : α → κ) (x : α) (n : Nat),
+  @Eq.{u_1 + 1} (PMF.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+    (@Resources.RandomQuickSort.runOn.{u_1, u_2} α κ
+      (@Preorder.toLT.{u_2} κ
+        (@PartialOrder.toPreorder.{u_2} κ
+          (@SemilatticeInf.toPartialOrder.{u_2} κ
+            (@Lattice.toSemilatticeInf.{u_2} κ
+              (@DistribLattice.toLattice.{u_2} κ (@instDistribLatticeOfLinearOrder.{u_2} κ inst))))))
+      (@LinearOrder.toDecidableLT.{u_2} κ inst) key (@List.replicate.{u_1} α n x))
+    (@PMF.pure.{u_1} (Prod.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+      (@Prod.mk.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) (@List.replicate.{u_1} α n x)
+        (@Prod.mk.{0, 0} Nat Nat
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) n
+                  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+              (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n))
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+            (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) n))))
+Examples.RandomQuickSort.empty_uninhabited : @Eq.{1}
+  (PMF.{0} (Resources.Measured.{0, 0} (List.{0} Empty) (Prod.{0, 0} Nat Nat)))
+  (@Resources.RandomQuickSort.run.{0} Empty (fun x x_1 => Bool.false) (@List.nil.{0} Empty))
+  (@PMF.pure.{0} (Prod.{0, 0} (List.{0} Empty) (Prod.{0, 0} Nat Nat))
+    (@Prod.mk.{0, 0} (List.{0} Empty) (Prod.{0, 0} Nat Nat) (@List.nil.{0} Empty)
+      (@Prod.mk.{0, 0} Nat Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))
+@Examples.RandomQuickSort.singleton_source.{u_1} : ∀ {α : Type u_1} (lt : α → α → Bool) (x : α),
+  @Eq.{u_1 + 1} (PMF.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat)))
+    (@Resources.RandomQuickSort.run.{u_1} α lt (@List.cons.{u_1} α x (@List.nil.{u_1} α)))
+    (@PMF.pure.{u_1} (Prod.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat))
+      (@Prod.mk.{u_1, 0} (List.{u_1} α) (Prod.{0, 0} Nat Nat) (@List.cons.{u_1} α x (@List.nil.{u_1} α))
+        (@Prod.mk.{0, 0} Nat Nat (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))
+          (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))))
+Examples.RandomQuickSort.repeated_occurrence_pivot : @Eq.{1} ENNReal
+  (@DFunLike.coe.{1, 1, 1} (PMF.{0} Bool) Bool (fun x => ENNReal) (@PMF.instFunLike.{0} Bool)
+    (@PMF.map.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Bool
+      (fun i =>
+        @GetElem.getElem.{0, 0, 0} (List.{0} Bool) Nat Bool
+          (fun as i => @LT.lt.{0} Nat instLTNat i (@List.length.{0} Bool as)) (@List.instGetElemNatLtLength.{0} Bool)
+          (@List.cons.{0} Bool Bool.true
+            (@List.cons.{0} Bool Bool.true (@List.cons.{0} Bool Bool.false (@List.nil.{0} Bool))))
+          (@Fin.val (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) i) ⋯)
+      (Resources.RandomQuickSort.uniformIndex (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+    Bool.true)
+  (@HDiv.hDiv.{0, 0, 0} ENNReal ENNReal ENNReal
+    (@instHDiv.{0} ENNReal (@DivInvMonoid.toDiv.{0} ENNReal ENNReal.instDivInvMonoid))
+    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+        ⋯))
+    (@OfNat.ofNat.{0} ENNReal (nat_lit 3)
+      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 3)
+        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+        ⋯)))
+Examples.RandomQuickSort.two_key_exercise : @Eq.{1} (PMF.{0} Nat)
+  (@Resources.RandomQuickSort.exerciseLaw.{0} Nat
+    (fun a b => @Decidable.decide (@LT.lt.{0} Nat instLTNat a b) (a.decLt b))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat))))
+  (@PMF.pure.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 13) (instOfNatNat (nat_lit 13))))
+Examples.RandomQuickSort.two_key_execution : @Eq.{1}
+  (PMF.{0} (Resources.Measured.{0, 0} (List.{0} Nat) (Prod.{0, 0} Nat Nat)))
+  (@Resources.RandomQuickSort.run.{0} Nat (fun a b => @Decidable.decide (@LT.lt.{0} Nat instLTNat a b) (a.decLt b))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat))))
+  (@PMF.map.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} Nat Nat))
+    (fun i =>
+      @Prod.mk.{0, 0} (List.{0} Nat) (Prod.{0, 0} Nat Nat)
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))
+        (@Prod.mk.{0, 0} Nat Nat (@OfNat.ofNat.{0} Nat (nat_lit 13) (instOfNatNat (nat_lit 13)))
+          (@ite.{1} Nat
+            (@Eq.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) i
+              (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+                (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 0))))
+            (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) i
+              (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+                (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 0))))
+            (@OfNat.ofNat.{0} Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))
+            (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))))))
+    (Resources.RandomQuickSort.uniformIndex (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+Examples.RandomQuickSort.two_key_append_mass : ∀ (cost : Nat),
+  @Eq.{1} ENNReal
+    (@DFunLike.coe.{1, 1, 1} (PMF.{0} Nat) Nat (fun x => ENNReal) (@PMF.instFunLike.{0} Nat)
+      (@PMF.map.{0, 0} (Resources.Measured.{0, 0} (List.{0} Nat) (Prod.{0, 0} Nat Nat)) Nat
+        (fun result => @Prod.snd.{0, 0} Nat Nat (@Prod.snd.{0, 0} (List.{0} Nat) (Prod.{0, 0} Nat Nat) result))
+        (@Resources.RandomQuickSort.run.{0} Nat
+          (fun a b => @Decidable.decide (@LT.lt.{0} Nat instLTNat a b) (a.decLt b))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))))
+      cost)
+    (@ite.{1} ENNReal (@Eq.{1} Nat cost (@OfNat.ofNat.{0} Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))
+      (instDecidableEqNat cost (@OfNat.ofNat.{0} Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))
+      (@HDiv.hDiv.{0, 0, 0} ENNReal ENNReal ENNReal
+        (@instHDiv.{0} ENNReal (@DivInvMonoid.toDiv.{0} ENNReal ENNReal.instDivInvMonoid))
+        (@OfNat.ofNat.{0} ENNReal (nat_lit 1) (@One.toOfNat1.{0} ENNReal ENNReal.instOne))
+        (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+          (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+            (@AddMonoidWithOne.toNatCast.{0} ENNReal
+              (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+            ⋯)))
+      (@ite.{1} ENNReal (@Eq.{1} Nat cost (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))))
+        (instDecidableEqNat cost (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))))
+        (@HDiv.hDiv.{0, 0, 0} ENNReal ENNReal ENNReal
+          (@instHDiv.{0} ENNReal (@DivInvMonoid.toDiv.{0} ENNReal ENNReal.instDivInvMonoid))
+          (@OfNat.ofNat.{0} ENNReal (nat_lit 1) (@One.toOfNat1.{0} ENNReal ENNReal.instOne))
+          (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+              ⋯)))
+        (@OfNat.ofNat.{0} ENNReal (nat_lit 0) (@Zero.toOfNat0.{0} ENNReal ENNReal.instZero))))
+Examples.RandomQuickSort.three_key_exercise_law : @Eq.{1} (PMF.{0} Nat)
+  (@Resources.RandomQuickSort.exerciseLaw.{0} Nat
+    (fun a b => @Decidable.decide (@LT.lt.{0} Nat instLTNat a b) (a.decLt b))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))))
+  (@PMF.map.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) Nat
+    (fun i =>
+      @ite.{1} Nat
+        (@Eq.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) i
+          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 1)
+            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) ⋯ (nat_lit 1))))
+        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) i
+          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (nat_lit 1)
+            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) ⋯ (nat_lit 1))))
+        (@OfNat.ofNat.{0} Nat (nat_lit 21) (instOfNatNat (nat_lit 21)))
+        (@OfNat.ofNat.{0} Nat (nat_lit 25) (instOfNatNat (nat_lit 25))))
+    (Resources.RandomQuickSort.uniformIndex (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+Examples.RandomQuickSort.three_key_exercise_mass : ∀ (cost : Nat),
+  @Eq.{1} ENNReal
+    (@DFunLike.coe.{1, 1, 1} (PMF.{0} Nat) Nat (fun x => ENNReal) (@PMF.instFunLike.{0} Nat)
+      (@Resources.RandomQuickSort.exerciseLaw.{0} Nat
+        (fun a b => @Decidable.decide (@LT.lt.{0} Nat instLTNat a b) (a.decLt b))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))))
+      cost)
+    (@ite.{1} ENNReal (@Eq.{1} Nat cost (@OfNat.ofNat.{0} Nat (nat_lit 21) (instOfNatNat (nat_lit 21))))
+      (instDecidableEqNat cost (@OfNat.ofNat.{0} Nat (nat_lit 21) (instOfNatNat (nat_lit 21))))
+      (@HDiv.hDiv.{0, 0, 0} ENNReal ENNReal ENNReal
+        (@instHDiv.{0} ENNReal (@DivInvMonoid.toDiv.{0} ENNReal ENNReal.instDivInvMonoid))
+        (@OfNat.ofNat.{0} ENNReal (nat_lit 1) (@One.toOfNat1.{0} ENNReal ENNReal.instOne))
+        (@OfNat.ofNat.{0} ENNReal (nat_lit 3)
+          (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 3)
+            (@AddMonoidWithOne.toNatCast.{0} ENNReal
+              (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+            ⋯)))
+      (@ite.{1} ENNReal (@Eq.{1} Nat cost (@OfNat.ofNat.{0} Nat (nat_lit 25) (instOfNatNat (nat_lit 25))))
+        (instDecidableEqNat cost (@OfNat.ofNat.{0} Nat (nat_lit 25) (instOfNatNat (nat_lit 25))))
+        (@HDiv.hDiv.{0, 0, 0} ENNReal ENNReal ENNReal
+          (@instHDiv.{0} ENNReal (@DivInvMonoid.toDiv.{0} ENNReal ENNReal.instDivInvMonoid))
+          (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+              ⋯))
+          (@OfNat.ofNat.{0} ENNReal (nat_lit 3)
+            (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 3)
+              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+              ⋯)))
+        (@OfNat.ofNat.{0} ENNReal (nat_lit 0) (@Zero.toOfNat0.{0} ENNReal ENNReal.instZero))))
+Examples.RandomQuickSort.three_key_balanced_mass : @Eq.{1} ENNReal
+  (@DFunLike.coe.{1, 1, 1} (PMF.{0} Nat) Nat (fun x => ENNReal) (@PMF.instFunLike.{0} Nat)
+    (@Resources.RandomQuickSort.exerciseLaw.{0} Nat
+      (fun a b => @Decidable.decide (@LT.lt.{0} Nat instLTNat a b) (a.decLt b))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 21) (instOfNatNat (nat_lit 21))))
+  (@HDiv.hDiv.{0, 0, 0} ENNReal ENNReal ENNReal
+    (@instHDiv.{0} ENNReal (@DivInvMonoid.toDiv.{0} ENNReal ENNReal.instDivInvMonoid))
+    (@OfNat.ofNat.{0} ENNReal (nat_lit 1) (@One.toOfNat1.{0} ENNReal ENNReal.instOne))
+    (@OfNat.ofNat.{0} ENNReal (nat_lit 3)
+      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 3)
+        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+        ⋯)))
+Examples.RandomQuickSort.three_key_chain_mass : @Eq.{1} ENNReal
+  (@DFunLike.coe.{1, 1, 1} (PMF.{0} Nat) Nat (fun x => ENNReal) (@PMF.instFunLike.{0} Nat)
+    (@Resources.RandomQuickSort.exerciseLaw.{0} Nat
+      (fun a b => @Decidable.decide (@LT.lt.{0} Nat instLTNat a b) (a.decLt b))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 25) (instOfNatNat (nat_lit 25))))
+  (@HDiv.hDiv.{0, 0, 0} ENNReal ENNReal ENNReal
+    (@instHDiv.{0} ENNReal (@DivInvMonoid.toDiv.{0} ENNReal ENNReal.instDivInvMonoid))
+    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+        ⋯))
+    (@OfNat.ofNat.{0} ENNReal (nat_lit 3)
+      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 3)
+        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+        ⋯)))
+Examples.RandomQuickSort.equal_key_tag_execution : @Eq.{1}
+  (PMF.{0} (Resources.Measured.{0, 0} (List.{0} (Prod.{0, 0} Nat Bool)) (Prod.{0, 0} Nat Nat)))
+  (@Resources.RandomQuickSort.runOn.{0, 0} (Prod.{0, 0} Nat Bool) Nat instLTNat Nat.decLt (@Prod.fst.{0, 0} Nat Bool)
+    (@List.cons.{0} (Prod.{0, 0} Nat Bool)
+      (@Prod.mk.{0, 0} Nat Bool (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) Bool.false)
+      (@List.cons.{0} (Prod.{0, 0} Nat Bool)
+        (@Prod.mk.{0, 0} Nat Bool (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) Bool.true)
+        (@List.nil.{0} (Prod.{0, 0} Nat Bool)))))
+  (@PMF.map.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (Prod.{0, 0} (List.{0} (Prod.{0, 0} Nat Bool)) (Prod.{0, 0} Nat Nat))
+    (fun i =>
+      @ite.{1} (Prod.{0, 0} (List.{0} (Prod.{0, 0} Nat Bool)) (Prod.{0, 0} Nat Nat))
+        (@Eq.{1} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) i
+          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 0))))
+        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) i
+          (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ⋯ (nat_lit 0))))
+        (@Prod.mk.{0, 0} (List.{0} (Prod.{0, 0} Nat Bool)) (Prod.{0, 0} Nat Nat)
+          (@List.cons.{0} (Prod.{0, 0} Nat Bool)
+            (@Prod.mk.{0, 0} Nat Bool (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) Bool.false)
+            (@List.cons.{0} (Prod.{0, 0} Nat Bool)
+              (@Prod.mk.{0, 0} Nat Bool (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) Bool.true)
+              (@List.nil.{0} (Prod.{0, 0} Nat Bool))))
+          (@Prod.mk.{0, 0} Nat Nat (@OfNat.ofNat.{0} Nat (nat_lit 13) (instOfNatNat (nat_lit 13)))
+            (@OfNat.ofNat.{0} Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))))
+        (@Prod.mk.{0, 0} (List.{0} (Prod.{0, 0} Nat Bool)) (Prod.{0, 0} Nat Nat)
+          (@List.cons.{0} (Prod.{0, 0} Nat Bool)
+            (@Prod.mk.{0, 0} Nat Bool (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) Bool.true)
+            (@List.cons.{0} (Prod.{0, 0} Nat Bool)
+              (@Prod.mk.{0, 0} Nat Bool (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) Bool.false)
+              (@List.nil.{0} (Prod.{0, 0} Nat Bool))))
+          (@Prod.mk.{0, 0} Nat Nat (@OfNat.ofNat.{0} Nat (nat_lit 13) (instOfNatNat (nat_lit 13)))
+            (@OfNat.ofNat.{0} Nat (nat_lit 6) (instOfNatNat (nat_lit 6))))))
+    (Resources.RandomQuickSort.uniformIndex (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+Examples.RandomQuickSort.equal_key_reversed_mass : @Eq.{1} ENNReal
+  (@DFunLike.coe.{1, 1, 1} (PMF.{0} (List.{0} (Prod.{0, 0} Nat Bool))) (List.{0} (Prod.{0, 0} Nat Bool))
+    (fun x => ENNReal) (@PMF.instFunLike.{0} (List.{0} (Prod.{0, 0} Nat Bool)))
+    (@PMF.map.{0, 0} (Prod.{0, 0} (List.{0} (Prod.{0, 0} Nat Bool)) (Prod.{0, 0} Nat Nat))
+      (List.{0} (Prod.{0, 0} Nat Bool)) (@Prod.fst.{0, 0} (List.{0} (Prod.{0, 0} Nat Bool)) (Prod.{0, 0} Nat Nat))
+      (@Resources.RandomQuickSort.runOn.{0, 0} (Prod.{0, 0} Nat Bool) Nat instLTNat Nat.decLt
+        (@Prod.fst.{0, 0} Nat Bool)
+        (@List.cons.{0} (Prod.{0, 0} Nat Bool)
+          (@Prod.mk.{0, 0} Nat Bool (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) Bool.false)
+          (@List.cons.{0} (Prod.{0, 0} Nat Bool)
+            (@Prod.mk.{0, 0} Nat Bool (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) Bool.true)
+            (@List.nil.{0} (Prod.{0, 0} Nat Bool))))))
+    (@List.cons.{0} (Prod.{0, 0} Nat Bool)
+      (@Prod.mk.{0, 0} Nat Bool (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) Bool.true)
+      (@List.cons.{0} (Prod.{0, 0} Nat Bool)
+        (@Prod.mk.{0, 0} Nat Bool (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) Bool.false)
+        (@List.nil.{0} (Prod.{0, 0} Nat Bool)))))
+  (@HDiv.hDiv.{0, 0, 0} ENNReal ENNReal ENNReal
+    (@instHDiv.{0} ENNReal (@DivInvMonoid.toDiv.{0} ENNReal ENNReal.instDivInvMonoid))
+    (@OfNat.ofNat.{0} ENNReal (nat_lit 1) (@One.toOfNat1.{0} ENNReal ENNReal.instOne))
+    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+        ⋯)))
+Examples.RandomQuickSort.equal_key_reversed_supported : @Membership.mem.{0, 0}
+  (Prod.{0, 0} (List.{0} (Prod.{0, 0} Nat Bool)) (Prod.{0, 0} Nat Nat))
+  (Set.{0} (Resources.Measured.{0, 0} (List.{0} (Prod.{0, 0} Nat Bool)) (Prod.{0, 0} Nat Nat)))
+  (@Set.instMembership.{0} (Resources.Measured.{0, 0} (List.{0} (Prod.{0, 0} Nat Bool)) (Prod.{0, 0} Nat Nat)))
+  (@PMF.support.{0} (Resources.Measured.{0, 0} (List.{0} (Prod.{0, 0} Nat Bool)) (Prod.{0, 0} Nat Nat))
+    (@Resources.RandomQuickSort.runOn.{0, 0} (Prod.{0, 0} Nat Bool) Nat instLTNat Nat.decLt (@Prod.fst.{0, 0} Nat Bool)
+      (@List.cons.{0} (Prod.{0, 0} Nat Bool)
+        (@Prod.mk.{0, 0} Nat Bool (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) Bool.false)
+        (@List.cons.{0} (Prod.{0, 0} Nat Bool)
+          (@Prod.mk.{0, 0} Nat Bool (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) Bool.true)
+          (@List.nil.{0} (Prod.{0, 0} Nat Bool))))))
+  (@Prod.mk.{0, 0} (List.{0} (Prod.{0, 0} Nat Bool)) (Prod.{0, 0} Nat Nat)
+    (@List.cons.{0} (Prod.{0, 0} Nat Bool)
+      (@Prod.mk.{0, 0} Nat Bool (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) Bool.true)
+      (@List.cons.{0} (Prod.{0, 0} Nat Bool)
+        (@Prod.mk.{0, 0} Nat Bool (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) Bool.false)
+        (@List.nil.{0} (Prod.{0, 0} Nat Bool))))
+    (@Prod.mk.{0, 0} Nat Nat (@OfNat.ofNat.{0} Nat (nat_lit 13) (instOfNatNat (nat_lit 13)))
+      (@OfNat.ofNat.{0} Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))))
+Examples.RandomQuickSort.equal_key_instability : ∃ result,
+  And
+    (@Membership.mem.{0, 0} (Resources.Measured.{0, 0} (List.{0} (Prod.{0, 0} Nat Bool)) (Prod.{0, 0} Nat Nat))
+      (Set.{0} (Resources.Measured.{0, 0} (List.{0} (Prod.{0, 0} Nat Bool)) (Prod.{0, 0} Nat Nat)))
+      (@Set.instMembership.{0} (Resources.Measured.{0, 0} (List.{0} (Prod.{0, 0} Nat Bool)) (Prod.{0, 0} Nat Nat)))
+      (@PMF.support.{0} (Resources.Measured.{0, 0} (List.{0} (Prod.{0, 0} Nat Bool)) (Prod.{0, 0} Nat Nat))
+        (@Resources.RandomQuickSort.runOn.{0, 0} (Prod.{0, 0} Nat Bool) Nat instLTNat Nat.decLt
+          (@Prod.fst.{0, 0} Nat Bool)
+          (@List.cons.{0} (Prod.{0, 0} Nat Bool)
+            (@Prod.mk.{0, 0} Nat Bool (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) Bool.false)
+            (@List.cons.{0} (Prod.{0, 0} Nat Bool)
+              (@Prod.mk.{0, 0} Nat Bool (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) Bool.true)
+              (@List.nil.{0} (Prod.{0, 0} Nat Bool))))))
+      result)
+    (Not
+      (@Applications.Sorting.Stable.{0, 0} (Prod.{0, 0} Nat Bool) Nat instDecidableEqNat (@Prod.fst.{0, 0} Nat Bool)
+        (@List.cons.{0} (Prod.{0, 0} Nat Bool)
+          (@Prod.mk.{0, 0} Nat Bool (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) Bool.false)
+          (@List.cons.{0} (Prod.{0, 0} Nat Bool)
+            (@Prod.mk.{0, 0} Nat Bool (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) Bool.true)
+            (@List.nil.{0} (Prod.{0, 0} Nat Bool))))
+        (@Prod.fst.{0, 0} (List.{0} (Prod.{0, 0} Nat Bool)) (Prod.{0, 0} Nat Nat) result)))
+Examples.RandomQuickSort.all_equal_three : @Eq.{1}
+  (PMF.{0} (Resources.Measured.{0, 0} (List.{0} Nat) (Prod.{0, 0} Nat Nat)))
+  (@Resources.RandomQuickSort.runOn.{0, 0} Nat Nat instLTNat Nat.decLt (@id.{1} Nat)
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))))
+  (@PMF.pure.{0} (Prod.{0, 0} (List.{0} Nat) (Prod.{0, 0} Nat Nat))
+    (@Prod.mk.{0, 0} (List.{0} Nat) (Prod.{0, 0} Nat Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat))))
+      (@Prod.mk.{0, 0} Nat Nat (@OfNat.ofNat.{0} Nat (nat_lit 25) (instOfNatNat (nat_lit 25)))
+        (@OfNat.ofNat.{0} Nat (nat_lit 9) (instOfNatNat (nat_lit 9))))))
+@Examples.RandomQuickSort.duplicate_payload_family.{u_1} : ∀ {α : Type u_1} (tag : α) (n : Nat),
+  @Eq.{u_1 + 1} (PMF.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat)))
+    (@Resources.RandomQuickSort.runOn.{u_1, 0} (Prod.{0, u_1} Nat α) Nat instLTNat Nat.decLt (@Prod.fst.{0, u_1} Nat α)
+      (@List.replicate.{u_1} (Prod.{0, u_1} Nat α) n
+        (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) tag)))
+    (@PMF.pure.{u_1} (Prod.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat))
+      (@Prod.mk.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat)
+        (@List.replicate.{u_1} (Prod.{0, u_1} Nat α) n
+          (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) tag))
+        (@Prod.mk.{0, 0} Nat Nat
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) n
+                  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+              (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n))
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+            (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) n))))
+@Examples.RandomQuickSort.constant_key_payload_law.{u_1} : ∀ {α : Type u_1} (tags : List.{u_1} α),
+  @Eq.{1} (PMF.{0} (Prod.{0, 0} Nat Nat))
+    (@PMF.map.{u_1, 0} (Prod.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat)) (Prod.{0, 0} Nat Nat)
+      (@Prod.snd.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat))
+      (@Resources.RandomQuickSort.runOn.{u_1, 0} (Prod.{0, u_1} Nat α) Nat instLTNat Nat.decLt
+        (@Prod.fst.{0, u_1} Nat α)
+        (@List.map.{u_1, u_1} α (Prod.{0, u_1} Nat α)
+          (fun tag => @Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))) tag) tags)))
+    (@PMF.pure.{0} (Prod.{0, 0} Nat Nat)
+      (@Prod.mk.{0, 0} Nat Nat
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+              (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                (@List.length.{u_1} α tags) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+              (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.length.{u_1} α tags)))
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+          (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.length.{u_1} α tags))))
+@Examples.RandomQuickSort.arbitrary_payload_correct.{u_1} : ∀ {α : Type u_1} (xs : List.{u_1} (Prod.{0, u_1} Nat α))
+  (result : Resources.Measured.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat)),
+  @Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat))
+      (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat)))
+      (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat)))
+      (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat))
+        (@Resources.RandomQuickSort.runOn.{u_1, 0} (Prod.{0, u_1} Nat α) Nat instLTNat Nat.decLt
+          (@Prod.fst.{0, u_1} Nat α) xs))
+      result →
+    And
+      (@Applications.Sorting.KeySorted.{u_1, 0} (Prod.{0, u_1} Nat α) Nat instLENat (@Prod.fst.{0, u_1} Nat α)
+        (@Prod.fst.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat) result))
+      (@List.Perm.{u_1} (Prod.{0, u_1} Nat α)
+        (@Prod.fst.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat) result) xs)
+@Examples.RandomQuickSort.arbitrary_payload_exercise_bound.{u_1} : ∀ {α : Type u_1}
+  (xs : List.{u_1} (Prod.{0, u_1} Nat α))
+  (result : Resources.Measured.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat)),
+  @Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat))
+      (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat)))
+      (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat)))
+      (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat))
+        (@Resources.RandomQuickSort.runOn.{u_1, 0} (Prod.{0, u_1} Nat α) Nat instLTNat Nat.decLt
+          (@Prod.fst.{0, u_1} Nat α) xs))
+      result →
+    @LE.le.{0} Nat instLENat
+      (@Prod.fst.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat) result))
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+            (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+              (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+              (@List.length.{u_1} (Prod.{0, u_1} Nat α) xs)
+              (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+            (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+            (@List.length.{u_1} (Prod.{0, u_1} Nat α) xs)))
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@Examples.RandomQuickSort.arbitrary_payload_append_bridge.{u_1} : ∀ {α : Type u_1}
+  (xs : List.{u_1} (Prod.{0, u_1} Nat α))
+  (result : Resources.Measured.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat)),
+  @Membership.mem.{u_1, u_1} (Resources.Measured.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat))
+      (Set.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat)))
+      (@Set.instMembership.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat)))
+      (@PMF.support.{u_1} (Resources.Measured.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat))
+        (@Resources.RandomQuickSort.runOn.{u_1, 0} (Prod.{0, u_1} Nat α) Nat instLTNat Nat.decLt
+          (@Prod.fst.{0, u_1} Nat α) xs))
+      result →
+    And
+      (@LE.le.{0} Nat instLENat
+        (@Prod.fst.{0, 0} Nat Nat (@Prod.snd.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat) result))
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@Prod.fst.{0, 0} Nat Nat
+            (@Prod.snd.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat) result))
+          (@Prod.snd.{0, 0} Nat Nat
+            (@Prod.snd.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat) result))))
+      (@LE.le.{0} Nat instLENat
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@Prod.fst.{0, 0} Nat Nat
+            (@Prod.snd.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat) result))
+          (@Prod.snd.{0, 0} Nat Nat
+            (@Prod.snd.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat) result)))
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@Prod.fst.{0, 0} Nat Nat
+            (@Prod.snd.{u_1, 0} (List.{u_1} (Prod.{0, u_1} Nat α)) (Prod.{0, 0} Nat Nat) result))))
+@Examples.RandomQuickSort.arbitrary_payload_finite_cost_support.{u_1} : ∀ {α : Type u_1}
+  (xs : List.{u_1} (Prod.{0, u_1} Nat α)),
+  @Set.Finite.{0} Nat
+    (@PMF.support.{0} Nat
+      (@Resources.RandomQuickSort.exerciseLaw.{u_1} (Prod.{0, u_1} Nat α)
+        (fun a b =>
+          @Decidable.decide (@LT.lt.{0} Nat instLTNat (@Prod.fst.{0, u_1} Nat α a) (@Prod.fst.{0, u_1} Nat α b))
+            ((@Prod.fst.{0, u_1} Nat α a).decLt (@Prod.fst.{0, u_1} Nat α b)))
+        xs))
+Examples.RandomQuickSort.source_append_association : @Eq.{1} (Resources.Measured.{0, 0} (List.{0} Nat) Nat)
+  (@Resources.QuickSort.appendPivotRun.{0} Nat
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))
+    (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat)))
+  (@Prod.mk.{0, 0} (List.{0} Nat) Nat
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat)))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+Examples.RandomQuickSort.different_append_association : @Eq.{1} (Resources.Measured.{0, 0} (List.{0} Nat) Nat)
+  (@Resources.bind.{0, 0, 0} (List.{0} Nat) (List.{0} Nat) Nat instAddNat
+    (@Resources.ListReversal.appendRun.{0} Nat
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (@List.nil.{0} Nat)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))
+    fun middle =>
+    @Resources.ListReversal.appendRun.{0} Nat middle
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat)))
+  (@Prod.mk.{0, 0} (List.{0} Nat) Nat
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat)))))
+    (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7))))

@@ -1,0 +1,52 @@
+{
+  "scope": "Same operational implementation loop: exact native runtime and contract tests, native-bound evidence runner, complete recovery/comparison docs and checkpoint entrypoint; no formal acceptance",
+  "base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "candidate": "fa87cd3483de75f24039836f8d4357be3a133176",
+  "merge_base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "captured_at": "2026-11-03T16:55:32.242224+00:00",
+  "files": {
+    "session/environment/make-direct-toolchain-profile.py": "339831ebe443a172e0f8d69b8def607126eaf39ffb8b27859b2dae788a4c78eb",
+    "session/environment/run-direct-toolchain.py": "0b0bea04f7d60d1e0de4b5a0f99e497d9704eed1f9791dd0728e84e5ddbcf90d",
+    "session/environment/test-direct-toolchain.py": "028e625c2870bafa2668269f981202d76c6509256ca1822e4ab926b3f2526330",
+    "session/environment/test-direct-lake-build.py": "3e364791c25cfce02c15887b1ae040a1a18315ab5189ff393d5fb2ff9bd239cf",
+    "session/environment/README-direct-toolchain.md": "f3acb7ba89c954019e6288bffc80c37fbc2e4f90523b1172efdd85dc19ee6734",
+    "session/validation/run-direct-validation.py": "9d04c5f2dca4707cdb4670ba49a6c84a9b4a89e88241fbbac7f8a778c737222b",
+    "session/validation/test-direct-validation.py": "a77b7f3f962c45fbe8affe4999615b3721975cc3c858713c9ef027b6aecf5435",
+    "session/validation/direct-validation-runner-notes.md": "933745db696b993eda5bd8d5470a7b72b5738659658c709fa98705ceb35bdd4e",
+    "session/environment/RECOVER-ENVIRONMENT.md": "a890517e60afc3eef92658cf5b1c0d501521b4e1c5394b6512dbcbd72a776e72",
+    "session/environment/environment-route-comparison-042.md": "375f28a7ecb3256ccf05abc4c4bc1c600948c655882d2bd3d65edb4c6846b97a",
+    "session/checkpoint.py": "22928db23012fb28c9dee74b3af4998d18587ec91e728d0b2afcf647c6ac47ad",
+    "session/environment/native-own-exe.c": "479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842",
+    "session/environment/run-native-toolchain.py": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073",
+    "session/environment/test-native-own-exe.c": "f26208e4ea0b08349bc99fcb60b15f693fa413c3fbdfcf3649d649de8c748c0b",
+    "session/environment/test-native-own-exe.py": "da5856cb97b1e5a9b86303ee576f3f9dc889e5e5fcf0377d7c6d95e22a872c10",
+    "session/environment/native-readlink-fixture.c": "b5ee1645a2bd1ce54e3130560b759253d12c9f915ef7b252397c3db9230328ae",
+    "session/validation/run-native-validation.py": "15e3d0e41841c688fb1e15bbbf4834beb13784ea4ab241f24566297eea94d559",
+    "session/validation/test-native-validation.py": "bff5df7297ef0590f9a074a4ec6e3331766f73fa0440f152734d67e4b081a68f"
+  },
+  "requirements": {
+    "session/requirements/REQUEST.md": "b847f23fcce44837f5b1ead01aae43ac5ed626ffd32aab84055dd664e339e499",
+    "session/requirements/REQUEST-union-v2.md": "3336bed1154438b3683aeb5a1c63fee44e87aff190f5ff69e34705a780b9d22c",
+    "session/requirements/REQUEST-direct-toolchain-041.md": "16845edec15c311e0cfd5ed5d4f5c4feb61e7ad96545653d5b872309d26464bc",
+    "session/environment/direct-toolchain-implementation-scope-041.md": "05c125ee129eafc8f45f9367be16259c3239c7b3945c32f62effba1f1b4c922c",
+    "session/requirements/REQUEST-environment-handoff-042.md": "200789123c60ae137967f881207194412eecea72ba2fc80247978075bd6a4602",
+    "session/requirements/REQUEST-native-toolchain-042.md": "d76dc8dcf771a227779628de91e75c4b63a2898b95e7b30035de83537dae5195"
+  },
+  "attachment": {
+    "path": "session/references/conaled-environment-guide-from-user-042.md",
+    "sha256": "ef85039f6097a1a646bb2b980178a2285e23124e5881686f68020acfa2f5d4f1"
+  },
+  "checkout": "/workspace/scratch/b566cace4ed6/pfds/review-native-toolchain-042-r6",
+  "ref": "refs/pfds-review/native-toolchain-r6-042",
+  "previous_candidate": "f3bac5372edc14ff898ead8b38fa58812d6d2713",
+  "changes": "Original eight QEMU helpers unchanged; user-requested native alternative added. Original release binaries/dependency pins/stock gates unchanged. Fresh full901 and focused956 binding have separate native evidence. Recovery `.lake` recipe now rejects shared directory symlinks.",
+  "exclusions": "All formal candidate sources, prior evidence, runtime binaries/caches, tracker/status and review/provenance records are outside this authored-helper diff; their independent obligations persist. Main index/HEAD/working tree unchanged.",
+  "validation": "Pending isolated artifact checks and native CLI/build/contract rechecks against this source snapshot; earlier results retained with exact scopes.",
+  "checkpoint_generator_baseline": {
+    "path": "session/validation/checkpoint-generator-before-042.py",
+    "sha256": "617c14ed63170ee39a8ac1df2eb4cc20b1b509ebd5f1d4c16ae4e469b7ed51ab",
+    "scope": "Pre-existing previously approved generator did not exist in fixed repository base. Full source included for review; exact task delta is documentation only, with complete original retained."
+  },
+  "review_coordination": "Continue retained reviews/direct-toolchain.md with replacement coordinator direct_toolchain_validation_plan and independent Standards recovery_audit / Spec chapter02_continuation_plan. Prior r2 closures retained; r3/r4 incomplete after user steering; no missing review inferred.",
+  "correction": "Root caught recovery contract-test command requiring an explicit newly created profile receipt and the public test CLI record-name prefix. Only those documentation arguments changed from r5. R5 had not been dispatched for approval."
+}

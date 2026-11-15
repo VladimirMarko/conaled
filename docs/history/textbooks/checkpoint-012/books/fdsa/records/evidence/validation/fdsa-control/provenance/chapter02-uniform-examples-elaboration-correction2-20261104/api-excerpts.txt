@@ -1,0 +1,602 @@
+Mathlib/Tactic/DeriveFintype.lean
+SHA-256 ccc5fecbe99adf96964457156d006c07af730e83ec7af678dc90e289745c2e4e
+
+1: /-
+
+2: Copyright (c) 2023 Kyle Miller. All rights reserved.
+
+3: Released under Apache 2.0 license as described in the file LICENSE.
+
+4: Authors: Kyle Miller
+
+5: -/
+
+6: module
+
+7: 
+
+8: public meta import Lean.Elab.Deriving.Util
+
+9: public meta import Mathlib.Tactic.ToAdditive
+
+10: public meta import Mathlib.Tactic.ToDual
+
+11: public import Mathlib.Data.Fintype.OfMap  -- shake: keep (metaprogram output dependency)
+
+12: public import Mathlib.Tactic.ProxyType
+
+13: 
+
+14: /-!
+
+15: # The `Fintype` derive handler
+
+16: 
+
+17: This file defines a derive handler to automatically generate `Fintype` instances
+
+18: for structures and inductive types.
+
+19: 
+
+20: The following is a prototypical example of what this can handle:
+
+21: ```
+
+22: inductive MyOption (α : Type*)
+
+23:   | none
+
+24:   | some (x : α)
+
+25:   deriving Fintype
+
+26: ```
+
+27: 
+
+28: This deriving handler does not attempt to process inductive types that are either
+
+29: recursive or that have indices.
+
+30: 
+
+31: To get debugging information, do `set_option trace.Elab.Deriving.fintype true`
+
+32: and `set_option Elab.ProxyType true`.
+
+33: 
+
+34: There is a term elaborator `derive_fintype%` implementing the derivation of `Fintype` instances.
+
+35: This can be useful in cases when there are necessary additional assumptions (like `DecidableEq`).
+
+36: This is implemented using `Fintype.ofEquiv` and `proxy_equiv%`, which is a term elaborator
+
+37: that creates an equivalence from a "proxy type" composed of basic type constructors. If Lean
+
+38: can synthesize a `Fintype` instance for the proxy type, then `derive_fintype%` succeeds.
+
+39: 
+
+40: ## Implementation notes
+
+41: 
+
+42: There are two kinds of `Fintype` instances that we generate, depending on the inductive type.
+
+43: 
+
+44: If it is an enum (an inductive type with only 0-ary constructors), then we generate the
+
+45: complete `List` of all constructors; see `Mathlib.Deriving.Fintype.mkFintypeEnum` for more
+
+46: details. The proof has $O(n)$ complexity in the number of constructors.
+
+47: 
+
+48: Otherwise, the strategy we take is to generate a "proxy type", define an equivalence between
+
+49: our type and the proxy type (see `proxy_equiv%`), and then use `Fintype.ofEquiv` to pull a
+
+50: `Fintype` instance on the proxy type (if one exists) to our inductive type. For example, with
+
+51: the `MyOption α` type above, we generate `Unit ⊕ α`. While the proxy type is not a finite type
+
+52: in general, we add `Fintype` instances for every type parameter of our inductive type (and
+
+53: `Decidable` instances for every `Prop` parameter). Hence, in our example we get
+
+54: `Fintype (MyOption α)` assuming `Fintype α`.
+
+55: 
+
+56: There is a source of quadratic complexity in this `Fintype` instance from the fact that an
+
+57: inductive type with `n` constructors has a proxy type of the form `C₁ ⊕ (C₂ ⊕ (⋯ ⊕ Cₙ))`,
+
+58: so mapping to and from `Cᵢ` requires looking through `i` levels of `Sum` constructors.
+
+59: Ignoring time spent looking through these constructors, the construction of `Finset.univ`
+
+60: contributes just linear time with respect to the cardinality of the type since the instances
+
+61: involved compute the underlying `List` for the `Finset` as `l₁ ++ (l₂ ++ (⋯ ++ lₙ))` with
+
+62: right associativity.
+
+63: 
+
+64: Note that an alternative design could be that instead of using `Sum` we could create a
+
+65: function `C : Fin n → Type*` with `C i = ULift Cᵢ` and then use `(i : Fin n) × C i` for
+
+66: the proxy type, which would save us from the nested `Sum` constructors.
+
+67: 
+
+68: This implementation takes some inspiration from the one by Mario Carneiro for Mathlib 3.
+
+69: A difference is that the Mathlib 3 version does not explicitly construct the total proxy type,
+
+70: and instead it opts to construct the underlying `Finset` as a disjoint union of the `Finset.univ`
+
+71: for each individual constructor's proxy type.
+
+72: -/
+
+73: 
+
+74: public meta section
+
+75: 
+
+76: namespace Mathlib.Deriving.Fintype
+
+77: open Lean Elab Lean.Parser.Term
+
+78: open Meta Command
+
+79: 
+
+80: /--
+
+81: The term elaborator `derive_fintype% α` tries to synthesize a `Fintype α` instance
+
+82: using all the assumptions in the local context; this can be useful, for example, if one
+
+83: needs an extra `DecidableEq` instance. It works only if `α` is an inductive
+
+84: type that `proxy_equiv% α` can handle. The elaborator makes use of the
+
+85: expected type, so `(derive_fintype% _ : Fintype α)` works.
+
+86: 
+
+87: This uses `proxy_equiv% α`, so as a side effect it defines `proxyType` and `proxyTypeEquiv` in
+
+88: the namespace associated to the inductive type `α`.
+
+89: -/
+
+90: macro "derive_fintype% " t:term : term => `(term| Fintype.ofEquiv _ (proxy_equiv% $t))
+
+91: 
+
+92: /-
+
+93: Creates a `Fintype` instance by adding additional `Fintype` and `Decidable` instance arguments
+
+94: for every type and prop parameter of the type, then use the `derive_fintype%` elaborator.
+
+95: -/
+
+96: def mkFintype (declName : Name) : CommandElabM Bool := do
+
+97:   let indVal ← getConstInfoInduct declName
+
+98:   let cmd ← liftTermElabM do
+
+99:     let header ← Deriving.mkHeader `Fintype 0 indVal
+
+100:     let binders' ← Deriving.mkInstImplicitBinders `Decidable indVal header.argNames
+
+101:     let instCmd ← `(command|
+
+102:       instance $header.binders:bracketedBinder* $(binders'.map TSyntax.mk):bracketedBinder* :
+
+103:           Fintype $header.targetType := derive_fintype% _)
+
+104:     return instCmd
+
+105:   trace[Elab.Deriving.fintype] "instance command:\n{cmd}"
+
+106:   elabCommand cmd
+
+107:   return true
+
+108: 
+
+109: /-- Derive a `Fintype` instance for enum types. These come with a `ctorIdx` function.
+
+110: 
+
+111: We generate a more optimized instance than the one produced by `mkFintype`.
+
+112: The strategy is to (1) create a list `enumList` of all the constructors, (2) prove that this
+
+113: is in `ctorIdx` order, (3) show that `ctorIdx` maps `enumList` to `List.range numCtors` to show
+
+114: the list has no duplicates, and (4) give the `Fintype` instance, using 2 for completeness.
+
+115: 
+
+116: The proofs are all linear complexity, and the main computation is that
+
+117: `enumList.map ctorIdx = List.range numCtors`, which is true by `refl`. -/
+
+118: def mkFintypeEnum (declName : Name) : CommandElabM Unit := do
+
+119:   let indVal ← getConstInfoInduct declName
+
+120:   let levels := indVal.levelParams.map Level.param
+
+121:   let ctorIdxName := declName.mkStr "ctorIdx"
+
+122:   let enumListName := declName.mkStr "enumList"
+
+123:   let ctorThmName := declName.mkStr "enumList_getElem?_ctorIdx_eq"
+
+124:   let enumListNodupName := declName.mkStr "enumList_nodup"
+
+125:   liftTermElabM <| Term.withoutErrToSorry do
+
+126:     do -- Define `enumList` enumerating all constructors
+
+127:       trace[Elab.Deriving.fintype] "defining {enumListName}"
+
+128:       let type := mkConst declName levels
+
+129:       let listType ← mkAppM ``List #[type]
+
+130:       let listNil ← mkAppOptM ``List.nil #[some type]
+
+131:       let listCons name xs := mkAppM ``List.cons #[mkConst name levels, xs]
+
+132:       let enumList ← indVal.ctors.foldrM (listCons · ·) listNil
+
+133:       addAndCompile <| Declaration.defnDecl
+
+134:         { name := enumListName
+
+135:           levelParams := indVal.levelParams
+
+136:           safety := DefinitionSafety.safe
+
+137:           hints := ReducibilityHints.abbrev
+
+138:           type := listType
+
+139:           value := enumList }
+
+140:       setProtected enumListName
+
+141:       addDocStringCore enumListName s!"A list enumerating every element of the type, \
+
+142:         which are all zero-argument constructors. (Generated by the `Fintype` deriving handler.)"
+
+143:     do -- Prove that this list is in `ctorIdx` order
+
+144:       trace[Elab.Deriving.fintype] "proving {ctorThmName}"
+
+145:       let goalStx ← `(term| ∀ (x : $(← Term.exprToSyntax <| mkConst declName levels)),
+
+146:         $(mkIdent enumListName)[$(mkIdent ctorIdxName) x]? = some x)
+
+147:       let goal ← Term.elabTerm goalStx (mkSort .zero)
+
+148:       let pf ← Term.elabTerm (← `(term| by intro x; cases x <;> rfl)) goal
+
+149:       Term.synthesizeSyntheticMVarsNoPostponing
+
+150:       addAndCompile <| Declaration.thmDecl
+
+151:         { name := ctorThmName
+
+152:           levelParams := indVal.levelParams
+
+153:           type := ← instantiateMVars goal
+
+154:           value := ← instantiateMVars pf }
+
+155:       setProtected ctorThmName
+
+156:     do -- Use this theorem to prove `enumList` has no duplicates
+
+157:       trace[Elab.Deriving.fintype] "proving {enumListNodupName}"
+
+158:       let enum ← Term.exprToSyntax <| mkConst enumListName levels
+
+159:       let goal ← Term.elabTerm (← `(term| List.Nodup $enum)) (mkSort .zero)
+
+160:       let n : TSyntax `term := quote indVal.numCtors
+
+161:       let pf ← Term.elabTerm (← `(term| by
+
+162:                   apply List.Nodup.of_map $(mkIdent ctorIdxName)
+
+163:                   have h : List.map $(mkIdent ctorIdxName) $(mkIdent enumListName)
+
+164:                             = List.range $n := rfl
+
+165:                   exact h ▸ List.nodup_range)) goal
+
+166:       Term.synthesizeSyntheticMVarsNoPostponing
+
+167:       addAndCompile <| Declaration.thmDecl
+
+168:         { name := enumListNodupName
+
+169:           levelParams := indVal.levelParams
+
+170:           type := ← instantiateMVars goal
+
+171:           value := ← instantiateMVars pf }
+
+172:       setProtected enumListNodupName
+
+173:   -- Make the Fintype instance
+
+174:   trace[Elab.Deriving.fintype] "defining fintype instance"
+
+175:   let cmd ← `(command|
+
+176:     instance : Fintype $(mkIdent declName) where
+
+177:       elems := Finset.mk $(mkIdent enumListName) $(mkIdent enumListNodupName)
+
+178:       complete := by
+
+179:         intro x
+
+180:         rw [Finset.mem_mk, Multiset.mem_coe, List.mem_iff_getElem?]
+
+181:         exact ⟨$(mkIdent ctorIdxName) x, $(mkIdent ctorThmName) x⟩)
+
+182:   trace[Elab.Deriving.fintype] "instance command:\n{cmd}"
+
+183:   elabCommand cmd
+
+184: 
+
+185: def mkFintypeInstanceHandler (declNames : Array Name) : CommandElabM Bool := do
+
+186:   if h : declNames.size ≠ 1 then
+
+187:     return false -- mutually inductive types are not supported
+
+188:   else
+
+189:     let declName := declNames[0]
+
+190:     if ← isEnumType declName then
+
+191:       mkFintypeEnum declName
+
+192:       return true
+
+193:     else
+
+194:       mkFintype declName
+
+195: 
+
+196: initialize
+
+197:   registerDerivingHandler ``Fintype mkFintypeInstanceHandler
+
+198:   registerTraceClass `Elab.Deriving.fintype
+
+199: 
+
+200: end Mathlib.Deriving.Fintype
+
+Mathlib/Basic/ENNReal/Basic.lean
+SHA-256 f7fe64f0d1865209e4d2be2fd98e3bc5edf9af508dd665f0311e6396f8d513a2
+
+273: @[simp, norm_cast, basify_op ←] theorem coe_zero : ↑(0 : ℝ≥0) = (0 : ℝ≥0∞) := rfl
+
+274: 
+
+275: @[simp, norm_cast, basify_op ←] theorem coe_one : ↑(1 : ℝ≥0) = (1 : ℝ≥0∞) := rfl
+
+405: @[simp, norm_cast, basify_op ←] lemma coe_add (x y : ℝ≥0) : (↑(x + y) : ℝ≥0∞) = x + y := rfl
+
+406: 
+
+407: @[simp, norm_cast, basify_op ←] lemma coe_mul (x y : ℝ≥0) : (↑(x * y) : ℝ≥0∞) = x * y := rfl
+
+408: 
+
+409: @[norm_cast] lemma coe_nsmul (n : ℕ) (x : ℝ≥0) : (↑(n • x) : ℝ≥0∞) = n • x := rfl
+
+410: 
+
+411: @[simp, norm_cast, basify_op ←] lemma coe_pow (x : ℝ≥0) (n : ℕ) : (↑(x ^ n) : ℝ≥0∞) = x ^ n := rfl
+
+412: 
+
+413: @[simp, norm_cast]
+
+414: theorem coe_ofNat (n : ℕ) [n.AtLeastTwo] : ((ofNat(n) : ℝ≥0) : ℝ≥0∞) = ofNat(n) := rfl
+
+Mathlib/Basic/ENNReal/Inv.lean
+SHA-256 f06e93ae82105c5c03585c2d11377b94aac119b7fdbcaf34a7a333aa27c53f36
+
+68: @[simp, norm_cast, basify_op ←]
+
+69: theorem coe_inv (hr : r ≠ 0) : (↑r⁻¹ : ℝ≥0∞) = (↑r)⁻¹ :=
+
+70:   coe_inv_le.antisymm <| sInf_le <| mem_ofPred.2 <| by rw [← coe_mul, mul_inv_cancel₀ hr, coe_one]
+
+71: 
+
+72: @[simp, norm_cast]
+
+73: theorem coe_inv' [NeZero r] : (↑r⁻¹ : ℝ≥0∞) = (↑r)⁻¹ := coe_inv (NeZero.ne r)
+
+74: 
+
+75: @[norm_cast]
+
+76: theorem coe_inv_two : ((2⁻¹ : ℝ≥0) : ℝ≥0∞) = 2⁻¹ := by rw [coe_inv _root_.two_ne_zero, coe_two]
+
+77: 
+
+78: @[simp, norm_cast, basify_op ←]
+
+79: theorem coe_div (hr : r ≠ 0) : (↑(p / r) : ℝ≥0∞) = p / r := by
+
+80:   rw [div_eq_mul_inv, div_eq_mul_inv, coe_mul, coe_inv hr]
+
+81: 
+
+82: @[simp, norm_cast]
+
+83: theorem coe_div' [NeZero r] : (↑(p / r) : ℝ≥0∞) = p / r := coe_div (NeZero.ne r)
+
+Mathlib/Probability/ConditionalProbability.lean
+SHA-256 4245cc130e59294fadd87a6b011273c010bf3a21fd3395b8a3fe0f8a749f3f8c
+
+149:   `($μ[$s | $X in {$x:term}])
+
+150: 
+
+151: /-- The conditional probability measure of any measure on any set of finite positive measure
+
+152: is a probability measure. -/
+
+153: theorem cond_isProbabilityMeasure_of_finite (hcs : μ s ≠ 0) (hs : μ s ≠ ∞) :
+
+154:     IsProbabilityMeasure μ[|s] :=
+
+155:   ⟨by
+
+156:     unfold ProbabilityTheory.cond
+
+157:     simp only [Measure.coe_smul, Pi.smul_apply, MeasurableSet.univ, Measure.restrict_apply,
+
+158:       Set.univ_inter, smul_eq_mul]
+
+159:     exact ENNReal.inv_mul_cancel hcs hs⟩
+
+160: 
+
+161: /-- The conditional probability measure of any finite measure on any set of positive measure
+
+162: is a probability measure. -/
+
+163: theorem cond_isProbabilityMeasure [IsFiniteMeasure μ] (hcs : μ s ≠ 0) :
+
+164:     IsProbabilityMeasure μ[|s] := cond_isProbabilityMeasure_of_finite hcs (measure_ne_top μ s)
+
+165: 
+
+166: instance : IsZeroOrProbabilityMeasure μ[|s] := by
+
+167:   constructor
+
+168:   simp only [cond, Measure.coe_smul, Pi.smul_apply, MeasurableSet.univ, Measure.restrict_apply,
+
+169:     univ_inter, smul_eq_mul, ← ENNReal.div_eq_inv_mul]
+
+Mathlib/Probability/UniformOn.lean
+SHA-256 7f1aac5e8c78698289601133f5b9551eb772b90eab05338900c472270031f5c3
+
+74: @[simp] lemma uniformOn_eq_zero [MeasurableSingletonClass Ω] :
+
+75:     uniformOn s = 0 ↔ s.Infinite ∨ s = ∅ := by simp [uniformOn]
+
+76: 
+
+77: theorem finite_of_uniformOn_ne_zero {s t : Set Ω} (h : uniformOn s t ≠ 0) : s.Finite := by
+
+78:   by_contra hs'
+
+79:   simp [uniformOn, cond, Measure.count_apply_infinite hs'] at h
+
+80: 
+
+81: theorem uniformOn_univ [Fintype Ω] {s : Set Ω} :
+
+82:     uniformOn Set.univ s = Measure.count s / Fintype.card Ω := by
+
+83:   simp [uniformOn, cond_apply, ← ENNReal.div_eq_inv_mul]
+
+84: 
+
+85: theorem isProbabilityMeasure_uniformOn' {s : Set Ω}
+
+86:     (hs_fin : s.Finite) (hs_nonempty : s.Nonempty) (hs_meas : MeasurableSet s) :
+
+87:     IsProbabilityMeasure (uniformOn s) := by
+
+88:   apply cond_isProbabilityMeasure_of_finite
+
+89:   · rwa [Measure.count_ne_zero_iff]
+
+90:   · exact (Measure.count_apply_lt_top' hs_meas).2 hs_fin |>.ne
+
+91: 
+
+92: instance instIsProbabilityMeasure_uniformOn_univ [Finite Ω] [Nonempty Ω] :
+
+93:     IsProbabilityMeasure (uniformOn (.univ : Set Ω)) :=
+
+94:   isProbabilityMeasure_uniformOn' Set.finite_univ Set.univ_nonempty .univ
+
+95: 
+
+96: lemma uniformOn_apply_finset' {Ω : Type*} [DecidableEq Ω] {_ : MeasurableSpace Ω} {s t : Finset Ω}
+
+97:     (hs : MeasurableSet (s : Set Ω)) (ht : MeasurableSet (t : Set Ω)) :
+
+98:     uniformOn (s : Set Ω) (t : Set Ω) = #(s ∩ t) / #s := by
+
+99:   rw [uniformOn, cond_apply hs, Measure.count_apply_finset' hs, ← coe_inter,
+
+Init/Data/List/Lemmas.lean
+SHA-256 9365fb1c6da0313a4c73e8cf096377e69c28ece28d38290a0423e5f8cc1fdfdb
+
+145: theorem length_pos_iff {l : List α} : 0 < length l ↔ l ≠ [] :=
+
+146:   Nat.pos_iff_ne_zero.trans (not_congr length_eq_zero_iff)
+
+147: 
+
+148: theorem ne_nil_iff_length_pos {l : List α} : l ≠ [] ↔ 0 < length l :=
+
+149:   length_pos_iff.symm
+
+150: 
+
+151: theorem length_eq_one_iff {l : List α} : length l = 1 ↔ ∃ a, l = [a] :=
+
+152:   ⟨fun h => match l, h with | [_], _ => ⟨_, rfl⟩, fun ⟨_, h⟩ => by simp [h]⟩
+
+Init/Data/List/Nat/Range.lean
+SHA-256 06325fdc2c100a4b20eff48e227419259e0749eb82b156b17a1c57b35a5649e3
+
+257: @[simp, grind =] theorem take_range {i n : Nat} : take i (range n) = range (min i n) := by
+
+258:   apply List.ext_getElem
+
+259:   · simp
+
+260:   · simp +contextual [getElem_take, Nat.lt_min]
+
+261: 
+
+262: theorem nodup_range {n : Nat} : Nodup (range n) := by
+
+263:   simp +decide only [range_eq_range', nodup_range']

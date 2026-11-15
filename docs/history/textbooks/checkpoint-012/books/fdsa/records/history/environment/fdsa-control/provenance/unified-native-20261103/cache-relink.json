@@ -1,0 +1,23 @@
+{
+  "started_utc": "2026-11-03T20:04:13.567988+00:00",
+  "command": [
+    "/workspace/scratch/31d6377eca78/conaled-native-state/toolchains/lean-4.35.0-linux/bin/clang",
+    "-o",
+    "/workspace/scratch/31d6377eca78/conaled-native-state/.relink-ti02nrf9/mathlib-cache",
+    "@/workspace/scratch/31d6377eca78/conaled-native-state/.relink-ti02nrf9/cache.rsp"
+  ],
+  "cwd": "/workspace/scratch/31d6377eca78/conaled-native-state/.relink-ti02nrf9",
+  "log": "/workspace/scratch/31d6377eca78/conaled-native-state/logs/20261103T200413Z-cache-relink-3916dc23/output.log",
+  "label": "cache-relink",
+  "lean_threads": null,
+  "passed": true,
+  "completed_utc": "2026-11-03T20:04:14.038197+00:00",
+  "seconds": 0.4682363679999071,
+  "exit_code": 0,
+  "timed_out": false,
+  "recorder_error": null,
+  "sha256": "a8b0bf258ad991ba40561bffcbcadc88ad429eef6e4ac2cd8ae99b229590d624",
+  "bytes": 119669648,
+  "manifest_sha256": "f0ecb0bc6737adf7f576cf419d93cc7f5f93d0d279006d150b823499bfd9783f",
+  "scope": "19-object native relink, not a fresh Lean compilation."
+}

@@ -1,0 +1,60 @@
+{
+  "utc": "2026-11-04T14:25:18.144206+00:00",
+  "accepted_base": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "source_candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "original_H": "97505ca8a1e714601e6d68137f0659b36a569988",
+  "tree": "c04ee9e10d5cad7387295cdd4bd8486a455715da",
+  "root_full_author_handoff_and_receipts_read_tool": "dacd2b",
+  "actual_Git_checks": [
+    {
+      "unit": "XM01",
+      "merge_commit": "15dbd8ac1d653a9ef8000656a91152ca1cda9c58",
+      "parents": [
+        "97505ca8a1e714601e6d68137f0659b36a569988",
+        "72a0951aee406f7db67998d2a3bf8810f4e1bccc"
+      ],
+      "actual_ancestry_exit": 0,
+      "tree_matches_H": true
+    },
+    {
+      "unit": "XD01",
+      "merge_commit": "eb269d9ec3850b21760f5aa83a5a1001a5f219d3",
+      "parents": [
+        "15dbd8ac1d653a9ef8000656a91152ca1cda9c58",
+        "52722e3ee481167e99b8f6c0b2417df7fb7615d8"
+      ],
+      "actual_ancestry_exit": 0,
+      "tree_matches_H": true
+    },
+    {
+      "unit": "XQ01",
+      "merge_commit": "b907e9017ed1bd0c32361ed0cad596388cb6da31",
+      "parents": [
+        "eb269d9ec3850b21760f5aa83a5a1001a5f219d3",
+        "0612e80a0c297a38fa1add6e837dc7781e1bbd9c"
+      ],
+      "actual_ancestry_exit": 0,
+      "tree_matches_H": true
+    },
+    {
+      "unit": "XU01",
+      "merge_commit": "312aafb4446b995ff5542041b4e2e074f776db1e",
+      "parents": [
+        "b907e9017ed1bd0c32361ed0cad596388cb6da31",
+        "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0"
+      ],
+      "actual_ancestry_exit": 0,
+      "tree_matches_H": true
+    }
+  ],
+  "all18source_paths_and_complete_full_index_patch_match_H": true,
+  "protected63refs_unchanged": true,
+  "correction_package_payload_hashes_checked": 19,
+  "original_H_package_hashes_checked": 9,
+  "retained_F_verification_not_I_evidence": true,
+  "no_compiler_for_I_started": true,
+  "independent_source_reports_pending_at_this_record": true,
+  "total_bytes": 67586535424,
+  "available_bytes": 0,
+  "raw_free_bytes": 2566463488
+}

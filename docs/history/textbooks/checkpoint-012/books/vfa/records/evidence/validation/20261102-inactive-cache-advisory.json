@@ -1,0 +1,62 @@
+{
+  "started_utc": "2026-11-02T10:34:37.460631+00:00",
+  "scope": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build",
+  "active_cache_metadata_comparison_only": "/workspace/scratch/0c54f2db1fdf/vfa-validation/.lake/packages/mathlib/.lake/build",
+  "operation": "os.posix_fadvise(fd, 0, 0, os.POSIX_FADV_DONTNEED)",
+  "elapsed_bound_seconds": 45,
+  "traversal_deadline_seconds": 44,
+  "policy": {
+    "one_pass": true,
+    "follow_symlinks": false,
+    "read_contents": false,
+    "write_cache_or_source_bytes": false,
+    "delete_paths": false,
+    "inspect_processes_or_environments": false,
+    "signal_processes": false,
+    "active_cache_opened_or_advised": false,
+    "regular_files_require_nlink": 1,
+    "open_flags": "O_RDONLY | O_NOFOLLOW | O_CLOEXEC",
+    "opened_device_inode_must_match_lstat": true
+  },
+  "counts": {
+    "directories_opened": 2425,
+    "entries_inspected": 76559,
+    "regular_files_seen": 74135,
+    "files_advised": 74135,
+    "logical_bytes_addressed": 3548704594,
+    "allocated_bytes_addressed": 3786047488
+  },
+  "skips": {},
+  "errors": {},
+  "sample_errors": [],
+  "status": "completed_one_pass",
+  "limits": [
+    "Advice success is not a count of resident or reclaimed pages.",
+    "No compiler runtime, speedup, source integrity, or acceptance claim follows.",
+    "The unresolved inactive-path recreation incident #1025 is unchanged.",
+    "The monotonic deadline is checked before each traversal/open/advice operation; no retry or process signal is used."
+  ],
+  "root_before": {
+    "device": 27,
+    "inode": 3278033,
+    "mode": 16384,
+    "nlink": 5
+  },
+  "active_root_identity": {
+    "device": 27,
+    "inode": 4083818,
+    "mode": 16384,
+    "nlink": 5
+  },
+  "advisory_and_cleanup_elapsed_seconds": 2.9820607520014164,
+  "root_after": {
+    "device": 27,
+    "inode": 3278033,
+    "mode": 16384,
+    "nlink": 5
+  },
+  "root_identity_unchanged": true,
+  "finished_utc": "2026-11-02T10:34:40.442723+00:00",
+  "elapsed_seconds_before_report_write": 2.9821292830019956,
+  "within_45_seconds_before_report_write": true
+}

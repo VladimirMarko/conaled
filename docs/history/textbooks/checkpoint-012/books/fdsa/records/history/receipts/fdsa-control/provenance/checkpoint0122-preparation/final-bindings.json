@@ -1,0 +1,80 @@
+{
+  "state": "actual-held-final-evidence-bound",
+  "recorded_utc": "2026-11-04T18:19:28.220066+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "accepted_predecessor": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "checkpoint_name": "conaled-fdsa-0122-accepted-chapter02",
+  "files": {
+    "acceptance": {
+      "path": "provenance/chapter02-acceptance-20261104/acceptance.json",
+      "bytes": 12612,
+      "sha256": "8a49d177aaf4af1ccbb046064d6d93a2fa63d1ec438871b8703af711ddbc32d0"
+    },
+    "root_gate": {
+      "path": "provenance/chapter02-acceptance-20261104/root-gate-reconciliation.json",
+      "bytes": 139032,
+      "sha256": "ba9c115e8840fec4e587386bd7f6febcbc8e460115163aab69bf758b3ad4d098"
+    },
+    "fast_forward_preflight": {
+      "path": "provenance/chapter02-acceptance-20261104/prepared-fast-forward-preflight.json",
+      "bytes": 11404,
+      "sha256": "3d26b78b50c38f7b389f2839d3232857d89efc510acadce9458b9dc34786ebc0"
+    },
+    "fast_forward_result": {
+      "path": "provenance/chapter02-acceptance-20261104/fast-forward-result.json",
+      "bytes": 7459,
+      "sha256": "33508645d18cdee1f3106c56226c0c16ef98fc16091a5390f940fbd206bdc0d8"
+    },
+    "coverage": {
+      "path": "provenance/chapter02-acceptance-20261104/coverage.md",
+      "bytes": 3514,
+      "sha256": "f7f7402307c4517bd1ca08ec96518bb47ad99339428c60a9ec4dad1f875616d7"
+    },
+    "standards_review": {
+      "path": "reviews/chapter02-standards-receiving-final-20261104.md",
+      "bytes": 12369,
+      "sha256": "32fa752ce964aa01c530d0d015a8eaf1f4fa7319b6cfe872bb54cd797b9c3b45"
+    },
+    "standards_completion": {
+      "path": "provenance/chapter02-standards-receiving-final-20261104/final-disposition-and-hold.json",
+      "bytes": 10278,
+      "sha256": "b189fcc3ddb8cf6de318b17c0462faa5df7d4222ee155ec64e0fabedb519fc30"
+    },
+    "spec_review": {
+      "path": "reviews/chapter02-spec-final-20261104.md",
+      "bytes": 15377,
+      "sha256": "4852842a5ccae808bd0d96ba82339a2857eda445e5992a34ab8c2e4fd2a133c0"
+    },
+    "spec_completion": {
+      "path": "provenance/chapter02-spec-receiving-terminal-20261104/final-readback-and-hold.json",
+      "bytes": 5528,
+      "sha256": "b542c98aa7e8ddc268b1e61f7aef6cf1105d733a6226a876da7dd42c211f06ee"
+    },
+    "immediate_result": {
+      "path": "provenance/chapter02-complete-immediate-verification-20261104-attempt1/result.json",
+      "bytes": 1276,
+      "sha256": "e0723e7f5578cd7d932089b9021c18fc8f3a91cc359e6c8b8a7168a65a2fb2df"
+    },
+    "immediate_closed_evidence": {
+      "path": "provenance/chapter02-complete-immediate-verification-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 2314,
+      "sha256": "4ae06a939df9891aca3ea3f3fcd3ffbc8da82f178b85e80e9f0f96e21092045a"
+    },
+    "immediate_owned_terminal": {
+      "path": "provenance/chapter02-complete-immediate-verification-20261104-attempt1/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "deacecb2e6f2e56fcd0eee4b4e4e39aca5467cacec5b6a00640049fc67405af0"
+    },
+    "immediate_verification": {
+      "path": "provenance/chapter02-complete-immediate-verification-20261104-attempt1/verification.json",
+      "bytes": 867,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    "immediate_full_log": {
+      "path": "provenance/chapter02-complete-immediate-verification-20261104-attempt1/full.log",
+      "bytes": 317,
+      "sha256": "38f47d49bc23ea658f072935882c7a6595d408de1801a0275d87e3292af8ba85"
+    }
+  },
+  "basis": "All actual root acceptance/FF/immediate records exist, both final axes passed and their final reports/completions are held; no prospective identity is filled."
+}

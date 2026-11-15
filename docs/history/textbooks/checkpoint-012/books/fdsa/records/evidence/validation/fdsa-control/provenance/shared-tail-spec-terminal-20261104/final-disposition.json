@@ -1,0 +1,301 @@
+{
+  "schema": "fdsa-spec-permutation-tail-final-v1",
+  "utc": "2026-11-04T16:39:29.574539+00:00",
+  "reviewer": "Independent nonauthor Spec",
+  "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "accepted_predecessor": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "I_producer": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "foundation_producer": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "outcome": "PASS",
+  "frozen_requirements": {
+    "path": "reviews/permutation-tail-requirements.md",
+    "lines": 229,
+    "bytes": 12866,
+    "sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c"
+  },
+  "full_original_scope": {
+    "paths": [
+      "Applications/Probability/PermutationTail.lean",
+      "Examples/PermutationTail.lean",
+      "Examples/PermutationTailBoundary.lean",
+      "SquareApplications.lean",
+      "docs/research/fdsa-permutation-tail.md",
+      "docs/research/fdsa-reconstruction-map.md"
+    ],
+    "counts": {
+      "public": 61,
+      "private": 19,
+      "anonymous_instances": 8,
+      "public_theorems": 46,
+      "public_definitions": 15
+    },
+    "anonymous_examples": 0,
+    "C2_paths": 81,
+    "C2_obligations": 112,
+    "C2_shared_scopes": 10
+  },
+  "source_assessment_retained": {
+    "path": "provenance/shared-tail-spec-source-continuation-20261104/source-assessment.json",
+    "bytes": 76738,
+    "lines": 1634,
+    "sha256": "862f2b48e0212d7e08137f3f88946df3772be4b1e5e36dfa41874b0c513b8388"
+  },
+  "effective_header_correction_retained": {
+    "path": "provenance/shared-tail-spec-source-continuation-20261104/header-metadata-correction.json",
+    "bytes": 2210,
+    "lines": 50,
+    "sha256": "f39acf9998c66b8766183d8470c66c7b90b5d1bfaa478986cc28bf1687140e36"
+  },
+  "actual61": {
+    "all61_full_types_read": true,
+    "native_lines": 1073,
+    "native_bytes": 84784,
+    "all52_ellipsis_contexts_assessed": true,
+    "qualified_exclusive_run_and_complete_pre_post": true,
+    "public_theorems": 46,
+    "public_definitions": 15,
+    "private_theorems": 19,
+    "anonymous_local_instances": 8
+  },
+  "full_gate": {
+    "outer_native_owned_exit0": true,
+    "initial_final_clean_L": true,
+    "mode": "incremental normal",
+    "checked_modules": 983,
+    "audit_rows": 981,
+    "kernel_safe": 45809,
+    "theorems": 25533,
+    "unsafe_excluded": 0,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "native_full_read_lines": 2484,
+    "outer_full_read_bytes": 284574,
+    "postguard_artifacts": 2946,
+    "inconsistent_modules": 0,
+    "warnings": {
+      "current": 591,
+      "unchanged_J": 584,
+      "new_module_import_advisories": 7
+    },
+    "verification": {
+      "path": "provenance/shared-tail-full-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "lines": 19,
+      "sha256": "0cd4efa701892c229d61bca325a4c0a2aaa9a26428fa409f7d2195ac1e227a46"
+    }
+  },
+  "statement_account": {
+    "actual_L61": 61,
+    "qualified_J53": 53,
+    "qualified_I314": 314,
+    "qualified_F110": 110,
+    "distinct": 538
+  },
+  "semantic_transfer": {
+    "path": "provenance/shared-tail-spec-terminal-20261104/inherited-semantic-disposition.json",
+    "bytes": 15591,
+    "lines": 330,
+    "sha256": "be9c451cba3eac54cf726d8f33c0c220a0eb88ab9cb61e1e9839582ecf99fe1a"
+  },
+  "complete_original_findings": {
+    "XU03-SRC-001": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-ELAB-001": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-ELAB-002": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-BND-ELAB-001": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-BND-ELAB-002-006": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-BND-ELAB-007-009": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-ELAB3-01": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-ELAB3-02": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-ELAB3-03": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-ELAB3-04": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-ELAB3-05": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-ELAB3-06": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-ELAB3-07": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-ELAB3-08": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-ELAB3-09": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-ELAB3-10": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-ELAB3-11": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-ELAB3-12": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-ELAB3-13": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-ELAB3-14": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-ELAB3-15": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-ELAB3-16": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-MAIN-ELAB-001": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-MAIN-ELAB-002": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-MAIN-ELAB-003": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-MAIN-ELAB-004": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-MAIN-ELAB-005": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "XU03-MAIN-ELAB-006": {
+      "historical_source_and_finding_records_preserved": true,
+      "current_L_disposition": "Resolved: retained exact source correction now confirmed by the complete current L build, all relevant actual full types and exhaustive private/generated audit."
+    },
+    "C02-DOC-003 / Tail": {
+      "current_L_disposition": "Resolved for the Tail portion by exact receiving source application and confirmed against secured current evidence; no unrelated global C2 closure inferred."
+    },
+    "C02-TYPE-001 / Tail receiving": {
+      "current_L_disposition": "Historical Z resolution retained; concrete receiving input-lineage gap independently resolved by actualL61 and full input qualification."
+    }
+  },
+  "six_API_ite_and_three_NNReal_transport_corrections": "Original identities retained; no invented additional findings; complete L proof/type/audit confirmation.",
+  "unresolved_Spec_findings": [],
+  "new_own_evidence": [
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/actual61-complete-type-assessment.json",
+      "bytes": 63430,
+      "lines": 1043,
+      "sha256": "f2314d66eccc99f3218046d1320134ba49891851c3d04394fc808c7d6972fa8e"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/full-log-read-progress.json",
+      "bytes": 4371,
+      "lines": 197,
+      "sha256": "0b9a05b96e3e2c124ba355cc3f0ecd5f205be737267ff87281566181a7081dd7"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/full-log-read-complete.json",
+      "bytes": 6450,
+      "lines": 289,
+      "sha256": "f15465f27d5b873983dc76430ed14ae6b7044ef0837b443d75fc985010dc307f"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/independent-input-reconciliation.py",
+      "bytes": 15790,
+      "lines": 196,
+      "sha256": "a3831532accc9c43de125d53cf7b795f7b7313d1b01588c79be5c8737e4856e6"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/reconciliation-bookkeeping.json",
+      "bytes": 769,
+      "lines": 11,
+      "sha256": "4f14afbd5a704f66284cc30977a6ffc2982baf3427bd3b707916f191526fa9c0"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/independent-input-reconciliation-corrected.py",
+      "bytes": 15791,
+      "lines": 196,
+      "sha256": "d6c00153e0510411eb14daaa56d3eb40d1d75dce0b168c28bf70a9f7a747f59a"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/independent-input-reconciliation.json",
+      "bytes": 115193,
+      "lines": 2633,
+      "sha256": "8d81a53f8f3ed075f6dedf7441fbf7e9439d89c75a9833f046eff5e9bbc5b0cf"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/independent-full-gate-reconciliation.py",
+      "bytes": 6351,
+      "lines": 71,
+      "sha256": "8b100e34f7c2b41363fdfd9f1c34243e815f917f89518259e927748eb3af94e7"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/full-gate-assessment.json",
+      "bytes": 32213,
+      "lines": 451,
+      "sha256": "1bb0cbe61633497daab18b0b806437d8ebab1bc356c716ae2379acd0f74e16e4"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/inherited-semantic-disposition.json",
+      "bytes": 15591,
+      "lines": 330,
+      "sha256": "be9c451cba3eac54cf726d8f33c0c220a0eb88ab9cb61e1e9839582ecf99fe1a"
+    }
+  ],
+  "final_report": {
+    "path": "reviews/permutation-tail-spec-final-20261104.md",
+    "bytes": 14391,
+    "lines": 90,
+    "sha256": "e1e97c2726b8aae3e5c12872fd4ebe0213fde92340a4969b1048242525fff485"
+  },
+  "supersession": "Only exact-L receiving-validation-pending status is superseded; all prior source, F/I/J/C2/XR/XP/tree and other held reports remain unchanged. No whole Chapter2 acceptance is asserted.",
+  "coordinator_remaining_actions": [
+    "Separate final Standards verdict for exact L.",
+    "Immediate qualified ./check.sh --verify-candidate HEAD at exact clean L.",
+    "Authorized exact local accepted fast-forward and durability checkpoint after all gates."
+  ],
+  "reviewer_source_ref_compiler_process_runtime_output_cache_ticket_actions": false,
+  "readback_status": "Final artifact readback and explicit write hold are recorded separately after completion."
+}

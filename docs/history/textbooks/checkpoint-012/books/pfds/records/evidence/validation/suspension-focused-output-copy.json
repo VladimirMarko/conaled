@@ -1,0 +1,36 @@
+{
+  "original_path": "session/validation/suspension-focused-output-copy.json",
+  "original_sha256": "3a9c2aac5a94a7511d393e566783426ee4894fa8ac8c9773bce4b63c44f29d31",
+  "original_bytes": 84100,
+  "removed_fields": [
+    {
+      "pointer": "/copied",
+      "entries": 420,
+      "canonical_json_sha256": "e01cb31a973fb37e38d303e5635b9322b2378f2dfa043ebaf8d9af87a122214d"
+    },
+    {
+      "pointer": "/selected_modules",
+      "entries": 60,
+      "canonical_json_sha256": "0546963c8b84e8b1390a458fe49610295eb5d7a3a54e98e2f5d069c7a68cedfb"
+    }
+  ],
+  "record": {
+    "started_at": "2026-11-02T22:39:04.260397+00:00",
+    "status": "completed",
+    "source": "/workspace/scratch/ca9a61d0bf30/suspension-foundation",
+    "target": "/workspace/scratch/ca9a61d0bf30/validation-suspensions-r3",
+    "source_head": "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+    "target_head": "a3feaff319ad5fad912fb8bdc113f33fea4e2a60",
+    "approval_copied": false,
+    "source_validation": "focused development outputs only; not accepted",
+    "selection": "identical source bytes; no destination module artifacts; complete saved outputs",
+    "skipped": {},
+    "acceptance": false,
+    "hashed_artifacts": 180,
+    "source_inconsistencies": {},
+    "ended_at": "2026-11-02T22:39:11.006461+00:00",
+    "copied_modules": 60,
+    "copied_files": 420,
+    "copied_bytes": 49334761
+  }
+}

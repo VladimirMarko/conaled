@@ -1,0 +1,845 @@
+{
+  "schema": 1,
+  "axis": "Spec",
+  "round": 4,
+  "reviewer": "/root/recovery_review/spec_r4",
+  "recorded_at": "2026-11-14T20:45:50.244496+00:00",
+  "workflow": "Existing ordinary textbook integration loop; replacement independent reviewer; no new loop",
+  "review_kind": "source-and-receiving-handoff; not final merge acceptance",
+  "source_analysis_complete": true,
+  "source_handoff_outcome": "Passed",
+  "final_acceptance_status": "Blocked",
+  "final_acceptance_reason": "INT-SP-001 open-delegated-receiving-gate; no exact-candidate terminal full validation/audit and matching success record",
+  "source_handoff_approved": true,
+  "final_approval": false,
+  "merge_approval": false,
+  "local_source_progress_permitted": true,
+  "base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "original_full_spec_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "merge_base": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+  "tree": "63205d8a3ff27deb3680c613b70085163f289b83",
+  "previous_candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+  "authorized_upstream": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+  "requirements_version": "2026-11-14-evening-probability-and-delegated-validation",
+  "requirements_sha256": "a60dd5a4aa4ef46ff8463e47f536961a7f374c5ade74f012c609470e59f6b29c",
+  "diff_command": "git diff 9175737c2b14ef738cfb6c2cdc68d885c0805ddd...18235331da1fe343d09080ca4c41173f9b4d9963",
+  "scope": {
+    "changed_paths": 381,
+    "changed_lean_paths": 347,
+    "commits": 322,
+    "manifest_paths": 490,
+    "manifest_entries": {},
+    "manifest_exclude": [],
+    "undeclared_changed_paths": [],
+    "scope_identity": "04aaeba64ef993665ce417ac3441139f22ca88b53f8865ca6423525f21f2c309",
+    "content_identity": "f3d62399fb025c399790a4fd6a9808c9110ebf44d130c984474e9dcb4328cde4",
+    "candidate_receipt_sha256": "01e15d6d360c81e2d5e06187b35cb7a7fd8f1b2efcdec90b8b4f94a38e73e667",
+    "baseline_receipt_sha256": "5552685f5e8e87d51ee0f831346b73533c101706c95d1f0d91c712128565c99c",
+    "manifest_sha256": "d9cdf67714389042e0f1c252267506cf42e97fcb7aef606fafb7d850e0c2b773",
+    "all_receipt_mode_oid_entries_equal_git_tree": true,
+    "path_list_command": "git diff --name-only 9175737c2b14ef738cfb6c2cdc68d885c0805ddd...18235331da1fe343d09080ca4c41173f9b4d9963",
+    "path_list_sha256": "9ef2ed924b73f8e04f64cdae2819c7653a1e5c74885642889fee0b3441558e73",
+    "commit_list_command": "git log --format=%H %s 9175737c2b14ef738cfb6c2cdc68d885c0805ddd..18235331da1fe343d09080ca4c41173f9b4d9963",
+    "commit_list_sha256": "9889b580167285c4e94d4415862061bb72e8b63bf8274905ff468f035a658036",
+    "inventory_storage": "Reproducible from immutable Git pair; no duplicate giant inventories"
+  },
+  "independent_source_observations": {
+    "frozen_head_clean": true,
+    "prior_changed_paths": 374,
+    "prior_changed_paths_byte_mode_identical": 372,
+    "prior_paths_changed": [
+      "SquareApplications.lean",
+      "docs/research/textbook-integration.md"
+    ],
+    "all_prior_lean_blobs_except_public_root_unchanged": true,
+    "r3_to_r4_paths": [
+      "Applications/Probability/TableProducer.lean",
+      "Applications/Probability/TableProducerStationarity.lean",
+      "Examples/TableProducer.lean",
+      "SquareApplications.lean",
+      "docs/probabilistic-progress.md",
+      "docs/probability.md",
+      "docs/progress-contracts.md",
+      "docs/research/mathematical-suppression.md",
+      "docs/research/textbook-integration.md"
+    ],
+    "all_seven_non_root_upstream_delta_blobs_exact": true,
+    "previous_public_imports": 919,
+    "current_public_imports": 920,
+    "lost_previous_imports": [],
+    "lost_upstream_imports": [],
+    "added_imports": [
+      "Examples.TableProducer"
+    ],
+    "four_cross_book_clients_source_text_import_closure_paths": 44,
+    "changed_paths_in_that_closure": [],
+    "closure_check_limit": "source-text context comparison only; not pinned parser/elaboration",
+    "instructions_checker_pins_unchanged": true
+  },
+  "retained_analysis": {
+    "records": [
+      "books/common/evidence/reviews/spec-r1.md",
+      "books/common/evidence/reviews/spec-r1.json",
+      "books/common/evidence/reviews/spec-r2.md",
+      "books/common/evidence/reviews/spec-r2.json",
+      "books/common/evidence/reviews/spec-r3.md",
+      "books/common/evidence/reviews/spec-r3.json"
+    ],
+    "historical_outcomes": "All Blocked; immutable and not relabeled",
+    "reuse_basis": "Exact unchanged source/mode and dependency-context comparison, with complete prior source reports and changed requirements assessed anew",
+    "old_approval_reused": false,
+    "every_inherited_proof_line_reread": false
+  },
+  "assessment": {
+    "producer": "Actual prepared row resumption; arbitrary partial next-emission bridge; initialized trace/delivery equivalence; true cursor and ordered outputs; producer bits versus finite-chain one extra administrative step.",
+    "probability": "Finite explicit rational table representation and fair tape; operational path/endpoint events; one conull set of coherent finite prefixes; no per-tape or uniform-deadline guarantee.",
+    "stationarity": "Joint finite blocks after finite emission shifts; random returned-cursor freshness via stopped_mass; generic stationary ENNReal weights need not normalize; normalized MH target specialization is explicit independent mixture.",
+    "cases": "Partial block/resume, retry, two consecutive emissions, self-transition, prefix1/3, endpoint7/9, target stationary pair1/4, singleton positive producer and exceptional all-true divergence, changes filter nonproductivity.",
+    "costs": "Inspected bits/atomic producer transitions only; no host-runtime, general work, sampling-cost equivalence or physical entropy claim.",
+    "textbook_relevance": "INT-033 is proposed tape-versus-PMF correspondence preserving occurrence/rank/duplicate/cursor/source-cost observations; no automatic coverage gain.",
+    "research": "Mathematical suppression is paper-level derived-view investigation, not new code, architecture selection or a validation exception."
+  },
+  "coverage": {
+    "current_source_candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+    "inherited_detailed_cut": "f52a47b9e240b3937533f48befb8622527b7f6db",
+    "map_and_evening_accounting_candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+    "new_upstream_textbook_coverage_gain": false,
+    "fdsa": "Historical chapters1–3 acceptance; chapter2 112/112 and chapter3 83/83; chapter4 76 obligations/11 exercises and three streams remain unfinished.",
+    "vfa": "Perm correspondence and five historically focused-checked staging developments; table recovery partial; no chapter accepted.",
+    "pfds": "All six chapter2 exercise headings formally covered at historical focused scope; chapter1 acceptance introductory only;16 forward costs and77 later exercise headings remain open.",
+    "whole_book_percentage_claimed": false,
+    "new_exhaustive_manuscript_audit": false
+  },
+  "preservation": {
+    "identity_checks": 167,
+    "fdsa_selected_paths": 65,
+    "fdsa_variant_objects": 81,
+    "vfa_draft_hashes": 5,
+    "research_objects": 16,
+    "mismatches": [],
+    "catalog_sha256": "3437ebcd64d5a4f1b9564698a79bd83ee6116f2073b47a2d4619b14115641e6b",
+    "pending_owners": [
+      "INT-020",
+      "INT-021",
+      "INT-032",
+      "INT-033"
+    ],
+    "source_refs": {
+      "catalog": 155,
+      "bundle_advertised": 156,
+      "extra_advertisement": [
+        "HEAD"
+      ],
+      "all_catalog_ids_match_bundle": true,
+      "restored_input_refs": 149,
+      "restored_input_ref_mismatches": 0,
+      "new_capture_entries": 6,
+      "new_capture_original_live_ref_mismatches": 0
+    },
+    "bundle": {
+      "bytes": 98957987,
+      "sha256": "a508155107a17a63baa01801a89ef2e0d86e9d079eb41ddd0b6bd50c4f1f9a73",
+      "inspection": "Read/hash/list-heads only; no export or restoration performed"
+    }
+  },
+  "source_findings": [],
+  "findings": [
+    {
+      "id": "INT-SP-001",
+      "axis": "Spec",
+      "severity": "Blocking",
+      "kind": "required-validation",
+      "status": "open-delegated-receiving-gate",
+      "owner": "receiving-integrator",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "related_issue": "INT-090",
+      "blocking_scope": "Final library acceptance/merge; explicitly not a local source-progress or honest handoff prerequisite",
+      "requirement": "Current REQUIREMENTS delegated-validation exception and completion boundary; VALIDATION-HANDOFF; pinned acceptance policy.",
+      "evidence": "No successful terminal whole-candidate guarded check/exhaustive audit or matching verification record supplied; old C1/R3 runs nonterminal; no R4 compiler run.",
+      "consequence": "Final acceptance Blocked; historical reports remain Blocked; source handoff may proceed under explicit authorization; no false-theorem or host-incapacity inference.",
+      "remedy": "Receiving integrator validates actual receiving commit with exact pins, retains full terminal/coverage/integrity/audit and verification evidence, returns source fixes through existing loop, obtains both final reviews, then immediate verify-candidate and snapshot comparison.",
+      "waived": false,
+      "resolved": false,
+      "replaces_inherited_ids": false
+    }
+  ],
+  "historical_findings": {
+    "INT-ST-001": "Fixed, retained; Standards owned",
+    "INT-ST-002": "Fixed, retained; exact start observation/navigation assessed; Standards owned",
+    "pfds_canonical_register": "books/pfds/records/evidence/reviews/common-integration-coordinator-r1-045.md section5",
+    "pfds_register_sha256": "07fb1b0ea46e06a721ea603dbb99865597d844824f21d01b144659eb3ae1c6d6",
+    "pfds_canonical_ids": 39,
+    "pfds_retained_repair_static_development_dispositions": 23,
+    "pfds_boundaries": [
+      "SUSP-STAT-001",
+      "PREP-10019-02"
+    ],
+    "pfds_current_validation_ids": 14,
+    "pfds_spec_shared_open_validation_ids": [
+      "IMPORT-VAL-004",
+      "CH02-PRE-005",
+      "SUSP-SPEC-VAL-001",
+      "PURE-SPEC-VAL-001",
+      "COUNT-SPEC-VAL-001",
+      "PERSIST-ACC-SPEC-VAL-001",
+      "BODY-COUNT-SPEC-VAL-001",
+      "SIGNED-POT-SPEC-VAL-001"
+    ],
+    "canonical_ids_are_not_missing_theorem_count": true,
+    "paired_standards_closed_by_this_review": false,
+    "vfa_open": [
+      "ST-002",
+      "SP-VAL-001"
+    ],
+    "vfa_fix_retained": "ST-006",
+    "fdsa_xt03_retained": [
+      "XT03-CP01",
+      "XT03-DOC01"
+    ],
+    "fdsa_xt03_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+    "fdsa_xt03_donor": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+    "fdsa_chapter4_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2"
+  },
+  "validation": {
+    "r4_compiler_run": false,
+    "r4_full_success": false,
+    "focused_historical_map_candidate": "16440863ddb14d95c402ce65498e22497e246e72",
+    "focused_historical_map_exit": 0,
+    "focused_scope": "Examples.TextbookMaps, Examples.OrderedMap, Examples.SharedTreeMap",
+    "focused_is_final_validation": false,
+    "r3_full": "Execution state lost without observed terminal outcome; no verification record",
+    "c1_full": "Interrupted without terminal outcome",
+    "diagnosed_failure_cause": null,
+    "resources": "LEAN_NUM_THREADS/Lake task-pool control differs from CLI-j and a universal child limit; no current build point estimate or downscaling conclusion.",
+    "final_gate_owner": "receiving-integrator",
+    "full_gate_delegated_not_waived": true,
+    "source_progress_blocked_by_missing_local_full_pass": false
+  },
+  "handoff": {
+    "document_sha256": "c17d8ba02e66abbf8d3455facb0605cad285d854035685df08c70c1f5f41ebb2",
+    "standalone_patch_new_commit_is_new_candidate": true,
+    "complete_checkpoint_restores_exact_candidate": true,
+    "patch_is_archive_dependency": false,
+    "patch": {
+      "bytes": 3544383,
+      "sha256": "955c71b607aab9e217f1b0e4b9c1ef476f16a4596e9d47192052acc8f8a88498",
+      "base": "04514fc144dcebdd2b6d4aea5faf2f9cbf229362",
+      "reported_reconstructed_tree": "63205d8a3ff27deb3680c613b70085163f289b83",
+      "reapplication_by_reviewer": false
+    },
+    "source_compare_receipt": "intake/integration-handoff-compare-r4.json",
+    "source_compare_status": "ok",
+    "source_compare_is_final_acceptance": false,
+    "source_compare_sha256": "4077c7172c802bbc8070b0bdb8353136143fb8a738f074dd2b95c91cc9a6932c",
+    "durability_owner": "root",
+    "upload_performed_or_asserted_by_reviewer": false,
+    "report_pair_requires_next_verified_checkpoint": true
+  },
+  "outside_git_evidence": [
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/REQUIREMENTS.md",
+      "bytes": 10412,
+      "sha256": "a60dd5a4aa4ef46ff8463e47f536961a7f374c5ade74f012c609470e59f6b29c",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/REVIEW.json",
+      "bytes": 9777,
+      "sha256": "2350a066c50a62086cb9bbf4185d0d9f291e6f8a71d27a66ac9983b1292384de",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/STATUS.md",
+      "bytes": 7555,
+      "sha256": "258bc92560460ea8ab369f569e04b22cd79649b89b6a5daef6ac1eb21d9453bf",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/COVERAGE.md",
+      "bytes": 38973,
+      "sha256": "779c1701392c921b81d6c193c9e149c29adf99cc881a0a0fd03650f5b229a59b",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/README.md",
+      "bytes": 4996,
+      "sha256": "041e837c443fb2ada2e0a8a88899950b2b3ea9c4f8f82fb25d40e84f3288c758",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/VALIDATION-HANDOFF.md",
+      "bytes": 7751,
+      "sha256": "c17d8ba02e66abbf8d3455facb0605cad285d854035685df08c70c1f5f41ebb2",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/ISSUES.json",
+      "bytes": 9393,
+      "sha256": "d9160998531f10a50c6cfba551683b355aa2036cba4c2eb57213c5452bcf7c47",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/analysis/donor-dispositions.json",
+      "bytes": 86393,
+      "sha256": "3437ebcd64d5a4f1b9564698a79bd83ee6116f2073b47a2d4619b14115641e6b",
+      "outside_candidate_git": true,
+      "inspection": "schema, dated capability dispositions and every donor identity inspected; complete bytes hashed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/analysis/upstream-probability-04514fc1.md",
+      "bytes": 11085,
+      "sha256": "89cc324fa70321e5c5914d02b157b3e8de0b57dcda6efe15b2415be921509f12",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/analysis/build-resources-20261114.md",
+      "bytes": 8302,
+      "sha256": "033b62d94235567565823528a02f0903f048c33ad07e05830b1f16ab93f208b3",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/integration-baseline-20261114-evening.json",
+      "bytes": 3596274,
+      "sha256": "5552685f5e8e87d51ee0f831346b73533c101706c95d1f0d91c712128565c99c",
+      "outside_candidate_git": true,
+      "inspection": "complete JSON parsed; bindings/manifests/retention examined; candidate entries compared with Git tree; no helper executed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/integration-candidate-r4.json",
+      "bytes": 3597146,
+      "sha256": "01e15d6d360c81e2d5e06187b35cb7a7fd8f1b2efcdec90b8b4f94a38e73e667",
+      "outside_candidate_git": true,
+      "inspection": "complete JSON parsed; bindings/manifests/retention examined; candidate entries compared with Git tree; no helper executed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/integration-scope-20261114-evening.json",
+      "bytes": 22061,
+      "sha256": "d9cdf67714389042e0f1c252267506cf42e97fcb7aef606fafb7d850e0c2b773",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/upstream-merge-04514fc1.json",
+      "bytes": 2075,
+      "sha256": "3fefdc678fad8816d5850f940686e6d38d0624526e6d0f3dd8c10684461b7141",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/master-pin-04514fc1.json",
+      "bytes": 4600,
+      "sha256": "0b8a0ab83806a8dc0fff01f86b246a4c85a9cf29ea621cce8b5f8922d06ae8a4",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/upstream-probability-04514fc1.json",
+      "bytes": 12428,
+      "sha256": "815d9646799f441814c156a0b1387efbe066b14ce82525b12e5410256954e185",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/patch-export-009.json",
+      "bytes": 814,
+      "sha256": "620751b5c1bf85ef97937cf293fddf940009f0bee17644092f2975ad10dd9a10",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/build-resource-assessment-20261114.json",
+      "bytes": 11119,
+      "sha256": "e634cc81e4c32817ba216d1244490251715ebc92af55d64af086825a5f6ba608",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/current-resource-observation-20261114.json",
+      "bytes": 1340,
+      "sha256": "006433e060849cc697c7d8832d9bc79eeb4380673d244ddaf53be17f3d930cef",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/process-interruption-20261114.json",
+      "bytes": 1776,
+      "sha256": "2fa72f42a70a3404545f88df1d7cf4b1df21d5a9eebe05012e0d648d2ae856d0",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/integration-account-20261114-evening.json",
+      "bytes": 9923,
+      "sha256": "8f8cbf5430288883000e7ac7a3f57baac98e2a88aa9d42a0f93d56bd2e42a057",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/full-validation-r3-start.json",
+      "bytes": 1426,
+      "sha256": "33951558afb5c06a6d3c33141d6279470eed3263bc5d74dcd87e0c5c92a6c28b",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/full-validation-r3-observation-20261114.json",
+      "bytes": 1594,
+      "sha256": "2885c972cd2e0a35bf319cbe546abd793c3ac63fea2e2a02570d711603e8a112",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/validation-interruption-20261114.json",
+      "bytes": 1511,
+      "sha256": "ac0649ae1ee7f69a0507a28a2b2fe00cd1a1329b2224385e8423d4d16727ac41",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/maps-focused-r3.json",
+      "bytes": 2012,
+      "sha256": "eb10b219e860dc3cf8248a7e303446a372038d0d8bb011ed7be91fd7d56feb42",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/maps-focused-r3.log",
+      "bytes": 3660,
+      "sha256": "8dc2b3ac56841e6043f27fb2254d15ee2d4302952368d05d18bcd818c556a8cd",
+      "outside_candidate_git": true,
+      "inspection": "terminal lines inspected; complete bytes hashed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/map-public-types-20261114.json",
+      "bytes": 1074,
+      "sha256": "e2089e70932ba0fc22894a2e195847f8d9e14e8786f2fc5fdb9902aed065d29a",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/map-public-types-20261114.log",
+      "bytes": 3992,
+      "sha256": "98070df4a9c4b8cbf1b992ff3d5eebc7388974766ee632289fb98a5c35e0dd0a",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r1.md",
+      "bytes": 23626,
+      "sha256": "b44bce5a8db5f76c72b02e5f6473508d704a6011d9a4aa8c0cfdcff99836a739",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r1.json",
+      "bytes": 7995,
+      "sha256": "cd9f2a23edc85a2f72e190e689bc46ff83ea79cb0008ab67e3b4ebfe3d32da39",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r2.md",
+      "bytes": 5787,
+      "sha256": "4e866716a504af63933da77f5800eea3d6f27fcf2dd63aa72e0ffb0d5f850916",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r2.json",
+      "bytes": 4782,
+      "sha256": "406fff7f30ab95a59d11a15770f945ce35c2068ee2c0bbef2d4476f29d4d8246",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r3.md",
+      "bytes": 22727,
+      "sha256": "fc833cd10a81c0361102c41aa15fb75f61cef1ccf7c8486b1a338730843c0d7e",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r3.json",
+      "bytes": 13941,
+      "sha256": "eb683ad4ed572843406243120b322736d0e9285f19f266ff339c6257a3c7da09",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/standards-r3.md",
+      "bytes": 23951,
+      "sha256": "5b8d9fe977a842135b0282922195b2c0c87a864c84896c09e59fc5ab040726e6",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/standards-r3.json",
+      "bytes": 9510,
+      "sha256": "7af4540650677b51ee36f68104f5a939d9902ca2a02b742d1f4506712d83b22f",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/coordinator-r3.md",
+      "bytes": 7432,
+      "sha256": "c11162f4ae5399db0b91bc44d4bf047fed840484b7f5695bf1ec1d684d6de877",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/coordinator-r3.json",
+      "bytes": 4538,
+      "sha256": "3dababc52eedd0e5bcf389083f545eef27566a1611c27f9a871d48fd3c0e234c",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/spec-r3-navigation-addendum.md",
+      "bytes": 4596,
+      "sha256": "a63dbd0043f30b0436b06d161356a1c39dfb4a6bdb3b7e8c1fc0639332dd1928",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/common/evidence/reviews/standards-r3-navigation-addendum.md",
+      "bytes": 5179,
+      "sha256": "e4ac749a910be54be3b4f0b35755c96e15f9ff784c61fe2006a09fd031ccb131",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/source/integration.json",
+      "bytes": 2006,
+      "sha256": "558afc496c69f28f09f4289cab6c9dda149ec9a111ff7c6bc02405fb01deeede",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/source/refs.json",
+      "bytes": 39079,
+      "sha256": "f08f0fd29934c4d4311d8980a2422de7f3db23d8166ec676743a2644447fd254",
+      "outside_candidate_git": true,
+      "inspection": "complete catalog parsed; all stored objects checked against bundle advertisement; roles and integration binding inspected"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/docs/DURABILITY.md",
+      "bytes": 4729,
+      "sha256": "5a3e8e25705e851f53c6d590aee29b9f5ac44260adb53257cf7ede1b65057ff8",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/docs/RESUME.md",
+      "bytes": 7031,
+      "sha256": "0eb5b77c2ebe66ce13490dddb966e46beb4bb067509bb2c4ed1c6166a2b9e393",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/books/pfds/records/evidence/reviews/common-integration-coordinator-r1-045.md",
+      "bytes": 28777,
+      "sha256": "07fb1b0ea46e06a721ea603dbb99865597d844824f21d01b144659eb3ae1c6d6",
+      "outside_candidate_git": true,
+      "inspection": "section 5 canonical register and relevant scope excerpts inspected; complete bytes hashed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/support/native-kit/lib/runtime.py",
+      "bytes": 6368,
+      "sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695",
+      "outside_candidate_git": true,
+      "inspection": "thread/environment/launch/timeout excerpts inspected; complete bytes hashed"
+    },
+    {
+      "path": "checkpoint/conaled-textbooks/support/native-kit/conaled_native.py",
+      "bytes": 34020,
+      "sha256": "9d1b1e6f10ae574e5c1f388d8df069f43c9ca3e1a993c372293595abd2e5090a",
+      "outside_candidate_git": true,
+      "inspection": "thread/environment/launch/timeout excerpts inspected; complete bytes hashed"
+    },
+    {
+      "path": "intake/integration-handoff-compare-r4.json",
+      "bytes": 394,
+      "sha256": "4077c7172c802bbc8070b0bdb8353136143fb8a738f074dd2b95c91cc9a6932c",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "intake/008-source-restore.json",
+      "bytes": 212,
+      "sha256": "c57c498acca43990ce4367dddc65fd4b7506ea06b80bf9618ae10a3753eb9fb5",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    },
+    {
+      "path": "intake/008-adoption.json",
+      "bytes": 626,
+      "sha256": "46d020892db4b30b78ee0680cd087184ee36c50195d7ae99bc11b086cf73d8e2",
+      "outside_candidate_git": true,
+      "inspection": "content inspected; JSON receipts parsed fully with relevant fields assessed"
+    }
+  ],
+  "candidate_source_read_bindings": [
+    {
+      "path": "AGENTS.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "1b1e65502f0b0771b2475e3b1f37e39d7f18d0c2",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": ".agents/skills/implement/SKILL.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "8d56e39daaea90e62e72e538ebbbee4173400752",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": ".agents/skills/code-review/SKILL.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "5525a4b3b7ed512c261f0179094a4b3c6d13a92c",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": ".agents/skills/code-review/heuristics.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "9c5666ca66022e0322ebb9687c69182d6d63e553",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "eeea21cc4d6658ec7b4875066dfc53de893c7796",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/worked-example.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "255389dab7b86dae37bf06f477f42c5a77fcbec9",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "9ce94085a4e2bbe81bbc19c1d49c416b67b8b32a",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "a82dfff52a1fd6593a36d50e04e180bf272a53d5",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "docs/agents/domain.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "c26859ec35e14a9051d84066b3b5315aad67ee8b",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "58735721568c19cbdc0bfd691280fd24b98e65c9",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "docs/adr/README.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "d8cced6079e8bc98d3ddd9f655a3e1d78bf29107",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "c997496c5aa49412715630f853419d3a6b10c825",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "docs/adr/0002-relations-and-synchronization.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "7d2a4fc43b6f3e82f3385d4b2ddc63f76229c586",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "98fab162a321590ea719ae84109cd01fa4ce20c1",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "docs/language-direction.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "f2ab2669e893336c9d7d599b629ff5e3534d510d",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "README.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "ace8f3e2e6ef512df3c29a7c89bf0e052a9c2589",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "Applications/Probability/TableProducer.lean",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "501490e9694ad04d4eab0566a95701aa75e43ddd",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "Applications/Probability/TableProducerStationarity.lean",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "5ad8d16f847ffa025b372f3b68eda0b846877fe7",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "Examples/TableProducer.lean",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "acc829ec223aa24e82f0e4bf692cb97cef175b02",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "57bb6a3874024a4b1749b1971db523c50af41a93",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "docs/probabilistic-progress.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "2337ceccf4fe2b9d0a979378a2bd79f5b5e92719",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "docs/probability.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "81db70baada9d7cff8202775ef4193de310f28b2",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "docs/progress-contracts.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "c1664dd8e82ed7ca38c0a0279f508571548df9e5",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "docs/research/mathematical-suppression.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "91f35d3b80f797debf8147c5048a519c40800b9b",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "docs/research/textbook-integration.md",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "b3d655f5a18a1b485930691b294ce81209beb478",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "Applications/Progress/Streams.lean",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "f245b2ba39670a98d95b09e67d119d5e099609de",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "Applications/Probability/Productivity.lean",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "9fe60b78e58adf66a36daddfb5e062a18121683e",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "Applications/Probability/TableSamplerIteration.lean",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "f9eefb3438d84d4897a0b3fdc6c6709bd2f000e7",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "Applications/Probability/TableSampler.lean",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "49da114aee28be1c026f74bbdba988d4968732e0",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "Applications/Probability/RationalRow.lean",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "e12dbe2eb9d265109364d9e20611e45f78909511",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "Applications/Probability/TableSamplerComposition.lean",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "c1d45b3598d071193f5ce20914a2c7d113af2a72",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "Applications/Probability/FiniteMHSampler.lean",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "520c6d3523073c780468bedebf4cb5242b0167e3",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "Applications/Probability/BoundedUniform.lean",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "92b4f5e6aa417229b88f85b987fd84b3c5a22a69",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "Applications/Resources/RandomSelectionRun.lean",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "4af2a079ad55005657eeac2eaf4d3dd2a3a3ac11",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "Applications/Resources/RandomQuickSortMean.lean",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "a9ce110d5aca6f04cc8d68cfd1ef5238832dbc0a",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    },
+    {
+      "path": "scripts/check.py",
+      "candidate": "18235331da1fe343d09080ca4c41173f9b4d9963",
+      "blob": "d007e5141e6e4fb1b7a9b7cba2b8c60f47b37913",
+      "inspection": "complete new source or relevant definitions/proofs/docs/excerpts as described in report; inherited family analysis retained separately"
+    }
+  ],
+  "limitations": [
+    "No local R4 compilation or axiom audit; source inspection cannot establish elaboration success.",
+    "Full original-base source review retains unchanged R1–R3 analysis with independent byte/context assessment rather than rereading every inherited proof.",
+    "No new whole-book manuscript audit or exhaustive latest-library-to-every-obligation crosswalk.",
+    "No external literature audit or independent remote refresh of the recorded master lookup.",
+    "Bundle/patch/source comparison identity evidence does not establish proof validation, final acceptance or durable upload."
+  ],
+  "operations": {
+    "compiler_runs": 0,
+    "checker_or_audit_runs": 0,
+    "setup_installation": 0,
+    "process_control": 0,
+    "source_index_ref_mutations": 0,
+    "checkpoint_mutations": 0,
+    "network_or_remote_operations": 0,
+    "acceptance_commands": 0,
+    "patch_reapplications": 0,
+    "subagents": 0,
+    "writes": [
+      "/workspace/scratch/e1eab3b6b18e/integration-20261114/intake/review-r4/spec-r4.md",
+      "/workspace/scratch/e1eab3b6b18e/integration-20261114/intake/review-r4/spec-r4.json"
+    ]
+  },
+  "summary": {
+    "new_source_handoff_findings": 0,
+    "worst_new_source_handoff_issue": null,
+    "open_final_integration_gate_count": 1,
+    "worst_final_issue": "INT-SP-001 Blocking",
+    "source_handoff_outcome": "Passed",
+    "final_acceptance_status": "Blocked"
+  },
+  "markdown": {
+    "path": "/workspace/scratch/e1eab3b6b18e/integration-20261114/intake/review-r4/spec-r4.md",
+    "bytes": 23888,
+    "sha256": "6c44f87397ef292ff65e4e805f7f45d7f9aab98e4cdaf35912a00da9f6ac66f0"
+  }
+}

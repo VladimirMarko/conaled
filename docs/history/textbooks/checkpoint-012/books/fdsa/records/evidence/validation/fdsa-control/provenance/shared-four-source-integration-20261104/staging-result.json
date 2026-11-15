@@ -1,0 +1,52 @@
+{
+  "recorded_utc": "2026-11-04T14:14:11.136053+00:00",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "add",
+        "--",
+        "Applications/Probability/PermutationMinimum.lean",
+        "Applications/Resources/DifferenceListCosts.lean",
+        "Applications/Resources/ListMerge.lean",
+        "Applications/Resources/Partition.lean",
+        "Applications/Selection/ThreeWay.lean",
+        "Applications/Sequences/Partition.lean",
+        "Applications/Sorting/Merge.lean",
+        "Examples/DifferenceListCosts.lean",
+        "Examples/MergeCosts.lean",
+        "Examples/PermutationMinimum.lean",
+        "Examples/PermutationMinimumBoundary.lean",
+        "Examples/ThreeWayPartition.lean",
+        "SquareApplications.lean",
+        "docs/research/fdsa-difference-list-costs.md",
+        "docs/research/fdsa-list-merge.md",
+        "docs/research/fdsa-permutation-minimum.md",
+        "docs/research/fdsa-reconstruction-map.md",
+        "docs/research/fdsa-three-way-partition.md"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "exact18paths": true,
+  "unstaged_tracked_changes": false,
+  "patch": {
+    "bytes": 156119,
+    "lines": 3165,
+    "sha256": "2bf1efe257125803f027a13cc2acc683ae01dff846c5a0b9e462c0c6fcb7d01c"
+  },
+  "compiler_or_audit": false
+}

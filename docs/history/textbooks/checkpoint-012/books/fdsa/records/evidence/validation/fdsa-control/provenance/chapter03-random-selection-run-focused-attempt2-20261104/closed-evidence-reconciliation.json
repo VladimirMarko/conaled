@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T19:44:08.379119+00:00",
+  "candidate": "b059af864122a6b09912ba0db8095f422f8991bf",
+  "terminal": {
+    "recorded_utc": "2026-11-04T19:44:08.378905+00:00",
+    "owned_session": 39520,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "26714d",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "b059af864122a6b09912ba0db8095f422f8991bf"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-run-focused-attempt2-20261104/full.log",
+    "bytes": 12839,
+    "sha256": "e76898a357e67981bf7ddadfb4b3169c85c21421d280ff953c3f6ae8fa11725e"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T194325Z-project-run-4afb1d9b",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-run-focused-attempt2-20261104/native-records/start.json",
+      "bytes": 481,
+      "sha256": "1b915046b12f29155a7c06b1d0d1c769251cf6bbc15dc1b6ae04a3d927133708"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-run-focused-attempt2-20261104/native-records/result.json",
+      "bytes": 635,
+      "sha256": "7f948b8be54e3794e4080bb106726e892356bda7bb214325ae0803484e325b7b"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-run-focused-attempt2-20261104/native-records/output.log",
+      "bytes": 12559,
+      "sha256": "dca6f14bd77d7f007137eb8d55e9806e429157648fb6272303f074f5c7ff966f"
+    }
+  },
+  "native_body_exact_outer_offset": 123,
+  "complete_closed_log": true,
+  "scope": "Original finite random execution correction; combined four-file source scope is60public and2authored private helpers (equal_lookup,run_support_bounds), no probability extension or Chapter3 acceptance.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

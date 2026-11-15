@@ -1,0 +1,101 @@
+import sys,json
+v=json.loads(sys.argv[1])
+
+from pathlib import Path
+from datetime import datetime, timezone
+import os,sys,json,hashlib,importlib.util,subprocess
+sys.dont_write_bytecode=True
+os.environ["GIT_OPTIONAL_LOCKS"]="0"
+b=Path('/workspace/scratch/b4a17a285e23/fdsa-restored-20261104');c=b/'fdsa-control';p=c/'provenance/checkpoint0139-preparation'
+def identity(q):
+ with q.open('rb') as f:return {'bytes':q.stat().st_size,'sha256':hashlib.file_digest(f,'sha256').hexdigest()}
+def write(name,data):
+ with (p/name).open('x') as f:json.dump(data,f,indent=2);f.write('\n')
+configuration_path=p/'acceptance-configuration.json'
+configuration=json.loads(configuration_path.read_text())
+assert configuration['state']=='RESOLVED_FROM_ACTUAL_FINAL_EVIDENCE','Prepared proposal: actual final evidence configuration is unresolved'
+assert configuration['execution_enabled'] is True and configuration['root_final_schema_reconciliation_complete'] is True
+assert configuration['root_independent_code_inspection_complete'] is True
+assert configuration['unit']=='FDSA-XT02'
+assert configuration['candidate']=='e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe'
+assert configuration['candidate_tree']=='d002afee18c38828f01221837f4c3f302ab155cc'
+assert configuration['accepted_base']=='90469ce4ba3fc49397d369a5db7d58aec7014f58'
+for key in ['acceptance_record','full_audit_counts','full_verification','post_full_inputs','closed_runs_progress']:
+ assert isinstance(configuration[key],dict),key
+assert type(configuration['expected_total_closed_runs']) is int
+assert isinstance(configuration['declared_prior_control_updates'],list) and configuration['actual_final_evidence_explanation']
+for key in ['acceptance_record','full_verification','post_full_inputs','closed_runs_progress']:
+ row=configuration[key];q=Path(row['path']);assert q.is_relative_to(c)
+ assert identity(q)=={k:row[k] for k in ['bytes','sha256']},key
+h=json.loads((p/'write-hold.json').read_text())
+assert h['all_writers_held'] and not h['compiler_live']
+assert identity(c/'checkpoint_compact.py')=={'bytes':10520,'sha256':'5e72098a4b07a80c6861cdaf14f4d2234e33cd7b6a0a79170bae762599cbe078'}
+spec=importlib.util.spec_from_file_location('compact_reader',c/'checkpoint_compact.py');mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
+repo=b/'conaled'
+refs=[{'oid':a[0],'ref':a[1],'symref':a[2]} for a in (line.split(' ',2) for line in mod.git(repo,'for-each-ref','--format=%(objectname) %(refname) %(symref)').splitlines())]
+wts=mod.worktrees(repo);assert len(refs)==79 and len(wts)==9
+accepted=mod.git(repo,'rev-parse','work/fdsa-book').strip();qualified=mod.git(b/'conaled-ch01-review','rev-parse','HEAD').strip()
+assert accepted==h['accepted_head']==configuration['candidate']=='e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe'
+assert qualified==h['qualified_candidate']==v['qualified_candidate']==accepted
+acceptance_path=c/'provenance/chapter03-acceptance-20261105/acceptance.json'
+acceptance=json.loads(acceptance_path.read_text())
+assert acceptance['accepted_commit']=='298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2' and acceptance['accepted_tree']=='ecb69c3918715cbe0682028cd8697dfcf3e463f9'
+assert acceptance['chapter03_accepted'] and acceptance['obligations']==83 and acceptance['actual_public_names']==1391
+xt_path=c/'provenance/binary-tree-cache-acceptance-20261105/acceptance.json'
+xt=json.loads(xt_path.read_text())
+assert xt['unit_accepted'] and xt['accepted_commit']=='90469ce4ba3fc49397d369a5db7d58aec7014f58' and xt['authored_public_names']==115
+shape_path=Path(configuration['acceptance_record']['path'])
+assert shape_path==c/'provenance/tree-shape-acceptance-20261105/acceptance.json'
+shape=json.loads(shape_path.read_text())
+assert shape['unit']=='FDSA-XT02' and shape['unit_accepted']
+assert shape['accepted_commit']==accepted and shape['accepted_tree']==configuration['candidate_tree']
+assert shape['previous_accepted_commit']==xt['accepted_commit'] and shape['authored_public_names']==90
+assert not shape['chapter04_accepted'] and not shape['all27_chapters_and_appendices_complete']
+fixed=['scope-plan.json','README.md','previous-manifest-0138.json','historical-manifest-0137.json','previous-manifest-origin.json','initial-pending-acceptance-configuration.json','acceptance-configuration.json','preparation.json','verify-checkpoint.py','write-hold.json','verifier-scope-diff.patch','helper-scope-diffs.patch','capture.py','run-stage.py','independent-inspection-receipt.json']
+for name in fixed:assert (p/name).is_file(),name
+held={}
+for q in sorted(c.rglob('*')):
+ if not q.is_file() or '__pycache__' in q.parts:continue
+ if p in q.parents and q.name not in fixed:continue
+ assert not q.is_symlink(),str(q)
+ held[str(q.relative_to(c))]=identity(q)
+previous_capture=json.loads((c/'provenance/checkpoint0138-preparation/capture.json').read_text())
+previous=previous_capture['held_control']
+allowed=configuration['declared_prior_control_updates']
+assert len(allowed)==len(set(allowed))
+assert set(allowed)<=set(['CURRENT.md','STATUS.md','checkpoints.json','reviews/binary-tree-cache-round1.md','reviews/tree-shape-round1.md','reviews/README.md','tickets/FDSA-004.md','tickets/FDSA-XT01.md','tickets/FDSA-XT02.md','tickets/INDEX.md'])
+changes=[]
+for rel,old in previous.items():
+ assert rel in held,rel
+ if held[rel]!=old:
+  assert rel in allowed,rel
+  changes.append(rel)
+progress_path=Path(configuration['closed_runs_progress']['path'])
+assert progress_path==c/'provenance/tree-shape-receiving-20261105/focused-progress-before0139.json'
+progress=json.loads(progress_path.read_text())
+runs=[{k:r[k] for k in ['name','candidate','exit']} for r in progress['all_closed_runs']]
+assert len(runs)==v['closed_count']==progress['closed_runs']==configuration['expected_total_closed_runs']
+old_runs=previous_capture['closed_development_runs'];assert len(old_runs)==113 and runs[:len(old_runs)]==old_runs
+expected_new_runs=[
+ {'name':'tree-shape-receiving-focused-attempt1-20261105','candidate':'27c5908b07c7a03feefc09472a8701ef940b7aaf','exit':1},
+ {'name':'tree-shape-receiving-focused-attempt2-20261105','candidate':'5b3b9ab1d72a70ca454abe68790327bcbb352d3c','exit':1},
+ {'name':'tree-shape-receiving-focused-attempt3-20261105','candidate':accepted,'exit':0},
+ {'name':'tree-shape-receiving-statements90-run-20261105','candidate':accepted,'exit':0},
+ {'name':'tree-shape-receiving-full-attempt1-20261105','candidate':accepted,'exit':0},
+ {'name':'tree-shape-immediate-verification-20261105','candidate':accepted,'exit':0},
+]
+assert runs[len(old_runs):]==expected_new_runs
+assert progress['interrupted_development_runs']==previous_capture['interrupted_development_runs']
+assert progress['transport_terminal_unavailable_runs']==previous_capture['transport_terminal_unavailable_runs']
+for r in runs:
+ d=c/'provenance'/r['name'];result=json.loads((d/'result.json').read_text());owned=json.loads((d/'owned-terminal.json').read_text())
+ assert result['exit_code']==owned['actual_exit']==r['exit']
+ assert result['candidate']==owned['candidate']==r['candidate']
+ assert identity(d/'full.log')=={'bytes':result['log_size_bytes'],'sha256':result['log_sha256']}
+capture={'recorded_utc':datetime.now(timezone.utc).isoformat(),'checkpoint':'conaled-fdsa-0139-tree-shape-accepted-and-chapter04-progress','accepted_head':accepted,'qualified_candidate':qualified,'all_writers_held':True,'compiler_live':False,'refs':refs,'worktrees':wts,'held_control':held,'fixed_own_preparation_files':fixed,'declared_prior_control_updates':allowed,'actual_prior_control_updates':sorted(changes),'closed_development_runs':runs,'interrupted_development_runs':progress['interrupted_development_runs'],'transport_terminal_unavailable_runs':progress['transport_terminal_unavailable_runs'],'scope':progress['checkpoint_scope'],'chapter03_acceptance':{'path':str(acceptance_path),**identity(acceptance_path)},'tree_cache_acceptance':{'path':str(xt_path),**identity(xt_path)},'tree_shape_acceptance':{'path':str(shape_path),**identity(shape_path)},'acceptance_configuration':{'path':str(configuration_path),**identity(configuration_path)}}
+write('capture.json',capture)
+s=os.statvfs(b);allocated=sum(((r['bytes']+s.f_frsize-1)//s.f_frsize)*s.f_frsize for r in held.values());scenario=allocated+96*1024*1024
+assert s.f_bfree*s.f_frsize>=scenario+32*1024*1024,'Insufficient current raw checkpoint staging headroom'
+preflight={'recorded_utc':datetime.now(timezone.utc).isoformat(),'ordinary_available_bytes':s.f_bavail*s.f_frsize,'raw_free_bytes':s.f_bfree*s.f_frsize,'total_filesystem_bytes':s.f_blocks*s.f_frsize,'held_control_logical_bytes':sum(r['bytes'] for r in held.values()),'held_control_rounded_copy_bytes':allocated,'source_pack_archive_metadata_allowance_bytes':96*1024*1024,'checkpoint_staging_scenario_bytes':scenario,'scenario_is_not_a_formal_upper_bound':True,'unchanged_installation_hydration_guards':True,'compiler_install_or_dependency_hydration_selected':False,'capture':identity(p/'capture.json'),'creator':identity(c/'checkpoint_compact.py'),'verifier':identity(p/'verify-checkpoint.py'),'all_writers_held':True,'compiler_live':False}
+write('creation-preflight.json',preflight)
+print(json.dumps({'capture':identity(p/'capture.json'),'held_controls':len(held),'refs':len(refs),'worktrees':len(wts),'closed_runs':len(runs),'actual_prior_control_updates':sorted(changes),'space_preflight':preflight},indent=2))

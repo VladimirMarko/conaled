@@ -1,0 +1,65 @@
+{
+  "time": "2026-11-03T18:25:34.431891+00:00",
+  "action": "Materialize preserved exact Chapter2 candidate only; no compiler or new source changes",
+  "candidate": "99a29dcd02eb529fbefbb675e244a8c47b78cdef",
+  "branch": "pfds/ch02-review-r3",
+  "checkout": "/workspace/scratch/b566cace4ed6/pfds/validation-chapter02-r3",
+  "stdout": "HEAD is now at 99a29dc fix(frp): import the natural size power theorem directly (#10018)\n",
+  "stderr": "Preparing worktree (checking out 'pfds/ch02-review-r3')\n",
+  "clean": true,
+  "main_before": {
+    "head": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+    "status": ""
+  },
+  "main_after": {
+    "head": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+    "status": ""
+  },
+  "lake_layout": {
+    "private_real_lake": true,
+    "private_real_empty_build": true,
+    "shared_packages_only": "/workspace/scratch/b566cace4ed6/pfds/dependency-store-041"
+  },
+  "dependencies": {
+    "mathlib": {
+      "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "clean": true
+    },
+    "plausible": {
+      "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "clean": true
+    },
+    "LeanSearchClient": {
+      "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "clean": true
+    },
+    "importGraph": {
+      "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "clean": true
+    },
+    "proofwidgets": {
+      "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "clean": true
+    },
+    "aesop": {
+      "head": "4a174c490d8707121c4a9290800489f105d85e07",
+      "clean": true
+    },
+    "Qq": {
+      "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "clean": true
+    },
+    "batteries": {
+      "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "clean": true
+    },
+    "Cli": {
+      "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "clean": true
+    }
+  },
+  "manifest_sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+  "full901_active": "import-901-native-fresh-r2; no input to that run changed",
+  "acceptance": false,
+  "historical_wrapper": "run-chapter02-candidate-r3.py is retained evidence with stale workspace/Nix/prior-run bindings; do not execute it verbatim"
+}

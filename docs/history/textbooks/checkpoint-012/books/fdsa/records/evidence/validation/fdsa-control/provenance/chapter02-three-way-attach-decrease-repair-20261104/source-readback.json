@@ -1,0 +1,19 @@
+{
+  "recorded_utc": "2026-11-04T06:00:56.951365+00:00",
+  "author_base": "2b632a610bf15b7c248250abe9d55e0bfb710e4c",
+  "exact_change": "Only the defining decreasing_by block changes: apply Nat.lt_succ_of_le, rewrite List.length_unattach and reversed List.length_attach, then apply List.length_filter_le.",
+  "algorithm_statements_other_proofs_and_examples_unchanged": true,
+  "source_diff_sha256": "1c59143c8e9cd795fadcee5bc5202811860c2f7cacc0fb85dcb3bcf36c18684f",
+  "files": {
+    "Applications/Sorting/ThreeWayQuickSort.lean": {
+      "lines": 150,
+      "sha256": "7ef1adb48a9211c010c84c20c64bd01690eba11683002d8a16cc820eefaf1f0e"
+    },
+    "Examples/ThreeWayQuickSort.lean": {
+      "lines": 142,
+      "sha256": "0951a0f474638250912d4b6ee3084bbbf129c67c0f1527785778003ee1331d86"
+    }
+  },
+  "compiler_run": false,
+  "accepted": false
+}

@@ -1,0 +1,83 @@
+{
+  "started_at": "2026-11-03T00:38:13.583467+00:00",
+  "precheck": "validation/obsolete-worktree-cleanup-precheck.json",
+  "status": "completed",
+  "removed": [
+    {
+      "checkout": "validation-chapter02",
+      "head": "69f6f00de204617fdd7feefd5b9ee5b80fc0d9f4",
+      "branch": "refs/heads/pfds/ch02-review-r1",
+      "restore_command": [
+        "git",
+        "worktree",
+        "add",
+        "/workspace/scratch/ca9a61d0bf30/validation-chapter02",
+        "pfds/ch02-review-r1"
+      ]
+    },
+    {
+      "checkout": "validation-chapter02-r2",
+      "head": "c372c470008cdda3043040683451662f61131f81",
+      "branch": "refs/heads/pfds/ch02-review-r2",
+      "restore_command": [
+        "git",
+        "worktree",
+        "add",
+        "/workspace/scratch/ca9a61d0bf30/validation-chapter02-r2",
+        "pfds/ch02-review-r2"
+      ]
+    },
+    {
+      "checkout": "validation-suspensions",
+      "head": "c8ea1f8267b701f9797a52b1c8d3f9156422ccf6",
+      "branch": "refs/heads/pfds/suspensions-review-r1",
+      "restore_command": [
+        "git",
+        "worktree",
+        "add",
+        "/workspace/scratch/ca9a61d0bf30/validation-suspensions",
+        "pfds/suspensions-review-r1"
+      ]
+    },
+    {
+      "checkout": "validation-suspensions-r2",
+      "head": "1286e3d6357785d9c787562b95a5019afeefee40",
+      "branch": "refs/heads/pfds/suspensions-review-r2",
+      "restore_command": [
+        "git",
+        "worktree",
+        "add",
+        "/workspace/scratch/ca9a61d0bf30/validation-suspensions-r2",
+        "pfds/suspensions-review-r2"
+      ]
+    },
+    {
+      "checkout": "validation-imports",
+      "head": "226ebaef53b9eba97bef4b3b6ca364fdea488c69",
+      "branch": "refs/heads/pfds/import-footprint",
+      "restore_command": [
+        "git",
+        "worktree",
+        "add",
+        "/workspace/scratch/ca9a61d0bf30/validation-imports",
+        "pfds/import-footprint"
+      ]
+    },
+    {
+      "checkout": "import-correction",
+      "head": "324962e733886e66d6cd92af6cb68627ed4c8f1d",
+      "branch": "refs/heads/pfds/import-footprint-r2",
+      "restore_command": [
+        "git",
+        "worktree",
+        "add",
+        "/workspace/scratch/ca9a61d0bf30/import-correction",
+        "pfds/import-footprint-r2"
+      ]
+    }
+  ],
+  "scope": "Reclaim only six clean superseded materializations using ordinary git worktree remove; every branch/ref/commit and report remains. No force.",
+  "ended_at": "2026-11-03T00:38:14.418176+00:00",
+  "refs_unchanged": true,
+  "available_bytes_after": 1232691200
+}

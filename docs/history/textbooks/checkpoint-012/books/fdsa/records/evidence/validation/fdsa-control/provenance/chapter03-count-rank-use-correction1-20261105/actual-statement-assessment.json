@@ -1,0 +1,28 @@
+{
+  "recorded_utc": "2026-11-05T00:13:57.787217+00:00",
+  "candidate": "2ff47bdad9f822727fb2d1ea86092c4b26ad0cb6",
+  "new_public_claim": "Examples.SelectionCountRank.duplicate_sorted_filter_sublists",
+  "actual_output": {
+    "bytes": 636,
+    "sha256": "35f4982aa1ea24b00d7ffa72c987fb0e42d370d5c0f758116b35b584ae13ba00"
+  },
+  "full_actual_output_read": "12b0d5, all636 native bytes and complete1005-byte outer log",
+  "actual_type_assessment": "Closed conjunction of List.Sublist at Nat: [1] <+ [1,2] and [3] <+ [3]. All constructors, numerals and instances are explicit. No implicit parameters or hypotheses remain. Exactly the independently expected concrete proposition.",
+  "source_proof_connection_assessment": "Full diff4fddae plus source-statement-assessment.json; both public sorted-filter lemmas applied at the explicit sorted duplicate list, k2 and a2. Their nonvacuous premises are established by kernel decide/rfl.",
+  "stable_inputs": {
+    "bytes": 767,
+    "sha256": "e0e32936710869a361a848711a84e51cc41e801220186e69da725034f5651c5d"
+  },
+  "focused_pair": {
+    "run": "chapter03-count-rank-use-focused-attempt1-20261105",
+    "owned_session": 36596,
+    "actual_exit": 0,
+    "terminal": "cc4e3c",
+    "closure_and_full_log_read": "4097d9"
+  },
+  "new_statement_findings": [],
+  "finding": "C03-SPEC-USE-001",
+  "implementation_disposition": "Repaired with focused compilation and actual type evidence; independent axes must assess the exact correction.",
+  "independent_finding_resolution": false,
+  "whole_candidate_audit_or_chapter_acceptance": false
+}

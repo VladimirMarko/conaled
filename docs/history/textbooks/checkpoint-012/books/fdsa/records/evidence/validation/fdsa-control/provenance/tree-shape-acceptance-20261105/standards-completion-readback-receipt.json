@@ -1,0 +1,88 @@
+{
+  "unit": "FDSA-XT02",
+  "axis": "Standards",
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "incorporated_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "requirements_ids": [
+    "XT02-01",
+    "XT02-02",
+    "XT02-03",
+    "XT02-04",
+    "XT02-05"
+  ],
+  "original_scope_paths": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-shape.md"
+  ],
+  "recorded_utc": "2026-11-05T04:17:10.613486+00:00",
+  "public_names": 90,
+  "reviewer": "/root/tree_cache_standards",
+  "outcome": "Passed",
+  "unresolved_findings": 0,
+  "report": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-shape-standards-receiving-20261105.md",
+    "bytes": 26731,
+    "sha256": "75049278e999f564958d90b0bc8dff8bdfd873c476fc3f646ed8936dcc8b9321"
+  },
+  "final_record": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/final-validation-e61bb6f.json",
+    "bytes": 19254,
+    "sha256": "f3f7ab4def421a431f4bd230245cbb6f134ae5a9a305bcfd92bd305223569e67"
+  },
+  "hold": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/final-write-hold.json",
+    "bytes": 13031,
+    "sha256": "59e85a7a7e99c128d7ab89e586b3bcf0afab865102fb4f3ca401dbaa5d7b9a59"
+  },
+  "root_complete_saved_report_read": true,
+  "root_report_read_receipts": [
+    "82cb76 actual0 lines1-70",
+    "9c4019 actual0 lines71-124"
+  ],
+  "root_complete_hold_read_receipt": "9f8fee actual0 entire317lines",
+  "root_complete_final_JSON_raw_human_read_claimed": true,
+  "root_complete_final_record_receipt": "4d445c actual0 entire510lines",
+  "reviewer_complete_saved_readback": true,
+  "reviewer_actual_read_receipts_all_exit0": {
+    "complete_report": [
+      "ea3c9e",
+      "c34ed5"
+    ],
+    "complete_full_validation_assessment": [
+      "ab0c3e",
+      "3531ff"
+    ],
+    "complete_final_assessment": [
+      "ea3ceb"
+    ],
+    "complete_hold": [
+      "b06f69"
+    ],
+    "complete_final_hold_readback_receipt": [
+      "edf922"
+    ]
+  },
+  "reviewer_saved_final_hold_readback": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-standards-receiving-20261105/final-hold-readback.json",
+    "bytes": 1055,
+    "sha256": "ed269bb2e6281e26031d79fbff94c7a908e68ad39731909a7a27cd45722bc308"
+  },
+  "all_own_writes_held": true,
+  "final_assessment_explicit_binding_occurrences_rehashed": 38,
+  "final_hold_explicit_binding_occurrences_rehashed": 29,
+  "actual_schema": {
+    "public_names": "exact ordered list matching the actual executed 90-name program",
+    "public_name_count": 90,
+    "final_assessment_bindings": "all recursive explicit path/bytes/sha256 records",
+    "final_hold_bindings": "all recursive explicit path/bytes/sha256 records; includes held_provenance_files list"
+  },
+  "operational_schema_reconciliation": "Root preserved the earlier helper versions and prepared the complete actual-schema correction. Independent inspection of that exact correction must finish before the root gate executes. No mathematical requirements or immutable review records were changed.",
+  "boundary": "Root reconciles exact original scope, actual final evidence and independent reviewer outcome; source/type/full assessments remain attributed to this reviewer. This is no third semantic axis and confers no chapter04 acceptance."
+}

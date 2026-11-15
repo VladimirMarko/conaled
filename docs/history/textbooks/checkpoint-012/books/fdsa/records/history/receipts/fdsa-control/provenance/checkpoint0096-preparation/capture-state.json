@@ -1,0 +1,59 @@
+{
+  "utc": "2026-11-04T09:40:03.589071+00:00",
+  "source_writers": "All source/ref/report/control writers held. Next author reads only. Only owned F builder may grow its log prefix.",
+  "checked_heads": {
+    "conaled": "07e480f6ec9958d4975bb90151005b84f2907614",
+    "conaled-ch01-review": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "conaled-ch02-top-down": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+    "conaled-permutation-tail-validation": "070e3608c439aec23404d23e90de47c6cf835216"
+  },
+  "owned_live": {
+    "name": "chapter02-foundation-full-attempt2-recovered-20261104",
+    "session_id": 71528,
+    "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "result_exists": false,
+    "prefix_bytes": 325747,
+    "prefix_sha256": "8ea49ad9a406e7886518b18e6b1dc8c228f161e38cb17d23b57e49964f9dc7e5",
+    "interpretation": "Partial running prefix only; no terminal/audit result. Historical IDs are not live after restore."
+  },
+  "closed_runs": {
+    "chapter02-sorting-and-type-imports-focused-20261104-attempt8": {
+      "candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+      "exit_code": 1,
+      "completed_utc": "2026-11-04T09:15:15.519198+00:00",
+      "log_bytes": 28888,
+      "log_sha256": "eb49e2b97740ea99b7d02f805455717527f7dbe24837e864b32bfbcb657edf65",
+      "final_head": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+      "final_status": ""
+    },
+    "chapter02-tail-arithmetic-probe-20261104-attempt1": {
+      "candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+      "exit_code": 1,
+      "completed_utc": "2026-11-04T09:20:22.226691+00:00",
+      "log_bytes": 928,
+      "log_sha256": "e8991a5f3f76062bd7aa7d7174522314b1a7c1b237462f484a94744ccede159b",
+      "final_head": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+      "final_status": ""
+    },
+    "chapter02-tail-arithmetic-probe-20261104-attempt2": {
+      "candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+      "exit_code": 0,
+      "completed_utc": "2026-11-04T09:26:31.596250+00:00",
+      "log_bytes": 353,
+      "log_sha256": "5547bfe8df9db91509d2c7da98d651068e98a916d0d50ec96a81cfe6bed7bb14",
+      "final_head": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+      "final_status": ""
+    },
+    "chapter02-tail-and-uniform-examples-focused-20261104-attempt9": {
+      "candidate": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+      "exit_code": 1,
+      "completed_utc": "2026-11-04T09:31:46.501639+00:00",
+      "log_bytes": 17133,
+      "log_sha256": "8da63603aa28b114dc5f183bdc4a1be9abe470ebfef1c5bf3353628be979fd0f",
+      "final_head": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+      "final_status": ""
+    }
+  },
+  "available_bytes": 13327532032,
+  "no_new_acceptance": true
+}

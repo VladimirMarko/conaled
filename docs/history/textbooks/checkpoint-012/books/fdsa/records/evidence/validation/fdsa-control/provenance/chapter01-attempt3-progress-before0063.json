@@ -1,0 +1,145 @@
+{
+  "observed_utc": "2026-11-03T02:18:00.245096+00:00",
+  "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "original_review_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "euid": 0,
+  "expected_original_processes": [
+    {
+      "pid": 600750,
+      "state": "S",
+      "start_ticks": "9123853",
+      "process_group": 600750,
+      "session": 600750,
+      "argv_prefix": [
+        "python3",
+        "/workspace/scratch/845aa1048b05/fdsa-control/provenance/run-chapter01-repair-attempt3.py"
+      ],
+      "argv_count": 2,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    },
+    {
+      "pid": 600779,
+      "state": "S",
+      "start_ticks": "9123889",
+      "process_group": 600750,
+      "session": 600750,
+      "argv_prefix": [
+        "python3",
+        "scripts/check.py",
+        "--candidate",
+        "HEAD"
+      ],
+      "argv_count": 4,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    },
+    {
+      "pid": 600956,
+      "state": "S",
+      "start_ticks": "9124698",
+      "process_group": 600750,
+      "session": 600750,
+      "argv_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake",
+        "--no-cache",
+        "--rehash",
+        "build",
+        "+Squares"
+      ],
+      "argv_count": 964,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    }
+  ],
+  "review_cwd_processes": [
+    {
+      "pid": 600750,
+      "state": "S",
+      "start_ticks": "9123853",
+      "process_group": 600750,
+      "session": 600750,
+      "argv_prefix": [
+        "python3",
+        "/workspace/scratch/845aa1048b05/fdsa-control/provenance/run-chapter01-repair-attempt3.py"
+      ],
+      "argv_count": 2,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    },
+    {
+      "pid": 600779,
+      "state": "S",
+      "start_ticks": "9123889",
+      "process_group": 600750,
+      "session": 600750,
+      "argv_prefix": [
+        "python3",
+        "scripts/check.py",
+        "--candidate",
+        "HEAD"
+      ],
+      "argv_count": 4,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    },
+    {
+      "pid": 600956,
+      "state": "S",
+      "start_ticks": "9124698",
+      "process_group": 600750,
+      "session": 600750,
+      "argv_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake",
+        "--no-cache",
+        "--rehash",
+        "build",
+        "+Squares"
+      ],
+      "argv_count": 964,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    },
+    {
+      "pid": 717628,
+      "state": "S",
+      "start_ticks": "10606371",
+      "process_group": 600750,
+      "session": 600750,
+      "argv_prefix": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/Applications/Progress/Reactive.lean",
+        "-o",
+        "/workspace/scratch/845aa1048b05/conaled-ch01-review/.lake/build/lib/lean/Applications/Progress/Reactive.olean",
+        "-i"
+      ],
+      "argv_count": 11,
+      "cwd": "/workspace/scratch/845aa1048b05/conaled-ch01-review"
+    }
+  ],
+  "recorder": {
+    "path": "provenance/chapter01-repair-guarded-attempt3.json",
+    "bytes": 1552,
+    "sha256": "7b00a25b45c8ed51fcfd3cbbb4d986895dd670996aeaeba5f7e04500d8decf35",
+    "terminal_fields": {
+      "result": "running"
+    }
+  },
+  "partial_log": {
+    "path": "reviews/chapter01-repair-incremental-attempt3.log",
+    "bytes": 167474,
+    "sha256": "d0e87487b5fd9610b4104ee4a80e57eeab2db93fc51a23b56747247bc7f224fa",
+    "tail": [
+      "info: Applications/FRP/Equivalence.lean:1149:0: 'FRP.Examples.zeno_not_finiteHistory' depends on axioms: [propext, choice, Quot.sound]",
+      "\u2714 [9559/9562] Built Applications.FRP.Finite (1929s)",
+      "\u2714 [9560/9563] Built Examples.FRP (1519s)",
+      "\u2714 [9561/9564] Built Applications.FRP.Engine (2169s)",
+      "\u2714 [9562/9565] Built Applications.FRP.Lifecycle (1982s)",
+      "\u2714 [9563/9566] Built Applications.FRP.LifecycleSafety (1508s)",
+      "\u2714 [9564/9567] Built Applications.FRP.LifecycleProgress (2061s)",
+      "\u2714 [9565/9568] Built Applications.Progress.Feedback (376s)",
+      "\u2714 [9566/9569] Built Applications.Progress.CoupledFeedback (371s)",
+      "\u2714 [9567/9570] Built Applications.FRP.Feedback (2831s)"
+    ]
+  },
+  "actual_verification_exists": false,
+  "retained_verification_exists": false,
+  "free_block_bytes": 3915776000,
+  "unprivileged_available_bytes": 463028224,
+  "interpretation": "Bounded historical process/recorder/log observation only, not terminal/full-validation success or acceptance. Process stat/cmdline/cwd reads have separate errors; no task/children path is used. Earlier attempt1/2 unknown outcomes and actual earlier ENOSPC remain unchanged.",
+  "actions": "Read-only metadata/log/process and statvfs observation. No compiler/checker/project hash helper, artifact hashing, cache/performance action, cleanup or active build output change."
+}

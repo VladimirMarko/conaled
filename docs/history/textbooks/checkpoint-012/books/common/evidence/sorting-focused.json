@@ -1,0 +1,25 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/e1eab3b6b18e/integration-20261113/checkpoint/conaled-textbooks/support/native-kit/conaled_native.py",
+    "--state",
+    "/workspace/scratch/e1eab3b6b18e/integration-20261113/runtime/native",
+    "run",
+    "--project",
+    "/workspace/scratch/e1eab3b6b18e/integration-20261113/master",
+    "--threads",
+    "2",
+    "--",
+    "lake",
+    "build",
+    "Examples.TextbookSorting"
+  ],
+  "started_at": "2026-11-14T00:14:48.059497+00:00",
+  "duration_seconds": 8.271617317000164,
+  "exit_code": 0,
+  "source": "Examples/TextbookSorting.lean",
+  "source_sha256_before": "c01c2d85453a8bdf403684f8a27b8efa0a2847429a311cd8f81128b661fcb3e4",
+  "source_sha256_after": "c01c2d85453a8bdf403684f8a27b8efa0a2847429a311cd8f81128b661fcb3e4",
+  "coverage": "Focused live-checkout development only; full candidate validation and review remain pending."
+}

@@ -1,0 +1,17 @@
+{
+  "observed_utc": "2026-11-03T15:51:55.043952+00:00",
+  "directory": "provenance/qemu-cache-build-20261103",
+  "observed_files": [
+    "request.json",
+    "launch.json",
+    "recorder.log (empty)"
+  ],
+  "missing": [
+    "start.json",
+    "progress.json",
+    "full.log",
+    "result.json"
+  ],
+  "disposition": "No worker start or command result was observed from the detached launch. Preserve this evidence without success credit. The corrected recorder stays foregrounded in a retained execution session and uses a distinct invocation directory.",
+  "replacement": "provenance/qemu-cache-build-20261103-r1"
+}

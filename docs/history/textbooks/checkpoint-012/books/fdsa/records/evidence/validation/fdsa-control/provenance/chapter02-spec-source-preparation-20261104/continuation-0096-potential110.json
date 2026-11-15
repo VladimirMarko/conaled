@@ -1,0 +1,55 @@
+{
+  "recorded_utc": "2026-11-04T09:34:49.901775+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+  "full_scope": "All81 paths,112 obligations and ten shared units retained; no scope reset.",
+  "prior_report": {
+    "path": "reviews/chapter02-spec-source-preparation-20261104.md",
+    "bytes": 75158,
+    "lines": 313,
+    "sha256": "390961db9ec6b50a152a0d1d83707834cc95ce970aa28eb51bf3b993d0ad7e9c"
+  },
+  "prior_receipt": {
+    "path": "provenance/chapter02-spec-source-preparation-20261104/continuation-0095-central0a7ef078.json",
+    "bytes": 1958,
+    "lines": 49,
+    "sha256": "b23fb035a533c30cdc74e3e9fd818d0c80d6ef2726f6405a79c9e29ed3bbb025"
+  },
+  "artifacts": [
+    {
+      "path": "reviews/chapter02-spec-source-preparation-20261104.md",
+      "bytes": 77634,
+      "lines": 331,
+      "sha256": "2dca5fccbb150cf61de81f6d982bdf3c14add56036076f574ac0043e82a53ca4"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/foundation110-conditional-reuse-assessment-0a7ef078.json",
+      "bytes": 8414,
+      "lines": 160,
+      "sha256": "6c1de8f08f1a41872c6fe958424b5752edb12124bc28611f6b18ac104ebb1d68"
+    },
+    {
+      "path": "reviews/shared-foundations-spec-continuation-20261104.md",
+      "bytes": 8862,
+      "lines": 57,
+      "sha256": "450409a89197f229e88e12ff477f7c3e6b60c067fde0eef297a431163a7249d6"
+    },
+    {
+      "path": "provenance/foundation-spec-current-continuation-20261104/potential110-conditions-continuation.json",
+      "bytes": 1456,
+      "lines": 36,
+      "sha256": "631aa4526ee8c4e204b31a6f5bd96b909c73861c37561964d277ae28558d3b44"
+    }
+  ],
+  "actual_output_credit": 0,
+  "input_counts_unchanged": {
+    "qualified_historical": 920,
+    "chapter2_pending": 814,
+    "accepted_base": 28,
+    "foundation_pending": 145
+  },
+  "overall_outcome": "Blocked",
+  "approval_or_acceptance": false,
+  "checkpoint0096_boundary": "All own writes held after this coherent save until parent releases checkpoint hold."
+}

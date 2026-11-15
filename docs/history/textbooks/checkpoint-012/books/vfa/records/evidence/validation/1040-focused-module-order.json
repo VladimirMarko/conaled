@@ -1,0 +1,1086 @@
+{
+  "format": 1,
+  "classification": "source-derived focused diagnostic plan; no compilation or integrated-gate credit",
+  "started_utc": "2026-11-04T11:19:13.420701+00:00",
+  "completed_utc": "2026-11-04T11:19:13.758348+00:00",
+  "candidate": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+  "parent_candidate": "cf0a687265c1929ffd3ff6f15fa18febe0fb61b5",
+  "fixed_review_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "source_root": "/workspace/scratch/60f07f0e98c8/conaled-vfa/conaled",
+  "validation_root": "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation",
+  "checker_source_sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+  "endpoint_roots": [
+    "Examples.TemporalMonitor",
+    "Examples.Thinning",
+    "Examples.TimedMotion",
+    "Examples.TreeFlatteningCosts",
+    "Examples.TypedPathTransport",
+    "SquareKit.CommaLimits",
+    "Verification"
+  ],
+  "remaining_ordinary_modules": [
+    {
+      "position": 938,
+      "module": "Applications.FRP.Monitor"
+    },
+    {
+      "position": 939,
+      "module": "Examples.TemporalMonitor"
+    },
+    {
+      "position": 940,
+      "module": "Applications.Optimization.NetworkPaths"
+    },
+    {
+      "position": 941,
+      "module": "Applications.Optimization.NetworkThinning"
+    },
+    {
+      "position": 942,
+      "module": "Applications.Optimization.ThinningRelations"
+    },
+    {
+      "position": 943,
+      "module": "Examples.Thinning"
+    },
+    {
+      "position": 944,
+      "module": "Examples.TimedMotion"
+    },
+    {
+      "position": 945,
+      "module": "Applications.Resources.TreeFlattening.Core"
+    },
+    {
+      "position": 946,
+      "module": "Applications.Resources.TreeFlattening.Cached"
+    },
+    {
+      "position": 947,
+      "module": "Applications.Resources.TreeFlattening.Growth"
+    },
+    {
+      "position": 948,
+      "module": "Applications.Resources.TreeFlattening.Observation"
+    },
+    {
+      "position": 949,
+      "module": "Examples.TreeFlatteningCosts"
+    },
+    {
+      "position": 950,
+      "module": "Examples.TypedPathTransport"
+    },
+    {
+      "position": 951,
+      "module": "SquareKit.CommaLimits"
+    },
+    {
+      "position": 952,
+      "module": "Verification"
+    }
+  ],
+  "failed_predecessor": {
+    "position": 937,
+    "module": "SquareKit.Temporal.Monitor"
+  },
+  "module_count": 116,
+  "module_order": [
+    "SquareKit.Temporal.Monitor",
+    "Squares",
+    "FirstOrder",
+    "SquareKit.Relations",
+    "Compiler",
+    "SquareKit.Category",
+    "SquareKit.CategoryMap",
+    "SquareKit.Comma",
+    "SquareKit.FunctionCategory",
+    "SquareKit.CommaExact",
+    "SquareKit.CommaAgreement",
+    "SquareKit.Combinators",
+    "Applications.Linear.Matrix",
+    "SquareKit.CartesianMap",
+    "SquareKit.CommaProducts",
+    "Applications.Orbifold.ProjectiveMotion",
+    "Applications.Linear.Similitude",
+    "Applications.Orbifold.StandardForm",
+    "Applications.Diffeology.Constructions",
+    "Applications.Diffeology.Manifolds",
+    "Applications.Orbifolds.Equivariant",
+    "Applications.Orbifolds.SmoothComparison",
+    "Applications.Orbifolds.QuarterTurn",
+    "Applications.Orbifold.Disk",
+    "Applications.Orbifold.Pose",
+    "Applications.Orbifold.ConnectionAssessment",
+    "Applications.Optimization.Basic",
+    "Applications.Optimization.Relations",
+    "Applications.Progress.Evaluation",
+    "Applications.Progress.Streams",
+    "Applications.Progress.Processors",
+    "Dependent",
+    "SquareKit.ListFusion",
+    "SquareKit.Internal.PathTransport.Syntax",
+    "SquareKit.Internal.PathTransport.RawContext",
+    "SquareKit.Internal.PathTransport.Model",
+    "SquareKit.Internal.PathTransport.ContextualModel",
+    "SquareKit.Internal.PathTransport.Typed",
+    "SquareKit.Internal.PathTransport.Authoring",
+    "SquareKit.Internal.PathTransport.SplitFamily",
+    "SquareKit.Internal.PathTransport.ContextualElimination",
+    "SquareKit.Internal.PathTransport.TelescopeElimination",
+    "SquareKit.Internal.PathTransport.PathContext",
+    "SquareKit.Internal.PathTransport.SectionNormalization",
+    "SquareKit.Internal.PathTransport.GroupoidElimination",
+    "SquareKit.Internal.PathTransport.JNaturality",
+    "SquareKit.Internal.PathTransport.GroupoidSoundness",
+    "SquareKit.Internal.PathTransport.BasedPath",
+    "SquareKit.Internal.PathTransport.GroupoidIdentity",
+    "Examples.GroupoidTransport",
+    "Applications.Optimization.SelectionSpec",
+    "Applications.Optimization.Transport",
+    "Applications.Optimization.Thinning",
+    "Applications.Resources.Measured",
+    "Applications.Resources.Workload",
+    "Applications.Bracketing.Basic",
+    "SquareKit.CommaLawful",
+    "Applications.FRP.Spec",
+    "Applications.FRP.Frontier",
+    "Applications.FRP.Trace",
+    "Applications.FRP.Demand",
+    "SquareKit.Temporal.Finite",
+    "Applications.FRP.Temporal",
+    "Applications.FRP.TemporalCausality",
+    "Examples.FRPFrontier",
+    "Examples.FRPTrace",
+    "Examples.FRPDemand",
+    "SquareCompiler",
+    "Applications.Orbifold.MatrixDisk",
+    "Applications.Orbifold.QuarterTurn",
+    "Applications.Resources.Potential",
+    "Applications.Optimization.KnapsackThinning",
+    "Applications.Geometry.ParallelTransport",
+    "Applications.Orbifold.DiskConnection",
+    "Applications.Orbifold.DiskTransport",
+    "Applications.Orbifold.TransportSegments",
+    "Applications.Orbifold.TransportComparison",
+    "Applications.Orbifold.TransportFrames",
+    "Applications.Orbifold.PoseConnection",
+    "Applications.Orbifold.TimedMotion",
+    "Applications.Orbifold.TimedCommands",
+    "Applications.Orbifold.CommandComparison",
+    "Applications.Orbifold.MotionUniqueness",
+    "Applications.Resources.BinaryCounter",
+    "Applications.Sequences.RandomAccess.Basic",
+    "Applications.Sequences.RandomAccess.Access",
+    "Applications.Sequences.RandomAccess.Borrow",
+    "Applications.Sequences.RandomAccess.TreeBuild",
+    "Applications.Sequences.RandomAccess.Representation",
+    "Applications.Resources.RandomAccess.Lookup",
+    "Applications.Resources.RandomAccess.Bulk",
+    "Applications.Resources.RandomAccess.Families",
+    "Applications.Resources.RandomAccess.Observation",
+    "Applications.Resources.RandomAccess.CacheCosts",
+    "Applications.Resources.BinaryCounter.Decrement",
+    "Applications.Resources.RandomAccess.End",
+    "Applications.Resources.RandomAccess.Drain",
+    "Applications.Resources.RandomAccess.Cycles",
+    "Applications.Resources.RandomAccess.EndCases",
+    "Applications.Resources.RandomAccess.EndObservation",
+    "Applications.Resources.Growth",
+    "Applications.FRP.Monitor",
+    "Examples.TemporalMonitor",
+    "Applications.Optimization.NetworkPaths",
+    "Applications.Optimization.NetworkThinning",
+    "Applications.Optimization.ThinningRelations",
+    "Examples.Thinning",
+    "Examples.TimedMotion",
+    "Applications.Resources.TreeFlattening.Core",
+    "Applications.Resources.TreeFlattening.Cached",
+    "Applications.Resources.TreeFlattening.Growth",
+    "Applications.Resources.TreeFlattening.Observation",
+    "Examples.TreeFlatteningCosts",
+    "Examples.TypedPathTransport",
+    "SquareKit.CommaLimits",
+    "Verification"
+  ],
+  "module_order_sha256": "c98f86675986374425549a8d14c119cf666cb6ac38de1ae49cc8abd5a292b59c",
+  "source_records": {
+    "SquareKit.Temporal.Monitor": {
+      "relative_source": "SquareKit/Temporal/Monitor.lean",
+      "sha256": "88661c0eed00ec67418891c32ebcec3e4c42f603b654c5946f0773f3adbec46f",
+      "local_imports": []
+    },
+    "Squares": {
+      "relative_source": "Squares.lean",
+      "sha256": "d535da719c3d7b3db4f536b5b791611d07c6dd6dd8bdae59572a8b375040dc41",
+      "local_imports": []
+    },
+    "FirstOrder": {
+      "relative_source": "FirstOrder.lean",
+      "sha256": "7bc6796a3c9866111b6833ddfcd3d952951e87c5c355f38a1b3737a3118bb523",
+      "local_imports": []
+    },
+    "SquareKit.Relations": {
+      "relative_source": "SquareKit/Relations.lean",
+      "sha256": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03",
+      "local_imports": [
+        "Squares"
+      ]
+    },
+    "Compiler": {
+      "relative_source": "Compiler.lean",
+      "sha256": "94a24c23b9e3d2169080d57dbe668f590da6efcf17a4683e8639dad726bfc5ec",
+      "local_imports": []
+    },
+    "SquareKit.Category": {
+      "relative_source": "SquareKit/Category.lean",
+      "sha256": "cc725a276953dce869bd115800595e653d05ed021134c8691d05ad052dcb2833",
+      "local_imports": []
+    },
+    "SquareKit.CategoryMap": {
+      "relative_source": "SquareKit/CategoryMap.lean",
+      "sha256": "c8657fbcb1d3b830e8e0576c10c0fb2d547098b79ecbdebe311454436f4d5756",
+      "local_imports": [
+        "SquareKit.Category"
+      ]
+    },
+    "SquareKit.Comma": {
+      "relative_source": "SquareKit/Comma.lean",
+      "sha256": "552d5e5e049d2ed59901bebdaf30aa59773f873dc97e243b5cdd03d266dca260",
+      "local_imports": [
+        "SquareKit.CategoryMap"
+      ]
+    },
+    "SquareKit.FunctionCategory": {
+      "relative_source": "SquareKit/FunctionCategory.lean",
+      "sha256": "11cc977a14718b739c8af0e940324ba3b426a6bc488249ab57d9e11017f358b4",
+      "local_imports": [
+        "SquareKit.CategoryMap"
+      ]
+    },
+    "SquareKit.CommaExact": {
+      "relative_source": "SquareKit/CommaExact.lean",
+      "sha256": "0f8ea0d9091e5f20aa86b87a3951ec3819a6ad7224f8d9224115d7110cd2433b",
+      "local_imports": [
+        "SquareKit.Comma",
+        "SquareKit.FunctionCategory",
+        "Squares"
+      ]
+    },
+    "SquareKit.CommaAgreement": {
+      "relative_source": "SquareKit/CommaAgreement.lean",
+      "sha256": "c200c4a57e6a3e11c3a4f5c721d168b82c3466a4c2f1c9dbda60c8d9b8b6a928",
+      "local_imports": [
+        "SquareKit.CommaExact"
+      ]
+    },
+    "SquareKit.Combinators": {
+      "relative_source": "SquareKit/Combinators.lean",
+      "sha256": "cc31d4b0ec2ca92f7f24dba9ad62639ffe93f7ecd919c257783eb7f64537828b",
+      "local_imports": [
+        "SquareKit.CommaAgreement"
+      ]
+    },
+    "Applications.Linear.Matrix": {
+      "relative_source": "Applications/Linear/Matrix.lean",
+      "sha256": "c10616a2fcb27a2fc2ae341f1af10a517a136e2899b7206777df5ff1b109cf64",
+      "local_imports": [
+        "SquareKit.Combinators"
+      ]
+    },
+    "SquareKit.CartesianMap": {
+      "relative_source": "SquareKit/CartesianMap.lean",
+      "sha256": "a1354645e2c24e276bb1bc0c44d06cad018793208830e3029d596f21b5272649",
+      "local_imports": [
+        "SquareKit.CategoryMap"
+      ]
+    },
+    "SquareKit.CommaProducts": {
+      "relative_source": "SquareKit/CommaProducts.lean",
+      "sha256": "2fcb6e6db3560b8bf531566674ebc53c0e87b5f79a45aead7158ffb926aa6960",
+      "local_imports": [
+        "SquareKit.Comma",
+        "SquareKit.CartesianMap"
+      ]
+    },
+    "Applications.Orbifold.ProjectiveMotion": {
+      "relative_source": "Applications/Orbifold/ProjectiveMotion.lean",
+      "sha256": "d0e0920d166555216764e3a20d6c8f3c26ea15415b1072da527654894d491ae3",
+      "local_imports": []
+    },
+    "Applications.Linear.Similitude": {
+      "relative_source": "Applications/Linear/Similitude.lean",
+      "sha256": "6384e940cfbb2c12c077b9e9bea940c38564d1624d412e91257f60f72708788c",
+      "local_imports": [
+        "Applications.Linear.Matrix",
+        "Applications.Orbifold.ProjectiveMotion"
+      ]
+    },
+    "Applications.Orbifold.StandardForm": {
+      "relative_source": "Applications/Orbifold/StandardForm.lean",
+      "sha256": "7eed534f63109da86b0984e6f9a1e76b95b2efb2a10ebfb85cb7ddb693391176",
+      "local_imports": [
+        "Applications.Orbifold.ProjectiveMotion"
+      ]
+    },
+    "Applications.Diffeology.Constructions": {
+      "relative_source": "Applications/Diffeology/Constructions.lean",
+      "sha256": "a054aa628bafd8950211880c64c94a1c2bd504de843066956b9af81ae4a9ab54",
+      "local_imports": []
+    },
+    "Applications.Diffeology.Manifolds": {
+      "relative_source": "Applications/Diffeology/Manifolds.lean",
+      "sha256": "589e7d032a038c3d616ddff3c3e441603545835584f0fae4fb34c98b2c0ec7ec",
+      "local_imports": [
+        "Applications.Diffeology.Constructions"
+      ]
+    },
+    "Applications.Orbifolds.Equivariant": {
+      "relative_source": "Applications/Orbifolds/Equivariant.lean",
+      "sha256": "5696b59554058c6de8f8b5dab1dc8ad667374a6da1f05d966b0a3e8fa8f76dae",
+      "local_imports": [
+        "SquareKit.CategoryMap",
+        "Squares"
+      ]
+    },
+    "Applications.Orbifolds.SmoothComparison": {
+      "relative_source": "Applications/Orbifolds/SmoothComparison.lean",
+      "sha256": "a47d3600c11827f9ffa85d9a882b1d6618f27ca5f25dc30ab7772f7adbcbdd8e",
+      "local_imports": [
+        "Applications.Orbifolds.Equivariant",
+        "Applications.Diffeology.Manifolds"
+      ]
+    },
+    "Applications.Orbifolds.QuarterTurn": {
+      "relative_source": "Applications/Orbifolds/QuarterTurn.lean",
+      "sha256": "0efaf23c27d02604a871628626fd070196299083f560acf615414d9662ca4243",
+      "local_imports": [
+        "Applications.Orbifolds.SmoothComparison"
+      ]
+    },
+    "Applications.Orbifold.Disk": {
+      "relative_source": "Applications/Orbifold/Disk.lean",
+      "sha256": "e4c53166bc0e9e84475f597a6a6d3a7fcbf5b149b16ecd9815dfc2c335c63fdd",
+      "local_imports": [
+        "Applications.Orbifold.StandardForm",
+        "Applications.Orbifolds.QuarterTurn"
+      ]
+    },
+    "Applications.Orbifold.Pose": {
+      "relative_source": "Applications/Orbifold/Pose.lean",
+      "sha256": "b6e4d83b5ef9461ffefc0bc27f1aef717c9f2aedbae2bab1f014bb79c9250607",
+      "local_imports": [
+        "Applications.Orbifold.Disk",
+        "Applications.Linear.Similitude"
+      ]
+    },
+    "Applications.Orbifold.ConnectionAssessment": {
+      "relative_source": "Applications/Orbifold/ConnectionAssessment.lean",
+      "sha256": "744ae1e7871fbfc659f5b4ae0266100050fca771038c20f34417c9f8317c3765",
+      "local_imports": [
+        "Applications.Orbifold.Pose"
+      ]
+    },
+    "Applications.Optimization.Basic": {
+      "relative_source": "Applications/Optimization/Basic.lean",
+      "sha256": "3d50b415897412b28740b14073941841a9cfdb5c583fdc13aef923671cb2f109",
+      "local_imports": []
+    },
+    "Applications.Optimization.Relations": {
+      "relative_source": "Applications/Optimization/Relations.lean",
+      "sha256": "b7927580cfe5b9ba783d1d072d6d0f6859d06ab7c694ddb71ce4e835bed02319",
+      "local_imports": [
+        "Applications.Optimization.Basic",
+        "SquareKit.Relations"
+      ]
+    },
+    "Applications.Progress.Evaluation": {
+      "relative_source": "Applications/Progress/Evaluation.lean",
+      "sha256": "3be90be15e37dd6f0fc12ef43e60ea2d4a1caf85b6de7471c4aeeb0a7696233d",
+      "local_imports": [
+        "Applications.Optimization.Relations"
+      ]
+    },
+    "Applications.Progress.Streams": {
+      "relative_source": "Applications/Progress/Streams.lean",
+      "sha256": "5b25f9d8caabb79cf52d1d874f8aa6921dd05ccb0fc71b6146c35c5fc62b861a",
+      "local_imports": [
+        "Applications.Progress.Evaluation"
+      ]
+    },
+    "Applications.Progress.Processors": {
+      "relative_source": "Applications/Progress/Processors.lean",
+      "sha256": "f751c3b7e2ca6073b16f33eb51fad145a613ef3506ff9cde7e39c245c007dad1",
+      "local_imports": [
+        "Applications.Progress.Streams"
+      ]
+    },
+    "Dependent": {
+      "relative_source": "Dependent.lean",
+      "sha256": "1a770edc3353192e1f82315353e52d4a3e6bec511659a6ccfbed42316be29e90",
+      "local_imports": []
+    },
+    "SquareKit.ListFusion": {
+      "relative_source": "SquareKit/ListFusion.lean",
+      "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+      "local_imports": []
+    },
+    "SquareKit.Internal.PathTransport.Syntax": {
+      "relative_source": "SquareKit/Internal/PathTransport/Syntax.lean",
+      "sha256": "30a34c9b8ed5288ba5d91a6302f0cba1eac35a0aeb7c4a2b91fdc625d81c237c",
+      "local_imports": []
+    },
+    "SquareKit.Internal.PathTransport.RawContext": {
+      "relative_source": "SquareKit/Internal/PathTransport/RawContext.lean",
+      "sha256": "71f67a028b09974168ed09a3c14c304d127997a5ebf63c064e3b9d7b1cd98dfa",
+      "local_imports": [
+        "SquareKit.Internal.PathTransport.Syntax"
+      ]
+    },
+    "SquareKit.Internal.PathTransport.Model": {
+      "relative_source": "SquareKit/Internal/PathTransport/Model.lean",
+      "sha256": "224da492660cc043951db24942d1e256fb5b3bab4a1751f7883184fc23b74253",
+      "local_imports": [
+        "SquareKit.Internal.PathTransport.RawContext"
+      ]
+    },
+    "SquareKit.Internal.PathTransport.ContextualModel": {
+      "relative_source": "SquareKit/Internal/PathTransport/ContextualModel.lean",
+      "sha256": "5b2f7ef5f9923745fda627642a6c74d9773570c8194c016b4acf26d859f43ba8",
+      "local_imports": [
+        "SquareKit.Internal.PathTransport.Model"
+      ]
+    },
+    "SquareKit.Internal.PathTransport.Typed": {
+      "relative_source": "SquareKit/Internal/PathTransport/Typed.lean",
+      "sha256": "56b6633471d0350b0ef35fc22836d5b6919e81dd4741e18528464d7336d9b308",
+      "local_imports": [
+        "SquareKit.Internal.PathTransport.ContextualModel"
+      ]
+    },
+    "SquareKit.Internal.PathTransport.Authoring": {
+      "relative_source": "SquareKit/Internal/PathTransport/Authoring.lean",
+      "sha256": "da2d061750cb6cf1efce97d9cb9cc4d2d5122c6dd7fe4576a732efcaf3ec6ef2",
+      "local_imports": [
+        "SquareKit.Internal.PathTransport.Typed"
+      ]
+    },
+    "SquareKit.Internal.PathTransport.SplitFamily": {
+      "relative_source": "SquareKit/Internal/PathTransport/SplitFamily.lean",
+      "sha256": "bfc421986329959a7e524418027d492b5682abdec2e68c5f8a00c4975c84b8cf",
+      "local_imports": []
+    },
+    "SquareKit.Internal.PathTransport.ContextualElimination": {
+      "relative_source": "SquareKit/Internal/PathTransport/ContextualElimination.lean",
+      "sha256": "23748259dfb455143d6a81a98c95920aeeccd7e30283b6dd2320ea4391d8bd8c",
+      "local_imports": []
+    },
+    "SquareKit.Internal.PathTransport.TelescopeElimination": {
+      "relative_source": "SquareKit/Internal/PathTransport/TelescopeElimination.lean",
+      "sha256": "d6d0c5de5cf3e907d6bbbb6b520424390cb33357c0cc76206095749ada345a73",
+      "local_imports": [
+        "SquareKit.Internal.PathTransport.ContextualElimination"
+      ]
+    },
+    "SquareKit.Internal.PathTransport.PathContext": {
+      "relative_source": "SquareKit/Internal/PathTransport/PathContext.lean",
+      "sha256": "2658f414a7abb222625580855db36ccab6275ce397560d4065a14d56f9e3e435",
+      "local_imports": [
+        "SquareKit.Internal.PathTransport.SplitFamily",
+        "SquareKit.Internal.PathTransport.TelescopeElimination"
+      ]
+    },
+    "SquareKit.Internal.PathTransport.SectionNormalization": {
+      "relative_source": "SquareKit/Internal/PathTransport/SectionNormalization.lean",
+      "sha256": "8f4f922dfc9e4a7eb4064dedc8a59446b31f4d701e451395dc072962455a82ce",
+      "local_imports": [
+        "SquareKit.Internal.PathTransport.SplitFamily",
+        "SquareKit.Internal.PathTransport.ContextualElimination"
+      ]
+    },
+    "SquareKit.Internal.PathTransport.GroupoidElimination": {
+      "relative_source": "SquareKit/Internal/PathTransport/GroupoidElimination.lean",
+      "sha256": "0fa7e76ef884da2d5045032ebcd403d2f19fa6c70631f0ea9991e9215964f40f",
+      "local_imports": [
+        "SquareKit.Internal.PathTransport.PathContext",
+        "SquareKit.Internal.PathTransport.SectionNormalization"
+      ]
+    },
+    "SquareKit.Internal.PathTransport.JNaturality": {
+      "relative_source": "SquareKit/Internal/PathTransport/JNaturality.lean",
+      "sha256": "ed0ac5bbca56273f28a00f65c24c0a85974d075facfb08a4c48ccaa1f525cd9e",
+      "local_imports": [
+        "SquareKit.Internal.PathTransport.GroupoidElimination",
+        "SquareKit.Internal.PathTransport.ContextualElimination"
+      ]
+    },
+    "SquareKit.Internal.PathTransport.GroupoidSoundness": {
+      "relative_source": "SquareKit/Internal/PathTransport/GroupoidSoundness.lean",
+      "sha256": "b50e37160b0dd8a94fd6faac109015986efa35c676ed175528dba1209cffa9fd",
+      "local_imports": [
+        "SquareKit.Internal.PathTransport.JNaturality",
+        "SquareKit.Internal.PathTransport.ContextualModel",
+        "SquareKit.Internal.PathTransport.GroupoidElimination",
+        "SquareKit.Internal.PathTransport.SplitFamily"
+      ]
+    },
+    "SquareKit.Internal.PathTransport.BasedPath": {
+      "relative_source": "SquareKit/Internal/PathTransport/BasedPath.lean",
+      "sha256": "ce9c482f8b0103601addf1f01c48bb8f33ba3086c18c6468d06161a07fa7e42c",
+      "local_imports": []
+    },
+    "SquareKit.Internal.PathTransport.GroupoidIdentity": {
+      "relative_source": "SquareKit/Internal/PathTransport/GroupoidIdentity.lean",
+      "sha256": "f6a6b12d24f0c4d62ccf2fd58e756355dcf575269f28a5a2adbc2dac97558f6f",
+      "local_imports": []
+    },
+    "Examples.GroupoidTransport": {
+      "relative_source": "Examples/GroupoidTransport.lean",
+      "sha256": "9e2590704d8a34b917b5679300f416b62b99968f7c795d78678fdccfd2d4850b",
+      "local_imports": [
+        "SquareKit.Internal.PathTransport.Syntax",
+        "SquareKit.Internal.PathTransport.GroupoidIdentity",
+        "SquareKit.Internal.PathTransport.BasedPath"
+      ]
+    },
+    "Applications.Optimization.SelectionSpec": {
+      "relative_source": "Applications/Optimization/SelectionSpec.lean",
+      "sha256": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+      "local_imports": []
+    },
+    "Applications.Optimization.Transport": {
+      "relative_source": "Applications/Optimization/Transport.lean",
+      "sha256": "d4397294c684751f9f2dd487eff96425175324ef0b7ab3d48a18239df7c66046",
+      "local_imports": [
+        "Applications.Optimization.Basic"
+      ]
+    },
+    "Applications.Optimization.Thinning": {
+      "relative_source": "Applications/Optimization/Thinning.lean",
+      "sha256": "a6b282bb2c18e870c0ce222862259d9b288b55ebaad306f53ef92acd0f4ecf72",
+      "local_imports": [
+        "Applications.Optimization.Transport"
+      ]
+    },
+    "Applications.Resources.Measured": {
+      "relative_source": "Applications/Resources/Measured.lean",
+      "sha256": "b5f76c8dfdb3cc9dd28a356bebd12787b3a7add61abba1022d474604a6979667",
+      "local_imports": [
+        "Squares"
+      ]
+    },
+    "Applications.Resources.Workload": {
+      "relative_source": "Applications/Resources/Workload.lean",
+      "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+      "local_imports": [
+        "Applications.Resources.Measured",
+        "SquareKit.ListFusion"
+      ]
+    },
+    "Applications.Bracketing.Basic": {
+      "relative_source": "Applications/Bracketing/Basic.lean",
+      "sha256": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+      "local_imports": [
+        "Applications.Optimization.SelectionSpec"
+      ]
+    },
+    "SquareKit.CommaLawful": {
+      "relative_source": "SquareKit/CommaLawful.lean",
+      "sha256": "95a411a183fa069ee7b390185c64cdb907bbaa25ca1f74ab15405051ec4694ce",
+      "local_imports": [
+        "SquareKit.Comma"
+      ]
+    },
+    "Applications.FRP.Spec": {
+      "relative_source": "Applications/FRP/Spec.lean",
+      "sha256": "b5df6de8a4ed0188009b4d35c8508512418a8e980a85300691d3585894d22230",
+      "local_imports": [
+        "SquareKit.FunctionCategory",
+        "SquareKit.CartesianMap"
+      ]
+    },
+    "Applications.FRP.Frontier": {
+      "relative_source": "Applications/FRP/Frontier.lean",
+      "sha256": "582da35f674d141ab3d1e8bda8909982362490b018103a96a2053cef5be91cae",
+      "local_imports": [
+        "Applications.FRP.Spec",
+        "SquareKit.Relations"
+      ]
+    },
+    "Applications.FRP.Trace": {
+      "relative_source": "Applications/FRP/Trace.lean",
+      "sha256": "c6e18a86c240230363338df0c98a299ac35c7f958228884c0eede15512c8e1a8",
+      "local_imports": [
+        "Applications.FRP.Frontier"
+      ]
+    },
+    "Applications.FRP.Demand": {
+      "relative_source": "Applications/FRP/Demand.lean",
+      "sha256": "4e92f97ac56aa684c27f3421cdf1890b64159b631fdd828c420af00d3d9c6ad6",
+      "local_imports": [
+        "Applications.FRP.Trace"
+      ]
+    },
+    "SquareKit.Temporal.Finite": {
+      "relative_source": "SquareKit/Temporal/Finite.lean",
+      "sha256": "7b0e5af17f860c92c7a8ae5923ff77da493c9bf4562f24d4fd90d5a2ab2fa14b",
+      "local_imports": []
+    },
+    "Applications.FRP.Temporal": {
+      "relative_source": "Applications/FRP/Temporal.lean",
+      "sha256": "5f8fd5e1e0a30ad8f1521989b5f496e43afd707cadcc29b41e646528b4404e49",
+      "local_imports": [
+        "SquareKit.Temporal.Finite",
+        "Applications.FRP.Demand",
+        "Applications.Progress.Processors"
+      ]
+    },
+    "Applications.FRP.TemporalCausality": {
+      "relative_source": "Applications/FRP/TemporalCausality.lean",
+      "sha256": "15c0ad3d96c51549f5fb90a5cd4e176b4c2996364a8173289a13f68a172537ff",
+      "local_imports": [
+        "Applications.FRP.Temporal"
+      ]
+    },
+    "Examples.FRPFrontier": {
+      "relative_source": "Examples/FRPFrontier.lean",
+      "sha256": "b58268e0ea5b4bf10bce60c18ff7180a0db303f3ab519df15364d6d5cf109ed3",
+      "local_imports": [
+        "Applications.FRP.Frontier"
+      ]
+    },
+    "Examples.FRPTrace": {
+      "relative_source": "Examples/FRPTrace.lean",
+      "sha256": "d3608faa09b11f2a0b244a019fe3a04258a312aaabb7a931bd7d3e2f1322b6da",
+      "local_imports": [
+        "Applications.FRP.Trace",
+        "Examples.FRPFrontier"
+      ]
+    },
+    "Examples.FRPDemand": {
+      "relative_source": "Examples/FRPDemand.lean",
+      "sha256": "2f5cfd82af7d92644e9c04b2f2d8f2f1ed80acc527c1aea838853a417595b5fa",
+      "local_imports": [
+        "Applications.FRP.Demand",
+        "Examples.FRPTrace"
+      ]
+    },
+    "SquareCompiler": {
+      "relative_source": "SquareCompiler.lean",
+      "sha256": "32bca9ac26a9f2bd8ebf7f1348a3dd215e7b42616f8234fec84981b115bdd87e",
+      "local_imports": [
+        "Compiler",
+        "Squares"
+      ]
+    },
+    "Applications.Orbifold.MatrixDisk": {
+      "relative_source": "Applications/Orbifold/MatrixDisk.lean",
+      "sha256": "3ff4772e4cf1226126a48d9f407fae4754f9a71c9650443d368badedec1c0167",
+      "local_imports": [
+        "Applications.Orbifold.Pose"
+      ]
+    },
+    "Applications.Orbifold.QuarterTurn": {
+      "relative_source": "Applications/Orbifold/QuarterTurn.lean",
+      "sha256": "1718f3a07408c898a3a5b931feb40b37383e13a7abafcdcfe2b167f72aad313b",
+      "local_imports": [
+        "Applications.Orbifold.Pose"
+      ]
+    },
+    "Applications.Resources.Potential": {
+      "relative_source": "Applications/Resources/Potential.lean",
+      "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe",
+      "local_imports": [
+        "Applications.Resources.Workload"
+      ]
+    },
+    "Applications.Optimization.KnapsackThinning": {
+      "relative_source": "Applications/Optimization/KnapsackThinning.lean",
+      "sha256": "f38bdae187a18766b081dda5b2c6d0c7d05a0e0998c824993f88f4626cce21d4",
+      "local_imports": [
+        "Applications.Optimization.Thinning"
+      ]
+    },
+    "Applications.Geometry.ParallelTransport": {
+      "relative_source": "Applications/Geometry/ParallelTransport.lean",
+      "sha256": "021a4539290732f55ee08e09b1474217651a62402193e3548ab4799ce0f7c0a0",
+      "local_imports": [
+        "Squares"
+      ]
+    },
+    "Applications.Orbifold.DiskConnection": {
+      "relative_source": "Applications/Orbifold/DiskConnection.lean",
+      "sha256": "debe24bc815fb2c5d0e635da868916dc0b34d42b94563776f7507739ffc169d1",
+      "local_imports": [
+        "Applications.Orbifold.ConnectionAssessment"
+      ]
+    },
+    "Applications.Orbifold.DiskTransport": {
+      "relative_source": "Applications/Orbifold/DiskTransport.lean",
+      "sha256": "a7e6dec523f89b73d13a1f706296b31e2119816756713f910720aca237cddd65",
+      "local_imports": [
+        "Applications.Geometry.ParallelTransport",
+        "Applications.Orbifold.DiskConnection"
+      ]
+    },
+    "Applications.Orbifold.TransportSegments": {
+      "relative_source": "Applications/Orbifold/TransportSegments.lean",
+      "sha256": "01d58952b1c3ef9d7ff84d984cf93600c9920131958ebefdad6827253a82c509",
+      "local_imports": [
+        "Applications.Orbifold.DiskTransport"
+      ]
+    },
+    "Applications.Orbifold.TransportComparison": {
+      "relative_source": "Applications/Orbifold/TransportComparison.lean",
+      "sha256": "c47638e8a0f2ae6fd762cfb64d9fa1d2c5e9dfebb36417dca4ea5e5ea17352ff",
+      "local_imports": [
+        "Applications.Orbifold.TransportSegments",
+        "Applications.Orbifold.QuarterTurn",
+        "Applications.Orbifold.MatrixDisk"
+      ]
+    },
+    "Applications.Orbifold.TransportFrames": {
+      "relative_source": "Applications/Orbifold/TransportFrames.lean",
+      "sha256": "34572d6a18a6363eee5353d82c4dc4445e37fe03b6fe3e740f9517725882ae23",
+      "local_imports": [
+        "Applications.Orbifold.TransportComparison"
+      ]
+    },
+    "Applications.Orbifold.PoseConnection": {
+      "relative_source": "Applications/Orbifold/PoseConnection.lean",
+      "sha256": "4900a93e6ef901f5a98e519ef42eec8e3eb569f045a5895bdb2bda5c02fc81e4",
+      "local_imports": [
+        "Applications.Orbifold.TransportFrames"
+      ]
+    },
+    "Applications.Orbifold.TimedMotion": {
+      "relative_source": "Applications/Orbifold/TimedMotion.lean",
+      "sha256": "f2dc606d3192a52ad49d73e367da0dcd5c86e21d6ec2a39bbe57a5848b80125d",
+      "local_imports": [
+        "Applications.Orbifold.PoseConnection"
+      ]
+    },
+    "Applications.Orbifold.TimedCommands": {
+      "relative_source": "Applications/Orbifold/TimedCommands.lean",
+      "sha256": "bf37936d5fd1b1ba985bc153321e8e29a12873eb2661be1f622f912253a464cd",
+      "local_imports": [
+        "Applications.Orbifold.TimedMotion"
+      ]
+    },
+    "Applications.Orbifold.CommandComparison": {
+      "relative_source": "Applications/Orbifold/CommandComparison.lean",
+      "sha256": "1b4fd0c83633c12fbbbbdd90bab931270aa6dd91e2e51e8ab2eed91a4f8cd2d4",
+      "local_imports": [
+        "Applications.Orbifold.TimedCommands"
+      ]
+    },
+    "Applications.Orbifold.MotionUniqueness": {
+      "relative_source": "Applications/Orbifold/MotionUniqueness.lean",
+      "sha256": "5cd886bfd63bfff57956bfc9e185f760852cfb5ad837ed2c18b89145a54f6b23",
+      "local_imports": [
+        "Applications.Orbifold.TimedCommands"
+      ]
+    },
+    "Applications.Resources.BinaryCounter": {
+      "relative_source": "Applications/Resources/BinaryCounter.lean",
+      "sha256": "d990e0e8d9b09fff3f774180fa2396558f2d1abcf7e6231be648f5bd66f6f9c0",
+      "local_imports": [
+        "Applications.Resources.Potential"
+      ]
+    },
+    "Applications.Sequences.RandomAccess.Basic": {
+      "relative_source": "Applications/Sequences/RandomAccess/Basic.lean",
+      "sha256": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+      "local_imports": [
+        "Applications.Bracketing.Basic"
+      ]
+    },
+    "Applications.Sequences.RandomAccess.Access": {
+      "relative_source": "Applications/Sequences/RandomAccess/Access.lean",
+      "sha256": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+      "local_imports": [
+        "Applications.Sequences.RandomAccess.Basic"
+      ]
+    },
+    "Applications.Sequences.RandomAccess.Borrow": {
+      "relative_source": "Applications/Sequences/RandomAccess/Borrow.lean",
+      "sha256": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+      "local_imports": [
+        "Applications.Sequences.RandomAccess.Access"
+      ]
+    },
+    "Applications.Sequences.RandomAccess.TreeBuild": {
+      "relative_source": "Applications/Sequences/RandomAccess/TreeBuild.lean",
+      "sha256": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+      "local_imports": [
+        "Applications.Sequences.RandomAccess.Borrow"
+      ]
+    },
+    "Applications.Sequences.RandomAccess.Representation": {
+      "relative_source": "Applications/Sequences/RandomAccess/Representation.lean",
+      "sha256": "89d2b1a17b5fafa0f5153283fab8d3c6cf9c68a9816312be09fec8a64b7a1924",
+      "local_imports": [
+        "Applications.Sequences.RandomAccess.TreeBuild",
+        "Squares"
+      ]
+    },
+    "Applications.Resources.RandomAccess.Lookup": {
+      "relative_source": "Applications/Resources/RandomAccess/Lookup.lean",
+      "sha256": "fee5e437b510db3af153b5c43b940c160c0f5f3163c2b21108550f4aadc689dc",
+      "local_imports": [
+        "Applications.Sequences.RandomAccess.Representation",
+        "Applications.Resources.Workload"
+      ]
+    },
+    "Applications.Resources.RandomAccess.Bulk": {
+      "relative_source": "Applications/Resources/RandomAccess/Bulk.lean",
+      "sha256": "f894c9364e48c3e4845842e57328ba89fbf47b9d3cf3adfcd9200b0c2b544254",
+      "local_imports": [
+        "Applications.Resources.RandomAccess.Lookup"
+      ]
+    },
+    "Applications.Resources.RandomAccess.Families": {
+      "relative_source": "Applications/Resources/RandomAccess/Families.lean",
+      "sha256": "3ff9ffb4dafd9e37fb563db019e622a27fbb58ff12a296120c78574ec1daf578",
+      "local_imports": [
+        "Applications.Resources.RandomAccess.Bulk"
+      ]
+    },
+    "Applications.Resources.RandomAccess.Observation": {
+      "relative_source": "Applications/Resources/RandomAccess/Observation.lean",
+      "sha256": "f4e64afdae5d1df4505d0a6a668b049941496d27450d40bf40c9fd20f24c6aaa",
+      "local_imports": [
+        "Applications.Resources.RandomAccess.Families"
+      ]
+    },
+    "Applications.Resources.RandomAccess.CacheCosts": {
+      "relative_source": "Applications/Resources/RandomAccess/CacheCosts.lean",
+      "sha256": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+      "local_imports": [
+        "Applications.Sequences.RandomAccess.TreeBuild"
+      ]
+    },
+    "Applications.Resources.BinaryCounter.Decrement": {
+      "relative_source": "Applications/Resources/BinaryCounter/Decrement.lean",
+      "sha256": "dc9d3d7d9a1fb5bd1650d33af54504b12568178f13feac9840267ecbddcc0cab",
+      "local_imports": [
+        "Applications.Resources.BinaryCounter"
+      ]
+    },
+    "Applications.Resources.RandomAccess.End": {
+      "relative_source": "Applications/Resources/RandomAccess/End.lean",
+      "sha256": "ded4129df132c7fd87a40899cea6f483db02f3f95332bd9ec7c8c57dd868f099",
+      "local_imports": [
+        "Applications.Resources.RandomAccess.Lookup",
+        "Applications.Resources.BinaryCounter.Decrement"
+      ]
+    },
+    "Applications.Resources.RandomAccess.Drain": {
+      "relative_source": "Applications/Resources/RandomAccess/Drain.lean",
+      "sha256": "2e715a1709a10cb027ec28b66b0a312cd8bc6c3d2845622c29cfaef881529003",
+      "local_imports": [
+        "Applications.Resources.RandomAccess.End"
+      ]
+    },
+    "Applications.Resources.RandomAccess.Cycles": {
+      "relative_source": "Applications/Resources/RandomAccess/Cycles.lean",
+      "sha256": "3f60553002fefc29cc992a9932f531635648d316d2d8cedeacc807dce24c3b31",
+      "local_imports": [
+        "Applications.Resources.RandomAccess.Drain",
+        "Applications.Resources.RandomAccess.Families"
+      ]
+    },
+    "Applications.Resources.RandomAccess.EndCases": {
+      "relative_source": "Applications/Resources/RandomAccess/EndCases.lean",
+      "sha256": "7b33c4effd2eb8d2eedc997b9769960e075015e1a7bbaedec05c2dd19d69b8a1",
+      "local_imports": [
+        "Applications.Resources.RandomAccess.Cycles"
+      ]
+    },
+    "Applications.Resources.RandomAccess.EndObservation": {
+      "relative_source": "Applications/Resources/RandomAccess/EndObservation.lean",
+      "sha256": "c670636b445bfc00b9b4053759f2f86876bb341310b52e1e86371779504f03bb",
+      "local_imports": [
+        "Applications.Resources.RandomAccess.EndCases",
+        "Applications.Resources.RandomAccess.CacheCosts",
+        "Applications.Resources.RandomAccess.Observation"
+      ]
+    },
+    "Applications.Resources.Growth": {
+      "relative_source": "Applications/Resources/Growth.lean",
+      "sha256": "5e252788c2365d3f9140288a1d51f2ef38270798419af40df8505590a7d20dcc",
+      "local_imports": []
+    },
+    "Applications.FRP.Monitor": {
+      "relative_source": "Applications/FRP/Monitor.lean",
+      "sha256": "c9923ea437cf86f83e46db3637382c04bd480829f3ebb01ead882ef44af441dd",
+      "local_imports": [
+        "SquareKit.Temporal.Monitor",
+        "Applications.FRP.TemporalCausality"
+      ]
+    },
+    "Examples.TemporalMonitor": {
+      "relative_source": "Examples/TemporalMonitor.lean",
+      "sha256": "87ec6a93a45df746a537b09dcd8cd5e790eb4c1c3af30521831d01b8c43b9dbd",
+      "local_imports": [
+        "Applications.FRP.Monitor",
+        "Examples.FRPDemand"
+      ]
+    },
+    "Applications.Optimization.NetworkPaths": {
+      "relative_source": "Applications/Optimization/NetworkPaths.lean",
+      "sha256": "20d0d923864d6a0604f60897dedabc1675cb0c7f967854f33cd9034b95785c95",
+      "local_imports": []
+    },
+    "Applications.Optimization.NetworkThinning": {
+      "relative_source": "Applications/Optimization/NetworkThinning.lean",
+      "sha256": "9bcc0b7f98096589f12926f7f692c74e586152adf2f35df8509f4d6b80e73762",
+      "local_imports": [
+        "Applications.Optimization.NetworkPaths",
+        "Applications.Optimization.Thinning"
+      ]
+    },
+    "Applications.Optimization.ThinningRelations": {
+      "relative_source": "Applications/Optimization/ThinningRelations.lean",
+      "sha256": "e5a824987cd551d6c59f882e54afac9c032575380e2decf02772ebc8d4ba84fd",
+      "local_imports": [
+        "Applications.Optimization.Thinning",
+        "Applications.Optimization.Relations"
+      ]
+    },
+    "Examples.Thinning": {
+      "relative_source": "Examples/Thinning.lean",
+      "sha256": "fba902454178a3b36313f208b539d3e2b37443c06609dd6f9f2a5a8c730ee746",
+      "local_imports": [
+        "Applications.Optimization.NetworkThinning",
+        "Applications.Optimization.KnapsackThinning",
+        "Applications.Optimization.ThinningRelations"
+      ]
+    },
+    "Examples.TimedMotion": {
+      "relative_source": "Examples/TimedMotion.lean",
+      "sha256": "ba6c9f711324e057ef8dddb812e900ad4cfb0b8ee3c1e08014975f0a3c1ce14e",
+      "local_imports": [
+        "Applications.Orbifold.CommandComparison",
+        "Applications.Orbifold.MotionUniqueness"
+      ]
+    },
+    "Applications.Resources.TreeFlattening.Core": {
+      "relative_source": "Applications/Resources/TreeFlattening/Core.lean",
+      "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+      "local_imports": [
+        "Applications.Resources.RandomAccess.CacheCosts",
+        "Applications.Resources.Measured"
+      ]
+    },
+    "Applications.Resources.TreeFlattening.Cached": {
+      "relative_source": "Applications/Resources/TreeFlattening/Cached.lean",
+      "sha256": "7a5b0ff3948353ad827e550983538ef0a77f19b556c5558c4e8193f67ca8f560",
+      "local_imports": [
+        "Applications.Resources.TreeFlattening.Core"
+      ]
+    },
+    "Applications.Resources.TreeFlattening.Growth": {
+      "relative_source": "Applications/Resources/TreeFlattening/Growth.lean",
+      "sha256": "7940c49506df6c61229c1c57e56940dcaff38adfee77c3459ce1b1729911f2b4",
+      "local_imports": [
+        "Applications.Resources.TreeFlattening.Cached",
+        "Applications.Resources.RandomAccess.Families",
+        "Applications.Resources.Growth"
+      ]
+    },
+    "Applications.Resources.TreeFlattening.Observation": {
+      "relative_source": "Applications/Resources/TreeFlattening/Observation.lean",
+      "sha256": "81b262c63539704b6ddca736318ba3c0934e39a13ec7d89777bbed798a68cde8",
+      "local_imports": [
+        "Applications.Resources.TreeFlattening.Cached",
+        "Applications.Resources.RandomAccess.EndObservation"
+      ]
+    },
+    "Examples.TreeFlatteningCosts": {
+      "relative_source": "Examples/TreeFlatteningCosts.lean",
+      "sha256": "936f44988b8a311f9f16d8e58f2c408c5f8b6df4c9b77498b14858b4a41bcbc9",
+      "local_imports": [
+        "Applications.Resources.TreeFlattening.Growth",
+        "Applications.Resources.TreeFlattening.Observation"
+      ]
+    },
+    "Examples.TypedPathTransport": {
+      "relative_source": "Examples/TypedPathTransport.lean",
+      "sha256": "f67dd6db046b458f310c81f26a4651026a88fdeaec39f3eefca25094d1a852a1",
+      "local_imports": [
+        "Examples.GroupoidTransport",
+        "SquareKit.Internal.PathTransport.Authoring",
+        "SquareKit.Internal.PathTransport.GroupoidSoundness",
+        "SquareKit.Internal.PathTransport.JNaturality"
+      ]
+    },
+    "SquareKit.CommaLimits": {
+      "relative_source": "SquareKit/CommaLimits.lean",
+      "sha256": "486b5d887a0e63c5dd62976f14e325c7808c1806c593a0f46fb2e1da983c0fb8",
+      "local_imports": [
+        "SquareKit.CommaLawful",
+        "SquareKit.CommaProducts"
+      ]
+    },
+    "Verification": {
+      "relative_source": "Verification.lean",
+      "sha256": "d68d9403beefcdf24962f3530d6d011a7e7fa5e99900abdc262285e0e908b8d5",
+      "local_imports": [
+        "Squares",
+        "Compiler",
+        "SquareCompiler",
+        "FirstOrder",
+        "Dependent"
+      ]
+    }
+  },
+  "excluded": [
+    {
+      "module": "SquareApplications",
+      "reason": "Public import-only aggregator; closure is all953ordinarymodules; retained full validation still required."
+    },
+    {
+      "module": "ProofAudit",
+      "reason": "Separate exhaustive audit driver; this focused check does not replace its integrated execution."
+    }
+  ],
+  "graph_verification": {
+    "local_inventory_count": 954,
+    "ordinary_order_count": 953,
+    "all_requested_remaining_consumers_covered": true,
+    "all_local_prerequisites_in_union": true,
+    "all_local_prerequisites_precede_consumers": true,
+    "Monitor_has_no_local_prerequisites": true,
+    "Monitor_moved_to_first_only": true,
+    "other115_retain_checker_order": true,
+    "current_source_and_validation_source_bytes_match": true
+  },
+  "checkout_observations_before": {
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/conaled": {
+      "head": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+      "status": ""
+    },
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation": {
+      "head": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+      "status": ""
+    }
+  },
+  "checkout_observations_after": {
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/conaled": {
+      "head": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+      "status": ""
+    },
+    "/workspace/scratch/60f07f0e98c8/conaled-vfa/vfa-summation-validation": {
+      "head": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+      "status": ""
+    }
+  },
+  "limits": [
+    "Only source-import topology and current source identities were checked; no compiler/checker was run.",
+    "This is the minimal local union for the seven named endpoint roots; external dependencies remain required.",
+    "Verification has axiom-print and three eval commands despite no new theorem declarations; it remains included.",
+    "Do not combine these focused checks with the failed936-success prefix to assert fullfresh success.",
+    "No cache integrity, metadata authenticity, process quiescence or formal success claim."
+  ]
+}

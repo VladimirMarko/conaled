@@ -1,0 +1,30 @@
+{
+  "recorded_utc": "2026-11-02T12:54:28.757840+00:00",
+  "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "assessor": "environment",
+  "scope": "Read-only throughput reassessment from existing records and one bounded current log read; no new process/memory snapshot or experiment.",
+  "source_output_census": {
+    "observed_utc": "2026-11-02T12:48:38Z or shortly afterward",
+    "integrated_source_count_including_ProofAudit": 954,
+    "sources_without_ordinary_olean_excluding_ProofAudit": 480,
+    "method": "Same root source glob and SquareKit/Applications/Examples recursion as scripts/check.py; ordinary output existence only.",
+    "limitation": "Not validity evidence, a completion percentage or a remaining-time estimate; do not repeat without a concrete question."
+  },
+  "findings": [
+    "No evidence-supported change to the running candidate command.",
+    "Existing eight-GiB worker assessment does not justify additional concurrency.",
+    "Normal module completions continue; cumulative faults and output presence do not establish ETA.",
+    "Prior advisory success does not establish reclaimed memory or speedup.",
+    "Default/native synchronization remains an unresolved hypothesis, with no new active-input or integrity evidence."
+  ],
+  "recommendation": "Continue required checks and durability checkpoints; use short log/status reads; avoid optional broad scans, cache hashing and repeated process surveys.",
+  "inputs": [
+    "20261102-worker-count-assessment.json",
+    "20261102-inactive-cache-advisory.json",
+    "build-memory-investigation.md",
+    "1025-proportional-disposition.md",
+    "20261102-primary-progress-1140-followup.json",
+    "1002-candidate-3279bac.log"
+  ],
+  "disposition_1025": "Open and nonblocking; existing concrete reopening conditions unchanged."
+}

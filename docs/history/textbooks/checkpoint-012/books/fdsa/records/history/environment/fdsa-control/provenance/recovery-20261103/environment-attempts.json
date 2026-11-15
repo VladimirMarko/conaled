@@ -1,0 +1,59 @@
+{
+  "recorded_utc": "2026-11-03T14:00:56.517680+00:00",
+  "scope": "Bootstrap only; no Lean compiler or project check was started in this recovered workspace.",
+  "initial_environment": {
+    "nix": false,
+    "lean": false,
+    "lake": false,
+    "elan": false,
+    "direnv": false,
+    "standard_nix_store_present": false,
+    "candidate_dependency_directory_present": false
+  },
+  "network": {
+    "raw_upstream_agents_get": "succeeded; byte-identical to recovered AGENTS.md",
+    "issue174_get": "succeeded",
+    "nix_installer_get": "succeeded",
+    "portable_release_get": "succeeded",
+    "pinned_book_get": "succeeded; exact expected SHA-256"
+  },
+  "standard_installer": {
+    "status": "not executed: escalation rejected",
+    "reason": "approval policy is Granular(GranularApprovalConfig { sandbox_approval: false, rules: false, skill_approval: false, request_permissions: false, mcp_elicitations: true }); reject command \u2014 you cannot ask for escalated permissions",
+    "required_outside_paths": [
+      "/nix",
+      "Nix user profile"
+    ],
+    "installer_release": "2.35.4",
+    "installer_sha256": "118c3dfa04bdc946b3f577365b9a295607142c9b920e2c07b184e266d62b1ee1"
+  },
+  "workspace_portable": {
+    "project": "https://github.com/DavHau/nix-portable",
+    "release": "v012",
+    "download_url": "https://github.com/DavHau/nix-portable/releases/download/v012/nix-portable-x86_64",
+    "size_bytes": 68062412,
+    "sha256": "b409c55904c909ac3aeda3fb1253319f86a89ddd1ba31a5dec33d4a06414c72a",
+    "workspace_root": "/workspace/scratch/6bb268f9336f/bootstrap",
+    "purpose": "Keep physical installation, caches and Elan state inside permitted workspace; unchanged outer execution sandbox.",
+    "proot": {
+      "exit_code": 1,
+      "diagnostic_excerpt": [
+        "proot error: ptrace(TRACEME): Operation not permitted",
+        "proot error: execve(\"/nix/store/j823gnvpxh1fjibycmldrspkk3pgivwp-nix-2.20.6/bin/nix\"): Operation not permitted",
+        "proot warning: can't readlink '/proc/self/cwd': No such file or directory",
+        "Fatal error: nix is unable to build packages"
+      ],
+      "qualification": "The first version probe failed generically. One debug probe exposed the concrete denied tracing operation. No tracing/security control was changed."
+    },
+    "bwrap": {
+      "exit_code": 1,
+      "diagnostic_excerpt": [
+        "bwrap: Can't read /proc/sys/kernel/overflowuid: No such file or directory",
+        "Fatal error: nix is unable to build packages"
+      ],
+      "qualification": "A single separate documented runtime probe failed before a usable Nix shell. This does not establish a specific namespace-denial result."
+    }
+  },
+  "result": "Pinned environment unavailable in this execution context; full verification and all acceptance remain blocked.",
+  "needed": "A development workspace with a usable Nix installation and access to download exact repository-pinned Lean and Lake dependencies. No specification, pin, audit or review waiver is requested."
+}

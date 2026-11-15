@@ -1,0 +1,33 @@
+{
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-statements1297-prepared-20261104/GrowthRetained1.lean"
+  ],
+  "started_utc": "2026-11-04T18:02:39.114646+00:00",
+  "completed_utc": "2026-11-04T18:02:41.996852+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 2.8820382789999712,
+  "state": "passed",
+  "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-growth1-20261104-attempt1/full.log",
+  "progress_bookkeeping_errors": [],
+  "final_head": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "final_status": "",
+  "log_size_bytes": 837,
+  "log_sha256": "6e35adb1cd2844c1d925e7fd24bee0d8580b8c49ff5c7761e5d068ab53e169bb",
+  "available_bytes_at_completion": 0,
+  "verification_record_present": true,
+  "verification_record_sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+}

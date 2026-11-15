@@ -1,0 +1,500 @@
+{
+  "recorded_utc": "2026-11-04T09:53:22.362224+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "axis": "Standards",
+  "full_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "central_candidate_at_handoff": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+  "isolated_parent": "070e3608c439aec23404d23e90de47c6cf835216",
+  "isolated_successor": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+  "scope": "Original complete81-path R-through-eventual-final Chapter2 Standards review, all112 obligations and ten shared scopes retained. Original XU03 predecessor gates and separate exactF scope unchanged.",
+  "source_path": "Examples/PermutationTail.lean",
+  "before": {
+    "bytes": 8786,
+    "lines": 197,
+    "sha256": "30e07aaede25b10d2484c2a4674bffa66d77094a545fd49f72bc000bd132ddb7",
+    "git_blob": "f118b08cd9d2006ceac0f4c24004e1ed09c1fb93",
+    "matches_actual_focused9_input": true
+  },
+  "after": {
+    "bytes": 9826,
+    "lines": 222,
+    "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e",
+    "git_blob": "baa3e26a3c72a4589765562167d1d85edc011e67"
+  },
+  "only_changed_file": true,
+  "complete_source_read_lines": [
+    197,
+    222
+  ],
+  "complete_diff": {
+    "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/source.diff",
+    "bytes": 3757,
+    "lines": 77,
+    "sha256": "524bb4581be3924e3dcb28ba949c69799a786083f342d56f76ae618c48a68959"
+  },
+  "actual_diagnostics": {
+    "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/actual-diagnostics.txt",
+    "bytes": 4562,
+    "lines": 38,
+    "sha256": "aae52fd32b109afe9662d085a4ba80200afa3c311d80eca734155d5c4fc75c24"
+  },
+  "all38_diagnostic_lines_match_closed_log_in_order": true,
+  "prior_independent_terminal_receipt": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/focused9-terminal-assessment.json",
+    "bytes": 8421,
+    "lines": 131,
+    "sha256": "bc6db19f7c7bb0b24ee7c79cf91b619ff86d12e07ecb3cda0db0a182dc177c82"
+  },
+  "changed_proof_blocks": [
+    "tail_23_mass",
+    "tail_32_mass",
+    "repeated_tail_mass_zero",
+    "filtered_tail_mass",
+    "environment_changed",
+    "last_tail_mass"
+  ],
+  "all18_theorem_headers_byte_identical": true,
+  "public_theorems": 17,
+  "private_theorems": 1,
+  "public_definitions": 7,
+  "explicit_public_names": 24,
+  "anonymous_local_instances": 2,
+  "imports_unchanged": 4,
+  "options_unchanged": 2,
+  "definitions_instances_comments_namespace_and_other_blocks_unchanged": true,
+  "declaration_identity": [
+    {
+      "name": "anonymous_instance_1",
+      "kind": "instance",
+      "private": false,
+      "header_sha256": "61db2d16c7bbe688f6ad6e81166265a267aea07074c0452a2b467411a7a101be",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "anonymous_instance_2",
+      "kind": "instance",
+      "private": false,
+      "header_sha256": "0988c6a30852db4f18fbd993510478dbc2931ea9aa75a0e13fd8b7757c693128",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "observedOrder",
+      "kind": "def",
+      "private": false,
+      "header_sha256": "38eddcde2a2a316a21ea8dc36cd686156d681f75275b518c2a6d4c8678d93055",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "remaining",
+      "kind": "def",
+      "private": false,
+      "header_sha256": "61c6dd85672670b4ba85379cfd440dda3d9ace739b5a3af7fedc58daf773e4e0",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "tailOrder",
+      "kind": "def",
+      "private": false,
+      "header_sha256": "03cefe353bafe643de63d99612bcf88b150f04ee8ad1ceab96bc4412ad2e06fc",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "afterFirst",
+      "kind": "def",
+      "private": false,
+      "header_sha256": "54b8c15590bd87faada63f468fd73f944849a49ad921f0d774db4d899e3e0d35",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "observed_hasLaw",
+      "kind": "theorem",
+      "private": false,
+      "header_sha256": "51d363c7507933c6e1b4a5a4b85aea62532c452438651273fa7b1ca3130e4e1c",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "first_mass",
+      "kind": "theorem",
+      "private": false,
+      "header_sha256": "04443d7ecfff0e8680e0d8d05ca457642fbb93e8d9b94aca8388fc38267bb291",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "afterFirst_eq_uniformOn",
+      "kind": "theorem",
+      "private": false,
+      "header_sha256": "001bcfac832f8114beb01a1391442253ab487ab8c74500dc41a15e340b0915f1",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "tail_hasLaw",
+      "kind": "theorem",
+      "private": false,
+      "header_sha256": "35435cb391ce14139825c2065b78d8fbd628be243ce1b7fdf452605340fbc018",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "tail_map",
+      "kind": "theorem",
+      "private": false,
+      "header_sha256": "321fd9b296ab2d951e711dba9e65b17a3d4f5ec405de210eff6734efe4608eea",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "mass_of_law",
+      "kind": "theorem",
+      "private": true,
+      "header_sha256": "2953158630a651f70b5d9925182f1de9942dc7927cbaa89e1b5d78e7ebdce3e0",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "tail_23_mass",
+      "kind": "theorem",
+      "private": false,
+      "header_sha256": "a1aaeae8cf0498d4acb5f57dfa7c67c6728896a648b2835cacf692835d6c0a58",
+      "whole_block_unchanged": false
+    },
+    {
+      "name": "tail_32_mass",
+      "kind": "theorem",
+      "private": false,
+      "header_sha256": "ab751a752e6986d048bd1f48710a1d79f2521e6d528d0fdace14805d6fdfcfd0",
+      "whole_block_unchanged": false
+    },
+    {
+      "name": "repeated_tail_mass_zero",
+      "kind": "theorem",
+      "private": false,
+      "header_sha256": "0c1b05a0aee6149f2df5f6e80f32f14319cb35304bebf9939409c79db7a58910",
+      "whole_block_unchanged": false
+    },
+    {
+      "name": "filteredTail",
+      "kind": "def",
+      "private": false,
+      "header_sha256": "261c58451f6df3636c5c747130c48774bae87224a9743f4c5bba8af430805b9c",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "filtered_tail_hasLaw",
+      "kind": "theorem",
+      "private": false,
+      "header_sha256": "5cea842c3afd245418fa318456398b8e632da40c4c0983bf3010f3b075d5d9a7",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "filtered_tail_eq_projection",
+      "kind": "theorem",
+      "private": false,
+      "header_sha256": "19f3fea8a630bb3d257610ab06f291a92f94201e11636d8981daa96e25a1b06a",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "filtered_tail_mass",
+      "kind": "theorem",
+      "private": false,
+      "header_sha256": "3771d07d16fab0ac9c0d0126687f8ca2e58364c2a40b224d45c17741841c06a3",
+      "whole_block_unchanged": false
+    },
+    {
+      "name": "remaining_projection_map",
+      "kind": "theorem",
+      "private": false,
+      "header_sha256": "170432aa1d439f2d4a56a83c93cb9a2cc792bf02bed5755c818fc6514ec645c4",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "afterFirst_first_event_mass",
+      "kind": "theorem",
+      "private": false,
+      "header_sha256": "d87404f7b440f237a3d522e5ee49a837c5040029171da3487fe34934edd21fcd",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "environment_changed",
+      "kind": "theorem",
+      "private": false,
+      "header_sha256": "26166eddd8f01805486d764a944e29b401171d72707e499c0ba6eb32bd34fcd5",
+      "whole_block_unchanged": false
+    },
+    {
+      "name": "second_head_mass",
+      "kind": "theorem",
+      "private": false,
+      "header_sha256": "46e9c02f181ff3c136fb2b5f80494103ca61e4372a5b0d9cdac4dafc7e6c8cb1",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "afterSecond",
+      "kind": "def",
+      "private": false,
+      "header_sha256": "ac9156d133e5d8e1d5373cee8f208ffbefdf943dc6333085f8fd28f740bde635",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "lastTail",
+      "kind": "def",
+      "private": false,
+      "header_sha256": "ec334aeea2e80dbaa497c17f98aeab074af6f3bd84e3e78e9025c7c8e0c364ca",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "last_tail_hasLaw",
+      "kind": "theorem",
+      "private": false,
+      "header_sha256": "e748c831ecf6259bf31344be5ef7c81862f658cbbd2bfcf41703e76dfadf1ebc",
+      "whole_block_unchanged": true
+    },
+    {
+      "name": "last_tail_mass",
+      "kind": "theorem",
+      "private": false,
+      "header_sha256": "cc0a25afdd59158a526e6adcccc813883a93dd342b71504e2e8f0f5d09c14a11",
+      "whole_block_unchanged": false
+    }
+  ],
+  "pinned_API_sources": [
+    {
+      "path": "Mathlib/Data/List/Defs.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "6ac70d89b9a28620640a38ffff6e8944042d561c",
+      "bytes": 17706,
+      "sha256": "4d85b78628eb67d85575dd91f43ff60de574db2fcdef8d269ef238a3bc28404f",
+      "read_line_ranges": [
+        [
+          200,
+          231
+        ]
+      ],
+      "working_source_equals_pinned_blob": true
+    },
+    {
+      "path": "Mathlib/Data/List/Permutation.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "44ba3311147081b64a246490e2bf8c2cfa5a834d",
+      "bytes": 23893,
+      "sha256": "ef2d1bddfbd1fd4368456709b8d44863bb733be3972f88db55d9de1ca1a8c35c",
+      "read_line_ranges": [
+        [
+          350,
+          386
+        ]
+      ],
+      "working_source_equals_pinned_blob": true
+    },
+    {
+      "path": "Mathlib/Data/Finset/Dedup.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "b922a4771da34c285d287363257b328cdfcf2e0e",
+      "bytes": 6049,
+      "sha256": "613c90e8726039f6f8a65f530b6e0eba4f092ba31561a6f40d658f76f0d6e3fe",
+      "read_line_ranges": [
+        [
+          128,
+          155
+        ]
+      ],
+      "working_source_equals_pinned_blob": true
+    },
+    {
+      "path": "Mathlib/Basic/ENNReal/Inv.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "fd51b663656c80c2e47a7a694662fd1c379bdca8",
+      "bytes": 44273,
+      "sha256": "f06e93ae82105c5c03585c2d11377b94aac119b7fdbcaf34a7a333aa27c53f36",
+      "read_line_ranges": [
+        [
+          87,
+          98
+        ],
+        [
+          191,
+          203
+        ]
+      ],
+      "working_source_equals_pinned_blob": true
+    }
+  ],
+  "project_orders_API": {
+    "path": "Applications/Probability/PermutationOrder.lean",
+    "candidate": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+    "read_line_range": [
+      43,
+      60
+    ],
+    "definition": "orders positions S = (positions.filter (fun a => decide (a \u2208 S))).permutations.toFinset"
+  },
+  "mathematical_assessment": {
+    "support": "The four membership and one nonmembership premises keep their exact filtered positions and finite supports. The pinned list-permutation witness and toFinset_eq_of_perm prove equality with the reducible enumeration before ordinary decide. No new support, distribution or independently sampled tail is substituted.",
+    "environment_inequality": "Evaluating assumed afterFirst=law at the same event yields1=1/3. Applying inverse and the actual ENNReal DivInvOneMonoid/InvolutiveInv laws gives1=3. This needs no field law or new hypothesis and respects zero/infinity inversion.",
+    "connections": "The first two tail masses remain1/2 through the original source-fiber/HasLaw connections; repeated[2,2] remains mass0, the filtered singleton has mass1 with the same-sample projection bridge, and nested second conditioning gives sole tail[3] mass1. Full-environment change remains explicit.",
+    "generality_and_architecture": "No theorem/helper addition, stronger domain, changed observation/measure/value, linter/option relaxation, restricted proof shortcut or narrowed scope. All public headers and the private generic mass_of_law proof remain exact."
+  },
+  "final_author_aids_read": [
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/receipt.json",
+      "bytes": 6754,
+      "lines": 189,
+      "sha256": "c5b16c9c3b8dbbae37aebb35e122f98f923fe04236734cdf1768e70ec8d2b252"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/author-readback.md",
+      "bytes": 8379,
+      "lines": 126,
+      "sha256": "c954804129647e2809d7dfbfad65c559ae99f5bf037843e258208a101b6cc548"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/commit-record.json",
+      "bytes": 1056,
+      "lines": 24,
+      "sha256": "30a21a988bdf3751b1d65aa1f1bf15da29a540de76bb4f5116e0e1a9dc0fc664"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/commit-attempt1.json",
+      "bytes": 491,
+      "lines": 8,
+      "sha256": "3f9d5b2dd5271f62c6ff72c7c0fb37e175de42622421f5e1eef0ffdadbbad5df"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/commit-attempt1.log",
+      "bytes": 335,
+      "lines": 13,
+      "sha256": "79434e3473195d8be7b37e67f909ae2944aa4dd6c8fe616fefb46ca3c89a5f4a"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/commit-hook-preflight.json",
+      "bytes": 932,
+      "lines": 31,
+      "sha256": "8e0622a24bee939050540c8f97543542cd42107cfd60d3aaa738106b09e8d2ca"
+    }
+  ],
+  "all_final_artifact_hashes_verified": [
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/actual-diagnostics.txt",
+      "bytes": 4562,
+      "lines": 38,
+      "sha256": "aae52fd32b109afe9662d085a4ba80200afa3c311d80eca734155d5c4fc75c24"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/after-examples.lean",
+      "bytes": 9826,
+      "lines": 222,
+      "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/api-excerpts.txt",
+      "bytes": 3946,
+      "lines": 64,
+      "sha256": "41ffe33482496b630977af10b7958bf877c4da73946cef1decbb47ae6c0f6482"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/author-readback.md",
+      "bytes": 8379,
+      "lines": 126,
+      "sha256": "c954804129647e2809d7dfbfad65c559ae99f5bf037843e258208a101b6cc548"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/before-examples.lean",
+      "bytes": 8786,
+      "lines": 197,
+      "sha256": "30e07aaede25b10d2484c2a4674bffa66d77094a545fd49f72bc000bd132ddb7"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/commit-attempt1.json",
+      "bytes": 491,
+      "lines": 8,
+      "sha256": "3f9d5b2dd5271f62c6ff72c7c0fb37e175de42622421f5e1eef0ffdadbbad5df"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/commit-attempt1.log",
+      "bytes": 335,
+      "lines": 13,
+      "sha256": "79434e3473195d8be7b37e67f909ae2944aa4dd6c8fe616fefb46ca3c89a5f4a"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/commit-hook-preflight.json",
+      "bytes": 932,
+      "lines": 31,
+      "sha256": "8e0622a24bee939050540c8f97543542cd42107cfd60d3aaa738106b09e8d2ca"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/commit-record.json",
+      "bytes": 1056,
+      "lines": 24,
+      "sha256": "30a21a988bdf3751b1d65aa1f1bf15da29a540de76bb4f5116e0e1a9dc0fc664"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/commit.log",
+      "bytes": 157,
+      "lines": 2,
+      "sha256": "0aec15e1a25ab23fb7353730d6286a1bf523b9e86c2182e47333e1fd7f5fe60d"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/committed-examples.lean",
+      "bytes": 9826,
+      "lines": 222,
+      "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/diagnostic-mapping.json",
+      "bytes": 4638,
+      "lines": 78,
+      "sha256": "ea0e20ef216f657bc119d943ab709b32725811a5fcd973ea047b1b32cf0e314b"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/diff-check.log",
+      "bytes": 0,
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/read-ledger.json",
+      "bytes": 6414,
+      "lines": 168,
+      "sha256": "a29cc91456abec2b1ff6ead93cf83cb23589fb61c59c303fdf625c831ef01dba"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/source-inventory.json",
+      "bytes": 12824,
+      "lines": 309,
+      "sha256": "a43a6b0b6cc788a34512c4857c0e855221cf5d5c19479c642d15f48a9e1bdf39"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/source-marker-scan.json",
+      "bytes": 206,
+      "lines": 5,
+      "sha256": "dec8d29da18fd477a55c05d4d107965d7d46e5bdd14b6c13edbd6c84a10974ab"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/source.diff",
+      "bytes": 3757,
+      "lines": 77,
+      "sha256": "524bb4581be3924e3dcb28ba949c69799a786083f342d56f76ae618c48a68959"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/staged-diff-check.log",
+      "bytes": 0,
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/staged-source.diff",
+      "bytes": 3757,
+      "lines": 77,
+      "sha256": "524bb4581be3924e3dcb28ba949c69799a786083f342d56f76ae618c48a68959"
+    },
+    {
+      "path": "provenance/chapter02-xu03-main-elaboration-correction5-20261104/start.json",
+      "bytes": 2241,
+      "lines": 44,
+      "sha256": "e3ed0930f5e78bb24649e14bd0a88dd1d1637cafb7429c0aca8b1e3889382335"
+    }
+  ],
+  "commit_failure_boundary": "Missing recovered-host author identity caused the preserved first commit failure; command-local use of prior ancestor identity followed without persistent config change or hook bypass. A commit supplies no validation credit.",
+  "read_only_preparation_comparison": "An initial own comparison stopped before any writes because default Git diff abbreviated index hashes while the saved diff used full indexes. Repeating with --full-index confirms exact3757-byte/77-line equality. This was a metadata-comparison mismatch, not a source or compiler failure.",
+  "source_findings": [],
+  "source_stage_outcome": "No concrete Standards finding; adequate for coordinator-owned integration and focused validation after both source axes, not unit/chapter acceptance.",
+  "actual_elaborated_type_equivalence_claimed": false,
+  "overall_outcome": "Blocked; isolated successor has no actual compilation, printed-type or full-audit result in this source assessment. All original requirements, prior failures, complete checks/audits, predecessor acceptances, both final axes and immediate verification remain.",
+  "compiler_process_source_ref_index_pin_cache_actions": false
+}

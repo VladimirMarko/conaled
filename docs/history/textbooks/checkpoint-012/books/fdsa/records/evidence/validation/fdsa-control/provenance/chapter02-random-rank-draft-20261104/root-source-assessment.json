@@ -1,0 +1,32 @@
+{
+  "reviewed_utc": "2026-11-04T07:31:00.022117+00:00",
+  "reviewer": "root implementation coordinator, not an independent acceptance axis",
+  "candidate": "c19a85f8f5e256e87b0001f3e98afb2c7c1b08cc",
+  "parent": "1f315fdbb40288d99921164bb3fd8afcbd756e58",
+  "source_scope": {
+    "Applications/Resources/RandomQuickSortRank.lean": {
+      "bytes": 19615,
+      "lines": 393,
+      "sha256": "22960885c968620b957e7e2381baa8b887d9dc80a54fb72fe9644c3ace2890b4"
+    },
+    "Examples/RandomQuickSortRank.lean": {
+      "bytes": 6427,
+      "lines": 151,
+      "sha256": "a0f5fbd6b3d41cad08193a371228bede1b869a773608b21906e85f2848d747bf"
+    }
+  },
+  "source_readback": "All544 source lines, all30 public declarations and all7 private helpers including proof bodies; complete author statement assessment and inventory. A combined tool response truncated the inventory; the complete inventory was then read separately without truncation.",
+  "intended_actual_assessment": {
+    "occurrence_rank": "Inverse actual sorted key tuple; local mapped-key Nodup converts its position to strict-key order. No order/equality/inhabitation on payloads.",
+    "actual_children": "Valid occurrence removal and exact complementary returned filters; strict size and inherited mapped-key Nodup are proved.",
+    "probability": "Actual uniform occurrence distribution is reindexed by a Fin permutation and then pushed to Nat; no uniform target law on all Nat or child resampling.",
+    "same_length_means": "Four independent universes; strong induction compares actual equal-rank pivots and smaller executed children before introducing sizeMean.",
+    "size_recurrence": "sizeMean is definitionally the actual List.range input mean; zero and positive range-sum equations are derived, not assumed.",
+    "cases": "Empty, singleton, nonidentity ranks, actual unsorted left child, independently computed109/3, repeated-key rank/count failure and quadratic mean, unrelated tag/key universes.",
+    "cost_boundary": "Existing exercise observation only; no new charge for sampling, indexing/removal, random bits or payload mapping.",
+    "numerical_boundary": "No harmonic module or unproved numerical premise used to establish execution recurrence."
+  },
+  "concrete_source_findings": [],
+  "validation": "Uncompiled draft. Public explicit types, complete candidate check/audit, both independent axes and immediate verification remain pending.",
+  "preserved_mean_source_and_pins": true
+}

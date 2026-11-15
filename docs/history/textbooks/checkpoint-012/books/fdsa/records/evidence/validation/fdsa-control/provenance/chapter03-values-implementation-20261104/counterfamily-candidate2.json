@@ -1,0 +1,81 @@
+{
+  "recorded_utc": "2026-11-04T20:34:21.395164+00:00",
+  "finding": "C03-COUNTERFAMILY-ELAB-001",
+  "candidate": "7758fdcd1d46cee392eee155d74311aeb45322a5",
+  "tree": "64921e2986797aa69574d7160cabfc98a07cad0b",
+  "parent": "cafc71bef2e2779407944cb04089b9b3b14a13dc",
+  "stage_base": "11480d46b4f8f99eb33bdc4b34759031af17c9f0",
+  "whole_chapter_review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "branch": "work/fdsa-ch03-values",
+  "status": "",
+  "targets": [
+    "Applications.Selection.MedianCounterfamily",
+    "Examples.MedianCounterfamily"
+  ],
+  "changed_source": {
+    "repository_path": "Applications/Selection/MedianCounterfamily.lean",
+    "bytes": 7414,
+    "sha256": "8fc4a388b50bd363587b8d8fbdc742d2e9d45426b58af75d9b83f471d1e4e0f6",
+    "git_blob": "6b86f826e0b6d7cba51d592a110219a74279caac"
+  },
+  "changed_proof_bodies": [
+    "mem_fullBlocks_length",
+    "family_lengths_strictMono",
+    "chunkMedians_family"
+  ],
+  "all42_source_headers_unchanged": true,
+  "all_other39_declaration_blocks_unchanged": true,
+  "all_algorithms_imports_examples_unchanged": true,
+  "all_other13_source_files_unchanged": true,
+  "all_historical_records_preserved": true,
+  "unchanged_type_input_rebound": {
+    "path": "MedianCounterfamilyStatements.lean",
+    "bytes": 3108,
+    "sha256": "41fd267a3eee8197b61856c4a6ed0f588fabfcd07b3365b658c197de254d6c20",
+    "public_names": 42
+  },
+  "prior_source_header_inventory_retained": {
+    "path": "counterfamily-inventory.json",
+    "bytes": 25025,
+    "sha256": "b60bdac313f5242770b0c66834e283ed45bef16627e7c0d3b95b7e9351ea0955"
+  },
+  "full_original_source_case_assessment_retained": {
+    "path": "counterfamily-review-note-v2.md",
+    "bytes": 10480,
+    "sha256": "65adb558f5a740edf780b6fdb68067dc25bfedd99cedb77925eb866add3e0e9f"
+  },
+  "correction": {
+    "path": "counterfamily-correction1.diff",
+    "bytes": 1330,
+    "sha256": "65bcee59a678a32893911ffb876a18f4245280ce189bdd922603cfe05a79e07f"
+  },
+  "precommit_record": {
+    "path": "counterfamily-correction1-precommit.json",
+    "bytes": 1959,
+    "sha256": "1d82c275f18bd7a1883f980ea7d4607fe3d63a1343da6ab9f24c32f7c267824c"
+  },
+  "failed_evidence": {
+    "candidate": "cafc71bef2e2779407944cb04089b9b3b14a13dc",
+    "actual_exit": 1,
+    "log_path": "provenance/chapter03-median-counterfamily-focused-attempt1-20261104/full.log",
+    "log_bytes": 5313,
+    "log_sha256": "e2f57ac28c2afff81dac5ee7aabbdf3c115903375e4fd713d2adc28070d26194",
+    "owned_session": 91289,
+    "terminal": "6f6c51",
+    "root_closed_readback": "a26677",
+    "author_complete_readback": "52de5e"
+  },
+  "statement_assessment": "The three corrected proofs retain their original mathematics: actual block membership gives length5; strict growth is the same relation with beta-reduced lambda applications; the attach-map step uses the same chopped list and same headD intermediate whose agreement with actual chunk medians is already proved locally. All42 headers, universal all-Nat domain, positive length, actual pivot, strict70percent inequality, exact formulas, duplicates, finite case expectations and remaining obligations are unchanged. No stronger premise or alternative construction was introduced. The current proof restores explicit reflexivity that the preserved static precommit note had incorrectly assumed unnecessary; actual compiler evidence takes precedence. Full emitted-type and candidate validation remain pending.",
+  "git_diff_cached_check_exit": 0,
+  "compiled": false,
+  "author_lean_lake_execution": false,
+  "remaining_assigned": [
+    "C03-055 actual cutoff bridge",
+    "C03-057 connected generic pivot applications",
+    "C03-058 generalized algorithm termination/correctness bridges after authorized worker handoff"
+  ],
+  "root_owned_excluded": "C03-058 scalar group-coefficient and affine-majorant arithmetic",
+  "canonical_chapter_rows": 83,
+  "source_frozen": true,
+  "checkpoint0127_hold_requested": true
+}

@@ -1,0 +1,66 @@
+{
+  "recorded_utc": "2026-11-04T20:18:14.559630+00:00",
+  "candidate": "47f12b48b93a1e223b9f743e067685f12f4da5b1",
+  "expectedHead": "f76bc53339e172a179560654b181040a7313506d",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "acceptedHead": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "name": "chapter03-coordinate-readall-focused-attempt3-20261104",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Selection.CoordinateReadAll",
+    "Examples.CoordinateReadAll"
+  ],
+  "expectedPaths": [
+    "Applications/Selection/CoordinateQueries.lean",
+    "Applications/Selection/CoordinateReadAll.lean",
+    "Applications/Selection/CoordinateSensitivity.lean",
+    "Examples/CoordinateQueries.lean",
+    "Examples/CoordinateReadAll.lean",
+    "Examples/CoordinateSensitivity.lean"
+  ],
+  "recordDirectory": "chapter03-focused-continuation-20261104",
+  "recordName": "coordinate-readall-attempt3-preflight.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was f76bc53 feat(selection): connect actual run expectations (#174)\nHEAD is now at 47f12b4 fix(selection): normalize read-plan induction (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Selection/CoordinateQueries.lean",
+      "bytes": 11106,
+      "sha256": "ca1c0d339500e77aa14ca47420b9f7a11f213bbcd8ac113c3281c7f9690e6409"
+    },
+    {
+      "path": "Applications/Selection/CoordinateReadAll.lean",
+      "bytes": 7611,
+      "sha256": "ab2fd8949fe4a73e909cac90f99329fcd3b508e1b221e4411449a535f48f41ff"
+    },
+    {
+      "path": "Applications/Selection/CoordinateSensitivity.lean",
+      "bytes": 6717,
+      "sha256": "224724056815f73aff552ead23b7dd83af4078ad61009169e1b474f4b94476e6"
+    },
+    {
+      "path": "Examples/CoordinateQueries.lean",
+      "bytes": 8079,
+      "sha256": "d90bd28ec4496105d9c5da80171a4c96a5ace119c0e178ded48f4f84ca8ad16d"
+    },
+    {
+      "path": "Examples/CoordinateReadAll.lean",
+      "bytes": 5626,
+      "sha256": "8290a02bee2fb078439842c26a6cb46ec231aeb092b30659c8a3b674cc54b603"
+    },
+    {
+      "path": "Examples/CoordinateSensitivity.lean",
+      "bytes": 3726,
+      "sha256": "ed3d3d7cd41c97169893fdb5cf95e336a560f6f042ee70cea0a24ad7a6691828"
+    }
+  ],
+  "candidate_tree": "19186fe71dbfdcc639a6bf7da778dd14fd8684ff",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 684335104
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

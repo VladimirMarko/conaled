@@ -1,0 +1,46 @@
+{
+  "schema": "fdsa-spec-final-saved-matrix-readback-v1",
+  "recorded_utc": "2026-11-04T18:12:14.736952+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "semantic_saved_rows": 1763,
+  "current_full_blocks": 1300,
+  "current_checks": 1297,
+  "extra_prints": 3,
+  "predecessor_transfers": 466,
+  "raw_exact_historical_blocks": 1299,
+  "direct_growth_blocks": 1,
+  "all1081225_native_bytes_accounted": true,
+  "whole_pre_post_identity_equal": true,
+  "all1763_saved_rows_reconciled_to_prior_scope_and_actual_products": true,
+  "every466_stable_root_projection_reconciled": true,
+  "actual_reconciliation_fingerprints_verified": 243,
+  "semantic_fingerprints_verified": 117,
+  "distinct_bound_files_verified": 337,
+  "distinct_bound_manifest_sha256": "32b3711856d639c1713d9bb283b1018b66d6e4f79aabdee1b05f2d0c7aff4810",
+  "semantic_fields_readback_tool": "a7c3cc",
+  "report_full_saved_readback_tool": "ee23f6",
+  "actual_reconciliation_script_full_readback_tool": "906766",
+  "actual_reconciliation_full_global_profile_readback_tool": "fcb275",
+  "matrix_readback_boundary": "All saved row identities, positions, partitions, producer/current hashes and exact prior-to-current conditions checked mechanically. This does not claim a new manual reading of byte-identical already completely assessed types.",
+  "exploratory_output_boundary": "The d0cc1e schema-discovery output was truncated and supplies no complete-reading credit; bounded schema output dbb3cb and complete semantic-field output a7c3cc replace any needed navigation.",
+  "readback_assertion_history": {
+    "first_tool": "d938b2",
+    "exit": 1,
+    "actual_error": "AssertionError at line37 before any file write",
+    "diagnostic_tool": "2b1c0d",
+    "cause": "The missing_source_inputs field is a nonempty dictionary containing two empty lists, not an empty list.",
+    "corrected_condition": "Exact equality to {producer: [], receiver: []}; no input data, compiler result or mathematical condition changed."
+  },
+  "finding": null,
+  "old_records_modified": false,
+  "input_fingerprints": {
+    "provenance/chapter02-spec-receiving-terminal-20261104/current-type-semantic-disposition-Q.json": {
+      "bytes": 439749,
+      "sha256": "45d755a5e56e4ab50d6960a68205d4883422f50960aad6d877c3a5c089ad3721"
+    },
+    "provenance/chapter02-spec-receiving-terminal-20261104/actual-receiving-evidence-reconciliation.json": {
+      "bytes": 275994,
+      "sha256": "a214a047be901c223749e9e2b92366290710f17c9dbffdaf3ca351988f43c8eb"
+    }
+  }
+}

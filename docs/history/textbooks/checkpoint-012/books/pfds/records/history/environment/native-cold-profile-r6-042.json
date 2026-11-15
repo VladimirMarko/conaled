@@ -1,0 +1,47 @@
+{
+  "build_command": [
+    "/usr/bin/x86_64-linux-gnu-gcc-13",
+    "-std=c11",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-O2",
+    "-fPIC",
+    "-fvisibility=hidden",
+    "-shared",
+    "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/session/environment/native-own-exe.c",
+    "-o",
+    "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/.lean-native-m95l5ip6/support/native-own-exe.so",
+    "-ldl",
+    "-pthread"
+  ],
+  "c_compiler": "/usr/bin/x86_64-linux-gnu-gcc-13",
+  "c_compiler_sha256": "6117c52522997d2aaccb2b52b3c6bf42c0a6c5edb1d718431fed6b2fc5fec234",
+  "c_compiler_version": "x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "compatibility_library_sha256": "01ad9e274870f3ddddfc76a9ec165c88a20e5b10d2622107857293bc53fff7db",
+  "compatibility_source_sha256": "479cf57b9d73e033a2689c78e7c715b0bce545ddaf0234365bbdc39804d0a842",
+  "execution": "native",
+  "launch_contract": "Direct exec of frozen canonical absolute regular ELF; per-exec marker equals AT_EXECFN; original readlink first; only missing own link may fall back.",
+  "lean_release_archive_sha256": "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d",
+  "original": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-linux",
+  "profile": "/workspace/scratch/b566cace4ed6/pfds/session/tools/native-cold-r6-042/toolchains/lean-4.35.0-native",
+  "profile_helper_sha256": "3573581af9d6f37492111d565f1c8cb3ab7e9d8229d80fd9f6fa1ae879830073",
+  "schema": 1,
+  "wrapped_binaries": {
+    "lake": {
+      "launcher_sha256": "a830f5d8a630a4a2a621f73b900124857a9ecb2e190e70a1ca48bbba16b3d771",
+      "original_sha256": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "real_sha256": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1"
+    },
+    "lean": {
+      "launcher_sha256": "1cdf79cbcf0f44344c6549314ed5a0724c2016bbf81e4934e1b7db287bc90c75",
+      "original_sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "real_sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38"
+    },
+    "leanir": {
+      "launcher_sha256": "458b6d4f669b500a0923efd3e72eb77a6d6bf12523e1c6fae6fbf52a2cbdb9b6",
+      "original_sha256": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e",
+      "real_sha256": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e"
+    }
+  }
+}

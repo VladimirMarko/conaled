@@ -1,0 +1,392 @@
+{
+  "recorded_utc": "2026-11-05T02:34:21.971236+00:00",
+  "candidate": "5b17c8e4a962a8e79251eda1b5f94f97a3d4cc34",
+  "parent": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "whole_chapter_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "scope": "Phase 1 authored public declarations, including inductive constructors. Generated recursors/equations/auxiliaries remain in future exhaustive audit scope.",
+  "sources": [
+    {
+      "path": "Applications/Trees/BasicObservations.lean",
+      "git_blob": "b41b456122021f1bc3cb73e8defb2802afb4362c",
+      "bytes": 5009,
+      "lines": 139,
+      "sha256": "3d2decdac9a8803edde8b5b36a97d0deba1a4d7b1cb1f15a93057044f342afc6"
+    },
+    {
+      "path": "Examples/TreeBasicObservations.lean",
+      "git_blob": "ccd089ead8ab8206c231602ae278d3ab3141ea2e",
+      "bytes": 4033,
+      "lines": 107,
+      "sha256": "5c40f55fad3e17da5bb28490f898c6ab7573023253e43292813df8d58c6104cb"
+    }
+  ],
+  "declarations": [
+    {
+      "name": "Trees.setTree",
+      "kind": "def",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 17,
+      "syntactic_header": "def setTree : BinaryTree α → Set α",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.setTree_nil",
+      "kind": "theorem",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 21,
+      "syntactic_header": "@[simp] theorem setTree_nil : setTree (.nil : BinaryTree α) = ∅",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.setTree_node",
+      "kind": "theorem",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 23,
+      "syntactic_header": "@[simp] theorem setTree_node (a : α) (l r : BinaryTree α) :\n    setTree (.node a l r) = setTree l ∪ {a} ∪ setTree r",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.preorder",
+      "kind": "def",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 27,
+      "syntactic_header": "def preorder : BinaryTree α → List α",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.preorder_nil",
+      "kind": "theorem",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 31,
+      "syntactic_header": "@[simp] theorem preorder_nil : preorder (.nil : BinaryTree α) = []",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.preorder_node",
+      "kind": "theorem",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 33,
+      "syntactic_header": "@[simp] theorem preorder_node (a : α) (l r : BinaryTree α) :\n    preorder (.node a l r) = a :: (preorder l ++ preorder r)",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.mem_inorder_iff_mem_setTree",
+      "kind": "theorem",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 37,
+      "syntactic_header": "theorem mem_inorder_iff_mem_setTree (x : α) (t : BinaryTree α) :\n    x ∈ inorder t ↔ x ∈ setTree t",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.mem_preorder_iff_mem_setTree",
+      "kind": "theorem",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 46,
+      "syntactic_header": "theorem mem_preorder_iff_mem_setTree (x : α) (t : BinaryTree α) :\n    x ∈ preorder t ↔ x ∈ setTree t",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.preorder_length",
+      "kind": "theorem",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 53,
+      "syntactic_header": "theorem preorder_length (t : BinaryTree α) :\n    (preorder t).length = t.numNodes",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.preorder_map",
+      "kind": "theorem",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 61,
+      "syntactic_header": "theorem preorder_map (label : α → β) (t : BinaryTree α) :\n    preorder (t.map label) = (preorder t).map label",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.Subtree",
+      "kind": "inductive",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 69,
+      "syntactic_header": "inductive Subtree : BinaryTree α → BinaryTree α → Prop",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.Subtree.refl",
+      "kind": "constructor",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "syntactic_header": "(t : BinaryTree α) : Subtree t t",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.Subtree.left",
+      "kind": "constructor",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "syntactic_header": "{s l r : BinaryTree α} (a : α) : Subtree s l → Subtree s (.node a l r)",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.Subtree.right",
+      "kind": "constructor",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "syntactic_header": "{s l r : BinaryTree α} (a : α) : Subtree s r → Subtree s (.node a l r)",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.nil_subtree",
+      "kind": "theorem",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 77,
+      "syntactic_header": "theorem nil_subtree (t : BinaryTree α) : Subtree .nil t",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.subtree_nil_iff",
+      "kind": "theorem",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 82,
+      "syntactic_header": "@[simp] theorem subtree_nil_iff (s : BinaryTree α) :\n    Subtree s .nil ↔ s = .nil",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.subtree_node_iff",
+      "kind": "theorem",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 93,
+      "syntactic_header": "theorem subtree_node_iff (s : BinaryTree α) (a : α) (l r : BinaryTree α) :\n    Subtree s (.node a l r) ↔\n      s = .node a l r ∨ Subtree s l ∨ Subtree s r",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.Subtree.trans",
+      "kind": "theorem",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 110,
+      "syntactic_header": "theorem Subtree.trans {s t u : BinaryTree α}\n    (hst : Subtree s t) (htu : Subtree t u) : Subtree s u",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.subtrees",
+      "kind": "def",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 118,
+      "syntactic_header": "def subtrees (t : BinaryTree α) : Set (BinaryTree α)",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.mem_subtrees_iff",
+      "kind": "theorem",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 120,
+      "syntactic_header": "@[simp] theorem mem_subtrees_iff {s t : BinaryTree α} :\n    s ∈ subtrees t ↔ Subtree s t",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.subtrees_nil",
+      "kind": "theorem",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 123,
+      "syntactic_header": "@[simp] theorem subtrees_nil : subtrees (.nil : BinaryTree α) = {.nil}",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.subtrees_node",
+      "kind": "theorem",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 127,
+      "syntactic_header": "theorem subtrees_node (a : α) (l r : BinaryTree α) :\n    subtrees (.node a l r) = {.node a l r} ∪ subtrees l ∪ subtrees r",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.self_mem_subtrees",
+      "kind": "theorem",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 133,
+      "syntactic_header": "theorem self_mem_subtrees (t : BinaryTree α) : t ∈ subtrees t",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "Trees.nil_mem_subtrees",
+      "kind": "theorem",
+      "file": "Applications/Trees/BasicObservations.lean",
+      "line": 136,
+      "syntactic_header": "theorem nil_mem_subtrees (t : BinaryTree α) :\n    (.nil : BinaryTree α) ∈ subtrees t",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.sample",
+      "kind": "def",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 15,
+      "syntactic_header": "def sample : BinaryTree Nat",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.sample_preorder",
+      "kind": "theorem",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 18,
+      "syntactic_header": "theorem sample_preorder : preorder sample = [9, 3, 7]",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.sample_inorder",
+      "kind": "theorem",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 21,
+      "syntactic_header": "theorem sample_inorder : inorder sample = [3, 9, 7]",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.sample_setTree",
+      "kind": "theorem",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 24,
+      "syntactic_header": "theorem sample_setTree : setTree sample = {3, 9, 7}",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.sample_numNodes",
+      "kind": "theorem",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 28,
+      "syntactic_header": "theorem sample_numNodes : sample.numNodes = 3",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.sample_preorder_length",
+      "kind": "theorem",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 31,
+      "syntactic_header": "theorem sample_preorder_length : (preorder sample).length = 3",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.sample_contains_seven",
+      "kind": "theorem",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 35,
+      "syntactic_header": "theorem sample_contains_seven : 7 ∈ setTree sample",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.sample_excludes_eight",
+      "kind": "theorem",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 41,
+      "syntactic_header": "theorem sample_excludes_eight : 8 ∉ setTree sample",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.sample_constant_map",
+      "kind": "theorem",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 48,
+      "syntactic_header": "theorem sample_constant_map :\n    preorder (sample.map (fun _ : Nat => (5 : Nat))) = [5, 5, 5]",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.sample_left_subtree",
+      "kind": "theorem",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 53,
+      "syntactic_header": "theorem sample_left_subtree :\n    (.node 3 .nil .nil : BinaryTree Nat) ∈ subtrees sample",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.nested_left_subtree",
+      "kind": "theorem",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 58,
+      "syntactic_header": "theorem nested_left_subtree :\n    (.node 3 .nil .nil : BinaryTree Nat) ∈ subtrees (.node 20 sample .nil)",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.sample_has_empty_subtree",
+      "kind": "theorem",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 64,
+      "syntactic_header": "theorem sample_has_empty_subtree :\n    (.nil : BinaryTree Nat) ∈ subtrees sample",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.sample_has_self_subtree",
+      "kind": "theorem",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 67,
+      "syntactic_header": "theorem sample_has_self_subtree : sample ∈ subtrees sample",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.leftRepeated",
+      "kind": "def",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 70,
+      "syntactic_header": "def leftRepeated : BinaryTree Nat",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.rightRepeated",
+      "kind": "def",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 73,
+      "syntactic_header": "def rightRepeated : BinaryTree Nat",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.repeated_traversals",
+      "kind": "theorem",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 75,
+      "syntactic_header": "theorem repeated_traversals :\n    preorder leftRepeated = [5, 5] ∧ preorder rightRepeated = [5, 5] ∧\n      inorder leftRepeated = [5, 5] ∧ inorder rightRepeated = [5, 5]",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.repeated_sets",
+      "kind": "theorem",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 80,
+      "syntactic_header": "theorem repeated_sets :\n    setTree leftRepeated = {5} ∧ setTree rightRepeated = {5}",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.repeated_trees_distinct",
+      "kind": "theorem",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 84,
+      "syntactic_header": "theorem repeated_trees_distinct : leftRepeated ≠ rightRepeated",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.leftRepeated_not_subtree_rightRepeated",
+      "kind": "theorem",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 90,
+      "syntactic_header": "theorem leftRepeated_not_subtree_rightRepeated :\n    ¬ Subtree leftRepeated rightRepeated",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.same_set_not_subtree",
+      "kind": "theorem",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 95,
+      "syntactic_header": "theorem same_set_not_subtree :\n    setTree leftRepeated = setTree rightRepeated ∧\n      ¬ Subtree leftRepeated rightRepeated",
+      "actual_elaborated_type_inspected": false
+    },
+    {
+      "name": "TreeBasicObservationsExamples.empty_label_observations",
+      "kind": "theorem",
+      "file": "Examples/TreeBasicObservations.lean",
+      "line": 101,
+      "syntactic_header": "theorem empty_label_observations :\n    setTree (.nil : BinaryTree Empty) = ∅ ∧\n      preorder (.nil : BinaryTree Empty) = [] ∧\n      subtrees (.nil : BinaryTree Empty) = {.nil}",
+      "actual_elaborated_type_inspected": false
+    }
+  ],
+  "counts": {
+    "def": 6,
+    "theorem": 35,
+    "inductive": 1,
+    "constructor": 3
+  },
+  "public_count": 45,
+  "ordered_name_sha256": "8031ccab8497b6b286be7bea70711fccc47a98610ca17bc7064c4e120b538900",
+  "compilation": "NOT RUN by this source author; actual types, focused compile and complete candidate audit remain with root.",
+  "acceptance_credit": false
+}

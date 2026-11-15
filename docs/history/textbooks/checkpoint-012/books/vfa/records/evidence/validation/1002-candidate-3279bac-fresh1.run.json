@@ -1,0 +1,33 @@
+{
+  "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "mode": "fresh",
+  "command": [
+    "/root/.nix-profile/bin/nix",
+    "develop",
+    "--command",
+    "./check.sh",
+    "--fresh",
+    "--jobs",
+    "1",
+    "--candidate",
+    "HEAD"
+  ],
+  "working_directory": "/workspace/scratch/0c54f2db1fdf/vfa-validation",
+  "log": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-3279bac-fresh1.log",
+  "explicit_environment": {
+    "PATH_prefix": "/root/.nix-profile/bin:",
+    "NIX_CONFIG": "build-users-group =\nexperimental-features = nix-command flakes",
+    "LEAN_NUM_THREADS": "1",
+    "LEAN_override": "removed"
+  },
+  "status": "running",
+  "returncode": null,
+  "started_utc": "2026-11-02T16:09:16.721142+00:00",
+  "reason": "Required by README after unexplained earlier project-output mismatches (ST-002/local1025). Source/checker/toolchain/dependency configuration unchanged.",
+  "checkpoint_before_launch": 25,
+  "root_free_bytes_before_launch": 7799726080,
+  "inactive_main_mathlib_build_present_at_launch": true,
+  "note": "Fresh project outputs are private and removed by the unchanged checker. The complete child output is retained in the log; console shows progress, errors and verification summaries. This is separate from the failed earlier incremental attempt and any later guarded recovery.",
+  "pid": 426051,
+  "process_group": 426051
+}

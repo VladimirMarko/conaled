@@ -1,0 +1,437 @@
+{
+  "recorded_utc": "2026-11-04T09:19:48.659996+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "axis": "Standards",
+  "state": "CONTINUATION PREPARATION; BLOCKED PENDING ACTUAL TERMINAL EVIDENCE",
+  "scope": "Original complete R-to-F shared foundation review: X002, Appendix A, XB01 / Appendix B.1, Appendix C; no scope reduction or replacement loop.",
+  "base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "original_prefix": "c80eec92f5458eccfd1c34c8314d666c2a1e3847",
+  "source_authorship": "None; this reviewer has authored no formal source. Prior reviewer source assessments remain attributed to their authors.",
+  "head_observation": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "branch_observation": "work/fdsa-foundation-integration",
+  "status_observation": "",
+  "merge_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "original_prefix_ancestor": true,
+  "source_identity": [
+    {
+      "path": "Applications/Resources/InsertionSort.lean",
+      "bytes": 7257,
+      "lines": 178,
+      "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+      "git_blob": "d51ea6e9845378d3f7667adee189f8a210b477ed",
+      "matches_retained_full_scope_source_assessment": true
+    },
+    {
+      "path": "Applications/Resources/ListCalls.lean",
+      "bytes": 7939,
+      "lines": 190,
+      "sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+      "git_blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4",
+      "matches_retained_full_scope_source_assessment": true
+    },
+    {
+      "path": "Examples/FunctionalNotation.lean",
+      "bytes": 8277,
+      "lines": 202,
+      "sha256": "fe4b585a6753110dee67c1942ce68d16d9bf00feb5946f32791682c634c42eef",
+      "git_blob": "3e5db8677c94bd330779522f92bc39508540a17a",
+      "matches_retained_full_scope_source_assessment": true
+    },
+    {
+      "path": "Examples/InsertionCosts.lean",
+      "bytes": 3862,
+      "lines": 101,
+      "sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37",
+      "git_blob": "1c3de9b0a0a5f27f108de09f28f6ac55f4cddb36",
+      "matches_retained_full_scope_source_assessment": true
+    },
+    {
+      "path": "Examples/ListCalls.lean",
+      "bytes": 4333,
+      "lines": 124,
+      "sha256": "24d0809f51d04b0a9cadb5a349141e7327a5f7721f63c1021113527917487d5d",
+      "git_blob": "b4c4683ee2bd16ff6f844ce757470515847a63dc",
+      "matches_retained_full_scope_source_assessment": true
+    },
+    {
+      "path": "Examples/ListLibrary.lean",
+      "bytes": 6761,
+      "lines": 170,
+      "sha256": "036cf4c12ddf5d25ce433d9f7dbedfcbb96dfc3c7f602d10605388d2791e47ad",
+      "git_blob": "99ba369997885e176bbda192ee0feb5c7bf4d034",
+      "matches_retained_full_scope_source_assessment": true
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 8412,
+      "lines": 256,
+      "sha256": "7f00379973161019217585a5ed32d0374247300544ae448b2a4b86aa11c6bf64",
+      "git_blob": "1f7e4544b1eb77614a1c6fb2311e0d3290a3b1a5",
+      "matches_retained_full_scope_source_assessment": true
+    },
+    {
+      "path": "docs/research/fdsa-notation-map.md",
+      "bytes": 24280,
+      "lines": 317,
+      "sha256": "cff778380868755fa7e7018797bf3d5e8c7b0cc55b5e3cd37bc64b3f32658d5b",
+      "git_blob": "ba187a2744932874581e0b0b8c3741add60b9cee",
+      "matches_retained_full_scope_source_assessment": true
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "bytes": 31701,
+      "lines": 485,
+      "sha256": "c3059fc931180a6c0e6ec07ea7b92953aac451677a3939b0daaeb433e042bbe9",
+      "git_blob": "327f797c0cfbef722d85bfe9143c32f4415c2680",
+      "matches_retained_full_scope_source_assessment": true
+    }
+  ],
+  "config_identity": [
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "git_blob": "a6aff065db2882c535684f8c5bcd4f16e9a23915",
+      "unchanged_from_accepted_R": true
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 444,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "git_blob": "6c6da60ea34d0f4dbfb46fd68a02934368f66a82",
+      "unchanged_from_accepted_R": true
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "git_blob": "0452762ecb2bb5e0d0f7db0b128b0af581febb87",
+      "unchanged_from_accepted_R": true
+    },
+    {
+      "path": "check.sh",
+      "bytes": 74,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "git_blob": "60c22e66b7188ef9bc8cc62ba93d7f78bb801682",
+      "unchanged_from_accepted_R": true
+    },
+    {
+      "path": "scripts/check.py",
+      "bytes": 16119,
+      "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+      "git_blob": "02e970efc55ff62906afb11eb48176b0834c10c8",
+      "unchanged_from_accepted_R": true
+    },
+    {
+      "path": "scripts/lake_integrity.py",
+      "bytes": 5781,
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+      "git_blob": "77482e896e34691b9747913041ca8164a8af3bcb",
+      "unchanged_from_accepted_R": true
+    },
+    {
+      "path": "scripts/lake-output-hashes.lean",
+      "bytes": 618,
+      "sha256": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b",
+      "git_blob": "68b042b3e1408700486b4a5f2de0931392ce6910",
+      "unchanged_from_accepted_R": true
+    },
+    {
+      "path": "ProofAudit.lean",
+      "bytes": 7925,
+      "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd",
+      "git_blob": "70948301305d0ff09aba391ad9aa0f7413e6800e",
+      "unchanged_from_accepted_R": true
+    },
+    {
+      "path": "flake.nix",
+      "bytes": 637,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+      "git_blob": "3301a1923641d051f94eb288ae33a320eec28e8d",
+      "unchanged_from_accepted_R": true
+    },
+    {
+      "path": "flake.lock",
+      "bytes": 564,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+      "git_blob": "84c70958fc7b0e794b8b93e495ab85ecaf80a15d",
+      "unchanged_from_accepted_R": true
+    }
+  ],
+  "retained_evidence_identity": [
+    {
+      "path": "reviews/shared-foundations-round1.md",
+      "bytes": 13909,
+      "lines": 216,
+      "sha256": "21b930204907024a78e3c0adcca8ee0eb6a064e03c2587872b9379d8585b138d"
+    },
+    {
+      "path": "reviews/shared-foundations-standards.md",
+      "bytes": 24375,
+      "lines": 377,
+      "sha256": "3f56c01fe4a53f50a2051108a95fa41584d7037a41af3afbd2346f9b25f5c497"
+    },
+    {
+      "path": "reviews/shared-foundations-spec.md",
+      "bytes": 32927,
+      "lines": 510,
+      "sha256": "06880532472d17d6f9d254165b61d41a437d0a79857323deac231025fd38f599"
+    },
+    {
+      "path": "reviews/shared-foundations-standards-recovery-preflight-20261104.md",
+      "bytes": 13002,
+      "lines": 234,
+      "sha256": "61b6a175e5b75e141e6c705551c378e8b6db34de835910554c7a28c618fd0d3f"
+    },
+    {
+      "path": "reviews/insertion-requirements.md",
+      "bytes": 3257,
+      "lines": 60,
+      "sha256": "fbd77fa19c83df3e6d7d10d6e7bd6cddf2d5aa888b512d5af2a7322f222f1a68"
+    },
+    {
+      "path": "reviews/list-library-requirements.md",
+      "bytes": 3123,
+      "lines": 58,
+      "sha256": "83cffa5aff717943d449f4380189a9e9a761252730f5a14f4e392f1e62d154d4"
+    },
+    {
+      "path": "reviews/list-calls-requirements.md",
+      "bytes": 4040,
+      "lines": 70,
+      "sha256": "0a2f7a2869c10276da2cc9a852e20936c6aba2d094d5232b96e94fbf47ecf78d"
+    },
+    {
+      "path": "reviews/notation-requirements.md",
+      "bytes": 3406,
+      "lines": 66,
+      "sha256": "21a4ad13752d4316817e97f655af9a768726aa682124a39a2aeac248460b5a48"
+    },
+    {
+      "path": "ENVIRONMENT.md",
+      "bytes": 6789,
+      "lines": 122,
+      "sha256": "c0e7eafa942e2bdcca436eeae06ed49616ad9021e9ab4ebb633635e30963e85e"
+    },
+    {
+      "path": "provenance/unified-native-recovery-20261104-qualified/qualification.json",
+      "bytes": 3279,
+      "lines": 96,
+      "sha256": "37a60985201cda9ac852adbc972483c32e59ee6ee82119b866dbaa4625301629"
+    },
+    {
+      "path": "provenance/unified-native-recovery-20261104-qualified/profile-config.json",
+      "bytes": 3703,
+      "lines": 83,
+      "sha256": "7ba088fe04b1d9087f1a2c61b2c9cb1a902f7dde0601134cac966960776856d3"
+    },
+    {
+      "path": "provenance/unified-native-recovery-20261104-qualified/smoke-result.json",
+      "bytes": 9280,
+      "lines": 217,
+      "sha256": "2ffe684a0d37f8ecc70978623a74a4305ffe4957cc8e6703f072b3ab9e416829"
+    },
+    {
+      "path": "provenance/recovery-20261104-restored/runtime-content-comparison.json",
+      "bytes": 3460,
+      "lines": 78,
+      "sha256": "9242b4dcbe578dd52c52846cd2ce3432be46fee8702c08bede7fe6956fbc5555"
+    },
+    {
+      "path": "provenance/recovery-20261104-restored/cache-download-adjustment.json",
+      "bytes": 1012,
+      "lines": 11,
+      "sha256": "654884e89baad73c861098cf4a3c5d5a14f218cbb57df061d44d437cc9c06ceb"
+    },
+    {
+      "path": "provenance/recovery-20261104-restored/cache-download-adjustment-attempt3.json",
+      "bytes": 618,
+      "lines": 8,
+      "sha256": "b140ea09b34c7e856472f4bc93e50a313b828e2c08d676e66a761a4acaebbd7f"
+    },
+    {
+      "path": "provenance/chapter01-acceptance-20261103/acceptance.json",
+      "bytes": 2562,
+      "lines": 68,
+      "sha256": "ca68a978d5bfc4ca8164c2f88c160eebfc0a339e80f9270c16b916caf25e9d4b"
+    },
+    {
+      "path": "provenance/chapter01-unified-fresh-attempt4/verification.json",
+      "bytes": 861,
+      "lines": 19,
+      "sha256": "8d9257a238ab4c2e0743a41851a080f403aa09b41f4bf34690496c1f9a7b0264"
+    },
+    {
+      "path": "provenance/chapter02-foundation-focused-attempt3/result.json",
+      "bytes": 1334,
+      "lines": 37,
+      "sha256": "6ef3c6f3f926c53a32810f053280d1d8bac60296886f16e07aaed117e4ac9f54"
+    },
+    {
+      "path": "provenance/chapter02-foundation-focused-attempt3/full.log",
+      "bytes": 7782,
+      "lines": 49,
+      "sha256": "c7ad375385228d3bd1fc17d6b781de382147639eac4ecd2ec7b9618b4ac3de60"
+    },
+    {
+      "path": "provenance/chapter02-foundation-full-attempt2-recovered-20261104/request.json",
+      "bytes": 737,
+      "lines": 21,
+      "sha256": "819a2014af5b15af3eb6079dd118d7e643ef5967a14646b7dda59a7ea5f1653f"
+    },
+    {
+      "path": "provenance/chapter02-foundation-full-attempt2-recovered-20261104/start.json",
+      "bytes": 940,
+      "lines": 26,
+      "sha256": "d07131fa32edfba3e35c5794c5e074481c7aa48ddcb154ab9d62f7dd3515d89c"
+    },
+    {
+      "path": "provenance/chapter02-foundation-full-attempt2-recovered-20261104/launch.json",
+      "bytes": 174,
+      "lines": 6,
+      "sha256": "a7895eb183e9e8101c54384b2c3f7ad8c44150aa0ad1602f31d2b0638c4b2cb6"
+    }
+  ],
+  "prior_terminal_preparation": [
+    {
+      "path": "provenance/foundation-standards-terminal-continuation-20261104/preparation.md",
+      "bytes": 26985,
+      "lines": 408,
+      "sha256": "e0a8da6259b32f9375234a918a8cc10f32c8ff0690b35967ef2d6e282d9606c0"
+    },
+    {
+      "path": "provenance/foundation-standards-terminal-continuation-20261104/preparation-before-145-addendum.md",
+      "bytes": 19073,
+      "lines": 268,
+      "sha256": "6ab918ebcc7157fcbbae2d58475c9a05a6f8ddccadd3c94ed2139898f9710b62"
+    },
+    {
+      "path": "provenance/foundation-standards-terminal-continuation-20261104/prefix-and-types-preparation.json",
+      "bytes": 11344,
+      "lines": 227,
+      "sha256": "a00e98487a68ce2557af5933b17518588b0d441a331ed6313033005324b73253"
+    },
+    {
+      "path": "provenance/foundation-standards-terminal-continuation-20261104/addendum-receipt.json",
+      "bytes": 3342,
+      "lines": 68,
+      "sha256": "92fd7276b49cb3c97937b243db9118f7b4f2d5c6dc5bce6e134c5af713eb578c"
+    },
+    {
+      "path": "provenance/foundation-standards-terminal-continuation-20261104/identity.json",
+      "bytes": 22917,
+      "lines": 568,
+      "sha256": "a969567682bfefcd3d61efdb3afd09ddeed1b2c669d324816d2a05ef31f6a398"
+    }
+  ],
+  "prepared145": {
+    "inventory": {
+      "path": "provenance/foundation-complete-public-statements-prepared-20261104/inventory.json",
+      "bytes": 9630,
+      "lines": 205,
+      "sha256": "d39aa500144f7893088e8e69cb32514d75191d100e7b9fc1405e14055a94fefa"
+    },
+    "program": {
+      "path": "provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+      "bytes": 7518,
+      "lines": 156,
+      "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4"
+    },
+    "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "public_named_count": 145,
+    "sources": [
+      {
+        "path": "Applications/Resources/InsertionSort.lean",
+        "module": "Applications.Resources.InsertionSort",
+        "bytes": 7257,
+        "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+        "git_blob": "d51ea6e9845378d3f7667adee189f8a210b477ed"
+      },
+      {
+        "path": "Applications/Resources/ListCalls.lean",
+        "module": "Applications.Resources.ListCalls",
+        "bytes": 7939,
+        "sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+        "git_blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4"
+      },
+      {
+        "path": "Examples/FunctionalNotation.lean",
+        "module": "Examples.FunctionalNotation",
+        "bytes": 8277,
+        "sha256": "fe4b585a6753110dee67c1942ce68d16d9bf00feb5946f32791682c634c42eef",
+        "git_blob": "3e5db8677c94bd330779522f92bc39508540a17a"
+      },
+      {
+        "path": "Examples/InsertionCosts.lean",
+        "module": "Examples.InsertionCosts",
+        "bytes": 3862,
+        "sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37",
+        "git_blob": "1c3de9b0a0a5f27f108de09f28f6ac55f4cddb36"
+      },
+      {
+        "path": "Examples/ListCalls.lean",
+        "module": "Examples.ListCalls",
+        "bytes": 4333,
+        "sha256": "24d0809f51d04b0a9cadb5a349141e7327a5f7721f63c1021113527917487d5d",
+        "git_blob": "b4c4683ee2bd16ff6f844ce757470515847a63dc"
+      },
+      {
+        "path": "Examples/ListLibrary.lean",
+        "module": "Examples.ListLibrary",
+        "bytes": 6761,
+        "sha256": "036cf4c12ddf5d25ce433d9f7dbedfcbb96dfc3c7f602d10605388d2791e47ad",
+        "git_blob": "99ba369997885e176bbda192ee0feb5c7bf4d034"
+      }
+    ],
+    "ordered_names_match": true,
+    "unique_names": true,
+    "source_hashes_and_blobs_match_F": true,
+    "executed_by_this_review": false,
+    "actual_output_not_yet_supplied": true
+  },
+  "source_disposition": {
+    "original_full_source_assessment_retained": true,
+    "unresolved_concrete_source_findings": 0,
+    "FDN-ELAB-001": "Source correction and exact focused success retained; full candidate/audit confirmation pending.",
+    "FDN-ELAB-002": "Source correction and exact focused success retained; full candidate/audit confirmation pending.",
+    "accepted_Chapter1_reopened": false
+  },
+  "prefix_disposition": {
+    "artifact": "provenance/foundation-standards-terminal-continuation-20261104/prefix-and-types-preparation.json",
+    "recorded_prefix_bytes": 324642,
+    "recorded_prefix_lines": 1924,
+    "recorded_prefix_sha256": "36ae6e11faba5df23c215d1e1ecd3116b09c51a6568d203e7ec6dacfeebc41cb",
+    "retained_prior_method": "Structured byte/header inspection and baseline warning comparison; not a claim of reading all raw prefix lines.",
+    "terminal_result_inferred": false,
+    "terminal_warning_or_audit_inventory_inferred": false
+  },
+  "current_read_boundaries": {
+    "complete_read_retained": "Original Standards source report and frozen requirements were previously read; current preparation reverified their unchanged hashes.",
+    "complete_read_this_continuation": [
+      "reviews/shared-foundations-round1.md",
+      "reviews/shared-foundations-standards-recovery-preflight-20261104.md",
+      "ENVIRONMENT.md",
+      "provenance/foundation-standards-terminal-continuation-20261104/preparation.md",
+      "provenance/foundation-standards-terminal-continuation-20261104/prefix-and-types-preparation.json",
+      "provenance/foundation-standards-terminal-continuation-20261104/addendum-receipt.json"
+    ],
+    "structured_read": "Prior identity JSON was parsed and source/config/evidence records inspected. No claim of whole raw 568-line reading or independent rehash of every runtime binary.",
+    "full_source_repetition": "No unchanged source proof re-review invented; retained complete source assessments match all nine immutable F path identities."
+  },
+  "runtime_qualification": "Retain independently recorded native kit qualification and exact baseline-content comparison, checked for unchanged artifact identity. No new qualification, compiler, dependency hydration or cache mutation performed.",
+  "normal_vs_fresh": "Applicable ordinary candidate check remains required. No new fresh trigger established by unchanged candidate/pins/profile and cold-output recovery alone.",
+  "terminal_evidence_boundary": "No secured foundation terminal result, closed full log/audit, current F verification or actual145 type output has been supplied for this continuation. No live process was polled and no growing log was treated as terminal.",
+  "foundation_to_chapter2_type_reuse": "Separate unresolved gate: two insertion roots / 35 names have changed transitive Sorting.Merge input at Q; four other root closures / 110 names were equal, but no future actual output is credited. Do not replace the complete pending Chapter2 program.",
+  "gate_order": [
+    "Receive and assess exact-F actual145 public-type output and immutable relevant input identity.",
+    "Read actual completed full check result and complete closed log; assess all diagnostics and exhaustive audit including private/generated declarations.",
+    "Match new verification record to exactF, pinned compiler/dependencies, actual mode and successful complete run.",
+    "Complete both independent axes on same complete candidate.",
+    "Root performs immediate qualified ./check.sh --verify-candidate HEAD, then exact approved local fast-forward and acceptance checkpoint."
+  ],
+  "compiler_or_build_invocations": 0,
+  "process_polling_or_control": false,
+  "source_ref_index_pin_cache_mutations": false,
+  "writes": "Own new review/provenance only"
+}

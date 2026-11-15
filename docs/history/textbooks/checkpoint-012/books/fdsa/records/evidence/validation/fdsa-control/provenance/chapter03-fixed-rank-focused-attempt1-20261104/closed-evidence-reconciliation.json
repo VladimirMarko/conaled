@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T20:03:39.312665+00:00",
+  "candidate": "fd490573dc6a0ad2ed4a6f3d449e03d9d1b0bb2f",
+  "terminal": {
+    "recorded_utc": "2026-11-04T20:03:39.312576+00:00",
+    "owned_session": 47328,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "833857",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "fd490573dc6a0ad2ed4a6f3d449e03d9d1b0bb2f"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-fixed-rank-focused-attempt1-20261104/full.log",
+    "bytes": 5722,
+    "sha256": "63c9b1c27594d228c2bdd03218a9b6fcb595357f8e327da9e2cf8ea7c92a2ef4"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T200157Z-project-run-5fd548e5",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-fixed-rank-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 512,
+      "sha256": "cdbd90d114427e6b00769be676c0bf78a24af72e5369fd6d1219b0a0c603d471"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-fixed-rank-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 666,
+      "sha256": "7bc1b3c4d35ec1d3aa788a61d7e3ae0a9acc0d974a635bf5dcb9cf8b89f580de"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-fixed-rank-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 5419,
+      "sha256": "077d888fa8d7ebc78869b8b092eb08e7f8dea4a49ed2f3ca10202cec088bd972"
+    }
+  },
+  "native_body_exact_outer_offset": 147,
+  "complete_closed_log": true,
+  "scope": "Focused actual minimum, second occurrence and bounded-prefix fixed-rank algorithms, source counts and examples only; not full candidate acceptance.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

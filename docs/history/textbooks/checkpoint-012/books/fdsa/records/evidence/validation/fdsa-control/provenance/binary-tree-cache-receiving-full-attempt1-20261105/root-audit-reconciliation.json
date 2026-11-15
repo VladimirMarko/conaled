@@ -1,0 +1,116 @@
+{
+  "recorded_utc": "2026-11-05T02:47:50.270393+00:00",
+  "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "tree": "18bf4bc9df979d4ee6ac76182f58faed235a0714",
+  "owned_session": 58948,
+  "actual_terminal_chunk": "4e4f6d",
+  "closure_actual_chunk": "3c4750",
+  "summary_read_chunk": "4dc896",
+  "actual_exit": 0,
+  "compiled_project_modules": 1112,
+  "checked_modules": 1113,
+  "audit_rows": 1111,
+  "logical_declarations": 50288,
+  "theorem_declarations": 29430,
+  "unsafe_runtime_declarations": 0,
+  "axiom_union": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "all4_scope_modules_in_audit_rows": true,
+  "scope_module_counts": {
+    "Applications.Trees.Observations": {
+      "logical_declarations": 19,
+      "theorem_declarations": 13,
+      "unsafe_runtime_declarations": 0
+    },
+    "Applications.Trees.Cached": {
+      "logical_declarations": 30,
+      "theorem_declarations": 21,
+      "unsafe_runtime_declarations": 0
+    },
+    "Applications.Resources.TreeCache": {
+      "logical_declarations": 12,
+      "theorem_declarations": 10,
+      "unsafe_runtime_declarations": 0
+    },
+    "Examples.TreeCache": {
+      "logical_declarations": 92,
+      "theorem_declarations": 70,
+      "unsafe_runtime_declarations": 0
+    }
+  },
+  "pre_integrity_artifacts": 3336,
+  "pre_invalidated_modules": 0,
+  "post_integrity_artifacts": 3336,
+  "post_inconsistent_modules": 0,
+  "source_policy_passed": true,
+  "mode": "incremental; no new fresh trigger",
+  "audit_seconds": 603.72,
+  "total_check_seconds": 1248.67,
+  "compiler_and9dependencies_exact_accepted_Chapter3": true,
+  "matching_live_verification": true,
+  "bindings": {
+    "full.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/full.log",
+      "bytes": 325963,
+      "sha256": "dbd8ba410b64f7ee2eedc9389c4dceb907549dabbada6fee358277b760141dd8"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/result.json",
+      "bytes": 1263,
+      "sha256": "b3801e77b70d719dd62a656b2c37da7c198125f2484e42491e343ea7b22c95bd"
+    },
+    "owned-terminal.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "0479ba7ee369bd6c7626e0a65c214430b638d52bc2191fd49356f3dbfc4ce21a"
+    },
+    "actual-tool-terminal.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/actual-tool-terminal.json",
+      "bytes": 126,
+      "sha256": "d71744a9ed34114d5d3d3d64228f2ee8bbda37856222ecf87e557454299b35d2"
+    },
+    "native-records/start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/native-records/start.json",
+      "bytes": 421,
+      "sha256": "9e145810da85dc71f0e886717c935d1ba777f3c7c9c8ad75b0bfb50989a29a99"
+    },
+    "native-records/result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/native-records/result.json",
+      "bytes": 574,
+      "sha256": "9ecfa1178b4c532e5d562ae9318ce10f0ef35e074d775e3538830cf72abd8347"
+    },
+    "native-records/output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/native-records/output.log",
+      "bytes": 325734,
+      "sha256": "df724e47d431fd2f8aff4bab7c1097862a1dd9a92f527ce24957c9c1b9eceb09"
+    },
+    "verification.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/verification.json",
+      "bytes": 867,
+      "sha256": "329f0d0087adc21b3446d7f10b67c472cdf62238ccf578865eec20569c04da61"
+    },
+    "outer-prefix.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/outer-prefix.log",
+      "bytes": 70,
+      "sha256": "85b1c84dcee195655562afb91455f0d9c98388a8be8845b8eb9306ffa317cfab"
+    },
+    "outer-suffix.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/outer-suffix.log",
+      "bytes": 159,
+      "sha256": "6c90885939f4db5ca84e490853cd336b821ef5f140e57ac801cae9e75b5a69fe"
+    },
+    "closed-evidence-reconciliation.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-full-attempt1-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2314,
+      "sha256": "0c0fdda7fa5811d449ee54b5d950376b0bab7f6e16d538f47684549a354a6c3a"
+    }
+  },
+  "whole_project_counts_not_new_book_result_counts": true,
+  "root_full_native_human_read_claimed": false,
+  "root_read_scope": "Initial source/coverage/guard/build lines, audit summary and all4 scope rows, final16 lines, complete verification/native result and complete outer prefix/suffix; every1111 audit row parsed and totals reconciled computationally. Independent terminal-evidence assessment remains separate.",
+  "XT01_accepted": false,
+  "chapter04_accepted": false
+}

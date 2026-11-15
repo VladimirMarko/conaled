@@ -1,0 +1,93 @@
+{
+  "recorded_utc": "2026-11-04T09:00:37.536018+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "retained_complete_central_source": "5398db774ed5ca9938d0562e379d757323e7a355",
+  "full_scope_retained": "All 112 obligations, all ten shared scopes and the complete fixed R-to-eventual-final Chapter 2 scope. Isolated corrections are not complete replacement candidates.",
+  "overall_outcome": "Blocked",
+  "compiler_or_build_invoked_by_reviewer": false,
+  "approval_or_acceptance": false,
+  "candidate": "15a113b075c2ceb4d44c27a06fa9a69e019b57fc",
+  "parent": "a07d27634786220294038c0eb1e1c42428adccdf",
+  "source": {
+    "candidate": "15a113b075c2ceb4d44c27a06fa9a69e019b57fc",
+    "path": "Examples/RandomQuickSortGrowth.lean",
+    "git_blob": "f9e153715b0ad68d3eac30f1dc0c2b986475a148",
+    "bytes": 10033,
+    "lines": 216,
+    "sha256": "372d0fad2f5a77f0c9c97e6b2004036ab1b922a2a80f623784011381905ab3a1"
+  },
+  "unchanged_core": {
+    "candidate": "15a113b075c2ceb4d44c27a06fa9a69e019b57fc",
+    "path": "Applications/Resources/RandomQuickSortGrowth.lean",
+    "git_blob": "ecad03eedc57c3bc75e19172eb4941bef9a3faf6",
+    "bytes": 9896,
+    "lines": 203,
+    "sha256": "2b8bf7b4820790edaaa5726efb8e8bd8bccd3a30cb30388148d95bba00e63674"
+  },
+  "parent_file_equals_retained_central": true,
+  "changed_paths": [
+    "Examples/RandomQuickSortGrowth.lean"
+  ],
+  "static_comparison": {
+    "authored_declaration_count": 14,
+    "all_headers_byte_identical": true,
+    "kind_counts": {
+      "theorem": 14
+    },
+    "changed_blocks": [
+      "empty_payload_means",
+      "shifted_range_family_growth"
+    ]
+  },
+  "rank_a07_example_retained_exactly": true,
+  "independent_readback": {
+    "successor_example_lines": [
+      1,
+      216
+    ],
+    "unchanged_core_lines": [
+      1,
+      203
+    ],
+    "complete_diff_lines": 23,
+    "complete_diagnostic_lines": 21,
+    "actual_diagnostic_headers": 2,
+    "complete_author_readback_lines": 31,
+    "receipt_read_in_full": true
+  },
+  "semantic_assessment": [
+    "The Empty-payload example still applies the public actual-mean harmonic theorem with the constant Nat key; only the nil mean, nil length and natural zero cast are simplified to align the stated comparator-free empty result. No inhabitant or equality requirement is introduced.",
+    "The shifted family is still the actual list range(n+2), with eventual mapped-key distinctness and actual length tending to infinity. Unfolding id only aligns the Nat comparator in the existing conjunction.",
+    "The growth function remains based on actual size n+2 rather than the indexing parameter n. The same constants, filters, tariffs, payload/key universes and execution meanings are preserved.",
+    "All 14 headers preserve empty/singleton log boundaries, actual small means, arbitrary function tags, equal-key quadratic formulas and the finite size-256 counterexample, without falsely deriving whole-family non-Big-O from that finite counterexample."
+  ],
+  "matching_successor_compilation": "Not yet supplied; the unchanged core Built line in focused7 is individual evidence within an aggregate exit-1 run.",
+  "concrete_mathematical_spec_findings": [],
+  "artifacts": [
+    {
+      "path": "provenance/chapter02-growth-examples-proof-repair1-20261104/source.diff",
+      "bytes": 1157,
+      "lines": 23,
+      "sha256": "3db6fed73e157b2a5e76aa80b948f60ed0a89a5c9e1b7f814f63608e3ec1862a"
+    },
+    {
+      "path": "provenance/chapter02-growth-examples-proof-repair1-20261104/actual-diagnostics.txt",
+      "bytes": 1191,
+      "lines": 21,
+      "sha256": "f95c2df042e08654047be95b81b3a14861b44c6d6d972871d379b1f84822d4a3"
+    },
+    {
+      "path": "provenance/chapter02-growth-examples-proof-repair1-20261104/author-readback.md",
+      "bytes": 2050,
+      "lines": 31,
+      "sha256": "c70c887f5b7b9c66c9f7662ac49c0a0958fce50938b84314c5350581af7b4a27"
+    },
+    {
+      "path": "provenance/chapter02-growth-examples-proof-repair1-20261104/receipt.json",
+      "bytes": 643,
+      "lines": 18,
+      "sha256": "eaed804d976e015ce2db618451b695716b05136b202be3f9579c50008c9536ea"
+    }
+  ]
+}

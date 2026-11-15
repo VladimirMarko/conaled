@@ -1,0 +1,142 @@
+{
+  "original_path": "session/validation/ordinary-output-checkpoint-001.json",
+  "original_sha256": "4f2b87d735298a785f87e168fc9598ae3108a897d44c422f223f401ed8de639b",
+  "original_bytes": 3077603,
+  "removed_fields": [
+    {
+      "pointer": "/files",
+      "entries": 6065,
+      "canonical_json_sha256": "972d85cd27e49938eea9801f1a76c45399dc922828c4bcf6de728667e78a490c"
+    },
+    {
+      "pointer": "/candidates/0/selected_modules",
+      "entries": 725,
+      "canonical_json_sha256": "a706d4d396beec126958d72c0efe9684d30aa6ef88b4e96e6ed7a9a6889406db"
+    },
+    {
+      "pointer": "/candidates/0/source_sha256",
+      "entries": 725,
+      "canonical_json_sha256": "da1ba930c7bf3586abf4a16aea3dfd899f7d7142c85c605dc08949d86a51c359"
+    },
+    {
+      "pointer": "/candidates/0/batches",
+      "entries": 6,
+      "canonical_json_sha256": "d4e747691c1ba426aea3d43c51a12b180de0f02145d49232cb4f3c63fc4a8a43"
+    },
+    {
+      "pointer": "/candidates/1/selected_modules",
+      "entries": 116,
+      "canonical_json_sha256": "34fc9f8ebd0e4a69c757153f7c1331688d41892b74eed23037853e717ba6c540"
+    },
+    {
+      "pointer": "/candidates/1/source_sha256",
+      "entries": 116,
+      "canonical_json_sha256": "1e5d1035c83e971382b21241ea78b34f9735222c70a46b9cb7a82efd3514c5c8"
+    },
+    {
+      "pointer": "/candidates/1/batches",
+      "entries": 2,
+      "canonical_json_sha256": "30d794672443967ba212106037f42c1155f5f2b335e9a511187d6697462d77c9"
+    },
+    {
+      "pointer": "/candidates/2/selected_modules",
+      "entries": 25,
+      "canonical_json_sha256": "d6bf289a37c8db99d2cf3ce85915815341b59432fdaee5cab364e24998116942"
+    },
+    {
+      "pointer": "/candidates/2/source_sha256",
+      "entries": 25,
+      "canonical_json_sha256": "8c8feb06fb29b69265ef091928442ff80ccbe5f37bc1e385128ce004641d4a19"
+    },
+    {
+      "pointer": "/candidates/2/batches",
+      "entries": 1,
+      "canonical_json_sha256": "d4f690661ee3e7dcb8c62b2312c6b9f0c37384a1bb75106558b1aa9b75c93786"
+    }
+  ],
+  "record": {
+    "started_at": "2026-11-03T00:37:20.403382+00:00",
+    "status": "completed",
+    "acceptance": false,
+    "approval_copied": false,
+    "source_checkpoint": 27,
+    "owner_pid": 681883,
+    "capture_script_sha256": "cdc1f7af6dcbf1a219cd3ced7c5a832a3d90f24a874c4e771f0187a5e4648a75",
+    "compiler_version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+    "initial_available_bytes": 864002048,
+    "candidates": [
+      {
+        "checkout": "import-correction-r3",
+        "candidate": "901f734161920a76f3b399a575805b9a1d31e971",
+        "started_at": "2026-11-03T00:37:20.941331+00:00",
+        "source_validation_status": "Full candidate check running at planning; no approval supplied by this capture.",
+        "config_sha256": {
+          "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+          "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+          "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+          "flake.nix": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+          "flake.lock": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+          "scripts/lake_integrity.py": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+          "scripts/lake-output-hashes.lean": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b",
+          "scripts/check.py": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+        },
+        "skipped": {},
+        "acceptance": false,
+        "approval_copied": false,
+        "ended_at": "2026-11-03T00:38:17.773163+00:00",
+        "module_count": 725
+      },
+      {
+        "checkout": "validation-cache-counts",
+        "candidate": "3dd930c3e3989f3e5530463f3ac937a629551335",
+        "started_at": "2026-11-03T00:38:17.945758+00:00",
+        "source_validation_status": "Focused development and static reviews complete; exact full acceptance pending.",
+        "config_sha256": {
+          "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+          "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+          "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+          "flake.nix": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+          "flake.lock": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+          "scripts/lake_integrity.py": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+          "scripts/lake-output-hashes.lean": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b",
+          "scripts/check.py": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+        },
+        "skipped": {},
+        "acceptance": false,
+        "approval_copied": false,
+        "ended_at": "2026-11-03T00:38:33.812736+00:00",
+        "module_count": 116
+      },
+      {
+        "checkout": "validation-chapter02-r3",
+        "candidate": "99a29dcd02eb529fbefbb675e244a8c47b78cdef",
+        "started_at": "2026-11-03T00:38:34.132994+00:00",
+        "source_validation_status": "Focused development and static reviews complete; exact full acceptance pending.",
+        "config_sha256": {
+          "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+          "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+          "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+          "flake.nix": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+          "flake.lock": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+          "scripts/lake_integrity.py": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+          "scripts/lake-output-hashes.lean": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b",
+          "scripts/check.py": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+        },
+        "skipped": {},
+        "acceptance": false,
+        "approval_copied": false,
+        "ended_at": "2026-11-03T00:38:37.755457+00:00",
+        "module_count": 25
+      }
+    ],
+    "stage": "/workspace/scratch/ca9a61d0bf30/ordinary-output-snapshot-001-stage",
+    "partial_archive": "/workspace/scratch/ca9a61d0bf30/checkpoints/conaled-pfds-build-cache-001.tar.partial",
+    "scope": "Optional ordinary project outputs only; no dependencies or verification record. Not an atomic whole-build snapshot or an acceptance certificate.",
+    "ended_at": "2026-11-03T00:38:41.631892+00:00",
+    "archive": "/workspace/scratch/ca9a61d0bf30/checkpoints/conaled-pfds-build-cache-001.tar.gz",
+    "archive_bytes": 141728029,
+    "archive_sha256": "1b5fc99e95f217022a457ed809f3077da2e92a3b6ba26d7f08d4dca373725a52",
+    "roundtrip": "Every unique intended regular member, size and SHA256 verified by streaming",
+    "available_bytes_after": 1202573312
+  }
+}

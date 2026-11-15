@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "deliveries": [
+    {
+      "delivery": {
+        "archive_bytes": 105955448,
+        "archive_sha256": "d9d9d5525dafb3c8011828beaffa06cba2927a911aafdb19d663e5773960168d",
+        "completed": true,
+        "durable_uploaded": true,
+        "library_file_id": "libfile_fde3_f-f7bcace1db3c8191914e20e3e491b6d3_bcb09d6951dc8191bbb29f2ba3c27d9d",
+        "manifest_sha256": "72ef868d6b87dd9c98d66df639ec8260de211be0fb92301640810a172aa38f57",
+        "method": "create_library_file",
+        "note": "Delivery bookkeeping uses the supplied real connector receipt or user attachment identity; it does not call or authenticate a remote upload.",
+        "schema": 1,
+        "serial": 2,
+        "series": "conaled-textbooks"
+      },
+      "observed_response": {
+        "operation": "create_library_file",
+        "status": "succeeded",
+        "path": "/conaled-textbooks-002.tar.xz",
+        "file_id": "file_00000000383881f4b5e59ac498f9a42a",
+        "library_file_id": "libfile_fde3_f-f7bcace1db3c8191914e20e3e491b6d3_bcb09d6951dc8191bbb29f2ba3c27d9d",
+        "file_name": "conaled-textbooks-002.tar.xz",
+        "current_version_number": 0,
+        "restored_from_version_number": null,
+        "xattrs": [
+          {
+            "name": "user.library-file-version",
+            "value": "0"
+          }
+        ],
+        "directory_id": "personal-root:v1",
+        "mime_type": "application/x-tar",
+        "library_artifact_type": "other",
+        "file_size_bytes": 105955448,
+        "external_connectors_accessed": false,
+        "method": "create_library_file",
+        "destination": "owner-root",
+        "local_path": "/workspace/scratch/e1eab3b6b18e/integration-20261113/deliverables/conaled-textbooks-002.tar.xz",
+        "archive_sha256": "d9d9d5525dafb3c8011828beaffa06cba2927a911aafdb19d663e5773960168d",
+        "archive_bytes": 105955448
+      }
+    },
+    {
+      "delivery": {
+        "archive_bytes": 106036632,
+        "archive_sha256": "d25cd846e815c3185796cced6a14499be71343f0490a80a8d08372374794d49e",
+        "completed": true,
+        "durable_uploaded": true,
+        "library_file_id": "libfile_fde3_f-2d35f475e99c8191bf0d3298c9a7359f_bcb09d6951dc8191bbb29f2ba3c27d9d",
+        "manifest_sha256": "bf079dd330acf989f6db5ad7e5be70d83e2731c8ca5dfae87f809dfd712cb6f5",
+        "method": "create_library_file",
+        "note": "Delivery bookkeeping uses the supplied real connector receipt or user attachment identity; it does not call or authenticate a remote upload.",
+        "schema": 1,
+        "serial": 3,
+        "series": "conaled-textbooks"
+      },
+      "observed_response": {
+        "operation": "create_library_file",
+        "status": "succeeded",
+        "path": "/conaled-textbooks-003.tar.xz",
+        "file_id": "file_00000000638c81f4b05b125e683a48f9",
+        "library_file_id": "libfile_fde3_f-2d35f475e99c8191bf0d3298c9a7359f_bcb09d6951dc8191bbb29f2ba3c27d9d",
+        "file_name": "conaled-textbooks-003.tar.xz",
+        "current_version_number": 0,
+        "restored_from_version_number": null,
+        "xattrs": [
+          {
+            "name": "user.library-file-version",
+            "value": "0"
+          }
+        ],
+        "directory_id": "personal-root:v1",
+        "mime_type": "application/x-tar",
+        "library_artifact_type": "other",
+        "file_size_bytes": 106036632,
+        "external_connectors_accessed": false,
+        "method": "create_library_file",
+        "destination": "owner-root",
+        "local_path": "/workspace/scratch/e1eab3b6b18e/integration-20261113/deliverables/conaled-textbooks-003.tar.xz",
+        "archive_sha256": "d25cd846e815c3185796cced6a14499be71343f0490a80a8d08372374794d49e",
+        "archive_bytes": 106036632
+      }
+    }
+  ]
+}

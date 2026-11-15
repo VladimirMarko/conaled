@@ -1,0 +1,25 @@
+{
+  "recorded_utc": "2026-11-03T01:05:49.919328+00:00",
+  "ticket": "FDSA-XT09",
+  "original_review_base": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "source_status": "",
+  "all_24_baselines_match": true,
+  "new_source_files_absent": true,
+  "only_lake_entry": "pinned package source symlink",
+  "requirements": {
+    "bytes": 14161,
+    "lines": 252,
+    "sha256": "b7d1797e80ca2c732fd29632fea1ee5df0b296329bf1648d8ee714018a8f53f5"
+  },
+  "readiness": {
+    "bytes": 2520,
+    "lines": 32,
+    "sha256": "d44a0d790d1c31ed1bf5474aa22bb6cb6283e8628000afd4c7605dd097a90a62"
+  },
+  "all_three_authors_fully_read_requirements_and_stopped_ready": true,
+  "main_and_c1_source_unchanged": true,
+  "source_authoring_released": false,
+  "validation_released": false,
+  "checkpoint_stem": "conaled-fdsa-0060-braun-shape-precode",
+  "next_action": "Create/expose/upload the full checkpoint, retain its actual successful receipt, then perform separate source-release recheck."
+}

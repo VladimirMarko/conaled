@@ -1,0 +1,21 @@
+{
+  "phase": "ST-CACHE-001-red",
+  "observed_utc": "2026-11-02T13:59:36.669933+00:00",
+  "command": [
+    "/root/.nix-profile/bin/nix",
+    "develop",
+    "--command",
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "/workspace/scratch/0c54f2db1fdf/work-state/cache-companion",
+    "-v"
+  ],
+  "returncode": 1,
+  "elapsed_seconds": 15.739769100000558,
+  "log": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1027-ST-CACHE-001-red.log",
+  "scope": "Synthetic recovery fixtures only, no active-cache copy or project compilation"
+}

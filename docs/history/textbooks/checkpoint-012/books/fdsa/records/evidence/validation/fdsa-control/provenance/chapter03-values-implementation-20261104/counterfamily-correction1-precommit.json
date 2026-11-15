@@ -1,0 +1,32 @@
+{
+  "recorded_utc": "2026-11-04T20:34:02.716820+00:00",
+  "finding": "C03-COUNTERFAMILY-ELAB-001",
+  "failed_candidate": "cafc71bef2e2779407944cb04089b9b3b14a13dc",
+  "tree": "8ede72c00df8a44b50fcedb49c219d9090c7df26",
+  "status": "",
+  "source_before": {
+    "repository_path": "Applications/Selection/MedianCounterfamily.lean",
+    "bytes": 7287,
+    "sha256": "a5c0ded8b731f3304183db02529398fd6887ccc28195acab886aceb56ff79994"
+  },
+  "failure": {
+    "path": "provenance/chapter03-median-counterfamily-focused-attempt1-20261104/full.log",
+    "bytes": 5313,
+    "sha256": "e2f57ac28c2afff81dac5ee7aabbdf3c115903375e4fd713d2adc28070d26194",
+    "actual_exit": 1,
+    "owned_session": 91289,
+    "terminal": "6f6c51",
+    "root_closed_readback": "a26677",
+    "author_complete_log_terminal_closure_readback": "52de5e"
+  },
+  "diagnostics": [
+    "mem_fullBlocks_length: each membership rewrite leaves the concrete lowBlock.length=5 or highBlock.length=5 goal; explicit reflexivity is required.",
+    "family_lengths_strictMono: its lambda applications have not beta-reduced when family_length rewriting is attempted.",
+    "chunkMedians_family: bare List.attach_map_val cannot infer the list/function instantiation."
+  ],
+  "correction_scope": "Three proof bodies only: restore explicit rfl in both block-size cases, change the strict-monotonicity goal to applied lengths, and give attach_map_val its exact list and headD function. All42 headers, definitions, imports, cases and other13 source files stay unchanged.",
+  "historical_precommit_note": "The original static precommit review removed two rfl steps under an incorrect assumption that rw would close the concrete lengths. That record remains preserved; the actual focused compiler evidence now corrects it.",
+  "examples_status": "Not built because core failed. No new source mathematical failure or successful whole pair claimed.",
+  "author_compiler_execution": false,
+  "full_chapter_rows": 83
+}

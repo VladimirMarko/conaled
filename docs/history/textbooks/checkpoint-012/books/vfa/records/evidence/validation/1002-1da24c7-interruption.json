@@ -1,0 +1,44 @@
+{
+  "candidate": "1da24c77d10fe03296dbf117e4249283139f5021",
+  "superseding_ticket": 1026,
+  "reason": "Actual DiagnosticGraph elaboration failed because the finite product instance was not imported. Preserve failure and completed independent outputs; restart after explicit Fintype.Prod import correction. No stale-artifact inference.",
+  "checked_utc": "2026-11-02T10:54:36.687694+00:00",
+  "primary_record": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-1da24c7.run.json",
+  "signal_sent": true,
+  "verified_leader_command": [
+    "python3",
+    "scripts/check.py",
+    "--candidate",
+    "HEAD"
+  ],
+  "verified_start_delta_seconds": -0.4004650115966797,
+  "verified_group_members": [
+    {
+      "pid": 270340,
+      "state": "S",
+      "cwd": "/workspace/scratch/0c54f2db1fdf/vfa-validation"
+    },
+    {
+      "pid": 270683,
+      "state": "S",
+      "cwd": "/workspace/scratch/0c54f2db1fdf/vfa-validation"
+    },
+    {
+      "pid": 281083,
+      "state": "S",
+      "cwd": "/workspace/scratch/0c54f2db1fdf/vfa-validation"
+    }
+  ],
+  "process_group": 270340,
+  "signal": "SIGINT",
+  "failure_record": "work-state/validation/1026-diagnostic-product-correction.json",
+  "signal_utc": "2026-11-02T10:54:36.688018+00:00",
+  "raw_returncode": -2,
+  "interactive_wrapper_exit_code": 130,
+  "finished_utc": "2026-11-02T10:54:36.775999+00:00",
+  "all_group_members_inactive_verified_utc": "2026-11-02T10:54:51.006550+00:00",
+  "remaining_active_group_members": [],
+  "retained_project_olean_count": 446,
+  "artifact_count_caveat": "Existence only; ordinary guard and Lake input tracking remain required. An actual source import failure occurred before this deliberate interruption.",
+  "superseding_candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec"
+}

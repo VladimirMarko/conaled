@@ -1,0 +1,45 @@
+{
+  "recorded_utc": "2026-11-04T13:24:43.818578+00:00",
+  "base": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+  "candidate": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+  "reports_fully_read": [
+    {
+      "lines": 94,
+      "path": "reviews/permutation-placement-standards-preparation-20261104.md",
+      "bytes": 23981,
+      "sha256": "120b53767cb488f53c50bfb6f70ed39d825b8e6d1236087da68b8884ae0782a2"
+    },
+    {
+      "lines": 116,
+      "path": "reviews/permutation-placement-spec-preparation-20261104.md",
+      "bytes": 25474,
+      "sha256": "3d5a62d33a2f71ae0ca59b9f62b6cbc011d20e77a6092f525f2d6fe5a63b9999"
+    }
+  ],
+  "complete_179_rows_reconciled": true,
+  "all_names_kinds_positions_visibility_headers_raw_hashes_and_newness_match": true,
+  "header_convention": "Both inventories include the same one terminal LF; no normalization or correction needed.",
+  "all_eight_source_hashes_match_both_axes_and_immutable_Git": true,
+  "source_verification_tool_chunk": "b20b3e",
+  "protected_prior_records_checked_unchanged": 122,
+  "two_complete_original_correction_diffs_read": true,
+  "different_diff_hashes_reason": "Same two source changes, different contextual line counts and labels; original records retained.",
+  "retained_findings": {
+    "XU06-BC01": "Implemented and independently source-rechecked; actual compiler/final confirmation pending.",
+    "XU06-BC02": "Implemented and independently source-rechecked; actual compiler/final confirmation pending."
+  },
+  "source_public_names": 138,
+  "new_public_names": 111,
+  "retained_public_names": 27,
+  "private_theorems": 25,
+  "anonymous_local_instances": 16,
+  "both_overall_outcomes": "Blocked",
+  "new_concrete_source_findings": 0,
+  "actual_type_compiler_audit_acceptance_credit": 0,
+  "program": {
+    "path": "provenance/permutation-placement-public-statements138-prepared-20261104/Statements.lean",
+    "bytes": 9674,
+    "sha256": "6ccf609779a9940a9e2f5be20c511007ec15d0d50bae66fda21907c2962b977e"
+  },
+  "future_predecessors": "Retain all accepted Minimum/Order/Tail/Expectation/Joint corrections and imported Expectation fixtures; append only the declared XU06 sections to corrected cores."
+}

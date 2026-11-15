@@ -1,0 +1,691 @@
+{
+  "recorded_utc": "2026-11-04T19:59:12.645149+00:00",
+  "baseline": "759589ec63d359231330f732b42c96591a53325e",
+  "protected_baseline_sources_unchanged": true,
+  "protected_prior_records_unchanged": true,
+  "files": [
+    {
+      "path": "Applications/Resources/Chunks.lean",
+      "bytes": 4591,
+      "sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc",
+      "namespace": "Resources.Chunks",
+      "public_names": 13,
+      "definitions": 1,
+      "theorems": 12,
+      "private_named": 0,
+      "anonymous_instances": 0,
+      "anonymous_examples": 0
+    },
+    {
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "bytes": 9455,
+      "sha256": "e4a5a47540716c68306f286b61deb01c6035ae4771ea03c5eb6b9de38dbf28ff",
+      "namespace": "Resources.SelectionMedians",
+      "public_names": 28,
+      "definitions": 3,
+      "theorems": 25,
+      "private_named": 0,
+      "anonymous_instances": 0,
+      "anonymous_examples": 0
+    },
+    {
+      "path": "Examples/ChunkCalls.lean",
+      "bytes": 2730,
+      "sha256": "ca79f35fe846399bcb180d9b8fbd63fa453108c59c4503adb8a5731182fdc5e3",
+      "namespace": "Examples.ChunkCalls",
+      "public_names": 11,
+      "definitions": 0,
+      "theorems": 11,
+      "private_named": 0,
+      "anonymous_instances": 0,
+      "anonymous_examples": 0
+    },
+    {
+      "path": "Examples/SelectionMedians.lean",
+      "bytes": 5134,
+      "sha256": "50220acbaa05668898e5a412a86dc13099d0987ede7d3a45120058cd59a18dd0",
+      "namespace": "Examples.SelectionMedians",
+      "public_names": 16,
+      "definitions": 0,
+      "theorems": 16,
+      "private_named": 0,
+      "anonymous_instances": 0,
+      "anonymous_examples": 0
+    }
+  ],
+  "explicit_public_total": 68,
+  "definitions": 4,
+  "theorems": 64,
+  "private_named": 0,
+  "anonymous_instances": 0,
+  "anonymous_examples": 0,
+  "declarations": [
+    {
+      "name": "Resources.Chunks.chopRun",
+      "kind": "def",
+      "path": "Applications/Resources/Chunks.lean",
+      "line": 19,
+      "source_header": "def chopRun : (d : Nat) → List α → Measured (List (List α)) Nat",
+      "statement_assessment": "Actual positive/nonempty recursion evaluates separate measured take and drop, recurses on the returned drop value, and adds one entry. Size zero and empty each cost one; list length decreases independently of any cost or correctness premise.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.Chunks.chopRun_zero",
+      "kind": "theorem",
+      "path": "Applications/Resources/Chunks.lean",
+      "line": 32,
+      "source_header": "theorem chopRun_zero (xs : List α) : chopRun 0 xs = ([], 1)",
+      "statement_assessment": "Size zero returns an empty list for every input with exactly one entry, matching the source convention.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.Chunks.chopRun_nil",
+      "kind": "theorem",
+      "path": "Applications/Resources/Chunks.lean",
+      "line": 35,
+      "source_header": "theorem chopRun_nil (d : Nat) : chopRun d ([] : List α) = ([], 1)",
+      "statement_assessment": "Empty input costs one at every group size, including zero and uninhabited payload types.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.Chunks.chopRun_eq_cons",
+      "kind": "theorem",
+      "path": "Applications/Resources/Chunks.lean",
+      "line": 39,
+      "source_header": "theorem chopRun_eq_cons (d : Nat) (xs : List α) (hd : 0 < d) (hx : xs ≠ []) :\n    chopRun d xs =\n      (xs.take d :: (chopRun d (xs.drop d)).1,\n        (ListCalls.takeRun d xs).2 + (ListCalls.dropRun d xs).2 +\n          (chopRun d (xs.drop d)).2 + 1)",
+      "statement_assessment": "With positive size and nonempty input, the returned head is take d and the tail is the recursive execution on drop d; both primitive counts and one source entry are included.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.Chunks.chopRun_value",
+      "kind": "theorem",
+      "path": "Applications/Resources/Chunks.lean",
+      "line": 53,
+      "source_header": "theorem chopRun_value (d : Nat) (xs : List α) : (chopRun d xs).1 = chop d xs",
+      "statement_assessment": "For every natural size and arbitrary payload list, returned chunks equal the existing splitLengths value adapter. Recursive proof uses strictly shorter drops, not an assumed cost or value law.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.Chunks.chopRun_cost",
+      "kind": "theorem",
+      "path": "Applications/Resources/Chunks.lean",
+      "line": 68,
+      "source_header": "theorem chopRun_cost (d : Nat) (xs : List α) (hd : 0 < d) :\n    (chopRun d xs).2 = 2 * xs.length + 3 * (xs.length ⌈/⌉ d) + 1",
+      "statement_assessment": "For positive d and n input occurrences, the exact cost is 2*n+3*ceil(n/d)+1. Both traversals sum to 2*n; two primitive base entries plus one chopping entry occur per chunk; the final empty call contributes one.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.Chunks.chopRun_exact",
+      "kind": "theorem",
+      "path": "Applications/Resources/Chunks.lean",
+      "line": 87,
+      "source_header": "theorem chopRun_exact (d : Nat) (xs : List α) (hd : 0 < d) :\n    chopRun d xs = (chop d xs, 2 * xs.length + 3 * (xs.length ⌈/⌉ d) + 1)",
+      "statement_assessment": "Conjoins the independently established actual value and exact positive-size cost; it does not define an execution by a specification-cost pair.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.Chunks.chopRun_cost_bound",
+      "kind": "theorem",
+      "path": "Applications/Resources/Chunks.lean",
+      "line": 92,
+      "source_header": "theorem chopRun_cost_bound (d : Nat) (xs : List α) :\n    (chopRun d xs).2 ≤ 5 * xs.length + 1",
+      "statement_assessment": "The uniform bound 5*n+1 uses ceil(n/d)≤n for positive d and handles size zero separately; it imposes no order or distinctness requirement.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.Chunks.chopRun_one_cost",
+      "kind": "theorem",
+      "path": "Applications/Resources/Chunks.lean",
+      "line": 103,
+      "source_header": "theorem chopRun_one_cost (xs : List α) : (chopRun 1 xs).2 = 5 * xs.length + 1",
+      "statement_assessment": "Singleton groups attain the uniform source count 5*n+1, including the empty base.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.Chunks.chopRun_length",
+      "kind": "theorem",
+      "path": "Applications/Resources/Chunks.lean",
+      "line": 107,
+      "source_header": "theorem chopRun_length (d : Nat) (xs : List α) :\n    (chopRun d xs).1.length = xs.length ⌈/⌉ d",
+      "statement_assessment": "Returned chunk count is the existing natural ceiling n ceilDiv d, including the zero-size convention.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.Chunks.chopRun_mem_ne_nil",
+      "kind": "theorem",
+      "path": "Applications/Resources/Chunks.lean",
+      "line": 111,
+      "source_header": "theorem chopRun_mem_ne_nil (d : Nat) (xs ys : List α)\n    (hy : ys ∈ (chopRun d xs).1) : ys ≠ []",
+      "statement_assessment": "Only membership in an actually returned chunk list is required to prove that a reached chunk is nonempty; this supplies the later callback domain.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.Chunks.chopRun_mem_length",
+      "kind": "theorem",
+      "path": "Applications/Resources/Chunks.lean",
+      "line": 116,
+      "source_header": "theorem chopRun_mem_length (d : Nat) (xs ys : List α)\n    (hy : ys ∈ (chopRun d xs).1) : ys.length ≤ d",
+      "statement_assessment": "Each reached chunk has length at most d, retaining the possibly short final chunk.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.Chunks.chopRun_flatten",
+      "kind": "theorem",
+      "path": "Applications/Resources/Chunks.lean",
+      "line": 121,
+      "source_header": "theorem chopRun_flatten (d : Nat) (xs : List α) (hd : 0 < d) :\n    (chopRun d xs).1.flatten = xs",
+      "statement_assessment": "Positive group size is necessary for flattening the returned chunks to recover every original occurrence; no order or no-duplicate premise is introduced.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.slowMedianValueRun",
+      "kind": "def",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 25,
+      "source_header": "def slowMedianValueRun (xs : List α) (hx : xs ≠ []) : Measured α Nat",
+      "statement_assessment": "The adapter evaluates slowMedianRun once, extracts the payload of its actual some branch, and retains its actual count. Nonemptiness makes none impossible; no inhabitant, default value, cleanup traversal, or separately computed specification payload is used.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.slowMedianValueRun_of_some",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 31,
+      "source_header": "theorem slowMedianValueRun_of_some (xs : List α) (hx : xs ≠ []) (a : α)\n    (ha : (slowMedianRun xs).1 = some a) :\n    slowMedianValueRun xs hx = (a, (slowMedianRun xs).2)",
+      "statement_assessment": "Given the actual run value some a, extraction returns exactly a and the same run count. This is an operational correspondence, not a correctness or cost premise used to define the run.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.slowMedianValueRun_of_run",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 36,
+      "source_header": "theorem slowMedianValueRun_of_run (xs : List α) (hx : xs ≠ []) (a : α) (c : Nat)\n    (h : slowMedianRun xs = (some a, c)) : slowMedianValueRun xs hx = (a, c)",
+      "statement_assessment": "A concrete exact optional run transports both value and cost to the payload adapter, enabling reuse of the independently checked finite auxiliary examples.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.slowMedianValueRun_some",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 42,
+      "source_header": "theorem slowMedianValueRun_some (xs : List α) (hx : xs ≠ []) :\n    some (slowMedianValueRun xs hx).1 = (slowMedianRun xs).1",
+      "statement_assessment": "Reinserting the option constructor recovers the actual underlying optional run value for every nonempty input.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.slowMedianValueRun_cost",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 48,
+      "source_header": "theorem slowMedianValueRun_cost (xs : List α) (hx : xs ≠ []) :\n    (slowMedianValueRun xs hx).2 = (slowMedianRun xs).2",
+      "statement_assessment": "The payload adapter preserves the underlying measured cost without adding a wrapper charge under the declared source tariff.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.slowMedianValueRun_ranked",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 54,
+      "source_header": "theorem slowMedianValueRun_ranked (xs : List α) (hx : xs ≠ []) :\n    RankedAt xs ((xs.length - 1) / 2) (slowMedianValueRun xs hx).1",
+      "statement_assessment": "The actual returned payload has the lower occurrence rank (n-1)/2; arbitrary duplicates are retained.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.slowMedianValueRun_mem",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 58,
+      "source_header": "theorem slowMedianValueRun_mem (xs : List α) (hx : xs ≠ []) :\n    (slowMedianValueRun xs hx).1 ∈ xs",
+      "statement_assessment": "The actual payload occurs in its input. This will support a noncircular termination certificate for nested selection.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.slowMedianValueRun_value",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 61,
+      "source_header": "theorem slowMedianValueRun_value (xs : List α) (hx : xs ≠ []) :\n    (slowMedianValueRun xs hx).1 = lowerMedianValue xs hx",
+      "statement_assessment": "Occurrence-rank uniqueness proves correspondence with the existing lowerMedianValue specification after executing the measured algorithm.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.slowMedianValueRun_small_bound",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 65,
+      "source_header": "theorem slowMedianValueRun_small_bound (xs : List α) (hx : xs ≠ [])\n    (hn : xs.length ≤ 5) : (slowMedianValueRun xs hx).2 ≤ 47",
+      "statement_assessment": "For every nonempty list of at most five occurrences, the retained source count is at most 47, including short final chunks.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.mapSlowMedianRun",
+      "kind": "def",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 71,
+      "source_header": "def mapSlowMedianRun (xss : List (List α))\n    (hne : ∀ ys ∈ xss, ys ≠ []) : Measured (List α) Nat",
+      "statement_assessment": "The existing measured map executes the actual payload callback once per reached chunk occurrence. attach is a proof-domain adapter under the source call model; this is not a Lean runtime/allocation bound.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.mapSlowMedianRun_value",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 76,
+      "source_header": "theorem mapSlowMedianRun_value (xss : List (List α))\n    (hne : ∀ ys ∈ xss, ys ≠ []) :\n    (mapSlowMedianRun xss hne).1 =\n      xss.attach.map (fun ys => lowerMedianValue ys.val (hne ys.val ys.property))",
+      "statement_assessment": "The returned list agrees occurrence by occurrence with mapping the existing mathematical lower median over proof-carrying nonempty chunks.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.mapSlowMedianRun_some_values",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 83,
+      "source_header": "theorem mapSlowMedianRun_some_values (xss : List (List α))\n    (hne : ∀ ys ∈ xss, ys ≠ []) :\n    (mapSlowMedianRun xss hne).1.map some = xss.map (fun ys => (slowMedianRun ys).1)",
+      "statement_assessment": "Mapping some over the result observes exactly the underlying optional callback values. The theorem introduces no additional execution pass or cost claim.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.mapSlowMedianRun_length",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 90,
+      "source_header": "theorem mapSlowMedianRun_length (xss : List (List α))\n    (hne : ∀ ys ∈ xss, ys ≠ []) : (mapSlowMedianRun xss hne).1.length = xss.length",
+      "statement_assessment": "One payload is returned for every input chunk occurrence. No filter or deduplication is hidden in the implementation.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.mapSlowMedianRun_cost",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 95,
+      "source_header": "theorem mapSlowMedianRun_cost (xss : List (List α))\n    (hne : ∀ ys ∈ xss, ys ≠ []) :\n    (mapSlowMedianRun xss hne).2 =\n      (xss.map (fun ys => (slowMedianRun ys).2)).sum + xss.length + 1",
+      "statement_assessment": "The exact cost is the sum of actual slowMedianRun costs plus m+1 map entries; it does not assume constant callback work.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.mapSlowMedianRun_bound",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 103,
+      "source_header": "theorem mapSlowMedianRun_bound (xss : List (List α))\n    (hne : ∀ ys ∈ xss, ys ≠ []) (d : Nat)\n    (hlen : ∀ ys ∈ xss, ys.length ≤ d) :\n    (mapSlowMedianRun xss hne).2 ≤ (d ^ 2 + 4 * d + 3) * xss.length + 1",
+      "statement_assessment": "If every reached chunk has length at most d, actual cost is at most (d^2+4*d+3)*m+1. The bound follows from actual callback costs and monotonicity of the polynomial on naturals.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.mapSlowMedianRun_small_bound",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 124,
+      "source_header": "theorem mapSlowMedianRun_small_bound (xss : List (List α))\n    (hne : ∀ ys ∈ xss, ys ≠ []) (hlen : ∀ ys ∈ xss, ys.length ≤ 5) :\n    (mapSlowMedianRun xss hne).2 ≤ 48 * xss.length + 1",
+      "statement_assessment": "The general group bound specializes to 48*m+1 for nonempty chunks of size at most five.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.mapSlowMedianRun_chop_five_bound",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 131,
+      "source_header": "theorem mapSlowMedianRun_chop_five_bound (xs : List α) :\n    (mapSlowMedianRun (chop 5 xs) (chop_mem_ne_nil 5 xs)).2 ≤ 10 * xs.length + 48",
+      "statement_assessment": "For the actual size-five chunk list, natural-ceiling arithmetic gives the source bound 10*n+48, including empty input and partial final groups.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun",
+      "kind": "def",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 140,
+      "source_header": "def chunkMediansRun (d : Nat) (xs : List α) : Measured (List α) Nat",
+      "statement_assessment": "The nonrecursive composition executes actual chopping once and actual median mapping on its returned chunks. The total is the sum of these actual observations, with no extra wrapper entry.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_value",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 146,
+      "source_header": "theorem chunkMediansRun_value (d : Nat) (xs : List α) :\n    (chunkMediansRun d xs).1 = chunkMedians d xs",
+      "statement_assessment": "The actual prepared payload list agrees with the already specified chunkMedians for every d and xs; this does not substitute a specification computation for execution.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_some_values",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 151,
+      "source_header": "theorem chunkMediansRun_some_values (d : Nat) (xs : List α) :\n    (chunkMediansRun d xs).1.map some = (chop d xs).map (fun ys => (slowMedianRun ys).1)",
+      "statement_assessment": "An optional observation of the actual prepared payloads connects each to the underlying measured slow median on the corresponding source chunk.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_cost_split",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 156,
+      "source_header": "theorem chunkMediansRun_cost_split (d : Nat) (xs : List α) :\n    (chunkMediansRun d xs).2 = (Resources.Chunks.chopRun d xs).2 +\n      (mapSlowMedianRun (chop d xs) (chop_mem_ne_nil d xs)).2",
+      "statement_assessment": "Exact total count is actual chopping plus actual map on the corresponding returned/source chunks, with proof irrelevance only in domain certificates.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_cost",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 161,
+      "source_header": "theorem chunkMediansRun_cost (d : Nat) (xs : List α) :\n    (chunkMediansRun d xs).2 = (Resources.Chunks.chopRun d xs).2 +\n      ((chop d xs).map (fun ys => (slowMedianRun ys).2)).sum + (xs.length ⌈/⌉ d) + 1",
+      "statement_assessment": "For every size, the total equals actual chopping plus the callback sum plus ceil(n/d)+1 map calls.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_cost_positive",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 167,
+      "source_header": "theorem chunkMediansRun_cost_positive (d : Nat) (xs : List α) (hd : 0 < d) :\n    (chunkMediansRun d xs).2 = 2 * xs.length + 4 * (xs.length ⌈/⌉ d) +\n      ((chop d xs).map (fun ys => (slowMedianRun ys).2)).sum + 2",
+      "statement_assessment": "For positive d, the closed expression 2*n+4*ceil(n/d)+sum(actual callback costs)+2 accounts for both primitive traversals and both terminal bases.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_length",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 173,
+      "source_header": "theorem chunkMediansRun_length (d : Nat) (xs : List α) :\n    (chunkMediansRun d xs).1.length = xs.length ⌈/⌉ d",
+      "statement_assessment": "The actual prepared list has precisely ceil(n/d) entries, rather than a floor or a deduplicated count.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_eq_nil_iff",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 177,
+      "source_header": "theorem chunkMediansRun_eq_nil_iff (d : Nat) (xs : List α) :\n    (chunkMediansRun d xs).1 = [] ↔ d = 0 ∨ xs = []",
+      "statement_assessment": "The actual prepared list is empty exactly when size is zero or input is empty; neither requires an arbitrary payload inhabitant.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_mem",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 181,
+      "source_header": "theorem chunkMediansRun_mem (d : Nat) (xs : List α) (a : α)\n    (ha : a ∈ (chunkMediansRun d xs).1) : a ∈ xs",
+      "statement_assessment": "Every prepared payload belongs to the original input, through its reached chunk; this is a future nested-selector membership bridge.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_bound",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 186,
+      "source_header": "theorem chunkMediansRun_bound (d : Nat) (xs : List α) :\n    (chunkMediansRun d xs).2 ≤\n      5 * xs.length + (d ^ 2 + 4 * d + 3) * (xs.length ⌈/⌉ d) + 2",
+      "statement_assessment": "The bound retains d for generalized grouping: 5*n+(d^2+4*d+3)*ceil(n/d)+2. It covers size zero explicitly through the actual source execution.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Resources.SelectionMedians.chunkMediansRun_five_bound",
+      "kind": "theorem",
+      "path": "Applications/Resources/SelectionMedians.lean",
+      "line": 196,
+      "source_header": "theorem chunkMediansRun_five_bound (xs : List α) :\n    (chunkMediansRun 5 xs).2 ≤ 15 * xs.length + 49",
+      "statement_assessment": "The book preparation bound 15*n+49 combines actual chop ≤5*n+1 and actual map ≤10*n+48; later full selector toll still requires its own execution proof.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.ChunkCalls.empty_payload",
+      "kind": "theorem",
+      "path": "Examples/ChunkCalls.lean",
+      "line": 13,
+      "source_header": "theorem empty_payload (d : Nat) : chopRun d ([] : List (Fin 0)) = ([], 1)",
+      "statement_assessment": "For every d, the empty list of Fin 0 has exact result ([],1), showing no payload inhabitant is required.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.ChunkCalls.zero_size",
+      "kind": "theorem",
+      "path": "Examples/ChunkCalls.lean",
+      "line": 16,
+      "source_header": "theorem zero_size : chopRun 0 ([7, 2, 4] : List Nat) = ([], 1)",
+      "statement_assessment": "For nonempty [7,2,4], d=0 returns ([],1) without traversing or selecting a value.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.ChunkCalls.singleton_chunks",
+      "kind": "theorem",
+      "path": "Examples/ChunkCalls.lean",
+      "line": 19,
+      "source_header": "theorem singleton_chunks :\n    chopRun 1 ([7, 2, 4] : List Nat) = ([[7], [2], [4]], 16)",
+      "statement_assessment": "For d=1 and [7,2,4], independently expected chunks [[7],[2],[4]] and cost16 exercise the tight uniform bound.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.ChunkCalls.short_final_chunk",
+      "kind": "theorem",
+      "path": "Examples/ChunkCalls.lean",
+      "line": 27,
+      "source_header": "theorem short_final_chunk :\n    chopRun 2 ([7, 2, 4] : List Nat) = ([[7, 2], [4]], 13)",
+      "statement_assessment": "For d=2 and [7,2,4], independently expected [[7,2],[4]] and cost13 retain the singleton final group.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.ChunkCalls.oversized_group",
+      "kind": "theorem",
+      "path": "Examples/ChunkCalls.lean",
+      "line": 32,
+      "source_header": "theorem oversized_group :\n    chopRun 10 ([7, 2, 4] : List Nat) = ([[7, 2, 4]], 10)",
+      "statement_assessment": "For d=10 and [7,2,4], independently expected single original chunk and cost10 test d greater than input length.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.ChunkCalls.first_recursive_size",
+      "kind": "theorem",
+      "path": "Examples/ChunkCalls.lean",
+      "line": 37,
+      "source_header": "theorem first_recursive_size :\n    chopRun 5 (List.range 21) =\n      ([[0, 1, 2, 3, 4], [5, 6, 7, 8, 9], [10, 11, 12, 13, 14],\n        [15, 16, 17, 18, 19], [20]], 58)",
+      "statement_assessment": "For d=5 and range21, four full chunks plus [20] cost58; this is the first input length above the book cutoff, not yet an implemented nested selector.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.ChunkCalls.both_traversals_are_charged",
+      "kind": "theorem",
+      "path": "Examples/ChunkCalls.lean",
+      "line": 46,
+      "source_header": "theorem both_traversals_are_charged :\n    (Resources.ListCalls.takeRun 2 ([7, 2, 4] : List Nat)).2 = 3 ∧\n      (Resources.ListCalls.dropRun 2 ([7, 2, 4] : List Nat)).2 = 3 ∧\n      (chopRun 2 ([7, 2, 4] : List Nat)).2 = 13",
+      "statement_assessment": "At the d=2 first step, take and drop each cost3 while the complete chopping costs13. The case consumes their actual public measured laws.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.ChunkCalls.fused_first_step_is_not_source_count",
+      "kind": "theorem",
+      "path": "Examples/ChunkCalls.lean",
+      "line": 56,
+      "source_header": "theorem fused_first_step_is_not_source_count :\n    (Resources.SymmetricCosts.splitRun 2 ([7, 2, 4] : List Nat)).2 +\n        (chopRun 2 ([4] : List Nat)).2 + 1 = 10 ∧\n      (chopRun 2 ([7, 2, 4] : List Nat)).2 ≠ 10",
+      "statement_assessment": "Precisely replacing only the first pair by one split gives3+6+1=10, while source chopping costs13. It is not a claim that a fully fused alternative costs10.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.ChunkCalls.no_occurrence_is_lost",
+      "kind": "theorem",
+      "path": "Examples/ChunkCalls.lean",
+      "line": 64,
+      "source_header": "theorem no_occurrence_is_lost {α : Type u} (d : Nat) (xs : List α) (hd : 0 < d) :\n    (chopRun d xs).1.flatten = xs",
+      "statement_assessment": "The generic positive-size flatten correspondence applies to all payload types and lists, including duplicates.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.ChunkCalls.reached_chunks_are_valid",
+      "kind": "theorem",
+      "path": "Examples/ChunkCalls.lean",
+      "line": 67,
+      "source_header": "theorem reached_chunks_are_valid {α : Type u} (d : Nat) (xs ys : List α)\n    (hy : ys ∈ (chopRun d xs).1) : ys ≠ [] ∧ ys.length ≤ d",
+      "statement_assessment": "A chunk reached by the actual run simultaneously satisfies nonemptiness and the size cap needed by the median-map callback.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.ChunkCalls.arbitrary_group_budget",
+      "kind": "theorem",
+      "path": "Examples/ChunkCalls.lean",
+      "line": 71,
+      "source_header": "theorem arbitrary_group_budget {α : Type u} (d : Nat) (xs : List α) :\n    (chopRun d xs).2 ≤ 5 * xs.length + 1",
+      "statement_assessment": "The uniform source budget is applied without order or positive-size assumptions; zero and empty cases remain covered.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.SelectionMedians.lower_even_payload",
+      "kind": "theorem",
+      "path": "Examples/SelectionMedians.lean",
+      "line": 17,
+      "source_header": "theorem lower_even_payload :\n    slowMedianValueRun ([7, 2] : List Nat) (by decide) = (2, 10)",
+      "statement_assessment": "The existing checked optional run on [7,2] transports to payload2 and cost10; this selects the lower occurrence for an even-sized chunk.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.SelectionMedians.duplicate_payload",
+      "kind": "theorem",
+      "path": "Examples/SelectionMedians.lean",
+      "line": 21,
+      "source_header": "theorem duplicate_payload :\n    slowMedianValueRun ([4, 4] : List Nat) (by decide) = (4, 9)",
+      "statement_assessment": "The existing checked [4,4] run transports to payload4 and cost9, retaining occurrence semantics.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.SelectionMedians.payload_rank_and_budget",
+      "kind": "theorem",
+      "path": "Examples/SelectionMedians.lean",
+      "line": 25,
+      "source_header": "theorem payload_rank_and_budget {α : Type u} [LinearOrder α]\n    (xs : List α) (hx : xs ≠ []) (hn : xs.length ≤ 5) :\n    RankedAt xs ((xs.length - 1) / 2) (slowMedianValueRun xs hx).1 ∧\n      (slowMedianValueRun xs hx).1 ∈ xs ∧ (slowMedianValueRun xs hx).2 ≤ 47",
+      "statement_assessment": "For any ordered payload type and any nonempty chunk of size≤5, the actual payload has the specified lower rank, is a member, and costs≤47.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.SelectionMedians.empty_payload_map",
+      "kind": "theorem",
+      "path": "Examples/SelectionMedians.lean",
+      "line": 32,
+      "source_header": "theorem empty_payload_map :\n    mapSlowMedianRun ([] : List (List (Fin 0))) (by simp) = ([], 1)",
+      "statement_assessment": "An empty list of Fin 0 chunks maps to ([],1), with the nonemptiness domain vacuous and no default payload.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.SelectionMedians.two_chunk_map",
+      "kind": "theorem",
+      "path": "Examples/SelectionMedians.lean",
+      "line": 42,
+      "source_header": "theorem two_chunk_map :\n    mapSlowMedianRun ([[7, 2], [4, 4]] : List (List Nat))\n      (by\n        intro ys hy\n        simp only [List.mem_cons, List.mem_singleton] at hy\n        rcases hy with rfl | rfl <;> decide) = ([2, 4], 22)",
+      "statement_assessment": "For actual chunks [7,2] and [4,4], payloads [2,4] and cost10+9+3=22 reuse the checked auxiliary results.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.SelectionMedians.empty_chunk_preparation",
+      "kind": "theorem",
+      "path": "Examples/SelectionMedians.lean",
+      "line": 59,
+      "source_header": "theorem empty_chunk_preparation :\n    chunkMediansRun 5 ([] : List (Fin 0)) = ([], 2)",
+      "statement_assessment": "Empty Fin 0 input costs exactly2: one chop base and one map base.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.SelectionMedians.zero_size_preparation",
+      "kind": "theorem",
+      "path": "Examples/SelectionMedians.lean",
+      "line": 66,
+      "source_header": "theorem zero_size_preparation :\n    chunkMediansRun 0 ([7, 2, 4] : List Nat) = ([], 2)",
+      "statement_assessment": "Size zero on [7,2,4] produces no medians and costs exactly2, connecting both zero/base executions.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.SelectionMedians.two_full_chunks",
+      "kind": "theorem",
+      "path": "Examples/SelectionMedians.lean",
+      "line": 73,
+      "source_header": "theorem two_full_chunks : chunkMediansRun 5 (List.range 10) = ([2, 7], 70)",
+      "statement_assessment": "For range10 grouped by5, prior checked mathematical values [2,7] agree with actual preparation; exact cost27+43=70.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.SelectionMedians.short_final_chunk",
+      "kind": "theorem",
+      "path": "Examples/SelectionMedians.lean",
+      "line": 79,
+      "source_header": "theorem short_final_chunk : chunkMediansRun 5 (List.range 7) = ([2, 5], 53)",
+      "statement_assessment": "For range7 grouped by5, prior checked [2,5] values and exact cost21+32=53 preserve the final two-element chunk.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.SelectionMedians.duplicate_occurrences",
+      "kind": "theorem",
+      "path": "Examples/SelectionMedians.lean",
+      "line": 85,
+      "source_header": "theorem duplicate_occurrences :\n    chunkMediansRun 5 (List.replicate 6 4) = ([4, 4], 48)",
+      "statement_assessment": "For six repeated fours, prior checked [4,4] values and cost19+29=48 demonstrate that equal medians remain separate occurrences.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.SelectionMedians.first_recursive_size",
+      "kind": "theorem",
+      "path": "Examples/SelectionMedians.lean",
+      "line": 92,
+      "source_header": "theorem first_recursive_size :\n    chunkMediansRun 5 (List.range 21) = ([2, 7, 12, 17, 20], 150)",
+      "statement_assessment": "For range21 grouped by5, actual payload observation gives [2,7,12,17,20] and exact preparation cost58+92=150.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.SelectionMedians.first_recursive_map_count",
+      "kind": "theorem",
+      "path": "Examples/SelectionMedians.lean",
+      "line": 102,
+      "source_header": "theorem first_recursive_map_count :\n    (mapSlowMedianRun (chop 5 (List.range 21))\n      (chop_mem_ne_nil 5 (List.range 21))).2 = 92",
+      "statement_assessment": "The actual range21 map has four callbacks costing20, one costing6, and six map entries, giving92.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.SelectionMedians.prepared_pivot_membership",
+      "kind": "theorem",
+      "path": "Examples/SelectionMedians.lean",
+      "line": 108,
+      "source_header": "theorem prepared_pivot_membership {α : Type u} [LinearOrder α]\n    (d : Nat) (xs : List α) (a : α) (ha : a ∈ (chunkMediansRun d xs).1) : a ∈ xs",
+      "statement_assessment": "An arbitrary payload selected from the actual prepared list is an original-input member; no order-statistic or cost conclusion is assumed.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.SelectionMedians.general_group_preparation",
+      "kind": "theorem",
+      "path": "Examples/SelectionMedians.lean",
+      "line": 112,
+      "source_header": "theorem general_group_preparation {α : Type u} [LinearOrder α]\n    (d : Nat) (xs : List α) :\n    (chunkMediansRun d xs).1.length = xs.length ⌈/⌉ d ∧\n      (chunkMediansRun d xs).2 ≤\n        5 * xs.length + (d ^ 2 + 4 * d + 3) * (xs.length ⌈/⌉ d) + 2",
+      "statement_assessment": "The parameterized preparation exposes both actual ceiling count and group-dependent cost bound for the later generalized-group assignment.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.SelectionMedians.book_map_budget",
+      "kind": "theorem",
+      "path": "Examples/SelectionMedians.lean",
+      "line": 119,
+      "source_header": "theorem book_map_budget {α : Type u} [LinearOrder α] (xs : List α) :\n    (mapSlowMedianRun (chop 5 xs) (chop_mem_ne_nil 5 xs)).2 ≤ 10 * xs.length + 48",
+      "statement_assessment": "The actual five-group map consumes the 10*n+48 source bound for arbitrary ordered lists and duplicates.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    },
+    {
+      "name": "Examples.SelectionMedians.book_preparation_budget",
+      "kind": "theorem",
+      "path": "Examples/SelectionMedians.lean",
+      "line": 123,
+      "source_header": "theorem book_preparation_budget {α : Type u} [LinearOrder α] (xs : List α) :\n    (chunkMediansRun 5 xs).2 ≤ 15 * xs.length + 49",
+      "statement_assessment": "The actual combined preparation consumes15*n+49. No complete selector or F domination is asserted here.",
+      "status": "Source-level statement assessment complete; elaboration and actual explicit type assessment remain pending root."
+    }
+  ],
+  "type_preparation": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-mom-execution-implementation-20261104/chop-map-slice1-20261104/ChopMapStatements68-candidate1.lean",
+    "bytes": 4076,
+    "sha256": "3e1de6e46c407771794f4b315b2c8836e35d5c9cc141d4ca167a554d5a2fd4ac",
+    "names": 68,
+    "executed": false
+  },
+  "source_complete_reads": {
+    "resources": "0da72f (both complete); one subsequent measure-binder name change d to _ is explicit in the patch and read separately before commit",
+    "examples": "afbe2e (both complete, including corrected first-step fused comparison)"
+  },
+  "actual_type_credit": 0,
+  "compiler_calls_by_author": 0,
+  "full_candidate_validation": false,
+  "independent_review_status": "Existing full Chapter3 scope remains open; this is an author statement assessment and preparation only."
+}

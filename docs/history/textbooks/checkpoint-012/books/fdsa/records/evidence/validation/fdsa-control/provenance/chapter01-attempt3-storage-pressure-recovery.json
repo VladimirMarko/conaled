@@ -1,0 +1,19 @@
+{
+  "observed_utc": "2026-11-02T22:50:14.804324+00:00",
+  "phase": "completed",
+  "free_bytes_before": 0,
+  "selected_saved_duplicate": "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0054-chapter01-session-recovery.tar.gz",
+  "size_bytes": 74506205,
+  "sha256": "a8ebb8440a86730053538746e732d14febb63d661bd024376eba393a6294f0b2",
+  "saved_receipt": "libfile_ec03fe0e3c68819181acaad8bbc6e184",
+  "latest_complete_saved_checkpoint": "conaled-fdsa-0055-ordered-search-scope",
+  "latest_library_file_id": "libfile_67c639b745dc8191804635de32bea2af",
+  "reason": "Workspace free bytes observed at zero; release only verified older saved duplicate. No source, build/cache, Git ref or protected baseline archive removal.",
+  "pre_mutation_record": "Printed with flush to tool output before unlink; durable journal created immediately after space is available.",
+  "removed": [
+    "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0054-chapter01-session-recovery.tar.gz",
+    "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0054-chapter01-session-recovery.tar.gz.sha256"
+  ],
+  "completed_utc": "2026-11-02T22:50:14.818258+00:00",
+  "free_bytes_after": 42704896
+}

@@ -1,0 +1,75 @@
+{
+  "recorded_utc": "2026-11-04T06:50:44.402141+00:00",
+  "component_base": "0ec9954479b081664bd4504c90fb66fba5fd22c8",
+  "whole_chapter_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "complete_source_and_proof_readback": true,
+  "assessment_kind": "Implementation-author static source/statement assessment, not elaborated-type evidence or an independent review axis",
+  "public_declarations": 9,
+  "files": [
+    {
+      "path": "Applications/Sorting/Uniqueness.lean",
+      "bytes": 1999,
+      "lines": 44,
+      "sha256": "e0df544f59be358a3e40ad48f25115ae2ba3b4507a30cdeb3425907bf94c8744",
+      "declarations": [
+        {
+          "name": "Applications.Sorting.sorters_eq_at",
+          "source_header": "theorem sorters_eq_at (r : α → α → Prop) [Std.Antisymm r]\n    (f g : List α → List α) (xs : List α)\n    (hf : (f xs).Pairwise r ∧ (f xs).Perm xs)\n    (hg : (g xs).Pairwise r ∧ (g xs).Perm xs) : f xs = g xs",
+          "assessment": "Arbitrary Type u, Prop-valued relation and arbitrary list functions; only Std.Antisymm r. Hypotheses concern the actual two returned lists at the supplied input. Perm composition is f(xs) ~ xs ~ g(xs), followed by standard list uniqueness. No universal sorter existence is asserted for a non-total relation."
+        },
+        {
+          "name": "Applications.Sorting.sorters_eq",
+          "source_header": "theorem sorters_eq (r : α → α → Prop) [Std.Antisymm r]\n    (f g : List α → List α)\n    (hf : ∀ xs, (f xs).Pairwise r ∧ (f xs).Perm xs)\n    (hg : ∀ xs, (g xs).Pairwise r ∧ (g xs).Perm xs) : f = g",
+          "assessment": "Both correctness specifications quantify over every List α before the function-equality conclusion. Uses the local public theorem at each input and funext. No stability, decisibility, totality, transitivity, payload equality/default or execution/cost contract is introduced."
+        },
+        {
+          "name": "Applications.Sorting.sorters_eq_of_multiset",
+          "source_header": "theorem sorters_eq_of_multiset (r : α → α → Prop) [Std.Antisymm r]\n    (f g : List α → List α)\n    (hf : ∀ xs, (f xs).Pairwise r ∧ (f xs : Multiset α) = (xs : Multiset α))\n    (hg : ∀ xs, (g xs).Pairwise r ∧ (g xs : Multiset α) = (xs : Multiset α)) :\n    f = g",
+          "assessment": "Literal source preservation equality is on full Multiset α, not support or cardinality. Each equality converts through the standard iff to Perm; then the universal public result gives function equality. Any input specialization follows with congrFun."
+        }
+      ]
+    },
+    {
+      "path": "Examples/SortUniqueness.lean",
+      "bytes": 3903,
+      "lines": 87,
+      "sha256": "ce63cd0d8a953f9441b9b6b1597f9a3604ef736131290cba8c0430c36cd177b7",
+      "declarations": [
+        {
+          "name": "Examples.SortUniqueness.first_pivot_eq_floor",
+          "source_header": "theorem first_pivot_eq_floor [LinearOrder α] :\n    quickSortOn (id : α → α) = sortFloorOn (id : α → α)",
+          "assessment": "Every LinearOrder element type in Type u; the actual independently defined first-pivot and floor-left source algorithms supply universal sortedness and occurrence witnesses. Their equality is a value-function result only."
+        },
+        {
+          "name": "Examples.SortUniqueness.three_way_eq_floor",
+          "source_header": "theorem three_way_eq_floor [LinearOrder α] :\n    (threeWayQuickSort : List α → List α) = sortFloorOn (id : α → α)",
+          "assessment": "Actual three-tail-filter source sorter versus actual contiguous floor-left sorter. Uses the public multiset theorem and floor permutation observation in the new multiset interface. No distinctness premise; all pivot/equal occurrences remain."
+        },
+        {
+          "name": "Examples.SortUniqueness.floor_mixed_duplicates",
+          "source_header": "theorem floor_mixed_duplicates :\n    sortFloorOn (id : Nat → Nat) [2, 3, 1, 2, 0, 3, 2, 1] =\n      [0, 1, 1, 2, 2, 2, 3, 3]",
+          "assessment": "Exact retained input [2,3,1,2,0,3,2,1] and independent expected output [0,1,1,2,2,2,3,3]. The public new function equality transfers the previously checked mixed_value; no expected value is invented or changed."
+        },
+        {
+          "name": "Examples.SortUniqueness.reverse_eq_of_equal",
+          "source_header": "theorem reverse_eq_of_equal (xs : List α)\n    (hs : xs.Pairwise (fun a b => a = b)) : xs.reverse = xs",
+          "assessment": "Generic payload Type u with no instances. An explicit local equality-relation antisymmetry value is declared with ordinary let, following the pinned linter guidance. The actual input is pairwise equal, the reverse observation comes from pairwise_reverse/imp, and standard reverse_perm supplies occurrences. Applies the new pointwise result."
+        },
+        {
+          "name": "Examples.SortUniqueness.equality_order_boundary",
+          "source_header": "theorem equality_order_boundary :\n    (∀ a b : Bool, a = b → b = a → a = b) ∧\n      ¬ (∀ a b : Bool, a = b ∨ b = a) ∧\n      ([false, false] : List Bool).reverse = [false, false]",
+          "assessment": "Closed Bool equality is antisymmetric but not total. The repeated nonempty list has a satisfied pairwise-equality premise and consumes reverse_eq_of_equal. This is not a claim that equality can sort all Bool inputs."
+        },
+        {
+          "name": "Examples.SortUniqueness.constant_key_boundary",
+          "source_header": "theorem constant_key_boundary :\n    (∀ xs : List Bool,\n      KeySorted (fun _ : Bool => (0 : Nat)) xs ∧ xs.Perm xs) ∧\n    (∀ xs : List Bool,\n      KeySorted (fun _ : Bool => (0 : Nat)) xs.reverse ∧ xs.reverse.Perm xs) ∧\n    (id : List Bool → List Bool) ≠ List.reverse ∧\n    ¬ Stable (fun _ : Bool => (0 : Nat)) [false, true] [false, true].reverse",
+          "assessment": "Identity and reverse each satisfy the ordinary key-order/permutation contract for every List Bool, so the boundary is not vacuous. Functions differ on [false,true]. The same reversal violates the complete equal-key filter at key zero. No keyed stability theorem is weakened."
+        }
+      ]
+    }
+  ],
+  "source_findings": [],
+  "compiler_ran": false,
+  "audit_ran": false,
+  "status": "Uncompiled source candidate; central focused compilation, elaborated readback and all applicable final gates remain pending."
+}

@@ -1,0 +1,242 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "recorded_utc": "2026-11-04T17:31:20.131710+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "predecessor": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "scope": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "explicit_public_names": 1763,
+    "private_named": 70,
+    "anonymous_instances": 19
+  },
+  "disposition": "The actual complete normal candidate check and exhaustive audit pass at exact Q. Standards overall remains Blocked pending independent receiving statement qualification and any specifically required current inspection. This is not final acceptance.",
+  "full_log_read_ledger": {
+    "path": "provenance/chapter02-standards-receiving-final-20261104/closed-full-read-ledger.json",
+    "bytes": 7636,
+    "lf_lines": 222,
+    "sha256": "9a12ba869ce8a35df25b46be98a531636e856115c131408f880ac9f1ca60f472"
+  },
+  "full_human_read_boundaries": {
+    "outer_lines": [
+      1,
+      2681
+    ],
+    "outer_bytes": 315124,
+    "native_lines": [
+      1,
+      2678
+    ],
+    "native_bytes": 314896,
+    "native_coverage": "Exact once-contained outer body, byte offset70 / outer lines3\u20132680; all native bytes were read.",
+    "audit_rows": 1027,
+    "summary_read_limit": "All actual log rows and all314 lines of the row/warning comparison were read. The5422-line aggregate summary was parsed completely and its full audit/build collections independently reproduced; the displayed smaller metadata fields were read, without claiming a separate human read of its entire duplicate JSON.",
+    "comparison_read_chunks": [
+      "3022f9:1\u2013170",
+      "3d6b14:171\u2013314"
+    ],
+    "summary_selected_fields_chunk": "e03c16",
+    "independent_reconstruction_chunk": "2e8174"
+  },
+  "terminal": {
+    "outer_exit": 0,
+    "native_exit": 0,
+    "owned_exit": 0,
+    "owned_terminal_chunk": "23b186",
+    "outer_started_utc": "2026-11-04T17:10:02.284935+00:00",
+    "outer_completed_utc": "2026-11-04T17:21:56.348601+00:00",
+    "native_started_utc": "2026-11-04T17:10:02.350879+00:00",
+    "native_completed_utc": "2026-11-04T17:21:56.289511+00:00",
+    "clean_exact_initial_and_final_candidate": true,
+    "timeout": false,
+    "recorder_error": null,
+    "progress_bookkeeping_errors": []
+  },
+  "qualification": {
+    "command": [
+      "./check.sh",
+      "--candidate",
+      "HEAD"
+    ],
+    "qualified_native_launcher": [
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+      "--state",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+      "run",
+      "--project",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+      "--threads",
+      "1",
+      "--",
+      "./check.sh",
+      "--candidate",
+      "HEAD"
+    ],
+    "threads": 1,
+    "mode": "incremental",
+    "compiler": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+    "nine_dependency_pins_equal_immutable_manifest": true,
+    "immutable_toolchain_sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "immutable_manifest_sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "matching_actual_verification_sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca",
+    "normal_versus_fresh": "Normal mode is the applicable retained README gate; no compiler/pin/profile/checker change or other fresh trigger was introduced. The successful accepted Chapter1 fresh baseline remains retained.",
+    "execution_profile_boundary": "The retained qualified stock native launcher and narrow disclosed adapter remain the execution profile. Later saved receiving observations must qualify exact runtime/object/path identities separately; this full check is not a substitute for those observations."
+  },
+  "independent_actual_counts": {
+    "checked_modules": 1029,
+    "audit_defining_module_rows": 1027,
+    "kernel_safe_declarations": 47797,
+    "theorem_declarations": 27214,
+    "unsafe_excluded": 0,
+    "axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "actual_built_modules": 55,
+    "lake_jobs": 10074,
+    "pre_guard_hashed_artifacts": 2946,
+    "expected_new_module_cold_traces": 46,
+    "post_guard_hashed_artifacts": 3084,
+    "post_guard_inconsistent": 0,
+    "source_version_coverage_seconds": 5.61,
+    "compilation_seconds": 510.53,
+    "audit_seconds": 190.52,
+    "total_check_seconds": 713.6
+  },
+  "independent_predecessor_comparison": {
+    "predecessor_audit_rows": 981,
+    "unchanged_rows": 980,
+    "changed_rows": {
+      "Applications.Resources.Growth": {
+        "before": {
+          "logical": 1,
+          "theorems": 1,
+          "unsafe": 0
+        },
+        "after": {
+          "logical": 4,
+          "theorems": 4,
+          "unsafe": 0
+        }
+      }
+    },
+    "added_rows": 46,
+    "removed_rows": [],
+    "predecessor_warnings": 591,
+    "current_warnings": 647,
+    "added_warning_headers": 56,
+    "removed_warning_headers": 0,
+    "all_new_warnings_module_import_advisories": true,
+    "root_summary_and_comparison_exactly_reproduced": true,
+    "predecessor_native_log": {
+      "path": "provenance/shared-tail-full-attempt1-20261104/native-records/output.log",
+      "bytes": 284346,
+      "lf_lines": 2484,
+      "sha256": "bd5bd2c170cac6a84f855806595fce60981b86eb1660c52c0d3a7a0b9d149749"
+    }
+  },
+  "semantic_assessment": [
+    "Every actual project audit row has zero unsafe declarations, and the transitive permitted union is exactly propext, Classical.choice and Quot.sound. Source guards and post-build output integrity pass; no admission, source axiom, unsafe/partial/native_decide workaround or skipped kernel was introduced.",
+    "The unchanged981-row predecessor contains980 byte-equivalent count rows plus Growth changing from1/1 to4/4 logical/theorem counts. There are46 new defining-module rows. Whole-project audit counts include generated/private auxiliaries and must not be reported as counts of newly authored public book results.",
+    "The647 warning headers consist of all591 predecessor warnings unchanged plus56 module-system import advisories. The actual full log contains no new mathematical or proof-safety warning, no compiler error and no axiom-union violation. Existing linter guidance was assessed in its unchanged scope; no linter/option suppression is being requested.",
+    "The source assessment remains the complete original81-path/112-obligation/ten-scope review. The successful complete check discharges current compilation/audit evidence for the whole candidate; individual focused history is retained but no extra label-only focused rerun is required.",
+    "The failed initial saved-input comparison is separate coordinator evidence: it gives no statement transfer credit, does not alter the actual full check, and requires the separately assessed CMD-001 correction. Actual per-name receiving eligibility remains pending."
+  ],
+  "receiving_type_credit": 0,
+  "new_concrete_full_gate_findings": [],
+  "remaining_gates": [
+    "Independent per-name qualification of actual saved producer/receiving identities and retained complete semantic reads, with precise unmatched-name handling.",
+    "Actual current statement outputs and both independent complete assessments for any specifically selected remainder.",
+    "Both final complete-scope axes and root immediate verify-candidate followed only then by accepted fast-forward and durability checkpoint."
+  ],
+  "bound_evidence": [
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "bytes": 315124,
+      "lf_lines": 2681,
+      "sha256": "5559dfa557622a8e29e503502df3e5a77287d3ac1f6e2f285a0b5bf5e4af6f0f"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "bytes": 314896,
+      "lf_lines": 2678,
+      "sha256": "7f2c0853d96f00134c8e4d9e7c1014ed91a3b9ed9e6c8c048ab6ea5c02779693"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/request.json",
+      "bytes": 737,
+      "lf_lines": 21,
+      "sha256": "1753fd14f0d739d439d7fb4c28a0a92f384248b00615f703857624d98dd10fb5"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/start.json",
+      "bytes": 930,
+      "lf_lines": 26,
+      "sha256": "00baf084d3cfb1cb6c5fbc670e547dd1d6abb075d0a40663e2027328a20b6a87"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/launch.json",
+      "bytes": 174,
+      "lf_lines": 6,
+      "sha256": "4b60aeacdc287463120c62cae4bb1fcf444549210f925b4318fc3a60d8d98087"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/owned-launch.json",
+      "bytes": 365,
+      "lf_lines": 8,
+      "sha256": "d9c218d1601ac0ff859c5932d56e1c2a93d937bf2b9c5ac52af90daca56cd9cc"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/owned-terminal.json",
+      "bytes": 260,
+      "lf_lines": 8,
+      "sha256": "a503c7f1dcb006b6cf0573c7a09ebefc4bdf81b68cc487a71cf81b40f58d10c5"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/result.json",
+      "bytes": 1263,
+      "lf_lines": 32,
+      "sha256": "bcd067764dda97bb5c5b2c88860adcbc1def51abe3f771503eab4079b2d6eba6"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/start.json",
+      "bytes": 421,
+      "lf_lines": 13,
+      "sha256": "6e6b3fe74441bce880fa394f9551980cd70ef6c31f4c562af333da2560e10ec6"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/result.json",
+      "bytes": 573,
+      "lf_lines": 18,
+      "sha256": "c14770770b9362cb7c4349f5d16d43ece0c7691aa92a95fb8bb0e290b0ee3584"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "lf_lines": 19,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/closed-evidence-reconciliation.json",
+      "bytes": 3135,
+      "lf_lines": 72,
+      "sha256": "4fda5170bd26129f2d57bd5acf806b1eac7aa4b141af09c143ec6179db909d7d"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/audit-and-build-summary.json",
+      "bytes": 117883,
+      "lf_lines": 5422,
+      "sha256": "eb21706903b588d1189e9c7f286ce71d5f834878277ff0c86665a84a936e5121"
+    },
+    {
+      "path": "provenance/chapter02-complete-receiving-full-attempt1-20261104/audit-row-and-warning-comparison.json",
+      "bytes": 18309,
+      "lf_lines": 314,
+      "sha256": "779ae5d09f9cd88f2a5e883029015e4d1e6aeee8c789f2d7a5fdad1e31abeb0d"
+    }
+  ]
+}

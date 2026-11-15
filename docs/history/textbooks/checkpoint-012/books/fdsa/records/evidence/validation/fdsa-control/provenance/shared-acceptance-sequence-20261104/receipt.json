@@ -1,0 +1,848 @@
+{
+  "recorded_utc": "2026-11-04T08:43:25.415906+00:00",
+  "author": "/root/shared_acceptance_sequence",
+  "status": "Completed read-only integration plan; HOLD after the two file writes. No validation or acceptance.",
+  "accepted_R": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "pending_F": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "immutable_central_comparison": "5398db774ed5ca9938d0562e379d757323e7a355",
+  "foundation_and_central_refs_unchanged_at_final_inspection": true,
+  "units": [
+    {
+      "unit": "XM01",
+      "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "original_candidate": "5f409e71bb068e3b8cc133226046ce8bbe29d982",
+      "corrected_minimal_tip": "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "source_branch_tip_is_ancestor_of_central": true,
+      "merge_base_with_foundation": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "full_scope_paths": 6,
+      "sources": [
+        {
+          "path": "Applications/Resources/ListMerge.lean",
+          "bytes": 8629,
+          "lines": 201,
+          "sha256": "df38ab6fd95baca45be4c5f7e6cd86f4e168fbff0ab21899783c8b52a41d1975",
+          "git_blob": "b658809bc2ba424807e326c3ee7cb64712865a46",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "Applications/Sorting/Merge.lean",
+          "bytes": 7840,
+          "lines": 172,
+          "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+          "git_blob": "6595f901a9358398bee07333872125990ef8360c",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "Examples/MergeCosts.lean",
+          "bytes": 23410,
+          "lines": 476,
+          "sha256": "ae3e60b22c4b03cd78d33f5fe44729b83bb26ab589e014a9039927319d4f1466",
+          "git_blob": "b5f652cf5258c99f5a615b12987c664ed8be3d76",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "SquareApplications.lean",
+          "bytes": 8319,
+          "lines": 253,
+          "sha256": "ef3d3bbac7d252aa6c2575f619001176347f083f452802148c968c6e37ccca41",
+          "git_blob": "6bda68161b7407aa232b43aefc66c64b09bf5c9f",
+          "central_bytes_equal": false
+        },
+        {
+          "path": "docs/research/fdsa-list-merge.md",
+          "bytes": 14955,
+          "lines": 250,
+          "sha256": "25f1982d56183111c112d3e38f4473000668685d126677935dcecc3d1a5cf5b3",
+          "git_blob": "dd81e91e3b4d2fa810a87b2505ace12299b70437",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "docs/research/fdsa-reconstruction-map.md",
+          "bytes": 17800,
+          "lines": 290,
+          "sha256": "f59022d0709bbb48bdf976021c3c0bbf29861af3eddab377e9ef9fb491c948ff",
+          "git_blob": "c06b0ee57ed318826050667361aebc3cf858067e",
+          "central_bytes_equal": false
+        }
+      ],
+      "requirements": {
+        "path": "reviews/ordinary-merge-requirements.md",
+        "bytes": 19999,
+        "lines": 346,
+        "sha256": "b54e2b332cc31c04ac12fb5b19cc96fa494a80e1455fcfc173f59b6fe340d3d9",
+        "read": "complete"
+      },
+      "public_import": "Examples.MergeCosts",
+      "unit_history": [
+        "5f409e71bb068e3b8cc133226046ce8bbe29d982 07e480f6ec9958d4975bb90151005b84f2907614 feat(resources): observe ordinary list merge work (#174)",
+        "57a7d338dedb53a5526bbbc05f7be5fd83443d03 5f409e71bb068e3b8cc133226046ce8bbe29d982 fix(resources): normalize measured merge proof rewrites (#174)",
+        "72a0951aee406f7db67998d2a3bf8810f4e1bccc 57a7d338dedb53a5526bbbc05f7be5fd83443d03 fix(examples): elaborate measured merge clients (#174)"
+      ]
+    },
+    {
+      "unit": "XD01",
+      "original_review_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+      "original_candidate": "ffeaf8aed84184f49a13acb5c84e1fd608c9b7e8",
+      "corrected_minimal_tip": "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+      "source_branch_tip_is_ancestor_of_central": true,
+      "merge_base_with_foundation": "a14977b9e316cc484ffad8a470d26b15615956c0",
+      "full_scope_paths": 5,
+      "sources": [
+        {
+          "path": "Applications/Resources/DifferenceListCosts.lean",
+          "bytes": 10061,
+          "lines": 222,
+          "sha256": "f99420b831dff2d0f5fcc3dac1001937942b87c78b710b79f94fa941ab972b01",
+          "git_blob": "b87222f7c0eb0aafc60031864ca815c2e65fc457",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "Examples/DifferenceListCosts.lean",
+          "bytes": 9299,
+          "lines": 234,
+          "sha256": "df9936f23d5e60afd562b921d5b4ab0075fa58e7c91efcf92eddc33aa4d5e1a1",
+          "git_blob": "33fd3bec15f8c9b7c3078b45d90c24d7df0c1df2",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "SquareApplications.lean",
+          "bytes": 8328,
+          "lines": 253,
+          "sha256": "45449f16d4004eee544182a3cd3f8364d4c7d68430be14ef0426b61617e8280a",
+          "git_blob": "ffff6aa3f837ce83d9b0163420a044e146ae596d",
+          "central_bytes_equal": false
+        },
+        {
+          "path": "docs/research/fdsa-difference-list-costs.md",
+          "bytes": 10679,
+          "lines": 213,
+          "sha256": "fd01432541c9b27ad83def6192e4a3b75d6b77ae7490ec11a2bf665324f1246e",
+          "git_blob": "c383bd71d80daefe587e9fbdcd80e7e11267c2ca",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "docs/research/fdsa-reconstruction-map.md",
+          "bytes": 17221,
+          "lines": 284,
+          "sha256": "50411c5753aa57bda40dc374a736b0b3c66f360fe5002e51d5473a8f2183fdf9",
+          "git_blob": "6a4183a1169c5e738288af3edb99c57a3a2bd288",
+          "central_bytes_equal": false
+        }
+      ],
+      "requirements": {
+        "path": "reviews/difference-list-cost-requirements.md",
+        "bytes": 6965,
+        "lines": 129,
+        "sha256": "cb215a33cce3dd258cca37b9d703522d19caf2da76767c01e573d268b3e92c4e",
+        "read": "complete"
+      },
+      "public_import": "Examples.DifferenceListCosts",
+      "unit_history": [
+        "ffeaf8aed84184f49a13acb5c84e1fd608c9b7e8 a14977b9e316cc484ffad8a470d26b15615956c0 feat(resources): separate builder creation and application costs (#174)",
+        "62809ced86c561c7a6cce8b71e727177a3f17fb8 ffeaf8aed84184f49a13acb5c84e1fd608c9b7e8 docs(resources): correct natural-merge source provenance (#174)",
+        "66e480cf6db359ebf97d761b804ebe5d6d946eca 62809ced86c561c7a6cce8b71e727177a3f17fb8 fix(resources): elaborate difference-list cost contracts (#174)",
+        "52722e3ee481167e99b8f6c0b2417df7fb7615d8 66e480cf6db359ebf97d761b804ebe5d6d946eca fix(resources): apply explicit difference-list representation witnesses"
+      ]
+    },
+    {
+      "unit": "XQ01",
+      "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "original_candidate": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+      "corrected_minimal_tip": "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+      "source_branch_tip_is_ancestor_of_central": true,
+      "merge_base_with_foundation": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "full_scope_paths": 7,
+      "sources": [
+        {
+          "path": "Applications/Resources/Partition.lean",
+          "bytes": 2678,
+          "lines": 61,
+          "sha256": "592f49e53da948be864a0b6b3d61f1453c259fcbc927d300cf3c15ff4c1dcd14",
+          "git_blob": "e9d3682a4d3a499aaffd41f73c7fc39965fa0d30",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "Applications/Selection/ThreeWay.lean",
+          "bytes": 9718,
+          "lines": 211,
+          "sha256": "ba20014bce5fa78df547dbb04283511274883988d037233a9af8ac4ecc7e85fa",
+          "git_blob": "8627ad6d219f55a404dd96c4f4553594eaa71264",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "Applications/Sequences/Partition.lean",
+          "bytes": 3786,
+          "lines": 87,
+          "sha256": "011cb26a0e37e61c8d2c667d2d223c32fdf30786d3484f86fe1db49422c67069",
+          "git_blob": "ff03bd349a39b3b77c49793175d4b474199e7c43",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "Examples/ThreeWayPartition.lean",
+          "bytes": 8109,
+          "lines": 172,
+          "sha256": "7bae757d70436cca816888147938cfa38053abe8affebc367d74e0e67498d526",
+          "git_blob": "a1f29b6310bc8623df2725b0d40f3949513199c5",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "SquareApplications.lean",
+          "bytes": 8326,
+          "lines": 253,
+          "sha256": "8b1ee3ff6ec47172b631bda4dbe6f9053c76fcdcf91e2478de2ee87e871d94b9",
+          "git_blob": "20036b7e58118d38d00c7a466545b6bcdba94d2d",
+          "central_bytes_equal": false
+        },
+        {
+          "path": "docs/research/fdsa-reconstruction-map.md",
+          "bytes": 18698,
+          "lines": 294,
+          "sha256": "11c1e2bd3985f946288a2e229de9c364d7b44cae404a45e47ffec354883b7930",
+          "git_blob": "e7c85590791e05df2a2f0e362ea65d0648779872",
+          "central_bytes_equal": false
+        },
+        {
+          "path": "docs/research/fdsa-three-way-partition.md",
+          "bytes": 13444,
+          "lines": 250,
+          "sha256": "5e58b195a53e32369dd31a7d6452c73f595419757faeaae0173c0fd659c0858b",
+          "git_blob": "254bc877d2d896c7e9761498518ae72c4b7b858a",
+          "central_bytes_equal": true
+        }
+      ],
+      "requirements": {
+        "path": "reviews/three-way-partition-requirements.md",
+        "bytes": 12208,
+        "lines": 209,
+        "sha256": "b1f55911c44a11def3498484787fcb04972398ec040bf1bd65c75796c116d541",
+        "read": "complete"
+      },
+      "public_import": "Examples.ThreeWayPartition",
+      "unit_history": [
+        "de5410286bbefd841dff50bef55c2e52d2ebbd2a 07e480f6ec9958d4975bb90151005b84f2907614 feat(sequences): share three-way partition and source costs (#174)",
+        "b3bdc12b304499bf6675a58bc1eb0992e19e3e75 de5410286bbefd841dff50bef55c2e52d2ebbd2a fix(sequences): remove redundant partition proof arguments (#174)",
+        "0612e80a0c297a38fa1add6e837dc7781e1bbd9c b3bdc12b304499bf6675a58bc1eb0992e19e3e75 fix(resources): reduce the partition value projection (#174)"
+      ]
+    },
+    {
+      "unit": "XU01",
+      "original_review_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+      "original_candidate": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+      "corrected_minimal_tip": "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "source_branch_tip_is_ancestor_of_central": true,
+      "merge_base_with_foundation": "a14977b9e316cc484ffad8a470d26b15615956c0",
+      "full_scope_paths": 6,
+      "sources": [
+        {
+          "path": "Applications/Probability/PermutationMinimum.lean",
+          "bytes": 8241,
+          "lines": 197,
+          "sha256": "e470e67de0aafe8c360ea98bdebb530d893423ddbcd59e56c87b6a09a5312f64",
+          "git_blob": "084f3297508ae9311cf9d6fafe8d2976c3ab703d",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "Examples/PermutationMinimum.lean",
+          "bytes": 4994,
+          "lines": 127,
+          "sha256": "8cc5657ba18e75a39cb6fb546da2103b878e7f3f390bc0061cc311a60041f1d1",
+          "git_blob": "ea120642c760ca7a7947689b3eb2b5a1f2af5876",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "Examples/PermutationMinimumBoundary.lean",
+          "bytes": 4211,
+          "lines": 113,
+          "sha256": "59cb380c63b5cf209559f3dc49e5eeef85464bafffa71cdc949e69e31f010e1b",
+          "git_blob": "2e7ca462be60d0e3c484573950b194cce532d26c",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "SquareApplications.lean",
+          "bytes": 8327,
+          "lines": 253,
+          "sha256": "577dc9b46b727b6c951a3fbff19ff545b94cdbe47d85507ca5348bbb0a489bd0",
+          "git_blob": "33a8fbb789f8538633309c380a0e8ded0bb16153",
+          "central_bytes_equal": false
+        },
+        {
+          "path": "docs/research/fdsa-permutation-minimum.md",
+          "bytes": 7608,
+          "lines": 138,
+          "sha256": "9b0ac9218e6a82f40e61faf97447af33adcccfafb60498a4f33acbfce91f5a31",
+          "git_blob": "47f66cf564187d8326cdd880f0c8a36e51aa9101",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "docs/research/fdsa-reconstruction-map.md",
+          "bytes": 16847,
+          "lines": 277,
+          "sha256": "98cb1df9badd9ce31b6dc252e7741cd9362e7ef1785b4989b4c2011e5facdfd7",
+          "git_blob": "02055eaaec5bf4dee97da4c2c2ecd47e622ea207",
+          "central_bytes_equal": false
+        }
+      ],
+      "requirements": {
+        "path": "reviews/permutation-minimum-requirements.md",
+        "bytes": 8884,
+        "lines": 154,
+        "sha256": "59e2ff6ff66dd39b6151a42b501bcc22e86eb593a9b854b532f97bc45fdd7686",
+        "read": "complete"
+      },
+      "public_import": "Examples.PermutationMinimum",
+      "unit_history": [
+        "ff3dd88082c6283df40bcd86a4363841a0360b12 a14977b9e316cc484ffad8a470d26b15615956c0 feat(probability): prove uniform subset minima (#174)",
+        "22678283ba48b20bc97dfde800fe7360b6408ab7 ff3dd88082c6283df40bcd86a4363841a0360b12 fix(fdsa): use proof-local finite instances for permutation minima",
+        "f833f311caf2630ccbbb2e9465d4765dff7122f0 22678283ba48b20bc97dfde800fe7360b6408ab7 fix(fdsa): normalize the outsider probability boundary explicitly",
+        "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0 f833f311caf2630ccbbb2e9465d4765dff7122f0 fix(fdsa): check minimum-law probability examples on pinned APIs"
+      ]
+    },
+    {
+      "unit": "XU02",
+      "original_review_base": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+      "original_candidate": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+      "corrected_minimal_tip": "bdac9703aab4b383fa775568d36bf685af329389",
+      "source_branch_tip_is_ancestor_of_central": true,
+      "merge_base_with_foundation": "a14977b9e316cc484ffad8a470d26b15615956c0",
+      "full_scope_paths": 6,
+      "sources": [
+        {
+          "path": "Applications/Probability/PermutationOrder.lean",
+          "bytes": 15304,
+          "lines": 321,
+          "sha256": "21f81242fcd450a43ea6a5b39d5f2421b0fd141af13deb4787a05166ea51b0b2",
+          "git_blob": "b039038772d2ecdb17864678021ffa9aff4efa63",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "Examples/PermutationOrder.lean",
+          "bytes": 6706,
+          "lines": 152,
+          "sha256": "3ef3a8d098c318146b4160face51cab000dcddcd5922e938e1c53cc0be2d5084",
+          "git_blob": "e99c5a1b0716bb4d1a1f9155e10c0a56bbc99e35",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "Examples/PermutationOrderBoundary.lean",
+          "bytes": 5605,
+          "lines": 148,
+          "sha256": "0807ef128381356e38f68480f1e84c6b4a9dcf4ca8cc1974c3167ef822cad121",
+          "git_blob": "7465d577dd4aa30b2f5e6bacfb257b75c2466f59",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "SquareApplications.lean",
+          "bytes": 8360,
+          "lines": 254,
+          "sha256": "bfa905b56c3cfb7ed63b0c80b7680a0e93486cf32987739ef4d61ca94262dc21",
+          "git_blob": "b9b45c865f4345fe58ebcf1b2c14766c4abe0202",
+          "central_bytes_equal": false
+        },
+        {
+          "path": "docs/research/fdsa-permutation-order.md",
+          "bytes": 8851,
+          "lines": 166,
+          "sha256": "39fd16835dccd39c9d34ebfcebbdbdd33f44ec1dad49fdfe582a8ac4801faea3",
+          "git_blob": "d3a16fc8713c5dda2797a07ad14f3174ea97f841",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "docs/research/fdsa-reconstruction-map.md",
+          "bytes": 17824,
+          "lines": 294,
+          "sha256": "aa5ae498a2b23a5dee8dcbc0eac1eb5d8735cec4d97ebcdca7877d48ff9f52ce",
+          "git_blob": "ebd4016c479ea8e1cf53193eb1aac7f4fd9dffaf",
+          "central_bytes_equal": false
+        }
+      ],
+      "requirements": {
+        "path": "reviews/permutation-order-requirements.md",
+        "bytes": 11430,
+        "lines": 209,
+        "sha256": "f473f593bf4a7ef75dcf2f3163440db6fe187b3b9983f87254d2ddfa8191982d",
+        "read": "complete"
+      },
+      "public_import": "Examples.PermutationOrder",
+      "unit_history": [
+        "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8 ff3dd88082c6283df40bcd86a4363841a0360b12 feat(probability): formalize restricted permutation orders (#174)",
+        "758e130cc30b8779dfce0ef2c4687aea0efa1792 4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8 fix(fdsa): use proof-local enumerations for restricted permutation orders",
+        "d80edd8f882c74eb4fc9eb4dcd559df32cb370a8 758e130cc30b8779dfce0ef2c4687aea0efa1792 fix(fdsa): elaborate whole-order correspondence on pinned APIs",
+        "2695e20f76604cc85396fd8d8e82459b9067f551 d80edd8f882c74eb4fc9eb4dcd559df32cb370a8 fix(fdsa): omit unused private order-transport equality instance",
+        "fbc9a32a2a7cc333f632c88a27a5d7a977d67f72 2695e20f76604cc85396fd8d8e82459b9067f551 fix(fdsa): prove order-support counterexamples by length and counts (#174)",
+        "bdac9703aab4b383fa775568d36bf685af329389 fbc9a32a2a7cc333f632c88a27a5d7a977d67f72 fix(fdsa): elaborate complete-order probability examples (#174)"
+      ]
+    },
+    {
+      "unit": "XU03",
+      "original_review_base": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+      "original_candidate": "a0597381f02eddd074ee96cabaa974f2062285f8",
+      "corrected_minimal_tip": "ee2ea2406a014e43c355f93317455f27b90dd680",
+      "source_branch_tip_is_ancestor_of_central": true,
+      "merge_base_with_foundation": "a14977b9e316cc484ffad8a470d26b15615956c0",
+      "full_scope_paths": 6,
+      "sources": [
+        {
+          "path": "Applications/Probability/PermutationTail.lean",
+          "bytes": 23521,
+          "lines": 487,
+          "sha256": "62e2e11c82415bcb558779c599bf07745fa9abab4305ec87d11c9eaa86a9eaed",
+          "git_blob": "437552dda711378d6a0910d9aa79bd99caae8977",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "Examples/PermutationTail.lean",
+          "bytes": 8786,
+          "lines": 197,
+          "sha256": "30e07aaede25b10d2484c2a4674bffa66d77094a545fd49f72bc000bd132ddb7",
+          "git_blob": "f118b08cd9d2006ceac0f4c24004e1ed09c1fb93",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "Examples/PermutationTailBoundary.lean",
+          "bytes": 11027,
+          "lines": 247,
+          "sha256": "a1c623289b2a2059aac08e9d98183fd17ab3985c628fe9dc70b9c006e527943e",
+          "git_blob": "728e0ea283b0e8f413683dc9bc6eb0b623cd679a",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "SquareApplications.lean",
+          "bytes": 8392,
+          "lines": 255,
+          "sha256": "7aedfca880167dc6a66e1b49b7ce1c5210c5f97ad090817061c5961c0b1aa321",
+          "git_blob": "2cd4b70ebb4b89bfcfcd61c98f1b9594f5a38d7b",
+          "central_bytes_equal": false
+        },
+        {
+          "path": "docs/research/fdsa-permutation-tail.md",
+          "bytes": 10367,
+          "lines": 203,
+          "sha256": "34162854a3bfabbec1e87bea6111b4939495cc27eb9ee811758dceaeb62dc96f",
+          "git_blob": "233136b41f38efafa0d5e1d8f22d8c2864340335",
+          "central_bytes_equal": true
+        },
+        {
+          "path": "docs/research/fdsa-reconstruction-map.md",
+          "bytes": 18893,
+          "lines": 312,
+          "sha256": "f519e995709de1e147439ebfc5a903a9e753883b49fd82f02d5bd484619acb9f",
+          "git_blob": "0655c5824d0e5b06a0c128de0ea0645fd8f116d3",
+          "central_bytes_equal": false
+        }
+      ],
+      "requirements": {
+        "path": "reviews/permutation-tail-requirements.md",
+        "bytes": 12866,
+        "lines": 229,
+        "sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c",
+        "read": "complete"
+      },
+      "public_import": "Examples.PermutationTail",
+      "unit_history": [
+        "a0597381f02eddd074ee96cabaa974f2062285f8 4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8 feat(probability): formalize conditional remaining orders (#174)",
+        "97ed9feee78f723cb6294aa5148da9ab5846db7a a0597381f02eddd074ee96cabaa974f2062285f8 fix(fdsa): use proof-local instances for conditional remaining orders",
+        "6f76a4d552773044d3e9494dda8e663471d47e04 97ed9feee78f723cb6294aa5148da9ab5846db7a fix(fdsa): use current conditional rewrite names in tail laws (#174)",
+        "fa86bfb800c1e70cdf61fefd75b8cb2f428daea6 6f76a4d552773044d3e9494dda8e663471d47e04 fix(probability): preserve tail filter and conditional support rewrites (#174)",
+        "ee2ea2406a014e43c355f93317455f27b90dd680 fa86bfb800c1e70cdf61fefd75b8cb2f428daea6 fix: repair conditional-tail boundary proofs (#174)"
+      ]
+    }
+  ],
+  "unit_owned_matching_paths": 24,
+  "common_shared_paths": [
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md"
+  ],
+  "public_status_excerpts": [
+    {
+      "candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+      "path": "docs/research/fdsa-list-merge.md",
+      "source_sha256": "25f1982d56183111c112d3e38f4473000668685d126677935dcecc3d1a5cf5b3",
+      "first_line": 3,
+      "last_line": 8,
+      "text": "This shared source draft connects FDSA's ordinary merge to the existing\n`List.merge`, sorting contracts and measured composition. It adds the missing\ninput-sublist/converse facts and one execution that records both head\ncomparisons and recursive merge invocations. **Compilation, the full candidate\ngate and independent final reviews are pending.** This note describes the\ndraft's mathematical contracts; it does not record chapter acceptance."
+    },
+    {
+      "candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+      "path": "docs/research/fdsa-difference-list-costs.md",
+      "source_sha256": "fd01432541c9b27ad83def6192e4a3b75d6b77ae7490ec11a2bf665324f1246e",
+      "first_line": 3,
+      "last_line": 7,
+      "text": "This shared unit gives an explicit closure model for the constant composition\nand deferred application claims used by FDSA's natural mergesort discussion.\nIt remains a source draft until elaboration, whole-candidate verification and\nthe retained independent reviews are recorded. It does not activate or accept\nChapter 2, and it does not implement the source scanner."
+    },
+    {
+      "candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+      "path": "docs/research/fdsa-difference-list-costs.md",
+      "source_sha256": "fd01432541c9b27ad83def6192e4a3b75d6b77ae7490ec11a2bf665324f1246e",
+      "first_line": 208,
+      "last_line": 213,
+      "text": "No additional compiler was run for this draft while the frozen old Chapter 1\ngate remained active. These\nsource proofs and examples still need elaboration, public-entrypoint coverage,\nthe complete guarded candidate build and exhaustive audit, both retained\nindependent review axes, and immediate candidate identity verification before\nacceptance."
+    },
+    {
+      "candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+      "path": "docs/research/fdsa-three-way-partition.md",
+      "source_sha256": "5e58b195a53e32369dd31a7d6452c73f595419757faeaae0173c0fd659c0858b",
+      "first_line": 3,
+      "last_line": 8,
+      "text": "This cross-cutting draft makes the existing ordered partition interface\navailable to both sorting and selection, then supplies a separately measured\none-pass source realization. The shared value operation retains its existing\ntwo-stage implementation and Selection-facing compatibility. The draft is\nuncompiled and unaccepted; its source statements and connected clients still\nrequire the complete immutable-candidate validation and review workflow."
+    },
+    {
+      "candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+      "path": "docs/research/fdsa-three-way-partition.md",
+      "source_sha256": "5e58b195a53e32369dd31a7d6452c73f595419757faeaae0173c0fd659c0858b",
+      "first_line": 201,
+      "last_line": 207,
+      "text": "The draft starts from the focused-pass but unaccepted Chapter 1 repair.\nAccepted repaired Chapter 1 remains required before integration or acceptance;\nthe initial Chapter 2 foundation prefix is unchanged. New and existing affected\nmodules require focused compilation, the full applicable candidate build and\nexhaustive audit, both independent review axes and immediate candidate-record\nverification. Source authoring and independent expected calculations do not\nsupply those results."
+    },
+    {
+      "candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+      "path": "docs/research/fdsa-permutation-minimum.md",
+      "source_sha256": "9b0ac9218e6a82f40e61faf97447af33adcccfafb60498a4f33acbfce91f5a31",
+      "first_line": 3,
+      "last_line": 7,
+      "text": "Status: **source draft, not yet compiled or accepted**. This bounded shared\nunit supports the FDSA reconstruction. It closes no chapter or randomized\nalgorithm obligation. Its immutable candidate, exact requirements, independent\ncalculations and eventual validation/review results are retained in the local\ndurability checkpoint's FDSA-XU01 record."
+    },
+    {
+      "candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+      "path": "docs/research/fdsa-permutation-order.md",
+      "source_sha256": "39fd16835dccd39c9d34ebfcebbdbdd33f44ec1dad49fdfe582a8ac4801faea3",
+      "first_line": 3,
+      "last_line": 5,
+      "text": "Status: **source draft, not compiled or accepted**. This bounded shared unit\ncontinues the [minimum-law work](fdsa-permutation-minimum.md). It supplies no\nchapter acceptance, recursive sampling theorem or algorithm cost bound."
+    },
+    {
+      "candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+      "path": "docs/research/fdsa-permutation-order.md",
+      "source_sha256": "39fd16835dccd39c9d34ebfcebbdbdd33f44ec1dad49fdfe582a8ac4801faea3",
+      "first_line": 138,
+      "last_line": 139,
+      "text": "The independent finite calculations and source statement assessments are\npreparation evidence. These source-written examples remain uncompiled."
+    },
+    {
+      "candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+      "path": "docs/research/fdsa-permutation-tail.md",
+      "source_sha256": "34162854a3bfabbec1e87bea6111b4939495cc27eb9ee811758dceaeb62dc96f",
+      "first_line": 3,
+      "last_line": 7,
+      "text": "Status: **source draft, not compiled or accepted**. This bounded shared unit\ncontinues the [whole-order draft](fdsa-permutation-order.md). Its frozen\nrequirements, preflights, exact finite expectations, candidate identity and\neventual gates are retained in the local FDSA-XU03 checkpoint record. No\nchapter or algorithm obligation is accepted by this source draft."
+    },
+    {
+      "candidate": "5398db774ed5ca9938d0562e379d757323e7a355",
+      "path": "docs/research/fdsa-permutation-tail.md",
+      "source_sha256": "34162854a3bfabbec1e87bea6111b4939495cc27eb9ee811758dceaeb62dc96f",
+      "first_line": 165,
+      "last_line": 167,
+      "text": "These mathematical expectations and source-written proofs remain uncompiled.\nExact finite enumeration and statement assessments do not supply kernel\nvalidation or final review approval."
+    }
+  ],
+  "read_boundaries": [
+    {
+      "path": "fdsa-control/REQUEST.md",
+      "read": "complete",
+      "lines": 148,
+      "bytes": 8549,
+      "sha256": "670038db71064a643014c952161666544cf37a4c9e17f14ddc7c4478e78dc6d8"
+    },
+    {
+      "path": "fdsa-control/tickets/FDSA-XM01.md",
+      "read": "complete",
+      "lines": 122,
+      "bytes": 7211,
+      "sha256": "3de552f1d50a39c235c63e29f86737f85554fb16331627d58c7e77195f60f0d5"
+    },
+    {
+      "path": "fdsa-control/tickets/FDSA-XD01.md",
+      "read": "complete",
+      "lines": 44,
+      "bytes": 2475,
+      "sha256": "41dd6f12cd4bdfc57e6c5d9ee798f73cfbbaffaf873145f60935a2c8e706e240"
+    },
+    {
+      "path": "fdsa-control/tickets/FDSA-XQ01.md",
+      "read": "complete",
+      "lines": 80,
+      "bytes": 4947,
+      "sha256": "8e7846b04ce1156ae915e0bf8feeebc77695d548e19378c58ca55d5f23d422cc"
+    },
+    {
+      "path": "fdsa-control/tickets/FDSA-XU01.md",
+      "read": "complete",
+      "lines": 68,
+      "bytes": 4288,
+      "sha256": "db5271c510b4fc95b224e3c4b0290b118a89c305bf066d894c6916e636839ea1"
+    },
+    {
+      "path": "fdsa-control/tickets/FDSA-XU02.md",
+      "read": "complete",
+      "lines": 76,
+      "bytes": 4814,
+      "sha256": "5bf24bbbbcb5009d0daeb0a266bc2f888544dbe3bc21264874739535215744c9"
+    },
+    {
+      "path": "fdsa-control/tickets/FDSA-XU03.md",
+      "read": "complete",
+      "lines": 95,
+      "bytes": 5949,
+      "sha256": "a4d1fc1f83c8a23ce7450909d8c7443ce8798d08de7157746cea7b01f65cd0fc"
+    },
+    {
+      "path": "fdsa-control/reviews/README.md",
+      "read": "complete",
+      "lines": 10,
+      "bytes": 535,
+      "sha256": "4b00d35774d796405d4de3b9a9db2756c2828eda1829dc74e398f276224d6506"
+    },
+    {
+      "path": "fdsa-control/reviews/shared-integration-preflight.md",
+      "read": "complete",
+      "lines": 205,
+      "bytes": 24778,
+      "sha256": "e1d9c119e2bca35bbbd283eb47d05330f35d7e548f92e063eeebe7d4d53552eb"
+    },
+    {
+      "path": "fdsa-control/reviews/ordinary-merge-round1.md",
+      "read": "complete",
+      "lines": 87,
+      "bytes": 5076,
+      "sha256": "c354d9c13e7660a9b445e4fe9904e5335da6294ee6aa49cce18ae8ff0610fd36"
+    },
+    {
+      "path": "fdsa-control/reviews/partition-shared-integration-addendum.md",
+      "read": "complete",
+      "lines": 55,
+      "bytes": 3380,
+      "sha256": "99a64a6db17c7114e98cca6087e440af4b4e9872962c6df6885ba0b8e1e4f3e2"
+    },
+    {
+      "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "path": "AGENTS.md",
+      "read": "complete",
+      "lines": 76,
+      "bytes": 3118,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    },
+    {
+      "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "path": ".agents/skills/implement/SKILL.md",
+      "read": "complete",
+      "lines": 83,
+      "bytes": 4997,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df"
+    },
+    {
+      "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "read": "complete",
+      "lines": 116,
+      "bytes": 6991,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a"
+    },
+    {
+      "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "path": ".agents/skills/code-review/SKILL.md",
+      "read": "complete",
+      "lines": 133,
+      "bytes": 7466,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42"
+    },
+    {
+      "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "path": "docs/agents/review-loop.md",
+      "read": "complete",
+      "lines": 115,
+      "bytes": 7113,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c"
+    },
+    {
+      "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "path": "docs/agents/architectural-quality.md",
+      "read": "complete",
+      "lines": 66,
+      "bytes": 3876,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6"
+    },
+    {
+      "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "path": "docs/agents/domain.md",
+      "read": "complete",
+      "lines": 27,
+      "bytes": 926,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d"
+    },
+    {
+      "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "path": "GLOSSARY.md",
+      "read": "complete",
+      "lines": 106,
+      "bytes": 4824,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6"
+    },
+    {
+      "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "path": "docs/adr/README.md",
+      "read": "complete",
+      "lines": 17,
+      "bytes": 1547,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506"
+    },
+    {
+      "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "read": "complete",
+      "lines": 50,
+      "bytes": 2561,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2"
+    },
+    {
+      "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "read": "complete",
+      "lines": 127,
+      "bytes": 7331,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8"
+    },
+    {
+      "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "path": "README.md",
+      "read": "lines124-307, complete applicable development/build/audit section"
+    },
+    {
+      "path": "fdsa-control/CURRENT.md",
+      "read": "complete checkpoint0093 version,197lines12846bytes; parent may subsequently update it"
+    },
+    {
+      "path": "fdsa-control/STATUS.md",
+      "read": "complete checkpoint0093 version,48lines3089bytes; parent may subsequently update it"
+    },
+    {
+      "path": "fdsa-control/tickets/INDEX.md",
+      "read": "complete checkpoint0093 version,127lines13905bytes; parent may subsequently update it"
+    }
+  ],
+  "limitations": [
+    "No compiler/Lake/checker/cache command, process polling, merge, merge simulation, checkout, source edit or ref write occurred.",
+    "No new final mathematical review, full proof-source read, original-theory read or actual type/audit-log re-reading is claimed.",
+    "One early read-only review-file listing encountered a directory and stopped; the later is_file-filtered listing completed. No result was inferred from the unfinished listing."
+  ],
+  "written_files": [
+    "plan.md",
+    "receipt.json"
+  ],
+  "plan": {
+    "bytes": 23398,
+    "lines": 369,
+    "sha256": "de57733ffbe19af6cd3617baa875dabbc74ec10ef6b8941419c356ec8ae764e1"
+  },
+  "hold": true,
+  "updated_utc": "2026-11-04T08:47:59.395430+00:00",
+  "plan_before_post_checkpoint0094_clarification": {
+    "bytes": 15748,
+    "lines": 238,
+    "sha256": "2157f54d9f0e9f9b0d44589b3d1a4b0d32532b658ef28b5fac63e84c38ade177"
+  },
+  "receipt_before_post_checkpoint0094_clarification": {
+    "bytes": 33904,
+    "lines": 736,
+    "sha256": "1f6194ba44826ec71d743e843892cc92d9197b9c92ff34cc730d42e6f396dfe5",
+    "retention": "Original full receipt is in parent-reported saved checkpoint0094; all prior semantic fields and exact status excerpts remain in this updated receipt."
+  },
+  "post_checkpoint0094_batching_clarification": {
+    "recorded_utc": "2026-11-04T08:47:59.395430+00:00",
+    "authorization": "Root released write HOLD after reporting checkpoint0094 verified/uploaded/exposed and requested this append to these two files only.",
+    "original_plan_preserved_as_exact_prefix": true,
+    "original_plan_bytes": 15748,
+    "original_plan_sha256": "2157f54d9f0e9f9b0d44589b3d1a4b0d32532b658ef28b5fac63e84c38ade177",
+    "serial_sequence_remains_valid_option": true,
+    "interpretation": "No controlling requirement found for distinct candidate SHAs or separate full-check invocations for XM01/XD01/XQ01/XU01. A declared combined candidate after exact F acceptance is consistent with the complete-scope combined-candidate framework if all four original scopes and every gate are assessed on the same candidate. Root decides after direct reading; no policy waiver or explicit named-batch authorization is claimed.",
+    "mandatory_distinct_predecessor_acceptance_edges": [
+      "exact F acceptance before this additional shared integration",
+      "XU01 acceptance before XU02 integration/acceptance",
+      "XU02 accepted preceding base before XU03 integration/acceptance"
+    ],
+    "all_four_unit_records_and_requirements_retained": true,
+    "any_failed_unit_blocks_combined_promotion": true,
+    "citations": [
+      {
+        "path": "fdsa-control/reviews/shared-integration-preflight.md",
+        "source_sha256": "e1d9c119e2bca35bbbd283eb47d05330f35d7e548f92e063eeebe7d4d53552eb",
+        "read": "previous complete file read plus exact passage re-read for this clarification",
+        "first_line": 123,
+        "last_line": 135,
+        "text": "### Stage C: Chapter 2 closure costs and the needed ranking prefix\n\nReconcile XD01 builder costs next when the natural-run sorting bridge needs them. This is independent of XP01 and XR01. Retain the source asc/scanner and comparison-versus-construction obligations in Chapter 2; the shared closure model does not discharge them by itself.\n\nFor the chosen average-quicksort proof, use only the required accepted ranking prefix:\n\n1. XU01 minimum.\n2. XU02 whole relative order after XU01 acceptance.\n3. XU03 conditional remaining order after its preceding base acceptance.\n\nEach ticket's explicit acceptance prerequisite remains in force. An eventual merge of an entire saved chain is not a shortcut around those gates.\n\nIf the Chapter 2 proof actually uses the full joint/distribution route, continue through **XU04, then XU05**, with their matching acceptance steps. XU04 is a retained ticket/ancestry dependency of XU05 even though joint source imports do not require its expectation module. Do not cherry-pick around that requirement or rewrite it merely to shorten Chapter 2 integration. If only the expectation recurrence and marginals are needed, the chain can remain at the accepted tail prefix and the later two saved drafts remain queued. This is deferral of unused scope, not removal from the whole-book obligation."
+      },
+      {
+        "path": "fdsa-control/reviews/shared-integration-preflight.md",
+        "source_sha256": "e1d9c119e2bca35bbbd283eb47d05330f35d7e548f92e063eeebe7d4d53552eb",
+        "read": "previous complete file read plus exact passage re-read for this clarification",
+        "first_line": 196,
+        "last_line": 202,
+        "text": "## 8. Candidate reviews, refs and durability\n\nKeep the original Chapter 1 review scope and retained findings until the repaired chapter is accepted. For later shared reconciliation, record the accepted incorporated base and immutable candidate, preserve the original component bases/requirements as provenance, and carry every unresolved finding forward. The repository review procedure permits recording a new incorporated integration base; it does not permit erasing old scope or treating an earlier preflight as final approval.\n\nUse the existing implementation/review workflow rather than creating another loop for this plan. Both independent final axes must assess the complete included scope on the same combined candidate, including resolution edits and consequential compatibility. Earlier analysis of unchanged material can be retained with explicit identity evidence. No focused success, cache hit, ancestry, source preflight or independent finite calculation supplies missing full-candidate or final-review evidence.\n\nBefore future promotion, compare the exact delivered tree with the reviewed candidate and verify its candidate record. Record the accepted scope in local tickets, then create, expose and save the normal recovery checkpoint. Preserve all advertised refs, including existing branch and remote-tracking refs, and full reachable Git history; preserve the named original candidate SHAs even when later authoring advances a branch. Retain exact ref inventories, local tracking, requirements, review evidence and checkpoint receipts. No GitHub write is needed."
+      },
+      {
+        "path": "fdsa-control/reviews/ordinary-merge-requirements.md",
+        "source_sha256": "b54e2b332cc31c04ac12fb5b19cc96fa494a80e1455fcfc173f59b6fe340d3d9",
+        "read": "previous complete file read plus exact passage re-read for this clarification",
+        "first_line": 328,
+        "last_line": 346,
+        "text": "Accepted repaired Chapter 1 is a prerequisite to XM01 integration/acceptance.\nThe initial Chapter 2 prefix stays exactly\n`c80eec92f5458eccfd1c34c8314d666c2a1e3847`; XM01 is not added to that first\ncandidate. The original `shared-integration-preflight.md` remains unchanged:\nits section 7 already permits reuse of the idle isolated normal-cache checkout\nfor successive immutable candidates, with every prior result preserved.\nAfter the initial prefix's own gates, XM01 can be reconciled when its merge\nconsumer is needed. Record any incorporated base and full conflict resolution,\npreserving this original base/scope and all accepted predecessor changes.\n\nRequired acceptance evidence remains matching applicable focused checks,\nclean immutable-candidate full `./check.sh --candidate HEAD`, both integrity\npasses, source/public coverage and pinned compiler/dependency checks, complete\nintegrated build and exhaustive transitive axiom audit, both independent\nStandards and Spec axes on the full scope, and immediate\n`./check.sh --verify-candidate HEAD`. Fresh mode remains governed by concrete\nREADME/runbook triggers. No focused success, cache reuse, branch ancestry,\npreflight or draft checkpoint substitutes for those gates. Preserve all failed\nand superseded attempts with their honest identities and outcomes."
+      },
+      {
+        "path": "fdsa-control/reviews/difference-list-cost-requirements.md",
+        "source_sha256": "cb215a33cce3dd258cca37b9d703522d19caf2da76767c01e573d268b3e92c4e",
+        "read": "previous complete file read plus exact passage re-read for this clarification",
+        "first_line": 121,
+        "last_line": 129,
+        "text": "## Validation\n\nRecord per-claim statement review, meaningful satisfiable uses and exact\ncost boundaries. No admissions, axioms, unsafe/partial definitions or kernel\nbypasses are permitted. Draft code may be committed for durability before\nelaboration, clearly marked uncompiled. Final acceptance requires the pinned\nenvironment's focused build, public integration, immutable candidate full\ncheck/audit, both retained independent axes, and immediate final candidate\nverification. This unit and every chapter remain unaccepted until those gates."
+      },
+      {
+        "path": "fdsa-control/reviews/three-way-partition-requirements.md",
+        "source_sha256": "b1f55911c44a11def3498484787fcb04972398ec040bf1bd65c75796c116d541",
+        "read": "previous complete file read plus exact passage re-read for this clarification",
+        "first_line": 198,
+        "last_line": 209,
+        "text": "Once prerequisites and compiler exclusivity permit, validate a clean immutable\nhistory-preserving candidate. Focused targets include the new shared/resource/\nexample modules and existing Selection.ThreeWay, Selection.Consumers and\nExamples.RankSelection, addressing the concrete compatibility risk. Then run\nthe applicable complete `./check.sh --candidate HEAD`, source/coverage/version\nchecks, both integrity passes, integrated build and exhaustive axiom audit.\nRetain matching success evidence outside transient outputs. Both independent\nStandards and Spec axes must assess the whole original frozen scope/base on\nthat candidate, carrying findings through corrections. Immediately before\nacceptance run `./check.sh --verify-candidate HEAD`, then save/upload the\nacceptance checkpoint. Preflights, authored proofs and focused builds alone\nare not acceptance."
+      },
+      {
+        "path": "fdsa-control/reviews/permutation-minimum-requirements.md",
+        "source_sha256": "59e2ff6ff66dd39b6151a42b501bcc22e86eb593a9b854b532f97bc45fdd7686",
+        "read": "previous complete file read plus exact passage re-read for this clarification",
+        "first_line": 145,
+        "last_line": 154,
+        "text": "Use only the project's allowed axioms and pinned toolchain. No admission,\nnew axiom, unsafe/partial definition or proof-checking bypass is permitted.\nIntegrate examples through the normal public root and document the exact\nsource use and remaining work. Capture an immutable candidate and source\nstatement review, then perform focused compilation, the full applicable\nguarded candidate build and exhaustive proof audit, both independent review\naxes and immediate final candidate verification. Preserve every unresolved\nfinding. A source preflight, uncompiled draft or durability checkpoint is\nnot acceptance. Integrate only after repaired Chapter 1 and this unit have\nboth passed their gates."
+      },
+      {
+        "path": "fdsa-control/reviews/permutation-order-requirements.md",
+        "source_sha256": "f473f593bf4a7ef75dcf2f3163440db6fe187b3b9983f87254d2ddfa8191982d",
+        "read": "previous complete file read plus exact passage re-read for this clarification",
+        "first_line": 200,
+        "last_line": 209,
+        "text": "Use only allowed project axioms and the pinned environment. No admission,\nnew axiom, unsafe/partial definition or proof-checking bypass is permitted.\nIntegrate the examples through the public root and provide concise source-use\ndocumentation. Capture an immutable candidate with these requirements kept\noutside its diff. Focused compilation, the applicable full guarded candidate\nbuild and exhaustive audit, both independent final axes and immediate\ncandidate verification remain mandatory. Preserve unresolved findings.\nNo preflight, source draft or recovery checkpoint supplies acceptance credit.\nIntegration depends on acceptance of the repaired Chapter 1 and prior\nminimum-law base as well as this unit's own gates."
+      },
+      {
+        "path": "fdsa-control/reviews/permutation-tail-requirements.md",
+        "source_sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c",
+        "read": "previous complete file read plus exact passage re-read for this clarification",
+        "first_line": 222,
+        "last_line": 229,
+        "text": "Integrate the examples through the public root and document source use and\nremaining boundaries. Capture an immutable candidate with these requirements\noutside its diff. Focused compilation, applicable full guarded candidate\nbuild and exhaustive audit, both independent final axes and immediate final\ncandidate verification remain mandatory. Preserve unresolved findings.\nNeither a preflight, source draft nor recovery checkpoint supplies acceptance\ncredit. Integration depends on the repaired Chapter 1 and preceding shared\nbase acceptance as well as this unit's own matching gates."
+      },
+      {
+        "candidate": "07e480f6ec9958d4975bb90151005b84f2907614",
+        "path": "docs/agents/review-loop.md",
+        "source_sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+        "read": "previous complete file read plus exact passage re-read for this clarification",
+        "first_line": 67,
+        "last_line": 92,
+        "text": "## Validation of the candidate\n\nValidate the captured candidate in an isolated checkout using the repository's\ndevelopment environment and required checks. Earlier results may be reused\nonly with evidence that the validated source tree, dependencies, configuration,\nand other relevant inputs match this candidate. Record the commands, results,\ninput identity, and coverage in the review record.\n\nFor integrated Lean verification, run `./check.sh --candidate HEAD` in the\ncaptured candidate's isolated checkout, adding `--fresh` when README requires\nit. Preserve the reported commit and `.lake/verification.json` with the review\nevidence. Immediately before acceptance, run `./check.sh --verify-candidate HEAD`\nin that checkout and confirm that its resolved commit is the approved candidate.\nA failed or mismatched record check requires investigation and applicable\nrevalidation. The record covers the build/axiom audit only; retain evidence for\nother required tests and both review axes. Before/after input checks do not\nreplace checkout isolation or prove absence of transient edits and undeclared\nexternal inputs. For tasks that do not require integrated Lean verification,\nretain the artifact-appropriate checks described in README.\n\nA live-checkout check may depend on unrelated edits excluded from the review\nsnapshot. When those inputs differ or their identity is uncertain, run the\napplicable checks against the captured candidate. Missing or failed required\nvalidation prevents passing; report limitations explicitly. Apply this rule to\nevery correction candidate and verify the final delivered task content matches\nthe approved snapshot, accounting for recorded unrelated exclusions."
+      }
+    ],
+    "public_status_excerpts_preserved": 10,
+    "all_status_excerpts_rechecked_against_immutable_C": true,
+    "new_mathematical_review_claim": false,
+    "writes": [
+      "plan.md",
+      "receipt.json"
+    ],
+    "source_ref_output_other_control_changes": false,
+    "hold": true
+  }
+}

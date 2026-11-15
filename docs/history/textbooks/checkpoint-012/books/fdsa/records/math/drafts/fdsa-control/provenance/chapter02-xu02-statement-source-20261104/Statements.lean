@@ -1,0 +1,61 @@
+import Applications.Probability.PermutationOrder
+import Examples.PermutationOrder
+import Examples.PermutationOrderBoundary
+
+set_option pp.universes true
+set_option pp.explicit true
+set_option pp.fullNames true
+
+#check @Applications.Probability.PermutationOrder.restrictedOrder
+#check @Applications.Probability.PermutationOrder.orders
+#check @Applications.Probability.PermutationOrder.mem_restrictedOrder
+#check @Applications.Probability.PermutationOrder.mem_restrictedOrder_of_complete
+#check @Applications.Probability.PermutationOrder.restrictedOrder_nodup
+#check @Applications.Probability.PermutationOrder.restrictedOrder_toFinset
+#check @Applications.Probability.PermutationOrder.restrictedOrder_length
+#check @Applications.Probability.PermutationOrder.restrictedOrder_perm
+#check @Applications.Probability.PermutationOrder.map_restrictedOrder_sublist
+#check @Applications.Probability.PermutationOrder.filter_restrictedOrder
+#check @Applications.Probability.PermutationOrder.filter_restrictedOrder_of_subset
+#check @Applications.Probability.PermutationOrder.mem_orders
+#check @Applications.Probability.PermutationOrder.orders_nonempty
+#check @Applications.Probability.PermutationOrder.restrictedOrder_mem_orders
+#check @Applications.Probability.PermutationOrder.orders_card
+#check @Applications.Probability.PermutationOrder.uniformOn_restrictedOrder_eq
+#check @Applications.Probability.PermutationOrder.map_restrictedOrder_uniformOn
+#check @Examples.PermutationOrder.positions
+#check @Examples.PermutationOrder.selected
+#check @Examples.PermutationOrder.smaller
+#check @Examples.PermutationOrder.positions_nodup
+#check @Examples.PermutationOrder.positions_complete
+#check @Examples.PermutationOrder.law
+#check @Examples.PermutationOrder.selected_structure
+#check @Examples.PermutationOrder.selected_permutation
+#check @Examples.PermutationOrder.selected_orders_card
+#check @Examples.PermutationOrder.order_023_mass
+#check @Examples.PermutationOrder.observed_law
+#check @Examples.PermutationOrder.order_032_mass_via_map
+#check @Examples.PermutationOrder.repeated_order_mass_zero
+#check @Examples.PermutationOrder.nestedObservation
+#check @Examples.PermutationOrder.nestedObservation_eq
+#check @Examples.PermutationOrder.nested_order_30_mass
+#check @Examples.PermutationOrder.singleton_order_mass
+#check @Examples.PermutationOrder.full_order_mass
+#check @Examples.PermutationOrderBoundary.empty_subset_output
+#check @Examples.PermutationOrderBoundary.empty_subset_orders
+#check @Examples.PermutationOrderBoundary.empty_subset_mass
+#check @Examples.PermutationOrderBoundary.empty_index_mass
+#check @Examples.PermutationOrderBoundary.cycle
+#check @Examples.PermutationOrderBoundary.cycle_values
+#check @Examples.PermutationOrderBoundary.cycle_inverse_order
+#check @Examples.PermutationOrderBoundary.cycle_restricted_order
+#check @Examples.PermutationOrderBoundary.cycle_direct_order
+#check @Examples.PermutationOrderBoundary.inverse_and_direct_orders_differ
+#check @Examples.PermutationOrderBoundary.numeric_enumeration_values
+#check @Examples.PermutationOrderBoundary.numeric_enumeration_increasing
+#check @Examples.PermutationOrderBoundary.ordinary_enumeration_not_increasing
+#check @Examples.PermutationOrderBoundary.numeric_and_ordinary_orders_differ
+#check @Examples.PermutationOrderBoundary.incomplete_output
+#check @Examples.PermutationOrderBoundary.incomplete_support_counterexample
+#check @Examples.PermutationOrderBoundary.repeated_output
+#check @Examples.PermutationOrderBoundary.repeated_support_counterexample

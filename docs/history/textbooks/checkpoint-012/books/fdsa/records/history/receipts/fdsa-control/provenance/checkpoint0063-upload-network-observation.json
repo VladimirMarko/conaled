@@ -1,0 +1,46 @@
+{
+  "observed_utc": "2026-11-03T02:30:24.683085+00:00",
+  "checkpoint": "conaled-fdsa-0063-logarithm-bounds",
+  "archive_sha256": "1ed33919b386923c37001ea91a4b60341393c52e4bb7ab46e789e40cfa2defec",
+  "upload_state": "/workspace/scratch/845aa1048b05/library-helpers/upload-0063",
+  "explicit_local_error_counts": {
+    "connect_operation_not_permitted": 0,
+    "dial_tcp_operation_not_permitted": 136
+  },
+  "safe_transfer_status": {
+    "JobStatus": "InProgress",
+    "TotalBytesTransferred": "0",
+    "TransfersCompleted": "0",
+    "TransfersFailed": "0",
+    "PercentComplete": "0"
+  },
+  "owned_transfer_processes": [
+    {
+      "pid": 718822,
+      "start_ticks": "10629548",
+      "parent_pid": 718754,
+      "command_kind": "azcopy copy of exact checkpoint0063 by its owned upload helper; signed destination omitted"
+    }
+  ],
+  "private_log_identities": [
+    {
+      "relative_path": "openai-library-upload-8nvv2j6x/transfer-0.log",
+      "bytes": 363673,
+      "sha256": "e672e8b567e9781fc70a05f1e19a827fd04f95705d7d5df82b5da31f8ba1ee10"
+    },
+    {
+      "relative_path": "openai-library-upload-8nvv2j6x/logs/195ad9ab-686e-ca40-5b45-dcb6b7833ef0.log",
+      "bytes": 1112484,
+      "sha256": "e7d7ef954a5d1f7872f275e667b7b4be2c08ce4622eb2b1ec740f70841897713"
+    },
+    {
+      "relative_path": "openai-library-upload-8nvv2j6x/logs/195ad9ab-686e-ca40-5b45-dcb6b7833ef0-scanning.log",
+      "bytes": 204,
+      "sha256": "37f7ea838baca767c8af0a92239d9822ce07dd620b5b409961f5ac7a1c0d0b47"
+    }
+  ],
+  "finalization_requested": false,
+  "finalization_issued": false,
+  "result_exists": false,
+  "interpretation": "Explicit local network syscall denial is distinct from a remote HTTP error. No signed URL, token or transport header is recorded. Earlier bare403 substring scan is not HTTP-error evidence. No retry, finalization, termination or other mutation has yet occurred."
+}

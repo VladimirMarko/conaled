@@ -1,0 +1,1623 @@
+{
+  "recorded_utc": "2026-11-05T03:19:58.955348+00:00",
+  "reviewer": "/root/tree_cache_standards",
+  "axis": "Standards",
+  "unit": "FDSA-XT02",
+  "stage": "Receiving source assessment; actual compiler/types/full evidence pending",
+  "candidate": "27c5908b07c7a03feefc09472a8701ef940b7aaf",
+  "tree": "2833c54c80e93940eaea859737d6854fb2ce933e",
+  "incorporated_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "requirements_ids": [
+    "XT02-01",
+    "XT02-02",
+    "XT02-03",
+    "XT02-04",
+    "XT02-05"
+  ],
+  "requirements": {
+    "path": "reviews/tree-shape-requirements.md",
+    "bytes": 11890,
+    "lines": 233,
+    "sha256": "50d11472d8380fb3458a3ea71aba3d1104886f676a7b1cec578c0557a6979e91"
+  },
+  "original_scope_paths": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-shape.md"
+  ],
+  "scope_complete": true,
+  "source_assessment_complete": true,
+  "actual_public_types_complete": false,
+  "full_validation_accepted": false,
+  "review_complete": false,
+  "outcome": "Blocked",
+  "new_findings": [],
+  "unresolved_source_findings": [],
+  "inherited_findings": [
+    {
+      "id": "XT02-SP01",
+      "disposition": "Source correction confirmed; actual-type/full/final confirmation remains pending",
+      "exact_single_docstring_replacement": true,
+      "formal_source_bytes_preserved": true,
+      "snapshot": {
+        "path": "reviews/tree-shape-preflight-snapshots/Examples-TreeShape-before-SP01.lean",
+        "bytes": 12640,
+        "lines": 297,
+        "sha256": "9b0aacf07d1e9fe62f540abba5d24a387f3e962c9711d253fdb8d105001436f7"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "git_blob": "52c589e228d4c3a8726f7010ec1de7700ba5eca2",
+      "bytes": 11019,
+      "lines": 267,
+      "sha256": "2233e014900a48ebc239d676a1c8abdaee2046ef503e5219bff460a001b868f3",
+      "same_original_donor": true
+    },
+    {
+      "path": "Applications/Trees/ShapeLog.lean",
+      "git_blob": "2b9d3e3ce0adef033ecba262cd5b1126591c390b",
+      "bytes": 2796,
+      "lines": 69,
+      "sha256": "35c0555383fc3d03bcac4f368d41b2c8f744a49e18ef72b192c3753b7ef4497b",
+      "same_original_donor": true
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "git_blob": "ad88549bad45b77c33f039d3e465cd074f038b01",
+      "bytes": 12648,
+      "lines": 297,
+      "sha256": "2bcf2b65fa7a0eccc043c3bc7ba66d1bfdcd469489eab52d9085fdfb3db0b516",
+      "same_original_donor": true
+    },
+    {
+      "path": "SquareApplications.lean",
+      "git_blob": "afa218e9c6c928bbd3b04268a240c8d90c22e9d9",
+      "bytes": 10769,
+      "lines": 328,
+      "sha256": "a9e0d07ced3385a26f4e1f0f4d45d796ebe4be5c12f03c7f219cce9dc9c9797d",
+      "same_original_donor": false
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "git_blob": "e37d8e89d1ba0851d7b3886b8c84b10447abd5ac",
+      "bytes": 51167,
+      "lines": 763,
+      "sha256": "1e58dd24c4b46319d5fdf0cf1e51d2ef42864495df08bba6890e4e02ed21fab9",
+      "same_original_donor": false
+    },
+    {
+      "path": "docs/research/fdsa-tree-shape.md",
+      "git_blob": "dbbdf8e061c4c0132c164897bc99e86498e80057",
+      "bytes": 13230,
+      "lines": 196,
+      "sha256": "804ae74a082ddd1a493c2d36a34f7ebc842c6951501b0aa4eef717eac8d366c6",
+      "same_original_donor": false
+    }
+  ],
+  "all3_formal_blobs_exact_original_donor": true,
+  "all91_original_authored_headers_exact": true,
+  "public_names": 90,
+  "public_theorems": 79,
+  "public_definitions": 11,
+  "private_definitions": 1,
+  "public_name_order_lf_sha256": "8355bac9e8c40cc83f7ca49b6634cfa547ace73c72a9ac4d8277dfd67c4df845",
+  "authored_declarations": [
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 17,
+      "last_header_line": 17,
+      "source_name": "Trees.minHeight",
+      "kind": "def",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "def minHeight (t : BinaryTree \u03b1) : Nat ",
+      "header_sha256": "1642c4e75c8def94ef719dfab81f531ceb8333afbf12cd570e2f38024a2fb270"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 20,
+      "last_header_line": 20,
+      "source_name": "Trees.minHeight_nil",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "@[simp] theorem minHeight_nil : minHeight (.nil : BinaryTree \u03b1) = 0 ",
+      "header_sha256": "89acdacb587591da70cbe71cd3018b9c072a54256752956d8892f62a6292b0b7"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 22,
+      "last_header_line": 23,
+      "source_name": "Trees.minHeight_node",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "@[simp] theorem minHeight_node (a : \u03b1) (l r : BinaryTree \u03b1) :\n    minHeight (.node a l r) = min (minHeight l) (minHeight r) + 1 ",
+      "header_sha256": "77376cdaa28d4f860a1252b1851af8cbf736b07add33e55da0cbcfa02a3d7062"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 25,
+      "last_header_line": 26,
+      "source_name": "Trees.minHeight_map",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem minHeight_map (label : \u03b1 \u2192 \u03b2) (t : BinaryTree \u03b1) :\n    minHeight (t.map label) = minHeight t ",
+      "header_sha256": "492d2a5c80947cd0046b5e9f9f840035a3575729178d55ea66f4ac6796a33e17"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 29,
+      "last_header_line": 29,
+      "source_name": "Trees.minHeight_le_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem minHeight_le_height (t : BinaryTree \u03b1) : minHeight t \u2264 t.height ",
+      "header_sha256": "df9cc31797f559b0b44b2280a839bd9e345478b749fb075eff7f45b05fa66b03"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 39,
+      "last_header_line": 39,
+      "source_name": "Trees.Complete",
+      "kind": "def",
+      "visibility": "public",
+      "header_delimiter": "equation",
+      "header_raw": "def Complete : BinaryTree \u03b1 \u2192 Prop\n",
+      "header_sha256": "818612c7ef1e844cf12a4780f7f595eb5b4fd9488422ffb9eaaa57a9bab83216"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 43,
+      "last_header_line": 43,
+      "source_name": "Trees.complete_nil",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "@[simp] theorem complete_nil : Complete (.nil : BinaryTree \u03b1) ",
+      "header_sha256": "7109baf6a07a07f063625b9a498584afc7670531377c88fab5d8bc04793cf4ec"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 45,
+      "last_header_line": 46,
+      "source_name": "Trees.complete_node",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "@[simp] theorem complete_node (a : \u03b1) (l r : BinaryTree \u03b1) :\n    Complete (.node a l r) \u2194 l.height = r.height \u2227 Complete l \u2227 Complete r ",
+      "header_sha256": "e760e55ec2a49e219fb75283202c66cb0fb8c241e86222d87c8d0c463ec80475"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 48,
+      "last_header_line": 49,
+      "source_name": "Trees.complete_iff_minHeight_eq_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem complete_iff_minHeight_eq_height (t : BinaryTree \u03b1) :\n    Complete t \u2194 minHeight t = t.height ",
+      "header_sha256": "0431fd46cf1eff1b64c892e22496ec45918d0828ba03cfed0444785c40a76b51"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 58,
+      "last_header_line": 59,
+      "source_name": "Trees.complete_map",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem complete_map (label : \u03b1 \u2192 \u03b2) (t : BinaryTree \u03b1) :\n    Complete (t.map label) \u2194 Complete t ",
+      "header_sha256": "b72da16e5c497c532ca121158a584932c994fe82a7d71869950b00c499c3fd72"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 64,
+      "last_header_line": 64,
+      "source_name": "Trees.AlmostComplete",
+      "kind": "def",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "def AlmostComplete (t : BinaryTree \u03b1) : Prop ",
+      "header_sha256": "f67247ed5572fd5cb0686cb6827bec85fe9a482bc243dd5a98a4489fe072ce20"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 66,
+      "last_header_line": 66,
+      "source_name": "Trees.almostComplete_nil",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "@[simp] theorem almostComplete_nil : AlmostComplete (.nil : BinaryTree \u03b1) ",
+      "header_sha256": "8153bc15339ce59aa8818c662d5e7d9c684bb0ac4177ce7daadeaf92a5c74eb1"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 69,
+      "last_header_line": 70,
+      "source_name": "Trees.almostComplete_iff_sub",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem almostComplete_iff_sub (t : BinaryTree \u03b1) :\n    AlmostComplete t \u2194 t.height - minHeight t \u2264 1 ",
+      "header_sha256": "3a24f686aec5ae8813f7a3814c7da484eaaa8a058ac570d47c22f9e835f8ed53"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 74,
+      "last_header_line": 75,
+      "source_name": "Trees.complete_almostComplete",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem complete_almostComplete (t : BinaryTree \u03b1) (ht : Complete t) :\n    AlmostComplete t ",
+      "header_sha256": "9aaf92b165161201ba6301a6da48763bfc3c019a73d0e8db6e98fc14265968e3"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 80,
+      "last_header_line": 81,
+      "source_name": "Trees.almostComplete_children",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem almostComplete_children (a : \u03b1) (l r : BinaryTree \u03b1)\n    (ht : AlmostComplete (.node a l r)) : AlmostComplete l \u2227 AlmostComplete r ",
+      "header_sha256": "a9f65cf7857cceffb4496f8bcdc89a7ad3a514be4b4a0f018a04e62f9c3b7b50"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 85,
+      "last_header_line": 86,
+      "source_name": "Trees.almostComplete_map",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem almostComplete_map (label : \u03b1 \u2192 \u03b2) (t : BinaryTree \u03b1) :\n    AlmostComplete (t.map label) \u2194 AlmostComplete t ",
+      "header_sha256": "f9ec78f4e200d256007972dbc67943f31389a06c78a437456e33c9011ffdbf4a"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 90,
+      "last_header_line": 91,
+      "source_name": "Trees.pow_minHeight_le_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem pow_minHeight_le_numLeaves (t : BinaryTree \u03b1) :\n    2 ^ minHeight t \u2264 t.numLeaves ",
+      "header_sha256": "15861c51d0df3627ae0b50f5db0fd8970a83a938fe031da122464bb48a5af922"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 103,
+      "last_header_line": 104,
+      "source_name": "Trees.numLeaves_le_pow_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem numLeaves_le_pow_height (t : BinaryTree \u03b1) :\n    t.numLeaves \u2264 2 ^ t.height ",
+      "header_sha256": "fdb59324e3860cd698376a53e43d1344cb3768e0686d523f8001d6b4f5747fae"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 115,
+      "last_header_line": 116,
+      "source_name": "Trees.numLeaves_eq_pow_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem numLeaves_eq_pow_height (t : BinaryTree \u03b1) :\n    Complete t \u2192 t.numLeaves = 2 ^ t.height ",
+      "header_sha256": "da031ded5f8efa1dc3f5fd4d11f3bb124f716603acf4513b5fdc7e135749b268"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 125,
+      "last_header_line": 126,
+      "source_name": "Trees.numLeaves_eq_pow_minHeight",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem numLeaves_eq_pow_minHeight (t : BinaryTree \u03b1) (ht : Complete t) :\n    t.numLeaves = 2 ^ minHeight t ",
+      "header_sha256": "30296b2e6fe2c78441c15000a51698e0f02519241ba409abbd73010c8a74bd74"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 131,
+      "last_header_line": 132,
+      "source_name": "Trees.numLeaves_lt_pow_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem numLeaves_lt_pow_height (t : BinaryTree \u03b1) :\n    \u00ac Complete t \u2192 t.numLeaves < 2 ^ t.height ",
+      "header_sha256": "b2ee9992506e6163187ab94ed14e310ed529e4ca063964b86d3b7be3bce87bb7"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 164,
+      "last_header_line": 165,
+      "source_name": "Trees.pow_minHeight_lt_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem pow_minHeight_lt_numLeaves (t : BinaryTree \u03b1) :\n    \u00ac Complete t \u2192 2 ^ minHeight t < t.numLeaves ",
+      "header_sha256": "b645b9d0b807d9a6034a30b12b0ca61aa9fd6c9bd8f664a471d1211cc7ee9a61"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 200,
+      "last_header_line": 201,
+      "source_name": "Trees.complete_iff_numLeaves_eq_pow_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem complete_iff_numLeaves_eq_pow_height (t : BinaryTree \u03b1) :\n    Complete t \u2194 t.numLeaves = 2 ^ t.height ",
+      "header_sha256": "6ffeaf7e9e3f9550f262ee21d3349ae364fd2f9db1480e26353f1ef9e078b47a"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 208,
+      "last_header_line": 209,
+      "source_name": "Trees.complete_iff_numLeaves_eq_pow_minHeight",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem complete_iff_numLeaves_eq_pow_minHeight (t : BinaryTree \u03b1) :\n    Complete t \u2194 t.numLeaves = 2 ^ minHeight t ",
+      "header_sha256": "7f8f8be4e1af9351336b5a4713aa62637e4d749f7aaa602290bf68b954d0841a"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 216,
+      "last_header_line": 217,
+      "source_name": "Trees.minHeight_le_log_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem minHeight_le_log_numLeaves (t : BinaryTree \u03b1) :\n    minHeight t \u2264 Nat.log 2 t.numLeaves ",
+      "header_sha256": "2387b1809836b6a52f2bb5b1c2d7b98f48a6123a4fb63e7d8d62cd527d252ca0"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 220,
+      "last_header_line": 221,
+      "source_name": "Trees.clog_numLeaves_le_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem clog_numLeaves_le_height (t : BinaryTree \u03b1) :\n    Nat.clog 2 t.numLeaves \u2264 t.height ",
+      "header_sha256": "276347b73fc3b3429caf2f61cfad3e0dc6dd564ebd6cc2e0dd2413bf240d7293"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 225,
+      "last_header_line": 226,
+      "source_name": "Trees.minHeight_eq_log_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem minHeight_eq_log_numLeaves (t : BinaryTree \u03b1) (ht : AlmostComplete t) :\n    minHeight t = Nat.log 2 t.numLeaves ",
+      "header_sha256": "9ea4252415b9ea6a61dde821df357163b29f1931c7715281a900aab43a6d0014"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 243,
+      "last_header_line": 244,
+      "source_name": "Trees.height_eq_clog_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem height_eq_clog_numLeaves (t : BinaryTree \u03b1) (ht : AlmostComplete t) :\n    t.height = Nat.clog 2 t.numLeaves ",
+      "header_sha256": "118b595e9a532389de0099713968cb088b75a664bfb774af4307c08fdf11ca3a"
+    },
+    {
+      "path": "Applications/Trees/Shape.lean",
+      "line": 258,
+      "last_header_line": 260,
+      "source_name": "Trees.height_optimal",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem height_optimal (s : BinaryTree \u03b1) (t : BinaryTree \u03b2)\n    (hs : AlmostComplete s) (hsize : s.numNodes \u2264 t.numNodes) :\n    s.height \u2264 t.height ",
+      "header_sha256": "059f6cd85d13191ed6b5d3a6c933a09bb0c6bcfc2c4eb370da1ceaa77d21c349"
+    },
+    {
+      "path": "Applications/Trees/ShapeLog.lean",
+      "line": 14,
+      "last_header_line": 15,
+      "source_name": "Trees.minHeight_le_logb_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem minHeight_le_logb_numLeaves (t : BinaryTree \u03b1) :\n    (minHeight t : Real) \u2264 Real.logb 2 (t.numLeaves : Real) ",
+      "header_sha256": "7af9bde4cb20083529165175f96ebf008bb3c094a7a07ea424f70aefe7c0b673"
+    },
+    {
+      "path": "Applications/Trees/ShapeLog.lean",
+      "line": 23,
+      "last_header_line": 24,
+      "source_name": "Trees.logb_numLeaves_le_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem logb_numLeaves_le_height (t : BinaryTree \u03b1) :\n    Real.logb 2 (t.numLeaves : Real) \u2264 (t.height : Real) ",
+      "header_sha256": "d5706a4a36f4a101533608a2fd770226050d0b1af22fefcddf7465328ac93377"
+    },
+    {
+      "path": "Applications/Trees/ShapeLog.lean",
+      "line": 32,
+      "last_header_line": 33,
+      "source_name": "Trees.minHeight_lt_logb_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem minHeight_lt_logb_numLeaves (t : BinaryTree \u03b1) (ht : \u00ac Complete t) :\n    (minHeight t : Real) < Real.logb 2 (t.numLeaves : Real) ",
+      "header_sha256": "e8ac97009dac5f0206b0307e71daca5bacf4465a1e76e391a20d2877beed5b26"
+    },
+    {
+      "path": "Applications/Trees/ShapeLog.lean",
+      "line": 41,
+      "last_header_line": 42,
+      "source_name": "Trees.logb_numLeaves_lt_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem logb_numLeaves_lt_height (t : BinaryTree \u03b1) (ht : \u00ac Complete t) :\n    Real.logb 2 (t.numLeaves : Real) < (t.height : Real) ",
+      "header_sha256": "9f7a6f4abe778c9bbef85f8dd453c35a4b2823f426734f55bd22e7f4b4cc5dd5"
+    },
+    {
+      "path": "Applications/Trees/ShapeLog.lean",
+      "line": 50,
+      "last_header_line": 51,
+      "source_name": "Trees.height_eq_logb_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem height_eq_logb_numLeaves (t : BinaryTree \u03b1) (ht : Complete t) :\n    (t.height : Real) = Real.logb 2 (t.numLeaves : Real) ",
+      "header_sha256": "a30e1d9796945a581ee526a1f062eb29c316b0164ca73920e413189955b3b78f"
+    },
+    {
+      "path": "Applications/Trees/ShapeLog.lean",
+      "line": 57,
+      "last_header_line": 59,
+      "source_name": "Trees.minHeight_eq_floor_logb_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem minHeight_eq_floor_logb_numLeaves (t : BinaryTree \u03b1)\n    (ht : AlmostComplete t) :\n    minHeight t = \u230aReal.logb 2 (t.numLeaves : Real)\u230b\u208a ",
+      "header_sha256": "24f43f882274406b174455ee87ace6cc5a2c9158c33f7b45b43a0f3894e91bbc"
+    },
+    {
+      "path": "Applications/Trees/ShapeLog.lean",
+      "line": 63,
+      "last_header_line": 65,
+      "source_name": "Trees.height_eq_ceil_logb_numLeaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem height_eq_ceil_logb_numLeaves (t : BinaryTree \u03b1)\n    (ht : AlmostComplete t) :\n    t.height = \u2308Real.logb 2 (t.numLeaves : Real)\u2309\u208a ",
+      "header_sha256": "57df74b060ac39c76529672d5c9351ea6b2867cef1f4fa3c972711fbc0d56b72"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 14,
+      "last_header_line": 14,
+      "source_name": "TreeShapeExamples.single",
+      "kind": "def",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "def single : BinaryTree Unit ",
+      "header_sha256": "ff25c462a56efc2f30691451fddbe633a4c3bd399b4814e845e85ee6c053e2b4"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 16,
+      "last_header_line": 16,
+      "source_name": "TreeShapeExamples.single_complete",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem single_complete : Trees.Complete single ",
+      "header_sha256": "001127a6f09f27bd1ca83e89d5c866ea1eda935b48690a2b42e5427bfff79b00"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 19,
+      "last_header_line": 19,
+      "source_name": "TreeShapeExamples.single_minHeight",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem single_minHeight : Trees.minHeight single = 1 ",
+      "header_sha256": "5d8114efc0be7951a7b8f886de469d7b60b13dcd42b0b52d3f464a24823b34b5"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 25,
+      "last_header_line": 25,
+      "source_name": "TreeShapeExamples.single_almostComplete",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem single_almostComplete : Trees.AlmostComplete single ",
+      "header_sha256": "54e300a07fc2da76fa51f093b16b318a7b7e347d93a02c34204eb64be46980a4"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 28,
+      "last_header_line": 30,
+      "source_name": "TreeShapeExamples.empty_shapes",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem empty_shapes (t : BinaryTree Empty) :\n    Trees.Complete t \u2227 Trees.AlmostComplete t \u2227\n      Trees.minHeight t = 0 \u2227 t.height = 0 \u2227 t.numLeaves = 1 ",
+      "header_sha256": "b1abfaf9ed154445705b3d3e99b25e3efaafe2458dcdf335f969d7a869b82bda"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 34,
+      "last_header_line": 34,
+      "source_name": "TreeShapeExamples.perfectThree",
+      "kind": "def",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "def perfectThree : BinaryTree Unit ",
+      "header_sha256": "29e9b6a52c5047f47552583e978f00eb5f26e18a5b211bd6d50b78103fdcaae1"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 36,
+      "last_header_line": 36,
+      "source_name": "TreeShapeExamples.perfectThree_complete",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem perfectThree_complete : Trees.Complete perfectThree ",
+      "header_sha256": "337aa7064c19842bf82a9aaf8fc51a32e9d0b38131f54b66f2991fc0a994ba01"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 39,
+      "last_header_line": 40,
+      "source_name": "TreeShapeExamples.perfectThree_leaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem perfectThree_leaves :\n    perfectThree.numLeaves = 2 ^ Trees.minHeight perfectThree ",
+      "header_sha256": "8dda241be1a4eb292a8f04ad14e009bbadbf8eebb27de5046bd5996f34255665"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 43,
+      "last_header_line": 43,
+      "source_name": "TreeShapeExamples.perfectThree_minHeight",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem perfectThree_minHeight : Trees.minHeight perfectThree = 2 ",
+      "header_sha256": "9b0fd5f9b9abf441cecb2009d7d03a9c286b6bac29cd18cd4f1dd6f63a53e50b"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 49,
+      "last_header_line": 49,
+      "source_name": "TreeShapeExamples.rightTwo",
+      "kind": "def",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "def rightTwo : BinaryTree Unit ",
+      "header_sha256": "dafa731f8ebef8d9abd4a7349e9c498629111daf45c3ccf3d5e17fdc186a42f6"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 51,
+      "last_header_line": 51,
+      "source_name": "TreeShapeExamples.rightTwo_incomplete",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem rightTwo_incomplete : \u00ac Trees.Complete rightTwo ",
+      "header_sha256": "90bfdfd42182221b7f7ab10e015433f32969ca1e65fca66ff4053ab19a892ca0"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 55,
+      "last_header_line": 55,
+      "source_name": "TreeShapeExamples.rightTwo_almostComplete",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem rightTwo_almostComplete : Trees.AlmostComplete rightTwo ",
+      "header_sha256": "b8d3be6d5a0e1a98e35c4f72f7fdfd977b8ac3aadc0588f55fc98f515feb4837"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 59,
+      "last_header_line": 61,
+      "source_name": "TreeShapeExamples.rightTwo_strict_capacity",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem rightTwo_strict_capacity :\n    2 ^ Trees.minHeight rightTwo < rightTwo.numLeaves \u2227\n      rightTwo.numLeaves < 2 ^ rightTwo.height ",
+      "header_sha256": "3063e4f0e7278301e1dcf756c5bd9ad51cc240e90725bba183756fcc747874b5"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 65,
+      "last_header_line": 66,
+      "source_name": "TreeShapeExamples.rightTwo_children",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem rightTwo_children :\n    Trees.AlmostComplete (.nil : BinaryTree Unit) \u2227 Trees.AlmostComplete single ",
+      "header_sha256": "a28c4974fcad2c2ae0dd040c6dd82c30ff9bd18e7cca59ff0febe3eff868e72a"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 69,
+      "last_header_line": 69,
+      "source_name": "TreeShapeExamples.rightTwo_sub",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem rightTwo_sub : rightTwo.height - Trees.minHeight rightTwo \u2264 1 ",
+      "header_sha256": "82af65c52008b8bd8db0bf65c635d70ac2b86414b505307bb3bdb4e3dff73e46"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 72,
+      "last_header_line": 74,
+      "source_name": "TreeShapeExamples.chainThree_power_not_complete",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem chainThree_power_not_complete :\n    (TreeCacheExamples.chain 3).numLeaves = 2 ^ (2 : Nat) \u2227\n      \u00ac Trees.Complete (TreeCacheExamples.chain 3) ",
+      "header_sha256": "c8df2519cc433079265090ab2f0aea1d9c81b23dd9a357b2a9addcded06457a5"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 80,
+      "last_header_line": 82,
+      "source_name": "TreeShapeExamples.rightTwo_rounded_equalities",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem rightTwo_rounded_equalities :\n    Trees.minHeight rightTwo = Nat.log 2 rightTwo.numLeaves \u2227\n      rightTwo.height = Nat.clog 2 rightTwo.numLeaves ",
+      "header_sha256": "ae37698c99cff31f254078e66e417fce57e7a8328022afa70aed33e83087bef0"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 86,
+      "last_header_line": 88,
+      "source_name": "TreeShapeExamples.rightTwo_rounded_strictness_fails",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem rightTwo_rounded_strictness_fails :\n    \u00ac Trees.minHeight rightTwo < Nat.log 2 rightTwo.numLeaves \u2227\n      \u00ac Nat.clog 2 rightTwo.numLeaves < rightTwo.height ",
+      "header_sha256": "9759362e87f5205b93154cd8ffed1548f00a9c3b4b94291499f5fa2f922749be"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 93,
+      "last_header_line": 94,
+      "source_name": "TreeShapeExamples.empty_logarithms",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem empty_logarithms (t : BinaryTree Empty) :\n    Nat.log 2 t.numLeaves = 0 \u2227 Nat.clog 2 t.numLeaves = 0 ",
+      "header_sha256": "fad8fd990139805313e46835511eb3b1be89a6e23b6b11820a6ca83505f3bde4"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 102,
+      "last_header_line": 102,
+      "source_name": "TreeShapeExamples.sample_almostComplete",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem sample_almostComplete : Trees.AlmostComplete TreeCacheExamples.sample ",
+      "header_sha256": "6e638a2b90124f2780510279b40c3960830d9cf576c30a971ec19898b608270b"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 106,
+      "last_header_line": 106,
+      "source_name": "TreeShapeExamples.sample_minHeight",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem sample_minHeight : Trees.minHeight TreeCacheExamples.sample = 2 ",
+      "header_sha256": "a4900570803a81de174398d5c8849713a2de5f84154792fa69fc0ad6fdf53ae1"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 107,
+      "last_header_line": 107,
+      "source_name": "TreeShapeExamples.sample_leaves",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem sample_leaves : TreeCacheExamples.sample.numLeaves = 5 ",
+      "header_sha256": "f4c89b22836b45b87547e3086a6d289c5ea50f75f32af524eafc04101fb4a719"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 109,
+      "last_header_line": 109,
+      "source_name": "TreeShapeExamples.sample_logarithms",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem sample_logarithms : Nat.log 2 5 = 2 \u2227 Nat.clog 2 5 = 3 ",
+      "header_sha256": "ac0d6687bbd1901115e8d8039d1775008be561420b652d6c32d275efab130964"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 116,
+      "last_header_line": 117,
+      "source_name": "TreeShapeExamples.sample_height_nodes",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem sample_height_nodes : TreeCacheExamples.sample.height =\n    Nat.clog 2 (TreeCacheExamples.sample.numNodes + 1) ",
+      "header_sha256": "6389abde692f287fee1af0c29c58d29be4ca1d6b4abb53589c262676c83b9a0f"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 121,
+      "last_header_line": 122,
+      "source_name": "TreeShapeExamples.sample_wrong_node_offset",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem sample_wrong_node_offset :\n    TreeCacheExamples.sample.height \u2260 Nat.clog 2 TreeCacheExamples.sample.numNodes ",
+      "header_sha256": "e876068fef9aff6aecc964f757b25042292174ad1c38cc4b823ce1b4e0417a85"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 125,
+      "last_header_line": 126,
+      "source_name": "TreeShapeExamples.perfectThree_real_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem perfectThree_real_height :\n    (perfectThree.height : Real) = Real.logb 2 (perfectThree.numLeaves : Real) ",
+      "header_sha256": "24cc40bd9426d73f39ef35834cfc46d19603b809a112911806b82ce670e48d7d"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 129,
+      "last_header_line": 130,
+      "source_name": "TreeShapeExamples.rightTwo_strict_real",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem rightTwo_strict_real :\n    (1 : Real) < Real.logb 2 3 \u2227 Real.logb 2 3 < (2 : Real) ",
+      "header_sha256": "6774d29f11aaf4d84ce79df675227305560bfbde413a691d26e968759c2d9b9e"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 134,
+      "last_header_line": 135,
+      "source_name": "TreeShapeExamples.sample_real_rounding",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem sample_real_rounding :\n    \u230aReal.logb 2 (5 : Real)\u230b\u208a = 2 \u2227 \u2308Real.logb 2 (5 : Real)\u2309\u208a = 3 ",
+      "header_sha256": "80788686f2e42ff976adc00be6edc2cf5479d1fa270d10b85e58e0ff5c1f2f77"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 144,
+      "last_header_line": 145,
+      "source_name": "TreeShapeExamples.empty_real_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem empty_real_height (t : BinaryTree Empty) :\n    (t.height : Real) = Real.logb 2 (t.numLeaves : Real) ",
+      "header_sha256": "c098a41359745a37db9ca452aee6bd971bde003956d2e4e76a2af3fc0f7775b1"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 148,
+      "last_header_line": 150,
+      "source_name": "TreeShapeExamples.mapped_sample",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem mapped_sample :\n    Trees.minHeight (TreeCacheExamples.sample.map (fun _ => ())) = 2 \u2227\n      Trees.AlmostComplete (TreeCacheExamples.sample.map (fun _ => ())) ",
+      "header_sha256": "91bf654bef86ddc49813461d217b967b7b24b738d4589889dd433ebc731004b5"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 154,
+      "last_header_line": 155,
+      "source_name": "TreeShapeExamples.relabelled_complete",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem relabelled_complete :\n    Trees.Complete (perfectThree.map (fun _ => false)) ",
+      "header_sha256": "cc3ce93bb8f1accb10844a09a0353d2f5fc5f053e9c158409bc0d639629a14ed"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 159,
+      "last_header_line": 160,
+      "source_name": "TreeShapeExamples.minHeight_erase",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem minHeight_erase (t : BinaryTree (\u03b1 \u00d7 \u03b2)) :\n    Trees.minHeight (Trees.Cached.erase t) = Trees.minHeight t ",
+      "header_sha256": "cf8125bbfc2995e891745237e349d987a95aaf45b51a4caa49d26f1f877a2d7f"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 163,
+      "last_header_line": 164,
+      "source_name": "TreeShapeExamples.almostComplete_erase",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem almostComplete_erase (t : BinaryTree (\u03b1 \u00d7 \u03b2)) :\n    Trees.AlmostComplete (Trees.Cached.erase t) \u2194 Trees.AlmostComplete t ",
+      "header_sha256": "c161170a03fe4145a64803b026c41029e42f9f39b79b6063afe2b68c66f60ce9"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 167,
+      "last_header_line": 169,
+      "source_name": "TreeShapeExamples.pairSample_shape",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem pairSample_shape :\n    Trees.minHeight TreeCacheExamples.pairSample = 2 \u2227\n      Trees.AlmostComplete TreeCacheExamples.pairSample ",
+      "header_sha256": "c1d6593f549aac1895dbf11933e7605e75894a49710ec736232bf234746dced9"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 182,
+      "last_header_line": 185,
+      "source_name": "TreeShapeExamples.corrupt_shape_without_validity",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem corrupt_shape_without_validity :\n    Trees.minHeight TreeCacheExamples.corrupt = 2 \u2227\n      Trees.AlmostComplete TreeCacheExamples.corrupt \u2227\n      \u00ac Trees.Cached.Valid 0 TreeCacheExamples.sizeStep TreeCacheExamples.corrupt ",
+      "header_sha256": "e5208adf39252ca63600efa2675efe76337750b01dd18370a13a9bdfa0b86977"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 198,
+      "last_header_line": 198,
+      "source_name": "TreeShapeExamples.minStep",
+      "kind": "def",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "def minStep (l : Nat) (_ : \u03b1) (r : Nat) : Nat ",
+      "header_sha256": "2a1a0922762cc59cdd8d55dba5a0ac6b2455437523052da367fd824656d18c0c"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 201,
+      "last_header_line": 203,
+      "source_name": "TreeShapeExamples.min_reader",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem min_reader (t : BinaryTree (\u03b1 \u00d7 Nat))\n    (ht : Trees.Cached.Valid 0 minStep t) :\n    Trees.Cached.read 0 t = Trees.minHeight t ",
+      "header_sha256": "49a56bc2c4b0e1c910dcba7924db3e7d8115622fe2dd5c4482324b2b7ad0c3b0"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 210,
+      "last_header_line": 210,
+      "source_name": "TreeShapeExamples.minSample",
+      "kind": "def",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "def minSample : BinaryTree (Nat \u00d7 Nat) ",
+      "header_sha256": "af0d4593c640d404e49576dffba0b95e665a81d8e4090eb7c1b2c30dac92f519"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 213,
+      "last_header_line": 213,
+      "source_name": "TreeShapeExamples.minSample_valid",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem minSample_valid : Trees.Cached.Valid 0 minStep minSample ",
+      "header_sha256": "e876719a6fdeed9ca0c866c6c4b47d8da8a557977da6d251ed41d2bdcc0dfe10"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 216,
+      "last_header_line": 216,
+      "source_name": "TreeShapeExamples.minSample_erases",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem minSample_erases : Trees.Cached.erase minSample = TreeCacheExamples.sample ",
+      "header_sha256": "d4414e83acdc48373ebfd47399a064ae48f63da088abdc6f7a6acfa4cd825fe6"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 219,
+      "last_header_line": 219,
+      "source_name": "TreeShapeExamples.minSample_reads",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem minSample_reads : Trees.Cached.read 0 minSample = 2 ",
+      "header_sha256": "37e84d0718c61aa5d91b736687ad4abb77bf8a5679f8345c1a47136545cec3ae"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 228,
+      "last_header_line": 228,
+      "source_name": "TreeShapeExamples.heightOptimalCounter",
+      "kind": "def",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "def heightOptimalCounter : BinaryTree Bool ",
+      "header_sha256": "d0194ad836cccdf124ff3f1c5ef3019dd7de74e9e376759542b5407f276533ba"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 231,
+      "last_header_line": 231,
+      "source_name": "TreeShapeExamples.heightOptimalCounter_numNodes",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem heightOptimalCounter_numNodes : heightOptimalCounter.numNodes = 4 ",
+      "header_sha256": "817507681665b0e405e0d149c4f4024ae2668236e18c966f9c6db9bc827b543a"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 233,
+      "last_header_line": 235,
+      "source_name": "TreeShapeExamples.heightOptimalCounter_shape",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem heightOptimalCounter_shape :\n    heightOptimalCounter.numLeaves = 5 \u2227\n      Trees.minHeight heightOptimalCounter = 1 \u2227 heightOptimalCounter.height = 3 ",
+      "header_sha256": "bd13d44447b1820c17d07d4281613041d69bb7b881c741d13bc5f30364420dd0"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 238,
+      "last_header_line": 239,
+      "source_name": "TreeShapeExamples.optimum_across_labels",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem optimum_across_labels :\n    TreeCacheExamples.sample.height \u2264 heightOptimalCounter.height ",
+      "header_sha256": "c57b478fe321182a577871cf088a7f2d6648bc65e69ed78b58eb9af12eb989fc"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 243,
+      "last_header_line": 243,
+      "source_name": "TreeShapeExamples.counter_not_almostComplete",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem counter_not_almostComplete : \u00ac Trees.AlmostComplete heightOptimalCounter ",
+      "header_sha256": "0a8a671977b17782c1c2b77bb74ef979d3acaeb1d3d78e5fce5b7e0530cfab1d"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 247,
+      "last_header_line": 248,
+      "source_name": "TreeShapeExamples.counter_rounded_height",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem counter_rounded_height : heightOptimalCounter.height =\n    Nat.clog 2 heightOptimalCounter.numLeaves ",
+      "header_sha256": "f0db31901191609577671f0021ba7379943998fbcac12e379caef4c32865bd37"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 257,
+      "last_header_line": 259,
+      "source_name": "TreeShapeExamples.counter_height_optimal",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem counter_height_optimal (t : BinaryTree \u03b1)\n    (ht : heightOptimalCounter.numNodes \u2264 t.numNodes) :\n    heightOptimalCounter.height \u2264 t.height ",
+      "header_sha256": "6978ad78b719f267b706bc5a3ec7222c715b18fced6212be21c614157b39721e"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 266,
+      "last_header_line": 266,
+      "source_name": "TreeShapeExamples.almostFour",
+      "kind": "def",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "def almostFour : BinaryTree Unit ",
+      "header_sha256": "8ae38f284bfad5af8bbdb295ef21016011c6b4ee9429bf437c2d26adecd4aa14"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 267,
+      "last_header_line": 267,
+      "source_name": "TreeShapeExamples.localBalanceCounter",
+      "kind": "def",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "def localBalanceCounter : BinaryTree Unit ",
+      "header_sha256": "58623a78088f5f283811f52f5b433d5d21ba9720f472872ab8bace95f955c1f3"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 270,
+      "last_header_line": 270,
+      "source_name": "TreeShapeExamples.SiblingHeightBalanced",
+      "kind": "def",
+      "visibility": "private",
+      "header_delimiter": "equation",
+      "header_raw": "private def SiblingHeightBalanced : BinaryTree \u03b1 \u2192 Prop\n",
+      "header_sha256": "2b4ac5cebb2b44694b4daa3d9cd71b8f039db7a9d0488aec496c44b423f16e46"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 275,
+      "last_header_line": 275,
+      "source_name": "TreeShapeExamples.localBalanceCounter_balanced",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem localBalanceCounter_balanced : SiblingHeightBalanced localBalanceCounter ",
+      "header_sha256": "d10f47021aa654e3c10139e38fbfb7a8a2f21da0ff4ca07a71fe6be951d33fd0"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 279,
+      "last_header_line": 281,
+      "source_name": "TreeShapeExamples.localBalanceCounter_shape",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem localBalanceCounter_shape :\n    localBalanceCounter.numNodes = 7 \u2227 localBalanceCounter.numLeaves = 8 \u2227\n      Trees.minHeight localBalanceCounter = 2 \u2227 localBalanceCounter.height = 4 ",
+      "header_sha256": "901233c9f1e4b729b5d361fa064bb08f6e2a00b58a37746e6a6815795404e7df"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 284,
+      "last_header_line": 285,
+      "source_name": "TreeShapeExamples.localBalanceCounter_not_almostComplete",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem localBalanceCounter_not_almostComplete :\n    \u00ac Trees.AlmostComplete localBalanceCounter ",
+      "header_sha256": "21b1f2b54ba5f9fab1c69f63cf77fb55f299853e82acdacd6718f15cc4a68e0e"
+    },
+    {
+      "path": "Examples/TreeShape.lean",
+      "line": 289,
+      "last_header_line": 293,
+      "source_name": "TreeShapeExamples.chain_rounded_bounds",
+      "kind": "theorem",
+      "visibility": "public",
+      "header_delimiter": ":=",
+      "header_raw": "theorem chain_rounded_bounds (n : Nat) :\n    Trees.minHeight (TreeCacheExamples.chain n) \u2264\n        Nat.log 2 (TreeCacheExamples.chain n).numLeaves \u2227\n      Nat.clog 2 (TreeCacheExamples.chain n).numLeaves \u2264\n        (TreeCacheExamples.chain n).height ",
+      "header_sha256": "1cb07a288b5721ce2c327e6cfaea770f739eec55ec00fd3fce0345aaeb82b340"
+    }
+  ],
+  "actual_exported_type_credit": 0,
+  "prepared_program": {
+    "path": "provenance/tree-shape-public-statements90-prepared-20261104/Statements.lean",
+    "bytes": 4230,
+    "lines": 106,
+    "sha256": "28622fb1c6417798d4d4c476e9e3d307792c62e881f0158446ca2938434b83ca"
+  },
+  "prepared_program_execution_candidate": null,
+  "source_generality_and_connected_assessments_retained_from": {
+    "path": "provenance/tree-shape-standards-preparation-20261104/source-assessment.json",
+    "bytes": 52530,
+    "lines": 1226,
+    "sha256": "15d955691ca41bc56b0c846fda27b844a0001d1a42e6ea6686b4341a96a17fc0"
+  },
+  "accepted_root_preserved_plus_one_import": true,
+  "accepted_map_bytes_preserved_as_prefix": true,
+  "map_new_section_bytes": 1988,
+  "map_new_section_lines": 24,
+  "original_note_body_exact_after_dated16line_insert": true,
+  "instructions17_unchanged": [
+    {
+      "path": ".agents/skills/code-review/SKILL.md",
+      "bytes": 7466,
+      "lines": 133,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": ".agents/skills/code-review/heuristics.md",
+      "bytes": 2232,
+      "lines": 32,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": ".agents/skills/domain-modeling/SKILL.md",
+      "bytes": 3346,
+      "lines": 74,
+      "sha256": "7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "bytes": 6991,
+      "lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": ".agents/skills/example-driven-development/worked-example.md",
+      "bytes": 2356,
+      "lines": 55,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": ".agents/skills/implement/SKILL.md",
+      "bytes": 4997,
+      "lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": ".agents/skills/setup-matt-pocock-skills/domain.md",
+      "bytes": 2042,
+      "lines": 51,
+      "sha256": "593a7042218689f1d24df89df14eaf0a20e19e0d0a7d479a01947ac78f0784b9",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "GLOSSARY.md",
+      "bytes": 4824,
+      "lines": 106,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "README.md",
+      "bytes": 26239,
+      "lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "lines": 50,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "bytes": 7331,
+      "lines": 127,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "docs/language-direction.md",
+      "bytes": 19185,
+      "lines": 306,
+      "sha256": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "bytes": 3876,
+      "lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "bytes": 7113,
+      "lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "docs/agents/domain.md",
+      "bytes": 926,
+      "lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    },
+    {
+      "path": "docs/adr/README.md",
+      "bytes": 1547,
+      "lines": 17,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "retained_complete_reading": "provenance/binary-tree-cache-standards-preparation-20261104/read-ledger.json",
+      "exact_byte_identity": true,
+      "new_reread_claim": false
+    }
+  ],
+  "configuration10_unchanged": [
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 444,
+      "lines": 13,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    },
+    {
+      "path": "flake.nix",
+      "bytes": 637,
+      "lines": 28,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    },
+    {
+      "path": "flake.lock",
+      "bytes": 564,
+      "lines": 27,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    },
+    {
+      "path": "check.sh",
+      "bytes": 74,
+      "lines": 4,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    },
+    {
+      "path": "scripts/check.py",
+      "bytes": 16119,
+      "lines": 348,
+      "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    },
+    {
+      "path": "scripts/lake_integrity.py",
+      "bytes": 5781,
+      "lines": 117,
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    },
+    {
+      "path": "scripts/lake-output-hashes.lean",
+      "bytes": 618,
+      "lines": 11,
+      "sha256": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    },
+    {
+      "path": "ProofAudit.lean",
+      "bytes": 7925,
+      "lines": 154,
+      "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd",
+      "same_as_base": true,
+      "same_as_retained_XT01": true
+    }
+  ],
+  "dependency_pins9_unchanged": [
+    {
+      "name": "mathlib",
+      "rev": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+    },
+    {
+      "name": "plausible",
+      "rev": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+    },
+    {
+      "name": "LeanSearchClient",
+      "rev": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+    },
+    {
+      "name": "importGraph",
+      "rev": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+    },
+    {
+      "name": "proofwidgets",
+      "rev": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+    },
+    {
+      "name": "aesop",
+      "rev": "4a174c490d8707121c4a9290800489f105d85e07"
+    },
+    {
+      "name": "Qq",
+      "rev": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+    },
+    {
+      "name": "batteries",
+      "rev": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+    },
+    {
+      "name": "Cli",
+      "rev": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+    }
+  ],
+  "static_source_and_configuration_delta_adds_no_fresh_trigger": true,
+  "runtime_or_object_rehash_performed": false,
+  "runtime_and_object_qualification_boundary": "Deferred while root owns active builder; exact actual execution input qualification and full candidate validation remain required.",
+  "protected_original_and_accepted_records": [
+    {
+      "path": "reviews/tree-shape-requirements.md",
+      "bytes": 11890,
+      "lines": 233,
+      "sha256": "50d11472d8380fb3458a3ea71aba3d1104886f676a7b1cec578c0557a6979e91"
+    },
+    {
+      "path": "reviews/tree-shape-start.md",
+      "bytes": 2139,
+      "lines": 36,
+      "sha256": "16acb6d70351d474078d94c8b74797234122a9fcc5a0a5d20268328cbf084c35"
+    },
+    {
+      "path": "reviews/tree-shape-start.json",
+      "bytes": 392,
+      "lines": 9,
+      "sha256": "6142499c69e23d64dcff87e9682c68556d7634c181a6b6077eccc63103797218"
+    },
+    {
+      "path": "reviews/tree-shape-candidate.md",
+      "bytes": 6044,
+      "lines": 104,
+      "sha256": "8bab0b254f4c0be331988be140521b4b1219c5060efc9f6d97ca7a1c43da7268"
+    },
+    {
+      "path": "reviews/tree-shape-source-identities.json",
+      "bytes": 1604,
+      "lines": 47,
+      "sha256": "0cfb26d36033b47be19b22a021f3c085bc68e55f3ac64ccb44fd7708038e1acf"
+    },
+    {
+      "path": "reviews/tree-shape-source-preflight.md",
+      "bytes": 8617,
+      "lines": 145,
+      "sha256": "17e96c889f7fcd3f64d6eb29e68c2cc9f675ed1d3bfbf4fb49bcb28a5cb35554"
+    },
+    {
+      "path": "reviews/tree-shape-standards-preparation-20261104.md",
+      "bytes": 14250,
+      "lines": 64,
+      "sha256": "b1abec0f25005e867384b0bed2257677747a6204a8ff7cf39cb14b155d17b003"
+    },
+    {
+      "path": "reviews/tree-shape-spec-preparation-20261104.md",
+      "bytes": 17550,
+      "lines": 103,
+      "sha256": "cf5e7daa6041c8adb5bcd304bea7dc8b91b18b3c45776234ef65d0c8f6491d08"
+    },
+    {
+      "path": "provenance/tree-shape-standards-preparation-20261104/completion.json",
+      "bytes": 4387,
+      "lines": 138,
+      "sha256": "3f5c110964fba6a149d8979efca023b3e0df632f951e59cd9653f3c218185841"
+    },
+    {
+      "path": "provenance/tree-shape-standards-preparation-20261104/dependency-closure.json",
+      "bytes": 19942,
+      "lines": 667,
+      "sha256": "bce956cbf30c077d4f5d5cf9ac04287d2164366a4c54638293e15d9c27ac1c18"
+    },
+    {
+      "path": "provenance/tree-shape-standards-preparation-20261104/read-ledger.json",
+      "bytes": 30289,
+      "lines": 882,
+      "sha256": "94cf829aca29cfbb3446a15c2f43fd4524a35e2e66825cb79dc5deac497798bc"
+    },
+    {
+      "path": "provenance/tree-shape-standards-preparation-20261104/source-assessment.json",
+      "bytes": 52530,
+      "lines": 1226,
+      "sha256": "15d955691ca41bc56b0c846fda27b844a0001d1a42e6ea6686b4341a96a17fc0"
+    },
+    {
+      "path": "provenance/tree-shape-public-statements90-prepared-20261104/Statements.lean",
+      "bytes": 4230,
+      "lines": 106,
+      "sha256": "28622fb1c6417798d4d4c476e9e3d307792c62e881f0158446ca2938434b83ca"
+    },
+    {
+      "path": "provenance/tree-shape-public-statements90-prepared-20261104/inventory.json",
+      "bytes": 119121,
+      "lines": 2843,
+      "sha256": "c866fc795b7aa77b6f7a85e19cd699a685ed97522c774f53c6742f69faa07b5e"
+    },
+    {
+      "path": "provenance/tree-shape-public-statements90-prepared-20261104/preparation.md",
+      "bytes": 5716,
+      "lines": 32,
+      "sha256": "304b23221702d2b599391e97aa928604d15e645c76a285b69a5c04c64010c0e9"
+    },
+    {
+      "path": "provenance/tree-shape-public-statements90-prepared-20261104/receipt.json",
+      "bytes": 3141,
+      "lines": 64,
+      "sha256": "0488d9c89a9d3f49edc81a6220959bcf57bcc2ff7830005684a4ca0f4c564787"
+    },
+    {
+      "path": "reviews/tree-shape-preflight-snapshots/Examples-TreeShape-before-SP01.lean",
+      "bytes": 12640,
+      "lines": 297,
+      "sha256": "9b0aacf07d1e9fe62f540abba5d24a387f3e962c9711d253fdb8d105001436f7"
+    },
+    {
+      "path": "provenance/binary-tree-cache-standards-receiving-20261105/final-write-hold.json",
+      "bytes": 6892,
+      "lines": 197,
+      "sha256": "d0e6e05d45762809ec5b4aea3c00b278fae80ee82697c62f8de8e838af75c74b"
+    },
+    {
+      "path": "reviews/binary-tree-cache-standards-receiving-20261105.md",
+      "bytes": 19188,
+      "lines": 98,
+      "sha256": "fa6cfd8df66d56788f842b21ec60d932157b24255499f7e30b8996a4da9c8bd2"
+    },
+    {
+      "path": "reviews/binary-tree-cache-spec-receiving-20261105.md",
+      "bytes": 27400,
+      "lines": 156,
+      "sha256": "a7b731d23707163529522e3b65e1af86c4ed5223c61786dcdbb6b3755709f9dc"
+    }
+  ],
+  "receiving_evidence": [
+    {
+      "path": "provenance/tree-shape-receiving-20261105/branch-creation-result.json",
+      "bytes": 272,
+      "lines": 8,
+      "sha256": "bee3fbeefa2999dab0a049a69223de0a8be54f69df2a6558da41bf085fd8f31b"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-20261105/commit-actual-terminal.json",
+      "bytes": 1916,
+      "lines": 7,
+      "sha256": "46401bc37c90312495f6d70188eeeae9f7a5fbdaf78ec1892853acc93681b346"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-20261105/commit-result.json",
+      "bytes": 1683,
+      "lines": 26,
+      "sha256": "d6d8ec4c8f513934797a46d40c88695a8894fe9a6258be890572610fa3a6a848"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-20261105/focused-attempt1-preflight.json",
+      "bytes": 2902,
+      "lines": 76,
+      "sha256": "d6ab2aafc2ff2902c95d7be6745bab375b24cc5893b522218cdc85ac7a093318"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-20261105/precommit-final.json",
+      "bytes": 2845,
+      "lines": 58,
+      "sha256": "b1746efc2c0cc3ce635e338d5ec9ccd1d970e3c922e489130479a7aaee714445"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-20261105/precommit-status-wording.patch",
+      "bytes": 525,
+      "lines": 9,
+      "sha256": "e8e32521461d5ba3f44a3ae259ba5446098f98dca368340c63113221fdc306cd"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-20261105/precommit.json",
+      "bytes": 3210,
+      "lines": 62,
+      "sha256": "3d4f2fffe8354c71382240c46c73b935a67aba5b7f165a880d2c7f0ec937e161"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-20261105/receiving-delta.patch",
+      "bytes": 44662,
+      "lines": 897,
+      "sha256": "f1464cb3f978dbd275d27e950c6fc718c57e368321fd1ee9dcffbe18759bd7f5"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-20261105/receiving-final-delta.patch",
+      "bytes": 44662,
+      "lines": 897,
+      "sha256": "bbd711fd43f18e666761d25aff38f5d9cc5131384e89fe162bbec588a5674cd3"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-20261105/receiving-plan.json",
+      "bytes": 9614,
+      "lines": 131,
+      "sha256": "cfa82fe0de2876bc76327435cedee161a074b73a89193e73ce66da3689ab14c3"
+    },
+    {
+      "path": "provenance/tree-shape-receiving-20261105/source-reception-actual-terminal.json",
+      "bytes": 1601,
+      "lines": 7,
+      "sha256": "674076451675d691b1c1c49295f3607c65c36085fb435369a69ad4a7134e2ebb"
+    }
+  ],
+  "mutable_control_observations": [
+    {
+      "identity": {
+        "path": "reviews/tree-shape-round1.md",
+        "bytes": 2687,
+        "lines": 19,
+        "sha256": "545dec78024a35b25f5a5d5112c6324bc1ce3ce9246844bedeb3d8540644bbb3"
+      },
+      "contents_at_observation": "# XT02 \u2014 full original source review continuation\n\nUpdated 2026-11-04T14:39:54.466604+00:00. Original baseB=64c6b777d828ecfe83234fc2aed94600a1f24297; immutable draft=974a97321a8ec174b56104c7e6efaaca881b6639; frozen requirements unchanged. This continues the original six-path scope and retained preflight/finding history. Accepted Chapter1/Foundation remain accepted, and XT01 acceptance remains required before XT02 integration. No chapter is activated.\n\n## Standards\n\nThe complete independent report is tree-shape-standards-preparation-20261104.md,64lines/14250bytes,SHA b1abec0f25005e867384b0bed2257677747a6204a8ff7cf39cb14b155d17b003. Root read all64lines(b85e6e). Full source assessment complete; zero new concrete findings; overallBlocked pending original integration and validation gates. Exact source, minimal assumptions, connected cases, private boundary and all relevant pinned APIs were assessed independently.\n\n## Spec\n\nThe complete independent report is tree-shape-spec-preparation-20261104.md,103lines/17550bytes,SHA cf5e7daa6041c8adb5bcd304bea7dc8b91b18b3c45776234ef65d0c8f6491d08. Root read all103lines(e2b975). Full original source assessment complete; zero new concrete findings; overallBlocked. Actual pinned book/API correspondence and every frozen case/limitation remain retained.\n\n## Retained finding and public input\n\nXT02-SP01 is independently confirmed at source level: one docstring now states sufficiency of recursive cache validity, with every formal byte unchanged. Original necessity wording/snapshot and prior correction remain; formal/final confirmation is still pending. No original finding disappears through this record.\n\nThe prepared90public input (79theorems/11definitions) covers all original authored public names. The one private recursive predicate and all generated auxiliaries remain full source/audit obligations; there are no instances/anonymous examples in these modules. Root verified all91rawheader slices and both reviewers' stated whitespace conventions, all6source identities, exact program order and29local/14external/54edge static closure. See provenance/tree-shape-coordinator-preparation-20261104/reconciliation.json and tree-shape-public-statements90-prepared-20261104/. The execution candidate is null; actual printed types/compiler/audit/acceptance credit is zero.\n\nThe complete exact accepted-prerequisite incorporation, applicable focused checks, actual public types with input qualification, complete candidate check/exhaustive audit, both final axes and immediate verification remain mandatory. Existing current I full validation retains priority; no extra acceptance prerequisite or fresh-mode requirement is introduced.\n"
+    },
+    {
+      "identity": {
+        "path": "tickets/FDSA-XT02.md",
+        "bytes": 4055,
+        "lines": 67,
+        "sha256": "7d3d7bef01aaa3396b6b25c3dff681c34460a3b004c8dd88448dbc02dde58b3a"
+      },
+      "contents_at_observation": "# FDSA-XT02 \u2014 Shared binary-tree shape bounds\n\nState: committed draft; compilation and final reviews pending.\nTriage: ready-for-agent. Parent: FDSA-000.\nDependencies: accepted repaired FDSA-001 and accepted FDSA-XT01 before\nintegration or acceptance.\n\n## Scope and authority\n\nUnder the user's cross-cutting exception, develop shared minimum external-leaf\nheight, recursive completeness, sharp leaf bounds, almost-complete rounded\nlogarithms and cross-type height optimality. Supply separate real-log source\ncorollaries and meaningful cache/map/edge-case compositions. These support\nChapters 4, 11 and 15 without changing their sequential acceptance or remaining\nalgorithm, representation, checker and runtime obligations.\n\nExact requirements: `reviews/tree-shape-requirements.md`, version 1.\nSHA-256: `50d11472d8380fb3458a3ea71aba3d1104886f676a7b1cec578c0557a6979e91`.\nThe source/API/independent case preflights and exact initial state are retained\nin `reviews/tree-shape-start.md` and `reviews/tree-shape-start.json`.\nFixed initial base: `64c6b777d828ecfe83234fc2aed94600a1f24297`.\nBranch: `work/fdsa-tree-shape`; checkout: `conaled-tree-shape`.\n\n## Completion gates\n\n- [x] Bounded source, API and independent mathematical cases prepared.\n- [x] Exact requirements and clean initial base recorded before source edits.\n- [x] Core and connected formal uses drafted; statement review retained.\n- [ ] Accepted Chapter 1 and XT01 bases incorporated, with history retained.\n- [ ] Focused builds, applicable candidate build and exhaustive audit pass.\n- [ ] Both independent final review axes have no unresolved findings.\n- [ ] Approved candidate immediately verified; checkpoint saved and uploaded.\n\nAt the initial freeze no XT02 source implementation existed; that history is retained.\nNo additional compiler,\nchecker or project hash helper may run while the old Chapter 1 gate is active.\nNo chapter is activated or accepted by this shared preparation.\n\nPre-code checkpoint 0029 is saved as `libfile_791ead23414c8191894812d08f89ab8a`,\nSHA-256 `e54526124d207180fd1a5473e79577ef707a951de5f6e492fa2b8148762ddc20`.\nIt preserves the clean starting branch, frozen scope and complete source/API/case\npreflights before implementation. Its creation/upload supplies no acceptance credit.\n\n## Committed source draft\n\nCandidate: `974a97321a8ec174b56104c7e6efaaca881b6639`, six files and 838\ninsertions, with clean post-commit status. See `reviews/tree-shape-candidate.md`\nand `reviews/tree-shape-source-identities.json` for the immutable handoff.\nNatural and separate real bounds, exact rounded formulas, cross-type optimum,\nconnected cache/map uses and the independent counterexamples are drafted.\n\nThe bounded source assessments are retained in\n`reviews/tree-shape-source-preflight.md`. XT02-SP01 corrected a docstring's\nnecessary-versus-sufficient claim; the reader confirmed the wording correction,\nwhile final-review confirmation remains pending. No formal theorem changed.\nNo compiler, complete audit or final acceptance is inferred from the source\nreadings, commit or whitespace checks.\n\nCommitted-draft checkpoint 0030 is saved as\n`libfile_64f885bfaf3881918be6465290d645f8`, SHA-256\n`94b93298b327a83510cfe962b0aa5a9d03705a807d2565c2e8381aba25285e19`.\nIt preserves this candidate, exact file identities, the full preflight/finding\nhistory and all prior refs/tickets. It supplies no formal acceptance credit.\n\n## Complete independent source preparation \u2014 2026-11-04T14:39:54.466604+00:00\n\nBoth full original-scope source assessments are now complete at exact974a9732, zero new concrete findings and overallBlocked. XT02-SP01's docstring-only source correction is independently confirmed; formal/final gates remain. Root fully read both reports and reconciled91authored headers,90public input names, all6source identities and29local/14external/54edge closure. The prepared90 input is unexecuted, execution candidate null. All completion boxes for integration/validation/final acceptance remain unchecked. See reviews/tree-shape-round1.md and its exact provenance.\n"
+    }
+  ],
+  "reviewer_compiler_project_helper_poll_source_ref_cache_mutation_or_acceptance_action": false
+}

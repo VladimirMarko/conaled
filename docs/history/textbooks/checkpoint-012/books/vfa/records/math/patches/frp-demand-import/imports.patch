@@ -1,0 +1,8 @@
+--- Applications/FRP/Demand.lean
++++ Applications/FRP/Demand.lean
+@@ -1,4 +1,5 @@
+ import Applications.FRP.Trace
++import Mathlib.Order.SuccPred.Nat
+ 
+ /-! Experimental one-shot demand delivery (#30). Atomic actions retain a pending
+ request until a processing action emits its answer. Duplicate registrations are

@@ -1,0 +1,117 @@
+{
+  "recorded_utc": "2026-11-04T21:39:04.928863+00:00",
+  "checkpoint": "conaled-fdsa-0130-measured-selection-bounds-and-tail-progress",
+  "all_writers_held": true,
+  "compiler_live": false,
+  "accepted_head": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "qualified_candidate": "331178cac124394fd5c86da0877fa670463f3280",
+  "closed_runs": 73,
+  "interrupted_runs_without_terminal": [
+    {
+      "name": "chapter03-random-selection-drift-focused-attempt2-20261104",
+      "candidate": "f535b1ef557795c4e09c97ce0daf599961c9b268",
+      "actual_exit": null,
+      "original_exec_session_id": null,
+      "no_success_or_failure_credit": true,
+      "reconciliation": "provenance/chapter03-drift-attempt2-interruption-20261104/reconciliation.json",
+      "bytes": 4308,
+      "sha256": "cac4122a94fd253af81ac8ed07c27fdf9fb5521f0f1e50287411120b97470a33"
+    }
+  ],
+  "held_heads": {
+    "conaled": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+    "conaled-ch01-review": "331178cac124394fd5c86da0877fa670463f3280",
+    "conaled-ch02-quicksort": "0f66bcf85ead843e1d6cf69c17f8e23fa6b84292",
+    "conaled-ch02-random-pivot": "331178cac124394fd5c86da0877fa670463f3280",
+    "conaled-ch02-top-down": "42885f0d87f795252ee50dd01dc9220cfeb20a35",
+    "conaled-ch02-natural-runs": "736857e20c4004af1a9c0c6f77387c690517dd02",
+    "conaled-ordinary-merge": "47f12b48b93a1e223b9f743e067685f12f4da5b1"
+  },
+  "held_statuses": {
+    "conaled": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.urOBCL\n",
+    "conaled-ch01-review": "",
+    "conaled-ch02-quicksort": "?? Applications/Resources/HalvingSelection.lean\n?? Applications/Resources/MedianPolicy.lean\n?? Examples/MedianPolicy.lean\n",
+    "conaled-ch02-random-pivot": "",
+    "conaled-ch02-top-down": "",
+    "conaled-ch02-natural-runs": "?? Applications/Resources/Chunks.lean\n?? Applications/Resources/Selection.lean\n?? Applications/Resources/SelectionAuxiliary.lean\n?? Applications/Resources/SelectionCutoff.lean\n?? Applications/Resources/SelectionMedians.lean\n?? Applications/Selection/CountRank.lean\n?? Applications/Selection/MedianOfMedians.lean\n?? Applications/Sequences/Chunks.lean\n?? Examples/SelectionCutoff.lean\n",
+    "conaled-ordinary-merge": ""
+  },
+  "drafts": [
+    {
+      "worktree": "conaled-ch02-quicksort",
+      "path": "Applications/Resources/HalvingSelection.lean",
+      "bytes": 8477,
+      "sha256": "70b94c9b0a262cc15b8df6a30fe4fdbaaac293231553625b6336a64185b5f204",
+      "status": "untracked, uncommitted and uncompiled; final scope/inventory/candidate preparation unfinished; no proof credit"
+    },
+    {
+      "worktree": "conaled-ch02-quicksort",
+      "path": "Applications/Resources/MedianPolicy.lean",
+      "bytes": 7520,
+      "sha256": "14f4ca4978c8c5bab5410ce48d425a5cc520e56a7e7a24826d13dd92e8fd73ef",
+      "status": "untracked, uncommitted and uncompiled; final scope/inventory/candidate preparation unfinished; no proof credit"
+    },
+    {
+      "worktree": "conaled-ch02-quicksort",
+      "path": "Examples/MedianPolicy.lean",
+      "bytes": 7410,
+      "sha256": "fd6259f1b699adc9f7f98f7a90ccb1c34bbb2c7fe4d80ab7196c6a65635c31d4",
+      "status": "untracked, uncommitted and uncompiled; final scope/inventory/candidate preparation unfinished; no proof credit"
+    },
+    {
+      "worktree": "conaled-ch02-natural-runs",
+      "path": "Applications/Resources/SelectionCutoff.lean",
+      "bytes": 7624,
+      "sha256": "56b5517e5fc7e074837da496148822555b2fc2bd2e09e3a5a9fe882680fcfd9c",
+      "status": "untracked, uncommitted and uncompiled; final scope/inventory/candidate preparation unfinished; no proof credit"
+    },
+    {
+      "worktree": "conaled-ch02-natural-runs",
+      "path": "Examples/SelectionCutoff.lean",
+      "bytes": 3278,
+      "sha256": "9c03aa7ee88f3369176fa67b37d95ed30acde8f7a8f70200c8845c76324212fa",
+      "status": "untracked, uncommitted and uncompiled; final scope/inventory/candidate preparation unfinished; no proof credit"
+    }
+  ],
+  "uncompiled_committed_without_completed_handoff": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Applications/Resources/SelectionGenericEnvelope.lean",
+      "bytes": 9448,
+      "sha256": "946dc54375989de8413ada388e0672d5f862a1c5da5e62efa9522865911db0e3",
+      "relative_path": "Applications/Resources/SelectionGenericEnvelope.lean",
+      "source_lines": 183,
+      "public_count": 6,
+      "private_count": 0
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/Examples/SelectionGenericEnvelope.lean",
+      "bytes": 5925,
+      "sha256": "3a1748e2f27a77cbf0daf183b6c52c76eedabdfe641cb77865f5364fec6582ca",
+      "relative_path": "Examples/SelectionGenericEnvelope.lean",
+      "source_lines": 112,
+      "public_count": 11,
+      "private_count": 1
+    }
+  ],
+  "author_holds": {
+    "values": "Explicit message and final hold:0f66bcf, three exact uncompiled/uncommitted drafts; all writes stopped.",
+    "random": "Explicit message hold:331178 clean, no correction writes occurred; read-only diagnosis only.",
+    "mom": "Exact saved checkpoint0130-hold.json:42885f0 clean, two committed/uncompiled files, final handoff unfinished.",
+    "query": "Prior47f12b all-write hold retained.",
+    "root_cutoff": "Root736857e source held; seven exact borrowed dependencies plus two unchanged drafts; agreed relation remains future work."
+  },
+  "author_hold_records": {
+    "provenance/chapter03-mom-execution-implementation-20261104/generic-cost-stage1-20261104/checkpoint0130-hold.json": {
+      "bytes": 4030,
+      "sha256": "aa4524730478bdbfaf1225c8db4e9de309bad0967cd0efae46ce92e562b2a02f"
+    }
+  },
+  "project_lock_observation": {
+    "utc": "2026-11-04T21:39:04.928842+00:00",
+    "exclusive_nonblocking_acquired_and_released": true,
+    "global_process_absence_not_claimed": true
+  },
+  "operations_inspector": "Read-only existing inspector; final receipt pending before capture.",
+  "reviewers": "Prior accepted axes held; no independent Chapter3 acceptance reviews begun.",
+  "root_remaining_capture_writes_only": true
+}

@@ -1,0 +1,68 @@
+{
+  "recorded_utc": "2026-11-02T12:55:06.660921+00:00",
+  "status": "completed",
+  "scope": "One-time retirement of only redundant local checkpoint018 and019; preserve uploaded archives/receipts, latest local020/021, source/history and all active build inputs/outputs. Previously returned archives are not deleted again.",
+  "path_resolution": "Legacy018/019 entries omit path; resolved only their exact manifest basenames in the known checkpoints directory, then verified full content and saved binding before removal.",
+  "prior_preflight": "20261102-checkpoint-local-retention-round3-preflight1.json: metadata KeyError before any removal.",
+  "free_bytes_before": 1882120192,
+  "retired": [
+    {
+      "checkpoint": 18,
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-018-product-source-reviews-clear.tar.gz",
+      "size_bytes": 145578388,
+      "sha256": "47fa64f3e00fcf40ee76befa84b60761a71072e8675f87125867aba4c91ba740",
+      "library_file_id": "libfile_493c5ddf0cf0819185ee27d6f29c1499",
+      "device": 27,
+      "inode": 2403780,
+      "mtime_ns": 1793617402824414345,
+      "ctime_ns": 1793617633422157597,
+      "nlink": 1,
+      "verification": "Full hash, size, regular file, single link, stable identity and successful saved binding/receipt matched."
+    },
+    {
+      "checkpoint": 19,
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-019-maps-trees-adt-plans.tar.gz",
+      "size_bytes": 145630521,
+      "sha256": "bae31fa2e06c53242c846e8fa18840b6c2a158087c63441ca3c6baa02c71d262",
+      "library_file_id": "libfile_9e838ae558908191b6c70ad5f756f379",
+      "device": 27,
+      "inode": 2404050,
+      "mtime_ns": 1793618970737300332,
+      "ctime_ns": 1793619014332866507,
+      "nlink": 1,
+      "verification": "Full hash, size, regular file, single link, stable identity and successful saved binding/receipt matched."
+    }
+  ],
+  "retained": [
+    {
+      "checkpoint": 20,
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-020-extract-redblack-trie-plans.tar.gz",
+      "size_bytes": 145707469,
+      "sha256": "f1c7dd2a0dbce3657e6bf146c53cf638cdac1779d499bb6ef10b5b93e9286868",
+      "library_file_id": "libfile_86865aace83c819188758ff6cd7e0eee",
+      "device": 27,
+      "inode": 2404150,
+      "mtime_ns": 1793620586229954642,
+      "ctime_ns": 1793620630357458940,
+      "nlink": 1,
+      "verification": "Full hash, size, regular file, single link, stable identity and successful saved binding/receipt matched."
+    },
+    {
+      "checkpoint": 21,
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-021-final-chapter-plans.tar.gz",
+      "size_bytes": 145817559,
+      "sha256": "c15f397ce5cda44df6b37f2cb4505219289f15994275e56b624ade0fb0b4e020",
+      "library_file_id": "libfile_ffc6747146b48191bd7d9bf59f640325",
+      "device": 27,
+      "inode": 2404305,
+      "mtime_ns": 1793623625849482756,
+      "ctime_ns": 1793623672733052485,
+      "nlink": 1,
+      "verification": "Full hash, size, regular file, single link, stable identity and successful saved binding/receipt matched."
+    }
+  ],
+  "free_bytes_after": 2173456384,
+  "logical_bytes_removed": 291208909,
+  "actual_free_byte_change": 291336192,
+  "finished_utc": "2026-11-02T12:55:06.729585+00:00"
+}

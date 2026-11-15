@@ -1,0 +1,254 @@
+{
+  "source_base": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+  "source_only": true,
+  "compiled": false,
+  "elaborated_types_inspected": false,
+  "all_source_lines_and_proof_bodies_read": true,
+  "public_declarations": 31,
+  "private_helpers": 0,
+  "files": [
+    {
+      "path": "Applications/Resources/RandomQuickSortGrowth.lean",
+      "bytes": 9896,
+      "lines": 203,
+      "sha256": "2b8bf7b4820790edaaa5726efb8e8bd8bccd3a30cb30388148d95bba00e63674",
+      "imports": [
+        "Applications.Resources.RandomQuickSortRank",
+        "Applications.Resources.QuickSortMean",
+        "Mathlib.Order.Filter.AtTopBot.Tendsto"
+      ],
+      "namespace": "Resources.RandomQuickSort",
+      "claims": [
+        {
+          "name": "Resources.RandomQuickSort.sizeMean_eq_closedForm",
+          "private": false,
+          "kind": "theorem",
+          "line": 22,
+          "source_statement": "theorem sizeMean_eq_closedForm (n : Nat) :\n    sizeMean n = Resources.QuickSortMean.closedForm n"
+        },
+        {
+          "name": "Resources.RandomQuickSort.sizeMean_eq_harmonic",
+          "private": false,
+          "kind": "theorem",
+          "line": 27,
+          "source_statement": "theorem sizeMean_eq_harmonic (n : Nat) :\n    sizeMean n =\n      8 * ((n : ℝ) + 1) * (harmonic n : ℝ) - 12 * (n : ℝ) + 1"
+        },
+        {
+          "name": "Resources.RandomQuickSort.exerciseMean_eq_closedForm",
+          "private": false,
+          "kind": "theorem",
+          "line": 32,
+          "source_statement": "theorem exerciseMean_eq_closedForm [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) :\n    exerciseMean (fun a b => decide (key a < key b)) xs =\n      Resources.QuickSortMean.closedForm xs.length"
+        },
+        {
+          "name": "Resources.RandomQuickSort.exerciseMean_eq_harmonic",
+          "private": false,
+          "kind": "theorem",
+          "line": 39,
+          "source_statement": "theorem exerciseMean_eq_harmonic [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) :\n    exerciseMean (fun a b => decide (key a < key b)) xs =\n      8 * ((xs.length : ℝ) + 1) * (harmonic xs.length : ℝ) -\n        12 * (xs.length : ℝ) + 1"
+        },
+        {
+          "name": "Resources.RandomQuickSort.literalMean_harmonic_comparison",
+          "private": false,
+          "kind": "theorem",
+          "line": 47,
+          "source_statement": "theorem literalMean_harmonic_comparison [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) :\n    8 * ((xs.length : ℝ) + 1) * (harmonic xs.length : ℝ) -\n        12 * (xs.length : ℝ) + 1 ≤\n      literalMean (fun a b => decide (key a < key b)) xs ∧\n    literalMean (fun a b => decide (key a < key b)) xs ≤\n      2 * (8 * ((xs.length : ℝ) + 1) * (harmonic xs.length : ℝ) -\n        12 * (xs.length : ℝ) + 1)"
+        },
+        {
+          "name": "Resources.RandomQuickSort.exerciseMean_le_log",
+          "private": false,
+          "kind": "theorem",
+          "line": 59,
+          "source_statement": "theorem exerciseMean_le_log [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (hn : 1 ≤ xs.length) :\n    exerciseMean (fun a b => decide (key a < key b)) xs ≤\n      16 * (xs.length : ℝ) * (1 + Real.log (xs.length : ℝ))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.literalMean_le_log",
+          "private": false,
+          "kind": "theorem",
+          "line": 66,
+          "source_statement": "theorem literalMean_le_log [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (hn : 1 ≤ xs.length) :\n    literalMean (fun a b => decide (key a < key b)) xs ≤\n      32 * (xs.length : ℝ) * (1 + Real.log (xs.length : ℝ))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.exerciseMean_le_nlog",
+          "private": false,
+          "kind": "theorem",
+          "line": 77,
+          "source_statement": "theorem exerciseMean_le_nlog [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (hn : 2 ≤ xs.length) :\n    exerciseMean (fun a b => decide (key a < key b)) xs ≤\n      (16 * (1 + 1 / Real.log 2)) *\n        ((xs.length : ℝ) * Real.log (xs.length : ℝ))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.literalMean_le_nlog",
+          "private": false,
+          "kind": "theorem",
+          "line": 85,
+          "source_statement": "theorem literalMean_le_nlog [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (hn : 2 ≤ xs.length) :\n    literalMean (fun a b => decide (key a < key b)) xs ≤\n      (32 * (1 + 1 / Real.log 2)) *\n        ((xs.length : ℝ) * Real.log (xs.length : ℝ))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.exerciseMean_le_nlogb",
+          "private": false,
+          "kind": "theorem",
+          "line": 99,
+          "source_statement": "theorem exerciseMean_le_nlogb [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (hn : 2 ≤ xs.length) :\n    exerciseMean (fun a b => decide (key a < key b)) xs ≤\n      32 * ((xs.length : ℝ) * Real.logb 2 (xs.length : ℝ))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.literalMean_le_nlogb",
+          "private": false,
+          "kind": "theorem",
+          "line": 106,
+          "source_statement": "theorem literalMean_le_nlogb [LinearOrder κ] (key : α → κ) (xs : List α)\n    (hd : (xs.map key).Nodup) (hn : 2 ≤ xs.length) :\n    literalMean (fun a b => decide (key a < key b)) xs ≤\n      64 * ((xs.length : ℝ) * Real.logb 2 (xs.length : ℝ))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.sizeMean_isBigO_log",
+          "private": false,
+          "kind": "theorem",
+          "line": 117,
+          "source_statement": "theorem sizeMean_isBigO_log :\n    Asymptotics.IsBigO Filter.atTop sizeMean\n      (fun n : Nat => (n : ℝ) * Real.log (n : ℝ))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.sizeMean_isBigO_logb",
+          "private": false,
+          "kind": "theorem",
+          "line": 124,
+          "source_statement": "theorem sizeMean_isBigO_logb :\n    Asymptotics.IsBigO Filter.atTop sizeMean\n      (fun n : Nat => (n : ℝ) * Real.logb 2 (n : ℝ))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.exerciseMean_family_isBigO_log",
+          "private": false,
+          "kind": "theorem",
+          "line": 132,
+          "source_statement": "theorem exerciseMean_family_isBigO_log {ι : Type w} [LinearOrder κ] (key : α → κ)\n    (l : Filter ι) (xs : ι → List α)\n    (hd : ∀ᶠ i in l, ((xs i).map key).Nodup)\n    (hlen : Filter.Tendsto (fun i => (xs i).length) l Filter.atTop) :\n    Asymptotics.IsBigO l\n      (fun i => exerciseMean (fun a b => decide (key a < key b)) (xs i))\n      (fun i => ((xs i).length : ℝ) * Real.log ((xs i).length : ℝ))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.literalMean_family_isBigO_log",
+          "private": false,
+          "kind": "theorem",
+          "line": 149,
+          "source_statement": "theorem literalMean_family_isBigO_log {ι : Type w} [LinearOrder κ] (key : α → κ)\n    (l : Filter ι) (xs : ι → List α)\n    (hd : ∀ᶠ i in l, ((xs i).map key).Nodup)\n    (hlen : Filter.Tendsto (fun i => (xs i).length) l Filter.atTop) :\n    Asymptotics.IsBigO l\n      (fun i => literalMean (fun a b => decide (key a < key b)) (xs i))\n      (fun i => ((xs i).length : ℝ) * Real.log ((xs i).length : ℝ))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.exerciseMean_family_isBigO_logb",
+          "private": false,
+          "kind": "theorem",
+          "line": 166,
+          "source_statement": "theorem exerciseMean_family_isBigO_logb {ι : Type w} [LinearOrder κ] (key : α → κ)\n    (l : Filter ι) (xs : ι → List α)\n    (hd : ∀ᶠ i in l, ((xs i).map key).Nodup)\n    (hlen : Filter.Tendsto (fun i => (xs i).length) l Filter.atTop) :\n    Asymptotics.IsBigO l\n      (fun i => exerciseMean (fun a b => decide (key a < key b)) (xs i))\n      (fun i => ((xs i).length : ℝ) * Real.logb 2 ((xs i).length : ℝ))"
+        },
+        {
+          "name": "Resources.RandomQuickSort.literalMean_family_isBigO_logb",
+          "private": false,
+          "kind": "theorem",
+          "line": 184,
+          "source_statement": "theorem literalMean_family_isBigO_logb {ι : Type w} [LinearOrder κ] (key : α → κ)\n    (l : Filter ι) (xs : ι → List α)\n    (hd : ∀ᶠ i in l, ((xs i).map key).Nodup)\n    (hlen : Filter.Tendsto (fun i => (xs i).length) l Filter.atTop) :\n    Asymptotics.IsBigO l\n      (fun i => literalMean (fun a b => decide (key a < key b)) (xs i))\n      (fun i => ((xs i).length : ℝ) * Real.logb 2 ((xs i).length : ℝ))"
+        }
+      ]
+    },
+    {
+      "path": "Examples/RandomQuickSortGrowth.lean",
+      "bytes": 9959,
+      "lines": 215,
+      "sha256": "2d173d7572ae76395c3779c216ea43d21719ff1774f6a7f21c68a5677b511a16",
+      "imports": [
+        "Applications.Resources.RandomQuickSortGrowth"
+      ],
+      "namespace": "Examples.RandomQuickSortGrowth",
+      "claims": [
+        {
+          "name": "Examples.RandomQuickSortGrowth.empty_payload_means",
+          "private": false,
+          "kind": "theorem",
+          "line": 21,
+          "source_statement": "theorem empty_payload_means :\n    exerciseMean (fun _ _ : Empty => false) [] =\n        8 * ((0 : ℝ) + 1) * (harmonic 0 : ℝ) - 12 * (0 : ℝ) + 1 ∧\n      exerciseMean (fun _ _ : Empty => false) [] = 1 ∧\n      literalMean (fun _ _ : Empty => false) [] = 1"
+        },
+        {
+          "name": "Examples.RandomQuickSortGrowth.singleton_payload_means",
+          "private": false,
+          "kind": "theorem",
+          "line": 30,
+          "source_statement": "theorem singleton_payload_means {α : Type u} {κ : Type v} [LinearOrder κ]\n    (key : α → κ) (x : α) :\n    exerciseMean (fun a b => decide (key a < key b)) [x] = 5 ∧\n      literalMean (fun a b => decide (key a < key b)) [x] = 8 ∧\n      5 ≤ literalMean (fun a b => decide (key a < key b)) [x] ∧\n      literalMean (fun a b => decide (key a < key b)) [x] ≤ 10"
+        },
+        {
+          "name": "Examples.RandomQuickSortGrowth.empty_log_boundary",
+          "private": false,
+          "kind": "theorem",
+          "line": 38,
+          "source_statement": "theorem empty_log_boundary (C : ℝ) :\n    ¬ exerciseMean (fun _ _ : Empty => false) [] ≤\n        C * ((0 : ℝ) * Real.logb 2 0) ∧\n      ¬ literalMean (fun _ _ : Empty => false) [] ≤\n        C * ((0 : ℝ) * Real.logb 2 0)"
+        },
+        {
+          "name": "Examples.RandomQuickSortGrowth.singleton_log_boundary",
+          "private": false,
+          "kind": "theorem",
+          "line": 45,
+          "source_statement": "theorem singleton_log_boundary {α : Type u} {κ : Type v} [LinearOrder κ]\n    (key : α → κ) (x : α) (C : ℝ) :\n    ¬ exerciseMean (fun a b => decide (key a < key b)) [x] ≤\n        C * ((1 : ℝ) * Real.logb 2 1) ∧\n      ¬ literalMean (fun a b => decide (key a < key b)) [x] ≤\n        C * ((1 : ℝ) * Real.logb 2 1)"
+        },
+        {
+          "name": "Examples.RandomQuickSortGrowth.two_distinct_harmonic",
+          "private": false,
+          "kind": "theorem",
+          "line": 54,
+          "source_statement": "theorem two_distinct_harmonic :\n    exerciseMean natLt [1, 0] = 13 ∧\n      13 ≤ literalMean natLt [1, 0] ∧\n      literalMean natLt [1, 0] ≤ 26 ∧\n      exerciseMean natLt [1, 0] ≤ 64 ∧\n      literalMean natLt [1, 0] ≤ 128"
+        },
+        {
+          "name": "Examples.RandomQuickSortGrowth.three_reordered_harmonic",
+          "private": false,
+          "kind": "theorem",
+          "line": 70,
+          "source_statement": "theorem three_reordered_harmonic :\n    exerciseMean natLt [2, 0, 1] = (71 : ℝ) / 3 ∧\n      (71 : ℝ) / 3 ≤ literalMean natLt [2, 0, 1] ∧\n      literalMean natLt [2, 0, 1] ≤ (142 : ℝ) / 3"
+        },
+        {
+          "name": "Examples.RandomQuickSortGrowth.four_tagged_harmonic",
+          "private": false,
+          "kind": "theorem",
+          "line": 79,
+          "source_statement": "theorem four_tagged_harmonic {α : Type u} (a b c d : α) :\n    exerciseMean (fun x y : Nat × α => decide (x.1 < y.1))\n        [(3, a), (1, b), (0, c), (2, d)] = (109 : ℝ) / 3 ∧\n      (109 : ℝ) / 3 ≤\n        literalMean (fun x y : Nat × α => decide (x.1 < y.1))\n          [(3, a), (1, b), (0, c), (2, d)] ∧\n      literalMean (fun x y : Nat × α => decide (x.1 < y.1))\n          [(3, a), (1, b), (0, c), (2, d)] ≤ (218 : ℝ) / 3"
+        },
+        {
+          "name": "Examples.RandomQuickSortGrowth.five_sizeMean",
+          "private": false,
+          "kind": "theorem",
+          "line": 98,
+          "source_statement": "theorem five_sizeMean : sizeMean 5 = (253 : ℝ) / 5"
+        },
+        {
+          "name": "Examples.RandomQuickSortGrowth.arbitrary_length_indexed_growth",
+          "private": false,
+          "kind": "theorem",
+          "line": 103,
+          "source_statement": "theorem arbitrary_length_indexed_growth {α : Type u} {κ : Type v} [LinearOrder κ]\n    (key : α → κ) (xs : Nat → List α)\n    (hd : ∀ n, ((xs n).map key).Nodup) (hlen : ∀ n, (xs n).length = n) :\n    Asymptotics.IsBigO Filter.atTop\n        (fun n => exerciseMean (fun a b => decide (key a < key b)) (xs n))\n        (fun n : Nat => (n : ℝ) * Real.logb 2 (n : ℝ)) ∧\n      Asymptotics.IsBigO Filter.atTop\n        (fun n => literalMean (fun a b => decide (key a < key b)) (xs n))\n        (fun n : Nat => (n : ℝ) * Real.logb 2 (n : ℝ))"
+        },
+        {
+          "name": "Examples.RandomQuickSortGrowth.function_tagged_family_growth",
+          "private": false,
+          "kind": "theorem",
+          "line": 123,
+          "source_statement": "theorem function_tagged_family_growth (tags : Nat → Nat → (Nat → Nat)) :\n    Asymptotics.IsBigO Filter.atTop\n        (fun n => exerciseMean (fun a b : Nat × (Nat → Nat) => decide (a.1 < b.1))\n          ((List.range n).map (fun k => (k, tags n k))))\n        (fun n : Nat => (n : ℝ) * Real.logb 2 (n : ℝ)) ∧\n      Asymptotics.IsBigO Filter.atTop\n        (fun n => literalMean (fun a b : Nat × (Nat → Nat) => decide (a.1 < b.1))\n          ((List.range n).map (fun k => (k, tags n k))))\n        (fun n : Nat => (n : ℝ) * Real.logb 2 (n : ℝ))"
+        },
+        {
+          "name": "Examples.RandomQuickSortGrowth.shifted_range_family_growth",
+          "private": false,
+          "kind": "theorem",
+          "line": 143,
+          "source_statement": "theorem shifted_range_family_growth :\n    Asymptotics.IsBigO Filter.atTop\n        (fun n : Nat => exerciseMean natLt (List.range (n + 2)))\n        (fun n : Nat => ((n + 2 : Nat) : ℝ) * Real.logb 2 ((n + 2 : Nat) : ℝ)) ∧\n      Asymptotics.IsBigO Filter.atTop\n        (fun n : Nat => literalMean natLt (List.range (n + 2)))\n        (fun n : Nat => ((n + 2 : Nat) : ℝ) * Real.logb 2 ((n + 2 : Nat) : ℝ))"
+        },
+        {
+          "name": "Examples.RandomQuickSortGrowth.equal_key_three_not_harmonic",
+          "private": false,
+          "kind": "theorem",
+          "line": 168,
+          "source_statement": "theorem equal_key_three_not_harmonic :\n    ([0, 1, 2] : List Nat).Nodup ∧\n      ¬ (([0, 1, 2] : List Nat).map (fun _ => (7 : Nat))).Nodup ∧\n      exerciseMean (fun _ _ : Nat => false) [0, 1, 2] = 25 ∧\n      exerciseMean (fun _ _ : Nat => false) [0, 1, 2] ≠\n        8 * ((3 : ℝ) + 1) * (harmonic 3 : ℝ) - 12 * (3 : ℝ) + 1"
+        },
+        {
+          "name": "Examples.RandomQuickSortGrowth.equal_key_family_means",
+          "private": false,
+          "kind": "theorem",
+          "line": 182,
+          "source_statement": "theorem equal_key_family_means {α : Type u} (tags : List α) :\n    exerciseMean (fun _ _ : α => false) tags =\n        ((2 * tags.length ^ 2 + 2 * tags.length + 1 : Nat) : ℝ) ∧\n      literalMean (fun _ _ : α => false) tags =\n        ((2 * tags.length ^ 2 + 5 * tags.length + 1 : Nat) : ℝ)"
+        },
+        {
+          "name": "Examples.RandomQuickSortGrowth.equal_key_binary_bounds_fail",
+          "private": false,
+          "kind": "theorem",
+          "line": 192,
+          "source_statement": "theorem equal_key_binary_bounds_fail :\n    (List.range 256).Nodup ∧\n      exerciseMean (fun _ _ : Nat => false) (List.range 256) = 131585 ∧\n      literalMean (fun _ _ : Nat => false) (List.range 256) = 132353 ∧\n      ¬ exerciseMean (fun _ _ : Nat => false) (List.range 256) ≤\n        32 * ((256 : ℝ) * Real.logb 2 (256 : ℝ)) ∧\n      ¬ literalMean (fun _ _ : Nat => false) (List.range 256) ≤\n        64 * ((256 : ℝ) * Real.logb 2 (256 : ℝ))"
+        }
+      ]
+    }
+  ]
+}

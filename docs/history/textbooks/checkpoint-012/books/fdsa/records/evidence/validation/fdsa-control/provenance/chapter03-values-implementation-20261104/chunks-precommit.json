@@ -1,0 +1,66 @@
+{
+  "recorded_utc": "2026-11-04T18:34:48.572894+00:00",
+  "status": "Uncommitted source preparation; no compile or acceptance",
+  "scope": "C03-015\u2013020: standard splitLengths adapter, zero/positive equations, exact ceiling count, nonempty and length bounds, flatten/count/multiset/membership preservation, aligned append, complete-block/replicate reconstruction",
+  "files": [
+    {
+      "path": "Applications/Sequences/Chunks.lean",
+      "bytes": 8804,
+      "lines": 212,
+      "sha256": "1e14e640d7089a29139d916836134e85b1d6da20b777d01a5ec684d434b3acec",
+      "public_names": [
+        "Applications.Sequences.Chunks.chop",
+        "Applications.Sequences.Chunks.chop_zero",
+        "Applications.Sequences.Chunks.chop_nil",
+        "Applications.Sequences.Chunks.length_chop",
+        "Applications.Sequences.Chunks.chop_eq_cons",
+        "Applications.Sequences.Chunks.chop_eq_nil_iff",
+        "Applications.Sequences.Chunks.drop_length_lt",
+        "Applications.Sequences.Chunks.chop_mem_ne_nil",
+        "Applications.Sequences.Chunks.length_mem_chop",
+        "Applications.Sequences.Chunks.length_chop_le_iff",
+        "Applications.Sequences.Chunks.length_chop_eq_add_pred_div",
+        "Applications.Sequences.Chunks.length_chop_le",
+        "Applications.Sequences.Chunks.flatten_chop",
+        "Applications.Sequences.Chunks.countP_chop",
+        "Applications.Sequences.Chunks.sum_multiset_chop",
+        "Applications.Sequences.Chunks.mem_chop_iff",
+        "Applications.Sequences.Chunks.mem_of_mem_chop",
+        "Applications.Sequences.Chunks.chop_eq_singleton",
+        "Applications.Sequences.Chunks.chop_append",
+        "Applications.Sequences.Chunks.chop_flatten",
+        "Applications.Sequences.Chunks.chop_replicate_blocks",
+        "Applications.Sequences.Chunks.chop_replicate",
+        "Applications.Sequences.Chunks.chop_one"
+      ]
+    },
+    {
+      "path": "Examples/ListChunks.lean",
+      "bytes": 2672,
+      "lines": 73,
+      "sha256": "08ba2efb7e0081f89cc85f57fb54b87cf423e84e5a5038d450d2a20eca07c237",
+      "public_names": [
+        "Examples.ListChunks.zero_size_source_convention",
+        "Examples.ListChunks.singleton_chunks",
+        "Examples.ListChunks.partial_final_chunk",
+        "Examples.ListChunks.partial_chunk_count",
+        "Examples.ListChunks.partial_chunks_flatten",
+        "Examples.ListChunks.boolean_chunks",
+        "Examples.ListChunks.duplicate_counts",
+        "Examples.ListChunks.duplicate_multiset",
+        "Examples.ListChunks.short_group_nonempty",
+        "Examples.ListChunks.aligned_append",
+        "Examples.ListChunks.repeated_five_blocks",
+        "Examples.ListChunks.repeated_occurrences"
+      ]
+    }
+  ],
+  "public_names": 35,
+  "private_names": [
+    "Applications.Sequences.Chunks.ceilDiv_sub_add_one"
+  ],
+  "new_order_requirement": false,
+  "new_cost_model": false,
+  "statement_review": "Source-only review: positive chunk size is explicit for preservation and alignment; zero-size output is empty; final short chunk retained. The definition uses Nat.ceilDiv directly, not ceil applied after natural division. Two self-recursive proofs decrease actual input length using positive d and nonempty xs. No cached model or fused traversal cost is inferred from the value adapter.",
+  "example_gap": "Batteries.toChunks has a different zero-size convention; the new adapter is connected to List.splitLengths and the exact book take/drop equation. Cases expose zero, singleton, positive short final chunk, boolean payloads, repeated occurrences, aligned boundaries, and arbitrary repetition counts for later source exercise families."
+}

@@ -1,0 +1,26 @@
+diff --git a/Applications/Probability/PermutationTail.lean b/Applications/Probability/PermutationTail.lean
+index 1085b40..437552d 100644
+--- a/Applications/Probability/PermutationTail.lean
++++ b/Applications/Probability/PermutationTail.lean
+@@ -106,8 +106,9 @@ theorem tail_restrictedOrder_eq (positions : List I) (hnd : positions.Nodup)
+   calc
+     (restrictedOrder positions S π).tail = xs := by rw [hxs]; rfl
+     _ = (restrictedOrder positions S π).filter (fun b => decide (b ∈ S.erase a)) := by
+-      rw [hxs]
+-      simp [hfilter]
++      rw [hxs, List.filter_cons_of_neg (p := fun b => decide (b ∈ S.erase a))
++        (a := a) (l := xs) (by simp)]
++      exact hfilter.symm
+     _ = restrictedOrder positions (S.erase a) π :=
+       filter_restrictedOrder_of_subset positions S (S.erase a) π (Finset.erase_subset a S)
+ 
+@@ -260,7 +261,8 @@ theorem cond_tail_eq
+   rw [cond_apply hE, firstEvent_inter_tail (restrictedOrder positions S) a xs,
+     uniformOn_firstEvent positions hnd hcomplete S a ha,
+     uniformOn_restrictedOrder_eq positions hnd hcomplete S (a :: xs),
+-    inv_inv, cons_mem_orders positions hnd S a (hcomplete a) ha xs]
++    inv_inv]
++  simp only [cons_mem_orders positions hnd S a (hcomplete a) ha xs]
+   by_cases hxs : xs ∈ orders positions (S.erase a)
+   · simp only [ite_eq_left hxs]
+     exact factorial_ratio_tail S a ha

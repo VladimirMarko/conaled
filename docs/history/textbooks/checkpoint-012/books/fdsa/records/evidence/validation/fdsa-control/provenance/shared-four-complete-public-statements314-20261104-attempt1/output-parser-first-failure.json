@@ -1,0 +1,8 @@
+{
+  "actual_tool_chunk": "e45443",
+  "actual_exit": 1,
+  "diagnostic_tool_chunk": "b73575",
+  "diagnostic_actual_exit": 0,
+  "error": "Header matcher required universe arguments to remain on one line; 28 headers legitimately wrap their universe list onto the next line. It counted286 and failed before any output-block inventory was written.",
+  "correction": "Match the exact expected name plus its possibly multiline universe list and colon in the unchanged complete output. Preserve actual Lean exit0 and raw output unchanged; this is coordinator parsing, not a compiler failure."
+}

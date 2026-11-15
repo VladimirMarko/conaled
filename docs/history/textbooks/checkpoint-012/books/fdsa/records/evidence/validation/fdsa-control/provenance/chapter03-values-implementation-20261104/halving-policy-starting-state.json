@@ -1,0 +1,256 @@
+{
+  "recorded_utc": "2026-11-04T21:31:35.204448+00:00",
+  "stage": "C03-080 actual halving selection and charged measured median construction",
+  "stage_base": "d0479dd03371f1c1f0b41dff5f1882a36206f40a",
+  "tree": "4f7cc77eb1a7d270117ea33065727084c552a630",
+  "status": "",
+  "whole_chapter_review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "canonical_rows": 83,
+  "prior18_owned_source_identities": [
+    {
+      "repository_path": "Applications/Selection/CountRank.lean",
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d",
+      "git_blob": "5f6393df9fd804e4234eb16c8ecdcd93426952b3"
+    },
+    {
+      "repository_path": "Examples/SelectionCountRank.lean",
+      "bytes": 4423,
+      "sha256": "cc73980788882d39abe44672d89e6a3ce37dfe3b5f5788375255248e8b4a66d2",
+      "git_blob": "b43d7c7eeb5f2cc3134166a00100edf26e91d2a9"
+    },
+    {
+      "repository_path": "Applications/Sequences/Chunks.lean",
+      "bytes": 8802,
+      "sha256": "b5d210a074a8dba6011e527eaca68dad866b955d29b0854a5d2cafff9c044493",
+      "git_blob": "c45bcb6427c002d3bab7c728dd6743458c8010fc"
+    },
+    {
+      "repository_path": "Examples/ListChunks.lean",
+      "bytes": 2683,
+      "sha256": "161e240f9c07db5b13f9abf5bf09782064adce4862e60fbe35f0eba483c76c78",
+      "git_blob": "adb9da5b16f1bef2e1e8fe7cbeee0698ea1b0859"
+    },
+    {
+      "repository_path": "Applications/Selection/MedianOfMedians.lean",
+      "bytes": 13797,
+      "sha256": "ae337bf6a9e95ed8d0edb4846c82c0e5887ddc3c00889c659b40273a542393ba",
+      "git_blob": "c348fd2b48ec0b40fa76aa30634406580f9063c0"
+    },
+    {
+      "repository_path": "Examples/MedianOfMedians.lean",
+      "bytes": 9092,
+      "sha256": "0bbbbdab0f2f41f42fd615231d04d29ebeb8f7ffd5cc83e2a6b832cbfcc25f0c",
+      "git_blob": "4803b5ce143a7501608810059c80bc263027c6a5"
+    },
+    {
+      "repository_path": "Applications/Selection/FixedRank.lean",
+      "bytes": 11391,
+      "sha256": "463e00dfd9eaac03dd2bec858eb64454d6c79abf03c80c8011019fb8af527395",
+      "git_blob": "9dd07004e3776b073f2786dbc31a105394e2f065"
+    },
+    {
+      "repository_path": "Applications/Resources/FixedRank.lean",
+      "bytes": 7633,
+      "sha256": "831a78121a2ee7d7db773dd335febb938d8dfc8e7dbe944bb4cb7d71ec202c94",
+      "git_blob": "36f8933c8ac1bcbc94f2432a06aa67fc5bd5b702"
+    },
+    {
+      "repository_path": "Examples/FixedRankSelection.lean",
+      "bytes": 7246,
+      "sha256": "c1ba9819d89af6a1d7f3c1678f10bed4b0614c63b385eb856144d315ebd955da",
+      "git_blob": "fe233b900bbdb3a9c874e79f1bdcf92bb7bb549b"
+    },
+    {
+      "repository_path": "Applications/Selection/MedianReduction.lean",
+      "bytes": 8269,
+      "sha256": "902329504401dfb5ae2dbd2a62c6c7fa8d3dc9eec22d29d99b350282e57d608a",
+      "git_blob": "1e36217265e5dda7cd3f79f7ffdf1c15e702c4d4"
+    },
+    {
+      "repository_path": "Applications/Resources/MedianReduction.lean",
+      "bytes": 5846,
+      "sha256": "e3bb494b94ed6829ad080b9120a69af16cb12c66cb7f7892598db988e3de354c",
+      "git_blob": "723e7c886a4d01eeb014e02d524c8d85553ac76e"
+    },
+    {
+      "repository_path": "Examples/MedianReduction.lean",
+      "bytes": 7589,
+      "sha256": "d08959ce8687e1bc6db9dff78fb581c53b072e9db0436da465d9e42fdf652506",
+      "git_blob": "a123c6bfe01f3c667060cb9787d8ac06acb981c5"
+    },
+    {
+      "repository_path": "Applications/Selection/MedianCounterfamily.lean",
+      "bytes": 7414,
+      "sha256": "8fc4a388b50bd363587b8d8fbdc742d2e9d45426b58af75d9b83f471d1e4e0f6",
+      "git_blob": "6b86f826e0b6d7cba51d592a110219a74279caac"
+    },
+    {
+      "repository_path": "Examples/MedianCounterfamily.lean",
+      "bytes": 2917,
+      "sha256": "8ebe64ee7b3a819b67a4afc9d2d52b8e659ebcdd20ffea17fb9933c1be0f5083",
+      "git_blob": "64df410b43d670f10a595ae1c967487e9a1ef0cc"
+    },
+    {
+      "repository_path": "Examples/GeneralMedianBounds.lean",
+      "bytes": 9001,
+      "sha256": "dfc1bb996f97104c2925bd6b7d2577272cf5a3e674bb756785cfdcdd234ffd9d",
+      "git_blob": "8a3e98962d217a4a3b198562b4b4e22c90de60a5"
+    },
+    {
+      "module": "Applications.Resources.SelectionPolicy",
+      "repository_path": "Applications/Resources/SelectionPolicy.lean",
+      "imports": [
+        "Applications.Selection.ThreeWay",
+        "Applications.Resources.Partition",
+        "Applications.Resources.ListCalls"
+      ],
+      "bytes": 5986,
+      "sha256": "c906415dff6fc59694629f3d17977e55d2aa2ea2d989610f222bb781056a3112",
+      "git_blob": "71a146d37dc0b87bbdb38cc94dd1d2b02457a031"
+    },
+    {
+      "module": "Applications.Resources.MinimumPivot",
+      "repository_path": "Applications/Resources/MinimumPivot.lean",
+      "imports": [
+        "Applications.Resources.SelectionPolicy",
+        "Applications.Resources.FixedRank"
+      ],
+      "bytes": 10610,
+      "sha256": "c4e4ee7b0ef4413684fc13069d2f7f1200ac6387df2aa81565db0aa45bebaabe",
+      "git_blob": "c9ab1d98137636909b96c98b90bbb314eea700ef"
+    },
+    {
+      "module": "Examples.MinimumPivot",
+      "repository_path": "Examples/MinimumPivot.lean",
+      "imports": [
+        "Applications.Resources.MinimumPivot"
+      ],
+      "bytes": 3770,
+      "sha256": "08a54aec03e507b1c8dc87dcf521f96984c6a6cff4988294a60ddb1db6a9cdc8",
+      "git_blob": "098bb18c8422aff6cb9aa1a2b3abf9bf0a66ec61"
+    }
+  ],
+  "prior_public_count": 402,
+  "prior_named_private_helpers": 7,
+  "planned_new_sources": [
+    "Applications/Resources/HalvingSelection.lean",
+    "Applications/Resources/MedianPolicy.lean",
+    "Examples/MedianPolicy.lean"
+  ],
+  "authorized_exact_dependency_copies": [
+    {
+      "repository_path": "Applications/Resources/Chunks.lean",
+      "origin_candidate": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "bytes": 4591,
+      "sha256": "80fd9427826aeef0916dbb7e17a84cb99dd4259e0f5b24c186a31e02e084e4cc",
+      "git_blob": "25c7db2d5358bf2087657a8987963ba31dff09eb",
+      "status_before": "absent"
+    },
+    {
+      "repository_path": "Applications/Resources/SelectionAuxiliary.lean",
+      "origin_candidate": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "bytes": 6215,
+      "sha256": "eeba4ac85dd4e07b8b42f38499748cae69cb6dcaaa01fdc8400a3cf5b947a925",
+      "git_blob": "2bc892fee38610f0866e0cc3cd3529b7693f7c03",
+      "status_before": "absent"
+    },
+    {
+      "repository_path": "Applications/Resources/SelectionMedians.lean",
+      "origin_candidate": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "bytes": 9755,
+      "sha256": "e64e998edc9353e5fd52544177fadd32f6398e3260b27ca54195cd8917e5d098",
+      "git_blob": "cd6bd74d71c43fc76d32555521d612dfb7cc5ee8",
+      "status_before": "absent"
+    },
+    {
+      "repository_path": "Applications/Resources/Selection.lean",
+      "origin_candidate": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "bytes": 22435,
+      "sha256": "51c03de900c4eb25e07e210faa51bded36b639a8e33b8123d941fef976841065",
+      "git_blob": "b77373acfb78fe09ffb9e304ab2573fd8b107ca3",
+      "status_before": "absent"
+    },
+    {
+      "repository_path": "Applications/Resources/RoundedRecurrence.lean",
+      "origin_candidate": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758",
+      "git_blob": "0f78fd302b88aba9596036a63b79195007e502a8",
+      "status_before": "absent"
+    },
+    {
+      "repository_path": "Applications/Resources/RoundedRecurrenceBounds.lean",
+      "origin_candidate": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "bytes": 6951,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135",
+      "git_blob": "45b5c20045c45919eb1f368ae0d9c9629b32a27b",
+      "status_before": "absent"
+    },
+    {
+      "repository_path": "Applications/Resources/SelectionRecurrence.lean",
+      "origin_candidate": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "bytes": 6560,
+      "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e",
+      "git_blob": "ff3350e7cc566e62466e056166c8af6f781e32df",
+      "status_before": "absent"
+    },
+    {
+      "repository_path": "Applications/Resources/SelectionBounds.lean",
+      "origin_candidate": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "bytes": 10073,
+      "sha256": "0f9181b569d24b2615c08be5c6a305a75e67679f14338e877fced10113d61edc",
+      "git_blob": "b68014cfc729990255e6883ac5d874af30bbb058",
+      "status_before": "absent"
+    },
+    {
+      "repository_path": "Applications/Resources/HalvingTrace.lean",
+      "origin_candidate": "45d120ce0f5bacbaac76cbceeca13ee3ff494dff",
+      "bytes": 6430,
+      "sha256": "89f15ae8a7e222a5c046e91582c38c61283350b27acacfd0c1278d2da4f7aaa6",
+      "git_blob": "bf85acd26b4d35526ec25a6e6c3009b5589e4949",
+      "status_before": "absent"
+    }
+  ],
+  "dependency_disposition": "Only nine absent source files from the exact authorized immutable candidates. SelectionBounds transitively reaches 30 project modules; every existing reachable source already matches the donor exactly. No other branch changes, example files, caches or outputs copied.",
+  "dependency_evidence": {
+    "halving_trace": {
+      "origin": "45d120ce0f5bacbaac76cbceeca13ee3ff494dff",
+      "actual_exit": 0,
+      "root_terminal": "e8d513",
+      "root_closure": "21d240",
+      "author_full_source": "87af12",
+      "author_full_pass": "3a6dcd"
+    },
+    "selection_bounds": {
+      "origin": "be8a5ab11040d61f5f2f8aef7abf02da333049fc",
+      "actual_exit": 0,
+      "root_terminal": "10c0b5",
+      "root_closure": "14bebf",
+      "author_full_bounds_source": "e0f270",
+      "author_full_selector_and_auxiliary_source": "642db9",
+      "author_full_pass": "3a6dcd",
+      "outer_bytes": 6930,
+      "outer_sha256": "ae9c6fc34f00d5f3e5fb252e3af9e2adf1d2406a248c665cc9debe68f734f468"
+    }
+  },
+  "pre_source_expected_claims": [
+    "For every actual input-occurrence policy with strict sides at most floor(n/2), every valid-rank execution at fuel>=n has an actual positive Halves trace, including early equal termination and duplicates.",
+    "Actual trace yields n<=W<=2*n, positive active count, and trace.length-1<=Nat.log 2 n<=Nat.clog 2 n. Singleton n1 has exactly one active invocation and zero edges.",
+    "If actual measured pivot construction costs <=A*n+B at every nonempty state, the actual selector charge satisfies W<=T<=(A+4)*W+(B+5)*entries, and hence n<=T<=(2*(A+4)+2*(B+5))*n for halving policies. No assumed trace or free pivot search.",
+    "Concrete median pivot first executes measured length for the lower-occurrence index then actual measured Selection.selectRun, charging its wrapper entry. Its value is ordered[(n-1)/2], whose duplicate-aware count bounds prove both strict sides halve.",
+    "The actual concrete median callback has exact cost n+2+selectRun_cost at that index. A single linear constant exists before the payload type/list/rank/fuel; the source selector uniform bound discharges the callback contract.",
+    "No changes to existing public one-based selector, optional values, prior proofs or tariffs. All new execution ranks are the existing zero-based book convention."
+  ],
+  "independent_cases": [
+    "Singleton x: measured median pivot charge10; outer actual balanced selector charge19, trace[1], zero edges.",
+    "Sorted range8, requested largest rank7: lower median pivots3,5,6,7; actual trace[8,4,2,1], scan15, edges3. Actual pivot charges41,23,14,10; outer step charges66,38,24,19, total147.",
+    "Sorted range7, largest rank6: trace[7,3,1], scan11, two edges while clog2(7)=3; anticipated charge111.",
+    "Sorted four-element list, requested lower median rank1: early equal stop at initial4, scan4, zero edges, actual charge39.",
+    "Same four-element list, rank0: actual lower branch to singleton0, trace[4,1], scan5, actual charge57.",
+    "Four repeated4 values, rank3: strict sides0, actual trace[4], zero edges, actual charge44, including sequential equal lookup.",
+    "Empty input remains none without a false positive-size bound; invalid rank is covered by the value theorem, not by valid-path complexity statements."
+  ],
+  "ownership": "Root explicitly owns C03-055. This author handles C03-080 only; all 83 rows remain in the original loop.",
+  "compiler_policy": "No author Lean/Lake/cache/runtime operations. Exact dependency copies do not give new acceptance credit; root owns serial focused check and all later gates."
+}

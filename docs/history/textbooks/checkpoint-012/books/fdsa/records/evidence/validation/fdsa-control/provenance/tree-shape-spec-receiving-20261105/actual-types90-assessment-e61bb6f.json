@@ -1,0 +1,1781 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-05T03:34:04.539779+00:00",
+  "unit": "FDSA-XT02",
+  "axis": "Spec",
+  "reviewer": "/root/tree_cache_spec",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "incorporated_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "requirements_ids": [
+    "XT02-01",
+    "XT02-02",
+    "XT02-03",
+    "XT02-04",
+    "XT02-05"
+  ],
+  "original_scope_paths": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-shape.md"
+  ],
+  "public_names": 90,
+  "candidate": "e61bb6f6eaf6fd93b1b072eb3e5563b40f16defe",
+  "tree": "d002afee18c38828f01221837f4c3f302ab155cc",
+  "source_scope_complete": true,
+  "all91_source_headers_unchanged": true,
+  "actual_public_types_complete": true,
+  "actual_public_types_read": 90,
+  "public_definitions": 11,
+  "public_theorems": 79,
+  "private_definitions_in_source_scope": 1,
+  "module_public_counts": {
+    "Applications/Trees/Shape.lean": 29,
+    "Applications/Trees/ShapeLog.lean": 7,
+    "Examples/TreeShape.lean": 54
+  },
+  "program": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean",
+    "bytes": 4199,
+    "sha256": "fab2460caafba1f3f28a09006c4e220b9c735857e02294091486cdf4e8461c33"
+  },
+  "native_output": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/native-records/output.log",
+    "bytes": 30252,
+    "sha256": "1df9da87b91e300b1cb9ac92ac52b379ddeba30231a0f149bbab50ba322e5cd7"
+  },
+  "outer_output": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/full.log",
+    "bytes": 30613,
+    "sha256": "f5b5ecaaf2ae9c28d5ea3ffa7911b139180765790762e0700d9c968c6f73f69b"
+  },
+  "original_name_order_exact": true,
+  "actual_output_block_count": 90,
+  "actual_output_lines": 430,
+  "blocks_reconstruct_entire_output": true,
+  "no_display_elision_observed": true,
+  "printing_options": [
+    "set_option autoImplicit false",
+    "set_option warningAsError true",
+    "set_option pp.universes true",
+    "set_option pp.explicit true",
+    "set_option pp.fullNames true",
+    "set_option pp.deepTerms true",
+    "set_option pp.proofs true",
+    "set_option pp.maxSteps 1000000",
+    "set_option pp.coercions true",
+    "set_option pp.all true"
+  ],
+  "printing_profile_exact_accepted_XT01": true,
+  "program_full_read_receipt": "06610c",
+  "full_actual_type_read_receipts": [
+    {
+      "receipt": "5e5cf4",
+      "actual_exit": 0,
+      "lines": [
+        1,
+        150
+      ],
+      "untruncated": true
+    },
+    {
+      "receipt": "6316cc",
+      "actual_exit": 0,
+      "lines": [
+        151,
+        300
+      ],
+      "untruncated": true
+    },
+    {
+      "receipt": "07cdd9",
+      "actual_exit": 0,
+      "lines": [
+        301,
+        430
+      ],
+      "untruncated": true
+    }
+  ],
+  "actual_terminal_chunk": "221199",
+  "actual_exit": 0,
+  "owned_session_closed": 38759,
+  "complete_closed_log": true,
+  "outer_prefix_native_suffix_exact": true,
+  "native_origin_exact": true,
+  "terminal_recorder_native_exits_agree": true,
+  "command": [
+    "python3",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+    "--state",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "--threads",
+    "1",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean"
+  ],
+  "native_command": [
+    "lake",
+    "env",
+    "lean",
+    "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean"
+  ],
+  "lean_threads": 1,
+  "source_start_final_clean_candidate": true,
+  "complete_closed_chain_read_receipt": "32746f",
+  "inherited_verification_candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "inherited_verification_supplies_XT02_credit": false,
+  "input_observations": {
+    "before": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/inputs-before.json",
+      "bytes": 34483,
+      "sha256": "1ee3406ca37aeaa9b62485d8719d1085fc7803f41c01229526619f48e2c2a963"
+    },
+    "after": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/inputs-after.json",
+      "bytes": 34785,
+      "sha256": "e099ff7584144fe5d9c3294dea7d19139009622808de2ab65b4a437dbc0353ee"
+    },
+    "before_utc": "2026-11-05T03:27:00.457088+00:00",
+    "after_utc": "2026-11-05T03:27:44.080993+00:00",
+    "all_identity_fields_equal": true,
+    "local_sources": 29,
+    "local_objects_and_traces": 87,
+    "configurations": 10,
+    "dependencies": 9,
+    "runtime_items": 12,
+    "all29_sources_match_immutable_candidate": true,
+    "exact_three_object_entries_per_local_source": true,
+    "all10_configs_match_immutable_candidate": true,
+    "nine_clean_dependency_heads_match_pins": true,
+    "runtime_dependencies_configuration_equal_accepted_XT01_inputs": true,
+    "current_compiler_objects_rehashed_by_reviewer": false,
+    "limitation": "Saved before/after observations are identical and bind the actual command, source, program and observed inputs. They do not prove absence of transient inputs or independently prove the identity of every loaded object. Matching candidate full validation and output-integrity guards remain required."
+  },
+  "actual_type_assessments": [
+    {
+      "ordinal": 1,
+      "name": "Trees.minHeight",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "def",
+      "first_line": 1,
+      "last_line": 1,
+      "bytes": 79,
+      "sha256": "0391cc2d454233796680f87543ed0d878357ff4b75b89de1b99483d6bfcf5299",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Implicit arbitrary payload type at any universe; takes one binary tree and returns Nat. Its ordinary structural fold body remains established by the complete source assessment.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 2,
+      "name": "Trees.minHeight_nil",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 2,
+      "last_line": 4,
+      "bytes": 185,
+      "sha256": "41223483853e68bc2dcc384a36e119c2b006ca04c7a9195ae4b686b7f28f3bfb",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "For every payload type, minimum height of nil is exactly natural zero; no inhabitance or nonempty premise.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 3,
+      "name": "Trees.minHeight_node",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 5,
+      "last_line": 9,
+      "bytes": 398,
+      "sha256": "ce82c6a64a62394babbbc8638abadbe1dc66a18d67bf0abfe460d3a329ac602c",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "For arbitrary node label and both subtrees, minimum height is min of their two minima plus one.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 4,
+      "name": "Trees.minHeight_map",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 10,
+      "last_line": 12,
+      "bytes": 236,
+      "sha256": "efe34e25199456d2abe8b3c35eb4652a4d2c36a41f7c6ac794cfa9e9884b0ae4",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Arbitrary function between independent type universes preserves minimum height; no injectivity or typeclass assumptions.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 5,
+      "name": "Trees.minHeight_le_height",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 13,
+      "last_line": 14,
+      "bytes": 171,
+      "sha256": "c499e3c1fbf6992d109a837326e5a41315e9f9ebbdd9f16bebe606db65b27236",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Every tree has minimum height at most maximum height in Nat, without a shape hypothesis.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 6,
+      "name": "Trees.Complete",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "def",
+      "first_line": 15,
+      "last_line": 15,
+      "bytes": 73,
+      "sha256": "4d543a188cae2a168efbb66282b8350ca1971bcb244537cf113ff056784e5451",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Implicit arbitrary payload type and tree argument produce Prop; the separately inspected recursive body defines completeness independently of the later characterization.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 7,
+      "name": "Trees.complete_nil",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 16,
+      "last_line": 16,
+      "bytes": 101,
+      "sha256": "a9680b60c4019eb482b803fc45e190725c280313d4ea27f3abb1b813063890c3",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Nil is complete for every payload type, including uninhabited types.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 8,
+      "name": "Trees.complete_node",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 17,
+      "last_line": 20,
+      "bytes": 312,
+      "sha256": "7ada3c3e74752893b46ec2a94baae2b97945254b2cae8a542ceef552f3ec2b8c",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "A node is complete iff maximum child heights are equal and both children are recursively complete.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 9,
+      "name": "Trees.complete_iff_minHeight_eq_height",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 21,
+      "last_line": 22,
+      "bytes": 206,
+      "sha256": "e4eb711551dd63974a702f57f698e2e595066c4f143f48535da75b0dee64816f",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "For every tree, completeness is equivalent to equality of its minimum and maximum heights.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 10,
+      "name": "Trees.complete_map",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 23,
+      "last_line": 25,
+      "bytes": 225,
+      "sha256": "9d25018cdf29ba5333ff6aeaba16ee77aa44ff374abc541e9ca49f16680a00bf",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Completeness before and after any relabelling is equivalent across arbitrary independent universes; no injectivity premise.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 11,
+      "name": "Trees.AlmostComplete",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "def",
+      "first_line": 26,
+      "last_line": 26,
+      "bytes": 85,
+      "sha256": "b13d8e5abe5b8dbb974e0e908734897d2bbdf4814215c3ebd0fd0e30646155c4",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Implicit arbitrary payload type and tree argument produce Prop; the inspected body is maximum height at most minimum height plus one.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 12,
+      "name": "Trees.almostComplete_nil",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 27,
+      "last_line": 27,
+      "bytes": 113,
+      "sha256": "e8801f8d6ec72275cf0350ffbc5b5498beb1c99ecc01130558d0e8ca3a2ba7d6",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Nil is almost complete for every payload type.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 13,
+      "name": "Trees.almostComplete_iff_sub",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 28,
+      "last_line": 33,
+      "bytes": 367,
+      "sha256": "cbacc3b66a5c7db543fd503ebc35017105c39786d63f899cb38615b8f20d9227",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Almost completeness is equivalent to natural truncated subtraction height minus minimum height at most one; no integer subtraction substitution.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 14,
+      "name": "Trees.complete_almostComplete",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 34,
+      "last_line": 35,
+      "bytes": 155,
+      "sha256": "c6ba07840ead5870a38adf9623c4a6be7ab97492c2107553e90a932f05918bac",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "A complete tree is almost complete; the supplied Complete hypothesis is exactly the intended one.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 15,
+      "name": "Trees.almostComplete_children",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 36,
+      "last_line": 38,
+      "bytes": 247,
+      "sha256": "59d8f31edd8330d8376ad1947cdd4d043d5634cdc492af157369f82cf2ba1244",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Almost completeness of a node implies almost completeness of each immediate child, with no reverse or arbitrary-subtree claim.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 16,
+      "name": "Trees.almostComplete_map",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 39,
+      "last_line": 41,
+      "bytes": 243,
+      "sha256": "a46461873f9a0af4d72c8e882fc4f019b3fc7a5653efc87874c26eb310dfdf23",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Almost completeness is equivalent under arbitrary relabelling across independent type universes.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 17,
+      "name": "Trees.pow_minHeight_le_numLeaves",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 42,
+      "last_line": 46,
+      "bytes": 355,
+      "sha256": "69d0f1c44f68627e94cefda4eb2d23a9e5e2fa4131ee45a8bf121de988cf01a4",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "For every tree, natural 2 raised to minimum height is at most its external leaf count; no nonempty or almost-complete premise.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 18,
+      "name": "Trees.numLeaves_le_pow_height",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 47,
+      "last_line": 50,
+      "bytes": 350,
+      "sha256": "b41807bbe545bf338700beacbfaecd8e985f1585be8e2adcea812b279be45a69",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "For every tree, external leaf count is at most natural 2 raised to maximum height.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 19,
+      "name": "Trees.numLeaves_eq_pow_height",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 51,
+      "last_line": 55,
+      "bytes": 376,
+      "sha256": "43626dbdd5a52485fd6efa9b4c3e056dc9a64c178d89967d9ab1c9c51f65013d",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "A Complete hypothesis suffices for leaf count to equal 2 raised to the tree's own maximum height.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 20,
+      "name": "Trees.numLeaves_eq_pow_minHeight",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 56,
+      "last_line": 59,
+      "bytes": 372,
+      "sha256": "54442988d36ed0d810c7684b9a4de5c5bb22512de5b10f37a9fc4f41c895f618",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "A Complete hypothesis suffices for leaf count to equal 2 raised to the tree's own minimum height.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 21,
+      "name": "Trees.numLeaves_lt_pow_height",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 60,
+      "last_line": 64,
+      "bytes": 395,
+      "sha256": "130e3b246f85e97319bab034641fcdc38dafba0f6f4f8573469d94a11f0b1562",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Incompleteness alone implies strict leaf-count upper capacity; neither almost completeness nor a separate nonempty premise is added.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 22,
+      "name": "Trees.pow_minHeight_lt_numLeaves",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 65,
+      "last_line": 70,
+      "bytes": 402,
+      "sha256": "0537411ee3985d6d0bc238a806aeda2a824594e7ea35cfee0912da49834fa3b1",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Incompleteness alone implies strict lower capacity at the tree's minimum height.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 23,
+      "name": "Trees.complete_iff_numLeaves_eq_pow_height",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 71,
+      "last_line": 75,
+      "bytes": 393,
+      "sha256": "41046f73ebaa36c3538e5c8ea61122f7ef5178c2d6d0d016f3d93390c6cd1b48",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Completeness is equivalent to leaf count equalling 2 at the actual maximum height, not an arbitrary power.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 24,
+      "name": "Trees.complete_iff_numLeaves_eq_pow_minHeight",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 76,
+      "last_line": 80,
+      "bytes": 394,
+      "sha256": "60e67a7d5a5ffa6c751264fcda518cfc8f198812d4e0cbadb6ce7cc62abb8c93",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Completeness is equivalent to leaf count equalling 2 at the actual minimum height.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 25,
+      "name": "Trees.minHeight_le_log_numLeaves",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 81,
+      "last_line": 83,
+      "bytes": 257,
+      "sha256": "f8c5db80c5331e57b4bb2b9c65a5d4cf03927b63b0a52e0b3016253b0c1d31d0",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Every tree's minimum height is at most Nat.log base 2 of its leaf count.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 26,
+      "name": "Trees.clog_numLeaves_le_height",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 84,
+      "last_line": 87,
+      "bytes": 262,
+      "sha256": "f5ed2552108c75e73f09449915a19d598e9b35960f3071ce3651b73899500f28",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Nat.clog base 2 of every tree's leaf count is at most its maximum height.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 27,
+      "name": "Trees.minHeight_eq_log_numLeaves",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 88,
+      "last_line": 91,
+      "bytes": 286,
+      "sha256": "0e21ef8c568992175f36fe19c5fed3c61771628908d4ec07619368f75c735876",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Almost completeness suffices for minimum height to equal Nat.log base 2 of leaf count, including nil.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 28,
+      "name": "Trees.height_eq_clog_numLeaves",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 92,
+      "last_line": 95,
+      "bytes": 287,
+      "sha256": "2bcfd891e01d8b8ac0e4d177097e2d12d6215a161b5409a888c4d852a002d88c",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Almost completeness suffices for maximum height to equal Nat.clog base 2 of leaf count, including nil.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 29,
+      "name": "Trees.height_optimal",
+      "source": "Applications/Trees/Shape.lean",
+      "kind": "theorem",
+      "first_line": 96,
+      "last_line": 100,
+      "bytes": 366,
+      "sha256": "c1d4182e5b0ab8ee5f1e81e8a0107617fd66d353b147edfad757fbb1da057b55",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Two trees may have unrelated payload types in independent universes. Only the first is AlmostComplete; its node count at most the competitor's implies its height at most the competitor's. No hidden competitor shape premise, equality-only size restriction, or converse appears.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 30,
+      "name": "Trees.minHeight_le_logb_numLeaves",
+      "source": "Applications/Trees/ShapeLog.lean",
+      "kind": "theorem",
+      "first_line": 101,
+      "last_line": 108,
+      "bytes": 593,
+      "sha256": "78d71665bab37c03206a65b018247f09bcaf7089df92f57c4549906e0c3f6ca9",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Unconditional real inequality casts minimum height and external leaf count into Real and uses literal real base 2.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 31,
+      "name": "Trees.logb_numLeaves_le_height",
+      "source": "Applications/Trees/ShapeLog.lean",
+      "kind": "theorem",
+      "first_line": 109,
+      "last_line": 117,
+      "bytes": 596,
+      "sha256": "c473904c6b2542862c70093022e6e5b403388110977f502fea347c08f47b483b",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Unconditional real upper sandwich uses logb base 2 of cast external leaves and cast maximum height.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 32,
+      "name": "Trees.minHeight_lt_logb_numLeaves",
+      "source": "Applications/Trees/ShapeLog.lean",
+      "kind": "theorem",
+      "first_line": 118,
+      "last_line": 126,
+      "bytes": 635,
+      "sha256": "b2731ff7f2a9cefe1b589e9bc3fe3f62c4dd80792322b6c5bea9551e89db97aa",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "An explicit Not Complete hypothesis is sufficient for the strict real lower sandwich; no AlmostComplete premise.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 33,
+      "name": "Trees.logb_numLeaves_lt_height",
+      "source": "Applications/Trees/ShapeLog.lean",
+      "kind": "theorem",
+      "first_line": 127,
+      "last_line": 136,
+      "bytes": 638,
+      "sha256": "d6241dea691113cbfc4a599e9e24df46649de7a493d4404f1aa8f7d8822453e9",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "An explicit Not Complete hypothesis is sufficient for the strict real upper sandwich; no AlmostComplete premise.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 34,
+      "name": "Trees.height_eq_logb_numLeaves",
+      "source": "Applications/Trees/ShapeLog.lean",
+      "kind": "theorem",
+      "first_line": 137,
+      "last_line": 144,
+      "bytes": 611,
+      "sha256": "cdd0f284eb84efc325e7077f2db34e7266727f09486cd1a3ea11f1672b550b1c",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4"
+      ],
+      "spec_assessment": "Complete suffices for cast maximum height to equal actual real logb base 2 of cast external leaves.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 35,
+      "name": "Trees.minHeight_eq_floor_logb_numLeaves",
+      "source": "Applications/Trees/ShapeLog.lean",
+      "kind": "theorem",
+      "first_line": 145,
+      "last_line": 155,
+      "bytes": 751,
+      "sha256": "6868b370be249f444784e891e12ab0df6d5f72542159716686cc615edb6db738",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "5e5cf4",
+        "6316cc"
+      ],
+      "spec_assessment": "AlmostComplete suffices for a Nat equality between minimum height and Nat.floor of actual Real.logb base 2 of cast external leaves; not Int.floor or a float.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 36,
+      "name": "Trees.height_eq_ceil_logb_numLeaves",
+      "source": "Applications/Trees/ShapeLog.lean",
+      "kind": "theorem",
+      "first_line": 156,
+      "last_line": 166,
+      "bytes": 748,
+      "sha256": "2cfbb7bfa79b65d4883d6c6f0ea68b80f6e8ad1c7469cf4ce477599e707e4aad",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "AlmostComplete suffices for a Nat equality between maximum height and Nat.ceil of actual Real.logb base 2 of cast external leaves.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 37,
+      "name": "TreeShapeExamples.single",
+      "source": "Examples/TreeShape.lean",
+      "kind": "def",
+      "first_line": 167,
+      "last_line": 167,
+      "bytes": 47,
+      "sha256": "5b2292041316f90d2a59b28ce0020dd5277ddd8fb37d55d470ff8e59436ebc24",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The public singleton fixture has concrete type BinaryTree Unit; its source constructs a real node over two nil children.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 38,
+      "name": "TreeShapeExamples.single_complete",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 168,
+      "last_line": 168,
+      "bytes": 86,
+      "sha256": "849fdfffd6edbd0770de143bf2d1bd329c1a94654619dfd5f7ecaf0f38d7e16b",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The actual public singleton fixture satisfies Trees.Complete.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 39,
+      "name": "TreeShapeExamples.single_minHeight",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 169,
+      "last_line": 170,
+      "bytes": 166,
+      "sha256": "8a580f59ef07e6967a78f40868477767743c756595ee6a0571a599641e9c2636",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The singleton's minimum height is natural one.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 40,
+      "name": "TreeShapeExamples.single_almostComplete",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 171,
+      "last_line": 171,
+      "bytes": 98,
+      "sha256": "fc34a1a7dd8cd1066c7c5a0aac11b0c44e251c3eca7c732cbdd3046bdd654752",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The actual singleton fixture satisfies AlmostComplete.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 41,
+      "name": "TreeShapeExamples.empty_shapes",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 172,
+      "last_line": 179,
+      "bytes": 533,
+      "sha256": "299c0754db6d72b6da2f08e060c6d24a8e77b93e827ce88a4984cde1cebec671",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "Every BinaryTree Empty is complete and almost complete, with minimum and maximum zero and exactly one external leaf; no impossible nonempty premise is hidden.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 42,
+      "name": "TreeShapeExamples.perfectThree",
+      "source": "Examples/TreeShape.lean",
+      "kind": "def",
+      "first_line": 180,
+      "last_line": 180,
+      "bytes": 53,
+      "sha256": "53e3b71c517a891123f426b16641ba7d545f1e18e989063bca2adfa5229dbee1",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The perfect three-node fixture has concrete type BinaryTree Unit.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 43,
+      "name": "TreeShapeExamples.perfectThree_complete",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 181,
+      "last_line": 181,
+      "bytes": 98,
+      "sha256": "cca0cab6645cfcccc37f5910cf53a6d19fda7102fe1e4ebd83fe429b892f1bde",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The actual perfectThree fixture is complete.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 44,
+      "name": "TreeShapeExamples.perfectThree_leaves",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 182,
+      "last_line": 186,
+      "bytes": 375,
+      "sha256": "35cd534896b21a4ea342a9958f15e17e4ecf7307e884d310eb8d17515abce4d9",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The fixture's external leaf count equals natural 2 raised to its own minimum height; the resolved Nat power structure denotes ordinary natural exponentiation.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 45,
+      "name": "TreeShapeExamples.perfectThree_minHeight",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 187,
+      "last_line": 188,
+      "bytes": 178,
+      "sha256": "ea648a4bc9cb09b6cb980e2e6627f0bb48fe5299ed6ae3cc735ed578906ea4b3",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The fixture's minimum height is natural two.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 46,
+      "name": "TreeShapeExamples.rightTwo",
+      "source": "Examples/TreeShape.lean",
+      "kind": "def",
+      "first_line": 189,
+      "last_line": 189,
+      "bytes": 49,
+      "sha256": "50a0b8610112c61215f1b7928641b20dc294e20f95cab6d08d81118aca9e8a1b",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The asymmetric two-node fixture has concrete type BinaryTree Unit.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 47,
+      "name": "TreeShapeExamples.rightTwo_incomplete",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 190,
+      "last_line": 190,
+      "bytes": 98,
+      "sha256": "ad50469e7fd0621cf76aba335c4d70b9186e0500a423d30cb6162d997f8831ce",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The actual rightTwo fixture is not complete.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 48,
+      "name": "TreeShapeExamples.rightTwo_almostComplete",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 191,
+      "last_line": 191,
+      "bytes": 102,
+      "sha256": "a003680c5cf55a4f69c70eaabbcd115337ba775bfb1e39110a67dcd127287dc1",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The same incomplete rightTwo fixture is almost complete.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 49,
+      "name": "TreeShapeExamples.rightTwo_strict_capacity",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 192,
+      "last_line": 203,
+      "bytes": 759,
+      "sha256": "c520230fe0ba6e4783958d7dbb83c8746c431347450cdcb6b908998fad86fc13",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The same fixture has both strict natural power bounds with its actual minima, leaves, and maximum height.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 50,
+      "name": "TreeShapeExamples.rightTwo_children",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 204,
+      "last_line": 205,
+      "bytes": 162,
+      "sha256": "a7c3a73d01211e79a60a5f5e6cd48cb8721ab1acb2db2198a2a4efbeeb825651",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The fixture's actual nil and singleton children each satisfy AlmostComplete, exercising the child-closure API.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 51,
+      "name": "TreeShapeExamples.rightTwo_sub",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 206,
+      "last_line": 209,
+      "bytes": 306,
+      "sha256": "ac9418b57de561a3465f8c021c6c621501e490eba9c3c8243ac02b955034aff6",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The actual fixture's natural height-minus-minimum subtraction is at most one.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 52,
+      "name": "TreeShapeExamples.chainThree_power_not_complete",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 210,
+      "last_line": 219,
+      "bytes": 598,
+      "sha256": "b8552942d27512687dad4b1074e53cb90a0c16dc74d645f7867a3514d27d3315",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The actual three-node saved chain has exactly 2 squared leaves and is incomplete, refuting the arbitrary-power converse.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 53,
+      "name": "TreeShapeExamples.rightTwo_rounded_equalities",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 220,
+      "last_line": 226,
+      "bytes": 481,
+      "sha256": "eff2017e584262fbbefb6f2531e70dcfc96d61ff99923900c6c7f0d5c2861b57",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The actual incomplete fixture nevertheless attains both rounded natural logarithm equalities.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 54,
+      "name": "TreeShapeExamples.rightTwo_rounded_strictness_fails",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 227,
+      "last_line": 236,
+      "bytes": 547,
+      "sha256": "ed9d3db627d75a10a4de7cc6c874d193eaf816d32281278e39fe5c1b4a0b884a",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "Both strict natural rounded inequalities are explicitly negated for the same fixture; real strictness has not been confused with rounded strictness.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 55,
+      "name": "TreeShapeExamples.empty_logarithms",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 237,
+      "last_line": 244,
+      "bytes": 476,
+      "sha256": "ed752d3b293eb8c0d4540735c4ae532bb0b4cb224e1eb71c910d2573d014cfe3",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "For every BinaryTree Empty, both Nat.log and Nat.clog base 2 of its external leaf count equal zero.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 56,
+      "name": "TreeShapeExamples.sample_almostComplete",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 245,
+      "last_line": 245,
+      "bytes": 97,
+      "sha256": "4b4fa8be8290b61ad7a4902430376d667f5f2017ddb6c244b5fb8a8921ea7a92",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The inherited, actual Nat-labelled TreeCacheExamples.sample is almost complete.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 57,
+      "name": "TreeShapeExamples.sample_minHeight",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 246,
+      "last_line": 247,
+      "bytes": 165,
+      "sha256": "b632cd34b0f113de1e619ad9ba48dfd3017609b8fca979a26ac2b3c4845d7638",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The actual inherited sample's minimum height is two.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 58,
+      "name": "TreeShapeExamples.sample_leaves",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 248,
+      "last_line": 249,
+      "bytes": 167,
+      "sha256": "cabe8911199444341172690d5820fe985d0888114349c4ead588f4c7d3efe652",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The actual inherited sample has exactly five external leaves.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 59,
+      "name": "TreeShapeExamples.sample_logarithms",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 250,
+      "last_line": 258,
+      "bytes": 495,
+      "sha256": "eed9b9c0aca3a6ed808dd558ab5cf2b4a8d2094d4018e907391dbe98a5e56895",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "Nat.log base 2 of five equals two and Nat.clog base 2 of five equals three.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 60,
+      "name": "TreeShapeExamples.sample_height_nodes",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 259,
+      "last_line": 263,
+      "bytes": 381,
+      "sha256": "1d89471cc7c6345fa47acb6d22276adf76684ad060af5012e4657cc73f55743f",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The actual sample's height equals Nat.clog base 2 of its node count plus one.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 61,
+      "name": "TreeShapeExamples.sample_wrong_node_offset",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 264,
+      "last_line": 266,
+      "bytes": 246,
+      "sha256": "5418151b0e4b0bef547482a4b0463f39d0613b165f0f30e0230bc8272f816d9e",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The sample's height is explicitly unequal to Nat.clog base 2 of its bare node count, preserving the offset counterexample.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 62,
+      "name": "TreeShapeExamples.perfectThree_real_height",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 267,
+      "last_line": 274,
+      "bytes": 581,
+      "sha256": "4630884ce213b4b9f22f68bb98dcc2908219c3c91798faace521fe42d422af64",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The complete fixture's cast maximum height equals real logb base 2 of its cast leaf count.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 63,
+      "name": "TreeShapeExamples.rightTwo_strict_real",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 275,
+      "last_line": 299,
+      "bytes": 1757,
+      "sha256": "d519214de5fd82cb72560c3216c2938271c5ab391998b81cf52a1959751f2a4f",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc"
+      ],
+      "spec_assessment": "The actual type is the literal real conjunction 1 < logb 2 3 and logb 2 3 < 2, with no residual cache/shape premise or weakened target.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 64,
+      "name": "TreeShapeExamples.sample_real_rounding",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 300,
+      "last_line": 326,
+      "bytes": 1820,
+      "sha256": "92d24ded3a6804975dc9bd59650dbbf1262f7ed7862148b7ccd35570474518c8",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "6316cc",
+        "07cdd9"
+      ],
+      "spec_assessment": "The actual Nat.floor and Nat.ceil of real logb base 2 of literal real five are exactly natural two and three.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 65,
+      "name": "TreeShapeExamples.empty_real_height",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 327,
+      "last_line": 334,
+      "bytes": 562,
+      "sha256": "b1b8043ab18066a7dfbc90acb1de0c971c578c36f1685f677670d49f7511c536",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "Every BinaryTree Empty has cast maximum height equal to real logb base 2 of its cast external leaf count.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 66,
+      "name": "TreeShapeExamples.mapped_sample",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 335,
+      "last_line": 340,
+      "bytes": 367,
+      "sha256": "43c43bc2fd5950a139200f57b7c30603e5b5d354a5d066b46ddcb9f48700c56d",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "The explicit constant Nat-to-Unit map sends the actual sample to a tree with minimum two and AlmostComplete; it imposes no injectivity premise.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 67,
+      "name": "TreeShapeExamples.relabelled_complete",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 341,
+      "last_line": 342,
+      "bytes": 164,
+      "sha256": "acfab5263f37c5d442423c6c5318d302b61e3686f484fc8817b83af251553420",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "The explicit constant Unit-to-Bool-false map preserves completeness of the actual complete fixture.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 68,
+      "name": "TreeShapeExamples.minHeight_erase",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 343,
+      "last_line": 346,
+      "bytes": 290,
+      "sha256": "ec11d17ed3e0f4217367463796b4f139cb8998f6d841b15d6472f4fd7eb62db5",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "For arbitrary annotation and payload types in independent universes, projection erasure preserves minimum height with no validity premise; product universe maxima in the printed type agree definitionally.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 69,
+      "name": "TreeShapeExamples.almostComplete_erase",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 347,
+      "last_line": 350,
+      "bytes": 297,
+      "sha256": "121a59bc90f817a56cc4af4d18ab97bb7a92c06e5d288e8d45511c3ee67e66ca",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "For the same arbitrary product-labelled tree, AlmostComplete after erasure is equivalent to before erasure, without cache validity.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 70,
+      "name": "TreeShapeExamples.pairSample_shape",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 351,
+      "last_line": 354,
+      "bytes": 314,
+      "sha256": "961eeb5ed481f27a08ca0efe82d98684d5e3406a1d63091729469a1ec2448306",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "The actual inherited pair annotation has minimum two and AlmostComplete; its nested product payload is explicit.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 71,
+      "name": "TreeShapeExamples.corrupt_shape_without_validity",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 355,
+      "last_line": 361,
+      "bytes": 479,
+      "sha256": "d4ed60799d87e373fe1a92fc7c53d3601ff6d1f7b5cc04760cf0441f1c287ebb",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "The actual corrupt size annotation still has minimum two and AlmostComplete, while recursive Valid at zero and the actual sizeStep is false; this does not assert that corrupted size fields read minimum height.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 72,
+      "name": "TreeShapeExamples.minStep",
+      "source": "Examples/TreeShape.lean",
+      "kind": "def",
+      "first_line": 362,
+      "last_line": 362,
+      "bytes": 94,
+      "sha256": "149f7cdc6db20d55065c623ebf2131aba586412242e96e9972797aec97f5dc51",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "The minimum-cache combiner is polymorphic in the payload and takes Nat left/right summaries, returning Nat; its inspected definition is min plus one.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 73,
+      "name": "TreeShapeExamples.min_reader",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 363,
+      "last_line": 368,
+      "bytes": 431,
+      "sha256": "88914737a12db3bc534607a8ce1e9474feab11efb60205d4928e16810203415c",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "For every payload type, recursive Valid with zero and the actual minStep is a sufficient hypothesis for cached read zero to equal structural minimum height of the product-labelled tree. No necessary direction, local-root-only premise, or arbitrary callback claim appears.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 74,
+      "name": "TreeShapeExamples.minSample",
+      "source": "Examples/TreeShape.lean",
+      "kind": "def",
+      "first_line": 369,
+      "last_line": 369,
+      "bytes": 67,
+      "sha256": "c54d795918ff866733335672c6b2044d36a36cdfcda0c6ba3e8a3ee35443a0d2",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "The actual minimum-annotated sample has type BinaryTree (Nat × Nat), with source construction through annotate retained.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 75,
+      "name": "TreeShapeExamples.minSample_valid",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 370,
+      "last_line": 372,
+      "bytes": 202,
+      "sha256": "c6692dd7a97148278d2c35cebfd8de65c2b98f042dfdd12c527a6893e15a0762",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "The actual minimum sample is recursively Valid with zero and minStep.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 76,
+      "name": "TreeShapeExamples.minSample_erases",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 373,
+      "last_line": 374,
+      "bytes": 158,
+      "sha256": "167570001439470e5d9a249234dbcdfd63f8e371b06ce61a9f653b322c099776",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "Erasing the actual minimum sample returns exactly the inherited sample.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 77,
+      "name": "TreeShapeExamples.minSample_reads",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 375,
+      "last_line": 378,
+      "bytes": 244,
+      "sha256": "c41bccade04cf93329093bc4025547cf5ba9d66ddf5baef264f9c0d6bbd68359",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "Cached read zero on the actual minimum sample equals natural two.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 78,
+      "name": "TreeShapeExamples.heightOptimalCounter",
+      "source": "Examples/TreeShape.lean",
+      "kind": "def",
+      "first_line": 379,
+      "last_line": 379,
+      "bytes": 61,
+      "sha256": "06839a3885251243e722ec30941d86edd3c70bf37423ed674cdaf388f1d1a24e",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "The counterexample is concretely Bool-labelled, so it genuinely differs from the inherited Nat-labelled witness.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 79,
+      "name": "TreeShapeExamples.heightOptimalCounter_numNodes",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 380,
+      "last_line": 382,
+      "bytes": 199,
+      "sha256": "6bdbabbffe70770bda60a5a3838e26b946b37a4a141421575c12b992f2ef90a5",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "The Bool-labelled counterexample has exactly four nodes.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 80,
+      "name": "TreeShapeExamples.heightOptimalCounter_shape",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 383,
+      "last_line": 390,
+      "bytes": 521,
+      "sha256": "dd5722e15eb93526163bea37ab4a1af5c56e669ba286c527a7c522e9bdddb2e8",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "The same counterexample has five leaves, minimum one, and maximum height three.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 81,
+      "name": "TreeShapeExamples.optimum_across_labels",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 391,
+      "last_line": 392,
+      "bytes": 192,
+      "sha256": "02d65bd4eb905496bce0c0834d4a1486352b1c85df3b27fcd70aad3335597bb3",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "The actual Nat-labelled sample's height is at most the actual Bool-labelled counterexample's height.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 82,
+      "name": "TreeShapeExamples.counter_not_almostComplete",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 393,
+      "last_line": 394,
+      "bytes": 125,
+      "sha256": "021ff573530b36858fed4d93736961ed755905451ea259df9ca1b6b98da4681b",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "The actual Bool-labelled counterexample is not almost complete.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 83,
+      "name": "TreeShapeExamples.counter_rounded_height",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 395,
+      "last_line": 398,
+      "bytes": 277,
+      "sha256": "e12a3533fc542809ad36a69da27d7c4ae9a6207538d81cccd1fd6de43e1137cc",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "The same non-almost-complete counterexample still has height equal to Nat.clog base 2 of its leaf count, refuting necessity of the AlmostComplete premise.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 84,
+      "name": "TreeShapeExamples.counter_height_optimal",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 399,
+      "last_line": 404,
+      "bytes": 378,
+      "sha256": "cd37058c526d103459e6b7f1556d5405df7613dca7bfdef5d68d1a7c067b5ec9",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "For an arbitrary competitor payload type and universe, node count at least the counterexample's suffices for its height to be at least the counterexample's; there is no hidden competitor shape assumption.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 85,
+      "name": "TreeShapeExamples.almostFour",
+      "source": "Examples/TreeShape.lean",
+      "kind": "def",
+      "first_line": 405,
+      "last_line": 405,
+      "bytes": 51,
+      "sha256": "816710af67f7e84e93f0eb60a9a595a5ef114601822dec656b638f8f134f5277",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "The helper fixture is a concrete Unit-labelled binary tree, whose inspected source combines the earlier rightTwo and singleton fixtures.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 86,
+      "name": "TreeShapeExamples.localBalanceCounter",
+      "source": "Examples/TreeShape.lean",
+      "kind": "def",
+      "first_line": 406,
+      "last_line": 406,
+      "bytes": 60,
+      "sha256": "81eff5a8fcf9b4827e196d037873ea864608c497e1b98e8bab4707ca13e81dc7",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "The local-balance counterexample is a concrete Unit-labelled binary tree.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 87,
+      "name": "TreeShapeExamples.localBalanceCounter_balanced",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 407,
+      "last_line": 408,
+      "bytes": 169,
+      "sha256": "5720ad3230cb15fa0504154e451e5964e7147ec2c6a3b3bc58f6ebbd1067d8cb",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "The printed conclusion uses the actual private name _private.Examples.TreeShape.0.TreeShapeExamples.SiblingHeightBalanced, instantiated at Unit and the counterexample. Its inspected source recursively requires both sibling height inequalities and both child predicates, so the type asserts all-node balance rather than a root-only test.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 88,
+      "name": "TreeShapeExamples.localBalanceCounter_shape",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 409,
+      "last_line": 419,
+      "bytes": 691,
+      "sha256": "d50748dbd9a71b801c22441cc81f61a335ca391c6051222c51cdb3bdd5a51c12",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "The actual local-balance counterexample has seven nodes, eight external leaves, minimum two, and maximum four.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 89,
+      "name": "TreeShapeExamples.localBalanceCounter_not_almostComplete",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 420,
+      "last_line": 421,
+      "bytes": 136,
+      "sha256": "16d71d618cf44c1fb0aa5ae04fd7b8ab84a22cf07f79eba52a8b53b16732924c",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "The actual recursively sibling-balanced counterexample is not AlmostComplete.",
+      "conforms_to_original_scope": true
+    },
+    {
+      "ordinal": 90,
+      "name": "TreeShapeExamples.chain_rounded_bounds",
+      "source": "Examples/TreeShape.lean",
+      "kind": "theorem",
+      "first_line": 422,
+      "last_line": 430,
+      "bytes": 539,
+      "sha256": "972724a4a2af00c11dff128b94f2cd0e7cae609e82afaccd009cf8ac25c038f0",
+      "complete_actual_type_read": true,
+      "read_receipts": [
+        "07cdd9"
+      ],
+      "spec_assessment": "For every natural chain length, both universal rounded inequalities hold on the actual saved chain, with no AlmostComplete or exactness claim.",
+      "conforms_to_original_scope": true
+    }
+  ],
+  "private_predicate_interpretation": {
+    "actual_printed_name": "_private.Examples.TreeShape.0.TreeShapeExamples.SiblingHeightBalanced",
+    "public_type": "TreeShapeExamples.localBalanceCounter_balanced",
+    "actual_output_lines": [
+      407,
+      408
+    ],
+    "source_path": "Examples/TreeShape.lean",
+    "current_source_lines": [
+      275,
+      279
+    ],
+    "source_read_receipt": "dd54b4",
+    "definition": "nil is True; node requires left.height <= right.height + 1, right.height <= left.height + 1, and recursive satisfaction in both children.",
+    "public_statement_means_all_node_sibling_height_balance": true,
+    "full_audit_scope_retained": true
+  },
+  "retained_finding": {
+    "id": "XT02-SP01",
+    "severity": "minor",
+    "status": "Correction confirmed in source and all relevant actual types; matching full candidate validation pending",
+    "actual_min_reader_lines": [
+      363,
+      368
+    ],
+    "actual_type_is_sufficiency_only": true,
+    "original_finding_and_counterexample_preserved": true
+  },
+  "new_concrete_spec_findings": [],
+  "unresolved_source_or_type_findings": [],
+  "full_validation_accepted": false,
+  "review_complete": false,
+  "overall": "Blocked pending matching full receiving-candidate check and exhaustive audit",
+  "prior_failed_attempts_remain_failed": true,
+  "no_chapter04_acceptance_claim": true,
+  "no_compiler_helper_or_process_polling_by_reviewer": true,
+  "bound_evidence": {
+    "provenance/tree-shape-receiving-statements90-run-20261105/request.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/request.json",
+      "bytes": 879,
+      "sha256": "704f5d923636f2997a6314cb7dc3672a6175d45bd2c97470d4f61854fb398381"
+    },
+    "provenance/tree-shape-receiving-statements90-run-20261105/start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/start.json",
+      "bytes": 1072,
+      "sha256": "42ba3b3776caff2ea87ed6c0e9eaced5e2197a5343d419644615bbcf64c4c1ef"
+    },
+    "provenance/tree-shape-receiving-statements90-run-20261105/actual-launch-result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/actual-launch-result.json",
+      "bytes": 301,
+      "sha256": "0d94b662a61fb27eec3aaa147143074c0e2db069e7adda94ba290f2b805ffd57"
+    },
+    "provenance/tree-shape-receiving-statements90-run-20261105/actual-tool-terminal.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "sha256": "79dd4c41d690248d0208ba2a94dbfdb5be1e056fd8223bee230066724d08f1f6"
+    },
+    "provenance/tree-shape-receiving-statements90-run-20261105/owned-terminal.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "513619e90e121332bb9b7b452b27907e55a8c99825f2fe5c003751964dc1991e"
+    },
+    "provenance/tree-shape-receiving-statements90-run-20261105/result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/result.json",
+      "bytes": 1399,
+      "sha256": "e35c7d69b99317e79ae0de869108495fbd7538204381a7a7efcdc70df10cdfde"
+    },
+    "provenance/tree-shape-receiving-statements90-run-20261105/closed-evidence-reconciliation.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2250,
+      "sha256": "104ebd3ad28137ad66c797c03efedd314adbb30eaddc9a4735c89aa2ae377694"
+    },
+    "provenance/tree-shape-receiving-statements90-run-20261105/native-records/start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/native-records/start.json",
+      "bytes": 563,
+      "sha256": "9eb3c7e21c44fe85535c50249f58076c93eb50fcffcc6c9729d7892c197417e4"
+    },
+    "provenance/tree-shape-receiving-statements90-run-20261105/native-records/result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/native-records/result.json",
+      "bytes": 715,
+      "sha256": "b24f092d7de00e535577d27e40403aac2b1dd7ab8c207705314c570f852daa3e"
+    },
+    "provenance/tree-shape-receiving-statements90-run-20261105/native-records/output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/native-records/output.log",
+      "bytes": 30252,
+      "sha256": "1df9da87b91e300b1cb9ac92ac52b379ddeba30231a0f149bbab50ba322e5cd7"
+    },
+    "provenance/tree-shape-receiving-statements90-run-20261105/full.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/full.log",
+      "bytes": 30613,
+      "sha256": "f5b5ecaaf2ae9c28d5ea3ffa7911b139180765790762e0700d9c968c6f73f69b"
+    },
+    "provenance/tree-shape-receiving-statements90-run-20261105/outer-prefix.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/outer-prefix.log",
+      "bytes": 205,
+      "sha256": "4ee66bd99d4608f5465bc9855349083f3a1f477b9b70b17834356840b8954e55"
+    },
+    "provenance/tree-shape-receiving-statements90-run-20261105/outer-suffix.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/outer-suffix.log",
+      "bytes": 156,
+      "sha256": "2831489fad753d40e345b4c49589305f2722a2a5b2ae75418628258914946e87"
+    },
+    "provenance/tree-shape-receiving-statements90-run-20261105/verification.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-run-20261105/verification.json",
+      "bytes": 867,
+      "sha256": "329f0d0087adc21b3446d7f10b67c472cdf62238ccf578865eec20569c04da61"
+    },
+    "provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/Statements90-complete.lean",
+      "bytes": 4199,
+      "sha256": "fab2460caafba1f3f28a09006c4e220b9c735857e02294091486cdf4e8461c33"
+    },
+    "provenance/tree-shape-receiving-statements90-20261105/preparation.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/preparation.json",
+      "bytes": 5764,
+      "sha256": "8e18be8cd3a738a7e6e882279bac23c35d086b465103f5215aaeb79218e16797"
+    },
+    "provenance/tree-shape-receiving-statements90-20261105/actual-run-start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/actual-run-start.json",
+      "bytes": 2576,
+      "sha256": "c3269ca1bed0f8d509653222485dd13d46a0e329c307566c37c3ac4aa972a17e"
+    },
+    "provenance/tree-shape-receiving-statements90-20261105/inputs-before.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/inputs-before.json",
+      "bytes": 34483,
+      "sha256": "1ee3406ca37aeaa9b62485d8719d1085fc7803f41c01229526619f48e2c2a963"
+    },
+    "provenance/tree-shape-receiving-statements90-20261105/inputs-after.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-receiving-statements90-20261105/inputs-after.json",
+      "bytes": 34785,
+      "sha256": "e099ff7584144fe5d9c3294dea7d19139009622808de2ab65b4a437dbc0353ee"
+    },
+    "provenance/binary-tree-cache-receiving-statements115-20261105/Statements115-complete.lean": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-20261105/Statements115-complete.lean",
+      "bytes": 4721,
+      "sha256": "eea207cce83ce453b3625076041ff1262235771a8b92add322a149a044c98738"
+    },
+    "provenance/binary-tree-cache-receiving-statements115-20261105/final-inputs-after-full.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-20261105/final-inputs-after-full.json",
+      "bytes": 33026,
+      "sha256": "77d1486a596f4ea372a4d15f961323aa3dad3dd7339396ea5eba884968860fcf"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/source-corrections-e61bb6f.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-corrections-e61bb6f.json",
+      "bytes": 51320,
+      "sha256": "3e0eec71c60f4a515dabf05e6b373bfa149a4a777c3c1d1dfe1a6b25396aa912"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/source-reconciliation-27c5908.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/source-reconciliation-27c5908.json",
+      "bytes": 76893,
+      "sha256": "29978ad7f74dc89ab0818fc3db780dd907b0c07eb33271f2efce954a6f2287c9"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/focused-attempt1-assessment-27c5908.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/focused-attempt1-assessment-27c5908.json",
+      "bytes": 7553,
+      "sha256": "7644eaace1355a7aa3c845ea4394bf9eaaf06f3f83d55a5fa2d5fea20ab63590"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/focused-attempt2-assessment-5b3b9ab.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/focused-attempt2-assessment-5b3b9ab.json",
+      "bytes": 8054,
+      "sha256": "ec2d58d5215bb152fb4071e2648d5f8f80b26190c3cdb0e4734bcf69357c3066"
+    },
+    "provenance/tree-shape-spec-receiving-20261105/focused-attempt3-assessment-e61bb6f.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/tree-shape-spec-receiving-20261105/focused-attempt3-assessment-e61bb6f.json",
+      "bytes": 7659,
+      "sha256": "c9654a8d57c50eb06cc2964aa3a7a3631433ae33c9838dcca99fc5e299a8afb4"
+    },
+    "reviews/tree-shape-requirements.md": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/tree-shape-requirements.md",
+      "bytes": 11890,
+      "sha256": "50d11472d8380fb3458a3ea71aba3d1104886f676a7b1cec578c0557a6979e91"
+    }
+  }
+}

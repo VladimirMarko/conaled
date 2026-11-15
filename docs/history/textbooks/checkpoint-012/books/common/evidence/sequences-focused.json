@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "status": "focused_sequence_build_passed",
+  "source": {
+    "path": "Examples/TextbookSequences.lean",
+    "bytes": 6486,
+    "sha256": "10c90bcf2470823fff6485ecbf25602e503f0f7ec5a791e6f58569bd1ee8f71a"
+  },
+  "starting_head": "f5441b0e52cceea6efe825f823925319731f4c69",
+  "full_task_baseline": "9175737c2b14ef738cfb6c2cdc68d885c0805ddd",
+  "runs": [
+    {
+      "actual_native_receipt": {
+        "started_utc": "2026-11-14T00:10:03.903124+00:00",
+        "command": [
+          "lake",
+          "build",
+          "Examples.TextbookSequences",
+          "Examples.TextbookSorting"
+        ],
+        "cwd": "/workspace/scratch/e1eab3b6b18e/integration-20261113/master",
+        "log": "/workspace/scratch/e1eab3b6b18e/integration-20261113/runtime/native/logs/20261114T001003Z-project-run-f48c9c86/output.log",
+        "label": "project-run",
+        "lean_threads": "2",
+        "passed": false,
+        "completed_utc": "2026-11-14T00:10:37.870995+00:00",
+        "seconds": 33.96494838799981,
+        "exit_code": 1,
+        "timed_out": false,
+        "recorder_error": null
+      },
+      "preserved_log": "intake/sequences/focused-build-01.log",
+      "log_sha256": "55dfec445694350d1899b38d9b23f54840ac7bdf66b3bd18b5c1c0c0fb1efce5"
+    },
+    {
+      "actual_native_receipt": {
+        "started_utc": "2026-11-14T00:12:04.318673+00:00",
+        "command": [
+          "lake",
+          "build",
+          "Examples.TextbookSequences"
+        ],
+        "cwd": "/workspace/scratch/e1eab3b6b18e/integration-20261113/master",
+        "log": "/workspace/scratch/e1eab3b6b18e/integration-20261113/runtime/native/logs/20261114T001204Z-project-run-4a3ae2bf/output.log",
+        "label": "project-run",
+        "lean_threads": "2",
+        "passed": true,
+        "completed_utc": "2026-11-14T00:12:09.798763+00:00",
+        "seconds": 5.477746760000173,
+        "exit_code": 0,
+        "timed_out": false,
+        "recorder_error": null
+      },
+      "preserved_log": "intake/sequences/focused-build-02.log",
+      "log_sha256": "f6ceb98f7d8b7a654bd5562c63046e8d58163f9319c57cc59dc5d8b4667f1462"
+    }
+  ],
+  "corrections": [
+    "Explicit list-append normalization in tagged_full_sequence; expected statement unchanged.",
+    "Unfold diagnostic only at the public-summary connection in tagged_summary; expected statement unchanged."
+  ],
+  "sorting_status": "Separate author owns the sortFloorOn reduction error from run01; no sorting source was edited here.",
+  "acceptance": "Focused development evidence only; public entrypoint, full candidate build/audit and independent review remain coordinator gates.",
+  "compiler_slot": "released; both recorded processes terminal"
+}

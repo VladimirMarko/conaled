@@ -1,0 +1,21 @@
+{
+  "finding": "CP0129-DOC-001",
+  "utc": "2026-11-04T21:17:32.994425+00:00",
+  "reviewer": "/root/checkpoint0124_inspection",
+  "reason": "Distinguish currently owned compiler runs from the separately preserved historical interruption with no secured terminal.",
+  "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/checkpoint0129-preparation/README.md",
+  "before_sha256": "5ed2a2e555368435bdc34da965e85606e214cd40c53ad89ef30467a79e076942",
+  "after_bytes": 2256,
+  "after_sha256": "a0b8f116c408fd6ba2c6891a7d4a13ade682160026dd1f122b177bc42a25a68f",
+  "exact_before": "Capture requires all writers held and every compiler run actually closed.",
+  "exact_after": "Capture requires all writers held and every currently owned compiler run actually closed.\nThe separately recorded interrupted historical launch retains its unknown outcome\nand receives no terminal or success credit.",
+  "verifier_unchanged_sha256": "6dfb641bc06a02ac0a5f7591460ac6d356cf72b4132f3a054bfb01624c426e95",
+  "lock_observation": {
+    "utc": "2026-11-04T21:17:32.994393+00:00",
+    "exact_project_lock": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/locks/project-81eeeef193c174f3d829.lock",
+    "exclusive_nonblocking_acquired": true,
+    "released": true,
+    "scope": "No current qualified lock owner at this observation; not a global process absence claim."
+  },
+  "outcome": "Corrected; reviewer readback pending."
+}

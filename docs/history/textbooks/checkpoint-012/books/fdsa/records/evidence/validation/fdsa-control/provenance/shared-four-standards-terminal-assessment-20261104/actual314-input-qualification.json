@@ -1,0 +1,173 @@
+{
+  "axis": "Standards",
+  "candidate": "312aafb4446b995ff5542041b4e2e074f776db1e",
+  "stage": "Qualification of actual314 execution/input lineage before complete semantic output read",
+  "recorded_utc": "2026-11-04T14:49:31.159747+00:00",
+  "terminal_records": {
+    "start.json": {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/start.json",
+      "bytes": 1076,
+      "lines": 27,
+      "sha256": "582cef8e3b7a704fa0e1c2d8ce0c3b030514b5fa38e96382bb31b4276fe532b2"
+    },
+    "result.json": {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/result.json",
+      "bytes": 1412,
+      "lines": 33,
+      "sha256": "4e96d347b0303913359798dc0d58981c59f8d07d70eb946f263a6c68fda83f44"
+    },
+    "owned-terminal.json": {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/owned-terminal.json",
+      "bytes": 237,
+      "lines": 8,
+      "sha256": "290da6f6103fbbd295d650f5c86d5146399d5b56eb518b39c910738c3ac201a4"
+    },
+    "closed-evidence-reconciliation.json": {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 1982,
+      "lines": 45,
+      "sha256": "0d4727148b932bc98dfcb6729a0349c13062cda9a8e745fdc515571e871ee0fa"
+    },
+    "native-records/start.json": {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/start.json",
+      "bytes": 567,
+      "lines": 14,
+      "sha256": "146560a48376372f9d6bc12bde6e61edd3a3771e3d015b6b5b6cf2d9f5ec6da6"
+    },
+    "native-records/result.json": {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/result.json",
+      "bytes": 719,
+      "lines": 19,
+      "sha256": "e7a21394c023d7915d9e633d9f9cefce17579fe39c30b613b02f999e80d4749e"
+    },
+    "output-parser-first-failure.json": {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/output-parser-first-failure.json",
+      "bytes": 586,
+      "lines": 8,
+      "sha256": "7d25e7fc9b73d94d0def3cc1c8c2b03c97410e4e872edc8e070473de892bafd7"
+    },
+    "verification.json": {
+      "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/verification.json",
+      "bytes": 867,
+      "lines": 19,
+      "sha256": "2974a2efaa56703448e96ddeec25947e84e91b7733b4e8b405fdcf6d69fe816d"
+    }
+  },
+  "terminal_read_tools": [
+    "c4251b",
+    "c3f7cd"
+  ],
+  "pre": {
+    "path": "provenance/shared-four314-input-observations-20261104-attempt1/pre-inputs.json",
+    "bytes": 45835,
+    "lines": 972,
+    "sha256": "c3dc93d12e645171b3df24d417cc36838f666233c09034bb751672f47081f3f9"
+  },
+  "post": {
+    "path": "provenance/shared-four314-input-observations-20261104-attempt1/post-inputs.json",
+    "bytes": 46143,
+    "lines": 978,
+    "sha256": "fb1b01c56f251f9ddc28ae17b301d312b09714e687b5b0803fbe8be32ff95307"
+  },
+  "pre_complete_read_ranges": [
+    {
+      "first": 1,
+      "last": 260,
+      "bytes": 13818,
+      "sha256": "4fd16e061dfa8b34a5b643c6ba8ddbe485c6f712d10440fd461f9aca9d838d57",
+      "tool": "c3f7cd",
+      "complete": true
+    },
+    {
+      "first": 261,
+      "last": 520,
+      "bytes": 11356,
+      "sha256": "7d078126e6b217079931c647cc899194d04e89c4ba67783c97ceae08fe6944dd",
+      "tool": "bfc12e",
+      "complete": true
+    },
+    {
+      "first": 521,
+      "last": 780,
+      "bytes": 11931,
+      "sha256": "9fcbcf2a353380f08b1442c3604b38bc949b8d2844decca60505b57487655707",
+      "tool": "5bee08",
+      "complete": true
+    },
+    {
+      "first": 781,
+      "last": 972,
+      "bytes": 8730,
+      "sha256": "9b4c5edd0ac8a995c1912dc45d38ca11004d7235e453198eb756203ca36088a5",
+      "tool": "94be2d",
+      "complete": true
+    }
+  ],
+  "post_full_diff_read_tool": "c3f7cd",
+  "all_pre_post_identity_fields_exactly_equal": true,
+  "program": {
+    "path": "provenance/shared-four-and-insertion-statements314-prepared-20261104/Statements.lean",
+    "bytes": 16826,
+    "lines": 340,
+    "sha256": "c4af8886fd439b8676134789cde4398adc6a0ccf6e0aa9e625fbb12b19344754"
+  },
+  "full_program_read_tool": "42f9da",
+  "program_profile": {
+    "universes": true,
+    "explicit": true,
+    "fullNames": true,
+    "checks": "fully qualified bare @ constants only",
+    "count": 314,
+    "distinct": 314,
+    "imports": 14
+  },
+  "original279_and_exact35_insertion_projection_retained": true,
+  "independent_reconciliation_tool": "555a87",
+  "sources27_all_match_immutable_I": true,
+  "static_closure": {
+    "locals": 27,
+    "direct_external_imports": 22,
+    "import_edges": 56,
+    "parser": "independent nested-comment/string stripping, immutable Git blobs, direct imports only"
+  },
+  "local_object_trace_keyset": {
+    "count": 81,
+    "exactly_three_keys_per_local": [
+      ".olean",
+      ".olean.hash",
+      ".trace"
+    ],
+    "pre_post_identical": true,
+    "no_claim_of_other_variants_present": true
+  },
+  "configuration10_pins9_runtime12_equal_previously_qualified_F": true,
+  "stable_execution_interval": {
+    "pre": "2026-11-04T14:44:44.028876+00:00",
+    "native_start": "2026-11-04T14:45:02.028741+00:00",
+    "native_finish": "2026-11-04T14:45:21.404891+00:00",
+    "post": "2026-11-04T14:45:50.845512+00:00",
+    "outer_and_native_actual_exit": 0,
+    "clean_I_before_after": true
+  },
+  "loaded_object_qualification": "Actual full I check compiled/rechecked all target modules with unchanged trusted stock native profile, passed normal source/coverage/dependency and pre/post output integrity guards plus exhaustive audit. Owner retained exclusive stable private outputs and performed the following qualified bare #check command. Pre/post fingerprints establish observed stability of the relevant sources/config/pins/runtime/objects, not independent artifact authenticity or hostile-tampering resistance; no transplantation or source mutation is credited. This is the existing README trusted stable-checkout discipline, not a new reuse certificate.",
+  "native": {
+    "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/native-records/output.log",
+    "bytes": 256987,
+    "lines": 3438,
+    "sha256": "3bdb9dc0a92ec781a28b46de1a3eb843bda4efcd17c2292f091c19e52df7c50c"
+  },
+  "outer": {
+    "path": "provenance/shared-four-complete-public-statements314-20261104-attempt1/full.log",
+    "bytes": 257353,
+    "lines": 3441,
+    "sha256": "dec9c59e8b0891f7863ad9d84b624b763a58114db0d36c20e8865727f4197352"
+  },
+  "outer_native_exact_body_offset": 209,
+  "outer_framing_read_tool": "42f9da",
+  "inherited_verification_only": "The matching I verification copy belongs to the preceding full gate; this type inspection did not rerun an audit.",
+  "navigation_independently_reproduced": "All314 headers occur once in exact program order; all byte starts/ends and block hashes reproduce the unchanged native output. The index gives no semantic reading credit.",
+  "preserved_parser_failure": "Coordinator first matcher omitted28 multiline-universe headers and failed before writing an inventory. Corrected matcher operates on identical native output. No compiler rerun or altered Lean outcome.",
+  "ellipsis_policy": "All37 lines with printer ellipses require actual full-context assessment in the upcoming independent read; no advance harmlessness claim.",
+  "semantic_types_read_credit": 0,
+  "overall_outcome": "Blocked pending full actual314 semantic read and conditional110 receiving evidence; prior full source scope and finding history retained."
+}

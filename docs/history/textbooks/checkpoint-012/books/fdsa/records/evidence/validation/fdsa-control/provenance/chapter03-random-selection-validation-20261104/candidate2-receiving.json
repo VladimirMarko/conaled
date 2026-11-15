@@ -1,0 +1,42 @@
+{
+  "recorded_utc": "2026-11-04T18:38:48.506395+00:00",
+  "candidate": "5433d48eeba0d3ac27460e4d7b23ad41e26c64d2",
+  "expectedHead": "471af117f915a722a3f1b4446ace4e4b9998dfbb",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "acceptedHead": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "name": "chapter03-random-selection-focused-attempt2-20261104",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Resources.RandomSelection",
+    "Examples.RandomSelection"
+  ],
+  "expectedPaths": [
+    "Applications/Resources/RandomSelection.lean",
+    "Examples/RandomSelection.lean"
+  ],
+  "recordDirectory": "chapter03-random-selection-validation-20261104",
+  "recordName": "candidate2-receiving.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was 471af11 feat(sequences): connect source chopping to standard list splitting (#174)\nHEAD is now at 5433d48 fix(selection): normalize measured step proof branches (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Resources/RandomSelection.lean",
+      "bytes": 8008,
+      "sha256": "d74dd8529d0b5a175f430a6d402442154f668fcb36011a4a8adcd73bb33f85b3"
+    },
+    {
+      "path": "Examples/RandomSelection.lean",
+      "bytes": 2713,
+      "sha256": "e983ac3d2ea94247f343898bba36648d6a07c6d42860f7bf0b15e96d8373156a"
+    }
+  ],
+  "candidate_tree": "7dfad99f3ab76f97683a6b48b883a88020cd2a11",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 372011008
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

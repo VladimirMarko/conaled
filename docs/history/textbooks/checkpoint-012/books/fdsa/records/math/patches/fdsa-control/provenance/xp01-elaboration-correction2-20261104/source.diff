@@ -1,0 +1,61 @@
+diff --git a/Examples/MappedPotentialAccounting.lean b/Examples/MappedPotentialAccounting.lean
+index 0291c5979243b0d12332d3628d06aa910732dfa2..1fb26b51e9f298bd1ba1d1a5fa2a425142f8d8d7 100644
+--- a/Examples/MappedPotentialAccounting.lean
++++ b/Examples/MappedPotentialAccounting.lean
+@@ -72,7 +72,8 @@ the actual state has changed. The raw work remains two.
+ private theorem boundary (is : List Unit) (s : Nat) :
+     budget clearStep charge is s =
+       ((run clearStep is s).2 : Int) + potential (run clearStep is s).1 - potential s := by
+-  simpa [clearStep, charge, potential] using
++  change budget clearStep (fun _ t => (1 : Int) - 2 * (t : Int)) is s = _
++  simpa [clearStep, potential] using
+     budget_amortized clearStep potential (Nat.castAddMonoidHom Int) is s
+ 
+ example : charge () 1 = -1 := rfl
+@@ -80,16 +81,16 @@ example : (run clearStep [(), ()] 1).2 = 2 := rfl
+ 
+ example : budget clearStep charge [(), ()] 1 = 0 := by
+   rw [boundary]
+-  norm_num [run, bind, pure, clearStep, potential]
++  norm_num [run, Resources.bind, Resources.pure, clearStep, potential]
+ 
+ example : ¬ ((run clearStep [(), ()] 1).2 : Int) ≤
+     budget clearStep charge [(), ()] 1 := by
+   rw [boundary]
+-  norm_num [run, bind, pure, clearStep, potential]
++  norm_num [run, Resources.bind, Resources.pure, clearStep, potential]
+ 
+ example : budget clearStep charge [(), ()] 1 ≠ charge () 1 + charge () 1 := by
+   rw [boundary]
+-  norm_num [run, bind, pure, clearStep, potential, charge]
++  norm_num [run, Resources.bind, Resources.pure, clearStep, potential, charge]
+ 
+ end InitialCredit
+ 
+@@ -127,20 +128,20 @@ private theorem work_bound (is : List Unit) (s : Nat) (hs : Valid s) :
+   run_cost_le_map_of_invariant step charge potential (Nat.castAddMonoidHom ℝ)
+     Valid closed (fun i s hs => (localLaw i s hs).le) nonneg is s hs
+ 
+-example : Valid 0 := by decide
++example : Valid 0 := by norm_num [Valid]
+ 
+ example : budget step charge [()] 0 = (3 / 2 : ℝ) := by
+-  have paid := boundary [()] 0 (by decide)
+-  norm_num [run, bind, pure, step, potential] at paid
++  have paid := boundary [()] 0 (by norm_num [Valid])
++  norm_num [run, Resources.bind, Resources.pure, step, potential] at paid
+   exact paid.symm
+ 
+ example : budget step charge [(), ()] 0 = (2 : ℝ) := by
+-  have paid := boundary [(), ()] 0 (by decide)
+-  norm_num [run, bind, pure, step, potential] at paid
++  have paid := boundary [(), ()] 0 (by norm_num [Valid])
++  norm_num [run, Resources.bind, Resources.pure, step, potential] at paid
+   exact paid.symm
+ 
+ example (is : List Unit) : ((run step is 0).2 : ℝ) ≤ budget step charge is 0 := by
+-  simpa [potential] using work_bound is 0 (by decide)
++  simpa [potential] using work_bound is 0 (by norm_num [Valid])
+ 
+ example : ¬ ((step () 2).2 : ℝ) + potential (step () 2).1 ≤
+     potential 2 + charge () 2 := by

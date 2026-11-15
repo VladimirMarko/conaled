@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T20:17:28.175202+00:00",
+  "candidate": "24b74c65e2b907f1a4cd8b8c72e22bba8f315eea",
+  "terminal": {
+    "recorded_utc": "2026-11-04T20:17:28.174841+00:00",
+    "owned_session": 59546,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "f63bc0",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "24b74c65e2b907f1a4cd8b8c72e22bba8f315eea"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-median-reduction-focused-attempt1-20261104/full.log",
+    "bytes": 6935,
+    "sha256": "79a0bd81696625c7a32868521d9595dbdafad5a32a089b2096d5569331d2b4c2"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T201706Z-project-run-93779e49",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-median-reduction-focused-attempt1-20261104/native-records/start.json",
+      "bytes": 521,
+      "sha256": "e73162e958db8e66a4af5841c4a69bae1ea2f5b4c1837b18429b18a38360f18e"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-median-reduction-focused-attempt1-20261104/native-records/result.json",
+      "bytes": 675,
+      "sha256": "09baace493516efd44e68d6106e2ba9806b8f61f3c888ebcef5ef96cb3a909b8"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-median-reduction-focused-attempt1-20261104/native-records/output.log",
+      "bytes": 6622,
+      "sha256": "216d54b9772b6171e99ebcbcfcd79515e764ecc91e862519aca60abd34cdc2af"
+    }
+  },
+  "native_body_exact_outer_offset": 156,
+  "complete_closed_log": true,
+  "scope": "Three actual extrema-padding reduction/value/source-cost modules; complete Chapter3 acceptance remains pending.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

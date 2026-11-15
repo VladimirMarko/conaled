@@ -1,0 +1,1547 @@
+{
+  "rows": [
+    {
+      "id": "C03-001",
+      "requirement": "Duplicate-aware count characterization",
+      "source_state": "source-present",
+      "declarations": [
+        "Count.ranked_iff_count_bounds",
+        "Count.RankedAt.count_bounds"
+      ],
+      "connected_cases": [
+        "ECount.duplicate_lower_rank",
+        "ECount.duplicate_upper_rank",
+        "ECount.duplicate_bounds",
+        "ECount.weak_upper_count_is_insufficient"
+      ],
+      "assessment": "Exact Nlt≤k and Ngt<n−k, without Nodup; the strict upper count also rules out invalid ranks.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-002",
+      "requirement": "Uniqueness of the selected value",
+      "source_state": "source-present",
+      "declarations": [
+        "Count.count_bounds_unique",
+        "Rank.RankedAt.unique"
+      ],
+      "connected_cases": [
+        "ECount.duplicate_lower_rank",
+        "ECount.duplicate_upper_rank"
+      ],
+      "assessment": "Uniqueness is of a value; tied occurrences can occupy different valid ranks.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-003",
+      "requirement": "Strict/weak filter inclusion and complementary counts",
+      "source_state": "source-present",
+      "declarations": [
+        "Count.filter_le_sublist_filter_lt",
+        "Count.count_le_add_count_gt"
+      ],
+      "connected_cases": [
+        "ECount.duplicate_bounds",
+        "ECount.weak_upper_count_is_insufficient"
+      ],
+      "assessment": "The list-sublist fact implies the required submultiset statement and preserves multiplicity.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-004",
+      "requirement": "Sorted-index selection and public rank bridge",
+      "source_state": "source-present",
+      "declarations": [
+        "Rank.ranked_iff_index",
+        "Count.selectWith_succ_value",
+        "Count.selectWith_succ_some_iff_count_bounds"
+      ],
+      "connected_cases": [
+        "ECount.zero_book_rank_is_public_one",
+        "ECount.duplicate_public_selection",
+        "ECount.smallest_is_not_largest"
+      ],
+      "assessment": "Book k is public k+1; existing public zero failure is unchanged.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-005",
+      "requirement": "Sorted filter/take/drop bounds",
+      "source_state": "source-present",
+      "declarations": [
+        "Count.sorted_filter_lt_sublist_take",
+        "Count.sorted_filter_gt_sublist_drop",
+        "Count.RankedAt.count_bounds"
+      ],
+      "connected_cases": [
+        "ECount.duplicate_bounds",
+        "ECount.invalid_count_bounds"
+      ],
+      "assessment": "Helpers require a valid sorted index; duplicates are retained.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-006",
+      "requirement": "Permutation determines the sorted list",
+      "source_state": "source-present",
+      "declarations": [
+        "Count.ordered_eq_of_pairwise_perm",
+        "Count.ordered_eq_of_perm"
+      ],
+      "connected_cases": [
+        "ECount.ordered_blocks"
+      ],
+      "assessment": "Equal multisets are represented by List.Perm, using the accepted sorting contract.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-007",
+      "requirement": "Permutation determines every Option selection",
+      "source_state": "source-present",
+      "declarations": [
+        "Count.ordered_getElem?_perm"
+      ],
+      "connected_cases": [
+        "ECount.ordered_blocks_invalid_index"
+      ],
+      "assessment": "The Option equality holds at all indices, including out of bounds.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-008",
+      "requirement": "Membership and rank-zero minimum",
+      "source_state": "source-present",
+      "declarations": [
+        "Count.RankedAt.mem",
+        "Count.ordered_getElem?_mem",
+        "Count.ranked_zero_iff_min",
+        "Count.ordered_getElem?_zero_iff_min"
+      ],
+      "connected_cases": [
+        "EFixed.minimum_example",
+        "EFixed.minimum_duplicate",
+        "EFixed.minimum_empty"
+      ],
+      "assessment": "The later actual single-pass implementation is separately mapped at C03-047.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-009",
+      "requirement": "Sorting cross-ordered concatenations",
+      "source_state": "source-present",
+      "declarations": [
+        "Count.ordered_append"
+      ],
+      "connected_cases": [
+        "ECount.ordered_blocks"
+      ],
+      "assessment": "Only the cross-list order premise is needed; each input need not already be sorted.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-010",
+      "requirement": "Selection from cross-ordered concatenations",
+      "source_state": "source-present",
+      "declarations": [
+        "Count.ordered_getElem?_append"
+      ],
+      "connected_cases": [
+        "ECount.ordered_blocks",
+        "ECount.ordered_blocks_invalid_index"
+      ],
+      "assessment": "The Option law retains failure behavior as well as the valid-index book cases.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-011",
+      "requirement": "Three-way partition value contract",
+      "source_state": "source-present",
+      "declarations": [
+        "ThreeWay.partition3_eq_filters",
+        "ThreeWay.partition3_perm",
+        "ThreeWay.partition_lengths",
+        "ThreeWay.partition_left_mem",
+        "ThreeWay.partition_equal_mem",
+        "ThreeWay.partition_right_mem"
+      ],
+      "connected_cases": [
+        "EPartition.mixed_run",
+        "EPartition.empty_run",
+        "EPartition.replicate_run"
+      ],
+      "assessment": "Accepted prerequisite is reused; no extra Nodup or pivot-membership premise.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-012",
+      "requirement": "Arbitrary-pivot selection dispatch",
+      "source_state": "source-present",
+      "declarations": [
+        "Count.partition_equal_getElem?",
+        "Count.ordered_getElem?_partition",
+        "ThreeWay.dispatch_value"
+      ],
+      "connected_cases": [
+        "ECount.outside_pivot_equal_block",
+        "ECount.outside_pivot_value",
+        "ECount.equal_occurrence_branch"
+      ],
+      "assessment": "A valid middle index yields some p without assuming p∈xs beforehand.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-013",
+      "requirement": "Membership makes strict children smaller",
+      "source_state": "source-present",
+      "declarations": [
+        "ThreeWay.partition_strict_sizes",
+        "ThreeWay.PivotValid",
+        "Outside.partition3_below",
+        "Outside.partition3_above"
+      ],
+      "connected_cases": [
+        "EOutside.below_dispatch_same_state",
+        "EOutside.above_dispatch_same_state",
+        "EOutside.below_policy_rejected"
+      ],
+      "assessment": "Semantic dispatch with arbitrary pivots is distinguished from the termination contract.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-014",
+      "requirement": "Lower median occurrence and duplicate-aware counts",
+      "source_state": "source-present",
+      "declarations": [
+        "Count.lowerMedian_value",
+        "Count.lowerMedian_count_bounds",
+        "Count.lowerMedian_mem",
+        "Pivot.lowerMedianValue_count_bounds"
+      ],
+      "connected_cases": [
+        "ECount.duplicate_lower_median",
+        "EPivot.lower_even_value",
+        "EPivot.empty_pivot"
+      ],
+      "assessment": "Uses index (n−1)/2; even central occurrences may have equal values.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-015",
+      "requirement": "Standard-compatible chop equations",
+      "source_state": "source-present",
+      "declarations": [
+        "Chunks.chop",
+        "Chunks.chop_zero",
+        "Chunks.chop_nil",
+        "Chunks.chop_eq_cons"
+      ],
+      "connected_cases": [
+        "EChunks.zero_size_source_convention",
+        "EChunks.partial_final_chunk",
+        "EChunks.singleton_chunks"
+      ],
+      "assessment": "The standard-library construction is bridged to the source take/drop recurrence, including d=0.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-016",
+      "requirement": "Chop descent and empty-output boundary",
+      "source_state": "source-present",
+      "declarations": [
+        "Chunks.drop_length_lt",
+        "Chunks.chop_eq_nil_iff",
+        "Chunks.chop_eq_cons"
+      ],
+      "connected_cases": [
+        "EChunks.zero_size_source_convention",
+        "EChunks.short_group_nonempty"
+      ],
+      "assessment": "Positive d supplies strict remaining-length descent; empty output iff d=0 or xs=[].",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-017",
+      "requirement": "Every produced chunk is nonempty and bounded",
+      "source_state": "source-present",
+      "declarations": [
+        "Chunks.chop_mem_ne_nil",
+        "Chunks.length_mem_chop"
+      ],
+      "connected_cases": [
+        "EChunks.short_group_nonempty",
+        "EChunkCost.reached_chunks_are_valid"
+      ],
+      "assessment": "Statements also apply vacuously to an empty original input.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-018",
+      "requirement": "Exact ceiling chunk count",
+      "source_state": "source-present",
+      "declarations": [
+        "Chunks.length_chop",
+        "Chunks.length_chop_eq_add_pred_div",
+        "Chunks.length_chop_le_iff"
+      ],
+      "connected_cases": [
+        "EChunks.partial_chunk_count",
+        "EChunks.repeated_five_blocks"
+      ],
+      "assessment": "The positive-d count uses Nat.ceilDiv; no prior lossy natural division.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-019",
+      "requirement": "Flattening, counts, multisets and membership",
+      "source_state": "source-present",
+      "declarations": [
+        "Chunks.flatten_chop",
+        "Chunks.countP_chop",
+        "Chunks.sum_multiset_chop",
+        "Chunks.mem_chop_iff",
+        "Chunks.mem_of_mem_chop"
+      ],
+      "connected_cases": [
+        "EChunks.partial_chunks_flatten",
+        "EChunks.duplicate_counts",
+        "EChunks.duplicate_multiset"
+      ],
+      "assessment": "Positive d recovers the complete list and therefore the required set union and multiset sum.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-020",
+      "requirement": "Aligned append, full blocks and replication",
+      "source_state": "source-present",
+      "declarations": [
+        "Chunks.chop_append",
+        "Chunks.chop_flatten",
+        "Chunks.chop_replicate_blocks",
+        "Chunks.chop_replicate"
+      ],
+      "connected_cases": [
+        "EChunks.aligned_append",
+        "EChunks.repeated_five_blocks",
+        "EChunks.repeated_occurrences"
+      ],
+      "assessment": "These support the universal counterfamily, not a separate unrequired algorithm.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-021",
+      "requirement": "Mathematical median-of-medians pivot",
+      "source_state": "source-present",
+      "declarations": [
+        "Pivot.chunkMedians",
+        "Pivot.medianOfMedians",
+        "Pivot.medianOfMedians_mem",
+        "Pivot.medianOfMedians_pivot_valid"
+      ],
+      "connected_cases": [
+        "EPivot.two_full_chunk_medians",
+        "EPivot.two_full_chunk_pivot",
+        "EPivot.mathematical_policy_is_valid"
+      ],
+      "assessment": "Proof-carrying nonempty chunk medians and Option pivot; distinct from the fast nested implementation.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-022",
+      "requirement": "Both orientations of chunk-median grouping",
+      "source_state": "source-present",
+      "declarations": [
+        "Pivot.chunkMedianGroups",
+        "Pivot.chunkMedianGroups_related_length"
+      ],
+      "connected_cases": [
+        "EPivot.greater_median_group_is_one",
+        "EPivot.complementary_group_is_one",
+        "EPivot.duplicate_groups"
+      ],
+      "assessment": "The complement is relative to the selected relation; both strict orientations are supported.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-023",
+      "requirement": "Chunk group multiset and cardinality decomposition",
+      "source_state": "source-present",
+      "declarations": [
+        "Pivot.chunkMedianGroups_perm",
+        "Pivot.chunkMedianGroups_multiset",
+        "Pivot.chunkMedianGroups_lengths"
+      ],
+      "connected_cases": [
+        "EPivot.duplicate_groups_multiset",
+        "EChunks.duplicate_counts"
+      ],
+      "assessment": "Multiplicity is preserved through grouping and the summed input counts.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-024",
+      "requirement": "Correct weak half bound and strict-bound counterexample",
+      "source_state": "source-present",
+      "declarations": [
+        "Pivot.medianOfMedians_median_counts"
+      ],
+      "connected_cases": [
+        "EPivot.strict_half_is_false",
+        "EPivot.corrected_non_strict_half"
+      ],
+      "assessment": "Uses ≤floor(m/2); the source PDF strict claim is explicitly refuted.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-025",
+      "requirement": "Good-chunk and arbitrary-chunk contributions",
+      "source_state": "source-present",
+      "declarations": [
+        "Pivot.chunk_count_lt_of_median_ge",
+        "Pivot.chunk_count_gt_of_median_le",
+        "Pivot.medianOfMedians_count_bounds"
+      ],
+      "connected_cases": [
+        "EPivot.five_chunk_lower_contribution",
+        "EPivot.five_chunk_upper_contribution",
+        "EPivot.five_chunk_total_contribution"
+      ],
+      "assessment": "Private sum_le_count_split/chunk_count_bound implement the actual two-group sum; they remain in audit scope.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-026",
+      "requirement": "Exact size-five two-sided ceiling bound",
+      "source_state": "source-present",
+      "declarations": [
+        "Pivot.size_five_count_arithmetic",
+        "Pivot.size_five_ceiling",
+        "Pivot.medianOfMedians_five_count_bounds",
+        "Pivot.medianOfMedians_five_ceil_bounds"
+      ],
+      "connected_cases": [
+        "EPivot.short_final_chunk_balance",
+        "EPivot.duplicate_strict_sides",
+        "EPivot.source_real_balance",
+        "EPivot.empty_strict_counts"
+      ],
+      "assessment": "Both sides ≤ceil(7n/10+3), including ties and short final chunk; empty counts are handled explicitly.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-027",
+      "requirement": "Insertion-based slow selection and median values",
+      "source_state": "source-present",
+      "declarations": [
+        "Slow.slowSelectRun",
+        "Slow.slowSelectRun_value",
+        "Slow.slowSelectRun_some_iff",
+        "Slow.slowSelectRun_public",
+        "Slow.slowMedianRun",
+        "Slow.slowMedianRun_value"
+      ],
+      "connected_cases": [
+        "ESlow.public_rank_bridge",
+        "ESlow.duplicate_occurrence_rank",
+        "ESlow.lower_even_median",
+        "ESlow.same_median_different_work"
+      ],
+      "assessment": "Actual insertion execution is used; sorting value uniqueness does not substitute another sorter cost.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-028",
+      "requirement": "Actual nested size-five/cutoff-twenty selection",
+      "source_state": "source-present",
+      "declarations": [
+        "Select.selectRunWith",
+        "Select.selectRun",
+        "Select.selectRunWith_step",
+        "Select.selectRun_small",
+        "Select.selectRun_step"
+      ],
+      "connected_cases": [
+        "ESelect.cutoff_ascending",
+        "ESelect.cutoff_descending",
+        "ESelect.first_recursive_left",
+        "ESelect.first_recursive_equal",
+        "ESelect.first_recursive_right"
+      ],
+      "assessment": "Private selectWorker executes one recursive median selection and at most one selected strict child; exact book specialization is 5/20.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-029",
+      "requirement": "Correctness of the actual nested computation",
+      "source_state": "source-present",
+      "declarations": [
+        "Select.selectRunWith_value",
+        "Select.selectRun_value",
+        "Select.selectRunWith_some_iff",
+        "Select.selectRunWith_public",
+        "Composition.monotone_ranked_costs"
+      ],
+      "connected_cases": [
+        "ESelect.one_based_public_bridge",
+        "ESelect.monotone_payload_selection",
+        "ESelect.collapsed_payload",
+        "Composition.constant_ranked_costs"
+      ],
+      "assessment": "The total dependent well-founded construction combines source partial correctness and termination. The current symbolic consumer composes RankedAt, noninjective monotone transport and uniform bounds on both actual executions; its focused pass is development evidence only.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-030",
+      "requirement": "Noncircular nested termination and total failure domain",
+      "source_state": "source-present",
+      "declarations": [
+        "Select.selectWorker",
+        "Select.selectRunWith_exists",
+        "Select.selectRunWith_mem",
+        "Select.selectRunWith_none_iff",
+        "Select.selectRunWith_of_invalid",
+        "GenericEnvelope.chunkMediansRun_proper_size"
+      ],
+      "connected_cases": [
+        "ESelect.empty_arbitrary_rank",
+        "ESelect.singleton_invalid",
+        "ESelect.group_two_cutoff_one"
+      ],
+      "assessment": "Private worker carries input membership before correctness/cost proofs; first child decreases for d≥2 and cutoff≥1, later children by pivot membership. Invalid entry guard returns none with n+2 cost.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-031",
+      "requirement": "Actual one-pass partition and n+1 calls",
+      "source_state": "source-present",
+      "declarations": [
+        "Partition.partitionRun",
+        "Partition.partitionRun_cons",
+        "Partition.partitionRun_value",
+        "Partition.partitionRun_cons_cost",
+        "Partition.partitionRun_cost"
+      ],
+      "connected_cases": [
+        "EPartition.mixed_run",
+        "EPartition.mixed_cost",
+        "EPartition.empty_run",
+        "EPartition.bind_returned_lower"
+      ],
+      "assessment": "Accepted measured prerequisite; the recurrence is one pass rather than three independent filters.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-032",
+      "requirement": "Slow selection exact cost and valid-index bound",
+      "source_state": "source-present",
+      "declarations": [
+        "Slow.slowSelectRun_cost",
+        "Slow.slowSelectRun_cost_of_lt",
+        "Slow.slowSelectRun_cost_bound"
+      ],
+      "connected_cases": [
+        "ESlow.valid_selection_budget",
+        "ESlow.cutoff_sorted_last",
+        "ESlow.cutoff_descending_last",
+        "ESlow.singleton_invalid"
+      ],
+      "assessment": "Actual insertion plus lookup; for k<n the bound is n²+3n+1.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-033",
+      "requirement": "Slow median exact cost and small-chunk bound",
+      "source_state": "source-present",
+      "declarations": [
+        "Slow.slowMedianRun_cost",
+        "Slow.slowMedianRun_cost_bound",
+        "Slow.slowMedianRun_small_bound"
+      ],
+      "connected_cases": [
+        "ESlow.ascending_five_median",
+        "ESlow.descending_five_median",
+        "ESlow.arbitrary_short_chunk",
+        "ESlow.median_value_and_budget"
+      ],
+      "assessment": "Charges its length observation; nonempty bound n²+4n+2, hence 47 for size≤5.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-034",
+      "requirement": "Measured chopping with both source traversals",
+      "source_state": "source-present",
+      "declarations": [
+        "ChunkCost.chopRun",
+        "ChunkCost.chopRun_eq_cons",
+        "ChunkCost.chopRun_cost",
+        "ChunkCost.chopRun_cost_bound"
+      ],
+      "connected_cases": [
+        "EChunkCost.zero_size",
+        "EChunkCost.both_traversals_are_charged",
+        "EChunkCost.fused_first_step_is_not_source_count",
+        "EChunkCost.arbitrary_group_budget"
+      ],
+      "assessment": "Positive-d exact cost 2n+3ceil(n/d)+1; all-d bound 5n+1. Take and drop are separately charged.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-035",
+      "requirement": "Actual median-map callback sum and preparation bounds",
+      "source_state": "source-present",
+      "declarations": [
+        "MediansCost.mapSlowMedianRun_cost",
+        "MediansCost.mapSlowMedianRun_small_bound",
+        "MediansCost.mapSlowMedianRun_chop_five_bound",
+        "MediansCost.chunkMediansRun_cost_split",
+        "MediansCost.chunkMediansRun_five_bound"
+      ],
+      "connected_cases": [
+        "EMediansCost.two_chunk_map",
+        "EMediansCost.short_final_chunk",
+        "EMediansCost.first_recursive_map_count",
+        "EMediansCost.book_map_budget",
+        "EMediansCost.book_preparation_budget"
+      ],
+      "assessment": "Map cost is sum of actual callbacks plus m+1; ≤48m+1≤10n+48, and complete preparation≤15n+49.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-036",
+      "requirement": "Exact branch-sensitive nested source equations",
+      "source_state": "source-present",
+      "declarations": [
+        "Select.selectRunWith_small",
+        "Select.selectRunWith_step",
+        "Select.selectRunWith_cost_step",
+        "Select.selectRun_cost_step",
+        "MediansCost.chunkMediansRun_cost_split"
+      ],
+      "connected_cases": [
+        "ESelect.cutoff_ascending",
+        "ESelect.cutoff_descending",
+        "ESelect.first_recursive_left",
+        "ESelect.first_recursive_equal",
+        "ESelect.first_recursive_right",
+        "ESelect.all_equal_last"
+      ],
+      "assessment": "Entry length is cached; left branch omits equal-length traversal and equal branch omits a second recursive call. Actual counts 83/273, 269/231/266 and 239 are distinct from scalar budgets.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-037",
+      "requirement": "Exact monotone scalar F",
+      "source_state": "source-present",
+      "declarations": [
+        "F.F",
+        "F.F_of_le_twenty",
+        "F.F_of_twenty_lt",
+        "F.base_le_F",
+        "F.F_monotone",
+        "F.pivotSize_lt_iff",
+        "F.sideSize_lt_iff",
+        "F.F_rounded"
+      ],
+      "connected_cases": [
+        "EF.scalar_cutoff_obstruction",
+        "EF.scalar_cutoff_fourteen",
+        "EF.F_twenty",
+        "EF.F_twenty_one",
+        "EF.resize_across_cutoff"
+      ],
+      "assessment": "Base 483, cutoff20, toll19n+54; children ceil(n/5), ceil(7n/10+3), with strict descent and monotonicity proved before resizing.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-038",
+      "requirement": "Actual book execution bounded by F",
+      "source_state": "source-present",
+      "declarations": [
+        "Bounds.selectRun_pivot_size_bounds",
+        "Bounds.selectRun_local_cost_bound",
+        "Bounds.selectRun_cost_le_F_of_lt",
+        "Bounds.selectRun_cost_le_F"
+      ],
+      "connected_cases": [
+        "EBounds.cutoff_descending_budget",
+        "EBounds.first_left_budget",
+        "EBounds.first_equal_budget",
+        "EBounds.first_right_budget",
+        "EBounds.first_local_budget"
+      ],
+      "assessment": "Actual recurrence induction combines measured auxiliaries, valid child ranks and F monotonicity; all-rank extension also handles the explicit invalid guard.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-039",
+      "requirement": "Exact rounded real recurrence",
+      "source_state": "source-present",
+      "declarations": [
+        "Rounded.recurrence_step_le",
+        "RoundedBounds.affine_bound_of_prefix",
+        "RoundedBounds.exists_affine_bound"
+      ],
+      "connected_cases": [
+        "ERounded.combined_signed_descent",
+        "ERoundedBounds.negative_constant_toll_affine_bound"
+      ],
+      "assessment": "The two contraction coefficients are a and c; signed offsets b,d and signed C2 are retained.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-040",
+      "requirement": "Ceiling descent with zero truncation",
+      "source_state": "source-present",
+      "declarations": [
+        "Rounded.ceil_affine_lt_add_one",
+        "Rounded.ceil_affine_lt_of_threshold",
+        "Rounded.thresholds_of_combined_cutoff",
+        "Rounded.ceil_children_lt"
+      ],
+      "connected_cases": [
+        "ERounded.negative_argument_truncation",
+        "ERounded.signed_offset_descent",
+        "ERounded.combined_signed_descent"
+      ],
+      "assessment": "Thresholds use max(0,b), max(0,d); zero-truncated natural ceiling is not replaced with untruncated real arithmetic.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-041",
+      "requirement": "Nonstrict slope suffices; strict-choice error",
+      "source_state": "source-present",
+      "declarations": [
+        "Rounded.slope_nonneg_and_margin",
+        "Rounded.sharp_affine_absorption"
+      ],
+      "connected_cases": [
+        "ERounded.strict_slope_choice_counterexample",
+        "ERounded.zero_recurrence_bound_step",
+        "ERoundedBounds.zero_source_witness_bound"
+      ],
+      "assessment": "C3≥C1/(1−a−c) is sufficient; the source maximum may attain equality.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-042",
+      "requirement": "Explicit constants and full strong induction",
+      "source_state": "source-present",
+      "declarations": [
+        "Rounded.cutoff_denominator_pos",
+        "RoundedBounds.explicit_cutoff_bounds",
+        "RoundedBounds.affine_bound_of_prefix",
+        "RoundedBounds.bound_with_source_constants"
+      ],
+      "connected_cases": [
+        "ERoundedBounds.negative_intercept_all_inputs",
+        "ERoundedBounds.roundedQuarter_sharp_affine_bound"
+      ],
+      "assessment": "Finite-prefix maximum, positive denominator, nonnegative slope and all natural inputs are connected in the proof.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-043",
+      "requirement": "General real-valued affine existence",
+      "source_state": "source-present",
+      "declarations": [
+        "RoundedBounds.exists_affine_bound"
+      ],
+      "connected_cases": [
+        "ERoundedBounds.negative_constant_toll_affine_bound",
+        "ERoundedBounds.roundedQuarter_real_affine_bound",
+        "ERoundedBounds.noncontracting_affine_step_impossible"
+      ],
+      "assessment": "No f≥0 or C2≥0 hypothesis; only the sufficient theorem is claimed, not an unsupported converse.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-044",
+      "requirement": "Natural-valued corollary from the real theorem",
+      "source_state": "source-present",
+      "declarations": [
+        "RoundedBounds.exists_affine_bound_nat"
+      ],
+      "connected_cases": [
+        "ERoundedBounds.roundedQuarter_nat_affine_bound"
+      ],
+      "assessment": "Casts and nonnegative ceilings produce natural constants without duplicating the real induction.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-045",
+      "requirement": "Exact F specialization and affine growth",
+      "source_state": "source-present",
+      "declarations": [
+        "F.pivotSize_eq_ceil",
+        "F.sideSize_eq_ceil",
+        "F.F_rounded",
+        "F.exists_affine_bound",
+        "F.F_isBigO"
+      ],
+      "connected_cases": [
+        "EGroups.exact_book_F_specialization",
+        "EF.zero_requires_intercept"
+      ],
+      "assessment": "Uses a=1/5,c=7/10,b=0,d=3,C1=19,C2=54,n0=20.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-046",
+      "requirement": "Uniform actual book source cost",
+      "source_state": "source-present",
+      "declarations": [
+        "Bounds.selectRun_exists_uniform_affine_bound",
+        "Bounds.selectRun_exists_uniform_linear_bound",
+        "Bounds.selectRun_family_isBigO",
+        "Composition.monotone_ranked_costs"
+      ],
+      "connected_cases": [
+        "EBounds.duplicate_family_uniform",
+        "EBounds.descending_family_linear",
+        "Composition.collapsed_actual_work"
+      ],
+      "assessment": "Constants precede payload types/orders, input and rank; positive length is needed only when absorbing the intercept. The noninjective composition client bounds both actual costs without equating them. C03-083 separately connects paid acquisition to coordinate-query competitors.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-047",
+      "requirement": "Actual one-pass minimum and its paid execution",
+      "source_state": "source-present",
+      "declarations": [
+        "Fixed.minimumLoop",
+        "Fixed.select0",
+        "Fixed.select0_spec",
+        "Fixed.select0_value",
+        "FixedCost.minimumLoopRun",
+        "FixedCost.select0Run_cost",
+        "FixedCost.select0Run_exact"
+      ],
+      "connected_cases": [
+        "EFixed.minimum_example",
+        "EFixed.minimum_duplicate",
+        "EFixed.minimum_execution",
+        "EFixed.minimum_and_fixed_costs_differ"
+      ],
+      "assessment": "Tail-recursive minimum has exact n+1 calls. Its value equality with general fixed-rank selection is not used to pretend equal costs.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-048",
+      "requirement": "Actual one-pass second minimum with duplicates",
+      "source_state": "source-present",
+      "declarations": [
+        "Fixed.secondLoop",
+        "Fixed.select1",
+        "Fixed.select1_some_iff_ranked",
+        "Fixed.select1_none_iff",
+        "Fixed.select1_spec"
+      ],
+      "connected_cases": [
+        "EFixed.second_duplicate",
+        "EFixed.second_distinct",
+        "EFixed.second_singleton",
+        "EFixed.second_exists"
+      ],
+      "assessment": "Correctness is derived after the actual loop correspondence to fixed rank one; the second occurrence may equal the minimum.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-049",
+      "requirement": "Actual bounded-prefix streaming fixed-rank selection",
+      "source_state": "source-present",
+      "declarations": [
+        "Fixed.boundedInsert",
+        "Fixed.prefixLoop",
+        "Fixed.takeSort_value",
+        "Fixed.selectFixed_value",
+        "FixedCost.boundedInsertRun_cost_le",
+        "FixedCost.prefixLoopRun_cost_le"
+      ],
+      "connected_cases": [
+        "EFixed.duplicate_prefix",
+        "EFixed.zero_width_prefix",
+        "EFixed.prefix_with_history",
+        "EFixed.bounded_step_for_rank"
+      ],
+      "assessment": "One traversal of the input, with bounded sorted accumulator width k+1 and per-step source cost linear in that width.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-050",
+      "requirement": "Second-minimum loop equals fixed rank one",
+      "source_state": "source-present",
+      "declarations": [
+        "Fixed.boundedInsert_two",
+        "Fixed.prefixLoop_two",
+        "Fixed.select1_eq_selectFixed"
+      ],
+      "connected_cases": [
+        "EFixed.two_loop_correspondence",
+        "EFixed.second_duplicate"
+      ],
+      "assessment": "An actual algorithm/loop equality, not only common extensional correctness.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-051",
+      "requirement": "Uniform fixed-rank source cost including k=0",
+      "source_state": "source-present",
+      "declarations": [
+        "FixedCost.selectFixedRun",
+        "FixedCost.selectFixedRun_cost_le",
+        "FixedCost.selectFixedRun_uniform_bound"
+      ],
+      "connected_cases": [
+        "EFixed.fixed_zero_execution",
+        "EFixed.fixed_zero_bound",
+        "EFixed.fixed_second_execution",
+        "EFixed.uniform_constants_include_minimum"
+      ],
+      "assessment": "Explicit 2kn+6n+k+4 witnesses precede all inputs/ranks; the n-term remains at k=0.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-052",
+      "requirement": "Every coordinate can affect every valid rank",
+      "source_state": "source-present",
+      "declarations": [
+        "Sensitivity.ordered_index_injective",
+        "Sensitivity.exists_fresh_set_changes",
+        "Sensitivity.exists_set_changes",
+        "Sensitivity.exists_update_changes"
+      ],
+      "connected_cases": [
+        "ESensitivity.every_triple_coordinate",
+        "ESensitivity.triple_fresh_witness",
+        "ESensitivity.singleton_sensitive",
+        "ESensitivity.invalid_ranks_agree"
+      ],
+      "assessment": "Int, distinct original input, valid k and i; a fresh replacement is derived and preserves distinctness, not assumed. Query lower bound is separate.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-053",
+      "requirement": "Actual extrema-padding rank-to-median reduction",
+      "source_state": "source-present",
+      "declarations": [
+        "Reduction.extrema",
+        "Reduction.extrema_spec",
+        "Reduction.reduceToMedian",
+        "Reduction.reduceToMedian_nonempty",
+        "Reduction.reduceToMedian_rank_shift",
+        "Reduction.reduceToMedian_value",
+        "Reduction.reduceToMedian_spec"
+      ],
+      "connected_cases": [
+        "EReduction.tied_padding_rank",
+        "EReduction.first_padding",
+        "EReduction.last_padding",
+        "EReduction.lower_middle_padding",
+        "EReduction.upper_middle_padding",
+        "EReduction.empty_median_failure"
+      ],
+      "assessment": "No global extrema assumptions: actual input min/max. Valid output is odd, nonempty, length≤2n−1; duplicates and even original lengths are covered.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-054",
+      "requirement": "Paid reduction including extrema and all construction",
+      "source_state": "source-present",
+      "declarations": [
+        "ReductionCost.extremaRun_cost",
+        "ReductionCost.padExtremaRun_cost",
+        "ReductionCost.reduceToMedianRun_cost",
+        "ReductionCost.reduceToMedianRun_cost_le",
+        "ReductionCost.reduceToMedianRun_uniform_bound"
+      ],
+      "connected_cases": [
+        "EReduction.extrema_execution",
+        "EReduction.first_execution",
+        "EReduction.last_execution",
+        "EReduction.first_rank_attains_bound",
+        "EReduction.invalid_rank_cost_exceeds_valid_bound"
+      ],
+      "assessment": "Charges both extrema scans, length, replicas and append: exact 4n+2A+B+8; valid-rank bound 6n+6. Invalid-rank countercase protects the domain.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-055",
+      "requirement": "Least actual cutoff versus scalar cutoff",
+      "source_state": "source-present",
+      "declarations": [
+        "Cutoff.FirstPivotCall",
+        "Cutoff.actual_cutoff_iff",
+        "Cutoff.zero_cutoff_self_call",
+        "Cutoff.zero_cutoff_not_wellFounded",
+        "Cutoff.recursive_children_decrease",
+        "Cutoff.scalar_cutoff_iff",
+        "Cutoff.twenty_actual_base_budget"
+      ],
+      "connected_cases": [
+        "ECutoff.singleton_guarded_self_call",
+        "ECutoff.singleton_positive_cutoff_stops",
+        "ECutoff.two_group_actual_children",
+        "ECutoff.twelve_fails_scalar",
+        "ECutoff.thirteen_suffices_scalar",
+        "ECutoff.descending_twenty_actual_budget"
+      ],
+      "assessment": "Actual minimum cutoff1 for d≥2; scalar minimum13; cutoff20 accommodates scalar descent and 483 base. The analytical self-call relation is connected to actual guarded preparation, including invalid guard. No unique author motive is asserted.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-056",
+      "requirement": "Universal growing family exceeding seventy percent",
+      "source_state": "source-present",
+      "declarations": [
+        "Counter.family",
+        "Counter.family_lengths_strictMono",
+        "Counter.chop_family",
+        "Counter.chunkMedians_family",
+        "Counter.family_pivot",
+        "Counter.family_excess",
+        "Counter.infinite_family"
+      ],
+      "connected_cases": [
+        "ECounter.first_chops",
+        "ECounter.first_pivot",
+        "ECounter.second_has_duplicates",
+        "ECounter.growth_at_every_index",
+        "ECounter.positive_denominator_at_every_index",
+        "ECounter.dropping_allowance_fails"
+      ],
+      "assessment": "All i: n=10i+6>0, actual pivot0, Ngt=7i+5, so 10Ngt=7n+8. This is an infinite strict family, not finite experimentation.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-057",
+      "requirement": "General-group two-sided pivot bound",
+      "source_state": "source-present",
+      "declarations": [
+        "Pivot.medianOfMedians_count_bounds",
+        "EGeneral.partition_bounds",
+        "EGeneral.nonempty_input_has_bounded_pivot"
+      ],
+      "connected_cases": [
+        "EGeneral.three_group_bounds",
+        "EGeneral.four_group_bounds",
+        "EGeneral.six_group_bounds",
+        "EGeneral.odd_partition_bounds",
+        "EGeneral.even_partition_bounds",
+        "EGeneral.integer_tie_bound"
+      ],
+      "assessment": "For every d>0, q=floor(d/2), m=ceil(n/d), bound q*m+(d−q)*floor(m/2), including duplicates and short final chunk; connects to actual partition sizes.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-058",
+      "requirement": "General groups: correctness, termination and sufficient linear costs",
+      "source_state": "source-present",
+      "declarations": [
+        "Groups.fraction_sum_eq",
+        "Groups.contracts_iff_half_gap",
+        "Groups.contracts_iff_five_le",
+        "Groups.odd_contracts_iff",
+        "Groups.even_contracts_iff",
+        "Groups.majorant_affine_bound",
+        "Cutoff.group_one_not_wellFounded",
+        "Select.selectRunWith_value",
+        "GenericEnvelope.selectRunWith_uniform_prefix_bound",
+        "GenericBounds.selectRunWith_cost_le_groupMajorant",
+        "GenericBounds.selectRunWith_exists_uniform_affine_bound",
+        "GenericBounds.selectRunWith_family_isBigO"
+      ],
+      "connected_cases": [
+        "EGroups.groups_three_four",
+        "EGroups.groups_five_six",
+        "EGroups.all_odd_even_thresholds",
+        "EGenericBounds.book_recurses_inside_scalar_prefix",
+        "EGenericBounds.actual_cutoff_above_scalar",
+        "EGenericBounds.six_duplicate_integer_family"
+      ],
+      "assessment": "Actual correctness and termination hold for d≥2 and cutoff≥1; d=1 has an actual self-call obstruction. For positive d the crude fraction contracts iff d−floor(d/2)>2 (odd≥5/even≥6), while d=3,4 gives1. The sufficient-group cost uses a uniform finite prefix covering both cutoffs, with constants before payloads and ranks. The generic core/example pair at M has a focused pass; complete chapter gates remain.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-059",
+      "requirement": "Actual fresh uniform-occurrence random recursion",
+      "source_state": "source-present",
+      "declarations": [
+        "Random.pivotRun",
+        "Random.stepRun",
+        "Random.pivotLaw",
+        "RandomRun.run",
+        "RandomRun.run_cons"
+      ],
+      "connected_cases": [
+        "ERandom.singleton_step",
+        "ERandom.duplicate_middle",
+        "ERandomRun.two_key_execution"
+      ],
+      "assessment": "Each nonempty state uses a new finite uniform occurrence choice in PMF bind and follows only the rank-selected child. This is not one fixed deterministic policy.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-060",
+      "requirement": "Duplicate-aware uniform value pushforward",
+      "source_state": "source-present",
+      "declarations": [
+        "Random.pivotLaw",
+        "Random.pivotLaw_event",
+        "Random.pivotLaw_support"
+      ],
+      "connected_cases": [
+        "ERandom.duplicate_zero_probability",
+        "ERandom.duplicate_one_probability"
+      ],
+      "assessment": "[0,0,1] has value masses 2/3 and1/3; uniform distinct-value choice is not substituted.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-061",
+      "requirement": "Random termination, child validity and correct result",
+      "source_state": "source-present",
+      "declarations": [
+        "Random.stepRun_child",
+        "Random.stepRun_ranked",
+        "RandomRun.run_value",
+        "RandomRun.run_ranked",
+        "RandomRun.run_valid",
+        "RandomRun.run_active_calls_le",
+        "RandomRun.select_some_iff"
+      ],
+      "connected_cases": [
+        "ERandom.selected_side_valid",
+        "ERandomRun.arbitrary_supported_rank",
+        "ERandomRun.rank_zero_public_failure"
+      ],
+      "assessment": "Actual supported outcomes terminate within n active calls. Valid-rank correctness and public one-based bridge preserve explicit failure behavior.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-062",
+      "requirement": "Actual trace scan-volume observation",
+      "source_state": "source-present",
+      "declarations": [
+        "RandomRun.Trace",
+        "RandomRun.scanVolume",
+        "RandomRun.prepend",
+        "RandomRun.run_cons",
+        "Tail.scanVolume_eq_sum_activeSize"
+      ],
+      "connected_cases": [
+        "ERandomRun.same_value_different_scan",
+        "ETail.finite_trace_decomposition",
+        "ETail.actual_pair_trace_observations"
+      ],
+      "assessment": "Each active positive length is observed; only the reached child is added, with absorbed zero after termination.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-063",
+      "requirement": "Every path has triangular scan upper bound",
+      "source_state": "source-present",
+      "declarations": [
+        "RandomRun.run_scanVolume_le",
+        "RandomRun.run_active_calls_le"
+      ],
+      "connected_cases": [
+        "ERandomRun.maximum_scan_on_pair",
+        "ERandomRun.bounded_actual_pair_calls"
+      ],
+      "assessment": "Uniform bound n(n+1)/2 holds with duplicates and all ranks; it is separate from attainment.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-064",
+      "requirement": "Universal bad-endpoint path and exact factorial mass",
+      "source_state": "partial",
+      "declarations": [
+        "RandomRun.run_scanVolume_le"
+      ],
+      "connected_cases": [
+        "ERandomRun.two_key_long_path",
+        "ERandomRun.maximum_scan_on_pair"
+      ],
+      "assessment": "PENDING universal result. Present source proves the upper bound and an actual supported triangular path for n=2. Still required: every distinct input and every valid target rank, a specified endpoint sequence retaining the target until singleton, exact probability1/n!, triangular attainment, and an unbounded Nat/Int family. No future theorem name is assigned.",
+      "open_gap_ids": [
+        "universal-endpoint-witness"
+      ]
+    },
+    {
+      "id": "C03-065",
+      "requirement": "Correct worst-case quantifiers and all-equal stopping",
+      "source_state": "source-present",
+      "declarations": [
+        "RandomEqual.run_all_equal",
+        "RandomEqual.run_all_equal_summary",
+        "RandomEqual.run_all_equal_absorbed",
+        "RandomEqual.run_replicate_scan_lt_quadratic",
+        "Minimum.run_zero_rank"
+      ],
+      "connected_cases": [
+        "ERandomEqual.pair_both_valid_ranks",
+        "ERandomEqual.general_equal_execution",
+        "ERandomEqual.equal_family_below_quadratic",
+        "EMinimum.minimum_is_not_four_calls",
+        "EMinimum.duplicates_are_not_four_calls"
+      ],
+      "assessment": "The current all-equal core/example pair E has a focused pass: every valid outcome has one active invocation, W=n and actual cost between 3n+6 and 4n+5. Earlier failures and four example proof-body corrections remain recorded. The paid minimum-rank-zero counterexample is also available. Neither family is a universal quadratic input claim.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-066",
+      "requirement": "Stable occurrence-rank coupling and actual child dominance",
+      "source_state": "source-present",
+      "declarations": [
+        "Drift.occurrenceRank_uniform",
+        "Drift.occurrenceRank_tie",
+        "Drift.strict_side_rank_bounds",
+        "Drift.nextSize_le_rankSide"
+      ],
+      "connected_cases": [
+        "EDrift.stable_duplicate_positions",
+        "EDrift.refined_duplicate_uniform",
+        "EDrift.duplicate_next_choices"
+      ],
+      "assessment": "No global Nodup assumption. A stable rank distinguishes tied occurrences and the actual selected strict side is bounded by max(r,m−1−r).",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-067",
+      "requirement": "Exact three-quarter conditional drift",
+      "source_state": "source-present",
+      "declarations": [
+        "Drift.rankSideSum_add_two",
+        "Drift.rankSideSum_bound",
+        "Drift.rankSideSum_mean_le",
+        "Drift.nextSize_drift"
+      ],
+      "connected_cases": [
+        "EDrift.rank_side_small_values",
+        "EDrift.singleton_next_size",
+        "EDrift.duplicate_next_expectation",
+        "EDrift.duplicate_drift_bound"
+      ],
+      "assessment": "Finite rank sum and actual next-size expectation; singleton/parity are retained, without asserting independence between later sizes.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-068",
+      "requirement": "Uniform expected scan work",
+      "source_state": "source-present",
+      "declarations": [
+        "RandomMean.scanExpectation_cons",
+        "Drift.scanExpectation_linear_bounds",
+        "Drift.scanMean_linear_bounds"
+      ],
+      "connected_cases": [
+        "EDrift.arbitrary_expected_bounds",
+        "EDrift.valid_selection_expected_bounds",
+        "ERandomMean.actual_mean_bridge"
+      ],
+      "assessment": "n≤E W≤4n for fixed input/rank; real and nonnegative-integral forms are connected and finite. Constants are independent of an input distribution.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-069",
+      "requirement": "Absorbing active sizes and geometric expectation",
+      "source_state": "source-present",
+      "declarations": [
+        "Tail.run_activeSize_zero",
+        "Tail.run_activeSize_eq_zero_iff",
+        "Tail.run_activeSize_zero_persists",
+        "Tail.run_activeSize_absorbed",
+        "Tail.sizeExpectation_geometric_le"
+      ],
+      "connected_cases": [
+        "ETail.singleton_absorption",
+        "ETail.invalid_singleton_absorption",
+        "ETail.two_key_size_expectations",
+        "ETail.arbitrary_absorption"
+      ],
+      "assessment": "E X_j≤(3/4)^j n for all natural j, using the actual dependent recursion and zero after termination.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-070",
+      "requirement": "Expected residual scan work",
+      "source_state": "source-present",
+      "declarations": [
+        "Tail.residualExpectation_succ_cons",
+        "Tail.residualExpectation_geometric_le"
+      ],
+      "connected_cases": [
+        "ETail.two_key_residual_expectations",
+        "ETail.duplicate_after_first"
+      ],
+      "assessment": "E residual after w steps≤4(3/4)^w n; actual state/trace conditioning is preserved.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-071",
+      "requirement": "Exact non-strict scan tail with positive input size",
+      "source_state": "source-present",
+      "declarations": [
+        "Tail.scanLaw_tail",
+        "Tail.scanLaw_empty_tail_bound_fails"
+      ],
+      "connected_cases": [
+        "ETail.positive_input_tails",
+        "ETail.zero_excess_tail",
+        "ETail.empty_tail_countercase"
+      ],
+      "assessment": "For natural w and n>0, Pr[W≥(4+w)n]≤(3/4)^w. This is an original elementary proof of the displayed law, not verification of the inaccessible Karp paper.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-072",
+      "requirement": "Actual prefix/residual decomposition and Markov premises",
+      "source_state": "source-present",
+      "declarations": [
+        "Tail.scanVolume_take_add_residualWork",
+        "Tail.run_prefix_scan_le",
+        "Tail.run_tail_residual",
+        "Tail.residualLaw_integrable",
+        "Tail.residualLaw_markov"
+      ],
+      "connected_cases": [
+        "ETail.finite_trace_decomposition",
+        "ETail.arbitrary_residual_integrability",
+        "ETail.actual_pair_trace_observations"
+      ],
+      "assessment": "First w scans≤wn; the tail event forces residual≥4n; nonnegativity and integrability belong to the actual residual law.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-073",
+      "requirement": "Larger-side recurrence is only a majorant",
+      "source_state": "source-present",
+      "declarations": [
+        "Drift.nextSize_le_rankSide",
+        "RandomMean.scanExpectation_cons"
+      ],
+      "connected_cases": [
+        "ERandom.selected_side_is_not_larger_side",
+        "EDrift.selected_branch_is_smaller"
+      ],
+      "assessment": "Concrete n=5,k=0,pivot rank1 has actual next size1 versus upper majorant3; no equality is substituted.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-074",
+      "requirement": "Pathwise source-cost/scan bridge",
+      "source_state": "source-present",
+      "declarations": [
+        "Random.stepRun_cost_bounds",
+        "RandomRun.run_source_bridge"
+      ],
+      "connected_cases": [
+        "ERandom.duplicate_source_bound",
+        "ERandomMean.actual_mean_bridge"
+      ],
+      "assessment": "W≤T≤9W+2 charges pivot retrieval, partition, length observations and reached branch work. Uniform sampling is abstract; no random-bit or physical-runtime claim.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-075",
+      "requirement": "Actual expected/tail bounds and worst-case transfer",
+      "source_state": "partial",
+      "declarations": [
+        "Drift.sourceExpectation_linear_bounds",
+        "Drift.sourceMean_linear_bounds",
+        "Tail.sourceLaw_tail",
+        "RandomRun.run_source_quadratic"
+      ],
+      "connected_cases": [
+        "EDrift.valid_selection_expected_bounds",
+        "ETail.valid_answer_and_tails",
+        "ERandomRun.two_key_long_path"
+      ],
+      "assessment": "Expected n≤E T≤36n+2, source tail threshold9(4+w)n+2 and uniform quadratic upper are present. PENDING: the general quadratic lower/worst-case family transported from the universal C03-064 path. All-equal core E has a contrasting linear family, not that missing distinct-input witness.",
+      "open_gap_ids": [
+        "universal-source-worst-family"
+      ]
+    },
+    {
+      "id": "C03-076",
+      "requirement": "Tail quantifiers and interpretation",
+      "source_state": "statement-analysis",
+      "declarations": [
+        "Tail.scanLaw_tail",
+        "Tail.sourceLaw_tail"
+      ],
+      "connected_cases": [
+        "ETail.zero_excess_tail",
+        "ETail.positive_input_tails",
+        "ETail.empty_tail_countercase"
+      ],
+      "assessment": "Statement analysis: exponential decay is in the excess multiple w. Fixed w gives a fixed probability bound, not an automatic fixed-constant high-probability O(n) theorem as n grows. Optional logarithmic excess is not required.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-077",
+      "requirement": "Connected random examples and positive finite worst path",
+      "source_state": "source-present",
+      "declarations": [
+        "RandomRun.run_value",
+        "RandomRun.run_trace_entries"
+      ],
+      "connected_cases": [
+        "ERandomRun.singleton_execution",
+        "ERandomRun.duplicate_execution",
+        "ERandomRun.two_key_first_path",
+        "ERandomRun.two_key_long_path",
+        "ERandomRun.same_value_different_scan",
+        "ERandomRun.maximum_scan_on_pair",
+        "ERandomEqual.three_equal_first_atom",
+        "ERandomEqual.three_equal_last_atom"
+      ],
+      "assessment": "Focused-passed earlier cases include singleton, duplicate equal block, valid rank0, endpoint-rank cases, different supported traces with the same result and a positive-probability triangular path on a pair. Additional all-equal atom/source cases at E now also have a focused pair pass. These finite cases and the general linear equal family do not discharge C03-064; complete chapter gates remain.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-078",
+      "requirement": "Actual paid minimum-pivot path and corrected rank dependence",
+      "source_state": "source-present",
+      "declarations": [
+        "Policy.runWith",
+        "Minimum.run",
+        "Minimum.active_calls",
+        "Minimum.recursive_edges",
+        "Minimum.scan_exact",
+        "Minimum.cost_exact",
+        "Minimum.fixed_rank_linear",
+        "Minimum.largest_cost_quadratic"
+      ],
+      "connected_cases": [
+        "EMinimum.middle_execution",
+        "EMinimum.minimum_is_not_four_calls",
+        "EMinimum.duplicate_execution",
+        "EMinimum.singleton_edges",
+        "EMinimum.range_worst_quadratic",
+        "EMinimum.fixed_third_linear"
+      ],
+      "assessment": "Distinct valid input: k+1 active calls, k edges, W=(k+1)n−k(k+1)/2 and T=3W+7(k+1)+1. Actual pivot construction is paid. Largest rank is quadratic; each fixed rank is linear; duplicate countercase prevents overgeneralization.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-079",
+      "requirement": "Outside-range pivot self-state and fuel obstruction",
+      "source_state": "source-present",
+      "declarations": [
+        "Outside.dispatch_below",
+        "Outside.dispatch_above",
+        "Outside.runWith_step_below",
+        "Outside.runWith_step_above",
+        "Outside.runWith_below_none",
+        "Outside.runWith_above_none",
+        "Outside.not_pivotValid_below",
+        "Outside.not_pivotValid_above"
+      ],
+      "connected_cases": [
+        "EOutside.below_dispatch_same_state",
+        "EOutside.above_dispatch_same_state",
+        "EOutside.singleton_never_answers",
+        "EOutside.below_valid_answer_not_obtained",
+        "EOutside.above_valid_answer_not_obtained"
+      ],
+      "assessment": "For nonempty valid ranks, all finite fuels fail while the reached strict child preserves the state; an equivalent iteration obstruction is established without pretending the invalid policy satisfies PivotValid.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-080",
+      "requirement": "Actual paid halving policy, logarithmic edges and linear work",
+      "source_state": "source-present",
+      "declarations": [
+        "Halving.runWith_trace",
+        "Halving.runWith_scan_bounds",
+        "Halving.runWith_edges_clog",
+        "Halving.runWith_tariff",
+        "Halving.runWith_linear_cost",
+        "MedianPolicy.pivotRun",
+        "MedianPolicy.pivot_halving",
+        "MedianPolicy.pivotRun_exists_uniform_linear_bound",
+        "MedianPolicy.run_exists_uniform_linear_bound"
+      ],
+      "connected_cases": [
+        "EMedianPolicy.eight_execution",
+        "EMedianPolicy.eight_edges_bound",
+        "EMedianPolicy.seven_edges_strict_clog",
+        "EMedianPolicy.early_equal_execution",
+        "EMedianPolicy.duplicate_trace_connected",
+        "EMedianPolicy.singleton_active_and_edges",
+        "EMedianPolicy.all_integer_inputs_linear"
+      ],
+      "assessment": "Actual adequate-fuel execution yields Halves; n≤W≤2n and edges≤ceil(log2 n). Concrete median policy measures its index-length observation and actual selectRun; constants precede all payloads/inputs/ranks. Singleton is one entry/zero edges, pivot cost10 and execution19.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-081",
+      "requirement": "Adaptive coordinate-query protocol and replay",
+      "source_state": "source-present",
+      "declarations": [
+        "Query.Protocol",
+        "Query.Runs",
+        "Query.Total",
+        "Query.Selects",
+        "Query.Runs.answers",
+        "Query.Runs.replay",
+        "Query.Runs.replay_update_of_not_mem",
+        "Query.Runs.deterministic"
+      ],
+      "connected_cases": [
+        "EQuery.repeatNegative_negative_run",
+        "EQuery.repeatNegative_nonnegative_run",
+        "EQuery.repeatNegative_total",
+        "EQuery.repeatNegative_correct",
+        "EQuery.unqueried_update_replays"
+      ],
+      "assessment": "Protocol receives only prior index/value transcript, not an uncharged full input. Valid Fin indices and total/all-input correctness are explicit; repeated queries remain observable.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-082",
+      "requirement": "Correct distinct-input runs query every coordinate",
+      "source_state": "source-present",
+      "declarations": [
+        "Sensitivity.exists_update_changes",
+        "Query.Runs.queries_all",
+        "Query.Runs.length_lower_bound"
+      ],
+      "connected_cases": [
+        "EQuery.pairMinimum_distinct_coverage",
+        "EQuery.pairMinimum_distinct_lower_bound",
+        "EQuery.total_correct_protocol_has_witness"
+      ],
+      "assessment": "All-input correctness plus replacement/replay gives the contradiction. Fresh replacement is actually proved, so no hidden restriction to replacement inputs that remain distinct.",
+      "open_gap_ids": []
+    },
+    {
+      "id": "C03-083",
+      "requirement": "Charged-query lower bound and actual acquisition/optimality bridge",
+      "source_state": "source-present",
+      "declarations": [
+        "Query.queryWork",
+        "Query.Runs.work_lower_bound",
+        "Query.linear_worst_case_bound",
+        "Query.linear_isBigO_of_query_bound",
+        "ReadAll.readAll_run_iff",
+        "ReadAll.readAll_work",
+        "Coordinate.work_exact",
+        "Coordinate.work_exists_uniform_linear_bound",
+        "Coordinate.competitor_query_work_lower_bound",
+        "Coordinate.exists_uniform_optimality"
+      ],
+      "connected_cases": [
+        "EQuery.repeated_negative_charges",
+        "EReadAll.repeated_plan_every_charge",
+        "ECoordinate.acquired_worker_execution",
+        "ECoordinate.concrete_every_work",
+        "ECoordinate.duplicate_every_work",
+        "ECoordinate.first_recursive_run",
+        "ECoordinate.pair_minimum_comparison"
+      ],
+      "assessment": "Current I core/examples have a focused pass. Actual readAll acquires n coordinates, then actual selectRun consumes those acquired answers; work is c*n plus source calls. Uniform comparison constants precede c,n,k,input and competitor; c≥1 is required. Front-end bookkeeping is explicitly outside this tariff. No arbitrary-machine, randomized-competitor or runtime lower bound is claimed.",
+      "open_gap_ids": []
+    }
+  ]
+}

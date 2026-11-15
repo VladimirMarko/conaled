@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "/usr/bin/cc",
+    "-std=c11",
+    "-shared",
+    "-fPIC",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-Wl,-z,now",
+    "-Wl,-z,relro",
+    "-o",
+    "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/runtime-tmp/jets-mmap-random-probe/libconaled_mmap_random.so",
+    "/workspace/scratch/60f07f0e98c8/restored/conaled-vfa-checkpoint-042-native-j1-validation-readiness/work-state/validation/1035-mmap-random-prototype/mmap_random.c"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "c_source_sha256": "c7eb24d83bc3554f1a9ac2f986e5c7dcf0913a44e24f65f782898a00a61ec807",
+  "header_sha256": "80911142ad8b8a6dd7836dfcbc8b8e25fdd7d2ec82486b922b41e72a5f613694",
+  "library_sha256": "5927638bd66ec29be8ea496f3a8fe9e13b3d17fd2b7dc7bcf9567d105009799b"
+}

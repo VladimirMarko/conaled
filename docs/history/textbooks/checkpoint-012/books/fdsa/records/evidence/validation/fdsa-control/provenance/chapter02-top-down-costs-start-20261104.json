@@ -1,0 +1,19 @@
+{
+  "recorded_utc": "2026-11-04T04:23:25.535727+00:00",
+  "accepted_chapter_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "source_worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+  "branch": "work/fdsa-ch02-top-down-costs",
+  "development_start": "c00558e6d69cdba24475e73c027ce7a003b2dc2a",
+  "parents": [
+    "b1677172ef85e40865fe8f292660c1bcfd6e5a0c",
+    "72a0951aee406f7db67998d2a3bf8810f4e1bccc"
+  ],
+  "scope": "Active Chapter2 top-down comparison execution, exact source recurrence, all-length ceiling-log bound, printed power-of-two and real-log/asymptotic statements, odd-split counterexamples.",
+  "dependency_status": "Top-down values and ordinary merge have focused passes; neither whole Chapter2 nor XM01 has final acceptance. This development merge is not integration/acceptance. Foundation f17cc6b remains unchanged and isolated.",
+  "owned_new_paths": [
+    "Applications/Resources/TopDownSorting.lean",
+    "Examples/TopDownCosts.lean"
+  ],
+  "possible_existing_numeric_bridge_extension": "Applications/Resources/Growth.lean; reuse existing Mathlib ceiling/log/asymptotic APIs, with later consumers in bottom-up and natural sorting.",
+  "build_released": false
+}

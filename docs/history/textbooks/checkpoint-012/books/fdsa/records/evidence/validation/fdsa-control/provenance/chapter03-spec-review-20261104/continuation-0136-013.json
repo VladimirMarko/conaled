@@ -1,0 +1,108 @@
+{
+  "recorded_utc": "2026-11-05T01:25:44.702856+00:00",
+  "reviewer": "/root/chapter03_spec",
+  "outcome": "Blocked pending final actual qualification and full validation",
+  "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "candidate": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "tree": "ecb69c3918715cbe0682028cd8697dfcf3e463f9",
+  "previous_progress": {
+    "path": "provenance/chapter03-spec-review-20261104/continuation-0136-012.json",
+    "bytes": 8276,
+    "sha256": "3eaee3b8ae0dbc028f0820cd6edb9192778d1cb9cff8033f91b94a61df82f643"
+  },
+  "full_preparation_read_tool_chunk": "cd7711",
+  "independent_reconciliation_tool_chunk": "7d0426",
+  "actual_reconciliation_exit": 0,
+  "program": {
+    "path": "provenance/chapter03-final-statement-inputs-20261105/Statements1391-complete.lean",
+    "bytes": 82068,
+    "sha256": "a4671a1d5cd377fcdd0899d7700a3b7b635faeef18b9006bab2cfa3521c2aa2d"
+  },
+  "preparation": {
+    "path": "provenance/chapter03-final-statement-inputs-20261105/preparation.json",
+    "bytes": 22272,
+    "sha256": "8d4431187c0196c73b187f0495941ad75a33fb92d609e125ff7ba409093a1b98"
+  },
+  "prepared_at": "6eb3b18f017cad485371546b5a7ab0d6f13eb604",
+  "all80_source_byte_bindings_equal_preparation_and_final_candidate": true,
+  "groups_in_exact_order": [
+    {
+      "group": "chapter03_prefix",
+      "names": 1321,
+      "first_ordinal": 1,
+      "last_ordinal": 1321
+    },
+    {
+      "group": "count_rank_corrective_client",
+      "names": 1,
+      "first_ordinal": 1322,
+      "last_ordinal": 1322
+    },
+    {
+      "group": "trace",
+      "names": 23,
+      "first_ordinal": 1323,
+      "last_ordinal": 1345
+    },
+    {
+      "group": "universal_worst",
+      "names": 25,
+      "first_ordinal": 1346,
+      "last_ordinal": 1370
+    },
+    {
+      "group": "accepted_shared_XR",
+      "names": 21,
+      "first_ordinal": 1371,
+      "last_ordinal": 1391
+    }
+  ],
+  "unique_names": 1391,
+  "exact_order_matches_retained_independently_assessed_actual_type_indexes_and_corrective_client": true,
+  "ordered_names_LF_sha256": "1a1588699abeb36e9fb99ad238fe480dc42aaea702fc3ad9ed28271212fb04d8",
+  "all_five_original_program_bytes_sha256_and_group_ranges_verified": true,
+  "imports": 80,
+  "imports_exact_original_Q_added_source_paths": true,
+  "source_bindings_verified": 80,
+  "source_sha256_sizes_and_git_blobs_verified": true,
+  "options": [
+    "set_option autoImplicit false",
+    "set_option warningAsError true",
+    "set_option pp.universes true",
+    "set_option pp.explicit true",
+    "set_option pp.fullNames true",
+    "set_option pp.deepTerms true",
+    "set_option pp.proofs true",
+    "set_option pp.maxSteps 1000000",
+    "set_option pp.coercions true",
+    "set_option pp.all true"
+  ],
+  "all_options_before_every_check": true,
+  "unexpected_executable_commands": [],
+  "diagnostic_and_correction": {
+    "failed_parser_tool_chunk": "c35fd7",
+    "actual_exit": 1,
+    "reason": "Read-only parser initially restricted names to ASCII word/dot characters; six valid names contain question marks. No Lean command ran.",
+    "bounded_diagnostic_tool_chunk": "11ccc5",
+    "rejected_actual_names": [
+      "Applications.Selection.partition_equal_getElem?",
+      "Applications.Selection.ordered_getElem?_partition",
+      "Applications.Selection.ordered_getElem?_perm",
+      "Applications.Selection.ordered_getElem?_mem",
+      "Applications.Selection.ordered_getElem?_zero_iff_min",
+      "Applications.Selection.ordered_getElem?_append"
+    ],
+    "corrected_parser": "Every #check has one non-whitespace name token after @; exact names then compared against retained raw-output indexes.",
+    "successful_reconciliation_tool_chunk": "7d0426"
+  },
+  "assessed_preparedness_only": true,
+  "execution_or_actual_type_pass_claimed": false,
+  "live_full_run_outputs_read": false,
+  "new_findings": [],
+  "remaining_gates": [
+    "Root-owned full normal check actual closure, complete audit and matching verification.",
+    "Final1391 type run actual closure, full native output and stable input reconciliation.",
+    "Both independent axes and immediate verification before local integration."
+  ],
+  "no_compiler_source_configuration_or_ref_mutations": true
+}

@@ -1,0 +1,483 @@
+{
+  "scope": "Expected cases saved before new Lean source; finite cases do not establish the universal theorem.",
+  "model_source": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/stage07-endpoints-20261104/expected_case_model.py",
+  "model_sha256": "7edb978daacc882721553f8a5f0a2b094f36b8571988e405e28703be5fdaa2c7",
+  "saved_cases": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/stage07-endpoints-20261104/expected-cases.json",
+  "saved_cases_sha256": "69f3d90737a56bff4719f8c4c208b1f65ea585c8d9e94d72216ac4f9b77506fe",
+  "original719_matrix_rerun": false,
+  "newly_calculated_range_case": "n=4,k=2,value2,trace[(4,0),(3,0),(2,1),(1,0)],W10,T48,mass1/24",
+  "cases": [
+    {
+      "input": [
+        7
+      ],
+      "rank": 0,
+      "outcome": [
+        7,
+        [
+          [
+            1,
+            0
+          ]
+        ],
+        9
+      ],
+      "scan": 1,
+      "complete_atom": "1",
+      "structural_endpoint_trace_expected": true,
+      "all_stage_targets": [
+        7
+      ],
+      "distinct_valid_universal_domain": true
+    },
+    {
+      "input": [
+        1,
+        0
+      ],
+      "rank": 0,
+      "outcome": [
+        0,
+        [
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        19
+      ],
+      "scan": 3,
+      "complete_atom": "1/2",
+      "structural_endpoint_trace_expected": true,
+      "all_stage_targets": [
+        0,
+        0
+      ],
+      "distinct_valid_universal_domain": true
+    },
+    {
+      "input": [
+        1,
+        0
+      ],
+      "rank": 1,
+      "outcome": [
+        1,
+        [
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        21
+      ],
+      "scan": 3,
+      "complete_atom": "1/2",
+      "structural_endpoint_trace_expected": true,
+      "all_stage_targets": [
+        1,
+        1
+      ],
+      "distinct_valid_universal_domain": true
+    },
+    {
+      "input": [
+        3,
+        1,
+        2
+      ],
+      "rank": 0,
+      "outcome": [
+        1,
+        [
+          [
+            3,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        33
+      ],
+      "scan": 6,
+      "complete_atom": "1/6",
+      "structural_endpoint_trace_expected": true,
+      "all_stage_targets": [
+        1,
+        1,
+        1
+      ],
+      "distinct_valid_universal_domain": true
+    },
+    {
+      "input": [
+        3,
+        1,
+        2
+      ],
+      "rank": 1,
+      "outcome": [
+        2,
+        [
+          [
+            3,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        33
+      ],
+      "scan": 6,
+      "complete_atom": "1/6",
+      "structural_endpoint_trace_expected": true,
+      "all_stage_targets": [
+        2,
+        2,
+        2
+      ],
+      "distinct_valid_universal_domain": true
+    },
+    {
+      "input": [
+        3,
+        1,
+        2
+      ],
+      "rank": 2,
+      "outcome": [
+        3,
+        [
+          [
+            3,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        35
+      ],
+      "scan": 6,
+      "complete_atom": "1/6",
+      "structural_endpoint_trace_expected": true,
+      "all_stage_targets": [
+        3,
+        3,
+        3
+      ],
+      "distinct_valid_universal_domain": true
+    },
+    {
+      "input": [
+        4,
+        1,
+        3,
+        2
+      ],
+      "rank": 0,
+      "outcome": [
+        1,
+        [
+          [
+            4,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        50
+      ],
+      "scan": 10,
+      "complete_atom": "1/24",
+      "structural_endpoint_trace_expected": true,
+      "all_stage_targets": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "distinct_valid_universal_domain": true
+    },
+    {
+      "input": [
+        4,
+        1,
+        3,
+        2
+      ],
+      "rank": 3,
+      "outcome": [
+        4,
+        [
+          [
+            4,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        52
+      ],
+      "scan": 10,
+      "complete_atom": "1/24",
+      "structural_endpoint_trace_expected": true,
+      "all_stage_targets": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "distinct_valid_universal_domain": true
+    },
+    {
+      "input": [
+        3,
+        -2,
+        8,
+        0,
+        5
+      ],
+      "rank": 0,
+      "outcome": [
+        -2,
+        [
+          [
+            5,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        73
+      ],
+      "scan": 15,
+      "complete_atom": "1/120",
+      "structural_endpoint_trace_expected": true,
+      "all_stage_targets": [
+        -2,
+        -2,
+        -2,
+        -2,
+        -2
+      ],
+      "distinct_valid_universal_domain": true
+    },
+    {
+      "input": [
+        3,
+        -2,
+        8,
+        0,
+        5
+      ],
+      "rank": 3,
+      "outcome": [
+        5,
+        [
+          [
+            5,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        67
+      ],
+      "scan": 15,
+      "complete_atom": "1/120",
+      "structural_endpoint_trace_expected": true,
+      "all_stage_targets": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "distinct_valid_universal_domain": true
+    },
+    {
+      "input": [
+        4,
+        4,
+        4
+      ],
+      "rank": 1,
+      "outcome": [
+        4,
+        [
+          [
+            3,
+            0
+          ]
+        ],
+        15
+      ],
+      "scan": 3,
+      "complete_atom": "1/3",
+      "structural_endpoint_trace_expected": false,
+      "all_stage_targets": [
+        4
+      ],
+      "distinct_valid_universal_domain": false
+    },
+    {
+      "input": [],
+      "rank": 0,
+      "outcome": [
+        null,
+        [],
+        2
+      ],
+      "scan": 0,
+      "complete_atom": "1",
+      "structural_endpoint_trace_expected": false,
+      "all_stage_targets": [],
+      "distinct_valid_universal_domain": false
+    },
+    {
+      "input": [
+        7
+      ],
+      "rank": 1,
+      "outcome": [
+        null,
+        [
+          [
+            1,
+            0
+          ]
+        ],
+        11
+      ],
+      "scan": 1,
+      "complete_atom": "1",
+      "structural_endpoint_trace_expected": false,
+      "all_stage_targets": [],
+      "distinct_valid_universal_domain": false
+    },
+    {
+      "input": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rank": 2,
+      "outcome": [
+        2,
+        [
+          [
+            4,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        48
+      ],
+      "scan": 10,
+      "complete_atom": "1/24",
+      "structural_endpoint_trace_expected": true,
+      "all_stage_targets": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "distinct_valid_universal_domain": true
+    }
+  ],
+  "universal_expected_claim": "Every arbitrary distinct input and every valid worker rank admits the actual specified endpoint trace to singleton, exact trace probability1/n!, W=n(n+1)/2, and W<=T<=9W+2.",
+  "range_family_expected_claim": "For every Nat n>0 and every k<n, the actual range(n) execution has a positive-mass endpoint witness satisfying n*n<=2*T and T<=11*n*n. Choosing n=B+1 gives unbounded sizes, with all valid k retained.",
+  "boundary_notes": [
+    "The purely structural predicate contains no desired mass, work bound or assumed target equation; target preservation is derived from actual step semantics.",
+    "Empty and invalid inputs retain the total actual run, but cannot end this endpoint path at a valid singleton.",
+    "The valid three-equal case terminates at size3, so it is not the specified singleton-ending worst path; W3 and first trace mass1/3 remain unchanged.",
+    "T is the actual source observation, not assigned triangular W; the range4 case has T48 while W10.",
+    "The projected trace atom will use the checked on-support trace-to-outcome uniqueness theorem; a full atom alone is insufficient."
+  ]
+}

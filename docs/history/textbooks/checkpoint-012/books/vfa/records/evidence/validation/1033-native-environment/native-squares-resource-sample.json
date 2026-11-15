@@ -1,0 +1,25 @@
+{
+  "recorded_utc": "2026-11-03T16:20:09.352864+00:00",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/tooling/pinned_native_toolchain.py",
+    "--",
+    "lean",
+    "-o",
+    "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1033-native-smoke/Squares-isolated.olean",
+    "Squares.lean"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "",
+  "elapsed_seconds": 136.82263696500013,
+  "child_user_cpu_seconds": 2.987215,
+  "child_system_cpu_seconds": 35.04292,
+  "child_maxrss_KiB": 844264,
+  "child_major_faults": 144730,
+  "child_minor_faults": 116378,
+  "child_in_blocks": 71899496,
+  "output_sha256": "133589a2adff7fcb278b1bc79fd1fd8f2bcf9315cfae28d6d801a5efa099ac4c",
+  "context": "After QEMU tool session returned130 on requested interruption; its recorder did not flush a terminal run record. No successful full validation claimed."
+}

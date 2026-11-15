@@ -1,0 +1,343 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "recorded_utc": "2026-11-04T17:03:34.882779+00:00",
+  "status": "Complete original-scope Standards receiving-source assessment; zero new concrete findings; overall Blocked pending receiving validation",
+  "original_base_R": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "accepted_integration_base_L": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "historical_source_Z": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "tree": "fe0bd9f17a5e1a09797be55fd79491e8c363cbd0",
+  "ordered_parents": [
+    "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+    "4b5dbfa07288acc73f25c27838d3fb2f78e77d71"
+  ],
+  "scope": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "Lean_paths": 72,
+    "declaration_bearing_Lean_paths": 71,
+    "public_root_paths": 1,
+    "document_paths": 9,
+    "public_names": 1763,
+    "private_named_declarations": 70,
+    "anonymous_instances": 19,
+    "no_scope_reset": true
+  },
+  "source_reconciliation": {
+    "actual_tool": "59dcf1",
+    "actual_exit": 0,
+    "all81_original_scope_paths_retained": true,
+    "all71_defining_and97_relevant_source_blobs_exact_Z": true,
+    "all1763_explicit_name_source_kind_rows_preserved": true,
+    "private_named": 70,
+    "anonymous_instances": 19,
+    "original_full_source_analysis_retention": {
+      "own69_complete_source_rows_all_match_Z": true,
+      "remaining12_full_scope_paths_exact_retained_original_Foundation_XM01_XD01_analysis": [
+        "Applications/Resources/InsertionSort.lean",
+        "Applications/Resources/ListCalls.lean",
+        "Applications/Resources/ListMerge.lean",
+        "Applications/Sorting/Merge.lean",
+        "Examples/FunctionalNotation.lean",
+        "Examples/InsertionCosts.lean",
+        "Examples/ListCalls.lean",
+        "Examples/ListLibrary.lean",
+        "Examples/MergeCosts.lean",
+        "docs/research/fdsa-difference-list-costs.md",
+        "docs/research/fdsa-list-merge.md",
+        "docs/research/fdsa-notation-map.md"
+      ],
+      "six_current_notes_exact_accepted_L_with_later_final_assessments_retained": [
+        "docs/research/fdsa-list-merge.md",
+        "docs/research/fdsa-difference-list-costs.md",
+        "docs/research/fdsa-three-way-partition.md",
+        "docs/research/fdsa-permutation-minimum.md",
+        "docs/research/fdsa-permutation-order.md",
+        "docs/research/fdsa-permutation-tail.md"
+      ],
+      "unchanged_source_reread_claimed": false,
+      "all_original_semantics_and_findings_retained": true
+    },
+    "whole_source_not_replaced_by_selected_type_counts": true
+  },
+  "history_and_author_package": {
+    "actual_tool": "1b747c",
+    "actual_exit": 0,
+    "payloads": 35,
+    "bound_inputs": 68,
+    "prior_refs_preserved": 66,
+    "new_ref_only": true,
+    "actual_seven_common_bases": [
+      "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "bdac9703aab4b383fa775568d36bf685af329389",
+      "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+      "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+      "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "f17cc6b1a2bf44215b16202ed0fcee2b5c130761"
+    ],
+    "original_and_component_ancestry_retained": true,
+    "actual_ordinary_merge_exit": 1,
+    "actual_conflicts": [
+      "SquareApplications.lean",
+      "docs/research/fdsa-reconstruction-map.md"
+    ],
+    "all6_stage_payloads_verified": true,
+    "actual_final_commit_exit": 0,
+    "other14_saved_worktree_HEAD_branch_records_unchanged": true,
+    "accepted_book_still_L": true,
+    "tracked_path_preservation": {
+      "existing_L_paths": 1610,
+      "unchanged_L_paths": 1607,
+      "outside_original81_scope_L_paths": 1576,
+      "all_outside_scope_preserved": true
+    }
+  },
+  "documentary_assessment": {
+    "root": {
+      "exact_L_prefix_plus23_recipe": true,
+      "same_Z_import_set": true,
+      "ProofAudit_unchanged": true,
+      "static_public_modules": 1028,
+      "static_checker_modules": 1029,
+      "unchanged_excluded_Lean_files": 56,
+      "counts_are_source_graph_only_not_actual_checked_modules": true
+    },
+    "all6_notes_exact_accepted_L": true,
+    "notation_note_exact_retained_source": true,
+    "sorting_note": {
+      "only_exact_opening_replaced": true,
+      "all112_rows_byte_identical_Z": true,
+      "table_rows_sha256": "63e542b18e496734504276fefbdbdcfcabbb910d73578b3cca9fd073739df958",
+      "all_remaining_math_citations_lineage_and_gate_bytes_exact_Z": true
+    },
+    "all60_alias_defining_source_blobs_and448_references_exact_Z": true,
+    "all9_exact_map_replacements_reproduce_entire_map": true,
+    "nonC2_rows_and_all_other_map_bytes_exact_L": true,
+    "C2_full_math_section_only_accepted_history_sentence_adjusted": true,
+    "no_false_receiver_acceptance_or_narrowed_later_obligation": true
+  },
+  "Standards_source_conclusions": [
+    "All original universal statement, assumption, example and proof-body assessments remain at exact source identity; no mathematical weakening.",
+    "Canonical ordinary data interfaces and reusable domain boundaries remain, including comparator-generic versus keyed order/stability assumptions.",
+    "Full occurrences, tie orientation, arbitrary suffix/builders and consequential odd/ragged/unstable/missing-hypothesis cases remain.",
+    "Measured composition follows actual children and keeps comparisons, entry counts, append charges and declared closure/scanner work separate.",
+    "Global-permutation and fresh-occurrence-pivot experiments remain distinct with actual integrability/conditional transport/rank/mean proofs and duplicate/logarithm boundaries.",
+    "Growth extends the imported environment; all72MergeCosts names retain that receiving-evidence issue despite exact defining source."
+  ],
+  "finding_dispositions": {
+    "C02-DOC-001": "Source confirmed at current receiver:23imports only in public root;ProofAudit unchanged.",
+    "C02-DOC-002": "Source confirmed:actualZ historical development boundary and accepted prerequisite history, no false receiving validation.",
+    "C02-DOC-003": "Source confirmed for complete six-note application at current receiver; prior per-unit final dispositions retained.",
+    "C02-TYPE-001": "HistoricalZ and accepted predecessor dispositions retained; complete receiving type qualification remains open.",
+    "SH4-HIST-001": "Original shared-four finding and resolvedI history retained; current ordinaryL/Z ancestry independently confirmed.",
+    "all_other_original_source_compiler_findings": "Retained with exact successor/source/terminal histories; no source reset or inference of current compilation."
+  },
+  "new_findings": [],
+  "current_receiver_type_full_audit_credit": 0,
+  "remaining_gates": [
+    "Applicable guarded full candidate check and exhaustive kernel/permitted-axiom audit with complete actual closed logs and matching verification.",
+    "Both continuing axes assess exact receiving input/producer evidence and any justified targeted actual remainder under full scope.",
+    "Both final independent outcomes, immediate qualified candidate verification, exact accepted fast-forward and durable checkpoint beforeC3."
+  ],
+  "reviewer_method_boundaries": {
+    "preserved_failed_tool": "269f07",
+    "actual_exit": 1,
+    "schema": "saved staged diff-check field is actual_exit, not exit; real value0 unchanged",
+    "alias_preflight": "38whole code spans were incomplete navigation; corrected token reconstruction reproduces all448 exact references and their recorded hash",
+    "correction_record": "author-reconciliation-method-boundary.json",
+    "author_source_program_or_evidence_bytes_modified": false
+  },
+  "human_read_boundaries": [
+    {
+      "tool": "b06b19",
+      "scope": "complete189line frozen Chapter2requirements; retained source coverage metadata"
+    },
+    {
+      "tool": "99caae",
+      "scope": "complete153line active-scope history"
+    },
+    {
+      "tool": "e5b622",
+      "scope": "complete185line held integration readiness"
+    },
+    {
+      "tool": "65750b",
+      "scope": "complete immutableZ\u2192receiverroot/map/sortingdocdiff"
+    },
+    {
+      "tool": "6986af",
+      "scope": "complete immutableL\u2192receiverGrowth/root/mapdiff"
+    },
+    {
+      "tool": "748081",
+      "scope": "complete81line final authorhandoff"
+    },
+    {
+      "tool": "9db33a",
+      "scope": "complete259line authorreceipt"
+    },
+    {
+      "tool": "d91933",
+      "scope": "complete actualswitch/merge/add/commitstart/resultrecords"
+    },
+    {
+      "tool": "1bd993",
+      "scope": "complete113line merge-state and275line resolution-plan includingallnine exact replacements"
+    },
+    {
+      "tool": "9476bc",
+      "scope": "round1current/finalpredecessor sections andallten frozen sharedrequirement identities"
+    }
+  ],
+  "large_derived_arrays": "Mechanically reconstructed and hash-bound, not claimed fresh whole-line human semantic reading. Truncated earlier navigation displays have no complete-file credit.",
+  "inputs": [
+    {
+      "path": "reviews/chapter02-standards-source-preparation-20261104.md",
+      "bytes": 104381,
+      "lines": 421,
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/read-ledger.json",
+      "bytes": 70213,
+      "lines": 1558,
+      "sha256": "f1700e05066e097d87a37399256e7ffe2709e118575f41a022ab0ffa2d95b4ae"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+      "bytes": 23539,
+      "lines": 472,
+      "sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510"
+    },
+    {
+      "path": "reviews/chapter02-standards-statement-readiness-20261104.md",
+      "bytes": 14199,
+      "lines": 70,
+      "sha256": "3207c2b72c68ff1d5bed3c94f9d0d08c7b0f64aa5e88da7013134ae1fa578d2f"
+    },
+    {
+      "path": "provenance/chapter02-standards-statement-readiness-20261104/completion.json",
+      "bytes": 2754,
+      "lines": 67,
+      "sha256": "04b254a8ccb38b387949c57654695a51612e551abeb71fa6747f047a2b246702"
+    },
+    {
+      "path": "reviews/chapter02-requirements.md",
+      "bytes": 12034,
+      "lines": 189,
+      "sha256": "f0c9bc939fbfb6da02c1734b121456c35fd6b4c9ee43f1284003d0b8db087a36"
+    },
+    {
+      "path": "reviews/chapter02-active-scope.md",
+      "bytes": 9823,
+      "lines": 153,
+      "sha256": "07bf70884d0076b64dd29642165cbcc267e1f4b33da5e00ac25e7da919a86a6b"
+    },
+    {
+      "path": "research/chapter02-obligations.md",
+      "bytes": 42539,
+      "lines": 391,
+      "sha256": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2"
+    },
+    {
+      "path": "research/coverage-scope-audit.md",
+      "bytes": 31626,
+      "lines": 350,
+      "sha256": "2ee191f35850404e0236dfe326581839d67396e52f37c05970d7a0553a12a69b"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/handoff.md",
+      "bytes": 14249,
+      "lines": 81,
+      "sha256": "583cc9b4cf1f3f00afe9ca9005099b9cf082108a8a39e4fea14476f1a2111d2d"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/receipt.json",
+      "bytes": 8132,
+      "lines": 259,
+      "sha256": "62db6b03f9da7a190115e1f595153f00550dd65051b04eae8777c7794000b7b3"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/result.json",
+      "bytes": 108380,
+      "lines": 2727,
+      "sha256": "a0642a45b8580bdb9f0427bbe04c996ff6bc39058fd955117f33613178507f0d"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/baseline.json",
+      "bytes": 45004,
+      "lines": 1144,
+      "sha256": "7c85ca73c6f8d481425f394437908de1208f90c93ea2e9c07a2ce3305b0dcf7d"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/bound-inputs.json",
+      "bytes": 16203,
+      "lines": 446,
+      "sha256": "ab4de201566163067aa2ae6e703a2e279319ee6218d86fe273eb8b6cf6bf13de"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/merge-state.json",
+      "bytes": 6453,
+      "lines": 113,
+      "sha256": "1242e4c70e7207f9157fa4b3e80e8877af9f7b4efe6b56fe17c1f5668e915834"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/resolution-plan.json",
+      "bytes": 17322,
+      "lines": 275,
+      "sha256": "3fae1c1287891e64ecc8c4bcac1b58d8bb1971fb12ae159b963632fd0bc29758"
+    },
+    {
+      "path": "provenance/shared-chapter02-source-integration-20261104/author-readback.json",
+      "bytes": 9959,
+      "lines": 334,
+      "sha256": "a58b2a2afbd549335a272575166a55d06217a748cf6a0456fcea50be18d3e616"
+    },
+    {
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/reconcile_source.py",
+      "bytes": 11506,
+      "lines": 123,
+      "sha256": "92fe57212a1ace79c7c8c2d74619a2e1af5a9467d24dba104a1ba5df8cb5ea04"
+    },
+    {
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/independent-source-reconciliation.json",
+      "bytes": 41642,
+      "lines": 1034,
+      "sha256": "45beb6365e86ca9b507cc3bcf8633dcae37807d351de7288be363c89d55f000e"
+    },
+    {
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/reconcile_author_package.py",
+      "bytes": 8643,
+      "lines": 76,
+      "sha256": "ff11830b5ea8cfc6a3a2b17c79c6f2e406fd4bb21cd8395a7f292de9436588c9"
+    },
+    {
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/author-reconciliation-method-boundary.json",
+      "bytes": 1318,
+      "lines": 33,
+      "sha256": "6363068d6b971722463afa44a02be24ee29e8ed16ce159c4a065f5cd9d6fbd81"
+    },
+    {
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/reconcile_author_package_correction1.py",
+      "bytes": 8683,
+      "lines": 76,
+      "sha256": "ed8eb2e398b7471b1581592e2c6448a952bf2af4aacb4881b96fdb405041d837"
+    },
+    {
+      "path": "provenance/shared-chapter02-standards-source-continuation-20261104/independent-author-package-reconciliation-correction1.json",
+      "bytes": 4683,
+      "lines": 120,
+      "sha256": "ad0b35ef7b5448d8aff908956d97ad1f115059ac77ba8d12891b91ff81528f90"
+    }
+  ],
+  "report": {
+    "path": "reviews/chapter02-standards-receiving-source-continuation-20261104.md",
+    "bytes": 15610,
+    "lines": 69,
+    "sha256": "5477a580ece8c2129152a6996e29328ceef88a3f26dfc94fd8cbf12351723b5d"
+  },
+  "reviewer_actions": "Only new own review/provenance writes and read-only immutableGit/saved-evidence inspection; no compiler/cache/process/source/ref/global-control change or runtime/output capture.",
+  "saved_file_readback": "Pending separate completion/readback/hold receipt."
+}

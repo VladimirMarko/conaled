@@ -1,0 +1,69 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "recorded_utc": "2026-11-04T17:27:16.769158+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "disposition": "Adequate method for root-owned observation and mechanical comparison; no unresolved method finding; no receiving type qualification, selected remainder or final approval.",
+  "report": {
+    "path": "provenance/chapter02-standards-receiving-final-20261104/receiving-method-disposition.md",
+    "bytes": 8713,
+    "lines": 39,
+    "sha256": "17aa9bdb508b4c379c239781e1bd2d2007b9e4443375c3b19ab25fb980e42b83"
+  },
+  "independent_reconstruction": {
+    "path": "provenance/chapter02-standards-receiving-final-20261104/receiving-method-independent-reconciliation.json",
+    "bytes": 14465,
+    "lines": 535,
+    "sha256": "220c715e8d26cce8ec0a6a1a6975a942e5b242ef2b3f0d9ff6f5a4404801d6c2"
+  },
+  "finding": {
+    "id": "C02-PREP-OPT-001",
+    "status": "Resolved by separately preserved clarification; programs and all profiles unchanged.",
+    "correction": {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/prose-correction-C02-PREP-OPT-001.md",
+      "bytes": 1824,
+      "lines": 9,
+      "sha256": "f23b09ce5b5fd5b43660ec522bc26071ee5226edb0080199a633f78c55b6eeda"
+    },
+    "correction_receipt": {
+      "path": "provenance/chapter02-receiving-type-qualification-preparation-20261104/prose-correction-C02-PREP-OPT-001.json",
+      "bytes": 3728,
+      "lines": 93,
+      "sha256": "e18c7a10a923667e9aafba47d9d29b1d578aa745088236a716363130d3883d52"
+    }
+  },
+  "saved_reconstruction_full_read_ranges": [
+    {
+      "lines": [
+        1,
+        270
+      ],
+      "bytes": 7143,
+      "sha256": "4f0bfcc3b823d3309f612b31b6f9ded5d1e67f16af2dfa8b9b750d2793e07ee8",
+      "actual_chunk": "477d49"
+    },
+    {
+      "lines": [
+        271,
+        535
+      ],
+      "bytes": 7322,
+      "sha256": "72d86053970c04034a124b36faadbe24cf9a3a6c01d310dd1a4d74cffd4dbd26",
+      "actual_chunk": "4b3677"
+    }
+  ],
+  "complete_method_source_reads": {
+    "plan": "5ca895 (all114 lines)",
+    "helper": "b86795 and8cec53 (all274 lines)",
+    "carrier": "9cfe8f (all79 lines)",
+    "receipt": "4b60c7 (all105 lines)",
+    "separate_correction": "d06238 (all9+93 lines)"
+  },
+  "mechanical_reconciliation_actual_chunk": "8f9f33",
+  "mechanical_reconciliation_actual_exit": 0,
+  "all144_saved_fingerprints_and17_actual_profiles_reconciled": true,
+  "report_creation_readback": "153bea; final report and this receipt are read back together before handoff.",
+  "method_files_hold": "These completed method files held unchanged after final readback; separate full-terminal/receiving-evidence work continues.",
+  "receiving_type_credit": 0,
+  "actual_selected_remainder": null,
+  "no_compiler_capture_runtime_output_source_ref_or_global_control_actions": true
+}

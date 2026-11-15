@@ -1,0 +1,14 @@
+{
+  "recorded_utc": "2026-11-03T01:45:40.388408+00:00",
+  "original_path": "research/logarithm-bounds-source-preflight.md",
+  "original_bytes": 30315,
+  "original_sha256": "2fb3d6fbe19b5a3954df573efd7ecf8f823041d486725e118c56107eee74f6ed",
+  "preserved_copy": "provenance/logarithm-bounds-source-preflight-before-namespace-correction.md",
+  "finding": "The optional concavity alternative is root-namespace strictConcaveOn_log_Ioi, not Real.strictConcaveOn_log_Ioi. Root verified the namespace context and exact theorem at pinned Mathlib Analysis/Convex/SpecificFunctions/Basic.lean lines35\u201366. The selected direct polynomial/logb proof route is unaffected.",
+  "requested_correction": "Correct the single theorem reference, fully reread the final report and stop. No scope, source, inventory, compiler or cache change.",
+  "corrected_utc": "2026-11-03T01:46:16.415269+00:00",
+  "corrected_bytes": 30310,
+  "corrected_lines": 427,
+  "corrected_sha256": "f7891e3ccbe07e56499f36c52d2024246758ff6a127cdf9b576f7445e5e4ae73",
+  "root_check": "Exact replacement of the one incorrect namespace and no other byte change; original full report and entire corrected line read. This resolves the report citation only, not any formal/book acceptance finding."
+}

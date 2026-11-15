@@ -1,0 +1,13 @@
+{
+  "candidate": "a3feaff319ad5fad912fb8bdc113f33fea4e2a60",
+  "purpose": "Resolve concrete downstream import risk from Mathlib.Tactic to Mathlib.Tactic.Common in Progress.Evaluation.",
+  "targets": [
+    "Applications.Progress.Examples",
+    "Applications.Probability.HeavyTail"
+  ],
+  "result": "Both requested existing consumers and their relevant local prerequisites compiled with unchanged inputs. No source correction was needed. Focused development evidence only; exact full candidate gate remains pending.",
+  "record": "validation/suspension-existing-consumers-r1.json",
+  "log": "validation/suspension-existing-consumers-r1.log",
+  "closed_session": 6017,
+  "acceptance": false
+}

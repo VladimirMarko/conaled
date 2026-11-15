@@ -1,0 +1,22 @@
+{
+  "kind": "bounded_primary_source_research",
+  "recorded_utc_date": "2026-11-02",
+  "researcher": "/root/environment",
+  "compiler_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+  "question": "Is there a supported runtime/import-loading option that materially reduces mapped-import residency or paging without weakening checking or artifact integrity?",
+  "reported_result": "No applicable supported setting found in the inspected pinned sources; no active-run change recommended. This is not an exhaustive proof that no optimization exists and establishes no measured performance benefit.",
+  "source_findings": [
+    "The mmap-enabled loader privately maps compacted regions at their saved addresses; its fallback allocates a buffer and reads the artifact, which is not established as a lower-memory strategy.",
+    "MMAP/LEAN_MMAP are build-time controls in the inspected CMake/C++ source, not a verified runtime LEAN_MMAP=0 setting.",
+    "-M/--memory/max_memory imposes a periodically checked failure threshold; it does not evict imports or trim mapped regions. Ordinary Linux checks use process RSS; jemalloc uses allocator statistics.",
+    "ImportArtifacts.oleanParts is part of the existing artifact/import semantics, not a separate residency budget.",
+    "Elab.async affects scheduling; the inspected sources establish no material import-paging benefit.",
+    "Environment.freeRegions and withImportModules are lifecycle APIs for custom programs with reference-lifetime restrictions, not ordinary compiler switches.",
+    "The normal frontend retains its imported environment for process lifetime; forcing smaller import levels for legacy sources would change import semantics."
+  ],
+  "primary_source_base": "https://github.com/leanprover/lean4/blob/eb6cafb7290e8bd5f2937522d8d804f58f02bafc/",
+  "primary_source_paths": ["src/library/module.cpp", "src/CMakeLists.txt", "src/runtime/memory.cpp", "src/Lean/Shell.lean", "src/Lean/Setup.lean", "src/Lean/Environment.lean", "src/Lean/CoreM.lean", "src/Lean/Elab/Frontend.lean", "src/Lean/Language/Lean.lean", "src/Lean/Elab/Import.lean"],
+  "loader_source_identity_reported": {"bytes": 29699, "sha256": "9b85a9a7610e73f240282fe288ad81c8b160fc975caa80bd5b13ddacdd6012a8"},
+  "method": "Installed Lean-side sources plus a few exact-commit public C++ files read in memory; no current-process/active-output inspection, compiler/test launch, files written by researcher, configuration change, toolchain fetch, or alteration of the fresh run.",
+  "root_disposition": "Retain current run and settings. No restart or validation-policy change follows from this report."
+}

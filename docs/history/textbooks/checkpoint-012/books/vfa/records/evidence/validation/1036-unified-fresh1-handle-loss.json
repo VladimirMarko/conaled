@@ -1,0 +1,53 @@
+{
+  "recorded_utc": "2026-11-04T01:21:05.489530+00:00",
+  "candidate": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+  "attempt": "validation/1002-candidate-c988f18-unified-fresh1",
+  "owned_tool_session_id": 37101,
+  "last_successful_owned_poll_utc": "2026-11-04T01:15:27.474656+00:00",
+  "next_poll_error": "write_stdin failed: Unknown process id 37101",
+  "actual_terminal_exit_code": null,
+  "actual_terminal_status": "unavailable",
+  "last_recorder_heartbeat": {
+    "schema": 1,
+    "recorded_utc": "2026-11-04T01:15:31.250798+00:00",
+    "sequence": 214,
+    "elapsed_seconds": 6390.063479127999,
+    "child_poll_returncode": null
+  },
+  "last_completed_module": [
+    "496",
+    "SquareKit.SmoothOpenOperations",
+    "382.01"
+  ],
+  "compiled_module_count": 496,
+  "native_verification_record_exists": false,
+  "kit_terminal_result_exists": false,
+  "raw_run_record_unchanged": {
+    "schema": 1,
+    "state": "running",
+    "started_utc": "2026-11-03T23:29:01.187276+00:00",
+    "recorder_pid": 2,
+    "child": {
+      "pid": 4,
+      "process_group": 4,
+      "session": 4
+    },
+    "child_returncode": null,
+    "child_status": "unreaped",
+    "recorder_outcome": null,
+    "recorder_exit_code": null,
+    "interrupt_signal": null,
+    "descendant_quiescence_verified": false,
+    "errors": [],
+    "cleanup": null
+  },
+  "process_quiescence_established": false,
+  "raw_pids_signaled": false,
+  "assessment": "Incomplete. There is no attributable complete fresh verification record or exhaustive audit success. No acceptance credit. The cause and actual terminal status are unknown; do not label it an observed exit, OOM, timeout, or ENOSPC failure.",
+  "continuation": "Use a new isolated detached worktree and a new full fresh attempt through the already accepted unchanged native-j1 helper. The supplied kit remains provisioning source. Old partial outputs and records are not reused or rewritten.",
+  "raw_evidence_sha256": {
+    "run.json": "37d22cfdbabe3f5816209d1167ba9615bb32579c4c3191428097186c906928b7",
+    "heartbeat.log": "9deb530edd17577f8ba1e33483bc2526fbe0cbfce9d08aa679c7f666e96699e6",
+    "child.log": "7bbaa5e20fe0986cd62ca4bb1f01bbe893466ff43fe76d2c3774499892cbf68f"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "candidate": "822cb7adeed4943acaf10454e9facfc2e3ee8ceb",
+  "base": "76d77a107deb37c30e0b061c30b03a3f8c6aa12c",
+  "finished_at": "2026-11-03T15:08:55.137894+00:00",
+  "prior_aggregate": "session/validation/direct-toolchain-candidate-validation-r2-041.json",
+  "prior_aggregate_sha256": "d65acb992ea7ef25660873c88be52efad91477150e456150b0467fb5da329fc4",
+  "prior_aggregate_passed": false,
+  "all_actual_test_commands_passed": true,
+  "snapshot_and_delivered_sources_match": true,
+  "snapshot_status": "",
+  "index_was_absent": true,
+  "index_repaired_from_exact_head": true,
+  "source_files_modified": false,
+  "explanation": "Root mistakenly retained the temporary snapshot GIT_INDEX_FILE environment while creating the review worktree. Its own index was absent; all files were present and all three actual test commands passed. Only the isolated review worktree index was recreated with git read-tree HEAD. Existing runtime evidence is reused because source content and all relevant actual test inputs are unchanged; the original failed aggregate is retained.",
+  "passed": true,
+  "scope": "operational artifact validation only; no formal candidate acceptance"
+}

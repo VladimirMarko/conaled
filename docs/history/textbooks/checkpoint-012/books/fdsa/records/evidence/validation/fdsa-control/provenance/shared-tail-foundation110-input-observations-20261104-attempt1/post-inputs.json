@@ -1,0 +1,845 @@
+{
+  "observed_utc": "2026-11-04T16:27:04.059937+00:00",
+  "identity": {
+    "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+    "clean": true,
+    "project": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review",
+    "program": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+      "bytes": 7518,
+      "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4",
+      "names": [
+        "Resources.InsertionSort.insertRun",
+        "Resources.InsertionSort.insertRun_value",
+        "Resources.InsertionSort.insertRun_cost_bounds",
+        "Resources.InsertionSort.insertRun_cost_of_head",
+        "Resources.InsertionSort.insertRun_cost_of_all",
+        "Resources.InsertionSort.insertRun_cost_of_all_not",
+        "Resources.InsertionSort.sortRun",
+        "Resources.InsertionSort.sortRun_value",
+        "Resources.InsertionSort.sortRun_length",
+        "Resources.InsertionSort.sortRun_cons_cost",
+        "Resources.InsertionSort.sortRun_cost_lower",
+        "Resources.InsertionSort.sortRun_double_cost_le",
+        "Resources.InsertionSort.sortRun_cost_le",
+        "Resources.InsertionSort.sortRun_quadratic",
+        "Resources.InsertionSort.sortRun_cost_of_pairwise",
+        "Resources.InsertionSort.sortRun_double_cost_of_opposite",
+        "Resources.InsertionSort.reverse_range_opposite",
+        "Resources.InsertionSort.sortRun_cost_reverse_range",
+        "Resources.InsertionSort.sortRun_stable",
+        "Resources.ListCalls.mapRun",
+        "Resources.ListCalls.mapRun_nil",
+        "Resources.ListCalls.mapRun_cons",
+        "Resources.ListCalls.mapRun_value",
+        "Resources.ListCalls.mapRun_cost",
+        "Resources.ListCalls.mapRun_exact",
+        "Resources.ListCalls.mapRun_cost_of_constant",
+        "Resources.ListCalls.filterRun",
+        "Resources.ListCalls.filterRun_nil",
+        "Resources.ListCalls.filterRun_cons",
+        "Resources.ListCalls.filterRun_value",
+        "Resources.ListCalls.filterRun_cost",
+        "Resources.ListCalls.filterRun_exact",
+        "Resources.ListCalls.filterRun_cost_eq_mapRun",
+        "Resources.ListCalls.filterRun_cost_of_constant",
+        "Resources.ListCalls.takeRun",
+        "Resources.ListCalls.dropRun",
+        "Resources.ListCalls.takeRun_nil",
+        "Resources.ListCalls.takeRun_zero",
+        "Resources.ListCalls.takeRun_succ_cons",
+        "Resources.ListCalls.dropRun_nil",
+        "Resources.ListCalls.dropRun_zero",
+        "Resources.ListCalls.dropRun_succ_cons",
+        "Resources.ListCalls.takeRun_exact",
+        "Resources.ListCalls.dropRun_exact",
+        "Resources.ListCalls.take_drop_separate",
+        "Resources.ListCalls.lookupRun",
+        "Resources.ListCalls.lookupRun_nil",
+        "Resources.ListCalls.lookupRun_zero_cons",
+        "Resources.ListCalls.lookupRun_succ_cons",
+        "Resources.ListCalls.lookupRun_value",
+        "Resources.ListCalls.lookupRun_cost",
+        "Resources.ListCalls.lookupRun_cost_of_lt",
+        "Resources.ListCalls.lookupRun_valid",
+        "Examples.FunctionalNotation.composition_and_eta",
+        "Examples.FunctionalNotation.boolean_truth",
+        "Examples.FunctionalNotation.comprehension_order_and_repetition",
+        "Examples.FunctionalNotation.set_union_intersection",
+        "Examples.FunctionalNotation.proper_subset",
+        "Examples.FunctionalNotation.direct_image",
+        "Examples.FunctionalNotation.restricted_comprehension",
+        "Examples.FunctionalNotation.two_variable_comprehension",
+        "Examples.FunctionalNotation.indexed_union",
+        "Examples.FunctionalNotation.set_of_sets_observations",
+        "Examples.FunctionalNotation.bounded_quantifiers",
+        "Examples.FunctionalNotation.product_membership",
+        "Examples.FunctionalNotation.all_interval_memberships",
+        "Examples.FunctionalNotation.upper_interval_correction",
+        "Examples.FunctionalNotation.floor_division_nonnegative",
+        "Examples.FunctionalNotation.negative_divisor_distinguishes",
+        "Examples.FunctionalNotation.floor_division_zero",
+        "Examples.FunctionalNotation.typed_arithmetic",
+        "Examples.FunctionalNotation.floor_and_ceiling",
+        "Examples.FunctionalNotation.submultiset_is_not_support_subset",
+        "Examples.FunctionalNotation.repeated_sum_and_product",
+        "Examples.FunctionalNotation.closed_interval_fold",
+        "Examples.FunctionalNotation.finiteIndexProduct",
+        "Examples.FunctionalNotation.finiteIndexProduct_of_finite",
+        "Examples.FunctionalNotation.finiteIndexProduct_of_infinite",
+        "Examples.FunctionalNotation.finiteIndexProduct_of_finset",
+        "Examples.FunctionalNotation.finite_index_values",
+        "Examples.FunctionalNotation.infinite_index_values",
+        "Examples.FunctionalNotation.empty_index_type",
+        "Examples.FunctionalNotation.ordered_list_folds",
+        "Examples.InsertionCosts.empty_cost",
+        "Examples.InsertionCosts.singleton_cost",
+        "Examples.InsertionCosts.sorted_with_duplicates",
+        "Examples.InsertionCosts.descending_worst",
+        "Examples.InsertionCosts.best_is_global",
+        "Examples.InsertionCosts.worst_is_global",
+        "Examples.InsertionCosts.source_quadratic",
+        "Examples.InsertionCosts.immediate_insertion",
+        "Examples.InsertionCosts.full_traversal",
+        "Examples.InsertionCosts.tied_head_ignores_tail",
+        "Examples.InsertionCosts.key_contract",
+        "Examples.InsertionCosts.key_tie_observation",
+        "Examples.InsertionCosts.sorted_result_has_rank",
+        "Examples.InsertionCosts.repeated_value_rank",
+        "Examples.InsertionCosts.small_sort_budget",
+        "Examples.InsertionCosts.small_rank_with_sort_budget",
+        "Examples.ListCalls.duplicate_map",
+        "Examples.ListCalls.discarded_last",
+        "Examples.ListCalls.discarded_head",
+        "Examples.ListCalls.zero_and_unit_callbacks",
+        "Examples.ListCalls.discarded_values_still_pay",
+        "Examples.ListCalls.map_then_length",
+        "Examples.ListCalls.composed_callback_count",
+        "Examples.ListCalls.append_then_length",
+        "Examples.ListCalls.valid_lookup",
+        "Examples.ListCalls.first_invalid_lookup",
+        "Examples.ListCalls.farther_invalid_lookup",
+        "Examples.ListCalls.empty_payload_lookup",
+        "Examples.ListCalls.take_drop_values",
+        "Examples.ListCalls.separate_vs_fused",
+        "Examples.ListCalls.zero_and_overlarge",
+        "Examples.ListCalls.empty_payload_split",
+        "Examples.ListLibrary.empty_membership_set",
+        "Examples.ListLibrary.cons_membership_set",
+        "Examples.ListLibrary.dropLast_cons_equation",
+        "Examples.ListLibrary.range_succ_equation",
+        "Examples.ListLibrary.range_zero_equation",
+        "Examples.ListLibrary.range_boundaries",
+        "Examples.ListLibrary.range_membership",
+        "Examples.ListLibrary.head_valid",
+        "Examples.ListLibrary.index_valid",
+        "Examples.ListLibrary.invalid_index_and_update",
+        "Examples.ListLibrary.update_observations",
+        "Examples.ListLibrary.update_repeated_value",
+        "Examples.ListLibrary.invalid_boundary",
+        "Examples.ListLibrary.empty_payload_queries",
+        "Examples.ListLibrary.split_reassembles",
+        "Examples.ListLibrary.overlarge_split",
+        "Examples.ListLibrary.last_and_tail_boundaries",
+        "Examples.ListLibrary.duplicate_pipeline",
+        "Examples.ListLibrary.replication_boundaries",
+        "Examples.ListLibrary.duplicates_are_not_distinct",
+        "Examples.ListLibrary.sorted_wrt_cons",
+        "Examples.ListLibrary.adjacent_relation_is_insufficient",
+        "Examples.ListLibrary.sum_source_equations",
+        "Examples.ListLibrary.minimum_source_equation",
+        "Examples.ListLibrary.minimum_valid",
+        "Examples.ListLibrary.minimum_filter_spec",
+        "Examples.ListLibrary.minimum_repeated_values",
+        "Examples.ListLibrary.minimum_empty",
+        "Examples.ListLibrary.empty_payload_minimum",
+        "Examples.ListLibrary.filtered_minimum_example"
+      ]
+    },
+    "configuration": {
+      "lean-toolchain": {
+        "bytes": 25,
+        "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+      },
+      "lake-manifest.json": {
+        "bytes": 3138,
+        "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+      },
+      "lakefile.toml": {
+        "bytes": 444,
+        "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+      },
+      "flake.nix": {
+        "bytes": 637,
+        "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37"
+      },
+      "flake.lock": {
+        "bytes": 564,
+        "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+      },
+      "check.sh": {
+        "bytes": 74,
+        "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd"
+      },
+      "scripts/check.py": {
+        "bytes": 16119,
+        "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29"
+      },
+      "scripts/lake_integrity.py": {
+        "bytes": 5781,
+        "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f"
+      },
+      "scripts/lake-output-hashes.lean": {
+        "bytes": 618,
+        "sha256": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b"
+      },
+      "ProofAudit.lean": {
+        "bytes": 7925,
+        "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd"
+      }
+    },
+    "dependencies": {
+      "mathlib": {
+        "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib"
+      },
+      "plausible": {
+        "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/plausible"
+      },
+      "LeanSearchClient": {
+        "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/LeanSearchClient"
+      },
+      "importGraph": {
+        "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/importGraph"
+      },
+      "proofwidgets": {
+        "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/proofwidgets"
+      },
+      "aesop": {
+        "head": "4a174c490d8707121c4a9290800489f105d85e07",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/aesop"
+      },
+      "Qq": {
+        "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/Qq"
+      },
+      "batteries": {
+        "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/batteries"
+      },
+      "Cli": {
+        "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "status": "",
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/Cli"
+      }
+    },
+    "runtime": {
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/lake": {
+        "bytes": 13416,
+        "sha256": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/lean": {
+        "bytes": 9024,
+        "sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/leanc": {
+        "bytes": 36168,
+        "sha256": "1e0b075573c5ea98e6b196e35d3b159b93e3226714e28cd8febb30a240ec735c"
+      },
+      "conaled-native-state/toolchains/lean-4.35.0-linux/bin/leanir": {
+        "bytes": 215864,
+        "sha256": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e"
+      },
+      "conaled-native-state/profile/bin/lake": {
+        "bytes": 122,
+        "sha256": "85df404efd17484b633376fe8d3705f416e059642133d8232ed555a8d3174e21"
+      },
+      "conaled-native-state/profile/bin/lean": {
+        "bytes": 122,
+        "sha256": "e290032a73b271084c56dfde6315062e1523492dc36b1bbde9cc5dea23d1c716"
+      },
+      "conaled-native-state/profile/bin/leanc": {
+        "bytes": 123,
+        "sha256": "0e5517cfaaa530d1e484e45314a8e4be9bf44ccbccb09f8610fa190f6e5443e6"
+      },
+      "conaled-native-state/profile/bin/leanir": {
+        "bytes": 124,
+        "sha256": "3a64f332683efbab0057235ec2b3c22d3ead19cb060e0830b76f1add4cf7c661"
+      },
+      "conaled-native-state/profile/runtime.py": {
+        "bytes": 6368,
+        "sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695"
+      },
+      "conaled-native-state/profile/app_path.c": {
+        "bytes": 3848,
+        "sha256": "fefc39d8645e4a938d6cc27574257d1a1e8e8f0790b75cc15bcf074272066fe0"
+      },
+      "conaled-native-state/profile/app_path.so": {
+        "bytes": 16056,
+        "sha256": "124bc3f19426ab6558b3ca134d0afb70435eaff82a659e6e62a05e8e373e337d"
+      },
+      "/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": {
+        "bytes": 236616,
+        "sha256": "6222a16be7f2d458d6870efe6e715fc0c8d45766fb79cf7dcc3125538d703e28"
+      }
+    },
+    "roots": [
+      "Applications.Resources.InsertionSort",
+      "Applications.Resources.ListCalls",
+      "Examples.FunctionalNotation",
+      "Examples.InsertionCosts",
+      "Examples.ListCalls",
+      "Examples.ListLibrary"
+    ],
+    "local_sources": {
+      "Examples/ListLibrary.lean": {
+        "bytes": 6761,
+        "sha256": "036cf4c12ddf5d25ce433d9f7dbedfcbb96dfc3c7f602d10605388d2791e47ad",
+        "git_blob": "99ba369997885e176bbda192ee0feb5c7bf4d034"
+      },
+      "Examples/ListCalls.lean": {
+        "bytes": 4333,
+        "sha256": "24d0809f51d04b0a9cadb5a349141e7327a5f7721f63c1021113527917487d5d",
+        "git_blob": "b4c4683ee2bd16ff6f844ce757470515847a63dc"
+      },
+      "Applications/Resources/ListReversal.lean": {
+        "bytes": 4827,
+        "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+        "git_blob": "62ab85a7325d521bf925405f9abb053703f4d175"
+      },
+      "Applications/Resources/TreeFlattening/Core.lean": {
+        "bytes": 4225,
+        "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+        "git_blob": "d136193bd3823ee00431bc240d1e7a0168b4ddaf"
+      },
+      "Applications/Resources/Measured.lean": {
+        "bytes": 2906,
+        "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+        "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46"
+      },
+      "Squares.lean": {
+        "bytes": 11694,
+        "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+        "git_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a"
+      },
+      "Applications/Resources/RandomAccess/CacheCosts.lean": {
+        "bytes": 2227,
+        "sha256": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+        "git_blob": "e583ec5285ea887c38f4b369071408697f0574b2"
+      },
+      "Applications/Sequences/RandomAccess/TreeBuild.lean": {
+        "bytes": 5392,
+        "sha256": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+        "git_blob": "3b662705f001c2a4b8fbe12868d6c7e77316d95f"
+      },
+      "Applications/Sequences/RandomAccess/Borrow.lean": {
+        "bytes": 5680,
+        "sha256": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+        "git_blob": "81b95e8bd4a6e30f6a20a85828409d6d55437be0"
+      },
+      "Applications/Sequences/RandomAccess/Access.lean": {
+        "bytes": 5219,
+        "sha256": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+        "git_blob": "5354c146a0665cce90ffc996d1b522b8a59079ad"
+      },
+      "Applications/Sequences/RandomAccess/Basic.lean": {
+        "bytes": 5970,
+        "sha256": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+        "git_blob": "fe040b71615878a86d06b326b820e1d5cd5f0229"
+      },
+      "Applications/Bracketing/Basic.lean": {
+        "bytes": 8561,
+        "sha256": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+        "git_blob": "3f6604c226908ee807c7d5076bd1c027b48bbf90"
+      },
+      "Applications/Optimization/SelectionSpec.lean": {
+        "bytes": 738,
+        "sha256": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+        "git_blob": "2548b66575b5a453e8cec30ceb745234bb0ae2e6"
+      },
+      "Applications/Resources/SymmetricCosts.lean": {
+        "bytes": 10508,
+        "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+        "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233"
+      },
+      "Applications/Sequences/Symmetric/Core.lean": {
+        "bytes": 12059,
+        "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+        "git_blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4"
+      },
+      "SquareKit/ListFusion.lean": {
+        "bytes": 2939,
+        "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+        "git_blob": "33ec447acb6da7b884ae57d2a885707208201607"
+      },
+      "Applications/Resources/Potential.lean": {
+        "bytes": 4638,
+        "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe",
+        "git_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1"
+      },
+      "Applications/Resources/Workload.lean": {
+        "bytes": 2745,
+        "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+        "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05"
+      },
+      "Applications/Resources/CallCount.lean": {
+        "bytes": 2447,
+        "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+        "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195"
+      },
+      "Applications/Resources/ListCalls.lean": {
+        "bytes": 7939,
+        "sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+        "git_blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4"
+      },
+      "Examples/InsertionCosts.lean": {
+        "bytes": 3862,
+        "sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37",
+        "git_blob": "1c3de9b0a0a5f27f108de09f28f6ac55f4cddb36"
+      },
+      "Applications/Selection/Rank.lean": {
+        "bytes": 3713,
+        "sha256": "4a82df75593d909e2968bf1e27cbfea52c9795abfe81250bb2385e7dfc16f965",
+        "git_blob": "3412cfa142e12d9a50c725661c6ce133609a3d0c"
+      },
+      "Applications/Sorting/Sort.lean": {
+        "bytes": 5922,
+        "sha256": "5acd7728aaaefdec121df797efafd7dae13476c820d4f85f4ada19868fa71218",
+        "git_blob": "fb7096ebfede6b6a1721c453295faaa851453049"
+      },
+      "Applications/Sorting/Merge.lean": {
+        "bytes": 7840,
+        "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+        "git_blob": "6595f901a9358398bee07333872125990ef8360c"
+      },
+      "Applications/Sorting/Stable.lean": {
+        "bytes": 3704,
+        "sha256": "288552150aa002c60ed06c74e69510112cf9b4e2f0045da3d98ca5c39264d881",
+        "git_blob": "614b0628261442bcbe2a3c97b4af8fc56084fc42"
+      },
+      "Applications/Resources/InsertionSort.lean": {
+        "bytes": 7257,
+        "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+        "git_blob": "d51ea6e9845378d3f7667adee189f8a210b477ed"
+      },
+      "Examples/FunctionalNotation.lean": {
+        "bytes": 8277,
+        "sha256": "fe4b585a6753110dee67c1942ce68d16d9bf00feb5946f32791682c634c42eef",
+        "git_blob": "3e5db8677c94bd330779522f92bc39508540a17a"
+      },
+      "Examples/FunctionalBasics.lean": {
+        "bytes": 3381,
+        "sha256": "f9d141719675eaaf1a09bcfabf1a0e79cc2f68f89406a2229233b71a8d1bae3d",
+        "git_blob": "bdd58014ed1f3ca284e4ba44155da946c65de866"
+      },
+      "Applications/Arithmetic/EuclidInduction.lean": {
+        "bytes": 1069,
+        "sha256": "1195a850cc25d518c50f6f6133da87f5d4fcffd264ea3c687c67b5dcc34abe3e",
+        "git_blob": "0c4d03bcd60641cabb821ad5bfc1f6763656dc54"
+      }
+    },
+    "local_compiler_objects_and_traces": {
+      ".lake/build/lib/lean/Examples/ListLibrary.olean": {
+        "bytes": 142504,
+        "sha256": "265b39de282301e8033d75dcbab6234039f5f2241837db11fcb67d035820e285"
+      },
+      ".lake/build/lib/lean/Examples/ListLibrary.olean.hash": {
+        "bytes": 16,
+        "sha256": "8e5c4210f10e41264141d6737dc9fd7d9f205a72d89b8dc689edb5e2a97fe567"
+      },
+      ".lake/build/lib/lean/Examples/ListLibrary.trace": {
+        "bytes": 3635,
+        "sha256": "cde7b97e3d98ab0cfb968934d3a10ce72d4dfb2f5248e7d4cca6a69aac5d9662"
+      },
+      ".lake/build/lib/lean/Examples/ListCalls.olean": {
+        "bytes": 135256,
+        "sha256": "59fa71737f9455b81598ed40b26bd27296ab0d5b1d23293693d6fff0173b83e0"
+      },
+      ".lake/build/lib/lean/Examples/ListCalls.olean.hash": {
+        "bytes": 16,
+        "sha256": "f19650c579f3686aff3e9d02cac9fc7440aad201a616851384b9e4585465533c"
+      },
+      ".lake/build/lib/lean/Examples/ListCalls.trace": {
+        "bytes": 3344,
+        "sha256": "993dfd9db88eff885771840cd482248f2629abed08924258d74da3859e0f0d65"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListReversal.olean": {
+        "bytes": 356176,
+        "sha256": "c7028949e09b8ba16a425632e926e05d05d95e1269bf58ce94592789e91e784d"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListReversal.olean.hash": {
+        "bytes": 16,
+        "sha256": "e5d1d41628b6562ca131494c403a4d76cfcde25d99b317c9e2590a5742d5f06e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListReversal.trace": {
+        "bytes": 3830,
+        "sha256": "266ee3641a4c1dacaf27efb6a60f4df498eaeb14ff6d15485150e023238083bc"
+      },
+      ".lake/build/lib/lean/Applications/Resources/TreeFlattening/Core.olean": {
+        "bytes": 453376,
+        "sha256": "5428d250bfb434c546b1733053a6cc4463fce38bac8df519265ffd55e5227950"
+      },
+      ".lake/build/lib/lean/Applications/Resources/TreeFlattening/Core.olean.hash": {
+        "bytes": 16,
+        "sha256": "487c1b0638b3dbb7f09b91f484a9816d0da10f69bc71cd74c69fe06bd06c959a"
+      },
+      ".lake/build/lib/lean/Applications/Resources/TreeFlattening/Core.trace": {
+        "bytes": 3535,
+        "sha256": "6a31d8f4388b70da4ecfe2280c7b3dcd94b9e9bbb8f7abf63d851fec1d519ce7"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Measured.olean": {
+        "bytes": 89608,
+        "sha256": "e3bea04397592484406bb442881a4305dc230d2c1b908b1eef2613cb377d9bf7"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Measured.olean.hash": {
+        "bytes": 16,
+        "sha256": "f5b0f6171cb7ac85a0bdea0be7590639628917e6b37ee8ff2fad746de319cc29"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Measured.trace": {
+        "bytes": 3561,
+        "sha256": "aa3b9570cdaa61358eb405cfca2209abc845723b30351f945c58ca67724afaea"
+      },
+      ".lake/build/lib/lean/Squares.olean": {
+        "bytes": 397408,
+        "sha256": "8f5981c72bfd62a0ec3a0ae74b5841269b10cb5dad2aedb8a269a9e229c21ffb"
+      },
+      ".lake/build/lib/lean/Squares.olean.hash": {
+        "bytes": 16,
+        "sha256": "69362eb3e35c4fcb6fc213839d6d07af9195fb0919454223fb2b2bc876597f31"
+      },
+      ".lake/build/lib/lean/Squares.trace": {
+        "bytes": 2919,
+        "sha256": "dd69574ba99f8ada4db3ed1fc015ee620cfc694da3a83f828d4a58dac915c8dc"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomAccess/CacheCosts.olean": {
+        "bytes": 142136,
+        "sha256": "5eb3433fbca959b6ff97cacc95998aa57461441d0f31c6d016addd4983764eba"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomAccess/CacheCosts.olean.hash": {
+        "bytes": 16,
+        "sha256": "68022b3348a42cc10b28570d375e4b5a27ffb58aad83cd4021c1bf0afd1f39b9"
+      },
+      ".lake/build/lib/lean/Applications/Resources/RandomAccess/CacheCosts.trace": {
+        "bytes": 3386,
+        "sha256": "3513c530493b0b4020b4435b6c413989fba538274004d08bd9bf7a8ad6cb5c2e"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/TreeBuild.olean": {
+        "bytes": 450880,
+        "sha256": "6cbafb5348fe73dd25021c36f6f295b942254c263fc5886f2bea2768e6aa1221"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/TreeBuild.olean.hash": {
+        "bytes": 16,
+        "sha256": "ed8ead5338a93838122ffb9c182ac1b1c74739c17b501a956d42e3e3fdcc85a4"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/TreeBuild.trace": {
+        "bytes": 3373,
+        "sha256": "f9ae6d68426cc0e4b49e6353875b7a3b5dc35df7444038d61e0ad5fa3da4eb5a"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Borrow.olean": {
+        "bytes": 480776,
+        "sha256": "29b12915afb9a03eebd186f1c2c7c79ffc020a13b0d672327722370547c8a221"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Borrow.olean.hash": {
+        "bytes": 16,
+        "sha256": "0d112d9019f3225dd629537e9e6a825bc25dfabbbaa1193dba6b80afbde33e2b"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Borrow.trace": {
+        "bytes": 3352,
+        "sha256": "9c3d9b43384ba8f870eefb1320a692de063097777bae72776cb6f4fa79effeb4"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Access.olean": {
+        "bytes": 418704,
+        "sha256": "caf60d8bcd8c840b24b69d3351acb866d4489701fe0c9cbdaab57ccbd55c5285"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Access.olean.hash": {
+        "bytes": 16,
+        "sha256": "6ee1f18f2da34f35519536efc90409cd721420853ef7c21c21ae272e85e01aa7"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Access.trace": {
+        "bytes": 3350,
+        "sha256": "460c4cc609a53d73240209fbc66490a84d86c043e1cd62a6ed7fca6e57fc0d2a"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Basic.olean": {
+        "bytes": 711720,
+        "sha256": "029b3eba80696e9e0ba2d41e0806cb91c988b586c025b3fd9060ad1307979ca8"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Basic.olean.hash": {
+        "bytes": 16,
+        "sha256": "1d83e8dc0bbbab8486209b38bb84c11a60c07546abba66413f203a1ed7521bd6"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/RandomAccess/Basic.trace": {
+        "bytes": 3312,
+        "sha256": "28de206fcceceb3a1a2a738fac80c8eb171f5504d69abfc3654498073fb49363"
+      },
+      ".lake/build/lib/lean/Applications/Bracketing/Basic.olean": {
+        "bytes": 797384,
+        "sha256": "a534f9d2ab28e81ae0e4b8fa19212e662904317bb541cee92686c8b1837f7c16"
+      },
+      ".lake/build/lib/lean/Applications/Bracketing/Basic.olean.hash": {
+        "bytes": 16,
+        "sha256": "2d12556530ab9648c318752e6ea5a2761d147f0c2c13403c0dafa93fa9aebb0a"
+      },
+      ".lake/build/lib/lean/Applications/Bracketing/Basic.trace": {
+        "bytes": 3252,
+        "sha256": "9a4dee2d5ba209fdc18caa86d664529d8b99138c643298e07e6fb2109f7fb4f9"
+      },
+      ".lake/build/lib/lean/Applications/Optimization/SelectionSpec.olean": {
+        "bytes": 12104,
+        "sha256": "4f560db127967d496643e5373024be3457d44272722cb779b7dc570ff58c3b77"
+      },
+      ".lake/build/lib/lean/Applications/Optimization/SelectionSpec.olean.hash": {
+        "bytes": 16,
+        "sha256": "664548325ab1f38739bd23bc5697ce7061b1ec803dc41b7987b89a1a8fa04a5e"
+      },
+      ".lake/build/lib/lean/Applications/Optimization/SelectionSpec.trace": {
+        "bytes": 3143,
+        "sha256": "a3cfc927db1b29e0e57dac0a9d1549acc15d53a7fc5bcb3f78247668a0059547"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SymmetricCosts.olean": {
+        "bytes": 1261488,
+        "sha256": "32c38c6a32129c5c00e08dc4dd706bed08a050cf7c1b04f6b73adebd6c893d79"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SymmetricCosts.olean.hash": {
+        "bytes": 16,
+        "sha256": "8c29ea5014a6f81ab4c26fa137697259959c272475f72d009b796ba427205cd5"
+      },
+      ".lake/build/lib/lean/Applications/Resources/SymmetricCosts.trace": {
+        "bytes": 3481,
+        "sha256": "4d95bec08e112139e9bf714f46eb8401819a7f5483f4d9f5cdf5ab023650ee14"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Symmetric/Core.olean": {
+        "bytes": 738496,
+        "sha256": "9cc54bf89ee8cc6582227f83ab3b7103b0e62a85d6bf19b3861317aa79c92db1"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Symmetric/Core.olean.hash": {
+        "bytes": 16,
+        "sha256": "55c722abd8fd1d4ce8c8651e46fbdb4dfad5f0429f4a36e39b195cb32f7460fd"
+      },
+      ".lake/build/lib/lean/Applications/Sequences/Symmetric/Core.trace": {
+        "bytes": 3415,
+        "sha256": "b14dcf60ffaa21ddadafc9a7d3f0f18d19d9ce744d6ea59b80e7c9565b4262d6"
+      },
+      ".lake/build/lib/lean/SquareKit/ListFusion.olean": {
+        "bytes": 62664,
+        "sha256": "d3714fec42b77b43ad8428a8ecf043ece8450d989816932cfb0bcc9dae55ef8d"
+      },
+      ".lake/build/lib/lean/SquareKit/ListFusion.olean.hash": {
+        "bytes": 16,
+        "sha256": "ab045300c1f09b867b44dc041ec3139c14ee809f071e4d2da4a75d5ab6bde2d3"
+      },
+      ".lake/build/lib/lean/SquareKit/ListFusion.trace": {
+        "bytes": 3150,
+        "sha256": "7e42088c18ff5cb03581dabbc532a343db5c34b04be62c3519359b1b26dfed28"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Potential.olean": {
+        "bytes": 239624,
+        "sha256": "ebaf838b961a9f44618e4cee6855dfaae9c89c285280c1209a33fe13d3ae65c7"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Potential.olean.hash": {
+        "bytes": 16,
+        "sha256": "2f8cea79e78d26caa7642fba3baed0e4a116146e36e6267b3cf4cb999797ac3a"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Potential.trace": {
+        "bytes": 3423,
+        "sha256": "0e243a19ecfd761f56bf0b693b8683ae9a5661533f07ba3b74b4a2f0eb0b03f8"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Workload.olean": {
+        "bytes": 140248,
+        "sha256": "02cf7c619f5df5a9bd7a34b6a6e1d652d5ee0685f4dffd6b5cc2191a8b674529"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Workload.olean.hash": {
+        "bytes": 16,
+        "sha256": "e83a987c1a8c5be845f14583351ae9dc2691c283252942ed7a35144f6d0e1c37"
+      },
+      ".lake/build/lib/lean/Applications/Resources/Workload.trace": {
+        "bytes": 3389,
+        "sha256": "a0cc3644c808f2695022c9e89bdc9844187b744bd8726760540b3c9b819ce488"
+      },
+      ".lake/build/lib/lean/Applications/Resources/CallCount.olean": {
+        "bytes": 70784,
+        "sha256": "213261bb3cc47a6b79696c7e55b4aba27ffe452d29a2ebe8b63c278d8c7d46ca"
+      },
+      ".lake/build/lib/lean/Applications/Resources/CallCount.olean.hash": {
+        "bytes": 16,
+        "sha256": "3e6f69de38b1477145ca9e62d340fc376d494ecdf2baf44ee7dbb8a3242ede14"
+      },
+      ".lake/build/lib/lean/Applications/Resources/CallCount.trace": {
+        "bytes": 3250,
+        "sha256": "263c2d3dd51b591f1e443b16cee36515f38b6ca5fce20f0d468ab5b478ec43b8"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListCalls.olean": {
+        "bytes": 363912,
+        "sha256": "bea00d4617c486b329004a582a0c410a5c62fbf49591187fa62a4b9d13d174f1"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListCalls.olean.hash": {
+        "bytes": 16,
+        "sha256": "e7c1616656c600615aeb82b815a116d4377753654f1db1f6ba3ffec9d6f7414f"
+      },
+      ".lake/build/lib/lean/Applications/Resources/ListCalls.trace": {
+        "bytes": 3656,
+        "sha256": "a5b6b3863534fcd988f3c1807bf8bc0cd7036de5e954eb62f1adfbb2fa3ea669"
+      },
+      ".lake/build/lib/lean/Examples/InsertionCosts.olean": {
+        "bytes": 118320,
+        "sha256": "161a272596c30a48ad495508aa9890cf4a2d965e30c4471379cdc93aa56f4508"
+      },
+      ".lake/build/lib/lean/Examples/InsertionCosts.olean.hash": {
+        "bytes": 16,
+        "sha256": "aab8b9a5e687bc9fafab8c0893ade673e4a4e6185ed74a97d0f6b9efed360055"
+      },
+      ".lake/build/lib/lean/Examples/InsertionCosts.trace": {
+        "bytes": 3371,
+        "sha256": "21d62dc6b6302a1403486c703bc72a63b43a8f6293555fe37569bf44f1c7220e"
+      },
+      ".lake/build/lib/lean/Applications/Selection/Rank.olean": {
+        "bytes": 183640,
+        "sha256": "bfc4207d6437b4114b90da3164a9b0b91cbc75db9e3725851372012aadf3fd85"
+      },
+      ".lake/build/lib/lean/Applications/Selection/Rank.olean.hash": {
+        "bytes": 16,
+        "sha256": "dd9a6719ceb26d125320f35713d142df888665d2288343586cc83cfabf4eb824"
+      },
+      ".lake/build/lib/lean/Applications/Selection/Rank.trace": {
+        "bytes": 3203,
+        "sha256": "22f8df621947713a9d92490f65d4bd94e6b5d4fc4f2915fb51e91ba6301c606e"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Sort.olean": {
+        "bytes": 272768,
+        "sha256": "966642767ebe319010dfd4179f6ca5f88be1b9ff6af8f2ba219e5f9c885959b6"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Sort.olean.hash": {
+        "bytes": 16,
+        "sha256": "552d791129b22cdc418a9c7db94917344b329de3791801f4a89c0323141183da"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Sort.trace": {
+        "bytes": 3191,
+        "sha256": "51a66c0db8b5aac7b9fbdb3d8f3a5394ba5ebe4798b00de8ced5dec41434ad21"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Merge.olean": {
+        "bytes": 393368,
+        "sha256": "83b7eaa55a1cd25df709f2957bce1be04e84e2e4d4b2ece3cf3a25691123563d"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Merge.olean.hash": {
+        "bytes": 16,
+        "sha256": "8a19c7d6ae1871a046f6e9ac3311e8cb5c9f003dc91a40aa6c445e91548652f9"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Merge.trace": {
+        "bytes": 3200,
+        "sha256": "c502e39e794f70c8c2f2c191336b85d16b199c7ad18fc1bf66913e366c0ab3fc"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Stable.olean": {
+        "bytes": 129496,
+        "sha256": "0842f9b1bc736a483e38de996a9fb81f00127f3174f620e69bb44926018ee142"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Stable.olean.hash": {
+        "bytes": 16,
+        "sha256": "3dc7c5c3e03ada7495dbdcac8cf15acb3db77d68b02b73cb40dcccbe26791530"
+      },
+      ".lake/build/lib/lean/Applications/Sorting/Stable.trace": {
+        "bytes": 3197,
+        "sha256": "84214fef0469b8e98d06eaba8dcdbfa70c054aac71269a179b735083d1d64007"
+      },
+      ".lake/build/lib/lean/Applications/Resources/InsertionSort.olean": {
+        "bytes": 526728,
+        "sha256": "f8d6f0279ae7c7df1b732d10cfa2e309c16ce683887b84f0b93a67b5691365ea"
+      },
+      ".lake/build/lib/lean/Applications/Resources/InsertionSort.olean.hash": {
+        "bytes": 16,
+        "sha256": "6a0b56341079b78b3d0de53a418bf01ba405f907a2107df38b68b8608c86245e"
+      },
+      ".lake/build/lib/lean/Applications/Resources/InsertionSort.trace": {
+        "bytes": 3602,
+        "sha256": "eee4a3ed15fb0e96788cea01aa5c10f5bb213099b2a9c7fec7e7b3f4088da3f0"
+      },
+      ".lake/build/lib/lean/Examples/FunctionalNotation.olean": {
+        "bytes": 215032,
+        "sha256": "1219695788a785e8fd1d4b517aa2637c33d7c6ff6c0041beedcee12714ec62a8"
+      },
+      ".lake/build/lib/lean/Examples/FunctionalNotation.olean.hash": {
+        "bytes": 16,
+        "sha256": "e696bff0e78f528c9bb02a1727a70b3994a4dcbd2fabd8eeb99f918715548111"
+      },
+      ".lake/build/lib/lean/Examples/FunctionalNotation.trace": {
+        "bytes": 5659,
+        "sha256": "435994dafdacf8ac59425aa0e36739779ed79ee304ec37a2728ce9012af0426e"
+      },
+      ".lake/build/lib/lean/Examples/FunctionalBasics.olean": {
+        "bytes": 70632,
+        "sha256": "c7f7f93d4081675debe3393014060b13c56b19e6a0e59804f1d2638e2e08c249"
+      },
+      ".lake/build/lib/lean/Examples/FunctionalBasics.olean.hash": {
+        "bytes": 16,
+        "sha256": "ec729c99c1b8b6e280e9b88f6f0e2453833f9c6e4a960965f874c3a05d42172a"
+      },
+      ".lake/build/lib/lean/Examples/FunctionalBasics.trace": {
+        "bytes": 4098,
+        "sha256": "9c9dcee24e3530b0e1e42866ae36af258c6b5d115c0e3664c3c2e89b8d9b7d70"
+      },
+      ".lake/build/lib/lean/Applications/Arithmetic/EuclidInduction.olean": {
+        "bytes": 20968,
+        "sha256": "cbb360f506a212370c6eb76146fd550fee4db78aa88b7cd2f042d8e5df096df8"
+      },
+      ".lake/build/lib/lean/Applications/Arithmetic/EuclidInduction.olean.hash": {
+        "bytes": 16,
+        "sha256": "c7be69d8de0d19300595a6500949bf899b0530f5bd8760e6648fa6992f3fad93"
+      },
+      ".lake/build/lib/lean/Applications/Arithmetic/EuclidInduction.trace": {
+        "bytes": 3289,
+        "sha256": "4bcb6c042c65775a3df04f1be8c3a5fed21e624cf54bd864a225a3e1f816db1a"
+      }
+    },
+    "direct_external_imports_of_local_closure": [
+      "Lean",
+      "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+      "Mathlib.Algebra.BigOperators.Group.List.Basic",
+      "Mathlib.Algebra.BigOperators.Group.Multiset.Basic",
+      "Mathlib.Algebra.Group.Nat.Defs",
+      "Mathlib.Algebra.Group.Prod",
+      "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+      "Mathlib.Algebra.Order.Floor.Ring",
+      "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+      "Mathlib.Basic.Real.Basic",
+      "Mathlib.Data.Int.DivMod",
+      "Mathlib.Data.List.Basic",
+      "Mathlib.Data.List.Chain",
+      "Mathlib.Data.List.Infix",
+      "Mathlib.Data.List.Intervals",
+      "Mathlib.Data.List.MinMax",
+      "Mathlib.Data.List.Sort",
+      "Mathlib.Data.Multiset.Filter",
+      "Mathlib.Data.Nat.GCD.Basic",
+      "Mathlib.Data.Set.Finite.Basic",
+      "Mathlib.Data.Set.Lattice.Bounded",
+      "Mathlib.Data.Set.Lattice.Disjoint",
+      "Mathlib.Data.Set.Lattice.Image",
+      "Mathlib.Data.Set.Lattice.Indexed",
+      "Mathlib.Data.Set.Lattice.Order",
+      "Mathlib.Data.Set.Prod",
+      "Mathlib.Logic.Function.Basic",
+      "Mathlib.Order.Interval.Finset.Nat",
+      "Mathlib.Order.Interval.Set.Defs",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.NormNum",
+      "Std"
+    ]
+  },
+  "boundary": "Read-only input observation; actual execution, loaded-object qualification, complete output review, and candidate acceptance remain separate evidence.",
+  "compared_to": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/shared-tail-foundation110-input-observations-20261104-attempt1/pre-inputs.json",
+    "bytes": 38785,
+    "sha256": "659b17853597f0a72c2463244a032ba57a2c6f05f65709cbc06cda17941c192c"
+  },
+  "unchanged": true
+}

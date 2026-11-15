@@ -1,0 +1,44 @@
+{
+  "utc": "2026-11-04T15:18:39.502409+00:00",
+  "candidate": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+  "base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "source_stage_both_complete": true,
+  "both_new_concrete_findings": 0,
+  "both_overall": "Blocked",
+  "root_complete_report_reads": {
+    "Standards": "a5d6d6",
+    "Spec": "efe09b"
+  },
+  "root_completion_receipt_reads": {
+    "Standards": "fd6a70",
+    "Spec": "44d193"
+  },
+  "public_names": 88,
+  "counts": {
+    "authored_declarations": 88,
+    "public_named": 88,
+    "public_theorems": 77,
+    "public_definitions": 10,
+    "public_abbreviations": 1,
+    "private_named": 0,
+    "instances": 0,
+    "anonymous_examples": 0
+  },
+  "all88_source_name_line_kind_raw_headers_reconciled": true,
+  "Spec_explicit_header_convention": "Raw prefix.rstrip()+one terminal LF; matches every immutable raw prefix without pretending normalized/raw hashes identical",
+  "closure_reconciled": {
+    "sources": 30,
+    "external_imports": 13,
+    "edges": 56
+  },
+  "all_Standards_completed_readback_ranges_rehashed": true,
+  "Spec_completed_readback_ranges": "Already independently rehashed in checkpoint0113-preparation/XT03-saved-boundary.json",
+  "findings_retained": [
+    "XT03-CP01",
+    "XT03-DOC01"
+  ],
+  "actual_type_compiler_full_audit_acceptance_credit": 0,
+  "original_requirements_unchanged": true,
+  "prerequisite": "XT01 accepted integration; XT02 not required",
+  "chapter_activation": false
+}

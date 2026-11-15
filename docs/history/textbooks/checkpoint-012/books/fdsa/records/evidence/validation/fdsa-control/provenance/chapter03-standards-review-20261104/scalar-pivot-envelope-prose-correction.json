@@ -1,0 +1,23 @@
+{
+  "axis": "Standards",
+  "recorded_utc": "2026-11-05T00:35:11.548263+00:00",
+  "kind": "Reviewer prose transcription correction, not a source finding",
+  "corrects": {
+    "path": "provenance/chapter03-standards-review-20261104/progress-after0135-scalar-pivot-envelope.json",
+    "bytes": 8470,
+    "sha256": "8f2daf8361bdd629bbc6afd4e4fe46f1b1189bfc3043463a8cc1db6b47025dfe"
+  },
+  "field": "assessment.selection_scalar_recurrence",
+  "incorrect_text": "base483*n for n<=20",
+  "correct_text": "constant base483 for every n<=20, including n=0",
+  "evidence": {
+    "immutable_candidate": "4c96dc0bcd27b1451c725a7a9a7bc4a40c333dcb",
+    "path": "Applications/Resources/SelectionRecurrence.lean",
+    "bytes": 6560,
+    "sha256": "cf4465e3e0544df050215c600237763b1c5a6425ff66b8a7825075be3fbe631e",
+    "original_full_source_receipt": "8eab7b",
+    "fresh_definition_and_base_theorem_read_receipt": "cdf637",
+    "base_lower_bound_receipt": "05d72f"
+  },
+  "assessment": "The saved prose accidentally inserted multiplication by n. Actual definition F, its constant-base theorem, previously assessed actual statements and concrete F21=1419/F22=1438 agree. The finite base is constant483. No source, proof, candidate or gate is changed. The prior record is retained with this explicit correction."
+}

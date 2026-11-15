@@ -1,0 +1,183 @@
+{
+  "purpose": "Verify a public official versioned recovery URL for the exact pinned VFA release.",
+  "index": {
+    "checked_utc": "2026-11-02T03:49:28.848161+00:00",
+    "requested_url": "https://softwarefoundations.cis.upenn.edu/vfa-2.1/index.html",
+    "curl_returncode": 0,
+    "http_code": 200,
+    "url_effective": "https://softwarefoundations.cis.upenn.edu/vfa-2.1/index.html",
+    "redirects": 0,
+    "content_type": "text/html",
+    "bytes": 1906,
+    "body_sha256": "edba0b6809f712439c9caace9326c55189fa14dc138d080b86b6be87ce43a526",
+    "stderr": "",
+    "response_headers": {
+      "last-modified": "Mon, 24 Aug 2026 14:33:51 GMT",
+      "etag": "\"772-659cbdff8e408\"",
+      "content-length": "1906",
+      "content-type": "text/html"
+    }
+  },
+  "archive": {
+    "checked_utc": "2026-11-02T03:49:27.554319+00:00",
+    "requested_url": "https://softwarefoundations.cis.upenn.edu/vfa-2.1/vfa.tgz",
+    "curl_returncode": 0,
+    "http_code": 200,
+    "url_effective": "https://softwarefoundations.cis.upenn.edu/vfa-2.1/vfa.tgz",
+    "redirects": 0,
+    "content_type": "application/x-gzip",
+    "bytes": 5360265,
+    "body_sha256": "f03296c763d78aa5bc18a545d848d398292575e5c8af4b5aa94dc25709e169b8",
+    "stderr": "",
+    "response_headers": {
+      "last-modified": "Mon, 24 Aug 2026 14:33:51 GMT",
+      "etag": "\"51ca89-659cbdffb3f71\"",
+      "content-length": "5360265",
+      "content-type": "application/x-gzip"
+    }
+  },
+  "index_release_text": "Version 2.1 (2026-08-24 10:11, Coq 9.0.0 or later)",
+  "index_download_link": "vfa.tgz",
+  "resolved_index_download_url": "https://softwarefoundations.cis.upenn.edu/vfa-2.1/vfa.tgz",
+  "pinned_archive_sha256": "f03296c763d78aa5bc18a545d848d398292575e5c8af4b5aa94dc25709e169b8",
+  "archive_matches_pinned": true,
+  "completed_chapter_comparison": {
+    "method": "Read each vfa/<chapter>.v member with Python tarfile.extractfile, SHA-256 its bytes, and compare with the existing chapter inventory. The comparison completed successfully before this metadata file was written.",
+    "chapter_count": 17,
+    "all_match": true,
+    "chapters": [
+      {
+        "chapter": "ADT",
+        "member": "vfa/ADT.v",
+        "inventory_sha256": "87d7ca279b38d22f31ff56bf9f2b11103b382c325969a269bc542de27e4a8fe2",
+        "observed_match": true
+      },
+      {
+        "chapter": "BagPerm",
+        "member": "vfa/BagPerm.v",
+        "inventory_sha256": "a11149100fcdf0a2c366267288dfbe6538ad0bbc5ba65e53e2c026e1ec8899a7",
+        "observed_match": true
+      },
+      {
+        "chapter": "Binom",
+        "member": "vfa/Binom.v",
+        "inventory_sha256": "f73f18cac4c3a6a38a0e83d4194429eb7ab684ee68068a88025610a13d5c31ed",
+        "observed_match": true
+      },
+      {
+        "chapter": "Color",
+        "member": "vfa/Color.v",
+        "inventory_sha256": "67b3410af5fece56c69f4e8301fd6505e89371cfa1279d069ca945b9b2b33370",
+        "observed_match": true
+      },
+      {
+        "chapter": "Decide",
+        "member": "vfa/Decide.v",
+        "inventory_sha256": "f929d55e2b7b39f2ba0bb72f2e70285dc8e10e64cf18322060bdbfc0552a4b26",
+        "observed_match": true
+      },
+      {
+        "chapter": "Extract",
+        "member": "vfa/Extract.v",
+        "inventory_sha256": "c132273a13fafe176573469e664b9cbe8dd3366ec00e2f9a3ab8ab1d42a2e15d",
+        "observed_match": true
+      },
+      {
+        "chapter": "Maps",
+        "member": "vfa/Maps.v",
+        "inventory_sha256": "19e79f4b7ac5bce3ffc246e19dd926b14fa5720b47d9618d2607d809d0504aea",
+        "observed_match": true
+      },
+      {
+        "chapter": "Merge",
+        "member": "vfa/Merge.v",
+        "inventory_sha256": "090c5afc3a95750336b8b57ed2169b8d77c790266f231bf096be55761c20378b",
+        "observed_match": true
+      },
+      {
+        "chapter": "Multiset",
+        "member": "vfa/Multiset.v",
+        "inventory_sha256": "ecdc47863b68bbef0d0579f75f4b5537cfb9f99c00f9b2fcc154eadcfdc9ef95",
+        "observed_match": true
+      },
+      {
+        "chapter": "Perm",
+        "member": "vfa/Perm.v",
+        "inventory_sha256": "0d3ad2421a6bee80b987423b702e8688e59fe802cafa1efa9b98df71d619fd9f",
+        "observed_match": true
+      },
+      {
+        "chapter": "Preface",
+        "member": "vfa/Preface.v",
+        "inventory_sha256": "b6a910ecf69bef7682ec6a3d1a3be1d5146ffd046789b254397f0d92db93c1fd",
+        "observed_match": true
+      },
+      {
+        "chapter": "Priqueue",
+        "member": "vfa/Priqueue.v",
+        "inventory_sha256": "e4dc740bf2c3f338dedae3e6544a8d94d58fd80f810472610122b9ccc4866b9d",
+        "observed_match": true
+      },
+      {
+        "chapter": "Redblack",
+        "member": "vfa/Redblack.v",
+        "inventory_sha256": "f44255ba3d0235f6efa401b72f2fcf9a9551a7ebc065912202d6f33494891ce2",
+        "observed_match": true
+      },
+      {
+        "chapter": "SearchTree",
+        "member": "vfa/SearchTree.v",
+        "inventory_sha256": "44b9464a10e8c9e3222530f6f26be45bd44d1c0568deb1710417618706fae61d",
+        "observed_match": true
+      },
+      {
+        "chapter": "Selection",
+        "member": "vfa/Selection.v",
+        "inventory_sha256": "ff343099ae0fd551648a8fa2bf0adfe32bf5fb158389cee211ff8d1b32c28e11",
+        "observed_match": true
+      },
+      {
+        "chapter": "Sort",
+        "member": "vfa/Sort.v",
+        "inventory_sha256": "aeaf646d3b7e4dd88cb5d6dba9d35ae5714e5451c154d90de499bb09a32a7d33",
+        "observed_match": true
+      },
+      {
+        "chapter": "Trie",
+        "member": "vfa/Trie.v",
+        "inventory_sha256": "a5af2b4db4c2cb639a8deb063e57909e11eb44ee763782ad0af9afbf45a78f3e",
+        "observed_match": true
+      }
+    ]
+  },
+  "fetch": {
+    "tool": "curl",
+    "arguments": [
+      "--location",
+      "--max-redirs",
+      "5",
+      "--connect-timeout",
+      "15",
+      "--max-time",
+      "45",
+      "--proto",
+      "=https",
+      "--proto-redir",
+      "=https",
+      "--silent",
+      "--show-error",
+      "--dump-header",
+      "<reference-area-headers>",
+      "--output",
+      "<reference-area-body>",
+      "--write-out",
+      "%{json}",
+      "<requested_url>"
+    ],
+    "tls_certificate_verification": "enabled by default; no insecure flag",
+    "authentication": "none",
+    "execution": "approved escalated public HTTP fetch, since the ordinary workspace network proxy was unavailable"
+  },
+  "durability_boundary": "The official path is versioned and verified at retrieval time; future availability and byte immutability are not guaranteed. Verify the recorded SHA-256 on every restore.",
+  "download_storage": "Full fetched bodies remain only in the excluded reference area. This evidence file contains metadata and hashes, not book source."
+}

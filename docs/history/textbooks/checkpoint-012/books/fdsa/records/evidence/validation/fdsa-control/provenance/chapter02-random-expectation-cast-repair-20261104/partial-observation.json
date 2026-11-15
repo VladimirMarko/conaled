@@ -1,0 +1,49 @@
+{
+  "observed_utc": "2026-11-04T07:11:50.325734+00:00",
+  "central_candidate": "b3ccd6617c9a0bd033ab181a77d0e07d4b72100a",
+  "source_parent": "19879f244a81b03b7ccaabbcf53fc0b355e9985b",
+  "aggregate_status": "No terminal result supplied; live attempt at root report; this records only an observed failed mean module",
+  "terminal_exit_claimed": null,
+  "current_log_identity_not_closed_log": {
+    "bytes": 11740,
+    "lines": 64,
+    "sha256": "b47b80959c2e73535032713d727d8428c02c36a28b55a2a67faf46b69ee74a6c"
+  },
+  "observed_error": {
+    "bytes": 478,
+    "lines": 8,
+    "sha256": "66ad1b425e16311385c79c38a4112eb1330b12b72801b39dfe7aa1f26f8e4749"
+  },
+  "scope": "Five-target central attempt3; downstream mean example Ran is not a pass",
+  "comparisons": {
+    "Applications/Resources/RandomQuickSortMean.lean": {
+      "before": {
+        "bytes": 16488,
+        "lines": 334,
+        "sha256": "135af328490993bc48ff9c8a0ccfd847768fca22329292bd2ee0ff4db21662c0"
+      },
+      "after": {
+        "bytes": 16517,
+        "lines": 335,
+        "sha256": "2c7976bf52a2dbed2eb6eb959055acc7ae0df8319c167f0128b63e5c482bd5d3"
+      },
+      "contracts_unchanged": 36
+    },
+    "Examples/RandomQuickSortMean.lean": {
+      "before": {
+        "bytes": 5733,
+        "lines": 118,
+        "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670"
+      },
+      "after": {
+        "bytes": 5733,
+        "lines": 118,
+        "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670"
+      },
+      "contracts_unchanged": 11
+    }
+  },
+  "public_contracts_unchanged": 32,
+  "private_contracts_unchanged": 15,
+  "rank_source_files_created": false
+}

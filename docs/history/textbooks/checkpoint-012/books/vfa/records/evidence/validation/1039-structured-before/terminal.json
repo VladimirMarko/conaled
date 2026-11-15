@@ -1,0 +1,15 @@
+{
+  "recorded_utc": "2026-11-04T06:25:10.061704+00:00",
+  "actual_terminal_exit_code": 1,
+  "session": 40403,
+  "candidate": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+  "successful_actual_local_dependencies": 4,
+  "failed_actual_target": "Applications.Linear.StructuredCosts",
+  "unknown_names": [
+    "List.sum_replicate",
+    "nsmul_eq_mul"
+  ],
+  "other_diagnostics": "Unsolved repeated-list sum goals in fold_cost_uniform, map_cost_uniform, traverse_cost_uniform and workload_repeat_cost; full diagnostics retained.",
+  "source_identity_checks": "before/after hashes and clean HEAD/status equal in focused-result.json",
+  "gate_credit": false
+}

@@ -1,0 +1,21 @@
+{
+  "phase": "tdd-04-red",
+  "observed_utc": "2026-11-02T13:33:16.659302+00:00",
+  "command": [
+    "/root/.nix-profile/bin/nix",
+    "develop",
+    "--command",
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "/workspace/scratch/0c54f2db1fdf/work-state/cache-companion",
+    "-v"
+  ],
+  "returncode": 1,
+  "elapsed_seconds": 2.6930146090016933,
+  "log": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1027-tdd-04-red.log",
+  "scope": "Synthetic recovery fixtures only, no active-cache copy or project compilation"
+}

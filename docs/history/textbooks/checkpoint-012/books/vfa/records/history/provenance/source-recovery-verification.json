@@ -1,0 +1,139 @@
+{
+  "schema": 2,
+  "head": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+  "symbolic_head": "refs/heads/local/vfa-recovery-1",
+  "source_base": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "original_refs_verified": [
+    [
+      "refs/heads/local/vfa-recovery",
+      "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+      ""
+    ],
+    [
+      "refs/heads/local/vfa-recovery-1",
+      "eae9e110adc7ba1cc28386448a6deef23e406c13",
+      ""
+    ],
+    [
+      "refs/remotes/origin/HEAD",
+      "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+      "refs/remotes/origin/local/vfa-recovery"
+    ],
+    [
+      "refs/remotes/origin/local/vfa",
+      "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      ""
+    ],
+    [
+      "refs/remotes/origin/local/vfa-recovery",
+      "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+      ""
+    ]
+  ],
+  "ref_count": 5,
+  "source_files": 1574,
+  "lean_files": 1010,
+  "index_sha256": "c1693c3cfc81c2c0ba964dd9797756935c632c5a561fbd6413ad2ea5e30d5453",
+  "git_status": "",
+  "git_fsck_exit": 0,
+  "git_fsck_output": "",
+  "all_bundle_advertisements": [
+    {
+      "bundle": "base",
+      "advertised_ref": "refs/heads/local/vfa",
+      "object": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "ancestor_of_main_head": true
+    },
+    {
+      "bundle": "base",
+      "advertised_ref": "refs/heads/local/vfa-recovery",
+      "object": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+      "ancestor_of_main_head": true
+    },
+    {
+      "bundle": "base",
+      "advertised_ref": "refs/remotes/origin/HEAD",
+      "object": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "ancestor_of_main_head": true
+    },
+    {
+      "bundle": "base",
+      "advertised_ref": "refs/remotes/origin/local/vfa",
+      "object": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "ancestor_of_main_head": true
+    },
+    {
+      "bundle": "base",
+      "advertised_ref": "refs/remotes/origin/master",
+      "object": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "ancestor_of_main_head": true
+    },
+    {
+      "bundle": "base",
+      "advertised_ref": "HEAD",
+      "object": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+      "ancestor_of_main_head": true
+    },
+    {
+      "bundle": "base",
+      "advertised_ref": "worktrees/vfa-native-validation/HEAD",
+      "object": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+      "ancestor_of_main_head": true
+    },
+    {
+      "bundle": "base",
+      "advertised_ref": "worktrees/vfa-validation/HEAD",
+      "object": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "ancestor_of_main_head": true
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/local/vfa-recovery",
+      "object": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+      "ancestor_of_main_head": true
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/heads/local/vfa-recovery-1",
+      "object": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+      "ancestor_of_main_head": true
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/remotes/origin/HEAD",
+      "object": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+      "ancestor_of_main_head": true
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/remotes/origin/local/vfa",
+      "object": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+      "ancestor_of_main_head": true
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "refs/remotes/origin/local/vfa-recovery",
+      "object": "c988f183887896c00b09aaff9077a6ea7fb8d68f",
+      "ancestor_of_main_head": true
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "HEAD",
+      "object": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+      "ancestor_of_main_head": true
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "worktrees/vfa-unified-pty-validation/HEAD",
+      "object": "4adc2f006677b9ac22bbdb4a60a36526632588b2",
+      "ancestor_of_main_head": true
+    },
+    {
+      "bundle": "checkpoint",
+      "advertised_ref": "worktrees/vfa-summation-validation/HEAD",
+      "object": "eae9e110adc7ba1cc28386448a6deef23e406c13",
+      "ancestor_of_main_head": true
+    }
+  ],
+  "no_lean_build_or_source_change": true
+}

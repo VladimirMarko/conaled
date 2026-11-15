@@ -1,0 +1,23 @@
+{
+  "kind": "bounded-read-only-observer-review",
+  "reviewer": "/root/operational_review",
+  "root_read_at": "2026-11-04T00:31:44.508243+00:00",
+  "observer": "pfds/session/validation/observe-integration-ordinary-r1-045.py",
+  "observer_sha256": "798d332fadd5422083dff9cff8d566d1943e994b2cb8f2aab690251e6de5a9f8",
+  "complete_read": true,
+  "bytes": 3645,
+  "outcome": "No remaining concrete issue in requested observation boundary; supports already-approved ordinary preparation route under existing serial schedule.",
+  "checked": [
+    "handlers installed before protected spawn; deferred startup cancellation retained",
+    "single cancellation_sent guard across startup/live/finally",
+    "separate synchronously owned and waited controller session",
+    "unchanged approved ordinary command; no fresh/jobs/environment/resource changes",
+    "original log read only; last-line display only",
+    "actual child.wait required; exceptions propagate; no manufactured result"
+  ],
+  "formal_acceptance": false,
+  "execution_service_lifetime_guarantee": false,
+  "lost_handle_cause_established": false,
+  "historical_r2_untouched": true,
+  "root_independent_read": true
+}

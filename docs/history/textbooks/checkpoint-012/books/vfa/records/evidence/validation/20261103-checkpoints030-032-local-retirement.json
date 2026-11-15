@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "started_utc": "2026-11-03T00:03:11.859851+00:00",
+  "completed_utc": "2026-11-03T00:03:11.938481+00:00",
+  "status": "completed",
+  "decision": "work-state/validation/1029-checkpoints030-032-retirement-decision.json",
+  "assessment": "work-state/validation/1029-checkpoints030-032-retirement-assessment.json",
+  "completed_checkpoints": [
+    30,
+    31,
+    32
+  ],
+  "completed_records": [
+    "work-state/validation/20261103-checkpoint030-local-retirement.json",
+    "work-state/validation/20261103-checkpoint031-local-retirement.json",
+    "work-state/validation/20261103-checkpoint032-local-retirement.json"
+  ],
+  "observed_allocated_bytes_removed": 438591488,
+  "root_free_before_bytes": 1918287872,
+  "root_free_after_bytes": 2356858880,
+  "observed_free_delta_bytes": 438571008,
+  "error": null,
+  "limits": [
+    "Observed free-space delta can include concurrent unrelated allocation changes.",
+    "Successful saved receipts remain preserved availability evidence; no new remote read occurred.",
+    "No repeat deletion is authorized if any path returns.",
+    "No active validation output, process, source or compiler configuration was modified."
+  ]
+}

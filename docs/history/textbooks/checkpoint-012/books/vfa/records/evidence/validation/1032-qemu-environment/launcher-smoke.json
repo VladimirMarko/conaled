@@ -1,0 +1,135 @@
+{
+  "started_utc": "2026-11-03T15:46:33.226947+00:00",
+  "source": "import Init\n\ntheorem smoke_zero_add (n : Nat) : 0 + n = n := by\n  induction n with\n  | zero => rfl\n  | succ n ih => exact congrArg Nat.succ ih\n\ntheorem smoke_map_length {\u03b1 \u03b2 : Type} (f : \u03b1 \u2192 \u03b2) (xs : List \u03b1) :\n    (xs.map f).length = xs.length := by\n  induction xs with\n  | nil => rfl\n  | cons a xs ih => exact congrArg Nat.succ ih\n\n#print axioms smoke_zero_add\n#print axioms smoke_map_length\n",
+  "source_sha256": "afcabb8991aa199a8bb6681ceb33693ac6d5cc85c4030c0e2cf63d5389c53a41",
+  "commands": [
+    {
+      "name": "describe",
+      "argv": [
+        "python3",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/tooling/pinned_toolchain.py",
+        "--describe"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation",
+      "returncode": 0,
+      "stdout": "{\n  \"workspace\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation\",\n  \"official_distribution\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-linux\",\n  \"overlay\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-host\",\n  \"environment_overrides\": {\n    \"PATH\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-host/bin:/root/.codex/tmp/arg0-linux/codex-arg0D0T4n9:/opt/codex/codex-path:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback\",\n    \"LEAN_SYSROOT\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-host\",\n    \"LAKE_OVERRIDE_LEAN\": \"true\",\n    \"LD_LIBRARY_PATH\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-linux/lib:/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-linux/lib/lean\",\n    \"TMPDIR\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp\",\n    \"MATHLIB_CACHE_DIR\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/dependency-cache/mathlib\",\n    \"XDG_CACHE_HOME\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/dependency-cache/xdg\",\n    \"XDG_CONFIG_HOME\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-config\",\n    \"XDG_STATE_HOME\": \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-state\",\n    \"LEAN_NUM_THREADS\": \"1\"\n  },\n  \"cleared_inherited_selectors\": [\n    \"LEAN\",\n    \"LEAN_PATH\",\n    \"LEAN_SYSROOT\",\n    \"LEAN_AR\",\n    \"LEAN_CC\",\n    \"LEAN_GITHASH\",\n    \"LAKE_HOME\",\n    \"LAKE_OVERRIDE_LEAN\"\n  ],\n  \"executables\": {\n    \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/qemu-user/bin/qemu-x86_64-static\": \"90181b5552cd1a0b60d8edcc9f1cf8e38647579ef697d3155e2b6150e8fbcee0\",\n    \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-linux/bin/lean\": \"bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38\",\n    \"/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-linux/bin/lake\": \"8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1\"\n  },\n  \"relocated_executables\": {\n    \"lean\": \"bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38\",\n    \"lake\": \"8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1\"\n  },\n  \"launchers\": {\n    \"lean\": {\n      \"sha256\": \"dd42d4cbe946c868ccf331c73a243ea1a6592bdcb60228147498e4a3b68963b0\",\n      \"content\": \"#!/bin/sh\\nexec /workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/qemu-user/bin/qemu-x86_64-static /workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-host/libexec/lean \\\"$@\\\"\\n\"\n    },\n    \"lake\": {\n      \"sha256\": \"3736bdf1bce54959bfe6502c849af876a2e47bcf7e059218519c3ca9b7af1ba4\",\n      \"content\": \"#!/bin/sh\\nexec /workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/qemu-user/bin/qemu-x86_64-static /workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-host/libexec/lake \\\"$@\\\"\\n\"\n    }\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "lean-version",
+      "argv": [
+        "python3",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/tooling/pinned_toolchain.py",
+        "--",
+        "lean",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation",
+      "returncode": 0,
+      "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": ""
+    },
+    {
+      "name": "lean-prefix",
+      "argv": [
+        "python3",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/tooling/pinned_toolchain.py",
+        "--",
+        "lean",
+        "--print-prefix"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation",
+      "returncode": 0,
+      "stdout": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-host\n",
+      "stderr": ""
+    },
+    {
+      "name": "lake-version",
+      "argv": [
+        "python3",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/tooling/pinned_toolchain.py",
+        "--",
+        "lake",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation",
+      "returncode": 0,
+      "stdout": "Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)\n",
+      "stderr": ""
+    },
+    {
+      "name": "lake-child-lean-version",
+      "argv": [
+        "python3",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/tooling/pinned_toolchain.py",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation",
+      "returncode": 0,
+      "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": ""
+    },
+    {
+      "name": "lake-child-path",
+      "argv": [
+        "python3",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/tooling/pinned_toolchain.py",
+        "--",
+        "lake",
+        "env",
+        "python3",
+        "-c",
+        "import shutil; print(shutil.which(\"lean\"))"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation",
+      "returncode": 0,
+      "stdout": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/toolchains/lean-4.35.0-host/bin/lean\n",
+      "stderr": ""
+    },
+    {
+      "name": "bare-kernel",
+      "argv": [
+        "python3",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/tooling/pinned_toolchain.py",
+        "--",
+        "lean",
+        "--root",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1032-kernel-smoke",
+        "-o",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1032-kernel-smoke/bare.olean",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1032-kernel-smoke/Smoke.lean"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation",
+      "returncode": 0,
+      "stdout": "'smoke_zero_add' does not depend on any axioms\n'smoke_map_length' does not depend on any axioms\n",
+      "stderr": ""
+    },
+    {
+      "name": "lake-kernel",
+      "argv": [
+        "python3",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/work-state/tooling/pinned_toolchain.py",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "--root",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1032-kernel-smoke",
+        "-o",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1032-kernel-smoke/lake.olean",
+        "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/runtime-tmp/1032-kernel-smoke/Smoke.lean"
+      ],
+      "cwd": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation",
+      "returncode": 0,
+      "stdout": "'smoke_zero_add' does not depend on any axioms\n'smoke_map_length' does not depend on any axioms\n",
+      "stderr": ""
+    }
+  ],
+  "completed": true,
+  "chapter_credit": false,
+  "finished_utc": "2026-11-03T15:48:11.738473+00:00"
+}

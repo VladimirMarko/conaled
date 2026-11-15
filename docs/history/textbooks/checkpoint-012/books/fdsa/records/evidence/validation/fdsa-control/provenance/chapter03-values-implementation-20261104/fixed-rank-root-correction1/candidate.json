@@ -1,0 +1,40 @@
+{
+  "recorded_utc": "2026-11-04T20:04:30.004781+00:00",
+  "finding": "C03-FIXED-ELAB-001",
+  "candidate": "979c4fcb1719a779ffda7462a6df385e876b7d4c",
+  "tree": "e1f19a92e6953229f3120d6c01309ad0295c8bcf",
+  "parent": "fd490573dc6a0ad2ed4a6f3d449e03d9d1b0bb2f",
+  "base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "changed_source": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort/Applications/Selection/FixedRank.lean",
+    "bytes": 11391,
+    "sha256": "463e00dfd9eaac03dd2bec858eb64454d6c79abf03c80c8011019fb8af527395"
+  },
+  "changed_declaration_bodies": [
+    "select0_value",
+    "ordered_cons_eq_insert",
+    "takeSort_value"
+  ],
+  "all37_value_headers_unchanged": true,
+  "all_other34_value_declaration_blocks_unchanged": true,
+  "all_algorithm_definitions_unchanged": true,
+  "all_other8_sources_unchanged": true,
+  "all_previous_author_records_unchanged": true,
+  "full_new_scope_public_names": 86,
+  "full_author_branch_public_names": 216,
+  "private_helpers_in_new_scope": 1,
+  "unchanged_explicit86_program_rebound": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/FixedRankStatements.lean",
+    "bytes": 5262,
+    "sha256": "788a23b75a1b1f155f1500718f3705a1f719cb37a0295f4a76066e1d05bee7fa"
+  },
+  "exact_diff": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-values-implementation-20261104/fixed-rank-root-correction1/correction.diff",
+    "bytes": 1777,
+    "sha256": "399743eefd10b36b02ab41ff89e4341588d9a3670f934f8d71e39e402c9336c2"
+  },
+  "statement_assessment": "Only proof normalization: rewrite canonical sorting to its accepted insertion correspondence for empty lists, and reduce id in the ordered-insert comparison. No hypothesis, rank/index/domain/cost/trace or example expectation changed. Exact actual failed run retained.",
+  "compiled": false,
+  "actual_type_or_acceptance_credit": false,
+  "source_and_provenance_held": true
+}

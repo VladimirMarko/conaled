@@ -1,0 +1,550 @@
+{
+  "candidate": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+  "base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "tree": "b66d05bc7733290057c6104bcc5a74c43b4037a4",
+  "roots": [
+    "Applications.Resources.TreeFold",
+    "Examples.TreeFold",
+    "Examples.TreeFoldCache",
+    "Examples.TreeFoldObservations"
+  ],
+  "counts": {
+    "local_sources": 30,
+    "external_modules": 13,
+    "import_edges": 56,
+    "new_roots": 4,
+    "inherited_exact_base": 26,
+    "older_inputs_exact_accepted_R": 22
+  },
+  "local_sources": {
+    "Examples/TreeFoldObservations.lean": {
+      "path": "Examples/TreeFoldObservations.lean",
+      "git_blob": "cc70b9d0db6c9c54f4c2446093765bb007d35217",
+      "bytes": 8654,
+      "lines": 198,
+      "sha256": "3aeb7f02113c8e858c433a61981d9cea7b4cf8a332d23dac136ce309f33a86be"
+    },
+    "Examples/TreeFoldCache.lean": {
+      "path": "Examples/TreeFoldCache.lean",
+      "git_blob": "ed6f64ed9d6a33ac6182057aa9fca8af9169ff9a",
+      "bytes": 7743,
+      "lines": 164,
+      "sha256": "9a98b200ab681ca7fa0cdf791a21f364654dc43dfa386911fb9ad4cf515123f7"
+    },
+    "Examples/TreeFold.lean": {
+      "path": "Examples/TreeFold.lean",
+      "git_blob": "44cc3195f016a1a8e74d6bc09db2f9ac0d0d2985",
+      "bytes": 7437,
+      "lines": 161,
+      "sha256": "45e193ade4f0a98d8aed86b812c8ee22c5cd9e1e74a5a41e832bf7d87bc48d9c"
+    },
+    "Examples/TreeCache.lean": {
+      "path": "Examples/TreeCache.lean",
+      "git_blob": "d142e853381de3b7d294d3c023c32d53e2756d5c",
+      "bytes": 16307,
+      "lines": 363,
+      "sha256": "ae78e0f515ba11c9f5348533624df49da59d98887689a16c16a35c3f880fd754"
+    },
+    "Applications/Sequences/OrderedSummary.lean": {
+      "path": "Applications/Sequences/OrderedSummary.lean",
+      "git_blob": "93509e2e97acd47dcd68a109ea8d18ef1d612b57",
+      "bytes": 8765,
+      "lines": 190,
+      "sha256": "d484e6c34f4ebace4ba121f931eba53a86f34a3c4b69e06d9d0b24ae8c8c7261"
+    },
+    "Applications/Sequences/Symmetric/Observation.lean": {
+      "path": "Applications/Sequences/Symmetric/Observation.lean",
+      "git_blob": "846aba846bfcfa04867cc221043609f9198b0ec0",
+      "bytes": 3425,
+      "lines": 88,
+      "sha256": "ff921235743433457721ed77facd446cff527f08f410d946c1a80bfe654f5557"
+    },
+    "SquareKit/Relations.lean": {
+      "path": "SquareKit/Relations.lean",
+      "git_blob": "cdfa81e8f94728272a5c72da21ae2e4f5a5febc4",
+      "bytes": 5615,
+      "lines": 163,
+      "sha256": "33d07aa8ea8df37a6264df39193ac3485254726c8a6859703f1e689c78ac6c03"
+    },
+    "Squares.lean": {
+      "path": "Squares.lean",
+      "git_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+      "bytes": 11694,
+      "lines": 352,
+      "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7"
+    },
+    "Applications/Sequences/Symmetric/Finite.lean": {
+      "path": "Applications/Sequences/Symmetric/Finite.lean",
+      "git_blob": "fedbcc0dfa4c7865ef2ee73f395155d45e33dbe5",
+      "bytes": 4923,
+      "lines": 119,
+      "sha256": "c36a20ce943d88588ad7cefbb938425525b209526b460be56dafc0266f2c5490"
+    },
+    "Applications/Sequences/Symmetric/Prefixes.lean": {
+      "path": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "git_blob": "b73854f69696abe7cf827372ad070b6e9dc19991",
+      "bytes": 4345,
+      "lines": 114,
+      "sha256": "3582d22b0707192d4e82cfb53e46037811544c7c6f1b14540a1a486808191308"
+    },
+    "Applications/Sequences/Symmetric/Core.lean": {
+      "path": "Applications/Sequences/Symmetric/Core.lean",
+      "git_blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4",
+      "bytes": 12059,
+      "lines": 362,
+      "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3"
+    },
+    "SquareKit/ListFusion.lean": {
+      "path": "SquareKit/ListFusion.lean",
+      "git_blob": "33ec447acb6da7b884ae57d2a885707208201607",
+      "bytes": 2939,
+      "lines": 73,
+      "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164"
+    },
+    "Applications/Resources/ListReversal.lean": {
+      "path": "Applications/Resources/ListReversal.lean",
+      "git_blob": "62ab85a7325d521bf925405f9abb053703f4d175",
+      "bytes": 4827,
+      "lines": 116,
+      "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e"
+    },
+    "Applications/Resources/TreeFlattening/Core.lean": {
+      "path": "Applications/Resources/TreeFlattening/Core.lean",
+      "git_blob": "d136193bd3823ee00431bc240d1e7a0168b4ddaf",
+      "bytes": 4225,
+      "lines": 116,
+      "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2"
+    },
+    "Applications/Resources/Measured.lean": {
+      "path": "Applications/Resources/Measured.lean",
+      "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+      "bytes": 2906,
+      "lines": 71,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46"
+    },
+    "Applications/Resources/RandomAccess/CacheCosts.lean": {
+      "path": "Applications/Resources/RandomAccess/CacheCosts.lean",
+      "git_blob": "e583ec5285ea887c38f4b369071408697f0574b2",
+      "bytes": 2227,
+      "lines": 61,
+      "sha256": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d"
+    },
+    "Applications/Sequences/RandomAccess/TreeBuild.lean": {
+      "path": "Applications/Sequences/RandomAccess/TreeBuild.lean",
+      "git_blob": "3b662705f001c2a4b8fbe12868d6c7e77316d95f",
+      "bytes": 5392,
+      "lines": 139,
+      "sha256": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6"
+    },
+    "Applications/Sequences/RandomAccess/Borrow.lean": {
+      "path": "Applications/Sequences/RandomAccess/Borrow.lean",
+      "git_blob": "81b95e8bd4a6e30f6a20a85828409d6d55437be0",
+      "bytes": 5680,
+      "lines": 145,
+      "sha256": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516"
+    },
+    "Applications/Sequences/RandomAccess/Access.lean": {
+      "path": "Applications/Sequences/RandomAccess/Access.lean",
+      "git_blob": "5354c146a0665cce90ffc996d1b522b8a59079ad",
+      "bytes": 5219,
+      "lines": 141,
+      "sha256": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b"
+    },
+    "Applications/Sequences/RandomAccess/Basic.lean": {
+      "path": "Applications/Sequences/RandomAccess/Basic.lean",
+      "git_blob": "fe040b71615878a86d06b326b820e1d5cd5f0229",
+      "bytes": 5970,
+      "lines": 180,
+      "sha256": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb"
+    },
+    "Applications/Bracketing/Basic.lean": {
+      "path": "Applications/Bracketing/Basic.lean",
+      "git_blob": "3f6604c226908ee807c7d5076bd1c027b48bbf90",
+      "bytes": 8561,
+      "lines": 243,
+      "sha256": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9"
+    },
+    "Applications/Optimization/SelectionSpec.lean": {
+      "path": "Applications/Optimization/SelectionSpec.lean",
+      "git_blob": "2548b66575b5a453e8cec30ceb745234bb0ae2e6",
+      "bytes": 738,
+      "lines": 18,
+      "sha256": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b"
+    },
+    "Applications/Resources/SymmetricCosts.lean": {
+      "path": "Applications/Resources/SymmetricCosts.lean",
+      "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+      "bytes": 10508,
+      "lines": 281,
+      "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5"
+    },
+    "Applications/Resources/Potential.lean": {
+      "path": "Applications/Resources/Potential.lean",
+      "git_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+      "bytes": 4638,
+      "lines": 108,
+      "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe"
+    },
+    "Applications/Resources/Workload.lean": {
+      "path": "Applications/Resources/Workload.lean",
+      "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+      "bytes": 2745,
+      "lines": 64,
+      "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5"
+    },
+    "Applications/Resources/CallCount.lean": {
+      "path": "Applications/Resources/CallCount.lean",
+      "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+      "bytes": 2447,
+      "lines": 58,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8"
+    },
+    "Applications/Resources/TreeCache.lean": {
+      "path": "Applications/Resources/TreeCache.lean",
+      "git_blob": "d97a2c738960b893b733687c4f3d713f5edb0dc6",
+      "bytes": 3877,
+      "lines": 80,
+      "sha256": "54d6bf9255e4d2b619fcd079a5636bac391aeb44eafe45cc0f4c6abfc2afebf6"
+    },
+    "Applications/Trees/Cached.lean": {
+      "path": "Applications/Trees/Cached.lean",
+      "git_blob": "c301ca85e555a8c5bb3c9db10459446121bc6613",
+      "bytes": 5668,
+      "lines": 135,
+      "sha256": "f84b3c9702d26ed2490b1b711ea97df579561ee11c8d329550ef5f77a1d4b5d6"
+    },
+    "Applications/Trees/Observations.lean": {
+      "path": "Applications/Trees/Observations.lean",
+      "git_blob": "f90fbe8c85b9c88f760236d48129bd2b4c4d7e71",
+      "bytes": 4119,
+      "lines": 107,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752"
+    },
+    "Applications/Resources/TreeFold.lean": {
+      "path": "Applications/Resources/TreeFold.lean",
+      "git_blob": "442f0b1e3bc3c8919cb7cfd3476f9e76182a880c",
+      "bytes": 8347,
+      "lines": 175,
+      "sha256": "bf2acc856e73949ce09434abffbd952fb6cc583ca2342b11b8dd4230bd259dcc"
+    }
+  },
+  "external_modules": [
+    "Batteries.Data.DList.Lemmas",
+    "Lean",
+    "Mathlib.Algebra.FreeMonoid.Basic",
+    "Mathlib.Algebra.Group.Nat.Defs",
+    "Mathlib.Algebra.Group.Prod",
+    "Mathlib.Algebra.Group.TypeTags.Basic",
+    "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+    "Mathlib.Data.List.Basic",
+    "Mathlib.Data.List.Infix",
+    "Mathlib.Data.Tree.Basic",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Ring",
+    "Std"
+  ],
+  "edges": [
+    {
+      "from": "Examples.TreeFoldObservations",
+      "to": "Examples.TreeFoldCache",
+      "local": true
+    },
+    {
+      "from": "Examples.TreeFoldObservations",
+      "to": "Mathlib.Algebra.Group.TypeTags.Basic",
+      "local": false
+    },
+    {
+      "from": "Examples.TreeFoldCache",
+      "to": "Examples.TreeFold",
+      "local": true
+    },
+    {
+      "from": "Examples.TreeFold",
+      "to": "Applications.Resources.TreeFold",
+      "local": true
+    },
+    {
+      "from": "Examples.TreeFold",
+      "to": "Examples.TreeCache",
+      "local": true
+    },
+    {
+      "from": "Examples.TreeCache",
+      "to": "Applications.Trees.Cached",
+      "local": true
+    },
+    {
+      "from": "Examples.TreeCache",
+      "to": "Applications.Resources.TreeCache",
+      "local": true
+    },
+    {
+      "from": "Examples.TreeCache",
+      "to": "Applications.Resources.ListReversal",
+      "local": true
+    },
+    {
+      "from": "Examples.TreeCache",
+      "to": "Applications.Sequences.OrderedSummary",
+      "local": true
+    },
+    {
+      "from": "Applications.Sequences.OrderedSummary",
+      "to": "Mathlib.Algebra.FreeMonoid.Basic",
+      "local": false
+    },
+    {
+      "from": "Applications.Sequences.OrderedSummary",
+      "to": "Mathlib.Algebra.Group.Prod",
+      "local": false
+    },
+    {
+      "from": "Applications.Sequences.OrderedSummary",
+      "to": "Mathlib.Algebra.Group.TypeTags.Basic",
+      "local": false
+    },
+    {
+      "from": "Applications.Sequences.OrderedSummary",
+      "to": "Batteries.Data.DList.Lemmas",
+      "local": false
+    },
+    {
+      "from": "Applications.Sequences.OrderedSummary",
+      "to": "SquareKit.Relations",
+      "local": true
+    },
+    {
+      "from": "Applications.Sequences.OrderedSummary",
+      "to": "SquareKit.ListFusion",
+      "local": true
+    },
+    {
+      "from": "Applications.Sequences.OrderedSummary",
+      "to": "Applications.Sequences.Symmetric.Observation",
+      "local": true
+    },
+    {
+      "from": "Applications.Sequences.Symmetric.Observation",
+      "to": "Applications.Sequences.Symmetric.Finite",
+      "local": true
+    },
+    {
+      "from": "Applications.Sequences.Symmetric.Observation",
+      "to": "SquareKit.Relations",
+      "local": true
+    },
+    {
+      "from": "SquareKit.Relations",
+      "to": "Squares",
+      "local": true
+    },
+    {
+      "from": "Squares",
+      "to": "Lean",
+      "local": false
+    },
+    {
+      "from": "Applications.Sequences.Symmetric.Finite",
+      "to": "Applications.Sequences.Symmetric.Prefixes",
+      "local": true
+    },
+    {
+      "from": "Applications.Sequences.Symmetric.Prefixes",
+      "to": "Applications.Sequences.Symmetric.Core",
+      "local": true
+    },
+    {
+      "from": "Applications.Sequences.Symmetric.Core",
+      "to": "SquareKit.ListFusion",
+      "local": true
+    },
+    {
+      "from": "Applications.Sequences.Symmetric.Core",
+      "to": "Mathlib.Data.List.Infix",
+      "local": false
+    },
+    {
+      "from": "SquareKit.ListFusion",
+      "to": "Mathlib.Data.List.Basic",
+      "local": false
+    },
+    {
+      "from": "Applications.Resources.ListReversal",
+      "to": "Applications.Resources.CallCount",
+      "local": true
+    },
+    {
+      "from": "Applications.Resources.ListReversal",
+      "to": "Applications.Resources.SymmetricCosts",
+      "local": true
+    },
+    {
+      "from": "Applications.Resources.ListReversal",
+      "to": "Applications.Resources.TreeFlattening.Core",
+      "local": true
+    },
+    {
+      "from": "Applications.Resources.ListReversal",
+      "to": "Mathlib.Tactic.Linarith",
+      "local": false
+    },
+    {
+      "from": "Applications.Resources.TreeFlattening.Core",
+      "to": "Applications.Resources.RandomAccess.CacheCosts",
+      "local": true
+    },
+    {
+      "from": "Applications.Resources.TreeFlattening.Core",
+      "to": "Applications.Resources.Measured",
+      "local": true
+    },
+    {
+      "from": "Applications.Resources.Measured",
+      "to": "Mathlib.Algebra.Group.Prod",
+      "local": false
+    },
+    {
+      "from": "Applications.Resources.Measured",
+      "to": "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+      "local": false
+    },
+    {
+      "from": "Applications.Resources.Measured",
+      "to": "Squares",
+      "local": true
+    },
+    {
+      "from": "Applications.Resources.RandomAccess.CacheCosts",
+      "to": "Applications.Sequences.RandomAccess.TreeBuild",
+      "local": true
+    },
+    {
+      "from": "Applications.Sequences.RandomAccess.TreeBuild",
+      "to": "Applications.Sequences.RandomAccess.Borrow",
+      "local": true
+    },
+    {
+      "from": "Applications.Sequences.RandomAccess.Borrow",
+      "to": "Applications.Sequences.RandomAccess.Access",
+      "local": true
+    },
+    {
+      "from": "Applications.Sequences.RandomAccess.Access",
+      "to": "Applications.Sequences.RandomAccess.Basic",
+      "local": true
+    },
+    {
+      "from": "Applications.Sequences.RandomAccess.Basic",
+      "to": "Applications.Bracketing.Basic",
+      "local": true
+    },
+    {
+      "from": "Applications.Bracketing.Basic",
+      "to": "Applications.Optimization.SelectionSpec",
+      "local": true
+    },
+    {
+      "from": "Applications.Optimization.SelectionSpec",
+      "to": "Std",
+      "local": false
+    },
+    {
+      "from": "Applications.Resources.SymmetricCosts",
+      "to": "Applications.Resources.Potential",
+      "local": true
+    },
+    {
+      "from": "Applications.Resources.SymmetricCosts",
+      "to": "Applications.Sequences.Symmetric.Core",
+      "local": true
+    },
+    {
+      "from": "Applications.Resources.Potential",
+      "to": "Applications.Resources.Workload",
+      "local": true
+    },
+    {
+      "from": "Applications.Resources.Potential",
+      "to": "Mathlib.Algebra.Group.Nat.Defs",
+      "local": false
+    },
+    {
+      "from": "Applications.Resources.Workload",
+      "to": "Applications.Resources.Measured",
+      "local": true
+    },
+    {
+      "from": "Applications.Resources.Workload",
+      "to": "SquareKit.ListFusion",
+      "local": true
+    },
+    {
+      "from": "Applications.Resources.CallCount",
+      "to": "Applications.Resources.Measured",
+      "local": true
+    },
+    {
+      "from": "Applications.Resources.TreeCache",
+      "to": "Applications.Trees.Cached",
+      "local": true
+    },
+    {
+      "from": "Applications.Resources.TreeCache",
+      "to": "Applications.Resources.CallCount",
+      "local": true
+    },
+    {
+      "from": "Applications.Trees.Cached",
+      "to": "Applications.Trees.Observations",
+      "local": true
+    },
+    {
+      "from": "Applications.Trees.Observations",
+      "to": "Mathlib.Data.Tree.Basic",
+      "local": false
+    },
+    {
+      "from": "Applications.Trees.Observations",
+      "to": "Mathlib.Data.List.Basic",
+      "local": false
+    },
+    {
+      "from": "Applications.Resources.TreeFold",
+      "to": "Applications.Trees.Observations",
+      "local": true
+    },
+    {
+      "from": "Applications.Resources.TreeFold",
+      "to": "Applications.Resources.CallCount",
+      "local": true
+    },
+    {
+      "from": "Applications.Resources.TreeFold",
+      "to": "Mathlib.Tactic.Ring",
+      "local": false
+    }
+  ],
+  "ten_pinned_configs_exact_original_base": true,
+  "future_XP01_T_changed_existing_inputs": [
+    "Applications/Resources/Potential.lean"
+  ],
+  "helper_exact_reconciliation": true,
+  "credits": {
+    "compiler": 0,
+    "actual_types": 0,
+    "audit": 0,
+    "acceptance": 0
+  },
+  "bookkeeping_failure": "Prior read-only edge comparison attempted to sort dict records without a key; corrected by comparing from/to/local records with explicit keys. No source or evidence changed.",
+  "reviewer": "/root/chapter02_standards",
+  "unit": "XT03",
+  "stage": "source-only original-candidate preparation; overall Blocked",
+  "actual_read_only_execution": {
+    "chunk_id": "bef72d",
+    "exit_code": 0
+  },
+  "method": "Independent nested-comment/string-aware import parsing of immutable Git source; actual same-line public/meta/private import commands; complete local graph and explicit external boundaries.",
+  "reading_boundary": "All four added Lean roots were read fully. Matching complete XT01 and relevant local-source readings are retained by exact bytes; SymmetricCosts has only its recorded 1–80 context reading. Other transitive files have source identity/import-edge inspection, not a fabricated new whole-file semantic read. No runtime or compiled artifact capture.",
+  "future_compatibility_boundary": "XT01 acceptance remains prerequisite; XT02 is not required. XP01-T changes only Potential among the 22 older existing inputs through ListReversal/SymmetricCosts. That is a future receiving-input reconciliation boundary, not a new prerequisite or present compiler result."
+}

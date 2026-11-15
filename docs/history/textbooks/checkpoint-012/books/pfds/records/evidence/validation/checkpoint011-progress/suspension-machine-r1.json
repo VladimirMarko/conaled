@@ -1,0 +1,21 @@
+{
+  "scope": "focused development only",
+  "start": "2026-11-02T17:30:38Z",
+  "status": "interrupted by operator request before Machine/Rules checked",
+  "reason": "parent requested import-only narrowing of existing Progress.Evaluation prerequisite",
+  "signal": "SIGINT to own lake process 465915",
+  "subprocess_returncode": -2,
+  "wrapper_exit_code": 254,
+  "tool_session_id": 81972,
+  "successful_modules": [
+    "Applications.Suspensions.Syntax",
+    "Applications.Suspensions.Store",
+    "Examples.SuspensionStore"
+  ],
+  "targets": [
+    "Examples.SuspensionMachine",
+    "Examples.SuspensionStore",
+    "Examples.SuspensionRules"
+  ],
+  "log": "/workspace/scratch/ca9a61d0bf30/active-validation/suspension-machine-r1.log"
+}

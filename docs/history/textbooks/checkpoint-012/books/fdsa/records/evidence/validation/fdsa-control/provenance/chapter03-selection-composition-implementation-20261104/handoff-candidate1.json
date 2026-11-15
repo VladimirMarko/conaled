@@ -1,0 +1,99 @@
+{
+  "recorded_utc": "2026-11-04T22:14:16.328236+00:00",
+  "candidate": "660f974640fb89a766b26a4d786ae7ed197cecf2",
+  "tree": "dcdf077cf5e43ea42da940000da155867c6bd346",
+  "parent": "96c99a18a1f4ad28bbb8d13a17cbefb1899d8ab9",
+  "branch": "work/fdsa-ch03-rounded-recurrence",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs",
+  "status": "clean",
+  "public_names": [
+    "Examples.SelectionComposition.monotone_ranked_costs",
+    "Examples.SelectionComposition.constant_ranked_costs",
+    "Examples.SelectionComposition.collapsed_actual_work"
+  ],
+  "new_counts": {
+    "public": 3,
+    "private": 0,
+    "definitions": 0,
+    "modules": 1
+  },
+  "files": [
+    {
+      "path": "Applications/Resources/SelectionBounds.lean",
+      "bytes": 10073,
+      "sha256": "0f9181b569d24b2615c08be5c6a305a75e67679f14338e877fced10113d61edc",
+      "blob": "b68014cfc729990255e6883ac5d874af30bbb058",
+      "borrowed": true
+    },
+    {
+      "path": "Examples/MedianOfMedians.lean",
+      "bytes": 9092,
+      "sha256": "0bbbbdab0f2f41f42fd615231d04d29ebeb8f7ffd5cc83e2a6b832cbfcc25f0c",
+      "blob": "4803b5ce143a7501608810059c80bc263027c6a5",
+      "borrowed": true
+    },
+    {
+      "path": "Examples/SelectionAuxiliary.lean",
+      "bytes": 7302,
+      "sha256": "d5e495d5a9f6824d9b61fd41ce570059ab5aad3e93f4449f3b712e7d41a4b41e",
+      "blob": "494cc24a24555f35d42234967fc2e840488081ad",
+      "borrowed": true
+    },
+    {
+      "path": "Examples/SelectionComposition.lean",
+      "bytes": 4056,
+      "sha256": "b70545e72b5826ae94bb2810065684e5d5cb324c4b5c86140609987d20a4d691",
+      "blob": "0ca2a584a90a76bf740c1b2a6e14100e7c13bfab",
+      "borrowed": false
+    },
+    {
+      "path": "Examples/SelectionCosts.lean",
+      "bytes": 13604,
+      "sha256": "d1f2c2e2e5ea3180d7fb1f736b0b3c1a98b3280e0a2902c2bfc712f409044a4e",
+      "blob": "4c8a21dd318ad19c412cbe710cff0b4dffad3bf9",
+      "borrowed": true
+    },
+    {
+      "path": "Examples/SelectionMedians.lean",
+      "bytes": 5142,
+      "sha256": "4563c04666fdfb6073c8213328a2f868022cf2ed17538cd1671aaea68811c9d8",
+      "blob": "2775ddc7f0ae55176ef121b09f9a80bdf6f3ee52",
+      "borrowed": true
+    }
+  ],
+  "expected_XR_paths": [
+    "Applications/Resources/Chunks.lean",
+    "Applications/Resources/GroupSelectionRecurrence.lean",
+    "Applications/Resources/HalvingTrace.lean",
+    "Applications/Resources/RoundedRecurrence.lean",
+    "Applications/Resources/RoundedRecurrenceBounds.lean",
+    "Applications/Resources/Selection.lean",
+    "Applications/Resources/SelectionAuxiliary.lean",
+    "Applications/Resources/SelectionBounds.lean",
+    "Applications/Resources/SelectionCutoff.lean",
+    "Applications/Resources/SelectionEnvelope.lean",
+    "Applications/Resources/SelectionMedians.lean",
+    "Applications/Resources/SelectionRecurrence.lean",
+    "Applications/Selection/CountRank.lean",
+    "Applications/Selection/MedianOfMedians.lean",
+    "Applications/Selection/OutsidePivot.lean",
+    "Applications/Sequences/Chunks.lean",
+    "Examples/GroupSelectionRecurrence.lean",
+    "Examples/HalvingTrace.lean",
+    "Examples/MedianOfMedians.lean",
+    "Examples/OutsidePivot.lean",
+    "Examples/RoundedRecurrence.lean",
+    "Examples/RoundedRecurrenceBounds.lean",
+    "Examples/SelectionAuxiliary.lean",
+    "Examples/SelectionComposition.lean",
+    "Examples/SelectionCosts.lean",
+    "Examples/SelectionCutoff.lean",
+    "Examples/SelectionEnvelope.lean",
+    "Examples/SelectionMedians.lean",
+    "Examples/SelectionRecurrence.lean"
+  ],
+  "assessment": "source-assessment-candidate1.json",
+  "explicit_input": "SelectionCompositionStatements3-candidate1.lean",
+  "validation": "UNCOMPILED; full actual type inspection, normal full candidate check/audit, independent reviews and immediate verification pending.",
+  "hold": "Root source/index/ref now held for immutable focused check."
+}

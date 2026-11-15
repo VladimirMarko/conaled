@@ -1,0 +1,121 @@
+{
+  "started_utc": "2026-11-04T07:56:27.455364+00:00",
+  "author_base": "08a1e78d6becc713256d245206ef163f9eb55a0a",
+  "author_status": "",
+  "source_scope": [
+    "Applications/Resources/RandomQuickSortRank.lean"
+  ],
+  "existing_files": {
+    "Applications/Resources/RandomQuickSortRank.lean": {
+      "bytes": 19615,
+      "lines": 393,
+      "sha256": "22960885c968620b957e7e2381baa8b887d9dc80a54fb72fe9644c3ace2890b4"
+    },
+    "Examples/RandomQuickSortRank.lean": {
+      "bytes": 6427,
+      "lines": 151,
+      "sha256": "a0f5fbd6b3d41cad08193a371228bede1b869a773608b21906e85f2848d747bf"
+    },
+    "Applications/Resources/RandomQuickSortGrowth.lean": {
+      "bytes": 9896,
+      "lines": 203,
+      "sha256": "2b8bf7b4820790edaaa5726efb8e8bd8bccd3a30cb30388148d95bba00e63674"
+    },
+    "Examples/RandomQuickSortGrowth.lean": {
+      "bytes": 9959,
+      "lines": 215,
+      "sha256": "2d173d7572ae76395c3779c216ea43d21719ff1774f6a7f21c68a5677b511a16"
+    },
+    "Applications/Resources/RandomQuickSortMean.lean": {
+      "bytes": 16517,
+      "lines": 335,
+      "sha256": "2c7976bf52a2dbed2eb6eb959055acc7ae0df8319c167f0128b63e5c482bd5d3"
+    },
+    "Examples/RandomQuickSortMean.lean": {
+      "bytes": 5733,
+      "lines": 118,
+      "sha256": "a00248d8ecb10c425c1376e39ceccd77b6a1c468b952ef838f0494624bc26670"
+    },
+    "lean-toolchain": {
+      "bytes": 25,
+      "lines": 1,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    "lake-manifest.json": {
+      "bytes": 3138,
+      "lines": 96,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+    },
+    "AGENTS.md": {
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe"
+    }
+  },
+  "closed_failed_attempt": {
+    "candidate": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+    "command": [
+      "python3",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/tooling/unified-native-kit-4.35.0/conaled_native.py",
+      "--state",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state",
+      "run",
+      "--project",
+      "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down",
+      "--threads",
+      "1",
+      "--",
+      "lake",
+      "build",
+      "Applications.Probability.PermutationOrder",
+      "Examples.PermutationOrderBoundary",
+      "Examples.PermutationOrder",
+      "Applications.Resources.NaturalRunOperations",
+      "Examples.NaturalRunOperations",
+      "Applications.Probability.PermutationTail",
+      "Examples.PermutationTailBoundary",
+      "Examples.PermutationTail",
+      "Applications.Resources.QuickSortMean",
+      "Examples.QuickSortMean",
+      "Applications.Resources.RandomQuickSortRank",
+      "Examples.RandomQuickSortRank"
+    ],
+    "started_utc": "2026-11-04T07:34:27.826644+00:00",
+    "completed_utc": "2026-11-04T07:52:34.108454+00:00",
+    "exit_code": 1,
+    "elapsed_seconds": 1086.2815814940004,
+    "state": "failed",
+    "log": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-tail-numerical-rank-operations-focused-20261104-attempt5/full.log",
+    "progress_bookkeeping_errors": [],
+    "final_head": "c0440a99c2a503b7816a44367f7e4168378dbbf1",
+    "final_status": "",
+    "log_size_bytes": 47237,
+    "log_sha256": "d367cd2e1054973cac7d1e1c6fa7d9a278eea9cccfa038b2436c377367b6160e",
+    "available_bytes_at_completion": 18979033088,
+    "verification_record_present": false
+  },
+  "full_log": {
+    "bytes": 47237,
+    "lines": 546,
+    "sha256": "d367cd2e1054973cac7d1e1c6fa7d9a278eea9cccfa038b2436c377367b6160e"
+  },
+  "rank_diagnostics": {
+    "bytes": 14806,
+    "lines": 279,
+    "sha256": "4876a327e353abcf4afd95bdfac9d12f820f0d7cfa757ad667439becd01e4677"
+  },
+  "all279_rank_diagnostic_lines_read": true,
+  "all393_original_core_lines_read": true,
+  "root_authorization_clarification": "Minimal explicit parenthesization of intended getElem/key application is also authorized in definition body and headers; syntactic header changes must be disclosed. All mathematical contracts/hypotheses/recurrences/cases remain unchanged.",
+  "actual_findings": [
+    "GetElem application parse errors and resulting cascade goals/Array.size inference",
+    "Equiv.Perm.sum_comp resolves finite-set overload; use exact Equiv.sum_comp all-Fintype API",
+    "Fin sum dependent domain not rewritten by ht at canonical successor proof",
+    "Unused no-op change tactic in positive-size recurrence proof"
+  ],
+  "growth_source_frozen": true,
+  "author_builds_started": 0,
+  "cache_writes": false,
+  "acceptance_claimed": false,
+  "public_documentation_paused": "chapter02-public-documentation-draft-20261104/progress.json"
+}

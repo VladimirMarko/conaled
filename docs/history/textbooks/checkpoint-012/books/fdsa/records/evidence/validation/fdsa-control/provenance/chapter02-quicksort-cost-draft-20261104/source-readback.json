@@ -1,0 +1,37 @@
+{
+  "recorded_utc": "2026-11-04T04:54:18.503591+00:00",
+  "author_worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-quicksort",
+  "pre_draft_head": "fdd4d4796fe8201cecfa8a53930a391b6e50f401",
+  "complete_chapter_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "source_readback_only": true,
+  "compiler_run": false,
+  "elaborated_statement_review": false,
+  "accepted": false,
+  "source_pdf_sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645",
+  "files": {
+    "Applications/Resources/QuickSort.lean": {
+      "sha256": "d4d3efecce795e70bc8c4a41ef4f63591d9e438a7cd0de8c46e6c9340d318d78",
+      "lines": 475,
+      "prohibited_tokens": [],
+      "trailing_whitespace_lines": []
+    },
+    "Examples/QuickSortCosts.lean": {
+      "sha256": "8ef4641517938d5004a172badce122ec5f69ad0749558431c060bea94f5b064b",
+      "lines": 193,
+      "prohibited_tokens": [],
+      "trailing_whitespace_lines": []
+    }
+  },
+  "preserved_checked_value_files": {
+    "Applications/Sorting/QuickSort.lean": "696ae63c3f5c23940ac0f05c8ac6b48bff74b65e4c66faf319283efedea73802",
+    "Examples/QuickSort.lean": "2e5e4952bae8edf1fd5985f0cfd40993363a2f642717d61161a2e5ee6835a162"
+  },
+  "pending_gates": [
+    "immutable focused build by root",
+    "elaborated statement readback",
+    "applicable full candidate check and exhaustive axiom audit",
+    "independent Standards and Spec reviews",
+    "immediate candidate verification before integration"
+  ],
+  "probability_scope": "Both C02-024 distributions and expectation/logarithmic claims remain pending. partitionMass bridge is deterministic only."
+}

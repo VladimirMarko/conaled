@@ -1,0 +1,838 @@
+{
+  "reviewer": "independent Standards /root/chapter02_standards",
+  "candidate": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+  "base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "requirements_sha256": "85c651891cf8c8ee016706bf8baad7711dbd9965eb20ad5c6e96d2ab112728e1",
+  "source_reads": [
+    {
+      "path": "Applications/Probability/AccumulatedWork.lean",
+      "blob": "364a3ae346feaed7205b24dfef27895a9853a3e2",
+      "bytes": 8062,
+      "lines": 157,
+      "sha256": "7731f8a6c5222810ba11a056fc620c68a152dce0024ff3e2544d17fff70a80ba",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 157,
+          "bytes": 8062,
+          "lines": 157,
+          "sha256": "7731f8a6c5222810ba11a056fc620c68a152dce0024ff3e2544d17fff70a80ba"
+        }
+      ]
+    },
+    {
+      "path": "Examples/AccumulatedWork.lean",
+      "blob": "51f43ab3698fe97b8db83084b1876851388e3738",
+      "bytes": 11953,
+      "lines": 299,
+      "sha256": "7ef773d2ce87ce1b119838e083ee4a4cff072f5d96f4a8887f8494a80d04c20c",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 299,
+          "bytes": 11953,
+          "lines": 299,
+          "sha256": "7ef773d2ce87ce1b119838e083ee4a4cff072f5d96f4a8887f8494a80d04c20c"
+        }
+      ]
+    },
+    {
+      "path": "Examples/AccumulatedWorkBoundary.lean",
+      "blob": "8b7bc778099db7f2de680addb54e53da58cb1f86",
+      "bytes": 9507,
+      "lines": 219,
+      "sha256": "68ba8fd9571ad860d7f5aabd7093f35c0220ff12ead1e283e903b5bdc90a6927",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 219,
+          "bytes": 9507,
+          "lines": 219,
+          "sha256": "68ba8fd9571ad860d7f5aabd7093f35c0220ff12ead1e283e903b5bdc90a6927"
+        }
+      ]
+    },
+    {
+      "path": "SquareApplications.lean",
+      "blob": "e83c99ff4bc06123a1ae38097f86ad375e5fecbb",
+      "bytes": 8324,
+      "lines": 253,
+      "sha256": "40d97b7972ba8085c076c6482cc99f130f8e92beeea3f5c0b5fc8e040e4727dd",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 253,
+          "bytes": 8324,
+          "lines": 253,
+          "sha256": "40d97b7972ba8085c076c6482cc99f130f8e92beeea3f5c0b5fc8e040e4727dd"
+        }
+      ]
+    },
+    {
+      "path": "docs/research/fdsa-accumulated-work.md",
+      "blob": "316cf9cc197bbe618f7da7b9efc645b39ed1b46d",
+      "bytes": 8600,
+      "lines": 145,
+      "sha256": "191a7c449f936b84c17f3f5d33a935dd4440a199fc7287e576dfd38f4fbaca8e",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 145,
+          "bytes": 8600,
+          "lines": 145,
+          "sha256": "191a7c449f936b84c17f3f5d33a935dd4440a199fc7287e576dfd38f4fbaca8e"
+        }
+      ]
+    },
+    {
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "blob": "6666717e6909a1ece9491d3bca58a31ed0f1be2f",
+      "bytes": 16899,
+      "lines": 278,
+      "sha256": "35c5cf425168b21900c84735020df5b6a6b9ba86c099ad4d2c555821858a7024",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 145,
+          "bytes": 8693,
+          "lines": 145,
+          "sha256": "b7424abdef1075bd8ad6e0ae5cb63a0033c57bc8e40886b1bd98f03e891473d2"
+        },
+        {
+          "first_line": 146,
+          "last_line": 278,
+          "bytes": 8206,
+          "lines": 133,
+          "sha256": "c3f9d7647f6c0e924aea3cac73d12e7b9f2e888f0a7f5dc22a8713209e3ec622"
+        }
+      ]
+    }
+  ],
+  "control_reads": [
+    {
+      "path": "tickets/FDSA-XW01.md",
+      "bytes": 3878,
+      "lines": 69,
+      "sha256": "0e7bc4c43ba273138f0b2ebafe8dc45480f4f3754c317be55152f568d45d74e1",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 69,
+          "bytes": 3878,
+          "lines": 69,
+          "sha256": "0e7bc4c43ba273138f0b2ebafe8dc45480f4f3754c317be55152f568d45d74e1"
+        }
+      ]
+    },
+    {
+      "path": "reviews/accumulated-work-requirements.md",
+      "bytes": 9206,
+      "lines": 160,
+      "sha256": "85c651891cf8c8ee016706bf8baad7711dbd9965eb20ad5c6e96d2ab112728e1",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 160,
+          "bytes": 9206,
+          "lines": 160,
+          "sha256": "85c651891cf8c8ee016706bf8baad7711dbd9965eb20ad5c6e96d2ab112728e1"
+        }
+      ]
+    },
+    {
+      "path": "reviews/accumulated-work-candidate.md",
+      "bytes": 7034,
+      "lines": 122,
+      "sha256": "fedc0f458838911cec5e1f8e94c4e60b494afc40d7142ee041cdf65fdad51343",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 122,
+          "bytes": 7034,
+          "lines": 122,
+          "sha256": "fedc0f458838911cec5e1f8e94c4e60b494afc40d7142ee041cdf65fdad51343"
+        }
+      ]
+    },
+    {
+      "path": "research/accumulated-work-draft-preflight.md",
+      "bytes": 11605,
+      "lines": 264,
+      "sha256": "b6d974317c97a4d97c32b2dd0f18b27edd08b2647cf680d40bdb7732468b5ab7",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 132,
+          "bytes": 6308,
+          "lines": 132,
+          "sha256": "a4d40c166bcdcd7963c4805573360d600756a410df9646121916d6579a30dfdd"
+        },
+        {
+          "first_line": 133,
+          "last_line": 264,
+          "bytes": 5297,
+          "lines": 132,
+          "sha256": "911199e3b7314e8c93821db2c7353cfd623db1a7e379ee33da3f26eedc8028e8"
+        }
+      ]
+    },
+    {
+      "path": "research/probability-api-preflight.md",
+      "bytes": 29123,
+      "lines": 380,
+      "sha256": "eacc4181f3cb9e49598521be8149c65fab306a5c288ddd04e5bfeff6cccfe396",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 130,
+          "bytes": 11557,
+          "lines": 130,
+          "sha256": "c25ca805a05b631a97f87f45d99bdc526f1dc18723d9e2ae0c1febf973e1be28"
+        },
+        {
+          "first_line": 131,
+          "last_line": 260,
+          "bytes": 10107,
+          "lines": 130,
+          "sha256": "e9eb02cc990ae3d18de4356c37c6837630e8d6ad12e99d04614c836761666648"
+        },
+        {
+          "first_line": 261,
+          "last_line": 380,
+          "bytes": 7459,
+          "lines": 120,
+          "sha256": "aaf53b1483b9412cee54e858d89166edb8ea827dcdb9c02b7f0791bca94c5ed3"
+        }
+      ]
+    },
+    {
+      "path": "research/probability-source-preflight.md",
+      "bytes": 29169,
+      "lines": 578,
+      "sha256": "4efb4e40a06be65705a5b9a020a24faff04f9acef313f630fed261e39182158c",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 190,
+          "bytes": 11766,
+          "lines": 190,
+          "sha256": "ea4451c25ed942acf9c700394c1eddd2c57627632b229150c43d3af0211f2f70"
+        },
+        {
+          "first_line": 191,
+          "last_line": 380,
+          "bytes": 8446,
+          "lines": 190,
+          "sha256": "5dc8066b2abbc02149a3b2ed624b353a7dd41ec9b48c43aca36bd187acf610a6"
+        },
+        {
+          "first_line": 381,
+          "last_line": 578,
+          "bytes": 8957,
+          "lines": 198,
+          "sha256": "623db52ee8341ebe84620d42a50d37025c544c9b83fea2242955f203bef55849"
+        }
+      ]
+    },
+    {
+      "path": "research/probability-work-calculations.json",
+      "bytes": 2857,
+      "lines": 167,
+      "sha256": "5eae4c4c905978d1866d9a950971cd0591c54471ad5e67282aabf2f725e4a600",
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 167,
+          "bytes": 2857,
+          "lines": 167,
+          "sha256": "5eae4c4c905978d1866d9a950971cd0591c54471ad5e67282aabf2f725e4a600"
+        }
+      ]
+    }
+  ],
+  "related_source_reads": [
+    {
+      "path": "Applications/Resources/Measured.lean",
+      "blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+      "bytes": 2906,
+      "lines": 71,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "unchanged_from_base": true,
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 71,
+          "bytes": 2906,
+          "lines": 71,
+          "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/Workload.lean",
+      "blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+      "bytes": 2745,
+      "lines": 64,
+      "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+      "unchanged_from_base": true,
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 64,
+          "bytes": 2745,
+          "lines": 64,
+          "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/CallCount.lean",
+      "blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+      "bytes": 2447,
+      "lines": 58,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+      "unchanged_from_base": true,
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 58,
+          "bytes": 2447,
+          "lines": 58,
+          "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Probability/FiniteMH.lean",
+      "blob": "10262fb749d62b21ad7bcfe529eaf4650f7464a1",
+      "bytes": 7291,
+      "lines": 181,
+      "sha256": "8b86470a97e577e2e83ece9f40e6d7cfb4afcee11765c915caf257c8e4c5f416",
+      "unchanged_from_base": true,
+      "complete": false,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 53,
+          "bytes": 1750,
+          "lines": 53,
+          "sha256": "55913f03c0455a3bad8f9fcaf36c0012735a1d3948b858ebe9a2cb210779ae4b"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Probability/FiniteKernel.lean",
+      "blob": "6c44a8e08ced7d1599eee8f734b66af0c59d1218",
+      "bytes": 7496,
+      "lines": 181,
+      "sha256": "0c1c75a3a5896b91daabb78115f577da3fd45693f521f5a1d0ab91c431d4f7d6",
+      "unchanged_from_base": true,
+      "complete": false,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 110,
+          "bytes": 4462,
+          "lines": 110,
+          "sha256": "1217e84b28671347e57d36aab768c727639812405711f168891a36fe9b2031e5"
+        }
+      ]
+    },
+    {
+      "path": "Applications/Probability/Execution.lean",
+      "blob": "d5f17774c3ff6cb87d94712e78f8c8830aa82b11",
+      "bytes": 9876,
+      "lines": 206,
+      "sha256": "a86b3ffaf21a6bb2a59ecc9cb105235bedfe17a2e01c0214d3e8fcdcec701b65",
+      "unchanged_from_base": true,
+      "complete": false,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 86,
+          "bytes": 3846,
+          "lines": 86,
+          "sha256": "a3692ffc18ae1e0c0eb4647e7c0baf90815d0698ab026a01bede9368e5e082ea"
+        },
+        {
+          "first_line": 159,
+          "last_line": 206,
+          "bytes": 2158,
+          "lines": 48,
+          "sha256": "37d30f06bacab679c2d9284fc712b5b4dbee648e20f8b399df40037c6116e24a"
+        }
+      ]
+    }
+  ],
+  "pinned_API_reads": [
+    {
+      "path": "Mathlib/MeasureTheory/Integral/Lebesgue/Markov.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 8634,
+      "lines": 163,
+      "sha256": "41d852f6c850f8b2a6e726065a970d5aa840dbd4db0ec8b8a5a42faf460edfa7",
+      "working_source_matches_pinned_blob": true,
+      "complete": false,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 125,
+          "bytes": 6384,
+          "lines": 125,
+          "sha256": "a133e8e9ccc8233efbba9810f1acfac4e75122f84f7c752bce4f4a0d95c37258"
+        }
+      ],
+      "purpose": "Arbitrary-measure Markov, AEMeasurable observable, explicitly nonzero finite denominator"
+    },
+    {
+      "path": "Mathlib/MeasureTheory/Integral/Lebesgue/Add.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 24586,
+      "lines": 504,
+      "sha256": "3da8d17447de38c759359878227ca2ddedb046d0c233ea82ab630d5f5114e3b6",
+      "working_source_matches_pinned_blob": true,
+      "complete": false,
+      "ranges": [
+        {
+          "first_line": 332,
+          "last_line": 408,
+          "bytes": 3333,
+          "lines": 77,
+          "sha256": "5b9173d1ccd3e1da9475caa4455b52257dc4aa754492467626e8b7931ff6f730"
+        }
+      ],
+      "purpose": "AEMeasurable countable sum/integral interchange and actual affine integral linearity"
+    },
+    {
+      "path": "Mathlib/Analysis/SpecificLimits/Basic.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 37207,
+      "lines": 760,
+      "sha256": "7a5d61c23552efa7618812a47172581188948b067b59ec581f18e517b819c969",
+      "working_source_matches_pinned_blob": true,
+      "complete": false,
+      "ranges": [
+        {
+          "first_line": 379,
+          "last_line": 415,
+          "bytes": 1762,
+          "lines": 37,
+          "sha256": "51d92fc7b9860be56f7e8a0b941192bbe74f9184ae8ff56885cafa2394212365"
+        }
+      ],
+      "purpose": "Unconditional ENNReal geometric identity, including q≥1"
+    },
+    {
+      "path": "Mathlib/MeasureTheory/Constructions/Polish/Basic.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 57538,
+      "lines": 1157,
+      "sha256": "b7fc33697dac435da299a5cdbac6e93f5f671fd64af0e909081fc4cee6fe7f99",
+      "working_source_matches_pinned_blob": true,
+      "complete": false,
+      "ranges": [
+        {
+          "first_line": 1015,
+          "last_line": 1065,
+          "bytes": 2373,
+          "lines": 51,
+          "sha256": "3498a9f40d52dac3bf3da5639018dfdd7f19efab4bcecfa1a0a2271eef2b1add"
+        }
+      ],
+      "purpose": "Generated AEMeasurable.tsum; codomain capabilities specialize to ENNReal, not extra hypotheses on Ω"
+    },
+    {
+      "path": "Mathlib/Topology/Algebra/InfiniteSum/NatInt.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 26039,
+      "lines": 597,
+      "sha256": "4dc1dffbdb6a0b0157e8810b20dfc0051bedf7f449b6d1fa5b8a9a47fa47f645",
+      "working_source_matches_pinned_blob": true,
+      "complete": false,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 45,
+          "bytes": 1323,
+          "lines": 45,
+          "sha256": "39f807f9221a9884b4475e3acab0dce770e1dbc43e29af4e054a16a273f31c41"
+        },
+        {
+          "first_line": 165,
+          "last_line": 243,
+          "bytes": 3304,
+          "lines": 79,
+          "sha256": "41df7f54e4bdeea2c32bc301fc5c1eb7758d561a583ed401b16bedec6e9f9a50"
+        }
+      ],
+      "purpose": "Generated primed monoid-valued prefix/tail decomposition, shifted-tail Summable premise"
+    },
+    {
+      "path": "Mathlib/Topology/Algebra/InfiniteSum/ENNReal.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 31623,
+      "lines": 654,
+      "sha256": "88ef56c969006630d0066b7af2c74e75dd060608f3c42f0ef288ad1c6da908cc",
+      "working_source_matches_pinned_blob": true,
+      "complete": false,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 97,
+          "bytes": 3595,
+          "lines": 97,
+          "sha256": "2b63514d048bf75e0ad59c352eeb29bfedb18235122a4c6f60af30b9f9f03c1f"
+        },
+        {
+          "first_line": 145,
+          "last_line": 195,
+          "bytes": 2277,
+          "lines": 51,
+          "sha256": "0e62f71d8587d430dd65c3b24d521bb424bd4ea3f19c5aaa025fa25b40409a15"
+        }
+      ],
+      "purpose": "Every ENNReal family summable in the extended topology, nonzero constant sum infinite, scaling including zero/infinity"
+    },
+    {
+      "path": "Mathlib/Probability/UniformOn.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 10493,
+      "lines": 230,
+      "sha256": "7f1aac5e8c78698289601133f5b9551eb772b90eab05338900c472270031f5c3",
+      "working_source_matches_pinned_blob": true,
+      "complete": false,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 115,
+          "bytes": 4600,
+          "lines": 115,
+          "sha256": "c809983f7921580723308c900d7c777e12469eb658e47fa327969b7f06763f5a"
+        }
+      ],
+      "purpose": "Actual uniform measure, normalization only for finite nonempty law, finset cardinality formula"
+    },
+    {
+      "path": "Mathlib/MeasureTheory/Integral/Lebesgue/Countable.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 19365,
+      "lines": 356,
+      "sha256": "456f4ba959eee9fbb1ba4e741917457e4e199220b18d654d9fd68c9d1ef43216",
+      "working_source_matches_pinned_blob": true,
+      "complete": false,
+      "ranges": [
+        {
+          "first_line": 135,
+          "last_line": 161,
+          "bytes": 1592,
+          "lines": 27,
+          "sha256": "8e0e328cea8f7bde6ff2731d198e5d7417b07e5f748524d97447b134f2b121d4"
+        }
+      ],
+      "purpose": "Finite singleton-mass lower integral"
+    },
+    {
+      "path": "Mathlib/MeasureTheory/OuterMeasure/AE.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 13526,
+      "lines": 333,
+      "sha256": "d595093574d46d09420feee799ae77012518f51483db1e92744cce91c9e0166d",
+      "working_source_matches_pinned_blob": true,
+      "complete": false,
+      "ranges": [
+        {
+          "first_line": 290,
+          "last_line": 318,
+          "bytes": 1185,
+          "lines": 29,
+          "sha256": "7dc3020c991b235ddac4d48bc06b8132d14dc0c66b1edb7cbfc6a9cd2c972cba"
+        }
+      ],
+      "purpose": "Almost-everywhere set inclusion implies measure comparison"
+    },
+    {
+      "path": "Mathlib/Basic/ENNReal/Inv.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 44273,
+      "lines": 982,
+      "sha256": "f06e93ae82105c5c03585c2d11377b94aac119b7fdbcaf34a7a333aa27c53f36",
+      "working_source_matches_pinned_blob": true,
+      "complete": false,
+      "ranges": [
+        {
+          "first_line": 64,
+          "last_line": 87,
+          "bytes": 984,
+          "lines": 24,
+          "sha256": "e32d8052c9cc869139d764f41e4f62ccb563db9d18e64e43c2e85b8a6279e23e"
+        },
+        {
+          "first_line": 146,
+          "last_line": 175,
+          "bytes": 1535,
+          "lines": 30,
+          "sha256": "159000b8552030ec692ab49edc80448727fca538cb4e7875f8a4821ba1002d75"
+        },
+        {
+          "first_line": 203,
+          "last_line": 231,
+          "bytes": 1105,
+          "lines": 29,
+          "sha256": "7eff2db62dd03972de97e41d40d24f13d5b48ab89d15b3892c1f6c8a66b987dc"
+        },
+        {
+          "first_line": 467,
+          "last_line": 481,
+          "bytes": 637,
+          "lines": 15,
+          "sha256": "0e42382813884b6780bca976be01077065fc4028f4588744e7d079b5bd5482b7"
+        }
+      ],
+      "purpose": "Division/coercion requirements, positive finite threshold, cancellation and division monotonicity"
+    },
+    {
+      "path": "Mathlib/Basic/ENNReal/Operations.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 31529,
+      "lines": 725,
+      "sha256": "9c5ae45fe78f42b7b3c6336c49cd4f837ebf083f64677b4cddd91f609bb3bf7e",
+      "working_source_matches_pinned_blob": true,
+      "complete": false,
+      "ranges": [
+        {
+          "first_line": 90,
+          "last_line": 119,
+          "bytes": 1069,
+          "lines": 30,
+          "sha256": "366c5fecc68a0eb17b91a621fa67bbfc04e2cbfa86e902827d109c6f7b740e7d"
+        },
+        {
+          "first_line": 191,
+          "last_line": 211,
+          "bytes": 936,
+          "lines": 21,
+          "sha256": "1e94a9551ff69a706e0ba31c34fbd7c164519dca8ea87506b9c55e82e6078ebc"
+        },
+        {
+          "first_line": 286,
+          "last_line": 309,
+          "bytes": 1329,
+          "lines": 24,
+          "sha256": "a21ebce0ddcfbf2181e41a388a4cb814c345302186eb2952f30651822a2f5f5a"
+        }
+      ],
+      "purpose": "Finite left-addition cancellation, finite product and subtraction"
+    },
+    {
+      "path": "Mathlib/Data/ENNReal/Basic.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 112,
+      "lines": 5,
+      "sha256": "0129a4dc4a57252c0c196a32f27256eabb196a5cf1a532d6e5758a5be84bb8b3",
+      "working_source_matches_pinned_blob": true,
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 5,
+          "bytes": 112,
+          "lines": 5,
+          "sha256": "0129a4dc4a57252c0c196a32f27256eabb196a5cf1a532d6e5758a5be84bb8b3"
+        }
+      ],
+      "purpose": "Read-only API discovery: deprecated shim; actual definitions resolved in Basic.ENNReal"
+    },
+    {
+      "path": "Mathlib/Data/ENNReal/Operations.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 117,
+      "lines": 5,
+      "sha256": "881b6af226562ba855ca3b4d6288ca83838017d75dcd154574b9ca4cd0ebaeb2",
+      "working_source_matches_pinned_blob": true,
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 5,
+          "bytes": 117,
+          "lines": 5,
+          "sha256": "881b6af226562ba855ca3b4d6288ca83838017d75dcd154574b9ca4cd0ebaeb2"
+        }
+      ],
+      "purpose": "Read-only API discovery: deprecated shim; no new project import introduced"
+    },
+    {
+      "path": "Mathlib/Data/ENNReal/Inv.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 110,
+      "lines": 5,
+      "sha256": "07c0c85538bfc96ce3494eba48e1f87a4b1f97a1a9f7dcd4a2f2120db3b78ba1",
+      "working_source_matches_pinned_blob": true,
+      "complete": true,
+      "ranges": [
+        {
+          "first_line": 1,
+          "last_line": 5,
+          "bytes": 110,
+          "lines": 5,
+          "sha256": "07c0c85538bfc96ce3494eba48e1f87a4b1f97a1a9f7dcd4a2f2120db3b78ba1"
+        }
+      ],
+      "purpose": "Read-only API discovery: deprecated shim; actual names and premises read at exact pin"
+    }
+  ],
+  "instruction_read_reuse": [
+    {
+      "path": ".agents/skills/code-review/SKILL.md",
+      "bytes": 7466,
+      "lines": 133,
+      "sha256": "74bf9570a7e34e68c43d3f7c721deb9ce0460620633d0c49f721dccbe1f53e42",
+      "identical_to_prior_XR_source": true,
+      "prior_complete_read_retained": true,
+      "prior_receipt": "provenance/affine-recurrence-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": ".agents/skills/code-review/heuristics.md",
+      "bytes": 2232,
+      "lines": 32,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "identical_to_prior_XR_source": true,
+      "prior_complete_read_retained": true,
+      "prior_receipt": "provenance/affine-recurrence-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": ".agents/skills/domain-modeling/SKILL.md",
+      "bytes": 3346,
+      "lines": 74,
+      "sha256": "7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3",
+      "identical_to_prior_XR_source": true,
+      "prior_complete_read_retained": true,
+      "prior_receipt": "provenance/affine-recurrence-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "bytes": 6991,
+      "lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "identical_to_prior_XR_source": true,
+      "prior_complete_read_retained": true,
+      "prior_receipt": "provenance/affine-recurrence-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/worked-example.md",
+      "bytes": 2356,
+      "lines": 55,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+      "identical_to_prior_XR_source": true,
+      "prior_complete_read_retained": true,
+      "prior_receipt": "provenance/affine-recurrence-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": ".agents/skills/implement/SKILL.md",
+      "bytes": 4997,
+      "lines": 83,
+      "sha256": "dcb604c159e9450af969fecedd595c216ac3850c8ee523766fa5cdc20b87d3df",
+      "identical_to_prior_XR_source": true,
+      "prior_complete_read_retained": true,
+      "prior_receipt": "provenance/affine-recurrence-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": ".agents/skills/setup-matt-pocock-skills/domain.md",
+      "bytes": 2042,
+      "lines": 51,
+      "sha256": "593a7042218689f1d24df89df14eaf0a20e19e0d0a7d479a01947ac78f0784b9",
+      "identical_to_prior_XR_source": true,
+      "prior_complete_read_retained": true,
+      "prior_receipt": "provenance/affine-recurrence-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 3118,
+      "lines": 76,
+      "sha256": "5d017d009307c72a7616d7afe0bee9fb5a7105fe2f6f4e1da3fdccf070d4b4fe",
+      "identical_to_prior_XR_source": true,
+      "prior_complete_read_retained": true,
+      "prior_receipt": "provenance/affine-recurrence-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "bytes": 4824,
+      "lines": 106,
+      "sha256": "de34dcd63191a11fa6c96d37c4c9457a77d8127ceb4156f6f8f44d3dbe3e88e6",
+      "identical_to_prior_XR_source": true,
+      "prior_complete_read_retained": true,
+      "prior_receipt": "provenance/affine-recurrence-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": "README.md",
+      "bytes": 26239,
+      "lines": 343,
+      "sha256": "85d09c317be36c015927e948a379cdc7a11c2a8ec8ad6268cbd61708d5e11216",
+      "identical_to_prior_XR_source": true,
+      "prior_complete_read_retained": true,
+      "prior_receipt": "provenance/affine-recurrence-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "lines": 50,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "identical_to_prior_XR_source": true,
+      "prior_complete_read_retained": true,
+      "prior_receipt": "provenance/affine-recurrence-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "bytes": 7331,
+      "lines": 127,
+      "sha256": "f76abfe4fafa7908a5f1605c8ffe9f717430ab0831682f74cc8c734a248c3fb8",
+      "identical_to_prior_XR_source": true,
+      "prior_complete_read_retained": true,
+      "prior_receipt": "provenance/affine-recurrence-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": "docs/language-direction.md",
+      "bytes": 19185,
+      "lines": 306,
+      "sha256": "ff974d934a7fc182072e33155f7cce356a13631767a8605c0127fae3259c62db",
+      "identical_to_prior_XR_source": true,
+      "prior_complete_read_retained": true,
+      "prior_receipt": "provenance/affine-recurrence-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "bytes": 3876,
+      "lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "identical_to_prior_XR_source": true,
+      "prior_complete_read_retained": true,
+      "prior_receipt": "provenance/affine-recurrence-standards-preparation-20261104/read-ledger.json"
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "bytes": 7113,
+      "lines": 115,
+      "sha256": "0561fafdb97423533dd3d85ba71ab89b09c4e148c1312035846fdf80be45e64c",
+      "identical_to_prior_XR_source": true,
+      "prior_complete_read_retained": true,
+      "prior_receipt": "provenance/affine-recurrence-standards-preparation-20261104/read-ledger.json"
+    }
+  ],
+  "read_method": "Only complete displayed ranges are credited. One initially truncated aggregate display was superseded by a complete bounded reread of the author preflight. No source/type credit is taken from another reviewer or author."
+}

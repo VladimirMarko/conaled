@@ -1,0 +1,26 @@
+{
+  "recorded_utc": "2026-11-05T03:17:01.057092+00:00",
+  "actual_exit": 0,
+  "output": "[work/fdsa-tree-shape-integration 27c5908] feat(trees): receive shared shape bounds (#174)\n 6 files changed, 854 insertions(+)\n create mode 100644 Applications/Trees/Shape.lean\n create mode 100644 Applications/Trees/ShapeLog.lean\n create mode 100644 Examples/TreeShape.lean\n create mode 100644 docs/research/fdsa-tree-shape.md\n",
+  "candidate": "27c5908b07c7a03feefc09472a8701ef940b7aaf",
+  "tree": "2833c54c80e93940eaea859737d6854fb2ce933e",
+  "branch": "work/fdsa-tree-shape-integration",
+  "incorporated_accepted_base": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "original_unit_base": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "original_donor": "974a97321a8ec174b56104c7e6efaaca881b6639",
+  "paths": [
+    "Applications/Trees/Shape.lean",
+    "Applications/Trees/ShapeLog.lean",
+    "Examples/TreeShape.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-reconstruction-map.md",
+    "docs/research/fdsa-tree-shape.md"
+  ],
+  "final_status": "",
+  "all3_formal_modules_exact_donor": true,
+  "full_original_scope_retained": true,
+  "public_names": 90,
+  "private_definitions": 1,
+  "source_stat": " Applications/Trees/Shape.lean            | 267 +++++++++++++++++++++++++++\n Applications/Trees/ShapeLog.lean         |  69 +++++++\n Examples/TreeShape.lean                  | 297 +++++++++++++++++++++++++++++++\n SquareApplications.lean                  |   1 +\n docs/research/fdsa-reconstruction-map.md |  24 +++\n docs/research/fdsa-tree-shape.md         | 196 ++++++++++++++++++++\n 6 files changed, 854 insertions(+)\n",
+  "compiler_or_acceptance_credit": false
+}

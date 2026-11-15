@@ -1,0 +1,108 @@
+{
+  "recorded_utc": "2026-11-04T19:32:02.639589+00:00",
+  "agent": "/root/chapter03_rounded_continue",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs",
+  "branch": "work/fdsa-ch03-rounded-recurrence",
+  "baseline": "a4cd1b6b53fdab38eab40433c3fd60293fdc054f",
+  "tree": "cdf8f8ffb0ea2a4afb1188b489491064a89c0a49",
+  "status": "",
+  "index_diff": "",
+  "tracked_diff": "",
+  "accepted_head": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "original_XR_ref": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "fixed_existing_sources": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Applications/Resources/RoundedRecurrence.lean",
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs/Examples/RoundedRecurrence.lean",
+      "bytes": 3782,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d"
+    }
+  ],
+  "all_prior_own_provenance": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/Statements16.lean",
+      "bytes": 1418,
+      "sha256": "a3cb2079d5dbdd6ddcf41067be0209e6a6b18b3aa85d390c82bcfd83c2bf446f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/allocation-result.json",
+      "bytes": 373,
+      "sha256": "7c30f8398954f38fdd2315a96f2210a26e1fb64ebcf3ac14b6c600e258c45968"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-candidate.json",
+      "bytes": 7405,
+      "sha256": "c719c7b75ab799825fa101f196a75c4aaf88b38fd7626f0df163034b27041e42"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-git-commands.json",
+      "bytes": 8425,
+      "sha256": "d73e24605c40dba8ee7eb05443401872d20fbe5d19e2c4c81735f2b067196131"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-handoff.md",
+      "bytes": 8190,
+      "sha256": "458e4aed24e3d39c460d88f459c9711c8c96211bec0cf3d142fe3a92f2b6fe1d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-input-bindings.json",
+      "bytes": 8543,
+      "sha256": "7f86179e6da646dc250a9bfbe996fdad7d38f513820b18a520e31f7c9cf242ab"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-preservation.json",
+      "bytes": 2270,
+      "sha256": "55caad6618ce56e8ada565647b6e0caa996385f483a2fc0816e443b09e95aec9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-readback-receipt.json",
+      "bytes": 4418,
+      "sha256": "c4b816c1cf60b8d9aee0f26c55464cecd05ff8f099ff6d39d9e6a70b592a761e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-requirements.json",
+      "bytes": 3856,
+      "sha256": "7b3cbffdaa40dc2a8da0879a65e068f3e1b1535bc835fe4be0f0ea93f4f27c8f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-source-baseline.json",
+      "bytes": 7653,
+      "sha256": "4d49a88c6455b601c9108ff3a2aa4e1fa82fa24c2006fa0142a125004d2fcf56"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-source.diff",
+      "bytes": 12151,
+      "sha256": "638e4438b20c6fb0162310c80463494d81d91b9d19f1370c6aa48ee4b6810fb9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/slice1-statements-inventory.json",
+      "bytes": 13235,
+      "sha256": "0b2814d5f6aed1792bed6a4e621bb57af905bc2883719cccaf389523c203e802"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-rounded-recurrence-implementation-20261104/starting-state.json",
+      "bytes": 7034,
+      "sha256": "d6f72d5309bb1b47de6c3d21c3a52a4f67e6dc2c9edd4a62ba1e5335d26aca84"
+    }
+  ],
+  "original_scope": [
+    "C03-039",
+    "C03-040",
+    "C03-041",
+    "C03-042",
+    "C03-043",
+    "C03-044"
+  ],
+  "full_chapter_obligations": 83,
+  "new_authorized_source_paths": [
+    "Applications/Resources/RoundedRecurrenceBounds.lean",
+    "Examples/RoundedRecurrenceBounds.lean"
+  ],
+  "previous_source_hold": "Preserve both prior modules until root actual focused result; additive next modules only.",
+  "compiler_owner": "root exclusively; no Lean/Lake or output/runtime/cache mutation by author",
+  "no_new_review_loop": true
+}

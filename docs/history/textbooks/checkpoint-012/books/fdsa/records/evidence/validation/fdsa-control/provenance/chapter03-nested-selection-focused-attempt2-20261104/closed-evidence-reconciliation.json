@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-04T20:54:56.488072+00:00",
+  "candidate": "9c19c0ec07eab0bfa12f58dde8c61f53447be58e",
+  "terminal": {
+    "recorded_utc": "2026-11-04T20:54:56.487767+00:00",
+    "owned_session": 67686,
+    "actual_exit": 1,
+    "terminal_tool_chunk": "1f3a7c",
+    "state": "CLOSED; never poll this historical session again",
+    "candidate": "9c19c0ec07eab0bfa12f58dde8c61f53447be58e"
+  },
+  "actual_recorder_and_native_exits": [
+    1,
+    1
+  ],
+  "outer_log": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-nested-selection-focused-attempt2-20261104/full.log",
+    "bytes": 66301,
+    "sha256": "2dc9f2d1437758cb1cfaefc377867b3f9363090d2a5755fce6b1116515413e27"
+  },
+  "native_origin": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T205030Z-project-run-3f3b4fb5",
+  "native_records": {
+    "start.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-nested-selection-focused-attempt2-20261104/native-records/start.json",
+      "bytes": 468,
+      "sha256": "46cd4765ecfe9a7d4e82db9a28c26bac86c9a3bf1d7b5b0a671d62106e1f719a"
+    },
+    "result.json": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-nested-selection-focused-attempt2-20261104/native-records/result.json",
+      "bytes": 622,
+      "sha256": "a0edf85900790c503a4454ec04cb2293bfe885f4799a3728ceb50ed5f4291c87"
+    },
+    "output.log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-nested-selection-focused-attempt2-20261104/native-records/output.log",
+      "bytes": 66034,
+      "sha256": "a2b13e1d5f4bdcddbe43ea705cd7948dd443a87343deec57d507de642d74bef4"
+    }
+  },
+  "native_body_exact_outer_offset": 110,
+  "complete_closed_log": true,
+  "scope": "Focused two-module check of corrected nested measured selection; not complete candidate check, actual type inspection, independent review, or acceptance.",
+  "verification_record_candidate": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "a_focused_or_type_run_is_not_a_full_candidate_check": true
+}

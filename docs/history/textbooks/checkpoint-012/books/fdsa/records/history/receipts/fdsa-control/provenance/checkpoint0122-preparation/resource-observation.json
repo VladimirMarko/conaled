@@ -1,0 +1,41 @@
+{
+  "schema": "fdsa.checkpoint0122.bounded-capacity-preparation.v1",
+  "observed_utc": "2026-11-04T18:09:32.937654+00:00",
+  "actual_read_tool": "d0083b, exit 0",
+  "scope": "Metadata only within fdsa-control, excluding __pycache__; no project/cache/runtime/output traversal",
+  "current_control": {
+    "regular_files": 4733,
+    "directories": 943,
+    "logical_bytes": 107088366,
+    "observed_allocated_regular_file_bytes": 119054336,
+    "per_file_copy_roundup4096_bytes": 119005184,
+    "symlink_or_special_entries": []
+  },
+  "filesystem": {
+    "total_bytes": 67586535424,
+    "ordinary_available_bytes": 0,
+    "raw_free_bytes": 347996160,
+    "fragment_size": 4096
+  },
+  "staging_shape": "BASE/fdsa-recovery-<temporary>/<checkpoint-name>/ contains source.pack, whole control copy, 15 worktree patch/untracked payload groups, recovery/manifest/SHA256SUMS; it coexists with the compressed output until normal context exit.",
+  "scenario": {
+    "not_a_guard_bound_or_guarantee": true,
+    "current_control_copy_roundup_bytes": 119005184,
+    "prior_noncontrol_stage_roundup_bytes": 8798208,
+    "prior_scale_source": "chapter02-checkpoint0121-resource-preparation-20261104/observation.json, checkpoint0120 tar headers",
+    "directory_scale_bytes": 3932160,
+    "assumed_new_compressed_archive_bytes": 31457280,
+    "explicit_small_future_record_allowance_bytes": 1048576,
+    "additional_peak_scenario_bytes": 164241408,
+    "raw_minus_scenario_at_observation_bytes": 183754752,
+    "existing_archives_already_consume_space_not_counted_twice": true
+  },
+  "limitations": [
+    "Point observation precedes this small package and subsequent root/final-review records; it is not a held control capture.",
+    "The 30 MiB archive assumption is above the actual 28,260,739-byte 0121 archive, not a proven upper bound for 0122.",
+    "The noncontrol stage scale is inherited from actual 0120 tar-header evidence; no new source pack or archive was created.",
+    "File rounding/directory scale does not bound allocator, inode, compression or concurrent host behavior. Ordinary available bytes remain zero and raw free has varied.",
+    "No cause, sustained capacity, cleanup, installation-space waiver or fresh-validation exemption is inferred. Root must decide from the actual capture boundary."
+  ],
+  "no_checkpoint_verifier_restore_fsck_compiler_or_cleanup_executed": true
+}

@@ -1,0 +1,6 @@
+{
+  "observed_utc": "2026-11-04T05:17:52.494996+00:00",
+  "checkpoint": 66,
+  "disposition": "withheld_before_upload",
+  "reason": "Post-capture inspection found previous output_snapshot_bytes/output_snapshot_sha256/ordinary_available_bytes aliases retained alongside updated fields. Restore smoke passed, but this progress metadata was contradictory. The archive is retained locally and not represented as an available recovery checkpoint. A new numbered capture with the canonical fields replaces it."
+}

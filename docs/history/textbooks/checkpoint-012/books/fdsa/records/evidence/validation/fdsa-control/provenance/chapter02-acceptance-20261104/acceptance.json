@@ -1,0 +1,253 @@
+{
+  "schema": "fdsa.chapter02.acceptance.v1",
+  "recorded_utc": "2026-11-04T18:18:31.799613+00:00",
+  "status": "Accepted and integrated locally; acceptance durability follows separately",
+  "branch": "work/fdsa-book",
+  "accepted_commit": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "accepted_tree": "fe0bd9f17a5e1a09797be55fd79491e8c363cbd0",
+  "previous_accepted_commit": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "fixed_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "development_source": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "ordered_parents": [
+    "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+    "4b5dbfa07288acc73f25c27838d3fb2f78e77d71"
+  ],
+  "scope": {
+    "complete_chapter": 2,
+    "title": "Sorting",
+    "original_review_paths": 81,
+    "obligations": 112,
+    "obligation_ids": "C02-001 through C02-112 inclusive",
+    "shared_scopes": 10,
+    "defining_Lean_files": 71,
+    "public_root": 1,
+    "documents": 9,
+    "explicit_public_names": 1763,
+    "private_named_declarations": 70,
+    "anonymous_instances": 19,
+    "not_narrowed_to_merge_delta": true
+  },
+  "full_check": {
+    "actual_exit": 0,
+    "owned_session": 14509,
+    "terminal_tool_chunk": "23b186",
+    "record": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/result.json",
+      "bytes": 1263,
+      "sha256": "bcd067764dda97bb5c5b2c88860adcbc1def51abe3f771503eab4079b2d6eba6"
+    },
+    "closed_evidence": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/closed-evidence-reconciliation.json",
+      "bytes": 3135,
+      "sha256": "4fda5170bd26129f2d57bd5acf806b1eac7aa4b141af09c143ec6179db909d7d"
+    },
+    "closed_log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/full.log",
+      "bytes": 315124,
+      "sha256": "5559dfa557622a8e29e503502df3e5a77287d3ac1f6e2f285a0b5bf5e4af6f0f"
+    },
+    "native_log": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/native-records/output.log",
+      "bytes": 314896,
+      "sha256": "7f2c0853d96f00134c8e4d9e7c1014ed91a3b9ed9e6c8c048ab6ea5c02779693"
+    },
+    "verification": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/verification.json",
+      "bytes": 867,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    "audit_record": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-full-attempt1-20261104/audit-and-build-summary.json",
+      "bytes": 117883,
+      "sha256": "eb21706903b588d1189e9c7f286ce71d5f834878277ff0c86665a84a936e5121"
+    },
+    "audit": {
+      "checked_modules": 1029,
+      "audit_module_rows": 1027,
+      "kernel_safe_declarations": 47797,
+      "theorem_declarations": 27214,
+      "unsafe_excluded": 0,
+      "permitted_axiom_union": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "whole_project_counts_not_new_book_results": true,
+    "mode": "normal incremental; successful accepted Chapter1 fresh baseline retained; no new fresh trigger"
+  },
+  "public_type_evidence": {
+    "actual_serial_profiles": 11,
+    "all_actual_outer_native_owned_exits": 0,
+    "owned_session": 11843,
+    "terminal_tool_chunk": "bbe6e9",
+    "qualified_F145": 110,
+    "qualified_I314": 242,
+    "qualified_J53": 53,
+    "qualified_Tail61": 61,
+    "qualified_predecessor_total": 466,
+    "actual_current_checks": 1297,
+    "current_exact_historical_checks": 1296,
+    "direct_new_Growth": 1,
+    "distinct_public_total": 1763,
+    "additional_NaturalRuns_prints": 3,
+    "current_total_blocks": 1300,
+    "whole_historical_blocks_exact": 1299,
+    "historical_blocks_different": 0,
+    "native_bytes_all_accounted": 1081225,
+    "native_LF_lines": 14590,
+    "actual_sequence": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/execution-result.json",
+      "bytes": 13862,
+      "sha256": "03f2e85aade3002429b926355284f31362d01e8f96c830b2c3edf7d274fe7a48"
+    },
+    "actual_parent_terminal": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/owned-terminal.json",
+      "bytes": 421,
+      "sha256": "f78307e9907e8e90b2d84fd0cef4f8866fff8c331cc2527e0eb6880b270cbcb0"
+    },
+    "actual_post_sequence": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/post-sequence-result.json",
+      "bytes": 836,
+      "sha256": "5a58ccf7cf01d1a12bf62df886644d5b215210d19ee987dba350fe06c4d78f81"
+    },
+    "actual_post_terminal": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/post-owned-terminal.json",
+      "bytes": 1062,
+      "sha256": "22fc29058a5adb67771f5bf047c2b9f4e903f10f83a2265750c6e501c6bfb82d"
+    },
+    "stable_comparison": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-receiving-input-observations-20261104-attempt1/stable-comparison.json",
+      "bytes": 2419315,
+      "sha256": "e4201e756490c1282d2a5dacbd4c3268f8c1b85961800cfec0dfdb66da27eec1"
+    },
+    "root_cross_reconciliation": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-receiving-targeted-execution-coordinator-20261104/actual-output-and-stability-cross-reconciliation.json",
+      "bytes": 88698,
+      "sha256": "0a5347cb0578e667d9199e05013d54a0152861fabc7e04dd563e2f9b5ed42c00"
+    },
+    "both_complete_semantic_qualifications": true,
+    "no_author_comparator_execution_or_extra_type_credit": true
+  },
+  "independent_axes": {
+    "Standards": {
+      "outcome": "Passed",
+      "new_findings": 0,
+      "unresolved": 0,
+      "report": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter02-standards-receiving-final-20261104.md",
+        "bytes": 12369,
+        "sha256": "32fa752ce964aa01c530d0d015a8eaf1f4fa7319b6cfe872bb54cd797b9c3b45"
+      },
+      "completion": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/final-disposition-and-hold.json",
+        "bytes": 10278,
+        "sha256": "b189fcc3ddb8cf6de318b17c0462faa5df7d4222ee155ec64e0fabedb519fc30"
+      },
+      "full_saved_readback_and_hold": true
+    },
+    "Spec": {
+      "outcome": "PASS",
+      "new_findings": 0,
+      "unresolved": 0,
+      "report": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/reviews/chapter02-spec-final-20261104.md",
+        "bytes": 15377,
+        "sha256": "4852842a5ccae808bd0d96ba82339a2857eda445e5992a34ab8c2e4fd2a133c0"
+      },
+      "completion": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/final-readback-and-hold.json",
+        "bytes": 5528,
+        "sha256": "b542c98aa7e8ddc268b1e61f7aef6cf1105d733a6226a876da7dd42c211f06ee"
+      },
+      "disposition": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-spec-receiving-terminal-20261104/final-disposition.json",
+        "bytes": 12999,
+        "sha256": "439db86ed31edcc2d6b58701cd01a5dde0f739d5d3e3cb82a84b4fa134bcbda4"
+      },
+      "full_saved_readback_and_hold": true
+    }
+  },
+  "root_gate": {
+    "actual_exit": 0,
+    "tool_chunk": "27d88d",
+    "record": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-acceptance-20261104/root-gate-reconciliation.json",
+      "bytes": 139032,
+      "sha256": "ba9c115e8840fec4e587386bd7f6febcbc8e460115163aab69bf758b3ad4d098"
+    },
+    "bound_files": 419,
+    "complete_log_read_ranges": 40,
+    "saved_Standards_assessment_read_ranges": 5,
+    "root_final_report_readback": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-acceptance-20261104/root-final-report-readback.json",
+      "bytes": 2183,
+      "sha256": "29c88961a76a19ecbb2c567b4477ffbe225bf30741c7882b84c97206ed917468"
+    }
+  },
+  "immediate_verification": {
+    "actual_exit": 0,
+    "owned_session": 45368,
+    "terminal_tool_chunk": "c8b14f",
+    "complete_record_read_chunk": "952657",
+    "result": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-immediate-verification-20261104-attempt1/result.json",
+      "bytes": 1276,
+      "sha256": "e0723e7f5578cd7d932089b9021c18fc8f3a91cc359e6c8b8a7168a65a2fb2df"
+    },
+    "closed_evidence": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-immediate-verification-20261104-attempt1/closed-evidence-reconciliation.json",
+      "bytes": 2314,
+      "sha256": "4ae06a939df9891aca3ea3f3fcd3ffbc8da82f178b85e80e9f0f96e21092045a"
+    },
+    "owned_terminal": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-immediate-verification-20261104-attempt1/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "deacecb2e6f2e56fcd0eee4b4e4e39aca5467cacec5b6a00640049fc67405af0"
+    },
+    "verification": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-complete-immediate-verification-20261104-attempt1/verification.json",
+      "bytes": 867,
+      "sha256": "fb794d107281f07ec8470de0f4af0028b1a78c1b774d0e01f742221063493aca"
+    },
+    "completed_utc": "2026-11-04T18:15:59.086724+00:00"
+  },
+  "fast_forward": {
+    "actual_exit": 0,
+    "tool_chunk": "c3e0aa",
+    "completed_utc": "2026-11-04T18:16:19.499134+00:00",
+    "record": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-acceptance-20261104/fast-forward-result.json",
+      "bytes": 7459,
+      "sha256": "33508645d18cdee1f3106c56226c0c16ef98fc16091a5390f940fbd206bdc0d8"
+    },
+    "owned_terminal": {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-acceptance-20261104/fast-forward-owned-terminal.json",
+      "bytes": 310,
+      "sha256": "895e282510c692a1c62b962dd7b3ffe040abaa01e86a849978d7ff9b17be4fd8"
+    },
+    "all_other66_refs_preserved": true,
+    "all_other14_worktree_heads_statuses_preserved": true,
+    "unrelated_baseline_preserved": true
+  },
+  "finding_dispositions": {
+    "C02-TYPE-001": "Resolved at exact Q, all1763 public names qualified with full private/generated scope retained",
+    "C02-DOC-001": "Resolved public-root integration",
+    "C02-DOC-002": "Resolved accurate source/validation/failure history",
+    "C02-DOC-003": "Resolved all six accepted shared-note corrections",
+    "C02-PREP-OPT-001": "Resolved by separate truthful printer-profile clarification; original preserved",
+    "C02-PREP-CMD-001": "Resolved by narrow additive helper correction and actual succeeding comparisons; original failure preserved",
+    "all_other_original_findings": "Resolved or confirmed in both complete original-scope final assessments; histories retained"
+  },
+  "environment": "Qualified unchanged official Lean/Lake4.35.0;nativekit1.0.0;exactninepins;disclosed narrow native launcher adapter;one thread and sole builder;Nix waiver only;proof restrictions and audit gates unchanged",
+  "accepted_predecessors_preserved": [
+    "07e480f6ec9958d4975bb90151005b84f2907614",
+    "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "312aafb4446b995ff5542041b4e2e074f776db1e",
+    "932438a765340d69fa6402f6abd17def6ec28d13",
+    "726cb9a9b9ff4444a7614383de4fb336e8804aa7"
+  ],
+  "no_GitHub_mutation_or_push": true,
+  "acceptance_checkpoint": "Pending separate actual verified upload/exposure; planned0122",
+  "next": "Acceptance checkpoint0122, then Chapter3 Selection in recorded chapter order; later drafts preserved and unaccepted."
+}

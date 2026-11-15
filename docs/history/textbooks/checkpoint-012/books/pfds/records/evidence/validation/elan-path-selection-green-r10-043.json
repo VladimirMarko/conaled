@@ -1,0 +1,39 @@
+{
+  "time": "2026-11-03T18:13:22.201893+00:00",
+  "candidate": "060e6b877b8db57a30f947b996b7dfe34a5401a1",
+  "finding_ids": [
+    "DTS-003",
+    "DTP-003"
+  ],
+  "document_sha256": "39184174a0a2cdff195caf2515ab871584e14d67b35b19da3ee3a8c1c1b7d633",
+  "fixture_source": "from pathlib import Path\nimport hashlib,json,shutil,subprocess,sys\nexpected = '/workspace/scratch/b566cace4ed6/pfds/toolchains/elan-4.2.4/elan-init'\nexpected_lean = '/workspace/scratch/b566cace4ed6/pfds/toolchains/lean-4.35.0-native/bin/lean'\nselected = shutil.which(\"elan\")\nresolved = str(Path(selected).resolve()) if selected else None\nrecord = {\"selected_elan\":selected,\"resolved_elan\":resolved,\"expected_elan\":expected}\nif resolved != expected:\n    record[\"selection_matches\"] = False\n    record[\"wrong_executable_invoked\"] = False\n    print(json.dumps(record))\n    raise SystemExit(7)\nrecord[\"selection_matches\"] = True\nrecord[\"elan_sha256\"] = hashlib.sha256(Path(resolved).read_bytes()).hexdigest()\nassert record[\"elan_sha256\"] == \"e0f4b30b29c565625189744847dfef5f132b6322c5e452dbebfeae780c9749e5\"\nfor key,argv in [(\"elan_version\",[\"elan\",\"--version\"]),(\"selected_lean\",[\"elan\",\"which\",\"lean\"])]:\n    result=subprocess.run(argv,capture_output=True,text=True,check=True,timeout=30)\n    record[key]=result.stdout.strip()\nassert \"elan 4.2.4 (227caca13 2026-08-25)\" == record[\"elan_version\"]\nassert str(Path(record[\"selected_lean\"]).resolve()) == expected_lean\nresult=subprocess.run([record[\"selected_lean\"],\"--version\"],capture_output=True,text=True,check=True,timeout=30)\nrecord[\"lean_version\"]=result.stdout.strip()\nassert \"Lean (version 4.35.0,\" in record[\"lean_version\"] and \"eb6cafb7290e8bd5f2937522d8d804f58f02bafc\" in record[\"lean_version\"]\nprint(json.dumps(record))\n",
+  "fixture_sha256": "1f4d8e474c6fec2b783e0505a3bd3fe3b3e9a9408920bb6adc29c1f76fc4bc36",
+  "ambient_executable": "/workspace/scratch/b566cace4ed6/pfds/session/tools/elan-path-selection-r10-043/ambient-bin/elan",
+  "ambient_target": "/usr/bin/false",
+  "argv": [
+    "bash",
+    "-c",
+    "set -euo pipefail\nPFDS_ROOT=/workspace/scratch/b566cace4ed6/pfds\nPFDS_ELAN_PACKAGE=/workspace/scratch/b566cace4ed6/pfds/toolchains/elan-4.2.4\nPFDS_ELAN_STATE=/workspace/scratch/b566cace4ed6/pfds/runtime-cache/elan-native-check-tests\nPATH=/workspace/scratch/b566cace4ed6/pfds/session/tools/elan-path-selection-r10-043/ambient-bin:\"$PATH\"\ncd \"$PFDS_ROOT/import-correction-r3\"\nenv ELAN_HOME=\"$PFDS_ELAN_STATE\" ELAN_TOOLCHAIN=pfds-native-4.35.0 \\\n  PATH=\"$PFDS_ELAN_PACKAGE:$PATH\" \\\n  python3 \"$PFDS_ROOT/session/environment/run-native-toolchain.py\" -- \\\n  python3 /workspace/scratch/b566cace4ed6/pfds/session/tools/elan-path-selection-r10-043/selection.py\n"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"selected_elan\": \"/workspace/scratch/b566cace4ed6/pfds/toolchains/elan-4.2.4/elan\", \"resolved_elan\": \"/workspace/scratch/b566cace4ed6/pfds/toolchains/elan-4.2.4/elan-init\", \"expected_elan\": \"/workspace/scratch/b566cace4ed6/pfds/toolchains/elan-4.2.4/elan-init\", \"selection_matches\": true, \"elan_sha256\": \"e0f4b30b29c565625189744847dfef5f132b6322c5e452dbebfeae780c9749e5\", \"elan_version\": \"elan 4.2.4 (227caca13 2026-08-25)\", \"selected_lean\": \"/workspace/scratch/b566cace4ed6/pfds/runtime-cache/elan-native-check-tests/toolchains/pfds-native-4.35.0/bin/lean\", \"lean_version\": \"Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\"}\n",
+  "stderr": "",
+  "observation": {
+    "selected_elan": "/workspace/scratch/b566cace4ed6/pfds/toolchains/elan-4.2.4/elan",
+    "resolved_elan": "/workspace/scratch/b566cace4ed6/pfds/toolchains/elan-4.2.4/elan-init",
+    "expected_elan": "/workspace/scratch/b566cace4ed6/pfds/toolchains/elan-4.2.4/elan-init",
+    "selection_matches": true,
+    "elan_sha256": "e0f4b30b29c565625189744847dfef5f132b6322c5e452dbebfeae780c9749e5",
+    "elan_version": "elan 4.2.4 (227caca13 2026-08-25)",
+    "selected_lean": "/workspace/scratch/b566cace4ed6/pfds/runtime-cache/elan-native-check-tests/toolchains/pfds-native-4.35.0/bin/lean",
+    "lean_version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)"
+  },
+  "green_behavior_observed": true,
+  "substitution": "Only final suite entrypoint replaced with public-selector probe; exact documented child env/native launcher preserved",
+  "red_record": {
+    "path": "session/validation/elan-path-selection-red-r9-043.json",
+    "sha256": "08a5bcf224750c9dfd154c571be36e1f2ae5fdb2fdb55d0712636c84df7682c3"
+  },
+  "stock_regression_suite_run": false,
+  "formal_acceptance": false
+}

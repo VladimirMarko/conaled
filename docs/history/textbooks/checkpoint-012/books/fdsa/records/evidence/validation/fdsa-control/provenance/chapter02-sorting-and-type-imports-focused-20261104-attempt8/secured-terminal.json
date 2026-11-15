@@ -1,0 +1,76 @@
+{
+  "secured_utc": "2026-11-04T09:16:45.601813+00:00",
+  "owned_exec_session": 56413,
+  "owned_exec_terminal_exit": 1,
+  "session_closed_do_not_poll": true,
+  "candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+  "clean_unchanged": true,
+  "result": "result.json",
+  "full_log_bytes": 28888,
+  "full_log_sha256": "eb49e2b97740ea99b7d02f805455717527f7dbe24837e864b32bfbcb657edf65",
+  "full_log_lines": 162,
+  "native_records": {
+    "start.json": {
+      "original": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T085930Z-project-run-f0a1786f/start.json",
+      "bytes": 943,
+      "sha256": "b9032d180b2b70759b545035bb98f2efdacb5408f35fd703bb67522bbcc6d26d"
+    },
+    "result.json": {
+      "original": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T085930Z-project-run-f0a1786f/result.json",
+      "bytes": 1096,
+      "sha256": "b7d7953fda190af742f1cc34e04a16ac34d44f6265b21ade8b2e2afd278d74fc"
+    },
+    "output.log": {
+      "original": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-native-state/logs/20261104T085930Z-project-run-f0a1786f/output.log",
+      "bytes": 28238,
+      "sha256": "947359129f6e3b0fb6fc88ff2b66a7fa6e9e5672b0f1e6eefa052bb70573be39"
+    }
+  },
+  "actual_individual_build_lines": [
+    "\u26a0 [436/453] Replayed Applications.Resources.Measured",
+    "\u26a0 [622/652] Replayed Applications.Sorting.Stable",
+    "\u26a0 [877/878] Built Applications.Resources.InsertionSort (15s)",
+    "\u26a0 [1915/1933] Replayed Applications.Probability.PermutationOrder",
+    "\u26a0 [3041/3048] Replayed SquareKit.ListFusion",
+    "\u26a0 [3042/3048] Replayed Applications.Sequences.Symmetric.Core",
+    "\u26a0 [3043/3084] Replayed Applications.Probability.PermutationTail",
+    "\u26a0 [3045/3084] Replayed Applications.Resources.Potential",
+    "\u26a0 [3047/3084] Replayed Applications.Resources.ListCalls",
+    "\u26a0 [3056/3084] Replayed Applications.Resources.ListReversal",
+    "\u26a0 [3058/3084] Replayed Applications.Resources.QuickSort",
+    "\u26a0 [3148/3154] Built Applications.Sorting.InsertionObservations (12s)",
+    "\u26a0 [3150/3157] Built Applications.Arithmetic.EuclidInduction (1.8s)",
+    "\u26a0 [3151/3159] Replayed Applications.Resources.QuickSortMean",
+    "\u26a0 [3152/3159] Built Examples.FunctionalBasics (2.9s)",
+    "\u26a0 [3154/3159] Built Examples.ListLibrary (1.0s)",
+    "\u26a0 [3156/3162] Built Applications.Resources.UniformQuickSortMean (85s)",
+    "\u26a0 [3157/3162] Built Examples.FunctionalNotation (12s)",
+    "\u2714 [3158/3163] Built Examples.InsertionCosts (12s)",
+    "\u2714 [3161/3164] Built Examples.ListCalls (7.0s)",
+    "\u26a0 [3162/3168] Built Examples.InsertionObservations (1.9s)",
+    "\u26a0 [3164/3168] Replayed Applications.Resources.Growth",
+    "\u2714 [3165/3168] Built Applications.Search.LeftistQueue (1.9s)",
+    "\u26a0 [3166/3168] Built Applications.Resources.CallComparison (14s)",
+    "\u26a0 [3167/3189] Built Examples.MergeCosts (3.9s)",
+    "\u26a0 [3168/3189] Replayed Applications.Probability.PermutationMinimum",
+    "\u26a0 [3169/3189] Replayed Examples.PermutationMinimumBoundary",
+    "\u26a0 [3731/3736] Replayed Examples.PermutationMinimum",
+    "\u26a0 [3732/3736] Replayed Examples.PermutationOrderBoundary",
+    "\u26a0 [3733/3736] Replayed Examples.PermutationOrder",
+    "\u26a0 [3744/3756] Replayed Applications.Resources.RandomQuickSort",
+    "\u26a0 [3745/3756] Replayed Applications.Resources.RandomQuickSortMean",
+    "\u26a0 [3746/3756] Replayed Applications.Resources.RandomQuickSortRank",
+    "\u26a0 [3747/3756] Replayed Examples.RandomQuickSort",
+    "\u26a0 [3749/3756] Replayed Examples.RandomQuickSortMean",
+    "\u26a0 [3752/3758] Replayed Applications.Resources.RandomQuickSortGrowth",
+    "\u26a0 [3753/3758] Built Examples.RandomQuickSortRank (314s)",
+    "\u26a0 [3754/3758] Built Examples.TopDownSorting (13s)",
+    "\u26a0 [3756/3758] Replayed Examples.QuickSortTransport",
+    "\u2714 [3757/3758] Built Examples.RandomQuickSortGrowth (321s)"
+  ],
+  "actual_failed_targets": [
+    "Examples.PermutationTailBoundary"
+  ],
+  "verification_record_present": false,
+  "interpretation": "Actual closed focused failure. Individual successful targets do not establish aggregate success, full candidate audit or acceptance; dependent Ran targets are not passes."
+}

@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-03T00:17:29.821289+00:00",
+  "decision": "No new removal of returned000/012/013 now. Preserve historical no-repeat exclusion, current returned files and saved evidence companion.",
+  "basis": "New incident002 durably preserves exact current payloads and metadata. Current observed root-free capacity has increased to3148345344bytes without a corresponding task cleanup action; cause is unknown. No immediate returned-file deletion is required by this observation.",
+  "assessment": "work-state/validation/1025-returned-archives000-012-013-assessment.json",
+  "assessment_sha256": "1ee05447323d1e71ba60eda98bcb1c0c128a0868ff2bc6111b8b4b7001d437d7",
+  "durable_evidence": "work-state/validation/1025-incident-archive002-upload-verification.json",
+  "archive_sha256": "a34d9162d2a050ae72f8915c358386805490d182b8d60e1e30e2253c75d1a697",
+  "library_file_id": "libfile_d3edb2d0713081918ac070597465019a",
+  "root_free_bytes": 3148345344,
+  "existing_checkpoint_launch_floor_bytes": 2000000000,
+  "old_binding_metadata_reconstructed": false,
+  "source_or_active_cache_changes": false,
+  "old_or_new_saved_copy_deletion": false,
+  "formal_acceptance_change": false,
+  "limits": [
+    "No writer, return mechanism or causal explanation for filesystem changes is established.",
+    "Binary matching and new preservation do not replace current original-file identity/binding rechecks if a separately justified future action is considered.",
+    "No recurring deletion policy or permission to remove returned paths follows."
+  ]
+}

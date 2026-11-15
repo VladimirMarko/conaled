@@ -1,0 +1,54 @@
+{
+  "recorded_utc": "2026-11-04T19:51:09.037663+00:00",
+  "candidate": "95406b83968e5b438e206c06f9797804664e0170",
+  "expectedHead": "e15c4c1c2e6cfce76f7ca6372fc3c62e49d40ba7",
+  "base": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "acceptedHead": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "name": "chapter03-rounded-recurrence-bounds-focused-attempt3-20261104",
+  "command": [
+    "lake",
+    "build",
+    "Applications.Resources.RoundedRecurrenceBounds",
+    "Examples.RoundedRecurrenceBounds"
+  ],
+  "expectedPaths": [
+    "Applications/Resources/RoundedRecurrence.lean",
+    "Applications/Resources/RoundedRecurrenceBounds.lean",
+    "Examples/RoundedRecurrence.lean",
+    "Examples/RoundedRecurrenceBounds.lean"
+  ],
+  "recordDirectory": "chapter03-focused-continuation-20261104",
+  "recordName": "rounded-recurrence-bounds-attempt3-preflight.json",
+  "checkout_exit": 0,
+  "checkout_output": "Previous HEAD position was e15c4c1 fix(selection): normalize finite run branch proofs (#174)\nHEAD is now at 95406b8 fix(examples): match rounded recurrence numeral casts (#174)\n",
+  "sources": [
+    {
+      "path": "Applications/Resources/RoundedRecurrence.lean",
+      "bytes": 7723,
+      "sha256": "6116607e4f45d848ba6b5d737587c53bda7b3d8d244b4bd71e299c65210a9758"
+    },
+    {
+      "path": "Applications/Resources/RoundedRecurrenceBounds.lean",
+      "bytes": 6951,
+      "sha256": "7aa9a48a060d3d198e72b1ea689079777506897f95a5a6b4dc251a911c7ef135"
+    },
+    {
+      "path": "Examples/RoundedRecurrence.lean",
+      "bytes": 3782,
+      "sha256": "cd68fbd6c1d64adf62c38228f64b586c63871ace747bdc7248b65ba72eeeeb5d"
+    },
+    {
+      "path": "Examples/RoundedRecurrenceBounds.lean",
+      "bytes": 7295,
+      "sha256": "18275f597cf579edf0db6785d0910e76dcc9cff084566ced73cd0da8828c0135"
+    }
+  ],
+  "candidate_tree": "f3d740547c9e85689561647a9592737738e0230c",
+  "space": {
+    "ordinary_available": 0,
+    "raw_free": 772845568
+  },
+  "compiler_owner": "root serial; unchanged qualified native profile one thread",
+  "no_installation_or_hydration": true,
+  "acceptance_claim": false
+}

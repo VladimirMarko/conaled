@@ -1,0 +1,49 @@
+{
+  "recorded_utc": "2026-11-04T23:16:18.009948+00:00",
+  "finding": "C03-RANDOM-TRACE-CONNECTION-001",
+  "scope": "Saved before adding the Lean checked-use client",
+  "pinned_existing_model_output": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/stage08-trace-mass-20261104/expected-cases.json",
+    "bytes": 2873,
+    "sha256": "3bf4da4fa74e726fe26a0dafb01cc9640de5e3fef097823c2c184126fa448c5b"
+  },
+  "pinned_original_model": {
+    "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-random-selection-implementation-20261104/stage07-endpoints-20261104/expected_case_model.py",
+    "bytes": 5599,
+    "sha256": "7edb978daacc882721553f8a5f0a2b094f36b8571988e405e28703be5fdaa2c7"
+  },
+  "reused_exact_row": {
+    "input": [
+      3,
+      1,
+      2
+    ],
+    "rank": 1,
+    "outcome": [
+      2,
+      [
+        [
+          3,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      33
+    ],
+    "scan": 6,
+    "outcome_mass": "1/6",
+    "trace_mass": "1/6"
+  },
+  "expected_conclusion": "[(3,1),(2,0),(1,0)] belongs to the support of the actual traceLaw 1 [3,1,2].",
+  "reason": "The saved exact complete outcome(value2,trace[(3,1),(2,0),(1,0)],source33) has positive probability1/6. The actual trace projection of this supported outcome is exactly the stated trace.",
+  "intended_public_connection": "Apply Resources.RandomSelection.traceLaw_support in the witness-to-trace-support direction, using the established full Outcome atom as the support witness.",
+  "finite_matrix_rerun": false,
+  "compiler_actions": false
+}

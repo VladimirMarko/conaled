@@ -1,0 +1,367 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-05T02:29:46.990129+00:00",
+  "unit": "FDSA-XT01",
+  "reviewer": "/root/tree_cache_spec",
+  "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+  "incorporated_base": "298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2",
+  "original_base": "a14977b9e316cc484ffad8a470d26b15615956c0",
+  "original_donor": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+  "overall": "Blocked pending full candidate validation",
+  "concrete_spec_findings": [],
+  "source_assessment_complete": true,
+  "actual_type_assessment_complete": true,
+  "actual_type_count": 115,
+  "actual_types_native_bytes": 46032,
+  "actual_types_native_lines": 656,
+  "read_blocks": [
+    {
+      "ordinals": [
+        1,
+        30
+      ],
+      "native_lines": [
+        1,
+        134
+      ],
+      "receipt": "1b4ab4",
+      "actual_exit": 0
+    },
+    {
+      "ordinals": [
+        31,
+        60
+      ],
+      "native_lines": [
+        135,
+        278
+      ],
+      "receipt": "f3c89c",
+      "actual_exit": 0
+    },
+    {
+      "ordinals": [
+        61,
+        90
+      ],
+      "native_lines": [
+        279,
+        479
+      ],
+      "receipt": "443652",
+      "actual_exit": 0
+    },
+    {
+      "ordinals": [
+        91,
+        115
+      ],
+      "native_lines": [
+        480,
+        656
+      ],
+      "receipt": "e77bef",
+      "actual_exit": 0
+    }
+  ],
+  "all115_original_names_order_verified": true,
+  "all_native_bytes_partitioned_and_block_hashes_verified": true,
+  "full_explicit_printer_program_read": true,
+  "prepost_identity_exact_equal": true,
+  "input_counts": {
+    "local_sources": 26,
+    "local_compiler_objects_and_traces": 78,
+    "configuration": 10,
+    "dependencies": 9,
+    "runtime": 12
+  },
+  "all26_sources_and10configs_match_immutable_candidate": true,
+  "all9deps_match_manifest_and_saved_clean": true,
+  "runtime12_configuration10_dependencies9_match_accepted_chapter3_statement_inputs": true,
+  "runtime12_current_bytes_rehashed": true,
+  "current_project_object_rehash_deferred_during_root_full_build": true,
+  "qualification_limits": "Read-only input observation; actual execution, loaded-object qualification, complete output review, and candidate acceptance remain separate evidence. Saved pre/post identity observations do not prove loaded-object origin or absence of transient/undeclared inputs. No full check or audit credit is supplied by type output.",
+  "semantic_assessment": {
+    "universes": "Actual independent payload/source-summary/target-summary universe parameters, with product cache max universes as required. No generic Inhabited/order/DecidableEq/algebra instance.",
+    "fold_fusion": "Exact empty compatibility and universally quantified local ternary compatibility; arbitrary payload map; no assumed whole-tree conclusion.",
+    "cache": "Actual Valid includes both recursive child invariants and local stored equation; reader correctness computes independent erased fold; unconditional erasure/shape/map laws.",
+    "reached_callback": "Printed nodeRun_value premise concerns only returned value at actual read arguments; nodeRun_cost has no validity/value premise; nodeRun_le bound is same reached callback; nodeRun_valid adds child predicates independently.",
+    "composition": "Actual arbitrary-Monoid summary theorem preserves left-label-right multiplication order; no commutativity instance. Pair projection/canonical reader/empty and malformed cases match independent expectations.",
+    "cost_family": "Actual append count left-read length plus four; actual annotated chain all-n validity and read length n; local cost n+4, next annotated chain value, valid result and any-K exceeding theorem. No preparation/physical/other-tariff inference."
+  },
+  "focused3_success": {
+    "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+    "actual_terminal": "049454",
+    "owned_session": 89844,
+    "exit": 0
+  },
+  "actual_type_run": {
+    "candidate": "90469ce4ba3fc49397d369a5db7d58aec7014f58",
+    "actual_terminal": "44cda7",
+    "owned_session": 99599,
+    "exit": 0
+  },
+  "full_check_terminal_received": false,
+  "evidence_bindings": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-20261105/Statements115-complete.lean",
+      "bytes": 4721,
+      "sha256": "eea207cce83ce453b3625076041ff1262235771a8b92add322a149a044c98738"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-20261105/preparation.json",
+      "bytes": 6027,
+      "sha256": "f1269d5426bfb07dbe1f29e4ca7693e50451b56cfa2d07406746ee90c58376ed"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-20261105/start-input.json",
+      "bytes": 3104,
+      "sha256": "7453123f4041157edc169b788fbb994d6c7695ec5af0e33a4c946ce096565ba9"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-20261105/pre-inputs.json",
+      "bytes": 32719,
+      "sha256": "2b85a7cadaf18f9fa0922c2977ff64edfa5a3dee5a582501d89faaaff7347cc6"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-20261105/post-inputs.json",
+      "bytes": 33026,
+      "sha256": "d42a9f64ad16b6913f3d487b5538a892a84d7ba975f9c32a56bf06ab626ce352"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-20261105/actual-type-block-index.json",
+      "bytes": 34482,
+      "sha256": "1a44bd06217f4d6ef66c1fb3effd5e06427a627f023adcb97017cb9a3b517bbb"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-20261105/observation-reconciliation.json",
+      "bytes": 1640,
+      "sha256": "661a19d6f9b91c3b24e11300b17d546408da17581ad7dbe1c4137ff59bd64d33"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter03-final-statement-inputs-20261105/post-inputs.json",
+      "bytes": 185961,
+      "sha256": "5dc01e8379f41539585ccf474cbbdc6c884b0ab4bc259c9855d06c88cf157565"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt1-20261105/start.json",
+      "bytes": 1044,
+      "sha256": "d227fdbc5b77615a208db23f0890a40cc77f0efe5982b0194f1a42bf612d7e3d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt1-20261105/result.json",
+      "bytes": 1377,
+      "sha256": "bf82eaf0ec502d64b4aea144a7219fa2f738e29c404edaa9aa6a94c4187cd031"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt1-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "bbfa8d307bcc49958b08566e43a009574a0d11e87f3ae95b1950640359abcd80"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt1-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "sha256": "dd98cf82489bdeb927b73b66eb5389da62f00d6ff2fba4c7363616b14a928528"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt1-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2168,
+      "sha256": "73cc0c1456edfcc37e2fe1c110a75069abf4ef114ff706887f61e98d55f55a74"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt1-20261105/full.log",
+      "bytes": 6789,
+      "sha256": "e90e3654c3df60106479f1a1f38865c96787d31526ee1e254c3029d3b08c0f18"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt1-20261105/outer-prefix.log",
+      "bytes": 163,
+      "sha256": "a7ddc72426ee13b9a21b8aaa35c293d13b434bb84eeb285fec8baf4730be6366"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt1-20261105/outer-suffix.log",
+      "bytes": 157,
+      "sha256": "33936691f4609dc558093034330f6c3016f8fb7187c3626caed8ebd282e049e7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt1-20261105/native-records/start.json",
+      "bytes": 535,
+      "sha256": "f27f4f1eeca4c6bc1eb28c513d350c4c620b5f95642eaf53be07d788bc9bf424"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt1-20261105/native-records/result.json",
+      "bytes": 689,
+      "sha256": "7d17553cd83adf55c526847638a497f8eb2de449b53a92ecb8217c1227ae172e"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt1-20261105/native-records/output.log",
+      "bytes": 6469,
+      "sha256": "7fa34ac33977e90a8c38faa99ae199ed6c716ad00d80bae222fa01b1df8a6e41"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt2-20261105/start.json",
+      "bytes": 1044,
+      "sha256": "5a5c14212bfc664cb7e864c1f93ffde555f116415979395080417de786e5ac82"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt2-20261105/result.json",
+      "bytes": 1377,
+      "sha256": "44e23951f5c1054571e0519e2f76e0630f545b41edeb9bbe51a71dee64e151e1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt2-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "9a1384c4c90d7d2a285325f043b971211218aaae287834f935c8905e4d9e340f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt2-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "sha256": "09921aff86d1c404fae7465fc9448b2865cea31d5aa15f56eaa13c40739ab3f2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt2-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2191,
+      "sha256": "95d22f821df16c613dc8a1b13609d881aee392407ee5c251482756d93946b9d7"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt2-20261105/full.log",
+      "bytes": 6209,
+      "sha256": "56f4e3346fb7337b82f825afc71781d58bb25a45e582ef4a9c6913f32bdc59ec"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt2-20261105/outer-prefix.log",
+      "bytes": 163,
+      "sha256": "a7ddc72426ee13b9a21b8aaa35c293d13b434bb84eeb285fec8baf4730be6366"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt2-20261105/outer-suffix.log",
+      "bytes": 157,
+      "sha256": "27ecf05ae96dfc26686b09b119750d9b785797e00c03fd8d027cfb2307dff024"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt2-20261105/native-records/start.json",
+      "bytes": 535,
+      "sha256": "67468dcbb3036414adcd397807f602aa7c7420ac138e0c7575ae6b88e655e60c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt2-20261105/native-records/result.json",
+      "bytes": 689,
+      "sha256": "1769b85ff20512930457012ccf0bcc6a755e66bd7c455e7cf9ec5a89ad856ab2"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt2-20261105/native-records/output.log",
+      "bytes": 5889,
+      "sha256": "b4e228ed964313f0614a9ae98914eaecb3cc3853dce6a65b93c3316876904cdf"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt3-20261105/start.json",
+      "bytes": 1044,
+      "sha256": "3761cbb40f8d7fc7e9ecbf5cd43f85ea2563c3d79af1b7294cdd778bbb3a9663"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt3-20261105/result.json",
+      "bytes": 1377,
+      "sha256": "678771dfd15692acb72680038216bcd7282a82772c54c5c29987e2bf197a257f"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt3-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "28e7df84991724b9d9129856857c539a5a5e0a47784e0cb6366005faa446dd75"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt3-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "sha256": "13439f6cbf38464d4f85e9a13e8cdb1c291ed115fdc2c9a54e83e35fa946cd52"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt3-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2227,
+      "sha256": "1db11f2f9df9d405ed471e50d06fa685b2c9d0a541304da4f3fb244d550ea9f8"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt3-20261105/full.log",
+      "bytes": 3137,
+      "sha256": "264674459ef7acb9115cfaf8033a5b535ccc3da9f3c297f0c80997e620b40c2d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt3-20261105/outer-prefix.log",
+      "bytes": 163,
+      "sha256": "a7ddc72426ee13b9a21b8aaa35c293d13b434bb84eeb285fec8baf4730be6366"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt3-20261105/outer-suffix.log",
+      "bytes": 156,
+      "sha256": "061238b5185d676744c3565553caa8a4068f6eccd6d7a206d022c8675dba0fa1"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt3-20261105/native-records/start.json",
+      "bytes": 535,
+      "sha256": "ae981b4dc297eaf97c7be7a49b182ea5c89a14cf380bf88a44c41176ddd4867c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt3-20261105/native-records/result.json",
+      "bytes": 687,
+      "sha256": "843b18e2c2652c9280e26afd078647e1bdf525e91f91b378905f60c01770c2a0"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-focused-attempt3-20261105/native-records/output.log",
+      "bytes": 2818,
+      "sha256": "ff90eda3667eb4e234950a2c6d47374543d745f81305788d7c2812efdd877766"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/start.json",
+      "bytes": 1081,
+      "sha256": "9dabb4f307a289cc14c48dfe24e14a18ff382bfc4157e007ecedb734281b2001"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/result.json",
+      "bytes": 1421,
+      "sha256": "d25b2a2731c099c42cae97f1dc79b974fdceaa3580ee1d2969ce7c426cbf896a"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/owned-terminal.json",
+      "bytes": 260,
+      "sha256": "fb1cf27ff589ce7c424fc9dbffadd4204ebce09e5f0acfc64755ea7152d8e87d"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/actual-tool-terminal.json",
+      "bytes": 125,
+      "sha256": "bcc1060f4c3983dfacb59f016ebb85a9c74ca629d78fe2f94c47277d72a24345"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/closed-evidence-reconciliation.json",
+      "bytes": 2250,
+      "sha256": "8eb176fcb37b593243a32ffb4a089a3d47c72c10c65c8e7eee273fe0ec19f423"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/full.log",
+      "bytes": 46402,
+      "sha256": "f9e84cce01411532b374c731d7cf2142a0d7dadaa6ca1adda79a6df10465513c"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/outer-prefix.log",
+      "bytes": 214,
+      "sha256": "6754f01aa03b51f85c72b77a08e43f74ff94f48cce814a532a19217061a52664"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/outer-suffix.log",
+      "bytes": 156,
+      "sha256": "d8c5f586555d5f6a146346cde844b53512057a54c8c7e3f169e403b17a2e8877"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/native-records/start.json",
+      "bytes": 572,
+      "sha256": "1116cdf62cd1c25186d5edd9d823a0af12c069fbe06b50173f7b3cb97ac41a01"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/native-records/result.json",
+      "bytes": 724,
+      "sha256": "54992ed030ac71bbeabae90c6850111a9985c2958be04e873201b784ceb01446"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/binary-tree-cache-receiving-statements115-attempt1-20261105/native-records/output.log",
+      "bytes": 46032,
+      "sha256": "ea8ebef082abef7de66e7ce3f269771290073bc96a287ff864d49813c90d052b"
+    }
+  ]
+}

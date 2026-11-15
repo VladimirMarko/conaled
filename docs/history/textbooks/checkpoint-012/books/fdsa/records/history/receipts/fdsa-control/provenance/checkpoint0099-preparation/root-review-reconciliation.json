@@ -1,0 +1,144 @@
+{
+  "recorded_utc": "2026-11-04T11:01:03.741624+00:00",
+  "coordinator": "/root",
+  "candidate": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "scope": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10
+  },
+  "finding": "C02-TYPE-001",
+  "disposition": "Resolved on both independent axes at exact Z; source successor changes still require appropriate same-scope reconciliation.",
+  "overall": "Blocked",
+  "independent_review_records": [
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-complete-type-assessment-4b5dbfa0.json",
+      "bytes": 23539,
+      "lines": 472,
+      "sha256": "41ca316b49ec9a542590981aafab963c4ce375e9c4c24cb69d7625d21d6c1510"
+    },
+    {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/actual815-type-review-progress.json",
+      "bytes": 123595,
+      "lines": 3562,
+      "sha256": "91b9df119e5b47cd94a7930001947eb2c14601d5d144149b796a8bb06f3f4d0b"
+    },
+    {
+      "path": "reviews/chapter02-standards-source-preparation-20261104.md",
+      "bytes": 104381,
+      "lines": 421,
+      "sha256": "0dd289efba1b201ffde0917aef1448b5c87233bad03e25c242f205614334afde"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-complete-spec-assessment-4b5dbfa0.json",
+      "bytes": 23798,
+      "lines": 818,
+      "sha256": "116cf0a800841c3a18d338f446ce3a518455487de8e401dae1186a85c73ad878"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/current-public-type-disposition-4b5dbfa0.json",
+      "bytes": 908317,
+      "lines": 24266,
+      "sha256": "6a749dbb10bddc7f8293330cdb56a27bd68b5c6473bd0f2d03aad2722881dee5"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/actual815-read-progress.json",
+      "bytes": 27860,
+      "lines": 1627,
+      "sha256": "7999ed166dad55369d5a23880883b744e9c67925ca795f01f81ed58e2cae0ca1"
+    },
+    {
+      "path": "provenance/chapter02-spec-source-preparation-20261104/continuation-0099-final-type-disposition.json",
+      "bytes": 3042,
+      "lines": 69,
+      "sha256": "7bbf4acf43373e2474122294d4379fec40d071ac0b898af0994c7d1fa1c51875"
+    },
+    {
+      "path": "reviews/chapter02-spec-source-preparation-20261104.md",
+      "bytes": 109354,
+      "lines": 473,
+      "sha256": "64de8e1782cf83ad2f47602171aa8dcfc70b9eb7c2b707dd1d43d3649fba6007"
+    }
+  ],
+  "referenced_record_hashes_verified": [
+    "provenance/chapter02-complete-public-statements815-20261104-attempt1/actual-type-ranges.json",
+    "provenance/chapter02-complete-public-statements815-20261104-attempt1/full.log",
+    "provenance/chapter02-complete-public-statements815-20261104-attempt1/native/output.log",
+    "provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/Statements.lean",
+    "provenance/chapter02-complete-public-statements815-4b5dbfa0-prepared-20261104/inventory.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunk006.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks001-005.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks007-008.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks009-010.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks011-012.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks013-014.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks015-016.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks017-018.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks019-020.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks021-022.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks023-024.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks025-026.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks027-028.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks029-030.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks031-032.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks033-034.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks035-036.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks037-038.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks039-040.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks041-042.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-chunks043-044.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-execution-input-qualification.json",
+    "provenance/chapter02-spec-source-preparation-20261104/actual815-read-progress-complete-before-disposition.json",
+    "provenance/chapter02-spec-source-preparation-20261104/current-public-type-disposition-4b5dbfa0.json",
+    "provenance/chapter02-standards-source-preparation-20261104/actual815-execution-input-assessment-4b5dbfa0.json",
+    "provenance/chapter02-standards-source-preparation-20261104/actual815-type-review-progress.json",
+    "provenance/chapter02-standards-source-preparation-20261104/foundation110-potential-type-reuse-0a7ef078.json",
+    "provenance/chapter02-standards-source-preparation-20261104/historical-type-dependency-assessment-6b95185.json",
+    "provenance/chapter02-standards-source-preparation-20261104/public-type-accounting.json",
+    "provenance/chapter02-standards-source-preparation-20261104/successor-source-reconciliation-4b5dbfa0.json"
+  ],
+  "mechanical_review_coverage_checks": {
+    "Standards_chunks": 61,
+    "Spec_chunks": 44,
+    "native_lines": 11650,
+    "native_bytes": 874568,
+    "each_axis_full_type_numbers": 815,
+    "all_chunk_hashes_match_actual_output": true
+  },
+  "public_name_partition": {
+    "qualified_historical": 920,
+    "current_qualified": 815,
+    "qualified_actual_total": 1735,
+    "retained_accepted_base": 28,
+    "total_public": 1763,
+    "both_axes_exact_sets_match": true,
+    "historical_total_read": 941,
+    "private_named_separate": 70,
+    "anonymous_instances_separate": 19
+  },
+  "coordinator_read_boundary": "Full final Standards report continuation and 472-line assessment receipt; full final Spec report continuation/current banner and 818-line assessment receipt. Mechanical complete inventory/chunk/identity reconciliation. Independent full semantic readings remain attributable to the two axes; root does not claim a third815 semantic review.",
+  "remaining": [
+    "C02-DOC-003 exact application and successor assessment",
+    "Exact Foundation F full terminal/audit/verification and F145 statement evidence; potential110 credit remains zero",
+    "Recorded shared-unit acceptances and new complete Chapter2 candidate",
+    "Complete normal candidate check/audit, both final full-scope outcomes and immediate qualified verification"
+  ],
+  "heads_and_statuses": {
+    "conaled": {
+      "head": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.urOBCL\n"
+    },
+    "conaled-ch01-review": {
+      "head": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "status": ""
+    },
+    "conaled-ch02-top-down": {
+      "head": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+      "status": ""
+    }
+  },
+  "foundation_result_exists": false,
+  "available_bytes": 5874089984,
+  "new_acceptance": false
+}

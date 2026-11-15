@@ -1,0 +1,12 @@
+diff --git a/Applications/Resources/SelectionPolicy.lean b/Applications/Resources/SelectionPolicy.lean
+index cfb1274..71a146d 100644
+--- a/Applications/Resources/SelectionPolicy.lean
++++ b/Applications/Resources/SelectionPolicy.lean
+@@ -84,6 +84,7 @@ theorem runWith_step (choose : List α → Measured (Option α) Nat)
+         Partition.partitionRun_value, Partition.partitionRun_cost,
+         ListCalls.lookupRun_value, ListCalls.lookupRun_cost,
+         Applications.Selection.partition3]
++      rfl
+ 
+ /-- Trace instrumentation and measured primitives preserve the existing source
+ control flow at every fuel, including invalid indices and policy failure. -/

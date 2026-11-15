@@ -1,0 +1,13 @@
+{
+  "candidate_base": "69f6f00de204617fdd7feefd5b9ee5b80fc0d9f4",
+  "checkout": "suspension-foundation",
+  "file": "Applications/Progress/Evaluation.lean",
+  "before_sha256": "8882235188cd0e293f3433d220b677f160b539f4829f899ed2a911c655ca059f",
+  "after_sha256": "27d93c2ebfa3c88e4a8c31e7665aa9a7b4d259ffc73d0f8c020b5102e7cdf564",
+  "non_import_sha256": "c61c81e126b5a0839ebb22cdb6b447f29850d0b6add6b0528be9dae6fc057811",
+  "non_import_bytes_identical": true,
+  "change": "Mathlib.Tactic replaced by Mathlib.Tactic.Common; all definitions, proofs, options and other source bytes unchanged.",
+  "reason": "Source-specific suspension machine reuses Progress.Evaluation. The old import loads the aggregate theory-dependent tactic bundle for structural/Nat reasoning. Focused build was explicitly interrupted by its owner before this input change; no success claim.",
+  "validation": "Required focused compilation pending; final exact integrated build/audit and both review axes still required.",
+  "recorded_at": "2026-11-02T17:39:36.174984+00:00"
+}

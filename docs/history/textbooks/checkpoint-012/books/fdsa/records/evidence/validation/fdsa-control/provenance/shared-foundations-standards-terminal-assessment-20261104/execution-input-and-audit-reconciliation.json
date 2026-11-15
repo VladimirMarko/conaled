@@ -1,0 +1,673 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "recorded_utc": "2026-11-04T13:50:32.777964+00:00",
+  "pre": {
+    "path": "provenance/foundation145-input-observations-20261104-attempt1/pre-inputs.json",
+    "bytes": 38785,
+    "lines": 839,
+    "sha256": "482b005a6b020bc8fbc087ed746202caa89426382200d2aa37b4259ac0116d37"
+  },
+  "post": {
+    "path": "provenance/foundation145-input-observations-20261104-attempt1/post-inputs.json",
+    "bytes": 39092,
+    "lines": 845,
+    "sha256": "3065efbace8dc8cff34d764d33fd29e81f09b5549407d72be5cdaa217d482d16"
+  },
+  "pre_full_read_chunks": [
+    [
+      1,
+      280,
+      "2583cf9ef9b9e2f12f394d0f2d3c263759a8728a04a33f700c87a2e3afd85b31"
+    ],
+    [
+      281,
+      560,
+      "f4507c6b21839524d8ba18139d7b90a7f3dcdcdb6e3071af66adb14aaf9a3e2b"
+    ],
+    [
+      561,
+      839,
+      "3ba83aee8cc120433ae2befd076f4460413dba9eec786a40b1053362f83afdcc"
+    ]
+  ],
+  "post_read": "Full exact diff read; entire identity object equality checked against fully read pre. Only timestamp and compared_to/unchanged metadata change.",
+  "identity_equal": true,
+  "source_reproduction": {
+    "immutable_candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+    "local_sources": 29,
+    "all_byte_and_blob_identities_match": true,
+    "direct_import_edges": [
+      [
+        "Examples.ListLibrary",
+        "Mathlib.Data.List.Intervals"
+      ],
+      [
+        "Examples.ListLibrary",
+        "Mathlib.Data.List.MinMax"
+      ],
+      [
+        "Examples.ListLibrary",
+        "Mathlib.Data.List.Chain"
+      ],
+      [
+        "Examples.ListLibrary",
+        "Mathlib.Data.List.Sort"
+      ],
+      [
+        "Examples.ListCalls",
+        "Applications.Resources.ListCalls"
+      ],
+      [
+        "Examples.ListCalls",
+        "Applications.Resources.ListReversal"
+      ],
+      [
+        "Applications.Resources.ListReversal",
+        "Applications.Resources.CallCount"
+      ],
+      [
+        "Applications.Resources.ListReversal",
+        "Applications.Resources.SymmetricCosts"
+      ],
+      [
+        "Applications.Resources.ListReversal",
+        "Applications.Resources.TreeFlattening.Core"
+      ],
+      [
+        "Applications.Resources.ListReversal",
+        "Mathlib.Tactic.Linarith"
+      ],
+      [
+        "Applications.Resources.TreeFlattening.Core",
+        "Applications.Resources.RandomAccess.CacheCosts"
+      ],
+      [
+        "Applications.Resources.TreeFlattening.Core",
+        "Applications.Resources.Measured"
+      ],
+      [
+        "Applications.Resources.Measured",
+        "Mathlib.Algebra.Group.Prod"
+      ],
+      [
+        "Applications.Resources.Measured",
+        "Mathlib.Algebra.Order.Monoid.Unbundled.Basic"
+      ],
+      [
+        "Applications.Resources.Measured",
+        "Squares"
+      ],
+      [
+        "Squares",
+        "Lean"
+      ],
+      [
+        "Applications.Resources.RandomAccess.CacheCosts",
+        "Applications.Sequences.RandomAccess.TreeBuild"
+      ],
+      [
+        "Applications.Sequences.RandomAccess.TreeBuild",
+        "Applications.Sequences.RandomAccess.Borrow"
+      ],
+      [
+        "Applications.Sequences.RandomAccess.Borrow",
+        "Applications.Sequences.RandomAccess.Access"
+      ],
+      [
+        "Applications.Sequences.RandomAccess.Access",
+        "Applications.Sequences.RandomAccess.Basic"
+      ],
+      [
+        "Applications.Sequences.RandomAccess.Basic",
+        "Applications.Bracketing.Basic"
+      ],
+      [
+        "Applications.Bracketing.Basic",
+        "Applications.Optimization.SelectionSpec"
+      ],
+      [
+        "Applications.Optimization.SelectionSpec",
+        "Std"
+      ],
+      [
+        "Applications.Resources.SymmetricCosts",
+        "Applications.Resources.Potential"
+      ],
+      [
+        "Applications.Resources.SymmetricCosts",
+        "Applications.Sequences.Symmetric.Core"
+      ],
+      [
+        "Applications.Sequences.Symmetric.Core",
+        "SquareKit.ListFusion"
+      ],
+      [
+        "Applications.Sequences.Symmetric.Core",
+        "Mathlib.Data.List.Infix"
+      ],
+      [
+        "SquareKit.ListFusion",
+        "Mathlib.Data.List.Basic"
+      ],
+      [
+        "Applications.Resources.Potential",
+        "Applications.Resources.Workload"
+      ],
+      [
+        "Applications.Resources.Potential",
+        "Mathlib.Algebra.Group.Nat.Defs"
+      ],
+      [
+        "Applications.Resources.Workload",
+        "Applications.Resources.Measured"
+      ],
+      [
+        "Applications.Resources.Workload",
+        "SquareKit.ListFusion"
+      ],
+      [
+        "Applications.Resources.CallCount",
+        "Applications.Resources.Measured"
+      ],
+      [
+        "Applications.Resources.ListCalls",
+        "Applications.Resources.CallCount"
+      ],
+      [
+        "Applications.Resources.ListCalls",
+        "Applications.Resources.SymmetricCosts"
+      ],
+      [
+        "Applications.Resources.ListCalls",
+        "Mathlib.Algebra.BigOperators.Group.List.Basic"
+      ],
+      [
+        "Examples.InsertionCosts",
+        "Applications.Resources.InsertionSort"
+      ],
+      [
+        "Examples.InsertionCosts",
+        "Applications.Selection.Rank"
+      ],
+      [
+        "Applications.Selection.Rank",
+        "Applications.Sorting.Sort"
+      ],
+      [
+        "Applications.Sorting.Sort",
+        "Applications.Sorting.Merge"
+      ],
+      [
+        "Applications.Sorting.Merge",
+        "Applications.Sorting.Stable"
+      ],
+      [
+        "Applications.Sorting.Stable",
+        "Mathlib.Data.List.Sort"
+      ],
+      [
+        "Applications.Resources.InsertionSort",
+        "Applications.Resources.CallCount"
+      ],
+      [
+        "Applications.Resources.InsertionSort",
+        "Applications.Sorting.Sort"
+      ],
+      [
+        "Applications.Resources.InsertionSort",
+        "Mathlib.Tactic.Linarith"
+      ],
+      [
+        "Examples.FunctionalNotation",
+        "Examples.FunctionalBasics"
+      ],
+      [
+        "Examples.FunctionalNotation",
+        "Examples.ListLibrary"
+      ],
+      [
+        "Examples.FunctionalNotation",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Basic"
+      ],
+      [
+        "Examples.FunctionalNotation",
+        "Mathlib.Algebra.Order.Archimedean.Real.Basic"
+      ],
+      [
+        "Examples.FunctionalNotation",
+        "Mathlib.Algebra.Order.Floor.Ring"
+      ],
+      [
+        "Examples.FunctionalNotation",
+        "Mathlib.Data.Int.DivMod"
+      ],
+      [
+        "Examples.FunctionalNotation",
+        "Mathlib.Data.Set.Lattice.Bounded"
+      ],
+      [
+        "Examples.FunctionalNotation",
+        "Mathlib.Data.Set.Lattice.Disjoint"
+      ],
+      [
+        "Examples.FunctionalNotation",
+        "Mathlib.Data.Set.Lattice.Image"
+      ],
+      [
+        "Examples.FunctionalNotation",
+        "Mathlib.Data.Set.Lattice.Indexed"
+      ],
+      [
+        "Examples.FunctionalNotation",
+        "Mathlib.Data.Set.Lattice.Order"
+      ],
+      [
+        "Examples.FunctionalNotation",
+        "Mathlib.Data.Set.Prod"
+      ],
+      [
+        "Examples.FunctionalNotation",
+        "Mathlib.Data.Set.Finite.Basic"
+      ],
+      [
+        "Examples.FunctionalNotation",
+        "Mathlib.Order.Interval.Finset.Nat"
+      ],
+      [
+        "Examples.FunctionalNotation",
+        "Mathlib.Order.Interval.Set.Defs"
+      ],
+      [
+        "Examples.FunctionalBasics",
+        "Applications.Arithmetic.EuclidInduction"
+      ],
+      [
+        "Examples.FunctionalBasics",
+        "Mathlib.Algebra.BigOperators.Group.Multiset.Basic"
+      ],
+      [
+        "Examples.FunctionalBasics",
+        "Mathlib.Data.Multiset.Filter"
+      ],
+      [
+        "Examples.FunctionalBasics",
+        "Mathlib.Basic.Real.Basic"
+      ],
+      [
+        "Examples.FunctionalBasics",
+        "Mathlib.Logic.Function.Basic"
+      ],
+      [
+        "Examples.FunctionalBasics",
+        "Mathlib.Tactic.NormNum"
+      ],
+      [
+        "Applications.Arithmetic.EuclidInduction",
+        "Mathlib.Data.Nat.GCD.Basic"
+      ]
+    ],
+    "external_direct_count": 32,
+    "all_external_names_match": true,
+    "method": "Independent nested-comment/string masking and immutable Git source traversal; no recorder/compiler/output snapshot."
+  },
+  "configurations": {
+    "count": 10,
+    "exact_pre_post_and_immutable_F_match": true,
+    "exact_R_source_match": true
+  },
+  "dependency_revisions": {
+    "count": 9,
+    "all_clean": true,
+    "match_full_candidate_verification": true,
+    "qualified815_revision_status_match": true
+  },
+  "runtime": {
+    "count": 12,
+    "exact_qualified815_profile_identity_match": true,
+    "profile_qualification": "Existing unchanged disclosed narrow native launcher adapter and official Lean/Lake4.35.0. No compiler/kernel/dependency/profile substitution."
+  },
+  "local_object_metadata": {
+    "count": 87,
+    "all29_expected_olean_olean_hash_trace_keys": true,
+    "pre_post_equal": true,
+    "authenticity_boundary": "Fingerprints are not an authenticity certificate. Actual immediately preceding guarded stock full candidate build passed postguard on2898 artifacts, followed by exhaustive audit, stable exactF ownership and unchanged pre/post observations; this supplies trusted-checkout consumption lineage."
+  },
+  "full_audit_reconciliation": {
+    "native": {
+      "path": "provenance/chapter02-foundation-full-attempt2-recovered-20261104/native-records/output.log",
+      "bytes": 545556,
+      "lines": 4065,
+      "sha256": "b3569b07bd97b0af27849b7538b81ac1040f03a38ec36523f3bc34f0778c3e27"
+    },
+    "unique_module_rows": 965,
+    "logical_sum": 45294,
+    "theorem_sum": 25117,
+    "unsafe_sum": 0,
+    "checked_modules": 967,
+    "checked_non_audited_wrapper_modules": [
+      "ProofAudit",
+      "SquareApplications"
+    ],
+    "guarded_lake_targets": 966,
+    "hashed_artifacts": 2898,
+    "postguard_inconsistent_modules": 0,
+    "transitive_axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "unsafe_excluded_roots": 0,
+    "explanation": "Checker counts all inventoried source modules including SquareApplications import wrapper and ProofAudit command wrapper. Audit selects six foundational origin modules and SquareKit/Applications/Examples origins;965 detailed rows exactly match those origins."
+  },
+  "warnings": {
+    "actual_headers": 561,
+    "non_module_headers": 101,
+    "all_non_module_headers_exact_multiset_match_accepted_R_fresh_log": true,
+    "baseline": {
+      "path": "provenance/chapter01-unified-fresh-attempt4/kit-command-record/output.log",
+      "bytes": 201192,
+      "lines": 2624,
+      "sha256": "8a1d74b2d8923512f95ba8251f6d9ee06d803e3690f24bf31b44457a0ef0770e"
+    },
+    "module_advisories": 460,
+    "new_scope_module_advisories": 19,
+    "new_scope_distribution": {
+      "Examples/ListLibrary.lean": 4,
+      "Examples/FunctionalNotation.lean": 13,
+      "Applications/Resources/InsertionSort.lean": 1,
+      "Applications/Resources/ListCalls.lean": 1
+    },
+    "old_scope_advisories": 441,
+    "all_old_warning_source_blobs_R_equal": true,
+    "old_warning_source_paths": [
+      "Applications/AD/Core.lean",
+      "Applications/AD/HigherOrder.lean",
+      "Applications/AD/Jets.lean",
+      "Applications/AD/Modes.lean",
+      "Applications/AD/SecondOrder.lean",
+      "Applications/AD/SecondStage.lean",
+      "Applications/AD/Smooth.lean",
+      "Applications/AD/SmoothDual.lean",
+      "Applications/AD/SmoothSquareZero.lean",
+      "Applications/Arithmetic/EuclidInduction.lean",
+      "Applications/Checking/OrderCertificate.lean",
+      "Applications/Circuits/Syntax.lean",
+      "Applications/CoinChoice/Basic.lean",
+      "Applications/Connectivity/Observation.lean",
+      "Applications/Convolution/Polynomial.lean",
+      "Applications/Convolution/Series.lean",
+      "Applications/Diffeology/Constructions.lean",
+      "Applications/Diffeology/Manifolds.lean",
+      "Applications/Dijkstra/Core.lean",
+      "Applications/Dijkstra/Paths.lean",
+      "Applications/Durability/DiagnosticGraph.lean",
+      "Applications/Durability/DiagnosticRelational.lean",
+      "Applications/Durability/Retention.lean",
+      "Applications/Durability/Storage.lean",
+      "Applications/DynamicProgramming/SuffixRow.lean",
+      "Applications/Elaboration/Syntax.lean",
+      "Applications/FRP/Equivalence.lean",
+      "Applications/FRP/Spec.lean",
+      "Applications/Geometry/ConformalConnection.lean",
+      "Applications/Geometry/ParallelTransport.lean",
+      "Applications/Geometry/VariableCurvature.lean",
+      "Applications/Huffman/Basic.lean",
+      "Applications/Huffman/Exchange.lean",
+      "Applications/Incremental/Arithmetic.lean",
+      "Applications/Incremental/PrefixSum.lean",
+      "Applications/Incremental/VectorSum.lean",
+      "Applications/Incremental/VectorSumCost.lean",
+      "Applications/Interaction/Obligation.lean",
+      "Applications/Intervals/Arithmetic.lean",
+      "Applications/Kruskal/Correctness.lean",
+      "Applications/Languages/Compositional.lean",
+      "Applications/Languages/ConvolutionBridge.lean",
+      "Applications/Languages/Regex.lean",
+      "Applications/Linear/Matrix.lean",
+      "Applications/Linear/Operations.lean",
+      "Applications/Linear/Structured.lean",
+      "Applications/Linear/StructuredCosts.lean",
+      "Applications/Linear/StructuredMeasured.lean",
+      "Applications/Optimization/Basic.lean",
+      "Applications/Optimization/KnapsackThinning.lean",
+      "Applications/Optimization/NetworkPaths.lean",
+      "Applications/Optimization/Thinning.lean",
+      "Applications/Orbifold/ConnectionAssessment.lean",
+      "Applications/Orbifold/DiskConnection.lean",
+      "Applications/Orbifold/DiskCurvature.lean",
+      "Applications/Orbifold/DiskTransport.lean",
+      "Applications/Orbifold/MotionUniqueness.lean",
+      "Applications/Orbifold/NumericalBounds.lean",
+      "Applications/Orbifold/NumericalSymmetry.lean",
+      "Applications/Orbifold/Pose.lean",
+      "Applications/Orbifold/ProjectiveMotion.lean",
+      "Applications/Orbifold/TimedMotion.lean",
+      "Applications/Orbifold/TransportSegments.lean",
+      "Applications/Orbifolds/Equivariant.lean",
+      "Applications/Orbifolds/QuarterTurn.lean",
+      "Applications/Orbifolds/SmoothComparison.lean",
+      "Applications/OrderedPartitions/Enumeration.lean",
+      "Applications/OrderedPartitions/Right.lean",
+      "Applications/Paragraphs/Greedy.lean",
+      "Applications/Parallel/ComplexFFT.lean",
+      "Applications/Parallel/Examples.lean",
+      "Applications/Parallel/FFT.lean",
+      "Applications/Parallel/MeasuredScan.lean",
+      "Applications/Parallel/Polynomial.lean",
+      "Applications/Parallel/PrefixBounds.lean",
+      "Applications/Parallel/Scan.lean",
+      "Applications/Parallel/ScanSearch.lean",
+      "Applications/Parallel/Shape.lean",
+      "Applications/Prim/Array.lean",
+      "Applications/Prim/Weights.lean",
+      "Applications/Probability/AcceptReject.lean",
+      "Applications/Probability/CoinPaths.lean",
+      "Applications/Probability/Execution.lean",
+      "Applications/Probability/FiniteKernel.lean",
+      "Applications/Probability/FiniteMH.lean",
+      "Applications/Probability/HeavyTail.lean",
+      "Applications/Probability/Results.lean",
+      "Applications/Progress/Evaluation.lean",
+      "Applications/Progress/OccurrenceCursor.lean",
+      "Applications/Resources/BinaryCounter.lean",
+      "Applications/Resources/CallComparison.lean",
+      "Applications/Resources/Growth.lean",
+      "Applications/Resources/ListReversal.lean",
+      "Applications/Resources/Measured.lean",
+      "Applications/Resources/Potential.lean",
+      "Applications/Resources/RandomAccess/Lookup.lean",
+      "Applications/Resources/RandomAccess/Observation.lean",
+      "Applications/Resources/SharedDemand.lean",
+      "Applications/Search/ExactPriority.lean",
+      "Applications/Search/Ordered/Consumers.lean",
+      "Applications/Search/Ordered/Exact.lean",
+      "Applications/Search/RationalCost.lean",
+      "Applications/Segments/Candidates.lean",
+      "Applications/Segments/Observation.lean",
+      "Applications/Sequences/BoundedSummary.lean",
+      "Applications/Sequences/OrderedSummary.lean",
+      "Applications/Sequences/RunCompression.lean",
+      "Applications/Sequences/Symmetric/Core.lean",
+      "Applications/Sorting/Stable.lean",
+      "Applications/Subsequences/Candidates.lean",
+      "Applications/Subsequences/Selection.lean",
+      "Applications/Timing/Adders.lean",
+      "Applications/Timing/Digital.lean",
+      "Applications/Timing/Examples.lean",
+      "Applications/Timing/Intervals.lean",
+      "Examples/AlgebraicKL.lean",
+      "Examples/ArbitrarySmoothCovers.lean",
+      "Examples/CallModels.lean",
+      "Examples/CategoryMaps.lean",
+      "Examples/ConstantSheafStreams.lean",
+      "Examples/EuclideanOpenEmbedding.lean",
+      "Examples/ExpressiveWitnesses.lean",
+      "Examples/FunctionalBasics.lean",
+      "Examples/GroupoidTransport.lean",
+      "Examples/JetScan.lean",
+      "Examples/LanguageCoalgebra.lean",
+      "Examples/ManifoldFullFaithfulness.lean",
+      "Examples/MathlibManifoldRealization.lean",
+      "Examples/MeasuredScan.lean",
+      "Examples/Optimization.lean",
+      "Examples/OptionalSquares.lean",
+      "Examples/PathTransport.lean",
+      "Examples/PathTransportUniqueness.lean",
+      "Examples/PotentialAccounting.lean",
+      "Examples/PresheafSetting.lean",
+      "Examples/ProbabilityCorrelation.lean",
+      "Examples/RationalSearch.lean",
+      "Examples/RecursiveCompilation.lean",
+      "Examples/ScanFusion.lean",
+      "Examples/ScanOptimality.lean",
+      "Examples/SecondIdentity.lean",
+      "Examples/SierpinskiLocal.lean",
+      "Examples/SierpinskiPoints.lean",
+      "Examples/SierpinskiSheaf.lean",
+      "Examples/SmoothDual.lean",
+      "Examples/SmoothDualExtension.lean",
+      "Examples/SmoothFormalLocalization.lean",
+      "Examples/SmoothKL.lean",
+      "Examples/SmoothLocalization.lean",
+      "Examples/SmoothLocalizationOpen.lean",
+      "Examples/SmoothQuotient.lean",
+      "Examples/TimedMotion.lean",
+      "SquareKit/AdjointComparison.lean",
+      "SquareKit/AlgebraicStage.lean",
+      "SquareKit/Arithmetic.lean",
+      "SquareKit/ArithmeticStaging.lean",
+      "SquareKit/CartesianMapQuotient.lean",
+      "SquareKit/Category.lean",
+      "SquareKit/ClosedComparison.lean",
+      "SquareKit/CommaLawful.lean",
+      "SquareKit/CommaLimits.lean",
+      "SquareKit/ConstantSheafProducts.lean",
+      "SquareKit/DependentBaseChange.lean",
+      "SquareKit/DiscreteSheaf.lean",
+      "SquareKit/DoubleDelooping.lean",
+      "SquareKit/ElementFamilies.lean",
+      "SquareKit/ElementSheaf.lean",
+      "SquareKit/ElementSite.lean",
+      "SquareKit/ExponentiablePullback.lean",
+      "SquareKit/Family.lean",
+      "SquareKit/FiniteUniverse.lean",
+      "SquareKit/FunctionCategory.lean",
+      "SquareKit/GroupoidTransportRoutes.lean",
+      "SquareKit/Internal/ArrowGeometry.lean",
+      "SquareKit/Internal/ArrowPresentation.lean",
+      "SquareKit/Internal/ArrowPresheaf.lean",
+      "SquareKit/Internal/ArrowPresheafPushout.lean",
+      "SquareKit/Internal/ArrowPushout.lean",
+      "SquareKit/Internal/ArrowPushoutChange.lean",
+      "SquareKit/Internal/ArrowPushoutModels.lean",
+      "SquareKit/Internal/ArrowSheaf.lean",
+      "SquareKit/Internal/ClassifierSourceChange.lean",
+      "SquareKit/Internal/ClassifierSourceCoherence.lean",
+      "SquareKit/Internal/ComplementaryModel.lean",
+      "SquareKit/Internal/FiniteClassifier.lean",
+      "SquareKit/Internal/FiniteClassifierComparison.lean",
+      "SquareKit/Internal/FiniteSetting.lean",
+      "SquareKit/Internal/GenericModel.lean",
+      "SquareKit/Internal/GeometricMixedChange.lean",
+      "SquareKit/Internal/GeometricMorphism.lean",
+      "SquareKit/Internal/GeometricSlice.lean",
+      "SquareKit/Internal/PartitionCoherence.lean",
+      "SquareKit/Internal/PartitionMixedChange.lean",
+      "SquareKit/Internal/PartitionSection.lean",
+      "SquareKit/Internal/PartitionSequents.lean",
+      "SquareKit/Internal/PathTransport/BasedPath.lean",
+      "SquareKit/Internal/PathTransport/ContextualElimination.lean",
+      "SquareKit/Internal/PathTransport/GroupoidIdentity.lean",
+      "SquareKit/Internal/PathTransport/GroupoidSoundness.lean",
+      "SquareKit/Internal/PathTransport/JNaturality.lean",
+      "SquareKit/Internal/PathTransport/SplitFamily.lean",
+      "SquareKit/Internal/PathTransport/Syntax.lean",
+      "SquareKit/Internal/Presheaf.lean",
+      "SquareKit/Internal/PresheafRepresentation.lean",
+      "SquareKit/Internal/SheafPseudopullback.lean",
+      "SquareKit/Internal/SierpinskiGeneric.lean",
+      "SquareKit/Internal/SliceGenericSection.lean",
+      "SquareKit/Internal/SliceSection.lean",
+      "SquareKit/Internal/SliceUniversal.lean",
+      "SquareKit/Internal/SliceVaryingBase.lean",
+      "SquareKit/Internal/SyntheticScalar.lean",
+      "SquareKit/Internal/TransformationCoherence.lean",
+      "SquareKit/ListFusion.lean",
+      "SquareKit/ListInitial/Fusion.lean",
+      "SquareKit/ListInitial/Presheaves.lean",
+      "SquareKit/ListInitial/Types.lean",
+      "SquareKit/LocallyConstantSheaf.lean",
+      "SquareKit/MatrixCategory.lean",
+      "SquareKit/MatrixDoubling.lean",
+      "SquareKit/OptionalMathlib.lean",
+      "SquareKit/ProductStreams.lean",
+      "SquareKit/QuotientFixedArcs.lean",
+      "SquareKit/QuotientPointedArcs.lean",
+      "SquareKit/RelationTransport.lean",
+      "SquareKit/Session/Process.lean",
+      "SquareKit/SheafActionQuotient.lean",
+      "SquareKit/SheafActionQuotientDescent.lean",
+      "SquareKit/SheafBaseChange.lean",
+      "SquareKit/SheafFunction.lean",
+      "SquareKit/SheafImage.lean",
+      "SquareKit/SheafPushoutLocal.lean",
+      "SquareKit/SheafRelation.lean",
+      "SquareKit/SheafSections.lean",
+      "SquareKit/SheafSliceFunction.lean",
+      "SquareKit/SheafTorsor.lean",
+      "SquareKit/SheafTorsorDescent.lean",
+      "SquareKit/SliceDependentProduct.lean",
+      "SquareKit/SliceExtensive.lean",
+      "SquareKit/SmoothAlgebra.lean",
+      "SquareKit/SmoothChartLocalLifting.lean",
+      "SquareKit/SmoothChartRealization.lean",
+      "SquareKit/SmoothClutchingPrincipal.lean",
+      "SquareKit/SmoothClutchingTorsor.lean",
+      "SquareKit/SmoothConstantOrdinary.lean",
+      "SquareKit/SmoothDualCover.lean",
+      "SquareKit/SmoothDualExtension.lean",
+      "SquareKit/SmoothHadamard.lean",
+      "SquareKit/SmoothLocalGluing.lean",
+      "SquareKit/SmoothLocalization.lean",
+      "SquareKit/SmoothLocalizationBaseChange.lean",
+      "SquareKit/SmoothLocallyConstantGroup.lean",
+      "SquareKit/SmoothManifoldCharts.lean",
+      "SquareKit/SmoothOpenOverlap.lean",
+      "SquareKit/SmoothOperations.lean",
+      "SquareKit/SmoothOrdinaryPullbackCover.lean",
+      "SquareKit/SmoothPresentationSheaf.lean",
+      "SquareKit/SmoothPrincipalTopology.lean",
+      "SquareKit/SmoothQuotient.lean",
+      "SquareKit/SmoothRealPointCovers.lean",
+      "SquareKit/SmoothSitePullback.lean",
+      "SquareKit/SmoothTaylor.lean",
+      "SquareKit/SplitFunctionDiagram.lean",
+      "SquareKit/SplitFunctionSheaf.lean",
+      "SquareKit/SplitPresheaf.lean",
+      "SquareKit/SubfunctorLattice.lean",
+      "SquareKit/Temporal/Finite.lean",
+      "SquareKit/Temporal/Monitor.lean",
+      "SquareKit/TerminalProduct.lean",
+      "SquareKit/TypeFamily.lean",
+      "SquareKit/TypeTerminalProduct.lean",
+      "SquareKit/WordCoalgebra.lean"
+    ],
+    "non_header_warning_word_mentions": [
+      [
+        2820,
+        "Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:"
+      ]
+    ],
+    "classification": "All full current warning blocks read.101 known nonfatal old-source warnings match acceptedR headers exactly;460 module-system import advisories are nonfatal,19 in added foundation files. No linter suppression/source option change or mathematical defect found."
+  },
+  "review_bookkeeping_note": {
+    "initial_read_only_attempt_chunk": "1062e2",
+    "exit_code": 1,
+    "cause": "Loose warning-text matcher also classified a Hint continuation as a header; immutable git lookup of Hint failed before any receipt write. No compiler or candidate action occurred.",
+    "diagnostic_chunk": "e91ef8",
+    "correction": "Strict file/position warning header recognition excludes the single Hint line at native2820 and baseline1409. Actual counts561=460+101; original logs untouched."
+  },
+  "types_semantically_read": 0,
+  "overall": "Full gate qualified; actual145 semantic assessment pending; no final axis decision yet."
+}

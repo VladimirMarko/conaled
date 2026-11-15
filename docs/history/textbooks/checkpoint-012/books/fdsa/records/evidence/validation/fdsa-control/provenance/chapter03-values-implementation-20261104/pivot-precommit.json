@@ -1,0 +1,101 @@
+{
+  "recorded_utc": "2026-11-04T18:54:21.723585+00:00",
+  "parent_candidate": "e1b7b57dd495b9b57597e75141e0ec397536ed35",
+  "review_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "canonical_inventory_sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed",
+  "chapter_inventory_scope": 83,
+  "assigned_rows": [
+    "C03-021",
+    "C03-022",
+    "C03-023",
+    "C03-024",
+    "C03-025",
+    "C03-026"
+  ],
+  "future_reuse": [
+    "C03-057 general positive group-size occurrence bound"
+  ],
+  "files": [
+    {
+      "repository_path": "Applications/Selection/MedianOfMedians.lean",
+      "bytes": 13715,
+      "sha256": "bc67a91a75dcff12a800039ea781be097dc0907c6dbebab3e1d281d1d1a06645",
+      "public_names": [
+        "Applications.Selection.lowerMedianValue",
+        "Applications.Selection.lowerMedianValue_ranked",
+        "Applications.Selection.lowerMedianValue_mem",
+        "Applications.Selection.lowerMedianWith_eq_some_value",
+        "Applications.Selection.lowerMedianValue_count_bounds",
+        "Applications.Selection.chunkMedians",
+        "Applications.Selection.length_chunkMedians",
+        "Applications.Selection.chunkMedians_eq_nil_iff",
+        "Applications.Selection.mem_chunkMedians",
+        "Applications.Selection.medianOfMedians",
+        "Applications.Selection.medianOfMedians_some_iff_ranked",
+        "Applications.Selection.medianOfMedians_none",
+        "Applications.Selection.medianOfMedians_mem",
+        "Applications.Selection.medianOfMedians_pivot_valid",
+        "Applications.Selection.medianOfMedians_median_counts",
+        "Applications.Selection.chunkMedianGroups",
+        "Applications.Selection.chunkMedianGroups_perm",
+        "Applications.Selection.chunkMedianGroups_multiset",
+        "Applications.Selection.chunkMedianGroups_lengths",
+        "Applications.Selection.chunkMedianGroups_related_length",
+        "Applications.Selection.chunk_count_lt_of_median_ge",
+        "Applications.Selection.chunk_count_gt_of_median_le",
+        "Applications.Selection.medianOfMedians_count_bounds",
+        "Applications.Selection.size_five_count_arithmetic",
+        "Applications.Selection.medianOfMedians_five_count_bounds",
+        "Applications.Selection.ceil_nat_div",
+        "Applications.Selection.size_five_ceiling",
+        "Applications.Selection.medianOfMedians_five_ceil_bounds"
+      ],
+      "private_basenames": [
+        "sum_le_count_split",
+        "chunk_count_bound"
+      ]
+    },
+    {
+      "repository_path": "Examples/MedianOfMedians.lean",
+      "bytes": 6480,
+      "sha256": "9f3d2f87a119db761f1d94de74e431950201043b083c3d83b9bf4a0726357a40",
+      "public_names": [
+        "Examples.MedianOfMedians.lower_even_value",
+        "Examples.MedianOfMedians.lower_even_adapter",
+        "Examples.MedianOfMedians.two_full_chunk_medians",
+        "Examples.MedianOfMedians.two_full_chunk_pivot",
+        "Examples.MedianOfMedians.two_full_chunk_pivot_mem",
+        "Examples.MedianOfMedians.strict_half_is_false",
+        "Examples.MedianOfMedians.corrected_non_strict_half",
+        "Examples.MedianOfMedians.greater_median_group_is_one",
+        "Examples.MedianOfMedians.complementary_group_is_one",
+        "Examples.MedianOfMedians.short_final_chunk_medians",
+        "Examples.MedianOfMedians.short_final_chunk_pivot",
+        "Examples.MedianOfMedians.short_final_chunk_balance",
+        "Examples.MedianOfMedians.duplicate_chunk_medians",
+        "Examples.MedianOfMedians.duplicate_pivot",
+        "Examples.MedianOfMedians.duplicate_strict_sides",
+        "Examples.MedianOfMedians.duplicate_groups",
+        "Examples.MedianOfMedians.duplicate_groups_multiset",
+        "Examples.MedianOfMedians.five_chunk_lower_contribution",
+        "Examples.MedianOfMedians.five_chunk_upper_contribution",
+        "Examples.MedianOfMedians.five_chunk_total_contribution",
+        "Examples.MedianOfMedians.singleton_group_balance",
+        "Examples.MedianOfMedians.source_real_ceiling",
+        "Examples.MedianOfMedians.source_real_balance",
+        "Examples.MedianOfMedians.empty_pivot",
+        "Examples.MedianOfMedians.zero_size_pivot",
+        "Examples.MedianOfMedians.empty_strict_counts",
+        "Examples.MedianOfMedians.mathematical_policy_is_valid"
+      ],
+      "private_basenames": []
+    }
+  ],
+  "new_public_names": 55,
+  "new_private_helpers": 2,
+  "earlier_four_file_identities_unchanged": true,
+  "earlier_public_names": 75,
+  "compiler_performed_by_author": false,
+  "validation_state": "Uncompiled immutable development candidate preparation; focused and full check, audit, actual elaborated types and independent full-scope reviews pending.",
+  "author_source_statement_review": "All 55 proposed public declarations and two private helper derivations inspected in complete source readback 6cbea8. This is not actual elaborated-type verification. No Nodup or Inhabited requirements; all side counts preserve multiplicities; positive group size needed for partition flattening; successful Option result needed for pivot bounds; empty counts separately exposed."
+}

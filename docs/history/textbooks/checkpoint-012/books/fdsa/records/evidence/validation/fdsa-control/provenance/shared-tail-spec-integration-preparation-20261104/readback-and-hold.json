@@ -1,0 +1,91 @@
+{
+  "schema": "fdsa-spec-preparation-readback-completion-v1",
+  "reviewer": "/root/chapter02_spec",
+  "recorded_utc": "2026-11-04T15:34:06.305889+00:00",
+  "corrected_T": "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+  "prospective_J": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "receiving_candidate": null,
+  "source_scope": "Original six Tail paths; entire original C2 81-path/112-obligation/ten-shared-scope review and all findings retained.",
+  "files": [
+    {
+      "path": "reviews/permutation-tail-spec-integration-preparation-20261104.md",
+      "bytes": 11858,
+      "lines": 60,
+      "sha256": "cf82fe7273fbdcd88abba72b79de324f7acd082f6ef9cff9072b6b64cb0961ec"
+    },
+    {
+      "path": "provenance/shared-tail-spec-integration-preparation-20261104/assessment.json",
+      "bytes": 53742,
+      "lines": 1332,
+      "sha256": "cfa94912bfb3d8a71d522cb30af8aeae69be52e32f6d15fe05cb57a7b1e0bd79"
+    }
+  ],
+  "complete_read_chunks": [
+    {
+      "path": "reviews/permutation-tail-spec-integration-preparation-20261104.md",
+      "from": 1,
+      "to": 60,
+      "bytes": 11858,
+      "sha256": "cf82fe7273fbdcd88abba72b79de324f7acd082f6ef9cff9072b6b64cb0961ec",
+      "read_completely_without_truncation": true
+    },
+    {
+      "path": "provenance/shared-tail-spec-integration-preparation-20261104/assessment.json",
+      "from": 1,
+      "to": 285,
+      "bytes": 11945,
+      "sha256": "b5a7633bcab6947732865a8737eb42f0354a47e661b8313ffe3c6a7c36772675",
+      "read_completely_without_truncation": true
+    },
+    {
+      "path": "provenance/shared-tail-spec-integration-preparation-20261104/assessment.json",
+      "from": 286,
+      "to": 659,
+      "bytes": 11996,
+      "sha256": "35ba108a556f09a222343a2a2f6e9862153c2edc2c5e4f5c99f8f115648419dd",
+      "read_completely_without_truncation": true
+    },
+    {
+      "path": "provenance/shared-tail-spec-integration-preparation-20261104/assessment.json",
+      "from": 660,
+      "to": 906,
+      "bytes": 11751,
+      "sha256": "b409774d5303d1a8a967d6627994b30ea83563add9acdb82ca0e413bd9429558",
+      "read_completely_without_truncation": true
+    },
+    {
+      "path": "provenance/shared-tail-spec-integration-preparation-20261104/assessment.json",
+      "from": 907,
+      "to": 1159,
+      "bytes": 11925,
+      "sha256": "386204e4e4f256e92a9bcdb226c0530a3f1412526a52ef950b563af623f7e350",
+      "read_completely_without_truncation": true
+    },
+    {
+      "path": "provenance/shared-tail-spec-integration-preparation-20261104/assessment.json",
+      "from": 1160,
+      "to": 1332,
+      "bytes": 6125,
+      "sha256": "6ca844cde6356fe6b5f0e8cb401b1e4cae2f0edda6a85e7850a6322d6dac4691",
+      "read_completely_without_truncation": true
+    }
+  ],
+  "all65600bytes_read": true,
+  "retained_own_records_reverified": 11,
+  "fully_read_current_records_reverified": 7,
+  "new_findings": 0,
+  "overall": "Blocked; complete preparation only. Tail C02-DOC-003 remains open until applied and assessed.",
+  "receiving_credit": {
+    "source_assembly": 0,
+    "compilation": 0,
+    "actual_types": 0,
+    "inherited_reuse": 0,
+    "audit": 0,
+    "final_approval": 0,
+    "acceptance": 0
+  },
+  "preserved_guard_failure": "2d5652 exit1; original 302-line round1 prefix plus root six-line append independently verified; no old package or global control modified.",
+  "priority": "Actual J full terminal/53/inherited evidence comes first.",
+  "mutation_boundary": "Only new own preparation report/receipt/readback record. No source, refs, index, compiler, process polling, cache, output/runtime capture, ticket/global controls or external-service action.",
+  "hold_boundary": "After complete readback of this receipt, all new and earlier own reports/provenance are HELD pending root release."
+}

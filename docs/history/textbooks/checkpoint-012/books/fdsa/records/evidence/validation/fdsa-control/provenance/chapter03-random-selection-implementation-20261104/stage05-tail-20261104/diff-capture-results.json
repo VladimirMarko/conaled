@@ -1,0 +1,32 @@
+[
+  {
+    "command": [
+      "git",
+      "diff",
+      "--no-index",
+      "--",
+      "/dev/null",
+      "Applications/Resources/RandomSelectionTail.lean"
+    ],
+    "actual_exit": 1,
+    "meaning": "Expected nonempty new-file difference; not a compiler or test failure.",
+    "stdout_bytes": 24725,
+    "stdout_sha256": "91ad1900c55518a62d2a3ada30c5b82764068b02020bfa0ab01bb18e0ce9e87a",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--no-index",
+      "--",
+      "/dev/null",
+      "Examples/RandomSelectionTail.lean"
+    ],
+    "actual_exit": 1,
+    "meaning": "Expected nonempty new-file difference; not a compiler or test failure.",
+    "stdout_bytes": 9070,
+    "stdout_sha256": "9d078e963d5b9f6bda0a788e0a6179f633939fedfc67068c79b4c60f1e872bb8",
+    "stderr": ""
+  }
+]

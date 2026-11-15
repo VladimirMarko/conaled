@@ -1,0 +1,897 @@
+diff --git a/Applications/Trees/Shape.lean b/Applications/Trees/Shape.lean
+new file mode 100644
+index 0000000000000000000000000000000000000000..52c589e228d4c3a8726f7010ec1de7700ba5eca2
+--- /dev/null
++++ b/Applications/Trees/Shape.lean
+@@ -0,0 +1,267 @@
++import Applications.Trees.Observations
++import Mathlib.Data.Nat.Log
++
++/-! Minimum external-leaf height, completeness and sharp shape bounds on the
++ordinary node-labelled tree. The discrete development is independent of real
++analysis and of cached annotations. Source and statement assessment:
++`docs/research/fdsa-tree-shape.md`.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Trees
++universe u v
++variable {α : Type u} {β : Type v}
++
++/-- Distance to the nearest external empty leaf. Nil has distance zero. -/
++def minHeight (t : BinaryTree α) : Nat :=
++  fold 0 (fun l (_ : α) r => min l r + 1) t
++
++@[simp] theorem minHeight_nil : minHeight (.nil : BinaryTree α) = 0 := rfl
++
++@[simp] theorem minHeight_node (a : α) (l r : BinaryTree α) :
++    minHeight (.node a l r) = min (minHeight l) (minHeight r) + 1 := rfl
++
++theorem minHeight_map (label : α → β) (t : BinaryTree α) :
++    minHeight (t.map label) = minHeight t :=
++  fold_map 0 (fun l (_ : β) r => min l r + 1) label t
++
++theorem minHeight_le_height (t : BinaryTree α) : minHeight t ≤ t.height := by
++  induction t with
++  | nil => exact Nat.le_refl 0
++  | node a l r ihl ihr =>
++      simp only [minHeight_node, BinaryTree.height]
++      exact Nat.add_le_add_right
++        ((min_le_left _ _).trans (ihl.trans (le_max_left _ _))) 1
++
++/-- Source completeness: both children are complete with equal heights.
++This is the perfect-tree convention, with nil also complete. -/
++def Complete : BinaryTree α → Prop
++  | .nil => True
++  | .node _ l r => l.height = r.height ∧ Complete l ∧ Complete r
++
++@[simp] theorem complete_nil : Complete (.nil : BinaryTree α) := True.intro
++
++@[simp] theorem complete_node (a : α) (l r : BinaryTree α) :
++    Complete (.node a l r) ↔ l.height = r.height ∧ Complete l ∧ Complete r := Iff.rfl
++
++theorem complete_iff_minHeight_eq_height (t : BinaryTree α) :
++    Complete t ↔ minHeight t = t.height := by
++  induction t with
++  | nil => simp [BinaryTree.height]
++  | node a l r ihl ihr =>
++      have hl := minHeight_le_height l
++      have hr := minHeight_le_height r
++      simp only [complete_node, minHeight_node, BinaryTree.height, ihl, ihr]
++      omega
++
++theorem complete_map (label : α → β) (t : BinaryTree α) :
++    Complete (t.map label) ↔ Complete t := by
++  simp only [complete_iff_minHeight_eq_height, minHeight_map, height_map]
++
++/-- External leaves occupy at most two adjacent depths. No left packing is
++required; the additive form avoids truncated subtraction in later proofs. -/
++def AlmostComplete (t : BinaryTree α) : Prop := t.height ≤ minHeight t + 1
++
++@[simp] theorem almostComplete_nil : AlmostComplete (.nil : BinaryTree α) := by
++  exact Nat.zero_le 1
++
++theorem almostComplete_iff_sub (t : BinaryTree α) :
++    AlmostComplete t ↔ t.height - minHeight t ≤ 1 := by
++  unfold AlmostComplete
++  omega
++
++theorem complete_almostComplete (t : BinaryTree α) (ht : Complete t) :
++    AlmostComplete t := by
++  have h := (complete_iff_minHeight_eq_height t).1 ht
++  unfold AlmostComplete
++  omega
++
++theorem almostComplete_children (a : α) (l r : BinaryTree α)
++    (ht : AlmostComplete (.node a l r)) : AlmostComplete l ∧ AlmostComplete r := by
++  simp only [AlmostComplete, BinaryTree.height, minHeight_node] at ht ⊢
++  omega
++
++theorem almostComplete_map (label : α → β) (t : BinaryTree α) :
++    AlmostComplete (t.map label) ↔ AlmostComplete t := by
++  simp only [AlmostComplete, height_map, minHeight_map]
++
++/-- The shortest external-leaf depth gives a lower capacity bound. -/
++theorem pow_minHeight_le_numLeaves (t : BinaryTree α) :
++    2 ^ minHeight t ≤ t.numLeaves := by
++  induction t with
++  | nil => exact Nat.le_refl 1
++  | node a l r ihl ihr =>
++      have hl : 2 ^ min (minHeight l) (minHeight r) ≤ l.numLeaves :=
++        (Nat.pow_le_pow_right (by decide : 0 < 2) (min_le_left _ _)).trans ihl
++      have hr : 2 ^ min (minHeight l) (minHeight r) ≤ r.numLeaves :=
++        (Nat.pow_le_pow_right (by decide : 0 < 2) (min_le_right _ _)).trans ihr
++      simp only [minHeight_node, BinaryTree.numLeaves, Nat.pow_succ]
++      omega
++
++/-- Maximum external-leaf depth gives an upper capacity bound. -/
++theorem numLeaves_le_pow_height (t : BinaryTree α) :
++    t.numLeaves ≤ 2 ^ t.height := by
++  induction t with
++  | nil => exact Nat.le_refl 1
++  | node a l r ihl ihr =>
++      have hl : l.numLeaves ≤ 2 ^ max l.height r.height :=
++        ihl.trans (Nat.pow_le_pow_right (by decide : 0 < 2) (le_max_left _ _))
++      have hr : r.numLeaves ≤ 2 ^ max l.height r.height :=
++        ihr.trans (Nat.pow_le_pow_right (by decide : 0 < 2) (le_max_right _ _))
++      simp only [BinaryTree.numLeaves, BinaryTree.height, Nat.pow_succ]
++      omega
++
++theorem numLeaves_eq_pow_height (t : BinaryTree α) :
++    Complete t → t.numLeaves = 2 ^ t.height := by
++  induction t with
++  | nil => intro _; rfl
++  | node a l r ihl ihr =>
++      rintro ⟨h, hl, hr⟩
++      simp only [BinaryTree.numLeaves, BinaryTree.height, ihl hl, ihr hr,
++        h, max_self, Nat.pow_succ]
++      omega
++
++theorem numLeaves_eq_pow_minHeight (t : BinaryTree α) (ht : Complete t) :
++    t.numLeaves = 2 ^ minHeight t := by
++  rw [(complete_iff_minHeight_eq_height t).1 ht]
++  exact numLeaves_eq_pow_height t ht
++
++/-- Incompleteness makes the maximum-height capacity bound strict. -/
++theorem numLeaves_lt_pow_height (t : BinaryTree α) :
++    ¬ Complete t → t.numLeaves < 2 ^ t.height := by
++  classical
++  induction t with
++  | nil =>
++      intro ht
++      exact False.elim (ht complete_nil)
++  | node a l r ihl ihr =>
++      intro ht
++      have hl := numLeaves_le_pow_height l
++      have hr := numLeaves_le_pow_height r
++      rcases lt_trichotomy l.height r.height with hlt | heq | hgt
++      · have hp := Nat.pow_lt_pow_right (by decide : 1 < 2) hlt
++        simp only [BinaryTree.numLeaves, BinaryTree.height,
++          max_eq_right (le_of_lt hlt), Nat.pow_succ]
++        omega
++      · by_cases hcl : Complete l
++        · have hcr : ¬ Complete r := fun hcr => ht ⟨heq, hcl, hcr⟩
++          have hs := ihr hcr
++          have hl' : l.numLeaves ≤ 2 ^ r.height := by simpa only [heq] using hl
++          simp only [BinaryTree.numLeaves, BinaryTree.height, heq, max_self,
++            Nat.pow_succ]
++          omega
++        · have hs : l.numLeaves < 2 ^ r.height := by simpa only [heq] using ihl hcl
++          simp only [BinaryTree.numLeaves, BinaryTree.height, heq, max_self,
++            Nat.pow_succ]
++          omega
++      · have hp := Nat.pow_lt_pow_right (by decide : 1 < 2) hgt
++        simp only [BinaryTree.numLeaves, BinaryTree.height,
++          max_eq_left (le_of_lt hgt), Nat.pow_succ]
++        omega
++
++/-- Incompleteness also makes the minimum-height capacity bound strict. -/
++theorem pow_minHeight_lt_numLeaves (t : BinaryTree α) :
++    ¬ Complete t → 2 ^ minHeight t < t.numLeaves := by
++  classical
++  induction t with
++  | nil =>
++      intro ht
++      exact False.elim (ht complete_nil)
++  | node a l r ihl ihr =>
++      intro ht
++      have hl := pow_minHeight_le_numLeaves l
++      have hr := pow_minHeight_le_numLeaves r
++      rcases lt_trichotomy (minHeight l) (minHeight r) with hlt | heq | hgt
++      · have hp := Nat.pow_lt_pow_right (by decide : 1 < 2) hlt
++        simp only [minHeight_node, BinaryTree.numLeaves,
++          min_eq_left (le_of_lt hlt), Nat.pow_succ]
++        omega
++      · by_cases hcl : Complete l
++        · have hcr : ¬ Complete r := by
++            intro hcr
++            have hml := (complete_iff_minHeight_eq_height l).1 hcl
++            have hmr := (complete_iff_minHeight_eq_height r).1 hcr
++            exact ht ⟨by omega, hcl, hcr⟩
++          have hs := ihr hcr
++          have hl' : 2 ^ minHeight r ≤ l.numLeaves := by simpa only [heq] using hl
++          simp only [minHeight_node, BinaryTree.numLeaves, heq, min_self,
++            Nat.pow_succ]
++          omega
++        · have hs : 2 ^ minHeight r < l.numLeaves := by simpa only [heq] using ihl hcl
++          simp only [minHeight_node, BinaryTree.numLeaves, heq, min_self,
++            Nat.pow_succ]
++          omega
++      · have hp := Nat.pow_lt_pow_right (by decide : 1 < 2) hgt
++        simp only [minHeight_node, BinaryTree.numLeaves,
++          min_eq_right (le_of_lt hgt), Nat.pow_succ]
++        omega
++
++theorem complete_iff_numLeaves_eq_pow_height (t : BinaryTree α) :
++    Complete t ↔ t.numLeaves = 2 ^ t.height := by
++  constructor
++  · exact numLeaves_eq_pow_height t
++  · intro h
++    by_contra ht
++    exact (ne_of_lt (numLeaves_lt_pow_height t ht)) h
++
++theorem complete_iff_numLeaves_eq_pow_minHeight (t : BinaryTree α) :
++    Complete t ↔ t.numLeaves = 2 ^ minHeight t := by
++  constructor
++  · exact numLeaves_eq_pow_minHeight t
++  · intro h
++    by_contra ht
++    exact (ne_of_lt (pow_minHeight_lt_numLeaves t ht)) h.symm
++
++theorem minHeight_le_log_numLeaves (t : BinaryTree α) :
++    minHeight t ≤ Nat.log 2 t.numLeaves :=
++  Nat.le_log_of_pow_le (by decide : 1 < 2) (pow_minHeight_le_numLeaves t)
++
++theorem clog_numLeaves_le_height (t : BinaryTree α) :
++    Nat.clog 2 t.numLeaves ≤ t.height :=
++  Nat.clog_le_of_le_pow (numLeaves_le_pow_height t)
++
++/-- The lower rounded logarithm is exact on almost-complete trees, including nil. -/
++theorem minHeight_eq_log_numLeaves (t : BinaryTree α) (ht : AlmostComplete t) :
++    minHeight t = Nat.log 2 t.numLeaves := by
++  classical
++  by_cases hc : Complete t
++  · rw [numLeaves_eq_pow_height t hc, Nat.log_pow (by decide : 1 < 2)]
++    exact (complete_iff_minHeight_eq_height t).1 hc
++  · have hle := minHeight_le_height t
++    have hne : minHeight t ≠ t.height :=
++      fun h => hc ((complete_iff_minHeight_eq_height t).2 h)
++    have hheight : t.height = minHeight t + 1 := by
++      unfold AlmostComplete at ht
++      omega
++    have hupper : t.numLeaves < 2 ^ (minHeight t + 1) := by
++      simpa only [hheight] using numLeaves_lt_pow_height t hc
++    exact (Nat.log_eq_of_pow_le_of_lt_pow
++      (pow_minHeight_le_numLeaves t) hupper).symm
++
++/-- The upper rounded logarithm is exact on almost-complete trees, including nil. -/
++theorem height_eq_clog_numLeaves (t : BinaryTree α) (ht : AlmostComplete t) :
++    t.height = Nat.clog 2 t.numLeaves := by
++  classical
++  by_cases hc : Complete t
++  · rw [numLeaves_eq_pow_height t hc,
++      Nat.clog_pow 2 t.height (by decide : 1 < 2)]
++  · have hlow : minHeight t < Nat.clog 2 t.numLeaves :=
++      (Nat.lt_clog_iff_pow_lt (by decide : 1 < 2)).2
++        (pow_minHeight_lt_numLeaves t hc)
++    have hupp := clog_numLeaves_le_height t
++    unfold AlmostComplete at ht
++    omega
++
++/-- Almost-complete trees minimize height under a node-count comparison.
++The compared tree can have any shape and an unrelated payload universe. -/
++theorem height_optimal (s : BinaryTree α) (t : BinaryTree β)
++    (hs : AlmostComplete s) (hsize : s.numNodes ≤ t.numNodes) :
++    s.height ≤ t.height := by
++  have hleaves : s.numLeaves ≤ t.numLeaves := by
++    simpa only [BinaryTree.numLeaves_eq_numNodes_succ] using
++      Nat.add_le_add_right hsize 1
++  rw [height_eq_clog_numLeaves s hs]
++  exact Nat.clog_le_of_le_pow (hleaves.trans (numLeaves_le_pow_height t))
++
++end Trees
+diff --git a/Applications/Trees/ShapeLog.lean b/Applications/Trees/ShapeLog.lean
+new file mode 100644
+index 0000000000000000000000000000000000000000..2b9d3e3ce0adef033ecba262cd5b1126591c390b
+--- /dev/null
++++ b/Applications/Trees/ShapeLog.lean
+@@ -0,0 +1,69 @@
++import Applications.Trees.Shape
++import Mathlib.Analysis.SpecialFunctions.Log.Base
++
++/-! Real-logarithm and rounding corollaries of the discrete tree-shape bounds.
++The logarithm always has a positive argument: nil has one external leaf.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace Trees
++universe u
++variable {α : Type u}
++
++theorem minHeight_le_logb_numLeaves (t : BinaryTree α) :
++    (minHeight t : Real) ≤ Real.logb 2 (t.numLeaves : Real) := by
++  have hb : (1 : Real) < 2 := by exact_mod_cast Nat.one_lt_two
++  have hpos : (0 : Real) < (t.numLeaves : Real) :=
++    Nat.cast_pos.mpr (BinaryTree.numLeaves_pos t)
++  apply (Real.le_logb_iff_rpow_le hb hpos).2
++  rw [Real.rpow_natCast]
++  exact_mod_cast pow_minHeight_le_numLeaves t
++
++theorem logb_numLeaves_le_height (t : BinaryTree α) :
++    Real.logb 2 (t.numLeaves : Real) ≤ (t.height : Real) := by
++  have hb : (1 : Real) < 2 := by exact_mod_cast Nat.one_lt_two
++  have hpos : (0 : Real) < (t.numLeaves : Real) :=
++    Nat.cast_pos.mpr (BinaryTree.numLeaves_pos t)
++  apply (Real.logb_le_iff_le_rpow hb hpos).2
++  rw [Real.rpow_natCast]
++  exact_mod_cast numLeaves_le_pow_height t
++
++theorem minHeight_lt_logb_numLeaves (t : BinaryTree α) (ht : ¬ Complete t) :
++    (minHeight t : Real) < Real.logb 2 (t.numLeaves : Real) := by
++  have hb : (1 : Real) < 2 := by exact_mod_cast Nat.one_lt_two
++  have hpos : (0 : Real) < (t.numLeaves : Real) :=
++    Nat.cast_pos.mpr (BinaryTree.numLeaves_pos t)
++  apply (Real.lt_logb_iff_rpow_lt hb hpos).2
++  rw [Real.rpow_natCast]
++  exact_mod_cast pow_minHeight_lt_numLeaves t ht
++
++theorem logb_numLeaves_lt_height (t : BinaryTree α) (ht : ¬ Complete t) :
++    Real.logb 2 (t.numLeaves : Real) < (t.height : Real) := by
++  have hb : (1 : Real) < 2 := by exact_mod_cast Nat.one_lt_two
++  have hpos : (0 : Real) < (t.numLeaves : Real) :=
++    Nat.cast_pos.mpr (BinaryTree.numLeaves_pos t)
++  apply (Real.logb_lt_iff_lt_rpow hb hpos).2
++  rw [Real.rpow_natCast]
++  exact_mod_cast numLeaves_lt_pow_height t ht
++
++theorem height_eq_logb_numLeaves (t : BinaryTree α) (ht : Complete t) :
++    (t.height : Real) = Real.logb 2 (t.numLeaves : Real) := by
++  apply le_antisymm
++  · simpa only [(complete_iff_minHeight_eq_height t).1 ht] using
++      minHeight_le_logb_numLeaves t
++  · exact logb_numLeaves_le_height t
++
++theorem minHeight_eq_floor_logb_numLeaves (t : BinaryTree α)
++    (ht : AlmostComplete t) :
++    minHeight t = ⌊Real.logb 2 (t.numLeaves : Real)⌋₊ := by
++  rw [Real.natFloor_logb_natCast 2 t.numLeaves]
++  exact minHeight_eq_log_numLeaves t ht
++
++theorem height_eq_ceil_logb_numLeaves (t : BinaryTree α)
++    (ht : AlmostComplete t) :
++    t.height = ⌈Real.logb 2 (t.numLeaves : Real)⌉₊ := by
++  rw [Real.natCeil_logb_natCast 2 t.numLeaves]
++  exact height_eq_clog_numLeaves t ht
++
++end Trees
+diff --git a/Examples/TreeShape.lean b/Examples/TreeShape.lean
+new file mode 100644
+index 0000000000000000000000000000000000000000..ad88549bad45b77c33f039d3e465cd074f038b01
+--- /dev/null
++++ b/Examples/TreeShape.lean
+@@ -0,0 +1,297 @@
++import Applications.Trees.ShapeLog
++import Examples.TreeCache
++
++/-! Connected shape, logarithm and cached-observation uses. Independent case
++expectations and statement assessment: `docs/research/fdsa-tree-shape.md`.
++-/
++set_option autoImplicit false
++set_option warningAsError true
++
++namespace TreeShapeExamples
++universe u v
++variable {α : Type u} {β : Type v}
++
++def single : BinaryTree Unit := .node () .nil .nil
++
++theorem single_complete : Trees.Complete single := by
++  simp [single, Trees.complete_node]
++
++theorem single_minHeight : Trees.minHeight single = 1 := by
++  calc
++    Trees.minHeight single = single.height :=
++      (Trees.complete_iff_minHeight_eq_height single).1 single_complete
++    _ = 1 := rfl
++
++theorem single_almostComplete : Trees.AlmostComplete single :=
++  Trees.complete_almostComplete single single_complete
++
++theorem empty_shapes (t : BinaryTree Empty) :
++    Trees.Complete t ∧ Trees.AlmostComplete t ∧
++      Trees.minHeight t = 0 ∧ t.height = 0 ∧ t.numLeaves = 1 := by
++  rw [TreeCacheExamples.empty_tree t]
++  exact ⟨Trees.complete_nil, Trees.almostComplete_nil, rfl, rfl, rfl⟩
++
++def perfectThree : BinaryTree Unit := .node () single single
++
++theorem perfectThree_complete : Trees.Complete perfectThree := by
++  exact (Trees.complete_iff_numLeaves_eq_pow_height perfectThree).2 (by decide)
++
++theorem perfectThree_leaves :
++    perfectThree.numLeaves = 2 ^ Trees.minHeight perfectThree :=
++  Trees.numLeaves_eq_pow_minHeight perfectThree perfectThree_complete
++
++theorem perfectThree_minHeight : Trees.minHeight perfectThree = 2 := by
++  calc
++    Trees.minHeight perfectThree = perfectThree.height :=
++      (Trees.complete_iff_minHeight_eq_height perfectThree).1 perfectThree_complete
++    _ = 2 := rfl
++
++def rightTwo : BinaryTree Unit := .node () .nil single
++
++theorem rightTwo_incomplete : ¬ Trees.Complete rightTwo := by
++  rw [Trees.complete_iff_minHeight_eq_height]
++  decide
++
++theorem rightTwo_almostComplete : Trees.AlmostComplete rightTwo := by
++  change 2 ≤ 1 + 1
++  decide
++
++theorem rightTwo_strict_capacity :
++    2 ^ Trees.minHeight rightTwo < rightTwo.numLeaves ∧
++      rightTwo.numLeaves < 2 ^ rightTwo.height :=
++  ⟨Trees.pow_minHeight_lt_numLeaves rightTwo rightTwo_incomplete,
++    Trees.numLeaves_lt_pow_height rightTwo rightTwo_incomplete⟩
++
++theorem rightTwo_children :
++    Trees.AlmostComplete (.nil : BinaryTree Unit) ∧ Trees.AlmostComplete single :=
++  Trees.almostComplete_children () .nil single rightTwo_almostComplete
++
++theorem rightTwo_sub : rightTwo.height - Trees.minHeight rightTwo ≤ 1 :=
++  (Trees.almostComplete_iff_sub rightTwo).1 rightTwo_almostComplete
++
++theorem chainThree_power_not_complete :
++    (TreeCacheExamples.chain 3).numLeaves = 2 ^ (2 : Nat) ∧
++      ¬ Trees.Complete (TreeCacheExamples.chain 3) := by
++  constructor
++  · rfl
++  · rw [Trees.complete_iff_numLeaves_eq_pow_minHeight]
++    decide
++
++theorem rightTwo_rounded_equalities :
++    Trees.minHeight rightTwo = Nat.log 2 rightTwo.numLeaves ∧
++      rightTwo.height = Nat.clog 2 rightTwo.numLeaves :=
++  ⟨Trees.minHeight_eq_log_numLeaves rightTwo rightTwo_almostComplete,
++    Trees.height_eq_clog_numLeaves rightTwo rightTwo_almostComplete⟩
++
++theorem rightTwo_rounded_strictness_fails :
++    ¬ Trees.minHeight rightTwo < Nat.log 2 rightTwo.numLeaves ∧
++      ¬ Nat.clog 2 rightTwo.numLeaves < rightTwo.height := by
++  have hm := rightTwo_rounded_equalities.1
++  have hh := rightTwo_rounded_equalities.2
++  omega
++
++theorem empty_logarithms (t : BinaryTree Empty) :
++    Nat.log 2 t.numLeaves = 0 ∧ Nat.clog 2 t.numLeaves = 0 := by
++  have ht := (empty_shapes t).2.1
++  have hm := Trees.minHeight_eq_log_numLeaves t ht
++  have hh := Trees.height_eq_clog_numLeaves t ht
++  have he := TreeCacheExamples.empty_tree t
++  rw [he] at hm hh ⊢
++  exact ⟨hm.symm, hh.symm⟩
++
++theorem sample_almostComplete : Trees.AlmostComplete TreeCacheExamples.sample := by
++  change 3 ≤ 2 + 1
++  decide
++
++theorem sample_minHeight : Trees.minHeight TreeCacheExamples.sample = 2 := rfl
++theorem sample_leaves : TreeCacheExamples.sample.numLeaves = 5 := rfl
++
++theorem sample_logarithms : Nat.log 2 5 = 2 ∧ Nat.clog 2 5 = 3 := by
++  constructor
++  · simpa only [sample_leaves, sample_minHeight] using
++      (Trees.minHeight_eq_log_numLeaves TreeCacheExamples.sample sample_almostComplete).symm
++  · simpa only [sample_leaves, TreeCacheExamples.sample_height] using
++      (Trees.height_eq_clog_numLeaves TreeCacheExamples.sample sample_almostComplete).symm
++
++theorem sample_height_nodes : TreeCacheExamples.sample.height =
++    Nat.clog 2 (TreeCacheExamples.sample.numNodes + 1) := by
++  simpa only [BinaryTree.numLeaves_eq_numNodes_succ] using
++    Trees.height_eq_clog_numLeaves TreeCacheExamples.sample sample_almostComplete
++
++theorem sample_wrong_node_offset :
++    TreeCacheExamples.sample.height ≠ Nat.clog 2 TreeCacheExamples.sample.numNodes := by
++  decide
++
++theorem perfectThree_real_height :
++    (perfectThree.height : Real) = Real.logb 2 (perfectThree.numLeaves : Real) :=
++  Trees.height_eq_logb_numLeaves perfectThree perfectThree_complete
++
++theorem rightTwo_strict_real :
++    (1 : Real) < Real.logb 2 3 ∧ Real.logb 2 3 < (2 : Real) := by
++  exact ⟨Trees.minHeight_lt_logb_numLeaves rightTwo rightTwo_incomplete,
++    Trees.logb_numLeaves_lt_height rightTwo rightTwo_incomplete⟩
++
++theorem sample_real_rounding :
++    ⌊Real.logb 2 (5 : Real)⌋₊ = 2 ∧ ⌈Real.logb 2 (5 : Real)⌉₊ = 3 := by
++  constructor
++  · simpa only [sample_leaves, sample_minHeight] using
++      (Trees.minHeight_eq_floor_logb_numLeaves
++        TreeCacheExamples.sample sample_almostComplete).symm
++  · simpa only [sample_leaves, TreeCacheExamples.sample_height] using
++      (Trees.height_eq_ceil_logb_numLeaves
++        TreeCacheExamples.sample sample_almostComplete).symm
++
++theorem empty_real_height (t : BinaryTree Empty) :
++    (t.height : Real) = Real.logb 2 (t.numLeaves : Real) :=
++  Trees.height_eq_logb_numLeaves t (empty_shapes t).1
++
++theorem mapped_sample :
++    Trees.minHeight (TreeCacheExamples.sample.map (fun _ => ())) = 2 ∧
++      Trees.AlmostComplete (TreeCacheExamples.sample.map (fun _ => ())) :=
++  ⟨(Trees.minHeight_map (fun _ => ()) TreeCacheExamples.sample).trans sample_minHeight,
++    (Trees.almostComplete_map (fun _ => ()) TreeCacheExamples.sample).2 sample_almostComplete⟩
++
++theorem relabelled_complete :
++    Trees.Complete (perfectThree.map (fun _ => false)) :=
++  (Trees.complete_map (fun _ => false) perfectThree).2 perfectThree_complete
++
++/-- Erasing any annotations preserves the new shape observation. -/
++theorem minHeight_erase (t : BinaryTree (α × β)) :
++    Trees.minHeight (Trees.Cached.erase t) = Trees.minHeight t :=
++  Trees.minHeight_map Prod.fst t
++
++theorem almostComplete_erase (t : BinaryTree (α × β)) :
++    Trees.AlmostComplete (Trees.Cached.erase t) ↔ Trees.AlmostComplete t :=
++  Trees.almostComplete_map Prod.fst t
++
++theorem pairSample_shape :
++    Trees.minHeight TreeCacheExamples.pairSample = 2 ∧
++      Trees.AlmostComplete TreeCacheExamples.pairSample := by
++  constructor
++  · calc
++      Trees.minHeight TreeCacheExamples.pairSample =
++          Trees.minHeight (Trees.Cached.erase TreeCacheExamples.pairSample) :=
++        (minHeight_erase _).symm
++      _ = Trees.minHeight TreeCacheExamples.sample :=
++        congrArg Trees.minHeight TreeCacheExamples.pairSample_erases
++      _ = 2 := sample_minHeight
++  · apply (almostComplete_erase _).1
++    rw [TreeCacheExamples.pairSample_erases]
++    exact sample_almostComplete
++
++theorem corrupt_shape_without_validity :
++    Trees.minHeight TreeCacheExamples.corrupt = 2 ∧
++      Trees.AlmostComplete TreeCacheExamples.corrupt ∧
++      ¬ Trees.Cached.Valid 0 TreeCacheExamples.sizeStep TreeCacheExamples.corrupt := by
++  refine ⟨?_, ?_, TreeCacheExamples.corrupt_not_valid⟩
++  · calc
++      Trees.minHeight TreeCacheExamples.corrupt =
++          Trees.minHeight (Trees.Cached.erase TreeCacheExamples.corrupt) :=
++        (minHeight_erase _).symm
++      _ = Trees.minHeight TreeCacheExamples.sample :=
++        congrArg Trees.minHeight TreeCacheExamples.corrupt_erases
++      _ = 2 := sample_minHeight
++  · apply (almostComplete_erase _).1
++    rw [TreeCacheExamples.corrupt_erases]
++    exact sample_almostComplete
++
++def minStep (l : Nat) (_ : α) (r : Nat) : Nat := min l r + 1
++
++/-- Recursive validity makes the cached minimum agree with the structural observation. -/
++theorem min_reader (t : BinaryTree (α × Nat))
++    (ht : Trees.Cached.Valid 0 minStep t) :
++    Trees.Cached.read 0 t = Trees.minHeight t := by
++  calc
++    Trees.Cached.read 0 t = Trees.fold 0 minStep (Trees.Cached.erase t) :=
++      Trees.Cached.read_eq_fold 0 minStep t ht
++    _ = Trees.minHeight (Trees.Cached.erase t) := rfl
++    _ = Trees.minHeight t := minHeight_erase t
++
++def minSample : BinaryTree (Nat × Nat) :=
++  Trees.Cached.annotate 0 minStep TreeCacheExamples.sample
++
++theorem minSample_valid : Trees.Cached.Valid 0 minStep minSample :=
++  Trees.Cached.annotate_valid 0 minStep TreeCacheExamples.sample
++
++theorem minSample_erases : Trees.Cached.erase minSample = TreeCacheExamples.sample :=
++  Trees.Cached.erase_annotate 0 minStep TreeCacheExamples.sample
++
++theorem minSample_reads : Trees.Cached.read 0 minSample = 2 := by
++  calc
++    Trees.Cached.read 0 minSample = Trees.minHeight minSample :=
++      min_reader minSample minSample_valid
++    _ = Trees.minHeight (Trees.Cached.erase minSample) := (minHeight_erase _).symm
++    _ = Trees.minHeight TreeCacheExamples.sample := congrArg Trees.minHeight minSample_erases
++    _ = 2 := sample_minHeight
++
++/-- Four nodes at optimal maximum height, but external depths differ by two. -/
++def heightOptimalCounter : BinaryTree Bool :=
++  .node false .nil (perfectThree.map (fun _ => false))
++
++theorem heightOptimalCounter_numNodes : heightOptimalCounter.numNodes = 4 := rfl
++
++theorem heightOptimalCounter_shape :
++    heightOptimalCounter.numLeaves = 5 ∧
++      Trees.minHeight heightOptimalCounter = 1 ∧ heightOptimalCounter.height = 3 :=
++  ⟨rfl, rfl, rfl⟩
++
++theorem optimum_across_labels :
++    TreeCacheExamples.sample.height ≤ heightOptimalCounter.height :=
++  Trees.height_optimal TreeCacheExamples.sample heightOptimalCounter
++    sample_almostComplete (by decide)
++
++theorem counter_not_almostComplete : ¬ Trees.AlmostComplete heightOptimalCounter := by
++  change ¬ 3 ≤ 1 + 1
++  decide
++
++theorem counter_rounded_height : heightOptimalCounter.height =
++    Nat.clog 2 heightOptimalCounter.numLeaves := by
++  calc
++    heightOptimalCounter.height = TreeCacheExamples.sample.height := rfl
++    _ = Nat.clog 2 TreeCacheExamples.sample.numLeaves :=
++      Trees.height_eq_clog_numLeaves TreeCacheExamples.sample sample_almostComplete
++    _ = Nat.clog 2 heightOptimalCounter.numLeaves := rfl
++
++/-- An actual Boolean-labelled witness attains the optimum even though the
++almost-complete predicate fails. The competitor can have any payload type. -/
++theorem counter_height_optimal (t : BinaryTree α)
++    (ht : heightOptimalCounter.numNodes ≤ t.numNodes) :
++    heightOptimalCounter.height ≤ t.height := by
++  calc
++    heightOptimalCounter.height = TreeCacheExamples.sample.height := rfl
++    _ ≤ t.height := Trees.height_optimal TreeCacheExamples.sample t
++      sample_almostComplete (by simpa only
++        [TreeCacheExamples.sample_size, heightOptimalCounter_numNodes] using ht)
++
++def almostFour : BinaryTree Unit := .node () rightTwo single
++def localBalanceCounter : BinaryTree Unit := .node () almostFour rightTwo
++
++/-- A predicate used only to state the all-node premise of this counterexample. -/
++private def SiblingHeightBalanced : BinaryTree α → Prop
++  | .nil => True
++  | .node _ l r => l.height ≤ r.height + 1 ∧ r.height ≤ l.height + 1 ∧
++      SiblingHeightBalanced l ∧ SiblingHeightBalanced r
++
++theorem localBalanceCounter_balanced : SiblingHeightBalanced localBalanceCounter := by
++  simp [SiblingHeightBalanced, localBalanceCounter, almostFour, rightTwo, single,
++    BinaryTree.height]
++
++theorem localBalanceCounter_shape :
++    localBalanceCounter.numNodes = 7 ∧ localBalanceCounter.numLeaves = 8 ∧
++      Trees.minHeight localBalanceCounter = 2 ∧ localBalanceCounter.height = 4 :=
++  ⟨rfl, rfl, rfl, rfl⟩
++
++theorem localBalanceCounter_not_almostComplete :
++    ¬ Trees.AlmostComplete localBalanceCounter := by
++  change ¬ 4 ≤ 2 + 1
++  decide
++
++theorem chain_rounded_bounds (n : Nat) :
++    Trees.minHeight (TreeCacheExamples.chain n) ≤
++        Nat.log 2 (TreeCacheExamples.chain n).numLeaves ∧
++      Nat.clog 2 (TreeCacheExamples.chain n).numLeaves ≤
++        (TreeCacheExamples.chain n).height :=
++  ⟨Trees.minHeight_le_log_numLeaves (TreeCacheExamples.chain n),
++    Trees.clog_numLeaves_le_height (TreeCacheExamples.chain n)⟩
++
++end TreeShapeExamples
+diff --git a/SquareApplications.lean b/SquareApplications.lean
+index a44e48d33c45392e975906f3a635acc057f03205..afa218e9c6c928bbd3b04268a240c8d90c22e9d9 100644
+--- a/SquareApplications.lean
++++ b/SquareApplications.lean
+@@ -322,6 +322,7 @@ import Examples.SelectionGenericEnvelope
+ import Examples.SelectionMedians
+ import Examples.SelectionRecurrence
+ import Examples.TreeCache
++import Examples.TreeShape
+ 
+ /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
+ 
+diff --git a/docs/research/fdsa-reconstruction-map.md b/docs/research/fdsa-reconstruction-map.md
+index 1dc207f930f47e1348e4dfd1e81acc746b4d6deb..e37d8e89d1ba0851d7b3886b8c84b10447abd5ac 100644
+--- a/docs/research/fdsa-reconstruction-map.md
++++ b/docs/research/fdsa-reconstruction-map.md
+@@ -737,3 +737,27 @@ pending actual receiving-candidate compilation, types, full check/audit and fina
+ review. The current receiving base is accepted Chapter 3 commit
+ `298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2`; all unit and chapter acceptance
+ gates remain. This shared entry does not close the Chapter 4 coverage ledger.
++
++## Shared binary-tree shape bounds (FDSA-XT02)
++
++This bounded cross-cutting unit adds common structural mathematics used by
++Chapters 4, 11 and 15, on the accepted XT01 tree carrier and fold. It does not
++accept any whole chapter or change their sequential acceptance order. Source distinctions,
++connected uses and statement assessment are in
++[fdsa-tree-shape.md](fdsa-tree-shape.md).
++
++| Common source obligation | Draft declarations / intended connection |
++| --- | --- |
++| Minimum external-leaf height and source predicates | `Trees.minHeight`, map/constructor laws, recursive `Complete`, `AlmostComplete`, source subtraction equivalence and immediate-child closure. |
++| Sharp capacity and completeness | Universal `2^minHeight <= numLeaves <= 2^height`, both strict incomplete bounds, and completeness iff equality at either bound. |
++| Natural logarithms and height optimum | Existing `Nat.log`/`Nat.clog` interfaces, exact almost-complete formulas, and `height_optimal` for unrelated payload types under a node-count inequality. |
++| Real source formulas | Separate `Applications.Trees.ShapeLog`: real sandwich/strict bounds, complete height equality and exact natural floor/ceiling bridges. |
++| Connected uses and boundaries | Empty labels, right-heavy almost-complete trees, noninjective maps, actual cached annotations, malformed caches, a minimum-height reader, a genuine optimal-height nonconverse and recursive local-height-balance counterexample. |
++
++The recursive mathematical predicate does not by itself complete the source's
++executable checker obligation. Immediate-child closure does not claim the
++general subtree theorem. Braun/weight-balance bridges, constructor exercises,
++array algorithms and the existing leftist representation and merge-cost bridges
++remain with their chapter tickets. The existing leftist rank proofs are
++unchanged. Current unit validation and acceptance status is recorded in the
++local control records; the complete chapter obligations remain separate.
+diff --git a/docs/research/fdsa-tree-shape.md b/docs/research/fdsa-tree-shape.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..dbbdf8e061c4c0132c164897bc99e86498e80057
+--- /dev/null
++++ b/docs/research/fdsa-tree-shape.md
+@@ -0,0 +1,196 @@
++# Shared binary-tree shape bounds
++
++## Receiving continuation — 5 November 2026
++
++This unit is received against accepted Chapters 1–3 and XT01 at
++`90469ce4ba3fc49397d369a5db7d58aec7014f58`, durable in checkpoint0138.
++The original unit base remains `64c6b777d828ecfe83234fc2aed94600a1f24297`
++and original donor remains `974a97321a8ec174b56104c7e6efaaca881b6639`.
++The three formal modules are initially copied byte-for-byte from that donor.
++The accepted public root and reconstruction map are preserved, with only this
++unit's new import and source section added. The original XT02-SP01 wording
++correction and all five requirement groups remain in the same full review loop.
++
++The source assessment below describes the original drafting stage. Current
++focused/type/full/audit/review/immediate-verification results are recorded
++separately in `fdsa-control`; reception alone grants no validation or chapter
++acceptance. Every later algorithm, representation and runtime obligation remains.
++
++## Status and source boundary
++
++This is the implementation-side source and statement assessment of the
++FDSA-XT02 draft. The natural and real theorem families and their connected
++uses have been written. **No compiler, complete candidate gate, exhaustive
++audit or independent final review has run for this unit.** Accepted repaired
++Chapter 1 and the preceding shared tree-cache unit remain prerequisites to
++integration and acceptance. These files close no chapter or appendix ticket.
++
++The source is *Functional Data Structures and Algorithms: A Proof Assistant
++Approach*, July 27, 2026, especially Chapter 4, pp. 47–48 and 51–53. Later
++consumers include Braun height bounds in Chapter 11, pp. 128–130, and the
++minimum-height bound used by leftist heaps in Chapter 15, pp. 183–186.
++The [official manuscript](https://fdsa-book.net/functional_data_structures_algorithms.pdf)
++has SHA-256
++`9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645`;
++it is a research input and is not redistributed here.
++
++Supporting Isabelle theories `src/HOL/Library/Tree.thy` and `Tree_Real.thy`
++were inspected at `f86f290225eebcc52c1ae7dba2e098f405f51c21`. They identify
++Tobias Nipkow as author; the pinned source inventory retains their exact
++hashes and BSD-3-Clause provenance. That revision postdates the manuscript
++and is not claimed to be its build revision. The Lean proofs below use the
++existing Mathlib carrier and arithmetic interfaces at
++`56a005855ea17e0b0958f73ec801ae140b0a1679`.
++
++The fixed initial base for this bounded unit is the saved, unvalidated XT01
++draft `64c6b777d828ecfe83234fc2aed94600a1f24297`. Exact frozen requirements,
++candidate history and independent review/validation records are retained in
++the local checkpoint's `fdsa-control` directory. The initial requirements
++SHA-256 is `50d11472d8380fb3458a3ea71aba3d1104886f676a7b1cec578c0557a6979e91`.
++
++## Ordinary observations and conventions
++
++`Applications.Trees.Shape` reuses `BinaryTree`, its existing `numNodes`,
++`numLeaves` and `height`, and XT01's ordinary fold. The only new numeric
++observation is `Trees.minHeight`: fold zero at nil and `min left right + 1`
++at a node. Its meaning is distance to the nearest external empty leaf.
++The empty tree therefore has zero nodes, one leaf and both heights zero;
++a singleton has both heights one. The general leaf identity remains the
++existing `numLeaves = numNodes + 1`.
++
++`Complete` is an independent recursive predicate: nil is complete, and a node
++is complete exactly when both children are complete and have equal maximum
++heights. This is the perfect-tree convention. The theorem
++`complete_iff_minHeight_eq_height` connects that recursion to the equal-depth
++interpretation. Completeness has not been defined by the numerical answer of
++one of the later leaf-count theorems.
++
++`AlmostComplete t` means `t.height <= minHeight t + 1`, with an explicit
++equivalence to the source's natural-subtraction expression. It permits one or
++two adjacent external-leaf levels. It imposes no left-to-right filling rule.
++Completeness implies almost completeness, and the latter passes to each
++immediate child. The arbitrary-subtree relation and executable source checker
++are still separate Chapter 4 work.
++
++Payload types are arbitrary. Map preservation works across independent
++universes and needs no injectivity, order, equality decision or default label.
++Neither a tree nor its payload type is assumed nonempty. The existing
++`BinaryTree Empty` case is retained through the public nil laws.
++
++## Sharp power bounds and logarithms
++
++Writing `m`, `h` and `L` for minimum height, maximum height and external-leaf
++count, structural induction supplies
++
++\[
++2^m\le L\le2^h.
++\]
++
++At a node, both child counts are bounded using the smaller child minimum
++height or the larger child maximum height, respectively. Existing natural
++power monotonicity justifies that step, and the successor power is twice the
++preceding power. There is no enumeration premise or new arithmetic framework.
++
++The complete case attains both bounds. For the strict upper induction, unequal
++child maximum heights make one summand strict; equal heights force an
++incomplete child. The strict lower induction splits minimum child heights.
++In its equal-height case, two complete children would also have equal maximum
++heights, contradicting parent incompleteness. Both equality converses then
++follow from the strict bounds:
++
++\[
++\operatorname{Complete}(t)
++\iff L=2^h
++\iff L=2^m.
++\]
++
++The natural logarithms are the existing `Nat.log` and `Nat.clog`. Their power
++adjunctions give the universal inequalities `m <= log 2 L` and
++`clog 2 L <= h`. On an almost-complete tree these become equalities. If the
++tree is complete, use the logarithm of a power. Otherwise almost completeness
++forces `h=m+1`, and both strict capacity bounds determine the two rounded
++logarithms. This route includes `L=1`; it does not use a predecessor inequality
++that would fail at height zero.
++
++`height_optimal` compares `s : BinaryTree alpha` and `t : BinaryTree beta`
++with independent payload universes. Its premises are almost completeness of
++`s` and `s.numNodes <= t.numNodes`; its conclusion is `s.height <= t.height`.
++The second tree has no shape invariant. The proof converts the count comparison
++to leaves, applies the second tree's capacity bound, and uses the ceiling-log
++formula for `s`. It neither constructs trees of arbitrary size nor claims a
++converse or strict height comparison.
++
++`Applications.Trees.ShapeLog` keeps real analysis separate. It lifts the four
++discrete inequalities through the corresponding `Real.logb`/real-power
++equivalences, using the actual positive leaf count and base two greater than
++one. The complete real equality follows from the resulting sandwich and
++minimum/maximum-height equality. The almost-complete natural floor and ceiling
++corollaries consume `Real.natFloor_logb_natCast` and
++`Real.natCeil_logb_natCast`. These are actual real statements, including the
++empty tree, without a floating-point approximation or a replacement logarithm.
++
++## Source correspondence
++
++| Common source obligations | Draft connection |
++| --- | --- |
++| C04-009, C04-011 | `minHeight`, its constructor equations and `minHeight_le_height`; the existing `height_le_numNodes` already covers C04-010. |
++| C04-012–013 | `pow_minHeight_le_numLeaves`, `numLeaves_le_pow_height`. |
++| Recursive mathematical part of C04-031, C04-032 | `Complete`, `complete_node`, `complete_iff_minHeight_eq_height`; the executable checker remains open. |
++| C04-033–036 | Complete equalities, both strict incomplete bounds, and both equality characterizations. |
++| C04-037 and the supporting real strict/sandwich results | `height_eq_logb_numLeaves`, `minHeight_le_logb_numLeaves`, `logb_numLeaves_le_height` and strict variants. |
++| C04-042–045 | `AlmostComplete`, `almostComplete_iff_sub`, `height_optimal`, exact natural log/clog and real floor/ceiling formulas. |
++| Immediate-child portion of C04-046 | `complete_almostComplete`, `almostComplete_children`; the general subtree result remains open. |
++| Common mathematics later used by C11-014–018 | Almost-complete shape/logarithm/optimum results. The constructor arithmetic, Braun/weight-balance invariant bridges and array operations remain separate. |
++| Common shape bound used by C15-006 | Universal minimum-height power/log bounds. Existing leftist `rank_paths`, `rank_size` and `rank_log` remain intact; cache/representation and actual merge-cost bridges remain separate. |
++
++This table describes intended source connections in an uncompiled shared
++draft. It does not mark any inventory row accepted or replace a whole chapter's
++coverage review.
++
++## Connected uses and independent expectations
++
++The cases in `Examples.TreeShape` were selected before source edits from
++hand calculations. Existing definitions could already compute some numbers;
++the missing connections were the shared structural and logarithm results.
++No compiler failure was manufactured or reported during this drafting stage.
++
++| Case | Intended connection and independently expected result |
++| --- | --- |
++| Empty payload type and singleton | Existing `empty_tree`, new nil laws and completeness/height equivalence. Empty gives leaves one and heights/logs zero; singleton gives heights one. |
++| Complete three-node tree | The upper equality converse establishes completeness; the minimum equality and real height identity then follow through public results. Leaves four, both heights two. |
++| Two-node right chain | Public strict capacities and real strict bounds hold, yet both rounded bounds are equalities. Leaves three, minimum one, height two. Child closure and subtraction equivalence are also used. |
++| Saved XT01 asymmetric sample | The actual four-node tree has leaves five, minimum two and height three. Its almost completeness gives natural and real rounded logarithms. A separate proposition rejects replacing `numNodes + 1` with `numNodes`. |
++| Label maps and actual pair annotation | Arbitrary map laws preserve minimum height and completeness predicates. The saved pair-summary sample uses its actual erasure theorem, without requiring cache validity for shape. |
++| Saved corrupt size annotations | Their erasure still gives the same almost-complete shape with minimum two, while the existing all-node size validity predicate fails. Shape preservation is independent of stored-value correctness. |
++| Actual minimum-height cache | `min_reader` specializes `Cached.read_eq_fold` and map preservation. `minSample` is produced by the existing `annotate`; its validity and erasure establish that the actual root reader returns two. |
++| Three-node chain | Four leaves form a power of two, but the minimum-bound completeness characterization rejects completeness. The arbitrary exponent alone is insufficient. |
++| Boolean-labelled optimum counterexample | A root with nil left child and a complete three-node right child has four nodes, five leaves, minimum one and height three. The public optimum compares it with the natural-labelled sample and proves it optimal against every competitor with at least four nodes, although it is not almost complete. |
++| Recursive local-height-balance counterexample | A private example predicate holds at every node of the independent seven-node fixture. Leaves eight, minimum two, height four; almost completeness fails. This is not an AVL implementation or invariant bridge. |
++| Arbitrary saved left chains | The general natural rounded inequalities apply without an almost-complete premise. They do not become equalities on every skew tree. |
++
++## Statement assessment and remaining gates
++
++The implementation-side reading checked the recursive source meanings,
++independent universes, quantifier order, leaf-versus-node count, empty boundary,
++both directions of each equality characterization, strict-versus-rounded
++claims, and actual use of public results in the compositions. The optimality
++witness uses two different inhabited label types; no vacuous positive-size
++existence assertion over `Empty` is substituted for that use.
++
++Bounded independent source/API readings found no concrete issue in the stable
++natural core or real bridge. The independent client reading caught one
++docstring that incorrectly described recursive cache validity as necessary
++for root correctness. The theorem already states sufficiency; the wording is
++corrected and the finding retained. An invalid descendant can coexist with an
++accidentally correct root observation. Additional source/client assessments and
++exact file identities are retained with the immutable candidate handoff. These are
++source readings only. Elaboration, simplifier behavior, matching candidate
++build/guards, exhaustive audit, both independent final review axes and immediate
++candidate verification remain required. No informal note is a proof dependency.
++
++The public root imports `Examples.TreeShape`, which imports both new domain
++modules. The core adds no resource executor, generic tree class or alternate
++carrier. It claims no lookup/merge runtime, physical sharing or storage bound.
++Boolean checking, arbitrary subtrees, complete/almost-complete constructor
++exercises, weight balance, Braun operations and leftist representation/cost
++bridges remain mandatory later book obligations.

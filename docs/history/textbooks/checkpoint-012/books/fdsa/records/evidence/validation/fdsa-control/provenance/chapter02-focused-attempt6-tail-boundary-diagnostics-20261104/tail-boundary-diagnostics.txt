@@ -1,0 +1,72 @@
+error: Examples/PermutationTailBoundary.lean:51:2: failed to synthesize
+  Decidable
+    (swap01 ∈ firstEvent (restrictedOrder positions selected) 0 ∧
+      swap01 ∈ firstEvent (fun π => List.map (⇑(Equiv.symm π)) positions) 1 ∧
+        swap01 ∉ firstEvent (fun π => List.map (⇑(Equiv.symm π)) positions) 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Examples/PermutationTailBoundary.lean:139:2: Tactic `decide` failed to reduce
+  @decide
+    (∀ xs ∈ orders counterPositions Finset.univ,
+      (List.filter (fun a => decide (a ∈ conditionSubset)) xs).head? = some 0 ∧
+          List.filter (fun a => decide (a ∈ outsideSubset)) xs = [1, 2] ↔
+        xs = [0, 1, 2])
+    Finset.decidableDforallFinset
+to `true` or `false`.
+
+After unfolding the instances `decidable_of_decidable_of_iff`, `decidable_of_iff`, `Finset.decidableDforallFinset`, `Multiset.decidableDforallMultiset`, and `Multiset.decidableForallMultiset`, reduction got stuck at
+  List.decidableBAll
+    (fun a =>
+      (fun xs a =>
+          (List.filter (fun a => decide (a ∈ conditionSubset)) xs).head? = some 0 ∧
+              List.filter (fun a => decide (a ∈ outsideSubset)) xs = [1, 2] ↔
+            xs = [0, 1, 2])
+        ↑a ⋯)
+    (List.pmap Subtype.mk (List.filter (fun a => decide (a ∈ Finset.univ)) counterPositions).permutations.dedup ⋯)
+error: Examples/PermutationTailBoundary.lean:146:2: Tactic `decide` failed to reduce
+  @decide
+    (∀ xs ∈ orders counterPositions Finset.univ,
+      (List.filter (fun a => decide (a ∈ conditionSubset)) xs).head? = some 0 ∧
+          List.filter (fun a => decide (a ∈ outsideSubset)) xs = [2, 1] ↔
+        xs = [0, 2, 1] ∨ xs = [2, 0, 1])
+    Finset.decidableDforallFinset
+to `true` or `false`.
+
+After unfolding the instances `decidable_of_decidable_of_iff`, `decidable_of_iff`, `Finset.decidableDforallFinset`, `Multiset.decidableDforallMultiset`, and `Multiset.decidableForallMultiset`, reduction got stuck at
+  List.decidableBAll
+    (fun a =>
+      (fun xs a =>
+          (List.filter (fun a => decide (a ∈ conditionSubset)) xs).head? = some 0 ∧
+              List.filter (fun a => decide (a ∈ outsideSubset)) xs = [2, 1] ↔
+            xs = [0, 2, 1] ∨ xs = [2, 0, 1])
+        ↑a ⋯)
+    (List.pmap Subtype.mk (List.filter (fun a => decide (a ∈ Finset.univ)) counterPositions).permutations.dedup ⋯)
+error: Examples/PermutationTailBoundary.lean:194:40: Tactic `decide` failed to reduce
+  @decide ([0, 1, 2] ∈ orders counterPositions Finset.univ)
+    (Finset.decidableMem [0, 1, 2] (orders counterPositions Finset.univ))
+to `true` or `false`.
+
+After unfolding the instances `instDecidableEqBool`, `Bool.decEq`, `Finset.decidableMem`, and `Multiset.decidableMem`, reduction got stuck at
+  List.elem [0, 1, 2] (List.filter (fun a => decide (a ∈ Finset.univ)) counterPositions).permutations.dedup
+error: Examples/PermutationTailBoundary.lean:201:38: Tactic `decide` failed to reduce
+  @decide ([0, 2, 1] ∈ orders counterPositions Finset.univ)
+    (Finset.decidableMem [0, 2, 1] (orders counterPositions Finset.univ))
+to `true` or `false`.
+
+After unfolding the instances `instDecidableEqBool`, `Bool.decEq`, `Finset.decidableMem`, and `Multiset.decidableMem`, reduction got stuck at
+  List.elem [0, 2, 1] (List.filter (fun a => decide (a ∈ Finset.univ)) counterPositions).permutations.dedup
+error: Examples/PermutationTailBoundary.lean:202:36: Tactic `decide` failed to reduce
+  @decide ([2, 0, 1] ∈ orders counterPositions Finset.univ)
+    (Finset.decidableMem [2, 0, 1] (orders counterPositions Finset.univ))
+to `true` or `false`.
+
+After unfolding the instances `instDecidableEqBool`, `Bool.decEq`, `Finset.decidableMem`, and `Multiset.decidableMem`, reduction got stuck at
+  List.elem [2, 0, 1] (List.filter (fun a => decide (a ∈ Finset.univ)) counterPositions).permutations.dedup
+error: Examples/PermutationTailBoundary.lean:199:15: unsolved goals
+⊢ 6⁻¹ + 6⁻¹ = 3⁻¹
+error: Examples/PermutationTailBoundary.lean:208:15: unsolved goals
+hhalf : (1 / 2)⁻¹ = 2
+⊢ 2 * 6⁻¹ = 3⁻¹
+error: Examples/PermutationTailBoundary.lean:217:15: unsolved goals
+hhalf : (1 / 2)⁻¹ = 2
+⊢ 2 * 3⁻¹ = 2 / 3

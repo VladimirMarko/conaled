@@ -1,0 +1,401 @@
+{
+  "recorded_utc": "2026-11-05T00:02:17.959696+00:00",
+  "reviewer": "/root/chapter03_spec",
+  "axis": "Spec",
+  "review_loop": "Existing whole-Chapter3 loop; no nested loop",
+  "outcome": "Blocked",
+  "review_complete": false,
+  "supersedes_prior_coverage_only_by_addition": true,
+  "prior_records_preserved": {
+    "partial-progress-0135.json": {
+      "bytes": 13778,
+      "sha256": "9c7f6bf67544b36298040b566d79381f7e5867412989626706da12828c950448"
+    },
+    "write-hold-0135.json": {
+      "bytes": 681,
+      "sha256": "c86167a36961db31655265537bc6394f863f69e49c8461305aeaee8194379f6a"
+    }
+  },
+  "original_task_base": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "accepted_receiving_comparison_point": "c1cefe45f5e1b54ffa0fdd9e72b4a8a0c76b6fd5",
+  "source_assessment_candidate": "38ae31902682ff6e3f4b28cea519a3bfeb4f96c7",
+  "current_receiving_preparation": "690ab476f4685e5a795d53d18465b067655a34dd",
+  "current_preparation_not_final_or_accepted": true,
+  "scope_obligations": 83,
+  "scope_identity": {
+    "bytes": 52581,
+    "sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed"
+  },
+  "source_identities": {
+    "Applications/Selection/CountRank.lean": {
+      "bytes": 12940,
+      "sha256": "1257144d19c82c5487b4f0a17918c215494eeba17ccdbf78a24d995b1e5c658d",
+      "read_candidate": "38ae31902682ff6e3f4b28cea519a3bfeb4f96c7",
+      "byte_equal_at_current_receiving_preparation": "690ab476f4685e5a795d53d18465b067655a34dd"
+    },
+    "Examples/SelectionCountRank.lean": {
+      "bytes": 4423,
+      "sha256": "cc73980788882d39abe44672d89e6a3ce37dfe3b5f5788375255248e8b4a66d2",
+      "read_candidate": "38ae31902682ff6e3f4b28cea519a3bfeb4f96c7",
+      "byte_equal_at_current_receiving_preparation": "690ab476f4685e5a795d53d18465b067655a34dd"
+    },
+    "Applications/Selection/Rank.lean": {
+      "bytes": 3713,
+      "sha256": "4a82df75593d909e2968bf1e27cbfea52c9795abfe81250bb2385e7dfc16f965",
+      "read_candidate": "38ae31902682ff6e3f4b28cea519a3bfeb4f96c7",
+      "byte_equal_at_current_receiving_preparation": "690ab476f4685e5a795d53d18465b067655a34dd"
+    },
+    "Applications/Selection/Consumers.lean": {
+      "bytes": 5450,
+      "sha256": "7ddfe4da069279ac03b075088ce34e32a5ee8c1a251f6b035b45275bafa3167b",
+      "read_candidate": "38ae31902682ff6e3f4b28cea519a3bfeb4f96c7",
+      "byte_equal_at_current_receiving_preparation": "690ab476f4685e5a795d53d18465b067655a34dd"
+    }
+  },
+  "new_public_source_claims_substantively_assessed": {
+    "count": 40,
+    "core_count": 24,
+    "example_count": 16,
+    "names": [
+      "Applications.Selection.RankedAt.mem",
+      "Applications.Selection.RankedAt.lt_length",
+      "Applications.Selection.RankedAt.count_bounds",
+      "Applications.Selection.partition_equal_getElem?",
+      "Applications.Selection.ordered_getElem?_partition",
+      "Applications.Selection.ranked_iff_count_bounds",
+      "Applications.Selection.count_bounds_unique",
+      "Applications.Selection.filter_le_sublist_filter_lt",
+      "Applications.Selection.count_le_add_count_gt",
+      "Applications.Selection.ordered_eq_of_pairwise_perm",
+      "Applications.Selection.ordered_eq_of_perm",
+      "Applications.Selection.ordered_getElem?_perm",
+      "Applications.Selection.selectWith_succ_value",
+      "Applications.Selection.selectWith_succ_some_iff_count_bounds",
+      "Applications.Selection.ordered_getElem?_mem",
+      "Applications.Selection.ranked_zero_iff_min",
+      "Applications.Selection.ordered_getElem?_zero_iff_min",
+      "Applications.Selection.ordered_append",
+      "Applications.Selection.ordered_getElem?_append",
+      "Applications.Selection.sorted_filter_lt_sublist_take",
+      "Applications.Selection.sorted_filter_gt_sublist_drop",
+      "Applications.Selection.lowerMedian_value",
+      "Applications.Selection.lowerMedian_count_bounds",
+      "Applications.Selection.lowerMedian_mem",
+      "Examples.SelectionCountRank.duplicate_lower_rank",
+      "Examples.SelectionCountRank.duplicate_upper_rank",
+      "Examples.SelectionCountRank.duplicate_bounds",
+      "Examples.SelectionCountRank.duplicate_public_selection",
+      "Examples.SelectionCountRank.weak_upper_count_is_insufficient",
+      "Examples.SelectionCountRank.zero_book_rank_is_public_one",
+      "Examples.SelectionCountRank.smallest_is_not_largest",
+      "Examples.SelectionCountRank.invalid_count_bounds",
+      "Examples.SelectionCountRank.outside_pivot_equal_block",
+      "Examples.SelectionCountRank.outside_pivot_value",
+      "Examples.SelectionCountRank.equal_occurrence_branch",
+      "Examples.SelectionCountRank.ordered_blocks",
+      "Examples.SelectionCountRank.ordered_blocks_invalid_index",
+      "Examples.SelectionCountRank.duplicate_lower_median",
+      "Examples.SelectionCountRank.duplicate_median_counts",
+      "Examples.SelectionCountRank.monotone_count_transport"
+    ],
+    "evidence_tool_chunk": "241e97",
+    "limitation": "Source definitions, statements and complete proof bodies inspected for intended count/rank, duplicate, index, partition and median semantics and checked uses. This is not final qualification or complete Chapter3 assessment. Only the first16 corresponding raw actual type blocks have been assessed."
+  },
+  "baseline_dependencies_fully_read": {
+    "paths": [
+      "Applications/Selection/Rank.lean",
+      "Applications/Selection/Consumers.lean"
+    ],
+    "tool_chunk": "627d28",
+    "scope": "RankedAt witness/ordered-index and uniqueness definitions, monotone possibly noninjective transport, public one-based lower median and policy transport; not counted as new Chapter3 claims."
+  },
+  "actual_type_blocks_substantively_assessed": {
+    "count": 16,
+    "raw_log_first_line": 1,
+    "raw_log_last_line": 392,
+    "raw_bytes": 20267,
+    "tool_chunk": "c168cf",
+    "blocks": [
+      {
+        "name": "Applications.Selection.RankedAt.mem",
+        "author_scope": "values",
+        "first_line": 1,
+        "last_line": 3,
+        "offset": 0,
+        "bytes": 274,
+        "sha256": "ce5ffed2a9c5a898e97a1d5db255a38cb8c60903d56569107886e3bddb5e20e3"
+      },
+      {
+        "name": "Applications.Selection.RankedAt.lt_length",
+        "author_scope": "values",
+        "first_line": 4,
+        "last_line": 6,
+        "offset": 274,
+        "bytes": 251,
+        "sha256": "8dd200a5ca2c87f1a1de064c19041d8f9419d2f31a6d9a800e73a75b516f41d0"
+      },
+      {
+        "name": "Applications.Selection.RankedAt.count_bounds",
+        "author_scope": "values",
+        "first_line": 7,
+        "last_line": 45,
+        "offset": 525,
+        "bytes": 1706,
+        "sha256": "6c3c76aced343da993210d06a1853b2aca94c58075bce38c31e51d2f992156f6"
+      },
+      {
+        "name": "Applications.Selection.partition_equal_getElem?",
+        "author_scope": "values",
+        "first_line": 46,
+        "last_line": 62,
+        "offset": 2231,
+        "bytes": 955,
+        "sha256": "73303ff64ffe38471b4ac0df0861c11ef4f1cdef80cb17c4a75e0ba0d144b105"
+      },
+      {
+        "name": "Applications.Selection.ordered_getElem?_partition",
+        "author_scope": "values",
+        "first_line": 63,
+        "last_line": 120,
+        "offset": 3186,
+        "bytes": 3842,
+        "sha256": "28398f26e9feb0361d47f1fda0ac69eab7988ebb1dddd34e5c99f0a654b91809"
+      },
+      {
+        "name": "Applications.Selection.ranked_iff_count_bounds",
+        "author_scope": "values",
+        "first_line": 121,
+        "last_line": 159,
+        "offset": 7028,
+        "bytes": 1768,
+        "sha256": "b015c2f9e138988647fb64bc17fb64749c0326e981ff00a6c3e7399bdf09a594"
+      },
+      {
+        "name": "Applications.Selection.count_bounds_unique",
+        "author_scope": "values",
+        "first_line": 160,
+        "last_line": 222,
+        "offset": 8796,
+        "bytes": 2734,
+        "sha256": "687159f92277595bb9f1558bf0d36f96539152615d1545d73c6be2c23bfd9281"
+      },
+      {
+        "name": "Applications.Selection.filter_le_sublist_filter_lt",
+        "author_scope": "values",
+        "first_line": 223,
+        "last_line": 257,
+        "offset": 11530,
+        "bytes": 1477,
+        "sha256": "241ffe055dc390b9d8ddf9a468618a889016aa88c5e3e3af5486802942133c32"
+      },
+      {
+        "name": "Applications.Selection.count_le_add_count_gt",
+        "author_scope": "values",
+        "first_line": 258,
+        "last_line": 286,
+        "offset": 13007,
+        "bytes": 1290,
+        "sha256": "8a8bc572c4d2925ace40ac91f97c7b2e04486396c29b95638ac11f7fef5f6043"
+      },
+      {
+        "name": "Applications.Selection.ordered_eq_of_pairwise_perm",
+        "author_scope": "values",
+        "first_line": 287,
+        "last_line": 300,
+        "offset": 14297,
+        "bytes": 667,
+        "sha256": "f508915d07db09647b99160c225d4622348d38f71b08173ad54fe3c323814a5b"
+      },
+      {
+        "name": "Applications.Selection.ordered_eq_of_perm",
+        "author_scope": "values",
+        "first_line": 301,
+        "last_line": 304,
+        "offset": 14964,
+        "bytes": 299,
+        "sha256": "80acd3b2313e4ff94df480c738587ba94db93d60236bbe8fb47594657b0d99c8"
+      },
+      {
+        "name": "Applications.Selection.ordered_getElem?_perm",
+        "author_scope": "values",
+        "first_line": 305,
+        "last_line": 313,
+        "offset": 15263,
+        "bytes": 732,
+        "sha256": "0eefe3bbbafd43b01034b776f65f67128065389f3c653c98e0e233ef8b5f05ab"
+      },
+      {
+        "name": "Applications.Selection.selectWith_succ_value",
+        "author_scope": "values",
+        "first_line": 314,
+        "last_line": 324,
+        "offset": 15995,
+        "bytes": 754,
+        "sha256": "7b8fa61a78382f8da063c0eb6207208467a885800901608d2114af94b5e0ffca"
+      },
+      {
+        "name": "Applications.Selection.selectWith_succ_some_iff_count_bounds",
+        "author_scope": "values",
+        "first_line": 325,
+        "last_line": 363,
+        "offset": 16749,
+        "bytes": 1842,
+        "sha256": "edb267524b3d6ee967e2d9d1473f86cf667336801c66279204d782018c936857"
+      },
+      {
+        "name": "Applications.Selection.ordered_getElem?_mem",
+        "author_scope": "values",
+        "first_line": 364,
+        "last_line": 372,
+        "offset": 18591,
+        "bytes": 576,
+        "sha256": "3b984d23c6307e54ab852f00980e0acc0c0b952f35727f9effef0db06235d85f"
+      },
+      {
+        "name": "Applications.Selection.ranked_zero_iff_min",
+        "author_scope": "values",
+        "first_line": 373,
+        "last_line": 392,
+        "offset": 19167,
+        "bytes": 1100,
+        "sha256": "a48074d586ba85fc903aa970c8877831a92b30ab6fb52950c4252221e088268f"
+      }
+    ],
+    "limitation": "Prefix-development type evidence at38 only. No semantic read credit for blocks17-1321; no claim final candidate qualification."
+  },
+  "mechanical_actual_type_evidence": {
+    "tool_chunk": "c168cf",
+    "block_index_identity": {
+      "bytes": 382223,
+      "sha256": "b89adf0160b2a887c5046917d6ac04131e826e3d6dd4d7e31b0edc0ab62961a2"
+    },
+    "raw_native_log_bytes": 1494848,
+    "raw_native_log_sha256": "b5a197138b36a3ecb0cce5bf397f2cfdfb86a6ff2c0d309f4f49303a9557dfd1",
+    "result": "Independently checked native full-log hash,1321 unique input names in index order, every contiguous block hash covering all native bytes once, and matching pre/post identity captures. This is byte/identity verification, not semantic review of unread blocks.",
+    "reviewer_parser_correction": [
+      {
+        "tool_chunk": "a10823",
+        "exit_code": 1,
+        "description": "Read-only reviewer parser incorrectly expected each printed block to begin with its name, ignoring optional leading @. No source or evidence changes."
+      },
+      {
+        "tool_chunk": "8488b1",
+        "exit_code": 0,
+        "description": "Inspected first raw prefix and diagnosed leading @."
+      },
+      {
+        "tool_chunk": "c168cf",
+        "exit_code": 0,
+        "description": "Corrected reader accepts optional @ and checks exact name boundary; all mechanical checks passed and raw blocks1-16 were delivered and read."
+      }
+    ],
+    "unread_overflow_attempt": "Later attempt to deliver raw blocks17-40 exceeded available model context. No raw content was visible and no read credit is claimed. No historical session polling."
+  },
+  "additional_completed_read_coverage": [
+    {
+      "tool_chunk": "6bdc36",
+      "scope": "Full ADR0001 and ADR0010."
+    },
+    {
+      "tool_chunks": [
+        "d13186",
+        "7695ed",
+        "c88cb8"
+      ],
+      "scope": "Complete canonical chapter03-obligations.md lines1-510; all83 obligations read. The earlier aborted181-355 attempt remains historical and receives no credit."
+    },
+    {
+      "tool_chunk": "90dca0",
+      "scope": "Independent supplied PDF/text byte hashes, source path/size inventory and original Q-to-XR five-path diff; metadata only."
+    },
+    {
+      "tool_chunks": [
+        "0a059f",
+        "3d5ca1",
+        "c52c88"
+      ],
+      "scope": "Complete extracted Chapter3 book text physical lines1310-2060. Text inspection only; no PDF rendering or visual inspection claimed."
+    },
+    {
+      "tool_chunk": "58578f",
+      "scope": "Extracted AppendixB1/B2 physical lines13781-13876 for exact source-call recurrences; candidate selection documentation lines161-310."
+    },
+    {
+      "tool_chunk": "d643cd",
+      "scope": "Candidate docs/research/fdsa-selection.md lines1-160."
+    },
+    {
+      "tool_chunk": "a48d24",
+      "scope": "Immutable whole-candidate grep for both sorted filter helpers and isolated documentation C03-005 line521."
+    },
+    {
+      "tool_chunk": "241e97",
+      "scope": "Full immutable CountRank core and Examples/SelectionCountRank sources."
+    },
+    {
+      "tool_chunk": "627d28",
+      "scope": "Full immutable baseline Rank and Consumers dependency sources."
+    },
+    {
+      "tool_chunk": "b03403",
+      "scope": "Metadata-only enumeration of first40 type names and independent four-file exact source identity between38 and690; no additional raw type-block read."
+    }
+  ],
+  "book_source_identities": {
+    "functional_data_structures_algorithms.pdf": {
+      "bytes": 1742029,
+      "sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645"
+    },
+    "book.txt": {
+      "bytes": 719122,
+      "sha256": "7e5c0b4e157d28d303cc6248746aa63e1415445fa79f3556ff95ac1bf6b17333"
+    }
+  },
+  "external_source_limitations": [
+    "No local pinned Selection.thy was found by attempted path read29e156 and exact filename search6f5553. No claim of direct Isabelle source assessment.",
+    "Karp1994 remains unavailable; original finite-trace proof attribution must remain honest. No claim to reconstruct or have read the inaccessible paper."
+  ],
+  "findings": [
+    {
+      "id": "C03-SPEC-USE-001",
+      "severity": "medium",
+      "status": "Open; root acknowledged and intends repair after checkpoint0135",
+      "scope_obligation": "C03-005",
+      "candidate": "38ae31902682ff6e3f4b28cea519a3bfeb4f96c7",
+      "also_applies_to_current_preparation": "690ab476f4685e5a795d53d18465b067655a34dd",
+      "locations": [
+        "Applications/Selection/CountRank.lean:224-261",
+        "docs/research/fdsa-selection.md:521"
+      ],
+      "summary": "The two sorted-index filter helpers have no meaningful checked client; the documented C03-005 examples exercise different theorems.",
+      "public_claims": [
+        "Applications.Selection.sorted_filter_lt_sublist_take",
+        "Applications.Selection.sorted_filter_gt_sublist_drop"
+      ],
+      "evidence": "Full CountRank and example proof bodies were inspected in tool241e97. Whole-candidate immutable name search a48d24 found only definitions plus documentation. Neither helper is a simp theorem. The mapped ECount.duplicate_bounds and ECount.invalid_count_bounds proofs consume RankedAt.count_bounds and RankedAt.lt_length, respectively, not these helpers. Current metadata b03403 confirms exact core/example source identity at690ab476.",
+      "reproduced_immutable_name_search": "38ae31902682ff6e3f4b28cea519a3bfeb4f96c7:Applications/Selection/CountRank.lean:224:theorem sorted_filter_lt_sublist_take {ys : List α} {k : Nat} {a : α}\n38ae31902682ff6e3f4b28cea519a3bfeb4f96c7:Applications/Selection/CountRank.lean:246:theorem sorted_filter_gt_sublist_drop {ys : List α} {k : Nat} {a : α}\n38ae31902682ff6e3f4b28cea519a3bfeb4f96c7:docs/research/fdsa-selection.md:521:| **C03-005** — Sorted filter/take/drop bounds | `Count.sorted_filter_lt_sublist_take`, `Count.sorted_filter_gt_sublist_drop`, `Count.RankedAt.count_bounds` | `ECount.duplicate_bounds`, `ECount.invalid_count_bounds` | Helpers require a valid sorted index; duplicates are retained. |\n",
+      "requirement": "REQUEST and example-driven-development instructions require meaningful checked specializations or applications of new formal claims; examples must consume the intended result.",
+      "recommended_fix": "Add a meaningful sorted duplicate-list and valid-index specialization invoking both public helpers (for example [1,2,2,3] at an index carrying2), update correspondence as necessary, and validate the exact successor.",
+      "mathematical_falsity_alleged": false,
+      "acceptance_credit": false
+    }
+  ],
+  "remaining_work": [
+    "All original-Q-to-final/all83 scope remains mandatory; reviewed count/rank sources and16 actual types are only a small partial subset.",
+    "Read and assess all remaining candidate bodies, private helpers and checked clients, entrypoint and full correspondence documents; docs selection311-736 mostly unread.",
+    "Read and assess raw actual type blocks17-1321 and final additions, including trace and forthcoming universal endpoint family; mechanical index verification does not substitute.",
+    "Reconcile accepted shared XR theorem/example/documentation sources and composition under exact source/input identity, preserving original Q scope.",
+    "Correct C03-SPEC-USE-001 and review the correction under the same full scope.",
+    "Assess final universal distinct-input/valid-rank actual endpoint trace, exact1/n! probability, triangular scan attainment and source-cost unbounded family; parent says these remain pending.",
+    "Assess final candidate complete terminal normal check, full kernel audit and matching verification; prior interrupted or killed runs are not passes.",
+    "Both independent axes and immediate candidate verification must pass before root integration; no acceptance or whole-obligation completion credit here."
+  ],
+  "parent_only_new_evidence": {
+    "assembly3": "Root reports690ab476 combines exact passed trace pair2b5ff205 plus one public entrypoint import into38 and otherwise retains prior74modules/docs. Independently verified only the four source identity transfers recorded above; new trace sources not assessed.",
+    "trace": "Root reports focused pair43908/df8dde/f58786 and23types72126/5525da/01ae1e passed. Parent implementation evidence only; no independent Spec read credit.",
+    "full_check": "Prior assembly2 normal check exited1 after ProofAudit SIGKILL9; complete full final validation remains outstanding.",
+    "owned_run_inventory": "Root reports99 owned closures plus separate known nativefailure/missingtransport and older unknown drift; not independently reconciled here."
+  },
+  "no_compiler_or_source_or_git_mutations": true,
+  "pause_after_this_supplement": "All own writes and further source/type assessment paused until explicit root release after checkpoint0135."
+}

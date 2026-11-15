@@ -1,0 +1,419 @@
+{
+  "reviewer": "/root/chapter02_standards",
+  "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "base": "932438a765340d69fa6402f6abd17def6ec28d13",
+  "recorded_utc": "2026-11-04T16:09:37.532427+00:00",
+  "complete_current_source_paths": 6,
+  "complete_current_source_lines": 2073,
+  "complete_current_formal_lines": 975,
+  "source_chunks": [
+    {
+      "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+      "path": "Applications/Probability/PermutationTail.lean",
+      "first_line": 1,
+      "last_line": 250,
+      "bytes": 11673,
+      "sha256": "01b5b6f555ac8d60fde034e153c1c083fa3a6868c25fac9cb8daeab6425413b1",
+      "actual_tool": "6f25cd",
+      "complete_untruncated_read": true
+    },
+    {
+      "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+      "path": "Applications/Probability/PermutationTail.lean",
+      "first_line": 251,
+      "last_line": 487,
+      "bytes": 11848,
+      "sha256": "3d8adbb07da0543f3f4c4b8725f880e0dd439d2563a44c1d2de1d950b7c7e088",
+      "actual_tool": "772198",
+      "complete_untruncated_read": true
+    },
+    {
+      "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+      "path": "Examples/PermutationTail.lean",
+      "first_line": 1,
+      "last_line": 222,
+      "bytes": 9826,
+      "sha256": "bc6753118198b91de684e50bd6196b4b68035b92461a34c0528dbd7f7742099e",
+      "actual_tool": "6f25cd",
+      "complete_untruncated_read": true
+    },
+    {
+      "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+      "path": "Examples/PermutationTailBoundary.lean",
+      "first_line": 1,
+      "last_line": 266,
+      "bytes": 12064,
+      "sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54",
+      "actual_tool": "772198",
+      "complete_untruncated_read": true
+    },
+    {
+      "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+      "path": "SquareApplications.lean",
+      "first_line": 1,
+      "last_line": 262,
+      "bytes": 8609,
+      "sha256": "a30e93ebbdb80f40d751cc30a5185e5e96ce40861540c35fb439362d66d2678d",
+      "actual_tool": "7a3fec",
+      "complete_untruncated_read": true
+    },
+    {
+      "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+      "path": "docs/research/fdsa-permutation-tail.md",
+      "first_line": 1,
+      "last_line": 205,
+      "bytes": 10871,
+      "sha256": "bebf1822c26e94c35d1474a99687156ffe44d3c2f37bcb76ed7c930fdf37236d",
+      "actual_tool": "7a3fec",
+      "complete_untruncated_read": true
+    },
+    {
+      "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "first_line": 1,
+      "last_line": 230,
+      "bytes": 14168,
+      "sha256": "a16f57efab99e032adfe8d6bfe3fd7ac9f478c9e88818d5b42714647e68c0b99",
+      "actual_tool": "6761ef",
+      "complete_untruncated_read": true
+    },
+    {
+      "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "first_line": 231,
+      "last_line": 430,
+      "bytes": 14303,
+      "sha256": "280ce83e719023519ed2a0dc4404238c61cf5b6a4df7179b2060fdb84c26c582",
+      "actual_tool": "84bb69",
+      "complete_untruncated_read": true
+    },
+    {
+      "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+      "path": "docs/research/fdsa-reconstruction-map.md",
+      "first_line": 431,
+      "last_line": 631,
+      "bytes": 13006,
+      "sha256": "ea653f2f8ce311bc5c325cdb65435ed964c14109e774d61a7425a12f5dc8381f",
+      "actual_tool": "84bb69",
+      "complete_untruncated_read": true
+    }
+  ],
+  "complete_new_controls": [
+    {
+      "path": "reviews/permutation-tail-standards-receiving-preparation-20261104.md",
+      "bytes": 8911,
+      "lines": 51,
+      "sha256": "2e48e156f69effb51aba01146b44f6a359284d509078e58a7083df955e8ac8a6",
+      "first_line": 1,
+      "last_line": 51,
+      "actual_tool": "149a8a",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "reviews/permutation-tail-requirements.md",
+      "bytes": 12866,
+      "lines": 229,
+      "sha256": "80323e579fe63419a10d7b26eb55f7ac540fea98a8a7c9c4efe36dce5f088b9c",
+      "first_line": 1,
+      "last_line": 229,
+      "actual_tool": "64641b",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "tickets/FDSA-XU03.md",
+      "bytes": 11715,
+      "lines": 184,
+      "sha256": "749a5b2791a9cac4e38a52724fdf2f0181103499cc20637e567ad72a747d8c40",
+      "first_line": 1,
+      "last_line": 184,
+      "actual_tool": "366dac",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-standards-receiving-preparation-20261104/preparation.json",
+      "bytes": 19481,
+      "lines": 434,
+      "sha256": "0eca8523041884b5bb60294a350c3c96eab1aa93dbbe510704a0fda0a2e0b5b4",
+      "first_line": 1,
+      "last_line": 434,
+      "actual_tool": "cbe41c",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-type-evidence-readiness-20261104/plan.md",
+      "bytes": 5862,
+      "lines": 31,
+      "sha256": "5a4eff26eeac03853fe0a9c093d62844a4ae060d0e27e4f6804832cced77c5d0",
+      "first_line": 1,
+      "last_line": 31,
+      "actual_tool": "cbe41c",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-resource-and-type-readiness-20261104/preparation.json",
+      "bytes": 22047,
+      "lines": 516,
+      "sha256": "bb9d06bf0827a90cb585b91ee4838acad23b7e997eb03d3e1467c69b5b3a2b64",
+      "first_line": 1,
+      "last_line": 516,
+      "actual_tool": "be7332",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-type-evidence-readiness-20261104/reconcile_after_actual61.py",
+      "bytes": 11878,
+      "lines": 222,
+      "sha256": "40e2924d7e267a35830f33e334fd360e4692c30ab0c66a6e27cabdd8403769f2",
+      "first_line": 1,
+      "last_line": 222,
+      "actual_tool": "c797aa",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-type-evidence-readiness-20261104/reconciliation-script-preparation.json",
+      "bytes": 945,
+      "lines": 13,
+      "sha256": "9cf38dbb4b499bc11aee119f8285ef1f3bdffd4c9765d61259747fd6d76607c2",
+      "first_line": 1,
+      "last_line": 13,
+      "actual_tool": "c797aa",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-type-evidence-readiness-20261104/receiver-binding.json",
+      "bytes": 13437,
+      "lines": 374,
+      "sha256": "331333be207359e4d8609b16d6e734fc88f2af150731885a5305c208379fb5b2",
+      "first_line": 1,
+      "last_line": 374,
+      "actual_tool": "6ea448",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/handoff.md",
+      "bytes": 14121,
+      "lines": 106,
+      "sha256": "f4ffad157c60c3fd69b6a308472f98824b5500004a3f077c5fe956ea91902f45",
+      "first_line": 1,
+      "last_line": 106,
+      "actual_tool": "8b5bd4",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/receipt.json",
+      "bytes": 7167,
+      "lines": 209,
+      "sha256": "d789d407a24a1fe1099366a34e319d2840233aec5a616040035cb0bd5421d186",
+      "first_line": 1,
+      "last_line": 209,
+      "actual_tool": "8b5bd4",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/scope-and-continuation.json",
+      "bytes": 25136,
+      "lines": 636,
+      "sha256": "9d35d42ae7d9d3ded2e9e9e310c9a6c2b13bf8f2490b71493c2766dc8bf13cba",
+      "first_line": 1,
+      "last_line": 636,
+      "actual_tool": "26aedc",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/01-create-branch.json",
+      "bytes": 653,
+      "lines": 23,
+      "sha256": "445ee84adc35c3aa53cc560952bd6970f4b8a528e8ae6432c503907aa3bba2a2",
+      "first_line": 1,
+      "last_line": 23,
+      "actual_tool": "631c7a",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/02-normal-merge.json",
+      "bytes": 1090,
+      "lines": 25,
+      "sha256": "70a861c000e69dd0e93a78ac08b70d0c5e6d78aefd118b708fcd349028458997",
+      "first_line": 1,
+      "last_line": 25,
+      "actual_tool": "631c7a",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/03-conflict-before-resolution.json",
+      "bytes": 726,
+      "lines": 9,
+      "sha256": "12e72cedb96a45768ba7ebb16d2d88fffe4a8d5aba83e97463afbc8794b184d8",
+      "first_line": 1,
+      "last_line": 9,
+      "actual_tool": "631c7a",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/04-documentary-resolution.json",
+      "bytes": 1404,
+      "lines": 33,
+      "sha256": "efde5f8c81622c1790db652f9be2b27ce441e35c8d1b0d026555d76334256c5b",
+      "first_line": 1,
+      "last_line": 33,
+      "actual_tool": "631c7a",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/05-stage-resolution.json",
+      "bytes": 452,
+      "lines": 20,
+      "sha256": "442ba25390913397a3be9994e5f1c91bce4bb6f2ec53a2b72096503569a2f45d",
+      "first_line": 1,
+      "last_line": 20,
+      "actual_tool": "631c7a",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/06-precommit-source-verification.json",
+      "bytes": 6169,
+      "lines": 180,
+      "sha256": "2e26ffaa7b48d11f58b9b209282b65e7e32bccd6487315f40ecbbb9b983d51f3",
+      "first_line": 1,
+      "last_line": 180,
+      "actual_tool": "631c7a",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/07-merge-commit.json",
+      "bytes": 648,
+      "lines": 21,
+      "sha256": "d676565c034f4551957415d881a86221c7b8b36fb7b724704109c5aafe2cc8d5",
+      "first_line": 1,
+      "last_line": 21,
+      "actual_tool": "631c7a",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": "provenance/shared-tail-source-integration-20261104/result.json",
+      "bytes": 22289,
+      "lines": 539,
+      "sha256": "568868ee361df9ba76fc5171117dadfaecbe0706d070c7b384add3dd9f7cbde7",
+      "first_line": 1,
+      "last_line": 539,
+      "actual_tool": "631c7a",
+      "complete_untruncated_read": true
+    }
+  ],
+  "complete_changed_documentary_and_conflict_reads": [
+    {
+      "label": "J-L root and map",
+      "git_arguments": [
+        "diff",
+        "932438a765340d69fa6402f6abd17def6ec28d13",
+        "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+        "--",
+        "SquareApplications.lean",
+        "docs/research/fdsa-reconstruction-map.md"
+      ],
+      "bytes": 2125,
+      "lines": 37,
+      "sha256": "4f40e36763be0dfbef88d9606dba2521244ccf520472782cdf28fa34e4ff9431",
+      "actual_tool": "6e8a38",
+      "complete_read": true
+    },
+    {
+      "label": "T-L note",
+      "git_arguments": [
+        "diff",
+        "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+        "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+        "--",
+        "docs/research/fdsa-permutation-tail.md"
+      ],
+      "bytes": 2319,
+      "lines": 34,
+      "sha256": "43e6236413605944632b73df24230fe677440bf367aa2381e1dff0a3d669f671",
+      "actual_tool": "6e8a38",
+      "complete_read": true
+    },
+    {
+      "label": "Complete actual conflict delta against immutable J; unchanged prefix separately verified",
+      "bytes": 1881,
+      "lines": 34,
+      "sha256": "5b99a3df1b737470c0f603c9ced952b947fc0abfe383c22baa74ad8890010e00",
+      "actual_tool": "0d882c",
+      "complete_delta_read": true,
+      "fresh_full_638_line_conflict_read_claimed": false
+    }
+  ],
+  "new_instruction_reads": [
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+      "bytes": 3876,
+      "lines": 66,
+      "sha256": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+      "actual_tool": "1fdaab",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+      "bytes": 6991,
+      "lines": 116,
+      "sha256": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+      "actual_tool": "1fdaab",
+      "complete_untruncated_read": true
+    },
+    {
+      "path": ".agents/skills/code-review/heuristics.md",
+      "candidate": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+      "bytes": 2232,
+      "lines": 32,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060",
+      "actual_tool": "1fdaab",
+      "complete_untruncated_read": true
+    }
+  ],
+  "retained_instruction_boundary": "All 17 exact L instruction identities match the previously completely read source; other unchanged instruction text is retained rather than claiming another full reread.",
+  "additional_structured_reads": [
+    {
+      "path": "provenance/shared-tail-type-evidence-readiness-20261104/preparation.json",
+      "actual_tool": "694869",
+      "mode": "Complete parsed JSON values displayed; not a new raw-line claim"
+    },
+    {
+      "path": "provenance/shared-tail-integration-readiness-20261104/inventory.json",
+      "actual_tool": "500b69",
+      "mode": "Complete documentary_proposal subtree; entire prior inventory reading retained from held preparation"
+    },
+    {
+      "actual_tool": "aa9be4",
+      "mode": "All 88 newly derived declaration rows with names, source lines, visibility and header hashes; each actual header was already read inside its full current source file."
+    }
+  ],
+  "mechanical_reconciliation": {
+    "actual_tool": "eca481",
+    "exit": 0,
+    "record": {
+      "path": "provenance/shared-tail-standards-source-continuation-20261104/independent-source-reconciliation.json",
+      "bytes": 95291,
+      "lines": 2245,
+      "sha256": "b6a55de4fd14358833075dab828976a0f4c1459b3c610b9b54eeb63f64376ece"
+    },
+    "human_full_read_of_generated_2245_line_receipt_claimed": false
+  },
+  "read_boundaries": [
+    {
+      "tool_pair": [
+        "0e74a4",
+        "55ea94"
+      ],
+      "issue": "Initial combined outer response truncated at 10,579 tokens.",
+      "disposition": "No complete-note read credit from that response; full root and note were read again untruncated at7a3fec. Exact prior complete instruction reads remain retained."
+    },
+    {
+      "actual_tool": "3af421",
+      "actual_exit": 1,
+      "issue": "FileNotFoundError for guessed pre.json in historical815 observation directory.",
+      "disposition": "No output/type credit or writes; rg locator abbe2b identified actual pre-inputs.json/post-inputs.json; correct identities were inspected at6ea448 and fully compared by eca481."
+    }
+  ],
+  "source_or_compiler_action": false
+}

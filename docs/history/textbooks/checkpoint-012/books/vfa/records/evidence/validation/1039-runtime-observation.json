@@ -1,0 +1,23 @@
+{
+  "observed_utc": "2026-11-04T07:24:44Z",
+  "observer": "/root/runtime_observation",
+  "source": "One separate Python read-only command using os.getloadavg, os.sysconf and own resource limits; recorded by root from the returned agent report",
+  "actual_command_exit_code": 0,
+  "load_average_1_5_15_minutes": [5.461, 5.496, 5.167],
+  "configured_processors": 9,
+  "online_processors": 9,
+  "physical_page_size_bytes": 4096,
+  "physical_memory_bytes": 10451427328,
+  "available_physical_pages_times_page_size_bytes": 1388617728,
+  "observer_soft_and_hard_address_space_cpu_time_data_rss_limits": "infinity",
+  "purpose": "Bounded observation during slower complete fresh compilation; no performance experiment or validation intervention",
+  "cause_of_slowdown": "not established",
+  "limitations": [
+    "System values exposed to the observer command, not compiler-specific measurements",
+    "Does not establish compiler RSS, effective CPU entitlement, container memory limits, swapping or competing workloads",
+    "Does not establish CPU saturation or memory pressure experienced by Lean",
+    "Does not establish old-descendant liveness or quiescence",
+    "No process signaling, source/cache/profile change, compiler launch or network action by the observer"
+  ],
+  "formal_acceptance_credit": false
+}

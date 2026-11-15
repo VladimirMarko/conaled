@@ -1,0 +1,92 @@
+{
+  "recorded_utc": "2026-11-04T08:18:27.453940+00:00",
+  "status": "COMPLETE DOCUMENTATION PREPARATION; HOLD ALL WRITES",
+  "scope_directory": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-public-documentation-draft-20261104",
+  "described_source": "f673ee87195e4aaeef4b41767a7468c70ad6214f",
+  "author_head": "a111774b7b393cf462029fec8d16e8b6ff1b0089",
+  "author_status": "",
+  "author_lake_exists": false,
+  "source_or_ref_changes": false,
+  "builds_or_cache_writes": false,
+  "applied_to_public_roots_or_map": false,
+  "full_public_note_readback": true,
+  "full_map_patch_and_import_readback": true,
+  "all_112_source_item_cells_match_frozen_inventory": true,
+  "explicit_private_reference_count": 0,
+  "static_check_kind": "source names, immutable bytes, textual project import closure only",
+  "patch_applicability_check": {
+    "command": "git apply --check <this directory>/fdsa-reconstruction-map.proposed.patch",
+    "exit_code": 0,
+    "output": "",
+    "applied": false
+  },
+  "artifacts": {
+    "author-readback.md": {
+      "bytes": 8366,
+      "lines": 143,
+      "sha256": "f8927af8930b2763f33a885d36aeaff26787b2af825d39fcaadb24522f8e3f9f"
+    },
+    "check_static.py": {
+      "bytes": 7715,
+      "lines": 181,
+      "sha256": "0ac2f292018b3b1fa83effe9b99350202ce15e940fb2869a1e401faa40439e82"
+    },
+    "correspondence-data.json": {
+      "bytes": 71093,
+      "lines": 1092,
+      "sha256": "51f91ce1263f7654b820c86bc292538d88239c1dc291f509a58c179ea0c3c22b"
+    },
+    "fdsa-reconstruction-map.proposed.patch": {
+      "bytes": 10474,
+      "lines": 174,
+      "sha256": "5c71705e297c9170a8cdb723009fd2853eda9ad59162d3a9446c4467a6867668"
+    },
+    "fdsa-sorting.md": {
+      "bytes": 77557,
+      "lines": 482,
+      "sha256": "93ef5e7e1c159663fa5e450b7c12b33d56a8edc0e91de17062511e2fcaaf3fc3"
+    },
+    "handoff.md": {
+      "bytes": 4040,
+      "lines": 71,
+      "sha256": "263b541027afdd1f2e3f09a7e815e195a370642313793e4c4473c1e8f20b78f8"
+    },
+    "progress.json": {
+      "bytes": 3117,
+      "lines": 59,
+      "sha256": "c705a29d3b11455a05c146b11998fea47d390b58dee6d9d2ee770a3071668de1"
+    },
+    "public-example-imports.lean": {
+      "bytes": 1035,
+      "lines": 29,
+      "sha256": "86c76caa13142e7f77990e74bbe1817ac661e8d99a1747d698a7b8a7c450b47a"
+    },
+    "reconstruction-map-proposal.md": {
+      "bytes": 2036,
+      "lines": 35,
+      "sha256": "f0d48d4f290354ea9ef8c1d8ccbe426ebf11d2061d62250ed4d3e05a1525301e"
+    },
+    "reconstruction-map-replacements.json": {
+      "bytes": 9708,
+      "lines": 54,
+      "sha256": "9be06f643289673c3aa2c90d436143264d969d8cf16b8c8ceabfe08eb34e4e35"
+    },
+    "resume-start.json": {
+      "bytes": 2752,
+      "lines": 71,
+      "sha256": "0e39e5f007ffe02328de9181b529a5001a96ebab8be1bd97672fc7385d4276c1"
+    },
+    "standard-reference-identity.json": {
+      "bytes": 2415,
+      "lines": 66,
+      "sha256": "4e0451cb1f0d32a218b4cb9c2c36d84d20c6d285e75de12f796a8c8513dd4c8d"
+    },
+    "static-check.json": {
+      "bytes": 15195,
+      "lines": 366,
+      "sha256": "f5e5b263fe5dc2c0d8266b37bcd87528589823b2965344a79f25bf59619cb030"
+    }
+  },
+  "gates": "No newly observed compiler/type/full-check/audit/independent-review/immediate-verification/acceptance result; root owns every actual result and candidate mutation.",
+  "next": "Root review and checkpoint 0093; author HOLD."
+}

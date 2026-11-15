@@ -1,0 +1,204 @@
+Examples.NaturalSorting.natCompare : Nat → Nat → Bool
+Examples.NaturalSorting.empty_payload : @Eq.{1} (List.{0} Empty)
+  (@Applications.Sorting.sortNaturalBy.{0} Empty
+    (fun a x => Examples.NaturalSorting.empty_payload.match_1.{1} (fun a => Bool) a)
+    (fun a x => Examples.NaturalSorting.empty_payload.match_1.{1} (fun a => Bool) a) (@List.nil.{0} Empty))
+  (@List.nil.{0} Empty)
+@Examples.NaturalSorting.singleton_payload.{u_1} : ∀ {α : Type u_1} (a : α),
+  @Eq.{u_1 + 1} (List.{u_1} α)
+    (@Applications.Sorting.sortNaturalOn.{u_1, 0} α Nat instLTNat Nat.decLt instLENat Nat.decLe
+      (fun x => @OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.cons.{u_1} α a (@List.nil.{u_1} α)))
+    (@List.cons.{u_1} α a (@List.nil.{u_1} α))
+Examples.NaturalSorting.ascending : @Eq.{1} (List.{0} Nat)
+  (@Applications.Sorting.sortNaturalBy.{0} Nat Examples.NaturalRuns.natLT Examples.NaturalSorting.natCompare
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))))
+  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat))))
+Examples.NaturalSorting.descending : @Eq.{1} (List.{0} Nat)
+  (@Applications.Sorting.sortNaturalBy.{0} Nat Examples.NaturalRuns.natLT Examples.NaturalSorting.natCompare
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat)))))
+  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat))))
+Examples.NaturalSorting.three_boundary_runs : @Eq.{1} (List.{0} (List.{0} Nat))
+  (@Applications.Sorting.runsBy.{0} Nat Examples.NaturalRuns.natLT
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))))
+  (@List.cons.{0} (List.{0} Nat)
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat)))
+    (@List.cons.{0} (List.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat))
+      (@List.nil.{0} (List.{0} Nat))))
+Examples.NaturalSorting.three_boundary : @Eq.{1} (List.{0} Nat)
+  (@Applications.Sorting.sortNaturalBy.{0} Nat Examples.NaturalRuns.natLT Examples.NaturalSorting.natCompare
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (@List.nil.{0} Nat)))))
+  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat))))
+Examples.NaturalSorting.restart_boundary : @Eq.{1} (List.{0} Nat)
+  (@Applications.Sorting.sortNaturalBy.{0} Nat Examples.NaturalRuns.natLT Examples.NaturalSorting.natCompare
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) (@List.nil.{0} Nat))))))
+  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) (@List.nil.{0} Nat)))))
+Examples.NaturalSorting.odd_runs : @Eq.{1} (List.{0} (List.{0} Nat))
+  (@Applications.Sorting.runsBy.{0} Nat Examples.NaturalRuns.natLT
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat)))))))
+  (@List.cons.{0} (List.{0} Nat)
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (@List.nil.{0} Nat)))
+    (@List.cons.{0} (List.{0} Nat)
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) (@List.nil.{0} Nat)))
+      (@List.cons.{0} (List.{0} Nat)
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat))
+        (@List.nil.{0} (List.{0} Nat)))))
+Examples.NaturalSorting.odd_runs_value : @Eq.{1} (List.{0} Nat)
+  (@Applications.Sorting.sortNaturalBy.{0} Nat Examples.NaturalRuns.natLT Examples.NaturalSorting.natCompare
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) (@List.nil.{0} Nat)))))))
+  (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+    (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) (@List.nil.{0} Nat))))))
+Examples.NaturalSorting.duplicate_occurrences : @Eq.{1} Nat
+  (@Multiset.count.{0} Nat instDecidableEqNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+    (@Multiset.ofList.{0} Nat
+      (@Applications.Sorting.sortNaturalOn.{0, 0} Nat Nat instLTNat Nat.decLt instLENat Nat.decLe (@id.{1} Nat)
+        (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@List.cons.{0} Nat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                (@List.nil.{0} Nat))))))))
+  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+@Examples.NaturalSorting.tagged_exact.{u_1} : ∀ {α : Type u_1} (first middle last : α),
+  @Eq.{u_1 + 1} (List.{u_1} (Prod.{0, u_1} Nat α))
+    (@Applications.Sorting.sortNaturalOn.{u_1, 0} (Prod.{0, u_1} Nat α) Nat instLTNat Nat.decLt instLENat Nat.decLe
+      (@Prod.fst.{0, u_1} Nat α)
+      (@List.cons.{u_1} (Prod.{0, u_1} Nat α)
+        (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) first)
+        (@List.cons.{u_1} (Prod.{0, u_1} Nat α)
+          (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) middle)
+          (@List.cons.{u_1} (Prod.{0, u_1} Nat α)
+            (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) last)
+            (@List.nil.{u_1} (Prod.{0, u_1} Nat α))))))
+    (@List.cons.{u_1} (Prod.{0, u_1} Nat α)
+      (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) middle)
+      (@List.cons.{u_1} (Prod.{0, u_1} Nat α)
+        (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) first)
+        (@List.cons.{u_1} (Prod.{0, u_1} Nat α)
+          (@Prod.mk.{0, u_1} Nat α (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) last)
+          (@List.nil.{u_1} (Prod.{0, u_1} Nat α)))))
+@Examples.NaturalSorting.tagged_correct.{u_1} : ∀ {α : Type u_1} (xs : List.{u_1} (Prod.{0, u_1} Nat α)),
+  And
+    (@Applications.Sorting.KeySorted.{u_1, 0} (Prod.{0, u_1} Nat α) Nat instLENat (@Prod.fst.{0, u_1} Nat α)
+      (@Applications.Sorting.sortNaturalOn.{u_1, 0} (Prod.{0, u_1} Nat α) Nat instLTNat Nat.decLt instLENat Nat.decLe
+        (@Prod.fst.{0, u_1} Nat α) xs))
+    (@List.Perm.{u_1} (Prod.{0, u_1} Nat α)
+      (@Applications.Sorting.sortNaturalOn.{u_1, 0} (Prod.{0, u_1} Nat α) Nat instLTNat Nat.decLt instLENat Nat.decLe
+        (@Prod.fst.{0, u_1} Nat α) xs)
+      xs)
+Examples.NaturalSorting.mixed_records : @Eq.{1} (List.{0} (Prod.{0, 0} Int String))
+  (@Applications.Sorting.sortNaturalOn.{0, 0} (Prod.{0, 0} Int String) Int Int.instLTInt Int.decLt Int.instLEInt
+    Int.decLe (@Prod.fst.{0, 0} Int String) Examples.NaturalRuns.mixedRecords)
+  (@List.cons.{0} (Prod.{0, 0} Int String)
+    (@Prod.mk.{0, 0} Int String (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))) "D")
+    (@List.cons.{0} (Prod.{0, 0} Int String)
+      (@Prod.mk.{0, 0} Int String (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))) "B")
+      (@List.cons.{0} (Prod.{0, 0} Int String)
+        (@Prod.mk.{0, 0} Int String (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))) "C")
+        (@List.cons.{0} (Prod.{0, 0} Int String)
+          (@Prod.mk.{0, 0} Int String (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))) "A")
+          (@List.nil.{0} (Prod.{0, 0} Int String))))))
+Examples.NaturalSorting.weak_descent_with_ties : @Eq.{1} (List.{0} (Prod.{0, 0} Int String))
+  (@Applications.Sorting.sortNaturalOn.{0, 0} (Prod.{0, 0} Int String) Int Int.instLTInt Int.decLt Int.instLEInt
+    Int.decLe (@Prod.fst.{0, 0} Int String)
+    (@List.cons.{0} Examples.NaturalRuns.Record
+      (@Prod.mk.{0, 0} Int String (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))) "A")
+      (@List.cons.{0} Examples.NaturalRuns.Record
+        (@Prod.mk.{0, 0} Int String (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))) "B")
+        (@List.cons.{0} Examples.NaturalRuns.Record
+          (@Prod.mk.{0, 0} Int String (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))) "C")
+          (@List.nil.{0} Examples.NaturalRuns.Record)))))
+  (@List.cons.{0} (Prod.{0, 0} Int String)
+    (@Prod.mk.{0, 0} Int String (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))) "C")
+    (@List.cons.{0} (Prod.{0, 0} Int String)
+      (@Prod.mk.{0, 0} Int String (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))) "A")
+      (@List.cons.{0} (Prod.{0, 0} Int String)
+        (@Prod.mk.{0, 0} Int String (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))) "B")
+        (@List.nil.{0} (Prod.{0, 0} Int String)))))
+Examples.NaturalSorting.weak_descent_is_not_reversal : @Ne.{1} (List.{0} (Prod.{0, 0} Int String))
+  (@Applications.Sorting.sortNaturalOn.{0, 0} (Prod.{0, 0} Int String) Int Int.instLTInt Int.decLt Int.instLEInt
+    Int.decLe (@Prod.fst.{0, 0} Int String)
+    (@List.cons.{0} Examples.NaturalRuns.Record
+      (@Prod.mk.{0, 0} Int String (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))) "A")
+      (@List.cons.{0} Examples.NaturalRuns.Record
+        (@Prod.mk.{0, 0} Int String (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))) "B")
+        (@List.cons.{0} Examples.NaturalRuns.Record
+          (@Prod.mk.{0, 0} Int String (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))) "C")
+          (@List.nil.{0} Examples.NaturalRuns.Record)))))
+  (@List.cons.{0} (Prod.{0, 0} Int String)
+    (@Prod.mk.{0, 0} Int String (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))) "C")
+    (@List.cons.{0} (Prod.{0, 0} Int String)
+      (@Prod.mk.{0, 0} Int String (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))) "B")
+      (@List.cons.{0} (Prod.{0, 0} Int String)
+        (@Prod.mk.{0, 0} Int String (@OfNat.ofNat.{0} Int (nat_lit 3) (@instOfNat (nat_lit 3))) "A")
+        (@List.nil.{0} (Prod.{0, 0} Int String)))))
+Examples.NaturalSorting.nonnegativeCompare : Examples.NaturalRuns.Record → Examples.NaturalRuns.Record → Bool
+Examples.NaturalSorting.nonnegative_merge_compatible : ∀ (a : Examples.NaturalRuns.Record),
+  @Membership.mem.{0, 0} Examples.NaturalRuns.Record (List.{0} Examples.NaturalRuns.Record)
+      (@List.instMembership.{0} Examples.NaturalRuns.Record) Examples.NaturalRuns.mixedRecords a →
+    ∀ (b : Examples.NaturalRuns.Record),
+      @Membership.mem.{0, 0} Examples.NaturalRuns.Record (List.{0} Examples.NaturalRuns.Record)
+          (@List.instMembership.{0} Examples.NaturalRuns.Record) Examples.NaturalRuns.mixedRecords b →
+        And
+          (@Eq.{1} Bool (Examples.NaturalSorting.nonnegativeCompare a b) Bool.true →
+            @LE.le.{0} Int Int.instLEInt (@Prod.fst.{0, 0} Int String a) (@Prod.fst.{0, 0} Int String b))
+          (@Eq.{1} Bool (Examples.NaturalSorting.nonnegativeCompare a b) Bool.false →
+            @LE.le.{0} Int Int.instLEInt (@Prod.fst.{0, 0} Int String b) (@Prod.fst.{0, 0} Int String a))
+Examples.NaturalSorting.input_local_correct : @Applications.Sorting.KeySorted.{0, 0} (Prod.{0, 0} Int String) Int
+  Int.instLEInt (@Prod.fst.{0, 0} Int String)
+  (@Applications.Sorting.sortNaturalBy.{0} (Prod.{0, 0} Int String) Examples.NaturalRuns.nonnegativeLT
+    Examples.NaturalSorting.nonnegativeCompare Examples.NaturalRuns.mixedRecords)
+@Examples.NaturalSorting.arbitrary_operations_preserve_occurrences.{u_1} : ∀ {α : Type u_1} (lt cmp : α → α → Bool)
+  (xs : List.{u_1} α),
+  And (@List.Perm.{u_1} α (@Applications.Sorting.sortNaturalBy.{u_1} α lt cmp xs) xs)
+    (And
+      (@Eq.{1} Nat (@List.length.{u_1} α (@Applications.Sorting.sortNaturalBy.{u_1} α lt cmp xs))
+        (@List.length.{u_1} α xs))
+      (∀ (a : α),
+        Iff
+          (@Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α)
+            (@Applications.Sorting.sortNaturalBy.{u_1} α lt cmp xs) a)
+          (@Membership.mem.{u_1, u_1} α (List.{u_1} α) (@List.instMembership.{u_1} α) xs a)))
+@Examples.NaturalSorting.constant_key_fixed_point.{u_1} : ∀ {α : Type u_1} (xs : List.{u_1} α),
+  @Eq.{u_1 + 1} (List.{u_1} α)
+    (@Applications.Sorting.sortNaturalOn.{u_1, 0} α Nat instLTNat Nat.decLt instLENat Nat.decLe
+      (fun x => @OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) xs)
+    xs
+Examples.NaturalSorting.range_fixed_point : ∀ (n : Nat),
+  @Eq.{1} (List.{0} Nat)
+    (@Applications.Sorting.sortNaturalBy.{0} Nat Examples.NaturalRuns.natLT Examples.NaturalSorting.natCompare
+      (List.range n))
+    (List.range n)

@@ -1,0 +1,132 @@
+{
+  "schema": "fdsa-spec-c2-receiving-preparation-v1",
+  "recorded_utc": "2026-11-04T16:50:14.426724+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "status": "Bounded preparation complete; receiving candidate not supplied; no source verdict or receiving evidence credit",
+  "original_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "accepted_integration_base": "726cb9a9b9ff4444a7614383de4fb336e8804aa7",
+  "historical_development_source": "4b5dbfa07288acc73f25c27838d3fb2f78e77d71",
+  "receiving_candidate": null,
+  "full_scope": {
+    "paths": 81,
+    "obligations": 112,
+    "shared_scopes": 10,
+    "defining_Lean_paths": 71,
+    "public_root": 1,
+    "documents": 9,
+    "public_names": 1763,
+    "private_named": 70,
+    "anonymous_instances": 19
+  },
+  "bound_recipe": [
+    {
+      "path": "provenance/shared-chapter02-integration-readiness-20261104/readiness.md",
+      "bytes": 21002,
+      "lines": 185,
+      "sha256": "74d265e4772c5bffa2a09d218226b02299e50335d688bda13d14910acf9af71b"
+    },
+    {
+      "path": "provenance/shared-chapter02-integration-readiness-20261104/inventory.json",
+      "bytes": 83228,
+      "lines": 1973,
+      "sha256": "d4a4a91d9712c97067c7bb2b83a12444da2f6333f3feab1ab8cbc6be9af80eca"
+    },
+    {
+      "path": "provenance/shared-chapter02-integration-readiness-20261104/receipt.json",
+      "bytes": 4448,
+      "lines": 72,
+      "sha256": "a5183c858e8b6b73c83ceee2f57393c5b20e1df4ee8e36cb191acc2ab7032814"
+    }
+  ],
+  "retained_complete_assessments": [
+    {
+      "path": "provenance/shared-chapter02-spec-statement-evidence-readiness-20261104/assessment.json",
+      "bytes": 7590,
+      "lines": 103,
+      "sha256": "eaff93b7e27af4e4bace975922830ca786ff19e2755c3d9d16ad72adc2bb5625"
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-statement-evidence-readiness-20261104/reconciliation.json",
+      "bytes": 76933,
+      "lines": 2268,
+      "sha256": "efb8709642bfddae5356da5c50c77346e31064c282febd65552e7bcf7f6d1b09"
+    },
+    {
+      "path": "provenance/shared-chapter02-spec-statement-evidence-readiness-20261104/readback-and-hold.json",
+      "bytes": 2687,
+      "lines": 79,
+      "sha256": "7bd8365d2d72331daf6f0763fd9b4be6f3dfb5a93e708af03bc32b01b8c95e8e"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/final-disposition.json",
+      "bytes": 15314,
+      "lines": 301,
+      "sha256": "08509d2ce431e04c950e2835ad70d28703e6c2a2c446c929ade121dfc281c64e"
+    },
+    {
+      "path": "provenance/shared-tail-spec-terminal-20261104/readback-and-hold.json",
+      "bytes": 11469,
+      "lines": 350,
+      "sha256": "0c996e795ca24f84d96fc0683d3f5a2bc18cf7924c12cf9fa5e21208d3fa9c59"
+    }
+  ],
+  "read_boundary": {
+    "complete_new_text": [
+      "readiness.md all185 lines, toolf2f9b8",
+      "receipt.json all72 lines, toolb54edd",
+      "exact documentary_recipe and history sections, tool46c08e",
+      "all46 new/24 retained/one changed source classification, scope metadata and continuation, tool2e0498"
+    ],
+    "retained_not_repeated": "All original complete C2 mathematics, 112 obligations, actual historical941/qualified920 and current815 type readings, source corrections and accepted shared-unit source/type reviews remain by exact prior identities. No new whole-inventory textual read is claimed.",
+    "immutable_reconciliation_tool": "5c842a"
+  },
+  "accepted_L_immutable_reconciliation": {
+    "ordered_parents": [
+      "932438a765340d69fa6402f6abd17def6ec28d13",
+      "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9"
+    ],
+    "actual_L_Z_merge_bases": [
+      "02fc3f3cf34ed9be9d7c3a08a7e5b7cf75896fd9",
+      "bdac9703aab4b383fa775568d36bf685af329389",
+      "f00078bb2dbf1b8dc8d186d9728c9678f46a96b0",
+      "52722e3ee481167e99b8f6c0b2417df7fb7615d8",
+      "0612e80a0c297a38fa1add6e837dc7781e1bbd9c",
+      "72a0951aee406f7db67998d2a3bf8810f4e1bccc",
+      "f17cc6b1a2bf44215b16202ed0fcee2b5c130761"
+    ],
+    "retained24_defining_blobs_exact_L_Z": true,
+    "new46_absent_L_exact_Z": true,
+    "Growth_only_existing_defining_source_change": true,
+    "five_existing_notes_exact_J_L": true,
+    "accepted_Tail_note": {
+      "path": "docs/research/fdsa-permutation-tail.md",
+      "git_blob": "8cb9419840e7f6d2c553765d05d8aa39fe58c389",
+      "bytes": 10871,
+      "lines": 205,
+      "sha256": "bebf1822c26e94c35d1474a99687156ffe44d3c2f37bcb76ed7c930fdf37236d"
+    },
+    "all23_proposed_imports_absent_L": true,
+    "root_insertion_anchor_unique": true,
+    "ProofAudit_L_Z_exact": true
+  },
+  "receiving_checks": [
+    "Bind clean frozen exact candidate and ordinary ordered L/Z merge ancestry, all actual command exits/conflict stages/resolutions, all protected refs and source-held handoff; retain SH4 history lesson without creating a new finding.",
+    "Reconcile all71 defining source blobs with exact reviewed Z and all inherited24 with accepted L; explain and review any actual difference before evidence transfer. Check complete R-based81-path scope and preserved original requirements, including operational C02-108–112 and both distinct uniform-input/fresh-pivot expectations.",
+    "Verify all paths outside authorized L-to-receiver union remain exact L; retain XP01/XR01/XW01/later permutation/tree exclusions and unchanged policies/pins.",
+    "Check public root preserves L import order and adds only the23 intended lines once; ProofAudit remains unchanged; rebind actual static reachability without calling it checked-module/audit evidence.",
+    "Preserve six actual accepted shared-note blobs; check exact sorting opening replacement while every other byte and all112 ordered table rows remain Z. Row hash63e542b18e496734504276fefbdbdcfcabbb910d73578b3cca9fd073739df958.",
+    "Read complete actual map/doc resolutions. Preserve accepted C1/F/Appendix distinctions and non-C2 rows, every shared source-law/cost/probability exclusion and historical dated statements; bind actual C2 clients without introducing acceptance claims.",
+    "Reconcile complete1763-name inventory and70 private/19 anonymous instance boundaries, original1762/814 history and explicit Uniform Fintype successor; review actual interface deltas if any.",
+    "Preserve all C02-DOC-001/002/003 and C02-TYPE-001 histories. Source findings can close only against exact assembled bytes; receiving type qualification remains separate.",
+    "Assess actual guarded full candidate check/audit/closed logs/verification and later actual statement/input evidence under README normal/fresh rules. Both final axes and immediate qualified verification remain mandatory before integration."
+  ],
+  "statement_evidence_boundary": [
+    "Tail acceptance supplies a real61 producer but does not itself qualify any output for a nonexistent C2 receiver. All earlier F/I/J/L producer identities and full semantic readings remain.",
+    "All72 MergeCosts names have changed Growth input; preserve actualZ815 coverage and do not narrow this to the seven old selected names. The retained Growth theorem changes surrounding input environment and needs an explicit receiving disposition without reopening accepted C1.",
+    "Historical941 semantic reads remain648 expanded+293 ordinary; qualified920 remain648+272, with targeted7+14 reinspected in actual815 and explicit Fintype position815. No missing terminal fact or old printing profile is relabelled.",
+    "The405/conditional466/1297 preparation partition remains a source/input plan, not blanket reuse or a mandatory rerun size. Receiving source/object/hash/trace/path/dependency/configuration/runtime/ownership must actually qualify every credited subset. No path normalization or current object scan occurred."
+  ],
+  "concrete_preparation_findings": [],
+  "receiving_type_credit": 0,
+  "actions": "Only immutable Git reads, saved-record reads and this new bounded own note. No mutable HEAD/source inspection, compiler/process/runtime/output/cache/ref/global-control action. Earlier reports remain held."
+}

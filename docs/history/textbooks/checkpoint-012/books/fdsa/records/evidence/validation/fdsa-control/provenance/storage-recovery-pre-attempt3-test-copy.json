@@ -1,0 +1,44 @@
+{
+  "started_utc": "2026-11-02T22:08:03.103980+00:00",
+  "phase": "completed",
+  "target": "/workspace/scratch/845aa1048b05/fdsa-recovery-0001",
+  "triage_sha256": "d53d93b10a4dc83ed6236cd5b47863df99f4340d97996ffdbee2ddaa07fd039a",
+  "source_baseline": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+  "source_files_compared": 1570,
+  "control_files_compared": 8,
+  "manifest_entries_verified": 14,
+  "bundle_bytes_identical": true,
+  "free_bytes_before": 1280860160,
+  "protected_before": {
+    "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0001-baseline.tar.gz": {
+      "exists": true,
+      "size": 71838893
+    },
+    "/workspace/scratch/845aa1048b05/conaled/docs/history/algorithm-design-haskell/.checkpoint-233.zip.n7UlkJ": {
+      "exists": true,
+      "size": 53477376
+    },
+    "/workspace/scratch/845aa1048b05/conaled/.lake/packages": {
+      "exists": true,
+      "size": 4096
+    }
+  },
+  "scope": "Remove only redundant task-owned recovery-test directory; preserve original archive, retained review, refs, source and caches.",
+  "completed_utc": "2026-11-02T22:08:03.155046+00:00",
+  "target_exists_after": false,
+  "free_bytes_after": 1516376064,
+  "protected_after": {
+    "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0001-baseline.tar.gz": {
+      "exists": true,
+      "size": 71838893
+    },
+    "/workspace/scratch/845aa1048b05/conaled/docs/history/algorithm-design-haskell/.checkpoint-233.zip.n7UlkJ": {
+      "exists": true,
+      "size": 53477376
+    },
+    "/workspace/scratch/845aa1048b05/conaled/.lake/packages": {
+      "exists": true,
+      "size": 4096
+    }
+  }
+}

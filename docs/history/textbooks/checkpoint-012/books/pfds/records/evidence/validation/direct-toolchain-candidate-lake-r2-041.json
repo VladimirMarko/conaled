@@ -1,0 +1,62 @@
+{
+  "test": "Lake builds and executes a Lean program",
+  "workspace": "/workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041",
+  "runner": "/workspace/scratch/b566cace4ed6/pfds/review-direct-toolchain-041-r2/session/environment/run-direct-toolchain.py",
+  "temporary_project": "/workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/session/tools/lake-smoke-mueqj1rw",
+  "checks": {
+    "lake_uses_exact_lean": true,
+    "lake_builds_executable": true,
+    "compiled_executable_runs": true
+  },
+  "probes": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-direct-toolchain-041-r2/session/environment/run-direct-toolchain.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": "info: launcher_smoke: no previous manifest, creating one from scratch\ninfo: toolchain not updated; already up-to-date\n",
+      "elapsed_seconds": 4.0643933240007755
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-direct-toolchain-041-r2/session/environment/run-direct-toolchain.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041",
+        "--",
+        "lake",
+        "-v",
+        "build",
+        "smoke"
+      ],
+      "returncode": 0,
+      "stdout": "\u2714 [0/4] Ran job computation\n\u2714 [1/4] Ran launcher_smoke:extraDep\n\u2139 [2/4] Built Main (5.6s)\ntrace: .> LEAN_PATH=/workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/session/tools/lake-smoke-mueqj1rw/.lake/build/lib/lean /workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/toolchains/lean-4.35.0-profile/bin/lean /workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/session/tools/lake-smoke-mueqj1rw/Main.lean -o /workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/session/tools/lake-smoke-mueqj1rw/.lake/build/lib/lean/Main.olean -i /workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/session/tools/lake-smoke-mueqj1rw/.lake/build/lib/lean/Main.ilean -c /workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/session/tools/lake-smoke-mueqj1rw/.lake/build/ir/Main.c --setup /workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/session/tools/lake-smoke-mueqj1rw/.lake/build/ir/Main.setup.json --json\n\u2139 [3/4] Built Main:c.o (with exports) (191ms)\ntrace: .> /workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/toolchains/lean-4.35.0-profile/bin/clang -c -o /workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/session/tools/lake-smoke-mueqj1rw/.lake/build/ir/Main.c.o.export /workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/session/tools/lake-smoke-mueqj1rw/.lake/build/ir/Main.c -I /workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/toolchains/lean-4.35.0-profile/include -fstack-clash-protection -ffp-contract=off -fdata-sections -ffunction-sections -fPIC -fvisibility=hidden -Wno-unused-command-line-argument --sysroot /workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/toolchains/lean-4.35.0-profile -nostdinc -isystem /workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/toolchains/lean-4.35.0-profile/include/clang -O3 -DNDEBUG -DLEAN_EXPORTING\n\u2139 [4/4] Built smoke:exe (627ms)\ntrace: .> /workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/toolchains/lean-4.35.0-profile/bin/clang -o /workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/session/tools/lake-smoke-mueqj1rw/.lake/build/bin/smoke @/workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/session/tools/lake-smoke-mueqj1rw/.lake/build/bin/smoke.rsp\nBuild completed successfully (4 jobs).\n",
+      "stderr": "",
+      "elapsed_seconds": 8.47150500799944
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/b566cace4ed6/pfds/review-direct-toolchain-041-r2/session/environment/run-direct-toolchain.py",
+        "--workspace",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041",
+        "--",
+        "/workspace/scratch/b566cace4ed6/pfds/session/tools/cold-direct-toolchain-041/session/tools/lake-smoke-mueqj1rw/.lake/build/bin/smoke"
+      ],
+      "returncode": 0,
+      "stdout": "42\n",
+      "stderr": "",
+      "elapsed_seconds": 0.045280368000021554
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,113 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--name-only"
+      ],
+      "exit": 0,
+      "stdout": "Examples/MinimumPivot.lean\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "add",
+        "--",
+        "Examples/MinimumPivot.lean"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "user.name=ChatGPT",
+        "-c",
+        "user.email=chatgpt@openai.com",
+        "commit",
+        "-m",
+        "fix(examples): finish invalid minimum-pivot rank guard (#174)"
+      ],
+      "exit": 0,
+      "stdout": "[work/fdsa-ch03-values d0479dd] fix(examples): finish invalid minimum-pivot rank guard (#174)\n 1 file changed, 1 insertion(+)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit": 0,
+      "stdout": "d0479dd03371f1c1f0b41dff5f1882a36206f40a\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD^{tree}"
+      ],
+      "exit": 0,
+      "stdout": "4f7cc77eb1a7d270117ea33065727084c552a630\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD:Applications/Resources/SelectionPolicy.lean"
+      ],
+      "exit": 0,
+      "stdout": "71a146d37dc0b87bbdb38cc94dd1d2b02457a031\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD:Applications/Resources/MinimumPivot.lean"
+      ],
+      "exit": 0,
+      "stdout": "c9ab1d98137636909b96c98b90bbb314eea700ef\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD:Examples/MinimumPivot.lean"
+      ],
+      "exit": 0,
+      "stdout": "098bb18c8422aff6cb9aa1a2b3abf9bf0a66ec61\n",
+      "stderr": ""
+    }
+  ],
+  "candidate": "d0479dd03371f1c1f0b41dff5f1882a36206f40a",
+  "tree": "4f7cc77eb1a7d270117ea33065727084c552a630"
+}

@@ -1,0 +1,226 @@
+{
+  "checked_utc": "2026-11-03T02:27:18.759Z",
+  "checkpoint": "conaled-fdsa-0063-logarithm-bounds",
+  "archive": "/workspace/scratch/845aa1048b05/checkpoints/conaled-fdsa-0063-logarithm-bounds.tar.gz",
+  "result": "passed",
+  "archive_bytes": 75055255,
+  "archive_sha256": "1ed33919b386923c37001ea91a4b60341393c52e4bb7ab46e789e40cfa2defec",
+  "members": 688,
+  "directories": 55,
+  "regular_files": 633,
+  "manifest_payloads": 632,
+  "all_payload_checksums_match": true,
+  "safe_single_root_no_duplicates_or_special_members": true,
+  "bundle": {
+    "bytes": 72305027,
+    "sha256": "68a81d0fc4448239a8169896bd751fe8b8c7370be46ef22d749821dc4ddfd118",
+    "header_sha256_including_blank_line": "504b378102cf2c74693185b41408a8c30dbae5b92b5a654b2fd7a4f09da6d403",
+    "prerequisites": [],
+    "refs": {
+      "refs/heads/master": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "refs/heads/work/fdsa-accumulated-work": "7c6bc92c276d39e84351324c442869b8ffa6758c",
+      "refs/heads/work/fdsa-adt-refinement": "20a5b5537a704be016d09e4eb31db0dad8a12d61",
+      "refs/heads/work/fdsa-affine-recurrence": "d64b4c89fb9f21d1a6a2a603c1dc04f47233d9e2",
+      "refs/heads/work/fdsa-basics-cost-models": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "refs/heads/work/fdsa-book": "1aabd512284fe86254278ac631eda061d311050b",
+      "refs/heads/work/fdsa-braun-shape": "156ba8170852f8e7f0b8c09315e35b837ce77ff9",
+      "refs/heads/work/fdsa-builder-costs": "62809ced86c561c7a6cce8b71e727177a3f17fb8",
+      "refs/heads/work/fdsa-insertion-costs": "697bcf242ce65d74815b5639bddb1c6e754dd10f",
+      "refs/heads/work/fdsa-list-foundations": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+      "refs/heads/work/fdsa-logarithm-bounds": "a601ad713368daf8e18d5a5537a83d47138491fa",
+      "refs/heads/work/fdsa-ordered-search": "863aedb924e922ac40747c0ef299701a7785488e",
+      "refs/heads/work/fdsa-ordinary-merge": "5f409e71bb068e3b8cc133226046ce8bbe29d982",
+      "refs/heads/work/fdsa-permutation-expectation": "11923e9ffd17246b6f22c5594002a1ba0434e43c",
+      "refs/heads/work/fdsa-permutation-joint": "a5341221bd3e28d76e3b8ad2bc1683a74621ad5e",
+      "refs/heads/work/fdsa-permutation-minimum": "ff3dd88082c6283df40bcd86a4363841a0360b12",
+      "refs/heads/work/fdsa-permutation-order": "4bb13e44a6c7e3277b69cbac9fd9dd37cd7780f8",
+      "refs/heads/work/fdsa-permutation-placement": "49d6d4700b41f2837ae4cc5e74d23fc1eff8afbe",
+      "refs/heads/work/fdsa-permutation-tail": "a0597381f02eddd074ee96cabaa974f2062285f8",
+      "refs/heads/work/fdsa-priority-observations": "c088beeb89aa18df45a56f6f1d6b6ff4ad374905",
+      "refs/heads/work/fdsa-three-way-partition": "de5410286bbefd841dff50bef55c2e52d2ebbd2a",
+      "refs/heads/work/fdsa-tree-accumulator": "b035f1151ab4f0c7d7380818576cfe97dae434c4",
+      "refs/heads/work/fdsa-tree-cache": "64c6b777d828ecfe83234fc2aed94600a1f24297",
+      "refs/heads/work/fdsa-tree-fold": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+      "refs/heads/work/fdsa-tree-leftmost": "7b8ab2bee299c937256bf9ce7e82977333d07134",
+      "refs/heads/work/fdsa-tree-order": "66eae34815a177c6b4bf5120e05202ebb8876c91",
+      "refs/heads/work/fdsa-tree-rotations": "28ba79d8d425400cb87d2daf3ecf1cc5a63a7aa2",
+      "refs/heads/work/fdsa-tree-shape": "974a97321a8ec174b56104c7e6efaaca881b6639",
+      "refs/heads/work/fdsa-tree-traversal-work": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+      "refs/remotes/origin/HEAD": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "refs/remotes/origin/integrate/frp": "5be3ce96dbeb60365002414409c9421450e39cf0",
+      "refs/remotes/origin/integration/spec-15": "47b556e83229ce11b27b5b7b4444c089a1e96ac3",
+      "refs/remotes/origin/master": "7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd",
+      "refs/remotes/origin/reconstruction/adwh-154": "c12296f63c656737d07325e9d8e8e16d6976d099",
+      "refs/remotes/origin/reconstruction/adwh-155": "3efc9d926333c19f697a21afe7dd08af53e3a8cd",
+      "refs/remotes/origin/reconstruction/adwh-180": "e0d76c86040f38728289977c355b848cd6c7d8e3",
+      "refs/remotes/origin/reconstruction/adwh-181": "f68c79000bdb1ce223c403d38f8dd06e20cfbf29",
+      "refs/remotes/origin/reconstruction/adwh-182": "9c0a2649f9601c6294850f2b057698650360da9a",
+      "refs/remotes/origin/reconstruction/adwh-183": "16db707769c322fa17f2c48e24208f81292008da",
+      "refs/remotes/origin/reconstruction/adwh-184": "48b7655155950c4452bebf1268de1866d0f6129f",
+      "refs/remotes/origin/reconstruction/adwh-186": "30bbde79d154d1e8d942561c023a5e44d12ca420",
+      "refs/remotes/origin/reconstruction/adwh-187": "6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e",
+      "refs/remotes/origin/reconstruction/adwh-190": "855ce1f29ae0b7c7a7aec8321ead07be39c6ff32",
+      "refs/remotes/origin/reconstruction/adwh-array-cost-integration": "34c85983f601247fb62aea631c4212b7cb994b5b",
+      "refs/remotes/origin/research/27-frp-runtime": "f4d3e2f36d5547f2236a601c837280bd0c23a774",
+      "HEAD": "1aabd512284fe86254278ac631eda061d311050b",
+      "worktrees/conaled-ordered-search/HEAD": "863aedb924e922ac40747c0ef299701a7785488e",
+      "worktrees/conaled-insertion-costs/HEAD": "c28ba71863d2a35ee1c3a089caa90464e4cca692",
+      "worktrees/conaled-logarithm-bounds/HEAD": "a601ad713368daf8e18d5a5537a83d47138491fa",
+      "worktrees/conaled-ch01-review/HEAD": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "worktrees/conaled-ch01-cost-models/HEAD": "07e480f6ec9958d4975bb90151005b84f2907614",
+      "worktrees/conaled-tree-leftmost/HEAD": "7b8ab2bee299c937256bf9ce7e82977333d07134",
+      "worktrees/conaled-braun-shape/HEAD": "156ba8170852f8e7f0b8c09315e35b837ce77ff9"
+    },
+    "pack_signature": "PACK"
+  },
+  "manifest": {
+    "checkpoint": "conaled-fdsa-0063-logarithm-bounds",
+    "created_utc": "2026-11-03T02:19:08.235635+00:00",
+    "repository": "https://github.com/VladimirMarko/conaled.git",
+    "head": "1aabd512284fe86254278ac631eda061d311050b",
+    "branch": "work/fdsa-book",
+    "status": "?? docs/history/algorithm-design-haskell/.checkpoint-233.zip.n7UlkJ\n",
+    "included_untracked": [],
+    "excluded_unrelated_untracked": [
+      "docs/history/algorithm-design-haskell/.checkpoint-233.zip.n7UlkJ"
+    ],
+    "scope": "Complete FDSA formalization; consult fdsa-control/STATUS.md for actual acceptance",
+    "excluded_regenerable": [
+      "Lean/Nix binaries",
+      "Lake dependency and compilation caches",
+      "upstream book PDF and extracted copyrighted text"
+    ]
+  },
+  "required_identities": {
+    "reviews/logarithm-bounds-requirements.md": {
+      "bytes": 12432,
+      "sha256": "d77627f36996722dd938ed6ff5d15d396ff045bf969e43115a7402a95dd2780d"
+    },
+    "reviews/logarithm-bounds-preflight-assessment.md": {
+      "bytes": 7367,
+      "sha256": "711d4d2cebbfecf9ecf04b4631506d638273b372d31c8a763a6a5ef399828957"
+    },
+    "reviews/logarithm-bounds-start.json": {
+      "bytes": 7894,
+      "sha256": "b1506ef37f4669c59fed37f72688d6397eb872188202d4883d1a7351efc7e733"
+    },
+    "reviews/logarithm-bounds-precode-check.json": {
+      "bytes": 1211,
+      "sha256": "d771e7bc25e252fb58d4ce05c03a20e0f6f578ada3c13fedd511b9c11c3a9210"
+    },
+    "reviews/logarithm-bounds-readiness.md": {
+      "bytes": 2157,
+      "sha256": "79eb87bed4fc6c30bfec65fba29ca690bda47ce0328dc94f6e8595c841c22dc0"
+    },
+    "research/logarithm-bounds-source-preflight.md": {
+      "bytes": 30310,
+      "sha256": "f7891e3ccbe07e56499f36c52d2024246758ff6a127cdf9b576f7445e5e4ae73"
+    },
+    "research/logarithm-bounds-api-preflight.md": {
+      "bytes": 32941,
+      "sha256": "d013d148aea4b7949f7e8c66a7fed3ef32456565073453d1d3cabdf8fa357a5c"
+    },
+    "research/logarithm-bounds-case-preflight.md": {
+      "bytes": 32523,
+      "sha256": "c46b9bba5a4d1d38b1ec03fa2ce55ca41b254be47950c693c577d9d6de9aa270"
+    },
+    "provenance/logarithm-bounds-source-preflight-before-namespace-correction.md": {
+      "bytes": 30315,
+      "sha256": "2fb3d6fbe19b5a3954df573efd7ecf8f823041d486725e118c56107eee74f6ed"
+    },
+    "provenance/logarithm-bounds-case-preflight-root-first-read.md": {
+      "bytes": 31776,
+      "sha256": "c548fb0c73d997745f1bac81ac661a78dcb83093d3613b1228bcccf14fc3642d"
+    },
+    "provenance/checkpoint0061-save-receipt.json": {
+      "bytes": 1151,
+      "sha256": "ec159296d88761adbbe0f611a8adb8819ce71663472b7235188e1c797ad5b6fd"
+    },
+    "provenance/checkpoint0061-content-check.json": {
+      "bytes": 11443,
+      "sha256": "25250f3b2b73648ccaee8c3de270dbe0dbd4c40a300fde877d25abb81c76189f"
+    },
+    "provenance/chapter01-attempt3-progress-before0062.json": {
+      "bytes": 5620,
+      "sha256": "7af302ef71f8cdb96afa844e9d64437a93bc5e398022fff0b47c2e6fefe0e75f"
+    },
+    "provenance/chapter01-attempt3-process-reader-qualification.json": {
+      "bytes": 3437,
+      "sha256": "b226e0fc958f3fb15d6f474ad6e15269ad0b1e3bc9ef0f97ad4ab377b2e7a123"
+    },
+    "reviews/logarithm-bounds-release.json": {
+      "bytes": 1690,
+      "sha256": "756a2e092e50dc6690bd6a604e6a157975f898b73b89a18eefb74c53cc975625"
+    },
+    "reviews/logarithm-bounds-source-precommit.json": {
+      "bytes": 8950,
+      "sha256": "ec99feff35ad91270c77529c042a5fd414b103bfc2612286eb26a52e7c1230d6"
+    },
+    "reviews/logarithm-bounds-source-final.json": {
+      "bytes": 9868,
+      "sha256": "2f4c5bb6ac7632fa879f60cd287f9bc57e0750e73583528adbbea9969785bd1b"
+    },
+    "reviews/logarithm-bounds-source-assessments.md": {
+      "bytes": 6926,
+      "sha256": "ab2101aa4a709243a17cb92c4766d60b17c7df8a454dfbcd540a93a557176e1d"
+    },
+    "reviews/logarithm-bounds-source-namespace-finding.json": {
+      "bytes": 1253,
+      "sha256": "4524931e0e00c7e0fc38ad3540bba3abd066934c7d789a2be673f443cb99eade"
+    },
+    "provenance/checkpoint0062-save-receipt.json": {
+      "bytes": 1222,
+      "sha256": "3f333c4945bf0b6ae0a9c7a964be242d26f7bfe1c289c55ddaf53d02555539be"
+    },
+    "provenance/checkpoint0062-content-check.json": {
+      "bytes": 10173,
+      "sha256": "37c799528469779c5c34a416d2ce1909c1fc0aa47b18e72ecd5349b2a0381a3e"
+    },
+    "provenance/chapter01-attempt3-progress-before0063.json": {
+      "bytes": 5024,
+      "sha256": "616519d3cdf09c96570336a9a85f30c74496609ef4e582b262727d87d5a992ba"
+    },
+    "tickets/FDSA-XL01.md": {
+      "bytes": 6885,
+      "sha256": "d0afffa4e89ee2118b06ce328790551c18f1711d8f210631580e1db2bf57110d"
+    },
+    "checkpoints.json": {
+      "bytes": 242634,
+      "sha256": "bd67a004faec53387621496682c3e5d9179ead8d10bcbf974560c3da0a7c5154"
+    }
+  },
+  "archived_ledger": {
+    "count": 62,
+    "last": "conaled-fdsa-0062-logarithm-bounds-precode"
+  },
+  "own_receipt_absent_as_expected": true,
+  "c1_archived_log": {
+    "bytes": 167474,
+    "sha256": "d0e87487b5fd9610b4104ee4a80e57eeab2db93fc51a23b56747247bc7f224fa",
+    "observed_prefix_bytes": 167474,
+    "observed_prefix_matches": true,
+    "additional_lines": []
+  },
+  "c1_archived_recorder": {
+    "result": "running",
+    "terminal_fields": {}
+  },
+  "refs_compared_with0062": {
+    "prior_count": 53,
+    "current_count": 53,
+    "unchanged_count": 51,
+    "added": {},
+    "removed": {},
+    "changed": {
+      "refs/heads/work/fdsa-logarithm-bounds": {
+        "before": "07e480f6ec9958d4975bb90151005b84f2907614",
+        "after": "a601ad713368daf8e18d5a5537a83d47138491fa"
+      },
+      "worktrees/conaled-logarithm-bounds/HEAD": {
+        "before": "07e480f6ec9958d4975bb90151005b84f2907614",
+        "after": "a601ad713368daf8e18d5a5537a83d47138491fa"
+      }
+    }
+  },
+  "limits": "Closed-archive recovery inspection only, following the checkpoint0062 content-check schema and boundaries. The full compressed archive identity, safe single root, all 632 SHA256SUMS payloads, complete v2 bundle header without prerequisites, PACK signature, all 53 refs, 24 selected immutable control-member identities and archived ledger boundary were checked. All 14 identities retained in the preceding content check are unchanged. The only ref changes are the logarithm-bounds branch and its worktree HEAD from 07e480f6ec9958d4975bb90151005b84f2907614 to a601ad713368daf8e18d5a5537a83d47138491fa. The preserved namespace correction was checked as exactly one requested replacement. Archived start/precode/readiness/release, prior0062 receipt/content check, source-precommit/final/assessment and ticket records are consistent with the frozen requirements and five-path source draft. Their recorded source identities and baseline/prefix claims were compared as control records; source objects inside the PACK were not decoded. The archived C1 recorder/log match the historical 2026-11-03T02:18:00.245096+00:00 observation, with no terminal fields or verification record claimed by that observation. The 167418-byte prior0062 log prefix also matches, followed by one recorded FRP.Feedback completion line; neither that line nor the archived running result establishes present liveness or terminal success. No extraction, restore checkout, object-pack decoding, project/Git command, independent bundle verification, compiler/checker/project hash helper, active artifact/cache/process access, source/ref/index mutation or Library action was performed. Root reports that the checkpoint helper already ran git bundle verify. This report postdates checkpoint0063; its own receipt and this content check are absent from that archive as expected. Checksums establish byte consistency, not compilation or formal acceptance; no chapter, appendix or shared unit gains acceptance from this inspection."
+}

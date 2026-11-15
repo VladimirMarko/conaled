@@ -1,0 +1,84 @@
+{
+  "schema": "fdsa.standards.targeted-input-completion.v1",
+  "recorded_utc": "2026-11-04T18:01:14.924193+00:00",
+  "candidate": "2da5708478a1d943a9214b5b386ec2db16cd9eca",
+  "axis": "Standards",
+  "status": "Finite pre-execution assessment complete; no concrete input finding; own new package held after final receipt readback. Overall Blocked; receiving credit zero.",
+  "files": [
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/targeted-input-standards-preexecution.md",
+      "bytes": 11087,
+      "LF_lines": 54,
+      "sha256": "85a0afb58733ce1bd72e7edd866c3c4418dec868931120cc7031060b5aadfe09"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/targeted-input-independent-reconciliation.json",
+      "bytes": 28458,
+      "LF_lines": 694,
+      "sha256": "8458f32708c83530bd16e99779b86adbf2b4d91aa8b882cc0470f5b112af3802"
+    },
+    {
+      "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/fdsa-control/provenance/chapter02-standards-receiving-final-20261104/targeted-input-independent-reconcile.py",
+      "bytes": 14590,
+      "LF_lines": 245,
+      "sha256": "65aee26b9db08c7d82d7dcb7202de6af1c19707a8fd6ebb66de1ef8dc8e1bd08"
+    }
+  ],
+  "independent_reconciliation_actual_tool": "dfbf15",
+  "independent_reconciliation_exit": 0,
+  "report_complete_readback_tool": "894259",
+  "reconciliation_complete_readback": [
+    {
+      "first_line": 1,
+      "last_line": 240,
+      "bytes": 7081,
+      "sha256": "0d3b34645fe6e66530c4ac6a3cc43d91ec413b48328c62183637a00686c4fa62",
+      "actual_tool_chunk": "2e9969"
+    },
+    {
+      "first_line": 241,
+      "last_line": 480,
+      "bytes": 9552,
+      "sha256": "d51906dae9ad43b2f1abe7718addc9ebc2ceb9c0520608c495826574776dbef5",
+      "actual_tool_chunk": "928d9a"
+    },
+    {
+      "first_line": 481,
+      "last_line": 694,
+      "bytes": 11825,
+      "sha256": "d713fa9c4ed11968256701bd5abf9f254d2656a31ba4eff7cd57790ea39cb272",
+      "actual_tool_chunk": "07db49"
+    }
+  ],
+  "all_62_bound_input_fingerprints_reverified": true,
+  "human_read_boundaries": {
+    "README": "229839, all57 LF lines",
+    "author_receipt": "697f6d, all113 LF lines",
+    "manifest_global_schema": "a6c1ab",
+    "manifest_profiles": "a7000d profiles1-3; a5269e profiles4-6; 0ba96c profiles7-9; 874d58 profiles10-11; omitted repetitive arrays independently reconciled in full",
+    "command_recipes": "c09538, all14 LF lines including all11 exact argv recipes",
+    "new_small_inputs": "2c7324, allGrowth7/ThreeWay46/Random62 lines",
+    "new_Z543_input": "45ae5e lines1-200;91317a lines201-400;60e4bc lines401-590",
+    "bound_input_roles": "0e0233, all51",
+    "large_mapping": "All1300 commands and466 conditional rows independently recomputed; no claim of new semantic reading of old outputs",
+    "truncated_display": "Initial combined display exceeded context and grants no read credit; all necessary content was subsequently read in the bounded calls above."
+  },
+  "disposition": {
+    "suitable_for_exact_proposed_serial_execution": true,
+    "new_findings": [],
+    "current_checks": 1297,
+    "additional_prints": 3,
+    "conditional_transfer_still_pending": 466,
+    "all_original_blocks_reconstructed": 1691,
+    "all_selected_historical_blocks_matched": 1299,
+    "actual_receiving_type_credit": 0,
+    "post_observation_pending": true,
+    "NaturalRuns_transport_difference_explicit": true,
+    "full_original_scope_preserved": true,
+    "old_semantic_readings_retained_conditionally_on_qualified_current_matching_complete_blocks": true
+  },
+  "prohibited_actions_performed": [],
+  "old_held_files_not_modified": true,
+  "additional_driver_review_not_requested_or_performed": true,
+  "hold": "No further own writes until root supplies actual receiving evidence or a new assignment."
+}

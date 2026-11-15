@@ -1,0 +1,166 @@
+{
+  "recorded_utc": "2026-11-04T09:00:37.536018+00:00",
+  "reviewer": "/root/chapter02_spec",
+  "review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "retained_complete_central_source": "5398db774ed5ca9938d0562e379d757323e7a355",
+  "full_scope_retained": "All 112 obligations, all ten shared scopes and the complete fixed R-to-eventual-final Chapter 2 scope. Isolated corrections are not complete replacement candidates.",
+  "overall_outcome": "Blocked",
+  "compiler_or_build_invoked_by_reviewer": false,
+  "approval_or_acceptance": false,
+  "candidate": "13fc137c67e1dc974c833e81cd46042d757fa546",
+  "parent": "ee2ea2406a014e43c355f93317455f27b90dd680",
+  "source": {
+    "candidate": "13fc137c67e1dc974c833e81cd46042d757fa546",
+    "path": "Examples/PermutationTailBoundary.lean",
+    "git_blob": "b0de11c970cd6db97db35bf289afbc495c064220",
+    "bytes": 11709,
+    "lines": 261,
+    "sha256": "03fbb29d9f458a7e76235e198b01ef3dd3b20dbe225d3d1edf3110b5628c437b"
+  },
+  "parent_file_equals_retained_central": true,
+  "changed_paths": [
+    "Examples/PermutationTailBoundary.lean"
+  ],
+  "static_comparison": {
+    "authored_declaration_count": 38,
+    "all_headers_byte_identical": true,
+    "kind_counts": {
+      "def": 7,
+      "instance": 6,
+      "theorem": 25
+    },
+    "changed_blocks": [
+      "swap01_first_events",
+      "joint12_table",
+      "joint21_table",
+      "counter_joint12_mass",
+      "counter_joint21_mass",
+      "outside_order_12_mass",
+      "outside_order_21_mass"
+    ]
+  },
+  "declaration_categories": {
+    "public_theorems": 15,
+    "private_theorems": 10,
+    "public_definitions": 7,
+    "anonymous_local_instances": 6
+  },
+  "all_definition_and_instance_blocks_byte_identical": true,
+  "core_and_main_examples_equal_retained_central": true,
+  "independent_readback": {
+    "successor_source_lines": [
+      1,
+      261
+    ],
+    "complete_diff_lines": 85,
+    "complete_diagnostic_lines": 120,
+    "actual_diagnostic_headers": 16,
+    "complete_author_readback_lines": 177,
+    "source_inventory_read_in_full": true,
+    "receipt_read_in_full": true
+  },
+  "pinned_api_assessments": [
+    {
+      "path": "Mathlib/Data/List/Defs.lean",
+      "pinned_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 17706,
+      "lines": 492,
+      "sha256": "4d85b78628eb67d85575dd91f43ff60de574db2fcdef8d269ef238a3bc28404f",
+      "independently_read_lines": [
+        145,
+        254
+      ],
+      "assessment": "Read both enumerators: ordinary permutations uses well-founded auxiliary recursion; permutations-prime is the structural insertion enumerator."
+    },
+    {
+      "path": "Mathlib/Data/List/Permutation.lean",
+      "pinned_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 23893,
+      "lines": 538,
+      "sha256": "ef2d1bddfbd1fd4368456709b8d44863bb733be3972f88db55d9de1ca1a8c35c",
+      "independently_read_lines": [
+        360,
+        389
+      ],
+      "assessment": "permutations_perm_permutations-prime proves permutation of the complete enumerations, preserving every supported order."
+    },
+    {
+      "path": "Mathlib/Data/Finset/Dedup.lean",
+      "pinned_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 6049,
+      "lines": 206,
+      "sha256": "613c90e8726039f6f8a65f530b6e0eba4f092ba31561a6f40d658f76f0d6e3fe",
+      "independently_read_lines": [
+        137,
+        157
+      ],
+      "assessment": "List.toFinset_eq_of_perm turns permutation of lists into exact equality of support Finsets."
+    },
+    {
+      "path": "Mathlib/Basic/ENNReal/Inv.lean",
+      "pinned_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 44273,
+      "lines": 982,
+      "sha256": "f06e93ae82105c5c03585c2d11377b94aac119b7fdbcaf34a7a333aa27c53f36",
+      "independently_read_lines": [
+        20,
+        88
+      ],
+      "assessment": "coe_div applies to finite NNReal arguments and explicitly requires a nonzero denominator; no field law for arbitrary ENNReal is used."
+    },
+    {
+      "path": "Mathlib/Basic/ENNReal/Basic.lean",
+      "pinned_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "bytes": 32272,
+      "lines": 789,
+      "sha256": "f7fe64f0d1865209e4d2be2fd98e3bc5edf9af508dd665f0311e6396f8d513a2",
+      "independently_read_lines": [
+        470,
+        530
+      ],
+      "assessment": "The finite NNReal coercion preserves addition and multiplication; corresponding finite calculations remain justified."
+    }
+  ],
+  "semantic_assessment": [
+    "Explicit head-option goals and rewrites preserve the selected-head versus global-head distinction for the same swap permutation.",
+    "Replacing the proof enumeration by structurally recursive permutations-prime preserves the exact original full support via a proved Finset equality. No law, support restriction, default element or executable axiom is introduced.",
+    "The six full-order rows still give joint mass 1/6 for [1,2] and 1/3 for [2,1] under the selected-head event of mass 1/2, hence conditional probabilities 1/3 and 2/3.",
+    "Explicit NNReal typing and finite coercion equations preserve the three finite mass calculations and the same conditional measure.",
+    "The outside subset excludes the selected head but is not contained in the conditioning subset with that head removed; this remains the required counterexample to omitting the subset premise."
+  ],
+  "historical_diagnostic_boundary": "Author assessed a fixed live prefix of focused7. This independent receipt also assesses the actual later closed exit-1 terminal; neither historical boundary is relabeled.",
+  "matching_successor_compilation": "Not yet supplied. Source assessment does not establish elaboration or expanded types.",
+  "concrete_mathematical_spec_findings": [],
+  "artifacts": [
+    {
+      "path": "provenance/chapter02-xu03-boundary-elaboration-correction3-20261104/source.diff",
+      "bytes": 4212,
+      "lines": 85,
+      "sha256": "0925bfc6f2f0aa9ddfa3231b5e42045a7fa0e6c808f3df2ff25410b90221cf66"
+    },
+    {
+      "path": "provenance/chapter02-xu03-boundary-elaboration-correction3-20261104/actual-diagnostics.txt",
+      "bytes": 6332,
+      "lines": 120,
+      "sha256": "44466cb4649068d21f49600456b086e1eff2a99d7d1d5a26518989cda1aa0b6c"
+    },
+    {
+      "path": "provenance/chapter02-xu03-boundary-elaboration-correction3-20261104/author-readback.md",
+      "bytes": 12810,
+      "lines": 177,
+      "sha256": "9b2ce07058abbb4292343e4a80e608c511ce5bcb0ca701b2d0c83a9d5867f6fc"
+    },
+    {
+      "path": "provenance/chapter02-xu03-boundary-elaboration-correction3-20261104/source-inventory.json",
+      "bytes": 4248,
+      "lines": 122,
+      "sha256": "5f4d92d8373258a5a29fc243c34dc19070719b0d230e78e8a0b56de1013c3427"
+    },
+    {
+      "path": "provenance/chapter02-xu03-boundary-elaboration-correction3-20261104/receipt.json",
+      "bytes": 2821,
+      "lines": 79,
+      "sha256": "c171fafe4d06a0d28143cdd28ecce99c959909e327b97e7a6623a968d5466ff7"
+    }
+  ]
+}

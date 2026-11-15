@@ -1,0 +1,35 @@
+{
+  "time_utc": "2026-11-02T21:12:29.782746+00:00",
+  "repository": "/workspace/scratch/0c54f2db1fdf/work-state/validation-recorder",
+  "isolated_checkout": "/workspace/scratch/0c54f2db1fdf/validation-recorder-validation",
+  "base": "e39c76640edbd242762cf41f341d35eae35ee786",
+  "initial_index_and_worktree": "new empty repository; no existing content",
+  "included_existing_changes": [],
+  "excluded_changes": [],
+  "spec_path": "work-state/specs/1029-validation-recorder.md",
+  "spec_sha256": "a6b39abad520d7b1ed3dc7edb5134399d4f174b496f396798b124e4d17633b48",
+  "commands": [
+    [
+      "git",
+      "init",
+      "-b",
+      "main"
+    ],
+    [
+      "git",
+      "-c",
+      "user.name=VFA Local Agent",
+      "-c",
+      "user.email=vfa-local@example.invalid",
+      "commit",
+      "--allow-empty",
+      "-m",
+      "chore: establish empty recorder review base (#1029)"
+    ],
+    [
+      "git",
+      "tag",
+      "review-base-1029"
+    ]
+  ]
+}

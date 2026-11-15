@@ -1,0 +1,20 @@
+diff --git a/Applications/Resources/MedianReduction.lean b/Applications/Resources/MedianReduction.lean
+index d99d7ea..e7f52ee 100644
+--- a/Applications/Resources/MedianReduction.lean
++++ b/Applications/Resources/MedianReduction.lean
+@@ -68,11 +68,13 @@ def extremaRun (x : α) (xs : List α) : Measured (α × α) Nat :=
+ 
+ theorem extremaRun_value (x : α) (xs : List α) : (extremaRun x xs).1 = extrema x xs := by
+   simp only [extremaRun, CallCount.tick_value, bind_value,
+-    FixedRank.minimumLoopRun_value, pure, extrema]
++    FixedRank.minimumLoopRun_value,
++    FixedRank.minimumLoopRun_value (α := OrderDual α) x 0 xs, pure, extrema]
+ 
+ theorem extremaRun_cost (x : α) (xs : List α) :
+     (extremaRun x xs).2 = 2 * xs.length + 3 := by
+-  simp only [extremaRun, CallCount.tick_cost, bind, pure, FixedRank.minimumLoopRun_cost]
++  simp only [extremaRun, CallCount.tick_cost, bind, pure, FixedRank.minimumLoopRun_cost,
++    FixedRank.minimumLoopRun_cost (α := OrderDual α) x 0 xs]
+   omega
+ 
+ theorem extremaRun_exact (x : α) (xs : List α) :

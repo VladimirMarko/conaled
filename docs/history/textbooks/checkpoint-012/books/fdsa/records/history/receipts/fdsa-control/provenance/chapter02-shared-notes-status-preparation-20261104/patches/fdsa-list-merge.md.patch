@@ -1,0 +1,22 @@
+--- a/docs/research/fdsa-list-merge.md
++++ b/docs/research/fdsa-list-merge.md
+@@ -3,9 +3,17 @@
+ This shared source draft connects FDSA's ordinary merge to the existing
+ `List.merge`, sorting contracts and measured composition. It adds the missing
+ input-sublist/converse facts and one execution that records both head
+-comparisons and recursive merge invocations. **Compilation, the full candidate
+-gate and independent final reviews are pending.** This note describes the
++comparisons and recursive merge invocations. This note describes the
+ draft's mathematical contracts; it does not record chapter acceptance.
++
++**Validation snapshot — 4 November 2026.** A successful focused check covered
++the merge core, measured merge and examples; a separate successful inspection
++printed 17 selected public types. A subsequent independent dependency review
++retained matching defining inputs for ten of those outputs and required new
++inspection of seven after a dependency change. Another 78 public types had
++no recorded inspection in the inventory. These are historical results; reuse
++requires matching candidate evidence, and complete unit acceptance was still
++outstanding in this snapshot. The full acceptance gates below remain required.
+ 
+ ## Source and reuse boundary
+ 

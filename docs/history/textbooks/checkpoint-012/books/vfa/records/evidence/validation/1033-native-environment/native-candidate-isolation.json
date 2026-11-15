@@ -1,0 +1,79 @@
+{
+  "recorded_utc": "2026-11-03T16:28:41.068519+00:00",
+  "candidate": "3279bacaec4087cc0d6b7e6b8ae862109cb2dfec",
+  "new_isolated_checkout": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-native-validation",
+  "git_status": "",
+  "worktree_creation_result": {
+    "returncode": 0,
+    "stdout": "HEAD is now at 3279bac fix(durability): import finite product instance (#1026)\n",
+    "stderr": "Preparing worktree (detached HEAD 3279bac)\n"
+  },
+  "dependencies": [
+    {
+      "name": "mathlib",
+      "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "clean": true,
+      "package_path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-native-validation/.lake/packages/mathlib",
+      "existing_cache_source": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/mathlib"
+    },
+    {
+      "name": "plausible",
+      "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "clean": true,
+      "package_path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-native-validation/.lake/packages/plausible",
+      "existing_cache_source": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/plausible"
+    },
+    {
+      "name": "LeanSearchClient",
+      "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "clean": true,
+      "package_path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-native-validation/.lake/packages/LeanSearchClient",
+      "existing_cache_source": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/LeanSearchClient"
+    },
+    {
+      "name": "importGraph",
+      "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "clean": true,
+      "package_path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-native-validation/.lake/packages/importGraph",
+      "existing_cache_source": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/importGraph"
+    },
+    {
+      "name": "proofwidgets",
+      "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "clean": true,
+      "package_path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-native-validation/.lake/packages/proofwidgets",
+      "existing_cache_source": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/proofwidgets"
+    },
+    {
+      "name": "aesop",
+      "head": "4a174c490d8707121c4a9290800489f105d85e07",
+      "clean": true,
+      "package_path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-native-validation/.lake/packages/aesop",
+      "existing_cache_source": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/aesop"
+    },
+    {
+      "name": "Qq",
+      "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "clean": true,
+      "package_path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-native-validation/.lake/packages/Qq",
+      "existing_cache_source": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/Qq"
+    },
+    {
+      "name": "batteries",
+      "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "clean": true,
+      "package_path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-native-validation/.lake/packages/batteries",
+      "existing_cache_source": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/batteries"
+    },
+    {
+      "name": "Cli",
+      "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "clean": true,
+      "package_path": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-native-validation/.lake/packages/Cli",
+      "existing_cache_source": "/workspace/scratch/83865511e965/recovery/conaled-vfa-checkpoint-035-returned-archive-preservation/vfa-validation/.lake/packages/Cli"
+    }
+  ],
+  "project_outputs_shared": false,
+  "external_dependency_cache_reuse": "Existing nine clean pinned package trees/caches reused via explicit symlinks. No dependency source or cache writers scheduled; fresh mode reads these caches. Prior interrupted QEMU fresh mode only owned its distinct private project output directory. No project .lake/build or fresh outputs are shared.",
+  "formal_validation_launched": false
+}

@@ -1,0 +1,4680 @@
+{
+  "observed_utc": "2026-11-04T11:42:49.992333+00:00",
+  "read_only": true,
+  "prior_preflight_started": "2026-11-04T11:33:17.405772+00:00",
+  "root_identity_matches": true,
+  "expected_counts": {
+    "directories": 2433,
+    "files": 129375,
+    "apparent_bytes": 6583178446,
+    "allocated_bytes": 7001104384
+  },
+  "actual_counts": {
+    "directories": 2433,
+    "files": 129375,
+    "apparent_bytes": 6583178446,
+    "allocated_bytes": 7001104384
+  },
+  "expected_metadata_sha256": "d87026403af6042d638c5c920480e7437b69539ff1a039b94646adb92bf4f69c",
+  "actual_metadata_sha256": "db2228a300291bf02624923275c6c7d2adc3376afa4a1a7fc8720e5fd212baec",
+  "counts_equal": true,
+  "metadata_equal": false,
+  "entry_suffix_counts": {
+    ".c": 8625,
+    ".hash": 60375,
+    ".ilean": 8625,
+    ".ir": 8625,
+    ".sig": 8625,
+    ".olean": 8625,
+    ".private": 8625,
+    ".server": 8625,
+    ".trace": 8625
+  },
+  "entries_with_mtime_or_ctime_after_preflight_start": [
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Algebra/Hom",
+      "metadata": [
+        16877,
+        27,
+        540107,
+        2,
+        4096,
+        1793792018026335699,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Algebra/Spectrum",
+      "metadata": [
+        16877,
+        27,
+        540067,
+        2,
+        4096,
+        1793792018085465756,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Algebra/Subalgebra",
+      "metadata": [
+        16877,
+        27,
+        539598,
+        2,
+        12288,
+        1793792018232594254,
+        1793792399342972505,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Azumaya",
+      "metadata": [
+        16877,
+        27,
+        660960,
+        2,
+        4096,
+        1793792018249960256,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/BigOperators",
+      "metadata": [
+        16877,
+        27,
+        659014,
+        6,
+        12288,
+        1793792018410868101,
+        1793792399342972505,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/BigOperators/Finsupp",
+      "metadata": [
+        16877,
+        27,
+        659525,
+        2,
+        4096,
+        1793792018430719960,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/BigOperators/Group/Finset",
+      "metadata": [
+        16877,
+        27,
+        659056,
+        2,
+        4096,
+        1793792018559938606,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/BigOperators/Group/List",
+      "metadata": [
+        16877,
+        27,
+        659016,
+        2,
+        4096,
+        1793792018593983861,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/BigOperators/Group/Multiset",
+      "metadata": [
+        16877,
+        27,
+        659200,
+        2,
+        4096,
+        1793792018606236031,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/BigOperators/GroupWithZero",
+      "metadata": [
+        16877,
+        27,
+        659488,
+        2,
+        4096,
+        1793792018612280801,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/BigOperators/Ring",
+      "metadata": [
+        16877,
+        27,
+        659422,
+        2,
+        4096,
+        1793792018631435424,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/BrauerGroup",
+      "metadata": [
+        16877,
+        27,
+        661562,
+        2,
+        4096,
+        1793792018635625519,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category",
+      "metadata": [
+        16877,
+        27,
+        540121,
+        13,
+        4096,
+        1793792018684996426,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category/AlgCat",
+      "metadata": [
+        16877,
+        27,
+        541935,
+        2,
+        4096,
+        1793792018746715218,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category/BialgCat",
+      "metadata": [
+        16877,
+        27,
+        542119,
+        2,
+        4096,
+        1793792018764042663,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category/CoalgCat",
+      "metadata": [
+        16877,
+        27,
+        541496,
+        2,
+        4096,
+        1793792018789366043,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category/CommAlgCat",
+      "metadata": [
+        16877,
+        27,
+        541536,
+        2,
+        4096,
+        1793792018839509053,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category/FGModuleCat",
+      "metadata": [
+        16877,
+        27,
+        541642,
+        2,
+        4096,
+        1793792018860542924,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category/Grp",
+      "metadata": [
+        16877,
+        27,
+        541144,
+        2,
+        20480,
+        1793792019082900079,
+        1793792399342972505,
+        48
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category/HopfAlgCat",
+      "metadata": [
+        16877,
+        27,
+        540122,
+        2,
+        4096,
+        1793792019102405931,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category/ModuleCat",
+      "metadata": [
+        16877,
+        27,
+        540149,
+        8,
+        20480,
+        1793792019424179308,
+        1793792399342972505,
+        40
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category/ModuleCat/Differentials",
+      "metadata": [
+        16877,
+        27,
+        541117,
+        2,
+        4096,
+        1793792019458834211,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category/ModuleCat/Ext",
+      "metadata": [
+        16877,
+        27,
+        540581,
+        2,
+        4096,
+        1793792019532851013,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category/ModuleCat/Monoidal",
+      "metadata": [
+        16877,
+        27,
+        541037,
+        2,
+        4096,
+        1793792019545417792,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category/ModuleCat/Presheaf",
+      "metadata": [
+        16877,
+        27,
+        540358,
+        2,
+        12288,
+        1793792019664329030,
+        1793792399342972505,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category/ModuleCat/Sheaf",
+      "metadata": [
+        16877,
+        27,
+        540163,
+        2,
+        12288,
+        1793792019801063609,
+        1793792399342972505,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category/ModuleCat/Topology",
+      "metadata": [
+        16877,
+        27,
+        541090,
+        2,
+        4096,
+        1793792019852856713,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category/MonCat",
+      "metadata": [
+        16877,
+        27,
+        542014,
+        2,
+        4096,
+        1793792019985983698,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category/Ring",
+      "metadata": [
+        16877,
+        27,
+        541708,
+        3,
+        12288,
+        1793792020170986796,
+        1793792399342972505,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category/Ring/Under",
+      "metadata": [
+        16877,
+        27,
+        541895,
+        2,
+        4096,
+        1793792020196914312,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Category/Semigrp",
+      "metadata": [
+        16877,
+        27,
+        541576,
+        2,
+        4096,
+        1793792020213726334,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Central",
+      "metadata": [
+        16877,
+        27,
+        660145,
+        2,
+        4096,
+        1793792020228967512,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/CharP",
+      "metadata": [
+        16877,
+        27,
+        660751,
+        2,
+        12288,
+        1793792020284514258,
+        1793792399342972505,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/CharZero",
+      "metadata": [
+        16877,
+        27,
+        659563,
+        2,
+        4096,
+        1793792020297286057,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Colimit",
+      "metadata": [
+        16877,
+        27,
+        661105,
+        2,
+        4096,
+        1793792020416062180,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/ContinuedFractions",
+      "metadata": [
+        16877,
+        27,
+        660580,
+        3,
+        4096,
+        1793792020466260233,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/ContinuedFractions/Computation",
+      "metadata": [
+        16877,
+        27,
+        660672,
+        2,
+        4096,
+        1793792020508775429,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/DirectSum",
+      "metadata": [
+        16877,
+        27,
+        658424,
+        2,
+        4096,
+        1793792020650865597,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Divisibility",
+      "metadata": [
+        16877,
+        27,
+        658555,
+        2,
+        4096,
+        1793792020663827988,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/EuclideanDomain",
+      "metadata": [
+        16877,
+        27,
+        660461,
+        2,
+        4096,
+        1793792020703012479,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Exact",
+      "metadata": [
+        16877,
+        27,
+        661427,
+        2,
+        4096,
+        1793792020772684130,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Field",
+      "metadata": [
+        16877,
+        27,
+        660211,
+        4,
+        12288,
+        1793792020838508647,
+        1793792399342972505,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Field/Action",
+      "metadata": [
+        16877,
+        27,
+        660447,
+        2,
+        4096,
+        1793792020839658582,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Field/Subfield",
+      "metadata": [
+        16877,
+        27,
+        660238,
+        2,
+        4096,
+        1793792020876294534,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/FiniteSupport",
+      "metadata": [
+        16877,
+        27,
+        661359,
+        2,
+        4096,
+        1793792020884012560,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/FreeAbelianGroup",
+      "metadata": [
+        16877,
+        27,
+        661252,
+        2,
+        4096,
+        1793792020887048705,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/FreeAlgebra",
+      "metadata": [
+        16877,
+        27,
+        659000,
+        2,
+        4096,
+        1793792020888210958,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/FreeMonoid",
+      "metadata": [
+        16877,
+        27,
+        660514,
+        2,
+        4096,
+        1793792020918818773,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/GCDMonoid",
+      "metadata": [
+        16877,
+        27,
+        542989,
+        2,
+        4096,
+        1793792020976574686,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group",
+      "metadata": [
+        16877,
+        27,
+        545120,
+        21,
+        20480,
+        1793792021504980901,
+        1793792399342972505,
+        40
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Action",
+      "metadata": [
+        16877,
+        27,
+        546299,
+        3,
+        12288,
+        1793792021612905672,
+        1793792399342972505,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Action/Pointwise",
+      "metadata": [
+        16877,
+        27,
+        546313,
+        3,
+        4096,
+        1793792021622833837,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Action/Pointwise/Set",
+      "metadata": [
+        16877,
+        27,
+        546314,
+        2,
+        4096,
+        1793792021643897031,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Commute",
+      "metadata": [
+        16877,
+        27,
+        545765,
+        2,
+        4096,
+        1793792021665909542,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Equiv",
+      "metadata": [
+        16877,
+        27,
+        545306,
+        2,
+        4096,
+        1793792021726604043,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Fin",
+      "metadata": [
+        16877,
+        27,
+        547202,
+        2,
+        4096,
+        1793792021735708625,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Hom",
+      "metadata": [
+        16877,
+        27,
+        546804,
+        2,
+        4096,
+        1793792021818614196,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Int",
+      "metadata": [
+        16877,
+        27,
+        546751,
+        2,
+        4096,
+        1793792021832778920,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Invertible",
+      "metadata": [
+        16877,
+        27,
+        547135,
+        2,
+        4096,
+        1793792021842781072,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Irreducible",
+      "metadata": [
+        16877,
+        27,
+        547162,
+        2,
+        4096,
+        1793792021867453835,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Nat",
+      "metadata": [
+        16877,
+        27,
+        546963,
+        2,
+        4096,
+        1793792021884302102,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Pi",
+      "metadata": [
+        16877,
+        27,
+        547042,
+        2,
+        4096,
+        1793792021941353147,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Pointwise/Finset",
+      "metadata": [
+        16877,
+        27,
+        546685,
+        2,
+        4096,
+        1793792021996797042,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Pointwise/Set",
+      "metadata": [
+        16877,
+        27,
+        546560,
+        2,
+        4096,
+        1793792022079920220,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Semiconj",
+      "metadata": [
+        16877,
+        27,
+        547095,
+        2,
+        4096,
+        1793792022087591581,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Subgroup",
+      "metadata": [
+        16877,
+        27,
+        545568,
+        3,
+        12288,
+        1793792022309772640,
+        1793792399342972505,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Subgroup/ZPowers",
+      "metadata": [
+        16877,
+        27,
+        545738,
+        2,
+        4096,
+        1793792022325152167,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Submonoid",
+      "metadata": [
+        16877,
+        27,
+        545372,
+        2,
+        12288,
+        1793792022520902860,
+        1793792399342972505,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Subsemigroup",
+      "metadata": [
+        16877,
+        27,
+        545121,
+        2,
+        4096,
+        1793792022573015332,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/TypeTags",
+      "metadata": [
+        16877,
+        27,
+        545240,
+        2,
+        4096,
+        1793792022596560429,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/UniqueProds",
+      "metadata": [
+        16877,
+        27,
+        546936,
+        2,
+        4096,
+        1793792022635531539,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/Units",
+      "metadata": [
+        16877,
+        27,
+        546870,
+        2,
+        4096,
+        1793792022689078373,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Group/WithOne",
+      "metadata": [
+        16877,
+        27,
+        545200,
+        2,
+        4096,
+        1793792022707495095,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/GroupWithZero",
+      "metadata": [
+        16877,
+        27,
+        656638,
+        6,
+        20480,
+        1793792022866719682,
+        1793792399342972505,
+        40
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/GroupWithZero/Action",
+      "metadata": [
+        16877,
+        27,
+        656652,
+        3,
+        4096,
+        1793792022919107429,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/GroupWithZero/Action/Pointwise",
+      "metadata": [
+        16877,
+        27,
+        656809,
+        2,
+        4096,
+        1793792022929796055,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/GroupWithZero/Pointwise",
+      "metadata": [
+        16877,
+        27,
+        657319,
+        3,
+        4096,
+        1793792022933245999,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/GroupWithZero/Pointwise/Set",
+      "metadata": [
+        16877,
+        27,
+        657333,
+        2,
+        4096,
+        1793792022936970967,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/GroupWithZero/Submonoid",
+      "metadata": [
+        16877,
+        27,
+        657266,
+        2,
+        4096,
+        1793792022945844461,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/GroupWithZero/Units",
+      "metadata": [
+        16877,
+        27,
+        657213,
+        2,
+        4096,
+        1793792022964288309,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Homology",
+      "metadata": [
+        16877,
+        27,
+        543081,
+        11,
+        36864,
+        1793792023333890502,
+        1793792399342972505,
+        80
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Homology/DerivedCategory",
+      "metadata": [
+        16877,
+        27,
+        543148,
+        3,
+        12288,
+        1793792023781311603,
+        1793792399342972505,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Homology/DerivedCategory/Ext",
+      "metadata": [
+        16877,
+        27,
+        543175,
+        2,
+        4096,
+        1793792023914314870,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Homology/Embedding",
+      "metadata": [
+        16877,
+        27,
+        544167,
+        2,
+        12288,
+        1793792024087808263,
+        1793792399342972505,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Homology/Factorizations",
+      "metadata": [
+        16877,
+        27,
+        543095,
+        2,
+        4096,
+        1793792024130753989,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Homology/HomotopyCategory",
+      "metadata": [
+        16877,
+        27,
+        543593,
+        2,
+        16384,
+        1793792024522953735,
+        1793792399342972505,
+        32
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Homology/LeftResolution",
+      "metadata": [
+        16877,
+        27,
+        545053,
+        2,
+        4096,
+        1793792024549922586,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Homology/ModelCategory",
+      "metadata": [
+        16877,
+        27,
+        545093,
+        2,
+        4096,
+        1793792024569947569,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Homology/ShortComplex",
+      "metadata": [
+        16877,
+        27,
+        543867,
+        2,
+        16384,
+        1793792025073607339,
+        1793792399342972505,
+        32
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Homology/SpectralObject",
+      "metadata": [
+        16877,
+        27,
+        543475,
+        2,
+        4096,
+        1793792025282945011,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Homology/SpectralSequence",
+      "metadata": [
+        16877,
+        27,
+        545026,
+        2,
+        4096,
+        1793792025297056451,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Jordan",
+      "metadata": [
+        16877,
+        27,
+        661386,
+        2,
+        4096,
+        1793792025304291674,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Lie",
+      "metadata": [
+        16877,
+        27,
+        547229,
+        7,
+        28672,
+        1793792026081020732,
+        1793792399342972505,
+        56
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Lie/AdjointAction",
+      "metadata": [
+        16877,
+        27,
+        547230,
+        2,
+        4096,
+        1793792026092574403,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Lie/Basis",
+      "metadata": [
+        16877,
+        27,
+        655361,
+        2,
+        4096,
+        1793792026200564618,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Lie/Derivation",
+      "metadata": [
+        16877,
+        27,
+        655401,
+        2,
+        4096,
+        1793792026241073943,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Lie/Semisimple",
+      "metadata": [
+        16877,
+        27,
+        547912,
+        2,
+        4096,
+        1793792026262803346,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Lie/Weights",
+      "metadata": [
+        16877,
+        27,
+        547327,
+        2,
+        4096,
+        1793792026520201326,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/LieRinehartAlgebra",
+      "metadata": [
+        16877,
+        27,
+        661590,
+        2,
+        4096,
+        1793792026548904520,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Module",
+      "metadata": [
+        16877,
+        27,
+        655441,
+        11,
+        20480,
+        1793792026854454611,
+        1793792399342972505,
+        40
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Module/Congruence",
+      "metadata": [
+        16877,
+        27,
+        656569,
+        2,
+        4096,
+        1793792026867578191,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Module/Equiv",
+      "metadata": [
+        16877,
+        27,
+        655821,
+        2,
+        4096,
+        1793792026954347895,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Module/LinearMap",
+      "metadata": [
+        16877,
+        27,
+        656409,
+        2,
+        4096,
+        1793792027081860492,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Module/LocalizedModule",
+      "metadata": [
+        16877,
+        27,
+        656317,
+        2,
+        4096,
+        1793792027223515265,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Module/Presentation",
+      "metadata": [
+        16877,
+        27,
+        655665,
+        2,
+        4096,
+        1793792027291648707,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Module/StablyFree",
+      "metadata": [
+        16877,
+        27,
+        656542,
+        2,
+        4096,
+        1793792027299134121,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Module/Submodule",
+      "metadata": [
+        16877,
+        27,
+        655443,
+        2,
+        12288,
+        1793792027476814481,
+        1793792399342972505,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Module/Torsion",
+      "metadata": [
+        16877,
+        27,
+        656238,
+        2,
+        4096,
+        1793792027536222705,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Module/ZLattice",
+      "metadata": [
+        16877,
+        27,
+        656585,
+        2,
+        4096,
+        1793792027616041782,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/MonoidAlgebra",
+      "metadata": [
+        16877,
+        27,
+        659949,
+        2,
+        12288,
+        1793792027855955218,
+        1793792399342972505,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/MvPolynomial",
+      "metadata": [
+        16877,
+        27,
+        536270,
+        2,
+        16384,
+        1793792028137192528,
+        1793792399342972505,
+        32
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/NoZeroSMulDivisors",
+      "metadata": [
+        16877,
+        27,
+        661481,
+        2,
+        4096,
+        1793792028143315501,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/NonAssoc/LieAdmissible",
+      "metadata": [
+        16877,
+        27,
+        659921,
+        2,
+        4096,
+        1793792028162326313,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/NonAssoc/PreLie",
+      "metadata": [
+        16877,
+        27,
+        659935,
+        2,
+        4096,
+        1793792028185414621,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Notation",
+      "metadata": [
+        16877,
+        27,
+        659616,
+        3,
+        4096,
+        1793792028225446998,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Notation/Pi",
+      "metadata": [
+        16877,
+        27,
+        659708,
+        2,
+        4096,
+        1793792028236534896,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order",
+      "metadata": [
+        16877,
+        27,
+        536587,
+        22,
+        12288,
+        1793792028425768251,
+        1793792399342972505,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/AbsoluteValue",
+      "metadata": [
+        16877,
+        27,
+        539503,
+        2,
+        4096,
+        1793792028446581111,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Antidiag",
+      "metadata": [
+        16877,
+        27,
+        539424,
+        2,
+        4096,
+        1793792028500292079,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Archimedean",
+      "metadata": [
+        16877,
+        27,
+        537961,
+        3,
+        4096,
+        1793792028568124944,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Archimedean/Real",
+      "metadata": [
+        16877,
+        27,
+        537962,
+        2,
+        4096,
+        1793792028577315199,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/BigOperators",
+      "metadata": [
+        16877,
+        27,
+        539027,
+        5,
+        4096,
+        1793792028598841390,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/BigOperators/Group",
+      "metadata": [
+        16877,
+        27,
+        539081,
+        2,
+        4096,
+        1793792028640472228,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/BigOperators/GroupWithZero",
+      "metadata": [
+        16877,
+        27,
+        539134,
+        2,
+        4096,
+        1793792028649401971,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/BigOperators/Ring",
+      "metadata": [
+        16877,
+        27,
+        539041,
+        2,
+        4096,
+        1793792028675167959,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/CauSeq",
+      "metadata": [
+        16877,
+        27,
+        538460,
+        2,
+        4096,
+        1793792028742644094,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Field",
+      "metadata": [
+        16877,
+        27,
+        538922,
+        2,
+        4096,
+        1793792028815710369,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Floor",
+      "metadata": [
+        16877,
+        27,
+        538500,
+        2,
+        4096,
+        1793792029396233956,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Group",
+      "metadata": [
+        16877,
+        27,
+        537234,
+        6,
+        20480,
+        1793792029502148909,
+        1793792399342972505,
+        40
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Group/Action",
+      "metadata": [
+        16877,
+        27,
+        537630,
+        2,
+        4096,
+        1793792029510987318,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Group/Int",
+      "metadata": [
+        16877,
+        27,
+        537616,
+        2,
+        4096,
+        1793792029512634213,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Group/Pointwise",
+      "metadata": [
+        16877,
+        27,
+        537277,
+        2,
+        4096,
+        1793792029539149907,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Group/Unbundled",
+      "metadata": [
+        16877,
+        27,
+        537670,
+        2,
+        4096,
+        1793792029581280770,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/GroupWithZero",
+      "metadata": [
+        16877,
+        27,
+        536588,
+        4,
+        4096,
+        1793792029668079071,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/GroupWithZero/Action",
+      "metadata": [
+        16877,
+        27,
+        536772,
+        2,
+        4096,
+        1793792029670908480,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/GroupWithZero/Unbundled",
+      "metadata": [
+        16877,
+        27,
+        536732,
+        2,
+        4096,
+        1793792029676394877,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Hom",
+      "metadata": [
+        16877,
+        27,
+        537710,
+        2,
+        4096,
+        1793792029752160584,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Interval",
+      "metadata": [
+        16877,
+        27,
+        537841,
+        4,
+        4096,
+        1793792029777801418,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Interval/Finset",
+      "metadata": [
+        16877,
+        27,
+        537842,
+        2,
+        4096,
+        1793792029781980503,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Interval/Set",
+      "metadata": [
+        16877,
+        27,
+        537869,
+        2,
+        4096,
+        1793792029808898194,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Module",
+      "metadata": [
+        16877,
+        27,
+        539174,
+        2,
+        4096,
+        1793792029917600718,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Monoid",
+      "metadata": [
+        16877,
+        27,
+        536787,
+        4,
+        12288,
+        1793792029959899924,
+        1793792399342972505,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Monoid/Canonical",
+      "metadata": [
+        16877,
+        27,
+        537101,
+        2,
+        4096,
+        1793792029966497217,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Monoid/Unbundled",
+      "metadata": [
+        16877,
+        27,
+        536801,
+        2,
+        4096,
+        1793792030038189630,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Nonneg",
+      "metadata": [
+        16877,
+        27,
+        539305,
+        2,
+        4096,
+        1793792030061994584,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Positive",
+      "metadata": [
+        16877,
+        27,
+        539543,
+        2,
+        4096,
+        1793792030067756006,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Ring",
+      "metadata": [
+        16877,
+        27,
+        538080,
+        4,
+        20480,
+        1793792030236356943,
+        1793792399342972505,
+        40
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Ring/Ordering",
+      "metadata": [
+        16877,
+        27,
+        538406,
+        2,
+        4096,
+        1793792030252484905,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Ring/Unbundled",
+      "metadata": [
+        16877,
+        27,
+        538433,
+        2,
+        4096,
+        1793792030270196126,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Star",
+      "metadata": [
+        16877,
+        27,
+        538592,
+        2,
+        4096,
+        1793792030297424155,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Sub",
+      "metadata": [
+        16877,
+        27,
+        537140,
+        3,
+        4096,
+        1793792030307289648,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/Sub/Unbundled",
+      "metadata": [
+        16877,
+        27,
+        537167,
+        2,
+        4096,
+        1793792030311758340,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/SuccPred",
+      "metadata": [
+        16877,
+        27,
+        539384,
+        2,
+        4096,
+        1793792030318064495,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Order/WithTop",
+      "metadata": [
+        16877,
+        27,
+        539570,
+        2,
+        4096,
+        1793792030320129780,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Pointwise",
+      "metadata": [
+        16877,
+        27,
+        661576,
+        2,
+        4096,
+        1793792030330359884,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Polynomial",
+      "metadata": [
+        16877,
+        27,
+        542146,
+        6,
+        24576,
+        1793792030913583875,
+        1793792399342972505,
+        48
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Polynomial/Degree",
+      "metadata": [
+        16877,
+        27,
+        542239,
+        2,
+        12288,
+        1793792031011646176,
+        1793792399342972505,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Polynomial/Eval",
+      "metadata": [
+        16877,
+        27,
+        542147,
+        2,
+        4096,
+        1793792031045947412,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Polynomial/Module",
+      "metadata": [
+        16877,
+        27,
+        542922,
+        2,
+        4096,
+        1793792031108825235,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Polynomial/Sturm",
+      "metadata": [
+        16877,
+        27,
+        542975,
+        2,
+        4096,
+        1793792031112990944,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/PresentedMonoid",
+      "metadata": [
+        16877,
+        27,
+        661185,
+        2,
+        4096,
+        1793792031124439436,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Prime",
+      "metadata": [
+        16877,
+        27,
+        661535,
+        2,
+        4096,
+        1793792031129483892,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/QuadraticAlgebra",
+      "metadata": [
+        16877,
+        27,
+        659735,
+        2,
+        4096,
+        1793792031264077467,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Regular",
+      "metadata": [
+        16877,
+        27,
+        661000,
+        2,
+        4096,
+        1793792031319655117,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Ring",
+      "metadata": [
+        16877,
+        27,
+        657360,
+        11,
+        28672,
+        1793792031754063147,
+        1793792399342972505,
+        56
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Ring/Action",
+      "metadata": [
+        16877,
+        27,
+        657525,
+        3,
+        4096,
+        1793792031777216313,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Ring/Action/Pointwise",
+      "metadata": [
+        16877,
+        27,
+        657643,
+        2,
+        4096,
+        1793792031780016026,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Ring/Divisibility",
+      "metadata": [
+        16877,
+        27,
+        658250,
+        2,
+        4096,
+        1793792031784489273,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Ring/Hom",
+      "metadata": [
+        16877,
+        27,
+        658277,
+        2,
+        4096,
+        1793792031804096548,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Ring/Int",
+      "metadata": [
+        16877,
+        27,
+        657453,
+        2,
+        4096,
+        1793792031822086522,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Ring/Pointwise",
+      "metadata": [
+        16877,
+        27,
+        658370,
+        2,
+        4096,
+        1793792031824314042,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Ring/Semireal",
+      "metadata": [
+        16877,
+        27,
+        657506,
+        2,
+        4096,
+        1793792031825470286,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Ring/Submonoid",
+      "metadata": [
+        16877,
+        27,
+        658397,
+        2,
+        4096,
+        1793792031834257740,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Ring/Subring",
+      "metadata": [
+        16877,
+        27,
+        657361,
+        2,
+        4096,
+        1793792031890673313,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Ring/Subsemiring",
+      "metadata": [
+        16877,
+        27,
+        658304,
+        2,
+        4096,
+        1793792031944930104,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/SkewMonoidAlgebra",
+      "metadata": [
+        16877,
+        27,
+        661199,
+        2,
+        4096,
+        1793792032002537619,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/SkewPolynomial",
+      "metadata": [
+        16877,
+        27,
+        661171,
+        2,
+        4096,
+        1793792032020589677,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Squarefree",
+      "metadata": [
+        16877,
+        27,
+        661521,
+        2,
+        4096,
+        1793792032029542024,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Star",
+      "metadata": [
+        16877,
+        27,
+        658648,
+        2,
+        20480,
+        1793792032342175612,
+        1793792399342972505,
+        40
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Torsor",
+      "metadata": [
+        16877,
+        27,
+        661332,
+        2,
+        4096,
+        1793792032370505934,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/TrivSqZeroExt",
+      "metadata": [
+        16877,
+        27,
+        661454,
+        2,
+        4096,
+        1793792032424316742,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Tropical",
+      "metadata": [
+        16877,
+        27,
+        659853,
+        2,
+        4096,
+        1793792032457500539,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Algebra/Vertex",
+      "metadata": [
+        16877,
+        27,
+        658621,
+        2,
+        4096,
+        1793792032468818199,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicGeometry",
+      "metadata": [
+        16877,
+        27,
+        533837,
+        14,
+        20480,
+        1793792033387832788,
+        1793792399342972505,
+        40
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicGeometry/AlgClosed",
+      "metadata": [
+        16877,
+        27,
+        535661,
+        2,
+        4096,
+        1793792033392284673,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicGeometry/AlgebraicCycle",
+      "metadata": [
+        16877,
+        27,
+        534598,
+        2,
+        4096,
+        1793792033395557560,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicGeometry/Birational",
+      "metadata": [
+        16877,
+        27,
+        534900,
+        2,
+        4096,
+        1793792033436308915,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicGeometry/Cover",
+      "metadata": [
+        16877,
+        27,
+        535476,
+        2,
+        4096,
+        1793792033530492533,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicGeometry/EllipticCurve",
+      "metadata": [
+        16877,
+        27,
+        534333,
+        6,
+        4096,
+        1793792033776840837,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicGeometry/EllipticCurve/Affine",
+      "metadata": [
+        16877,
+        27,
+        534387,
+        2,
+        4096,
+        1793792034063783567,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicGeometry/EllipticCurve/DivisionPolynomial",
+      "metadata": [
+        16877,
+        27,
+        534558,
+        2,
+        4096,
+        1793792034122565311,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicGeometry/EllipticCurve/Jacobian",
+      "metadata": [
+        16877,
+        27,
+        534334,
+        2,
+        4096,
+        1793792034321032743,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicGeometry/EllipticCurve/Projective",
+      "metadata": [
+        16877,
+        27,
+        534518,
+        2,
+        4096,
+        1793792034581722604,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicGeometry/Geometrically",
+      "metadata": [
+        16877,
+        27,
+        535555,
+        2,
+        4096,
+        1793792034598173981,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicGeometry/Group",
+      "metadata": [
+        16877,
+        27,
+        535621,
+        2,
+        4096,
+        1793792034633185677,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicGeometry/IdealSheaf",
+      "metadata": [
+        16877,
+        27,
+        534967,
+        2,
+        4096,
+        1793792034735470131,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicGeometry/Modules",
+      "metadata": [
+        16877,
+        27,
+        535020,
+        2,
+        4096,
+        1793792034850292788,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicGeometry/Morphisms",
+      "metadata": [
+        16877,
+        27,
+        533838,
+        2,
+        24576,
+        1793792035269482460,
+        1793792399342972505,
+        48
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicGeometry/ProjectiveSpectrum",
+      "metadata": [
+        16877,
+        27,
+        534821,
+        2,
+        4096,
+        1793792035612170558,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicGeometry/Sites",
+      "metadata": [
+        16877,
+        27,
+        534612,
+        2,
+        12288,
+        1793792035738791313,
+        1793792399342972505,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology",
+      "metadata": [
+        16877,
+        27,
+        670313,
+        14,
+        4096,
+        1793792035856029800,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/DoldKan",
+      "metadata": [
+        16877,
+        27,
+        670328,
+        2,
+        16384,
+        1793792036007729122,
+        1793792399342972505,
+        32
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/FundamentalGroupoid",
+      "metadata": [
+        16877,
+        27,
+        672420,
+        2,
+        4096,
+        1793792036053611241,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/ModelCategory",
+      "metadata": [
+        16877,
+        27,
+        670576,
+        2,
+        20480,
+        1793792036206119598,
+        1793792399342972505,
+        40
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/Quasicategory",
+      "metadata": [
+        16877,
+        27,
+        670867,
+        2,
+        4096,
+        1793792036234217285,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/Reedy",
+      "metadata": [
+        16877,
+        27,
+        670314,
+        2,
+        4096,
+        1793792036248075049,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/RelativeCellComplex",
+      "metadata": [
+        16877,
+        27,
+        670959,
+        2,
+        4096,
+        1793792036277455740,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/SimplexCategory",
+      "metadata": [
+        16877,
+        27,
+        672021,
+        4,
+        4096,
+        1793792036370327019,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/SimplexCategory/Augmented",
+      "metadata": [
+        16877,
+        27,
+        672166,
+        2,
+        4096,
+        1793792036399869469,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/SimplexCategory/GeneratorsRelations",
+      "metadata": [
+        16877,
+        27,
+        672126,
+        2,
+        4096,
+        1793792036467106032,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/SimplicialCategory",
+      "metadata": [
+        16877,
+        27,
+        670986,
+        2,
+        4096,
+        1793792036470509967,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/SimplicialComplex",
+      "metadata": [
+        16877,
+        27,
+        672193,
+        2,
+        4096,
+        1793792036477696819,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/SimplicialObject",
+      "metadata": [
+        16877,
+        27,
+        672207,
+        2,
+        4096,
+        1793792036589988373,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/SimplicialSet",
+      "metadata": [
+        16877,
+        27,
+        671013,
+        6,
+        36864,
+        1793792037148339197,
+        1793792399342972505,
+        72
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/SimplicialSet/AnodyneExtensions",
+      "metadata": [
+        16877,
+        27,
+        671027,
+        3,
+        4096,
+        1793792037271411680,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/SimplicialSet/AnodyneExtensions/Inner",
+      "metadata": [
+        16877,
+        27,
+        671158,
+        2,
+        4096,
+        1793792037283625499,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/SimplicialSet/FundamentalGroupoid",
+      "metadata": [
+        16877,
+        27,
+        671198,
+        2,
+        4096,
+        1793792037301238600,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/SimplicialSet/Homology",
+      "metadata": [
+        16877,
+        27,
+        671862,
+        2,
+        4096,
+        1793792037341283038,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/SimplicialSet/KanComplex",
+      "metadata": [
+        16877,
+        27,
+        671941,
+        2,
+        4096,
+        1793792037352800372,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/AlgebraicTopology/SingularHomology",
+      "metadata": [
+        16877,
+        27,
+        671968,
+        2,
+        4096,
+        1793792037403804527,
+        1793792399342972505,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis",
+      "metadata": [
+        16877,
+        27,
+        676947,
+        27,
+        16384,
+        1793792037647270382,
+        1793792399342972505,
+        32
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/AbsoluteValue",
+      "metadata": [
+        16877,
+        27,
+        687606,
+        2,
+        4096,
+        1793792037673842025,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Analytic",
+      "metadata": [
+        16877,
+        27,
+        676948,
+        2,
+        12288,
+        1793792038120859405,
+        1793792399346972581,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/AperiodicOrder/Delone",
+      "metadata": [
+        16877,
+        27,
+        687621,
+        2,
+        4096,
+        1793792038132214996,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Asymptotics",
+      "metadata": [
+        16877,
+        27,
+        682504,
+        2,
+        12288,
+        1793792038336602840,
+        1793792399346972581,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/BoxIntegral",
+      "metadata": [
+        16877,
+        27,
+        687145,
+        4,
+        4096,
+        1793792038428840497,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/BoxIntegral/Box",
+      "metadata": [
+        16877,
+        27,
+        687290,
+        2,
+        4096,
+        1793792038449132803,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/BoxIntegral/Partition",
+      "metadata": [
+        16877,
+        27,
+        687159,
+        2,
+        4096,
+        1793792038519611563,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/CStarAlgebra",
+      "metadata": [
+        16877,
+        27,
+        678170,
+        7,
+        20480,
+        1793792038824659339,
+        1793792399346972581,
+        40
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/CStarAlgebra/Commutative",
+      "metadata": [
+        16877,
+        27,
+        678790,
+        2,
+        4096,
+        1793792038835153579,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/CStarAlgebra/ContinuousFunctionalCalculus",
+      "metadata": [
+        16877,
+        27,
+        678171,
+        2,
+        12288,
+        1793792039188716146,
+        1793792399346972581,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/CStarAlgebra/Module",
+      "metadata": [
+        16877,
+        27,
+        678696,
+        2,
+        4096,
+        1793792039228843014,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/CStarAlgebra/SpecialFunctions",
+      "metadata": [
+        16877,
+        27,
+        678736,
+        2,
+        4096,
+        1793792039237806496,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/CStarAlgebra/Unitary",
+      "metadata": [
+        16877,
+        27,
+        678750,
+        2,
+        4096,
+        1793792039265074395,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Calculus",
+      "metadata": [
+        16877,
+        27,
+        683734,
+        17,
+        20480,
+        1793792039542474444,
+        1793792399346972581,
+        40
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Calculus/AddTorsor",
+      "metadata": [
+        16877,
+        27,
+        685417,
+        2,
+        4096,
+        1793792039546959539,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Calculus/BumpFunction",
+      "metadata": [
+        16877,
+        27,
+        684049,
+        2,
+        4096,
+        1793792039592809801,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Calculus/Conformal",
+      "metadata": [
+        16877,
+        27,
+        685390,
+        2,
+        4096,
+        1793792039597047654,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Calculus/ContDiff",
+      "metadata": [
+        16877,
+        27,
+        684980,
+        2,
+        12288,
+        1793792039994634378,
+        1793792399346972581,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Calculus/ContDiffHolder",
+      "metadata": [
+        16877,
+        27,
+        685335,
+        2,
+        4096,
+        1793792040004303924,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Calculus/Deriv",
+      "metadata": [
+        16877,
+        27,
+        683735,
+        2,
+        12288,
+        1793792040169633783,
+        1793792399346972581,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Calculus/DifferentialForm",
+      "metadata": [
+        16877,
+        27,
+        685308,
+        2,
+        4096,
+        1793792040190923003,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Calculus/FDeriv",
+      "metadata": [
+        16877,
+        27,
+        684128,
+        2,
+        20480,
+        1793792040629784230,
+        1793792399346972581,
+        40
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Calculus/Gradient",
+      "metadata": [
+        16877,
+        27,
+        685376,
+        2,
+        4096,
+        1793792040642667285,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Calculus/ImplicitFunction",
+      "metadata": [
+        16877,
+        27,
+        685349,
+        2,
+        4096,
+        1793792040654597271,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Calculus/InverseFunctionTheorem",
+      "metadata": [
+        16877,
+        27,
+        684796,
+        2,
+        4096,
+        1793792040686458785,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Calculus/IteratedDeriv",
+      "metadata": [
+        16877,
+        27,
+        685176,
+        2,
+        4096,
+        1793792040745443204,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Calculus/LineDeriv",
+      "metadata": [
+        16877,
+        27,
+        685255,
+        2,
+        4096,
+        1793792040774605681,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Calculus/LocalExtr",
+      "metadata": [
+        16877,
+        27,
+        683996,
+        2,
+        4096,
+        1793792040785442524,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Calculus/TangentCone",
+      "metadata": [
+        16877,
+        27,
+        684875,
+        2,
+        4096,
+        1793792040817122924,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Complex",
+      "metadata": [
+        16877,
+        27,
+        677196,
+        7,
+        36864,
+        1793792041248059893,
+        1793792399346972581,
+        72
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Complex/Harmonic",
+      "metadata": [
+        16877,
+        27,
+        677262,
+        2,
+        4096,
+        1793792041263742480,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Complex/Polynomial",
+      "metadata": [
+        16877,
+        27,
+        678116,
+        2,
+        4096,
+        1793792041277058819,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Complex/UnitDisc",
+      "metadata": [
+        16877,
+        27,
+        678156,
+        2,
+        4096,
+        1793792041286237595,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Complex/UpperHalfPlane",
+      "metadata": [
+        16877,
+        27,
+        677865,
+        2,
+        4096,
+        1793792041386458911,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Complex/ValueDistribution",
+      "metadata": [
+        16877,
+        27,
+        677996,
+        4,
+        4096,
+        1793792041413848368,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Complex/ValueDistribution/LogCounting",
+      "metadata": [
+        16877,
+        27,
+        677997,
+        2,
+        4096,
+        1793792041443668673,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Complex/ValueDistribution/Proximity",
+      "metadata": [
+        16877,
+        27,
+        678089,
+        2,
+        4096,
+        1793792041463896537,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Convex",
+      "metadata": [
+        16877,
+        27,
+        682687,
+        6,
+        36864,
+        1793792042215976005,
+        1793792399346972581,
+        72
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Convex/Cone",
+      "metadata": [
+        16877,
+        27,
+        683390,
+        2,
+        4096,
+        1793792042258961412,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Convex/SimplicialComplex",
+      "metadata": [
+        16877,
+        27,
+        683523,
+        2,
+        4096,
+        1793792042272185970,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Convex/SpecificFunctions",
+      "metadata": [
+        16877,
+        27,
+        683469,
+        2,
+        4096,
+        1793792042292057904,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Convex/Strict",
+      "metadata": [
+        16877,
+        27,
+        683509,
+        2,
+        4096,
+        1793792042296161113,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Distribution",
+      "metadata": [
+        16877,
+        27,
+        686544,
+        3,
+        12288,
+        1793792042547959807,
+        1793792399346972581,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Distribution/SchwartzSpace",
+      "metadata": [
+        16877,
+        27,
+        686675,
+        2,
+        4096,
+        1793792042673885869,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Fourier",
+      "metadata": [
+        16877,
+        27,
+        683550,
+        3,
+        12288,
+        1793792043011573133,
+        1793792399346972581,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Fourier/FiniteAbelian",
+      "metadata": [
+        16877,
+        27,
+        683707,
+        2,
+        4096,
+        1793792043022253382,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/FunctionalSpaces",
+      "metadata": [
+        16877,
+        27,
+        687649,
+        2,
+        4096,
+        1793792043080280338,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/InnerProductSpace",
+      "metadata": [
+        16877,
+        27,
+        685444,
+        5,
+        36864,
+        1793792043992613396,
+        1793792399346972581,
+        72
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/InnerProductSpace/Harmonic",
+      "metadata": [
+        16877,
+        27,
+        685445,
+        2,
+        4096,
+        1793792044008437665,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/InnerProductSpace/Projection",
+      "metadata": [
+        16877,
+        27,
+        685511,
+        2,
+        4096,
+        1793792044099056461,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/InnerProductSpace/Reproducing",
+      "metadata": [
+        16877,
+        27,
+        686149,
+        2,
+        4096,
+        1793792044112770667,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/LocallyConvex",
+      "metadata": [
+        16877,
+        27,
+        686910,
+        2,
+        12288,
+        1793792044396314964,
+        1793792399346972581,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Matrix",
+      "metadata": [
+        16877,
+        27,
+        687501,
+        2,
+        4096,
+        1793792044585910162,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Meromorphic",
+      "metadata": [
+        16877,
+        27,
+        686413,
+        2,
+        4096,
+        1793792044734847984,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed",
+      "metadata": [
+        16877,
+        27,
+        680214,
+        12,
+        4096,
+        1793792044740627426,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Affine",
+      "metadata": [
+        16877,
+        27,
+        682163,
+        2,
+        4096,
+        1793792044849016731,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Algebra",
+      "metadata": [
+        16877,
+        27,
+        681993,
+        2,
+        12288,
+        1793792044998647078,
+        1793792399346972581,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Field",
+      "metadata": [
+        16877,
+        27,
+        681031,
+        2,
+        4096,
+        1793792045078290710,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Group",
+      "metadata": [
+        16877,
+        27,
+        680544,
+        3,
+        20480,
+        1793792045439072920,
+        1793792399346972581,
+        40
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Group/SemiNormedGrp",
+      "metadata": [
+        16877,
+        27,
+        681004,
+        2,
+        4096,
+        1793792045448506499,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Lp",
+      "metadata": [
+        16877,
+        27,
+        682281,
+        2,
+        4096,
+        1793792045625712470,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Module",
+      "metadata": [
+        16877,
+        27,
+        681229,
+        8,
+        12288,
+        1793792045833111637,
+        1793792399346972581,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Module/Alternating",
+      "metadata": [
+        16877,
+        27,
+        681650,
+        3,
+        4096,
+        1793792045876132463,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Module/Alternating/Uncurry",
+      "metadata": [
+        16877,
+        27,
+        681677,
+        2,
+        4096,
+        1793792045896575264,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Module/Ball",
+      "metadata": [
+        16877,
+        27,
+        681570,
+        2,
+        4096,
+        1793792045930445648,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Module/Multilinear",
+      "metadata": [
+        16877,
+        27,
+        681691,
+        2,
+        4096,
+        1793792046034223392,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Module/PiTensorProduct",
+      "metadata": [
+        16877,
+        27,
+        681543,
+        2,
+        4096,
+        1793792046077820993,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Module/RCLike",
+      "metadata": [
+        16877,
+        27,
+        681503,
+        2,
+        4096,
+        1793792046093673188,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Module/Seminorm",
+      "metadata": [
+        16877,
+        27,
+        681623,
+        2,
+        4096,
+        1793792046136600559,
+        1793792399346972581,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Operator",
+      "metadata": [
+        16877,
+        27,
+        680215,
+        5,
+        12288,
+        1793792046481697985,
+        1793792399346972581,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Operator/Compact",
+      "metadata": [
+        16877,
+        27,
+        680477,
+        2,
+        4096,
+        1793792046517978665,
+        1793792386082718179,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Operator/Fredholm",
+      "metadata": [
+        16877,
+        27,
+        680517,
+        2,
+        4096,
+        1793792046557037084,
+        1793792386082718179,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Operator/Perturbation",
+      "metadata": [
+        16877,
+        27,
+        680463,
+        2,
+        4096,
+        1793792046575267782,
+        1793792386082718179,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Order",
+      "metadata": [
+        16877,
+        27,
+        681175,
+        3,
+        4096,
+        1793792046585163323,
+        1793792386082718179,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Order/Hom",
+      "metadata": [
+        16877,
+        27,
+        681202,
+        2,
+        4096,
+        1793792046593290963,
+        1793792386082718179,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Ring",
+      "metadata": [
+        16877,
+        27,
+        681731,
+        2,
+        4096,
+        1793792046701183413,
+        1793792386082718179,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Normed/Unbundled",
+      "metadata": [
+        16877,
+        27,
+        681862,
+        2,
+        12288,
+        1793792046787045940,
+        1793792386082718179,
+        24
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/ODE",
+      "metadata": [
+        16877,
+        27,
+        686334,
+        2,
+        4096,
+        1793791717184113575,
+        1793792045000174275,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Polynomial",
+      "metadata": [
+        16877,
+        27,
+        682412,
+        2,
+        4096,
+        1793791717225806255,
+        1793792045000174275,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/RCLike",
+      "metadata": [
+        16877,
+        27,
+        687396,
+        2,
+        4096,
+        1793791717341685871,
+        1793792045000174275,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Rat/NatSqrt",
+      "metadata": [
+        16877,
+        27,
+        687677,
+        2,
+        4096,
+        1793791717344596660,
+        1793792045000174275,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Real",
+      "metadata": [
+        16877,
+        27,
+        686163,
+        3,
+        4096,
+        1793791717397087129,
+        1793792045000174275,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/Real/Pi",
+      "metadata": [
+        16877,
+        27,
+        686177,
+        2,
+        4096,
+        1793791717457018405,
+        1793792045000174275,
+        8
+      ]
+    },
+    {
+      "kind": "directory",
+      "path": "lib/lean/Mathlib/Analysis/SpecialFunctions",
+      "metadata": [
+        16877,
+        27,
+        678804,
+        12,
+        20480,
+        1793791717705156818,
+        1793792045000174275,
+        40
+      ]
+    }
+  ],
+  "latest20_entry_metadata": [
+    {
+      "path": "lib/lean/Mathlib/Topology/Algebra/Module/Equiv/Pi.olean.private.hash",
+      "metadata": [
+        33152,
+        27,
+        425412,
+        1,
+        16,
+        1793771539022434989,
+        1793771539022434989,
+        8
+      ]
+    },
+    {
+      "path": "lib/lean/Mathlib/Data/List/Find.olean.private.hash",
+      "metadata": [
+        33152,
+        27,
+        663696,
+        1,
+        16,
+        1793765213290897883,
+        1793765213290897883,
+        8
+      ]
+    },
+    {
+      "path": "ir/Mathlib.c.hash",
+      "metadata": [
+        33152,
+        27,
+        818304,
+        1,
+        16,
+        1793763930933900503,
+        1793764720435846227,
+        8
+      ]
+    },
+    {
+      "path": "ir/Mathlib.c",
+      "metadata": [
+        33152,
+        27,
+        818303,
+        1,
+        4600748,
+        1793763930933900503,
+        1793764720433653690,
+        8992
+      ]
+    },
+    {
+      "path": "ir/Mathlib/Testing/Plausible/Testable.c.hash",
+      "metadata": [
+        33152,
+        27,
+        935136,
+        1,
+        16,
+        1793764201759086664,
+        1793764720432800493,
+        8
+      ]
+    },
+    {
+      "path": "ir/Mathlib/Testing/Plausible/Testable.c",
+      "metadata": [
+        33152,
+        27,
+        935135,
+        1,
+        9875,
+        1793764201759086664,
+        1793764720432621984,
+        24
+      ]
+    },
+    {
+      "path": "ir/Mathlib/Testing/Plausible/Sampleable.c.hash",
+      "metadata": [
+        33152,
+        27,
+        935134,
+        1,
+        16,
+        1793763984959232955,
+        1793764720432326858,
+        8
+      ]
+    },
+    {
+      "path": "ir/Mathlib/Testing/Plausible/Sampleable.c",
+      "metadata": [
+        33152,
+        27,
+        935133,
+        1,
+        47213,
+        1793763984959232955,
+        1793764720431832973,
+        96
+      ]
+    },
+    {
+      "path": "ir/Mathlib/Testing/Plausible/Functions.c.hash",
+      "metadata": [
+        33152,
+        27,
+        935132,
+        1,
+        16,
+        1793763969190643493,
+        1793764720431600373,
+        8
+      ]
+    },
+    {
+      "path": "ir/Mathlib/Testing/Plausible/Functions.c",
+      "metadata": [
+        33152,
+        27,
+        935131,
+        1,
+        95083,
+        1793763969186643408,
+        1793764720431344707,
+        192
+      ]
+    },
+    {
+      "path": "ir/Mathlib/Deprecated/Aliases.c.hash",
+      "metadata": [
+        33152,
+        27,
+        935128,
+        1,
+        16,
+        1793763934657972182,
+        1793764720430574505,
+        8
+      ]
+    },
+    {
+      "path": "ir/Mathlib/Deprecated/Aliases.c",
+      "metadata": [
+        33152,
+        27,
+        935127,
+        1,
+        2748,
+        1793763934653972105,
+        1793764720430185048,
+        8
+      ]
+    },
+    {
+      "path": "ir/Mathlib/Init.c.hash",
+      "metadata": [
+        33152,
+        27,
+        818302,
+        1,
+        16,
+        1793764181402698279,
+        1793764720430104256,
+        8
+      ]
+    },
+    {
+      "path": "ir/Mathlib/Init.c",
+      "metadata": [
+        33152,
+        27,
+        818301,
+        1,
+        29357,
+        1793764181398698203,
+        1793764720429948261,
+        64
+      ]
+    },
+    {
+      "path": "ir/Mathlib/Tactic.c.hash",
+      "metadata": [
+        33152,
+        27,
+        818300,
+        1,
+        16,
+        1793763932833937085,
+        1793764720429762981,
+        8
+      ]
+    },
+    {
+      "path": "ir/Mathlib/Tactic.c",
+      "metadata": [
+        33152,
+        27,
+        818299,
+        1,
+        196700,
+        1793763932833937085,
+        1793764720429516790,
+        392
+      ]
+    },
+    {
+      "path": "ir/Mathlib/Basic/Countable/Defs.c.hash",
+      "metadata": [
+        33152,
+        27,
+        935125,
+        1,
+        16,
+        1793764203887127285,
+        1793764720429187203,
+        8
+      ]
+    },
+    {
+      "path": "ir/Mathlib/Basic/Countable/Defs.c",
+      "metadata": [
+        33152,
+        27,
+        935124,
+        1,
+        3772,
+        1793764203883127209,
+        1793764720429014903,
+        8
+      ]
+    },
+    {
+      "path": "ir/Mathlib/Basic/Countable/Basic.c.hash",
+      "metadata": [
+        33152,
+        27,
+        935123,
+        1,
+        16,
+        1793764162018327723,
+        1793764720428845277,
+        8
+      ]
+    },
+    {
+      "path": "ir/Mathlib/Basic/Countable/Basic.c",
+      "metadata": [
+        33152,
+        27,
+        935122,
+        1,
+        4226,
+        1793764162018327723,
+        1793764720428683954,
+        16
+      ]
+    }
+  ],
+  "sampled_F_central_root_and_leaf_separation": [
+    {
+      "central": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib",
+        "kind": 16384,
+        "dev": 27,
+        "ino": 396805,
+        "nlink": 18,
+        "size": 4096,
+        "is_symlink": false,
+        "resolved_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib"
+      },
+      "foundation": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib",
+        "kind": 16384,
+        "dev": 27,
+        "ino": 3148675,
+        "nlink": 18,
+        "size": 4096,
+        "is_symlink": false,
+        "resolved_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib"
+      }
+    },
+    {
+      "central": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/.lake",
+        "kind": 16384,
+        "dev": 27,
+        "ino": 411226,
+        "nlink": 3,
+        "size": 4096,
+        "is_symlink": false,
+        "resolved_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/.lake"
+      },
+      "foundation": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake",
+        "kind": 16384,
+        "dev": 27,
+        "ino": 3164387,
+        "nlink": 3,
+        "size": 4096,
+        "is_symlink": false,
+        "resolved_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake"
+      }
+    },
+    {
+      "central": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/.lake/build",
+        "kind": 16384,
+        "dev": 27,
+        "ino": 411227,
+        "nlink": 4,
+        "size": 4096,
+        "is_symlink": false,
+        "resolved_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/.lake/build"
+      },
+      "foundation": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build",
+        "kind": 16384,
+        "dev": 27,
+        "ino": 3164394,
+        "nlink": 4,
+        "size": 4096,
+        "is_symlink": false,
+        "resolved_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build"
+      }
+    },
+    {
+      "central": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Log.olean",
+        "kind": 32768,
+        "dev": 27,
+        "ino": 662540,
+        "nlink": 1,
+        "size": 164848,
+        "is_symlink": false,
+        "resolved_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Log.olean"
+      },
+      "foundation": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Log.olean",
+        "kind": 32768,
+        "dev": 27,
+        "ino": 3251573,
+        "nlink": 1,
+        "size": 164848,
+        "is_symlink": false,
+        "resolved_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Log.olean"
+      }
+    },
+    {
+      "central": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build",
+        "kind": 16384,
+        "dev": 27,
+        "ino": 1448738,
+        "nlink": 4,
+        "size": 4096,
+        "is_symlink": false,
+        "resolved_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-top-down/.lake/build"
+      },
+      "foundation": {
+        "path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/build",
+        "kind": 16384,
+        "dev": 27,
+        "ino": 943030,
+        "nlink": 4,
+        "size": 4096,
+        "is_symlink": false,
+        "resolved_path": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch01-review/.lake/build"
+      }
+    }
+  ],
+  "mutation_performed": false
+}

@@ -1,0 +1,320 @@
+{
+  "started_utc": "2026-11-02T09:58:31.820144+00:00",
+  "finished_utc": "2026-11-02T09:59:11.820301+00:00",
+  "sampling_elapsed_seconds": 40.00016758900165,
+  "authorized_max_seconds": 45,
+  "chosen_sampling_seconds": 40,
+  "poll_pause_seconds": 0.2,
+  "cycles": 192,
+  "task_root": "/workspace/scratch/0c54f2db1fdf",
+  "primary_recorded_candidate": "39c3e2fd0c3a7b39e56373d453a1a17382bc3749",
+  "primary_recorded_group": 232108,
+  "self_pid_excluded": 261563,
+  "policy": {
+    "no_process_environments_read": true,
+    "argv_only_after_current_task_fd_recheck": true,
+    "outside_task_paths_redacted_and_not_followed": true,
+    "no_signals_compilers_or_cache_changes": true,
+    "single_bounded_capture": true,
+    "argv_capture_selection": "Known copy/sync program names, or non-primary holders with write/read-write task descriptors; other read-only holders were not queried for argv."
+  },
+  "observed_task_holders": [
+    {
+      "pid": 232102,
+      "start_ticks": "4162503",
+      "comm": "python3",
+      "process_group": 232099,
+      "primary_task_group": false,
+      "first_seen_utc": "2026-11-02T09:58:31.821596+00:00",
+      "last_seen_utc": "2026-11-02T09:59:11.757275+00:00",
+      "sample_count": 192,
+      "fd_samples": [
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-39c3e2f.log",
+          "deleted": false,
+          "flags_octal": "02100001",
+          "mode": "write",
+          "scope": "task-work-state"
+        }
+      ],
+      "additional_distinct_fd_samples_omitted": 0,
+      "argv_observation": {
+        "observed_utc": "2026-11-02T09:58:31.821703+00:00",
+        "eligibility_current_fd": {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-39c3e2f.log"
+        },
+        "argv_sha256": "dabd6f4a2cfee08c5877406e98def5aa1dcddf25193f79ace5b87f1e530e3f66",
+        "executable_basename": "python3",
+        "arguments": [
+          "-u",
+          "-"
+        ],
+        "cwd": "/workspace/scratch/0c54f2db1fdf",
+        "rsync_server_role": null,
+        "task_path_arguments": [],
+        "direction_limit": "Only literal argv and current fd modes are observed; remote endpoints or outside-task paths are redacted and not inspected."
+      }
+    },
+    {
+      "pid": 232108,
+      "start_ticks": "4162513",
+      "comm": "python3",
+      "process_group": 232108,
+      "primary_task_group": true,
+      "first_seen_utc": "2026-11-02T09:58:31.821931+00:00",
+      "last_seen_utc": "2026-11-02T09:59:11.757473+00:00",
+      "sample_count": 192,
+      "fd_samples": [
+        {
+          "fd": "1",
+          "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-39c3e2f.log",
+          "deleted": false,
+          "flags_octal": "0100001",
+          "mode": "write",
+          "scope": "task-work-state"
+        }
+      ],
+      "additional_distinct_fd_samples_omitted": 0
+    },
+    {
+      "pid": 232276,
+      "start_ticks": "4164095",
+      "comm": "lake.orig",
+      "process_group": 232108,
+      "primary_task_group": true,
+      "first_seen_utc": "2026-11-02T09:58:31.822195+00:00",
+      "last_seen_utc": "2026-11-02T09:59:11.757677+00:00",
+      "sample_count": 192,
+      "fd_samples": [
+        {
+          "fd": "1",
+          "path": "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-39c3e2f.log",
+          "deleted": false,
+          "flags_octal": "0100001",
+          "mode": "write",
+          "scope": "task-work-state"
+        }
+      ],
+      "additional_distinct_fd_samples_omitted": 0
+    },
+    {
+      "pid": 261763,
+      "start_ticks": "4745664",
+      "comm": "python",
+      "process_group": 261760,
+      "primary_task_group": false,
+      "first_seen_utc": "2026-11-02T09:58:55.181029+00:00",
+      "last_seen_utc": "2026-11-02T09:58:58.973702+00:00",
+      "sample_count": 18,
+      "fd_samples": [
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/Applications/Search/Ordered",
+          "deleted": false,
+          "flags_octal": "02304000",
+          "mode": "read",
+          "scope": "main-checkout"
+        },
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.vscode",
+          "deleted": false,
+          "flags_octal": "02304000",
+          "mode": "read",
+          "scope": "main-checkout"
+        },
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/Mathlib/Algebra/BigOperators/Group",
+          "deleted": false,
+          "flags_octal": "02304000",
+          "mode": "read",
+          "scope": "main-checkout"
+        },
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/Mathlib/Tactic/Simps",
+          "deleted": false,
+          "flags_octal": "02304000",
+          "mode": "read",
+          "scope": "main-checkout"
+        },
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/Mathlib/Control/Traversable",
+          "deleted": false,
+          "flags_octal": "02304000",
+          "mode": "read",
+          "scope": "main-checkout"
+        },
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/Mathlib/MeasureTheory/MeasurableSpace",
+          "deleted": false,
+          "flags_octal": "02304000",
+          "mode": "read",
+          "scope": "main-checkout"
+        },
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build/ir/Mathlib/AlgebraicGeometry/Birational",
+          "deleted": false,
+          "flags_octal": "02304000",
+          "mode": "read",
+          "scope": "main-mathlib-generated-cache"
+        },
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build/ir/Mathlib/Geometry/Manifold/ContMDiff",
+          "deleted": false,
+          "flags_octal": "02304000",
+          "mode": "read",
+          "scope": "main-mathlib-generated-cache"
+        },
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Polynomial",
+          "deleted": false,
+          "flags_octal": "02304000",
+          "mode": "read",
+          "scope": "main-mathlib-generated-cache"
+        },
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions",
+          "deleted": false,
+          "flags_octal": "02304000",
+          "mode": "read",
+          "scope": "main-mathlib-generated-cache"
+        },
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/AlgebraicGeometry/EllipticCurve/Affine",
+          "deleted": false,
+          "flags_octal": "02304000",
+          "mode": "read",
+          "scope": "main-mathlib-generated-cache"
+        },
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/FormalGroup",
+          "deleted": false,
+          "flags_octal": "02304000",
+          "mode": "read",
+          "scope": "main-mathlib-generated-cache"
+        },
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Limits/Shapes/NormalMono",
+          "deleted": false,
+          "flags_octal": "02304000",
+          "mode": "read",
+          "scope": "main-mathlib-generated-cache"
+        },
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Sym/Sym2",
+          "deleted": false,
+          "flags_octal": "02304000",
+          "mode": "read",
+          "scope": "main-mathlib-generated-cache"
+        },
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/batteries/.git/info",
+          "deleted": false,
+          "flags_octal": "02304000",
+          "mode": "read",
+          "scope": "main-checkout"
+        },
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/Applications/FRP/TemporalPayload.lean",
+          "deleted": false,
+          "flags_octal": "02100000",
+          "mode": "read",
+          "scope": "main-checkout"
+        },
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/Examples/SheafImage.lean",
+          "deleted": false,
+          "flags_octal": "02100000",
+          "mode": "read",
+          "scope": "main-checkout"
+        },
+        {
+          "fd": "3",
+          "path": "/workspace/scratch/0c54f2db1fdf/conaled/SquareKit/RelationalCategory.lean",
+          "deleted": false,
+          "flags_octal": "02100000",
+          "mode": "read",
+          "scope": "main-checkout"
+        }
+      ],
+      "additional_distinct_fd_samples_omitted": 0
+    }
+  ],
+  "permission_skips": 0,
+  "process_or_fd_race_skips": 17,
+  "markers_before": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build",
+      "exists": true,
+      "device": 27,
+      "inode": 3278033,
+      "size": 4096,
+      "mtime_ns": 1793609449478482190,
+      "ctime_ns": 1793609554925900668
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-000-bootstrap.tar.gz",
+      "exists": true,
+      "device": 27,
+      "inode": 2399921,
+      "size": 142659672,
+      "mtime_ns": 1793586022140343950,
+      "ctime_ns": 1793609049154806562
+    }
+  ],
+  "markers_after": [
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/conaled/.lake/packages/mathlib/.lake/build",
+      "exists": true,
+      "device": 27,
+      "inode": 3278033,
+      "size": 4096,
+      "mtime_ns": 1793609449478482190,
+      "ctime_ns": 1793609554925900668
+    },
+    {
+      "path": "/workspace/scratch/0c54f2db1fdf/checkpoints/conaled-vfa-checkpoint-000-bootstrap.tar.gz",
+      "exists": true,
+      "device": 27,
+      "inode": 2399921,
+      "size": 142659672,
+      "mtime_ns": 1793586022140343950,
+      "ctime_ns": 1793609049154806562
+    }
+  ],
+  "limits": [
+    "Sampling can miss short-lived writers or writes occurring between samples.",
+    "A read-mode fd or rsync sender establishes a reader, not the writer that recreated a path.",
+    "A write-mode fd establishes an open writable handle, not by itself a completed write or recreation.",
+    "A negative observation does not prove absence of writers or exclusion of the active candidate.",
+    "No outside-task file, workspace, process environment, or remote endpoint was inspected.",
+    "Unchanged top-level directory metadata is not a subtree content-stability check; descendant writes can leave it unchanged."
+  ],
+  "interpretation": {
+    "recreating_writer_identified": false,
+    "transfer_source_destination_identified": false,
+    "observed_writable_handle_paths": [
+      "/workspace/scratch/0c54f2db1fdf/work-state/validation/1002-candidate-39c3e2f.log"
+    ],
+    "rsync_holder_observed": false,
+    "top_level_marker_metadata_unchanged": true,
+    "readonly_python_holder_argv_not_captured": 261763
+  }
+}

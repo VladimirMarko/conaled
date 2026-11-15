@@ -1,0 +1,63 @@
+{
+  "recorded_utc": "2026-11-03T14:31:52.994430+00:00",
+  "toolchain_root": "/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux",
+  "environment": {
+    "LEAN_SYSROOT": "/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux",
+    "LEAN_NUM_THREADS": "1",
+    "LD_LIBRARY_PATH": "/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/lib/lean:/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/lib",
+    "TMPDIR": "/workspace/scratch/6bb268f9336f/bootstrap/tmp"
+  },
+  "PATH_first": "/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/lean-4.35.0-linux/bin",
+  "LEAN_override": null,
+  "LEAN_GITHASH_override": null,
+  "results": [
+    {
+      "command": [
+        "lean",
+        "--version"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "error: failed to locate application\n"
+    },
+    {
+      "command": [
+        "lean",
+        "--githash"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "error: failed to locate application\n"
+    },
+    {
+      "command": [
+        "lean",
+        "--print-prefix"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "error: failed to locate application\n"
+    },
+    {
+      "command": [
+        "lake",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "lean",
+        "-o",
+        "/workspace/scratch/6bb268f9336f/bootstrap/direct-lean/smoke/ToolchainSmoke.olean",
+        "ToolchainSmoke.lean"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "error: failed to locate application\n"
+    }
+  ],
+  "all_pass": false
+}

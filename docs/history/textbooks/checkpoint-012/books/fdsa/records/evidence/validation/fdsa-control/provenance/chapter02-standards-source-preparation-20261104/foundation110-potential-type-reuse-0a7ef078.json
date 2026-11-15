@@ -1,0 +1,3445 @@
+{
+  "recorded_utc": "2026-11-04T09:31:34.971717+00:00",
+  "reviewer": "/root/chapter02_standards",
+  "status": "POTENTIAL REUSE PREPARATION ONLY; ZERO ACTUAL OUTPUTS CREDITED; ALL GATES BLOCKED",
+  "finding": "C02-TYPE-001 remains Open",
+  "foundation_candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "chapter2_candidate": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+  "accepted_review_base": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "full_source_scope_binding": {
+    "previous_candidate": "6b95185ac51bcb21ab5b7b3ed4fe309bda55855a",
+    "successor": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+    "integration_receipt": {
+      "path": "provenance/chapter02-focused8-correction-integration-20261104/result.json",
+      "bytes": 4594,
+      "lines": 106,
+      "sha256": "b3102ded9b166de0c53775a21966982e9b0857eb30289254928f86396f8aa555"
+    },
+    "scope_receipt": {
+      "path": "provenance/chapter02-review-scope-20261104/successor-0a7ef078.json",
+      "bytes": 19496,
+      "lines": 498,
+      "sha256": "416c035d451d1736f0cba6ecaf6ab84200980324c42bd0242d384378b9092cca"
+    },
+    "original_full_scope_count": 81,
+    "original_full_scope_paths": [
+      "Applications/Probability/PermutationMinimum.lean",
+      "Applications/Probability/PermutationOrder.lean",
+      "Applications/Probability/PermutationTail.lean",
+      "Applications/Resources/BottomUpSorting.lean",
+      "Applications/Resources/DifferenceListCosts.lean",
+      "Applications/Resources/Growth.lean",
+      "Applications/Resources/InsertionSort.lean",
+      "Applications/Resources/ListBuildCosts.lean",
+      "Applications/Resources/ListCalls.lean",
+      "Applications/Resources/ListMerge.lean",
+      "Applications/Resources/NaturalRunComparisons.lean",
+      "Applications/Resources/NaturalRunOperations.lean",
+      "Applications/Resources/NaturalSorting.lean",
+      "Applications/Resources/Partition.lean",
+      "Applications/Resources/QuickSort.lean",
+      "Applications/Resources/QuickSortMean.lean",
+      "Applications/Resources/QuickSortTransport.lean",
+      "Applications/Resources/RandomQuickSort.lean",
+      "Applications/Resources/RandomQuickSortGrowth.lean",
+      "Applications/Resources/RandomQuickSortMean.lean",
+      "Applications/Resources/RandomQuickSortRank.lean",
+      "Applications/Resources/TopDownSorting.lean",
+      "Applications/Resources/UniformQuickSortMean.lean",
+      "Applications/Selection/ThreeWay.lean",
+      "Applications/Sequences/Partition.lean",
+      "Applications/Sorting/Alternating.lean",
+      "Applications/Sorting/BottomUp.lean",
+      "Applications/Sorting/InsertionObservations.lean",
+      "Applications/Sorting/Merge.lean",
+      "Applications/Sorting/Natural.lean",
+      "Applications/Sorting/NaturalRuns.lean",
+      "Applications/Sorting/QuickSort.lean",
+      "Applications/Sorting/ThreeWayQuickSort.lean",
+      "Applications/Sorting/TopDown.lean",
+      "Applications/Sorting/Uniqueness.lean",
+      "Examples/AlternatingSorting.lean",
+      "Examples/BottomUpCosts.lean",
+      "Examples/BottomUpSorting.lean",
+      "Examples/DifferenceListCosts.lean",
+      "Examples/FunctionalNotation.lean",
+      "Examples/InsertionCosts.lean",
+      "Examples/InsertionObservations.lean",
+      "Examples/ListBuildCosts.lean",
+      "Examples/ListCalls.lean",
+      "Examples/ListLibrary.lean",
+      "Examples/MergeCosts.lean",
+      "Examples/NaturalRunComparisons.lean",
+      "Examples/NaturalRunOperations.lean",
+      "Examples/NaturalRuns.lean",
+      "Examples/NaturalSorting.lean",
+      "Examples/NaturalSortingCosts.lean",
+      "Examples/PermutationMinimum.lean",
+      "Examples/PermutationMinimumBoundary.lean",
+      "Examples/PermutationOrder.lean",
+      "Examples/PermutationOrderBoundary.lean",
+      "Examples/PermutationTail.lean",
+      "Examples/PermutationTailBoundary.lean",
+      "Examples/QuickSort.lean",
+      "Examples/QuickSortCosts.lean",
+      "Examples/QuickSortMean.lean",
+      "Examples/QuickSortTransport.lean",
+      "Examples/RandomQuickSort.lean",
+      "Examples/RandomQuickSortGrowth.lean",
+      "Examples/RandomQuickSortMean.lean",
+      "Examples/RandomQuickSortRank.lean",
+      "Examples/SortUniqueness.lean",
+      "Examples/ThreeWayPartition.lean",
+      "Examples/ThreeWayQuickSort.lean",
+      "Examples/TopDownCosts.lean",
+      "Examples/TopDownSorting.lean",
+      "Examples/UniformQuickSortMean.lean",
+      "SquareApplications.lean",
+      "docs/research/fdsa-difference-list-costs.md",
+      "docs/research/fdsa-list-merge.md",
+      "docs/research/fdsa-notation-map.md",
+      "docs/research/fdsa-permutation-minimum.md",
+      "docs/research/fdsa-permutation-order.md",
+      "docs/research/fdsa-permutation-tail.md",
+      "docs/research/fdsa-reconstruction-map.md",
+      "docs/research/fdsa-sorting.md",
+      "docs/research/fdsa-three-way-partition.md"
+    ],
+    "all112_obligations_and_ten_shared_scopes_retained": true,
+    "only_source_delta": "Examples/PermutationTailBoundary.lean",
+    "exact_reviewed_isolated_commit": "070e3608c439aec23404d23e90de47c6cf835216",
+    "exact_reviewed_source_sha256": "a09f8d39371d63ced20624b71148b72a150727eb96d809094211a4da45336b54",
+    "prior_full_report": {
+      "path": "reviews/chapter02-standards-source-preparation-20261104.md",
+      "bytes": 62182,
+      "lines": 250,
+      "sha256": "9cdcf9294c760cdceb97409bc751ae3b0e52bb8f6bba4a48a9bbf138cf80264f"
+    },
+    "prior_independent_delta_receipt": {
+      "path": "provenance/chapter02-standards-source-preparation-20261104/tail-boundary-repair4-assessment.json",
+      "bytes": 9371,
+      "lines": 239,
+      "sha256": "079a7c0b3f8f5edde18cf362730fc7af64dca9da5ab130035cb9f295acc1c22b"
+    },
+    "all_other_source_bytes_unchanged": true,
+    "source_assessment": "Retain the completed original full R-to-Q assessment plus the independently assessed exact070e Tail delta at this successor; no new mathematical or architecture finding. No complete candidate or final approval inferred.",
+    "arithmetic_probe2": {
+      "result": {
+        "path": "provenance/chapter02-tail-arithmetic-probe-20261104-attempt2/result.json",
+        "bytes": 1303,
+        "lines": 32,
+        "sha256": "f29bcce65258e70d1514349dbc5f49a403288a8f4406b883d509ee99bddec804"
+      },
+      "closed_log": {
+        "path": "provenance/chapter02-tail-arithmetic-probe-20261104-attempt2/full.log",
+        "bytes": 353,
+        "lines": 3,
+        "sha256": "5547bfe8df9db91509d2c7da98d651068e98a916d0d50ec96a81cfe6bed7bb14"
+      },
+      "secured_terminal": {
+        "path": "provenance/chapter02-tail-arithmetic-probe-20261104-attempt2/secured-terminal.json",
+        "bytes": 1396,
+        "lines": 29,
+        "sha256": "c76da6638519488d27865e305b8c8ef251238698a5a95d0a922f961c4ce0edc9"
+      },
+      "native_result": {
+        "path": "provenance/chapter02-tail-arithmetic-probe-20261104-attempt2/native/result.json",
+        "bytes": 708,
+        "lines": 19,
+        "sha256": "e4814e52080e920dad5047d1b9ac342437376d6897a188d83f5c2925124ae7b5"
+      },
+      "program": {
+        "path": "provenance/chapter02-tail-arithmetic-probe-source-20261104/Probe2.lean",
+        "bytes": 1333,
+        "lines": 31,
+        "sha256": "21af8b3745cc8ee80e673a9a2cbba7d98657841dbbf01085177087024d918d7d"
+      },
+      "actual_exit": 0,
+      "scope": "Three ground arithmetic obligations only; no foundation145/current814 type evidence, whole-module result or candidate audit credited."
+    },
+    "focused9": "Coordinator reports a new focused check running; no terminal record read, no process polled, no success inferred."
+  },
+  "input_inventory": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/foundation-public-type-inventory.json",
+    "bytes": 19500,
+    "lines": 418,
+    "sha256": "08b3346e14fe2185596a686eee677d0dca1ef2c9d1d18a282177d084323e3f1c"
+  },
+  "original_public_accounting": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/public-type-accounting.json",
+    "bytes": 1070441,
+    "lines": 28039,
+    "sha256": "a67cdd001115164b268d0c8d2b2a2dc2c6d95d46970a02bb17a324edb146e556"
+  },
+  "completed_closure_inventory": {
+    "path": "provenance/chapter02-standards-source-preparation-20261104/historical-type-dependency-audit-preparation-6b95185.json",
+    "bytes": 207685,
+    "lines": 4016,
+    "sha256": "293e9dfca4b47047e90d727b346ffa4d7139254b4980494f26d645e28ab36687"
+  },
+  "prior_six_root_preflight": {
+    "path": "provenance/foundation-public-types-central-preparation-20261104/blocked-identity.json",
+    "bytes": 2162,
+    "lines": 41,
+    "sha256": "e516aa3029aee88f1fa2e6c96fd362fdcfbd5b91461e571e9de138b64ae6a84e"
+  },
+  "method": "Reuse the completed exact-name and local-closure inventories; reconcile only the six foundation root closures at immutable F/currentT, using the already assessed nested-comment/string parser. This does not repeat the941 historical-type analysis. Every110 name is mapped to its actual prepared program index and line. All145 remain in F145 and in the current814 program.",
+  "bounded_closure_work": {
+    "unique_source_blob_count": 30,
+    "current_paths_reused_from_completed_closure_inventory": [
+      "Applications/Bracketing/Basic.lean",
+      "Applications/Optimization/SelectionSpec.lean",
+      "Applications/Resources/CallCount.lean",
+      "Applications/Resources/ListCalls.lean",
+      "Applications/Resources/ListReversal.lean",
+      "Applications/Resources/Measured.lean",
+      "Applications/Resources/Potential.lean",
+      "Applications/Resources/RandomAccess/CacheCosts.lean",
+      "Applications/Resources/SymmetricCosts.lean",
+      "Applications/Resources/TreeFlattening/Core.lean",
+      "Applications/Resources/Workload.lean",
+      "Applications/Selection/Rank.lean",
+      "Applications/Sequences/RandomAccess/Access.lean",
+      "Applications/Sequences/RandomAccess/Basic.lean",
+      "Applications/Sequences/RandomAccess/Borrow.lean",
+      "Applications/Sequences/RandomAccess/TreeBuild.lean",
+      "Applications/Sequences/Symmetric/Core.lean",
+      "Applications/Sorting/Merge.lean",
+      "Applications/Sorting/Sort.lean",
+      "Applications/Sorting/Stable.lean",
+      "SquareKit/ListFusion.lean",
+      "Squares.lean"
+    ],
+    "bounded_additional_foundation_paths": [
+      "Applications/Arithmetic/EuclidInduction.lean",
+      "Applications/Resources/InsertionSort.lean",
+      "Examples/FunctionalBasics.lean",
+      "Examples/FunctionalNotation.lean",
+      "Examples/InsertionCosts.lean",
+      "Examples/ListCalls.lean",
+      "Examples/ListLibrary.lean"
+    ],
+    "all_six_counts_and_changed_paths_match_prior_preflight": true
+  },
+  "programs": {
+    "foundation145": {
+      "inventory": {
+        "path": "provenance/foundation-complete-public-statements-prepared-20261104/inventory.json",
+        "bytes": 9630,
+        "lines": 205,
+        "sha256": "d39aa500144f7893088e8e69cb32514d75191d100e7b9fc1405e14055a94fefa"
+      },
+      "program": {
+        "path": "provenance/foundation-complete-public-statements-prepared-20261104/Statements.lean",
+        "bytes": 7518,
+        "lines": 156,
+        "sha256": "01210adfe5074fde16d88ef78510456fc28915d7951752ba71850a7231c12cb4"
+      },
+      "candidate": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+      "check_count": 145,
+      "print_options": [
+        "set_option pp.universes true",
+        "set_option pp.explicit true",
+        "set_option pp.fullNames true"
+      ],
+      "status": "PREPARED ONLY; NO OUTPUT CREDITED"
+    },
+    "chapter2_814": {
+      "inventory": {
+        "path": "provenance/chapter02-complete-public-statements814-0a7ef078-prepared-20261104/inventory.json",
+        "bytes": 58153,
+        "lines": 1134,
+        "sha256": "0846a6703028b9c94397f5996f3e612a4fb09a970aadb3c744988af7e8b4052d"
+      },
+      "program": {
+        "path": "provenance/chapter02-complete-public-statements814-0a7ef078-prepared-20261104/Statements.lean",
+        "bytes": 46242,
+        "lines": 859,
+        "sha256": "ec9fb2b9a141630d0d4acb527bc28cf5fb6b5c2032f3f9951ce1d53cd1578577"
+      },
+      "candidate": "0a7ef0784e1b140b356b4ce7b79ba65a79edf3c3",
+      "check_count": 814,
+      "print_options": [
+        "set_option pp.universes true",
+        "set_option pp.explicit true",
+        "set_option pp.fullNames true"
+      ],
+      "status": "PREPARED ONLY; NO OUTPUT CREDITED"
+    }
+  },
+  "current814_identity_check": {
+    "same_program_bytes_as_Q": true,
+    "same814_names_and_order": true,
+    "all36_source_hashes_and_blobs_match_T": true,
+    "only_source_hash_update_is_reviewed_Tail_delta": true
+  },
+  "root_closures": [
+    {
+      "source": "Applications/Resources/InsertionSort.lean",
+      "module": "Applications.Resources.InsertionSort",
+      "public_named_count": 19,
+      "foundation_local_closure": {
+        "Applications/Resources/InsertionSort.lean": "d51ea6e9845378d3f7667adee189f8a210b477ed",
+        "Applications/Resources/CallCount.lean": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+        "Applications/Resources/Measured.lean": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+        "Squares.lean": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+        "Applications/Sorting/Sort.lean": "fb7096ebfede6b6a1721c453295faaa851453049",
+        "Applications/Sorting/Merge.lean": "15708d975dc76472da0c10990e805e2d4dfbdcbb",
+        "Applications/Sorting/Stable.lean": "614b0628261442bcbe2a3c97b4af8fc56084fc42"
+      },
+      "chapter2_local_closure": {
+        "Applications/Resources/InsertionSort.lean": "d51ea6e9845378d3f7667adee189f8a210b477ed",
+        "Applications/Resources/CallCount.lean": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+        "Applications/Resources/Measured.lean": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+        "Squares.lean": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+        "Applications/Sorting/Sort.lean": "fb7096ebfede6b6a1721c453295faaa851453049",
+        "Applications/Sorting/Merge.lean": "6595f901a9358398bee07333872125990ef8360c",
+        "Applications/Sorting/Stable.lean": "614b0628261442bcbe2a3c97b4af8fc56084fc42"
+      },
+      "local_file_count": 7,
+      "external_imports": [
+        "Lean",
+        "Mathlib.Algebra.Group.Prod",
+        "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+        "Mathlib.Data.List.Sort",
+        "Mathlib.Tactic.Linarith"
+      ],
+      "external_import_names_equal": true,
+      "changed_local_paths": [
+        "Applications/Sorting/Merge.lean"
+      ],
+      "potentially_reusable": false,
+      "root_bytes_equal": true,
+      "reason": "Transitive Applications/Sorting/Merge.lean differs; no cross-candidate type reuse is prepared for these names."
+    },
+    {
+      "source": "Applications/Resources/ListCalls.lean",
+      "module": "Applications.Resources.ListCalls",
+      "public_named_count": 34,
+      "foundation_local_closure": {
+        "Applications/Resources/ListCalls.lean": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4",
+        "Applications/Resources/CallCount.lean": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+        "Applications/Resources/Measured.lean": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+        "Squares.lean": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+        "Applications/Resources/SymmetricCosts.lean": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+        "Applications/Resources/Potential.lean": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+        "Applications/Resources/Workload.lean": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+        "SquareKit/ListFusion.lean": "33ec447acb6da7b884ae57d2a885707208201607",
+        "Applications/Sequences/Symmetric/Core.lean": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4"
+      },
+      "chapter2_local_closure": {
+        "Applications/Resources/ListCalls.lean": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4",
+        "Applications/Resources/CallCount.lean": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+        "Applications/Resources/Measured.lean": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+        "Squares.lean": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+        "Applications/Resources/SymmetricCosts.lean": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+        "Applications/Resources/Potential.lean": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+        "Applications/Resources/Workload.lean": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+        "SquareKit/ListFusion.lean": "33ec447acb6da7b884ae57d2a885707208201607",
+        "Applications/Sequences/Symmetric/Core.lean": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4"
+      },
+      "local_file_count": 9,
+      "external_imports": [
+        "Lean",
+        "Mathlib.Algebra.BigOperators.Group.List.Basic",
+        "Mathlib.Algebra.Group.Nat.Defs",
+        "Mathlib.Algebra.Group.Prod",
+        "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+        "Mathlib.Data.List.Basic",
+        "Mathlib.Data.List.Infix"
+      ],
+      "external_import_names_equal": true,
+      "changed_local_paths": [],
+      "potentially_reusable": true,
+      "root_bytes_equal": true,
+      "reason": "Complete relevant local closure and external imports are identical; qualified actual output still required."
+    },
+    {
+      "source": "Examples/FunctionalNotation.lean",
+      "module": "Examples.FunctionalNotation",
+      "public_named_count": 30,
+      "foundation_local_closure": {
+        "Examples/FunctionalNotation.lean": "3e5db8677c94bd330779522f92bc39508540a17a",
+        "Examples/FunctionalBasics.lean": "bdd58014ed1f3ca284e4ba44155da946c65de866",
+        "Applications/Arithmetic/EuclidInduction.lean": "0c4d03bcd60641cabb821ad5bfc1f6763656dc54",
+        "Examples/ListLibrary.lean": "99ba369997885e176bbda192ee0feb5c7bf4d034"
+      },
+      "chapter2_local_closure": {
+        "Examples/FunctionalNotation.lean": "3e5db8677c94bd330779522f92bc39508540a17a",
+        "Examples/FunctionalBasics.lean": "bdd58014ed1f3ca284e4ba44155da946c65de866",
+        "Applications/Arithmetic/EuclidInduction.lean": "0c4d03bcd60641cabb821ad5bfc1f6763656dc54",
+        "Examples/ListLibrary.lean": "99ba369997885e176bbda192ee0feb5c7bf4d034"
+      },
+      "local_file_count": 4,
+      "external_imports": [
+        "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+        "Mathlib.Algebra.BigOperators.Group.Multiset.Basic",
+        "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+        "Mathlib.Algebra.Order.Floor.Ring",
+        "Mathlib.Basic.Real.Basic",
+        "Mathlib.Data.Int.DivMod",
+        "Mathlib.Data.List.Chain",
+        "Mathlib.Data.List.Intervals",
+        "Mathlib.Data.List.MinMax",
+        "Mathlib.Data.List.Sort",
+        "Mathlib.Data.Multiset.Filter",
+        "Mathlib.Data.Nat.GCD.Basic",
+        "Mathlib.Data.Set.Finite.Basic",
+        "Mathlib.Data.Set.Lattice.Bounded",
+        "Mathlib.Data.Set.Lattice.Disjoint",
+        "Mathlib.Data.Set.Lattice.Image",
+        "Mathlib.Data.Set.Lattice.Indexed",
+        "Mathlib.Data.Set.Lattice.Order",
+        "Mathlib.Data.Set.Prod",
+        "Mathlib.Logic.Function.Basic",
+        "Mathlib.Order.Interval.Finset.Nat",
+        "Mathlib.Order.Interval.Set.Defs",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "external_import_names_equal": true,
+      "changed_local_paths": [],
+      "potentially_reusable": true,
+      "root_bytes_equal": true,
+      "reason": "Complete relevant local closure and external imports are identical; qualified actual output still required."
+    },
+    {
+      "source": "Examples/InsertionCosts.lean",
+      "module": "Examples.InsertionCosts",
+      "public_named_count": 16,
+      "foundation_local_closure": {
+        "Examples/InsertionCosts.lean": "1c3de9b0a0a5f27f108de09f28f6ac55f4cddb36",
+        "Applications/Resources/InsertionSort.lean": "d51ea6e9845378d3f7667adee189f8a210b477ed",
+        "Applications/Resources/CallCount.lean": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+        "Applications/Resources/Measured.lean": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+        "Squares.lean": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+        "Applications/Sorting/Sort.lean": "fb7096ebfede6b6a1721c453295faaa851453049",
+        "Applications/Sorting/Merge.lean": "15708d975dc76472da0c10990e805e2d4dfbdcbb",
+        "Applications/Sorting/Stable.lean": "614b0628261442bcbe2a3c97b4af8fc56084fc42",
+        "Applications/Selection/Rank.lean": "3412cfa142e12d9a50c725661c6ce133609a3d0c"
+      },
+      "chapter2_local_closure": {
+        "Examples/InsertionCosts.lean": "1c3de9b0a0a5f27f108de09f28f6ac55f4cddb36",
+        "Applications/Resources/InsertionSort.lean": "d51ea6e9845378d3f7667adee189f8a210b477ed",
+        "Applications/Resources/CallCount.lean": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+        "Applications/Resources/Measured.lean": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+        "Squares.lean": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+        "Applications/Sorting/Sort.lean": "fb7096ebfede6b6a1721c453295faaa851453049",
+        "Applications/Sorting/Merge.lean": "6595f901a9358398bee07333872125990ef8360c",
+        "Applications/Sorting/Stable.lean": "614b0628261442bcbe2a3c97b4af8fc56084fc42",
+        "Applications/Selection/Rank.lean": "3412cfa142e12d9a50c725661c6ce133609a3d0c"
+      },
+      "local_file_count": 9,
+      "external_imports": [
+        "Lean",
+        "Mathlib.Algebra.Group.Prod",
+        "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+        "Mathlib.Data.List.Sort",
+        "Mathlib.Tactic.Linarith"
+      ],
+      "external_import_names_equal": true,
+      "changed_local_paths": [
+        "Applications/Sorting/Merge.lean"
+      ],
+      "potentially_reusable": false,
+      "root_bytes_equal": true,
+      "reason": "Transitive Applications/Sorting/Merge.lean differs; no cross-candidate type reuse is prepared for these names."
+    },
+    {
+      "source": "Examples/ListCalls.lean",
+      "module": "Examples.ListCalls",
+      "public_named_count": 16,
+      "foundation_local_closure": {
+        "Examples/ListCalls.lean": "b4c4683ee2bd16ff6f844ce757470515847a63dc",
+        "Applications/Resources/ListCalls.lean": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4",
+        "Applications/Resources/CallCount.lean": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+        "Applications/Resources/Measured.lean": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+        "Squares.lean": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+        "Applications/Resources/SymmetricCosts.lean": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+        "Applications/Resources/Potential.lean": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+        "Applications/Resources/Workload.lean": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+        "SquareKit/ListFusion.lean": "33ec447acb6da7b884ae57d2a885707208201607",
+        "Applications/Sequences/Symmetric/Core.lean": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4",
+        "Applications/Resources/ListReversal.lean": "62ab85a7325d521bf925405f9abb053703f4d175",
+        "Applications/Resources/TreeFlattening/Core.lean": "d136193bd3823ee00431bc240d1e7a0168b4ddaf",
+        "Applications/Resources/RandomAccess/CacheCosts.lean": "e583ec5285ea887c38f4b369071408697f0574b2",
+        "Applications/Sequences/RandomAccess/TreeBuild.lean": "3b662705f001c2a4b8fbe12868d6c7e77316d95f",
+        "Applications/Sequences/RandomAccess/Borrow.lean": "81b95e8bd4a6e30f6a20a85828409d6d55437be0",
+        "Applications/Sequences/RandomAccess/Access.lean": "5354c146a0665cce90ffc996d1b522b8a59079ad",
+        "Applications/Sequences/RandomAccess/Basic.lean": "fe040b71615878a86d06b326b820e1d5cd5f0229",
+        "Applications/Bracketing/Basic.lean": "3f6604c226908ee807c7d5076bd1c027b48bbf90",
+        "Applications/Optimization/SelectionSpec.lean": "2548b66575b5a453e8cec30ceb745234bb0ae2e6"
+      },
+      "chapter2_local_closure": {
+        "Examples/ListCalls.lean": "b4c4683ee2bd16ff6f844ce757470515847a63dc",
+        "Applications/Resources/ListCalls.lean": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4",
+        "Applications/Resources/CallCount.lean": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+        "Applications/Resources/Measured.lean": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+        "Squares.lean": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+        "Applications/Resources/SymmetricCosts.lean": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+        "Applications/Resources/Potential.lean": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+        "Applications/Resources/Workload.lean": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+        "SquareKit/ListFusion.lean": "33ec447acb6da7b884ae57d2a885707208201607",
+        "Applications/Sequences/Symmetric/Core.lean": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4",
+        "Applications/Resources/ListReversal.lean": "62ab85a7325d521bf925405f9abb053703f4d175",
+        "Applications/Resources/TreeFlattening/Core.lean": "d136193bd3823ee00431bc240d1e7a0168b4ddaf",
+        "Applications/Resources/RandomAccess/CacheCosts.lean": "e583ec5285ea887c38f4b369071408697f0574b2",
+        "Applications/Sequences/RandomAccess/TreeBuild.lean": "3b662705f001c2a4b8fbe12868d6c7e77316d95f",
+        "Applications/Sequences/RandomAccess/Borrow.lean": "81b95e8bd4a6e30f6a20a85828409d6d55437be0",
+        "Applications/Sequences/RandomAccess/Access.lean": "5354c146a0665cce90ffc996d1b522b8a59079ad",
+        "Applications/Sequences/RandomAccess/Basic.lean": "fe040b71615878a86d06b326b820e1d5cd5f0229",
+        "Applications/Bracketing/Basic.lean": "3f6604c226908ee807c7d5076bd1c027b48bbf90",
+        "Applications/Optimization/SelectionSpec.lean": "2548b66575b5a453e8cec30ceb745234bb0ae2e6"
+      },
+      "local_file_count": 19,
+      "external_imports": [
+        "Lean",
+        "Mathlib.Algebra.BigOperators.Group.List.Basic",
+        "Mathlib.Algebra.Group.Nat.Defs",
+        "Mathlib.Algebra.Group.Prod",
+        "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+        "Mathlib.Data.List.Basic",
+        "Mathlib.Data.List.Infix",
+        "Mathlib.Tactic.Linarith",
+        "Std"
+      ],
+      "external_import_names_equal": true,
+      "changed_local_paths": [],
+      "potentially_reusable": true,
+      "root_bytes_equal": true,
+      "reason": "Complete relevant local closure and external imports are identical; qualified actual output still required."
+    },
+    {
+      "source": "Examples/ListLibrary.lean",
+      "module": "Examples.ListLibrary",
+      "public_named_count": 30,
+      "foundation_local_closure": {
+        "Examples/ListLibrary.lean": "99ba369997885e176bbda192ee0feb5c7bf4d034"
+      },
+      "chapter2_local_closure": {
+        "Examples/ListLibrary.lean": "99ba369997885e176bbda192ee0feb5c7bf4d034"
+      },
+      "local_file_count": 1,
+      "external_imports": [
+        "Mathlib.Data.List.Chain",
+        "Mathlib.Data.List.Intervals",
+        "Mathlib.Data.List.MinMax",
+        "Mathlib.Data.List.Sort"
+      ],
+      "external_import_names_equal": true,
+      "changed_local_paths": [],
+      "potentially_reusable": true,
+      "root_bytes_equal": true,
+      "reason": "Complete relevant local closure and external imports are identical; qualified actual output still required."
+    }
+  ],
+  "local_source_blob_inventory": {
+    "d51ea6e9845378d3f7667adee189f8a210b477ed": {
+      "path": "Applications/Resources/InsertionSort.lean",
+      "git_blob": "d51ea6e9845378d3f7667adee189f8a210b477ed",
+      "bytes": 7257,
+      "lines": 178,
+      "sha256": "385ea0ba077ac05a10547bc95cd37eb4fa80ef8fe826c6e2c250cca33f2b4aad",
+      "direct_imports": [
+        "Applications.Resources.CallCount",
+        "Applications.Sorting.Sort",
+        "Mathlib.Tactic.Linarith"
+      ]
+    },
+    "39b9bdb9b1b9e35210170c2a1072646eebebf195": {
+      "path": "Applications/Resources/CallCount.lean",
+      "git_blob": "39b9bdb9b1b9e35210170c2a1072646eebebf195",
+      "bytes": 2447,
+      "lines": 58,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+      "direct_imports": [
+        "Applications.Resources.Measured"
+      ]
+    },
+    "811efc9a5230f4a17ade0971e1f8e0511dd2cb46": {
+      "path": "Applications/Resources/Measured.lean",
+      "git_blob": "811efc9a5230f4a17ade0971e1f8e0511dd2cb46",
+      "bytes": 2906,
+      "lines": 71,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "direct_imports": [
+        "Mathlib.Algebra.Group.Prod",
+        "Mathlib.Algebra.Order.Monoid.Unbundled.Basic",
+        "Squares"
+      ]
+    },
+    "f8b190ece8e801f14aec99e3092c3389bbf6d85a": {
+      "path": "Squares.lean",
+      "git_blob": "f8b190ece8e801f14aec99e3092c3389bbf6d85a",
+      "bytes": 11694,
+      "lines": 352,
+      "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+      "direct_imports": [
+        "Lean"
+      ]
+    },
+    "fb7096ebfede6b6a1721c453295faaa851453049": {
+      "path": "Applications/Sorting/Sort.lean",
+      "git_blob": "fb7096ebfede6b6a1721c453295faaa851453049",
+      "bytes": 5922,
+      "lines": 128,
+      "sha256": "5acd7728aaaefdec121df797efafd7dae13476c820d4f85f4ada19868fa71218",
+      "direct_imports": [
+        "Applications.Sorting.Merge"
+      ]
+    },
+    "15708d975dc76472da0c10990e805e2d4dfbdcbb": {
+      "path": "Applications/Sorting/Merge.lean",
+      "git_blob": "15708d975dc76472da0c10990e805e2d4dfbdcbb",
+      "bytes": 5604,
+      "lines": 126,
+      "sha256": "79b35252d0f551b381ef63974497311336ea92a5d118691647825cade12a1338",
+      "direct_imports": [
+        "Applications.Sorting.Stable"
+      ]
+    },
+    "614b0628261442bcbe2a3c97b4af8fc56084fc42": {
+      "path": "Applications/Sorting/Stable.lean",
+      "git_blob": "614b0628261442bcbe2a3c97b4af8fc56084fc42",
+      "bytes": 3704,
+      "lines": 87,
+      "sha256": "288552150aa002c60ed06c74e69510112cf9b4e2f0045da3d98ca5c39264d881",
+      "direct_imports": [
+        "Mathlib.Data.List.Sort"
+      ]
+    },
+    "6595f901a9358398bee07333872125990ef8360c": {
+      "path": "Applications/Sorting/Merge.lean",
+      "git_blob": "6595f901a9358398bee07333872125990ef8360c",
+      "bytes": 7840,
+      "lines": 172,
+      "sha256": "951db5238af4e2acd9a987318f04023de6d039156094f50a6ce775a4c6a7aac7",
+      "direct_imports": [
+        "Applications.Sorting.Stable"
+      ]
+    },
+    "8380e60d9e7e82c4652184f3c862ef5a4e3334f4": {
+      "path": "Applications/Resources/ListCalls.lean",
+      "git_blob": "8380e60d9e7e82c4652184f3c862ef5a4e3334f4",
+      "bytes": 7939,
+      "lines": 190,
+      "sha256": "bce039ed24b88dcb7fc2496acede9e5118cadc0a9e76da8c4a166f93e5b46488",
+      "direct_imports": [
+        "Applications.Resources.CallCount",
+        "Applications.Resources.SymmetricCosts",
+        "Mathlib.Algebra.BigOperators.Group.List.Basic"
+      ]
+    },
+    "de48b83e51de984e2b2284ec12f5f79cbf9d9233": {
+      "path": "Applications/Resources/SymmetricCosts.lean",
+      "git_blob": "de48b83e51de984e2b2284ec12f5f79cbf9d9233",
+      "bytes": 10508,
+      "lines": 281,
+      "sha256": "2e78ce2ac33ec06e9144988a6541a01bee276ba4035b16d4633b0e870daab6d5",
+      "direct_imports": [
+        "Applications.Resources.Potential",
+        "Applications.Sequences.Symmetric.Core"
+      ]
+    },
+    "82e8613245bbdc5db45507e84ccf7b7cb9d694b1": {
+      "path": "Applications/Resources/Potential.lean",
+      "git_blob": "82e8613245bbdc5db45507e84ccf7b7cb9d694b1",
+      "bytes": 4638,
+      "lines": 108,
+      "sha256": "680ea6df1c0271094a93b089a6fa2e7e8826a4da12937889ed5ecff8fc59cabe",
+      "direct_imports": [
+        "Applications.Resources.Workload",
+        "Mathlib.Algebra.Group.Nat.Defs"
+      ]
+    },
+    "58a93181a8dbde9aa02c2b04f21ec741e7330f05": {
+      "path": "Applications/Resources/Workload.lean",
+      "git_blob": "58a93181a8dbde9aa02c2b04f21ec741e7330f05",
+      "bytes": 2745,
+      "lines": 64,
+      "sha256": "5db2ef8f7a504b33b4dfbb26ed39de1a194fa59568ba16702f3ba2359b46b4f5",
+      "direct_imports": [
+        "Applications.Resources.Measured",
+        "SquareKit.ListFusion"
+      ]
+    },
+    "33ec447acb6da7b884ae57d2a885707208201607": {
+      "path": "SquareKit/ListFusion.lean",
+      "git_blob": "33ec447acb6da7b884ae57d2a885707208201607",
+      "bytes": 2939,
+      "lines": 73,
+      "sha256": "5ade8a9736d46b558e548aa7b1e8c60c6110f674c22deecb0038dc302b7b0164",
+      "direct_imports": [
+        "Mathlib.Data.List.Basic"
+      ]
+    },
+    "dbd0512d54b1d0479a849272e3b08b32cf7d80f4": {
+      "path": "Applications/Sequences/Symmetric/Core.lean",
+      "git_blob": "dbd0512d54b1d0479a849272e3b08b32cf7d80f4",
+      "bytes": 12059,
+      "lines": 362,
+      "sha256": "580f4a1bce04299fc98b7b1b92d62967527a8d19a59626e8ef52aa64d3dab1d3",
+      "direct_imports": [
+        "SquareKit.ListFusion",
+        "Mathlib.Data.List.Infix"
+      ]
+    },
+    "3e5db8677c94bd330779522f92bc39508540a17a": {
+      "path": "Examples/FunctionalNotation.lean",
+      "git_blob": "3e5db8677c94bd330779522f92bc39508540a17a",
+      "bytes": 8277,
+      "lines": 202,
+      "sha256": "fe4b585a6753110dee67c1942ce68d16d9bf00feb5946f32791682c634c42eef",
+      "direct_imports": [
+        "Examples.FunctionalBasics",
+        "Examples.ListLibrary",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+        "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+        "Mathlib.Algebra.Order.Floor.Ring",
+        "Mathlib.Data.Int.DivMod",
+        "Mathlib.Data.Set.Lattice.Bounded",
+        "Mathlib.Data.Set.Lattice.Disjoint",
+        "Mathlib.Data.Set.Lattice.Image",
+        "Mathlib.Data.Set.Lattice.Indexed",
+        "Mathlib.Data.Set.Lattice.Order",
+        "Mathlib.Data.Set.Prod",
+        "Mathlib.Data.Set.Finite.Basic",
+        "Mathlib.Order.Interval.Finset.Nat",
+        "Mathlib.Order.Interval.Set.Defs"
+      ]
+    },
+    "bdd58014ed1f3ca284e4ba44155da946c65de866": {
+      "path": "Examples/FunctionalBasics.lean",
+      "git_blob": "bdd58014ed1f3ca284e4ba44155da946c65de866",
+      "bytes": 3381,
+      "lines": 91,
+      "sha256": "f9d141719675eaaf1a09bcfabf1a0e79cc2f68f89406a2229233b71a8d1bae3d",
+      "direct_imports": [
+        "Applications.Arithmetic.EuclidInduction",
+        "Mathlib.Algebra.BigOperators.Group.Multiset.Basic",
+        "Mathlib.Data.Multiset.Filter",
+        "Mathlib.Basic.Real.Basic",
+        "Mathlib.Logic.Function.Basic",
+        "Mathlib.Tactic.NormNum"
+      ]
+    },
+    "0c4d03bcd60641cabb821ad5bfc1f6763656dc54": {
+      "path": "Applications/Arithmetic/EuclidInduction.lean",
+      "git_blob": "0c4d03bcd60641cabb821ad5bfc1f6763656dc54",
+      "bytes": 1069,
+      "lines": 30,
+      "sha256": "1195a850cc25d518c50f6f6133da87f5d4fcffd264ea3c687c67b5dcc34abe3e",
+      "direct_imports": [
+        "Mathlib.Data.Nat.GCD.Basic"
+      ]
+    },
+    "99ba369997885e176bbda192ee0feb5c7bf4d034": {
+      "path": "Examples/ListLibrary.lean",
+      "git_blob": "99ba369997885e176bbda192ee0feb5c7bf4d034",
+      "bytes": 6761,
+      "lines": 170,
+      "sha256": "036cf4c12ddf5d25ce433d9f7dbedfcbb96dfc3c7f602d10605388d2791e47ad",
+      "direct_imports": [
+        "Mathlib.Data.List.Intervals",
+        "Mathlib.Data.List.MinMax",
+        "Mathlib.Data.List.Chain",
+        "Mathlib.Data.List.Sort"
+      ]
+    },
+    "1c3de9b0a0a5f27f108de09f28f6ac55f4cddb36": {
+      "path": "Examples/InsertionCosts.lean",
+      "git_blob": "1c3de9b0a0a5f27f108de09f28f6ac55f4cddb36",
+      "bytes": 3862,
+      "lines": 101,
+      "sha256": "f808254936f1757e639b4f49d94904056b92c84802d9a887a16d31c861c7ff37",
+      "direct_imports": [
+        "Applications.Resources.InsertionSort",
+        "Applications.Selection.Rank"
+      ]
+    },
+    "3412cfa142e12d9a50c725661c6ce133609a3d0c": {
+      "path": "Applications/Selection/Rank.lean",
+      "git_blob": "3412cfa142e12d9a50c725661c6ce133609a3d0c",
+      "bytes": 3713,
+      "lines": 91,
+      "sha256": "4a82df75593d909e2968bf1e27cbfea52c9795abfe81250bb2385e7dfc16f965",
+      "direct_imports": [
+        "Applications.Sorting.Sort"
+      ]
+    },
+    "b4c4683ee2bd16ff6f844ce757470515847a63dc": {
+      "path": "Examples/ListCalls.lean",
+      "git_blob": "b4c4683ee2bd16ff6f844ce757470515847a63dc",
+      "bytes": 4333,
+      "lines": 124,
+      "sha256": "24d0809f51d04b0a9cadb5a349141e7327a5f7721f63c1021113527917487d5d",
+      "direct_imports": [
+        "Applications.Resources.ListCalls",
+        "Applications.Resources.ListReversal"
+      ]
+    },
+    "62ab85a7325d521bf925405f9abb053703f4d175": {
+      "path": "Applications/Resources/ListReversal.lean",
+      "git_blob": "62ab85a7325d521bf925405f9abb053703f4d175",
+      "bytes": 4827,
+      "lines": 116,
+      "sha256": "39aa38f0d3de87c0e37f222eea89880f81a1d93eeeff8e7618b07a260e2d7f0e",
+      "direct_imports": [
+        "Applications.Resources.CallCount",
+        "Applications.Resources.SymmetricCosts",
+        "Applications.Resources.TreeFlattening.Core",
+        "Mathlib.Tactic.Linarith"
+      ]
+    },
+    "d136193bd3823ee00431bc240d1e7a0168b4ddaf": {
+      "path": "Applications/Resources/TreeFlattening/Core.lean",
+      "git_blob": "d136193bd3823ee00431bc240d1e7a0168b4ddaf",
+      "bytes": 4225,
+      "lines": 116,
+      "sha256": "e9d7610efc7120ca846412f8b951c0c59a6cdfd840af0432222fba95cfed9ce2",
+      "direct_imports": [
+        "Applications.Resources.RandomAccess.CacheCosts",
+        "Applications.Resources.Measured"
+      ]
+    },
+    "e583ec5285ea887c38f4b369071408697f0574b2": {
+      "path": "Applications/Resources/RandomAccess/CacheCosts.lean",
+      "git_blob": "e583ec5285ea887c38f4b369071408697f0574b2",
+      "bytes": 2227,
+      "lines": 61,
+      "sha256": "06964a8934375a0d98606e9e1e289d8965b6d5418377990b0da141f4e454db3d",
+      "direct_imports": [
+        "Applications.Sequences.RandomAccess.TreeBuild"
+      ]
+    },
+    "3b662705f001c2a4b8fbe12868d6c7e77316d95f": {
+      "path": "Applications/Sequences/RandomAccess/TreeBuild.lean",
+      "git_blob": "3b662705f001c2a4b8fbe12868d6c7e77316d95f",
+      "bytes": 5392,
+      "lines": 139,
+      "sha256": "a6cb5b53e3cf65dd207fe1ab7004d67add410f3341793736ecdcff15264d09f6",
+      "direct_imports": [
+        "Applications.Sequences.RandomAccess.Borrow"
+      ]
+    },
+    "81b95e8bd4a6e30f6a20a85828409d6d55437be0": {
+      "path": "Applications/Sequences/RandomAccess/Borrow.lean",
+      "git_blob": "81b95e8bd4a6e30f6a20a85828409d6d55437be0",
+      "bytes": 5680,
+      "lines": 145,
+      "sha256": "52a20a90d9859aa39d6b7f72cc24de6468ed0d89d2e0714166c909a40c782516",
+      "direct_imports": [
+        "Applications.Sequences.RandomAccess.Access"
+      ]
+    },
+    "5354c146a0665cce90ffc996d1b522b8a59079ad": {
+      "path": "Applications/Sequences/RandomAccess/Access.lean",
+      "git_blob": "5354c146a0665cce90ffc996d1b522b8a59079ad",
+      "bytes": 5219,
+      "lines": 141,
+      "sha256": "195a9cf2b395eb06564a5269f2221bf106852e629991b937532f59d56dd8cd9b",
+      "direct_imports": [
+        "Applications.Sequences.RandomAccess.Basic"
+      ]
+    },
+    "fe040b71615878a86d06b326b820e1d5cd5f0229": {
+      "path": "Applications/Sequences/RandomAccess/Basic.lean",
+      "git_blob": "fe040b71615878a86d06b326b820e1d5cd5f0229",
+      "bytes": 5970,
+      "lines": 180,
+      "sha256": "af73659e2d11d9bfffa50a990c278284639bb125c9e3230b35a8eeaa1eb00afb",
+      "direct_imports": [
+        "Applications.Bracketing.Basic"
+      ]
+    },
+    "3f6604c226908ee807c7d5076bd1c027b48bbf90": {
+      "path": "Applications/Bracketing/Basic.lean",
+      "git_blob": "3f6604c226908ee807c7d5076bd1c027b48bbf90",
+      "bytes": 8561,
+      "lines": 243,
+      "sha256": "3703ca9e6b8c896c9e0e3377b32c224e3275a24e4412ef7b7fe77b18dd265dd9",
+      "direct_imports": [
+        "Applications.Optimization.SelectionSpec"
+      ]
+    },
+    "2548b66575b5a453e8cec30ceb745234bb0ae2e6": {
+      "path": "Applications/Optimization/SelectionSpec.lean",
+      "git_blob": "2548b66575b5a453e8cec30ceb745234bb0ae2e6",
+      "bytes": 738,
+      "lines": 18,
+      "sha256": "0aae4f709fec75f44154df397bb6d548f1a8d83db14e9ce9e6dd2cb5991ebd2b",
+      "direct_imports": [
+        "Std"
+      ]
+    }
+  },
+  "eligible110_mapping": [
+    {
+      "name": "Resources.ListCalls.mapRun",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 20,
+      "declaration_kind": "def",
+      "foundation145": {
+        "check_index_1_based": 20,
+        "program_line_1_based": 31
+      },
+      "chapter2_814": {
+        "check_index_1_based": 488,
+        "program_line_1_based": 529
+      }
+    },
+    {
+      "name": "Resources.ListCalls.mapRun_nil",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 25,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 21,
+        "program_line_1_based": 32
+      },
+      "chapter2_814": {
+        "check_index_1_based": 489,
+        "program_line_1_based": 530
+      }
+    },
+    {
+      "name": "Resources.ListCalls.mapRun_cons",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 27,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 22,
+        "program_line_1_based": 33
+      },
+      "chapter2_814": {
+        "check_index_1_based": 490,
+        "program_line_1_based": 531
+      }
+    },
+    {
+      "name": "Resources.ListCalls.mapRun_value",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 32,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 23,
+        "program_line_1_based": 34
+      },
+      "chapter2_814": {
+        "check_index_1_based": 491,
+        "program_line_1_based": 532
+      }
+    },
+    {
+      "name": "Resources.ListCalls.mapRun_cost",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 38,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 24,
+        "program_line_1_based": 35
+      },
+      "chapter2_814": {
+        "check_index_1_based": 492,
+        "program_line_1_based": 533
+      }
+    },
+    {
+      "name": "Resources.ListCalls.mapRun_exact",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 44,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 25,
+        "program_line_1_based": 36
+      },
+      "chapter2_814": {
+        "check_index_1_based": 493,
+        "program_line_1_based": 534
+      }
+    },
+    {
+      "name": "Resources.ListCalls.mapRun_cost_of_constant",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 50,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 26,
+        "program_line_1_based": 37
+      },
+      "chapter2_814": {
+        "check_index_1_based": 494,
+        "program_line_1_based": 535
+      }
+    },
+    {
+      "name": "Resources.ListCalls.filterRun",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 62,
+      "declaration_kind": "def",
+      "foundation145": {
+        "check_index_1_based": 27,
+        "program_line_1_based": 38
+      },
+      "chapter2_814": {
+        "check_index_1_based": 495,
+        "program_line_1_based": 536
+      }
+    },
+    {
+      "name": "Resources.ListCalls.filterRun_nil",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 67,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 28,
+        "program_line_1_based": 39
+      },
+      "chapter2_814": {
+        "check_index_1_based": 496,
+        "program_line_1_based": 537
+      }
+    },
+    {
+      "name": "Resources.ListCalls.filterRun_cons",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 69,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 29,
+        "program_line_1_based": 40
+      },
+      "chapter2_814": {
+        "check_index_1_based": 497,
+        "program_line_1_based": 538
+      }
+    },
+    {
+      "name": "Resources.ListCalls.filterRun_value",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 75,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 30,
+        "program_line_1_based": 41
+      },
+      "chapter2_814": {
+        "check_index_1_based": 498,
+        "program_line_1_based": 539
+      }
+    },
+    {
+      "name": "Resources.ListCalls.filterRun_cost",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 81,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 31,
+        "program_line_1_based": 42
+      },
+      "chapter2_814": {
+        "check_index_1_based": 499,
+        "program_line_1_based": 540
+      }
+    },
+    {
+      "name": "Resources.ListCalls.filterRun_exact",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 87,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 32,
+        "program_line_1_based": 43
+      },
+      "chapter2_814": {
+        "check_index_1_based": 500,
+        "program_line_1_based": 541
+      }
+    },
+    {
+      "name": "Resources.ListCalls.filterRun_cost_eq_mapRun",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 93,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 33,
+        "program_line_1_based": 44
+      },
+      "chapter2_814": {
+        "check_index_1_based": 501,
+        "program_line_1_based": 542
+      }
+    },
+    {
+      "name": "Resources.ListCalls.filterRun_cost_of_constant",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 97,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 34,
+        "program_line_1_based": 45
+      },
+      "chapter2_814": {
+        "check_index_1_based": 502,
+        "program_line_1_based": 543
+      }
+    },
+    {
+      "name": "Resources.ListCalls.takeRun",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 104,
+      "declaration_kind": "def",
+      "foundation145": {
+        "check_index_1_based": 35,
+        "program_line_1_based": 46
+      },
+      "chapter2_814": {
+        "check_index_1_based": 503,
+        "program_line_1_based": 544
+      }
+    },
+    {
+      "name": "Resources.ListCalls.dropRun",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 109,
+      "declaration_kind": "def",
+      "foundation145": {
+        "check_index_1_based": 36,
+        "program_line_1_based": 47
+      },
+      "chapter2_814": {
+        "check_index_1_based": 504,
+        "program_line_1_based": 545
+      }
+    },
+    {
+      "name": "Resources.ListCalls.takeRun_nil",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 113,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 37,
+        "program_line_1_based": 48
+      },
+      "chapter2_814": {
+        "check_index_1_based": 505,
+        "program_line_1_based": 546
+      }
+    },
+    {
+      "name": "Resources.ListCalls.takeRun_zero",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 116,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 38,
+        "program_line_1_based": 49
+      },
+      "chapter2_814": {
+        "check_index_1_based": 506,
+        "program_line_1_based": 547
+      }
+    },
+    {
+      "name": "Resources.ListCalls.takeRun_succ_cons",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 118,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 39,
+        "program_line_1_based": 50
+      },
+      "chapter2_814": {
+        "check_index_1_based": 507,
+        "program_line_1_based": 548
+      }
+    },
+    {
+      "name": "Resources.ListCalls.dropRun_nil",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 122,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 40,
+        "program_line_1_based": 51
+      },
+      "chapter2_814": {
+        "check_index_1_based": 508,
+        "program_line_1_based": 549
+      }
+    },
+    {
+      "name": "Resources.ListCalls.dropRun_zero",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 125,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 41,
+        "program_line_1_based": 52
+      },
+      "chapter2_814": {
+        "check_index_1_based": 509,
+        "program_line_1_based": 550
+      }
+    },
+    {
+      "name": "Resources.ListCalls.dropRun_succ_cons",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 127,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 42,
+        "program_line_1_based": 53
+      },
+      "chapter2_814": {
+        "check_index_1_based": 510,
+        "program_line_1_based": 551
+      }
+    },
+    {
+      "name": "Resources.ListCalls.takeRun_exact",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 131,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 43,
+        "program_line_1_based": 54
+      },
+      "chapter2_814": {
+        "check_index_1_based": 511,
+        "program_line_1_based": 552
+      }
+    },
+    {
+      "name": "Resources.ListCalls.dropRun_exact",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 135,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 44,
+        "program_line_1_based": 55
+      },
+      "chapter2_814": {
+        "check_index_1_based": 512,
+        "program_line_1_based": 553
+      }
+    },
+    {
+      "name": "Resources.ListCalls.take_drop_separate",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 140,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 45,
+        "program_line_1_based": 56
+      },
+      "chapter2_814": {
+        "check_index_1_based": 513,
+        "program_line_1_based": 554
+      }
+    },
+    {
+      "name": "Resources.ListCalls.lookupRun",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 150,
+      "declaration_kind": "def",
+      "foundation145": {
+        "check_index_1_based": 46,
+        "program_line_1_based": 57
+      },
+      "chapter2_814": {
+        "check_index_1_based": 514,
+        "program_line_1_based": 555
+      }
+    },
+    {
+      "name": "Resources.ListCalls.lookupRun_nil",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 155,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 47,
+        "program_line_1_based": 58
+      },
+      "chapter2_814": {
+        "check_index_1_based": 515,
+        "program_line_1_based": 556
+      }
+    },
+    {
+      "name": "Resources.ListCalls.lookupRun_zero_cons",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 157,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 48,
+        "program_line_1_based": 59
+      },
+      "chapter2_814": {
+        "check_index_1_based": 516,
+        "program_line_1_based": 557
+      }
+    },
+    {
+      "name": "Resources.ListCalls.lookupRun_succ_cons",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 160,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 49,
+        "program_line_1_based": 60
+      },
+      "chapter2_814": {
+        "check_index_1_based": 517,
+        "program_line_1_based": 558
+      }
+    },
+    {
+      "name": "Resources.ListCalls.lookupRun_value",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 164,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 50,
+        "program_line_1_based": 61
+      },
+      "chapter2_814": {
+        "check_index_1_based": 518,
+        "program_line_1_based": 559
+      }
+    },
+    {
+      "name": "Resources.ListCalls.lookupRun_cost",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 173,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 51,
+        "program_line_1_based": 62
+      },
+      "chapter2_814": {
+        "check_index_1_based": 519,
+        "program_line_1_based": 560
+      }
+    },
+    {
+      "name": "Resources.ListCalls.lookupRun_cost_of_lt",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 179,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 52,
+        "program_line_1_based": 63
+      },
+      "chapter2_814": {
+        "check_index_1_based": 520,
+        "program_line_1_based": 561
+      }
+    },
+    {
+      "name": "Resources.ListCalls.lookupRun_valid",
+      "module": "Applications.Resources.ListCalls",
+      "source": "Applications/Resources/ListCalls.lean",
+      "source_line": 184,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 53,
+        "program_line_1_based": 64
+      },
+      "chapter2_814": {
+        "check_index_1_based": 521,
+        "program_line_1_based": 562
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.composition_and_eta",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 29,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 54,
+        "program_line_1_based": 65
+      },
+      "chapter2_814": {
+        "check_index_1_based": 568,
+        "program_line_1_based": 609
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.boolean_truth",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 35,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 55,
+        "program_line_1_based": 66
+      },
+      "chapter2_814": {
+        "check_index_1_based": 569,
+        "program_line_1_based": 610
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.comprehension_order_and_repetition",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 41,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 56,
+        "program_line_1_based": 67
+      },
+      "chapter2_814": {
+        "check_index_1_based": 570,
+        "program_line_1_based": 611
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.set_union_intersection",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 44,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 57,
+        "program_line_1_based": 68
+      },
+      "chapter2_814": {
+        "check_index_1_based": 571,
+        "program_line_1_based": 612
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.proper_subset",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 48,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 58,
+        "program_line_1_based": 69
+      },
+      "chapter2_814": {
+        "check_index_1_based": 572,
+        "program_line_1_based": 613
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.direct_image",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 51,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 59,
+        "program_line_1_based": 70
+      },
+      "chapter2_814": {
+        "check_index_1_based": 573,
+        "program_line_1_based": 614
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.restricted_comprehension",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 54,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 60,
+        "program_line_1_based": 71
+      },
+      "chapter2_814": {
+        "check_index_1_based": 574,
+        "program_line_1_based": 615
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.two_variable_comprehension",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 57,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 61,
+        "program_line_1_based": 72
+      },
+      "chapter2_814": {
+        "check_index_1_based": 575,
+        "program_line_1_based": 616
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.indexed_union",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 61,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 62,
+        "program_line_1_based": 73
+      },
+      "chapter2_814": {
+        "check_index_1_based": 576,
+        "program_line_1_based": 617
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.set_of_sets_observations",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 66,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 63,
+        "program_line_1_based": 74
+      },
+      "chapter2_814": {
+        "check_index_1_based": 577,
+        "program_line_1_based": 618
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.bounded_quantifiers",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 70,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 64,
+        "program_line_1_based": 75
+      },
+      "chapter2_814": {
+        "check_index_1_based": 578,
+        "program_line_1_based": 619
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.product_membership",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 74,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 65,
+        "program_line_1_based": 76
+      },
+      "chapter2_814": {
+        "check_index_1_based": 579,
+        "program_line_1_based": 620
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.all_interval_memberships",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 77,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 66,
+        "program_line_1_based": 77
+      },
+      "chapter2_814": {
+        "check_index_1_based": 580,
+        "program_line_1_based": 621
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.upper_interval_correction",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 86,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 67,
+        "program_line_1_based": 78
+      },
+      "chapter2_814": {
+        "check_index_1_based": 581,
+        "program_line_1_based": 622
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.floor_division_nonnegative",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 94,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 68,
+        "program_line_1_based": 79
+      },
+      "chapter2_814": {
+        "check_index_1_based": 582,
+        "program_line_1_based": 623
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.negative_divisor_distinguishes",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 97,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 69,
+        "program_line_1_based": 80
+      },
+      "chapter2_814": {
+        "check_index_1_based": 583,
+        "program_line_1_based": 624
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.floor_division_zero",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 101,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 70,
+        "program_line_1_based": 81
+      },
+      "chapter2_814": {
+        "check_index_1_based": 584,
+        "program_line_1_based": 625
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.typed_arithmetic",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 105,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 71,
+        "program_line_1_based": 82
+      },
+      "chapter2_814": {
+        "check_index_1_based": 585,
+        "program_line_1_based": 626
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.floor_and_ceiling",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 111,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 72,
+        "program_line_1_based": 83
+      },
+      "chapter2_814": {
+        "check_index_1_based": 586,
+        "program_line_1_based": 627
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.submultiset_is_not_support_subset",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 119,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 73,
+        "program_line_1_based": 84
+      },
+      "chapter2_814": {
+        "check_index_1_based": 587,
+        "program_line_1_based": 628
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.repeated_sum_and_product",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 129,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 74,
+        "program_line_1_based": 85
+      },
+      "chapter2_814": {
+        "check_index_1_based": 588,
+        "program_line_1_based": 629
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.closed_interval_fold",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 138,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 75,
+        "program_line_1_based": 86
+      },
+      "chapter2_814": {
+        "check_index_1_based": 589,
+        "program_line_1_based": 630
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.finiteIndexProduct",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 148,
+      "declaration_kind": "def",
+      "foundation145": {
+        "check_index_1_based": 76,
+        "program_line_1_based": 87
+      },
+      "chapter2_814": {
+        "check_index_1_based": 590,
+        "program_line_1_based": 631
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.finiteIndexProduct_of_finite",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 153,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 77,
+        "program_line_1_based": 88
+      },
+      "chapter2_814": {
+        "check_index_1_based": 591,
+        "program_line_1_based": 632
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.finiteIndexProduct_of_infinite",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 159,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 78,
+        "program_line_1_based": 89
+      },
+      "chapter2_814": {
+        "check_index_1_based": 592,
+        "program_line_1_based": 633
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.finiteIndexProduct_of_finset",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 165,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 79,
+        "program_line_1_based": 90
+      },
+      "chapter2_814": {
+        "check_index_1_based": 593,
+        "program_line_1_based": 634
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.finite_index_values",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 169,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 80,
+        "program_line_1_based": 91
+      },
+      "chapter2_814": {
+        "check_index_1_based": 594,
+        "program_line_1_based": 635
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.infinite_index_values",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 181,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 81,
+        "program_line_1_based": 92
+      },
+      "chapter2_814": {
+        "check_index_1_based": 595,
+        "program_line_1_based": 636
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.empty_index_type",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 187,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 82,
+        "program_line_1_based": 93
+      },
+      "chapter2_814": {
+        "check_index_1_based": 596,
+        "program_line_1_based": 637
+      }
+    },
+    {
+      "name": "Examples.FunctionalNotation.ordered_list_folds",
+      "module": "Examples.FunctionalNotation",
+      "source": "Examples/FunctionalNotation.lean",
+      "source_line": 197,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 83,
+        "program_line_1_based": 94
+      },
+      "chapter2_814": {
+        "check_index_1_based": 597,
+        "program_line_1_based": 638
+      }
+    },
+    {
+      "name": "Examples.ListCalls.duplicate_map",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 15,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 100,
+        "program_line_1_based": 111
+      },
+      "chapter2_814": {
+        "check_index_1_based": 645,
+        "program_line_1_based": 686
+      }
+    },
+    {
+      "name": "Examples.ListCalls.discarded_last",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 20,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 101,
+        "program_line_1_based": 112
+      },
+      "chapter2_814": {
+        "check_index_1_based": 646,
+        "program_line_1_based": 687
+      }
+    },
+    {
+      "name": "Examples.ListCalls.discarded_head",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 25,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 102,
+        "program_line_1_based": 113
+      },
+      "chapter2_814": {
+        "check_index_1_based": 647,
+        "program_line_1_based": 688
+      }
+    },
+    {
+      "name": "Examples.ListCalls.zero_and_unit_callbacks",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 30,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 103,
+        "program_line_1_based": 114
+      },
+      "chapter2_814": {
+        "check_index_1_based": 648,
+        "program_line_1_based": 689
+      }
+    },
+    {
+      "name": "Examples.ListCalls.discarded_values_still_pay",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 37,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 104,
+        "program_line_1_based": 115
+      },
+      "chapter2_814": {
+        "check_index_1_based": 649,
+        "program_line_1_based": 690
+      }
+    },
+    {
+      "name": "Examples.ListCalls.map_then_length",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 44,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 105,
+        "program_line_1_based": 116
+      },
+      "chapter2_814": {
+        "check_index_1_based": 650,
+        "program_line_1_based": 691
+      }
+    },
+    {
+      "name": "Examples.ListCalls.composed_callback_count",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 53,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 106,
+        "program_line_1_based": 117
+      },
+      "chapter2_814": {
+        "check_index_1_based": 651,
+        "program_line_1_based": 692
+      }
+    },
+    {
+      "name": "Examples.ListCalls.append_then_length",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 62,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 107,
+        "program_line_1_based": 118
+      },
+      "chapter2_814": {
+        "check_index_1_based": 652,
+        "program_line_1_based": 693
+      }
+    },
+    {
+      "name": "Examples.ListCalls.valid_lookup",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 71,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 108,
+        "program_line_1_based": 119
+      },
+      "chapter2_814": {
+        "check_index_1_based": 653,
+        "program_line_1_based": 694
+      }
+    },
+    {
+      "name": "Examples.ListCalls.first_invalid_lookup",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 75,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 109,
+        "program_line_1_based": 120
+      },
+      "chapter2_814": {
+        "check_index_1_based": 654,
+        "program_line_1_based": 695
+      }
+    },
+    {
+      "name": "Examples.ListCalls.farther_invalid_lookup",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 82,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 110,
+        "program_line_1_based": 121
+      },
+      "chapter2_814": {
+        "check_index_1_based": 655,
+        "program_line_1_based": 696
+      }
+    },
+    {
+      "name": "Examples.ListCalls.empty_payload_lookup",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 89,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 111,
+        "program_line_1_based": 122
+      },
+      "chapter2_814": {
+        "check_index_1_based": 656,
+        "program_line_1_based": 697
+      }
+    },
+    {
+      "name": "Examples.ListCalls.take_drop_values",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 92,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 112,
+        "program_line_1_based": 123
+      },
+      "chapter2_814": {
+        "check_index_1_based": 657,
+        "program_line_1_based": 698
+      }
+    },
+    {
+      "name": "Examples.ListCalls.separate_vs_fused",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 101,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 113,
+        "program_line_1_based": 124
+      },
+      "chapter2_814": {
+        "check_index_1_based": 658,
+        "program_line_1_based": 699
+      }
+    },
+    {
+      "name": "Examples.ListCalls.zero_and_overlarge",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 114,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 114,
+        "program_line_1_based": 125
+      },
+      "chapter2_814": {
+        "check_index_1_based": 659,
+        "program_line_1_based": 700
+      }
+    },
+    {
+      "name": "Examples.ListCalls.empty_payload_split",
+      "module": "Examples.ListCalls",
+      "source": "Examples/ListCalls.lean",
+      "source_line": 119,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 115,
+        "program_line_1_based": 126
+      },
+      "chapter2_814": {
+        "check_index_1_based": 660,
+        "program_line_1_based": 701
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.empty_membership_set",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 19,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 116,
+        "program_line_1_based": 127
+      },
+      "chapter2_814": {
+        "check_index_1_based": 661,
+        "program_line_1_based": 702
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.cons_membership_set",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 24,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 117,
+        "program_line_1_based": 128
+      },
+      "chapter2_814": {
+        "check_index_1_based": 662,
+        "program_line_1_based": 703
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.dropLast_cons_equation",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 31,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 118,
+        "program_line_1_based": 129
+      },
+      "chapter2_814": {
+        "check_index_1_based": 663,
+        "program_line_1_based": 704
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.range_succ_equation",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 36,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 119,
+        "program_line_1_based": 130
+      },
+      "chapter2_814": {
+        "check_index_1_based": 664,
+        "program_line_1_based": 705
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.range_zero_equation",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 43,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 120,
+        "program_line_1_based": 131
+      },
+      "chapter2_814": {
+        "check_index_1_based": 665,
+        "program_line_1_based": 706
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.range_boundaries",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 46,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 121,
+        "program_line_1_based": 132
+      },
+      "chapter2_814": {
+        "check_index_1_based": 666,
+        "program_line_1_based": 707
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.range_membership",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 58,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 122,
+        "program_line_1_based": 133
+      },
+      "chapter2_814": {
+        "check_index_1_based": 667,
+        "program_line_1_based": 708
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.head_valid",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 62,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 123,
+        "program_line_1_based": 134
+      },
+      "chapter2_814": {
+        "check_index_1_based": 668,
+        "program_line_1_based": 709
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.index_valid",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 65,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 124,
+        "program_line_1_based": 135
+      },
+      "chapter2_814": {
+        "check_index_1_based": 669,
+        "program_line_1_based": 710
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.invalid_index_and_update",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 69,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 125,
+        "program_line_1_based": 136
+      },
+      "chapter2_814": {
+        "check_index_1_based": 670,
+        "program_line_1_based": 711
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.update_observations",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 73,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 126,
+        "program_line_1_based": 137
+      },
+      "chapter2_814": {
+        "check_index_1_based": 671,
+        "program_line_1_based": 712
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.update_repeated_value",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 80,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 127,
+        "program_line_1_based": 138
+      },
+      "chapter2_814": {
+        "check_index_1_based": 672,
+        "program_line_1_based": 713
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.invalid_boundary",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 86,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 128,
+        "program_line_1_based": 139
+      },
+      "chapter2_814": {
+        "check_index_1_based": 673,
+        "program_line_1_based": 714
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.empty_payload_queries",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 90,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 129,
+        "program_line_1_based": 140
+      },
+      "chapter2_814": {
+        "check_index_1_based": 674,
+        "program_line_1_based": 715
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.split_reassembles",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 96,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 130,
+        "program_line_1_based": 141
+      },
+      "chapter2_814": {
+        "check_index_1_based": 675,
+        "program_line_1_based": 716
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.overlarge_split",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 99,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 131,
+        "program_line_1_based": 142
+      },
+      "chapter2_814": {
+        "check_index_1_based": 676,
+        "program_line_1_based": 717
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.last_and_tail_boundaries",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 103,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 132,
+        "program_line_1_based": 143
+      },
+      "chapter2_814": {
+        "check_index_1_based": 677,
+        "program_line_1_based": 718
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.duplicate_pipeline",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 109,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 133,
+        "program_line_1_based": 144
+      },
+      "chapter2_814": {
+        "check_index_1_based": 678,
+        "program_line_1_based": 719
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.replication_boundaries",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 116,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 134,
+        "program_line_1_based": 145
+      },
+      "chapter2_814": {
+        "check_index_1_based": 679,
+        "program_line_1_based": 720
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.duplicates_are_not_distinct",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 120,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 135,
+        "program_line_1_based": 146
+      },
+      "chapter2_814": {
+        "check_index_1_based": 680,
+        "program_line_1_based": 721
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.sorted_wrt_cons",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 125,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 136,
+        "program_line_1_based": 147
+      },
+      "chapter2_814": {
+        "check_index_1_based": 681,
+        "program_line_1_based": 722
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.adjacent_relation_is_insufficient",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 129,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 137,
+        "program_line_1_based": 148
+      },
+      "chapter2_814": {
+        "check_index_1_based": 682,
+        "program_line_1_based": 723
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.sum_source_equations",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 135,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 138,
+        "program_line_1_based": 149
+      },
+      "chapter2_814": {
+        "check_index_1_based": 683,
+        "program_line_1_based": 724
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.minimum_source_equation",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 139,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 139,
+        "program_line_1_based": 150
+      },
+      "chapter2_814": {
+        "check_index_1_based": 684,
+        "program_line_1_based": 725
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.minimum_valid",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 143,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 140,
+        "program_line_1_based": 151
+      },
+      "chapter2_814": {
+        "check_index_1_based": 685,
+        "program_line_1_based": 726
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.minimum_filter_spec",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 146,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 141,
+        "program_line_1_based": 152
+      },
+      "chapter2_814": {
+        "check_index_1_based": 686,
+        "program_line_1_based": 727
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.minimum_repeated_values",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 155,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 142,
+        "program_line_1_based": 153
+      },
+      "chapter2_814": {
+        "check_index_1_based": 687,
+        "program_line_1_based": 728
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.minimum_empty",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 159,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 143,
+        "program_line_1_based": 154
+      },
+      "chapter2_814": {
+        "check_index_1_based": 688,
+        "program_line_1_based": 729
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.empty_payload_minimum",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 162,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 144,
+        "program_line_1_based": 155
+      },
+      "chapter2_814": {
+        "check_index_1_based": 689,
+        "program_line_1_based": 730
+      }
+    },
+    {
+      "name": "Examples.ListLibrary.filtered_minimum_example",
+      "module": "Examples.ListLibrary",
+      "source": "Examples/ListLibrary.lean",
+      "source_line": 165,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 145,
+        "program_line_1_based": 156
+      },
+      "chapter2_814": {
+        "check_index_1_based": 690,
+        "program_line_1_based": 731
+      }
+    }
+  ],
+  "excluded35_mapping": [
+    {
+      "name": "Resources.InsertionSort.insertRun",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 19,
+      "declaration_kind": "def",
+      "foundation145": {
+        "check_index_1_based": 1,
+        "program_line_1_based": 12
+      },
+      "chapter2_814": {
+        "check_index_1_based": 469,
+        "program_line_1_based": 510
+      }
+    },
+    {
+      "name": "Resources.InsertionSort.insertRun_value",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 28,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 2,
+        "program_line_1_based": 13
+      },
+      "chapter2_814": {
+        "check_index_1_based": 470,
+        "program_line_1_based": 511
+      }
+    },
+    {
+      "name": "Resources.InsertionSort.insertRun_cost_bounds",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 35,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 3,
+        "program_line_1_based": 14
+      },
+      "chapter2_814": {
+        "check_index_1_based": 471,
+        "program_line_1_based": 512
+      }
+    },
+    {
+      "name": "Resources.InsertionSort.insertRun_cost_of_head",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 47,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 4,
+        "program_line_1_based": 15
+      },
+      "chapter2_814": {
+        "check_index_1_based": 472,
+        "program_line_1_based": 513
+      }
+    },
+    {
+      "name": "Resources.InsertionSort.insertRun_cost_of_all",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 51,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 5,
+        "program_line_1_based": 16
+      },
+      "chapter2_814": {
+        "check_index_1_based": 473,
+        "program_line_1_based": 514
+      }
+    },
+    {
+      "name": "Resources.InsertionSort.insertRun_cost_of_all_not",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 57,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 6,
+        "program_line_1_based": 17
+      },
+      "chapter2_814": {
+        "check_index_1_based": 474,
+        "program_line_1_based": 515
+      }
+    },
+    {
+      "name": "Resources.InsertionSort.sortRun",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 68,
+      "declaration_kind": "def",
+      "foundation145": {
+        "check_index_1_based": 7,
+        "program_line_1_based": 18
+      },
+      "chapter2_814": {
+        "check_index_1_based": 475,
+        "program_line_1_based": 516
+      }
+    },
+    {
+      "name": "Resources.InsertionSort.sortRun_value",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 72,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 8,
+        "program_line_1_based": 19
+      },
+      "chapter2_814": {
+        "check_index_1_based": 476,
+        "program_line_1_based": 517
+      }
+    },
+    {
+      "name": "Resources.InsertionSort.sortRun_length",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 78,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 9,
+        "program_line_1_based": 20
+      },
+      "chapter2_814": {
+        "check_index_1_based": 477,
+        "program_line_1_based": 518
+      }
+    },
+    {
+      "name": "Resources.InsertionSort.sortRun_cons_cost",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 83,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 10,
+        "program_line_1_based": 21
+      },
+      "chapter2_814": {
+        "check_index_1_based": 478,
+        "program_line_1_based": 519
+      }
+    },
+    {
+      "name": "Resources.InsertionSort.sortRun_cost_lower",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 87,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 11,
+        "program_line_1_based": 22
+      },
+      "chapter2_814": {
+        "check_index_1_based": 479,
+        "program_line_1_based": 520
+      }
+    },
+    {
+      "name": "Resources.InsertionSort.sortRun_double_cost_le",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 98,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 12,
+        "program_line_1_based": 23
+      },
+      "chapter2_814": {
+        "check_index_1_based": 480,
+        "program_line_1_based": 521
+      }
+    },
+    {
+      "name": "Resources.InsertionSort.sortRun_cost_le",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 109,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 13,
+        "program_line_1_based": 24
+      },
+      "chapter2_814": {
+        "check_index_1_based": 481,
+        "program_line_1_based": 522
+      }
+    },
+    {
+      "name": "Resources.InsertionSort.sortRun_quadratic",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 114,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 14,
+        "program_line_1_based": 25
+      },
+      "chapter2_814": {
+        "check_index_1_based": 482,
+        "program_line_1_based": 523
+      }
+    },
+    {
+      "name": "Resources.InsertionSort.sortRun_cost_of_pairwise",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 120,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 15,
+        "program_line_1_based": 26
+      },
+      "chapter2_814": {
+        "check_index_1_based": 483,
+        "program_line_1_based": 524
+      }
+    },
+    {
+      "name": "Resources.InsertionSort.sortRun_double_cost_of_opposite",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 133,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 16,
+        "program_line_1_based": 27
+      },
+      "chapter2_814": {
+        "check_index_1_based": 484,
+        "program_line_1_based": 525
+      }
+    },
+    {
+      "name": "Resources.InsertionSort.reverse_range_opposite",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 149,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 17,
+        "program_line_1_based": 28
+      },
+      "chapter2_814": {
+        "check_index_1_based": 485,
+        "program_line_1_based": 526
+      }
+    },
+    {
+      "name": "Resources.InsertionSort.sortRun_cost_reverse_range",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 163,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 18,
+        "program_line_1_based": 29
+      },
+      "chapter2_814": {
+        "check_index_1_based": 486,
+        "program_line_1_based": 527
+      }
+    },
+    {
+      "name": "Resources.InsertionSort.sortRun_stable",
+      "module": "Applications.Resources.InsertionSort",
+      "source": "Applications/Resources/InsertionSort.lean",
+      "source_line": 171,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 19,
+        "program_line_1_based": 30
+      },
+      "chapter2_814": {
+        "check_index_1_based": 487,
+        "program_line_1_based": 528
+      }
+    },
+    {
+      "name": "Examples.InsertionCosts.empty_cost",
+      "module": "Examples.InsertionCosts",
+      "source": "Examples/InsertionCosts.lean",
+      "source_line": 14,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 84,
+        "program_line_1_based": 95
+      },
+      "chapter2_814": {
+        "check_index_1_based": 598,
+        "program_line_1_based": 639
+      }
+    },
+    {
+      "name": "Examples.InsertionCosts.singleton_cost",
+      "module": "Examples.InsertionCosts",
+      "source": "Examples/InsertionCosts.lean",
+      "source_line": 16,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 85,
+        "program_line_1_based": 96
+      },
+      "chapter2_814": {
+        "check_index_1_based": 599,
+        "program_line_1_based": 640
+      }
+    },
+    {
+      "name": "Examples.InsertionCosts.sorted_with_duplicates",
+      "module": "Examples.InsertionCosts",
+      "source": "Examples/InsertionCosts.lean",
+      "source_line": 19,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 86,
+        "program_line_1_based": 97
+      },
+      "chapter2_814": {
+        "check_index_1_based": 600,
+        "program_line_1_based": 641
+      }
+    },
+    {
+      "name": "Examples.InsertionCosts.descending_worst",
+      "module": "Examples.InsertionCosts",
+      "source": "Examples/InsertionCosts.lean",
+      "source_line": 23,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 87,
+        "program_line_1_based": 98
+      },
+      "chapter2_814": {
+        "check_index_1_based": 601,
+        "program_line_1_based": 642
+      }
+    },
+    {
+      "name": "Examples.InsertionCosts.best_is_global",
+      "module": "Examples.InsertionCosts",
+      "source": "Examples/InsertionCosts.lean",
+      "source_line": 29,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 88,
+        "program_line_1_based": 99
+      },
+      "chapter2_814": {
+        "check_index_1_based": 602,
+        "program_line_1_based": 643
+      }
+    },
+    {
+      "name": "Examples.InsertionCosts.worst_is_global",
+      "module": "Examples.InsertionCosts",
+      "source": "Examples/InsertionCosts.lean",
+      "source_line": 32,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 89,
+        "program_line_1_based": 100
+      },
+      "chapter2_814": {
+        "check_index_1_based": 603,
+        "program_line_1_based": 644
+      }
+    },
+    {
+      "name": "Examples.InsertionCosts.source_quadratic",
+      "module": "Examples.InsertionCosts",
+      "source": "Examples/InsertionCosts.lean",
+      "source_line": 36,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 90,
+        "program_line_1_based": 101
+      },
+      "chapter2_814": {
+        "check_index_1_based": 604,
+        "program_line_1_based": 645
+      }
+    },
+    {
+      "name": "Examples.InsertionCosts.immediate_insertion",
+      "module": "Examples.InsertionCosts",
+      "source": "Examples/InsertionCosts.lean",
+      "source_line": 39,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 91,
+        "program_line_1_based": 102
+      },
+      "chapter2_814": {
+        "check_index_1_based": 605,
+        "program_line_1_based": 646
+      }
+    },
+    {
+      "name": "Examples.InsertionCosts.full_traversal",
+      "module": "Examples.InsertionCosts",
+      "source": "Examples/InsertionCosts.lean",
+      "source_line": 46,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 92,
+        "program_line_1_based": 103
+      },
+      "chapter2_814": {
+        "check_index_1_based": 606,
+        "program_line_1_based": 647
+      }
+    },
+    {
+      "name": "Examples.InsertionCosts.tied_head_ignores_tail",
+      "module": "Examples.InsertionCosts",
+      "source": "Examples/InsertionCosts.lean",
+      "source_line": 53,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 93,
+        "program_line_1_based": 104
+      },
+      "chapter2_814": {
+        "check_index_1_based": 607,
+        "program_line_1_based": 648
+      }
+    },
+    {
+      "name": "Examples.InsertionCosts.key_contract",
+      "module": "Examples.InsertionCosts",
+      "source": "Examples/InsertionCosts.lean",
+      "source_line": 61,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 94,
+        "program_line_1_based": 105
+      },
+      "chapter2_814": {
+        "check_index_1_based": 608,
+        "program_line_1_based": 649
+      }
+    },
+    {
+      "name": "Examples.InsertionCosts.key_tie_observation",
+      "module": "Examples.InsertionCosts",
+      "source": "Examples/InsertionCosts.lean",
+      "source_line": 65,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 95,
+        "program_line_1_based": 106
+      },
+      "chapter2_814": {
+        "check_index_1_based": 609,
+        "program_line_1_based": 650
+      }
+    },
+    {
+      "name": "Examples.InsertionCosts.sorted_result_has_rank",
+      "module": "Examples.InsertionCosts",
+      "source": "Examples/InsertionCosts.lean",
+      "source_line": 75,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 96,
+        "program_line_1_based": 107
+      },
+      "chapter2_814": {
+        "check_index_1_based": 610,
+        "program_line_1_based": 651
+      }
+    },
+    {
+      "name": "Examples.InsertionCosts.repeated_value_rank",
+      "module": "Examples.InsertionCosts",
+      "source": "Examples/InsertionCosts.lean",
+      "source_line": 82,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 97,
+        "program_line_1_based": 108
+      },
+      "chapter2_814": {
+        "check_index_1_based": 611,
+        "program_line_1_based": 652
+      }
+    },
+    {
+      "name": "Examples.InsertionCosts.small_sort_budget",
+      "module": "Examples.InsertionCosts",
+      "source": "Examples/InsertionCosts.lean",
+      "source_line": 89,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 98,
+        "program_line_1_based": 109
+      },
+      "chapter2_814": {
+        "check_index_1_based": 612,
+        "program_line_1_based": 653
+      }
+    },
+    {
+      "name": "Examples.InsertionCosts.small_rank_with_sort_budget",
+      "module": "Examples.InsertionCosts",
+      "source": "Examples/InsertionCosts.lean",
+      "source_line": 96,
+      "declaration_kind": "theorem",
+      "foundation145": {
+        "check_index_1_based": 99,
+        "program_line_1_based": 110
+      },
+      "chapter2_814": {
+        "check_index_1_based": 613,
+        "program_line_1_based": 654
+      }
+    }
+  ],
+  "eligible_name_count": 110,
+  "excluded_name_count": 35,
+  "current_credit": 0,
+  "current_pending_program_counts_unchanged": {
+    "foundation": 145,
+    "chapter2": 814
+  },
+  "all_configuration_inputs": [
+    {
+      "path": "lean-toolchain",
+      "foundation_blob": "a6aff065db2882c535684f8c5bcd4f16e9a23915",
+      "chapter2_blob": "a6aff065db2882c535684f8c5bcd4f16e9a23915",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "identical": true
+    },
+    {
+      "path": "lake-manifest.json",
+      "foundation_blob": "0452762ecb2bb5e0d0f7db0b128b0af581febb87",
+      "chapter2_blob": "0452762ecb2bb5e0d0f7db0b128b0af581febb87",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "identical": true
+    },
+    {
+      "path": "lakefile.toml",
+      "foundation_blob": "6c6da60ea34d0f4dbfb46fd68a02934368f66a82",
+      "chapter2_blob": "6c6da60ea34d0f4dbfb46fd68a02934368f66a82",
+      "bytes": 444,
+      "sha256": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+      "identical": true
+    },
+    {
+      "path": "flake.nix",
+      "foundation_blob": "3301a1923641d051f94eb288ae33a320eec28e8d",
+      "chapter2_blob": "3301a1923641d051f94eb288ae33a320eec28e8d",
+      "bytes": 637,
+      "sha256": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+      "identical": true
+    },
+    {
+      "path": "flake.lock",
+      "foundation_blob": "84c70958fc7b0e794b8b93e495ab85ecaf80a15d",
+      "chapter2_blob": "84c70958fc7b0e794b8b93e495ab85ecaf80a15d",
+      "bytes": 564,
+      "sha256": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+      "identical": true
+    },
+    {
+      "path": "check.sh",
+      "foundation_blob": "60c22e66b7188ef9bc8cc62ba93d7f78bb801682",
+      "chapter2_blob": "60c22e66b7188ef9bc8cc62ba93d7f78bb801682",
+      "bytes": 74,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "identical": true
+    },
+    {
+      "path": "scripts/check.py",
+      "foundation_blob": "02e970efc55ff62906afb11eb48176b0834c10c8",
+      "chapter2_blob": "02e970efc55ff62906afb11eb48176b0834c10c8",
+      "bytes": 16119,
+      "sha256": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+      "identical": true
+    },
+    {
+      "path": "scripts/lake_integrity.py",
+      "foundation_blob": "77482e896e34691b9747913041ca8164a8af3bcb",
+      "chapter2_blob": "77482e896e34691b9747913041ca8164a8af3bcb",
+      "bytes": 5781,
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+      "identical": true
+    },
+    {
+      "path": "scripts/lake-output-hashes.lean",
+      "foundation_blob": "68b042b3e1408700486b4a5f2de0931392ce6910",
+      "chapter2_blob": "68b042b3e1408700486b4a5f2de0931392ce6910",
+      "bytes": 618,
+      "sha256": "fd6de36b9f4065af286332c9058ad220f4ca74c4d0aecf29ab5779f2cc96689b",
+      "identical": true
+    },
+    {
+      "path": "ProofAudit.lean",
+      "foundation_blob": "70948301305d0ff09aba391ad9aa0f7413e6800e",
+      "chapter2_blob": "70948301305d0ff09aba391ad9aa0f7413e6800e",
+      "bytes": 7925,
+      "sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd",
+      "identical": true
+    }
+  ],
+  "identical_full_dependency_manifest": true,
+  "pinned_dependencies": [
+    {
+      "url": "https://github.com/leanprover-community/mathlib4.git",
+      "type": "git",
+      "subDir": null,
+      "scope": "",
+      "rev": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "name": "mathlib",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "v4.35.0",
+      "inherited": false,
+      "configFile": "lakefile.lean"
+    },
+    {
+      "url": "https://github.com/leanprover-community/plausible",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "name": "plausible",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "url": "https://github.com/leanprover-community/LeanSearchClient",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "name": "LeanSearchClient",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "url": "https://github.com/leanprover-community/import-graph",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "name": "importGraph",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "url": "https://github.com/leanprover-community/ProofWidgets4",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "name": "proofwidgets",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.lean"
+    },
+    {
+      "url": "https://github.com/leanprover-community/aesop",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "4a174c490d8707121c4a9290800489f105d85e07",
+      "name": "aesop",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "master",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "url": "https://github.com/leanprover-community/quote4",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "name": "Qq",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "master",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "url": "https://github.com/leanprover-community/batteries",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "name": "batteries",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "url": "https://github.com/leanprover/lean4-cli",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover",
+      "rev": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "name": "Cli",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "v4.35.0",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    }
+  ],
+  "compiler_toolchain_file": "leanprover/lean4:v4.35.0\n",
+  "official_compiler_archive_sha256": "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d",
+  "qualified_environment_artifacts": [
+    {
+      "path": "provenance/unified-native-recovery-20261104-qualified/qualification.json",
+      "bytes": 3279,
+      "lines": 96,
+      "sha256": "37a60985201cda9ac852adbc972483c32e59ee6ee82119b866dbaa4625301629"
+    },
+    {
+      "path": "provenance/unified-native-recovery-20261104-qualified/profile-config.json",
+      "bytes": 3703,
+      "lines": 83,
+      "sha256": "7ba088fe04b1d9087f1a2c61b2c9cb1a902f7dde0601134cac966960776856d3"
+    },
+    {
+      "path": "provenance/unified-native-recovery-20261104-qualified/smoke-result.json",
+      "bytes": 9280,
+      "lines": 217,
+      "sha256": "2ffe684a0d37f8ecc70978623a74a4305ffe4957cc8e6703f072b3ab9e416829"
+    },
+    {
+      "path": "provenance/recovery-20261104-restored/runtime-content-comparison.json",
+      "bytes": 3460,
+      "lines": 78,
+      "sha256": "9242b4dcbe578dd52c52846cd2ce3432be46fee8702c08bede7fe6956fbc5555"
+    }
+  ],
+  "retained_runtime_component_receipt": {
+    "path": "provenance/foundation-standards-terminal-continuation-20261104/identity.json",
+    "bytes": 22917,
+    "lines": 568,
+    "sha256": "a969567682bfefcd3d61efdb3afd09ddeed1b2c669d324816d2a05ef31f6a398"
+  },
+  "historically_verified_runtime_components": [
+    {
+      "path": "conaled-native-state/toolchains/lean-4.35.0-linux/bin/lake",
+      "bytes": 13416,
+      "sha256": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "expected_sha256": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/toolchains/lean-4.35.0-linux/bin/lean",
+      "bytes": 9024,
+      "sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "expected_sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/toolchains/lean-4.35.0-linux/bin/leanc",
+      "bytes": 36168,
+      "sha256": "1e0b075573c5ea98e6b196e35d3b159b93e3226714e28cd8febb30a240ec735c",
+      "expected_sha256": "1e0b075573c5ea98e6b196e35d3b159b93e3226714e28cd8febb30a240ec735c",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/toolchains/lean-4.35.0-linux/bin/leanir",
+      "bytes": 215864,
+      "sha256": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e",
+      "expected_sha256": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/profile/bin/lake",
+      "bytes": 122,
+      "sha256": "85df404efd17484b633376fe8d3705f416e059642133d8232ed555a8d3174e21",
+      "expected_sha256": "85df404efd17484b633376fe8d3705f416e059642133d8232ed555a8d3174e21",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/profile/bin/lean",
+      "bytes": 122,
+      "sha256": "e290032a73b271084c56dfde6315062e1523492dc36b1bbde9cc5dea23d1c716",
+      "expected_sha256": "e290032a73b271084c56dfde6315062e1523492dc36b1bbde9cc5dea23d1c716",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/profile/bin/leanc",
+      "bytes": 123,
+      "sha256": "0e5517cfaaa530d1e484e45314a8e4be9bf44ccbccb09f8610fa190f6e5443e6",
+      "expected_sha256": "0e5517cfaaa530d1e484e45314a8e4be9bf44ccbccb09f8610fa190f6e5443e6",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/profile/bin/leanir",
+      "bytes": 124,
+      "sha256": "3a64f332683efbab0057235ec2b3c22d3ead19cb060e0830b76f1add4cf7c661",
+      "expected_sha256": "3a64f332683efbab0057235ec2b3c22d3ead19cb060e0830b76f1add4cf7c661",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/profile/runtime.py",
+      "bytes": 6368,
+      "sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695",
+      "expected_sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/profile/app_path.c",
+      "bytes": 3848,
+      "sha256": "fefc39d8645e4a938d6cc27574257d1a1e8e8f0790b75cc15bcf074272066fe0",
+      "expected_sha256": "fefc39d8645e4a938d6cc27574257d1a1e8e8f0790b75cc15bcf074272066fe0",
+      "matches": true
+    },
+    {
+      "path": "conaled-native-state/profile/app_path.so",
+      "bytes": 16056,
+      "sha256": "124bc3f19426ab6558b3ca134d0afb70435eaff82a659e6e62a05e8e373e337d",
+      "expected_sha256": "124bc3f19426ab6558b3ca134d0afb70435eaff82a659e6e62a05e8e373e337d",
+      "matches": true
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "bytes": 236616,
+      "sha256": "6222a16be7f2d458d6870efe6e715fc0c8d45766fb79cf7dcc3125538d703e28",
+      "expected_sha256": "6222a16be7f2d458d6870efe6e715fc0c8d45766fb79cf7dcc3125538d703e28",
+      "matches": true
+    }
+  ],
+  "runtime_boundary": "These twelve fingerprint records are retained from the completed qualification/independent foundation preparation, not freshly rehashed or a new runtime execution in this receipt. Actual producer run qualification and receiving-input identity must satisfy the conditions below before any110-name credit.",
+  "broader_import_environment_reasoning": "The producer may import F145 or all814 roots, so its entire imported environment need not be byte-identical between projects. The eligible constants were elaborated in defining modules whose complete relevant local imports and pinned external packages are identical. A fully qualified bare #check @constant inspects that stored declaration type; unrelated later imports do not rewrite the stored constant type. This supports bounded reuse only with actual qualified objects/output and full explicit printing, not a blanket whole-environment equality assertion. The changed Merge dependency is not ignored for the excluded35.",
+  "required_terminal_conditions": [
+    {
+      "id": "REUSE-01",
+      "condition": "Identify one actually executed producer inspection at exact F or exact current Chapter2 candidate, with the executed program bytes/hash and complete selected-name inventory. Prepared files alone are not evidence. The producer program must contain every transferred name as a fully qualified #check @constant with the stated full-name, explicit and universe printing profile; any successor program must be separately identified."
+    },
+    {
+      "id": "REUSE-02",
+      "condition": "Secure actual exit0 and closed complete outer/native logs and terminal JSONs; match commands, cwd, start/end times, hashes and sizes, with no timeout, recorder error, truncated/missing output or inferred session result. Read the complete actual type output for every one of the110 names; printed-type blocks must expose all quantifiers and premises rather than relying on an occurrence count."
+    },
+    {
+      "id": "REUSE-03",
+      "condition": "Secure producer pre/post HEAD and clean relevant source/configuration state, unchanged executed program hash, and immutable-run ownership. Verify these six/four relevant root closures against the exact produced candidate and the receiving candidate, including the expected source blobs, direct external imports and all pinned configuration. Do not substitute present source equality or an earlier/later unrelated result for missing producer terminal identity."
+    },
+    {
+      "id": "REUSE-04",
+      "condition": "Match the actual Lean4.35.0/Lake/native-kit1.0.0 execution to the preserved qualified profile, official compiler archive and disclosed launcher adapter. Retain command/profile/runtime/loader identities and exact nine package revisions with clean actual dependency sources. Record actual threading (one in the qualified current setup). An incompatible profile, compiler, package revision or unqualified change is a gap requiring applicable qualification, not an assumed equivalent environment."
+    },
+    {
+      "id": "REUSE-05",
+      "condition": "Establish that the producer loaded compiler objects corresponding to the recorded immutable defining sources and pinned dependencies, using the qualified launcher plus retained build/input integrity evidence. Do not reuse stale or unverified outputs merely because the source files match. No concurrent builders may share writable project outputs, and no command may be launched against a project while its other builder owns those outputs."
+    },
+    {
+      "id": "REUSE-06",
+      "condition": "Both independent axes must assess the actual110 printed types and this exact dependency/configuration/profile mapping within their original full review scopes. Retain attribution to the actual producer run and to the source/type reviewers. No author summary, focused module count, selected older output or anticipated success substitutes for that assessment."
+    },
+    {
+      "id": "REUSE-07",
+      "condition": "Transfer only the110 eligible names. The35 InsertionSort/InsertionCosts names remain separate at both candidates because transitive Sorting.Merge differs, even though their root source bytes match and the Merge change appends plain theorems. No elaboration-equivalence proof is claimed for that changed environment."
+    },
+    {
+      "id": "REUSE-08",
+      "condition": "If either candidate advances, reconcile its relevant defining closures, exact names, pins and profile to this receipt before transfer. The current binding is only F and0a7ef078. A later unrelated source/doc delta may permit bounded identity extension, but it is not automatically covered."
+    },
+    {
+      "id": "REUSE-09",
+      "condition": "Record any actual reuse in a new explicit evidence disposition with producing run, receiving candidate, exact names and reviewed output positions, preserving both original pending programs and inventories. This preparation changes no pending count and removes no command. Any later targeted remainder must be a separately recorded derivative after the evidence conditions actually hold."
+    },
+    {
+      "id": "REUSE-10",
+      "condition": "Reuse supplies only public statement-inspection evidence. Each original immutable candidate still requires its applicable complete check, exhaustive kernel/axiom audit including private/generated declarations, new matching verification record, both final independent reviews and immediate qualified --verify-candidate before acceptance. Accepted Chapter1 remains accepted; no extra fresh check is implied without the README trigger."
+    }
+  ],
+  "potential_directions_without_credit": [
+    {
+      "producer": "ExactF145 successful qualified actual inspection",
+      "recipient": "Exact current Chapter2 inspection scope",
+      "potential_transfer_count": 110,
+      "other35": "Still require current Chapter2 evidence because of Merge dependency difference."
+    },
+    {
+      "producer": "Exact current814 successful qualified actual inspection",
+      "recipient": "ExactF foundation inspection scope",
+      "potential_transfer_count": 110,
+      "other35": "Still require exactF evidence because of Merge dependency difference."
+    }
+  ],
+  "state_changes": {
+    "program_commands_removed": 0,
+    "pending_counts_reduced": false,
+    "actual_type_outputs_newly_credited": 0,
+    "existing_reports_or_receipts_modified": false,
+    "source_ref_index_pin_cache_mutations": false,
+    "compiler_or_build_invocations": 0,
+    "process_polling": false,
+    "new_artifacts": [
+      "provenance/chapter02-standards-source-preparation-20261104/foundation110-potential-type-reuse-0a7ef078.json"
+    ]
+  },
+  "overall_standards_outcome": "Blocked; foundation and Chapter2 retain all mandatory final gates."
+}

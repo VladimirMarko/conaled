@@ -1,0 +1,104 @@
+{
+  "completed_utc": "2026-11-04T06:07:59.025153+00:00",
+  "worktree": "/workspace/scratch/b4a17a285e23/fdsa-restored-20261104/conaled-ch02-natural-runs",
+  "branch": "work/fdsa-ch02-natural-runs",
+  "candidate": "9c5858d0feb56b42701ab1f84e5d9265b953cfea",
+  "parent": "5d7a479549f5acd64a9e5adb418ab48780c238ef",
+  "final_status": "",
+  "commit_exit_code": 0,
+  "commit_subject": "feat(sorting): compose natural runs and measured merging (#174)",
+  "changed_paths": [
+    "Applications/Resources/NaturalSorting.lean",
+    "Applications/Sorting/Natural.lean",
+    "Examples/NaturalSorting.lean",
+    "Examples/NaturalSortingCosts.lean"
+  ],
+  "source_files": [
+    {
+      "path": "Applications/Sorting/Natural.lean",
+      "bytes": 5528,
+      "lines": 121,
+      "sha256": "e4b27eb275e9509b205da7ae25dd7829e664eb47617cb1602e6114eb5d264493",
+      "declaration_count": 16
+    },
+    {
+      "path": "Examples/NaturalSorting.lean",
+      "bytes": 5831,
+      "lines": 140,
+      "sha256": "8d8b5ee50a516ee0b9938f0be4ed96e4bfee2658f97373c2ecc2c80bba9e2b5b",
+      "declaration_count": 22
+    },
+    {
+      "path": "Applications/Resources/NaturalSorting.lean",
+      "bytes": 13053,
+      "lines": 262,
+      "sha256": "69e90e8236b7b160ac3bb4d73fe5797a82d616fa3b5e23a247756a37d24ff51b",
+      "declaration_count": 37
+    },
+    {
+      "path": "Examples/NaturalSortingCosts.lean",
+      "bytes": 10031,
+      "lines": 225,
+      "sha256": "fcaf832cb41663d21c97e2e41381383c6a112a00695fecebf9a9dc5fa44afe51",
+      "declaration_count": 30
+    }
+  ],
+  "public_declarations": 105,
+  "theorems": 99,
+  "private_source_declarations": 0,
+  "original_author_head_preserved_in_history": "8f4bbe8dec5e8653acda1b309d9da1c42385c564",
+  "unchanged_six_checked_sources": [
+    {
+      "path": "Applications/Sorting/NaturalRuns.lean",
+      "bytes": 25272,
+      "sha256": "123c711b5f0cf05074155f3a0d9ae076aa80a8be482e7e6fc77626aa9db6fb1d"
+    },
+    {
+      "path": "Examples/NaturalRuns.lean",
+      "bytes": 8415,
+      "sha256": "ef0ed6bbc5beb40815f977e80c0b99b0633e8503b0b1634747d41275cb3f6041"
+    },
+    {
+      "path": "Applications/Resources/NaturalRunComparisons.lean",
+      "bytes": 13562,
+      "sha256": "920e1832416afcdc47a0c2301c2e27c7cd5f0c614a209c8dea21fc2561d809b0"
+    },
+    {
+      "path": "Examples/NaturalRunComparisons.lean",
+      "bytes": 4753,
+      "sha256": "9d4dfe317e1af9ee894385ba3478c0ede17de1e713cc7090b120a4d2ab708f8a"
+    },
+    {
+      "path": "Applications/Resources/ListBuildCosts.lean",
+      "bytes": 7232,
+      "sha256": "6c2450b98fcb2677fddeea1116519e968223bc0872353d9e34979fc38607547f"
+    },
+    {
+      "path": "Examples/ListBuildCosts.lean",
+      "bytes": 3608,
+      "sha256": "eba2961e501f545323e5403e7874ce3ddb256bad8f4046398acc55ca6ec230a1"
+    }
+  ],
+  "accepted_integration_ref_observed": "07e480f6ec9958d4975bb90151005b84f2907614",
+  "pending_foundation_ref_observed": "f17cc6b1a2bf44215b16202ed0fcee2b5c130761",
+  "static_manifest_sha256": "f71479ff15943be4805f1bdb65752a5b6a58c46c01432647707dbbefd2b94e34",
+  "static_report_sha256": "457c598cc9e2b26f7d8f7a6561f020b0315284e476049b35e0c3077192752b6d",
+  "dependent_bottom_up_root_report": {
+    "candidate": "6d91b822d0f3cf1aeeda333a9e1d47ebb26e709b",
+    "focused_exit_code": 0,
+    "elapsed_seconds_reported": 142.194,
+    "core_same_as_author_base": true,
+    "corrected_example_sha256": "12572e3395c681b18f266374732eb63b059a13eb0f76aef25400aefa8d54a136",
+    "all_two_runs_unchanged_in_read_diff": true,
+    "author_dependency_edits": false
+  },
+  "validation": {
+    "compiler": "Not run for these four files; root-owned immutable-candidate focused check pending",
+    "elaborated_types": "Not inspected for these new105 declarations; explicit-universe readback pending",
+    "full_audit_and_final_axes": "Pending; no acceptance claim",
+    "static_source_review": "All105 source declarations/derivations reviewed; zero concrete source-contract findings",
+    "staged_whitespace_check_exit_code": 0,
+    "scope_identity": "Exact four added files; committed bytes equal reviewed source bytes; six earlier checked files unchanged"
+  },
+  "hold": "Source/ref/control writes and all builds held after this identity/handoff until root release."
+}

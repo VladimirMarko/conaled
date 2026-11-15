@@ -1,0 +1,13 @@
+{
+  "finished_utc": "2026-11-04T04:36:13.452364+00:00",
+  "exit_code": 1,
+  "state": "Partial cleanup; no acceptance evidence affected.",
+  "scope": "Ignored idle dependency trees only; active foundation and top-down trees untouched.",
+  "error": "OSError ENOTEMPTY during removal of conaled-ch02-natural-runs/.lake/packages/mathlib/.lake/build/ir/Mathlib. Earlier quicksort and ordinary-merge rmtree calls returned before this exception. Filesystem synchronization is still repopulating former paths.",
+  "paths_now": {
+    "conaled-ch02-quicksort": true,
+    "conaled-ordinary-merge": true,
+    "conaled-ch02-natural-runs": true
+  },
+  "available_bytes_now": 24089219072
+}
